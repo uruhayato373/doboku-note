@@ -31,25 +31,26 @@ const TOP_N = 5;
 const ORDER_PROXIMITY = 10;
 const TAG_CAP = 3;
 
-// 構造的・カテゴリ系で関連度シグナルにならないタグ
+// 構造的・カテゴリ系で関連度シグナルにならないタグ（doc-meta-index は canonical 化済み＝日本語正規表記。content-taxonomy.md §5）
 const EXCLUDED_TAGS = new Set([
   'textbook',
   'guide',
   'civil-construction-1',
   '1級土木施工管理技士',
-  'exam-preparation',
+  '試験対策',
 ]);
 
-// Topical tags（textbook の主軸タグ）
-const TOPIC_TAGS = new Set([
-  'law',
-  'quality',
-  'machinery',
-  'construction-plan',
-  'schedule',
-  'surveying',
-  'demolition',
-]);
+// Topical tags（textbook の主軸タグ）。この script 内部の短い token → canonical タグ名
+const TOPIC_TOKEN_TO_TAG = {
+  law: '関係法規',
+  quality: '品質管理',
+  machinery: '建設機械',
+  'construction-plan': '施工計画',
+  schedule: '工程管理',
+  surveying: '測量',
+  demolition: '解体工事',
+};
+const TOPIC_TAGS = new Set(Object.values(TOPIC_TOKEN_TO_TAG));
 
 // guide の implicit topic 推定（slug → topical tag のセット）
 const GUIDE_IMPLICIT_TOPICS = {
@@ -79,7 +80,7 @@ function loadCivilDocs(meta) {
     }
     // guide の implicit topic を加算
     if (m.group === 'guide' && GUIDE_IMPLICIT_TOPICS[shortSlug]) {
-      for (const t of GUIDE_IMPLICIT_TOPICS[shortSlug]) topicTags.add(t);
+      for (const t of GUIDE_IMPLICIT_TOPICS[shortSlug]) topicTags.add(TOPIC_TOKEN_TO_TAG[t] ?? t);
     }
 
     docs.push({

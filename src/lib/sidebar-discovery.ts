@@ -1,4 +1,5 @@
 import type { DocMeta } from './docs';
+import { isStructuralTag } from '@/lib/content-taxonomy';
 import { classifyDoc } from './doc-classifier';
 import { getMagazine, type MagazineId } from './note-magazines';
 import { resolvePlacement } from './magazine-placement';
@@ -30,7 +31,7 @@ export function discoveryGroups(category: string, currentSlug: string, docs: Doc
   const sameYear = year ? pool.filter(d => d.slug.startsWith(`${category}-${year}-`) && !sameSubject.includes(d)) : [];
   const used = new Set([...sameSubject, ...sameYear].map(d => d.slug));
   const related = pool.filter(d => !used.has(d.slug)).sort((a,b) => {
-    const score = (d: DocMeta) => (current?.tags || []).filter(t => d.tags?.includes(t)).length + Number(!!current && classifyDoc(d) === classifyDoc(current));
+    const score = (d: DocMeta) => (current?.tags || []).filter(t => !isStructuralTag(t) && d.tags?.includes(t)).length + Number(!!current && classifyDoc(d) === classifyDoc(current));
     return score(b)-score(a) || a.slug.localeCompare(b.slug);
   });
   return [

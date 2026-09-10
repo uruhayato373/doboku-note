@@ -1,6 +1,7 @@
 import topicsJson from '@/config/topics.json';
 import { getAllDocsMeta, type DocMeta } from '@/lib/docs';
 import { getStandardDocuments, type StandardDocument } from '@/lib/standards';
+import { canonicalTag } from '@/lib/content-taxonomy';
 
 export type Topic = {
   slug: string;
@@ -12,6 +13,8 @@ export type Topic = {
   categories?: string[];
   standardKeywords: string[];
   featuredStandardRefs?: string[];
+  /** 入口記事（論理 slug）。一覧の先頭に固定する。記事側は frontmatter `topics: [slug]` で明示所属もできる（content-taxonomy.md §6） */
+  featured?: string[];
 };
 
 const topics = topicsJson as Topic[];
@@ -25,20 +28,27 @@ export function getTopicBySlug(slug: string): Topic | null {
 }
 
 export function getTopicPathForTag(tag: string): string | null {
-  const topic = topics.find((candidate) => candidate.tags.includes(tag));
+  const canonical = canonicalTag(tag);
+  const topic = topics.find((candidate) => candidate.tags.some((t) => canonicalTag(t) === canonical));
   return topic ? `/topics/${topic.slug}` : null;
 }
 
+/** 記事がテーマに属するか（明示 `topics:` ／ カテゴリ丸ごと ／ タグ一致。タグは canonical で照合） */
+export function isDocInTopic(doc: DocMeta, topic: Topic): boolean {
+  if (doc.published === false) return false;
+  const explicit = doc.topics;
+  if (Array.isArray(explicit) && explicit.includes(topic.slug)) return true;
+  if ((topic.categories ?? []).includes(String(doc.category))) return true;
+  const tags = new Set(topic.tags.map(canonicalTag));
+  return (doc.tags ?? []).some((tag) => tags.has(canonicalTag(tag)));
+}
+
 export function getTopicDocs(topic: Topic): DocMeta[] {
-  const tags = new Set(topic.tags);
-  const categories = new Set(topic.categories ?? []);
+  const featured = topic.featured ?? [];
+  const rank = (doc: DocMeta) => { const i = featured.indexOf(doc.slug); return i < 0 ? featured.length : i; };
   return getAllDocsMeta()
-    .filter(
-      (doc) =>
-        doc.published !== false &&
-        (categories.has(String(doc.category)) || doc.tags?.some((tag) => tags.has(tag))),
-    )
-    .sort((a, b) => String(b.dateModified ?? b.updatedAt ?? '').localeCompare(String(a.dateModified ?? a.updatedAt ?? '')));
+    .filter((doc) => isDocInTopic(doc, topic))
+    .sort((a, b) => rank(a) - rank(b) || String(b.dateModified ?? b.updatedAt ?? '').localeCompare(String(a.dateModified ?? a.updatedAt ?? '')));
 }
 
 export function getTopicStandards(topic: Topic): StandardDocument[] {

@@ -1,16 +1,24 @@
 {
   "version": 1,
-  "generated_at": "2026-04-25T06:55:58.829Z",
+  "generated_at": "2026-09-10T23:39:36.988Z",
   "summary": {
-    "total_docs": 40,
+    "total_docs": 114,
     "by_group": {
-      "textbook": 34,
-      "guide": 6
+      "textbook": 63,
+      "guide": 51
     },
-    "docs_with_relations": 39,
-    "docs_below_target": 1,
+    "docs_with_relations": 105,
+    "docs_below_target": 9,
     "isolated_docs": [
-      "guide-strategy"
+      "guide-1-vs-2",
+      "guide-difficulty",
+      "guide-exam-overview",
+      "guide-last-minute-2026",
+      "guide-strategy",
+      "guide-study-method",
+      "guide-study-plan",
+      "guide-vs-pe",
+      "keyword-2026"
     ]
   },
   "config": {
@@ -27,20 +35,483 @@
       "guide",
       "civil-construction-1",
       "1級土木施工管理技士",
-      "exam-preparation"
+      "試験対策"
     ],
     "topic_tags": [
-      "law",
-      "quality",
-      "machinery",
-      "construction-plan",
-      "schedule",
-      "surveying",
-      "demolition"
+      "関係法規",
+      "品質管理",
+      "建設機械",
+      "施工計画",
+      "工程管理",
+      "測量",
+      "解体工事"
     ],
     "tag_cap": 3
   },
   "relations": {
+    "guide-1-vs-2": [],
+    "guide-age-career": [
+      {
+        "slug": "guide-allowance",
+        "label": "資格手当で年収を上げる",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-buildjob-review",
+        "label": "ビルドジョブの評判と使いどころ",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career",
+        "label": "転職の入口",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career-agent-comparison",
+        "label": "転職エージェントを軸で比較",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career-agents",
+        "label": "転職エージェントの選び方",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
+    "guide-allowance": [
+      {
+        "slug": "guide-age-career",
+        "label": "40代・50代の転職",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-buildjob-review",
+        "label": "ビルドジョブの評判と使いどころ",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career",
+        "label": "転職の入口",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career-agent-comparison",
+        "label": "転職エージェントを軸で比較",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career-agents",
+        "label": "転職エージェントの選び方",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
+    "guide-buildjob-review": [
+      {
+        "slug": "guide-age-career",
+        "label": "40代・50代の転職",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-allowance",
+        "label": "資格手当で年収を上げる",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career",
+        "label": "転職の入口",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career-agent-comparison",
+        "label": "転職エージェントを軸で比較",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career-agents",
+        "label": "転職エージェントの選び方",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
+    "guide-career": [
+      {
+        "slug": "guide-age-career",
+        "label": "40代・50代の転職",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-allowance",
+        "label": "資格手当で年収を上げる",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-buildjob-review",
+        "label": "ビルドジョブの評判と使いどころ",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career-agent-comparison",
+        "label": "転職エージェントを軸で比較",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career-agents",
+        "label": "転職エージェントの選び方",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
+    "guide-career-agent-comparison": [
+      {
+        "slug": "guide-age-career",
+        "label": "40代・50代の転職",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-allowance",
+        "label": "資格手当で年収を上げる",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-buildjob-review",
+        "label": "ビルドジョブの評判と使いどころ",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career",
+        "label": "転職の入口",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career-agents",
+        "label": "転職エージェントの選び方",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
+    "guide-career-agents": [
+      {
+        "slug": "guide-age-career",
+        "label": "40代・50代の転職",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-allowance",
+        "label": "資格手当で年収を上げる",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-buildjob-review",
+        "label": "ビルドジョブの評判と使いどころ",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career",
+        "label": "転職の入口",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career-agent-comparison",
+        "label": "転職エージェントを軸で比較",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
+    "guide-career-cases": [
+      {
+        "slug": "guide-age-career",
+        "label": "40代・50代の転職",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-allowance",
+        "label": "資格手当で年収を上げる",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-buildjob-review",
+        "label": "ビルドジョブの評判と使いどころ",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career",
+        "label": "転職の入口",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career-agent-comparison",
+        "label": "転職エージェントを軸で比較",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
+    "guide-career-consultation-before-quit": [
+      {
+        "slug": "guide-age-career",
+        "label": "40代・50代の転職",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-allowance",
+        "label": "資格手当で年収を上げる",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-buildjob-review",
+        "label": "ビルドジョブの評判と使いどころ",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career",
+        "label": "転職の入口",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career-agent-comparison",
+        "label": "転職エージェントを軸で比較",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
+    "guide-career-path": [
+      {
+        "slug": "guide-age-career",
+        "label": "40代・50代の転職",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-allowance",
+        "label": "資格手当で年収を上げる",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-buildjob-review",
+        "label": "ビルドジョブの評判と使いどころ",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career",
+        "label": "転職の入口",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career-agent-comparison",
+        "label": "転職エージェントを軸で比較",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
+    "guide-career-salary": [
+      {
+        "slug": "guide-age-career",
+        "label": "40代・50代の転職",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-allowance",
+        "label": "資格手当で年収を上げる",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-buildjob-review",
+        "label": "ビルドジョブの評判と使いどころ",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career",
+        "label": "転職の入口",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career-agent-comparison",
+        "label": "転職エージェントを軸で比較",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
+    "guide-company-types": [
+      {
+        "slug": "guide-age-career",
+        "label": "40代・50代の転職",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-allowance",
+        "label": "資格手当で年収を上げる",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-buildjob-review",
+        "label": "ビルドジョブの評判と使いどころ",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career",
+        "label": "転職の入口",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career-agent-comparison",
+        "label": "転職エージェントを軸で比較",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
     "guide-concrete-key-points": [
       {
         "slug": "guide-concrete-maintenance",
@@ -131,6 +602,175 @@
         ]
       }
     ],
+    "guide-construction-plan": [
+      {
+        "slug": "guide-demolition",
+        "label": "解体工事",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-environment-management",
+        "label": "環境保全管理",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-foundation",
+        "label": "基礎工",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-machinery",
+        "label": "建設機械",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-quality-management",
+        "label": "品質管理",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
+    "guide-consultant": [
+      {
+        "slug": "guide-age-career",
+        "label": "40代・50代の転職",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-allowance",
+        "label": "資格手当で年収を上げる",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-buildjob-review",
+        "label": "ビルドジョブの評判と使いどころ",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career",
+        "label": "転職の入口",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career-agent-comparison",
+        "label": "転職エージェントを軸で比較",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
+    "guide-demolition": [
+      {
+        "slug": "guide-construction-plan",
+        "label": "施工計画",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-environment-management",
+        "label": "環境保全管理",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-foundation",
+        "label": "基礎工",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-machinery",
+        "label": "建設機械",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-quality-management",
+        "label": "品質管理",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
+    "guide-difficulty": [],
+    "guide-dx-jobs": [
+      {
+        "slug": "guide-age-career",
+        "label": "40代・50代の転職",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-allowance",
+        "label": "資格手当で年収を上げる",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-buildjob-review",
+        "label": "ビルドジョブの評判と使いどころ",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career",
+        "label": "転職の入口",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career-agent-comparison",
+        "label": "転職エージェントを軸で比較",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
     "guide-earthwork-key-points": [
       {
         "slug": "guide-concrete-key-points",
@@ -173,6 +813,91 @@
         "score": 10,
         "signals": [
           "topic"
+        ]
+      }
+    ],
+    "guide-environment-management": [
+      {
+        "slug": "guide-construction-plan",
+        "label": "施工計画",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-demolition",
+        "label": "解体工事",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-foundation",
+        "label": "基礎工",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-machinery",
+        "label": "建設機械",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-quality-management",
+        "label": "品質管理",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
+    "guide-exam-overview": [],
+    "guide-foundation": [
+      {
+        "slug": "guide-construction-plan",
+        "label": "施工計画",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-demolition",
+        "label": "解体工事",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-environment-management",
+        "label": "環境保全管理",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-machinery",
+        "label": "建設機械",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-quality-management",
+        "label": "品質管理",
+        "score": 1,
+        "signals": [
+          "other_tag"
         ]
       }
     ],
@@ -221,6 +946,175 @@
         ]
       }
     ],
+    "guide-future": [
+      {
+        "slug": "guide-age-career",
+        "label": "40代・50代の転職",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-allowance",
+        "label": "資格手当で年収を上げる",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-buildjob-review",
+        "label": "ビルドジョブの評判と使いどころ",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career",
+        "label": "転職の入口",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career-agent-comparison",
+        "label": "転職エージェントを軸で比較",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
+    "guide-grade-comparison": [
+      {
+        "slug": "guide-age-career",
+        "label": "40代・50代の転職",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-allowance",
+        "label": "資格手当で年収を上げる",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-buildjob-review",
+        "label": "ビルドジョブの評判と使いどころ",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career",
+        "label": "転職の入口",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career-agent-comparison",
+        "label": "転職エージェントを軸で比較",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
+    "guide-hatchu-shien": [
+      {
+        "slug": "guide-age-career",
+        "label": "40代・50代の転職",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-allowance",
+        "label": "資格手当で年収を上げる",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-buildjob-review",
+        "label": "ビルドジョブの評判と使いどころ",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career",
+        "label": "転職の入口",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career-agent-comparison",
+        "label": "転職エージェントを軸で比較",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
+    "guide-interview": [
+      {
+        "slug": "guide-age-career",
+        "label": "40代・50代の転職",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-allowance",
+        "label": "資格手当で年収を上げる",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-buildjob-review",
+        "label": "ビルドジョブの評判と使いどころ",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career",
+        "label": "転職の入口",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career-agent-comparison",
+        "label": "転職エージェントを軸で比較",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
+    "guide-last-minute-2026": [],
     "guide-law-key-points": [
       {
         "slug": "textbook-building-standards",
@@ -263,7 +1157,725 @@
         ]
       }
     ],
+    "guide-machinery": [
+      {
+        "slug": "guide-construction-plan",
+        "label": "施工計画",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-demolition",
+        "label": "解体工事",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-environment-management",
+        "label": "環境保全管理",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-foundation",
+        "label": "基礎工",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-quality-management",
+        "label": "品質管理",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
+    "guide-market-value": [
+      {
+        "slug": "guide-age-career",
+        "label": "40代・50代の転職",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-allowance",
+        "label": "資格手当で年収を上げる",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-buildjob-review",
+        "label": "ビルドジョブの評判と使いどころ",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career",
+        "label": "転職の入口",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career-agent-comparison",
+        "label": "転職エージェントを軸で比較",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
+    "guide-public-servant": [
+      {
+        "slug": "guide-age-career",
+        "label": "40代・50代の転職",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-allowance",
+        "label": "資格手当で年収を上げる",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-buildjob-review",
+        "label": "ビルドジョブの評判と使いどころ",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career",
+        "label": "転職の入口",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career-agent-comparison",
+        "label": "転職エージェントを軸で比較",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
+    "guide-quality-management": [
+      {
+        "slug": "guide-construction-plan",
+        "label": "施工計画",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-demolition",
+        "label": "解体工事",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-environment-management",
+        "label": "環境保全管理",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-foundation",
+        "label": "基礎工",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-machinery",
+        "label": "建設機械",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
+    "guide-quit-honne": [
+      {
+        "slug": "guide-age-career",
+        "label": "40代・50代の転職",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-allowance",
+        "label": "資格手当で年収を上げる",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-buildjob-review",
+        "label": "ビルドジョブの評判と使いどころ",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career",
+        "label": "転職の入口",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career-agent-comparison",
+        "label": "転職エージェントを軸で比較",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
+    "guide-quit-or-stay": [
+      {
+        "slug": "guide-age-career",
+        "label": "40代・50代の転職",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-allowance",
+        "label": "資格手当で年収を上げる",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-buildjob-review",
+        "label": "ビルドジョブの評判と使いどころ",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career",
+        "label": "転職の入口",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career-agent-comparison",
+        "label": "転職エージェントを軸で比較",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
+    "guide-resume": [
+      {
+        "slug": "guide-age-career",
+        "label": "40代・50代の転職",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-allowance",
+        "label": "資格手当で年収を上げる",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-buildjob-review",
+        "label": "ビルドジョブの評判と使いどころ",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career",
+        "label": "転職の入口",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career-agent-comparison",
+        "label": "転職エージェントを軸で比較",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
+    "guide-safety-management": [
+      {
+        "slug": "guide-construction-plan",
+        "label": "施工計画",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-demolition",
+        "label": "解体工事",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-environment-management",
+        "label": "環境保全管理",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-foundation",
+        "label": "基礎工",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-machinery",
+        "label": "建設機械",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
+    "guide-salary-by-role": [
+      {
+        "slug": "guide-age-career",
+        "label": "40代・50代の転職",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-allowance",
+        "label": "資格手当で年収を上げる",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-buildjob-review",
+        "label": "ビルドジョブの評判と使いどころ",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career",
+        "label": "転職の入口",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career-agent-comparison",
+        "label": "転職エージェントを軸で比較",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
+    "guide-salary-up": [
+      {
+        "slug": "guide-age-career",
+        "label": "40代・50代の転職",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-allowance",
+        "label": "資格手当で年収を上げる",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-buildjob-review",
+        "label": "ビルドジョブの評判と使いどころ",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career",
+        "label": "転職の入口",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career-agent-comparison",
+        "label": "転職エージェントを軸で比較",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
+    "guide-schedule-management": [
+      {
+        "slug": "guide-construction-plan",
+        "label": "施工計画",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-demolition",
+        "label": "解体工事",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-environment-management",
+        "label": "環境保全管理",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-foundation",
+        "label": "基礎工",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-machinery",
+        "label": "建設機械",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
     "guide-strategy": [],
+    "guide-study-method": [],
+    "guide-study-plan": [],
+    "guide-surveying": [
+      {
+        "slug": "guide-construction-plan",
+        "label": "施工計画",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-demolition",
+        "label": "解体工事",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-environment-management",
+        "label": "環境保全管理",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-foundation",
+        "label": "基礎工",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-machinery",
+        "label": "建設機械",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
+    "guide-timing": [
+      {
+        "slug": "guide-age-career",
+        "label": "40代・50代の転職",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-allowance",
+        "label": "資格手当で年収を上げる",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-buildjob-review",
+        "label": "ビルドジョブの評判と使いどころ",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career",
+        "label": "転職の入口",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career-agent-comparison",
+        "label": "転職エージェントを軸で比較",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
+    "guide-vs-pe": [],
+    "guide-white-company": [
+      {
+        "slug": "guide-age-career",
+        "label": "40代・50代の転職",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-allowance",
+        "label": "資格手当で年収を上げる",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-buildjob-review",
+        "label": "ビルドジョブの評判と使いどころ",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career",
+        "label": "転職の入口",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career-agent-comparison",
+        "label": "転職エージェントを軸で比較",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
+    "guide-women": [
+      {
+        "slug": "guide-age-career",
+        "label": "40代・50代の転職",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-allowance",
+        "label": "資格手当で年収を上げる",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-buildjob-review",
+        "label": "ビルドジョブの評判と使いどころ",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career",
+        "label": "転職の入口",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career-agent-comparison",
+        "label": "転職エージェントを軸で比較",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
+    "keyword-2026": [],
+    "public-servant-merit": [
+      {
+        "slug": "guide-age-career",
+        "label": "40代・50代の転職",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-allowance",
+        "label": "資格手当で年収を上げる",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-buildjob-review",
+        "label": "ビルドジョブの評判と使いどころ",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career",
+        "label": "転職の入口",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-career-agent-comparison",
+        "label": "転職エージェントを軸で比較",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
+    "textbook-asphalt-concrete-pavement": [
+      {
+        "slug": "textbook-pavement-repair-quality",
+        "label": "舗装補修・品質管理",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-road-earthwork-subbase",
+        "label": "路床・路盤",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-earthwork-planning",
+        "label": "土工計画・作業能力",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-soft-ground-drainage",
+        "label": "軟弱地盤・排水",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-cut-slope-protection",
+        "label": "切土・法面保護",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
     "textbook-building-standards": [
       {
         "slug": "textbook-explosives-act",
@@ -310,6 +1922,216 @@
         ]
       }
     ],
+    "textbook-cast-in-place-pile": [
+      {
+        "slug": "textbook-pile-foundation-precast",
+        "label": "既製杭の施工",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-earth-retaining-cofferdam",
+        "label": "土留め・仮締切り",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-foundation-overview-survey",
+        "label": "基礎工の概説",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-machinery-overview",
+        "label": "建設機械の概要",
+        "score": 0,
+        "signals": [
+          "fallback_order"
+        ]
+      },
+      {
+        "slug": "textbook-machinery-structure",
+        "label": "建設機械の構造",
+        "score": 0,
+        "signals": [
+          "fallback_order"
+        ]
+      }
+    ],
+    "textbook-concrete-materials": [
+      {
+        "slug": "textbook-concrete-properties",
+        "label": "コンクリートの性質",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-concrete-mix-design",
+        "label": "配合設計・生コン",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-concrete-placement",
+        "label": "コンクリートの施工",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-rebar-formwork",
+        "label": "鉄筋工・型枠",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-special-concrete-inspection",
+        "label": "特殊コンクリート・検査",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
+    "textbook-concrete-mix-design": [
+      {
+        "slug": "textbook-concrete-placement",
+        "label": "コンクリートの施工",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-concrete-properties",
+        "label": "コンクリートの性質",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-concrete-materials",
+        "label": "コンクリートの材料",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-rebar-formwork",
+        "label": "鉄筋工・型枠",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-special-concrete-inspection",
+        "label": "特殊コンクリート・検査",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
+    "textbook-concrete-placement": [
+      {
+        "slug": "textbook-concrete-mix-design",
+        "label": "配合設計・生コン",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-rebar-formwork",
+        "label": "鉄筋工・型枠",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-concrete-properties",
+        "label": "コンクリートの性質",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-special-concrete-inspection",
+        "label": "特殊コンクリート・検査",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-concrete-materials",
+        "label": "コンクリートの材料",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
+    "textbook-concrete-properties": [
+      {
+        "slug": "textbook-concrete-materials",
+        "label": "コンクリートの材料",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-concrete-mix-design",
+        "label": "配合設計・生コン",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-concrete-placement",
+        "label": "コンクリートの施工",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-rebar-formwork",
+        "label": "鉄筋工・型枠",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-special-concrete-inspection",
+        "label": "特殊コンクリート・検査",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
     "textbook-construction-business": [
       {
         "slug": "textbook-labor-standards",
@@ -353,6 +2175,48 @@
         "score": 10,
         "signals": [
           "topic"
+        ]
+      }
+    ],
+    "textbook-construction-byproduct-recycle": [
+      {
+        "slug": "textbook-waste-disposal-manifest",
+        "label": "廃棄物処理・マニフェスト",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-water-air-soil-pollution",
+        "label": "水質・大気・土壌の保全",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-noise-vibration-regulation",
+        "label": "騒音・振動規制",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-safety-work-environment",
+        "label": "各種工事・作業環境の安全",
+        "score": 0,
+        "signals": [
+          "fallback_order"
+        ]
+      },
+      {
+        "slug": "textbook-safety-machinery-crane",
+        "label": "建設機械・クレーンの安全",
+        "score": 0,
+        "signals": [
+          "fallback_order"
         ]
       }
     ],
@@ -535,6 +2399,48 @@
         ]
       }
     ],
+    "textbook-cut-slope-protection": [
+      {
+        "slug": "textbook-embankment",
+        "label": "盛土",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-soft-ground-drainage",
+        "label": "軟弱地盤・排水",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-earthwork-planning",
+        "label": "土工計画・作業能力",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-soil-investigation-methods",
+        "label": "土質調査",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-road-earthwork-subbase",
+        "label": "路床・路盤",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
     "textbook-demolition": [
       {
         "slug": "textbook-leveling",
@@ -621,6 +2527,132 @@
         ]
       }
     ],
+    "textbook-earth-retaining-cofferdam": [
+      {
+        "slug": "textbook-foundation-overview-survey",
+        "label": "基礎工の概説",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-pile-foundation-precast",
+        "label": "既製杭の施工",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-cast-in-place-pile",
+        "label": "場所打ち杭",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-special-concrete-inspection",
+        "label": "特殊コンクリート・検査",
+        "score": 0,
+        "signals": [
+          "fallback_order"
+        ]
+      },
+      {
+        "slug": "textbook-rebar-formwork",
+        "label": "鉄筋工・型枠",
+        "score": 0,
+        "signals": [
+          "fallback_order"
+        ]
+      }
+    ],
+    "textbook-earthwork-planning": [
+      {
+        "slug": "textbook-road-earthwork-subbase",
+        "label": "路床・路盤",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-soft-ground-drainage",
+        "label": "軟弱地盤・排水",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-asphalt-concrete-pavement",
+        "label": "舗装の施工",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-cut-slope-protection",
+        "label": "切土・法面保護",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-embankment",
+        "label": "盛土",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
+    "textbook-embankment": [
+      {
+        "slug": "textbook-cut-slope-protection",
+        "label": "切土・法面保護",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-soil-investigation-methods",
+        "label": "土質調査",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-soft-ground-drainage",
+        "label": "軟弱地盤・排水",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-earthwork-planning",
+        "label": "土工計画・作業能力",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-road-earthwork-subbase",
+        "label": "路床・路盤",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
     "textbook-explosives-act": [
       {
         "slug": "textbook-building-standards",
@@ -663,6 +2695,48 @@
         "score": 10,
         "signals": [
           "topic"
+        ]
+      }
+    ],
+    "textbook-foundation-overview-survey": [
+      {
+        "slug": "textbook-earth-retaining-cofferdam",
+        "label": "土留め・仮締切り",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-pile-foundation-precast",
+        "label": "既製杭の施工",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-cast-in-place-pile",
+        "label": "場所打ち杭",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-special-concrete-inspection",
+        "label": "特殊コンクリート・検査",
+        "score": 0,
+        "signals": [
+          "fallback_order"
+        ]
+      },
+      {
+        "slug": "textbook-rebar-formwork",
+        "label": "鉄筋工・型枠",
+        "score": 0,
+        "signals": [
+          "fallback_order"
         ]
       }
     ],
@@ -1111,6 +3185,132 @@
         ]
       }
     ],
+    "textbook-noise-vibration-regulation": [
+      {
+        "slug": "textbook-water-air-soil-pollution",
+        "label": "水質・大気・土壌の保全",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-construction-byproduct-recycle",
+        "label": "建設副産物・リサイクル法",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-waste-disposal-manifest",
+        "label": "廃棄物処理・マニフェスト",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-safety-work-environment",
+        "label": "各種工事・作業環境の安全",
+        "score": 0,
+        "signals": [
+          "fallback_order"
+        ]
+      },
+      {
+        "slug": "textbook-safety-machinery-crane",
+        "label": "建設機械・クレーンの安全",
+        "score": 0,
+        "signals": [
+          "fallback_order"
+        ]
+      }
+    ],
+    "textbook-pavement-repair-quality": [
+      {
+        "slug": "textbook-asphalt-concrete-pavement",
+        "label": "舗装の施工",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-road-earthwork-subbase",
+        "label": "路床・路盤",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-earthwork-planning",
+        "label": "土工計画・作業能力",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-soft-ground-drainage",
+        "label": "軟弱地盤・排水",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-cut-slope-protection",
+        "label": "切土・法面保護",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
+    "textbook-pile-foundation-precast": [
+      {
+        "slug": "textbook-cast-in-place-pile",
+        "label": "場所打ち杭",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-earth-retaining-cofferdam",
+        "label": "土留め・仮締切り",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-foundation-overview-survey",
+        "label": "基礎工の概説",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-machinery-overview",
+        "label": "建設機械の概要",
+        "score": 0,
+        "signals": [
+          "fallback_order"
+        ]
+      },
+      {
+        "slug": "textbook-machinery-structure",
+        "label": "建設機械の構造",
+        "score": 0,
+        "signals": [
+          "fallback_order"
+        ]
+      }
+    ],
     "textbook-port-regulations": [
       {
         "slug": "textbook-explosives-act",
@@ -1243,6 +3443,48 @@
         ]
       }
     ],
+    "textbook-rebar-formwork": [
+      {
+        "slug": "textbook-concrete-placement",
+        "label": "コンクリートの施工",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-special-concrete-inspection",
+        "label": "特殊コンクリート・検査",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-concrete-mix-design",
+        "label": "配合設計・生コン",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-concrete-properties",
+        "label": "コンクリートの性質",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-concrete-materials",
+        "label": "コンクリートの材料",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
     "textbook-river-act": [
       {
         "slug": "textbook-building-standards",
@@ -1332,6 +3574,342 @@
         "score": 10,
         "signals": [
           "topic"
+        ]
+      }
+    ],
+    "textbook-road-earthwork-subbase": [
+      {
+        "slug": "textbook-asphalt-concrete-pavement",
+        "label": "舗装の施工",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-earthwork-planning",
+        "label": "土工計画・作業能力",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-pavement-repair-quality",
+        "label": "舗装補修・品質管理",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-soft-ground-drainage",
+        "label": "軟弱地盤・排水",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-cut-slope-protection",
+        "label": "切土・法面保護",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
+    "textbook-safety-excavation-shoring": [
+      {
+        "slug": "textbook-safety-machinery-crane",
+        "label": "建設機械・クレーンの安全",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-safety-scaffolding",
+        "label": "足場・通路の安全",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-safety-industrial-safety-law",
+        "label": "安衛法と計画の届出",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-safety-work-environment",
+        "label": "各種工事・作業環境の安全",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-safety-risk-assessment",
+        "label": "リスクアセスメント",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
+    "textbook-safety-industrial-safety-law": [
+      {
+        "slug": "textbook-safety-risk-assessment",
+        "label": "リスクアセスメント",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-safety-management-system",
+        "label": "災害統計・管理体制",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-safety-scaffolding",
+        "label": "足場・通路の安全",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-safety-excavation-shoring",
+        "label": "掘削・支保工の安全",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-safety-machinery-crane",
+        "label": "建設機械・クレーンの安全",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
+    "textbook-safety-machinery-crane": [
+      {
+        "slug": "textbook-safety-excavation-shoring",
+        "label": "掘削・支保工の安全",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-safety-scaffolding",
+        "label": "足場・通路の安全",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-safety-work-environment",
+        "label": "各種工事・作業環境の安全",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-safety-industrial-safety-law",
+        "label": "安衛法と計画の届出",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-safety-risk-assessment",
+        "label": "リスクアセスメント",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
+    "textbook-safety-management-system": [
+      {
+        "slug": "textbook-safety-risk-assessment",
+        "label": "リスクアセスメント",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-safety-industrial-safety-law",
+        "label": "安衛法と計画の届出",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-safety-scaffolding",
+        "label": "足場・通路の安全",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-safety-excavation-shoring",
+        "label": "掘削・支保工の安全",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-safety-machinery-crane",
+        "label": "建設機械・クレーンの安全",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
+    "textbook-safety-risk-assessment": [
+      {
+        "slug": "textbook-safety-management-system",
+        "label": "災害統計・管理体制",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-safety-industrial-safety-law",
+        "label": "安衛法と計画の届出",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-safety-scaffolding",
+        "label": "足場・通路の安全",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-safety-excavation-shoring",
+        "label": "掘削・支保工の安全",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-safety-machinery-crane",
+        "label": "建設機械・クレーンの安全",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
+    "textbook-safety-scaffolding": [
+      {
+        "slug": "textbook-safety-excavation-shoring",
+        "label": "掘削・支保工の安全",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-safety-industrial-safety-law",
+        "label": "安衛法と計画の届出",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-safety-machinery-crane",
+        "label": "建設機械・クレーンの安全",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-safety-risk-assessment",
+        "label": "リスクアセスメント",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-safety-management-system",
+        "label": "災害統計・管理体制",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
+    "textbook-safety-work-environment": [
+      {
+        "slug": "textbook-safety-machinery-crane",
+        "label": "建設機械・クレーンの安全",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-safety-excavation-shoring",
+        "label": "掘削・支保工の安全",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-safety-scaffolding",
+        "label": "足場・通路の安全",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-safety-industrial-safety-law",
+        "label": "安衛法と計画の届出",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-safety-risk-assessment",
+        "label": "リスクアセスメント",
+        "score": 1,
+        "signals": [
+          "other_tag"
         ]
       }
     ],
@@ -1561,6 +4139,132 @@
         ]
       }
     ],
+    "textbook-soft-ground-drainage": [
+      {
+        "slug": "textbook-cut-slope-protection",
+        "label": "切土・法面保護",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-earthwork-planning",
+        "label": "土工計画・作業能力",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-embankment",
+        "label": "盛土",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-road-earthwork-subbase",
+        "label": "路床・路盤",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-asphalt-concrete-pavement",
+        "label": "舗装の施工",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
+    "textbook-soil-investigation-methods": [
+      {
+        "slug": "textbook-embankment",
+        "label": "盛土",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-cut-slope-protection",
+        "label": "切土・法面保護",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-soft-ground-drainage",
+        "label": "軟弱地盤・排水",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-earthwork-planning",
+        "label": "土工計画・作業能力",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-road-earthwork-subbase",
+        "label": "路床・路盤",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
+    "textbook-special-concrete-inspection": [
+      {
+        "slug": "textbook-rebar-formwork",
+        "label": "鉄筋工・型枠",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-concrete-placement",
+        "label": "コンクリートの施工",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-concrete-mix-design",
+        "label": "配合設計・生コン",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-concrete-properties",
+        "label": "コンクリートの性質",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-concrete-materials",
+        "label": "コンクリートの材料",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
     "textbook-standard-contract": [
       {
         "slug": "textbook-construction-business",
@@ -1740,6 +4444,90 @@
         "score": 10,
         "signals": [
           "topic"
+        ]
+      }
+    ],
+    "textbook-waste-disposal-manifest": [
+      {
+        "slug": "textbook-construction-byproduct-recycle",
+        "label": "建設副産物・リサイクル法",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-water-air-soil-pollution",
+        "label": "水質・大気・土壌の保全",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-noise-vibration-regulation",
+        "label": "騒音・振動規制",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-safety-work-environment",
+        "label": "各種工事・作業環境の安全",
+        "score": 0,
+        "signals": [
+          "fallback_order"
+        ]
+      },
+      {
+        "slug": "textbook-safety-machinery-crane",
+        "label": "建設機械・クレーンの安全",
+        "score": 0,
+        "signals": [
+          "fallback_order"
+        ]
+      }
+    ],
+    "textbook-water-air-soil-pollution": [
+      {
+        "slug": "textbook-construction-byproduct-recycle",
+        "label": "建設副産物・リサイクル法",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-noise-vibration-regulation",
+        "label": "騒音・振動規制",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-waste-disposal-manifest",
+        "label": "廃棄物処理・マニフェスト",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-safety-work-environment",
+        "label": "各種工事・作業環境の安全",
+        "score": 0,
+        "signals": [
+          "fallback_order"
+        ]
+      },
+      {
+        "slug": "textbook-safety-machinery-crane",
+        "label": "建設機械・クレーンの安全",
+        "score": 0,
+        "signals": [
+          "fallback_order"
         ]
       }
     ],

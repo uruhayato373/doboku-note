@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { isStructuralTag } from '@/lib/content-taxonomy';
 import PageShell from "@/components/layout/PageShell";
 import { Hero, ExamCards, LatestArticles, AboutSection, PremiumNoteHero } from "@/components/home";
 import type { LatestArticle } from "@/components/home";
@@ -51,9 +52,7 @@ function pickRecent(allMeta: DocMeta[], n: number): LatestArticle[] {
       category: meta.category,
       categoryLabel: meta.category ? labelByCategory.get(meta.category) : undefined,
       date: meta.updatedAt || meta.dateModified || meta.publishedAt || meta.created,
-      tags: (meta.tags || []).filter(
-        (t) => !["primary", "secondary", "past-questions", "guide", "textbook", "keyword"].includes(t),
-      ),
+      tags: (meta.tags || []).filter((t) => !isStructuralTag(t)),
       image: getOgpDisplayUrl(meta.slug),
     }));
 }

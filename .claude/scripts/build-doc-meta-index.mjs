@@ -17,8 +17,10 @@ import { readdirSync, readFileSync, writeFileSync, existsSync, mkdirSync } from 
 import { join, relative, dirname, extname } from 'node:path';
 import matter from 'gray-matter';
 import { loadGitDates, lookupGitDates } from './lib/git-dates.mjs';
+import { buildAliasMap, normalizeTags } from '../../scripts/lib/content-taxonomy.mjs';
 
 const ROOT = process.cwd();
+const TAG_ALIASES = buildAliasMap(JSON.parse(readFileSync(join(ROOT, 'src/config/tags.json'), 'utf8')));
 const POSTS_ROOT = join(ROOT, 'content/site');
 const OUT_PATH = join(ROOT, 'src/config/doc-meta-index.json');
 const CI_MODE = process.argv.includes('--ci');
@@ -100,6 +102,14 @@ function main() {
       ...data,
       published: data.published !== false,
     };
+
+    // タグは正規表記（tags.json の canonical）へ揃える（content-taxonomy.md §5）。
+    // 別名（英語 slug・表記揺れ）で書かれた記事は raw を tagsRaw に残し、runtime は canonical だけを見る。
+    if (Array.isArray(data.tags)) {
+      const n = normalizeTags(data.tags, TAG_ALIASES);
+      if (n.aliased.length || n.tags.length !== data.tags.length) meta.tagsRaw = data.tags;
+      meta.tags = n.tags;
+    }
 
     // Date オブジェクトを文字列に変換（JSON シリアライズ対応）。
     // 日付フィールドは **YYYY-MM-DD** に揃える——gray-matter は YAML の裸の日付を

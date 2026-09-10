@@ -118,7 +118,9 @@ export type DocMeta = {
   description?: string;
   category?: string; // e.g., 'civil-construction-1' (from frontmatter)
   group?: string; // e.g., 'guide', 'past-exam', 'keyword' (explicit classification)
-  tags?: string[]; // e.g., ['guide', 'primary'] (from frontmatter)
+  tags?: string[]; // 正規表記（build-doc-meta-index が tags.json の canonical へ正規化。content-taxonomy.md §5）
+  tagsRaw?: string[]; // 記事に書かれた綴り（正規化で変わったときだけ入る）
+  topics?: string[]; // 横断テーマ（src/config/topics.json の slug）への明示所属
   section?: string;
   guide_order?: number;
   textbook_order?: number;
@@ -225,7 +227,8 @@ export const getDoc = cache(async function getDoc(slug: string): Promise<Doc | n
         title: matterResult.data.title || '',
         description: matterResult.data.description || '',
         category: matterResult.data.category,
-        tags: matterResult.data.tags,        toc_min_heading_level: matterResult.data.toc_min_heading_level,
+        tags: matterResult.data.tags,
+        toc_min_heading_level: matterResult.data.toc_min_heading_level,
         toc_max_heading_level: matterResult.data.toc_max_heading_level,
         published: matterResult.data.published !== false,
         ...matterResult.data,
@@ -266,7 +269,8 @@ export const getDoc = cache(async function getDoc(slug: string): Promise<Doc | n
         title: matterResult.data.title || '',
         description: matterResult.data.description || '',
         category: matterResult.data.category,
-        tags: matterResult.data.tags,        toc_min_heading_level: matterResult.data.toc_min_heading_level,
+        tags: matterResult.data.tags,
+        toc_min_heading_level: matterResult.data.toc_min_heading_level,
         toc_max_heading_level: matterResult.data.toc_max_heading_level,
         published: matterResult.data.published !== false,
         ...matterResult.data,
