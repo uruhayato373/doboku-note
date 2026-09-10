@@ -1,0 +1,496 @@
+{
+  "schemaVersion": 1,
+  "tweets": {
+    "1": {
+      "headline": [
+        "工事の説明に",
+        "自分の担当を"
+      ],
+      "points": [
+        "工事全体と自分の担当を分ける",
+        "判断したこと・対応したことをメモ"
+      ],
+      "character": {
+        "pose": "thinking",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/civil-construction-2/secondary-r06/article.mdx"
+      ],
+      "alt": "経験記述では、工事全体の説明と自分の担当を分け、判断や対応に関わる現場条件を整理します。"
+    },
+    "2": {
+      "headline": [
+        "型枠を外す順序",
+        "荷重に注目"
+      ],
+      "points": [
+        "荷重を受けにくい部分から",
+        "梁底は最後に取り外す"
+      ],
+      "character": {
+        "pose": "pointing",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/civil-construction-2/secondary-r06/article.mdx"
+      ],
+      "alt": "型枠の取り外し順序は荷重の受け方に着目します。比較的荷重を受けにくい部分から外し、梁底は最後とするのが設問の論点です。"
+    },
+    "3": {
+      "headline": [
+        "完成答案の読み方",
+        "条件と対策を結ぶ"
+      ],
+      "points": [
+        "その対策を選んだ条件を探す",
+        "自分の経験に置き換えて書く"
+      ],
+      "character": {
+        "pose": "explaining",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx",
+        "src/lib/note-magazines.ts"
+      ],
+      "alt": "1級土木の完成答案集を使う際は、現場条件と対策の関係を読み取り、自分が経験した事実に置き換えて答案を作ります。"
+    },
+    "4": {
+      "headline": [
+        "AE剤の働き",
+        "独立気泡が鍵"
+      ],
+      "points": [
+        "微細な気泡を一様に分布",
+        "施工性と耐凍害性を改善"
+      ],
+      "character": {
+        "pose": "pointing",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/civil-construction-1/secondary-concrete-basics/article.mdx"
+      ],
+      "alt": "AE剤は微細な独立気泡をコンクリート中に一様に分布させ、ワーカビリティーと凍結融解への抵抗性を改善します。"
+    },
+    "5": {
+      "headline": [
+        "過去問の見直し",
+        "形式も確認"
+      ],
+      "points": [
+        "1級は令和6年度から2テーマ",
+        "同じ工事で書き分けを準備"
+      ],
+      "character": {
+        "pose": "explaining",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+      ],
+      "alt": "1級土木の経験記述は令和6年度から同じ工事について2テーマを書く形式です。過去の答案を使う場合も、現在の設問構成に合わせて準備します。"
+    },
+    "6": {
+      "headline": [
+        "掘削底面の異常",
+        "原因で分ける"
+      ],
+      "points": [
+        "ボイリング：浸透流で砂が湧く",
+        "ヒービング：粘性土が回り込む"
+      ],
+      "character": {
+        "pose": "explaining",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/civil-construction-1/secondary-earthwork-past-problems/article.mdx"
+      ],
+      "alt": "ボイリングは砂質土地盤で浸透流により砂粒子が湧き上がる現象です。ヒービングは粘性土地盤で背面の土が回り込み、掘削底面が隆起する現象です。"
+    },
+    "7": {
+      "headline": [
+        "雨水の出口まで",
+        "仮排水を考える"
+      ],
+      "points": [
+        "盛土の軟弱化を防ぐ",
+        "施工機械の走行性を確保"
+      ],
+      "character": {
+        "pose": "pointing",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/civil-construction-1/secondary-earthwork-past-problems/article.mdx"
+      ],
+      "alt": "仮排水には、降雨による盛土の軟弱化を防ぎ、施工機械の走行性を確保する目的があります。盛土表面から排水先まで水の流れを考えます。"
+    },
+    "8": {
+      "headline": [
+        "注意した、の先へ",
+        "対策を具体化"
+      ],
+      "points": [
+        "防ぎたい事故を明確にする",
+        "車両と人の動線をどう分けたか"
+      ],
+      "character": {
+        "pose": "thinking",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/civil-construction-1/secondary-experience-writing-examples/article.mdx"
+      ],
+      "alt": "「安全に注意した」だけで終わらず、例えば接触事故を防ぐために車両と人の動線をどう区分したかなど、経験した具体策を書きます。"
+    },
+    "11": {
+      "headline": [
+        "資格に経験を添える",
+        "工種・規模・役割"
+      ],
+      "points": [
+        "自分の担当と補助業務を分ける",
+        "次に学びたい仕事も整理"
+      ],
+      "character": {
+        "pose": "explaining",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/civil-construction-2/guide-buildjob-review/article.mdx"
+      ],
+      "alt": "転職相談の準備では、資格に加えて担当工種、工事規模、役割を整理します。自分で担当した業務と補助した業務、次に学びたい仕事を分けて伝えます。"
+    },
+    "12": {
+      "headline": [
+        "巡視メモをつなぐ",
+        "発見から周知まで"
+      ],
+      "points": [
+        "問題を発見した後の改善を記録",
+        "作業員への周知まで整理"
+      ],
+      "character": {
+        "pose": "pointing",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/civil-construction-1/secondary-experience-writing-examples/article.mdx"
+      ],
+      "alt": "安全巡視で発見した問題は、実施した改善と作業員への周知までつなげて記録します。発見だけで終わらず、どう対応したかが伝わる形にします。"
+    },
+    "13": {
+      "headline": [
+        "飲める水でも",
+        "区分を確認"
+      ],
+      "points": [
+        "井戸水は上水道水と別区分",
+        "練混ぜ水として品質を確認"
+      ],
+      "character": {
+        "pose": "thinking",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/concrete-chief-engineer/primary-production-qc/article.mdx"
+      ],
+      "alt": "練混ぜ水の過去問では、飲用の井戸水でも上水道水とは別の区分として品質確認が必要である点に注意します。"
+    },
+    "14": {
+      "headline": [
+        "平均値だけで",
+        "判定しない"
+      ],
+      "points": [
+        "平均値の条件を確認",
+        "各回の試験結果も確認"
+      ],
+      "character": {
+        "pose": "pointing",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/concrete-chief-engineer/primary-production-qc/article.mdx"
+      ],
+      "alt": "レディーミクストコンクリートの圧縮強度の設問では、平均値の条件と各回の試験結果の条件の両方を確認します。"
+    },
+    "15": {
+      "headline": [
+        "課題と対応を",
+        "一組で点検"
+      ],
+      "points": [
+        "その課題に対応した処置か確認",
+        "自分の現場の条件に置き換える"
+      ],
+      "character": {
+        "pose": "explaining",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/civil-construction-2/secondary-r06/article.mdx",
+        "src/lib/note-magazines.ts"
+      ],
+      "alt": "2級土木の完成答案集は安全・品質・工程別に収録されています。課題と対応の関係を比較し、自分の経験した現場条件へ置き換えて使います。"
+    },
+    "16": {
+      "headline": [
+        "徹底した、を点検",
+        "方法まで書く"
+      ],
+      "points": [
+        "何を対象にしたか明確に",
+        "実際の測定・確認・指示を書く"
+      ],
+      "character": {
+        "pose": "thinking",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+      ],
+      "alt": "「徹底した」という抽象表現を見つけたら、対象と実際に行った測定、確認、指示の方法まで具体的に書けているか点検します。"
+    },
+    "17": {
+      "headline": [
+        "湿潤養生の目的",
+        "水分を保つ"
+      ],
+      "points": [
+        "散水や湿布で水分を供給",
+        "被覆で水分の逸散を抑える"
+      ],
+      "character": {
+        "pose": "explaining",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/civil-construction-1/secondary-concrete-basics/article.mdx"
+      ],
+      "alt": "湿潤養生では、散水や湿布などで水分を供給する方法と、被覆などで水分の逸散を抑える方法を理解し、水分を保つ管理を行います。"
+    },
+    "18": {
+      "headline": [
+        "用語を覚えた先へ",
+        "判断を説明する"
+      ],
+      "points": [
+        "材料試験から使用可否を考える",
+        "使用方法の立案まで結びつける"
+      ],
+      "character": {
+        "pose": "explaining",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/concrete-chief-engineer/guide-overview/article.mdx"
+      ],
+      "alt": "コンクリート主任技士の学習では、材料試験の結果を理解するだけでなく、使用可否の判断や使用方法の立案へ結びつけて考えます。"
+    },
+    "19": {
+      "headline": [
+        "資材計画の流れ",
+        "保管も忘れずに"
+      ],
+      "points": [
+        "注文→調達→保管→使用",
+        "使用時期と保管場所をつなぐ"
+      ],
+      "character": {
+        "pose": "pointing",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/civil-construction-2/secondary-r06/article.mdx"
+      ],
+      "alt": "資材計画は、注文、調達、保管、使用を一連の流れとして管理し、必要な時期に資材を使えるよう工程と対応させます。"
+    },
+    "20": {
+      "headline": [
+        "工程表を使い分け",
+        "何が見えるか"
+      ],
+      "points": [
+        "横線式：各工種の日数が見やすい",
+        "作業間の前後関係は把握しにくい"
+      ],
+      "character": {
+        "pose": "thinking",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/civil-construction-2/secondary-r06/article.mdx"
+      ],
+      "alt": "横線式工程表は各工種の所要日数が見やすい一方、作業間の前後関係は把握しにくい特徴があります。ネットワーク式との違いを比較します。"
+    },
+    "21": {
+      "headline": [
+        "同じ工事を",
+        "2テーマで書く"
+      ],
+      "points": [
+        "管理テーマごとに課題を分ける",
+        "同じ内容の繰り返しを点検"
+      ],
+      "character": {
+        "pose": "explaining",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx",
+        "src/lib/note-magazines.ts"
+      ],
+      "alt": "1級土木の2テーマ対策では、同じ工事でも管理テーマに応じて課題と判断を分けます。組合せ大全には5管理の全10組合せの模範答案が収録されています。"
+    },
+    "22": {
+      "headline": [
+        "工期は省略せず",
+        "年月日を確認"
+      ],
+      "points": [
+        "年をまたぐ工事も明確に",
+        "工事書類と数字を照合"
+      ],
+      "character": {
+        "pose": "pointing",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+      ],
+      "alt": "工事概要の工期は月だけで省略せず、開始と終了の年・月・日を確認します。年をまたぐ工事でも読み手が迷わないように記述します。"
+    },
+    "23": {
+      "headline": [
+        "検討と対応を",
+        "分けて整理"
+      ],
+      "points": [
+        "検討：なぜその方法を選んだか",
+        "対応：実際に何を行ったか"
+      ],
+      "character": {
+        "pose": "explaining",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/civil-construction-1/secondary-getting-started/article.mdx"
+      ],
+      "alt": "経験記述の準備では、検討は方法を選んだ理由、対応は実際に行ったこととして分けて整理すると、判断の過程が明確になります。"
+    },
+    "24": {
+      "headline": [
+        "施工量の書き方",
+        "工種と数量を一組に"
+      ],
+      "points": [
+        "数量だけでなく工種も書く",
+        "主な工種と単位の対応を確認"
+      ],
+      "character": {
+        "pose": "pointing",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+      ],
+      "alt": "施工量は数値と単位だけでなく、掘削やコンクリートなど対象となる工種を示します。工事概要の主な工種との対応も確認します。"
+    },
+    "25": {
+      "headline": [
+        "書けた答案を",
+        "解答欄で試す"
+      ],
+      "points": [
+        "実際の欄に書いて長さを確認",
+        "必要な項目を残して推敲"
+      ],
+      "character": {
+        "pose": "thinking",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/civil-construction-1/secondary-getting-started/article.mdx"
+      ],
+      "alt": "経験記述の答案は実際の解答欄へ書いて収まるかを確認します。長い場合は、設問に必要な項目を残しながら推敲します。"
+    },
+    "26": {
+      "headline": [
+        "材と剤を分ける",
+        "具体例で整理"
+      ],
+      "points": [
+        "混和材：フライアッシュなど",
+        "混和剤：AE剤・減水剤など"
+      ],
+      "character": {
+        "pose": "thinking",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/civil-construction-1/secondary-concrete-basics/article.mdx",
+        "content/site/civil-construction-1/secondary-concrete-past-problems/article.mdx"
+      ],
+      "alt": "フライアッシュや高炉スラグ微粉末は混和材、AE剤や減水剤は混和剤に分類されます。具体例と働きを対にして区別します。"
+    },
+    "27": {
+      "headline": [
+        "復習を分野で整理",
+        "抜けた語句を探す"
+      ],
+      "points": [
+        "同じ分野の過去問を並べる",
+        "穴埋めで説明できない語句を確認"
+      ],
+      "character": {
+        "pose": "explaining",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "src/lib/note-magazines.ts",
+        "content/site/civil-construction-1/secondary-concrete-past-problems/article.mdx"
+      ],
+      "alt": "1級土木の学科記述攻略集は過去問を5分野に再編し、出題頻度表や穴埋めリストを収録しています。同じ分野の問題を比較して復習箇所を探せます。"
+    },
+    "28": {
+      "headline": [
+        "択一の復習",
+        "誤りも言葉に"
+      ],
+      "points": [
+        "正しい肢の根拠を確認",
+        "ほかの肢の誤りも説明する"
+      ],
+      "character": {
+        "pose": "thinking",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/concrete-chief-engineer/guide-overview/article.mdx"
+      ],
+      "alt": "コンクリート主任技士の択一の復習では、正答の根拠に加え、ほかの選択肢のどこが誤りかも説明して知識を確認します。"
+    },
+    "29": {
+      "headline": [
+        "小論文の配分",
+        "本論を厚く"
+      ],
+      "points": [
+        "本論：原因の検討と具体策",
+        "結論：実施上の留意点"
+      ],
+      "character": {
+        "pose": "explaining",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+      ],
+      "alt": "コンクリート主任技士の小論文では序論を短くまとめ、本論の原因分析と具体策に文章を配分します。結論には実施上の留意点を添えます。"
+    }
+  }
+}

@@ -29,6 +29,7 @@ import { readFileSync, existsSync, readdirSync, statSync, writeSync } from 'node
 import { join, dirname, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { examColor } from '../.claude/scripts/sns/lib/exam-palette.mjs';
+import { cardSpecHash, validateCharacterCard } from './lib/x-character-spec.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const LEDGER = join(ROOT, '.claude/state/sns/x-card-render.json');
@@ -58,6 +59,7 @@ const entries = ledger.entries || {};
 const errors = [];
 const warnings = [];
 let inspected = 0;
+let reproducible = 0;
 
 for (const rel of pngs) {
   const meta = entries[rel];
@@ -89,7 +91,21 @@ for (const rel of pngs) {
 }
 
 const stalePng = Object.keys(entries).filter((k) => !existsSync(join(ROOT, k)));
-for (const k of stalePng) errors.push({ rule: 'ledger-orphan', at: k, msg: '台帳にあるが PNG が無い（削除もれ）' });
+for (const k of stalePng) {
+  const entry=entries[k];
+  if(entry.template==='x-teacher-v1') {
+    try {
+      const specFile=join(ROOT,dirname(dirname(k)),'cards.json');
+      const number=String(Number(k.match(/\/tweet-(\d+)-/)?.[1]));
+      const spec=JSON.parse(readFileSync(specFile,'utf8')).tweets[number];
+      validateCharacterCard(spec);
+      if(cardSpecHash(spec)!==entry.specSha256)throw Error('画像用原稿が描画後に変わっています');
+      reproducible++;
+      continue;
+    } catch(error) { errors.push({rule:'regeneration-source',at:k,msg:error.message});continue; }
+  }
+  errors.push({ rule: 'ledger-orphan', at: k, msg: '台帳にあるが PNG が無い（削除もれ）' });
+}
 
 const summary = `[${NAME}] X カード PNG ${pngs.length} 枚 / 台帳 ${Object.keys(entries).length} 件 → 実検査 ${inspected} 枚`
   + ` / error ${errors.length} / warn ${warnings.length}`;
@@ -100,6 +116,7 @@ if (JSON_OUT) {
 }
 
 console.log(summary);
+if(reproducible)console.log(`[${NAME}] 先生カード ${reproducible} 件は原稿hashのみ検査。端末に画像なし・画像実体は未検査（gen-x-card --draft で再生成）。`);
 if (pngs.length === 0) {
   console.error(`[${NAME}] ✗ 検査不成立: 対象の PNG が 1 枚も無い。0 件を「異常なし」と読まない。`);
   process.exit(1);

@@ -174,6 +174,7 @@ const CHECKS = [
   { id: 'jst-date', npm: 'check-jst-date', timeout: 30_000, ci: true, note: '運用記録の日付がUTCで前日付になっていないか' },
   { id: 'exam-calendar', npm: 'check-exam-calendar', timeout: 30_000, ci: true, note: '1級・2級土木の公式試験日SSOTと既知誤記を検査' },
   { id: 'x-campaign-plan', npm: 'check-x-campaign-plan', timeout: 30_000, ci: true, note: 'X月間計画の日付・導線・URL・販売投稿間隔を検査' },
+  { id: 'x-review', npm: 'check-x-review', timeout: 30_000, ci: true, note: 'X確認期間の原稿・時刻・公開マガジン導線・先生カードの再生成元を検査' },
   { id: 'x-card-render', npm: 'check-x-card-render', timeout: 30_000, ci: true, note: 'Xカード画像の配色・主題・生URL焼込みを描画台帳で検査（画像は開かない）' },
   // 420秒は 876 件の実走で 440秒かかり僅かに超過してフラップした（2026-08-25 実測）。
   // 8 並列化で 263秒まで縮めたうえで、ネットワーク変動の余裕を見て 600秒にした。

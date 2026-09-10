@@ -18,6 +18,8 @@ argument-hint: "--draft <NNN> | --range <NNN>-<NNN> | --all [--force]"
 
 ## 使い方
 
+先生付きカードは [X投稿ポリシー §7](../../../knowledge/reference/x-post-policy.md) の `cards.json` を使う。指定番号だけを生成し、原稿のない番号や長すぎる文は停止する。代表1枚は `--tweet N`、確認画面は `npm run x-review`、実体照合は `npm run check-x-review -- --local`。PNGは再生成物としてGit追跡外に置く。以下の従来レイアウトは `cards.json` がない場合に適用する。
+
 ```bash
 # 単一ドラフト
 node scripts/gen-x-card.mjs --draft 019

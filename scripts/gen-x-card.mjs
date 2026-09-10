@@ -20,6 +20,7 @@ import sharp from "sharp";
 // note カバー・IG・Shorts と色がずれる（x-post-policy §7 は tokens を真実源と定める）。
 import { examColor } from "../.claude/scripts/sns/lib/exam-palette.mjs";
 import { stripTweetMemos } from "./lib/x-tweets-md.mjs";
+import { renderXCharacterCard } from './lib/x-character-card.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const PROJECT_ROOT = join(__dirname, "..");
@@ -228,6 +229,7 @@ function parseTweetsFile(content, folderExam = "pe-comprehensive") {
 
       return {
         num,
+        funnel: scheduleMatch?.[4]?.trim(),
         sectionTitle: displaySectionTitle,
         keywordName,
         category,
@@ -267,7 +269,7 @@ function flushRenderLedger() {
   // generatedAt は入れない（生成のたび差分が出て、中身が変わっていない再生成でも commit が要る）。
   // 実体の無い entry は落とす。画像を消したときに台帳だけ残ると、検査側が
   // 「台帳にあるのに PNG が無い」を延々と出す（自己修復させる）。
-  const alive = Object.keys(ledger.entries).filter((k) => existsSync(join(PROJECT_ROOT, k)));
+  const alive = Object.keys(ledger.entries).filter((k) => existsSync(join(PROJECT_ROOT, k)) || ledger.entries[k].template === 'x-teacher-v1');
   const sorted = Object.fromEntries(alive.sort().map((k) => [k, ledger.entries[k]]));
   writeFileSync(RENDER_LEDGER, `${JSON.stringify({ version: 1, entries: sorted }, null, 2)}\n`, "utf8");
   console.log(`  [台帳] ${Object.keys(sorted).length} 件 → ${RENDER_LEDGER.slice(PROJECT_ROOT.length + 1)}`);
@@ -396,10 +398,20 @@ async function generateForDraft(draftId, force = false) {
   const exam = detectExam(name);
   const content = readFileSync(tweetsPath, "utf8");
   const tweets = parseTweetsFile(content, exam);
+  const cardsPath = join(dir, 'cards.json');
+  const cards = existsSync(cardsPath) ? JSON.parse(readFileSync(cardsPath, 'utf8')) : null;
+  if (cards && (cards.schemaVersion !== 1 || !cards.tweets || !Object.keys(cards.tweets).length)) throw new Error('cards.json が空か形式不正です');
+  const onlyIndex = process.argv.indexOf('--tweet');
+  const only = onlyIndex >= 0 ? Number(process.argv[onlyIndex + 1]) : null;
+  if (onlyIndex >= 0 && (!Number.isInteger(only) || !tweets.some(t => t.num === only))) throw new Error('--tweet の対象がありません');
+  if (cards && Object.keys(cards.tweets).some(n => !tweets.some(t => String(t.num) === n))) throw new Error('cards.json に本文のない番号があります');
 
   console.log(`\n📁 ${name} (${tweets.length} tweets, slug: ${slug}, exam: ${exam})`);
 
   for (const tweet of tweets) {
+    if (only !== null && tweet.num !== only) continue;
+    // 明示したカードだけを更新し、予約投入済み・別企画の素材は再生成しない。
+    if (cards && !cards.tweets[String(tweet.num)]) continue;
     const nn = String(tweet.num).padStart(2, "0");
     const existingName = readdirSync(imgDir)
       .filter((name) => name.startsWith(`tweet-${nn}-`) && name.endsWith(".png"))
@@ -410,9 +422,15 @@ async function generateForDraft(draftId, force = false) {
       console.log(`  ⏭  ${nn} 既存スキップ`);
       continue;
     }
-    const svg = buildSvg(tweet);
-    await sharp(Buffer.from(svg)).png().toFile(pngPath);
-    recordRender(pngPath, lastRenderMeta);
+    if (cards) {
+      const result = await renderXCharacterCard(PROJECT_ROOT, tweet, cards.tweets[String(tweet.num)]);
+      writeFileSync(pngPath, result.buffer);
+      recordRender(pngPath, result.meta);
+    } else {
+      const svg = buildSvg(tweet);
+      await sharp(Buffer.from(svg)).png().toFile(pngPath);
+      recordRender(pngPath, lastRenderMeta);
+    }
     console.log(`  ✅ ${nn} → ${outputName}`);
   }
   flushRenderLedger();

@@ -1,9 +1,9 @@
 {
   "schemaVersion": 2,
   "month": "2026-10",
-  "objective": "11月22日の技術士第一次試験へ向け、無料1,040問演習を主入口に認知・保存・再訪を積み上げる",
+  "objective": "11月22日の技術士第一次試験へ向け、無料1,040問演習を主入口に認知・保存・再訪を積み上げる。10月1〜10日は2026-10-character.jsonで既存予約と統合する。",
   "coverage": {
-    "from": "2026-10-01",
+    "from": "2026-10-11",
     "to": "2026-10-31",
     "perDay": 1
   },
@@ -14,116 +14,6 @@
     "各投稿はクイズJSONの異なる論点から執筆"
   ],
   "posts": [
-    {
-      "date": "2026-10-01",
-      "time": "07:35",
-      "slot": "A",
-      "exam": "pe-first-stage",
-      "type": "引っかけ集",
-      "funnel": "linkless",
-      "target": null,
-      "image": null,
-      "topic": "基礎科目・設計計画"
-    },
-    {
-      "date": "2026-10-02",
-      "time": "20:25",
-      "slot": "C",
-      "exam": "pe-first-stage",
-      "type": "A4過去問PDF",
-      "funnel": "note",
-      "target": "https://note.com/dobokunote/n/n466132e6fd74?utm_source=x&utm_medium=social&utm_campaign=pe-first-stage-2026-10&utm_content=202610-02-note",
-      "image": null,
-      "topic": "適性科目・技術士法"
-    },
-    {
-      "date": "2026-10-03",
-      "time": "12:55",
-      "slot": "B",
-      "exam": "pe-first-stage",
-      "type": "過去問1問1答",
-      "funnel": "site",
-      "target": "https://doboku-note.com/tools/kakomon-quiz/pe-first-stage?utm_source=x&utm_medium=social&utm_campaign=pe-first-stage-2026-10&utm_content=202610-03",
-      "image": null,
-      "topic": "専門科目・土質基礎"
-    },
-    {
-      "date": "2026-10-04",
-      "time": "07:10",
-      "slot": "A",
-      "exam": "pe-first-stage",
-      "type": "暗記フレーズ",
-      "funnel": "linkless",
-      "target": null,
-      "image": null,
-      "topic": "基礎科目・情報論理"
-    },
-    {
-      "date": "2026-10-05",
-      "time": "07:35",
-      "slot": "A",
-      "exam": "pe-first-stage",
-      "type": "引っかけ集",
-      "funnel": "linkless",
-      "target": null,
-      "image": null,
-      "topic": "適性科目・技術者倫理"
-    },
-    {
-      "date": "2026-10-06",
-      "time": "08:05",
-      "slot": "A",
-      "exam": "pe-first-stage",
-      "type": "暗記フレーズ",
-      "funnel": "linkless",
-      "target": null,
-      "image": null,
-      "topic": "専門科目・構造コンクリート"
-    },
-    {
-      "date": "2026-10-07",
-      "time": "12:55",
-      "slot": "B",
-      "exam": "pe-first-stage",
-      "type": "過去問1問1答",
-      "funnel": "site",
-      "target": "https://doboku-note.com/tools/kakomon-quiz/pe-first-stage?utm_source=x&utm_medium=social&utm_campaign=pe-first-stage-2026-10&utm_content=202610-07",
-      "image": null,
-      "topic": "3科目の時間配分"
-    },
-    {
-      "date": "2026-10-08",
-      "time": "07:10",
-      "slot": "A",
-      "exam": "pe-first-stage",
-      "type": "暗記フレーズ",
-      "funnel": "linkless",
-      "target": null,
-      "image": null,
-      "topic": "間違い復習"
-    },
-    {
-      "date": "2026-10-09",
-      "time": "19:55",
-      "slot": "C",
-      "exam": "pe-first-stage",
-      "type": "A4過去問PDF",
-      "funnel": "note",
-      "target": "https://note.com/dobokunote/n/n466132e6fd74?utm_source=x&utm_medium=social&utm_campaign=pe-first-stage-2026-10&utm_content=202610-09-note",
-      "image": null,
-      "topic": "基礎科目・設計計画"
-    },
-    {
-      "date": "2026-10-10",
-      "time": "08:05",
-      "slot": "A",
-      "exam": "pe-first-stage",
-      "type": "暗記フレーズ",
-      "funnel": "linkless",
-      "target": null,
-      "image": null,
-      "topic": "適性科目・技術士法"
-    },
     {
       "date": "2026-10-11",
       "time": "08:25",
