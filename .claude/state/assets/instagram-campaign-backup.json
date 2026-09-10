@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "campaign": "instagram-bridge-notebook-a-20260910",
+  "checkedAt": "2026-09-10T22:23:01.032Z",
+  "status": "pass",
+  "destination": {
+    "service": "Google Drive",
+    "root": "doboku-note"
+  },
+  "pathPrefix": "content/sns/instagram/video-packs/",
+  "approvedTransferManifestSha256": "70ef019289504e773c40e8711c04e9806af3bdbddf38363c22bdffeaaa294263",
+  "totals": {
+    "files": 1291,
+    "png": 1067,
+    "mp4": 224,
+    "bytes": 1198803187
+  },
+  "verification": {
+    "methods": [
+      "drive-vault-sync --verify --deep --cloud",
+      "rclone checksum SHA256 --download --one-way"
+    ],
+    "scope": "All 1291 assets were read back from the mounted Drive vault and SHA-256/bytes checked at copy time. Follow-up checks cover all 224 videos and 445 images via mounted-vault SHA-256 and cloud MD5/bytes; the remaining 622 images use SHA-256 calculated from full cloud downloads against the approved source sums.",
+    "groups": [
+      {
+        "group": "ig-rendered-image",
+        "files": 1067,
+        "bytes": 196535896,
+        "verifiedPathListSha256": "cb43aa576af1d59f345939a8efe4b2c1161cd0d72281ac34ce244e64aa5fbaa8",
+        "verificationLogSha256": "d8fa92c458af7e69fc933c69b03671cdb2965524db6bc89137a3ca2626475be3",
+        "partitions": [
+          {
+            "pathPrefix": "content/sns/instagram/video-packs/civil-construction-1/",
+            "files": 622,
+            "method": "rclone checksum SHA256 --download --one-way",
+            "verificationLogSha256": "c40b393d19b364db8c1d7aef7d3c877a27ad396d51c732f0885c1ee676d88ece",
+            "sourceSumSha256": "de6270925d3c1ccc0ebf90fb40ffa1eaa71c5464a51d39013e2481892a6fbf88",
+            "remoteContentSha256Files": 622,
+            "attempts": [
+              {
+                "attempt": 1,
+                "matched": 538,
+                "status": "partial-api-listing-rate-limit",
+                "verificationLogSha256": "18969c997f799fc5da7d113fe2e9e24effa75794b36a4c0bacbcaa0ef86d1ad9"
+              },
+              {
+                "attempt": 2,
+                "matched": 84,
+                "status": "pass",
+                "verificationLogSha256": "febe0741af02d66f3955b5d68a891775bc90bab2940c13a3c8f229911b670b24"
+              }
+            ]
+          },
+          {
+            "pathPrefix": "content/sns/instagram/video-packs/civil-construction-2/",
+            "files": 174,
+            "method": "drive-vault-sync --verify --deep --cloud",
+            "verificationLogSha256": "0e9ba1f47aee9486963cd11efbbdd0b0b3a30f5e21249d9f006ab48fe790bd8b"
+          },
+          {
+            "pathPrefix": "content/sns/instagram/video-packs/concrete-chief-engineer/",
+            "files": 156,
+            "method": "drive-vault-sync --verify --deep --cloud",
+            "verificationLogSha256": "674844f35bd4a690545b5f43c04d771385ef2856695b2d676d29810f1a41b4be"
+          },
+          {
+            "pathPrefix": "content/sns/instagram/video-packs/concrete-engineer/",
+            "files": 115,
+            "method": "drive-vault-sync --verify --deep --cloud",
+            "verificationLogSha256": "14b5f85b3db53b6fb83032b646fd4c691e5c395105d6c8d8f6037c33ef801af4"
+          }
+        ]
+      },
+      {
+        "group": "sns-archived-media",
+        "files": 224,
+        "bytes": 1002267291,
+        "method": "drive-vault-sync --verify --deep --cloud",
+        "verifiedPathListSha256": "5c84fedb441bc2c8130ed796f2063e5b3e4c6bb268db566ad05c2019f3c92711",
+        "verificationLogSha256": "5ad2af44872ec8af2d57f66a9412bafb0d28608490daf096f7a8a9aa77780a2b"
+      }
+    ]
+  },
+  "restoreSmoke": {
+    "checkedAt": "2026-09-10T21:28:43.650412+00:00",
+    "status": "pass",
+    "method": "unmodified drive-vault-sync --pull into empty fixture",
+    "samples": [
+      {
+        "path": "content/sns/instagram/video-packs/civil-construction-1/career-agent-katsuyo/carousel/img/00-cover.png",
+        "bytes": 288890,
+        "sha256": "39423fcddf217b3573157c04652fe8add16ff5845842120bf5f6a70077086395"
+      },
+      {
+        "path": "content/sns/instagram/video-packs/civil-construction-1/career-agent-katsuyo-point-step1-1/reels/video.mp4",
+        "bytes": 4475220,
+        "sha256": "1068341a216d1e4a27ada56a7a71652361c12e701fa2ed3e14d19a3576b8394a"
+      }
+    ]
+  },
+  "localOutputsRetained": true,
+  "publicationEnabled": false
+}

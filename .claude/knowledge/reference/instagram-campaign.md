@@ -40,3 +40,7 @@ npm run drive-vault-sync -- --group sns-archived-media --path content/sns/instag
 ```
 
 dry-runで対象を確認し、`--commit` で保存する。保存後は同じ対象へ `--verify --deep --cloud` を実行する。マウント上のコピー完了とクラウド到達は別に検査し、一致するまでローカル出力を保持する。別端末での復元は `drive-vault-sync --pull --path` を使う。
+
+全件のクラウド照合と空の復元先への取り戻し結果は [バックアップ検証記録](../../state/assets/instagram-campaign-backup.json) に残す。各素材の保存先・SHA-256・サイズは既存の [Drive台帳](../../state/assets/drive-manifest.json) を参照する。
+
+マウント経由の読み取りが遅い場合は、対象のSHA-256と保存先からSUMファイルを作り、`rclone checksum SHA256 <SUMファイル> <Driveの対象フォルダ> --download --one-way` でクラウドの全バイトを直接照合できる。一致一覧が対象全件と一致し、差異・欠落・読取エラーが0件であることを確認する。検証記録には実際に使った方法を残し、マウント照合と直接ダウンロード照合を区別する。
