@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-kankyo-hozen",
+  "key": "point-step1-2",
+  "sceneId": "step1",
+  "exam": "civil-construction-1",
+  "narration": "特定建設作業の騒音や振動は、作業機械のすぐ近くではなく、敷地の境界線で基準と比較します。騒音は85デシベル、振動は75デシベル以下が基本です。測定場所と数値を対にし、作業時間や地域区分などの条件も合わせて確認しましょう。",
+  "visual": {
+    "heading": "騒音・振動は敷地境界で確認",
+    "items": [
+      "測定点：敷地の境界線",
+      "騒音85dB以下・振動75dB以下",
+      "作業時間・地域区分なども確認"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-noise-vibration-regulation/article.mdx",
+  "sourceUrls": [
+    "https://www.env.go.jp/hourei/07/000050.html",
+    "https://www.env.go.jp/air/sindo/const_guide/full.pdf"
+  ]
+}

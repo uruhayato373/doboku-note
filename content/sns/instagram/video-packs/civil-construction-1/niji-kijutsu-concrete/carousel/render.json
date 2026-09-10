@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "niji-kijutsu-concrete",
+  "inputDigest": "3dd4a31d7fdf245ca5207dcfb4e040d60a49f6acf3b4d4058b6d53eb74b07ab2",
+  "sourceSha256": "1ecc0e0d1df6848ea6c4e9c90060636052764331fd360b203a8a1d56e7debd77",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:32:32.543Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/niji-kijutsu-concrete/carousel/img/00-cover.png",
+      "sha256": "fa7c56b27b8a82109d9c079ef080ff6a477ba1da80d2e4277ce61a5e505667ce",
+      "bytes": 323465,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/niji-kijutsu-concrete/carousel/img/01-point.png",
+      "sha256": "7114d53d3d2f4c3df1c6bea01dbfd15c5b861dd348ba0b352a766c389e357df3",
+      "bytes": 118030,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/niji-kijutsu-concrete/carousel/img/02-point.png",
+      "sha256": "e1d001ccb3d861d57ce3f7326c045f9ab5bbd1f3de6781b17f6dd2c11a4a91f3",
+      "bytes": 140955,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/niji-kijutsu-concrete/carousel/img/03-point.png",
+      "sha256": "6e095cf3e40663e2953fee1de904c328ae4c489e149c4424d96205ab5d0eeeb6",
+      "bytes": 102246,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/niji-kijutsu-concrete/carousel/img/04-point.png",
+      "sha256": "f61a4ec2925770c8e1fcb97952c3c7e5707660086830ffe1972eac2578f853a5",
+      "bytes": 161475,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/niji-kijutsu-concrete/carousel/img/05-point.png",
+      "sha256": "c3740d2a15361df5bf9581d4d34e7429af3627b03b4975504e041fdc02a2b09d",
+      "bytes": 110353,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/niji-kijutsu-concrete/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

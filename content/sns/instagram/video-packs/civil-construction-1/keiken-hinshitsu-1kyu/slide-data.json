@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "keiken-hinshitsu-1kyu",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "品質管理の答案",
+        "課題から組む"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：基準を守れば書ける",
+      "items": [
+        "焦点をどこに当てたかを示す必要がある",
+        "先に管理項目を決めると一般論になりがち"
+      ],
+      "sourceRef": "content/note/1級・2級土木/1級土木/1級経験記述テーマ選び5管理/article.md"
+    },
+    {
+      "type": "point",
+      "sceneId": "gap-to-issue",
+      "heading": "現場条件と規格値のギャップ",
+      "items": [
+        "現場条件（地盤・気象・作業条件）を具体化する",
+        "規格値との差分を明記する",
+        "条件をぼかすと課題も曖昧になる"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "focus-item",
+      "heading": "品質項目を一つに絞る",
+      "items": [
+        "盛土・路盤工＝締固め度と含水比",
+        "コンクリート工＝スランプ・空気量・養生",
+        "出来形の規格値は工種ごとに異なる"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "check-and-action",
+      "heading": "検討と対応処置",
+      "items": [
+        "検討：測定方法まで書く（RI計・砂置換法等）",
+        "対応処置：管理基準を明示する",
+        "工法・機械・材料・管理方法で具体化する"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "evaluation",
+      "heading": "評価は端的に",
+      "items": [
+        "残りスペースはわずかと想定する",
+        "結果を端的な一文にする",
+        "対処が正しかったと伝わる形にする"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

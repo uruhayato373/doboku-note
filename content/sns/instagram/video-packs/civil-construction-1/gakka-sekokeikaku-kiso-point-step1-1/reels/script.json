@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-sekokeikaku-kiso",
+  "key": "point-step1-1",
+  "sceneId": "step1",
+  "exam": "civil-construction-1",
+  "narration": "施工計画の事前調査では、契約条件、現場の施工条件、気象や地盤などを整理します。契約書と設計図書で要求を確認し、運搬路や周辺環境、地質や地下水位が施工にどう影響するかを調べます。分類名の暗記だけで終わらず、計画へ反映する条件として捉えましょう。",
+  "visual": {
+    "heading": "事前調査は計画に効く条件を集める",
+    "items": [
+      "契約書・設計図書の要求を確認",
+      "運搬路・立地・周辺環境を調査",
+      "気象・地質・地下水位を計画へ反映"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-construction-plan-overview/article.mdx",
+  "editorialNote": "地形は自然条件でないとする分類の固定化や文化財の不自然な分類を避ける。"
+}

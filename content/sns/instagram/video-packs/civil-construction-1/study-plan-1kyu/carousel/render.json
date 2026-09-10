@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "study-plan-1kyu",
+  "inputDigest": "481ad07bba340d3015b0b098d986dfab768333e015990a63e2c5d27c36fc0946",
+  "sourceSha256": "ef3ddf55ed79a8d0b401b0f122a0911fdb7ab1078831cc8a51a45672ff83775e",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:32:44.210Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/study-plan-1kyu/carousel/img/00-cover.png",
+      "sha256": "005d60e277d008dd547a04d8162c6a868d35d9a94dcfc7f6361886bc94a36d57",
+      "bytes": 327778,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/study-plan-1kyu/carousel/img/01-point.png",
+      "sha256": "cc5b900ac51917cc4ecdcd33eb9589e20b33378314fbd0679c0c0350aa634c21",
+      "bytes": 108760,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/study-plan-1kyu/carousel/img/02-point.png",
+      "sha256": "9408fabe9806a5efb79b566d28b8f5cc248f4a5926f85f284451dfe06857789d",
+      "bytes": 94685,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/study-plan-1kyu/carousel/img/03-point.png",
+      "sha256": "a11c1e9ce5375e2fadb3947880b9188f2cb70d354a2e8c8e9d1fca193208e6e7",
+      "bytes": 106703,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/study-plan-1kyu/carousel/img/04-point.png",
+      "sha256": "bafab0c8e7627587e8b911d730ec7e55b69ec936038cecc6370bf2525a8f15d3",
+      "bytes": 109595,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/study-plan-1kyu/carousel/img/05-point.png",
+      "sha256": "baa90beff9959f1d99875285cb98a81c1ba53593e43ea90e7a1bd77dd312d9e8",
+      "bytes": 101373,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/study-plan-1kyu/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

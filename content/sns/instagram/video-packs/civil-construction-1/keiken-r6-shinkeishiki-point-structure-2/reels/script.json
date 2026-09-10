@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "keiken-r6-shinkeishiki",
+  "key": "point-structure-2",
+  "sceneId": "structure",
+  "exam": "civil-construction-1",
+  "narration": "設問1・設問2とも、(1)(2)の2区画で書きます。(1)には現場状況と技術的課題、そして検討した項目まで入れます。(2)には(1)の検討項目に対する対応処置と評価を書きます。",
+  "visual": {
+    "heading": "新形式の解答欄構造",
+    "items": [
+      "(1) 現場状況・技術的課題・検討した項目",
+      "(2) 検討項目への対応処置と評価",
+      "検討した項目は(1)側に入る"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+}

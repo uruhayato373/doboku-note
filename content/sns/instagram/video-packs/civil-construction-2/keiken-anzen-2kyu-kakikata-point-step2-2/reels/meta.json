@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.187Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-anzen-2kyu-kakikata/shorts/point-step2-2/shorts.mp4",
-  "durationSeconds": 39,
-  "sha256": "95d4dc95f31a63a34425151a2b3b0166693896e68b975d1913cbde5730b8c02e",
-  "coverSha256": "bc04f1bb3bf02e1cd56b6f5d5167f9a0a39d1a3a9a187cad83bd0f78665a4409",
-  "renderedAt": "2026-09-05T23:27:52.498Z"
+  "durationSeconds": 30.2,
+  "sha256": "8ffe465d33a780cc41beb128eeebc0af3d8912c0358d34b7dae0f04a5982eaad",
+  "coverSha256": "e940de87b5fa49d9467abd27b09af2012abc484d56789ec6f9b50227e491937b",
+  "renderedAt": "2026-09-10T09:35:20.765Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "a269cfb6786898eb2312548e1a5375ce551db642d59ed994089669a2140afba7",
+  "rendererSha256": "43e4708f2239a8c5bbfad7dbfbe52b5123a858dd1edaa6a15d937f8eb586680f",
+  "scriptSha256": "fcc9bdff3bfe9637447f37822c460c9fbaba99eced663f9c109041686b2c911f",
+  "speaker": 13,
+  "narration": "安全管理の検討項目は、現場の危険に合うものを選びます。高所作業なら作業床や端部の墜落防止、掘削なら地山の状態や崩壊防止を検討します。基準の数値を列挙するだけでなく、なぜその現場で必要だったかと、実際に採った処置を結びつけて書きましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "15c642f1da4aaea3406a2089d13bad759aa34fc3bb7217ec5260a7c413cc2eb4",
+    "points": "6ae342c73c4e596a599955d3157f8cc086db4e9e0e9249e65ef327534ba335bb",
+    "pointsImage": "b3adeb5ffd3e64719a386cb6c813c235fdd20c9ee831ad4d3cf9298c822f881f",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T09:35:20.765Z"
+  }
 }

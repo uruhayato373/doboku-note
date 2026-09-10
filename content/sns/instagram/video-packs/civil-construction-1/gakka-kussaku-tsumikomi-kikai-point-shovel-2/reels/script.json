@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-kussaku-tsumikomi-kikai",
+  "key": "point-shovel-2",
+  "sceneId": "shovel",
+  "exam": "civil-construction-1",
+  "narration": "バックホウはバケットを引き寄せて掘るため、設置地盤より低い所を掘るのに適します。ショベルは前方に押し出して掘るため高い所を削ります。クラムシェルは重力で落下させてつかむため垂直の深掘りに、ドラグラインは遠心力でブームより遠い所まで掘れます。",
+  "visual": {
+    "heading": "ショベル系は掘削の向きで選ぶ",
+    "items": [
+      "バックホウ＝低所を掘る／ショベル＝高所を削る",
+      "クラムシェル＝垂直の深掘り",
+      "ドラグライン＝ブームより遠い所まで掘れる"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-shovel-excavator/article.mdx"
+}

@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "career-nenshu-up",
+  "key": "point-step1-1",
+  "sceneId": "step1",
+  "exam": "civil-construction-1",
+  "narration": "土木施工管理の年収は、年齢だけでは決まりません。資格、担当工種、工事規模、現場で担う責任によって評価は変わります。相場と比べるときは、同じ職種でも条件をそろえ、基本給と手当、残業代を分けて確認しましょう。",
+  "visual": {
+    "heading": "年収は条件をそろえて比較",
+    "items": [
+      "資格・担当工種・工事規模を確認",
+      "現場で担う責任もそろえて比較",
+      "基本給・手当・残業代を分ける"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/guide-salary-up/article.mdx",
+  "editorialNote": "出典期間のない年収ピークや資格効果の断定を削除。"
+}

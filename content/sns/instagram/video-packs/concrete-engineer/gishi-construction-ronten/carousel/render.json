@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "gishi-construction-ronten",
+  "inputDigest": "448067132012ca6ce65192edd95ed7184d0d9cf349f455ba6f82117e7d5c8fb9",
+  "sourceSha256": "d9432a9af3a7699ca69ba7b194a940b5f3668ac275508e7fa090f634cf59f1e5",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:38:00.281Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-construction-ronten/carousel/img/00-cover.png",
+      "sha256": "a251650a19ce86799360e8234126962c167a4cce4191ddc51fcd02e3cb829660",
+      "bytes": 342234,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-construction-ronten/carousel/img/01-point.png",
+      "sha256": "485a1535ff5c0344ae96cbfab644186841d13b8b8cc0a4e1e08f1e092a536fbc",
+      "bytes": 126721,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-construction-ronten/carousel/img/02-point.png",
+      "sha256": "35532c7645608a1ad9bf282080d0ea5b51246770d20d451cb8e8f597972cf2ca",
+      "bytes": 143133,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-construction-ronten/carousel/img/03-point.png",
+      "sha256": "5ad6745010d7ec7f178640b17a7de85cfc2bb6d884612534eaaa93ce842356be",
+      "bytes": 136034,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-construction-ronten/carousel/img/04-point.png",
+      "sha256": "7550e1b0293889680669338c3f6669f01a109d86c3411e5c5b4945573cfac766",
+      "bytes": 133131,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-construction-ronten/carousel/img/05-point.png",
+      "sha256": "f1789ca380a9126828432d3d556f7fc78dd73ebcbaad62e920fb8029d42aa3f5",
+      "bytes": 142597,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-construction-ronten/carousel/img/06-point.png",
+      "sha256": "af0391db4d0051196b53275a17011ea3f5f7dd290dd13e41e95f9f7342793329",
+      "bytes": 135204,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-construction-ronten/carousel/img/07-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

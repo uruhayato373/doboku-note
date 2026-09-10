@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "kikinagashi-anzen-suchi",
+  "key": "point-scaffold-rail-2",
+  "sceneId": "scaffold-rail",
+  "exam": "civil-construction-1",
+  "narration": "足場の端部対策では、人の墜落と物の落下を分けて考えます。わく組足場以外の足場では、高さ85センチメートル以上の手すりと、35から50センチメートルの中さんなどが基本です。物の落下には、高さ10センチメートル以上の幅木などで対策します。",
+  "visual": {
+    "heading": "端部対策は墜落と落下を区別",
+    "items": [
+      "わく組足場以外：手すり85cm以上",
+      "中さん：35〜50cmなど",
+      "物の落下対策：幅木10cm以上など"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-safety-scaffolding/article.mdx",
+  "editorialNote": "足場種類の適用条件と同等設備を許容する規定を補足し、墜落防止と落下防止を区別。",
+  "sourceUrls": [
+    "https://www.mhlw.go.jp/web/t_doc?dataId=74003000&dataType=0&pageNo=10"
+  ]
+}

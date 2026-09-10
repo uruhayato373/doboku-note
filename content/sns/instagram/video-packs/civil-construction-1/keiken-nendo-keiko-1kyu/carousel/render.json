@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "keiken-nendo-keiko-1kyu",
+  "inputDigest": "dd08eadf4217fcb5f9857156d93f0c60a105c5bc3354e676672a2355f829126b",
+  "sourceSha256": "4df217cb38cfb6a3e9ab5ddd18ecf7e46e851e5388ea4f5297be78f52ac0b4f4",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:31:25.008Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-nendo-keiko-1kyu/carousel/img/00-cover.png",
+      "sha256": "73aa84f0816abec673a4241e73db7e189b5472a591f752e642985bbc37665198",
+      "bytes": 310363,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-nendo-keiko-1kyu/carousel/img/01-point.png",
+      "sha256": "52b95b6e02f965d7bc0cdd8a7ab8f74e0d7185dbd67b73dde9e07bb54ac9188b",
+      "bytes": 108737,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-nendo-keiko-1kyu/carousel/img/02-point.png",
+      "sha256": "b9c5abf05a3f3f5a64bfb747ccfdbe6b6a5bd200781f0f56724ba41849be734d",
+      "bytes": 109912,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-nendo-keiko-1kyu/carousel/img/03-point.png",
+      "sha256": "3237c0b062e988658bc3724ba6cb9ef1fb52e27d3b7e763759f9b2250907afd1",
+      "bytes": 103340,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-nendo-keiko-1kyu/carousel/img/04-point.png",
+      "sha256": "e58b0eb9607f075624f42e8e9eb0cd96e4ccddbbdb1222bc1c721737889646a9",
+      "bytes": 127438,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-nendo-keiko-1kyu/carousel/img/05-point.png",
+      "sha256": "3ab2f0a2ab6ff1a6b6df60ba55ad1e5563eacaef38db78360d5dcdbaef89d927",
+      "bytes": 127884,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-nendo-keiko-1kyu/carousel/img/06-point.png",
+      "sha256": "c29f5e08a0a8c46e559d032fc08c5c9b63312507e54bb5bced53f15029b17558",
+      "bytes": 125954,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-nendo-keiko-1kyu/carousel/img/07-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

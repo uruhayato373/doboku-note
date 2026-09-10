@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "keiken-hinshitsu-kakikata",
+  "key": "point-nagare-1",
+  "sceneId": "nagare",
+  "exam": "civil-construction-2",
+  "narration": "品質管理の経験記述は、現場状況、技術的課題、検討項目、対応処置をつなぎます。どんな条件があり、何を検討し、なぜその処置を選んだのかを説明しましょう。評価の要否や分量は、受検年度の設問を優先します。指定された欄に、求められた内容を書きます。",
+  "visual": {
+    "heading": "品質管理は設問に沿って書く",
+    "items": [
+      "現場状況→技術的課題",
+      "検討項目と理由→対応処置",
+      "評価の要否・分量は設問を優先"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx",
+  "coverHeadline": [
+    "2級品質管理",
+    "設問に沿って"
+  ],
+  "editorialNote": "評価を全年度の必須要素とせず、当該年度の設問に従う。"
+}

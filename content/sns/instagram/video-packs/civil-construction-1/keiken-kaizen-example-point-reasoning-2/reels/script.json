@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "keiken-kaizen-example",
+  "key": "point-reasoning-2",
+  "sceneId": "reasoning",
+  "exam": "civil-construction-1",
+  "narration": "2つ目は、検討理由が項目ごとに書かれていない答案です。検討した項目を並べるだけで、なぜその項目を検討したのかがありません。項目を1つ挙げるごとに、理由もセットで書きます。",
+  "visual": {
+    "heading": "検討理由が項目ごとにない",
+    "items": [
+      "項目の列挙だけで理由が抜けている",
+      "項目1つごとに検討理由をセットで書く"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-examples/article.mdx"
+}

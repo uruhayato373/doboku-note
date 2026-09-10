@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "career-komuin-minkan",
+  "key": "point-step1-1",
+  "sceneId": "step1",
+  "exam": "civil-construction-1",
+  "narration": "公務員の土木職は、発注者として公共工事の計画、発注、監督、維持管理を担います。民間の施工経験は、図面の読み取りや工程の検討に生かせます。施工者として何をしたかに加え、発注者の判断へどう生かせるかを説明しましょう。",
+  "visual": {
+    "heading": "施工経験を発注者の視点へ",
+    "items": [
+      "計画・発注・監督・維持管理を担う",
+      "図面や工程を読む経験を生かす",
+      "施工経験が発注者の判断にどう役立つか整理"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/guide-public-servant/article.mdx"
+}

@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gishi-shunin-dochira",
+  "key": "point-step1-1",
+  "sceneId": "step1",
+  "exam": "concrete-engineer",
+  "narration": "技士は日常の技術業務を実施する能力のある技術者、主任技士は計画・管理・指導を実施する高度な技術者と位置づけられています。技士の実施力が主任技士の土台になります。",
+  "visual": {
+    "heading": "違いの本質",
+    "items": [
+      "技士＝日常業務を正しく実施する力",
+      "主任技士＝計画・管理・指導まで担う力",
+      "技士の実施力が主任技士の土台になる"
+    ]
+  },
+  "sourceRef": "content/site/concrete-engineer/guide-difference-chief/article.mdx",
+  "sourceUrls": [
+    "https://www.jci-net.or.jp/j/exam/gishi/pdf/gishi_2026_20260605.pdf"
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "keiken-2kyu-level",
+  "inputDigest": "e1266bc18b4927d95f836e91bcadc9a788e42a8ee97cbf180b2be685efd24f54",
+  "sourceSha256": "f278ba6174812778522a6277ccfebc8b214da794bac2bd830e8c7631e0606be5",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:33:04.513Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/keiken-2kyu-level/carousel/img/00-cover.png",
+      "sha256": "e704018497286e85ff6008470c72658ce1fd780cfe8bf7cb47ae92f1fd7d3e5e",
+      "bytes": 334344,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/keiken-2kyu-level/carousel/img/01-point.png",
+      "sha256": "0389bcd82cae8b6e1bbd5af961561b069322fb1fc4f9922473660f90a8236ece",
+      "bytes": 119804,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/keiken-2kyu-level/carousel/img/02-point.png",
+      "sha256": "75594554fbcb7239c6023b6619145e08ea5a01cec0836856ee2a78633d581549",
+      "bytes": 132181,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/keiken-2kyu-level/carousel/img/03-point.png",
+      "sha256": "2b3a863c786a9c5b37c7cb5a20f8669439819e9358a885a00e83a7354e7cce43",
+      "bytes": 111216,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/keiken-2kyu-level/carousel/img/04-point.png",
+      "sha256": "5b72e2ebf1fa4589cfe3b17ce4691d715bd943304c375ab315afafe53d6c5ac9",
+      "bytes": 114288,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/keiken-2kyu-level/carousel/img/05-point.png",
+      "sha256": "3e8f4530d92b4b2b1af3f32cc9177f5f1318f3ce8b567e8a45f7fb42a3f08658",
+      "bytes": 99421,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/keiken-2kyu-level/carousel/img/06-point.png",
+      "sha256": "a506ac8f26947b7681035d80a3b39e149628d180b79dcf983c71143b10bfb1c2",
+      "bytes": 140514,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/keiken-2kyu-level/carousel/img/07-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

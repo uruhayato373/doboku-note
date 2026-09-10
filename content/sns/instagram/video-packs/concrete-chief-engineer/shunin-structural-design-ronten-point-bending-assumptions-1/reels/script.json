@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "shunin-structural-design-ronten",
+  "key": "point-bending-assumptions-1",
+  "sceneId": "bending-assumptions",
+  "exam": "concrete-chief-engineer",
+  "narration": "曲げ耐力の計算には4つの仮定があります。鉄筋とコンクリートが一体で滑らない完全付着、ひずみが中立軸からの距離に比例する平面保持、コンクリートの引張は無視する仮定、そして圧縮側は等価応力ブロックで扱う仮定です。コンクリートを弾性体として仮定する、という選択肢は不適当なので注意してください。",
+  "visual": {
+    "heading": "曲げ耐力の4つの仮定",
+    "items": [
+      "完全付着・平面保持",
+      "コンクリートの引張は無視",
+      "圧縮側は等価応力ブロック"
+    ]
+  },
+  "sourceRef": "content/site/concrete-chief-engineer/textbook-structural-design/article.mdx"
+}

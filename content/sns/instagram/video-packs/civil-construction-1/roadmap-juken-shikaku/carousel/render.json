@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "roadmap-juken-shikaku",
+  "inputDigest": "717464536b36e9aefd3ea9e96236c87c122b64eeaefc690fc1d159089fd0394a",
+  "sourceSha256": "c01570b4413006c1973fcc614281ce1b846792faac8aeebc8d4c38e8fb463b29",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:32:39.136Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/roadmap-juken-shikaku/carousel/img/00-cover.png",
+      "sha256": "ce54458669963724d9ef830cdad7ff29de38004034295a0b257db2155c691a4b",
+      "bytes": 310506,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/roadmap-juken-shikaku/carousel/img/01-point.png",
+      "sha256": "8b7f1e60af2af671f57481303d1fbc7636a7c08e5dc0947806659cf9da1b13bd",
+      "bytes": 105960,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/roadmap-juken-shikaku/carousel/img/02-point.png",
+      "sha256": "656598c4c2a7b2977a32b1bc7cfb8ef75f685889a25758bd9291719a3d9c6ca5",
+      "bytes": 100396,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/roadmap-juken-shikaku/carousel/img/03-point.png",
+      "sha256": "54936dba90f550433f5aeeb8c73a5ac4069ca1b4a3d7e94e98c7dfd29c6d1bca",
+      "bytes": 144865,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/roadmap-juken-shikaku/carousel/img/04-point.png",
+      "sha256": "db9204bb58c0c394461f75bb7bdc8e57698222a98ea8c3f1586b80707f292f65",
+      "bytes": 99426,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/roadmap-juken-shikaku/carousel/img/05-point.png",
+      "sha256": "3fd26e29ecf13b9fa71d90e03efe39ac796a4f91236ba1b680164d806223751d",
+      "bytes": 139341,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/roadmap-juken-shikaku/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "keiken-koji-ga-nai",
+  "exam": "civil-construction-2",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "書ける工事が",
+        "無いと感じたら"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "規模より担当内容から振り返る",
+      "items": [
+        "大規模な工事でなくても、実際に担当した管理を整理します。",
+        "工事の対象範囲は、当該年度の手引や問題文で確認します。"
+      ],
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "taisho",
+      "heading": "対象になる工事は幅広い",
+      "items": [
+        "河川・道路・上下水道・土工事など多岐",
+        "日常的な改良・維持工事、管渠工事も対象"
+      ],
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "taishogai",
+      "heading": "一覧だけで対象と決めない",
+      "items": [
+        "建築・設備などとの区分や、調査・設計・積算業務の取扱いを確認します。",
+        "除外一覧に名前がないだけで対象と決めず、工事内容と担当業務を照合します。"
+      ],
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "shitauke",
+      "heading": "下請は自社の担当範囲で整理",
+      "items": [
+        "下請工事では、自社が受注し自分が担当した範囲を具体的に書きます。",
+        "工期1か月以上や完成工事を選ぶことは教材の準備目安で、公式要件と区別します。",
+        "不明な工事の取扱いは、当該年度の手引や試験機関で確認します。"
+      ],
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "kibo",
+      "heading": "小規模でも課題は必ずある",
+      "items": [
+        "狭いヤード・近接住宅・軟弱地盤",
+        "規模の大小と課題の有無は無関係"
+      ],
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

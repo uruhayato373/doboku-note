@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "roadmap-1kyu-vs-2kyu",
+  "inputDigest": "fa031a35f288812ca7a8d40294c29cc6967d61a15923a9e235a5b258b0abf67f",
+  "sourceSha256": "96c2517a4caa8c0eca92f1cae7740b01a03954090238564de89a2ef8d93610d7",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:32:37.915Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/roadmap-1kyu-vs-2kyu/carousel/img/00-cover.png",
+      "sha256": "953960e3ea48d84a5dcf82e0e3f92126564926fa94b5b6d1b186ab235d8309e5",
+      "bytes": 284247,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/roadmap-1kyu-vs-2kyu/carousel/img/01-point.png",
+      "sha256": "28a403d19023dbf962cc94de7f5d4fff997ea3c8d5ba1993d7057bd7ed4f2226",
+      "bytes": 105854,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/roadmap-1kyu-vs-2kyu/carousel/img/02-point.png",
+      "sha256": "9dcfcf979d4268dbb1db765a012ca48305e382bed4bada4b98ed4af91c06c509",
+      "bytes": 110015,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/roadmap-1kyu-vs-2kyu/carousel/img/03-point.png",
+      "sha256": "f361f44c8b4696c7d1a08d83db62befaf9d88704d66b174ec71033bae529e222",
+      "bytes": 135951,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/roadmap-1kyu-vs-2kyu/carousel/img/04-point.png",
+      "sha256": "4e5b304fad325396e041dfa57c90f1077fc8a2918083ee7fc8f571184517af46",
+      "bytes": 103915,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/roadmap-1kyu-vs-2kyu/carousel/img/05-point.png",
+      "sha256": "c76e9a72016fe84181251ba33588ca62c08fae718ccbec5a1cf1d5db8e5e4180",
+      "bytes": 152533,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/roadmap-1kyu-vs-2kyu/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

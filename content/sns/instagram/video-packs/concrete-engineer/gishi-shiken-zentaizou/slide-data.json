@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "gishi-shiken-zentaizou",
+  "exam": "concrete-engineer",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "コンクリート",
+        "技士の試験概要"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "wave",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：似た名前だから同じ試験",
+      "items": [
+        "技士＝標準業務を実施する力",
+        "主任技士＝計画・指導までを問う"
+      ],
+      "sourceRef": "content/site/concrete-engineer/guide-overview/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "資格の位置づけ",
+      "items": [
+        "日本コンクリート工学会（JCI）認定資格",
+        "対象は生コン工場だけでなく施工・製品・維持管理まで"
+      ],
+      "sourceRef": "content/site/concrete-engineer/guide-overview/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "試験方式",
+      "items": [
+        "四肢択一式（小論文なし）",
+        "「なぜ正しいか」を説明できる理解が必要",
+        "合格基準点は非公表、高い正答率を狙う"
+      ],
+      "sourceRef": "content/site/concrete-engineer/guide-overview/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "出題は8領域",
+      "items": [
+        "材料・配合・試験は一つの流れでつながる",
+        "製造・品質管理・施工は現場の判断力を問う",
+        "構造設計は範囲外、日常業務が中心"
+      ],
+      "sourceRef": "content/site/concrete-engineer/guide-overview/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step4",
+      "heading": "実施と判定から計画と指導へ",
+      "items": [
+        "技士は標準的な業務の実施・判定、主任技士は計画・指導までを担う役割です。",
+        "初めて体系的に学ぶ場合は、技士の基礎範囲から現在地を確認します。",
+        "目指す役割と受験資格を照らして、どちらを受けるか検討します。"
+      ],
+      "sourceRef": "content/site/concrete-engineer/guide-overview/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step5",
+      "heading": "合格までの勉強の流れ",
+      "items": [
+        "最初は選考基準と目次を照合して全体像をつかむ",
+        "分野を週単位で回し誤答理由まで分析",
+        "仕上げは時間を計った通し演習"
+      ],
+      "sourceRef": "content/site/concrete-engineer/guide-overview/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

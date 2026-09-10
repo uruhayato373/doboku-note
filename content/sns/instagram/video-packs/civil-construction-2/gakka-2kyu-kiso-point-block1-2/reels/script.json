@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-2kyu-kiso",
+  "key": "point-block1-2",
+  "sceneId": "block1",
+  "exam": "civil-construction-2",
+  "narration": "基礎の形式は、支持層の深さを手がかりに整理できます。浅い位置で支えられる場合は直接基礎、深い支持層を利用する場合は杭基礎やケーソン基礎が候補です。ただし、形式は深さだけで決めず、荷重や地盤条件、施工条件も合わせて選びます。",
+  "visual": {
+    "heading": "基礎形式は支持層の深さから整理",
+    "items": [
+      "浅い支持層：直接基礎が候補",
+      "深い支持層：杭・ケーソン基礎が候補",
+      "荷重・地盤・施工条件も合わせて判断"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-2/guide-foundation-key-points/article.mdx",
+  "editorialNote": "支持層の深さだけで形式が自動決定する誤認を防ぐ。"
+}

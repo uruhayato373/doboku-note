@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "gakka-histogram",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "ヒストグラム",
+        "工程能力図",
+        "読み方を整理"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "pc-work",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "分布・時間変化・安定性を区別",
+      "items": [
+        "ヒストグラム＝時間軸なし",
+        "工程能力図＝時間順に打点",
+        "管理図は管理限界線と比べる"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-histogram/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "overview",
+      "heading": "時間順に並べる図かを確認",
+      "items": [
+        "ヒストグラム：区間ごとの度数を見る",
+        "工程能力図：時間順にデータを打点",
+        "共通点は規格値とのゆとり確認"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-histogram/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "分布の形から原因を確認",
+      "items": [
+        "つり鐘型を基本形として、規格値との余裕を確かめます。",
+        "ふた山型では、異なる工程のデータが混ざった可能性を調べます。",
+        "形だけで原因を断定せず、実際の工程条件と照合します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-histogram/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "CpとCpkの分母を省略しない",
+      "items": [
+        "Cp＝規格幅÷（6×標準偏差）です。",
+        "Cpkは、平均から上下の規格値までの余裕の小さい方÷（3×標準偏差）です。",
+        "片側規格では、その側の規格値から平均までの余裕を確認します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-histogram/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "Cpkは規格に対する余裕の目安",
+      "items": [
+        "教材の目安は、1.33以上が十分、1.00以上1.33未満が改善の余地ありです。",
+        "1.00未満は不足の目安です。",
+        "工程の安定性は管理図で別に確認し、指標を混同しません。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-histogram/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

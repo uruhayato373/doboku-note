@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "shunin-structural-design-ronten",
+  "exam": "concrete-chief-engineer",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "コンクリート",
+        "構造設計の論点"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "曲げとせん断で支配因子を区別",
+      "items": [
+        "主筋の降伏強度を上げることと、せん断補強筋を増やすことを混同しません。",
+        "曲げ耐力・せん断耐力それぞれの算定で、どの量を使うか確認します。"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-structural-design/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "bending-assumptions",
+      "heading": "曲げ耐力の4つの仮定",
+      "items": [
+        "完全付着・平面保持",
+        "コンクリートの引張は無視",
+        "圧縮側は等価応力ブロック"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-structural-design/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "shear-capacity",
+      "heading": "せん断の負担と破壊形式を確認",
+      "items": [
+        "コンクリートの負担分とスターラップ等の負担分を分けて考えます。",
+        "主筋の降伏強度だけで、せん断耐力の増加を判断しません。",
+        "曲げ破壊を先行させ、靱性を確保する設計の考え方を確認します。"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-structural-design/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "member-behavior",
+      "heading": "部材の挙動を左右する要因",
+      "items": [
+        "軸力大→柱の変形能力は小さくなる",
+        "圧縮鉄筋は靭性を高める",
+        "太径鉄筋ほど付着割裂しやすい"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-structural-design/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "design-method",
+      "heading": "設計法とラーメンのひび割れ",
+      "items": [
+        "許容応力度設計法は弾性挙動を仮定",
+        "隅角部は開く側（引張側）にひび割れ",
+        "モーメント図→引張側の順で確認"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-structural-design/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

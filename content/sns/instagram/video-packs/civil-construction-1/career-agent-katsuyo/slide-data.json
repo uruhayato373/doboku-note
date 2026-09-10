@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "career-agent-katsuyo",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "転職エージェント",
+        "選び方と使い方"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "決める前の相談も判断材料になる",
+      "items": [
+        "迷っている段階でも、経験がどのように評価されるか相談できます。",
+        "現職で交渉するか、転職を検討するかの材料を集めます。"
+      ],
+      "sourceRef": "content/note/1級・2級土木/転職エージェントの使い方-無料/article.md"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "サービスは専門性と支援範囲で比較",
+      "items": [
+        "施工管理への特化型と、幅広い業種を扱う総合型を比べます。",
+        "応募や交渉を支援するエージェントと、自分で探す求人サイトを区別します。",
+        "施工管理の経験を伝えやすいサービスを起点に検討します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/guide-career-agents/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "工種・規模・役割を具体的に伝える",
+      "items": [
+        "担当した工種、工事の規模、自分の役割を具体的に整理します。",
+        "求人紹介や条件交渉の支援範囲は、サービスと担当者に確認します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/guide-career-agents/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "面談では希望条件に優先順位を付ける",
+      "items": [
+        "登録後の面談で希望を伝え、求人紹介から応募へ進みます。",
+        "年収・勤務地・働き方など、譲れない条件を先に言葉にします。"
+      ],
+      "sourceRef": "content/note/1級・2級土木/転職エージェントの使い方-無料/article.md"
+    },
+    {
+      "type": "point",
+      "sceneId": "step4",
+      "heading": "相性と説明の納得感を確かめる",
+      "items": [
+        "希望が伝わらない担当者には、交代や別サービスの利用を検討します。",
+        "期限を強く迫られたら、その理由を確認してから判断します。",
+        "知名度だけで選ばず、自分の経験に合う支援かを見ます。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/guide-career-agents/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

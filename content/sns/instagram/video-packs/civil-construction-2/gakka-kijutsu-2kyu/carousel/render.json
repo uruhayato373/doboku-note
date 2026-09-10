@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "gakka-kijutsu-2kyu",
+  "inputDigest": "6b0cc09d7fb837ece1a3021fd12c2e571c1814f7c529bb6d54fc892e511e1786",
+  "sourceSha256": "e749447d9c12189d7afa3d397bc16db70241b26e838d6900642afb42a9e930e6",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:33:00.321Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/gakka-kijutsu-2kyu/carousel/img/00-cover.png",
+      "sha256": "e4b67edccee110492dc9a749d8f13ead400dc282d470270b85aeaa0b1ecf0079",
+      "bytes": 327453,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/gakka-kijutsu-2kyu/carousel/img/01-point.png",
+      "sha256": "2ce2cb56cb952f73dab6839ba48952b8defeae403c674aa258d3c2a84ee69d39",
+      "bytes": 91033,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/gakka-kijutsu-2kyu/carousel/img/02-point.png",
+      "sha256": "e049af0d2007f9a1f6661a50956553deba67d94d0e8d079a1324406645785d06",
+      "bytes": 88862,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/gakka-kijutsu-2kyu/carousel/img/03-point.png",
+      "sha256": "21ab6d09362d8ac08de7599923d5297a5e2890c475963bef30522fa212aa73e3",
+      "bytes": 102180,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/gakka-kijutsu-2kyu/carousel/img/04-point.png",
+      "sha256": "0d47499ab913e3818537bb5ea0b81c9e6efe552d424c46e1675d8d18d6406d40",
+      "bytes": 99613,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/gakka-kijutsu-2kyu/carousel/img/05-point.png",
+      "sha256": "64670813299f8743ab9306d1fccd553e1155f962d013b23d2d106f1770d1ba5b",
+      "bytes": 97416,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/gakka-kijutsu-2kyu/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-nori-hogoko",
+  "key": "point-hisho-2",
+  "sceneId": "hisho",
+  "exam": "civil-construction-1",
+  "narration": "植生工を選ぶときは、植物が育つ土壌、施工時期、のり面の勾配を確認します。安定した土質で侵食防止を図るのが基本で、急勾配や寒冷地では適用条件が変わります。勾配の数字だけで決めず、植生の工法と地域条件を組み合わせて選びましょう。",
+  "visual": {
+    "heading": "植生工は土壌・時期・勾配で選ぶ",
+    "items": [
+      "植物が育つ土壌か確認",
+      "施工時期と地域条件を確認",
+      "勾配と工法の適用範囲を照合"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-cut-slope-protection/article.mdx",
+  "editorialNote": "すべての植生工に共通する勾配上限としての数値提示を避ける。"
+}

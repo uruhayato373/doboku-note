@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "keiken-kaizen-example",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "経験記述の添削",
+        "改善例で学ぶ"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "good-sign",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：経験を積めば自然に書ける",
+      "items": [
+        "型を知らないと同じ弱点を繰り返す",
+        "改善前後の比較が直しどころへの近道"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-examples/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "general",
+      "heading": "一般論で終わっている答案",
+      "items": [
+        "「〇〇に留意した」で終わる答案が典型",
+        "概要→現場の状況→技術的課題の3段階で書く",
+        "地名・数値など現場固有の情報を入れる"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-examples/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "reasoning",
+      "heading": "検討理由が項目ごとにない",
+      "items": [
+        "項目の列挙だけで理由が抜けている",
+        "項目1つごとに検討理由をセットで書く"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-examples/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "action",
+      "heading": "対応処置に具体性がない",
+      "items": [
+        "工法・機械・材料・管理方法まで具体的に",
+        "工程管理は工法変更だけに閉じない",
+        "結果の評価まで書いて締める"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-examples/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "overview",
+      "heading": "工事概要の詰めが甘い",
+      "items": [
+        "発注者名は正確な名称で記入",
+        "工期は年号を含めて正確に",
+        "立場は会社の役職でなく現場の立場"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-examples/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

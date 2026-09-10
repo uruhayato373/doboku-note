@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "gakka-dodome-kussaku",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "土止め支保工",
+        "明り掘削の基準"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "地山の種類と高さで整理する",
+      "items": [
+        "固いほど急・高いほど緩いの関係が軸",
+        "地山の種類×高さの表で整理できる"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-excavation-shoring/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "掘削作業主任者と日常点検",
+      "items": [
+        "掘削面2m以上で作業主任者を選任",
+        "点検は開始前・大雨後・中震後・発破後",
+        "浮石や亀裂、湧水の状態を確認"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-excavation-shoring/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "手掘りは地山の種類と高さで区分",
+      "items": [
+        "岩盤等：高さ5m未満は90°以下、5m以上は75°以下です。",
+        "その他の地山：2m未満は90°、2〜5m未満は75°、5m以上は60°以下です。",
+        "砂からなる地山は、勾配35°以下または掘削面の高さ5m未満とします。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-excavation-shoring/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "支保工は組立図と点検の条件を確認",
+      "items": [
+        "組立て前に、部材配置などを示す組立図を用意します。",
+        "切りばり・腹起しの取付けや取外し等には、土止め支保工作業主任者を選任します。",
+        "点検は7日を超えない期間ごとのほか、大雨・中震以上の地震後にも行います。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-excavation-shoring/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step4",
+      "heading": "型枠支保工の届出と主任者",
+      "items": [
+        "支柱3.5m以上で30日前までに届出",
+        "組立て・解体で作業主任者を選任",
+        "打設前に支保工を点検"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-excavation-shoring/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-ashiba-kijun",
+  "key": "point-step2-2",
+  "sceneId": "step2",
+  "exam": "civil-construction-1",
+  "narration": "次は架設通路です。勾配は30度以下。15度を超えると踏さんなどの滑り止めが必要です。高さ8メートル以上の登り桟橋には、7メートル以内ごとに踊り場を設けます。はしご道は上端を60センチメートル以上突出させます。",
+  "visual": {
+    "heading": "通路とはしご道",
+    "items": [
+      "勾配30度以下・15度超で踏さん",
+      "8m以上の桟橋は7mごとに踊り場",
+      "はしご道は上端60cm以上突出"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-safety-scaffolding/article.mdx"
+}

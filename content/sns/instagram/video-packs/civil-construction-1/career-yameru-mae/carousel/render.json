@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "career-yameru-mae",
+  "inputDigest": "3f807716d12eb27d1efc412fd7056db0d1141632f653de8c9b7dcb7700c702bb",
+  "sourceSha256": "de21d3d80bd8a649f9af99712247ed3fa4e678d4018d3fe46b8c606b57d824c0",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:26:19.461Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/career-yameru-mae/carousel/img/00-cover.png",
+      "sha256": "b0620d2957a77b1d9a161b759b1a2e8471cfd4c0534886f57fd34012ca2dfece",
+      "bytes": 324197,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/career-yameru-mae/carousel/img/01-point.png",
+      "sha256": "c5ae7afcf15a3c592e37faa7fcc1988d34465bed17636584f3afb7dc7ae9d354",
+      "bytes": 127807,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/career-yameru-mae/carousel/img/02-point.png",
+      "sha256": "a1e2245cc85acc1635098347ddc02f800ef03ce37e00f98218c74876a4bc31fb",
+      "bytes": 134337,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/career-yameru-mae/carousel/img/03-point.png",
+      "sha256": "8abc5369c6028212a44ce6a551d91a3b80d4ae401a32de63aa1ed52619a006db",
+      "bytes": 120108,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/career-yameru-mae/carousel/img/04-point.png",
+      "sha256": "348f8f700d58da578c66646a89090532d28b28f41d875ae95563e4891c795939",
+      "bytes": 124755,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/career-yameru-mae/carousel/img/05-point.png",
+      "sha256": "f63264a86701478bf381c8bb03b5c39be1fb186420000a05ecedb86554d41ac7",
+      "bytes": 118135,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/career-yameru-mae/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

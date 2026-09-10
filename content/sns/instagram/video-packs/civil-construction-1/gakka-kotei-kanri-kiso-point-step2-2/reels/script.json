@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-kotei-kanri-kiso",
+  "key": "point-step2-2",
+  "sceneId": "step2",
+  "exam": "civil-construction-1",
+  "narration": "ガントチャートは、横軸に達成度をとり、各作業の現時点での進捗度合がよくわかります。ただし、必要な日数も工期に影響する作業もわかりません。バーチャートと混同しないよう注意が必要です。",
+  "visual": {
+    "heading": "横線式② ガントチャート",
+    "items": [
+      "横軸に達成度、進捗度合がよくわかる",
+      "必要な日数・工期影響作業は不明",
+      "バーチャートと取り違えやすい"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-schedule-charts/article.mdx"
+}

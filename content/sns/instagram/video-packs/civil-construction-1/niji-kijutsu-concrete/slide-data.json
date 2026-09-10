@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "niji-kijutsu-concrete",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "二次の学科記述",
+        "コンクリート"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：材料知識があれば安全",
+      "items": [
+        "記述の中心は打込み・締固め・養生の手順",
+        "材料知識だけでは手順の設問に答えられない"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-concrete-past-problems/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "overlap-time",
+      "heading": "打重ね時間は外気温と対にする",
+      "items": [
+        "教材で扱う目安は、外気温25℃超で2.0時間以内です。",
+        "25℃以下では2.5時間以内とし、適用する施工基準の条件を確認します。",
+        "時間の超過はコールドジョイントのリスクを高めます。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-concrete-past-problems/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "vibration",
+      "heading": "締固めの操作手順",
+      "items": [
+        "下層に10cm程度挿入",
+        "鉛直に挿入しゆっくり引き抜く",
+        "横移動の手段には使わない"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-concrete-past-problems/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "curing",
+      "heading": "湿潤養生は気温と材料で期間が変わる",
+      "items": [
+        "養生中は湿潤状態を保ち、必要な強度が発現するよう管理します。",
+        "教材の「5日以上」は条件付きの例であり、気温とセメント種類に応じて期間を確認します。",
+        "型枠を外した後も、乾燥や急激な温度変化から保護します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-concrete-basics/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "acceptance",
+      "heading": "受入検査の判定手順",
+      "items": [
+        "塩化物イオン量：0.30kg/m³以下",
+        "1回の試験：呼び強度の85%以上",
+        "3回の平均：呼び強度以上"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-quality-management-past-problems/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

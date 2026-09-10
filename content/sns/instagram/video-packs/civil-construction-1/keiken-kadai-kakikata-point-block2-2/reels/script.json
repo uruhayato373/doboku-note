@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "keiken-kadai-kakikata",
+  "key": "point-block2-2",
+  "sceneId": "block2",
+  "exam": "civil-construction-1",
+  "narration": "原因は現場条件、気象条件、作業条件のいずれかで具体化します。現場条件なら地盤や周辺環境、気象条件なら梅雨の時期や冬季の低温、作業条件なら機械の搬入やヤードの広さです。",
+  "visual": {
+    "heading": "原因を条件で具体化",
+    "items": [
+      "現場条件：地盤・周辺環境など",
+      "気象条件：梅雨・冬季の低温など",
+      "作業条件：機械搬入・ヤードの広さ"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+}

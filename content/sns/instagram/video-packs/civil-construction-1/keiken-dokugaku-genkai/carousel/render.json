@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "keiken-dokugaku-genkai",
+  "inputDigest": "02b5e2ecffaea9c2bf2f006ee9d2213e4d494c6dfa39fd99335b2bf290911d97",
+  "sourceSha256": "ce040eebf192de33b535ef5154b35474405b8e0c82f1f07c5ffbb8d0551a5b64",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:30:57.801Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-dokugaku-genkai/carousel/img/00-cover.png",
+      "sha256": "c8d932228baf39705e3e1563311623d4447347bc814b056500d51f244ac7c40e",
+      "bytes": 286259,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-dokugaku-genkai/carousel/img/01-point.png",
+      "sha256": "a2a79ae79b3a96f74dbf107156ded170d4d4e5b0bca88d6a7becba4ad9bf7d01",
+      "bytes": 136060,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-dokugaku-genkai/carousel/img/02-point.png",
+      "sha256": "9d404c5d571c7d05b22cfb1103968696bebb705488c24a1112be95076e9f7d97",
+      "bytes": 138792,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-dokugaku-genkai/carousel/img/03-point.png",
+      "sha256": "8f666c0b6c3a0a8d90a9198e40f4b63ba92bf1e1d5e2e8a2a686c8130284cdd2",
+      "bytes": 139523,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-dokugaku-genkai/carousel/img/04-point.png",
+      "sha256": "6215dd817e714e1f5fc5e93365992dd7e8851e10363c09d3bf018b9804012f9b",
+      "bytes": 134934,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-dokugaku-genkai/carousel/img/05-point.png",
+      "sha256": "c0e0b080136c592392974c5631a19dc97150df7142eb57872e53818d59c38bcc",
+      "bytes": 133397,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-dokugaku-genkai/carousel/img/06-point.png",
+      "sha256": "4412469efe56441b6ba9a7cef0f8345ca2b15df58f00d205e5e7dee460c2afee",
+      "bytes": 118737,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-dokugaku-genkai/carousel/img/07-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

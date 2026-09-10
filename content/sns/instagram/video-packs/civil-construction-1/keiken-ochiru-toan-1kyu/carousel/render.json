@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "keiken-ochiru-toan-1kyu",
+  "inputDigest": "2bdb437ed07439cfb666221e6f1703b1e9f8fdea1bfd2513daa2ae429623c07a",
+  "sourceSha256": "bf072269b7e7ea6066fd487508bfad0eee6c3d980ac7f927a0d3bc9bdcf55794",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:31:28.369Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-ochiru-toan-1kyu/carousel/img/00-cover.png",
+      "sha256": "0f222a4d0e9275ddaaf642847a2acef7b34b67f540a365b44ffd08dda7206968",
+      "bytes": 345841,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-ochiru-toan-1kyu/carousel/img/01-point.png",
+      "sha256": "7a310b1227cff7f5a2ed25897f664609764a8a18920951b5e482ad340edf4770",
+      "bytes": 135966,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-ochiru-toan-1kyu/carousel/img/02-point.png",
+      "sha256": "55543fa90069189b05892d90363408da9059bc76edff9ed3f4e87ffa5728f0e8",
+      "bytes": 123378,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-ochiru-toan-1kyu/carousel/img/03-point.png",
+      "sha256": "d27e527d4a494817b44e5e2dddf121f907fdab44768725eb898f136bb5ebdee4",
+      "bytes": 120500,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-ochiru-toan-1kyu/carousel/img/04-point.png",
+      "sha256": "a1536023bb6d1f2ee25d838569039e1eb197fefd017c0dcce881d32a50bc415e",
+      "bytes": 142699,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-ochiru-toan-1kyu/carousel/img/05-point.png",
+      "sha256": "bfdb6e0b3dac9faec29994e3fc33c2af130fea291bd1ef1fdc9e5026e04d12fd",
+      "bytes": 124662,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-ochiru-toan-1kyu/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

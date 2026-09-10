@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "nikyuu-gaiyo-roadmap",
+  "key": "point-qualification-2",
+  "sceneId": "qualification",
+  "exam": "civil-construction-2",
+  "narration": "2級土木の第一次検定は、受検年度中に17歳以上になれば、学歴や実務経験を問わず受けられます。第二次は実務経験などの条件があります。新制度は第一次合格後などの経験を中心に確認し、旧制度には経過措置があります。学歴と経験年数を別の制度の条件と混ぜないようにしましょう。",
+  "visual": {
+    "heading": "2級の受検資格は新旧を区別",
+    "items": [
+      "第一次：年度中に17歳以上・経験不問",
+      "新制度：資格取得後の経験などで確認",
+      "旧制度の経過措置は別の手引で確認"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-2/guide-exam-overview/article.mdx",
+  "editorialNote": "新制度の第一次合格後経験と旧制度の学歴別経験年数を混同する説明を修正。",
+  "sourceUrls": [
+    "https://www.jctc.jp/exam/examfaq/"
+  ]
+}

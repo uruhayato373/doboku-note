@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "gakka-anzen-taisei",
+  "inputDigest": "3e0cb323c724e9f1d2e8c38ff7f3f40c586a4a32efd8bf83acddff1b5c674be5",
+  "sourceSha256": "679410754f6cde1f4d1d826520862d4c5e4c181e3be455030328b1a0f2bd5bf6",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:26:50.030Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-anzen-taisei/carousel/img/00-cover.png",
+      "sha256": "d24e58adf338f15b8e125e9176c95bb34d1f877cae05e7f90b0fccc47b72b2cb",
+      "bytes": 340568,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-anzen-taisei/carousel/img/01-point.png",
+      "sha256": "f678111d820142bb623adb6fecbb9e3d6e4a379ba9c977f341212793d485673d",
+      "bytes": 97081,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-anzen-taisei/carousel/img/02-point.png",
+      "sha256": "2db4989fabe06fd1d3d4abf96ace381d0903ac7371e1cb5ca230dc393048b50c",
+      "bytes": 149066,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-anzen-taisei/carousel/img/03-point.png",
+      "sha256": "a7960055493a57b5ba608d44878b579799d120a129c55d64ba008aa0f95cdc3e",
+      "bytes": 140116,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-anzen-taisei/carousel/img/04-point.png",
+      "sha256": "dee5e6539f0e01f24888210b1fa12b6d9c5911cc2954666564c5f1cb7e41be8d",
+      "bytes": 146940,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-anzen-taisei/carousel/img/05-point.png",
+      "sha256": "2cb6e8649278a56ddabbbfd7b412cc5b3ed03f986f6f3da15a31ebd7039fa4ca",
+      "bytes": 126438,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-anzen-taisei/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

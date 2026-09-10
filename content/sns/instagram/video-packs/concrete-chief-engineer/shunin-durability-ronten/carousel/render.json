@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "shunin-durability-ronten",
+  "inputDigest": "a0f893dc6d70664f304e28e8b8610166626f04ddd6452252fc1be710460a82c5",
+  "sourceSha256": "92d3adfb9b462068aa65d76846e5754240f192bd974aa8b4890026fac02c8ad6",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:35:03.352Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-durability-ronten/carousel/img/00-cover.png",
+      "sha256": "1d000a0c4585be13b60b0c7d8246c6eddd2e722c311b8e0eb80b5c9d6eab22da",
+      "bytes": 345960,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-durability-ronten/carousel/img/01-point.png",
+      "sha256": "c780b6cc5c6cc05339fb84d57daac04dd6fd3437552bc8bda395495acc0ba58b",
+      "bytes": 106125,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-durability-ronten/carousel/img/02-point.png",
+      "sha256": "8cbe9be47413a13051077307379415517769b466cff90741e56878bb659924bb",
+      "bytes": 124568,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-durability-ronten/carousel/img/03-point.png",
+      "sha256": "f936df5e31651394c12cf8dde600fbbf73f10dbc6cbdeff4e0bd9b09b7b30300",
+      "bytes": 123651,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-durability-ronten/carousel/img/04-point.png",
+      "sha256": "e8005aa86739566772ee966b37de2f67a6da72910b2cd68c5aae418f518c6421",
+      "bytes": 119034,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-durability-ronten/carousel/img/05-point.png",
+      "sha256": "4a8d3a5056475f8f5981fde92a7aa64914f8521f649306bf354f111257354360",
+      "bytes": 154703,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-durability-ronten/carousel/img/06-point.png",
+      "sha256": "b1e98640acfab2b34e7a47c7521fd17ae94e57c2d688f839e2a06ea4ad6ff8e8",
+      "bytes": 125120,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-durability-ronten/carousel/img/07-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

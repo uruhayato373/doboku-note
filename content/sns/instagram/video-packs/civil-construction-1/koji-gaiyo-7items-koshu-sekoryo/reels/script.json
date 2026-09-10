@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "koji-gaiyo-7items",
+  "key": "koshu-sekoryo",
+  "sceneId": "step1",
+  "exam": "civil-construction-1",
+  "narration": "工種と施工量は、対にして整理しましょう。本文で取り上げる施工部分を先に決め、その工種に対応する数量を単位つきで書きます。たとえば道路工だけで済ませず、道路土工や排水構造物工に分けると、何をどれだけ施工したかが伝わります。",
+  "visual": {
+    "heading": "工種と施工量は対で整理",
+    "items": [
+      "本文で取り上げる施工部分を決める",
+      "工種を具体化する：道路土工・排水構造物工など",
+      "各工種に対応する数量を単位つきで書く"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+}

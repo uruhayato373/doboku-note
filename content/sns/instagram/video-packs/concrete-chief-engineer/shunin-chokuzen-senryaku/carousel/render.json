@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "shunin-chokuzen-senryaku",
+  "inputDigest": "2eb1f2f92be15d43168113d99199eb8628c244cc6a030e24e67a4447a830d1e9",
+  "sourceSha256": "f8f11b9d6a03d30839cd0e8feeb30680551ab31574f50bd4b2d16fe634f9930e",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:34:45.411Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-chokuzen-senryaku/carousel/img/00-cover.png",
+      "sha256": "35dfe2e0c10d146d32e8058573e9c17ffcc7eefa362f03d90cac9ff0170c2f21",
+      "bytes": 330490,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-chokuzen-senryaku/carousel/img/01-point.png",
+      "sha256": "29c42676b66f953cdbcf8ef9841f90ab87dba2eb08bc74325e9a99c4f6989d65",
+      "bytes": 99504,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-chokuzen-senryaku/carousel/img/02-point.png",
+      "sha256": "812a94072c2d893fa4654e965d8cfd3d5ceba1ed3a1b97dbdbee644d72d2a590",
+      "bytes": 139226,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-chokuzen-senryaku/carousel/img/03-point.png",
+      "sha256": "799a9746c42d36eb8a5e91244262dacbd98a243058b928fd846c196609fd3676",
+      "bytes": 92117,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-chokuzen-senryaku/carousel/img/04-point.png",
+      "sha256": "a108d1e1650e01d91c6273ea37bbdab527efe32ad91e117c11c3652f2507bf16",
+      "bytes": 149172,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-chokuzen-senryaku/carousel/img/05-point.png",
+      "sha256": "73acef09d92969e195ace2640eed3635322a7d0a250fc4ae8832a948fb0ad9e4",
+      "bytes": 101986,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-chokuzen-senryaku/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

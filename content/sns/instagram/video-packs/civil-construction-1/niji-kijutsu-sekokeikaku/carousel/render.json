@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "niji-kijutsu-sekokeikaku",
+  "inputDigest": "d88842bd0d67694d23b22425489f2c272646f45a9f6b5e0eaee046dccc232fd1",
+  "sourceSha256": "774bc0d493935f6062d45e0230791b766f0100c6cbed31e5f317b370181fce9f",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:32:36.688Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/niji-kijutsu-sekokeikaku/carousel/img/00-cover.png",
+      "sha256": "a38f731557e7bc2bc59daf49455c933b7bda7e819182d6974d508ec83e910290",
+      "bytes": 323426,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/niji-kijutsu-sekokeikaku/carousel/img/01-point.png",
+      "sha256": "e8b31b0f763e6caaacbe408a1e9daaf31ef4a2708d7a57f5707690293e80e678",
+      "bytes": 110211,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/niji-kijutsu-sekokeikaku/carousel/img/02-point.png",
+      "sha256": "f99baaebb8b2726fe6f8eb3d7cd524382832c1503b32c71c4450cc4b0e16303d",
+      "bytes": 99463,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/niji-kijutsu-sekokeikaku/carousel/img/03-point.png",
+      "sha256": "5bee3e58353d5dcee7232fa06ee8f96414ac7931dfe0c806e11f3e6b2bce46d3",
+      "bytes": 102216,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/niji-kijutsu-sekokeikaku/carousel/img/04-point.png",
+      "sha256": "a9bd77cae9ba7056fc557f5a26c5c36e5106250931bd5db52f7cb5ac6947d1e7",
+      "bytes": 102081,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/niji-kijutsu-sekokeikaku/carousel/img/05-point.png",
+      "sha256": "bc2b33422571c3e6b552955b5f1d135b7c76c98f447fe89a0326c590eaa78bd7",
+      "bytes": 138046,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/niji-kijutsu-sekokeikaku/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

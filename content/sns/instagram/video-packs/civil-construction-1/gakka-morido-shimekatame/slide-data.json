@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "gakka-morido-shimekatame",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "盛土の施工",
+        "締固め管理"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：締固めさえやれば安全",
+      "items": [
+        "基礎地盤・材料選定も一連の管理",
+        "締固め判定は2方式ある",
+        "どちらの話か区別して読む"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-embankment/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "overview",
+      "heading": "基礎地盤を確かめてから盛土する",
+      "items": [
+        "なじみや支持力を確保し、施工中の不安定や沈下を抑えるために地盤を処理します。",
+        "教材の軟弱地盤の目安はN値4未満・コーン指数250kN/m²以下です。",
+        "一軸圧縮強度50kN/m²未満という目安も、地盤条件とともに確認します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-embankment/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "厚さは敷均し前後を区別",
+      "items": [
+        "教材の路体の例は、敷均し35〜45cmから仕上り30cm以下へ締め固めます。",
+        "路床の例は、敷均し25〜30cmから仕上り20cm以下です。",
+        "適用する仕様書と試験施工の結果に照らし、厚さと転圧条件を確認します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-embankment/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "品質規定方式と工法規定方式",
+      "items": [
+        "品質規定：乾燥密度／空気間隙率・飽和度／強度変形特性",
+        "工法規定：機種・厚さ・回数を規定",
+        "TS・GNSS管理は工法規定の発展形"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-embankment/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "特殊箇所の対策",
+      "items": [
+        "勾配1:4より急なら段切り",
+        "段切り：最小幅50cm・段高さ1m目安",
+        "軟弱地盤上は余盛りで沈下を見込む"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-embankment/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

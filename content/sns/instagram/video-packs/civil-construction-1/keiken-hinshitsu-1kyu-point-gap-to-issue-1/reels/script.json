@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "keiken-hinshitsu-1kyu",
+  "key": "point-gap-to-issue-1",
+  "sceneId": "gap-to-issue",
+  "exam": "civil-construction-1",
+  "narration": "技術的課題は、現場条件と規格値のギャップから立てます。粘性土地盤や梅雨時期の含水条件、狭い施工ヤードといった条件が、どの品質にどう影響するかを具体的に書きます。条件をぼかすと課題も曖昧になります。",
+  "visual": {
+    "heading": "現場条件と規格値のギャップ",
+    "items": [
+      "現場条件（地盤・気象・作業条件）を具体化する",
+      "規格値との差分を明記する",
+      "条件をぼかすと課題も曖昧になる"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+}

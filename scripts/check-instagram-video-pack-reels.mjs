@@ -51,7 +51,7 @@ for (const metaPath of rows) {
   const body = caption.split(/\n\s*\n(?=#)/u)[0].trim();
   const tagCount = (caption.match(/#[^\s#]+/gu) ?? []).length;
   if ([...body].length < 100 || [...body].length > 200) fail(label, `本文 ${[...body].length}字（100-200外）`);
-  if (tagCount < 20 || tagCount > 25) fail(label, `ハッシュタグ ${tagCount}件（20-25外）`);
+  if (tagCount < 1 || tagCount > 5) fail(label, `ハッシュタグ ${tagCount}件（1-5外）`);
   for (const required of ['総合技術監理部門', '企画・監修', 'フォロー', 'プロフィール']) if (!caption.includes(required)) fail(label, `caption 必須語なし: ${required}`);
   for (const forbidden of ['#Shorts', '関連動画', '概要欄', 'http://', 'https://']) if (caption.includes(forbidden)) fail(label, `Instagram 禁忌: ${forbidden}`);
   if (checkMedia) {

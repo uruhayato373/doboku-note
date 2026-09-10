@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "gakka-risk-assessment",
+  "inputDigest": "1916bcfc803baa1c0200261c8179b45da7525caff989212753116e6d4c04cc3b",
+  "sourceSha256": "05e7b16d2d908dddbdfcfd53e2f48cc13a991a99be8ae78161e9af72cf712c31",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:29:04.035Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-risk-assessment/carousel/img/00-cover.png",
+      "sha256": "69a5670b9aa093fffb15b0998df96c4a2a29b493950615e890f772d3315bf9ae",
+      "bytes": 335748,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-risk-assessment/carousel/img/01-point.png",
+      "sha256": "e60471c47a17d5393455ba8d143a22fa77b6201ea7bd2c8145a3ca2ec8c8d326",
+      "bytes": 129618,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-risk-assessment/carousel/img/02-point.png",
+      "sha256": "4e84062dd5112a14511837898271e939123d21a5ea2217d66c7814feb7251e7c",
+      "bytes": 109697,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-risk-assessment/carousel/img/03-point.png",
+      "sha256": "e9e2f4853d8fb8dd4a60bb7b65efe654546af32a5c8113433b17c72bbb638f03",
+      "bytes": 119160,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-risk-assessment/carousel/img/04-point.png",
+      "sha256": "3bd7cfea988a633705b67967c9c466e56042a380e2190da56e735300c9d1726c",
+      "bytes": 152942,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-risk-assessment/carousel/img/05-point.png",
+      "sha256": "b034dac33becde02b28d331407cfcad013dae8ae19eae19362168ff2fd790e9c",
+      "bytes": 151987,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-risk-assessment/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

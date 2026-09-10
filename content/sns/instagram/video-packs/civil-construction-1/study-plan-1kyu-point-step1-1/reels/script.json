@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "study-plan-1kyu",
+  "key": "point-step1-1",
+  "sceneId": "step1",
+  "exam": "civil-construction-1",
+  "narration": "第一次は知識の定着が勝負で、過去問演習の反復が最短ルートです。第二次は実務に基づく記述力が問われ、自分の工事経験を文章にする準備が要ります。まずこの違いを理解しておきましょう。",
+  "visual": {
+    "heading": "第一次と第二次は別物",
+    "items": [
+      "第一次：過去問反復で知識を定着",
+      "第二次：経験の文章化で記述力"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/guide-study-plan/article.mdx"
+}

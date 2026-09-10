@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-doshitsu-chosa",
+  "key": "point-gyakubiki-2",
+  "sceneId": "gyakubiki",
+  "exam": "civil-construction-1",
+  "narration": "原位置試験は、知りたい値から選ぶと整理できます。標準貫入試験はエヌ値、コーン貫入試験はコーン指数、ベーン試験は主に軟らかい粘性土のせん断強さを調べます。平板載荷試験は地盤の支持特性を確認します。試験名と目的を対にして覚えましょう。",
+  "visual": {
+    "heading": "知りたい値から試験を選ぶ",
+    "items": [
+      "N値：標準貫入試験",
+      "コーン指数：コーン貫入試験",
+      "せん断強さ：ベーン／支持特性：平板載荷"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-soil-investigation-methods/article.mdx",
+  "editorialNote": "ベーン試験を土種条件なしの粘着力測定と断定せず、主に軟弱粘性土のせん断強さへ修正。"
+}

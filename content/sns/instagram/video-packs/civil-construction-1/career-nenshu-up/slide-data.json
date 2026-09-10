@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "career-nenshu-up",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "施工管理の年収",
+        "上げる動き方"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "good-sign",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "資格取得後に担う役割を考える",
+      "items": [
+        "資格で担当できる役割が広がることを、評価を考える起点にします。",
+        "収入への反映は会社の制度と担当業務によるため、取得だけで判断しません。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/guide-salary-up/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "経験と役割を評価条件に照らす",
+      "items": [
+        "年齢だけでなく、工種・規模・担った責任を整理します。",
+        "1級取得で監理技術者に関わる役割が広がることを、会社の評価制度と照合します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/guide-salary-up/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "収入を見直す4つの選択肢",
+      "items": [
+        "社内で見直す：昇進・役職と資格手当・評価。",
+        "会社を変える：経験をより評価する転職先を探す。",
+        "専門性を広げる：技術士取得や独立という選択肢も検討する。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/guide-salary-up/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "技術者資格は会社の審査にも関わる",
+      "items": [
+        "公共工事の入札に関わる経営事項審査では、技術者の資格も評価対象です。",
+        "会社にとっての資格の意味を知り、自分の役割と結びつけて考えます。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/guide-market-value/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step4",
+      "heading": "資格取得後の動き方を考える",
+      "items": [
+        "資格を「活かす」ところまで考える",
+        "市場価値を定期的に把握する",
+        "環境を変える選択肢を持っている"
+      ],
+      "sourceRef": "content/note/1級・2級土木/年収を上げる人の違い-無料/article.md"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

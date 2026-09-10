@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "gishi-materials-ronten",
+  "inputDigest": "809fe28dee022ea43047f61ed6929bbb0e72e0040d6ca331172958417dde6d3e",
+  "sourceSha256": "6b449bd3221bd1b6462fc939c458446a44bbed6c0fb5a748a73d04c2e215eaac",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:38:28.462Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-materials-ronten/carousel/img/00-cover.png",
+      "sha256": "ebab1f690b40c80476f7f461d83ced6dff90c95eee43d89003bd1cfb0a88440d",
+      "bytes": 327891,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-materials-ronten/carousel/img/01-point.png",
+      "sha256": "dd82b1c21f055a3b36401c308a1c32c42dd75f5e574bb6c8f39627e37006cdc3",
+      "bytes": 108537,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-materials-ronten/carousel/img/02-point.png",
+      "sha256": "76fd1e20290292738909d7ed2f98f27972747841aefa49ae088cdb91bdafaef3",
+      "bytes": 140600,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-materials-ronten/carousel/img/03-point.png",
+      "sha256": "b97d0e5c1882beef9fbd58be3bf9458afb4db67fa05c0c8c5dbbcb855d0669ab",
+      "bytes": 128474,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-materials-ronten/carousel/img/04-point.png",
+      "sha256": "49f81edd451dab2c46586bdb74c0aa1fd32d00e1927d47c019cac5783760e6cb",
+      "bytes": 141088,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-materials-ronten/carousel/img/05-point.png",
+      "sha256": "9e4acc7eb800273e1b6080da3ab0721391a48cda3015daa8e52b5bdb4c202470",
+      "bytes": 134926,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-materials-ronten/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "gakka-hoki-kenchiku-kayaku",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "建築と火薬の",
+        "法規を整理"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "reading",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "現場事務所と火薬類のルール",
+      "items": [
+        "現場事務所は建築基準法の対象",
+        "保安責任者の選任は現場の義務"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-building-standards/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "overview",
+      "heading": "工事用仮設建築物の適用を確認",
+      "items": [
+        "当該工事のための現場事務所等は、建築確認などの適用が緩和されます。",
+        "すべての仮設建築物が同じ取扱いになるわけではありません。",
+        "防火地域内で50m²を超える場合の屋根の規定など、例外を確認します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-building-standards/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "火薬類の許可と運搬届を区別",
+      "items": [
+        "火薬庫設置・消費（発破）：都道府県知事の許可",
+        "陸上運搬：都道府県公安委員会へ届出"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-explosives-act/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "保安責任者と取扱いの制限",
+      "items": [
+        "火薬・爆薬等の種類と消費量により、保安責任者の選任・届出の要否を確認します。",
+        "教材の火薬・爆薬は月25kg以上を選任の基準として整理しています。",
+        "18歳未満の火薬類取扱いに関する制限も確認します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-explosives-act/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "取扱所・火工所・不発時の対応",
+      "items": [
+        "火薬類取扱所：消費場所ごとに1か所のみ",
+        "火工所：1か所以上設置可",
+        "電気雷管の不発：5分以上経過後に接近"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-explosives-act/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

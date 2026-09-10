@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.187Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-2kyu-concrete/shorts/point-overview-1/shorts.mp4",
-  "durationSeconds": 30.03,
-  "sha256": "de775a4400800a9c2af632dbd64d2f9dd7c9766e30f9cece35dc46c438db10c4",
-  "coverSha256": "b889d44ecf26a24710fea876f0ffbc5569413d244dbfecfcab98715888de9e87",
-  "renderedAt": "2026-09-05T23:27:19.676Z"
+  "durationSeconds": 30.2,
+  "sha256": "21846611deb22dead0ad95615e51fb1e81c4d7132723872623703eb0ee3ba80c",
+  "coverSha256": "ad66a6734c94e08eeea771a18e715fd500e5b9b47bf11f58fcf8d727241af3a8",
+  "renderedAt": "2026-09-10T09:33:34.666Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "2d1d85da4591aee77ef0d28b7b02dd7ad393b2bd231c0300be84aa22232a6c2b",
+  "rendererSha256": "43e4708f2239a8c5bbfad7dbfbe52b5123a858dd1edaa6a15d937f8eb586680f",
+  "scriptSha256": "561076170b72734102615da4ccd0695376f5ca8b5671e376ad313cd9fba139e7",
+  "speaker": 13,
+  "narration": "コンクリートの学習は、材料、配合、施工、ひび割れの順につなぐと整理できます。何を混ぜるかが性質に影響し、打込みや締固め、養生が仕上がりを左右します。用語を別々に覚えるだけでなく、材料から施工結果まで、どこがつながるかを意識しましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "125bdcf6aec54fa14cc0cd1d32159914591d94598939cf15fdc00eb23c7e4927",
+    "points": "223ff6e6221dfd16dbf14ef9102493be2055b1eba1d5ba6c22b22ffeef7d941d",
+    "pointsImage": "fe03eb7fb6840f2cda0b805c006e62e960edad64825eba220981760591c2ad8b",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T09:33:34.666Z"
+  }
 }

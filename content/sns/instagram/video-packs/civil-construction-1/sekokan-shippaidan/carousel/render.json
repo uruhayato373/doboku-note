@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "sekokan-shippaidan",
+  "inputDigest": "b4af3f923fd957b72944f1d1fe2a4e361934155e7a1b72c2c7365416bbeb43ab",
+  "sourceSha256": "9492bff4e19d979431708c96ddccf3999a6ba9df64620a60821821c46eba71db",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:32:41.714Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/sekokan-shippaidan/carousel/img/00-cover.png",
+      "sha256": "5cb9d1962a1d8380fce3b0407e3b297f32b42ec8b171bfe3ed0d43ce610e1050",
+      "bytes": 345211,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/sekokan-shippaidan/carousel/img/01-point.png",
+      "sha256": "231b94020ef57acf239bbe516e083e93e6e61c78f70c6b935caa3c298ada3f07",
+      "bytes": 110298,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/sekokan-shippaidan/carousel/img/02-point.png",
+      "sha256": "8f261356536617c1af217acd98b217c1da900ed7bc545136880aff283588889c",
+      "bytes": 99396,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/sekokan-shippaidan/carousel/img/03-point.png",
+      "sha256": "7f493cea39d3fc9db8f381c94e2e8c8754744c1c357de0ec9aceb80843df387f",
+      "bytes": 106841,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/sekokan-shippaidan/carousel/img/04-point.png",
+      "sha256": "0ca4216cb03d9dc8376f9f2752658d17d084ccc54f33747b9ba522361f9605be",
+      "bytes": 100552,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/sekokan-shippaidan/carousel/img/05-point.png",
+      "sha256": "fa8dfd8eabd4f95a50a01aac227307496309cd032b0b7eff1509545ea144a977",
+      "bytes": 109473,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/sekokan-shippaidan/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

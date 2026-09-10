@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-nori-hogoko",
+  "key": "point-gensoku-1",
+  "sceneId": "gensoku",
+  "exam": "civil-construction-1",
+  "narration": "法面が安定した土質なら植生工です。侵食されやすく崩れやすいなら植生工に構造物工を併用します。湧水のある場所は法枠工やブロック張り工、落石のおそれには落石防護工・アンカー工です。",
+  "visual": {
+    "heading": "選定の大原則",
+    "items": [
+      "安定した土質＝植生工",
+      "崩れやすい／湧水＝構造物工を併用",
+      "落石のおそれ＝落石防護工・アンカー工"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-cut-slope-protection/article.mdx"
+}

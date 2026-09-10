@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "gakka-roudou-kijun",
+  "inputDigest": "fe1fc82b29716ed177e3dc9b9df66fd32bab8123d049f9e5330768d77a566155",
+  "sourceSha256": "efac42e2c04e934d3faaa2153b47efa3ea8a8240eae452fa80dcdad3b0d8d231",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:29:12.114Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-roudou-kijun/carousel/img/00-cover.png",
+      "sha256": "38ca511fe18f139cddc5ceb1ede79defc2e521bffbad00e87551343eb4d181d7",
+      "bytes": 313476,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-roudou-kijun/carousel/img/01-point.png",
+      "sha256": "6d4fcc1c2cdbffc8c269b96ccb2a0c3d4bdb819ddfdaec8d5fccbefda81013fb",
+      "bytes": 125216,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-roudou-kijun/carousel/img/02-point.png",
+      "sha256": "679f7dbc2106f07dfcd06c304e1f4e835eb016588812b1ebc6e4a3acb978de18",
+      "bytes": 135485,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-roudou-kijun/carousel/img/03-point.png",
+      "sha256": "d9b59a4d98dab215738b9096a9b3f334622b2c0298989db54df51d923044dc0a",
+      "bytes": 159688,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-roudou-kijun/carousel/img/04-point.png",
+      "sha256": "e923bf5288527fd2b8fd9a56f7de197400d6f45a318af841fbfd1a49cbe2df19",
+      "bytes": 155769,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-roudou-kijun/carousel/img/05-point.png",
+      "sha256": "d09d2cdb13883ecbcb79192bcbd91d6408f96942776bd634f0d7ca94fe43004c",
+      "bytes": 150047,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-roudou-kijun/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

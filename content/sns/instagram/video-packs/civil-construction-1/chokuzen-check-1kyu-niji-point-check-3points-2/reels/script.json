@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "chokuzen-check-1kyu-niji",
+  "key": "point-check-3points-2",
+  "sceneId": "check-3points",
+  "exam": "civil-construction-1",
+  "narration": "経験記述は、現場状況、工夫した内容、その効果がつながっているかを音読しましょう。工種や数量も工事概要と照合します。なぜその管理が必要だったのか、何を行い、どう確かめたのかを、自分が経験した事実と記録で説明できることが大切です。",
+  "visual": {
+    "heading": "経験記述を音読して点検",
+    "items": [
+      "現場状況→工夫→効果がつながるか",
+      "工種・数量は工事概要と一致するか",
+      "事実と記録で説明できるか確認"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/guide-last-minute-2026/article.mdx",
+  "editorialNote": "4要素を3点セットと呼ぶ数え間違いを修正。"
+}

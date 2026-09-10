@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-hoki-kenchiku-kayaku",
+  "key": "point-overview-1",
+  "sceneId": "overview",
+  "exam": "civil-construction-1",
+  "narration": "工事用の仮設建築物には、建築基準法の規制が一部緩和されるものがあります。対象は、工事を施工するために現場へ設ける事務所や材料置場などです。仮設という名前だけで判断せず、用途と設置場所、適用が残る防火などの規定を確認しましょう。",
+  "visual": {
+    "heading": "仮設建築物は適用条件を確認",
+    "items": [
+      "工事現場に設ける工事用の事務所などが対象",
+      "仮設という名称だけで判断しない",
+      "防火など適用が残る規定を確認"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-building-standards/article.mdx",
+  "editorialNote": "工事用・場所条件の省略と「唯一の例外」という断定を削除。",
+  "sourceUrls": [
+    "https://www.city.yokohama.lg.jp/business/bunyabetsu/kenchiku/tetsuduki/kisoku/toriatsukai.files/0046_20250327.pdf"
+  ]
+}

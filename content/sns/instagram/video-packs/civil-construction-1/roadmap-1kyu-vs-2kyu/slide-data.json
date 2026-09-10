@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "roadmap-1kyu-vs-2kyu",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "１級か２級か",
+        "どちらから？"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：2級経由が必須",
+      "items": [
+        "1級第一次は満19歳以上・経験不問",
+        "2級を経由しない直行ルートも選べる"
+      ],
+      "sourceRef": "content/site/civil-construction-1/guide-1-vs-2/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "1　建設業法上の役割の違い",
+      "items": [
+        "2級：主任技術者になれる",
+        "1級：監理技術者にもなれる",
+        "経営事項審査でも1級を高く評価"
+      ],
+      "sourceRef": "content/site/civil-construction-1/guide-1-vs-2/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "第一次と第二次の資格を分ける",
+      "items": [
+        "第一次は、受検年度末時点で2級17歳以上・1級19歳以上が基準です。",
+        "第二次は受検経路ごとの実務経験が必要で、経過措置も確認します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/guide-1-vs-2/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "3　難易度の違いをどう捉えるか",
+      "items": [
+        "合格率の絶対値では比較しない",
+        "1級は専門土木の範囲・工事規模が広い"
+      ],
+      "sourceRef": "content/site/civil-construction-1/guide-1-vs-2/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step4",
+      "heading": "目的と受検できる経路から決める",
+      "items": [
+        "目指す役割と現在の受検資格を照らして、受ける級を検討します。",
+        "経験を積む間に第一次を先に受ける道もあります。",
+        "経験が浅い場合に2級から基礎を固める方法も、選択肢の一つです。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/guide-1-vs-2/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

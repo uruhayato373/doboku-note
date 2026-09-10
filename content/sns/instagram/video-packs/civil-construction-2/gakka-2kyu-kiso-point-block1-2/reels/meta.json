@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.187Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-2kyu-kiso/shorts/point-block1-2/shorts.mp4",
-  "durationSeconds": 30.51,
-  "sha256": "df16e11c60383d871258171fe354c49d4af072f30d208d485b31af120e4fdd0d",
-  "coverSha256": "dcafb33e8fd816bd2e35466894af5c3f5bd40bc9477935d0363f77e61a7a338f",
-  "renderedAt": "2026-09-05T23:18:52.467Z"
+  "durationSeconds": 30.2,
+  "sha256": "e59967a0e7247f0dd9eda3c15f1c5d6bf5e036561b433d254a43769f3aa028de",
+  "coverSha256": "3356960b01ba8e3bb638ee5c8837020cad2b1d2c14b854f67d4cc0afc515e839",
+  "renderedAt": "2026-09-10T09:36:38.864Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "0f5b936c0f600eff4099447d2d9e0c82696aa552aaa397c43389cec2ecd666da",
+  "rendererSha256": "43e4708f2239a8c5bbfad7dbfbe52b5123a858dd1edaa6a15d937f8eb586680f",
+  "scriptSha256": "ed303c9feeb10481541d676f5b0e4a1d76ad10c3d9d4a24860003442535a20e1",
+  "speaker": 13,
+  "narration": "基礎の形式は、支持層の深さを手がかりに整理できます。浅い位置で支えられる場合は直接基礎、深い支持層を利用する場合は杭基礎やケーソン基礎が候補です。ただし、形式は深さだけで決めず、荷重や地盤条件、施工条件も合わせて選びます。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "f7e2bd1ac7b9e29f25bf143b09d100d757ecd64d6494685b6495a4b3f44374cc",
+    "points": "eaa43d5f7fbe2ae62698a3c2c08305c4c9154910de5923f33c2854a526aaebc7",
+    "pointsImage": "48403c1740d74efbb8c93a6c6e0d812c9c8c44ba0c9fcfe068c94a13806b0931",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T09:36:38.864Z"
+  }
 }

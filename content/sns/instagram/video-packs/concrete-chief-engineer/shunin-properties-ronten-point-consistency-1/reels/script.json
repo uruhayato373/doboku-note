@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "shunin-properties-ronten",
+  "key": "point-consistency-1",
+  "sceneId": "consistency",
+  "exam": "concrete-chief-engineer",
+  "narration": "コンシステンシーはスランプ試験で測ります。高流動コンクリートのスランプフロー試験では、最大とその直交方向の直径を1ミリ単位で測り、平均値を5ミリまたは0.5センチ単位に丸めます。",
+  "visual": {
+    "heading": "コンシステンシーと測定単位",
+    "items": [
+      "スランプ試験＝沈下量を測定",
+      "スランプフロー＝2方向を1mm単位で測定",
+      "平均値は5mmまたは0.5cm単位に丸め"
+    ]
+  },
+  "sourceRef": "content/site/concrete-chief-engineer/textbook-properties/article.mdx"
+}

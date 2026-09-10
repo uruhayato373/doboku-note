@@ -13,7 +13,27 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-2kyu-sekokeikaku/shorts/point-block1-2/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "7ad4e4cb83b07d5096e4b1f5fa2dacf8e5fbbd5afe66167fd093cabe86e468ea",
-  "coverSha256": "91a0cedc4b29528bbd4914a6a7f9fc1c5b89b01cebf47cc654cdec1f364ad632",
-  "renderedAt": "2026-09-05T23:19:54.685Z"
+  "sha256": "bf3859d169222467e678e777633f1eaa5967ba2532523b6bc1fbe7fc64d7c68b",
+  "coverSha256": "e079989e03704c9bf8d1280f32f96a030788c2ea05bffb2757da38081c065a73",
+  "renderedAt": "2026-09-10T09:39:07.812Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "fcf49b1b9e7f0192b9e7bbf070ae9ba00dc0c0b71b48d00c4654092ed1718b75",
+  "rendererSha256": "43e4708f2239a8c5bbfad7dbfbe52b5123a858dd1edaa6a15d937f8eb586680f",
+  "scriptSha256": "16825dfbc94bc2e80c005b3433f56945e5b2ccaba07038ebaac97c33095b57cc",
+  "speaker": 13,
+  "narration": "施工計画の作成は、事前調査、基本計画、詳細計画、管理計画の流れで整理できます。まず条件を把握し、施工方法の大枠を決め、それから機械や人員などを具体化します。いきなり細部を決めず、前の段階で得た情報を次へ反映することが大切です。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "b5126f91fae01e009d5159c20f599c15388faf953decb9e4fe8153d45bca182b",
+    "points": "aba8e7115b302863b32a4bc4722d24ddea61e51f27402b340b793aac4928619d",
+    "pointsImage": "7fffd835dfaf805b3d6a1c11e1bf93805b6e27138e4dca94210c6050da23ed4d",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T09:39:07.812Z"
+  }
 }

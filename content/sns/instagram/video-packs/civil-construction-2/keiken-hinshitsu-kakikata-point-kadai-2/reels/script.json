@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "keiken-hinshitsu-kakikata",
+  "key": "point-kadai-2",
+  "sceneId": "kadai",
+  "exam": "civil-construction-2",
+  "narration": "品質管理の課題は、現場条件がどの品質に影響するかを考えて立てます。計画、材料、施工、養生、検査、周知などの観点から、自分が検討したことを整理しましょう。梅雨や暑さ寒さ、地盤条件を挙げたら、それが品質確保を難しくした理由まで説明します。",
+  "visual": {
+    "heading": "課題は現場条件と規格値のギャップ",
+    "items": [
+      "観点：計画・材料・施工・養生・検査・周知",
+      "軟弱地盤・梅雨・暑さ寒さが原因になる"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+}

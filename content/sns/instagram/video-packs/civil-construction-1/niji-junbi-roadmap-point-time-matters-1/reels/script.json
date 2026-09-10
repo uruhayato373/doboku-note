@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "niji-junbi-roadmap",
+  "key": "point-time-matters-1",
+  "sceneId": "time-matters",
+  "exam": "civil-construction-1",
+  "narration": "経験記述の準備は、早めに工事記録を集めるところから始めましょう。担当した工事の条件や、自分が判断して行った処置を思い出すには時間がかかります。文章にしてから矛盾や不足を確認し、書き直す時間も確保すると、本番の設問に合わせる練習ができます。",
+  "visual": {
+    "heading": "経験記述は記録集めから着手",
+    "items": [
+      "工事条件と担当した処置を整理",
+      "文章化して矛盾・不足を確認",
+      "書き直しと設問に合わせる練習時間を確保"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/secondary-getting-started/article.mdx",
+  "editorialNote": "公表根拠のない配点の大きさと確実な優位の断定を削除。"
+}

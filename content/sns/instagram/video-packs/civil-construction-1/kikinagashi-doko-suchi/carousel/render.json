@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "kikinagashi-doko-suchi",
+  "inputDigest": "2010146aa38af42703da15b14c05ec5fefb06a58e34324fb0dba73c3356f3351",
+  "sourceSha256": "e374141524c5838f19dbd1fdb69f27c45bea3fab62bf5a868d5acb100aa08563",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:32:09.674Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/kikinagashi-doko-suchi/carousel/img/00-cover.png",
+      "sha256": "aa4f599b44501f224fab443fcbfa0542fcbbe2b07323d500af246db682b2f909",
+      "bytes": 330424,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/kikinagashi-doko-suchi/carousel/img/01-point.png",
+      "sha256": "7799af2cd8cad51aaa6b044920c56b107d9285c6db85cc54bc26084f0260bb9c",
+      "bytes": 131273,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/kikinagashi-doko-suchi/carousel/img/02-point.png",
+      "sha256": "75fa9d4c40c5d4a1e81a182810fe834a94da0e8540ee9192edc17ff549b541ca",
+      "bytes": 126990,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/kikinagashi-doko-suchi/carousel/img/03-point.png",
+      "sha256": "74b969edcda23a582e67ec997b2dd6ef02035b1add6b7bce67bb7040978f472e",
+      "bytes": 134385,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/kikinagashi-doko-suchi/carousel/img/04-point.png",
+      "sha256": "cc89580f766552a3390c3a80bb1fbcbd8eb5f3a49a711cf48360fd4386c523a0",
+      "bytes": 137075,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/kikinagashi-doko-suchi/carousel/img/05-point.png",
+      "sha256": "19f0c2f16b41367adb04bb7f984593369e9cd4e797c9423cc3f8cf15167c4101",
+      "bytes": 130031,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/kikinagashi-doko-suchi/carousel/img/06-point.png",
+      "sha256": "088038936da1a52f008f4873c844231c3dbe35d47436ec0f0a3db2ea308a33a4",
+      "bytes": 129434,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/kikinagashi-doko-suchi/carousel/img/07-point.png",
+      "sha256": "d800a560b6277cff04eeb617334e2fba9d924eb725a80627255fd1a33a46e014",
+      "bytes": 141004,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/kikinagashi-doko-suchi/carousel/img/08-point.png",
+      "sha256": "fd2cfe1f9d6f07bfb46d991deca426be937c0f4e703a8db169ae43f9235acd3d",
+      "bytes": 136633,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/kikinagashi-doko-suchi/carousel/img/09-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

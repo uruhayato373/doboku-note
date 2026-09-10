@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "niji-kijutsu-doko",
+  "inputDigest": "58211f089fe1946042e37c09c01e5f150d869f38407f5665a69a61794d9756f0",
+  "sourceSha256": "baccad3ffbca082bfa7092fd2c58ae1ecb8c381595007e9ae499d99f217434a7",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:32:34.002Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/niji-kijutsu-doko/carousel/img/00-cover.png",
+      "sha256": "a3a31657d7f3e397c2857e112b5a5f86bddb6b5a501b94d7f8943e3bbb14bde9",
+      "bytes": 340134,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/niji-kijutsu-doko/carousel/img/01-point.png",
+      "sha256": "a356067212b7994f102dc10de1ce8a66a5e8a8367c8ffdac815973ef12781bc1",
+      "bytes": 100420,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/niji-kijutsu-doko/carousel/img/02-point.png",
+      "sha256": "6841bc83acb54448671779e9d932ee80f1da027a3be85d703189ee58e4e97d0f",
+      "bytes": 107428,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/niji-kijutsu-doko/carousel/img/03-point.png",
+      "sha256": "aafa06ab28c8911efa7e78bad926f348975acf7f560b15af927a8c7c64027429",
+      "bytes": 106207,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/niji-kijutsu-doko/carousel/img/04-point.png",
+      "sha256": "9932233c7d2af8eb9d249063ff2a91bc28535bde855a68164f7bee1b7d3f0693",
+      "bytes": 127876,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/niji-kijutsu-doko/carousel/img/05-point.png",
+      "sha256": "7da43413eaebd90f2c1c4a831765af330ebbfe7fe9c1976f1a8bf8dee900f05b",
+      "bytes": 126927,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/niji-kijutsu-doko/carousel/img/06-point.png",
+      "sha256": "12532b68dde5cc05c9d8636197d589eb246cfcb0675b59eac42d41777579041b",
+      "bytes": 98187,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/niji-kijutsu-doko/carousel/img/07-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

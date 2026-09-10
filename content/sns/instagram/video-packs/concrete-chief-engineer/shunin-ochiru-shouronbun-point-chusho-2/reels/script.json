@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "shunin-ochiru-shouronbun",
+  "key": "point-chusho-2",
+  "sceneId": "chusho",
+  "exam": "concrete-chief-engineer",
+  "narration": "パターン2、抽象表現で止まっている答案です。「適切に管理した」で終わり、どう管理したかの中身がありません。用語を並べるだけでなく、現場の判断や対策に結びつけて書きます。",
+  "visual": {
+    "heading": "パターン2　抽象表現止まり",
+    "items": [
+      "「適切に管理した」で中身がない",
+      "用語の羅列でなく判断・対策に結びつける"
+    ]
+  },
+  "sourceRef": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+}

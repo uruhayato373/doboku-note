@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "career-komuin-minkan",
+  "inputDigest": "0427d3ebfb0a8cc81aa5309680a913a2a03f8de6ed05ebe2a21f04b04196d806",
+  "sourceSha256": "2c6478cd5f451755918467c05361d3d565317bff20b49ef7c748ddfba142960a",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:25:45.284Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/career-komuin-minkan/carousel/img/00-cover.png",
+      "sha256": "4593d1c836ea157832bb2bee230174549cea561c810f3fd36a481c7b9947dcbb",
+      "bytes": 290245,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/career-komuin-minkan/carousel/img/01-point.png",
+      "sha256": "8e347f7b09c22947be4bc454797e660c88da2b0168e02c7fa80cb22f85d2abea",
+      "bytes": 120870,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/career-komuin-minkan/carousel/img/02-point.png",
+      "sha256": "d397e841e55c96e27d4b442d0399e1b2fbfea3922c453564a2b45244a2a2607a",
+      "bytes": 108742,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/career-komuin-minkan/carousel/img/03-point.png",
+      "sha256": "63ed51d4b45bf12f14ab53d61bc22a0ada60ffd9777e0ba3c731e1a3d1b0f6f8",
+      "bytes": 133557,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/career-komuin-minkan/carousel/img/04-point.png",
+      "sha256": "bd3451ed01eb3f9ea3c40d23ff3d84fa753304fcf324390e40f8a8da1bdfce95",
+      "bytes": 139299,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/career-komuin-minkan/carousel/img/05-point.png",
+      "sha256": "b07fb1828cc9e644b3947c5379d7b6c7a18de7ed12ace61879e58567026d9eaf",
+      "bytes": 136957,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/career-komuin-minkan/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

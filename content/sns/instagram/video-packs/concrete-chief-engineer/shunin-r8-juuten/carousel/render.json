@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "shunin-r8-juuten",
+  "inputDigest": "2a7548ec45a9e8f51f890b384b493becfc14dc3b62482583db74c377236acdfb",
+  "sourceSha256": "770c5e291b5df79cb285da85697152adaaaa8bb3160daac2bcacf31b5e1da9be",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:36:56.310Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-r8-juuten/carousel/img/00-cover.png",
+      "sha256": "14dcedbb72094aff8883d3ff2362af4142942c389f13b3746d25c2fa2e89ac96",
+      "bytes": 312643,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-r8-juuten/carousel/img/01-point.png",
+      "sha256": "d12a2fba4f7561183a1f21e1a8f816bdc8dffcfd54c204694f17bfc02d958c77",
+      "bytes": 111069,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-r8-juuten/carousel/img/02-point.png",
+      "sha256": "eb25d37f749ee00a2dc2c5efa7b59715f465726c2ff4daae6a8e9265dc6ac266",
+      "bytes": 109631,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-r8-juuten/carousel/img/03-point.png",
+      "sha256": "c5b122ef6dac5f1e98c08fd5e3e80766b70fda0f267801dab9a122e4fe9d5e9a",
+      "bytes": 144826,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-r8-juuten/carousel/img/04-point.png",
+      "sha256": "b358daaa2e11d4e08bf89263d1794c39ad7f19532594a8ae34d6f23b304c2973",
+      "bytes": 112311,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-r8-juuten/carousel/img/05-point.png",
+      "sha256": "184aeecc40d5085d3dc22439d3e14f6edca0c4d3a73ed8cac77acff2ad9150b9",
+      "bytes": 111780,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-r8-juuten/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "niji-junbi-roadmap",
+  "inputDigest": "1e7b1259abf783bf0b465772a545936ba516bdf81f708dcc75f956fb9512184a",
+  "sourceSha256": "26169d371d464714f6525f28c3463025a4ccedf49e08dba30e9cd9ec3fc42847",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:32:31.213Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/niji-junbi-roadmap/carousel/img/00-cover.png",
+      "sha256": "586e5cbe19ecbf0e90ef39fa3d6c192b96104638839082f97b0c732c6d0e03a0",
+      "bytes": 324909,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/niji-junbi-roadmap/carousel/img/01-point.png",
+      "sha256": "72c44b52431a637c5316afdba4170809a0b9dfaeeff38ed4ecc8c3afe2ba1d20",
+      "bytes": 112761,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/niji-junbi-roadmap/carousel/img/02-point.png",
+      "sha256": "27973596f83760bbd4efcc1ba60fe60de810b0de5e69718e7422ff0ef1bae4d1",
+      "bytes": 102917,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/niji-junbi-roadmap/carousel/img/03-point.png",
+      "sha256": "05aa9681a8d2a2509e5c6614e74abb06972cbffc421f4821fea5fffce6cb8b5f",
+      "bytes": 139944,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/niji-junbi-roadmap/carousel/img/04-point.png",
+      "sha256": "aa6641319c42b191081f91d388106b559200783d27f8381cbdc083cde745f37e",
+      "bytes": 96764,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/niji-junbi-roadmap/carousel/img/05-point.png",
+      "sha256": "d197651193a340518a93783af312546c17acd93015ecee24712ddb5abf1b2a75",
+      "bytes": 131927,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/niji-junbi-roadmap/carousel/img/06-point.png",
+      "sha256": "cefbc8f252d8cef89de60ef6ef26391c3255e34b887014ed4e8b48a92f96ef71",
+      "bytes": 107093,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/niji-junbi-roadmap/carousel/img/07-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

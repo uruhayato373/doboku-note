@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.189Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-2kyu-hoki/shorts/point-block1-2/shorts.mp4",
-  "durationSeconds": 30.1,
-  "sha256": "d82ee8c6ac47a237287f31be4dea418c2927a63e0f5d789074e2b565492a7edf",
-  "coverSha256": "2136d9dd3289e68700efe4544e2b0981d4a867764e24449eda10fb0dd3a80493",
-  "renderedAt": "2026-09-05T23:20:28.915Z"
+  "durationSeconds": 30.2,
+  "sha256": "a0f3755551bcdd860abc71b4261051405aed76a3c461144fff496410b5dcbeef",
+  "coverSha256": "30602622aecadc5c6df8cb36f50ce2185da5e19e6a2710269834b4f9e9334b70",
+  "renderedAt": "2026-09-10T09:41:34.200Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "1e3121faff66b59012c340ec0ddd972a6ee7de668e73167e02d00a96e1406197",
+  "rendererSha256": "43e4708f2239a8c5bbfad7dbfbe52b5123a858dd1edaa6a15d937f8eb586680f",
+  "scriptSha256": "da94628515df00d2f0de39adf6da169bf0c79ec486ad74131879600ef3ffa4ac",
+  "speaker": 13,
+  "narration": "労働基準法の基本は、数字と適用条件を対にして覚えます。法定労働時間は原則一日8時間、一週40時間です。18歳未満の年少者には就業上の制限があります。賃金も毎月一回以上などの原則があるため、数字だけを切り離さず、何を定めた規定かを確認しましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "5d45733521beecdfd3f67474ee79d1ef977b00f54a3413c5a6221dc815fd35c0",
+    "points": "eed5047ef7be4f282f4cebf1223bf35bf388ccecfeb0cff7c090d88ca1b78b22",
+    "pointsImage": "81b045c00ef780bfefbd56aeae1961dd40d405093d61c196db3b13a9cf1e7a99",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T09:41:34.200Z"
+  }
 }

@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "keiken-anzen-1kyu",
+  "key": "point-identify-hazard-1",
+  "sceneId": "identify-hazard",
+  "exam": "civil-construction-1",
+  "narration": "危険源は、法面の急勾配、高所の足場作業、重機の輻輳、大規模な掘削といった現場条件から特定します。墜落の危険があった、だけでなくどの高さ・どの勾配かまで書きます。",
+  "visual": {
+    "heading": "危険源を現場条件から特定する",
+    "items": [
+      "法面勾配・高所作業・重機輻輳を具体化",
+      "「危険があった」で止めない",
+      "高さ・勾配など具体条件で示す"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+}

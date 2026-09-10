@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "career-nenshu-up",
+  "key": "point-step2-2",
+  "sceneId": "step2",
+  "exam": "civil-construction-1",
+  "narration": "年収を見直すときは、現職での昇進、資格手当、転職、長期的な専門性の向上という選択肢を整理しましょう。資格取得や独立だけで収入増が約束されるわけではありません。必要な経験や費用、働き方への影響も含めて、自分に合う経路を比較します。",
+  "visual": {
+    "heading": "年収を見直す4つの経路",
+    "items": [
+      "現職での昇進・資格手当",
+      "転職先での評価と条件",
+      "専門性の向上・独立は費用や責任も比較"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/guide-salary-up/article.mdx",
+  "editorialNote": "年収増の保証を避けて比較条件を追加。4項目を3行に整理。",
+  "coverHeadline": [
+    "年収を見直す",
+    "４つの経路"
+  ]
+}

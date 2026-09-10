@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "gakka-2kyu-doko",
+  "exam": "civil-construction-2",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "土工の頻出点",
+        "要点を押さえる"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：範囲が広いから満遍なく覚える",
+      "items": [
+        "出題は用語と概念の対応が中心",
+        "計算は土量変化率のLとCに集中"
+      ],
+      "sourceRef": "content/site/civil-construction-2/guide-earthwork-key-points/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "overview",
+      "heading": "土工の4テーマ",
+      "items": [
+        "① 土質試験",
+        "② 土量変化率 L・C",
+        "③ 盛土と締固め／④ のり面・軟弱地盤"
+      ],
+      "sourceRef": "content/site/civil-construction-2/guide-earthwork-key-points/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "block1",
+      "heading": "土質試験は目的で覚える",
+      "items": [
+        "標準貫入試験→N値（地盤の硬さ）",
+        "平板載荷試験→支持力",
+        "現場CBR試験→路床・路盤の支持力"
+      ],
+      "sourceRef": "content/site/civil-construction-2/guide-earthwork-key-points/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "block2",
+      "heading": "LもCも地山土量を基準にする",
+      "items": [
+        "Lはほぐし土量÷地山土量、Cは締固め土量÷地山土量です。",
+        "例としてL＝1.2、C＝0.9なら、地山100m³はほぐし120m³・締固め90m³です。",
+        "運搬はL、盛土の出来上がりはCを使い、土の状態を先に確認します。"
+      ],
+      "sourceRef": "content/site/civil-construction-2/guide-earthwork-key-points/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "block3",
+      "heading": "乾燥密度と含水比で管理",
+      "items": [
+        "最適含水比付近で締め固め、所要の品質を確保します。",
+        "締固め度＝現場の乾燥密度÷最大乾燥密度×100%です。",
+        "まき出し厚さは試験施工や仕様書に基づき、均一に締め固められる範囲で決めます。"
+      ],
+      "sourceRef": "content/site/civil-construction-2/guide-earthwork-key-points/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "block4",
+      "heading": "のり面・軟弱地盤は目的で分類",
+      "items": [
+        "圧密排水工法→沈下を促進",
+        "締固め工法→液状化防止・支持力向上",
+        "置換工法→軟弱層を良質材料に置換"
+      ],
+      "sourceRef": "content/site/civil-construction-2/guide-earthwork-key-points/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

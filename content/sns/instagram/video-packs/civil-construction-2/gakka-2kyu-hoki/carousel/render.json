@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "gakka-2kyu-hoki",
+  "inputDigest": "3575108c53a7837ecbdb28cb3d1d4aae35909fb3970d3fb74455282f4cde1ff2",
+  "sourceSha256": "d7a4e8a3345695af66452a9f925a91698b705f0af9d10fdfe80b7558738ab19e",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:32:51.562Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-hoki/carousel/img/00-cover.png",
+      "sha256": "b5213da03901bd542d25047fa4446dd517be594e7bcee032c060e800152c24ce",
+      "bytes": 313324,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-hoki/carousel/img/01-point.png",
+      "sha256": "34ad67db1a96d4e2e760008b0ce36898bce0e194c21df69a2902c928d721da1e",
+      "bytes": 106708,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-hoki/carousel/img/02-point.png",
+      "sha256": "0ea8d15cf2ac818be1cdcce816e478cd293b585708f313ffdda46763b02c33d3",
+      "bytes": 100006,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-hoki/carousel/img/03-point.png",
+      "sha256": "389b872a215e023a3012417dbc9375bb1fea4773fd04c7fd2cef9dfba30e4c62",
+      "bytes": 135620,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-hoki/carousel/img/04-point.png",
+      "sha256": "547a9db26db684bd4b96403724ad37f5fd327859e9fc24361f01fccb249bd4a8",
+      "bytes": 145506,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-hoki/carousel/img/05-point.png",
+      "sha256": "273fe490d6865e2ccc3b9ed3f43ee2193d59dc18050eca5c1ab1f9c8e99947e5",
+      "bytes": 146145,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-hoki/carousel/img/06-point.png",
+      "sha256": "203f065bb5b272576f7ecb2d25c1ec26aab2e10ca778bbf1feabe5d9655202c0",
+      "bytes": 96653,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-hoki/carousel/img/07-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

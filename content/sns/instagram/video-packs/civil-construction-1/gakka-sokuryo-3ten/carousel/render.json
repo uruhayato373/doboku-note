@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "gakka-sokuryo-3ten",
+  "inputDigest": "b1d0563e991b260a86c912ed1e695292584449c08bfe642a970c81ab2502c8ec",
+  "sourceSha256": "dc30775a79648f63b087615f8d66526ade43ee0f012e46a088de8e9183143acb",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:29:35.977Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-sokuryo-3ten/carousel/img/00-cover.png",
+      "sha256": "38b1fdb0af1ecac86050b933986f0686b4ff4f087d8d5ec5dc7e3ca82978794f",
+      "bytes": 339870,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-sokuryo-3ten/carousel/img/01-point.png",
+      "sha256": "dd8e810ae0b9a5256a5ec34ac445bf91767181604041cde135a586e6b208464f",
+      "bytes": 87908,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-sokuryo-3ten/carousel/img/02-point.png",
+      "sha256": "2906d75a947215ed9ef0b357b5cfe0c2cc167ca282adee8a4b6cb11263d8a330",
+      "bytes": 139383,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-sokuryo-3ten/carousel/img/03-point.png",
+      "sha256": "1f3cca1f1a1f6fa87db4df56443d6ae042c62568000e6f627048b35a6d443459",
+      "bytes": 106693,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-sokuryo-3ten/carousel/img/04-point.png",
+      "sha256": "c7dc211333709dee57a2b59aa1c568ec7abdcf9bda4cb11f9f0e3300148bd0d7",
+      "bytes": 153788,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-sokuryo-3ten/carousel/img/05-point.png",
+      "sha256": "55bc29924f7354c94b67ea51935402679385790f998e88c76f523ee41e7165b2",
+      "bytes": 113236,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-sokuryo-3ten/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

@@ -13,7 +13,27 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-2kyu-concrete/shorts/point-block1-2/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "6355b9a5a5f39a752e117a156535a64bf04baa282937212bd1595a64faab0cdc",
-  "coverSha256": "8a51634d1fabe87a645225189d32cb63f08868f0cc29e3dae59253de50c134e3",
-  "renderedAt": "2026-09-05T23:27:33.471Z"
+  "sha256": "b9eda66b185028fd5aa076b64477343dcc71491b8d259d18f6d2ab76f2975de1",
+  "coverSha256": "c2c39945c78e575fe8ce7751c22e6ee3b08b69c2bbf108dd4c6115190de58732",
+  "renderedAt": "2026-09-10T09:34:17.354Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "1472550d9ad9c7b7842cd80c3886a476680e7c5919cbf7089e5c935775a97da7",
+  "rendererSha256": "43e4708f2239a8c5bbfad7dbfbe52b5123a858dd1edaa6a15d937f8eb586680f",
+  "scriptSha256": "f9bcfa4df2102f35c865f2e34625949aab8e1d560829d521ffab5269277c7f21",
+  "speaker": 13,
+  "narration": "混和剤と混和材は、配合計算で容積を扱うかどうかを対にして覚えます。エーイー剤や減水剤などの混和剤は使用量が少なく、通常は容積に算入しません。フライアッシュなどの混和材は容積を算入します。骨材の配合計算は表面乾燥飽水状態を基準にします。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "95ed181864354deddb524885f853167581d359cc59fd405938b3d52936274e04",
+    "points": "7df6d209f8d7903dd9c1a992774e200cd4e3dff4c41f6eea37572c52799f1ec0",
+    "pointsImage": "40931b65c03fc423a7a15c3881bc0634ec2cd87efc89aa0696024850b3a7a357",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T09:34:17.354Z"
+  }
 }

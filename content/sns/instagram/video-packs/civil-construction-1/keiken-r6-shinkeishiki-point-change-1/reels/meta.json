@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.182Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-r6-shinkeishiki/shorts/point-change-1/shorts.mp4",
-  "durationSeconds": 32,
-  "sha256": "dcfd00a50a8ad3a2ccef949f3ed396ca09637ba3c8b2029bdc00a0869e97f79f",
-  "coverSha256": "69606772e041178221820a8648f58e7d5bde886ec652bb872c4901eb7c4394be",
-  "renderedAt": "2026-09-05T23:14:02.439Z"
+  "durationSeconds": 30.2,
+  "sha256": "9c54dfd79c97651a39a49bcc4405a4214d4bf17133b8afeb4e5769b289e8cd2a",
+  "coverSha256": "9c4452ef672df32819a7ccad198cfd0bc39c556f2f44418b636609af80bcc472",
+  "renderedAt": "2026-09-10T09:27:28.968Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "5385d27c4336ead559cf689c42d09a05c20f64c5dfbf6717060b02d6bfd53bbe",
+  "rendererSha256": "43e4708f2239a8c5bbfad7dbfbe52b5123a858dd1edaa6a15d937f8eb586680f",
+  "scriptSha256": "bffb6981ef884ac6f872a828bf3623730cf29914f65db46e810cebf2dfb8bfee",
+  "speaker": 13,
+  "narration": "令和5年度までは1つの管理項目が指定され、設問1で概要、設問2でその項目を書きました。令和6年度からは5項目のうち2つが指定され、同じ工事で両方必答します。設問1と設問2は同一内容にできません。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "6665a0e5a7dcd2066e8e617a5840aab3cab299e3948ad8840d7aa6b1f5a1ba50",
+    "points": "613371d45ab0d6d6b768f451383330b2c8e02cb9869bbb1df2db7b0ee2dccf7a",
+    "pointsImage": "5d79d8fe5c8b241a7d81a48df8d2c2d82260873f7ebd3ca5f07d32f427693d52",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T09:27:28.968Z"
+  }
 }

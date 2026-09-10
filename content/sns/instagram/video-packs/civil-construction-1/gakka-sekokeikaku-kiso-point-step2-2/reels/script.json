@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-sekokeikaku-kiso",
+  "key": "point-step2-2",
+  "sceneId": "step2",
+  "exam": "civil-construction-1",
+  "narration": "施工計画は、事前調査、基本計画、詳細計画、管理計画の4段階で組み立てます。基本計画では施工方法の概略と経済性を比較し、詳細計画では機械選定や人員配置を決め、管理計画では現場組織や資金計画をまとめます。",
+  "visual": {
+    "heading": "施工計画作成の4段階",
+    "items": [
+      "① 事前調査 → ② 基本計画（施工方法・経済性）",
+      "③ 詳細計画（機械選定・人員配置・積算）",
+      "④ 管理計画（現場組織・資金・安全衛生）"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-construction-plan-overview/article.mdx"
+}

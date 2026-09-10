@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "shunin-materials-ronten",
+  "exam": "concrete-chief-engineer",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "コンクリート",
+        "用材料の頻出点"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：数値をそのまま暗記すればよい",
+      "items": [
+        "JIS規定は上限値と下限値が混在",
+        "向きを逆に覚えると正誤が反転する"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-materials/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "clinker",
+      "heading": "クリンカー4化合物の特性",
+      "items": [
+        "C3S＝早期強度／C2S＝長期強度",
+        "C3A＝初期強度だが高発熱・低抵抗性",
+        "C4AF＝強度寄与ほぼなし"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-materials/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "cement-types",
+      "heading": "セメント規定は項目と上下限で読む",
+      "items": [
+        "中庸熱はC3S・C3A、低熱はC2S・C3Aなど、規定される成分を区別します。",
+        "低熱と耐硫酸塩ではC3Aの上限が異なるため、適用するJISの表で確認します。",
+        "教材の数値を別の種類へ移さず、上限か下限かまでセットで読みます。"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/primary-materials/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "aggregate",
+      "heading": "骨材の含水状態とペシマム量",
+      "items": [
+        "絶乾→気乾→表乾→湿潤の4段階",
+        "反応性鉱物＝クリストバライト等",
+        "ペシマム量は粒度でも変化する"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-materials/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "admixtures",
+      "heading": "混和材料は反応機構で判断する",
+      "items": [
+        "高炉スラグ＝潜在水硬性",
+        "フライアッシュ・シリカフューム＝ポゾラン反応",
+        "膨張材は3〜7日で膨張が終了"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-materials/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "reinforcement",
+      "heading": "鉄筋とPC鋼材は指標を区別",
+      "items": [
+        "鉄筋の製造方法と、PC鋼材の力学特性を混同しません。",
+        "比例限界・弾性限界・耐力は、それぞれの意味と試験条件を確認します。",
+        "永久ひずみ0.2%という値を、鋼材の種類を外して一律に扱わないようにします。"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-materials/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "keiken-genten-kyotsuten",
+  "key": "point-taisai-1",
+  "sceneId": "taisai",
+  "exam": "civil-construction-2",
+  "narration": "経験記述は、読みやすい字で解答欄に収めることも大切です。文字の大きさをそろえ、不自然な空行や余白で分量を増やさないようにしましょう。欄をどれだけ埋めたかだけで判断せず、設問が求める現場状況、検討、対応、評価が書けているかを確認します。",
+  "visual": {
+    "heading": "解答欄は読みやすさと内容を確認",
+    "items": [
+      "字の大きさをそろえ欄内に収める",
+      "不自然な空行で分量を増やさない",
+      "設問が求める内容を確認"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx",
+  "editorialNote": "8割記入を採点基準化する表現と、字の乱れだけで評価外との断定を削除。",
+  "coverHeadline": [
+    "経験記述の体裁",
+    "読みやすく書く"
+  ]
+}

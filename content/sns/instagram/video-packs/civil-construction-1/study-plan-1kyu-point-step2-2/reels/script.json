@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "study-plan-1kyu",
+  "key": "point-step2-2",
+  "sceneId": "step2",
+  "exam": "civil-construction-1",
+  "narration": "第一次は直近5年程度の過去問を繰り返すのが基本です。1周目は理解中心、2周目以降は時間を意識して解きます。施工管理法・土工・コンクリートなど出題数の多い分野から固めましょう。",
+  "visual": {
+    "heading": "第一次検定の進め方",
+    "items": [
+      "直近5年の過去問を反復",
+      "施工管理法・土工・コンクリートを優先",
+      "専門土木は実務に近い分野を選ぶ"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/guide-study-plan/article.mdx"
+}

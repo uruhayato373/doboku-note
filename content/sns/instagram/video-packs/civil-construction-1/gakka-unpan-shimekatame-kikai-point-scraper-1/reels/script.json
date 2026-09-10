@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-unpan-shimekatame-kikai",
+  "key": "point-scraper-1",
+  "sceneId": "scraper",
+  "exam": "civil-construction-1",
+  "narration": "スクレーパは掘削・積込み・運搬・敷均しを1台で行える機械です。被けん引式は60から400メートル、モータスクレーパは200から1,200メートル、スクレープドーザは軟弱地の40から250メートルに向きます。",
+  "visual": {
+    "heading": "スクレーパ3種の適用距離",
+    "items": [
+      "被けん引式：60〜400m",
+      "モータスクレーパ：200〜1,200m",
+      "スクレープドーザ：軟弱地40〜250m"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-scraper/article.mdx"
+}

@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.188Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-kotei-kakikata/shorts/point-nagare-1/shorts.mp4",
-  "durationSeconds": 30.07,
-  "sha256": "5730623e8afbc518a7e6ce9393f37cee697d8e00336f6ceaeedc152c1f5b61b8",
-  "coverSha256": "61b64f5e1a5ffa49b77c43c5da858ae58b1218a88d6d9f03aa9edbec18a22590",
-  "renderedAt": "2026-09-05T23:28:04.952Z"
+  "durationSeconds": 30.2,
+  "sha256": "d1bc0756deb89e0b72d66f42296a792b53f52af3e291a7dee578cdb591b5d742",
+  "coverSha256": "d592643d3eb01d1c6d5280b15b3bf56506a40d0544aea1836ca34a3195081641",
+  "renderedAt": "2026-09-10T09:39:25.060Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "0f68acc865f540417f1923deeccb49e188b2f7739cbd71a69075154ddbfe4069",
+  "rendererSha256": "43e4708f2239a8c5bbfad7dbfbe52b5123a858dd1edaa6a15d937f8eb586680f",
+  "scriptSha256": "2879c678a7ae2c9d80e4ccb247aee232c4368783b1561d285e8b23849adfe3c0",
+  "speaker": 13,
+  "narration": "工程管理の経験記述は、現場状況から課題を立て、検討と対応処置をつなぎます。材料や機械の手配、工程表の見直し、作業効率や気温への対策を振り返りましょう。その判断が工程にどう反映されたかを説明し、評価の要否や分量は受検年度の設問を優先します。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "ead0c04ad5c8cccffcd971ec41d4afc839b5dfd34eb084a048e84084ed962ce2",
+    "points": "10931afdbe57ba275824924ff30c42986da9c80bd96f8382e825ec00cfe308b2",
+    "pointsImage": "5e7b58ad46851132d670037af6dccf3d3d844f4e0dbd4bf5af1cd7534eeb901a",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T09:39:25.060Z"
+  }
 }

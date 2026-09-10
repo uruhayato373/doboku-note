@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-dodome-kussaku",
+  "key": "point-step1-1",
+  "sceneId": "step1",
+  "exam": "civil-construction-1",
+  "narration": "掘削面の高さが2メートル以上になる地山の掘削では、地山の掘削作業主任者を選任します。点検は、作業開始前、大雨の後、中震以上の地震の後、発破を行った後の4つの契機で行います。",
+  "visual": {
+    "heading": "地山の掘削作業主任者と点検",
+    "items": [
+      "掘削面2m以上で作業主任者を選任",
+      "点検は開始前・大雨後・中震後・発破後",
+      "浮石や亀裂、湧水の状態を確認"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-safety-excavation-shoring/article.mdx"
+}

@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "anzen-ippanron-3riyu",
+  "inputDigest": "6e2a1e2a75723ca45096681213004238d846e3e530c0785c7865e8dc68b82e3c",
+  "sourceSha256": "594528a4f09679407d2d6382558d5e2a99a5accf1ec48593f59740a8503bdd19",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:32:46.225Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/anzen-ippanron-3riyu/carousel/img/00-cover.png",
+      "sha256": "ebc5b32f127fbc23b217aa82d3093a27d0622e5189da14eb7dbea419125006f5",
+      "bytes": 352004,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/anzen-ippanron-3riyu/carousel/img/01-point.png",
+      "sha256": "27d625af1505f7245c4278473185b5c553d4ec82c8ba21af0537a4ae714c29ee",
+      "bytes": 121423,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/anzen-ippanron-3riyu/carousel/img/02-point.png",
+      "sha256": "19e41659e62884789abcc62676d7893c1d4597d44b9f90ca8e1af3a3a7fe3c17",
+      "bytes": 124430,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/anzen-ippanron-3riyu/carousel/img/03-point.png",
+      "sha256": "6080d7bf34eb5dde56a8e301fcfa80d6a2465b355b7707eba3b22f4157be012c",
+      "bytes": 128891,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/anzen-ippanron-3riyu/carousel/img/04-point.png",
+      "sha256": "67b6e3f7f3f9577ab22c568d9d5c60db4b7e6018c180a971534fcb679a4e4b8c",
+      "bytes": 143464,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/anzen-ippanron-3riyu/carousel/img/05-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "shunin-structural-design-ronten",
+  "inputDigest": "03f1f30699ecd5380c350383198156fafbde7b5d16868c976b2fb0329a86e494",
+  "sourceSha256": "7511e40095a24266fe6fcabbb3f2f568fd6bbc4e6c187ecd725d8bef03880305",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:37:44.456Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-structural-design-ronten/carousel/img/00-cover.png",
+      "sha256": "c7b07e45c1e93b20f24ce20c413835ba468502e7c33977135197af93ed7d9f1f",
+      "bytes": 323343,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-structural-design-ronten/carousel/img/01-point.png",
+      "sha256": "d40cb3502d1c3cf0318796392454dc14d2793709aa70d4f558736685670d8d48",
+      "bytes": 132336,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-structural-design-ronten/carousel/img/02-point.png",
+      "sha256": "45c40029ec6edeab0690e0487e0b93cd35f2be295f9a51a31cecebfd50f4c61d",
+      "bytes": 96481,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-structural-design-ronten/carousel/img/03-point.png",
+      "sha256": "d1fefb2943f15db478f15edd819860f86fdcd23bb61ff0b7bff8db0ff2aaff6c",
+      "bytes": 141603,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-structural-design-ronten/carousel/img/04-point.png",
+      "sha256": "43bc0b00f11a527917fa490b94df80954b088b9a3a02bccb16f05ee2f15b61a6",
+      "bytes": 114788,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-structural-design-ronten/carousel/img/05-point.png",
+      "sha256": "da15bee6a79f9e049524830d15078e5ccb3572eac0a0907e9d6bee8570a3d491",
+      "bytes": 120449,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-structural-design-ronten/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

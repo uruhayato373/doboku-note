@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-risk-assessment",
+  "key": "point-step1-1",
+  "sceneId": "step1",
+  "exam": "civil-construction-1",
+  "narration": "リスクアセスメントは4つの手順です。まず危険性・有害性を特定します。次に、重篤度と発生可能性の組み合わせでリスクを見積ります。優先度を設定し、低減措置を実施し、記録します。",
+  "visual": {
+    "heading": "リスクアセスメントの4手順",
+    "items": [
+      "危険性・有害性を特定する",
+      "重篤度×発生可能性でリスクを見積る",
+      "優先度設定→低減措置→記録"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-safety-risk-assessment/article.mdx"
+}

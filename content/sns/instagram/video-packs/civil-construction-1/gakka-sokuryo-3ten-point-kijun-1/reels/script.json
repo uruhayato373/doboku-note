@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-sokuryo-3ten",
+  "key": "point-kijun-1",
+  "sceneId": "kijun",
+  "exam": "civil-construction-1",
+  "narration": "日本の測量は、2002年4月に世界測地系へ移行しました。日本水準原点は東京都千代田区永田町にあり、標高は24.3900メートルです。座標の基準と高さの基準は役割が違います。測量問題では、何の基準を聞かれているかを区別しましょう。",
+  "visual": {
+    "heading": "座標と高さの基準を区別",
+    "items": [
+      "世界測地系への移行：2002年4月",
+      "日本水準原点：東京都千代田区永田町",
+      "原点標高：24.3900m"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-surveying-basics/article.mdx",
+  "editorialNote": "改正年2001年と施行年2002年の混同を修正。国土地理院FAQで移行日と原点標高を確認。",
+  "sourceUrls": [
+    "https://www.gsi.go.jp/kohokocho/FAQ1.html"
+  ]
+}

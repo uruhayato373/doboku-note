@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "keiken-hinshitsu-kakikata",
+  "inputDigest": "ad013f94f80169a1f8bb3980972bae24641306ec6d1b12ae5ace7285b14c713f",
+  "sourceSha256": "5ecd6b2c5f2bac9e7009ce130dfd1d9584879e36323aaef36edf7f8dd2c009ef",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:33:20.550Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/keiken-hinshitsu-kakikata/carousel/img/00-cover.png",
+      "sha256": "364f3a0f291b423c9161f51eb4cc0d3c0c8df62ff8923ee36d742a53f375388a",
+      "bytes": 325421,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/keiken-hinshitsu-kakikata/carousel/img/01-point.png",
+      "sha256": "f76e6d7998cd02fec1b6dde99db543e03abee0bee3461226d2eec4bc166e08dc",
+      "bytes": 116685,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/keiken-hinshitsu-kakikata/carousel/img/02-point.png",
+      "sha256": "a71a161e7e48d084a6f4d519bb47306596f0a7e8e65f113d3d90dbf4ad0942d0",
+      "bytes": 136972,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/keiken-hinshitsu-kakikata/carousel/img/03-point.png",
+      "sha256": "65f323eef50b17056f7f9809e413dfb366d6698d2d0484b03b2e4d2da149f8b6",
+      "bytes": 109966,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/keiken-hinshitsu-kakikata/carousel/img/04-point.png",
+      "sha256": "3cad3a06c221bfe9a4169917904c52959e05e568a4ce2a1f58d79cdc33bcff2a",
+      "bytes": 141060,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/keiken-hinshitsu-kakikata/carousel/img/05-point.png",
+      "sha256": "096e48084df49612cfc7110e6b4bd860f4dd79f424e0c29a7922fd693d7327aa",
+      "bytes": 120854,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/keiken-hinshitsu-kakikata/carousel/img/06-point.png",
+      "sha256": "a713c780e7a66afdb4ec7f795b976dff25145922678ab3f3e245a0d8c53b16de",
+      "bytes": 146167,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/keiken-hinshitsu-kakikata/carousel/img/07-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

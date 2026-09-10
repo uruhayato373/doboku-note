@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "shunin-products-ronten",
+  "inputDigest": "0a353ebd5707e81a12324b417ea5502f63ae3cfa4844901f6b5d9dca64741b3f",
+  "sourceSha256": "717828c5bba3cbd8e1711ec3048c019db0185757a29a75033e3400dc06fce685",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:36:29.891Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-products-ronten/carousel/img/00-cover.png",
+      "sha256": "2628ad83e902c273011f587f921ec85fd51c0f2ff820255c0b26fa480102e2bd",
+      "bytes": 335128,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-products-ronten/carousel/img/01-point.png",
+      "sha256": "530fcdf5fd4a4827f1e62bdc692b081518b1c0d09af4cd2f01dd11cdbbfb8056",
+      "bytes": 101215,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-products-ronten/carousel/img/02-point.png",
+      "sha256": "836e6535deeb27b123088eff285609a6577ed1a281df3b50cfe2cd2cff6ae561",
+      "bytes": 88359,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-products-ronten/carousel/img/03-point.png",
+      "sha256": "dbc7746b6be2baa452a0df5b93a43a95c28cf09b0e961d88df335681bd646139",
+      "bytes": 94722,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-products-ronten/carousel/img/04-point.png",
+      "sha256": "7f6bc17a21f1208b95068a23e772cbdfabe6f41022e804ff5b3851c85a47bc81",
+      "bytes": 102303,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-products-ronten/carousel/img/05-point.png",
+      "sha256": "d3a2e186d6d51669acb2ec0b177d8514b030059df6dc9e5919aa53797a34e4c0",
+      "bytes": 108974,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-products-ronten/carousel/img/06-point.png",
+      "sha256": "4f3da084f4bfc9ccf5f0233ac443bd0c6e0026dd798a7984a1be3ae325a7ca17",
+      "bytes": 111244,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-products-ronten/carousel/img/07-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

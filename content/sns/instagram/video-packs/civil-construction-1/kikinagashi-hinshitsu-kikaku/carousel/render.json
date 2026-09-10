@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "kikinagashi-hinshitsu-kikaku",
+  "inputDigest": "9427ee07004dd06b0e79f24e4d5f224fdac842b8c2ae0ac758989b336dfdfe72",
+  "sourceSha256": "ffecf5e3b93a169aaa4722748480f965462b9944680ab06e30d45ec0a81ab352",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:32:16.461Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/kikinagashi-hinshitsu-kikaku/carousel/img/00-cover.png",
+      "sha256": "a83e128d7ab822e7b0e3b93f4d3c58d8d9ada76a713a66e52ceb2fcf0676c6d8",
+      "bytes": 328750,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/kikinagashi-hinshitsu-kikaku/carousel/img/01-point.png",
+      "sha256": "6506d05fc57141887d56934db8c0fa8441b642364237fa53ed56325c960ea2b4",
+      "bytes": 113829,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/kikinagashi-hinshitsu-kikaku/carousel/img/02-point.png",
+      "sha256": "f2e152ac189effd2d82b82e3aa35d6525f906330dfc5760e0d3671745f9697f7",
+      "bytes": 138393,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/kikinagashi-hinshitsu-kikaku/carousel/img/03-point.png",
+      "sha256": "ad5c1218cbcbbce06a9f0c263d3a52d8ab6bafa51a0037e6dbf392bb7a12d803",
+      "bytes": 134827,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/kikinagashi-hinshitsu-kikaku/carousel/img/04-point.png",
+      "sha256": "7fbf4079aa099ea1cf2f5c242f369b6555bf29185644d8c21883070ce412902f",
+      "bytes": 138475,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/kikinagashi-hinshitsu-kikaku/carousel/img/05-point.png",
+      "sha256": "a503398564e77e0b0afed16a076ba5eceac258d441cda8b0b71c77e2b220715f",
+      "bytes": 127217,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/kikinagashi-hinshitsu-kikaku/carousel/img/06-point.png",
+      "sha256": "7844986e1ac0ce32ce70644bb6fd371eb6f4b6381dbc3af4457881917422eada",
+      "bytes": 131205,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/kikinagashi-hinshitsu-kikaku/carousel/img/07-point.png",
+      "sha256": "df8f6c09e1c3fff382fb2d14aaa9160214d929699dd618c7af8d21d5dbf14ac3",
+      "bytes": 137510,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/kikinagashi-hinshitsu-kikaku/carousel/img/08-point.png",
+      "sha256": "ebf86335c515bb6ec83b4cdb796ff7789faea5be684464687eaba4dafc904c69",
+      "bytes": 136565,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/kikinagashi-hinshitsu-kikaku/carousel/img/09-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

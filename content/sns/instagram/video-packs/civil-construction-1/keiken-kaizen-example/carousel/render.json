@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "keiken-kaizen-example",
+  "inputDigest": "4b1436d8e5edd9bb938635719cd6901688377711cf316311de2be86e07139dce",
+  "sourceSha256": "af90851815d8850ba112b0ce9c3dffe5092d19250c24b10f91e5de7d270f72bb",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:31:17.853Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-kaizen-example/carousel/img/00-cover.png",
+      "sha256": "6b25adbf2507ad4478ac39df152cf63fe7d5670992f0ab8bb7148131deec32d1",
+      "bytes": 334952,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-kaizen-example/carousel/img/01-point.png",
+      "sha256": "8a6a8838b082a9651dbd1e89a2eaac073939d2e431ed2b5da6a78c08621b86ce",
+      "bytes": 112929,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-kaizen-example/carousel/img/02-point.png",
+      "sha256": "1bd4dfafe1d632a388f1c0f6e7d3c69e798e43f2cfe1933e32872eafb523b242",
+      "bytes": 130984,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-kaizen-example/carousel/img/03-point.png",
+      "sha256": "43edff66a0554c868d66a6257c890a31a2c8b298743868ad8513e5b9e175439a",
+      "bytes": 98680,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-kaizen-example/carousel/img/04-point.png",
+      "sha256": "5a9bd4545ad26a00e4d8ce9725453333a24996d3a83cd3cd16cb89eedb41c30d",
+      "bytes": 118614,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-kaizen-example/carousel/img/05-point.png",
+      "sha256": "d6afb8efc54621418b84df94283c8330595a91788caf90e825874865d20b6f08",
+      "bytes": 109749,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-kaizen-example/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

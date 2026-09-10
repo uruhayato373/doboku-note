@@ -1,0 +1,1271 @@
+{
+  "schemaVersion": 1,
+  "id": "instagram-bridge-notebook-a-20260910",
+  "account": "dobokunotecom",
+  "design": "bridge-notebook-a-v1",
+  "productionFirst": true,
+  "publicationEnabled": false,
+  "approvedAt": "2026-09-10",
+  "expected": {
+    "topics": 112,
+    "carousels": 112,
+    "reels": 224
+  },
+  "cadence": {
+    "maxPerDay": 2,
+    "timezone": "Asia/Tokyo",
+    "startDate": null,
+    "sequence": [
+      {
+        "day": 0,
+        "time": "12:30",
+        "format": "reel-1"
+      },
+      {
+        "day": 1,
+        "time": "12:30",
+        "format": "carousel"
+      },
+      {
+        "day": 1,
+        "time": "19:00",
+        "format": "reel-2"
+      }
+    ],
+    "note": "1テーマを2日で展開。資格を交互に配置。開始日は全件完成後の既存予約照合で確定し、年度・直前対策は公開前に適用年度を再確認する。"
+  },
+  "topics": [
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "career-agent-katsuyo",
+      "title": "転職エージェントの使い方 — 施工管理向けの選び方",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/career-agent-katsuyo",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/career-agent-katsuyo-point-step1-1",
+        "content/sns/instagram/video-packs/civil-construction-1/career-agent-katsuyo-point-step2-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-2",
+      "sourcePackId": "anzen-ippanron-3riyu",
+      "title": "安全管理の答案が一般論になる3つの原因",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-2/anzen-ippanron-3riyu",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-2/anzen-ippanron-3riyu-point-cause1-1",
+        "content/sns/instagram/video-packs/civil-construction-2/anzen-ippanron-3riyu-point-cause2-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "concrete-chief-engineer",
+      "sourcePackId": "kikinagashi-shunin-suchi",
+      "title": "聞き流し 主任技士 頻出数値・JIS規定",
+      "carousel": "content/sns/instagram/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi",
+      "reels": [
+        "content/sns/instagram/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi-point-tanni-saikotsu-kuuki-2",
+        "content/sns/instagram/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi-point-wc-ratio-1"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "concrete-engineer",
+      "sourcePackId": "gishi-12week-plan",
+      "title": "コンクリート技士 12週間の合格スケジュール",
+      "carousel": "content/sns/instagram/video-packs/concrete-engineer/gishi-12week-plan",
+      "reels": [
+        "content/sns/instagram/video-packs/concrete-engineer/gishi-12week-plan-point-step1-1",
+        "content/sns/instagram/video-packs/concrete-engineer/gishi-12week-plan-point-step2-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "career-komuin-minkan",
+      "title": "公務員土木か民間か — 発注者と受注者のリアル",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/career-komuin-minkan",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/career-komuin-minkan-point-step1-1",
+        "content/sns/instagram/video-packs/civil-construction-1/career-komuin-minkan-point-step2-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-2",
+      "sourcePackId": "gakka-2kyu-concrete",
+      "title": "2級土木 コンクリートの頻出点 — 打込み・養生・継目",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-concrete",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-concrete-point-block1-2",
+        "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-concrete-point-overview-1"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "concrete-chief-engineer",
+      "sourcePackId": "shunin-chokuzen-senryaku",
+      "title": "主任技士 直前期の総仕上げ — 頻出度で絞る",
+      "carousel": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-chokuzen-senryaku",
+      "reels": [
+        "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-chokuzen-senryaku-point-step1-1",
+        "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-chokuzen-senryaku-point-step2-2"
+      ],
+      "timeSensitive": true
+    },
+    {
+      "exam": "concrete-engineer",
+      "sourcePackId": "gishi-construction-ronten",
+      "title": "コンクリート技士「施工（運搬・打込み・養生）」の頻出論点",
+      "carousel": "content/sns/instagram/video-packs/concrete-engineer/gishi-construction-ronten",
+      "reels": [
+        "content/sns/instagram/video-packs/concrete-engineer/gishi-construction-ronten-point-step1-1",
+        "content/sns/instagram/video-packs/concrete-engineer/gishi-construction-ronten-point-step2-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "career-nenshu-up",
+      "title": "年収を上げる施工管理の動き方 — 資格の市場価値",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/career-nenshu-up",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/career-nenshu-up-point-step1-1",
+        "content/sns/instagram/video-packs/civil-construction-1/career-nenshu-up-point-step2-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-2",
+      "sourcePackId": "gakka-2kyu-doko",
+      "title": "2級土木 土工の頻出点 — 最短で押さえる",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-doko",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-doko-point-block1-2",
+        "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-doko-point-overview-1"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "concrete-chief-engineer",
+      "sourcePackId": "shunin-construction-ronten",
+      "title": "主任技士「施工」の頻出論点",
+      "carousel": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-construction-ronten",
+      "reels": [
+        "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-construction-ronten-point-overview-1",
+        "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-construction-ronten-point-step1-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "concrete-engineer",
+      "sourcePackId": "gishi-environment-ronten",
+      "title": "コンクリート技士「環境配慮・脱炭素・資源循環」の頻出論点",
+      "carousel": "content/sns/instagram/video-packs/concrete-engineer/gishi-environment-ronten",
+      "reels": [
+        "content/sns/instagram/video-packs/concrete-engineer/gishi-environment-ronten-point-step1-1",
+        "content/sns/instagram/video-packs/concrete-engineer/gishi-environment-ronten-point-step2-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "career-tenshoku-timing",
+      "title": "施工管理の転職タイミング — 資格取得前か後か",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/career-tenshoku-timing",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/career-tenshoku-timing-point-step1-1",
+        "content/sns/instagram/video-packs/civil-construction-1/career-tenshoku-timing-point-step2-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-2",
+      "sourcePackId": "gakka-2kyu-hoki",
+      "title": "2級土木 法規の頻出点 — 労基法と安衛法を優先する",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-hoki",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-hoki-point-block1-2",
+        "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-hoki-point-overview-1"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "concrete-chief-engineer",
+      "sourcePackId": "shunin-durability-ronten",
+      "title": "主任技士「コンクリートの耐久性」の頻出論点",
+      "carousel": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-durability-ronten",
+      "reels": [
+        "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-durability-ronten-point-carbonation-1",
+        "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-durability-ronten-point-salt-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "concrete-engineer",
+      "sourcePackId": "gishi-haigou-keisan",
+      "title": "コンクリート技士 配合計算の解き方 — 手順を型にする",
+      "carousel": "content/sns/instagram/video-packs/concrete-engineer/gishi-haigou-keisan",
+      "reels": [
+        "content/sns/instagram/video-packs/concrete-engineer/gishi-haigou-keisan-point-step1-1",
+        "content/sns/instagram/video-packs/concrete-engineer/gishi-haigou-keisan-point-step2-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "career-white-kigyo",
+      "title": "ホワイトな建設会社の見分け方 — 求人票の読み方",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/career-white-kigyo",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/career-white-kigyo-point-step1-1",
+        "content/sns/instagram/video-packs/civil-construction-1/career-white-kigyo-point-step2-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-2",
+      "sourcePackId": "gakka-2kyu-kiso",
+      "title": "2級土木 基礎工の頻出点 — 杭とケーソンの整理",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-kiso",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-kiso-point-block1-2",
+        "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-kiso-point-overview-1"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "concrete-chief-engineer",
+      "sourcePackId": "shunin-hinshutsu-yusen",
+      "title": "主任技士 四肢択一の頻出分野 — 学習の優先順位",
+      "carousel": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-hinshutsu-yusen",
+      "reels": [
+        "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-hinshutsu-yusen-point-overview-1",
+        "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-hinshutsu-yusen-point-step1-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "concrete-engineer",
+      "sourcePackId": "gishi-jis-handan",
+      "title": "コンクリート技士 JIS問題の判断法 — 規定の背景で覚える",
+      "carousel": "content/sns/instagram/video-packs/concrete-engineer/gishi-jis-handan",
+      "reels": [
+        "content/sns/instagram/video-packs/concrete-engineer/gishi-jis-handan-point-step1-1",
+        "content/sns/instagram/video-packs/concrete-engineer/gishi-jis-handan-point-step2-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "career-yameru-mae",
+      "title": "辞める前に確認すること — 後悔しない退職判断",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/career-yameru-mae",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/career-yameru-mae-point-step1-1",
+        "content/sns/instagram/video-packs/civil-construction-1/career-yameru-mae-point-step2-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-2",
+      "sourcePackId": "gakka-2kyu-sekokeikaku",
+      "title": "2級土木 施工管理法の頻出点 — 計画・工程・安全・品質",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-sekokeikaku",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-sekokeikaku-point-block1-2",
+        "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-sekokeikaku-point-overview-1"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "concrete-chief-engineer",
+      "sourcePackId": "shunin-materials-ronten",
+      "title": "主任技士「コンクリート用材料」の頻出論点",
+      "carousel": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-materials-ronten",
+      "reels": [
+        "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-materials-ronten-point-cement-types-2",
+        "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-materials-ronten-point-clinker-1"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "concrete-engineer",
+      "sourcePackId": "gishi-jukenshikaku-2026",
+      "title": "コンクリート技士の受験資格 — 実務経験1年への改定",
+      "carousel": "content/sns/instagram/video-packs/concrete-engineer/gishi-jukenshikaku-2026",
+      "reels": [
+        "content/sns/instagram/video-packs/concrete-engineer/gishi-jukenshikaku-2026-point-step1-1",
+        "content/sns/instagram/video-packs/concrete-engineer/gishi-jukenshikaku-2026-point-step2-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "chokuzen-check-1kyu-niji",
+      "title": "1級二次 直前チェック — 最後の1週間でやること",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/chokuzen-check-1kyu-niji",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/chokuzen-check-1kyu-niji-point-check-3points-2",
+        "content/sns/instagram/video-packs/civil-construction-1/chokuzen-check-1kyu-niji-point-policy-1"
+      ],
+      "timeSensitive": true
+    },
+    {
+      "exam": "civil-construction-2",
+      "sourcePackId": "gakka-kijutsu-2kyu",
+      "title": "2級二次の学科記述 — 出る分野と解答の型",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-2/gakka-kijutsu-2kyu",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-2/gakka-kijutsu-2kyu-point-fields-1",
+        "content/sns/instagram/video-packs/civil-construction-2/gakka-kijutsu-2kyu-point-pattern1-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "concrete-chief-engineer",
+      "sourcePackId": "shunin-mix-design-ronten",
+      "title": "主任技士「配(調)合設計」の頻出論点",
+      "carousel": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-mix-design-ronten",
+      "reels": [
+        "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-mix-design-ronten-point-overview-1",
+        "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-mix-design-ronten-point-step1-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "concrete-engineer",
+      "sourcePackId": "gishi-materials-ronten",
+      "title": "コンクリート技士「セメント・骨材・混和材料」の頻出論点",
+      "carousel": "content/sns/instagram/video-packs/concrete-engineer/gishi-materials-ronten",
+      "reels": [
+        "content/sns/instagram/video-packs/concrete-engineer/gishi-materials-ronten-point-step1-1",
+        "content/sns/instagram/video-packs/concrete-engineer/gishi-materials-ronten-point-step2-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "gakka-anzen-taisei",
+      "title": "安全管理体制の数字 — 選任要件と度数率・強度率",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/gakka-anzen-taisei",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-anzen-taisei-point-step1-1",
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-anzen-taisei-point-step2-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-2",
+      "sourcePackId": "keiken-2kyu-level",
+      "title": "2級で求められる記述レベルはここまで",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-2/keiken-2kyu-level",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-2/keiken-2kyu-level-point-kata-2",
+        "content/sns/instagram/video-packs/civil-construction-2/keiken-2kyu-level-point-level-1"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "concrete-chief-engineer",
+      "sourcePackId": "shunin-ochiru-shouronbun",
+      "title": "落ちる小論文の共通点 — 主任技士で評価されない答案",
+      "carousel": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-ochiru-shouronbun",
+      "reels": [
+        "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-ochiru-shouronbun-point-chusho-2",
+        "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-ochiru-shouronbun-point-ippan-1"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "concrete-engineer",
+      "sourcePackId": "gishi-mix-design-ronten",
+      "title": "コンクリート技士「配合設計と現場配合補正」の頻出論点",
+      "carousel": "content/sns/instagram/video-packs/concrete-engineer/gishi-mix-design-ronten",
+      "reels": [
+        "content/sns/instagram/video-packs/concrete-engineer/gishi-mix-design-ronten-point-step1-1",
+        "content/sns/instagram/video-packs/concrete-engineer/gishi-mix-design-ronten-point-step2-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "gakka-ashiba-kijun",
+      "title": "足場の安全基準は数字で問われる",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/gakka-ashiba-kijun",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-ashiba-kijun-point-step1-1",
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-ashiba-kijun-point-step2-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-2",
+      "sourcePackId": "keiken-anzen-2kyu-kakikata",
+      "title": "2級 安全管理テーマの書き方 — 現場の数字で具体化する",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-2/keiken-anzen-2kyu-kakikata",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-2/keiken-anzen-2kyu-kakikata-point-step1-1",
+        "content/sns/instagram/video-packs/civil-construction-2/keiken-anzen-2kyu-kakikata-point-step2-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "concrete-chief-engineer",
+      "sourcePackId": "shunin-production-qc-ronten",
+      "title": "主任技士「製造・品質管理／検査」の頻出論点",
+      "carousel": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-production-qc-ronten",
+      "reels": [
+        "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-production-qc-ronten-point-overview-1",
+        "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-production-qc-ronten-point-step1-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "concrete-engineer",
+      "sourcePackId": "gishi-production-qc-ronten",
+      "title": "コンクリート技士「製造・品質管理と検査」の頻出論点",
+      "carousel": "content/sns/instagram/video-packs/concrete-engineer/gishi-production-qc-ronten",
+      "reels": [
+        "content/sns/instagram/video-packs/concrete-engineer/gishi-production-qc-ronten-point-qc1-1",
+        "content/sns/instagram/video-packs/concrete-engineer/gishi-production-qc-ronten-point-qc2-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "gakka-crane-sogo",
+      "title": "クレーン作業の頻出点 — 性能と安全規定をまとめて",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/gakka-crane-sogo",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-crane-sogo-point-overview-1",
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-crane-sogo-point-step1-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-2",
+      "sourcePackId": "keiken-gaiyo-2kyu",
+      "title": "2級 工事概要の書き方 — 最初の失点を防ぐ",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-2/keiken-gaiyo-2kyu",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-2/keiken-gaiyo-2kyu-point-step1-1",
+        "content/sns/instagram/video-packs/civil-construction-2/keiken-gaiyo-2kyu-point-step2-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "concrete-chief-engineer",
+      "sourcePackId": "shunin-products-ronten",
+      "title": "主任技士「コンクリート製品」の頻出論点",
+      "carousel": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-products-ronten",
+      "reels": [
+        "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-products-ronten-point-method-match-2",
+        "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-products-ronten-point-overview-1"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "concrete-engineer",
+      "sourcePackId": "gishi-properties-testing-ronten",
+      "title": "コンクリート技士「コンクリートの性質と試験」の頻出論点",
+      "carousel": "content/sns/instagram/video-packs/concrete-engineer/gishi-properties-testing-ronten",
+      "reels": [
+        "content/sns/instagram/video-packs/concrete-engineer/gishi-properties-testing-ronten-point-step1-1",
+        "content/sns/instagram/video-packs/concrete-engineer/gishi-properties-testing-ronten-point-step2-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "gakka-dodome-kussaku",
+      "title": "土止め支保工と明り掘削の安全基準",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/gakka-dodome-kussaku",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-dodome-kussaku-point-step1-1",
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-dodome-kussaku-point-step2-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-2",
+      "sourcePackId": "keiken-genten-kyotsuten",
+      "title": "減点される答案の共通点",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-2/keiken-genten-kyotsuten",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-2/keiken-genten-kyotsuten-point-kaigyo-2",
+        "content/sns/instagram/video-packs/civil-construction-2/keiken-genten-kyotsuten-point-taisai-1"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "concrete-chief-engineer",
+      "sourcePackId": "shunin-properties-ronten",
+      "title": "主任技士「コンクリートの性質」の頻出論点",
+      "carousel": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-properties-ronten",
+      "reels": [
+        "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-properties-ronten-point-bingham-2",
+        "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-properties-ronten-point-consistency-1"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "concrete-engineer",
+      "sourcePackId": "gishi-shiken-zentaizou",
+      "title": "コンクリート技士の全体像 — 試験概要と勉強法",
+      "carousel": "content/sns/instagram/video-packs/concrete-engineer/gishi-shiken-zentaizou",
+      "reels": [
+        "content/sns/instagram/video-packs/concrete-engineer/gishi-shiken-zentaizou-point-step1-1",
+        "content/sns/instagram/video-packs/concrete-engineer/gishi-shiken-zentaizou-point-step2-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "gakka-doshitsu-chosa",
+      "title": "土質調査は「何を知りたいか」で試験名を逆引きする",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/gakka-doshitsu-chosa",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-doshitsu-chosa-point-genri-1",
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-doshitsu-chosa-point-gyakubiki-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-2",
+      "sourcePackId": "keiken-hinshitsu-kakikata",
+      "title": "品質管理テーマの組み立て方",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-2/keiken-hinshitsu-kakikata",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-2/keiken-hinshitsu-kakikata-point-kadai-2",
+        "content/sns/instagram/video-packs/civil-construction-2/keiken-hinshitsu-kakikata-point-nagare-1"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "concrete-chief-engineer",
+      "sourcePackId": "shunin-r8-juuten",
+      "title": "主任技士 R8の重点分野予想 — 頻出度からこう導く",
+      "carousel": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-r8-juuten",
+      "reels": [
+        "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-r8-juuten-point-four-tiers-2",
+        "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-r8-juuten-point-overview-1"
+      ],
+      "timeSensitive": true
+    },
+    {
+      "exam": "concrete-engineer",
+      "sourcePackId": "gishi-shunin-dochira",
+      "title": "技士と主任技士どちらを受けるか — 違いで判断する",
+      "carousel": "content/sns/instagram/video-packs/concrete-engineer/gishi-shunin-dochira",
+      "reels": [
+        "content/sns/instagram/video-packs/concrete-engineer/gishi-shunin-dochira-point-step1-1",
+        "content/sns/instagram/video-packs/concrete-engineer/gishi-shunin-dochira-point-step2-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "gakka-haikibutsu-recycle",
+      "title": "建設副産物・廃棄物処理の頻出点 — マニフェストと再資源化",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/gakka-haikibutsu-recycle",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-haikibutsu-recycle-point-overview-1",
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-haikibutsu-recycle-point-step1-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-2",
+      "sourcePackId": "keiken-koji-ga-nai",
+      "title": "「書ける工事が無い」と感じたら",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-2/keiken-koji-ga-nai",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-2/keiken-koji-ga-nai-point-taisho-1",
+        "content/sns/instagram/video-packs/civil-construction-2/keiken-koji-ga-nai-point-taishogai-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "concrete-chief-engineer",
+      "sourcePackId": "shunin-shiken-zentaizou",
+      "title": "コンクリート主任技士の全体像 — 四肢択一×小論文の二本立て",
+      "carousel": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-shiken-zentaizou",
+      "reels": [
+        "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-shiken-zentaizou-point-overview-1",
+        "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-shiken-zentaizou-point-step1-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "gakka-hinshitsu-kensa",
+      "title": "品質管理の検査 — 全数・抜取の使い分け",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/gakka-hinshitsu-kensa",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-hinshitsu-kensa-point-step1-1",
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-hinshitsu-kensa-point-step2-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-2",
+      "sourcePackId": "keiken-kotei-kakikata",
+      "title": "工程管理テーマの組み立て方",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-2/keiken-kotei-kakikata",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-2/keiken-kotei-kakikata-point-nagare-1",
+        "content/sns/instagram/video-packs/civil-construction-2/keiken-kotei-kakikata-point-tenko-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "concrete-chief-engineer",
+      "sourcePackId": "shunin-shouronbun-kousei",
+      "title": "主任技士 小論文の答案構成 — 評価される観点から逆算する",
+      "carousel": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-shouronbun-kousei",
+      "reels": [
+        "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-shouronbun-kousei-point-kanten-1",
+        "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-shouronbun-kousei-point-kousei-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "gakka-histogram",
+      "title": "ヒストグラムと工程能力図の読み方",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/gakka-histogram",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-histogram-point-overview-1",
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-histogram-point-step1-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-2",
+      "sourcePackId": "keiken-nendo-keiko-2kyu",
+      "title": "2級二次の出題傾向 — 5年分から読むテーマの流れ",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-2/keiken-nendo-keiko-2kyu",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-2/keiken-nendo-keiko-2kyu-point-gakka-fields-2",
+        "content/sns/instagram/video-packs/civil-construction-2/keiken-nendo-keiko-2kyu-point-theme-shift-1"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "concrete-chief-engineer",
+      "sourcePackId": "shunin-shouronbun-theme",
+      "title": "主任技士 小論文のテーマ傾向 — 何が問われてきたか",
+      "carousel": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-shouronbun-theme",
+      "reels": [
+        "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-shouronbun-theme-point-nendo-1",
+        "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-shouronbun-theme-point-ryouiki-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "gakka-hoki-kasen-doro",
+      "title": "河川法・道路法・港則法 — 許可と届出の整理",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/gakka-hoki-kasen-doro",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-hoki-kasen-doro-point-overview-1",
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-hoki-kasen-doro-point-step1-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-2",
+      "sourcePackId": "kikinagashi-2kyu-matome",
+      "title": "耳で覚える2級土木 — 頻出点の総ざらい",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-2/kikinagashi-2kyu-matome",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-2/kikinagashi-2kyu-matome-point-soil-tests-1",
+        "content/sns/instagram/video-packs/civil-construction-2/kikinagashi-2kyu-matome-point-soil-volume-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "concrete-chief-engineer",
+      "sourcePackId": "shunin-structural-design-ronten",
+      "title": "主任技士「コンクリート構造の設計」の頻出論点",
+      "carousel": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-structural-design-ronten",
+      "reels": [
+        "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-structural-design-ronten-point-bending-assumptions-1",
+        "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-structural-design-ronten-point-shear-capacity-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "gakka-hoki-kenchiku-kayaku",
+      "title": "建築基準法・火薬類取締法の頻出点",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/gakka-hoki-kenchiku-kayaku",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-hoki-kenchiku-kayaku-point-overview-1",
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-hoki-kenchiku-kayaku-point-step1-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-2",
+      "sourcePackId": "nikyuu-gaiyo-roadmap",
+      "title": "2級土木の全体像と学習順序",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-2/nikyuu-gaiyo-roadmap",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-2/nikyuu-gaiyo-roadmap-point-qualification-2",
+        "content/sns/instagram/video-packs/civil-construction-2/nikyuu-gaiyo-roadmap-point-stage-1"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "gakka-kankyo-hozen",
+      "title": "騒音・振動規制の数字と公害防止の頻出点",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/gakka-kankyo-hozen",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-kankyo-hozen-point-overview-1",
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-kankyo-hozen-point-step1-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-2",
+      "sourcePackId": "study-plan-2kyu",
+      "title": "2級土木の勉強計画 — 仕事と両立する学習設計",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-2/study-plan-2kyu",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-2/study-plan-2kyu-point-step1-1",
+        "content/sns/instagram/video-packs/civil-construction-2/study-plan-2kyu-point-step2-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "gakka-kanrizu",
+      "title": "管理図の読み方 — 異常判定のルール",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/gakka-kanrizu",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-kanrizu-point-step1-1",
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-kanrizu-point-step2-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "gakka-kensetsugyoho",
+      "title": "建設業法の頻出点 — 技術者配置と許可の数字",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/gakka-kensetsugyoho",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-kensetsugyoho-point-overview-1",
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-kensetsugyoho-point-step1-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "gakka-kikai-kiso",
+      "title": "建設機械の基礎 — 走行装置と原動機の頻出点",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/gakka-kikai-kiso",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-kikai-kiso-point-bunrui-1",
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-kikai-kiso-point-gendoki-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "gakka-kotei-kanri-kiso",
+      "title": "工程表の種類と使い分け — バーチャートから曲線式まで",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/gakka-kotei-kanri-kiso",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-kotei-kanri-kiso-point-step1-1",
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-kotei-kanri-kiso-point-step2-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "gakka-kussaku-tsumikomi-kikai",
+      "title": "掘削・積込機械の適用整理 — ブルドーザ・ショベル系・ローダ",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/gakka-kussaku-tsumikomi-kikai",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-kussaku-tsumikomi-kikai-point-bulldozer-1",
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-kussaku-tsumikomi-kikai-point-shovel-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "gakka-morido-shimekatame",
+      "title": "盛土の施工と締固め管理の頻出点",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/gakka-morido-shimekatame",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-morido-shimekatame-point-overview-1",
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-morido-shimekatame-point-step1-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "gakka-nanjaku-jiban",
+      "title": "軟弱地盤対策工法の整理法",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/gakka-nanjaku-jiban",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-nanjaku-jiban-point-overview-1",
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-nanjaku-jiban-point-step1-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "gakka-network-koteihyo",
+      "title": "ネットワーク式工程表の解き方",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/gakka-network-koteihyo",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-network-koteihyo-point-overview-1",
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-network-koteihyo-point-step1-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "gakka-nori-hogoko",
+      "title": "法面保護工の使い分け — 植生工か構造物工か",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/gakka-nori-hogoko",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-nori-hogoko-point-gensoku-1",
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-nori-hogoko-point-hisho-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "gakka-risk-assessment",
+      "title": "リスクアセスメントと作業環境の頻出点",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/gakka-risk-assessment",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-risk-assessment-point-step1-1",
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-risk-assessment-point-step2-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "gakka-roudou-kijun",
+      "title": "労働基準法の頻出 — 就業制限と労働時間",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/gakka-roudou-kijun",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-roudou-kijun-point-step1-1",
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-roudou-kijun-point-step2-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "gakka-sekokeikaku-kiso",
+      "title": "施工計画の立て方 — 事前調査から仮設まで",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/gakka-sekokeikaku-kiso",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-sekokeikaku-kiso-point-step1-1",
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-sekokeikaku-kiso-point-step2-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "gakka-sokuryo-3ten",
+      "title": "測量の頻出3テーマ — 基準・水準測量・距離と角度",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/gakka-sokuryo-3ten",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-sokuryo-3ten-point-kijun-1",
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-sokuryo-3ten-point-suijun-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "gakka-ukeoi-yakkan",
+      "title": "公共工事標準請負契約約款は「誰の義務か」で読む",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/gakka-ukeoi-yakkan",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-ukeoi-yakkan-point-overview-1",
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-ukeoi-yakkan-point-step1-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "gakka-unpan-shimekatame-kikai",
+      "title": "運搬・敷均し・締固め機械の整理法",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/gakka-unpan-shimekatame-kikai",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-unpan-shimekatame-kikai-point-scraper-1",
+        "content/sns/instagram/video-packs/civil-construction-1/gakka-unpan-shimekatame-kikai-point-unpan-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "keiken-2theme-heiki",
+      "title": "2テーマ指定への備え — 設問1と設問2の書き分け",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/keiken-2theme-heiki",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/keiken-2theme-heiki-point-overview-1",
+        "content/sns/instagram/video-packs/civil-construction-1/keiken-2theme-heiki-point-step1-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "keiken-ai-sekkei",
+      "title": "AIに経験記述を丸投げすると落ちる理由と正しい使い方",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/keiken-ai-sekkei",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/keiken-ai-sekkei-point-overview-1",
+        "content/sns/instagram/video-packs/civil-construction-1/keiken-ai-sekkei-point-step1-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "keiken-anzen-1kyu",
+      "title": "安全管理テーマの経験記述 — 一般論にしない書き方",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/keiken-anzen-1kyu",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/keiken-anzen-1kyu-point-compare-measures-2",
+        "content/sns/instagram/video-packs/civil-construction-1/keiken-anzen-1kyu-point-identify-hazard-1"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "keiken-dokugaku-genkai",
+      "title": "独学添削の限界 — 自分の答案は自分で採点できない",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/keiken-dokugaku-genkai",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/keiken-dokugaku-genkai-point-layer-format-2",
+        "content/sns/instagram/video-packs/civil-construction-1/keiken-dokugaku-genkai-point-layer-overview-1"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "keiken-hinshitsu-1kyu",
+      "title": "品質管理テーマの経験記述 — 課題・検討・対応の組み立て方",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/keiken-hinshitsu-1kyu",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/keiken-hinshitsu-1kyu-point-focus-item-2",
+        "content/sns/instagram/video-packs/civil-construction-1/keiken-hinshitsu-1kyu-point-gap-to-issue-1"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "keiken-kadai-kakikata",
+      "title": "技術的課題は「現場条件→原因→課題」で書く",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/keiken-kadai-kakikata",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/keiken-kadai-kakikata-point-block1-1",
+        "content/sns/instagram/video-packs/civil-construction-1/keiken-kadai-kakikata-point-block2-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "keiken-kaizen-example",
+      "title": "添削ビフォーアフターで学ぶ経験記述",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/keiken-kaizen-example",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/keiken-kaizen-example-point-general-1",
+        "content/sns/instagram/video-packs/civil-construction-1/keiken-kaizen-example-point-reasoning-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "keiken-kankyo-1kyu",
+      "title": "環境対策テーマの経験記述 — 出題されたら書けるか",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/keiken-kankyo-1kyu",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/keiken-kankyo-1kyu-point-background-1",
+        "content/sns/instagram/video-packs/civil-construction-1/keiken-kankyo-1kyu-point-three-categories-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "keiken-kento-kakikata",
+      "title": "検討項目の書き方 — 「解決方法」と書かない",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/keiken-kento-kakikata",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/keiken-kento-kakikata-point-block1-1",
+        "content/sns/instagram/video-packs/civil-construction-1/keiken-kento-kakikata-point-block2-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "keiken-kotei-1kyu",
+      "title": "工程管理テーマの経験記述 — 遅延の話で終わらせない",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/keiken-kotei-1kyu",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/keiken-kotei-1kyu-point-prevent-in-advance-2",
+        "content/sns/instagram/video-packs/civil-construction-1/keiken-kotei-1kyu-point-three-factors-1"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "keiken-nendo-keiko-1kyu",
+      "title": "1級二次の出題傾向 — 5年分から読むテーマの流れ",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/keiken-nendo-keiko-1kyu",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/keiken-nendo-keiko-1kyu-point-overview-1",
+        "content/sns/instagram/video-packs/civil-construction-1/keiken-nendo-keiko-1kyu-point-step1-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "keiken-ochiru-toan-1kyu",
+      "title": "落ちる答案の共通パターン — 内容以前の減点を消す",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/keiken-ochiru-toan-1kyu",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/keiken-ochiru-toan-1kyu-point-gap-1",
+        "content/sns/instagram/video-packs/civil-construction-1/keiken-ochiru-toan-1kyu-point-generic-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "keiken-r6-shinkeishiki",
+      "title": "令和6年度からの新形式 — 2テーマ指定への備え",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/keiken-r6-shinkeishiki",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/keiken-r6-shinkeishiki-point-change-1",
+        "content/sns/instagram/video-packs/civil-construction-1/keiken-r6-shinkeishiki-point-structure-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "keiken-sekokeikaku-1kyu",
+      "title": "施工計画テーマの経験記述 — 検討の幅で差をつける",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/keiken-sekokeikaku-1kyu",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/keiken-sekokeikaku-1kyu-point-four-categories-2",
+        "content/sns/instagram/video-packs/civil-construction-1/keiken-sekokeikaku-1kyu-point-plan-vs-management-1"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "keiken-soteikoji-katsuyo",
+      "title": "完成答案の正しい使い方 — 写すのではなく置き換える",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/keiken-soteikoji-katsuyo",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/keiken-soteikoji-katsuyo-point-overview-1",
+        "content/sns/instagram/video-packs/civil-construction-1/keiken-soteikoji-katsuyo-point-step1-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "keiken-taio-hyoka",
+      "title": "対応処置と評価は数値で締める",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/keiken-taio-hyoka",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/keiken-taio-hyoka-point-block1-1",
+        "content/sns/instagram/video-packs/civil-construction-1/keiken-taio-hyoka-point-block2-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "keiken-taisho-koji",
+      "title": "施工経験記述に書ける工事・書けない工事",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/keiken-taisho-koji",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/keiken-taisho-koji-point-block1-1",
+        "content/sns/instagram/video-packs/civil-construction-1/keiken-taisho-koji-point-block2-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "keiken-yosou-renshu",
+      "title": "経験記述は予想問題で「書く練習」をする",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/keiken-yosou-renshu",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/keiken-yosou-renshu-point-overview-1",
+        "content/sns/instagram/video-packs/civil-construction-1/keiken-yosou-renshu-point-step1-2"
+      ],
+      "timeSensitive": true
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "kikinagashi-anzen-suchi",
+      "title": "耳で覚える安全管理の数字 — 足場・掘削・クレーン・環境",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/kikinagashi-anzen-suchi",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/kikinagashi-anzen-suchi-point-scaffold-platform-1",
+        "content/sns/instagram/video-packs/civil-construction-1/kikinagashi-anzen-suchi-point-scaffold-rail-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "kikinagashi-doko-suchi",
+      "title": "耳で覚える土工の数字 — 盛土・法面・軟弱地盤",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/kikinagashi-doko-suchi",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/kikinagashi-doko-suchi-point-embankment-check-2",
+        "content/sns/instagram/video-packs/civil-construction-1/kikinagashi-doko-suchi-point-soft-ground-judge-1"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "kikinagashi-hinshitsu-kikaku",
+      "title": "耳で覚える品質管理 — 検査・管理図・ヒストグラム",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/kikinagashi-hinshitsu-kikaku",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/kikinagashi-hinshitsu-kikaku-point-full-vs-sampling-2",
+        "content/sns/instagram/video-packs/civil-construction-1/kikinagashi-hinshitsu-kikaku-point-population-sampling-1"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "kikinagashi-hoki-suchi",
+      "title": "耳で覚える法規の数字 — 労基法・安衛法・騒音振動",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/kikinagashi-hoki-suchi",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/kikinagashi-hoki-suchi-point-avg-wage-contract-1",
+        "content/sns/instagram/video-packs/civil-construction-1/kikinagashi-hoki-suchi-point-dismissal-notice-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "koji-gaiyo-7items",
+      "title": "工事概要7項目で失点しない",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/koji-gaiyo-7items",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/koji-gaiyo-7items-koki-sekoryo",
+        "content/sns/instagram/video-packs/civil-construction-1/koji-gaiyo-7items-koshu-sekoryo"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "niji-junbi-roadmap",
+      "title": "一次のあとに始める二次検定ロードマップ",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/niji-junbi-roadmap",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/niji-junbi-roadmap-point-overview-2",
+        "content/sns/instagram/video-packs/civil-construction-1/niji-junbi-roadmap-point-time-matters-1"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "niji-kijutsu-concrete",
+      "title": "二次の学科記述 コンクリート — 頻出規定の整理",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/niji-kijutsu-concrete",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/niji-kijutsu-concrete-point-overlap-time-1",
+        "content/sns/instagram/video-packs/civil-construction-1/niji-kijutsu-concrete-point-vibration-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "niji-kijutsu-doko",
+      "title": "二次の学科記述 土工 — 穴埋めで問われる数字の型",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/niji-kijutsu-doko",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/niji-kijutsu-doko-point-gradient-2",
+        "content/sns/instagram/video-packs/civil-construction-1/niji-kijutsu-doko-point-thickness-1"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "niji-kijutsu-hinshitsu",
+      "title": "二次の学科記述 品質管理 — 試験名と規格値の対応",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/niji-kijutsu-hinshitsu",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/niji-kijutsu-hinshitsu-point-acceptance-test-2",
+        "content/sns/instagram/video-packs/civil-construction-1/niji-kijutsu-hinshitsu-point-compaction-1"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "niji-kijutsu-sekokeikaku",
+      "title": "二次の学科記述 施工計画 — 計画立案の記述パターン",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/niji-kijutsu-sekokeikaku",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/niji-kijutsu-sekokeikaku-point-pattern1-1",
+        "content/sns/instagram/video-packs/civil-construction-1/niji-kijutsu-sekokeikaku-point-pattern2-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "roadmap-1kyu-vs-2kyu",
+      "title": "1級と2級どちらから受けるか — 判断基準",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/roadmap-1kyu-vs-2kyu",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/roadmap-1kyu-vs-2kyu-point-step1-1",
+        "content/sns/instagram/video-packs/civil-construction-1/roadmap-1kyu-vs-2kyu-point-step2-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "roadmap-juken-shikaku",
+      "title": "1級土木の受検資格と試験制度 — 全体像をつかむ",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/roadmap-juken-shikaku",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/roadmap-juken-shikaku-point-step1-1",
+        "content/sns/instagram/video-packs/civil-construction-1/roadmap-juken-shikaku-point-step2-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "roadmap-nanido-goukakuritsu",
+      "title": "1級土木の難易度 — 合格率の読み方と必要な学習量",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/roadmap-nanido-goukakuritsu",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/roadmap-nanido-goukakuritsu-point-step1-1",
+        "content/sns/instagram/video-packs/civil-construction-1/roadmap-nanido-goukakuritsu-point-step2-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "sekokan-shippaidan",
+      "title": "施工管理の失敗談 — 現場で学んだ教訓",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/sekokan-shippaidan",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/sekokan-shippaidan-point-step1-1",
+        "content/sns/instagram/video-packs/civil-construction-1/sekokan-shippaidan-point-step2-2"
+      ],
+      "timeSensitive": false
+    },
+    {
+      "exam": "civil-construction-1",
+      "sourcePackId": "study-plan-1kyu",
+      "title": "1級土木の勉強計画 — 何をいつまでに",
+      "carousel": "content/sns/instagram/video-packs/civil-construction-1/study-plan-1kyu",
+      "reels": [
+        "content/sns/instagram/video-packs/civil-construction-1/study-plan-1kyu-point-step1-1",
+        "content/sns/instagram/video-packs/civil-construction-1/study-plan-1kyu-point-step2-2"
+      ],
+      "timeSensitive": false
+    }
+  ]
+}

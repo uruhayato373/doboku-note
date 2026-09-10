@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "kikinagashi-shunin-suchi",
+  "exam": "concrete-chief-engineer",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "要点を復習",
+        "頻出数値とJIS"
+      ],
+      "subtitle": "主要論点を整理した保存版",
+      "character": {
+        "pose": "reading",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "wc-ratio",
+      "heading": "水セメント比と単位水量",
+      "items": [
+        "水セメント比は強度・耐久性、単位水量は施工性や収縮と結びつけて確認します。",
+        "単位水量を増やすと、スランプとブリーディングが増える方向になります。"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "warizoushi",
+      "heading": "ばらつきを見込んで配合強度を決める",
+      "items": [
+        "呼び強度は指定値、配合強度は製造で目指す値です。",
+        "二つの条件から求めた割増し係数のうち、大きい方を採用します。"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "yoseki-hou",
+      "heading": "容積の合計は1000L",
+      "items": [
+        "1m³の水・結合材・骨材・空気の絶対容積を足し合わせます。",
+        "例：単位水量180kg、水結合材比55%なら、結合材は約327kg/m³です。"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "kensa-hantei",
+      "heading": "強度の判定は二つの条件",
+      "items": [
+        "1回の試験結果は呼び強度の85%以上が必要です。",
+        "3回の試験結果の平均は呼び強度以上とし、両方を満たすことを確認します。"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-production-qc/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "hendou-keisu",
+      "heading": "変動係数と工程能力を区別",
+      "items": [
+        "変動係数は、標準偏差÷平均値×100%で表します。",
+        "工程能力指数は規格幅に対するばらつきの余裕を示し、工程の安定性とは区別します。"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-production-qc/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "chuuseika",
+      "heading": "中性化は時間の平方根で比較",
+      "items": [
+        "同じ条件では、中性化深さは経過時間の平方根に比例するモデルで考えます。",
+        "例：9年で6mmなら、25年では6×√(25÷9)＝10mmです。"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-durability/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "tougai-asr",
+      "heading": "凍害とASRの機構を区別",
+      "items": [
+        "凍害では、スケーリングやポップアウトなどの損傷を確認します。",
+        "ASRは、反応性骨材・水酸化アルカリ・水分の三つの条件を結びつけます。"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-durability/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "uchikomi-shimekatame",
+      "heading": "施工の数値には適用条件を添える",
+      "items": [
+        "一般的な打込みの教材目安は、自由落下高さ1.5m以下・振動機の挿入間隔60cm以下です。",
+        "寒中・暑中・マスなどの条件で養生の狙いが変わるため、材料と気温を確認します。"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-construction/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "gakka-network-koteihyo",
+  "inputDigest": "ed116d8264ec6099a47ea839d2ea6db017f72c7c092330a92c8085f821311171",
+  "sourceSha256": "ca8d11a7c5d24d1e4e3a28e609e1d7d16be6b519c4df8a7038b1b4576b774f5e",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:29:00.734Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-network-koteihyo/carousel/img/00-cover.png",
+      "sha256": "0bb318c143e874a06a0d9290500329de9aaea644b611ae9651e2c391ccb057a8",
+      "bytes": 309354,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-network-koteihyo/carousel/img/01-point.png",
+      "sha256": "dd0283655c9da88c7388c821d3748c6d0c82254ad75e27092bf6b924b1851967",
+      "bytes": 101545,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-network-koteihyo/carousel/img/02-point.png",
+      "sha256": "b4c49ad7f062565c71e7191d5b32e0d618aa618da529b497870fa97c06f96632",
+      "bytes": 104866,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-network-koteihyo/carousel/img/03-point.png",
+      "sha256": "10b06508d323a82ef35bc602ef7bbf6d98f9cc9f99991d7bcd6f4942d90df813",
+      "bytes": 101210,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-network-koteihyo/carousel/img/04-point.png",
+      "sha256": "715ff9dbc2a05b5b44e54da277d15c049f072eea70df24e9b73ac82653f56fab",
+      "bytes": 102945,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-network-koteihyo/carousel/img/05-point.png",
+      "sha256": "57dbc4e3dc8093b5197f2117ae2cc2471587ac8f2fa8957760829f3193e6c279",
+      "bytes": 136563,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-network-koteihyo/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

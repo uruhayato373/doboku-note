@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "roadmap-1kyu-vs-2kyu",
+  "key": "point-step2-2",
+  "sceneId": "step2",
+  "exam": "civil-construction-1",
+  "narration": "第一次検定の受検資格は、年度中の年齢が1級は19歳以上、2級は17歳以上で、実務経験は問いません。第二次検定は実務経験などの条件があります。新制度と経過措置の旧制度では確認する経歴が異なるため、自分が使う区分の手引を確認しましょう。",
+  "visual": {
+    "heading": "受検資格は級と制度区分で確認",
+    "items": [
+      "第一次：年度中に1級19歳・2級17歳以上",
+      "第一次は実務経験不問",
+      "第二次は新・旧区分ごとの手引を確認"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/guide-1-vs-2/article.mdx",
+  "editorialNote": "年度末年齢要件と新旧制度の経過措置を補足。",
+  "sourceUrls": [
+    "https://www.jctc.jp/exam/examfaq/"
+  ]
+}

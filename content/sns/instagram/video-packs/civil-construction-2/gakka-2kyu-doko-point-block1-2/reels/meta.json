@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.186Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-2kyu-doko/shorts/point-block1-2/shorts.mp4",
-  "durationSeconds": 30,
-  "sha256": "699394ce13c5e0543a4488acfd03601cfbb26bfb3c8781e822a2ac219c6e3684",
-  "coverSha256": "a47ec6d71778d43101726f5156715d2d711e8cf77e3a9a15452f837a46bff1a8",
-  "renderedAt": "2026-09-05T23:27:00.886Z"
+  "durationSeconds": 30.2,
+  "sha256": "aa01b3b331ddc43b70d8b49d7af51e9e1ee7f5d2a763f74ab665d1c641f8d4a0",
+  "coverSha256": "86db66e3b1d4b5a811913bd4a3b9c0cb1d48172e1a0f74af6a1e55438c9a8a08",
+  "renderedAt": "2026-09-10T09:27:24.425Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "3c9d4f37121d5a83948b0ccf557c6b74543228e597716c4a55506de5d6503951",
+  "rendererSha256": "43e4708f2239a8c5bbfad7dbfbe52b5123a858dd1edaa6a15d937f8eb586680f",
+  "scriptSha256": "1e693949b0e382bfce605b593307cee3165e4073e54b19deeffcda3458973c48",
+  "speaker": 13,
+  "narration": "土質試験は、試験名と分かることを対にしましょう。標準貫入試験はエヌ値、平板載荷試験は地盤の支持特性、現場シービーアール試験は路床などの支持力を調べます。原位置で測るのか、採取試料を室内で調べるのかも分けると、試験の役割が整理できます。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "39cfa1b076e4c06e5e44fcd7370786b4d35f0844f4d38192fb5d2230a1069eaa",
+    "points": "53a0c19828a1436bbaf07c9319b0e6ec2f0c8b85d365f841070da6c7453f3e2d",
+    "pointsImage": "5d2e8ab61bb85698b12fb0bd8ed11119fdc4c0181e7d834890f51228478ffb0d",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T09:27:24.425Z"
+  }
 }

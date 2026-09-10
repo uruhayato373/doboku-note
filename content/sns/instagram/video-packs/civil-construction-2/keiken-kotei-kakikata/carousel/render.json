@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "keiken-kotei-kakikata",
+  "inputDigest": "4410593bf369c527dfec7893135f2eb8e1b98077d5442116f8a52d3547a1f973",
+  "sourceSha256": "fc644e25464b461955db22adffbdf7174c05f6107a0e687d0a3821ee923d3950",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:33:34.030Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/keiken-kotei-kakikata/carousel/img/00-cover.png",
+      "sha256": "ad2e808d27d373106ac08526b360125364ad4f5b23c71f135273ccd0e2968e69",
+      "bytes": 324823,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/keiken-kotei-kakikata/carousel/img/01-point.png",
+      "sha256": "8e45ce2dc50a91c06163629ba81dc7e7204fd3b574b4847b25e07440073d1d2f",
+      "bytes": 104240,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/keiken-kotei-kakikata/carousel/img/02-point.png",
+      "sha256": "ff4290c46686654b94d0b8f6d25b48867c6affd92f9443b9792c4c42dbdb123e",
+      "bytes": 147707,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/keiken-kotei-kakikata/carousel/img/03-point.png",
+      "sha256": "6aec6159b1538f73dbed6ebeb1da6eb4183fee38ea38db967022ba6578537b10",
+      "bytes": 100370,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/keiken-kotei-kakikata/carousel/img/04-point.png",
+      "sha256": "86949a83680316c96f7b035f376eb829b32f9b9523bdac733309d3c996854f86",
+      "bytes": 108201,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/keiken-kotei-kakikata/carousel/img/05-point.png",
+      "sha256": "29719fd9e58a2fb7113caac1fc8b0315b603d84c36e6571b5baf43994b780c0f",
+      "bytes": 110563,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/keiken-kotei-kakikata/carousel/img/06-point.png",
+      "sha256": "b68c9196a920fa0cca579543d0b8570b8cb481ca8abded9086fe169112a32c4f",
+      "bytes": 145907,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/keiken-kotei-kakikata/carousel/img/07-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

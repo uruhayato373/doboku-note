@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "keiken-kankyo-1kyu",
+  "inputDigest": "34801e8be532b2080d6cec3ded495b770b429c7ace3beebd4ba24399990c5cd0",
+  "sourceSha256": "56f2cd283bb9aedfbcef06fa7c4f49c02ecba324f486afff98a1630cc1a42f92",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:31:19.543Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-kankyo-1kyu/carousel/img/00-cover.png",
+      "sha256": "f49eac103272fec090e2482b0f6377086a49bc14f9761e6fa5997bcef2d73fbe",
+      "bytes": 291875,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-kankyo-1kyu/carousel/img/01-point.png",
+      "sha256": "252200a0df8c54cc2a7cb9dd38d3e4755ef53218573585eda746a98678942f14",
+      "bytes": 116251,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-kankyo-1kyu/carousel/img/02-point.png",
+      "sha256": "de7f4e3edd63e6e268fc17f8c0443f863645758490bd9fa207de9c11f9ed1e32",
+      "bytes": 120797,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-kankyo-1kyu/carousel/img/03-point.png",
+      "sha256": "0dc94e2114bf1e65eb5e53f6ee63f77f9528644578a3e5d9f23c9060dd1348c0",
+      "bytes": 101983,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-kankyo-1kyu/carousel/img/04-point.png",
+      "sha256": "cdf660f9397f220959fff08914dfc272f5cabc8f39f8407d77bea30f0f8933a6",
+      "bytes": 129027,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-kankyo-1kyu/carousel/img/05-point.png",
+      "sha256": "dc76586e158906fe21cd3c0899a34561f4f6beb784fc7aa8484df09d02acfead",
+      "bytes": 104054,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-kankyo-1kyu/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

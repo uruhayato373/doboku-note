@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "gakka-kikai-kiso",
+  "inputDigest": "09345f33c9f069ac289759fb757c81c4c5f191be2ec06cc4e3107bc192d765b7",
+  "sourceSha256": "abe8d10a5b0219c66009c048fe7329329cae299c26034484fee175953130d798",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:28:53.241Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-kikai-kiso/carousel/img/00-cover.png",
+      "sha256": "13c8604d45f1e30172d743ba450ada2b09c3f1e9cfe26de03572b5fff913b1b6",
+      "bytes": 353021,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-kikai-kiso/carousel/img/01-point.png",
+      "sha256": "5e4d3dfa5eaf4881991cff556ce8299638e5e75d9b881fb776e5e81084d0da52",
+      "bytes": 96034,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-kikai-kiso/carousel/img/02-point.png",
+      "sha256": "662a644e038d59f5e2f097fd780382ae45b8152c9393a3411e54e41386e77c57",
+      "bytes": 140313,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-kikai-kiso/carousel/img/03-point.png",
+      "sha256": "d9bbd7dbc20aba9471baf1e963a083e78a8c269bfe2411606e21a5b7c2e87deb",
+      "bytes": 136599,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-kikai-kiso/carousel/img/04-point.png",
+      "sha256": "5904337899af9cfb7e46398819df7d6144b459f1793a5cae25798bc630a3139d",
+      "bytes": 104918,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-kikai-kiso/carousel/img/05-point.png",
+      "sha256": "f45bd7282d850a5567f706b71db83d5b87fbe885796c5e8c747a465411dfd0b6",
+      "bytes": 156442,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-kikai-kiso/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

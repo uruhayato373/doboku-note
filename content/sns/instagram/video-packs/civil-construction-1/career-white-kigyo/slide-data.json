@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "career-white-kigyo",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "建設会社選び",
+        "求人票の読み方"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "求人票の数字を実態と照合",
+      "items": [
+        "知名度だけでなく、残業・休日・定着状況を比較します。",
+        "求人票の条件が現場でどう運用されるか、面接で確認します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/guide-white-company/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "求人票の数字を並べて比較",
+      "items": [
+        "月平均残業時間・年間休日数",
+        "離職率・平均勤続年数",
+        "資格手当・福利厚生の記載"
+      ],
+      "sourceRef": "content/site/civil-construction-1/guide-white-company/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "時間外労働と休日の運用を確認",
+      "items": [
+        "時間外労働の原則上限は月45時間・年360時間です。",
+        "繁忙期の運用や週休二日、ICT施工などの取組を具体的に聞きます。"
+      ],
+      "sourceRef": "content/note/1級・2級土木/ホワイトな建設会社の見分け方-無料/article.md"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "面接では現場の運用を聞く",
+      "items": [
+        "「繁忙期の忙しさは？」",
+        "「週休二日は現場でも取れているか？」",
+        "曖昧・不機嫌な反応は注意信号"
+      ],
+      "sourceRef": "content/site/civil-construction-1/guide-white-company/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step4",
+      "heading": "口コミの一件だけで決めない",
+      "items": [
+        "投稿者の状況によって評価が偏る場合があります。",
+        "複数の情報に共通する点を、面接の質問につなげます。"
+      ],
+      "sourceRef": "content/note/1級・2級土木/ホワイトな建設会社の見分け方-無料/article.md"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

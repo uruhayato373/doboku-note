@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "keiken-ai-sekkei",
+  "key": "point-step1-2",
+  "sceneId": "step1",
+  "exam": "civil-construction-1",
+  "narration": "正しい使い方は、事実はあなたが出し、AIは構成と検証を手伝うという分担です。工事名・工期・施工量・立場・現場条件はあなたが記入し、分からない数値はAIに埋めさせず空欄で止めます。",
+  "visual": {
+    "heading": "正しい分担の作り方",
+    "items": [
+      "事実（工事名・数値・立場）は本人が記入",
+      "分からない数値は空欄で止める",
+      "構成・字数チェック・レビューはAIが担当"
+    ]
+  },
+  "sourceRef": "content/note/1級・2級土木/経験記述-AI設計-無料/article.md"
+}

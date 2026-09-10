@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.186Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-gaiyo-2kyu/shorts/point-step1-1/shorts.mp4",
-  "durationSeconds": 30.17,
-  "sha256": "86724ecd023be6ce928a05996078e0e0ddb175122fa92720860ff470f49f9ee4",
-  "coverSha256": "c9970d3d98072daf3a1dfc9d49aba8dd77cc553fb5a53587e1d9262012a0163b",
-  "renderedAt": "2026-09-05T23:27:03.692Z"
+  "durationSeconds": 30.2,
+  "sha256": "5953d3852ba1a063f4e0bd1f9d0ab57f7c301e0e18c414371b7a43edae712743",
+  "coverSha256": "be68e28106b2b615fe0b8c8353b8a2516358f9abf0ee78e9b08cb2c7700c2329",
+  "renderedAt": "2026-09-10T09:28:17.462Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "b408886abffa37df5ffd0c782bfe76c2652dca6750b24c09568b7bf41b2115e6",
+  "rendererSha256": "43e4708f2239a8c5bbfad7dbfbe52b5123a858dd1edaa6a15d937f8eb586680f",
+  "scriptSha256": "d7468bbf2ac2a9f4dc09814ec5725e3175c429e0ffa2354ffe8ab0ff4a0ad479",
+  "speaker": 13,
+  "narration": "工事名を決める前に、本文で書く管理項目を先に決めます。品質ならコンクリート工、工程なら天候の影響を受けやすい土工が定番です。工種と課題がかみ合っているかを最初に見ます。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "7f6f5bc69e1f619683fb9b18a13466f59504589605731515d40ec222636e7d4a",
+    "points": "7d301f8269f2ea695110f89935b989070ff7bdc15cb994f406f0b4cc695b290d",
+    "pointsImage": "1d2e3da9c73a89e946a007727096e8906697acd8a2e68ca4b90ff8fd5377e2c3",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T09:28:17.462Z"
+  }
 }

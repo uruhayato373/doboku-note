@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "anzen-ippanron-3riyu",
+  "key": "point-cause2-2",
+  "sceneId": "cause2",
+  "exam": "civil-construction-2",
+  "narration": "経験記述は、対策を並べるだけでは検討の過程が伝わりません。現場状況から課題を立て、検討した理由と対応処置をつなげます。評価の要否や分量は受検年度の設問を優先し、除外された内容ではなく、指示に合う技術的対策を扱いましょう。",
+  "visual": {
+    "heading": "対策の列挙に検討理由を加える",
+    "items": [
+      "現場状況→課題→検討→対応処置",
+      "評価の要否・分量は設問を優先",
+      "除外指示がある内容は問題文に従う"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx",
+  "editorialNote": "交通誘導員以外を足せば除外指示を必ず満たすという誤認を避け、設問適合を優先。 評価を全年度の必須要素とせず、当該年度の設問に従う。",
+  "coverHeadline": [
+    "対策の列挙",
+    "理由も書く"
+  ]
+}

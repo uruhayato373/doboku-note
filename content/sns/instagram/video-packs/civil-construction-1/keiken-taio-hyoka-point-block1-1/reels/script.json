@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "keiken-taio-hyoka",
+  "key": "point-block1-1",
+  "sceneId": "block1",
+  "exam": "civil-construction-1",
+  "narration": "品質管理の場合は、対応処置のベースとなる管理基準をまず明示します。そのうえで工法、機械、材料、管理方法をできるだけ具体的に記述します。数値が入って初めて管理内容が伝わります。",
+  "visual": {
+    "heading": "数値と管理基準を入れる",
+    "items": [
+      "品質管理は対応処置の管理基準を明示",
+      "工法・機械・材料・管理方法を具体的に",
+      "数値があって初めて管理内容が伝わる"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+}

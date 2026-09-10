@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "keiken-koji-ga-nai",
+  "inputDigest": "ebcf46c87baadfedce262722bd6d3c4efbd08775c1508a1e61638727cea87f39",
+  "sourceSha256": "977737c77d92f1f195ec2d26bece7032e6e9532db1dde2cec642306460206a60",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:33:24.416Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/keiken-koji-ga-nai/carousel/img/00-cover.png",
+      "sha256": "1b67050cb9e9712506f1a99b6faae7f80e72bd60479e8efb161c399e8443214b",
+      "bytes": 288259,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/keiken-koji-ga-nai/carousel/img/01-point.png",
+      "sha256": "efd511bfc918156b8af2494495f6867202498477753d9bd418e688b774c4b81d",
+      "bytes": 122792,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/keiken-koji-ga-nai/carousel/img/02-point.png",
+      "sha256": "694a4cf0edab4d8bd4e9d207f71e88116112be8f17a21fdb20a14d6bf32abf5b",
+      "bytes": 100243,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/keiken-koji-ga-nai/carousel/img/03-point.png",
+      "sha256": "fcc304e67c57ed95078a89db33c232912d1eafdeced2441c199ca1778723cfe8",
+      "bytes": 140446,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/keiken-koji-ga-nai/carousel/img/04-point.png",
+      "sha256": "6f4ad48c812e64b64c0d92cd08ab641df840f877e654693ae632f74c42eff851",
+      "bytes": 144944,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/keiken-koji-ga-nai/carousel/img/05-point.png",
+      "sha256": "3787fb81abde16105a7fa81fe28000c20eccdb9b693db24bb3d033abe63e96ec",
+      "bytes": 103818,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/keiken-koji-ga-nai/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

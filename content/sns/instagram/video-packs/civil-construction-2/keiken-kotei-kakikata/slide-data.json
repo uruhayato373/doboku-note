@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "keiken-kotei-kakikata",
+  "exam": "civil-construction-2",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "工程管理の答案",
+        "組み立て方"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：遅延を書けばよい",
+      "items": [
+        "工事着手前の留意事項も対象",
+        "結果だけでは検討過程が見えず薄くなる"
+      ],
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "nagare",
+      "heading": "遅延原因から検討と対応へつなぐ",
+      "items": [
+        "現場状況→課題→検討→対応処置をつなげ、評価は設問で求められた場合に書きます。",
+        "材料・機械・工程表・効率化・気温などから、自分の現場の観点を選びます。"
+      ],
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "tenko",
+      "heading": "型①　天候による遅れ",
+      "items": [
+        "休工日込みのネットワーク工程表を作成",
+        "進捗確認しながら遅延工程をフォローアップ"
+      ],
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "tetsuzuki",
+      "heading": "型②　手続き・支障物による遅れ",
+      "items": [
+        "先行手続き＋施工順序の入替え",
+        "地下埋設物→代替工法の比較・迂回や夜間施工"
+      ],
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "kisei",
+      "heading": "型③　規制・短縮要請",
+      "items": [
+        "規制時間内完了へ手順・機械配置を最適化",
+        "増班・機械増強・並行作業でクリティカルパス管理"
+      ],
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "suuchi",
+      "heading": "日数・台数・班数で管理を具体化",
+      "items": [
+        "対応処置は、実際に確認できる日数・台数・班数で説明します。",
+        "評価を求められた場合は、工期内完了や挽回日数などの結果を簡潔に示します。",
+        "着工前の検討を書く場合も、制約から選んだ方法へ因果をつなげます。"
+      ],
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "kikinagashi-hoki-suchi",
+  "key": "point-dismissal-notice-2",
+  "sceneId": "dismissal-notice",
+  "exam": "civil-construction-1",
+  "narration": "解雇予告は、原則として少なくとも30日前に行います。予告しない場合は、平均賃金30日分以上の解雇予告手当が必要です。予告日数と手当を組み合わせる場合もあります。ただし、手当を払えばどんな解雇でも有効になるという意味ではありません。",
+  "visual": {
+    "heading": "解雇予告は日数と手当を区別",
+    "items": [
+      "原則30日前までに予告",
+      "予告なしなら平均賃金30日分以上",
+      "解雇自体の有効性とは別の問題"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-labor-standards/article.mdx",
+  "editorialNote": "解雇予告と解雇の有効性を分離し原則・併用を補足。",
+  "sourceUrls": [
+    "https://www.mhlw.go.jp/seisakunitsuite/bunya/koyou_roudou/roudouseisaku/chushoukigyou/keiyakushuryo_rule.html"
+  ]
+}

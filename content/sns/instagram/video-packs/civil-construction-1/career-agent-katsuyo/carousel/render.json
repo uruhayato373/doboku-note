@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "career-agent-katsuyo",
+  "inputDigest": "51a6030dedc85412ecd640959dddb866fe64fb1f16c88d16005872d17b6ba9e7",
+  "sourceSha256": "8991638fc4ce9dd536368ee0caef56324afb4d334bc79b211e8800a4e16b594d",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:25:39.661Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/career-agent-katsuyo/carousel/img/00-cover.png",
+      "sha256": "39423fcddf217b3573157c04652fe8add16ff5845842120bf5f6a70077086395",
+      "bytes": 288890,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/career-agent-katsuyo/carousel/img/01-point.png",
+      "sha256": "6c3facb30e1f77d0c975e45782babee8a76ae528bef791399b20657bfe6308ad",
+      "bytes": 136875,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/career-agent-katsuyo/carousel/img/02-point.png",
+      "sha256": "c7b9c83a8010543c268c0cfa917230d20ffc56cc5f4239afea6c8392ba1395af",
+      "bytes": 145966,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/career-agent-katsuyo/carousel/img/03-point.png",
+      "sha256": "5e7361ca414fb3560f6960f85da85c7db29dad50ba2753416e6833a0feac88aa",
+      "bytes": 130590,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/career-agent-katsuyo/carousel/img/04-point.png",
+      "sha256": "ba6e40ecc657fd09f1e6c1588ac44c5dbee95c428afae17b54de0faf043d3fe5",
+      "bytes": 134298,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/career-agent-katsuyo/carousel/img/05-point.png",
+      "sha256": "5e1bb20e2ca6a00a3d037516de9f3fe59bc80d632bb07684b4ca7f6491def96c",
+      "bytes": 150223,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/career-agent-katsuyo/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

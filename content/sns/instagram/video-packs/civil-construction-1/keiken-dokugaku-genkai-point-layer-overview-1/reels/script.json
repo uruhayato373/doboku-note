@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "keiken-dokugaku-genkai",
+  "key": "point-layer-overview-1",
+  "sceneId": "layer-overview",
+  "exam": "civil-construction-1",
+  "narration": "経験記述の自己点検は、形式、具体性、論理の三つに分けると進めやすくなります。まず解答欄と設問に合うか、次に自分の現場の事実があるか、最後に課題と対応がつながるかを確認します。これは見直しのための整理で、公式の採点基準を示すものではありません。",
+  "visual": {
+    "heading": "自己点検は形式・具体性・論理",
+    "items": [
+      "形式：解答欄と設問に合うか",
+      "具体性：自分の現場の事実があるか",
+      "論理：課題と対応がつながるか"
+    ]
+  },
+  "sourceRef": "content/note/1級・2級土木/経験記述-独学添削の限界-無料/article.md",
+  "editorialNote": "教材上の3層チェックを公式採点基準と誤認されないよう明示。"
+}

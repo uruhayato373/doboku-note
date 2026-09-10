@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "keiken-ai-sekkei",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "経験記述とAI",
+        "丸投げは危険"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：AIに任せれば早い",
+      "items": [
+        "文章は整うが中身は経験ではない",
+        "丸投げは危険な着地点"
+      ],
+      "sourceRef": "content/note/1級・2級土木/経験記述-AI設計-無料/article.md"
+    },
+    {
+      "type": "point",
+      "sceneId": "overview",
+      "heading": "事実までAIに作らせない",
+      "items": [
+        "工事名・工期・施工量が、知らないうちに補われていないか確認します。",
+        "自分で確認できない工事や数値を、経験した事実として使いません。",
+        "文章を整える作業と、事実を確定する作業を分けます。"
+      ],
+      "sourceRef": "content/note/1級・2級土木/経験記述-AI設計-無料/article.md"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "正しい分担の作り方",
+      "items": [
+        "事実（工事名・数値・立場）は本人が記入",
+        "分からない数値は空欄で止める",
+        "構成・字数チェック・レビューはAIが担当"
+      ],
+      "sourceRef": "content/note/1級・2級土木/経験記述-AI設計-無料/article.md"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "経験した事実で因果をつなぐ",
+      "items": [
+        "現場状況→技術的課題→検討→処置→評価の関係を整理します。",
+        "各段階に置く工事条件と行動は、自分の経験や記録で裏付けます。",
+        "見栄えのよい数値を足すのではなく、分からない点は確認してから書きます。"
+      ],
+      "sourceRef": "content/note/1級・2級土木/経験記述-AI設計-無料/article.md"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "この分担を自分の作業で回す",
+      "items": [
+        "経験していない工事は創作しない",
+        "不足があれば止めて事実を追加する",
+        "字数・構成の確認まで含めて回す"
+      ],
+      "sourceRef": "content/note/1級・2級土木/経験記述-AI設計-無料/article.md"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

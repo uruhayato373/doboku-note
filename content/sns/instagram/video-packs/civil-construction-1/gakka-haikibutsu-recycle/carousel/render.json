@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "gakka-haikibutsu-recycle",
+  "inputDigest": "f29bd273020131c9e5aae960cb7cc94f7f12912b4728177eec55d2a7108dbb8b",
+  "sourceSha256": "c299316ae2dedf53cdf34f6d05012fcfb71d3600405be357086c61a428d51806",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:40:48.037Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-haikibutsu-recycle/carousel/img/00-cover.png",
+      "sha256": "fb6c3aa8f40974c2e64a90e9e84787cdab9a368596ad9a96a37d027826e0b950",
+      "bytes": 343532,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-haikibutsu-recycle/carousel/img/01-point.png",
+      "sha256": "8d681bf6a35cf035efcb27f33bb6908d747c49e926e6ee6b413a08f1e13af65d",
+      "bytes": 97947,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-haikibutsu-recycle/carousel/img/02-point.png",
+      "sha256": "45fdb3d9a2e7ab3b0a84d3fa634d35d0fc94f2ab1e9cc20875afa855eaf80892",
+      "bytes": 96956,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-haikibutsu-recycle/carousel/img/03-point.png",
+      "sha256": "aa3fab9dd963d109ea61c11b501d6f52f149f68215a7a86fe4cef152147ad18f",
+      "bytes": 107248,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-haikibutsu-recycle/carousel/img/04-point.png",
+      "sha256": "e56d3362fdef4f27580d4ee20ae8e9a9a8eeda523af15e15246e2f59edd2cac6",
+      "bytes": 154418,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-haikibutsu-recycle/carousel/img/05-point.png",
+      "sha256": "a3c0612f5391d9288a5e6a089db6cbd195490e81aa131fc6f42b4ee37f8ae1e0",
+      "bytes": 129390,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-haikibutsu-recycle/carousel/img/06-point.png",
+      "sha256": "9865f569a79c5d0e7b1aa2582757a66ad1a72cd74be308e3bf44e39fa19aee5f",
+      "bytes": 133580,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-haikibutsu-recycle/carousel/img/07-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

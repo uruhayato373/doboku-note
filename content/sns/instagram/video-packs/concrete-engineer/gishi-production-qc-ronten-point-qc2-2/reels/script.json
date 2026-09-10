@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gishi-production-qc-ronten",
+  "key": "point-qc2-2",
+  "sceneId": "qc2",
+  "exam": "concrete-engineer",
+  "narration": "セメントは種類混同と湿気を避けて貯蔵し、骨材は粒径・種類別に区分します。表面水率は天候で変わるため定期的に測定し、計量値へ反映します。反映が遅れると、単位水量と骨材量が設計値からずれます。",
+  "visual": {
+    "heading": "受入れ・計量は表面水がずれの元",
+    "items": [
+      "セメントは種類混同・湿気を避けて貯蔵",
+      "骨材の表面水率を定期測定し計量へ反映",
+      "反映が遅れると単位水量・骨材量が設計値からずれる"
+    ]
+  },
+  "sourceRef": "content/site/concrete-engineer/textbook-production-qc/article.mdx"
+}

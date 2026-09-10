@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "career-tenshoku-timing",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "施工管理の転職",
+        "いつ動く？"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "引き継ぎまで含めて時期を考える",
+      "items": [
+        "現場の途中で退職する場合は、担当業務の引き継ぎを具体化します。",
+        "求人条件と合わせて、今の現場や自分の事情を整理します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/guide-timing/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "竣工から逆算して準備する",
+      "items": [
+        "竣工〜次現場の間が最も動きやすい",
+        "竣工予定から逆算して段取りを組む"
+      ],
+      "sourceRef": "content/site/civil-construction-1/guide-timing/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "資格取得の見通しを条件に加える",
+      "items": [
+        "取得が近い資格は、応募時の評価や担当できる役割に関わります。",
+        "取得後に動く利点と現在の状況を比べ、時期を判断します。"
+      ],
+      "sourceRef": "content/note/1級・2級土木/転職のベストタイミング-無料/article.md"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "在職中に比較する利点",
+      "items": [
+        "収入を確保したまま候補先と比較できる",
+        "求人探し・日程調整はエージェントへ任せられる"
+      ],
+      "sourceRef": "content/site/civil-construction-1/guide-timing/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step4",
+      "heading": "相談と引き継ぎの余裕を取る",
+      "items": [
+        "就業規則を確認し、余裕を持って直属の上司へ伝えます。",
+        "現場の区切りに合わせ、担当内容と引き継ぎ日程を整理します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/guide-timing/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

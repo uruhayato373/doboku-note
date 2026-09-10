@@ -155,16 +155,16 @@
       "status": "active",
       "audience": "human",
       "match": {
-        "pathRegex": "^content/sns/instagram/(?!.*/reels/).+\\.(png|jpe?g)$"
+        "pathRegex": "^content/sns/instagram/(?:(?!.*/reels/).+|.+/reels/cover)\\.(png|jpe?g)$"
       },
       "vaultDir": "制作物/IGレンダー",
       "keyFrom": "stripPrefix:content/sns/instagram/",
       "regenerable": true,
-      "generator": "slide-data.json から再レンダー（ig-post-create / ig-carousel-restyle）",
+      "generator": "slide-data.json / reels/script.json と採用素材から再レンダー（ig-post-create / instagram-carousels:render / render-instagram-video-pack-reels）",
       "requiredBy": [
         ".claude/skills/social/publish-ig-bs"
       ],
-      "reason": "IG カルーセルのレンダー PNG。投稿は人が手元の Playwright で行う。投稿済みを public R2 に置いていたのは旧目標の名残で、サイトは読んでいない。"
+      "reason": "IG カルーセルとReels表紙のレンダー PNG。投稿は人が手元の Playwright で行い、サイトもCIも読まない。"
     },
     {
       "id": "video-render-artifact",

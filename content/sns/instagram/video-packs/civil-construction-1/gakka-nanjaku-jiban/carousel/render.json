@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "gakka-nanjaku-jiban",
+  "inputDigest": "fef62c46a5049195b1acb382f9923088160fd50a2eed9c973950707d018666b0",
+  "sourceSha256": "15477bf700290e14ffc5a360f8fce2edf5f04bbba8be953c58624eb162b1697b",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:28:59.435Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-nanjaku-jiban/carousel/img/00-cover.png",
+      "sha256": "c7b8fb6bceef2f6a6c34f25eeb7999c8f769ba3f0d76485d7ac2fac2e74d45b7",
+      "bytes": 326483,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-nanjaku-jiban/carousel/img/01-point.png",
+      "sha256": "b596d0e0561ee0ea05ca3a373c4469c28759442a201d1695651a0b4ece5e4a70",
+      "bytes": 105236,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-nanjaku-jiban/carousel/img/02-point.png",
+      "sha256": "d75c3c2e085e67a9d38f88c31c8fccda56612f70a8506d982e6fb0701aeb2fb9",
+      "bytes": 104221,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-nanjaku-jiban/carousel/img/03-point.png",
+      "sha256": "026f46892ffb745a5b7c24bcf786230b99e1d88e74856e9151635f539db21f92",
+      "bytes": 114197,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-nanjaku-jiban/carousel/img/04-point.png",
+      "sha256": "aedd283d5c1aab2c1fb57281f1c5abae59c83eb02d2d7256fbd37d38b990d440",
+      "bytes": 106143,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-nanjaku-jiban/carousel/img/05-point.png",
+      "sha256": "1ffee0cfdf763b109fe0d08b432218489f6d26ed20ae17d4a22c832fd95486fb",
+      "bytes": 104085,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-nanjaku-jiban/carousel/img/06-point.png",
+      "sha256": "abd7517fe16886372a0e6d5f4e1c188c6733a56d98d458f5d1acb8cb71d06023",
+      "bytes": 122302,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-nanjaku-jiban/carousel/img/07-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

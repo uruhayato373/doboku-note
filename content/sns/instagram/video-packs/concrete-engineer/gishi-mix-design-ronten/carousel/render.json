@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "gishi-mix-design-ronten",
+  "inputDigest": "9a2a83ee86dfbd545ee7f04302656880ed7150f0fc94f417e2620241eed2825a",
+  "sourceSha256": "344bf82d8d5c00bc13551150265a0220f3c9a49a5508af84eea2a77e510aa0f6",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:38:39.724Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-mix-design-ronten/carousel/img/00-cover.png",
+      "sha256": "e13becc3dad5fbcc6de5d2c5bd41f368d6701000eb12ce5bad6e32a9ee490cb3",
+      "bytes": 310597,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-mix-design-ronten/carousel/img/01-point.png",
+      "sha256": "e034744f21b26f755f22bcf1ee1271fe15b8d004efd53049eba5d58878603f64",
+      "bytes": 116570,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-mix-design-ronten/carousel/img/02-point.png",
+      "sha256": "1a68c45ad95bcd5ae9b4a6723ce6252178dd90bc63b85ef129064feeaeed5689",
+      "bytes": 136812,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-mix-design-ronten/carousel/img/03-point.png",
+      "sha256": "fac39d2229c7b97a6bb9808bdc55af1a67608f931c288ffb502e63db1f9bde19",
+      "bytes": 126224,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-mix-design-ronten/carousel/img/04-point.png",
+      "sha256": "88f3210308761558c0231da221caa24f18791fd4bcd8402859601e2456c56ef8",
+      "bytes": 117497,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-mix-design-ronten/carousel/img/05-point.png",
+      "sha256": "d877a8de899016eafcaf5daac019c61a00b2d837e74b3029f9e9e09f7b11b02f",
+      "bytes": 128378,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-mix-design-ronten/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

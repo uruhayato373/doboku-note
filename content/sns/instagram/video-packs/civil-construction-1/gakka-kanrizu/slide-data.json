@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "gakka-kanrizu",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "管理図の読み方",
+        "異常を見つける"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "管理図が見るのは工程の安定性",
+      "items": [
+        "規格値との対比はヒストグラム・工程能力図の役割",
+        "管理図が見るのは工程の安定性"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-control-chart/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "偶然原因と異常原因を区別",
+      "items": [
+        "偶然原因：技術的におさえられない・許容する",
+        "異常原因：技術的に除去できる・検出して除去する"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-control-chart/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "限界線の内側でも並び方を見る",
+      "items": [
+        "内側でクセなし＝安定（偶然原因のみ）",
+        "外側に出る／中心に集まる／限界線に接近＝異常",
+        "限界線の内側でも油断しない"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-control-chart/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "現場で管理線を更新する方法",
+      "items": [
+        "最初5群→次の5群を管理",
+        "10群・20群と段階的に管理線を更新",
+        "工期途中でも運用できる方式"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-control-chart/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

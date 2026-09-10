@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gishi-materials-ronten",
+  "key": "point-step2-2",
+  "sceneId": "step2",
+  "exam": "concrete-engineer",
+  "narration": "骨材の含水状態は、絶乾、気乾、表面乾燥飽水、湿潤に分けます。配合計算の基準は表面乾燥飽水、つまり内部は水で満たされ、表面に余分な水がない状態です。雨などで表面水が付いた骨材は、その水分も計算に含め、練混ぜ水や骨材の計量値を補正します。",
+  "visual": {
+    "heading": "骨材の含水状態は表乾を基準に",
+    "items": [
+      "絶乾→気乾→表乾→湿潤",
+      "表乾：内部は飽水、表面に余分な水なし",
+      "表面水を確認して計量値を補正"
+    ]
+  },
+  "sourceRef": "content/site/concrete-engineer/textbook-materials/article.mdx",
+  "editorialNote": "雨天後のすべての骨材を必ず湿潤とする断定を条件付きに変更。"
+}

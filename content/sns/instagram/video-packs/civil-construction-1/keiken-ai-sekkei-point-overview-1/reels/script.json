@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "keiken-ai-sekkei",
+  "key": "point-overview-1",
+  "sceneId": "overview",
+  "exam": "civil-construction-1",
+  "narration": "経験記述をAIに任せるときは、事実まで作らせないことが大切です。工事名、工期、施工量や現場の処置がもっともらしく書かれても、自分の経験と一致するとは限りません。原稿の数値と行動を記録に照らし、分からないところは本人が確認してから補いましょう。",
+  "visual": {
+    "heading": "AIに事実を作らせない",
+    "items": [
+      "工事名・工期・施工量は本人の事実",
+      "現場の処置を記録と照合",
+      "不明点は確認してから補う"
+    ]
+  },
+  "sourceRef": "content/note/1級・2級土木/経験記述-AI設計-無料/article.md",
+  "editorialNote": "土木施工経験記述に口頭試問・面接があるとの誤認と合否断定を削除。"
+}

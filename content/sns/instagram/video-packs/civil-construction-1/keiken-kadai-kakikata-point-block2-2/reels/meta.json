@@ -13,7 +13,27 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-kadai-kakikata/shorts/point-block2-2/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "3d3f81e5f53b2b66ac45097af44f1fbcb27365e9348eaf6208be5e0df15b59fd",
-  "coverSha256": "85a04897e4191fd6aa41c94e36ea8579180ba31a72af8c9d042383f508334325",
-  "renderedAt": "2026-09-05T23:15:18.313Z"
+  "sha256": "eb970bb8f65f165590a9ce7d9df57d312c8488fd115fd934c95d2cae7d71aed0",
+  "coverSha256": "3fb6824ba545d0269e2ce44bb4a28f35821f37a21dc6f9997018f8da6fe1c116",
+  "renderedAt": "2026-09-10T09:42:25.733Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "d163f13bae5672faf972a35d8ae46de4db647f9703351b4fc273a203cb9fb41a",
+  "rendererSha256": "43e4708f2239a8c5bbfad7dbfbe52b5123a858dd1edaa6a15d937f8eb586680f",
+  "scriptSha256": "b958e98f7b4bdca8444ce6483889292960fa9be92afc62930d32588c4f416968",
+  "speaker": 13,
+  "narration": "原因は現場条件、気象条件、作業条件のいずれかで具体化します。現場条件なら地盤や周辺環境、気象条件なら梅雨の時期や冬季の低温、作業条件なら機械の搬入やヤードの広さです。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "2f617d279882915c4bfff690ee01742230f6e33a73369976444e8998c752d9f3",
+    "points": "6abab3392870085812c93a46b72294dd7fd90f61a3d3404ebd7d64f0bacb2230",
+    "pointsImage": "37020dfc45ab65a7a570c170bfbfa75c44da754bfebdc03b28002ec554f898c9",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T09:42:25.733Z"
+  }
 }

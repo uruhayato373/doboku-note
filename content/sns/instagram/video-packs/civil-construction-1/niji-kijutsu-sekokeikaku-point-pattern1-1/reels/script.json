@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "niji-kijutsu-sekokeikaku",
+  "key": "point-pattern1-1",
+  "sceneId": "pattern1",
+  "exam": "civil-construction-1",
+  "narration": "学科記述の穴埋めは、用語の暗記だけでなく、文章の目的を読むことが大切です。第三者災害の防止、組織の業務分担、騒音や振動への対策などを、施工計画のどの場面で使う言葉か整理しましょう。出題文の前後を読み、意味のつながる語句を選びます。",
+  "visual": {
+    "heading": "穴埋めは文章の目的から選ぶ",
+    "items": [
+      "第三者災害の防止",
+      "組織の業務分担",
+      "騒音・振動などへの対策"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/secondary-construction-plan-past-problems/article.mdx",
+  "editorialNote": "頻出キーワードがあらかじめ決まっているという出題予告的な断定を修正。"
+}

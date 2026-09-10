@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "gakka-2kyu-kiso",
+  "exam": "civil-construction-2",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "基礎工の頻出点",
+        "杭とケーソン"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "wave",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：工法名を丸暗記すれば解ける",
+      "items": [
+        "問われるのは地盤条件との対応関係",
+        "名前だけだと紛らわしい選択肢に負ける"
+      ],
+      "sourceRef": "content/site/civil-construction-2/guide-foundation-key-points/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "overview",
+      "heading": "基礎工の5つの柱",
+      "items": [
+        "① 分類／② 直接基礎",
+        "③ 杭基礎／④ ケーソン基礎",
+        "⑤ 土留めと破壊現象"
+      ],
+      "sourceRef": "content/site/civil-construction-2/guide-foundation-key-points/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "block1",
+      "heading": "分類は支持層の深さで決まる",
+      "items": [
+        "浅い→直接基礎",
+        "深い→杭基礎・ケーソン基礎"
+      ],
+      "sourceRef": "content/site/civil-construction-2/guide-foundation-key-points/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "block2",
+      "heading": "支持層のN値は地盤別の目安",
+      "items": [
+        "教材では砂・砂礫はN値30程度以上、粘性土は20程度以上を支持層の目安にしています。",
+        "N値だけで支持力を決めず、土質と構造物の条件を合わせて確認します。",
+        "支持地盤を乱さず、均しコンクリートなどで保護します。"
+      ],
+      "sourceRef": "content/site/civil-construction-2/guide-foundation-key-points/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "block3",
+      "heading": "杭基礎は保護方法と支え方で区別",
+      "items": [
+        "既製杭：工場製作を打込み・埋込み",
+        "場所打ち杭：孔壁の保護方法で4工法を区別",
+        "支持杭（先端）／摩擦杭（周面摩擦）"
+      ],
+      "sourceRef": "content/site/civil-construction-2/guide-foundation-key-points/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "block4",
+      "heading": "ケーソンは作業方法で区別",
+      "items": [
+        "オープン→水中作業、確認が難しい",
+        "ニューマチック→圧気で底盤を直接確認",
+        "ニューマチックは施工深さに制限"
+      ],
+      "sourceRef": "content/site/civil-construction-2/guide-foundation-key-points/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "block5",
+      "heading": "破壊現象ごとに地盤条件を確認",
+      "items": [
+        "軟弱粘性土のヒービングと、砂質地盤で地下水により生じるボイリングを区別します。",
+        "根入れ・地盤改良・地下水位の管理など、原因に合う対策を選びます。"
+      ],
+      "sourceRef": "content/site/civil-construction-2/guide-foundation-key-points/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

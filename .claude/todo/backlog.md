@@ -41,6 +41,8 @@
 
 **YouTube旧版削除の残作業（ユーザー承認済み）**:
 
+Instagram展開は [制作・配信手順](../knowledge/reference/instagram-campaign.md) と [固定計画](../config/instagram-campaign.json) に従い、全件制作・検査後に既存予約と照合する。Instagram制作で見つかった [元原稿の修正候補](../state/video-editorial-findings.json) はYouTube再公開前にも反映・再検証する。Instagram側の修正済み原稿を元動画の修正済み証拠として扱わない。
+
 1. [定期配信設定](../config/youtube-delivery.json) とprivate R2の `delivery-state.json` / `receipts/` から待機理由を読む。全件再生成や旧サムネ専用経路から再開せず、A案の置換キューを続行する。日々変わる残数はこのカードへ転記しない。
 2. 新版の再生・Shortsの関連先をログイン済みStudioで確認し、旧新IDに紐づく実査記録をprivate台帳へ残す。関連先の通常動画は公開/限定公開の実体を確認する。APIで見えない項目を推定で確認済みにしない。
 3. 管理台帳・概要欄・Shorts関連先の旧ID参照を新版へ更新して `linkVerification` を記録する。未公開IDは公開Gitへ保存しない。private実行台帳と旧Git台帳の読み手の接続が終わるまでは依存リンクを完了扱いにしない。

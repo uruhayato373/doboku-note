@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gishi-jukenshikaku-2026",
+  "key": "point-step1-1",
+  "sceneId": "step1",
+  "exam": "concrete-engineer",
+  "narration": "2026年度のコンクリート技士は、コンクリート技術関係業務の実務経験が一年以上ある人が受けられる経路へ見直されました。単なる在籍年数ではなく、対象となる技術業務の経験が必要です。主任技士とは条件が異なるため、資格名と年度を確かめて公式案内を確認しましょう。",
+  "visual": {
+    "heading": "2026年度技士の実務経験要件",
+    "items": [
+      "対象となる技術業務の実務経験1年以上",
+      "単なる在籍年数では判断しない",
+      "主任技士の条件と区別"
+    ]
+  },
+  "sourceRef": "content/site/concrete-engineer/guide-eligibility-2026/article.mdx",
+  "editorialNote": "実務経験の業務範囲を補足。2026年公式受験案内のB1経路と主任技士別条件を確認。",
+  "sourceUrls": [
+    "https://www.jci-net.or.jp/j/exam/gishi/pdf/gishi_2026_20260605.pdf"
+  ]
+}

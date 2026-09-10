@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "gakka-risk-assessment",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "リスク評価と",
+        "作業環境"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "保護具より先に検討する対策",
+      "items": [
+        "危険な作業をなくす方法から、対策の優先順位を考えます。",
+        "保護具は、残るリスクを下げるための最後の段階として位置づけます。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-risk-assessment/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "リスクアセスメントの4手順",
+      "items": [
+        "危険性・有害性を特定する",
+        "重篤度×発生可能性でリスクを見積る",
+        "優先度設定→低減措置→記録"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-risk-assessment/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "低減措置の優先順位",
+      "items": [
+        "①本質的対策＝危険な作業をなくす",
+        "②工学的対策・③管理的対策と続く",
+        "④個人用保護具は最後の手段"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-risk-assessment/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "投下と作業環境の数値を分ける",
+      "items": [
+        "高さ3m以上からの投下では、設備や監視人などの危険防止措置を講じます。",
+        "酸素欠乏は酸素18%未満で、硫化水素10ppm超を含めた区分は「酸素欠乏等」です。",
+        "投下・落下・飛来では、危険を生む動きに合う設備を選びます。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-work-environment/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step4",
+      "heading": "悪天候は数値の測定期間も確認",
+      "items": [
+        "強風は10分平均10m/s以上。大雨は一回50mm以上、大雪は一回25cm以上。",
+        "高さ2m以上の箇所等で危険が予想される作業は、悪天候時の中止を確認します。",
+        "作業ごとの判断基準と、点検するタイミングを安全施工サイクルに組み込みます。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-work-environment/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "chokuzen-check-1kyu-niji",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "二次検定直前",
+        "最後の１週間"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "good-sign",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "直前期は広げすぎず確認を優先",
+      "items": [
+        "新しい教材を増やしすぎず、準備した内容の穴を点検します。",
+        "残り1週間の使い方は、自分の準備状況に合わせて決めます。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/guide-last-minute-2026/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "policy",
+      "heading": "準備した内容の精度を上げる",
+      "items": [
+        "答案や自作メモを使い、説明できない点を確かめます。",
+        "確認対象を絞り、あいまいな知識をそのままにしないようにします。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/guide-last-minute-2026/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "check-3points",
+      "heading": "工種・状況・工夫・効果を音読",
+      "items": [
+        "工種、現場状況、行った工夫、結果がつながるかを確認します。",
+        "現場状況や効果の数値は、実際の記録と一致するかを見直します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/guide-last-minute-2026/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "check-marksheet",
+      "heading": "当日の問題文で選択指示を確認",
+      "items": [
+        "指定の解答数と、選択欄へ記入する方法を確認します。",
+        "年度による形式の違いを想定し、準備した形式だけで判断しません。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/guide-last-minute-2026/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "check-gakka",
+      "heading": "優先分野のキーワードを再確認",
+      "items": [
+        "優先してきた分野の自作メモと誤答箇所を見直します。",
+        "選択できる範囲は、当日の問題文の指示に従います。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/guide-last-minute-2026/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "check-belongings",
+      "heading": "持ち物と会場への経路を確認",
+      "items": [
+        "受験票・筆記用具・時計・身分証明書",
+        "会場までの交通手段と所要時間"
+      ],
+      "sourceRef": "content/site/civil-construction-1/guide-last-minute-2026/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

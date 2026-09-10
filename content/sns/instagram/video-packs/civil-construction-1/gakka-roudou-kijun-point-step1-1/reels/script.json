@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-roudou-kijun",
+  "key": "point-step1-1",
+  "sceneId": "step1",
+  "exam": "civil-construction-1",
+  "narration": "労働時間の原則は、休憩を除いて一日8時間、一週40時間です。休憩は労働時間が6時間を超えると45分以上、8時間を超えると一時間以上が必要です。休日の原則も合わせて確認し、法定労働時間と、協定による時間外労働を区別して覚えましょう。",
+  "visual": {
+    "heading": "労働時間と休憩の原則",
+    "items": [
+      "法定労働時間：原則1日8時間・週40時間",
+      "6時間超：休憩45分以上",
+      "8時間超：休憩1時間以上"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-labor-standards/article.mdx",
+  "editorialNote": "法定労働時間を例外のない実労働時間上限と誤認しないよう原則と明記。",
+  "sourceUrls": [
+    "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudouseisaku/chushoukigyou/joken_kankyou_rule.html"
+  ]
+}

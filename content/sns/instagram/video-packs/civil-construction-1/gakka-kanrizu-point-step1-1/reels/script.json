@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-kanrizu",
+  "key": "point-step1-1",
+  "sceneId": "step1",
+  "exam": "civil-construction-1",
+  "narration": "管理図では、ばらつきの原因を偶然原因と異常原因に分けます。偶然原因は、工程に通常伴う小さな変動です。異常原因は、作業方法の変化など特定して対処できる変動です。管理図は異常の兆候を見つけ、原因調査につなげるために使います。",
+  "visual": {
+    "heading": "ばらつきの原因を2つに分ける",
+    "items": [
+      "偶然原因：工程に通常伴う小さな変動",
+      "異常原因：特定して対処する変動",
+      "異常の兆候から原因調査へつなげる"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-control-chart/article.mdx",
+  "editorialNote": "偶然原因は技術的に抑えられず必ず許容との過度な単純化を緩和。"
+}

@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.189Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-2kyu-hoki/shorts/point-overview-1/shorts.mp4",
-  "durationSeconds": 30,
-  "sha256": "0696d6e028202c82c506a78fea7000f16c48a2bcb22a2c62a0c13d21d078d9ea",
-  "coverSha256": "a5615450ad5b01eed8250b7a47cb01d92b2a439e69b91ce1ca45965fbb979aec",
-  "renderedAt": "2026-09-05T23:28:19.943Z"
+  "durationSeconds": 30.2,
+  "sha256": "52c39b83485a3d3c2402180a33d78be169336f71382671d2603b7c6c9195d417",
+  "coverSha256": "8b7d18ab1c4876c279eb092bc89caf121da8b45f64ec4d34e7a2a33d68649d07",
+  "renderedAt": "2026-09-10T09:40:47.001Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "25fb4c859c54d87ca1cad466585101d5549900b75f5f1aec256a6b48afc9a824",
+  "rendererSha256": "43e4708f2239a8c5bbfad7dbfbe52b5123a858dd1edaa6a15d937f8eb586680f",
+  "scriptSha256": "3f6356608c8bc02f7bec75c8c7a0f2e4417c552de6d6b1cab52cb7bed2a8505a",
+  "speaker": 13,
+  "narration": "土木の法規は、何を守る法律かで整理しましょう。労働基準法は労働条件、労働安全衛生法は働く人の安全と健康、建設業法は建設業の適正な運営を扱います。道路や河川、騒音や振動の規制は、工事が周囲へ及ぼす影響と結びつけて学びます。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "a9904655fc1b19336b362e2fbb68f68951939b4e43c5f5ee652249d3ae1fdf5f",
+    "points": "91e31c0ec0c839f713985b254a2fa852b87666e2d9c32499ca80a063a5acbb6a",
+    "pointsImage": "ec726eaf9bb458815672d0082198a9776581ad556d9157d83d65d9cf1efcc225",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T09:40:47.001Z"
+  }
 }

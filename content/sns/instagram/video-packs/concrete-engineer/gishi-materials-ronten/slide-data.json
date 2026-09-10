@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "gishi-materials-ronten",
+  "exam": "concrete-engineer",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "セメント・骨材",
+        "混和材料の論点"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：名前と性質を暗記すればいい",
+      "items": [
+        "問われるのは変化の方向を判断する力",
+        "骨材は吸水と表面水を混同すると失点"
+      ],
+      "sourceRef": "content/site/concrete-engineer/textbook-materials/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "セメントは反応・発熱・強度で比べる",
+      "items": [
+        "けい酸三カルシウムは早く反応し、初期強度に寄与します。",
+        "けい酸二カルシウムは反応が遅く、長期強度に寄与します。",
+        "早強は寒中・工期短縮、中庸熱や低熱はマスコンクリートなどで検討します。"
+      ],
+      "sourceRef": "content/site/concrete-engineer/textbook-materials/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "骨材の含水状態は表乾が基準",
+      "items": [
+        "絶乾→気乾→表乾→湿潤の四段階",
+        "表乾＝内部は水で満たされ表面は乾いた状態",
+        "雨天後のヤードの骨材は表乾より湿った状態"
+      ],
+      "sourceRef": "content/site/concrete-engineer/textbook-materials/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "表面水は骨材と水の両方に反映",
+      "items": [
+        "表面水率に応じて、湿潤骨材の計量値を増やします。",
+        "骨材が持ち込む表面水の分だけ、別に加える練混ぜ水を減らします。",
+        "内部に吸収された水とは、配合補正上の扱いを区別します。"
+      ],
+      "sourceRef": "content/site/concrete-engineer/textbook-materials/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step4",
+      "heading": "混和材と混和剤は分類で区別する",
+      "items": [
+        "混和材：フライアッシュ・高炉スラグ微粉末・シリカフューム",
+        "混和剤：AE剤・減水剤・高性能AE減水剤など",
+        "フライアッシュは初期強度の立ち上がりが緩やか"
+      ],
+      "sourceRef": "content/site/concrete-engineer/textbook-materials/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

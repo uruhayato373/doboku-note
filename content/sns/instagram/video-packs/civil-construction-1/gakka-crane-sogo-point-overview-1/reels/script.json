@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-crane-sogo",
+  "key": "point-overview-1",
+  "sceneId": "overview",
+  "exam": "civil-construction-1",
+  "narration": "移動式クレーンは、走行装置と現場条件を組み合わせて選びます。クローラ式は走破性、トラック式やオールテレーンは移動性、ラフテレーンは狭い現場での機動性が特徴です。積載型は貨物運搬も兼ねますが、どの形式でも地盤や作業半径の確認が欠かせません。",
+  "visual": {
+    "heading": "移動式クレーンは条件で選ぶ",
+    "items": [
+      "クローラ：走破性を生かす",
+      "トラック・全地形・ラフテレーン：移動性を比較",
+      "積載型も地盤・作業半径を確認"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-crane/article.mdx",
+  "editorialNote": "根拠期間のない生産台数最多・事故多発の統計的断定を省略。"
+}

@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "gishi-shunin-dochira",
+  "inputDigest": "4d2b5e3c5597761e260b9ca152175c392e1f6d7674f48a0c1e82b539454e3f1c",
+  "sourceSha256": "f86e0382b6bac9e6cd646a0244265301f02a51d30c66573765e2052e4530e3f4",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:39:11.899Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-shunin-dochira/carousel/img/00-cover.png",
+      "sha256": "91085ff0e0997041d9abb9ef61abd71cfed3ad2e5c26a0a51fdb9a5bd2b89c76",
+      "bytes": 282738,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-shunin-dochira/carousel/img/01-point.png",
+      "sha256": "fce5fc2268225b614e7aa29ea5348dd0e695ac7c5e9c57f44ece98c047eb88a8",
+      "bytes": 96250,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-shunin-dochira/carousel/img/02-point.png",
+      "sha256": "ba466b6ba298e3851e46c0e0bf0c36397dd03188fbbaccb08973166a0d6808c4",
+      "bytes": 104591,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-shunin-dochira/carousel/img/03-point.png",
+      "sha256": "d78313f490a68b7f3e6792965ab0b0f39352dc9c7de959632764d0a10f63b282",
+      "bytes": 110251,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-shunin-dochira/carousel/img/04-point.png",
+      "sha256": "52245643c14e419e0c9a005372aab038bf8ecc9fe55db4b62dee4b9ccf6f0265",
+      "bytes": 138436,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-shunin-dochira/carousel/img/05-point.png",
+      "sha256": "34db1c30dc060c4cf62cf1c93c49104d0abd2037fa52bd958acbb87ebf2625c5",
+      "bytes": 125632,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-shunin-dochira/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

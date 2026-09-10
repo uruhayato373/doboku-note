@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "kikinagashi-doko-suchi",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "要点を復習",
+        "土工の数字"
+      ],
+      "subtitle": "主要論点を整理した保存版",
+      "character": {
+        "pose": "smile",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "soft-ground-judge",
+      "heading": "軟弱地盤の判定は目安と条件",
+      "items": [
+        "教材の目安は、N値4未満・コーン指数250kN/m²以下です。",
+        "一軸圧縮強度50kN/m²未満も目安として、地盤の性質と併せて確認します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-embankment/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "spreading-thickness",
+      "heading": "敷均し厚さと仕上り厚さ",
+      "items": [
+        "路体の例：35〜45cmで敷き均し、仕上り厚さ30cm以下に締め固めます。",
+        "路床の例：25〜30cmで敷き均し、仕上り厚さ20cm以下に締め固めます。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-embankment/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step-cut",
+      "heading": "傾斜地盤は段切りを確認",
+      "items": [
+        "原地盤が1:4より急な場合は、盛土とのなじみをよくする段切りを行います。",
+        "教材では最小幅50cm程度・段高さ1m程度を目安に示しています。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-embankment/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "slope-standard",
+      "heading": "盛土法面は材料と高さで読む",
+      "items": [
+        "高さ5m以下の例：粒度の良い砂・礫は1:1.5〜1.8です。",
+        "同じ高さでも火山灰質粘性土は1:1.8〜2.0が例示されています。",
+        "標準勾配は材料・高さの条件を外さずに覚えます。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-embankment/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "vegetation-slope",
+      "heading": "植生工と排水の役割",
+      "items": [
+        "植生工の目安は一般に1:0.8より緩く、寒冷地では1:1.5より緩い勾配です。",
+        "盛土面には4〜5%程度の排水勾配を保ち、雨水の浸入を抑えます。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-cut-slope-protection/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "drain-method",
+      "heading": "圧密排水は排水距離を短くする",
+      "items": [
+        "サンドドレーンは砂柱、ペーパードレーンは人工の排水材を使います。",
+        "サンドマットは排水層と施工基盤を兼ね、教材の厚さの目安は50〜120cmです。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-soft-ground-drainage/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "liquefaction",
+      "heading": "液状化対策は目的で整理",
+      "items": [
+        "過剰間隙水圧の発生を抑える対策と、発生した水圧を早く消散させる対策があります。",
+        "ずれや変形を抑える方法、杭で上部構造を支える方法も区別します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-soft-ground-drainage/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "lightweight-fill",
+      "heading": "荷重を減らすか地下水を下げるか",
+      "items": [
+        "EPS軽量盛土は、単位体積重量0.1〜0.3kN/m³程度の軽さを利用します。",
+        "掘削時のウェルポイントは排水目的で、実用的な揚水高さは6〜7m程度です。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-soft-ground-drainage/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

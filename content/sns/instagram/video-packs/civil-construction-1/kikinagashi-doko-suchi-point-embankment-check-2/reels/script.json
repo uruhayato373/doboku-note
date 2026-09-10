@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "kikinagashi-doko-suchi",
+  "key": "point-embankment-check-2",
+  "sceneId": "embankment-check",
+  "exam": "civil-construction-1",
+  "narration": "盛土の安定性は、高さだけで決まりません。高い盛土では、地盤の強さ、地下水、のり面形状などを合わせて確認します。砂地盤の液状化も、エヌ値だけで断定せず、地下水位や土の粒度などを調べます。一つの数値を安全と危険の万能な境目にしないことが大切です。",
+  "visual": {
+    "heading": "安定性は高さと地盤条件で判断",
+    "items": [
+      "盛土高・地盤の強さ・地下水を確認",
+      "のり面形状も合わせて検討",
+      "液状化はN値だけで断定しない"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-embankment/article.mdx",
+  "editorialNote": "N値10以下のみで液状化を判定する不十分な基準と、高盛土の一律境界を削除。"
+}

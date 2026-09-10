@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "koji-gaiyo-7items",
+  "key": "koki-sekoryo",
+  "sceneId": "step2",
+  "exam": "civil-construction-1",
+  "narration": "工期は、施工量と突き合わせて確認しましょう。工事記録をもとに、着手と完成の年月日を正確に書きます。下請工事なら、自社が担当した部分の工期です。その期間で記載した数量を施工できるか、本文の工程や作業内容とも矛盾しないかを見直しましょう。",
+  "visual": {
+    "heading": "工期は施工量と照合",
+    "items": [
+      "工事記録で着手・完成の年月日を確認",
+      "下請工事は自社の担当部分の工期を書く",
+      "施工量・本文の工程と矛盾していないか確認"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx",
+  "editorialNote": "元記事の「工期2か月以上」「完成後1〜5年」は教材上の選定目安で、受検必須条件と誤認されるため省略。工事記録・下請部分・数量整合に焦点を絞った。"
+}

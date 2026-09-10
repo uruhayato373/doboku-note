@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "nikyuu-gaiyo-roadmap",
+  "exam": "civil-construction-2",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "２級土木の全体",
+        "学ぶ順序を知る"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "wave",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "第一次は年齢の基準から確認",
+      "items": [
+        "第一次は受検年度末時点で17歳以上が基準で、学歴・実務経験を問いません。",
+        "第二次は別の資格要件があるため、段階を分けて確認します。"
+      ],
+      "sourceRef": "content/site/civil-construction-2/guide-exam-overview/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "stage",
+      "heading": "1　第一次・第二次の2段階",
+      "items": [
+        "第一次：四肢択一→合格で「技士補」",
+        "第二次：記述式（経験記述含む）→両方合格で技士"
+      ],
+      "sourceRef": "content/site/civil-construction-2/guide-exam-overview/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "qualification",
+      "heading": "第二次は経路別に資格を確認",
+      "items": [
+        "第一次の年齢条件と、第二次の実務経験条件を区別します。",
+        "新受検資格・経過措置など、当該年度の手引で自分の経路を確認します。"
+      ],
+      "sourceRef": "content/site/civil-construction-2/guide-exam-overview/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "subjects",
+      "heading": "3　科目の全体像",
+      "items": [
+        "第一次：土木一般・専門土木・法規・施工管理法",
+        "第二次：経験記述（必須）＋学科記述"
+      ],
+      "sourceRef": "content/site/civil-construction-2/guide-exam-overview/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "order",
+      "heading": "4　学習の順序",
+      "items": [
+        "第一次：頻出分野→過去問で幅出し",
+        "並行して経験記述の題材を早めに決める"
+      ],
+      "sourceRef": "content/site/civil-construction-2/guide-exam-overview/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

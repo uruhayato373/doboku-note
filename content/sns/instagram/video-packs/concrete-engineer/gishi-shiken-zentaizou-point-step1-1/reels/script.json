@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gishi-shiken-zentaizou",
+  "key": "point-step1-1",
+  "sceneId": "step1",
+  "exam": "concrete-engineer",
+  "narration": "コンクリート技士は、日本コンクリート工学会が認定する資格です。製造、施工、試験、検査、管理など、日常のコンクリート技術業務を適切に実施する能力が対象です。生コン工場だけに限らず、自分の仕事のどの場面で知識を使うかを意識して学びましょう。",
+  "visual": {
+    "heading": "資格の位置づけ",
+    "items": [
+      "日本コンクリート工学会（JCI）認定資格",
+      "対象は生コン工場だけでなく施工・製品・維持管理まで"
+    ]
+  },
+  "sourceRef": "content/site/concrete-engineer/guide-overview/article.mdx",
+  "sourceUrls": [
+    "https://www.jci-net.or.jp/j/exam/gishi/pdf/gishi_2026_20260605.pdf"
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "nikyuu-gaiyo-roadmap",
+  "inputDigest": "bddbe2ba0172bd582faedcbe67f5707ebd422df13fe6d118e8b008df6ca7401f",
+  "sourceSha256": "19c1b599de23ec22bc158d0862bf6f659360df0d9b97c6239bb60cddbedd0f7c",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:34:09.883Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/nikyuu-gaiyo-roadmap/carousel/img/00-cover.png",
+      "sha256": "76eece1dfbf43312f40f881f4e2edfefdfb5351d43be24378acf9fdf403c1baa",
+      "bytes": 349585,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/nikyuu-gaiyo-roadmap/carousel/img/01-point.png",
+      "sha256": "aa0ce8c53b1f1eea6a6005e5b2633cd7cb1e65ace36c6473409093729e015424",
+      "bytes": 136959,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/nikyuu-gaiyo-roadmap/carousel/img/02-point.png",
+      "sha256": "e5479995ab5ce1ce18c1f1aab353e193bf5856faa73b94d1202db739076f995d",
+      "bytes": 99575,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/nikyuu-gaiyo-roadmap/carousel/img/03-point.png",
+      "sha256": "753220caf9a150270c10a73e4c426a8a23224cbbd70b83322a593607d4470f9e",
+      "bytes": 136317,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/nikyuu-gaiyo-roadmap/carousel/img/04-point.png",
+      "sha256": "9592682277c7c9c073fa38e5e11282edb0270d98b7afa9f2bcf5f175a26a0468",
+      "bytes": 98989,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/nikyuu-gaiyo-roadmap/carousel/img/05-point.png",
+      "sha256": "3fc0153a1a581d5015b2a0a53c1dc5d1b1a8fd05b6136d3c401a6b6d7ee1b343",
+      "bytes": 97016,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/nikyuu-gaiyo-roadmap/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

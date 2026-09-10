@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "keiken-2kyu-level",
+  "key": "point-kata-2",
+  "sceneId": "kata",
+  "exam": "civil-construction-2",
+  "narration": "経験記述では、自分が何を考え、何を行ったかが伝わる文にします。検討した観点を示し、実施した処置と、その結果を続けて書きましょう。難しい表現を増やすより、主語と行動を明確にすることが大切です。内容は自分の経験した事実に基づいてまとめます。",
+  "visual": {
+    "heading": "検討・処置・結果を能動的に書く",
+    "items": [
+      "何を考えて検討したか",
+      "自分が何を実施したか",
+      "結果をどう確認したか"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx",
+  "editorialNote": "〇〇の記号棒読みと「この型で十分」という保証を避ける。",
+  "coverHeadline": [
+    "２級の経験記述",
+    "自分の行動を書く"
+  ]
+}

@@ -212,6 +212,8 @@
     "youtube-renders:prune": "node scripts/prune-video-renders.mjs",
     "check-youtube-shorts": "node scripts/check-youtube-video-pack-shorts.mjs",
     "instagram-reels:prepare": "node scripts/prepare-instagram-video-pack-reels.mjs",
+    "instagram-campaign": "node scripts/instagram-campaign.mjs",
+    "instagram-carousels:render": "node scripts/render-instagram-video-pack-carousels.mjs",
     "instagram-reels:render": "node scripts/render-instagram-video-pack-reels.mjs",
     "instagram-reels:publish": "node scripts/publish-instagram-video-pack-reels.mjs",
     "instagram-reels:sync-state": "node scripts/sync-instagram-video-pack-reels-state.mjs",

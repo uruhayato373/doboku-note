@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-hoki-kasen-doro",
+  "key": "point-step1-2",
+  "sceneId": "step1",
+  "exam": "civil-construction-1",
+  "narration": "道路の占用許可と使用許可は、相手と目的が異なります。道路を継続して占用する工作物などは道路管理者へ、交通に影響する工事や作業は警察署長へ確認します。同じ工事で両方が必要になる場合もあるため、どちらか一方で済むと決めつけないようにしましょう。",
+  "visual": {
+    "heading": "道路の許可は目的と相手を対で",
+    "items": [
+      "道路占用：道路管理者",
+      "道路使用：警察署長",
+      "工事の内容によって両方を確認"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-road-act/article.mdx",
+  "editorialNote": "道路工事は例外なく両方の許可が必要という画面文を適用条件付きに修正。",
+  "coverHeadline": [
+    "道路の許可",
+    "相手を区別する"
+  ],
+  "sourceUrls": [
+    "https://www.mlit.go.jp/road/senyo/02.html",
+    "https://www.mlit.go.jp/road/soudan/soudan_05a_02.html"
+  ]
+}

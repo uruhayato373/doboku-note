@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-kijutsu-2kyu",
+  "key": "point-pattern1-2",
+  "sceneId": "pattern1",
+  "exam": "civil-construction-2",
+  "narration": "学科記述の穴埋めは、空欄に入る語句や数値を、文章の意味から選びます。用語は定義だけでなく、どの作業や管理の場面で使うかまで整理しましょう。空欄の直前だけを見ず、文全体のつながりを確認すると、似た選択肢の取り違えを減らせます。",
+  "visual": {
+    "heading": "解答の型1　穴埋め（語句選択）",
+    "items": [
+      "空欄に語句・数値を選択肢から選ぶ",
+      "用語は意味・場面とセットで覚える"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-2/secondary-r07/article.mdx"
+}

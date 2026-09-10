@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "keiken-kankyo-1kyu",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "環境対策の答案",
+        "準備できてる？"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：環境対策は出ないから後回しでよい",
+      "items": [
+        "令和7年度に実際に出題されている",
+        "自分の工事の環境配慮を洗い出すのが出発点"
+      ],
+      "sourceRef": "content/note/1級・2級土木/1級土木/1級経験記述テーマ選び5管理/article.md"
+    },
+    {
+      "type": "point",
+      "sceneId": "background",
+      "heading": "出題対象になった経緯",
+      "items": [
+        "令和6年度から2テーマ必答形式へ",
+        "令和7年度：品質管理・環境対策の組合せ",
+        "5管理すべてを準備しておく必要がある"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "three-categories",
+      "heading": "検討を3系統に整理する",
+      "items": [
+        "騒音・振動の低減",
+        "建設副産物の再資源化",
+        "濁水・粉じんの処理"
+      ],
+      "sourceRef": "content/note/1級・2級土木/1級土木/1級経験記述テーマ選び5管理/article.md"
+    },
+    {
+      "type": "point",
+      "sceneId": "find-in-own-site",
+      "heading": "自分の工事の該当箇所を洗い出す",
+      "items": [
+        "住宅地近接：低騒音・低振動型の機械",
+        "搬出計画：建設副産物の分別・再資源化",
+        "掘削・排水：濁水処理・粉じん抑制"
+      ],
+      "sourceRef": "content/note/1級・2級土木/1級土木/1級経験記述テーマ選び5管理/article.md"
+    },
+    {
+      "type": "point",
+      "sceneId": "action-and-evaluation",
+      "heading": "対応処置と評価の書き方",
+      "items": [
+        "対応処置：具体的に何を変えたか書く",
+        "評価：周辺への影響を抑えた結果を書く"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

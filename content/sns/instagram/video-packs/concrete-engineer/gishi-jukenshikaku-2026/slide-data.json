@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "gishi-jukenshikaku-2026",
+  "exam": "concrete-engineer",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "受験資格",
+        "2026年改定"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "reading",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：学歴だけで受けられる",
+      "items": [
+        "学歴＋履修科目の経路は廃止済み",
+        "今の公式案内で確認が必要"
+      ],
+      "sourceRef": "content/site/concrete-engineer/guide-eligibility-2026/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "2026年度改定の要点",
+      "items": [
+        "実務経験1年以上で受験できる経路が新設",
+        "学歴のみの経路は廃止",
+        "主任技士の受験資格は変更なし"
+      ],
+      "sourceRef": "content/site/concrete-engineer/guide-eligibility-2026/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "対象資格は種類と登録を確認",
+      "items": [
+        "資格経路には、指定された資格と登録等の条件があります。",
+        "技術士やRCCMは対象部門などを、JCIの受験資格一覧で確認します。",
+        "1級土木・建築施工管理技士の経路では、監理技術者資格者証が必要です。"
+      ],
+      "sourceRef": "content/site/concrete-engineer/guide-eligibility-2026/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "実務経験1年以上の経路を確認",
+      "items": [
+        "2026年度は、対象となる実務経験1年以上の経路があります。",
+        "勤務先の証明を受けた実務経歴書を準備します。",
+        "経験年数の基準日は2026年9月1日で、申込締切日とは別です。"
+      ],
+      "sourceRef": "content/site/concrete-engineer/guide-eligibility-2026/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step4",
+      "heading": "認められる業務・認められない業務",
+      "items": [
+        "技術的に関与する業務（計画・施工・試験等）が対象",
+        "販売・営業・設備保守・運転手は原則対象外",
+        "「何を判断・実施したか」を具体的に書く"
+      ],
+      "sourceRef": "content/site/concrete-engineer/guide-eligibility-2026/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step5",
+      "heading": "資格・経験・必要書類を照合",
+      "items": [
+        "まず対象資格の登録条件を確認し、次に実務経験の経路を確認します。",
+        "自分が担当した業務を具体的に書き、証明書類のPDFを準備します。",
+        "申込方法や利用環境は、2026年度の公式手引の指定に従います。"
+      ],
+      "sourceRef": "content/site/concrete-engineer/guide-eligibility-2026/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

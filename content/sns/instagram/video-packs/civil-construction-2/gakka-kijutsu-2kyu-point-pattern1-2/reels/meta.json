@@ -13,7 +13,27 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-kijutsu-2kyu/shorts/point-pattern1-2/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "338851f58914db99ab385a4b0eee6827caa30cad6a4d82ad8ef7a25fc2226a70",
-  "coverSha256": "8d5f5737b758b29c0d33f815968ef6ce2c23ca43f65c0ac95cee90c4eb9dbcfa",
-  "renderedAt": "2026-09-05T23:20:45.749Z"
+  "sha256": "9a916154b37ffbbb99e0cd1ca8761429a364a53e22a285dd7752046da1280f53",
+  "coverSha256": "75882c6549f16feeb66028ef1529620233f399fcadae0945dbac5bfceb3dd64a",
+  "renderedAt": "2026-09-10T09:42:47.289Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "73a94e3a61a92d579f1ef3e27a361082518e80d698e9a9301a4015539c204d77",
+  "rendererSha256": "43e4708f2239a8c5bbfad7dbfbe52b5123a858dd1edaa6a15d937f8eb586680f",
+  "scriptSha256": "6444913d4d0805ae97bd463921e15dbb42c009d9023cc1dc6579a21a49544c21",
+  "speaker": 13,
+  "narration": "学科記述の穴埋めは、空欄に入る語句や数値を、文章の意味から選びます。用語は定義だけでなく、どの作業や管理の場面で使うかまで整理しましょう。空欄の直前だけを見ず、文全体のつながりを確認すると、似た選択肢の取り違えを減らせます。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "ac51935e63ca28ca5c6814f56bb271022cee3e087b95b7592c8f5be364db6ec4",
+    "points": "193d4063564092365fd1eb8c32e8bd9427a334c9a65fe8ed91a93f6f31e489cf",
+    "pointsImage": "85499449f33b4293608c9ec1aa77bad2a89009febcc3e18048b8f1b7d1853f88",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T09:42:47.289Z"
+  }
 }

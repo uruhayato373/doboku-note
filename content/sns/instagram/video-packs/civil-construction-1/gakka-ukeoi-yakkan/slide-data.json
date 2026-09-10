@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "gakka-ukeoi-yakkan",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "公共工事の約款",
+        "誰の義務か？"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：発注者に有利な文書",
+      "items": [
+        "片務性の是正が目的",
+        "義務は発注者・受注者の双方にある"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-standard-contract/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "overview",
+      "heading": "約款の基本構造",
+      "items": [
+        "発注者・受注者とも契約履行義務を負う",
+        "一括下請負の禁止＝受注者の義務"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-standard-contract/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "通知は誰から誰へ",
+      "items": [
+        "現場代理人等：受注者→発注者",
+        "監督員：発注者→受注者",
+        "同じ「通知」でも向きが違う"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-standard-contract/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "工期変更は誰が請求するか",
+      "items": [
+        "延長：受注者→発注者へ書面請求",
+        "短縮：発注者→受注者へ請求",
+        "中止：発注者が通知して行う"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-standard-contract/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "損害の負担も主語で決まる",
+      "items": [
+        "一般的損害・第三者損害：原則受注者",
+        "通常避けられない騒音等の第三者損害：発注者",
+        "不可抗力：1%超の部分は発注者、災害復旧は全額発注者"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-standard-contract/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step4",
+      "heading": "契約不適合責任は発注者が請求",
+      "items": [
+        "請求主体は発注者",
+        "期限：引渡しを受けた日から2年以内",
+        "起算点は「完成時」ではない"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-standard-contract/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

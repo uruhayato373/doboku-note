@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "keiken-hinshitsu-1kyu",
+  "inputDigest": "4efff1354a1da69501a97e3a9f8da31ae7cbd25131fda34699a40fb71d99952b",
+  "sourceSha256": "49bf9ea94d3f5a3dd21540882c0e7f75e0a9ce3e4813f43a6d2109bc8e4ef89d",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:31:03.901Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-hinshitsu-1kyu/carousel/img/00-cover.png",
+      "sha256": "261b9a479a6c1e92fd60afa9d05d6004114de0e43f9cb6c791f9a7bd7aafd7dd",
+      "bytes": 328713,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-hinshitsu-1kyu/carousel/img/01-point.png",
+      "sha256": "8b534c4b5597248bb414339dac23c621ae8bdc14d7d5a92613fb07361d74ba27",
+      "bytes": 109733,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-hinshitsu-1kyu/carousel/img/02-point.png",
+      "sha256": "55ac216817ddafca30e64f0b98574368c19759a752d3e42f0bd9a4ae7617ee62",
+      "bytes": 124020,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-hinshitsu-1kyu/carousel/img/03-point.png",
+      "sha256": "74a0b551c5b9aa07256598f8bad993389104a0f982f96b715d2252eca9ab70df",
+      "bytes": 108542,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-hinshitsu-1kyu/carousel/img/04-point.png",
+      "sha256": "ebf08d586536840ddd1587917aba865202874bcf223d4b07f5035746a811281c",
+      "bytes": 117838,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-hinshitsu-1kyu/carousel/img/05-point.png",
+      "sha256": "423a0528a61c356e0d744f3202c531d8148d47f5f487fdc0c77412d1c201b0ef",
+      "bytes": 106238,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-hinshitsu-1kyu/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

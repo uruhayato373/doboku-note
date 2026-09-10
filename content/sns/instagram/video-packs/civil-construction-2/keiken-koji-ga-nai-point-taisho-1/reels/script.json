@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "keiken-koji-ga-nai",
+  "key": "point-taisho-1",
+  "sceneId": "taisho",
+  "exam": "civil-construction-2",
+  "narration": "経験記述の題材がないと感じたら、担当した工事を具体的に書き出しましょう。河川や道路、上下水道などの名称だけでなく、どの施工部分で何を管理したかを整理します。題材に使えるかは工事名だけで判断せず、実務経験の対象と受検の手引を照合します。",
+  "visual": {
+    "heading": "題材探しは担当した施工部分から",
+    "items": [
+      "工事名と担当した施工部分を書き出す",
+      "自分が行った管理を整理",
+      "受検の手引の対象範囲と照合"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx",
+  "editorialNote": "維持工事等が無条件で対象になる断定を避け担当業務との照合へ変更。",
+  "sourceUrls": [
+    "https://www.jctc.jp/exam/examfaq/"
+  ]
+}

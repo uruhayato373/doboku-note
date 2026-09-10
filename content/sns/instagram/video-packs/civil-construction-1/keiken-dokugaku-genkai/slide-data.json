@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "keiken-dokugaku-genkai",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "自分の答案",
+        "採点できる？"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "完成答案との違いを点検する",
+      "items": [
+        "模範答案は完成形なので、自分の答案がその形になる過程も確認します。",
+        "自分で見落としやすい箇所には、第三者の視点を借りる方法があります。"
+      ],
+      "sourceRef": "content/note/1級・2級土木/経験記述-独学添削の限界-無料/article.md"
+    },
+    {
+      "type": "point",
+      "sceneId": "layer-overview",
+      "heading": "答案の質を決める3層",
+      "items": [
+        "① 形式：字数・項目・設問への対応を点検します。",
+        "② 具体性：現場固有の数値と条件を確かめます。",
+        "③ 論理：課題から対応・評価まで理由がつながるか確認します。"
+      ],
+      "sourceRef": "content/note/1級・2級土木/経験記述-独学添削の限界-無料/article.md"
+    },
+    {
+      "type": "point",
+      "sceneId": "layer-format",
+      "heading": "形式はチェック項目で点検",
+      "items": [
+        "字数や解答欄の使い方、二つの設問の重複を確認します。",
+        "工事概要の項目が欠けていないかを確認します。",
+        "品質や災害の課題は焦点を絞り、指定テーマに答えているかを点検します。"
+      ],
+      "sourceRef": "content/note/1級・2級土木/経験記述-独学添削の限界-無料/article.md"
+    },
+    {
+      "type": "point",
+      "sceneId": "layer-concreteness",
+      "heading": "具体性は読み手に伝わるか確認",
+      "items": [
+        "数値・基準値・試験方法が記載されているかは、自分でも点検できます。",
+        "現場を知らない人に読んでもらい、条件や行動が伝わるか確かめます。"
+      ],
+      "sourceRef": "content/note/1級・2級土木/経験記述-独学添削の限界-無料/article.md"
+    },
+    {
+      "type": "point",
+      "sceneId": "layer-logic",
+      "heading": "課題と対応が因果でつながるか",
+      "items": [
+        "課題→検討→処置→評価を続けて読み、理由の飛躍を探します。",
+        "頭の中だけで補っている説明がないか、第三者の質問も手がかりにします。"
+      ],
+      "sourceRef": "content/note/1級・2級土木/経験記述-独学添削の限界-無料/article.md"
+    },
+    {
+      "type": "point",
+      "sceneId": "way-out",
+      "heading": "抜け道：自分の答案への赤入れ",
+      "items": [
+        "採点者目線でのNG→OK添削",
+        "模範解答の暗記では埋まらない",
+        "経験していない工事の創作はしない"
+      ],
+      "sourceRef": "content/note/1級・2級土木/経験記述-独学添削の限界-無料/article.md"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

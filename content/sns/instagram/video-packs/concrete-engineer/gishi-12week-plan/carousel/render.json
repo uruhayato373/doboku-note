@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "gishi-12week-plan",
+  "inputDigest": "5b868c06a23a760dd312f3451158f77a70b8f49c34539275ad4191c5cf3d0e8d",
+  "sourceSha256": "a907091e560f549a37c882f7d440f9992d7ad8fb090d394a178889f49618bd9a",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:37:54.707Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-12week-plan/carousel/img/00-cover.png",
+      "sha256": "84af8d2b19cf8949d62e736f46d963cbe1784764083461e6f9bf062067c289d7",
+      "bytes": 324205,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-12week-plan/carousel/img/01-point.png",
+      "sha256": "0e5bf74f02cd22de3a263e45fc5ecdecee6b41deb2127fb363dcc412a5bb07e9",
+      "bytes": 130394,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-12week-plan/carousel/img/02-point.png",
+      "sha256": "437de9133f0bb6b74a04999cb9042a868b80d123b68b4257ccdf9a59e9b177d7",
+      "bytes": 116289,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-12week-plan/carousel/img/03-point.png",
+      "sha256": "3a179057ef16e76c0566dc6257d8e2a6831e85cca0284172f79c3fcadd60f39a",
+      "bytes": 124997,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-12week-plan/carousel/img/04-point.png",
+      "sha256": "90e629bebd7f26a5535ff3479453a20d975704860974e2b3f158bdb04b2f43cd",
+      "bytes": 122552,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-12week-plan/carousel/img/05-point.png",
+      "sha256": "f556daa66014b71603e1b9fa9ba996d1691cf8db73491620485c2ba1bad15cd6",
+      "bytes": 122742,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-12week-plan/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

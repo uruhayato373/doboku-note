@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "niji-kijutsu-hinshitsu",
+  "key": "point-compaction-1",
+  "sceneId": "compaction",
+  "exam": "civil-construction-1",
+  "narration": "盛土の締固め管理は、品質規定方式と工法規定方式を区別します。品質規定方式は締固め度など、満たすべき品質を示します。工法規定方式は、機種、まき出し厚さ、締固め回数などの施工方法を示します。何を仕様書で定めているかが、二つを見分ける軸です。",
+  "visual": {
+    "heading": "盛土の締固め管理は2方式",
+    "items": [
+      "品質規定方式：品質を明示し工法は委ねる",
+      "工法規定方式：機種・まき出し厚・回数を規定"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/secondary-quality-management-basics/article.mdx"
+}

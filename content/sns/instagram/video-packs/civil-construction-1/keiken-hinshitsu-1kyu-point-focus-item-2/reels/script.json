@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "keiken-hinshitsu-1kyu",
+  "key": "point-focus-item-2",
+  "sceneId": "focus-item",
+  "exam": "civil-construction-1",
+  "narration": "品質管理の経験記述は、現場で管理した品質項目を絞ると具体化しやすくなります。盛土なら締固め度や含水比、コンクリートならスランプ、空気量、養生などです。自分が管理した項目について、基準、確認方法、実施した対策をつなげて説明しましょう。",
+  "visual": {
+    "heading": "品質項目を絞って具体化",
+    "items": [
+      "盛土：締固め度・含水比など",
+      "コンクリート：スランプ・空気量・養生など",
+      "基準→確認方法→対策をつなぐ"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx",
+  "editorialNote": "仕様書条件を欠く舗装平坦性数値を省略し品質項目の選定に焦点化。"
+}

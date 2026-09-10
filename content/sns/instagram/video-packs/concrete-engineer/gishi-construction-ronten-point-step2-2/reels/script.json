@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gishi-construction-ronten",
+  "key": "point-step2-2",
+  "sceneId": "step2",
+  "exam": "concrete-engineer",
+  "narration": "場内運搬と打込みの目的は、材料分離と打込み中断の抑制です。型枠内での横流しは粗骨材の偏りを招くため、打込み位置を移動し供給した場所で締め固めます。一層を厚くしすぎると締固め不足になります。",
+  "visual": {
+    "heading": "運搬・打込みは分離を防ぐ位置取りが軸",
+    "items": [
+      "目的は材料分離と打込み中断の抑制",
+      "型枠内の横流しは粗骨材の偏りを招く",
+      "一層を厚くしすぎると振動機が下層へ届かない"
+    ]
+  },
+  "sourceRef": "content/site/concrete-engineer/textbook-construction/article.mdx"
+}

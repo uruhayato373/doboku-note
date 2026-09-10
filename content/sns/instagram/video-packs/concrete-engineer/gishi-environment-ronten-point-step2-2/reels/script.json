@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gishi-environment-ronten",
+  "key": "point-step2-2",
+  "sceneId": "step2",
+  "exam": "concrete-engineer",
+  "narration": "高炉スラグ微粉末やフライアッシュは結合材の一部として使うとクリンカー使用量を抑えられます。ただし置換率を大きくすれば無条件に良いわけではなく、所要強度、脱型時期、耐久性、養生能力の確認が必要です。",
+  "visual": {
+    "heading": "混合材はクリンカー削減、置換率は無条件に上げない",
+    "items": [
+      "高炉スラグ・フライアッシュでクリンカー使用量を抑制",
+      "置換率を高くすれば無条件に良いわけではない",
+      "所要強度・脱型時期・耐久性・養生能力を確認"
+    ]
+  },
+  "sourceRef": "content/site/concrete-engineer/textbook-environment/article.mdx"
+}

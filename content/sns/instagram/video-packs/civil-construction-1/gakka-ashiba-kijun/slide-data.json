@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "gakka-ashiba-kijun",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "足場の安全基準",
+        "数字で押さえる"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "作業床・通路・届出を分ける",
+      "items": [
+        "実際は数字群が3つに分かれる",
+        "対になる数字の混同が失点源"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-scaffolding/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "作業床と端部対策の数値",
+      "items": [
+        "作業床の幅40cm以上・すき間3cm以下を、足場の種類とともに確認します。",
+        "手すり85cm以上・中桟35〜50cmを、端部の墜落防止対策として整理します。",
+        "幅木10cm以上などの措置は、物体の落下防止と結びつけます。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-scaffolding/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "架設通路とはしご道の数値",
+      "items": [
+        "勾配30度以下・15度超で踏さん",
+        "8m以上の桟橋は7mごとに踊り場",
+        "はしご道は上端60cm突出・幅30cm以上"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-scaffolding/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "届出と主任者は別の高さの基準",
+      "items": [
+        "高さ10m以上で60日以上設置する足場は、原則30日前までの届出対象です。",
+        "組立て等作業主任者は、高さ5m以上の構造やつり足場等で必要です。",
+        "高さだけでなく足場の種類と、作業指揮の体制も確認します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-scaffolding/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step4",
+      "heading": "種類別のすき間と天候の条件",
+      "items": [
+        "一般の作業床はすき間3cm以下、つり足場はすき間なしを区別します。",
+        "強風の目安は10分間平均風速10m/s以上です。",
+        "大雨は一回50mm以上、大雪は一回25cm以上という期間も合わせて覚えます。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-scaffolding/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

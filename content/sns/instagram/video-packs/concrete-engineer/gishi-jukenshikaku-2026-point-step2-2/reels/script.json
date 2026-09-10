@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gishi-jukenshikaku-2026",
+  "key": "point-step2-2",
+  "sceneId": "step2",
+  "exam": "concrete-engineer",
+  "narration": "コンクリート技士の受験では、指定資格の有効な登録によって、実務経歴書などを省略できる経路があります。資格名だけでなく、必要な登録証や資格者証を確認しましょう。たとえば一級土木・建築施工管理技士は、監理技術者資格者証の要件まで確認することが大切です。",
+  "visual": {
+    "heading": "資格経路は登録証まで確認",
+    "items": [
+      "指定された資格の有効な登録が必要",
+      "資格ごとの提出証明書を確認",
+      "1級土木・建築は監理技術者資格者証も確認"
+    ]
+  },
+  "sourceRef": "content/site/concrete-engineer/guide-eligibility-2026/article.mdx",
+  "editorialNote": "資格区分の条件と1級土木・建築施工管理技士の資格者証要件を明記。",
+  "sourceUrls": [
+    "https://www.jci-net.or.jp/j/exam/gishi/pdf/gishi_2026_20260605.pdf"
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "koji-gaiyo-7items",
+  "inputDigest": "e4c82fb9753031058748a759d37e3806700ab655bdbb75b358f2038530365fba",
+  "sourceSha256": "6d5fd4eb3297d1c185296c752d1391b81fd3356eae307e5160deadf7e59ce67c",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:32:29.741Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/koji-gaiyo-7items/carousel/img/00-cover.png",
+      "sha256": "f72538c91e910617e54715765c198e44c224c03973441fe3200b81f779c3ce35",
+      "bytes": 349856,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/koji-gaiyo-7items/carousel/img/01-point.png",
+      "sha256": "2f51704510167e59618a1cf925531b4006eef5a84876890e51c6fc1a18620bb1",
+      "bytes": 109401,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/koji-gaiyo-7items/carousel/img/02-point.png",
+      "sha256": "7312aa23e36fb279722f9cae4f9bcbf9a0b819b34794718c188370068c55a5bf",
+      "bytes": 120435,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/koji-gaiyo-7items/carousel/img/03-point.png",
+      "sha256": "9d7cad7c27d8a865683078546b0e8ba243f441d3a16483094941157b2e04e2cf",
+      "bytes": 126938,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/koji-gaiyo-7items/carousel/img/04-point.png",
+      "sha256": "e0fe2342c95a5e783796d2e56df39ec40120d5c3b3a89d5eb6689e0e72ad98fb",
+      "bytes": 138910,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/koji-gaiyo-7items/carousel/img/05-point.png",
+      "sha256": "12342353155fe8919f3fea268897d9207a3a5b1fdc9d499f1ae5bb0a49196845",
+      "bytes": 135039,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/koji-gaiyo-7items/carousel/img/06-point.png",
+      "sha256": "3e92d422aa6afc30a8d3ba90cc11fd6aa046b9b5343fc38714b9186111bc4b99",
+      "bytes": 122849,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/koji-gaiyo-7items/carousel/img/07-point.png",
+      "sha256": "4215fa7ca081aa0594d91bc10205e3fcfd7dfd984043f9f3dfe5aca7ed61cc24",
+      "bytes": 135157,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/koji-gaiyo-7items/carousel/img/08-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

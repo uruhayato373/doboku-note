@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "gishi-mix-design-ronten",
+  "exam": "concrete-engineer",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "配合設計と",
+        "現場配合の補正"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "pc-work",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：公式を一つずつ覚えればいい",
+      "items": [
+        "目標は要求性能→容積→補正の流れを固定すること",
+        "何を変えると何が動くかを説明できる状態"
+      ],
+      "sourceRef": "content/site/concrete-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "配合設計は4つの要求から順に決める",
+      "items": [
+        "強度・耐久性・施工性・経済性を同時に満たす",
+        "水セメント比→単位水量→単位セメント量の順",
+        "最後に絶対容積を1m³へ配分し試し練りで確認"
+      ],
+      "sourceRef": "content/site/concrete-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "水セメント比は厳しい方を採用する",
+      "items": [
+        "水セメント比＝単位水量÷単位セメント量×100",
+        "強度からの上限と耐久性からの上限を比較",
+        "小さい方（厳しい方）の値を採用する"
+      ],
+      "sourceRef": "content/site/concrete-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "絶対容積法で1m³を組み立てる",
+      "items": [
+        "水・セメント・骨材・空気の容積を合計1000L",
+        "絶対容積＝質量÷密度",
+        "計算後に容積合計が1000Lへ戻るか検算"
+      ],
+      "sourceRef": "content/site/concrete-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step4",
+      "heading": "現場配合補正は表面水率を反映する",
+      "items": [
+        "示方配合＝骨材を表乾状態として計算",
+        "湿潤細骨材の計量値を増やし水を減らす",
+        "粗骨材も表面水があれば同様に補正"
+      ],
+      "sourceRef": "content/site/concrete-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

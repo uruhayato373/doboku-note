@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-dodome-kussaku",
+  "key": "point-step2-2",
+  "sceneId": "step2",
+  "exam": "civil-construction-1",
+  "narration": "手掘りの地山掘削では、土質と掘削面の高さを対にして勾配を確認します。岩盤や堅い粘土と、その他の地山では同じ高さでも上限が異なります。砂からなる地山には別の規定があるため、一つの数値をすべての土質に当てはめないことが大切です。",
+  "visual": {
+    "heading": "手掘り掘削は土質と高さで判断",
+    "items": [
+      "岩盤・堅い粘土とその他の地山を区別",
+      "土質と掘削面の高さから勾配を確認",
+      "砂地山は別の規定で確認"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-safety-excavation-shoring/article.mdx",
+  "editorialNote": "元sceneの省略された高さ区分や特例を一律に適用させない説明に変更。",
+  "sourceUrls": [
+    "https://www.mhlw.go.jp/web/t_doc?dataId=74003000&dataType=0&pageNo=8"
+  ]
+}

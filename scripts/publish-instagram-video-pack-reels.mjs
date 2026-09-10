@@ -7,8 +7,10 @@ import { existsSync, mkdirSync, readFileSync, readdirSync, statSync, writeFileSy
 import { createHash } from 'node:crypto';
 import { dirname, join, relative } from 'node:path';
 import { spawnSync } from 'node:child_process';
+import { assertInstagramPublicationReady } from './lib/instagram-campaign.mjs';
 
 const ROOT = process.cwd();
+assertInstagramPublicationReady(ROOT);
 const BASE = join(ROOT, 'content/sns/instagram/video-packs');
 const PUBLISHER = join(ROOT, '.claude/skills/social/publish-ig-bs/publish-ig-bs.ts');
 const argv = process.argv.slice(2);
@@ -63,6 +65,7 @@ for (const row of candidates) {
   const video = join(row.reelsDir, 'video.mp4');
   const cover = join(row.reelsDir, 'cover.png');
   hydrateVideo(video);
+  hydrateVideo(cover);
   if (!existsSync(video) || !existsSync(cover)) throw new Error(`${row.meta.sourcePackId}/${row.meta.key}: video/cover がありません`);
   if (row.meta.sha256 !== sha256(video) || row.meta.coverSha256 !== sha256(cover)
       || !(Number(row.meta.durationSeconds) >= 30 && Number(row.meta.durationSeconds) <= 60)) {

@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gishi-12week-plan",
+  "key": "point-step1-1",
+  "sceneId": "step1",
+  "exam": "concrete-engineer",
+  "narration": "学習を始めるときは、過去問を一回分、資料を見ずに解いてみましょう。点数だけでなく、知識不足、数値の取り違え、条件の読み落としなど、誤った理由を記録します。正解した問題も、他の選択肢がなぜ違うか説明できるかを確認すると、弱点が見つかります。",
+  "visual": {
+    "heading": "過去問1回分で現在地を知る",
+    "items": [
+      "資料を見ず一回分を解く",
+      "誤答理由を具体的に記録",
+      "正答した問題も他の肢を説明できるか確認"
+    ]
+  },
+  "sourceRef": "content/site/concrete-engineer/guide-study-plan/article.mdx",
+  "editorialNote": "未提示の5パターンへの参照を具体的な誤答原因に置換。"
+}

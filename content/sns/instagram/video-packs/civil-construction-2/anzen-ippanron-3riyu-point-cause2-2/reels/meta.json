@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.186Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/anzen-ippanron-3riyu/shorts/point-cause2-2/shorts.mp4",
-  "durationSeconds": 45.23,
-  "sha256": "7fa97f0f5733c9130693d0ad511bd00809f2b42a97b24af7e8346a1badafce0a",
-  "coverSha256": "c274566477a3009fd6d872a2368a25fd2a44eb842735eef7d83e26f882586057",
-  "renderedAt": "2026-09-05T23:16:34.575Z"
+  "durationSeconds": 30.2,
+  "sha256": "d81961a1daa8f951856699adddf4acd66c02c98557d69f05d136b4b10e8d7b94",
+  "coverSha256": "08198daeb4fdc9b8da59c93fe77ebffff9b5a0161605b85aa8a1a14c166d22c4",
+  "renderedAt": "2026-09-10T09:27:30.122Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "2d84ede6bd9f9ff85c43452fdb3d5eda41ee7f22543f9582a599531450593be4",
+  "rendererSha256": "43e4708f2239a8c5bbfad7dbfbe52b5123a858dd1edaa6a15d937f8eb586680f",
+  "scriptSha256": "ea864403a92c9e86627d3dec1a84d9f8e2f28a6ae9b329074490fac628eb63a5",
+  "speaker": 13,
+  "narration": "経験記述は、対策を並べるだけでは検討の過程が伝わりません。現場状況から課題を立て、検討した理由、実施した処置、評価へつなげます。交通誘導員だけの記述を除くなど、問題文に条件がある場合は、その指示に従って別の技術的対策を扱いましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "94729b94e2103ff74060d9390df9e042628d90059ad0f46f1532355a03a4a08b",
+    "points": "52af10d2f1970ce274996c58468b62ee193c909a8b25a6d664ed3dc5a6afe524",
+    "pointsImage": "2141703eb865e4fd35d4f2632d048c0359bc81ee42dcb1ba84dde0faeac05e37",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T09:27:30.122Z"
+  }
 }

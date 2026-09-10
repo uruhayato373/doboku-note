@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "niji-kijutsu-concrete",
+  "key": "point-overlap-time-1",
+  "sceneId": "overlap-time",
+  "exam": "civil-construction-1",
+  "narration": "コンクリートの打重ね時間は、外気温で目安が変わります。土木の一般的な標準では、25度を超える場合は二時間以内、25度以下は二時間半以内です。間隔が長いとコールドジョイントの危険が高まります。適用仕様書と配合、気象条件も確認しましょう。",
+  "visual": {
+    "heading": "打重ね時間は外気温と対で",
+    "items": [
+      "一般的な標準：25℃超は2.0時間以内",
+      "25℃以下は2.5時間以内",
+      "仕様書・配合・気象条件も確認"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/secondary-concrete-past-problems/article.mdx",
+  "editorialNote": "標準の適用条件を明記し、時間超過で必ずコールドジョイントが生じる断定を修正。"
+}

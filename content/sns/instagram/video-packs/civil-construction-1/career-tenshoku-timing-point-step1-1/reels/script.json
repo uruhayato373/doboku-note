@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "career-tenshoku-timing",
+  "key": "point-step1-1",
+  "sceneId": "step1",
+  "exam": "civil-construction-1",
+  "narration": "転職の時期は、担当現場の区切りから考えると段取りを組みやすくなります。竣工後から次の現場に入るまでが一つの候補です。竣工予定から逆算し、応募や面接、引継ぎに必要な時間を確認しましょう。現場の予定が変わることも見込んで準備します。",
+  "visual": {
+    "heading": "現場の切れ目で動く",
+    "items": [
+      "竣工〜次現場の間が最も動きやすい",
+      "竣工予定から逆算して段取りを組む"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/guide-timing/article.mdx"
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "shunin-properties-ronten",
+  "key": "point-bingham-2",
+  "sceneId": "bingham",
+  "exam": "concrete-chief-engineer",
+  "narration": "フレッシュコンクリートは、ビンガム流体として近似して考えられます。降伏値は変形し始めるまでの抵抗で、大きいほどスランプは小さくなる傾向です。塑性粘度は流動中の粘りで、大きいほど圧送負荷が増えます。動き始めと動いている間の違いで区別しましょう。",
+  "visual": {
+    "heading": "ビンガム流体の2パラメータ",
+    "items": [
+      "降伏値＝変形抵抗性（大きいほどスランプ小）",
+      "塑性粘度＝流動中の粘り（大きいほど圧送負荷大）"
+    ]
+  },
+  "sourceRef": "content/site/concrete-chief-engineer/textbook-properties/article.mdx"
+}

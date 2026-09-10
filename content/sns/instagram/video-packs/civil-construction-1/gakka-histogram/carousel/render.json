@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "gakka-histogram",
+  "inputDigest": "8e341223db7a8b1441415cd926660faa606f3c5d41e536e546a6a88896615046",
+  "sourceSha256": "cf15ade28545f147c7bea14dd25d8d832aa1028aa9b2a0e0a125c443f7f35c84",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:28:34.134Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-histogram/carousel/img/00-cover.png",
+      "sha256": "91823116745ce1b354043317f8a9eedfcf29ee656a25b8099519c3340dc7e98d",
+      "bytes": 318539,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-histogram/carousel/img/01-point.png",
+      "sha256": "c70956fe390159b0fd728d81687aee6277fedcf9ded4cf642197d883697162e7",
+      "bytes": 105295,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-histogram/carousel/img/02-point.png",
+      "sha256": "fef3da4033cc7bd9ab20a2f4fffe26536e66ec8c830881a5b13620d1edb4c017",
+      "bytes": 118887,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-histogram/carousel/img/03-point.png",
+      "sha256": "0437466630fb652253bb7795d085db424b4c5174e8f7936620ba749026580ce6",
+      "bytes": 144517,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-histogram/carousel/img/04-point.png",
+      "sha256": "0c1a7df7efed4930a94e3e7e142c2eaaa20e272763f8c30185b9c4799a148865",
+      "bytes": 133980,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-histogram/carousel/img/05-point.png",
+      "sha256": "ca845c90a709b6d90dcda19f9056656834341410c02396d2f02514eb386a11c9",
+      "bytes": 134141,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-histogram/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

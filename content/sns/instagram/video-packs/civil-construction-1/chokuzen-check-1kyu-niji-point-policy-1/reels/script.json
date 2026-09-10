@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "chokuzen-check-1kyu-niji",
+  "key": "point-policy-1",
+  "sceneId": "policy",
+  "exam": "civil-construction-1",
+  "narration": "試験直前の一週間は、準備済みの内容を仕上げる時間にしましょう。経験記述では設問への対応と工事概要の整合、学科記述では間違えやすい用語や数値を確認します。新しい教材を広げすぎず、見つかった弱点を絞って補うと、復習の目的が明確になります。",
+  "visual": {
+    "heading": "直前1週間は確認を中心に",
+    "items": [
+      "経験記述：設問と工事概要の整合",
+      "学科記述：間違えやすい用語・数値",
+      "見つかった弱点を絞って補う"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/guide-last-minute-2026/article.mdx",
+  "editorialNote": "新知識の追加を一律禁止する表現を緩和。"
+}

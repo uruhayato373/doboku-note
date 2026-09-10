@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "gakka-kankyo-hozen",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "騒音・振動",
+        "規制の数字"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "数値に測定場所と期限を添える",
+      "items": [
+        "数値は「どこで測るか」までセット",
+        "届出は「いつ・誰に」までセット"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-water-air-soil-pollution/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "overview",
+      "heading": "指定地域と対象作業を確認",
+      "items": [
+        "特定建設作業は、指定地域で行う著しい騒音・振動を発生する一定の作業です。",
+        "作業開始日に終了する作業は対象から除かれます。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-noise-vibration-regulation/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "規制値は敷地境界で確認",
+      "items": [
+        "測定点：敷地の境界線",
+        "騒音85dB・振動75dBを超えない"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-noise-vibration-regulation/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "元請が7日前までに届け出る",
+      "items": [
+        "届出義務者：元請業者",
+        "期限：作業開始の7日前まで",
+        "届出先：市町村長"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-noise-vibration-regulation/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "排出物と排出先から法令を選ぶ",
+      "items": [
+        "ばい煙・粉じん：大気汚染防止法",
+        "公共用水域への排水：水質汚濁防止法",
+        "公共下水道への排水：下水道法"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-water-air-soil-pollution/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step4",
+      "heading": "発生源対策を先に考える",
+      "items": [
+        "まず発生源の低騒音化などを検討し、伝わる経路の対策を組み合わせます。",
+        "自由空間の点音源では、距離が2倍になると約6dB減衰するのが基本モデルです。",
+        "現場では反射・遮蔽・音源の形で変わるため、そのままの減衰を保証しません。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-noise-vibration-regulation/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

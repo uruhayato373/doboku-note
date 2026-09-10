@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "keiken-taio-hyoka",
+  "inputDigest": "193fad2aa06465eba03394d575df1b220b6f78d29e90a39d232f753487cab54b",
+  "sourceSha256": "8b51f1465e20184bc7ae9682bfc9f41110929bf78a5ca9984b55fbaa466fc236",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:31:45.276Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-taio-hyoka/carousel/img/00-cover.png",
+      "sha256": "5fb18edc2260f7008045edafb308165ce5ac327482828b5c41a142d990a35f3e",
+      "bytes": 347178,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-taio-hyoka/carousel/img/01-point.png",
+      "sha256": "dc8dec34281e0a7125457f54d3705d74aeae24575a65eab2bafa2bfced2b38b5",
+      "bytes": 109588,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-taio-hyoka/carousel/img/02-point.png",
+      "sha256": "34f6b29d06ee4a20a51b4e930833a82b574d5284ff3e40d216a35fd3a2b93226",
+      "bytes": 141095,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-taio-hyoka/carousel/img/03-point.png",
+      "sha256": "75f78ae90bbac76deca64569c3fa446fb37adc0997cfbcc911ff394f82b0b39a",
+      "bytes": 110455,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-taio-hyoka/carousel/img/04-point.png",
+      "sha256": "230e011aef4c25c65d8a81459b9f719f81bfc9524f0a8ae06fef609bada6a0e9",
+      "bytes": 145226,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-taio-hyoka/carousel/img/05-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

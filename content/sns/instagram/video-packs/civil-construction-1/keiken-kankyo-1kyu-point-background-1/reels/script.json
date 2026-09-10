@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "keiken-kankyo-1kyu",
+  "key": "point-background-1",
+  "sceneId": "background",
+  "exam": "civil-construction-1",
+  "narration": "令和6年度から、5つの管理項目のうち2つが設問1・設問2に指定される形式に変わりました。令和7年度は品質管理・環境対策の組合せで出題されており、単独の追加項目ではありません。",
+  "visual": {
+    "heading": "出題対象になった経緯",
+    "items": [
+      "令和6年度から2テーマ必答形式へ",
+      "令和7年度：品質管理・環境対策の組合せ",
+      "5管理すべてを準備しておく必要がある"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+}

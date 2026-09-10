@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "gakka-nori-hogoko",
+  "inputDigest": "457ef63ed538b534824866391f2aaca14428e27473f9051fd4029d0f4eb86d50",
+  "sourceSha256": "6ae044e12d1250b0424cbb45042e9f4d54bc85c93d06671656ec8fbae1598060",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:29:02.399Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-nori-hogoko/carousel/img/00-cover.png",
+      "sha256": "4644f8a21f3d9df51a8eaf8606c3e342d16a71ab58b658a7cb92d8f31d3c6073",
+      "bytes": 283908,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-nori-hogoko/carousel/img/01-point.png",
+      "sha256": "ac7f293cdca56f084e217383a6cef65dd84920380c33c7751bc9491ed8c4847b",
+      "bytes": 93509,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-nori-hogoko/carousel/img/02-point.png",
+      "sha256": "3544eddbaf65cc337c3fd7375a17f53310bc6039cc5b4cba0b3af90830fe527f",
+      "bytes": 140981,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-nori-hogoko/carousel/img/03-point.png",
+      "sha256": "86fc81e7421c9a366f57953f72182a0befdefd8289a2fd1b1dfb9fb904adddca",
+      "bytes": 106983,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-nori-hogoko/carousel/img/04-point.png",
+      "sha256": "2cb9d3bf86a89ddf7edd6677e36797a70d44aae242ae8a087ae3eb19c4766c8b",
+      "bytes": 113499,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-nori-hogoko/carousel/img/05-point.png",
+      "sha256": "4134e1f332f6e87bf263be9dd9fcd5e1016a02cdaac89cf616dc81683268610f",
+      "bytes": 96535,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-nori-hogoko/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

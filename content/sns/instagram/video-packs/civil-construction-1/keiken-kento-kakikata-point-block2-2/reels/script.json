@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "keiken-kento-kakikata",
+  "key": "point-block2-2",
+  "sceneId": "block2",
+  "exam": "civil-construction-1",
+  "narration": "1級と2級の経験記述は、検討項目を書く区画を取り違えないようにしましょう。1級の令和6年度以降の形式では検討項目を一つ目の区画に、2級では二つ目の区画に書きます。教材の型を移す前に、受ける級と年度の問題文を読み、各欄の要求を確認します。",
+  "visual": {
+    "heading": "級ごとの解答欄を取り違えない",
+    "items": [
+      "1級：検討項目は(1)側",
+      "2級：検討項目は(2)側",
+      "受検する級・年度の問題文を優先"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx",
+  "editorialNote": "約200字を公式の字数上限として読ませる表現と物理的に収まらないとの断定を削除。"
+}

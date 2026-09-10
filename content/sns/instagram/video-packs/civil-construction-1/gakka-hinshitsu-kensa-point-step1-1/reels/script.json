@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-hinshitsu-kensa",
+  "key": "point-step1-1",
+  "sceneId": "step1",
+  "exam": "civil-construction-1",
+  "narration": "全数検査は、品物1個ずつすべてを検査する100%検査です。不良品混入が許せない場合、検査が容易な場合、品質を良くしたい場合、そしてロットが小さく抜取の意味がない場合に使います。",
+  "visual": {
+    "heading": "全数検査（100%検査）が向く場面",
+    "items": [
+      "わずかな不良品混入も許せない場合",
+      "検査が容易・ロットが小さい場合",
+      "良品と不良品を選別する目的"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-quality-inspection/article.mdx"
+}

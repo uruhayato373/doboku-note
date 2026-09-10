@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "gakka-hinshitsu-kensa",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "全数？抜取？",
+        "品質検査の選択"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "全数と抜取は目的に応じて選ぶ",
+      "items": [
+        "実際は破壊検査・連続体など全数にできない事情で選ぶ",
+        "抜取検査は簡易版ではない"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-quality-inspection/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "全数検査が向く条件",
+      "items": [
+        "わずかな不良品混入も許せない場合",
+        "検査が容易・ロットが小さい場合",
+        "良品と不良品を選別する目的"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-quality-inspection/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "抜取検査の対象をロットにまとめる",
+      "items": [
+        "破壊検査・連続体・対象個数が多い場合などに抜取検査を使います。",
+        "教材の舗装出来形検査の例は、10,000m²以下を1ロットとしています。",
+        "実際のロット区分は、適用する仕様書・検査基準で確認します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-quality-inspection/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "回数と判定手順で抜取方式を区別",
+      "items": [
+        "1回抜取検査は、一度に抜き取ったサンプルで合否を判定します。",
+        "2回・多数回抜取検査は段階的に、逐次抜取検査は一個ずつ判定を進めます。",
+        "教材では建設工事で用いる基本例として1回抜取検査を取り上げています。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-quality-inspection/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step4",
+      "heading": "誤判定の危険を2方向から見る",
+      "items": [
+        "生産者危険α：良いロットを誤って不合格",
+        "消費者危険β：悪いロットを誤って合格",
+        "AQL：JIS Z 9015の合格品質水準"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-quality-inspection/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

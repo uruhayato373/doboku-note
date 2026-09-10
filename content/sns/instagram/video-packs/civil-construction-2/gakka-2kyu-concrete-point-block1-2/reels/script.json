@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-2kyu-concrete",
+  "key": "point-block1-2",
+  "sceneId": "block1",
+  "exam": "civil-construction-2",
+  "narration": "混和剤と混和材は、配合計算で容積を扱うかどうかを対にして覚えます。エーイー剤や減水剤などの混和剤は使用量が少なく、通常は容積に算入しません。フライアッシュなどの混和材は容積を算入します。骨材の配合計算は表面乾燥飽水状態を基準にします。",
+  "visual": {
+    "heading": "混和剤と混和材を区別する",
+    "items": [
+      "混和剤（AE剤・減水剤）→容積に算入しない",
+      "混和材（フライアッシュ等）→容積に算入する",
+      "骨材は表面乾燥飽水状態が基準"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-2/guide-concrete-key-points/article.mdx"
+}

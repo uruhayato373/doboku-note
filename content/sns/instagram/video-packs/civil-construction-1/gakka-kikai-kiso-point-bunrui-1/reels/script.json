@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-kikai-kiso",
+  "key": "point-bunrui-1",
+  "sceneId": "bunrui",
+  "exam": "civil-construction-1",
+  "narration": "建設業法では、トラクタ系・ショベル系・基礎工事用・モータグレーダ・締固め用・舗装用などに区分します。個々の規格は、作業装置の大きさ、作業能力、質量、原動機出力の4種類で代表させます。",
+  "visual": {
+    "heading": "分類と規格表示",
+    "items": [
+      "建設業法：トラクタ系・ショベル系・基礎工事用 他",
+      "規格表示：大きさ・作業能力・質量・原動機出力"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-machinery-overview/article.mdx"
+}

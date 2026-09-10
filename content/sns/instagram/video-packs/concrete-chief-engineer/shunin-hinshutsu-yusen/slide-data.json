@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "shunin-hinshutsu-yusen",
+  "exam": "concrete-chief-engineer",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "主任技士の択一",
+        "学習の優先順位"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "smile",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：分野は均等に対策すべき",
+      "items": [
+        "項目単位では出題頻度に差がある",
+        "毎年出る／低頻度／出題なしに分かれる"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/guide-trends/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "overview",
+      "heading": "分析の対象期間と分野を確認",
+      "items": [
+        "ここでは平成21〜令和5年度の教材分析を使い、主要8分野を整理します。",
+        "施工は細分項目が多いため、工程別に分けて学習します。"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/guide-trends/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "定番項目を先に固める",
+      "items": [
+        "用材料：セメント・骨材・混和材料",
+        "性質と耐久性はまとめて学習",
+        "配合設計は解法パターンで得点源"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/guide-trends/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "施工は定番6項目から",
+      "items": [
+        "運搬・打込み・締固め・打継ぎ",
+        "養生・仕上げ／型枠・支保工／鉄筋",
+        "寒中暑中・マスコンも定番"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/guide-trends/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "未出題は対象期間内の観測",
+      "items": [
+        "教材分析で水・水密・その他各種の出題確認がないのは、対象期間内の結果です。",
+        "次回の出題除外とは考えず、基礎分野の後に確認する対象とします。"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/guide-trends/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step4",
+      "heading": "学習順序と過去問の使い方",
+      "items": [
+        "用材料→性質・耐久性→配合設計",
+        "施工定番→製品・構造の設計",
+        "過去問は分野別の縦串で解く"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/guide-trends/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

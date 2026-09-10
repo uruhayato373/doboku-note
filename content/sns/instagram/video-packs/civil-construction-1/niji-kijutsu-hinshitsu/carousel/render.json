@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "niji-kijutsu-hinshitsu",
+  "inputDigest": "cddd0c78d5603716903674d59db1da41105eac6be9aea009a00ed80484d98a05",
+  "sourceSha256": "c82982f42f1bc1341bfe7e1431a629b52051508b9ae71c9772d269f70f606962",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:32:35.445Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/niji-kijutsu-hinshitsu/carousel/img/00-cover.png",
+      "sha256": "05cdc624cb944ae229661ef05cf6447084a4eb75cbe0c98ca130f1db3ee7092c",
+      "bytes": 315376,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/niji-kijutsu-hinshitsu/carousel/img/01-point.png",
+      "sha256": "3fc10d6955ca2c46bb1c89e8d02c265ef43b86594a123e24afbc08a164399fc4",
+      "bytes": 103885,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/niji-kijutsu-hinshitsu/carousel/img/02-point.png",
+      "sha256": "adfad51dc4f9a7960992e3967977d2727e93cf3fc8706d4e347944e30d3d9b48",
+      "bytes": 105791,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/niji-kijutsu-hinshitsu/carousel/img/03-point.png",
+      "sha256": "aaf2a3379498865499e1c629900eda88b08aaf51c3475c8d26a3c531e360ca71",
+      "bytes": 143719,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/niji-kijutsu-hinshitsu/carousel/img/04-point.png",
+      "sha256": "7d7763730be121798123aec310a3e923df9c4d213d708c53dd732c898ecb586d",
+      "bytes": 113599,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/niji-kijutsu-hinshitsu/carousel/img/05-point.png",
+      "sha256": "2a9aa08a428d72f4ae75361f2984ddc5b6abca1e41959da6bc5715543fa128ae",
+      "bytes": 154477,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/niji-kijutsu-hinshitsu/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

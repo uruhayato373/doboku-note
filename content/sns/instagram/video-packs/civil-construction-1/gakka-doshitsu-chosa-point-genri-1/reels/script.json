@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-doshitsu-chosa",
+  "key": "point-genri-1",
+  "sceneId": "genri",
+  "exam": "civil-construction-1",
+  "narration": "原位置試験は、地盤の中で直接性質を調べる試験です。室内試験は、採取した試料を試験室へ持ち帰って調べます。試験名だけで覚えず、どこで測るのか、どんな値を求めたいのかを対にすると整理できます。原位置試験でも地盤を乱す操作はあります。",
+  "visual": {
+    "heading": "原位置と室内は調べる場所が違う",
+    "items": [
+      "原位置：地盤の中で直接調べる",
+      "室内：採取試料を持ち帰って調べる",
+      "試験名と求める値を対で覚える"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-soil-investigation-methods/article.mdx",
+  "editorialNote": "原位置試験は必ず乱さない／サンプリングしないという誤定義を修正。"
+}

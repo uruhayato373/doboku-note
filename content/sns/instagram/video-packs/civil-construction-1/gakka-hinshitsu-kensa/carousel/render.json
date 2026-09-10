@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "gakka-hinshitsu-kensa",
+  "inputDigest": "56c12d8cfd5de737316c0e4613857b73b263fa44590ce1973910394e99617e46",
+  "sourceSha256": "8ca2a2353075a2fbb333fb336669072937939e8d263f6cb9b735f845d648661e",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:28:20.179Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-hinshitsu-kensa/carousel/img/00-cover.png",
+      "sha256": "aff9c1a6efc4d9e600fb6831f09bf64002c03d4b2d6edca3f1dac78ebbe9625d",
+      "bytes": 290906,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-hinshitsu-kensa/carousel/img/01-point.png",
+      "sha256": "8de66fd24e0e1418eedc6af27f6320f0b5ccc3c85fd031f62d4c8bce35da2389",
+      "bytes": 114212,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-hinshitsu-kensa/carousel/img/02-point.png",
+      "sha256": "8d6b8817e1968d54abe89f09b764121753b89cc2ffc879b91f142cc6a0fa424e",
+      "bytes": 109780,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-hinshitsu-kensa/carousel/img/03-point.png",
+      "sha256": "b2f7021e1ec138562383ce13b296ca03148df5886dd009f8cfdeabf35548f009",
+      "bytes": 149464,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-hinshitsu-kensa/carousel/img/04-point.png",
+      "sha256": "6c4e45393d17e95d7544fc94218c4075f468d955e956a37922eed0ff0aa650c1",
+      "bytes": 146265,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-hinshitsu-kensa/carousel/img/05-point.png",
+      "sha256": "c18ce2ae00f46614f4649de5e68c000b1b443a85d6c2c8a0e04ab8eaa988e6ae",
+      "bytes": 118237,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-hinshitsu-kensa/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

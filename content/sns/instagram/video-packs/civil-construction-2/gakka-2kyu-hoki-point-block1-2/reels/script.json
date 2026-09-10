@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-2kyu-hoki",
+  "key": "point-block1-2",
+  "sceneId": "block1",
+  "exam": "civil-construction-2",
+  "narration": "労働基準法の基本は、数字と適用条件を対にして覚えます。法定労働時間は原則一日8時間、一週40時間です。18歳未満の年少者には就業上の制限があります。賃金も毎月一回以上などの原則があるため、数字だけを切り離さず、何を定めた規定かを確認しましょう。",
+  "visual": {
+    "heading": "労基法は数字と適用条件を対で",
+    "items": [
+      "法定労働時間：原則1日8時間・週40時間",
+      "18歳未満の年少者には就業制限",
+      "賃金は毎月1回以上などの原則を確認"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-2/guide-law-key-points/article.mdx",
+  "editorialNote": "法定時間を実労働時間の絶対上限として読ませないよう原則と補足。",
+  "sourceUrls": [
+    "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudouseisaku/chushoukigyou/joken_kankyou_rule.html"
+  ]
+}

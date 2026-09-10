@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "keiken-sekokeikaku-1kyu",
+  "inputDigest": "c5b1f9c7f767d5b9809e940a73e2901abd42a5f9e2f6ae9d0793338ed2ec2a15",
+  "sourceSha256": "996bef6ecb1d5f481d2d23c5c7fb0107f1413540617d6bcab920ad842a3be478",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:31:35.397Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-sekokeikaku-1kyu/carousel/img/00-cover.png",
+      "sha256": "85d2aabe85307195a303bca3b7a3995af014d92e829d815c4058bacbbc6afc82",
+      "bytes": 329572,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-sekokeikaku-1kyu/carousel/img/01-point.png",
+      "sha256": "33160db9c8190425caa50fa2b26300ce07eaa8081e9c43c37fdc6ab107d63326",
+      "bytes": 107765,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-sekokeikaku-1kyu/carousel/img/02-point.png",
+      "sha256": "8523565a8b8337ef2077eca133f798a3e08fdd272a1ea3282edd679dbc0c2b0f",
+      "bytes": 138180,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-sekokeikaku-1kyu/carousel/img/03-point.png",
+      "sha256": "81298f011d33a497af14848dad73ca3f67490dcaac7773b753793abcc71b5c8d",
+      "bytes": 121651,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-sekokeikaku-1kyu/carousel/img/04-point.png",
+      "sha256": "be3214f9a6f456511c155c6b844f498aac30448864aa974b94f92376f47968c5",
+      "bytes": 116287,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-sekokeikaku-1kyu/carousel/img/05-point.png",
+      "sha256": "b5795f688f5633760879ac280b77af44712cd14cd19d7e2e59be66ef3fdb3f17",
+      "bytes": 124321,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-sekokeikaku-1kyu/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "gakka-crane-sogo",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "クレーン作業",
+        "性能と安全規定"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "reading",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "機械の性能と安全規定をセットに",
+      "items": [
+        "機種と安全規定はセットで問われる",
+        "定格総荷重と定格荷重の入替えに注意"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-crane/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "overview",
+      "heading": "走行条件から機種を選ぶ",
+      "items": [
+        "クローラ＝走破性、トラック／全地形＝機動性",
+        "ラフテレーン＝狭あい地",
+        "積載型＝貨物兼用・転倒事故多い"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-crane/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "定格総荷重からつり具を引く",
+      "items": [
+        "定格総荷重は、つり具の質量を含む最大荷重です。",
+        "定格荷重は、定格総荷重からつり具の質量を差し引いた値です。",
+        "荷物だけの質量か、つり具を含む値かを確かめます。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-crane/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "張出し幅に対応する荷重表で判断",
+      "items": [
+        "定格荷重を超えて使用してはいけません。",
+        "アウトリガーは最大限に張り出すのが基本です。",
+        "最大張出しができない場合も、その幅の定格荷重を確実に下回ることが必要です。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-machinery-crane/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "玉掛け資格の1tは能力の基準",
+      "items": [
+        "つり上げ荷重1t以上のクレーン等は、玉掛け技能講習修了等の資格が必要です。",
+        "1t未満では、玉掛けの特別教育が必要です。",
+        "実際につる荷物の重さではなく、機械のつり上げ荷重を見ます。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-machinery-crane/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step4",
+      "heading": "積載型の過負荷防止措置",
+      "items": [
+        "平成31年3月1日以降製造が対象",
+        "つり上げ荷重3t未満に適用",
+        "荷重計に加え作動制限装置相当が必須"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-crane/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

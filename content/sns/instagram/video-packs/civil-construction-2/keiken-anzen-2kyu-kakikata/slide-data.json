@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "keiken-anzen-2kyu-kakikata",
+  "exam": "civil-construction-2",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "安全管理の答案",
+        "数字で具体化"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "good-sign",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：数値基準を覚えれば書ける",
+      "items": [
+        "暗記した数値は具体化にならない",
+        "「どう確認し、どう守ったか」が本体"
+      ],
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "現場条件から課題を絞る",
+      "items": [
+        "軟弱地盤・道路近接・狭いヤードを書き出す",
+        "課題は一つに絞る（欲張らない）"
+      ],
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "基準値を現場の検討に結びつける",
+      "items": [
+        "足場の種類に応じて、幅40cm以上・すき間3cm以下などの条件を確認します。",
+        "手すり85cm以上などの端部対策を、現場の危険源と結びつけます。",
+        "掘削面2m以上の主任者選任など、作業の条件を確認します。"
+      ],
+      "sourceRef": "content/site/civil-construction-2/guide-safety-management/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "具体的な措置と管理方法を書く",
+      "items": [
+        "実際に用いた工法・数値・確認方法を組み合わせて説明します。",
+        "誘導員配置のみの記述を除く指示がある場合は、問題文に従って題材を選びます。"
+      ],
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step4",
+      "heading": "評価の要否も設問の指示に従う",
+      "items": [
+        "検討した内容に対応する処置を書けているかを確認します。",
+        "評価を書くかどうかと解答欄の配分は、当該年度の設問の要求を優先します。"
+      ],
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

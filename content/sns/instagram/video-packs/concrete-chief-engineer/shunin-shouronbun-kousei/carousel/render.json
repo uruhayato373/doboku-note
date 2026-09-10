@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "shunin-shouronbun-kousei",
+  "inputDigest": "c391e36bf82411b05641ae2c99cb74cfc3be675921e1216265f4d71313c08b7f",
+  "sourceSha256": "d148f2f97312fe94a4d68a44580943006b7ba4c8ccb88e4d5c2735808c66ff76",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:37:17.548Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-shouronbun-kousei/carousel/img/00-cover.png",
+      "sha256": "cd0ec6f7b25ff22c5b5687ea019f7ca1b4ad09a1b51cf36737e2fcf4cdbef064",
+      "bytes": 326882,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-shouronbun-kousei/carousel/img/01-point.png",
+      "sha256": "c84fb8bdfea0ea4c684ac88c9c2a487719ca24ab8afac975ede2ed040a1c1eb7",
+      "bytes": 115345,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-shouronbun-kousei/carousel/img/02-point.png",
+      "sha256": "b77de6b2a1486cbad9c148263579eab685ad4a63e36c2ac5fe636e840a75f4b1",
+      "bytes": 146460,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-shouronbun-kousei/carousel/img/03-point.png",
+      "sha256": "43a8ef00f98f2df01e8df66d5961529f7f30cab2444d063fde2502bd47e71576",
+      "bytes": 100575,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-shouronbun-kousei/carousel/img/04-point.png",
+      "sha256": "d8db0cb19408786e283ecabe71418c5eda57474465e13be89259aa1a242b42e3",
+      "bytes": 117837,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-shouronbun-kousei/carousel/img/05-point.png",
+      "sha256": "89ce13f3591fee0054425848e48766683eb376fd295cb788189cfed7e8b3acce",
+      "bytes": 106526,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-shouronbun-kousei/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

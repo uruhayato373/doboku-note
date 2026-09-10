@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-2kyu-concrete",
+  "key": "point-overview-1",
+  "sceneId": "overview",
+  "exam": "civil-construction-2",
+  "narration": "コンクリートの学習は、材料、配合、施工、ひび割れの順につなぐと整理できます。何を混ぜるかが性質に影響し、打込みや締固め、養生が仕上がりを左右します。用語を別々に覚えるだけでなく、材料から施工結果まで、どこがつながるかを意識しましょう。",
+  "visual": {
+    "heading": "コンクリートは材料から施工へ",
+    "items": [
+      "材料→配合とスランプ",
+      "打込み・締固め・養生",
+      "ひび割れまで原因と結果をつなぐ"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-2/guide-concrete-key-points/article.mdx"
+}

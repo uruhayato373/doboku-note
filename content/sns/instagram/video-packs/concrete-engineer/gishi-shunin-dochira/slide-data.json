@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "gishi-shunin-dochira",
+  "exam": "concrete-engineer",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "技士？主任技士？",
+        "違いで選ぶ"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：主任技士は技士の上位版",
+      "items": [
+        "技士＝標準業務を実施する力",
+        "主任技士＝計画・指導までを問う"
+      ],
+      "sourceRef": "content/site/concrete-engineer/guide-difference-chief/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "違いの本質",
+      "items": [
+        "技士＝日常業務を正しく実施する力",
+        "主任技士＝計画・管理・指導まで担う力",
+        "技士の実施力が主任技士の土台になる"
+      ],
+      "sourceRef": "content/site/concrete-engineer/guide-difference-chief/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "試験方式と時間の違い",
+      "items": [
+        "技士：四肢択一のみ、2時間",
+        "主任技士：四肢択一＋小論文、3時間",
+        "主任技士は択一と小論文の時間配分がカギ"
+      ],
+      "sourceRef": "content/site/concrete-engineer/guide-difference-chief/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "出題範囲と受験資格の違い",
+      "items": [
+        "基礎領域は共通、深さと判断の範囲が違う",
+        "主任技士はJIS以外の試験・新材料の検討まで",
+        "受験資格は別条件、技士だけ2026年度に改定"
+      ],
+      "sourceRef": "content/site/concrete-engineer/guide-difference-chief/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step4",
+      "heading": "どちらを受けるか判定する",
+      "items": [
+        "初学者・基礎固めなら技士が第一候補",
+        "計画・指導を担う立場なら主任技士を検討",
+        "迷ったら技士の四肢択一を時間内に解いて確認"
+      ],
+      "sourceRef": "content/site/concrete-engineer/guide-difference-chief/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

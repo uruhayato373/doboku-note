@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "shunin-shiken-zentaizou",
+  "inputDigest": "21efe450dabc44a7b285f1f1e350a53ebc4a7a0adf32bb37afaec1c7083a93b3",
+  "sourceSha256": "1a8b80476bf1b5a5d0663c5a26c476aeee87355c41bcfb33c09090edb7182192",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:37:13.526Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-shiken-zentaizou/carousel/img/00-cover.png",
+      "sha256": "65a30dc254f33ba2d3cf4864237c52aa0b9766ad9f31bad3b096c11c051599c0",
+      "bytes": 341186,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-shiken-zentaizou/carousel/img/01-point.png",
+      "sha256": "36329285f76bbcb378133432725644351578cc70981c0cb0f69e7ea991b85e1d",
+      "bytes": 103562,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-shiken-zentaizou/carousel/img/02-point.png",
+      "sha256": "013fe58ee9365c545dd7c7825d44cd7e5c57a17eef1e90da2fd54ad015ccbea7",
+      "bytes": 91653,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-shiken-zentaizou/carousel/img/03-point.png",
+      "sha256": "89486524cda2f6d08936f49281b0eaee8016792035494f425af62bd7d81aed0a",
+      "bytes": 90098,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-shiken-zentaizou/carousel/img/04-point.png",
+      "sha256": "f744be3c91af45b1566861631864e67e68c4c49f5c5c87bd71779d06c0b314b9",
+      "bytes": 99312,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-shiken-zentaizou/carousel/img/05-point.png",
+      "sha256": "8e18130d37ef31dd2edc1227ff96bb3d3c6305b78d0cc849b7b2518f4fa17a6b",
+      "bytes": 104449,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-shiken-zentaizou/carousel/img/06-point.png",
+      "sha256": "7cfb3107304d5dfc3f16c53674c1485a5c1c8828f4e57d7ae5d8aefe01fa21d3",
+      "bytes": 90547,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-shiken-zentaizou/carousel/img/07-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

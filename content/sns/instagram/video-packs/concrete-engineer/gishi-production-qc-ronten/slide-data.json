@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "gishi-production-qc-ronten",
+  "exam": "concrete-engineer",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "製造と品質管理",
+        "検査の頻出点"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：規格値は一覧暗記で足りる",
+      "items": [
+        "要は工程のどこの規定かを把握すること",
+        "受入れ→計量→運搬→試験→判定の流れで見る"
+      ],
+      "sourceRef": "content/site/concrete-engineer/textbook-production-qc/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "qc1",
+      "heading": "呼び方は品質条件を読み解く記号",
+      "items": [
+        "種類・呼び強度・スランプ・粗骨材寸法・セメント種類の組合せ",
+        "呼び強度＝購入者の指定、配合強度＝製造の目標",
+        "ばらつきに備え配合強度は呼び強度より高く設定"
+      ],
+      "sourceRef": "content/site/concrete-engineer/textbook-production-qc/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "qc2",
+      "heading": "受入れ・計量は表面水がずれの元",
+      "items": [
+        "セメントは種類混同・湿気を避けて貯蔵",
+        "骨材の表面水率を定期測定し計量へ反映",
+        "反映が遅れると単位水量・骨材量が設計値からずれる"
+      ],
+      "sourceRef": "content/site/concrete-engineer/textbook-production-qc/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "qc3",
+      "heading": "運搬は撹拌しながら・無断加水は厳禁",
+      "items": [
+        "練混ぜ開始〜荷卸しは原則1.5時間以内（JIS A 5308）",
+        "「荷卸し」と「打込み完了」は別の時点",
+        "スランプ不足でも無断加水はしない"
+      ],
+      "sourceRef": "content/site/concrete-engineer/textbook-production-qc/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "qc4",
+      "heading": "受入検査はスランプ・空気量・塩化物・強度",
+      "items": [
+        "受入検査：スランプ・空気量・温度・塩化物・圧縮強度",
+        "圧縮強度①一回が呼び強度の85%以上",
+        "②三回の平均が呼び強度以上、両方を同時に満たす"
+      ],
+      "sourceRef": "content/site/concrete-engineer/textbook-production-qc/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "qc5",
+      "heading": "品質管理と検査は別物",
+      "items": [
+        "品質管理＝工程を安定させる活動",
+        "検査＝基準への適合を判定する活動",
+        "管理図で規格外になる前の傾向をつかむ"
+      ],
+      "sourceRef": "content/site/concrete-engineer/textbook-production-qc/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "niji-kijutsu-hinshitsu",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "二次の品質管理",
+        "試験名と規格値"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "reading",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：試験名だけ覚えれば安全",
+      "items": [
+        "問われるのは三点セット",
+        "基準の数値が抜けると得点にならない"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-quality-management-past-problems/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "compaction",
+      "heading": "盛土の締固め管理は2方式",
+      "items": [
+        "品質規定方式：品質を明示し工法は委ねる",
+        "工法規定方式：機種・まき出し厚・回数を規定"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-quality-management-basics/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "acceptance-test",
+      "heading": "検査値に対象条件を添える",
+      "items": [
+        "スランプ8〜18cmの許容差±2.5cmは基本区分で、例外条件も確認します。",
+        "空気量の許容差±1.5%は、目標空気量と区別します。",
+        "塩化物イオン量は原則0.30kg/m³以下として、適用規格の条件を確認します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-quality-management-basics/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "strength",
+      "heading": "圧縮強度の合否判定",
+      "items": [
+        "1回の試験結果：呼び強度の85%以上",
+        "3回の平均値：呼び強度以上",
+        "どちらか一方でも欠けると不合格"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-quality-management-basics/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "rebar-joint",
+      "heading": "鉄筋継手は種類別に検査する",
+      "items": [
+        "ガス圧接では、軸心の偏心・膨らみ・圧接面のずれを別々に検査します。",
+        "寸法の合否は、鉄筋の種類と比較対象の径に対応する規定で判断します。",
+        "異径鉄筋の接合条件は継手形式別に確認し、ガス圧接と重ね継手を混同しません。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-quality-management-basics/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

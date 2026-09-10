@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "keiken-kadai-kakikata",
+  "key": "point-block1-1",
+  "sceneId": "block1",
+  "exam": "civil-construction-1",
+  "narration": "技術的課題のテーマの前段は、課題が生じる現場や施工の状況、その原因、工事名や施工量から整理した規模の3つで組み立てます。まず工事概要のどの施工部分を書くかを先に決めます。",
+  "visual": {
+    "heading": "技術的課題の3要素",
+    "items": [
+      "課題が生じる現場・施工の状況",
+      "その原因",
+      "工事名・施工量から見た規模"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+}

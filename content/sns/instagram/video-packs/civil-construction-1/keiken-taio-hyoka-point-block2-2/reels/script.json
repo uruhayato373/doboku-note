@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "keiken-taio-hyoka",
+  "key": "point-block2-2",
+  "sceneId": "block2",
+  "exam": "civil-construction-1",
+  "narration": "対応処置は、「地盤改良工法とした」という結果だけで終わらせないようにしましょう。なぜその方法を選び、実施時に何へ留意したのかまでつなげます。理由、工法、留意点の順に読むと、検討した内容が処置へ反映されているかを確認できます。",
+  "visual": {
+    "heading": "結果だけで終わらせない",
+    "items": [
+      "悪い例：地盤改良工法とした",
+      "良い例：理由→工法→留意点までつなげる",
+      "結果の一文だけにしない"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+}

@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "gishi-jis-handan",
+  "inputDigest": "ee59d66390c9bffef013b2b488bd9ac25669aa63537f456c0bb9917589f64d26",
+  "sourceSha256": "dab1bf60b268f54006327ef42cf6c88a6eaed7b1e667fcba121e9891d519bc80",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:38:13.602Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-jis-handan/carousel/img/00-cover.png",
+      "sha256": "cfb0bebb8a3575fc9b3b4c0465074d3c73f0294c24d467699426095dbbc0a12b",
+      "bytes": 311477,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-jis-handan/carousel/img/01-point.png",
+      "sha256": "7afeadf89550ab072d505ecbc47bb858333979069ef591efb51001fa9d5c53f8",
+      "bytes": 123981,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-jis-handan/carousel/img/02-point.png",
+      "sha256": "749935e619672d776fb65fcb9cc5c7af63ef260e75532803bdf92be606fd4d32",
+      "bytes": 136487,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-jis-handan/carousel/img/03-point.png",
+      "sha256": "3ba23b6aaade35f6a22c59958451fd2cecb9a1de90913bcdd5f0c2c4018379af",
+      "bytes": 141630,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-jis-handan/carousel/img/04-point.png",
+      "sha256": "dd73f6543252884aef04c594cd0ae536b674baf4f675797ea87ba86006cec5ac",
+      "bytes": 142932,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-jis-handan/carousel/img/05-point.png",
+      "sha256": "3b2c896d031ac3071d4fe61b4c38170f1c2f7703dbb3801ca8e63280540c6d95",
+      "bytes": 149878,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-jis-handan/carousel/img/06-point.png",
+      "sha256": "1a98efe3b5664b33aa9e50fbde62f9d97812b1c0ba47227c11eb2c3af6cfbebe",
+      "bytes": 146807,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-jis-handan/carousel/img/07-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

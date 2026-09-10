@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "keiken-anzen-2kyu-kakikata",
+  "inputDigest": "cbeb4dc31c5294e4120385f8270d996c9a7e8d70fa78e211db8a14726a899a6b",
+  "sourceSha256": "cba0bb987bd30421397fb11396af04b01344bad0523a667d3dc1fd3951caceae",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:33:08.170Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/keiken-anzen-2kyu-kakikata/carousel/img/00-cover.png",
+      "sha256": "5ead5324083820e0f94010ae82e315e6dd749eaa81f542838bb7967a44f6b220",
+      "bytes": 329551,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/keiken-anzen-2kyu-kakikata/carousel/img/01-point.png",
+      "sha256": "fc06b1678fdda43e181cd873dc013537b31618a8047dec0d6338cd498abb96fb",
+      "bytes": 105351,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/keiken-anzen-2kyu-kakikata/carousel/img/02-point.png",
+      "sha256": "08aa2b3f305728d4870d9bc8847fe69d35f95097ee659a07245f8c967409da2f",
+      "bytes": 105152,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/keiken-anzen-2kyu-kakikata/carousel/img/03-point.png",
+      "sha256": "aa29e799bd48b030ca5409e3441ed6d98c37528dbd80ba4b2be7bf5cd3d77b22",
+      "bytes": 149451,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/keiken-anzen-2kyu-kakikata/carousel/img/04-point.png",
+      "sha256": "3f1f2005cee7c66a52a5fc06c7e78081122479aae8b2971403046dae0d5efa84",
+      "bytes": 136296,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/keiken-anzen-2kyu-kakikata/carousel/img/05-point.png",
+      "sha256": "b24138c380c80747364c6a83daf9708557c677900d5ab6c3dae0ab2ef2fb0ea7",
+      "bytes": 134322,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/keiken-anzen-2kyu-kakikata/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

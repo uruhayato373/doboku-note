@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "shunin-mix-design-ronten",
+  "exam": "concrete-chief-engineer",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "配合設計",
+        "頻出論点を整理"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：水セメント比だけ覚えれば安心",
+      "items": [
+        "単位水量・細骨材率・空気量は連動する",
+        "条件が1つ変わると他も一緒に動く"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "overview",
+      "heading": "配合を表す4つの諸量",
+      "items": [
+        "水セメント比：強度と耐久性を左右",
+        "単位水量：スランプに最も敏感",
+        "細骨材率・空気量：粘性と耐凍害性"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "条件変化と修正方向",
+      "items": [
+        "砕石化・実積率低下：単位水量↑・細骨材率↑",
+        "夏期：単位水量↑・AE剤量↑",
+        "高性能AE減水剤：単位水量↓・細骨材率↑"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "配合強度と割増し係数",
+      "items": [
+        "呼び強度＝名目値／配合強度＝製造目標値",
+        "変動係数が大きいほど割増し係数も大きい",
+        "2種類の係数のうち大きい方を採用"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "容積法の6ステップ",
+      "items": [
+        "水セメント比→単位水量→セメント量",
+        "水・セメント・空気・粗骨材の容積を積み上げ",
+        "残りが細骨材、合計1000リットルで確認"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step4",
+      "heading": "過去問の出方に慣れる",
+      "items": [
+        "配合強度→水セメント比→単位水量の順で出題",
+        "図の読み取りを1目盛りずらす引っかけ",
+        "修正方向を1カ所だけ逆にする選択肢"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/primary-mix-design/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

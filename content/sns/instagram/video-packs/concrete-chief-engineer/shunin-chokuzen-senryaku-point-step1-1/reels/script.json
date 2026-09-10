@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "shunin-chokuzen-senryaku",
+  "key": "point-step1-1",
+  "sceneId": "step1",
+  "exam": "concrete-chief-engineer",
+  "narration": "主任技士の小論文は、直前期にも実際に書く時間を確保しましょう。論点を決め、原因と対策をつなぎ、設問への答えを明確にする練習です。下書きでは箇条書きで整理しても、答案は問題文の指示に合わせます。文章量だけでなく、論旨が通っているかを見直しましょう。",
+  "visual": {
+    "heading": "小論文は論旨を通す練習を",
+    "items": [
+      "論点→原因→対策をつなぐ",
+      "答案の形式は問題文の指示に合わせる",
+      "文章量だけでなく論旨を見直す"
+    ]
+  },
+  "sourceRef": "content/site/concrete-chief-engineer/guide-overview/article.mdx",
+  "editorialNote": "箇条書き答案可という未確認の採点条件を削除し、下書きと提出答案を分離。"
+}

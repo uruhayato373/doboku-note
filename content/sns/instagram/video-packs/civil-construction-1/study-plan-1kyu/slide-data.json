@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "study-plan-1kyu",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "１級土木の勉強",
+        "計画を立てる"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "good-sign",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：テキストの通読で対応できる",
+      "items": [
+        "第一次と第二次は求められる力が別物",
+        "同じやり方だと準備期間が足りない"
+      ],
+      "sourceRef": "content/site/civil-construction-1/guide-study-plan/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "第一次と第二次は別物",
+      "items": [
+        "第一次：過去問反復で知識を定着",
+        "第二次：経験の文章化で記述力"
+      ],
+      "sourceRef": "content/site/civil-construction-1/guide-study-plan/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "第一次検定の進め方",
+      "items": [
+        "直近5年の過去問を反復",
+        "施工管理法・土工・コンクリートを優先",
+        "専門土木は実務に近い分野を選ぶ"
+      ],
+      "sourceRef": "content/site/civil-construction-1/guide-study-plan/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "第二次検定の進め方",
+      "items": [
+        "工種・規模・課題・対応を棚卸し",
+        "品質・工程・安全のテーマで準備",
+        "模範答案と照らし添削を重ねる"
+      ],
+      "sourceRef": "content/site/civil-construction-1/guide-study-plan/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step4",
+      "heading": "逆算スケジュールの組み方",
+      "items": [
+        "第二次の準備を後回しにしない",
+        "第一次の学習開始時に着手時期を決める"
+      ],
+      "sourceRef": "content/site/civil-construction-1/guide-study-plan/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

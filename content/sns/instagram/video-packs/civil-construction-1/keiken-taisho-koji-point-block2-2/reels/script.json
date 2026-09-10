@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "keiken-taisho-koji",
+  "key": "point-block2-2",
+  "sceneId": "block2",
+  "exam": "civil-construction-1",
+  "narration": "経験記述の題材は、対象外の工事や業務も確認しましょう。工場での製品製作や、調査・設計などの業務は、現場の施工管理と区別が必要です。工事の一部に土木作業があっても、名称だけでは判断できません。自分の担当内容を受検の手引に照らして確認します。",
+  "visual": {
+    "heading": "対象外の工事・業務も確認",
+    "items": [
+      "工場製作と現場施工を区別",
+      "調査・設計と施工管理を区別",
+      "担当内容を受検の手引と照合"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx",
+  "editorialNote": "小規模維持修繕・解体などの一律対象外断定を省き担当業務と公式手引の照合へ変更。",
+  "sourceUrls": [
+    "https://www.jctc.jp/exam/examfaq/"
+  ]
+}

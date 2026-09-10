@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "keiken-kento-kakikata",
+  "inputDigest": "e1c62726563bd76dd04da5fc0cc56e241547e772fc757ae9ff8cad9b9df00c60",
+  "sourceSha256": "10752e24765470f7cc69b07b786d31c5cfdbefc71b4daf35dcfe51ef456139c8",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:31:21.147Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-kento-kakikata/carousel/img/00-cover.png",
+      "sha256": "18c63aceeccc64899925f729f4b2aef06937a5f4ff76370276d90474d9501e0b",
+      "bytes": 280109,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-kento-kakikata/carousel/img/01-point.png",
+      "sha256": "bb732515741664baa658e0ec642c9789561b0a73de871154b1736e1f4b88519b",
+      "bytes": 117657,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-kento-kakikata/carousel/img/02-point.png",
+      "sha256": "1d856c4cbcb237a2b750c57a7085b761cd359dffe694e72e023f370865a03c8f",
+      "bytes": 106971,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-kento-kakikata/carousel/img/03-point.png",
+      "sha256": "532e3ff5c34ef11b7e215739aecc8c8a566c1052ea757ac070274ff3eed5a058",
+      "bytes": 147592,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-kento-kakikata/carousel/img/04-point.png",
+      "sha256": "1a4c38a57311e6cf400c7cde81f81dfe264b2d434e981a6d8ecbaf87f4f31eb8",
+      "bytes": 136180,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-kento-kakikata/carousel/img/05-point.png",
+      "sha256": "a1018daebaf3c23052fbffb5a4b25a1450878e86fd8c1d6f490996f0dd890179",
+      "bytes": 98374,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-kento-kakikata/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

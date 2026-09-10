@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-risk-assessment",
+  "key": "point-step2-2",
+  "sceneId": "step2",
+  "exam": "civil-construction-1",
+  "narration": "リスク低減措置には優先順位があります。最も優先されるのは、危険な作業をなくす本質的対策です。次は工学的対策、その次は管理的対策です。個人用保護具は、これらで除去しきれないリスクに使う最後の手段です。",
+  "visual": {
+    "heading": "低減措置の優先順位",
+    "items": [
+      "①本質的対策＝危険な作業をなくす",
+      "②工学的対策・③管理的対策と続く",
+      "④個人用保護具は最後の手段"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-safety-risk-assessment/article.mdx"
+}

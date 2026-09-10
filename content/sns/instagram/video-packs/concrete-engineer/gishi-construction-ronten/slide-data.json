@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "gishi-construction-ronten",
+  "exam": "concrete-engineer",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "運搬から養生へ",
+        "施工の頻出点"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：数値さえ覚えれば判断できる",
+      "items": [
+        "ブリーディング水・凝結・打重ね時間・強度発現の前後を見る",
+        "時系列を先に特定してから数値・用語を当てはめる"
+      ],
+      "sourceRef": "content/site/concrete-engineer/textbook-construction/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "施工計画は供給能力と打込み速度をそろえる",
+      "items": [
+        "形状・施工量・区画・供給能力・運搬経路を整合",
+        "供給能力＜打込み速度→待ち時間・コールドジョイント",
+        "受入れ能力を超える配車→待機中のスランプ低下"
+      ],
+      "sourceRef": "content/site/concrete-engineer/textbook-construction/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "運搬・打込みは分離を防ぐ位置取りが軸",
+      "items": [
+        "目的は材料分離と打込み中断の抑制",
+        "型枠内の横流しは粗骨材の偏りを招く",
+        "一層を厚くしすぎると振動機が下層へ届かない"
+      ],
+      "sourceRef": "content/site/concrete-engineer/textbook-construction/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "打継ぎは打重ね時間の前後で処置が変わる",
+      "items": [
+        "時間内：締固めで上下層を一体化",
+        "時間超過：振動だけで一体化させない",
+        "既設面のレイタンス除去→湿潤状態→打継ぎ処理"
+      ],
+      "sourceRef": "content/site/concrete-engineer/textbook-construction/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step4",
+      "heading": "仕上げ・養生はブリーディング水と初期温度がかぎ",
+      "items": [
+        "ブリーディング水が残る段階の仕上げははく離の原因",
+        "養生＝水分と温度を保ち急乾燥から保護",
+        "初期養生の不足は表面強度・耐久性へ長期に影響"
+      ],
+      "sourceRef": "content/site/concrete-engineer/textbook-construction/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step5",
+      "heading": "暑中・寒中・マスは同じ「温度」でも狙いが違う",
+      "items": [
+        "暑中：温度上昇・スランプ低下・急速乾燥を抑える",
+        "寒中：強度発現の遅れと初期凍害を防ぐ",
+        "マス：内部と表面の温度差ひび割れを抑える"
+      ],
+      "sourceRef": "content/site/concrete-engineer/textbook-construction/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

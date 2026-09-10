@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "keiken-soteikoji-katsuyo",
+  "key": "point-overview-1",
+  "sceneId": "overview",
+  "exam": "civil-construction-1",
+  "narration": "完成答案は、文章の組み立てを学ぶための見本です。他人の工事名や数量、実施した対策をそのまま使っても、自分の施工経験にはなりません。課題と対応をどうつないでいるかを読み取り、内容は自分が経験した工事と記録に基づいて組み立て直しましょう。",
+  "visual": {
+    "heading": "完成答案は構成の見本として使う",
+    "items": [
+      "他人の工事・数値・対策を写さない",
+      "課題と対応のつなぎ方を学ぶ",
+      "自分の経験と記録で組み立て直す"
+    ]
+  },
+  "sourceRef": "content/note/1級・2級土木/1級土木/1級経験記述を自分の現場に置換/article.md",
+  "editorialNote": "未確認の経歴照会・口頭確認・失格判定の手続断定を削除。"
+}

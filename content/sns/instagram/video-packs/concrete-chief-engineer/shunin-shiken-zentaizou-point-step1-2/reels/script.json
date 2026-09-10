@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "shunin-shiken-zentaizou",
+  "key": "point-step1-2",
+  "sceneId": "step1",
+  "exam": "concrete-chief-engineer",
+  "narration": "試験は四肢択一一問一答と小論文1題の2部構成です。四肢択一は誤答・無答が零点、小論文にも一定水準が求められ、それぞれ別々に採点されます。択一が高得点でも小論文が低すぎると不合格になることがあります。",
+  "visual": {
+    "heading": "試験は二本立て",
+    "items": [
+      "四肢択一一問一答＋小論文1題",
+      "誤答・無答は零点",
+      "択一と小論文は別採点"
+    ]
+  },
+  "sourceRef": "content/site/concrete-chief-engineer/guide-overview/article.mdx",
+  "sourceUrls": [
+    "https://www.jci-net.or.jp/j/exam/gishi/pdf/gishi_2026_20260605.pdf"
+  ]
+}

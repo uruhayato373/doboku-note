@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "shunin-properties-ronten",
+  "inputDigest": "d87ec787439f901c58bfd66a14fb7328ed27862faf54494f794a0d7a3fcc066e",
+  "sourceSha256": "05ee0d583995b4c2ae305b4cedf699ddc4c41e966660968ac2fa864f91652c36",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:36:41.541Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-properties-ronten/carousel/img/00-cover.png",
+      "sha256": "07a1f4981ee8479049231713bee304968e2e6838abd934984a0dfd5706ee84a3",
+      "bytes": 335086,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-properties-ronten/carousel/img/01-point.png",
+      "sha256": "b299e392bb3cbac4bb1dc0f28809aaa626f7507a11d382c639fee32714f689a8",
+      "bytes": 102283,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-properties-ronten/carousel/img/02-point.png",
+      "sha256": "f3ba11a4d6ec90e0bcb4401a3a94556ef36211a79c0e5f9026ee235d2230dfa9",
+      "bytes": 108648,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-properties-ronten/carousel/img/03-point.png",
+      "sha256": "beef95b7dc65d09679f71891815d2ac8443fa34cb50dca6565bed2638792ec0b",
+      "bytes": 107700,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-properties-ronten/carousel/img/04-point.png",
+      "sha256": "089be1db15bf289256ac6568b11b21fc45f27d71c9bff7cbec4740ede9f2fcdb",
+      "bytes": 122851,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-properties-ronten/carousel/img/05-point.png",
+      "sha256": "c8ab7eca9dbf18a54604ad83d83c5fde1b693dfcab79734821ae22bc4ff4ccaf",
+      "bytes": 123217,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-properties-ronten/carousel/img/06-point.png",
+      "sha256": "74168e3f7bdb909a8664b284bd0a120de9e2b872a6a7da34b1af2f4d0fcdcef4",
+      "bytes": 121013,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-properties-ronten/carousel/img/07-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

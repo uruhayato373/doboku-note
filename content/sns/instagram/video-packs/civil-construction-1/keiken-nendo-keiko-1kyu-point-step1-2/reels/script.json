@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "keiken-nendo-keiko-1kyu",
+  "key": "point-step1-2",
+  "sceneId": "step1",
+  "exam": "civil-construction-1",
+  "narration": "令和6年度から、出題形式が大きく変わりました。工事概要を書いたうえで、設問1に安全管理、設問2に施工計画が指定され、同一の工事について両方を必答する形式になりました。設問1と設問2は同一内容の解答ができません。",
+  "visual": {
+    "heading": "R6年度：2テーマ必答への転換",
+    "items": [
+      "設問1：安全管理／設問2：施工計画",
+      "同一工事の両方を必答",
+      "設問1と設問2は同一内容不可"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/secondary-r06/article.mdx"
+}

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "kikinagashi-anzen-suchi",
+  "key": "point-scaffold-platform-1",
+  "sceneId": "scaffold-platform",
+  "exam": "civil-construction-1",
+  "narration": "足場の作業床は、幅とすき間を対にして覚えましょう。つり足場を除く基本の数値は、幅40センチメートル以上、床材間のすき間3センチメートル以下です。つり足場には別の規定があります。数値を答える前に、問題文の足場の種類を確認することが大切です。",
+  "visual": {
+    "heading": "作業床は幅とすき間を対で",
+    "items": [
+      "つり足場を除く作業床：幅40cm以上",
+      "床材間のすき間：3cm以下",
+      "つり足場は別の規定を確認"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-safety-scaffolding/article.mdx",
+  "editorialNote": "最も問われるという出題頻度断定を省き、つり足場除外の適用条件を明記。",
+  "sourceUrls": [
+    "https://www.mhlw.go.jp/web/t_doc?dataId=74003000&dataType=0&pageNo=10"
+  ]
+}

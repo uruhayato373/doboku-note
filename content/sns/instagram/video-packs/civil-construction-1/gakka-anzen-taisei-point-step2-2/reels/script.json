@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-anzen-taisei",
+  "key": "point-step2-2",
+  "sceneId": "step2",
+  "exam": "civil-construction-1",
+  "narration": "建設業の事業場では、常時使用する労働者数を基準に選任義務を確認します。総括安全衛生管理者は100人以上、安全管理者と衛生管理者はそれぞれ50人以上が基準です。工事現場全体を統括する別の制度と混同せず、事業場単位の人数として覚えましょう。",
+  "visual": {
+    "heading": "建設業の選任人数を区別",
+    "items": [
+      "事業場単位の常時使用労働者数で判断",
+      "総括安全衛生管理者：100人以上",
+      "安全管理者・衛生管理者：各50人以上"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-safety-management-system/article.mdx",
+  "editorialNote": "100人基準は業種条件を伴うため建設業・事業場単位を明記。",
+  "sourceUrls": [
+    "https://www.mhlw.go.jp/stf/newpage_09912.html",
+    "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/roudoukijun/anzeneisei10/qualificaton_education.html"
+  ]
+}

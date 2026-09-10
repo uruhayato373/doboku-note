@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "sekokan-shippaidan",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "施工管理の失敗",
+        "現場での教訓"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：失敗はつらいだけの経験",
+      "items": [
+        "失敗＝我慢の記録で終わらせない",
+        "身の振り方を考える材料に変える"
+      ],
+      "sourceRef": "content/note/1級・2級土木/施工管理の失敗談と教訓-無料/article.md"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "一人で抱え込みすぎる",
+      "items": [
+        "工程・品質・安全・原価を一人で背負う",
+        "応援を出せない会社の体制が原因のことも"
+      ],
+      "sourceRef": "content/note/1級・2級土木/施工管理の失敗談と教訓-無料/article.md"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "改善されない環境に耐え続ける",
+      "items": [
+        "長時間労働・休日のなさが常態化",
+        "外の基準を知らないまま限界まで頑張る"
+      ],
+      "sourceRef": "content/note/1級・2級土木/施工管理の失敗談と教訓-無料/article.md"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "共通する教訓",
+      "items": [
+        "優秀な人ほど「努力不足」と抱え込みがち",
+        "自分の問題か環境の問題かを切り分ける"
+      ],
+      "sourceRef": "content/note/1級・2級土木/施工管理の失敗談と教訓-無料/article.md"
+    },
+    {
+      "type": "point",
+      "sceneId": "step4",
+      "heading": "つらさを行動に変える",
+      "items": [
+        "いまの状況が環境由来かを冷静に見極める",
+        "動く前に求人相場と自分の評価を確認する"
+      ],
+      "sourceRef": "content/note/1級・2級土木/施工管理の失敗談と教訓-無料/article.md"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

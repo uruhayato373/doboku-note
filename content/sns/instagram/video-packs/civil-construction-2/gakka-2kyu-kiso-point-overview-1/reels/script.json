@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-2kyu-kiso",
+  "key": "point-overview-1",
+  "sceneId": "overview",
+  "exam": "civil-construction-2",
+  "narration": "基礎工の全体像は、形式の選定、直接基礎、杭基礎、ケーソン基礎、掘削時の安定に分けて整理します。構造物をどこで支えるかに加え、施工中の地盤をどう安定させるかも重要です。土留めと掘削底面の破壊現象まで、基礎本体とつなげて学びましょう。",
+  "visual": {
+    "heading": "基礎本体と掘削の安定をつなぐ",
+    "items": [
+      "形式の選定と直接基礎",
+      "杭基礎・ケーソン基礎",
+      "土留め・掘削底面の安定"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-2/guide-foundation-key-points/article.mdx"
+}

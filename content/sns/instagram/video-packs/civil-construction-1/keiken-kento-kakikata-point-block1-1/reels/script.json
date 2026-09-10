@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "keiken-kento-kakikata",
+  "key": "point-block1-1",
+  "sceneId": "block1",
+  "exam": "civil-construction-1",
+  "narration": "1級土木の令和6年度以降の経験記述は、検討項目をどの欄に書くかが大切です。一つ目の区画には、現場状況と技術的課題に加え、検討した項目まで入れます。二つ目には、その項目への対応処置と評価を書きます。書き始める前に、区画ごとの要求を確認しましょう。",
+  "visual": {
+    "heading": "1級R6以降の配分",
+    "items": [
+      "(1) 現場状況・技術的課題＋検討した項目",
+      "(2) 対応処置とその評価",
+      "検討項目は(1)側"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+}

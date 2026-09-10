@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "gakka-hoki-kenchiku-kayaku",
+  "inputDigest": "9afa9962c0682b00c8266608be26bc10e73868543788db59c44a58b2cd653d62",
+  "sourceSha256": "4931f522327854e24720776548fe490712b62c9433870461599f5a263d85e0d3",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:28:46.353Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-hoki-kenchiku-kayaku/carousel/img/00-cover.png",
+      "sha256": "1e94b702b52fc36b462c7e55f3190f6dfd80254897307b92f89df6eb6df53b9f",
+      "bytes": 312252,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-hoki-kenchiku-kayaku/carousel/img/01-point.png",
+      "sha256": "f7ee0f84764e50a7aa03b14c5c0fc970232b0e4d08c8a9cd11f269b5d2627c4e",
+      "bytes": 102991,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-hoki-kenchiku-kayaku/carousel/img/02-point.png",
+      "sha256": "57b45b0163d9f377db1200ad933784f05d9c1508c376187c84ad35165e4f83e4",
+      "bytes": 153001,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-hoki-kenchiku-kayaku/carousel/img/03-point.png",
+      "sha256": "327550dd800d7be8cde9147cbf6d34f843b18e65238aa2b1c2997ffbd6259f96",
+      "bytes": 111746,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-hoki-kenchiku-kayaku/carousel/img/04-point.png",
+      "sha256": "527b32988ca04a5aac50377568f25b4012761879d9d2fdd76fadb933ecab4f6c",
+      "bytes": 149595,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-hoki-kenchiku-kayaku/carousel/img/05-point.png",
+      "sha256": "0c4326bdc8a6796653d2a01955d972b17044215bbe031c9e5686a38158599952",
+      "bytes": 121502,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-hoki-kenchiku-kayaku/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

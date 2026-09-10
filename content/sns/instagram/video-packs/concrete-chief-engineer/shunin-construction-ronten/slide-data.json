@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "shunin-construction-ronten",
+  "exam": "concrete-chief-engineer",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "施工の頻出論点",
+        "要点を整理"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：現場感覚で数値も選べる",
+      "items": [
+        "打継ぎ面は乾燥ではなく湿潤に保つ",
+        "マスコンクリートは急冷させない"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-construction/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "overview",
+      "heading": "ポンプ圧送の圧送負荷",
+      "items": [
+        "圧送負荷＝管内圧力損失×水平換算距離",
+        "算定値に1.25倍の余裕を持たせる",
+        "テーパ管は小径側の圧力損失で算定"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-construction/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "打込み・締固め・打継ぎ",
+      "items": [
+        "自由落下高さ1.5m以下、片押し・階段状で対策",
+        "再振動は凝結始発前に限る",
+        "打継ぎ面はレイタンス除去後に湿潤状態を保つ"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-construction/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "養生の温度管理",
+      "items": [
+        "寒中：打込み後5℃以上を確保",
+        "積算温度＝（温度+10℃）×養生日数",
+        "暑中：乾燥防止／マス：急冷を避け温度差縮小"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-construction/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "荷重と部材の連続性を確認",
+      "items": [
+        "型枠支保工は、鉛直荷重・水平荷重・側圧を区別して設計します。",
+        "各階の支柱は、同一鉛直線上に配置することを確認します。",
+        "鉄筋の継手長や異径の条件は、継手形式・径・適用基準と合わせて確認します。"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-construction/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step4",
+      "heading": "各種コンクリートと過去問の出方",
+      "items": [
+        "寒中・暑中・マス・高流動・水中・海洋を種類別に整理",
+        "修正方向を1カ所だけ逆にする引っかけ",
+        "数値をわずかにずらす引っかけ"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/primary-construction/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

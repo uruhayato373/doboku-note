@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-2kyu-sekokeikaku",
+  "key": "point-overview-1",
+  "sceneId": "overview",
+  "exam": "civil-construction-2",
+  "narration": "施工計画は、調査した条件を、現場で実行できる計画へ変えるものです。作成手順を押さえたら、事前調査、計画書に書く内容、工程と仮設備の関係を順につなぎましょう。項目名を覚えるだけでなく、前の段階の情報を次にどう使うかを説明できると整理が進みます。",
+  "visual": {
+    "heading": "施工計画は条件を実行方法へ変える",
+    "items": [
+      "作成手順と事前調査",
+      "施工計画書に書く内容",
+      "工程と仮設備の関係を確認"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-2/guide-construction-plan-key-points/article.mdx"
+}

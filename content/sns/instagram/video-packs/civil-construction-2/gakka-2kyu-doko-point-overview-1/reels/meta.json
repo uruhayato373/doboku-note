@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.186Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-2kyu-doko/shorts/point-overview-1/shorts.mp4",
-  "durationSeconds": 30,
-  "sha256": "cb8e4a9817692669a2c5073c154ceeb68673b1ba3e30f34518b7e80dd1bb4e8c",
-  "coverSha256": "6482f8b6d131e15f77fa7c24e15a519fe9fbab66a9a28aca67d39045e3422577",
-  "renderedAt": "2026-09-05T23:16:22.115Z"
+  "durationSeconds": 30.2,
+  "sha256": "7a40be7fe17a24f38ecde4674865cbfef70f47230bf475291ebdbbc32fb9fc45",
+  "coverSha256": "542529d542e61fc560ba7defed5a83dfad8d3399f4573b95ea99db7e60780552",
+  "renderedAt": "2026-09-10T09:27:31.619Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "776b2a0ecac7cb8f92d94358078673d720ca5d8bddf6a9b7e12191f113e96f5d",
+  "rendererSha256": "43e4708f2239a8c5bbfad7dbfbe52b5123a858dd1edaa6a15d937f8eb586680f",
+  "scriptSha256": "c018fd738fdff104c2846361f5e0bec07bd72746b7aa39e8fd94e85618fe6924",
+  "speaker": 13,
+  "narration": "土工は、土質試験、土量変化、盛土と締固め、のり面や軟弱地盤の順に整理しましょう。最初に土の性質を調べ、その土が掘削や締固めでどう変わるかを考えます。工法名の暗記に入る前に、調査から施工、安定の確認へつながる全体像をつかみます。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "d3fab6d51c1ce157db8d7fa6072d415f6776190f4ec451f12757c15ae01e857c",
+    "points": "f9b28246020f0c4c9495aa4d3eb307a4a5124c3d1021cb2912322d90266e7a08",
+    "pointsImage": "d7a4ab594b86aada2a3f2c07ba3b3c2813f30744a652536d8b86384e001f7e44",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T09:27:31.619Z"
+  }
 }

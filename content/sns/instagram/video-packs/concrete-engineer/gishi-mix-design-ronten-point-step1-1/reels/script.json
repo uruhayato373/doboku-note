@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gishi-mix-design-ronten",
+  "key": "point-step1-1",
+  "sceneId": "step1",
+  "exam": "concrete-engineer",
+  "narration": "配合は強度、耐久性、施工性、経済性を同時に満たすように決めます。まず要求性能から強度と水セメント比を決め、施工性から単位水量を決め、水セメント比から単位セメント量を計算し、最後に絶対容積を1立方メートルへ配分します。",
+  "visual": {
+    "heading": "配合設計は4つの要求から順に決める",
+    "items": [
+      "強度・耐久性・施工性・経済性を同時に満たす",
+      "水セメント比→単位水量→単位セメント量の順",
+      "最後に絶対容積を1m³へ配分し試し練りで確認"
+    ]
+  },
+  "sourceRef": "content/site/concrete-engineer/textbook-mix-design/article.mdx"
+}

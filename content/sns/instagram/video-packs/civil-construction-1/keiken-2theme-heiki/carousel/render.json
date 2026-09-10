@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "keiken-2theme-heiki",
+  "inputDigest": "0fc057ed1798d6bdbc1f6e5549c6277c45280d4b8c72c39596bff253f0c6e6d4",
+  "sourceSha256": "75d98f06cb644c3ba5ac7519a21743c1653823396abbedebd31d4cf547673508",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:30:19.805Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-2theme-heiki/carousel/img/00-cover.png",
+      "sha256": "37542ef5f9b225785e15077722dc47c14cde22b9701163d907c0ce0d0c193bac",
+      "bytes": 325413,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-2theme-heiki/carousel/img/01-point.png",
+      "sha256": "5bcf966b240e5d4432b633c17e2c51b80e96e7235ec0a3c212b91ebdf27b93af",
+      "bytes": 122571,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-2theme-heiki/carousel/img/02-point.png",
+      "sha256": "15129d9e8e377846d9d9c6bf969c23dd1d588f932dd36e6bacea3460881160d3",
+      "bytes": 129732,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-2theme-heiki/carousel/img/03-point.png",
+      "sha256": "108a77c7e4c5c31d91c1f2dcad5f9c578e66f7fa04f695f89ace31591eae5148",
+      "bytes": 108828,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-2theme-heiki/carousel/img/04-point.png",
+      "sha256": "68865a67341733fad1a2224fb758d80b212c5e5c7d0c6886a1ae16106a154325",
+      "bytes": 111819,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-2theme-heiki/carousel/img/05-point.png",
+      "sha256": "c609fc5e60f20e9392ba5bb1b6a7be870f97f05e01e57684698487a6fe9be7ea",
+      "bytes": 136288,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-2theme-heiki/carousel/img/06-point.png",
+      "sha256": "2ca092f10cca19ffa8411aed429f75fe881ba96ed7cf78c27759c9ac011ce09f",
+      "bytes": 142961,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-2theme-heiki/carousel/img/07-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "keiken-yosou-renshu",
+  "inputDigest": "63c835c3da60babb63c696ff8c227067509047b5eb51a98bb996bf7d6da9c69e",
+  "sourceSha256": "4c10863bfe911bd22536a929df9d127feeea9e95dd718283cbe99fe08a51e027",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:31:56.584Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-yosou-renshu/carousel/img/00-cover.png",
+      "sha256": "a824bace5680febf4acfb2df7a3277d2698e8a026811c122a16bff64d0c5c1a8",
+      "bytes": 328426,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-yosou-renshu/carousel/img/01-point.png",
+      "sha256": "aceaeee2275f9bee746aaa86d85695dc10fbfa7a9dd62ecf309476cfa5197d7d",
+      "bytes": 108012,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-yosou-renshu/carousel/img/02-point.png",
+      "sha256": "da04160e092e4a2325d3fd6d8f24e710adecfba4ba1fac9c1f217812b4d7a785",
+      "bytes": 111671,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-yosou-renshu/carousel/img/03-point.png",
+      "sha256": "bf59236ac21f69ec0a4449e4fdad21ef726dcfd47c5eae25bb6a3d2cffe22aee",
+      "bytes": 113634,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-yosou-renshu/carousel/img/04-point.png",
+      "sha256": "223d80ce030e3bb57a74aaded497f3107d3d7c46884322c8cf3d2218c6264489",
+      "bytes": 111359,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-yosou-renshu/carousel/img/05-point.png",
+      "sha256": "1c53a21eb442e4a42a372cd23506312b66d1929c480dfc3e171bcdad9d09992f",
+      "bytes": 115281,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-yosou-renshu/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

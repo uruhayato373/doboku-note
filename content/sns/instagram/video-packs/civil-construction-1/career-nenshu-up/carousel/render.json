@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "career-nenshu-up",
+  "inputDigest": "223e7265e7a0dd3dd0810065f204a1d9cbd25a85127a0a8d85ba274520bdeaa5",
+  "sourceSha256": "a93e1025212b969c66e18f1222e947931380ac1b13b43a360e370eda2b08f928",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:25:50.674Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/career-nenshu-up/carousel/img/00-cover.png",
+      "sha256": "ec1298c28d6f1370b6baa8cf81ae126dd38edf973a4350cd48ee29704e853166",
+      "bytes": 328259,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/career-nenshu-up/carousel/img/01-point.png",
+      "sha256": "df52a8db04811dc4ad6c3ec8ffb2254863dabd67447dbc090e516c097e91f6c0",
+      "bytes": 136823,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/career-nenshu-up/carousel/img/02-point.png",
+      "sha256": "0b6f4e090b8a79d867f29d2d46a56f93e4710ba530d9aaf3224471f829878cfa",
+      "bytes": 133561,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/career-nenshu-up/carousel/img/03-point.png",
+      "sha256": "6027342100d693380687e65fef23e538c240f215c0d78acec249c1f7ff342667",
+      "bytes": 139311,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/career-nenshu-up/carousel/img/04-point.png",
+      "sha256": "8a558c748177ece8899cb90b573cc8d26552f321d4eab2d4bb7e2e6757647b13",
+      "bytes": 141197,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/career-nenshu-up/carousel/img/05-point.png",
+      "sha256": "8d269162ccc2ec36973d3855fe0df29f8131c18831d52d4a45bdd0f733e88649",
+      "bytes": 118432,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/career-nenshu-up/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

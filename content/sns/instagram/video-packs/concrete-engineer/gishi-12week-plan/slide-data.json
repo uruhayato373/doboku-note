@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "gishi-12week-plan",
+  "exam": "concrete-engineer",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "12週間の学習",
+        "計画を立てる"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "good-sign",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "12週間は学習計画の一例",
+      "items": [
+        "JCIが定めた必須の学習時間ではなく、教材上の準備プランです。",
+        "正答できるかに加え、各選択肢の理由を説明できるかを進捗の目安にします。"
+      ],
+      "sourceRef": "content/site/concrete-engineer/guide-study-plan/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "現在地を測る",
+      "items": [
+        "資料なしで1回分解いて現在地を測る",
+        "誤答原因を5パターンに分けて記録",
+        "正答肢だけでなく全肢を説明できるか確認"
+      ],
+      "sourceRef": "content/site/concrete-engineer/guide-study-plan/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "1〜4週目：全体像と基礎",
+      "items": [
+        "1〜2週目：全体像と材料の基礎をつなげる",
+        "3〜4週目：性質と試験方法をセットで学ぶ",
+        "用語は「増えると何が変わるか」まで整理"
+      ],
+      "sourceRef": "content/site/concrete-engineer/guide-study-plan/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "5〜8週目：配合と施工をつなぐ",
+      "items": [
+        "5〜6週目：配合計算を得点源にする",
+        "7〜8週目：製造・品質管理・施工をつなげる",
+        "式より先に求める値と既知の値を書き出す"
+      ],
+      "sourceRef": "content/site/concrete-engineer/guide-study-plan/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step4",
+      "heading": "9〜12週目：弱点つぶしと本番演習",
+      "items": [
+        "9〜10週目：全肢解説で弱点台帳を作る",
+        "判断保留は正解扱いにしない",
+        "11〜12週目：通し演習で時間配分を確認"
+      ],
+      "sourceRef": "content/site/concrete-engineer/guide-study-plan/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

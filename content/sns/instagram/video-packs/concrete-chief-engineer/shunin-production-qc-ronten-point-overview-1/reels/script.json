@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "shunin-production-qc-ronten",
+  "key": "point-overview-1",
+  "sceneId": "overview",
+  "exam": "concrete-chief-engineer",
+  "narration": "生コンクリートの呼び方は、種類、呼び強度、スランプ、粗骨材の最大寸法、セメント種類の順に読みます。呼び強度は購入時の品質条件、配合強度は製造時に目指す値です。ばらつきを見込むため、配合強度は呼び強度より高く設定するという関係を押さえましょう。",
+  "visual": {
+    "heading": "呼び強度と配合強度を区別",
+    "items": [
+      "種類・強度・スランプ・最大寸法・セメント種類",
+      "呼び強度：購入時の品質条件",
+      "配合強度：ばらつきを見込んだ製造目標"
+    ]
+  },
+  "sourceRef": "content/site/concrete-chief-engineer/textbook-production-qc/article.mdx",
+  "editorialNote": "スランプ区分を欠いた高性能AE減水剤の許容差特例を省き、呼び方と強度に絞る。"
+}

@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "gakka-kussaku-tsumikomi-kikai",
+  "inputDigest": "214c6d6958dbc3e6342fc8b924829af3cbf3a2c3a33247be1cee2d7b18500ccf",
+  "sourceSha256": "4f5951ee74b914ff99cfa9148191b9445b8f665c1a86dafea6de29b19273484b",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:28:56.368Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-kussaku-tsumikomi-kikai/carousel/img/00-cover.png",
+      "sha256": "52ba3a4f4ea30c0842c653f5b41cb9dbf453bfa3e1d4288a0ba89591aed91e77",
+      "bytes": 293551,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-kussaku-tsumikomi-kikai/carousel/img/01-point.png",
+      "sha256": "816a2129ad293779b24852aad3761e2f82e903d10b4192e7dd9c7797dab4b968",
+      "bytes": 109928,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-kussaku-tsumikomi-kikai/carousel/img/02-point.png",
+      "sha256": "17f754e7a451e3a2772cf040fbdbf3587cc50536469ab74ec18ca76cd0154f91",
+      "bytes": 148048,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-kussaku-tsumikomi-kikai/carousel/img/03-point.png",
+      "sha256": "9ca3aede92045bbafb89a036986c2e33e5eeb04960a1f367108d7624e1a322d7",
+      "bytes": 119899,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-kussaku-tsumikomi-kikai/carousel/img/04-point.png",
+      "sha256": "593ed7b05b1d83ea80a8acb9aa5787ac53efa7b7697fb5ea9a35c7744036c82f",
+      "bytes": 126836,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-kussaku-tsumikomi-kikai/carousel/img/05-point.png",
+      "sha256": "3f5afe456f14434a9a88dac8becace82295198f657edf7946e516e09cf98fa0c",
+      "bytes": 112065,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-kussaku-tsumikomi-kikai/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

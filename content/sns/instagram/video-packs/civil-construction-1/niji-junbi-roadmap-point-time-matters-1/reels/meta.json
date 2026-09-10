@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.182Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/niji-junbi-roadmap/shorts/point-time-matters-1/shorts.mp4",
-  "durationSeconds": 30,
-  "sha256": "6043f512e1b4dbe7164e53afae5840b4b151e555fee44b4235805b8761cb3417",
-  "coverSha256": "d3f73d74df7cdbc0a36141b4dab4abb76a1eb99ddd3a391b61aa5045b4c5a5ed",
-  "renderedAt": "2026-09-05T23:13:53.216Z"
+  "durationSeconds": 30.2,
+  "sha256": "50a17804a0cc2c215154deedbf8c9404f9fea4568a17bf92c632b87b0bb88da5",
+  "coverSha256": "30bfbf9ef727974e2226a237518aeae7c2a0f9f1ba6b6f79ce4e797709e5ee60",
+  "renderedAt": "2026-09-10T09:26:51.214Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "40ac89fede73a8c3eacad665a01e6903b40fe212e6a3a7397049e16562a373ea",
+  "rendererSha256": "43e4708f2239a8c5bbfad7dbfbe52b5123a858dd1edaa6a15d937f8eb586680f",
+  "scriptSha256": "342cf28b442da642474a95ad1e646507cd6f31ea4ce6e4ffbcf2a395e8e68bb6",
+  "speaker": 13,
+  "narration": "経験記述の準備は、早めに工事記録を集めるところから始めましょう。担当した工事の条件や、自分が判断して行った処置を思い出すには時間がかかります。文章にしてから矛盾や不足を確認し、書き直す時間も確保すると、本番の設問に合わせる練習ができます。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "60a6f4f0b14c264fe94f345d33eb96b726c070049442c80ab3e7f0f353fb5d74",
+    "points": "49828cda8c49429e60913a60b7dccbd6123027af06a28ebc19fa06cf4aafc2cb",
+    "pointsImage": "d21e6f7e6d38f9a4c96eb92f4bfd588716891240f9a3954a7b53e61297bf9f64",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T09:26:51.214Z"
+  }
 }

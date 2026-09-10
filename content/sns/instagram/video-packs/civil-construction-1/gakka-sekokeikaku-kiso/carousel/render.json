@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "gakka-sekokeikaku-kiso",
+  "inputDigest": "a3c8f31476333f4bb4ce45b15d9f99d7f4d7e8f57ecbd9a0fc2a190bdd7b1ad6",
+  "sourceSha256": "5ca1af7eb7916ec1034db8395cf0a61b17e7efdfc0e0dc71b6b5a69724a0b69e",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:29:20.432Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-sekokeikaku-kiso/carousel/img/00-cover.png",
+      "sha256": "7b11112a7284ab651e1e742955e1535cd54954ac3fe02fd73e8de39e6dc7eb43",
+      "bytes": 321009,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-sekokeikaku-kiso/carousel/img/01-point.png",
+      "sha256": "aeb182270a7cae1048a8141ccda22008ed24f320d0c6ff7d3e5f0d53ebb275f8",
+      "bytes": 131605,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-sekokeikaku-kiso/carousel/img/02-point.png",
+      "sha256": "e10c64c9637791183e87fabfea2c91be155dd0bb571c4893f57134dbe184b2da",
+      "bytes": 116575,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-sekokeikaku-kiso/carousel/img/03-point.png",
+      "sha256": "2bf5757a89d97cc109a422f4f13d3bdda801882f0bd62cc7b7678cd122b8e742",
+      "bytes": 128848,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-sekokeikaku-kiso/carousel/img/04-point.png",
+      "sha256": "e09dd60a1e0a958add9b557f6cad47371fe491a67cd9e3e9d5477791d5c6d330",
+      "bytes": 108938,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-sekokeikaku-kiso/carousel/img/05-point.png",
+      "sha256": "4228eef3caadc5797ed309e98b05a248c276199ea8101f44774ec9255eb4d442",
+      "bytes": 145719,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-sekokeikaku-kiso/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

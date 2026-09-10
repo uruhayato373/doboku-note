@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "shunin-hinshutsu-yusen",
+  "inputDigest": "a86a4dfcead643a84ed39e3ab6a07d28794e6058f10ba9eb1a250a4eb2157b60",
+  "sourceSha256": "ef6a1b15a94c46763ab3441c12acb5d1d65228531e2f3501d2b67f515d3d5c71",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:35:16.705Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-hinshutsu-yusen/carousel/img/00-cover.png",
+      "sha256": "999af347d20b5fe7d370992ba6dc8dc6bc1429027a82680788a2c5468fbff278",
+      "bytes": 327841,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-hinshutsu-yusen/carousel/img/01-point.png",
+      "sha256": "22dd9cd960c8748dcc1d85141942e3bd1c0c72c0b6bd819d90abf101d723a00a",
+      "bytes": 107498,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-hinshutsu-yusen/carousel/img/02-point.png",
+      "sha256": "2a344745a1ec1273032e826a75280583071ff30a4bbd8dcd363ff1b809283e17",
+      "bytes": 129014,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-hinshutsu-yusen/carousel/img/03-point.png",
+      "sha256": "df808249dca63fdbbb948200c348be57428c0118cc292231e58c07ef12f51794",
+      "bytes": 109610,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-hinshutsu-yusen/carousel/img/04-point.png",
+      "sha256": "9da96fe1352bb89260dadd49deb3202ddc360f41b71d97e2cf2747efa48cabea",
+      "bytes": 101973,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-hinshutsu-yusen/carousel/img/05-point.png",
+      "sha256": "81221ef77587a688aa4d540dde8aac4b5b13ffc6bb0b109d7027a971317ba7e9",
+      "bytes": 141612,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-hinshutsu-yusen/carousel/img/06-point.png",
+      "sha256": "0915f3351f492616ef54b5788ba454f0077496643d193ad219834af71a71bbd7",
+      "bytes": 114107,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-hinshutsu-yusen/carousel/img/07-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

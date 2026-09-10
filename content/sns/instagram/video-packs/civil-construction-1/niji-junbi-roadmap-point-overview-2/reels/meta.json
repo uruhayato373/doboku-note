@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.182Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/niji-junbi-roadmap/shorts/point-overview-2/shorts.mp4",
-  "durationSeconds": 32,
-  "sha256": "1e4f4cc37b9236b3f4c2d3e7ca01caf33a11defaa43704e5133e9c6839962662",
-  "coverSha256": "4782c88f56badeba5ea2a0e08db4e1f741301a42e7805489e2f22146947540c1",
-  "renderedAt": "2026-09-05T23:14:06.944Z"
+  "durationSeconds": 30.2,
+  "sha256": "8da0dc836cce805cbb33b6fe01a255d9fa3e255389ab28b56adf228a0c331dfd",
+  "coverSha256": "651ea73606a83b1bbbc45c65fc4b6453e49302f26e1740586f4c20154fdc65e3",
+  "renderedAt": "2026-09-10T09:33:54.911Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "c5c6c019353eea42ac833b22c8bc06d796024123f6e3e0071db1d8dfdef9b167",
+  "rendererSha256": "43e4708f2239a8c5bbfad7dbfbe52b5123a858dd1edaa6a15d937f8eb586680f",
+  "scriptSha256": "d54384ad86f9de6c4f416f63742649583f5de9b2b3750c7b19123ab8732828bb",
+  "speaker": 13,
+  "narration": "二次は2本柱です。1つは経験記述で、担当した工事の施工管理を書く必須問題。近年は複数の管理項目を記述させる出題に変わっています。もう1つが学科記述で、範囲は広いものの頻出テーマを絞れば効率よく対策できます。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "47c5eba2a1c19c073fac1714ac30173e19aa767cd8c2e6e4a75c29de20950c44",
+    "points": "ac1b25ecc92a9bef3369a9534a050e31f7f7e4e7c462060201fa5faa8fd284f0",
+    "pointsImage": "a065e044cf06c86063a49287b01a5093ac24525cccdcb32d64ac7ba3d0c4a68a",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T09:33:54.911Z"
+  }
 }

@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "niji-junbi-roadmap",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "一次のあと",
+        "二次の準備へ"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "good-sign",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：参考書を順に読めばよい",
+      "items": [
+        "経験記述は暗記の一夜漬けが効かない",
+        "題材を決めないと書き始められない"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-getting-started/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "time-matters",
+      "heading": "期間の使い方が結果を分ける",
+      "items": [
+        "経験記述は掘り起こしと文章化に時間がかかる",
+        "早く動くほど有利になる"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-getting-started/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "overview",
+      "heading": "経験記述と学科記述を並行する",
+      "items": [
+        "経験記述は、指定された管理テーマに合わせて実際の工事を説明します。",
+        "学科記述は、当該年度の出題範囲・問題数・選択指示を確認して準備します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-getting-started/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "first-step",
+      "heading": "題材を1つ決める",
+      "items": [
+        "品質・安全・工程のどれかで具体的に語れる工事",
+        "規模や派手さは問われない"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-getting-started/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "four-steps",
+      "heading": "決まったら4ステップ",
+      "items": [
+        "① 工事概要を正確に書き、② 管理テーマごとの課題を挙げます。",
+        "③ 検討したことと実施した対応を分けて整理します。",
+        "④ 指定の解答欄に収まるよう文章を整えます。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-getting-started/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "pitfalls",
+      "heading": "やりがちな失敗",
+      "items": [
+        "題材を決めずに参考書だけ進める",
+        "模範解答の丸暗記",
+        "工事概要があいまい・字数無視"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-getting-started/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

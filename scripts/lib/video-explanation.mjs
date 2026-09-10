@@ -39,10 +39,10 @@ function fitted(value, width, height, max, min, style = {}) {
   return node;
 }
 
-export function buildExplanationNode(scene, { theme, portrait = false, assetDataUri }) {
+export function buildExplanationNode(scene, { theme, portrait = false, assetDataUri, rightMargin }) {
   const visual = scene.visual ?? { heading: scene.caption, items: [] };
   const W = portrait ? 1080 : 1920, H = portrait ? 1920 : 1080;
-  const margin = portrait ? 64 : 88, contentW = W - margin * 2;
+  const margin = portrait ? 64 : 88, contentW = W - margin - (rightMargin ?? margin);
   const originalHeading = visual.heading || scene.caption || '';
   const prefix = originalHeading.match(/^(STEP\s*\d+|原因\s*\d+|ポイント\s*\d+|\d+)[\s　.:：、．-]+(.+)$/iu);
   const label = prefix?.[1] ?? (scene.sceneId === 'summary' ? 'まとめ' : scene.sceneId === 'premise' ? '押さえるポイント' : '解説');

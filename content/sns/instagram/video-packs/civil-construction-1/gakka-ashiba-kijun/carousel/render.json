@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "gakka-ashiba-kijun",
+  "inputDigest": "6e8120ebf6970d3a3871f5a67a80640ef2d38d06583210e8b00741780a6b9e26",
+  "sourceSha256": "91a3d6143fee52676cbc3ce6acd3a117a8f576d6253c70aec1e871b279baa4bc",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:26:56.943Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-ashiba-kijun/carousel/img/00-cover.png",
+      "sha256": "393ac604dde4b8d5d94dd1a8e8fb3b7e11021bdf30d58d219ce77d9a2cc227af",
+      "bytes": 344222,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-ashiba-kijun/carousel/img/01-point.png",
+      "sha256": "a22be98f7f1acd1f3c726d233e6ade9c56ebe766003c7b9ab354f96b40f8b2ce",
+      "bytes": 99064,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-ashiba-kijun/carousel/img/02-point.png",
+      "sha256": "e050e0976a6515859696e4df11cc60928878bfad8c6987c1c7cd2781b44d91dc",
+      "bytes": 145490,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-ashiba-kijun/carousel/img/03-point.png",
+      "sha256": "31f122f74681cd4cb077f5eb8208fdc1f020269b21e8fd06428a433931358a75",
+      "bytes": 119479,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-ashiba-kijun/carousel/img/04-point.png",
+      "sha256": "19cc8fc7da29902ffff748dc930130e7947d2bf3bf7fbed7583fb2ed2be8f3d5",
+      "bytes": 140864,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-ashiba-kijun/carousel/img/05-point.png",
+      "sha256": "2a144beb70ea9c62d448cc8b1fa0fb6762acc1aec065ea81183715f692b187e1",
+      "bytes": 140700,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-ashiba-kijun/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

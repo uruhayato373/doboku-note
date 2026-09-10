@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "shunin-shouronbun-kousei",
+  "key": "point-kousei-2",
+  "sceneId": "kousei",
+  "exam": "concrete-chief-engineer",
+  "narration": "序論・本論・結論の3部構成で、重みは本論に置きます。序論で課題と背景を短く示し、本論で原因分析と具体策を述べ、結論で留意点に触れます。字数の大半は本論に割きます。",
+  "visual": {
+    "heading": "序論・本論・結論の重み",
+    "items": [
+      "序論：課題と背景を短く",
+      "本論：原因分析と具体策、最重量",
+      "結論：留意点で締める"
+    ]
+  },
+  "sourceRef": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+}

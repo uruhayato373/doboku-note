@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "keiken-taisho-koji",
+  "inputDigest": "8a6a2888430b06de65a95641c744bdd2183b1a6c539c9da146abeef5b3d43601",
+  "sourceSha256": "add897e67066aa6087c48127d05b19565691fe7c033da1e0f84465a773ffb1a2",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:31:51.375Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-taisho-koji/carousel/img/00-cover.png",
+      "sha256": "0521a5fdc02cc4e0dc5aa8c32b42dd53c1a09dcdee1a22f162751c161c3b267f",
+      "bytes": 286859,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-taisho-koji/carousel/img/01-point.png",
+      "sha256": "6e20736872c14d98938898d397e1444b669e9c5c6f2bbf8d17625aa51be3ba59",
+      "bytes": 134077,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-taisho-koji/carousel/img/02-point.png",
+      "sha256": "6eeaac95ba39ec4b4f40532cc7c314534c34f5f9f42fb418d8904524ef3512f5",
+      "bytes": 105516,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-taisho-koji/carousel/img/03-point.png",
+      "sha256": "a3a7c58bd352590d7829786a4808b7bcbe372ea0edc3ce38c4798757325e27fc",
+      "bytes": 147609,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-taisho-koji/carousel/img/04-point.png",
+      "sha256": "e5f27b57a1dd0b44956dc139c5528f7869d599029146d61c06b3171f444ddd14",
+      "bytes": 147885,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-taisho-koji/carousel/img/05-point.png",
+      "sha256": "0adcdc38c5a6307b435ee921840a66ad699b004ce2e066b967aec7f735dbc9e4",
+      "bytes": 138263,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-taisho-koji/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

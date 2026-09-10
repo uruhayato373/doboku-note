@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "kikinagashi-doko-suchi",
+  "key": "point-soft-ground-judge-1",
+  "sceneId": "soft-ground-judge",
+  "exam": "civil-construction-1",
+  "narration": "粘性土の軟弱さを調べる指標には、エヌ値、コーン指数、一軸圧縮強度があります。教材上の目安は、エヌ値4未満、コーン指数250キロニュートン毎平方メートル以下、一軸圧縮強度50キロニュートン毎平方メートル未満です。実際の判断は地盤条件も合わせて行います。",
+  "visual": {
+    "heading": "粘性土の軟弱さを調べる指標",
+    "items": [
+      "目安：N値4未満",
+      "目安：コーン指数250kN/m²以下",
+      "目安：一軸圧縮強度50kN/m²未満"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-embankment/article.mdx",
+  "editorialNote": "指標は教材上の目安とし、単独の絶対判定基準と誤認されないよう補足。"
+}

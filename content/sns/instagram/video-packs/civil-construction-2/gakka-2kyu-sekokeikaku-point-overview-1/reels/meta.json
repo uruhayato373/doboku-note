@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.188Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-2kyu-sekokeikaku/shorts/point-overview-1/shorts.mp4",
-  "durationSeconds": 30,
-  "sha256": "62ce591387dfaf02b6869d0e90b77f435805e6fe3a9190e76f8620efa261bbd7",
-  "coverSha256": "ff120925566055e2a610f9a4eaf3de88a761c51bd11155fe49036768b14660d8",
-  "renderedAt": "2026-09-05T23:18:59.682Z"
+  "durationSeconds": 30.2,
+  "sha256": "a789e40e890425229e0c7b4a9b83a9ea3ff850be6c69dd5a44a9f4f52b081236",
+  "coverSha256": "af78e4860043a75d0149aea61599834e7697eba1a3dd2407809a5ee51cf1e83a",
+  "renderedAt": "2026-09-10T09:38:24.105Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "75c8b99ef113f53279dca1aa55a4a00572f20ac632acaec6851a48cd0c509f01",
+  "rendererSha256": "43e4708f2239a8c5bbfad7dbfbe52b5123a858dd1edaa6a15d937f8eb586680f",
+  "scriptSha256": "69b94d9286cb9fca3af38b3b74457a8d6952d010286563162cea55463af54e9f",
+  "speaker": 13,
+  "narration": "施工計画は、調査した条件を、現場で実行できる計画へ変えるものです。作成手順を押さえたら、事前調査、計画書に書く内容、工程と仮設備の関係を順につなぎましょう。項目名を覚えるだけでなく、前の段階の情報を次にどう使うかを説明できると整理が進みます。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "d5a118402ed8825dec5d11cfe50d153c9355996b977580bf5e9dd1ed11ffd1bb",
+    "points": "319bfcb795adf5a1c949859335d3ade4d40d93b36702b0082306c70232888c69",
+    "pointsImage": "caa9d3270823e0f04d9688e05166d880a7271f03aa94f288825ac1d36bb7ec48",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T09:38:24.105Z"
+  }
 }

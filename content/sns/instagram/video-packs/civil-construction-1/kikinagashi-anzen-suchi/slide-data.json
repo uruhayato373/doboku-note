@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "kikinagashi-anzen-suchi",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "要点を復習",
+        "安全管理の数字"
+      ],
+      "subtitle": "主要論点を整理した保存版",
+      "character": {
+        "pose": "smile",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "scaffold-platform",
+      "heading": "作業床は幅とすき間を確認",
+      "items": [
+        "作業床の基本値は、幅40cm以上・すき間3cm以下です。",
+        "つり足場はすき間を設けない基準として区別します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-scaffolding/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "scaffold-rail",
+      "heading": "端部の墜落・落下防止",
+      "items": [
+        "手すりは高さ85cm以上、中桟は35〜50cmに設けます。",
+        "幅木10cm以上など、物体の落下を防ぐ措置も確認します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-scaffolding/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "walkway",
+      "heading": "通路とはしご道の数値",
+      "items": [
+        "架設通路は勾配30度以下が基本で、15度を超える場合は踏さん等を設けます。",
+        "はしご道は上端を60cm以上突出させ、幅30cm以上を確保します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-scaffolding/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "scaffold-notify",
+      "heading": "足場の届出と主任者は別基準",
+      "items": [
+        "高さ10m以上で設置期間60日以上の足場は、原則30日前までに届け出ます。",
+        "足場の組立て等作業主任者は、高さ5m以上の構造やつり足場等が対象です。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-scaffolding/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "dig-supervisor",
+      "heading": "掘削と支保工の点検を分ける",
+      "items": [
+        "掘削面の高さ2m以上は、地山の掘削作業主任者の対象です。",
+        "明り掘削は作業開始前・大雨後・中震後・発破後に点検します。",
+        "土止め支保工は組立図を用意し、7日を超えない期間ごと等に点検します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-excavation-shoring/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "crane-rating",
+      "heading": "定格荷重はつり具を除いた値",
+      "items": [
+        "定格総荷重には、フックや玉掛け用具などのつり具の質量を含みます。",
+        "つり具の質量を差し引いた荷物の質量が、定格荷重です。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-crane/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "oxygen-deficiency",
+      "heading": "酸素と硫化水素を分けて管理",
+      "items": [
+        "酸素欠乏は、空気中の酸素濃度が18%未満の状態です。",
+        "第2種では硫化水素も測定し、10ppm以下に保つことが必要です。",
+        "作業前の測定と作業中の換気を、濃度の基準とセットで確認します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-work-environment/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

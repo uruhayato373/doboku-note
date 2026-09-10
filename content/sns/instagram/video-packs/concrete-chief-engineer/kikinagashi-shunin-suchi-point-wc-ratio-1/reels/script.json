@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "kikinagashi-shunin-suchi",
+  "key": "point-wc-ratio-1",
+  "sceneId": "wc-ratio",
+  "exam": "concrete-chief-engineer",
+  "narration": "水セメント比は、強度と耐久性を考える基本の指標です。一般に小さくすると、適切な締固めと養生のもとで組織が緻密になり、強度や耐久性が高まります。ただし、値だけ小さくすればよいわけではありません。必要な施工性と、環境条件に合う基準を合わせて確認します。",
+  "visual": {
+    "heading": "水セメント比は性能と施工性を両立",
+    "items": [
+      "一般に小さいほど強度・耐久性に有利",
+      "締固め・養生が適切であることが前提",
+      "施工性と環境条件に合う基準も確認"
+    ]
+  },
+  "sourceRef": "content/site/concrete-chief-engineer/textbook-mix-design/article.mdx",
+  "editorialNote": "出典の版・環境条件を欠く海水×高炉Bの一律5%緩和を省略。"
+}

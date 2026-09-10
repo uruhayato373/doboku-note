@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "kikinagashi-2kyu-matome",
+  "inputDigest": "f4454f97ae8739bc40b5a6cdce92a383613833d94bdb950de80f7f23ac5a34c2",
+  "sourceSha256": "c7ed76e0715868e3923dd8a273538045d2c94a86753a0f89f02ec04fa6ceb187",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:33:58.382Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/kikinagashi-2kyu-matome/carousel/img/00-cover.png",
+      "sha256": "30334fcac91f2de45ed346e40dce9805acf595576dc4302c36de59fb1db4b207",
+      "bytes": 335433,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/kikinagashi-2kyu-matome/carousel/img/01-point.png",
+      "sha256": "3aef8a30b9cb0c920b6782c279ef49fd669c0db79ce70564af0f0b2a232c8616",
+      "bytes": 134893,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/kikinagashi-2kyu-matome/carousel/img/02-point.png",
+      "sha256": "963c4c1f36e67309ad1f7c4e4afe48792550c87874200e3c1d657382e29acdae",
+      "bytes": 129710,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/kikinagashi-2kyu-matome/carousel/img/03-point.png",
+      "sha256": "712573239cf20ddde5eb52a9faae7b0969ae0111d748f9510b301ee534650bbb",
+      "bytes": 126040,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/kikinagashi-2kyu-matome/carousel/img/04-point.png",
+      "sha256": "a49f4e4e9ddca16047a6de07731e9258a320c1191be260728ba4f7c30b18ec7d",
+      "bytes": 136774,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/kikinagashi-2kyu-matome/carousel/img/05-point.png",
+      "sha256": "a1f88a9c7265dc8ea17385b87b827dc91a47a1b4148ff80d9dc8903db904024f",
+      "bytes": 127840,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/kikinagashi-2kyu-matome/carousel/img/06-point.png",
+      "sha256": "4f015e68caf8836e397e0b4292399c9933471344db27d1af21053800f7c0c561",
+      "bytes": 140370,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/kikinagashi-2kyu-matome/carousel/img/07-point.png",
+      "sha256": "1b411f5ce14b8e07f006efba39dac2b2968adb3081e0e76a90e3f1bbd2304b5d",
+      "bytes": 128138,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/kikinagashi-2kyu-matome/carousel/img/08-point.png",
+      "sha256": "f05a7e6f46ce61b18ce9cc1431f7027943b5e8c83c7ad3b00684bb0e004b4c6f",
+      "bytes": 127185,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/kikinagashi-2kyu-matome/carousel/img/09-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

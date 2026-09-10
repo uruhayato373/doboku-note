@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "keiken-genten-kyotsuten",
+  "inputDigest": "931f903c60a6f0bf943299ed881edf34166667c1c139d40e7feae16285d215e3",
+  "sourceSha256": "adeb3e3414495aac062e2040a899d823788ef64d8bff07e7ee3aac923f1152ce",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:33:16.297Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/keiken-genten-kyotsuten/carousel/img/00-cover.png",
+      "sha256": "f1bc55ae356712f450a83459c285d0c06a32937f270aefe8ddc9d058c297ad08",
+      "bytes": 347948,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/keiken-genten-kyotsuten/carousel/img/01-point.png",
+      "sha256": "e1677abb54fec4581397ce699191677e00892182c4448a68bad4c7f31be7598b",
+      "bytes": 127221,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/keiken-genten-kyotsuten/carousel/img/02-point.png",
+      "sha256": "5c211485dc16b7fc29cbae7bbdfca78d8a11aded6557529862cf06087a49f37a",
+      "bytes": 146875,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/keiken-genten-kyotsuten/carousel/img/03-point.png",
+      "sha256": "effd0be4316bbd4d8d67712d9b00f6c0e6dba1b9323fdb4842b9c6a7a0336e9d",
+      "bytes": 120444,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/keiken-genten-kyotsuten/carousel/img/04-point.png",
+      "sha256": "c99c3a3ae47b40b81b881b79b9b8ce1085387498ddfd10a83311f1c69f6d3e91",
+      "bytes": 98006,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/keiken-genten-kyotsuten/carousel/img/05-point.png",
+      "sha256": "c1df7252507891a0a3c01348aea77ed364cfd81fa1afabda495b66fc691acbc9",
+      "bytes": 114740,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/keiken-genten-kyotsuten/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

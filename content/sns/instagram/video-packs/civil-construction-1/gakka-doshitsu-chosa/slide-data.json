@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "gakka-doshitsu-chosa",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "土質調査は",
+        "目的から逆引き"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "知りたい値から試験を逆引き",
+      "items": [
+        "コーン指数qcを求める試験は2つある",
+        "対象地盤の硬さが違うので取り違えやすい"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-soil-investigation-methods/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "genri",
+      "heading": "現場で調べるか試料を採るか",
+      "items": [
+        "原位置＝乱さずに現場で直接調べる",
+        "室内＝試料を持ち帰り試験室で調べる"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-soil-investigation-methods/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "gyakubiki",
+      "heading": "試験名と求める値を対にする",
+      "items": [
+        "N値＝標準貫入試験",
+        "コーン指数＝ポータブル/機械式コーン",
+        "粘着力＝ベーン試験、K＝平板載荷試験"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-soil-investigation-methods/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "sounding",
+      "heading": "教材の4試験を貫入方法で区別",
+      "items": [
+        "ここで比較する試験のうち、標準貫入試験は動的な方法です。",
+        "スクリューウエイト・ポータブルコーン・機械式コーンは静的な方法です。",
+        "すべての動的サウンディングが標準貫入試験という意味ではありません。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-soil-investigation-methods/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "shitsunai",
+      "heading": "室内試験は分類と力学特性",
+      "items": [
+        "判別分類：含水比・粒度・液性/塑性限界",
+        "力学的性質：一面せん断・一軸圧縮・三軸・圧密"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-soil-investigation-methods/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

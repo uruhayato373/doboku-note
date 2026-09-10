@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.184Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-kadai-kakikata/shorts/point-block1-1/shorts.mp4",
-  "durationSeconds": 30,
-  "sha256": "815090f90bf1048c424a86b3b78f1b84ab6a8610495a5a08b8f4990dcd1f15d3",
-  "coverSha256": "50ac968a85eb0a112a64b19ced05740617f73d1aa308ed72c4018700a3af3001",
-  "renderedAt": "2026-09-05T23:15:14.194Z"
+  "durationSeconds": 30.2,
+  "sha256": "e8b69af39bce18f4010d97378a335b2eed5ceb091bca30fed30a8515ec2ec34e",
+  "coverSha256": "051bbe892c1c556f4008cedf5e8093048afff50fd782235111eadd73cce9ca3f",
+  "renderedAt": "2026-09-10T09:41:04.006Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "391aca4fd5b8b486d3bc3d31c05340fcc12ae9d788620364588ed5d86d016f0b",
+  "rendererSha256": "43e4708f2239a8c5bbfad7dbfbe52b5123a858dd1edaa6a15d937f8eb586680f",
+  "scriptSha256": "c808d6ec31ceca8b977796aeb3c71558952fe20c9b9b061813a558c0a7dc97c7",
+  "speaker": 13,
+  "narration": "技術的課題のテーマの前段は、課題が生じる現場や施工の状況、その原因、工事名や施工量から整理した規模の3つで組み立てます。まず工事概要のどの施工部分を書くかを先に決めます。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "47e195dcd7c40172e405110c569d4e21cd7d63afbedc24189bb1cc1573ae53bb",
+    "points": "f428e259d9596e6ebfb4fd6364f90604706f299d8895b567e94de8919f050368",
+    "pointsImage": "712d982e9e6633214052a36803bb354b14b06021a0fdc698943dc110c4399590",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T09:41:04.006Z"
+  }
 }

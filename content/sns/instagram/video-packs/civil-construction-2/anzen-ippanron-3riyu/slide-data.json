@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "anzen-ippanron-3riyu",
+  "exam": "civil-construction-2",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "安全管理の答案",
+        "一般論になる",
+        "３つの原因"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：対策が正しければ点になる",
+      "items": [
+        "採点者は「なぜあなたの現場で必要だったか」を見る",
+        "ヒント例文の書き写しは同内容の答案に埋もれる"
+      ],
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "cause1",
+      "heading": "原因1　現場条件が書かれていない",
+      "items": [
+        "「手すりを設置した」だけでは匿名の文",
+        "軟弱地盤・道路近接・狭いヤード・梅雨時期",
+        "現場条件 → そこから生じた課題、の順で書く"
+      ],
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "cause2",
+      "heading": "原因2　対策が単発の列挙",
+      "items": [
+        "現場状況→課題→検討→対応→評価の一本線",
+        "「誘導員配置のみ」は除外指示が出る年度あり",
+        "検討の理由が書けているかを確認"
+      ],
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "cause3",
+      "heading": "数値は実際の現場条件から書く",
+      "items": [
+        "高さ・深さ・頻度・人数など、事実として確認できる数値を使います。",
+        "工法・管理方法・数値を組み合わせ、どう安全を確保したかを示します。",
+        "評価の要否や書く量は、当該年度の設問の指示を確認します。"
+      ],
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

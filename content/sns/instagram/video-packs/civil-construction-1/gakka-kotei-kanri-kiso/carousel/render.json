@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "gakka-kotei-kanri-kiso",
+  "inputDigest": "9df6c48c3152148d978293c95d868d6d608c2773635dcd00a86bd50a3b7e3038",
+  "sourceSha256": "7d59a17181eacd15e4d544c737b2c5f6999855aaf850a57fc7a6ca2bcc23c007",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:28:55.141Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-kotei-kanri-kiso/carousel/img/00-cover.png",
+      "sha256": "945dc6fe38de88154f54f92e70433f3ed4ba6b47f3431591199e77db735c612c",
+      "bytes": 289990,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-kotei-kanri-kiso/carousel/img/01-point.png",
+      "sha256": "271496146a764c064f130fe4ca64071335dadad27435dabb960efa6053a4f64f",
+      "bytes": 119208,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-kotei-kanri-kiso/carousel/img/02-point.png",
+      "sha256": "3671cb12f21b47b7c3245c84d31c89e1c5ec6ea8d992c291f7fdac8db1268fd1",
+      "bytes": 111853,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-kotei-kanri-kiso/carousel/img/03-point.png",
+      "sha256": "9e182a4cb27373e41a8ee6c19339a94bd647bf0c0fad119eb5c31a41722f1f78",
+      "bytes": 113714,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-kotei-kanri-kiso/carousel/img/04-point.png",
+      "sha256": "8d0eebb23005d6631f7d1c89ebdb2d4f43ae486108600b80b702a085d2e46783",
+      "bytes": 108807,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-kotei-kanri-kiso/carousel/img/05-point.png",
+      "sha256": "21971452906d265db5bd8e34dbf532a957e0444c808d0efb93589a70c3e7a7cb",
+      "bytes": 117359,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-kotei-kanri-kiso/carousel/img/06-point.png",
+      "sha256": "3af997073d615db26c5b74de7a1cd6678ec519116e41d12d7a39251a23bb993a",
+      "bytes": 141842,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-kotei-kanri-kiso/carousel/img/07-point.png",
+      "sha256": "328aab36a1608052a4cd24ad5d07bfecc8efa29c286a9cd9bfc4ee855d7d3aab",
+      "bytes": 121649,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-kotei-kanri-kiso/carousel/img/08-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "gishi-environment-ronten",
+  "inputDigest": "e899f6c5a07c187833e647c34d31f08684f3ba2833d3c30877ec7db7203401e9",
+  "sourceSha256": "b655450e3d6a949170baf38c8b2fe52616f47bde2b0843f00a478cb3ea670d20",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:38:06.863Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-environment-ronten/carousel/img/00-cover.png",
+      "sha256": "d8c96d3df44ea0a6fd00a7f9aaa2b1c66d99cdb649d84e974a938f3e30fdf9bf",
+      "bytes": 323662,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-environment-ronten/carousel/img/01-point.png",
+      "sha256": "407ca83c5c6e64cb1ab87368b9c38412d968904c33aaa73e365d0be31953ce9b",
+      "bytes": 136514,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-environment-ronten/carousel/img/02-point.png",
+      "sha256": "b93a3a6a4671d285f0a1d76962cc6dff0525fd17448fea66ea427a36ac43a376",
+      "bytes": 136483,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-environment-ronten/carousel/img/03-point.png",
+      "sha256": "d21e858aef4ba02cf6f3ee0feb1a210bb141964707a6815cdc2f055c8210548e",
+      "bytes": 142826,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-environment-ronten/carousel/img/04-point.png",
+      "sha256": "4f3c17db63d483c6f8c1dc7c887e4814fff9a124292173ee975fa51a15dabbfa",
+      "bytes": 133974,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-environment-ronten/carousel/img/05-point.png",
+      "sha256": "560402ea047189fab65e3299207a925a777bcf7f279304fa90bee22cc3bf70f3",
+      "bytes": 137950,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-environment-ronten/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

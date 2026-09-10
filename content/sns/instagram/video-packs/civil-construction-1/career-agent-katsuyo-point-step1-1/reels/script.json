@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "career-agent-katsuyo",
+  "key": "point-step1-1",
+  "sceneId": "step1",
+  "exam": "civil-construction-1",
+  "narration": "転職サービスは、専門領域と支援方法の二つの軸で整理できます。特化型と総合型、エージェントと求人サイトの違いを確認しましょう。担当工種を理解する人に相談したいのか、自分で求人を比較したいのかで、使い方を選びます。",
+  "visual": {
+    "heading": "転職サービスは2軸で比較",
+    "items": [
+      "専門領域：特化型／総合型",
+      "支援方法：エージェント／求人サイト",
+      "担当工種への理解と求める支援で選ぶ"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/guide-career-agents/article.mdx",
+  "editorialNote": "特化型を無条件に起点とする推奨を避け、本人の比較軸へ変更。"
+}

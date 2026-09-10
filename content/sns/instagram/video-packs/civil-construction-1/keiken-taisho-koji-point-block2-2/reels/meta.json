@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.184Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-taisho-koji/shorts/point-block2-2/shorts.mp4",
-  "durationSeconds": 32,
-  "sha256": "343ce2198bac87e96c83730aaaca3a33fe0c2a0421948b66a1bad6ca5c84a608",
-  "coverSha256": "8cd1520ec978917b5ca7ccc4703e9a53347731ec3f61309ffc6a8f8f0cda5222",
-  "renderedAt": "2026-09-05T23:15:20.665Z"
+  "durationSeconds": 30.2,
+  "sha256": "89e134ed2fbd20b76abc9a8ff65b1177215ef30ca4932853c2d948c43abc05c5",
+  "coverSha256": "a5eebf60eaa4050673db62b547187e6435e1527bd5714d7859e60b2262c496d7",
+  "renderedAt": "2026-09-10T09:39:44.263Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "feadac9940411b87bd5c8ecd48ae6e9937bfb52204cb8016c3950c48fc90aa27",
+  "rendererSha256": "43e4708f2239a8c5bbfad7dbfbe52b5123a858dd1edaa6a15d937f8eb586680f",
+  "scriptSha256": "becaf695ff4521987a676717f4b5ddfe6e29d016e6d24cf23e83ff68af166d8e",
+  "speaker": 13,
+  "narration": "経験記述の題材は、対象外の工事や業務も確認しましょう。工場での製品製作や、調査・設計などの業務は、現場の施工管理と区別が必要です。工事の一部に土木作業があっても、名称だけでは判断できません。自分の担当内容を受検の手引に照らして確認します。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "85e9e7df704881b5152d0e3bf26b6b888ba3af461d62d39f0a0ff63da8884834",
+    "points": "cb52f8cf5bf0f252af1d662694deedac28222d9248615e518fdb6b316d36d50b",
+    "pointsImage": "478b79bca0fc78bd360dc5ae32c0d15e408e54224a3f287eba7881b4e9558837",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T09:39:44.263Z"
+  }
 }

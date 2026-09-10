@@ -13,7 +13,27 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-gaiyo-2kyu/shorts/point-step2-2/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "1af7d4c6fc02c1b734dff2c18becf5bf859e3d741e93f1dec4760016b4d38239",
-  "coverSha256": "33cd36938ce82912c1ea5f1311072fe2fadefabd75f2b462e459fc337fe757ce",
-  "renderedAt": "2026-09-05T23:27:16.798Z"
+  "sha256": "7f5e28cca086269c2f90ad749a087118ef3f6b3604313b4ebf5d283e0c819a12",
+  "coverSha256": "fea0b7b3d37d30e0f979ff607db5ab52d1af50df87172fe0b7e769cd00a6acc1",
+  "renderedAt": "2026-09-10T09:28:31.886Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "28ddb38b7777703ffbf9a166e685dfdc607f59877b0a6d8d54d0d9d78d8f32a3",
+  "rendererSha256": "43e4708f2239a8c5bbfad7dbfbe52b5123a858dd1edaa6a15d937f8eb586680f",
+  "scriptSha256": "6a73e4b9c42332c6c25d5fbba2feaec2a79fc3d4485da5a4fb06618e92ef8ad1",
+  "speaker": 13,
+  "narration": "施工量は、「一式」だけで済ませず、工種に対応する数量を単位つきで示しましょう。たとえば護岸の延長と掘削土量では、メートルと立方メートルを使い分けます。例文の数値は写さず、自分の工事記録で確認します。規模と本文の課題がつながるかも見直しましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "fe23c02f33f1623add4e9384fd59e4ecc5e9328c47a0a22ca81ca8c1f088a46d",
+    "points": "14a5c7087a5c292662b2aee400fd28d30a3e8d414279e39e21879738dd4686d7",
+    "pointsImage": "e7dafae78d76632cc47585629dc6d676d1f5eebc76333bf716b393f0f49d4ee4",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T09:28:31.886Z"
+  }
 }

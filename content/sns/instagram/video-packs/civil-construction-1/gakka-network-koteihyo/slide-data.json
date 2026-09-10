@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "gakka-network-koteihyo",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "ネットワーク",
+        "工程表の解き方"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "pc-work",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：同じように足し引きすればいい",
+      "items": [
+        "最早開始時刻＝合流は最大値",
+        "最遅完了時刻＝合流は最小値"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-network-schedule/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "overview",
+      "heading": "基本要素の記法",
+      "items": [
+        "作業：矢線・尾が開始、頭が終了",
+        "イベント：○にイベント番号、重複不可",
+        "ダミー：点線・所要時間ゼロ"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-network-schedule/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "最早開始時刻（EST）",
+      "items": [
+        "開始イベントは0からスタート",
+        "左から右へ所要時間を加算",
+        "合流点は最大値を採用"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-network-schedule/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "最遅完了時刻（LFT）",
+      "items": [
+        "最終イベントのESTがLFTになる",
+        "右から左へ所要時間を減算",
+        "合流点は最小値を採用"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-network-schedule/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "最長経路と余裕時間を確認",
+      "items": [
+        "最長経路がクリティカルパスで、工程全体の工期を決めます。",
+        "クリティカルパス上の作業は、トータルフロートが0です。",
+        "フリーフロートは後続の最早開始を遅らせない余裕で、残りが干渉フロートです。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-network-schedule/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gishi-jis-handan",
+  "key": "point-step2-2",
+  "sceneId": "step2",
+  "exam": "concrete-engineer",
+  "narration": "累加計量は、同じ計量器へ材料を順に加える方式です。差分と累加後の値を区別しないと、前の材料の誤差がそのまま後の材料へ持ち越されます。累加が認められる組合せは規格で決まっています。",
+  "visual": {
+    "heading": "累加計量は「順番」で誤差が持ち越される",
+    "items": [
+      "同じ計量器へ材料を順に加える方式",
+      "差分と累加後の値を区別しないと誤差が持ち越される",
+      "累加が認められる組合せは規格で決まっている"
+    ]
+  },
+  "sourceRef": "content/site/concrete-engineer/textbook-production-qc/article.mdx"
+}

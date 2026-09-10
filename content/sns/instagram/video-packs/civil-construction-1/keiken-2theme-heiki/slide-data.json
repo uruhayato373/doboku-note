@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "keiken-2theme-heiki",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "経験記述",
+        "２テーマの備え"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "good-sign",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "指定された2テーマを別々に準備",
+      "items": [
+        "令和6・7年度の1級は、同じ工事について2テーマに答える形式でした。",
+        "二つの設問で、同じ内容を繰り返さないように整理します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "overview",
+      "heading": "過去の形式変更を確認する",
+      "items": [
+        "令和5年度以前の1管理項目から、令和6・7年度は2テーマ形式に変わりました。",
+        "当該年度の問題文を確認し、テーマごとの側面を書き分けます。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "なぜ書き分けでつまずくか",
+      "items": [
+        "課題・対応が似通いやすい",
+        "管理項目ごとに困った場面が違う",
+        "別の場面・数値で組み立てる"
+      ],
+      "sourceRef": "content/note/1級・2級土木/1級土木/1級経験記述R6新形式と設問書き分け/article.md"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "どの2テーマでも書けるようにする",
+      "items": [
+        "1つの工事を5管理の視点で棚卸し",
+        "骨子（課題→検討→対応）を準備",
+        "本番は骨子から2つを引き出す"
+      ],
+      "sourceRef": "content/note/1級・2級土木/1級土木/1級経験記述R6新形式と設問書き分け/article.md"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "年度別の問題文で条件を読む",
+      "items": [
+        "令和3〜5年度と令和6・7年度では、記述するテーマ数が異なります。",
+        "過去の組合せが次回も続くとは限らないため、複数の管理視点で準備します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step4",
+      "heading": "検討項目を書く欄の違い",
+      "items": [
+        "令和6・7年度の1級は、(1)に現場状況・課題と検討項目を書きます。",
+        "2級は検討項目が(2)側に入るため、解答欄をそのまま流用しません。",
+        "本番では当該年度の問題文に従って内容を配分します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

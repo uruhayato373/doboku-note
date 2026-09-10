@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * prepare-instagram-video-pack-reels が作った派生 SoT から Instagram Reels を生成する。
- * YouTube Shorts の本文 PNG/WAV を再利用し、cover と CTA だけを IG ネイティブ表現へ差し替える。
+ * 校正済みの Instagram 原稿から本文画像・音声・字幕と専用 CTA を生成する。
  */
 import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
@@ -13,13 +13,15 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { parseArgs } from 'node:util';
 
 import { EXAM_TO_PALETTE, wrapJp } from './lib/longform-render.mjs';
+import { buildExplanationNode } from './lib/video-explanation.mjs';
+import { IG_DESIGN, IG_CTA_NARRATION, instagramLogo, instagramCtaNode, instagramReelCover, renderInstagramNode, instagramRendererDigest } from './lib/instagram-video-design.mjs';
+import { narrationInput } from './lib/video-narration-cache.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const IG_ROOT = join(ROOT, 'content/sns/instagram/video-packs');
 const W = 1080;
 const H = 1920;
-const FONT_JP = "'NotoSansJP', 'Noto Sans JP'";
-const CTA_NARRATION = 'フォローすると、試験対策が継続して届きます。詳しい解説はプロフィールのリンクからご覧ください。';
+const CTA_NARRATION = IG_CTA_NARRATION;
 
 const { values: args } = parseArgs({
   args: process.argv.slice(2),
@@ -29,7 +31,8 @@ const { values: args } = parseArgs({
     max: { type: 'string', default: '999' },
     concurrency: { type: 'string', default: '4' },
     force: { type: 'boolean', default: false },
-    speaker: { type: 'string', default: '1' },
+    speaker: { type: 'string', default: '13' },
+    'preview-only': { type: 'boolean', default: false },
     software: { type: 'boolean', default: false },
   },
 });
@@ -48,7 +51,7 @@ const { composeStaticSlidesVideo, ffmpegAvailable, probeDuration } = await impor
   pathToFileURL(resolve(ROOT, '.claude/skills/social/yt-shorts-create/scripts/lib/ffmpeg-compose.mjs')).href
 );
 if (!ffmpegAvailable()) throw new Error('ffmpeg / ffprobe が利用できません');
-if (!(await isRunning())) throw new Error('VOICEVOX が起動していません（127.0.0.1:50021）');
+if (!args['preview-only'] && !(await isRunning())) throw new Error('VOICEVOX が起動していません（127.0.0.1:50021）');
 
 const FONT_DIR = resolve(ROOT, '.claude/skills/conversion/ogp-create/assets/fonts');
 const FONTSOURCE_DIR = resolve(ROOT, 'node_modules/@fontsource');
@@ -60,13 +63,6 @@ const fonts = [
     weight, style: 'normal',
   })),
 ];
-const textNode = (text, style = {}) => ({
-  type: 'div', props: { style: { display: 'flex', fontFamily: FONT_JP, ...style }, children: text },
-});
-function fitText(text, max) {
-  const chars = [...String(text ?? '')];
-  return chars.length <= max ? chars.join('') : `${chars.slice(0, max - 1).join('')}…`;
-}
 function balanced(text, maxChars) {
   const chars = [...String(text ?? '')];
   const count = Math.max(1, Math.ceil(chars.length / maxChars));
@@ -75,54 +71,6 @@ function balanced(text, maxChars) {
 function themeFor(exam) {
   const palette = resolveExam(EXAM_TO_PALETTE[exam]);
   return { base: palette.base, deep: palette.deep, label: palette.label };
-}
-function coverNode(meta, manifest, theme) {
-  const topic = fitText(String(meta.title).replace(/^.*?[|｜]\s*/u, ''), 36);
-  const fontSize = [...topic].length > 28 ? 70 : [...topic].length > 20 ? 80 : 92;
-  return {
-    type: 'div',
-    props: {
-      style: {
-        display: 'flex', flexDirection: 'column', width: `${W}px`, height: `${H}px`,
-        padding: '150px 74px 150px', background: theme.deep, color: '#fff',
-        justifyContent: 'space-between', alignItems: 'center', fontFamily: FONT_JP,
-      },
-      children: [
-        {
-          type: 'div', props: { style: { display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 32 }, children: [
-            textNode(theme.label, { fontSize: 40, fontWeight: 700, color: 'rgba(255,255,255,.72)', letterSpacing: 3 }),
-            textNode('総監取得者が解説', { fontSize: 34, fontWeight: 700, color: theme.deep, background: '#fff', padding: '14px 30px', borderRadius: 999 }),
-          ] },
-        },
-        {
-          type: 'div', props: { style: { display: 'flex', flexDirection: 'column', alignItems: 'center' }, children: [
-            textNode('この動画のポイント', { fontSize: 42, fontWeight: 700, color: 'rgba(255,255,255,.75)', marginBottom: 54 }),
-            textNode(balanced(topic, 12).join('\n'), { fontSize, fontWeight: 700, lineHeight: 1.45, textAlign: 'center', whiteSpace: 'pre-wrap' }),
-          ] },
-        },
-        textNode(fitText(manifest.title, 28), { fontSize: 42, fontWeight: 500, color: 'rgba(255,255,255,.84)', textAlign: 'center' }),
-      ],
-    },
-  };
-}
-function ctaNode(manifest, theme) {
-  return {
-    type: 'div',
-    props: {
-      style: {
-        display: 'flex', flexDirection: 'column', width: `${W}px`, height: `${H}px`,
-        padding: '180px 74px', background: theme.deep, color: '#fff',
-        justifyContent: 'center', alignItems: 'center', fontFamily: FONT_JP,
-      },
-      children: [
-        textNode('技術士（総合技術監理部門）取得者が企画・監修', { fontSize: 30, fontWeight: 700, color: 'rgba(255,255,255,.72)', marginBottom: 90 }),
-        textNode('フォローで\n試験対策を継続', { fontSize: 92, fontWeight: 700, lineHeight: 1.45, textAlign: 'center', whiteSpace: 'pre-wrap' }),
-        textNode('詳しい解説はプロフィールのリンクから', { fontSize: 40, fontWeight: 500, color: 'rgba(255,255,255,.88)', marginTop: 80, textAlign: 'center' }),
-        textNode(fitText(manifest.title, 24), { fontSize: 36, fontWeight: 500, color: 'rgba(255,255,255,.68)', marginTop: 110, textAlign: 'center' }),
-        textNode('doboku-note', { fontSize: 34, fontWeight: 700, color: 'rgba(255,255,255,.60)', marginTop: 150, letterSpacing: 4 }),
-      ],
-    },
-  };
 }
 async function renderPng(node, outPath) {
   const svg = await satori(node, { width: W, height: H, fonts });
@@ -178,8 +126,11 @@ function sha256(path) { return createHash('sha256').update(readFileSync(path)).d
 
 const sharedDir = join(ROOT, '.tmp/instagram-video-pack-reels');
 mkdirSync(sharedDir, { recursive: true });
-const sharedCta = join(sharedDir, `cta-speaker-${args.speaker}.wav`);
-if (!existsSync(sharedCta)) writeFileSync(sharedCta, Buffer.from(await synthesize({ text: CTA_NARRATION, speaker: Number(args.speaker) })));
+const logo = await instagramLogo(ROOT);
+const rendererSha256 = instagramRendererDigest(ROOT, 'reel');
+const ctaKey = createHash('sha256').update(`${CTA_NARRATION}:${args.speaker}`).digest('hex').slice(0, 16);
+const sharedCta = join(sharedDir, `cta-${ctaKey}.wav`);
+if (!args['preview-only'] && !existsSync(sharedCta)) writeFileSync(sharedCta, Buffer.from(await synthesize({ text: CTA_NARRATION, speaker: Number(args.speaker) })));
 
 async function renderOne(metaPath, index, total) {
   const reelsDir = dirname(metaPath);
@@ -187,7 +138,20 @@ async function renderOne(metaPath, index, total) {
   const meta = JSON.parse(readFileSync(metaPath, 'utf8'));
   const outPath = join(reelsDir, 'video.mp4');
   const coverPath = join(reelsDir, 'cover.png');
-  const existingIsVerified = existsSync(outPath) && existsSync(coverPath)
+  const sourcePack = join(ROOT, 'content/sns/video-packs', meta.exam, meta.sourcePackId);
+  const storyboard = JSON.parse(readFileSync(join(sourcePack, 'storyboard.json'), 'utf8'));
+  const originalScene = storyboard.scenes?.find((candidate) => candidate.sceneId === meta.sceneId);
+  const scriptPath = join(reelsDir, 'script.json');
+  const script = JSON.parse(readFileSync(scriptPath));
+  if (script.sourcePackId !== meta.sourcePackId || script.key !== meta.key || script.sceneId !== meta.sceneId || script.exam !== meta.exam || !script.narration) throw new Error('Reel原稿と対象が不一致');
+  const scene = originalScene && { ...originalScene,
+    narration: script.narration, visual: script.visual };
+  if (!scene) throw new Error(`${meta.sourcePackId}/${meta.key}: scene がありません`);
+  const coverSpec = JSON.parse(readFileSync(join(sourcePack, 'cover-design.json'))).covers[meta.key];
+  const inputDigest = createHash('sha256').update(JSON.stringify({ scene, coverSpec, speaker: args.speaker, cta: CTA_NARRATION,
+    scriptHash: sha256(scriptPath),
+    code: rendererSha256 })).digest('hex');
+  const existingIsVerified = meta.design === IG_DESIGN && meta.inputDigest === inputDigest && existsSync(outPath) && existsSync(coverPath)
     && Number(meta.durationSeconds) >= 30 && Number(meta.durationSeconds) <= 60
     && meta.sha256 === sha256(outPath)
     && meta.coverSha256 === sha256(coverPath);
@@ -195,25 +159,25 @@ async function renderOne(metaPath, index, total) {
     console.log(`[${index + 1}/${total}] existing ${relative(ROOT, parentDir)}`);
     return;
   }
-  const sourcePack = join(ROOT, 'content/sns/video-packs', meta.exam, meta.sourcePackId);
-  const manifest = JSON.parse(readFileSync(join(sourcePack, 'video-pack.json'), 'utf8'));
-  const storyboard = JSON.parse(readFileSync(join(sourcePack, 'storyboard.json'), 'utf8'));
-  const scene = storyboard.scenes?.find((candidate) => candidate.sceneId === meta.sceneId);
-  if (!scene) throw new Error(`${meta.sourcePackId}/${meta.key}: scene がありません`);
-  const sourceWork = join(ROOT, '.tmp/video-render', meta.sourcePackId, 'shorts', meta.key, 'work');
-  const pointsPng = join(sourceWork, 'points.png');
-  const hookWav = join(sourceWork, 'hook.wav');
-  const pointsWav = join(sourceWork, 'points.wav');
-  for (const file of [pointsPng, hookWav, pointsWav]) if (!existsSync(file)) throw new Error(`source render がありません: ${file}`);
 
   const workDir = join(sharedDir, meta.sourcePackId, meta.key);
   mkdirSync(workDir, { recursive: true });
   const ctaPng = join(workDir, 'cta.png');
+  const pointsPng = join(workDir, 'points.png');
   const ctaWav = join(workDir, 'cta.wav');
   const assPath = join(workDir, 'subtitles.ass');
   const theme = themeFor(meta.exam);
-  await renderPng(coverNode(meta, manifest, theme), coverPath);
-  await renderPng(ctaNode(manifest, theme), ctaPng);
+  mkdirSync(reelsDir, { recursive: true });
+  writeFileSync(coverPath, await instagramReelCover(ROOT, coverSpec, logo, script.coverHeadline));
+  await renderPng(buildExplanationNode(scene, { theme, portrait: true, rightMargin: 180 }), pointsPng);
+  writeFileSync(ctaPng, (await renderInstagramNode(ROOT, instagramCtaNode(logo, { reel: true }), 1920)).buffer);
+  if (args['preview-only']) { console.log(`[preview] ${meta.sourcePackId}/${meta.key}`); return; }
+  const speech = narrationInput(scene.narration, Number(args.speaker));
+  const narrationWav = join(workDir, `narration-${speech.inputSha256.slice(0, 16)}.wav`);
+  if (!existsSync(narrationWav)) writeFileSync(narrationWav, Buffer.from(await synthesize({ text: speech.text, speaker: Number(args.speaker) })));
+  const hookWav = join(workDir, 'hook.wav'), pointsWav = join(workDir, 'points.wav');
+  ffmpeg(['-i', narrationWav, '-t', '4', hookWav]);
+  ffmpeg(['-ss', '4', '-i', narrationWav, pointsWav]);
   const hookSeconds = await probeDuration(hookWav);
   const pointsSeconds = await probeDuration(pointsWav);
   const narrationSeconds = hookSeconds + pointsSeconds;
@@ -235,10 +199,20 @@ async function renderOne(metaPath, index, total) {
   });
   const duration = await probeDuration(outPath);
   if (duration < 30 || duration > 60) throw new Error(`${meta.sourcePackId}/${meta.key}: 尺外 ${duration.toFixed(2)}s`);
+  ffmpeg(['-v', 'error', '-xerror', '-i', outPath, '-map', '0:v:0', '-map', '0:a:0', '-f', 'null', '-']);
   meta.durationSeconds = Number(duration.toFixed(2));
   meta.sha256 = sha256(outPath);
   meta.coverSha256 = sha256(coverPath);
   meta.renderedAt = new Date().toISOString();
+  meta.design = IG_DESIGN;
+  meta.inputDigest = inputDigest;
+  meta.rendererSha256 = rendererSha256;
+  meta.scriptSha256 = sha256(scriptPath);
+  meta.speaker = Number(args.speaker);
+  meta.narration = scene.narration;
+  meta.ctaNarration = CTA_NARRATION;
+  meta.mediaInputs = { hook: sha256(hookWav), points: sha256(pointsWav), pointsImage: sha256(pointsPng), ctaImage: sha256(ctaPng) };
+  meta.validation = { dimensions: '1080x1920', audio: true, duration: true, fullDecode: true, checkedAt: meta.renderedAt };
   writeFileSync(metaPath, `${JSON.stringify(meta, null, 2)}\n`);
   console.log(`[${index + 1}/${total}] ${relative(ROOT, parentDir)} ${duration.toFixed(2)}s`);
 }

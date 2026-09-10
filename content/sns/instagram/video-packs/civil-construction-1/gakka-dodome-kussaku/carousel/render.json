@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "gakka-dodome-kussaku",
+  "inputDigest": "688e4c0e7f7412755416fed41018ed5a768210eebb4c082ca151e478ed796229",
+  "sourceSha256": "fbafe636226c462742f601cca338a3a07d458c06aaa2c8cc560f5c2c3f436bd4",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:27:27.721Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-dodome-kussaku/carousel/img/00-cover.png",
+      "sha256": "07488ab067fff137e67b9c24dd6b542a90add1068f58ba2ec8fd1e13ea4d198b",
+      "bytes": 326676,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-dodome-kussaku/carousel/img/01-point.png",
+      "sha256": "178dec65436b5402bb9572e76736e37ed4873ef3339484263d811679ad728f04",
+      "bytes": 102797,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-dodome-kussaku/carousel/img/02-point.png",
+      "sha256": "75d0eecba2903eb97107d7d943c7026e4656c1ab21a38cb099fcadfb8921d4b1",
+      "bytes": 119987,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-dodome-kussaku/carousel/img/03-point.png",
+      "sha256": "f5ad9c727c1d167d2ddb5cbb86f29b4275e8f9bf7f9723f5ce3f58103dfd2ca1",
+      "bytes": 144110,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-dodome-kussaku/carousel/img/04-point.png",
+      "sha256": "dff179a7331cbc6d0433d79ba5faa7cfb6727abc5ccc4eed9b6a7ef7d33e676f",
+      "bytes": 150894,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-dodome-kussaku/carousel/img/05-point.png",
+      "sha256": "7dd93b177fbe184ac3c9680cc5747317a6fc221ece66d3030a81a1a21d207601",
+      "bytes": 108002,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-dodome-kussaku/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

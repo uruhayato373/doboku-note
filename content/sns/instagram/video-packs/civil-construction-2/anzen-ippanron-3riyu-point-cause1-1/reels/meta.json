@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.185Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/anzen-ippanron-3riyu/shorts/point-cause1-1/shorts.mp4",
-  "durationSeconds": 37.13,
-  "sha256": "40a4b77c4fe68b7f88c02da14a5e891110ba622d470986a0a0d7451e31476577",
-  "coverSha256": "4d70b70d277d0c213776cfa0bca076b70373ed66c4948b563bf4730df0270272",
-  "renderedAt": "2026-09-05T23:16:30.922Z"
+  "durationSeconds": 30.2,
+  "sha256": "3203b204f82182a096bb5bf13688a7a4d51c88a9150c8c45aa56af8b4a0b9ff9",
+  "coverSha256": "0eb08585626de07f479f5db88d3bf2a45066d497a948bf69f22c4e55b50786c1",
+  "renderedAt": "2026-09-10T09:26:48.319Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "0f74e3a12ccb6b63e24c6c41468e72d5aad105b2c68c3abdb0f3d016e20643eb",
+  "rendererSha256": "43e4708f2239a8c5bbfad7dbfbe52b5123a858dd1edaa6a15d937f8eb586680f",
+  "scriptSha256": "a8e98dbf8fde2846a9b9fbea625edd45a28bd8b48d821c2acf5675b04d8e3bf5",
+  "speaker": 13,
+  "narration": "原因の1つ目。現場条件が書かれていないことです。墜落防止のため手すりを設置した、だけでは、どの現場でも通る文になります。軟弱地盤だった、交通量の多い道路に近接していた、施工ヤードが狭かった。課題の原因になった自分の現場条件を最初に置いて、そこから課題を導きます。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "e373a88e765346082b84e91ee084d7fb02998d274d47bc9dfe43a7aeda9bbcd5",
+    "points": "2d8f6973eb3c432166136776cbc85a6189dc3881c0f76e4e5e8cd2adc99e20b7",
+    "pointsImage": "2247b7bf0d1ea8fe0ee5caac859c0f694b6fb084ab989b4161d5a19f569f2fb4",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T09:26:48.319Z"
+  }
 }

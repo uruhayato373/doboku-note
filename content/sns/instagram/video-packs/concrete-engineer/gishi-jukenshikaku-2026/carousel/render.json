@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "gishi-jukenshikaku-2026",
+  "inputDigest": "a85c64f72f6497c3e11e69984cf29ed26315a065d382744978d4014bd417b471",
+  "sourceSha256": "ad5b0c8c9d283c332a713c8d7a987d9f2880734facaa24ea1378edb8a15471e6",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:38:18.224Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-jukenshikaku-2026/carousel/img/00-cover.png",
+      "sha256": "047d332c61b371f478356c688ef63e65caff9fa6e34c2fd92627246d20557228",
+      "bytes": 305758,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-jukenshikaku-2026/carousel/img/01-point.png",
+      "sha256": "4cfe77e055a44226f31394db85df900dc4da2b5b464ed1fd8d259c354157140a",
+      "bytes": 103473,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-jukenshikaku-2026/carousel/img/02-point.png",
+      "sha256": "a6bb4862e8fa1f60d0cc77e07bb37d6541d5463a83fcccab4ac80eef0dd58a35",
+      "bytes": 115146,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-jukenshikaku-2026/carousel/img/03-point.png",
+      "sha256": "a481be0c3187128d0968781cb0383a0c3f468a14c6cf63e617ef5e79a1805d4c",
+      "bytes": 150161,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-jukenshikaku-2026/carousel/img/04-point.png",
+      "sha256": "1a80e7310efb1379a34677d78ae7f97b7235cee08425318ece0f8e51c096b170",
+      "bytes": 144110,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-jukenshikaku-2026/carousel/img/05-point.png",
+      "sha256": "40cb1b13775256eb469783dae8c8e30f005328d2117c390aef783c4d89c3b0a1",
+      "bytes": 138513,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-jukenshikaku-2026/carousel/img/06-point.png",
+      "sha256": "799ad6251ba105d49813fe1aebad906d9f886ad66b545439592f6c7582bb3b74",
+      "bytes": 146286,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-jukenshikaku-2026/carousel/img/07-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

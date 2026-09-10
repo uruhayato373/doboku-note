@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-ashiba-kijun",
+  "key": "point-step1-1",
+  "sceneId": "step1",
+  "exam": "civil-construction-1",
+  "narration": "足場の作業床は、足場の種類と適用条件を先に確認します。つり足場を除く基本の数値は、幅40センチメートル以上、床材間のすき間3センチメートル以下です。手すりや中さん、物の落下を防ぐ幅木などは、目的と足場の種類を分けて整理しましょう。",
+  "visual": {
+    "heading": "足場は種類と数値を対で",
+    "items": [
+      "つり足場を除く作業床：幅40cm以上",
+      "床材間のすき間：3cm以下",
+      "端部対策は足場の種類・目的で確認"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-safety-scaffolding/article.mdx",
+  "editorialNote": "足場の全種類に同じ手すり・幅木数値を適用する誤読を避ける。",
+  "sourceUrls": [
+    "https://www.mhlw.go.jp/web/t_doc?dataId=74003000&dataType=0&pageNo=10"
+  ]
+}

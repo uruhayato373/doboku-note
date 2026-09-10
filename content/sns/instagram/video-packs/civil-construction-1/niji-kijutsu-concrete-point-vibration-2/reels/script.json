@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "niji-kijutsu-concrete",
+  "key": "point-vibration-2",
+  "sceneId": "vibration",
+  "exam": "civil-construction-1",
+  "narration": "コンクリートの締固めでは、棒状バイブレータを鉛直に挿入し、ゆっくり引き抜きます。打重ねる下層へは、十センチメートル程度入れるのが一般的です。コンクリートを横へ動かす道具として使うと材料分離につながるため、打込み位置で適切に締め固めましょう。",
+  "visual": {
+    "heading": "締固めの操作手順",
+    "items": [
+      "下層に10cm程度挿入",
+      "鉛直に挿入しゆっくり引き抜く",
+      "横移動の手段には使わない"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/secondary-concrete-past-problems/article.mdx"
+}

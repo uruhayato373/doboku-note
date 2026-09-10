@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "shunin-products-ronten",
+  "key": "point-method-match-2",
+  "sceneId": "method-match",
+  "exam": "concrete-chief-engineer",
+  "narration": "即時脱型は超硬練りコンクリートに振動と圧力を同時に加え、直後に脱型する方法でブロックや平板向きです。遠心力とロール転圧は筒状型枠を使う管状製品向きで、コンクリート管やマンホールに用います。加圧は余剰水を絞り出して緻密化する方法で、矢板やPC板に適用します。",
+  "visual": {
+    "heading": "方法と製品を対で覚える",
+    "items": [
+      "即時脱型→ブロック・平板",
+      "遠心力・ロール転圧→管類",
+      "加圧→矢板・PC板"
+    ]
+  },
+  "sourceRef": "content/site/concrete-chief-engineer/primary-products/article.mdx"
+}

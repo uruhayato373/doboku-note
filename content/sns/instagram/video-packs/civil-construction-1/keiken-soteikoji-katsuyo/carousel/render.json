@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "keiken-soteikoji-katsuyo",
+  "inputDigest": "ebf167326bb8c7dd5dc51c6adbb103a3aa1f645003632ce0321e17a8e018b299",
+  "sourceSha256": "6c51b010c6d825bf23459d80789b57bd99e955046b769b5f9a5ebf7f5e0354a9",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:31:40.958Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-soteikoji-katsuyo/carousel/img/00-cover.png",
+      "sha256": "e13f31bccec2fec53abea7f888a09a081132b6567866e3416cdbe955b773a8c3",
+      "bytes": 330405,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-soteikoji-katsuyo/carousel/img/01-point.png",
+      "sha256": "fdca5d958842b4456275c71be551e951578e6dc6a0d7485fccd6b8263793f28c",
+      "bytes": 131439,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-soteikoji-katsuyo/carousel/img/02-point.png",
+      "sha256": "d3328dd1bd844e93ee3fd14a8de3ed9674150b102365e16f9c0d4925810680d3",
+      "bytes": 141691,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-soteikoji-katsuyo/carousel/img/03-point.png",
+      "sha256": "3f7a53d3f15abafc51d8d84141d14ddaea232a0f1a274d0608a6640e7eb139c0",
+      "bytes": 116434,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-soteikoji-katsuyo/carousel/img/04-point.png",
+      "sha256": "55bfbf345be72b05e5553cae70e5ba3eb4327f94178a575bcc031cac2df66775",
+      "bytes": 114971,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-soteikoji-katsuyo/carousel/img/05-point.png",
+      "sha256": "b10eb6daa7edc89d36c79019e7a82bd32d898c613de9315534e4780b0f168154",
+      "bytes": 106068,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-soteikoji-katsuyo/carousel/img/06-point.png",
+      "sha256": "f68d0e3bedbfa1e7a98babdade4fe2aab298951150d9e496daf7bfc24579fd0e",
+      "bytes": 113940,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-soteikoji-katsuyo/carousel/img/07-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

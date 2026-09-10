@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-2kyu-doko",
+  "key": "point-overview-1",
+  "sceneId": "overview",
+  "exam": "civil-construction-2",
+  "narration": "土工は、土質試験、土量変化、盛土と締固め、のり面や軟弱地盤の順に整理しましょう。最初に土の性質を調べ、その土が掘削や締固めでどう変わるかを考えます。工法名の暗記に入る前に、調査から施工、安定の確認へつながる全体像をつかみます。",
+  "visual": {
+    "heading": "土工は調査から施工へつなぐ",
+    "items": [
+      "土質試験で地盤を知る",
+      "土量変化率と盛土・締固め",
+      "のり面・軟弱地盤の安定を確認"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-2/guide-earthwork-key-points/article.mdx"
+}

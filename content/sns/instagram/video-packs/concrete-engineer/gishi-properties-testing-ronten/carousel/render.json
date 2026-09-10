@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "gishi-properties-testing-ronten",
+  "inputDigest": "ba3d6e16f5f6d0509e2de71ca6ce75bb0bc65d7d385128f90bdca0698f4fe4de",
+  "sourceSha256": "c88061802e71d8c4349827f694af5a0d51fb51b75cd38785d5992a0e6750f792",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:39:01.136Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-properties-testing-ronten/carousel/img/00-cover.png",
+      "sha256": "1eaaba3bc89cd6c21e11b3f70154a746f2728ebeba50a0a5535c353d37647a4a",
+      "bytes": 319014,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-properties-testing-ronten/carousel/img/01-point.png",
+      "sha256": "18ea1b41beb0d919cdb1a9448f7776080cfe23f64b26979b317c5bb6f7938a67",
+      "bytes": 108224,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-properties-testing-ronten/carousel/img/02-point.png",
+      "sha256": "c7dabd85e4094781b151b0846e84185c0659b87cb288717d0f9f6fb4f6846466",
+      "bytes": 142470,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-properties-testing-ronten/carousel/img/03-point.png",
+      "sha256": "e63e675ef9ddbca29161b0e39a343cc4d9603ddc9a14f289b625f24e9bc5f10a",
+      "bytes": 125457,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-properties-testing-ronten/carousel/img/04-point.png",
+      "sha256": "80528c7c2392fb0c7aa0502920e0dcd477a589a04fdcb97a058a57ab71bf8cb8",
+      "bytes": 121484,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-properties-testing-ronten/carousel/img/05-point.png",
+      "sha256": "3e84191b626542d409547808941e4de067b8df88e0f6c3873e6a647d7d8f58ae",
+      "bytes": 123779,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-properties-testing-ronten/carousel/img/06-point.png",
+      "sha256": "ef09502a14c96bba1cc47057dd723472263300a3185d84d63d5707a752741931",
+      "bytes": 130425,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-properties-testing-ronten/carousel/img/07-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

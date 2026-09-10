@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-histogram",
+  "key": "point-overview-1",
+  "sceneId": "overview",
+  "exam": "civil-construction-1",
+  "narration": "ヒストグラムは、品質特性値の区間ごとにデータ数を縦軸にとった柱状図で、分布の形状や規格値との関係がわかります。工程能力図は横軸に測定順、縦軸に品質特性値をとり、規格値の線と対比しながら時間順に打点する図です。",
+  "visual": {
+    "heading": "ヒストグラムと工程能力図の違い",
+    "items": [
+      "ヒストグラム：区間ごとの度数を見る",
+      "工程能力図：時間順にデータを打点",
+      "共通点は規格値とのゆとり確認"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-histogram/article.mdx"
+}

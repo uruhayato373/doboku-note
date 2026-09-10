@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "kikinagashi-hinshitsu-kikaku",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "要点を復習",
+        "品質管理"
+      ],
+      "subtitle": "主要論点を整理した保存版",
+      "character": {
+        "pose": "smile",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "population-sampling",
+      "heading": "母集団・サンプル・ロット",
+      "items": [
+        "母集団は調べたい集団全体、サンプルはそこから抜き取ったものです。",
+        "ロットは、検査のためにひとまとめにした集団です。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-quality-inspection/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "full-vs-sampling",
+      "heading": "全数検査と抜取検査を選ぶ",
+      "items": [
+        "不良品の混入を避けたい場合や、小さいロットでは全数検査を検討します。",
+        "破壊検査や対象が多い場合は、サンプルでロットを判定する抜取検査を用います。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-quality-inspection/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "oc-curve",
+      "heading": "OC曲線と誤判定の危険",
+      "items": [
+        "OC曲線は、横軸にロットの不良率、縦軸に合格する確率を示します。",
+        "生産者危険は良いロットを不合格、消費者危険は悪いロットを合格にする危険です。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-quality-inspection/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "control-chart-purpose",
+      "heading": "管理図で工程の安定性を見る",
+      "items": [
+        "管理図は、規格値に合うかではなく、工程が統計的に安定しているかを見ます。",
+        "管理限界線を外れる点や、内側でも不自然な並びがないか確認します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-control-chart/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "cause-type",
+      "heading": "原因の種類を分ける",
+      "items": [
+        "偶然原因によるばらつきと、特定して除去を図る異常原因を区別します。",
+        "計量値にはX̄-R管理図、計数値にはP管理図などを使います。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-control-chart/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "histogram-purpose",
+      "heading": "ヒストグラムは分布を見る",
+      "items": [
+        "ヒストグラムは分布の形や規格値との余裕を確かめる図です。",
+        "個々の値を時間順には追えないため、工程能力図や管理図と使い分けます。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-histogram/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "shape-pattern",
+      "heading": "ふた山型なら工程の混在を疑う",
+      "items": [
+        "ふた山型は、異なる工程などのデータが混ざった可能性を確かめます。",
+        "規格内に収まっていても、余裕が少なければ規格外になるおそれがあります。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-histogram/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "process-capability",
+      "heading": "Cpkは規格に対する余裕の目安",
+      "items": [
+        "教材の目安：1.33以上は十分、1.00以上1.33未満は改善の余地があります。",
+        "1.00未満は不足の目安です。工程が安定しているかとは分けて確認します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-histogram/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

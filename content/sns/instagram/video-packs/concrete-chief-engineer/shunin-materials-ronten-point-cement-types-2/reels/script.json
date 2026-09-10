@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "shunin-materials-ronten",
+  "key": "point-cement-types-2",
+  "sceneId": "cement-types",
+  "exam": "concrete-chief-engineer",
+  "narration": "セメントの種類は、発熱や強度発現を調整するために組成を変えています。早強は早期強度、中庸熱や低熱は水和熱の抑制、耐硫酸塩は硫酸塩への抵抗性を重視します。成分規定を覚えるときは、化合物名と上限・下限を対にして、種類ごとに確認しましょう。",
+  "visual": {
+    "heading": "セメントは狙う性能で比較",
+    "items": [
+      "早強：早期の強度発現",
+      "中庸熱・低熱：水和熱を抑制",
+      "耐硫酸塩：硫酸塩への抵抗性"
+    ]
+  },
+  "sourceRef": "content/site/concrete-chief-engineer/primary-materials/article.mdx",
+  "editorialNote": "低熱の下限規定がある中で全規定が上限との誤読を避け、性能比較と上下限確認へ変更。"
+}

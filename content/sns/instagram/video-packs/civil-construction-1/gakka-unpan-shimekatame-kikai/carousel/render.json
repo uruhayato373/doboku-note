@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "gakka-unpan-shimekatame-kikai",
+  "inputDigest": "4ee51280f2220fd5dad3c95660138a26d57b84a54ab84bc621253a6a2b243345",
+  "sourceSha256": "c87d7c923872bdf0d3d5067c3b981b4a5bf2d76bbc2430936b4e332091853740",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:30:04.234Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-unpan-shimekatame-kikai/carousel/img/00-cover.png",
+      "sha256": "c13e8e33facfa4ff6d74ecf05b025ef9044258403f347408d8ae720e218b24aa",
+      "bytes": 296463,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-unpan-shimekatame-kikai/carousel/img/01-point.png",
+      "sha256": "90ffd54c3979e088da7c517a78f1c6adabf7a97b49b43e37203a9eed3b1d7a18",
+      "bytes": 104206,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-unpan-shimekatame-kikai/carousel/img/02-point.png",
+      "sha256": "cc85344e8aef51bbfc377ced4bee74a19c42605db8c0f292365bd8ad2fa88d02",
+      "bytes": 100162,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-unpan-shimekatame-kikai/carousel/img/03-point.png",
+      "sha256": "49264f8aa476277e24f7990a7e4b93f60015e2fbbdaa131c34a06f5f53859d7f",
+      "bytes": 132825,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-unpan-shimekatame-kikai/carousel/img/04-point.png",
+      "sha256": "7758d8b20d883184826e367e2982af52e7ef1912f361ac08b6f10bf1ef5897ed",
+      "bytes": 101322,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-unpan-shimekatame-kikai/carousel/img/05-point.png",
+      "sha256": "9a298a8ea0d68f71115ecd63a74bafa5166da6424b4919eff8c365c794e80609",
+      "bytes": 124258,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-unpan-shimekatame-kikai/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

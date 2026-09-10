@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "career-agent-katsuyo",
+  "key": "point-step2-2",
+  "sceneId": "step2",
+  "exam": "civil-construction-1",
+  "narration": "施工管理の転職相談では、資格名だけでなく担当工種、工事の規模、自分の役割を伝えましょう。エージェントがその経験を理解し、求人条件と結びつけられるかを確認します。求人紹介や条件交渉の支援範囲は、サービスや担当者によって異なります。",
+  "visual": {
+    "heading": "担当工種が伝わる相談を",
+    "items": [
+      "資格・担当工種・規模・役割を伝える",
+      "経験と求人条件が結びついているか確認",
+      "紹介・条件交渉の支援範囲も比較"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/guide-career-agents/article.mdx",
+  "editorialNote": "特化型は常に非公開求人・交渉に強いとの一般化を緩和。",
+  "coverHeadline": [
+    "施工管理の転職",
+    "担当者と相談"
+  ]
+}

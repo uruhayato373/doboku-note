@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "shunin-properties-ronten",
+  "exam": "concrete-chief-engineer",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "コンクリート",
+        "性質の頻出点"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：両者は同じ意味",
+      "items": [
+        "ワーカビリティー＝作業性全体の総合概念",
+        "コンシステンシー＝流動性・変形抵抗性のみ"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-properties/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "consistency",
+      "heading": "コンシステンシーと測定単位",
+      "items": [
+        "スランプ試験＝沈下量を測定",
+        "スランプフロー＝2方向を1mm単位で測定",
+        "平均値は5mmまたは0.5cm単位に丸め"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-properties/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "bingham",
+      "heading": "ビンガム流体の2パラメータ",
+      "items": [
+        "降伏値＝変形抵抗性（大きいほどスランプ小）",
+        "塑性粘度＝流動中の粘り（大きいほど圧送負荷大）"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-properties/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "bleeding",
+      "heading": "ブリーディングと凝結の定義値",
+      "items": [
+        "沈下ひび割れは鉄筋・セパレータで発生",
+        "膨張材はブリーディング対策にならない",
+        "凝結は始発3.5・終結28.0N/mm²"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-properties/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "elastic",
+      "heading": "圧縮強度と静弾性係数の求め方",
+      "items": [
+        "圧縮強度は水セメント比と逆相関",
+        "引張強度は圧縮強度の1/10〜1/13程度",
+        "静弾性係数の基点は原点ではない"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/primary-properties/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "creep",
+      "heading": "クリープ・収縮・熱膨張係数",
+      "items": [
+        "クリープ係数＝クリープひずみ÷弾性ひずみ",
+        "自己収縮は高強度コンクリートで顕著",
+        "熱膨張係数は鋼材とほぼ同じ値"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-properties/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

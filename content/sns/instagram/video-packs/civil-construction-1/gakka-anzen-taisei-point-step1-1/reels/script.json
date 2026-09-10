@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-anzen-taisei",
+  "key": "point-step1-1",
+  "sceneId": "step1",
+  "exam": "civil-construction-1",
+  "narration": "統計指標です。度数率は延べ労働時間100万時間あたりの死傷者数で、災害の発生頻度を表します。強度率は延べ労働時間1,000時間あたりの労働損失日数で、災害の重さを表します。",
+  "visual": {
+    "heading": "度数率と強度率",
+    "items": [
+      "度数率＝100万時間あたりの死傷者数",
+      "強度率＝1,000時間あたりの労働損失日数",
+      "頻度＝度数率、重さ＝強度率"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-safety-management-system/article.mdx"
+}

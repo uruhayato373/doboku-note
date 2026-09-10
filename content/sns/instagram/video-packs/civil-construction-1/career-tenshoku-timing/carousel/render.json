@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "career-tenshoku-timing",
+  "inputDigest": "3e01163d25d402f4359a0d486c2ddb3bca0681abf9930e956bdff7d17218c9e0",
+  "sourceSha256": "69df4d3590c7295f53134a22871dfd5fa4411794715f4d49eb63687fd896cda6",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:26:00.111Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/career-tenshoku-timing/carousel/img/00-cover.png",
+      "sha256": "4084b036d5eb7d3e1d3dde9f2596d6c1ce2e724991796f62f66ce5c89db990df",
+      "bytes": 287287,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/career-tenshoku-timing/carousel/img/01-point.png",
+      "sha256": "74095548fb0cda4824a9d7bfa56d26860dc92543feaaeb83e311fb2b3515afb9",
+      "bytes": 131325,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/career-tenshoku-timing/carousel/img/02-point.png",
+      "sha256": "daf1b111654152e28ff01d90206b798af65ca19c9ad5851a908d1b1bddac4253",
+      "bytes": 103126,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/career-tenshoku-timing/carousel/img/03-point.png",
+      "sha256": "28883cf3595e0bf6f9543be163fff5a892749240aba1a4965faf3751e8243b62",
+      "bytes": 133855,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/career-tenshoku-timing/carousel/img/04-point.png",
+      "sha256": "4b78a46b2a5c57e3e537ba826ecff892b50b2ab21f655c35da3c21b6ecd7c9dd",
+      "bytes": 104793,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/career-tenshoku-timing/carousel/img/05-point.png",
+      "sha256": "5f10c446e74efecf0ca6a0bddba963ed8d05dcbd90ff4fb8cf31c7ea70117870",
+      "bytes": 127904,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/career-tenshoku-timing/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

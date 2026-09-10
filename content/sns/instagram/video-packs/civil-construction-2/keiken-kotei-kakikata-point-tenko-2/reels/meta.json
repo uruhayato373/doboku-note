@@ -13,7 +13,27 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-kotei-kakikata/shorts/point-tenko-2/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "61c9737c9a23d202e857b70568bc23146e3bde1ab0611d8f08cfcfc602d4b183",
-  "coverSha256": "b75bf5c83290afc617469b26ec9d80314bb0c99d9c235d908b0f3c23226d0358",
-  "renderedAt": "2026-09-05T23:28:06.815Z"
+  "sha256": "85964f731c73bd65fbc9d2d43958472b4dd60bf6bb4432681efeedead148069b",
+  "coverSha256": "da5a47a4f918689b16d7a5516f41ccbfa1dfd09c453fa1159b53ade2dce35dae",
+  "renderedAt": "2026-09-10T09:40:10.019Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "d98ab42afc2e79bdc50cb4bfd9a545fb366d28259f2f0280a95058b82797e8c6",
+  "rendererSha256": "43e4708f2239a8c5bbfad7dbfbe52b5123a858dd1edaa6a15d937f8eb586680f",
+  "scriptSha256": "cb2cab7ac3badf17044d12f84b176a2e7e4982606908e5618bfdc9de005ce27b",
+  "speaker": 13,
+  "narration": "天候による工程の遅れは、見込みと実際の対応を分けて書くと整理できます。梅雨や台風による休工日を工程計画に織り込み、進捗を確認して必要な調整を行うという流れです。自分の工事で何を見込み、どの作業をどう見直したかを、実際の経験で説明しましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "3a1b1675fc086e2ca108c70472744fa88b211bb9c720bd5cddc8a1a5dda5c3cc",
+    "points": "8e86ce9cc2674d212e7d30b7b683b859f1e64247993e7d3023aaf209f475b10b",
+    "pointsImage": "99de485ca097c34289d8dcc84ea9a492ad1310194eff7f2ee82326448f312b22",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T09:40:10.019Z"
+  }
 }

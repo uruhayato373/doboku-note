@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "gishi-shiken-zentaizou",
+  "inputDigest": "cedc8caed820cada8ea8d8d84e862a61090d99bab5b66de5bf186f99f8f7915b",
+  "sourceSha256": "993c9735ec1553683226efb69d78ec77f93d8c615df79e241345468e55470045",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:39:09.481Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-shiken-zentaizou/carousel/img/00-cover.png",
+      "sha256": "21f3e1f1f0983da5bddb1f4f16556a3c06e32c8c3a719bad0b8f964dcca985c3",
+      "bytes": 340832,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-shiken-zentaizou/carousel/img/01-point.png",
+      "sha256": "3e63db47f8302e03ae9a5b6179a5d540953ab846de88eed58e0bea49228ac2e5",
+      "bytes": 100643,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-shiken-zentaizou/carousel/img/02-point.png",
+      "sha256": "9a0fa0d9d29d6903db254780d3ba04bb4444420befe4943ebf6d45cf80985622",
+      "bytes": 100931,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-shiken-zentaizou/carousel/img/03-point.png",
+      "sha256": "02b85cb4cac6352af9f63640ea5460740c48edf9668b5f9dd2796a1f7ef456c7",
+      "bytes": 102449,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-shiken-zentaizou/carousel/img/04-point.png",
+      "sha256": "2b32869c3c9d284ea11ad1e8c313e1e60b0470ebea86f4c749e3b47a501b49dd",
+      "bytes": 115493,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-shiken-zentaizou/carousel/img/05-point.png",
+      "sha256": "4dd26874ae54358ca9cfc426d89f4c164bfbcbe8ce2949423022354da98f6f70",
+      "bytes": 144693,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-shiken-zentaizou/carousel/img/06-point.png",
+      "sha256": "9dbd6ef3c9093ec72cb3ec866416a17f185eb22c302dd315f5826f7d165e9dae",
+      "bytes": 122653,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-shiken-zentaizou/carousel/img/07-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

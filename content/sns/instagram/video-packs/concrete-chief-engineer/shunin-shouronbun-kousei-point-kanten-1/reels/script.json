@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "shunin-shouronbun-kousei",
+  "key": "point-kanten-1",
+  "sceneId": "kanten",
+  "exam": "concrete-chief-engineer",
+  "narration": "小論文の見直しでは、技術的に妥当か、論理がつながるか、実務の具体性があるか、技術への理解が伝わるかを確認しましょう。これは自己点検のための四つの観点です。公式の配点表ではないので、まず設問が求める内容とずれていないかを確かめます。",
+  "visual": {
+    "heading": "小論文を4観点で自己点検",
+    "items": [
+      "技術的な妥当性・論理のつながり",
+      "実務の具体性・技術への理解",
+      "公式配点ではなく自己点検の観点"
+    ]
+  },
+  "sourceRef": "content/site/concrete-chief-engineer/guide-essay/article.mdx",
+  "editorialNote": "独自ルーブリックを公式採点基準・空欄即減点とする断定を修正。",
+  "coverHeadline": [
+    "小論文を点検",
+    "４観点で確認"
+  ]
+}

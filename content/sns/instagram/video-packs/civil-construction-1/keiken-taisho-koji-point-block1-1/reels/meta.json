@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.183Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-taisho-koji/shorts/point-block1-1/shorts.mp4",
-  "durationSeconds": 32.2,
-  "sha256": "4880eccf843bc3cc6ea2dc5ad28dc5063299106cf5a888ce9e427fadc9322b85",
-  "coverSha256": "fb45dff129221161a3d346b5da3e3b8a71922d03423cc1370af34bba71b5506c",
-  "renderedAt": "2026-09-05T23:14:47.633Z"
+  "durationSeconds": 30.2,
+  "sha256": "59e276429ef8d1bacade50529e66486bff57d212d4cc38a642a249edf3cce242",
+  "coverSha256": "05f49a6b2a6ed5ef13f7dfbf1488b1e62f91505d0aa904e0a850394e0151a492",
+  "renderedAt": "2026-09-10T09:38:47.944Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "a2881885b5f921a5705591b5d0eb08e5fbc1a6db86e986308240a517a9b21236",
+  "rendererSha256": "43e4708f2239a8c5bbfad7dbfbe52b5123a858dd1edaa6a15d937f8eb586680f",
+  "scriptSha256": "d1738f9f4bfce55068ee78f08d28a9c819c434e153ab350f3bf9c15761385b90",
+  "speaker": 13,
+  "narration": "経験記述の工事を選ぶときは、自分が施工管理に携わった土木工事を整理します。河川、道路、橋梁、上下水道など、工事の名称だけでなく担当内容まで書き出しましょう。対象となる工事と業務の範囲は、受検する級の最新の手引と照らし合わせて確認します。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "e362fad00f84cf88b4d3c9b000a17db2f15ebc55627e4646c61b8e0a542e73ea",
+    "points": "648dfde34b317c317fc77518ba788d1b78678173f1eb9de533f91cd24ee26126",
+    "pointsImage": "c726a33ad494ec0cbd33003c14d52c251d81f15d5c0e8bfdd7200cf617a658a0",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T09:38:47.944Z"
+  }
 }

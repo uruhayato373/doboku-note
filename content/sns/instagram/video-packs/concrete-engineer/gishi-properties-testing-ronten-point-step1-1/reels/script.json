@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gishi-properties-testing-ronten",
+  "key": "point-step1-1",
+  "sceneId": "step1",
+  "exam": "concrete-engineer",
+  "narration": "ワーカビリティーは、材料分離を起こさずに運搬・打込み・締固め・仕上げができる程度を表す総合的な性質です。コンシステンシーは変形や流動への抵抗の程度で、スランプはその一つの指標にすぎません。同じスランプでも打ちにくいと感じるのは、粘性や材料分離抵抗性が別だからです。",
+  "visual": {
+    "heading": "ワーカビリティーとコンシステンシーは別物",
+    "items": [
+      "ワーカビリティー＝運搬〜仕上げまでの総合的な性質",
+      "コンシステンシー＝変形・流動への抵抗の程度",
+      "同じスランプでも粘性・分離抵抗性は別"
+    ]
+  },
+  "sourceRef": "content/site/concrete-engineer/textbook-properties-testing/article.mdx"
+}

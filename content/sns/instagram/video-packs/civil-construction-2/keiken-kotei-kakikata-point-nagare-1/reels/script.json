@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "keiken-kotei-kakikata",
+  "key": "point-nagare-1",
+  "sceneId": "nagare",
+  "exam": "civil-construction-2",
+  "narration": "工程管理の経験記述は、現場状況から課題を立て、検討と対応処置をつなぎます。材料や機械の手配、工程表の見直し、作業効率や気温への対策を振り返りましょう。その判断が工程にどう反映されたかを説明し、評価の要否や分量は受検年度の設問を優先します。",
+  "visual": {
+    "heading": "工程管理は理由と対応をつなぐ",
+    "items": [
+      "現場状況→課題→検討→対応処置",
+      "材料・機械、工程表、効率化、気温対策",
+      "評価の要否・分量は設問を優先"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx",
+  "coverHeadline": [
+    "工程管理の記述",
+    "理由と対応処置"
+  ],
+  "editorialNote": "評価を全年度の必須要素とせず、当該年度の設問に従う。"
+}

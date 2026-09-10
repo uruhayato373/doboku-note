@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "shunin-products-ronten",
+  "exam": "concrete-chief-engineer",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "コンクリート",
+        "製品の頻出点"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：締固め方法はどれも同じ",
+      "items": [
+        "対応は製品ごとに決まっている",
+        "遠心力→桁は典型的な誤答"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-products/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "overview",
+      "heading": "4つの締固め方法",
+      "items": [
+        "即時脱型・遠心力",
+        "ロール転圧・加圧",
+        "得意な製品形状が異なる"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-products/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "method-match",
+      "heading": "方法と製品を対で覚える",
+      "items": [
+        "即時脱型→ブロック・平板",
+        "遠心力・ロール転圧→管類",
+        "加圧→矢板・PC板"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/primary-products/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "steam-curing",
+      "heading": "蒸気養生の3管理点",
+      "items": [
+        "前養生：常温期間を置く",
+        "昇温速度：大きい部材ほど緩やかに",
+        "最高温度：上げすぎない"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-products/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "autoclave",
+      "heading": "オートクレーブ養生とトバモライト",
+      "items": [
+        "蒸気養生よりさらに高温高圧",
+        "トバモライトが強度・耐久性を高める",
+        "ALC等で短期間の高強度化に利用"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-products/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "jis-standard",
+      "heading": "JIS規格と水結合材比",
+      "items": [
+        "PC製品は水結合材比の上限が小さい",
+        "理由は緊張材の腐食防止",
+        "再生骨材はPC製品で原則不可"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/primary-products/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

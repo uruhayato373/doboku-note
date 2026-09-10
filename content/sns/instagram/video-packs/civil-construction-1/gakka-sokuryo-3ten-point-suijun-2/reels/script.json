@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-sokuryo-3ten",
+  "key": "point-suijun-2",
+  "sceneId": "suijun",
+  "exam": "civil-construction-1",
+  "narration": "水準測量では、後視の読みから前視の読みを引いて高低差を求めます。後視1.256メートル、前視0.875メートルなら、高低差はプラス0.381メートルです。この差を既知点の標高に加えます。前視と後視の順番を逆にしないことが計算の要点です。",
+  "visual": {
+    "heading": "水準測量は後視から前視を引く",
+    "items": [
+      "高低差＝後視−前視",
+      "1.256m−0.875m＝＋0.381m",
+      "既知点の標高に高低差を加える"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-leveling/article.mdx",
+  "editorialNote": "測量等級・基準改定に依存する視準距離の羅列を省き計算原理に絞る。"
+}

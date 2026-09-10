@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "gishi-properties-testing-ronten",
+  "exam": "concrete-engineer",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "コンクリート",
+        "性質と試験"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：手順だけ覚えれば解ける",
+      "items": [
+        "結果が示す性質と使い道までがセット",
+        "同じスランプでも粘性・分離抵抗性は別"
+      ],
+      "sourceRef": "content/site/concrete-engineer/textbook-properties-testing/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "総合的な作業性と流動抵抗を区別",
+      "items": [
+        "ワーカビリティーは、運搬から仕上げまでを含む総合的な性質です。",
+        "コンシステンシーは、変形や流動に対する抵抗の程度です。",
+        "スランプが同じでも、粘性や材料分離への抵抗が同じとは限りません。"
+      ],
+      "sourceRef": "content/site/concrete-engineer/textbook-properties-testing/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "スランプ試験の測り方と注意点",
+      "items": [
+        "コーン引上げ後の下がり量を測定（単位cm）",
+        "採取方法・経過時間・気温で結果が変わる",
+        "加水は水セメント比を崩す原因になる"
+      ],
+      "sourceRef": "content/site/concrete-engineer/textbook-properties-testing/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "空気量試験と骨材修正係数",
+      "items": [
+        "連行空気は耐凍害性を改善",
+        "過大な空気量は圧縮強度を低下させる",
+        "圧力法は骨材の影響を補正する場合がある"
+      ],
+      "sourceRef": "content/site/concrete-engineer/textbook-properties-testing/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step4",
+      "heading": "ブリーディングと材料分離",
+      "items": [
+        "固体沈降とともに水が上昇する現象",
+        "過大だと上面の弱い層・沈下ひび割れの原因",
+        "高所落下・過度な振動は材料分離を招く"
+      ],
+      "sourceRef": "content/site/concrete-engineer/textbook-properties-testing/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step5",
+      "heading": "圧縮強度試験は供試体条件が肝心",
+      "items": [
+        "最大荷重÷載荷面積で強度を求める",
+        "端面の平面度が応力の伝わり方を左右",
+        "構造体確認用と標準養生用は目的が異なる"
+      ],
+      "sourceRef": "content/site/concrete-engineer/textbook-properties-testing/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "keiken-r6-shinkeishiki",
+  "inputDigest": "d5fd38a1bddf40987fabda5c081888f92beeec111572d86574a3dce883d63eac",
+  "sourceSha256": "6db1243bfa04793fa48897fb70e868326529b8db7836c4884ed21fe91f89bb52",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:31:31.761Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-r6-shinkeishiki/carousel/img/00-cover.png",
+      "sha256": "775edd0289d2877966b1639035fe77e445be650ed77ec349810598aa8bf1da94",
+      "bytes": 332480,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-r6-shinkeishiki/carousel/img/01-point.png",
+      "sha256": "3533d11c25c019cc4f195aa088599cb86c41e9e54fbb83a6657614a9e5b91c01",
+      "bytes": 111680,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-r6-shinkeishiki/carousel/img/02-point.png",
+      "sha256": "12022f7b8ca25595e16d6a399bdd7f13e43fc54fe19a42e5986c925f5374a994",
+      "bytes": 133304,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-r6-shinkeishiki/carousel/img/03-point.png",
+      "sha256": "315c898e29b7de485611b237f73d696fb302b24792294fa1690839f656592df8",
+      "bytes": 117257,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-r6-shinkeishiki/carousel/img/04-point.png",
+      "sha256": "ca3c003e1596bbfb147f9cdf8b0fabd34838397c68758df1b3d26ea8440c8140",
+      "bytes": 150548,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-r6-shinkeishiki/carousel/img/05-point.png",
+      "sha256": "8882ed2ad96e02790f7d4127259c8dde17b8b3984184c5a31fddad2dfff74a82",
+      "bytes": 110957,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-r6-shinkeishiki/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

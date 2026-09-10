@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "shunin-production-qc-ronten",
+  "exam": "concrete-chief-engineer",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "製造と品質管理",
+        "検査の頻出点"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：数値の丸暗記で乗り切れる",
+      "items": [
+        "セメント・骨材で許容差の区分が違う",
+        "呼び強度と減水剤の種類で判定が変わる"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-production-qc/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "overview",
+      "heading": "呼び方の条件を読み取る",
+      "items": [
+        "種類→呼び強度→スランプ→粗骨材最大寸法→セメント種類の順で読みます。",
+        "配合強度は、呼び強度にばらつきを見込んだ製造上の目標です。",
+        "スランプ許容差は呼び強度・減水剤・目標値など、規格の該当条件を確認します。"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-production-qc/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "計量許容差は材料と方法で確認",
+      "items": [
+        "教材ではセメント・水±1%、骨材・混和剤±3%などの区分を扱っています。",
+        "混和材は種類で許容差が異なり、すべて同じ値ではありません。",
+        "累加計量は、認められる組合せと各材料・累加値の条件を規格で確認します。"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-production-qc/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "試験項目ごとに判定方法を確認",
+      "items": [
+        "圧縮強度は、3回平均が呼び強度以上かつ1回が85%以上という二条件です。",
+        "スランプ・空気量が範囲外の場合は、不適合となった項目の再試験条件を確認します。",
+        "塩化物イオン量は原則0.30kg/m³以下とし、規格の条件を確認します。"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-production-qc/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "ばらつきと工程の安定性を分ける",
+      "items": [
+        "変動係数を百分率で表すと、標準偏差÷平均値×100%です。",
+        "ばらつきが大きければ、配合強度の割増しを大きくする必要があります。",
+        "工程能力指数は規格への余裕であり、工程の安定性は管理図等で別に確かめます。"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-production-qc/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step4",
+      "heading": "過去問の出方に慣れる",
+      "items": [
+        "材料ごとの許容差区分を1つずつ確認",
+        "強度・スランプ・塩化物のルールを混同させる選択肢",
+        "呼び強度・減水剤種類・バッチ容積を先に確認"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/primary-production-qc/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

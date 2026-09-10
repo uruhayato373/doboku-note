@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "gishi-haigou-keisan",
+  "exam": "concrete-engineer",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "配合計算",
+        "解く手順を型に"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "pc-work",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：公式さえ覚えれば解ける",
+      "items": [
+        "単位・百分率・W/CとC/Wの向きを先に固定する",
+        "手順を毎回同じ順でなぞることがミス防止になる"
+      ],
+      "sourceRef": "content/site/concrete-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "計算前に3つをそろえる",
+      "items": [
+        "基準は1m³＝1000L",
+        "百分率は計算前に小数へ直す",
+        "W/CとC/Wを逆にしない"
+      ],
+      "sourceRef": "content/site/concrete-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "単位セメント量は「水÷水セメント比」の型",
+      "items": [
+        "C＝W÷（W/C）",
+        "例：170kg÷0.50＝340kg/m³",
+        "百分率を0.50へ直し忘れると計算が崩れる"
+      ],
+      "sourceRef": "content/site/concrete-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "質量を密度で割って容積へ直す",
+      "items": [
+        "例：水170L・セメント約108L・空気45Lを、粗骨材の容積とともに差し引きます。",
+        "細骨材の容積＝1000L−水・セメント・空気・粗骨材の容積です。",
+        "例：317L×2.60kg/L＝約824.2kg/m³とし、密度の単位もそろえます。"
+      ],
+      "sourceRef": "content/site/concrete-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step4",
+      "heading": "表面水補正は「増やして、引く」の型",
+      "items": [
+        "湿潤計量値＝表乾質量×（1＋表面水率）",
+        "例：800kg×1.03＝824kg/m³",
+        "増えた24kgを練混ぜ水から差し引く"
+      ],
+      "sourceRef": "content/site/concrete-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step5",
+      "heading": "最後に7ステップで検算する",
+      "items": [
+        "基準・百分率・W/CとC/Wの向きを再確認",
+        "質量⇔容積の掛け算・割り算の向きを確認",
+        "空気量のL換算・表面水の反映・合計1000Lを確認"
+      ],
+      "sourceRef": "content/site/concrete-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

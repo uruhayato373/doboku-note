@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "chokuzen-check-1kyu-niji",
+  "inputDigest": "55cecfc7a3bcd1634eee7091dadc506b00a862face15c32a1b44f498c96e6588",
+  "sourceSha256": "f5d6f1750dda4937f70e443cf3de028f73391a8907450c78831ca29c639be0b5",
+  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
+  "renderedAt": "2026-09-10T09:26:37.025Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/chokuzen-check-1kyu-niji/carousel/img/00-cover.png",
+      "sha256": "56cfef07216c72ef7f44a217995ad5ed0f93667f65b2cb8d02f28bdbce54b473",
+      "bytes": 327493,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/chokuzen-check-1kyu-niji/carousel/img/01-point.png",
+      "sha256": "24ab4a3dc254b9f27c62b1af76e17337bca42fbaee43e3519a2a772701fbe320",
+      "bytes": 128822,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/chokuzen-check-1kyu-niji/carousel/img/02-point.png",
+      "sha256": "95d8eaa65f3b54de526850325e75bf90ce4727a50812b0bd55fd72591611b9f3",
+      "bytes": 125622,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/chokuzen-check-1kyu-niji/carousel/img/03-point.png",
+      "sha256": "9091f0fae4dfcf902de0a1cfd14d5e786ecf99041953921e026194df5c1025a4",
+      "bytes": 125052,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/chokuzen-check-1kyu-niji/carousel/img/04-point.png",
+      "sha256": "0d660d6b902bfa5e6a7ba00ea0790569cbb1d08bd738da637ab9f7015efd5bac",
+      "bytes": 129525,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/chokuzen-check-1kyu-niji/carousel/img/05-point.png",
+      "sha256": "1b9dea75c316691914cbdfa0ee03e8d00ba85656fd0280b819e5161d8162276b",
+      "bytes": 117102,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/chokuzen-check-1kyu-niji/carousel/img/06-point.png",
+      "sha256": "c56d13a9a13a3a40cb3f128a22b2739e80fe5f6fc76334a2abca5e33219b94bd",
+      "bytes": 102822,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/chokuzen-check-1kyu-niji/carousel/img/07-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

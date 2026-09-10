@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "shunin-construction-ronten",
+  "key": "point-step1-2",
+  "sceneId": "step1",
+  "exam": "concrete-chief-engineer",
+  "narration": "材料分離を防ぐため自由落下高さは1.5メートル以下が標準です。打重ね時間間隔の超過はコールドジョイントを招くため、片押しや階段状の打込み計画で防ぎます。再振動は凝結の始発前に行うのが条件です。打継ぎ面はレイタンスを除去し、乾燥させず湿潤状態を保ってから打ち込みます。",
+  "visual": {
+    "heading": "打込み・締固め・打継ぎ",
+    "items": [
+      "自由落下高さ1.5m以下、片押し・階段状で対策",
+      "再振動は凝結始発前に限る",
+      "打継ぎ面はレイタンス除去後に湿潤状態を保つ"
+    ]
+  },
+  "sourceRef": "content/site/concrete-chief-engineer/textbook-construction/article.mdx"
+}

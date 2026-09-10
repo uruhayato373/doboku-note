@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "shunin-construction-ronten",
+  "key": "point-overview-1",
+  "sceneId": "overview",
+  "exam": "concrete-chief-engineer",
+  "narration": "圧送負荷は管内圧力損失かける水平換算距離で求めます。品質変動や機械的損失を見込み、算定した圧送負荷に1.25倍の余裕を持たせてポンプ能力と比較します。テーパ管は圧力損失が大きい小径側の数値で算定します。",
+  "visual": {
+    "heading": "ポンプ圧送の圧送負荷",
+    "items": [
+      "圧送負荷＝管内圧力損失×水平換算距離",
+      "算定値に1.25倍の余裕を持たせる",
+      "テーパ管は小径側の圧力損失で算定"
+    ]
+  },
+  "sourceRef": "content/site/concrete-chief-engineer/textbook-construction/article.mdx"
+}

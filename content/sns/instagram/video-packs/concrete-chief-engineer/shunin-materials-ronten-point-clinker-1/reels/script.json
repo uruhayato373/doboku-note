@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "shunin-materials-ronten",
+  "key": "point-clinker-1",
+  "sceneId": "clinker",
+  "exam": "concrete-chief-engineer",
+  "narration": "クリンカーは四つの主要化合物で整理します。けい酸三カルシウムは早期強度、けい酸二カルシウムは長期強度に寄与します。アルミン酸三カルシウムは反応が速く、発熱が大きい成分です。鉄アルミン酸四カルシウムは強度への寄与が小さく、反応と発熱の違いを比べて覚えます。",
+  "visual": {
+    "heading": "クリンカーは反応と強度で比較",
+    "items": [
+      "C3S：早期強度／C2S：長期強度",
+      "C3A：反応が速く水和熱が大きい",
+      "C4AF：強度への寄与は小さい"
+    ]
+  },
+  "sourceRef": "content/site/concrete-chief-engineer/textbook-materials/article.mdx",
+  "editorialNote": "化学式棒読みを日本語名に変更し、期間の過度な固定・低抵抗性の対象欠落を解消。"
+}
