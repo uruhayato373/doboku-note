@@ -75,6 +75,59 @@ CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認し
 
 **完了条件**: 各行の実体が解消したら行ごと消し、全行が消えたらカードを削除する。
 
+### [DN-0186] コンクリート診断士 四肢択一演習 4 本に残る原本の逐語 12 件を自作へ是正する
+タグ: [コンテンツ品質] [種類:不具合] [検証:check-reference-sources:deep] [起票:2026-09-11]
+
+**現状**: `content/site/concrete-diagnostician/primary-exercise-{02,04,05,06}/article.mdx` は `published: true` のまま、`concrete-diagnostician-textbook`（commercial-book）の文字起こしと 40 字以上一致する箇所が 12 件ある（最長 72 字。中性化深さの設問文、X 線回折・EPMA の機器列挙、凍結融解と塩害の組合せ選択肢など）。2026-07-31 に 98 問を自作へ書き換えた作業の取りこぼしで、逐語 1 文でも公開不可の規約に反したまま公開されている。
+
+**やること**: Drive をマウントして `npm run check-reference-sources:deep` を実行し、一致 12 件の file:line と一致文字列を控える。各設問を、論点だけ保って問題文・選択肢・解説を自作へ書き換える（JIS・示方書の数値は external-primary から引き直す。原本の設問構成を写さない）。書き換え後に deep を再実行し、`concrete-diagnostician` 配下の一致が 0 件になったことを確認してからコミットする。残る一致が他カテゴリ（例: 以前から baseline 扱いの分）なら、その旨を出力で切り分ける。
+
+**参照**: [参考文献ポリシー](../knowledge/reference/reference-sources-policy.md)（commercial-book は逐語 1 文・図・章立ての流用不可、`sources` に原本 id を宣言）、[図版ポリシー](../knowledge/reference/image-policy.md)（教材の図の「参考 SVG 化」禁止・技術的事実の可視化は可）、[記事構成ガイド](../knowledge/reference/article-structure-guide.md)、原本の文字起こしは Drive vault `原資料PDF/書籍/<id>/ocr/part-*.md`（内部利用のみ）。
+
+**完了条件**: `npm run check-reference-sources:deep` の verbatim FAIL に `concrete-diagnostician` の記事が 1 件も出ない。4 本とも `published: true` のまま、設問数・分野の構成が変わっていない。`lint-mdx-mobile` 0 件。
+
+### [DN-0187] コンクリート主任技士 テキスト記事 前半 4 章（材料・性質・耐久性・配合設計）を原本の方法論で深掘りする
+タグ: [コンテンツ品質] [種類:制作] [Codex候補] [検証:check-reference-sources:deep] [起票:2026-09-11]
+
+**目的**: `content/site/concrete-chief-engineer/textbook-{materials,properties,durability,mix-design}/article.mdx` は 8 章とも原本（`concrete-chief-textbook-2022`／`-2024`・計 592p 文字起こし済み）の厚みに対して薄い。章ごとに「試験で問われる論点→原理→数値の根拠→よくある誤答の型」の順で書き直し、`sources` に原本 2 冊の id を宣言する。基礎 2 冊（`concrete-basics-5th`・`construction-materials-basics`）は原理の説明の下支えに使う。
+
+**手順の型（2026-09-10 の建設部門展開で確立・memory `book-to-guide-expansion`）**: 親が原本を読んで方法を理解 → 執筆エージェント（`guide-rewriter` 新規起草モード・textbook は `civil-textbook-rewriter` 相当の Generator）には原本を渡さず、親の言葉で 30 字以内の語句だけの brief を渡す → H2 は原本の章順・項目数・ラベル名をなぞらず独自に組む → 例題・数値は公式過去問（`jcia-past-exams`）と JIS・示方書（external-primary）から引き、原本の例と数値は使わない → `guide-qa`／`content-qa` で採点 → `guide-fact-checker` で数値・規格値を一次資料へ照合 → Drive をマウントして `npm run check-reference-sources:deep`（40 字一致 0 件）→ 1 記事 1 コミット。
+
+**分割の理由**: 1 記事あたり起草・採点・照合込みで約 30 万トークン、4 章で 1 セッション相当。後半 4 章は DN-0188。図は DN-0189 で別途追加する（本カードでは図を作らない。図が要る箇所は本文に `<!-- figure: 題材 -->` を残さず、DN-0189 の題材リストへ書き出す）。
+
+**参照**: [参考文献ポリシー](../knowledge/reference/reference-sources-policy.md)（commercial-book は逐語 1 文・図・章立ての流用不可、`sources` に原本 id を宣言）、[図版ポリシー](../knowledge/reference/image-policy.md)（教材の図の「参考 SVG 化」禁止・技術的事実の可視化は可）、[記事構成ガイド](../knowledge/reference/article-structure-guide.md)、原本の文字起こしは Drive vault `原資料PDF/書籍/<id>/ocr/part-*.md`（内部利用のみ）。
+
+**禁止**: フル模範解答・演習問題の大量転載（note 商品の空洞化。択一予想 50 問・配合計算・小論文はサイトに載せない）、原本の図の流用・トレース、原本の書名・「本書」・ファイル名の本文言及、他社の登録商標（例: 三分割展開法）の使用。
+
+**完了条件**: 4 記事とも `sources: [concrete-chief-textbook-2024, concrete-chief-textbook-2022]` を宣言し、本文 4,000 字以上、`content-qa`／`guide-qa` 相当の採点 2.0 以上、`guide-fact-checker` の suspicious 0、deep の一致 0 件、`lint-mdx-mobile` 0 件。`npm run refresh-indexes` 後に 1 記事 1 コミットで push 済み。
+
+### [DN-0188] コンクリート主任技士 テキスト記事 後半 4 章（製造・品質管理／施工／製品／構造設計）を原本の方法論で深掘りする
+タグ: [コンテンツ品質] [種類:制作] [Codex候補] [検証:check-reference-sources:deep] [起票:2026-09-11]
+
+DN-0187 と同じ手順・同じ規約・同じ完了条件で `textbook-{production-qc,construction,products,structural-design}` の 4 章を深掘りする。DN-0187 の brief と QA 指摘の傾向（文体・重複・数値の出所）を先に読み、同じ指摘を繰り返さない。施工章は 1級土木の施工分野（`civil-construction-1` の textbook）と論点が重なるので、横断リンクを 1 本置き、内容の複製はしない。
+
+**参照**: [参考文献ポリシー](../knowledge/reference/reference-sources-policy.md)（commercial-book は逐語 1 文・図・章立ての流用不可、`sources` に原本 id を宣言）、[図版ポリシー](../knowledge/reference/image-policy.md)（教材の図の「参考 SVG 化」禁止・技術的事実の可視化は可）、[記事構成ガイド](../knowledge/reference/article-structure-guide.md)、原本の文字起こしは Drive vault `原資料PDF/書籍/<id>/ocr/part-*.md`（内部利用のみ）。
+
+**完了条件**: DN-0187 と同一。8 章がそろった時点で `guide-overview`／`guide-trends` から各章への誘導リンクが揃っていることを確認する。
+
+### [DN-0189] コンクリート主任技士・技士の概念図 15 枚を自作 SVG で作り、章記事と SNS へ展開する
+タグ: [コンテンツ品質] [種類:制作] [検証:check-figure-canvas] [起票:2026-09-11]
+
+**目的**: 原本の文字起こしには「（図: …）」のプレースホルダが主任技士 68・コンクリートの基本と仕組み 365・建設材料の基本 165 箇所ある。これは**題材リスト**として使い、図そのものは流用もトレースもしない。技術的事実として描ける概念図（水セメント比と強度の関係、養生と強度発現、配合設計の流れ、スランプ・空気量試験の原理、ブリーディングと沈下ひび割れ、鉄筋のかぶりと中性化、打込み・締固め・打継ぎの各段階）を選び、独自の構図で SVG を描く。
+
+**やること**: (1) プレースホルダの題材から 15 枚を選定し、各図に「何を示すか（概念・工程・関係）」と掲載先の章記事を決める。特定の教科書図のレイアウト再現は候補から外す。(2) `create-svg` スキルと [図版キャンバス標準](../knowledge/reference/figure-canvas-policy.md)（feed 400×500／landscape 640×360）で制作し、`svg-figure-auditor` で採点、`npm run check-figure-canvas` を通す。(3) 章記事へ `<ArticleImage>` で埋め込み、出所記録（`npm run audit-figures`）を「自前制作・題材は原本の該当章」で残す。(4) `render-figure-sns` で SNS 用に書き出し、IG カルーセルの解説画像に使えることを確認する。
+
+**完了条件**: 15 枚が章記事に埋め込まれ、`check-figure-canvas`・`check-orphan-figures`・`check-figure-embed-dims` が通る。各図の provenance に原本の図の複製でない旨が記録されている。
+
+### [DN-0190] コンクリート主任技士 過去問の年度補完（2022 年版巻末の未収録年度を分野別ページへ）
+タグ: [コンテンツ品質] [種類:制作] [検証:check-reference-sources] [起票:2026-09-11]
+
+**現状**: 主任技士の過去問は `primary-*`（分野別 8 本・257 問）に転記済み。`concrete-chief-textbook-2022` の巻末には平成 24〜28 年度の過去問があり、台帳の注記どおり 2024 年版と重ならない年度が未収録。年度別ページは作らず、分野別ページへ問を補完する。
+
+**やること**: 2022 年版の巻末過去問から、既存 8 本に無い年度の設問を分野ごとに振り分ける。問題文は試験実施機関の出典（`jcia-past-exams`・exam-official）として扱い、解説は出版社の解説を写さず自作する。既存ページの `<ExamPoint>`・選択肢の正誤検証の型に揃える（[過去問解答の折衷案](../knowledge/reference/content-principles.md)）。追加後に `past-exam-qa` で採点し、`npm run check-reference-sources` と deep を通す。
+
+**完了条件**: 未収録年度の設問が分野別 8 本のいずれかに入り、年度の重複が無い。deep で `concrete-chief-engineer` の逐語一致 0 件。`past-exam-qa` の指摘 HIGH 0。
+
 ## 🟡 中 — 2〜3ヶ月以内
 
 
@@ -172,6 +225,48 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 2. **目安 2026-09-14 以降**、公開後 28 日と直前 28 日を比較する。判定の正規表現と基準は [13_土木公務員SEO戦略2026-08.md](../../docs/strategy/13_土木公務員SEO戦略2026-08.md)
 3. 次記事「土木公務員に技術士は必要？」の着手可否は 1・2 の結果を見てから判断する（語順違いの類似ページは作らない）
 
+### [DN-0191] コンクリート技士 テキスト記事 6 章を基礎 2 冊を下支えに深掘りする
+タグ: [コンテンツ品質] [種類:制作] [Codex候補] [検証:check-reference-sources:deep] [起票:2026-09-11]
+
+**目的**: `content/site/concrete-engineer/textbook-{materials,properties-testing,mix-design,production-qc,construction,environment}/article.mdx` の 6 章を、`concrete-basics-5th`（310p）と `construction-materials-basics`（284p）を原理の下支えにして深掘りする。技士は主任技士より基礎寄りなので、「なぜそうなるか」の説明に字数を配分し、主任技士の同名章とは深さで差別化する（複製しない）。1級土木の材料分野へ横断リンクを置く。
+
+**手順の型（2026-09-10 の建設部門展開で確立・memory `book-to-guide-expansion`）**: 親が原本を読んで方法を理解 → 執筆エージェント（`guide-rewriter` 新規起草モード・textbook は `civil-textbook-rewriter` 相当の Generator）には原本を渡さず、親の言葉で 30 字以内の語句だけの brief を渡す → H2 は原本の章順・項目数・ラベル名をなぞらず独自に組む → 例題・数値は公式過去問（`jcia-past-exams`）と JIS・示方書（external-primary）から引き、原本の例と数値は使わない → `guide-qa`／`content-qa` で採点 → `guide-fact-checker` で数値・規格値を一次資料へ照合 → Drive をマウントして `npm run check-reference-sources:deep`（40 字一致 0 件）→ 1 記事 1 コミット。
+
+**参照**: [参考文献ポリシー](../knowledge/reference/reference-sources-policy.md)（commercial-book は逐語 1 文・図・章立ての流用不可、`sources` に原本 id を宣言）、[図版ポリシー](../knowledge/reference/image-policy.md)（教材の図の「参考 SVG 化」禁止・技術的事実の可視化は可）、[記事構成ガイド](../knowledge/reference/article-structure-guide.md)、原本の文字起こしは Drive vault `原資料PDF/書籍/<id>/ocr/part-*.md`（内部利用のみ）。
+
+**禁止**: フル模範解答・演習問題の大量転載（note 商品の空洞化。択一予想 50 問・配合計算・小論文はサイトに載せない）、原本の図の流用・トレース、原本の書名・「本書」・ファイル名の本文言及、他社の登録商標（例: 三分割展開法）の使用。
+
+**完了条件**: 6 記事とも `sources` に基礎 2 冊の id を宣言し、本文 4,000 字以上、採点 2.0 以上、`guide-fact-checker` の suspicious 0、deep の一致 0 件、`lint-mdx-mobile` 0 件、1 記事 1 コミットで push 済み。
+
+### [DN-0192] コンクリート技士の図版 PNG 17 枚を自作 SVG へ置き換え、概念図を足す
+タグ: [コンテンツ品質] [種類:改善] [検証:check-figure-canvas] [起票:2026-09-11]
+
+**現状**: `concrete-engineer` 配下の図は PNG／webp 17 枚で SVG が 0 枚。`<ArticleImage>` も未使用。主任技士（SVG 57 枚）・診断士（SVG 22 枚）と揃っていない。
+
+**やること**: 17 枚の出所を `npm run audit-figures` で確認し、自前制作でないものは差し替え対象にする。DN-0189 の題材選定と同じ基準で、技士向けの概念図（材料の分類、試験方法の原理、配合の関係、施工の段階）を SVG で描き直し、[図版キャンバス標準](../knowledge/reference/figure-canvas-policy.md)へ合わせる。置換後に旧 PNG を `check-orphan-figures` で孤児にしないよう参照を更新し、R2 側の削除は `r2-delete-list.txt` 経由で扱う（自動 prune しない）。
+
+**完了条件**: `concrete-engineer` の記事図版が SVG（写真が要る箇所は CC/PD 写真）に置き換わり、`check-figure-canvas`・`check-orphan-figures`・`check-figure-embed-dims` が通る。provenance に出所が揃っている。
+
+### [DN-0193] コンクリート診断士 テキスト記事 6 章を原本の方法論で深掘りする
+タグ: [コンテンツ品質] [種類:制作] [Codex候補] [検証:check-reference-sources:deep] [起票:2026-09-11]
+
+**目的**: `content/site/concrete-diagnostician/textbook-{variation,deterioration,investigation,assessment,repair,maintenance}/article.mdx` の 6 章を `concrete-diagnostician-textbook`（412p）を方法論の参考に深掘りする。劣化機構→調査→評価→対策の因果を章をまたいで一貫させ、記述式（問題A・問題B）の思考フレームとして使える構成にする。**着手前に DN-0195（権利確認）の結論を確認する。**
+
+**手順の型（2026-09-10 の建設部門展開で確立・memory `book-to-guide-expansion`）**: 親が原本を読んで方法を理解 → 執筆エージェント（`guide-rewriter` 新規起草モード・textbook は `civil-textbook-rewriter` 相当の Generator）には原本を渡さず、親の言葉で 30 字以内の語句だけの brief を渡す → H2 は原本の章順・項目数・ラベル名をなぞらず独自に組む → 例題・数値は公式過去問（`jcia-past-exams`）と JIS・示方書（external-primary）から引き、原本の例と数値は使わない → `guide-qa`／`content-qa` で採点 → `guide-fact-checker` で数値・規格値を一次資料へ照合 → Drive をマウントして `npm run check-reference-sources:deep`（40 字一致 0 件）→ 1 記事 1 コミット。
+
+**参照**: [参考文献ポリシー](../knowledge/reference/reference-sources-policy.md)（commercial-book は逐語 1 文・図・章立ての流用不可、`sources` に原本 id を宣言）、[図版ポリシー](../knowledge/reference/image-policy.md)（教材の図の「参考 SVG 化」禁止・技術的事実の可視化は可）、[記事構成ガイド](../knowledge/reference/article-structure-guide.md)、原本の文字起こしは Drive vault `原資料PDF/書籍/<id>/ocr/part-*.md`（内部利用のみ）。
+
+**禁止**: フル模範解答・演習問題の大量転載（note 商品の空洞化。択一予想 50 問・配合計算・小論文はサイトに載せない）、原本の図の流用・トレース、原本の書名・「本書」・ファイル名の本文言及、他社の登録商標（例: 三分割展開法）の使用。 診断士の記述式 模範答案集（note 有料）と競合する「答案の全文」は載せない。
+
+**完了条件**: 6 記事とも `sources: [concrete-diagnostician-textbook]` を宣言し、本文 4,000 字以上、採点 2.0 以上、`guide-fact-checker` の suspicious 0、deep の一致 0 件、`lint-mdx-mobile` 0 件、1 記事 1 コミットで push 済み。
+
+### [DN-0194] コンクリート診断士 劣化機構・調査・補修の概念図 15 枚を自作 SVG で作る
+タグ: [コンテンツ品質] [種類:制作] [検証:check-figure-canvas] [起票:2026-09-11]
+
+**目的**: 診断士の原本には「（図: …）」が 472 箇所あり、劣化機構の断面（中性化・塩害・ASR・凍害・化学的侵食）、ひび割れの分類、非破壊試験の原理（反発度・超音波・電磁波レーダ・自然電位）、補修・補強工法の断面は概念図として自作しやすい。DN-0189 と同じ手順（題材選定→`create-svg`→`svg-figure-auditor`→埋め込み→provenance→SNS 書き出し）で 15 枚を作る。原本の図のレイアウト再現は候補から外す。
+
+**完了条件**: 15 枚が `textbook-*` に埋め込まれ、`check-figure-canvas`・`check-orphan-figures`・`check-figure-embed-dims` が通る。provenance に自前制作の記録がある。
+
 ## 🟢 低 — 時期未定
 
 
@@ -268,3 +363,10 @@ Drive台帳・vault・Drive APIの照合前にローカル実体を削除しな�
 
 
 ## 🟣 判断待ち — ユーザーの意思決定が必要
+
+### [DN-0195] コンクリート診断士コンテンツの権利確認の状態を確定する
+タグ: [コンテンツ品質] [種類:意思決定] [起票:2026-09-11]
+
+**決めること**: 診断士は以前「第 5 資格・下書き 18 記事・公開は権利確認必須」としていたが、2026-09-11 時点で 18 本すべて `published: true` になっている。権利確認（原本の出版社・試験実施機関に対する扱い）が済んで公開したのか、確認前に公開されたのかを運営者が確定する。済んでいなければ、DN-0193／DN-0194 の着手前に確認するか、それまで公開を続けるかを決める。
+
+**待ち先**: 運営者。判断が出たらこのカードを削除し、結論は `concrete-diagnostician` の `guide-overview` か reference-sources.json の `notes` に 1 行で残す（backlog に経緯を書き足さない）。
