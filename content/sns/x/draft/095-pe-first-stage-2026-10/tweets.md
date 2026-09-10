@@ -1,72 +1,10 @@
-# 095 技術士第一次試験 2026-10（全31本）
+# 095 技術士第一次試験 2026-10-11〜31（全21本）
+
+<!-- 10月1〜10日は既存予約と統合した2026-10-character.json・096の計画を使う。この原稿は11日以降。 -->
 
 試験日: **2026-11-22**
 
 <!-- 計画SSOT: .claude/config/x-campaigns/2026-10-pe-first-stage.json -->
-
-## Tweet 01: 10/1 07:35 pe-first-stage / 引っかけ集 / linkless
-
-PDCAの穴埋めで迷ったら、CとAを日本語に戻す。CはCheck＝評価、AはAct＝改善。似た動詞で覚えると逆転するので、「確かめてから直す」の順で固定する。
-
-#技術士 #技術士第一次試験 #基礎科目
-
-## Tweet 02: 10/2 20:25 pe-first-stage / A4過去問PDF / note
-
-技術士法は、条文番号だけでなく「3義務・2責務」に束ねると崩れにくい。令和元〜7年度の適性科目105問を、誤り肢の理由まで紙で確認できるようにまとめた。
-
-https://note.com/dobokunote/n/n466132e6fd74?utm_source=x&utm_medium=social&utm_campaign=pe-first-stage-2026-10&utm_content=202610-02-note
-#技術士 #技術士第一次試験 #適性科目
-
-## Tweet 03: 10/3 12:55 pe-first-stage / 過去問1問1答 / site
-
-砂地盤から砂が噴き上がる現象と、粘性土が盤ぶくれする現象。名前を入れ替えていないか。ポイントは、ボイリング＝砂質、ヒービング＝粘性土。
-
-https://doboku-note.com/tools/kakomon-quiz/pe-first-stage?utm_source=x&utm_medium=social&utm_campaign=pe-first-stage-2026-10&utm_content=202610-03
-#技術士 #技術士第一次試験 #土質基礎
-
-## Tweet 04: 10/4 07:10 pe-first-stage / 暗記フレーズ / linkless
-
-情報の符号化は「源で縮め、路で守る」。情報源符号化はデータ圧縮、通信路符号化は雑音への対策。名前の前半を役割に結びつけると取り違えにくい。
-
-#技術士 #技術士第一次試験 #基礎科目
-
-## Tweet 05: 10/5 07:35 pe-first-stage / 引っかけ集 / linkless
-
-技術者倫理でいう「公衆」は、不特定多数という意味だけではない。専門知識がなく、リスクに十分な同意を与えられない立場の人々まで想像できるかが問われる。
-
-#技術士 #技術士第一次試験 #技術者倫理
-
-## Tweet 06: 10/6 08:05 pe-first-stage / 暗記フレーズ / linkless
-
-アルカリシリカ反応は「反応・吸水・膨張」で覚える。反応生成物が水を吸って異常膨張し、ひび割れにつながる。「収縮を起こす」という肢は向きが逆。
-
-#技術士 #技術士第一次試験 #コンクリート
-
-## Tweet 07: 10/7 12:55 pe-first-stage / 過去問1問1答 / site
-
-1,040問を頭から均等に解く必要はない。まず科目別モードで専門455問・基礎390問・適性195問の現在地を確認し、配分は誤答数から決める。無料演習で弱点を先に見える化できる。
-
-https://doboku-note.com/tools/kakomon-quiz/pe-first-stage?utm_source=x&utm_medium=social&utm_campaign=pe-first-stage-2026-10&utm_content=202610-07
-#技術士 #技術士第一次試験 #過去問
-
-## Tweet 08: 10/8 07:10 pe-first-stage / 暗記フレーズ / linkless
-
-誤答メモは長いほど復習しづらい。「知らない語句／読み落とした限定語／使う公式／時間切れ」の4分類だけ残す。次回はメモを隠し、1行で説明できるか確かめる。
-
-#技術士 #技術士第一次試験
-
-## Tweet 09: 10/9 19:55 pe-first-stage / A4過去問PDF / note
-
-性能設計の流れは、要求性能を決め、構造計画と構造詳細へ落とし、最後に照査する。語句のわずかな入替えを見抜く練習には、選択肢を横に並べて読める紙面が向いている。
-
-https://note.com/dobokunote/n/n466132e6fd74?utm_source=x&utm_medium=social&utm_campaign=pe-first-stage-2026-10&utm_content=202610-09-note
-#技術士 #技術士第一次試験 #設計計画
-
-## Tweet 10: 10/10 08:05 pe-first-stage / 暗記フレーズ / linkless
-
-秘密保持義務は、技術士・技術士補でなくなった後も続く。「登録中だけ」という限定を見たら要注意。条文問題は主語と適用期間に線を引くと誤りが見つかる。
-
-#技術士 #技術士第一次試験 #技術士法
 
 ## Tweet 11: 10/11 08:25 pe-first-stage / 引っかけ集 / linkless
 

@@ -1,5 +1,7 @@
 # アセット置き場ポリシー（public R2 / private R2 / Google Drive）
 
+ローカルに保持する容量・復元上限・定期掃除・月次読み戻しは [local-resource-policy.md](local-resource-policy.md)。R2復元はストリーミング、既定512MiB/回、復元先検証後に同一キャッシュを保持しない（`--keep-cache`で例外）。
+
 Git の外に置くアセットを **誰が使うかで 3 つの置き場へ振り分け**、必要なときだけ手元へ戻す運用の SSOT。
 機械可読な定義は R2 側が `.claude/config/asset-storage.json`（台帳 `.claude/state/assets/manifest.json`）、
 Google Drive 側が `.claude/config/drive-vault.json`（台帳 `.claude/state/assets/drive-manifest.json`）。
@@ -348,9 +350,9 @@ BK-01_道路/R03 の 3 本を再生成して R2 の記録と突き合わせた�
 | `[WARN] local-newer` | ローカルで作り直した実体が R2 へ反映されていない | `node scripts/asset-inbox-push.mjs --path <該当> --commit` で CI へ送る。§2 の inbox 経路 |
 | 取得が遅い | 直列実行 | `--concurrency`（既定 8）。868 件の直列は約 12 分かかった |
 
-cache は `.local/cache/assets/`（Git 非追跡）。最終アクセス時刻の古い順に上限まで落とすだけで、
-**勝手に空にはしない** —— プロキシ不調時に消すと作業不能になる。
-壊れたと思ったら手で消せば次回 R2 から作り直される。
+cache は `.local/cache/assets/`（Git 非追跡）。復元先のbytes/sha256検証が成功したファイルは、
+同一のcacheコピーを除去する（`--keep-cache`指定時は保持）。それ以外の既存cacheは最終アクセスが
+古い順に上限512MiBまで整理する。復元先が無いものを一括で空にする運用は行わない。
 
 ## 8. Git 履歴（2026-08-22 に単一 commit へ切り詰め済み）
 

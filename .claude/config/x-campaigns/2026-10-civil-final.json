@@ -1,0 +1,191 @@
+{
+  "schemaVersion": 2,
+  "month": "2026-10",
+  "timezone": "Asia/Tokyo",
+  "status": "draft-plan",
+  "coverage": {
+    "from": "2026-10-11",
+    "to": "2026-10-24",
+    "perDay": 1
+  },
+  "strategy": {
+    "cadence": "1日1本・原則夜（10/16・23は昼）",
+    "primaryExam": "civil-2",
+    "note": "10/25第二次検定前まで。販促5本と学習点検9本。10/24は購入勧誘を置かない。既存の技術士一次計画の時刻も避ける。"
+  },
+  "posts": [
+    {
+      "date": "2026-10-11",
+      "time": "20:12",
+      "slot": "C",
+      "exam": "civil-2",
+      "type": "直前の学習点検",
+      "funnel": "linkless",
+      "target": null,
+      "image": null,
+      "draft": "097-civil2-final-2026-10",
+      "tweet": 1
+    },
+    {
+      "date": "2026-10-12",
+      "time": "20:24",
+      "slot": "C",
+      "exam": "civil-2",
+      "type": "マガジン活用",
+      "funnel": "note",
+      "target": "https://note.com/dobokunote/m/m8554e87ca6ec?utm_source=x&utm_medium=social&utm_campaign=civil-final-2026&utm_content=2026-10-12-C",
+      "image": null,
+      "draft": "097-civil2-final-2026-10",
+      "tweet": 2,
+      "magazineId": "civil-2-koji-bank"
+    },
+    {
+      "date": "2026-10-13",
+      "time": "19:46",
+      "slot": "C",
+      "exam": "civil-2",
+      "type": "直前の学習点検",
+      "funnel": "linkless",
+      "target": null,
+      "image": null,
+      "draft": "097-civil2-final-2026-10",
+      "tweet": 3
+    },
+    {
+      "date": "2026-10-14",
+      "time": "20:08",
+      "slot": "C",
+      "exam": "civil-2",
+      "type": "マガジン活用",
+      "funnel": "note",
+      "target": "https://note.com/dobokunote/m/m1881a9578027?utm_source=x&utm_medium=social&utm_campaign=civil-final-2026&utm_content=2026-10-14-C",
+      "image": null,
+      "draft": "097-civil2-final-2026-10",
+      "tweet": 4,
+      "magazineId": "civil-2-experience-essay"
+    },
+    {
+      "date": "2026-10-15",
+      "time": "20:32",
+      "slot": "C",
+      "exam": "civil-2",
+      "type": "直前の学習点検",
+      "funnel": "linkless",
+      "target": null,
+      "image": null,
+      "draft": "097-civil2-final-2026-10",
+      "tweet": 5
+    },
+    {
+      "date": "2026-10-16",
+      "time": "12:18",
+      "slot": "B",
+      "exam": "civil-2",
+      "type": "直前の学習点検",
+      "funnel": "linkless",
+      "target": null,
+      "image": null,
+      "draft": "097-civil2-final-2026-10",
+      "tweet": 6
+    },
+    {
+      "date": "2026-10-17",
+      "time": "19:54",
+      "slot": "C",
+      "exam": "civil-2",
+      "type": "直前の学習点検",
+      "funnel": "linkless",
+      "target": null,
+      "image": null,
+      "draft": "097-civil2-final-2026-10",
+      "tweet": 7
+    },
+    {
+      "date": "2026-10-18",
+      "time": "20:18",
+      "slot": "C",
+      "exam": "civil-2",
+      "type": "マガジン活用",
+      "funnel": "note",
+      "target": "https://note.com/dobokunote/m/md3aa0f9a37d7?utm_source=x&utm_medium=social&utm_campaign=civil-final-2026&utm_content=2026-10-18-C",
+      "image": null,
+      "draft": "097-civil2-final-2026-10",
+      "tweet": 8,
+      "magazineId": "civil-2-pastexam-essay"
+    },
+    {
+      "date": "2026-10-19",
+      "time": "20:37",
+      "slot": "C",
+      "exam": "civil-2",
+      "type": "直前の学習点検",
+      "funnel": "linkless",
+      "target": null,
+      "image": null,
+      "draft": "097-civil2-final-2026-10",
+      "tweet": 9
+    },
+    {
+      "date": "2026-10-20",
+      "time": "19:58",
+      "slot": "C",
+      "exam": "civil-2",
+      "type": "マガジン活用",
+      "funnel": "note",
+      "target": "https://note.com/dobokunote/m/m9a09a8982734?utm_source=x&utm_medium=social&utm_campaign=civil-final-2026&utm_content=2026-10-20-C",
+      "image": null,
+      "draft": "097-civil2-final-2026-10",
+      "tweet": 10,
+      "magazineId": "civil-2-gakka-kijutsu"
+    },
+    {
+      "date": "2026-10-21",
+      "time": "20:26",
+      "slot": "C",
+      "exam": "civil-2",
+      "type": "直前の学習点検",
+      "funnel": "linkless",
+      "target": null,
+      "image": null,
+      "draft": "097-civil2-final-2026-10",
+      "tweet": 11
+    },
+    {
+      "date": "2026-10-22",
+      "time": "20:41",
+      "slot": "C",
+      "exam": "civil-2",
+      "type": "マガジン活用",
+      "funnel": "note",
+      "target": "https://note.com/dobokunote/m/m9a09a8982734?utm_source=x&utm_medium=social&utm_campaign=civil-final-2026&utm_content=2026-10-22-C",
+      "image": null,
+      "draft": "097-civil2-final-2026-10",
+      "tweet": 12,
+      "magazineId": "civil-2-gakka-kijutsu"
+    },
+    {
+      "date": "2026-10-23",
+      "time": "12:43",
+      "slot": "B",
+      "exam": "civil-2",
+      "type": "直前の学習点検",
+      "funnel": "linkless",
+      "target": null,
+      "image": null,
+      "draft": "097-civil2-final-2026-10",
+      "tweet": 13
+    },
+    {
+      "date": "2026-10-24",
+      "time": "19:48",
+      "slot": "C",
+      "exam": "civil-2",
+      "type": "直前の学習点検",
+      "funnel": "linkless",
+      "target": null,
+      "image": null,
+      "draft": "097-civil2-final-2026-10",
+      "tweet": 14
+    }
+  ]
+}

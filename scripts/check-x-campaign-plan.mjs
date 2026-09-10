@@ -42,6 +42,12 @@ if (files.length === 0) {
 }
 const docIndex = JSON.parse(readFileSync("src/config/doc-meta-index.json", "utf8"));
 const docs = new Set(Object.keys(docIndex.docs ?? docIndex));
+// 公開URLへ移行済みの記事も同じ公開記事索引から検証する。
+const publicPaths = new Set(readFileSync('public/_redirects', 'utf8').split(/\r?\n/)
+  .map(line => line.trim().split(/\s+/))
+  .filter(([from, to]) => from?.startsWith('/docs/') && to?.startsWith('/') &&
+    docs.has(from.slice(6)) && docIndex.docs[from.slice(6)]?.published === true)
+  .map(([, to]) => to));
 
 // ── カタログ SoT の読み込み ────────────────────────────────────────────────
 /** id → status/url の並び順はファイル規約（check-coconala-wiring.mjs parseCatalog と同型） */
@@ -96,6 +102,7 @@ for (const file of files) {
   const v = Number(plan.schemaVersion ?? 1);
   const perDay = v >= 2 ? 3 : 1;
   const errors = [];
+  const retainedWarnings = [];
   const dates = new Map();      // date → [post]
   const funnelCounts = {};
   const examCounts = {};
@@ -132,11 +139,23 @@ for (const file of files) {
 
     if (post.funnel === "site" && post.target) {
       const url = new URL(post.target);
+      // 既存キューのURLを改善済みと偽らず、そのまま表示する。例外は台帳との一致で限定。
+      let retainedQueued = false;
+      if(post.retained === true && /^\d{3}-[\w-]+$/.test(post.draft ?? '') && Number.isInteger(post.tweet)) {
+        const statusFile=join('content/sns/x/draft',post.draft,'status.json');
+        if(existsSync(statusFile)) {
+          const t=JSON.parse(readFileSync(statusFile,'utf8')).tweets?.[String(post.tweet)];
+          retainedQueued=['queued','posted'].includes(t?.status)&&t.scheduled_at?.slice(0,16)===`${post.date}T${post.time}`&&t.text?.match(/https?:\/\/[^\s]+/)?.[0]===post.target;
+        }
+      }
       const slug = url.pathname.replace(/^\/docs\//, "");
       const staticPage = join("src/app", url.pathname.replace(/^\//, ""), "page.tsx");
-      if (!docs.has(slug) && !existsSync(staticPage)) errors.push(`${label}: サイトパスが存在しない ${url.pathname}`);
+      if (!docs.has(slug) && !publicPaths.has(url.pathname) && !existsSync(staticPage)) errors.push(`${label}: サイトパスが存在しない ${url.pathname}`);
       for (const key of ["utm_source", "utm_medium", "utm_campaign", "utm_content"]) {
-        if (!url.searchParams.get(key)) errors.push(`${label}: ${key}がない`);
+        if (!url.searchParams.get(key)) {
+          if(retainedQueued)retainedWarnings.push(`${label}: 既存キューの ${key} 欠落を保持（新規原稿には適用不可）`);
+          else errors.push(`${label}: ${key}がない`);
+        }
       }
     }
     if (post.funnel === "note" && post.target) {
@@ -223,6 +242,7 @@ for (const file of files) {
   }
 
   totalPosts += plan.posts.length;
+  for(const warning of retainedWarnings)console.log(`[check-x-campaign-plan] WARN: ${warning}`);
   if (errors.length) {
     anyError = true;
     console.error(`[check-x-campaign-plan] NG: ${basename(file)} (schemaVersion ${v})`);

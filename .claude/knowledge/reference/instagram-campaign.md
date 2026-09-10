@@ -8,7 +8,7 @@
 
 ```bash
 npm run instagram-carousels:render -- --all
-node scripts/render-instagram-video-pack-reels.mjs --all --concurrency 4
+VOICEVOX_BASE_URL=http://127.0.0.1:50021 npm run instagram-reels:render -- --all --concurrency 1
 npm run check-instagram-reels -- --media
 npm run instagram-campaign -- --check --media
 npm run instagram-campaign -- --gallery

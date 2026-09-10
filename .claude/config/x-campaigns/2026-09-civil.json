@@ -12,22 +12,21 @@
   "strategy": {
     "cadence": "1日3本",
     "primaryExam": "civil-1",
-    "note": "朝A=linkless（実測で最も伸びる枠を売り込みで潰さない）/ 昼B=サイト送客 / 夜C=販売または解説。販売は1日おき・スロットCのみ。",
+    "note": "9月11日以降の未投入枠を先生付き学習カードへ更新。予約投入済みと別企画の長文枠は保持。夜の指定日に公開noteマガジンへ案内する。",
     "mix": {
-      "civil-1": 50,
-      "civil-2": 24,
+      "civil-1": 53,
+      "civil-2": 21,
       "concrete-chief": 16
     },
     "funnelMix": {
-      "linkless": 33,
-      "site": 40,
-      "x-article": 4,
-      "note": 6,
-      "coconala": 6,
-      "brain": 1
+      "linkless": 30,
+      "site": 39,
+      "note": 15,
+      "coconala": 2,
+      "x-article": 4
     },
     "rules": [
-      "販売 funnel は 1日1本まで・スロット C のみ・日をまたいで連続させない",
+      "販売 funnel は1日1本まで・スロットCのみ。販売投稿を時系列で連続させず、間に学習投稿を置く",
       "同一日の投稿間隔は 60 分以上（バースト連投は凍結の主因）",
       "着地先は listed / published のものだけ（受付終了・未公開へ送らない）",
       "note の「今月/直近」売上訴求は check-sales-freshness が緑のときだけ書く（WARN/FAIL は転記が止まっており突合不能）",
@@ -344,7 +343,9 @@
       "type": "共感フック",
       "funnel": "linkless",
       "target": null,
-      "image": null
+      "image": null,
+      "draft": "091-civil-2026-09-b",
+      "tweet": 1
     },
     {
       "date": "2026-09-11",
@@ -353,18 +354,23 @@
       "exam": "civil-2",
       "type": "引っかけ集",
       "funnel": "site",
-      "target": "https://doboku-note.com/docs/civil-construction-2-secondary-r06?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep11-c2-r06",
-      "image": null
+      "target": "https://doboku-note.com/exam/civil-construction-2/secondary/r06?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep11-c2-r06",
+      "image": null,
+      "draft": "091-civil-2026-09-b",
+      "tweet": 2
     },
     {
       "date": "2026-09-11",
       "time": "19:40",
       "slot": "C",
       "exam": "civil-1",
-      "type": "添削セット",
-      "funnel": "coconala",
-      "target": "https://coconala.com/services/4317375",
-      "image": null
+      "type": "マガジン活用",
+      "funnel": "note",
+      "target": "https://note.com/dobokunote/m/m150c9db08902?utm_source=x&utm_medium=social&utm_campaign=character-month-202609&utm_content=2026-09-11-C",
+      "image": null,
+      "draft": "091-civil-2026-09-b",
+      "tweet": 3,
+      "magazineId": "civil-1-experience-essay"
     },
     {
       "date": "2026-09-12",
@@ -374,7 +380,9 @@
       "type": "暗記フレーズ",
       "funnel": "linkless",
       "target": null,
-      "image": null
+      "image": null,
+      "draft": "091-civil-2026-09-b",
+      "tweet": 4
     },
     {
       "date": "2026-09-12",
@@ -383,8 +391,10 @@
       "exam": "civil-1",
       "type": "出題実績分析",
       "funnel": "site",
-      "target": "https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-guide?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep12-exp-guide",
-      "image": null
+      "target": "https://doboku-note.com/exam/civil-construction-1/secondary/experience-writing-guide?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep12-exp-guide",
+      "image": null,
+      "draft": "091-civil-2026-09-b",
+      "tweet": 5
     },
     {
       "date": "2026-09-12",
@@ -393,8 +403,10 @@
       "exam": "civil-1",
       "type": "論点解説",
       "funnel": "site",
-      "target": "https://doboku-note.com/docs/civil-construction-1-secondary-earthwork-past-problems?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep12n-earth-past",
-      "image": null
+      "target": "https://doboku-note.com/exam/civil-construction-1/secondary/earthwork-past-problems?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep12n-earth-past",
+      "image": null,
+      "draft": "091-civil-2026-09-b",
+      "tweet": 6
     },
     {
       "date": "2026-09-13",
@@ -404,17 +416,21 @@
       "type": "現場つぶやき",
       "funnel": "linkless",
       "target": null,
-      "image": null
+      "image": null,
+      "draft": "091-civil-2026-09-b",
+      "tweet": 7
     },
     {
       "date": "2026-09-13",
       "time": "12:40",
       "slot": "B",
       "exam": "civil-1",
-      "type": "過去問1問1答",
+      "type": "答案セルフチェック",
       "funnel": "site",
-      "target": "https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-examples?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep13-exp-examples",
-      "image": null
+      "target": "https://doboku-note.com/exam/civil-construction-1/secondary/experience-writing-examples?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep13-exp-examples",
+      "image": null,
+      "draft": "091-civil-2026-09-b",
+      "tweet": 8
     },
     {
       "date": "2026-09-13",
@@ -424,7 +440,10 @@
       "type": "X Article（手動公開）・市場価値",
       "funnel": "site",
       "target": "https://doboku-note.com/docs/civil-construction-1-guide-market-value?utm_source=x&utm_medium=social&utm_campaign=x-longform-career-2026&utm_content=article-02",
-      "image": null
+      "image": null,
+      "draft": "094-career-longform-pilot",
+      "tweet": 3,
+      "retained": true
     },
     {
       "date": "2026-09-14",
@@ -435,7 +454,10 @@
       "funnel": "x-article",
       "target": null,
       "awaitingTarget": true,
-      "image": null
+      "image": null,
+      "draft": "094-career-longform-pilot",
+      "tweet": 4,
+      "retained": true
     },
     {
       "date": "2026-09-14",
@@ -444,18 +466,23 @@
       "exam": "civil-2",
       "type": "要点圧縮",
       "funnel": "site",
-      "target": "https://doboku-note.com/docs/civil-construction-2-guide-buildjob-review?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep14-buildjob-review",
-      "image": null
+      "target": "https://doboku-note.com/exam/civil-construction-2/guide/buildjob-review?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep14-buildjob-review",
+      "image": null,
+      "draft": "091-civil-2026-09-b",
+      "tweet": 11
     },
     {
       "date": "2026-09-14",
       "time": "20:55",
       "slot": "C",
-      "exam": "civil-2",
-      "type": "現場つぶやき",
-      "funnel": "linkless",
-      "target": null,
-      "image": null
+      "exam": "civil-1",
+      "type": "マガジン活用",
+      "funnel": "note",
+      "target": "https://note.com/dobokunote/m/m8290970a7f05?utm_source=x&utm_medium=social&utm_campaign=civil-final-2026&utm_content=2026-09-14-C",
+      "image": null,
+      "draft": "091-civil-2026-09-b",
+      "tweet": 12,
+      "magazineId": "civil-1-keiken-complete-pack"
     },
     {
       "date": "2026-09-15",
@@ -465,7 +492,9 @@
       "type": "朝の一問",
       "funnel": "linkless",
       "target": null,
-      "image": null
+      "image": null,
+      "draft": "091-civil-2026-09-b",
+      "tweet": 13
     },
     {
       "date": "2026-09-15",
@@ -474,18 +503,23 @@
       "exam": "concrete-chief",
       "type": "引っかけ集",
       "funnel": "site",
-      "target": "https://doboku-note.com/docs/concrete-chief-engineer-primary-production-qc?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep15-cce-qc",
-      "image": null
+      "target": "https://doboku-note.com/exam/concrete-chief-engineer/primary/production-qc?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep15-cce-qc",
+      "image": null,
+      "draft": "091-civil-2026-09-b",
+      "tweet": 14
     },
     {
       "date": "2026-09-15",
       "time": "21:10",
       "slot": "C",
-      "exam": "civil-1",
-      "type": "予想模試",
-      "funnel": "coconala",
-      "target": "https://coconala.com/services/4317886",
-      "image": null
+      "exam": "civil-2",
+      "type": "マガジン活用",
+      "funnel": "note",
+      "target": "https://note.com/dobokunote/m/m1881a9578027?utm_source=x&utm_medium=social&utm_campaign=character-month-202609&utm_content=2026-09-15-C",
+      "image": null,
+      "draft": "091-civil-2026-09-b",
+      "tweet": 15,
+      "magazineId": "civil-2-experience-essay"
     },
     {
       "date": "2026-09-16",
@@ -495,17 +529,21 @@
       "type": "共感フック",
       "funnel": "linkless",
       "target": null,
-      "image": null
+      "image": null,
+      "draft": "091-civil-2026-09-b",
+      "tweet": 16
     },
     {
       "date": "2026-09-16",
       "time": "12:45",
       "slot": "B",
       "exam": "civil-1",
-      "type": "出題実績分析",
+      "type": "論点解説",
       "funnel": "site",
-      "target": "https://doboku-note.com/docs/civil-construction-1-secondary-concrete-basics?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep16-concrete-basics",
-      "image": null
+      "target": "https://doboku-note.com/exam/civil-construction-1/secondary/concrete-basics?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep16-concrete-basics",
+      "image": null,
+      "draft": "091-civil-2026-09-b",
+      "tweet": 17
     },
     {
       "date": "2026-09-16",
@@ -514,8 +552,10 @@
       "exam": "concrete-chief",
       "type": "論点解説",
       "funnel": "site",
-      "target": "https://doboku-note.com/docs/concrete-chief-engineer-guide-overview?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep16n-cce-overview",
-      "image": null
+      "target": "https://doboku-note.com/exam/concrete-chief-engineer/guide/overview?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep16n-cce-overview",
+      "image": null,
+      "draft": "091-civil-2026-09-b",
+      "tweet": 18
     },
     {
       "date": "2026-09-17",
@@ -525,7 +565,9 @@
       "type": "暗記フレーズ",
       "funnel": "linkless",
       "target": null,
-      "image": null
+      "image": null,
+      "draft": "091-civil-2026-09-b",
+      "tweet": 19
     },
     {
       "date": "2026-09-17",
@@ -534,18 +576,23 @@
       "exam": "civil-2",
       "type": "過去問1問1答",
       "funnel": "site",
-      "target": "https://doboku-note.com/docs/civil-construction-2-secondary-r06?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep17-c2-r06",
-      "image": null
+      "target": "https://doboku-note.com/exam/civil-construction-2/secondary/r06?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep17-c2-r06",
+      "image": null,
+      "draft": "091-civil-2026-09-b",
+      "tweet": 20
     },
     {
       "date": "2026-09-17",
       "time": "20:15",
       "slot": "C",
       "exam": "civil-1",
-      "type": "設計キット",
-      "funnel": "brain",
-      "target": "https://brain-market.com/a/b5EDO3UjMgoTZsNWa0JXY",
-      "image": null
+      "type": "マガジン活用",
+      "funnel": "note",
+      "target": "https://note.com/dobokunote/m/m74cfd7c695d6?utm_source=x&utm_medium=social&utm_campaign=character-month-202609&utm_content=2026-09-17-C",
+      "image": null,
+      "draft": "091-civil-2026-09-b",
+      "tweet": 21,
+      "magazineId": "civil-1-combo-essay"
     },
     {
       "date": "2026-09-18",
@@ -555,7 +602,9 @@
       "type": "現場つぶやき",
       "funnel": "linkless",
       "target": null,
-      "image": null
+      "image": null,
+      "draft": "091-civil-2026-09-b",
+      "tweet": 22
     },
     {
       "date": "2026-09-18",
@@ -564,8 +613,10 @@
       "exam": "civil-1",
       "type": "要点圧縮",
       "funnel": "site",
-      "target": "https://doboku-note.com/docs/civil-construction-1-secondary-getting-started?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep18-getting-started",
-      "image": null
+      "target": "https://doboku-note.com/exam/civil-construction-1/secondary/getting-started?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep18-getting-started",
+      "image": null,
+      "draft": "091-civil-2026-09-b",
+      "tweet": 23
     },
     {
       "date": "2026-09-18",
@@ -575,7 +626,9 @@
       "type": "発注者視点解説",
       "funnel": "linkless",
       "target": null,
-      "image": null
+      "image": null,
+      "draft": "091-civil-2026-09-b",
+      "tweet": 24
     },
     {
       "date": "2026-09-19",
@@ -585,7 +638,9 @@
       "type": "リフレーム",
       "funnel": "linkless",
       "target": null,
-      "image": null
+      "image": null,
+      "draft": "091-civil-2026-09-b",
+      "tweet": 25
     },
     {
       "date": "2026-09-19",
@@ -594,18 +649,23 @@
       "exam": "civil-1",
       "type": "引っかけ集",
       "funnel": "site",
-      "target": "https://doboku-note.com/docs/civil-construction-1-secondary-concrete-past-problems?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep19-concrete-past",
-      "image": null
+      "target": "https://doboku-note.com/exam/civil-construction-1/secondary/concrete-past-problems?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep19-concrete-past",
+      "image": null,
+      "draft": "091-civil-2026-09-b",
+      "tweet": 26
     },
     {
       "date": "2026-09-19",
       "time": "21:05",
       "slot": "C",
-      "exam": "civil-2",
-      "type": "学科記述",
+      "exam": "civil-1",
+      "type": "マガジン活用",
       "funnel": "note",
-      "target": "https://note.com/dobokunote/m/m9a09a8982734",
-      "image": null
+      "target": "https://note.com/dobokunote/m/mcfe1059b3335?utm_source=x&utm_medium=social&utm_campaign=character-month-202609&utm_content=2026-09-19-C",
+      "image": null,
+      "draft": "091-civil-2026-09-b",
+      "tweet": 27,
+      "magazineId": "civil-1-gakka-kijutsu"
     },
     {
       "date": "2026-09-20",
@@ -615,17 +675,21 @@
       "type": "朝の一問",
       "funnel": "linkless",
       "target": null,
-      "image": null
+      "image": null,
+      "draft": "091-civil-2026-09-b",
+      "tweet": 28
     },
     {
       "date": "2026-09-20",
       "time": "12:55",
       "slot": "B",
       "exam": "concrete-chief",
-      "type": "出題実績分析",
+      "type": "論述の型",
       "funnel": "site",
-      "target": "https://doboku-note.com/docs/concrete-chief-engineer-guide-essay?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep20-cce-essay",
-      "image": null
+      "target": "https://doboku-note.com/exam/concrete-chief-engineer/guide/essay?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep20-cce-essay",
+      "image": null,
+      "draft": "091-civil-2026-09-b",
+      "tweet": 29
     },
     {
       "date": "2026-09-20",
@@ -635,7 +699,10 @@
       "type": "X Article（手動公開）・キャリアパス",
       "funnel": "site",
       "target": "https://doboku-note.com/docs/civil-construction-1-guide-career-path?utm_source=x&utm_medium=social&utm_campaign=x-longform-career-2026&utm_content=article-03",
-      "image": null
+      "image": null,
+      "draft": "094-career-longform-pilot",
+      "tweet": 5,
+      "retained": true
     },
     {
       "date": "2026-09-21",
@@ -646,7 +713,10 @@
       "funnel": "x-article",
       "target": null,
       "awaitingTarget": true,
-      "image": null
+      "image": null,
+      "draft": "094-career-longform-pilot",
+      "tweet": 6,
+      "retained": true
     },
     {
       "date": "2026-09-21",
@@ -655,18 +725,23 @@
       "exam": "civil-1",
       "type": "過去問1問1答",
       "funnel": "site",
-      "target": "https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-examples?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep21-exp-examples",
-      "image": null
+      "target": "https://doboku-note.com/exam/civil-construction-1/secondary/experience-writing-examples?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep21-exp-examples",
+      "image": null,
+      "draft": "092-civil-2026-09-c",
+      "tweet": 2
     },
     {
       "date": "2026-09-21",
       "time": "19:40",
       "slot": "C",
       "exam": "civil-1",
-      "type": "プレミアム",
-      "funnel": "coconala",
-      "target": "https://coconala.com/services/4341335",
-      "image": null
+      "type": "マガジン活用",
+      "funnel": "note",
+      "target": "https://note.com/dobokunote/m/m3a578194a0a9?utm_source=x&utm_medium=social&utm_campaign=character-month-202609&utm_content=2026-09-21-C",
+      "image": null,
+      "draft": "092-civil-2026-09-c",
+      "tweet": 3,
+      "magazineId": "civil-1-pastexam-essay"
     },
     {
       "date": "2026-09-22",
@@ -676,7 +751,9 @@
       "type": "暗記フレーズ",
       "funnel": "linkless",
       "target": null,
-      "image": null
+      "image": null,
+      "draft": "092-civil-2026-09-c",
+      "tweet": 4
     },
     {
       "date": "2026-09-22",
@@ -685,8 +762,10 @@
       "exam": "civil-1",
       "type": "要点圧縮",
       "funnel": "site",
-      "target": "https://doboku-note.com/docs/civil-construction-1-secondary-construction-plan-basics?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep22-plan-basics",
-      "image": null
+      "target": "https://doboku-note.com/exam/civil-construction-1/secondary/construction-plan-basics?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep22-plan-basics",
+      "image": null,
+      "draft": "092-civil-2026-09-c",
+      "tweet": 5
     },
     {
       "date": "2026-09-22",
@@ -696,7 +775,9 @@
       "type": "現場つぶやき",
       "funnel": "linkless",
       "target": null,
-      "image": null
+      "image": null,
+      "draft": "092-civil-2026-09-c",
+      "tweet": 6
     },
     {
       "date": "2026-09-23",
@@ -706,7 +787,9 @@
       "type": "現場つぶやき",
       "funnel": "linkless",
       "target": null,
-      "image": null
+      "image": null,
+      "draft": "092-civil-2026-09-c",
+      "tweet": 7
     },
     {
       "date": "2026-09-23",
@@ -715,18 +798,23 @@
       "exam": "civil-2",
       "type": "引っかけ集",
       "funnel": "site",
-      "target": "https://doboku-note.com/docs/civil-construction-2-guide-career?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep23-guide-career",
-      "image": null
+      "target": "https://doboku-note.com/exam/civil-construction-2/guide/career?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep23-guide-career",
+      "image": null,
+      "draft": "092-civil-2026-09-c",
+      "tweet": 8
     },
     {
       "date": "2026-09-23",
       "time": "20:30",
       "slot": "C",
-      "exam": "civil-2",
-      "type": "2級フルパック",
-      "funnel": "coconala",
-      "target": "https://coconala.com/services/4341191",
-      "image": null
+      "exam": "civil-1",
+      "type": "マガジン活用",
+      "funnel": "note",
+      "target": "https://note.com/dobokunote/m/m74cfd7c695d6?utm_source=x&utm_medium=social&utm_campaign=civil-final-2026&utm_content=2026-09-23-C",
+      "image": null,
+      "draft": "092-civil-2026-09-c",
+      "tweet": 9,
+      "magazineId": "civil-1-combo-essay"
     },
     {
       "date": "2026-09-24",
@@ -736,7 +824,9 @@
       "type": "リフレーム",
       "funnel": "linkless",
       "target": null,
-      "image": null
+      "image": null,
+      "draft": "092-civil-2026-09-c",
+      "tweet": 10
     },
     {
       "date": "2026-09-24",
@@ -745,8 +835,10 @@
       "exam": "civil-1",
       "type": "出題実績分析",
       "funnel": "site",
-      "target": "https://doboku-note.com/docs/civil-construction-1-secondary-concrete-basics?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep24-concrete-basics",
-      "image": null
+      "target": "https://doboku-note.com/exam/civil-construction-1/secondary/concrete-basics?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep24-concrete-basics",
+      "image": null,
+      "draft": "092-civil-2026-09-c",
+      "tweet": 11
     },
     {
       "date": "2026-09-24",
@@ -755,8 +847,10 @@
       "exam": "concrete-chief",
       "type": "論点解説",
       "funnel": "site",
-      "target": "https://doboku-note.com/docs/concrete-chief-engineer-textbook-materials?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep24n-cce-materials",
-      "image": null
+      "target": "https://doboku-note.com/exam/concrete-chief-engineer/textbook/materials?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep24n-cce-materials",
+      "image": null,
+      "draft": "092-civil-2026-09-c",
+      "tweet": 12
     },
     {
       "date": "2026-09-25",
@@ -766,7 +860,9 @@
       "type": "朝の一問",
       "funnel": "linkless",
       "target": null,
-      "image": null
+      "image": null,
+      "draft": "092-civil-2026-09-c",
+      "tweet": 13
     },
     {
       "date": "2026-09-25",
@@ -775,18 +871,23 @@
       "exam": "concrete-chief",
       "type": "過去問1問1答",
       "funnel": "site",
-      "target": "https://doboku-note.com/docs/concrete-chief-engineer-textbook-materials?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep25-cce-materials",
-      "image": null
+      "target": "https://doboku-note.com/exam/concrete-chief-engineer/textbook/materials?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep25-cce-materials",
+      "image": null,
+      "draft": "092-civil-2026-09-c",
+      "tweet": 14
     },
     {
       "date": "2026-09-25",
       "time": "21:10",
       "slot": "C",
       "exam": "civil-1",
-      "type": "まるごとパック",
+      "type": "マガジン活用",
       "funnel": "note",
-      "target": "https://note.com/dobokunote/m/md29a34906314",
-      "image": null
+      "target": "https://note.com/dobokunote/m/md29a34906314?utm_source=x&utm_medium=social&utm_campaign=character-month-202609&utm_content=2026-09-25-C",
+      "image": null,
+      "draft": "092-civil-2026-09-c",
+      "tweet": 15,
+      "magazineId": "civil-1-niji-marugoto-pack"
     },
     {
       "date": "2026-09-26",
@@ -796,7 +897,9 @@
       "type": "共感フック",
       "funnel": "linkless",
       "target": null,
-      "image": null
+      "image": null,
+      "draft": "092-civil-2026-09-c",
+      "tweet": 16
     },
     {
       "date": "2026-09-26",
@@ -805,18 +908,23 @@
       "exam": "civil-2",
       "type": "要点圧縮",
       "funnel": "site",
-      "target": "https://doboku-note.com/docs/civil-construction-2-guide-career-agent-comparison?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep26-agent-comparison",
-      "image": null
+      "target": "https://doboku-note.com/exam/civil-construction-2/guide/career-agent-comparison?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep26-agent-comparison",
+      "image": null,
+      "draft": "092-civil-2026-09-c",
+      "tweet": 17
     },
     {
       "date": "2026-09-26",
       "time": "19:50",
       "slot": "C",
       "exam": "civil-1",
-      "type": "発注者視点解説",
-      "funnel": "linkless",
-      "target": null,
-      "image": null
+      "type": "マガジン活用",
+      "funnel": "note",
+      "target": "https://note.com/dobokunote/m/m150c9db08902?utm_source=x&utm_medium=social&utm_campaign=civil-final-2026&utm_content=2026-09-26-C",
+      "image": null,
+      "draft": "092-civil-2026-09-c",
+      "tweet": 18,
+      "magazineId": "civil-1-experience-essay"
     },
     {
       "date": "2026-09-27",
@@ -826,7 +934,10 @@
       "type": "暗記フレーズ",
       "funnel": "linkless",
       "target": null,
-      "image": null
+      "image": null,
+      "draft": "092-civil-2026-09-c",
+      "tweet": 19,
+      "retained": true
     },
     {
       "date": "2026-09-27",
@@ -835,8 +946,10 @@
       "exam": "civil-1",
       "type": "引っかけ集",
       "funnel": "site",
-      "target": "https://doboku-note.com/docs/civil-construction-1-secondary-quality-management-past-problems?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep27-past-problems",
-      "image": null
+      "target": "https://doboku-note.com/exam/civil-construction-1/secondary/quality-management-past-problems?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep27-past-problems",
+      "image": null,
+      "draft": "092-civil-2026-09-c",
+      "tweet": 20
     },
     {
       "date": "2026-09-27",
@@ -846,7 +959,10 @@
       "type": "X Article（手動公開）・2級若手",
       "funnel": "site",
       "target": "https://doboku-note.com/docs/civil-construction-2-guide-career?utm_source=x&utm_medium=social&utm_campaign=x-longform-career-2026&utm_content=article-04",
-      "image": null
+      "image": null,
+      "draft": "094-career-longform-pilot",
+      "tweet": 7,
+      "retained": true
     },
     {
       "date": "2026-09-28",
@@ -857,7 +973,10 @@
       "funnel": "x-article",
       "target": null,
       "awaitingTarget": true,
-      "image": null
+      "image": null,
+      "draft": "094-career-longform-pilot",
+      "tweet": 8,
+      "retained": true
     },
     {
       "date": "2026-09-28",
@@ -866,18 +985,23 @@
       "exam": "civil-1",
       "type": "出題実績分析",
       "funnel": "site",
-      "target": "https://doboku-note.com/docs/civil-construction-1-secondary-r03?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep28-secondary-r03",
-      "image": null
+      "target": "https://doboku-note.com/exam/civil-construction-1/secondary/r03?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep28-secondary-r03",
+      "image": null,
+      "draft": "092-civil-2026-09-c",
+      "tweet": 23
     },
     {
       "date": "2026-09-28",
       "time": "20:40",
       "slot": "C",
       "exam": "civil-1",
-      "type": "論点解説",
-      "funnel": "site",
-      "target": "https://doboku-note.com/docs/civil-construction-1-secondary-r04?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep28n-secondary-r04",
-      "image": null
+      "type": "マガジン活用",
+      "funnel": "note",
+      "target": "https://note.com/dobokunote/m/m3a578194a0a9?utm_source=x&utm_medium=social&utm_campaign=civil-final-2026&utm_content=2026-09-28-C",
+      "image": null,
+      "draft": "092-civil-2026-09-c",
+      "tweet": 24,
+      "magazineId": "civil-1-pastexam-essay"
     },
     {
       "date": "2026-09-29",
@@ -887,7 +1011,9 @@
       "type": "リフレーム",
       "funnel": "linkless",
       "target": null,
-      "image": null
+      "image": null,
+      "draft": "092-civil-2026-09-c",
+      "tweet": 25
     },
     {
       "date": "2026-09-29",
@@ -896,18 +1022,23 @@
       "exam": "civil-2",
       "type": "過去問1問1答",
       "funnel": "site",
-      "target": "https://doboku-note.com/docs/civil-construction-2-guide-career-change?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep29-career-change",
-      "image": null
+      "target": "https://doboku-note.com/exam/civil-construction-2/guide/career-change?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep29-career-change",
+      "image": null,
+      "draft": "092-civil-2026-09-c",
+      "tweet": 26
     },
     {
       "date": "2026-09-29",
       "time": "21:05",
       "slot": "C",
       "exam": "civil-2",
-      "type": "想定工事バンク",
+      "type": "マガジン活用",
       "funnel": "note",
-      "target": "https://note.com/dobokunote/m/m8554e87ca6ec",
-      "image": null
+      "target": "https://note.com/dobokunote/m/m9a09a8982734?utm_source=x&utm_medium=social&utm_campaign=character-month-202609&utm_content=2026-09-29-C",
+      "image": null,
+      "draft": "092-civil-2026-09-c",
+      "tweet": 27,
+      "magazineId": "civil-2-gakka-kijutsu"
     },
     {
       "date": "2026-09-30",
@@ -917,7 +1048,9 @@
       "type": "朝の一問",
       "funnel": "linkless",
       "target": null,
-      "image": null
+      "image": null,
+      "draft": "092-civil-2026-09-c",
+      "tweet": 28
     },
     {
       "date": "2026-09-30",
@@ -926,18 +1059,23 @@
       "exam": "concrete-chief",
       "type": "要点圧縮",
       "funnel": "site",
-      "target": "https://doboku-note.com/docs/concrete-chief-engineer-guide-trends?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep30-cce-trends",
-      "image": null
+      "target": "https://doboku-note.com/exam/concrete-chief-engineer/guide/trends?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep30-cce-trends",
+      "image": null,
+      "draft": "092-civil-2026-09-c",
+      "tweet": 29
     },
     {
       "date": "2026-09-30",
       "time": "19:35",
       "slot": "C",
-      "exam": "civil-2",
-      "type": "現場つぶやき",
-      "funnel": "linkless",
-      "target": null,
-      "image": null
+      "exam": "civil-1",
+      "type": "マガジン活用",
+      "funnel": "note",
+      "target": "https://note.com/dobokunote/m/mcfe1059b3335?utm_source=x&utm_medium=social&utm_campaign=civil-final-2026&utm_content=2026-09-30-C",
+      "image": null,
+      "draft": "092-civil-2026-09-c",
+      "tweet": 30,
+      "magazineId": "civil-1-gakka-kijutsu"
     }
   ]
 }

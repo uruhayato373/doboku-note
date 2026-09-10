@@ -82,9 +82,9 @@
           },
           {
             "type": "command",
-            "command": "node scripts/prune-tmp.mjs 2>/dev/null || true",
+            "command": "node scripts/local-resource-audit.mjs --quick",
             "timeout": 30,
-            "statusMessage": ".tmp の古いスクラッチを掃除中...",
+            "statusMessage": "空き容量とメモリを確認中...",
             "async": true
           }
         ]

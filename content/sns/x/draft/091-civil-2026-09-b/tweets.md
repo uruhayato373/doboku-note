@@ -1,209 +1,199 @@
-# 091 1級・2級土木・コンクリート主任技士 2026-09 中旬（9/11〜9/20・全30本）
+# 091 1級・2級土木・コンクリート主任技士 2026-09 中旬（9/11〜9/20）
 
-<!-- 1級土木 第2次 10/4（9/11時点で残り23日・9/20時点で残り14日）／2級土木 10/25（残り5〜6週）／コンクリート主任技士 申込締切9/1済・試験11/30（残り約2.5か月）。exam-calendar.json 準拠。
-1級土木の経験記述は令和6年度から2テーマ必答（R6=安全管理・施工計画／R7=品質管理・環境対策）。「1テーマに絞れる」は書かない。
-既予約83〜089とのフック・URL重複を避けて執筆。 -->
+<!-- 2026-09-10 改訂。scheduled の27件に学習カード原稿を作成。予約済み・置換済みの本文は保持。日程と送客先は月次計画を参照。 -->
 
----
+## Tweet 01: 9/11 07:15 civil-2 / 共感フック / linkless
 
-## Tweet 01: 9/11 07:15 civil-2 / 共感フック / linkless（リンクなし）
+経験記述の書き出しで止まったら、まず「自分が担当した仕事」を一行メモ。工事全体の説明と、自分が判断・対応したことを分けてみましょう。課題につながる現場条件も添えると、答案の材料になります。
 
-経験記述、書く工事は決めたのに「これで評価されるのか」という不安だけ残っている人へ。工事の大小は関係ない。その場で何を考えて動いたかを、具体的な言葉にできているかどうかだけが評価を分ける。
-
-#2級土木施工管理技士 #施工管理技士
+#2級土木施工管理技士
 
 ## Tweet 02: 9/11 12:10 civil-2 / 引っかけ集 / site
 
-【引っかけ集】令和6年度2次の型枠設問、脱型は側面から先と覚えていても梁部だけ順番を逆にする人がいる。荷重を受けにくい部分から外し、比較的重要な梁底（底面）が最後。「軽い方から」で統一すれば迷わない。
+型枠の取り外し順序は、部材の見た目の大きさで決めない。「どこが荷重を支えているか」が手がかりです。荷重を受けにくい部分から外す考え方を、令和6年度の設問で確認。
 
-https://doboku-note.com/docs/civil-construction-2-secondary-r06?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep11-c2-r06
+https://doboku-note.com/exam/civil-construction-2/secondary/r06?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep11-c2-r06
 
-#2級土木施工管理技士 #施工管理技士 #コンクリート工
+#2級土木施工管理技士
 
-## Tweet 03: 9/11 19:40 civil-1 / 添削セット / coconala
+## Tweet 03: 9/11 19:40 civil-1 / マガジン活用 / note
 
-第2次検定まで残り23日。この時期は工事を選び直すフェーズではなく、今の答案の精度を上げるフェーズだ。発注者として工事書類を見ていた立場から2テーマ分を通しで見ておけば、残りは直すだけの作業になる。
+完成答案を読むときは、現場条件と対策のつながりに注目。自分の経験へ置き換える練習に使えます。noteの1級土木・完成答案集は、5管理別の答案と置換ガイド、添削例を収録しています。
 
-https://coconala.com/services/4317375
+https://note.com/dobokunote/m/m150c9db08902?utm_source=x&utm_medium=social&utm_campaign=character-month-202609&utm_content=2026-09-11-C
 
 #1級土木施工管理技士 #施工管理技士
 
-## Tweet 04: 9/12 07:30 civil-1 / 暗記フレーズ / linkless（リンクなし）
+## Tweet 04: 9/12 07:30 civil-1 / 暗記フレーズ / linkless
 
-【暗記フレーズ】AE剤は空気量が1%増えると圧縮強度が4〜6%下がる。「1対4〜6」で数字ごと持っておくと、配合設計の穴埋めでこの対比を問われても迷わない。
+AE剤は「微細な独立気泡」で覚える。その気泡が、コンクリートの施工しやすさや凍結融解への抵抗性につながります。薬剤名だけ覚えていたら、働きまで一緒に言葉にしてみてください。
 
-#1級土木施工管理技士 #施工管理技士 #コンクリート工
+#1級土木施工管理技士
 
 ## Tweet 05: 9/12 12:25 civil-1 / 出題実績分析 / site
 
-施工経験記述、令和6年度より前のH23〜R2の10年では品質管理5回・安全管理4回・工程管理1回のみで、環境対策と施工計画は出題実績ゼロだった。令和6年度以降にこの2つが新たに加わっている。
+経験記述の過去問は、テーマ名と設問の分け方を一緒に確認。1級は令和6年度から、同じ工事について2テーマを書く形式です。昔の答案を使うときも、今の解答欄に合わせて準備しましょう。
 
-https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-guide?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep12-exp-guide
+https://doboku-note.com/exam/civil-construction-1/secondary/experience-writing-guide?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep12-exp-guide
 
-#1級土木施工管理技士 #施工管理技士 #経験記述
+#1級土木施工管理技士
 
 ## Tweet 06: 9/12 20:05 civil-1 / 論点解説 / site
 
-土工の土留めで混同しやすいのがボイリングとヒービング。ボイリングは砂質土地盤で水位差により水が噴き上げる現象、ヒービングは粘性土地盤で背面の土が掘削面に回り込み底面が隆起する現象。地盤の種類で名前が分かれる。
+ボイリングとヒービングは、どちらも掘削底面の不安定化。違いは原因です。砂質土で浸透流により砂が湧き上がるのか、粘性土が回り込んで底面を押し上げるのか。図と合わせて整理できます。
 
-https://doboku-note.com/docs/civil-construction-1-secondary-earthwork-past-problems?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep12n-earth-past
-
-#1級土木施工管理技士 #施工管理技士 #土工
-
-## Tweet 07: 9/13 07:45 civil-1 / 現場つぶやき / linkless（リンクなし）
-
-現場に着いたら仮設排水溝に落ち葉が詰まっていた。秋は台風や秋雨で盛土面の排水が乱れやすい。経験記述の工程管理でよく聞かれる「天候不順への対応」は、こういう日々の点検の積み重ねが土台になっている。
+https://doboku-note.com/exam/civil-construction-1/secondary/earthwork-past-problems?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep12n-earth-past
 
 #1級土木施工管理技士 #施工管理技士
 
-## Tweet 08: 9/13 12:40 civil-1 / 過去問1問1答 / site
+## Tweet 07: 9/13 07:45 civil-1 / 現場つぶやき / linkless
 
-Q.「配水管の新設工事で、漏水がないよう水密性確保に注意した」。この記述、弱点は分かるか。
+雨の土工対策を考えるときは、水の出口まで追ってみる。盛土表面だけ整えても、排水先へ流れなければ水が残ります。仮排水は、盛土の軟弱化を防ぎ、施工機械の走行性を確保するための計画です。
 
-A. 工事概要→現場状況→技術的課題の3段階になっておらず、地名や規模も無い。失敗例と改善ポイントをテーマ別にまとめた。
+#1級土木施工管理技士
 
-https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-examples?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep13-exp-examples
+## Tweet 08: 9/13 12:40 civil-1 / 答案セルフチェック / site
 
-#1級土木施工管理技士 #施工管理技士 #経験記述
+「安全に注意した」。この一文に何を足せますか。接触防止なら、車両と人の動線をどう分けたかまで書くと対策が伝わります。経験記述の改善例を、自分の答案を点検する材料に。
+
+https://doboku-note.com/exam/civil-construction-1/secondary/experience-writing-examples?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep13-exp-examples
+
+#1級土木施工管理技士
 
 ## Tweet 11: 9/14 12:15 civil-2 / 要点圧縮 / site
 
-建設特化の転職エージェント、2級で使えるかは実務経験の年数で決まる。数年あれば工種・規模・役割を語れて候補になる、未経験に近いなら他サービスとの併用が安全。使える人・使わない方がいい人を正直に整理した。
+資格欄の「2級」に、担当した工種・規模・役割を添えると経験を説明しやすくなります。転職相談の前に、担当した業務と補助した業務を整理しておきましょう。相談準備のメモはこちら。
 
-https://doboku-note.com/docs/civil-construction-2-guide-buildjob-review?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep14-buildjob-review
+https://doboku-note.com/exam/civil-construction-2/guide/buildjob-review?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep14-buildjob-review
 
-#2級土木施工管理技士 #施工管理技士
+#2級土木施工管理技士 #PR
 
-## Tweet 12: 9/14 20:55 civil-2 / 現場つぶやき / linkless（リンクなし）
+## Tweet 12: 9/14 20:55 civil-1 / マガジン活用 / note
 
-資材置き場の看板、雨で文字がにじんで読めなくなっていた。小さなことだけど、こういう管理の抜けも安全管理の記述ネタになる。「何を見て」「何に気づいて」「どう直したか」を書き留めておくと後で効く。
+自分の工事に合う答案例が見つからない。1級の有料マガジン「完全攻略パック」は、工種から選べる完成答案と置換ガイドを収録。近い現場を選び、事実の違いを書き出すところから。収録内容をnoteで確認できます。
 
-#2級土木施工管理技士 #施工管理技士
+https://note.com/dobokunote/m/m8290970a7f05?utm_source=x&utm_medium=social&utm_campaign=civil-final-2026&utm_content=2026-09-14-C
 
-## Tweet 13: 9/15 08:15 concrete-chief / 朝の一問 / linkless（リンクなし）
+#1級土木施工管理技士 #施工管理技士
 
-Q. 飲用に使われている井戸水を、試験せずそのままレディーミクストの練混ぜ水として使っていいか。
+## Tweet 13: 9/15 08:15 concrete-chief / 朝の一問 / linkless
 
-A. だめ。上水道水そのもの以外はすべて品質確認の対象になる。井戸水も例外ではない。
+飲める井戸水なら、練混ぜ水の品質確認は不要？　過去問では「飲用かどうか」と「上水道水の区分」を混ぜないのがポイント。井戸水を上水道水と同じ扱いにしないよう確認しましょう。
 
-#コンクリート主任技士 #コンクリート技士
+#コンクリート主任技士
 
 ## Tweet 14: 9/15 12:30 concrete-chief / 引っかけ集 / site
 
-【引っかけ集】圧縮強度の合格判定、3回の平均値が呼び強度以上なら合格、で終わっていないか。最小値が呼び強度の85%以上であることも同時に満たす必要がある。平均だけ見て判定を誤る典型パターン。
+圧縮強度の過去問で、平均値が高いからと計算を止めていませんか。平均の条件と、各回の試験結果の条件を両方見る必要があります。まずは「何の平均か」も含めて設問を読み直してみましょう。
 
-https://doboku-note.com/docs/concrete-chief-engineer-primary-production-qc?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep15-cce-qc
+https://doboku-note.com/exam/concrete-chief-engineer/primary/production-qc?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep15-cce-qc
 
-#コンクリート主任技士 #コンクリート技士
+#コンクリート主任技士
 
-## Tweet 15: 9/15 21:10 civil-1 / 予想模試 / coconala
+## Tweet 15: 9/15 21:10 civil-2 / マガジン活用 / note
 
-学科記述の準備が後回しになっていないか、一度点検してほしい。本番形式1回分、経験記述2テーマ（新形式）と学科記述をセットにした予想模擬試験を問題冊子と解答解説で用意した。自己採点ガイド付き、出題を保証するものではない。
+2級の経験記述、課題と対応がつながっているかを読み返してみましょう。noteの完成答案集は、安全・品質・工程別の答案に、自分の現場への置換ガイドを収録。書き方を比較する教材として使えます。
 
-https://coconala.com/services/4317886
+https://note.com/dobokunote/m/m1881a9578027?utm_source=x&utm_medium=social&utm_campaign=character-month-202609&utm_content=2026-09-15-C
 
-#1級土木施工管理技士 #施工管理技士
+#2級土木施工管理技士 #施工管理技士
 
-## Tweet 16: 9/16 08:30 civil-1 / 共感フック / linkless（リンクなし）
+## Tweet 16: 9/16 08:30 civil-1 / 共感フック / linkless
 
-書いた答案を読み返すたびに、これで伝わるのか不安になる時期だと思う。自分の文章は何度読んでも欠けている部分に気づきにくい。焦って新しいことを足すより、今ある答案を磨く方が今は効く。
+答案の「徹底した」に線を引いてみる。何を、どの方法で行ったのかが続いていれば具体的です。続いていなければ、実際に行った測定・確認・指示を書き足せないか、経験を振り返ってみましょう。
 
-#1級土木施工管理技士 #施工管理技士
+#1級土木施工管理技士
 
-## Tweet 17: 9/16 12:45 civil-1 / 出題実績分析 / site
+## Tweet 17: 9/16 12:45 civil-1 / 論点解説 / site
 
-コンクリート工でよく問われる数値は乾燥収縮の低減幅。高性能AE減水剤に収縮低減成分を配合したものは、乾燥収縮を5〜20%低減できる。範囲つきで覚えておくと空欄補充で強い。
+湿潤養生は、表面に一度水をかけて終わりではありません。覆いなどで乾燥を防ぎ、水分を保つ管理までセット。打込み後のコンクリートに何が必要か、養生の方法から整理します。
 
-https://doboku-note.com/docs/civil-construction-1-secondary-concrete-basics?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep16-concrete-basics
+https://doboku-note.com/exam/civil-construction-1/secondary/concrete-basics?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep16-concrete-basics
 
-#1級土木施工管理技士 #施工管理技士 #コンクリート工
+#1級土木施工管理技士
 
 ## Tweet 18: 9/16 19:50 concrete-chief / 論点解説 / site
 
-コンクリート技士と主任技士は出題分野が重なるが、求められる能力の段階が違う。技士は基準や試験結果を「理解し実施する」段階、主任技士はそれを踏まえて「使用可否を判断し基準を立案する」段階まで問われる。
+主任技士の勉強は、用語を覚えた先の「どう判断するか」まで。材料試験なら、結果を読んで使用可否や使い方を考えます。技士との違いを確認すると、知識をどこまで説明するかが見えてきます。
 
-https://doboku-note.com/docs/concrete-chief-engineer-guide-overview?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep16n-cce-overview
+https://doboku-note.com/exam/concrete-chief-engineer/guide/overview?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep16n-cce-overview
 
 #コンクリート主任技士 #コンクリート技士
 
-## Tweet 19: 9/17 07:20 civil-2 / 暗記フレーズ / linkless（リンクなし）
+## Tweet 19: 9/17 07:20 civil-2 / 暗記フレーズ / linkless
 
-【暗記フレーズ】施工計画の3本柱、労務は職種別、機械は種別と台数、資材は保管まで。「職・種台・保管」の3点だけ拾えれば、調達計画の穴埋めはだいたい埋まる。
+資材計画は「注文した」で終わらない。調達した資材をどこに保管し、いつ使うかまでつなげます。「注文→調達→保管→使用」と流れで覚えると、工程に支障を出さないための計画として理解できます。
 
-#2級土木施工管理技士 #施工管理技士
+#2級土木施工管理技士
 
 ## Tweet 20: 9/17 12:20 civil-2 / 過去問1問1答 / site
 
-Q. 横線式工程表とネットワーク式工程表、それぞれの強みを1つずつ言えるか。
+Q. 横線式工程表で読み取りにくいのは？　各工種の日数は見やすくても、作業同士の前後関係は把握しにくい点があります。ネットワーク式との違いを、令和6年度の問題で比べてみましょう。
 
-A. 横線式は各工種の所要日数や進捗が一目で分かる、ネットワーク式は先行・後続関係とクリティカルパスを明示できる。令和6年度2次の出題。
+https://doboku-note.com/exam/civil-construction-2/secondary/r06?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep17-c2-r06
 
-https://doboku-note.com/docs/civil-construction-2-secondary-r06?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep17-c2-r06
+#2級土木施工管理技士
 
-#2級土木施工管理技士 #施工管理技士 #過去問
+## Tweet 21: 9/17 20:15 civil-1 / マガジン活用 / note
 
-## Tweet 21: 9/17 20:15 civil-1 / 設計キット / brain
+同じ工事の2テーマで、対策の文まで同じになっていませんか。管理テーマごとに課題と判断を分ける練習を。noteの組合せ大全は、5管理の全10組合せの模範答案を収録しています。
 
-経験記述をClaude Codeで設計するキットには、字数・必須項目・プレースホルダの検査スクリプトを同梱している。本人の経験にない工事内容を推測で埋めることはせず、情報不足はそのまま手元に残す仕組みにした。
-
-https://brain-market.com/a/b5EDO3UjMgoTZsNWa0JXY
+https://note.com/dobokunote/m/m74cfd7c695d6?utm_source=x&utm_medium=social&utm_campaign=character-month-202609&utm_content=2026-09-17-C
 
 #1級土木施工管理技士 #施工管理技士
 
-## Tweet 22: 9/18 07:50 civil-1 / 現場つぶやき / linkless（リンクなし）
+## Tweet 22: 9/18 07:50 civil-1 / 現場つぶやき / linkless
 
-工程写真を整理していたら、8月の豪雨対応の記録が一番厚かった。経験記述に使う工事はまだ現場が動いている最中でも、こうして記録を残しておくだけで後の題材選びが楽になる。
+工期のメモは「12月〜3月」で止めず、年と年月日まで確認。年をまたぐ工事ほど、略記だけでは読み手が迷います。工事書類と照合して、工事概要の数字を先にそろえておきましょう。
 
-#1級土木施工管理技士 #施工管理技士
+#1級土木施工管理技士
 
 ## Tweet 23: 9/18 12:35 civil-1 / 要点圧縮 / site
 
-経験記述で迷ったら、この4手順に戻る。工事概要を正確に書き出す、品質・安全・工程で課題を1つずつ挙げる、検討と対応を分けて書く、字数に収まるよう削る。抜けている手順があれば、そこが今の弱点。
+対応は書けたのに、検討が書けない。そのときは「なぜ、その方法を選んだか」を一文にしてみてください。経験記述の準備では、判断の理由と実施したことを分けると整理しやすくなります。
 
-https://doboku-note.com/docs/civil-construction-1-secondary-getting-started?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep18-getting-started
+https://doboku-note.com/exam/civil-construction-1/secondary/getting-started?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep18-getting-started
 
-#1級土木施工管理技士 #施工管理技士
+#1級土木施工管理技士
 
-## Tweet 24: 9/18 20:40 civil-1 / 発注者視点解説 / linkless（リンクなし）
+## Tweet 24: 9/18 20:40 civil-1 / 発注者視点解説 / linkless
 
-施工量の書き方、「掘削◯◯ha」のような曖昧な単位で終わっていないか。発注者の立場で見ると面積だけでは工事規模が伝わらない。掘削◯◯m3、コンクリート◯◯m3のように、数値で規模が分かる書き方にする。
-
-#1級土木施工管理技士 #施工管理技士
-
-## Tweet 25: 9/19 08:10 civil-1 / リフレーム / linkless（リンクなし）
-
-10月4日まで2週間ほどになると、今の答案で本当に大丈夫かという不安が出てくる。ここで工事を変える判断は基本的にしない方がいい。不安の正体は工事選びより、答案をまだ声に出して読んでいないことの方が多い。
+施工量に「○○m3」とだけ書いても、何の量か伝わりません。掘削、コンクリート、舗装などの工種と、数量・単位をセットに。工事概要の「主な工種」と対応しているか、横に並べて確認しましょう。
 
 #1級土木施工管理技士 #施工管理技士
+
+## Tweet 25: 9/19 08:10 civil-1 / リフレーム / linkless
+
+答案の推敲は、解答欄に収まるかの確認まで。画面で読める長さと、手書きで収まる長さは同じとは限りません。一度書き写し、必要な項目を残したまま長い箇所を整えてみましょう。
+
+#1級土木施工管理技士
 
 ## Tweet 26: 9/19 12:50 civil-1 / 引っかけ集 / site
 
-【引っかけ集】フライアッシュや高炉スラグ微粉末を「混和剤」と書いていないか。使用量が多く容積に算入されるのが「混和材」、AE減水剤のように少量なのが「混和剤」。字面が似て逆に書く人が多い。
+「混和材」と「混和剤」を区別できますか。フライアッシュ・高炉スラグ微粉末は材、AE剤・減水剤は剤。名称と働きを対にして整理すると、似た語句の取り違えに気づけます。過去問で確認を。
 
-https://doboku-note.com/docs/civil-construction-1-secondary-concrete-past-problems?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep19-concrete-past
+https://doboku-note.com/exam/civil-construction-1/secondary/concrete-past-problems?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep19-concrete-past
 
-#1級土木施工管理技士 #施工管理技士 #コンクリート工
+#1級土木施工管理技士
 
-## Tweet 27: 9/19 21:05 civil-2 / 学科記述 / note
+## Tweet 27: 9/19 21:05 civil-1 / マガジン活用 / note
 
-学科記述、年度別に過去問を解くだけでは同じ論点を何度も往復することになる。土工・コンクリート工・安全管理法規・施工計画環境・品質管理の5分野に横断再編し、出題頻度と出る順、頻出語句の穴埋めリストにまとめた。
+学科記述の復習が散らばったら、同じ分野の問題を並べてみる。noteの1級土木・テーマ別攻略集は、土工やコンクリートなど5分野に再編。出題頻度表と穴埋めリストで、覚え直す語句を探せます。
 
-https://note.com/dobokunote/m/m9a09a8982734
+https://note.com/dobokunote/m/mcfe1059b3335?utm_source=x&utm_medium=social&utm_campaign=character-month-202609&utm_content=2026-09-19-C
 
-#2級土木施工管理技士 #施工管理技士
+#1級土木施工管理技士 #施工管理技士
 
-## Tweet 28: 9/20 08:35 concrete-chief / 朝の一問 / linkless（リンクなし）
+## Tweet 28: 9/20 08:35 concrete-chief / 朝の一問 / linkless
 
-Q. 主任技士の出題範囲、大きく分けると何分野あるか。
+主任技士の択一、正しい肢を見つけたら復習は終わり？　ほかの肢の「どこが違うか」も一言で説明してみましょう。正答番号だけを覚えていた箇所が、見直すべき知識として見えてきます。
 
-A. コンクリート用材料・性質・耐久性・配合設計・製造品質管理／検査・施工の6分野。特定の分野だけ深堀りしても、他で失点が重なると合格点に届かない構造になっている。
+#コンクリート主任技士
 
-#コンクリート主任技士 #コンクリート技士
+## Tweet 29: 9/20 12:55 concrete-chief / 論述の型 / site
 
-## Tweet 29: 9/20 12:55 concrete-chief / 出題実績分析 / site
+小論文の序論が長くなったら、本論の枠を先に確保。「原因の検討」と「具体策」に文章を使い、結論では留意点を添える。用語の羅列を、現場の判断が伝わる文章へ組み直す練習です。
 
-小論文で論じやすいテーマは、耐久性（中性化・塩害・凍害・ASR）、品質管理、環境配慮、施工トラブル対応の4系統に絞れる。年度ごとの出題テーマを丸暗記するより、この4系統で経験をストック化しておく方が再現性が高い。
+https://doboku-note.com/exam/concrete-chief-engineer/guide/essay?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep20-cce-essay
 
-https://doboku-note.com/docs/concrete-chief-engineer-guide-essay?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep20-cce-essay
-
-#コンクリート主任技士 #コンクリート技士
+#コンクリート主任技士

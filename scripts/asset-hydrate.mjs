@@ -21,13 +21,15 @@
 //
 // exit 0 = 全件解決 / exit 1 = 解決できないものがある or 検査不成立
 
-import { existsSync, mkdirSync, readdirSync, readFileSync, renameSync, statSync, unlinkSync, utimesSync, writeFileSync } from 'node:fs';
+import { copyFileSync, existsSync, mkdirSync, readdirSync, readFileSync, renameSync, statSync, statfsSync, unlinkSync, utimesSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import {
   loadConfig, loadManifest, loadEnvLocal, makeS3, hasR2Credentials,
   cachePathFor, cacheDirFor, sha256File, fileBytes, toPosix,
 } from './lib/asset-storage.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
+import { downloadVerified } from './lib/verified-download.mjs';
+import { acquireLock } from './lib/local-resources.mjs';
 
 const argv = process.argv.slice(2);
 const flag = (n) => argv.includes(n);
@@ -48,7 +50,7 @@ async function main() {
   if (!GROUP_ID && !PATH_PREFIX) {
     console.error('[asset-hydrate] --group か --path のどちらかが要る（全件 hydrate は容量が読めないので既定にしない）');
     console.error('  group: ' + cfg.groups.map((g) => g.id).join(' / '));
-    process.exit(1);
+    throw new Error('Missing target');
   }
 
   let targets = all;
@@ -58,12 +60,12 @@ async function main() {
   if (all.length === 0) {
     console.error('[asset-hydrate] manifest が空。まだ 1 件も退避されていないので hydrate する対象が無い。');
     console.error('  「異常なし」ではなく「未実施」。退避は scripts/asset-offload.mjs。');
-    process.exit(1);
+    throw new Error('Empty manifest');
   }
   if (targets.length === 0) {
     console.error('[asset-hydrate] 条件に一致する manifest エントリが 0 件（manifest 全体は ' + all.length + ' 件）。');
     console.error('  --group / --path の指定が実体と合っていない。検査不成立として exit 1 にする。');
-    process.exit(1);
+    throw new Error('No matching entries');
   }
 
   console.log('[asset-hydrate] 対象 ' + targets.length + ' 件 / mode=' + (DRY ? 'DRY-RUN' : OFFLINE ? 'OFFLINE（cache のみ）' : 'ONLINE'));
@@ -85,6 +87,16 @@ async function main() {
   console.log('  再生成が要る      : ' + plan.generator.length);
   console.log('  解決不能          : ' + plan.unresolved.length);
 
+  const restoreBytes = [...plan.cache, ...plan.r2].reduce((sum, [, entry]) => sum + entry.bytes, 0);
+  const maxBytes = Number(val('--max-mib', cfg.cache?.maxRestoreMiB ?? 512)) * 1048576;
+  if (!Number.isFinite(maxBytes) || maxBytes <= 0) throw new Error('Invalid --max-mib');
+  console.log('  復元予定容量 MiB : ' + mib(restoreBytes));
+  if (!DRY && restoreBytes > maxBytes) throw new Error('Restore exceeds limit: narrow --path or explicitly raise --max-mib');
+  const disk = statfsSync(REPO_ROOT);
+  const resourcePolicy = JSON.parse(readFileSync(join(REPO_ROOT, '.claude/config/local-resources.json'), 'utf8'));
+  const reserveBytes = (process.env.CI ? 1 : resourcePolicy.minFreeDiskGiB) * 1073741824;
+  if (!DRY && disk.bavail * disk.bsize < restoreBytes * 2 + reserveBytes) throw new Error('Insufficient free disk for restore');
+
   if (DRY) {
     for (const [p, e] of [...plan.cache, ...plan.r2].slice(0, 10)) {
       console.log('  ' + String(mib(e.bytes)).padStart(7) + ' MiB  ' + p);
@@ -100,7 +112,7 @@ async function main() {
   for (const [logical, e] of plan.cache) {
     const src = cachePathFor(cfg, e.r2Key);
     const ok = placeVerified(src, join(REPO_ROOT, logical), e, failures, logical, 'cache');
-    if (ok) { restored++; touch(src); }
+    if (ok) { restored++; if (flag('--keep-cache') || cfg.cache?.retainDownloadedCopies !== false) touch(src); else unlinkSync(src); }
   }
 
   // 3. R2 から
@@ -109,7 +121,7 @@ async function main() {
     if (!hasR2Credentials()) {
       console.error('[asset-hydrate] FAIL: R2 credential が無いので ' + plan.r2.length + ' 件を取得できない。');
       console.error('  cache だけで作業するなら --offline を付けること（何が足りないかが分かる）。');
-      process.exit(1);
+      throw new Error('R2 credentials unavailable');
     }
     const s3 = await makeS3();
     const { GetObjectCommand } = await import('@aws-sdk/client-s3');
@@ -117,13 +129,11 @@ async function main() {
       const bucketName = cfg.buckets[e.bucket]?.name;
       if (!bucketName) { failures.push({ logical, why: 'manifest の bucket "' + e.bucket + '" が設定に無い' }); continue; }
       const cachePath = cachePathFor(cfg, e.r2Key);
-      const tmp = cachePath + '.tmp';
+      const tmp = cachePath + `.${process.pid}.tmp`;
       try {
-        const got = await s3.send(new GetObjectCommand({ Bucket: bucketName, Key: e.r2Key }));
-        const chunks = [];
-        for await (const c of got.Body) chunks.push(c);
+        const got = await s3.send(new GetObjectCommand({ Bucket: bucketName, Key: e.r2Key }), { abortSignal: AbortSignal.timeout(120000) });
         mkdirSync(dirname(cachePath), { recursive: true });
-        writeFileSync(tmp, Buffer.concat(chunks));
+        await downloadVerified(got.Body, tmp, e);
       } catch (err) {
         failures.push({ logical, why: 'R2 取得に失敗: ' + String(err.name || err.message).slice(0, 80) });
         continue;
@@ -135,8 +145,12 @@ async function main() {
         continue;
       }
       renameSync(tmp, cachePath);
-      if (placeVerified(cachePath, join(REPO_ROOT, logical), e, failures, logical, 'r2')) restored++;
+      if (placeVerified(cachePath, join(REPO_ROOT, logical), e, failures, logical, 'r2')) {
+        restored++;
+        if (!flag('--keep-cache') && cfg.cache?.retainDownloadedCopies === false) unlinkSync(cachePath);
+      }
     }
+    s3.destroy();
   }
 
   // 4. generator の提示（勝手に実行しない。再生成は byte が変わりうる＝別の判断）
@@ -157,7 +171,7 @@ async function main() {
 
   console.log('\n[asset-hydrate] 復元 ' + restored + ' 件 / 失敗 ' + failures.length + ' 件 / 解決不能 ' + plan.unresolved.length + ' 件');
   for (const f of failures.slice(0, 15)) console.error('  ' + f.logical + ' — ' + f.why);
-  if (failures.length || plan.unresolved.length) process.exit(1);
+  if (failures.length || plan.unresolved.length) throw new Error('Restore incomplete');
   console.log('  ✓ 対象はすべて手元にある');
 }
 
@@ -167,7 +181,12 @@ function placeVerified(src, dst, entry, failures, logical, from) {
   if (bytes !== entry.bytes) { failures.push({ logical, why: from + ' の bytes が manifest と違う（' + bytes + ' != ' + entry.bytes + '）' }); return false; }
   if (sha256File(src) !== entry.sha256) { failures.push({ logical, why: from + ' の sha256 が manifest と違う' }); return false; }
   mkdirSync(dirname(dst), { recursive: true });
-  writeFileSync(dst, readFileSync(src));
+  const tmp = dst + `.${process.pid}.hydrate-tmp`;
+  try {
+    copyFileSync(src, tmp);
+    if (fileBytes(tmp) !== entry.bytes || sha256File(tmp) !== entry.sha256) throw new Error('Copied file mismatch');
+    renameSync(tmp, dst);
+  } catch (error) { if (existsSync(tmp)) unlinkSync(tmp); throw error; }
   return true;
 }
 
@@ -207,7 +226,8 @@ function walk(dir, out) {
     }
   }
 }
+const release = acquireLock(REPO_ROOT, 'hydrate');
 main().catch((e) => {
   console.error('[asset-hydrate] FAIL: ' + String(e.message || e).slice(0, 300));
-  process.exit(1);
-});
+  process.exitCode = 1;
+}).finally(release);

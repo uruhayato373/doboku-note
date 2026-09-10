@@ -19,10 +19,11 @@
 // 出力: .claude/state/repo-assets/audit-latest.{json,md}
 // 真実源カード: .claude/todo/backlog.md の DN-0111
 
-import { execFileSync, execSync } from 'node:child_process';
+import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync, writeFileSync, readdirSync, mkdirSync } from 'node:fs';
 import { join, dirname, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { scanTree } from './lib/local-resources.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const OUT_DIR = join(ROOT, '.claude/state/repo-assets');
@@ -49,19 +50,20 @@ const git = (args, opts = {}) =>
 function measureScales() {
   const co = git(['count-objects', '-vH']);
   const field = (k) => (co.match(new RegExp('^' + k + ': (.+)$', 'm')) || [])[1] || null;
-  let worktreeBytes = null;
-  try {
-    const du = execSync('du -sk . 2>/dev/null', { cwd: ROOT, encoding: 'utf-8' });
-    const total = Number(du.trim().split(/\s+/)[0]) * 1024;
-    const dg = execSync('du -sk .git 2>/dev/null', { cwd: ROOT, encoding: 'utf-8' });
-    worktreeBytes = total - Number(dg.trim().split(/\s+/)[0]) * 1024;
-  } catch { /* du 不在環境では null のまま */ }
+  const deadline = Date.now() + 180000;
+  const rows = readdirSync(ROOT, { withFileTypes: true }).filter(e => e.name !== '.git' && !e.isSymbolicLink())
+    .map(e => scanTree(ROOT, e.name, deadline));
+  const worktreeErrors = rows.flatMap(row => row.errors.map(error => `${row.path}: ${error}`));
+  const worktreeBytes = worktreeErrors.length ? null : rows.reduce((sum, row) => sum + row.bytes, 0);
+  const lfs = scanTree(ROOT, '.git/lfs', Date.now() + 30000);
   return {
     gitPackHuman: field('size-pack'),
     gitGarbageHuman: field('size-garbage'),
     inPackObjects: Number(field('in-pack') || 0),
     looseObjects: Number(field('count') || 0),
     worktreeBytes,
+    worktreeErrors,
+    gitLfsBytes: lfs.errors.length ? null : lfs.bytes,
   };
 }
 
@@ -519,6 +521,8 @@ function main() {
     scales: {
       worktreeBytes: scales.worktreeBytes,
       worktreeGiB: scales.worktreeBytes == null ? null : gib(scales.worktreeBytes),
+      worktreeErrors: scales.worktreeErrors,
+      gitLfsBytes: scales.gitLfsBytes,
       headTrackedBytes: headBytes, headTrackedGiB: gib(headBytes), headTrackedFiles: blobs.length,
       gitPackHuman: scales.gitPackHuman, gitGarbageHuman: scales.gitGarbageHuman,
       inPackObjects: scales.inPackObjects, looseObjects: scales.looseObjects,

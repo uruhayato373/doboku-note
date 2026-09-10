@@ -1,0 +1,269 @@
+{
+  "schemaVersion": 1,
+  "tweets": {
+    "1": {
+      "headline": [
+        "概要を隠して",
+        "本文を読んでみる"
+      ],
+      "points": [
+        "工種・場所・担当を説明する",
+        "概要と矛盾しないか照合"
+      ],
+      "character": {
+        "pose": "thinking",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+      ],
+      "alt": "概要を隠して。本文を読んでみる。工種・場所・担当を説明する。概要と矛盾しないか照合。"
+    },
+    "2": {
+      "headline": [
+        "工事は決まった",
+        "次は書く観点"
+      ],
+      "points": [
+        "工事別の完成答案と置換ガイド",
+        "経験した工種に近い例を探す",
+        "有料バンクの収録工事はnoteへ"
+      ],
+      "character": {
+        "pose": "explaining",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "src/lib/note-magazines.ts",
+        "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事63-下水道管渠開削/article.md"
+      ],
+      "alt": "工事は決まった。次は書く観点。工事別の完成答案と置換ガイド。経験した工種に近い例を探す。有料バンクの収録工事はnoteへ。"
+    },
+    "3": {
+      "headline": [
+        "対策から逆向きに",
+        "課題へたどる"
+      ],
+      "points": [
+        "どの課題への対策か確認",
+        "説明が飛んだ箇所を書き直す"
+      ],
+      "character": {
+        "pose": "pointing",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/civil-construction-2/secondary-experience-writing-examples/article.mdx"
+      ],
+      "alt": "対策から逆向きに。課題へたどる。どの課題への対策か確認。説明が飛んだ箇所を書き直す。"
+    },
+    "4": {
+      "headline": [
+        "3つの管理で",
+        "何を書き分ける？"
+      ],
+      "points": [
+        "テーマ別の完成答案と添削例",
+        "守る対象・条件・対策を比較",
+        "有料答案集の案内は本文へ"
+      ],
+      "character": {
+        "pose": "thinking",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "src/lib/note-magazines.ts",
+        "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集/品質管理/article.md"
+      ],
+      "alt": "3つの管理で。何を書き分ける？。テーマ別の完成答案と添削例。守る対象・条件・対策を比較。有料答案集の案内は本文へ。"
+    },
+    "5": {
+      "headline": [
+        "3つの見出しで",
+        "準備の穴を探す"
+      ],
+      "points": [
+        "安全・品質・工程を並べる",
+        "空いた欄の材料を記録から探す"
+      ],
+      "character": {
+        "pose": "explaining",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+      ],
+      "alt": "3つの見出しで。準備の穴を探す。安全・品質・工程を並べる。空いた欄の材料を記録から探す。"
+    },
+    "6": {
+      "headline": [
+        "問いに印を付け",
+        "答案から探す"
+      ],
+      "points": [
+        "求められた要素を確認",
+        "理由と実施内容を混同しない"
+      ],
+      "character": {
+        "pose": "pointing",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/civil-construction-2/secondary-r07/article.mdx"
+      ],
+      "alt": "問いに印を付け。答案から探す。求められた要素を確認。理由と実施内容を混同しない。"
+    },
+    "7": {
+      "headline": [
+        "その作業の主語",
+        "自分の役割は？"
+      ],
+      "points": [
+        "工事全体と担当業務を分ける",
+        "実際に行ったことを動詞にする"
+      ],
+      "character": {
+        "pose": "thinking",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+      ],
+      "alt": "その作業の主語。自分の役割は？。工事全体と担当業務を分ける。実際に行ったことを動詞にする。"
+    },
+    "8": {
+      "headline": [
+        "問いが変われば",
+        "答え方も点検"
+      ],
+      "points": [
+        "年度別の問題文と複数工事の答案",
+        "設問条件ごとに必要な要素を確認",
+        "有料の収録一覧はnoteから"
+      ],
+      "character": {
+        "pose": "explaining",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "src/lib/note-magazines.ts",
+        "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-過去問模範答案集/R07/article.md"
+      ],
+      "alt": "問いが変われば。答え方も点検。年度別の問題文と複数工事の答案。設問条件ごとに必要な要素を確認。有料の収録一覧はnoteから。"
+    },
+    "9": {
+      "headline": [
+        "その対策に",
+        "なぜを一つ足す"
+      ],
+      "points": [
+        "対策が必要になった条件を示す",
+        "現場条件から理由をつなぐ"
+      ],
+      "character": {
+        "pose": "pointing",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/civil-construction-2/secondary-experience-writing-examples/article.mdx"
+      ],
+      "alt": "その対策に。なぜを一つ足す。対策が必要になった条件を示す。現場条件から理由をつなぐ。"
+    },
+    "10": {
+      "headline": [
+        "短文記述には",
+        "何を書けばよい？"
+      ],
+      "points": [
+        "設問に応じた解答の型を収録",
+        "何を・なぜ・どうするを確認",
+        "有料教材の内容は本文リンクへ"
+      ],
+      "character": {
+        "pose": "thinking",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "src/lib/note-magazines.ts",
+        "content/note/1級・2級土木/2級土木/magazines/2級土木-二次学科記述-テーマ別出る順/コンクリート工/article.md"
+      ],
+      "alt": "短文記述には。何を書けばよい？。設問に応じた解答の型を収録。何を・なぜ・どうするを確認。有料教材の内容は本文リンクへ。"
+    },
+    "11": {
+      "headline": [
+        "手で書いて",
+        "時間配分を点検"
+      ],
+      "points": [
+        "解答欄を意識して書く",
+        "詰まった箇所・終了時刻を記録"
+      ],
+      "character": {
+        "pose": "explaining",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/civil-construction-2/guide-study-plan/article.mdx",
+        "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+      ],
+      "alt": "手で書いて。時間配分を点検。解答欄を意識して書く。詰まった箇所・終了時刻を記録。"
+    },
+    "12": {
+      "headline": [
+        "最後の復習は",
+        "迷った語に印"
+      ],
+      "points": [
+        "穴埋め語句リストを収録",
+        "答えを隠して書き出す練習に",
+        "有料マガジンの案内は本文へ"
+      ],
+      "character": {
+        "pose": "pointing",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "src/lib/note-magazines.ts",
+        "content/note/1級・2級土木/2級土木/magazines/2級土木-二次学科記述-テーマ別出る順/コンクリート工/article.md"
+      ],
+      "alt": "最後の復習は。迷った語に印。穴埋め語句リストを収録。答えを隠して書き出す練習に。有料マガジンの案内は本文へ。"
+    },
+    "13": {
+      "headline": [
+        "曖昧な数字を",
+        "記録と照合する"
+      ],
+      "points": [
+        "工期・数量・管理値を確認",
+        "確認できた事実と単位を書く"
+      ],
+      "character": {
+        "pose": "thinking",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+      ],
+      "alt": "曖昧な数字を。記録と照合する。工期・数量・管理値を確認。確認できた事実と単位を書く。"
+    },
+    "14": {
+      "headline": [
+        "明日の準備を",
+        "今夜のうちに"
+      ],
+      "points": [
+        "受検票の案内・持ち物を確認",
+        "移動を決めて学習を切り上げる"
+      ],
+      "character": {
+        "pose": "explaining",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        ".claude/config/exam-calendar.json",
+        "content/site/civil-construction-2/guide-study-plan/article.mdx"
+      ],
+      "alt": "明日の準備を。今夜のうちに。受検票の案内・持ち物を確認。移動を決めて学習を切り上げる。"
+    }
+  }
+}

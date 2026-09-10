@@ -1,0 +1,481 @@
+{
+  "schemaVersion": 1,
+  "tweets": {
+    "2": {
+      "headline": [
+        "出来形管理を",
+        "具体的に書く"
+      ],
+      "points": [
+        "測定箇所・頻度を示す",
+        "確認結果までつなげる"
+      ],
+      "character": {
+        "pose": "explaining",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/civil-construction-1/secondary-experience-writing-examples/article.mdx"
+      ],
+      "alt": "出来形管理を。具体的に書く。測定箇所・頻度を示す。確認結果までつなげる。"
+    },
+    "3": {
+      "headline": [
+        "まず設問条件",
+        "次に模範答案"
+      ],
+      "points": [
+        "年度ごとの問いを確認",
+        "自分の工事で答え直す"
+      ],
+      "character": {
+        "pose": "pointing",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "src/lib/note-magazines.ts"
+      ],
+      "alt": "まず設問条件。次に模範答案。年度ごとの問いを確認。自分の工事で答え直す。"
+    },
+    "4": {
+      "headline": [
+        "締固めの基本",
+        "横へ運ばない"
+      ],
+      "points": [
+        "なるべく鉛直に挿入",
+        "横移動は材料分離の原因"
+      ],
+      "character": {
+        "pose": "thinking",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/civil-construction-1/secondary-concrete-basics/article.mdx"
+      ],
+      "alt": "締固めの基本。横へ運ばない。なるべく鉛直に挿入。横移動は材料分離の原因。"
+    },
+    "5": {
+      "headline": [
+        "機械選びの前に",
+        "現場条件を確認"
+      ],
+      "points": [
+        "事前調査で条件を把握",
+        "基本計画から詳細計画へ"
+      ],
+      "character": {
+        "pose": "explaining",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/civil-construction-1/secondary-construction-plan-basics/article.mdx"
+      ],
+      "alt": "機械選びの前に。現場条件を確認。事前調査で条件を把握。基本計画から詳細計画へ。"
+    },
+    "6": {
+      "headline": [
+        "雨の影響を",
+        "具体的な課題へ"
+      ],
+      "points": [
+        "含水比・排水を確認",
+        "課題と対策を結びつける"
+      ],
+      "character": {
+        "pose": "pointing",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/civil-construction-2/secondary-experience-writing-examples/article.mdx"
+      ],
+      "alt": "雨の影響を。具体的な課題へ。含水比・排水を確認。課題と対策を結びつける。"
+    },
+    "7": {
+      "headline": [
+        "かぶりの距離",
+        "どこから測る？"
+      ],
+      "points": [
+        "コンクリート表面から",
+        "鉄筋表面までを測る"
+      ],
+      "character": {
+        "pose": "thinking",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/civil-construction-1/secondary-concrete-basics/article.mdx"
+      ],
+      "alt": "かぶりの距離。どこから測る？。コンクリート表面から。鉄筋表面までを測る。"
+    },
+    "8": {
+      "headline": [
+        "資格取得の先",
+        "待遇を確認する"
+      ],
+      "points": [
+        "資格手当の条件を確認",
+        "担当業務・昇格も確認"
+      ],
+      "character": {
+        "pose": "explaining",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/civil-construction-2/guide-career/article.mdx"
+      ],
+      "alt": "資格取得の先。待遇を確認する。資格手当の条件を確認。担当業務・昇格も確認。"
+    },
+    "9": {
+      "headline": [
+        "2つのテーマを",
+        "同じ内容にしない"
+      ],
+      "points": [
+        "組合せ別の模範答案を収録",
+        "課題と対応の違いを比べる",
+        "有料マガジンは本文から"
+      ],
+      "character": {
+        "pose": "pointing",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "src/lib/note-magazines.ts",
+        "content/note/1級・2級土木/1級土木/magazines/1級土木-施工経験記述-2テーマ組合せ大全/品質x安全/article.md"
+      ],
+      "alt": "2つのテーマを。同じ内容にしない。組合せ別の模範答案を収録。課題と対応の違いを比べる。有料マガジンは本文から。"
+    },
+    "10": {
+      "headline": [
+        "対策を選んだ",
+        "理由を書ける？"
+      ],
+      "points": [
+        "現場条件を一つ示す",
+        "選定理由とつながるか確認"
+      ],
+      "character": {
+        "pose": "thinking",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/civil-construction-1/secondary-experience-writing-examples/article.mdx"
+      ],
+      "alt": "対策を選んだ。理由を書ける？。現場条件を一つ示す。選定理由とつながるか確認。"
+    },
+    "11": {
+      "headline": [
+        "腐食につながる",
+        "原因を見分ける"
+      ],
+      "points": [
+        "中性化：二酸化炭素",
+        "塩害：塩化物イオン"
+      ],
+      "character": {
+        "pose": "explaining",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/civil-construction-1/secondary-concrete-basics/article.mdx"
+      ],
+      "alt": "腐食につながる。原因を見分ける。中性化：二酸化炭素。塩害：塩化物イオン。"
+    },
+    "12": {
+      "headline": [
+        "混和材ごとに",
+        "反応を区別する"
+      ],
+      "points": [
+        "高炉スラグ：潜在水硬性",
+        "フライアッシュ：ポゾラン反応"
+      ],
+      "character": {
+        "pose": "pointing",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/concrete-chief-engineer/textbook-materials/article.mdx"
+      ],
+      "alt": "混和材ごとに。反応を区別する。高炉スラグ：潜在水硬性。フライアッシュ：ポゾラン反応。"
+    },
+    "13": {
+      "headline": [
+        "表乾と絶乾",
+        "内部の水が違う"
+      ],
+      "points": [
+        "表乾：表面は乾燥",
+        "内部の空隙は水で満たされる"
+      ],
+      "character": {
+        "pose": "thinking",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/concrete-chief-engineer/textbook-materials/article.mdx"
+      ],
+      "alt": "表乾と絶乾。内部の水が違う。表乾：表面は乾燥。内部の空隙は水で満たされる。"
+    },
+    "14": {
+      "headline": [
+        "降伏点と",
+        "ヤング係数"
+      ],
+      "points": [
+        "ヤング係数はほぼ一定",
+        "降伏点とは別の指標"
+      ],
+      "character": {
+        "pose": "explaining",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/concrete-chief-engineer/textbook-materials/article.mdx"
+      ],
+      "alt": "降伏点と。ヤング係数。ヤング係数はほぼ一定。降伏点とは別の指標。"
+    },
+    "15": {
+      "headline": [
+        "二次対策の",
+        "配分を見直す"
+      ],
+      "points": [
+        "経験記述の組立てを確認",
+        "学科記述の語句も復習"
+      ],
+      "character": {
+        "pose": "pointing",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "src/lib/note-magazines.ts"
+      ],
+      "alt": "二次対策の。配分を見直す。経験記述の組立てを確認。学科記述の語句も復習。"
+    },
+    "16": {
+      "headline": [
+        "担当した仕事を",
+        "動詞で整理する"
+      ],
+      "points": [
+        "自分の工種と役割を確認",
+        "確認・検討・実施を分ける"
+      ],
+      "character": {
+        "pose": "thinking",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+      ],
+      "alt": "担当した仕事を。動詞で整理する。自分の工種と役割を確認。確認・検討・実施を分ける。"
+    },
+    "17": {
+      "headline": [
+        "サービス選びは",
+        "相談目的から"
+      ],
+      "points": [
+        "自分の経験を整理する",
+        "何を相談したいか言葉にする"
+      ],
+      "character": {
+        "pose": "explaining",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/civil-construction-2/guide-career-agent-comparison/article.mdx"
+      ],
+      "alt": "サービス選びは。相談目的から。自分の経験を整理する。何を相談したいか言葉にする。"
+    },
+    "18": {
+      "headline": [
+        "その管理方法を",
+        "具体的に書ける？"
+      ],
+      "points": [
+        "5管理別の完成答案・添削例",
+        "判断の根拠を自分の文と比較",
+        "教材の収録内容はnoteへ"
+      ],
+      "character": {
+        "pose": "pointing",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "src/lib/note-magazines.ts",
+        "content/note/1級・2級土木/1級土木/magazines/1級土木-施工経験記述-完成答案集/安全管理/article.md"
+      ],
+      "alt": "その管理方法を。具体的に書ける？。5管理別の完成答案・添削例。判断の根拠を自分の文と比較。教材の収録内容はnoteへ。"
+    },
+    "20": {
+      "headline": [
+        "何を規定する？",
+        "品質と工法"
+      ],
+      "points": [
+        "品質規定：締固め度など",
+        "工法規定：機種・厚さ・回数"
+      ],
+      "character": {
+        "pose": "explaining",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/civil-construction-1/secondary-quality-management-past-problems/article.mdx"
+      ],
+      "alt": "何を規定する？。品質と工法。品質規定：締固め度など。工法規定：機種・厚さ・回数。"
+    },
+    "23": {
+      "headline": [
+        "ただし書きを",
+        "読み落とさない"
+      ],
+      "points": [
+        "令和3年度は安全管理",
+        "誘導員の配置のみは除外"
+      ],
+      "character": {
+        "pose": "explaining",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/civil-construction-1/secondary-r03/article.mdx"
+      ],
+      "alt": "ただし書きを。読み落とさない。令和3年度は安全管理。誘導員の配置のみは除外。"
+    },
+    "24": {
+      "headline": [
+        "書いた量より",
+        "答え漏れを点検"
+      ],
+      "points": [
+        "年度別の問題文と答案を収録",
+        "要求された要素の位置を確認",
+        "有料の過去問集は本文リンクへ"
+      ],
+      "character": {
+        "pose": "pointing",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "src/lib/note-magazines.ts",
+        "content/note/1級・2級土木/1級土木/magazines/1級土木-施工経験記述-過去問模範答案集/R07/article.md"
+      ],
+      "alt": "書いた量より。答え漏れを点検。年度別の問題文と答案を収録。要求された要素の位置を確認。有料の過去問集は本文リンクへ。"
+    },
+    "25": {
+      "headline": [
+        "抽象語に丸を",
+        "事実を足そう"
+      ],
+      "points": [
+        "何を・どう管理したか",
+        "判断の根拠まで確かめる"
+      ],
+      "character": {
+        "pose": "thinking",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+      ],
+      "alt": "抽象語に丸を。事実を足そう。何を・どう管理したか。判断の根拠まで確かめる。"
+    },
+    "26": {
+      "headline": [
+        "施工管理の仕事",
+        "管理と調整"
+      ],
+      "points": [
+        "工程・品質・安全・原価",
+        "協力会社と工事を進める"
+      ],
+      "character": {
+        "pose": "explaining",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/civil-construction-2/guide-career-change/article.mdx"
+      ],
+      "alt": "施工管理の仕事。管理と調整。工程・品質・安全・原価。協力会社と工事を進める。"
+    },
+    "27": {
+      "headline": [
+        "語句の弱点を",
+        "分野別に集める"
+      ],
+      "points": [
+        "年度をまたいで復習する",
+        "過去の頻度と予想は分ける"
+      ],
+      "character": {
+        "pose": "pointing",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "src/lib/note-magazines.ts"
+      ],
+      "alt": "語句の弱点を。分野別に集める。年度をまたいで復習する。過去の頻度と予想は分ける。"
+    },
+    "28": {
+      "headline": [
+        "AE剤の気泡",
+        "小さく独立"
+      ],
+      "points": [
+        "微細な独立気泡を連行",
+        "施工性・凍結融解抵抗性に関与"
+      ],
+      "character": {
+        "pose": "thinking",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/concrete-chief-engineer/textbook-materials/article.mdx"
+      ],
+      "alt": "AE剤の気泡。小さく独立。微細な独立気泡を連行。施工性・凍結融解抵抗性に関与。"
+    },
+    "29": {
+      "headline": [
+        "出題傾向には",
+        "対象期間がある"
+      ],
+      "points": [
+        "掲載分析は平成21〜令和5年度",
+        "未出題と今後の除外は別"
+      ],
+      "character": {
+        "pose": "explaining",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/concrete-chief-engineer/guide-trends/article.mdx"
+      ],
+      "alt": "出題傾向には。対象期間がある。掲載分析は平成21〜令和5年度。未出題と今後の除外は別。"
+    },
+    "30": {
+      "headline": [
+        "直前の復習は",
+        "弱い分野から"
+      ],
+      "points": [
+        "分野別の解答の型・穴埋め語句",
+        "書けなかった語句を再確認",
+        "有料の学科記述教材はnoteへ"
+      ],
+      "character": {
+        "pose": "pointing",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "src/lib/note-magazines.ts",
+        "content/note/1級・2級土木/1級土木/magazines/1級土木-二次学科記述-テーマ別出る順/土工/article.md"
+      ],
+      "alt": "直前の復習は。弱い分野から。分野別の解答の型・穴埋め語句。書けなかった語句を再確認。有料の学科記述教材はnoteへ。"
+    }
+  }
+}

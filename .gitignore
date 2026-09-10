@@ -1,5 +1,6 @@
 # Dependencies
 /node_modules
+/.local/resource-audit/
 
 # Next.js
 /.next
@@ -345,6 +346,8 @@ content/note/**/*.pdf
 # publish-ig-bs は投稿前に自動で取り寄せ、取れなければ Instagram へ触れずに止まる。
 # 2026-08-21・DN-0111 Phase 4-E。2026-09-05 に private R2 から Drive vault へ移設。
 content/sns/instagram/**/*.png
+# X teacher cards are reproducible from tweets.md + cards.json + Drive character originals.
+content/sns/x/draft/*/img/tweet-*.png
 content/sns/instagram/**/*.jpg
 content/sns/instagram/**/*.jpeg
 
