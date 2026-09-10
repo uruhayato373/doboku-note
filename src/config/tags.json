@@ -1,346 +1,748 @@
 [
   {
     "name": "試験ガイド",
-    "slug": "guide"
+    "slug": "guide",
+    "class": "structural",
+    "canonical": "guide"
   },
   {
     "name": "第1次試験",
-    "slug": "primary"
+    "slug": "primary",
+    "class": "structural",
+    "canonical": "primary"
   },
   {
     "name": "第2次試験",
-    "slug": "secondary"
+    "slug": "secondary",
+    "class": "structural",
+    "canonical": "secondary"
   },
   {
     "name": "過去問",
-    "slug": "past-questions"
+    "slug": "past-questions",
+    "class": "structural",
+    "canonical": "past-questions"
   },
   {
     "name": "試験対策",
-    "slug": "exam-preparation"
+    "slug": "exam-preparation",
+    "class": "topical",
+    "aliases": [
+      "受験対策"
+    ]
   },
   {
     "name": "コンクリート技士",
-    "slug": "concrete-engineer"
+    "slug": "concrete-engineer",
+    "class": "qualification"
   },
   {
     "name": "コンクリート主任技士",
-    "slug": "concrete-chief-engineer"
+    "slug": "concrete-chief-engineer",
+    "class": "qualification"
   },
   {
     "name": "コンクリート診断士",
-    "slug": "concrete-diagnostician"
+    "slug": "concrete-diagnostician",
+    "class": "qualification"
   },
   {
     "name": "学習法",
-    "slug": "study-method"
+    "slug": "study-method",
+    "class": "topical",
+    "aliases": [
+      "勉強法",
+      "独学"
+    ]
   },
   {
     "name": "出題傾向",
-    "slug": "exam-trends"
+    "slug": "exam-trends",
+    "class": "topical"
   },
   {
     "name": "キーワード",
-    "slug": "keyword"
+    "slug": "keyword",
+    "class": "structural",
+    "canonical": "keyword"
   },
   {
     "name": "択一式",
-    "slug": "multiple-choice"
+    "slug": "multiple-choice",
+    "class": "structural",
+    "canonical": "択一式"
   },
   {
     "name": "記述式",
-    "slug": "essay"
+    "slug": "essay",
+    "class": "structural",
+    "canonical": "記述式"
   },
   {
     "name": "索引",
-    "slug": "index"
+    "slug": "index",
+    "class": "structural",
+    "canonical": "index"
   },
   {
     "name": "総合技術監理",
-    "slug": "comprehensive-management"
+    "slug": "comprehensive-management",
+    "class": "qualification"
   },
   {
     "name": "技術士（総合技術監理部門）",
-    "slug": "pe-comprehensive-management-exam"
+    "slug": "pe-comprehensive-management-exam",
+    "class": "qualification"
   },
   {
     "name": "技術士（第一次試験）",
-    "slug": "pe-first-stage-exam"
+    "slug": "pe-first-stage-exam",
+    "class": "qualification"
   },
   {
     "name": "基礎科目",
-    "slug": "pe-first-stage-basic"
+    "slug": "pe-first-stage-basic",
+    "class": "qualification"
   },
   {
     "name": "適性科目",
-    "slug": "pe-first-stage-aptitude"
+    "slug": "pe-first-stage-aptitude",
+    "class": "qualification"
   },
   {
     "name": "専門科目（建設部門）",
-    "slug": "pe-first-stage-construction"
+    "slug": "pe-first-stage-construction",
+    "class": "qualification"
   },
   {
     "name": "経済性管理",
-    "slug": "economic-management"
+    "slug": "economic-management",
+    "class": "qualification"
   },
   {
     "name": "人的資源管理",
-    "slug": "human-resource-management"
+    "slug": "human-resource-management",
+    "class": "qualification"
   },
   {
     "name": "情報管理",
-    "slug": "information-management"
+    "slug": "information-management",
+    "class": "qualification"
   },
   {
     "name": "安全管理",
-    "slug": "safety-management"
+    "slug": "safety-management",
+    "class": "qualification"
   },
   {
     "name": "社会環境管理",
-    "slug": "social-environment-management"
+    "slug": "social-environment-management",
+    "class": "qualification"
   },
   {
     "name": "品質管理",
-    "slug": "quality-management"
+    "slug": "quality-management",
+    "class": "topical"
   },
   {
     "name": "土工",
-    "slug": "earthwork"
+    "slug": "earthwork",
+    "class": "topical"
   },
   {
     "name": "コンクリート",
-    "slug": "concrete"
+    "slug": "concrete",
+    "class": "topical"
   },
   {
     "name": "施工計画",
-    "slug": "construction-plan"
+    "slug": "construction-plan",
+    "class": "topical"
   },
   {
     "name": "経験記述",
-    "slug": "experience-writing"
+    "slug": "experience-writing",
+    "class": "topical"
   },
   {
     "name": "テキスト",
-    "slug": "textbook"
+    "slug": "textbook",
+    "class": "structural",
+    "canonical": "textbook"
   },
   {
     "name": "建設機械",
-    "slug": "construction-machinery"
-  },
-  {
-    "name": "基礎工",
-    "slug": "foundation-work"
+    "slug": "construction-machinery",
+    "class": "topical"
   },
   {
     "name": "測量",
-    "slug": "surveying"
+    "slug": "surveying",
+    "class": "topical"
   },
   {
     "name": "解体工事",
-    "slug": "demolition"
+    "slug": "demolition",
+    "class": "topical"
   },
   {
     "name": "工程管理",
-    "slug": "schedule-management"
+    "slug": "schedule-management",
+    "class": "topical"
   },
   {
     "name": "環境保全",
-    "slug": "environmental-management"
+    "slug": "environmental-management",
+    "class": "topical"
   },
   {
     "name": "関係法規",
-    "slug": "related-laws"
+    "slug": "related-laws",
+    "class": "topical"
   },
   {
     "name": "参考資料",
-    "slug": "reference"
+    "slug": "reference",
+    "class": "topical"
   },
   {
     "name": "近畿地整 設計便覧",
-    "slug": "kinki-design-manual"
+    "slug": "kinki-design-manual",
+    "class": "topical"
   },
   {
     "name": "兵庫県 共通仕様書",
-    "slug": "hyogo-common-specs"
+    "slug": "hyogo-common-specs",
+    "class": "topical"
   },
   {
     "name": "港湾",
-    "slug": "port"
+    "slug": "port",
+    "class": "topical"
   },
   {
     "name": "材料",
-    "slug": "materials"
+    "slug": "materials",
+    "class": "topical"
   },
   {
     "name": "河川",
-    "slug": "river"
+    "slug": "river",
+    "class": "topical"
   },
   {
     "name": "河川法",
-    "slug": "river-act"
+    "slug": "river-act",
+    "class": "topical"
   },
   {
     "name": "行政手続き",
-    "slug": "administration"
+    "slug": "administration",
+    "class": "topical"
   },
   {
     "name": "河川構造物",
-    "slug": "river-structure"
+    "slug": "river-structure",
+    "class": "topical"
   },
   {
     "name": "伏越工",
-    "slug": "inverted-siphon"
+    "slug": "inverted-siphon",
+    "class": "topical"
   },
   {
     "name": "水門",
-    "slug": "floodgate"
+    "slug": "floodgate",
+    "class": "topical"
   },
   {
     "name": "道路",
-    "slug": "road"
+    "slug": "road",
+    "class": "topical"
   },
   {
     "name": "トンネル",
-    "slug": "tunnel"
+    "slug": "tunnel",
+    "class": "topical"
   },
   {
     "name": "国土交通白書",
-    "slug": "mlit-whitepaper"
+    "slug": "mlit-whitepaper",
+    "class": "topical"
   },
   {
     "name": "5管理",
-    "slug": "five-management"
+    "slug": "five-management",
+    "class": "qualification"
   },
   {
     "name": "記述式対策",
-    "slug": "essay-preparation"
+    "slug": "essay-preparation",
+    "class": "topical",
+    "aliases": [
+      "論文の書き方",
+      "答案の書き方",
+      "答案構成",
+      "論述の型",
+      "論文テンプレート",
+      "文章作法",
+      "推敲",
+      "設問分析",
+      "課題抽出",
+      "多面的観点",
+      "時間配分",
+      "論述対策",
+      "記述式試験",
+      "解答例",
+      "模範解答",
+      "流用戦略"
+    ]
   },
   {
     "name": "トレードオフ",
-    "slug": "tradeoff"
+    "slug": "tradeoff",
+    "class": "topical"
   },
   {
     "name": "インフラ老朽化",
-    "slug": "infrastructure-aging"
+    "slug": "infrastructure-aging",
+    "class": "topical"
   },
   {
     "name": "2024年問題",
-    "slug": "construction-2024-problem"
+    "slug": "construction-2024-problem",
+    "class": "topical"
   },
   {
     "name": "働き方改革",
-    "slug": "work-style-reform"
+    "slug": "work-style-reform",
+    "class": "topical"
   },
   {
     "name": "流域治水",
-    "slug": "river-basin-management"
+    "slug": "river-basin-management",
+    "class": "topical"
   },
   {
     "name": "GX",
-    "slug": "green-transformation"
+    "slug": "green-transformation",
+    "class": "topical"
   },
   {
     "name": "カーボンニュートラル",
-    "slug": "carbon-neutral"
+    "slug": "carbon-neutral",
+    "class": "topical"
   },
   {
     "name": "DX",
-    "slug": "dx"
+    "slug": "dx",
+    "class": "topical"
   },
   {
     "name": "i-Construction",
-    "slug": "i-construction"
+    "slug": "i-construction",
+    "class": "topical"
   },
   {
     "name": "群マネ",
-    "slug": "infrastructure-group-mgmt"
+    "slug": "infrastructure-group-mgmt",
+    "class": "topical"
   },
   {
     "name": "PPP/PFI",
-    "slug": "ppp-pfi"
+    "slug": "ppp-pfi",
+    "class": "topical"
   },
   {
     "name": "外国人材",
-    "slug": "foreign-workers"
+    "slug": "foreign-workers",
+    "class": "topical"
   },
   {
     "name": "特定技能",
-    "slug": "specified-skilled-worker"
+    "slug": "specified-skilled-worker",
+    "class": "topical"
   },
   {
     "name": "平成25年度",
-    "slug": "h25"
+    "slug": "h25",
+    "class": "qualification"
   },
   {
     "name": "平成26年度",
-    "slug": "h26"
+    "slug": "h26",
+    "class": "qualification"
   },
   {
     "name": "平成27年度",
-    "slug": "h27"
+    "slug": "h27",
+    "class": "qualification"
   },
   {
     "name": "平成28年度",
-    "slug": "h28"
+    "slug": "h28",
+    "class": "qualification"
   },
   {
     "name": "平成29年度",
-    "slug": "h29"
+    "slug": "h29",
+    "class": "qualification"
   },
   {
     "name": "平成30年度",
-    "slug": "h30"
+    "slug": "h30",
+    "class": "qualification"
   },
   {
     "name": "令和元年度",
-    "slug": "r01"
+    "slug": "r01",
+    "class": "qualification"
   },
   {
     "name": "令和2年度",
-    "slug": "r02"
+    "slug": "r02",
+    "class": "qualification"
   },
   {
     "name": "令和3年度",
-    "slug": "r03"
+    "slug": "r03",
+    "class": "qualification"
   },
   {
     "name": "令和4年度",
-    "slug": "r04"
+    "slug": "r04",
+    "class": "qualification"
   },
   {
     "name": "令和5年度",
-    "slug": "r05"
+    "slug": "r05",
+    "class": "qualification"
   },
   {
     "name": "令和6年度",
-    "slug": "r06"
+    "slug": "r06",
+    "class": "qualification"
   },
   {
     "name": "令和8年度",
-    "slug": "r08"
+    "slug": "r08",
+    "class": "qualification"
   },
   {
     "name": "令和7年度",
-    "slug": "r07"
+    "slug": "r07",
+    "class": "qualification"
   },
   {
     "name": "pillar",
-    "slug": "pillar"
+    "slug": "pillar",
+    "class": "structural",
+    "canonical": "pillar"
   },
   {
     "name": "キャリア・転職",
-    "slug": "career"
+    "slug": "career",
+    "class": "flag",
+    "canonical": "career"
   },
   {
     "name": "型枠・支保工",
-    "slug": "formwork"
+    "slug": "formwork",
+    "class": "topical"
   },
   {
     "name": "鉄筋",
-    "slug": "rebar"
+    "slug": "rebar",
+    "class": "topical"
   },
   {
     "name": "基礎工",
-    "slug": "foundation"
+    "slug": "foundation",
+    "class": "topical"
+  },
+  {
+    "name": "技術士（第二次試験）",
+    "slug": "pe-second-stage",
+    "class": "qualification",
+    "aliases": [
+      "技術士第二次試験",
+      "二次試験"
+    ]
+  },
+  {
+    "name": "建設部門",
+    "slug": "construction-department",
+    "class": "qualification"
+  },
+  {
+    "name": "必須科目",
+    "slug": "required-subject",
+    "class": "qualification",
+    "aliases": [
+      "必須科目I"
+    ]
+  },
+  {
+    "name": "選択科目",
+    "slug": "elective-subject",
+    "class": "qualification",
+    "aliases": [
+      "II-1",
+      "II-2",
+      "III"
+    ]
+  },
+  {
+    "name": "土質及び基礎",
+    "slug": "soil-foundation",
+    "class": "qualification"
+  },
+  {
+    "name": "鋼構造及びコンクリート",
+    "slug": "steel-concrete",
+    "class": "qualification"
+  },
+  {
+    "name": "都市及び地方計画",
+    "slug": "urban-regional-planning",
+    "class": "qualification"
+  },
+  {
+    "name": "河川、砂防及び海岸・海洋",
+    "slug": "river-sabo-coast",
+    "class": "qualification"
+  },
+  {
+    "name": "港湾及び空港",
+    "slug": "port-airport",
+    "class": "qualification"
+  },
+  {
+    "name": "電力土木",
+    "slug": "power-civil",
+    "class": "qualification"
+  },
+  {
+    "name": "鉄道",
+    "slug": "railway",
+    "class": "qualification"
+  },
+  {
+    "name": "施工計画、施工設備及び積算",
+    "slug": "construction-planning-estimation",
+    "class": "qualification"
+  },
+  {
+    "name": "建設環境",
+    "slug": "construction-environment",
+    "class": "qualification"
+  },
+  {
+    "name": "模範論文",
+    "slug": "model-essay",
+    "class": "flag",
+    "canonical": "模範論文"
+  },
+  {
+    "name": "original-questions",
+    "slug": "original-questions",
+    "class": "structural",
+    "canonical": "original-questions"
+  },
+  {
+    "name": "過去問分析",
+    "slug": "past-exam-analysis",
+    "class": "topical"
+  },
+  {
+    "name": "頻出テーマ",
+    "slug": "frequent-themes",
+    "class": "topical"
+  },
+  {
+    "name": "受験者属性別",
+    "slug": "by-examinee-profile",
+    "class": "topical"
+  },
+  {
+    "name": "砂防",
+    "slug": "sabo",
+    "class": "topical"
+  },
+  {
+    "name": "地方公共団体",
+    "slug": "local-government",
+    "class": "topical"
+  },
+  {
+    "name": "ゼネコン",
+    "slug": "general-contractor",
+    "class": "topical"
+  },
+  {
+    "name": "建設コンサル",
+    "slug": "construction-consultant",
+    "class": "topical"
+  },
+  {
+    "name": "施工",
+    "slug": "construction",
+    "class": "topical"
+  },
+  {
+    "name": "SWOT分析",
+    "slug": "swot",
+    "class": "topical"
+  },
+  {
+    "name": "コンパクトシティ",
+    "slug": "compact-city",
+    "class": "topical",
+    "aliases": [
+      "立地適正化"
+    ]
+  },
+  {
+    "name": "データ利活用",
+    "slug": "data-utilization",
+    "class": "topical"
+  },
+  {
+    "name": "少子高齢化",
+    "slug": "aging-society",
+    "class": "topical"
+  },
+  {
+    "name": "生産性向上",
+    "slug": "productivity",
+    "class": "topical"
+  },
+  {
+    "name": "維持管理",
+    "slug": "maintenance",
+    "class": "topical",
+    "aliases": [
+      "アセットマネジメント",
+      "予防保全",
+      "老朽化インフラ"
+    ]
+  },
+  {
+    "name": "グリーンインフラ",
+    "slug": "green-infrastructure",
+    "class": "topical"
+  },
+  {
+    "name": "国土強靱化",
+    "slug": "national-resilience",
+    "class": "topical",
+    "aliases": [
+      "防災",
+      "複合災害"
+    ]
+  },
+  {
+    "name": "国土形成計画",
+    "slug": "national-spatial-plan",
+    "class": "topical",
+    "aliases": [
+      "社会資本整備",
+      "社会資本整備重点計画"
+    ]
+  },
+  {
+    "name": "地域づくり",
+    "slug": "regional-development",
+    "class": "topical",
+    "aliases": [
+      "まちづくり",
+      "都市計画"
+    ]
+  },
+  {
+    "name": "担い手確保",
+    "slug": "workforce-securing",
+    "class": "topical"
+  },
+  {
+    "name": "脱炭素",
+    "slug": "decarbonization",
+    "class": "topical",
+    "aliases": [
+      "気候変動適応",
+      "循環経済"
+    ]
+  },
+  {
+    "name": "建設DX",
+    "slug": "construction-dx",
+    "class": "topical",
+    "aliases": [
+      "DX推進",
+      "BIM/CIM"
+    ]
+  },
+  {
+    "name": "学習計画",
+    "slug": "study-plan",
+    "class": "topical",
+    "aliases": [
+      "スケジュール",
+      "勉強時間",
+      "直前対策"
+    ]
+  },
+  {
+    "name": "受験申込",
+    "slug": "exam-application",
+    "class": "topical",
+    "aliases": [
+      "出願",
+      "業務経歴票",
+      "業務内容の詳細",
+      "コンピテンシー",
+      "口頭試験"
+    ]
+  },
+  {
+    "name": "海岸",
+    "slug": "coast",
+    "class": "topical"
+  },
+  {
+    "name": "経済安全保障",
+    "slug": "economic-security",
+    "class": "topical"
+  },
+  {
+    "name": "AI ガバナンス",
+    "slug": "ai-governance",
+    "class": "topical"
+  },
+  {
+    "name": "キーワード学習",
+    "slug": "keyword-study",
+    "class": "topical",
+    "aliases": [
+      "キーワード集",
+      "keyword-analysis"
+    ]
+  },
+  {
+    "name": "合格率",
+    "slug": "pass-rate",
+    "class": "topical",
+    "aliases": [
+      "難易度",
+      "exam-statistics"
+    ]
+  },
+  {
+    "name": "配合計算",
+    "slug": "mix-calculation",
+    "class": "topical",
+    "aliases": [
+      "calculation"
+    ]
   }
 ]

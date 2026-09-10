@@ -111,8 +111,11 @@ export function loadTagAllowlist() {
       for (const e of json) {
         if (typeof e === 'string') set.add(e);
         else if (e && typeof e === 'object') {
+          // 受理綴り = name / slug / aliases / canonical（正規化は build-doc-meta-index、規則は content-taxonomy.md）
           if (e.slug) set.add(e.slug);
           if (e.name) set.add(e.name);
+          if (e.canonical) set.add(e.canonical);
+          for (const a of Array.isArray(e.aliases) ? e.aliases : []) if (typeof a === 'string') set.add(a);
         }
       }
     }
