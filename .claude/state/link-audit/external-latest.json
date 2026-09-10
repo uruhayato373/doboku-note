@@ -1,30 +1,97 @@
 {
-  "checkedAt": "2026-09-03T23:48:49.573Z",
+  "checkedAt": "2026-09-10T23:43:08.783Z",
   "summary": {
-    "files": 1187,
-    "occurrences": 2581,
-    "uniqueUrls": 1963,
-    "ok": 1815,
-    "broken": 1,
-    "timeout": 2,
-    "errors": 145
+    "files": 1230,
+    "occurrences": 2712,
+    "uniqueUrls": 1997,
+    "ok": 1853,
+    "broken": 0,
+    "timeout": 1,
+    "errors": 143
   },
-  "broken": [
+  "broken": [],
+  "errors": [
     {
-      "url": "https://jinjibu.jp/spcl/kohei2023/cl/detl/4998/",
-      "status": 404,
+      "url": "http://www.kajima.co.jp/technology/",
+      "status": 403,
       "ok": false,
-      "redirected": false,
-      "finalUrl": "https://jinjibu.jp/spcl/kohei2023/cl/detl/4998/",
+      "redirected": true,
+      "finalUrl": "https://www.kajima.co.jp/technology/",
       "locations": [
         {
-          "relativePath": "pe-comprehensive-management/problem-setting-ability/article.mdx",
-          "line": 104
+          "relativePath": "civil-construction-1/textbook-asphalt-concrete-pavement/article.mdx",
+          "line": 504
+        },
+        {
+          "relativePath": "civil-construction-1/textbook-cast-in-place-pile/article.mdx",
+          "line": 246
+        },
+        {
+          "relativePath": "civil-construction-1/textbook-concrete-materials/article.mdx",
+          "line": 370
+        },
+        {
+          "relativePath": "civil-construction-1/textbook-concrete-mix-design/article.mdx",
+          "line": 299
+        },
+        {
+          "relativePath": "civil-construction-1/textbook-concrete-placement/article.mdx",
+          "line": 233
+        },
+        {
+          "relativePath": "civil-construction-1/textbook-concrete-properties/article.mdx",
+          "line": 353
+        },
+        {
+          "relativePath": "civil-construction-1/textbook-cut-slope-protection/article.mdx",
+          "line": 231
+        },
+        {
+          "relativePath": "civil-construction-1/textbook-earth-retaining-cofferdam/article.mdx",
+          "line": 206
+        },
+        {
+          "relativePath": "civil-construction-1/textbook-earthwork-planning/article.mdx",
+          "line": 493
+        },
+        {
+          "relativePath": "civil-construction-1/textbook-embankment/article.mdx",
+          "line": 214
+        },
+        {
+          "relativePath": "civil-construction-1/textbook-foundation-overview-survey/article.mdx",
+          "line": 289
+        },
+        {
+          "relativePath": "civil-construction-1/textbook-pavement-repair-quality/article.mdx",
+          "line": 304
+        },
+        {
+          "relativePath": "civil-construction-1/textbook-pile-foundation-precast/article.mdx",
+          "line": 372
+        },
+        {
+          "relativePath": "civil-construction-1/textbook-rebar-formwork/article.mdx",
+          "line": 303
+        },
+        {
+          "relativePath": "civil-construction-1/textbook-road-earthwork-subbase/article.mdx",
+          "line": 324
+        },
+        {
+          "relativePath": "civil-construction-1/textbook-soft-ground-drainage/article.mdx",
+          "line": 178
+        },
+        {
+          "relativePath": "civil-construction-1/textbook-soil-investigation-methods/article.mdx",
+          "line": 244
+        },
+        {
+          "relativePath": "civil-construction-1/textbook-special-concrete-inspection/article.mdx",
+          "line": 431
         }
       ]
-    }
-  ],
-  "errors": [
+    },
     {
       "url": "https://www.kajima.co.jp/csr/",
       "status": 403,
@@ -79,7 +146,7 @@
         },
         {
           "relativePath": "civil-construction-1/textbook-schedule-charts/article.mdx",
-          "line": 282
+          "line": 284
         },
         {
           "relativePath": "civil-construction-1/textbook-schedule-overview/article.mdx",
@@ -116,7 +183,7 @@
         },
         {
           "relativePath": "civil-construction-1/textbook-schedule-charts/article.mdx",
-          "line": 283
+          "line": 285
         },
         {
           "relativePath": "civil-construction-1/textbook-schedule-overview/article.mdx",
@@ -133,31 +200,6 @@
         {
           "relativePath": "civil-construction-1/textbook-crane/article.mdx",
           "line": 234
-        }
-      ]
-    },
-    {
-      "url": "http://www.kajima.co.jp/technology/",
-      "status": 403,
-      "ok": false,
-      "redirected": true,
-      "finalUrl": "https://www.kajima.co.jp/technology/",
-      "locations": [
-        {
-          "relativePath": "civil-construction-1/textbook-cut-slope-protection/article.mdx",
-          "line": 231
-        },
-        {
-          "relativePath": "civil-construction-1/textbook-embankment/article.mdx",
-          "line": 214
-        },
-        {
-          "relativePath": "civil-construction-1/textbook-soft-ground-drainage/article.mdx",
-          "line": 178
-        },
-        {
-          "relativePath": "civil-construction-1/textbook-soil-investigation-methods/article.mdx",
-          "line": 244
         }
       ]
     },
@@ -219,7 +261,7 @@
       "locations": [
         {
           "relativePath": "civil-construction-1/textbook-histogram/article.mdx",
-          "line": 313
+          "line": 315
         }
       ]
     },
@@ -260,7 +302,7 @@
         },
         {
           "relativePath": "civil-construction-1/textbook-machinery-overview/article.mdx",
-          "line": 325
+          "line": 323
         },
         {
           "relativePath": "civil-construction-1/textbook-machinery-structure/article.mdx",
@@ -285,11 +327,11 @@
       "locations": [
         {
           "relativePath": "civil-construction-1/textbook-network-schedule/article.mdx",
-          "line": 343
+          "line": 355
         },
         {
           "relativePath": "civil-construction-1/textbook-schedule-charts/article.mdx",
-          "line": 281
+          "line": 283
         },
         {
           "relativePath": "civil-construction-1/textbook-work-scheduling/article.mdx",
@@ -297,7 +339,7 @@
         },
         {
           "relativePath": "pe-comprehensive-management/analogous-estimation/article.mdx",
-          "line": 82
+          "line": 83
         }
       ]
     },
@@ -322,6 +364,18 @@
         {
           "relativePath": "civil-construction-1/textbook-surveying-basics/article.mdx",
           "line": 182
+        }
+      ]
+    },
+    {
+      "url": "https://gihodobooks.sslserve.jp/book/1905-2.html",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "concrete-chief-engineer/guide-trends/article.mdx",
+          "line": 137
         }
       ]
     },
@@ -351,6 +405,18 @@
       ]
     },
     {
+      "url": "https://gihodobooks.sslserve.jp/book/1904-5.html",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "concrete-engineer/guide-books/article.mdx",
+          "line": 103
+        }
+      ]
+    },
+    {
       "url": "https://biz.moneyforward.com/erp/basic/397/",
       "status": 403,
       "ok": false,
@@ -359,7 +425,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/accounting-systems/article.mdx",
-          "line": 106
+          "line": 109
         }
       ]
     },
@@ -372,7 +438,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/alps-treated-water/article.mdx",
-          "line": 155
+          "line": 157
         }
       ]
     },
@@ -385,7 +451,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/alps-treated-water/article.mdx",
-          "line": 156
+          "line": 158
         }
       ]
     },
@@ -398,7 +464,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/asbestos-issue/article.mdx",
-          "line": 137
+          "line": 142
         }
       ]
     },
@@ -411,7 +477,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/bathtub-curve/article.mdx",
-          "line": 110
+          "line": 111
         }
       ]
     },
@@ -424,7 +490,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/bioeconomy/article.mdx",
-          "line": 90
+          "line": 91
         }
       ]
     },
@@ -437,7 +503,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/bowtie-analysis/article.mdx",
-          "line": 84
+          "line": 85
         }
       ]
     },
@@ -450,7 +516,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/break-even-point/article.mdx",
-          "line": 128
+          "line": 129
         }
       ]
     },
@@ -463,20 +529,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/business-continuity-plan/article.mdx",
-          "line": 133
-        }
-      ]
-    },
-    {
-      "url": "https://jis.eomec.com/jisz81412022/4",
-      "status": 403,
-      "ok": false,
-      "redirected": false,
-      "finalUrl": "https://jis.eomec.com/jisz81412022/4",
-      "locations": [
-        {
-          "relativePath": "pe-comprehensive-management/capacity-management/article.mdx",
-          "line": 77
+          "line": 136
         }
       ]
     },
@@ -489,11 +542,11 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/carbon-neutral/article.mdx",
-          "line": 45
+          "line": 48
         },
         {
           "relativePath": "pe-comprehensive-management/carbon-neutral/article.mdx",
-          "line": 153
+          "line": 156
         }
       ]
     },
@@ -506,7 +559,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/carbon-neutral/article.mdx",
-          "line": 155
+          "line": 158
         }
       ]
     },
@@ -519,7 +572,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/cash-flow-statement/article.mdx",
-          "line": 222
+          "line": 223
         }
       ]
     },
@@ -532,7 +585,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/chemical-substances-review-act/article.mdx",
-          "line": 26
+          "line": 30
         }
       ]
     },
@@ -545,7 +598,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/chemical-substances-review-act/article.mdx",
-          "line": 138
+          "line": 142
         }
       ]
     },
@@ -558,7 +611,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/circular-economy/article.mdx",
-          "line": 136
+          "line": 141
         }
       ]
     },
@@ -571,7 +624,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/citizen-participation/article.mdx",
-          "line": 97
+          "line": 98
         }
       ]
     },
@@ -584,7 +637,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/clearance-level/article.mdx",
-          "line": 112
+          "line": 113
         }
       ]
     },
@@ -597,7 +650,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/clearance-level/article.mdx",
-          "line": 113
+          "line": 114
         }
       ]
     },
@@ -610,7 +663,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/concurrent-engineering/article.mdx",
-          "line": 103
+          "line": 106
         }
       ]
     },
@@ -623,11 +676,11 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/consumer-product-safety-act/article.mdx",
-          "line": 129
+          "line": 132
         },
         {
           "relativePath": "pe-comprehensive-management/product-safety/article.mdx",
-          "line": 96
+          "line": 101
         }
       ]
     },
@@ -640,7 +693,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/consumer-safety/article.mdx",
-          "line": 114
+          "line": 118
         }
       ]
     },
@@ -653,7 +706,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/data-cleansing/article.mdx",
-          "line": 109
+          "line": 111
         }
       ]
     },
@@ -666,7 +719,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/data-governance/article.mdx",
-          "line": 120
+          "line": 124
         }
       ]
     },
@@ -679,11 +732,11 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/data-mining/article.mdx",
-          "line": 148
+          "line": 150
         },
         {
           "relativePath": "pe-comprehensive-management/data-mining/article.mdx",
-          "line": 148
+          "line": 150
         }
       ]
     },
@@ -696,7 +749,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/de-jure-standard/article.mdx",
-          "line": 120
+          "line": 126
         }
       ]
     },
@@ -709,7 +762,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/demand-forecasting/article.mdx",
-          "line": 117
+          "line": 118
         }
       ]
     },
@@ -722,7 +775,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/depreciation/article.mdx",
-          "line": 113
+          "line": 114
         }
       ]
     },
@@ -735,7 +788,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/design-rights/article.mdx",
-          "line": 152
+          "line": 156
         }
       ]
     },
@@ -748,7 +801,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/design-rights/article.mdx",
-          "line": 153
+          "line": 157
         }
       ]
     },
@@ -760,7 +813,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/diagnostic-od/article.mdx",
-          "line": 105
+          "line": 106
         }
       ]
     },
@@ -772,7 +825,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/disclosure-request/article.mdx",
-          "line": 108
+          "line": 110
         }
       ]
     },
@@ -785,7 +838,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/eco-drr/article.mdx",
-          "line": 88
+          "line": 92
         }
       ]
     },
@@ -798,7 +851,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/employee-benefits/article.mdx",
-          "line": 88
+          "line": 89
         }
       ]
     },
@@ -811,11 +864,11 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/energy/article.mdx",
-          "line": 136
+          "line": 143
         },
         {
           "relativePath": "pe-comprehensive-management/s-plus-3e/article.mdx",
-          "line": 73
+          "line": 76
         }
       ]
     },
@@ -828,15 +881,15 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/energy/article.mdx",
-          "line": 137
+          "line": 144
         },
         {
           "relativePath": "pe-comprehensive-management/energy-conservation-act/article.mdx",
-          "line": 98
+          "line": 105
         },
         {
           "relativePath": "pe-comprehensive-management/whitepaper-study-map/article.mdx",
-          "line": 346
+          "line": 379
         }
       ]
     },
@@ -849,15 +902,15 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/energy-conservation-act/article.mdx",
-          "line": 27
+          "line": 34
         },
         {
           "relativePath": "pe-comprehensive-management/energy-conservation-act/article.mdx",
-          "line": 61
+          "line": 68
         },
         {
           "relativePath": "pe-comprehensive-management/energy-conservation-act/article.mdx",
-          "line": 97
+          "line": 104
         }
       ]
     },
@@ -870,7 +923,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/energy-conservation-act/article.mdx",
-          "line": 37
+          "line": 44
         }
       ]
     },
@@ -883,7 +936,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/environmental-accounting/article.mdx",
-          "line": 99
+          "line": 101
         }
       ]
     },
@@ -895,7 +948,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/environmental-basic-plan/article.mdx",
-          "line": 119
+          "line": 124
         }
       ]
     },
@@ -908,7 +961,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/environmental-impact-assessment/article.mdx",
-          "line": 107
+          "line": 111
         }
       ]
     },
@@ -921,7 +974,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/equipment-characteristics/article.mdx",
-          "line": 111
+          "line": 112
         }
       ]
     },
@@ -934,7 +987,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/erp/article.mdx",
-          "line": 97
+          "line": 98
         }
       ]
     },
@@ -947,7 +1000,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/erp/article.mdx",
-          "line": 98
+          "line": 99
         }
       ]
     },
@@ -960,7 +1013,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/generative-ai/article.mdx",
-          "line": 143
+          "line": 145
         }
       ]
     },
@@ -973,7 +1026,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/generative-ai/article.mdx",
-          "line": 145
+          "line": 147
         }
       ]
     },
@@ -986,7 +1039,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/green-transformation/article.mdx",
-          "line": 102
+          "line": 105
         }
       ]
     },
@@ -999,7 +1052,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/green-transformation/article.mdx",
-          "line": 103
+          "line": 106
         }
       ]
     },
@@ -1012,7 +1065,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/green-transformation/article.mdx",
-          "line": 104
+          "line": 107
         }
       ]
     },
@@ -1025,7 +1078,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/green-transformation/article.mdx",
-          "line": 105
+          "line": 108
         }
       ]
     },
@@ -1038,7 +1091,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/hazop/article.mdx",
-          "line": 125
+          "line": 128
         }
       ]
     },
@@ -1051,19 +1104,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/health-management/article.mdx",
-          "line": 86
-        }
-      ]
-    },
-    {
-      "url": "https://tenbou.nies.go.jp/science/description/detail.php?id=18",
-      "status": 0,
-      "ok": false,
-      "error": "fetch failed",
-      "locations": [
-        {
-          "relativePath": "pe-comprehensive-management/heat-island-effect/article.mdx",
-          "line": 121
+          "line": 90
         }
       ]
     },
@@ -1076,7 +1117,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/high-pressure-gas-act/article.mdx",
-          "line": 104
+          "line": 106
         }
       ]
     },
@@ -1089,11 +1130,11 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/human-error-probability/article.mdx",
-          "line": 154
+          "line": 155
         },
         {
           "relativePath": "pe-comprehensive-management/vta-method/article.mdx",
-          "line": 90
+          "line": 91
         }
       ]
     },
@@ -1118,19 +1159,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/ifrs/article.mdx",
-          "line": 142
-        }
-      ]
-    },
-    {
-      "url": "https://www.jitco.or.jp/ja/regulation/",
-      "status": 0,
-      "ok": false,
-      "error": "fetch failed",
-      "locations": [
-        {
-          "relativePath": "pe-comprehensive-management/immigration-control-act/article.mdx",
-          "line": 120
+          "line": 143
         }
       ]
     },
@@ -1143,7 +1172,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/industrial-property-rights/article.mdx",
-          "line": 173
+          "line": 183
         }
       ]
     },
@@ -1156,7 +1185,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/inherent-safety/article.mdx",
-          "line": 24
+          "line": 25
         }
       ]
     },
@@ -1169,7 +1198,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/interlock/article.mdx",
-          "line": 80
+          "line": 83
         }
       ]
     },
@@ -1182,7 +1211,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/internal-rate-of-return/article.mdx",
-          "line": 91
+          "line": 92
         }
       ]
     },
@@ -1195,11 +1224,11 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/ip-creation/article.mdx",
-          "line": 77
+          "line": 85
         },
         {
           "relativePath": "pe-comprehensive-management/ip-protection/article.mdx",
-          "line": 87
+          "line": 91
         }
       ]
     },
@@ -1212,7 +1241,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/ip-creation/article.mdx",
-          "line": 78
+          "line": 86
         }
       ]
     },
@@ -1225,7 +1254,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/ip-protection/article.mdx",
-          "line": 88
+          "line": 92
         }
       ]
     },
@@ -1238,7 +1267,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/job-order-costing/article.mdx",
-          "line": 97
+          "line": 98
         }
       ]
     },
@@ -1251,7 +1280,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/knowledge-sharing/article.mdx",
-          "line": 106
+          "line": 107
         }
       ]
     },
@@ -1264,7 +1293,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/knowledge-sharing/article.mdx",
-          "line": 107
+          "line": 108
         }
       ]
     },
@@ -1276,7 +1305,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/knowledge-sharing/article.mdx",
-          "line": 108
+          "line": 109
         }
       ]
     },
@@ -1289,7 +1318,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/labor-policy-act/article.mdx",
-          "line": 121
+          "line": 126
         }
       ]
     },
@@ -1302,7 +1331,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/lead-time/article.mdx",
-          "line": 116
+          "line": 120
         }
       ]
     },
@@ -1315,7 +1344,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/long-term-strategy-2050/article.mdx",
-          "line": 89
+          "line": 95
         }
       ]
     },
@@ -1328,7 +1357,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/long-term-strategy-2050/article.mdx",
-          "line": 91
+          "line": 97
         }
       ]
     },
@@ -1341,7 +1370,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/maintenance-cost/article.mdx",
-          "line": 92
+          "line": 93
         }
       ]
     },
@@ -1354,7 +1383,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/master-schedule-planning/article.mdx",
-          "line": 93
+          "line": 95
         }
       ]
     },
@@ -1367,7 +1396,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/monte-carlo-simulation/article.mdx",
-          "line": 102
+          "line": 103
         }
       ]
     },
@@ -1380,7 +1409,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/nonconformity-rate/article.mdx",
-          "line": 89
+          "line": 94
         }
       ]
     },
@@ -1393,7 +1422,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/normalcy-bias/article.mdx",
-          "line": 79
+          "line": 80
         }
       ]
     },
@@ -1406,15 +1435,15 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/oshms/article.mdx",
-          "line": 114
+          "line": 120
         },
         {
           "relativePath": "pe-comprehensive-management/safety-management-system/article.mdx",
-          "line": 84
+          "line": 87
         },
         {
           "relativePath": "pe-comprehensive-management/safety-objectives/article.mdx",
-          "line": 108
+          "line": 111
         }
       ]
     },
@@ -1427,19 +1456,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/pdpc-method/article.mdx",
-          "line": 98
-        }
-      ]
-    },
-    {
-      "url": "https://service.aeondelight.co.jp/blog/lifecycle-management/",
-      "status": 0,
-      "ok": false,
-      "error": "fetch failed",
-      "locations": [
-        {
-          "relativePath": "pe-comprehensive-management/planned-usage-period/article.mdx",
-          "line": 110
+          "line": 101
         }
       ]
     },
@@ -1452,7 +1469,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/positive-action/article.mdx",
-          "line": 82
+          "line": 87
         }
       ]
     },
@@ -1465,7 +1482,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/predictive-maintenance/article.mdx",
-          "line": 98
+          "line": 99
         }
       ]
     },
@@ -1478,7 +1495,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/prior-use-rights/article.mdx",
-          "line": 106
+          "line": 110
         }
       ]
     },
@@ -1491,7 +1508,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/process-costing/article.mdx",
-          "line": 109
+          "line": 110
         }
       ]
     },
@@ -1504,7 +1521,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/prtr-act/article.mdx",
-          "line": 76
+          "line": 82
         }
       ]
     },
@@ -1517,7 +1534,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/psychological-safety/article.mdx",
-          "line": 121
+          "line": 123
         }
       ]
     },
@@ -1530,7 +1547,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/radioactive-waste/article.mdx",
-          "line": 86
+          "line": 88
         }
       ]
     },
@@ -1543,7 +1560,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/reach-regulation/article.mdx",
-          "line": 82
+          "line": 85
         }
       ]
     },
@@ -1556,7 +1573,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/reach-regulation/article.mdx",
-          "line": 83
+          "line": 86
         }
       ]
     },
@@ -1569,7 +1586,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/recommendation-systems/article.mdx",
-          "line": 118
+          "line": 123
         }
       ]
     },
@@ -1581,7 +1598,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/recruitment-management/article.mdx",
-          "line": 108
+          "line": 109
         }
       ]
     },
@@ -1594,7 +1611,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/reemployment-system/article.mdx",
-          "line": 136
+          "line": 141
         }
       ]
     },
@@ -1607,7 +1624,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/regional-circular-symbiosis/article.mdx",
-          "line": 97
+          "line": 99
         }
       ]
     },
@@ -1619,7 +1636,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/relative-absolute-evaluation/article.mdx",
-          "line": 101
+          "line": 102
         }
       ]
     },
@@ -1632,7 +1649,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/renewable-energy-act/article.mdx",
-          "line": 80
+          "line": 83
         }
       ]
     },
@@ -1645,7 +1662,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/renewable-energy-act/article.mdx",
-          "line": 81
+          "line": 84
         }
       ]
     },
@@ -1658,7 +1675,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/rohs-weee/article.mdx",
-          "line": 120
+          "line": 124
         }
       ]
     },
@@ -1671,7 +1688,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/root-cause-analysis/article.mdx",
-          "line": 137
+          "line": 148
         }
       ]
     },
@@ -1684,7 +1701,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/rpa/article.mdx",
-          "line": 88
+          "line": 92
         }
       ]
     },
@@ -1697,7 +1714,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/s-plus-3e/article.mdx",
-          "line": 72
+          "line": 75
         }
       ]
     },
@@ -1709,7 +1726,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/safety-2-0/article.mdx",
-          "line": 96
+          "line": 97
         }
       ]
     },
@@ -1722,7 +1739,19 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/safety-and-security/article.mdx",
-          "line": 82
+          "line": 83
+        }
+      ]
+    },
+    {
+      "url": "https://www.jisha.or.jp/order/article/10_construction.html",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/safety-control/article.mdx",
+          "line": 124
         }
       ]
     },
@@ -1734,7 +1763,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/safety-health-org-structure/article.mdx",
-          "line": 112
+          "line": 113
         }
       ]
     },
@@ -1747,7 +1776,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/sales-management-system/article.mdx",
-          "line": 96
+          "line": 97
         }
       ]
     },
@@ -1760,7 +1789,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/sales-management-system/article.mdx",
-          "line": 97
+          "line": 98
         }
       ]
     },
@@ -1773,7 +1802,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/scm-system/article.mdx",
-          "line": 95
+          "line": 96
         }
       ]
     },
@@ -1786,7 +1815,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/scm-system/article.mdx",
-          "line": 96
+          "line": 97
         }
       ]
     },
@@ -1799,7 +1828,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/sl-theory/article.mdx",
-          "line": 94
+          "line": 95
         }
       ]
     },
@@ -1812,7 +1841,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/smart-safety/article.mdx",
-          "line": 107
+          "line": 109
         }
       ]
     },
@@ -1825,23 +1854,11 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/stakeholder/article.mdx",
-          "line": 112
+          "line": 115
         },
         {
           "relativePath": "pe-comprehensive-management/stakeholder/article.mdx",
-          "line": 112
-        }
-      ]
-    },
-    {
-      "url": "https://ja.wikipedia.org/wiki/気候関連財務情報開示タスクフォース",
-      "status": 0,
-      "ok": false,
-      "error": "fetch failed",
-      "locations": [
-        {
-          "relativePath": "pe-comprehensive-management/tcfd/article.mdx",
-          "line": 70
+          "line": 115
         }
       ]
     },
@@ -1854,7 +1871,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/technology-licensing/article.mdx",
-          "line": 135
+          "line": 139
         }
       ]
     },
@@ -1867,7 +1884,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/three-c-analysis/article.mdx",
-          "line": 106
+          "line": 107
         }
       ]
     },
@@ -1880,7 +1897,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/top-runner-system/article.mdx",
-          "line": 96
+          "line": 99
         }
       ]
     },
@@ -1893,7 +1910,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/top-runner-system/article.mdx",
-          "line": 97
+          "line": 100
         }
       ]
     },
@@ -1906,7 +1923,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/trademark-rights/article.mdx",
-          "line": 132
+          "line": 135
         }
       ]
     },
@@ -1919,7 +1936,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/unfair-competition-prevention-act/article.mdx",
-          "line": 109
+          "line": 114
         }
       ]
     },
@@ -1932,7 +1949,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/unfair-competition-prevention-act/article.mdx",
-          "line": 110
+          "line": 115
         }
       ]
     },
@@ -1945,7 +1962,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/utility-model-rights/article.mdx",
-          "line": 119
+          "line": 123
         }
       ]
     },
@@ -1958,7 +1975,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/value-chain-analysis/article.mdx",
-          "line": 107
+          "line": 108
         }
       ]
     },
@@ -1971,7 +1988,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/wellbeing-org/article.mdx",
-          "line": 84
+          "line": 87
         }
       ]
     },
@@ -1984,7 +2001,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/whitepaper-study-map/article.mdx",
-          "line": 82
+          "line": 115
         }
       ]
     },
@@ -1997,7 +2014,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/whitepaper-study-map/article.mdx",
-          "line": 92
+          "line": 125
         }
       ]
     },
@@ -2010,7 +2027,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/whitepaper-study-map/article.mdx",
-          "line": 102
+          "line": 135
         }
       ]
     },
@@ -2023,7 +2040,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/whitepaper-study-map/article.mdx",
-          "line": 112
+          "line": 145
         }
       ]
     },
@@ -2036,7 +2053,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/women-empowerment-act/article.mdx",
-          "line": 93
+          "line": 96
         }
       ]
     },
@@ -2049,7 +2066,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/zero-trust/article.mdx",
-          "line": 99
+          "line": 100
         }
       ]
     }
@@ -2063,19 +2080,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/digital-rights/article.mdx",
-          "line": 102
-        }
-      ]
-    },
-    {
-      "url": "https://www.jisha.or.jp/order/article/10_construction.html",
-      "status": 0,
-      "ok": false,
-      "error": "TIMEOUT",
-      "locations": [
-        {
-          "relativePath": "pe-comprehensive-management/safety-control/article.mdx",
-          "line": 118
+          "line": 106
         }
       ]
     }
