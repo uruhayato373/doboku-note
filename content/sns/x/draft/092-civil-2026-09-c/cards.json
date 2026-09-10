@@ -129,21 +129,23 @@
     },
     "9": {
       "headline": [
-        "品質の答案は",
-        "品質で確かめる"
+        "2つのテーマを",
+        "同じ内容にしない"
       ],
       "points": [
-        "問いの管理テーマを確認",
-        "結果も同じテーマで点検"
+        "組合せ別の模範答案を収録",
+        "課題と対応の違いを比べる",
+        "有料マガジンは本文から"
       ],
       "character": {
         "pose": "pointing",
         "frame": "bust"
       },
       "sourcePaths": [
-        "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+        "src/lib/note-magazines.ts",
+        "content/note/1級・2級土木/1級土木/magazines/1級土木-施工経験記述-2テーマ組合せ大全/品質x安全/article.md"
       ],
-      "alt": "品質の答案は。品質で確かめる。問いの管理テーマを確認。結果も同じテーマで点検。"
+      "alt": "2つのテーマを。同じ内容にしない。組合せ別の模範答案を収録。課題と対応の違いを比べる。有料マガジンは本文から。"
     },
     "10": {
       "headline": [
@@ -291,21 +293,23 @@
     },
     "18": {
       "headline": [
-        "注意した内容を",
-        "目に見える形へ"
+        "その管理方法を",
+        "具体的に書ける？"
       ],
       "points": [
-        "危険が生じる場所を示す",
-        "設備・作業方法を具体化"
+        "5管理別の完成答案・添削例",
+        "判断の根拠を自分の文と比較",
+        "教材の収録内容はnoteへ"
       ],
       "character": {
         "pose": "pointing",
         "frame": "bust"
       },
       "sourcePaths": [
-        "content/site/civil-construction-1/secondary-experience-writing-examples/article.mdx"
+        "src/lib/note-magazines.ts",
+        "content/note/1級・2級土木/1級土木/magazines/1級土木-施工経験記述-完成答案集/安全管理/article.md"
       ],
-      "alt": "注意した内容を。目に見える形へ。危険が生じる場所を示す。設備・作業方法を具体化。"
+      "alt": "その管理方法を。具体的に書ける？。5管理別の完成答案・添削例。判断の根拠を自分の文と比較。教材の収録内容はnoteへ。"
     },
     "20": {
       "headline": [
@@ -345,21 +349,23 @@
     },
     "24": {
       "headline": [
-        "ひび割れ対策は",
-        "原因から考える"
+        "書いた量より",
+        "答え漏れを点検"
       ],
       "points": [
-        "発生原因を説明する",
-        "原因に対応する対策を選ぶ"
+        "年度別の問題文と答案を収録",
+        "要求された要素の位置を確認",
+        "有料の過去問集は本文リンクへ"
       ],
       "character": {
         "pose": "pointing",
         "frame": "bust"
       },
       "sourcePaths": [
-        "content/site/civil-construction-1/secondary-r04/article.mdx"
+        "src/lib/note-magazines.ts",
+        "content/note/1級・2級土木/1級土木/magazines/1級土木-施工経験記述-過去問模範答案集/R07/article.md"
       ],
-      "alt": "ひび割れ対策は。原因から考える。発生原因を説明する。原因に対応する対策を選ぶ。"
+      "alt": "書いた量より。答え漏れを点検。年度別の問題文と答案を収録。要求された要素の位置を確認。有料の過去問集は本文リンクへ。"
     },
     "25": {
       "headline": [
@@ -453,21 +459,23 @@
     },
     "30": {
       "headline": [
-        "型枠に必要な",
-        "強度と剛性"
+        "直前の復習は",
+        "弱い分野から"
       ],
       "points": [
-        "壊れにくさだけで判断しない",
-        "変形・間隔保持も確認"
+        "分野別の解答の型・穴埋め語句",
+        "書けなかった語句を再確認",
+        "有料の学科記述教材はnoteへ"
       ],
       "character": {
         "pose": "pointing",
         "frame": "bust"
       },
       "sourcePaths": [
-        "content/site/civil-construction-2/secondary-r06/article.mdx"
+        "src/lib/note-magazines.ts",
+        "content/note/1級・2級土木/1級土木/magazines/1級土木-二次学科記述-テーマ別出る順/土工/article.md"
       ],
-      "alt": "型枠に必要な。強度と剛性。壊れにくさだけで判断しない。変形・間隔保持も確認。"
+      "alt": "直前の復習は。弱い分野から。分野別の解答の型・穴埋め語句。書けなかった語句を再確認。有料の学科記述教材はnoteへ。"
     }
   }
 }

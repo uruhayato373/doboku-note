@@ -68,11 +68,13 @@ https://doboku-note.com/exam/civil-construction-2/guide/buildjob-review?utm_sour
 
 #2級土木施工管理技士 #PR
 
-## Tweet 12: 9/14 20:55 civil-2 / 現場つぶやき / linkless
+## Tweet 12: 9/14 20:55 civil-1 / マガジン活用 / note
 
-安全巡視のメモが「異常あり」で終わっていませんか。発見した問題、行った改善、作業員へ伝えた内容をつなげて残す。見つけた後にどう対応したかまで整理すると、安全管理の説明が具体的になります。
+自分の工事に合う答案例が見つからない。1級の有料マガジン「完全攻略パック」は、工種から選べる完成答案と置換ガイドを収録。近い現場を選び、事実の違いを書き出すところから。収録内容をnoteで確認できます。
 
-#2級土木施工管理技士 #施工管理技士
+https://note.com/dobokunote/m/m8290970a7f05?utm_source=x&utm_medium=social&utm_campaign=civil-final-2026&utm_content=2026-09-14-C
+
+#1級土木施工管理技士 #施工管理技士
 
 ## Tweet 13: 9/15 08:15 concrete-chief / 朝の一問 / linkless
 

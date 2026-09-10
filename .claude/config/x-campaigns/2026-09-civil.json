@@ -14,19 +14,19 @@
     "primaryExam": "civil-1",
     "note": "9月11日以降の未投入枠を先生付き学習カードへ更新。予約投入済みと別企画の長文枠は保持。夜の指定日に公開noteマガジンへ案内する。",
     "mix": {
-      "civil-1": 50,
-      "civil-2": 24,
+      "civil-1": 53,
+      "civil-2": 21,
       "concrete-chief": 16
     },
     "funnelMix": {
-      "linkless": 34,
-      "site": 40,
-      "note": 10,
+      "linkless": 30,
+      "site": 39,
+      "note": 15,
       "coconala": 2,
       "x-article": 4
     },
     "rules": [
-      "販売 funnel は 1日1本まで・スロット C のみ・日をまたいで連続させない",
+      "販売 funnel は1日1本まで・スロットCのみ。販売投稿を時系列で連続させず、間に学習投稿を置く",
       "同一日の投稿間隔は 60 分以上（バースト連投は凍結の主因）",
       "着地先は listed / published のものだけ（受付終了・未公開へ送らない）",
       "note の「今月/直近」売上訴求は check-sales-freshness が緑のときだけ書く（WARN/FAIL は転記が止まっており突合不能）",
@@ -475,13 +475,14 @@
       "date": "2026-09-14",
       "time": "20:55",
       "slot": "C",
-      "exam": "civil-2",
-      "type": "現場つぶやき",
-      "funnel": "linkless",
-      "target": null,
+      "exam": "civil-1",
+      "type": "マガジン活用",
+      "funnel": "note",
+      "target": "https://note.com/dobokunote/m/m8290970a7f05?utm_source=x&utm_medium=social&utm_campaign=civil-final-2026&utm_content=2026-09-14-C",
       "image": null,
       "draft": "091-civil-2026-09-b",
-      "tweet": 12
+      "tweet": 12,
+      "magazineId": "civil-1-keiken-complete-pack"
     },
     {
       "date": "2026-09-15",
@@ -806,13 +807,14 @@
       "date": "2026-09-23",
       "time": "20:30",
       "slot": "C",
-      "exam": "civil-2",
-      "type": "答案の見直し",
-      "funnel": "linkless",
-      "target": null,
+      "exam": "civil-1",
+      "type": "マガジン活用",
+      "funnel": "note",
+      "target": "https://note.com/dobokunote/m/m74cfd7c695d6?utm_source=x&utm_medium=social&utm_campaign=civil-final-2026&utm_content=2026-09-23-C",
       "image": null,
       "draft": "092-civil-2026-09-c",
-      "tweet": 9
+      "tweet": 9,
+      "magazineId": "civil-1-combo-essay"
     },
     {
       "date": "2026-09-24",
@@ -916,12 +918,13 @@
       "time": "19:50",
       "slot": "C",
       "exam": "civil-1",
-      "type": "発注者視点解説",
-      "funnel": "linkless",
-      "target": null,
+      "type": "マガジン活用",
+      "funnel": "note",
+      "target": "https://note.com/dobokunote/m/m150c9db08902?utm_source=x&utm_medium=social&utm_campaign=civil-final-2026&utm_content=2026-09-26-C",
       "image": null,
       "draft": "092-civil-2026-09-c",
-      "tweet": 18
+      "tweet": 18,
+      "magazineId": "civil-1-experience-essay"
     },
     {
       "date": "2026-09-27",
@@ -992,12 +995,13 @@
       "time": "20:40",
       "slot": "C",
       "exam": "civil-1",
-      "type": "論点解説",
-      "funnel": "site",
-      "target": "https://doboku-note.com/exam/civil-construction-1/secondary/r04?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep28n-secondary-r04",
+      "type": "マガジン活用",
+      "funnel": "note",
+      "target": "https://note.com/dobokunote/m/m3a578194a0a9?utm_source=x&utm_medium=social&utm_campaign=civil-final-2026&utm_content=2026-09-28-C",
       "image": null,
       "draft": "092-civil-2026-09-c",
-      "tweet": 24
+      "tweet": 24,
+      "magazineId": "civil-1-pastexam-essay"
     },
     {
       "date": "2026-09-29",
@@ -1064,13 +1068,14 @@
       "date": "2026-09-30",
       "time": "19:35",
       "slot": "C",
-      "exam": "civil-2",
-      "type": "現場つぶやき",
-      "funnel": "linkless",
-      "target": null,
+      "exam": "civil-1",
+      "type": "マガジン活用",
+      "funnel": "note",
+      "target": "https://note.com/dobokunote/m/mcfe1059b3335?utm_source=x&utm_medium=social&utm_campaign=civil-final-2026&utm_content=2026-09-30-C",
       "image": null,
       "draft": "092-civil-2026-09-c",
-      "tweet": 30
+      "tweet": 30,
+      "magazineId": "civil-1-gakka-kijutsu"
     }
   ]
 }

@@ -166,21 +166,23 @@
     },
     "12": {
       "headline": [
-        "巡視メモをつなぐ",
-        "発見から周知まで"
+        "答案例を探すなら",
+        "経験した工種から"
       ],
       "points": [
-        "問題を発見した後の改善を記録",
-        "作業員への周知まで整理"
+        "近い工事の完成答案を選ぶ",
+        "自分の現場との違いを書き出す",
+        "有料パックの内容は本文リンクへ"
       ],
       "character": {
         "pose": "pointing",
         "frame": "bust"
       },
       "sourcePaths": [
-        "content/site/civil-construction-1/secondary-experience-writing-examples/article.mdx"
+        "src/lib/note-magazines.ts",
+        "content/note/1級・2級土木/1級土木/magazines/1級土木-経験記述-完全攻略パック/00-完全攻略ガイド-想定工事索引/article.md"
       ],
-      "alt": "安全巡視で発見した問題は、実施した改善と作業員への周知までつなげて記録します。発見だけで終わらず、どう対応したかが伝わる形にします。"
+      "alt": "答案例を探すなら。経験した工種から。近い工事の完成答案を選ぶ。自分の現場との違いを書き出す。有料パックの内容は本文リンクへ。"
     },
     "13": {
       "headline": [

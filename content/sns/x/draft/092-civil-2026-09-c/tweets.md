@@ -59,11 +59,13 @@ https://doboku-note.com/exam/civil-construction-2/guide/career?utm_source=x&utm_
 
 #2級土木施工管理技士 #施工管理技士
 
-## Tweet 09: 9/23 20:30 civil-2 / 答案の見直し / linkless
+## Tweet 09: 9/23 20:30 civil-1 / マガジン活用 / note
 
-品質管理の答案なのに、最後が「工期内に完了」で終わっていないか。成果の書き方もテーマに合わせる。強度や締固め度など、実際に確認した品質の結果へ戻って読み直そう。
+2つ目の答案が、1つ目の言い換えになっていませんか。1級の有料「2テーマ組合せ大全」には、組合せ別の模範答案を収録。苦手な組合せを開き、課題と対応の違いを比べる練習に。noteのマガジンはこちら。
 
-#2級土木施工管理技士 #施工管理技士
+https://note.com/dobokunote/m/m74cfd7c695d6?utm_source=x&utm_medium=social&utm_campaign=civil-final-2026&utm_content=2026-09-23-C
+
+#1級土木施工管理技士 #施工管理技士
 
 ## Tweet 10: 9/24 08:00 civil-1 / リフレーム / linkless
 
@@ -125,9 +127,11 @@ https://doboku-note.com/exam/civil-construction-2/guide/career-agent-comparison?
 
 #2級土木施工管理技士 #施工管理技士
 
-## Tweet 18: 9/26 19:50 civil-1 / 発注者視点解説 / linkless
+## Tweet 18: 9/26 19:50 civil-1 / マガジン活用 / note
 
-発注者に説明するつもりで、安全管理の答案を読んでみる。「注意した」だけでは対策の姿が見えにくい。危険が生じる場所、選んだ設備や作業方法を具体的に説明できるか確かめよう。
+「十分に管理した」の中身を説明できますか。1級の有料・完成答案集には、5管理別の答案と添削例を収録。自分の文章と並べ、判断の根拠や管理方法の具体性を比べてみてください。noteで内容をご覧いただけます。
+
+https://note.com/dobokunote/m/m150c9db08902?utm_source=x&utm_medium=social&utm_campaign=civil-final-2026&utm_content=2026-09-26-C
 
 #1級土木施工管理技士 #施工管理技士
 
@@ -153,11 +157,11 @@ https://doboku-note.com/exam/civil-construction-1/secondary/r03?utm_source=x&utm
 
 #1級土木施工管理技士 #施工管理技士
 
-## Tweet 24: 9/28 20:40 civil-1 / 論点解説 / site
+## Tweet 24: 9/28 20:40 civil-1 / マガジン活用 / note
 
-ひび割れの名前だけ覚えて、対策で迷っていませんか。令和4年度の問題では、種類に合う防止対策が問われました。発生原因と対策を一本の線で結ぶつもりで、図を見直そう。
+長く書けていても、設問への答えが抜けることはあります。1級の有料・過去問模範答案集は、年度別の問題文と答案を収録。「検討」「対応」「評価」がどこに書かれているか、問いと照合する練習に。教材はnoteへ。
 
-https://doboku-note.com/exam/civil-construction-1/secondary/r04?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep28n-secondary-r04
+https://note.com/dobokunote/m/m3a578194a0a9?utm_source=x&utm_medium=social&utm_campaign=civil-final-2026&utm_content=2026-09-28-C
 
 #1級土木施工管理技士 #施工管理技士
 
@@ -199,8 +203,10 @@ https://doboku-note.com/exam/concrete-chief-engineer/guide/trends?utm_source=x&u
 
 #コンクリート主任技士 #コンクリート技士
 
-## Tweet 30: 9/30 19:35 civil-2 / 現場つぶやき / linkless
+## Tweet 30: 9/30 19:35 civil-1 / マガジン活用 / note
 
-型枠は「壊れなければよい」だけでは足りません。強度に加えて、変形を抑える剛性も必要。打設前の確認を振り返る時は、支え方や型枠間隔をどう保ったかも整理しておこう。
+全部を読み直す時間が取りにくいなら、弱い分野を決めて復習。1級の有料「学科記述・テーマ別出る順」は、分野別の解答の型と穴埋め語句を収録。土工やコンクリートなど、言葉が出てこない所の再確認に。noteで詳しく。
 
-#2級土木施工管理技士 #施工管理技士
+https://note.com/dobokunote/m/mcfe1059b3335?utm_source=x&utm_medium=social&utm_campaign=civil-final-2026&utm_content=2026-09-30-C
+
+#1級土木施工管理技士 #施工管理技士

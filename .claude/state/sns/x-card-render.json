@@ -633,21 +633,21 @@
     },
     "content/sns/x/draft/091-civil-2026-09-b/img/tweet-12-2026-09-b.png": {
       "template": "x-teacher-v1",
-      "exam": "civil-2",
-      "headerLabel": "2級土木施工管理技士",
-      "keywordName": "巡視メモをつなぐ 発見から周知まで",
-      "sectionTitle": "9/14 20:55・2級土木施工管理技士",
+      "exam": "civil-1",
+      "headerLabel": "1級土木施工管理技士",
+      "keywordName": "答案例を探すなら 経験した工種から",
+      "sectionTitle": "9/14 20:55・1級土木施工管理技士",
       "colors": {
-        "bg": "#1C5038",
-        "fill": "#3E9069"
+        "bg": "#155293",
+        "fill": "#3E8FDC"
       },
-      "body": "問題を発見した後の改善を記録 作業員への周知まで整理",
+      "body": "近い工事の完成答案を選ぶ 自分の現場との違いを書き出す 有料パックの内容は本文リンクへ",
       "bodySize": 32,
-      "lines": 2,
+      "lines": 3,
       "droppedLines": 0,
-      "sha256": "b344e3e21809b4989a53b5f127f7361528cb145820115db522d8654e2b0aabee",
-      "specSha256": "7fd54d59b71cc08c34e55d0b32e9ec749a642963113648f137de4c1a81efc5a1",
-      "alt": "安全巡視で発見した問題は、実施した改善と作業員への周知までつなげて記録します。発見だけで終わらず、どう対応したかが伝わる形にします。",
+      "sha256": "92895ba30ba1aa4db5e229aee0fc6b5c28b939cfa59d5db7e525b4ff472644b8",
+      "specSha256": "4947cfe83b37db0719f059db6a3ff7b275de33822225285a6fedd4da56899e38",
+      "alt": "答案例を探すなら。経験した工種から。近い工事の完成答案を選ぶ。自分の現場との違いを書き出す。有料パックの内容は本文リンクへ。",
       "character": {
         "pose": "pointing",
         "frame": "bust",
@@ -1383,21 +1383,21 @@
     },
     "content/sns/x/draft/092-civil-2026-09-c/img/tweet-09-2026-09-c.png": {
       "template": "x-teacher-v1",
-      "exam": "civil-2",
-      "headerLabel": "2級土木施工管理技士",
-      "keywordName": "品質の答案は 品質で確かめる",
-      "sectionTitle": "9/23 20:30・2級土木施工管理技士",
+      "exam": "civil-1",
+      "headerLabel": "1級土木施工管理技士",
+      "keywordName": "2つのテーマを 同じ内容にしない",
+      "sectionTitle": "9/23 20:30・1級土木施工管理技士",
       "colors": {
-        "bg": "#1C5038",
-        "fill": "#3E9069"
+        "bg": "#155293",
+        "fill": "#3E8FDC"
       },
-      "body": "問いの管理テーマを確認 結果も同じテーマで点検",
+      "body": "組合せ別の模範答案を収録 課題と対応の違いを比べる 有料マガジンは本文から",
       "bodySize": 32,
-      "lines": 2,
+      "lines": 3,
       "droppedLines": 0,
-      "sha256": "1f8c0f25e9609b2326606fed2d63690f874c4357a20cefc3d6ecb2735b05f85e",
-      "specSha256": "5a81374aad7fd6278110ea3392f2812a81aa272895c817f49e74319776259edf",
-      "alt": "品質の答案は。品質で確かめる。問いの管理テーマを確認。結果も同じテーマで点検。",
+      "sha256": "d9185504db75fff8dda5db2d6cab1fa1690d066f70673eb589f0b2b6c18a6447",
+      "specSha256": "1077723f7bc02048152780acc1fce774304104f051c45df978fe82219b9f5306",
+      "alt": "2つのテーマを。同じ内容にしない。組合せ別の模範答案を収録。課題と対応の違いを比べる。有料マガジンは本文から。",
       "character": {
         "pose": "pointing",
         "frame": "bust",
@@ -1655,19 +1655,19 @@
       "template": "x-teacher-v1",
       "exam": "civil-1",
       "headerLabel": "1級土木施工管理技士",
-      "keywordName": "注意した内容を 目に見える形へ",
+      "keywordName": "その管理方法を 具体的に書ける？",
       "sectionTitle": "9/26 19:50・1級土木施工管理技士",
       "colors": {
         "bg": "#155293",
         "fill": "#3E8FDC"
       },
-      "body": "危険が生じる場所を示す 設備・作業方法を具体化",
+      "body": "5管理別の完成答案・添削例 判断の根拠を自分の文と比較 教材の収録内容はnoteへ",
       "bodySize": 32,
-      "lines": 2,
+      "lines": 3,
       "droppedLines": 0,
-      "sha256": "5dff98d90a54cbf8ce1c4f864ce4dd713c3ffe8d785f96bf78e78dfee3461461",
-      "specSha256": "afc33d9199b28c8b380fa6b1db9a2cf4919c10095fe125f204c10952641a385f",
-      "alt": "注意した内容を。目に見える形へ。危険が生じる場所を示す。設備・作業方法を具体化。",
+      "sha256": "7c2b6dcd46df7cd9e3ef8ea4de4ab07b7073a7621cde6070025ef670a97d31e8",
+      "specSha256": "a8bc2935ba1473ce849eab7b1cfdbd8e7a71640bd2d9a67be7a44d2f7c808936",
+      "alt": "その管理方法を。具体的に書ける？。5管理別の完成答案・添削例。判断の根拠を自分の文と比較。教材の収録内容はnoteへ。",
       "character": {
         "pose": "pointing",
         "frame": "bust",
@@ -1745,19 +1745,19 @@
       "template": "x-teacher-v1",
       "exam": "civil-1",
       "headerLabel": "1級土木施工管理技士",
-      "keywordName": "ひび割れ対策は 原因から考える",
+      "keywordName": "書いた量より 答え漏れを点検",
       "sectionTitle": "9/28 20:40・1級土木施工管理技士",
       "colors": {
         "bg": "#155293",
         "fill": "#3E8FDC"
       },
-      "body": "発生原因を説明する 原因に対応する対策を選ぶ",
+      "body": "年度別の問題文と答案を収録 要求された要素の位置を確認 有料の過去問集は本文リンクへ",
       "bodySize": 32,
-      "lines": 2,
+      "lines": 3,
       "droppedLines": 0,
-      "sha256": "f50bc5f5319ae01849184e5b913ed00247458c6206f9e198b4c44eaae8939614",
-      "specSha256": "b84ee206898e1776d3b827139fdc55582e51f4e1aad40e904c2bfe42babe1b36",
-      "alt": "ひび割れ対策は。原因から考える。発生原因を説明する。原因に対応する対策を選ぶ。",
+      "sha256": "366e8956a7ed1039f16ff5d0f524f2a83e178d3de854500289b6c26768b6746b",
+      "specSha256": "f7a162f4e8ce273bd6b2ec59336cefe06f4494ad5220365f4c1099dd043af1ba",
+      "alt": "書いた量より。答え漏れを点検。年度別の問題文と答案を収録。要求された要素の位置を確認。有料の過去問集は本文リンクへ。",
       "character": {
         "pose": "pointing",
         "frame": "bust",
@@ -1923,21 +1923,21 @@
     },
     "content/sns/x/draft/092-civil-2026-09-c/img/tweet-30-2026-09-c.png": {
       "template": "x-teacher-v1",
-      "exam": "civil-2",
-      "headerLabel": "2級土木施工管理技士",
-      "keywordName": "型枠に必要な 強度と剛性",
-      "sectionTitle": "9/30 19:35・2級土木施工管理技士",
+      "exam": "civil-1",
+      "headerLabel": "1級土木施工管理技士",
+      "keywordName": "直前の復習は 弱い分野から",
+      "sectionTitle": "9/30 19:35・1級土木施工管理技士",
       "colors": {
-        "bg": "#1C5038",
-        "fill": "#3E9069"
+        "bg": "#155293",
+        "fill": "#3E8FDC"
       },
-      "body": "壊れにくさだけで判断しない 変形・間隔保持も確認",
+      "body": "分野別の解答の型・穴埋め語句 書けなかった語句を再確認 有料の学科記述教材はnoteへ",
       "bodySize": 32,
-      "lines": 2,
+      "lines": 3,
       "droppedLines": 0,
-      "sha256": "8999cb7b57b38306ae7d97032b7c6912a9bbcb63609cfc0507164ed42fb78cdd",
-      "specSha256": "5a4a96934b37fb9bf42221ce3e18183cc11fad1b78e4b99ff13d5693137ddea2",
-      "alt": "型枠に必要な。強度と剛性。壊れにくさだけで判断しない。変形・間隔保持も確認。",
+      "sha256": "593d4eb604aa21b2166f5ea7167bbdfb82d4cae4cacd39b245592a6727a47514",
+      "specSha256": "83c8018515caae441f35ba23aeab744cabbdd7fdc67d2e49763fec223113f298",
+      "alt": "直前の復習は。弱い分野から。分野別の解答の型・穴埋め語句。書けなかった語句を再確認。有料の学科記述教材はnoteへ。",
       "character": {
         "pose": "pointing",
         "frame": "bust",
@@ -2967,6 +2967,426 @@
           "top": 298,
           "width": 330,
           "height": 284
+        },
+        "enlarged": false
+      }
+    },
+    "content/sns/x/draft/097-civil2-final-2026-10/img/tweet-01-final-2026-10.png": {
+      "template": "x-teacher-v1",
+      "exam": "civil-2",
+      "headerLabel": "2級土木施工管理技士",
+      "keywordName": "概要を隠して 本文を読んでみる",
+      "sectionTitle": "10/11 20:12・2級土木施工管理技士",
+      "colors": {
+        "bg": "#1C5038",
+        "fill": "#3E9069"
+      },
+      "body": "工種・場所・担当を説明する 概要と矛盾しないか照合",
+      "bodySize": 32,
+      "lines": 2,
+      "droppedLines": 0,
+      "sha256": "33bb0a79a5de05efa87c3d55dd11984da1fb7896b165a3867a3a6869d79c71e2",
+      "specSha256": "2082258325769b000edcce727386c5b3f4a5a0c1f49d752ceb44d439b793d16a",
+      "alt": "概要を隠して。本文を読んでみる。工種・場所・担当を説明する。概要と矛盾しないか照合。",
+      "character": {
+        "pose": "thinking",
+        "frame": "bust",
+        "sourceSha256": "9effcfc973c5ec7083e60ab3fd7fa57cadd03b2f69b209cdf1d4deb2ba3007ac",
+        "placement": {
+          "left": 840,
+          "top": 153,
+          "width": 330,
+          "height": 429
+        },
+        "enlarged": false
+      }
+    },
+    "content/sns/x/draft/097-civil2-final-2026-10/img/tweet-02-final-2026-10.png": {
+      "template": "x-teacher-v1",
+      "exam": "civil-2",
+      "headerLabel": "2級土木施工管理技士",
+      "keywordName": "工事は決まった 次は書く観点",
+      "sectionTitle": "10/12 20:24・2級土木施工管理技士",
+      "colors": {
+        "bg": "#1C5038",
+        "fill": "#3E9069"
+      },
+      "body": "工事別の完成答案と置換ガイド 経験した工種に近い例を探す 有料バンクの収録工事はnoteへ",
+      "bodySize": 32,
+      "lines": 3,
+      "droppedLines": 0,
+      "sha256": "eae0956b0b11c468cb108fb8d63aa893483a66c878f0169c09cf683359bb23c2",
+      "specSha256": "2fd3b8e56b93e44d6ca5772c8a4c9346e713811f83d7e0b2a7a50efda688961c",
+      "alt": "工事は決まった。次は書く観点。工事別の完成答案と置換ガイド。経験した工種に近い例を探す。有料バンクの収録工事はnoteへ。",
+      "character": {
+        "pose": "explaining",
+        "frame": "bust",
+        "sourceSha256": "4c11869520bc03fc66ae836abb7621ab03c963aa195c7a3d5f6d295d6bdae34f",
+        "placement": {
+          "left": 840,
+          "top": 285,
+          "width": 330,
+          "height": 297
+        },
+        "enlarged": false
+      }
+    },
+    "content/sns/x/draft/097-civil2-final-2026-10/img/tweet-03-final-2026-10.png": {
+      "template": "x-teacher-v1",
+      "exam": "civil-2",
+      "headerLabel": "2級土木施工管理技士",
+      "keywordName": "対策から逆向きに 課題へたどる",
+      "sectionTitle": "10/13 19:46・2級土木施工管理技士",
+      "colors": {
+        "bg": "#1C5038",
+        "fill": "#3E9069"
+      },
+      "body": "どの課題への対策か確認 説明が飛んだ箇所を書き直す",
+      "bodySize": 32,
+      "lines": 2,
+      "droppedLines": 0,
+      "sha256": "30211abe39f831bad2e839d66c72970eccd937ea72d7c33e80e866983d87d468",
+      "specSha256": "86d8b369e8d5fb23f8b027b8ad44c5c9a4c5fdfabf9e87c10b53d740359c0761",
+      "alt": "対策から逆向きに。課題へたどる。どの課題への対策か確認。説明が飛んだ箇所を書き直す。",
+      "character": {
+        "pose": "pointing",
+        "frame": "bust",
+        "sourceSha256": "3472758dce6349f32c9d1e30958cb489ad87b7f6edcddf9977940d3bd8f2ade4",
+        "placement": {
+          "left": 840,
+          "top": 298,
+          "width": 330,
+          "height": 284
+        },
+        "enlarged": false
+      }
+    },
+    "content/sns/x/draft/097-civil2-final-2026-10/img/tweet-04-final-2026-10.png": {
+      "template": "x-teacher-v1",
+      "exam": "civil-2",
+      "headerLabel": "2級土木施工管理技士",
+      "keywordName": "3つの管理で 何を書き分ける？",
+      "sectionTitle": "10/14 20:08・2級土木施工管理技士",
+      "colors": {
+        "bg": "#1C5038",
+        "fill": "#3E9069"
+      },
+      "body": "テーマ別の完成答案と添削例 守る対象・条件・対策を比較 有料答案集の案内は本文へ",
+      "bodySize": 32,
+      "lines": 3,
+      "droppedLines": 0,
+      "sha256": "69c5f4609f14b14814833659a4d98f071f3ff023dfaa2499b43e27e60b8e2516",
+      "specSha256": "8065a228dded25af7046fbb84a2b4334faf9e75004a9a0c43f698402f981e152",
+      "alt": "3つの管理で。何を書き分ける？。テーマ別の完成答案と添削例。守る対象・条件・対策を比較。有料答案集の案内は本文へ。",
+      "character": {
+        "pose": "thinking",
+        "frame": "bust",
+        "sourceSha256": "9effcfc973c5ec7083e60ab3fd7fa57cadd03b2f69b209cdf1d4deb2ba3007ac",
+        "placement": {
+          "left": 840,
+          "top": 153,
+          "width": 330,
+          "height": 429
+        },
+        "enlarged": false
+      }
+    },
+    "content/sns/x/draft/097-civil2-final-2026-10/img/tweet-05-final-2026-10.png": {
+      "template": "x-teacher-v1",
+      "exam": "civil-2",
+      "headerLabel": "2級土木施工管理技士",
+      "keywordName": "3つの見出しで 準備の穴を探す",
+      "sectionTitle": "10/15 20:32・2級土木施工管理技士",
+      "colors": {
+        "bg": "#1C5038",
+        "fill": "#3E9069"
+      },
+      "body": "安全・品質・工程を並べる 空いた欄の材料を記録から探す",
+      "bodySize": 32,
+      "lines": 2,
+      "droppedLines": 0,
+      "sha256": "3e2b6a2d8752afb4aba1887f6c1cb3bbbca20ad44abe22f65c86ae5e2c8c0a3b",
+      "specSha256": "df89a51f197dcdcfbac72bf6a2e8beee2ddde3cae2b98d60778f663a0d5e67aa",
+      "alt": "3つの見出しで。準備の穴を探す。安全・品質・工程を並べる。空いた欄の材料を記録から探す。",
+      "character": {
+        "pose": "explaining",
+        "frame": "bust",
+        "sourceSha256": "4c11869520bc03fc66ae836abb7621ab03c963aa195c7a3d5f6d295d6bdae34f",
+        "placement": {
+          "left": 840,
+          "top": 285,
+          "width": 330,
+          "height": 297
+        },
+        "enlarged": false
+      }
+    },
+    "content/sns/x/draft/097-civil2-final-2026-10/img/tweet-06-final-2026-10.png": {
+      "template": "x-teacher-v1",
+      "exam": "civil-2",
+      "headerLabel": "2級土木施工管理技士",
+      "keywordName": "問いに印を付け 答案から探す",
+      "sectionTitle": "10/16 12:18・2級土木施工管理技士",
+      "colors": {
+        "bg": "#1C5038",
+        "fill": "#3E9069"
+      },
+      "body": "求められた要素を確認 理由と実施内容を混同しない",
+      "bodySize": 32,
+      "lines": 2,
+      "droppedLines": 0,
+      "sha256": "ccbd807b6708f1683ab8b6286a7070aa3f5bcd026b287dde01b67f35052bbcc6",
+      "specSha256": "048b0d3b334827c820a0b0066f6d7626c7283a71e9e07681fe1820799ee99f86",
+      "alt": "問いに印を付け。答案から探す。求められた要素を確認。理由と実施内容を混同しない。",
+      "character": {
+        "pose": "pointing",
+        "frame": "bust",
+        "sourceSha256": "3472758dce6349f32c9d1e30958cb489ad87b7f6edcddf9977940d3bd8f2ade4",
+        "placement": {
+          "left": 840,
+          "top": 298,
+          "width": 330,
+          "height": 284
+        },
+        "enlarged": false
+      }
+    },
+    "content/sns/x/draft/097-civil2-final-2026-10/img/tweet-07-final-2026-10.png": {
+      "template": "x-teacher-v1",
+      "exam": "civil-2",
+      "headerLabel": "2級土木施工管理技士",
+      "keywordName": "その作業の主語 自分の役割は？",
+      "sectionTitle": "10/17 19:54・2級土木施工管理技士",
+      "colors": {
+        "bg": "#1C5038",
+        "fill": "#3E9069"
+      },
+      "body": "工事全体と担当業務を分ける 実際に行ったことを動詞にする",
+      "bodySize": 32,
+      "lines": 2,
+      "droppedLines": 0,
+      "sha256": "e0bdc79c75b7e2a6f692fc516507352bfed24ed3dd8bca7aa48cf9a599b068b6",
+      "specSha256": "69ecc3a3d27fe9d3d14c76f3594eae67fb4530f61ca1b470e2e752ef542e62be",
+      "alt": "その作業の主語。自分の役割は？。工事全体と担当業務を分ける。実際に行ったことを動詞にする。",
+      "character": {
+        "pose": "thinking",
+        "frame": "bust",
+        "sourceSha256": "9effcfc973c5ec7083e60ab3fd7fa57cadd03b2f69b209cdf1d4deb2ba3007ac",
+        "placement": {
+          "left": 840,
+          "top": 153,
+          "width": 330,
+          "height": 429
+        },
+        "enlarged": false
+      }
+    },
+    "content/sns/x/draft/097-civil2-final-2026-10/img/tweet-08-final-2026-10.png": {
+      "template": "x-teacher-v1",
+      "exam": "civil-2",
+      "headerLabel": "2級土木施工管理技士",
+      "keywordName": "問いが変われば 答え方も点検",
+      "sectionTitle": "10/18 20:18・2級土木施工管理技士",
+      "colors": {
+        "bg": "#1C5038",
+        "fill": "#3E9069"
+      },
+      "body": "年度別の問題文と複数工事の答案 設問条件ごとに必要な要素を確認 有料の収録一覧はnoteから",
+      "bodySize": 32,
+      "lines": 3,
+      "droppedLines": 0,
+      "sha256": "727f71b2bd766f89053820aac2573e5e35f9eb6780fecb77bbbf9a332f61dbfc",
+      "specSha256": "3112964944b1a09a878e97042de72b19c82c938698ee8b93c0c971b1ee829a1a",
+      "alt": "問いが変われば。答え方も点検。年度別の問題文と複数工事の答案。設問条件ごとに必要な要素を確認。有料の収録一覧はnoteから。",
+      "character": {
+        "pose": "explaining",
+        "frame": "bust",
+        "sourceSha256": "4c11869520bc03fc66ae836abb7621ab03c963aa195c7a3d5f6d295d6bdae34f",
+        "placement": {
+          "left": 840,
+          "top": 285,
+          "width": 330,
+          "height": 297
+        },
+        "enlarged": false
+      }
+    },
+    "content/sns/x/draft/097-civil2-final-2026-10/img/tweet-09-final-2026-10.png": {
+      "template": "x-teacher-v1",
+      "exam": "civil-2",
+      "headerLabel": "2級土木施工管理技士",
+      "keywordName": "その対策に なぜを一つ足す",
+      "sectionTitle": "10/19 20:37・2級土木施工管理技士",
+      "colors": {
+        "bg": "#1C5038",
+        "fill": "#3E9069"
+      },
+      "body": "対策が必要になった条件を示す 現場条件から理由をつなぐ",
+      "bodySize": 32,
+      "lines": 2,
+      "droppedLines": 0,
+      "sha256": "b9b297fe7ad9b7c75cb003f6040099d68ac8fb8aaf733c5d0d16a199ebb3e883",
+      "specSha256": "140009bae17681925429cf55dbc87bdd8868eaf097283d913140173f3015c323",
+      "alt": "その対策に。なぜを一つ足す。対策が必要になった条件を示す。現場条件から理由をつなぐ。",
+      "character": {
+        "pose": "pointing",
+        "frame": "bust",
+        "sourceSha256": "3472758dce6349f32c9d1e30958cb489ad87b7f6edcddf9977940d3bd8f2ade4",
+        "placement": {
+          "left": 840,
+          "top": 298,
+          "width": 330,
+          "height": 284
+        },
+        "enlarged": false
+      }
+    },
+    "content/sns/x/draft/097-civil2-final-2026-10/img/tweet-10-final-2026-10.png": {
+      "template": "x-teacher-v1",
+      "exam": "civil-2",
+      "headerLabel": "2級土木施工管理技士",
+      "keywordName": "短文記述には 何を書けばよい？",
+      "sectionTitle": "10/20 19:58・2級土木施工管理技士",
+      "colors": {
+        "bg": "#1C5038",
+        "fill": "#3E9069"
+      },
+      "body": "設問に応じた解答の型を収録 何を・なぜ・どうするを確認 有料教材の内容は本文リンクへ",
+      "bodySize": 32,
+      "lines": 3,
+      "droppedLines": 0,
+      "sha256": "78de626dcc46a1648913a081e39676d024de0f60f9a1697ff0987678db09e7d4",
+      "specSha256": "b5962e6bee11ad7f3589b472de36ed3e5355a6a62f8f4c7279f02fb09843c6d4",
+      "alt": "短文記述には。何を書けばよい？。設問に応じた解答の型を収録。何を・なぜ・どうするを確認。有料教材の内容は本文リンクへ。",
+      "character": {
+        "pose": "thinking",
+        "frame": "bust",
+        "sourceSha256": "9effcfc973c5ec7083e60ab3fd7fa57cadd03b2f69b209cdf1d4deb2ba3007ac",
+        "placement": {
+          "left": 840,
+          "top": 153,
+          "width": 330,
+          "height": 429
+        },
+        "enlarged": false
+      }
+    },
+    "content/sns/x/draft/097-civil2-final-2026-10/img/tweet-11-final-2026-10.png": {
+      "template": "x-teacher-v1",
+      "exam": "civil-2",
+      "headerLabel": "2級土木施工管理技士",
+      "keywordName": "手で書いて 時間配分を点検",
+      "sectionTitle": "10/21 20:26・2級土木施工管理技士",
+      "colors": {
+        "bg": "#1C5038",
+        "fill": "#3E9069"
+      },
+      "body": "解答欄を意識して書く 詰まった箇所・終了時刻を記録",
+      "bodySize": 32,
+      "lines": 2,
+      "droppedLines": 0,
+      "sha256": "fb22d9af193509ae2c4c9d77f56b0673b429f854720a65643b62716139a9be9a",
+      "specSha256": "c6b7b5b8458ed6c06de5186204285f649b8b8e543e81c8e2df8eadcd3d334a19",
+      "alt": "手で書いて。時間配分を点検。解答欄を意識して書く。詰まった箇所・終了時刻を記録。",
+      "character": {
+        "pose": "explaining",
+        "frame": "bust",
+        "sourceSha256": "4c11869520bc03fc66ae836abb7621ab03c963aa195c7a3d5f6d295d6bdae34f",
+        "placement": {
+          "left": 840,
+          "top": 285,
+          "width": 330,
+          "height": 297
+        },
+        "enlarged": false
+      }
+    },
+    "content/sns/x/draft/097-civil2-final-2026-10/img/tweet-12-final-2026-10.png": {
+      "template": "x-teacher-v1",
+      "exam": "civil-2",
+      "headerLabel": "2級土木施工管理技士",
+      "keywordName": "最後の復習は 迷った語に印",
+      "sectionTitle": "10/22 20:41・2級土木施工管理技士",
+      "colors": {
+        "bg": "#1C5038",
+        "fill": "#3E9069"
+      },
+      "body": "穴埋め語句リストを収録 答えを隠して書き出す練習に 有料マガジンの案内は本文へ",
+      "bodySize": 32,
+      "lines": 3,
+      "droppedLines": 0,
+      "sha256": "2d37fa0fe4b83ba53e4f9f1af0b95405a439aa8face0316460f530097f231617",
+      "specSha256": "8fa4162ef349fc4a15825165e8c65fb7330c932b8dc37524e155d7fe813b5cb0",
+      "alt": "最後の復習は。迷った語に印。穴埋め語句リストを収録。答えを隠して書き出す練習に。有料マガジンの案内は本文へ。",
+      "character": {
+        "pose": "pointing",
+        "frame": "bust",
+        "sourceSha256": "3472758dce6349f32c9d1e30958cb489ad87b7f6edcddf9977940d3bd8f2ade4",
+        "placement": {
+          "left": 840,
+          "top": 298,
+          "width": 330,
+          "height": 284
+        },
+        "enlarged": false
+      }
+    },
+    "content/sns/x/draft/097-civil2-final-2026-10/img/tweet-13-final-2026-10.png": {
+      "template": "x-teacher-v1",
+      "exam": "civil-2",
+      "headerLabel": "2級土木施工管理技士",
+      "keywordName": "曖昧な数字を 記録と照合する",
+      "sectionTitle": "10/23 12:43・2級土木施工管理技士",
+      "colors": {
+        "bg": "#1C5038",
+        "fill": "#3E9069"
+      },
+      "body": "工期・数量・管理値を確認 確認できた事実と単位を書く",
+      "bodySize": 32,
+      "lines": 2,
+      "droppedLines": 0,
+      "sha256": "f9db20c971a1ff3315c2e91250602272129c1ccf718a7b22c7e8d3c3ac7a35b6",
+      "specSha256": "7cc82e7e4c11f865477d5d33a645d32689ad949b95a6c36a071d400f72c50f69",
+      "alt": "曖昧な数字を。記録と照合する。工期・数量・管理値を確認。確認できた事実と単位を書く。",
+      "character": {
+        "pose": "thinking",
+        "frame": "bust",
+        "sourceSha256": "9effcfc973c5ec7083e60ab3fd7fa57cadd03b2f69b209cdf1d4deb2ba3007ac",
+        "placement": {
+          "left": 840,
+          "top": 153,
+          "width": 330,
+          "height": 429
+        },
+        "enlarged": false
+      }
+    },
+    "content/sns/x/draft/097-civil2-final-2026-10/img/tweet-14-final-2026-10.png": {
+      "template": "x-teacher-v1",
+      "exam": "civil-2",
+      "headerLabel": "2級土木施工管理技士",
+      "keywordName": "明日の準備を 今夜のうちに",
+      "sectionTitle": "10/24 19:48・2級土木施工管理技士",
+      "colors": {
+        "bg": "#1C5038",
+        "fill": "#3E9069"
+      },
+      "body": "受検票の案内・持ち物を確認 移動を決めて学習を切り上げる",
+      "bodySize": 32,
+      "lines": 2,
+      "droppedLines": 0,
+      "sha256": "d113edd268d03bbbe4ac4d33392969289ffdc4160e788384755afdb1d55d456f",
+      "specSha256": "f586ede1298d00cee0a0af87c9eb7e90f4b76155a55ff941b5c64dae9f6b3bf7",
+      "alt": "明日の準備を。今夜のうちに。受検票の案内・持ち物を確認。移動を決めて学習を切り上げる。",
+      "character": {
+        "pose": "explaining",
+        "frame": "bust",
+        "sourceSha256": "4c11869520bc03fc66ae836abb7621ab03c963aa195c7a3d5f6d295d6bdae34f",
+        "placement": {
+          "left": 840,
+          "top": 285,
+          "width": 330,
+          "height": 297
         },
         "enlarged": false
       }
