@@ -1,12 +1,15 @@
 {
   "reel": {
     "channel": "business-suite",
-    "status": "scheduled",
-    "scheduled_at": "2026-09-11T12:30:00.000+09:00",
+    "status": "draft",
+    "scheduled_at": null,
     "posted_at": null,
     "video": "reels/video.mp4",
     "source": ".",
-    "updated_at": "2026-09-06T09:29:28.629+09:00",
-    "verification": "Metaプランナーに20:30枠が未反映"
+    "updated_at": "2026-09-10T22:51:13.692Z",
+    "verification": "Metaプランナーに20:30枠が未反映",
+    "previous_scheduled_at": "2026-09-11T12:30:00.000+09:00",
+    "paused_at": "2026-09-10T22:51:13.692Z",
+    "pause_reason": "current-series-paused-by-user"
   }
 }

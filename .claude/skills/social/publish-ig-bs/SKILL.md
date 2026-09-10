@@ -31,6 +31,7 @@ Playwright で Business Suite（business.facebook.com）のコンポーザを自
 
 ### IG 単独化の副作用（実測で判明）
 - 投稿先ドロップダウンで Facebook ページ option（`role=option` / `aria-selected`）を外すと **Instagram 単独モード**に切り替わる。
+- Instagram 単独の選択状態を検証できない場合は確定せず停止する。
 - IG 単独モードではメディアボタンが **「写真・動画を追加」**（FB+IG 時は「写真を追加」）に変わる → `SEL.addMedia` は `/写真.*追加/` で両対応。
 - IG 単独だと予約セクションは **Instagram 1 行のみ**（FB+IG だと 2 行）。`setSchedule` は全行に同一日時を入れるため両構成で安全。
 - アカウント名が違う環境では env `IG_BS_FB_PAGE` / `IG_BS_IG_ACCOUNT` で上書き。
@@ -102,7 +103,7 @@ npx tsx .claude/skills/social/publish-ig-bs/publish-ig-bs.ts post \
 | コンポーザ判定 | 「投稿の詳細」テキスト / `role=button name=キャンセル` | モード非依存 |
 | 投稿先を開く | `getByText(/Doboku-note/)`（FB ページ名） | boundingBox で開を確認 |
 | FB を外す | `role=option name=Doboku-note` の `aria-selected` を true→クリック→false 検証 | IG 単独化 |
-| メディア追加 | `role=button name=/写真.*追加/` → filechooser（fallback: menu「アップロード」/ `input[type=file]`） | IG単独は「写真・動画を追加」 |
+| メディア追加 | `role=button name=/写真.*追加/` → filechooserへ1枚ずつ投入 | 各サムネのCDN読込と既存画像順の維持を確認後に次へ。多枚一括投入は完了順に並び替わるため禁止（2026-09-11実測） |
 | キャプション | `[contenteditable=true][role=textbox]` / `textarea` → clipboard paste + read-back 検証。10枚カルーセルで欄が遅延描画される現行UIは左ペイン末尾へ自動スクロールして再探索 | 日本語 OK |
 | 予約 ON | `role=switch name=日時を設定` の `aria-checked` | これで日時欄が出現 |
 | 日付 | `input[placeholder="yyyy/mm/dd"]` に `YYYY/MM/DD` | 全行に同一日時 |
@@ -117,6 +118,8 @@ npx tsx .claude/skills/social/publish-ig-bs/publish-ig-bs.ts post \
 
 セレクタを直したら**この表と `SEL` を同時に更新**。
 
+カルーセルは `scripts/lib/instagram-image-upload.mjs` で画像を直列に送る。完成サムネのURLパスと入力順を記録し、予約編集で開き直した一覧の並びも照合する。表紙だけが先頭にあればよいとせず、途中の説明と最後のCTAまで順序を確認する。既存予約の修正は対象投稿IDを確認して「投稿の編集」を使い、元の本文・予約日時・アカウントを保つ。
+
 ## リール（`--reel`）2026-06-09 実機検証済み
 
 `--reel` で `reels/video.mp4` + `reels/caption.txt` を読み、リールを予約投稿する。カルーセルとは別 UI フロー。
@@ -130,7 +133,7 @@ npx tsx .claude/skills/social/publish-ig-bs/publish-ig-bs.ts post \
 - 2 種のリールを扱える（どちらも `<dir>/video.mp4` + `<dir>/caption.txt` フォールバックで読む）:
   - **フルリール**: `<pack>/reels/video.mp4`（4問・長尺）。生成は `ig-reel-create`。
   - **1問1リール（推奨）**: `<pack>/reels-pp/q<N>/video.mp4`（36-45秒）。生成は `per-problem-shorts.mjs --ig-mode`。post の引数に q ディレクトリを渡す。
-- **カバー（サムネ）を明示設定**: パックに `cover.png`（reels-pp）または `reels/img/00-cover.png`（旧構造）があれば、**編集ステップでファイルアップロードしてサムネを確定**する（Meta 自動抽出任せにしない）。`per-problem-shorts.mjs --ig-mode` は `cover.png`（論点カバー＝先頭スライド）を出力する。カバーが無い／編集 UI 未検出なら **fail-soft でスキップ**（投稿フローは止めず Meta 自動サムネにフォールバック）。
+- **カバー（サムネ）を明示設定**: パックに `cover.png`（reels-pp）または `reels/img/00-cover.png`（旧構造）があれば、**編集ステップでファイルアップロードしてサムネを確定**する（Meta 自動抽出任せにしない）。`per-problem-shorts.mjs --ig-mode` は `cover.png`（論点カバー＝先頭スライド）を出力する。カバーを指定したパックは、編集 UI やアップロードを確認できなければ停止する。未指定パックだけ Meta 自動サムネを使う。`reels/cover.png` にも対応。
 - **動画・音声・カバーは git に持たない（JIT）**: mp4・wav・cover.png は再生成可能な派生物で gitignore（コミットは slide-data + script.txt + caption.txt。wav は Drive vault 退避＝`drive-vault-sync --group sns-archived-media`／script.txt から再生成可）。**`video.mp4`・`wav` が無いのは正常** — 投稿時に生成し、予約後に削除する。`scripts/publish-reel-jit.mjs`（生成→予約→mp4/cover削除）が1コマンド化。
 - 投稿後 `status.json` に `reel.{...}` を記録（caption.txt / status.json は追跡）。
 
@@ -143,7 +146,7 @@ npx tsx .claude/skills/social/publish-ig-bs/publish-ig-bs.ts post \
 | 投稿先 IG 単独化 | カルーセルと同じ `role=option`（FB ページを外す） |
 | キャプション | 共通（contenteditable textbox） |
 | ステップ送り | 3 ステップ（作成→編集→シェアする）。**右下の「次へ」を座標で click**（サムネ送りの「次へ」ZWSP を誤爆しない） |
-| カバー設定（2026-06-24 実機確定） | カバーありなら **`role=button「編集」`クリック → 「サムネイル」節へスクロール → `画像をアップロード`タブ → パネル内の`画像をアップロード`で `filechooser` → `cover.png` 投入**（`画像を変更`表示で確定）。**「次へ」送りでは編集が自動完了して飛ぶ**ため編集タブを直接押す。サムネ＝「カバー」ではなく「サムネイル」ラベル。fail-soft（未検出は警告のみで投稿継続→Meta 自動サムネ）。スクショは `.local/playwright-ig-bs-debug/reel-cover-*` |
+| カバー設定（2026-06-24 実機確定） | カバーありなら **`role=button「編集」`クリック → 「サムネイル」節へスクロール → `画像をアップロード`タブ → パネル内の`画像をアップロード`で `filechooser` → `cover.png` 投入**（`画像を変更`表示で確定）。**「次へ」送りでは編集が自動完了して飛ぶ**ため編集タブを直接押す。サムネ＝「カバー」ではなく「サムネイル」ラベル。指定カバーの設定失敗時は確定せず停止。スクショは `.local/playwright-ig-bs-debug/reel-cover-*` |
 | 予約 | シェアするで `role=button name="日時を指定"` → 日付/時刻（共通 spinbutton）→ 確定 `role=button name="公開日時を指定"` |
 | 即時 | `role=button name="今すぐシェア"`（`--now`） |
 | fail-safe | 「公開日時を指定」ボタンが出るまで確認できなければ中止（即時シェア誤爆防止） |
@@ -155,3 +158,7 @@ npx tsx .claude/skills/social/publish-ig-bs/publish-ig-bs.ts post \
 ## スクリプト本体
 
 `.claude/skills/social/publish-ig-bs/publish-ig-bs.ts`
+
+## 混在バッチ
+
+`batch <json>` は `items: [{packArg, schedule, kind}]` を順番に処理する。`kind` は `carousel` または `reel`（省略は既存互換で `reel`）。日時は JST の `YYYY-MM-DDTHH:MM`。初回は両形式を `post ... --dry-run` で検証する。途中失敗時は停止し、再投入前に実予約と各 `status.json` を照合する。

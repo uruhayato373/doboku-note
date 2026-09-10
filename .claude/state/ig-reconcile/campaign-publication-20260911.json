@@ -1,0 +1,405 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-11",
+  "account": "dobokunotecom",
+  "campaignId": "instagram-bridge-notebook-a-20260910",
+  "verifiedAt": "2026-09-11T08:45:10.810+09:00",
+  "reservations": 9,
+  "records": [
+    {
+      "pack": "content/sns/instagram/video-packs/civil-construction-1/career-agent-katsuyo-point-step1-1",
+      "kind": "reel",
+      "postId": "917789277642928",
+      "scheduledAt": "2026-09-12T12:30:00+09:00",
+      "verifiedAt": "2026-09-11T08:44:17.795+09:00",
+      "captionSha256": "04b53ea3dcd520d7d398faa76d7ca8d275edd667ca458cb4f001037151a0671c",
+      "assets": [
+        {
+          "path": "content/sns/instagram/video-packs/civil-construction-1/career-agent-katsuyo-point-step1-1/reels/video.mp4",
+          "sha256": "1068341a216d1e4a27ada56a7a71652361c12e701fa2ed3e14d19a3576b8394a"
+        },
+        {
+          "path": "content/sns/instagram/video-packs/civil-construction-1/career-agent-katsuyo-point-step1-1/reels/cover.png",
+          "sha256": "97da9afd10b8faddf62b19763e186bc409fd7c8c867098b7086dec62a9130c05"
+        }
+      ],
+      "liveRow": "1級土木｜転職サービスは2軸で比較 転職サービスは、専門領域と支援方法の二つの軸で整理できます。 技術士（総合技術監理部門）取得者が企画・監修。AIは音声と映像制作の補助に使用しています。 フォローして試験対策を継続。詳しい解説はプロフィールのリンクから。 #1級土木施工管理技士 #施工管理 #キャリア #doboku_note\nリール ·\ndobokunotecom\nドロップダウンを開く\n​\n2026年9月12日(土) 12:30\n公開",
+      "coverVerification": "Supplied A-logo cover uploaded and selected; upload preview visually checked"
+    },
+    {
+      "pack": "content/sns/instagram/video-packs/civil-construction-1/career-agent-katsuyo",
+      "kind": "carousel",
+      "postId": "1102784162188007",
+      "scheduledAt": "2026-09-13T12:30:00+09:00",
+      "verifiedAt": "2026-09-11T08:44:21.609+09:00",
+      "captionSha256": "3ed9e59b65b7954f8cdd902ea0bcac31104a9727b9df031cca94f1950d8f0bb4",
+      "assets": [
+        {
+          "path": "content/sns/instagram/video-packs/civil-construction-1/career-agent-katsuyo/carousel/img/00-cover.png",
+          "sha256": "39423fcddf217b3573157c04652fe8add16ff5845842120bf5f6a70077086395",
+          "bytes": 288890,
+          "width": 1080,
+          "height": 1350,
+          "remotePath": "/v/t39.30808-6/805405713_122117954661302388_2799781502752499352_n.jpg"
+        },
+        {
+          "path": "content/sns/instagram/video-packs/civil-construction-1/career-agent-katsuyo/carousel/img/01-point.png",
+          "sha256": "6c3facb30e1f77d0c975e45782babee8a76ae528bef791399b20657bfe6308ad",
+          "bytes": 136875,
+          "width": 1080,
+          "height": 1350,
+          "remotePath": "/v/t39.30808-6/803323193_122117954739302388_6180850567243622001_n.jpg"
+        },
+        {
+          "path": "content/sns/instagram/video-packs/civil-construction-1/career-agent-katsuyo/carousel/img/02-point.png",
+          "sha256": "c7b9c83a8010543c268c0cfa917230d20ffc56cc5f4239afea6c8392ba1395af",
+          "bytes": 145966,
+          "width": 1080,
+          "height": 1350,
+          "remotePath": "/v/t39.30808-6/802899696_122117954787302388_461099460179594320_n.jpg"
+        },
+        {
+          "path": "content/sns/instagram/video-packs/civil-construction-1/career-agent-katsuyo/carousel/img/03-point.png",
+          "sha256": "5e7361ca414fb3560f6960f85da85c7db29dad50ba2753416e6833a0feac88aa",
+          "bytes": 130590,
+          "width": 1080,
+          "height": 1350,
+          "remotePath": "/v/t39.30808-6/803151557_122117954853302388_1147193264553233619_n.jpg"
+        },
+        {
+          "path": "content/sns/instagram/video-packs/civil-construction-1/career-agent-katsuyo/carousel/img/04-point.png",
+          "sha256": "ba6e40ecc657fd09f1e6c1588ac44c5dbee95c428afae17b54de0faf043d3fe5",
+          "bytes": 134298,
+          "width": 1080,
+          "height": 1350,
+          "remotePath": "/v/t39.30808-6/802899702_122117955009302388_2255321919547986427_n.jpg"
+        },
+        {
+          "path": "content/sns/instagram/video-packs/civil-construction-1/career-agent-katsuyo/carousel/img/05-point.png",
+          "sha256": "5e1bb20e2ca6a00a3d037516de9f3fe59bc80d632bb07684b4ca7f6491def96c",
+          "bytes": 150223,
+          "width": 1080,
+          "height": 1350,
+          "remotePath": "/v/t39.30808-6/802988529_122117955123302388_7084001944700488813_n.jpg"
+        },
+        {
+          "path": "content/sns/instagram/video-packs/civil-construction-1/career-agent-katsuyo/carousel/img/06-cta.png",
+          "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+          "bytes": 149434,
+          "width": 1080,
+          "height": 1350,
+          "remotePath": "/v/t39.30808-6/804646395_122117955207302388_4451226366404349229_n.jpg"
+        }
+      ],
+      "liveRow": "転職するか迷っている段階でも、相談は判断材料になります。特化型・総合型の違い、希望の伝え方、担当者との相性を確かめる順序を整理しました。 保存して、働き方を考えるときに見返してください。詳しい解説はプロフィールのリンクから。 #施工管理 #土木 #建設業 #キャリア\n写真 ·\ndobokunotecom\n宣伝\nドロップダウンを開く\n​\n2026年9月13日(日) 12:30\n公開",
+      "imageOrder": {
+        "pass": true,
+        "verifiedAt": "2026-09-11T08:35:37.528+09:00",
+        "method": "same-post-ID editor reopened after save; every CDN pathname matches sequential source upload order"
+      }
+    },
+    {
+      "pack": "content/sns/instagram/video-packs/civil-construction-1/career-agent-katsuyo-point-step2-2",
+      "kind": "reel",
+      "postId": "1104011188808414",
+      "scheduledAt": "2026-09-13T19:00:00+09:00",
+      "verifiedAt": "2026-09-11T08:44:25.064+09:00",
+      "captionSha256": "321d4048cca84eb813bb1ca5abf5fa1d39cf65d9277f1f6bd0a19de9135b5c1a",
+      "assets": [
+        {
+          "path": "content/sns/instagram/video-packs/civil-construction-1/career-agent-katsuyo-point-step2-2/reels/video.mp4",
+          "sha256": "9360d563ef0e63be549ae4980218d9ab0bbe5fffe6f5f5756e321a11553dc864"
+        },
+        {
+          "path": "content/sns/instagram/video-packs/civil-construction-1/career-agent-katsuyo-point-step2-2/reels/cover.png",
+          "sha256": "1c990db5c19940fe82c9b490573b27c6af4e801f141d12411e5a8594ea4b6ce9"
+        }
+      ],
+      "liveRow": "1級土木｜担当工種が伝わる相談を 施工管理の転職相談では、資格名だけでなく担当工種、工事の規模、自分の役割を伝えましょう。 技術士（総合技術監理部門）取得者が企画・監修。AIは音声と映像制作の補助に使用しています。 フォローして試験対策を継続。詳しい解説はプロフィールのリンクから。 #1級土木施工管理技士 #施工管理 #キャリア #doboku_note\nリール ·\ndobokunotecom\nドロップダウンを開く\n​\n2026年9月13日(日) 19:00\n公開",
+      "coverVerification": "Supplied A-logo cover uploaded and selected; upload preview visually checked"
+    },
+    {
+      "pack": "content/sns/instagram/video-packs/civil-construction-2/anzen-ippanron-3riyu-point-cause1-1",
+      "kind": "reel",
+      "postId": "928041843710368",
+      "scheduledAt": "2026-09-14T12:30:00+09:00",
+      "verifiedAt": "2026-09-11T08:44:28.395+09:00",
+      "captionSha256": "10a44b1001611083401f3544a9c26f725febb5caebec3d5fd14e90db89c56e5d",
+      "assets": [
+        {
+          "path": "content/sns/instagram/video-packs/civil-construction-2/anzen-ippanron-3riyu-point-cause1-1/reels/video.mp4",
+          "sha256": "8a1e5396c6353d9551c74959f81bc025399d72d2dd6e37003c0619d3b5ee5c6b"
+        },
+        {
+          "path": "content/sns/instagram/video-packs/civil-construction-2/anzen-ippanron-3riyu-point-cause1-1/reels/cover.png",
+          "sha256": "0eb08585626de07f479f5db88d3bf2a45066d497a948bf69f22c4e55b50786c1"
+        }
+      ],
+      "liveRow": "2級土木｜原因1　現場条件が書かれていない 原因の1つ目。 技術士（総合技術監理部門）取得者が企画・監修。AIは音声と映像制作の補助に使用しています。 フォローして試験対策を継続。詳しい解説はプロフィールのリンクから。 #2級土木施工管理技士 #土木施工管理 #資格勉強 #doboku_note\nリール ·\ndobokunotecom\nドロップダウンを開く\n​\n2026年9月14日(月) 12:30\n公開",
+      "coverVerification": "Supplied A-logo cover uploaded and selected; upload preview visually checked"
+    },
+    {
+      "pack": "content/sns/instagram/video-packs/civil-construction-2/anzen-ippanron-3riyu",
+      "kind": "carousel",
+      "postId": "1759417891877830",
+      "scheduledAt": "2026-09-15T12:30:00+09:00",
+      "verifiedAt": "2026-09-11T08:44:31.962+09:00",
+      "captionSha256": "0e82e2056c11cb294e07a13971dd5d604334dbcb83c877cf41424391e06de20b",
+      "assets": [
+        {
+          "path": "content/sns/instagram/video-packs/civil-construction-2/anzen-ippanron-3riyu/carousel/img/00-cover.png",
+          "sha256": "ebc5b32f127fbc23b217aa82d3093a27d0622e5189da14eb7dbea419125006f5",
+          "bytes": 352004,
+          "width": 1080,
+          "height": 1350,
+          "remotePath": "/v/t39.30808-6/805752582_122117955867302388_936013193697618905_n.jpg"
+        },
+        {
+          "path": "content/sns/instagram/video-packs/civil-construction-2/anzen-ippanron-3riyu/carousel/img/01-point.png",
+          "sha256": "27d625af1505f7245c4278473185b5c553d4ec82c8ba21af0537a4ae714c29ee",
+          "bytes": 121423,
+          "width": 1080,
+          "height": 1350,
+          "remotePath": "/v/t39.30808-6/803926184_122117955903302388_7296826161226332839_n.jpg"
+        },
+        {
+          "path": "content/sns/instagram/video-packs/civil-construction-2/anzen-ippanron-3riyu/carousel/img/02-point.png",
+          "sha256": "6804c31f1f3ded32b410fe8552f80a6147d8f1d311184822ad80b8bb09317c5a",
+          "bytes": 124570,
+          "width": 1080,
+          "height": 1350,
+          "remotePath": "/v/t39.30808-6/802964648_122117955981302388_349525865068250660_n.jpg"
+        },
+        {
+          "path": "content/sns/instagram/video-packs/civil-construction-2/anzen-ippanron-3riyu/carousel/img/03-point.png",
+          "sha256": "6080d7bf34eb5dde56a8e301fcfa80d6a2465b355b7707eba3b22f4157be012c",
+          "bytes": 128891,
+          "width": 1080,
+          "height": 1350,
+          "remotePath": "/v/t39.30808-6/803101714_122117956065302388_3433150370799291191_n.jpg"
+        },
+        {
+          "path": "content/sns/instagram/video-packs/civil-construction-2/anzen-ippanron-3riyu/carousel/img/04-point.png",
+          "sha256": "67b6e3f7f3f9577ab22c568d9d5c60db4b7e6018c180a971534fcb679a4e4b8c",
+          "bytes": 143464,
+          "width": 1080,
+          "height": 1350,
+          "remotePath": "/v/t39.30808-6/802699487_122117956131302388_2024483336424639234_n.jpg"
+        },
+        {
+          "path": "content/sns/instagram/video-packs/civil-construction-2/anzen-ippanron-3riyu/carousel/img/05-cta.png",
+          "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+          "bytes": 149434,
+          "width": 1080,
+          "height": 1350,
+          "remotePath": "/v/t39.30808-6/803926185_122117956203302388_8933583067703250765_n.jpg"
+        }
+      ],
+      "liveRow": "安全管理の答案が一般論になる原因は、現場条件・検討理由・数値の不足にあります。対策を並べる前に、なぜ自分の現場で必要だったかを説明しましょう。 保存して、復習するときに見返してください。詳しい解説はプロフィールのリンクから。 #2級土木施工管理技士 #土木施工管理 #施工経験記述\n写真 ·\ndobokunotecom\n宣伝\nドロップダウンを開く\n​\n2026年9月15日(火) 12:30\n公開",
+      "imageOrder": {
+        "pass": true,
+        "verifiedAt": "2026-09-11T08:38:25.478+09:00",
+        "method": "same-post-ID editor reopened after save; every CDN pathname matches sequential source upload order"
+      }
+    },
+    {
+      "pack": "content/sns/instagram/video-packs/civil-construction-2/anzen-ippanron-3riyu-point-cause2-2",
+      "kind": "reel",
+      "postId": "1321332699892981",
+      "scheduledAt": "2026-09-15T19:00:00+09:00",
+      "verifiedAt": "2026-09-11T08:44:35.978+09:00",
+      "captionSha256": "86ae6776285a1442cbbad24d8dc34e8f05379f295d1105647654a2d143c318eb",
+      "assets": [
+        {
+          "path": "content/sns/instagram/video-packs/civil-construction-2/anzen-ippanron-3riyu-point-cause2-2/reels/video.mp4",
+          "sha256": "b9ba993ea81beadb170a33b4047eb86f53d0e2d398a11cf3bea57d3e43a2e600"
+        },
+        {
+          "path": "content/sns/instagram/video-packs/civil-construction-2/anzen-ippanron-3riyu-point-cause2-2/reels/cover.png",
+          "sha256": "fe7b8f1b2dc712040332244a150f45d804c9afe5086fafffac20ad9d518b0f1e"
+        }
+      ],
+      "liveRow": "2級土木｜対策の列挙に検討理由を加える 経験記述は、対策を並べるだけでは検討の過程が伝わりません。 技術士（総合技術監理部門）取得者が企画・監修。AIは音声と映像制作の補助に使用しています。 フォローして試験対策を継続。詳しい解説はプロフィールのリンクから。 #2級土木施工管理技士 #土木施工管理 #資格勉強 #doboku_note\nリール ·\ndobokunotecom\nドロップダウンを開く\n​\n2026年9月15日(火) 19:00\n公開",
+      "coverVerification": "Supplied A-logo cover uploaded and selected; upload preview visually checked"
+    },
+    {
+      "pack": "content/sns/instagram/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi-point-tanni-saikotsu-kuuki-2",
+      "kind": "reel",
+      "postId": "1682502653489402",
+      "scheduledAt": "2026-09-16T12:30:00+09:00",
+      "verifiedAt": "2026-09-11T08:44:40.429+09:00",
+      "captionSha256": "71a7e5bfbe506beae4cac3f06b424af55ebca4ee5f799083c42b7dfff28e9724",
+      "assets": [
+        {
+          "path": "content/sns/instagram/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi-point-tanni-saikotsu-kuuki-2/reels/video.mp4",
+          "sha256": "9269bdd9e5234a8b02b3c5294859ffaf877269ec84e31e5ce92481d8a23d2b29"
+        },
+        {
+          "path": "content/sns/instagram/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi-point-tanni-saikotsu-kuuki-2/reels/cover.png",
+          "sha256": "99acf30f6c82dcd89dfdfbe061594f75d89f60b8a0138d2cc77da83478d2a4e2"
+        }
+      ],
+      "liveRow": "コンクリート主任技士｜単位水量は増やす影響も考える 単位水量を増やすと、一般にスランプは大きくなりますが、ブリーディングや乾燥収縮も増えやすくなります。 技術士（総合技術監理部門）取得者が企画・監修。AIは音声と映像制作の補助に使用しています。 フォローして試験対策を継続。詳しい解説はプロフィールのリンクから。 #コンクリート主任技士 #コンクリート #資格勉強 #doboku_note\nリール ·\ndobokunotecom\nドロップダウンを開く\n​\n2026年9月16日(水) 12:30\n公開",
+      "coverVerification": "Supplied A-logo cover uploaded and selected; upload preview visually checked"
+    },
+    {
+      "pack": "content/sns/instagram/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi",
+      "kind": "carousel",
+      "postId": "3588113351354772",
+      "scheduledAt": "2026-09-17T12:30:00+09:00",
+      "verifiedAt": "2026-09-11T08:44:45.418+09:00",
+      "captionSha256": "f79ae5c969473d8164a7fd3848964b0b2bef87c72d966547b22297290010e648",
+      "assets": [
+        {
+          "path": "content/sns/instagram/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi/carousel/img/00-cover.png",
+          "sha256": "65f7b84ad6c81840b1571aadb67a11877d8cd59f75f9a04757b7ed8bbc4e08ba",
+          "bytes": 319098,
+          "width": 1080,
+          "height": 1350,
+          "remotePath": "/v/t39.30808-6/802988523_122117957151302388_3410952260089409338_n.jpg"
+        },
+        {
+          "path": "content/sns/instagram/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi/carousel/img/01-point.png",
+          "sha256": "073a708c255823df9be279f762de160b7d0245b6c1cf5741f050420a11e89872",
+          "bytes": 129317,
+          "width": 1080,
+          "height": 1350,
+          "remotePath": "/v/t39.30808-6/803101718_122117957229302388_6750573677856291186_n.jpg"
+        },
+        {
+          "path": "content/sns/instagram/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi/carousel/img/02-point.png",
+          "sha256": "b2f2287b700feecdf48f4cdbfdae74471d03209fe6586e2e0b03f215177cac5e",
+          "bytes": 126526,
+          "width": 1080,
+          "height": 1350,
+          "remotePath": "/v/t39.30808-6/802457215_122117957313302388_4741730654563717510_n.jpg"
+        },
+        {
+          "path": "content/sns/instagram/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi/carousel/img/03-point.png",
+          "sha256": "0fc5be924f3a6250e9a090d52e425de6aa685b4f11c545bf4a6feec4f37c5a45",
+          "bytes": 123499,
+          "width": 1080,
+          "height": 1350,
+          "remotePath": "/v/t39.30808-6/802988518_122117957349302388_3550250190733797085_n.jpg"
+        },
+        {
+          "path": "content/sns/instagram/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi/carousel/img/04-point.png",
+          "sha256": "361ef44c59a6920759c1e78dd7a87b46f65532471f077c1709f8abfbafab07f5",
+          "bytes": 125084,
+          "width": 1080,
+          "height": 1350,
+          "remotePath": "/v/t39.30808-6/805218658_122117957427302388_4066559189597556881_n.jpg"
+        },
+        {
+          "path": "content/sns/instagram/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi/carousel/img/05-point.png",
+          "sha256": "ef89f21452378d3132c1693e0f0c807cdf256d9928094a4e8d99b7a64d105f60",
+          "bytes": 132103,
+          "width": 1080,
+          "height": 1350,
+          "remotePath": "/v/t39.30808-6/803101712_122117957511302388_6038329171672318916_n.jpg"
+        },
+        {
+          "path": "content/sns/instagram/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi/carousel/img/06-point.png",
+          "sha256": "c3d23f7f80d2ab84d4602ea3c3c35c6215c3c5e3c155a7a2ae27f295710b4380",
+          "bytes": 125795,
+          "width": 1080,
+          "height": 1350,
+          "remotePath": "/v/t39.30808-6/802988518_122117957613302388_3220158439224359956_n.jpg"
+        },
+        {
+          "path": "content/sns/instagram/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi/carousel/img/07-point.png",
+          "sha256": "044c92468ba08bf1b3d423d25d9175b06437b41c60cb27f9a21aaa5ae5fc24ff",
+          "bytes": 126996,
+          "width": 1080,
+          "height": 1350,
+          "remotePath": "/v/t39.30808-6/803505091_122117957661302388_2652116610160896461_n.jpg"
+        },
+        {
+          "path": "content/sns/instagram/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi/carousel/img/08-point.png",
+          "sha256": "c256d2d849973a8cc2c66a01883aecf844e5d4a8cac684000ef7c8ec63f0a34d",
+          "bytes": 146196,
+          "width": 1080,
+          "height": 1350,
+          "remotePath": "/v/t39.30808-6/803926185_122117957763302388_2651011224373523020_n.jpg"
+        },
+        {
+          "path": "content/sns/instagram/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi/carousel/img/09-cta.png",
+          "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+          "bytes": 149434,
+          "width": 1080,
+          "height": 1350,
+          "remotePath": "/v/t39.30808-6/802988529_122117957805302388_743472976671233253_n.jpg"
+        }
+      ],
+      "liveRow": "コンクリート主任技士の復習用に、聞き流し教材から主要論点を選んで整理しました。全範囲の網羅版ではありません。数値だけでなく、適用する条件や用語の違いを確かめながら見返しましょう。 保存して復習に活用してください。詳しい解説はプロフィールのリンクから。 #コンクリート主任技士 #コンクリート #資格勉強\n写真 ·\ndobokunotecom\n宣伝\nドロップダウンを開く\n​\n2026年9月17日(木) 12:30\n公開",
+      "imageOrder": {
+        "pass": true,
+        "verifiedAt": "2026-09-11T08:43:48.455+09:00",
+        "method": "same-post-ID editor reopened after save; every CDN pathname matches sequential source upload order"
+      }
+    },
+    {
+      "pack": "content/sns/instagram/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi-point-wc-ratio-1",
+      "kind": "reel",
+      "postId": "1097708659881257",
+      "scheduledAt": "2026-09-17T19:00:00+09:00",
+      "verifiedAt": "2026-09-11T08:44:50.377+09:00",
+      "captionSha256": "e56234fe2baee5c9021e49250acf179bf0b69ee7d8c5e4298f3649aadcbf4e81",
+      "assets": [
+        {
+          "path": "content/sns/instagram/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi-point-wc-ratio-1/reels/video.mp4",
+          "sha256": "ee1eb55671e89f67f369ddc2b1a13ffb105d588520aef9889053e84e55dedfb5"
+        },
+        {
+          "path": "content/sns/instagram/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi-point-wc-ratio-1/reels/cover.png",
+          "sha256": "3f874a5cd8d7ae90637073a48504c5501b59e29ab8ddce0d279c198fcde6e65a"
+        }
+      ],
+      "liveRow": "コンクリート主任技士｜水セメント比は性能と施工性を両立 水セメント比は、強度と耐久性を考える基本の指標です。 技術士（総合技術監理部門）取得者が企画・監修。AIは音声と映像制作の補助に使用しています。 フォローして試験対策を継続。詳しい解説はプロフィールのリンクから。 #コンクリート主任技士 #コンクリート #資格勉強 #doboku_note\nリール ·\ndobokunotecom\nドロップダウンを開く\n​\n2026年9月17日(木) 19:00\n公開",
+      "coverVerification": "Supplied A-logo cover uploaded and selected; upload preview visually checked"
+    }
+  ],
+  "verification": {
+    "uniquePostIds": 9,
+    "activeReservations": 9,
+    "failedHistoricalRows": 36,
+    "captionTypeAccountDateMatched": true,
+    "sameIdsAfterCarouselRepairs": true,
+    "carouselImageOrderVerified": 3,
+    "reelCoverUploadsVisuallyChecked": 6,
+    "calendarProof": "planner-latest.json is time-slot evidence only; post identity comes from the content list and detail IDs",
+    "limitations": [
+      "Meta previews may differ from the Instagram feed",
+      "Full playback and audio listening of all six uploaded Reels were not performed"
+    ]
+  },
+  "automation": {
+    "id": "instagram",
+    "name": "Instagram新シリーズの予約補充",
+    "dailyTimeJst": "10:00",
+    "lookaheadDays": 14,
+    "maxPerRun": 9,
+    "requires": "Mac and Codex running for new reservations; existing reservations publish on Meta"
+  },
+  "evidenceHashes": {
+    "final-scheduled-rows.json": "35d4bf5b9e0d3a4878b1703aa043d3289d2dad7cd7d99dce3aac885a75741e86",
+    "new-series-verified.json": "5a30036b7e6835e91bd78db11c7c3a4f52215ab9efe7754ab64a8dfe0ba3c816",
+    "carousel-2-order-check.json": "270b90ad27244a89285f86ce018b00e8ced57972a514b7c250512462a82ed65c",
+    "carousel-5-order-check.json": "945e459aca3f28c3c6db9161b61b5c9413cd6f5cac9f94dac9d71f6532240747",
+    "carousel-8-order-check.json": "4f14ad348a1ad857a0e6c056f3fc5bdbc85a06a92e6538d5be853947616b706f"
+  },
+  "uploaderVerification": {
+    "dryRun": true,
+    "scheduledAt": "2026-09-13T12:30:00+09:00",
+    "finalButton": "日時を指定",
+    "instagramOnly": true,
+    "coverVisuallyChecked": true,
+    "sequentialImagesProcessed": 7,
+    "screenshotSha256": "f746baa1ddfa7a2099cf3228a5c92ce70679b176b99fac2551ac4437001c569e",
+    "tests": {
+      "total": 12,
+      "passed": 12,
+      "failed": 0
+    }
+  }
+}

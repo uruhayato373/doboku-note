@@ -1,0 +1,40 @@
+{
+  "carousel": {
+    "channel": "business-suite",
+    "status": "scheduled",
+    "scheduled_at": "2026-09-15T12:30:00.000+09:00",
+    "posted_at": null,
+    "image_count": 6,
+    "updated_at": "2026-09-11T08:45:10.810+09:00",
+    "post_id": "1759417891877830",
+    "verified_at": "2026-09-11T08:44:31.962+09:00",
+    "verification_receipt": ".claude/state/ig-reconcile/campaign-publication-20260911.json",
+    "uploaded_image_order": [
+      {
+        "file": "carousel/img/00-cover.png",
+        "remotePath": "/v/t39.30808-6/805752582_122117955867302388_936013193697618905_n.jpg"
+      },
+      {
+        "file": "carousel/img/01-point.png",
+        "remotePath": "/v/t39.30808-6/803926184_122117955903302388_7296826161226332839_n.jpg"
+      },
+      {
+        "file": "carousel/img/02-point.png",
+        "remotePath": "/v/t39.30808-6/802964648_122117955981302388_349525865068250660_n.jpg"
+      },
+      {
+        "file": "carousel/img/03-point.png",
+        "remotePath": "/v/t39.30808-6/803101714_122117956065302388_3433150370799291191_n.jpg"
+      },
+      {
+        "file": "carousel/img/04-point.png",
+        "remotePath": "/v/t39.30808-6/802699487_122117956131302388_2024483336424639234_n.jpg"
+      },
+      {
+        "file": "carousel/img/05-cta.png",
+        "remotePath": "/v/t39.30808-6/803926185_122117956203302388_8933583067703250765_n.jpg"
+      }
+    ],
+    "image_order_verified_at": "2026-09-11T08:38:25.478+09:00"
+  }
+}

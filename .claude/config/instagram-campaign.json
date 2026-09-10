@@ -4,7 +4,7 @@
   "account": "dobokunotecom",
   "design": "bridge-notebook-a-v1",
   "productionFirst": true,
-  "publicationEnabled": false,
+  "publicationEnabled": true,
   "approvedAt": "2026-09-10",
   "expected": {
     "topics": 112,
@@ -14,7 +14,7 @@
   "cadence": {
     "maxPerDay": 2,
     "timezone": "Asia/Tokyo",
-    "startDate": null,
+    "startDate": "2026-09-12",
     "sequence": [
       {
         "day": 0,
@@ -32,7 +32,7 @@
         "format": "reel-2"
       }
     ],
-    "note": "1テーマを2日で展開。資格を交互に配置。開始日は全件完成後の既存予約照合で確定し、年度・直前対策は公開前に適用年度を再確認する。"
+    "note": "既存シリーズの予約停止を確認後、9月12日から新シリーズを開始。1テーマを2日間でリール→カルーセル→別論点リール、最大2件/日。年度・時期に依存するテーマは投入前に適合確認する。"
   },
   "topics": [
     {
@@ -1267,5 +1267,10 @@
       ],
       "timeSensitive": false
     }
-  ]
+  ],
+  "supersedes": {
+    "legacySeriesPausedAt": "2026-09-10T22:51:16.945Z",
+    "receipt": ".claude/state/ig-reconcile/series-pause-20260911.json",
+    "resumeLegacySeries": false
+  }
 }

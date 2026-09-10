@@ -46,6 +46,7 @@ import * as path from "path";
 import * as fs from "fs";
 import { spawnSync } from "child_process";
 import { resolveProfileDir } from "../../../../scripts/lib/playwright-auth-profile.mjs";
+import { uploadInstagramImagesInOrder } from "../../../../scripts/lib/instagram-image-upload.mjs";
 
 // ─── 設定 ─────────────────────────────────────────────
 const PROJECT_ROOT = path.resolve(__dirname, "../../../..");
@@ -64,6 +65,7 @@ const IG_ACCOUNT_NAME = process.env.IG_BS_IG_ACCOUNT || "dobokunotecom"; // 残�
 
 let IS_DRY_RUN = false;
 let IS_PAUSE = false;
+let uploadedImageOrder: Array<{ file: string; remotePath: string }> = [];
 
 // ─── screenshot ────────────────────────────────────────
 async function shot(page: Page, label: string): Promise<void> {
@@ -351,7 +353,9 @@ function updateStatus(pack: Pack, scheduledDate: Date | null): void {
           video: pack.video ? path.relative(statusDir, pack.video).replace(/\\/g, "/") : null,
           source: path.relative(statusDir, pack.dir).replace(/\\/g, "/") || ".",
         }
-      : { image_count: pack.images.length }),
+      : { image_count: pack.images.length, uploaded_image_order: uploadedImageOrder.map(image => ({
+          file: path.relative(statusDir, image.file).replace(/\\/g, "/"), remotePath: image.remotePath,
+        })) }),
     updated_at: nowJst,
   };
   fs.writeFileSync(statusPath, JSON.stringify(cur, null, 2) + "\n", "utf-8");
@@ -451,9 +455,8 @@ async function setPlacementInstagramOnly(page: Page, keepFb: boolean): Promise<v
     opened = await isOpen();
   }
   if (!opened) {
-    console.log("⚠️  投稿先ドロップダウンを開けず（IG 単独化スキップ→両行に同一日時で予約）");
     await shot(page, "placement-open-failed");
-    return;
+    throw new Error("投稿先を検証できません。Instagram 単独の確認が必要です");
   }
   await shot(page, "placement-open");
 
@@ -475,6 +478,9 @@ async function setPlacementInstagramOnly(page: Page, keepFb: boolean): Promise<v
     await clickResilient(igOpt);
     console.log(`📌 Instagram「${IG_ACCOUNT_NAME}」を選択`);
   }
+  if (await optSelected(fbOpt) || !(await optSelected(igOpt))) {
+    throw new Error(`投稿先が Instagram「${IG_ACCOUNT_NAME}」単独ではありません`);
+  }
 
   // ドロップダウンを閉じる
   await page.keyboard.press("Escape").catch(() => {});
@@ -483,54 +489,7 @@ async function setPlacementInstagramOnly(page: Page, keepFb: boolean): Promise<v
 
 // ─── 画像アップロード ──────────────────────────────────
 async function uploadImages(page: Page, images: string[]): Promise<boolean> {
-  console.log(`📷 ${images.length} 枚アップロード...`);
-
-  // 1) 隠し input[type=file] に直接 setInputFiles（最も安定。「写真を追加」のメニュー差異を回避）
-  const input = SEL.fileInput(page);
-  if ((await input.count()) > 0) {
-    await input.setInputFiles(images);
-    console.log("📷 hidden input に直接投入");
-  } else {
-    // 2) 「写真を追加」→ filechooser。メニューが出たらアップロード項目経由
-    const addBtn = await firstVisible(SEL.addMedia(page), 4000);
-    if (!addBtn) {
-      console.error("🚨 メディア追加 UI が見つかりません");
-      await shot(page, "upload-ui-missing");
-      return false;
-    }
-    try {
-      const [chooser] = await Promise.all([
-        page.waitForEvent("filechooser", { timeout: 6000 }),
-        clickResilient(addBtn),
-      ]);
-      await chooser.setFiles(images);
-      console.log("📷 filechooser で投入");
-    } catch {
-      // メニューが開いたパターン: アップロード項目をクリックして filechooser
-      const up = await firstVisible(SEL.uploadMenuItem(page), 3000);
-      if (up) {
-        const [chooser2] = await Promise.all([
-          page.waitForEvent("filechooser", { timeout: 6000 }),
-          clickResilient(up),
-        ]);
-        await chooser2.setFiles(images);
-        console.log("📷 メニュー→filechooser で投入");
-      } else {
-        const input2 = SEL.fileInput(page);
-        if ((await input2.count()) > 0) {
-          await input2.setInputFiles(images);
-          console.log("📷 再探索した hidden input に投入");
-        } else {
-          console.error("🚨 filechooser もメニューも file input も検出できず");
-          await shot(page, "upload-no-input");
-          return false;
-        }
-      }
-    }
-  }
-
-  // プレビュー生成待ち（枚数ぶんのサムネが出るまで猶予）
-  await page.waitForTimeout(Math.min(4000 + images.length * 800, 12000));
+  uploadedImageOrder = await uploadInstagramImagesInOrder(page, images);
   await shot(page, "after-upload");
   return true;
 }
@@ -1100,13 +1059,10 @@ async function publishReel(page: Page, pack: Pack, when: Date | null, keepFb: bo
   }
 
   // 作成 → 編集（カバー設定）→ シェアする
-  // カバーが指定されていれば「編集」ステップで明示アップロード。失敗しても投稿は止めない
-  // （advanceToShareStep が最終的にシェアするまで進めるため、既存の動く経路は不変）。
+  // 指定済みのブランドカバーを設定できなければ確定へ進まない。
   if (pack.cover) {
-    if (await advanceToEditStep(page)) {
-      await setReelCover(page, pack.cover);
-    } else {
-      console.log("⚠️  「編集」ステップに到達できずカバー設定をスキップ（フローは続行）");
+    if (!(await advanceToEditStep(page)) || !(await setReelCover(page, pack.cover))) {
+      throw new Error("指定したリールカバーを設定できません");
     }
   }
   if (!(await advanceToShareStep(page))) return false;
@@ -1314,26 +1270,30 @@ async function main() {
     const raw = JSON.parse(fs.readFileSync(cli.batchFile!, "utf-8"));
     const items = Array.isArray(raw?.items) ? raw.items : [];
     if (items.length === 0) throw new Error("batch items が空です");
-    const prepared = items.map((item: { packArg?: string; schedule?: string }) => {
+    const prepared = items.map((item: { packArg?: string; schedule?: string; kind?: "carousel" | "reel" }) => {
       if (!item.packArg || !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(item.schedule || "")) {
         throw new Error("batch item は packArg と schedule(YYYY-MM-DDTHH:MM) が必須です");
       }
       const when = new Date(`${item.schedule}+09:00`);
       const diffMin = (when.getTime() - Date.now()) / 60000;
-      if (diffMin < 20 || diffMin > 29 * 24 * 60) throw new Error(`batch 予約範囲外: ${item.schedule}`);
-      return { pack: loadPack(item.packArg, "reel"), when };
+      const kind = item.kind ?? "reel";
+      if (!["carousel", "reel"].includes(kind)) throw new Error("batch kind が不正です");
+      if (diffMin < 20 || diffMin > (kind === "reel" ? 29 : 75) * 24 * 60) throw new Error(`batch 予約範囲外: ${item.schedule}`);
+      return { pack: loadPack(item.packArg, kind), when };
     });
-    console.log(`🚀 IG リール一括予約 ${prepared.length}本`);
+    console.log(`🚀 IG 一括予約 ${prepared.length}件`);
     const { context, page } = await launch();
     try {
       await ensureLogin(page);
       for (const [index, item] of prepared.entries()) {
         console.log(`\n[batch ${index + 1}/${prepared.length}] ${item.pack.slug}`);
-        const ok = await publishReel(page, item.pack, item.when, false);
+        const ok = item.pack.kind === "reel"
+          ? await publishReel(page, item.pack, item.when, false)
+          : await publish(page, item.pack, item.when, false);
         if (!ok) throw new Error(`一括予約を停止: ${item.pack.slug}`);
         updateStatus(item.pack, item.when);
       }
-      console.log(`\n✅ IG リール一括予約 完了 ${prepared.length}本`);
+      console.log(`\n✅ IG 一括予約 完了 ${prepared.length}件`);
     } catch (error) {
       console.error("エラー:", error);
       await shot(page, "batch-fatal-error");
