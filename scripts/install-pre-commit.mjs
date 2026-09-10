@@ -287,6 +287,13 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+# 分類語彙（領域×資格×記事型×タグ）の整合。staged MDX の group が許可外・未登録タグは赤、別名綴りと構造タグ不整合は警告
+# （全量のラチェットは quality-audit の check-content-taxonomy:ci）。規則は content-taxonomy.md
+node scripts/check-content-taxonomy.mjs --staged
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+
 # 転職・キャリア記事が学習系ナビ一覧に混ざらないことを検証（career タグ ⇔ HIGH_INTENT/careerFeatured の整合）
 node scripts/check-career-separation.mjs
 if [ $? -ne 0 ]; then

@@ -117,18 +117,15 @@
   },
   {
     "slug": "safety-laws",
-    "label": "安全管理・関係法令",
-    "description": "労働安全、現場保安、公衆災害防止、関連法令を、試験問題と実務基準の両方から確認します。",
+    "label": "関係法令",
+    "description": "建設業法・労働安全衛生法・公共工事の入札契約制度など、施工管理と総合技術監理に共通する関係法令を、試験問題と実務基準の両方から確認します。",
     "tags": [
-      "safety-management",
-      "related-laws",
       "関係法規"
     ],
     "standardKeywords": [
-      "安全",
-      "公衆災害",
-      "保安",
-      "法令"
+      "法令",
+      "入札",
+      "契約"
     ],
     "featuredStandardRefs": [
       "kinki/common",
@@ -253,14 +250,22 @@
   },
   {
     "slug": "safety-management-cem",
-    "label": "安全管理（総監）",
-    "description": "リスクマネジメント・労働安全衛生・危機管理・システム安全工学。リスク評価手法や事故防止のキーワードを、総監キーワード集と過去問から横断して確認できます。",
+    "label": "安全管理",
+    "description": "現場の労働安全・公衆災害防止から、リスクマネジメント・危機管理・システム安全工学まで。土木施工管理の安全管理と総合技術監理の安全管理を、テキスト・キーワード集・過去問・実務基準から横断して確認できます。",
     "tags": [
       "安全管理"
     ],
     "standardKeywords": [
-      "安全管理",
+      "安全",
+      "公衆災害",
+      "保安",
       "事故防止"
+    ],
+    "featuredStandardRefs": [
+      "kinki/common",
+      "kinki/hikkei",
+      "kyushu/hikkei-common-09",
+      "kyushu/hikkei-common-10"
     ]
   },
   {
