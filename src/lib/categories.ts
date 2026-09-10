@@ -1,4 +1,5 @@
 import categoriesData from '@/config/categories.json';
+import { getAreaHubPath, getCategoryArea, type PublicArea } from '@/lib/content-taxonomy';
 
 export type CategoryDef = {
   slug: string;
@@ -11,6 +12,10 @@ export type CategoryDef = {
   // reference = 公的資料の要点抜粋、general = 資格に紐づかない実務コンテンツ。
   // どちらも資格カードの対象外（check-home-exam-coverage が除外する）
   variant: 'civil' | 'pe' | 'reference' | 'general';
+  // 公開領域（exam→/exam/{slug}/{group}/… / practice→/practice/… / standards）。語彙は content-taxonomy.md §1
+  area: PublicArea;
+  // このカテゴリで許可する記事型（frontmatter group）。順序＝表示順。check-content-taxonomy が強制
+  groups: string[];
   order: number;
   // false のカテゴリはナビ・一覧から非表示（カテゴリページ自体は生きている）
   visible?: boolean;
@@ -39,7 +44,7 @@ export function getCategoryLabel(slug: string): string {
  * breadcrumbs, structured data, and redirects.
  */
 export function getCategoryHubPath(slug: string): string {
-  if (slug === 'civil-practice') return '/practice';
-  if (slug === 'reference-materials') return '/standards';
-  return `/exam/${slug}`;
+  const area = getCategoryArea(slug);
+  if (area === 'exam') return `/exam/${slug}`;
+  return getAreaHubPath(area);
 }

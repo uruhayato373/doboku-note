@@ -1,9 +1,9 @@
 import docMetaIndex from '@/config/doc-meta-index.json';
 import { classifyDoc, type DocGroupKey } from '@/lib/doc-classifier';
+import { getCategoryArea, type PublicArea } from '@/lib/content-taxonomy';
 import type { DocMeta } from '@/lib/docs';
 
 type IndexedDoc = Omit<DocMeta, 'slug'> & { slug?: string };
-type PublicArea = 'exam' | 'practice' | 'standards';
 
 export type PublicDocRoute = {
   area: PublicArea;
@@ -52,19 +52,16 @@ function localSlugFor(meta: DocMeta, group: DocGroupKey): string {
 
 function getPublicDocRoute(meta: DocMeta): PublicDocRoute {
   const category = meta.category || 'uncategorized';
-  if (category === 'civil-practice') {
-    const localSlug = stripPrefix(meta.slug, 'civil-practice-');
-    return { area: 'practice', category, group: null, localSlug, path: `/practice/${localSlug}` };
+  // 領域はカテゴリ名ではなく categories.json の `area` で決まる（語彙: content-taxonomy.md §1）。
+  // practice は group セグメントを持たない。standards の guides ルートは未実装（reference-materials は visible:false）。
+  const area = getCategoryArea(category);
+  if (area === 'practice') {
+    const localSlug = stripPrefix(meta.slug, `${category}-`);
+    return { area, category, group: null, localSlug, path: `/practice/${localSlug}` };
   }
-  if (category === 'reference-materials') {
-    const localSlug = stripPrefix(meta.slug, 'reference-materials-');
-    return {
-      area: 'standards',
-      category,
-      group: 'guides',
-      localSlug,
-      path: `/standards/guides/${localSlug}`,
-    };
+  if (area === 'standards') {
+    const localSlug = stripPrefix(meta.slug, `${category}-`);
+    return { area, category, group: 'guides', localSlug, path: `/standards/guides/${localSlug}` };
   }
 
   const group = routeGroup(meta);
