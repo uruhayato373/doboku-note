@@ -14,7 +14,7 @@
  *
  * 判定:
  *   HARD  … 設定不良（category の area/groups・タグ綴りの衝突・topics のタグ未解決）、
- *           doc の category 不明・group 欠落/許可外、（--staged では）未登録タグ
+ *           doc の category 不明・group 欠落/許可外、（--staged では）未登録タグ・別名綴り・構造タグ不整合
  *   ラチェット（--ci）… 未登録タグ（集合）・構造タグ×group 不整合（slug 集合）・別名綴りの使用数（件数）が
  *           .claude/config/content-taxonomy-baseline.json より増えたら赤。減った分は「返済」として表示
  *   WARN  … topic 三方向（exam/practice/standards）の 0 件・topic タグの 0 使用・allowlist 未使用・baseline の返済済み
@@ -178,8 +178,17 @@ if (STAGED) {
     console.error(`\n[${NAME} --staged] ✗ 未登録タグ ${unknownTags.size} 種（新規・変更記事は allowlist 登録が必須。src/config/tags.json へ class 付きで追加 → content-taxonomy.md §5）:`);
     for (const [t, n] of unknownTags) console.error(`  ${t}（${n} 本）`);
   }
-  for (const [a, n] of aliasUsage) (JSON_OUT ? console.error : console.log)(`[${NAME} --staged] ⚠ 別名綴り「${a}」→ 正規は「${aliasMap.toCanonical.get(a)}」（${n} 本）`);
-  for (const m of structuralMismatch) (JSON_OUT ? console.error : console.log)(`[${NAME} --staged] ⚠ ${m.at}: 構造タグ ${m.tags.join(', ')} は group「${docs.find((d) => d.slug === m.slug)?.group}」と合わない`);
+  // 2026-09-11 に全記事の別名・構造タグ不整合を 0 にした（codemod）。以後は新規・変更記事で赤にする
+  if (aliasUsage.size) {
+    bad = true;
+    console.error(`\n[${NAME} --staged] ✗ 別名綴り ${aliasUsage.size} 種（正規表記で書く。直すには node scripts/migrate-tag-aliases.mjs <file> --write）:`);
+    for (const [a, n] of aliasUsage) console.error(`  「${a}」→「${aliasMap.toCanonical.get(a)}」（${n} 本）`);
+  }
+  if (structuralMismatch.length) {
+    bad = true;
+    console.error(`\n[${NAME} --staged] ✗ 構造タグ × group の不整合 ${structuralMismatch.length} 本（group が真実。矛盾する構造タグは外す）:`);
+    for (const m of structuralMismatch) console.error(`  ${m.at}: ${m.tags.join(', ')} は group「${docs.find((d) => d.slug === m.slug)?.group}」と合わない`);
+  }
 }
 
 if (CI && ratchet) {

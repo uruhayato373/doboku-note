@@ -120,3 +120,9 @@ test('設定の整合: categories の area/groups、topics のタグ解決、GRO
     assert.ok(new RegExp(`${def.docGroupKey}:\\s*'${def.routeSegment}'`).test(routes), `GROUP_SEGMENT に ${def.docGroupKey}→${def.routeSegment} が無い`);
   }
 });
+
+test('rewriteFrontmatterTags: block list 途中の空行を跨いで書き換え、空行は詰める', () => {
+  const raw = '---\ntags:\n  - secondary\n\n  - experience-writing\npublished: true\n---\n';
+  const r = rewriteFrontmatterTags(raw, (t) => (t === 'experience-writing' ? '経験記述' : t));
+  assert.equal(r.text, '---\ntags:\n  - secondary\n  - 経験記述\npublished: true\n---\n');
+});

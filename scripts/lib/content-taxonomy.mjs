@@ -204,6 +204,7 @@ export function rewriteFrontmatterTags(raw, mapTag) {
     while (j < end) {
       const cr2 = lines[j].endsWith('\r') ? '\r' : '';
       const l2 = cr2 ? lines[j].slice(0, -1) : lines[j];
+      if (l2.trim() === '') { j++; continue; }   // リスト途中の空行は読み飛ばす（書き換え時に詰める）
       const m = l2.match(/^(\s*-\s+)(.*?)\s*$/);
       if (!m) break;
       const val = unquote(m[2]); const to = mapTag(val);

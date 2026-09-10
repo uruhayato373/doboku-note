@@ -1,18 +1,18 @@
 {
   "version": 1,
-  "generated_at": "2026-09-10T23:39:49.311Z",
+  "generated_at": "2026-09-10T23:45:47.226Z",
   "summary": {
     "total_mdx_files": 1230,
-    "total_unique_tags": 183,
+    "total_unique_tags": 117,
     "allowlist_size": 308,
-    "known_count": 181,
-    "unknown_count": 2,
+    "known_count": 117,
+    "unknown_count": 0,
     "typo_candidates_count": 0
   },
   "tags": [
     {
       "name": "keyword",
-      "count": 656,
+      "count": 663,
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-360-degree-evaluation",
@@ -36,6 +36,7 @@
         "pe-comprehensive-management-all-hazard-approach",
         "pe-comprehensive-management-alps-treated-water",
         "pe-comprehensive-management-analogous-estimation",
+        "pe-comprehensive-management-analytic-hierarchy-process",
         "pe-comprehensive-management-annual-salary-system",
         "pe-comprehensive-management-anonymized-information",
         "pe-comprehensive-management-antitrust-compliance",
@@ -242,6 +243,7 @@
         "pe-comprehensive-management-forum-standard",
         "pe-comprehensive-management-four-e-countermeasures",
         "pe-comprehensive-management-four-m-analysis",
+        "pe-comprehensive-management-four-m-of-production",
         "pe-comprehensive-management-four-major-pollution-diseases",
         "pe-comprehensive-management-four-p-analysis",
         "pe-comprehensive-management-front-loading",
@@ -284,6 +286,7 @@
         "pe-comprehensive-management-human-relations-management",
         "pe-comprehensive-management-human-resource-assessment",
         "pe-comprehensive-management-ics",
+        "pe-comprehensive-management-idea-generation-methods",
         "pe-comprehensive-management-ifrs",
         "pe-comprehensive-management-immigration-control-act",
         "pe-comprehensive-management-impact",
@@ -337,6 +340,7 @@
         "pe-comprehensive-management-job-order-costing",
         "pe-comprehensive-management-job-rotation",
         "pe-comprehensive-management-job-type-employment",
+        "pe-comprehensive-management-key-performance-indicators",
         "pe-comprehensive-management-knowledge-sharing",
         "pe-comprehensive-management-kunming-montreal-framework",
         "pe-comprehensive-management-kyt",
@@ -434,6 +438,7 @@
         "pe-comprehensive-management-password-security",
         "pe-comprehensive-management-patent-rights",
         "pe-comprehensive-management-payback-period-method",
+        "pe-comprehensive-management-pdca-cycle",
         "pe-comprehensive-management-pdpc-method",
         "pe-comprehensive-management-pension-system",
         "pe-comprehensive-management-performance-based-pay",
@@ -449,6 +454,7 @@
         "pe-comprehensive-management-personal-information",
         "pe-comprehensive-management-personnel-management",
         "pe-comprehensive-management-pert-cpm",
+        "pe-comprehensive-management-pfi",
         "pe-comprehensive-management-pha",
         "pe-comprehensive-management-phishing-pharming",
         "pe-comprehensive-management-planetary-boundaries",
@@ -646,6 +652,7 @@
         "pe-comprehensive-management-utility-model-rights",
         "pe-comprehensive-management-utilization-rate",
         "pe-comprehensive-management-value-chain-analysis",
+        "pe-comprehensive-management-value-engineering",
         "pe-comprehensive-management-variable-work-hours",
         "pe-comprehensive-management-verbal-nonverbal-communication",
         "pe-comprehensive-management-veteran-bias",
@@ -1077,7 +1084,7 @@
     },
     {
       "name": "guide",
-      "count": 205,
+      "count": 178,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1229,56 +1236,29 @@
         "pe-comprehensive-management-private-engineer-comprehensive-merit",
         "pe-comprehensive-management-public-engineer-qualification-map",
         "pe-comprehensive-management-public-servant-comprehensive-merit",
+        "pe-comprehensive-management-r8-essay-keyword-forecast",
+        "pe-comprehensive-management-r8-essay-theme-ai-governance",
+        "pe-comprehensive-management-r8-essay-theme-circular-economy",
+        "pe-comprehensive-management-r8-essay-theme-climate-adaptation",
+        "pe-comprehensive-management-r8-essay-theme-disaster-recovery",
+        "pe-comprehensive-management-r8-essay-theme-economic-security",
+        "pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance",
+        "pe-comprehensive-management-whitepaper-study-map",
         "pe-construction-aimai-hyougen-sahou",
-        "pe-construction-bosai-kokudo-kyoujinka",
-        "pe-construction-bousai-genseigai-ronbun-keyword",
-        "pe-construction-carbon-neutral-kensetsu",
-        "pe-construction-chiiki-dukuri-ronbun-keyword",
         "pe-construction-competency-revision-r8",
-        "pe-construction-construction-environment-ronbun-keyword",
-        "pe-construction-construction-planning-exam-themes",
-        "pe-construction-construction-planning-ronbun-keyword",
-        "pe-construction-datsutanso-kankyo-ronbun-keyword",
-        "pe-construction-environment-exam-themes",
         "pe-construction-gakushuu-jikan-schedule",
-        "pe-construction-geotechnical-exam-themes",
         "pe-construction-guide-career",
         "pe-construction-gyoumu-keireki-hyou",
         "pe-construction-hissu-kamoku-kaitourei",
-        "pe-construction-iji-kanri-ronbun-keyword",
-        "pe-construction-infra-roukyuuka-iji",
-        "pe-construction-kensetsu-dx",
         "pe-construction-keyword-note-tsukurikata",
-        "pe-construction-kokudo-keisei-chiiki",
         "pe-construction-nanido-goukakuritsu",
-        "pe-construction-ninaite-dx-ronbun-keyword",
-        "pe-construction-ninaite-kakuho-seisansei",
         "pe-construction-pe-secondary-essay-guide",
-        "pe-construction-port-airport-exam-themes",
-        "pe-construction-port-airport-ronbun-keyword",
-        "pe-construction-power-civil-exam-themes",
-        "pe-construction-power-civil-ronbun-keyword",
-        "pe-construction-railway-exam-themes",
-        "pe-construction-railway-ronbun-keyword",
-        "pe-construction-required-exam-themes",
-        "pe-construction-river-coast-exam-themes",
-        "pe-construction-river-coast-ronbun-keyword",
-        "pe-construction-road-exam-themes",
-        "pe-construction-road-ronbun-keyword",
         "pe-construction-secondary-study-method",
         "pe-construction-sentaku-kamoku-kakiwake",
         "pe-construction-setsumon-bunkai",
-        "pe-construction-shakai-shihon-ronbun-keyword",
         "pe-construction-shiken-toujitsu-tejun",
-        "pe-construction-soil-foundation-ronbun-keyword",
-        "pe-construction-steel-concrete-exam-themes",
-        "pe-construction-steel-concrete-ronbun-keyword",
         "pe-construction-suikou-checklist",
         "pe-construction-toan-kousei-template",
-        "pe-construction-tunnel-exam-themes",
-        "pe-construction-tunnel-ronbun-keyword",
-        "pe-construction-urban-planning-exam-themes",
-        "pe-construction-urban-planning-ronbun-keyword",
         "pe-first-stage-guide-after-pass",
         "pe-first-stage-guide-aptitude-subject",
         "pe-first-stage-guide-basic-subject",
@@ -1614,6 +1594,157 @@
       ]
     },
     {
+      "name": "安全管理",
+      "count": 144,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-textbook-safety-excavation-shoring",
+        "civil-construction-1-textbook-safety-industrial-safety-law",
+        "civil-construction-1-textbook-safety-machinery-crane",
+        "civil-construction-1-textbook-safety-management-system",
+        "civil-construction-1-textbook-safety-risk-assessment",
+        "civil-construction-1-textbook-safety-scaffolding",
+        "civil-construction-1-textbook-safety-work-environment",
+        "civil-practice-checklist-shoring-buoyancy",
+        "civil-practice-lifting-equipment-selection",
+        "civil-practice-oshms-pdca-site-operation",
+        "civil-practice-risk-assessment-construction-workflow",
+        "civil-practice-safety-culture-discipline",
+        "civil-practice-safety-health-education-plan",
+        "civil-practice-safety-patrol-corrective-action",
+        "civil-practice-sheet-pile-snow-coating",
+        "civil-practice-sling-work-wire-rope",
+        "civil-practice-stacking-heat-machine-safety",
+        "pe-comprehensive-management-accident-cost",
+        "pe-comprehensive-management-accident-response-drill",
+        "pe-comprehensive-management-accident-statistics",
+        "pe-comprehensive-management-aging-infrastructure",
+        "pe-comprehensive-management-alarp-principle",
+        "pe-comprehensive-management-alert-levels",
+        "pe-comprehensive-management-all-hazard-approach",
+        "pe-comprehensive-management-blind-drill",
+        "pe-comprehensive-management-bowtie-analysis",
+        "pe-comprehensive-management-catastrophe-bias",
+        "pe-comprehensive-management-civil-protection-act",
+        "pe-comprehensive-management-conformity-bias",
+        "pe-comprehensive-management-consumer-product-safety-act",
+        "pe-comprehensive-management-consumer-safety",
+        "pe-comprehensive-management-contingency",
+        "pe-comprehensive-management-crisis-communication",
+        "pe-comprehensive-management-crisis-management-manual",
+        "pe-comprehensive-management-crisis-priority",
+        "pe-comprehensive-management-cybersecurity-safety",
+        "pe-comprehensive-management-decision-tree-analysis",
+        "pe-comprehensive-management-defense-in-depth",
+        "pe-comprehensive-management-disaster-countermeasures-act",
+        "pe-comprehensive-management-disaster-drill",
+        "pe-comprehensive-management-disaster-prevention",
+        "pe-comprehensive-management-disaster-weather-info",
+        "pe-comprehensive-management-elsi",
+        "pe-comprehensive-management-emergency",
+        "pe-comprehensive-management-emergency-stop-device",
+        "pe-comprehensive-management-ergonomic-principles",
+        "pe-comprehensive-management-eta",
+        "pe-comprehensive-management-extreme-events",
+        "pe-comprehensive-management-fail-safe",
+        "pe-comprehensive-management-fail-soft",
+        "pe-comprehensive-management-fault-avoidance",
+        "pe-comprehensive-management-fault-tolerance",
+        "pe-comprehensive-management-fire-service-act",
+        "pe-comprehensive-management-fmea",
+        "pe-comprehensive-management-fool-proof",
+        "pe-comprehensive-management-four-e-countermeasures",
+        "pe-comprehensive-management-four-m-analysis",
+        "pe-comprehensive-management-fta",
+        "pe-comprehensive-management-functional-safety",
+        "pe-comprehensive-management-hazard",
+        "pe-comprehensive-management-hazardous-facility-disaster-prevention",
+        "pe-comprehensive-management-hazid",
+        "pe-comprehensive-management-hazop",
+        "pe-comprehensive-management-heinrich-law",
+        "pe-comprehensive-management-high-pressure-gas-act",
+        "pe-comprehensive-management-human-error-probability",
+        "pe-comprehensive-management-human-factors",
+        "pe-comprehensive-management-ics",
+        "pe-comprehensive-management-impact",
+        "pe-comprehensive-management-infectious-disease-pandemic",
+        "pe-comprehensive-management-inherent-safety",
+        "pe-comprehensive-management-interlock",
+        "pe-comprehensive-management-isolation-stop-safety",
+        "pe-comprehensive-management-kyt",
+        "pe-comprehensive-management-likelihood",
+        "pe-comprehensive-management-liquefaction",
+        "pe-comprehensive-management-lopa",
+        "pe-comprehensive-management-machinery-safety-guidelines",
+        "pe-comprehensive-management-mental-health",
+        "pe-comprehensive-management-natech",
+        "pe-comprehensive-management-national-resilience-act",
+        "pe-comprehensive-management-normalcy-bias",
+        "pe-comprehensive-management-occupational-accident-prevention-plan",
+        "pe-comprehensive-management-occupational-disease",
+        "pe-comprehensive-management-optimism-bias",
+        "pe-comprehensive-management-osh-management-system",
+        "pe-comprehensive-management-oshms",
+        "pe-comprehensive-management-parallel-system",
+        "pe-comprehensive-management-performance-shaping-factors",
+        "pe-comprehensive-management-periodic-inspection",
+        "pe-comprehensive-management-pha",
+        "pe-comprehensive-management-prevention-activities",
+        "pe-comprehensive-management-probabilistic-risk-assessment",
+        "pe-comprehensive-management-process-safety-mgmt",
+        "pe-comprehensive-management-product-liability-act",
+        "pe-comprehensive-management-public-acceptance",
+        "pe-comprehensive-management-public-safety",
+        "pe-comprehensive-management-redundancy-safety",
+        "pe-comprehensive-management-reliability-block-diagram",
+        "pe-comprehensive-management-residual-risk",
+        "pe-comprehensive-management-resilience",
+        "pe-comprehensive-management-risk",
+        "pe-comprehensive-management-risk-analysis",
+        "pe-comprehensive-management-risk-criteria",
+        "pe-comprehensive-management-risk-identification",
+        "pe-comprehensive-management-risk-management-plan",
+        "pe-comprehensive-management-risk-management-policy",
+        "pe-comprehensive-management-risk-management-system",
+        "pe-comprehensive-management-risk-map-matrix",
+        "pe-comprehensive-management-risk-monitoring",
+        "pe-comprehensive-management-risk-perception",
+        "pe-comprehensive-management-risk-treatment",
+        "pe-comprehensive-management-root-cause-analysis",
+        "pe-comprehensive-management-safety-2-0",
+        "pe-comprehensive-management-safety-and-security",
+        "pe-comprehensive-management-safety-case",
+        "pe-comprehensive-management-safety-confirmation-system",
+        "pe-comprehensive-management-safety-control",
+        "pe-comprehensive-management-safety-culture",
+        "pe-comprehensive-management-safety-education",
+        "pe-comprehensive-management-safety-health-education",
+        "pe-comprehensive-management-safety-health-org-structure",
+        "pe-comprehensive-management-safety-health-policy",
+        "pe-comprehensive-management-safety-instrumented-system",
+        "pe-comprehensive-management-safety-investment",
+        "pe-comprehensive-management-safety-management-pillar",
+        "pe-comprehensive-management-safety-management-system",
+        "pe-comprehensive-management-safety-objectives",
+        "pe-comprehensive-management-safety-patrol",
+        "pe-comprehensive-management-series-system",
+        "pe-comprehensive-management-small-group-activities",
+        "pe-comprehensive-management-smart-safety",
+        "pe-comprehensive-management-sop",
+        "pe-comprehensive-management-system-safety",
+        "pe-comprehensive-management-tbm-toolbox-meeting",
+        "pe-comprehensive-management-technical-nontechnical-skills",
+        "pe-comprehensive-management-terrorism",
+        "pe-comprehensive-management-therp",
+        "pe-comprehensive-management-timeline-disaster",
+        "pe-comprehensive-management-tripod-theory",
+        "pe-comprehensive-management-unsafe-conditions-behavior",
+        "pe-comprehensive-management-veteran-bias",
+        "pe-comprehensive-management-virgin-bias",
+        "pe-comprehensive-management-vta-method"
+      ]
+    },
+    {
       "name": "情報管理",
       "count": 143,
       "inAllowlist": true,
@@ -1764,8 +1895,8 @@
       ]
     },
     {
-      "name": "建設部門",
-      "count": 133,
+      "name": "技術士（第二次試験）",
+      "count": 134,
       "inAllowlist": true,
       "usedIn": [
         "pe-construction-aimai-hyougen-sahou",
@@ -1773,6 +1904,7 @@
         "pe-construction-bousai-genseigai-ronbun-keyword",
         "pe-construction-carbon-neutral-kensetsu",
         "pe-construction-chiiki-dukuri-ronbun-keyword",
+        "pe-construction-competency-revision-r8",
         "pe-construction-construction-environment-ronbun-keyword",
         "pe-construction-construction-planning-exam-themes",
         "pe-construction-construction-planning-ronbun-keyword",
@@ -1904,7 +2036,7 @@
       ]
     },
     {
-      "name": "技術士（第二次試験）",
+      "name": "建設部門",
       "count": 133,
       "inAllowlist": true,
       "usedIn": [
@@ -1913,7 +2045,6 @@
         "pe-construction-bousai-genseigai-ronbun-keyword",
         "pe-construction-carbon-neutral-kensetsu",
         "pe-construction-chiiki-dukuri-ronbun-keyword",
-        "pe-construction-competency-revision-r8",
         "pe-construction-construction-environment-ronbun-keyword",
         "pe-construction-construction-planning-exam-themes",
         "pe-construction-construction-planning-ronbun-keyword",
@@ -1921,6 +2052,7 @@
         "pe-construction-environment-exam-themes",
         "pe-construction-gakushuu-jikan-schedule",
         "pe-construction-geotechnical-exam-themes",
+        "pe-construction-guide-required-essay",
         "pe-construction-gyoumu-keireki-hyou",
         "pe-construction-hissu-kamoku-kaitourei",
         "pe-construction-iji-kanri-ronbun-keyword",
@@ -2182,140 +2314,6 @@
       ]
     },
     {
-      "name": "安全管理",
-      "count": 127,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-accident-cost",
-        "pe-comprehensive-management-accident-response-drill",
-        "pe-comprehensive-management-accident-statistics",
-        "pe-comprehensive-management-aging-infrastructure",
-        "pe-comprehensive-management-alarp-principle",
-        "pe-comprehensive-management-alert-levels",
-        "pe-comprehensive-management-all-hazard-approach",
-        "pe-comprehensive-management-blind-drill",
-        "pe-comprehensive-management-bowtie-analysis",
-        "pe-comprehensive-management-catastrophe-bias",
-        "pe-comprehensive-management-civil-protection-act",
-        "pe-comprehensive-management-conformity-bias",
-        "pe-comprehensive-management-consumer-product-safety-act",
-        "pe-comprehensive-management-consumer-safety",
-        "pe-comprehensive-management-contingency",
-        "pe-comprehensive-management-crisis-communication",
-        "pe-comprehensive-management-crisis-management-manual",
-        "pe-comprehensive-management-crisis-priority",
-        "pe-comprehensive-management-cybersecurity-safety",
-        "pe-comprehensive-management-decision-tree-analysis",
-        "pe-comprehensive-management-defense-in-depth",
-        "pe-comprehensive-management-disaster-countermeasures-act",
-        "pe-comprehensive-management-disaster-drill",
-        "pe-comprehensive-management-disaster-prevention",
-        "pe-comprehensive-management-disaster-weather-info",
-        "pe-comprehensive-management-elsi",
-        "pe-comprehensive-management-emergency",
-        "pe-comprehensive-management-emergency-stop-device",
-        "pe-comprehensive-management-ergonomic-principles",
-        "pe-comprehensive-management-eta",
-        "pe-comprehensive-management-extreme-events",
-        "pe-comprehensive-management-fail-safe",
-        "pe-comprehensive-management-fail-soft",
-        "pe-comprehensive-management-fault-avoidance",
-        "pe-comprehensive-management-fault-tolerance",
-        "pe-comprehensive-management-fire-service-act",
-        "pe-comprehensive-management-fmea",
-        "pe-comprehensive-management-fool-proof",
-        "pe-comprehensive-management-four-e-countermeasures",
-        "pe-comprehensive-management-four-m-analysis",
-        "pe-comprehensive-management-fta",
-        "pe-comprehensive-management-functional-safety",
-        "pe-comprehensive-management-hazard",
-        "pe-comprehensive-management-hazardous-facility-disaster-prevention",
-        "pe-comprehensive-management-hazid",
-        "pe-comprehensive-management-hazop",
-        "pe-comprehensive-management-heinrich-law",
-        "pe-comprehensive-management-high-pressure-gas-act",
-        "pe-comprehensive-management-human-error-probability",
-        "pe-comprehensive-management-human-factors",
-        "pe-comprehensive-management-ics",
-        "pe-comprehensive-management-impact",
-        "pe-comprehensive-management-infectious-disease-pandemic",
-        "pe-comprehensive-management-inherent-safety",
-        "pe-comprehensive-management-interlock",
-        "pe-comprehensive-management-isolation-stop-safety",
-        "pe-comprehensive-management-kyt",
-        "pe-comprehensive-management-likelihood",
-        "pe-comprehensive-management-liquefaction",
-        "pe-comprehensive-management-lopa",
-        "pe-comprehensive-management-machinery-safety-guidelines",
-        "pe-comprehensive-management-mental-health",
-        "pe-comprehensive-management-natech",
-        "pe-comprehensive-management-national-resilience-act",
-        "pe-comprehensive-management-normalcy-bias",
-        "pe-comprehensive-management-occupational-accident-prevention-plan",
-        "pe-comprehensive-management-occupational-disease",
-        "pe-comprehensive-management-optimism-bias",
-        "pe-comprehensive-management-osh-management-system",
-        "pe-comprehensive-management-oshms",
-        "pe-comprehensive-management-parallel-system",
-        "pe-comprehensive-management-performance-shaping-factors",
-        "pe-comprehensive-management-periodic-inspection",
-        "pe-comprehensive-management-pha",
-        "pe-comprehensive-management-prevention-activities",
-        "pe-comprehensive-management-probabilistic-risk-assessment",
-        "pe-comprehensive-management-process-safety-mgmt",
-        "pe-comprehensive-management-product-liability-act",
-        "pe-comprehensive-management-public-acceptance",
-        "pe-comprehensive-management-public-safety",
-        "pe-comprehensive-management-redundancy-safety",
-        "pe-comprehensive-management-reliability-block-diagram",
-        "pe-comprehensive-management-residual-risk",
-        "pe-comprehensive-management-resilience",
-        "pe-comprehensive-management-risk",
-        "pe-comprehensive-management-risk-analysis",
-        "pe-comprehensive-management-risk-criteria",
-        "pe-comprehensive-management-risk-identification",
-        "pe-comprehensive-management-risk-management-plan",
-        "pe-comprehensive-management-risk-management-policy",
-        "pe-comprehensive-management-risk-management-system",
-        "pe-comprehensive-management-risk-map-matrix",
-        "pe-comprehensive-management-risk-monitoring",
-        "pe-comprehensive-management-risk-perception",
-        "pe-comprehensive-management-risk-treatment",
-        "pe-comprehensive-management-root-cause-analysis",
-        "pe-comprehensive-management-safety-2-0",
-        "pe-comprehensive-management-safety-and-security",
-        "pe-comprehensive-management-safety-case",
-        "pe-comprehensive-management-safety-confirmation-system",
-        "pe-comprehensive-management-safety-control",
-        "pe-comprehensive-management-safety-culture",
-        "pe-comprehensive-management-safety-education",
-        "pe-comprehensive-management-safety-health-education",
-        "pe-comprehensive-management-safety-health-org-structure",
-        "pe-comprehensive-management-safety-health-policy",
-        "pe-comprehensive-management-safety-instrumented-system",
-        "pe-comprehensive-management-safety-investment",
-        "pe-comprehensive-management-safety-management-pillar",
-        "pe-comprehensive-management-safety-management-system",
-        "pe-comprehensive-management-safety-objectives",
-        "pe-comprehensive-management-safety-patrol",
-        "pe-comprehensive-management-series-system",
-        "pe-comprehensive-management-small-group-activities",
-        "pe-comprehensive-management-smart-safety",
-        "pe-comprehensive-management-sop",
-        "pe-comprehensive-management-system-safety",
-        "pe-comprehensive-management-tbm-toolbox-meeting",
-        "pe-comprehensive-management-technical-nontechnical-skills",
-        "pe-comprehensive-management-terrorism",
-        "pe-comprehensive-management-therp",
-        "pe-comprehensive-management-timeline-disaster",
-        "pe-comprehensive-management-tripod-theory",
-        "pe-comprehensive-management-unsafe-conditions-behavior",
-        "pe-comprehensive-management-veteran-bias",
-        "pe-comprehensive-management-virgin-bias",
-        "pe-comprehensive-management-vta-method"
-      ]
-    },
-    {
       "name": "社会環境管理",
       "count": 120,
       "inAllowlist": true,
@@ -2443,6 +2441,97 @@
       ]
     },
     {
+      "name": "環境保全",
+      "count": 84,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-textbook-construction-byproduct-recycle",
+        "civil-construction-1-textbook-noise-vibration-regulation",
+        "civil-construction-1-textbook-waste-disposal-manifest",
+        "civil-construction-1-textbook-water-air-soil-pollution",
+        "civil-practice-environment-neighborhood",
+        "pe-comprehensive-management-acid-rain",
+        "pe-comprehensive-management-agenda-21",
+        "pe-comprehensive-management-air-pollution-control-act",
+        "pe-comprehensive-management-alps-treated-water",
+        "pe-comprehensive-management-asbestos-issue",
+        "pe-comprehensive-management-backcasting",
+        "pe-comprehensive-management-basel-convention",
+        "pe-comprehensive-management-biodiversity-basic-act",
+        "pe-comprehensive-management-circular-economy",
+        "pe-comprehensive-management-circular-society-basic-act",
+        "pe-comprehensive-management-cites",
+        "pe-comprehensive-management-climate-change-adaptation-act",
+        "pe-comprehensive-management-climate-change-international",
+        "pe-comprehensive-management-club-of-rome",
+        "pe-comprehensive-management-consensus-instruments",
+        "pe-comprehensive-management-convention-on-biodiversity",
+        "pe-comprehensive-management-design-for-environment",
+        "pe-comprehensive-management-dioxin-countermeasures-act",
+        "pe-comprehensive-management-eco-action-21",
+        "pe-comprehensive-management-eco-drr",
+        "pe-comprehensive-management-eco-label",
+        "pe-comprehensive-management-ecosystem-services",
+        "pe-comprehensive-management-end-of-pipe",
+        "pe-comprehensive-management-energy",
+        "pe-comprehensive-management-energy-conservation-act",
+        "pe-comprehensive-management-environmental-accounting",
+        "pe-comprehensive-management-environmental-basic-act",
+        "pe-comprehensive-management-environmental-basic-plan",
+        "pe-comprehensive-management-environmental-communication",
+        "pe-comprehensive-management-environmental-impact-assessment",
+        "pe-comprehensive-management-environmental-standards",
+        "pe-comprehensive-management-extended-producer-responsibility",
+        "pe-comprehensive-management-forests-villages-rivers-seas",
+        "pe-comprehensive-management-four-major-pollution-diseases",
+        "pe-comprehensive-management-gfc-chemicals-framework",
+        "pe-comprehensive-management-green-bond",
+        "pe-comprehensive-management-green-infrastructure",
+        "pe-comprehensive-management-heat-island-effect",
+        "pe-comprehensive-management-interim-storage-facility",
+        "pe-comprehensive-management-invasive-alien-species",
+        "pe-comprehensive-management-ipbes",
+        "pe-comprehensive-management-iso-14000",
+        "pe-comprehensive-management-kunming-montreal-framework",
+        "pe-comprehensive-management-landscape-act",
+        "pe-comprehensive-management-lifecycle-assessment",
+        "pe-comprehensive-management-millennium-ecosystem-assessment",
+        "pe-comprehensive-management-minamata-convention",
+        "pe-comprehensive-management-nagoya-protocol",
+        "pe-comprehensive-management-natural-parks-act",
+        "pe-comprehensive-management-nature-conservation-act",
+        "pe-comprehensive-management-nature-positive",
+        "pe-comprehensive-management-nature-restoration-act",
+        "pe-comprehensive-management-ocean-plastic",
+        "pe-comprehensive-management-planetary-boundaries",
+        "pe-comprehensive-management-polluter-pays-principle",
+        "pe-comprehensive-management-pollution-control-manager",
+        "pe-comprehensive-management-pops-convention",
+        "pe-comprehensive-management-precautionary-principle",
+        "pe-comprehensive-management-prevention-principle",
+        "pe-comprehensive-management-prtr-act",
+        "pe-comprehensive-management-radioactive-decontamination-act",
+        "pe-comprehensive-management-radioactive-waste",
+        "pe-comprehensive-management-ramsar-convention",
+        "pe-comprehensive-management-reach-regulation",
+        "pe-comprehensive-management-red-list",
+        "pe-comprehensive-management-regional-circular-symbiosis",
+        "pe-comprehensive-management-renewable-energy-act",
+        "pe-comprehensive-management-rio-declaration",
+        "pe-comprehensive-management-rohs-weee",
+        "pe-comprehensive-management-satoyama-initiative",
+        "pe-comprehensive-management-seven-types-of-pollution",
+        "pe-comprehensive-management-soil-contamination-act",
+        "pe-comprehensive-management-sound-water-cycle",
+        "pe-comprehensive-management-source-control-principle",
+        "pe-comprehensive-management-species-preservation-act",
+        "pe-comprehensive-management-subsidiarity-principle",
+        "pe-comprehensive-management-surcharge",
+        "pe-comprehensive-management-sustainable-fashion",
+        "pe-construction-datsutanso-kankyo-ronbun-keyword"
+      ]
+    },
+    {
       "name": "textbook",
       "count": 83,
       "inAllowlist": true,
@@ -2533,96 +2622,20 @@
       ]
     },
     {
-      "name": "環境保全",
-      "count": 79,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-acid-rain",
-        "pe-comprehensive-management-agenda-21",
-        "pe-comprehensive-management-air-pollution-control-act",
-        "pe-comprehensive-management-alps-treated-water",
-        "pe-comprehensive-management-asbestos-issue",
-        "pe-comprehensive-management-backcasting",
-        "pe-comprehensive-management-basel-convention",
-        "pe-comprehensive-management-biodiversity-basic-act",
-        "pe-comprehensive-management-circular-economy",
-        "pe-comprehensive-management-circular-society-basic-act",
-        "pe-comprehensive-management-cites",
-        "pe-comprehensive-management-climate-change-adaptation-act",
-        "pe-comprehensive-management-climate-change-international",
-        "pe-comprehensive-management-club-of-rome",
-        "pe-comprehensive-management-consensus-instruments",
-        "pe-comprehensive-management-convention-on-biodiversity",
-        "pe-comprehensive-management-design-for-environment",
-        "pe-comprehensive-management-dioxin-countermeasures-act",
-        "pe-comprehensive-management-eco-action-21",
-        "pe-comprehensive-management-eco-drr",
-        "pe-comprehensive-management-eco-label",
-        "pe-comprehensive-management-ecosystem-services",
-        "pe-comprehensive-management-end-of-pipe",
-        "pe-comprehensive-management-energy",
-        "pe-comprehensive-management-energy-conservation-act",
-        "pe-comprehensive-management-environmental-accounting",
-        "pe-comprehensive-management-environmental-basic-act",
-        "pe-comprehensive-management-environmental-basic-plan",
-        "pe-comprehensive-management-environmental-communication",
-        "pe-comprehensive-management-environmental-impact-assessment",
-        "pe-comprehensive-management-environmental-standards",
-        "pe-comprehensive-management-extended-producer-responsibility",
-        "pe-comprehensive-management-forests-villages-rivers-seas",
-        "pe-comprehensive-management-four-major-pollution-diseases",
-        "pe-comprehensive-management-gfc-chemicals-framework",
-        "pe-comprehensive-management-green-bond",
-        "pe-comprehensive-management-green-infrastructure",
-        "pe-comprehensive-management-heat-island-effect",
-        "pe-comprehensive-management-interim-storage-facility",
-        "pe-comprehensive-management-invasive-alien-species",
-        "pe-comprehensive-management-ipbes",
-        "pe-comprehensive-management-iso-14000",
-        "pe-comprehensive-management-kunming-montreal-framework",
-        "pe-comprehensive-management-landscape-act",
-        "pe-comprehensive-management-lifecycle-assessment",
-        "pe-comprehensive-management-millennium-ecosystem-assessment",
-        "pe-comprehensive-management-minamata-convention",
-        "pe-comprehensive-management-nagoya-protocol",
-        "pe-comprehensive-management-natural-parks-act",
-        "pe-comprehensive-management-nature-conservation-act",
-        "pe-comprehensive-management-nature-positive",
-        "pe-comprehensive-management-nature-restoration-act",
-        "pe-comprehensive-management-ocean-plastic",
-        "pe-comprehensive-management-planetary-boundaries",
-        "pe-comprehensive-management-polluter-pays-principle",
-        "pe-comprehensive-management-pollution-control-manager",
-        "pe-comprehensive-management-pops-convention",
-        "pe-comprehensive-management-precautionary-principle",
-        "pe-comprehensive-management-prevention-principle",
-        "pe-comprehensive-management-prtr-act",
-        "pe-comprehensive-management-radioactive-decontamination-act",
-        "pe-comprehensive-management-radioactive-waste",
-        "pe-comprehensive-management-ramsar-convention",
-        "pe-comprehensive-management-reach-regulation",
-        "pe-comprehensive-management-red-list",
-        "pe-comprehensive-management-regional-circular-symbiosis",
-        "pe-comprehensive-management-renewable-energy-act",
-        "pe-comprehensive-management-rio-declaration",
-        "pe-comprehensive-management-rohs-weee",
-        "pe-comprehensive-management-satoyama-initiative",
-        "pe-comprehensive-management-seven-types-of-pollution",
-        "pe-comprehensive-management-soil-contamination-act",
-        "pe-comprehensive-management-sound-water-cycle",
-        "pe-comprehensive-management-source-control-principle",
-        "pe-comprehensive-management-species-preservation-act",
-        "pe-comprehensive-management-subsidiarity-principle",
-        "pe-comprehensive-management-surcharge",
-        "pe-comprehensive-management-sustainable-fashion",
-        "pe-construction-datsutanso-kankyo-ronbun-keyword"
-      ]
-    },
-    {
       "name": "関係法規",
-      "count": 60,
+      "count": 70,
       "inAllowlist": true,
       "usedIn": [
+        "civil-construction-1-textbook-building-standards",
+        "civil-construction-1-textbook-construction-business",
+        "civil-construction-1-textbook-explosives-act",
+        "civil-construction-1-textbook-labor-standards",
+        "civil-construction-1-textbook-law-compliance",
+        "civil-construction-1-textbook-port-regulations",
+        "civil-construction-1-textbook-river-act",
+        "civil-construction-1-textbook-road-act",
+        "civil-construction-1-textbook-standard-contract",
+        "civil-practice-safety-health-education-plan",
         "pe-comprehensive-management-air-pollution-control-act",
         "pe-comprehensive-management-antitrust-compliance",
         "pe-comprehensive-management-asbestos-issue",
@@ -2686,11 +2699,79 @@
       ]
     },
     {
-      "name": "primary",
-      "count": 58,
+      "name": "記述式対策",
+      "count": 62,
       "inAllowlist": true,
       "usedIn": [
-        "civil-construction-1-guide-study-plan",
+        "pe-comprehensive-management-essay-pattern-cross-year-application",
+        "pe-comprehensive-management-essay-persona-guide",
+        "pe-comprehensive-management-last-minute-2026",
+        "pe-comprehensive-management-management-tradeoffs",
+        "pe-comprehensive-management-pattern-essay-general-contractor",
+        "pe-comprehensive-management-pattern-essay-river-consultant",
+        "pe-comprehensive-management-pattern-essay-road-municipality",
+        "pe-comprehensive-management-r03-essay-general-contractor",
+        "pe-comprehensive-management-r03-essay-river-consultant",
+        "pe-comprehensive-management-r03-essay-road-municipality",
+        "pe-comprehensive-management-r04-essay-general-contractor",
+        "pe-comprehensive-management-r04-essay-river-consultant",
+        "pe-comprehensive-management-r04-essay-road-municipality",
+        "pe-comprehensive-management-r05-essay-general-contractor",
+        "pe-comprehensive-management-r05-essay-river-consultant",
+        "pe-comprehensive-management-r05-essay-road-municipality",
+        "pe-comprehensive-management-r06-essay-general-contractor",
+        "pe-comprehensive-management-r06-essay-river-consultant",
+        "pe-comprehensive-management-r06-essay-road-municipality",
+        "pe-comprehensive-management-r07-essay-general-contractor",
+        "pe-comprehensive-management-r07-essay-river-consultant",
+        "pe-comprehensive-management-r07-essay-road-municipality",
+        "pe-comprehensive-management-r8-essay-keyword-forecast",
+        "pe-comprehensive-management-r8-essay-theme-ai-governance",
+        "pe-comprehensive-management-r8-essay-theme-circular-economy",
+        "pe-comprehensive-management-r8-essay-theme-climate-adaptation",
+        "pe-comprehensive-management-r8-essay-theme-disaster-recovery",
+        "pe-comprehensive-management-r8-essay-theme-economic-security",
+        "pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance",
+        "pe-construction-aimai-hyougen-sahou",
+        "pe-construction-bosai-kokudo-kyoujinka",
+        "pe-construction-bousai-genseigai-ronbun-keyword",
+        "pe-construction-carbon-neutral-kensetsu",
+        "pe-construction-chiiki-dukuri-ronbun-keyword",
+        "pe-construction-construction-environment-ronbun-keyword",
+        "pe-construction-construction-planning-ronbun-keyword",
+        "pe-construction-datsutanso-kankyo-ronbun-keyword",
+        "pe-construction-guide-required-essay",
+        "pe-construction-hissu-kamoku-kaitourei",
+        "pe-construction-iji-kanri-ronbun-keyword",
+        "pe-construction-infra-roukyuuka-iji",
+        "pe-construction-kensetsu-dx",
+        "pe-construction-kokudo-keisei-chiiki",
+        "pe-construction-ninaite-dx-ronbun-keyword",
+        "pe-construction-ninaite-kakuho-seisansei",
+        "pe-construction-pe-secondary-essay-guide",
+        "pe-construction-port-airport-ronbun-keyword",
+        "pe-construction-power-civil-ronbun-keyword",
+        "pe-construction-railway-ronbun-keyword",
+        "pe-construction-river-coast-ronbun-keyword",
+        "pe-construction-road-ronbun-keyword",
+        "pe-construction-secondary-study-method",
+        "pe-construction-sentaku-kamoku-kakiwake",
+        "pe-construction-setsumon-bunkai",
+        "pe-construction-shakai-shihon-ronbun-keyword",
+        "pe-construction-shiken-toujitsu-tejun",
+        "pe-construction-soil-foundation-ronbun-keyword",
+        "pe-construction-steel-concrete-ronbun-keyword",
+        "pe-construction-suikou-checklist",
+        "pe-construction-toan-kousei-template",
+        "pe-construction-tunnel-ronbun-keyword",
+        "pe-construction-urban-planning-ronbun-keyword"
+      ]
+    },
+    {
+      "name": "primary",
+      "count": 56,
+      "inAllowlist": true,
+      "usedIn": [
         "civil-construction-1-primary-h26-a",
         "civil-construction-1-primary-h26-b",
         "civil-construction-1-primary-h27-a",
@@ -2715,7 +2796,6 @@
         "civil-construction-1-primary-r06-b",
         "civil-construction-1-primary-r07-a",
         "civil-construction-1-primary-r07-b",
-        "civil-construction-2-guide-study-plan",
         "civil-construction-2-primary-r03-kouki",
         "civil-construction-2-primary-r03-zenki",
         "civil-construction-2-primary-r04-kouki",
@@ -2751,70 +2831,8 @@
       ]
     },
     {
-      "name": "記述式対策",
-      "count": 55,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-essay-pattern-cross-year-application",
-        "pe-comprehensive-management-essay-persona-guide",
-        "pe-comprehensive-management-management-tradeoffs",
-        "pe-comprehensive-management-pattern-essay-general-contractor",
-        "pe-comprehensive-management-pattern-essay-river-consultant",
-        "pe-comprehensive-management-pattern-essay-road-municipality",
-        "pe-comprehensive-management-r03-essay-general-contractor",
-        "pe-comprehensive-management-r03-essay-river-consultant",
-        "pe-comprehensive-management-r03-essay-road-municipality",
-        "pe-comprehensive-management-r04-essay-general-contractor",
-        "pe-comprehensive-management-r04-essay-river-consultant",
-        "pe-comprehensive-management-r04-essay-road-municipality",
-        "pe-comprehensive-management-r05-essay-general-contractor",
-        "pe-comprehensive-management-r05-essay-river-consultant",
-        "pe-comprehensive-management-r05-essay-road-municipality",
-        "pe-comprehensive-management-r06-essay-general-contractor",
-        "pe-comprehensive-management-r06-essay-river-consultant",
-        "pe-comprehensive-management-r06-essay-road-municipality",
-        "pe-comprehensive-management-r07-essay-general-contractor",
-        "pe-comprehensive-management-r07-essay-river-consultant",
-        "pe-comprehensive-management-r07-essay-road-municipality",
-        "pe-comprehensive-management-r8-essay-keyword-forecast",
-        "pe-comprehensive-management-r8-essay-theme-ai-governance",
-        "pe-comprehensive-management-r8-essay-theme-circular-economy",
-        "pe-comprehensive-management-r8-essay-theme-climate-adaptation",
-        "pe-comprehensive-management-r8-essay-theme-disaster-recovery",
-        "pe-comprehensive-management-r8-essay-theme-economic-security",
-        "pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance",
-        "pe-construction-bosai-kokudo-kyoujinka",
-        "pe-construction-bousai-genseigai-ronbun-keyword",
-        "pe-construction-carbon-neutral-kensetsu",
-        "pe-construction-chiiki-dukuri-ronbun-keyword",
-        "pe-construction-construction-environment-ronbun-keyword",
-        "pe-construction-construction-planning-ronbun-keyword",
-        "pe-construction-datsutanso-kankyo-ronbun-keyword",
-        "pe-construction-hissu-kamoku-kaitourei",
-        "pe-construction-iji-kanri-ronbun-keyword",
-        "pe-construction-infra-roukyuuka-iji",
-        "pe-construction-kensetsu-dx",
-        "pe-construction-kokudo-keisei-chiiki",
-        "pe-construction-ninaite-dx-ronbun-keyword",
-        "pe-construction-ninaite-kakuho-seisansei",
-        "pe-construction-port-airport-ronbun-keyword",
-        "pe-construction-power-civil-ronbun-keyword",
-        "pe-construction-railway-ronbun-keyword",
-        "pe-construction-river-coast-ronbun-keyword",
-        "pe-construction-road-ronbun-keyword",
-        "pe-construction-secondary-study-method",
-        "pe-construction-sentaku-kamoku-kakiwake",
-        "pe-construction-shakai-shihon-ronbun-keyword",
-        "pe-construction-soil-foundation-ronbun-keyword",
-        "pe-construction-steel-concrete-ronbun-keyword",
-        "pe-construction-toan-kousei-template",
-        "pe-construction-tunnel-ronbun-keyword",
-        "pe-construction-urban-planning-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "exam-preparation",
-      "count": 49,
+      "name": "試験対策",
+      "count": 50,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-career-salary",
@@ -2860,6 +2878,7 @@
         "concrete-engineer-guide-overview",
         "concrete-engineer-guide-study-plan",
         "pe-comprehensive-management-exam-passing-strategy",
+        "pe-construction-nanido-goukakuritsu",
         "pe-first-stage-guide-after-pass",
         "pe-first-stage-guide-aptitude-subject",
         "pe-first-stage-guide-basic-subject",
@@ -3060,42 +3079,44 @@
       ]
     },
     {
-      "name": "secondary",
-      "count": 28,
+      "name": "品質管理",
+      "count": 30,
       "inAllowlist": true,
       "usedIn": [
-        "civil-construction-1-public-servant-merit",
-        "civil-construction-1-secondary-concrete-basics",
-        "civil-construction-1-secondary-concrete-past-problems",
-        "civil-construction-1-secondary-construction-plan-basics",
-        "civil-construction-1-secondary-construction-plan-past-problems",
-        "civil-construction-1-secondary-earthwork-basics",
-        "civil-construction-1-secondary-earthwork-past-problems",
-        "civil-construction-1-secondary-experience-writing-examples",
-        "civil-construction-1-secondary-experience-writing-guide",
-        "civil-construction-1-secondary-getting-started",
         "civil-construction-1-secondary-quality-management-basics",
         "civil-construction-1-secondary-quality-management-past-problems",
-        "civil-construction-1-secondary-r03",
-        "civil-construction-1-secondary-r04",
-        "civil-construction-1-secondary-r05",
-        "civil-construction-1-secondary-r06",
-        "civil-construction-1-secondary-r07",
-        "civil-construction-2-secondary-experience-writing-by-theme",
-        "civil-construction-2-secondary-experience-writing-examples",
-        "civil-construction-2-secondary-experience-writing-guide",
-        "civil-construction-2-secondary-getting-started",
-        "civil-construction-2-secondary-grading-and-partial-credit",
-        "civil-construction-2-secondary-last-two-weeks-plan",
-        "civil-construction-2-secondary-r03",
-        "civil-construction-2-secondary-r04",
-        "civil-construction-2-secondary-r05",
-        "civil-construction-2-secondary-r06",
-        "civil-construction-2-secondary-r07"
+        "civil-construction-1-textbook-control-chart",
+        "civil-construction-1-textbook-histogram",
+        "civil-construction-1-textbook-quality-inspection",
+        "civil-construction-1-textbook-quality-overview",
+        "civil-practice-quality-record-site-bcp",
+        "civil-practice-reference-values",
+        "civil-practice-safety-patrol-corrective-action",
+        "pe-comprehensive-management-cause-and-effect-diagram",
+        "pe-comprehensive-management-control-limits",
+        "pe-comprehensive-management-design-quality",
+        "pe-comprehensive-management-design-review",
+        "pe-comprehensive-management-haccp",
+        "pe-comprehensive-management-inspection-methods",
+        "pe-comprehensive-management-manufacturing-quality",
+        "pe-comprehensive-management-nonconformity-rate",
+        "pe-comprehensive-management-pqcdsme",
+        "pe-comprehensive-management-process-capability-index",
+        "pe-comprehensive-management-qc-circle",
+        "pe-comprehensive-management-quality-assurance",
+        "pe-comprehensive-management-quality-characteristics",
+        "pe-comprehensive-management-quality-control",
+        "pe-comprehensive-management-quality-costing",
+        "pe-comprehensive-management-quality-improvement",
+        "pe-comprehensive-management-quality-objectives",
+        "pe-comprehensive-management-quality-planning",
+        "pe-comprehensive-management-quality-policy",
+        "pe-comprehensive-management-required-quality",
+        "pe-comprehensive-management-small-group-activities"
       ]
     },
     {
-      "name": "earthwork",
+      "name": "土工",
       "count": 26,
       "inAllowlist": true,
       "usedIn": [
@@ -3128,7 +3149,39 @@
       ]
     },
     {
-      "name": "concrete",
+      "name": "secondary",
+      "count": 25,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-secondary-concrete-basics",
+        "civil-construction-1-secondary-concrete-past-problems",
+        "civil-construction-1-secondary-construction-plan-basics",
+        "civil-construction-1-secondary-construction-plan-past-problems",
+        "civil-construction-1-secondary-earthwork-basics",
+        "civil-construction-1-secondary-earthwork-past-problems",
+        "civil-construction-1-secondary-experience-writing-examples",
+        "civil-construction-1-secondary-experience-writing-guide",
+        "civil-construction-1-secondary-getting-started",
+        "civil-construction-1-secondary-quality-management-basics",
+        "civil-construction-1-secondary-quality-management-past-problems",
+        "civil-construction-1-secondary-r03",
+        "civil-construction-1-secondary-r04",
+        "civil-construction-1-secondary-r05",
+        "civil-construction-1-secondary-r06",
+        "civil-construction-1-secondary-r07",
+        "civil-construction-2-secondary-experience-writing-by-theme",
+        "civil-construction-2-secondary-experience-writing-examples",
+        "civil-construction-2-secondary-experience-writing-guide",
+        "civil-construction-2-secondary-getting-started",
+        "civil-construction-2-secondary-r03",
+        "civil-construction-2-secondary-r04",
+        "civil-construction-2-secondary-r05",
+        "civil-construction-2-secondary-r06",
+        "civil-construction-2-secondary-r07"
+      ]
+    },
+    {
+      "name": "コンクリート",
       "count": 21,
       "inAllowlist": true,
       "usedIn": [
@@ -3153,34 +3206,6 @@
         "civil-practice-risk-assessment-construction-workflow",
         "civil-practice-road-fixtures-precast",
         "civil-practice-safety-patrol-corrective-action"
-      ]
-    },
-    {
-      "name": "品質管理",
-      "count": 21,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-cause-and-effect-diagram",
-        "pe-comprehensive-management-control-limits",
-        "pe-comprehensive-management-design-quality",
-        "pe-comprehensive-management-design-review",
-        "pe-comprehensive-management-haccp",
-        "pe-comprehensive-management-inspection-methods",
-        "pe-comprehensive-management-manufacturing-quality",
-        "pe-comprehensive-management-nonconformity-rate",
-        "pe-comprehensive-management-pqcdsme",
-        "pe-comprehensive-management-process-capability-index",
-        "pe-comprehensive-management-qc-circle",
-        "pe-comprehensive-management-quality-assurance",
-        "pe-comprehensive-management-quality-characteristics",
-        "pe-comprehensive-management-quality-control",
-        "pe-comprehensive-management-quality-costing",
-        "pe-comprehensive-management-quality-improvement",
-        "pe-comprehensive-management-quality-objectives",
-        "pe-comprehensive-management-quality-planning",
-        "pe-comprehensive-management-quality-policy",
-        "pe-comprehensive-management-required-quality",
-        "pe-comprehensive-management-small-group-activities"
       ]
     },
     {
@@ -3264,7 +3289,7 @@
       ]
     },
     {
-      "name": "concrete-diagnostician",
+      "name": "コンクリート診断士",
       "count": 18,
       "inAllowlist": true,
       "usedIn": [
@@ -3289,30 +3314,6 @@
       ]
     },
     {
-      "name": "safety-management",
-      "count": 17,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-textbook-safety-excavation-shoring",
-        "civil-construction-1-textbook-safety-industrial-safety-law",
-        "civil-construction-1-textbook-safety-machinery-crane",
-        "civil-construction-1-textbook-safety-management-system",
-        "civil-construction-1-textbook-safety-risk-assessment",
-        "civil-construction-1-textbook-safety-scaffolding",
-        "civil-construction-1-textbook-safety-work-environment",
-        "civil-practice-checklist-shoring-buoyancy",
-        "civil-practice-lifting-equipment-selection",
-        "civil-practice-oshms-pdca-site-operation",
-        "civil-practice-risk-assessment-construction-workflow",
-        "civil-practice-safety-culture-discipline",
-        "civil-practice-safety-health-education-plan",
-        "civil-practice-safety-patrol-corrective-action",
-        "civil-practice-sheet-pile-snow-coating",
-        "civil-practice-sling-work-wire-rope",
-        "civil-practice-stacking-heat-machine-safety"
-      ]
-    },
-    {
       "name": "働き方改革",
       "count": 17,
       "inAllowlist": true,
@@ -3334,6 +3335,30 @@
         "pe-comprehensive-management-side-jobs",
         "pe-comprehensive-management-stress-check-system",
         "pe-construction-ninaite-kakuho-seisansei"
+      ]
+    },
+    {
+      "name": "必須科目",
+      "count": 17,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-construction-bosai-kokudo-kyoujinka",
+        "pe-construction-bousai-genseigai-ronbun-keyword",
+        "pe-construction-chiiki-dukuri-ronbun-keyword",
+        "pe-construction-datsutanso-kankyo-ronbun-keyword",
+        "pe-construction-guide-required-essay",
+        "pe-construction-hissu-kamoku-kaitourei",
+        "pe-construction-iji-kanri-ronbun-keyword",
+        "pe-construction-ninaite-dx-ronbun-keyword",
+        "pe-construction-r01-required",
+        "pe-construction-r02-required",
+        "pe-construction-r03-required",
+        "pe-construction-r04-required",
+        "pe-construction-r05-required",
+        "pe-construction-r06-required",
+        "pe-construction-r07-required",
+        "pe-construction-required-exam-themes",
+        "pe-construction-shakai-shihon-ronbun-keyword"
       ]
     },
     {
@@ -3475,26 +3500,26 @@
       ]
     },
     {
-      "name": "必須科目",
+      "name": "施工計画",
       "count": 16,
       "inAllowlist": true,
       "usedIn": [
-        "pe-construction-bosai-kokudo-kyoujinka",
-        "pe-construction-bousai-genseigai-ronbun-keyword",
-        "pe-construction-chiiki-dukuri-ronbun-keyword",
-        "pe-construction-datsutanso-kankyo-ronbun-keyword",
-        "pe-construction-hissu-kamoku-kaitourei",
-        "pe-construction-iji-kanri-ronbun-keyword",
-        "pe-construction-ninaite-dx-ronbun-keyword",
-        "pe-construction-r01-required",
-        "pe-construction-r02-required",
-        "pe-construction-r03-required",
-        "pe-construction-r04-required",
-        "pe-construction-r05-required",
-        "pe-construction-r06-required",
-        "pe-construction-r07-required",
-        "pe-construction-required-exam-themes",
-        "pe-construction-shakai-shihon-ronbun-keyword"
+        "civil-construction-1-secondary-construction-plan-basics",
+        "civil-construction-1-secondary-construction-plan-past-problems",
+        "civil-construction-1-textbook-construction-mgmt-overview",
+        "civil-construction-1-textbook-construction-plan-overview",
+        "civil-construction-1-textbook-management-subplans",
+        "civil-construction-1-textbook-site-investigation",
+        "civil-construction-1-textbook-work-scheduling",
+        "civil-practice-construction-plan-document",
+        "civil-practice-cost-and-design-change",
+        "civil-practice-oshms-pdca-site-operation",
+        "civil-practice-quality-record-site-bcp",
+        "civil-practice-risk-assessment-construction-workflow",
+        "pe-comprehensive-management-construction-plan",
+        "pe-comprehensive-management-method-planning",
+        "pe-comprehensive-management-process-planning-construction",
+        "pe-construction-construction-planning-ronbun-keyword"
       ]
     },
     {
@@ -3520,24 +3545,25 @@
       ]
     },
     {
-      "name": "pillar",
-      "count": 14,
+      "name": "出題傾向",
+      "count": 15,
       "inAllowlist": true,
       "usedIn": [
-        "civil-construction-1-guide-construction-plan",
-        "civil-construction-1-guide-demolition",
-        "civil-construction-1-guide-environment-management",
-        "civil-construction-1-guide-foundation",
-        "civil-construction-1-guide-machinery",
-        "civil-construction-1-guide-quality-management",
-        "civil-construction-1-guide-safety-management",
-        "civil-construction-1-guide-schedule-management",
-        "civil-construction-1-guide-surveying",
-        "pe-comprehensive-management-economic-management-pillar",
-        "pe-comprehensive-management-human-resource-management-pillar",
-        "pe-comprehensive-management-information-management-pillar",
-        "pe-comprehensive-management-safety-management-pillar",
-        "pe-comprehensive-management-social-environment-management-pillar"
+        "concrete-chief-engineer-guide-trends",
+        "concrete-diagnostician-guide-trends",
+        "pe-comprehensive-management-frequent-topics",
+        "pe-construction-construction-planning-exam-themes",
+        "pe-construction-environment-exam-themes",
+        "pe-construction-geotechnical-exam-themes",
+        "pe-construction-port-airport-exam-themes",
+        "pe-construction-power-civil-exam-themes",
+        "pe-construction-railway-exam-themes",
+        "pe-construction-required-exam-themes",
+        "pe-construction-river-coast-exam-themes",
+        "pe-construction-road-exam-themes",
+        "pe-construction-steel-concrete-exam-themes",
+        "pe-construction-tunnel-exam-themes",
+        "pe-construction-urban-planning-exam-themes"
       ]
     },
     {
@@ -3562,6 +3588,27 @@
       ]
     },
     {
+      "name": "工程管理",
+      "count": 14,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-textbook-network-schedule",
+        "civil-construction-1-textbook-schedule-charts",
+        "civil-construction-1-textbook-schedule-overview",
+        "civil-practice-cost-and-design-change",
+        "civil-practice-schedule-and-road-permit",
+        "pe-comprehensive-management-capacity-management",
+        "pe-comprehensive-management-gantt-chart",
+        "pe-comprehensive-management-lead-time",
+        "pe-comprehensive-management-load-capacity",
+        "pe-comprehensive-management-load-leveling",
+        "pe-comprehensive-management-master-schedule-planning",
+        "pe-comprehensive-management-pert-cpm",
+        "pe-comprehensive-management-process-planning-construction",
+        "pe-comprehensive-management-progress-management"
+      ]
+    },
+    {
       "name": "カーボンニュートラル",
       "count": 13,
       "inAllowlist": true,
@@ -3579,26 +3626,6 @@
         "pe-comprehensive-management-r06-essay-road-municipality",
         "pe-construction-carbon-neutral-kensetsu",
         "pe-construction-datsutanso-kankyo-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "出題傾向",
-      "count": 13,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-frequent-topics",
-        "pe-construction-construction-planning-exam-themes",
-        "pe-construction-environment-exam-themes",
-        "pe-construction-geotechnical-exam-themes",
-        "pe-construction-port-airport-exam-themes",
-        "pe-construction-power-civil-exam-themes",
-        "pe-construction-railway-exam-themes",
-        "pe-construction-required-exam-themes",
-        "pe-construction-river-coast-exam-themes",
-        "pe-construction-road-exam-themes",
-        "pe-construction-steel-concrete-exam-themes",
-        "pe-construction-tunnel-exam-themes",
-        "pe-construction-urban-planning-exam-themes"
       ]
     },
     {
@@ -3662,7 +3689,7 @@
       ]
     },
     {
-      "name": "construction-machinery",
+      "name": "建設機械",
       "count": 12,
       "inAllowlist": true,
       "usedIn": [
@@ -3678,25 +3705,6 @@
         "civil-practice-lifting-equipment-selection",
         "civil-practice-sling-work-wire-rope",
         "civil-practice-stacking-heat-machine-safety"
-      ]
-    },
-    {
-      "name": "construction-plan",
-      "count": 12,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-secondary-construction-plan-basics",
-        "civil-construction-1-secondary-construction-plan-past-problems",
-        "civil-construction-1-textbook-construction-mgmt-overview",
-        "civil-construction-1-textbook-construction-plan-overview",
-        "civil-construction-1-textbook-management-subplans",
-        "civil-construction-1-textbook-site-investigation",
-        "civil-construction-1-textbook-work-scheduling",
-        "civil-practice-construction-plan-document",
-        "civil-practice-cost-and-design-change",
-        "civil-practice-oshms-pdca-site-operation",
-        "civil-practice-quality-record-site-bcp",
-        "civil-practice-risk-assessment-construction-workflow"
       ]
     },
     {
@@ -3719,7 +3727,7 @@
       ]
     },
     {
-      "name": "concrete-chief-engineer",
+      "name": "コンクリート主任技士",
       "count": 11,
       "inAllowlist": true,
       "usedIn": [
@@ -3737,7 +3745,7 @@
       ]
     },
     {
-      "name": "concrete-engineer",
+      "name": "コンクリート技士",
       "count": 11,
       "inAllowlist": true,
       "usedIn": [
@@ -3752,23 +3760,6 @@
         "concrete-engineer-textbook-mix-design",
         "concrete-engineer-textbook-production-qc",
         "concrete-engineer-textbook-properties-testing"
-      ]
-    },
-    {
-      "name": "related-laws",
-      "count": 10,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-textbook-building-standards",
-        "civil-construction-1-textbook-construction-business",
-        "civil-construction-1-textbook-explosives-act",
-        "civil-construction-1-textbook-labor-standards",
-        "civil-construction-1-textbook-law-compliance",
-        "civil-construction-1-textbook-port-regulations",
-        "civil-construction-1-textbook-river-act",
-        "civil-construction-1-textbook-road-act",
-        "civil-construction-1-textbook-standard-contract",
-        "civil-practice-safety-health-education-plan"
       ]
     },
     {
@@ -3805,22 +3796,6 @@
       ]
     },
     {
-      "name": "quality-management",
-      "count": 9,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-secondary-quality-management-basics",
-        "civil-construction-1-secondary-quality-management-past-problems",
-        "civil-construction-1-textbook-control-chart",
-        "civil-construction-1-textbook-histogram",
-        "civil-construction-1-textbook-quality-inspection",
-        "civil-construction-1-textbook-quality-overview",
-        "civil-practice-quality-record-site-bcp",
-        "civil-practice-reference-values",
-        "civil-practice-safety-patrol-corrective-action"
-      ]
-    },
-    {
       "name": "トンネル",
       "count": 9,
       "inAllowlist": true,
@@ -3850,22 +3825,6 @@
         "pe-construction-r06-geotechnical",
         "pe-construction-r07-geotechnical",
         "pe-construction-soil-foundation-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "工程管理",
-      "count": 9,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-capacity-management",
-        "pe-comprehensive-management-gantt-chart",
-        "pe-comprehensive-management-lead-time",
-        "pe-comprehensive-management-load-capacity",
-        "pe-comprehensive-management-load-leveling",
-        "pe-comprehensive-management-master-schedule-planning",
-        "pe-comprehensive-management-pert-cpm",
-        "pe-comprehensive-management-process-planning-construction",
-        "pe-comprehensive-management-progress-management"
       ]
     },
     {
@@ -3965,21 +3924,6 @@
       ]
     },
     {
-      "name": "experience-writing",
-      "count": 8,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-secondary-experience-writing-examples",
-        "civil-construction-1-secondary-experience-writing-guide",
-        "civil-construction-1-secondary-getting-started",
-        "civil-construction-2-secondary-experience-writing-by-theme",
-        "civil-construction-2-secondary-experience-writing-examples",
-        "civil-construction-2-secondary-experience-writing-guide",
-        "civil-construction-2-secondary-getting-started",
-        "civil-construction-2-secondary-grading-and-partial-credit"
-      ]
-    },
-    {
       "name": "施工計画、施工設備及び積算",
       "count": 8,
       "inAllowlist": true,
@@ -4025,18 +3969,18 @@
       ]
     },
     {
-      "name": "試験ガイド",
+      "name": "経験記述",
       "count": 8,
       "inAllowlist": true,
       "usedIn": [
-        "pe-comprehensive-management-r8-essay-keyword-forecast",
-        "pe-comprehensive-management-r8-essay-theme-ai-governance",
-        "pe-comprehensive-management-r8-essay-theme-circular-economy",
-        "pe-comprehensive-management-r8-essay-theme-climate-adaptation",
-        "pe-comprehensive-management-r8-essay-theme-disaster-recovery",
-        "pe-comprehensive-management-r8-essay-theme-economic-security",
-        "pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance",
-        "pe-comprehensive-management-whitepaper-study-map"
+        "civil-construction-1-secondary-experience-writing-examples",
+        "civil-construction-1-secondary-experience-writing-guide",
+        "civil-construction-1-secondary-getting-started",
+        "civil-construction-2-secondary-experience-writing-by-theme",
+        "civil-construction-2-secondary-experience-writing-examples",
+        "civil-construction-2-secondary-experience-writing-guide",
+        "civil-construction-2-secondary-getting-started",
+        "civil-construction-2-secondary-grading-and-partial-credit"
       ]
     },
     {
@@ -4052,20 +3996,6 @@
         "pe-construction-r06-urban-planning",
         "pe-construction-r07-urban-planning",
         "pe-construction-urban-planning-exam-themes"
-      ]
-    },
-    {
-      "name": "キーワード",
-      "count": 7,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-analytic-hierarchy-process",
-        "pe-comprehensive-management-four-m-of-production",
-        "pe-comprehensive-management-idea-generation-methods",
-        "pe-comprehensive-management-key-performance-indicators",
-        "pe-comprehensive-management-pdca-cycle",
-        "pe-comprehensive-management-pfi",
-        "pe-comprehensive-management-value-engineering"
       ]
     },
     {
@@ -4111,20 +4041,6 @@
       ]
     },
     {
-      "name": "記述式",
-      "count": 7,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-essay-exam-strategy",
-        "pe-construction-aimai-hyougen-sahou",
-        "pe-construction-keyword-note-tsukurikata",
-        "pe-construction-pe-secondary-essay-guide",
-        "pe-construction-setsumon-bunkai",
-        "pe-construction-shiken-toujitsu-tejun",
-        "pe-construction-suikou-checklist"
-      ]
-    },
-    {
       "name": "GX",
       "count": 6,
       "inAllowlist": true,
@@ -4141,19 +4057,6 @@
       "name": "original-questions",
       "count": 6,
       "inAllowlist": true,
-      "usedIn": [
-        "concrete-engineer-primary-construction",
-        "concrete-engineer-primary-environment",
-        "concrete-engineer-primary-materials",
-        "concrete-engineer-primary-mix-design",
-        "concrete-engineer-primary-production-qc",
-        "concrete-engineer-primary-properties-testing"
-      ]
-    },
-    {
-      "name": "practice",
-      "count": 6,
-      "inAllowlist": false,
       "usedIn": [
         "concrete-engineer-primary-construction",
         "concrete-engineer-primary-environment",
@@ -4203,27 +4106,15 @@
       ]
     },
     {
-      "name": "environmental-management",
+      "name": "pillar",
       "count": 5,
       "inAllowlist": true,
       "usedIn": [
-        "civil-construction-1-textbook-construction-byproduct-recycle",
-        "civil-construction-1-textbook-noise-vibration-regulation",
-        "civil-construction-1-textbook-waste-disposal-manifest",
-        "civil-construction-1-textbook-water-air-soil-pollution",
-        "civil-practice-environment-neighborhood"
-      ]
-    },
-    {
-      "name": "schedule-management",
-      "count": 5,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-textbook-network-schedule",
-        "civil-construction-1-textbook-schedule-charts",
-        "civil-construction-1-textbook-schedule-overview",
-        "civil-practice-cost-and-design-change",
-        "civil-practice-schedule-and-road-permit"
+        "pe-comprehensive-management-economic-management-pillar",
+        "pe-comprehensive-management-human-resource-management-pillar",
+        "pe-comprehensive-management-information-management-pillar",
+        "pe-comprehensive-management-safety-management-pillar",
+        "pe-comprehensive-management-social-environment-management-pillar"
       ]
     },
     {
@@ -4239,7 +4130,7 @@
       ]
     },
     {
-      "name": "formwork",
+      "name": "型枠・支保工",
       "count": 4,
       "inAllowlist": true,
       "usedIn": [
@@ -4250,7 +4141,7 @@
       ]
     },
     {
-      "name": "foundation",
+      "name": "基礎工",
       "count": 4,
       "inAllowlist": true,
       "usedIn": [
@@ -4261,34 +4152,14 @@
       ]
     },
     {
-      "name": "施工計画",
+      "name": "脱炭素",
       "count": 4,
       "inAllowlist": true,
       "usedIn": [
-        "pe-comprehensive-management-construction-plan",
-        "pe-comprehensive-management-method-planning",
-        "pe-comprehensive-management-process-planning-construction",
-        "pe-construction-construction-planning-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "rebar",
-      "count": 3,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-rebar-corrosion-handling",
-        "civil-practice-rebar-cover-placement",
-        "civil-practice-rebar-splice-selection"
-      ]
-    },
-    {
-      "name": "surveying",
-      "count": 3,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-textbook-distance-angle",
-        "civil-construction-1-textbook-leveling",
-        "civil-construction-1-textbook-surveying-basics"
+        "pe-comprehensive-management-r8-essay-theme-circular-economy",
+        "pe-comprehensive-management-r8-essay-theme-climate-adaptation",
+        "pe-construction-carbon-neutral-kensetsu",
+        "pe-construction-datsutanso-kankyo-ronbun-keyword"
       ]
     },
     {
@@ -4299,6 +4170,16 @@
         "pe-comprehensive-management-r05-essay-general-contractor",
         "pe-comprehensive-management-r05-essay-river-consultant",
         "pe-comprehensive-management-r05-essay-road-municipality"
+      ]
+    },
+    {
+      "name": "キーワード学習",
+      "count": 3,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-keyword-2026",
+        "pe-comprehensive-management-primary-statistics-2026",
+        "pe-construction-keyword-note-tsukurikata"
       ]
     },
     {
@@ -4322,12 +4203,52 @@
       ]
     },
     {
-      "name": "二次試験",
+      "name": "受験申込",
       "count": 3,
       "inAllowlist": true,
       "usedIn": [
+        "pe-comprehensive-management-exam-application-guide",
+        "pe-construction-competency-revision-r8",
+        "pe-construction-gyoumu-keireki-hyou"
+      ]
+    },
+    {
+      "name": "国土強靱化",
+      "count": 3,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-r8-essay-theme-disaster-recovery",
+        "pe-construction-bosai-kokudo-kyoujinka",
+        "pe-construction-bousai-genseigai-ronbun-keyword"
+      ]
+    },
+    {
+      "name": "国土形成計画",
+      "count": 3,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-construction-chiiki-dukuri-ronbun-keyword",
+        "pe-construction-kokudo-keisei-chiiki",
+        "pe-construction-shakai-shihon-ronbun-keyword"
+      ]
+    },
+    {
+      "name": "地域づくり",
+      "count": 3,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-construction-chiiki-dukuri-ronbun-keyword",
+        "pe-construction-kokudo-keisei-chiiki",
+        "pe-construction-urban-planning-ronbun-keyword"
+      ]
+    },
+    {
+      "name": "学習計画",
+      "count": 3,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-last-minute-2026",
         "pe-construction-gakushuu-jikan-schedule",
-        "pe-construction-nanido-goukakuritsu",
         "pe-construction-secondary-study-method"
       ]
     },
@@ -4402,6 +4323,26 @@
       ]
     },
     {
+      "name": "建設DX",
+      "count": 3,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-r04-essay-road-municipality",
+        "pe-construction-kensetsu-dx",
+        "pe-construction-ninaite-dx-ronbun-keyword"
+      ]
+    },
+    {
+      "name": "測量",
+      "count": 3,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-textbook-distance-angle",
+        "civil-construction-1-textbook-leveling",
+        "civil-construction-1-textbook-surveying-basics"
+      ]
+    },
+    {
       "name": "生産性向上",
       "count": 3,
       "inAllowlist": true,
@@ -4412,21 +4353,23 @@
       ]
     },
     {
-      "name": "essay",
-      "count": 2,
+      "name": "維持管理",
+      "count": 3,
       "inAllowlist": true,
       "usedIn": [
-        "concrete-chief-engineer-guide-essay",
-        "concrete-diagnostician-guide-essay"
+        "pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance",
+        "pe-construction-iji-kanri-ronbun-keyword",
+        "pe-construction-infra-roukyuuka-iji"
       ]
     },
     {
-      "name": "exam-trends",
-      "count": 2,
+      "name": "鉄筋",
+      "count": 3,
       "inAllowlist": true,
       "usedIn": [
-        "concrete-chief-engineer-guide-trends",
-        "concrete-diagnostician-guide-trends"
+        "civil-practice-rebar-corrosion-handling",
+        "civil-practice-rebar-cover-placement",
+        "civil-practice-rebar-splice-selection"
       ]
     },
     {
@@ -4439,21 +4382,21 @@
       ]
     },
     {
+      "name": "index",
+      "count": 2,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-keyword-2026",
+        "pe-comprehensive-management-exam-index"
+      ]
+    },
+    {
       "name": "PPP/PFI",
       "count": 2,
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-pfi",
         "pe-construction-shakai-shihon-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "アセットマネジメント",
-      "count": 2,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-iji-kanri-ronbun-keyword",
-        "pe-construction-infra-roukyuuka-iji"
       ]
     },
     {
@@ -4484,39 +4427,12 @@
       ]
     },
     {
-      "name": "予防保全",
+      "name": "合格率",
       "count": 2,
       "inAllowlist": true,
       "usedIn": [
-        "pe-construction-iji-kanri-ronbun-keyword",
-        "pe-construction-infra-roukyuuka-iji"
-      ]
-    },
-    {
-      "name": "国土強靱化",
-      "count": 2,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-bosai-kokudo-kyoujinka",
-        "pe-construction-bousai-genseigai-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "国土形成計画",
-      "count": 2,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-chiiki-dukuri-ronbun-keyword",
-        "pe-construction-kokudo-keisei-chiiki"
-      ]
-    },
-    {
-      "name": "地域づくり",
-      "count": 2,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-chiiki-dukuri-ronbun-keyword",
-        "pe-construction-kokudo-keisei-chiiki"
+        "pe-comprehensive-management-primary-statistics-2026",
+        "pe-construction-nanido-goukakuritsu"
       ]
     },
     {
@@ -4529,21 +4445,12 @@
       ]
     },
     {
-      "name": "学習計画",
+      "name": "学習法",
       "count": 2,
       "inAllowlist": true,
       "usedIn": [
-        "pe-construction-gakushuu-jikan-schedule",
+        "concrete-diagnostician-guide-study-method",
         "pe-construction-secondary-study-method"
-      ]
-    },
-    {
-      "name": "建設DX",
-      "count": 2,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-kensetsu-dx",
-        "pe-construction-ninaite-dx-ronbun-keyword"
       ]
     },
     {
@@ -4565,64 +4472,11 @@
       ]
     },
     {
-      "name": "社会資本整備",
-      "count": 2,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-kokudo-keisei-chiiki",
-        "pe-construction-shakai-shihon-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "立地適正化",
-      "count": 2,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-chiiki-dukuri-ronbun-keyword",
-        "pe-construction-urban-planning-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "維持管理",
-      "count": 2,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-iji-kanri-ronbun-keyword",
-        "pe-construction-infra-roukyuuka-iji"
-      ]
-    },
-    {
-      "name": "脱炭素",
-      "count": 2,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-carbon-neutral-kensetsu",
-        "pe-construction-datsutanso-kankyo-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "防災",
-      "count": 2,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-bosai-kokudo-kyoujinka",
-        "pe-construction-bousai-genseigai-ronbun-keyword"
-      ]
-    },
-    {
       "name": "2024年問題",
       "count": 1,
       "inAllowlist": true,
       "usedIn": [
         "pe-construction-ninaite-kakuho-seisansei"
-      ]
-    },
-    {
-      "name": "2026年版",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-keyword-2026"
       ]
     },
     {
@@ -4634,291 +4488,11 @@
       ]
     },
     {
-      "name": "BIM/CIM",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-kensetsu-dx"
-      ]
-    },
-    {
-      "name": "calculation",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "concrete-engineer-primary-mix-design"
-      ]
-    },
-    {
-      "name": "demolition",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-textbook-demolition"
-      ]
-    },
-    {
-      "name": "DX推進",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-r04-essay-road-municipality"
-      ]
-    },
-    {
-      "name": "exam-statistics",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-primary-statistics-2026"
-      ]
-    },
-    {
-      "name": "II-1",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-sentaku-kamoku-kakiwake"
-      ]
-    },
-    {
-      "name": "II-2",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-sentaku-kamoku-kakiwake"
-      ]
-    },
-    {
-      "name": "III",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-sentaku-kamoku-kakiwake"
-      ]
-    },
-    {
-      "name": "index",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-keyword-2026"
-      ]
-    },
-    {
-      "name": "keyword-analysis",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-primary-statistics-2026"
-      ]
-    },
-    {
-      "name": "study-method",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "concrete-diagnostician-guide-study-method"
-      ]
-    },
-    {
-      "name": "まちづくり",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-urban-planning-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "キーワード学習",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-keyword-note-tsukurikata"
-      ]
-    },
-    {
-      "name": "キーワード集",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-keyword-2026"
-      ]
-    },
-    {
-      "name": "コンピテンシー",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-competency-revision-r8"
-      ]
-    },
-    {
-      "name": "スケジュール",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-gakushuu-jikan-schedule"
-      ]
-    },
-    {
-      "name": "出願",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-exam-application-guide"
-      ]
-    },
-    {
-      "name": "勉強時間",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-gakushuu-jikan-schedule"
-      ]
-    },
-    {
-      "name": "勉強法",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-secondary-study-method"
-      ]
-    },
-    {
       "name": "参考資料",
       "count": 1,
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-whitepaper-study-map"
-      ]
-    },
-    {
-      "name": "受験対策",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-nanido-goukakuritsu"
-      ]
-    },
-    {
-      "name": "受験申込",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-gyoumu-keireki-hyou"
-      ]
-    },
-    {
-      "name": "口頭試験",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-gyoumu-keireki-hyou"
-      ]
-    },
-    {
-      "name": "合格率",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-nanido-goukakuritsu"
-      ]
-    },
-    {
-      "name": "多面的観点",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-toan-kousei-template"
-      ]
-    },
-    {
-      "name": "循環経済",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-r8-essay-theme-circular-economy"
-      ]
-    },
-    {
-      "name": "必須科目I",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-guide-required-essay"
-      ]
-    },
-    {
-      "name": "技術士第二次試験",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-guide-required-essay"
-      ]
-    },
-    {
-      "name": "推敲",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-suikou-checklist"
-      ]
-    },
-    {
-      "name": "文章作法",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-aimai-hyougen-sahou"
-      ]
-    },
-    {
-      "name": "時間配分",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-shiken-toujitsu-tejun"
-      ]
-    },
-    {
-      "name": "業務内容の詳細",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-gyoumu-keireki-hyou"
-      ]
-    },
-    {
-      "name": "業務経歴票",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-gyoumu-keireki-hyou"
-      ]
-    },
-    {
-      "name": "模範解答",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-hissu-kamoku-kaitourei"
-      ]
-    },
-    {
-      "name": "気候変動適応",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-r8-essay-theme-climate-adaptation"
-      ]
-    },
-    {
-      "name": "流用戦略",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-essay-pattern-cross-year-application"
       ]
     },
     {
@@ -4930,54 +4504,6 @@
       ]
     },
     {
-      "name": "独学",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-secondary-study-method"
-      ]
-    },
-    {
-      "name": "直前対策",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-last-minute-2026"
-      ]
-    },
-    {
-      "name": "社会資本整備重点計画",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-shakai-shihon-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "答案の書き方",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-guide-required-essay"
-      ]
-    },
-    {
-      "name": "答案構成",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-toan-kousei-template"
-      ]
-    },
-    {
-      "name": "索引",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-exam-index"
-      ]
-    },
-    {
       "name": "経済安全保障",
       "count": 1,
       "inAllowlist": true,
@@ -4986,113 +4512,22 @@
       ]
     },
     {
-      "name": "老朽化インフラ",
+      "name": "解体工事",
       "count": 1,
       "inAllowlist": true,
       "usedIn": [
-        "pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance"
+        "civil-construction-1-textbook-demolition"
       ]
     },
     {
-      "name": "複合災害",
+      "name": "配合計算",
       "count": 1,
       "inAllowlist": true,
       "usedIn": [
-        "pe-comprehensive-management-r8-essay-theme-disaster-recovery"
-      ]
-    },
-    {
-      "name": "解答例",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-hissu-kamoku-kaitourei"
-      ]
-    },
-    {
-      "name": "記述式試験",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-last-minute-2026"
-      ]
-    },
-    {
-      "name": "設問分析",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-setsumon-bunkai"
-      ]
-    },
-    {
-      "name": "課題抽出",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-toan-kousei-template"
-      ]
-    },
-    {
-      "name": "論文の書き方",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-pe-secondary-essay-guide"
-      ]
-    },
-    {
-      "name": "論文テンプレート",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-toan-kousei-template"
-      ]
-    },
-    {
-      "name": "論述の型",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-hissu-kamoku-kaitourei"
-      ]
-    },
-    {
-      "name": "論述対策",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-guide-required-essay"
-      ]
-    },
-    {
-      "name": "過去問",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-frequent-topics"
-      ]
-    },
-    {
-      "name": "都市計画",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-urban-planning-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "難易度",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-nanido-goukakuritsu"
+        "concrete-engineer-primary-mix-design"
       ]
     }
   ],
-  "unknown": [
-    "practice",
-    "2026年版"
-  ],
+  "unknown": [],
   "typo_candidates": []
 }
