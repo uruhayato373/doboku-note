@@ -352,6 +352,35 @@
       }
     },
     {
+      "id": "pe-essay-writing-guide",
+      "title": "技術士論文の書き方",
+      "class": "commercial-book",
+      "origin": { "kind": "drive", "vaultDir": "原資料PDF/書籍/pe-essay-writing-guide__技術士論文の書き方" },
+      "bookBundle": {
+        "directory": "pe-essay-writing-guide__技術士論文の書き方",
+        "transcriptDir": "content/sources/books/pe-essay-writing-guide__技術士論文の書き方/ocr",
+        "renderProfile": {
+          "mode": "pdfimages-auto-spread",
+          "rotation": 90,
+          "splitOrder": ["left", "right"],
+          "gutterOverlapPercent": 3,
+          "singlePageAspectThreshold": 1.15,
+          "jpegQuality": 92,
+          "ocrWidth": 2200,
+          "cropWidth": 2600
+        },
+        "sourceFiles": [{
+          "order": 1,
+          "legacyRepoPath": "content/sources/textbook/技術士論文の書き方/技術士論文の書き方.pdf",
+          "originalName": "技術士論文の書き方.pdf",
+          "expectedPdfPages": 99,
+          "singlePdfPages": [52, 54, 64, 65, 88],
+          "section": "全巻"
+        }]
+      },
+      "notes": "2026-09-10 に 原資料PDF/教材/技術士論文の書き方/ から登録。同フォルダの『スキャンした書類 2〜6.pdf』（22+15+24+21+17=99p）を結合したものが本 PDF で、分割版は原本として使わない。手持ち撮影の見開き。PDF p.37 は机ごと写った引きの写真で解像度不足、p.54/64 は見開きだが縦長に切れているため single 扱い（1 画像に 2 ページ入る）。文字起こしは内部利用に限定する。"
+    },
+    {
       "id": "ipej-cem-keywords-2026",
       "title": "総合技術監理キーワード集2026",
       "class": "government-publication",
