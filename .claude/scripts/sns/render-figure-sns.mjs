@@ -11,7 +11,7 @@
  *   vertical   1080×1920 (9:16)    Shorts/Reels/Stories（feed図を中央レターボックス）
  *
  * Usage:
- *   node .claude/scripts/sns/render-figure-sns.mjs --slug <slug> [--figure figure-1.svg] \
+ *   node .claude/scripts/sns/render-figure-sns.mjs --slug <slug|category/slug> [--figure figure-1.svg] \
  *        --format ig-single|yt-thumb|vertical|both|all [--concept "..."] [--mgmt 社会環境管理]
  *
  * 出力: content/sns/figures/<slug>/<figure-stem>-<format>.png
@@ -41,7 +41,10 @@ const formats = formatArg === 'both' ? ['ig-single', 'yt-thumb']
   : formatArg === 'all' ? ['ig-single', 'yt-thumb', 'vertical']
   : [formatArg];
 
-const svgPath = resolve(ROOT, 'content/site/pe-comprehensive-management', slug, 'img', figureName);
+// slug に '/' を含めれば任意カテゴリ（例: concrete-chief-engineer/textbook-products）。無指定は総監キーワード。
+const svgPath = slug.includes('/')
+  ? resolve(ROOT, 'content/site', slug, 'img', figureName)
+  : resolve(ROOT, 'content/site/pe-comprehensive-management', slug, 'img', figureName);
 if (!existsSync(svgPath)) { console.error(`Error: SVG not found: ${svgPath}`); process.exit(1); }
 const figSvg = readFileSync(svgPath, 'utf8');
 

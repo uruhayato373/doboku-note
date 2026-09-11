@@ -1,0 +1,71 @@
+<!-- authored 2026-09-12 doboku-note 自作。題材は主任技士テキスト「materials」の論点。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="化学混和剤の系統図。空気を連行する軸と水を減らす軸の組合せでAE減水剤・高性能減水剤・高性能AE減水剤・流動化剤が位置づく">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-axis { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-s { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .arrow { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+    </style>
+    <marker id="arrowhead" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#8a8a8a" />
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">2つの基本効果の組合せで位置づけを整理する</text>
+
+  <text class="t-axis" x="20" y="38">左：空気を連行する（AE剤）</text>
+  <text class="t-axis" x="200" y="38">右：水を減らす（減水剤）</text>
+
+  <!-- 単独系 -->
+  <rect class="box-b" x="20" y="56" width="160" height="56" rx="6" />
+  <text class="t-name" x="100" y="78" text-anchor="middle">AE剤</text>
+  <text class="t-desc" x="100" y="96" text-anchor="middle">主効果：気泡連行</text>
+
+  <rect class="box-w" x="220" y="56" width="160" height="56" rx="6" />
+  <text class="t-name" x="300" y="78" text-anchor="middle">減水剤</text>
+  <text class="t-desc" x="300" y="96" text-anchor="middle">主効果：単位水量低減</text>
+
+  <line class="arrow" x1="100" y1="112" x2="200" y2="132" marker-end="url(#arrowhead)" />
+  <line class="arrow" x1="300" y1="112" x2="200" y2="132" marker-end="url(#arrowhead)" />
+
+  <!-- 組合せ: AE減水剤 -->
+  <rect class="box-p" x="90" y="132" width="220" height="56" rx="6" />
+  <text class="t-name" x="200" y="154" text-anchor="middle">AE減水剤</text>
+  <text class="t-desc" x="200" y="172" text-anchor="middle">主効果：気泡連行＋減水を両立</text>
+
+  <polyline class="arrow" fill="none" points="330,112 330,196 330,208" marker-end="url(#arrowhead)" />
+
+  <!-- 減水率をさらに高める -->
+  <rect class="box-w" x="220" y="208" width="160" height="56" rx="6" />
+  <text class="t-name" x="300" y="230" text-anchor="middle">高性能減水剤</text>
+  <text class="t-desc" x="300" y="248" text-anchor="middle">主効果：減水率をさらに向上</text>
+
+  <line class="arrow" x1="200" y1="188" x2="200" y2="284" marker-end="url(#arrowhead)" />
+  <line class="arrow" x1="300" y1="264" x2="220" y2="284" marker-end="url(#arrowhead)" />
+
+  <!-- 両方を強めた -->
+  <rect class="box-p" x="90" y="284" width="220" height="56" rx="6" />
+  <text class="t-name" x="200" y="306" text-anchor="middle">高性能AE減水剤</text>
+  <text class="t-desc" x="200" y="324" text-anchor="middle">主効果：気泡連行＋高い減水率を両立</text>
+
+  <line class="arrow" x1="200" y1="340" x2="200" y2="360" marker-end="url(#arrowhead)" />
+
+  <!-- 流動化剤 -->
+  <rect class="box-s" x="90" y="360" width="220" height="56" rx="6" />
+  <text class="t-name" x="200" y="382" text-anchor="middle">流動化剤</text>
+  <text class="t-desc" x="200" y="400" text-anchor="middle">主効果：練上がり後に添加し流動性を増大</text>
+
+  <rect class="box-s" x="20" y="432" width="360" height="52" rx="6" />
+  <text class="t-desc" x="200" y="454" text-anchor="middle">流動化剤は配合時ではなく、練上がった</text>
+  <text class="t-desc" x="200" y="471" text-anchor="middle">ベースコンクリートに後から加える点が異なる</text>
+</svg>

@@ -1,0 +1,66 @@
+<!-- authored 2026-09-12 doboku-note 自作。題材は主任技士テキスト「配合設計」の論点。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="容積法の考え方。1m³＝1,000Lの中に空気・水・セメント・細骨材・粗骨材の絶対容積を積み上げ、合計が1,000Lになるよう配分することとs/aの定義を示す図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-sec   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-name  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-label { font-size: 11px; fill: #8a8a8a; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-s { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">各材料の絶対容積を積み上げ、合計を1,000Lに収める考え方</text>
+
+  <text class="t-sec" x="95" y="34" text-anchor="middle">1 m³（1,000 L）</text>
+  <text class="t-sec" x="282" y="34" text-anchor="middle">絶対容積の求め方</text>
+
+  <!-- 縦積みバー：上から空気・水・セメント・細骨材・粗骨材 -->
+  <rect class="box-d" x="20" y="40" width="150" height="25"/>
+  <text class="t-name" x="95" y="57" text-anchor="middle">空気</text>
+
+  <rect class="box-b" x="20" y="65" width="150" height="70"/>
+  <text class="t-name" x="95" y="104" text-anchor="middle">水</text>
+
+  <rect class="box-w" x="20" y="135" width="150" height="45"/>
+  <text class="t-name" x="95" y="161" text-anchor="middle">セメント</text>
+
+  <rect class="box-p" x="20" y="180" width="150" height="125"/>
+  <text class="t-name" x="95" y="246" text-anchor="middle">細骨材</text>
+
+  <rect class="box-s" x="20" y="305" width="150" height="145"/>
+  <text class="t-name" x="95" y="381" text-anchor="middle">粗骨材</text>
+
+  <!-- 骨材（細骨材+粗骨材）のくくり -->
+  <line x1="17" y1="180" x2="20" y2="180" stroke="#8a8a8a" stroke-width="1"/>
+  <line x1="17" y1="450" x2="20" y2="450" stroke="#8a8a8a" stroke-width="1"/>
+  <line x1="17" y1="180" x2="17" y2="450" stroke="#8a8a8a" stroke-width="1"/>
+  <text class="t-label" x="9" y="318" text-anchor="middle" transform="rotate(-90 9 318)">骨材</text>
+
+  <!-- 右列：3つの注記 -->
+  <rect class="box-b" x="185" y="40" width="195" height="120" rx="6"/>
+  <text class="t-name" x="200" y="68">質量÷密度＝絶対容積</text>
+  <text class="t-desc" x="200" y="88">各材料の質量(kg)を</text>
+  <text class="t-desc" x="200" y="104">その密度で除して</text>
+  <text class="t-desc" x="200" y="120">絶対容積(L)にする</text>
+
+  <rect class="box-b" x="185" y="180" width="195" height="120" rx="6"/>
+  <text class="t-name" x="200" y="208">合計絶対容積＝1,000L</text>
+  <text class="t-desc" x="200" y="228">空気・水・セメント・</text>
+  <text class="t-desc" x="200" y="244">細骨材・粗骨材の絶対</text>
+  <text class="t-desc" x="200" y="260">容積の合計で決める</text>
+
+  <rect class="box-b" x="185" y="320" width="195" height="110" rx="6"/>
+  <text class="t-name" x="200" y="348">s/a＝細骨材÷骨材容積</text>
+  <text class="t-desc" x="200" y="368">骨材(細骨材+粗骨材)の</text>
+  <text class="t-desc" x="200" y="384">容積に占める細骨材の割合</text>
+</svg>

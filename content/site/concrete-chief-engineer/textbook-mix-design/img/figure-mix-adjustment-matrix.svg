@@ -1,0 +1,93 @@
+<!-- authored 2026-09-12 doboku-note 自作。題材は主任技士テキスト「配合設計」の論点。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="材料・条件の変化と配合修正の方向のマトリクス。砕石化・実積率低下・温度上昇・高性能AE減水剤・粗粒率変化の5条件について単位水量・細骨材率・AE剤量をどちらへ動かすかを示す図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-name  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-label { font-size: 11px; fill: #8a8a8a; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-s { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .grid  { stroke: #d7d7d7; stroke-width: 1; }
+      .up    { font-size: 16px; font-weight: bold; fill: #2e6da4; }
+      .down  { font-size: 16px; font-weight: bold; fill: #b22234; }
+      .flat  { font-size: 14px; fill: #8a8a8a; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">材料・条件の変化と配合修正の方向のマトリクス</text>
+  <text x="200" y="34" text-anchor="middle" class="t-desc">
+    <tspan fill="#2e6da4" font-weight="bold">↑増やす</tspan>　<tspan fill="#b22234" font-weight="bold">↓減らす</tspan>　<tspan fill="#8a8a8a">ー変更なし</tspan>
+  </text>
+
+  <!-- 外枠とヘッダー -->
+  <rect x="20" y="44" width="360" height="44" class="box-b"/>
+  <rect x="20" y="44" width="360" height="422" fill="none" stroke="#222" stroke-width="1.5"/>
+
+  <text class="t-name" x="85" y="70" text-anchor="middle">変化</text>
+  <text class="t-name" x="188" y="70" text-anchor="middle">単位水量</text>
+  <text class="t-name" x="265" y="70" text-anchor="middle">細骨材率</text>
+  <text class="t-name" x="342" y="70" text-anchor="middle">AE剤量</text>
+
+  <!-- 行の背景（縞） -->
+  <rect x="20" y="151" width="360" height="63" class="box-s"/>
+  <rect x="20" y="277" width="360" height="63" class="box-s"/>
+  <rect x="20" y="403" width="360" height="63" class="box-s"/>
+
+  <!-- 縦の罫線 -->
+  <line x1="150" y1="44" x2="150" y2="466" class="grid"/>
+  <line x1="227" y1="44" x2="227" y2="466" class="grid"/>
+  <line x1="304" y1="44" x2="304" y2="466" class="grid"/>
+
+  <!-- 横の罫線 -->
+  <line x1="20" y1="88" x2="380" y2="88" class="grid"/>
+  <line x1="20" y1="151" x2="380" y2="151" class="grid"/>
+  <line x1="20" y1="214" x2="380" y2="214" class="grid"/>
+  <line x1="20" y1="277" x2="380" y2="277" class="grid"/>
+  <line x1="20" y1="340" x2="380" y2="340" class="grid"/>
+  <line x1="20" y1="403" x2="380" y2="403" class="grid"/>
+
+  <!-- 行1: 砕石への切替え -->
+  <text class="t-desc" x="30" y="123" text-anchor="start">砕石へ切替え</text>
+  <text class="up"   x="188" y="126" text-anchor="middle">↑</text>
+  <text class="up"   x="265" y="126" text-anchor="middle">↑</text>
+  <text class="flat" x="342" y="124" text-anchor="middle">ー</text>
+
+  <!-- 行2: 実積率が低下 -->
+  <text class="t-desc" x="30" y="186" text-anchor="start">実積率が低下</text>
+  <text class="up"   x="188" y="189" text-anchor="middle">↑</text>
+  <text class="up"   x="265" y="189" text-anchor="middle">↑</text>
+  <text class="flat" x="342" y="187" text-anchor="middle">ー</text>
+
+  <!-- 行3: 夏期に温度上昇 -->
+  <text class="t-desc" x="30" y="249" text-anchor="start">夏期に温度上昇</text>
+  <text class="up"   x="188" y="252" text-anchor="middle">↑</text>
+  <text class="flat" x="265" y="250" text-anchor="middle">ー</text>
+  <text class="up"   x="342" y="252" text-anchor="middle">↑</text>
+
+  <!-- 行4: 高性能AE減水剤 -->
+  <text class="t-desc" x="30" y="312" text-anchor="start">高性能AE減水剤</text>
+  <text class="down" x="188" y="315" text-anchor="middle">↓</text>
+  <text class="up"   x="265" y="315" text-anchor="middle">↑</text>
+  <text class="flat" x="342" y="313" text-anchor="middle">ー</text>
+
+  <!-- 行5: 粗粒率が大きくなる -->
+  <text class="t-desc" x="30" y="367" text-anchor="start">粗粒率が</text>
+  <text class="t-desc" x="30" y="383" text-anchor="start">大きくなる</text>
+  <text class="flat" x="188" y="376" text-anchor="middle">ー</text>
+  <text class="up"   x="265" y="376" text-anchor="middle">↑</text>
+  <text class="flat" x="342" y="374" text-anchor="middle">ー</text>
+
+  <!-- 行6: 圧送の閉塞対策 -->
+  <text class="t-desc" x="30" y="430" text-anchor="start">圧送で閉塞</text>
+  <text class="t-desc" x="30" y="446" text-anchor="start">しやすい</text>
+  <text class="flat" x="188" y="439" text-anchor="middle">ー</text>
+  <text class="up"   x="265" y="441" text-anchor="middle">↑</text>
+  <text class="flat" x="342" y="439" text-anchor="middle">ー</text>
+
+  <text class="t-lead" x="200" y="488" text-anchor="middle">読み方：変化 → 影響 → 修正の順にたどる</text>
+</svg>

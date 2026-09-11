@@ -2,21 +2,21 @@
   "description": "サイト図版SVGの派生カタログ（SSOT）。build-svg-catalog.mjs が生成。手動編集しない。",
   "source": "content/site/**/img/*.svg",
   "summary": {
-    "total": 521,
-    "embedded": 521,
+    "total": 536,
+    "embedded": 536,
     "orphan": 0,
     "missingConcept": 0,
     "withHighAudit": 0,
     "figures": {
-      "total": 443,
-      "conforming": 443,
+      "total": 458,
+      "conforming": 458,
       "needsRework": 0
     },
     "byCategory": {
       "civil-construction-1": 177,
       "civil-construction-2": 20,
       "civil-practice": 20,
-      "concrete-chief-engineer": 57,
+      "concrete-chief-engineer": 72,
       "concrete-diagnostician": 22,
       "pe-comprehensive-management": 225
     }
@@ -720,7 +720,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -1026,8 +1026,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 1
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -1044,7 +1044,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -1062,7 +1062,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -1170,7 +1170,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -1765,7 +1765,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 1
+        "low": 0
       }
     },
     {
@@ -1927,7 +1927,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 6
+        "low": 0
       }
     },
     {
@@ -2574,7 +2574,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 4,
+        "medium": 0,
         "low": 0
       }
     },
@@ -2647,7 +2647,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 1
+        "low": 0
       }
     },
     {
@@ -2665,7 +2665,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 6
+        "low": 0
       }
     },
     {
@@ -2683,7 +2683,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 11
+        "low": 0
       }
     },
     {
@@ -3006,7 +3006,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -3960,8 +3960,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 4,
-        "low": 11
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -3978,8 +3978,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 2
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -3996,8 +3996,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 6,
-        "low": 19
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -4014,7 +4014,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 2,
+        "medium": 0,
         "low": 0
       }
     },
@@ -4032,8 +4032,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 12
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -4086,8 +4086,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 3,
-        "low": 1
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -4104,8 +4104,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 2,
-        "low": 22
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -4122,8 +4122,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 2,
-        "low": 21
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -4140,8 +4140,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 12
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -4158,7 +4158,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -4176,8 +4176,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 5,
-        "low": 33
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -4194,8 +4194,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 7,
-        "low": 26
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -4213,7 +4213,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 13
+        "low": 0
       }
     },
     {
@@ -4231,7 +4231,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 13
+        "low": 0
       }
     },
     {
@@ -4248,7 +4248,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 2,
+        "medium": 0,
         "low": 0
       }
     },
@@ -4266,8 +4266,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 4,
-        "low": 34
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -4284,8 +4284,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 2,
-        "low": 5
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -4302,8 +4302,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 2,
-        "low": 3
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -4320,8 +4320,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 2,
-        "low": 5
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -4338,8 +4338,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 3,
-        "low": 8
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -4356,8 +4356,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 2,
-        "low": 26
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -4392,8 +4392,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 2,
-        "low": 5
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -4446,7 +4446,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -4464,8 +4464,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 7,
-        "low": 68
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -4500,7 +4500,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -4591,7 +4591,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 3
+        "low": 0
       }
     },
     {
@@ -4608,7 +4608,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -4626,7 +4626,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -4644,8 +4644,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 21
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -4662,8 +4662,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 4
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -4680,7 +4680,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -4698,7 +4698,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -4716,7 +4716,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -4752,7 +4752,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -4770,7 +4770,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -4788,7 +4788,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -4806,8 +4806,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 4
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -4824,7 +4824,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -4860,7 +4860,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -4878,7 +4878,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -4896,7 +4896,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -4914,7 +4914,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -4932,7 +4932,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -4950,7 +4950,277 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/textbook-construction/img/figure-mass-concrete-restraint.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "textbook-construction",
+      "name": "figure-mass-concrete-restraint.svg",
+      "concept": "マスコンクリートの温度ひび割れ2種の断面比較。内部拘束は表面が低温で高温の内部との差から浅い表面ひび割れを生じ、外部拘束は岩盤等に拘束され温度降下時の収縮で深い貫通ひび割れを生じる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/textbook-durability/img/figure-asr-countermeasures.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "textbook-durability",
+      "name": "figure-asr-countermeasures.svg",
+      "concept": "ASR抑制対策3方式の分岐図。反応性骨材・アルカリ・水分の3条件のどれを断つ対策かを対応づける",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/textbook-durability/img/figure-carbonation-sqrt-t.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "textbook-durability",
+      "name": "figure-carbonation-sqrt-t.svg",
+      "concept": "中性化深さが経過年数の平方根に比例して進む曲線と、かぶり厚さの水平線、その差の中性化残りを示す。水セメント比が小さいほど曲線は寝る",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/textbook-materials/img/figure-admixture-families.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "textbook-materials",
+      "name": "figure-admixture-families.svg",
+      "concept": "化学混和剤の系統図。空気を連行する軸と水を減らす軸の組合せでAE減水剤・高性能減水剤・高性能AE減水剤・流動化剤が位置づく",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/textbook-materials/img/figure-blended-cement-types.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "textbook-materials",
+      "name": "figure-blended-cement-types.svg",
+      "concept": "混合セメント3系統（高炉・フライアッシュ・シリカ）のA・B・C種の混合率区分を帯グラフで比較した図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/textbook-mix-design/img/figure-absolute-volume-stack.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "textbook-mix-design",
+      "name": "figure-absolute-volume-stack.svg",
+      "concept": "容積法の考え方。1m³＝1,000Lの中に空気・水・セメント・細骨材・粗骨材の絶対容積を積み上げ、合計が1,000Lになるよう配分することとs/aの定義を示す図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/textbook-mix-design/img/figure-mix-adjustment-matrix.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "textbook-mix-design",
+      "name": "figure-mix-adjustment-matrix.svg",
+      "concept": "材料・条件の変化と配合修正の方向のマトリクス。砕石化・実積率低下・温度上昇・高性能AE減水剤・粗粒率変化の5条件について単位水量・細骨材率・AE剤量をどちらへ動かすかを示す図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/textbook-production-qc/img/figure-cumulative-weighing-error.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "textbook-production-qc",
+      "name": "figure-cumulative-weighing-error.svg",
+      "concept": "累加計量の許容差判定。あらかじめ計量した混和剤Aに水Bを累加すると、A単独の判定に加えA＋B合計の判定が別に必要で、単独が合格でも合計で不合格になり得ることを示す図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/textbook-production-qc/img/figure-strength-acceptance-flow.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "textbook-production-qc",
+      "name": "figure-strength-acceptance-flow.svg",
+      "concept": "圧縮強度の受入検査の判定フロー。各回が呼び強度の85%以上という条件と、3回平均が呼び強度以上という条件の両方を満たすと合格、片方でも外れると不合格になる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/textbook-products/img/figure-precast-methods-products.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "textbook-products",
+      "name": "figure-precast-methods-products.svg",
+      "concept": "4製法（即時脱型・遠心力締固め・ロール転圧締固め・加圧締固め）と代表製品の対応。型枠に投入して締め固める製法（緑）と筒状型枠を回して成形する製法（青）を色で区分する図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/textbook-products/img/figure-steam-curing-profile.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "textbook-products",
+      "name": "figure-steam-curing-profile.svg",
+      "concept": "蒸気養生の温度管理曲線。前養生・昇温・最高温度の保持・降温の4区間と、急昇温によるひび割れ・過高温によるDEFのリスク領域を示す図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/textbook-properties/img/figure-bleeding-top-bar-bond.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "textbook-properties",
+      "name": "figure-bleeding-top-bar-bond.svg",
+      "concept": "ブリーディングによる上端筋の付着低下を3段の断面模式図で示す。打込み直後→沈下・水の上昇→上端筋下面の水膜・空隙の順に進行する",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/textbook-properties/img/figure-creep-strain-timeline.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "textbook-properties",
+      "name": "figure-creep-strain-timeline.svg",
+      "concept": "持続荷重下のひずみの時間推移。載荷時弾性ひずみ→クリープひずみの増加→除荷時の弾性回復→クリープ回復→非回復ひずみの順を折れ線で示す",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/textbook-structural-design/img/figure-failure-mode-priority.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "textbook-structural-design",
+      "name": "figure-failure-mode-priority.svg",
+      "concept": "曲げ・せん断・付着割裂の3破壊形態を望ましい順に並べ、延性か脆性か力の伝達が断たれるかという性格と先行させない手段、荷重-変形の概念曲線を対応づける図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/textbook-structural-design/img/figure-frame-corner-cracks.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "textbook-structural-design",
+      "name": "figure-frame-corner-cracks.svg",
+      "concept": "門形ラーメン隅角部の変形とひび割れの向き。水平荷重で開く場合は外側、突き上げ荷重で閉じる場合は内側が引張縁になり、柱脚の支持条件と荷重方向をあわせて示す図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
         "low": 0
       }
     },
@@ -5436,8 +5706,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 6
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -5472,7 +5742,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -5617,7 +5887,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 7
+        "low": 0
       }
     },
     {
@@ -5778,8 +6048,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 2
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -5797,7 +6067,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 3
+        "low": 0
       }
     },
     {
@@ -5850,7 +6120,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -5868,7 +6138,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -5905,7 +6175,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 3
+        "low": 0
       }
     },
     {
@@ -5958,7 +6228,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -5976,7 +6246,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -5995,7 +6265,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 1
+        "low": 0
       }
     },
     {
@@ -6030,8 +6300,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 2
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -6048,7 +6318,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -6156,7 +6426,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -6300,7 +6570,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -6391,7 +6661,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 1
+        "low": 0
       }
     },
     {
@@ -6463,7 +6733,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 4
+        "low": 0
       }
     },
     {
@@ -6480,8 +6750,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 6
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -6624,8 +6894,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 21
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -6858,7 +7128,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -6876,8 +7146,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 1
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -6913,7 +7183,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 1
+        "low": 0
       }
     },
     {
@@ -6948,7 +7218,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -6967,7 +7237,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 3
+        "low": 0
       }
     },
     {
@@ -6984,8 +7254,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 1
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -7038,7 +7308,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -7398,7 +7668,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -7507,7 +7777,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 4
+        "low": 0
       }
     },
     {
@@ -7525,7 +7795,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 6
+        "low": 0
       }
     },
     {
@@ -7561,7 +7831,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 1
+        "low": 0
       }
     },
     {
@@ -7650,7 +7920,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -7704,8 +7974,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 8
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -7722,8 +7992,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 4
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -7939,7 +8209,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 18
+        "low": 0
       }
     },
     {
@@ -8100,7 +8370,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -8173,7 +8443,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 2
+        "low": 0
       }
     },
     {
@@ -8442,7 +8712,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -8587,7 +8857,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 1
+        "low": 0
       }
     },
     {
@@ -8605,7 +8875,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 10
+        "low": 0
       }
     },
     {
@@ -8623,7 +8893,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 15
+        "low": 0
       }
     },
     {
@@ -8838,8 +9108,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 1
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -8856,7 +9126,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -8911,7 +9181,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 1
+        "low": 0
       }
     },
     {
@@ -9145,7 +9415,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 6
+        "low": 0
       }
     },
     {
@@ -9163,7 +9433,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 2
+        "low": 0
       }
     },
     {
@@ -9253,7 +9523,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 5
+        "low": 0
       }
     },
     {

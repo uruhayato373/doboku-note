@@ -1,0 +1,76 @@
+<!-- authored 2026-09-12 doboku-note 自作。題材は主任技士テキスト「コンクリート製品」の論点。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="蒸気養生の温度管理曲線。前養生・昇温・最高温度の保持・降温の4区間と、急昇温によるひび割れ・過高温によるDEFのリスク領域を示す図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-name  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-label { font-size: 11px; fill: #8a8a8a; }
+      .axis  { stroke: #222; stroke-width: 1.5; }
+      .safe  { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+      .warn  { stroke: #d4a017; stroke-width: 2; fill: none; stroke-dasharray: 4 3; }
+      .danger{ stroke: #b22234; stroke-width: 2; fill: none; stroke-dasharray: 4 3; }
+      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-s { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="arrowAxis" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#222"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">蒸気養生の温度管理曲線</text>
+  <text class="t-label" x="200" y="30" text-anchor="middle">数値は概念（実測値ではない）</text>
+
+  <!-- 軸 -->
+  <line x1="50" y1="335" x2="50" y2="55" class="axis" marker-end="url(#arrowAxis)"/>
+  <line x1="50" y1="335" x2="365" y2="335" class="axis" marker-end="url(#arrowAxis)"/>
+  <text class="t-desc" x="25" y="195" text-anchor="middle" transform="rotate(-90 25 195)">温度</text>
+  <text class="t-desc" x="370" y="340" text-anchor="middle">時間</text>
+
+  <!-- リスク注記 -->
+  <rect class="box-d" x="140" y="58" width="150" height="44" rx="6"/>
+  <text class="t-desc" x="150" y="74">急昇温→内外温度差</text>
+  <text class="t-desc" x="150" y="90">のひび割れ</text>
+
+  <rect class="box-d" x="140" y="108" width="150" height="28" rx="6"/>
+  <text class="t-desc" x="150" y="127">過高温→DEF</text>
+
+  <!-- 過高温リスク帯（最高温度保持の上、注記とは離して配置） -->
+  <rect x="200" y="146" width="80" height="24" class="box-d" opacity="0.7"/>
+  <text class="t-label" x="286" y="161" text-anchor="start">過高温域</text>
+
+  <!-- 安全な温度経過（実線） -->
+  <path class="safe" d="M60,300 L110,300 L200,175 L280,175 L360,290"/>
+
+  <!-- 急昇温の危険な経路（破線） -->
+  <path class="danger" d="M110,300 L145,175"/>
+  <text class="t-label" x="150" y="230" text-anchor="start">急昇温</text>
+
+  <!-- 区間の帯（下部タイムライン） -->
+  <rect class="box-s" x="60" y="355" width="50" height="24"/>
+  <rect class="box-b" x="110" y="355" width="90" height="24"/>
+  <rect class="box-w" x="200" y="355" width="80" height="24"/>
+  <rect class="box-p" x="280" y="355" width="80" height="24"/>
+
+  <text class="t-label" x="85" y="371" text-anchor="middle">前養生</text>
+  <text class="t-label" x="155" y="371" text-anchor="middle">昇温</text>
+  <text class="t-label" x="240" y="371" text-anchor="middle">最高温度保持</text>
+  <text class="t-label" x="320" y="371" text-anchor="middle">降温</text>
+
+  <text class="t-desc" x="200" y="405" text-anchor="middle">常温を保つ→緩やかに昇温→保持→急冷しない</text>
+
+  <!-- 凡例 -->
+  <line x1="40" y1="430" x2="65" y2="430" class="safe"/>
+  <text class="t-desc" x="72" y="434">安全な温度経過</text>
+  <line x1="200" y1="430" x2="225" y2="430" class="danger"/>
+  <text class="t-desc" x="232" y="434">急昇温・過高温のリスク</text>
+
+  <text class="t-lead" x="200" y="460" text-anchor="middle">部材が大きく緻密な製品ほど、より緩やかな昇温・降温が必要</text>
+</svg>

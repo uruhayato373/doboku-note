@@ -1,0 +1,54 @@
+<!-- authored 2026-09-12 doboku-note 自作。題材は主任技士テキスト「製造・品質管理」の論点。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="累加計量の許容差判定。あらかじめ計量した混和剤Aに水Bを累加すると、A単独の判定に加えA＋B合計の判定が別に必要で、単独が合格でも合計で不合格になり得ることを示す図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-sec   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-note  { font-size: 11px; fill: #8a8a8a; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-verdict { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-sum   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-dan { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .arrow-line { stroke: #2e6da4; stroke-width: 1.5; fill: none; }
+    </style>
+    <marker id="arrowB" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="20" text-anchor="middle">累加計量は単独分・合計分をそれぞれ判定する</text>
+
+  <text class="t-sec" x="20" y="42">① A単独の判定</text>
+  <text class="t-note" x="150" y="42">（許容差 ±1%）</text>
+
+  <rect class="box-b" x="20" y="50" width="360" height="70" rx="6"/>
+  <text class="t-desc" x="40" y="76">目標計量値 1.00 kg → 実測 0.99 kg</text>
+  <text class="t-desc" x="40" y="100">誤差 −1 %</text>
+
+  <rect class="box-pos" x="20" y="130" width="360" height="40" rx="6"/>
+  <text class="t-verdict" x="200" y="155" text-anchor="middle">判定：合格（単独は許容差内）</text>
+
+  <line class="arrow-line" x1="200" y1="172" x2="200" y2="200" marker-end="url(#arrowB)"/>
+  <text class="t-note" x="215" y="190">B（水）を累加</text>
+
+  <text class="t-sec" x="20" y="222">② A＋B合計の判定</text>
+  <text class="t-note" x="190" y="222">（許容差 ±1%）</text>
+
+  <rect class="box-b" x="20" y="230" width="360" height="70" rx="6"/>
+  <text class="t-desc" x="40" y="256">目標合計 151.0 kg → 実測 149.0 kg</text>
+  <text class="t-desc" x="40" y="280">誤差 約 −1.32 %</text>
+
+  <rect class="box-dan" x="20" y="310" width="360" height="40" rx="6"/>
+  <text class="t-verdict" x="200" y="335" text-anchor="middle">判定：不合格（合計は許容差超過）</text>
+
+  <rect class="box-warn" x="20" y="368" width="360" height="84" rx="6"/>
+  <text class="t-sum" x="200" y="402" text-anchor="middle">単独が合格でも合計で不合格になり得る</text>
+  <text class="t-desc" x="200" y="426" text-anchor="middle">判定は単独分・合計分の両方を行う</text>
+</svg>

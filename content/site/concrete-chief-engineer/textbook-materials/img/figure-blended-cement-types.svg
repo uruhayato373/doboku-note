@@ -1,0 +1,76 @@
+<!-- authored 2026-09-12 doboku-note 自作。題材は主任技士テキスト「materials」の論点。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="混合セメント3系統（高炉・フライアッシュ・シリカ）のA・B・C種の混合率区分を帯グラフで比較した図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-axis { font-size: 11px; fill: #8a8a8a; }
+      .t-band { font-size: 11px; fill: #1a3a5c; }
+      .t-note { font-size: 11px; fill: #555; }
+      .band-a { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .band-b { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .band-c { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .axisline { stroke: #d7d7d7; stroke-width: 1; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">混合材の質量比でA・B・C種に区分される（JIS R 5211／5213／5212）</text>
+
+  <!-- 共通目盛り 0-70% を x=90〜370 に対応（x = 90 + pct*4） -->
+  <line class="axisline" x1="90" y1="30" x2="370" y2="30" />
+  <text class="t-axis" x="90" y="26" text-anchor="middle">0</text>
+  <text class="t-axis" x="130" y="26" text-anchor="middle">10</text>
+  <text class="t-axis" x="210" y="26" text-anchor="middle">30</text>
+  <text class="t-axis" x="330" y="26" text-anchor="middle">60</text>
+  <text class="t-axis" x="370" y="26" text-anchor="middle">70%</text>
+
+  <!-- 高炉セメント -->
+  <text class="t-sec" x="20" y="56">高炉セメント（JIS R 5211）</text>
+  <rect class="band-a" x="110" y="64" width="100" height="26" />
+  <text class="t-band" x="160" y="82" text-anchor="middle">A</text>
+  <rect class="band-b" x="210" y="64" width="120" height="26" />
+  <text class="t-band" x="270" y="82" text-anchor="middle">B</text>
+  <rect class="band-c" x="330" y="64" width="40" height="26" />
+  <text class="t-note" x="20" y="104">A 5超〜30／B 30超〜60／C 60超〜70</text>
+
+  <!-- フライアッシュセメント -->
+  <text class="t-sec" x="20" y="140">フライアッシュセメント（JIS R 5213）</text>
+  <rect class="band-a" x="110" y="148" width="20" height="26" />
+  <rect class="band-b" x="130" y="148" width="40" height="26" />
+  <text class="t-band" x="150" y="166" text-anchor="middle">B</text>
+  <rect class="band-c" x="170" y="148" width="40" height="26" />
+  <text class="t-band" x="190" y="166" text-anchor="middle">C</text>
+  <text class="t-note" x="20" y="188">A 5超〜10／B 10超〜20／C 20超〜30</text>
+
+  <!-- シリカセメント -->
+  <text class="t-sec" x="20" y="224">シリカセメント（JIS R 5212）</text>
+  <rect class="band-a" x="110" y="232" width="20" height="26" />
+  <rect class="band-b" x="130" y="232" width="40" height="26" />
+  <text class="t-band" x="150" y="250" text-anchor="middle">B</text>
+  <rect class="band-c" x="170" y="232" width="40" height="26" />
+  <text class="t-band" x="190" y="250" text-anchor="middle">C</text>
+  <text class="t-note" x="20" y="272">A 5超〜10／B 10超〜20／C 20超〜30</text>
+
+  <!-- 凡例 -->
+  <rect class="band-a" x="20" y="300" width="20" height="18" />
+  <text class="t-band" x="46" y="314">A種（分量少）</text>
+  <rect class="band-b" x="160" y="300" width="20" height="18" />
+  <text class="t-band" x="186" y="314">B種（中間）</text>
+  <rect class="band-c" x="300" y="300" width="20" height="18" />
+  <text class="t-band" x="326" y="314">C種（多）</text>
+
+  <text class="t-sec" x="20" y="352">3系統に共通する区分方法</text>
+  <rect class="box" x="20" y="360" width="360" height="60" rx="6" />
+  <text class="t-note" x="36" y="382">セメントの種類ではなく、混合材（高炉スラグ・</text>
+  <text class="t-note" x="36" y="399">フライアッシュ・シリカ質微粉末）の質量割合で</text>
+  <text class="t-note" x="36" y="416">A・B・C種に分ける点は3系統とも共通する</text>
+
+  <rect class="box" x="20" y="432" width="360" height="52" rx="6" />
+  <text class="t-note" x="36" y="454">分量が多いほど長期強度・耐久性は上がるが、</text>
+  <text class="t-note" x="36" y="471">初期強度は低くなる</text>
+</svg>

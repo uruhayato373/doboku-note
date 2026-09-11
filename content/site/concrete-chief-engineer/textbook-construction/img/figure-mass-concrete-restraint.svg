@@ -1,0 +1,58 @@
+<!-- authored 2026-09-12 doboku-note 自作。題材は主任技士テキスト「施工」の論点。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="マスコンクリートの温度ひび割れ2種の断面比較。内部拘束は表面が低温で高温の内部との差から浅い表面ひび割れを生じ、外部拘束は岩盤等に拘束され温度降下時の収縮で深い貫通ひび割れを生じる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .box-sur  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-b    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-dan  { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .crack { stroke: #b22234; stroke-width: 2; fill: none; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">温度ひび割れは内部拘束と外部拘束の2種に分かれる</text>
+
+  <text class="t-sec" x="20" y="40">内部拘束 → 表面ひび割れ</text>
+
+  <rect class="box-sur" x="20" y="48" width="360" height="130" rx="6"/>
+  <text class="t-desc" x="200" y="63" text-anchor="middle">表面：低温（放熱で温度が下がる）</text>
+
+  <rect class="box-warn" x="70" y="70" width="260" height="60" rx="4"/>
+  <text class="t-name" x="200" y="95" text-anchor="middle">内部：高温</text>
+  <text class="t-desc" x="200" y="113" text-anchor="middle">（水和熱で温度が上昇）</text>
+
+  <path class="crack" d="M 150 178 L 158 186 L 166 178 L 174 186 L 182 178"/>
+  <path class="crack" d="M 218 178 L 226 186 L 234 178 L 242 186 L 250 178"/>
+
+  <rect class="box-dan" x="80" y="196" width="240" height="32" rx="6"/>
+  <text class="t-desc" x="200" y="217" text-anchor="middle">表面ひび割れ（浅い・打込み後数日）</text>
+
+  <text class="t-sec" x="20" y="256">外部拘束 → 貫通ひび割れ</text>
+
+  <rect class="box-b" x="20" y="264" width="360" height="66" rx="6"/>
+  <text class="t-name" x="200" y="288" text-anchor="middle">コンクリート</text>
+  <text class="t-desc" x="200" y="306" text-anchor="middle">温度降下時に収縮しようとする</text>
+
+  <rect class="box-sur" x="20" y="336" width="360" height="46" rx="6"/>
+  <text class="t-desc" x="200" y="363" text-anchor="middle">拘束体（岩盤・既設コンクリート）</text>
+
+  <path class="crack" d="M 345 266 L 355 288 L 337 310 L 351 332 L 341 356 L 345 378"/>
+
+  <rect class="box-dan" x="80" y="392" width="240" height="32" rx="6"/>
+  <text class="t-desc" x="200" y="413" text-anchor="middle">貫通ひび割れ（深い・温度降下時）</text>
+
+  <rect x="30" y="452" width="14" height="14" class="box-warn"/>
+  <text class="t-desc" x="50" y="463">高温域</text>
+  <rect x="120" y="452" width="14" height="14" class="box-sur"/>
+  <text class="t-desc" x="140" y="463">低温域・拘束体</text>
+  <rect x="250" y="452" width="14" height="14" class="box-dan"/>
+  <text class="t-desc" x="270" y="463">ひび割れ</text>
+</svg>
