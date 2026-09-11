@@ -1,0 +1,14 @@
+{
+  "reel": {
+    "channel": "business-suite",
+    "status": "scheduled",
+    "scheduled_at": "2026-09-20T12:30:00.000+09:00",
+    "posted_at": null,
+    "video": "reels/video.mp4",
+    "source": ".",
+    "updated_at": "2026-09-11T20:08:38.316+09:00",
+    "post_id": "1349691953910638",
+    "verified_at": "2026-09-11T20:04:17.990+09:00",
+    "verification_receipt": ".claude/state/ig-reconcile/campaign-publication-20260911-batch02.json"
+  }
+}

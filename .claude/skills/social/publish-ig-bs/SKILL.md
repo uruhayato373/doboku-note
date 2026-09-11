@@ -101,7 +101,7 @@ npx tsx .claude/skills/social/publish-ig-bs/publish-ig-bs.ts post \
 | 操作 | セレクタ（`SEL` 内） | 備考 |
 |---|---|---|
 | コンポーザ判定 | 「投稿の詳細」テキスト / `role=button name=キャンセル` | モード非依存 |
-| 投稿先を開く | `getByText(/Doboku-note/)`（FB ページ名） | boundingBox で開を確認 |
+| 投稿先を開く | `getByRole("combobox", { name: /^投稿先\s/ })`（実測 2026-09-11。旧 UI のみ FB ページ名へフォールバック） | boundingBox で開を確認 |
 | FB を外す | `role=option name=Doboku-note` の `aria-selected` を true→クリック→false 検証 | IG 単独化 |
 | メディア追加 | `role=button name=/写真.*追加/` → filechooserへ1枚ずつ投入 | 各サムネのCDN読込と既存画像順の維持を確認後に次へ。多枚一括投入は完了順に並び替わるため禁止（2026-09-11実測） |
 | キャプション | `[contenteditable=true][role=textbox]` / `textarea` → clipboard paste + read-back 検証。10枚カルーセルで欄が遅延描画される現行UIは左ペイン末尾へ自動スクロールして再探索 | 日本語 OK |
@@ -118,7 +118,7 @@ npx tsx .claude/skills/social/publish-ig-bs/publish-ig-bs.ts post \
 
 セレクタを直したら**この表と `SEL` を同時に更新**。
 
-カルーセルは `scripts/lib/instagram-image-upload.mjs` で画像を直列に送る。完成サムネのURLパスと入力順を記録し、予約編集で開き直した一覧の並びも照合する。表紙だけが先頭にあればよいとせず、途中の説明と最後のCTAまで順序を確認する。既存予約の修正は対象投稿IDを確認して「投稿の編集」を使い、元の本文・予約日時・アカウントを保つ。
+カルーセルは `scripts/lib/instagram-image-upload.mjs` で画像を直列に送る。各画像の処理を最大120秒待ち（遅延時も追加送信せず待つ）、完成サムネのURLパスと入力順を記録し、予約編集で開き直した一覧の並びも照合する。表紙だけが先頭にあればよいとせず、途中の説明と最後のCTAまで順序を確認する。既存予約の修正は対象投稿IDを確認して「投稿の編集」を使い、元の本文・予約日時・アカウントを保つ。
 
 ## リール（`--reel`）2026-06-09 実機検証済み
 
@@ -145,7 +145,7 @@ npx tsx .claude/skills/social/publish-ig-bs/publish-ig-bs.ts post \
 | 動画追加 | `role=button name="動画を追加"` → filechooser。**アップ後 ~20-40s 処理待ち**（自動生成サムネ出現で判定） |
 | 投稿先 IG 単独化 | カルーセルと同じ `role=option`（FB ページを外す） |
 | キャプション | 共通（contenteditable textbox） |
-| ステップ送り | 3 ステップ（作成→編集→シェアする）。**右下の「次へ」を座標で click**（サムネ送りの「次へ」ZWSP を誤爆しない） |
+| ステップ送り | 3 ステップ（作成→編集→シェアする）。**右下の「次へ」を座標で click**（サムネ送りの「次へ」ZWSP を誤爆しない）。カバー等の処理中で無効なら押さず最大180秒待つ |
 | カバー設定（2026-06-24 実機確定） | カバーありなら **`role=button「編集」`クリック → 「サムネイル」節へスクロール → `画像をアップロード`タブ → パネル内の`画像をアップロード`で `filechooser` → `cover.png` 投入**（`画像を変更`表示で確定）。**「次へ」送りでは編集が自動完了して飛ぶ**ため編集タブを直接押す。サムネ＝「カバー」ではなく「サムネイル」ラベル。指定カバーの設定失敗時は確定せず停止。スクショは `.local/playwright-ig-bs-debug/reel-cover-*` |
 | 予約 | シェアするで `role=button name="日時を指定"` → 日付/時刻（共通 spinbutton）→ 確定 `role=button name="公開日時を指定"` |
 | 即時 | `role=button name="今すぐシェア"`（`--now`） |

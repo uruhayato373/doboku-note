@@ -1,0 +1,220 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-11",
+  "batch": 2,
+  "account": "dobokunotecom",
+  "campaignId": "instagram-bridge-notebook-a-20260910",
+  "verifiedAt": "2026-09-11T20:08:38.316+09:00",
+  "reservations": 4,
+  "totalActiveReservations": 13,
+  "records": [
+    {
+      "pack": "content/sns/instagram/video-packs/concrete-engineer/gishi-12week-plan-point-step1-1",
+      "kind": "reel",
+      "postId": "1073741622317195",
+      "scheduledAt": "2026-09-18T12:30:00+09:00",
+      "verifiedAt": "2026-09-11T20:04:07.175+09:00",
+      "captionSha256": "a378837cca88355f18b1351dd2a9008d27ac804f5e60d3f1e55cf0ee54953ec2",
+      "assets": [
+        {
+          "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-12week-plan-point-step1-1/reels/video.mp4",
+          "sha256": "3ff2634e911736451b12016fb282216045ad23bb9f290390972d805c3fafcd16",
+          "bytes": 4513672
+        },
+        {
+          "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-12week-plan-point-step1-1/reels/cover.png",
+          "sha256": "9e8f61d0a2ea20127909acb09da71506fcd729846a0be1dc32a99177a76a6393",
+          "bytes": 305248
+        }
+      ],
+      "liveRow": "コンクリート技士｜過去問1回分で現在地を知る 学習を始めるときは、過去問を一回分、資料を見ずに解いてみましょう。 技術士（総合技術監理部門）取得者が企画・監修。AIは音声と映像制作の補助に使用しています。 フォローして試験対策を継続。詳しい解説はプロフィールのリンクから。 #コンクリート技士 #コンクリート #資格勉強 #doboku_note\nリール ·\ndobokunotecom\nドロップダウンを開く\n​\n2026年9月18日(金) 12:30\n公開",
+      "coverVerification": "Provided branded cover selected in uploader and saved post preview visually checked"
+    },
+    {
+      "pack": "content/sns/instagram/video-packs/concrete-engineer/gishi-12week-plan",
+      "kind": "carousel",
+      "postId": "1376687295520566",
+      "scheduledAt": "2026-09-19T12:30:00+09:00",
+      "verifiedAt": "2026-09-11T20:04:10.764+09:00",
+      "captionSha256": "536897230583b0fd6aab7eef8b638516821b76c1d3cef3ab4e472158b6e6ac01",
+      "assets": [
+        {
+          "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-12week-plan/carousel/img/00-cover.png",
+          "sha256": "84af8d2b19cf8949d62e736f46d963cbe1784764083461e6f9bf062067c289d7",
+          "bytes": 324205
+        },
+        {
+          "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-12week-plan/carousel/img/01-point.png",
+          "sha256": "0e5bf74f02cd22de3a263e45fc5ecdecee6b41deb2127fb363dcc412a5bb07e9",
+          "bytes": 130394
+        },
+        {
+          "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-12week-plan/carousel/img/02-point.png",
+          "sha256": "437de9133f0bb6b74a04999cb9042a868b80d123b68b4257ccdf9a59e9b177d7",
+          "bytes": 116289
+        },
+        {
+          "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-12week-plan/carousel/img/03-point.png",
+          "sha256": "3a179057ef16e76c0566dc6257d8e2a6831e85cca0284172f79c3fcadd60f39a",
+          "bytes": 124997
+        },
+        {
+          "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-12week-plan/carousel/img/04-point.png",
+          "sha256": "90e629bebd7f26a5535ff3479453a20d975704860974e2b3f158bdb04b2f43cd",
+          "bytes": 122552
+        },
+        {
+          "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-12week-plan/carousel/img/05-point.png",
+          "sha256": "f556daa66014b71603e1b9fa9ba996d1691cf8db73491620485c2ba1bad15cd6",
+          "bytes": 122742
+        },
+        {
+          "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-12week-plan/carousel/img/06-cta.png",
+          "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+          "bytes": 149434
+        }
+      ],
+      "liveRow": "12週間の学習計画を、基礎・配合・製造施工・弱点復習・通し演習に分けた一例です。時間の合計だけでなく、選択肢の理由を説明できるかで進み具合を確かめましょう。 保存して、復習するときに見返してください。詳しい解説はプロフィールのリンクから。 #コンクリート技士 #コンクリート #資格勉強\n写真 ·\ndobokunotecom\n宣伝\nドロップダウンを開く\n​\n2026年9月19日(土) 12:30\n公開",
+      "imageOrder": {
+        "pass": true,
+        "verifiedAt": "2026-09-11T20:05:51.716+09:00",
+        "method": "Reopened same post ID; all CDN paths match the sequential upload receipt",
+        "paths": [
+          "/v/t39.30808-6/806050419_122117996439302388_3049995210058750685_n.jpg",
+          "/v/t39.30808-6/805027232_122117996511302388_3921847554919178721_n.jpg",
+          "/v/t39.30808-6/803323187_122117996589302388_6863027534100007248_n.jpg",
+          "/v/t39.30808-6/805885192_122117996667302388_5733600454798168910_n.jpg",
+          "/v/t39.30808-6/802504258_122117996745302388_6401591882723718645_n.jpg",
+          "/v/t39.30808-6/805696629_122117996823302388_3102182136424796433_n.jpg",
+          "/v/t39.30808-6/806001416_122117996859302388_7478178229886053588_n.jpg"
+        ]
+      }
+    },
+    {
+      "pack": "content/sns/instagram/video-packs/concrete-engineer/gishi-12week-plan-point-step2-2",
+      "kind": "reel",
+      "postId": "1595155969016312",
+      "scheduledAt": "2026-09-19T19:00:00+09:00",
+      "verifiedAt": "2026-09-11T20:04:14.863+09:00",
+      "captionSha256": "1c913425279a9dee353ec5a5a38d3dabae4c69082310351e6f6f81dbf09fd398",
+      "assets": [
+        {
+          "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-12week-plan-point-step2-2/reels/video.mp4",
+          "sha256": "2c8ead1f1fbd1a68ea1af1d5612ef3a1a0f86bdf1543beef93e6167de147b64b",
+          "bytes": 4598714
+        },
+        {
+          "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-12week-plan-point-step2-2/reels/cover.png",
+          "sha256": "d90c95f3bb5ae88189ee3f3789f1c7fc63ab473b552ac2d3ee8153dec984ec9f",
+          "bytes": 311154
+        }
+      ],
+      "liveRow": "コンクリート技士｜最初の4週間は全体像と基礎 十二週間の学習計画では、最初の四週間を全体像と基礎の整理に使います。 技術士（総合技術監理部門）取得者が企画・監修。AIは音声と映像制作の補助に使用しています。 フォローして試験対策を継続。詳しい解説はプロフィールのリンクから。 #コンクリート技士 #コンクリート #資格勉強 #doboku_note\nリール ·\ndobokunotecom\nドロップダウンを開く\n​\n2026年9月19日(土) 19:00\n公開",
+      "coverVerification": "Provided branded cover selected in uploader and saved post preview visually checked"
+    },
+    {
+      "pack": "content/sns/instagram/video-packs/civil-construction-1/career-komuin-minkan-point-step1-1",
+      "kind": "reel",
+      "postId": "1349691953910638",
+      "scheduledAt": "2026-09-20T12:30:00+09:00",
+      "verifiedAt": "2026-09-11T20:04:17.990+09:00",
+      "captionSha256": "f541d45331f2124a632741ac41ca8729a3d0e1c3485f5c15e562189af64df5f1",
+      "assets": [
+        {
+          "path": "content/sns/instagram/video-packs/civil-construction-1/career-komuin-minkan-point-step1-1/reels/video.mp4",
+          "sha256": "15c9da58623b9cf2a0c85e2ce0e87d003a23bde4f1ca1615e758c56d8d7f574a",
+          "bytes": 4523026
+        },
+        {
+          "path": "content/sns/instagram/video-packs/civil-construction-1/career-komuin-minkan-point-step1-1/reels/cover.png",
+          "sha256": "8f8db3ea535a6762061af533e4de33ca0c17c2952e412b884559973b5a118eaa",
+          "bytes": 307548
+        }
+      ],
+      "liveRow": "1級土木｜施工経験を発注者の視点へ 公務員の土木職は、発注者として公共工事の計画、発注、監督、維持管理を担います。 技術士（総合技術監理部門）取得者が企画・監修。AIは音声と映像制作の補助に使用しています。 フォローして試験対策を継続。詳しい解説はプロフィールのリンクから。 #1級土木施工管理技士 #施工管理 #キャリア #doboku_note\nリール ·\ndobokunotecom\nドロップダウンを開く\n​\n2026年9月20日(日) 12:30\n公開",
+      "coverVerification": "Provided branded cover selected in uploader and saved post preview visually checked"
+    }
+  ],
+  "pending": [
+    {
+      "pack": "content/sns/instagram/video-packs/civil-construction-1/career-komuin-minkan",
+      "kind": "carousel",
+      "scheduledAt": "2026-09-21T12:30:00+09:00",
+      "status": "not-scheduled",
+      "reason": "Carousel retry stopped before upload because Business Suite navigation timed out"
+    },
+    {
+      "pack": "content/sns/instagram/video-packs/civil-construction-1/career-komuin-minkan-point-step2-2",
+      "kind": "reel",
+      "scheduledAt": "2026-09-21T19:00:00+09:00",
+      "status": "not-scheduled",
+      "reason": "Reel dry-run could not advance while Meta was processing the cover; kept for next reservation refill"
+    },
+    {
+      "pack": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-concrete-point-block1-2",
+      "kind": "reel",
+      "scheduledAt": "2026-09-22T12:30:00+09:00",
+      "status": "not-scheduled",
+      "reason": "Reel dry-run could not advance while Meta was processing the cover; kept for next reservation refill"
+    },
+    {
+      "pack": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-concrete",
+      "kind": "carousel",
+      "scheduledAt": "2026-09-23T12:30:00+09:00",
+      "status": "not-scheduled",
+      "reason": "Carousel retry stopped before upload because Business Suite navigation timed out"
+    },
+    {
+      "pack": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-concrete-point-overview-1",
+      "kind": "reel",
+      "scheduledAt": "2026-09-23T19:00:00+09:00",
+      "status": "not-scheduled",
+      "reason": "Reel dry-run could not advance while Meta was processing the cover; kept for next reservation refill"
+    }
+  ],
+  "preflight": {
+    "knownReservationsConfirmed": 9,
+    "publishedSearchWindow": "past 90 days",
+    "publishedCandidateMatches": 0,
+    "scheduledCandidateMatches": 0,
+    "searchPositiveControlBeforeAndAfter": true,
+    "slotCollisions": 0,
+    "gate": {
+      "ready": 9,
+      "blocked": 0,
+      "flags": 0
+    }
+  },
+  "recovery": {
+    "stoppedBeforeFifthItemUpload": true,
+    "firstFourMatchedInLiveQueue": true,
+    "remainingFiveAbsentBeforeRetry": true,
+    "placementFieldVerifiedByCombobox": true,
+    "perImageWaitSeconds": 120,
+    "reelWaitSeconds": 180,
+    "reelDryRunBlockedBeforeSubmission": true
+  },
+  "verification": {
+    "postIdCaptionTypeAccountDateMatched": true,
+    "carouselImageOrderVerified": 1,
+    "reelCoverPreviewsVisuallyChecked": 3,
+    "limitations": [
+      "Meta previews may differ from the Instagram feed",
+      "Full playback/audio listening of all uploaded Reels was not performed",
+      "Legacy profile scanner covers parent carousel packs, so separate Reel paths were checked in Business Suite instead"
+    ]
+  },
+  "evidenceHashes": {
+    "preflight.json": "6eb54ea11fab75b15f922c6b713dcc500020fa52252a0fc3bd06a1c0ab814137",
+    "published-search.json": "7ad86f3b2481a4e3468ae090b07e7143add1d2801bf50bc2b5840e0f59482351",
+    "search-control.json": "fe3e54da9f65fee4cad00cdf0fc7b4b7e8b21231a702b186d8a84f3d7f8ab2b5",
+    "search-control-after.json": "b2ecc97df68f9f97a15bbf9b0b08df5043f4e9af1b80c91dbb35336c90b7bdff",
+    "scheduled-before.json": "1d90d8ec675d4158a52ff3d026bc4ff3d9508aeaef2892dab3f9dab2d52f6fbb",
+    "scheduled-after.json": "92425f83e724f065b09f02409db6069ce748cfec263c39ea5dd23788764595bb",
+    "verified.json": "75a60c6d028ca1cf4f22ae9a7bf8bc5a1ec4629ee5c75874c70c802031ec6132",
+    "image-order.json": "b5a93644a7fda21f1a2b2f70abd4bdc488f7123a38a1304061fcd7c5df0d4ecd",
+    "gate.json": "bd5a74a4971137b3db637f030b61d41920d14bfd5d088fe8c29631998b1fb523",
+    "partial-live.json": "376f848ff0836e914cc38025dba7fafd27f5643020c863a664eb37ed34cff08b",
+    "reel-previews.json": "8384479c82b173afe55b5e67c7750dae1f97d8eb1ec588010965b01f970ac8c4"
+  }
+}

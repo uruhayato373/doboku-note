@@ -16,7 +16,7 @@ export async function uploadInstagramImagesInOrder(page, images) {
         const img = e.closest('[role="listitem"]')?.querySelector('img');
         return img?.complete && img.naturalWidth > 10 && /^https:/u.test(img.src);
       });
-    }, index + 1, { timeout: 45000 });
+    }, index + 1, { timeout: 120000 });
     const paths = await remove.evaluateAll(buttons => buttons.map(button =>
       new URL(button.closest('[role="listitem"]').querySelector('img').src).pathname));
     if (orderedPaths.some((value, i) => paths[i] !== value) || new Set(paths).size !== paths.length) {

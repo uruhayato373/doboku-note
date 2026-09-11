@@ -146,6 +146,7 @@ const SEL = {
   ],
   // 投稿先ドロップダウンを開くフィールド（FB ページ名を表示している）
   placementField: (p: Page): Locator[] => [
+    p.getByRole("combobox", { name: /^投稿先\s/ }),
     p.getByText(new RegExp(FB_PAGE_NAME.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))).first(),
   ],
   // ドロップダウン内のアカウント option（2026-06-09 実測: role=option, aria-checked）
@@ -815,7 +816,7 @@ async function openReelComposer(page: Page): Promise<boolean> {
   }
   if (!homeLoaded) { await shot(page, "reel-home-timeout"); return false; }
   await page.waitForTimeout(4000);
-  const entry = await firstVisible([SEL.reelEntry(page)], 6000);
+  const entry = await firstVisible([SEL.reelEntry(page)], 30000);
   if (!entry) {
     console.error("🚨 「リール動画を作成」ボタンが見つかりません");
     await shot(page, "reel-entry-missing");
@@ -823,7 +824,7 @@ async function openReelComposer(page: Page): Promise<boolean> {
   }
   await clickResilient(entry);
   await page.waitForTimeout(4500);
-  const ready = await firstVisible(SEL.reelComposerReady(page), 8000);
+  const ready = await firstVisible(SEL.reelComposerReady(page), 30000);
   if (!ready) {
     console.error("🚨 リールコンポーザが開けませんでした");
     await shot(page, "reel-composer-not-ready");
@@ -893,7 +894,7 @@ async function currentReelStep(page: Page): Promise<string> {
 async function clickBottomRightNext(page: Page): Promise<boolean> {
   const nexts = SEL.reelNext(page);
   const n = await nexts.count();
-  let best: { cx: number; cy: number } | null = null;
+  let best: { cx: number; cy: number; enabled: boolean } | null = null;
   let bestScore = -1;
   for (let i = 0; i < n; i++) {
     const b = nexts.nth(i);
@@ -901,18 +902,18 @@ async function clickBottomRightNext(page: Page): Promise<boolean> {
     const bb = await b.boundingBox().catch(() => null);
     if (!bb) continue;
     const score = bb.x + bb.y;
-    if (score > bestScore) { bestScore = score; best = { cx: bb.x + bb.width / 2, cy: bb.y + bb.height / 2 }; }
+    if (score > bestScore) { bestScore = score; best = { cx: bb.x + bb.width / 2, cy: bb.y + bb.height / 2, enabled: await b.isEnabled() }; }
   }
   if (!best) return false;
-  await page.mouse.click(best.cx, best.cy);
+  if (best.enabled) await page.mouse.click(best.cx, best.cy);
   return true;
 }
 
 // 作成→編集→シェアする へ進める
 async function advanceToShareStep(page: Page): Promise<boolean> {
   // 連続投入時は、カバー確定後も動画のサーバー処理が続いて「次へ」が
-  // 一時的に disabled のままになる。最大60秒待ってから失敗扱いにする。
-  for (let i = 0; i < 15; i++) {
+  // 一時的に disabled のままになる。無効なボタンは押さず、最大180秒待つ。
+  for (let i = 0; i < 45; i++) {
     if ((await currentReelStep(page)) === "シェアする") return true;
     if (!(await clickBottomRightNext(page))) {
       console.error("🚨 「次へ」ボタンが見つかりません");
