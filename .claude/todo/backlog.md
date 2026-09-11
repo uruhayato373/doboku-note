@@ -75,29 +75,14 @@ CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認し
 
 **完了条件**: 各行の実体が解消したら行ごと消し、全行が消えたらカードを削除する。
 
-### [DN-0187] コンクリート主任技士 テキスト記事 前半 4 章（材料・性質・耐久性・配合設計）を原本の方法論で深掘りする
-タグ: [コンテンツ品質] [種類:制作] [Codex候補] [検証:check-reference-sources:deep] [起票:2026-09-11]
-
-**目的**: `content/site/concrete-chief-engineer/textbook-{materials,properties,durability,mix-design}/article.mdx` は 8 章とも原本（`concrete-chief-textbook-2022`／`-2024`・計 592p 文字起こし済み）の厚みに対して薄い。章ごとに「試験で問われる論点→原理→数値の根拠→よくある誤答の型」の順で書き直し、`sources` に原本 2 冊の id を宣言する。基礎 2 冊（`concrete-basics-5th`・`construction-materials-basics`）は原理の説明の下支えに使う。
-
-**手順の型**: [content-taxonomy.md](../knowledge/reference/content-taxonomy.md) §7「commercial-book → guide / textbook の標準手順」（原本を渡さず brief だけ・H2 は独自順・例題は公式過去問・図は自作 SVG・deep 照合 0 件・1 記事 1 コミット）。textbook の Generator は `civil-textbook-rewriter` 相当、採点は `content-qa`／`guide-qa`。
-
-**分割の理由**: 1 記事あたり起草・採点・照合込みで約 30 万トークン、4 章で 1 セッション相当。後半 4 章は DN-0188。図は DN-0189 で別途追加する（本カードでは図を作らない。図が要る箇所は本文に `<!-- figure: 題材 -->` を残さず、DN-0189 の題材リストへ書き出す）。
-
-**参照**: 原本 class 別の加工ルールと commercial-book の標準手順（brief 方式）は [content-taxonomy.md](../knowledge/reference/content-taxonomy.md) §7。図は [図版ポリシー](../knowledge/reference/image-policy.md)、記事の型は [記事構成ガイド](../knowledge/reference/article-structure-guide.md)。原本の文字起こしは Drive vault `原資料PDF/書籍/<id>/ocr/part-*.md`（内部利用のみ）。
-
-**禁止**: フル模範解答・演習問題の大量転載（note 商品の空洞化）、原本の図の流用・トレース、原本の書名・ファイル名の本文言及、他社の登録商標の使用（content-taxonomy §7・§8）。
-
-**完了条件**: 4 記事とも `sources: [concrete-chief-textbook-2024, concrete-chief-textbook-2022]` を宣言し、本文 4,000 字以上、`content-qa`／`guide-qa` 相当の採点 2.0 以上、`guide-fact-checker` の suspicious 0、deep の一致 0 件、`lint-mdx-mobile` 0 件。`npm run refresh-indexes` 後に 1 記事 1 コミットで push 済み。
-
 ### [DN-0188] コンクリート主任技士 テキスト記事 後半 4 章（製造・品質管理／施工／製品／構造設計）を原本の方法論で深掘りする
 タグ: [コンテンツ品質] [種類:制作] [Codex候補] [検証:check-reference-sources:deep] [起票:2026-09-11]
 
-DN-0187 と同じ手順・同じ規約・同じ完了条件で `textbook-{production-qc,construction,products,structural-design}` の 4 章を深掘りする。DN-0187 の brief と QA 指摘の傾向（文体・重複・数値の出所）を先に読み、同じ指摘を繰り返さない。施工章は 1級土木の施工分野（`civil-construction-1` の textbook）と論点が重なるので、横断リンクを 1 本置き、内容の複製はしない。
+前半 4 章（材料・性質・耐久性・配合設計、2026-09-11〜12 に完了）と同じ手順・同じ規約・同じ完了条件で `textbook-{production-qc,construction,products,structural-design}` の 4 章を深掘りする。分業の型（Reader→親→Writer→Evaluator＋fact-check）と QA で繰り返し出た指摘（設問数値の写し・市販書名の参考資料・段落 200 字超・未確認の管理値）は memory `book-to-guide-expansion` にある。**Writer には commit させない**（親が deep 照合してからコミット）。施工章は 1級土木の施工分野（`civil-construction-1` の textbook）と論点が重なるので、横断リンクを 1 本置き、内容の複製はしない。
 
 **参照**: 原本 class 別の加工ルールと commercial-book の標準手順（brief 方式）は [content-taxonomy.md](../knowledge/reference/content-taxonomy.md) §7。図は [図版ポリシー](../knowledge/reference/image-policy.md)、記事の型は [記事構成ガイド](../knowledge/reference/article-structure-guide.md)。原本の文字起こしは Drive vault `原資料PDF/書籍/<id>/ocr/part-*.md`（内部利用のみ）。
 
-**完了条件**: DN-0187 と同一。8 章がそろった時点で `guide-overview`／`guide-trends` から各章への誘導リンクが揃っていることを確認する。
+**完了条件**: 前半 4 章と同一（`sources` 宣言・本文 4,000 字以上・採点 2.0 以上・fact-check suspicious 0・deep 一致 0・lint 0・1 記事 1 コミット）。8 章がそろった時点で `guide-overview`／`guide-trends` から各章への誘導リンクが揃っていることを確認する。
 
 ### [DN-0189] コンクリート主任技士・技士の概念図 15 枚を自作 SVG で作り、章記事と SNS へ展開する
 タグ: [コンテンツ品質] [種類:制作] [検証:check-figure-canvas] [起票:2026-09-11]
@@ -105,6 +90,8 @@ DN-0187 と同じ手順・同じ規約・同じ完了条件で `textbook-{produc
 **目的**: 原本の文字起こしには「（図: …）」のプレースホルダが主任技士 68・コンクリートの基本と仕組み 365・建設材料の基本 165 箇所ある。これは**題材リスト**として使い、図そのものは流用もトレースもしない。技術的事実として描ける概念図（水セメント比と強度の関係、養生と強度発現、配合設計の流れ、スランプ・空気量試験の原理、ブリーディングと沈下ひび割れ、鉄筋のかぶりと中性化、打込み・締固め・打継ぎの各段階）を選び、独自の構図で SVG を描く。
 
 **やること**: (1) プレースホルダの題材から 15 枚を選定し、各図に「何を示すか（概念・工程・関係）」と掲載先の章記事を決める。特定の教科書図のレイアウト再現は候補から外す。(2) `create-svg` スキルと [図版キャンバス標準](../knowledge/reference/figure-canvas-policy.md)（feed 400×500／landscape 640×360）で制作し、`svg-figure-auditor` で採点、`npm run check-figure-canvas` を通す。(3) 章記事へ `<ArticleImage>` で埋め込み、出所記録（`npm run audit-figures`）を「自前制作・題材は原本の該当章」で残す。(4) `render-figure-sns` で SNS 用に書き出し、IG カルーセルの解説画像に使えることを確認する。
+
+**題材候補（前半 4 章の深掘りで Writer が返したもの・2026-09-12）**: 配合設計＝単位水量とスランプの関係図（W/C 別曲線）／単位粗骨材かさ容積の標準表／容積法の絶対容積の積み上げ図（1,000 L）／表面水率補正の質量収支図。耐久性＝ASR 抑制 3 方式とペシマム量の山型／電気防食の陽極・陰極とエポキシ鉄筋の非併用／中性化 √t 則と中性化残り／「高強度＝爆裂しにくい」の誤解を崩す比較。性質＝上端筋の付着低下（ブリーディング水膜の断面）／クリープひずみの時間推移（弾性・回復・非回復）。材料＝混合セメント A/B/C 種の混合率の帯図／高機能タイプと高性能 AE 減水剤の違い。
 
 **完了条件**: 15 枚が章記事に埋め込まれ、`check-figure-canvas`・`check-orphan-figures`・`check-figure-embed-dims` が通る。各図の provenance に原本の図の複製でない旨が記録されている。
 

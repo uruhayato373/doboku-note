@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-09-11T15:42:56.817Z",
+  "generated_at": "2026-09-11T16:07:08.276Z",
   "summary": {
     "total_mdx_files": 1230,
     "total_unique_tags": 118,
@@ -2533,7 +2533,7 @@
     },
     {
       "name": "textbook",
-      "count": 80,
+      "count": 79,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-textbook-asphalt-concrete-pavement",
@@ -2600,7 +2600,6 @@
         "civil-construction-1-textbook-water-air-soil-pollution",
         "civil-construction-1-textbook-work-scheduling",
         "concrete-chief-engineer-textbook-construction",
-        "concrete-chief-engineer-textbook-materials",
         "concrete-chief-engineer-textbook-production-qc",
         "concrete-chief-engineer-textbook-products",
         "concrete-chief-engineer-textbook-structural-design",
@@ -3179,7 +3178,7 @@
     },
     {
       "name": "コンクリート",
-      "count": 24,
+      "count": 25,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-secondary-concrete-basics",
@@ -3204,6 +3203,7 @@
         "civil-practice-road-fixtures-precast",
         "civil-practice-safety-patrol-corrective-action",
         "concrete-chief-engineer-textbook-durability",
+        "concrete-chief-engineer-textbook-materials",
         "concrete-chief-engineer-textbook-mix-design",
         "concrete-chief-engineer-textbook-properties"
       ]
@@ -4465,6 +4465,15 @@
       ]
     },
     {
+      "name": "材料",
+      "count": 2,
+      "inAllowlist": true,
+      "usedIn": [
+        "concrete-chief-engineer-textbook-materials",
+        "concrete-chief-engineer-textbook-properties"
+      ]
+    },
+    {
       "name": "特定技能",
       "count": 2,
       "inAllowlist": true,
@@ -4504,14 +4513,6 @@
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-whitepaper-study-map"
-      ]
-    },
-    {
-      "name": "材料",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "concrete-chief-engineer-textbook-properties"
       ]
     },
     {
