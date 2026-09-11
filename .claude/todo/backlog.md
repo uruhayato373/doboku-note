@@ -75,6 +75,78 @@ CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認し
 
 **完了条件**: 各行の実体が解消したら行ごと消し、全行が消えたらカードを削除する。
 
+### [DN-0196] 1級土木 専門土木テキストの巻を新設し、鋼構造物／河川／砂防・地すべりの 3 章を書く
+タグ: [コンテンツ品質] [種類:制作] [Codex候補] [検証:check-category-curriculum] [起票:2026-09-12]
+
+**現状**: 1級・2級とも 専門土木（鋼構造物・河川・砂防・ダム・トンネル・海岸・港湾・鉄道・地下構造物・上下水道）の textbook が 0 本で、`category-curriculum.json` の `civil-construction-1.textbookChapters` に巻も無い。第 1 次検定 問題A では毎年 No.21〜54 の約 30 問がこの範囲。道路・舗装 3 本（`textbook-road-earthwork-subbase` ほか・order 26〜36）だけは土工の巻にある。
+
+**やること**: (0) curriculum に巻 `{ volume: "専門土木編", label: "専門土木", min: 700, max: 799 }` を足し、`textbook_order` 700 番台を専門土木に割り当てる（`introGuides` は当面無し）。(1) `textbook-steel-structures`（鋼橋の架設工法・高力ボルト・溶接・耐候性鋼材・塗装＝order 701）、(2) `textbook-river-works`（堤防の盛土・護岸・仮締切・樋門樋管・河川法の施工上の扱い＝711）、(3) `textbook-sabo-landslide`（砂防堰堤・渓流保全・地すべり防止工・急傾斜地崩壊防止工＝721）の 3 章を新規に書く（Convention B・group textbook・`sources` に `cecc-past-exams` と使った一般書・基準の id）。
+
+**手順の型**: 主根拠は**サイト自身の過去問記事**（`civil-construction-1/primary-*`・`civil-construction-2/primary-*`＝exam-official。問題文は V 可・解説は自サイトの独自文）。分野ごとに Reader（sonnet）が該当設問と解説を集めて「論点→原理→数値→誤答の型」の gap brief（30 字語句のみ）を作り、原理の下支えに一般書 3 冊（`civil-technology-basics`・`civil-construction-basics`・`disaster-civil-basics`＝commercial-book・M）を grep で当てる。Writer には原本を渡さず brief だけ。数値・規格値は external-primary（道路土工指針・道路橋示方書・河川法 等。台帳に無い基準は `reference-sources.json` に external-primary で追加）から取り直し「（要確認）」を残さない。QA（5 軸＋一次資料照合）→ deep 照合 → `refresh-indexes` → 1 記事 1 コミット。図は DN-0203 で別途。
+
+**参照**: 原本 class 別の加工ルールと commercial-book の標準手順（brief 方式）は [content-taxonomy.md](../knowledge/reference/content-taxonomy.md) §7。記事の型は [記事構成ガイド](../knowledge/reference/article-structure-guide.md)、図は [図版ポリシー](../knowledge/reference/image-policy.md)。原本の文字起こしは Drive vault `原資料PDF/書籍/<id>/ocr/`（内部利用のみ）。
+
+**完了条件**: 3 記事とも published・本文 8,000 字以上・QA 平均 2.0 以上・一次資料照合の suspicious 0・deep 逐語一致 0・`npm run check-category-curriculum` で専門土木の巻に 3 本が入り WARN 0・`lint-mdx-mobile` 0・1 記事 1 コミットで push 済み。
+
+### [DN-0197] 1級土木 専門土木テキスト ダム／トンネル／海岸・港湾の 3 章を書く
+タグ: [コンテンツ品質] [種類:制作] [Codex候補] [検証:check-category-curriculum] [起票:2026-09-12]
+
+DN-0196 と同じ手順・規約・完了条件で `textbook-dam-construction`（基礎処理グラウチング・RCD 工法・打込みと養生・監査廊＝order 731）、`textbook-tunnel-natm`（山岳工法の掘削・支保工・覆工・補助工法・計測＝741）、`textbook-coast-port`（海岸堤防・消波工・根固工・ケーソン製作と据付・浚渫と事前調査＝751）を書く。DN-0196 の brief と QA 指摘の傾向を先に読み、同じ指摘を繰り返さない。
+
+**参照**: 原本 class 別の加工ルールと commercial-book の標準手順（brief 方式）は [content-taxonomy.md](../knowledge/reference/content-taxonomy.md) §7。記事の型は [記事構成ガイド](../knowledge/reference/article-structure-guide.md)、図は [図版ポリシー](../knowledge/reference/image-policy.md)。原本の文字起こしは Drive vault `原資料PDF/書籍/<id>/ocr/`（内部利用のみ）。
+
+### [DN-0198] 1級土木 専門土木テキスト 鉄道・地下構造物／上下水道の 2 章を書く
+タグ: [コンテンツ品質] [種類:制作] [Codex候補] [検証:check-category-curriculum] [起票:2026-09-12]
+
+DN-0196 と同じ手順・規約・完了条件で `textbook-railway-underground`（コンクリート路盤・軌道の維持管理・営業線近接工事の保安・シールド工法＝order 761）、`textbook-water-sewer`（配水管の埋設・管きょの基礎と継手・小口径管推進・更生工法・薬液注入＝771）を書く。下水道の基準は `jswa-standard`、上水道は water-supply 系の一次資料を台帳に追加してから引く。8 章がそろったら `guide-exam-overview` の出題分野から専門土木の巻へ誘導リンクを置く。
+
+**参照**: 原本 class 別の加工ルールと commercial-book の標準手順（brief 方式）は [content-taxonomy.md](../knowledge/reference/content-taxonomy.md) §7。記事の型は [記事構成ガイド](../knowledge/reference/article-structure-guide.md)、図は [図版ポリシー](../knowledge/reference/image-policy.md)。原本の文字起こしは Drive vault `原資料PDF/書籍/<id>/ocr/`（内部利用のみ）。
+
+### [DN-0199] 1級土木 法規テキスト 3 本（法令遵守・建設業法・標準約款）を『建設業法のツボとコツ』の方法論で深掘りする
+タグ: [コンテンツ品質] [種類:制作] [Codex候補] [検証:check-reference-sources:deep] [起票:2026-09-12]
+
+**目的**: `content/site/civil-construction-1/textbook-{law-compliance,construction-business,standard-contract}/article.mdx` を、`construction-business-act-tips-3rd`（450p・OCR 済み）の**方法論**（条文を「誰が・いつ・何をすると違反か」の場面で読む）を借りて深掘りする。担い手 3 法（2024 年改正）の主任技術者・監理技術者の専任要件・技術検定の受検資格・請負契約の書面化・下請代金の扱いは `construction-business-act`（external-primary・条番号付き）で取り直す。問題A No.55〜61 と問題B の法規設問を例題リンクに使う。
+
+**手順の型**: content-taxonomy §7 の commercial-book 標準手順（原本を渡さず brief だけ・H2 は独自順・例題は公式過去問・deep 0 件・1 記事 1 コミット）。
+
+**参照**: 原本 class 別の加工ルールと commercial-book の標準手順（brief 方式）は [content-taxonomy.md](../knowledge/reference/content-taxonomy.md) §7。記事の型は [記事構成ガイド](../knowledge/reference/article-structure-guide.md)、図は [図版ポリシー](../knowledge/reference/image-policy.md)。原本の文字起こしは Drive vault `原資料PDF/書籍/<id>/ocr/`（内部利用のみ）。
+
+**完了条件**: 3 記事とも `sources` に `construction-business-act-tips-3rd`（title）と `construction-business-act#第N条` を宣言、本文 6,000 字以上、QA 平均 2.0 以上、`guide-fact-checker` 相当の制度照合で suspicious 0、deep 逐語一致 0、1 記事 1 コミットで push 済み。
+
+### [DN-0200] 1級土木 安全管理テキスト 3 本（管理体制・リスクアセスメント・法体系）を『安全管理のすべて 第7版』の方法論で深掘りする
+タグ: [コンテンツ品質] [種類:制作] [Codex候補] [検証:check-reference-sources:deep] [起票:2026-09-12]
+
+**目的**: `textbook-safety-{management-system,risk-assessment,industrial-safety-law}` を `safety-management-all-7th`（168p・OCR 済み）の方法論で深掘りする。統括安全衛生責任者・元方安全衛生管理者・店社安全衛生管理者の選任要件、リスクアセスメントの手順と見積り、安全施工サイクル、計画の届出は `labor-safety-act`／`labor-safety-rules`／`risk-assessment-guideline`／`oshms-guideline`（external-primary）で取り直す。実務の OSHMS 記事（`civil-practice`）と論点が重なる箇所は横断リンク 1 本で複製しない。
+
+**手順の型**: DN-0199 と同一。
+
+**参照**: 原本 class 別の加工ルールと commercial-book の標準手順（brief 方式）は [content-taxonomy.md](../knowledge/reference/content-taxonomy.md) §7。記事の型は [記事構成ガイド](../knowledge/reference/article-structure-guide.md)、図は [図版ポリシー](../knowledge/reference/image-policy.md)。原本の文字起こしは Drive vault `原資料PDF/書籍/<id>/ocr/`（内部利用のみ）。
+
+**完了条件**: DN-0199 と同一（sources は `safety-management-all-7th` と法令 id）。
+
+### [DN-0201] 土木施工の実務（civil-practice）に防災・ICT のスポーク 4 本を新設する
+タグ: [コンテンツ品質] [種類:制作] [検証:check-reference-sources:deep] [起票:2026-09-12]
+
+**目的**: 実務カテゴリに無い「出水期の河川工事の対応（水防・仮締切・避難判断）」「斜面工事の降雨監視と作業中止の判断」「ICT 施工（起工測量→3D 設計データ→MC/MG→出来形管理）の実務」「BIM/CIM の発注者要件と受注者の実務」の 4 本を `civil-guide-writer`（civil-practice モード＝読者は実務者・ExamPoint と note CTA なし）で新設する。原本は `disaster-civil-basics`・`weather-disaster-basics`・`civil-informatics`（M・brief のみ）。数値は国交省の i-Construction 資料・河川砂防技術基準・気象庁の警報基準（external-primary を台帳に追加）で取り直す。
+
+**参照**: 原本 class 別の加工ルールと commercial-book の標準手順（brief 方式）は [content-taxonomy.md](../knowledge/reference/content-taxonomy.md) §7。記事の型は [記事構成ガイド](../knowledge/reference/article-structure-guide.md)、図は [図版ポリシー](../knowledge/reference/image-policy.md)。原本の文字起こしは Drive vault `原資料PDF/書籍/<id>/ocr/`（内部利用のみ）。
+
+**完了条件**: 4 記事とも published・本文 3,000 字以上・`sources` 宣言・deep 0 件・`check-career-separation`／`lint-mdx-mobile` 0・`refresh-indexes` 後に 1 記事 1 コミットで push 済み。
+
+### [DN-0202] 2級土木の分野別ガイド 8 本に 1級テキストへの横断リンクと 2級範囲の絞り込みを加える
+タグ: [コンテンツ品質] [種類:改善] [検証:check-category-curriculum] [起票:2026-09-12]
+
+**決めたこと**: 2級に textbook 層は作らない（1級の textbook を共用し、複製しない）。`civil-construction-2/guide-{earthwork,concrete,foundation,construction-plan,law}-key-points`・`guide-{schedule,quality,safety}-management` の 8 本に、(1) 対応する 1級 textbook（専門土木の巻を含む）への「深く読むなら」リンク節、(2) 2級 第 1 次検定の出題範囲に絞った「2級で問われるのはここまで」の段落、を足す。`civil2-first-exam-manga-2026`（M）は 2級の範囲の切り分けの参考にだけ使い、逐語・図は使わない。`category-curriculum.json` の `civil-construction-2.fields` の説明文に「詳細は 1級テキスト」を 1 行。
+
+**完了条件**: 8 本すべてに 1級 textbook への内部リンクが 2 本以上あり、`check-category-curriculum` WARN 0、`lint-mdx-mobile` 0、`refresh-indexes` 後にコミット。
+
+### [DN-0203] 専門土木テキスト 8 章の概念図 16 枚を自作 SVG で作る
+タグ: [コンテンツ品質] [種類:制作] [検証:check-figure-canvas] [起票:2026-09-12]
+
+DN-0189（主任技士 15 枚・2026-09-12 完了）と同じ手順で、DN-0196〜0198 の 8 章に各 2 枚（例: 鋼橋の架設工法の比較、堤防の断面と護岸の構成、砂防堰堤の構造と機能、RCD 工法の層構成、NATM の支保工の役割、ケーソンの製作から据付の流れ、営業線近接工事の保安体制、推進工法と更生工法の区分）を feed 400×500 で作り、`svg-figure-auditor` で採点して埋め込む。着手は 8 章がそろってから。
+
+**完了条件**: 16 枚が埋め込まれ、`check-figure-canvas`・`check-orphan-figures`・`check-figure-embed-dims`・check-mdx svg 0 件、各 SVG 冒頭に自作の記録。
+
 ## 🟡 中 — 2〜3ヶ月以内
 
 
@@ -308,6 +380,15 @@ Drive台帳・vault・Drive APIの照合前にローカル実体を削除しな�
 `seo-meta-latest.json`を上書きする。履歴切り詰め後に`git count-objects -vH`とfresh clone容量を記録し、
 主要ブランチ・タグ・Cloudflareデプロイ・R2復元経路を確認してからカードを削除する。
 
+
+### [DN-0204] reference-sources の appliesTo を過去問記事に狭め、解説ガイド 17 本の baseline を 0 にする
+タグ: [エージェント・SSOT] [種類:改善] [検証:check-reference-sources] [起票:2026-09-12]
+
+**現状**: `cecc-past-exams` の appliesTo が `secondary-*` 全体、`ipej-past-exams` が `pe-first-stage/*` 全体に掛かるため、過去問由来でない解説ガイド（`secondary-*-basics`・`secondary-getting-started`・`secondary-experience-writing-*`・`pe-first-stage/guide-*` の 17 本）が「sources 欠落」として baseline に残っている（2026-09-12 に 159 → 17 まで返済済み）。
+
+**やること**: appliesTo を `primary-*`・`secondary-r0*`・`secondary-*-past-problems` に狭め（`pe-first-stage` は `r0*-*`）、baseline の 17 本を削る。狭めた結果 `check-reference-sources` の対象数が減ることを出力で確認する（検査ゼロ化していないこと）。
+
+**完了条件**: `npm run check-reference-sources` が緑で baseline 0 件、`reference-sources-policy.md` §5 の appliesTo の説明に「過去問記事だけに掛ける」を 1 行。
 
 ## 🟣 判断待ち — ユーザーの意思決定が必要
 
