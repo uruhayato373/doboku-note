@@ -1449,6 +1449,94 @@
       }
     },
     {
+      "id": "mlit-river-sabo-technical-standard",
+      "title": "河川砂防技術基準（国土交通省）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "河川砂防技術基準（国土交通省）": "mlit-river-sabo-technical-standard"
+      }
+    },
+    {
+      "id": "steel-bridge-corrosion-handbook",
+      "title": "鋼道路橋防食便覧（日本道路協会）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "鋼道路橋防食便覧（日本道路協会）": "steel-bridge-corrosion-handbook"
+      }
+    },
+    {
+      "id": "sabo-facility-design-standard",
+      "title": "砂防関係施設の設計基準・地すべり防止技術指針（国土交通省）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "砂防関係施設の設計基準・地すべり防止技術指針（国土交通省）": "sabo-facility-design-standard"
+      }
+    },
+    {
+      "id": "tunnel-standard-spec",
+      "title": "トンネル標準示方書（土木学会）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "トンネル標準示方書（土木学会）": "tunnel-standard-spec"
+      }
+    },
+    {
+      "id": "jsce-dam-concrete-guideline",
+      "title": "ダムコンクリートの施工指針（土木学会）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "ダムコンクリートの施工指針（土木学会）": "jsce-dam-concrete-guideline"
+      }
+    },
+    {
+      "id": "coastal-facility-technical-standard",
+      "title": "海岸保全施設の技術上の基準・港湾の施設の技術上の基準",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "海岸保全施設の技術上の基準・港湾の施設の技術上の基準": "coastal-facility-technical-standard"
+      }
+    },
+    {
+      "id": "railway-work-safety-guideline",
+      "title": "営業線近接工事保安関係標準仕様書（鉄道事業者）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "営業線近接工事保安関係標準仕様書（鉄道事業者）": "railway-work-safety-guideline"
+      }
+    },
+    {
+      "id": "jwwa-standard",
+      "title": "水道施設設計指針・日本水道協会規格（JWWA）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "水道施設設計指針・日本水道協会規格（JWWA）": "jwwa-standard"
+      }
+    },
+    {
       "id": "jswa-standard",
       "title": "日本下水道協会基準",
       "class": "external-primary",

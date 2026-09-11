@@ -1276,9 +1276,12 @@ function lintImages(lines, findings) {
     }
 
     // 10-5: 画像ファイル実在＋mime チェック（/posts/... で始まる内部参照のみ）
+    // `/posts/<rel>` の実体は content/site/<rel>（旧 public/posts リンクは 2026-08 に撤去。ensure-local-media.mjs 参照）。
+    // 旧パスも受理して、リンクを残している端末で偽の欠落を出さない。
     const srcMatch = attrs.match(/\bsrc\s*=\s*["']([^"']+)["']/);
     if (srcMatch && srcMatch[1].startsWith('/posts/')) {
-      const localPath = 'public' + srcMatch[1];
+      const candidates = ['content/site' + srcMatch[1].slice('/posts'.length), 'public' + srcMatch[1]];
+      const localPath = candidates.find((p) => existsSync(p)) ?? candidates[0];
       if (!existsSync(localPath)) {
         findings.push({
           severity: 'HIGH',
