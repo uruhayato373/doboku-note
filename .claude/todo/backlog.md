@@ -75,17 +75,6 @@ CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認し
 
 **完了条件**: 各行の実体が解消したら行ごと消し、全行が消えたらカードを削除する。
 
-### [DN-0186] コンクリート診断士 四肢択一演習 4 本に残る原本の逐語 12 件を自作へ是正する
-タグ: [コンテンツ品質] [種類:不具合] [検証:check-reference-sources:deep] [起票:2026-09-11]
-
-**現状**: `content/site/concrete-diagnostician/primary-exercise-{02,04,05,06}/article.mdx` は `published: true` のまま、`concrete-diagnostician-textbook`（commercial-book）の文字起こしと 40 字以上一致する箇所が 12 件ある（最長 72 字。中性化深さの設問文、X 線回折・EPMA の機器列挙、凍結融解と塩害の組合せ選択肢など）。2026-07-31 に 98 問を自作へ書き換えた作業の取りこぼしで、逐語 1 文でも公開不可の規約に反したまま公開されている。
-
-**やること**: Drive をマウントして `npm run check-reference-sources:deep` を実行し、一致 12 件の file:line と一致文字列を控える。各設問を、論点だけ保って問題文・選択肢・解説を自作へ書き換える（JIS・示方書の数値は external-primary から引き直す。原本の設問構成を写さない）。書き換え後に deep を再実行し、`concrete-diagnostician` 配下の一致が 0 件になったことを確認してからコミットする。残る一致が他カテゴリ（例: 以前から baseline 扱いの分）なら、その旨を出力で切り分ける。
-
-**参照**: 原本 class 別の加工ルールと commercial-book の標準手順（brief 方式）は [content-taxonomy.md](../knowledge/reference/content-taxonomy.md) §7。図は [図版ポリシー](../knowledge/reference/image-policy.md)、記事の型は [記事構成ガイド](../knowledge/reference/article-structure-guide.md)。原本の文字起こしは Drive vault `原資料PDF/書籍/<id>/ocr/part-*.md`（内部利用のみ）。
-
-**完了条件**: `npm run check-reference-sources:deep` の verbatim FAIL に `concrete-diagnostician` の記事が 1 件も出ない。4 本とも `published: true` のまま、設問数・分野の構成が変わっていない。`lint-mdx-mobile` 0 件。
-
 ### [DN-0187] コンクリート主任技士 テキスト記事 前半 4 章（材料・性質・耐久性・配合設計）を原本の方法論で深掘りする
 タグ: [コンテンツ品質] [種類:制作] [Codex候補] [検証:check-reference-sources:deep] [起票:2026-09-11]
 
