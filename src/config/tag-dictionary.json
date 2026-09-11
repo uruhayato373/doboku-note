@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-09-10T23:45:47.226Z",
+  "generated_at": "2026-09-11T15:13:31.755Z",
   "summary": {
     "total_mdx_files": 1230,
     "total_unique_tags": 117,
@@ -2533,7 +2533,7 @@
     },
     {
       "name": "textbook",
-      "count": 83,
+      "count": 82,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-textbook-asphalt-concrete-pavement",
@@ -2602,7 +2602,6 @@
         "concrete-chief-engineer-textbook-construction",
         "concrete-chief-engineer-textbook-durability",
         "concrete-chief-engineer-textbook-materials",
-        "concrete-chief-engineer-textbook-mix-design",
         "concrete-chief-engineer-textbook-production-qc",
         "concrete-chief-engineer-textbook-products",
         "concrete-chief-engineer-textbook-properties",
@@ -3182,7 +3181,7 @@
     },
     {
       "name": "コンクリート",
-      "count": 21,
+      "count": 22,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-secondary-concrete-basics",
@@ -3205,7 +3204,8 @@
         "civil-practice-preventive-maintenance-diagnosis",
         "civil-practice-risk-assessment-construction-workflow",
         "civil-practice-road-fixtures-precast",
-        "civil-practice-safety-patrol-corrective-action"
+        "civil-practice-safety-patrol-corrective-action",
+        "concrete-chief-engineer-textbook-mix-design"
       ]
     },
     {
@@ -3669,6 +3669,26 @@
       ]
     },
     {
+      "name": "過去問分析",
+      "count": 13,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-frequent-topics",
+        "pe-construction-construction-planning-exam-themes",
+        "pe-construction-environment-exam-themes",
+        "pe-construction-geotechnical-exam-themes",
+        "pe-construction-port-airport-exam-themes",
+        "pe-construction-power-civil-exam-themes",
+        "pe-construction-railway-exam-themes",
+        "pe-construction-required-exam-themes",
+        "pe-construction-river-coast-exam-themes",
+        "pe-construction-road-exam-themes",
+        "pe-construction-steel-concrete-exam-themes",
+        "pe-construction-tunnel-exam-themes",
+        "pe-construction-urban-planning-exam-themes"
+      ]
+    },
+    {
       "name": "適性科目",
       "count": 13,
       "inAllowlist": true,
@@ -3705,25 +3725,6 @@
         "civil-practice-lifting-equipment-selection",
         "civil-practice-sling-work-wire-rope",
         "civil-practice-stacking-heat-machine-safety"
-      ]
-    },
-    {
-      "name": "過去問分析",
-      "count": 12,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-construction-planning-exam-themes",
-        "pe-construction-environment-exam-themes",
-        "pe-construction-geotechnical-exam-themes",
-        "pe-construction-port-airport-exam-themes",
-        "pe-construction-power-civil-exam-themes",
-        "pe-construction-railway-exam-themes",
-        "pe-construction-required-exam-themes",
-        "pe-construction-river-coast-exam-themes",
-        "pe-construction-road-exam-themes",
-        "pe-construction-steel-concrete-exam-themes",
-        "pe-construction-tunnel-exam-themes",
-        "pe-construction-urban-planning-exam-themes"
       ]
     },
     {
@@ -4472,6 +4473,15 @@
       ]
     },
     {
+      "name": "配合計算",
+      "count": 2,
+      "inAllowlist": true,
+      "usedIn": [
+        "concrete-chief-engineer-textbook-mix-design",
+        "concrete-engineer-primary-mix-design"
+      ]
+    },
+    {
       "name": "2024年問題",
       "count": 1,
       "inAllowlist": true,
@@ -4517,14 +4527,6 @@
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-textbook-demolition"
-      ]
-    },
-    {
-      "name": "配合計算",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "concrete-engineer-primary-mix-design"
       ]
     }
   ],
