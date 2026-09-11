@@ -16,10 +16,12 @@ title: データストレージ判断 — D1 不採用と再検討トリガー
 
 - **静的サイトの優位性を捨てるコストが大きい** — TTFB、CDN エッジ完結、ローカル開発の単純さを失う
 - **規模が DB 必要ラインに達していない** — MDX ファイル数 ~700（拡張後でも 2,000-3,000）、build-time のみのクエリ、認証ユーザーゼロ
-- **タグ・キーワード横断は frontmatter で解決可能** — `exams: []` 配列で 1 つの MDX を複数試験に再利用できる
+- **タグ・キーワード横断は frontmatter で解決可能** — 資格タグと `topics:` で 1 つの MDX を複数試験・テーマから参照できる（当初案の `exams: []` は 2026-09-11 に廃止。語彙は [content-taxonomy.md](./content-taxonomy.md) §2・§6）
 - **git を真実源として失う代償が大きい** — PR レビュー・履歴・バックアップが git で完結する利点
 
-## frontmatter 拡張アプローチ
+## frontmatter 拡張アプローチ（当初案・記録）
+
+> 2026-09-11 の分類設計で `exams:`／`sections:` は廃止し、横断は資格タグ・`topics:` で表現することにした（[content-taxonomy.md](./content-taxonomy.md)）。以下は ADR 時点の案として残す。
 
 試験横断キーワードは frontmatter に試験配列で表現する:
 

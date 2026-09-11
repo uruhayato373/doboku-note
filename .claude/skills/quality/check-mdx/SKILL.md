@@ -103,7 +103,7 @@ next-mdx-remote / MDX v3 のビルドエラーを未然に防ぐ。
 | MEDIUM | `publishedAt-future` | 未来日（8 日以上先） |
 | LOW | `desc-long` | description > 200 文字 |
 | LOW | `tags-empty` | `tags` 空 |
-| LOW | `tags-unknown` | `src/config/tags.json` allowlist 外 |
+| LOW | `tags-unknown` | `src/config/tags.json` の受理綴り（name・slug・aliases・canonical）外。正規表記は日本語名（[content-taxonomy.md](../../../knowledge/reference/content-taxonomy.md) §5） |
 | LOW | `sections-missing` | `exams` 複数なのに `sections` 未設定 |
 | LOW | `sections-incomplete` | `sections` に未登録 exam |
 
