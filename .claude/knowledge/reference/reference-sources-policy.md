@@ -148,3 +148,5 @@ Drive や R2 の削除はこの手順に含めない。不要物の削除は対�
 2026-07-31 のコンクリート診断士では、技報堂のスキャン教材から作ったテキストを独自散文に再構成し、
 原典図 25 枚を自作図等へ置換した。さらに、教材由来の 98 問は論点だけを保った自作演習へ書き換えた。
 これは市販書籍由来コンテンツを公開可能な形へ直した前例であり、構成も含めて独自編集へ転換する際の基準とする。
+
+展開先（guide・textbook・keyword・practice・primary・past-exam・standards・note）ごとの加工ルール表と、commercial-book → guide/textbook の標準手順（原文を渡さない brief 方式）は [content-taxonomy.md](./content-taxonomy.md) §7 を参照する。

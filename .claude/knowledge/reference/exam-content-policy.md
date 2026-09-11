@@ -139,25 +139,13 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 
 ## Part 3: 全試験で共通のデザイン制約
 
-試験を問わず、以下は **必ず統一** する。これによりサイト全体のデザイン一貫性が保たれる:
-
-- **frontmatter スキーマ**: `title`, `description`, `category`, `tags`, `group`, `published`, `publishedAt`（必須項目）
-- **MDX コンポーネント**: `<Callout>`, `<ExamPoint>`, `<CustomUnorderedList>`, `<RelatedKeywords>`, `<Timeline>`, `<PdcaCycle>`, `<details>` を試験横断で使用
-- **モバイル視認性ルール**: 表は2軸比較のみ、4列以上禁止、計算手順は番号付きリスト、3列以上の表はセル15字以内
-- **数式**: KaTeX 一択
-- **図表**: SVG / PNG
-- **画像配信**: R2 経由 `/posts/{slug}/img/` パスで参照
-- **URL**: フラット `/docs/{slug}` 設計
-- **見出し階層**: H1 = ページタイトル、H2-H4 = 本文構造
-- **絵文字禁止**: 装飾絵文字は本文に使わない（Callout の type で表現）
-- **MDX 書き込み**: `.claude/scripts/lib/mdx-io.mjs` 経由で改行コード保持
-
-詳細は [content-authoring.md](./content-authoring.md) を参照。
+→ 真実源は [content-authoring.md](./content-authoring.md)「全試験で共通のデザイン制約」（URL は検索意図別 `/exam/ /practice/ /standards/ /topics/`）。分類の語彙（領域・記事型・タグ・テーマ）は [content-taxonomy.md](./content-taxonomy.md)。ここには複製しない。
 
 ---
 
 ## Part 4: 新資格を追加するときの手順
 
+0. `src/config/categories.json` に entry を足し、`area`（exam / practice / standards）と許可する `groups` を宣言する。記事型の定義と許可表は [content-taxonomy.md](./content-taxonomy.md) §3（`npm run check-content-taxonomy` が強制）
 1. Part 1 の「試験別の整備方針差分」表に新しい列を追加して整備方針を決定
 2. Part 2 の「コンテンツ別レビュー視点」表にも対応する列を追加
 3. 必要なら `{exam-id}-pdf-to-mdx`（Generator スキル）と `{exam-id}-qa`（Evaluator エージェント）を新設

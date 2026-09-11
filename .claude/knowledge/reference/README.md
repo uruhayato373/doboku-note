@@ -8,15 +8,7 @@ CLAUDE.md 本体に載せるには詳細すぎるが、特定の作業時に参�
 
 ## ファイル一覧
 
-| ファイル | 内容 | いつ読むか |
-|---|---|---|
-| [content-authoring.md](./content-authoring.md) | MDX コンポーネント・過去問構造ルール・数式図表規約・モバイル視認性詳細・画像配信・frontmatter テンプレ | MDX を書く・編集するとき（`/pdf-to-mdx`, `/keyword-page`, `/review-mobile` 等） |
-| [exam-content-policy.md](./exam-content-policy.md) | 試験別コンテンツ整備方針（整備方針差分表・執筆判断ガイド）+ コンテンツ別レビュー視点（レビュー視点表）+ 新資格追加手順 | PDF→MDX 変換・品質レビュー時（`/improve-article --mode verify`, `/pdf-to-mdx --exam civil-construction-1`, `/pdf-to-mdx --exam cem` 等） |
-| [skills-registry.md](./skills-registry.md) | management / dev / content / ui / marketing / analytics / strategy / ads の全スキル一覧＋Phase 別運用メモ | 利用可能なスキルを探すとき、新スキル作成時に重複がないか確認するとき |
-| [agents-registry.md](./agents-registry.md) | エージェント詳細表＋チーム連携パターン＋Generator/Evaluator 分離原則 | サブエージェントを呼び出すときの担当範囲確認、連携設計時 |
-| [workflows.md](./workflows.md) | 推奨ワークフロー（週次運用・PDF→MDX 変換フロー・キーワードページ作成フロー・リスク評価）+ Phase 別ロードマップ | 週次運用・変換作業・キーワードページ作成時 |
-| [video-content-policy.md](./video-content-policy.md) | 動画パックのSSOT境界・schema・状態・Generator/Evaluator責務・機械ゲート・公開契約 | YouTube通常動画を核にShorts/IG/Xへ派生するとき、動画管理画面・スキル・エージェントを実装するとき |
-| [book-list.md](./book-list.md) | Amazonアソシエイト紹介書籍リスト（資格別×用途別、ASIN/ISBN/用途/紹介先メモ）+ PA-API 移行ロードマップ | 書籍紹介を追加・更新するとき／PA-API 実装時の seed として |
+ここに一覧は置かない。索引は **CLAUDE.md の「リファレンス索引」表が唯一**で、ファイルを増減したらそちらの行を足す・消す（2026-09-11。以前はここにも一覧があり 70 本中 7 本しか載らず腐っていた。索引が 2 つあると片方が必ず腐る）。
 
 ## 読み方の原則
 
@@ -30,10 +22,11 @@ CLAUDE.md 本体に載せるには詳細すぎるが、特定の作業時に参�
 - **新エージェント追加時** → `agents-registry.md` と CLAUDE.md のモデル指定クイックリファレンス表の両方を更新
 - **新資格追加時** → `exam-content-policy.md` の整備方針差分表・レビュー視点表の両方に列を追加
 - **コンテンツ品質ルール変更時** → `.claude/knowledge/reference/content-principles.md`（真実源）をまず更新し、`content-authoring.md` は参照として揃える
+- **分類語彙の変更時**（領域・記事型・タグ class・テーマ昇格基準）→ `content-taxonomy.md` をまず更新し、値は `src/config/{content-taxonomy,categories,tags,topics}.json`、整合は `npm run check-content-taxonomy` と `tests/content-taxonomy.test.mjs`
 
 ## CLAUDE.md との関係
 
-CLAUDE.md の「リファレンス索引」セクションから各ファイルへリンクが張られている。逆参照はこのファイルを参照先として使うこと。
+CLAUDE.md の「リファレンス索引」セクションが各ファイルへの唯一の索引。このファイルは読み方の原則・更新ルール・frontmatter スキーマだけを持つ。
 
 ## frontmatter スキーマ
 

@@ -30,6 +30,26 @@
         ".github/workflows/r2-audit.yml",
         ".claude/todo/backlog.md"
       ]
+    },
+    "content-taxonomy": {
+      "decision": "コンテンツ分類は 領域(area)×資格(category)×記事型(group)×テーマ(topics)×タグ の 5 軸。規則は content-taxonomy.md、値は src/config の JSON。タグの正規表記は日本語名・英語 slug は別名（ビルド時に正規化）・構造タグは group と矛盾させない。exams: は廃止。原本 class ごとの展開ルール（commercial-book は brief 方式）を §7 で固定（2026-09-11）",
+      "anchor": ".claude/knowledge/reference/content-taxonomy.md",
+      "files": [
+        ".claude/knowledge/reference/content-taxonomy.md",
+        "src/config/content-taxonomy.json",
+        "src/config/categories.json",
+        "src/config/tags.json",
+        "src/config/topics.json",
+        ".claude/scripts/lib/frontmatter-schema.mjs",
+        "src/lib/doc-classifier.ts",
+        "src/lib/content-routes.ts",
+        "src/lib/content-taxonomy.ts",
+        "scripts/check-content-taxonomy.mjs",
+        ".claude/knowledge/reference/content-authoring.md",
+        "docs/strategy/05_情報アーキテクチャ.md",
+        ".claude/knowledge/reference/exam-content-policy.md",
+        ".claude/knowledge/reference/reference-sources-policy.md"
+      ]
     }
   }
 }

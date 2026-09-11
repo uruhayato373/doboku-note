@@ -82,7 +82,7 @@ CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認し
 
 **やること**: Drive をマウントして `npm run check-reference-sources:deep` を実行し、一致 12 件の file:line と一致文字列を控える。各設問を、論点だけ保って問題文・選択肢・解説を自作へ書き換える（JIS・示方書の数値は external-primary から引き直す。原本の設問構成を写さない）。書き換え後に deep を再実行し、`concrete-diagnostician` 配下の一致が 0 件になったことを確認してからコミットする。残る一致が他カテゴリ（例: 以前から baseline 扱いの分）なら、その旨を出力で切り分ける。
 
-**参照**: [参考文献ポリシー](../knowledge/reference/reference-sources-policy.md)（commercial-book は逐語 1 文・図・章立ての流用不可、`sources` に原本 id を宣言）、[図版ポリシー](../knowledge/reference/image-policy.md)（教材の図の「参考 SVG 化」禁止・技術的事実の可視化は可）、[記事構成ガイド](../knowledge/reference/article-structure-guide.md)、原本の文字起こしは Drive vault `原資料PDF/書籍/<id>/ocr/part-*.md`（内部利用のみ）。
+**参照**: 原本 class 別の加工ルールと commercial-book の標準手順（brief 方式）は [content-taxonomy.md](../knowledge/reference/content-taxonomy.md) §7。図は [図版ポリシー](../knowledge/reference/image-policy.md)、記事の型は [記事構成ガイド](../knowledge/reference/article-structure-guide.md)。原本の文字起こしは Drive vault `原資料PDF/書籍/<id>/ocr/part-*.md`（内部利用のみ）。
 
 **完了条件**: `npm run check-reference-sources:deep` の verbatim FAIL に `concrete-diagnostician` の記事が 1 件も出ない。4 本とも `published: true` のまま、設問数・分野の構成が変わっていない。`lint-mdx-mobile` 0 件。
 
@@ -91,13 +91,13 @@ CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認し
 
 **目的**: `content/site/concrete-chief-engineer/textbook-{materials,properties,durability,mix-design}/article.mdx` は 8 章とも原本（`concrete-chief-textbook-2022`／`-2024`・計 592p 文字起こし済み）の厚みに対して薄い。章ごとに「試験で問われる論点→原理→数値の根拠→よくある誤答の型」の順で書き直し、`sources` に原本 2 冊の id を宣言する。基礎 2 冊（`concrete-basics-5th`・`construction-materials-basics`）は原理の説明の下支えに使う。
 
-**手順の型（2026-09-10 の建設部門展開で確立・memory `book-to-guide-expansion`）**: 親が原本を読んで方法を理解 → 執筆エージェント（`guide-rewriter` 新規起草モード・textbook は `civil-textbook-rewriter` 相当の Generator）には原本を渡さず、親の言葉で 30 字以内の語句だけの brief を渡す → H2 は原本の章順・項目数・ラベル名をなぞらず独自に組む → 例題・数値は公式過去問（`jcia-past-exams`）と JIS・示方書（external-primary）から引き、原本の例と数値は使わない → `guide-qa`／`content-qa` で採点 → `guide-fact-checker` で数値・規格値を一次資料へ照合 → Drive をマウントして `npm run check-reference-sources:deep`（40 字一致 0 件）→ 1 記事 1 コミット。
+**手順の型**: [content-taxonomy.md](../knowledge/reference/content-taxonomy.md) §7「commercial-book → guide / textbook の標準手順」（原本を渡さず brief だけ・H2 は独自順・例題は公式過去問・図は自作 SVG・deep 照合 0 件・1 記事 1 コミット）。textbook の Generator は `civil-textbook-rewriter` 相当、採点は `content-qa`／`guide-qa`。
 
 **分割の理由**: 1 記事あたり起草・採点・照合込みで約 30 万トークン、4 章で 1 セッション相当。後半 4 章は DN-0188。図は DN-0189 で別途追加する（本カードでは図を作らない。図が要る箇所は本文に `<!-- figure: 題材 -->` を残さず、DN-0189 の題材リストへ書き出す）。
 
-**参照**: [参考文献ポリシー](../knowledge/reference/reference-sources-policy.md)（commercial-book は逐語 1 文・図・章立ての流用不可、`sources` に原本 id を宣言）、[図版ポリシー](../knowledge/reference/image-policy.md)（教材の図の「参考 SVG 化」禁止・技術的事実の可視化は可）、[記事構成ガイド](../knowledge/reference/article-structure-guide.md)、原本の文字起こしは Drive vault `原資料PDF/書籍/<id>/ocr/part-*.md`（内部利用のみ）。
+**参照**: 原本 class 別の加工ルールと commercial-book の標準手順（brief 方式）は [content-taxonomy.md](../knowledge/reference/content-taxonomy.md) §7。図は [図版ポリシー](../knowledge/reference/image-policy.md)、記事の型は [記事構成ガイド](../knowledge/reference/article-structure-guide.md)。原本の文字起こしは Drive vault `原資料PDF/書籍/<id>/ocr/part-*.md`（内部利用のみ）。
 
-**禁止**: フル模範解答・演習問題の大量転載（note 商品の空洞化。択一予想 50 問・配合計算・小論文はサイトに載せない）、原本の図の流用・トレース、原本の書名・「本書」・ファイル名の本文言及、他社の登録商標（例: 三分割展開法）の使用。
+**禁止**: フル模範解答・演習問題の大量転載（note 商品の空洞化）、原本の図の流用・トレース、原本の書名・ファイル名の本文言及、他社の登録商標の使用（content-taxonomy §7・§8）。
 
 **完了条件**: 4 記事とも `sources: [concrete-chief-textbook-2024, concrete-chief-textbook-2022]` を宣言し、本文 4,000 字以上、`content-qa`／`guide-qa` 相当の採点 2.0 以上、`guide-fact-checker` の suspicious 0、deep の一致 0 件、`lint-mdx-mobile` 0 件。`npm run refresh-indexes` 後に 1 記事 1 コミットで push 済み。
 
@@ -106,7 +106,7 @@ CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認し
 
 DN-0187 と同じ手順・同じ規約・同じ完了条件で `textbook-{production-qc,construction,products,structural-design}` の 4 章を深掘りする。DN-0187 の brief と QA 指摘の傾向（文体・重複・数値の出所）を先に読み、同じ指摘を繰り返さない。施工章は 1級土木の施工分野（`civil-construction-1` の textbook）と論点が重なるので、横断リンクを 1 本置き、内容の複製はしない。
 
-**参照**: [参考文献ポリシー](../knowledge/reference/reference-sources-policy.md)（commercial-book は逐語 1 文・図・章立ての流用不可、`sources` に原本 id を宣言）、[図版ポリシー](../knowledge/reference/image-policy.md)（教材の図の「参考 SVG 化」禁止・技術的事実の可視化は可）、[記事構成ガイド](../knowledge/reference/article-structure-guide.md)、原本の文字起こしは Drive vault `原資料PDF/書籍/<id>/ocr/part-*.md`（内部利用のみ）。
+**参照**: 原本 class 別の加工ルールと commercial-book の標準手順（brief 方式）は [content-taxonomy.md](../knowledge/reference/content-taxonomy.md) §7。図は [図版ポリシー](../knowledge/reference/image-policy.md)、記事の型は [記事構成ガイド](../knowledge/reference/article-structure-guide.md)。原本の文字起こしは Drive vault `原資料PDF/書籍/<id>/ocr/part-*.md`（内部利用のみ）。
 
 **完了条件**: DN-0187 と同一。8 章がそろった時点で `guide-overview`／`guide-trends` から各章への誘導リンクが揃っていることを確認する。
 
@@ -230,11 +230,11 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 
 **目的**: `content/site/concrete-engineer/textbook-{materials,properties-testing,mix-design,production-qc,construction,environment}/article.mdx` の 6 章を、`concrete-basics-5th`（310p）と `construction-materials-basics`（284p）を原理の下支えにして深掘りする。技士は主任技士より基礎寄りなので、「なぜそうなるか」の説明に字数を配分し、主任技士の同名章とは深さで差別化する（複製しない）。1級土木の材料分野へ横断リンクを置く。
 
-**手順の型（2026-09-10 の建設部門展開で確立・memory `book-to-guide-expansion`）**: 親が原本を読んで方法を理解 → 執筆エージェント（`guide-rewriter` 新規起草モード・textbook は `civil-textbook-rewriter` 相当の Generator）には原本を渡さず、親の言葉で 30 字以内の語句だけの brief を渡す → H2 は原本の章順・項目数・ラベル名をなぞらず独自に組む → 例題・数値は公式過去問（`jcia-past-exams`）と JIS・示方書（external-primary）から引き、原本の例と数値は使わない → `guide-qa`／`content-qa` で採点 → `guide-fact-checker` で数値・規格値を一次資料へ照合 → Drive をマウントして `npm run check-reference-sources:deep`（40 字一致 0 件）→ 1 記事 1 コミット。
+**手順の型**: [content-taxonomy.md](../knowledge/reference/content-taxonomy.md) §7「commercial-book → guide / textbook の標準手順」（原本を渡さず brief だけ・H2 は独自順・例題は公式過去問・図は自作 SVG・deep 照合 0 件・1 記事 1 コミット）。textbook の Generator は `civil-textbook-rewriter` 相当、採点は `content-qa`／`guide-qa`。
 
-**参照**: [参考文献ポリシー](../knowledge/reference/reference-sources-policy.md)（commercial-book は逐語 1 文・図・章立ての流用不可、`sources` に原本 id を宣言）、[図版ポリシー](../knowledge/reference/image-policy.md)（教材の図の「参考 SVG 化」禁止・技術的事実の可視化は可）、[記事構成ガイド](../knowledge/reference/article-structure-guide.md)、原本の文字起こしは Drive vault `原資料PDF/書籍/<id>/ocr/part-*.md`（内部利用のみ）。
+**参照**: 原本 class 別の加工ルールと commercial-book の標準手順（brief 方式）は [content-taxonomy.md](../knowledge/reference/content-taxonomy.md) §7。図は [図版ポリシー](../knowledge/reference/image-policy.md)、記事の型は [記事構成ガイド](../knowledge/reference/article-structure-guide.md)。原本の文字起こしは Drive vault `原資料PDF/書籍/<id>/ocr/part-*.md`（内部利用のみ）。
 
-**禁止**: フル模範解答・演習問題の大量転載（note 商品の空洞化。択一予想 50 問・配合計算・小論文はサイトに載せない）、原本の図の流用・トレース、原本の書名・「本書」・ファイル名の本文言及、他社の登録商標（例: 三分割展開法）の使用。
+**禁止**: フル模範解答・演習問題の大量転載（note 商品の空洞化）、原本の図の流用・トレース、原本の書名・ファイル名の本文言及、他社の登録商標の使用（content-taxonomy §7・§8）。
 
 **完了条件**: 6 記事とも `sources` に基礎 2 冊の id を宣言し、本文 4,000 字以上、採点 2.0 以上、`guide-fact-checker` の suspicious 0、deep の一致 0 件、`lint-mdx-mobile` 0 件、1 記事 1 コミットで push 済み。
 
@@ -252,11 +252,11 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 
 **目的**: `content/site/concrete-diagnostician/textbook-{variation,deterioration,investigation,assessment,repair,maintenance}/article.mdx` の 6 章を `concrete-diagnostician-textbook`（412p）を方法論の参考に深掘りする。劣化機構→調査→評価→対策の因果を章をまたいで一貫させ、記述式（問題A・問題B）の思考フレームとして使える構成にする。**着手前に DN-0195（権利確認）の結論を確認する。**
 
-**手順の型（2026-09-10 の建設部門展開で確立・memory `book-to-guide-expansion`）**: 親が原本を読んで方法を理解 → 執筆エージェント（`guide-rewriter` 新規起草モード・textbook は `civil-textbook-rewriter` 相当の Generator）には原本を渡さず、親の言葉で 30 字以内の語句だけの brief を渡す → H2 は原本の章順・項目数・ラベル名をなぞらず独自に組む → 例題・数値は公式過去問（`jcia-past-exams`）と JIS・示方書（external-primary）から引き、原本の例と数値は使わない → `guide-qa`／`content-qa` で採点 → `guide-fact-checker` で数値・規格値を一次資料へ照合 → Drive をマウントして `npm run check-reference-sources:deep`（40 字一致 0 件）→ 1 記事 1 コミット。
+**手順の型**: [content-taxonomy.md](../knowledge/reference/content-taxonomy.md) §7「commercial-book → guide / textbook の標準手順」（原本を渡さず brief だけ・H2 は独自順・例題は公式過去問・図は自作 SVG・deep 照合 0 件・1 記事 1 コミット）。textbook の Generator は `civil-textbook-rewriter` 相当、採点は `content-qa`／`guide-qa`。
 
-**参照**: [参考文献ポリシー](../knowledge/reference/reference-sources-policy.md)（commercial-book は逐語 1 文・図・章立ての流用不可、`sources` に原本 id を宣言）、[図版ポリシー](../knowledge/reference/image-policy.md)（教材の図の「参考 SVG 化」禁止・技術的事実の可視化は可）、[記事構成ガイド](../knowledge/reference/article-structure-guide.md)、原本の文字起こしは Drive vault `原資料PDF/書籍/<id>/ocr/part-*.md`（内部利用のみ）。
+**参照**: 原本 class 別の加工ルールと commercial-book の標準手順（brief 方式）は [content-taxonomy.md](../knowledge/reference/content-taxonomy.md) §7。図は [図版ポリシー](../knowledge/reference/image-policy.md)、記事の型は [記事構成ガイド](../knowledge/reference/article-structure-guide.md)。原本の文字起こしは Drive vault `原資料PDF/書籍/<id>/ocr/part-*.md`（内部利用のみ）。
 
-**禁止**: フル模範解答・演習問題の大量転載（note 商品の空洞化。択一予想 50 問・配合計算・小論文はサイトに載せない）、原本の図の流用・トレース、原本の書名・「本書」・ファイル名の本文言及、他社の登録商標（例: 三分割展開法）の使用。 診断士の記述式 模範答案集（note 有料）と競合する「答案の全文」は載せない。
+**禁止**: フル模範解答・演習問題の大量転載（note 商品の空洞化）、原本の図の流用・トレース、原本の書名・ファイル名の本文言及、他社の登録商標の使用（content-taxonomy §7・§8）。 診断士の記述式 模範答案集（note 有料）と競合する「答案の全文」は載せない。
 
 **完了条件**: 6 記事とも `sources: [concrete-diagnostician-textbook]` を宣言し、本文 4,000 字以上、採点 2.0 以上、`guide-fact-checker` の suspicious 0、deep の一致 0 件、`lint-mdx-mobile` 0 件、1 記事 1 コミットで push 済み。
 
