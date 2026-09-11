@@ -484,3 +484,33 @@ EXP-006 の本判定は予定どおり next_check 2026-08-27 に、カバレッ�
 - 282 件の内訳は、旧 `/docs/*` 244 件を旧 URL 404 の判断へ統合、非 `/docs` のフォント・feed・誤抽出 URL 33 件を `EXPECTED_EXCLUSION`、`/contact`・`/links`・`/terms`・`/tools` 系 5 件を `KEEP_MONITOR` と裁定する
 - 別バケットの GSC 既知 404 は 297 件中、既存転送 8 件に加え、対応先が一意な接頭辞欠落 URL 30 件を正規ページへ 301。二重接頭辞・本文断片・数値など残る 259 件は誤転送を避けて 404 のまま自然消滅させる
 - noindex・統合は適用しない。再浮上条件は、上記 KEEP_MONITOR 5 URL に継続的な impressions が発生するか、既知バケット外の UNKNOWN が新規に出ること
+
+### 2026-09-11（週次・自動レビュー）
+
+- 観測: GSC 2026-08-10〜09-07（truncated:false）／GA4 28日窓 08-13〜09-09。High-Impr-Low-CTR 71件・Rank-Stuck 36件・Hidden-Winner 49件・Cannibalization 4件（全て URL 移行の新旧併存）・Traffic-Drop 3件（緩衝窓の参考値）・Orphan-Query 1件・SNS-Source-Shift / Content-Decay ✓ なし
+- 上位候補と推奨:
+  1. `/exam/civil-construction-1/textbook/schedule-overview` — Rank-Stuck（「採算速度とは」impr51・pos9.1、ページ全体 impr141・CTR1.42%）。追記＋内部リンクの構造施策で1桁上位へ（メタ変更なし）
+  2. `/exam/civil-construction-1/secondary/r07` — Rank-Stuck（「2次試験解答例 令和7年」impr29・pos11.1、ページ全体 impr63・CTR1.59%）。解答例コンテンツ強化候補
+  3. GA4 bot/テスト混入疑い — `/standards/chubu/**` 3URL（sessions 189 ほか・engagement 0.01〜0.07）＋`/__e2e_not_found__`（sessions28・engagement 0）。Hidden-Winner の実需要から除外して読む必要
+- 他 5 件 → improvements/2026-09-11.md（keyword-2026 継続・practice 実務クラスタ約500 sessions・リスクマトリックス Orphan ほか）
+- 自動裁定:
+  - 候補1: 推奨=実験化候補（構造施策＝追記・内部リンク。メタ一括変更はしない）
+  - 候補2: 推奨=実験化候補（コンテンツ強化・メタ変更なしのため実験枠外で着手可）
+  - 候補3: 保留（人間確認事項＝GA4 の bot/内部トラフィック除外設定。再浮上条件＝次週も engagement≈0 の流入が継続）
+  - x/social（前回保留）: sessions 24→23（-4.2%）で再浮上条件（継続減 or 10未満）未達 → 保留解除・通常観測へ
+  - Cannibalization 4件: 見送り（実体は /docs→/exam 移行の 301/canonical 伝播待ち。次回解消を確認）
+- 注記: 自動生成（人間の上書き歓迎）。civil-construction-2 Hidden-Winner（sessions 合算 2,261 へ拡大）は前回裁定どおり保留＝戦略棚卸し待ち。keyword-2026 メタ実験は推奨済み継続。GSC page-query でも新旧 URL 分裂を確認（前回は GA4 のみ）。インターフェアリングフロート実験は判定 09-23
+
+### 2026-09-11（月次・自動レビュー）
+
+- 観測（history 2026-09-07 エントリ・batch inspection-batch-2026-09-07T00-54-52.json）: inspected 1,516 / sitemap 1,516（未検査差分 0）・indexed 634・**ratio 41.8%（前回 08-01 の 71.7% から −29.9pt）**・discovered_not_indexed 723（sitemap の 47.7%）・crawled_not_indexed 11（前回 292）・hygiene（404+redirect）0
+- 文脈: 08 月末の /docs→/exam・practice・standards・topics 大規模 URL 移行＋standards 章記事追加で sitemap +407。indexed 634 は**全て新 URL 体系**（旧 /docs は batch 中 0 件＝sitemap から除外済み）。/exam/pe-comprehensive-management は 350 件が既に indexed で先行回復中
+- discovered 723 の内訳: /exam/ 485（うち pe-comprehensive-management 299）・/standards/ 188（kyushu 75・kinki 40）・/practice/ 29・/topics/ 13・/tools/ 8。全件 fetch 未試行（FAILED/5xx/robots 拒否は 0 件）
+- other 148 の内訳: 「URL が Google に認識されていません」116 件・canonical 不一致 32 件（google_canonical が旧 /docs・/category のまま＝301 シグナル反映待ち）
+- 原因バケット:
+  - 権威性: 支配的仮説＝**URL 移行直後の再クロール待ち（一時的な谷）**。旧 URL のクロール実績・index シグナルが新 URL に未継承でゼロから再評価中。恒久的な権威性不足かは 10 月計測まで判定保留
+  - 技術: 該当なし（fetch エラー・robots 拒否 0 件）
+  - hygiene: 軽微（404/redirect 0 維持。canonical 不一致 32 件は自然解消待ちの部類）
+- 推奨アクション: ①10 月計測で /standards/kyushu・/exam/pe-comprehensive-management の discovered→indexed 移行速度を追跡し、改善が無ければ恒久的権威性不足へ評価切替 ②canonical 不一致 32 URL に絞った gsc-indexing:request（上限 10 件/回）を検討 ③/standards/ 章記事の量と検索価値密度の要否は人間の戦略判断へ
+- 異常フラグ: **ratio 41.8% < 60%**・**前回比 −29.9pt（>5pt）**・**discovered 723 > sitemap 20%**（3 件該当。crawled_not_indexed 激減・inspected=sitemap・batch 非空は正常）
+- 注記: 自動生成・最終決定は人間。異常 3 件はいずれも URL 移行の再クロール待ちで説明可能だが、機械判定に従い【要確認】として Issue 起票。10 月月次が回復判定の期限
