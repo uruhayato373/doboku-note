@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-09-11T20:53:50.511Z",
+  "generated_at": "2026-09-11T21:07:51.969Z",
   "summary": {
     "total_mdx_files": 1230,
     "total_unique_tags": 118,
@@ -2533,7 +2533,7 @@
     },
     {
       "name": "textbook",
-      "count": 76,
+      "count": 75,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-textbook-asphalt-concrete-pavement",
@@ -2599,7 +2599,6 @@
         "civil-construction-1-textbook-waste-disposal-manifest",
         "civil-construction-1-textbook-water-air-soil-pollution",
         "civil-construction-1-textbook-work-scheduling",
-        "concrete-chief-engineer-textbook-construction",
         "concrete-diagnostician-textbook-assessment",
         "concrete-diagnostician-textbook-deterioration",
         "concrete-diagnostician-textbook-investigation",
@@ -3112,7 +3111,7 @@
     },
     {
       "name": "コンクリート",
-      "count": 28,
+      "count": 29,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-secondary-concrete-basics",
@@ -3136,6 +3135,7 @@
         "civil-practice-risk-assessment-construction-workflow",
         "civil-practice-road-fixtures-precast",
         "civil-practice-safety-patrol-corrective-action",
+        "concrete-chief-engineer-textbook-construction",
         "concrete-chief-engineer-textbook-durability",
         "concrete-chief-engineer-textbook-materials",
         "concrete-chief-engineer-textbook-mix-design",
@@ -4031,6 +4031,20 @@
       ]
     },
     {
+      "name": "施工",
+      "count": 7,
+      "inAllowlist": true,
+      "usedIn": [
+        "concrete-chief-engineer-textbook-construction",
+        "pe-comprehensive-management-pattern-essay-general-contractor",
+        "pe-comprehensive-management-r03-essay-general-contractor",
+        "pe-comprehensive-management-r04-essay-general-contractor",
+        "pe-comprehensive-management-r05-essay-general-contractor",
+        "pe-comprehensive-management-r06-essay-general-contractor",
+        "pe-comprehensive-management-r07-essay-general-contractor"
+      ]
+    },
+    {
       "name": "砂防",
       "count": 7,
       "inAllowlist": true,
@@ -4094,19 +4108,6 @@
         "pe-comprehensive-management-r05-essay-river-consultant",
         "pe-comprehensive-management-r06-essay-river-consultant",
         "pe-comprehensive-management-r07-essay-river-consultant"
-      ]
-    },
-    {
-      "name": "施工",
-      "count": 6,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-pattern-essay-general-contractor",
-        "pe-comprehensive-management-r03-essay-general-contractor",
-        "pe-comprehensive-management-r04-essay-general-contractor",
-        "pe-comprehensive-management-r05-essay-general-contractor",
-        "pe-comprehensive-management-r06-essay-general-contractor",
-        "pe-comprehensive-management-r07-essay-general-contractor"
       ]
     },
     {
