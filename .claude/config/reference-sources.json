@@ -961,9 +961,9 @@
       },
       "appliesTo": [
         "content/site/civil-construction-1/primary-*/article.mdx",
-        "content/site/civil-construction-1/secondary-*/article.mdx",
+        "content/site/civil-construction-1/secondary-r0*/article.mdx", "content/site/civil-construction-1/secondary-*-past-problems/article.mdx",
         "content/site/civil-construction-2/primary-*/article.mdx",
-        "content/site/civil-construction-2/secondary-*/article.mdx"
+        "content/site/civil-construction-2/secondary-r0*/article.mdx"
       ],
       "aliases": {
         "全国建設研修センター": "cecc-past-exams",
@@ -979,7 +979,7 @@
         "url": "https://www.engineer.or.jp/"
       },
       "appliesTo": [
-        "content/site/pe-first-stage/*/article.mdx",
+        "content/site/pe-first-stage/[hr][0-9][0-9]-*/article.mdx",
         "content/site/pe-comprehensive-management/*-primary/article.mdx",
         "content/site/pe-comprehensive-management/*-secondary/article.mdx",
         "content/site/pe-construction/r0*/article.mdx"

@@ -381,15 +381,6 @@ Drive台帳・vault・Drive APIの照合前にローカル実体を削除しな�
 主要ブランチ・タグ・Cloudflareデプロイ・R2復元経路を確認してからカードを削除する。
 
 
-### [DN-0204] reference-sources の appliesTo を過去問記事に狭め、解説ガイド 17 本の baseline を 0 にする
-タグ: [エージェント・SSOT] [種類:改善] [検証:check-reference-sources] [起票:2026-09-12]
-
-**現状**: `cecc-past-exams` の appliesTo が `secondary-*` 全体、`ipej-past-exams` が `pe-first-stage/*` 全体に掛かるため、過去問由来でない解説ガイド（`secondary-*-basics`・`secondary-getting-started`・`secondary-experience-writing-*`・`pe-first-stage/guide-*` の 17 本）が「sources 欠落」として baseline に残っている（2026-09-12 に 159 → 17 まで返済済み）。
-
-**やること**: appliesTo を `primary-*`・`secondary-r0*`・`secondary-*-past-problems` に狭め（`pe-first-stage` は `r0*-*`）、baseline の 17 本を削る。狭めた結果 `check-reference-sources` の対象数が減ることを出力で確認する（検査ゼロ化していないこと）。
-
-**完了条件**: `npm run check-reference-sources` が緑で baseline 0 件、`reference-sources-policy.md` §5 の appliesTo の説明に「過去問記事だけに掛ける」を 1 行。
-
 ## 🟣 判断待ち — ユーザーの意思決定が必要
 
 ### [DN-0195] コンクリート診断士コンテンツの権利確認の状態を確定する

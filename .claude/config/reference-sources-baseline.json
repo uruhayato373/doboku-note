@@ -1,23 +1,6 @@
 {
   "version": 1,
   "description": "reference-sources.json の appliesTo に一致するが、移行時点で sources frontmatter が無かった記事。件数を増やさず、原本を確認できた記事から削るラチェット。",
-  "missingSources": [
-    "content/site/civil-construction-1/secondary-concrete-basics/article.mdx",
-    "content/site/civil-construction-1/secondary-construction-plan-basics/article.mdx",
-    "content/site/civil-construction-1/secondary-earthwork-basics/article.mdx",
-    "content/site/civil-construction-1/secondary-experience-writing-examples/article.mdx",
-    "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx",
-    "content/site/civil-construction-1/secondary-getting-started/article.mdx",
-    "content/site/civil-construction-1/secondary-quality-management-basics/article.mdx",
-    "content/site/civil-construction-2/secondary-experience-writing-by-theme/article.mdx",
-    "content/site/civil-construction-2/secondary-experience-writing-examples/article.mdx",
-    "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx",
-    "content/site/civil-construction-2/secondary-getting-started/article.mdx",
-    "content/site/civil-construction-2/secondary-grading-and-partial-credit/article.mdx",
-    "content/site/civil-construction-2/secondary-last-two-weeks-plan/article.mdx",
-    "content/site/civil-construction-2/secondary-written-questions-guide/article.mdx",
-    "content/site/pe-first-stage/guide-after-pass/article.mdx",
-    "content/site/pe-first-stage/guide-basic-subject/article.mdx",
-    "content/site/pe-first-stage/guide-overview/article.mdx"
-  ]
+  "missingSources": [],
+  "_updatedAt": "2026-09-12"
 }
