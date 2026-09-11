@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-09-11T16:07:08.276Z",
+  "generated_at": "2026-09-11T20:53:50.511Z",
   "summary": {
     "total_mdx_files": 1230,
     "total_unique_tags": 118,
@@ -2533,7 +2533,7 @@
     },
     {
       "name": "textbook",
-      "count": 79,
+      "count": 76,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-textbook-asphalt-concrete-pavement",
@@ -2600,9 +2600,6 @@
         "civil-construction-1-textbook-water-air-soil-pollution",
         "civil-construction-1-textbook-work-scheduling",
         "concrete-chief-engineer-textbook-construction",
-        "concrete-chief-engineer-textbook-production-qc",
-        "concrete-chief-engineer-textbook-products",
-        "concrete-chief-engineer-textbook-structural-design",
         "concrete-diagnostician-textbook-assessment",
         "concrete-diagnostician-textbook-deterioration",
         "concrete-diagnostician-textbook-investigation",
@@ -3076,7 +3073,7 @@
     },
     {
       "name": "品質管理",
-      "count": 30,
+      "count": 32,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-secondary-quality-management-basics",
@@ -3088,6 +3085,8 @@
         "civil-practice-quality-record-site-bcp",
         "civil-practice-reference-values",
         "civil-practice-safety-patrol-corrective-action",
+        "concrete-chief-engineer-textbook-production-qc",
+        "concrete-chief-engineer-textbook-products",
         "pe-comprehensive-management-cause-and-effect-diagram",
         "pe-comprehensive-management-control-limits",
         "pe-comprehensive-management-design-quality",
@@ -3109,6 +3108,41 @@
         "pe-comprehensive-management-quality-policy",
         "pe-comprehensive-management-required-quality",
         "pe-comprehensive-management-small-group-activities"
+      ]
+    },
+    {
+      "name": "コンクリート",
+      "count": 28,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-secondary-concrete-basics",
+        "civil-construction-1-secondary-concrete-past-problems",
+        "civil-construction-1-textbook-concrete-materials",
+        "civil-construction-1-textbook-concrete-mix-design",
+        "civil-construction-1-textbook-concrete-placement",
+        "civil-construction-1-textbook-concrete-properties",
+        "civil-construction-1-textbook-rebar-formwork",
+        "civil-construction-1-textbook-special-concrete-inspection",
+        "civil-practice-concrete-compaction-numbers",
+        "civil-practice-concrete-crack-causes",
+        "civil-practice-concrete-finishing-curing",
+        "civil-practice-concrete-mix-acceptance",
+        "civil-practice-concrete-placement-order",
+        "civil-practice-concrete-placement-timing",
+        "civil-practice-concrete-pump-capacity",
+        "civil-practice-concrete-repair-leakage",
+        "civil-practice-formwork-removal-timing",
+        "civil-practice-preventive-maintenance-diagnosis",
+        "civil-practice-risk-assessment-construction-workflow",
+        "civil-practice-road-fixtures-precast",
+        "civil-practice-safety-patrol-corrective-action",
+        "concrete-chief-engineer-textbook-durability",
+        "concrete-chief-engineer-textbook-materials",
+        "concrete-chief-engineer-textbook-mix-design",
+        "concrete-chief-engineer-textbook-production-qc",
+        "concrete-chief-engineer-textbook-products",
+        "concrete-chief-engineer-textbook-properties",
+        "concrete-chief-engineer-textbook-structural-design"
       ]
     },
     {
@@ -3174,38 +3208,6 @@
         "civil-construction-2-secondary-r05",
         "civil-construction-2-secondary-r06",
         "civil-construction-2-secondary-r07"
-      ]
-    },
-    {
-      "name": "コンクリート",
-      "count": 25,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-secondary-concrete-basics",
-        "civil-construction-1-secondary-concrete-past-problems",
-        "civil-construction-1-textbook-concrete-materials",
-        "civil-construction-1-textbook-concrete-mix-design",
-        "civil-construction-1-textbook-concrete-placement",
-        "civil-construction-1-textbook-concrete-properties",
-        "civil-construction-1-textbook-rebar-formwork",
-        "civil-construction-1-textbook-special-concrete-inspection",
-        "civil-practice-concrete-compaction-numbers",
-        "civil-practice-concrete-crack-causes",
-        "civil-practice-concrete-finishing-curing",
-        "civil-practice-concrete-mix-acceptance",
-        "civil-practice-concrete-placement-order",
-        "civil-practice-concrete-placement-timing",
-        "civil-practice-concrete-pump-capacity",
-        "civil-practice-concrete-repair-leakage",
-        "civil-practice-formwork-removal-timing",
-        "civil-practice-preventive-maintenance-diagnosis",
-        "civil-practice-risk-assessment-construction-workflow",
-        "civil-practice-road-fixtures-precast",
-        "civil-practice-safety-patrol-corrective-action",
-        "concrete-chief-engineer-textbook-durability",
-        "concrete-chief-engineer-textbook-materials",
-        "concrete-chief-engineer-textbook-mix-design",
-        "concrete-chief-engineer-textbook-properties"
       ]
     },
     {
@@ -3781,6 +3783,23 @@
       ]
     },
     {
+      "name": "鋼構造及びコンクリート",
+      "count": 10,
+      "inAllowlist": true,
+      "usedIn": [
+        "concrete-chief-engineer-textbook-structural-design",
+        "pe-construction-r01-steel-concrete",
+        "pe-construction-r02-steel-concrete",
+        "pe-construction-r03-steel-concrete",
+        "pe-construction-r04-steel-concrete",
+        "pe-construction-r05-steel-concrete",
+        "pe-construction-r06-steel-concrete",
+        "pe-construction-r07-steel-concrete",
+        "pe-construction-steel-concrete-exam-themes",
+        "pe-construction-steel-concrete-ronbun-keyword"
+      ]
+    },
+    {
       "name": "5管理",
       "count": 9,
       "inAllowlist": true,
@@ -3874,22 +3893,6 @@
         "pe-construction-r07-railway",
         "pe-construction-railway-exam-themes",
         "pe-construction-railway-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "鋼構造及びコンクリート",
-      "count": 9,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-r01-steel-concrete",
-        "pe-construction-r02-steel-concrete",
-        "pe-construction-r03-steel-concrete",
-        "pe-construction-r04-steel-concrete",
-        "pe-construction-r05-steel-concrete",
-        "pe-construction-r06-steel-concrete",
-        "pe-construction-r07-steel-concrete",
-        "pe-construction-steel-concrete-exam-themes",
-        "pe-construction-steel-concrete-ronbun-keyword"
       ]
     },
     {
