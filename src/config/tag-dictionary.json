@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generated_at": "2026-09-11T21:18:59.487Z",
+  "generated_at": "2026-09-11T23:15:48.772Z",
   "summary": {
-    "total_mdx_files": 1230,
-    "total_unique_tags": 118,
-    "allowlist_size": 308,
-    "known_count": 118,
+    "total_mdx_files": 1233,
+    "total_unique_tags": 120,
+    "allowlist_size": 316,
+    "known_count": 120,
     "unknown_count": 0,
     "typo_candidates_count": 0
   },
@@ -3864,6 +3864,22 @@
       ]
     },
     {
+      "name": "河川",
+      "count": 9,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-textbook-river-works",
+        "civil-practice-river-park-erosion-control",
+        "pe-comprehensive-management-pattern-essay-river-consultant",
+        "pe-comprehensive-management-r03-essay-river-consultant",
+        "pe-comprehensive-management-r04-essay-river-consultant",
+        "pe-comprehensive-management-r05-essay-river-consultant",
+        "pe-comprehensive-management-r06-essay-river-consultant",
+        "pe-comprehensive-management-r07-essay-river-consultant",
+        "pe-construction-river-coast-ronbun-keyword"
+      ]
+    },
+    {
       "name": "港湾及び空港",
       "count": 9,
       "inAllowlist": true,
@@ -3943,21 +3959,6 @@
       ]
     },
     {
-      "name": "河川",
-      "count": 8,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-river-park-erosion-control",
-        "pe-comprehensive-management-pattern-essay-river-consultant",
-        "pe-comprehensive-management-r03-essay-river-consultant",
-        "pe-comprehensive-management-r04-essay-river-consultant",
-        "pe-comprehensive-management-r05-essay-river-consultant",
-        "pe-comprehensive-management-r06-essay-river-consultant",
-        "pe-comprehensive-management-r07-essay-river-consultant",
-        "pe-construction-river-coast-ronbun-keyword"
-      ]
-    },
-    {
       "name": "河川、砂防及び海岸・海洋",
       "count": 8,
       "inAllowlist": true,
@@ -3970,6 +3971,21 @@
         "pe-construction-r06-river-coast",
         "pe-construction-r07-river-coast",
         "pe-construction-river-coast-exam-themes"
+      ]
+    },
+    {
+      "name": "砂防",
+      "count": 8,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-textbook-sabo-landslide",
+        "pe-comprehensive-management-pattern-essay-river-consultant",
+        "pe-comprehensive-management-r03-essay-river-consultant",
+        "pe-comprehensive-management-r04-essay-river-consultant",
+        "pe-comprehensive-management-r05-essay-river-consultant",
+        "pe-comprehensive-management-r06-essay-river-consultant",
+        "pe-comprehensive-management-r07-essay-river-consultant",
+        "pe-construction-river-coast-ronbun-keyword"
       ]
     },
     {
@@ -4042,20 +4058,6 @@
         "pe-comprehensive-management-r05-essay-general-contractor",
         "pe-comprehensive-management-r06-essay-general-contractor",
         "pe-comprehensive-management-r07-essay-general-contractor"
-      ]
-    },
-    {
-      "name": "砂防",
-      "count": 7,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-pattern-essay-river-consultant",
-        "pe-comprehensive-management-r03-essay-river-consultant",
-        "pe-comprehensive-management-r04-essay-river-consultant",
-        "pe-comprehensive-management-r05-essay-river-consultant",
-        "pe-comprehensive-management-r06-essay-river-consultant",
-        "pe-comprehensive-management-r07-essay-river-consultant",
-        "pe-construction-river-coast-ronbun-keyword"
       ]
     },
     {
@@ -4266,6 +4268,16 @@
         "pe-comprehensive-management-last-minute-2026",
         "pe-construction-gakushuu-jikan-schedule",
         "pe-construction-secondary-study-method"
+      ]
+    },
+    {
+      "name": "専門土木",
+      "count": 3,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-textbook-river-works",
+        "civil-construction-1-textbook-sabo-landslide",
+        "civil-construction-1-textbook-steel-structures"
       ]
     },
     {
@@ -4541,6 +4553,14 @@
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-textbook-demolition"
+      ]
+    },
+    {
+      "name": "鋼構造物",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-textbook-steel-structures"
       ]
     }
   ],

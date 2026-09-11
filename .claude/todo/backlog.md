@@ -75,19 +75,6 @@ CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認し
 
 **完了条件**: 各行の実体が解消したら行ごと消し、全行が消えたらカードを削除する。
 
-### [DN-0196] 1級土木 専門土木テキストの巻を新設し、鋼構造物／河川／砂防・地すべりの 3 章を書く
-タグ: [コンテンツ品質] [種類:制作] [Codex候補] [検証:check-category-curriculum] [起票:2026-09-12]
-
-**現状**: 1級・2級とも 専門土木（鋼構造物・河川・砂防・ダム・トンネル・海岸・港湾・鉄道・地下構造物・上下水道）の textbook が 0 本で、`category-curriculum.json` の `civil-construction-1.textbookChapters` に巻も無い。第 1 次検定 問題A では毎年 No.21〜54 の約 30 問がこの範囲。道路・舗装 3 本（`textbook-road-earthwork-subbase` ほか・order 26〜36）だけは土工の巻にある。
-
-**やること**: (0) curriculum に巻 `{ volume: "専門土木編", label: "専門土木", min: 700, max: 799 }` を足し、`textbook_order` 700 番台を専門土木に割り当てる（`introGuides` は当面無し）。(1) `textbook-steel-structures`（鋼橋の架設工法・高力ボルト・溶接・耐候性鋼材・塗装＝order 701）、(2) `textbook-river-works`（堤防の盛土・護岸・仮締切・樋門樋管・河川法の施工上の扱い＝711）、(3) `textbook-sabo-landslide`（砂防堰堤・渓流保全・地すべり防止工・急傾斜地崩壊防止工＝721）の 3 章を新規に書く（Convention B・group textbook・`sources` に `cecc-past-exams` と使った一般書・基準の id）。
-
-**手順の型**: 主根拠は**サイト自身の過去問記事**（`civil-construction-1/primary-*`・`civil-construction-2/primary-*`＝exam-official。問題文は V 可・解説は自サイトの独自文）。分野ごとに Reader（sonnet）が該当設問と解説を集めて「論点→原理→数値→誤答の型」の gap brief（30 字語句のみ）を作り、原理の下支えに一般書 3 冊（`civil-technology-basics`・`civil-construction-basics`・`disaster-civil-basics`＝commercial-book・M）を grep で当てる。Writer には原本を渡さず brief だけ。数値・規格値は external-primary（道路土工指針・道路橋示方書・河川法 等。台帳に無い基準は `reference-sources.json` に external-primary で追加）から取り直し「（要確認）」を残さない。QA（5 軸＋一次資料照合）→ deep 照合 → `refresh-indexes` → 1 記事 1 コミット。図は DN-0203 で別途。
-
-**参照**: 原本 class 別の加工ルールと commercial-book の標準手順（brief 方式）は [content-taxonomy.md](../knowledge/reference/content-taxonomy.md) §7。記事の型は [記事構成ガイド](../knowledge/reference/article-structure-guide.md)、図は [図版ポリシー](../knowledge/reference/image-policy.md)。原本の文字起こしは Drive vault `原資料PDF/書籍/<id>/ocr/`（内部利用のみ）。
-
-**完了条件**: 3 記事とも published・本文 8,000 字以上・QA 平均 2.0 以上・一次資料照合の suspicious 0・deep 逐語一致 0・`npm run check-category-curriculum` で専門土木の巻に 3 本が入り WARN 0・`lint-mdx-mobile` 0・1 記事 1 コミットで push 済み。
-
 ### [DN-0197] 1級土木 専門土木テキスト ダム／トンネル／海岸・港湾の 3 章を書く
 タグ: [コンテンツ品質] [種類:制作] [Codex候補] [検証:check-category-curriculum] [起票:2026-09-12]
 
