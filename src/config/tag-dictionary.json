@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generated_at": "2026-09-11T15:13:31.755Z",
+  "generated_at": "2026-09-11T15:33:30.714Z",
   "summary": {
     "total_mdx_files": 1230,
-    "total_unique_tags": 117,
+    "total_unique_tags": 118,
     "allowlist_size": 308,
-    "known_count": 117,
+    "known_count": 118,
     "unknown_count": 0,
     "typo_candidates_count": 0
   },
@@ -2533,7 +2533,7 @@
     },
     {
       "name": "textbook",
-      "count": 82,
+      "count": 80,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-textbook-asphalt-concrete-pavement",
@@ -2600,11 +2600,9 @@
         "civil-construction-1-textbook-water-air-soil-pollution",
         "civil-construction-1-textbook-work-scheduling",
         "concrete-chief-engineer-textbook-construction",
-        "concrete-chief-engineer-textbook-durability",
         "concrete-chief-engineer-textbook-materials",
         "concrete-chief-engineer-textbook-production-qc",
         "concrete-chief-engineer-textbook-products",
-        "concrete-chief-engineer-textbook-properties",
         "concrete-chief-engineer-textbook-structural-design",
         "concrete-diagnostician-textbook-assessment",
         "concrete-diagnostician-textbook-deterioration",
@@ -3181,7 +3179,7 @@
     },
     {
       "name": "コンクリート",
-      "count": 22,
+      "count": 24,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-secondary-concrete-basics",
@@ -3205,7 +3203,9 @@
         "civil-practice-risk-assessment-construction-workflow",
         "civil-practice-road-fixtures-precast",
         "civil-practice-safety-patrol-corrective-action",
-        "concrete-chief-engineer-textbook-mix-design"
+        "concrete-chief-engineer-textbook-durability",
+        "concrete-chief-engineer-textbook-mix-design",
+        "concrete-chief-engineer-textbook-properties"
       ]
     },
     {
@@ -4153,6 +4153,17 @@
       ]
     },
     {
+      "name": "維持管理",
+      "count": 4,
+      "inAllowlist": true,
+      "usedIn": [
+        "concrete-chief-engineer-textbook-durability",
+        "pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance",
+        "pe-construction-iji-kanri-ronbun-keyword",
+        "pe-construction-infra-roukyuuka-iji"
+      ]
+    },
+    {
       "name": "脱炭素",
       "count": 4,
       "inAllowlist": true,
@@ -4354,16 +4365,6 @@
       ]
     },
     {
-      "name": "維持管理",
-      "count": 3,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance",
-        "pe-construction-iji-kanri-ronbun-keyword",
-        "pe-construction-infra-roukyuuka-iji"
-      ]
-    },
-    {
       "name": "鉄筋",
       "count": 3,
       "inAllowlist": true,
@@ -4503,6 +4504,14 @@
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-whitepaper-study-map"
+      ]
+    },
+    {
+      "name": "材料",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "concrete-chief-engineer-textbook-properties"
       ]
     },
     {
