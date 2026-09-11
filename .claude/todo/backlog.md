@@ -86,15 +86,6 @@ CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認し
 
 **完了条件**: 15 枚が章記事に埋め込まれ、`check-figure-canvas`・`check-orphan-figures`・`check-figure-embed-dims` が通る。各図の provenance に原本の図の複製でない旨が記録されている。
 
-### [DN-0190] コンクリート主任技士 過去問の年度補完（2022 年版巻末の未収録年度を分野別ページへ）
-タグ: [コンテンツ品質] [種類:制作] [検証:check-reference-sources] [起票:2026-09-11]
-
-**現状**: 主任技士の過去問は `primary-*`（分野別 8 本・257 問）に転記済み。`concrete-chief-textbook-2022` の巻末には平成 24〜28 年度の過去問があり、台帳の注記どおり 2024 年版と重ならない年度が未収録。年度別ページは作らず、分野別ページへ問を補完する。
-
-**やること**: 2022 年版の巻末過去問から、既存 8 本に無い年度の設問を分野ごとに振り分ける。問題文は試験実施機関の出典（`jcia-past-exams`・exam-official）として扱い、解説は出版社の解説を写さず自作する。既存ページの `<ExamPoint>`・選択肢の正誤検証の型に揃える（[過去問解答の折衷案](../knowledge/reference/content-principles.md)）。追加後に `past-exam-qa` で採点し、`npm run check-reference-sources` と deep を通す。
-
-**完了条件**: 未収録年度の設問が分野別 8 本のいずれかに入り、年度の重複が無い。deep で `concrete-chief-engineer` の逐語一致 0 件。`past-exam-qa` の指摘 HIGH 0。
-
 ## 🟡 中 — 2〜3ヶ月以内
 
 
