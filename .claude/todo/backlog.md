@@ -84,13 +84,6 @@ CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認し
 
 **完了条件**: 4 記事とも published・本文 3,000 字以上・`sources` 宣言・deep 0 件・`check-career-separation`／`lint-mdx-mobile` 0・`refresh-indexes` 後に 1 記事 1 コミットで push 済み。
 
-### [DN-0202] 2級土木の分野別ガイド 8 本に 1級テキストへの横断リンクと 2級範囲の絞り込みを加える
-タグ: [コンテンツ品質] [種類:改善] [検証:check-category-curriculum] [起票:2026-09-12]
-
-**決めたこと**: 2級に textbook 層は作らない（1級の textbook を共用し、複製しない）。`civil-construction-2/guide-{earthwork,concrete,foundation,construction-plan,law}-key-points`・`guide-{schedule,quality,safety}-management` の 8 本に、(1) 対応する 1級 textbook（専門土木の巻を含む）への「深く読むなら」リンク節、(2) 2級 第 1 次検定の出題範囲に絞った「2級で問われるのはここまで」の段落、を足す。`civil2-first-exam-manga-2026`（M）は 2級の範囲の切り分けの参考にだけ使い、逐語・図は使わない。`category-curriculum.json` の `civil-construction-2.fields` の説明文に「詳細は 1級テキスト」を 1 行。
-
-**完了条件**: 8 本すべてに 1級 textbook への内部リンクが 2 本以上あり、`check-category-curriculum` WARN 0、`lint-mdx-mobile` 0、`refresh-indexes` 後にコミット。
-
 ### [DN-0203] 専門土木テキスト 8 章の概念図 16 枚を自作 SVG で作る
 タグ: [コンテンツ品質] [種類:制作] [検証:check-figure-canvas] [起票:2026-09-12]
 
