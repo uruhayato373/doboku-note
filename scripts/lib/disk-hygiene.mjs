@@ -257,7 +257,7 @@ export function automationFreshness({ stampMtimeMs = null, now = Date.now(), max
   return { status: 'ok', reason: `最終実行 ${ageDays.toFixed(1)} 日前` };
 }
 
-/** `/Users/x/doboku-note` → `-Users-x-doboku-note`（~/.claude/projects/ のキー）。 */
+/** リポジトリの絶対パスの `/` `\\` `:` を `-` に置換したもの（~/.claude/projects/ のキー。例: `<home>-doboku-note`）。 */
 export function claudeProjectKey(repoRoot) {
   return String(repoRoot || '').replace(/[/\\:]/g, '-');
 }

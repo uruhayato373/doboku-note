@@ -133,6 +133,11 @@ const CHECKS = [
   { id: 'keiken-answer-split', npm: 'check-keiken-answer-split', timeout: 120_000, ci: true, note: '1級/2級で異なる経験記述の解答欄の割り振りが混ざっていないか（2級式を1級教材に使うと(2)に3要素が乗り約200字に収まらない）' },
   { id: 'standard-articles', npm: 'check-standard-articles', timeout: 180_000, ci: true, note: '公的基準の構造化章記事を15軸で検査（本文取りこぼし・全ページ割当・SHA-256・表復元・catalog 72文書の被覆と除外理由・章ごとの OGP 被覆）' },
   { id: 'standards-page-images', npm: 'check-standards-page-images', timeout: 120_000, ci: true, note: '公的基準のページ画像の provenance 整合（catalog↔manifest の原本 sha256・ページ被覆・part 範囲）。実体が無い端末では manifest のみ検査し、その旨を明示する' },
+  {
+    id: 'standards-data', npm: 'check-standards-data', timeout: 120_000, ci: true,
+    skip: () => existsSync(join(ROOT, 'public', 'standards-data', 'catalog.json')) ? null : '生成物 public/standards-data が無い（npm run build-standards-data 後に実行）',
+    note: '公開用 standards-data（Markdown / JSON-LD / 索引）の形式・条数・出典分離・noindex/CORS ヘッダー。build-standards-data の末尾でも走るが、生成物がある環境では横断監査でも再掲する（gate-parity のオーファン解消・DN-0205）',
+  },
   { id: 'reference-book-pages', npm: 'check-reference-book-pages', timeout: 120_000, ci: true, note: '参考文献 ID 単位の書籍 bundle を検査（1冊1ディレクトリ・原本 sha256・分冊順・通しページ被覆・Drive 台帳結線）。実体が無い端末では manifest のみ検査する' },
   { id: 'figure-embed-dims', npm: 'check-figure-embed-dims', timeout: 90_000, ci: true, note: 'ArticleImage の width/height と SVG の実 viewBox の突合。従来は r2-audit（週次 cron）と pre-commit(staged) だけで、push 経路に backstop が無かった' },
   { id: 'bold-rendering', npm: 'check-bold-rendering', timeout: 120_000, ci: true, note: '閉じ/開き ** が flanking を満たさず太字にならずアスタリスクが本文に出る事故。remark で実パースして text ノードに ** が残るかで判定する（規則の再実装ではない）' },

@@ -170,8 +170,11 @@ test('個人情報の入力欄が UI に存在しない', () => {
 });
 
 test('ツール一覧とルーティングに配線されている', () => {
+  // 一覧は src/lib/tools.ts の TOOLS を描画し、導線文は page.tsx の FLOWS を slug で引く（2026-09 の一覧再編）。
   const index = read('src/app/tools/page.tsx');
-  assert.ok(index.includes('/tools/career-check'), 'ツール一覧にカードが無い');
+  const tools = read('src/lib/tools.ts');
+  assert.ok(index.includes('TOOLS') && tools.includes('"/tools/career-check"'), 'ツール一覧にカードが無い');
+  assert.ok(index.includes("'career-check':"), 'ツール一覧の導線文（FLOWS）に career-check が無い');
   const page = read('src/app/tools/career-check/page.tsx');
   assert.ok(page.includes('alternates: { canonical: "/tools/career-check" }'), 'canonical が無い');
   assert.ok(page.includes('<noscript>'), 'JS 無効時の導線が無い');
