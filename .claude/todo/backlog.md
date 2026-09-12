@@ -75,28 +75,6 @@ CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認し
 
 **完了条件**: 各行の実体が解消したら行ごと消し、全行が消えたらカードを削除する。
 
-### [DN-0199] 1級土木 法規テキスト 3 本（法令遵守・建設業法・標準約款）を『建設業法のツボとコツ』の方法論で深掘りする
-タグ: [コンテンツ品質] [種類:制作] [Codex候補] [検証:check-reference-sources:deep] [起票:2026-09-12]
-
-**目的**: `content/site/civil-construction-1/textbook-{law-compliance,construction-business,standard-contract}/article.mdx` を、`construction-business-act-tips-3rd`（450p・OCR 済み）の**方法論**（条文を「誰が・いつ・何をすると違反か」の場面で読む）を借りて深掘りする。担い手 3 法（2024 年改正）の主任技術者・監理技術者の専任要件・技術検定の受検資格・請負契約の書面化・下請代金の扱いは `construction-business-act`（external-primary・条番号付き）で取り直す。問題A No.55〜61 と問題B の法規設問を例題リンクに使う。
-
-**手順の型**: content-taxonomy §7 の commercial-book 標準手順（原本を渡さず brief だけ・H2 は独自順・例題は公式過去問・deep 0 件・1 記事 1 コミット）。
-
-**参照**: 原本 class 別の加工ルールと commercial-book の標準手順（brief 方式）は [content-taxonomy.md](../knowledge/reference/content-taxonomy.md) §7。記事の型は [記事構成ガイド](../knowledge/reference/article-structure-guide.md)、図は [図版ポリシー](../knowledge/reference/image-policy.md)。原本の文字起こしは Drive vault `原資料PDF/書籍/<id>/ocr/`（内部利用のみ）。
-
-**完了条件**: 3 記事とも `sources` に `construction-business-act-tips-3rd`（title）と `construction-business-act#第N条` を宣言、本文 6,000 字以上、QA 平均 2.0 以上、`guide-fact-checker` 相当の制度照合で suspicious 0、deep 逐語一致 0、1 記事 1 コミットで push 済み。
-
-### [DN-0200] 1級土木 安全管理テキスト 3 本（管理体制・リスクアセスメント・法体系）を『安全管理のすべて 第7版』の方法論で深掘りする
-タグ: [コンテンツ品質] [種類:制作] [Codex候補] [検証:check-reference-sources:deep] [起票:2026-09-12]
-
-**目的**: `textbook-safety-{management-system,risk-assessment,industrial-safety-law}` を `safety-management-all-7th`（168p・OCR 済み）の方法論で深掘りする。統括安全衛生責任者・元方安全衛生管理者・店社安全衛生管理者の選任要件、リスクアセスメントの手順と見積り、安全施工サイクル、計画の届出は `labor-safety-act`／`labor-safety-rules`／`risk-assessment-guideline`／`oshms-guideline`（external-primary）で取り直す。実務の OSHMS 記事（`civil-practice`）と論点が重なる箇所は横断リンク 1 本で複製しない。
-
-**手順の型**: DN-0199 と同一。
-
-**参照**: 原本 class 別の加工ルールと commercial-book の標準手順（brief 方式）は [content-taxonomy.md](../knowledge/reference/content-taxonomy.md) §7。記事の型は [記事構成ガイド](../knowledge/reference/article-structure-guide.md)、図は [図版ポリシー](../knowledge/reference/image-policy.md)。原本の文字起こしは Drive vault `原資料PDF/書籍/<id>/ocr/`（内部利用のみ）。
-
-**完了条件**: DN-0199 と同一（sources は `safety-management-all-7th` と法令 id）。
-
 ### [DN-0201] 土木施工の実務（civil-practice）に防災・ICT のスポーク 4 本を新設する
 タグ: [コンテンツ品質] [種類:制作] [検証:check-reference-sources:deep] [起票:2026-09-12]
 
