@@ -172,25 +172,14 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 2. **目安 2026-09-14 以降**、公開後 28 日と直前 28 日を比較する。判定の正規表現と基準は [13_土木公務員SEO戦略2026-08.md](../../docs/strategy/13_土木公務員SEO戦略2026-08.md)
 3. 次記事「土木公務員に技術士は必要？」の着手可否は 1・2 の結果を見てから判断する（語順違いの類似ページは作らない）
 
-### [DN-0193] コンクリート診断士 テキスト記事 6 章を原本の方法論で深掘りする
-タグ: [コンテンツ品質] [種類:制作] [Codex候補] [検証:check-reference-sources:deep] [起票:2026-09-11]
-
-**目的**: `content/site/concrete-diagnostician/textbook-{variation,deterioration,investigation,assessment,repair,maintenance}/article.mdx` の 6 章を `concrete-diagnostician-textbook`（412p）を方法論の参考に深掘りする。劣化機構→調査→評価→対策の因果を章をまたいで一貫させ、記述式（問題A・問題B）の思考フレームとして使える構成にする。権利確認は 2026-09-12 に確定済み（reference-sources.json の notes）。
-
-**手順の型**: [content-taxonomy.md](../knowledge/reference/content-taxonomy.md) §7「commercial-book → guide / textbook の標準手順」（原本を渡さず brief だけ・H2 は独自順・例題は公式過去問・図は自作 SVG・deep 照合 0 件・1 記事 1 コミット）。textbook の Generator は `civil-textbook-rewriter` 相当、採点は `content-qa`／`guide-qa`。
-
-**参照**: 原本 class 別の加工ルールと commercial-book の標準手順（brief 方式）は [content-taxonomy.md](../knowledge/reference/content-taxonomy.md) §7。図は [図版ポリシー](../knowledge/reference/image-policy.md)、記事の型は [記事構成ガイド](../knowledge/reference/article-structure-guide.md)。原本の文字起こしは Drive vault `原資料PDF/書籍/<id>/ocr/part-*.md`（内部利用のみ）。
-
-**禁止**: フル模範解答・演習問題の大量転載（note 商品の空洞化）、原本の図の流用・トレース、原本の書名・ファイル名の本文言及、他社の登録商標の使用（content-taxonomy §7・§8）。 診断士の記述式 模範答案集（note 有料）と競合する「答案の全文」は載せない。
-
-**完了条件**: 6 記事とも `sources: [concrete-diagnostician-textbook]` を宣言し、本文 4,000 字以上、採点 2.0 以上、`guide-fact-checker` の suspicious 0、deep の一致 0 件、`lint-mdx-mobile` 0 件、1 記事 1 コミットで push 済み。
-
 ### [DN-0194] コンクリート診断士 劣化機構・調査・補修の概念図 15 枚を自作 SVG で作る
 タグ: [コンテンツ品質] [種類:制作] [検証:check-figure-canvas] [起票:2026-09-11]
 
 **目的**: 診断士の原本には「（図: …）」が 472 箇所あり、劣化機構の断面（中性化・塩害・ASR・凍害・化学的侵食）、ひび割れの分類、非破壊試験の原理（反発度・超音波・電磁波レーダ・自然電位）、補修・補強工法の断面は概念図として自作しやすい。DN-0189 と同じ手順（題材選定→`create-svg`→`svg-figure-auditor`→埋め込み→provenance→SNS 書き出し）で 15 枚を作る。原本の図のレイアウト再現は候補から外す。
 
 **完了条件**: 15 枚が `textbook-*` に埋め込まれ、`check-figure-canvas`・`check-orphan-figures`・`check-figure-embed-dims` が通る。provenance に自前制作の記録がある。
+
+**題材候補（DN-0193 の Writer 報告・2026-09-12）**: variation＝RC 成立 3 前提が崩れる経路／無筋・RC・PC の劣化進行差／覆工背面空洞と PC グラウト未充填の断面。deterioration＝マクロセル・ミクロセル腐食と断面修復境界／下水管の硫化水素侵食 4 段階／気泡径・間隔・量の緩衝機構。investigation＝レーダ周波数と探査深度・分解能のトレードオフ／ASR 調査フロー／火災 1 次・2 次調査フロー。assessment＝維持管理区分 A/B/C と維持管理限界の性能曲線／腐食発生限界濃度の基準別比較／火災の受熱温度分布と等温線。repair＝マクロセル腐食と犠牲陽極／電気化学的 4 工法の電流密度×期間／補強工法の効果マトリクス。maintenance＝耐震補強の破壊モード転換／技術・基準類の年表／繊維系補強材の強度・弾性係数比較。
 
 ## 🟢 低 — 時期未定
 

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-09-12T14:34:02.028Z",
+  "generated_at": "2026-09-12T14:46:46.585Z",
   "summary": {
     "total_mdx_files": 1242,
     "total_unique_tags": 122,
@@ -2681,7 +2681,7 @@
     },
     {
       "name": "textbook",
-      "count": 59,
+      "count": 58,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-textbook-asphalt-concrete-pavement",
@@ -2741,8 +2741,7 @@
         "civil-construction-1-textbook-transport-machinery",
         "civil-construction-1-textbook-waste-disposal-manifest",
         "civil-construction-1-textbook-water-air-soil-pollution",
-        "civil-construction-1-textbook-work-scheduling",
-        "concrete-diagnostician-textbook-maintenance"
+        "civil-construction-1-textbook-work-scheduling"
       ]
     },
     {
@@ -2973,7 +2972,7 @@
     },
     {
       "name": "コンクリート",
-      "count": 40,
+      "count": 41,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-secondary-concrete-basics",
@@ -3008,6 +3007,7 @@
         "concrete-diagnostician-textbook-assessment",
         "concrete-diagnostician-textbook-deterioration",
         "concrete-diagnostician-textbook-investigation",
+        "concrete-diagnostician-textbook-maintenance",
         "concrete-diagnostician-textbook-repair",
         "concrete-diagnostician-textbook-variation",
         "concrete-engineer-textbook-construction",
@@ -4082,6 +4082,20 @@
       ]
     },
     {
+      "name": "維持管理",
+      "count": 7,
+      "inAllowlist": true,
+      "usedIn": [
+        "concrete-chief-engineer-textbook-durability",
+        "concrete-diagnostician-textbook-assessment",
+        "concrete-diagnostician-textbook-maintenance",
+        "concrete-diagnostician-textbook-repair",
+        "pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance",
+        "pe-construction-iji-kanri-ronbun-keyword",
+        "pe-construction-infra-roukyuuka-iji"
+      ]
+    },
+    {
       "name": "GX",
       "count": 6,
       "inAllowlist": true,
@@ -4144,19 +4158,6 @@
         "pe-construction-bosai-kokudo-kyoujinka",
         "pe-construction-bousai-genseigai-ronbun-keyword",
         "pe-construction-river-coast-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "維持管理",
-      "count": 6,
-      "inAllowlist": true,
-      "usedIn": [
-        "concrete-chief-engineer-textbook-durability",
-        "concrete-diagnostician-textbook-assessment",
-        "concrete-diagnostician-textbook-repair",
-        "pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance",
-        "pe-construction-iji-kanri-ronbun-keyword",
-        "pe-construction-infra-roukyuuka-iji"
       ]
     },
     {
