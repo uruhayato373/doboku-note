@@ -30,11 +30,14 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
  *
  * 実行はローカル（note ログイン済みプロファイルのある Mac/Windows）限定。
  *
- * **既知の未検証部分（要ライブ校正・2026-08-25 時点）**:
- *   月選択 <select> のインデックス（0=年/1=月 と文書化されているが実 DOM 未確認）、
- *   「もっとみる」ボタンの正確な role/name、売上管理ページの月次総額表示セレクタは
- *   実機で一度も通していない。selector が見つからなければ ABORT して人へ引き継ぐ
- *   （fail-closed。誤ったセレクタで静かに 0 件を「完了」と報告しない）。
+ * **ライブ校正の記録（2026-09-13・Mac 実機で 2026-09 を取得し検算 0 差で書き込み）**:
+ *   販売履歴の年/月 <select> は 0=年/1=月 で確定。「もっとみる」は button 名で確定。
+ *   売上管理ページには <select> が無く、当月は「今月の売上 … 総額 ¥N」、過去月は
+ *   「処理済みの売上」表の行から読む（旧実装は説明文の「1,000円以上」を拾って必ず不一致だった）。
+ *   メンバーシップ会費は価格が「1,480円 / 月」・接頭辞「メンバーシップ・」が別要素になることがある。
+ *   カタログの単品記事（noteUrl が /n/）は `article:<id>`・type=article で書く（sales-tracking.md）。
+ *   selector が見つからなければ ABORT して人へ引き継ぐ（fail-closed）。
+ *   売上ページはパスワード再確認が要る領域。出たら人が headed ブラウザで通す（Cookie は永続プロファイルに残る）。
  * ---------------------------------------------------------------------------
  */
 import { chromium } from 'playwright';
@@ -66,11 +69,19 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 /** note-magazines.ts を静的パースして {id, title, shortTitle} の配列を返す（既存スクリプトと同じ手法）。 */
 function loadMagazines() {
   const src = readFileSync(join(ROOT, 'src/lib/note-magazines.ts'), 'utf8');
+  // エントリは `'<id>': {` で始まり、その直後に id / published / noteUrl / title / shortTitle が並ぶ。
+  // 旧正規表現（`{ … id … title … }` を非貪欲に跨ぐ）は description 内の入れ子や省略キーで
+  // id と title の組を取り違え、2026-09-13 に実在する単品記事 10 件を全部 unknown にしていた。
   const out = [];
-  const re = /\{[\s\S]*?id:\s*'([^']+)'[\s\S]*?title:\s*'([^']*)'[\s\S]*?(?:shortTitle:\s*'([^']*)')?[\s\S]*?\n\s*\},?/g;
-  let m;
-  while ((m = re.exec(src))) {
-    out.push({ id: m[1], title: m[2], shortTitle: m[3] || undefined });
+  const chunks = src.split(/\n  '([^']+)':\s*\{/);
+  for (let i = 1; i < chunks.length; i += 2) {
+    const id = chunks[i];
+    const body = chunks[i + 1] || '';
+    const title = body.match(/\n\s*title:\s*'((?:[^'\\]|\\.)*)'/)?.[1];
+    const shortTitle = body.match(/\n\s*shortTitle:\s*'((?:[^'\\]|\\.)*)'/)?.[1];
+    // noteUrl が /n/ なら単品記事（sales-tracking.md: productId は `article:<catalog-id>`・type=article）
+    const single = /noteUrl:\s*'https:\/\/note\.com\/dobokunote\/n\//.test(body);
+    if (title) out.push({ id, title: title.replace(/\\'/g, "'"), shortTitle: shortTitle ? shortTitle.replace(/\\'/g, "'") : undefined, single });
   }
   return out;
 }
@@ -149,7 +160,7 @@ try {
   // 明細行を抽出。行の正確なマークアップは未確認のため、価格表記（円）を手がかりに
   // 直近のタイトル・日付テキストを拾う緩い抽出にする。0 件は「取得失敗」として扱う。
   const rawRows = await page.evaluate(() => {
-    const priceRe = /^[\d,]+円$/;
+    const priceRe = /^[\d,]+円(?:\s*\/\s*月)?$/; // メンバーシップ会費は「1,480円 / 月」（2026-09-13 実 DOM）
     const dateRe = /^\d{4}年\d{1,2}月\d{1,2}日/;
     const nodes = Array.from(document.querySelectorAll('body *')).filter(
       (el) => el.children.length === 0 && el.innerText && el.innerText.trim()
@@ -162,7 +173,7 @@ try {
         let date = null, title = null;
         for (let j = i - 1; j >= Math.max(0, i - 6); j--) {
           if (!date && dateRe.test(texts[j])) { date = texts[j]; continue; }
-          if (date && !title && texts[j] && texts[j] !== '返信する' && texts[j] !== '記事購入') { title = texts[j]; break; }
+          if (date && !title && texts[j] && texts[j] !== '返信する' && !/^(?:記事購入|マガジン|メンバーシップ)[・･]?$/.test(texts[j])) { title = texts[j]; break; }
         }
         if (date && title) rows.push({ title, date, priceText: texts[i] });
       }
@@ -180,22 +191,16 @@ try {
   // 3. 売上管理（月次総額）
   await page.goto('https://note.com/sitesettings/salesmanage', { waitUntil: 'domcontentloaded', timeout: 60000 });
   await sleep(2000);
-  const smSelects = page.locator('select');
-  if (await smSelects.count() >= 2) {
-    try {
-      await smSelects.nth(0).selectOption({ label: `${YEAR}年` });
-      await smSelects.nth(1).selectOption({ label: `${Number(MONTH)}月` });
-      await sleep(1500);
-    } catch (e) {
-      console.error(`ABORT: 売上管理ページの年/月選択に失敗（${e.message}）`);
-      await ctx.close();
-      process.exit(4);
-    }
-  }
-  const dashboardTotalText = await page.evaluate(() => {
-    const m = (document.body.innerText || '').match(/([\d,]+)\s*円/);
-    return m ? m[1] : null;
-  });
+  // 2026-09-13 実 DOM: 売上管理ページに年/月 <select> は無い。当月は「今月の売上 … 総額 ¥N」、
+  // 過去月は「処理済みの売上」表の行「YYYY年M月 <お支払日> ¥N <状況>」から読む。
+  // 以前の `([\d,]+)\s*円` は説明文の「1,000円以上」を拾って必ず検算不一致になっていた。
+  const dashboardTotalText = await page.evaluate(({ year, month }) => {
+    const text = document.body.innerText || '';
+    const cur = text.match(/今月の売上[\s\S]*?(\d{4})年(\d{1,2})月1日[\s\S]*?総額\s*¥([\d,]+)/);
+    if (cur && Number(cur[1]) === year && Number(cur[2]) === month) return cur[3];
+    const row = new RegExp(`${year}年${month}月\\s+[^\\n]*?¥([\\d,]+)`).exec(text);
+    return row ? row[1] : null;
+  }, { year: Number(YEAR), month: Number(MONTH) });
   if (!dashboardTotalText) {
     console.error('ABORT: 売上管理ページから月次総額を読めなかった（selector 要校正）');
     await ctx.close();
@@ -213,7 +218,9 @@ try {
     const price = Number(r.priceText.replace(/[^\d]/g, ''));
     const resolved = resolveSaleEntry({ title: r.title, date: dateIso }, magazines, unknownIdx);
     if (!resolved.resolved) unknownIdx++;
-    entries.push({ date: dateIso, productId: canonicalizeProductId(resolved.productId), title: r.title, type: resolved.type, price });
+    // 販売履歴の表示は「記事購入・<題名>」「マガジン・<題名>」「メンバーシップ・<プラン>」。ログの title は題名だけ
+    const title = r.title.replace(/^(?:記事購入|マガジン|メンバーシップ)[・･]/, '');
+    entries.push({ date: dateIso, productId: canonicalizeProductId(resolved.productId), title, type: resolved.type, price });
   }
 
   const check = reconcileTotal(entries, dashboardTotal);
