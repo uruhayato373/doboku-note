@@ -120,6 +120,16 @@ jobs:
           GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
         run: npm run fetch-gsc-data -- --dimensions page,query --days 28 --all
 
+      # DN-0210: 登録クエリ×正規ページ×国/デバイスの確定7日比較と、期限到来の前後期間。
+      # snapshots は既存 gsc/ 配下へ追記。実験台帳は CI の checkout/reset で上書きしない。
+      - name: Collect SEO Rank Watch
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+        run: npm run seo-rank-watch -- collect
+
+      - name: Report SEO Rank Watch
+        run: npm run seo-rank-watch -- report
+
       # 収益カバレッジ ダッシュボード用: ページ別流入（report-monetization-coverage.mts が
       # 最新 ga4-page-*.json を読む）。
       - name: Fetch GA4 (page, for monetization coverage)

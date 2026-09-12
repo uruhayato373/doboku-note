@@ -2,7 +2,8 @@
 name: weekly-improve
 description: >
   週次の計測→改善サイクルを束ねる軽量オーケストレータ。GSC/GA4 取得 → metrics-analyzer が改善候補を抽出 → `/nsm-experiment` で rubric 採点・登録 → pending 実験の再計測までを 1 コマンドで回す。
-  Use when user asks to [週次改善, 改善ループ, /weekly-improve, 計測改善サイクル, 今週の改善候補].
+  --rank-watch ではGSC固定クエリの7日比較→検索意図分析→1件改善→本番反映後の観察を回す。
+  Use when user asks to [SEO Rank Watch, 検索順位を改善, 週次改善, 改善ループ, /weekly-improve, 計測改善サイクル, 今週の改善候補].
 user-invocable: true
 ---
 
@@ -30,9 +31,18 @@ user-invocable: true
 
 ```
 /weekly-improve                 # フルサイクル（取得 → 抽出 → 採点 → 登録）
+/weekly-improve --rank-watch    # SEO Rank Watch: 1キーワード改善・観察・再判定
 /weekly-improve --analyze-only  # 候補抽出まで（登録しない）
 /weekly-improve --no-fetch      # 既存の最新メトリクスを使う（再取得しない）
 ```
+
+## SEO Rank Watch モード
+
+`--rank-watch` または「SEO Rank Watch」「検索順位を継続改善」の依頼は、[seo-rank-watch.md](../../../knowledge/reference/seo-rank-watch.md) の手順で実行する。このモードでは以下の旧Phase 1〜7を重ねて回さない。1実行1キーワード、既存NSMの同時実行上限2件、ページ単位の観察ロックを守る。
+
+既定はCIのsnapshotを読み、`report` → `review --no-fetch`（確認後 `--commit`）→selectedの検索意図と上位1〜3ページの比較→不足があるときだけ1件改善→`record`。`--analyze-only` は分析まで。公開成功を確認したときだけ `deploy --run-id` で観察開始する。鍵が無い環境でも未取得を推測で埋めず、CIの正確な前後期間を待つ。
+
+JSON保存後はMDX・設定・順位snapshot・実験台帳をGit commitする。ユーザーが継続改善を依頼済みなら、低リスクの1件改善と記録はその依頼の範囲で進める。noindex・大規模構造変更・本番公開は既存の承認経路に従う。
 
 ## 実行手順
 
@@ -66,6 +76,8 @@ Traffic-Drop, Hidden-Winner, Orphan-Query, SNS-Source-Shift〔SNS 流入の急�
 出力ファイルを Read して親コンテキストに取り込む。
 
 ### Phase 3: pending 実験の再計測
+
+まず `npm run seo-rank-watch -- report --json` でrank-watchの期限を確認し、対象は専用reviewへ渡す。`kind: seo-rank-watch` を以下の10日/28日手動手順では変更しない。
 
 `.claude/state/experiments.json` を読み、status が `running` かつ `started_at + 10 日経過`の実験を列挙。該当があればユーザーに提示:
 

@@ -65,6 +65,7 @@ const GROUPS: { title: string; entries: NavEntry[] }[] = [
     entries: [
       { href: '/metrics', label: '分析概観', match: '/metrics' },
       { href: '/metrics/ga4', label: 'アクセス（GA4）', match: '/metrics/ga4' },
+      { href: '/metrics/seo-watch', label: '検索順位の改善', match: '/metrics/seo-watch' },
       { href: '/metrics/gsc', label: '検索（GSC）', match: '/metrics/gsc' },
       { href: '/metrics/psi', label: '表示速度（PSI）', match: '/metrics/psi' },
       { href: '/metrics/video', label: '動画成果', match: '/metrics/video' },

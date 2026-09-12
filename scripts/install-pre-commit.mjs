@@ -171,6 +171,12 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+# SEO観察中ページの変更と順位履歴の書換えを拒否する。
+node scripts/check-seo-rank-watch.mjs --staged
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+
 # SNS 投稿（content/sns/**）の /docs/ リンクが本番に実在するか検証（404 投稿の再発防止）
 node scripts/check-sns-urls.mjs --staged
 if [ $? -ne 0 ]; then

@@ -112,3 +112,9 @@ JSONファイルを Read ツールで読み込み、以下の観点で分析す�
 - `gsc-index-auditor` エージェント — URL Inspection から index coverage を診断（`/gsc-review` 経由・月次）
 - `metrics-analyzer` エージェント — GSC/GA4 から performance 改善候補を抽出（`/weekly-improve` 経由・週次）
 - `.claude/knowledge/reference/gsc-management.md` — GSC 管理の分業・閾値・判断マトリクスの真実源
+
+## 日付と固定条件
+
+日付はGSCのPT（America/Los_Angeles）、両端包含。`--days 7` は7日、`--days 28` は28日。既定はPTの今日−3日までの `dataState: final`・web検索。任意期間は `--start-date YYYY-MM-DD --end-date YYYY-MM-DD` の組で指定する。
+
+`--query` / `--page` は従来どおり部分一致。`--exact` を併用すると両方を完全一致にする。`--country jpn` / `--device MOBILE` も指定可能。SEO Rank Watchはこの共有fetcherを使う（[運用手順](../../../knowledge/reference/seo-rank-watch.md)）。既存snapshotを書換えず、新規ファイルへ保存する。

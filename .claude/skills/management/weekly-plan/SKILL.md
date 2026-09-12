@@ -99,6 +99,7 @@ Phase 0 の snapshot 直後、`.claude/state/weekly-metrics/YYYY-Www.json` を�
    - Phase 0 で `.claude/state/weekly-metrics/YYYY-Www.json` が生成済みならそれを使ってもよい
    - creds + 外部到達性がある環境に限り、任意で metrics-reader を直接呼んでもよい
 2. .claude/state/experiments.json を読んで以下を把握:
+   - `kind: seo-rank-watch` は汎用10日/28日・metrics-reader比較から除外。`npm run seo-rank-watch -- report --json` の状態・期限を転記し、`/weekly-improve --rank-watch --no-fetch` へ送る。観察中ページへ別実験を提案しない。
    - running 実験: 経過日数、baseline との gap
    - measuring 実験: 前後比較の中間サマリ
    - proposed 実験: 優先順位（次に start すべきもの）
