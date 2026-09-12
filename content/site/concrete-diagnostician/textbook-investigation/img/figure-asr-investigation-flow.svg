@@ -1,0 +1,49 @@
+<!-- authored 2026-09-12 doboku-note 自作。題材はコンクリート診断士テキスト「調査」の論点。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="ASR調査は外観観察・骨材の反応性判定・残存膨張の評価・総合判定の順に進み、各段階で何が分かるかを示すフロー図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead   { font-size: 11px; fill: #555; }
+      .t-name   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc   { font-size: 11px; fill: #555; }
+      .t-result { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#8a8a8a"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">ASR調査は外観→反応性判定→残存膨張評価の順に進める</text>
+
+  <rect class="box-b" x="20" y="30" width="360" height="90" rx="6"/>
+  <text class="t-name" x="35" y="52">① 外観調査</text>
+  <text class="t-desc" x="35" y="72">亀甲状ひび割れ・ゲル状析出物の有無を確認</text>
+  <text class="t-result" x="35" y="100">→ ASRの可能性を外観で把握する</text>
+
+  <line x1="200" y1="120" x2="200" y2="138" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect class="box-b" x="20" y="140" width="360" height="105" rx="6"/>
+  <text class="t-name" x="35" y="162">② 骨材の反応性判定</text>
+  <text class="t-desc" x="35" y="182">化学法(JIS A1145)・モルタルバー法</text>
+  <text class="t-desc" x="35" y="202">(JIS A1146)・偏光顕微鏡でも確認</text>
+  <text class="t-result" x="35" y="228">→ 使用骨材が反応性を持つか判定</text>
+
+  <line x1="200" y1="245" x2="200" y2="263" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect class="box-b" x="20" y="265" width="360" height="90" rx="6"/>
+  <text class="t-name" x="35" y="287">③ 残存膨張の評価</text>
+  <text class="t-desc" x="35" y="307">促進膨張試験（コア採取・養生）を実施</text>
+  <text class="t-result" x="35" y="335">→ 今後の膨張進行の見積りに使う</text>
+
+  <line x1="200" y1="355" x2="200" y2="373" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect class="box-p" x="20" y="375" width="360" height="90" rx="6"/>
+  <text class="t-name" x="35" y="397">④ 総合判定</text>
+  <text class="t-desc" x="35" y="417">外観・反応性・残存膨張を総合して判断</text>
+  <text class="t-result" x="35" y="445">→ ASRとして対策要否を決める</text>
+</svg>

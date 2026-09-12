@@ -1,0 +1,66 @@
+<!-- authored 2026-09-12 doboku-note 自作。題材はコンクリート診断士テキスト「予測・評価・判定」の論点。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="火災を受けたコンクリート断面の内部温度分布を層で示し、500℃線・300℃線の深さ位置で補修範囲の判断が変わることを表す図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .t-tag  { font-size: 11px; fill: #555; }
+      .band-cool { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .band-mid  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .band-hot  { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-b { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .divider { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 4 3; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">受熱で内部ほど温度は下がり、目安となる温度が2つある</text>
+
+  <!-- 断面の外枠（部材） -->
+  <rect x="40" y="34" width="250" height="228" fill="none" stroke="#222" stroke-width="1.5"/>
+
+  <!-- 上：300℃未満の層（最も内部・低温） -->
+  <rect class="band-cool" x="41" y="35" width="248" height="74"/>
+  <text class="t-name" x="55" y="58">300℃未満（健全域の目安）</text>
+  <text class="t-desc" x="55" y="76">強度・鋼材とも変化は小さい</text>
+  <text class="t-desc" x="55" y="92">内部ほど受熱の影響が及びにくい</text>
+
+  <!-- 中：300〜500℃の層 -->
+  <rect class="band-mid" x="41" y="111" width="248" height="74"/>
+  <text class="t-name" x="55" y="134">300〜500℃</text>
+  <text class="t-desc" x="55" y="152">PC鋼材の性能低下が始まる目安</text>
+  <text class="t-desc" x="55" y="168">RC造では影響は比較的小さい</text>
+
+  <!-- 下：500℃超の層（受熱面に最も近い） -->
+  <rect class="band-hot" x="41" y="187" width="248" height="74"/>
+  <text class="t-name" x="55" y="210">500℃超</text>
+  <text class="t-desc" x="55" y="228">Ca(OH)₂分解で本体強度が低下</text>
+  <text class="t-desc" x="55" y="244">RC造でも修復対象になる目安</text>
+
+  <!-- 境界線と温度ラベル -->
+  <line class="divider" x1="40" y1="110" x2="294" y2="110"/>
+  <text class="t-tag" x="298" y="114">300℃線</text>
+
+  <line class="divider" x1="40" y1="186" x2="294" y2="186"/>
+  <text class="t-tag" x="298" y="190">500℃線</text>
+
+  <!-- 受熱面（火災側）を示す矢印 -->
+  <polygon points="165,262 150,286 180,286" fill="#b22234"/>
+  <text class="t-desc" x="165" y="300" text-anchor="middle">受熱面（火災側）</text>
+
+  <!-- 判断の違い：RC造とPC造 -->
+  <rect class="box-b" x="20" y="316" width="360" height="76" rx="6"/>
+  <text class="t-name" x="40" y="338">RC構造物の目安</text>
+  <text class="t-desc" x="40" y="356">500℃線（Ca(OH)₂分解）までを</text>
+  <text class="t-desc" x="40" y="374">劣化範囲として除去・修復を検討する</text>
+
+  <rect class="box-w" x="20" y="402" width="360" height="76" rx="6"/>
+  <text class="t-name" x="40" y="424">PC構造物の目安</text>
+  <text class="t-desc" x="40" y="442">300℃線（PC鋼材の性能低下）まで</text>
+  <text class="t-desc" x="40" y="460">確認範囲を広げて判断する必要がある</text>
+</svg>

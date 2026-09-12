@@ -1,0 +1,59 @@
+<!-- authored 2026-09-12 doboku-note 自作。題材はコンクリート診断士テキスト「対策」の論点。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="通電期間を横軸、電流密度を縦軸にとり、再アルカリ化・脱塩・電着・電気防食の4つの電気化学的補修工法の位置づけを示す図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-point { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-row   { font-size: 12px; fill: #222; }
+      .dot     { fill: #2e6da4; }
+      .swatch1 { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .swatch2 { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">通電期間と電流密度の関係で4工法の位置づけが変わる</text>
+
+  <!-- 軸 -->
+  <line x1="50" y1="290" x2="50" y2="38" stroke="#222" stroke-width="1.5"/>
+  <polygon points="50,32 45,42 55,42" fill="#222"/>
+  <line x1="50" y1="290" x2="368" y2="290" stroke="#222" stroke-width="1.5"/>
+  <polygon points="374,290 364,285 364,295" fill="#222"/>
+
+  <text class="t-axis" x="54" y="34">電流密度（大）</text>
+  <text class="t-axis" x="8" y="282">（小）</text>
+  <text class="t-axis" x="54" y="306">（短）</text>
+  <text class="t-axis" x="310" y="306" text-anchor="end">通電期間（長）</text>
+
+  <!-- プロット -->
+  <circle class="dot" cx="110" cy="110" r="5"/>
+  <text class="t-point" x="102" y="94" text-anchor="end">再アルカリ化</text>
+
+  <circle class="dot" cx="170" cy="110" r="5"/>
+  <text class="t-point" x="178" y="128">脱塩</text>
+
+  <circle class="dot" cx="250" cy="190" r="5"/>
+  <text class="t-point" x="258" y="186">電着</text>
+
+  <circle class="dot" cx="345" cy="270" r="5"/>
+  <text class="t-point" x="335" y="256" text-anchor="end">電気防食</text>
+
+  <text class="t-lead" x="200" y="320" text-anchor="middle">数値はいずれも目安</text>
+
+  <!-- 数値の一覧 -->
+  <rect class="swatch1" x="30" y="336" width="14" height="14"/>
+  <text class="t-row" x="52" y="347">再アルカリ化：約1A/m²・1〜2週間</text>
+
+  <rect class="swatch1" x="30" y="378" width="14" height="14"/>
+  <text class="t-row" x="52" y="389">脱塩：約1A/m²・約8週間</text>
+
+  <rect class="swatch1" x="30" y="420" width="14" height="14"/>
+  <text class="t-row" x="52" y="431">電着：数か月（海水中で析出）</text>
+
+  <rect class="swatch2" x="30" y="462" width="14" height="14"/>
+  <text class="t-row" x="52" y="473">電気防食：数mA/m²級・恒久的に通電</text>
+</svg>

@@ -1,0 +1,62 @@
+<!-- authored 2026-09-12 doboku-note 自作。題材はコンクリート診断士テキスト「調査」の論点。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="電磁波レーダのアンテナ周波数と探査深度・分解能のトレードオフ。低周波数は深く届くが分解能は粗く、高周波数は分解能が細かいが探査深度は浅くなる関係と用途例を示す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-sec   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-rowlb { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-name  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-sum   { font-size: 12px; fill: #222; }
+      .axisline { stroke: #8a8a8a; stroke-width: 1.5; }
+      .band-depth { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .band-res   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#8a8a8a"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">周波数を上げるほど分解能は上がり探査深度は浅くなる</text>
+
+  <text class="t-sec" x="20" y="38">周波数と探査深度・分解能の関係</text>
+
+  <text class="t-rowlb" x="20" y="93">探査深度</text>
+  <polygon class="band-depth" points="100,58 380,95 380,120 100,120"/>
+  <text class="t-desc" x="108" y="72">深い</text>
+  <text class="t-desc" x="372" y="112" text-anchor="end">浅い</text>
+
+  <text class="t-rowlb" x="20" y="176">分解能</text>
+  <polygon class="band-res" points="100,190 380,140 380,205 100,205"/>
+  <text class="t-desc" x="108" y="200">粗い</text>
+  <text class="t-desc" x="372" y="155" text-anchor="end">細かい</text>
+
+  <line class="axisline" x1="100" y1="225" x2="378" y2="225" marker-end="url(#arrow)"/>
+  <text class="t-desc" x="100" y="242">低周波数</text>
+  <text class="t-desc" x="380" y="242" text-anchor="end">高周波数</text>
+
+  <text class="t-sec" x="20" y="270">周波数選びの目安</text>
+
+  <rect class="box-b" x="20" y="278" width="170" height="74" rx="6"/>
+  <text class="t-name" x="35" y="300">低周波数</text>
+  <text class="t-desc" x="35" y="320">深部の空洞・厚い部材の</text>
+  <text class="t-desc" x="35" y="340">探査に適する</text>
+
+  <rect class="box-w" x="210" y="278" width="170" height="74" rx="6"/>
+  <text class="t-name" x="225" y="300">高周波数</text>
+  <text class="t-desc" x="225" y="320">かぶり・鉄筋間隔の</text>
+  <text class="t-desc" x="225" y="340">把握に適する</text>
+
+  <text class="t-sec" x="20" y="378">使い分けの整理</text>
+  <rect class="box-surface" x="20" y="384" width="360" height="90" rx="6"/>
+  <text class="t-sum" x="200" y="408" text-anchor="middle">低周波数＝深く届くが分解能は粗い</text>
+  <text class="t-sum" x="200" y="432" text-anchor="middle">高周波数＝分解能は細かいが深さは届かない</text>
+  <text class="t-sum" x="200" y="456" text-anchor="middle">目的の深さと必要な分解能で周波数を選ぶ</text>
+</svg>

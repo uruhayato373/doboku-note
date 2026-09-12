@@ -1,0 +1,61 @@
+<!-- authored 2026-09-12 doboku-note 自作。題材はコンクリート診断士テキスト「評価」の論点。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="性能低下曲線上で予防維持管理・事後維持管理・観察維持管理の3区分が維持管理限界を置く位置が異なることを示す図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-sec   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-axis  { font-size: 11px; fill: #555; }
+      .t-row   { font-size: 12px; fill: #222; }
+      .t-sum   { font-size: 12px; fill: #222; }
+      .curve   { fill: none; stroke: #1a3a5c; stroke-width: 2; }
+      .axisline { stroke: #8a8a8a; stroke-width: 1.5; }
+      .lim-a { stroke: #3a7d44; }
+      .lim-b { stroke: #2e6da4; }
+      .lim-c { stroke: #d4a017; }
+      .box-surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#8a8a8a"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">維持管理区分によって性能低下曲線上の限界の位置が違う</text>
+
+  <text class="t-axis" x="18" y="45">性能</text>
+  <line class="axisline" x1="40" y1="300" x2="40" y2="28" marker-end="url(#arrow)"/>
+  <line class="axisline" x1="40" y1="300" x2="378" y2="300" marker-end="url(#arrow)"/>
+  <text class="t-axis" x="380" y="318" text-anchor="end">供用期間</text>
+
+  <path class="curve" d="M45,55 C120,58 170,70 210,130 C270,200 330,250 378,285"/>
+
+  <line x1="40" y1="75" x2="140" y2="75" class="lim-a" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <circle cx="140" cy="75" r="7" fill="#ffffff" class="lim-a" stroke-width="2"/>
+  <text x="140" y="79" text-anchor="middle" font-size="11" font-weight="bold" fill="#3a7d44">A</text>
+
+  <line x1="40" y1="150" x2="230" y2="150" class="lim-b" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <circle cx="230" cy="150" r="7" fill="#ffffff" class="lim-b" stroke-width="2"/>
+  <text x="230" y="154" text-anchor="middle" font-size="11" font-weight="bold" fill="#2e6da4">B</text>
+
+  <line x1="40" y1="240" x2="330" y2="240" class="lim-c" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <circle cx="330" cy="240" r="7" fill="#ffffff" class="lim-c" stroke-width="2"/>
+  <text x="330" y="244" text-anchor="middle" font-size="11" font-weight="bold" fill="#d4a017">C</text>
+
+  <text class="t-sec" x="20" y="330">維持管理区分と限界の位置</text>
+
+  <rect x="20" y="338" width="14" height="14" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+  <text class="t-row" x="42" y="349">予防維持管理（A）：顕在化前に対策。限界は早期</text>
+
+  <rect x="20" y="362" width="14" height="14" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="t-row" x="42" y="373">事後維持管理（B）：顕在化後に対策。限界は中間</text>
+
+  <rect x="20" y="386" width="14" height="14" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+  <text class="t-row" x="42" y="397">観察維持管理（C）：対策せず観察。限界は後期</text>
+
+  <rect class="box-surface" x="20" y="412" width="360" height="66" rx="6"/>
+  <text class="t-sum" x="200" y="438" text-anchor="middle">限界の位置＝どこまで性能低下を</text>
+  <text class="t-sum" x="200" y="460" text-anchor="middle">許容するかという診断士の判断</text>
+</svg>

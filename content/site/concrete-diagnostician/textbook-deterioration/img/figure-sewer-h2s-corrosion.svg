@@ -1,0 +1,72 @@
+<!-- authored 2026-09-12 doboku-note 自作。題材はコンクリート診断士テキスト「劣化機構」の論点。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="下水管の断面で硫化水素侵食の4段階を示す図。硫酸塩→硫化水素→気相放散→結露水での硫酸生成→管頂側が非対称に侵食される流れを表す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .t-num  { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .badge  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .badgeNum { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+    <marker id="arrGuide" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#8a8a8a"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">下水中の硫酸塩が気相を経て管頂を侵食する非対称機構</text>
+
+  <!-- 管頂の侵食（非対称） -->
+  <path d="M232.5,60.7 A95,95 0 1,1 167.5,60.7" fill="none" stroke="#d7d7d7" stroke-width="16"/>
+  <path d="M167.5,60.7 A95,95 0 0,1 232.5,60.7" fill="none" stroke="#b22234" stroke-width="16"/>
+
+  <clipPath id="pipeInner">
+    <circle cx="200" cy="150" r="87"/>
+  </clipPath>
+  <rect x="113" y="177" width="174" height="60" fill="#e8f0fe" clip-path="url(#pipeInner)"/>
+
+  <path d="M150,196 Q200,150 270,160" fill="none" stroke="#8a8a8a" stroke-width="1.2" stroke-dasharray="3 2"/>
+  <path d="M270,160 Q235,115 210,105" fill="none" stroke="#8a8a8a" stroke-width="1.2" stroke-dasharray="3 2" marker-end="url(#arrGuide)"/>
+  <path d="M200,105 L200,50" fill="none" stroke="#8a8a8a" stroke-width="1.2" stroke-dasharray="3 2" marker-end="url(#arrGuide)"/>
+
+  <circle class="badgeNum" cx="150" cy="205" r="11"/>
+  <text class="t-num" x="150" y="209" text-anchor="middle">1</text>
+
+  <circle class="badge" cx="280" cy="150" r="11"/>
+  <text class="t-num" x="280" y="154" text-anchor="middle">2</text>
+
+  <circle class="badge" cx="200" cy="95" r="11"/>
+  <text class="t-num" x="200" y="99" text-anchor="middle">3</text>
+
+  <circle class="badgeNum" cx="200" cy="34" r="11"/>
+  <text class="t-num" x="200" y="38" text-anchor="middle">4</text>
+
+  <text class="t-desc" x="20" y="266">管頂側（赤）だけが非対称に侵食される点が特徴</text>
+
+  <!-- 4段階の説明 -->
+  <circle class="badgeNum" cx="36" cy="290" r="10"/>
+  <text class="t-num" x="36" y="294" text-anchor="middle">1</text>
+  <text class="t-desc" x="54" y="286">汚水中の硫酸塩を硫酸塩還元菌が</text>
+  <text class="t-desc" x="54" y="302">硫化水素（H₂S）へ還元する</text>
+
+  <circle class="badge" cx="36" cy="335" r="10"/>
+  <text class="t-num" x="36" y="339" text-anchor="middle">2</text>
+  <text class="t-desc" x="54" y="331">発生したH₂Sの一部が</text>
+  <text class="t-desc" x="54" y="347">管頂の気相へ放散する</text>
+
+  <circle class="badge" cx="36" cy="380" r="10"/>
+  <text class="t-num" x="36" y="384" text-anchor="middle">3</text>
+  <text class="t-desc" x="54" y="376">管頂の結露水中で硫黄酸化細菌が</text>
+  <text class="t-desc" x="54" y="392">溶存硫化水素を酸化し硫酸を生成</text>
+
+  <circle class="badgeNum" cx="36" cy="425" r="10"/>
+  <text class="t-num" x="36" y="429" text-anchor="middle">4</text>
+  <text class="t-desc" x="54" y="421">生成した硫酸が管頂の水酸化カル</text>
+  <text class="t-desc" x="54" y="437">シウムと反応し、管頂側が侵食される</text>
+
+  <rect x="20" y="453" width="360" height="35" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text class="t-desc" x="36" y="475">断面欠損に至るまで、非対称の侵食が進行する</text>
+</svg>

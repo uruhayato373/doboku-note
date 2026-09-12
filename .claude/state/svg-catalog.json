@@ -2,14 +2,14 @@
   "description": "サイト図版SVGの派生カタログ（SSOT）。build-svg-catalog.mjs が生成。手動編集しない。",
   "source": "content/site/**/img/*.svg",
   "summary": {
-    "total": 564,
-    "embedded": 564,
+    "total": 579,
+    "embedded": 579,
     "orphan": 0,
     "missingConcept": 0,
     "withHighAudit": 0,
     "figures": {
-      "total": 486,
-      "conforming": 486,
+      "total": 501,
+      "conforming": 501,
       "needsRework": 0
     },
     "byCategory": {
@@ -17,7 +17,7 @@
       "civil-construction-2": 20,
       "civil-practice": 20,
       "concrete-chief-engineer": 72,
-      "concrete-diagnostician": 22,
+      "concrete-diagnostician": 37,
       "concrete-engineer": 12,
       "pe-comprehensive-management": 225
     }
@@ -5586,6 +5586,60 @@
       }
     },
     {
+      "file": "content/site/concrete-diagnostician/textbook-assessment/img/figure-chloride-threshold-comparison.svg",
+      "category": "concrete-diagnostician",
+      "slug": "textbook-assessment",
+      "name": "figure-chloride-threshold-comparison.svg",
+      "concept": "腐食発生限界塩化物イオン濃度は基準により異なり、一般値1.2kg/m3・現行示方書の算定式・港湾基準2.0kg/m3を比較し同じ測定値でも判定が変わることを示す図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-diagnostician/textbook-assessment/img/figure-fire-temperature-zones.svg",
+      "category": "concrete-diagnostician",
+      "slug": "textbook-assessment",
+      "name": "figure-fire-temperature-zones.svg",
+      "concept": "火災を受けたコンクリート断面の内部温度分布を層で示し、500℃線・300℃線の深さ位置で補修範囲の判断が変わることを表す図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-diagnostician/textbook-assessment/img/figure-maintenance-categories-limit.svg",
+      "category": "concrete-diagnostician",
+      "slug": "textbook-assessment",
+      "name": "figure-maintenance-categories-limit.svg",
+      "concept": "性能低下曲線上で予防維持管理・事後維持管理・観察維持管理の3区分が維持管理限界を置く位置が異なることを示す図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/concrete-diagnostician/textbook-deterioration/img/figure-01.svg",
       "category": "concrete-diagnostician",
       "slug": "textbook-deterioration",
@@ -5609,6 +5663,60 @@
       "slug": "textbook-deterioration",
       "name": "figure-02.svg",
       "concept": "塩化物イオンの浸入から不動態被膜の破壊、さびの膨張、鉄筋軸方向のひび割れ・はく落に至る塩害の進行段階",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-diagnostician/textbook-deterioration/img/figure-freeze-thaw-air-voids.svg",
+      "category": "concrete-diagnostician",
+      "slug": "textbook-deterioration",
+      "name": "figure-freeze-thaw-air-voids.svg",
+      "concept": "凍結時に毛細管の水が膨張して圧力が生じる断面と、近くの独立気泡が圧力の逃げ場になる様子を気泡間隔の広い場合・狭い場合で対比する図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-diagnostician/textbook-deterioration/img/figure-macrocell-microcell.svg",
+      "category": "concrete-diagnostician",
+      "slug": "textbook-deterioration",
+      "name": "figure-macrocell-microcell.svg",
+      "concept": "同一鉄筋上でアノード・カソードが微小に混在するミクロセル腐食と、断面修復の境界で未修復部がアノード・修復部がカソードになるマクロセル腐食に犠牲陽極材を配置する仕組み",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-diagnostician/textbook-deterioration/img/figure-sewer-h2s-corrosion.svg",
+      "category": "concrete-diagnostician",
+      "slug": "textbook-deterioration",
+      "name": "figure-sewer-h2s-corrosion.svg",
+      "concept": "下水管の断面で硫化水素侵食の4段階を示す図。硫酸塩→硫化水素→気相放散→結露水での硫酸生成→管頂側が非対称に侵食される流れを表す",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -5694,6 +5802,60 @@
       }
     },
     {
+      "file": "content/site/concrete-diagnostician/textbook-investigation/img/figure-asr-investigation-flow.svg",
+      "category": "concrete-diagnostician",
+      "slug": "textbook-investigation",
+      "name": "figure-asr-investigation-flow.svg",
+      "concept": "ASR調査は外観観察・骨材の反応性判定・残存膨張の評価・総合判定の順に進み、各段階で何が分かるかを示すフロー図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-diagnostician/textbook-investigation/img/figure-fire-investigation-steps.svg",
+      "category": "concrete-diagnostician",
+      "slug": "textbook-investigation",
+      "name": "figure-fire-investigation-steps.svg",
+      "concept": "火災調査の1次調査（外観・打音で範囲を把握）と2次調査（受熱温度・残存強度を精密分析）の役割差を2段で示す図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-diagnostician/textbook-investigation/img/figure-radar-frequency-tradeoff.svg",
+      "category": "concrete-diagnostician",
+      "slug": "textbook-investigation",
+      "name": "figure-radar-frequency-tradeoff.svg",
+      "concept": "電磁波レーダのアンテナ周波数と探査深度・分解能のトレードオフ。低周波数は深く届くが分解能は粗く、高周波数は分解能が細かいが探査深度は浅くなる関係と用途例を示す",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/concrete-diagnostician/textbook-maintenance/img/figure-01.svg",
       "category": "concrete-diagnostician",
       "slug": "textbook-maintenance",
@@ -5753,6 +5915,42 @@
       "slug": "textbook-maintenance",
       "name": "figure-04.svg",
       "concept": "単時点の計測では劣化速度が分からず、時系列の記録があってはじめて進行速度と補修時期が読めることを示す図と、記録すべき情報",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-diagnostician/textbook-maintenance/img/figure-seismic-failure-mode-shift.svg",
+      "category": "concrete-diagnostician",
+      "slug": "textbook-maintenance",
+      "name": "figure-seismic-failure-mode-shift.svg",
+      "concept": "補強前はせん断破壊で急激に耐力が低下し、補強後は曲げ降伏後も変位を保ちながら緩やかに低下する荷重変位曲線の比較",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-diagnostician/textbook-maintenance/img/figure-standards-timeline.svg",
+      "category": "concrete-diagnostician",
+      "slug": "textbook-maintenance",
+      "name": "figure-standards-timeline.svg",
+      "concept": "国産セメント開始から2000年代以降の維持管理体系整備まで技術・基準の変遷を時系列で示し、各時期が診断に持つ含意を並べた年表",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -5856,6 +6054,42 @@
       }
     },
     {
+      "file": "content/site/concrete-diagnostician/textbook-repair/img/figure-electrochemical-current-duration.svg",
+      "category": "concrete-diagnostician",
+      "slug": "textbook-repair",
+      "name": "figure-electrochemical-current-duration.svg",
+      "concept": "通電期間を横軸、電流密度を縦軸にとり、再アルカリ化・脱塩・電着・電気防食の4つの電気化学的補修工法の位置づけを示す図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-diagnostician/textbook-repair/img/figure-strengthening-effect-matrix.svg",
+      "category": "concrete-diagnostician",
+      "slug": "textbook-repair",
+      "name": "figure-strengthening-effect-matrix.svg",
+      "concept": "RC巻立て・鋼板接着・FRP接着・増厚・外ケーブルの5補強工法が曲げ耐力・せん断耐力・剛性・じん性にどの程度効くかを塗りの濃淡で示すマトリクス",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/concrete-diagnostician/textbook-variation/img/figure-01.svg",
       "category": "concrete-diagnostician",
       "slug": "textbook-variation",
@@ -5897,6 +6131,42 @@
       "slug": "textbook-variation",
       "name": "figure-03.svg",
       "concept": "ASR・鋼材腐食・凍害の劣化機構別に現れるひび割れパターンと随伴サインの比較",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-diagnostician/textbook-variation/img/figure-rc-three-premises.svg",
+      "category": "concrete-diagnostician",
+      "slug": "textbook-variation",
+      "name": "figure-rc-three-premises.svg",
+      "concept": "RCが成立する3前提（付着・熱膨張係数の近さ・アルカリによる防錆）ごとに、崩れる原因と現れる変状の対応を3段で示す図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-diagnostician/textbook-variation/img/figure-structure-type-cracks.svg",
+      "category": "concrete-diagnostician",
+      "slug": "textbook-variation",
+      "name": "figure-structure-type-cracks.svg",
+      "concept": "同じASR膨張が作用したときの無筋・RC・PCのひび割れの出方の違い。無筋は等方の亀甲状、RCは鉄筋方向に伸びた形状、PCは表面に出にくく内部に応力が蓄積する",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
