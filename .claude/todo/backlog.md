@@ -217,23 +217,12 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 2. **目安 2026-09-14 以降**、公開後 28 日と直前 28 日を比較する。判定の正規表現と基準は [13_土木公務員SEO戦略2026-08.md](../../docs/strategy/13_土木公務員SEO戦略2026-08.md)
 3. 次記事「土木公務員に技術士は必要？」の着手可否は 1・2 の結果を見てから判断する（語順違いの類似ページは作らない）
 
-### [DN-0191] コンクリート技士 テキスト記事 6 章を基礎 2 冊を下支えに深掘りする
-タグ: [コンテンツ品質] [種類:制作] [Codex候補] [検証:check-reference-sources:deep] [起票:2026-09-11]
-
-**目的**: `content/site/concrete-engineer/textbook-{materials,properties-testing,mix-design,production-qc,construction,environment}/article.mdx` の 6 章を、`concrete-basics-5th`（310p）と `construction-materials-basics`（284p）を原理の下支えにして深掘りする。技士は主任技士より基礎寄りなので、「なぜそうなるか」の説明に字数を配分し、主任技士の同名章とは深さで差別化する（複製しない）。1級土木の材料分野へ横断リンクを置く。
-
-**手順の型**: [content-taxonomy.md](../knowledge/reference/content-taxonomy.md) §7「commercial-book → guide / textbook の標準手順」（原本を渡さず brief だけ・H2 は独自順・例題は公式過去問・図は自作 SVG・deep 照合 0 件・1 記事 1 コミット）。textbook の Generator は `civil-textbook-rewriter` 相当、採点は `content-qa`／`guide-qa`。
-
-**参照**: 原本 class 別の加工ルールと commercial-book の標準手順（brief 方式）は [content-taxonomy.md](../knowledge/reference/content-taxonomy.md) §7。図は [図版ポリシー](../knowledge/reference/image-policy.md)、記事の型は [記事構成ガイド](../knowledge/reference/article-structure-guide.md)。原本の文字起こしは Drive vault `原資料PDF/書籍/<id>/ocr/part-*.md`（内部利用のみ）。
-
-**禁止**: フル模範解答・演習問題の大量転載（note 商品の空洞化）、原本の図の流用・トレース、原本の書名・ファイル名の本文言及、他社の登録商標の使用（content-taxonomy §7・§8）。
-
-**完了条件**: 6 記事とも `sources` に基礎 2 冊の id を宣言し、本文 4,000 字以上、採点 2.0 以上、`guide-fact-checker` の suspicious 0、deep の一致 0 件、`lint-mdx-mobile` 0 件、1 記事 1 コミットで push 済み。
-
 ### [DN-0192] コンクリート技士の図版 PNG 17 枚を自作 SVG へ置き換え、概念図を足す
 タグ: [コンテンツ品質] [種類:改善] [検証:check-figure-canvas] [起票:2026-09-11]
 
 **現状**: `concrete-engineer` 配下の図は PNG／webp 17 枚で SVG が 0 枚。`<ArticleImage>` も未使用。主任技士（SVG 57 枚）・診断士（SVG 22 枚）と揃っていない。
+
+**題材候補（テキスト 6 章の深掘りで Writer が返したもの・2026-09-12）**: 材料＝セメント製造 3 工程のフロー／骨材の含水状態 4 区分。性質＝静弾性係数 3 種の定義（応力ひずみ曲線）／コンシステンシー試験の使い分け。配合＝絶対容積法の容積構成（技士向け簡易版）／要求性能と配合 4 目標の対応。製造 QC＝生コン工場の設備配置／3 つの検査の工程フロー。施工＝締固め完了の判定（断面）／打重ね時間と打継ぎ判定のタイムライン。環境＝ライフサイクルと CO₂ 発生源のフロー／再生骨材 H/M/L と適用部位。
 
 **やること**: 17 枚の出所を `npm run audit-figures` で確認し、自前制作でないものは差し替え対象にする。DN-0189 の題材選定と同じ基準で、技士向けの概念図（材料の分類、試験方法の原理、配合の関係、施工の段階）を SVG で描き直し、[図版キャンバス標準](../knowledge/reference/figure-canvas-policy.md)へ合わせる。置換後に旧 PNG を `check-orphan-figures` で孤児にしないよう参照を更新し、R2 側の削除は `r2-delete-list.txt` 経由で扱う（自動 prune しない）。
 

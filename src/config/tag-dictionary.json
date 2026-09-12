@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-09-12T00:13:44.094Z",
+  "generated_at": "2026-09-12T01:21:13.584Z",
   "summary": {
     "total_mdx_files": 1238,
     "total_unique_tags": 122,
@@ -2442,7 +2442,7 @@
     },
     {
       "name": "環境保全",
-      "count": 84,
+      "count": 85,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-textbook-construction-byproduct-recycle",
@@ -2450,6 +2450,7 @@
         "civil-construction-1-textbook-waste-disposal-manifest",
         "civil-construction-1-textbook-water-air-soil-pollution",
         "civil-practice-environment-neighborhood",
+        "concrete-engineer-textbook-environment",
         "pe-comprehensive-management-acid-rain",
         "pe-comprehensive-management-agenda-21",
         "pe-comprehensive-management-air-pollution-control-act",
@@ -2533,7 +2534,7 @@
     },
     {
       "name": "textbook",
-      "count": 76,
+      "count": 70,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-textbook-asphalt-concrete-pavement",
@@ -2605,13 +2606,7 @@
         "concrete-diagnostician-textbook-investigation",
         "concrete-diagnostician-textbook-maintenance",
         "concrete-diagnostician-textbook-repair",
-        "concrete-diagnostician-textbook-variation",
-        "concrete-engineer-textbook-construction",
-        "concrete-engineer-textbook-environment",
-        "concrete-engineer-textbook-materials",
-        "concrete-engineer-textbook-mix-design",
-        "concrete-engineer-textbook-production-qc",
-        "concrete-engineer-textbook-properties-testing"
+        "concrete-diagnostician-textbook-variation"
       ]
     },
     {
@@ -3033,6 +3028,89 @@
       ]
     },
     {
+      "name": "コンクリート",
+      "count": 35,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-secondary-concrete-basics",
+        "civil-construction-1-secondary-concrete-past-problems",
+        "civil-construction-1-textbook-concrete-materials",
+        "civil-construction-1-textbook-concrete-mix-design",
+        "civil-construction-1-textbook-concrete-placement",
+        "civil-construction-1-textbook-concrete-properties",
+        "civil-construction-1-textbook-rebar-formwork",
+        "civil-construction-1-textbook-special-concrete-inspection",
+        "civil-practice-concrete-compaction-numbers",
+        "civil-practice-concrete-crack-causes",
+        "civil-practice-concrete-finishing-curing",
+        "civil-practice-concrete-mix-acceptance",
+        "civil-practice-concrete-placement-order",
+        "civil-practice-concrete-placement-timing",
+        "civil-practice-concrete-pump-capacity",
+        "civil-practice-concrete-repair-leakage",
+        "civil-practice-formwork-removal-timing",
+        "civil-practice-preventive-maintenance-diagnosis",
+        "civil-practice-risk-assessment-construction-workflow",
+        "civil-practice-road-fixtures-precast",
+        "civil-practice-safety-patrol-corrective-action",
+        "concrete-chief-engineer-textbook-construction",
+        "concrete-chief-engineer-textbook-durability",
+        "concrete-chief-engineer-textbook-materials",
+        "concrete-chief-engineer-textbook-mix-design",
+        "concrete-chief-engineer-textbook-production-qc",
+        "concrete-chief-engineer-textbook-products",
+        "concrete-chief-engineer-textbook-properties",
+        "concrete-chief-engineer-textbook-structural-design",
+        "concrete-engineer-textbook-construction",
+        "concrete-engineer-textbook-environment",
+        "concrete-engineer-textbook-materials",
+        "concrete-engineer-textbook-mix-design",
+        "concrete-engineer-textbook-production-qc",
+        "concrete-engineer-textbook-properties-testing"
+      ]
+    },
+    {
+      "name": "品質管理",
+      "count": 34,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-secondary-quality-management-basics",
+        "civil-construction-1-secondary-quality-management-past-problems",
+        "civil-construction-1-textbook-control-chart",
+        "civil-construction-1-textbook-histogram",
+        "civil-construction-1-textbook-quality-inspection",
+        "civil-construction-1-textbook-quality-overview",
+        "civil-practice-quality-record-site-bcp",
+        "civil-practice-reference-values",
+        "civil-practice-safety-patrol-corrective-action",
+        "concrete-chief-engineer-textbook-production-qc",
+        "concrete-chief-engineer-textbook-products",
+        "concrete-engineer-textbook-production-qc",
+        "concrete-engineer-textbook-properties-testing",
+        "pe-comprehensive-management-cause-and-effect-diagram",
+        "pe-comprehensive-management-control-limits",
+        "pe-comprehensive-management-design-quality",
+        "pe-comprehensive-management-design-review",
+        "pe-comprehensive-management-haccp",
+        "pe-comprehensive-management-inspection-methods",
+        "pe-comprehensive-management-manufacturing-quality",
+        "pe-comprehensive-management-nonconformity-rate",
+        "pe-comprehensive-management-pqcdsme",
+        "pe-comprehensive-management-process-capability-index",
+        "pe-comprehensive-management-qc-circle",
+        "pe-comprehensive-management-quality-assurance",
+        "pe-comprehensive-management-quality-characteristics",
+        "pe-comprehensive-management-quality-control",
+        "pe-comprehensive-management-quality-costing",
+        "pe-comprehensive-management-quality-improvement",
+        "pe-comprehensive-management-quality-objectives",
+        "pe-comprehensive-management-quality-planning",
+        "pe-comprehensive-management-quality-policy",
+        "pe-comprehensive-management-required-quality",
+        "pe-comprehensive-management-small-group-activities"
+      ]
+    },
+    {
       "name": "DX",
       "count": 32,
       "inAllowlist": true,
@@ -3069,81 +3147,6 @@
         "pe-comprehensive-management-system-integrity",
         "pe-comprehensive-management-system-outage-degradation",
         "pe-comprehensive-management-system-reliability"
-      ]
-    },
-    {
-      "name": "品質管理",
-      "count": 32,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-secondary-quality-management-basics",
-        "civil-construction-1-secondary-quality-management-past-problems",
-        "civil-construction-1-textbook-control-chart",
-        "civil-construction-1-textbook-histogram",
-        "civil-construction-1-textbook-quality-inspection",
-        "civil-construction-1-textbook-quality-overview",
-        "civil-practice-quality-record-site-bcp",
-        "civil-practice-reference-values",
-        "civil-practice-safety-patrol-corrective-action",
-        "concrete-chief-engineer-textbook-production-qc",
-        "concrete-chief-engineer-textbook-products",
-        "pe-comprehensive-management-cause-and-effect-diagram",
-        "pe-comprehensive-management-control-limits",
-        "pe-comprehensive-management-design-quality",
-        "pe-comprehensive-management-design-review",
-        "pe-comprehensive-management-haccp",
-        "pe-comprehensive-management-inspection-methods",
-        "pe-comprehensive-management-manufacturing-quality",
-        "pe-comprehensive-management-nonconformity-rate",
-        "pe-comprehensive-management-pqcdsme",
-        "pe-comprehensive-management-process-capability-index",
-        "pe-comprehensive-management-qc-circle",
-        "pe-comprehensive-management-quality-assurance",
-        "pe-comprehensive-management-quality-characteristics",
-        "pe-comprehensive-management-quality-control",
-        "pe-comprehensive-management-quality-costing",
-        "pe-comprehensive-management-quality-improvement",
-        "pe-comprehensive-management-quality-objectives",
-        "pe-comprehensive-management-quality-planning",
-        "pe-comprehensive-management-quality-policy",
-        "pe-comprehensive-management-required-quality",
-        "pe-comprehensive-management-small-group-activities"
-      ]
-    },
-    {
-      "name": "コンクリート",
-      "count": 29,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-secondary-concrete-basics",
-        "civil-construction-1-secondary-concrete-past-problems",
-        "civil-construction-1-textbook-concrete-materials",
-        "civil-construction-1-textbook-concrete-mix-design",
-        "civil-construction-1-textbook-concrete-placement",
-        "civil-construction-1-textbook-concrete-properties",
-        "civil-construction-1-textbook-rebar-formwork",
-        "civil-construction-1-textbook-special-concrete-inspection",
-        "civil-practice-concrete-compaction-numbers",
-        "civil-practice-concrete-crack-causes",
-        "civil-practice-concrete-finishing-curing",
-        "civil-practice-concrete-mix-acceptance",
-        "civil-practice-concrete-placement-order",
-        "civil-practice-concrete-placement-timing",
-        "civil-practice-concrete-pump-capacity",
-        "civil-practice-concrete-repair-leakage",
-        "civil-practice-formwork-removal-timing",
-        "civil-practice-preventive-maintenance-diagnosis",
-        "civil-practice-risk-assessment-construction-workflow",
-        "civil-practice-road-fixtures-precast",
-        "civil-practice-safety-patrol-corrective-action",
-        "concrete-chief-engineer-textbook-construction",
-        "concrete-chief-engineer-textbook-durability",
-        "concrete-chief-engineer-textbook-materials",
-        "concrete-chief-engineer-textbook-mix-design",
-        "concrete-chief-engineer-textbook-production-qc",
-        "concrete-chief-engineer-textbook-products",
-        "concrete-chief-engineer-textbook-properties",
-        "concrete-chief-engineer-textbook-structural-design"
       ]
     },
     {
@@ -3962,6 +3965,21 @@
       ]
     },
     {
+      "name": "施工",
+      "count": 8,
+      "inAllowlist": true,
+      "usedIn": [
+        "concrete-chief-engineer-textbook-construction",
+        "concrete-engineer-textbook-construction",
+        "pe-comprehensive-management-pattern-essay-general-contractor",
+        "pe-comprehensive-management-r03-essay-general-contractor",
+        "pe-comprehensive-management-r04-essay-general-contractor",
+        "pe-comprehensive-management-r05-essay-general-contractor",
+        "pe-comprehensive-management-r06-essay-general-contractor",
+        "pe-comprehensive-management-r07-essay-general-contractor"
+      ]
+    },
+    {
       "name": "施工計画、施工設備及び積算",
       "count": 8,
       "inAllowlist": true,
@@ -4062,20 +4080,6 @@
         "pe-comprehensive-management-r06-primary",
         "pe-comprehensive-management-r07-primary",
         "pe-comprehensive-management-r08-primary"
-      ]
-    },
-    {
-      "name": "施工",
-      "count": 7,
-      "inAllowlist": true,
-      "usedIn": [
-        "concrete-chief-engineer-textbook-construction",
-        "pe-comprehensive-management-pattern-essay-general-contractor",
-        "pe-comprehensive-management-r03-essay-general-contractor",
-        "pe-comprehensive-management-r04-essay-general-contractor",
-        "pe-comprehensive-management-r05-essay-general-contractor",
-        "pe-comprehensive-management-r06-essay-general-contractor",
-        "pe-comprehensive-management-r07-essay-general-contractor"
       ]
     },
     {
@@ -4369,6 +4373,16 @@
       ]
     },
     {
+      "name": "材料",
+      "count": 3,
+      "inAllowlist": true,
+      "usedIn": [
+        "concrete-chief-engineer-textbook-materials",
+        "concrete-chief-engineer-textbook-properties",
+        "concrete-engineer-textbook-materials"
+      ]
+    },
+    {
       "name": "測量",
       "count": 3,
       "inAllowlist": true,
@@ -4386,6 +4400,16 @@
         "pe-construction-kensetsu-dx",
         "pe-construction-ninaite-dx-ronbun-keyword",
         "pe-construction-ninaite-kakuho-seisansei"
+      ]
+    },
+    {
+      "name": "配合計算",
+      "count": 3,
+      "inAllowlist": true,
+      "usedIn": [
+        "concrete-chief-engineer-textbook-mix-design",
+        "concrete-engineer-primary-mix-design",
+        "concrete-engineer-textbook-mix-design"
       ]
     },
     {
@@ -4489,30 +4513,12 @@
       ]
     },
     {
-      "name": "材料",
-      "count": 2,
-      "inAllowlist": true,
-      "usedIn": [
-        "concrete-chief-engineer-textbook-materials",
-        "concrete-chief-engineer-textbook-properties"
-      ]
-    },
-    {
       "name": "特定技能",
       "count": 2,
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-foreign-trainee-program",
         "pe-comprehensive-management-immigration-control-act"
-      ]
-    },
-    {
-      "name": "配合計算",
-      "count": 2,
-      "inAllowlist": true,
-      "usedIn": [
-        "concrete-chief-engineer-textbook-mix-design",
-        "concrete-engineer-primary-mix-design"
       ]
     },
     {
