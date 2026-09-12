@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-09-12T14:20:41.843Z",
+  "generated_at": "2026-09-12T14:32:08.878Z",
   "summary": {
     "total_mdx_files": 1242,
     "total_unique_tags": 122,
@@ -2681,7 +2681,7 @@
     },
     {
       "name": "textbook",
-      "count": 61,
+      "count": 59,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-textbook-asphalt-concrete-pavement",
@@ -2742,9 +2742,7 @@
         "civil-construction-1-textbook-waste-disposal-manifest",
         "civil-construction-1-textbook-water-air-soil-pollution",
         "civil-construction-1-textbook-work-scheduling",
-        "concrete-diagnostician-textbook-investigation",
-        "concrete-diagnostician-textbook-maintenance",
-        "concrete-diagnostician-textbook-repair"
+        "concrete-diagnostician-textbook-maintenance"
       ]
     },
     {
@@ -2974,6 +2972,53 @@
       ]
     },
     {
+      "name": "コンクリート",
+      "count": 40,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-secondary-concrete-basics",
+        "civil-construction-1-secondary-concrete-past-problems",
+        "civil-construction-1-textbook-concrete-materials",
+        "civil-construction-1-textbook-concrete-mix-design",
+        "civil-construction-1-textbook-concrete-placement",
+        "civil-construction-1-textbook-concrete-properties",
+        "civil-construction-1-textbook-rebar-formwork",
+        "civil-construction-1-textbook-special-concrete-inspection",
+        "civil-practice-concrete-compaction-numbers",
+        "civil-practice-concrete-crack-causes",
+        "civil-practice-concrete-finishing-curing",
+        "civil-practice-concrete-mix-acceptance",
+        "civil-practice-concrete-placement-order",
+        "civil-practice-concrete-placement-timing",
+        "civil-practice-concrete-pump-capacity",
+        "civil-practice-concrete-repair-leakage",
+        "civil-practice-formwork-removal-timing",
+        "civil-practice-preventive-maintenance-diagnosis",
+        "civil-practice-risk-assessment-construction-workflow",
+        "civil-practice-road-fixtures-precast",
+        "civil-practice-safety-patrol-corrective-action",
+        "concrete-chief-engineer-textbook-construction",
+        "concrete-chief-engineer-textbook-durability",
+        "concrete-chief-engineer-textbook-materials",
+        "concrete-chief-engineer-textbook-mix-design",
+        "concrete-chief-engineer-textbook-production-qc",
+        "concrete-chief-engineer-textbook-products",
+        "concrete-chief-engineer-textbook-properties",
+        "concrete-chief-engineer-textbook-structural-design",
+        "concrete-diagnostician-textbook-assessment",
+        "concrete-diagnostician-textbook-deterioration",
+        "concrete-diagnostician-textbook-investigation",
+        "concrete-diagnostician-textbook-repair",
+        "concrete-diagnostician-textbook-variation",
+        "concrete-engineer-textbook-construction",
+        "concrete-engineer-textbook-environment",
+        "concrete-engineer-textbook-materials",
+        "concrete-engineer-textbook-mix-design",
+        "concrete-engineer-textbook-production-qc",
+        "concrete-engineer-textbook-properties-testing"
+      ]
+    },
+    {
       "name": "career",
       "count": 39,
       "inAllowlist": true,
@@ -3017,51 +3062,6 @@
         "civil-construction-2-guide-salary",
         "civil-construction-2-guide-young-career",
         "pe-construction-guide-career"
-      ]
-    },
-    {
-      "name": "コンクリート",
-      "count": 38,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-secondary-concrete-basics",
-        "civil-construction-1-secondary-concrete-past-problems",
-        "civil-construction-1-textbook-concrete-materials",
-        "civil-construction-1-textbook-concrete-mix-design",
-        "civil-construction-1-textbook-concrete-placement",
-        "civil-construction-1-textbook-concrete-properties",
-        "civil-construction-1-textbook-rebar-formwork",
-        "civil-construction-1-textbook-special-concrete-inspection",
-        "civil-practice-concrete-compaction-numbers",
-        "civil-practice-concrete-crack-causes",
-        "civil-practice-concrete-finishing-curing",
-        "civil-practice-concrete-mix-acceptance",
-        "civil-practice-concrete-placement-order",
-        "civil-practice-concrete-placement-timing",
-        "civil-practice-concrete-pump-capacity",
-        "civil-practice-concrete-repair-leakage",
-        "civil-practice-formwork-removal-timing",
-        "civil-practice-preventive-maintenance-diagnosis",
-        "civil-practice-risk-assessment-construction-workflow",
-        "civil-practice-road-fixtures-precast",
-        "civil-practice-safety-patrol-corrective-action",
-        "concrete-chief-engineer-textbook-construction",
-        "concrete-chief-engineer-textbook-durability",
-        "concrete-chief-engineer-textbook-materials",
-        "concrete-chief-engineer-textbook-mix-design",
-        "concrete-chief-engineer-textbook-production-qc",
-        "concrete-chief-engineer-textbook-products",
-        "concrete-chief-engineer-textbook-properties",
-        "concrete-chief-engineer-textbook-structural-design",
-        "concrete-diagnostician-textbook-assessment",
-        "concrete-diagnostician-textbook-deterioration",
-        "concrete-diagnostician-textbook-variation",
-        "concrete-engineer-textbook-construction",
-        "concrete-engineer-textbook-environment",
-        "concrete-engineer-textbook-materials",
-        "concrete-engineer-textbook-mix-design",
-        "concrete-engineer-textbook-production-qc",
-        "concrete-engineer-textbook-properties-testing"
       ]
     },
     {
@@ -4147,6 +4147,19 @@
       ]
     },
     {
+      "name": "維持管理",
+      "count": 6,
+      "inAllowlist": true,
+      "usedIn": [
+        "concrete-chief-engineer-textbook-durability",
+        "concrete-diagnostician-textbook-assessment",
+        "concrete-diagnostician-textbook-repair",
+        "pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance",
+        "pe-construction-iji-kanri-ronbun-keyword",
+        "pe-construction-infra-roukyuuka-iji"
+      ]
+    },
+    {
       "name": "pillar",
       "count": 5,
       "inAllowlist": true,
@@ -4156,18 +4169,6 @@
         "pe-comprehensive-management-information-management-pillar",
         "pe-comprehensive-management-safety-management-pillar",
         "pe-comprehensive-management-social-environment-management-pillar"
-      ]
-    },
-    {
-      "name": "維持管理",
-      "count": 5,
-      "inAllowlist": true,
-      "usedIn": [
-        "concrete-chief-engineer-textbook-durability",
-        "concrete-diagnostician-textbook-assessment",
-        "pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance",
-        "pe-construction-iji-kanri-ronbun-keyword",
-        "pe-construction-infra-roukyuuka-iji"
       ]
     },
     {
