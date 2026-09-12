@@ -34,7 +34,7 @@ export function getTopicPathForTag(tag: string): string | null {
 }
 
 /** 記事がテーマに属するか（明示 `topics:` ／ カテゴリ丸ごと ／ タグ一致。タグは canonical で照合） */
-export function isDocInTopic(doc: DocMeta, topic: Topic): boolean {
+function isDocInTopic(doc: DocMeta, topic: Topic): boolean {
   if (doc.published === false) return false;
   const explicit = doc.topics;
   if (Array.isArray(explicit) && explicit.includes(topic.slug)) return true;

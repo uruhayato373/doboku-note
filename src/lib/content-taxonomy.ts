@@ -9,18 +9,14 @@ import categoriesData from '@/config/categories.json';
 import tagsData from '@/config/tags.json';
 
 export type PublicArea = 'exam' | 'practice' | 'standards';
-export type TagClass = 'structural' | 'flag' | 'qualification' | 'topical';
+type TagClass = 'structural' | 'flag' | 'qualification' | 'topical';
 
-type GroupDef = { label: string; routeSegment: string; docGroupKey: string; structuralTags: string[] };
 type TagEntry = { name: string; slug: string; class?: TagClass; canonical?: string; aliases?: string[] };
 
-const groups = (taxonomy as { groups: Record<string, GroupDef> }).groups;
 const areas = (taxonomy as { areas: Record<PublicArea, { label: string; hubPath: string }> }).areas;
 const categoryArea = new Map<string, PublicArea>();
-const categoryGroups = new Map<string, string[]>();
 for (const c of categoriesData as Array<{ slug: string; area?: PublicArea; groups?: string[] }>) {
   categoryArea.set(c.slug, c.area ?? 'exam');
-  categoryGroups.set(c.slug, c.groups ?? []);
 }
 
 const toCanonical = new Map<string, string>();
@@ -37,14 +33,6 @@ export function getCategoryArea(category: string | undefined): PublicArea {
 
 export function getAreaHubPath(area: PublicArea): string {
   return areas[area]?.hubPath ?? '/exam';
-}
-
-export function getGroupDef(group: string): GroupDef | undefined {
-  return groups[group];
-}
-
-export function getAllowedGroups(category: string): string[] {
-  return categoryGroups.get(category) ?? [];
 }
 
 /** 受理綴り（name / slug / aliases）を正規表記へ。未登録はそのまま返す。 */

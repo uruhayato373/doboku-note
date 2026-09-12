@@ -1,6 +1,6 @@
 import comparisonJson from '@/../content/site/standards-articles/comparison.json';
 
-export type StandardDifferenceHunk = {
+type StandardDifferenceHunk = {
   context: string | null;
   beforeLine: number;
   afterLine: number;
@@ -10,7 +10,7 @@ export type StandardDifferenceHunk = {
   addedCount: number;
 };
 
-export type StandardChapterDifference = {
+type StandardChapterDifference = {
   agencyId: string;
   agencyName: string;
   chapterId: string;
@@ -20,7 +20,7 @@ export type StandardChapterDifference = {
   hunks: StandardDifferenceHunk[];
 };
 
-export type StandardComparisonRow = {
+type StandardComparisonRow = {
   agencyId: string;
   agencyName: string;
   documentId: string;

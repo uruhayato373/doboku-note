@@ -480,6 +480,3 @@ export function listedCoconalaServices(): CoconalaService[] {
   return Object.values(COCONALA_SERVICES).filter((s) => s.status === 'listed');
 }
 
-export function getCoconalaService(id: CoconalaServiceId): CoconalaService {
-  return COCONALA_SERVICES[id];
-}
