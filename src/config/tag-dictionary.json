@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-09-12T03:18:29.383Z",
+  "generated_at": "2026-09-12T14:06:15.786Z",
   "summary": {
     "total_mdx_files": 1242,
     "total_unique_tags": 122,
@@ -2612,7 +2612,7 @@
     },
     {
       "name": "textbook",
-      "count": 64,
+      "count": 62,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-textbook-asphalt-concrete-pavement",
@@ -2674,11 +2674,9 @@
         "civil-construction-1-textbook-water-air-soil-pollution",
         "civil-construction-1-textbook-work-scheduling",
         "concrete-diagnostician-textbook-assessment",
-        "concrete-diagnostician-textbook-deterioration",
         "concrete-diagnostician-textbook-investigation",
         "concrete-diagnostician-textbook-maintenance",
-        "concrete-diagnostician-textbook-repair",
-        "concrete-diagnostician-textbook-variation"
+        "concrete-diagnostician-textbook-repair"
       ]
     },
     {
@@ -3024,7 +3022,7 @@
     },
     {
       "name": "コンクリート",
-      "count": 35,
+      "count": 37,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-secondary-concrete-basics",
@@ -3056,6 +3054,8 @@
         "concrete-chief-engineer-textbook-products",
         "concrete-chief-engineer-textbook-properties",
         "concrete-chief-engineer-textbook-structural-design",
+        "concrete-diagnostician-textbook-deterioration",
+        "concrete-diagnostician-textbook-variation",
         "concrete-engineer-textbook-construction",
         "concrete-engineer-textbook-environment",
         "concrete-engineer-textbook-materials",
