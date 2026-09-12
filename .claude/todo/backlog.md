@@ -175,7 +175,7 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 ### [DN-0193] コンクリート診断士 テキスト記事 6 章を原本の方法論で深掘りする
 タグ: [コンテンツ品質] [種類:制作] [Codex候補] [検証:check-reference-sources:deep] [起票:2026-09-11]
 
-**目的**: `content/site/concrete-diagnostician/textbook-{variation,deterioration,investigation,assessment,repair,maintenance}/article.mdx` の 6 章を `concrete-diagnostician-textbook`（412p）を方法論の参考に深掘りする。劣化機構→調査→評価→対策の因果を章をまたいで一貫させ、記述式（問題A・問題B）の思考フレームとして使える構成にする。**着手前に DN-0195（権利確認）の結論を確認する。**
+**目的**: `content/site/concrete-diagnostician/textbook-{variation,deterioration,investigation,assessment,repair,maintenance}/article.mdx` の 6 章を `concrete-diagnostician-textbook`（412p）を方法論の参考に深掘りする。劣化機構→調査→評価→対策の因果を章をまたいで一貫させ、記述式（問題A・問題B）の思考フレームとして使える構成にする。権利確認は 2026-09-12 に確定済み（reference-sources.json の notes）。
 
 **手順の型**: [content-taxonomy.md](../knowledge/reference/content-taxonomy.md) §7「commercial-book → guide / textbook の標準手順」（原本を渡さず brief だけ・H2 は独自順・例題は公式過去問・図は自作 SVG・deep 照合 0 件・1 記事 1 コミット）。textbook の Generator は `civil-textbook-rewriter` 相当、採点は `content-qa`／`guide-qa`。
 
@@ -289,9 +289,3 @@ Drive台帳・vault・Drive APIの照合前にローカル実体を削除しな�
 
 ## 🟣 判断待ち — ユーザーの意思決定が必要
 
-### [DN-0195] コンクリート診断士コンテンツの権利確認の状態を確定する
-タグ: [コンテンツ品質] [種類:意思決定] [起票:2026-09-11]
-
-**決めること**: 診断士は以前「第 5 資格・下書き 18 記事・公開は権利確認必須」としていたが、2026-09-11 時点で 18 本すべて `published: true` になっている。権利確認（原本の出版社・試験実施機関に対する扱い）が済んで公開したのか、確認前に公開されたのかを運営者が確定する。済んでいなければ、DN-0193／DN-0194 の着手前に確認するか、それまで公開を続けるかを決める。
-
-**待ち先**: 運営者。判断が出たらこのカードを削除し、結論は `concrete-diagnostician` の `guide-overview` か reference-sources.json の `notes` に 1 行で残す（backlog に経緯を書き足さない）。
