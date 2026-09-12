@@ -591,7 +591,9 @@
             "quality-record-site-bcp",
             "reference-values",
             "schedule-and-road-permit",
-            "environment-neighborhood"
+            "environment-neighborhood",
+            "ict-construction-workflow",
+            "bim-cim-site-practice"
           ]
         },
         {
@@ -600,7 +602,9 @@
           "slugs": [
             "asphalt-pavement-control",
             "river-park-erosion-control",
-            "service-commencement"
+            "service-commencement",
+            "flood-season-river-work",
+            "rainfall-work-suspension"
           ]
         }
       ]
