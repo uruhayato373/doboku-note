@@ -2,18 +2,18 @@
   "description": "サイト図版SVGの派生カタログ（SSOT）。build-svg-catalog.mjs が生成。手動編集しない。",
   "source": "content/site/**/img/*.svg",
   "summary": {
-    "total": 536,
-    "embedded": 536,
+    "total": 552,
+    "embedded": 552,
     "orphan": 0,
     "missingConcept": 0,
     "withHighAudit": 0,
     "figures": {
-      "total": 458,
-      "conforming": 458,
+      "total": 474,
+      "conforming": 474,
       "needsRework": 0
     },
     "byCategory": {
-      "civil-construction-1": 177,
+      "civil-construction-1": 193,
       "civil-construction-2": 20,
       "civil-practice": 20,
       "concrete-chief-engineer": 72,
@@ -599,6 +599,42 @@
       }
     },
     {
+      "file": "content/site/civil-construction-1/textbook-coast-port/img/figure-caisson-installation-flow.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-coast-port",
+      "name": "figure-caisson-installation-flow.svg",
+      "concept": "ケーソン式混成堤の施工フロー。製作・進水・えい航・据付（注水）・中詰め・蓋コンクリート・上部工の順序と各段階の管理点を示す",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-coast-port/img/figure-seawall-types.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-coast-port",
+      "name": "figure-seawall-types.svg",
+      "concept": "海岸堤防の3形式（緩傾斜型・傾斜型・直立型）の断面比較。根固工・消波工は各形式の法先（波打ち際）に設置し、越波の抑えやすさが形式ごとに異なる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-construction-1/textbook-construction-business/img/figure-license-classification.svg",
       "category": "civil-construction-1",
       "slug": "textbook-construction-business",
@@ -946,6 +982,42 @@
       "slug": "textbook-cut-slope-protection",
       "name": "figure-slope-protection-selection.svg",
       "concept": "法面保護工の選定。安定した土質は植生工、侵食されやすい場合は構造物工を併用、湧水がある場所は法枠工・ブロック張り工、軟弱で崩れやすい場合はブロック張り工・石張り工、風化しやすい土砂・軟岩はモルタル・コンクリート吹付工を用いる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-dam-construction/img/figure-dam-types.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-dam-construction",
+      "name": "figure-dam-types.svg",
+      "concept": "ダム3形式の水圧支持機構。重力式は堤体の自重で支持、アーチ式はアーチ作用で両岸の岩盤へ伝達、中央コア型ロックフィルダムはコアの遮水とロックの安定支持を組み合わせる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-dam-construction/img/figure-rcd-lift-layers.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-dam-construction",
+      "name": "figure-rcd-lift-layers.svg",
+      "concept": "RCD工法の1リフト断面。超硬練りコンクリートを薄層3層に敷き均して積み上げ、各層を振動ローラで締め固め、横継目は振動目地切機で設ける層構成を示す",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -2075,6 +2147,42 @@
       }
     },
     {
+      "file": "content/site/civil-construction-1/textbook-railway-underground/img/figure-shield-machine-parts.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-railway-underground",
+      "name": "figure-shield-machine-parts.svg",
+      "concept": "シールド機の側面模式図。フード部・ガーダー部（推進ジャッキ）・テール部（セグメント組立）の3区分と、テール通過後に生じる隙間へ裏込め注入する位置。下段は土圧式と泥水式の切羽保持方式の違い",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-railway-underground/img/figure-track-work-safety-roles.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-railway-underground",
+      "name": "figure-track-work-safety-roles.svg",
+      "concept": "営業線近接工事の保安体制の配置図。工事管理者・線閉責任者・停電責任者・軌道作業責任者が工事区間を囲み、列車見張員は軌道の両端付近で列車接近を監視する役割分担",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-construction-1/textbook-river-act/img/figure-river-administrators.svg",
       "category": "civil-construction-1",
       "slug": "textbook-river-act",
@@ -2129,6 +2237,42 @@
       }
     },
     {
+      "file": "content/site/civil-construction-1/textbook-river-works/img/figure-flexible-sluice.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-river-works",
+      "name": "figure-flexible-sluice.svg",
+      "concept": "柔構造樋門の縦断模式図。堤体にキャンバー盛土・可とう性継手・床付け面を配置し、沈下に追従する構造を剛構造樋門と比較する",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-river-works/img/figure-revetment-components.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-river-works",
+      "name": "figure-revetment-components.svg",
+      "concept": "護岸の断面構成。高水敷から低水路へ続く法面に天端工・法覆工・基礎工・根固工・帯工を配置し、各部の役割を示す",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-construction-1/textbook-road-act/img/figure-occupancy-work-rules.svg",
       "category": "civil-construction-1",
       "slug": "textbook-road-act",
@@ -2170,6 +2314,42 @@
       "slug": "textbook-road-act",
       "name": "figure-vehicle-limits.svg",
       "concept": "車両制限令による車両の最高限度。幅2.5メートル、総重量20トン（高速自動車国道・指定道路は25トン以下）、軸重10トン、輪荷重5トン、高さ3.8メートル（指定道路は4.1メートル）、長さ12メートル、最小回転半径12メートル。トレーラ連結車は総重量が高速36トン・その他27トン、長さはセミトレーラ16.5メートル・フルトレーラ18メートル",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-sabo-landslide/img/figure-landslide-measures.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-sabo-landslide",
+      "name": "figure-landslide-measures.svg",
+      "concept": "地すべり対策工の配置模式図。斜面断面に抑制工（排土・押え盛土・水路・横ボーリング・集水井）と抑止工（杭・アンカー）を色で2群に分けて示す",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-sabo-landslide/img/figure-sabo-dam-section.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-sabo-landslide",
+      "name": "figure-sabo-dam-section.svg",
+      "concept": "砂防堰堤の縦断面。水通し・袖・堤体・水抜き暗渠・前庭保護工（水叩き・副堰堤）・側壁護岸の位置関係と各部の目的を示す",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -2885,6 +3065,42 @@
       }
     },
     {
+      "file": "content/site/civil-construction-1/textbook-steel-structures/img/figure-erection-methods.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-steel-structures",
+      "name": "figure-erection-methods.svg",
+      "concept": "鋼橋の架設工法5種。ベント工法・片持ち式・送出し工法・ケーブルクレーン直吊り・フローティングクレーンを、桁の支持方法の側面図と適用しやすい現場条件で示す",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-steel-structures/img/figure-hsb-joint-tightening.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-steel-structures",
+      "name": "figure-hsb-joint-tightening.svg",
+      "concept": "高力ボルト摩擦接合部の断面（母材・連結板・ボルト・ナット・座金・摩擦面）と、中央から端部へ進める締付け順序を示す",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-construction-1/textbook-surveying-basics/img/figure-plane-coordinate.svg",
       "category": "civil-construction-1",
       "slug": "textbook-surveying-basics",
@@ -3065,6 +3281,42 @@
       }
     },
     {
+      "file": "content/site/civil-construction-1/textbook-tunnel-natm/img/figure-excavation-patterns.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-tunnel-natm",
+      "name": "figure-excavation-patterns.svg",
+      "concept": "トンネル掘削工法4種の断面形状。全断面・ベンチカット・側壁導坑先進・中壁分割の区分と、それぞれが適用される地山条件との対応を示す",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-tunnel-natm/img/figure-natm-standard-section.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-tunnel-natm",
+      "name": "figure-natm-standard-section.svg",
+      "concept": "山岳トンネルNATM標準断面。地山からロックボルト・吹付けコンクリート・鋼製支保工・防水シート・覆工コンクリート・インバートへの位置関係と各部材の役割を示す",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-construction-1/textbook-waste-disposal-manifest/img/figure-final-disposal.svg",
       "category": "civil-construction-1",
       "slug": "textbook-waste-disposal-manifest",
@@ -3142,6 +3394,42 @@
       "slug": "textbook-water-air-soil-pollution",
       "name": "figure-effluent-treatment.svg",
       "concept": "建設工事の湧水処理フロー。湧水を集水後、pHをアルカリ性なら炭酸ガス等で中和し、凝集剤で浮遊物質SSをフロック化して沈殿分離し、排水基準の範囲内で公共用水域へ放流する",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-water-sewer/img/figure-pipe-rehabilitation-methods.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-water-sewer",
+      "name": "figure-pipe-rehabilitation-methods.svg",
+      "concept": "下水道管きょの更生工法4種（反転工法・形成工法・製管工法・さや管工法）の断面比較。反転・形成は既設管の内面に密着し、製管・さや管は既設管との間隙に充填材を注入する",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-water-sewer/img/figure-sewer-pipe-foundations.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-water-sewer",
+      "name": "figure-sewer-pipe-foundations.svg",
+      "concept": "下水道管きょの基礎工4種（砂・砕石基礎、コンクリート基礎、はしご胴木基礎、鳥居基礎）の断面比較。地盤が軟弱になるほど砂・砕石からコンクリート、はしご胴木、鳥居基礎へと選定する",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",

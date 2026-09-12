@@ -1,0 +1,61 @@
+<!-- authored 2026-09-12 doboku-note 自作。題材は1級土木 専門土木テキスト「海岸・港湾」の論点。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="海岸堤防の3形式（緩傾斜型・傾斜型・直立型）の断面比較。根固工・消波工は各形式の法先（波打ち際）に設置し、越波の抑えやすさが形式ごとに異なる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-name { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .slope { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .mark  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .ground { stroke: #d7d7d7; stroke-width: 1; }
+      .stone { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">波浪条件で緩傾斜・傾斜・直立の3形式を選び前面に根固工を置く</text>
+
+  <!-- 緩傾斜型 -->
+  <rect class="box-b" x="20" y="26" width="360" height="136" rx="6"/>
+  <text class="t-name" x="40" y="46">緩傾斜型</text>
+  <text class="t-desc" x="40" y="64">法勾配1:3程度以上・広い用地を要する</text>
+  <text class="t-desc" x="45" y="78">海</text>
+  <text class="t-desc" x="345" y="78">陸</text>
+  <line class="ground" x1="45" y1="116" x2="355" y2="116"/>
+  <polygon class="slope" points="75,116 290,76 290,116"/>
+  <rect class="mark" x="57" y="107" width="18" height="9"/>
+  <text class="t-desc" x="40" y="140">越波：抑えやすく親水性に優れる</text>
+
+  <!-- 傾斜型 -->
+  <rect class="box-b" x="20" y="170" width="360" height="136" rx="6"/>
+  <text class="t-name" x="40" y="190">傾斜型</text>
+  <text class="t-desc" x="40" y="208">捨石・ブロックの法面・経済的で順応性が高い</text>
+  <text class="t-desc" x="45" y="222">海</text>
+  <text class="t-desc" x="345" y="222">陸</text>
+  <line class="ground" x1="45" y1="260" x2="355" y2="260"/>
+  <polygon class="slope" points="110,260 260,220 260,260"/>
+  <circle class="stone" cx="155" cy="248" r="4"/>
+  <circle class="stone" cx="193" cy="238" r="4"/>
+  <circle class="stone" cx="230" cy="228" r="4"/>
+  <rect class="mark" x="92" y="251" width="18" height="9"/>
+  <text class="t-desc" x="40" y="284">越波：波力の変化に順応しやすい</text>
+
+  <!-- 直立型 -->
+  <rect class="box-b" x="20" y="314" width="360" height="136" rx="6"/>
+  <text class="t-name" x="40" y="334">直立型</text>
+  <text class="t-desc" x="40" y="352">鉛直に近い壁面・用地が少なく良好地盤向き</text>
+  <text class="t-desc" x="45" y="366">海</text>
+  <text class="t-desc" x="345" y="366">陸</text>
+  <line class="ground" x1="45" y1="404" x2="355" y2="404"/>
+  <rect class="slope" x="195" y="364" width="25" height="40"/>
+  <rect class="mark" x="177" y="395" width="18" height="9"/>
+  <text class="t-desc" x="40" y="428">越波：反射波が大きくなりやすい</text>
+
+  <!-- 凡例 -->
+  <rect class="mark" x="30" y="470" width="14" height="14"/>
+  <text class="t-desc" x="52" y="481">＝根固工・消波工の設置位置（法先で洗掘・吸出しを防止）</text>
+</svg>

@@ -1,0 +1,55 @@
+<!-- authored 2026-09-12 doboku-note 自作。1級土木「海岸・港湾」の概念図。原典の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="ケーソン式混成堤の施工フロー。製作・進水・えい航・据付（注水）・中詰め・蓋コンクリート・上部工の順序と各段階の管理点を示す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #8a8a8a; }
+      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-s { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="arrow-m" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#8a8a8a"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">ケーソンは製作から上部工まで7段階で完成する</text>
+
+  <line x1="45" y1="38" x2="45" y2="398" stroke="#8a8a8a" stroke-width="2" marker-end="url(#arrow-m)"/>
+
+  <rect class="box-s" x="60" y="34" width="320" height="44" rx="6"/>
+  <text class="t-name" x="80" y="52">① 製作</text>
+  <text class="t-desc" x="80" y="68">ケーソンヤードで所定寸法に築造</text>
+
+  <rect class="box-s" x="60" y="86" width="320" height="44" rx="6"/>
+  <text class="t-name" x="80" y="104">② 進水</text>
+  <text class="t-desc" x="80" y="120">斜路・ドライドック等をヤード条件で選定</text>
+
+  <rect class="box-s" x="60" y="138" width="320" height="44" rx="6"/>
+  <text class="t-name" x="80" y="156">③ えい航</text>
+  <text class="t-desc" x="80" y="172">曳船で所定の据付位置まで運搬</text>
+
+  <rect class="box-w" x="60" y="190" width="320" height="44" rx="6"/>
+  <text class="t-name" x="80" y="208">④ 据付（注水）</text>
+  <text class="t-desc" x="80" y="224">着底前に中断し位置・姿勢を確認</text>
+
+  <rect class="box-w" x="60" y="242" width="320" height="44" rx="6"/>
+  <text class="t-name" x="80" y="260">⑤ 中詰め</text>
+  <text class="t-desc" x="80" y="276">ガット船・グラブ船を使用（起重機船不可）</text>
+
+  <rect class="box-b" x="60" y="294" width="320" height="44" rx="6"/>
+  <text class="t-name" x="80" y="312">⑥ 蓋コンクリート</text>
+  <text class="t-desc" x="80" y="328">中詰め完了後に打設し内部を閉塞</text>
+
+  <rect class="box-b" x="60" y="346" width="320" height="44" rx="6"/>
+  <text class="t-name" x="80" y="364">⑦ 上部工</text>
+  <text class="t-desc" x="80" y="380">蓋コンクリートの上に施工し天端を完成</text>
+
+  <text class="t-desc" x="20" y="416">④の据付では大廻しワイヤを吃水線より下・浮心付近に</text>
+  <text class="t-desc" x="20" y="432">二重回しし、着底直前の中断・確認で精度を左右する</text>
+</svg>

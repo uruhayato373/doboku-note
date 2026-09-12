@@ -1,0 +1,58 @@
+<!-- authored 2026-09-12 doboku-note 自作。題材は1級土木 専門土木テキスト「ダム」の論点。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="RCD工法の1リフト断面。超硬練りコンクリートを薄層3層に敷き均して積み上げ、各層を振動ローラで締め固め、横継目は振動目地切機で設ける層構成を示す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #8a8a8a; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-name { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-label{ font-size: 11px; fill: #555; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+    </style>
+    <marker id="arrow-b" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/>
+    </marker>
+    <marker id="arrow-m" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#8a8a8a"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">RCD用コンクリートは薄層に敷き均し振動ローラで締め固める</text>
+
+  <text class="t-sec" x="20" y="40">RCD工法の1リフト断面（敷均し→転圧→目地切り）</text>
+
+  <!-- 施工順の矢印（下から上へ積み上げ） -->
+  <line x1="45" y1="418" x2="45" y2="165" stroke="#8a8a8a" stroke-width="2" marker-end="url(#arrow-m)"/>
+  <text class="t-label" x="45" y="150" text-anchor="middle" fill="#8a8a8a">施工順</text>
+
+  <!-- 1層目（下層） -->
+  <rect class="box-b" x="70" y="340" width="240" height="80"/>
+  <text class="t-name" x="190" y="385" text-anchor="middle">1層目（先行して敷均し）</text>
+
+  <!-- 2層目（中層） -->
+  <rect class="box-b" x="70" y="250" width="240" height="80"/>
+  <text class="t-name" x="190" y="295" text-anchor="middle">2層目</text>
+
+  <!-- 3層目（上層・転圧中） -->
+  <rect class="box-b" x="70" y="160" width="240" height="80"/>
+  <text class="t-name" x="190" y="205" text-anchor="middle">3層目（振動ローラで転圧中）</text>
+
+  <!-- 振動ローラ -->
+  <rect class="box-w" x="110" y="132" width="60" height="22" rx="10"/>
+  <text class="t-name" x="178" y="147">振動ローラで転圧</text>
+
+  <!-- 横継目（振動目地切機で設置） -->
+  <polygon points="280,148 288,160 272,160" fill="#555"/>
+  <line x1="280" y1="160" x2="280" y2="420" stroke="#555" stroke-width="2" stroke-dasharray="5,4"/>
+  <text class="t-name" x="322" y="185">横継目</text>
+  <text class="t-label" x="322" y="200">振動目地</text>
+  <text class="t-label" x="322" y="214">切機で設置</text>
+
+  <text class="t-desc" x="20" y="446">1リフトを薄層に敷き均し積み上げながら</text>
+  <text class="t-desc" x="20" y="462">振動ローラで締め固め、横継目は振動目地切機で設ける</text>
+</svg>

@@ -1,0 +1,106 @@
+<!-- authored 2026-09-12 doboku-note 自作。題材は1級土木 専門土木テキスト「砂防・地すべり」の論点。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="地すべり対策工の配置模式図。斜面断面に抑制工（排土・押え盛土・水路・横ボーリング・集水井）と抑止工（杭・アンカー）を色で2群に分けて示す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-sec   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-part  { font-size: 11px; fill: #555; }
+      .t-mark  { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .mk-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .mk-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .ground { stroke: #222; stroke-width: 2; fill: none; }
+      .slip   { stroke: #1a3a5c; stroke-width: 1.5; fill: none; stroke-dasharray: 4,3; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">抑制工を先に施工し、抑止工は活動が鈍化してから</text>
+
+  <text class="t-sec" x="20" y="36">斜面配置模式図（緑＝抑制工／赤＝抑止工）</text>
+
+  <!-- landslide mass -->
+  <polygon points="20,90 90,100 150,150 220,190 300,230 370,270 370,270 300,255 220,225 150,195 90,150 20,90" fill="#f5f5f5"/>
+  <polyline class="ground" points="20,90 90,100 150,150 220,190 300,230 370,270"/>
+  <polyline class="slip" points="20,90 90,150 150,195 220,225 300,255 370,270"/>
+  <line x1="112" y1="166" x2="112" y2="153" stroke="#8a8a8a" stroke-dasharray="2,2"/>
+  <text class="t-part" x="112" y="149" text-anchor="middle">すべり面</text>
+
+  <!-- ① 排土工（頭部） -->
+  <polyline points="20,75 90,85" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="3,2" fill="none"/>
+  <polygon points="20,75 90,85 90,100 20,90" fill="#d0e8d0" fill-opacity="0.7" stroke="#3a7d44" stroke-width="1"/>
+  <circle class="mk-p" cx="55" cy="80" r="9"/>
+  <text class="t-mark" x="55" y="83" text-anchor="middle">1</text>
+
+  <!-- Ⓐ 杭工（抑止工） -->
+  <rect class="mk-d" x="141" y="150" width="8" height="45"/>
+  <rect class="mk-d" x="156" y="150" width="8" height="45"/>
+  <circle class="mk-d" cx="150" cy="135" r="9"/>
+  <text class="t-mark" x="150" y="138" text-anchor="middle">A</text>
+
+  <!-- ② 地表水排除工 -->
+  <polyline points="180,168 190,178 200,168" stroke="#222" stroke-width="2" fill="none"/>
+  <line x1="190" y1="178" x2="198" y2="186" stroke="#222" stroke-width="1.5"/>
+  <polygon points="198,186 191,185 196,191" fill="#222"/>
+  <circle class="mk-p" cx="190" cy="158" r="9"/>
+  <text class="t-mark" x="190" y="161" text-anchor="middle">2</text>
+
+  <!-- ③ 横ボーリング工 -->
+  <line x1="195" y1="200" x2="240" y2="200" stroke="#3a7d44" stroke-width="2"/>
+  <line x1="195" y1="210" x2="240" y2="210" stroke="#3a7d44" stroke-width="2"/>
+  <line x1="195" y1="218" x2="240" y2="218" stroke="#3a7d44" stroke-width="2"/>
+  <circle class="mk-p" cx="220" cy="176" r="9"/>
+  <text class="t-mark" x="220" y="179" text-anchor="middle">3</text>
+
+  <!-- ④ 集水井工 -->
+  <rect x="254" y="210" width="10" height="30" fill="#ffffff" stroke="#3a7d44" stroke-width="1.5"/>
+  <circle cx="259" cy="206" r="4" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1"/>
+  <circle class="mk-p" cx="260" cy="196" r="9"/>
+  <text class="t-mark" x="260" y="199" text-anchor="middle">4</text>
+
+  <!-- Ⓑ アンカー工（抑止工） -->
+  <line x1="300" y1="230" x2="333" y2="266" stroke="#b22234" stroke-width="2"/>
+  <line x1="326" y1="263" x2="336" y2="271" stroke="#b22234" stroke-width="2"/>
+  <circle class="mk-d" cx="292" cy="222" r="9"/>
+  <text class="t-mark" x="292" y="225" text-anchor="middle">B</text>
+
+  <!-- ⑤ 押え盛土工（脚部） -->
+  <polyline points="300,210 370,250" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="3,2" fill="none"/>
+  <polygon points="300,230 370,270 370,250 300,210" fill="#d0e8d0" fill-opacity="0.7" stroke="#3a7d44" stroke-width="1"/>
+  <circle class="mk-p" cx="335" cy="216" r="9"/>
+  <text class="t-mark" x="335" y="219" text-anchor="middle">5</text>
+
+  <text class="t-sec" x="20" y="310">凡例（数字＝抑制工／英字＝抑止工）</text>
+
+  <circle class="mk-p" cx="27" cy="332" r="9"/>
+  <text class="t-mark" x="27" y="335" text-anchor="middle">1</text>
+  <text class="t-part" x="42" y="336">排土工：頭部の土砂を除去</text>
+
+  <circle class="mk-p" cx="27" cy="352" r="9"/>
+  <text class="t-mark" x="27" y="355" text-anchor="middle">2</text>
+  <text class="t-part" x="42" y="356">地表水排除工：地表水を区域外へ排水</text>
+
+  <circle class="mk-p" cx="27" cy="372" r="9"/>
+  <text class="t-mark" x="27" y="375" text-anchor="middle">3</text>
+  <text class="t-part" x="42" y="376">横ボーリング工：地下水を排除する</text>
+
+  <circle class="mk-p" cx="27" cy="392" r="9"/>
+  <text class="t-mark" x="27" y="395" text-anchor="middle">4</text>
+  <text class="t-part" x="42" y="396">集水井工：地下水を集めて排水する</text>
+
+  <circle class="mk-p" cx="27" cy="412" r="9"/>
+  <text class="t-mark" x="27" y="415" text-anchor="middle">5</text>
+  <text class="t-part" x="42" y="416">押え盛土工：脚部に荷重を加え抵抗</text>
+
+  <circle class="mk-d" cx="27" cy="432" r="9"/>
+  <text class="t-mark" x="27" y="435" text-anchor="middle">A</text>
+  <text class="t-part" x="42" y="436">杭工：すべり面を横切り滑動に抵抗</text>
+
+  <circle class="mk-d" cx="27" cy="452" r="9"/>
+  <text class="t-mark" x="27" y="455" text-anchor="middle">B</text>
+  <text class="t-part" x="42" y="456">アンカー工：不動地盤に固定し安定化</text>
+
+  <text class="t-part" x="20" y="478">抑止工は抑制工の後、活動が鈍化してから施工する</text>
+</svg>

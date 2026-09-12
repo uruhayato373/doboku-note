@@ -1,0 +1,81 @@
+<!-- authored 2026-09-12 doboku-note 自作。題材は1級土木 専門土木テキスト「鋼構造物」の論点。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="鋼橋の架設工法5種。ベント工法・片持ち式・送出し工法・ケーブルクレーン直吊り・フローティングクレーンを、桁の支持方法の側面図と適用しやすい現場条件で示す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-name { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .ln { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ground { stroke: #8a8a8a; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">桁を何で支えるかで工法を使い分ける</text>
+
+  <!-- 1: ベント工法 -->
+  <rect class="box-b" x="20" y="26" width="360" height="88" rx="6"/>
+  <line class="ground" x1="26" y1="96" x2="118" y2="96"/>
+  <line class="ln" x1="34" y1="60" x2="110" y2="60"/>
+  <line class="ln" x1="46" y1="60" x2="46" y2="96"/>
+  <line class="ln" x1="72" y1="60" x2="72" y2="96"/>
+  <line class="ln" x1="98" y1="60" x2="98" y2="96"/>
+  <text class="t-name" x="132" y="52">① ベント工法</text>
+  <text class="t-desc" x="132" y="72">桁下に仮設支柱を連続設置</text>
+  <text class="t-desc" x="132" y="90">適用: 平坦地・浅い水深</text>
+
+  <!-- 2: 片持ち式 -->
+  <rect class="box-b" x="20" y="120" width="360" height="88" rx="6"/>
+  <line class="ground" x1="26" y1="190" x2="118" y2="190"/>
+  <line class="ln" x1="72" y1="128" x2="72" y2="190"/>
+  <line class="ln" x1="72" y1="154" x2="34" y2="154"/>
+  <line class="ln" x1="72" y1="154" x2="110" y2="154"/>
+  <line class="ln" x1="72" y1="154" x2="46" y2="170"/>
+  <line class="ln" x1="72" y1="154" x2="98" y2="170"/>
+  <text class="t-name" x="132" y="146">② 片持ち式</text>
+  <text class="t-desc" x="132" y="166">支柱から桁を片持ちで張出す</text>
+  <text class="t-desc" x="132" y="184">適用: 深い谷部・トラス橋</text>
+
+  <!-- 3: 送出し工法 -->
+  <rect class="box-b" x="20" y="214" width="360" height="88" rx="6"/>
+  <line class="ground" x1="26" y1="284" x2="118" y2="284"/>
+  <line class="ln" x1="40" y1="248" x2="40" y2="284"/>
+  <line class="ln" x1="104" y1="248" x2="104" y2="284"/>
+  <line class="ln" x1="34" y1="248" x2="110" y2="248"/>
+  <line class="ln" x1="50" y1="236" x2="86" y2="236"/>
+  <polygon points="86,232 94,236 86,240" fill="#2e6da4"/>
+  <text class="t-name" x="132" y="240">③ 送出し工法</text>
+  <text class="t-desc" x="132" y="260">両岸から桁を水平に押出す</text>
+  <text class="t-desc" x="132" y="278">適用: 道路・鉄道の横断部</text>
+
+  <!-- 4: ケーブルクレーン直吊り -->
+  <rect class="box-b" x="20" y="308" width="360" height="88" rx="6"/>
+  <line class="ground" x1="26" y1="378" x2="42" y2="378"/>
+  <line class="ground" x1="102" y1="378" x2="118" y2="378"/>
+  <line class="ln" x1="38" y1="378" x2="38" y2="328"/>
+  <line class="ln" x1="106" y1="378" x2="106" y2="328"/>
+  <path class="ln" d="M38,328 Q72,334 106,328"/>
+  <line class="ln" x1="54" y1="331" x2="54" y2="354"/>
+  <line class="ln" x1="72" y1="333" x2="72" y2="354"/>
+  <line class="ln" x1="90" y1="331" x2="90" y2="354"/>
+  <line class="ln" x1="46" y1="354" x2="98" y2="354"/>
+  <text class="t-name" x="132" y="334">④ ケーブルクレーン直吊り</text>
+  <text class="t-desc" x="132" y="354">両岸間のケーブルで桁を吊る</text>
+  <text class="t-desc" x="132" y="372">適用: 深い渓谷・急峻地形</text>
+
+  <!-- 5: フローティングクレーン -->
+  <rect class="box-b" x="20" y="402" width="360" height="88" rx="6"/>
+  <path class="ground" d="M26,462 q8,-4 16,0 q8,4 16,0 q8,-4 16,0 q8,4 16,0 q8,-4 16,0"/>
+  <rect class="box-b" x="54" y="450" width="36" height="10"/>
+  <line class="ln" x1="72" y1="450" x2="72" y2="424"/>
+  <line class="ln" x1="72" y1="424" x2="96" y2="434"/>
+  <line class="ln" x1="96" y1="434" x2="96" y2="444"/>
+  <rect class="box-b" x="84" y="442" width="24" height="8"/>
+  <text class="t-name" x="132" y="428">⑤ フローティングクレーン</text>
+  <text class="t-desc" x="132" y="448">台船上のクレーンで桁を吊る</text>
+  <text class="t-desc" x="132" y="466">適用: 海上・河川上の一括架設</text>
+</svg>

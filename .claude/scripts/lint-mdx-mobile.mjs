@@ -1293,7 +1293,8 @@ function lintImages(lines, findings) {
       } else {
         try {
           const buf = readFileSync(localPath);
-          const head = buf.slice(0, 200).toString('utf8');
+          // 先頭 1KB を見る（authored コメント付き SVG は <svg が 200 バイトを超えて現れる）
+          const head = buf.slice(0, 1024).toString('utf8');
           const first4 = buf.slice(0, 4);
           const isJPEG = first4[0] === 0xff && first4[1] === 0xd8 && first4[2] === 0xff;
           const isPNG =
@@ -1305,7 +1306,7 @@ function lintImages(lines, findings) {
           const isWebP =
             buf.slice(0, 4).toString() === 'RIFF' &&
             buf.slice(8, 12).toString() === 'WEBP';
-          const isSVG = /<svg[\s>]|<\?xml[\s\S]{0,200}<svg/.test(head);
+          const isSVG = /<svg[\s>]|<\?xml[\s\S]{0,900}<svg/.test(head);
           const looksHTMLerror =
             !isSVG && /^<(!DOCTYPE|!doctype|html|HTML|\?xml[\s\S]{0,200}<(html|body))/i.test(head.trim());
 

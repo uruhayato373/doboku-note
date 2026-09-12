@@ -1,0 +1,84 @@
+<!-- authored 2026-09-12 doboku-note 自作。題材は1級土木 専門土木テキスト「砂防・地すべり」の論点。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="砂防堰堤の縦断面。水通し・袖・堤体・水抜き暗渠・前庭保護工（水叩き・副堰堤）・側壁護岸の位置関係と各部の目的を示す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-part { font-size: 11px; fill: #555; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .surface { fill: #f5f5f5; }
+      .ground { stroke: #8a8a8a; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">堤体が土砂を貯留し、各部が越流と洗掘から構造を守る</text>
+
+  <text class="t-sec" x="20" y="36">縦断面構成（堤体・水通し・袖・水抜き暗渠）</text>
+
+  <g transform="translate(-20,-55) scale(1.1)">
+  <!-- upstream sediment fill -->
+  <polygon class="surface" points="20,190 130,190 130,260 20,260"/>
+  <line class="ground" x1="20" y1="190" x2="130" y2="190"/>
+
+  <!-- dam body -->
+  <polygon class="box-b" points="130,120 230,120 290,260 130,260"/>
+
+  <!-- 水通し notch -->
+  <rect x="165" y="120" width="30" height="35" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5"/>
+  <line x1="180" y1="126" x2="180" y2="148" stroke="#2e6da4" stroke-width="2"/>
+  <polygon points="180,152 175,144 185,144" fill="#2e6da4"/>
+  <line x1="180" y1="112" x2="180" y2="120" stroke="#8a8a8a" stroke-dasharray="2,2"/>
+  <text class="t-part" x="180" y="106" text-anchor="middle">水通し</text>
+
+  <!-- 袖 -->
+  <line x1="147" y1="112" x2="147" y2="120" stroke="#8a8a8a" stroke-dasharray="2,2"/>
+  <text class="t-part" x="147" y="106" text-anchor="middle">袖</text>
+
+  <!-- 水抜き暗渠 -->
+  <circle cx="180" cy="210" r="9" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5"/>
+  <line x1="171" y1="210" x2="189" y2="210" stroke="#2e6da4" stroke-width="1.5"/>
+  <line x1="189" y1="210" x2="228" y2="206" stroke="#8a8a8a" stroke-dasharray="2,2"/>
+  <text class="t-part" x="232" y="209">水抜き暗渠</text>
+
+  <!-- streambed downstream -->
+  <line class="ground" x1="290" y1="260" x2="380" y2="260" stroke-width="2"/>
+
+  <!-- 前庭保護工: 水叩き -->
+  <rect class="box-p" x="290" y="252" width="42" height="10"/>
+
+  <!-- 前庭保護工: 副堰堤 -->
+  <polygon class="box-b" points="336,240 348,240 352,260 332,260"/>
+
+  <!-- 側壁護岸 -->
+  <line x1="295" y1="252" x2="295" y2="238" stroke="#1a3a5c" stroke-width="2"/>
+  <line x1="360" y1="252" x2="360" y2="238" stroke="#1a3a5c" stroke-width="2"/>
+
+  <text class="t-part" x="200" y="284" text-anchor="middle">前庭保護工は水叩きと副堰堤で構成される</text>
+  <text class="t-part" x="200" y="300" text-anchor="middle">側壁護岸は水叩きの両岸に設けて渓岸を守る</text>
+
+  <text class="t-sec" x="20" y="324">各部の目的</text>
+  </g>
+
+  <rect x="20" y="334" width="12" height="12" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="t-part" x="40" y="344">水通し：越流断面を確保し洪水を安全に流す</text>
+
+  <rect x="20" y="356" width="12" height="12" class="box-b"/>
+  <text class="t-part" x="40" y="366">袖：水通し脇の高い部分で越流を防ぐ</text>
+
+  <rect x="20" y="378" width="12" height="12" class="box-b"/>
+  <text class="t-part" x="40" y="388">堤体：土砂を貯留し渓床の縦侵食を防ぐ</text>
+
+  <rect x="20" y="400" width="12" height="12" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="t-part" x="40" y="410">水抜き暗渠：施工中の流水切替と水圧軽減</text>
+
+  <rect x="20" y="422" width="12" height="12" class="box-p"/>
+  <text class="t-part" x="40" y="432">前庭保護工：水叩きと副堰堤で洗掘を防ぐ</text>
+
+  <rect x="20" y="444" width="12" height="12" fill="none" stroke="#1a3a5c" stroke-width="2"/>
+  <text class="t-part" x="40" y="454">側壁護岸：水叩き両岸の渓岸侵食を防ぐ</text>
+</svg>
