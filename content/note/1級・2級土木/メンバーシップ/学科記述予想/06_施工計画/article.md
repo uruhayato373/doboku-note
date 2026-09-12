@@ -1,9 +1,12 @@
 ---
 notePricing: membership
-noteStatus: draft
+noteStatus: published
 noteSeries: 学科記述予想
 membershipOnly: true
 utmCampaign: civil-membership-gakka-plan
+notePublishedAt: "2026-09-13"
+noteId: "nd1c6dec4cfc6"
+noteUrl: "https://note.com/dobokunote/n/nd1c6dec4cfc6"
 coverTitle: ["学科記述予想｜施工計画", "仮設備と建設機械の選定"]
 cover:
   variant: crop-safe-v4
