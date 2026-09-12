@@ -1537,6 +1537,50 @@
       }
     },
     {
+      "id": "jma-warning-criteria",
+      "title": "気象庁 警報・注意報の発表基準と防災気象情報（気象庁）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "気象庁 警報・注意報の発表基準と防災気象情報（気象庁）": "jma-warning-criteria"
+      }
+    },
+    {
+      "id": "mlit-i-construction-guideline",
+      "title": "ICT 活用工事の要領・基準（i-Construction・国土交通省）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "ICT 活用工事の要領・基準（i-Construction・国土交通省）": "mlit-i-construction-guideline"
+      }
+    },
+    {
+      "id": "mlit-bim-cim-guideline",
+      "title": "BIM/CIM 活用ガイドライン・実施要領（国土交通省）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "BIM/CIM 活用ガイドライン・実施要領（国土交通省）": "mlit-bim-cim-guideline"
+      }
+    },
+    {
+      "id": "mlit-flood-fighting-guideline",
+      "title": "水防法・河川工事の出水期対策関係資料（国土交通省）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "水防法・河川工事の出水期対策関係資料（国土交通省）": "mlit-flood-fighting-guideline"
+      }
+    },
+    {
       "id": "jswa-standard",
       "title": "日本下水道協会基準",
       "class": "external-primary",

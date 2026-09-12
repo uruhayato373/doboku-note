@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-09-12T02:08:37.622Z",
+  "generated_at": "2026-09-12T02:44:03.296Z",
   "summary": {
-    "total_mdx_files": 1238,
+    "total_mdx_files": 1242,
     "total_unique_tags": 122,
     "allowlist_size": 316,
     "known_count": 122,
@@ -1595,7 +1595,7 @@
     },
     {
       "name": "安全管理",
-      "count": 144,
+      "count": 145,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-textbook-safety-excavation-shoring",
@@ -1608,6 +1608,7 @@
         "civil-practice-checklist-shoring-buoyancy",
         "civil-practice-lifting-equipment-selection",
         "civil-practice-oshms-pdca-site-operation",
+        "civil-practice-rainfall-work-suspension",
         "civil-practice-risk-assessment-construction-workflow",
         "civil-practice-safety-culture-discipline",
         "civil-practice-safety-health-education-plan",
@@ -3314,6 +3315,31 @@
       ]
     },
     {
+      "name": "施工計画",
+      "count": 18,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-secondary-construction-plan-basics",
+        "civil-construction-1-secondary-construction-plan-past-problems",
+        "civil-construction-1-textbook-construction-mgmt-overview",
+        "civil-construction-1-textbook-construction-plan-overview",
+        "civil-construction-1-textbook-management-subplans",
+        "civil-construction-1-textbook-site-investigation",
+        "civil-construction-1-textbook-work-scheduling",
+        "civil-practice-bim-cim-site-practice",
+        "civil-practice-construction-plan-document",
+        "civil-practice-cost-and-design-change",
+        "civil-practice-ict-construction-workflow",
+        "civil-practice-oshms-pdca-site-operation",
+        "civil-practice-quality-record-site-bcp",
+        "civil-practice-risk-assessment-construction-workflow",
+        "pe-comprehensive-management-construction-plan",
+        "pe-comprehensive-management-method-planning",
+        "pe-comprehensive-management-process-planning-construction",
+        "pe-construction-construction-planning-ronbun-keyword"
+      ]
+    },
+    {
       "name": "働き方改革",
       "count": 17,
       "inAllowlist": true,
@@ -3497,29 +3523,6 @@
         "pe-first-stage-r07-aptitude",
         "pe-first-stage-r07-basic",
         "pe-first-stage-r07-construction"
-      ]
-    },
-    {
-      "name": "施工計画",
-      "count": 16,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-secondary-construction-plan-basics",
-        "civil-construction-1-secondary-construction-plan-past-problems",
-        "civil-construction-1-textbook-construction-mgmt-overview",
-        "civil-construction-1-textbook-construction-plan-overview",
-        "civil-construction-1-textbook-management-subplans",
-        "civil-construction-1-textbook-site-investigation",
-        "civil-construction-1-textbook-work-scheduling",
-        "civil-practice-construction-plan-document",
-        "civil-practice-cost-and-design-change",
-        "civil-practice-oshms-pdca-site-operation",
-        "civil-practice-quality-record-site-bcp",
-        "civil-practice-risk-assessment-construction-workflow",
-        "pe-comprehensive-management-construction-plan",
-        "pe-comprehensive-management-method-planning",
-        "pe-comprehensive-management-process-planning-construction",
-        "pe-construction-construction-planning-ronbun-keyword"
       ]
     },
     {
@@ -3781,6 +3784,23 @@
       ]
     },
     {
+      "name": "河川",
+      "count": 10,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-textbook-river-works",
+        "civil-practice-flood-season-river-work",
+        "civil-practice-river-park-erosion-control",
+        "pe-comprehensive-management-pattern-essay-river-consultant",
+        "pe-comprehensive-management-r03-essay-river-consultant",
+        "pe-comprehensive-management-r04-essay-river-consultant",
+        "pe-comprehensive-management-r05-essay-river-consultant",
+        "pe-comprehensive-management-r06-essay-river-consultant",
+        "pe-comprehensive-management-r07-essay-river-consultant",
+        "pe-construction-river-coast-ronbun-keyword"
+      ]
+    },
+    {
       "name": "選択科目",
       "count": 10,
       "inAllowlist": true,
@@ -3880,22 +3900,6 @@
       ]
     },
     {
-      "name": "河川",
-      "count": 9,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-textbook-river-works",
-        "civil-practice-river-park-erosion-control",
-        "pe-comprehensive-management-pattern-essay-river-consultant",
-        "pe-comprehensive-management-r03-essay-river-consultant",
-        "pe-comprehensive-management-r04-essay-river-consultant",
-        "pe-comprehensive-management-r05-essay-river-consultant",
-        "pe-comprehensive-management-r06-essay-river-consultant",
-        "pe-comprehensive-management-r07-essay-river-consultant",
-        "pe-construction-river-coast-ronbun-keyword"
-      ]
-    },
-    {
       "name": "港湾及び空港",
       "count": 9,
       "inAllowlist": true,
@@ -3909,6 +3913,22 @@
         "pe-construction-r05-port-airport",
         "pe-construction-r06-port-airport",
         "pe-construction-r07-port-airport"
+      ]
+    },
+    {
+      "name": "砂防",
+      "count": 9,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-textbook-sabo-landslide",
+        "civil-practice-rainfall-work-suspension",
+        "pe-comprehensive-management-pattern-essay-river-consultant",
+        "pe-comprehensive-management-r03-essay-river-consultant",
+        "pe-comprehensive-management-r04-essay-river-consultant",
+        "pe-comprehensive-management-r05-essay-river-consultant",
+        "pe-comprehensive-management-r06-essay-river-consultant",
+        "pe-comprehensive-management-r07-essay-river-consultant",
+        "pe-construction-river-coast-ronbun-keyword"
       ]
     },
     {
@@ -4001,21 +4021,6 @@
         "pe-construction-r06-river-coast",
         "pe-construction-r07-river-coast",
         "pe-construction-river-coast-exam-themes"
-      ]
-    },
-    {
-      "name": "砂防",
-      "count": 8,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-textbook-sabo-landslide",
-        "pe-comprehensive-management-pattern-essay-river-consultant",
-        "pe-comprehensive-management-r03-essay-river-consultant",
-        "pe-comprehensive-management-r04-essay-river-consultant",
-        "pe-comprehensive-management-r05-essay-river-consultant",
-        "pe-comprehensive-management-r06-essay-river-consultant",
-        "pe-comprehensive-management-r07-essay-river-consultant",
-        "pe-construction-river-coast-ronbun-keyword"
       ]
     },
     {
@@ -4129,6 +4134,19 @@
       ]
     },
     {
+      "name": "流域治水",
+      "count": 6,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-flood-season-river-work",
+        "pe-comprehensive-management-climate-change-adaptation-act",
+        "pe-comprehensive-management-sound-water-cycle",
+        "pe-construction-bosai-kokudo-kyoujinka",
+        "pe-construction-bousai-genseigai-ronbun-keyword",
+        "pe-construction-river-coast-ronbun-keyword"
+      ]
+    },
+    {
       "name": "pillar",
       "count": 5,
       "inAllowlist": true,
@@ -4138,18 +4156,6 @@
         "pe-comprehensive-management-information-management-pillar",
         "pe-comprehensive-management-safety-management-pillar",
         "pe-comprehensive-management-social-environment-management-pillar"
-      ]
-    },
-    {
-      "name": "流域治水",
-      "count": 5,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-climate-change-adaptation-act",
-        "pe-comprehensive-management-sound-water-cycle",
-        "pe-construction-bosai-kokudo-kyoujinka",
-        "pe-construction-bousai-genseigai-ronbun-keyword",
-        "pe-construction-river-coast-ronbun-keyword"
       ]
     },
     {
@@ -4175,6 +4181,17 @@
       ]
     },
     {
+      "name": "建設DX",
+      "count": 4,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-bim-cim-site-practice",
+        "pe-comprehensive-management-r04-essay-road-municipality",
+        "pe-construction-kensetsu-dx",
+        "pe-construction-ninaite-dx-ronbun-keyword"
+      ]
+    },
+    {
       "name": "維持管理",
       "count": 4,
       "inAllowlist": true,
@@ -4194,6 +4211,16 @@
         "pe-comprehensive-management-r8-essay-theme-climate-adaptation",
         "pe-construction-carbon-neutral-kensetsu",
         "pe-construction-datsutanso-kankyo-ronbun-keyword"
+      ]
+    },
+    {
+      "name": "i-Construction",
+      "count": 3,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-ict-construction-workflow",
+        "pe-construction-kensetsu-dx",
+        "pe-construction-ninaite-dx-ronbun-keyword"
       ]
     },
     {
@@ -4357,16 +4384,6 @@
       ]
     },
     {
-      "name": "建設DX",
-      "count": 3,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-r04-essay-road-municipality",
-        "pe-construction-kensetsu-dx",
-        "pe-construction-ninaite-dx-ronbun-keyword"
-      ]
-    },
-    {
       "name": "材料",
       "count": 3,
       "inAllowlist": true,
@@ -4414,15 +4431,6 @@
         "civil-practice-rebar-corrosion-handling",
         "civil-practice-rebar-cover-placement",
         "civil-practice-rebar-splice-selection"
-      ]
-    },
-    {
-      "name": "i-Construction",
-      "count": 2,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-kensetsu-dx",
-        "pe-construction-ninaite-dx-ronbun-keyword"
       ]
     },
     {

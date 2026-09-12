@@ -75,15 +75,6 @@ CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認し
 
 **完了条件**: 各行の実体が解消したら行ごと消し、全行が消えたらカードを削除する。
 
-### [DN-0201] 土木施工の実務（civil-practice）に防災・ICT のスポーク 4 本を新設する
-タグ: [コンテンツ品質] [種類:制作] [検証:check-reference-sources:deep] [起票:2026-09-12]
-
-**目的**: 実務カテゴリに無い「出水期の河川工事の対応（水防・仮締切・避難判断）」「斜面工事の降雨監視と作業中止の判断」「ICT 施工（起工測量→3D 設計データ→MC/MG→出来形管理）の実務」「BIM/CIM の発注者要件と受注者の実務」の 4 本を `civil-guide-writer`（civil-practice モード＝読者は実務者・ExamPoint と note CTA なし）で新設する。原本は `disaster-civil-basics`・`weather-disaster-basics`・`civil-informatics`（M・brief のみ）。数値は国交省の i-Construction 資料・河川砂防技術基準・気象庁の警報基準（external-primary を台帳に追加）で取り直す。
-
-**参照**: 原本 class 別の加工ルールと commercial-book の標準手順（brief 方式）は [content-taxonomy.md](../knowledge/reference/content-taxonomy.md) §7。記事の型は [記事構成ガイド](../knowledge/reference/article-structure-guide.md)、図は [図版ポリシー](../knowledge/reference/image-policy.md)。原本の文字起こしは Drive vault `原資料PDF/書籍/<id>/ocr/`（内部利用のみ）。
-
-**完了条件**: 4 記事とも published・本文 3,000 字以上・`sources` 宣言・deep 0 件・`check-career-separation`／`lint-mdx-mobile` 0・`refresh-indexes` 後に 1 記事 1 コミットで push 済み。
-
 ### [DN-0203] 専門土木テキスト 8 章の概念図 16 枚を自作 SVG で作る
 タグ: [コンテンツ品質] [種類:制作] [検証:check-figure-canvas] [起票:2026-09-12]
 
