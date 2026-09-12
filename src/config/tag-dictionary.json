@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generated_at": "2026-09-11T23:15:48.772Z",
+  "generated_at": "2026-09-12T00:00:48.979Z",
   "summary": {
-    "total_mdx_files": 1233,
-    "total_unique_tags": 120,
+    "total_mdx_files": 1238,
+    "total_unique_tags": 122,
     "allowlist_size": 316,
-    "known_count": 120,
+    "known_count": 122,
     "unknown_count": 0,
     "typo_candidates_count": 0
   },
@@ -2533,7 +2533,7 @@
     },
     {
       "name": "textbook",
-      "count": 75,
+      "count": 76,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-textbook-asphalt-concrete-pavement",
@@ -2550,6 +2550,7 @@
         "civil-construction-1-textbook-control-chart",
         "civil-construction-1-textbook-crane",
         "civil-construction-1-textbook-cut-slope-protection",
+        "civil-construction-1-textbook-dam-construction",
         "civil-construction-1-textbook-demolition",
         "civil-construction-1-textbook-distance-angle",
         "civil-construction-1-textbook-earth-retaining-cofferdam",
@@ -3766,6 +3767,23 @@
       ]
     },
     {
+      "name": "トンネル",
+      "count": 10,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-textbook-tunnel-natm",
+        "pe-construction-r01-tunnel",
+        "pe-construction-r02-tunnel",
+        "pe-construction-r03-tunnel",
+        "pe-construction-r04-tunnel",
+        "pe-construction-r05-tunnel",
+        "pe-construction-r06-tunnel",
+        "pe-construction-r07-tunnel",
+        "pe-construction-tunnel-exam-themes",
+        "pe-construction-tunnel-ronbun-keyword"
+      ]
+    },
+    {
       "name": "選択科目",
       "count": 10,
       "inAllowlist": true,
@@ -3780,6 +3798,23 @@
         "pe-construction-soil-foundation-ronbun-keyword",
         "pe-construction-steel-concrete-ronbun-keyword",
         "pe-construction-tunnel-ronbun-keyword"
+      ]
+    },
+    {
+      "name": "鉄道",
+      "count": 10,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-textbook-railway-underground",
+        "pe-construction-r01-railway",
+        "pe-construction-r02-railway",
+        "pe-construction-r03-railway",
+        "pe-construction-r04-railway",
+        "pe-construction-r05-railway",
+        "pe-construction-r06-railway",
+        "pe-construction-r07-railway",
+        "pe-construction-railway-exam-themes",
+        "pe-construction-railway-ronbun-keyword"
       ]
     },
     {
@@ -3813,22 +3848,6 @@
         "pe-comprehensive-management-r8-essay-theme-economic-security",
         "pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance",
         "pe-comprehensive-management-whitepaper-study-map"
-      ]
-    },
-    {
-      "name": "トンネル",
-      "count": 9,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-r01-tunnel",
-        "pe-construction-r02-tunnel",
-        "pe-construction-r03-tunnel",
-        "pe-construction-r04-tunnel",
-        "pe-construction-r05-tunnel",
-        "pe-construction-r06-tunnel",
-        "pe-construction-r07-tunnel",
-        "pe-construction-tunnel-exam-themes",
-        "pe-construction-tunnel-ronbun-keyword"
       ]
     },
     {
@@ -3896,22 +3915,6 @@
       ]
     },
     {
-      "name": "鉄道",
-      "count": 9,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-r01-railway",
-        "pe-construction-r02-railway",
-        "pe-construction-r03-railway",
-        "pe-construction-r04-railway",
-        "pe-construction-r05-railway",
-        "pe-construction-r06-railway",
-        "pe-construction-r07-railway",
-        "pe-construction-railway-exam-themes",
-        "pe-construction-railway-ronbun-keyword"
-      ]
-    },
-    {
       "name": "電力土木",
       "count": 9,
       "inAllowlist": true,
@@ -3941,6 +3944,21 @@
         "pe-construction-soil-foundation-ronbun-keyword",
         "pe-construction-steel-concrete-ronbun-keyword",
         "pe-construction-tunnel-ronbun-keyword"
+      ]
+    },
+    {
+      "name": "専門土木",
+      "count": 8,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-textbook-coast-port",
+        "civil-construction-1-textbook-dam-construction",
+        "civil-construction-1-textbook-railway-underground",
+        "civil-construction-1-textbook-river-works",
+        "civil-construction-1-textbook-sabo-landslide",
+        "civil-construction-1-textbook-steel-structures",
+        "civil-construction-1-textbook-tunnel-natm",
+        "civil-construction-1-textbook-water-sewer"
       ]
     },
     {
@@ -4271,16 +4289,6 @@
       ]
     },
     {
-      "name": "専門土木",
-      "count": 3,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-textbook-river-works",
-        "civil-construction-1-textbook-sabo-landslide",
-        "civil-construction-1-textbook-steel-structures"
-      ]
-    },
-    {
       "name": "少子高齢化",
       "count": 3,
       "inAllowlist": true,
@@ -4524,6 +4532,14 @@
       ]
     },
     {
+      "name": "上下水道",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-textbook-water-sewer"
+      ]
+    },
+    {
       "name": "参考資料",
       "count": 1,
       "inAllowlist": true,
@@ -4537,6 +4553,14 @@
       "inAllowlist": true,
       "usedIn": [
         "pe-construction-river-coast-ronbun-keyword"
+      ]
+    },
+    {
+      "name": "港湾",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-textbook-coast-port"
       ]
     },
     {

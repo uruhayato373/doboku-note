@@ -75,13 +75,6 @@ CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認し
 
 **完了条件**: 各行の実体が解消したら行ごと消し、全行が消えたらカードを削除する。
 
-### [DN-0197] 1級土木 専門土木テキスト ダム／トンネル／海岸・港湾の 3 章を書く
-タグ: [コンテンツ品質] [種類:制作] [Codex候補] [検証:check-category-curriculum] [起票:2026-09-12]
-
-DN-0196 と同じ手順・規約・完了条件で `textbook-dam-construction`（基礎処理グラウチング・RCD 工法・打込みと養生・監査廊＝order 731）、`textbook-tunnel-natm`（山岳工法の掘削・支保工・覆工・補助工法・計測＝741）、`textbook-coast-port`（海岸堤防・消波工・根固工・ケーソン製作と据付・浚渫と事前調査＝751）を書く。DN-0196 の brief と QA 指摘の傾向を先に読み、同じ指摘を繰り返さない。
-
-**参照**: 原本 class 別の加工ルールと commercial-book の標準手順（brief 方式）は [content-taxonomy.md](../knowledge/reference/content-taxonomy.md) §7。記事の型は [記事構成ガイド](../knowledge/reference/article-structure-guide.md)、図は [図版ポリシー](../knowledge/reference/image-policy.md)。原本の文字起こしは Drive vault `原資料PDF/書籍/<id>/ocr/`（内部利用のみ）。
-
 ### [DN-0198] 1級土木 専門土木テキスト 鉄道・地下構造物／上下水道の 2 章を書く
 タグ: [コンテンツ品質] [種類:制作] [Codex候補] [検証:check-category-curriculum] [起票:2026-09-12]
 
