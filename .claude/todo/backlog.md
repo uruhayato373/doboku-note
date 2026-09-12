@@ -77,6 +77,24 @@ CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認し
 
 ## 🟡 中 — 2〜3ヶ月以内
 
+### [DN-0205] `quality:audit:ci` の赤ゲート 8 件を解消し、CI が緑になる状態へ戻す
+タグ: [エージェント・SSOT] [種類:不具合] [Codex候補] [検証:quality:audit:ci] [起票:2026-09-13]
+
+2026-09-12 のコンテンツ展開の着手前から赤で、どのカードにも載っていなかった（「赤いのに誰も見ていない検査」）。実体は 2026-09-13 に `npm run quality:audit:ci` で照合。反復する運用サイクル由来の赤（`sales-freshness`＝転記 27 日・`membership-drip`＝学科 06/07 の配信超過・`disk-hygiene`）はこのカードに含めない（weekly の運用側）。
+
+| # | ゲート | 実体（2026-09-13） | 直し方 |
+|---|---|---|---|
+| 1 | unit-tests | `asset-storage` config の `site-ogp-thumbnails` に Phase 宣言が無い／admin のツール一覧にカードが無い（2 件 not ok） | config と admin ルーティングを実装に合わせる |
+| 2 | playwright-auth-wiring | `scripts/lib/disk-hygiene.mjs:260` に Mac 絶対パス直書き 1 件 | resolver 経由へ |
+| 3 | gate-parity | `check-standards-data` がどこからも呼ばれていない | `build-standards-data` が呼ぶなら registry へ記録、否なら quality-audit へ配線 |
+| 4 | project-task-refs | `docs/handoffs/2026-09-07-backlog-sweep-and-a8-blocker.md` が DN-0179/0108/0176/0177 を参照（完了済み・handoff 未抽出） | handoff を抽出して削除（information-architecture.md の handoff ライフサイクル） |
+| 5 | orphan-ogp | `reference-materials/tunnel-02/ogp.png` が manifest に残存 | `.claude/state/assets/manifest.json` から手で削除 |
+| 6 | knip-ratchet | Unused files 44 → 45 | grep 裏取りのうえ削除か `knip.json` ignore |
+| 7 | drive-vault | `.tmp/video-render/{chokuzen-check-1kyu-niji,gishi-haigou-keisan}` の mp4 が台帳 sha256 と不一致 2 件 | 再レンダー物なら台帳を更新、旧物なら vault 側を正 |
+| 8 | note-funnel | ドリフト 8 件 | `audit-note-funnel` の指摘どおり wire-cta（既存もくじ重複に注意） |
+
+**完了条件**: `npm run quality:audit:ci` で上記 8 ゲートが PASS。行ごとに消し、全行消えたらカードを削除する。
+
 
 
 ### [DN-0120] 9月中旬のA8成果を取り込み、転職アフィリ継続を再判定する
