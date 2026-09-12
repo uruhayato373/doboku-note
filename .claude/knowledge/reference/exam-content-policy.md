@@ -41,6 +41,7 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 - **図**: PDF にある図はすべて取り込む。300dpi 以上、natural ≥ display を維持
 - **数式・規格表**: 教科書通りに正確に転記。KaTeX で記述
 - **執筆ツール**: `/pdf-to-mdx --exam civil-construction-1` を使い、Phase 5 で `/improve-article --mode verify` を必ず実行
+- **専門土木編（2026-09-12 新設・`textbook_order` 700〜799）**: 元教科書に章が無い分野（鋼構造物・河川・砂防・ダム・トンネル・海岸港湾・鉄道地下構造物・上下水道）は、**サイトの過去問記事（exam-official）を主根拠に** Reader（gap brief・語句のみ）→ Writer（brief だけ）→ QA（5 軸＋一次資料照合）の分業で新規に書く。一般書（commercial-book）は原理の下支えに限り、数値は基準類（external-primary）で取り直す。規約は content-taxonomy.md §7
 
 #### 1級土木 guide（`group: guide`）
 
