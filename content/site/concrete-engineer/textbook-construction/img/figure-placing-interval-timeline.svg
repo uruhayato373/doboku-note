@@ -1,0 +1,67 @@
+<!-- authored 2026-09-12 doboku-note 自作。題材はコンクリート技士テキスト「施工」の論点。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="打重ね時間の考え方をタイムラインで示す。時間内に打ち重ねれば一体化し、超えるとコールドジョイントとして打継ぎ処理する。外気温で許容時間は変わる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-danger   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-warn     { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+    </style>
+    <marker id="arrowPos" markerWidth="9" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0,0 9,3.5 0,7" fill="#3a7d44"/>
+    </marker>
+    <marker id="arrowDanger" markerWidth="9" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0,0 9,3.5 0,7" fill="#b22234"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">打重ね時間の考え方をタイムラインで示す</text>
+
+  <!-- 正常なケース -->
+  <rect class="box-positive" x="20" y="28" width="360" height="195" rx="8"/>
+  <text class="t-name" x="40" y="54">打重ね時間内に打ち重ねる</text>
+
+  <line x1="90" y1="70" x2="90" y2="86" stroke="#8a8a8a" stroke-width="1"/>
+  <line x1="310" y1="70" x2="310" y2="86" stroke="#8a8a8a" stroke-width="1"/>
+  <line x1="90" y1="78" x2="310" y2="78" stroke="#8a8a8a" stroke-width="1"/>
+  <text class="t-desc" x="200" y="72" text-anchor="middle">凝結が進む前に重ねる</text>
+
+  <line x1="50" y1="96" x2="350" y2="96" stroke="#3a7d44" stroke-width="2" marker-end="url(#arrowPos)"/>
+  <circle cx="90" cy="96" r="5" class="box-positive"/>
+  <circle cx="310" cy="96" r="5" class="box-positive"/>
+  <text class="t-desc" x="90" y="118" text-anchor="middle">先打ち</text>
+  <text class="t-desc" x="310" y="118" text-anchor="middle">後打ち</text>
+
+  <text class="t-desc" x="40" y="150">振動が届く範囲内で連続して打ち込む</text>
+  <text class="t-desc" x="40" y="172">振動によって層どうしがつながる</text>
+  <text class="t-name" x="40" y="196">→ 一体化したコンクリートになる</text>
+
+  <!-- 打重ね時間を超えたケース -->
+  <rect class="box-danger" x="20" y="233" width="360" height="195" rx="8"/>
+  <text class="t-name" x="40" y="259">打重ね時間を超えて打ち重ねる</text>
+
+  <line x1="90" y1="275" x2="90" y2="291" stroke="#8a8a8a" stroke-width="1"/>
+  <line x1="310" y1="275" x2="310" y2="291" stroke="#8a8a8a" stroke-width="1"/>
+  <line x1="90" y1="283" x2="310" y2="283" stroke="#8a8a8a" stroke-width="1"/>
+  <text class="t-desc" x="200" y="277" text-anchor="middle">凝結が進んでから重ねる</text>
+
+  <line x1="50" y1="301" x2="350" y2="301" stroke="#b22234" stroke-width="2" marker-end="url(#arrowDanger)"/>
+  <circle cx="90" cy="301" r="5" class="box-danger"/>
+  <circle cx="310" cy="301" r="5" class="box-danger"/>
+  <text class="t-desc" x="90" y="323" text-anchor="middle">先打ち</text>
+  <text class="t-desc" x="310" y="323" text-anchor="middle">後打ち</text>
+
+  <text class="t-desc" x="40" y="355">境界が一体化せず、すき間が残る</text>
+  <text class="t-name" x="40" y="379">→ コールドジョイントが生じる</text>
+  <text class="t-name" x="40" y="401">（打継ぎとして処置する）</text>
+
+  <!-- 外気温の注記 -->
+  <rect class="box-warn" x="20" y="443" width="360" height="48" rx="8"/>
+  <text class="t-name" x="200" y="472" text-anchor="middle">外気温によって、許容できる打重ね時間は変わる</text>
+</svg>

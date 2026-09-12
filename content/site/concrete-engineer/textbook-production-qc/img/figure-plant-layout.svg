@@ -1,0 +1,51 @@
+<!-- authored 2026-09-12 doboku-note 自作。題材はコンクリート技士テキスト「製造・品質管理と検査」の論点。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="生コン工場の設備配置を骨材ヤード・セメントサイロから計量器・ミキサ・トラックアジテータを経て現場へ至る流れで示す図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .box-s { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+    </style>
+    <marker id="pl-arrow" markerWidth="9" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0,0 9,3.5 0,7" fill="#555"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">骨材・セメントの受入れから現場到着までの5段階</text>
+
+  <rect class="box-s" x="20" y="40" width="360" height="70" rx="6"/>
+  <text class="t-name" x="40" y="66">骨材ヤード・セメントサイロ</text>
+  <text class="t-desc" x="40" y="86">材料を種類別に受け入れ貯蔵する</text>
+
+  <line x1="200" y1="110" x2="200" y2="128" stroke="#555" stroke-width="1.5" marker-end="url(#pl-arrow)"/>
+
+  <rect class="box-b" x="20" y="130" width="360" height="70" rx="6"/>
+  <text class="t-name" x="40" y="156">計量器（ロードセル）</text>
+  <text class="t-desc" x="40" y="176">各材料を質量で正確に計量する</text>
+
+  <line x1="200" y1="200" x2="200" y2="218" stroke="#555" stroke-width="1.5" marker-end="url(#pl-arrow)"/>
+
+  <rect class="box-w" x="20" y="220" width="360" height="70" rx="6"/>
+  <text class="t-name" x="40" y="246">ミキサ</text>
+  <text class="t-desc" x="40" y="266">材料を均一に練り混ぜる</text>
+
+  <line x1="200" y1="290" x2="200" y2="308" stroke="#555" stroke-width="1.5" marker-end="url(#pl-arrow)"/>
+
+  <rect class="box-b" x="20" y="310" width="360" height="70" rx="6"/>
+  <text class="t-name" x="40" y="336">トラックアジテータ</text>
+  <text class="t-desc" x="40" y="356">撹拌しながら現場まで運搬する</text>
+
+  <line x1="200" y1="380" x2="200" y2="398" stroke="#555" stroke-width="1.5" marker-end="url(#pl-arrow)"/>
+
+  <rect class="box-p" x="20" y="400" width="360" height="70" rx="6"/>
+  <text class="t-name" x="40" y="426">現場</text>
+  <text class="t-desc" x="40" y="446">荷卸しし、打込み・締固めへ進む</text>
+</svg>

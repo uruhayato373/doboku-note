@@ -1,0 +1,67 @@
+<!-- authored 2026-09-12 doboku-note 自作。題材はコンクリート技士テキスト「コンクリートの性質と試験」の論点。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="応力ひずみ曲線上の初期接線・割線・接線弾性係数。原点の接線、原点から応力点Pへの割線、応力点Pの接線の3本の傾きの違いを示す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 12px; fill: #555; }
+      .t-mark  { font-size: 12px; font-weight: bold; fill: #222; }
+      .t-num   { font-size: 12px; font-weight: bold; }
+      .t-title { font-size: 13px; font-weight: bold; }
+      .t-desc  { font-size: 12px; fill: #222; }
+      .curve   { fill: none; stroke: #222; stroke-width: 2; }
+      .axisln  { stroke: #8a8a8a; stroke-width: 1.5; }
+      .ln-init { stroke: #2e6da4; stroke-width: 1.5; stroke-dasharray: 5 3; fill: none; }
+      .ln-sec  { stroke: #d4a017; stroke-width: 1.5; stroke-dasharray: 5 3; fill: none; }
+      .ln-tan  { stroke: #b22234; stroke-width: 1.5; stroke-dasharray: 5 3; fill: none; }
+    </style>
+    <marker id="arrowAx" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#8a8a8a"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">静弾性係数は、接線・割線のとり方で3種類に分かれる</text>
+
+  <!-- 軸 -->
+  <line class="axisln" x1="55" y1="280" x2="365" y2="280" marker-end="url(#arrowAx)"/>
+  <line class="axisln" x1="55" y1="280" x2="55" y2="38" marker-end="url(#arrowAx)"/>
+  <text class="t-axis" x="330" y="298">ひずみ ε</text>
+  <text class="t-axis" x="20" y="42">応力 σ</text>
+
+  <!-- 応力ひずみ曲線（原点から立ち上がり、上に凸で頭打ちになる） -->
+  <path class="curve" d="M60,280 C90,150 180,110 300,100"/>
+
+  <!-- ①初期接線弾性係数：原点における接線 -->
+  <line class="ln-init" x1="60" y1="280" x2="111" y2="60"/>
+  <text class="t-num" x="118" y="56" fill="#2e6da4">①</text>
+
+  <!-- ②割線弾性係数：原点から応力点Pを結ぶ直線 -->
+  <line class="ln-sec" x1="60" y1="280" x2="172" y2="130"/>
+  <text class="t-num" x="100" y="222" fill="#d4a017">②</text>
+
+  <!-- ③接線弾性係数：応力点Pにおける接線 -->
+  <line class="ln-tan" x1="99" y1="164" x2="244" y2="96"/>
+  <text class="t-num" x="88" y="158" fill="#b22234">③</text>
+
+  <!-- 原点Oと応力点P -->
+  <circle cx="60" cy="280" r="3" fill="#222"/>
+  <text class="t-mark" x="42" y="298">O</text>
+  <circle cx="172" cy="130" r="3" fill="#222"/>
+  <text class="t-mark" x="178" y="122">P</text>
+
+  <!-- 凡例 -->
+  <line x1="30" y1="335" x2="54" y2="335" class="ln-init"/>
+  <text class="t-title" x="64" y="339" fill="#2e6da4">初期接線弾性係数</text>
+  <text class="t-desc" x="64" y="357">原点における接線の傾き</text>
+
+  <line x1="30" y1="390" x2="54" y2="390" class="ln-sec"/>
+  <text class="t-title" x="64" y="394" fill="#d4a017">割線弾性係数</text>
+  <text class="t-desc" x="64" y="412">原点から応力点Pを結ぶ直線の傾き</text>
+
+  <line x1="30" y1="445" x2="54" y2="445" class="ln-tan"/>
+  <text class="t-title" x="64" y="449" fill="#b22234">接線弾性係数</text>
+  <text class="t-desc" x="64" y="467">応力点Pにおける接線の傾き</text>
+</svg>

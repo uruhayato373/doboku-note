@@ -1,0 +1,55 @@
+<!-- authored 2026-09-12 doboku-note 自作。題材はコンクリート技士テキスト「環境」の論点。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="再生骨材H・M・Lの品質と適用部位を、品質の高低の軸上に並べて示す。数値は示さず区分ごとの用途と留意点を対比する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-b        { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-warn     { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+    </style>
+    <marker id="arrowUp" markerWidth="9" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0,0 9,3.5 0,7" fill="#222"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">再生骨材はH・M・Lの3区分で品質と適用部位が変わる</text>
+
+  <line x1="45" y1="460" x2="45" y2="40" stroke="#222" stroke-width="2" marker-end="url(#arrowUp)"/>
+  <text class="t-desc" x="45" y="32" text-anchor="middle">高品質</text>
+  <text class="t-desc" x="45" y="478" text-anchor="middle">低品質</text>
+
+  <!-- H -->
+  <line x1="45" y1="105" x2="70" y2="105" stroke="#8a8a8a" stroke-width="1.5"/>
+  <circle cx="45" cy="105" r="3" fill="#222"/>
+  <rect class="box-positive" x="70" y="40" width="310" height="130" rx="8"/>
+  <text class="t-name" x="85" y="68">再生骨材H（JIS A 5021）</text>
+  <text class="t-desc" x="85" y="94">用途：一般の構造用コンクリートに使用できる</text>
+  <text class="t-desc" x="85" y="116">留意点：高度処理で付着モルタルを抑える</text>
+  <text class="t-name" x="85" y="140">位置づけ：高品質</text>
+
+  <!-- M -->
+  <line x1="45" y1="250" x2="70" y2="250" stroke="#8a8a8a" stroke-width="1.5"/>
+  <circle cx="45" cy="250" r="3" fill="#222"/>
+  <rect class="box-b" x="70" y="185" width="310" height="130" rx="8"/>
+  <text class="t-name" x="85" y="213">再生骨材M（JIS A 5022）</text>
+  <text class="t-desc" x="85" y="239">用途：凍結融解を受けない部材（杭・基礎梁など）</text>
+  <text class="t-desc" x="85" y="261">留意点：用途に制限がある区分</text>
+  <text class="t-name" x="85" y="285">位置づけ：中品質</text>
+
+  <!-- L -->
+  <line x1="45" y1="395" x2="70" y2="395" stroke="#8a8a8a" stroke-width="1.5"/>
+  <circle cx="45" cy="395" r="3" fill="#222"/>
+  <rect class="box-warn" x="70" y="330" width="310" height="130" rx="8"/>
+  <text class="t-name" x="85" y="358">再生骨材L（JIS A 5023）</text>
+  <text class="t-desc" x="85" y="384">用途：埋戻しや均しコンクリートに使う</text>
+  <text class="t-desc" x="85" y="406">留意点：凍結融解を受ける部位には使えない</text>
+  <text class="t-name" x="85" y="430">位置づけ：低品質</text>
+
+  <text class="t-desc" x="200" y="492" text-anchor="middle">処理の程度や要求性能を踏まえて選ぶ</text>
+</svg>

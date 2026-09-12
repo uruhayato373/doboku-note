@@ -1,0 +1,60 @@
+<!-- authored 2026-09-12 doboku-note 自作。題材はコンクリート技士テキスト「施工」の論点。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="内部振動機による締固め完了の判断を断面の3段階（挿入直後・途中・完了）で示し、かけすぎによる材料分離への注意を添える">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .box-b        { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-danger   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-surface  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">内部振動機の締固めは断面の変化で完了を判断する</text>
+
+  <!-- STEP1 挿入直後 -->
+  <rect class="box-b" x="20" y="26" width="360" height="132" rx="8"/>
+  <rect class="box-surface" x="32" y="36" width="90" height="94" rx="4"/>
+  <line x1="77" y1="36" x2="77" y2="112" stroke="#555" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="77" cy="112" r="5" fill="#555"/>
+  <circle cx="50" cy="50" r="3" fill="none" stroke="#2e6da4" stroke-width="1.5"/>
+  <circle cx="66" cy="44" r="3" fill="none" stroke="#2e6da4" stroke-width="1.5"/>
+  <circle cx="95" cy="50" r="3" fill="none" stroke="#2e6da4" stroke-width="1.5"/>
+  <circle cx="105" cy="66" r="3" fill="none" stroke="#2e6da4" stroke-width="1.5"/>
+  <circle cx="58" cy="72" r="3" fill="none" stroke="#2e6da4" stroke-width="1.5"/>
+  <circle cx="88" cy="80" r="3" fill="none" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="t-name" x="158" y="50">STEP1　挿入直後</text>
+  <text class="t-desc" x="158" y="72">気泡が次々と浮き上がって出てくる</text>
+
+  <!-- STEP2 途中 -->
+  <rect class="box-b" x="20" y="168" width="360" height="132" rx="8"/>
+  <rect class="box-surface" x="32" y="178" width="90" height="94" rx="4"/>
+  <line x1="77" y1="178" x2="77" y2="254" stroke="#555" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="77" cy="254" r="5" fill="#555"/>
+  <line x1="37" y1="190" x2="117" y2="190" stroke="#2e6da4" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <circle cx="60" cy="215" r="3" fill="none" stroke="#2e6da4" stroke-width="1.5"/>
+  <circle cx="90" cy="230" r="3" fill="none" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="t-name" x="158" y="192">STEP2　途中</text>
+  <text class="t-desc" x="158" y="214">表面が沈み込み、ほぼ平らになる</text>
+
+  <!-- STEP3 完了 -->
+  <rect class="box-positive" x="20" y="310" width="360" height="132" rx="8"/>
+  <rect class="box-surface" x="32" y="320" width="90" height="94" rx="4"/>
+  <line x1="77" y1="320" x2="77" y2="396" stroke="#555" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="77" cy="396" r="5" fill="#555"/>
+  <line x1="37" y1="330" x2="117" y2="330" stroke="#3a7d44" stroke-width="2.5"/>
+  <text class="t-name" x="158" y="334">STEP3　完了</text>
+  <text class="t-desc" x="158" y="356">ペーストが均等に浮き</text>
+  <text class="t-desc" x="158" y="372">気泡が出なくなる</text>
+
+  <!-- 注意 -->
+  <rect class="box-danger" x="20" y="452" width="360" height="40" rx="6"/>
+  <text class="t-name" x="200" y="472" text-anchor="middle">振動のかけすぎに注意</text>
+  <text class="t-desc" x="200" y="486" text-anchor="middle">過度な振動は材料分離を招くおそれがある</text>
+</svg>

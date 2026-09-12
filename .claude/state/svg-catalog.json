@@ -2,14 +2,14 @@
   "description": "サイト図版SVGの派生カタログ（SSOT）。build-svg-catalog.mjs が生成。手動編集しない。",
   "source": "content/site/**/img/*.svg",
   "summary": {
-    "total": 552,
-    "embedded": 552,
+    "total": 564,
+    "embedded": 564,
     "orphan": 0,
     "missingConcept": 0,
     "withHighAudit": 0,
     "figures": {
-      "total": 474,
-      "conforming": 474,
+      "total": 486,
+      "conforming": 486,
       "needsRework": 0
     },
     "byCategory": {
@@ -18,6 +18,7 @@
       "civil-practice": 20,
       "concrete-chief-engineer": 72,
       "concrete-diagnostician": 22,
+      "concrete-engineer": 12,
       "pe-comprehensive-management": 225
     }
   },
@@ -5896,6 +5897,222 @@
       "slug": "textbook-variation",
       "name": "figure-03.svg",
       "concept": "ASR・鋼材腐食・凍害の劣化機構別に現れるひび割れパターンと随伴サインの比較",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-engineer/textbook-construction/img/figure-compaction-completion.svg",
+      "category": "concrete-engineer",
+      "slug": "textbook-construction",
+      "name": "figure-compaction-completion.svg",
+      "concept": "内部振動機による締固め完了の判断を断面の3段階（挿入直後・途中・完了）で示し、かけすぎによる材料分離への注意を添える",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-engineer/textbook-construction/img/figure-placing-interval-timeline.svg",
+      "category": "concrete-engineer",
+      "slug": "textbook-construction",
+      "name": "figure-placing-interval-timeline.svg",
+      "concept": "打重ね時間の考え方をタイムラインで示す。時間内に打ち重ねれば一体化し、超えるとコールドジョイントとして打継ぎ処理する。外気温で許容時間は変わる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-engineer/textbook-environment/img/figure-lifecycle-co2.svg",
+      "category": "concrete-engineer",
+      "slug": "textbook-environment",
+      "name": "figure-lifecycle-co2.svg",
+      "concept": "コンクリートのライフサイクル7段階の流れに、セメント製造のCO2発生源2種と削減の打ち手（混合セメント・長寿命化・再生骨材）を添えて示す",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-engineer/textbook-environment/img/figure-recycled-aggregate-grades.svg",
+      "category": "concrete-engineer",
+      "slug": "textbook-environment",
+      "name": "figure-recycled-aggregate-grades.svg",
+      "concept": "再生骨材H・M・Lの品質と適用部位を、品質の高低の軸上に並べて示す。数値は示さず区分ごとの用途と留意点を対比する",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-engineer/textbook-materials/img/figure-aggregate-moisture-states.svg",
+      "category": "concrete-engineer",
+      "slug": "textbook-materials",
+      "name": "figure-aggregate-moisture-states.svg",
+      "concept": "骨材の含水状態4区分の断面比較。絶乾・気乾・表乾・湿潤の内部と表面の水を示し、吸水量は絶乾と表乾の差、表面水率は表乾と湿潤の差で定義される",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-engineer/textbook-materials/img/figure-cement-manufacturing.svg",
+      "category": "concrete-engineer",
+      "slug": "textbook-materials",
+      "name": "figure-cement-manufacturing.svg",
+      "concept": "セメント製造の3工程。原料工程で原料を粉砕・混合し、焼成工程で高温加熱してクリンカーを生成し、仕上工程でせっこうを加え微粉砕する",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-engineer/textbook-mix-design/img/figure-performance-to-mix.svg",
+      "category": "concrete-engineer",
+      "slug": "textbook-mix-design",
+      "name": "figure-performance-to-mix.svg",
+      "concept": "要求性能の安全性・使用性・耐久性を配合の目標である強度・耐久性へ結び、施工性と経済性はその実現条件として位置づける対応関係を示す図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-engineer/textbook-mix-design/img/figure-volume-composition.svg",
+      "category": "concrete-engineer",
+      "slug": "textbook-mix-design",
+      "name": "figure-volume-composition.svg",
+      "concept": "5要素の絶対容積を1m³へ積み上げ、量の増減が性質に跳ね返る配合の基本形を、水・セメント・空気を増やしたときの変化とあわせて示す図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-engineer/textbook-production-qc/img/figure-plant-layout.svg",
+      "category": "concrete-engineer",
+      "slug": "textbook-production-qc",
+      "name": "figure-plant-layout.svg",
+      "concept": "生コン工場の設備配置を骨材ヤード・セメントサイロから計量器・ミキサ・トラックアジテータを経て現場へ至る流れで示す図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-engineer/textbook-production-qc/img/figure-three-inspections.svg",
+      "category": "concrete-engineer",
+      "slug": "textbook-production-qc",
+      "name": "figure-three-inspections.svg",
+      "concept": "生コン工場の3つの検査（原材料受入検査・工程検査・製品検査）を製造フロー上に並べ、誰が何をどの頻度で確認するかを示す図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-engineer/textbook-properties-testing/img/figure-consistency-tests.svg",
+      "category": "concrete-engineer",
+      "slug": "textbook-properties-testing",
+      "name": "figure-consistency-tests.svg",
+      "concept": "コンシステンシー試験の使い分け。硬練りから軟練りの順にVB・振動台式試験、スランプ試験、スランプフロー試験を並べ、それぞれ測るものを示す",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-engineer/textbook-properties-testing/img/figure-elastic-modulus-types.svg",
+      "category": "concrete-engineer",
+      "slug": "textbook-properties-testing",
+      "name": "figure-elastic-modulus-types.svg",
+      "concept": "応力ひずみ曲線上の初期接線・割線・接線弾性係数。原点の接線、原点から応力点Pへの割線、応力点Pの接線の3本の傾きの違いを示す",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",

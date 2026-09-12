@@ -1,0 +1,62 @@
+<!-- authored 2026-09-12 doboku-note 自作。題材はコンクリート技士テキスト「コンクリート用材料」の論点。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="骨材の含水状態4区分の断面比較。絶乾・気乾・表乾・湿潤の内部と表面の水を示し、吸水量は絶乾と表乾の差、表面水率は表乾と湿潤の差で定義される">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-title { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc  { font-size: 12px; fill: #222; }
+      .t-tag   { font-size: 11px; fill: #555; }
+      .ring-off { fill: none; stroke: #8a8a8a; stroke-width: 1.5; stroke-dasharray: 3 3; }
+      .ring-on  { fill: none; stroke: #2e6da4; stroke-width: 3; }
+      .core-empty { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .core-part  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .core-full  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-s { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="arrowM" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#555"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">含水状態は絶乾・気乾・表乾・湿潤の4区分に分かれる</text>
+
+  <!-- Row1: 絶乾 -->
+  <circle class="ring-off" cx="45" cy="70" r="22"/>
+  <circle class="core-empty" cx="45" cy="70" r="13"/>
+  <text class="t-title" x="90" y="62">絶乾（絶対乾燥状態）</text>
+  <text class="t-desc" x="90" y="82">内部・表面とも水分がない基準状態</text>
+
+  <!-- Row2: 気乾 -->
+  <circle class="ring-off" cx="45" cy="170" r="22"/>
+  <circle class="core-part" cx="45" cy="170" r="13"/>
+  <text class="t-title" x="90" y="162">気乾（自然乾燥状態）</text>
+  <text class="t-desc" x="90" y="182">内部にわずかな水分を含む状態</text>
+
+  <!-- Row3: 表乾 -->
+  <circle class="ring-off" cx="45" cy="270" r="22"/>
+  <circle class="core-full" cx="45" cy="270" r="13"/>
+  <text class="t-title" x="90" y="262">表乾（表面乾燥飽水状態）</text>
+  <text class="t-desc" x="90" y="282">内部は満水、表面は乾いている基準</text>
+
+  <!-- Row4: 湿潤 -->
+  <circle class="ring-on" cx="45" cy="370" r="22"/>
+  <circle class="core-full" cx="45" cy="370" r="13"/>
+  <text class="t-title" x="90" y="362">湿潤（表面にも水がある状態）</text>
+  <text class="t-desc" x="90" y="382">内部満水に加え表面にも水がある</text>
+
+  <!-- 差の矢印: 吸水量＝絶乾→表乾（内部の差） -->
+  <line x1="320" y1="70" x2="320" y2="270" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrowM)"/>
+  <text class="t-tag" x="326" y="174">吸水量</text>
+
+  <!-- 差の矢印: 表面水率＝表乾→湿潤（表面の差） -->
+  <line x1="320" y1="270" x2="320" y2="370" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrowM)"/>
+  <text class="t-tag" x="326" y="324">表面水率</text>
+
+  <rect class="box-s" x="20" y="425" width="360" height="60" rx="6"/>
+  <text class="t-desc" x="40" y="448">吸水量＝絶乾→表乾で内部に増える水分の割合</text>
+  <text class="t-desc" x="40" y="468">表面水率＝表乾→湿潤で表面に増える水分の割合</text>
+</svg>
