@@ -70,4 +70,3 @@ export function checkImages(file, content, root = REPO_ROOT) {
   }
   return warnings;
 }
-
