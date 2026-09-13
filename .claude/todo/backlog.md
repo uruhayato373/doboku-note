@@ -26,6 +26,15 @@
 
 
 
+### [DN-0224] 教材の原典待ち17論点を復旧し記事・図解・SNSとの対応を再照合する
+タグ: [コンテンツ品質] [種類:改善] [起票:2026-09-14] [検証:check-content-expansion] [進行中]
+
+**対象**: 教材対応表 `.claude/state/content-expansion.json` のうち、本IDを参照する論点。開始時は1級土木二次問題集4、総監受験対策2、総監論文対策10、技術士論文の書き方1。進捗・原本箇所・判定理由は対応表を真実源とし、管理画面 `/content/expansion?state=blocked` で確認する。
+
+**次**: Driveの登録原本・旧保管先・重複スキャンを探索し、欠頁／遮蔽／分割不良をページ画像で区別する。復元できる箇所を私有OCRへ反映して出典を記録し、該当論点の既存記事・図・SNSを意味照合する。不足がある場合だけ制作する。
+
+**完了条件**: 全対象に原本ページと再照合根拠があり、必要な制作と検査が成立していること。原本自体の欠損は推測で埋めず、入手・再撮影が必要な書名とページを対応表に残す。他教材に同じ主題があることを原典充足の根拠にしない。
+
 ### [DN-0220] 図解整備を公開・配信し資格別KPIの初回実測を閉じる
 タグ: [インフラ・計測] [種類:改善] [起票:2026-09-13]
 
@@ -109,7 +118,6 @@ CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認し
 | 17 | コンクリート診断士 98問＋記述式8本の技術内容レビュー | 2026-09-05実査で一次演習8記事は13+14+13+12+12+13+10+11=98問、記述式マガジン`mf2a132408b6f`は8記事、サイト`guide-essay`も存在。公開後の人手レビュー完了を示す実体はない | 一次演習98問、note記述式8本、`content/site/concrete-diagnostician/guide-essay`を有資格者が技術レビューし、誤りを修正・再デプロイする。原典照合できない数値を推測で補わない |
 | 18 | GA4 UIバックアップとbing流入の外部照合 | Data API・週次`metrics-analyzer`・note referral集計・商品別期間効率は稼働済み。GA4 UI CSVは3ユニットとも未成立。最新14日のbingは2,683 usersだが日本比率99.4%・engagement 71.3%で自動bot署名は`flagged:false` | ログイン済みGA4 UIで正式レポート名を確定しfixtureを更新する。Bing Webmasterとdevice・landing・新規/再訪を突合し、件数比だけでbot除外しない。API主経路は継続する |
 
-| 19 | 教材展開の原典不足 | 教材対応表 `.claude/state/content-expansion.json` の原典待ち17論点。土木4論点、総監の旧第1章原本不明2論点・記述式教材の遮蔽10論点・総監過去問解説の欠頁1論点。建設キーワード本はp1〜41とp371末尾以降の未収録も範囲制約に含む | 対応表の原本箇所を使って欠頁・遮蔽のない原本を補い、該当論点だけ再照合。既存記事の所在や他の公式問題があることを原典充足とみなさない。管理画面 `/content/expansion?state=blocked` |
 
 | 20 | 既存の動画退避物3件のハッシュ不一致 | `check-drive-vault` で `.tmp/video-render/career-komuin-minkan/wav/01-premise.wav`、`gakka-2kyu-hoki/shorts/point-overview-1/thumbnail.png`、`kikinagashi-shunin-suchi/shorts/point-tanni-saikotsu-kuuki-2/meta.json` のvault実体と台帳が不一致。今回制作した137ファイルはクラウドまで全件一致 | 各制作パックの現在の原稿/公開版と照合し、正しい版を確定してから退避し直す。台帳のSHAだけを書き換えない |
 

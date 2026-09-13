@@ -7579,9 +7579,10 @@
           "need": "安全管理の法令と現場対策を記述で答える",
           "content": "blocked",
           "evidenceLevel": "source-unavailable",
-          "reason": "Book source/001.pdf and manifest have 324 PDF pages, ending at printed p316 within quality inspection. TOC safety p318/environment p428 is outside the supplied PDF. Public target content exists, but this book cannot establish detailed correspondence.",
+          "reason": "2026-09-14再実査: 原本 001.pdf は324 PDF頁で、末尾の印字316を全版面まで確認。目次が示す第6章「安全管理」は印字318開始、次章は428開始のため、318〜427の原本が必要。Driveの登録原本・旧配置・別名検索・改訂履歴に続編は見つからなかった。既存記事や他の教材があることでは本書との照合を完了にしない。",
           "locators": [
-            "part-01.md:173 (p0007)"
+            "part-01.md:173 (p0007; 目次)",
+            "印字318〜427（未収録。318開始/次章428開始を目次で確認）"
           ],
           "visual": {
             "decision": "existing",
@@ -7662,7 +7663,7 @@
             }
           ],
           "backlogIds": [
-            "DN-0135"
+            "DN-0224"
           ]
         },
         {
@@ -7671,9 +7672,10 @@
           "need": "環境保全と副産物対策を記述へつなげる",
           "content": "blocked",
           "evidenceLevel": "source-unavailable",
-          "reason": "Book source/001.pdf and manifest have 324 PDF pages, ending at printed p316 within quality inspection. TOC safety p318/environment p428 is outside the supplied PDF. Public target content exists, but this book cannot establish detailed correspondence.",
+          "reason": "2026-09-14再実査: 原本 001.pdf は印字316で終了。目次が示す第7章「環境保全・建設副産物対策」は印字428開始、付録は493開始のため、428〜492の原本が必要。登録原本・旧配置・別名検索・改訂履歴に続編は見つからなかった。未収録の本文から追加記事・図・SNSの要否を決めない。",
           "locators": [
-            "part-01.md:181 (p0007)"
+            "part-01.md:181 (p0007; 目次)",
+            "印字428〜492（未収録。428開始/付録493開始を目次で確認）"
           ],
           "visual": {
             "decision": "existing",
@@ -7722,7 +7724,7 @@
             }
           ],
           "backlogIds": [
-            "DN-0135"
+            "DN-0224"
           ]
         },
         {
@@ -8613,9 +8615,10 @@
           "need": "付録の令和2年度実地問題を現在の公開過去問と照合する",
           "content": "blocked",
           "evidenceLevel": "source-unavailable",
-          "reason": "TOC appendix printed p493 lies beyond supplied PDF ending printed p316. Exact appendix contents cannot be read from this source.",
+          "reason": "2026-09-14再実査: 目次で付録「令和2年度1級土木施工管理技術検定実地試験問題」が印字493開始と確認できるが、原本は316で終了。493から付録末尾までと終端確認用の奥付が必要（最終ページ番号は未確認）。他の公式過去問があっても本書の収録範囲・配置の照合とは区別する。",
           "locators": [
-            "part-01.md:189 (p0007)"
+            "part-01.md:189 (p0007; 目次)",
+            "印字493〜付録末尾（未収録。最終ページ番号未確認）"
           ],
           "visual": {
             "decision": "unnecessary",
@@ -8672,18 +8675,19 @@
             }
           ],
           "backlogIds": [
-            "DN-0135"
+            "DN-0224"
           ]
         },
         {
           "sourceId": "civil1-secondary-workbook-2021",
           "id": "civil-unit-190",
-          "need": "品質管理章末尾の未収録部分を確認する",
+          "need": "品質管理章末尾の印字317を確認する",
           "content": "blocked",
           "evidenceLevel": "source-unavailable",
-          "reason": "Supplied PDF ends at printed316 during rebound-hammer method; the next chapter starts at318. The rest of printed316 and printed317 cannot be audited.",
+          "reason": "2026-09-14再実査: PDF最終頁 p0324 は印字316を下端のノンブル・余白まで収録し、OCR末尾も画像と一致する。「316の残りが欠落」は撤回。次章は目次で印字318開始のため、未確認は印字317のみ。317が白紙か本文かを原本で確認するまで品質管理章の終端を確定しない。",
           "locators": [
-            "part-07.md:1080"
+            "part-07.md:1080以降 (p0324; 印字316は全版面確認済み)",
+            "印字317（未収録。白紙か本文か未確認）"
           ],
           "visual": {
             "decision": "unnecessary",
@@ -8724,7 +8728,7 @@
             }
           ],
           "backlogIds": [
-            "DN-0135"
+            "DN-0224"
           ]
         }
       ]
@@ -23136,7 +23140,7 @@
             }
           ],
           "backlogIds": [
-            "DN-0135"
+            "DN-0224"
           ]
         },
         {
@@ -23264,7 +23268,7 @@
             }
           ],
           "backlogIds": [
-            "DN-0135"
+            "DN-0224"
           ]
         },
         {
@@ -24279,7 +24283,7 @@
             }
           ],
           "backlogIds": [
-            "DN-0135"
+            "DN-0224"
           ]
         },
         {
@@ -24383,7 +24387,7 @@
             }
           ],
           "backlogIds": [
-            "DN-0135"
+            "DN-0224"
           ]
         },
         {
@@ -24487,7 +24491,7 @@
             }
           ],
           "backlogIds": [
-            "DN-0135"
+            "DN-0224"
           ]
         },
         {
@@ -24591,7 +24595,7 @@
             }
           ],
           "backlogIds": [
-            "DN-0135"
+            "DN-0224"
           ]
         },
         {
@@ -24695,7 +24699,7 @@
             }
           ],
           "backlogIds": [
-            "DN-0135"
+            "DN-0224"
           ]
         },
         {
@@ -24799,7 +24803,7 @@
             }
           ],
           "backlogIds": [
-            "DN-0135"
+            "DN-0224"
           ]
         },
         {
@@ -24903,7 +24907,7 @@
             }
           ],
           "backlogIds": [
-            "DN-0135"
+            "DN-0224"
           ]
         },
         {
@@ -25007,7 +25011,7 @@
             }
           ],
           "backlogIds": [
-            "DN-0135"
+            "DN-0224"
           ]
         },
         {
@@ -25111,7 +25115,7 @@
             }
           ],
           "backlogIds": [
-            "DN-0135"
+            "DN-0224"
           ]
         },
         {
@@ -25215,7 +25219,7 @@
             }
           ],
           "backlogIds": [
-            "DN-0135"
+            "DN-0224"
           ]
         }
       ]
@@ -26370,24 +26374,26 @@
         {
           "sourceId": "pe-essay-writing-guide",
           "id": "pe-essay-writing-guide:part-03.md:740",
-          "need": "白飛びと電気電子分野の欠落を、準備・設問理解・構成・記述・検証の学習過程に位置づける。",
+          "need": "電気電子部門の出題キーワードを分類し、問われる条件へ絞り込む",
           "content": "blocked",
           "evidenceLevel": "source-unavailable",
-          "reason": "p0124全体とp0125右端に読めない本文あり。",
+          "reason": "2026-09-14再実査: 印字151の白飛びという旧判定を撤回。柱・ノンブルが明瞭で、本文領域は裏写りを伴う余白。p0125の印字176は、めくり途中の紙が右端を隠しており原本PDF64にも同じ欠損がある。旧分割PDFの同頁JPEGは結合原本とSHA一致。印字176の全幅が読める再撮影が必要。印字150/185の重複撮影はp0123/p0132で確認でき、私有OCRの誤ったページ番号と重複本文を修正した。",
           "locators": [
-            "part-03.md:740–765 (p0122)"
+            "part-03.md:740付近 (p0125; 印字176の右端が遮蔽)",
+            "source/001.pdf PDF64 / 旧分割PDF5の3頁（同一JPEG）",
+            "p0124=印字151の余白、p0126=印字150/185の重複撮影（欠落の根拠から除外）"
           ],
           "visual": {
             "decision": "unreviewed",
-            "reason": "図解の要否を本文に照らして確認する。"
+            "reason": "印字176の欠損を補ってから、キーワード分類の関係を図解する必要性を判定する。"
           },
           "derivative": {
-            "decision": "unnecessary",
-            "reason": "白飛びと電気電子分野の欠落は、p0124全体とp0125右端に読めない本文あり。 独立したSNS制作入力にはしない。"
+            "decision": "unreviewed",
+            "reason": "欠損した条件やキーワードを推測でSNSに展開せず、印字176の再撮影後に学習価値を判定する。"
           },
           "artifacts": [],
           "backlogIds": [
-            "DN-0135"
+            "DN-0224"
           ]
         },
         {
