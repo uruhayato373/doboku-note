@@ -1190,6 +1190,46 @@
       "allAdoptedRgbaIdentical": true,
       "files": [
         {
+          "path": "content/site/pe-construction/bousai-genseigai-ronbun-keyword/img/fig13.png",
+          "beforeBytes": 424916,
+          "afterBytes": 368273,
+          "candidateBytes": 368273,
+          "savedBytes": 56643,
+          "encodedSha256Before": "3a97855f02e8eb3cb8b3a9739aaab606107e594b1bbbe9691b56caa9e54bed3b",
+          "encodedSha256After": "28d0015d4fcac4bbdf0b7f1bce679ea07bda65dfb5d64329f91ad6aff95fbc58",
+          "encodedSha256Candidate": "28d0015d4fcac4bbdf0b7f1bce679ea07bda65dfb5d64329f91ad6aff95fbc58",
+          "decodedRgbaSha256Before": "7547cb19f2b11b59747aa37bc5fbd079ff23719097f6d0257ed2fdd74591f915",
+          "decodedRgbaSha256After": "7547cb19f2b11b59747aa37bc5fbd079ff23719097f6d0257ed2fdd74591f915",
+          "width": 955,
+          "height": 471,
+          "channels": 4,
+          "pixelsEqual": true,
+          "adopted": true,
+          "reason": "RGBA exact; size reduced",
+          "paletteBefore": false,
+          "elapsedMs": 548,
+          "failure": null,
+          "log": ".tmp/content-completion/ci-lossless-png/oxipng/logs/content/site/pe-construction/bousai-genseigai-ronbun-keyword/img/fig13.png.txt"
+        },
+        {
+          "path": "content/site/pe-construction/ninaite-dx-ronbun-keyword/img/fig16.png",
+          "beforeBytes": 263236,
+          "afterBytes": 258703,
+          "candidateBytes": 258703,
+          "savedBytes": 4533,
+          "encodedSha256Before": "67521c13912c91b4f8365e3db693644ddd1d4c098dd6689662ac2728fdd045e1",
+          "encodedSha256After": "84191ec70d5dc07caac156f17cb3561cd4d5ca2fc14e62990c93c3c03d5103a3",
+          "encodedSha256Candidate": "84191ec70d5dc07caac156f17cb3561cd4d5ca2fc14e62990c93c3c03d5103a3",
+          "decodedRgbaSha256Before": "404f612190ab19e762d1ea1dcd7aed8807687490cdc9f3a1336a6a65ccb86080",
+          "decodedRgbaSha256After": "404f612190ab19e762d1ea1dcd7aed8807687490cdc9f3a1336a6a65ccb86080",
+          "width": 855,
+          "height": 368,
+          "channels": 4,
+          "pixelsEqual": true,
+          "adopted": true,
+          "reason": "RGBA bytes and SHA256 identical; encoded size reduced"
+        },
+        {
           "path": "content/site/pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig29.png",
           "beforeBytes": 726792,
           "afterBytes": 671039,
@@ -1254,28 +1294,6 @@
           "failure": null,
           "reason": "RGBA exact; size reduced",
           "log": ".tmp/content-completion/ci-lossless-png/oxipng/logs/content/site/pe-construction/iji-kanri-ronbun-keyword/img/fig06.png.txt"
-        },
-        {
-          "path": "content/site/pe-construction/bousai-genseigai-ronbun-keyword/img/fig13.png",
-          "beforeBytes": 424916,
-          "afterBytes": 368273,
-          "candidateBytes": 368273,
-          "savedBytes": 56643,
-          "encodedSha256Before": "3a97855f02e8eb3cb8b3a9739aaab606107e594b1bbbe9691b56caa9e54bed3b",
-          "encodedSha256After": "28d0015d4fcac4bbdf0b7f1bce679ea07bda65dfb5d64329f91ad6aff95fbc58",
-          "encodedSha256Candidate": "28d0015d4fcac4bbdf0b7f1bce679ea07bda65dfb5d64329f91ad6aff95fbc58",
-          "decodedRgbaSha256Before": "7547cb19f2b11b59747aa37bc5fbd079ff23719097f6d0257ed2fdd74591f915",
-          "decodedRgbaSha256After": "7547cb19f2b11b59747aa37bc5fbd079ff23719097f6d0257ed2fdd74591f915",
-          "width": 955,
-          "height": 471,
-          "channels": 4,
-          "paletteBefore": false,
-          "pixelsEqual": true,
-          "adopted": true,
-          "elapsedMs": 548,
-          "failure": null,
-          "reason": "RGBA exact; size reduced",
-          "log": ".tmp/content-completion/ci-lossless-png/oxipng/logs/content/site/pe-construction/bousai-genseigai-ronbun-keyword/img/fig13.png.txt"
         },
         {
           "path": "content/site/pe-construction/shakai-shihon-ronbun-keyword/img/fig04.png",
@@ -1387,7 +1405,122 @@
           "reason": "RGBA exact; size reduced",
           "log": ".tmp/content-completion/ci-lossless-png/oxipng/logs/content/site/pe-construction/ninaite-dx-ronbun-keyword/img/fig15.png.txt"
         }
-      ]
+      ],
+      "encoder": "oxipng 10.2.1",
+      "independentPillowPixelVerification": [
+        {
+          "path": "content/site/pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig29.png",
+          "pilDecodedRgbaBefore": "a20384bd53f0b509f8ed5a9f1f5522497db672f3a07512cebf03f73bb55917ee",
+          "pilDecodedRgbaAfter": "a20384bd53f0b509f8ed5a9f1f5522497db672f3a07512cebf03f73bb55917ee",
+          "equal": true,
+          "width": 842,
+          "height": 1233
+        },
+        {
+          "path": "content/site/pe-construction/shakai-shihon-ronbun-keyword/img/fig05.png",
+          "pilDecodedRgbaBefore": "89f4c9bd7ff0c6b9198121898ae7995ae9efeca1c2bc41e0f056722780bb674b",
+          "pilDecodedRgbaAfter": "89f4c9bd7ff0c6b9198121898ae7995ae9efeca1c2bc41e0f056722780bb674b",
+          "equal": true,
+          "width": 1340,
+          "height": 498
+        },
+        {
+          "path": "content/site/pe-construction/iji-kanri-ronbun-keyword/img/fig06.png",
+          "pilDecodedRgbaBefore": "2b9419533ade296afa1e5bdbef6247a0902b3772b7dfe6378cfdda17ac48be76",
+          "pilDecodedRgbaAfter": "2b9419533ade296afa1e5bdbef6247a0902b3772b7dfe6378cfdda17ac48be76",
+          "equal": true,
+          "width": 863,
+          "height": 1023
+        },
+        {
+          "path": "content/site/pe-construction/bousai-genseigai-ronbun-keyword/img/fig13.png",
+          "pilDecodedRgbaBefore": "7547cb19f2b11b59747aa37bc5fbd079ff23719097f6d0257ed2fdd74591f915",
+          "pilDecodedRgbaAfter": "7547cb19f2b11b59747aa37bc5fbd079ff23719097f6d0257ed2fdd74591f915",
+          "equal": true,
+          "width": 955,
+          "height": 471
+        },
+        {
+          "path": "content/site/pe-construction/shakai-shihon-ronbun-keyword/img/fig04.png",
+          "pilDecodedRgbaBefore": "a91b95e2a159cb02dead5d1db5139eb0acabc92e6d3025e5d9eba9624f69eb16",
+          "pilDecodedRgbaAfter": "a91b95e2a159cb02dead5d1db5139eb0acabc92e6d3025e5d9eba9624f69eb16",
+          "equal": true,
+          "width": 955,
+          "height": 660
+        },
+        {
+          "path": "content/site/pe-construction/bousai-genseigai-ronbun-keyword/img/fig14.png",
+          "pilDecodedRgbaBefore": "bc5d417e9231314e69cb78d835929c3186f019bf2234bbc33038ddb1ec7b6c1b",
+          "pilDecodedRgbaAfter": "bc5d417e9231314e69cb78d835929c3186f019bf2234bbc33038ddb1ec7b6c1b",
+          "equal": true,
+          "width": 965,
+          "height": 838
+        },
+        {
+          "path": "content/site/pe-construction/iji-kanri-ronbun-keyword/img/fig11.png",
+          "pilDecodedRgbaBefore": "1199236a34341ca1c98694d69bc758171bf767a0c5c6e3df870594f1bf622ff6",
+          "pilDecodedRgbaAfter": "1199236a34341ca1c98694d69bc758171bf767a0c5c6e3df870594f1bf622ff6",
+          "equal": true,
+          "width": 903,
+          "height": 685
+        },
+        {
+          "path": "content/site/pe-construction/iji-kanri-ronbun-keyword/img/fig08.png",
+          "pilDecodedRgbaBefore": "f9ce32b5a5748bf252116c163a2e0c37ca242663ae5a9667a099bbe260234c3a",
+          "pilDecodedRgbaAfter": "f9ce32b5a5748bf252116c163a2e0c37ca242663ae5a9667a099bbe260234c3a",
+          "equal": true,
+          "width": 921,
+          "height": 650
+        },
+        {
+          "path": "content/site/pe-construction/ninaite-dx-ronbun-keyword/img/fig15.png",
+          "pilDecodedRgbaBefore": "ff47ebe15599095be74fa1a95f29167f7027e3cf789646ea1b76fc3c0b6b15cb",
+          "pilDecodedRgbaAfter": "ff47ebe15599095be74fa1a95f29167f7027e3cf789646ea1b76fc3c0b6b15cb",
+          "equal": true,
+          "width": 990,
+          "height": 372
+        },
+        {
+          "path": "content/site/pe-construction/ninaite-dx-ronbun-keyword/img/fig16.png",
+          "pilDecodedRgbaBefore": "404f612190ab19e762d1ea1dcd7aed8807687490cdc9f3a1336a6a65ccb86080",
+          "pilDecodedRgbaAfter": "404f612190ab19e762d1ea1dcd7aed8807687490cdc9f3a1336a6a65ccb86080",
+          "equal": true,
+          "width": 855,
+          "height": 368
+        }
+      ],
+      "contentSiteWorkingTreeMeasure": {
+        "trackedFiles": 3520,
+        "trackedFileBytes": 125805297,
+        "trackedMiB": 119.97728061676025,
+        "capMiB": 120,
+        "bytesBelowCap": 23823,
+        "allExistingFilesBytes": 125805297,
+        "note": "Git追跡パスの現在の実体で算出。index/HEADは親のstage/commit後に反映。"
+      }
+    },
+    "svgCatalog": {
+      "total": 627,
+      "embedded": 627,
+      "orphan": 0,
+      "missingConcept": 0,
+      "withHighAudit": 0,
+      "figures": {
+        "total": 548,
+        "conforming": 548,
+        "needsRework": 0
+      },
+      "byCategory": {
+        "civil-construction-1": 200,
+        "civil-construction-2": 20,
+        "civil-practice": 27,
+        "concrete-chief-engineer": 72,
+        "concrete-diagnostician": 37,
+        "concrete-engineer": 12,
+        "pe-comprehensive-management": 248,
+        "pe-construction": 8,
+        "pe-first-stage": 3
+      }
     }
   }
 }

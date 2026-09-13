@@ -2,25 +2,26 @@
   "description": "サイト図版SVGの派生カタログ（SSOT）。build-svg-catalog.mjs が生成。手動編集しない。",
   "source": "content/site/**/img/*.svg",
   "summary": {
-    "total": 588,
-    "embedded": 588,
+    "total": 627,
+    "embedded": 627,
     "orphan": 0,
     "missingConcept": 0,
     "withHighAudit": 0,
     "figures": {
-      "total": 510,
-      "conforming": 510,
+      "total": 548,
+      "conforming": 548,
       "needsRework": 0
     },
     "byCategory": {
-      "civil-construction-1": 196,
+      "civil-construction-1": 200,
       "civil-construction-2": 20,
-      "civil-practice": 20,
+      "civil-practice": 27,
       "concrete-chief-engineer": 72,
       "concrete-diagnostician": 37,
       "concrete-engineer": 12,
-      "pe-comprehensive-management": 228,
-      "pe-construction": 3
+      "pe-comprehensive-management": 248,
+      "pe-construction": 8,
+      "pe-first-stage": 3
     }
   },
   "entries": [
@@ -624,6 +625,24 @@
       "slug": "textbook-building-standards",
       "name": "figure-terms-definition.svg",
       "concept": "建築基準法の主な用語の定義。建築物は土地に定着し屋根と柱または壁を有する工作物、特殊建築物は多数の者が利用する用途の建築物、主要構造部は壁・柱・床・はり・屋根・階段で間仕切壁や最下階の床などは除かれる、特定行政庁は建築主事を置く市町村では市町村長、その他の区域では都道府県知事",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-cast-in-place-pile/img/figure-drilling-removal-paths.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-cast-in-place-pile",
+      "name": "figure-drilling-removal-paths.svg",
+      "concept": "場所打ち杭の孔壁保護と排土経路。オールケーシングは鋼管とグラブ、アースドリルは安定液とバケット、リバースは孔内水と管内の吸上げ。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -2383,6 +2402,24 @@
       }
     },
     {
+      "file": "content/site/civil-construction-1/textbook-road-earthwork-subbase/img/figure-pavement-load-path.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-road-earthwork-subbase",
+      "name": "figure-pavement-load-path.svg",
+      "concept": "アスファルト舗装を構成する表層、基層、上層路盤、下層路盤と、支持地盤である路床、路体。車輪荷重が下へ広がる模式図。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-construction-1/textbook-sabo-landslide/img/figure-landslide-measures.svg",
       "category": "civil-construction-1",
       "slug": "textbook-sabo-landslide",
@@ -3031,11 +3068,47 @@
       }
     },
     {
+      "file": "content/site/civil-construction-1/textbook-soil-investigation-methods/img/figure-grain-curve-reading.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-soil-investigation-methods",
+      "name": "figure-grain-curve-reading.svg",
+      "concept": "独自の粒径分布例。10パーセントと60パーセントから交点を経てD10とD60を読み、粒径幅の狭い分布と比較する。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-construction-1/textbook-soil-investigation-methods/img/figure-investigation-flow.svg",
       "category": "civil-construction-1",
       "slug": "textbook-soil-investigation-methods",
       "name": "figure-investigation-flow.svg",
       "concept": "土質調査の流れ。予備調査（資料収集・現地踏査）の後に本調査を実施し、本調査は原位置試験と室内試験（土質試験）に分かれる。調査結果は施工管理・維持管理の各段階で利用される",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-soil-investigation-methods/img/figure-soil-phase-denominators.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-soil-investigation-methods",
+      "name": "figure-soil-phase-denominators.svg",
+      "concept": "同じ土を土粒子・水・空気の体積に分け、間隙比と飽和度の分母を確認する独自の数値例。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -3773,7 +3846,7 @@
       "category": "civil-construction-2",
       "slug": "guide-quality-management",
       "name": "figure-acceptance-criteria.svg",
-      "concept": "レディーミクストコンクリート受入検査4項目の判定のしかた。スランプは指定値を中心とした許容差の範囲内、空気量は普通コンクリートで 4.5 プラスマイナス 1.5 パーセントの範囲内、塩化物含有量は 0.30 キログラム毎立方メートル以下という上限、圧縮強度は材齢 28 日で所定の強度を確認する",
+      "concept": "主な受入検査4項目。荷卸し時にスランプ・空気量・塩化物イオン量を確認し、採取した供試体の圧縮強度は所定の材齢で確認する",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -3900,6 +3973,24 @@
       "slug": "guide-schedule-management",
       "name": "figure-schedule-chart-types.svg",
       "concept": "3種類の工程表の形と長所短所。バーチャートは作業を横棒で表し作成が容易だが作業間の関連が不明。ガントチャートは各作業の達成率を横棒で表し進捗率は明確だが所要日数や日程が不明。ネットワーク式は矢印と結合点で順序関係を表し関連と重要度が明確だが作成に習熟を要する",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/ai-document-verification/img/figure-1.svg",
+      "category": "civil-practice",
+      "slug": "ai-document-verification",
+      "name": "figure-1.svg",
+      "concept": "工事ごとの元資料からAI下書きを作り、事実と数量を人が照合する。未確認事項は元資料へ戻り、確認が済んだ内容だけを承認版にする",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -4057,6 +4148,24 @@
       }
     },
     {
+      "file": "content/site/civil-practice/earthquake-tsunami-site-response/img/figure-1.svg",
+      "category": "civil-practice",
+      "slug": "earthquake-tsunami-site-response",
+      "name": "figure-1.svg",
+      "concept": "退避を最優先し、安全な場所で安否確認、その後に警報と規制の確認、現場点検、責任者の再開判断へ進む順序",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-practice/embankment-quality-control/img/figure-quality-method-selection.svg",
       "category": "civil-practice",
       "slug": "embankment-quality-control",
@@ -4098,6 +4207,60 @@
       "slug": "formwork-removal-timing",
       "name": "figure-strength-classes.svg",
       "concept": "型枠取外しに必要な圧縮強度を部材面の性格で3段階に分ける区分（厚い部材の鉛直面3.5N/mm²・薄い部材の鉛直面5.0N/mm²・スラブはりの底面14.0N/mm²）",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/gis-layer-validation/img/figure-1.svg",
+      "category": "civil-practice",
+      "slug": "gis-layer-validation",
+      "name": "figure-1.svg",
+      "concept": "工事範囲六千平方メートルと注意区域の交差部分千二百平方メートルを抽出し、属性を再計算して現地確認に渡す流れ",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/material-selection-receiving/img/figure-1.svg",
+      "category": "civil-practice",
+      "slug": "material-selection-receiving",
+      "name": "figure-1.svg",
+      "concept": "材料の使用条件から必要性能を決め、証明書と現物を照合し、施工条件を確認して採用する四段階の流れ",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/numerical-model-review/img/figure-1.svg",
+      "category": "civil-practice",
+      "slug": "numerical-model-review",
+      "name": "figure-1.svg",
+      "concept": "目的と条件を定めたモデルを、解析解や釣合いによる計算の検証と、試験や実測による現象との照合の二経路で確認し、感度と適用範囲を判断する関係",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -4260,6 +4423,42 @@
       "slug": "trench-excavation-safety",
       "name": "figure-obligation-basis.svg",
       "concept": "溝掘削における土止め支保工の設置義務と二種類の作業主任者の選任義務が、別々の法令根拠と判断基準から生じることを対比した図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/typhoon-forecast-work-planning/img/figure-1.svg",
+      "category": "civil-practice",
+      "slug": "typhoon-forecast-work-planning",
+      "name": "figure-1.svg",
+      "concept": "現象ごとの最新予報から退避完了の条件を決め、移動時間と撤収時間を逆算して通常作業の切上げを前倒しする施工計画",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/volcanic-hazard-site-planning/img/figure-1.svg",
+      "category": "civil-practice",
+      "slug": "volcanic-hazard-site-planning",
+      "name": "figure-1.svg",
+      "concept": "火山の現象と地形、最新の警戒範囲と規制、作業場所と経路を照合して、入場と退避の計画を更新する三つの確認",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -6919,6 +7118,24 @@
       }
     },
     {
+      "file": "content/site/pe-comprehensive-management/climate-change-international/img/figure-science-policy-roles.svg",
+      "category": "pe-comprehensive-management",
+      "slug": "climate-change-international",
+      "name": "figure-science-policy-roles.svg",
+      "concept": "IPCCが科学的知見を評価し、UNFCCCのCOPで各国が交渉し、国内で対策を実施する役割分担",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/pe-comprehensive-management/cloud-on-premises/img/figure-1.svg",
       "category": "pe-comprehensive-management",
       "slug": "cloud-on-premises",
@@ -7067,7 +7284,7 @@
       "category": "pe-comprehensive-management",
       "slug": "crisis-management-manual",
       "name": "figure-1.svg",
-      "concept": "危機への対応4段階サイクル。平常時準備・事前作業・緊急事態対応・事後復旧の順に縦に並び、矢印でつながる危機管理サイクル図",
+      "concept": "準備から復旧までをつなげるサイクル。平常時準備・事前作業・緊急事態対応・事後復旧の順に縦に並び、矢印でつながる危機管理サイクル図",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -7167,6 +7384,24 @@
       "audit": {
         "high": 0,
         "medium": 1,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/defense-in-depth/img/figure-defense-layers.svg",
+      "category": "pe-comprehensive-management",
+      "slug": "defense-in-depth",
+      "name": "figure-defense-layers.svg",
+      "concept": "予防、異常検知、拡大防止、影響緩和の複数層を重ねる防護の概念",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
         "low": 0
       }
     },
@@ -7463,7 +7698,7 @@
       "category": "pe-comprehensive-management",
       "slug": "energy",
       "name": "figure-1.svg",
-      "concept": "エネルギー政策の基本視点 S＋3E。安全性を大前提とし、安定供給・経済効率性・環境適合の3Eを優先順位順に示した図",
+      "concept": "エネルギー政策の基本視点 S＋3E。安全性を大前提とし、安定供給・経済効率性・環境適合の3Eのバランスを示した図",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -7481,7 +7716,7 @@
       "category": "pe-comprehensive-management",
       "slug": "energy",
       "name": "figure-energy-key-figures.svg",
-      "concept": "エネルギー白書・エネルギー基本計画の主要数値。第6次エネルギー基本計画の2030年度電源構成目標は、再生可能エネルギー36〜38%、原子力20〜22%、LNG20%、石炭19%、石油等2%、水素・アンモニア1%で、火力（LNG＋石炭＋石油）の合計は約41%。日本のエネルギー自給率は2020年度で13.3%であり、1960年度の58.1%から大幅に低下した。化石エネルギー依存度は2020年で88.9%と高く、原油の中東依存度は約93%（うちサウジアラビア37%）。電源構成目標の再エネ比率は第5次（2018年）22〜24%、第6次（2021年）36〜38%、第7次（2025年）は2040年度に4割程度と引き上げが続く。",
+      "concept": "エネルギー白書・エネルギー基本計画の主要数値。第6次エネルギー基本計画の2030年度電源構成目標は、再生可能エネルギー36〜38%、原子力20〜22%、LNG20%、石炭19%、石油等2%、水素・アンモニア1%で、火力（LNG＋石炭＋石油）の合計は約41%。日本のエネルギー自給率は2024年度確報で16.3%であり、1960年度の58.1%から大幅に低下した。化石エネルギー依存度は2020年で88.9%と高く、原油の中東依存度は約93%（うちサウジアラビア37%）。電源構成目標の再エネ比率は第5次（2018年）22〜24%、第6次（2021年）36〜38%、第7次（2025年）は2040年度に4〜5割程度と引き上げが続く。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -7621,6 +7856,24 @@
       }
     },
     {
+      "file": "content/site/pe-comprehensive-management/environmental-standards/img/figure-environment-emission.svg",
+      "category": "pe-comprehensive-management",
+      "slug": "environmental-standards",
+      "name": "figure-environment-emission.svg",
+      "concept": "工場の排出口で規制する排出基準と、生活環境で確保を目指す環境基準の測定位置の違い",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/pe-comprehensive-management/equipment-reliability/img/figure-mtbf-mttr-availability.svg",
       "category": "pe-comprehensive-management",
       "slug": "equipment-reliability",
@@ -7729,11 +7982,29 @@
       }
     },
     {
+      "file": "content/site/pe-comprehensive-management/estimation-testing/img/figure-estimate-test.svg",
+      "category": "pe-comprehensive-management",
+      "slug": "estimation-testing",
+      "name": "figure-estimate-test.svg",
+      "concept": "推定は標本から母数の範囲を求め、検定は仮説と標本の整合を調べる対照図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/pe-comprehensive-management/eta/img/figure-eta-gas-leak-example.svg",
       "category": "pe-comprehensive-management",
       "slug": "eta",
       "name": "figure-eta-gas-leak-example.svg",
-      "concept": "ETA（イベントツリー分析）の例：初期事象「ガス漏れ」から早期発見・計器による発見・検査による発見・着火しないの 4 つのセーフガードに分岐。各分岐で成功（確率上、上方向）と失敗（確率下、下方向）に分かれ、すべての層で失敗するとガス爆発（確率 0.0005）に至る",
+      "concept": "ガス漏れ発生後のイベントツリー。早期発見、計器発見、検査発見、着火しないの各分岐で、右へ進めば爆発を回避し、下の失敗経路をすべてたどると爆発に至る。この例の条件付き確率は0.0005。数値は説明用の仮定。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -8651,7 +8922,7 @@
       "category": "pe-comprehensive-management",
       "slug": "income-statement",
       "name": "figure-five-profits.svg",
-      "concept": "損益計算書の5つの利益の段階を、幅が段階的に狭まる階段で示す。売上高から売上原価を引くと売上総利益、販管費を引くと営業利益、営業外損益を加減すると経常利益、特別損益を加減すると税引前当期純利益、法人税等を引くと当期純利益となり、費用を引くほど利益は小さくなる",
+      "concept": "損益計算書の5つの利益を収益と費用の加減で順に求める。各枠の幅は金額を表さない",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -8724,6 +8995,24 @@
       "slug": "inherent-safety",
       "name": "figure-three-step-method.svg",
       "concept": "本質的安全設計の 3 ステップ方策：危険源の除去・低減（最高優先）→ ガード・保護装置（中優先）→ 使用上の情報・教育（最低優先）の段階的安全方策",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/inspection-methods/img/figure-oc-curve-concept.svg",
+      "category": "pe-comprehensive-management",
+      "slug": "inspection-methods",
+      "name": "figure-oc-curve-concept.svg",
+      "concept": "不良率が高いロットほど合格しにくくなる抜取検査のOC曲線の形",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -8886,6 +9175,24 @@
       "slug": "job-type-employment",
       "name": "figure-1.svg",
       "concept": "ジョブ型雇用（職務主義）とメンバーシップ型雇用（属人主義）の比較。考え方・採用・職務範囲・賃金・雇用保障・変化対応の6観点で、ジョブ型は仕事に人をつけ職務給で変化対応が高い、メンバーシップ型は人に仕事をつけ職能年功で雇用安定性が高いことを示す。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/key-performance-indicators/img/figure-goal-to-kpi.svg",
+      "category": "pe-comprehensive-management",
+      "slug": "key-performance-indicators",
+      "name": "figure-goal-to-kpi.svg",
+      "concept": "KGIから成功要因を特定し、進捗を測るKPIを選ぶ関係",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -9097,6 +9404,24 @@
       }
     },
     {
+      "file": "content/site/pe-comprehensive-management/load-capacity/img/figure-load-capacity-gap.svg",
+      "category": "pe-comprehensive-management",
+      "slug": "load-capacity",
+      "name": "figure-load-capacity-gap.svg",
+      "concept": "同じ生産能力に対して負荷が超過する期間と余力が残る期間を比較",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/pe-comprehensive-management/logistic-regression/img/figure-1.svg",
       "category": "pe-comprehensive-management",
       "slug": "logistic-regression",
@@ -9227,7 +9552,7 @@
       "category": "pe-comprehensive-management",
       "slug": "monte-carlo-simulation",
       "name": "figure-monte-carlo-s-curve.svg",
-      "concept": "モンテカルロシミュレーション結果の S 字累積確率カーブ。横軸が作業完了日数、縦軸が累積完了可能性（0〜100%）。試行回数を増やすほど滑らかな S 字曲線に収束し、特定日数までに完了する確率を読み取れる",
+      "concept": "モンテカルロシミュレーション結果の S 字累積確率カーブ。横軸が作業完了日数、縦軸が累積完了可能性（0〜100%）。横軸の日数以下で完了する確率を読み取る例。曲線の形状は入力分布とモデルによって変わる",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -9421,6 +9746,24 @@
       }
     },
     {
+      "file": "content/site/pe-comprehensive-management/overall-equipment-effectiveness/img/figure-oee-losses.svg",
+      "category": "pe-comprehensive-management",
+      "slug": "overall-equipment-effectiveness",
+      "name": "figure-oee-losses.svg",
+      "concept": "停止損失、速度損失、不良損失を順に除きOEEが72.9パーセントとなる例",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/pe-comprehensive-management/password-security/img/figure-wifi-encryption-strength.svg",
       "category": "pe-comprehensive-management",
       "slug": "password-security",
@@ -9493,6 +9836,24 @@
       }
     },
     {
+      "file": "content/site/pe-comprehensive-management/pdpc-method/img/figure-pdpc-alternative.svg",
+      "category": "pe-comprehensive-management",
+      "slug": "pdpc-method",
+      "name": "figure-pdpc-alternative.svg",
+      "concept": "通常の調達が遅れた場合に代替調達と順序変更を準備するPDPCの例",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/pe-comprehensive-management/personal-communication/img/figure-push-pull-communication.svg",
       "category": "pe-comprehensive-management",
       "slug": "personal-communication",
@@ -9533,7 +9894,7 @@
       "category": "pe-comprehensive-management",
       "slug": "pert-cpm",
       "name": "figure-pert-network-diagram.svg",
-      "concept": "PERT ネットワーク図",
+      "concept": "作業Eの4時刻。所要時間3時間、最早開始10時、最早完了13時、最遅開始14時、最遅完了17時、全余裕時間4時間。時刻は結合点ではなく作業Eの値。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -9853,6 +10214,24 @@
       }
     },
     {
+      "file": "content/site/pe-comprehensive-management/quality-policy/img/figure-quality-deployment.svg",
+      "category": "pe-comprehensive-management",
+      "slug": "quality-policy",
+      "name": "figure-quality-deployment.svg",
+      "concept": "品質方針を目標と実行計画に具体化し、実績から見直す関係",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/pe-comprehensive-management/r05-secondary/img/figure-1-swot-framework.svg",
       "category": "pe-comprehensive-management",
       "slug": "r05-secondary",
@@ -9880,6 +10259,24 @@
       "aspect": 0.8,
       "canvas": "feed",
       "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/r08-secondary/img/exam-r08-output-map.svg",
+      "category": "pe-comprehensive-management",
+      "slug": "r08-secondary",
+      "name": "exam-r08-output-map.svg",
+      "concept": "アウトプットaからhは強い経済，iからnは豊かな生活環境，oからrは選ばれる地方へつながる",
+      "viewBox": "0 0 960 510",
+      "aspect": 1.882,
+      "canvas": null,
+      "fitStatus": "n/a",
       "hasWideVariant": false,
       "embedded": true,
       "audit": {
@@ -10087,6 +10484,24 @@
       }
     },
     {
+      "file": "content/site/pe-comprehensive-management/safety-2-0/img/figure-collaborative-safety.svg",
+      "category": "pe-comprehensive-management",
+      "slug": "safety-2-0",
+      "name": "figure-collaborative-safety.svg",
+      "concept": "人・機械・環境の状態を共有し、状況に応じた危険回避につなげる協調安全の関係",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/pe-comprehensive-management/safety-culture/img/figure-1.svg",
       "category": "pe-comprehensive-management",
       "slug": "safety-culture",
@@ -10249,11 +10664,47 @@
       }
     },
     {
+      "file": "content/site/pe-comprehensive-management/source-control-principle/img/figure-source-end-control.svg",
+      "category": "pe-comprehensive-management",
+      "slug": "source-control-principle",
+      "name": "figure-source-end-control.svg",
+      "concept": "原材料や製造工程を変えて発生を減らす源流対策と、排出前に処理する末端対策を比較",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/pe-comprehensive-management/species-preservation-act/img/figure-1.svg",
       "category": "pe-comprehensive-management",
       "slug": "species-preservation-act",
       "name": "figure-1.svg",
       "concept": "レッドリストカテゴリ階層。絶滅から情報不足・地域個体群まで9区分を危険度の高い順に上から示した図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/subsidiarity-principle/img/figure-subsidiarity-support.svg",
+      "category": "pe-comprehensive-management",
+      "slug": "subsidiarity-principle",
+      "name": "figure-subsidiarity-support.svg",
+      "concept": "身近な主体で対応し、対応できない課題を広域の主体が補う補完性の関係",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -10339,6 +10790,24 @@
       }
     },
     {
+      "file": "content/site/pe-comprehensive-management/therp/img/figure-human-error-recovery.svg",
+      "category": "pe-comprehensive-management",
+      "slug": "therp",
+      "name": "figure-human-error-recovery.svg",
+      "concept": "操作の失敗確率pと失敗後の回復失敗条件付き確率qから最終失敗pqを求めるツリー",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/pe-comprehensive-management/three-c-analysis/img/figure-1.svg",
       "category": "pe-comprehensive-management",
       "slug": "three-c-analysis",
@@ -10357,11 +10826,47 @@
       }
     },
     {
+      "file": "content/site/pe-comprehensive-management/three-point-estimation/img/figure-three-point-range.svg",
+      "category": "pe-comprehensive-management",
+      "slug": "three-point-estimation",
+      "name": "figure-three-point-range.svg",
+      "concept": "楽観2日、最頻5日、悲観14日の例でPERT期待値6日と三角平均7日を比較",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/pe-comprehensive-management/trademark-rights/img/figure-trademark-types.svg",
       "category": "pe-comprehensive-management",
       "slug": "trademark-rights",
       "name": "figure-trademark-types.svg",
       "concept": "商標の10種類。従来からの5種（文字・図形・記号・立体・結合）に加え、2015年改正で音・色彩のみ・位置・動き・ホログラムの新しいタイプ5種が追加された。存続期間は登録から10年だが更新登録で半永久に維持できる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/tripod-theory/img/figure-tripod-causal-chain.svg",
+      "category": "pe-comprehensive-management",
+      "slug": "tripod-theory",
+      "name": "figure-tripod-causal-chain.svg",
+      "concept": "組織の潜在的問題が局所的な条件と不安全行動を通じて事故へつながる関係",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -10408,6 +10913,24 @@
         "high": 0,
         "medium": 0,
         "low": 5
+      }
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/value-chain-analysis/img/figure-value-chain-support.svg",
+      "category": "pe-comprehensive-management",
+      "slug": "value-chain-analysis",
+      "name": "figure-value-chain-support.svg",
+      "concept": "調達物流からサービスまでの主活動を人材・技術などの支援活動が横断的に支える構造",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -10483,6 +11006,24 @@
       }
     },
     {
+      "file": "content/site/pe-comprehensive-management/vta-method/img/figure-variation-timeline.svg",
+      "category": "pe-comprehensive-management",
+      "slug": "vta-method",
+      "name": "figure-variation-timeline.svg",
+      "concept": "設備停止から作業開始までの通常手順と確認を省略した実際の経過を時間順に比べる図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/pe-comprehensive-management/waste-management-act/img/figure-1.svg",
       "category": "pe-comprehensive-management",
       "slug": "waste-management-act",
@@ -10537,6 +11078,24 @@
       }
     },
     {
+      "file": "content/site/pe-comprehensive-management/worker-dispatch-act/img/figure-dispatch-relationships.svg",
+      "category": "pe-comprehensive-management",
+      "slug": "worker-dispatch-act",
+      "name": "figure-dispatch-relationships.svg",
+      "concept": "派遣元と労働者の雇用関係、派遣先から労働者への指揮命令、企業間の派遣契約",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/pe-comprehensive-management/zero-trust/img/figure-1.svg",
       "category": "pe-comprehensive-management",
       "slug": "zero-trust",
@@ -10555,11 +11114,101 @@
       }
     },
     {
+      "file": "content/site/pe-construction/chiiki-dukuri-ronbun-keyword/img/figure-compact-network.svg",
+      "category": "pe-construction",
+      "slug": "chiiki-dukuri-ronbun-keyword",
+      "name": "figure-compact-network.svg",
+      "concept": "中心拠点と地域拠点へ生活機能を集め、公共交通で接続するコンパクトプラスネットワークの概念",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/pe-construction/gyoumu-keireki-hyou/img/figure-career-decision-evidence.svg",
+      "category": "pe-construction",
+      "slug": "gyoumu-keireki-hyou",
+      "name": "figure-career-decision-evidence.svg",
+      "concept": "業務の条件から比較案、本人の判断、確認した成果をつなぐ図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/pe-construction/hissu-kamoku-kaitourei/img/figure-answer-transfer.svg",
       "category": "pe-construction",
       "slug": "hissu-kamoku-kaitourei",
       "name": "figure-answer-transfer.svg",
       "concept": "完成答案と設問を照合し、論点を骨子に圧縮する。別の設問で自分の答案へ展開し、条件と照合して修正する学習の流れ。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/pe-construction/iji-kanri-ronbun-keyword/img/figure-maintenance-feedback.svg",
+      "category": "pe-construction",
+      "slug": "iji-kanri-ronbun-keyword",
+      "name": "figure-maintenance-feedback.svg",
+      "concept": "点検・診断・措置・記録をつなぎ、記録を次の点検に戻すサイクル",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/pe-construction/kensetsu-dx/img/figure-bimcim-handover.svg",
+      "category": "pe-construction",
+      "slug": "kensetsu-dx",
+      "name": "figure-bimcim-handover.svg",
+      "concept": "設計・施工・維持管理が共通のデータを更新して引き継ぐ構造",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/pe-construction/keyword-note-tsukurikata/img/figure-keyword-to-answer.svg",
+      "category": "pe-construction",
+      "slug": "keyword-note-tsukurikata",
+      "name": "figure-keyword-to-answer.svg",
+      "concept": "知識ノートと設問条件を照合し、答案に使う内容を選ぶ流れ",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -10596,6 +11245,60 @@
       "slug": "steel-concrete-exam-themes",
       "name": "figure-deterioration-diagnosis.svg",
       "concept": "コンクリートの変状から原因の仮説を立て、調査で確かめて診断し、劣化程度と供用条件に応じた対策を選び、施工後も点検する。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/pe-first-stage/guide-calculus-numerical-calculation/img/figure-newton-tangent.svg",
+      "category": "pe-first-stage",
+      "slug": "guide-calculus-numerical-calculation",
+      "name": "figure-newton-tangent.svg",
+      "concept": "y=x²−2のx=2での接線と横軸の交点x=1.5を次の近似値とする",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/pe-first-stage/guide-matrix-vector-calculation/img/figure-vector-projection.svg",
+      "category": "pe-first-stage",
+      "slug": "guide-matrix-vector-calculation",
+      "name": "figure-vector-projection.svg",
+      "concept": "ベクトルを投影方向の成分と直交する残りに分ける",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/pe-first-stage/guide-resistance-circuit-calculation/img/figure-balanced-bridge.svg",
+      "category": "pe-first-stage",
+      "slug": "guide-resistance-circuit-calculation",
+      "name": "figure-balanced-bridge.svg",
+      "concept": "等しい上下枝を持つ平衡ブリッジでは中点CとDが等電位で中央抵抗の電流が0になる",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
