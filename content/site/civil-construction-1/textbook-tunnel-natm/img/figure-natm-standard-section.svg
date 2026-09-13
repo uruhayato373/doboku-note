@@ -1,0 +1,51 @@
+<!-- authored 2026-09-12 doboku-note 自作。1級土木「トンネル（山岳工法）」の概念図。原典の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="山岳トンネルNATM標準断面。地山からロックボルト・吹付けコンクリート・鋼製支保工・防水シート・覆工コンクリート・インバートへの位置関係と各部材の役割を示す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #8a8a8a; }
+      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-s { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">外側の地山から内側の覆工へ並ぶ位置関係（施工順ではない）</text>
+
+  <rect class="box-s" x="20" y="34" width="360" height="44" rx="6"/>
+  <text class="t-name" x="40" y="52">① 地山</text>
+  <text class="t-desc" x="40" y="68">アーチ作用で自らを支える母体</text>
+
+  <rect class="box-w" x="20" y="86" width="360" height="44" rx="6"/>
+  <text class="t-name" x="40" y="104">② ロックボルト</text>
+  <text class="t-desc" x="40" y="120">地山を掘削面に緊結し緩みを抑制</text>
+
+  <rect class="box-w" x="20" y="138" width="360" height="44" rx="6"/>
+  <text class="t-name" x="40" y="156">③ 吹付けコンクリート</text>
+  <text class="t-desc" x="40" y="172">掘削面に密着し早期に地山を拘束</text>
+
+  <rect class="box-w" x="20" y="190" width="360" height="44" rx="6"/>
+  <text class="t-name" x="40" y="208">④ 鋼製支保工</text>
+  <text class="t-desc" x="40" y="224">不良地山で一次支保を補強</text>
+
+  <rect class="box-p" x="20" y="242" width="360" height="44" rx="6"/>
+  <text class="t-name" x="40" y="260">⑤ 防水シート</text>
+  <text class="t-desc" x="40" y="276">一次支保と覆工の間で漏水を遮断</text>
+
+  <rect class="box-b" x="20" y="294" width="360" height="44" rx="6"/>
+  <text class="t-name" x="40" y="312">⑥ 覆工コンクリート</text>
+  <text class="t-desc" x="40" y="328">内空変位収束後の恒久構造物</text>
+
+  <rect class="box-b" x="20" y="346" width="360" height="44" rx="6"/>
+  <text class="t-name" x="40" y="364">⑦ インバート</text>
+  <text class="t-desc" x="40" y="380">底部を閉合し断面全体を安定化</text>
+
+  <text class="t-desc" x="20" y="416">①〜④が掘削直後の一次支保、⑤〜⑦が内空変位収束後に</text>
+  <text class="t-desc" x="20" y="432">施工する恒久構造という2段階で地山を安定させる</text>
+</svg>

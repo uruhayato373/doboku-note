@@ -1,0 +1,63 @@
+<!-- authored 2026-09-12 doboku-note 自作。題材は1級土木 専門土木テキスト「ダム」の論点。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="ダム3形式の水圧支持機構。重力式は堤体の自重で支持、アーチ式はアーチ作用で両岸の岩盤へ伝達、中央コア型ロックフィルダムはコアの遮水とロックの安定支持を組み合わせる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #8a8a8a; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-name { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-label{ font-size: 11px; fill: #555; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+    </style>
+    <marker id="arrow-b" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/>
+    </marker>
+    <marker id="arrow-i" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#555"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">ダムは水圧の支持機構によって3形式に分かれる</text>
+
+  <!-- Row1: 重力式 -->
+  <text class="t-sec" x="20" y="52">1. 重力式コンクリートダム</text>
+  <rect class="box-b" x="20" y="88" width="70" height="42"/>
+  <text class="t-label" x="55" y="113" text-anchor="middle">貯水池</text>
+  <line x1="95" y1="109" x2="126" y2="109" stroke="#2e6da4" stroke-width="2" marker-end="url(#arrow-b)"/>
+  <polygon class="box-w" points="150,58 130,130 250,130"/>
+  <line x1="168" y1="70" x2="168" y2="118" stroke="#555" stroke-width="2" marker-end="url(#arrow-i)"/>
+  <text class="t-name" x="176" y="97">自重</text>
+  <text class="t-name" x="262" y="100">自重で抵抗</text>
+  <text class="t-desc" x="20" y="146">堤体の自重で水圧などの荷重を支える構造（日本の主流形式）</text>
+
+  <!-- Row2: アーチ式 -->
+  <text class="t-sec" x="20" y="200">2. アーチ式コンクリートダム</text>
+  <rect class="box-w" x="20" y="226" width="50" height="40"/>
+  <text class="t-label" x="45" y="250" text-anchor="middle">岩盤</text>
+  <rect class="box-w" x="330" y="226" width="50" height="40"/>
+  <text class="t-label" x="355" y="250" text-anchor="middle">岩盤</text>
+  <path d="M70,246 Q200,206 330,246" fill="none" stroke="#2e6da4" stroke-width="6"/>
+  <text class="t-name" x="200" y="216" text-anchor="middle">水圧</text>
+  <line x1="200" y1="219" x2="200" y2="232" stroke="#2e6da4" stroke-width="2" marker-end="url(#arrow-b)"/>
+  <line x1="180" y1="222" x2="95" y2="243" stroke="#2e6da4" stroke-width="2" marker-end="url(#arrow-b)"/>
+  <line x1="220" y1="222" x2="305" y2="243" stroke="#2e6da4" stroke-width="2" marker-end="url(#arrow-b)"/>
+  <text class="t-desc" x="20" y="294">アーチ作用で水圧の大部分を両岸の岩盤へ伝達する構造</text>
+
+  <!-- Row3: 中央コア型ロックフィルダム -->
+  <text class="t-sec" x="20" y="348">3. 中央コア型ロックフィルダム</text>
+  <rect class="box-b" x="15" y="392" width="38" height="34"/>
+  <text class="t-label" x="34" y="413" text-anchor="middle">水</text>
+  <polygon class="box-w" points="170,354 230,354 340,426 60,426"/>
+  <polygon class="box-b" points="185,354 215,354 250,426 150,426"/>
+  <text class="t-label" x="90" y="412" text-anchor="middle">ロック</text>
+  <text class="t-label" x="310" y="412" text-anchor="middle">ロック</text>
+  <text class="t-name" x="200" y="372" text-anchor="middle">コア</text>
+  <line x1="200" y1="378" x2="200" y2="398" stroke="#2e6da4" stroke-width="2" marker-end="url(#arrow-b)"/>
+  <text class="t-label" x="200" y="412" text-anchor="middle">遮水</text>
+  <text class="t-desc" x="20" y="442">コアが遮水、両側のロックが堤体の安定を支持する断面構成</text>
+</svg>

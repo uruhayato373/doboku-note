@@ -85,6 +85,9 @@ function unzipMissing() {
 // ---- チェック定義 ---------------------------------------------------------
 // npm: package.json の script 名 / cmd: 直接コマンド配列。どちらか一方。
 const CHECKS = [
+  { id: 'content-expansion', npm: 'check-content-expansion', timeout: 30_000, ci: true, note: '全教材の母数・記事/図/SNS対応表の整合。未確認・原典待ち・成果物変更を別表示し、構造PASSで制作完了とはしない' },
+  { id: 'business-direction', npm: 'check-business-direction', timeout: 30_000, ci: true, note: '資格別事業方針・計測とレビュー履歴の整合' },
+  { id: 'seo-rank-watch', npm: 'check-seo-rank-watch', timeout: 30_000, ci: true, note: '順位監視・観察状態・履歴の整合' },
   // ── ci:true 厳格ゲート ──
   { id: 'type-check', npm: 'type-check', timeout: 240_000, ci: true },
   { id: 'unit-tests', npm: 'test', timeout: 180_000, ci: true },
@@ -133,6 +136,11 @@ const CHECKS = [
   { id: 'keiken-answer-split', npm: 'check-keiken-answer-split', timeout: 120_000, ci: true, note: '1級/2級で異なる経験記述の解答欄の割り振りが混ざっていないか（2級式を1級教材に使うと(2)に3要素が乗り約200字に収まらない）' },
   { id: 'standard-articles', npm: 'check-standard-articles', timeout: 180_000, ci: true, note: '公的基準の構造化章記事を15軸で検査（本文取りこぼし・全ページ割当・SHA-256・表復元・catalog 72文書の被覆と除外理由・章ごとの OGP 被覆）' },
   { id: 'standards-page-images', npm: 'check-standards-page-images', timeout: 120_000, ci: true, note: '公的基準のページ画像の provenance 整合（catalog↔manifest の原本 sha256・ページ被覆・part 範囲）。実体が無い端末では manifest のみ検査し、その旨を明示する' },
+  {
+    id: 'standards-data', npm: 'check-standards-data', timeout: 120_000, ci: true,
+    skip: () => existsSync(join(ROOT, 'public', 'standards-data', 'catalog.json')) ? null : '生成物 public/standards-data が無い（npm run build-standards-data 後に実行）',
+    note: '公開用 standards-data（Markdown / JSON-LD / 索引）の形式・条数・出典分離・noindex/CORS ヘッダー。build-standards-data の末尾でも走るが、生成物がある環境では横断監査でも再掲する（gate-parity のオーファン解消・DN-0205）',
+  },
   { id: 'reference-book-pages', npm: 'check-reference-book-pages', timeout: 120_000, ci: true, note: '参考文献 ID 単位の書籍 bundle を検査（1冊1ディレクトリ・原本 sha256・分冊順・通しページ被覆・Drive 台帳結線）。実体が無い端末では manifest のみ検査する' },
   { id: 'figure-embed-dims', npm: 'check-figure-embed-dims', timeout: 90_000, ci: true, note: 'ArticleImage の width/height と SVG の実 viewBox の突合。従来は r2-audit（週次 cron）と pre-commit(staged) だけで、push 経路に backstop が無かった' },
   { id: 'bold-rendering', npm: 'check-bold-rendering', timeout: 120_000, ci: true, note: '閉じ/開き ** が flanking を満たさず太字にならずアスタリスクが本文に出る事故。remark で実パースして text ノードに ** が残るかで判定する（規則の再実装ではない）' },
@@ -165,6 +173,9 @@ const CHECKS = [
   { id: 'note-link-cards', npm: 'check-note-link-cards', timeout: 60_000, ci: true, note: '自社note記事はサイト管理画像付き NoteLink に限定。生リンク・旧noteカバー・画像欠落を禁止' },
   { id: 'membership-drip', npm: 'check-membership-drip', timeout: 30_000, ci: true, note: '会員配信ドリップの遅れ・実体欠落。配信表(README)が真実源で、予定日を GRACE_DAYS 以上過ぎた未配信は赤。2026-08-27 に学科02が2日遅れで沈黙していた（カード側の日付が正典とずれていて気づけなかった）' },
   { id: 'note-membership', npm: 'check-note-membership', timeout: 60_000, ci: true, note: 'メンバーシップの会費/定員/planId が SSOT config と一致するか。note は会費を変更できずプラン作り直しが唯一の手段なので、ドリフト放置は修復不能に近づく（--live は実機突合・ローカル専用）' },
+  // 分類語彙（領域×資格×記事型×テーマ×タグ）の整合。未登録タグ・別名綴り・構造タグ不整合は baseline ラチェット
+  // （content-taxonomy-baseline.json）。WARN（topic 三方向の 0 件・未使用タグ）の読み手＝/weekly-review Phase 2。
+  { id: 'content-taxonomy', npm: 'check-content-taxonomy:ci', timeout: 60_000, ci: true, note: '領域×資格×記事型×テーマ×タグの整合（規則 content-taxonomy.md）。未登録タグ／別名綴り／構造タグ不整合は baseline ラチェット。WARN の読み手＝/weekly-review Phase 2' },
   { id: 'command-guidance', npm: 'check-command-guidance', timeout: 60_000, ci: true, note: '検査やスクリプトが案内するコマンド（npm run / node パス）が実在するか。移設後に旧パスを案内し続ける置き去りを止める（2026-08-22 に 26 箇所見つかった）' },
   { id: 'doc-refs', npm: 'check-doc-refs', timeout: 90_000, ci: true },
   { id: 'task-plan-links', npm: 'check-task-plan-links', timeout: 30_000, ci: true, note: '.claude/plans/ の実装計画とbacklogカードの結線（存在・相互参照・1task=1plan・ID重複・孤児plan）。DN-0093 処方箋2' },
@@ -213,6 +224,11 @@ const CHECKS = [
   // 共通仕様書のページ画像 3.4GB を private R2 へ上げかけた再発防止。CI は Drive を持たないので
   // マウント無しでは「実体検査 0 件」と明示して設定・台帳・ルーティング衝突・audience だけを判定する。
   { id: 'drive-vault', npm: 'check-drive-vault', timeout: 120_000, ci: true, note: 'audience ゲート（site⇒public / ci⇒private|byVisibility / human⇒Drive）・R2 と Drive の同一パス衝突・drive-manifest の整合。マウント無しは実体検査 0 件と明示' },
+  // ローカルディスクの肥大は gitignore 済み・ホーム配下・worktree に溜まるので CI にも pre-commit にも
+  // 映らない（2026-09-10 に空き 7.5GB まで落ちて初めて気づいた）。Mac のローカルでだけ意味がある検査。
+  { id: 'disk-hygiene', npm: 'check-disk-hygiene', timeout: 120_000, ci: false,
+    skip: () => (process.platform === 'darwin' ? null : 'Mac ローカル専用（worktree・~/Library キャッシュ・launchd の停止検知）'),
+    note: 'ローカルディスク肥大の surfacer。読み手＝Mac の SessionStart/Stop フック（--quick）と launchd ログ ~/Library/Logs/doboku-note/。掃除の実体は disk-hygiene:fix（日次 launchd）' },
   { id: 'reference-sources', npm: 'check-reference-sources', timeout: 120_000, ci: true, note: '参考文献 class・記事 sources ID・出典粒度・非公開文字起こしの漏洩・未付与 baseline ラチェットを検査（逐語照合はローカル deep）' },
   // R2 へ退避済みのファイルが git add -f・--no-verify・マージ等で再追跡されていないか（DN-0156・
   // 2026-08-29 追加）。pre-commit（--staged）はローカルでの事故を止めるが、それをバイパスされた

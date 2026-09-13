@@ -12,7 +12,7 @@
 //   1. viewBox="0 0 400 500"
 //   2. 見出し「もっと深く学びたい方へ」を含む（新標準。旧「もっと解きたい/学びたい方へ」は NG）
 //   3. URL ボタン文言 "doboku-note.com" を含む
-//   4. 誘導文「プロフィールのリンクから」「総監キーワード集へアクセス」を両方含む
+//   4. 誘導文「プロフィールのリンクから」と資格別の誘導先を両方含む
 //   5. フッター "@doboku-note"
 //   6. 画像内にハッシュタグ（<text> 内の "#"）を含まない（クリック・検索不可で無意味。タグは caption.txt のみ）
 //
@@ -24,6 +24,7 @@
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
+import { figurePackLabels } from '../.claude/scripts/sns/lib/figure-pack-labels.mjs';
 
 const STAGED = process.argv.includes('--staged');
 const ROOT = 'content/sns/instagram';
@@ -56,11 +57,13 @@ if (STAGED) {
 const problems = [];
 for (const f of files) {
   const svg = readFileSync(f, 'utf8');
+  let labels;
+  try { labels = figurePackLabels(f.slice(`${ROOT}/`.length).split('/')[0]); } catch (error) { problems.push(`${f}: ${error.message}`); continue; }
   if (!/viewBox="0 0 400 500"/.test(svg)) problems.push(`${f}: viewBox="0 0 400 500" が必要`);
   if (!svg.includes('もっと深く学びたい方へ')) problems.push(`${f}: 見出し「もっと深く学びたい方へ」が無い（旧 maslow 系 CTA の様式。新標準テンプレを使う）`);
   if (!svg.includes('doboku-note.com')) problems.push(`${f}: URL ボタン "doboku-note.com" が無い`);
-  if (!svg.includes('プロフィールのリンクから') || !svg.includes('総監キーワード集へアクセス')) {
-    problems.push(`${f}: 誘導文「プロフィールのリンクから／総監キーワード集へアクセス」が無い`);
+  if (!svg.includes('プロフィールのリンクから') || !svg.includes(labels.destination)) {
+    problems.push(`${f}: 誘導文「プロフィールのリンクから／${labels.destination}」が無い`);
   }
   if (!svg.includes('@doboku-note')) problems.push(`${f}: フッター "@doboku-note" が無い`);
   // 画像内ハッシュタグ（<text>要素内の "#"）は禁止

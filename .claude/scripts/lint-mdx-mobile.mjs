@@ -919,6 +919,8 @@ function lintCalloutStructure(lines, raw, filePath, findings) {
  * 9-7 MEDIUM 総監ページに教材外の実務応用セクション（pe-comprehensive-management 限定、§15）
  */
 function isExamArchive(filePath) {
+  // 技術士第一次: 通常回と同年度再試験（guide は対象に含めない）
+  if (/pe-first-stage[\\\/][hr]\d{2}(?:-retry)?-(?:basic|aptitude|construction)[\\\/]/.test(filePath)) return true;
   // PE 形式: r05-primary/, h28-secondary/, r05-essay-river-consultant/
   if (/[\\\/](?:r|h)\d{2}-(?:primary|secondary|essay)/.test(filePath)) return true;
   // Civil 形式: primary-r05-a/, primary-h28-b/, secondary-r03/, secondary-concrete-past-problems/
@@ -1276,9 +1278,12 @@ function lintImages(lines, findings) {
     }
 
     // 10-5: 画像ファイル実在＋mime チェック（/posts/... で始まる内部参照のみ）
+    // `/posts/<rel>` の実体は content/site/<rel>（旧 public/posts リンクは 2026-08 に撤去。ensure-local-media.mjs 参照）。
+    // 旧パスも受理して、リンクを残している端末で偽の欠落を出さない。
     const srcMatch = attrs.match(/\bsrc\s*=\s*["']([^"']+)["']/);
     if (srcMatch && srcMatch[1].startsWith('/posts/')) {
-      const localPath = 'public' + srcMatch[1];
+      const candidates = ['content/site' + srcMatch[1].slice('/posts'.length), 'public' + srcMatch[1]];
+      const localPath = candidates.find((p) => existsSync(p)) ?? candidates[0];
       if (!existsSync(localPath)) {
         findings.push({
           severity: 'HIGH',
@@ -1290,7 +1295,8 @@ function lintImages(lines, findings) {
       } else {
         try {
           const buf = readFileSync(localPath);
-          const head = buf.slice(0, 200).toString('utf8');
+          // 先頭 1KB を見る（authored コメント付き SVG は <svg が 200 バイトを超えて現れる）
+          const head = buf.slice(0, 1024).toString('utf8');
           const first4 = buf.slice(0, 4);
           const isJPEG = first4[0] === 0xff && first4[1] === 0xd8 && first4[2] === 0xff;
           const isPNG =
@@ -1302,7 +1308,7 @@ function lintImages(lines, findings) {
           const isWebP =
             buf.slice(0, 4).toString() === 'RIFF' &&
             buf.slice(8, 12).toString() === 'WEBP';
-          const isSVG = /<svg[\s>]|<\?xml[\s\S]{0,200}<svg/.test(head);
+          const isSVG = /<svg[\s>]|<\?xml[\s\S]{0,900}<svg/.test(head);
           const looksHTMLerror =
             !isSVG && /^<(!DOCTYPE|!doctype|html|HTML|\?xml[\s\S]{0,200}<(html|body))/i.test(head.trim());
 
@@ -1862,6 +1868,20 @@ function lintNestedList(lines, findings) {
   flush(lines.length);
 }
 
+// 公式問題の文体を短文化させない。原文は保持し、導入・解説・学習案内を採点する。
+function proseLinesOutsideOfficialQuestions(lines, filePath) {
+  const normalized = filePath.replace(/\\/g, '/');
+  const firstStage = /\/pe-first-stage\/(?:h|r)\d{2}(?:-retry)?-(?:basic|aptitude|construction)\/article\.mdx$/.test(normalized);
+  const construction = /\/pe-construction\/r\d{2}-(?:required|geotechnical|steel-concrete|urban-planning|river-coast|port-airport|power-civil|road|railway|tunnel|construction-planning|environment)\/article\.mdx$/.test(normalized);
+  if (!firstStage && !construction) return lines;
+  let question = false;
+  return lines.map(line => {
+    if (/^##\s/.test(line)) question = /^##\s+[ⅠⅡⅢIVX]+[-－]\d/.test(line);
+    if (/^<details\b|^#{2,4}\s+(?:解答|解説|学習)/.test(line)) question = false;
+    return question ? '' : line;
+  });
+}
+
 function lintProseStyle(lines, findings) {
   const cleanInline = (s) =>
     s
@@ -2030,7 +2050,7 @@ function lintFile(filePath) {
   lintNestedList(lines, findings);
 
   // カテゴリ15: 文体（1文の長さ・文末の単調回避）（content-principles.md §24）
-  lintProseStyle(lines, findings);
+  lintProseStyle(proseLinesOutsideOfficialQuestions(lines, filePath), findings);
 
   // 追加衛生ルール: 0-3 文字化け / 0-4 TODO残存 / 2-4 アンカー重複 / 7-1 装飾絵文字 / 10-6 alt品質
   lintMdxHygiene(lines, findings);

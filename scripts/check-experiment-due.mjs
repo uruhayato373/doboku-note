@@ -85,6 +85,7 @@ for (const e of experiments) {
 
   items.push({
     id: e.id,
+    review: e.kind === "seo-rank-watch" ? `npm run seo-rank-watch -- review --id ${e.watchId} --no-fetch` : `/nsm-experiment ${st === "measuring" ? "close" : "measure"} ${e.id}`,
     title: e.title,
     status: st,
     targetMetric: e.target_metric ?? null,
@@ -121,7 +122,7 @@ if (WANT_JSON) {
   for (const i of due) {
     console.log(`  DUE ${i.id} [${i.status}] ${i.title}`);
     for (const r of i.reasons) console.log(`      ${r.kind}: ${r.detail}`);
-    console.log(`      → /nsm-experiment ${i.status === "measuring" ? "close" : "measure"} ${i.id}`);
+    console.log(`      → ${i.review}`);
   }
 }
 process.exit(0);

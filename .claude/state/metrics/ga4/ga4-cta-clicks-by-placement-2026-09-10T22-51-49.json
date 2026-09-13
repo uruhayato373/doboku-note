@@ -1,0 +1,191 @@
+{
+  "meta": {
+    "startDate": "2026-08-13",
+    "endDate": "2026-09-09",
+    "windowKind": "days",
+    "eventNames": [
+      "note_cta_click",
+      "note_cta_impression",
+      "affiliate_cta_click",
+      "affiliate_cta_impression",
+      "note_article_click",
+      "internal_nav_click",
+      "career_need_select",
+      "career_tool_result",
+      "career_checklist_copy",
+      "career_checklist_download"
+    ],
+    "japanOnly": true,
+    "byDevice": false,
+    "byLabel": false,
+    "byPlacement": true,
+    "propertyId": "properties/419382901"
+  },
+  "rows": [
+    {
+      "placement": "sidebar",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 10070
+    },
+    {
+      "placement": "article-sidebar",
+      "eventName": "note_cta_impression",
+      "eventCount": 6296
+    },
+    {
+      "placement": "article-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 3970
+    },
+    {
+      "placement": "article-end",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2971
+    },
+    {
+      "placement": "article-inline",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2667
+    },
+    {
+      "placement": "article-mid",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2446
+    },
+    {
+      "placement": "(unknown)",
+      "eventName": "internal_nav_click",
+      "eventCount": 1965
+    },
+    {
+      "placement": "article-footer",
+      "eventName": "note_cta_impression",
+      "eventCount": 1947
+    },
+    {
+      "placement": "article-body",
+      "eventName": "note_cta_impression",
+      "eventCount": 1846
+    },
+    {
+      "placement": "article-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 1414
+    },
+    {
+      "placement": "category-sidebar",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 827
+    },
+    {
+      "placement": "category-sidebar",
+      "eventName": "note_cta_impression",
+      "eventCount": 174
+    },
+    {
+      "placement": "article-body",
+      "eventName": "note_cta_click",
+      "eventCount": 127
+    },
+    {
+      "placement": "category-mobile",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 89
+    },
+    {
+      "placement": "(unknown)",
+      "eventName": "note_cta_click",
+      "eventCount": 66
+    },
+    {
+      "placement": "article-end",
+      "eventName": "note_cta_impression",
+      "eventCount": 62
+    },
+    {
+      "placement": "article-top",
+      "eventName": "note_cta_click",
+      "eventCount": 27
+    },
+    {
+      "placement": "article-mid",
+      "eventName": "note_cta_click",
+      "eventCount": 23
+    },
+    {
+      "placement": "home-hero",
+      "eventName": "note_cta_impression",
+      "eventCount": 19
+    },
+    {
+      "placement": "article-body",
+      "eventName": "note_article_click",
+      "eventCount": 8
+    },
+    {
+      "placement": "article-footer",
+      "eventName": "note_cta_click",
+      "eventCount": 7
+    },
+    {
+      "placement": "article-end",
+      "eventName": "note_cta_click",
+      "eventCount": 6
+    },
+    {
+      "placement": "article-inline",
+      "eventName": "affiliate_cta_click",
+      "eventCount": 6
+    },
+    {
+      "placement": "category-mobile",
+      "eventName": "note_cta_impression",
+      "eventCount": 6
+    },
+    {
+      "placement": "(unknown)",
+      "eventName": "note_article_click",
+      "eventCount": 5
+    },
+    {
+      "placement": "article-sidebar",
+      "eventName": "note_cta_click",
+      "eventCount": 4
+    },
+    {
+      "placement": "article-mid",
+      "eventName": "affiliate_cta_click",
+      "eventCount": 3
+    },
+    {
+      "placement": "category-career-section",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "placement": "article-end",
+      "eventName": "affiliate_cta_click",
+      "eventCount": 1
+    },
+    {
+      "placement": "category-mobile",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "placement": "category-sidebar",
+      "eventName": "affiliate_cta_click",
+      "eventCount": 1
+    },
+    {
+      "placement": "category-sidebar",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "placement": "sidebar",
+      "eventName": "affiliate_cta_click",
+      "eventCount": 1
+    }
+  ]
+}

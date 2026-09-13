@@ -1,0 +1,96 @@
+{
+  "meta": {
+    "startDate": "2026-08-27",
+    "endDate": "2026-09-09",
+    "minUsers": 5,
+    "threshold": 0.8
+  },
+  "totals": {
+    "allUsers": 5219,
+    "jpUsers": 4989,
+    "foreignUsers": 233
+  },
+  "rows": [
+    {
+      "source": "bing",
+      "totalUsers": 3560,
+      "jpUsers": 3544,
+      "foreignUsers": 18,
+      "foreignRatio": 0.0050561797752808986,
+      "engagementRate": 0.6977510663047692,
+      "flagged": false
+    },
+    {
+      "source": "(direct)",
+      "totalUsers": 1269,
+      "jpUsers": 1070,
+      "foreignUsers": 200,
+      "foreignRatio": 0.15760441292356187,
+      "engagementRate": 0.19755747126436782,
+      "flagged": false
+    },
+    {
+      "source": "google",
+      "totalUsers": 146,
+      "jpUsers": 144,
+      "foreignUsers": 2,
+      "foreignRatio": 0.0136986301369863,
+      "engagementRate": 0.6,
+      "flagged": false
+    },
+    {
+      "source": "yahoo",
+      "totalUsers": 78,
+      "jpUsers": 78,
+      "foreignUsers": 0,
+      "foreignRatio": 0,
+      "engagementRate": 0.7828947368421053,
+      "flagged": false
+    },
+    {
+      "source": "note",
+      "totalUsers": 47,
+      "jpUsers": 46,
+      "foreignUsers": 1,
+      "foreignRatio": 0.02127659574468085,
+      "engagementRate": 0.728,
+      "flagged": false
+    },
+    {
+      "source": "copilot.com",
+      "totalUsers": 38,
+      "jpUsers": 38,
+      "foreignUsers": 0,
+      "foreignRatio": 0,
+      "engagementRate": 0.5348837209302325,
+      "flagged": false
+    },
+    {
+      "source": "x",
+      "totalUsers": 34,
+      "jpUsers": 33,
+      "foreignUsers": 1,
+      "foreignRatio": 0.029411764705882353,
+      "engagementRate": 0.4,
+      "flagged": false
+    },
+    {
+      "source": "(not set)",
+      "totalUsers": 15,
+      "jpUsers": 6,
+      "foreignUsers": 9,
+      "foreignRatio": 0.6,
+      "engagementRate": 0,
+      "flagged": false
+    },
+    {
+      "source": "note.com",
+      "totalUsers": 11,
+      "jpUsers": 11,
+      "foreignUsers": 0,
+      "foreignRatio": 0,
+      "engagementRate": 0.43820224719101125,
+      "flagged": false
+    }
+  ]
+}

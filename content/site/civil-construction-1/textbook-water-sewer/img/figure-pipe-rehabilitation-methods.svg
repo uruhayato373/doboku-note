@@ -1,0 +1,54 @@
+<!-- authored 2026-09-12 doboku-note 自作。題材は1級土木 専門土木テキスト「上下水道」の論点。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="下水道管きょの更生工法4種（反転工法・形成工法・製管工法・さや管工法）の断面比較。反転・形成は既設管の内面に密着し、製管・さや管は既設管との間隙に充填材を注入する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-name { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .existing { fill: none; stroke: #222; stroke-width: 1.5; }
+      .liner { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .grout { fill: none; stroke: #d4a017; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">既設管を壊さず更生する4工法。挿入方法と既設管との関係で見分ける</text>
+
+  <!-- 反転工法 -->
+  <rect class="box-b" x="20" y="26" width="360" height="110" rx="6"/>
+  <circle class="existing" cx="85" cy="81" r="22"/>
+  <circle class="liner" cx="85" cy="81" r="18"/>
+  <text class="t-name" x="160" y="56">反転工法</text>
+  <text class="t-desc" x="160" y="76">熱硬化性樹脂を反転加圧挿入</text>
+  <text class="t-desc" x="160" y="94">既設管：内面に密着し硬化</text>
+
+  <!-- 形成工法 -->
+  <rect class="box-b" x="20" y="145" width="360" height="110" rx="6"/>
+  <circle class="existing" cx="85" cy="200" r="22"/>
+  <circle class="liner" cx="85" cy="200" r="18"/>
+  <text class="t-name" x="160" y="175">形成工法</text>
+  <text class="t-desc" x="160" y="195">ライナーを引込み拡張</text>
+  <text class="t-desc" x="160" y="213">既設管：空気圧で圧着後硬化</text>
+
+  <!-- 製管工法 -->
+  <rect class="box-b" x="20" y="264" width="360" height="110" rx="6"/>
+  <circle class="existing" cx="85" cy="319" r="22"/>
+  <circle class="grout" cx="85" cy="319" r="17.5" stroke-width="8"/>
+  <circle class="liner" cx="85" cy="319" r="13"/>
+  <text class="t-name" x="160" y="294">製管工法</text>
+  <text class="t-desc" x="160" y="314">塩ビ材をかん合し製管</text>
+  <text class="t-desc" x="160" y="332">既設管：間隙にモルタル充填</text>
+
+  <!-- さや管工法 -->
+  <rect class="box-b" x="20" y="383" width="360" height="110" rx="6"/>
+  <circle class="existing" cx="85" cy="438" r="22"/>
+  <circle class="grout" cx="85" cy="438" r="17" stroke-width="9"/>
+  <circle class="liner" cx="85" cy="438" r="12"/>
+  <text class="t-name" x="160" y="413">さや管工法</text>
+  <text class="t-desc" x="160" y="433">二次製品をけん引挿入</text>
+  <text class="t-desc" x="160" y="451">既設管：間隙に充填材注入</text>
+</svg>

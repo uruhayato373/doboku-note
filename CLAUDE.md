@@ -6,6 +6,8 @@
 
 **設計思想** — ユーザーが「ここだけで合格できる」体験を軸資格ごとに提供する試験対策ハブ。Obsidian（ステージング）→ doboku-note（プロダクション）→ PWA 過去問演習アプリ（資格別 PWA × 共通エンジン、過去問演習は iOS から移管）の流れでコンテンツを管理。収益モデルは note 有料記事 + YouTube + PWA 過去問アプリ。詳細: `docs/strategy/02_設計思想.md`、`docs/strategy/03_事業戦略.md`、`docs/products/06_PWA過去問アプリ設計方針.md`
 
+**事業の判断基準** — 「図で理解し、過去問で確かめ、答案に活かす。」資格×学習段階の課題を軸に、正確な教材、note/ココナラ販売、受取・費用・運営時間まで確認する。判断理由の正典は `docs/strategy/01_プロダクト戦略.md`、重点資格・KPI定義の機械SSOTは `.claude/config/business-direction.json`。管理画面 `/metrics/business` と SEO・週次/月次レビュー・戦略エージェントはこの設定を参照する。計測/目標/判断は `.claude/state/metrics/business/` に追記、改善状態は既存 `experiments.json`、単発実装はbacklog。図数・記事数・順位だけを成功にせず、欠測を0や利益へ変換しない。手順は `.claude/knowledge/reference/business-review.md`、週次は `/weekly-review`、月次は `/monthly-review`。
+
 **技術スタック**
 
 | レイヤー | 技術 |
@@ -80,6 +82,9 @@ npm run asset-hydrate         # 退避したアセットを取り戻す（ロー
 npm run check-asset-storage   # 退避台帳の整合（公開バケット誤配置・r2Key 衝突・復元不能・秘密混入）。R2 非アクセスでオフライン完結・quality:audit に同梱
 npm run drive-vault-sync      # **人か手元のスクリプトだけが使う**アセット（原本PDF・ページ画像・配布PDF・未投稿レンダー等）を Google Drive vault へ置く／取り戻す（既定 dry-run・--commit・--from-r2・--dedupe-by-sha・--verify [--deep --cloud]・--pull）。置き場は誰が使うかで決める＝サイト配信→public R2／CI→private R2／人→Drive（asset-storage-policy.md §1・/asset-route）
 npm run check-drive-vault     # 置き場ルールのゲート（asset-storage.json の全 group に audience・site⇒public・ci⇒private|byVisibility・human は理由無しに R2 へ置けない）＋R2 と Drive の同一パス衝突＋drive-manifest の整合。**マウント無しは「実体検査 0 件」と明示**して設定・台帳だけで判定・pre-commit --staged-only ＋ quality:audit
+npm run check-disk-hygiene    # ローカル容量の surfacer（マージ済み worktree・古いビルド成果物・各種キャッシュ・**日次掃除が止まっていること**・会話ログ保持期間）。掃除の実体は `npm run disk-hygiene:fix`＝launchd が日次実行（`npm run disk-hygiene:install`）。Claude/Codex 両方の Stop フックが `--quick` を叩く。**macOS 専用・非 mac は exit 2＝検査不成立**
+npm run check-content-taxonomy # 分類語彙（領域×資格×記事型×テーマ×タグ）の整合。group が許可外・未登録タグは赤、別名綴り・構造タグ不整合は baseline ラチェット（`:ci`）、topic 三方向の 0 件は WARN。規則は content-taxonomy.md・pre-commit --staged ＋ quality:audit
+npm run check-content-expansion # 全教材の論点→記事/図/SNS対応・未確認・原典待ち・成果物変更を検査（管理画面 /content/expansion・週次/月次で確認）
 npm run check-reference-sources # 参考文献台帳・記事 sources ID・出典粒度・非公開文字起こし名の漏洩・未付与 baseline ラチェットを検査（--staged は pre-commit）
 npm run check-reference-sources:deep # Drive の文字起こし frontmatter↔原本台帳と、市販書籍由来記事の40文字以上の逐語一致0を実体照合（Mac・Driveマウント要）
 npm run check-content-layout   # content/ の 6 チャネルに実体があるかを観測（件数・容量。空チャネル＝移行の取りこぼしで fail）
@@ -114,6 +119,9 @@ npm run check-ga4-dimensions   # GA4 カスタムディメンション（event_l
 npm run x-own-metrics     # 自投稿の反応（いいね/RT）を採取→型×時間帯×導線の表（.claude/state/x-metrics/・**中央値で読む**。impressions/replies は CLI が返さず取得不可）
 npm run check-keiken-answer-split # 施工経験記述の解答欄の割り振りが級と合っているか（1級=(1)に検討項目/(2)対応処置・評価、2級=(1)課題/(2)検討項目と対応処置。2級式を1級教材へ使うと(2)に3要素が乗り1区画約200字に収まらない。**note 原稿だけでなく退避される模試の生成 markdown も走査**）
 npm run check-jst-date    # 運用記録の日付が UTC で前日付になっていないか（JST 09:00 前の実行事故・pre-commit 同梱）
+npm run business-review       # 資格別KPI・週次/月次レビュー期日の確認（-- report --monthly で前月）
+npm run fetch-business-metrics # GSC/GA4の資格別・完了週/月の集計取得（--commitで追記）
+npm run check-business-direction # 事業方針・指標・履歴・追記専用の検査
 npm run check-experiment-due   # 実験台帳の再計測/close 期限を surface（計測→記録→改善→再計測の最後の輪）
 npm run check-internal-links-vs-gsc # 公開ページが GSC 404/リダイレクト URL を指していないか（旧URL件数を減らす唯一のレバー）
 npm run gsc-indexing:check     # 未登録URLをGSC URL検査で診断（dry-run／:request で登録リクエスト・上限10件/回）
@@ -127,8 +135,10 @@ npm run gsc-indexing:check     # 未登録URLをGSC URL検査で診断（dry-run
 
 | 参照先 | 内容 | いつ読むか |
 |---|---|---|
+| [.claude/knowledge/reference/content-expansion.md](.claude/knowledge/reference/content-expansion.md) | 全教材の論点→記事・図解・SNSの対応表と、未確認・原典待ち・変更後の再確認を管理する手順 | 教材展開・図解整備・週次/月次レビュー時 |
 | [.claude/knowledge/reference/content-authoring.md](.claude/knowledge/reference/content-authoring.md) | MDX コンポーネント・過去問構造・モバイル視認性詳細・画像配信・frontmatter テンプレ | MDX を書く・編集するとき |
 | [.claude/knowledge/reference/reference-sources-policy.md](.claude/knowledge/reference/reference-sources-policy.md) | 参考文献6区分の逐語・図・文字起こし公開・出典粒度と、原本→Drive文字起こし→記事 `sources` ID→検査のライフサイクル SSOT | 原本・一次資料から文字起こしや記事を作るとき／参考文献を追加・変更するとき |
+| [.claude/knowledge/reference/content-taxonomy.md](.claude/knowledge/reference/content-taxonomy.md) | コンテンツ分類の SSOT（領域×資格×記事型×テーマ×タグの語彙と規則・タグの正規表記＝日本語名と別名・原本 class → 展開先の加工ルール表と commercial-book の brief 方式・新規記事のチェックリスト）。値は `src/config/{content-taxonomy,categories,tags,topics}.json`、検査は `npm run check-content-taxonomy` | frontmatter（category/group/tags/topics）を決めるとき・新資格/新タグ/新テーマを足すとき・原本から記事を起こすとき |
 | [.claude/knowledge/reference/docs-markdown-style.md](.claude/knowledge/reference/docs-markdown-style.md) | docs/ 配下 .md ドキュメントの Obsidian callout（`> [!note]` 等）運用ルール・MDX `<Callout>` との対比・推奨 4 タイプ | docs/handoffs/ / docs/{領域}/ / .claude/knowledge/reference/ の .md を書くとき |
 | [.claude/knowledge/reference/image-policy.md](.claude/knowledge/reference/image-policy.md) | 図版種別判定フロー・CC/PD 写真ソース・出典表記・写真 SVG 化禁止ルール | 図/写真を追加・置換するとき |
 | [.claude/knowledge/reference/brand-image-system.md](.claude/knowledge/reference/brand-image-system.md) | 資格別ブランド写真プールの多フォーマット展開＋サイト色スキーム統一の SSOT（wide/square の2マスター→hero/OGP/note カバー/カード/300×250 バナーへクロップ展開・色ターゲット・Codex 生成プロンプト・生成→保存→反映パイプライン） | hero/OGP/note カバー/カード/広告バナーの背景写真を新規作成・差替・統一するとき |
@@ -142,6 +152,7 @@ npm run gsc-indexing:check     # 未登録URLをGSC URL検査で診断（dry-run
 | [.claude/knowledge/reference/sns-image-policy.md](.claude/knowledge/reference/sns-image-policy.md) | SNS 投稿画像ポリシー（IG/X/Shorts のキャンバス・スワイプ方向・記号統一・wrap 算法・長文選択肢自動切替） | `content/sns/{instagram,x,youtube}/` 配下の画像を作成・修正するとき |
 | [.claude/knowledge/reference/sns-archive-policy.md](.claude/knowledge/reference/sns-archive-policy.md) | SNS バイナリ（reels wav/mp4・YouTube Shorts mp4）の退避運用。SoT/生成物の切り分け・3層モデル・置き場は Google Drive vault `制作物/SNS音声動画/`（`drive-vault-sync --group sns-archived-media`。2026-09-05 DN-0170 で旧 `upload-sns-r2`＝public R2 系統を廃止）・`sns-archive-auditor` の判定 | content/sns のバイナリで容量が圧迫されたとき・投稿済みパックを退避するとき |
 | [.claude/knowledge/reference/asset-storage-policy.md](.claude/knowledge/reference/asset-storage-policy.md) | アセット置き場の SSOT（**誰が使うかで決める 3 行ルール**＝サイトが配信→public R2／GitHub Actions が読み書き→private R2／人か手元のスクリプトだけ→Google Drive vault。各 group の行き先表・Drive vault の 4 フォルダ・端末初期設定・R2→Drive 移行の必須順序〔dry-run→commit→`--verify --cloud`→R2 削除→forget〕・退避後に壊れる読み手の直し方・cover PNG が byte 再現できない実測）。機械可読は R2 側 `.claude/config/asset-storage.json`（台帳 `manifest.json`）と Drive 側 `.claude/config/drive-vault.json`（台帳 `drive-manifest.json`）。迷ったら `/asset-route` | 新しい端末を用意するとき・画像/PDF が手元に無いとき・アセットを新規追加したとき・退避対象を読むコードを書くとき |
+| [.claude/knowledge/reference/disk-hygiene.md](.claude/knowledge/reference/disk-hygiene.md) | ローカル容量の運用 SSOT（何が溜まるかの実測・**worktree の置き場と後始末**・`--fix` が消すものとガード・報告のみに留める履歴・launchd の導入/確認/解除・⚠ 行の対処）。機械可読は `.claude/config/disk-hygiene.json`、検査は `npm run check-disk-hygiene` | `[disk-hygiene] ⚠` が出たとき・worktree を切る/畳むとき・空き容量が減ったとき |
 | [.claude/knowledge/reference/links-hub.md](.claude/knowledge/reference/links-hub.md) | `/links` SNS bio 用リンクハブの設計・UTM 設計・メンテ手順・KPI（Linktree 代替の自前実装） | `/links` 新 商品追加・Featured 切替・SNS bio リンク変更時 |
 | [.claude/knowledge/reference/sns-repurpose-policy.md](.claude/knowledge/reference/sns-repurpose-policy.md) | 全 SNS チャネル共通の6切り口リパーパス戦略（結論/理由/体験/反論/数字/ハウツー）。チャネル別適用方法・`angle` パラメータ仕様 | SNS 投稿のネタ展開・複数切り口生成時 |
 | [.claude/knowledge/reference/ig-carousel-skill.md](.claude/knowledge/reference/ig-carousel-skill.md) | IG カルーセル 2 シリーズ運用（A: 択一クイズパック・運営者作問 / B: 過去問パック・H21-R7 全 640 問）・5 管理別色テーマ・slide-data.json スキーマ・配信ロードマップ | IG カルーセル投稿準備・パック編集・SoT 再生成時 |
@@ -179,7 +190,7 @@ npm run gsc-indexing:check     # 未登録URLをGSC URL検査で診断（dry-run
 | [tools/admin-app/README.md](tools/admin-app/README.md) | 運営管理画面（ローカル専用・Next.js 版）の起動・タブ構成・設計方針。`npm run admin` で `http://127.0.0.1:3021`。計測（GA4/GSC/PSI）・エージェント/スキル・画像ギャラリー（OGP/記事図版/note/SNS）・SNS状態板・記事/note/マガジン一覧・売上・品質・投稿ジョブ・**TODO（.claude/todo 統合ビュー）**を1画面で。RSC ファースト・ルート node_modules 再利用・**ビルド/デプロイなし・dev モード専用**。投稿は既存 CLI を child_process 実行しガードは CLI 側に残す（旧 zero-dep 版 tools/admin は 2026-07-16 退役） | 管理画面を起動・改修するとき／計測・SNS・画像・売上・品質・TODO を目視管理するとき |
 | `.claude/config/` | ツール設定（OGP テンプレ/ルール/改行設定、PSI しきい値・URL リスト等、エージェント編集領域） | OGP・PSI・自動化ツールのルール・閾値を調整するとき |
 | [docs/strategy/README.md](docs/strategy/README.md) | 戦略の入口・索引（トピック軸＝何の戦略か × 資格軸＝どの資格か の2軸ナビ、横断戦略 ↔ 各 noteコンテンツ計画.md の相互リンク） | 「この戦略はどこ？」と迷ったとき・各資格の戦略入口を辿るとき |
-| `docs/strategy/01_プロダクト戦略.md` | 5問フレームワーク（顧客・問題・解決策・体験・成功指標）の one-page 北極星文書。全戦略の出発点 | 戦略の全体像を把握したいとき・意思決定の根拠を確認するとき |
+| `docs/strategy/01_プロダクト戦略.md` | 学習価値・重点資格・KPI解釈・継続改善の判断理由の正典 | 戦略の全体像を把握したいとき・意思決定の根拠を確認するとき |
 | `docs/strategy/03_事業戦略.md` | v3 事業戦略 | 収益化・差別化戦略の確認時 |
 | `docs/strategy/04_収益化戦略.md` | 収益化戦略（v3＋v8 注記）。note 個別価格・リリース計画の真実源は各試験の noteコンテンツ計画.md へ移譲済み | note・YouTube・PWA/iOS アプリ戦略検討時 |
 | `docs/marketing/01_SNS集客戦略.md` | SNS 集客戦略 v7（Instagram を一次制作チャネルに格上げ・YouTube Shorts は IG Reels mp4 の二次展開に再定義、X＝合格者発信の信頼／note 誘導動線。X 凍結対応は x-post-policy §11、総監 YT は 05 が独立 SSOT。全体像は 00_SNS整理マップ.md） | SNS 投稿設計・YouTube/Instagram 自動化検討時 |
@@ -233,7 +244,7 @@ npm run gsc-indexing:check     # 未登録URLをGSC URL検査で診断（dry-run
 
 - **サブエージェント**: `model: sonnet` 既定。Opus は親エージェントのみ（詳細 → [agents-registry.md](.claude/knowledge/reference/agents-registry.md)）
 - **同時起動は原則 3 体まで**。それを超える規模は分割して順に回す（`/doc-declutter` の「12 件超は 1 体 5〜8 件に分割」が具体例）。Workflow の並行は 2 本まで
-- **worktree 原則禁止**。2エージェント同時実行・30分以上の条件を両方満たすときのみ例外（詳細 → [workflows.md](.claude/knowledge/reference/workflows.md)）
+- **worktree 原則禁止**。2エージェント同時実行・30分以上の条件を両方満たすときのみ例外（複数セッション常態下での例外と置き場・後始末は §10、容量の実測は [disk-hygiene.md](.claude/knowledge/reference/disk-hygiene.md)）
 - ルーティング・リトライ・ステータスコード処理など、コードで決定できるものはサブエージェントに委ねない
 - **委任基準**: サブエージェントに任せるのは「大きく・独立・並列化できる」作業のみ（例: 複数ファイル横断の調査）。数回のツールコールで終わる作業は委任しない。**自分のインライン作業を検証させるためだけのサブエージェント起動はしない**（モデルは自律検証するので二重になる）。※商品品質の Generator/Evaluator 分離パイプライン（`*-writer` ↔ `*-qa`）は自己評価バイアスを構造で断つ設計なので別物・維持
 - **モデル／reasoning／fork 範囲は実行時の能力**として扱い、プロバイダ固有のルーティング SSOT をリポジトリへ作らない。効果を実測できていない場合は親の既定を継承し、委任には必要最小限の直近コンテキストまたは `fork_turns: none` を使う。過去のユーザー判断そのものが受入条件のときだけ全履歴を渡す
@@ -279,6 +290,7 @@ npm run gsc-indexing:check     # 未登録URLをGSC URL検査で診断（dry-run
 - **複数セッションは worktree で分離する（最重要）**: 別の Claude Code セッションが同じリポジトリで並行作業するのが常態（2026-06-11 確認）。同一ワークツリーを共有すると、あるセッションの `git reset --hard`／`checkout` が他セッションの未 push コミット・作業ツリーを破壊する（**pathspec commit・push 前確認でも防げない**＝reset が HEAD・index・作業ツリーを丸ごと書き換えるため。2026-06-11 実証：commit が別セッションの reset で消失→gc 復旧不能）。各セッションは `git worktree add <別dir> -b <feature> origin/develop` で独立した HEAD／index／作業ツリーを持ち、`develop` へは PR で集約する（`.git` オブジェクトは共有）。**§5「worktree 原則禁止」は複数セッション常態下では非適用**。
 - **同一ワークツリーで並行せざるを得ないとき**: reflog・`develop` 先頭・未コミットが自分の操作と無関係に動くのは正常（共有 `.git/logs/HEAD` に全プロセス混在記録）。push 前に `git log origin/develop..HEAD` で巻き込み確認。commit は `git commit -- <pathspec>`（`git add -A` 禁止）。他テリトリ不可侵。重要な変更は feature ブランチへ即 push して保全。
 - **並行エージェント（同一セッション内）**: 各エージェントが編集したファイルを即 commit（`git status` で staged 確認）。
+- **worktree の置き場と後始末**: 置き場は `.claude/worktrees/`（Claude）と `~/.codex/worktrees/`（Codex）だけ。**`.tmp/` に置かない**（`prune-tmp` が 3 日超のファイルを消す置き場で、worktree の中身が削られる）。マージしたら `git worktree remove <path>` を即実行する（ブランチは残るので履歴は失われない）。worktree の中で `npm run build` しない（E2E に要るときだけ。node_modules＋`.next`＋`out` で 1 本 4〜5GB。2026-09-10 に Codex の worktree 2 本で 8.6GB 溜まって空きが 7.5GB まで落ちた）。長期に残すなら `git worktree lock`。候補は `npm run check-disk-hygiene`、回収は日次 launchd（詳細 → [disk-hygiene.md](.claude/knowledge/reference/disk-hygiene.md)）
 
 ### 11. コードベースの規約に合わせる
 

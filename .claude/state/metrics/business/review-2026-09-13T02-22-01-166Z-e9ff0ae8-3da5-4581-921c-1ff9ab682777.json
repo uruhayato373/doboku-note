@@ -1,0 +1,27 @@
+{
+  "kind": "review",
+  "qualification": "all",
+  "period": {
+    "startDate": "2026-08-01",
+    "endDate": "2026-08-31"
+  },
+  "cadence": "monthly",
+  "status": "provisional",
+  "snapshot": ".claude/state/metrics/business/snapshot-2026-09-13T02-22-01-161Z-7338b704-09ad-4cf5-afb0-dbe1c6f50ac3.json",
+  "qualificationsReviewed": [
+    "civil-construction-1",
+    "pe-comprehensive-management",
+    "pe-construction"
+  ],
+  "findings": "8月の自然検索人数は全体3617、note台帳登録分は16件39520円。登録販売額は1級土木12760円・総監4400円・建設部門19900円。資格別Google値は正規URLのみで、旧URL期間と比べると範囲が変わる。販売台帳の網羅性、note記事PV、暦月のココナラ値、受取・費用・時間は未確認。",
+  "decision": "図で理解し、過去問で確かめ、答案に活かす方針を採用。3資格を重点とし、図数・一般語の順位・販売額だけで配分を決めない。データ不足のため新しい収益目標や施策の因果効果は確定しない。",
+  "nextAction": "重点は(1) 3資格の正規URLで期間を揃えた計測を継続、(2) note新PV・販売網羅性とココナラ同期間値を確認、(3) 期限到来のEXP-007を実測で評価し、既存実験の観察を保つ。資格別の学習上の不足を現物で確認して次の1件を選ぶ。",
+  "experimentIds": [
+    "EXP-007",
+    "EXP-008"
+  ],
+  "nextReviewDate": "2026-09-20",
+  "schemaVersion": 1,
+  "createdAt": "2026-09-13T02:22:01.166Z",
+  "strategyHash": "0dcafa7d40353bfb3d3188789620e21885f6b0fb84affd6f87e837ed5f5c9151"
+}

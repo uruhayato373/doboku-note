@@ -132,7 +132,9 @@ function matchPeConstructionEssay(slug: string): MagazineId | null {
   if (/^pe-construction-r0[1-9]-railway$/.test(slug)) return 'pe-construction-railway-magazine';
   if (/^pe-construction-r0[1-9]-tunnel$/.test(slug)) return 'pe-construction-tunnel-magazine';
   // 論文の書き方ガイドは全受験者向けの必須科目I マガジンへ送客
-  if (slug === 'pe-construction-pe-secondary-essay-guide') return 'pe-construction-required-magazine';
+  if (/^pe-construction-(pe-secondary-essay-guide|setsumon-bunkai|aimai-hyougen-sahou|suikou-checklist|shiken-toujitsu-tejun|keyword-note-tsukurikata)$/.test(slug)) {
+    return 'pe-construction-required-magazine';
+  }
   return null;
 }
 

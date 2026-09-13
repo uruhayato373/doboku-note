@@ -1,0 +1,51 @@
+<!-- authored 2026-09-12 doboku-note 自作。題材はコンクリート診断士テキスト「維持管理・基準」の論点。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="補強前はせん断破壊で急激に耐力が低下し、補強後は曲げ降伏後も変位を保ちながら緩やかに低下する荷重変位曲線の比較">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-before{ font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-after { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-row   { font-size: 12px; fill: #222; }
+      .t-sum   { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .curve-before { fill: none; stroke: #b22234; stroke-width: 2.5; }
+      .curve-after  { fill: none; stroke: #3a7d44; stroke-width: 2.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">耐震補強の目的は、破壊のしかたそのものを変えることにある</text>
+
+  <!-- 軸 -->
+  <line x1="50" y1="300" x2="50" y2="52" stroke="#222" stroke-width="1.5"/>
+  <polygon points="50,46 45,56 55,56" fill="#222"/>
+  <line x1="50" y1="300" x2="368" y2="300" stroke="#222" stroke-width="1.5"/>
+  <polygon points="374,300 364,295 364,305" fill="#222"/>
+  <text class="t-axis" x="54" y="48">荷重</text>
+  <text class="t-axis" x="350" y="316" text-anchor="end">変位</text>
+
+  <!-- 補強前：せん断破壊（急激な低下） -->
+  <path class="curve-before" d="M50,300 L140,150 L150,296"/>
+  <text class="t-before" x="140" y="118" text-anchor="middle">補強前（せん断破壊）</text>
+  <text class="t-desc" x="140" y="134" text-anchor="middle">急激に耐力低下（脆性）</text>
+
+  <!-- 補強後：曲げ破壊（緩やかな低下） -->
+  <path class="curve-after" d="M50,300 L230,110 L290,140 L360,190"/>
+  <text class="t-after" x="270" y="70" text-anchor="middle">補強後（曲げ破壊）</text>
+  <text class="t-desc" x="270" y="86" text-anchor="middle">変位を保ちながら緩やかに低下（じん性）</text>
+
+  <!-- 凡例 -->
+  <line x1="30" y1="336" x2="60" y2="336" class="curve-before"/>
+  <text class="t-row" x="68" y="340">補強前：せん断破壊が先行する</text>
+  <line x1="30" y1="362" x2="60" y2="362" class="curve-after"/>
+  <text class="t-row" x="68" y="366">補強後：曲げ破壊が先行する</text>
+
+  <!-- 結論 -->
+  <rect class="box-b" x="20" y="400" width="360" height="60" rx="6"/>
+  <text class="t-sum" x="200" y="436" text-anchor="middle">せん断先行 → 曲げ先行への転換</text>
+</svg>

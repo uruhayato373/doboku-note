@@ -80,6 +80,13 @@
         ]
       },
       {
+        "volume": "専門土木編",
+        "chapterNo": "第1章",
+        "label": "専門土木",
+        "min": 700,
+        "max": 799
+      },
+      {
         "volume": "施工管理・法規編",
         "chapterNo": "第1-2章",
         "label": "施工管理・施工計画",
@@ -162,7 +169,7 @@
     },
     "fields": {
       "title": "第1次検定 分野別対策",
-      "description": "出題分野順（土木一般 → 施工管理法 → 法規）に要点を整理",
+      "description": "出題分野順（土木一般 → 施工管理法 → 法規）に要点を整理。各分野の詳細は 1級テキストへ",
       "blocks": [
         {
           "id": "doboku-ippan",
@@ -432,6 +439,11 @@
           "label": "論文の書き方・業務経歴票",
           "slugs": [
             "pe-secondary-essay-guide",
+            "setsumon-bunkai",
+            "aimai-hyougen-sahou",
+            "suikou-checklist",
+            "shiken-toujitsu-tejun",
+            "keyword-note-tsukurikata",
             "toan-kousei-template",
             "sentaku-kamoku-kakiwake",
             "hissu-kamoku-kaitourei",
@@ -579,7 +591,9 @@
             "quality-record-site-bcp",
             "reference-values",
             "schedule-and-road-permit",
-            "environment-neighborhood"
+            "environment-neighborhood",
+            "ict-construction-workflow",
+            "bim-cim-site-practice"
           ]
         },
         {
@@ -588,7 +602,9 @@
           "slugs": [
             "asphalt-pavement-control",
             "river-park-erosion-control",
-            "service-commencement"
+            "service-commencement",
+            "flood-season-river-work",
+            "rainfall-work-suspension"
           ]
         }
       ]

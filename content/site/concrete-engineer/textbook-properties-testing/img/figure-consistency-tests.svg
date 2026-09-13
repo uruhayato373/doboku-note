@@ -1,0 +1,48 @@
+<!-- authored 2026-09-12 doboku-note 自作。題材はコンクリート技士テキスト「コンクリートの性質と試験」の論点。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="コンシステンシー試験の使い分け。硬練りから軟練りの順にVB・振動台式試験、スランプ試験、スランプフロー試験を並べ、それぞれ測るものを示す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #555; }
+      .t-title { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc  { font-size: 12px; fill: #222; }
+      .box-b   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .axisln  { stroke: #8a8a8a; stroke-width: 1.5; }
+      .tick    { stroke: #8a8a8a; stroke-width: 1.5; }
+    </style>
+    <marker id="arrowC" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#8a8a8a"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">硬練り→軟練りに応じて使う試験が変わる</text>
+
+  <text class="t-axis" x="55" y="30" text-anchor="middle">硬練り</text>
+  <line class="axisln" x1="55" y1="35" x2="55" y2="465" marker-end="url(#arrowC)"/>
+  <text class="t-axis" x="55" y="482" text-anchor="middle">軟練り</text>
+
+  <line class="tick" x1="45" y1="115" x2="60" y2="115"/>
+  <line x1="60" y1="115" x2="90" y2="115" class="tick"/>
+  <rect class="box-b" x="90" y="70" width="290" height="90" rx="6"/>
+  <text class="t-title" x="105" y="95">VB試験・振動台式試験</text>
+  <text class="t-desc" x="105" y="117">振動を加えて締め固まるまでの時間を測る</text>
+  <text class="t-desc" x="105" y="135">舗装・ダムコンクリートなど硬練り配合に適用</text>
+
+  <line class="tick" x1="45" y1="255" x2="60" y2="255"/>
+  <line x1="60" y1="255" x2="90" y2="255" class="tick"/>
+  <rect class="box-b" x="90" y="210" width="290" height="90" rx="6"/>
+  <text class="t-title" x="105" y="235">スランプ試験（一般）</text>
+  <text class="t-desc" x="105" y="257">コーンを引き上げた後の下がり量を測る</text>
+  <text class="t-desc" x="105" y="275">値が大きいほど軟らかいことを示す</text>
+
+  <line class="tick" x1="45" y1="395" x2="60" y2="395"/>
+  <line x1="60" y1="395" x2="90" y2="395" class="tick"/>
+  <rect class="box-b" x="90" y="350" width="290" height="90" rx="6"/>
+  <text class="t-title" x="105" y="375">スランプフロー試験（高流動）</text>
+  <text class="t-desc" x="105" y="397">コーンを引き上げた後の広がり量を測る</text>
+  <text class="t-desc" x="105" y="415">通常のスランプ試験では測れない配合に使う</text>
+</svg>

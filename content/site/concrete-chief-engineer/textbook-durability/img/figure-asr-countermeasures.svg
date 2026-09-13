@@ -1,0 +1,60 @@
+<!-- authored 2026-09-12 doboku-note 自作。題材は主任技士テキスト「durability」の論点。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="ASR抑制対策3方式の分岐図。反応性骨材・アルカリ・水分の3条件のどれを断つ対策かを対応づける">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-cond  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-name  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .box-d   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-b   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-s   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .arrow   { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+    </style>
+    <marker id="arr2" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#8a8a8a" />
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">反応の3条件のどれかを断てば、ASRは進まない</text>
+
+  <!-- 3条件 -->
+  <rect class="box-d" x="20" y="26" width="110" height="46" rx="6" />
+  <text class="t-cond" x="75" y="54" text-anchor="middle">反応性骨材</text>
+
+  <rect class="box-d" x="145" y="26" width="110" height="46" rx="6" />
+  <text class="t-cond" x="200" y="54" text-anchor="middle">アルカリ</text>
+
+  <rect class="box-d" x="270" y="26" width="110" height="46" rx="6" />
+  <text class="t-cond" x="325" y="54" text-anchor="middle">水分</text>
+
+  <line class="arrow" x1="200" y1="72" x2="200" y2="140" marker-end="url(#arr2)" />
+  <text class="t-desc" x="210" y="112">3 条件のうち 1 つを断つ対策</text>
+
+  <!-- 対策1: 骨材 -->
+  <rect class="box-b" x="20" y="146" width="360" height="80" rx="6" />
+  <text class="t-name" x="200" y="168" text-anchor="middle">安全と認められる骨材の使用</text>
+  <text class="t-desc" x="200" y="188" text-anchor="middle">断つ条件：反応性骨材</text>
+  <text class="t-desc" x="200" y="206" text-anchor="middle">区分A（無害）の骨材を用いて反応性鉱物を排除</text>
+
+  <!-- 対策2: アルカリ総量 -->
+  <rect class="box-b" x="20" y="242" width="360" height="80" rx="6" />
+  <text class="t-name" x="200" y="264" text-anchor="middle">アルカリ総量の規制</text>
+  <text class="t-desc" x="200" y="284" text-anchor="middle">断つ条件：アルカリ</text>
+  <text class="t-desc" x="200" y="302" text-anchor="middle">コンクリート中のアルカリ総量を一定値以下に制限</text>
+
+  <!-- 対策3: 混合セメント -->
+  <rect class="box-b" x="20" y="338" width="360" height="90" rx="6" />
+  <text class="t-name" x="200" y="360" text-anchor="middle">抑制効果のある混合セメントの使用</text>
+  <text class="t-desc" x="200" y="380" text-anchor="middle">断つ条件：アルカリ（固定・拡散抑制）</text>
+  <text class="t-desc" x="200" y="398" text-anchor="middle">高炉B・C種、フライアッシュB・C種を使用し</text>
+  <text class="t-desc" x="200" y="415" text-anchor="middle">アルカリを取り込み拡散も遅らせる</text>
+
+  <rect class="box-s" x="20" y="438" width="360" height="44" rx="6" />
+  <text class="t-desc" x="200" y="456" text-anchor="middle">3方式はいずれか1つを満たせばよい</text>
+  <text class="t-desc" x="200" y="472" text-anchor="middle">（複数を重ねて満たす必要はない）</text>
+</svg>

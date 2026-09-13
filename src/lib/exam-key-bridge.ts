@@ -20,7 +20,7 @@ const EXAM_SCOPE_BY_KEY: Partial<Record<ExamKey, string>> = {
 };
 
 /** ExamKey → 商品カタログ側の examScope 値。対応が無い資格（concrete 等）は null。 */
-export function toExamScope(key: ExamKey): string | null {
+function toExamScope(key: ExamKey): string | null {
   return EXAM_SCOPE_BY_KEY[key] ?? null;
 }
 

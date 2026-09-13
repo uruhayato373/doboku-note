@@ -25,7 +25,7 @@
 rankRelated(currentMeta, categoryArticles, limit = 6)
 ```
 
-- `meta.tags` から**構造タグ**（`guide`/`primary`/`secondary`/`textbook`/`keyword`/`pillar`/`essay`/`past-questions`/`pastExam`。`STRUCTURAL_TAGS`）を除いた**トピックタグ**だけで比較する
+- `meta.tags` から**構造タグ**（`src/config/tags.json` で `class: structural|flag` のもの。判定は `isStructuralTag()`〔`src/lib/content-taxonomy.ts`〕。タグは index ビルド時に正規表記へ正規化済み）を除いた**トピックタグ**だけで比較する
 - 同カテゴリ内の各記事について、現在記事とのトピックタグ共通数を score とする
 - 自分自身・非公開（`published === false`）・共通タグ 0 件（score 0）は除外
 - 同スコアは `date` 降順（新しい記事優先）でソート
@@ -58,5 +58,5 @@ rankRelated(currentMeta, categoryArticles, limit = 6)
 ## 拡張ポイント
 
 - **limit 変更**: `rankRelated()` の第3引数で調整可能（デフォルト 6）
-- **新カテゴリ追加**: `tags` があれば追加設定なしで動作。構造タグの語彙を増やす場合は `STRUCTURAL_TAGS` を更新する
+- **新カテゴリ追加**: `tags` があれば追加設定なしで動作。構造タグの語彙を増やす場合は `src/config/tags.json` の `class` で宣言する（規則は [content-taxonomy.md](../../.claude/knowledge/reference/content-taxonomy.md) §5）
 - **カスタムスコアリング**: アクセス数等を加味する場合、`rankRelated()` のみ変更すれば `RelatedArticles` と `MidArticleCta` の両方に反映される

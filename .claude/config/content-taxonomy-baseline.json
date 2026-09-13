@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "_doc": "check-content-taxonomy のラチェット baseline。未登録タグ（集合）・別名綴りの使用数（件数）・構造タグ×group の不整合（slug 集合）を記録し、増えたら --ci が赤。2026-09-11 の codemod（scripts/migrate-tag-aliases.mjs）で全て 0 にした。規則は content-taxonomy.md §5/§10。",
+  "_updatedAt": "2026-09-11",
+  "unknownTags": [],
+  "aliasUsage": {},
+  "structuralMismatch": []
+}

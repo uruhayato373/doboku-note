@@ -4,7 +4,13 @@ description: >
   前週の成果・KPI・学びを振り返るレビューを生成する。Use when user asks to [週次レビュー, 先週の振り返り, /weekly-review].
 ---
 
-今週の実績を調査し、成果・課題・学びを記録する週次レビューを生成する。
+## 事業の週次判断（最初と最後に実行）
+
+`docs/strategy/01_プロダクト戦略.md` と `.claude/config/business-direction.json` を基準にする。`npm run business-review -- report --json` で前の完了した月曜〜日曜の資格別KPI、欠測、既存レビュー期日を確認する。以下の収集項目はこの判断を支える資料であり、集客だけを成功としない。
+
+収集後、`.claude/knowledge/reference/business-review.md` の手順でsnapshotとweeklyのreviewを追記する。資格別に「実測／未確認／判断／次の一手」を分け、実験IDと次回日を残す。note/ココナラ内アクセス・販売、運営時間も確認する。欠測はprovisional、同じ期間のレビューはsupersedesによる訂正。MDレポートを整理しても機械履歴は削除しない。JSONを明示してコミットする。月次の方針・目標変更は `/monthly-review` へ渡す。
+
+対象週の実績を調査し、成果・課題・学びを記録する週次レビューを生成する。
 
 ## 引数
 
@@ -12,7 +18,7 @@ description: >
 /weekly-review [YYYY-Www]
 ```
 
-- 週番号（任意）: ISO 8601 週番号（例: `2026-W10`）。省略時は今週。
+- 週番号（任意）: ISO 8601 週番号（例: `2026-W10`）。省略時は前の完了した週。
 
 ## 概要
 
@@ -84,6 +90,8 @@ description: >
   **クラウド週次では snapshot が古いのが常態**（再取得はローカル作業のため）。その場合 `inconclusive:true` と
   理由が返るので、`actions` が空でも**「実体が検査不成立」として必ず surface する**（静かなのは
   「問題が無い」ではなく「見ていない」）。
+- **教材からの展開**: `npm run check-content-expansion -- --json` で全教材の未確認・必要制作・原典待ち・確認後の変更を確認する。判定手順は `.claude/knowledge/reference/content-expansion.md`、対応表は管理画面 `/content/expansion`。対象0件や概念名の対応だけを完了にしない。残務は既存backlog IDへ接続し、公開・予約・効果は各チャネルと事業レビューのSSOTで別に確認する。
+- **SEO Rank Watch**: `npm run seo-rank-watch -- report --json` で資格別候補・実行/待機理由・観察期限・達成後監視・鮮度・同時実行上限・方針レビュー期限を確認する。一般用語の順位だけを週の成果にしない。観察/方針の期限到来は `/weekly-improve --rank-watch --no-fetch` へ渡す。汎用NSMの10日/28日基準でrank-watchを変更しない。確認後は専用 `log-run` で判断を記録する。
 - **実験サイクルの期限**: `npm run check-experiment-due -- --json`（オフライン・`experiments.json` 参照）。
   これが「計測→記録→改善→**再計測**」の最後の輪。`due[]` の MEASURE_DUE / CLOSE_DUE / PENDING /
   NO_BASELINE をそのまま列挙する。改善を打って再計測されていない実験は学びが台帳に入らず
@@ -117,11 +125,11 @@ description: >
 - 「ココナラ 評価未送信 / 要対応」（`check-coconala-orders` の `actions[]` が空でないときのみ・→ 評価は `npm run coconala-rate-buyer`、実体の採り直しは `npm run coconala-orders`）
 - 「ココナラ 実体が検査不成立」（`check-coconala-orders` が `inconclusive:true` のときのみ・理由つき・→ 次セッションで `npm run coconala-orders`）
 - 「ココナラブログ 送客先が販売中でない / 下書き放置」（`check-coconala-blog` の `violations[]`・`warnings[]` が空でないときのみ・→ 記事の `funnel` 修正か出品の再開）
-- 「実験の再計測 DUE」（`check-experiment-due` の dueCount > 0 のときのみ・id と理由つき・→ `/nsm-experiment measure <id>`）
+- 「実験の再計測 DUE」（`check-experiment-due` の dueCount > 0 のときのみ・id と理由つき・→ 各要素の `review` コマンドを転記）
 - 「壊れた内部リンク」（`check-internal-links-vs-gsc` が ERROR を返したときのみ）
 - 「A8 成果取込 DUE（月次）」（`check-a8-report-due` が due のときのみ・→ 次セッションで `/a8-report`）
 - 「A8 集計の取りこぼし / 混入疑い」（`check-a8-report-due` の `issues[]` が空でないとき・due でなくても出す）
-- 「実験の再測定 DUE」（`check-experiments-due` が due のときのみ・→ 次セッションで `/nsm-experiment measure <id>`）
+- 「実験の再測定 DUE」（`check-experiments-due` が due のときのみ・→ 次セッションで各要素の `review` コマンドを実行）
 - 「実験の未処理の申し送り」（`check-experiments-due` の `issues[]` が空でないとき・due でなくても出す）
 ```
 
@@ -158,7 +166,8 @@ B. 実験進捗レポート:
   - running: 経過日数、baseline との gap（metrics-reader で再取得）
   - measuring: baseline vs current の前後比較
   - 今週 close したもの: result + learnings
-- 各 running 実験について baseline の metric が現状でどう動いたかを数値表示
+- `kind: seo-rank-watch` は上記の汎用metrics-reader比較から除外し、専用 `npm run seo-rank-watch -- report --json` / review で固定条件の非重複7日を扱う。
+- その他の各 running 実験について baseline の metric が現状でどう動いたかを数値表示
 - 出力を「## 実験の進捗」セクションとして埋め込む
 
 補助コマンド:
@@ -655,4 +664,5 @@ gh issue list --label automation-failure --state open --json number,title,create
 - `scripts/check-coconala-orders.mjs` — ココナラ取引の突合＋**評価未送信/期限切迫** surfacer（`npm run check-coconala-orders -- --json`）
 - `scripts/check-coconala-blog.mjs` — ココナラブログのハードゲート＋**送客先ドリフト** surfacer（`npm run check-coconala-blog -- --json`）
 - `scripts/check-internal-links-vs-gsc.mjs` — 公開ページ→404/リダイレクト URL の内部リンク検査（`npm run check-internal-links-vs-gsc`）
+- `scripts/check-disk-hygiene.mjs` — ローカル容量の surfacer（`npm run check-disk-hygiene`）。**Mac のローカルでのみ成立**（CI は exit 2＝検査不成立）。掃除は日次 launchd が回すので、レビューで見るのは「止まっていないか」と履歴の棚卸し要否だけ
 - `.claude/skills/management/nsm-experiment/references/definition.md` — NSM 定義の真実源

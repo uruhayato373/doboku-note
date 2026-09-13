@@ -1,0 +1,62 @@
+<!-- authored 2026-09-12 doboku-note 自作。題材はコンクリート診断士テキスト「維持管理・基準」の論点。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="国産セメント開始から2000年代以降の維持管理体系整備まで技術・基準の変遷を時系列で示し、各時期が診断に持つ含意を並べた年表">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-hdr   { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-name  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-imp   { font-size: 11px; fill: #2e6da4; }
+      .node    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .node-key{ fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">技術・基準の変遷は、建設年代から劣化リスクを推定する手がかりになる</text>
+
+  <text class="t-hdr" x="55" y="36">出来事</text>
+  <text class="t-hdr" x="205" y="36">診断への含意</text>
+  <line x1="20" y1="42" x2="380" y2="42" stroke="#d7d7d7" stroke-width="1"/>
+
+  <line x1="40" y1="54" x2="40" y2="486" stroke="#d7d7d7" stroke-width="2"/>
+  <line x1="195" y1="50" x2="195" y2="486" stroke="#d7d7d7" stroke-width="1"/>
+
+  <!-- 明治初期 -->
+  <circle class="node" cx="40" cy="96" r="6"/>
+  <text class="t-name" x="55" y="86">明治初期</text>
+  <text class="t-desc" x="55" y="102">国産セメント使用が本格化</text>
+  <text class="t-imp" x="205" y="90">最古参の年代、現場品質の</text>
+  <text class="t-imp" x="205" y="106">ばらつきに注意</text>
+
+  <!-- 戦後 -->
+  <circle class="node" cx="40" cy="182" r="6"/>
+  <text class="t-name" x="55" y="172">戦後</text>
+  <text class="t-desc" x="55" y="188">レディーミクスト普及</text>
+  <text class="t-imp" x="205" y="176">均一化は進むが初期は</text>
+  <text class="t-imp" x="205" y="192">品質差が残りやすい</text>
+
+  <!-- 高度成長期 -->
+  <circle class="node" cx="40" cy="268" r="6"/>
+  <text class="t-name" x="55" y="258">高度成長期</text>
+  <text class="t-desc" x="55" y="274">ポンプ圧送工法が普及</text>
+  <text class="t-imp" x="205" y="262">施工速度は向上、締固め</text>
+  <text class="t-imp" x="205" y="278">不足のリスクは残る</text>
+
+  <!-- 1986年（重要節目） -->
+  <circle class="node-key" cx="40" cy="354" r="7"/>
+  <text class="t-name" x="55" y="344">1986年</text>
+  <text class="t-desc" x="55" y="360">塩化物総量規制・ASR対策</text>
+  <text class="t-imp" x="205" y="348">以前の建設は塩害・ASR</text>
+  <text class="t-imp" x="205" y="364">リスクが相対的に高い</text>
+
+  <!-- 2000年代以降 -->
+  <circle class="node" cx="40" cy="440" r="6"/>
+  <text class="t-name" x="55" y="430">2000年代以降</text>
+  <text class="t-desc" x="55" y="446">維持管理体系が整備</text>
+  <text class="t-imp" x="205" y="434">点検・記録が制度化され</text>
+  <text class="t-imp" x="205" y="450">履歴を追跡しやすくなる</text>
+</svg>

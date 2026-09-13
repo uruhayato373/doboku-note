@@ -1,0 +1,18 @@
+{
+  "kind": "measurement",
+  "qualification": "pe-construction",
+  "period": {
+    "startDate": "2026-08-31",
+    "endDate": "2026-09-06"
+  },
+  "channel": "GSC",
+  "subject": "aggregate",
+  "coverage": "complete",
+  "source": "GSC Search Analytics API sc-domain:doboku-note.com・日本/Web/final・日付は太平洋時間。資格別は正規URL配下。",
+  "values": {
+    "gscClicks": 0
+  },
+  "schemaVersion": 1,
+  "createdAt": "2026-09-13T02:19:08.887Z",
+  "strategyHash": "0dcafa7d40353bfb3d3188789620e21885f6b0fb84affd6f87e837ed5f5c9151"
+}

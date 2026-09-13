@@ -76,8 +76,9 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 | `/social-post` | note / X 投稿テキスト生成の統合スキル | `note投稿文`, `X投稿テキスト`, `/social-post --platform {note\|x}` |
 | `/pe-note-plan` | 技術士総監 記述式 note 有料記事・magazine の**編集ロードマップ**を提案する企画スキル（本文は書かない）。段階投下方針・magazine 在庫・価格・過去問カバレッジを突合し「次に何を・どの順で・いくらで出すか」を優先度付きで提示 | `noteの次の一手`, `magazine企画`, `記述式コンテンツの投下計画`, `/pe-note-plan [--horizon {next\|quarter}]` |
 | `/note-hashtags` | note 公開用ハッシュタグ 99 個を生成（選択科目は `--article II1-1` 等でファイル別出力） | `ハッシュタグ生成`, `/note-hashtags {slug} [--article {suffix}]` |
+| `/ig-figure-pack` | サイトSVGを総監・1級土木・技術士建設部門・技術士一次の4枚図解カルーセル下書きへ展開。元図・資格ラベルを照合し、公開状態は既存SNS台帳で管理 | `図をInstagramへ`, `/ig-figure-pack` |
 | `/ig-post-create` | Instagram カルーセル PNG の**新規生成**（過去問パック・KW 解説の単発）。※既存パック再生成は restyle、figure 変換は figure-pack | `Instagram投稿作成`, `IG スライド`, `/ig-post-create --slug {kw}` |
-| `/ig-figure-pack` | キーワードの **site figure SVG を** 4 枚カルーセルパック（表紙/図解/テキスト/CTA）に変換。resvg-js で 1080×1350 PNG 生成 + caption.txt。slide-data.json 不要の軽量ワンオフ用途（過去問パックは対象外） | `IG figure 投稿`, `キーワード図解カルーセル`, `/ig-figure-pack {keyword}` |
+| `/ig-figure-pack` | 総監・1級土木・建設部門のサイトSVGを4枚カルーセル下書きへ展開。資格別ラベル・白背景・元図参照・各枚の目視確認と既存公開台帳への引継ぎ | `IG figure 投稿`, `キーワード図解カルーセル`, `/ig-figure-pack {keyword}` |
 | `/ig-carousel-restyle` | tokens.json 更新後に**既存**過去問パック PNG を 3 フォーマット（Carousel/Reels/Stories）一括再生成（新規生成は post-create） | `IGデザイン再適用`, `カルーセル再生成`, `/ig-carousel-restyle --year r07` |
 | `/ig-reel-create` | 過去問パックのカルーセル PNG から 1080×1920 Reels mp4 を生成（VOICEVOX TTS + ffmpeg）。`--exam-dir` で多資格対応（技術士総監 / 1級土木 / 2級土木、2級は年度に z=前期 / k=後期 接尾辞） | `IG リール作成`, `動画化`, `/ig-reel-create --exam-dir 1級土木 --exam r07-pack-01 --skip-png` |
 | `/x-campaign-plan` | X 月次投稿計画（`.claude/config/x-campaigns/YYYY-MM-*.json`）を **1日3本体制（schemaVersion 2）**で起案。試験日程・自投稿の反応実測（`x-own-metrics`・**中央値で読む**）・競合 snapshot・商品カタログ（listed/published のみ）から資格配分と時間帯スロット A/B/C を決め、`check-x-campaign-plan` 緑まで通してから writer へ渡す。投入は 1 週間分ずつ | `来月のX計画`, `X投稿計画を立てて`, `/x-campaign-plan --month 2026-09` |
@@ -133,14 +134,15 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 |---|---|---|
 | `/plan-weekly` | .claude/todo/ を読んで今週の優先タスクを決め weekly.md を直接更新（Sonnet 1回・軽量。※戦略計画は /weekly-plan） | `今週のタスクを決めて`, `今週何をすべきか`, `weekly.md更新`, `/plan-weekly` |
 | `/backlog-sweep` | backlog から1〜2件を選定→実査→実行→検証→**セクション削除**で台帳を減らす1サイクル（実査で既に完了なら掃除として削除）。`/loop` で自走。**`--audit` は台帳そのものの棚卸し**（`backlog-curator` を同時3体で起動し、1枚単位の sweep では見えない台帳全体を KEEP/RETAG/TRIM/MERGE/DELETE/RESEED/SPLIT に分類）。※計画を書く /plan-weekly とは別物 | `バックログを消化して`, `backlog を減らして`, `sweep を回して`, `バックログを棚卸しして`, `/backlog-sweep`, `/backlog-sweep --audit` |
-| `/weekly-improve` | 計測→改善候補抽出→実験登録の軽量オーケストレータ（performance 側） | `今週の改善`, `PDCA`, `/weekly-improve` |
+| `/weekly-improve` | 計測→改善候補→実験登録。`--rank-watch` は資格受験者優先・7日観察・実行記録・28日方針レビュー | `SEO Rank Watch`, `今週の改善`, `PDCA`, `/weekly-improve` |
 | `/gsc-review` | 月次 GSC index coverage レビュー（gsc-index-auditor 起動→判断ログ追記） | `GSC月次レビュー`, `インデックス率`, `index coverage`, `/gsc-review` |
 | `/seo-growth-review` | SEO 4面（技術/coverage/performance/意図）の Evaluator を束ねる（機械検出→意味評価→統合・修正なし） | `SEO総合レビュー`, `技術SEO監査`, `SEOグロース`, `/seo-growth-review` |
 | `/google-search-growth` | GSC/GA4 の Playwright UI CSV 取得→既存 API と URL 突合→修正候補分類（approval gate で停止・ローカル専用） | `検索流入改善`, `GSC CSV 取得`, `GSC/GA4 統合診断`, `/google-search-growth` |
-| `/weekly-review` | 週次レビューを生成 | `週次レビュー`, `今週の振り返り`, `/weekly-review` |
+| `/monthly-review` | 前月の資格別KPI・販売・運営負担から重点と目標、次の改善を記録 | `月次レビュー`, `前月の振り返り`, `/monthly-review` |
+| `/weekly-review` | 資格別KPI・判断を週次履歴へ記録し、次の改善へ接続 | `週次レビュー`, `今週の振り返り`, `/weekly-review` |
 | `/weekly-plan` | 週次計画を生成（NSM・メトリクス連動・重め。`/weekly-review` 完了後に自動起動） | `戦略的週次計画`, `NSM込みの計画`, `/weekly-plan` |
 | `/nsm-experiment` | NSM 改善の実験ライフサイクル管理 | `実験登録`, `NSM実験`, `/nsm-experiment` |
-| `/north-star-metric` | NSM と Input Metrics を定義 | `NSM定義`, `北極星指標`, `/north-star-metric` |
+| `/north-star-metric` | 学習価値・集客・販売・運営負担のKPI定義と実測に基づく目標を共通SSOTへ記録 | `NSM定義`, `北極星指標`, `/north-star-metric` |
 | `/growth-loops` | 成長ループの設計・評価 | `成長ループ`, `フライホイール設計`, `/growth-loops` |
 | `/monetization-strategy` | 収益化戦略のブレインストーム | `収益化`, `月X万円達成するには`, `/monetization-strategy` |
 | `/competitor-review` | 競合の価格・品揃えを**全チャネル横断**（note/X/IG/ココナラ/Brain・`--platform`）で四半期再取得（scout＋時系列drift）→ competitor-analyst で差別化再評価＋反映パッチ（09/07）。有料本文は取得不可 | `競合を再調査`, `競合レビュー`, `競合の価格を再取得`, `/competitor-review` |

@@ -86,6 +86,13 @@
             "timeout": 30,
             "statusMessage": ".tmp の古いスクラッチを掃除中...",
             "async": true
+          },
+          {
+            "type": "command",
+            "command": "node scripts/check-disk-hygiene.mjs --quick 2>/dev/null || true",
+            "timeout": 15,
+            "statusMessage": "ローカル容量を確認中...",
+            "async": true
           }
         ]
       }
@@ -131,6 +138,10 @@
           {
             "type": "command",
             "command": ".claude/hooks/check-stray-files.sh"
+          },
+          {
+            "type": "command",
+            "command": ".claude/hooks/check-disk-hygiene.sh"
           }
         ]
       }

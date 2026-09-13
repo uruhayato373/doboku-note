@@ -4,6 +4,7 @@ import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import matter from 'gray-matter';
 import { pathToFileURL } from 'node:url';
+import { buildAliasMap, normalizeTags } from './lib/content-taxonomy.mjs';
 
 const EXPECTED_AGENCIES = [
   'chubu', 'chugoku', 'hokkaido', 'hokuriku', 'kanto',
@@ -22,6 +23,9 @@ function findMdxFiles(directory) {
 
 export function auditTopicWiring(root = process.cwd()) {
   const topics = JSON.parse(readFileSync(join(root, 'src/config/topics.json'), 'utf8'));
+  // タグは canonical（tags.json）で照合する。記事の別名綴りは build 時に正規化されるため、ここでも同じ正規化を通す
+  const aliasMap = buildAliasMap(JSON.parse(readFileSync(join(root, 'src/config/tags.json'), 'utf8')));
+  const canon = (tag) => aliasMap.toCanonical.get(tag) ?? tag;
   const catalog = JSON.parse(readFileSync(join(root, 'content/site/standards-library/catalog.json'), 'utf8'));
   const issues = [];
   const topicSlugs = new Set();
@@ -34,9 +38,13 @@ export function auditTopicWiring(root = process.cwd()) {
     if (!Array.isArray(topic.tags) || topic.tags.length === 0) issues.push(`${topic.slug}: tags が空`);
     if (!Array.isArray(topic.standardKeywords) || topic.standardKeywords.length === 0) issues.push(`${topic.slug}: standardKeywords が空`);
 
-    for (const tag of topic.tags ?? []) {
-      if (topicTags.has(tag)) issues.push(`tag が複数topicに重複: ${tag} (${topicTags.get(tag)}, ${topic.slug})`);
+    for (const rawTag of topic.tags ?? []) {
+      const tag = canon(rawTag);
+      if (topicTags.has(tag) && topicTags.get(tag) !== topic.slug) issues.push(`tag が複数topicに重複: ${tag} (${topicTags.get(tag)}, ${topic.slug})`);
       topicTags.set(tag, topic.slug);
+    }
+    for (const t of topic.featured ?? []) {
+      if (typeof t !== 'string' || !t) issues.push(`${topic.slug}: featured に空の slug`);
     }
     for (const ref of topic.featuredStandardRefs ?? []) {
       if (!documentRefs.has(ref)) issues.push(`${topic.slug}: 存在しない featuredStandardRefs: ${ref}`);
@@ -58,8 +66,10 @@ export function auditTopicWiring(root = process.cwd()) {
     const { data } = matter(readFileSync(file, 'utf8'));
     if (data.published === false || data.group !== 'guide') continue;
     publishedGuides += 1;
-    const tags = Array.isArray(data.tags) ? data.tags : [];
-    if (tags.some((tag) => topicTags.has(tag))) guidesWithTopic += 1;
+    const tags = normalizeTags(data.tags, aliasMap).tags;
+    const explicit = Array.isArray(data.topics) ? data.topics : [];
+    for (const t of explicit) if (!topicSlugs.has(t)) issues.push(`${relative(root, file)}: topics「${t}」は topics.json に無い`);
+    if (explicit.length || tags.some((tag) => topicTags.has(tag))) guidesWithTopic += 1;
     else issues.push(`${relative(root, file)}: 公開実務ガイドにtopic接続タグがない`);
   }
 

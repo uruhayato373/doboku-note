@@ -103,7 +103,8 @@
       "requiredBy": [
         "src/components/ui/ContentThumbnail.tsx"
       ],
-      "reason": "保存済みのOGP原本から生成する表示用WebP。ogp-supplyが原本sha256と生成レシピをR2メタデータで照合し、供給後の読み戻しを検証する。原本台帳を真実源とし、派生画像の台帳コピーは持たない。"
+      "reason": "保存済みのOGP原本から生成する表示用WebP。ogp-supplyが原本sha256と生成レシピをR2メタデータで照合し、供給後の読み戻しを検証する。原本台帳を真実源とし、派生画像の台帳コピーは持たない。",
+      "phase": "site-ogp-thumbnails"
     }
   ]
 }

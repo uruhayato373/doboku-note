@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "description": "ローカルディスク肥大を止める機械可読の設定（2026-09-10 / DN-0176）。検査は scripts/check-disk-hygiene.mjs、掃除は scripts/disk-hygiene.mjs --fix、日次実行は launchd（npm run disk-hygiene:install）。運用の真実源は .claude/knowledge/reference/disk-hygiene.md。",
+  "philosophy": [
+    "削除してよいのは再生成できるものだけ。履歴（Codex セッション・Claude の .jsonl・生成画像）は容量を報告するだけで消さない。",
+    "迷ったら残す。ガードの材料が取れなかったときは keep 側へ倒す。",
+    "掃除が止まっていること自体を検知する（automation の stamp 鮮度）。静かに溜まるのが一番危ない。"
+  ],
+  "thresholds": {
+    "freeWarnBytes": 32212254720,
+    "freeFailBytes": 16106127360,
+    "buildArtifactMaxAgeDays": 7,
+    "tmpPruneDays": 3,
+    "workflowTranscriptMaxAgeDays": 14,
+    "npxMaxAgeDays": 30,
+    "npmCacheMaxBytes": 3221225472,
+    "playwrightCacheMaxBytes": 209715200,
+    "sparkleMaxAgeDays": 2,
+    "worktreeIdleHours": 24,
+    "automationMaxAgeDays": 3,
+    "claudeCleanupMaxDays": 7
+  },
+  "allowedWorktreeRoots": [".claude/worktrees", "~/.codex/worktrees"],
+  "baseRefs": ["origin/develop", "origin/main", "develop", "main"],
+  "playwrightCacheRoot": "~/Library/Caches/doboku-note/playwright-auth/profiles",
+  "playwrightCacheSubdirs": [
+    "Default/Cache",
+    "Default/Code Cache",
+    "Default/GPUCache",
+    "Default/DawnWebGPUCache",
+    "Default/DawnGraphiteCache",
+    "Default/Service Worker/CacheStorage",
+    "GraphiteDawnCache",
+    "ShaderCache",
+    "GrShaderCache"
+  ],
+  "sparkleRoot": "~/Library/Caches/com.openai.codex/org.sparkle-project.Sparkle",
+  "claudeProjectsRoot": "~/.claude/projects",
+  "claudeSettingsPath": "~/.claude/settings.json",
+  "stampPath": "~/Library/Logs/doboku-note/disk-hygiene.last-ok",
+  "reportOnly": [
+    { "path": "~/.codex/sessions", "note": "Codex の会話履歴（ユーザーデータ・自動削除しない）" },
+    { "path": "~/.codex/archived_sessions", "note": "Codex のアーカイブ済み会話（30 日超は手で棚卸し）" },
+    { "path": "~/.codex/generated_images", "note": "Codex の生成画像" },
+    { "path": "~/.codex/worktrees", "note": "Codex の worktree 置き場（中身は worktrees 項目が判定する）" },
+    { "path": "~/stats47/.turbo/cache", "note": "stats47 の Turbo キャッシュ。掃除はあちらの launchd に置く（対象外）" },
+    { "path": "~/stats47/apps/web/.next", "note": "stats47 のビルド成果物（対象外・報告のみ）" }
+  ]
+}

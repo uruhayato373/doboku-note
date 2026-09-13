@@ -285,6 +285,8 @@ node .claude/skills/quality/check-mdx/scripts/rules/svg/audit.mjs --severity=HIG
 
 ### Step 5: コミット
 
+記事への埋込と図版の監査後に `npm run build-svg-catalog` を実行し、`.claude/state/svg-catalog.json` も差分へ含める。追加した図の `embedded` と `fitStatus` を確認する。カタログは SNS へ再利用する図を探すための派生台帳なので、本文だけを更新して古い一覧を残さない。
+
 作成完了後、即座にコミットする（CLAUDE.md「コンテンツ編集時のコミット運用」に準拠）。
 
 ## 参照

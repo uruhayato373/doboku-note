@@ -26,7 +26,7 @@ export type ExamKey =
  * （id が civil-1/civil-2 のどちらにも一致せず旧実装では総監に落ちていた潜在バグを是正。
  *  現状 published:false のため live 挙動は不変）。
  */
-export function examKeyOf(id: string): ExamKey {
+function examKeyOf(id: string): ExamKey {
   if (id.startsWith('pe-construction')) return 'pe-construction';
   // 技術士「第一次」試験（pe1-*）。総監（tankan）へ落ちる fallback より先に判定する。
   // これが無いと pe1-takuitsu-pdf が総監として扱われ、資格別に束ねる面（/links のカード等）で

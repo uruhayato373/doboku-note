@@ -21,6 +21,42 @@
 
 ## 🔴 高 — 来月中に着手
 
+
+
+
+
+
+### [DN-0220] 図解整備を公開・配信し資格別KPIの初回実測を閉じる
+タグ: [インフラ・計測] [種類:改善] [起票:2026-09-13]
+
+**根拠**: 図解の制作・公開・効果は別々に確認する。EXP-007/008で実験枠2が埋まっており、現時点で新しいSEO改善実験を開始したとは扱わない。
+
+**次**: 制作カードの成果をdevelopへ統合後、公開対象と差分を整理して既存deploy手順で本番反映する。側圧の訂正文案は原投稿IDを示して外部送信の承認を得た後に投稿・実体確認する。SNSは既存公開/予約SSOTに接続し、公開日を起点に7日観察・28日補助確認を行う。
+
+**完了条件**: 公開URL・投稿ID・公開日・測定窓・取得元を記録し、資格別の実測と次の判断をbusiness reviewへ残す。GSC平均順位とGA4行動、SNSで取得可能な反応、note/ココナラアクセス/販売の範囲を分ける。欠測を0と扱わず、順位・販売への因果は断定しない。
+
+**手順・停止条件**: [実装計画](../plans/DN-0220-diagram-rollout.md)。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### [DN-0184] YouTube・SNSの人物／見出しテンプレートを複数ポーズで実装し、既存予約・公開投稿へ反映する
 タグ: [SNS・マーケ] [種類:改善] [Codex候補] [検証:check-video-content] [起票:2026-09-08]
 
@@ -39,32 +75,19 @@
 
 **完了条件**: 3ポーズ以上の比較を経た媒体別テンプレートが実装され、代表画像／動画の目視と該当機械検査が通ること。適用対象の一覧に「反映・実表示確認済み／変更不可と理由／対象外と理由」が揃い、未対応を完了へ混ぜず、予約重複・意図しない即時公開・投稿履歴の無断削除がないこと。機械検査だけで外部反映を判定しない。
 
-### [DN-0183] 共通仕様書データ公開・比較基盤を別PCで仕上げてデプロイする
-タグ: [UI・UX] [インフラ・計測] [収益化] [種類:改善] [Codex候補] [進行中] [起票:2026-09-07]
+### [DN-0185] 共通仕様書データ公開の計測を立ち上げ、加工受託の入口として評価する
+タグ: [インフラ・計測] [収益化] [種類:改善] [起票:2026-09-08]
 
-2026-09-07 の作業はこのカードと同じ `develop` の引き継ぎコミットにまとめる。各整備局の共通仕様書を「閲覧HTML（検索対象）＋Markdown/JSON-LD（`X-Robots-Tag: noindex` の再利用データ）」として公開し、地域差比較と加工受託の実績提示までつなぐ。原機関を加工データの publisher と誤表示せず、原本の発行者と doboku-note の加工主体を分離する。
+2026-09-08 に `/standards/data` と `/standards/compare` を本番反映した（DN-0183 は削除）。
+公開そのものは実査済み＝4ページ 200・データURL 707 件・`X-Robots-Tag: noindex, follow`・
+CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認した。残るのは計測だけ。
 
-**実装済み**:
+1. GSC で `/standards/data` と `/standards/compare` の検出・インデックス状況を記録する
+2. GA4 の `standards_data_download` が発火しているか、問い合わせ種別に「データ加工」が入るかを見る
+3. 週次・月次レビューで 1・2 を追い、行政からの直接受注は実績が出るまで売上前提にしない
 
-- `/standards/data` と `/standards/compare`、文書・章ごとの Markdown/JSON-LD ダウンロード導線
-- `content/site/standards-articles/comparison.json` と生成スクリプト。構造化済み8文書を比較し、近畿基準で同一5局、差分2局（12章・54差分塊）を抽出
-- 8文書・344章・14,432条・707ファイルの公開データ生成と検査。生成物 `public/standards-data/` はGit対象外で、build時に再生成する
-- 出典・原本SHA-256・掲載ページ・章SHA-256・利用条件・加工主体をエクスポートへ付与
-- 共通仕様書ページの上部整理、パンくず・右サイドバー・フォント・カード意匠をサイト全体へ統一
-- データダウンロード計測、問い合わせ種別、情報設計・収益化戦略、Windows対応のbuild/UI検査を更新
-
-**確認済み**: `npm run check-standard-articles` は120検査PASS、`npm run check-standards-data` は8文書/344章/14,432条PASS、`node scripts/lint-ui.mjs --all` は156ファイルPASS、`npm run type-check` と `npm run build` はPASS、`npm run check-seo-meta` はHIGH 0（既存 `/search` の本文薄さだけMEDIUM 1）。アプリ内ブラウザの安全制限で localhost の自動再読込だけ未成立。
-
-**別PCでの再開順**:
-
-1. `develop` を同期し、`npm ci` → `npm run dev`。`/standards`、`/standards/data`、`/standards/compare`、`/standards/kinki/common/chapters/1-1` をPC/スマホ幅・ライト/ダークで目視する
-2. 原本PDF行・章ナビ行が章ページ上部へ戻っていないこと、パンくずが「第1編 共通編」であること、右サイドバーの本文フォントと余白を確認する
-3. `npm run build-standards-data` → `npm run check-standard-articles` → `node scripts/lint-ui.mjs --all` → `npm run type-check` → `npm run build` → `npm run check-seo-meta` を再実行する
-4. 差分をレビューし、今回無関係な自動生成時刻だけの変更を含めずcommitする。`public/standards-data/`はcommitしない
-5. ユーザー承認後に `/deploy` で本番反映し、本番の4ページ・データURL・ヘッダーを確認する
-6. GSCで新規2ページの検出・インデックス状況を記録し、GA4の `standards_data_download` と問い合わせ件数を週次/月次レビューで追う。行政からの直接受注は実績が出るまで売上前提にしない
-
-**完了条件**: 本番でHTML・Markdown・JSON-LD・比較ページが取得でき、正規URL/構造化データ/レスポンスヘッダー/モバイルUIが正常、GSCとGA4の計測開始を確認したらカードを削除する。
+**完了条件**: GSC の索引状況と GA4 のイベント発火を 1 度ずつ記録し、加工受託の入口として
+続けるか畳むかを判断したらカードを削除する。公開の実装は完了しているので作り直さない。
 
 ### [DN-0135] 人・外部実体が必要な残務
 タグ: [収益化] [種類:不具合] [起票:2026-08-25]
@@ -85,6 +108,10 @@
 | 16 | コンクリート主任技士の原典待ち問題 | H25 skip 18問・H24 conflict 4問とR6/R7はローカル原典がなく、推測補完できない。詳細は`exam-content-policy.md`の主任技士メモが真実源 | 原典入手後に問題・公式解答表を視覚照合し、復元できた設問だけ追加。解答キーに合わせた本文創作は禁止 |
 | 17 | コンクリート診断士 98問＋記述式8本の技術内容レビュー | 2026-09-05実査で一次演習8記事は13+14+13+12+12+13+10+11=98問、記述式マガジン`mf2a132408b6f`は8記事、サイト`guide-essay`も存在。公開後の人手レビュー完了を示す実体はない | 一次演習98問、note記述式8本、`content/site/concrete-diagnostician/guide-essay`を有資格者が技術レビューし、誤りを修正・再デプロイする。原典照合できない数値を推測で補わない |
 | 18 | GA4 UIバックアップとbing流入の外部照合 | Data API・週次`metrics-analyzer`・note referral集計・商品別期間効率は稼働済み。GA4 UI CSVは3ユニットとも未成立。最新14日のbingは2,683 usersだが日本比率99.4%・engagement 71.3%で自動bot署名は`flagged:false` | ログイン済みGA4 UIで正式レポート名を確定しfixtureを更新する。Bing Webmasterとdevice・landing・新規/再訪を突合し、件数比だけでbot除外しない。API主経路は継続する |
+
+| 19 | 教材展開の原典不足 | 教材対応表 `.claude/state/content-expansion.json` の原典待ち17論点。土木4論点、総監の旧第1章原本不明2論点・記述式教材の遮蔽10論点・総監過去問解説の欠頁1論点。建設キーワード本はp1〜41とp371末尾以降の未収録も範囲制約に含む | 対応表の原本箇所を使って欠頁・遮蔽のない原本を補い、該当論点だけ再照合。既存記事の所在や他の公式問題があることを原典充足とみなさない。管理画面 `/content/expansion?state=blocked` |
+
+| 20 | 既存の動画退避物3件のハッシュ不一致 | `check-drive-vault` で `.tmp/video-render/career-komuin-minkan/wav/01-premise.wav`、`gakka-2kyu-hoki/shorts/point-overview-1/thumbnail.png`、`kikinagashi-shunin-suchi/shorts/point-tanni-saikotsu-kuuki-2/meta.json` のvault実体と台帳が不一致。今回制作した137ファイルはクラウドまで全件一致 | 各制作パックの現在の原稿/公開版と照合し、正しい版を確定してから退避し直す。台帳のSHAだけを書き換えない |
 
 **完了条件**: 各行の実体が解消したら行ごと消し、全行が消えたらカードを削除する。
 
@@ -281,3 +308,4 @@ Drive台帳・vault・Drive APIの照合前にローカル実体を削除しな�
 
 
 ## 🟣 判断待ち — ユーザーの意思決定が必要
+

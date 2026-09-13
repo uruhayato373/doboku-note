@@ -1,0 +1,66 @@
+<!-- authored 2026-09-12 doboku-note 自作。題材は主任技士テキスト「コンクリート構造の設計」の論点。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="曲げ・せん断・付着割裂の3破壊形態を望ましい順に並べ、延性か脆性か力の伝達が断たれるかという性格と先行させない手段、荷重-変形の概念曲線を対応づける図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-name  { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-label { font-size: 11px; fill: #8a8a8a; }
+      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .axis  { stroke: #8a8a8a; stroke-width: 1; }
+      .curveP{ stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .curveW{ stroke: #d4a017; stroke-width: 2; fill: none; }
+      .curveD{ stroke: #b22234; stroke-width: 2; fill: none; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">破壊形態は曲げ→せん断→付着割裂の順で望ましい</text>
+  <text class="t-label" x="200" y="28" text-anchor="middle">右のグラフは荷重-変形の概念（数値なし）</text>
+
+  <!-- 第1位：曲げ破壊 -->
+  <rect class="box-p" x="20" y="36" width="360" height="128" rx="8"/>
+  <text class="t-name" x="35" y="60">第1位　曲げ破壊</text>
+  <text class="t-desc" x="35" y="80">延性的（変形で予告して</text>
+  <text class="t-desc" x="35" y="96">から壊れる）</text>
+  <text class="t-desc" x="35" y="116">この破壊を最初に起こす</text>
+  <text class="t-desc" x="35" y="132">設計方針（先行させる）</text>
+
+  <line x1="262" y1="55" x2="262" y2="135" class="axis"/>
+  <line x1="262" y1="135" x2="362" y2="135" class="axis"/>
+  <path class="curveP" d="M267,130 C282,90 300,80 320,78 S350,76 355,76"/>
+  <text class="t-label" x="312" y="150" text-anchor="middle">荷重-変形</text>
+
+  <!-- 第2位：せん断破壊 -->
+  <rect class="box-w" x="20" y="176" width="360" height="128" rx="8"/>
+  <text class="t-name" x="35" y="200">第2位　せん断破壊</text>
+  <text class="t-desc" x="35" y="220">脆性的（前触れなく</text>
+  <text class="t-desc" x="35" y="236">急激に壊れる）</text>
+  <text class="t-desc" x="35" y="256">せん断補強筋を増やし</text>
+  <text class="t-desc" x="35" y="272">先行させない</text>
+
+  <line x1="262" y1="195" x2="262" y2="275" class="axis"/>
+  <line x1="262" y1="275" x2="362" y2="275" class="axis"/>
+  <path class="curveW" d="M267,270 C285,235 300,218 310,213 L310,275"/>
+  <text class="t-label" x="312" y="290" text-anchor="middle">荷重-変形</text>
+
+  <!-- 第3位：付着割裂破壊 -->
+  <rect class="box-d" x="20" y="316" width="360" height="128" rx="8"/>
+  <text class="t-name" x="35" y="340">第3位　付着割裂破壊</text>
+  <text class="t-desc" x="35" y="360">鉄筋とコンクリートの力</text>
+  <text class="t-desc" x="35" y="376">の伝達が断たれる</text>
+  <text class="t-desc" x="35" y="396">定着長さ・フックを確保</text>
+  <text class="t-desc" x="35" y="412">し先行させない</text>
+
+  <line x1="262" y1="335" x2="262" y2="415" class="axis"/>
+  <line x1="262" y1="415" x2="362" y2="415" class="axis"/>
+  <path class="curveD" d="M267,412 C277,396 285,388 290,386 L290,415 L358,415"/>
+  <text class="t-label" x="312" y="430" text-anchor="middle">荷重-変形</text>
+
+  <text class="t-lead" x="200" y="465" text-anchor="middle">曲げ降伏を先行させ、脆性破壊・伝達断絶を後回しにする</text>
+</svg>

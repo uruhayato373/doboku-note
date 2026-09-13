@@ -1,0 +1,102 @@
+# 経路D: 参考文献 bundle の視覚OCR（Sonnet 第1読 ＋ Tesseract 突合 ＋ 対象ページだけ第2読）
+
+`content/sources/books/<id>__<書名>/` の bundle（Drive vault に `pages/pNNNN.jpg`）を、
+**テキスト層が無い**本について全文起こしする経路。テキスト層がある本は経路C（`../text-layer/`）。
+
+## 設計（何にモデルを使い、何を機械に任せるか）
+
+| 段 | 担当 | やること |
+|---|---|---|
+| 0 | 機械 | `book_ocr_prep.py` — 原寸画像を **sha256 で台帳と照合しながら** `.tmp/ocr/<id>/src/` へ複製し、`--width 1500` なら `img/` に縮小版を作る。照合に落ちたページは rclone で雲から取り直し、1 ページでも合わなければ止める |
+| 1 | Sonnet | `book_ocr_fanout.workflow.js` — 6 ページ/体で逐語転記。読めない箇所は 〔判読不能〕、切れ・隠れは 〔欠落: 理由〕。推測で埋めない |
+| 2 | 機械 | `book_ocr_tesseract.py` — Tesseract jpn で独立に読む（本文には使わない。突合の材料） |
+| 3 | 機械 | `book_ocr_compare.py` — ページごとに 1 と 2 の一致率を測り、本の中央値から外れたページ・字数が合わないページ・マーカー欠落バッチを挙げる |
+| 4 | Sonnet | `book_ocr_proofread.workflow.js` — **3 で挙がったページだけ**画像を読み直し、Tesseract 出力を「脱落を探す手がかり」にして字句を直す |
+| 5 | 機械 | `book_ocr_concat.py` — part（48 ページ）へ連結し、マーカー全数一致・U+FFFD 0 のゲート。README と登録コマンドを出す |
+| 6 | 親 | 各本 3 ページを画像と目視で抜き取り、`register.sh --commit` で Drive と台帳へ登録 |
+
+モデルが読むのは「全ページ 1 回」＋「食い違ったページだけもう 1 回」。全ページ 2 回読みの半分以下で、
+第2読は Tesseract という独立系の目を借りるので、同じモデルで 2 回読むより脱落を拾える。
+
+## 手順
+
+```bash
+B=concrete-basics-5th
+python3 .claude/skills/conversion/pdf-to-mdx/scripts/book-ocr/book_ocr_prep.py --book $B --width 1500
+python3 .claude/skills/conversion/pdf-to-mdx/scripts/book-ocr/book_ocr_tesseract.py --book $B --jobs 6   # 背景で可
+# Workflow: scriptPath=book_ocr_fanout.workflow.js, args={sourceId,title,pagesDir,outDir,batchSize,pageIds,hints}
+#   （jobs.json の値をそのまま。初回は onlyBatches:[0..5] で 36 ページ試し、出力を 1 本目視してから全量）
+python3 .claude/skills/conversion/pdf-to-mdx/scripts/book-ocr/book_ocr_compare.py --book $B
+# Workflow: scriptPath=book_ocr_proofread.workflow.js, args={sourceId,title,pagesDir,tessDir,items=compare.json.proofreadItems}
+python3 .claude/skills/conversion/pdf-to-mdx/scripts/book-ocr/book_ocr_concat.py --book $B
+sh .tmp/ocr/$B/register.sh            # dry-run
+sh .tmp/ocr/$B/register.sh --commit   # Drive と台帳へ
+```
+
+- `compare.json` の `rerunBatches` は fanout を `onlyBatches` で取り直す（校正では直らない構造不良）。
+- Workflow の並行は 2 本まで（CLAUDE.md §5）。1 冊 = 1 Workflow なので 2 冊まで同時。
+- 着手前に `../occlusion/detect_occlusion.py` の候補率を見る。高い本は手持ち撮影＝〔判読不能〕が多く出る前提で読む。
+
+## エージェントは Drive マウントを直接読まない
+
+Drive のストリーミングマウントは、キャッシュから追い出されたファイルを「`ls` ではサイズがあるのに
+読むと 0 バイト」で返すことがある（2026-09-09 `concrete-basics-5th` p0080 で実測。310 枚中 1 枚）。
+そのまま読ませると空ページを「本文なし」と起こす。prep が sha256 照合済みのローカル複製を作り、
+Workflow の `pagesDir` にはその `.tmp/ocr/<id>/img/`（または `src/`）を渡す。
+
+## マーカーの契約
+
+`<!-- p0001 -->` を各ページ本文の先頭に 1 回。印字ノンブルが見えるときだけ `<!-- p0001 印字:62 -->`。
+compare / concat はこの正規表現で照合する: `<!--\s*(p\d{4})(?:\s+印字:[^>]*?)?\s*-->`
+
+## 検査ゼロを緑にしない
+
+- prep: ページ 0 件で止まる。tesseract: 失敗数を出し 1 件でも exit 1。
+- compare: 比較 0 ページで止まる。「比較したページ数」と「本の一致率中央値」を必ず出す。
+- concat: バッチ出力の欠落・マーカー不一致・U+FFFD のどれかで exit 1。〔判読不能〕は数えて README に出す。
+
+## 実測（2026-09-09・11 冊 3,557 ページを通した結果）
+
+| 段 | 1 ページあたり | 備考 |
+|---|---|---|
+| Sonnet 第1読（6p/体） | 約 21k トークン | 画像サイズを 1500px に落としても減らない（36p で 735k vs 751k）。多ターンで文脈が積み上がる構造が主因 |
+| Tesseract 第二読 | 0 | 1.5 秒/枚・8 並列 |
+| Sonnet 第2読（見直しページのみ） | 約 56k トークン | 見直しは全ページの 10〜25%。修正は本文の実誤りより図キャプションの言い回しが多い |
+
+本ごとの本文一致率中央値（psm 3・良い方の読み）: 0.89〜0.97。手持ち撮影（診断士）は 0.77。
+
+## 実測で分かった落とし穴
+
+- **2段組**: Tesseract `--psm 6` は左右の段を行ごとに混ぜ、一致率中央値が 0.555 に沈む（防災土木）。`--psm 3` で 0.908。既定を psm 3 にした
+- **縦書き**: 横書きモデルは雑音を返す（建設業界動向・264p 中 189p が見直し）。`--lang jpn_vert --psm 5 --subdir tess_vert` を追加し、compare がページごとに良い方を採る（96p に減）。表が横書きで混じるページは両方とも部分点になる
+- **マーカーの相対番号**: Sonnet がバッチ内で p0001〜 と付け直すことがある（土木情報学 b010）。内容は正しいので画像 id へ機械的に付け替え、突合で整合を確認した。hints に「渡された id を使う」を明記
+- **Drive の追い出し**: マウント上のファイルが 0 バイトで読める（p0080）。prep が sha256 照合と rclone 取り直しで止める
+- **利用制限**: Workflow が途中で止まっても `resumeFromRunId` で同じ args を渡せば完了分はキャッシュで即返り、失敗分だけ走る
+- **原本スキャンの欠陥**: civil1 第一次は上端の欠け・二重写りが約 60 ページ（〔判読不能〕204 箇所）。OCR では回復できず再スキャンが要る。埋めずに README に件数を出す
+- **見直し条件を絞りすぎない**: 「図 1 つ以上・400 字未満」まで除外すると本文の実誤り 5 箇所中 3 箇所が図解ページ上にあり漏れた。図版除外は「図 2 つ以上・200 字未満」のまま
+
+## 旧経路で章別に起こした本を台帳へ載せる（`book_ocr_align_legacy.py`）
+
+章ファイルにページ id が無い旧経路の文字起こしは、そのままでは `record-reference-book-artifacts` に
+`--ocr-pages` を渡せない。割り当ての根拠は次の順で採る。
+
+1. 章ファイルの frontmatter に `pdfPages`（原本 PDF の見開きページ）があれば、book-manifest の
+   `sourcePdfPage` で決定的に引き当てる（主任技士 2022/2024）。Tesseract 一致の平均を README に併記する
+2. 無ければ各ページの Tesseract 読みと章テキストの 2-gram 再現率を、「第N章」順（無ければ当たりページの
+   中央値順）を保つ Viterbi で割り当てる
+3. 手持ち撮影でぼけたページは Tesseract が雑音を返す。同じ章に挟まれたページと、目次順で前後の章に
+   挟まれた連続区間だけ「内挿」として章へ入れ、README に件数と区間を明示する（文字で確かめていない）
+4. どの章にも当たらないページは登録しない（前付け・目次・図だけ・未転記）。主任技士 2022 はテキスト部
+   200 ページが未転記と分かった
+
+```bash
+python3 .claude/skills/conversion/pdf-to-mdx/scripts/book-ocr/book_ocr_prep.py --book $B   # 検証済み複製
+python3 .claude/skills/conversion/pdf-to-mdx/scripts/book-ocr/book_ocr_tesseract.py --book $B
+# Drive の ocr/*.md を content/sources/books/<dir>/ocr/ へ複製（README.md 以外）
+python3 .claude/skills/conversion/pdf-to-mdx/scripts/book-ocr/book_ocr_align_legacy.py --book $B --write
+sh .tmp/ocr/$B/register.sh --commit
+```
+
+旧 `content/sources/textbook/**.md` キーは同じ Drive ファイルを指すので、登録後に `adopted` 別名へ
+変えないと `check-drive-vault` が vault-collision で止まる（2026-09-10 に 36 件を別名化）。
+

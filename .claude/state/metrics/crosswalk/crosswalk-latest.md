@@ -1,8 +1,8 @@
 # GA4 × GSC crosswalk（page 突合）
 
-- GA4: `ga4-page-2026-09-07T21-49-48.json`（2026-08-10〜2026-09-06）
-- GSC: `gsc-page-query-2026-09-07T21-49-47.json`（2026-08-07〜2026-09-04）
-- join 済ページ: 17（GSCのみ 149 / GA4のみ 83）
+- GA4: `ga4-page-2026-09-10T22-51-43.json`（2026-08-13〜2026-09-09）
+- GSC: `gsc-page-query-2026-09-10T22-51-42.json`（2026-08-10〜2026-09-07）
+- join 済ページ: 21（GSCのみ 207 / GA4のみ 79）
 
 ## title/meta 改善機会（上位表示 pos≤15 なのに CTR<1.0%＝クリックされない）
 
@@ -14,7 +14,7 @@
 
 | page | impr | clicks | ctr | pos |
 |---|--:|--:|--:|--:|
-| /docs/pe-comprehensive-management-inspection-methods | 58 | 0 | 0.0% | 81.1 |
+| /docs/pe-comprehensive-management-inspection-methods | 55 | 0 | 0.0% | 81.1 |
 
 ## Ranked-Low-Engagement（検索クリックはあるが GA4 engagement<40%・内容/UX 要改善）
 

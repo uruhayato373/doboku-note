@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500" role="img" aria-label="業務の条件から比較案、本人の判断、確認した成果をつなぐ図" style="max-width:400px;width:100%">
+<defs><style>
+text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;fill:#222} /* ink-strong */
+.h{font-size:17px;font-weight:bold}.t{font-size:14px}.s{font-size:13px;fill:#555} /* ink-body */
+.b{fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5} /* brand */
+.g{fill:#d0e8d0;stroke:#3a7d44;stroke-width:1.5} /* positive */
+.w{fill:#fff3cd;stroke:#d4a017;stroke-width:1.5} /* warn */
+.a{fill:none;stroke:#2e6da4;stroke-width:2;marker-end:url(#arrow)}
+</style><marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#2e6da4"/></marker></defs>
+<rect x="25" y="20" width="350" height="70" rx="8" class="b"/><text x="200" y="49" text-anchor="middle" class="h">業務の条件・自分の権限</text><text x="200" y="74" text-anchor="middle" class="t">何を決める責任があったか</text><path d="M200 90 V115 H105 V135" class="a"/><path d="M200 115 H295 V135" class="a"/><rect x="20" y="141" width="170" height="70" rx="8" class="b"/><text x="105" y="170" text-anchor="middle" class="h">比較した案 A</text><text x="105" y="195" text-anchor="middle" class="t">利点と制約</text><rect x="210" y="141" width="170" height="70" rx="8" class="b"/><text x="295" y="170" text-anchor="middle" class="h">比較した案 B</text><text x="295" y="195" text-anchor="middle" class="t">利点と制約</text><path d="M105 211 V235 H200 V260" class="a"/><path d="M295 211 V235 H200" class="a" style="marker-end:none"/><rect x="25" y="266" width="350" height="75" rx="8" class="w"/><text x="200" y="295" text-anchor="middle" class="h">自分が下した判断</text><text x="200" y="320" text-anchor="middle" class="t">採用理由・調整・工夫</text><path d="M200 341 V371" class="a"/><rect x="25" y="377" width="350" height="78" rx="8" class="g"/><text x="200" y="406" text-anchor="middle" class="h">記録で確認した成果</text><text x="200" y="431" text-anchor="middle" class="t">効果と、残った課題</text>
+</svg>

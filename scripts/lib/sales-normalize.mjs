@@ -68,6 +68,19 @@ export function resolveMagazineId(rawTitle, magazines) {
   return null;
 }
 
+const MEMBERSHIP_PLANS = [
+  { match: '通年プラン｜過去問＆月例予想', productId: 'membership:civil-lab-annual' },
+];
+
+/** 「メンバーシップ・<プラン名>」を membership productId へ。プラン名が未登録なら null。 */
+export function resolveMembershipId(rawTitle) {
+  // 販売履歴の DOM では「メンバーシップ・」の接頭辞が別要素に分かれ、プラン名だけが取れることがある
+  const plan = String(rawTitle || '').trim().replace(/^メンバーシップ[・･]/, '').trim();
+  if (!plan) return null;
+  const hit = MEMBERSHIP_PLANS.find((p) => plan === p.match || plan.includes(p.match));
+  return hit ? hit.productId : null;
+}
+
 /**
  * 1 件の販売履歴レコードから type/productId を解決する。
  * マガジンは resolveMagazineId、それ以外は unknown へフォールバックする（確信のない推定をしない）。
@@ -78,8 +91,17 @@ export function resolveMagazineId(rawTitle, magazines) {
  * @returns {{type: 'magazine'|'article', productId: string, resolved: boolean}}
  */
 export function resolveSaleEntry(raw, magazines, unknownIndex = 0) {
+  // メンバーシップ会費（販売履歴では「メンバーシップ・<プラン名>」・価格は「1,480円 / 月」）。
+  // productId は sales-tracking.md の `membership:<プラン>`。既知プランだけ解決し、未知は unknown へ。
+  const membership = resolveMembershipId(raw?.title);
+  if (membership) return { type: 'membership', productId: membership, resolved: true };
   const magazineId = resolveMagazineId(raw?.title, magazines);
-  if (magazineId) return { type: 'magazine', productId: magazineId, resolved: true };
+  if (magazineId) {
+    // カタログの単品記事（noteUrl が /n/・loadMagazines が single:true を付ける）は article:<id>
+    const entry = magazines.find((m) => canonicalizeProductId(m.id) === magazineId || m.id === magazineId);
+    if (entry?.single) return { type: 'article', productId: `article:${magazineId}`, resolved: true };
+    return { type: 'magazine', productId: magazineId, resolved: true };
+  }
 
   const dateCompact = String(raw?.date || '').replace(/-/g, '').slice(0, 8) || 'unknown';
   return {

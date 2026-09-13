@@ -1,6 +1,9 @@
 ---
+
 title: スキル ガバナンス記録
 ---
+
+> 2026-09-13 更新: weekly-review / monthly-review に全教材対応表の整合確認（check-content-expansion）を結線。未確認・原典待ち・確認後の変更を継続確認し、制作数と公開・効果を区別する。ig-figure-packは技術士一次の資格ラベル・元記事対応・検査を追加。スキル件数は不変。
 
 # スキル ガバナンス記録
 
@@ -13,6 +16,10 @@ title: スキル ガバナンス記録
 
 ## カテゴリ構造（件数の SSOT＝`find .claude/skills -name SKILL.md` 実数）
 
+> 2026-09-13 事業運用統合: monthly-review新設。north-star-metric / weekly-review / weekly-plan / plan-weekly / nsm-experimentをbusiness-directionの資格別学習・販売・運営KPIと追記レビューへ結線。management 24→25、全105→106。改善状態は既存experimentsを継続。
+
+> 2026-09-13 更新: weekly-improve に SEO Rank Watch（--rank-watch）を統合。資格受験者の課題を優先し、待機を含むrun記録・28日方針レビューをweekly-improve / weekly-reviewへ結線。fetch-gsc-data のPT・両端包含・完全一致条件を補い、nsm-experiment / weekly-review / weekly-plan は専用7日判定へルーティングする。新規スキルは作らず件数は不変。
+
 > このツリーがスキル件数の**唯一の真実源（SSOT）**。CLAUDE.md など他 doc は件数を重複記載せずここを指す。スキルを追加/削除したら同一 commit でここを更新する（`/doc-declutter` → `doc-curator` でドリフトを棚卸し）。
 
 ```
@@ -21,7 +28,7 @@ title: スキル ガバナンス記録
 ├── authoring/       # 11 — 記事を作る
 ├── conversion/      # 7 — 形式変換（MDX / OGP 画像 / 紙用 PDF / Kindle EPUB）＋ KDP 入稿・出版 ＋ OGP 意匠の素案試作
 ├── quality/         # 16 — MDX・note 公開前品質検査
-├── management/      # 24 — 計画・分析・戦略
+├── management/      # 25 — 計画・分析・戦略
 ├── dev/             # 15 — 開発・CI/CD・ローカルPlaywright認証運用・アセット置き場の判定
 ├── analytics/       # 2 — サイト分析
 ├── social/          # 24 — SNS 投稿・note運用
@@ -29,7 +36,7 @@ title: スキル ガバナンス記録
 └── ui/              # 1 — UI/UX デザイン
 ```
 
-合計 **105 スキル**（10 カテゴリ・SKILL.md 実数）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。
+合計 **106 スキル**（10 カテゴリ・SKILL.md 実数）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。
 
 > 2026-09-05 新設: `dev/asset-route`（Git の外に置くアセットの置き場を **誰が使うか** で決める決定木＋コマンド。サイトが配信→public R2 / GitHub Actions が読み書き→private R2 / 人か手元のスクリプトだけ→Google Drive vault）。背景＝同日、共通仕様書のページ画像 3.4GB を「教材ページ画像→private R2」の行に従って private R2 へ上げかけた。その行はスキャン書籍の著作権のために書かれたもので、資産の種類で列挙する旧ルールには判断軸が無かった。`asset-storage.json` の全 group に `audience` を必須化し（`loadConfig`・`tests/asset-storage.test.mjs`・新 `check-drive-vault` の 3 か所で止める）、Drive 側は独立した系 `drive-vault.json` / `drive-vault-sync` / `drive-manifest.json` にした（R2 の fail-closed なコードに第 3 バケットの分岐を足さない）。**新エージェントは作らない**（検査は決定的スクリプトで足りる・CLAUDE.md §9）。合計 `104→105`、dev `14→15`。
 
@@ -261,6 +268,7 @@ title: スキル ガバナンス記録
 | 2026-05-28 | `quiz-slides.mjs` + `highlight-stories-slides.mjs` | （title auto-fit 追加） | cover-title / hero の固定サイズ（156/132px）を 3 階層 auto-fit に変更。tokens.json に coverTitle/Mid/Sm + hero/heroMid/heroSm（各 `_maxLen` 付き）追加。「文字数制限による意味希薄化」と「フォント縮小による視覚崩壊」の両ジレンマを段階フォントで吸収。ユーザー指摘「不適切改行が他 PNG/SVG でも繰り返される課題」への構造的対策 |
 | 2026-05-29 | `magazine-to-pdf` | v1.0（新規・conversion） | note マガジンの article.md を「問題文＋解答」中心の A4 PDF に変換する conversion スキル。汎用 `scripts/magazine-to-pdf.mjs`（spec 駆動 include/exclude DSL、remark → Chrome --print-to-pdf）＋ `scripts/pdf-specs/*.json`。複数解答（A/B案）両収録・CTA/採点者視点/出題予想根拠を除外。新規マガジンの spec 作成は Generator `magazine-pdf-builder` に委譲。当初マガジン別の一時スクリプト 2 本で着手したが汎用化して統合 |
 | 2026-06-04 | `ig-reel-create` | v1.2（多資格対応） | `--exam-dir <試験軸>` オプション追加で技術士総監以外（1級土木 / 2級土木）の Reels 生成に対応。`--exam` 正規表現を `^[hr]\d+[kz]?-pack-\d+$` に拡張し 2級の年度接尾辞（z=前期 / k=後期）を受理。cover 台本を試験軸別に分岐（土木は「{令和\|平成}X年度{前期\|後期}の第一次検定 過去問、N番です」、平成年度も対応）。中間ファイルを `.gitignore` 化（commit は video.mp4 + script.txt のみ）。1級r07・2級r07k/r07z 計44本を生成 |
+| 2026-09-13 | `social/ig-figure-pack` | v1.1（資格別展開） | 総監・1級土木・建設部門のラベル/CTAを共通解決し、廃止パスとPNG転送記述を現行asset方針へ同期。元図参照・資格一致・各枚目視を制作ゲートとする |
 | 2026-06-23 | `social/ig-figure-pack` | v1.0（新規） | site の `figure-N.svg` を IG 4 枚カルーセルパック（表紙/図解/テキスト/CTA）に変換するワンオフ用スキル。手書き SVG（`400×500`）+ resvg-js（2.7× で `1080×1350`）で slide-data.json 不要。キャプション template + Google Drive 転送手順付き。`ig-post-create --slug` の旧 notebook 系とは別系統（マクレガー X/Y 理論 カルーセルを起点に確立） |
 
 ### カテゴリ変更履歴

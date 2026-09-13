@@ -47,6 +47,7 @@ Google Drive 側が `.claude/config/drive-vault.json`（台帳 `.claude/state/as
 | `source-transcript` | human | 原資料ディレクトリ内の `ocr/**/*.md` | README を除く文字起こし。参考文献台帳から置き場を解決し、frontmatter の `source` / `sourcePdfs` で原本へ接続 |
 | `note-delivery-pdf` | human | Drive `制作物/note配布PDF/` | 添付は人が `note-attach-file` で実行 |
 | `ig-rendered-image` | human | Drive `制作物/IGレンダー/` | 投稿は人が `publish-ig-bs` で実行。投稿済みを public R2 に置いていたのは旧目標の名残 |
+| `x-rendered-image` | human | Drive `制作物/Xレンダー/` | サイト図から生成した番号付き `*-diagrams` 下書きの `img/tweet-NN-名前.png`。`images.json` の元図・元記事ハッシュを確認し `node scripts/render-x-figure-drafts.mjs --draft <番号付き下書き名>` で再生成 |
 | `video-render-artifact` | human | Drive `制作物/動画レンダー/` | render-longform を回す CI は存在しない |
 | `kindle-dist` | human | Drive `制作物/Kindle/`（Git が正本） | CI の check-kindle-format が blob を読むので Git 追跡は維持。Drive は控え |
 | `coconala-asset` | human | Drive `制作物/ココナラ/` | |

@@ -108,8 +108,11 @@ function main() {
         for (const e of json) {
           if (typeof e === 'string') allowlistSet.add(e);
           else if (e && typeof e === 'object') {
+            // 受理綴り = name / slug / aliases / canonical（lint-frontmatter と同じ集合。content-taxonomy.md §5）
             if (e.slug) allowlistSet.add(e.slug);
             if (e.name) allowlistSet.add(e.name);
+            if (e.canonical) allowlistSet.add(e.canonical);
+            for (const a of Array.isArray(e.aliases) ? e.aliases : []) if (typeof a === 'string') allowlistSet.add(a);
           }
         }
       }

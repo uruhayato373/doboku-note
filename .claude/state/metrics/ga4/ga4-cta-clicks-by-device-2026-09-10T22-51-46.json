@@ -1,0 +1,106 @@
+{
+  "meta": {
+    "startDate": "2026-08-13",
+    "endDate": "2026-09-09",
+    "windowKind": "days",
+    "eventNames": [
+      "note_cta_click",
+      "note_cta_impression",
+      "affiliate_cta_click",
+      "affiliate_cta_impression",
+      "note_article_click",
+      "internal_nav_click",
+      "career_need_select",
+      "career_tool_result",
+      "career_checklist_copy",
+      "career_checklist_download"
+    ],
+    "japanOnly": true,
+    "byDevice": true,
+    "byLabel": false,
+    "byPlacement": false,
+    "propertyId": "properties/419382901"
+  },
+  "rows": [
+    {
+      "device": "desktop",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 18688
+    },
+    {
+      "device": "desktop",
+      "eventName": "note_cta_impression",
+      "eventCount": 15349
+    },
+    {
+      "device": "desktop",
+      "eventName": "internal_nav_click",
+      "eventCount": 1863
+    },
+    {
+      "device": "mobile",
+      "eventName": "note_cta_impression",
+      "eventCount": 311
+    },
+    {
+      "device": "mobile",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 281
+    },
+    {
+      "device": "desktop",
+      "eventName": "note_cta_click",
+      "eventCount": 245
+    },
+    {
+      "device": "tablet",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 104
+    },
+    {
+      "device": "mobile",
+      "eventName": "internal_nav_click",
+      "eventCount": 100
+    },
+    {
+      "device": "tablet",
+      "eventName": "note_cta_impression",
+      "eventCount": 74
+    },
+    {
+      "device": "mobile",
+      "eventName": "note_cta_click",
+      "eventCount": 16
+    },
+    {
+      "device": "desktop",
+      "eventName": "affiliate_cta_click",
+      "eventCount": 12
+    },
+    {
+      "device": "desktop",
+      "eventName": "note_article_click",
+      "eventCount": 10
+    },
+    {
+      "device": "mobile",
+      "eventName": "note_article_click",
+      "eventCount": 2
+    },
+    {
+      "device": "tablet",
+      "eventName": "internal_nav_click",
+      "eventCount": 2
+    },
+    {
+      "device": "tablet",
+      "eventName": "note_article_click",
+      "eventCount": 1
+    },
+    {
+      "device": "tablet",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    }
+  ]
+}

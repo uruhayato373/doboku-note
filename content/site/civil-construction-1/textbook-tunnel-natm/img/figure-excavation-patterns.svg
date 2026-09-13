@@ -1,0 +1,67 @@
+<!-- authored 2026-09-12 doboku-note 自作。1級土木「トンネル（山岳工法）」の概念図。原典の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="トンネル掘削工法4種の断面形状。全断面・ベンチカット・側壁導坑先進・中壁分割の区分と、それぞれが適用される地山条件との対応を示す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #8a8a8a; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-in   { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .box-b { fill: #e8f0fe; }
+      .box-w { fill: #fff3cd; }
+      .ln { stroke: #555; stroke-width: 1.5; fill: none; }
+    </style>
+    <clipPath id="c1"><circle cx="70" cy="85" r="32"/></clipPath>
+    <clipPath id="c2"><circle cx="70" cy="195" r="32"/></clipPath>
+    <clipPath id="c3"><circle cx="70" cy="305" r="32"/></clipPath>
+    <clipPath id="c4"><circle cx="70" cy="415" r="32"/></clipPath>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">断面の分割の仕方が、適用する地山条件によって変わる</text>
+
+  <!-- 1. 全断面工法 -->
+  <text class="t-sec" x="20" y="40">1. 全断面工法</text>
+  <rect class="box-b" x="38" y="53" width="64" height="64" clip-path="url(#c1)"/>
+  <circle class="ln" cx="70" cy="85" r="32"/>
+  <text class="t-in" x="70" y="89" text-anchor="middle">全断面</text>
+  <text class="t-desc" x="120" y="72">小断面・地質が安定した</text>
+  <text class="t-desc" x="120" y="88">地山に適用。条件変化への</text>
+  <text class="t-desc" x="120" y="104">順応性は低い</text>
+
+  <!-- 2. ベンチカット工法 -->
+  <text class="t-sec" x="20" y="150">2. ベンチカット工法</text>
+  <rect class="box-b" x="38" y="163" width="64" height="32" clip-path="url(#c2)"/>
+  <rect class="box-w" x="38" y="195" width="64" height="32" clip-path="url(#c2)"/>
+  <circle class="ln" cx="70" cy="195" r="32"/>
+  <line class="ln" x1="38" y1="195" x2="102" y2="195"/>
+  <text class="t-in" x="70" y="182" text-anchor="middle">上半</text>
+  <text class="t-in" x="70" y="216" text-anchor="middle">下半</text>
+  <text class="t-desc" x="120" y="182">上下半断面に分割。地山が</text>
+  <text class="t-desc" x="120" y="198">不良なほどベンチ長を短く</text>
+  <text class="t-desc" x="120" y="214">し上半の自立性を確保</text>
+
+  <!-- 3. 側壁導坑先進工法 -->
+  <text class="t-sec" x="20" y="260">3. 側壁導坑先進工法</text>
+  <rect class="box-b" x="38" y="273" width="64" height="64" clip-path="url(#c3)"/>
+  <circle class="ln" cx="70" cy="305" r="32"/>
+  <circle class="box-w" cx="50" cy="325" r="11" stroke="#555" stroke-width="1.5"/>
+  <circle class="box-w" cx="90" cy="325" r="11" stroke="#555" stroke-width="1.5"/>
+  <text class="t-desc" x="120" y="292">側壁脚部の支持力が不足</text>
+  <text class="t-desc" x="120" y="308">する、または土被りが小さい</text>
+  <text class="t-desc" x="120" y="324">土砂地山に適用</text>
+
+  <!-- 4. 中壁分割工法 -->
+  <text class="t-sec" x="20" y="370">4. 中壁分割工法</text>
+  <rect class="box-b" x="38" y="383" width="32" height="64" clip-path="url(#c4)"/>
+  <rect class="box-w" x="70" y="383" width="32" height="64" clip-path="url(#c4)"/>
+  <circle class="ln" cx="70" cy="415" r="32"/>
+  <line class="ln" x1="70" y1="383" x2="70" y2="447"/>
+  <text class="t-in" x="53" y="419" text-anchor="middle">先進</text>
+  <text class="t-in" x="87" y="419" text-anchor="middle">遅れ</text>
+  <text class="t-desc" x="120" y="402">大断面で左右の半断面を</text>
+  <text class="t-desc" x="120" y="418">先進・遅れにずらして掘削。</text>
+  <text class="t-desc" x="120" y="434">中壁が切羽の安定に寄与</text>
+</svg>

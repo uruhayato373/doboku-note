@@ -54,7 +54,7 @@ function listStaged() {
   return out
     .split("\n")
     .map((l) => l.trim())
-    .filter((l) => /\content\/site\/.*\/img\/figure-[^/]*\.svg$/.test(l))
+    .filter((l) => /^content\/site\/.*\/img\/figure-[^/]*\.svg$/.test(l))
     .map((rel) => join(ROOT, rel).replace(/\\/g, "/"));
 }
 
@@ -83,11 +83,12 @@ if (syncAllowlist) {
 // --- 命名規則チェック: figure- プレフィックスなし SVG を検出 ---
 // 過去問専用ディレクトリ（h24-primary, primary-h26-b, primary-exercise-01, primary-production-qc 等）は免除。
 // 設問図は原図の縦横比に従うため固定キャンバス（4:5 / 16:9）を適用しない。
+// R年の一次・二次、技術士一次の科目別（再試験を含む）も同じ原図の扱いにする。
 // `primary-` プレフィックスは site 全体で過去問（1次・択一）ディレクトリにのみ使われる
 // （civil-construction-1/2・concrete-chief-engineer・concrete-diagnostician・pe-comprehensive-management
 // で確認済み・2026-08-25）。年度サフィックス型（primary-h26-a）と科目サフィックス型
 // （primary-production-qc）の両方をまとめて `primary-[^/]+` で免除する。
-const EXAM_DIR_RE = /\/(h\d+-primary|primary-[^/]+)\//;
+const EXAM_DIR_RE = /\/(?:[hr]\d+-(?:primary|secondary|(?:retry-)?(?:basic|aptitude|construction))|primary-[^/]+|secondary-[hr]\d+)\//;
 
 function listNonFigureSvgs() {
   if (!existsSync(POSTS)) return [];
@@ -110,7 +111,7 @@ function listStagedNonFigureSvgs() {
   return out
     .split("\n")
     .map((l) => l.trim())
-    .filter((l) => /\content\/site\/.*\/img\/[^/]+\.svg$/.test(l))
+    .filter((l) => /^content\/site\/.*\/img\/[^/]+\.svg$/.test(l))
     .filter((l) => !/\/img\/figure-[^/]*\.svg$/.test(l))
     .filter((l) => !EXAM_DIR_RE.test(l))
     .map((rel) => join(ROOT, rel).replace(/\\/g, "/"));

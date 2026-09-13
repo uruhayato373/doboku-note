@@ -2366,3 +2366,21 @@ table.data.schedule-grid td {
     min-width: 560px;
   }
 }
+
+/* Business direction and measurement records */
+.business-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.business-direction { background: var(--accent-fill); }
+.business-journey { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; font-weight: 600; padding: 16px 0; }
+.business-form { display: grid; gap: 14px; max-width: 760px; margin-top: 20px; }
+.business-form label { display: grid; gap: 6px; }
+.business-form input, .business-form select, .business-form textarea { width: 100%; min-width: 0; padding: 10px; border: 1px solid var(--border); border-radius: 6px; color: var(--ink); background: var(--panel); }
+.business-form input[type=checkbox] { width: auto; }
+.business-form fieldset label { display: flex; align-items: center; }
+.business-form textarea { min-height: 92px; }
+.business-form button { padding: 12px; background: var(--accent); color: var(--on-accent); border-radius: 6px; }
+.business-form [role=status] { overflow-wrap: anywhere; }
+@media (max-width: 900px) { .business-grid { grid-template-columns: 1fr; } }
+
+.business-grid { margin: 16px 0; }
+.business-grid > .card { margin: 0; }
+.business-direction h2 { font-size: 22px; line-height: 1.5; }

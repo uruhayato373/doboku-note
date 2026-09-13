@@ -4,6 +4,10 @@ description: >
   .claude/todo/{annual,monthly,weekly}.md と git log を読んで今週のタスクを優先順位付きで決定し、.claude/todo/weekly.md を直接更新する（月曜の作業開始前・todo-planner を1回起動する軽量版）。NSM/メトリクス連動の戦略的計画・weekly-review 後の翌週計画は /weekly-plan の担当で別物。Use when user asks to [今週のタスクを決めて, 今週何をすべきか, weekly.md を更新して, /plan-weekly].
 ---
 
+## 事業レビューからの選定
+
+`docs/strategy/01_プロダクト戦略.md`、`.claude/config/business-direction.json`、`.claude/state/metrics/business/` の最新週次/月次判断を先に読む。重点資格・学習上の不足・販売と運営負担に沿って選ぶ。月初は `/monthly-review` の判断からmonthlyへpullする。施策の状態は実験台帳、単発の実装はbacklogを参照し、毎週の取得・レビューを新規backlogへ量産しない。
+
 `todo-planner` エージェントを起動して今週の計画を立て、`.claude/todo/weekly.md` を更新する。
 
 ## 使い方

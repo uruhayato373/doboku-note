@@ -24,6 +24,8 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 function resolveAlias(spec) {
   if (!spec.startsWith('@/')) return null;
   const base = posix.join('src', spec.slice(2));
+  // JSON（config 層）はそのまま default export へ包む（2026-09-11・content-taxonomy.ts が categories.json 等を読む）
+  if (base.endsWith('.json')) return existsSync(resolve(ROOT, base)) ? base : null;
   for (const ext of ['.ts', '.tsx', '/index.ts']) {
     const rel = base + ext;
     if (existsSync(resolve(ROOT, rel))) return rel;
@@ -35,6 +37,11 @@ function resolveAlias(spec) {
 export function toDataUrl(relPath, cache = new Map()) {
   const cached = cache.get(relPath);
   if (cached) return cached;
+  if (relPath.endsWith('.json')) {
+    const url = 'data:text/javascript,' + encodeURIComponent(`export default ${readFileSync(resolve(ROOT, relPath), 'utf8')};`);
+    cache.set(relPath, url);
+    return url;
+  }
   const ts = readFileSync(resolve(ROOT, relPath), 'utf8');
   let js = transformSync(ts, { loader: relPath.endsWith('.tsx') ? 'tsx' : 'ts', format: 'esm' }).code;
   js = js.replace(/(from\s*|import\s*\(\s*)(["'])(@\/[^"']+)\2/g, (m, head, quote, spec) => {

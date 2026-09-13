@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500" role="img" aria-label="点検・診断・措置・記録をつなぎ、記録を次の点検に戻すサイクル" style="max-width:400px;width:100%">
+<defs><style>
+text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;fill:#222} /* ink-strong */
+.h{font-size:17px;font-weight:bold}.t{font-size:14px}.s{font-size:13px;fill:#555} /* ink-body */
+.b{fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5} /* brand */
+.g{fill:#d0e8d0;stroke:#3a7d44;stroke-width:1.5} /* positive */
+.w{fill:#fff3cd;stroke:#d4a017;stroke-width:1.5} /* warn */
+.a{fill:none;stroke:#2e6da4;stroke-width:2;marker-end:url(#arrow)}
+</style><marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#2e6da4"/></marker></defs>
+<rect x="35" y="25" width="305" height="70" rx="8" class="b"/><text x="187.5" y="54" text-anchor="middle" class="h">点検</text><text x="187.5" y="79" text-anchor="middle" class="t">施設の状態を確かめる</text><path d="M187 95 V126" class="a"/><rect x="35" y="132" width="305" height="70" rx="8" class="b"/><text x="187.5" y="161" text-anchor="middle" class="h">診断</text><text x="187.5" y="186" text-anchor="middle" class="t">損傷の意味・対応を判断</text><path d="M187 202 V233" class="a"/><rect x="35" y="239" width="305" height="70" rx="8" class="w"/><text x="187.5" y="268" text-anchor="middle" class="h">措置</text><text x="187.5" y="293" text-anchor="middle" class="t">必要な対策を実行</text><path d="M187 309 V340" class="a"/><rect x="35" y="346" width="305" height="70" rx="8" class="g"/><text x="187.5" y="375" text-anchor="middle" class="h">記録</text><text x="187.5" y="400" text-anchor="middle" class="t">状態・判断・対策を残す</text><path d="M340 381 H370 V60 H346" class="a"/><text x="187" y="457" text-anchor="middle" class="h">記録が次回の比較の基準になる</text>
+</svg>

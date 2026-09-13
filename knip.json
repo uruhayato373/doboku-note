@@ -18,14 +18,24 @@
     "out/**"
   ],
   "ignoreBinaries": [
+    "du",
     "ffmpeg",
     "ffprobe",
-    "netstat",
     "gh",
+    "launchctl",
+    "netstat",
+    "pdfimages",
     "pdfinfo",
     "pdftoppm",
     "pdftotext",
+    "pkill",
+    "powershell",
+    "python",
     "rclone",
+    "tesseract",
     "which"
+  ],
+  "ignoreDependencies": [
+    "hast-util-sanitize"
   ]
 }

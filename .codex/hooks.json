@@ -61,6 +61,10 @@
           {
             "type": "command",
             "command": "'/Users/minamidaisuke/doboku-note/.codex/hooks/check-stray-files.sh'"
+          },
+          {
+            "type": "command",
+            "command": "'/Users/minamidaisuke/doboku-note/.codex/hooks/check-disk-hygiene.sh'"
           }
         ]
       }

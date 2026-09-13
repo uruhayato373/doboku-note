@@ -1,0 +1,16 @@
+{
+  "meta": {
+    "generated_at": "2026-09-10T23:40:35.514Z",
+    "tool": "check-links",
+    "scope": "all",
+    "valid_slugs": 1230
+  },
+  "summary": {
+    "files_scanned": 1883,
+    "links_checked": 14547,
+    "HIGH": 0,
+    "INFO": 0,
+    "by_status": {}
+  },
+  "findings": []
+}

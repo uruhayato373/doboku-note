@@ -41,6 +41,7 @@ const GROUPS: { title: string; entries: NavEntry[] }[] = [
     title: 'コンテンツ',
     entries: [
       { href: '/content', label: 'すべて', match: '/content' },
+      { href: '/content/expansion', label: '教材からの展開', match: '/content/expansion' },
       { href: '/content/lifecycle', label: 'ライフサイクル', match: '/content/lifecycle' },
       { href: '/gallery/characters', label: 'キャラクター素材', match: '/gallery/characters' },
       ...enabledChannels().map((c) => ({
@@ -63,8 +64,10 @@ const GROUPS: { title: string; entries: NavEntry[] }[] = [
   {
     title: '分析',
     entries: [
+      { href: '/metrics/business', label: '事業方針と改善', match: '/metrics/business' },
       { href: '/metrics', label: '分析概観', match: '/metrics' },
       { href: '/metrics/ga4', label: 'アクセス（GA4）', match: '/metrics/ga4' },
+      { href: '/metrics/seo-watch', label: '検索順位の改善', match: '/metrics/seo-watch' },
       { href: '/metrics/gsc', label: '検索（GSC）', match: '/metrics/gsc' },
       { href: '/metrics/psi', label: '表示速度（PSI）', match: '/metrics/psi' },
       { href: '/metrics/video', label: '動画成果', match: '/metrics/video' },

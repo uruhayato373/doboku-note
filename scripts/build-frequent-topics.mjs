@@ -186,7 +186,7 @@ group: guide
 tags:
   - 総合技術監理
   - 出題傾向
-  - 過去問
+  - 過去問分析
 published: true
 publishedAt: '2026-06-23'
 seoTitle: "総合技術監理 出題傾向・頻出論点ランキング｜${yearSpan}年度${totalQuestions}問を5管理で集計【技術士総監】"

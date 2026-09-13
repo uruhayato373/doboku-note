@@ -403,6 +403,7 @@ function QuizRunner({
   const completionRecorded = useRef(false);
 
   const q = questions[idx]!;
+  const isScorable = q.correct != null;
   const isLast = idx === questions.length - 1;
 
   function choose(num: number) {
@@ -504,10 +505,10 @@ function QuizRunner({
             const isPicked = selected === o.num;
             let borderClass = "border-[var(--rule-soft)]";
             let bg: CSSProperties | undefined;
-            if (answered && isCorrect) {
+            if (answered && isScorable && isCorrect) {
               borderClass = "border-[var(--color-positive)]";
               bg = { background: "color-mix(in srgb, var(--color-positive) 12%, transparent)" };
-            } else if (answered && isPicked && !isCorrect) {
+            } else if (answered && isScorable && isPicked && !isCorrect) {
               borderClass = "border-[var(--color-danger)]";
               bg = { background: "color-mix(in srgb, var(--color-danger) 12%, transparent)" };
             }
@@ -530,7 +531,7 @@ function QuizRunner({
                   </span>
                 )}
                 {answered && isPicked && !isCorrect && (
-                  <span className="shrink-0 font-bold" style={{ color: NG }}>
+                  <span className="shrink-0 font-bold" style={{ color: isScorable ? NG : "var(--ink-muted)" }}>
                     あなたの解答
                   </span>
                 )}
@@ -546,7 +547,7 @@ function QuizRunner({
               style={{ color: q.correct == null ? "var(--ink-body)" : selected === q.correct ? OK : NG }}
             >
               {q.correct == null
-                ? "公式正答の番号が掲載されていないため、この問題は採点対象外です"
+                ? "この問題は採点対象外です。取り扱いの理由は解説・元記事で確認してください"
                 : selected === q.correct
                   ? "正解！"
                   : `不正解（正解は ${q.correct}）`}
@@ -554,12 +555,12 @@ function QuizRunner({
             <ul className="flex flex-col gap-1.5">
               {q.explanations.map((e) => (
                 <li key={e.num} className="flex items-start gap-2 text-[13px] leading-6 text-[var(--ink-body)]">
-                  <span className="shrink-0 font-bold" style={{ color: (e.statementCorrect ?? e.correct ?? e.isAnswer) ? OK : NG }}>
-                    {(e.statementCorrect ?? e.correct ?? e.isAnswer) ? "○" : "×"} {e.num}
+                  <span className="shrink-0 font-bold" style={{ color: !isScorable ? "var(--ink-muted)" : (e.statementCorrect ?? e.correct ?? e.isAnswer) ? OK : NG }}>
+                    {!isScorable ? "—" : (e.statementCorrect ?? e.correct ?? e.isAnswer) ? "○" : "×"} {e.num}
                   </span>
                   <QuizRichText
                     html={e.html}
-                    text={e.text || ((e.statementCorrect ?? e.correct ?? e.isAnswer) ? "適当。" : "適当でない。")}
+                    text={e.text || (!isScorable ? "元記事で取り扱いを確認してください。" : (e.statementCorrect ?? e.correct ?? e.isAnswer) ? "適当。" : "適当でない。")}
                   />
                 </li>
               ))}

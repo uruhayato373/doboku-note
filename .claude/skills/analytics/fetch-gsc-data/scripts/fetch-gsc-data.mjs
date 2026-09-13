@@ -17,11 +17,13 @@
 
 import { google } from "googleapis";
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
-import { join } from "path";
+import { join, resolve } from "path";
+import { pathToFileURL } from "node:url";
+import { getDateRange, validateRange } from "../../../../../scripts/lib/gsc-date-range.mjs";
 import dotenv from "dotenv";
 import { fetchGscPages } from "../../../../../scripts/lib/gsc-pagination.mjs";
 
-dotenv.config({ path: ".env.local" });
+
 
 // ── Config ──
 
@@ -49,6 +51,16 @@ function parseArgs() {
 
   for (let i = 0; i < args.length; i++) {
     switch (args[i]) {
+      case "--start-date":
+        opts.startDate = args[++i]; break;
+      case "--end-date":
+        opts.endDate = args[++i]; break;
+      case "--exact":
+        opts.exact = true; break;
+      case "--country":
+        opts.country = args[++i]; break;
+      case "--device":
+        opts.device = args[++i]; break;
       case "--days":
         opts.days = parseInt(args[++i], 10);
         break;
@@ -74,6 +86,8 @@ function parseArgs() {
       case "--page":
         opts.page = args[++i];
         break;
+      default:
+        throw new Error(`Unknown argument: ${args[i]}`);
     }
   }
 
@@ -83,32 +97,18 @@ function parseArgs() {
       ? opts.dimensions
       : [opts.dimension];
 
+  if (!Number.isInteger(opts.limit) || opts.limit < 1) throw new Error("Invalid limit");
+  getDateRange(opts.days);
   return opts;
 }
 
 // ── Auth ──
 
-function getAuth() {
+export function getAuth() {
+  dotenv.config({ path: ".env.local", quiet: true });
   const keyPath = process.env.GOOGLE_SERVICE_ACCOUNT_KEY_PATH;
 
-  if (!keyPath) {
-    console.error(
-      "Error: GOOGLE_SERVICE_ACCOUNT_KEY_PATH が .env.local に設定されていません。\n\n" +
-        "セットアップ手順:\n" +
-        "1. GCPコンソール → サービスアカウント作成\n" +
-        "2. Search Console API を有効化\n" +
-        "3. JSON鍵ファイルをダウンロード → credentials/ に配置\n" +
-        "4. GSCプロパティにサービスアカウントのメールアドレスをユーザー追加\n" +
-        "5. .env.local に以下を追加:\n" +
-        "   GOOGLE_SERVICE_ACCOUNT_KEY_PATH=./credentials/gsc-service-account.json"
-    );
-    process.exit(1);
-  }
-
-  if (!existsSync(keyPath)) {
-    console.error(`Error: 鍵ファイルが見つかりません: ${keyPath}`);
-    process.exit(1);
-  }
+  if (!keyPath || !existsSync(keyPath)) throw new Error("GSC credential file unavailable; check GOOGLE_SERVICE_ACCOUNT_KEY_PATH");
 
   const key = JSON.parse(readFileSync(keyPath, "utf-8"));
 
@@ -118,25 +118,11 @@ function getAuth() {
   });
 }
 
-// ── Date helpers ──
-
-function formatDate(date) {
-  return date.toISOString().split("T")[0];
-}
-
-function getDateRange(days) {
-  const end = new Date();
-  end.setDate(end.getDate() - 3); // GSC data has ~3 day delay
-  const start = new Date(end);
-  start.setDate(start.getDate() - days);
-  return { startDate: formatDate(start), endDate: formatDate(end) };
-}
-
 // ── Fetch ──
 
-async function fetchSearchAnalytics(auth, opts) {
-  const searchconsole = google.searchconsole({ version: "v1", auth });
-  const { startDate, endDate } = getDateRange(opts.days);
+export async function fetchSearchAnalytics(auth, opts, searchconsole = google.searchconsole({ version: "v1", auth })) {
+  const { startDate, endDate } = opts.startDate || opts.endDate
+    ? validateRange(opts.startDate, opts.endDate) : getDateRange(opts.days);
   const dimensions = opts.effectiveDimensions;
 
   // 総行数上限: --all なら無制限、そうでなければ --limit。
@@ -144,10 +130,13 @@ async function fetchSearchAnalytics(auth, opts) {
 
   const dimensionFilters = [];
   if (opts.query) {
-    dimensionFilters.push({ dimension: "query", operator: "contains", expression: opts.query });
+    dimensionFilters.push({ dimension: "query", operator: opts.exact ? "equals" : "contains", expression: opts.query });
   }
   if (opts.page) {
-    dimensionFilters.push({ dimension: "page", operator: "contains", expression: opts.page });
+    dimensionFilters.push({ dimension: "page", operator: opts.exact ? "equals" : "contains", expression: opts.page });
+  }
+  for (const dimension of ["country", "device"]) {
+    if (opts[dimension]) dimensionFilters.push({ dimension, operator: "equals", expression: opts[dimension] });
   }
   const filterGroups =
     dimensionFilters.length > 0 ? [{ filters: dimensionFilters }] : undefined;
@@ -156,7 +145,7 @@ async function fetchSearchAnalytics(auth, opts) {
     rowCap,
     pageSize: API_PAGE_SIZE,
     fetchPage: async ({ startRow, rowLimit }) => {
-      const requestBody = { startDate, endDate, dimensions, rowLimit, startRow };
+      const requestBody = { startDate, endDate, dimensions, rowLimit, startRow, dataState: "final", type: "web" };
       if (filterGroups) requestBody.dimensionFilterGroups = filterGroups;
       const res = await searchconsole.searchanalytics.query({ siteUrl: SITE_URL, requestBody });
       return res.data.rows || [];
@@ -165,6 +154,11 @@ async function fetchSearchAnalytics(auth, opts) {
 
   return {
     meta: {
+      siteUrl: SITE_URL,
+      dataState: "final",
+      type: "web",
+      timeZone: "America/Los_Angeles",
+      filters: dimensionFilters,
       startDate,
       endDate,
       dimensions,
@@ -238,7 +232,7 @@ function saveJson(data, opts) {
   const filename = `gsc-${dimSlug}-${timestamp}.json`;
   const filepath = join(OUTPUT_DIR, filename);
 
-  writeFileSync(filepath, JSON.stringify(data, null, 2), "utf-8");
+  writeFileSync(filepath, JSON.stringify(data, null, 2) + "\n", { encoding: "utf-8", flag: "wx" });
   console.log(`\n出力: ${filepath}`);
 }
 
@@ -256,8 +250,10 @@ async function main() {
   saveJson(data, opts);
 }
 
-main().catch((e) => {
-  if (e.code === 403) {
+if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) main().catch((e) => {
+  if (e.code === "EEXIST") {
+    console.error("Snapshot already exists for this second. Retry to append a new file; history was not overwritten.");
+  } else if (e.code === 403) {
     console.error(
       "Error: アクセス権がありません。\n" +
         "GSCプロパティにサービスアカウントのメールアドレスを追加してください。"
@@ -265,7 +261,7 @@ main().catch((e) => {
   } else if (e.code === 401) {
     console.error("Error: 認証に失敗しました。鍵ファイルを確認してください。");
   } else {
-    console.error("Error:", e.message);
+    console.error("GSC fetch failed. Check arguments, credentials and connectivity (response details withheld).");
   }
   process.exit(1);
 });

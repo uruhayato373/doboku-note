@@ -18,7 +18,6 @@
     </style>
   </defs>
 
-  <text class="t-title" x="200" y="22" text-anchor="middle">世界平均 EF と地球のバイオキャパシティ</text>
 
   <text class="t-anno" x="221" y="48" text-anchor="middle" fill="#3a7d44">持続可能ライン（1.6）</text>
   <line class="bc-line" x1="221" y1="55" x2="221" y2="170"/>
@@ -47,6 +46,6 @@
   <text x="35" y="366" font-size="12" fill="#555">人類の資源消費を地球面積（gha）に換算した指標</text>
   <text x="35" y="391" font-size="12" fill="#555">EF &gt; バイオキャパシティ → オーバーシュート状態</text>
   <text x="35" y="416" font-size="12" fill="#555">世界平均 2.8 gha に対し地球 BC は 1.6 gha</text>
-  <text x="35" y="441" font-size="12" fill="#555">アース・オーバーシュート・デーは毎年早まっている</text>
+  <text x="35" y="441" font-size="12" fill="#555">超過分は需要と再生能力の差を表す</text>
   <text x="35" y="462" font-size="11" fill="#8a8a8a">（出典: Global Footprint Network 2022 年版データ）</text>
 </svg>

@@ -13,7 +13,7 @@ import { type DocMeta } from '@/lib/docs';
  * セル文字は "問題" 等で足りるが、モバイルは見出しが無いためチップ側が年度を名乗る必要がある
  * （行ラベルが科目になる建設部門の過去問マトリクスで必要・省略時は label）。
  */
-export type ExamMatrixCell = { label: string; chipLabel?: string | undefined; doc?: DocMeta | undefined };
+type ExamMatrixCell = { label: string; chipLabel?: string | undefined; doc?: DocMeta | undefined };
 /**
  * 1行 = 年度 or 科目（label）＋ 各列のセル。cells は columns と同じ並び・同じ個数。
  * `labelTitle` は label を短縮表示したときの正式名（title / aria-label に載せる）。

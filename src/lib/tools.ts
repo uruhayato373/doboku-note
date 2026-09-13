@@ -2,7 +2,7 @@ export const TOOLS = [
   {
     href: "/tools/kakomon-quiz/pe-first-stage",
     title: "技術士第一次試験 過去問 無料演習",
-    desc: "基礎・適性・専門（建設部門）の平成25〜令和7年度 全1,040問。年度別・科目別・ランダム・間違い復習、図・数式・全選択肢解説つき。",
+    desc: "基礎・適性・専門（建設部門）の平成25〜令和7年度と令和元年度再試験 全1,120問。年度別・科目別・ランダム・間違い復習、図・数式・全選択肢解説つき。",
     tag: "演習",
   },
   {
@@ -99,7 +99,7 @@ export function getRelatedTools(category: string, slug = '') {
   if (slug) {
     if (ARTICLE_TOOLS[slug]) paths = ARTICLE_TOOLS[slug];
     else if (/-primary-/.test(slug) && category === 'civil-construction-1') paths = ['kakomon-quiz'];
-    else if (/^pe-first-stage-[hr]\d{2}-(basic|aptitude|construction)$/.test(slug) && category === 'pe-first-stage') paths = ['kakomon-quiz/pe-first-stage'];
+    else if (/^pe-first-stage-[hr]\d{2}(?:-retry)?-(basic|aptitude|construction)$/.test(slug) && category === 'pe-first-stage') paths = ['kakomon-quiz/pe-first-stage'];
   } else if (category === 'civil-construction-1') paths = ['kakomon-quiz', 'keiken-charcount'];
   else if (category === 'civil-construction-2') paths = ['keiken-charcount', 'juken-shikaku'];
   else if (category === 'pe-first-stage') paths = ['kakomon-quiz/pe-first-stage'];

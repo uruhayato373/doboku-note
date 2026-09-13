@@ -1,0 +1,23 @@
+{
+  "$comment": "コンテンツ分類の語彙。領域（area）・記事型（group）・タグ class の定義。値の所有は categories.json / tags.json / topics.json。規則の真実源は .claude/knowledge/reference/content-taxonomy.md。runtime は src/lib/content-taxonomy.ts、検査は scripts/lib/content-taxonomy.mjs を通す。",
+  "version": 1,
+  "areas": {
+    "exam": { "label": "資格試験", "hubPath": "/exam" },
+    "practice": { "label": "土木施工の実務", "hubPath": "/practice" },
+    "standards": { "label": "公的基準", "hubPath": "/standards" }
+  },
+  "groups": {
+    "guide": { "label": "試験ガイド", "routeSegment": "guide", "docGroupKey": "guide", "structuralTags": ["guide", "index"] },
+    "pillar": { "label": "分野ハブ", "routeSegment": "pillar", "docGroupKey": "pillar", "structuralTags": ["pillar", "guide"] },
+    "textbook": { "label": "テキスト", "routeSegment": "textbook", "docGroupKey": "textbook", "structuralTags": ["textbook"] },
+    "keyword": { "label": "キーワード", "routeSegment": "keywords", "docGroupKey": "keyword", "structuralTags": ["keyword"] },
+    "primary": { "label": "択一式 過去問・演習", "routeSegment": "primary", "docGroupKey": "primary", "structuralTags": ["primary", "past-questions", "択一式", "original-questions"] },
+    "secondary": { "label": "記述式 対策", "routeSegment": "secondary", "docGroupKey": "secondary", "structuralTags": ["secondary", "past-questions", "記述式"] },
+    "past-exam": { "label": "記述式 過去問", "routeSegment": "past-exams", "docGroupKey": "pastExam", "structuralTags": ["past-questions", "択一式", "記述式"] }
+  },
+  "flags": {
+    "career": { "requiresGroup": "guide", "note": "転職・キャリア記事。isCareerDoc() の真実源。学習系の一覧から除外される" },
+    "模範論文": { "requiresGroup": null, "note": "一覧・カテゴリページから非表示（DocPage/CategoryPage が読む）" }
+  },
+  "tagClasses": ["structural", "flag", "qualification", "topical"]
+}

@@ -1,0 +1,55 @@
+<!-- authored 2026-09-12 doboku-note 自作。題材は主任技士テキスト「durability」の論点。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="中性化深さが経過年数の平方根に比例して進む曲線と、かぶり厚さの水平線、その差の中性化残りを示す。水セメント比が小さいほど曲線は寝る">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .curve-high { stroke: #b22234; stroke-width: 2; fill: none; }
+      .curve-low  { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .cover-line { stroke: #3a7d44; stroke-width: 1.5; stroke-dasharray: 4 3; fill: none; }
+      .axisline   { stroke: #d7d7d7; stroke-width: 1; }
+      .box        { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .residual   { fill: #d0e8d0; opacity: 0.55; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">縦軸＝中性化深さ、横軸＝経過年数（数値なし・曲線の形を示す）</text>
+
+  <!-- axes: origin (40,290) x-right y-up -->
+  <line class="axisline" x1="40" y1="290" x2="370" y2="290" />
+  <line class="axisline" x1="40" y1="40" x2="40" y2="290" />
+  <text class="t-axis" x="370" y="294" text-anchor="end">経過年数</text>
+  <text class="t-axis" x="46" y="36">深さ</text>
+
+  <!-- かぶり厚さの水平線 -->
+  <line class="cover-line" x1="40" y1="110" x2="370" y2="110" />
+  <text class="t-label" x="44" y="104">かぶり厚さ</text>
+
+  <!-- 中性化残り（帯） -->
+  <rect class="residual" x="230" y="110" width="140" height="60" />
+  <text class="t-desc" x="300" y="130" text-anchor="middle">中性化残り</text>
+  <text class="t-desc" x="300" y="146" text-anchor="middle">（かぶり−中性化深さ）</text>
+
+  <!-- W/Cが大きい曲線（速く進む） -->
+  <path class="curve-high" d="M40,290 C 100,220 180,150 300,110" />
+  <text class="t-label" x="230" y="185">W/C大（速く進む）</text>
+
+  <!-- W/Cが小さい曲線（寝る） -->
+  <path class="curve-low" d="M40,290 C 150,260 260,220 370,170" />
+  <text class="t-label" x="230" y="255">W/C小（曲線が寝る）</text>
+
+  <text class="t-lead" x="20" y="330">図から読み取る関係</text>
+  <rect class="box" x="20" y="336" width="360" height="146" rx="6" />
+  <text class="t-desc" x="36" y="358">深さは時間の平方根に比例して進む</text>
+  <text class="t-desc" x="36" y="378">（初期は速く、時間とともに進行が緩やかになる）</text>
+  <text class="t-desc" x="36" y="402">W/Cが小さいほど曲線は寝て、同じ年数での</text>
+  <text class="t-desc" x="36" y="419">深さは浅くなる</text>
+  <text class="t-desc" x="36" y="443">かぶりに達するまでの残りが中性化残りで、</text>
+  <text class="t-desc" x="36" y="460">残りが小さいほど腐食開始までの猶予が短い</text>
+</svg>

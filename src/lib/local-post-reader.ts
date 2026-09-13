@@ -25,10 +25,6 @@ const localContentDirectory = SITE_CONTENT_ROOT;
  * Whether the local content root exists (dev / static-export build). When false,
  * callers should fall back to R2.
  */
-export function localPostsExist(): boolean {
-  return fs.existsSync(localContentDirectory);
-}
-
 /**
  * Resolve a relative post path against the local content root with path-traversal
  * validation. Returns the absolute file path, or null if the input is unsafe or

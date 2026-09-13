@@ -2,7 +2,7 @@
      xmlns="http://www.w3.org/2000/svg"
      style="max-width:400px;width:100%"
      role="img"
-     aria-label="モンテカルロシミュレーション結果の S 字累積確率カーブ。横軸が作業完了日数、縦軸が累積完了可能性（0〜100%）。試行回数を増やすほど滑らかな S 字曲線に収束し、特定日数までに完了する確率を読み取れる">
+     aria-label="モンテカルロシミュレーション結果の S 字累積確率カーブ。横軸が作業完了日数、縦軸が累積完了可能性（0〜100%）。横軸の日数以下で完了する確率を読み取る例。曲線の形状は入力分布とモデルによって変わる">
   <defs>
     <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
@@ -14,7 +14,6 @@
   </defs>
 
   <!-- タイトル -->
-  <text x="200" y="20" class="t-title" text-anchor="middle">モンテカルロシミュレーション：S 字累積確率カーブ</text>
 
   <!-- 縦軸 -->
   <line x1="60" y1="220" x2="60" y2="40" stroke="#1a3a5c" stroke-width="1.5" />
@@ -51,13 +50,13 @@
   <line x1="60" y1="55" x2="265" y2="55" stroke="#8a8a8a" stroke-width="0.8" stroke-dasharray="3,2" />
 
   <!-- 注釈 -->
-  <text x="200" y="270" class="t-cap" text-anchor="middle">試行回数を増やすほど滑らかな S 字曲線に収束する</text>
+  <text x="200" y="270" class="t-cap" text-anchor="middle">曲線の形は入力分布とモデルによって変わる</text>
 
   <!-- 追加：モンテカルロの特徴と活用 -->
   <rect x="10" y="288" width="380" height="52" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" rx="6"/>
   <text class="t-title" x="200" y="307" text-anchor="middle">モンテカルロシミュレーションの原理</text>
   <text class="t-cap" x="200" y="323" text-anchor="middle">乱数を用いて確率的に変動する入力値を大量試行</text>
-  <text class="t-cap" x="200" y="337" text-anchor="middle">通常 1,000〜10,000 回以上の試行で確率分布を推定</text>
+  <text class="t-cap" x="200" y="337" text-anchor="middle">試行回数は推定値の安定性を確かめて決める</text>
 
   <rect x="10" y="352" width="185" height="56" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5" rx="6"/>
   <text class="t-axis" x="103" y="370" text-anchor="middle">適用場面</text>
@@ -73,6 +72,6 @@
   <text class="t-axis" x="200" y="438" text-anchor="middle">P50（中央値）vs P80（80%確率達成日）で計画策定</text>
   <text class="t-cap" x="200" y="453" text-anchor="middle">リスク許容度に応じて余裕工期・予備費を設定</text>
 
-  <text class="t-cap" x="200" y="475" text-anchor="middle">PERT（3点見積もり）との違い：分布仮定が不要</text>
+  <text class="t-cap" x="200" y="475" text-anchor="middle">入力の確率分布と相関を設定して反復試行</text>
   <text class="t-cap" x="200" y="491" text-anchor="middle" fill="#3a7d44" font-weight="bold">不確実性を定量化する情報管理の先進手法</text>
 </svg>

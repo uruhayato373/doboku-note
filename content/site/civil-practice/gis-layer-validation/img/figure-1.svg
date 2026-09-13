@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="工事範囲六千平方メートルと注意区域の交差部分千二百平方メートルを抽出し、属性を再計算して現地確認に渡す流れ">
+  <defs>
+    <style>
+      text { font-family: Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif; fill: #1a3a5c; }
+      .heading { font-size: 18px; font-weight: bold; }
+      .body { font-size: 16px; }
+      .small { font-size: 14px; fill: #555; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 2; }
+      .positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }
+      .arrow { fill: none; stroke: #2e6da4; stroke-width: 2; marker-end: url(#arrow); }
+    </style>
+    <!-- brand / warn / positive / ink-body tokens -->
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#2e6da4" /></marker>
+    <pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse"><path d="M-2 2L2-2M0 8L8 0M6 10L10 6" stroke="#b22234" stroke-width="1.5" /></pattern>
+  </defs>
+  <rect width="400" height="500" fill="#ffffff" />
+  <text x="200" y="34" text-anchor="middle" class="heading">入力の座標・属性を確認</text>
+  <text x="295" y="74" text-anchor="middle" class="body">注意区域</text>
+  <rect x="240" y="86" width="120" height="190" class="warn" />
+  <rect x="40" y="106" width="250" height="150" class="brand" />
+  <rect x="240" y="106" width="50" height="150" fill="#f8d7da" stroke="#b22234" stroke-width="2" />
+  <rect x="240" y="106" width="50" height="150" fill="url(#hatch)" />
+  <!-- danger tokens mark the intersection, not a risk score -->
+  <text x="132" y="173" text-anchor="middle" class="body">工事範囲</text>
+  <text x="132" y="199" text-anchor="middle" class="heading">6,000m²</text>
+  <text x="132" y="226" text-anchor="middle" class="small">100m × 60m</text>
+  <path d="M265 257V295H200V317" class="arrow" />
+  <rect x="20" y="328" width="360" height="65" rx="8" class="warn" />
+  <text x="200" y="355" text-anchor="middle" class="heading">交差部分 1,200m²</text>
+  <text x="200" y="380" text-anchor="middle" class="body">面積を再計算 → 全体の20％</text>
+  <path d="M200 397V421" class="arrow" />
+  <rect x="20" y="429" width="360" height="54" rx="8" class="positive" />
+  <text x="200" y="462" text-anchor="middle" class="body">対象区間を現地で確認し、計画へ</text>
+</svg>

@@ -1,0 +1,47 @@
+<!-- authored 2026-09-12 doboku-note 自作。題材はコンクリート診断士テキスト「調査」の論点。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="火災調査の1次調査（外観・打音で範囲を把握）と2次調査（受熱温度・残存強度を精密分析）の役割差を2段で示す図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead   { font-size: 11px; fill: #555; }
+      .t-name   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc   { font-size: 11px; fill: #555; }
+      .t-role   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-sec    { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-sum    { font-size: 12px; fill: #222; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#8a8a8a"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">火災調査は1次調査と2次調査の2段階で役割が異なる</text>
+
+  <rect class="box-b" x="20" y="30" width="360" height="150" rx="6"/>
+  <text class="t-name" x="35" y="54">1次調査：損傷範囲の把握</text>
+  <text class="t-desc" x="35" y="76">変色・剥落・爆裂の範囲を目視で確認する</text>
+  <text class="t-desc" x="35" y="96">打音検査で浮き・剥離の疑いを判定する</text>
+  <text class="t-role" x="35" y="130">→ 決めるのは「被害の範囲」</text>
+  <text class="t-desc" x="35" y="152">2次調査が必要な範囲を絞り込む初期段階</text>
+
+  <line x1="200" y1="180" x2="200" y2="198" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect class="box-w" x="20" y="200" width="360" height="170" rx="6"/>
+  <text class="t-name" x="35" y="224">2次調査：受熱温度と残存強度の推定</text>
+  <text class="t-desc" x="35" y="246">変色の程度から受熱温度帯を推定する</text>
+  <text class="t-desc" x="35" y="266">UVスペクトル・X線回折・TG-DTAで</text>
+  <text class="t-desc" x="35" y="286">セメント水和物の変質を精密に分析する</text>
+  <text class="t-desc" x="35" y="306">コア採取により残存強度を確認する</text>
+  <text class="t-role" x="35" y="340">→ 決めるのは「深さ・温度」</text>
+
+  <text class="t-sec" x="20" y="398">役割の違い</text>
+  <rect class="box-surface" x="20" y="404" width="360" height="74" rx="6"/>
+  <text class="t-sum" x="200" y="426" text-anchor="middle">1次調査は範囲、2次調査は深さ・温度を決める</text>
+  <text class="t-sum" x="200" y="448" text-anchor="middle">段階を分けて調査範囲と分析対象を絞り込む</text>
+</svg>

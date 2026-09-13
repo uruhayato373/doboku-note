@@ -2,7 +2,8 @@
 name: weekly-improve
 description: >
   週次の計測→改善サイクルを束ねる軽量オーケストレータ。GSC/GA4 取得 → metrics-analyzer が改善候補を抽出 → `/nsm-experiment` で rubric 採点・登録 → pending 実験の再計測までを 1 コマンドで回す。
-  Use when user asks to [週次改善, 改善ループ, /weekly-improve, 計測改善サイクル, 今週の改善候補].
+  --rank-watch では資格受験者の課題を優先し、GSCの7日比較→1件改善→観察と、待機を含む実行記録・28日の方針レビューを回す。
+  Use when user asks to [SEO Rank Watch, 検索順位を改善, 週次改善, 改善ループ, /weekly-improve, 計測改善サイクル, 今週の改善候補].
 user-invocable: true
 ---
 

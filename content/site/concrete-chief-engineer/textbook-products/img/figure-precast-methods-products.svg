@@ -1,0 +1,63 @@
+<!-- authored 2026-09-12 doboku-note 自作。題材は主任技士テキスト「コンクリート製品」の論点。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="4製法（即時脱型・遠心力締固め・ロール転圧締固め・加圧締固め）と代表製品の対応。型枠に投入して締め固める製法（緑）と筒状型枠を回して成形する製法（青）を色で区分する図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-name  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-label { font-size: 11px; fill: #8a8a8a; }
+      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">4製法と代表製品の対応</text>
+
+  <!-- 凡例 -->
+  <rect x="70" y="24" width="12" height="12" class="box-p"/>
+  <text class="t-desc" x="86" y="34">型枠へ投入して締固め</text>
+  <rect x="240" y="24" width="12" height="12" class="box-b"/>
+  <text class="t-desc" x="256" y="34">筒状型枠を回して成形</text>
+
+  <text class="t-label" x="35" y="46">製法・原理</text>
+  <text class="t-label" x="205" y="46">代表製品</text>
+
+  <!-- 行1: 即時脱型（中実系） -->
+  <rect class="box-p" x="20" y="52" width="360" height="88" rx="8"/>
+  <text class="t-name" x="35" y="76">即時脱型</text>
+  <text class="t-desc" x="35" y="94">超硬練りを振動・加圧で</text>
+  <text class="t-desc" x="35" y="110">締固め直後に脱型</text>
+  <text class="t-desc" x="205" y="76">インターロッキング</text>
+  <text class="t-desc" x="205" y="92">ブロック・穴あきPC板</text>
+  <text class="t-desc" x="205" y="108">RC管・まくら木</text>
+
+  <!-- 行2: 遠心力締固め（中空系） -->
+  <rect class="box-b" x="20" y="150" width="360" height="88" rx="8"/>
+  <text class="t-name" x="35" y="174">遠心力締固め</text>
+  <text class="t-desc" x="35" y="192">遠心力で脱水しながら</text>
+  <text class="t-desc" x="35" y="208">密実に締め固める</text>
+  <text class="t-desc" x="205" y="182">PC杭・ポール・</text>
+  <text class="t-desc" x="205" y="198">ヒューム管</text>
+
+  <!-- 行3: ロール転圧締固め（中空系） -->
+  <rect class="box-b" x="20" y="248" width="360" height="88" rx="8"/>
+  <text class="t-name" x="35" y="272">ロール転圧締固め</text>
+  <text class="t-desc" x="35" y="290">ロールで内面を</text>
+  <text class="t-desc" x="35" y="306">直接押し固める</text>
+  <text class="t-desc" x="205" y="290">PC管・推進管</text>
+
+  <!-- 行4: 加圧締固め（中実系） -->
+  <rect class="box-p" x="20" y="346" width="360" height="88" rx="8"/>
+  <text class="t-name" x="35" y="370">加圧締固め</text>
+  <text class="t-desc" x="35" y="388">圧力で余剰水を脱水し</text>
+  <text class="t-desc" x="35" y="404">緻密化する</text>
+  <text class="t-desc" x="205" y="382">コンクリート</text>
+  <text class="t-desc" x="205" y="398">矢板類</text>
+
+  <text class="t-lead" x="200" y="460" text-anchor="middle">緑＝振動・圧力で締め固め、直後に脱型・脱水する</text>
+  <text class="t-lead" x="200" y="476" text-anchor="middle">青＝回転で内面に押し付け、余剰水を外へ出す</text>
+</svg>

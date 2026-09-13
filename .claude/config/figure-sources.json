@@ -1,10 +1,10 @@
 {
   "_comment": "図ソース台帳（SSOT）。資格(category slug)ごとに、記事図クロップの元素材の所在・種別・品質・再スキャン要否を1度記録する。build-figure-provenance.mjs が図の provenance を組むときに参照。図の実ソースを毎回手で辿らないための恒久記録。更新: content/sources/textbook 実体 + 図品質監査(sharpness) を根拠に随時。",
-  "_updated": "2026-07-10",
+  "_updated": "2026-09-12",
   "_fields": {
     "source_dir": "元素材のディレクトリ（content/sources/textbook 配下）",
     "source_kind": "pdf-vector(図がPDFにベクター/画像で入る) | pdf-textonly(問題PDFは図なしテキスト版) | scan-image(書籍スキャンpngのみ・PDF無し) | mixed",
-    "figure_origin": "記事図クロップの実際の出所（question-pdf / answer-booklet / textbook-scan / unknown）",
+    "figure_origin": "記事図クロップの実際の出所（question-pdf / answer-booklet / textbook-scan / ai-generated / unknown）",
     "quality": "print-clean(印刷/デジタル・鮮明) | scan-low(書籍スキャン・低品質) | mixed",
     "rescannable": "true=元書籍/資料を高解像度再スキャンで品質改善可 / needs-source=元資料の入手が要 / na",
     "note": "運用メモ"
@@ -1455,18 +1455,18 @@
     "concrete-chief-engineer": {
       "source_dir": "content/sources/textbook/コンクリート主任技師2024",
       "source_kind": "mixed",
-      "figure_origin": "textbook-scan",
-      "quality": "scan-low",
-      "rescannable": "true",
-      "note": "高品質再スキャンPDF13冊を保持（git追跡外・2026-07-10）: 14-18=項目別過去問解説(書籍p24-221・R05〜H30抜粋+解説)、3=p202-221(目次+H30全問)/2=p218-237(H29全問)/9=p238-255(H28全問)/4=p256-271(H27全問)/5=p270-287(H26全問)＝年度別全問+解答一覧(解説なし)、6-8=p286-397(小論文対策)。旧記載『PDF無し・page*.pngのみ』は解消。データグラフはSVG不可(誤答リスク)→PDFから再クロップ。コンクリート主任技師2022 は過去問(H24-H28・スキャンした書類N.pdfは診断士dirと同名別物)。"
+      "figure_origin": "unknown",
+      "quality": "print-clean",
+      "rescannable": "na",
+      "note": "記事図は 2026-09-11（DN-0189）以降すべて自作 SVG（raster 0 点）。以下は原本の所在メモ: 高品質再スキャンPDF13冊を保持（git追跡外・2026-07-10）: 14-18=項目別過去問解説(書籍p24-221・R05〜H30抜粋+解説)、3=p202-221(目次+H30全問)/2=p218-237(H29全問)/9=p238-255(H28全問)/4=p256-271(H27全問)/5=p270-287(H26全問)＝年度別全問+解答一覧(解説なし)、6-8=p286-397(小論文対策)。旧記載『PDF無し・page*.pngのみ』は解消。データグラフはSVG不可(誤答リスク)→PDFから再クロップ。コンクリート主任技師2022 は過去問(H24-H28・スキャンした書類N.pdfは診断士dirと同名別物)。"
     },
     "concrete-diagnostician": {
       "source_dir": "content/sources/textbook/コンクリート診断士",
       "source_kind": "pdf-vector",
-      "figure_origin": "textbook-scan",
-      "quality": "mixed",
-      "rescannable": "true",
-      "note": "PDF10本あり。全記事 published:false 下書き(JCI権利確認待ち)。図は撮影由来で指写り込み等あり。公開前に要整備。"
+      "figure_origin": "ai-generated",
+      "quality": "print-clean",
+      "rescannable": "na",
+      "note": "記事図は自作 SVG 22 点＋AI 生成画像 8 点（各 MDX の `{/* source: AI 生成画像 */}` コメントが真実源・実写でも書籍スキャンでもない）。2026-08-22 に旧スキャン図 58 点を撤去し演習 98 問はオリジナル設問へ書き直し済み。18 記事 published:true。source_dir は原本の所在で、記事図の出所ではない。"
     },
     "concrete-diagnostician-jci": {
       "_alias": "concrete-diagnostician"

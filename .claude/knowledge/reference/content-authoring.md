@@ -294,21 +294,9 @@ sources: ["registry-id#detail"]      # 参考文献台帳の ID。#detail は条
 > **group: guide の新規記事では必ず両方書く**（`lint-frontmatter` が欠落を警告する）。
 > なお `sidebar_label` は Docusaurus 由来の廃止フィールドで**書かない**（0 件運用・lint が legacy 検出）。
 
-**category の選択肢**（真実源: `src/config/categories.json`）:
-- `civil-construction-1` — 1級土木施工管理技士
-- `civil-construction-2` — 2級土木施工管理技士
-- `pe-comprehensive-management` — 技術士（総合技術監理部門）
-- `pe-first-stage` — 技術士 第一次試験
-- `pe-construction` — 技術士第二次試験（建設部門）
-- `concrete-chief-engineer` — コンクリート主任技士
-- `concrete-diagnostician` — コンクリート診断士（下書き）
+**category の選択肢**: 真実源は `src/config/categories.json`（10 件・`area` と許可 `groups` を持つ）。一覧と記事型の許可表は [content-taxonomy.md](./content-taxonomy.md) §2–3。
 
-**tags の例**:
-- `guide` — 試験ガイド・勉強方法
-- `primary` — 第1次試験対策
-- `secondary` — 第2次試験対策
-- `past-questions` — 過去問
-- `keyword` — キーワード解説
+**tags**: 正規表記は日本語名（`src/config/tags.json` の `name`）。資格・科目タグ 1 つ以上＋主題タグ 1 つ以上を付け、記事種別を写す構造タグ（`guide` `primary` 等）は書かない（group が真実）。class・別名・追加条件は [content-taxonomy.md](./content-taxonomy.md) §5。
 
 ## FAQ オプション（任意）
 
@@ -333,18 +321,7 @@ faqs:
 
 ## 複数試験対応コンテンツ
 
-frontmatter に複数カテゴリを参照する方法（要検討）:
-
-```yaml
-# パターン1: category は主要試験、tags に補助試験を列挙
-category: "civil-construction-1"
-tags: ["shared-with-pe"]
-
-# パターン2: exams 配列で明示（実装に応じて）
-exams: ["civil-construction-1", "pe-comprehensive-management"]
-```
-
-このルールにより、新試験対応時の重複排除と SEO 効率を両立する。
+`exams:` / `sections:` は 2026-09-11 に廃止した（読み捨て・新規記事に書かない）。複数資格にまたがる内容は、資格タグと横断テーマ（`src/config/topics.json`、記事側は任意の `topics: [slug]`）で表現する → [content-taxonomy.md](./content-taxonomy.md) §3, §6。
 
 ## 全試験で共通のデザイン制約
 

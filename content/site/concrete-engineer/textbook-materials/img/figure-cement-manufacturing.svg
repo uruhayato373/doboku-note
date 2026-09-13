@@ -1,0 +1,44 @@
+<!-- authored 2026-09-12 doboku-note 自作。題材はコンクリート技士テキスト「コンクリート用材料」の論点。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="セメント製造の3工程。原料工程で原料を粉砕・混合し、焼成工程で高温加熱してクリンカーを生成し、仕上工程でせっこうを加え微粉砕する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }               /* ink-body */
+      .t-title { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc  { font-size: 12px; fill: #222; }                /* ink-strong */
+      .t-sum   { font-size: 12px; fill: #222; }
+      .box-b   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }  /* brand */
+      .box-s   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }  /* surface */
+    </style>
+    <marker id="arrowB" markerWidth="9" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0,0 9,3.5 0,7" fill="#2e6da4"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">原料工程→焼成工程→仕上工程の3段階でセメントができる</text>
+
+  <rect class="box-b" x="20" y="28" width="360" height="92" rx="6"/>
+  <text class="t-title" x="40" y="54">① 原料工程</text>
+  <text class="t-desc" x="40" y="78">石灰石・粘土・けい石・鉄原料を粉砕して混合する</text>
+
+  <line x1="200" y1="120" x2="200" y2="145" stroke="#2e6da4" stroke-width="2" marker-end="url(#arrowB)"/>
+
+  <rect class="box-b" x="20" y="148" width="360" height="92" rx="6"/>
+  <text class="t-title" x="40" y="174">② 焼成工程</text>
+  <text class="t-desc" x="40" y="198">ロータリーキルンで約1,450℃に加熱する</text>
+
+  <line x1="200" y1="240" x2="200" y2="265" stroke="#2e6da4" stroke-width="2" marker-end="url(#arrowB)"/>
+
+  <rect class="box-b" x="20" y="268" width="360" height="92" rx="6"/>
+  <text class="t-title" x="40" y="294">③ 仕上工程</text>
+  <text class="t-desc" x="40" y="318">冷却したクリンカーにせっこうを加え粉砕する</text>
+
+  <rect class="box-s" x="20" y="390" width="360" height="96" rx="6"/>
+  <text class="t-title" x="40" y="412" style="font-size:13px">3工程を通してみるポイント</text>
+  <text class="t-sum" x="40" y="432">配合比が、生成する化合物の量を決める</text>
+  <text class="t-sum" x="40" y="450">焼成が不十分だと、化合物の生成量が不足する</text>
+  <text class="t-sum" x="40" y="468">せっこうは、C3Aの急結を防ぐ役割を持つ</text>
+</svg>

@@ -1,17 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="3種類の余裕時間（トータルフロート・フリーフロート・インターフェアリングフロート）を1つのタイムラインで比較">
   <style>
     .title { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 13px; fill: #555; }
-    .row-label { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 12px; fill: #222; font-weight: 600; }
-    .axis-label { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 11px; fill: #555; }
-    .float-tf { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 12px; fill: #d4a017; font-weight: 700; }
-    .float-ff { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 12px; fill: #3a7d44; font-weight: 700; }
-    .float-if { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 12px; fill: #b22234; font-weight: 700; }
-    .sub { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 11px; fill: #555; }
-    .rule-title { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 12px; fill: #1a3a5c; font-weight: 700; }
-    .rule-body { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 11px; fill: #222; }
+    .row-label { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 14px; fill: #222; font-weight: 600; }
+    .axis-label { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 13px; fill: #555; }
+    .float-tf { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 14px; fill: #1a3a5c; font-weight: 700; }
+    .float-ff { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 14px; fill: #3a7d44; font-weight: 700; }
+    .float-if { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 14px; fill: #b22234; font-weight: 700; }
+    .sub { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 13px; fill: #555; }
+    .rule-title { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 14px; fill: #1a3a5c; font-weight: 700; }
+    .rule-body { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 13px; fill: #222; }
   </style>
 
-  <text x="200" y="22" text-anchor="middle" class="title">余裕時間の3種類（TF=5日, FF=3日, IF=2日 の例）</text>
+  <text x="200" y="22" text-anchor="middle" class="title">TF = 5日・FF = 3日・IF = 2日の例</text>
 
   <!-- timeline axis (y=380 に下げてタイムライン領域を拡大) -->
   <line x1="55" y1="370" x2="385" y2="370" stroke="#222" stroke-width="1.5"/>
@@ -50,13 +50,13 @@
   <!-- 10日=x330、幅55px (2日) -->
   <rect x="330" y="136" width="55" height="26" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
   <text x="357" y="154" text-anchor="middle" class="sub">後続</text>
-  <text x="330" y="128" text-anchor="middle" class="axis-label">10日（後続EST）</text>
+  <text x="330" y="128" text-anchor="middle" class="axis-label">後続EST 10日</text>
 
   <!-- FF bracket (EFT=247 〜 後続EST=330) -->
   <line x1="247" y1="178" x2="330" y2="178" stroke="#3a7d44" stroke-width="2"/>
   <line x1="247" y1="173" x2="247" y2="183" stroke="#3a7d44" stroke-width="2"/>
   <line x1="330" y1="173" x2="330" y2="183" stroke="#3a7d44" stroke-width="2"/>
-  <text x="288" y="198" text-anchor="middle" class="float-ff">FF = 3日（後続EST－EFT）</text>
+  <text x="288" y="198" text-anchor="middle" class="float-ff">FF = 3日</text>
 
   <!-- Row 3: Activity at LST (latest start), 8日〜12日 -->
   <text x="12" y="248" class="row-label">LST で開始</text>
@@ -65,26 +65,22 @@
   <rect x="275" y="234" width="110" height="26" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
   <text x="330" y="252" text-anchor="middle" class="sub">作業（4日）</text>
   <text x="275" y="226" text-anchor="middle" class="axis-label">8日（LST）</text>
-  <text x="398" y="226" text-anchor="end" class="axis-label">12日（LFT）</text>
+  <text x="386" y="279" text-anchor="end" class="axis-label">12日（LFT）</text>
 
   <!-- TF bracket (EST=137 〜 LST=275) -->
   <line x1="137" y1="290" x2="275" y2="290" stroke="#d4a017" stroke-width="2"/>
   <line x1="137" y1="285" x2="137" y2="295" stroke="#d4a017" stroke-width="2"/>
   <line x1="275" y1="285" x2="275" y2="295" stroke="#d4a017" stroke-width="2"/>
-  <text x="206" y="310" text-anchor="middle" class="float-tf">TF = 5日（LST－EST）</text>
+  <text x="206" y="310" text-anchor="middle" class="float-tf">TF = 5日</text>
 
-  <!-- IF bracket (EFT=247 〜 LST=275) -->
-  <line x1="247" y1="328" x2="275" y2="328" stroke="#b22234" stroke-width="2"/>
-  <line x1="247" y1="323" x2="247" y2="333" stroke="#b22234" stroke-width="2"/>
-  <line x1="275" y1="323" x2="275" y2="333" stroke="#b22234" stroke-width="2"/>
-  <text x="261" y="348" text-anchor="middle" class="float-if">IF = 2日（TF－FF）</text>
+  <!-- IF = TF - FF = 12 - 10 = 2 days, on the same finish-time axis -->
+  <line x1="330" y1="328" x2="385" y2="328" stroke="#b22234" stroke-width="2"/>
+  <line x1="330" y1="323" x2="330" y2="333" stroke="#b22234" stroke-width="2"/>
+  <line x1="385" y1="323" x2="385" y2="333" stroke="#b22234" stroke-width="2"/>
+  <text x="358" y="351" text-anchor="middle" class="float-if">IF = 2日</text>
 
-  <!-- legend / definitions table -->
-  <rect x="20" y="395" width="360" height="96" rx="4" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.2"/>
-  <text x="32" y="414" class="rule-title">3種フロートの定義</text>
-  <line x1="20" y1="420" x2="380" y2="420" stroke="#2e6da4" stroke-width="0.8"/>
-  <text x="32" y="436" class="rule-body" fill="#d4a017" font-weight="700">TF（トータルフロート）</text><text x="176" y="436" class="rule-body">= LST－EST = LFT－EFT</text>
-  <text x="32" y="453" class="rule-body" fill="#3a7d44" font-weight="700">FF（フリーフロート）</text><text x="170" y="453" class="rule-body">= 後続作業EST－当作業EFT</text>
-  <text x="32" y="470" class="rule-body" fill="#b22234" font-weight="700">IF（インターフェアリング）</text><text x="198" y="470" class="rule-body">= TF－FF</text>
-  <text x="32" y="487" class="sub">CP上の作業は TF=FF=IF=0</text>
+  <rect x="20" y="403" width="360" height="85" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="36" y="425" class="rule-body">TF = LST − EST = LFT − EFT</text>
+  <text x="36" y="450" class="rule-body">FF = 後続EST − 当作業EFT</text>
+  <text x="36" y="475" class="rule-body">IF = TF − FF（後続へ影響する余裕）</text>
 </svg>

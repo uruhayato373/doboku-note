@@ -1,0 +1,41 @@
+<!-- authored 2026-09-12 doboku-note 自作。題材はコンクリート診断士テキスト「変状の種類と原因」の論点。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="RCが成立する3前提（付着・熱膨張係数の近さ・アルカリによる防錆）ごとに、崩れる原因と現れる変状の対応を3段で示す図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-name { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-cause { font-size: 12px; fill: #555; }
+      .t-result { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-sum-h { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-sum { font-size: 11px; fill: #555; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-s { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">鉄筋コンクリート（RC）は次の3つの前提の上に成立する</text>
+
+  <rect class="box-b" x="20" y="30" width="360" height="105" rx="8"/>
+  <text class="t-name" x="36" y="52">前提1: 鉄筋とコンクリートの付着</text>
+  <text class="t-cause" x="36" y="78">→ 腐食膨張・過大なひび割れで付着が失われる</text>
+  <text class="t-result" x="36" y="104">→ 変状: ひび割れ幅の急拡大・剥離</text>
+
+  <rect class="box-b" x="20" y="155" width="360" height="105" rx="8"/>
+  <text class="t-name" x="36" y="177">前提2: 熱膨張係数がほぼ等しい</text>
+  <text class="t-cause" x="36" y="203">→ 火災など急激な温度差が生じる</text>
+  <text class="t-result" x="36" y="229">→ 変状: 火災時の内部破壊（付着劣化）</text>
+
+  <rect class="box-b" x="20" y="280" width="360" height="105" rx="8"/>
+  <text class="t-name" x="36" y="302">前提3: 高アルカリ性による鋼材の防錆</text>
+  <text class="t-cause" x="36" y="328">→ 中性化・塩化物イオンでアルカリ性喪失</text>
+  <text class="t-result" x="36" y="354">→ 変状: 中性化・塩害から腐食ひび割れへ</text>
+
+  <rect class="box-s" x="20" y="400" width="360" height="80" rx="8"/>
+  <text class="t-sum-h" x="36" y="422">まとめ</text>
+  <text class="t-sum" x="36" y="444">診断士が扱う変状の多くは、この3前提の</text>
+  <text class="t-sum" x="36" y="462">いずれかが崩れた結果として理解できる</text>
+</svg>

@@ -6,23 +6,11 @@
  * 同スコアは新しい記事を優先する。
  */
 import type { DocMeta } from '@/lib/docs';
+import { isStructuralTag } from '@/lib/content-taxonomy';
 
-/** 構造タグ（記事種別）はトピック関連度の判定から除外する。 */
-const STRUCTURAL_TAGS = new Set([
-  'guide',
-  'primary',
-  'secondary',
-  'textbook',
-  'keyword',
-  'pillar',
-  'essay',
-  'past-questions',
-  'pastExam',
-]);
-
-/** meta.tags から構造タグを除いたトピックタグ配列を返す。 */
+/** meta.tags から構造タグ（tags.json の class structural / flag）を除いたトピックタグ配列を返す。 */
 function topicalTags(meta: DocMeta): string[] {
-  return (meta.tags || []).filter((t) => !STRUCTURAL_TAGS.has(t));
+  return (meta.tags || []).filter((t) => !isStructuralTag(t));
 }
 
 /**

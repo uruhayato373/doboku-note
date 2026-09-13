@@ -1,0 +1,75 @@
+<!-- authored 2026-09-12 doboku-note 自作。題材は1級土木 専門土木テキスト「河川工事」の論点。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="柔構造樋門の縦断模式図。堤体にキャンバー盛土・可とう性継手・床付け面を配置し、沈下に追従する構造を剛構造樋門と比較する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-sec   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-zone  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-part  { font-size: 11px; fill: #555; }
+      .t-title { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .ground { stroke: #8a8a8a; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">堤体の沈下に函渠を追従させ応力集中を避ける</text>
+
+  <text class="t-sec" x="20" y="36">縦断模式図（堤体－函渠－キャンバー盛土）</text>
+
+  <!-- ground -->
+  <line class="ground" x1="20" y1="222" x2="380" y2="222" stroke-width="2"/>
+
+  <!-- embankment -->
+  <polygon class="box-b" points="90,222 150,130 250,130 310,222"/>
+  <text class="t-zone" x="200" y="172" text-anchor="middle">堤体</text>
+
+  <!-- camber fill -->
+  <path class="box-w" d="M150,130 Q200,94 250,130 Z"/>
+  <text class="t-part" x="200" y="90" text-anchor="middle">キャンバー盛土</text>
+
+  <!-- box culvert -->
+  <rect class="box-p" x="40" y="204" width="320" height="18"/>
+  <text class="t-part" x="200" y="216" text-anchor="middle">函渠</text>
+
+  <!-- flexible joints at embankment toes -->
+  <line x1="87" y1="204" x2="93" y2="222" stroke="#d4a017" stroke-width="2"/>
+  <line x1="91" y1="204" x2="97" y2="222" stroke="#d4a017" stroke-width="2"/>
+  <line x1="303" y1="204" x2="309" y2="222" stroke="#d4a017" stroke-width="2"/>
+  <line x1="307" y1="204" x2="313" y2="222" stroke="#d4a017" stroke-width="2"/>
+  <line x1="90" y1="200" x2="90" y2="204" stroke="#8a8a8a" stroke-dasharray="2,2"/>
+  <text class="t-part" x="90" y="196" text-anchor="middle">可とう性継手</text>
+
+  <!-- 床付け面 -->
+  <rect x="40" y="222" width="320" height="10" fill="none" stroke="#8a8a8a" stroke-width="1"/>
+  <line x1="48" y1="232" x2="56" y2="222" stroke="#8a8a8a" stroke-width="1"/>
+  <line x1="88" y1="232" x2="96" y2="222" stroke="#8a8a8a" stroke-width="1"/>
+  <line x1="128" y1="232" x2="136" y2="222" stroke="#8a8a8a" stroke-width="1"/>
+  <line x1="168" y1="232" x2="176" y2="222" stroke="#8a8a8a" stroke-width="1"/>
+  <line x1="208" y1="232" x2="216" y2="222" stroke="#8a8a8a" stroke-width="1"/>
+  <line x1="248" y1="232" x2="256" y2="222" stroke="#8a8a8a" stroke-width="1"/>
+  <line x1="288" y1="232" x2="296" y2="222" stroke="#8a8a8a" stroke-width="1"/>
+  <line x1="328" y1="232" x2="336" y2="222" stroke="#8a8a8a" stroke-width="1"/>
+  <line x1="300" y1="238" x2="300" y2="232" stroke="#8a8a8a" stroke-dasharray="2,2"/>
+  <text class="t-part" x="300" y="250" text-anchor="middle">床付け面</text>
+
+  <text class="t-part" x="20" y="272">可とう性継手は堤体の変形が大きい端部に設置する</text>
+
+  <text class="t-sec" x="20" y="300">剛構造との違い</text>
+
+  <rect class="box-d" x="20" y="312" width="170" height="120" rx="6"/>
+  <text class="t-title" x="105" y="336" text-anchor="middle">剛構造樋門</text>
+  <text class="t-part" x="105" y="366" text-anchor="middle">函渠が沈下に抵抗し</text>
+  <text class="t-part" x="105" y="386" text-anchor="middle">応力が集中しやすい</text>
+
+  <rect class="box-p" x="210" y="312" width="170" height="120" rx="6"/>
+  <text class="t-title" x="295" y="336" text-anchor="middle">柔構造樋門</text>
+  <text class="t-part" x="295" y="366" text-anchor="middle">函渠が変形に追従し</text>
+  <text class="t-part" x="295" y="386" text-anchor="middle">応力集中を回避できる</text>
+</svg>

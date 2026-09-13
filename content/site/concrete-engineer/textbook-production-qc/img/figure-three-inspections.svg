@@ -1,0 +1,47 @@
+<!-- authored 2026-09-12 doboku-note 自作。題材はコンクリート技士テキスト「製造・品質管理と検査」の論点。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="生コン工場の3つの検査（原材料受入検査・工程検査・製品検査）を製造フロー上に並べ、誰が何をどの頻度で確認するかを示す図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+    </style>
+    <marker id="ti-arrow" markerWidth="9" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0,0 9,3.5 0,7" fill="#555"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">製造の流れに沿って3つの検査の主体と頻度が変わる</text>
+
+  <rect class="box-b" x="20" y="45" width="360" height="130" rx="6"/>
+  <text class="t-name" x="40" y="70">原材料受入検査</text>
+  <text class="t-desc" x="40" y="92">誰が：工場（受入れ担当）</text>
+  <text class="t-desc" x="40" y="112">何を：セメント・骨材・混和材料・水の規格適合</text>
+  <text class="t-desc" x="40" y="132">頻度：搬入の都度確認</text>
+  <text class="t-desc" x="40" y="156">↓ 貯蔵・計量・練混ぜへ</text>
+
+  <line x1="200" y1="175" x2="200" y2="193" stroke="#555" stroke-width="1.5" marker-end="url(#ti-arrow)"/>
+
+  <rect class="box-w" x="20" y="195" width="360" height="130" rx="6"/>
+  <text class="t-name" x="40" y="220">工程検査</text>
+  <text class="t-desc" x="40" y="242">誰が：工場（製造担当）</text>
+  <text class="t-desc" x="40" y="262">何を：計量・練混ぜ・運搬の進み具合</text>
+  <text class="t-desc" x="40" y="282">頻度：製造工程の中で随時確認</text>
+  <text class="t-desc" x="40" y="306">↓ 荷卸し地点へ運搬</text>
+
+  <line x1="200" y1="325" x2="200" y2="343" stroke="#555" stroke-width="1.5" marker-end="url(#ti-arrow)"/>
+
+  <rect class="box-p" x="20" y="345" width="360" height="130" rx="6"/>
+  <text class="t-name" x="40" y="370">製品検査</text>
+  <text class="t-desc" x="40" y="392">誰が：購入者（荷卸し地点）</text>
+  <text class="t-desc" x="40" y="412">何を：スランプ・空気量・強度など</text>
+  <text class="t-desc" x="40" y="432">頻度：普通コンクリートは150 m³に1回</text>
+  <text class="t-desc" x="40" y="456">不合格なら協議・再手配へ</text>
+</svg>

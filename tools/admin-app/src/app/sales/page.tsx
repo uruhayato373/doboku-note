@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { PageHead } from '@/components/ui';
 import { BarChart, type Bar } from '@/components/charts/BarChart';
 import { salesSummary } from '@/lib/sales';
@@ -7,18 +8,17 @@ export const dynamic = 'force-dynamic';
 const yen = (n: number) => '¥' + Number(n).toLocaleString('en-US');
 
 export default function SalesPage() {
-  const { months, total, source, updatedAt, milestone } = salesSummary();
+  const { months, total, source, updatedAt } = salesSummary();
 
   const bars: Bar[] = months.map((m) => ({
     label: m.month.slice(2),
     value: m.revenue,
-    highlight: m.milestone,
   }));
 
   return (
     <>
       <PageHead
-        title="売上"
+        title="note売上の登録実績"
         sub={`累計 ${yen(total.revenue)} / ${total.count} 件 / ${total.months} ヶ月 · .claude/state/sales/sales-log.json`}
       />
 
@@ -29,7 +29,8 @@ export default function SalesPage() {
             真実源 {source ?? '—'} · 最終更新 {updatedAt ?? '—'}
           </span>
         </h2>
-        <BarChart bars={bars} milestone={milestone} milestoneLabel={`${yen(milestone)} マイルストーン`} />
+        <p className="small">台帳に登録された販売額です。手数料控除後の受取や利益ではありません。目標と資格別の判断は <Link href="/metrics/business?cadence=monthly">事業方針と改善</Link> で管理します。</p>
+        <BarChart bars={bars} />
       </div>
 
       {months
@@ -40,7 +41,7 @@ export default function SalesPage() {
             <h2>
               {m.month}　{yen(m.revenue)}
               <span className="sub">
-                {m.count} 件 {m.milestone ? <span className="badge good">¥15k 達成</span> : null}
+                {m.count} 件
               </span>
             </h2>
             <div className="table-wrap">

@@ -171,6 +171,14 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+# SEO観察中ページの変更と順位履歴の書換えを拒否する。
+node scripts/check-business-direction.mjs --staged
+if [ $? -ne 0 ]; then exit 1; fi
+node scripts/check-seo-rank-watch.mjs --staged
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+
 # SNS 投稿（content/sns/**）の /docs/ リンクが本番に実在するか検証（404 投稿の再発防止）
 node scripts/check-sns-urls.mjs --staged
 if [ $? -ne 0 ]; then
@@ -283,6 +291,13 @@ fi
 
 # category-curriculum.json の slug 実在＋career タグ整合（カテゴリページ体系リストの slug 陳腐化・silent drop の再発防止）
 node scripts/check-category-curriculum.mjs
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+
+# 分類語彙（領域×資格×記事型×タグ）の整合。staged MDX の group が許可外・未登録タグは赤、別名綴りと構造タグ不整合は警告
+# （全量のラチェットは quality-audit の check-content-taxonomy:ci）。規則は content-taxonomy.md
+node scripts/check-content-taxonomy.mjs --staged
 if [ $? -ne 0 ]; then
   exit 1
 fi
