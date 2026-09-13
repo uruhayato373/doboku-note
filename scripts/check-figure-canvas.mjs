@@ -54,7 +54,7 @@ function listStaged() {
   return out
     .split("\n")
     .map((l) => l.trim())
-    .filter((l) => /\content\/site\/.*\/img\/figure-[^/]*\.svg$/.test(l))
+    .filter((l) => /^content\/site\/.*\/img\/figure-[^/]*\.svg$/.test(l))
     .map((rel) => join(ROOT, rel).replace(/\\/g, "/"));
 }
 
@@ -110,7 +110,7 @@ function listStagedNonFigureSvgs() {
   return out
     .split("\n")
     .map((l) => l.trim())
-    .filter((l) => /\content\/site\/.*\/img\/[^/]+\.svg$/.test(l))
+    .filter((l) => /^content\/site\/.*\/img\/[^/]+\.svg$/.test(l))
     .filter((l) => !/\/img\/figure-[^/]*\.svg$/.test(l))
     .filter((l) => !EXAM_DIR_RE.test(l))
     .map((rel) => join(ROOT, rel).replace(/\\/g, "/"));

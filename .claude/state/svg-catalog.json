@@ -2,24 +2,25 @@
   "description": "サイト図版SVGの派生カタログ（SSOT）。build-svg-catalog.mjs が生成。手動編集しない。",
   "source": "content/site/**/img/*.svg",
   "summary": {
-    "total": 579,
-    "embedded": 579,
+    "total": 588,
+    "embedded": 588,
     "orphan": 0,
     "missingConcept": 0,
     "withHighAudit": 0,
     "figures": {
-      "total": 501,
-      "conforming": 501,
+      "total": 510,
+      "conforming": 510,
       "needsRework": 0
     },
     "byCategory": {
-      "civil-construction-1": 193,
+      "civil-construction-1": 196,
       "civil-construction-2": 20,
       "civil-practice": 20,
       "concrete-chief-engineer": 72,
       "concrete-diagnostician": 37,
       "concrete-engineer": 12,
-      "pe-comprehensive-management": 225
+      "pe-comprehensive-management": 228,
+      "pe-construction": 3
     }
   },
   "entries": [
@@ -546,6 +547,42 @@
       }
     },
     {
+      "file": "content/site/civil-construction-1/secondary-experience-writing-guide/img/figure-answer-compartments.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-experience-writing-guide",
+      "name": "figure-answer-compartments.svg",
+      "concept": "1級土木の各テーマの答案は、現場状況・技術的課題・検討項目を（1）に、対応処置・評価を（2）に記述する。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-experience-writing-guide/img/figure-direct-orderer.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-experience-writing-guide",
+      "name": "figure-direct-orderer.svg",
+      "concept": "元請Bの発注者はA、一次下請Cの発注者はB、二次下請Dの発注者はC。発注機関に所属する場合は所属機関名を記入する。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-construction-1/textbook-building-standards/img/figure-numeric-standards.svg",
       "category": "civil-construction-1",
       "slug": "textbook-building-standards",
@@ -757,7 +794,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -1099,8 +1136,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 1,
+        "low": 1
       }
     },
     {
@@ -1117,7 +1154,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -1127,6 +1164,24 @@
       "slug": "textbook-distance-angle",
       "name": "figure-error-cancellation.svg",
       "concept": "対回観測による視準軸誤差の消去原理",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 1,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-earthwork-planning/img/figure-earthwork-states.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-earthwork-planning",
+      "name": "figure-earthwork-states.svg",
+      "concept": "地山100立方メートルがL1.2でほぐし120、C0.9で締固め90になる計算例。ほぐしから締固めへの係数はC割るL。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -1243,7 +1298,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -1838,7 +1893,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 1
       }
     },
     {
@@ -2000,7 +2055,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 6
       }
     },
     {
@@ -2755,7 +2810,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 4,
         "low": 0
       }
     },
@@ -2828,7 +2883,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 1
       }
     },
     {
@@ -2846,7 +2901,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 6
       }
     },
     {
@@ -2864,7 +2919,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 11
       }
     },
     {
@@ -3223,7 +3278,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -4249,8 +4304,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 4,
+        "low": 11
       }
     },
     {
@@ -4267,8 +4322,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 1,
+        "low": 2
       }
     },
     {
@@ -4285,8 +4340,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 6,
+        "low": 19
       }
     },
     {
@@ -4303,7 +4358,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 2,
         "low": 0
       }
     },
@@ -4321,8 +4376,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 1,
+        "low": 12
       }
     },
     {
@@ -4375,8 +4430,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 3,
+        "low": 1
       }
     },
     {
@@ -4393,8 +4448,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 2,
+        "low": 22
       }
     },
     {
@@ -4411,8 +4466,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 2,
+        "low": 21
       }
     },
     {
@@ -4429,8 +4484,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 1,
+        "low": 12
       }
     },
     {
@@ -4447,7 +4502,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -4465,8 +4520,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 5,
+        "low": 33
       }
     },
     {
@@ -4483,8 +4538,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 7,
+        "low": 26
       }
     },
     {
@@ -4502,7 +4557,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 13
       }
     },
     {
@@ -4520,7 +4575,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 13
       }
     },
     {
@@ -4537,7 +4592,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 2,
         "low": 0
       }
     },
@@ -4555,8 +4610,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 4,
+        "low": 34
       }
     },
     {
@@ -4573,8 +4628,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 2,
+        "low": 5
       }
     },
     {
@@ -4591,8 +4646,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 2,
+        "low": 3
       }
     },
     {
@@ -4609,8 +4664,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 2,
+        "low": 5
       }
     },
     {
@@ -4627,8 +4682,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 3,
+        "low": 8
       }
     },
     {
@@ -4645,8 +4700,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 2,
+        "low": 26
       }
     },
     {
@@ -4681,8 +4736,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 2,
+        "low": 5
       }
     },
     {
@@ -4735,7 +4790,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -4753,8 +4808,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 7,
+        "low": 68
       }
     },
     {
@@ -4789,7 +4844,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -4880,7 +4935,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 3
       }
     },
     {
@@ -4897,7 +4952,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -4915,7 +4970,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -4933,8 +4988,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 1,
+        "low": 21
       }
     },
     {
@@ -4951,8 +5006,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 1,
+        "low": 4
       }
     },
     {
@@ -4969,7 +5024,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -4987,7 +5042,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -5005,7 +5060,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -5041,7 +5096,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -5059,7 +5114,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -5077,7 +5132,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -5095,8 +5150,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 1,
+        "low": 4
       }
     },
     {
@@ -5113,7 +5168,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -5149,7 +5204,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -5167,7 +5222,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -5185,7 +5240,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -5203,7 +5258,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -5221,7 +5276,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -5239,7 +5294,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -6481,6 +6536,24 @@
       "embedded": true,
       "audit": {
         "high": 0,
+        "medium": 1,
+        "low": 6
+      }
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/alarp-principle/img/figure-alarp-regions.svg",
+      "category": "pe-comprehensive-management",
+      "slug": "alarp-principle",
+      "name": "figure-alarp-regions.svg",
+      "concept": "ALARPは許容不可能、合理的に実行可能な限り低減する中間、広く受け入れ可能の3領域。低リスクでも安全対策の維持と再評価を続ける。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
         "medium": 0,
         "low": 0
       }
@@ -6517,7 +6590,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -6662,7 +6735,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 7
       }
     },
     {
@@ -6823,8 +6896,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 1,
+        "low": 2
       }
     },
     {
@@ -6842,7 +6915,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 3
       }
     },
     {
@@ -6895,7 +6968,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -6913,7 +6986,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -6950,7 +7023,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 3
       }
     },
     {
@@ -7003,7 +7076,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -7021,7 +7094,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -7040,7 +7113,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 1
       }
     },
     {
@@ -7075,8 +7148,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 1,
+        "low": 2
       }
     },
     {
@@ -7093,7 +7166,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -7201,7 +7274,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -7345,7 +7418,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -7436,7 +7509,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 1
       }
     },
     {
@@ -7508,7 +7581,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 4
       }
     },
     {
@@ -7525,8 +7598,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 1,
+        "low": 6
       }
     },
     {
@@ -7669,8 +7742,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 1,
+        "low": 21
       }
     },
     {
@@ -7903,7 +7976,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -7921,8 +7994,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 1,
+        "low": 1
       }
     },
     {
@@ -7958,7 +8031,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 1
       }
     },
     {
@@ -7993,7 +8066,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -8012,7 +8085,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 3
       }
     },
     {
@@ -8029,8 +8102,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 1,
+        "low": 1
       }
     },
     {
@@ -8083,7 +8156,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -8443,7 +8516,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -8552,7 +8625,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 4
       }
     },
     {
@@ -8570,7 +8643,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 6
       }
     },
     {
@@ -8606,7 +8679,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 1
       }
     },
     {
@@ -8695,7 +8768,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -8749,8 +8822,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 1,
+        "low": 8
       }
     },
     {
@@ -8767,8 +8840,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 1,
+        "low": 4
       }
     },
     {
@@ -8813,6 +8886,24 @@
       "slug": "job-type-employment",
       "name": "figure-1.svg",
       "concept": "ジョブ型雇用（職務主義）とメンバーシップ型雇用（属人主義）の比較。考え方・採用・職務範囲・賃金・雇用保障・変化対応の6観点で、ジョブ型は仕事に人をつけ職務給で変化対応が高い、メンバーシップ型は人に仕事をつけ職能年功で雇用安定性が高いことを示す。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/keyword-2026/img/figure-five-management-learning.svg",
+      "category": "pe-comprehensive-management",
+      "slug": "keyword-2026",
+      "name": "figure-five-management-learning.svg",
+      "concept": "一つの事業の目的と制約に対し、経済性・人的資源・情報・安全・社会環境の5管理を照らし、相互の影響とトレードオフを考える学習図。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -8984,7 +9075,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 18
       }
     },
     {
@@ -9145,7 +9236,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -9218,7 +9309,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 2
       }
     },
     {
@@ -9487,7 +9578,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -9632,7 +9723,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 1
       }
     },
     {
@@ -9650,7 +9741,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 10
       }
     },
     {
@@ -9668,7 +9759,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 15
       }
     },
     {
@@ -9883,8 +9974,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 1,
+        "low": 1
       }
     },
     {
@@ -9901,7 +9992,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -9947,6 +10038,24 @@
       "slug": "risk-treatment",
       "name": "figure-2.svg",
       "concept": "リスクマトリクス：縦軸が影響度（大小）、横軸が発生確率（低高）の2×2マトリクスで、右上を最優先で低減し左下へ持っていく対応方針を示す図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 1
+      }
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/root-cause-analysis/img/figure-rca-evidence-loop.svg",
+      "category": "pe-comprehensive-management",
+      "slug": "root-cause-analysis",
+      "name": "figure-rca-evidence-loop.svg",
+      "concept": "事故の事実から直接・組織的な原因の仮説を立て、証拠と照合する。合わなければ見直し、原因に対応した是正策の効果まで確かめる。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -10190,7 +10299,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 6
       }
     },
     {
@@ -10208,7 +10317,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 2
       }
     },
     {
@@ -10298,7 +10407,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 5
       }
     },
     {
@@ -10433,6 +10542,60 @@
       "slug": "zero-trust",
       "name": "figure-1.svg",
       "concept": "境界型防御とゼロトラストの考え方の比較。境界型防御は境界で 1 回だけ認証し内部を信頼領域とするのに対し、ゼロトラストは信頼領域を作らずアクセスのたびに認証する。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/pe-construction/hissu-kamoku-kaitourei/img/figure-answer-transfer.svg",
+      "category": "pe-construction",
+      "slug": "hissu-kamoku-kaitourei",
+      "name": "figure-answer-transfer.svg",
+      "concept": "完成答案と設問を照合し、論点を骨子に圧縮する。別の設問で自分の答案へ展開し、条件と照合して修正する学習の流れ。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/pe-construction/setsumon-bunkai/img/figure-question-answer-map.svg",
+      "category": "pe-construction",
+      "slug": "setsumon-bunkai",
+      "name": "figure-question-answer-map.svg",
+      "concept": "令和7年度必須I-1の条件を全設問に通し、3課題から最重要1課題、複数解決策、新たな懸念と対策、倫理と社会の持続性の要件へ結ぶ。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/pe-construction/steel-concrete-exam-themes/img/figure-deterioration-diagnosis.svg",
+      "category": "pe-construction",
+      "slug": "steel-concrete-exam-themes",
+      "name": "figure-deterioration-diagnosis.svg",
+      "concept": "コンクリートの変状から原因の仮説を立て、調査で確かめて診断し、劣化程度と供用条件に応じた対策を選び、施工後も点検する。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",

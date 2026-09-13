@@ -24,7 +24,9 @@
 - **feed は幅 400** を守るので create-svg の「viewBox 幅 ≤ 400・viewBox 寸法 = 画面表示 px」前提と整合する。`style="max-width:400px;width:100%"` を付与する。
 - **landscape は幅 640** で create-svg の記事埋込ルール（≤400）に抵触するため、**記事に埋め込まない**。`render-figure-sns` の入力としてのみ使い、PNG に焼いて SNS へ出す。
 - 9:16 は派生のみ（`authored:false`）。feed を中央配置＋上下レターボックスで 1080×1920 を生成する。
-- `render-figure-sns` の入力は `--slug <slug>`（総監キーワード記事）か `--slug <category>/<slug>`（他カテゴリの記事・2026-09-12〜。ヘッダー名は `--mgmt` で資格名を渡す）。
+- `render-figure-sns` の入力は `--slug <slug>`（総監キーワード記事）か `--slug <category>/<slug>`（他カテゴリの記事・2026-09-12〜。資格名は `src/config/categories.json` から自動取得、`--mgmt` は任意の管理分野・テーマ〔16文字以内〕）。
+
+- 単一図の手元プレビューは `--out-dir .tmp/figure-preview`。`--concept` は44文字以内、未知資格・形式は出力前に停止する。カルーセルの資格別ピル・CTAは `figure-pack-labels.mjs` と `/ig-figure-pack` を参照する。
 
 > [!important] create-svg の「高さ可変」を上書きする
 > create-svg は従来「高さ = 要素数 × 110 + 余白」の**可変高さ**だった。本標準は**高さを 500（4:5）に固定**する。

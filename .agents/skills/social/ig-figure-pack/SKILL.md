@@ -1,6 +1,6 @@
 ---
 name: ig-figure-pack
-description: 技術士総監／土木 キーワードの **site figure SVG を** IG 4 枚カルーセルパック（表紙/図解/テキスト/CTA）に変換（過去問パックは対象外）。resvg-js で 400×500 SVG → 1080×1350 PNG（2.7×）し caption.txt を生成。図解スライドは site の figure-N.svg を再利用。PNG はブラウザから Google Drive へ手動アップロード、caption.txt は MCP 経由で Drive に送信。使い分け＝過去問パック新規は ig-post-create、意匠一括再生成は ig-carousel-restyle。
+description: サイトSVGを、総監・1級土木・技術士建設部門の図解カルーセル下書き（表紙/図/要点/CTA）へ展開する。資格別ラベル・白背景・元図参照・各スライド目視を必須とし、投稿状態は既存SNS台帳で管理する。過去問クイズはig-post-createを使う。
 allowed-tools: Bash, Read, Write, Edit
 ---
 
