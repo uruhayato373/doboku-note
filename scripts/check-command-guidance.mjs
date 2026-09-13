@@ -40,7 +40,12 @@ const files = execFileSync('git', ['-c', 'core.quotepath=false', 'ls-files', '-z
 // 2026-08-30: CLAUDE.md の頻用コマンド表に `npm run serve` が載っていたのに
 // package.json には存在せず、指示どおり叩くと必ず失敗する状態が放置されていた。
 // スクリプトしか走査していなかったので、この種のドリフトはどの検査にも掛からなかった。
-const DOC_FILES = ['CLAUDE.md', 'AGENTS.md'];
+// 2026-09-08: 頻用コマンド表の全量は .claude/knowledge/reference/commands.md へ移設し、領域別の規約は
+// .claude/rules/*.md（追跡下のみ走査）へ分離した。CLAUDE.md には最小限だけ残るので、移設先も正典として見る。
+const rulesDocs = execFileSync('git', ['-c', 'core.quotepath=false', 'ls-files', '-z', '.claude/rules'], {
+  cwd: REPO_ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024,
+}).split('\0').filter((f) => f && f.endsWith('.md'));
+const DOC_FILES = ['CLAUDE.md', 'AGENTS.md', '.claude/knowledge/reference/commands.md', ...rulesDocs];
 const docFiles = DOC_FILES.filter((f) => existsSync(join(REPO_ROOT, f)));
 
 const pkgScripts = JSON.parse(readFileSync(join(REPO_ROOT, 'package.json'), 'utf8')).scripts || {};

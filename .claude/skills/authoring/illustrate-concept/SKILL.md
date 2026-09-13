@@ -228,4 +228,4 @@ Step 2/3/5 は **必ず 1 メッセージで複数ツール呼出** して並行
 - `.claude/knowledge/design-system/design-system.md` — コントラスト比 4.5:1・禁止パターン
 - `.claude/knowledge/reference/content-principles.md` — `<ArticleImage>` の caption 禁止ルールなど真実源
 - `.claude/knowledge/reference/content-authoring.md` — MDX コンポーネント・画像配信規約
-- `CLAUDE.md` § 「コンテンツ編集時のコミット運用」 — 1 記事 = 1 コミット原則
+- `CLAUDE.md` §3「1 記事の修正が完了したら即 commit」 — 1 記事 = 1 コミット原則

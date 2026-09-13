@@ -15,7 +15,7 @@ npm run dev
 
 ## ドキュメント
 
-プロジェクト構造・運用・執筆ガイドの真実源は [`CLAUDE.md`](./CLAUDE.md) のリファレンス索引から辿れます。代表的なエントリ:
+プロジェクト構造・運用・執筆ガイドの真実源は [`CLAUDE.md`](./CLAUDE.md)（常時読み込みの核）、[`.claude/knowledge/reference/README.md`](./.claude/knowledge/reference/README.md)（全索引）、`.claude/rules/`（領域別のパス条件付きルール）から辿れます。代表的なエントリ:
 
 ### 執筆者・コンテンツ生成者向け
 

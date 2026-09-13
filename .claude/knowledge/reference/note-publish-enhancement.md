@@ -445,7 +445,7 @@ npm run note-reflow -- --dry content/note/magazines/総監テキスト精読ガ�
 
 ### push 先
 
-- ドキュメント系として `develop` 直 push（CLAUDE.md「性質別運用ガイド」）
+- ドキュメント系として `develop` 直 push（CLAUDE.md §2「ブランチ」）
 - PR 不要（小修正の積み重ね）
 
 ### 最終確認：`/note-prepublish-review` 実行

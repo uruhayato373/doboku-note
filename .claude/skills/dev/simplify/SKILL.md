@@ -116,7 +116,7 @@ Step 4 の修正後、自動で以下を実行して結果を報告する。**�
 選択 2: ユーザが手動で commit するよう案内して終了
 選択 3: 「/simplify 完了」と報告して終了
 
-**重要**: hook ではなくスキル内でチェーン化しているため、ユーザが `/simplify` を明示的に叩いた時のみ Step 5-6 が走る。自動発火はしない（CLAUDE.md「実装時の行動原則」の確認原則を守るため）。
+**重要**: hook ではなくスキル内でチェーン化しているため、ユーザが `/simplify` を明示的に叩いた時のみ Step 5-6 が走る。自動発火はしない（CLAUDE.md §1「確認を挟むのは解釈の違いで成果物が大きく変わるときだけ」を守るため）。
 
 ## 出力フォーマット（省略版）
 
@@ -156,7 +156,7 @@ src/components/ui/Callout/Callout.tsx
 
 ## 参照
 
-- `CLAUDE.md` ── 「実装時の行動原則」（Karpathy 4 原則）とハーネス設計原則
+- `CLAUDE.md` ── 「12 原則」（§1-§4 が実装の行動原則・§5 がハーネス設計原則）
 - `.claude/knowledge/reference/content-authoring.md` ── MDX コンポーネント・frontmatter 規約
 - `.claude/skills/dev/code-review/SKILL.md` ── コード品質レビュー（観点が重複するため、/simplify は「修正提案型」、/code-review は「批判型」と使い分け）
 - `.claude/skills/dev/pr-create/SKILL.md` ── Step 6 で呼び出す PR 作成スキル

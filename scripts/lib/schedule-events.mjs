@@ -25,7 +25,7 @@
  *   - .github/workflows の cron 定義 … 「いつ実行されるか」であって「いつ何が公開されるか」の
  *     予定表ではない。集約対象のドメインが異なる。
  *
- * パーサ二重実装禁止（CLAUDE.md「全体の制約」）: backlog のパースは
+ * パーサ二重実装禁止（CLAUDE.md §7・.claude/rules/code.md）: backlog のパースは
  * scripts/lib/backlog-lib.mjs の parseBacklog を呼ぶ。ここでは taskDue の写像だけ行う。
  *
  * 検査ゼロを PASS と呼ばない（§9）: 各ソースは独立の try/catch で読み、失敗したソースは

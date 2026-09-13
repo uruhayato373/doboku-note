@@ -15,7 +15,7 @@ import { todayJst as todayJstImpl } from '../../../../scripts/lib/jst-date.mjs';
  * schedule.ts — admin `/schedule` 用アダプタ（読み取り専用）。
  *
  * 写像ロジックは一切ここに書かない。集約は scripts/lib/schedule-events.mjs の
- * collectScheduleEvents が唯一の実装（パーサ二重実装禁止・CLAUDE.md「全体の制約」）。
+ * collectScheduleEvents が唯一の実装（パーサ二重実装禁止・CLAUDE.md §7・.claude/rules/code.md）。
  * ここはフィルタ（月）と型付けだけを行うアダプタに徹する。
  */
 

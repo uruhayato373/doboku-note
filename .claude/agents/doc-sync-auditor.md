@@ -30,7 +30,7 @@ tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 
 1. 候補 doc を 1 つずつ `Read` する。
 2. 各 doc の **prose・表・コード例・コマンド・パス・件数・閾値**が、変更サマリの内容と**矛盾していないか**を判定する。
-   - 例: doc が「44 スキル」と書いているが skill が増減した／「`scripts/foo.mjs`」を案内しているがリネームされた／「既定 280」と書いているが閾値が変わった／頻用コマンド表に消えた npm script が残っている、等。
+   - 例: doc が「44 スキル」と書いているが skill が増減した／「`scripts/foo.mjs`」を案内しているがリネームされた／「既定 280」と書いているが閾値が変わった／頻用コマンド表（`.claude/knowledge/reference/commands.md`）に消えた npm script が残っている、等。
    - **routing drift（新ツール追加時の必須観点）**: 変更が**新しいツール/スクリプト/処理経路を追加**している場合、既存 doc の「どれを使うか」案内（skill SKILL.md の「担当外」節・reference policy の経路案内・「→ ○○ を使う」行）が**旧/別ツールを指したまま**になっていないかを必ず確認する。例: figure→reel に `figure-reel-create.mjs` が新設されたのに skill が「Reels 動画化 → `ig-reel-create`」（過去問専用）と案内したまま。
    - **discoverability gap**: 新ツールが**どの doc/skill からも参照されていない**場合（grep ヒット 0）、最も近い既存 skill/policy から参照を張るべき旨を finding として上げる（情報構造 規律7・[[feedback_new_tool_doc_wiring]]）。
 3. 矛盾を見つけたら finding として記録（下記スキーマ）。**確証がある矛盾のみ**を上げる（疑わしきは severity を下げる）。
@@ -59,7 +59,7 @@ findings: K 件
 - [should-fix] CLAUDE.md
   該当: 「| `npm run upload-images-r2` | 画像を R2 にアップロード |」
   矛盾: 本変更で当該 script を削除。
-  修正案: 頻用コマンド表から当該行を削除
+  修正案: 頻用コマンド表（commands.md）から当該行を削除
 - [maybe] .claude/knowledge/reference/workflows.md
   該当: 「…」
   矛盾: …（確証は中）

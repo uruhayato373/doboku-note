@@ -20,7 +20,7 @@ user-invocable: true
 /pr-create [--base <branch>] [--draft]
 ```
 
-- **`--base`**: PR の base ブランチ（省略時は `develop` — CLAUDE.md「ブランチ運用ルール」に準拠）
+- **`--base`**: PR の base ブランチ（省略時は `develop` — CLAUDE.md §2「ブランチ」に準拠）
 - **`--draft`**: Draft PR として作成
 - 引数省略時: 現在の branch から `develop` への PR を作成。`main` 直指定は本番障害 hotfix のみ
 
@@ -126,7 +126,7 @@ feature ブランチを main から直接切って:
 
 ## アンチパターン
 
-- **`git add .` / `git add -A` を使わない** — 明示的にファイル指定。`.env` などの混入防止（CLAUDE.md「Git Safety Protocol」）
+- **`git add .` / `git add -A` を使わない** — 明示的にファイル指定。`.env` などの混入防止（CLAUDE.md §3「`git add` は変更したファイルだけ明示指定」）
 - **未コミット変更のまま PR 作成しない** — 必ず Step 1 で停止
 - **PR title を 70 文字超にしない** — 超過する場合は body で補足
 - **`--no-verify` を使わない** — pre-commit / pre-push が fail したら原因を直す
@@ -145,7 +145,7 @@ feature ブランチを main から直接切って:
 
 ## 参照
 
-- `CLAUDE.md` ── 「Creating pull requests」「Git Safety Protocol」セクション
+- `CLAUDE.md` ── §2「ブランチ」・§3「外科的に変更する」・§10「チェックポイント」。並行セッションの経緯は `.claude/knowledge/reference/workflows.md`「ブランチ・並行セッション運用」
 - `.claude/skills/dev/deploy/SKILL.md` ── develop→main 運用フロー（こちらは push 後のデプロイ確認まで）
 - `.github/workflows/ci.yml` ── PR on main で走る CI
 - `scripts/install-pre-push.mjs` ── push 時の test + type-check 検証（Phase 2-D）
