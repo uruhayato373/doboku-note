@@ -40,6 +40,8 @@ user-invocable: true
 
 `--rank-watch` または「SEO Rank Watch」「検索順位を継続改善」の依頼は、[seo-rank-watch.md](../../../knowledge/reference/seo-rank-watch.md) の手順で実行する。このモードでは以下の旧Phase 1〜7を重ねて回さない。1実行1キーワード、既存NSMの同時実行上限2件、ページ単位の観察ロックを守る。
 
+定期実行は `seo-rank-watch.yml`（毎日09:13 JST）が計測・判定・1件改善・記録を担当する。手動レビューは最新developのCI履歴と実行中runを先に確認し、同じ処理を重複させない。本番反映前はpending-deployで待機し、成功した本番の本文hash一致後に観察を開始する。詳細・失敗時の記録先はreferenceの日次CI/CD節を参照する。
+
 既定はCIのsnapshotを読み、`report` → `review --no-fetch`（確認後 `--commit`）→期限到来なら資格別の方針レビュー→selectedの検索意図と上位1〜3ページの比較→不足があるときだけ1件改善→`record`。1級土木・総監・建設部門の受験課題を順位より先に評価し、一般用語などのmonitor対象は改善しない。資格別候補・登録根拠・次の学習行動を確認する。`--analyze-only` は分析まで。公開成功を確認したときだけ `deploy --run-id` で観察開始する。鍵が無い環境でも未取得を推測で埋めず、CIの正確な前後期間を待つ。
 
 改善・分析のみ・候補なし・上限待ちのいずれも `npm run seo-rank-watch -- log-run --reason "判断と次の確認内容" --commit` で実行記録を残す。失敗は `--failure` を加え秘密を含まない理由を記す。同じ待機で通知しない場合も記録は省略しない。方針レビューはreferenceの4手順を行ってから `log-run --policy-review --reason "確認データと維持/変更の理由" --commit` で次回へつなぐ。28日経過で新規改善が停止しても、期限到来の効果判定は継続する。

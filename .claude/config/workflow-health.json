@@ -29,6 +29,13 @@
       "_note": "週次（木 21:00 UTC）。2026-08 に ref 欠落で 8 日間停止し GA4 by-label が止まった実績があるので連続失敗に厳しく"
     },
     {
+      "workflow": "seo-rank-watch.yml",
+      "branch": "main",
+      "maxAgeDays": 3,
+      "maxConsecutiveFailures": 2,
+      "_note": "日次09:13 JST。未発火・停止も既存の週次watchdogで拾う。取得・判断の失敗はworkflow自身が即時記録する"
+    },
+    {
       "workflow": "note-live-audit.yml",
       "maxAgeDays": 10,
       "maxConsecutiveFailures": 2,

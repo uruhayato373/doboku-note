@@ -28,7 +28,7 @@
 
 ## 1回の実行
 
-1. 既定はCI取得済みデータで `npm run seo-rank-watch -- report --json`。ローカルで取得できるときだけ `npm run seo-rank-watch -- collect`。既存 `fetch-metrics.yml` が週次に同じcollectを実行する。GSCを使えなければ欠測のまま保留し、WebSearchの順番を順位履歴へ混ぜない。
+1. 既定はCI取得済みデータで `npm run seo-rank-watch -- report --json`。日次 `seo-rank-watch.yml` がcollectを実行する。手動で再取得が必要な場合は `npm run seo-rank-watch -- collect`。GSCを使えなければ欠測のまま保留し、WebSearchの順番を順位履歴へ混ぜない。
 2. `npm run seo-rank-watch -- review --no-fetch` で期限到来分の判定を確認し、`--commit` で実験台帳へ記録する。正確な前後期間のsnapshotが無ければ保留。ローカルAPIが使える場合は `--no-fetch` を外して取得する。CLIの `--commit` はJSON保存の意味で、Git commitは別工程。
 3. 方針レビューが期限なら下記の見直しを先に記録する。reportのselectedを1件だけ扱う。資格・受験意図・価値・時期を先に判定し、その中で2〜10位→11〜20位→前回未達→高優先度の欠測とする。1位のワードは改善対象にせず、十分な非重複7日×2ならreviewでachievedへ移す。順位履歴が9日超古い、観察中、同じページが観察中、既存NSMの同時実行上限2件なら着手しない。方針レビューの期限超過も新規改善を停止する。候補ゼロで新たな改善を作らない。
 4. 「誰が・何を知りたいか」を1〜2文にし、WebSearchで現在の上位参考1〜3ページを実読する。対象記事に何が不足するかを比較して記録する。検索順は地域・時刻等に依存する参考で、厳密なGSC順位とは区別する。
@@ -50,7 +50,23 @@
 
 `discover` は既存のpage×queryから重点資格ごと最大3件を提示する。少数表示も発見候補には含めるが、効果判定の20表示基準を下げない。旧URLは `_redirects` で候補の正規URLを解決し、数値の出所は旧URLと明示する。正規URLの順位として合算・転記しない。登録・改善は自動で行わず、正規URL・検索意図・対象ファイルを確認する。
 
-週次CIのschedule定義はmainから起動し、処理対象のコードはdevelopをcheckoutする。workflow定義に追加した処理はmainへの反映後に定期実行へ入る。ローカルの日次heartbeatは別経路で動くため、両者の設定・実行実績を混同しない。
+## 日次CI/CD
+
+実行主体は `.github/workflows/seo-rank-watch.yml`（毎日09:13 JST、手動起動可）。scheduleはmainの定義から起動し、developのコード・最新台帳を扱う。GitHub側の混雑で起動が遅れることがある。PCの起動やブラウザログインは不要。週次 `fetch-metrics.yml` はGA4/GSCの広域集計を担当し、Rank Watchのcollect・判定・実行記録は日次に一本化する。Codexの事業レビューheartbeatはSEOの取得・改善を重ねて実行しない。
+
+`scripts/seo-rank-watch-ci.mjs` が既存CLIと同じSSOTを使い、次の順で実行する。
+
+1. 最新の成功した本番デプロイと改善本文hashを照合し、一致したpending-deployだけ観察を開始する。
+2. GSCの確定7日と期限到来の前後期間を取得し、reviewを実行する。計測・効果判定を先にdevelopへcommitする。
+3. 選定候補または28日方針レビューがある場合だけ、既存 `CLAUDE_CODE_OAUTH_TOKEN` で検索意図・上位参考ページを調べる。エージェントは一時JSONだけを書き、本文や台帳の直接編集・shell実行はしない。候補なし・上限待ちはコードで理由を記録する。
+4. 選定時の設定・台帳・本文hashが変わっていないことを確認し、最大3箇所の小さな記事改善を適用する。noindex・公開状態・資格分類・H1/H2構造の変更を拒否し、MDX検証と既存の観察ロックを通す。本文に関係する索引だけを再生成し、1記事と改善履歴・実行記録をdevelopへ保存する。
+5. 失敗時は別jobが最新developにfailedの実行記録だけを追記し、既存の `automation-failure` Issueへ通知する。失敗途中の未検証本文は保存しない。診断用一時JSONはartifactへ14日保存する。
+
+起動自体が止まった場合も、既存の週次 `check-workflow-health` が検出する。閾値は `.claude/config/workflow-health.json`（最終成功から3日超、または2連続失敗）。
+
+GSC鍵は既存 `GOOGLE_SERVICE_ACCOUNT_KEY_JSON` からrunnerの一時領域へ復元し、計測後に削除する。履歴は追記専用で、更新競合はforce pushせず失敗として残す。判定と再改善を別commitにすることで、変更前HEADの観察ロックを守る。
+
+CIの改善保存先はdevelop。本番反映は従来の `/deploy` で判断するため、未反映の間はpending-deployとして再編集を止める。CIの方針レビューはデータ・維持理由・変更提案を記録し、監視語追加やpriority変更は提案を確認して既存手順で適用する。日次実行の結果はActions Summaryと管理画面 `/metrics/seo-watch` の共通履歴で確認する（別PCはdevelopの最新記録を取得する）。
 
 ## 28日ごとの方針レビュー
 
@@ -86,4 +102,4 @@ pre-commitの `check-seo-rank-watch --staged` は、**変更前HEAD**で観察�
 
 ローカル認証は既存の `GOOGLE_SERVICE_ACCOUNT_KEY_PATH` を使う。CIは既存secretを使う。鍵・Cookie・トークンを出力／コミットしない。Google SERPを独自スクリプトで取得しない。
 
-検証: `npm run check-seo-rank-watch`、`node --test tests/seo-rank-watch.test.mjs tests/gsc-pagination.test.mjs`。画面は読み取り専用で、外部公開・任意shell実行ボタンは設けない。
+検証: `npm run check-seo-rank-watch`、`node --test tests/seo-rank-watch.test.mjs tests/seo-rank-watch-ci.test.mjs tests/gsc-pagination.test.mjs`、`npm run check-workflow-hygiene`。画面は読み取り専用で、外部公開・任意shell実行ボタンは設けない。
