@@ -1,0 +1,45 @@
+{
+  "reviewedAt": "2026-09-13",
+  "taskId": "DN-0209",
+  "method": "official PDF rendered at 1800px and all 3 pages read visually; comparison to existing local reconstruction; not OCR text availability",
+  "source": {
+    "url": "https://www.engineer.or.jp/c_topics/011/attached/attach_11991_2.pdf",
+    "sha256": "247c4fa2035ba7701fea3d196c09726f89483ee6677b12bd0efab662980a8163",
+    "pages": 3
+  },
+  "target": {
+    "path": "content/site/pe-comprehensive-management/r08-secondary/article.mdx",
+    "sha256": "fcd1db7200d327144f35c598124e66a27ee0b667b548214ec1e6dd0206c6b293"
+  },
+  "checks": [
+    {
+      "page": 1,
+      "result": "verified",
+      "scope": "前文・3政策目標・アウトプットa〜r 18項目と群/目標の対応",
+      "changes": "再現注記を照合済みへ更新。図を項目・対応保持/説明要約の再作図として配線。政策目標2の地方生活環境、目標3の活力あふれるを訂正。"
+    },
+    {
+      "page": 2,
+      "result": "verified",
+      "scope": "産官学金労言士、事業/組織の範囲、地方の定義、総監の視点、(1)①②と1枚上限",
+      "changes": "(1)番号を編集見出しへ明示。"
+    },
+    {
+      "page": 3,
+      "result": "verified",
+      "scope": "(1)記載例と異なるアウトプット、(2)①〜③と各取組1枚、(3)①〜③と各施策1枚、5管理/広い視点の相違",
+      "changes": "独自解説の「各設問③で管理分野明記」を訂正。(2)③の要求と(3)③の複数視点を区別。答案5枚の区切りとアウトプット選択条件を補足。"
+    }
+  ],
+  "unverified": [],
+  "figure": {
+    "path": "content/site/pe-comprehensive-management/r08-secondary/img/exam-r08-output-map.svg",
+    "kind": "redrawn-and-summarized",
+    "visualReview": "960px render verified; full text list retained for narrow viewport"
+  },
+  "validation": [
+    "MDX compiled with remarkGfm/remarkMath/rehypeKatex",
+    "source registry and section citation passed",
+    "figure 18 items mapped to 3 goals checked visually"
+  ]
+}

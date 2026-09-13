@@ -979,6 +979,30 @@
       "commit": "260982316149",
       "verification": "check-figure-canvas/check-mdx-images tests2 PASS; 実staged図12枚PASS; MDX12記事の偽画像欠落警告0",
       "note": "staged SVGの正規表現を修正し、12図が実際に検査されることを確認。MDX画像の実体をcontent/siteで確認するよう変更。正常/不正寸法/命名/実体欠落/HTML偽装/越境を回帰テスト化。"
+    },
+    {
+      "id": "DN-0207",
+      "task": "技術士一次の計算ガイド3本と独自図3枚を整備する",
+      "verification": "7関連MDX compile・KaTeX PASS、逆算/代入/直交/節点の検算、400px図3枚目視、guide length・sources・refresh-indexes PASS",
+      "note": "行列/ベクトル・微積分/数値解析・抵抗回路の独自例題と2年度以上の過去問リンク、科目ガイドと過去問からの戻り導線を追加。公開・SNS配信と実測はDN-0220。",
+      "at": "2026-09-13",
+      "tier": "medium",
+      "executor": "codex",
+      "outcome": "done",
+      "plan": null,
+      "commit": null
+    },
+    {
+      "id": "DN-0209",
+      "task": "総監R8記述式を公式問題全3ページと照合し図と解答方針を訂正する",
+      "verification": "公式PDF3/3ページ目視・a〜r18項目/選択条件/答案枚数を照合、MDX compile・sources・canvas PASS、再作図960px目視",
+      "note": "照合記録 .claude/state/pdf-mdx-audit/2026-09-13-r08-secondary.json。設問（2）③の管理分野明記と（3）③の複数視点を区別。再現注記を更新、政策目標説明を要約した図と原文の項目リストを併記。公開と実測はDN-0220。",
+      "at": "2026-09-13",
+      "tier": "high",
+      "executor": "codex",
+      "outcome": "done",
+      "plan": null,
+      "commit": null
     }
   ]
 }
