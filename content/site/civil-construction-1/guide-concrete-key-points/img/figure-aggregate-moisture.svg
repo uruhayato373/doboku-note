@@ -5,11 +5,11 @@
   <defs>
     <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
-      .t-lead { font-size: 11px; fill: #555; }
-      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
-      .t-desc { font-size: 11px; fill: #222; }
-      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
-      .t-item { font-size: 11px; fill: #222; }
+      .t-lead { font-size: 13px; fill: #555; }
+      .t-name { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 13px; fill: #222; }
+      .t-sec  { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 13px; fill: #222; }
       .cell { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
       .grain { fill: #d7d7d7; stroke: #8a8a8a; stroke-width: 1.5; }
       .film { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
@@ -58,8 +58,8 @@
   <rect class="box-surf" x="20" y="320" width="360" height="162" rx="6"/>
   <text class="t-sec" x="200" y="342" text-anchor="middle">読み取り方</text>
   <line class="rule" x1="36" y1="351" x2="364" y2="351"/>
-  <text class="t-item" x="40" y="376">絶乾 → 気乾 → 表乾 → 湿潤 の順に含水量が増える</text>
+  <text class="t-item" x="40" y="376">絶乾 → 気乾 → 表乾 → 湿潤 の順で含水量が増加</text>
   <text class="t-item" x="40" y="400">配合計算の基準となるのは表乾状態</text>
-  <text class="t-item" x="40" y="424">表乾を超えて表面に付いた水が表面水</text>
-  <text class="t-item" x="40" y="448">吸水率の限度は細骨材 3.5%・粗骨材 3.0% 以下</text>
+  <text class="t-item" x="40" y="424">表面水は、表乾を超えて表面に付いた水</text>
+  <text class="t-item" x="40" y="448">配合では表面水を考慮して練混ぜ水を補正</text>
 </svg>

@@ -10,9 +10,9 @@
 //
 // 検証する不変条件:
 //   1. viewBox="0 0 400 500"
-//   2. 資格ピル「技術士 総監」を含む（塗りピル）
+//   2. 資格別ピル（figure-pack-labels.mjs）を含む（塗りピル）
 //   3. 管理区分ピルの枠 stroke を含む（2ピル構造）
-//   4. 固定バッジ「択一 頻出テーマ」を含む
+//   4. 資格別バッジを含む
 //   5. フッター文言が "doboku-note.com"（"@doboku-note" は旧仕様 = NG）
 //   6. パスが content/sns/instagram/{exam}/... 配下（exam 試験dir直下に置かない）
 //
@@ -24,6 +24,7 @@
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
+import { figurePackLabels } from '../.claude/scripts/sns/lib/figure-pack-labels.mjs';
 
 const STAGED = process.argv.includes('--staged');
 const ROOT = 'content/sns/instagram';
@@ -54,6 +55,8 @@ for (const f of files) {
   const svg = readFileSync(f, 'utf8');
   const rel = f.slice(`${ROOT}/`.length); // 例: cem/herzberg-.../carousel/img/00-cover.svg
   const examDir = rel.split('/')[0];
+  let labels;
+  try { labels = figurePackLabels(examDir); } catch (error) { problems.push(`${f}: ${error.message}`); continue; }
 
   // 6. パス規約: 試験dir配下か（instagram 直下の {slug}/carousel/... は NG）
   const segs = rel.split('/');
@@ -64,11 +67,11 @@ for (const f of files) {
   // 1. viewBox
   if (!/viewBox="0 0 400 500"/.test(svg)) problems.push(`${f}: viewBox="0 0 400 500" が必要`);
   // 2. 資格ピル
-  if (!svg.includes('技術士 総監')) problems.push(`${f}: 資格ピル「技術士 総監」が無い`);
+  if (!svg.includes(labels.exam)) problems.push(`${f}: 資格ピル「${labels.exam}」が無い`);
   // 3. 2ピル構造（枠ピルの stroke）
   if (!/<rect[^>]*stroke="#a36b2c"/.test(svg)) problems.push(`${f}: 管理区分の枠ピル（stroke="#a36b2c"）が無い＝2ピル構造でない`);
   // 4. 固定バッジ
-  if (!svg.includes('択一 頻出テーマ')) problems.push(`${f}: 固定バッジ「択一 頻出テーマ」が無い`);
+  if (!svg.includes(labels.badge)) problems.push(`${f}: 資格別バッジ「${labels.badge}」が無い`);
   // 5. フッター文言
   if (!svg.includes('doboku-note.com')) problems.push(`${f}: フッターが "doboku-note.com" でない`);
   if (svg.includes('@doboku-note')) problems.push(`${f}: 旧フッター "@doboku-note" を使用（"doboku-note.com" に統一）`);

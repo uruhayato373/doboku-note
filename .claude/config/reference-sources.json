@@ -2558,6 +2558,51 @@
       "aliases": {
         "ISO 27001": "iso-27001"
       }
+    },
+    {
+      "id": "mlit-airport-estimation-2020",
+      "title": "令和2年度 空港土木請負工事積算基準（国土交通省航空局）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/koku/content/R2d_kuko_sekisankijun.pdf"
+      }
+    },
+    {
+      "id": "cgr-concrete-repair-2021",
+      "title": "コンクリート部材の補修補強にあたっての事前・事後処理（中国地方整備局公開・令和3年度研修資料）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.cgr.mlit.go.jp/cmc/common/img/training/repair2021/text_repair2021_07.pdf"
+      }
+    },
+    {
+      "id": "uk-port-marine-safety-guide",
+      "title": "A guide to good practice on port and marine facilities（英国運輸省・海事沿岸警備庁）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.gov.uk/government/publications/a-guide-to-good-practice-on-port-marine-operations/a-guide-to-good-practice-on-port-and-marine-facilities"
+      }
+    },
+    {
+      "id": "hse-hsg245",
+      "title": "HSG245 Investigating accidents and incidents（英国HSE）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.hse.gov.uk/pubns/hsg245.pdf"
+      }
+    },
+    {
+      "id": "gsi-level-survey",
+      "title": "水準点の測量（国土地理院）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.gsi.go.jp/sokuchikijun/suijun-survey.html"
+      }
     }
   ]
 }

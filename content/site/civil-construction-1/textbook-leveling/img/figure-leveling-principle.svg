@@ -5,13 +5,13 @@
   <defs>
     <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
-      .t-lead { font-size: 11px; fill: #555; }
-      .t-lbl  { font-size: 11px; fill: #222; }
+      .t-lead { font-size: 13px; fill: #555; }
+      .t-lbl  { font-size: 13px; fill: #222; }
       .t-dim  { font-size: 13px; font-weight: bold; fill: #2e6da4; }
-      .t-sight{ font-size: 11px; fill: #555; }
+      .t-sight{ font-size: 13px; fill: #555; }
       .t-form { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
-      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
-      .t-item { font-size: 11px; fill: #222; }
+      .t-sec  { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 13px; fill: #222; }
       .staff  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
       .level  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
       .tripod { stroke: #3a7d44; stroke-width: 1.5; fill: none; }
@@ -23,7 +23,7 @@
       .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
       .rule   { stroke: #d7d7d7; stroke-width: 1; }
     </style>
-    <marker id="lv-up" markerWidth="7" markerHeight="7" refX="7" refY="3.5" orient="auto">
+    <marker id="lv-up" markerWidth="7" markerHeight="7" refX="7" refY="3.5" orient="auto-start-reverse">
       <polygon points="0,0 7,3.5 0,7" fill="#2e6da4"/>
     </marker>
   </defs>
@@ -55,15 +55,19 @@
   <text class="t-lbl" x="190" y="78" text-anchor="middle">レベル</text>
 
   <!-- 寸法 a -->
-  <line class="dim" x1="48" y1="96" x2="48" y2="216" marker-start="url(#lv-up)" marker-end="url(#lv-up)"/>
+  <line class="dim" x1="48" y1="96" x2="48" y2="216"/>
   <text class="t-dim" x="36" y="160" text-anchor="middle">a</text>
 
+  <path d="M43 96 H53 M43 216 H53" class="dim"/>
+
   <!-- 寸法 b -->
-  <line class="dim" x1="352" y1="96" x2="352" y2="190" marker-start="url(#lv-up)" marker-end="url(#lv-up)"/>
+  <line class="dim" x1="352" y1="96" x2="352" y2="190"/>
   <text class="t-dim" x="366" y="147" text-anchor="middle">b</text>
 
-  <text class="t-lbl" x="71" y="238" text-anchor="middle">後視標尺（既知点）</text>
-  <text class="t-lbl" x="329" y="210" text-anchor="middle">前視標尺（未知点）</text>
+  <path d="M347 96 H357 M347 190 H357" class="dim"/>
+
+  <text class="t-lbl" x="71" y="238" text-anchor="middle">後視（既知点）</text>
+  <text class="t-lbl" x="329" y="210" text-anchor="middle">前視（未知点）</text>
 
   <rect class="band" x="20" y="258" width="360" height="52" rx="6"/>
   <text class="t-form" x="200" y="282" text-anchor="middle">高低差 Δh ＝ a − b</text>
@@ -72,9 +76,9 @@
   <rect class="box-surf" x="20" y="322" width="360" height="160" rx="6"/>
   <text class="t-sec" x="200" y="346" text-anchor="middle">水準測量の主な用語</text>
   <line class="rule" x1="36" y1="355" x2="364" y2="355"/>
-  <text class="t-item" x="40" y="378">後視（B.S.）　既知点方向、進行方向の後方の読み</text>
-  <text class="t-item" x="40" y="400">前視（F.S.）　未知点方向、進行方向の前方の読み</text>
+  <text class="t-item" x="40" y="378">後視（B.S.）　高さを引き継ぐ側の読み</text>
+  <text class="t-item" x="40" y="400">前視（F.S.）　次に高さを求める側の読み</text>
   <text class="t-item" x="40" y="422">器械高（I.H.）　レベルの視準線の標高</text>
-  <text class="t-item" x="40" y="444">移器点（T.P.）　標尺を据え替える点</text>
+  <text class="t-item" x="40" y="444">移器点（T.P.）　移器前後に共通で読む点</text>
   <text class="t-item" x="40" y="466">中間点（I.P.）　移器点以外で標高を求める点</text>
 </svg>

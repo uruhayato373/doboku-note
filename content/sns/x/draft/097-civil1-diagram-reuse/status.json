@@ -1,0 +1,25 @@
+{
+  "exam": "civil-1",
+  "campaign": "diagram-reuse-20260913",
+  "updated_at": "2026-09-13T13:30:00+09:00",
+  "tweets": {
+    "1": {
+      "title": "骨材の含水状態と配合",
+      "status": "draft",
+      "text": "表乾は、骨材の内部が満水でも表面は乾いた状態。湿潤は表面にも水があります。配合計算は表乾が基準。4つの状態を図で見比べてみてください。\n\nhttps://doboku-note.com/exam/civil-construction-1/guide/concrete-key-points?utm_source=x&utm_medium=social&utm_campaign=diagram-reuse-20260913&utm_content=aggregate-moisture\n#1級土木施工管理技士",
+      "image": "img/tweet-01-aggregate-moisture.png"
+    },
+    "2": {
+      "title": "水準測量の読みと計算",
+      "status": "draft",
+      "text": "水準測量の高低差は「後視−前視」。到達点の標高は、既知点の標高にその差を足します。同じ水平線で読む図を見ると、標尺の読みと地盤の高さを分けて考えられます。\n\nhttps://doboku-note.com/exam/civil-construction-1/textbook/leveling?utm_source=x&utm_medium=social&utm_campaign=diagram-reuse-20260913&utm_content=leveling-principle\n#1級土木施工管理技士",
+      "image": "img/tweet-02-leveling-principle.png"
+    },
+    "3": {
+      "title": "ネットワーク工程の余裕時間",
+      "status": "draft",
+      "text": "余裕5日でも、全部使うと後続作業が遅れることがあります。TFは全体工期、FFは後続の最早開始を守る余裕。この例はTF5日・FF3日なので、差のIF2日は後続に影響します。\n\nhttps://doboku-note.com/exam/civil-construction-1/textbook/network-schedule?utm_source=x&utm_medium=social&utm_campaign=diagram-reuse-20260913&utm_content=network-floats\n#1級土木施工管理技士",
+      "image": "img/tweet-03-network-floats.png"
+    }
+  }
+}

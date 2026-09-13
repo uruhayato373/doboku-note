@@ -13,7 +13,7 @@ deleteOnComplete: true
 
 ## SSOT と対象
 
-content/site/civil-construction-1/guide-concrete-key-points/ / content/site/civil-construction-1/textbook-leveling/ / content/site/pe-comprehensive-management/network-planning/ / content/sns/
+content/site/civil-construction-1/guide-concrete-key-points/ / content/site/civil-construction-1/textbook-leveling/ / content/site/civil-construction-1/textbook-network-schedule/ / content/sns/
 
 優先順位・残作業は backlog、担当は todo:claim、完了記録は dispatch-log。図の正典はサイトSVG、配信状態は既存SNS台帳。新しい進捗台帳は作らない。
 

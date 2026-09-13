@@ -77,7 +77,7 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 | `/pe-note-plan` | 技術士総監 記述式 note 有料記事・magazine の**編集ロードマップ**を提案する企画スキル（本文は書かない）。段階投下方針・magazine 在庫・価格・過去問カバレッジを突合し「次に何を・どの順で・いくらで出すか」を優先度付きで提示 | `noteの次の一手`, `magazine企画`, `記述式コンテンツの投下計画`, `/pe-note-plan [--horizon {next\|quarter}]` |
 | `/note-hashtags` | note 公開用ハッシュタグ 99 個を生成（選択科目は `--article II1-1` 等でファイル別出力） | `ハッシュタグ生成`, `/note-hashtags {slug} [--article {suffix}]` |
 | `/ig-post-create` | Instagram カルーセル PNG の**新規生成**（過去問パック・KW 解説の単発）。※既存パック再生成は restyle、figure 変換は figure-pack | `Instagram投稿作成`, `IG スライド`, `/ig-post-create --slug {kw}` |
-| `/ig-figure-pack` | キーワードの **site figure SVG を** 4 枚カルーセルパック（表紙/図解/テキスト/CTA）に変換。resvg-js で 1080×1350 PNG 生成 + caption.txt。slide-data.json 不要の軽量ワンオフ用途（過去問パックは対象外） | `IG figure 投稿`, `キーワード図解カルーセル`, `/ig-figure-pack {keyword}` |
+| `/ig-figure-pack` | 総監・1級土木・建設部門のサイトSVGを4枚カルーセル下書きへ展開。資格別ラベル・白背景・元図参照・各枚の目視確認と既存公開台帳への引継ぎ | `IG figure 投稿`, `キーワード図解カルーセル`, `/ig-figure-pack {keyword}` |
 | `/ig-carousel-restyle` | tokens.json 更新後に**既存**過去問パック PNG を 3 フォーマット（Carousel/Reels/Stories）一括再生成（新規生成は post-create） | `IGデザイン再適用`, `カルーセル再生成`, `/ig-carousel-restyle --year r07` |
 | `/ig-reel-create` | 過去問パックのカルーセル PNG から 1080×1920 Reels mp4 を生成（VOICEVOX TTS + ffmpeg）。`--exam-dir` で多資格対応（技術士総監 / 1級土木 / 2級土木、2級は年度に z=前期 / k=後期 接尾辞） | `IG リール作成`, `動画化`, `/ig-reel-create --exam-dir 1級土木 --exam r07-pack-01 --skip-png` |
 | `/x-campaign-plan` | X 月次投稿計画（`.claude/config/x-campaigns/YYYY-MM-*.json`）を **1日3本体制（schemaVersion 2）**で起案。試験日程・自投稿の反応実測（`x-own-metrics`・**中央値で読む**）・競合 snapshot・商品カタログ（listed/published のみ）から資格配分と時間帯スロット A/B/C を決め、`check-x-campaign-plan` 緑まで通してから writer へ渡す。投入は 1 週間分ずつ | `来月のX計画`, `X投稿計画を立てて`, `/x-campaign-plan --month 2026-09` |
