@@ -20,6 +20,13 @@ test('noindex, publication, route metadata and headings cannot be changed automa
 test('reject executable markup, oversized replacement and absent metadata', () => {
   for (const replacement of [{ ...patch, new: '<script>bad()</script>' }, { ...patch, new: 'x'.repeat(8001) }, { old: 'seoTitle: 試験対策の方法', new: 'seoTitle: null' }]) assert.throws(() => applyReplacements(original, [replacement]));
 });
+test('reject executable MDX even when a replacement hides part of the expression', () => {
+  assert.throws(() => applyReplacements(original, [{ ...patch, new: '{process.env.SECRET}' }]), /Executable/);
+  const withExpression = original + '\n{1 + 1}\n';
+  assert.throws(() => applyReplacements(withExpression, [{ old: '1 + 1', new: 'process.exit(0)' }]), /Executable/);
+  assert.ok(applyReplacements(withExpression, [patch]).includes('{1 + 1}'));
+  assert.throws(() => applyReplacements(original, [{ ...patch, new: '<button onClick="bad">確認</button>' }]), /Executable/);
+});
 test('waiting or monitoring cannot be turned into an improvement by agent output', () => {
   assert.throws(() => validateAgentResult({ selected: null }, { reason: '候補がないのに変更しようとする', policyReview: null, improvement: { watchId: 'test' } }), /selected keyword/);
   assert.throws(() => validateAgentResult({ selected: { id: 'first' } }, { reason: '選定された語とは異なる変更', policyReview: null, improvement: { watchId: 'second' } }), /selected keyword/);

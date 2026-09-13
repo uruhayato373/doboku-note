@@ -1,5 +1,23 @@
 import matter from 'gray-matter';
+import { unified } from 'unified';
+import remarkParse from 'remark-parse';
+import remarkMdx from 'remark-mdx';
+import remarkMath from 'remark-math';
 import { hash } from './seo-rank-watch.mjs';
+
+// MDX validation evaluates expressions. Freeze executable nodes before invoking that validator.
+function executableContent(body) {
+  const nodes = [];
+  const visit = node => {
+    if (['mdxFlowExpression', 'mdxTextExpression', 'mdxjsEsm', 'mdxJsxExpressionAttribute', 'mdxJsxAttributeValueExpression'].includes(node.type)) nodes.push([node.type, node.value]);
+    if (node.type === 'mdxJsxAttribute' && /^(?:on[A-Z]|dangerouslySetInnerHTML)/.test(node.name)) nodes.push([node.name, node.value?.value ?? node.value]);
+    if (['mdxJsxFlowElement', 'mdxJsxTextElement'].includes(node.type) && /^(?:script|iframe|style|meta|link)$/i.test(node.name ?? '')) nodes.push(['element', node.name]);
+    for (const child of node.children ?? []) visit(child);
+    for (const attr of node.attributes ?? []) { visit(attr); if (attr.value && typeof attr.value === 'object') visit(attr.value); }
+  };
+  visit(unified().use(remarkParse).use(remarkMath).use(remarkMdx).parse(body));
+  return JSON.stringify(nodes);
+}
 
 /** Apply a small, reviewable edit to the selected article; paths never come from the model. */
 export function applyReplacements(original, replacements) {
@@ -12,6 +30,7 @@ export function applyReplacements(original, replacements) {
     text = text.replace(patch.old, () => patch.new);
   }
   const before = matter(original), after = matter(text);
+  if (executableContent(before.content) !== executableContent(after.content)) throw Error('Executable MDX changes require code review');
   const editable = new Set(['title', 'seoTitle', 'description', 'dateModified', 'faq', 'faqs']);
   for (const key of new Set([...Object.keys(before.data), ...Object.keys(after.data)])) {
     if (!editable.has(key) && JSON.stringify(before.data[key]) !== JSON.stringify(after.data[key])) throw Error(`Protected frontmatter: ${key}`);
