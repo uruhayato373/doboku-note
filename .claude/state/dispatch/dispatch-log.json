@@ -835,6 +835,18 @@
       "commit": null,
       "verification": "check-note-membership PASS、両プラン編集画面をread-only実査、非ログイン加入ページで名称・月額1480/4980を確認",
       "note": "未保存という前提が陳腐化。2プランとも名称・説明・会費・特典マガジンが保存済みで公開面一致のため、無意味な再保存をせず行14だけ削除"
+    },
+    {
+      "id": "DN-0210",
+      "at": "2026-09-13",
+      "task": "SEO Rank Watch を既存の計測・実験・管理画面へ統合する",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "10cab93f4649",
+      "verification": "node --test tests/seo-rank-watch.test.mjs tests/gsc-pagination.test.mjs",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }
