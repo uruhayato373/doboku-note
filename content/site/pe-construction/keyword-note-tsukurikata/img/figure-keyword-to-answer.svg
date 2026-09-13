@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500" role="img" aria-label="知識ノートと設問条件を照合し、答案に使う内容を選ぶ流れ" style="max-width:400px;width:100%">
+<defs><style>
+text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;fill:#222} /* ink-strong */
+.h{font-size:17px;font-weight:bold}.t{font-size:14px}.s{font-size:13px;fill:#555} /* ink-body */
+.b{fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5} /* brand */
+.g{fill:#d0e8d0;stroke:#3a7d44;stroke-width:1.5} /* positive */
+.w{fill:#fff3cd;stroke:#d4a017;stroke-width:1.5} /* warn */
+.a{fill:none;stroke:#2e6da4;stroke-width:2;marker-end:url(#arrow)}
+</style><marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#2e6da4"/></marker></defs>
+<rect x="20" y="25" width="170" height="80" rx="8" class="b"/><text x="105" y="54" text-anchor="middle" class="h">知識ノート</text><text x="105" y="79" text-anchor="middle" class="t">背景・課題・対応</text><rect x="210" y="25" width="170" height="80" rx="8" class="b"/><text x="295" y="54" text-anchor="middle" class="h">設問の条件</text><text x="295" y="79" text-anchor="middle" class="t">対象・立場・動詞</text><path d="M105 105 V138 H200 V164" class="a"/><path d="M295 105 V138 H200" class="a" style="marker-end:none"/><rect x="25" y="170" width="350" height="82" rx="8" class="w"/><text x="200" y="199" text-anchor="middle" class="h">必要な情報を選び直す</text><text x="200" y="224" text-anchor="middle" class="t">問われた範囲・順序・分量へ</text><path d="M200 252 V285 H105 V311" class="a"/><path d="M200 285 H295 V311" class="a"/><rect x="20" y="317" width="170" height="86" rx="8" class="b"/><text x="105" y="346" text-anchor="middle" class="h">説明を求める問い</text><text x="105" y="371" text-anchor="middle" class="t">原理・特徴・適用</text><rect x="210" y="317" width="170" height="86" rx="8" class="b"/><text x="295" y="346" text-anchor="middle" class="h">遂行を求める問い</text><text x="295" y="371" text-anchor="middle" class="t">調査・判断・調整</text><text x="200" y="454" text-anchor="middle" class="h">同じ知識でも、答案の形は変わる</text>
+</svg>

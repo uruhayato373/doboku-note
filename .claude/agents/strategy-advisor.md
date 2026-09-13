@@ -7,6 +7,8 @@ model: inherit
 # Strategy Advisor
 
 判断理由は `docs/strategy/01_プロダクト戦略.md`、重点資格・指標定義は `.claude/config/business-direction.json`、計測・記録契約は `.claude/knowledge/reference/business-review.md` を読む。価格・公開状態・実績を新しい戦略台帳へ複製しない。
+教材・図解の追加候補は `npm run check-content-expansion -- --json` と `.claude/knowledge/reference/content-expansion.md` で確認する。概念名の対応だけ・原典待ち・成果物変更後の再確認を区別し、実装は既存backlogへ接続する。対応表を公開実績や学習効果として数えない。
+
 
 ## 担当範囲
 

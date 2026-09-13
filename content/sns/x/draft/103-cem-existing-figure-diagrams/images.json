@@ -1,0 +1,212 @@
+[
+  {
+    "tweet": "1",
+    "concept": "将来の400万円を今の価値で比べる",
+    "needs": "割引率と受取時点をそろえて投資を比べる",
+    "file": "img/tweet-01-npv-net-present-value.png",
+    "article": {
+      "path": "content/site/pe-comprehensive-management/npv-net-present-value/article.mdx",
+      "sha256": "9ab2a7767f0b4ec40699db94dd391057fb1b3114ddbe17f1b3b760a93f998e64"
+    },
+    "figure": {
+      "path": "content/site/pe-comprehensive-management/npv-net-present-value/img/figure-1.svg",
+      "sha256": "aee669d634175d7e2aaf1a68d95bee1ddb1ce7b66df2b44cf354aed0c0ec6694"
+    }
+  },
+  {
+    "tweet": "2",
+    "concept": "貸すお金と借りるお金の違い",
+    "needs": "取引主体から投資CFと財務CFを区別する",
+    "file": "img/tweet-02-cash-flow-statement.png",
+    "article": {
+      "path": "content/site/pe-comprehensive-management/cash-flow-statement/article.mdx",
+      "sha256": "c57941f707c6d865ec3d41881fbbe5e196c5c0368bd646ce21bba7ba5e2bfeed"
+    },
+    "figure": {
+      "path": "content/site/pe-comprehensive-management/cash-flow-statement/img/figure-cf-investing-vs-financing.svg",
+      "sha256": "86ad9e992b383173589f6b406d9fdbd150484a489f87f67b76894a5b8cbebe63"
+    }
+  },
+  {
+    "tweet": "3",
+    "concept": "5つの利益は何を加減した結果か",
+    "needs": "利益を段階ごとの収益費用から読み分ける",
+    "file": "img/tweet-03-income-statement.png",
+    "article": {
+      "path": "content/site/pe-comprehensive-management/income-statement/article.mdx",
+      "sha256": "0f4baf4ac003e433f170043157e463beb914913e53b2d816c0b1a23648098489"
+    },
+    "figure": {
+      "path": "content/site/pe-comprehensive-management/income-statement/img/figure-five-profits.svg",
+      "sha256": "86402069e0d7b5e3b9549360660582e3d2af9ce12bcb8e3065f3e1528086c1a9"
+    }
+  },
+  {
+    "tweet": "4",
+    "concept": "作業の余裕はどの時刻の差か",
+    "needs": "作業時間と全体工程に対する余裕を区別する",
+    "file": "img/tweet-04-pert-cpm.png",
+    "article": {
+      "path": "content/site/pe-comprehensive-management/pert-cpm/article.mdx",
+      "sha256": "35f224ca44cf07290f41a52f54776a8412af8605f4f84e6b2c3192c50a368578"
+    },
+    "figure": {
+      "path": "content/site/pe-comprehensive-management/pert-cpm/img/figure-pert-network-diagram.svg",
+      "sha256": "14d46dedeb8ad52885dcbe78502fe8ed8debe3ab3a2aa67299c7251e7770ea3b"
+    }
+  },
+  {
+    "tweet": "5",
+    "concept": "利益を増やす前に制約を重ねる",
+    "needs": "実行可能性と目的関数の改善を図から判断する",
+    "file": "img/tweet-05-linear-programming.png",
+    "article": {
+      "path": "content/site/pe-comprehensive-management/linear-programming/article.mdx",
+      "sha256": "b14f7beb9cb693bc59a1b91db58a8b86bcb775a0d211a62f8701f867d902a03d"
+    },
+    "figure": {
+      "path": "content/site/pe-comprehensive-management/linear-programming/img/figure-lp-graphical-method.svg",
+      "sha256": "018cf54950facca095492d40d94486a6c91a07aacffa3fec13fd54e105435148"
+    }
+  },
+  {
+    "tweet": "6",
+    "concept": "工期の確率は何を前提に計算したか",
+    "needs": "完了確率を入力分布と相関の条件付きで読む",
+    "file": "img/tweet-06-monte-carlo-simulation.png",
+    "article": {
+      "path": "content/site/pe-comprehensive-management/monte-carlo-simulation/article.mdx",
+      "sha256": "cc8c7ce949a8602fbe49ad4713214356ede0d2bbeee2d92024435e9375a2e828"
+    },
+    "figure": {
+      "path": "content/site/pe-comprehensive-management/monte-carlo-simulation/img/figure-monte-carlo-s-curve.svg",
+      "sha256": "96d1d19b1821d7f5e626dfc2e9b7e8a1674ee1f68bc6dd4be8d143404840286f"
+    }
+  },
+  {
+    "tweet": "7",
+    "concept": "相関が0なら独立といえるか",
+    "needs": "相関係数の値だけで独立や因果を判断しない",
+    "file": "img/tweet-07-correlation-analysis.png",
+    "article": {
+      "path": "content/site/pe-comprehensive-management/correlation-analysis/article.mdx",
+      "sha256": "f32b45bafad69680f4ee0cef76f4b79a21f41d213e898fb8a2d36fe895ac003d"
+    },
+    "figure": {
+      "path": "content/site/pe-comprehensive-management/correlation-analysis/img/figure-correlation-scatter-patterns.svg",
+      "sha256": "8c1eadd5cce99a6bb9647a64bad04b0650d130e5c9976aa047a738b467abdee2"
+    }
+  },
+  {
+    "tweet": "8",
+    "concept": "故障は一つで起きるか全てが必要か",
+    "needs": "頂上事象が成立する条件から論理ゲートを選ぶ",
+    "file": "img/tweet-08-fta.png",
+    "article": {
+      "path": "content/site/pe-comprehensive-management/fta/article.mdx",
+      "sha256": "4fa3db12c1a809cbda65a2069514c411d0733cb256986387cd587511194dbed2"
+    },
+    "figure": {
+      "path": "content/site/pe-comprehensive-management/fta/img/figure-or-and-gates.svg",
+      "sha256": "f44750583a89298d642cd274323cfc34e51e3e44b0c45100b3debe8569944bc2"
+    }
+  },
+  {
+    "tweet": "9",
+    "concept": "最初の異常から結果をたどる",
+    "needs": "防護の分岐と共通原因を区別して事故経路を読む",
+    "file": "img/tweet-09-eta.png",
+    "article": {
+      "path": "content/site/pe-comprehensive-management/eta/article.mdx",
+      "sha256": "b4f5cb7473e00e99576037bb382ac18a772bd3c25cc2ece9c51f2002169d1256"
+    },
+    "figure": {
+      "path": "content/site/pe-comprehensive-management/eta/img/figure-eta-gas-leak-example.svg",
+      "sha256": "1bcbd4051423b216a0455388c71630e11d83c865462e6e53e6d3a4e9e0e81334"
+    }
+  },
+  {
+    "tweet": "10",
+    "concept": "権限を現場に近づけたときの代償",
+    "needs": "専門性と分権による変化対応のトレードオフを考える",
+    "file": "img/tweet-10-divisional-organization.png",
+    "article": {
+      "path": "content/site/pe-comprehensive-management/divisional-organization/article.mdx",
+      "sha256": "c500d404999b8a68d794f9a18f14119dbc56fdb5db692ef6da820f66e9dbb30b"
+    },
+    "figure": {
+      "path": "content/site/pe-comprehensive-management/divisional-organization/img/figure-functional-vs-divisional.svg",
+      "sha256": "75ce96cb21c22ef0ea0549e75bc2bb52bb06e76e6dd8fe9f19ae14c7ff589e07"
+    }
+  },
+  {
+    "tweet": "11",
+    "concept": "標準化と人間関係の両方を見る",
+    "needs": "作業標準化と心理社会的な要因を補完して考える",
+    "file": "img/tweet-11-scientific-management.png",
+    "article": {
+      "path": "content/site/pe-comprehensive-management/scientific-management/article.mdx",
+      "sha256": "cf662304bcb9b2bfd170667ebaeac55030571dcc6eac4cc82f04390cb43fe8ab"
+    },
+    "figure": {
+      "path": "content/site/pe-comprehensive-management/scientific-management/img/figure-econ-to-social-model.svg",
+      "sha256": "43ecf4f0d31d506b1e4aa70436e0d1fd2a9b188f48c8c64a585132a743e8a590"
+    }
+  },
+  {
+    "tweet": "12",
+    "concept": "始業時刻を誰が決める制度か",
+    "needs": "時間配分と始業終業の決定権を取り違えない",
+    "file": "img/tweet-12-variable-work-hours.png",
+    "article": {
+      "path": "content/site/pe-comprehensive-management/variable-work-hours/article.mdx",
+      "sha256": "2e02bd0af8a0aba3ad30cda5db0faf1297cf6db77ad944ad83660bd21d00fe78"
+    },
+    "figure": {
+      "path": "content/site/pe-comprehensive-management/variable-work-hours/img/figure-1.svg",
+      "sha256": "69a9bf40d13c8a4ed90ec3aacc06932c0303fa0fc5d85da61dde0c1b9c32041b"
+    }
+  },
+  {
+    "tweet": "13",
+    "concept": "何を基準にテストするか",
+    "needs": "設計段階からテストの検証対象を明確にする",
+    "file": "img/tweet-13-waterfall.png",
+    "article": {
+      "path": "content/site/pe-comprehensive-management/waterfall/article.mdx",
+      "sha256": "3dce1afc09a135bf7e2fa27e0c651f8f7a45e57e1657fbc2059bf1f86d9d7016"
+    },
+    "figure": {
+      "path": "content/site/pe-comprehensive-management/waterfall/img/figure-1.svg",
+      "sha256": "9897c7f35356cfd1929790b6ec398eefc8f67f9f3aae9a39085e3222795afceb"
+    }
+  },
+  {
+    "tweet": "14",
+    "concept": "繰り返すたびに何を評価するか",
+    "needs": "反復開発の中に置くリスク評価の役割を説明する",
+    "file": "img/tweet-14-agile.png",
+    "article": {
+      "path": "content/site/pe-comprehensive-management/agile/article.mdx",
+      "sha256": "57c3bb6050368b4712ae68934addce5bbb3f62d3fd2ac94737dac649a84d9082"
+    },
+    "figure": {
+      "path": "content/site/pe-comprehensive-management/agile/img/figure-2.svg",
+      "sha256": "565f68d59fc24751c8d89d48b0d9eabc14e82385131411117bb5a62e85e46e98"
+    }
+  },
+  {
+    "tweet": "15",
+    "concept": "自社の強みを外の需要とつなぐ",
+    "needs": "自社の能力を顧客需要・競合条件に対応付ける",
+    "file": "img/tweet-15-three-c-analysis.png",
+    "article": {
+      "path": "content/site/pe-comprehensive-management/three-c-analysis/article.mdx",
+      "sha256": "3923b744ff860d5bcbb28e758ca0e2169a73f6234665014c490cca0f0a7e5416"
+    },
+    "figure": {
+      "path": "content/site/pe-comprehensive-management/three-c-analysis/img/figure-1.svg",
+      "sha256": "1cfe2a710fad869d409551682e4f4d17b4ba763722b9bef4730d0b3537aa5cc5"
+    }
+  }
+]

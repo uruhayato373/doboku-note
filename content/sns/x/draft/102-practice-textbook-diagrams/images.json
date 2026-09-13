@@ -1,0 +1,100 @@
+[
+  {
+    "tweet": "1",
+    "concept": "GISの面積は切り出した後に計算",
+    "needs": "元の面積属性が残ったGIS結果を見抜き、交差部分の面積を検算したい。",
+    "file": "img/tweet-01-gis-layer-validation.png",
+    "article": {
+      "path": "content/site/civil-practice/gis-layer-validation/article.mdx",
+      "sha256": "087d926c869abcb7e72414865dc7c45edcd4b4f69b1a511cd8efe99ec397864f"
+    },
+    "figure": {
+      "path": "content/site/civil-practice/gis-layer-validation/img/figure-1.svg",
+      "sha256": "77bc38ca0b33c415ce224ae11dc8fe5fcb3f50ee427e0447ebd9faad5209c1bb"
+    }
+  },
+  {
+    "tweet": "2",
+    "concept": "AI下書きは原票へ戻って確かめる",
+    "needs": "AI下書きに混ざる数量と未確認事実を、元の記録で検証したい。",
+    "file": "img/tweet-02-ai-document-verification.png",
+    "article": {
+      "path": "content/site/civil-practice/ai-document-verification/article.mdx",
+      "sha256": "ffa74c690fff863470cfab8755bfeba9c3669b01ae4946e0bb95f5c2e6e74bea"
+    },
+    "figure": {
+      "path": "content/site/civil-practice/ai-document-verification/img/figure-1.svg",
+      "sha256": "5392118e700dd93a5aa7825890134ff8c8c3944081a6aceff3cc7014c317629e"
+    }
+  },
+  {
+    "tweet": "3",
+    "concept": "材料は性能と現物をつなげて選ぶ",
+    "needs": "材料名や試験値だけで採用せず、使用条件から受入れ確認を組み立てたい。",
+    "file": "img/tweet-03-material-selection-receiving.png",
+    "article": {
+      "path": "content/site/civil-practice/material-selection-receiving/article.mdx",
+      "sha256": "022aadca8da10829e726c4ec3723e1632803d90e960b79e725d8ebce11822358"
+    },
+    "figure": {
+      "path": "content/site/civil-practice/material-selection-receiving/img/figure-1.svg",
+      "sha256": "3079a13458ea5532e460cab4bb7a7827bb326dd73e1e5f3b0703a266ea35fa95"
+    }
+  },
+  {
+    "tweet": "4",
+    "concept": "津波のおそれには退避を優先",
+    "needs": "設備確認や点呼のために津波避難を遅らせない順序を確認したい。",
+    "file": "img/tweet-04-earthquake-tsunami-site-response.png",
+    "article": {
+      "path": "content/site/civil-practice/earthquake-tsunami-site-response/article.mdx",
+      "sha256": "f6fe0fc0ce4154f3c416c0756525aba00a2b426625ca6348aa11085db209a7bb"
+    },
+    "figure": {
+      "path": "content/site/civil-practice/earthquake-tsunami-site-response/img/figure-1.svg",
+      "sha256": "c06d8fc8679e527bf318f4e56baebc4b38b2f1b1fd0c31b19176ca2c440f3b54"
+    }
+  },
+  {
+    "tweet": "5",
+    "concept": "火山の確認は作業場所と経路まで",
+    "needs": "作業区域だけでなく搬入・避難経路の火山ハザードを照合したい。",
+    "file": "img/tweet-05-volcanic-hazard-site-planning.png",
+    "article": {
+      "path": "content/site/civil-practice/volcanic-hazard-site-planning/article.mdx",
+      "sha256": "652bb5fc23398f07f470b84142d09248f2a11b31abc7442dd65583a65cead764"
+    },
+    "figure": {
+      "path": "content/site/civil-practice/volcanic-hazard-site-planning/img/figure-1.svg",
+      "sha256": "94672aa37d781f61c9abd51d978e78a41b6f7335ed3ebb653e6704414e056751"
+    }
+  },
+  {
+    "tweet": "6",
+    "concept": "台風への準備は退避完了から逆算",
+    "needs": "通常作業の停止後に残る撤収・移動時間を施工計画へ入れたい。",
+    "file": "img/tweet-06-typhoon-forecast-work-planning.png",
+    "article": {
+      "path": "content/site/civil-practice/typhoon-forecast-work-planning/article.mdx",
+      "sha256": "c74e0ac30cf9c84571997294475c4dfdf6d6b64ebba6ebd0daa47d051ebdd52c"
+    },
+    "figure": {
+      "path": "content/site/civil-practice/typhoon-forecast-work-planning/img/figure-1.svg",
+      "sha256": "cb241643df48d324014294095228dd2bc750787c04c1a6b5b5854addeea7bf7b"
+    }
+  },
+  {
+    "tweet": "7",
+    "concept": "計算の検証と実測の照合を分ける",
+    "needs": "手計算との一致と現象を表す能力を分けて、解析結果の適用範囲を確認したい。",
+    "file": "img/tweet-07-numerical-model-review.png",
+    "article": {
+      "path": "content/site/civil-practice/numerical-model-review/article.mdx",
+      "sha256": "65e7797c4516c767f997b08d8be7d25c8eaf842e06dcc728c22027cdf3d5c82a"
+    },
+    "figure": {
+      "path": "content/site/civil-practice/numerical-model-review/img/figure-1.svg",
+      "sha256": "ce7495cc98fe5f2b3d6f010fe1dbbf2da3bed20a8c172ef991a3112b6c2dcb9d"
+    }
+  }
+]

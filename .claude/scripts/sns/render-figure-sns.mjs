@@ -16,8 +16,8 @@ const categories = JSON.parse(readFileSync(join(ROOT, 'src/config/categories.jso
 export function resolveFigureInput(args, root = ROOT) {
   if (typeof args.slug !== 'string' || !/^[a-z0-9-]+(?:\/[a-z0-9-]+)?$/.test(args.slug)) throw new Error('--slug は slug または category/slug を指定してください');
   const [category, article] = args.slug.includes('/') ? args.slug.split('/') : ['pe-comprehensive-management', args.slug];
-  const config = categories.find((item) => item.slug === category && item.area === 'exam');
-  if (!config) throw new Error(`未対応の資格カテゴリ: ${category}`);
+  const config = categories.find((item) => item.slug === category && ['exam', 'practice'].includes(item.area));
+  if (!config) throw new Error(`未対応の資格・実務カテゴリ: ${category}`);
   const figure = args.figure ?? 'figure-1.svg';
   if (typeof figure !== 'string' || !/^figure-[a-zA-Z0-9_-]+\.svg$/.test(figure)) throw new Error('--figure は figure-*.svg のファイル名を指定してください');
   const format = args.format ?? 'ig-single';
@@ -73,7 +73,7 @@ export function buildFigureFrame(input, format, { uri, width, height }) {
       ...title.map((value, i) => text({ x: 60, y: titleY + i * 56, content: value, size: 42, weight: 700, fill: COLORS.brandDeep })),
       fittedImage(50, diagramY, 980, vertical ? 1280 : 910),
       line({ x1: 60, y1: H - 120, x2: 1020, y2: H - 120, stroke: COLORS.border, sw: 2 }),
-      text({ x: 60, y: H - 68, content: '図の詳しい解説と演習はサイトへ', size: 30, fill: COLORS.inkBody }),
+      text({ x: 60, y: H - 68, content: '図の読み方と詳しい解説はサイトへ', size: 30, fill: COLORS.inkBody }),
       text({ x: 1030, y: H - 25, content: 'doboku-note.com', size: 24, fill: COLORS.inkBody, anchor: 'end' }),
     ];
   }

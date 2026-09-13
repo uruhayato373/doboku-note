@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="工事ごとの元資料からAI下書きを作り、事実と数量を人が照合する。未確認事項は元資料へ戻り、確認が済んだ内容だけを承認版にする">
+  <defs>
+    <style>
+      text { font-family: Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif; fill: #1a3a5c; }
+      .heading { font-size: 18px; font-weight: bold; }
+      .body { font-size: 15px; }
+      .small { font-size: 14px; fill: #555; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .arrow { fill: none; stroke: #2e6da4; stroke-width: 2; marker-end: url(#arrow); }
+      .return { fill: none; stroke: #d4a017; stroke-width: 2; marker-end: url(#return); }
+    </style>
+    <!-- brand / warn / positive / ink-body tokens -->
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#2e6da4" /></marker>
+    <marker id="return" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#d4a017" /></marker>
+  </defs>
+  <rect width="400" height="500" fill="#ffffff" />
+  <rect x="76" y="24" width="302" height="70" rx="8" class="brand" />
+  <text x="227" y="53" text-anchor="middle" class="heading">工事ごとの元資料</text>
+  <text x="227" y="79" text-anchor="middle" class="body">日付・版・確定状態をそろえる</text>
+  <path d="M227 98V128" class="arrow" />
+  <rect x="76" y="137" width="302" height="70" rx="8" class="brand" />
+  <text x="227" y="166" text-anchor="middle" class="heading">AIが下書きを作成</text>
+  <text x="227" y="192" text-anchor="middle" class="body">根拠と未確認事項を付ける</text>
+  <path d="M227 211V241" class="arrow" />
+  <rect x="76" y="250" width="302" height="70" rx="8" class="warn" />
+  <text x="227" y="279" text-anchor="middle" class="heading">人が原票と照合</text>
+  <text x="227" y="305" text-anchor="middle" class="body">事実・数量・条件・版</text>
+  <path d="M74 285H28V59H67" class="return" />
+  <text x="40" y="347" class="small">未確認は根拠へ戻す</text>
+  <path d="M227 324V391" class="arrow" />
+  <text x="248" y="372" class="small">確認が済んだ内容</text>
+  <rect x="76" y="401" width="302" height="74" rx="8" class="positive" />
+  <text x="227" y="432" text-anchor="middle" class="heading">承認版を提出</text>
+  <text x="227" y="458" text-anchor="middle" class="body">提出物・受付・変更履歴を確認</text>
+</svg>

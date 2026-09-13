@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="独自の粒径分布例。10パーセントと60パーセントから交点を経てD10とD60を読み、粒径幅の狭い分布と比較する。"><defs><style>text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;fill:#222;font-size:14px}.head{font-size:16px;font-weight:bold;fill:#1a3a5c}.sub{fill:#555}.line{stroke:#555;fill:none;stroke-width:1.5}.water{fill:#e8f0fe;stroke:#2e6da4}.soil{fill:#fff3cd;stroke:#d4a017}.air{fill:#f5f5f5;stroke:#d7d7d7}.guide{fill:none;stroke:#2e6da4;stroke-dasharray:5 4;stroke-width:1.5}</style></defs><!-- tokens: ink-strong, ink-body, brand, surface, warn -->
+<text class="head" x="200" y="30" text-anchor="middle">横へ進み、交点から粒径を読む</text>
+<text class="sub" x="63" y="62">通過質量百分率（%）</text>
+<path class="line" d="M62 78 V373 H371"/>
+<text class="sub" x="51" y="378" text-anchor="end">0</text>
+<text class="sub" x="51" y="349" text-anchor="end">10</text>
+<text class="sub" x="51" y="204" text-anchor="end">60</text>
+<text class="sub" x="51" y="88" text-anchor="end">100</text>
+<path d="M65 371 L105 366 L140 357 L165 344 L195 315 L230 264 L265 199 L300 145 L340 104 L365 87" fill="none" stroke="#2e6da4" stroke-width="3"/>
+<path d="M65 373 L220 371 L245 358 L258 322 L270 255 L281 166 L294 104 L310 87 L365 84" fill="none" stroke="#3a7d44" stroke-width="3" stroke-dasharray="7 4"/>
+<path class="guide" d="M62 344 H165 V373 M62 199 H265 V373"/>
+<circle cx="165" cy="344" r="4" fill="#2e6da4"/><circle cx="265" cy="199" r="4" fill="#2e6da4"/>
+<text class="head" x="148" y="328">D₁₀</text><text class="head" x="220" y="183">D₆₀</text>
+<text class="sub" x="65" y="397" text-anchor="middle">0.01</text><text class="sub" x="165" y="397" text-anchor="middle">0.1</text><text class="sub" x="265" y="397" text-anchor="middle">1</text><text class="sub" x="365" y="397" text-anchor="middle">10</text>
+<text class="sub" x="216" y="422" text-anchor="middle">粒径（mm・対数目盛）</text>
+<path d="M31 448 H69" stroke="#2e6da4" stroke-width="3"/><text x="78" y="453">粒径の幅が広い</text>
+<path d="M218 448 H256" stroke="#3a7d44" stroke-width="3" stroke-dasharray="7 4"/><text x="265" y="453">狭い</text>
+<text class="sub" x="200" y="480" text-anchor="middle">実測値ではなく、読み方を示す例</text></svg>

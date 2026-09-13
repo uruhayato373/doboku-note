@@ -14,7 +14,7 @@ reviewStatus: approved
 lastRewrittenAt: '2026-08-26T02:20:00Z'
 revisionCycle: 2
 created: 2026-04-05
-dateModified: 2026-09-04
+dateModified: 2026-09-13
 ---
 
 ## 直列システムとは
@@ -22,6 +22,10 @@ dateModified: 2026-09-04
 直列システムとは、すべての構成要素が正常に機能して初めてシステム全体が機能する構成である。いずれか1つの要素が故障すると、システム全体が停止する。要素を追加すればするほど故障の起点が増えるため、一般に直列システムは要素数の増加とともに信頼性が下がる方向に働く。
 
 [FTA](/docs/pe-comprehensive-management-fta)においてORゲートで接続された事象群は、直列システムに対応する。
+
+<ArticleImage src="/posts/pe-comprehensive-management/system-reliability/img/figure-series-parallel-formulas.svg" alt="直列・並列信頼度の計算式" />
+
+図の積の式は、要素の成否が独立している場合の基本モデルです。全要素が必要な直列と、少なくとも1つで機能する並列を区別します。
 
 ## 信頼度の計算
 

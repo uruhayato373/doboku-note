@@ -90,6 +90,7 @@ description: >
   **クラウド週次では snapshot が古いのが常態**（再取得はローカル作業のため）。その場合 `inconclusive:true` と
   理由が返るので、`actions` が空でも**「実体が検査不成立」として必ず surface する**（静かなのは
   「問題が無い」ではなく「見ていない」）。
+- **教材からの展開**: `npm run check-content-expansion -- --json` で全教材の未確認・必要制作・原典待ち・確認後の変更を確認する。判定手順は `.claude/knowledge/reference/content-expansion.md`、対応表は管理画面 `/content/expansion`。対象0件や概念名の対応だけを完了にしない。残務は既存backlog IDへ接続し、公開・予約・効果は各チャネルと事業レビューのSSOTで別に確認する。
 - **SEO Rank Watch**: `npm run seo-rank-watch -- report --json` で資格別候補・実行/待機理由・観察期限・達成後監視・鮮度・同時実行上限・方針レビュー期限を確認する。一般用語の順位だけを週の成果にしない。観察/方針の期限到来は `/weekly-improve --rank-watch --no-fetch` へ渡す。汎用NSMの10日/28日基準でrank-watchを変更しない。確認後は専用 `log-run` で判断を記録する。
 - **実験サイクルの期限**: `npm run check-experiment-due -- --json`（オフライン・`experiments.json` 参照）。
   これが「計測→記録→改善→**再計測**」の最後の輪。`due[]` の MEASURE_DUE / CLOSE_DUE / PENDING /

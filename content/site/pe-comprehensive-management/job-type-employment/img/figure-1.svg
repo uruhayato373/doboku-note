@@ -48,13 +48,13 @@
   <line x1="20" y1="270" x2="380" y2="270" stroke="#e8f0fe" stroke-width="1"/>
 
   <text class="t-lbl"  x="65"  y="294" text-anchor="middle">雇用保障</text>
-  <text class="t-cell" x="177" y="294" text-anchor="middle">職務消滅で解雇も</text>
+  <text class="t-cell" x="177" y="294" text-anchor="middle">職務を基準に判断</text>
   <text class="t-cell" x="312" y="294" text-anchor="middle">高い安定性</text>
   <line x1="20" y1="315" x2="380" y2="315" stroke="#e8f0fe" stroke-width="1"/>
 
   <text class="t-lbl"  x="65"  y="339" text-anchor="middle">変化対応</text>
-  <text class="t-cell" x="177" y="339" text-anchor="middle" fill="#2e6da4" font-weight="bold">高い（柔軟）</text>
-  <text class="t-cell" x="312" y="339" text-anchor="middle">低い（遅い）</text>
+  <text class="t-cell" x="177" y="339" text-anchor="middle" fill="#2e6da4" font-weight="bold">専門人材を確保</text>
+  <text class="t-cell" x="312" y="339" text-anchor="middle">配置転換で対応</text>
 
   <!-- 縦区切り線（最後） -->
   <rect x="20" y="54" width="360" height="304" fill="none" stroke="#d7d7d7" stroke-width="1"/>

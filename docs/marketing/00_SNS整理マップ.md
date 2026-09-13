@@ -82,7 +82,7 @@
 | チャネル | 主な投稿型 | 雛形(schema) | 発動 | Generator → Evaluator | policy(真実源) |
 |---|---|---|---|---|---|
 | IG カルーセル | 過去問クイズ／自己紹介 | `slide-data.json`(v2) | `/ig-post-create`・再生成`/ig-carousel-restyle` | `ig-carousel-writer` → `ig-carousel-qa` | `ig-carousel-policy.md`／`ig-carousel-skill.md` |
-| IG 図解カルーセル | 総監／1級土木／技術士建設部門の学習図 | サイトSVG＋`source.json`・4枚SVG・`caption.txt` | `/ig-figure-pack` | 制作者が各PNGの意味・可読性を目視＋`check-ig-cover`／`check-ig-cta` | `ig-figure-pack/SKILL.md`／`figure-canvas-policy.md` |
+| IG 図解カルーセル | 総監／1級土木／技術士建設部門／技術士第一次の学習図 | サイトSVG＋`source.json`・4枚SVG・`caption.txt` | `/ig-figure-pack` | 制作者が各PNGの意味・可読性を目視＋`check-ig-cover`／`check-ig-cta` | `ig-figure-pack/SKILL.md`／`figure-canvas-policy.md` |
 | IG Reels | 過去問1問1リール／論点解説／逆転体験談 | `reels/script.json`(+`caption.txt`) | `/ig-reel-create`（1問=`per-problem-shorts.mjs --ig-mode`） | `ig-reels-writer` → `ig-reels-qa` | `ig-reels-policy.md` |
 | IG ストーリーズ | 4枚連投・投票/質問ステッカー・リンク導線 | `stories/caption.txt`＋`stories/note.md` | `node .claude/scripts/instagram/build-stories.mjs` ＋ エージェント（**専用スキルなし＝node＋agent 運用**） | `ig-stories-writer` → `ig-stories-qa` | `ig-stories-policy.md` |
 | IG ハイライト | 6種（intro/カルーセル目次/Reelsまとめ/FAQ/お知らせ/教材） | `highlights/NN_*/slide-data.json` | `node .claude/scripts/instagram/build-highlight-materials.mjs`（**専用スキルなし＝node＋agent 運用**） | `ig-highlight-designer` → `ig-highlight-qa` | `ig-highlight-design-policy.md` |

@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "article": {
+    "path": "content/site/pe-first-stage/guide-matrix-vector-calculation/article.mdx",
+    "sha256": "1546d1ae776833589c7f85c8a48e9e9ff85a5c443ac77f7cc0d13cdd1ea07814"
+  },
+  "figure": {
+    "path": "content/site/pe-first-stage/guide-matrix-vector-calculation/img/figure-vector-projection.svg",
+    "sha256": "931d78b8b21a8643e2253d7b3cc62c0bdfbd4313d61a4488106346f27a339f67"
+  },
+  "needs": "射影ベクトルと射影の長さを混同せず，残差の直交で検算したい。",
+  "nextStep": "https://doboku-note.com/exam/pe-first-stage/guide/matrix-vector-calculation"
+}

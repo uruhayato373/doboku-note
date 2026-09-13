@@ -979,6 +979,66 @@
       "commit": "260982316149",
       "verification": "check-figure-canvas/check-mdx-images tests2 PASS; 実staged図12枚PASS; MDX12記事の偽画像欠落警告0",
       "note": "staged SVGの正規表現を修正し、12図が実際に検査されることを確認。MDX画像の実体をcontent/siteで確認するよう変更。正常/不正寸法/命名/実体欠落/HTML偽装/越境を回帰テスト化。"
+    },
+    {
+      "id": "DN-0207",
+      "task": "技術士一次の計算ガイド3本と独自図3枚を整備する",
+      "verification": "7関連MDX compile・KaTeX PASS、逆算/代入/直交/節点の検算、400px図3枚目視、guide length・sources・refresh-indexes PASS",
+      "note": "行列/ベクトル・微積分/数値解析・抵抗回路の独自例題と2年度以上の過去問リンク、科目ガイドと過去問からの戻り導線を追加。公開・SNS配信と実測はDN-0220。",
+      "at": "2026-09-13",
+      "tier": "medium",
+      "executor": "codex",
+      "outcome": "done",
+      "plan": null,
+      "commit": "d43b69d9d"
+    },
+    {
+      "id": "DN-0209",
+      "task": "総監R8記述式を公式問題全3ページと照合し図と解答方針を訂正する",
+      "verification": "公式PDF3/3ページ目視・a〜r18項目/選択条件/答案枚数を照合、MDX compile・sources・canvas PASS、再作図960px目視",
+      "note": "照合記録 .claude/state/pdf-mdx-audit/2026-09-13-r08-secondary.json。設問（2）③の管理分野明記と（3）③の複数視点を区別。再現注記を更新、政策目標説明を要約した図と原文の項目リストを併記。公開と実測はDN-0220。",
+      "at": "2026-09-13",
+      "tier": "high",
+      "executor": "codex",
+      "outcome": "done",
+      "plan": null,
+      "commit": "d43b69d9d"
+    },
+    {
+      "id": "DN-0206",
+      "at": "2026-09-13",
+      "task": "技術士建設部門R8の必須・選択11科目を年度別過去問12記事へ追加する",
+      "tier": "high",
+      "executor": "codex",
+      "outcome": "done",
+      "plan": null,
+      "commit": "1f7aef897cec",
+      "verification": "原典46頁・90設問/140小問/18枝番、独立QA、MDX24記事、本番2001ページbuild PASS",
+      "note": "R8必須+選択11科目を追加し科目別分析を更新。監査はpdf-mdx-audit/2026-09-13-r08-pe-construction.json。公開と初回計測はDN-0220。"
+    },
+    {
+      "id": "DN-0208",
+      "at": "2026-09-13",
+      "task": "技術士一次の令和元年度再試験を基礎・適性・建設の3記事へ追加する",
+      "tier": "mid",
+      "executor": "codex",
+      "outcome": "done",
+      "plan": null,
+      "commit": "1f7aef897cec",
+      "verification": "再試験80問公式キー・6回帰test・1120/1117/3集計・42導線・採点外desktop/mobile E2E4件PASS",
+      "note": "再試験3記事とPWA生成/表示を接続。通常R1の2問と解説1行を原典から修正。監査はpdf-mdx-audit/2026-09-13-r01-retry.json。公開はDN-0220。"
+    },
+    {
+      "id": "DN-0223",
+      "at": "2026-09-13",
+      "task": "全教材の論点と記事・図解・SNSを突合し未展開の学習課題を解消する",
+      "tier": "high",
+      "executor": "codex",
+      "outcome": "done",
+      "plan": null,
+      "commit": "1f7aef897cec",
+      "verification": "27教材930論点・要作業0/原典待ち17/再確認0・47tests・X53独立QA・型検査・本番build・commit全ゲートPASS",
+      "note": "教材対応SSOT・admin/content/expansion・記事/図・X53下書き・IG一次3パック・Reels6を整備。原典制約17論点はDN-0135、公開と効果測定はDN-0220。"
     }
   ]
 }

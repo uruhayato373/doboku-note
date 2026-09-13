@@ -19,6 +19,11 @@ test('staged SVGを実際に検査し、不正寸法と命名を拒否する',()
   writeFileSync(join(root,path),'<svg viewBox="0 0 600 500"/>');execFileSync('git',['add','--',path],{cwd:root});
   result=run();assert.equal(result.status,1);assert.match(result.stderr,/600×500/);
   writeFileSync(join(root,path),'<svg viewBox="0 0 400 500"/>');execFileSync('git',['add','--',path],{cwd:root});
+  for(const dir of ['r08-secondary','r08-primary','r01-retry-basic','r01-aptitude','r01-construction','secondary-r06']){
+   const exam=`content/site/pe-comprehensive-management/${dir}/img/exam-original.svg`;
+   mkdirSync(dirname(join(root,exam)),{recursive:true});writeFileSync(join(root,exam),'<svg viewBox="0 0 960 510"/>');
+   execFileSync('git',['add','--',exam],{cwd:root});result=run();assert.equal(result.status,0,result.stderr);
+  }
   const bad=path.replace('figure-test.svg','diagram.svg');writeFileSync(join(root,bad),'<svg viewBox="0 0 400 500"/>');execFileSync('git',['add','--',bad],{cwd:root});
   result=run();assert.equal(result.status,1);assert.match(result.stderr,/命名規則違反/);
  }finally{rmSync(root,{recursive:true,force:true});}

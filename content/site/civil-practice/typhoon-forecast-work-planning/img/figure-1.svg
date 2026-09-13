@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="現象ごとの最新予報から退避完了の条件を決め、移動時間と撤収時間を逆算して通常作業の切上げを前倒しする施工計画">
+  <defs><style>
+    text { font-family: Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif; fill: #1a3a5c; }
+    .h { font-size: 18px; font-weight: bold; } .b { font-size: 15px; }
+    .a { fill: none; stroke: #2e6da4; stroke-width: 2; marker-end: url(#a); }
+  </style><marker id="a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#2e6da4" /></marker></defs>
+  <rect width="400" height="500" fill="#ffffff" />
+  <rect x="20" y="18" width="360" height="77" rx="8" fill="#e8f0fe" stroke="#2e6da4" />
+  <text x="200" y="47" text-anchor="middle" class="h">雨・風・波・潮位を別に読む</text>
+  <text x="200" y="73" text-anchor="middle" class="b">発表時刻・対象時刻・地域を確認</text>
+  <path d="M200 99V127" class="a" />
+  <rect x="20" y="135" width="360" height="77" rx="8" fill="#fff3cd" stroke="#d4a017" />
+  <text x="200" y="164" text-anchor="middle" class="h">退避を終える条件を決める</text>
+  <text x="200" y="190" text-anchor="middle" class="b">地域の情報・規制・作業条件から</text>
+  <path d="M200 216V244" class="a" />
+  <rect x="20" y="252" width="360" height="89" rx="8" fill="#e8f0fe" stroke="#2e6da4" />
+  <text x="200" y="281" text-anchor="middle" class="h">必要な時間を逆算</text>
+  <text x="200" y="307" text-anchor="middle" class="b">移動 ＋ 撤収 ＋ 工程上の余裕</text>
+  <text x="200" y="330" text-anchor="middle" class="b">準備作業中の危険も確認する</text>
+  <path d="M200 345V373" class="a" />
+  <rect x="20" y="381" width="360" height="72" rx="8" fill="#d0e8d0" stroke="#3a7d44" />
+  <text x="200" y="410" text-anchor="middle" class="h">通常作業を前倒しで切り上げる</text>
+  <text x="200" y="436" text-anchor="middle" class="b">搬入・外部業者へも変更を伝える</text>
+  <text x="200" y="484" text-anchor="middle" class="b">予報円は被害範囲ではない</text>
+</svg>

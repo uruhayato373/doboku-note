@@ -1,0 +1,44 @@
+[
+  {
+    "tweet": "1",
+    "concept": "射影を内積で検算する",
+    "needs": "射影を内積で検算するために、図の条件と確認方法を知りたい。",
+    "file": "img/tweet-01-vector-projection.png",
+    "article": {
+      "path": "content/site/pe-first-stage/guide-matrix-vector-calculation/article.mdx",
+      "sha256": "1546d1ae776833589c7f85c8a48e9e9ff85a5c443ac77f7cc0d13cdd1ea07814"
+    },
+    "figure": {
+      "path": "content/site/pe-first-stage/guide-matrix-vector-calculation/img/figure-vector-projection.svg",
+      "sha256": "931d78b8b21a8643e2253d7b3cc62c0bdfbd4313d61a4488106346f27a339f67"
+    }
+  },
+  {
+    "tweet": "2",
+    "concept": "接線の交点で更新する",
+    "needs": "接線の交点で更新するために、図の条件と確認方法を知りたい。",
+    "file": "img/tweet-02-newton-tangent.png",
+    "article": {
+      "path": "content/site/pe-first-stage/guide-calculus-numerical-calculation/article.mdx",
+      "sha256": "e5fb607b81ed92e8c45dc4ddb38205f9dcaa3958f92c2dd4cbffcba3ce513594"
+    },
+    "figure": {
+      "path": "content/site/pe-first-stage/guide-calculus-numerical-calculation/img/figure-newton-tangent.svg",
+      "sha256": "5fcfaeb33d490ac7ef4fd9c3369740c7623b4f6545b83d1d4d0efc8f94cacbf7"
+    }
+  },
+  {
+    "tweet": "3",
+    "concept": "同電位なら中央枝は0 A",
+    "needs": "平衡ブリッジの二つの中点が等電位となり、中央枝に電流が流れない理由を理解したい。",
+    "file": "img/tweet-03-balanced-bridge.png",
+    "article": {
+      "path": "content/site/pe-first-stage/guide-resistance-circuit-calculation/article.mdx",
+      "sha256": "cba099859c9f7e04385090b1b93b4d91d46476b1b16dadcff5d1a6be9ce8678c"
+    },
+    "figure": {
+      "path": "content/site/pe-first-stage/guide-resistance-circuit-calculation/img/figure-balanced-bridge.svg",
+      "sha256": "fa065727e1b5904814e9333f8060cd80f8942e003f2e4b6942c78343d01421d4"
+    }
+  }
+]

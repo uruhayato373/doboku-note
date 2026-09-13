@@ -1,0 +1,72 @@
+[
+  {
+    "tweet": "1",
+    "concept": "拠点と移動手段を一緒に考える",
+    "needs": "拠点への集約と公共交通による接続の両輪を配置図にする",
+    "file": "img/tweet-01-chiiki-dukuri-ronbun-keyword.png",
+    "article": {
+      "path": "content/site/pe-construction/chiiki-dukuri-ronbun-keyword/article.mdx",
+      "sha256": "a911e3e2a83c505a5e8867c3e6e495141d0488fd8db3df9fa244d5cfcc31b678"
+    },
+    "figure": {
+      "path": "content/site/pe-construction/chiiki-dukuri-ronbun-keyword/img/figure-compact-network.svg",
+      "sha256": "b39a3b6d1c89232ca282d2dd93c385be999c070258950590ae3e9b2d93a43757"
+    }
+  },
+  {
+    "tweet": "2",
+    "concept": "知識から答案の論点へ",
+    "needs": "知識から答案の論点へために、図の条件と確認方法を知りたい。",
+    "file": "img/tweet-02-keyword-to-answer.png",
+    "article": {
+      "path": "content/site/pe-construction/keyword-note-tsukurikata/article.mdx",
+      "sha256": "a09536e234ad1b0051b746ff64848122baa366b64465c4f3a4d20ff023830f93"
+    },
+    "figure": {
+      "path": "content/site/pe-construction/keyword-note-tsukurikata/img/figure-keyword-to-answer.svg",
+      "sha256": "d8d336dffff86e9826815892ca79d79912a9cd95ffabf7b842d3eafb7c4c029c"
+    }
+  },
+  {
+    "tweet": "3",
+    "concept": "自分の判断を経歴に残す",
+    "needs": "自分の判断を経歴に残すために、図の条件と確認方法を知りたい。",
+    "file": "img/tweet-03-career-decision-evidence.png",
+    "article": {
+      "path": "content/site/pe-construction/gyoumu-keireki-hyou/article.mdx",
+      "sha256": "ed4e9a13406b4193f9ec925f12eafb6cf1e69f078082c0b4e83583cf444b005c"
+    },
+    "figure": {
+      "path": "content/site/pe-construction/gyoumu-keireki-hyou/img/figure-career-decision-evidence.svg",
+      "sha256": "865f0aad8d32b7f38e6d28623ab1c58e99b9774578f966e4b785bcbc4e13023f"
+    }
+  },
+  {
+    "tweet": "4",
+    "concept": "点検の結果を次の判断へ",
+    "needs": "点検の結果を次の判断へために、図の条件と確認方法を知りたい。",
+    "file": "img/tweet-04-maintenance-feedback.png",
+    "article": {
+      "path": "content/site/pe-construction/iji-kanri-ronbun-keyword/article.mdx",
+      "sha256": "acfc3934e1d1b803d6063006858a60446c8305c4a00b0329522a673d029ea16f"
+    },
+    "figure": {
+      "path": "content/site/pe-construction/iji-kanri-ronbun-keyword/img/figure-maintenance-feedback.svg",
+      "sha256": "414ed2782671f3d54ee90c34ec867a85685f103ff3661992f092b4be5a55ac21"
+    }
+  },
+  {
+    "tweet": "5",
+    "concept": "使える情報を次工程へ渡す",
+    "needs": "使える情報を次工程へ渡すために、図の条件と確認方法を知りたい。",
+    "file": "img/tweet-05-bimcim-handover.png",
+    "article": {
+      "path": "content/site/pe-construction/kensetsu-dx/article.mdx",
+      "sha256": "31ac252a33dada982f6e8e0ef03cfe25ae15e9bf0efb592ba65b9dcee3be94e1"
+    },
+    "figure": {
+      "path": "content/site/pe-construction/kensetsu-dx/img/figure-bimcim-handover.svg",
+      "sha256": "08e9610b86567c1f07b0b184fbc2b1e029a07ebbd5045a1db8b3c4548aa27621"
+    }
+  }
+]
