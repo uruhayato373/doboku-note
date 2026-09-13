@@ -1,0 +1,1116 @@
+{
+  "date": "2026-09-13",
+  "implementationCommit": "1f7aef897cec691dac907fab6aec945c942461cb",
+  "scope": "教材から展開可能な学習課題の制作・追跡機能。公開と観察はDN-0220、原典不足はDN-0135。",
+  "coverage": {
+    "expectedSources": 27,
+    "reviewedSources": 27,
+    "units": 930,
+    "pending": 0,
+    "blocked": 17,
+    "excluded": 9,
+    "stale": 0,
+    "topicMapped": 0
+  },
+  "addedArticles": [
+    "content/site/civil-practice/ai-document-verification/article.mdx",
+    "content/site/civil-practice/earthquake-tsunami-site-response/article.mdx",
+    "content/site/civil-practice/gis-layer-validation/article.mdx",
+    "content/site/civil-practice/material-selection-receiving/article.mdx",
+    "content/site/civil-practice/numerical-model-review/article.mdx",
+    "content/site/civil-practice/typhoon-forecast-work-planning/article.mdx",
+    "content/site/civil-practice/volcanic-hazard-site-planning/article.mdx",
+    "content/site/pe-construction/r08-construction-planning/article.mdx",
+    "content/site/pe-construction/r08-environment/article.mdx",
+    "content/site/pe-construction/r08-geotechnical/article.mdx",
+    "content/site/pe-construction/r08-port-airport/article.mdx",
+    "content/site/pe-construction/r08-power-civil/article.mdx",
+    "content/site/pe-construction/r08-railway/article.mdx",
+    "content/site/pe-construction/r08-required/article.mdx",
+    "content/site/pe-construction/r08-river-coast/article.mdx",
+    "content/site/pe-construction/r08-road/article.mdx",
+    "content/site/pe-construction/r08-steel-concrete/article.mdx",
+    "content/site/pe-construction/r08-tunnel/article.mdx",
+    "content/site/pe-construction/r08-urban-planning/article.mdx",
+    "content/site/pe-first-stage/guide-calculus-numerical-calculation/article.mdx",
+    "content/site/pe-first-stage/guide-matrix-vector-calculation/article.mdx",
+    "content/site/pe-first-stage/guide-resistance-circuit-calculation/article.mdx",
+    "content/site/pe-first-stage/r01-retry-aptitude/article.mdx",
+    "content/site/pe-first-stage/r01-retry-basic/article.mdx",
+    "content/site/pe-first-stage/r01-retry-construction/article.mdx"
+  ],
+  "modifiedArticles": [
+    "content/site/civil-construction-1/textbook-asphalt-concrete-pavement/article.mdx",
+    "content/site/civil-construction-1/textbook-cast-in-place-pile/article.mdx",
+    "content/site/civil-construction-1/textbook-concrete-materials/article.mdx",
+    "content/site/civil-construction-1/textbook-concrete-mix-design/article.mdx",
+    "content/site/civil-construction-1/textbook-concrete-placement/article.mdx",
+    "content/site/civil-construction-1/textbook-concrete-properties/article.mdx",
+    "content/site/civil-construction-1/textbook-demolition/article.mdx",
+    "content/site/civil-construction-1/textbook-earth-retaining-cofferdam/article.mdx",
+    "content/site/civil-construction-1/textbook-foundation-overview-survey/article.mdx",
+    "content/site/civil-construction-1/textbook-pile-foundation-precast/article.mdx",
+    "content/site/civil-construction-1/textbook-rebar-formwork/article.mdx",
+    "content/site/civil-construction-1/textbook-river-works/article.mdx",
+    "content/site/civil-construction-1/textbook-road-earthwork-subbase/article.mdx",
+    "content/site/civil-construction-1/textbook-safety-machinery-crane/article.mdx",
+    "content/site/civil-construction-1/textbook-safety-work-environment/article.mdx",
+    "content/site/civil-construction-1/textbook-soft-ground-drainage/article.mdx",
+    "content/site/civil-construction-1/textbook-soil-investigation-methods/article.mdx",
+    "content/site/civil-construction-1/textbook-special-concrete-inspection/article.mdx",
+    "content/site/civil-construction-1/textbook-surveying-basics/article.mdx",
+    "content/site/civil-construction-1/textbook-water-sewer/article.mdx",
+    "content/site/civil-construction-2/guide-quality-management/article.mdx",
+    "content/site/civil-practice/cost-and-design-change/article.mdx",
+    "content/site/pe-comprehensive-management/capacity-management/article.mdx",
+    "content/site/pe-comprehensive-management/cash-flow-statement/article.mdx",
+    "content/site/pe-comprehensive-management/climate-change-adaptation-act/article.mdx",
+    "content/site/pe-comprehensive-management/climate-change-international/article.mdx",
+    "content/site/pe-comprehensive-management/communication-planning/article.mdx",
+    "content/site/pe-comprehensive-management/defense-in-depth/article.mdx",
+    "content/site/pe-comprehensive-management/emergency/article.mdx",
+    "content/site/pe-comprehensive-management/energy/article.mdx",
+    "content/site/pe-comprehensive-management/environmental-standards/article.mdx",
+    "content/site/pe-comprehensive-management/estimation-testing/article.mdx",
+    "content/site/pe-comprehensive-management/eta/article.mdx",
+    "content/site/pe-comprehensive-management/exam-passing-strategy/article.mdx",
+    "content/site/pe-comprehensive-management/extended-producer-responsibility/article.mdx",
+    "content/site/pe-comprehensive-management/fail-soft/article.mdx",
+    "content/site/pe-comprehensive-management/fault-avoidance/article.mdx",
+    "content/site/pe-comprehensive-management/fault-tolerance/article.mdx",
+    "content/site/pe-comprehensive-management/fool-proof/article.mdx",
+    "content/site/pe-comprehensive-management/frequent-topics/article.mdx",
+    "content/site/pe-comprehensive-management/human-error-probability/article.mdx",
+    "content/site/pe-comprehensive-management/human-relations-management/article.mdx",
+    "content/site/pe-comprehensive-management/income-statement/article.mdx",
+    "content/site/pe-comprehensive-management/initial-investment/article.mdx",
+    "content/site/pe-comprehensive-management/input-indicators/article.mdx",
+    "content/site/pe-comprehensive-management/inspection-methods/article.mdx",
+    "content/site/pe-comprehensive-management/interlock/article.mdx",
+    "content/site/pe-comprehensive-management/investment-recovery-plan/article.mdx",
+    "content/site/pe-comprehensive-management/key-performance-indicators/article.mdx",
+    "content/site/pe-comprehensive-management/labor-productivity/article.mdx",
+    "content/site/pe-comprehensive-management/load-capacity/article.mdx",
+    "content/site/pe-comprehensive-management/output-indicators/article.mdx",
+    "content/site/pe-comprehensive-management/overall-equipment-effectiveness/article.mdx",
+    "content/site/pe-comprehensive-management/parallel-system/article.mdx",
+    "content/site/pe-comprehensive-management/pdpc-method/article.mdx",
+    "content/site/pe-comprehensive-management/periodic-inspection/article.mdx",
+    "content/site/pe-comprehensive-management/pert-cpm/article.mdx",
+    "content/site/pe-comprehensive-management/pfi/article.mdx",
+    "content/site/pe-comprehensive-management/quality-improvement/article.mdx",
+    "content/site/pe-comprehensive-management/quality-objectives/article.mdx",
+    "content/site/pe-comprehensive-management/quality-planning/article.mdx",
+    "content/site/pe-comprehensive-management/quality-policy/article.mdx",
+    "content/site/pe-comprehensive-management/r03-primary/article.mdx",
+    "content/site/pe-comprehensive-management/r08-secondary/article.mdx",
+    "content/site/pe-comprehensive-management/reliability-maintainability-design/article.mdx",
+    "content/site/pe-comprehensive-management/risk/article.mdx",
+    "content/site/pe-comprehensive-management/safety-2-0/article.mdx",
+    "content/site/pe-comprehensive-management/safety-control/article.mdx",
+    "content/site/pe-comprehensive-management/series-system/article.mdx",
+    "content/site/pe-comprehensive-management/source-control-principle/article.mdx",
+    "content/site/pe-comprehensive-management/subsidiarity-principle/article.mdx",
+    "content/site/pe-comprehensive-management/supply-chain-management/article.mdx",
+    "content/site/pe-comprehensive-management/system-safety/article.mdx",
+    "content/site/pe-comprehensive-management/therp/article.mdx",
+    "content/site/pe-comprehensive-management/three-point-estimation/article.mdx",
+    "content/site/pe-comprehensive-management/tripod-theory/article.mdx",
+    "content/site/pe-comprehensive-management/value-chain-analysis/article.mdx",
+    "content/site/pe-comprehensive-management/variable-work-hours/article.mdx",
+    "content/site/pe-comprehensive-management/vta-method/article.mdx",
+    "content/site/pe-comprehensive-management/worker-dispatch-act/article.mdx",
+    "content/site/pe-construction/bousai-genseigai-ronbun-keyword/article.mdx",
+    "content/site/pe-construction/chiiki-dukuri-ronbun-keyword/article.mdx",
+    "content/site/pe-construction/construction-planning-exam-themes/article.mdx",
+    "content/site/pe-construction/datsutanso-kankyo-ronbun-keyword/article.mdx",
+    "content/site/pe-construction/environment-exam-themes/article.mdx",
+    "content/site/pe-construction/geotechnical-exam-themes/article.mdx",
+    "content/site/pe-construction/gyoumu-keireki-hyou/article.mdx",
+    "content/site/pe-construction/iji-kanri-ronbun-keyword/article.mdx",
+    "content/site/pe-construction/kensetsu-dx/article.mdx",
+    "content/site/pe-construction/keyword-note-tsukurikata/article.mdx",
+    "content/site/pe-construction/ninaite-dx-ronbun-keyword/article.mdx",
+    "content/site/pe-construction/pe-secondary-essay-guide/article.mdx",
+    "content/site/pe-construction/port-airport-exam-themes/article.mdx",
+    "content/site/pe-construction/power-civil-exam-themes/article.mdx",
+    "content/site/pe-construction/railway-exam-themes/article.mdx",
+    "content/site/pe-construction/required-exam-themes/article.mdx",
+    "content/site/pe-construction/river-coast-exam-themes/article.mdx",
+    "content/site/pe-construction/road-exam-themes/article.mdx",
+    "content/site/pe-construction/secondary-study-method/article.mdx",
+    "content/site/pe-construction/sentaku-kamoku-kakiwake/article.mdx",
+    "content/site/pe-construction/shakai-shihon-ronbun-keyword/article.mdx",
+    "content/site/pe-construction/steel-concrete-exam-themes/article.mdx",
+    "content/site/pe-construction/toan-kousei-template/article.mdx",
+    "content/site/pe-construction/tunnel-exam-themes/article.mdx",
+    "content/site/pe-construction/urban-planning-exam-themes/article.mdx",
+    "content/site/pe-first-stage/guide-aptitude-subject/article.mdx",
+    "content/site/pe-first-stage/guide-basic-subject/article.mdx",
+    "content/site/pe-first-stage/guide-construction-subject/article.mdx",
+    "content/site/pe-first-stage/guide-overview/article.mdx",
+    "content/site/pe-first-stage/guide-study-plan/article.mdx",
+    "content/site/pe-first-stage/r01-basic/article.mdx",
+    "content/site/pe-first-stage/r06-basic/article.mdx",
+    "content/site/pe-first-stage/r07-basic/article.mdx"
+  ],
+  "addedSvg": [
+    "content/site/civil-construction-1/textbook-cast-in-place-pile/img/figure-drilling-removal-paths.svg",
+    "content/site/civil-construction-1/textbook-road-earthwork-subbase/img/figure-pavement-load-path.svg",
+    "content/site/civil-construction-1/textbook-soil-investigation-methods/img/figure-grain-curve-reading.svg",
+    "content/site/civil-construction-1/textbook-soil-investigation-methods/img/figure-soil-phase-denominators.svg",
+    "content/site/civil-practice/ai-document-verification/img/figure-1.svg",
+    "content/site/civil-practice/earthquake-tsunami-site-response/img/figure-1.svg",
+    "content/site/civil-practice/gis-layer-validation/img/figure-1.svg",
+    "content/site/civil-practice/material-selection-receiving/img/figure-1.svg",
+    "content/site/civil-practice/numerical-model-review/img/figure-1.svg",
+    "content/site/civil-practice/typhoon-forecast-work-planning/img/figure-1.svg",
+    "content/site/civil-practice/volcanic-hazard-site-planning/img/figure-1.svg",
+    "content/site/pe-comprehensive-management/climate-change-international/img/figure-science-policy-roles.svg",
+    "content/site/pe-comprehensive-management/defense-in-depth/img/figure-defense-layers.svg",
+    "content/site/pe-comprehensive-management/environmental-standards/img/figure-environment-emission.svg",
+    "content/site/pe-comprehensive-management/estimation-testing/img/figure-estimate-test.svg",
+    "content/site/pe-comprehensive-management/inspection-methods/img/figure-oc-curve-concept.svg",
+    "content/site/pe-comprehensive-management/key-performance-indicators/img/figure-goal-to-kpi.svg",
+    "content/site/pe-comprehensive-management/load-capacity/img/figure-load-capacity-gap.svg",
+    "content/site/pe-comprehensive-management/overall-equipment-effectiveness/img/figure-oee-losses.svg",
+    "content/site/pe-comprehensive-management/pdpc-method/img/figure-pdpc-alternative.svg",
+    "content/site/pe-comprehensive-management/quality-policy/img/figure-quality-deployment.svg",
+    "content/site/pe-comprehensive-management/r08-secondary/img/exam-r08-output-map.svg",
+    "content/site/pe-comprehensive-management/safety-2-0/img/figure-collaborative-safety.svg",
+    "content/site/pe-comprehensive-management/source-control-principle/img/figure-source-end-control.svg",
+    "content/site/pe-comprehensive-management/subsidiarity-principle/img/figure-subsidiarity-support.svg",
+    "content/site/pe-comprehensive-management/therp/img/figure-human-error-recovery.svg",
+    "content/site/pe-comprehensive-management/three-point-estimation/img/figure-three-point-range.svg",
+    "content/site/pe-comprehensive-management/tripod-theory/img/figure-tripod-causal-chain.svg",
+    "content/site/pe-comprehensive-management/value-chain-analysis/img/figure-value-chain-support.svg",
+    "content/site/pe-comprehensive-management/vta-method/img/figure-variation-timeline.svg",
+    "content/site/pe-comprehensive-management/worker-dispatch-act/img/figure-dispatch-relationships.svg",
+    "content/site/pe-construction/chiiki-dukuri-ronbun-keyword/img/figure-compact-network.svg",
+    "content/site/pe-construction/gyoumu-keireki-hyou/img/figure-career-decision-evidence.svg",
+    "content/site/pe-construction/iji-kanri-ronbun-keyword/img/figure-maintenance-feedback.svg",
+    "content/site/pe-construction/kensetsu-dx/img/figure-bimcim-handover.svg",
+    "content/site/pe-construction/keyword-note-tsukurikata/img/figure-keyword-to-answer.svg",
+    "content/site/pe-first-stage/guide-calculus-numerical-calculation/img/figure-newton-tangent.svg",
+    "content/site/pe-first-stage/guide-matrix-vector-calculation/img/figure-vector-projection.svg",
+    "content/site/pe-first-stage/guide-resistance-circuit-calculation/img/figure-balanced-bridge.svg"
+  ],
+  "modifiedSvg": [
+    "content/site/civil-construction-2/guide-quality-management/img/figure-acceptance-criteria.svg",
+    "content/site/pe-comprehensive-management/correlation-analysis/img/figure-correlation-scatter-patterns.svg",
+    "content/site/pe-comprehensive-management/crisis-management-manual/img/figure-1.svg",
+    "content/site/pe-comprehensive-management/demand-forecasting/img/figure-1.svg",
+    "content/site/pe-comprehensive-management/ecological-footprint/img/figure-overshoot-concept.svg",
+    "content/site/pe-comprehensive-management/energy/img/figure-1.svg",
+    "content/site/pe-comprehensive-management/energy/img/figure-energy-key-figures.svg",
+    "content/site/pe-comprehensive-management/eta/img/figure-eta-gas-leak-example.svg",
+    "content/site/pe-comprehensive-management/fta/img/figure-fault-tree-diagram.svg",
+    "content/site/pe-comprehensive-management/income-statement/img/figure-five-profits.svg",
+    "content/site/pe-comprehensive-management/job-type-employment/img/figure-1.svg",
+    "content/site/pe-comprehensive-management/labor-share-ratio/img/figure-1.svg",
+    "content/site/pe-comprehensive-management/monte-carlo-simulation/img/figure-monte-carlo-s-curve.svg",
+    "content/site/pe-comprehensive-management/oshms/img/figure-1.svg",
+    "content/site/pe-comprehensive-management/pert-cpm/img/figure-pert-network-diagram.svg",
+    "content/site/pe-comprehensive-management/pull-production/img/figure-pull-push-comparison.svg",
+    "content/site/pe-comprehensive-management/risk-assessment/img/figure-risk-matrix.svg",
+    "content/site/pe-comprehensive-management/system-reliability/img/figure-series-parallel-formulas.svg",
+    "content/site/pe-comprehensive-management/variable-work-hours/img/figure-1.svg"
+  ],
+  "addedExamFigures": [
+    "content/site/pe-construction/r08-construction-planning/img/question-ii-2-1.webp",
+    "content/site/pe-construction/r08-construction-planning/img/question-ii-2-2.webp",
+    "content/site/pe-construction/r08-geotechnical/img/question-ii-2-1-section.webp",
+    "content/site/pe-construction/r08-geotechnical/img/question-ii-2-2-plan.webp",
+    "content/site/pe-construction/r08-geotechnical/img/question-ii-2-2-section.webp",
+    "content/site/pe-first-stage/r01-retry-basic/img/q-1-3-fta.webp",
+    "content/site/pe-first-stage/r01-retry-basic/img/q-3-6-ellipse.webp",
+    "content/site/pe-first-stage/r01-retry-construction/img/q-02-groundwater.webp",
+    "content/site/pe-first-stage/r01-retry-construction/img/q-06-buckling.webp",
+    "content/site/pe-first-stage/r01-retry-construction/img/q-08-beam.webp",
+    "content/site/pe-first-stage/r01-retry-construction/img/q-17-hydrostatic.webp"
+  ],
+  "x": {
+    "drafts": [
+      "098",
+      "099",
+      "100",
+      "101",
+      "102",
+      "103"
+    ],
+    "posts": 53,
+    "status": "independent-QA-PASS",
+    "maxWeighted": 270,
+    "publicationVerified": false,
+    "resolvedFindings": [
+      "PERTの作業時刻と結合点時刻の混同",
+      "CFの表示方法と継続適用",
+      "変形労働時間制の法定時間外判定・通知時期",
+      "資格タグ/本文/台帳の整合",
+      "KGI図の対応と補完性の図示"
+    ]
+  },
+  "reels": [
+    {
+      "pack": "civil-1/keyword-packs/aggregate-moisture",
+      "path": "content/sns/instagram/civil-1/keyword-packs/aggregate-moisture/reels/video.mp4",
+      "duration": 38.938667,
+      "video": [
+        {
+          "width": 1080,
+          "height": 1920
+        }
+      ],
+      "audio": [
+        "aac"
+      ],
+      "voice": {
+        "engine": "0.25.2",
+        "speaker": 1,
+        "name": "ずんだもん",
+        "style": "あまあま"
+      },
+      "auditoryReview": false
+    },
+    {
+      "pack": "civil-1/keyword-packs/leveling-principle",
+      "path": "content/sns/instagram/civil-1/keyword-packs/leveling-principle/reels/video.mp4",
+      "duration": 35.8,
+      "video": [
+        {
+          "width": 1080,
+          "height": 1920
+        }
+      ],
+      "audio": [
+        "aac"
+      ],
+      "voice": {
+        "engine": "0.25.2",
+        "speaker": 1,
+        "name": "ずんだもん",
+        "style": "あまあま"
+      },
+      "auditoryReview": false
+    },
+    {
+      "pack": "civil-1/keyword-packs/network-floats",
+      "path": "content/sns/instagram/civil-1/keyword-packs/network-floats/reels/video.mp4",
+      "duration": 38.218667,
+      "video": [
+        {
+          "width": 1080,
+          "height": 1920
+        }
+      ],
+      "audio": [
+        "aac"
+      ],
+      "voice": {
+        "engine": "0.25.2",
+        "speaker": 1,
+        "name": "ずんだもん",
+        "style": "あまあま"
+      },
+      "auditoryReview": false
+    },
+    {
+      "pack": "pe-first-stage/keyword-packs/vector-projection",
+      "path": "content/sns/instagram/pe-first-stage/keyword-packs/vector-projection/reels/video.mp4",
+      "duration": 33.698667,
+      "video": [
+        {
+          "width": 1080,
+          "height": 1920
+        }
+      ],
+      "audio": [
+        "aac"
+      ],
+      "voice": {
+        "engine": "0.25.2",
+        "speaker": 1,
+        "name": "ずんだもん",
+        "style": "あまあま"
+      },
+      "auditoryReview": false
+    },
+    {
+      "pack": "pe-first-stage/keyword-packs/newton-method",
+      "path": "content/sns/instagram/pe-first-stage/keyword-packs/newton-method/reels/video.mp4",
+      "duration": 34.890667,
+      "video": [
+        {
+          "width": 1080,
+          "height": 1920
+        }
+      ],
+      "audio": [
+        "aac"
+      ],
+      "voice": {
+        "engine": "0.25.2",
+        "speaker": 1,
+        "name": "ずんだもん",
+        "style": "あまあま"
+      },
+      "auditoryReview": false
+    },
+    {
+      "pack": "pe-first-stage/keyword-packs/balanced-bridge",
+      "path": "content/sns/instagram/pe-first-stage/keyword-packs/balanced-bridge/reels/video.mp4",
+      "duration": 37.056,
+      "video": [
+        {
+          "width": 1080,
+          "height": 1920
+        }
+      ],
+      "audio": [
+        "aac"
+      ],
+      "voice": {
+        "engine": "0.25.2",
+        "speaker": 1,
+        "name": "ずんだもん",
+        "style": "あまあま"
+      },
+      "auditoryReview": false
+    }
+  ],
+  "media": {
+    "date": "2026-09-13",
+    "method": "Drive MCPでクラウド実ファイルを取得しSHA256/bytesを計算。ローカル・台帳・クラウドを全件照合。",
+    "count": 137,
+    "bad": [],
+    "entries": [
+      {
+        "path": "content/sns/x/draft/102-practice-textbook-diagrams/img/tweet-04-earthquake-tsunami-site-response.png",
+        "sha256": "658392e953c5c8c5aa7bd49015f5efb6eaa7f76e845e62199f625b28fb6f3a4d",
+        "bytes": 210014
+      },
+      {
+        "path": "content/sns/x/draft/102-practice-textbook-diagrams/img/tweet-05-volcanic-hazard-site-planning.png",
+        "sha256": "ee458e2b5e96be29250899ae1aeb825581a45dd5d825aac1f09aabaec0426e34",
+        "bytes": 197415
+      },
+      {
+        "path": "content/sns/x/draft/102-practice-textbook-diagrams/img/tweet-06-typhoon-forecast-work-planning.png",
+        "sha256": "d095dfd30109c513bd64a0989b04db7c5c918e49aa600026f4a698a4fda083da",
+        "bytes": 199990
+      },
+      {
+        "path": "content/sns/x/draft/102-practice-textbook-diagrams/img/tweet-07-numerical-model-review.png",
+        "sha256": "ae862a4e666f408ee3fc61bbf67d0ab29990a03c30f50eae589ab31a2aa7dbd7",
+        "bytes": 195642
+      },
+      {
+        "path": "content/sns/x/draft/102-practice-textbook-diagrams/img/tweet-03-material-selection-receiving.png",
+        "sha256": "758cf157c1fb52a232bc22d45257c3b471cda094e838393372dc76157e1702f6",
+        "bytes": 151273
+      },
+      {
+        "path": "content/sns/x/draft/102-practice-textbook-diagrams/img/tweet-01-gis-layer-validation.png",
+        "sha256": "80897b3aa4a935736adb8271d7f83aa72e015b6be0bf7e202a4130eef76ec4da",
+        "bytes": 166205
+      },
+      {
+        "path": "content/sns/x/draft/102-practice-textbook-diagrams/img/tweet-02-ai-document-verification.png",
+        "sha256": "a08e085d749c5cc09adf21802ad2d19177d17ae033104408a911f6c17d45ff06",
+        "bytes": 156353
+      },
+      {
+        "path": "content/sns/x/draft/101-civil-textbook-diagrams/img/tweet-03-soil-phase-denominators.png",
+        "sha256": "0775b60cf629c7defa7e8b0bd2ad9c86d4b99f0e2d263b70251c4ca985def5e1",
+        "bytes": 138633
+      },
+      {
+        "path": "content/sns/x/draft/101-civil-textbook-diagrams/img/tweet-04-grain-curve-reading.png",
+        "sha256": "a497ba3b08ae3daf373ae8ee9c3cedf7bf18379a5da00902e01271bbc1b8e637",
+        "bytes": 134517
+      },
+      {
+        "path": "content/sns/x/draft/101-civil-textbook-diagrams/img/tweet-01-drilling-removal-paths.png",
+        "sha256": "d99a324c9a42a4805e133d9adfec5c54b6461dc17c3234b9065c59bc922d31f8",
+        "bytes": 117336
+      },
+      {
+        "path": "content/sns/x/draft/101-civil-textbook-diagrams/img/tweet-02-pavement-load-path.png",
+        "sha256": "bbd3c4ccee7325e5d64dab2e117e7585ce67a3a2d0d2ded473a762dd17d48004",
+        "bytes": 119070
+      },
+      {
+        "path": "content/sns/x/draft/100-pe-first-stage-calculation-diagrams/img/tweet-03-balanced-bridge.png",
+        "sha256": "f05aef8c5be70e18b420cae1ad70c23b9d9c216ac3d3d6b250cfdd61bd69f7a8",
+        "bytes": 131462
+      },
+      {
+        "path": "content/sns/x/draft/100-pe-first-stage-calculation-diagrams/img/tweet-02-newton-tangent.png",
+        "sha256": "8dec2a5d793e68217d9df33f4ba2353096020645b6e4900075fc33c9534a7f79",
+        "bytes": 135321
+      },
+      {
+        "path": "content/sns/x/draft/100-pe-first-stage-calculation-diagrams/img/tweet-01-vector-projection.png",
+        "sha256": "c194b3f712424e56c6a00f4074e95be9f835fc6d9f592639e2ed6c8a7aa07f75",
+        "bytes": 114215
+      },
+      {
+        "path": "content/sns/x/draft/099-pe-construction-textbook-diagrams/img/tweet-05-bimcim-handover.png",
+        "sha256": "8c6c23fda6edcc0458800c43033be42ea61f7132d55111d3f2280ebff8ac852b",
+        "bytes": 156901
+      },
+      {
+        "path": "content/sns/x/draft/099-pe-construction-textbook-diagrams/img/tweet-03-career-decision-evidence.png",
+        "sha256": "1905ed2ed8c8be2e03ecf1b482670eac68ed2180d1520e5e4d875d7602c2ee52",
+        "bytes": 152481
+      },
+      {
+        "path": "content/sns/x/draft/099-pe-construction-textbook-diagrams/img/tweet-04-maintenance-feedback.png",
+        "sha256": "e3c064ea9dc1d0694c6f40d2c27ec40c25765345a6abc3fff565a275e232d584",
+        "bytes": 127062
+      },
+      {
+        "path": "content/sns/x/draft/099-pe-construction-textbook-diagrams/img/tweet-01-chiiki-dukuri-ronbun-keyword.png",
+        "sha256": "a51a3591e9347a8b39a4563d4b483ad2c8f63c81651b834d41c946d131598305",
+        "bytes": 155073
+      },
+      {
+        "path": "content/sns/x/draft/099-pe-construction-textbook-diagrams/img/tweet-02-keyword-to-answer.png",
+        "sha256": "f01cb7673dc42ee2cead7198f5a44b49550cde86201f66a5a639780d7c5765a7",
+        "bytes": 162252
+      },
+      {
+        "path": "content/sns/x/draft/098-cem-textbook-diagrams/img/tweet-19-subsidiarity-principle.png",
+        "sha256": "4a3f0c2c0621c00982f124b41a9a2dd50cf21c02251e1c2dadcb5f67ce92852e",
+        "bytes": 134012
+      },
+      {
+        "path": "content/sns/x/draft/098-cem-textbook-diagrams/img/tweet-18-source-control-principle.png",
+        "sha256": "a658c0c088f088e612aac340c03797e4cf51681bed3766a45e20787b4679d635",
+        "bytes": 132445
+      },
+      {
+        "path": "content/sns/x/draft/098-cem-textbook-diagrams/img/tweet-17-environmental-standards.png",
+        "sha256": "e8ffb18a9e954d2922fe08a36a5882ecfcdf2709bd48c766cf6460fcebc4e87c",
+        "bytes": 122846
+      },
+      {
+        "path": "content/sns/x/draft/098-cem-textbook-diagrams/img/tweet-16-climate-change-international.png",
+        "sha256": "8144f43547eacb6d0b717132143701cbeab88b85b4a2185c64df7333c16a3d6b",
+        "bytes": 162846
+      },
+      {
+        "path": "content/sns/x/draft/098-cem-textbook-diagrams/img/tweet-13-therp.png",
+        "sha256": "952caa151fc708d8be112d83d1cc55504faa5670117efb21861174d8db5747e1",
+        "bytes": 128679
+      },
+      {
+        "path": "content/sns/x/draft/098-cem-textbook-diagrams/img/tweet-14-vta-method.png",
+        "sha256": "24d200a422b404b52b8623574edb091a203197d39bf1d0b9965420c6f50ff4b2",
+        "bytes": 139179
+      },
+      {
+        "path": "content/sns/x/draft/098-cem-textbook-diagrams/img/tweet-15-defense-in-depth.png",
+        "sha256": "6022ce993a4065d06f7d0f8f21239278b6f2637f3e61f610a027aee06c6175b6",
+        "bytes": 140328
+      },
+      {
+        "path": "content/sns/x/draft/098-cem-textbook-diagrams/img/tweet-12-tripod-theory.png",
+        "sha256": "8e99a7c406a031a493f8c70a7b4e3fae938204f50c071b74c38173718e67c2cd",
+        "bytes": 144716
+      },
+      {
+        "path": "content/sns/x/draft/098-cem-textbook-diagrams/img/tweet-09-estimation-testing.png",
+        "sha256": "4ccaf2ec13c6a7a64077dfd398ad15d2972cdfc8ac2817373780f6de4c6db182",
+        "bytes": 152168
+      },
+      {
+        "path": "content/sns/x/draft/098-cem-textbook-diagrams/img/tweet-10-value-chain-analysis.png",
+        "sha256": "202abe281083f35a494c13d37c1833d3fbb93e17ed3adf5d35660a9deda6a2d2",
+        "bytes": 137034
+      },
+      {
+        "path": "content/sns/x/draft/098-cem-textbook-diagrams/img/tweet-11-safety-2-0.png",
+        "sha256": "69256db515e453bfa2570e1c4cca43db4ee559e5bcbbae6797b0eec3f75847ae",
+        "bytes": 129820
+      },
+      {
+        "path": "content/sns/x/draft/098-cem-textbook-diagrams/img/tweet-05-three-point-estimation.png",
+        "sha256": "479045c0de540cc9fb73a14ca974ce5ee1a0d0cf28076fdfdb8b9bd01a40f92b",
+        "bytes": 114603
+      },
+      {
+        "path": "content/sns/x/draft/098-cem-textbook-diagrams/img/tweet-06-overall-equipment-effectiveness.png",
+        "sha256": "94039e430338cdaef092ed4275d6199da2d2a8422c0737c23a48303373568488",
+        "bytes": 105891
+      },
+      {
+        "path": "content/sns/x/draft/098-cem-textbook-diagrams/img/tweet-07-pdpc-method.png",
+        "sha256": "597f9c4ddf1c8612edc1f7f15f85a590f8407dee7de81eadec5bcb2493398249",
+        "bytes": 133074
+      },
+      {
+        "path": "content/sns/x/draft/098-cem-textbook-diagrams/img/tweet-08-worker-dispatch-act.png",
+        "sha256": "34463ee32145d0638555b54f81cbc2cc7046f8a737670a6d4c1373bb2649c529",
+        "bytes": 87969
+      },
+      {
+        "path": "content/sns/x/draft/098-cem-textbook-diagrams/img/tweet-01-key-performance-indicators.png",
+        "sha256": "f61dda43c8caa23b7ec719c27dd07156712a2f02eb53d0d40561e89dc1cab7a5",
+        "bytes": 145654
+      },
+      {
+        "path": "content/sns/x/draft/098-cem-textbook-diagrams/img/tweet-02-quality-policy.png",
+        "sha256": "017a165ab704214840ad7314a7724a0c2dae78f55c4c63b2181b19869e525acc",
+        "bytes": 121895
+      },
+      {
+        "path": "content/sns/x/draft/098-cem-textbook-diagrams/img/tweet-03-inspection-methods.png",
+        "sha256": "0a45e2e1509a7fa3af5bd5f074884f59f105ef826dfc07d303fc1ffef5a34c13",
+        "bytes": 99595
+      },
+      {
+        "path": "content/sns/x/draft/098-cem-textbook-diagrams/img/tweet-04-load-capacity.png",
+        "sha256": "e5171b22df7383a8059276511982f7773c093409bb7bc09b88b421b91339814d",
+        "bytes": 92362
+      },
+      {
+        "path": "content/sns/instagram/civil-1/keyword-packs/aggregate-moisture/reels/video.mp4",
+        "sha256": "c16acbccdc598727b122fb17044e96eed357e3b065a3c38122d6daa38edf8a46",
+        "bytes": 966961
+      },
+      {
+        "path": "content/sns/instagram/civil-1/keyword-packs/aggregate-moisture/reels/wav/01.wav",
+        "sha256": "b20b33664d560fd0327df46bc7ccf5c7677389e6227866de4373255fa05cd8c0",
+        "bytes": 648748
+      },
+      {
+        "path": "content/sns/instagram/civil-1/keyword-packs/aggregate-moisture/reels/wav/00.wav",
+        "sha256": "d30a3c3d99fb6f4b0a97a1913499881a7bb54644ab36ec8c714b0f325f3d2d6f",
+        "bytes": 309292
+      },
+      {
+        "path": "content/sns/instagram/civil-1/keyword-packs/aggregate-moisture/reels/wav/02.wav",
+        "sha256": "6adcd911e57ed56f05c57d02ce71cf3413f9e5a04beb786e1f002730b4e66bfa",
+        "bytes": 485932
+      },
+      {
+        "path": "content/sns/instagram/civil-1/keyword-packs/aggregate-moisture/reels/wav/03.wav",
+        "sha256": "4f590583c70ac0a203f2e72eaa2591a0c16f74e02383b8ed7a1f628a4287ce8e",
+        "bytes": 423468
+      },
+      {
+        "path": "content/sns/instagram/civil-1/keyword-packs/aggregate-moisture/reels/_combined.mp4",
+        "sha256": "9359fd0db1c43d67f374c826ac26d7a5d990c83cd3e02180212a78b46e1e82f5",
+        "bytes": 953245
+      },
+      {
+        "path": "content/sns/instagram/civil-1/keyword-packs/aggregate-moisture/reels/slide-02.mp4",
+        "sha256": "6e986567b14f3961c58b9c94f2ae62d2709571595d62d37c771fc59bc877ae2c",
+        "bytes": 281972
+      },
+      {
+        "path": "content/sns/instagram/civil-1/keyword-packs/aggregate-moisture/reels/slide-01.mp4",
+        "sha256": "ee387f0e4f8d0e72594a8db390a3f4fed59b36b4e5725c5b64e1c2a561582c35",
+        "bytes": 363539
+      },
+      {
+        "path": "content/sns/instagram/civil-1/keyword-packs/aggregate-moisture/reels/slide-00.mp4",
+        "sha256": "e0cf163be4e1980fc980dc8d4ddbaa6a5187b32445fd5d47798c9b1804ec579a",
+        "bytes": 140083
+      },
+      {
+        "path": "content/sns/instagram/civil-1/keyword-packs/aggregate-moisture/reels/slide-03.mp4",
+        "sha256": "f46b110d3078968f536dbb5470a9c01c2c736b7013f1742552857c8e4c3d3fa1",
+        "bytes": 171535
+      },
+      {
+        "path": "content/sns/instagram/civil-1/keyword-packs/aggregate-moisture/carousel/img/00-cover.png",
+        "sha256": "caae4bf45272318742b917912d284e4f9de9bc38e5de0eb97ac6194f2109fec4",
+        "bytes": 68645
+      },
+      {
+        "path": "content/sns/instagram/civil-1/keyword-packs/aggregate-moisture/carousel/img/01-figure.png",
+        "sha256": "b241fa159cff784f0b7081c0ad91558f030392b0c26567ecab86ebf9b68781e4",
+        "bytes": 137889
+      },
+      {
+        "path": "content/sns/instagram/civil-1/keyword-packs/aggregate-moisture/carousel/img/02-text.png",
+        "sha256": "d40b08e3329171e7c697537680174ee5bd1927ccc02b5b42aee90683d48dcefc",
+        "bytes": 116052
+      },
+      {
+        "path": "content/sns/instagram/civil-1/keyword-packs/aggregate-moisture/carousel/img/03-cta.png",
+        "sha256": "500750b9bacff174baf76058455f0b50ccb1fb659a450977ef13d015da51164b",
+        "bytes": 65267
+      },
+      {
+        "path": "content/sns/instagram/civil-1/keyword-packs/leveling-principle/carousel/img/00-cover.png",
+        "sha256": "1a4b467c43990d68f9d756d4bcf7de355a31fabb803aa9f19d89984d713ff405",
+        "bytes": 67007
+      },
+      {
+        "path": "content/sns/instagram/civil-1/keyword-packs/leveling-principle/carousel/img/01-figure.png",
+        "sha256": "97eb02bdabee66a220972fc86d9cd12184624f39f39fd5b46a6d286cc19446cb",
+        "bytes": 121166
+      },
+      {
+        "path": "content/sns/instagram/civil-1/keyword-packs/leveling-principle/carousel/img/02-text.png",
+        "sha256": "92e0e3877e84d5744ec877b7259396e0d249cbd7583ebe70e292417e17c3c611",
+        "bytes": 116757
+      },
+      {
+        "path": "content/sns/instagram/civil-1/keyword-packs/leveling-principle/carousel/img/03-cta.png",
+        "sha256": "bba3a3a2e3be6d8bd5a487567c682a2a2a6d05d517ef47106f79250719d1994b",
+        "bytes": 63752
+      },
+      {
+        "path": "content/sns/instagram/civil-1/keyword-packs/leveling-principle/reels/wav/03.wav",
+        "sha256": "2d2083302764866d0a76cb6806b91f5dd250bde7be8accaa2e77f890102a95a0",
+        "bytes": 455212
+      },
+      {
+        "path": "content/sns/instagram/civil-1/keyword-packs/leveling-principle/reels/wav/02.wav",
+        "sha256": "6b9600648f9b8d7bd8cc71550911c691a5de0033dc34c89d1695040745e36c9c",
+        "bytes": 529452
+      },
+      {
+        "path": "content/sns/instagram/civil-1/keyword-packs/leveling-principle/reels/wav/00.wav",
+        "sha256": "784957752af28bc3c4804ce7db7a4d9c7f27118e1c2374c7c0bdde9859c01acb",
+        "bytes": 279596
+      },
+      {
+        "path": "content/sns/instagram/civil-1/keyword-packs/leveling-principle/reels/wav/01.wav",
+        "sha256": "440f1183f9c47b74964415cd9e1f9751ea191c7199d879120427666b8ff15ab7",
+        "bytes": 452652
+      },
+      {
+        "path": "content/sns/instagram/civil-1/keyword-packs/leveling-principle/reels/slide-03.mp4",
+        "sha256": "44ea15dcc48e064622c17d827c73497b99876bff90440b5a6723558f51474957",
+        "bytes": 182313
+      },
+      {
+        "path": "content/sns/instagram/civil-1/keyword-packs/leveling-principle/reels/video.mp4",
+        "sha256": "69922ef9905dc718b2c2d57e08659ec5d1b1fbe52098b16c584ee03c2ebd3c07",
+        "bytes": 857469
+      },
+      {
+        "path": "content/sns/instagram/civil-1/keyword-packs/leveling-principle/reels/slide-00.mp4",
+        "sha256": "e9da7bf31ad23ec35acee50a8fb8215a357d16d3ee412ce248b565f77bf1f451",
+        "bytes": 131322
+      },
+      {
+        "path": "content/sns/instagram/civil-1/keyword-packs/leveling-principle/reels/slide-01.mp4",
+        "sha256": "9a14a0dabc7d7e2fd97a393e4faeda02cb6438f8dbc7dd9c1758d37085db0422",
+        "bytes": 220389
+      },
+      {
+        "path": "content/sns/instagram/civil-1/keyword-packs/leveling-principle/reels/_combined.mp4",
+        "sha256": "ccb275f38a5ecbbce214a4a27914db1455f80d8e4886deeb79e34e9358511d4b",
+        "bytes": 847288
+      },
+      {
+        "path": "content/sns/instagram/civil-1/keyword-packs/leveling-principle/reels/slide-02.mp4",
+        "sha256": "059a56f7e967cfef3b732af74d77d1c6f902226956b8d7a0b12c9dd64f926d84",
+        "bytes": 317172
+      },
+      {
+        "path": "content/sns/instagram/civil-1/keyword-packs/network-floats/reels/wav/02.wav",
+        "sha256": "381bc4aaa481081a4f4e20bf7c3c3ea0403ea982527dce6b770c46ec0a7fb505",
+        "bytes": 522284
+      },
+      {
+        "path": "content/sns/instagram/civil-1/keyword-packs/network-floats/reels/wav/03.wav",
+        "sha256": "ac417f74a8d9abfa449dcaf363b3622f4a16f1544a8893e8e6cb610ca451e178",
+        "bytes": 537644
+      },
+      {
+        "path": "content/sns/instagram/civil-1/keyword-packs/network-floats/reels/wav/01.wav",
+        "sha256": "73a4c6cca75b6f48e2ff51cb8ab21912a4f1b7829ea26b71a01173b6858cd82c",
+        "bytes": 487468
+      },
+      {
+        "path": "content/sns/instagram/civil-1/keyword-packs/network-floats/reels/wav/00.wav",
+        "sha256": "5fb39ab6d07bc72d56ee35b091c77dca0b6ad1aeab4f8bdb55abc1216ba543e1",
+        "bytes": 285228
+      },
+      {
+        "path": "content/sns/instagram/civil-1/keyword-packs/network-floats/reels/video.mp4",
+        "sha256": "cddfd9a5547f5d49c215ea2998c82595f6caf7d0e7fb3e57b9041e2bc5317ea5",
+        "bytes": 936766
+      },
+      {
+        "path": "content/sns/instagram/civil-1/keyword-packs/network-floats/reels/_combined.mp4",
+        "sha256": "58bb10a7c568acdefbda37f05e36b91484088c8fcdd9f1a0ab4329450a46d0e6",
+        "bytes": 930479
+      },
+      {
+        "path": "content/sns/instagram/civil-1/keyword-packs/network-floats/reels/slide-03.mp4",
+        "sha256": "d531c3788ad87252c9f6ce57583af864274d7abf5b50eab4c7118ea953ae76b9",
+        "bytes": 246428
+      },
+      {
+        "path": "content/sns/instagram/civil-1/keyword-packs/network-floats/reels/slide-02.mp4",
+        "sha256": "6a7ab56adcfdd17fd11c8b3ccada7a1c93280f8282ea7e4f56e1bce1cb4f5607",
+        "bytes": 315086
+      },
+      {
+        "path": "content/sns/instagram/civil-1/keyword-packs/network-floats/reels/slide-01.mp4",
+        "sha256": "13ff219478c0af4af96f753437fb55a2e8e75f7b98122f705d19fdc081932671",
+        "bytes": 239687
+      },
+      {
+        "path": "content/sns/instagram/civil-1/keyword-packs/network-floats/reels/slide-00.mp4",
+        "sha256": "629dc13040b963d16a2c8a056192a2a805cbfabc36381fee873aba48d41ed53f",
+        "bytes": 133078
+      },
+      {
+        "path": "content/sns/instagram/civil-1/keyword-packs/network-floats/carousel/img/00-cover.png",
+        "sha256": "d6467a73a5ed6633e96bfbc3dfffcc8af4de650923411e0360a406da1a017c71",
+        "bytes": 69661
+      },
+      {
+        "path": "content/sns/instagram/civil-1/keyword-packs/network-floats/carousel/img/01-figure.png",
+        "sha256": "5a21b369a80b53a219da0c498c767ed230a3e944a716e708ff4fb968829e86a3",
+        "bytes": 88217
+      },
+      {
+        "path": "content/sns/instagram/civil-1/keyword-packs/network-floats/carousel/img/02-text.png",
+        "sha256": "ef131338376f2a7957e7e516ae8c331695bbff786c785a1a6d354e3b1b44c149",
+        "bytes": 111543
+      },
+      {
+        "path": "content/sns/instagram/civil-1/keyword-packs/network-floats/carousel/img/03-cta.png",
+        "sha256": "448f063c1c7878cf51e23b9049a92390b1a20a97cf68cf8fd1067307914c76aa",
+        "bytes": 64360
+      },
+      {
+        "path": "content/sns/instagram/pe-first-stage/keyword-packs/vector-projection/carousel/img/02-text.png",
+        "sha256": "68a5ae1914b29b6203e75a91bdc5c522a8e444af5ae7ea30a662f58ed8151e33",
+        "bytes": 88543
+      },
+      {
+        "path": "content/sns/instagram/pe-first-stage/keyword-packs/vector-projection/carousel/img/03-cta.png",
+        "sha256": "647b26f17272864e5e7ca419963c17c33d277b538c37650f6b0be2b7167583b0",
+        "bytes": 60089
+      },
+      {
+        "path": "content/sns/instagram/pe-first-stage/keyword-packs/vector-projection/carousel/img/01-figure.png",
+        "sha256": "e795035e45c269352b846098833939b99909d8088b023797c020d778d29b273c",
+        "bytes": 63897
+      },
+      {
+        "path": "content/sns/instagram/pe-first-stage/keyword-packs/vector-projection/carousel/img/00-cover.png",
+        "sha256": "4d1881a838752a6391cba6e3e1c69bb22ee05f35b7b67c7db200012242cdd9ec",
+        "bytes": 69470
+      },
+      {
+        "path": "content/sns/instagram/pe-first-stage/keyword-packs/vector-projection/reels/wav/03.wav",
+        "sha256": "cddda0e72f699eb9c949f2ffb1d98757d1b95d227f6fad80197523cc1f6aae71",
+        "bytes": 410668
+      },
+      {
+        "path": "content/sns/instagram/pe-first-stage/keyword-packs/vector-projection/reels/wav/02.wav",
+        "sha256": "8335c977755a38a580203787ca950fd869ca6463b444ed434600a18a4cf52fa0",
+        "bytes": 419372
+      },
+      {
+        "path": "content/sns/instagram/pe-first-stage/keyword-packs/vector-projection/reels/wav/01.wav",
+        "sha256": "faffbde09c505215580f722be38b1ec333c497b159beb39552425c00e960f47c",
+        "bytes": 561708
+      },
+      {
+        "path": "content/sns/instagram/pe-first-stage/keyword-packs/vector-projection/reels/wav/00.wav",
+        "sha256": "fe28df78284eea24f63229b98a5c1eea27963ad793eadec7aa6528e51eb6b0b3",
+        "bytes": 225324
+      },
+      {
+        "path": "content/sns/instagram/pe-first-stage/keyword-packs/vector-projection/reels/video.mp4",
+        "sha256": "dcd8c2f656650e03779f7802d83ad28ff19cd4f39d81975627493cd3cab031f6",
+        "bytes": 745629
+      },
+      {
+        "path": "content/sns/instagram/pe-first-stage/keyword-packs/vector-projection/reels/_combined.mp4",
+        "sha256": "fabd4026c72d315bc53704dbace767fcd947f9150fc1778f5ea2e3797a82f1ec",
+        "bytes": 737212
+      },
+      {
+        "path": "content/sns/instagram/pe-first-stage/keyword-packs/vector-projection/reels/slide-01.mp4",
+        "sha256": "bcc8509ab092d4815d71c19d09b1e1a1d75c08abf054aac69ad0d16038a67d58",
+        "bytes": 263089
+      },
+      {
+        "path": "content/sns/instagram/pe-first-stage/keyword-packs/vector-projection/reels/slide-03.mp4",
+        "sha256": "4aa45486ea6c8451ef5023259a3cb89b9ee7c6c458fa25fb8c7ee741a04d0d1d",
+        "bytes": 167231
+      },
+      {
+        "path": "content/sns/instagram/pe-first-stage/keyword-packs/vector-projection/reels/slide-02.mp4",
+        "sha256": "413b3b6673eeae7cfe777c586c1e7c558355a3ecfd0cb4bac904e4eff6151e7f",
+        "bytes": 195152
+      },
+      {
+        "path": "content/sns/instagram/pe-first-stage/keyword-packs/vector-projection/reels/slide-00.mp4",
+        "sha256": "3e8a065669b90175ef2f4372512c30de4e438ff22e3dfb8136f9ff161d1d2a41",
+        "bytes": 115660
+      },
+      {
+        "path": "content/sns/instagram/pe-first-stage/keyword-packs/newton-method/carousel/img/01-figure.png",
+        "sha256": "c8f68a95f653aacb0ba794b96e4b68d82a55f58d67292e22fc9c8b94237aa197",
+        "bytes": 87275
+      },
+      {
+        "path": "content/sns/instagram/pe-first-stage/keyword-packs/newton-method/carousel/img/02-text.png",
+        "sha256": "340f81e1b0cb9aaf36ef78311c8c1ce46c73989ed53eb75e51ce6658785f4be2",
+        "bytes": 96092
+      },
+      {
+        "path": "content/sns/instagram/pe-first-stage/keyword-packs/newton-method/carousel/img/03-cta.png",
+        "sha256": "42490e6804ce20e63c7b5541dfeb9ff7bb1ad843155f91852b4f4f337db7cf8c",
+        "bytes": 64543
+      },
+      {
+        "path": "content/sns/instagram/pe-first-stage/keyword-packs/newton-method/carousel/img/00-cover.png",
+        "sha256": "6f2d92ec493cba7e4ccf5879005bc559ce98cfbbb81fb6492e312d75c35ca696",
+        "bytes": 70880
+      },
+      {
+        "path": "content/sns/instagram/pe-first-stage/keyword-packs/newton-method/reels/slide-02.mp4",
+        "sha256": "38e84283180086dc68bb446c1a89b5ef8a0323c4d2d538dc0ea5e27168821569",
+        "bytes": 320080
+      },
+      {
+        "path": "content/sns/instagram/pe-first-stage/keyword-packs/newton-method/reels/_combined.mp4",
+        "sha256": "2b6053617edf0a36c1906a5c627cd9b4756f97e50bd43214bdf60f75a5e7e33e",
+        "bytes": 843626
+      },
+      {
+        "path": "content/sns/instagram/pe-first-stage/keyword-packs/newton-method/reels/video.mp4",
+        "sha256": "ad86f9a1e98a8f1b062a0fa79a75792767cc0e7d5bff17b9527941035d2c4398",
+        "bytes": 859746
+      },
+      {
+        "path": "content/sns/instagram/pe-first-stage/keyword-packs/newton-method/reels/wav/02.wav",
+        "sha256": "b85226a671694dc591df18d4dceaecd6660f0799dcc15c8f0ca66da6a105c953",
+        "bytes": 553004
+      },
+      {
+        "path": "content/sns/instagram/pe-first-stage/keyword-packs/newton-method/reels/wav/03.wav",
+        "sha256": "e9398b11a584207e03729c15b686cd916c42ab7fe6c86c55313a116de02e42fc",
+        "bytes": 343084
+      },
+      {
+        "path": "content/sns/instagram/pe-first-stage/keyword-packs/newton-method/reels/wav/01.wav",
+        "sha256": "2916cb37c96bbff05a5211a44b4e935cc1a3a13ed03ac7eb2eef7b634faa40fc",
+        "bytes": 499756
+      },
+      {
+        "path": "content/sns/instagram/pe-first-stage/keyword-packs/newton-method/reels/wav/00.wav",
+        "sha256": "60e278cc958bf16312909ee4134a4fef42b96461447873c99692d9fdee4aa485",
+        "bytes": 277548
+      },
+      {
+        "path": "content/sns/instagram/pe-first-stage/keyword-packs/newton-method/reels/slide-03.mp4",
+        "sha256": "4a4698baf493144177e808b2ced99f32ba515f836131e0d3882c813b015a5e40",
+        "bytes": 149954
+      },
+      {
+        "path": "content/sns/instagram/pe-first-stage/keyword-packs/newton-method/reels/slide-01.mp4",
+        "sha256": "6e2fda7ffc9ab428070449187193abe570bb846defcdfb3bf8f3b57bbf20688d",
+        "bytes": 243669
+      },
+      {
+        "path": "content/sns/instagram/pe-first-stage/keyword-packs/newton-method/reels/slide-00.mp4",
+        "sha256": "633e88ffd317d2ab83bb97c9e60baafa8a3e1174e3360fccc379248c90123ee7",
+        "bytes": 133819
+      },
+      {
+        "path": "content/sns/instagram/pe-first-stage/keyword-packs/balanced-bridge/carousel/img/02-text.png",
+        "sha256": "a1ffeb1169125b7f9089f85bfa77f89469e99b5e0e710e7dd3c779537bc37dfd",
+        "bytes": 98372
+      },
+      {
+        "path": "content/sns/instagram/pe-first-stage/keyword-packs/balanced-bridge/carousel/img/00-cover.png",
+        "sha256": "af2a39315e371fc4d1e1878e8f97b67ad09457bdb8159079d547a5515be11f00",
+        "bytes": 73665
+      },
+      {
+        "path": "content/sns/instagram/pe-first-stage/keyword-packs/balanced-bridge/carousel/img/01-figure.png",
+        "sha256": "d147fcaacbe1fa1b33ca00ed7db07ab157b3a162dd1c03e8e9f596df8f798a6b",
+        "bytes": 75806
+      },
+      {
+        "path": "content/sns/instagram/pe-first-stage/keyword-packs/balanced-bridge/carousel/img/03-cta.png",
+        "sha256": "5afff794512d7d0111838e7209e711e6f2549d7fe4d0e4268a09340ae9bb77f8",
+        "bytes": 59750
+      },
+      {
+        "path": "content/sns/instagram/pe-first-stage/keyword-packs/balanced-bridge/reels/wav/03.wav",
+        "sha256": "89bda4d4151fd41adc4e1182233c3d02b17ca07a42753cc963fe972620060b90",
+        "bytes": 358956
+      },
+      {
+        "path": "content/sns/instagram/pe-first-stage/keyword-packs/balanced-bridge/reels/wav/02.wav",
+        "sha256": "a50831d1311f03b1559a51af8c6f375210aac42d75890ebba0a6e3b457c38dec",
+        "bytes": 581164
+      },
+      {
+        "path": "content/sns/instagram/pe-first-stage/keyword-packs/balanced-bridge/reels/wav/01.wav",
+        "sha256": "775bbc4510dd85c8d67362a66f05264867d8035eda67c829a6ef895196a51039",
+        "bytes": 481836
+      },
+      {
+        "path": "content/sns/instagram/pe-first-stage/keyword-packs/balanced-bridge/reels/wav/00.wav",
+        "sha256": "25f289a9eb4d8c045a52dca505c2dd5b015bb9e4eef556dca1d2119b62f70d12",
+        "bytes": 354860
+      },
+      {
+        "path": "content/sns/instagram/pe-first-stage/keyword-packs/balanced-bridge/reels/video.mp4",
+        "sha256": "7881b18295bf7313d4f47e21af1d572e7fbd01ca3333e6017b87ae42391854f5",
+        "bytes": 860309
+      },
+      {
+        "path": "content/sns/instagram/pe-first-stage/keyword-packs/balanced-bridge/reels/_combined.mp4",
+        "sha256": "c68ea02060b4e558ec809b6c398a56951e88c628114ab39c21cd3e85b8027929",
+        "bytes": 847746
+      },
+      {
+        "path": "content/sns/instagram/pe-first-stage/keyword-packs/balanced-bridge/reels/slide-03.mp4",
+        "sha256": "266fbc71defac689d5275ac60baff79ee6c155ea72b4414e2e8fbf1f8147f353",
+        "bytes": 151634
+      },
+      {
+        "path": "content/sns/instagram/pe-first-stage/keyword-packs/balanced-bridge/reels/slide-02.mp4",
+        "sha256": "a9f8938ea622ac52a4449adf773b8ab01eeee90dd1573578fa651efa0bf3c5fe",
+        "bytes": 337908
+      },
+      {
+        "path": "content/sns/instagram/pe-first-stage/keyword-packs/balanced-bridge/reels/slide-00.mp4",
+        "sha256": "3b8831398dd1e0d55fab8f40a95edaf1b1f9fe8bdb5b0cdd13f062ace9c6bc38",
+        "bytes": 160419
+      },
+      {
+        "path": "content/sns/instagram/pe-first-stage/keyword-packs/balanced-bridge/reels/slide-01.mp4",
+        "sha256": "ce1ea5f4b49e70a99ccccd626041a1d8ed667084a1c78c68925c7e21bddd017d",
+        "bytes": 201641
+      },
+      {
+        "path": "content/sns/x/draft/103-cem-existing-figure-diagrams/img/tweet-14-agile.png",
+        "sha256": "e4956e08b576f4dbefd8437b3e816931dfa4bbd001bdf06a0a56484e9d85df81",
+        "bytes": 214468
+      },
+      {
+        "path": "content/sns/x/draft/103-cem-existing-figure-diagrams/img/tweet-15-three-c-analysis.png",
+        "sha256": "ad29a6e06543941aa5499d0236f2e916141af6a6a5edb9f6d9b3e93ac4b80a5d",
+        "bytes": 188143
+      },
+      {
+        "path": "content/sns/x/draft/103-cem-existing-figure-diagrams/img/tweet-12-variable-work-hours.png",
+        "sha256": "be369b143a88f2c1c35cdd535c85998609a024dcb7e089e1ad5b78112908ec82",
+        "bytes": 231206
+      },
+      {
+        "path": "content/sns/x/draft/103-cem-existing-figure-diagrams/img/tweet-13-waterfall.png",
+        "sha256": "838ec637b46fada756a06f7f7d01e5e5bdeb6b38c70cd2920ebee3c7a8b1f65f",
+        "bytes": 201800
+      },
+      {
+        "path": "content/sns/x/draft/103-cem-existing-figure-diagrams/img/tweet-10-divisional-organization.png",
+        "sha256": "484bb36aaa8adfb2205d171aee9741a039a1e2678ab123cd845e9d1353f642f0",
+        "bytes": 197290
+      },
+      {
+        "path": "content/sns/x/draft/103-cem-existing-figure-diagrams/img/tweet-11-scientific-management.png",
+        "sha256": "fb51200a710526cd3050fa28a62d1b7c69fd0dd0dfbc08ca4431a68aaff5f58d",
+        "bytes": 193450
+      },
+      {
+        "path": "content/sns/x/draft/103-cem-existing-figure-diagrams/img/tweet-09-eta.png",
+        "sha256": "774628b52227c72989d82795d5ef27d427f6c10892bea4cf2ef7cdc9afda3d30",
+        "bytes": 194399
+      },
+      {
+        "path": "content/sns/x/draft/103-cem-existing-figure-diagrams/img/tweet-06-monte-carlo-simulation.png",
+        "sha256": "9981fb0cfc623a0329107afb68d1c8d213661ea6f8d9014c690cba9b95895d6e",
+        "bytes": 211400
+      },
+      {
+        "path": "content/sns/x/draft/103-cem-existing-figure-diagrams/img/tweet-07-correlation-analysis.png",
+        "sha256": "d0581a6c010720e9ad5c4dc62cb7beb3ca9e3357160e4750b99262d343d895f5",
+        "bytes": 123701
+      },
+      {
+        "path": "content/sns/x/draft/103-cem-existing-figure-diagrams/img/tweet-08-fta.png",
+        "sha256": "0cfe72577409e316e15d0a54a4941a476986c7fb5478069bfb00bf70a96e3538",
+        "bytes": 171081
+      },
+      {
+        "path": "content/sns/x/draft/103-cem-existing-figure-diagrams/img/tweet-05-linear-programming.png",
+        "sha256": "333fae86d986353114dfcc117da706fe01e031b82944a388e384e37b46a79390",
+        "bytes": 182315
+      },
+      {
+        "path": "content/sns/x/draft/103-cem-existing-figure-diagrams/img/tweet-02-cash-flow-statement.png",
+        "sha256": "3b9797c86b32a5435a4877d907303485ed76f703f910cef24ce2ac7896b5ddb2",
+        "bytes": 208806
+      },
+      {
+        "path": "content/sns/x/draft/103-cem-existing-figure-diagrams/img/tweet-01-npv-net-present-value.png",
+        "sha256": "5d20aabd5c5402b23fcc5f8bd92a07b5b78c2deb5f94cb3efa3d3954eba1da6b",
+        "bytes": 159890
+      },
+      {
+        "path": "content/sns/x/draft/103-cem-existing-figure-diagrams/img/tweet-03-income-statement.png",
+        "sha256": "e96a109eca34f69e002cd7107b5903b39ebd17a2b57030934bafccc1058f71ec",
+        "bytes": 132339
+      },
+      {
+        "path": "content/sns/x/draft/103-cem-existing-figure-diagrams/img/tweet-04-pert-cpm.png",
+        "sha256": "f567de96b3594dd720a428c74e12faaaf84634c325efa5697c7cf7f80224fa44",
+        "bytes": 125591
+      }
+    ]
+  },
+  "checks": {
+    "tests": 47,
+    "testsStatus": "PASS",
+    "staticQuizE2e": 4,
+    "staticQuizE2eStatus": "PASS",
+    "sidebarLinks": 42,
+    "admin390px": [
+      {
+        "state": "",
+        "status": 200,
+        "expected": true,
+        "overflow": false
+      },
+      {
+        "state": "?state=blocked",
+        "status": 200,
+        "expected": true,
+        "overflow": false
+      },
+      {
+        "state": "?state=pending",
+        "status": 200,
+        "expected": true,
+        "overflow": false
+      }
+    ],
+    "build": {
+      "pages": 2001,
+      "mode": "webpack / CIRCLE_NODE_TOTAL=3 (2 workers)",
+      "status": "PASS",
+      "note": "node_modules共有リンクのworktreeでwebpack使用。実装設定変更なし。コミット時dateModified更新後も再ビルド済み。"
+    },
+    "precommit": "PASS",
+    "typeCheck": "PASS",
+    "references": "285 sources / 1267 articles / 1784 references PASS",
+    "relativeLinks": "1034 links PASS"
+  },
+  "limitations": [
+    "本文照合の深さは教材対応表の各論点を参照。全文章・数値の再校正を意味しない。",
+    "制作物の公開・予約、音声の聴取確認、7日/28日実測は未実施。",
+    "Drive全体検査に今回対象外の既存3ファイルのvaultハッシュ不一致がある。今回追加137ファイルはローカル/台帳/クラウド一致。"
+  ]
+}

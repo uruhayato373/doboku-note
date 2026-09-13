@@ -1003,6 +1003,42 @@
       "outcome": "done",
       "plan": null,
       "commit": "d43b69d9d"
+    },
+    {
+      "id": "DN-0206",
+      "at": "2026-09-13",
+      "task": "技術士建設部門R8の必須・選択11科目を年度別過去問12記事へ追加する",
+      "tier": "high",
+      "executor": "codex",
+      "outcome": "done",
+      "plan": null,
+      "commit": "1f7aef897cec",
+      "verification": "原典46頁・90設問/140小問/18枝番、独立QA、MDX24記事、本番2001ページbuild PASS",
+      "note": "R8必須+選択11科目を追加し科目別分析を更新。監査はpdf-mdx-audit/2026-09-13-r08-pe-construction.json。公開と初回計測はDN-0220。"
+    },
+    {
+      "id": "DN-0208",
+      "at": "2026-09-13",
+      "task": "技術士一次の令和元年度再試験を基礎・適性・建設の3記事へ追加する",
+      "tier": "mid",
+      "executor": "codex",
+      "outcome": "done",
+      "plan": null,
+      "commit": "1f7aef897cec",
+      "verification": "再試験80問公式キー・6回帰test・1120/1117/3集計・42導線・採点外desktop/mobile E2E4件PASS",
+      "note": "再試験3記事とPWA生成/表示を接続。通常R1の2問と解説1行を原典から修正。監査はpdf-mdx-audit/2026-09-13-r01-retry.json。公開はDN-0220。"
+    },
+    {
+      "id": "DN-0223",
+      "at": "2026-09-13",
+      "task": "全教材の論点と記事・図解・SNSを突合し未展開の学習課題を解消する",
+      "tier": "high",
+      "executor": "codex",
+      "outcome": "done",
+      "plan": null,
+      "commit": "1f7aef897cec",
+      "verification": "27教材930論点・要作業0/原典待ち17/再確認0・47tests・X53独立QA・型検査・本番build・commit全ゲートPASS",
+      "note": "教材対応SSOT・admin/content/expansion・記事/図・X53下書き・IG一次3パック・Reels6を整備。原典制約17論点はDN-0135、公開と効果測定はDN-0220。"
     }
   ]
 }
