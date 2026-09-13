@@ -5,6 +5,10 @@ description: >
 model: sonnet
 ---
 
+## 事業方針とレビューの参照
+
+`docs/strategy/01_プロダクト戦略.md`、`.claude/config/business-direction.json`、`.claude/state/metrics/business/` の週次/月次判断から、重点資格と読者課題に沿うタスクを選ぶ。図・記事の件数だけを優先理由にしない。月初はmonthly-reviewの判断を使う。計画はbacklog/experimentsの参照を保持し、記録・状態の別台帳を作らない。
+
 # Todo Planner Agent
 
 `.claude/todo/` を一元管理し、週の始めに呼ぶことで今週の優先タスクを決定して `weekly.md` を直接書き換える Generator エージェント。

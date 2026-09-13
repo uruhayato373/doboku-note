@@ -5,7 +5,7 @@ import { resolve, join } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
 import { getDateRange, addDays } from './lib/gsc-date-range.mjs';
-import { WatchError, CONFIG, LEDGER, readJson, validateConfig, report, hash, scopeKey, writeSnapshot, readMeasurements, latestMeasurement, aggregate, enough, validateSnapshot, reviewWindows, statusOf, experimentFor, deploymentFor, updateLedger, recordAction, markDeployed, applyReview, dateJst, decisionRecord, writeDecision } from './lib/seo-rank-watch.mjs';
+import { WatchError, readWatchConfig, CONFIG, LEDGER, readJson, validateConfig, report, hash, scopeKey, writeSnapshot, readMeasurements, latestMeasurement, aggregate, enough, validateSnapshot, reviewWindows, statusOf, experimentFor, deploymentFor, updateLedger, recordAction, markDeployed, applyReview, dateJst, decisionRecord, writeDecision } from './lib/seo-rank-watch.mjs';
 import { discoverCandidates } from './lib/seo-watch-strategy.mjs';
 
 async function main() {
@@ -20,7 +20,7 @@ async function main() {
     return;
   }
   if (positionals.length > 1) throw new WatchError('Only one command / keyword per invocation');
-  const config = validateConfig(readJson(root, CONFIG));
+  const config = readWatchConfig(root);
   const store = readJson(root, LEDGER);
   let client;
   const fetchWindow = async (watch, window) => {

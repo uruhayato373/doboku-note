@@ -1,3 +1,4 @@
+import { DIRECTION, direction } from './business-direction.mjs';
 import { createHash, randomUUID } from 'node:crypto';
 import { existsSync, readFileSync, readdirSync, mkdirSync, writeFileSync, renameSync, unlinkSync } from 'node:fs';
 import { join } from 'node:path';
@@ -6,6 +7,14 @@ import { INTENTS, SELECTION_ORDER, strategyErrors, seasonFor, compareCandidates,
 
 export class WatchError extends Error {}
 
+export function readWatchConfig(root) {
+  const config = readJson(root, CONFIG);
+  if (config.strategy?.focusSource) {
+    if (config.strategy.focusSource !== DIRECTION || config.strategy.focusQualifications) throw new WatchError('Focus qualifications must use business direction');
+    config.strategy.focusQualifications = direction(root).qualifications.map(q => q.id);
+  }
+  return validateConfig(config);
+}
 export const CONFIG = '.claude/config/seo-watchwords.json';
 export const LEDGER = '.claude/state/experiments.json';
 export const HISTORY = '.claude/state/metrics/gsc/rank-watch';
@@ -96,7 +105,7 @@ export function latestMeasurement(snapshots, watch) {
   return snapshots.filter((s) => s.type === 'measurement' && s.scopeKey === scopeKey(watch)).at(-1) ?? null;
 }
 export function report(root, now = new Date()) {
-  const config = validateConfig(readJson(root, CONFIG));
+  const config = readWatchConfig(root);
   const store = readJson(root, LEDGER);
   const snapshots = readMeasurements(root);
   const calendar = existsSync(join(root, '.claude/config/exam-calendar.json')) ? readJson(root, '.claude/config/exam-calendar.json') : null;

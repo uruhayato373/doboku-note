@@ -1,0 +1,18 @@
+{
+  "kind": "measurement",
+  "qualification": "all",
+  "period": {
+    "startDate": "2026-08-01",
+    "endDate": "2026-08-31"
+  },
+  "channel": "note",
+  "subject": "aggregate",
+  "source": "note新ダッシュボード・2026年8月の対象全記事PVは未確認",
+  "coverage": "partial",
+  "values": {
+    "notePv": null
+  },
+  "schemaVersion": 1,
+  "createdAt": "2026-09-13T02:25:54.163Z",
+  "strategyHash": "0dcafa7d40353bfb3d3188789620e21885f6b0fb84affd6f87e837ed5f5c9151"
+}

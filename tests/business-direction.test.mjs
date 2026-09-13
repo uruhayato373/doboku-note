@@ -1,0 +1,62 @@
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+import { mkdtempSync, mkdirSync, readFileSync, writeFileSync, rmSync } from 'node:fs';
+import { join } from 'node:path';
+import { tmpdir } from 'node:os';
+import { reviewPeriod, direction, saveRecord, records, buildReport, snapshot, assertLocalWrite } from '../scripts/lib/business-direction.mjs';
+const now = new Date('2026-09-13T01:00:00Z'), period = { startDate: '2026-08-01', endDate: '2026-08-31' };
+function fixture(t) {
+ const root=mkdtempSync(join(tmpdir(),'business-'));t.after(()=>rmSync(root,{recursive:true,force:true}));
+ for(const p of ['.claude/config','.claude/state/sales','.claude/state/metrics/ga4'])mkdirSync(join(root,p),{recursive:true});
+ writeFileSync(join(root,'.claude/config/business-direction.json'),readFileSync('.claude/config/business-direction.json'));
+ writeFileSync(join(root,'.claude/state/experiments.json'),JSON.stringify({experiments:[{id:'SEO-test'},{id:'perf-lcp-mobile-2026-W17'}]})); return root;
+}
+const measure = (values = { notePv: 10 }) => ({kind:'measurement', qualification:'all', period, channel:'note', subject:'aggregate', source:'note新ダッシュボード・全記事',coverage:'complete',values});
+test('calendar periods are completed JST weeks and months',()=>{
+ assert.deepEqual(reviewPeriod('weekly','2026-09-13'),{startDate:'2026-08-31',endDate:'2026-09-06'});
+ assert.deepEqual(reviewPeriod('weekly','2026-09-14'),{startDate:'2026-09-07',endDate:'2026-09-13'});
+ assert.deepEqual(reviewPeriod('monthly','2026-03-01'),{startDate:'2026-02-01',endDate:'2026-02-28'});
+});
+test('missing is null, sales coverage partial, no invented earnings',t=>{
+ const root=fixture(t);writeFileSync(join(root,'.claude/state/sales/sales-log.json'),JSON.stringify({sales:[{date:'2026-08-10',price:1000}]}));
+ const r=buildReport(root,period,now);assert.equal(r.cells.find(c=>c.metric==='noteRevenue').value,1000);assert.equal(r.cells.find(c=>c.metric==='noteRevenue').coverage,'partial');assert.equal(r.cells.find(c=>c.metric==='notePv').value,null);assert.equal(r.operatingBalance[0].value,null);
+});
+test('daily users never summed and different windows never substituted',t=>{
+ const root=fixture(t);writeFileSync(join(root,'.claude/state/metrics/ga4/ga4-date-test.json'),JSON.stringify({meta:period,rows:[{activeUsers:10},{activeUsers:10}]}));
+ assert.equal(buildReport(root,period,now).cells[0].value,null);
+ saveRecord(root,measure(),now);assert.equal(buildReport(root,{startDate:'2026-09-01',endDate:'2026-09-07'},now).cells.find(c=>c.metric==='notePv').value,null);
+});
+test('corrections preserve history and reject duplicates and invalid definitions',t=>{
+ const root=fixture(t), first=saveRecord(root,measure(),now);
+ assert.throws(()=>saveRecord(root,measure(),now),/同じ計測/);
+ assert.throws(()=>saveRecord(root,measure({oldViews:10}),now),/不正/);
+ assert.throws(()=>saveRecord(root,measure({notePv:-1}),now),/不正/);
+ saveRecord(root,{...measure({notePv:12}),supersedes:first.file},new Date('2026-09-13T02:00:00Z'));
+ assert.equal(records(root).length,2);assert.equal(JSON.parse(readFileSync(join(root,first.file))).values.notePv,10);assert.equal(buildReport(root,period,now).cells.find(c=>c.metric==='notePv').value,12);
+});
+test('product observations are not an aggregate and mixed coverage does not produce profit',t=>{
+ const root=fixture(t);saveRecord(root,{...measure(),subject:'article-123'},now);
+ assert.equal(buildReport(root,period,now).cells.find(c=>c.metric==='notePv').value,null);
+ saveRecord(root,{...measure(),channel:'operations',values:{netReceipts:1000,costYen:null},coverage:'partial'},now);
+ assert.equal(buildReport(root,period,now).operatingBalance[0].value,null);
+});
+test('reviews require matching frozen evidence, all qualifications and actual experiment IDs',t=>{
+ const root=fixture(t), snap=snapshot(root,period,now), c=direction(root);
+ const review={kind:'review',qualification:'all',period,cadence:'monthly',status:'provisional',findings:'全資格の計測が不足している。',decision:'取得から進める。',nextAction:'資格別に次月の計測を開始する。',nextReviewDate:'2026-09-20',snapshot:snap.file,qualificationsReviewed:c.qualifications.map(q=>q.id),experimentIds:['SEO-test','perf-lcp-mobile-2026-W17']};
+ assert.throws(()=>saveRecord(root,{...review,status:'complete'},now),/不足/);
+ assert.throws(()=>saveRecord(root,{...review,experimentIds:['EXP-999']},now),/ないID/);
+ saveRecord(root,review,now);assert.equal(buildReport(root,period,new Date('2026-09-21T00:00:00Z')).followups.length,1);assert.throws(()=>saveRecord(root,review,now),/同じ期間/);
+});
+test('targets require real complete baselines',t=>{
+ const root=fixture(t);const first=snapshot(root,period,now);
+ const target={kind:'target',qualification:'all',period,metric:'notePv',value:20,direction:'at-least',effectiveDate:'2026-09-01',reviewDate:'2026-10-01',reason:'同じ対象の実測から設定する。',snapshot:first.file};
+ assert.throws(()=>saveRecord(root,target,now),/実測/);
+ saveRecord(root,measure(),now);const second=snapshot(root,period,now);saveRecord(root,{...target,snapshot:second.file},now);
+});
+test('write endpoint requires local same-origin JSON',()=>{
+ const make=(origin,host='127.0.0.1:3021')=>new Request('http://127.0.0.1:3021/metrics/business/record',{method:'POST',headers:{origin,host,'content-type':'application/json'}});
+ assert.doesNotThrow(()=>assertLocalWrite(make('http://127.0.0.1:3021')));
+ assert.doesNotThrow(()=>assertLocalWrite(new Request('http://localhost:3021/metrics/business/record',{method:'POST',headers:{origin:'http://127.0.0.1:3021',host:'127.0.0.1:3021','content-type':'application/json'}})));
+ assert.throws(()=>assertLocalWrite(make('https://evil.example')));
+ assert.throws(()=>assertLocalWrite(make('http://127.0.0.1:3021','evil.example')));
+});

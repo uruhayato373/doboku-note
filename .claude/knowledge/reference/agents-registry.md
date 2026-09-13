@@ -18,6 +18,8 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 
 ---
 
+2026-09-13: strategy-advisor / todo-planner / metrics-analyzerを資格別事業方針・KPI・週次/月次の共通SSOTへ結線。新規エージェントは追加せず、レビュー判断と実装・計測の担当を維持する。
+
 ## スキル → エージェント呼出マップ
 
 どのスキルがどのエージェントを起動するかの早引き。
