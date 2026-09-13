@@ -226,7 +226,7 @@ function saveJson(data, opts) {
     mkdirSync(OUTPUT_DIR, { recursive: true });
   }
 
-  const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
+  const timestamp = new Date().toISOString().replace(/[:.]/g, "-").slice(0, 19);
   // 複数ディメンションは page,query → gsc-page-query-{ts}.json（metrics-analyzer が参照）。
   const dimSlug = opts.effectiveDimensions.join("-");
   const filename = `gsc-${dimSlug}-${timestamp}.json`;
@@ -251,7 +251,9 @@ async function main() {
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) main().catch((e) => {
-  if (e.code === 403) {
+  if (e.code === "EEXIST") {
+    console.error("Snapshot already exists for this second. Retry to append a new file; history was not overwritten.");
+  } else if (e.code === 403) {
     console.error(
       "Error: アクセス権がありません。\n" +
         "GSCプロパティにサービスアカウントのメールアドレスを追加してください。"
