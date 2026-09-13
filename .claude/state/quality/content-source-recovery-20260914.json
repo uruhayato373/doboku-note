@@ -1,0 +1,589 @@
+{
+  "schemaVersion": 1,
+  "backlogId": "DN-0224",
+  "reviewedAt": "2026-09-14",
+  "recordType": "historical-source-audit",
+  "liveStatePath": ".claude/state/content-expansion.json",
+  "stopReason": "ユーザーが別PCでの継続を指定したため制作を中断し引き継ぎ。",
+  "evidenceLimit": "作業中に指定worktreeが消失したため、このJSONは直前に実施した全数目視とツール実測の記録からroot .tmpへ復元した。未保存の成果物を保存済みとは扱わない。 ここには原本の本文・画像・認証情報を保存しない。最終成果物の検証は未完。",
+  "summary": {
+    "units": 17,
+    "completed": 0,
+    "sourceRecoveredButProductionPending": 1,
+    "sourceWaiting": 16,
+    "sourcePagesMissing": 4,
+    "rescanRequired": 5,
+    "originalUnidentified": 7
+  },
+  "units": [
+    {
+      "id": "pe-cem-essay-guide:総監論文に求められるもの.md:7",
+      "title": "総監論文に求められるもの",
+      "sourcePdfSha256": "47b5c9cea725e4da7ef6e43be045e8c4409b0b4460c19715fceba18cdaaf316e",
+      "printedPages": "24–26",
+      "imageIds": [
+        "p0001",
+        "p0002",
+        "p0003"
+      ],
+      "rescanPrintedPages": [
+        24,
+        26
+      ],
+      "outcome": "rescan-required",
+      "requiredBeforeCovered": [
+        "原本再撮影後に該当節を再照合"
+      ]
+    },
+    {
+      "id": "pe-cem-essay-guide:総監論文に求められるもの.md:80",
+      "title": "論文全体の基本構造",
+      "sourcePdfSha256": "47b5c9cea725e4da7ef6e43be045e8c4409b0b4460c19715fceba18cdaaf316e",
+      "printedPages": "27–30",
+      "imageIds": [
+        "p0004",
+        "p0005",
+        "p0006",
+        "p0007"
+      ],
+      "rescanPrintedPages": [
+        28
+      ],
+      "outcome": "rescan-required",
+      "requiredBeforeCovered": [
+        "原本再撮影後に該当節を再照合"
+      ]
+    },
+    {
+      "id": "pe-cem-essay-guide:総監論文に求められるもの.md:196",
+      "title": "事業概要の書き方",
+      "sourcePdfSha256": "47b5c9cea725e4da7ef6e43be045e8c4409b0b4460c19715fceba18cdaaf316e",
+      "printedPages": "30–32",
+      "imageIds": [
+        "p0007",
+        "p0008",
+        "p0009"
+      ],
+      "rescanPrintedPages": [
+        30,
+        31
+      ],
+      "outcome": "rescan-required",
+      "requiredBeforeCovered": [
+        "原本再撮影後に該当節を再照合"
+      ]
+    },
+    {
+      "id": "pe-cem-essay-guide:総監論文に求められるもの.md:260",
+      "title": "施策の書き方",
+      "sourcePdfSha256": "47b5c9cea725e4da7ef6e43be045e8c4409b0b4460c19715fceba18cdaaf316e",
+      "printedPages": "32–35",
+      "imageIds": [
+        "p0009",
+        "p0010",
+        "p0011",
+        "p0012",
+        "p0013",
+        "p0014"
+      ],
+      "rescanPrintedPages": [
+        32,
+        34
+      ],
+      "outcome": "rescan-required",
+      "requiredBeforeCovered": [
+        "原本再撮影後に該当節を再照合"
+      ]
+    },
+    {
+      "id": "pe-cem-essay-guide:総監論文に求められるもの.md:397",
+      "title": "将来展望の書き方",
+      "sourcePdfSha256": "47b5c9cea725e4da7ef6e43be045e8c4409b0b4460c19715fceba18cdaaf316e",
+      "printedPages": "35–38",
+      "imageIds": [
+        "p0012",
+        "p0015",
+        "p0016",
+        "p0017"
+      ],
+      "rescanPrintedPages": [],
+      "outcome": "recovered-source",
+      "requiredBeforeCovered": [
+        "印字35頁のp0014の遮蔽は別撮影p0012で補える。36〜38頁のp0015〜17を全数目視し読み取り可能。",
+        "旧OCRの「⇒ (2) の条件を満たすものである。」は印字37頁では三条件を受ける散文「この条件を満たすものである。」。修正が必要。",
+        "既存記事・三層構造図・sanso-kozo台本の「リスク1つ」「国全体へ広げない」を当年度の設問の数・範囲指定に従う説明へ限定。",
+        "成果物更新・検証後にcovered/body-reviewedへ変更。"
+      ]
+    },
+    {
+      "id": "pe-cem-essay-guide:記述式問題の要点.md:7",
+      "title": "第6章1 記述式問題のテーマ認識",
+      "outcome": "original-unidentified",
+      "printedPages": null,
+      "reason": "登録原本9頁は第2章（印字24〜38頁）と第3章章扉（39頁）のみ。第6章はこのPDFにない。遮蔽9版面という別資料の理由を流用しない。旧OCR末尾には推定補完の注記があり、本文にも崩れがある。",
+      "request": "書名・版・第6章「記述式問題の要点」全頁（表6.1・6.2の続きも含む）が特定できる原本。印字頁は原本同定後に記録。"
+    },
+    {
+      "id": "pe-cem-essay-guide:記述式問題の要点.md:58",
+      "title": "第6章2 ヒントを活かす",
+      "outcome": "original-unidentified",
+      "printedPages": null,
+      "reason": "登録原本9頁は第2章（印字24〜38頁）と第3章章扉（39頁）のみ。第6章はこのPDFにない。遮蔽9版面という別資料の理由を流用しない。旧OCR末尾には推定補完の注記があり、本文にも崩れがある。",
+      "request": "書名・版・第6章「記述式問題の要点」全頁（表6.1・6.2の続きも含む）が特定できる原本。印字頁は原本同定後に記録。"
+    },
+    {
+      "id": "pe-cem-essay-guide:記述式問題の要点.md:88",
+      "title": "第6章3 解答のための事前ステップ",
+      "outcome": "original-unidentified",
+      "printedPages": null,
+      "reason": "登録原本9頁は第2章（印字24〜38頁）と第3章章扉（39頁）のみ。第6章はこのPDFにない。遮蔽9版面という別資料の理由を流用しない。旧OCR末尾には推定補完の注記があり、本文にも崩れがある。",
+      "request": "書名・版・第6章「記述式問題の要点」全頁（表6.1・6.2の続きも含む）が特定できる原本。印字頁は原本同定後に記録。"
+    },
+    {
+      "id": "pe-cem-essay-guide:記述式問題の要点.md:102",
+      "title": "第6章4 記述式問題で求められている要点を検討する",
+      "outcome": "original-unidentified",
+      "printedPages": null,
+      "reason": "登録原本9頁は第2章（印字24〜38頁）と第3章章扉（39頁）のみ。第6章はこのPDFにない。遮蔽9版面という別資料の理由を流用しない。旧OCR末尾には推定補完の注記があり、本文にも崩れがある。",
+      "request": "書名・版・第6章「記述式問題の要点」全頁（表6.1・6.2の続きも含む）が特定できる原本。印字頁は原本同定後に記録。"
+    },
+    {
+      "id": "pe-cem-essay-guide:記述式問題の要点.md:122",
+      "title": "第6章5 時間配分",
+      "outcome": "original-unidentified",
+      "printedPages": null,
+      "reason": "登録原本9頁は第2章（印字24〜38頁）と第3章章扉（39頁）のみ。第6章はこのPDFにない。遮蔽9版面という別資料の理由を流用しない。旧OCR末尾には推定補完の注記があり、本文にも崩れがある。",
+      "request": "書名・版・第6章「記述式問題の要点」全頁（表6.1・6.2の続きも含む）が特定できる原本。印字頁は原本同定後に記録。"
+    },
+    {
+      "id": "pe-cem-exam-guide:総監_第1章.md:9",
+      "title": "第1章1.2 総監の全体像を掴もう",
+      "outcome": "original-unidentified",
+      "printedPages": null,
+      "reason": "登録8分冊は出願の留意点と択一式過去問。MyDriveの教材PDF・名前の全拡張子走査で、第1章を同定できる追加原本は発見せず。旧OCRにsourcePdfsやページマーカーがない。",
+      "request": "書名・版が分かる書影/奥付と第1章1.2〜1.3全頁。図表1.5〜1.13を含む。"
+    },
+    {
+      "id": "pe-cem-exam-guide:総監_第1章.md:96",
+      "title": "第1章1.3 着実に総監合格するための5つのヒント",
+      "outcome": "original-unidentified",
+      "printedPages": null,
+      "reason": "登録8分冊は出願の留意点と択一式過去問。MyDriveの教材PDF・名前の全拡張子走査で、第1章を同定できる追加原本は発見せず。旧OCRにsourcePdfsやページマーカーがない。",
+      "request": "書名・版が分かる書影/奥付と第1章1.2〜1.3全頁。図表1.5〜1.13を含む。"
+    },
+    {
+      "id": "civil-unit-139",
+      "sourceId": "civil1-secondary-workbook-2021",
+      "title": "安全管理の法令と現場対策を記述で答える",
+      "outcome": "source-pages-missing",
+      "reason": "2026-09-14再実査: 原本 001.pdf は324 PDF頁で、末尾の印字316を全版面まで確認。目次が示す第6章「安全管理」は印字318開始、次章は428開始のため、318〜427の原本が必要。Driveの登録原本・旧配置・別名検索・改訂履歴に続編は見つからなかった。既存記事や他の教材があることでは本書との照合を完了にしない。",
+      "locators": [
+        "part-01.md:173 (p0007; 目次)",
+        "印字318〜427（未収録。318開始/次章428開始を目次で確認）"
+      ]
+    },
+    {
+      "id": "civil-unit-140",
+      "sourceId": "civil1-secondary-workbook-2021",
+      "title": "環境保全と副産物対策を記述へつなげる",
+      "outcome": "source-pages-missing",
+      "reason": "2026-09-14再実査: 原本 001.pdf は印字316で終了。目次が示す第7章「環境保全・建設副産物対策」は印字428開始、付録は493開始のため、428〜492の原本が必要。登録原本・旧配置・別名検索・改訂履歴に続編は見つからなかった。未収録の本文から追加記事・図・SNSの要否を決めない。",
+      "locators": [
+        "part-01.md:181 (p0007; 目次)",
+        "印字428〜492（未収録。428開始/付録493開始を目次で確認）"
+      ]
+    },
+    {
+      "id": "civil-unit-163",
+      "sourceId": "civil1-secondary-workbook-2021",
+      "title": "付録の令和2年度実地問題を現在の公開過去問と照合する",
+      "outcome": "source-pages-missing",
+      "reason": "2026-09-14再実査: 目次で付録「令和2年度1級土木施工管理技術検定実地試験問題」が印字493開始と確認できるが、原本は316で終了。493から付録末尾までと終端確認用の奥付が必要（最終ページ番号は未確認）。他の公式過去問があっても本書の収録範囲・配置の照合とは区別する。",
+      "locators": [
+        "part-01.md:189 (p0007; 目次)",
+        "印字493〜付録末尾（未収録。最終ページ番号未確認）"
+      ]
+    },
+    {
+      "id": "civil-unit-190",
+      "sourceId": "civil1-secondary-workbook-2021",
+      "title": "品質管理章末尾の印字317を確認する",
+      "outcome": "source-pages-missing",
+      "reason": "2026-09-14再実査: PDF最終頁 p0324 は印字316を下端のノンブル・余白まで収録し、OCR末尾も画像と一致する。「316の残りが欠落」は撤回。次章は目次で印字318開始のため、未確認は印字317のみ。317が白紙か本文かを原本で確認するまで品質管理章の終端を確定しない。",
+      "locators": [
+        "part-07.md:1080以降 (p0324; 印字316は全版面確認済み)",
+        "印字317（未収録。白紙か本文か未確認）"
+      ]
+    },
+    {
+      "id": "pe-essay-writing-guide:part-03.md:740",
+      "sourceId": "pe-essay-writing-guide",
+      "title": "電気電子部門の出題キーワードを分類し、問われる条件へ絞り込む",
+      "outcome": "rescan-required",
+      "reason": "2026-09-14再実査: 印字151の白飛びという旧判定を撤回。柱・ノンブルが明瞭で、本文領域は裏写りを伴う余白。p0125の印字176は、めくり途中の紙が右端を隠しており原本PDF64にも同じ欠損がある。旧分割PDFの同頁JPEGは結合原本とSHA一致。印字176の全幅が読める再撮影が必要。印字150/185の重複撮影はp0123/p0132で確認でき、私有OCRの誤ったページ番号と重複本文を修正した。",
+      "locators": [
+        "part-03.md:740付近 (p0125; 印字176の右端が遮蔽)",
+        "source/001.pdf PDF64 / 旧分割PDF5の3頁（同一JPEG）",
+        "p0124=印字151の余白、p0126=印字150/185の重複撮影（欠落の根拠から除外）"
+      ]
+    }
+  ],
+  "cemSourcePdf": {
+    "vaultPath": "原資料PDF/書籍/pe-cem-essay-guide__総監論文対策/source/001.pdf",
+    "sha256": "47b5c9cea725e4da7ef6e43be045e8c4409b0b4460c19715fceba18cdaaf316e",
+    "bytes": 9044453,
+    "pdfPages": 9,
+    "verification": "原本PDFと18画像をDriveから作業コピーし、book-manifest記録のSHA256と全19ファイル一致後に目視。",
+    "textLayer": "classify_text_layer.sample_textでPDF3〜8頁を検査: NO_TEXT_LAYER / CJK 0。",
+    "occlusionScan": "detect_occlusion.py実行: 18画像中16候補88.9%。全18画像を目視して本文の遮蔽とは別に判定。"
+  },
+  "cemPageReview": [
+    {
+      "imageId": "p0001",
+      "printedPage": 24,
+      "sourcePdfPage": 1,
+      "side": "left",
+      "finding": "24頁下部の段落を指で遮蔽"
+    },
+    {
+      "imageId": "p0002",
+      "printedPage": 25,
+      "sourcePdfPage": 1,
+      "side": "right",
+      "finding": "本文確認可"
+    },
+    {
+      "imageId": "p0003",
+      "printedPage": 26,
+      "sourcePdfPage": 2,
+      "side": "left",
+      "finding": "26頁の表2-1-2平成22〜19年度の行に遮蔽"
+    },
+    {
+      "imageId": "p0004",
+      "printedPage": 27,
+      "sourcePdfPage": 2,
+      "side": "right",
+      "finding": "本文を確認。指が近接しているため境界に注意"
+    },
+    {
+      "imageId": "p0005",
+      "printedPage": 28,
+      "sourcePdfPage": 3,
+      "side": "left",
+      "finding": "28頁下部、管理上の問題点に続く語が遮蔽"
+    },
+    {
+      "imageId": "p0006",
+      "printedPage": 29,
+      "sourcePdfPage": 3,
+      "side": "right",
+      "finding": "本文確認可"
+    },
+    {
+      "imageId": "p0007",
+      "printedPage": 30,
+      "sourcePdfPage": 4,
+      "side": "left",
+      "finding": "30頁2-3-2冒頭2行の末尾が遮蔽"
+    },
+    {
+      "imageId": "p0008",
+      "printedPage": 31,
+      "sourcePdfPage": 4,
+      "side": "right",
+      "finding": "31頁最終行、問題点の後ろの語が遮蔽"
+    },
+    {
+      "imageId": "p0009",
+      "printedPage": 32,
+      "sourcePdfPage": 5,
+      "side": "left",
+      "finding": "32頁2-4-1末尾文と2-4-2導入文が遮蔽"
+    },
+    {
+      "imageId": "p0010",
+      "printedPage": 33,
+      "sourcePdfPage": 5,
+      "side": "right",
+      "finding": "本文確認可"
+    },
+    {
+      "imageId": "p0011",
+      "printedPage": 34,
+      "sourcePdfPage": 6,
+      "side": "left",
+      "finding": "34頁2-4-3表の綴じ側はp0013で補える。2-4-5冒頭2行は指で遮蔽"
+    },
+    {
+      "imageId": "p0012",
+      "printedPage": 35,
+      "sourcePdfPage": 6,
+      "side": "right",
+      "finding": "35頁本文確認可。p0014の遮蔽を補える"
+    },
+    {
+      "imageId": "p0013",
+      "printedPage": 34,
+      "sourcePdfPage": 7,
+      "side": "left",
+      "finding": "34頁の別撮影。表は確認可、2-4-5冒頭2行はやはり指で遮蔽"
+    },
+    {
+      "imageId": "p0014",
+      "printedPage": 35,
+      "sourcePdfPage": 7,
+      "side": "right",
+      "finding": "35頁別撮影。最終行の指による遮蔽はp0012で補える"
+    },
+    {
+      "imageId": "p0015",
+      "printedPage": 36,
+      "sourcePdfPage": 8,
+      "side": "left",
+      "finding": "36頁。ピントは甘いが本文と表を確認可。指は表右端に近接、文字の欠落は見られない"
+    },
+    {
+      "imageId": "p0016",
+      "printedPage": 37,
+      "sourcePdfPage": 8,
+      "side": "right",
+      "finding": "37頁。ピントは甘いが本文確認可。旧OCRは散文を第四条件にしているため修正案を作成した"
+    },
+    {
+      "imageId": "p0017",
+      "printedPage": 38,
+      "sourcePdfPage": 9,
+      "side": "left",
+      "finding": "38頁。下部に指の影はあるが本文確認可"
+    },
+    {
+      "imageId": "p0018",
+      "printedPage": 39,
+      "sourcePdfPage": 9,
+      "side": "right",
+      "finding": "39頁、第3章の章扉。第6章なし"
+    }
+  ],
+  "cemSearchScope": [
+    "MyDriveマウントのPDFファイル名と総監関連フォルダを走査。追加原本の発見なし。",
+    "旧文字起こし名に対応する全拡張子の名前も確認。既存OCR3本のみ。",
+    "Git全履歴走査はpartial cloneの大量追加取得に入ったため中断。全履歴網羅とはしない。",
+    "破棄候補の未同定1頁PDFは教材ではなかった。私的内容は記録せず、調査用コピーを削除。"
+  ],
+  "civilSourcePdf": {
+    "vaultPath": "原資料PDF/書籍/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021/source/001.pdf",
+    "sha256": "302ab5bd6aba5e1cf22f2c8a77d2b57cbbbc1a1344adb74819c29ff572b88906",
+    "bytes": 32392238,
+    "pdfPages": 324,
+    "lastPrintedPage": 316,
+    "visualReview": "表紙・目次・最終頁の3画像を目視。最終頁のMediaBoxとCropBoxは全版面。印字316末尾文と下端余白まで収録。",
+    "searchScope": "登録原本・旧配置・ファイル名探索・Driveの同名/ゴミ箱検索・原本の改訂履歴を確認し、続編は発見せず。別名の全原本内容を読破したとはしない。"
+  },
+  "writingSourcePdf": {
+    "vaultPath": "原資料PDF/書籍/pe-essay-writing-guide__技術士論文の書き方/source/001.pdf",
+    "sha256": "9d0941e5ca8a5ebb1387d97ca094401835dbe1eeba379a2500dec9da9662a38d",
+    "bytes": 74746067,
+    "pdfPages": 99,
+    "legacyPartSha256": "7a212c2ab1cb1efb9841d52a8dfd92b8fd508a9577432ce4ea7ac58eac0bbb62",
+    "comparison": "旧分割PDF5の2・3頁と結合原本63・64頁は同一JPEG。分割し直しでは遮蔽を回復できない。"
+  },
+  "writingPrivateOcrSave": {
+    "path": "ocr/part-03.md",
+    "beforeSha256": "2cd56704fb79207b45e819684e846e2e86b355cf0975949f69f871fdc7ef7c7e",
+    "afterSha256": "8257225f24cf4bf43d6bb45b0c50a73ef3e329dbafaafb7f5c425ded548868cf",
+    "bytes": 92463,
+    "cloudMd5": "6763f8959947cd7908f8387649c51523",
+    "preservedPageIds": 48,
+    "scope": "p0124〜p0126の余白・誤ページ・重複転記の訂正。全48頁の再校正ではない。",
+    "verification": "Drive保存後、存在1・sha実照合1・cloud md5照合1・不一致0。初回は同期待ち、再試行で成立。"
+  },
+  "integratedWorkCommit": "42dcd65775559782d034586f3011f42407b73240",
+  "verificationBeforeHandoff": {
+    "articleFrontmatterIssues": 0,
+    "articleMobileHigh": 0,
+    "articleMobileMedium": 5,
+    "refreshIndexesExitCode": 0,
+    "verbatimProposal": {
+      "target": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx",
+      "implementation": "scripts/lib/reference-sources.mjs findVerbatimRuns minRun40 maxHits200",
+      "before": {
+        "source": "総監論文に求められるもの.md",
+        "hits": 12,
+        "maximumRun": 77
+      },
+      "additionalOldTranscriptHit": "記述式問題の要点.mdとの64字一致1件は、どちらも記載していた試験問題の定型文。引用の出典が未確定で「毎年同じなので読み飛ばす」とする案内も問題。",
+      "proposalVerifiedBeforeWorktreeRemoval": "7置換で旧OCR2本との一致0件。その後、将来展望節と三層構造の対象限定を追加した9置換版も0件確認。"
+    },
+    "notYetPerformed": [
+      "最終記事の深い逐語一致再検査",
+      "三層構造SVG修正と描画検証",
+      "sanso-kozo修正と動画検証",
+      "全体build",
+      "全17論点の充足確認"
+    ]
+  },
+  "handoffChecks": {
+    "date": "2026-09-14",
+    "backlogCardsChecked": 18,
+    "backlogViolations": 0,
+    "planUnitsChecked": 2,
+    "planLinkViolations": 0,
+    "liveDocumentReferenceErrors": 0,
+    "historicalWeeklyReferenceWarnings": 2,
+    "expansionSummary": {
+      "expectedSources": 27,
+      "reviewedSources": 27,
+      "units": 930,
+      "pending": 1,
+      "blocked": 16,
+      "excluded": 9,
+      "stale": 24,
+      "topicMapped": 0
+    },
+    "expansionIssues": [],
+    "scopedStaleUnits": [
+      "civil-unit-139",
+      "civil-unit-163",
+      "civil-unit-190",
+      "pe-cem-exam-guide:総監_第1章.md:96",
+      "pe-cem-essay-guide:総監論文に求められるもの.md:7",
+      "pe-cem-essay-guide:総監論文に求められるもの.md:80",
+      "pe-cem-essay-guide:総監論文に求められるもの.md:196",
+      "pe-cem-essay-guide:総監論文に求められるもの.md:260",
+      "pe-cem-essay-guide:総監論文に求められるもの.md:397",
+      "pe-cem-essay-guide:記述式問題の要点.md:7",
+      "pe-cem-essay-guide:記述式問題の要点.md:58",
+      "pe-cem-essay-guide:記述式問題の要点.md:88",
+      "pe-cem-essay-guide:記述式問題の要点.md:102",
+      "pe-cem-essay-guide:記述式問題の要点.md:122"
+    ],
+    "allStaleArtifacts": [
+      {
+        "unitId": "concrete-chief-textbook-2022:01",
+        "path": "content/sns/x/draft/092-civil-2026-09-c/tweets.md",
+        "state": "changed"
+      },
+      {
+        "unitId": "concrete-chief-textbook-2024:01",
+        "path": "content/sns/x/draft/092-civil-2026-09-c/tweets.md",
+        "state": "changed"
+      },
+      {
+        "unitId": "civil-unit-099",
+        "path": "content/sns/x/draft/092-civil-2026-09-c/tweets.md",
+        "state": "changed"
+      },
+      {
+        "unitId": "civil-unit-135",
+        "path": "content/sns/x/draft/091-civil-2026-09-b/tweets.md",
+        "state": "changed"
+      },
+      {
+        "unitId": "civil-unit-136",
+        "path": "content/sns/x/draft/092-civil-2026-09-c/tweets.md",
+        "state": "changed"
+      },
+      {
+        "unitId": "civil-unit-136",
+        "path": "content/sns/x/draft/091-civil-2026-09-b/tweets.md",
+        "state": "changed"
+      },
+      {
+        "unitId": "civil-unit-137",
+        "path": "content/sns/x/draft/092-civil-2026-09-c/tweets.md",
+        "state": "changed"
+      },
+      {
+        "unitId": "civil-unit-138",
+        "path": "content/sns/x/draft/092-civil-2026-09-c/tweets.md",
+        "state": "changed"
+      },
+      {
+        "unitId": "civil-unit-139",
+        "path": "content/sns/x/draft/092-civil-2026-09-c/tweets.md",
+        "state": "changed"
+      },
+      {
+        "unitId": "civil-unit-163",
+        "path": "content/sns/x/draft/091-civil-2026-09-b/tweets.md",
+        "state": "changed"
+      },
+      {
+        "unitId": "civil-unit-190",
+        "path": "content/sns/x/draft/092-civil-2026-09-c/tweets.md",
+        "state": "changed"
+      },
+      {
+        "unitId": "pe-cem-exam-guide:総監_第1章.md:96",
+        "path": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx",
+        "state": "changed"
+      },
+      {
+        "unitId": "pe-cem-essay-guide:総監論文に求められるもの.md:7",
+        "path": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx",
+        "state": "changed"
+      },
+      {
+        "unitId": "pe-cem-essay-guide:総監論文に求められるもの.md:80",
+        "path": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx",
+        "state": "changed"
+      },
+      {
+        "unitId": "pe-cem-essay-guide:総監論文に求められるもの.md:196",
+        "path": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx",
+        "state": "changed"
+      },
+      {
+        "unitId": "pe-cem-essay-guide:総監論文に求められるもの.md:260",
+        "path": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx",
+        "state": "changed"
+      },
+      {
+        "unitId": "pe-cem-essay-guide:総監論文に求められるもの.md:397",
+        "path": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx",
+        "state": "changed"
+      },
+      {
+        "unitId": "pe-cem-essay-guide:記述式問題の要点.md:7",
+        "path": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx",
+        "state": "changed"
+      },
+      {
+        "unitId": "pe-cem-essay-guide:記述式問題の要点.md:58",
+        "path": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx",
+        "state": "changed"
+      },
+      {
+        "unitId": "pe-cem-essay-guide:記述式問題の要点.md:88",
+        "path": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx",
+        "state": "changed"
+      },
+      {
+        "unitId": "pe-cem-essay-guide:記述式問題の要点.md:102",
+        "path": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx",
+        "state": "changed"
+      },
+      {
+        "unitId": "pe-cem-essay-guide:記述式問題の要点.md:122",
+        "path": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx",
+        "state": "changed"
+      },
+      {
+        "unitId": "civil-construction-basics:04",
+        "path": "content/sns/x/draft/092-civil-2026-09-c/tweets.md",
+        "state": "changed"
+      },
+      {
+        "unitId": "construction-materials-basics:02",
+        "path": "content/sns/x/draft/092-civil-2026-09-c/tweets.md",
+        "state": "changed"
+      },
+      {
+        "unitId": "concrete-basics-5th:01",
+        "path": "content/sns/x/draft/092-civil-2026-09-c/tweets.md",
+        "state": "changed"
+      }
+    ]
+  }
+}
