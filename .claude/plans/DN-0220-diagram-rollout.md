@@ -32,7 +32,7 @@ deleteOnComplete: true
 - Reels：上記3パックの `reels/script.txt` と `caption.txt`。VOICEVOXのない現端末では音声・mp4は未生成。VOICEVOXが使える環境で `node scripts/figure-reel-create.mjs --pack civil-1/keyword-packs/{slug}` を実行し、音声・字幕・尺を確認してから配信候補にする。
 - 既存動画：`koji-gaiyo-7items` は公開済み（hJYV_U0qKvA）、測量・ネットワーク通常動画もアップロード/予約済み（qIL2YIrhb2w / gNqsZBc_-sM）。元の制作物・IDを保持し、無断で新規動画へ置き換えない。新しい図は上の独立した未公開Reels入力で再利用する。
 
-DN-0221の公開差分には、コンクリート過去問10年度16問の設問・解答対応と土量計算表の訂正を含む。旧記事への訂正注記とリンク先を本番で確認する。
+DN-0221の公開差分には、コンクリート過去問10年度16問の設問・解答対応と土量計算表、機械選定の作業対応・速度区分・適応距離・規格単位の訂正を含む。旧記事への訂正注記とリンク先を本番で確認する。
 
 公開前は順位改善のobservingに移さない。公開日が確定してから7日後・28日後をレビュー日に設定し、既存business reviewへ実測を残す。日付が未定の間は、このカードを次回週次レビューで確認する。
 

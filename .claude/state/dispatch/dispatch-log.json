@@ -883,6 +883,102 @@
       "commit": "84bff4e4140f",
       "verification": "business/SEO tests 33 pass; full suite 1263 pass 3 skip; root/admin type-check; doc-sync; local UI save/reload and mobile 390px",
       "note": "資格別事業方針・KPI・追記型計測/目標/週次月次レビュー・管理画面を統合。Google16集計と初回暫定レビューを記録。note PV/同期間ココナラ/費用時間は欠測として管理。mainデプロイは別判断。"
+    },
+    {
+      "id": "DN-0214",
+      "at": "2026-09-13",
+      "task": "側圧の誤説明とR1・H30コンクリート過去問の空欄対応を修復する",
+      "tier": "high",
+      "executor": "codex",
+      "outcome": "done",
+      "plan": ".claude/plans/DN-0214-pressure-correction.md",
+      "commit": "260982316149",
+      "verification": "node --test tests/concrete-secondary-facts.test.mjs（6件PASS）; MDX・sources PASS",
+      "note": "R1問題3・H30問題3を原試験PDFへ照合し5空欄を修正。側圧の逆転を除去し、既存X投稿IDを示す訂正下書きを作成。公開・送信はDN-0220。"
+    },
+    {
+      "id": "DN-0215",
+      "at": "2026-09-13",
+      "task": "資格別の図解SNS書き出し・制作手順を統一する",
+      "tier": "high",
+      "executor": "codex",
+      "outcome": "done",
+      "plan": ".claude/plans/DN-0215-figure-pipeline.md",
+      "commit": "260982316149",
+      "verification": "render-figure-sns/pack tests 6件PASS; IG cover/CTA 49パックPASS; check-codex-compat・doc-coupling PASS; doc-sync指摘反映",
+      "note": "図解SNS書出しの資格固定を解消。civil1/技術士建設/総監で資格名・CTA・パスを検証。3形式を不透明PNGへ生成。正典スキル・テンプレ・台帳・Codex互換を同期。"
+    },
+    {
+      "id": "DN-0216",
+      "at": "2026-09-13",
+      "task": "1級土木の経験記述と土量変化を図解する",
+      "tier": "high",
+      "executor": "codex",
+      "outcome": "done",
+      "plan": ".claude/plans/DN-0216-civil-diagrams.md",
+      "commit": "260982316149",
+      "verification": "MDX/SVG PASS; check-figure-canvas --staged 実12図PASS; earthwork-calculations PASS",
+      "note": "1級土木へ答案の区画・直接の発注者・土量3状態の独自SVG3点を追加。R7問題1と国交省資料へ照合し375pxで目視。"
+    },
+    {
+      "id": "DN-0217",
+      "at": "2026-09-13",
+      "task": "技術士建設部門の設問分解・答案活用・劣化対策を図解する",
+      "tier": "high",
+      "executor": "codex",
+      "outcome": "done",
+      "plan": ".claude/plans/DN-0217-pe-diagrams.md",
+      "commit": "260982316149",
+      "verification": "MDX/SVG・sources PASS; check-figure-canvas 実対象検査PASS。P11警告は行動を示す見出しの位置検出であり内容を確認",
+      "note": "技術士建設へ設問と答案の対応・答案の活用・劣化診断の独自SVG3点を追加。R7必須問題I-1の4設問と公的補修資料を照合。375px目視。"
+    },
+    {
+      "id": "DN-0218",
+      "at": "2026-09-13",
+      "task": "総監のALARP・根本原因分析・5管理の学習関係を図解する",
+      "tier": "high",
+      "executor": "codex",
+      "outcome": "done",
+      "plan": ".claude/plans/DN-0218-cem-diagrams.md",
+      "commit": "260982316149",
+      "verification": "MDX/SVG・sources PASS; check-figure-canvas --staged 実12図PASS; refresh-indexes PASS",
+      "note": "総監へALARP・RCAの証拠検証・5管理の学習関係の独自SVG3点を追加。政府ガイド/HSE/公式キーワードと自社編集部分を分け、375pxで目視。"
+    },
+    {
+      "id": "DN-0219",
+      "at": "2026-09-13",
+      "task": "既存図3テーマをSNS・動画で再利用できる制作物にする",
+      "tier": "high",
+      "executor": "codex",
+      "outcome": "done",
+      "plan": ".claude/plans/DN-0219-figure-reuse.md",
+      "commit": "260982316149",
+      "verification": "3実パック render-figure-pack --check PASS; rendering tests 6件PASS; IG cover/CTA49・video155 PASS; X長さ4投稿PASS",
+      "note": "骨材含水・水準測量・余裕時間の3既存図を整え、IG4枚×3・X図解3下書きと再生成入力、独立したReels台本3件を作成。元記事と図のsha256を検証しIG12枚・X3枚を375px目視。音声/mp4はVOICEVOX未導入で未生成、配信・音声生成・実測はDN-0220。既存動画のIDと履歴を保持。"
+    },
+    {
+      "id": "DN-0221",
+      "at": "2026-09-13",
+      "task": "土工の計算表とコンクリート二次過去問の原典不整合を監査・修復する",
+      "tier": "high",
+      "executor": "codex",
+      "outcome": "done",
+      "plan": null,
+      "commit": "260982316149",
+      "verification": "concrete-secondary-facts6・earthwork-calculations4 PASS; 16問の原PDFページ目視; MDX・sources・refresh-indexes PASS",
+      "note": "コンクリート10年度16問を原試験PDFで問題番号・空欄・条件まで照合し訂正。4設問は独立QAも実施。土工の計算例・表1.32/1.39を全数検算し、表1.33～1.38は元書籍p.106～110の画像を実読して作業対応・速度・岩種・距離・単位を修正。機械規格は比較時の確認項目へ独自整理。書籍全巻と記事全文章の網羅校正を実施した記録ではない。実装e6debfca3および本entry commit。公開訂正はDN-0220。"
+    },
+    {
+      "id": "DN-0222",
+      "at": "2026-09-13",
+      "task": "図版検査のstaged対象漏れと旧画像パス参照を直す",
+      "tier": "high",
+      "executor": "codex",
+      "outcome": "done",
+      "plan": null,
+      "commit": "260982316149",
+      "verification": "check-figure-canvas/check-mdx-images tests2 PASS; 実staged図12枚PASS; MDX12記事の偽画像欠落警告0",
+      "note": "staged SVGの正規表現を修正し、12図が実際に検査されることを確認。MDX画像の実体をcontent/siteで確認するよう変更。正常/不正寸法/命名/実体欠落/HTML偽装/越境を回帰テスト化。"
     }
   ]
 }

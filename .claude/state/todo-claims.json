@@ -5,54 +5,5 @@
     "startedAt": "ISO8601",
     "branch": "string"
   },
-  "claims": [
-    {
-      "id": "DN-0214",
-      "owner": "codex",
-      "startedAt": "2026-09-13T03:42:59.596Z",
-      "branch": "codex/diagram-expansion-20260913"
-    },
-    {
-      "id": "DN-0215",
-      "owner": "codex",
-      "startedAt": "2026-09-13T03:48:22.252Z",
-      "branch": "codex/diagram-expansion-20260913"
-    },
-    {
-      "id": "DN-0216",
-      "owner": "codex",
-      "startedAt": "2026-09-13T03:54:06.216Z",
-      "branch": "codex/diagram-expansion-20260913"
-    },
-    {
-      "id": "DN-0217",
-      "owner": "codex",
-      "startedAt": "2026-09-13T04:15:04.935Z",
-      "branch": "codex/diagram-expansion-20260913"
-    },
-    {
-      "id": "DN-0218",
-      "owner": "codex",
-      "startedAt": "2026-09-13T04:17:29.503Z",
-      "branch": "codex/diagram-expansion-20260913"
-    },
-    {
-      "id": "DN-0219",
-      "owner": "codex",
-      "startedAt": "2026-09-13T04:21:18.114Z",
-      "branch": "codex/diagram-expansion-20260913"
-    },
-    {
-      "id": "DN-0221",
-      "owner": "codex",
-      "startedAt": "2026-09-13T04:40:36.592Z",
-      "branch": "codex/diagram-expansion-20260913"
-    },
-    {
-      "id": "DN-0222",
-      "owner": "codex",
-      "startedAt": "2026-09-13T04:58:46.831Z",
-      "branch": "codex/diagram-expansion-20260913"
-    }
-  ]
+  "claims": []
 }
