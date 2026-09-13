@@ -1,0 +1,185 @@
+name: SEO Rank Watch (daily)
+
+on:
+  schedule:
+    - cron: '13 0 * * *' # 毎日09:13 JST。定時混雑を避ける。
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: read
+  issues: write
+  id-token: write
+
+concurrency:
+  group: develop-git-write
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - name: Checkout develop
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          ref: develop
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --legacy-peer-deps --ignore-scripts
+      - name: Configure record writer
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+      - name: Prepare GSC credentials
+        env:
+          GOOGLE_KEY: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY_JSON }}
+        run: |
+          test -n "$GOOGLE_KEY" || { echo '::error::GSC credential is missing'; exit 1; }
+          umask 077
+          printf '%s' "$GOOGLE_KEY" > "$RUNNER_TEMP/seo-gsc-key.json"
+      - name: Confirm production deployment before observation
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node scripts/seo-rank-watch-ci.mjs deployments --dir "$RUNNER_TEMP/seo-rank-watch"
+      - name: Collect exact GSC windows and review due observations
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ${{ runner.temp }}/seo-gsc-key.json
+        run: |
+          node scripts/seo-rank-watch.mjs collect
+          node scripts/seo-rank-watch.mjs review --no-fetch --commit
+      - name: Remove Google credentials before model execution
+        if: always()
+        run: rm -f "$RUNNER_TEMP/seo-gsc-key.json"
+      - name: Persist measurements and reviews separately from improvements
+        run: node scripts/seo-rank-watch-ci.mjs persist --dir "$RUNNER_TEMP/seo-rank-watch"
+      - name: Select one eligible keyword
+        id: selection
+        run: node scripts/seo-rank-watch-ci.mjs prepare --dir "$RUNNER_TEMP/seo-rank-watch"
+      - name: Require agent credential only when judgment is needed
+        if: steps.selection.outputs.agent_needed == 'true'
+        env:
+          AGENT_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: test -n "$AGENT_TOKEN" || { echo '::error::Review is due but Claude credential is missing'; exit 1; }
+      - name: Research intent and propose a bounded improvement
+        if: steps.selection.outputs.agent_needed == 'true'
+        uses: anthropics/claude-code-action@16b3b310c3d7b5279df73130324d5205aeea8eac # v1
+        with:
+          github_token: ${{ github.token }}
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          claude_args: |
+            --max-turns 35
+            --allowedTools Read,Write,Glob,Grep,WebSearch,WebFetch
+            --disallowedTools Bash,Edit,Task,Agent
+          prompt: |
+            doboku-noteのSEO Rank Watchを1回実行する。これは非対話CIであり、このturnで出力を完成する。
+            最初に ${{ runner.temp }}/seo-rank-watch/context.json と
+            .claude/knowledge/reference/seo-rank-watch.md、.claude/config/business-direction.json、
+            docs/strategy/01_プロダクト戦略.md、.claude/knowledge/reference/content-authoring.md を読む。
+            重点資格と判断基準は既存SSOTを使う。図で理解し、過去問で確かめ、答案に活かす。
+
+            唯一の書込先は ${{ runner.temp }}/seo-rank-watch/result.json。リポジトリのファイルは変更しない。
+            外部投稿・本番公開・noindex変更・大きな構造変更・新しい定期タスク作成・原典未確認の教材展開は行わない。
+            事業レビュー、X投稿、PC整理はこの処理の対象外。ログイン・秘密情報にアクセスしない。
+
+            context.selected がある場合だけ、その1キーワードを扱う。
+            誰が何を知りたいかを1〜2文で定義し、WebSearchで現在の上位参考1〜3ページを実読する。
+            対象MDXと比較し、検索ニーズへの不足を埋める小さな変更を最大3箇所だけ提案する。
+            改善はtitle/seoTitle/description/導入/既存節の本文/FAQ/次の学習行動への内部リンクの必要なものだけ。
+            H1/H2の追加・削除・変更、正答・試験問題の改変、新しい画像、コードや設定変更は範囲外。
+            適切な改善が無い、出典未確認、検索結果を読めない場合はimprovement:nullとして具体的な理由を記す。
+            原文oldは対象MDXから改行LFで厳密に取り出し、1回だけ現れる文字列にする。old/new各組の合計は8000文字以内。
+            自分の推測を実測や順位改善の効果と呼ばない。SERP順位をGSC履歴に混ぜない。
+
+            context.policyReviewDue がtrueなら、資格別の順位・表示・学習導線、観察・待機の理由を確認し、
+            既存方針を維持する理由と変更提案をpolicyReviewへ40文字以上で記録する。
+            対象語やpriorityの変更を直接適用せず、再確認が必要な根拠を記録する。
+            方針レビュー中はcontext.selectedがnullのため、改善は次回実行へ回す。
+
+            JSON形式（全キー必須、説明用のMarkdown囲い不要）:
+            {
+              "reason": "今回確認した根拠、実施内容または待機理由、次に確認する条件を10文字以上で記す",
+              "policyReview": null,
+              "improvement": {
+                "watchId": "context.selected.id",
+                "action": {
+                  "method": "faq",
+                  "needs": "検索ニーズを10文字以上",
+                  "gap": "上位との比較で確認した不足を10文字以上",
+                  "done": "この提案を適用したときの具体的変更を10文字以上",
+                  "serp": [{"url":"https://実読したURL", "gap":"対象との比較"}]
+                },
+                "replacements": [{"old":"厳密な変更前文字列", "new":"変更後文字列"}]
+              }
+            }
+            改善しない場合はimprovement:null。方針レビュー期日でなければpolicyReview:null。
+            後続コードが検証・反映・記録を担当する。ファイルが存在するだけで完了としない。
+      - name: Reject direct repository edits by the model
+        run: |
+          git diff --exit-code
+          test -z "$(git ls-files --others --exclude-standard)" || { echo '::error::Unexpected untracked model output'; exit 1; }
+      - name: Validate and apply the decision
+        id: applied
+        run: node scripts/seo-rank-watch-ci.mjs apply --dir "$RUNNER_TEMP/seo-rank-watch"
+      - name: Refresh indexes after an article improvement
+        if: steps.applied.outputs.improved == 'true'
+        # refresh-indexes 全体は別記事（頻出論点）とredirectも書くため、記事索引だけ再生成する。
+        run: |
+          npm run build-backlinks
+          npm run build-indexes
+          npm run build-keyword-relations
+          npm run build-pillar-exam-questions
+      - name: Verify and persist the result
+        run: |
+          node scripts/check-seo-rank-watch.mjs
+          node scripts/seo-rank-watch-ci.mjs persist --dir "$RUNNER_TEMP/seo-rank-watch"
+      - name: Daily report
+        if: always()
+        run: node scripts/seo-rank-watch-ci.mjs summary --dir "$RUNNER_TEMP/seo-rank-watch"
+      - name: Preserve diagnosis without credentials or browser state
+        if: failure()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: seo-rank-watch-failure-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/seo-rank-watch/context.json
+            ${{ runner.temp }}/seo-rank-watch/result.json
+          if-no-files-found: warn
+          retention-days: 14
+
+  # 失敗途中の本文・台帳を成功記録と一緒に保存しない。最新developから失敗だけ追記する。
+  record-failure:
+    needs: watch
+    if: failure()
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      issues: write
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          ref: develop
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --legacy-peer-deps --ignore-scripts
+      - name: Append failure to the existing ledger
+        env:
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          node scripts/seo-rank-watch.mjs log-run --failure --reason "CI実行が未完了。成功扱いせず実行ログで取得・認証・検証・保存の失敗箇所を確認する: $RUN_URL" --commit
+          node scripts/seo-rank-watch-ci.mjs persist --dir "$RUNNER_TEMP/seo-rank-watch-failure"
+      - name: Notify through the existing automation failure channel
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          printf 'SEO Rank Watchが失敗しました。実行ログで失敗箇所と失敗履歴の保存結果を確認してください。\n\n%s\n' "$RUN_URL" > "$RUNNER_TEMP/seo-failure.md"
+          node scripts/report-automation-failure.mjs --channel seo-rank-watch --title 'SEO Rank Watchの日次処理が失敗' --body-file "$RUNNER_TEMP/seo-failure.md"
