@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "siteUrl": "sc-domain:doboku-note.com",
+  "policy": {
+    "minImpressions": 20,
+    "minActiveDays": 3,
+    "maxConcurrent": 2,
+    "maxIneffectiveCycles": 3,
+    "maxSnapshotAgeDays": 9
+  },
+  "watchwords": [
+    {
+      "id": "scraper-definition",
+      "keyword": "スクレーパとは",
+      "targetPath": "/exam/civil-construction-1/textbook/scraper",
+      "contentPath": "content/site/civil-construction-1/textbook-scraper/article.mdx",
+      "priority": 1,
+      "country": "jpn",
+      "device": null,
+      "enabled": true
+    },
+    {
+      "id": "break-even-speed",
+      "keyword": "採算速度とは",
+      "targetPath": "/exam/civil-construction-1/textbook/schedule-overview",
+      "contentPath": "content/site/civil-construction-1/textbook-schedule-overview/article.mdx",
+      "priority": 1,
+      "country": "jpn",
+      "device": null,
+      "enabled": true
+    },
+    {
+      "id": "civil1-secondary-r07-answers",
+      "keyword": "1級土木施工管理技士 2次試験 解答例 令和7年",
+      "targetPath": "/exam/civil-construction-1/secondary/r07",
+      "contentPath": "content/site/civil-construction-1/secondary-r07/article.mdx",
+      "priority": 2,
+      "country": "jpn",
+      "device": null,
+      "enabled": true
+    }
+  ]
+}

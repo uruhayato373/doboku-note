@@ -835,6 +835,30 @@
       "commit": null,
       "verification": "check-note-membership PASS、両プラン編集画面をread-only実査、非ログイン加入ページで名称・月額1480/4980を確認",
       "note": "未保存という前提が陳腐化。2プランとも名称・説明・会費・特典マガジンが保存済みで公開面一致のため、無意味な再保存をせず行14だけ削除"
+    },
+    {
+      "id": "DN-0210",
+      "at": "2026-09-13",
+      "task": "SEO Rank Watch を既存の計測・実験・管理画面へ統合する",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "10cab93f4649",
+      "verification": "node --test tests/seo-rank-watch.test.mjs tests/gsc-pagination.test.mjs",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0211",
+      "at": "2026-09-13",
+      "task": "既存CIの管理画面依存誤検出と仕様書E2Eの旧UI期待値を修正する",
+      "tier": "high",
+      "executor": "codex",
+      "outcome": "done",
+      "plan": null,
+      "commit": "541bb2a1807f",
+      "verification": "npm run check-knip-ratchet PASS; standards desktop/mobile 28/28 PASS; GitHub E2E run 34727755992 success",
+      "note": "現行仕様書ナビにE2E期待値を同期。adminの実importをREADMEへ記録しKnip誤検出を解消。baselineと検査対象は維持。"
     }
   ]
 }

@@ -85,6 +85,7 @@ function unzipMissing() {
 // ---- チェック定義 ---------------------------------------------------------
 // npm: package.json の script 名 / cmd: 直接コマンド配列。どちらか一方。
 const CHECKS = [
+  { id: 'seo-rank-watch', npm: 'check-seo-rank-watch', timeout: 30_000, ci: true, note: '順位監視・観察状態・履歴の整合' },
   // ── ci:true 厳格ゲート ──
   { id: 'type-check', npm: 'type-check', timeout: 240_000, ci: true },
   { id: 'unit-tests', npm: 'test', timeout: 180_000, ci: true },

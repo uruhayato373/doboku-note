@@ -84,6 +84,7 @@ description: >
   **クラウド週次では snapshot が古いのが常態**（再取得はローカル作業のため）。その場合 `inconclusive:true` と
   理由が返るので、`actions` が空でも**「実体が検査不成立」として必ず surface する**（静かなのは
   「問題が無い」ではなく「見ていない」）。
+- **SEO Rank Watch**: `npm run seo-rank-watch -- report --json` で観察期限・達成後監視・鮮度・同時実行上限を確認する。期限到来は `/weekly-improve --rank-watch --no-fetch` へ渡す。汎用NSMの10日/28日基準でrank-watchを変更しない。
 - **実験サイクルの期限**: `npm run check-experiment-due -- --json`（オフライン・`experiments.json` 参照）。
   これが「計測→記録→改善→**再計測**」の最後の輪。`due[]` の MEASURE_DUE / CLOSE_DUE / PENDING /
   NO_BASELINE をそのまま列挙する。改善を打って再計測されていない実験は学びが台帳に入らず
@@ -117,11 +118,11 @@ description: >
 - 「ココナラ 評価未送信 / 要対応」（`check-coconala-orders` の `actions[]` が空でないときのみ・→ 評価は `npm run coconala-rate-buyer`、実体の採り直しは `npm run coconala-orders`）
 - 「ココナラ 実体が検査不成立」（`check-coconala-orders` が `inconclusive:true` のときのみ・理由つき・→ 次セッションで `npm run coconala-orders`）
 - 「ココナラブログ 送客先が販売中でない / 下書き放置」（`check-coconala-blog` の `violations[]`・`warnings[]` が空でないときのみ・→ 記事の `funnel` 修正か出品の再開）
-- 「実験の再計測 DUE」（`check-experiment-due` の dueCount > 0 のときのみ・id と理由つき・→ `/nsm-experiment measure <id>`）
+- 「実験の再計測 DUE」（`check-experiment-due` の dueCount > 0 のときのみ・id と理由つき・→ 各要素の `review` コマンドを転記）
 - 「壊れた内部リンク」（`check-internal-links-vs-gsc` が ERROR を返したときのみ）
 - 「A8 成果取込 DUE（月次）」（`check-a8-report-due` が due のときのみ・→ 次セッションで `/a8-report`）
 - 「A8 集計の取りこぼし / 混入疑い」（`check-a8-report-due` の `issues[]` が空でないとき・due でなくても出す）
-- 「実験の再測定 DUE」（`check-experiments-due` が due のときのみ・→ 次セッションで `/nsm-experiment measure <id>`）
+- 「実験の再測定 DUE」（`check-experiments-due` が due のときのみ・→ 次セッションで各要素の `review` コマンドを実行）
 - 「実験の未処理の申し送り」（`check-experiments-due` の `issues[]` が空でないとき・due でなくても出す）
 ```
 
@@ -158,7 +159,8 @@ B. 実験進捗レポート:
   - running: 経過日数、baseline との gap（metrics-reader で再取得）
   - measuring: baseline vs current の前後比較
   - 今週 close したもの: result + learnings
-- 各 running 実験について baseline の metric が現状でどう動いたかを数値表示
+- `kind: seo-rank-watch` は上記の汎用metrics-reader比較から除外し、専用 `npm run seo-rank-watch -- report --json` / review で固定条件の非重複7日を扱う。
+- その他の各 running 実験について baseline の metric が現状でどう動いたかを数値表示
 - 出力を「## 実験の進捗」セクションとして埋め込む
 
 補助コマンド:

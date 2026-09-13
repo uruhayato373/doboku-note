@@ -147,6 +147,10 @@ for (const exp of experiments) {
   }
 }
 
+for (const item of dueExperiments) {
+  const exp = experiments.find((e) => e.id === item.id);
+  item.review = exp.kind === 'seo-rank-watch' ? `npm run seo-rank-watch -- review --id ${exp.watchId} --no-fetch` : `/nsm-experiment measure ${exp.id}`;
+}
 const due = dueExperiments.length > 0;
 
 const result = {

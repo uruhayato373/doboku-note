@@ -34,5 +34,8 @@
     "rclone",
     "tesseract",
     "which"
+  ],
+  "ignoreDependencies": [
+    "hast-util-sanitize"
   ]
 }

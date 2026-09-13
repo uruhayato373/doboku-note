@@ -14,6 +14,11 @@ user-invocable: true
 
 > その場合は CI がコミットした `.claude/state/metrics/{ga4,gsc}/` のスナップショットを読んで baseline/current を比較する（既定経路）。計測は CI/CD 供給が正で、ローカル creds 未設定は「計測基盤未整備」ではない。恒久ルール: `.claude/knowledge/reference/measurement-incidents.md`（2026-06-05）。
 
+## SEO Rank Watch の専用経路
+
+`kind: seo-rank-watch` の実験は [seo-rank-watch.md](../../../knowledge/reference/seo-rank-watch.md) のCLIで記録・本番照合・reviewする。以下の汎用10日/28日基準や直接JSON編集を適用しない。状態は同じexperiments.jsonを使い、proposed→本番反映待ち→running（observing）→proposed/done/abandonedへ移す。検索意図に応える1件改善の入口は `/weekly-improve --rank-watch`。
+
+
 ## なぜこのスキルがあるのか
 
 NSM データを取得・可視化する仕組みは揃った（`metrics-reader.mjs`, `/weekly-review` の NSM セクション）。しかし「見るだけ」では改善に繋がらない。継続的に仮説を立て → 実行 → 計測 → 学び → 次へ回す PDCA ループが必要。
