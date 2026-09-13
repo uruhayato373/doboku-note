@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="目的と条件を定めたモデルを、解析解や釣合いによる計算の検証と、試験や実測による現象との照合の二経路で確認し、感度と適用範囲を判断する関係">
+  <defs><style>
+    text { font-family: Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif; fill: #1a3a5c; }
+    .h { font-size: 18px; font-weight: bold; } .b { font-size: 15px; }
+    .a { fill: none; stroke: #2e6da4; stroke-width: 2; marker-end: url(#a); }
+  </style><marker id="a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#2e6da4" /></marker></defs>
+  <rect width="400" height="500" fill="#ffffff" />
+  <rect x="20" y="20" width="360" height="85" rx="8" fill="#e8f0fe" stroke="#2e6da4" />
+  <text x="200" y="50" text-anchor="middle" class="h">答える問い・モデルの条件</text>
+  <text x="200" y="78" text-anchor="middle" class="b">荷重・単位・境界・材料・施工段階</text>
+  <path d="M200 109V126H102V149" class="a" />
+  <path d="M200 126H298V149" class="a" />
+  <rect x="16" y="156" width="172" height="133" rx="8" fill="#e8f0fe" stroke="#2e6da4" />
+  <text x="102" y="188" text-anchor="middle" class="h">計算を検証</text>
+  <text x="102" y="217" text-anchor="middle" class="b">解析解・釣合い</text>
+  <text x="102" y="243" text-anchor="middle" class="b">メッシュ・時間刻み</text>
+  <text x="102" y="272" text-anchor="middle" class="b">意図どおり解けるか</text>
+  <rect x="212" y="156" width="172" height="133" rx="8" fill="#fff3cd" stroke="#d4a017" />
+  <text x="298" y="188" text-anchor="middle" class="h">現象と照合</text>
+  <text x="298" y="217" text-anchor="middle" class="b">試験・実測</text>
+  <text x="298" y="243" text-anchor="middle" class="b">位置・時点をそろえる</text>
+  <text x="298" y="272" text-anchor="middle" class="b">現象を表せるか</text>
+  <path d="M102 293V316H200V342" class="a" />
+  <path d="M298 293V316H200" fill="none" stroke="#2e6da4" stroke-width="2" />
+  <rect x="20" y="349" width="360" height="64" rx="8" fill="#e8f0fe" stroke="#2e6da4" />
+  <text x="200" y="375" text-anchor="middle" class="h">感度・不確かさ・適用範囲</text>
+  <text x="200" y="401" text-anchor="middle" class="b">条件が変わると結論はどう動くか</text>
+  <path d="M200 417V439" class="a" />
+  <rect x="20" y="447" width="360" height="38" rx="8" fill="#d0e8d0" stroke="#3a7d44" />
+  <text x="200" y="473" text-anchor="middle" class="h">施工判断に使う範囲を決める</text>
+</svg>

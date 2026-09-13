@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="退避を最優先し、安全な場所で安否確認、その後に警報と規制の確認、現場点検、責任者の再開判断へ進む順序">
+  <defs><style>
+    text { font-family: Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif; fill: #1a3a5c; }
+    .h { font-size: 18px; font-weight: bold; } .b { font-size: 15px; }
+    .a { fill: none; stroke: #2e6da4; stroke-width: 2; marker-end: url(#a); }
+  </style><marker id="a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#2e6da4" /></marker></defs>
+  <rect width="400" height="500" fill="#ffffff" />
+  <!-- danger → warn → brand → positive: svg-tokens -->
+  <rect x="20" y="15" width="360" height="100" rx="8" fill="#f8d7da" stroke="#b22234" />
+  <text x="200" y="43" text-anchor="middle" class="h">身を守る・津波のおそれには退避</text>
+  <text x="200" y="70" text-anchor="middle" class="b">沿岸の強い揺れ・長くゆっくりした揺れ</text>
+  <text x="200" y="96" text-anchor="middle" class="b">警報を待つために避難を遅らせない</text>
+  <path d="M200 119V140" class="a" />
+  <rect x="20" y="147" width="360" height="63" rx="8" fill="#fff3cd" stroke="#d4a017" />
+  <text x="200" y="174" text-anchor="middle" class="h">安全な場所で安否確認</text>
+  <text x="200" y="197" text-anchor="middle" class="b">確認済み・未確認を分けて報告</text>
+  <path d="M200 214V239" class="a" />
+  <rect x="20" y="246" width="360" height="63" rx="8" fill="#e8f0fe" stroke="#2e6da4" />
+  <text x="200" y="273" text-anchor="middle" class="h">警報・地域の規制を確認</text>
+  <text x="200" y="296" text-anchor="middle" class="b">海が静かでも独自に戻らない</text>
+  <path d="M200 313V338" class="a" />
+  <rect x="20" y="345" width="360" height="63" rx="8" fill="#e8f0fe" stroke="#2e6da4" />
+  <text x="200" y="372" text-anchor="middle" class="h">立入可否を確認して点検</text>
+  <text x="200" y="395" text-anchor="middle" class="b">設備・地盤・通路の異常と是正</text>
+  <path d="M200 412V437" class="a" />
+  <rect x="20" y="444" width="360" height="40" rx="8" fill="#d0e8d0" stroke="#3a7d44" />
+  <text x="200" y="470" text-anchor="middle" class="h">責任者が再開する範囲を判断</text>
+</svg>
