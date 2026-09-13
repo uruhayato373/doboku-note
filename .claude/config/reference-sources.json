@@ -3536,6 +3536,24 @@
         "kind": "external",
         "url": "https://www.mlit.go.jp/totikensangyo/const/totikensangyo_const_tk1_000075.html"
       }
+    },
+    {
+      "id": "pe-exam-outline",
+      "title": "技術士第二次試験実施大綱（科学技術・学術審議会 技術士分科会試験部会）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.engineer.or.jp/c_topics/011/attached/attach_11631_1.pdf"
+      }
+    },
+    {
+      "id": "pe-exam-pass-criteria-r08",
+      "title": "令和8年度技術士試験合否決定基準（文部科学省）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mext.go.jp/b_menu/shingi/gijyutu/gijyutu7/toushin/1412635_00009.htm"
+      }
     }
   ]
 }

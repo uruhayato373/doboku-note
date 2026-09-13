@@ -4077,11 +4077,11 @@
         "p0143",
         "p0144"
       ],
-      "method": "visual-ocr(sonnet,6p/batch)+tesseract-crosscheck+targeted-proofread",
-      "sha256": "2cd56704fb79207b45e819684e846e2e86b355cf0975949f69f871fdc7ef7c7e",
-      "md5": "bd137e1a1671b92709640c550a374053",
-      "bytes": 95007,
-      "recordedAt": "2026-09-10T09:48:35.678Z"
+      "method": "visual-ocr(sonnet,6p/batch)+tesseract-crosscheck+targeted-proofread; p0124–p0126 duplicate/blank-page review 2026-09-14",
+      "sha256": "8257225f24cf4bf43d6bb45b0c50a73ef3e329dbafaafb7f5c425ded548868cf",
+      "md5": "6763f8959947cd7908f8387649c51523",
+      "bytes": 92463,
+      "recordedAt": "2026-09-13T21:47:45.644Z"
     },
     {
       "id": "part-04",
@@ -4156,7 +4156,7 @@
     }
   ],
   "crops": [],
-  "updatedAt": "2026-09-10T09:48:38.044Z",
+  "updatedAt": "2026-09-13T21:47:45.644Z",
   "migration": {
     "strategy": "copy-verify-switch-then-delete-separately",
     "legacyKept": true,
