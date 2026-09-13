@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "concrete-chief",
+      "headline": [
+        "耐久性の頻出点",
+        "劣化を理解する"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/261.png",
+        "sha256": "50f9feb0a247514b6996cef9189620307d21dc6a4e83681ed9e0c220052bfcb7",
+        "specSha256": "0e9797b763d7b954a70d9d2ca6917f6c08d5b98c98f4877c48da12f85c11dd00"
+      }
+    },
+    "point-carbonation-1": {
+      "format": "shorts",
+      "exam": "concrete-chief",
+      "headline": [
+        "中性化フロント",
+        "塩化物イオンの",
+        "濃縮を理解"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/262.png",
+        "sha256": "9c4475e69ece984e017988287fff026e919f87c7d5f7689d6b8f1efbccfe5994",
+        "specSha256": "35bc915141c9e382b17e640c896945dcb2332c20ee2b7eb69fc162142cf19c44"
+      }
+    },
+    "point-salt-2": {
+      "format": "shorts",
+      "exam": "concrete-chief",
+      "headline": [
+        "塩害を抑える",
+        "対策を整理"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/263.png",
+        "sha256": "78151580e3f7008c3947620e8153fe7abc6bb4ec15596b13f5fa50aea68200d3",
+        "specSha256": "f2095079d5e2bc04212c1268733c9dc4cc795ab257264e7d6ff984e894feab60"
+      }
+    }
+  }
+}

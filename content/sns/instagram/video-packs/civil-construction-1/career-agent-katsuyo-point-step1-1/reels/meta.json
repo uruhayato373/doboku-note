@@ -13,7 +13,27 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/career-agent-katsuyo/shorts/point-step1-1/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "a370244a96cae9ef111e675a7e702687f8b0a2d831ae044fb25208c41bf58fbc",
-  "coverSha256": "25262a09ffe0c75f2a260e22320f265d34da357955dc418ce97fde2d3f54ae0c",
-  "renderedAt": "2026-09-06T00:07:52.303Z"
+  "sha256": "1068341a216d1e4a27ada56a7a71652361c12e701fa2ed3e14d19a3576b8394a",
+  "coverSha256": "97da9afd10b8faddf62b19763e186bc409fd7c8c867098b7086dec62a9130c05",
+  "renderedAt": "2026-09-10T11:46:03.630Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "59789485d590f6d1183ab72bb3e5b22c4bc5fe3251ac0af720e2c727a013e955",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "02b308bf6c73180ff49588d96da7402e1306f0346b2a9cad201cbf983d0eca54",
+  "speaker": 13,
+  "narration": "転職サービスは、専門領域と支援方法の二つの軸で整理できます。特化型と総合型、エージェントと求人サイトの違いを確認しましょう。担当工種を理解する人に相談したいのか、自分で求人を比較したいのかで、使い方を選びます。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "72735bd597a9c683af5b959456de8ee4212486f70a5e47d01c7628a6f6c9362e",
+    "points": "6520ae4a0f99b4b2bbcd59810ec1a0ccc6ff0dac27da6d36b0d4152782a42123",
+    "pointsImage": "0f4e901f8fac07ac8b678a87ffa62248d770ef3c5bf7c786bf261674597f812c",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:46:03.630Z"
+  }
 }

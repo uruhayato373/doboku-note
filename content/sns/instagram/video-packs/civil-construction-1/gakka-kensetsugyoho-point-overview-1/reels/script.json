@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-kensetsugyoho",
+  "key": "point-overview-1",
+  "sceneId": "overview",
+  "exam": "civil-construction-1",
+  "narration": "建設業の許可では、軽微な工事の範囲を確認します。建築一式以外は、工事一件の請負代金が500万円未満です。建築一式は1500万円未満、または延べ面積150平方メートル未満の木造住宅工事です。金額や面積の未満と以上を取り違えないようにしましょう。",
+  "visual": {
+    "heading": "軽微な工事の境目を確認",
+    "items": [
+      "建築一式以外：請負代金500万円未満",
+      "建築一式：1500万円未満",
+      "または150㎡未満の木造住宅工事"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-construction-business/article.mdx",
+  "editorialNote": "木造住宅の面積要件が建築一式工事の区分であることを明記。",
+  "sourceUrls": [
+    "https://www.mlit.go.jp/totikensangyo/const/1_6_bt_000080.html"
+  ]
+}

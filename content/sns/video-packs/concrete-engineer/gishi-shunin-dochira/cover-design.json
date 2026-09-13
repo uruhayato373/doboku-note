@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "concrete-engineer",
+      "headline": [
+        "技士？主任技士？",
+        "違いで選ぶ"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/333.png",
+        "sha256": "86707aa24f8e6e15ee68523fe07ba3300ac800705ebd23018c7a7a7297a9071f",
+        "specSha256": "b674e2dd98415505489b187e98ad0d52c8dabf0e0cac2720faf2932a233a8d03"
+      }
+    },
+    "point-step1-1": {
+      "format": "shorts",
+      "exam": "concrete-engineer",
+      "headline": [
+        "技士と主任技士",
+        "違いの本質"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/334.png",
+        "sha256": "d881639cf60c3c05db37debd823cfed1ebf5346d79df4b530cb5102ca220efd1",
+        "specSha256": "bda3f9ab72e6334b9a29a2405370926b83b466b0b990b1ac0d4c1fc003b05d10"
+      }
+    },
+    "point-step2-2": {
+      "format": "shorts",
+      "exam": "concrete-engineer",
+      "headline": [
+        "技士と主任技士",
+        "試験方式と時間"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/335.png",
+        "sha256": "4467f5ff377083fc48aa73f37483767a866008560e73a6b29dd941fb1779456d",
+        "specSha256": "f85e26a88489b7f76bd91410de4eee8ef7480df092c28a52daf57c49f865369f"
+      }
+    }
+  }
+}

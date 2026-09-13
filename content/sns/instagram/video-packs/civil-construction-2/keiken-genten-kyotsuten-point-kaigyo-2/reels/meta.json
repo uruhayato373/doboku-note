@@ -13,7 +13,27 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-genten-kyotsuten/shorts/point-kaigyo-2/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "b42c4d25a8488d30061c1a723523579b7d584b12206b059c1c12d0e985a07307",
-  "coverSha256": "b25f426c1a03ade94ec36eeb8cf3cf3d47408339b1df1c2a22adad9c789b1788",
-  "renderedAt": "2026-09-05T23:21:44.196Z"
+  "sha256": "c267d3000f458c0008e6b3efc9df7c2b4376b297a917b9971262923f4354c449",
+  "coverSha256": "784397efc80db89c68aa1f34aad6d3ccb5cdca9b7a93b06d3d3972d6a13265cc",
+  "renderedAt": "2026-09-10T10:56:39.052Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "90db3b8735355def3719b9b0bec1530c2f6438cf8addba600254571a88147211",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "0ab2a746af213a153511d4f21290cb84c906b4e251e869d16ceeb377ad705453",
+  "speaker": 13,
+  "narration": "経験記述は、行数を埋めるための不自然な改行を避け、意味のまとまりで書きましょう。内容が短すぎると感じたら、現場条件や検討理由、結果の確認が抜けていないかを見直します。数値や専門用語は、実際の経験を説明するのに必要なものだけ加えます。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "b3383edd76f9f98dc3eca42b0b41c05908a91540d0613108488381c50d44a4c3",
+    "points": "fc874be795bb41d77fe6cf5ad7d1f24bb4ed47dfd48160093a6c5c14358b5d2a",
+    "pointsImage": "b182059bbb4cfc0448e6c7ca526f9b897b15bf11a1c343f7ebbb070a99b223f4",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T10:56:39.052Z"
+  }
 }

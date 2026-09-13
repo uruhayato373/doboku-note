@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.193Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/shunin-hinshutsu-yusen/shorts/point-step1-2/shorts.mp4",
-  "durationSeconds": 30.65,
-  "sha256": "490dcbce3716952fb4b1ae3bd712c810640e990853106df206954357c36fbfeb",
-  "coverSha256": "34ecba50181b7888cd3c7289ee4830cb6e42fdbbb8eb5ec278440552502ea812",
-  "renderedAt": "2026-09-05T23:24:32.651Z"
+  "durationSeconds": 30.2,
+  "sha256": "c5c97c2b5b620946f0d587e5c1ae90a16fb36abdbe5971279410f3194fb470a0",
+  "coverSha256": "39aedc77d885c6dadbaebd41a517ed09d80cb092cf748d4fcbc6cb0e49bfadc4",
+  "renderedAt": "2026-09-10T10:59:08.624Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "48780ed90d51f15492b68bd46b1f2a80f75a27ede1d02505325a13f6b62d59fc",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "17fa760043bb7e438b32845e15249e7c123159ecb0cf04ed2895ef7fb625be44",
+  "speaker": 13,
+  "narration": "用材料のセメント・骨材・混和材料、性質のフレッシュ・硬化コンクリート、耐久性の劣化機構は、いずれもほぼ毎年出る定番です。性質と耐久性はまとめて学習すると効率的です。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "9003e981aa5a3844cb2886cfd743f998853332a67f01bde218194149ee22bd99",
+    "points": "5e90ee40f1e9eca0779263791f5ddd7c7b3786eee8781c0f149334bcbc4b0679",
+    "pointsImage": "ca7e2e4bda8927bf8809a11b156ddc6143d0d8afba4978b6c0d7cb8f3a212875",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T10:59:08.624Z"
+  }
 }

@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "gakka-doshitsu-chosa",
+  "inputDigest": "8967bceb18ae65cf2c9f95dd00479e7be7dd0121b452e3c7e271af329d978441",
+  "sourceSha256": "b37fb2228592baed3c4ce33622cb6ddc2e921bcfae43864580055818b6fce29f",
+  "rendererSha256": "b04b4ad581c8ab70d15dc33ebed74face3677e1a938690139aa14dad15697a30",
+  "renderedAt": "2026-09-10T12:05:10.463Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-doshitsu-chosa/carousel/img/00-cover.png",
+      "sha256": "d9776898cf24dc7e1d5587cdd79e8ddc8b3b22ecc77a7e535367aacd9eaea2d8",
+      "bytes": 325137,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-doshitsu-chosa/carousel/img/01-point.png",
+      "sha256": "1b6df6a0b47736cc3e072046d5056c14aaa3ecd2b48b760a88b58578286ee702",
+      "bytes": 110027,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-doshitsu-chosa/carousel/img/02-point.png",
+      "sha256": "4e09d18e95bbc6e6cee8ce56ae7f2a4de9ce309e36df12841119e337b5eba39c",
+      "bytes": 106735,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-doshitsu-chosa/carousel/img/03-point.png",
+      "sha256": "470fa582f1380b2afe6e578aafeddb2915cf5b30ef360c960d52ed3ac785154e",
+      "bytes": 110157,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-doshitsu-chosa/carousel/img/04-point.png",
+      "sha256": "f178772953b49094254a1c7bb850f46ca946262c32e701f63a63d61694d4fc21",
+      "bytes": 142350,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-doshitsu-chosa/carousel/img/05-point.png",
+      "sha256": "9affcf2b76f7aa9a02a71cc86facc46f7db50091b4e1834a5feed536d18b1b76",
+      "bytes": 108703,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-doshitsu-chosa/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

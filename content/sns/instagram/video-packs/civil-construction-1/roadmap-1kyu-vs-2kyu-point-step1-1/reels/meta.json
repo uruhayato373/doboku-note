@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.209Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/roadmap-1kyu-vs-2kyu/shorts/point-step1-1/shorts.mp4",
-  "durationSeconds": 30.13,
-  "sha256": "b330dc0c27226663370ee6411cb7caa63f960d72aac9bb83caa2561ced83229d",
-  "coverSha256": "7b30e44767999ee1e6ba1f00473ae41844593fdba30736d4a6bb5d36fe09c440",
-  "renderedAt": "2026-09-05T23:57:20.118Z"
+  "durationSeconds": 30.2,
+  "sha256": "aa999a20ca94120145698934e65fff25c707957bbefcc06ea6921f898189e716",
+  "coverSha256": "85428241e98cdece1bc1b97658e1949f1984aa867319f63286cafe7179debdbe",
+  "renderedAt": "2026-09-10T11:15:37.775Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "9eef93d68b1f965be532386b32fd4dd65a21994424bd0a7dd83b03d6353170fb",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "fbc85cd9ec44855b9f03fc04710c10bd03b9e7e6efed32850e96a6940a1bf571",
+  "speaker": 13,
+  "narration": "2級は主任技術者になれ、現場を1つ任せられます。1級はそれに加え監理技術者になれ、大規模な元請工事にも配置できます。経営事項審査でも1級は高く評価され、企業が重視する構造があります。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "82afd1e470c35d0a0dc82689b4ca9d0da4b33224af463f7e432dabe137fc8d28",
+    "points": "93aaf447ea20d4fffa0793f6ef009a92ed278d89d0eaafa3336bafeb3fedcf22",
+    "pointsImage": "59b567caf760cae715c86df0c641733d6963012260ed0c294634176ecdb89040",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:15:37.775Z"
+  }
 }

@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "keiken-taio-hyoka",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "対応処置と評価",
+        "数値で締める"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：実施内容を書けば十分",
+      "items": [
+        "対応処置には具体的な数値が重要",
+        "「○○工法とした」だけでは理由が伝わらない"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "block1",
+      "heading": "管理基準と具体的な行動を書く",
+      "items": [
+        "品質管理では、測定方法や管理基準を明示します。",
+        "工法・機械・材料・管理方法を、実際に行った内容で具体化します。",
+        "数値は記録で確認できるものを使い、創作して補いません。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "block2",
+      "heading": "結果だけで終わらせない",
+      "items": [
+        "悪い例：地盤改良工法とした",
+        "良い例：理由→工法→留意点までつなげる",
+        "結果の一文だけにしない"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "block3",
+      "heading": "評価は結果を簡潔に示す",
+      "items": [
+        "実施した対応が、工事の結果へどうつながったかを述べます。",
+        "処置の説明量とのバランスを見て、評価を短くまとめます。",
+        "8行中3〜4行などの配分は教材の例であり、公式の必須配分ではありません。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

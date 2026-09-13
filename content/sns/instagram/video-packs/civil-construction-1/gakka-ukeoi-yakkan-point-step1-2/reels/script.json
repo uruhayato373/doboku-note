@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-ukeoi-yakkan",
+  "key": "point-step1-2",
+  "sceneId": "step1",
+  "exam": "civil-construction-1",
+  "narration": "公共工事の約款の通知は、誰から誰へ向かうかを対にして覚えます。現場代理人や主任技術者などは、受注者から発注者へ書面で通知します。監督員を置いたときは、発注者から受注者へ知らせます。同じ通知という言葉でも、立場を逆にしないよう注意しましょう。",
+  "visual": {
+    "heading": "通知は誰から誰へ",
+    "items": [
+      "現場代理人等：受注者→発注者",
+      "監督員：発注者→受注者",
+      "同じ「通知」でも向きが違う"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-standard-contract/article.mdx"
+}

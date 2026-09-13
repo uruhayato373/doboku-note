@@ -13,7 +13,27 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-anzen-taisei/shorts/point-step1-1/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "bc8ac8acee9aeb7e4c17af4ed5b741718540bf887efef9e67c1c7939d05bd9e2",
-  "coverSha256": "e9d22885eab9450101a1db3230cf9691b9e009acce209d26c6cc5b52a3c88b8c",
-  "renderedAt": "2026-09-05T23:59:29.569Z"
+  "sha256": "1ea8e6b41ae0e6941b5ec185ac798cf7fff909672ed203f00ac57a412a1a54d7",
+  "coverSha256": "52cf6da8e45aef8f64594cc8debceb857912df09fad8d8d8ba4f4288bdb45382",
+  "renderedAt": "2026-09-10T11:18:02.290Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "d896c6745a838efeb2997e15aa3ea9821fc07292add690e1ab918b61c8e7698d",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "1e3dc5233a0169b81db77f38611f87c4cd2c972a4f12495f7f2202694b63533d",
+  "speaker": 13,
+  "narration": "統計指標です。度数率は延べ労働時間100万時間あたりの死傷者数で、災害の発生頻度を表します。強度率は延べ労働時間1,000時間あたりの労働損失日数で、災害の重さを表します。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "bd37397642b4e98b1ca1940ff0bc20848eb357723bfc902494e51a4946700d1c",
+    "points": "91882b9382898d8cd2ab1c7039bfa0e6232768f50a98c87809805833165c0dfc",
+    "pointsImage": "86eb35fac9773b68eb59d207a208078dc4ab7161a0e0a03e59c206eb95bf953d",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:18:02.290Z"
+  }
 }

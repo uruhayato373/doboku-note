@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "keiken-gaiyo-2kyu",
+  "exam": "civil-construction-2",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "工事概要",
+        "最初の失点防止"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：項目を埋めれば概要は安全",
+      "items": [
+        "工種↔管理項目",
+        "施工量↔課題の規模感",
+        "立場↔対応、の3つの整合が見られる"
+      ],
+      "sourceRef": "content/note/1級・2級土木/2級土木/工事概要の書き方/article.md"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "管理項目に工種を合わせる",
+      "items": [
+        "品質→コンクリート工、安全→高所・掘削",
+        "工程→天候や協議の影響を受けやすい工種"
+      ],
+      "sourceRef": "content/note/1級・2級土木/2級土木/工事概要の書き方/article.md"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "施工量は工種に対応する数量で書く",
+      "items": [
+        "「護岸工一式」ではなく、延長や掘削量などを単位付きで示します。",
+        "教材の例は延長120m・掘削土量1,500m³ですが、答案には自分の実数値を書きます。"
+      ],
+      "sourceRef": "content/note/1級・2級土木/2級土木/工事概要の書き方/article.md"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "工期と数量・季節を照合",
+      "items": [
+        "工期は年月日まで正確に書き、施工量や季節との矛盾を確かめます。",
+        "教材の「工期1か月以上」は題材選びの目安で、受検の必須条件ではありません。"
+      ],
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step4",
+      "heading": "場所・発注者・立場",
+      "items": [
+        "場所は町名・地先まで、発注者は注文者を明記",
+        "立場は現場代理人・主任技術者など。盛らない"
+      ],
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step5",
+      "heading": "概要と本文の一貫チェック",
+      "items": [
+        "本文の課題は概要の工種・施工量から出てくるか",
+        "本文にだけ登場する工種は概要へ足す"
+      ],
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

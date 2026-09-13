@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "shunin-shouronbun-kousei",
+  "exam": "concrete-chief-engineer",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "主任技士小論文",
+        "答案の組立て方"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：知識量が問われる試験",
+      "items": [
+        "見られるのは知識を判断に翻訳できるか",
+        "説明できることと対策を選べることは別能力"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "kanten",
+      "heading": "答案の自己点検に4観点を使う",
+      "items": [
+        "技術的妥当性・論理構成・経験の具体性・技術理解を確認します。",
+        "この4観点は教材のチェック軸で、公式の配点表そのものではありません。",
+        "設問に答えるための根拠と、自分の判断が書けているかを点検します。"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "kousei",
+      "heading": "序論・本論・結論の重み",
+      "items": [
+        "序論：課題と背景を短く",
+        "本論：原因分析と具体策、最重量",
+        "結論：留意点で締める"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "kossi",
+      "heading": "骨子を先に箇条書きで決める",
+      "items": [
+        "いきなり書き出すと論点が枝分かれする",
+        "序論・本論・結論の見出しを先にメモ",
+        "本論で挙げる対策の数も決めておく"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "jikan",
+      "heading": "時間配分に応じたモード",
+      "items": [
+        "通常モード：下書きを削って収める",
+        "キーワード先出しモード：概説→各論→まとめ",
+        "残り時間で切り替える"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

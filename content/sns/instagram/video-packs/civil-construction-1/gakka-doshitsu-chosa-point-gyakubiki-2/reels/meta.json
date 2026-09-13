@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.213Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-doshitsu-chosa/shorts/point-gyakubiki-2/shorts.mp4",
-  "durationSeconds": 33.13,
-  "sha256": "f8b08715d7ba5a9b5ecb231deb01b6c25ad84311ab97bfd68e1d443b2f6a98f1",
-  "coverSha256": "0e5e14a7f31461853584115a9826d4249bbb611b31f757e332747b58eb08b886",
-  "renderedAt": "2026-09-06T00:02:02.555Z"
+  "durationSeconds": 30.2,
+  "sha256": "516c893ed1aabd79c709f25a47c3f940ef7130a5b5f4e13f224d1fcd3cca955c",
+  "coverSha256": "62ff52e735d330802936e4454671e4f061389a9fed778e6639029838f0c4094a",
+  "renderedAt": "2026-09-10T11:20:32.371Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "1d4d0931216331f4c2266738a117d897d18a78255deb922b8f2275cc408fbfac",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "9ef142fc25c7426fe0123b3d4cc327fc54bdca8a28af421c553cdf0219dcb24c",
+  "speaker": 13,
+  "narration": "原位置試験は、知りたい値から選ぶと整理できます。標準貫入試験はエヌ値、コーン貫入試験はコーン指数、ベーン試験は主に軟らかい粘性土のせん断強さを調べます。平板載荷試験は地盤の支持特性を確認します。試験名と目的を対にして覚えましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "6495f0c54cfbdd1b67e717f73b13c7fd97ad6175ede7cd27018467e67978079d",
+    "points": "190569b0a371603622c6c882ec0b5ee53503b75d1b7d65d1136de2dca61aa88c",
+    "pointsImage": "d59e14eaf949b4f3534653fc5b45002f0298ee3e39a8f1cdce7dbe279e2aa957",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:20:32.371Z"
+  }
 }

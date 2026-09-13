@@ -13,7 +13,27 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gishi-12week-plan/shorts/point-step1-1/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "21879bf30f99fe7dde7e3825ad97421be054802229d9d4752b0c73c3b45ab3c3",
-  "coverSha256": "9737212b2b6ad60812447489f22e993d0d39c5bec49d8f4a9570ccba500c20ef",
-  "renderedAt": "2026-09-05T23:24:00.244Z"
+  "sha256": "3ff2634e911736451b12016fb282216045ad23bb9f290390972d805c3fafcd16",
+  "coverSha256": "9e8f61d0a2ea20127909acb09da71506fcd729846a0be1dc32a99177a76a6393",
+  "renderedAt": "2026-09-10T10:58:39.130Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "2091e56cdb632362e7b403653c384cbf501580aa269a8d153471d380c64d9376",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "9c2da4dbea8f848338dea5931b4a9446f570cf60f2d5fc7b7eed8ffcb7254586",
+  "speaker": 13,
+  "narration": "学習を始めるときは、過去問を一回分、資料を見ずに解いてみましょう。点数だけでなく、知識不足、数値の取り違え、条件の読み落としなど、誤った理由を記録します。正解した問題も、他の選択肢がなぜ違うか説明できるかを確認すると、弱点が見つかります。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "84663c283b32c5c3fdc55da9d7281c627bb24920c634e07a03a9fe6900bc537c",
+    "points": "cac6ecea5379cf58f30248d91069ae2cc08629137f2f754910ca2f25eb472524",
+    "pointsImage": "431f54b21f72e8e81e666d5d4287d1ff99efda9c83c4bbb94903b14fd5d7717f",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T10:58:39.130Z"
+  }
 }

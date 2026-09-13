@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.185Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-kento-kakikata/shorts/point-block2-2/shorts.mp4",
-  "durationSeconds": 30.07,
-  "sha256": "89870e897c41bfda1bf50d5decfa7f09096d48dcd9313fb2e13db5ab975fdc4e",
-  "coverSha256": "5b6f5bda0ae2da273e3252030ff9c414780b6670ecbc1de6b04a8e504b0d8222",
-  "renderedAt": "2026-09-05T23:15:53.972Z"
+  "durationSeconds": 30.2,
+  "sha256": "48ab9ab4717eaeca85134b120b0a7a5faaa301a6e54b9c1107b1d933f8ec12e3",
+  "coverSha256": "16ff233cb35ddef32ac420bdd4cd8cb097481ad040e6206d295086448b541ca2",
+  "renderedAt": "2026-09-10T10:56:29.593Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "b7391e0547952bdebd801462240fa3ad092725dc09e2c880a67754c01a54537a",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "3c8d747a0c21306c5c1cad324c54141f370e59e8c37569b58cce1c61dd7a49ff",
+  "speaker": 13,
+  "narration": "1級と2級の経験記述は、検討項目を書く区画を取り違えないようにしましょう。1級の令和6年度以降の形式では検討項目を一つ目の区画に、2級では二つ目の区画に書きます。教材の型を移す前に、受ける級と年度の問題文を読み、各欄の要求を確認します。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "017ee489e2ae9d2c1fbfe6ca1881a9d73c7b659b5e09e3b29cc3beb364cebd4c",
+    "points": "4b288ce02ddc81f3a25c86593f52d947b90e7eefdc1be430109fc7861b7e642b",
+    "pointsImage": "320258569f84a8e74ba85d3d9f0503d8cdb7c10e441f1af82a54ebbeadc29e45",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T10:56:29.593Z"
+  }
 }

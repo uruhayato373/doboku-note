@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.199Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gishi-haigou-keisan/shorts/point-step1-1/shorts.mp4",
-  "durationSeconds": 30,
-  "sha256": "05c7232d1b9bc82b7d784f233692c4852dbb0291ede4ff3d6996a333b72c05f0",
-  "coverSha256": "c320b86a671a14b280b5602e53f384b081b34802c069d2117ffb04450e358d20",
-  "renderedAt": "2026-09-05T23:30:59.289Z"
+  "durationSeconds": 30.2,
+  "sha256": "775c6a9fcdf8dc9c3926db1aa4e411dfee7dad7a1f08041b9ab0a1795cabeb1b",
+  "coverSha256": "7d02cf7d1c238b0464f2bfa15bd6d0871b723b966bfc3b7d9725912b937be9c0",
+  "renderedAt": "2026-09-10T11:04:06.957Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "232a320e20b6b5e38ce917d1218011748c1637fcb490a6ffcafd8b2058958ee8",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "e1aaaff094eb773d215aa8de3e125dc4b27ca0cf675715bf0757d5522b965648",
+  "speaker": 13,
+  "narration": "配合計算の基準は、1立方メートル、1000リットルです。百分率は、計算前に小数へ直します。水セメント比とセメント水比を逆にしないことも大切です。この三つを最初に確認してから式を立てましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "228f935ca93b027008c62ab3f35637da461ecad356fe854ffbeabea2ef608e9b",
+    "points": "9beeffd0e1b3707cd0c2b257f862c9434b53a13e646bd9fa0aa9be8cd053b68b",
+    "pointsImage": "7ccb25e749cd379d34e4811c2fd0eb654ef5f7b55303be0f593568724870a7ec",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:04:06.957Z"
+  }
 }

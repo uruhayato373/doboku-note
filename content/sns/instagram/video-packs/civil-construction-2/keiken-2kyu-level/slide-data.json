@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "keiken-2kyu-level",
+  "exam": "civil-construction-2",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "２級の経験記述",
+        "求められる水準"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "特殊さより自分の管理を具体的に",
+      "items": [
+        "高度な工法を挙げることだけを目的にしません。",
+        "基本的な管理で、何を判断し実施したかを具体的に伝えます。"
+      ],
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "level",
+      "heading": "自分が実際に担った管理を説明",
+      "items": [
+        "現場代理人・主任技術者・現場監督など、実際の立場を明確にします。",
+        "特殊工法の知識を並べず、現場で検討して行ったことを書きます。"
+      ],
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "kata",
+      "heading": "評価される型",
+      "items": [
+        "私は〇〇の観点から〇〇を検討した",
+        "〇〇を講じ、その結果〇〇が達成できた",
+        "凝った表現・専門用語の多用は不要"
+      ],
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "kanten",
+      "heading": "検討項目の観点は基本でよい",
+      "items": [
+        "品質：計画・材料・施工・養生・検査",
+        "工程：工程表・効率化・気温対策",
+        "安全：点検確認・安全措置・作業員教育"
+      ],
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "taisho",
+      "heading": "対象になる工事は幅広い",
+      "items": [
+        "河川・道路・上下水道・土工事など多岐",
+        "大規模なダムや橋梁でなくてよい"
+      ],
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "check",
+      "heading": "第三者の目で伝わり方を確かめる",
+      "items": [
+        "自分で誤字や設問対応を点検した後、第三者にも読んでもらう方法があります。",
+        "現場条件と対策の理由が伝わるか、説明が飛んでいないかを確かめます。"
+      ],
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

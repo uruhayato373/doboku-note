@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.211Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/study-plan-1kyu/shorts/point-step1-1/shorts.mp4",
-  "durationSeconds": 30,
-  "sha256": "9d40e68f66d6d374f70e77d5c60eb0545921ed37c26883eb8b75c71fd419734f",
-  "coverSha256": "9c8fac4873200d407c2cc1e22270050481e5529568534af675085734d5218b7a",
-  "renderedAt": "2026-09-05T23:59:06.818Z"
+  "durationSeconds": 30.2,
+  "sha256": "3b8233dfa1626b97de72aed2389e396bb7300ba02fbf73e1e1059da32b519e5a",
+  "coverSha256": "d08e884af4ad0c1cc4717733028e862b7ac84043c90fcf2f6530b4e6beb51d25",
+  "renderedAt": "2026-09-10T11:17:30.355Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "0a56c564d0d1c572a8528499219e49021038f9f0e09d9623707b5ee05cd8ebf7",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "f38515abbe3fe4b6badb90084f2d935f14498f347411a0981739effecf7eba66",
+  "speaker": 13,
+  "narration": "第一次は知識の定着が勝負で、過去問演習の反復が最短ルートです。第二次は実務に基づく記述力が問われ、自分の工事経験を文章にする準備が要ります。まずこの違いを理解しておきましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "07d64f1b4c6ce454c0487d2df6534a5aa417e5b92ecdc49be4fb1fe679aec62f",
+    "points": "67500cd0651f5560faed192d5cc739f5c497d577e3844e473a28c15a1f11239d",
+    "pointsImage": "00b4ec99d31d566bca2126f35321a4d177c0f06aeb4597c090184f1133f9c385",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:17:30.355Z"
+  }
 }

@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "gakka-hoki-kasen-doro",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "河川・道路・港",
+        "許可と届出"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "行為から許可先を見分ける",
+      "items": [
+        "河川管理者・道路管理者・警察署長・港長は別々",
+        "行為の性質から許可者を特定する"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-river-act/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "overview",
+      "heading": "河川の行為と対象地を照合",
+      "items": [
+        "流水の占用・土地の占用・工作物・掘削など、行為を分けて確認します。",
+        "土地占用の許可は河川管理者が権原を持つ土地、工作物等は官民を問わず対象です。",
+        "河川保全区域は、原則50m以内という範囲と指定の有無を確認します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-river-act/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "道路占用と道路使用を区別",
+      "items": [
+        "道路占用許可の相手は道路管理者、道路使用許可の相手は警察署長です。",
+        "工事内容に応じて両方が必要になるため、占用する物件と作業方法を確認します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-road-act/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "港則法の手続きを例で整理",
+      "items": [
+        "危険物の荷役や港内工事などは、許可の対象行為として整理します。",
+        "入出港や修繕・係船などは、届出の代表例として確認します。",
+        "停泊場所の指定、危険物船舶の入港時の指揮も区別します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-port-regulations/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "許可先を3法で読み比べる",
+      "items": [
+        "河川：官有地か官民問わずか",
+        "道路：道路管理者か警察署長か",
+        "港則法：許可・届出・指定・指揮のどれか"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-river-act/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

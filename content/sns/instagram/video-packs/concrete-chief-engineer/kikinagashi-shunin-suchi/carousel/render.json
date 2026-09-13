@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "kikinagashi-shunin-suchi",
+  "inputDigest": "ffddbcab9c754c3040ee8b1b942122c735d7953e5797c56572bee5c73262fa21",
+  "sourceSha256": "aa6a1bd02152fff6f2905f1958aaf4ce5271e195c805b7c51521610747f35d06",
+  "rendererSha256": "b04b4ad581c8ab70d15dc33ebed74face3677e1a938690139aa14dad15697a30",
+  "renderedAt": "2026-09-10T10:35:52.206Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi/carousel/img/00-cover.png",
+      "sha256": "65f7b84ad6c81840b1571aadb67a11877d8cd59f75f9a04757b7ed8bbc4e08ba",
+      "bytes": 319098,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi/carousel/img/01-point.png",
+      "sha256": "073a708c255823df9be279f762de160b7d0245b6c1cf5741f050420a11e89872",
+      "bytes": 129317,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi/carousel/img/02-point.png",
+      "sha256": "b2f2287b700feecdf48f4cdbfdae74471d03209fe6586e2e0b03f215177cac5e",
+      "bytes": 126526,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi/carousel/img/03-point.png",
+      "sha256": "0fc5be924f3a6250e9a090d52e425de6aa685b4f11c545bf4a6feec4f37c5a45",
+      "bytes": 123499,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi/carousel/img/04-point.png",
+      "sha256": "361ef44c59a6920759c1e78dd7a87b46f65532471f077c1709f8abfbafab07f5",
+      "bytes": 125084,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi/carousel/img/05-point.png",
+      "sha256": "ef89f21452378d3132c1693e0f0c807cdf256d9928094a4e8d99b7a64d105f60",
+      "bytes": 132103,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi/carousel/img/06-point.png",
+      "sha256": "c3d23f7f80d2ab84d4602ea3c3c35c6215c3c5e3c155a7a2ae27f295710b4380",
+      "bytes": 125795,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi/carousel/img/07-point.png",
+      "sha256": "044c92468ba08bf1b3d423d25d9175b06437b41c60cb27f9a21aaa5ae5fc24ff",
+      "bytes": 126996,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi/carousel/img/08-point.png",
+      "sha256": "c256d2d849973a8cc2c66a01883aecf844e5d4a8cac684000ef7c8ec63f0a34d",
+      "bytes": 146196,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi/carousel/img/09-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

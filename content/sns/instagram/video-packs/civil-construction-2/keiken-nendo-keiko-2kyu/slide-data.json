@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "keiken-nendo-keiko-2kyu",
+  "exam": "civil-construction-2",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "二次の出題傾向",
+        "５年の流れ"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "reading",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "出題の傾向と次回の予測を分ける",
+      "items": [
+        "令和6年度を境にした形式の違いを、過去の問題文で確認します。",
+        "安全・品質・工程を、固定のローテーションとは考えずに準備します。"
+      ],
+      "sourceRef": "content/site/civil-construction-2/secondary-r06/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "theme-shift",
+      "heading": "問題1のテーマと形式の変遷",
+      "items": [
+        "R03〜R05：1テーマ選択（3項目）",
+        "R06〜R07：2テーマ必答（各2項目）",
+        "節目は令和6年度の形式変更"
+      ],
+      "sourceRef": "content/site/civil-construction-2/secondary-r07/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "gakka-fields",
+      "heading": "学科記述で毎年出る分野",
+      "items": [
+        "土工／コンクリート工／品質管理",
+        "安全管理／工程管理が頻出"
+      ],
+      "sourceRef": "content/site/civil-construction-2/secondary-r04/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "select-format",
+      "heading": "選択問題の有無は年度で変わる",
+      "items": [
+        "選択枠あり／なしが年度で異なる",
+        "詳細は年度別ページで確認"
+      ],
+      "sourceRef": "content/site/civil-construction-2/secondary-r07/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "priority",
+      "heading": "5年分からみる対策の優先順位",
+      "items": [
+        "経験記述：安全・品質・工程を全て準備",
+        "学科記述：頻出分野を優先し過去問で幅出し"
+      ],
+      "sourceRef": "content/site/civil-construction-2/secondary-r03/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

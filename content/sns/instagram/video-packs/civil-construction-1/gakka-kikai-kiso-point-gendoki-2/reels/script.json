@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-kikai-kiso",
+  "key": "point-gendoki-2",
+  "sceneId": "gendoki",
+  "exam": "civil-construction-1",
+  "narration": "建設機械の原動機は、エンジンと電動機に大別できます。屋外を移動しながら使う機械ではディーゼルエンジンが広く使われます。一方、定置式のプラントやトンネル内などでは電動機も選択肢です。必要な出力に加え、移動性や排気、電源条件を考えて使い分けます。",
+  "visual": {
+    "heading": "原動機は使用条件で選ぶ",
+    "items": [
+      "エンジン：移動する建設機械で広く使用",
+      "電動機：プラント・トンネルなど",
+      "出力・移動性・排気・電源条件を比較"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-machinery-structure/article.mdx",
+  "editorialNote": "機種・世代を特定しない熱効率の固定値と最大理由の断定を省略。"
+}

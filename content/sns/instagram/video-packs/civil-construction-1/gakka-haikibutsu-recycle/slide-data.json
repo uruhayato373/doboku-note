@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "gakka-haikibutsu-recycle",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "建設廃棄物",
+        "処理の頻出点"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "元請の排出事業者責任を確認",
+      "items": [
+        "下請施工分を含めて元請業者が責任者",
+        "まず「誰の責任か」を押さえる"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-waste-disposal-manifest/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "overview",
+      "heading": "委託しても責任は残る",
+      "items": [
+        "排出事業者責任＝元請業者が負う",
+        "許可業者に委託しても責任は消えない"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-waste-disposal-manifest/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "運搬と処分は個別に契約",
+      "items": [
+        "収集運搬・処分業者それぞれと個別契約",
+        "三者間契約は不可・再委託も原則禁止"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-waste-disposal-manifest/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "返送期限ではなく処理確認の期限",
+      "items": [
+        "運搬・処分の確認は交付から90日以内。特別管理産業廃棄物は60日以内。",
+        "中間処理後の最終処分の確認は、交付から180日以内です。",
+        "期限を過ぎたら処理状況を確認し、所定の報告を30日以内に行います。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-waste-disposal-manifest/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "指定副産物と特定建設資材を区別",
+      "items": [
+        "指定副産物の4品目には、建設発生土が含まれます。",
+        "特定建設資材の4区分には土砂を含まず、コンクリート・木材などを対象とします。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-construction-byproduct-recycle/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step4",
+      "heading": "土木の対象工事は資材条件も確認",
+      "items": [
+        "その他の工作物は請負代金500万円以上が規模要件です。",
+        "特定建設資材を用いる対象工事について、発注者等が着手7日前までに届け出ます。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-construction-byproduct-recycle/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

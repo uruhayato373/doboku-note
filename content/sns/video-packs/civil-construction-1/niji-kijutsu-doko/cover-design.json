@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "二次の学科記述",
+        "土工の数字"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/174.png",
+        "sha256": "3f7b11d8790e5f3aba0270481237fa2b7a7e4b728f826909b924f3c8dd4f4342",
+        "specSha256": "452f9fce0dac5944f5db7e4c483fe3940d419c22570a1f7426cd54e1aff9f897"
+      }
+    },
+    "point-thickness-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "盛土の厚さ",
+        "仕上りと敷均し"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/175.png",
+        "sha256": "93f65bce3766f3f5fb4d70ef6ecc74a97e881e7e19b68620b3c3543319eeb15e",
+        "specSha256": "603b4e7deeaaee05cc993447d3ab073c3e4611258ad0acb6a2e8bdb2105b77d6"
+      }
+    },
+    "point-gradient-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "盛土面とのり面",
+        "勾配を整理"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/176.png",
+        "sha256": "dd6f1242b13c81e0ae8473b749ed96f32e21dda7ea381a42001c8a7ead5b05c7",
+        "specSha256": "d22d5331061b055611b215ae95d88d9ab0961c9fb2a053c740b4e156ee70eeed"
+      }
+    }
+  }
+}

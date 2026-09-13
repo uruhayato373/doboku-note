@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "kikinagashi-2kyu-matome",
+  "key": "point-soil-volume-2",
+  "sceneId": "soil-volume",
+  "exam": "civil-construction-2",
+  "narration": "土量変化率は、土がどの状態かを先に確認します。ほぐし率のエルは、地山から掘り出した土の体積変化を表し、運搬土量の計算に使います。締固め率のシーは、締め固めた後の体積との関係です。運搬と盛土の仕上がりで、使う係数を取り違えないようにしましょう。",
+  "visual": {
+    "heading": "土量変化率のLとC",
+    "items": [
+      "L＝ほぐし率、運搬土量に使う",
+      "C＝締固め率、盛土の仕上がりに使う"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-2/guide-earthwork-key-points/article.mdx"
+}

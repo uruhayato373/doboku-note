@@ -13,7 +13,27 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-2kyu-level/shorts/point-kata-2/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "8ac9a0a3f1d689eeef2f04388aedd40dfd65071b8485e22ee45dd564f11fc7b7",
-  "coverSha256": "6c77a3188370904cd28071b4b3707f98ae1940eb29600b5859a2d0aa5dfeb047",
-  "renderedAt": "2026-09-05T23:21:00.746Z"
+  "sha256": "32988a77e0fc19f7e086dd5cf36ac3bc91223a79359bade104115c65145ad9a7",
+  "coverSha256": "2d972c4516a768df7ff4854b0b60e45078576b759dc0e7a2d550be15ba13b83e",
+  "renderedAt": "2026-09-10T10:55:34.358Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "f3a15303882058f5167ce1da0b22fc2b33d0c96b16e014b489ce5d4224b787de",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "2fc2fe643bd37cfa996e6d295ad9e59ab303794d6f9866e3076a4973c4f9fb3b",
+  "speaker": 13,
+  "narration": "経験記述では、自分が何を考え、何を行ったかが伝わる文にします。検討した観点を示し、実施した処置と、その結果を続けて書きましょう。難しい表現を増やすより、主語と行動を明確にすることが大切です。内容は自分の経験した事実に基づいてまとめます。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "b6a2883c1afed5bef7e57b845d1cd4c988963a3f3bb85236ea25a0df176e375e",
+    "points": "555597d44cfc0e8847a4554e801aa79f48b847e9d3bbc32acc5fcddd2bb8d6b4",
+    "pointsImage": "7c5a4b198a57bcc0231b8231fca1e63c7d47aaad26a7e40ddbf4c47be0647078",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T10:55:34.358Z"
+  }
 }

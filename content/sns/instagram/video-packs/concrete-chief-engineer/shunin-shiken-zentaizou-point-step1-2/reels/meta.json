@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.192Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/shunin-shiken-zentaizou/shorts/point-step1-2/shorts.mp4",
-  "durationSeconds": 32,
-  "sha256": "6e423a43223b5e81a9b14ae311fdc6cd04e72e8e1fa1afb2fbb60fc95afb87fb",
-  "coverSha256": "59080a876ccc4d584dfc7f82ede374f532a5ec446142eb04aa1b20bd7fc6f700",
-  "renderedAt": "2026-09-05T23:24:03.216Z"
+  "durationSeconds": 30.2,
+  "sha256": "3374a715cf99bcaae6aa676d0c65e29b99f4ecdfb6634bcd6db2c5793f21ff21",
+  "coverSha256": "011aa3804a0e1a65d07409ae755e99d5d067e1c2363da4d493c206dcae40066b",
+  "renderedAt": "2026-09-10T10:58:28.963Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "11c6fcde73ae36ca12bec9fcbd2ad1e85d721a5eb4448bc7d26fb433b22cbf18",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "34b5169e6aebcb35bb6940da74933c3b105b352c20fe1c98ea41342883d1675f",
+  "speaker": 13,
+  "narration": "試験は四肢択一一問一答と小論文1題の2部構成です。四肢択一は誤答・無答が零点、小論文にも一定水準が求められ、それぞれ別々に採点されます。択一が高得点でも小論文が低すぎると不合格になることがあります。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "aeb607b9934af25a38a800cfd53706b1d129873a6179e0babbe7b77ac231e2b1",
+    "points": "4a991b005d82c83473fbd09ebed63d790bbd2c8d37c2dcfe096fc4ac5de7966c",
+    "pointsImage": "1f7f530494b2ff29df28c5d6ae0f5f002c3846c6cf1773a34e067036ac5d62ad",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T10:58:28.963Z"
+  }
 }

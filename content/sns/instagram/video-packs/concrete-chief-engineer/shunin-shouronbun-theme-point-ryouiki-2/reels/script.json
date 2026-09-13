@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "shunin-shouronbun-theme",
+  "key": "point-ryouiki-2",
+  "sceneId": "ryouiki",
+  "exam": "concrete-chief-engineer",
+  "narration": "小論文の題材は四つの領域で整理できます。耐久性では、中性化や塩害などの劣化機構と対策を扱います。品質管理では、配合や検査、養生を考えます。環境配慮では資源循環やCO2低減、施工トラブル対応では現場の不具合と対策を整理しましょう。",
+  "visual": {
+    "heading": "論じやすい4領域",
+    "items": [
+      "耐久性：劣化機構と抑制対策",
+      "品質管理：配合・検査・養生の管理",
+      "環境配慮／施工トラブル対応"
+    ]
+  },
+  "sourceRef": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+}

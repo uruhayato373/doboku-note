@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "roadmap-nanido-goukakuritsu",
+  "key": "point-step1-1",
+  "sceneId": "step1",
+  "exam": "civil-construction-1",
+  "narration": "合格率を見るときは、第一次と第二次を分け、年度もそろえて比較しましょう。第一次は知識や応用能力を選択式で、第二次は経験を含む内容を記述式で答えます。受検者の条件も異なるため、率の高低だけで自分にとっての難しさを判断しないことが大切です。",
+  "visual": {
+    "heading": "合格率は年度と検定区分をそろえる",
+    "items": [
+      "第一次と第二次を分ける",
+      "比較する年度をそろえる",
+      "受検者の条件・解答方式の違いも確認"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/guide-difficulty/article.mdx",
+  "editorialNote": "対象年度のない合格率レンジを削除し比較方法へ変更。"
+}

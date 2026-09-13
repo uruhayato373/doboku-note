@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "concrete-engineer",
+      "headline": [
+        "コンクリート",
+        "性質と試験"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/327.png",
+        "sha256": "11d1b39623ce6464b4cc4c7fb5a7daa7ba131be5e0e28f444bfa58bc47b43b55",
+        "specSha256": "0ed02abe915f6b5eac50b7515bacbbe9996d0adde036ed3d3e81c064ff8ab7ff"
+      }
+    },
+    "point-step1-1": {
+      "format": "shorts",
+      "exam": "concrete-engineer",
+      "headline": [
+        "施工性と硬さ",
+        "２つの性質を",
+        "区別する"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/328.png",
+        "sha256": "f72c4cf451941889e0bab204871ed2cca4cf5e2ac9d2b6283eac62c0d38307b5",
+        "specSha256": "3db50b7fb8c9846a70ed544a01f8b56f3779627977af69ad084bac6f001eac71"
+      }
+    },
+    "point-step2-2": {
+      "format": "shorts",
+      "exam": "concrete-engineer",
+      "headline": [
+        "スランプ試験",
+        "測り方と注意点"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/329.png",
+        "sha256": "b2b349cdbcb5aa7e07ffd3d6425ad0250b84c149af1374a11eaca45c8bdc4df3",
+        "specSha256": "bafec7f80343d6e09d16d8b8c394db8c711c9a2004a3dcfc0a2d8276d9053e45"
+      }
+    }
+  }
+}

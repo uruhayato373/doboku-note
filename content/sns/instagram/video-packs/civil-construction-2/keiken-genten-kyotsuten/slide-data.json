@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "keiken-genten-kyotsuten",
+  "exam": "civil-construction-2",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "経験記述の減点",
+        "共通点を知る"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "読みやすさと整合を見直す",
+      "items": [
+        "内容が伝わる字と文章で、設問に沿って答えているかを確認します。",
+        "採点基準を推測して断定せず、読み手が迷う箇所を減らします。"
+      ],
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "taisai",
+      "heading": "読みやすい字と十分な説明を意識",
+      "items": [
+        "読み取れる字で、現場条件と対応の説明を丁寧に書きます。",
+        "解答欄を8割程度使うのは教材の目標で、公式の合否条件ではありません。",
+        "空行や不自然な空白で分量を増やすのではなく、必要な内容を説明します。"
+      ],
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "kaigyo",
+      "heading": "改行は意味のまとまりで整える",
+      "items": [
+        "行末の空白を増やす目的の改行は避けます。",
+        "不足している現場条件や判断理由を補い、文章として読みやすくします。"
+      ],
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "zure",
+      "heading": "テーマ・工種のズレ",
+      "items": [
+        "指定テーマから外れた内容",
+        "建築・管・電気などの工種は対象外",
+        "概要と本文の矛盾"
+      ],
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "tsutawaranai",
+      "heading": "伝わらない答案の正体",
+      "items": [
+        "結果だけでなく「何を・どのように」を書く",
+        "数値・工法・材料をセットにする",
+        "文末は「である」「であった」で統一"
+      ],
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

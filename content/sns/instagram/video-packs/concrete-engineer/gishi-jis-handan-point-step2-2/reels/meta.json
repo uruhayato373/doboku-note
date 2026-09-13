@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.201Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gishi-jis-handan/shorts/point-step2-2/shorts.mp4",
-  "durationSeconds": 30.69,
-  "sha256": "e95bac2823fc744e57e25f38deff3e79d61242f679580f226e86860f05368c9e",
-  "coverSha256": "7a487ff5b489a0f4e8ec194da8bd784bb87f8e7e83856a4e24f263e68aa125c8",
-  "renderedAt": "2026-09-05T23:32:16.562Z"
+  "durationSeconds": 30.2,
+  "sha256": "bdc0d148f55f0274c3cf03e77470bcb52fec1da60c23ac027bfb89df2294d1a8",
+  "coverSha256": "860c85f1aad5537be821f1110bf38c8857212487959d9247d651c300b35382f5",
+  "renderedAt": "2026-09-10T11:04:55.449Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "1fc4314c1fc39b9b88559eaf75e9dc9b2348f293ff420c57f5a26a5f15222a27",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "f069c9a0f312b550d40a683c9412d5ff776a22dfa52d17ee5b8600f3ab2ecd77",
+  "speaker": 13,
+  "narration": "累加計量は、同じ計量器へ材料を順に加える方式です。差分と累加後の値を区別しないと、前の材料の誤差がそのまま後の材料へ持ち越されます。累加が認められる組合せは規格で決まっています。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "8be264145056e434daf9be827d24250a23c454076e9244e186dd94bac87e2025",
+    "points": "7e0f5c0d96064d87f543d14d221d0d7a2d29b6c11a362eea1a3660c215a845a5",
+    "pointsImage": "5c75ec096fede8a8db6f5f983bdbcb7153de270101f88dd3251cd05c0cd1aec9",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:04:55.449Z"
+  }
 }

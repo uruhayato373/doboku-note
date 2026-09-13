@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "career-yameru-mae",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "辞める前に",
+        "確認すること"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "残る場合も動く場合も根拠を持つ",
+      "items": [
+        "仕事内容と職場環境のどこに不満があるかを整理します。",
+        "自分の経験の評価と求人条件を知り、比較して判断します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/guide-career-consultation-before-quit/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "仕事内容か職場環境かを分ける",
+      "items": [
+        "会社や部署を変えることで、環境の不満が改善する場合があります。",
+        "仕事内容そのものが合わない場合は、別の働き方も含めて考えます。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/guide-quit-or-stay/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "市場価値・年収・働き方を確認",
+      "items": [
+        "自分の市場価値（工種・規模・役割・資格）",
+        "年収の現在地",
+        "現職以外の働き方（発注者支援・公務員土木等）"
+      ],
+      "sourceRef": "content/note/1級・2級土木/辞める前に確認すること-無料/article.md"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "職場の状況を客観的に点検",
+      "items": [
+        "長時間労働が常態化し改善の兆しがない",
+        "技術者が次々に辞めて定着しない",
+        "新技術・新工法に会社が後ろ向き"
+      ],
+      "sourceRef": "content/note/1級・2級土木/転職した方がいい施工管理-発注者視点-無料/article.md"
+    },
+    {
+      "type": "point",
+      "sceneId": "step4",
+      "heading": "相談の目的とペースを決める",
+      "items": [
+        "相場を知る段階なら、その目的を最初に伝えます。",
+        "条件を比較して残ると決めることも、判断の一つです。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/guide-career-consultation-before-quit/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

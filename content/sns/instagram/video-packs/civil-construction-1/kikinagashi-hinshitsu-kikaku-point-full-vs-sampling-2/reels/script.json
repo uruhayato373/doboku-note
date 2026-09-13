@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "kikinagashi-hinshitsu-kikaku",
+  "key": "point-full-vs-sampling-2",
+  "sceneId": "full-vs-sampling",
+  "exam": "civil-construction-1",
+  "narration": "全数検査と抜取検査は、検査の目的と対象から使い分けます。不良品の混入を許せない場合やロットが小さい場合は、全数検査が候補です。破壊試験や検査数が多い場合は、抜取検査を検討します。どちらも、適用する検査基準と合否判定の方法を先に確認します。",
+  "visual": {
+    "heading": "全数検査と抜取検査の使い分け",
+    "items": [
+      "全数検査：不良が許せない・ロットが小さい",
+      "抜取検査：破壊検査・検査個数が多い"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-quality-inspection/article.mdx"
+}

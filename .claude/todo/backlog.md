@@ -37,6 +37,19 @@
 
 **手順・停止条件**: [実装計画](../plans/DN-0220-diagram-rollout.md)。
 
+### [DN-0186] Windows端末のR2・Google Drive接続を整え、クラウド実体監査を成立させる
+タグ: [インフラ・計測] [種類:不具合] [検証:resources:cloud] [起票:2026-09-10]
+
+**起点**: 2026-09-10の実査では、ローカル自動監査のR2資格情報が未設定、rcloneの `doboku-gdrive` 接続も未設定で `npm run resources:cloud` が検査不成立。Driveコネクタ経由では既存vaultの1ファイルを全バイト・SHA-256照合できており、Drive自体の不存在ではない。
+
+1. DN-0135の行15（監査キーの最小権限化）と連携し、このWindows端末の監査に読み取り専用資格情報を設定する。必要なら `scripts/local-storage-verify.mjs` のキー選択を監査専用設定に対応させ、検査目的で書き込み権限を追加しない。
+2. 人のOAuthログインでrcloneの `doboku-gdrive` を既存の `doboku-note` vaultへ接続する。接続先は `.claude/config/drive-vault.json` に従う。vaultの重複作成や全量ローカル同期をせず、秘密情報をGit・監査ログへ保存しない。
+3. 定期実行と同じ端末・実行環境で `npm run resources:cloud` を実行し、R2・Driveとも選定サンプルの全バイトをストリームで読み、容量とSHA-256を照合する。認証・通信失敗を0件成功やメタデータ照合で代用しない。
+
+**完了条件**: 両保管先で実体検査が各1件以上成立し、選定対象がすべて一致してコマンドがexit 0となる。定期実行からも同じ接続を利用でき、検査件数・日時・結果を確認できること。反復監査は既存の定期運用へ戻す。
+
+**参照**: [ローカル資源運用](../knowledge/reference/local-resource-policy.md)、[アセット保管方針](../knowledge/reference/asset-storage-policy.md)。CIキー整備はDN-0135、このカードは端末の自動監査経路を担当する。
+
 
 
 
@@ -308,4 +321,3 @@ Drive台帳・vault・Drive APIの照合前にローカル実体を削除しな�
 
 
 ## 🟣 判断待ち — ユーザーの意思決定が必要
-

@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.207Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/niji-kijutsu-doko/shorts/point-thickness-1/shorts.mp4",
-  "durationSeconds": 30,
-  "sha256": "6773ab916a0b39fcbb5ad02db6ff7488abf5d197e1a5f7e5591756a651fad1a4",
-  "coverSha256": "22d371c355e92d26924eaf9951a6c439aa5f2513fa6c353e2a557bb0b9e18c53",
-  "renderedAt": "2026-09-05T23:53:17.406Z"
+  "durationSeconds": 30.2,
+  "sha256": "ce338e6873abde7b0dc6584075428b09f41aae032b5173c32d5c5dbd749d755f",
+  "coverSha256": "de2972b41e4721fcb6d66c9d6ec3849fddb5a5e3f646378be58667e8fd4d17fd",
+  "renderedAt": "2026-09-10T11:12:14.483Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "44fbe5f910a2162b8469fba735701702a055cfaa092f5f2be9a333bbb3091d41",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "a8867dc5beb56675046aeaebe4866773121fca440eab4a99729678aa1a3c05b9",
+  "speaker": 13,
+  "narration": "盛土の厚さは、締固め後の仕上りと、締固め前の敷均しを区別しましょう。道路盛土の一般的な管理値は、仕上り厚さが路体30センチメートル以下、路床20センチメートル以下です。敷均し厚さは土質や機械で変わるため、適用仕様書と試験施工で確かめます。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "c1e63c55ed8bfaa84a6742f8a3676669ff0861a02a5788eddd17405daf6f176b",
+    "points": "1ed44ce4f4d1f95dfd182d07538d4b69ccec91594feae585c70d3ff92422d726",
+    "pointsImage": "a1befcab20a54d7e0dcf1ae621a36214b3a463490232b787fcb565902c8c28cc",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:12:14.483Z"
+  }
 }

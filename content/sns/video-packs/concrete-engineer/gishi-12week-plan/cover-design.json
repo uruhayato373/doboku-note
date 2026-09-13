@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "concrete-engineer",
+      "headline": [
+        "12週間の学習",
+        "計画を立てる"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "good-sign",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/300.png",
+        "sha256": "2c4c52f9c575f67c3cc004854530b8e0b9ddedee11d0fd19823bfaf2063487ea",
+        "specSha256": "b08a0333c56acf639493bfa053c7059eacd8ab26768602f9bbc5b20210bb168c"
+      }
+    },
+    "point-step1-1": {
+      "format": "shorts",
+      "exam": "concrete-engineer",
+      "headline": [
+        "学習の出発点",
+        "現在地を測る"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "smile",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/301.png",
+        "sha256": "46ca3543c06009da9ce1b762e2f353a8a5f4b6fcb92ed18f967c8b7e89045713",
+        "specSha256": "b42daf9a45b03ff18d80fce4bcb3dac63b9ca8e6b4b6c626c4a4433c9c6e40a0"
+      }
+    },
+    "point-step2-2": {
+      "format": "shorts",
+      "exam": "concrete-engineer",
+      "headline": [
+        "学習１〜４週目",
+        "全体像と基礎"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "wave",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/302.png",
+        "sha256": "b926cda088f36266d4d9a933f452fef09307d09565bfbf5b2d71e73464d3f794",
+        "specSha256": "be2eac7b5703cb1b44fc1253333eb710b88d808e56cf56cac0ba585ddab9d589"
+      }
+    }
+  }
+}

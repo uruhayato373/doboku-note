@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "keiken-kotei-1kyu",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "工程管理の答案",
+        "遅延で終えない"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：遅延を挽回した、で完成",
+      "items": [
+        "結果だけでは検討内容が薄い",
+        "事前の検討・制約対応で厚みが出る"
+      ],
+      "sourceRef": "content/note/1級・2級土木/1級土木/1級経験記述テーマ選び5管理/article.md"
+    },
+    {
+      "type": "point",
+      "sceneId": "three-factors",
+      "heading": "3つの外的要因を整理する",
+      "items": [
+        "天候不順",
+        "工事変更（設計変更等）",
+        "使用機械等の故障"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "prevent-in-advance",
+      "heading": "遅延を防ぐ事前検討を書く",
+      "items": [
+        "競合する工程があれば、施工順序を比較して調整します。",
+        "安全を確保したうえで、制約をどう計画へ反映したかを示します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "recover-after-delay",
+      "heading": "遅延原因に合う挽回策を検討",
+      "items": [
+        "関係機関との協議を踏まえ、施工順序や工法の変更を検討します。",
+        "必要に応じて施工機械・班編成を見直し、安全や品質への影響も確かめます。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "seasonal-constraint",
+      "heading": "季節・規制の制約対応",
+      "items": [
+        "橋梁：出水期前に主要工種を完了",
+        "舗装：交通規制の範囲内で完了",
+        "制約から工程計画を逆算する"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "shorten-as-technique",
+      "heading": "短縮を技術として書く",
+      "items": [
+        "マンホール工：プレキャスト部材の採用",
+        "管渠工：推進工法の採用",
+        "工法選定を工程管理の検討として書く"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

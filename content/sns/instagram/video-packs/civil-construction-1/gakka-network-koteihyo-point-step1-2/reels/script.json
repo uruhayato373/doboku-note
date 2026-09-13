@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-network-koteihyo",
+  "key": "point-step1-2",
+  "sceneId": "step1",
+  "exam": "civil-construction-1",
+  "narration": "最早開始時刻は、開始イベントをゼロとして、左から右へ作業時間を足して求めます。複数の経路が合流する点では、計算結果の最大値を選びます。すべての先行作業が終わるまで次へ進めないからです。合流時に最小値を選ばないよう注意しましょう。",
+  "visual": {
+    "heading": "最早開始時刻は合流で最大値",
+    "items": [
+      "開始イベントは0",
+      "左から右へ作業時間を加算",
+      "合流点は計算結果の最大値"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-network-schedule/article.mdx",
+  "editorialNote": "200字を超える例題展開を省き最大値を選ぶ理由に絞った。"
+}

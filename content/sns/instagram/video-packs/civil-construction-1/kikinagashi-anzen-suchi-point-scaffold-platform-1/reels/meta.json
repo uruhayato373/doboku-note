@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.226Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/kikinagashi-anzen-suchi/shorts/point-scaffold-platform-1/shorts.mp4",
-  "durationSeconds": 30.1,
-  "sha256": "a1a9e381f1114661dd0da250bdd7faab0e7e13c81698a7553d12f279a5e58585",
-  "coverSha256": "538e3ae8f18390fc38748f87db9aaf81e6b35333d35e9f4182d7f81ed3f3a58d",
-  "renderedAt": "2026-09-06T00:10:20.686Z"
+  "durationSeconds": 30.2,
+  "sha256": "3c11ad3a7065e733dfdfaf0a5abcfbce78c92ed88c10e5ea7adaedb07f6f037a",
+  "coverSha256": "b7af8bec4058b60f61847f74a7d3ac64cef34b58f5bd14bc048a6e65be579ead",
+  "renderedAt": "2026-09-10T11:56:25.348Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "7e0c5ef449646d7ce679b5cc2f47db1014b3df1942ef3238533cf1afede642e1",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "6d1859284a93633de4f590f28f980d8e5f4abd9fa6613ae5f1bb200a125c5387",
+  "speaker": 13,
+  "narration": "足場の作業床は、幅とすき間を対にして覚えましょう。つり足場を除く基本の数値は、幅40センチメートル以上、床材間のすき間3センチメートル以下です。つり足場には別の規定があります。数値を答える前に、問題文の足場の種類を確認することが大切です。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "c83a0df146a21ca6472b95d94838ea3d1bd20856a2a2d31e32a3de5ae03330eb",
+    "points": "a9aad2071c6f1589b0eae1c3ee961b35b11660f29a4abdaab6f1028891f6ebaf",
+    "pointsImage": "a0f63dd6d956cdab65748cae00e8ede1bb9d401574adb19d7c5f68ad158520d3",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:56:25.348Z"
+  }
 }

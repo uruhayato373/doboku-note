@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "roadmap-nanido-goukakuritsu",
+  "key": "point-step2-2",
+  "sceneId": "step2",
+  "exam": "civil-construction-1",
+  "narration": "1級土木の第一次検定は、総得点だけでなく、施工管理法の応用能力にも基準があります。片方だけ高得点でも、もう一方を満たさなければ合格できません。練習では総得点と応用能力を分けて集計しましょう。受検年度の正式な合格基準も確認することが大切です。",
+  "visual": {
+    "heading": "総得点と応用能力を別に集計",
+    "items": [
+      "第一次は総得点と応用能力に基準",
+      "片方だけで合格を判断しない",
+      "受検年度の公式基準を確認"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/guide-difficulty/article.mdx",
+  "editorialNote": "年度依存の基準割合を固定せず二重基準の学習上の意味へ絞る。"
+}

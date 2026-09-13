@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "耳で覚える",
+        "法規の数字"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "reading",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/162.png",
+        "sha256": "e9f32819c1da25333c880b7183436b09bb56db970c49da7c249c4a37713c8a1f",
+        "specSha256": "cf86a0878adce03189e0ef55494d9008d9a530a88fa52ea0514dec70a7dbc30f"
+      }
+    },
+    "point-avg-wage-contract-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "平均賃金と",
+        "労働契約期間"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/163.png",
+        "sha256": "cf65c10b69880b6706e84e46902f4b5bda1d1f6f9d270381f00665b62af7ff27",
+        "specSha256": "ccfb004ff5642a9111b01e696069728c642c9dfd067b8bd40124b479f717fdd8"
+      }
+    },
+    "point-dismissal-notice-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "解雇予告と",
+        "予告手当"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/164.png",
+        "sha256": "55b27505a0f7e6f6655b9603557aa0bdabcd055d64330704905bc6dca080b7a1",
+        "specSha256": "ef79f0743f328a7ceb337e804604e134bb0867d9f13f1f742c4f4a3657ac2769"
+      }
+    }
+  }
+}

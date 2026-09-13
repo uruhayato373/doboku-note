@@ -23,8 +23,11 @@ YouTube サムネ・Shorts/Reels 冒頭・Instagram 表紙・X カードでは�
 - 新テンプレートの採用時は同じテーマ・見出しで複数ポーズを比較する。指差し・考え中・手のひらで解説など既存 manifest の候補から選び、問い／解説／締めに合わせて使い分ける。全投稿を同じポーズに固定せず、変化のためだけに内容と無関係な表情を使わない。
 - 縁取り・影は背景との分離に必要な範囲。人物・大見出し・補足の階層を作り、文字や図への人物の重なりを避ける。媒体別の既存寸法と余白規約は引き続き適用する。
 - 制作時は文字を編集可能なデータとレイアウトとして保持し、既存人物素材を合成する。生成画像に焼き付いた日本語や生成フォントを量産の真実源にしない。
+- 人物の全身・腰上・胸上は [キャラクター素材ポリシー「全身・腰上・胸上の派生」](./character-asset-policy.md) の確認済み切り取りを使う。投稿時に `pose` / `frame` / `width` を選び、原寸不足なら配置を小さくするか高解像度原本を別途用意する。人物素材の生成だけで媒体別テンプレートや外部投稿の更新を完了としない。
 - QA は表紙をスマホ相当の幅 360px で実画像確認し、見出しの判読・人物同一性・文字切れ・重なり・強調の節度を指摘する。動画は冒頭フレームも確認する。実画像未確認は「未検査」とする。
 - これは新規制作・改修時の目標。既存レンダラーが自動的に対応済みとは扱わない。共通テンプレートを実装し、代表 1 件を確認してから量産へ展開する。
+
+Xは `cards.json` を持つドラフトの指定番号へ先生付きテンプレートを適用できる。入力・生成・内部ブラウザ確認は [X投稿ポリシー §7](./x-post-policy.md) を参照。既存の予約キューは画像再生成だけでは更新されない。
 
 ## 0.1 予約済み・公開済み素材の更新
 
@@ -40,12 +43,34 @@ YouTube サムネ・Shorts/Reels 冒頭・Instagram 表紙・X カードでは�
 
 2026-09-08 に確認した [YouTube公式サムネ手順](https://support.google.com/youtube/answer/72431?hl=en) は、通常動画と Shorts のカスタム画像変更を案内している（Shorts は PC の Studio、確認済みアカウントが必要）。[動画差し替えの公式説明](https://support.google.com/youtube/answer/55770?hl=en) は、新規アップロードには新 URL が付くと明記。[X公式編集ヘルプ](https://help.x.com/en/using-x/edit-post) は Premium の対象投稿で送信後 1 時間以内の本文・メディア編集を案内。実行時は最新仕様と対象アカウントの機能を再確認する。Instagram の予約・公開済み編集範囲は今回公式ページの本文を取得できず、実機確認が必要。
 
-既存の YouTube 後付けサムネ処理は .claude/scripts/youtube/set-thumbnail-uploaded.mjs。2026-09-08 時点では videoId のある全件が対象、既定が書き込みで個別絞り込みがない。部分更新にそのまま実行せず、対象一覧の dry-run と ID 指定の実装・照合が必要。既存 IG 投稿スキルは新規投稿用で、既存予約を編集済みとは扱わない。
+YouTube の後付けサムネ処理は `npm run youtube-thumbnail:update`（.claude/scripts/youtube/set-thumbnail-uploaded.mjs）。単一の `--video-id`・`--image`・期待するチャンネルを持つ `--channel-file`（動画パックの youtube.json）を必須とし、既定はローカルdry-run。`--check-live` はアカウントと動画の実査のみ、`--commit --expect-sha256 HASH` は確認した画像だけを送る。APIは `thumbnails.set` だけを書込みに使い、公開設定・予約・本文・動画本体は更新しない。API上限2MBとアカウント一致を検査し、前後記録は `.tmp/youtube-thumbnail-updates/run-*/report.json`。API受理と画面での画像確認は別で、後者はStudio/公開画面で確認する。Shortsは機能の段階的提供があるため、アカウントごとに編集欄を確認する。既存 IG 投稿スキルは新規投稿用で、既存予約を編集済みとは扱わない。
+
+動画パックに `cover-design.json` を置くと、`npm run youtube-covers -- --spec PATH` で人物＋編集可能な見出しの見本（PNG/SVG/来歴manifest）を `.tmp/youtube-covers/run-*/` へ生成する。共通実装は `scripts/lib/youtube-cover.mjs`。`covers.longform` は1920×1080、`covers[Shortのkey]` は1080×1920。各specは `format`・試験パレットの `exam`・2〜3行の `headline`（1行8文字以内）・`accentLine`・`subtitle`（24文字以内）・`character: {pose, frame}` を持つ。原画像は上書き・引き伸ばしせず、要修正素材と長すぎる見出しは停止する。未指定パックとlegacyレンダラーは従来意匠のまま。
 
 動画の冒頭デザインを刷新する未投稿パックは、カバー画像と動画を同時再生成する。公開済み YouTube のサムネだけを変える場合は動画本体を変更したと記録しない。既存投稿の削除・再投稿は同じ ID の編集と異なり、URL・反応履歴への影響を示してユーザーの依頼範囲内で行う。
 
 保存後は対象 ID・公開状態・日時・実表示を読み直して確認する。予約重複や意図しない即時公開がないことを確認し、「素材生成済み／外部更新済み／実表示確認済み」を区別して報告する。
 
+全チャンネルの対象確認は `scripts/youtube-thumbnail-rollout.mjs --mode inventory`。既存 `sync-yt-descriptions.yml` の手動入力 `operation=thumbnail-inventory` で、選択したrefのコードを使う（従来の `descriptions` jobとは排他）。uploadsを全ページ取得し、総件数・重複・詳細取得の被覆・口座を検査する。0件/欠落は検査不成立。YouTubeへの書き込みはない。公開リポジトリのログへ非公開動画情報を出さず、`--mode keygen` で手元に生成した一時公開鍵だけを `report_public_key` へ渡す。artifactは暗号化JSONのみ・保持3日。秘密鍵は手元の `.tmp/youtube-rollout/keys.json` に留め、Git/CIへ送らない。取得したartifactは `--mode decrypt --input PATH --key-file .tmp/youtube-rollout/keys.json` で手元へ復号する。
+
+uploadsのページ境界で同じ公開IDが重複する場合は、投稿台帳のIDを `videos.list` で実査して不足を補完する。重複を除くだけで完了とはしない。口座が一致する実体の総数＝uploadsの総数、かつuploads由来の未取得IDが0であることを要求する。重複・補完ID・削除済み台帳IDは暗号化記録へ残し、削除済み動画を再投稿しない。
+
+### 全動画のサムネイル更新
+
+単一IDは前述の `youtube-thumbnail:update`、全件・範囲指定は `scripts/youtube-thumbnail-rollout.mjs` を使う。
+
+1. `--mode prepare --out .tmp/youtube-rollout-prepared` で全パックとlegacyの表紙PNG・`designs.json`を生成する。legacyの元データは `content/sns/youtube/cover-design.json` の `covers` と `titles` 対応表。画像・見出しを確認した後、生成された画像チェック台帳を `.claude/state/youtube-thumbnail-designs.json` に採用する（画像本体はGitへ入れない）。台帳はsourceKey・spec SHA・PNG SHA・寸法であり、公開完了を示さない。
+2. `--mode plan --input PATH_TO_DECRYPTED_INVENTORY --out .tmp/youtube-rollout-plan` で全実体と元データを対応付け、計画とSHAを手元に固定する。元タイトルの不一致、対応0件/複数件、未確認画像は停止する。非公開IDやタイトルを含む計画はGitへ入れない。
+3. CIの手動入力 `operation=thumbnail-refresh`・`plan_sha256`・`report_public_key`・`batch_start`（ID固定順、0始まり）・`batch_limit`（既定1）で実査する。単一試行は `only_video_id`。既定 `commit=false` では書き込まず、更新時だけ `commit=true` を指定する。CLIでは `--mode refresh --expect-plan-sha256 HASH [--start N --limit N | --only-video-id ID] [--commit]`。全件を再取得して計画SHAを照合し、対象ごとに生成または採用画像から読み込んだPNGのSHAが確認済み画像と一致することを要求する。
+4. `thumbnails.set` 以外は書き込まず、前後のタイトル・公開設定・予約・動画情報を検査する。初回設定に伴う `contentDetails.hasCustomThumbnail` の未設定/false→trueだけを正常な変化として許容し、`thumbnails` 以外のsnippet・status・その他contentDetailsは不変を要求する。更新前画像と処理段階は `video-NNNN.enc.json` に保存。既存画像の一致は送信せず、不確かな書込結果は自動再送せず停止する。更新後のCDN画像を画素比較し、`cdn-matched` と `accepted-cdn-pending` を分ける。CDN一致は公開フィードの実表示確認ではない。暗号化artifactを保持期限内に手元へ取得し、確認待ちは書き込みなしで再照合する。
+
+採用PNGを使うCI更新の前に、`node scripts/stage-youtube-covers.mjs` で全画像を検査し、`--commit` でprivate R2へ一時転送する。`thumbnail-refresh` jobは同スクリプトの `--pull` で採用SHAが一致する画像だけを復元する。恒久保存先はDriveのまま。更新結果の照合と暗号化記録の取得後に `node scripts/stage-youtube-covers.mjs --delete --commit` で転送用キーだけを削除する。
+
+既存の概要欄同期・inventory・refreshは排他的な手動jobで、refresh同士も直列に実行する。通常動画やShortsの再投稿、予約の作り直し、公開状態の変更は行わない。
+
+公開中の動画を先に処理する場合はCIの `public_only=true`（CLIは `--public-only`）を使う。全件計画のSHAは同じまま、実査時点でpublicの対象だけをID順で選ぶ。後から全件処理しても、既に画像が一致する動画には再送しない。
+
+ShortsのCDN画像にはYouTubeが左右へ暗い拡大背景を補う場合がある。画素照合は左右の生成背景でなく中央の**元の縦画像全体**を対象とし、縮小時の1px丸めを考慮する。縦画像の比較時だけ両画像へ同じ1pxのぼかしをかけ、縮小・JPEG変換による輪郭差をならす。見出しや人物の領域を切り捨てて一致扱いにはしない。全体平均と局所タイル誤差を併用し、文字領域の欠落と横長への中央クロップが不一致になることを回帰テストで確認する。
 
 ## 適用範囲
 
@@ -312,3 +337,7 @@ PNG だけ修正することは絶対にしない（再生成で消える）。S
 - **セーフエリア**: Stories/Reels ともに上下の UI 領域は端末・OS バージョンで若干変動する。コンテンツを上下各 250〜320px 以内に収めない設計でよい（figure が 4:5 相当なので自然に中央に収まる）。
 - **CTA テキスト**: 下部 UI 領域が隠れるため、「プロフィールのリンクから」など UI に依存しない誘導文を figure 外の上部余白エリアに小さく入れる（オプション）。
 - **動画化**: 静止画を ffmpeg 等で mp4 に変換する場合も同じ 9:16 配置を適用する。
+
+## 採用済みカバー画像の利用
+
+ユーザー確認済みの白＋青・ポップ体カバーは、各specの `approvedImage` でPNGを固定して使う。背景・書体・ポーズはそのPNGが表現し、文字やポーズの入力を変えた場合は画像の再生成と再確認が必要。ファイルの有無だけで採用画像と判断せず、hashと寸法を検査する。Mac等の別端末には画像を移し、フォントを複製しない。詳細は [動画生成手順](../../../content/sns/youtube/VIDEO-RENDER.md)。

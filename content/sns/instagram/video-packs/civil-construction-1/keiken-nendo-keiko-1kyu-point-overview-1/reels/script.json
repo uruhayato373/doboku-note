@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "keiken-nendo-keiko-1kyu",
+  "key": "point-overview-1",
+  "sceneId": "overview",
+  "exam": "civil-construction-1",
+  "narration": "令和3年度と令和4年度は、安全管理が指定されました。ただし交通誘導員だけの記述は認められないという条件が付きました。令和5年度は品質管理です。この3年間は、5つの管理項目のうち1つだけを指定する形式でした。",
+  "visual": {
+    "heading": "R3〜R5：1テーマ形式の時代",
+    "items": [
+      "R3・R4：安全管理（交通誘導員のみは除く）",
+      "R5：品質管理",
+      "5管理のうち1つだけを指定する形式"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/secondary-r03/article.mdx"
+}

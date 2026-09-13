@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "keiken-nendo-keiko-2kyu",
+  "key": "point-gakka-fields-2",
+  "sceneId": "gakka-fields",
+  "exam": "civil-construction-2",
+  "narration": "問題2以降の学科記述は、土工、コンクリート工、品質管理、安全管理、工程管理が、ほぼ毎年繰り返し登場します。範囲は広く見えますが、出てくる分野の顔ぶれ自体は毎年大きくは変わりません。",
+  "visual": {
+    "heading": "学科記述で毎年出る分野",
+    "items": [
+      "土工／コンクリート工／品質管理",
+      "安全管理／工程管理が頻出"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-2/secondary-r04/article.mdx",
+  "coverHeadline": [
+    "学科記述の",
+    "頻出分野を確認"
+  ]
+}

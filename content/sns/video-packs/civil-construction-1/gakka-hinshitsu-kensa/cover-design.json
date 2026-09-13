@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "全数？抜取？",
+        "品質検査の選択"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/039.png",
+        "sha256": "873f73944e673f9034b8493b455db88cd36932153117f620fe1d4e61ef378241",
+        "specSha256": "872de309836a7f38f0a2138c62a9054a800d27c83b5d0ff105d8897c11124d6d"
+      }
+    },
+    "point-step1-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "全数検査が",
+        "向いている場面"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/040.png",
+        "sha256": "ef10566677c4ccae30e3b0240cb2da43435df103a7826f883a767001107eea4a",
+        "specSha256": "f0ccfeb0b45f131c77cd85672cd547073a41b70a0a90a1d2ab562e8e0fd335b5"
+      }
+    },
+    "point-step2-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "抜取検査と",
+        "ロットの考え方"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/041.png",
+        "sha256": "e49b97c7c8b18e17c052c883a0cc8a5b404c05c289c5fc03272a1bcf0faf4ebb",
+        "specSha256": "6dd8c5e411f2e0481df475638e08a55f0c869c1bb22346aac14769c0e8721776"
+      }
+    }
+  }
+}

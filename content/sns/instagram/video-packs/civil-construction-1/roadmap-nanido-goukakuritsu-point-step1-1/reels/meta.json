@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.210Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/roadmap-nanido-goukakuritsu/shorts/point-step1-1/shorts.mp4",
-  "durationSeconds": 30,
-  "sha256": "682408427accc99148e8f0c59fec9ac675b4a2d550018af6f1b97a5b916077a5",
-  "coverSha256": "6c75a9ea30e42ca2f732a0441461700be68866a860dd0f425dcbcab460904072",
-  "renderedAt": "2026-09-05T23:58:25.820Z"
+  "durationSeconds": 30.2,
+  "sha256": "472fcd2410f12d2c510eb820841b6413c082268a88696d95601f2e04c2b23bfd",
+  "coverSha256": "ee8db596deca6170f72effe9579f1bbddabe5b09e4f3b9d2271bc8f4d15eb710",
+  "renderedAt": "2026-09-10T11:16:36.239Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "3427a35c302958c58bffdd92ae292c516606cabe454fddf92b307a288e3c4a62",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "d428a98c1be516dc1833c6c4c6183956def6d71d7ba5f9243715e3db29934fdd",
+  "speaker": 13,
+  "narration": "合格率を見るときは、第一次と第二次を分け、年度もそろえて比較しましょう。第一次は知識や応用能力を選択式で、第二次は経験を含む内容を記述式で答えます。受検者の条件も異なるため、率の高低だけで自分にとっての難しさを判断しないことが大切です。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "b07e013619aa5c8b4aa91c597efd24fe8c6346b7030dd3d8f05fc86a48f7319c",
+    "points": "eaf7d174fe16999f12045bd4f9733b696ff18a17b724c9cb3e1055041c311357",
+    "pointsImage": "c9cd4190f61f160633e82137d05a32a31b750e003883be228c1fdd1c4c809772",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:16:36.239Z"
+  }
 }

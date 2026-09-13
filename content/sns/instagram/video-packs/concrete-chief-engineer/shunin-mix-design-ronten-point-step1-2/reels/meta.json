@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.195Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/shunin-mix-design-ronten/shorts/point-step1-2/shorts.mp4",
-  "durationSeconds": 39,
-  "sha256": "978b5806f35800e4abc1c951f40e1374272fe4b24c5a2bfaa27b601aa279a853",
-  "coverSha256": "cb42a1cdb408b55b544fafe9025d3e002483fcdfcb8de1661963f3d2a90c21f4",
-  "renderedAt": "2026-09-05T23:28:40.267Z"
+  "durationSeconds": 30.2,
+  "sha256": "e4de4c442303c5e7eeb196b02908072bfcc835b2bc7bbb08e1d82db550ddd8af",
+  "coverSha256": "021d1013c8d090fd7082bc6c6fa324c566ce5bc026d02835cdef861b2e1b2c56",
+  "renderedAt": "2026-09-10T11:01:15.601Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "235d9572459b8ff3d39c49f838c0b9131274edafa855f1274f2c2d72c9374bee",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "d9a9d5b12c39a43caf4e9e202d4ac27eb7758fc77ecd029fe627d2bf4fc79ab9",
+  "speaker": 13,
+  "narration": "材料や気温が変わると、同じ配合でも施工性が変わります。砕石の形や骨材の実積率は、必要な水量や細骨材率に影響します。暑い時期や混和剤を変える場合も、修正方向を丸暗記せず、どの性能を保つための調整かを考え、試し練りで確認しましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "db3a4fe5983441c23a37d31f69c34237b4a0699ea7505837b2b6f1ba44b4b561",
+    "points": "d856b5f35a35c3e438be4b64234224e1614edfcdf6eab828aeb1987aec6dead1",
+    "pointsImage": "7096ef5ba73caf805a6d263d7ea09b9cf3c07cc575e08c056d3735b56dd61db4",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:01:15.601Z"
+  }
 }

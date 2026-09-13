@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "運搬と締固め",
+        "機械の使い分け"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/096.png",
+        "sha256": "9e6232d0647b1fddb39e49b56e99accfd2dd8358d787b45e42d6ce835fbd70c5",
+        "specSha256": "cfb0b478b2fabb87629ac6414a5f025f36e3b7f49ed548f3d4b3cbb2638fff3d"
+      }
+    },
+    "point-scraper-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "スクレーパ３種",
+        "適用距離を整理"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/097.png",
+        "sha256": "7ca0875d0c6146034bfa51cbe8db86ef957d5d23261eba318ec426b4b558da69",
+        "specSha256": "4e8ad9d01e0cc247c2fdbbd332583d5e4ba23ac6a2d6a9475d1f4709339810b8"
+      }
+    },
+    "point-unpan-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "運搬機械は",
+        "距離と現場で",
+        "選び分ける"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/098.png",
+        "sha256": "92d39f1de3191d30dd456de6a814857b126016005ed988ecd9e7449524df9e93",
+        "specSha256": "bbf56aa3d204d655e24249ece2177ea3611d3ba5480f3934f415ad5e78ceb6bd"
+      }
+    }
+  }
+}

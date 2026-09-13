@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "二次の品質管理",
+        "試験名と規格値"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "reading",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/177.png",
+        "sha256": "dd0923fb4b4a7d0bc28f00e8dc4db2ae60664e8d1006cb1d65994a4fc2e37371",
+        "specSha256": "74998fe1762c7dde5bbfccfbde87130a96b1d921f4097b5bb53598c45cba445c"
+      }
+    },
+    "point-compaction-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "盛土の締固め",
+        "管理は２方式"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/178.png",
+        "sha256": "69c8f471ed07d6ef3b6f710701cd4af3ee90d5e9f4a18dd498b6274d147e50fa",
+        "specSha256": "33d61281c684b3ae2b44da5d09fd988de961c264be7a78afb4174792663cdd25"
+      }
+    },
+    "point-acceptance-test-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "受入検査",
+        "試験名と基準"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "reading",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/179.png",
+        "sha256": "600f4847a6c057946bac3e2c6b27ffb1e65b75fe2f009a90b1d85cbc4d866c09",
+        "specSha256": "0ae54ab58bb573d9177c3e81617757e360a7875186857cc8d35db3d48fdd32b3"
+      }
+    }
+  }
+}

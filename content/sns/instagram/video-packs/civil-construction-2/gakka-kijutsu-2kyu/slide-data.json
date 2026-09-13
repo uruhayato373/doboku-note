@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "gakka-kijutsu-2kyu",
+  "exam": "civil-construction-2",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "二次の学科記述",
+        "出る分野と型"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：範囲が広く対策しづらい",
+      "items": [
+        "出題形式は限られたパターンに収まる"
+      ],
+      "sourceRef": "content/site/civil-construction-2/secondary-getting-started/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "fields",
+      "heading": "出る分野は毎年ほぼ同じ",
+      "items": [
+        "土工／コンクリート工／品質管理",
+        "安全管理／工程管理／施工計画・環境"
+      ],
+      "sourceRef": "content/site/civil-construction-2/secondary-getting-started/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "pattern1",
+      "heading": "解答の型1　穴埋め（語句選択）",
+      "items": [
+        "空欄に語句・数値を選択肢から選ぶ",
+        "用語は意味・場面とセットで覚える"
+      ],
+      "sourceRef": "content/site/civil-construction-2/secondary-r07/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "pattern2",
+      "heading": "解答の型2　記述式（複数挙げる）",
+      "items": [
+        "「2つ」「1つずつ」で複数の観点を書く",
+        "切り口を複数用意しておく"
+      ],
+      "sourceRef": "content/site/civil-construction-2/secondary-r07/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "pattern3",
+      "heading": "解答の型3　選択問題",
+      "items": [
+        "2問から1問を選ぶ年度がある",
+        "得意分野をあらかじめ決めておく"
+      ],
+      "sourceRef": "content/site/civil-construction-2/secondary-r07/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

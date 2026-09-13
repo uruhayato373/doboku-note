@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "gakka-sokuryo-3ten",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "測量の頻出点",
+        "３テーマで整理"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：数値暗記だけの科目",
+      "items": [
+        "問われるのは場面ごとの方法選び"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-surveying-basics/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "kijun",
+      "heading": "測量の基準と誤差の種類",
+      "items": [
+        "日本では世界測地系を用いることを基本として確認します。",
+        "水準原点の標高は適用時点の公式値を確かめ、測量成果の基準と合わせます。",
+        "誤差は、過失・定誤差・不定誤差に分けて原因を整理します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-surveying-basics/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "suijun",
+      "heading": "水準測量の求め方",
+      "items": [
+        "高低差＝後視の読み−前視の読み",
+        "往復観測して平均を取る",
+        "視準距離：1・2級50m、3・4級70m"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-leveling/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "kyori",
+      "heading": "測距は測定方法ごとの補正を確認",
+      "items": [
+        "鋼巻尺では尺定数・温度・傾斜・たるみなど、測定条件に応じた補正を確認します。",
+        "光波測距では反射プリズムを用い、光の往復の関係から距離を求めます。",
+        "どの補正の影響が大きいかは、器械と現場条件に照らして判断します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-distance-angle/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "kaku",
+      "heading": "角の測定とGNSS",
+      "items": [
+        "対回で消える：視準軸・水平軸・外心誤差",
+        "対回で消えない：鉛直軸誤差",
+        "基準点＝スタティック法／工事測量＝RTK法"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-distance-angle/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

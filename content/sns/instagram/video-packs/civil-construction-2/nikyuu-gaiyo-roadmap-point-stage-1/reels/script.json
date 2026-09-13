@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "nikyuu-gaiyo-roadmap",
+  "key": "point-stage-1",
+  "sceneId": "stage",
+  "exam": "civil-construction-2",
+  "narration": "試験は第一次と第二次の2段階です。第一次は四肢択一で基礎知識が問われ、合格すると技士補を名乗れます。第二次は記述式で、両方合格して初めて2級土木施工管理技士を名乗れます。",
+  "visual": {
+    "heading": "第一次・第二次の2段階",
+    "items": [
+      "第一次：四肢択一→合格で「技士補」",
+      "第二次：記述式（経験記述含む）→両方合格で技士"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-2/guide-exam-overview/article.mdx"
+}

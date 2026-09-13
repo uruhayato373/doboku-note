@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.208Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/niji-kijutsu-sekokeikaku/shorts/point-pattern2-2/shorts.mp4",
-  "durationSeconds": 30,
-  "sha256": "2645fac6e7f9b4db87656faac0d8a5e78a59dec6a1229593c5c1ce3d4a69bc44",
-  "coverSha256": "66ed3a81822db648b9c9649cdbf8e26a9d7e04acc8a15d9b51937534426394f1",
-  "renderedAt": "2026-09-05T23:55:21.901Z"
+  "durationSeconds": 30.2,
+  "sha256": "782a59eeb31825b0c7cbbb780d7ee5722caaded5ea4db0622e4f90c498795576",
+  "coverSha256": "079a0059221f2b089684a087d0b4cd5bc812967a7b63695500c79dcfe3b37519",
+  "renderedAt": "2026-09-10T11:14:15.516Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "0a078e5ba29fff967ab7c86b0829fa3ac5c690ac6d91a50d6f9c7d52a127b42e",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "fadfd8651dfa243c9070921bfc5c2c9bc11cc6f2202c70258ad76d948a312937",
+  "speaker": 13,
+  "narration": "施工計画書の記述問題では、項目名から必要な内容を具体化します。現場組織表なら、組織の編成と業務分担です。安全管理なら、責任者の体制や対策方針が軸になります。丸暗記した文を当てはめる前に、その項目で何を伝える計画なのかを確認しましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "8023f0ddfb0904a36ab04a2c805ed0be93bf47c56298a5186205f89240e20086",
+    "points": "e5d75f287ee415962ecbe396e0efb81365c10a0656d05c531d03941ffb49da6b",
+    "pointsImage": "f90f7f18463f014bfba0df01db624354e2ec683c6c0170343bf154b7aff9e5bf",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:14:15.516Z"
+  }
 }

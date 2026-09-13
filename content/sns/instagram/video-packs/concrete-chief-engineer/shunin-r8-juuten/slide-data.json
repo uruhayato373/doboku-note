@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "shunin-r8-juuten",
+  "exam": "concrete-chief-engineer",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "令和８年度予想",
+        "重点分野を読む"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "reading",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：今年の出題を言い当てる予想",
+      "items": [
+        "過去の出題実績に基づく優先順位づけ",
+        "傾向が続くとは限らない限界がある"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/guide-trends/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "overview",
+      "heading": "8分野の全体像",
+      "items": [
+        "用材料・性質・耐久性・配合設計",
+        "製造品質管理・施工・製品・構造設計",
+        "施工が最も出題ボリュームが大きい"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/guide-trends/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "four-tiers",
+      "heading": "対象期間内の頻度で整理する",
+      "items": [
+        "平成21〜令和5年度の教材分析を、毎年・多くの年・低頻度・確認なしに分けます。",
+        "水・水密などの確認なしと、運搬・養生・マスなどの頻出を対比します。",
+        "対象期間外の実績や今後の出題を、ここから断定しません。"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/guide-trends/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "priority-order",
+      "heading": "優先順位で学習順序を組む",
+      "items": [
+        "毎年出る分野を先に固める",
+        "低頻度・出題なしは後回し",
+        "用材料→性質耐久性→施工定番→製品構造"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/guide-trends/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "limits",
+      "heading": "このプロセスの限界",
+      "items": [
+        "対象は平成21〜令和5年度の傾向",
+        "将来の出題を保証するものではない",
+        "最終確認は公式情報で行う"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/guide-trends/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

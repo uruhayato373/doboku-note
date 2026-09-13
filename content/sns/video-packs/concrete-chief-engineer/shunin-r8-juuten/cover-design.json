@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "concrete-chief",
+      "headline": [
+        "令和８年度予想",
+        "重点分野を読む"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "reading",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/285.png",
+        "sha256": "518811c502245c639355f9b5d7a534955ccebf678862638249fc03acdc4f0ed7",
+        "specSha256": "d1236be7aa95b7e221f4080a33a772cac495a597454470525801ab366dc1bfee"
+      }
+    },
+    "point-overview-1": {
+      "format": "shorts",
+      "exam": "concrete-chief",
+      "headline": [
+        "主任技士の出題",
+        "８分野を整理"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/286.png",
+        "sha256": "81dfb5b0e2570c3173cebf744d2de0d29d1b9b26c31acf12d37d8fc1e08b1d8e",
+        "specSha256": "d044ac6a1c8c6151dbe7a2428add4eaf2ff5df1171644b0206c31c19fcef97ab"
+      }
+    },
+    "point-four-tiers-2": {
+      "format": "shorts",
+      "exam": "concrete-chief",
+      "headline": [
+        "頻出度を",
+        "４段階で整理"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/287.png",
+        "sha256": "2e17f17a3d92b98627117010d4f6b9b3ff440724526ef4764223abcca5a13b05",
+        "specSha256": "3228afe2a6e2a0223b0976f05bb869fd7cbb9591f87c19eb7ebacfa3544f367b"
+      }
+    }
+  }
+}

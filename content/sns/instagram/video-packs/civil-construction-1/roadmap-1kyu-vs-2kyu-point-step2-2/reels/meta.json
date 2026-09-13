@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.209Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/roadmap-1kyu-vs-2kyu/shorts/point-step2-2/shorts.mp4",
-  "durationSeconds": 30.3,
-  "sha256": "0f3b03593b4506c7f578b547b4196751da0f2c48f8da515d1bd1619b88cf0462",
-  "coverSha256": "fbf7a1cb60d430428320615d6381e0d5b077ddacf53f2642bd18d3be74445226",
-  "renderedAt": "2026-09-05T23:57:54.849Z"
+  "durationSeconds": 30.2,
+  "sha256": "17e8d849cd8936889c4adc93c158d0793c690f50db1ab44f009673b4763fd7e6",
+  "coverSha256": "60fd44af10445e274ba637d400f63ba3b98860ca7a730225da720ec63f169b7a",
+  "renderedAt": "2026-09-10T11:15:55.690Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "04b3b429d94d7887ae72304a80fa7f0e434a7de0d43ec10c2d3cd70611615f41",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "f4831e31c45390ac58bfadf7a9a2804fbd641fe1c82a52d44dd7b9e6262c7c88",
+  "speaker": 13,
+  "narration": "第一次検定の受検資格は、年度中の年齢が1級は19歳以上、2級は17歳以上で、実務経験は問いません。第二次検定は実務経験などの条件があります。新制度と経過措置の旧制度では確認する経歴が異なるため、自分が使う区分の手引を確認しましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "15e77304d01e2728470d66e077586bace9e3b9e9dcba531f68e221a3e86aa40b",
+    "points": "c87e53b640745c7ee91264c5b4d1c421fc139d3a966befd0c73ff34ffa9fe99b",
+    "pointsImage": "3ec4e5fffba2500951b882e8b82c4df425558241a4fcaf1bc4756121e29c9052",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:15:55.690Z"
+  }
 }

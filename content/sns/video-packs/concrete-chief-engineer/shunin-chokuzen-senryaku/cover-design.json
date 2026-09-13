@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "concrete-chief",
+      "headline": [
+        "主任技士の直前",
+        "総仕上げの順序"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "good-sign",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/255.png",
+        "sha256": "fd3bb0397ac3c96ddbb62d05d66523907377ffc47a6f4e6d6df7219358fe5115",
+        "specSha256": "3ad0f7b0bb4c85943654c2436ef6d74a5f7d48e53871a2d8914065fee89b16c3"
+      }
+    },
+    "point-step1-1": {
+      "format": "shorts",
+      "exam": "concrete-chief",
+      "headline": [
+        "主任技士の直前",
+        "小論文を優先"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "good-sign",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/256.png",
+        "sha256": "2bd33e01a1d6f0059913f1f79c9285271f8194d43e663c89a2e952d3d44e82ee",
+        "specSha256": "0e9e954706ecc42c87be0351bfab1595f7d7252ad8cae869c689d181576e71c7"
+      }
+    },
+    "point-step2-2": {
+      "format": "shorts",
+      "exam": "concrete-chief",
+      "headline": [
+        "主任技士の択一",
+        "定番から固める"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/257.png",
+        "sha256": "c4a876e220a8ed132b7860ebb033808592e703a88f3174071312da3168f5cb3c",
+        "specSha256": "c2b1031670f365e658ba5e429d5d8d0e8c41bd5adb1a5d024f597335e120af83"
+      }
+    }
+  }
+}

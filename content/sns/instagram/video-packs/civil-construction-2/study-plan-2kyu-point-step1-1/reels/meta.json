@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.185Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/study-plan-2kyu/shorts/point-step1-1/shorts.mp4",
-  "durationSeconds": 30.56,
-  "sha256": "ef8871d707d8198ebf35c9e72356a2cee84fce8e4670755764382340da3e6f14",
-  "coverSha256": "e38b1ec0124c880d1d38411cb1150b27d8009add0439b45f01dba8ca3dd02db9",
-  "renderedAt": "2026-09-05T23:15:46.446Z"
+  "durationSeconds": 30.2,
+  "sha256": "612a0aedbaf3eea9a2d81bddb08fc9ca5a9b06b1a8d92976563c1f3a014c77cc",
+  "coverSha256": "17cb322fc5708f40f922dc62e3422345801a60ffb563796268c1d6817c42a0ab",
+  "renderedAt": "2026-09-10T10:57:35.883Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "d8a70e49550756a5b434bc9ba4b1045f13ce7b92ad04ccb16c44a25157ed43e2",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "147caa0dcff8cc66faefd5d448d24fa63d131c3f927da968a3efa69580bda7dd",
+  "speaker": 13,
+  "narration": "第一次は知識の網羅と再現、第二次は自分の実務経験を言語化する力です。第一次は過去問演習、第二次は経験記述の準備と、対策の方向性がまったく違います。時期に応じて重点を切り替えましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "42068e287421745af5d7881566ebd58e0372bc2b33e35b0f75a34ba1e64fb7b9",
+    "points": "4afe974b7f61f4570d9be82bea8a32a98062bf8cddd7cf3f0b437d283b4ca8f4",
+    "pointsImage": "a906371e018d4f8aa25ae06a0ec49c8b3cbe321e5d5f13dfdfbbbff0e0b09f71",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T10:57:35.883Z"
+  }
 }

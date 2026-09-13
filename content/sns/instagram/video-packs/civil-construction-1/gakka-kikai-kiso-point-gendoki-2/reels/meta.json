@@ -13,7 +13,27 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-kikai-kiso/shorts/point-gendoki-2/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "90ba2046a6e03e05b3f2dc0e4697a9ba349a01a0db8fffea7df8f3d9b62f9537",
-  "coverSha256": "2c425b89c2849b73bc8e6b5518577c0dcb342fae1af87e047e10afe53685a8c6",
-  "renderedAt": "2026-09-06T00:04:42.124Z"
+  "sha256": "938702d564f1357840efd38985d4137dfdd42be6ceb7afc4056d2ef8c2b3fb88",
+  "coverSha256": "67f4153ea6b59897d11fd990c4455d7065d71af4c34916238d46b7ae32f35cd4",
+  "renderedAt": "2026-09-10T11:28:49.873Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "fb2b817369138fadeda99a44ad0e1518f2255941446297e076f8acb3b6d2035a",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "76ad218ba09eb6b091304485f71d1d7482c23d3b776f94c85517f95a768ea074",
+  "speaker": 13,
+  "narration": "建設機械の原動機は、エンジンと電動機に大別できます。屋外を移動しながら使う機械ではディーゼルエンジンが広く使われます。一方、定置式のプラントやトンネル内などでは電動機も選択肢です。必要な出力に加え、移動性や排気、電源条件を考えて使い分けます。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "ef66a22a2e8832eb9af205b30bbad6e6f496368b3e5cda226b670e1288d6fc94",
+    "points": "1477e21803fab69da6bda9f9ed4016019e376cd7e647f90d99b8fd682d11c6be",
+    "pointsImage": "cb578000550465d5cb37f759467b02e8ed94d89fcd5f2aa39e8bacff9e630e2f",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:28:49.873Z"
+  }
 }

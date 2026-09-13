@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "keiken-taisho-koji",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "経験記述に",
+        "書ける工事は？"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "工事種別と担当業務を照合",
+      "items": [
+        "現場経験の長さだけでなく、どの工事で何を担当したかを確認します。",
+        "受検資格の実務経験と、答案で扱う工事経験を分けて照合します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "block1",
+      "heading": "「書ける」工事の範囲",
+      "items": [
+        "土工事・地盤改良などの土木一般",
+        "河川・道路・橋梁・トンネル等",
+        "迷ったら一覧と自分の工事を照合"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "block2",
+      "heading": "除外される工事・業務を確認",
+      "items": [
+        "工場製作や建築・設備などは、土木の対象範囲との区別を確認します。",
+        "解体や維持修繕も、一律に判断せず工事の内容と手引の取扱いを照合します。",
+        "一覧の名称だけでなく、自社が担当した施工内容まで確認します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "block3",
+      "heading": "自分の立場と実際の関与を書く",
+      "items": [
+        "現場代理人や主任技術者など、現場で実際に担当した立場を整理します。",
+        "発注者側の経験は、受検資格と記述題材で取扱いを分けて確認します。",
+        "設計・調査・積算などは、施工管理業務との区別を手引で照合します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "block4",
+      "heading": "当該年度の手引と問題文を確認",
+      "items": [
+        "現在の受検案内と問題文で、工事・業務の対象範囲を確認します。",
+        "判断しにくい場合は試験機関へ確認し、自己判断で対象と決めません。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

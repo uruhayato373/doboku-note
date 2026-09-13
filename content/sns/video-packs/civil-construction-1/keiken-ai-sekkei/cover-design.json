@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "経験記述とAI",
+        "丸投げは危険"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/102.png",
+        "sha256": "7236fe1d83805d383830e22232d41e4d35aa1d8cf9ec5aa815abe60bedca4a01",
+        "specSha256": "f5555035db9368efff63f4dab4cc08e0851724d06cd6cc4dfee0bd8c80a83901"
+      }
+    },
+    "point-overview-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "経験記述",
+        "AI丸投げの",
+        "落とし穴"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/103.png",
+        "sha256": "2d62cabd1f093e79756852b0f4de49d441716cec19e2f19218db01c03d2b84c5",
+        "specSha256": "a62eb089a17a9eca6994ce70622573dca352036bba96a096d9a22e1d8584fab2"
+      }
+    },
+    "point-step1-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "経験記述とAI",
+        "分担を決める"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pc-work",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/104.png",
+        "sha256": "54bae46e6061a92cd81bf08d998650811bebebdd98d62735ddb01a3812e5a999",
+        "specSha256": "8c611c46b57dd74c9719c4e21d84ab4785d456ddbbb73d7701d869088cc667e1"
+      }
+    }
+  }
+}

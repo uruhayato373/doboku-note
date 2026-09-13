@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "keiken-sekokeikaku-1kyu",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "施工計画の答案",
+        "検討の幅を出す"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：施工計画は範囲が広いまま書ける",
+      "items": [
+        "絞らないと内容が発散する",
+        "着工前の検討であることを意識する"
+      ],
+      "sourceRef": "content/note/1級・2級土木/1級土木/1級経験記述テーマ選び5管理/article.md"
+    },
+    {
+      "type": "point",
+      "sceneId": "plan-vs-management",
+      "heading": "事前検討と実施時の管理を区別",
+      "items": [
+        "このテーマでは、着工前の調査・方法・体制などの検討を中心に整理します。",
+        "品質・工程・安全をどう確保する計画にしたかを示します。",
+        "施工中の実施内容だけで終わらず、計画を選んだ過程を伝えます。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "four-categories",
+      "heading": "検討項目を4系統に絞る",
+      "items": [
+        "仮設計画（仮設道路・仮締切の規模）",
+        "工法比較（競合回避・地盤改良の計画）",
+        "近接施工の防護・関係者協議"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "concrete-example",
+      "heading": "具体例で検討を確認する",
+      "items": [
+        "近接施工：工法・機種選定・防護方法",
+        "寒中・暑中コンクリート：温度管理の計画",
+        "何を検討し、どう判断したかを書く"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "action-as-plan",
+      "heading": "立てた計画と確認できた効果",
+      "items": [
+        "何を検討し、どの計画を採用したかを具体的に示します。",
+        "施工数量や日数への効果は、実際に確認できる記録から書きます。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

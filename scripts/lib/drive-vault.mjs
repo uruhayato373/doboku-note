@@ -3,7 +3,8 @@
  *
  * R2 系（asset-storage.mjs）とは**独立した系**にしてある。R2 側の upload/hydrate/verify は
  * fail-closed に作り込まれており、そこへ第 3 の行き先の分岐を足すと 6 か所以上の
- * `cfg.buckets[e.bucket].name` が壊れる。Drive は S3 ではなく OS のマウントで、CI には無い。
+ * `cfg.buckets[e.bucket].name` が壊れる。Drive の通常の同期復元は OS マウントを使い、CI には無い。
+ * コネクター経由の転送は全バイト読み戻し後に drive-connector-register で同じ台帳へ登録する。
  * 構造が違うものは別の系にして、重なり（同じパスが両方に一致する）を検査で止める。
  *
  * 設定: .claude/config/drive-vault.json / 台帳: .claude/state/assets/drive-manifest.json
@@ -106,7 +107,7 @@ export function resolveVaultRoot(opts = {}) {
   const envName = vr.env || 'DOBOKU_DRIVE_VAULT';
   if (env[envName]) {
     const root = env[envName].split(sep).join('/').replace(/\/+$/, '');
-    if (exists(join(root, marker))) return { root, source: 'env:' + envName };
+    if (exists(toVaultRel(join(root, marker)))) return { root, source: 'env:' + envName };
     return { root: null, reason: envName + '=' + root + ' が指す先に ' + marker + ' が無い（env は最優先なので候補へは落ちない）' };
   }
 
@@ -117,7 +118,7 @@ export function resolveVaultRoot(opts = {}) {
     const expanded = expandStarOnce(expandHome(raw.split('\\').join('/'), { homeDir, env }), { listDir });
     for (const root of expanded) {
       tried.push(root);
-      if (exists(join(root, marker))) return { root: root.replace(/\/+$/, ''), source: 'candidate:' + raw };
+      if (exists(toVaultRel(join(root, marker)))) return { root: root.replace(/\/+$/, ''), source: 'candidate:' + raw };
     }
     if (expanded.length === 0) tried.push(raw + '（展開結果なし）');
   }
@@ -319,7 +320,7 @@ export function loadDriveManifest({ hydrate = true } = {}) {
 }
 
 /** 台帳に載せてよいキーだけを通す。絶対パスやローカル固有の値の混入経路を塞ぐ。 */
-const ENTRY_KEYS = ['group', 'vaultPath', 'sha256', 'md5', 'bytes', 'width', 'height', 'regenerable', 'syncedAt', 'verifiedAt', 'adopted'];
+const ENTRY_KEYS = ['group', 'vaultPath', 'sha256', 'md5', 'bytes', 'width', 'height', 'regenerable', 'syncedAt', 'verifiedAt', 'adopted', 'driveFileId'];
 export function sanitizeDriveEntry(e) {
   const out = {};
   for (const k of ENTRY_KEYS) if (e[k] !== undefined) out[k] = e[k];

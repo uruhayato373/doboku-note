@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "足場の安全基準",
+        "数字で押さえる"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/024.png",
+        "sha256": "d13ec190cb335c9cacc3767001e107c89e55765408b3b7882523445485cd2121",
+        "specSha256": "8a3494031079bf845d4bb8c838a4e6bb1a9bff493c127950c8f0fc2e20ce52aa"
+      }
+    },
+    "point-step1-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "足場の作業床",
+        "数値を確認"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/025.png",
+        "sha256": "d7732df484e44546b3a3057023f9258f2736fdc91bdb9d020ecc099673e23591",
+        "specSha256": "66cbd97c02e124d4315cc7b02b5236b1bb0643588cb7f00f4822eb717cf47242"
+      }
+    },
+    "point-step2-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "通路とはしご道",
+        "基準を整理"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/026.png",
+        "sha256": "13f5b043cafac21039807503133a50dff0aff735c89a91d7da96618f65fac948",
+        "specSha256": "34d807eaa4bd58b10cd2ad151c002d2fb1c787eff95ade847fe353e99eeb46b4"
+      }
+    }
+  }
+}

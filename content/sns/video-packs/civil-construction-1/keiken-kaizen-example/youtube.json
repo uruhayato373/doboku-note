@@ -19,8 +19,8 @@
     "publishAt": "2026-10-02T20:00:00+09:00",
     "r2Key": "video/render/keiken-kaizen-example/video.mp4",
     "thumbnailR2Key": "video/render/keiken-kaizen-example/img/00-cover.png",
-    "sha256": "103355e1005f2b50f72fda75c948864a1ce871d206aa03dab7d6ff7a775a2ec7",
-    "thumbnailSha256": "efa190f4f29e4514206faf7976ed7d69ef522a60cad57ceb3e5f3230e4443a71"
+    "sha256": "faa98491fef8ac8f626737217c4dabcf8912dbb9320c085222ca8c7d92eadcc5",
+    "thumbnailSha256": "dd0c4c556aa9bc049970893b3789f1f1e8129fb07829f677b774d593225ef5b5"
   },
   "shorts": [
     {
@@ -40,8 +40,8 @@
       "publishAt": "2026-12-29T20:00:00+09:00",
       "r2Key": "video/render/keiken-kaizen-example/shorts/point-general-1/shorts.mp4",
       "thumbnailR2Key": "video/render/keiken-kaizen-example/shorts/point-general-1/thumbnail.png",
-      "sha256": "2813bc9b421be59c3794c0243a7d3e4ff24b516de3a7f0655b1d924c6aeebfe3",
-      "thumbnailSha256": "a7804f9782f154c9dd37f4383b4fb64fe117953e1107acb03967ab5498068289"
+      "sha256": "fac4cf6b7dcde505a2d4b6d5215787b9088107d676c153e2d96d57ecd90165bc",
+      "thumbnailSha256": "371beff014ae378c8aeb58885fcf812f2856836941bb662819e075417f3b2900"
     },
     {
       "key": "point-reasoning-2",
@@ -60,8 +60,8 @@
       "publishAt": "2026-12-30T12:30:00+09:00",
       "r2Key": "video/render/keiken-kaizen-example/shorts/point-reasoning-2/shorts.mp4",
       "thumbnailR2Key": "video/render/keiken-kaizen-example/shorts/point-reasoning-2/thumbnail.png",
-      "sha256": "beeaf867060da92e1088753ce9088770711beb63f4002f2e436d50da4e1c5997",
-      "thumbnailSha256": "956b0cc3f8cf973b6db7d4f7f02caaa9571a718350c2141fbd1615e68a29f25e"
+      "sha256": "fd896d511f8e135330301898a6b0ead3552579296f3d10f585e7343edc95128c",
+      "thumbnailSha256": "a5bac94ccbf058aa15de75559738698076cddff9daffb5f109b74119c87b7231"
     }
   ]
 }

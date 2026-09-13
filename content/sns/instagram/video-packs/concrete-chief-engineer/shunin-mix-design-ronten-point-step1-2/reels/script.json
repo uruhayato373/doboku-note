@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "shunin-mix-design-ronten",
+  "key": "point-step1-2",
+  "sceneId": "step1",
+  "exam": "concrete-chief-engineer",
+  "narration": "材料や気温が変わると、同じ配合でも施工性が変わります。砕石の形や骨材の実積率は、必要な水量や細骨材率に影響します。暑い時期や混和剤を変える場合も、修正方向を丸暗記せず、どの性能を保つための調整かを考え、試し練りで確認しましょう。",
+  "visual": {
+    "heading": "配合修正は変化・影響・確認で考える",
+    "items": [
+      "骨材の形・実積率で水量や細骨材率が変化",
+      "気温・混和剤の変更も確認",
+      "保ちたい性能を決め試し練りで確認"
+    ]
+  },
+  "sourceRef": "content/site/concrete-chief-engineer/textbook-mix-design/article.mdx",
+  "editorialNote": "夏期は単位水量・AE剤を必ず増やす等の無条件操作を避け、配合性能の検証へ変更。"
+}

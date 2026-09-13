@@ -86,6 +86,8 @@ argument-hint: "--month YYYY-MM [--primary-exam civil-1]"
    投入後は必ず `npm run x-sync-status` で**キュー実在を実照合**する（ローカル JSON が queued でも
    X 側から消えていることがある）。
 
+   原稿と画像だけの依頼では `scheduled` のまま確認へ渡し、`queued` にしない。内部ブラウザの確認は `npm run x-review`（対象期間・計画は `.claude/config/x-review.json`）、原稿・画像照合は `npm run check-x-review -- --local`。既存予約を計画へ含める場合、台帳と本文・日時が一致する投入済みURLのUTM欠落は保持警告として表示し、新しい原稿の検査は緩めない。
+
 ## 落とし穴
 
 - **`publish-x` に日時を渡すとき zsh は単語分割しない**。`$DATES` だと 19 個の日時が引数 1 個になり、

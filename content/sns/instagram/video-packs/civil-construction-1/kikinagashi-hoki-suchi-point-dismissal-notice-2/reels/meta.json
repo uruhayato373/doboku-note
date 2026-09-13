@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.226Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/kikinagashi-hoki-suchi/shorts/point-dismissal-notice-2/shorts.mp4",
-  "durationSeconds": 30,
-  "sha256": "63cc7b316b95364bcc165c6a8ca29c41c88ec345fe33aed0fc76949a6305cbee",
-  "coverSha256": "204d3f7cddfcf7e6e971d5ad1ddada3d6b551997533f0cf852cd2f3d7894e26f",
-  "renderedAt": "2026-09-06T00:10:22.688Z"
+  "durationSeconds": 30.2,
+  "sha256": "798123529cb431eb0a15368e5607c290aef04b8c69eda559179ef5f048420631",
+  "coverSha256": "a0a901905a32295e1cdce2f4ba1a77d0689ad677cf553d66cef52eda00c86469",
+  "renderedAt": "2026-09-10T11:55:41.954Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "751899f9a3d4fb8720142aa17504ff66bbcd513611e16e4bf5fd637fe48e3a62",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "589b8f1cee47fd801e15333ad81d119105a6ca87466a0c927292f32611a1bf33",
+  "speaker": 13,
+  "narration": "解雇予告は、原則として少なくとも30日前に行います。予告しない場合は、平均賃金30日分以上の解雇予告手当が必要です。予告日数と手当を組み合わせる場合もあります。ただし、手当を払えばどんな解雇でも有効になるという意味ではありません。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "8540389dda9333312cbf59319b0d3ad1f47048f169e25e1c9b424d5931eb7fce",
+    "points": "8ca8b66d4671683b1f7c881db180d7a6e78e129a61b44b8be898fa1a9975ae0f",
+    "pointsImage": "67f282c550ae741e40993269d8071926ccf414d06a6774330960f077bbf5836a",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:55:41.954Z"
+  }
 }

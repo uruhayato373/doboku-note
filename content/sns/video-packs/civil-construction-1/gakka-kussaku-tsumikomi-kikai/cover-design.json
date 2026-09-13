@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "掘削・積込機械",
+        "現場で選ぶ"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/066.png",
+        "sha256": "55892596a84ee2b86ba72f440d120ab4ac21b75edd42701665768174d7a4f94a",
+        "specSha256": "52bcdce5a4eb1230a34b3cb4446a7ffd7f6a0f272f284a67770457cf1bebe08e"
+      }
+    },
+    "point-bulldozer-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "ブルドーザ",
+        "走行装置と",
+        "けん引力"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/067.png",
+        "sha256": "f285c68a061f743c408de0cb4328ffbd98ac9de0227ddab65b62951270651c5d",
+        "specSha256": "9a87f616d767f9abbacb669aea273abe3cd3743c7ce10514028b8e514a9e1aed"
+      }
+    },
+    "point-shovel-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "ショベル系機械",
+        "掘削の向きで",
+        "選び分ける"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/068.png",
+        "sha256": "82e8918f7a11f1cc339013fffdf235aeb63dbea0c7fe0879e32388b4b3c4c9f0",
+        "specSha256": "6cb77f7213419f0ff385f65dfe91b7d98b92624417553ec4ec637b7826ab1e10"
+      }
+    }
+  }
+}

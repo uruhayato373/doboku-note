@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.219Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-nanjaku-jiban/shorts/point-overview-1/shorts.mp4",
-  "durationSeconds": 31.47,
-  "sha256": "97cb2a2664612b3a73d08e030678af03d8e0bfc6184f882951d385f6df187185",
-  "coverSha256": "8d415dc0b7ddaa26d7fe98af10af52294d5438d83827f97d16878ab2dcd0a7b8",
-  "renderedAt": "2026-09-06T00:05:33.515Z"
+  "durationSeconds": 30.2,
+  "sha256": "5a176037f1b5e36e3a2107a13acdc01af9d0e4a7baae14b1daaf43f5c49751f2",
+  "coverSha256": "ced9e46dbf0f3157bd0da62de852280ccf7d75e5714b7885222de90d35db90af",
+  "renderedAt": "2026-09-10T11:34:46.869Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "3c4048388a4d471fcf21254fad3b0af042156fb360d6360ce19278077adeb4a7",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "6dbe62b48c62ed1e6d7ecc8895fb4055999f75ec3d2dc26865d7e3e01a424eab",
+  "speaker": 13,
+  "narration": "軟弱地盤対策工法は、原理によって圧密・排水工法、締固め工法、固結工法、荷重軽減工法、構造物・補強による対策の5つに大別できます。1種類だけで済まないことも多く、複数を組み合わせます。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "56d22038d40b26965e1d8b008422d4d54e90a93946a43cee3d51a7d207938cc9",
+    "points": "c754bc537697b368f415a9e3e4b94688dd90a11c44d91464adbe9e665d1d62ec",
+    "pointsImage": "38a26e46d89f9f5b1c0f993d56df8e8c87d22927119c00cc5239ee273837e2ab",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:34:46.869Z"
+  }
 }

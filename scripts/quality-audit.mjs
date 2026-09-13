@@ -96,6 +96,7 @@ const CHECKS = [
   { id: 'ads-tests', npm: 'test:ads', timeout: 120_000, ci: true, note: 'A8/もしも/afb のサイト帰属ガードと CSV 正規化の単体テスト' },
   // 2026-08-17: check-gate-parity で「どこからも呼ばれていない」と判明したため配線（実行して緑を確認）。
   { id: 'public-bloat', npm: 'check-public-bloat', timeout: 60_000, ci: true, note: 'public/ の生成物滞留（放置するとビルドが落ちる）' },
+  { id: 'local-resources', npm: 'test:resources', timeout: 60_000, ci: true, note: 'ローカル掃除のリンク・使用中・欠測保護とストリーミング復元の破損拒否を検査' },
   { id: 'playwright-auth-wiring', npm: 'check-playwright-auth-wiring:strict', timeout: 60_000, ci: true, note: 'Playwright永続プロファイルのMac絶対パス・repo相対path・resolver漏れ・secret露出を0で固定' },
   { id: 'gate-parity', npm: 'check-gate-parity:ci', timeout: 60_000, ci: true, note: 'pre-commit / quality-audit / workflow のどこからも呼ばれていない検査を検出（オーファン化の防止）' },
   { id: 'eslint', npm: 'lint', timeout: 180_000, ci: true },
@@ -184,6 +185,7 @@ const CHECKS = [
   { id: 'jst-date', npm: 'check-jst-date', timeout: 30_000, ci: true, note: '運用記録の日付がUTCで前日付になっていないか' },
   { id: 'exam-calendar', npm: 'check-exam-calendar', timeout: 30_000, ci: true, note: '1級・2級土木の公式試験日SSOTと既知誤記を検査' },
   { id: 'x-campaign-plan', npm: 'check-x-campaign-plan', timeout: 30_000, ci: true, note: 'X月間計画の日付・導線・URL・販売投稿間隔を検査' },
+  { id: 'x-review', npm: 'check-x-review', timeout: 30_000, ci: true, note: 'X確認期間の原稿・時刻・公開マガジン導線・先生カードの再生成元を検査' },
   { id: 'x-card-render', npm: 'check-x-card-render', timeout: 30_000, ci: true, note: 'Xカード画像の配色・主題・生URL焼込みを描画台帳で検査（画像は開かない）' },
   // 420秒は 876 件の実走で 440秒かかり僅かに超過してフラップした（2026-08-25 実測）。
   // 8 並列化で 263秒まで縮めたうえで、ネットワーク変動の余裕を見て 600秒にした。
@@ -223,6 +225,7 @@ const CHECKS = [
   // 置き場ルール（誰が使うか: site→public R2 / ci→private R2 / human→Google Drive vault）と Drive 台帳の整合（2026-09-05 追加）。
   // 共通仕様書のページ画像 3.4GB を private R2 へ上げかけた再発防止。CI は Drive を持たないので
   // マウント無しでは「実体検査 0 件」と明示して設定・台帳・ルーティング衝突・audience だけを判定する。
+  { id: 'youtube-cover-handoff', npm: 'check-youtube-cover-handoff', timeout: 120_000, ci: true, note: '採用カバーのDrive台帳登録・読み戻し記録・入力変更を検査。クラウド実体は読まない' },
   { id: 'drive-vault', npm: 'check-drive-vault', timeout: 120_000, ci: true, note: 'audience ゲート（site⇒public / ci⇒private|byVisibility / human⇒Drive）・R2 と Drive の同一パス衝突・drive-manifest の整合。マウント無しは実体検査 0 件と明示' },
   // ローカルディスクの肥大は gitignore 済み・ホーム配下・worktree に溜まるので CI にも pre-commit にも
   // 映らない（2026-09-10 に空き 7.5GB まで落ちて初めて気づいた）。Mac のローカルでだけ意味がある検査。

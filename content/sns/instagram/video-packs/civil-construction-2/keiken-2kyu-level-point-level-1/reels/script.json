@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "keiken-2kyu-level",
+  "key": "point-level-1",
+  "sceneId": "level",
+  "exam": "civil-construction-2",
+  "narration": "2級土木の経験記述では、珍しい工法を披露するより、自分が担当した施工管理を具体的に説明しましょう。現場での立場を示し、課題にどう対応したかを整理します。現場代理人や主任技術者という肩書を無理に使わず、実際に担った役割を書くことが大切です。",
+  "visual": {
+    "heading": "経験記述は実際の役割から書く",
+    "items": [
+      "珍しい工法より具体的な施工管理",
+      "現場での立場と担当内容を示す",
+      "経験した役割を正確に書く"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx",
+  "editorialNote": "主任技術者等の肩書が必須、特殊工法は問われないという断定を修正。",
+  "coverHeadline": [
+    "２級の経験記述",
+    "実際の役割から"
+  ]
+}

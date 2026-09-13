@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "concrete-engineer",
+      "headline": [
+        "JIS問題",
+        "規定の背景で",
+        "判断する"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "character": {
+        "pose": "reading",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/312.png",
+        "sha256": "370286cd4675749a248fcf5882750b517740c60646276207172d40150298553b",
+        "specSha256": "84fb6d8ff552b3b96d5efc4fa52e0d2fe63cebf1f280529053733a19f1814dae"
+      }
+    },
+    "point-step1-1": {
+      "format": "shorts",
+      "exam": "concrete-engineer",
+      "headline": [
+        "計量誤差",
+        "比較の基準は？"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/313.png",
+        "sha256": "1a4abda5db5e29a2dc90afcab9aacc9de53a0a915b45ace1ed2a1cb20b28488e",
+        "specSha256": "7bca81408aebbbbea920af989a2e15a55a22582073feba27420caed483f6b5bf"
+      }
+    },
+    "point-step2-2": {
+      "format": "shorts",
+      "exam": "concrete-engineer",
+      "headline": [
+        "累加計量",
+        "順番と誤差"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/314.png",
+        "sha256": "b5c1970b92b3a48f136ed9162abe292ef00ebf2bacd41cd55ef33e11eff81c80",
+        "specSha256": "fbf1f04fae1dfe9bbe3c82aa46439d7087d3516e2ee2c65e2e5de5fa545dfca8"
+      }
+    }
+  }
+}

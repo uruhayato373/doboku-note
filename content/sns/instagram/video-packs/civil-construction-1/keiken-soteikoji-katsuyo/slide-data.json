@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "keiken-soteikoji-katsuyo",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "完成答案の活用",
+        "写さず置換える"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "good-sign",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "完成答案は事実ではなく型を学ぶ",
+      "items": [
+        "経験していない工事を、自分の経験として書かないようにします。",
+        "完成答案は、課題から結果までの組み立て方を学ぶために使います。"
+      ],
+      "sourceRef": "content/note/1級・2級土木/1級土木/1級経験記述を自分の現場に置換/article.md"
+    },
+    {
+      "type": "point",
+      "sceneId": "overview",
+      "heading": "丸写しは自分の経験とずれやすい",
+      "items": [
+        "例文の工事名・数量・条件が、そのまま自分の現場に当てはまるとは限りません。",
+        "裏付けのない事実を借りず、自分が担当した内容で構成します。",
+        "記述の真正性を、読み合わせで一つずつ確認します。"
+      ],
+      "sourceRef": "content/note/1級・2級土木/1級土木/1級経験記述を自分の現場に置換/article.md"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "自分の現場に置き換える4ステップ",
+      "items": [
+        "①骨格を読み取る ②似た経験を当てる",
+        "③固有の中身を入れ替える",
+        "④通して読み言葉を均す"
+      ],
+      "sourceRef": "content/note/1級・2級土木/1級土木/1級経験記述を自分の現場に置換/article.md"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "ステップ1・2の進め方",
+      "items": [
+        "骨格を「課題→検討→対応→結果」で読む",
+        "同じ管理項目の自分の経験を選ぶ",
+        "工種が違っても骨格が同じなら可"
+      ],
+      "sourceRef": "content/note/1級・2級土木/1級土木/1級経験記述を自分の現場に置換/article.md"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "ステップ3・4の進め方",
+      "items": [
+        "工事名・数値・現場条件を自分のものに",
+        "置換の本体はステップ3",
+        "音読で借り物の言い回しを点検"
+      ],
+      "sourceRef": "content/note/1級・2級土木/1級土木/1級経験記述を自分の現場に置換/article.md"
+    },
+    {
+      "type": "point",
+      "sceneId": "step4",
+      "heading": "残す骨格・替える中身",
+      "items": [
+        "数値・現場条件は必ず自分のものに",
+        "組み立て方（骨格）は借りてよい",
+        "この線引きが正しい活用の分かれ目"
+      ],
+      "sourceRef": "content/note/1級・2級土木/1級土木/1級経験記述を自分の現場に置換/article.md"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

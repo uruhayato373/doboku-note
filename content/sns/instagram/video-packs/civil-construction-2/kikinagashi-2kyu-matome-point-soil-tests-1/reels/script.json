@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "kikinagashi-2kyu-matome",
+  "key": "point-soil-tests-1",
+  "sceneId": "soil-tests",
+  "exam": "civil-construction-2",
+  "narration": "土質試験は、求める指標と組み合わせて覚えます。標準貫入試験はエヌ値で地盤の硬さを調べ、平板載荷試験は地盤の支持特性を確認します。現場シービーアール試験は、路床や路盤の支持力を調べる試験です。似た試験名でも、測りたい値を区別しましょう。",
+  "visual": {
+    "heading": "土質試験とN値",
+    "items": [
+      "標準貫入試験：N値で地盤の硬さを知る",
+      "平板載荷試験：支持力を直接確認",
+      "現場CBR試験：路床・路盤の支持力"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-2/guide-earthwork-key-points/article.mdx"
+}

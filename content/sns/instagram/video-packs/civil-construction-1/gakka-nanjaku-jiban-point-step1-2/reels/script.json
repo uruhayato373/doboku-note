@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-nanjaku-jiban",
+  "key": "point-step1-2",
+  "sceneId": "step1",
+  "exam": "civil-construction-1",
+  "narration": "バーチカルドレーン工法は、鉛直の排水路で水の移動距離を短くし、圧密を促進します。砂柱を使うサンドドレーンと、人工材料を使うドレーンがあります。排水距離を短くする対策と、プレロードなどで荷重を先に加える対策を区別すると、原理が整理できます。",
+  "visual": {
+    "heading": "圧密促進は排水距離から理解",
+    "items": [
+      "鉛直ドレーンで排水距離を短縮",
+      "砂柱・人工材料で排水路をつくる",
+      "先行載荷するプレロードとは原理を区別"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-soft-ground-drainage/article.mdx",
+  "editorialNote": "人工ドレーンが常に速く経済的との断定を省き1論点へ圧縮。"
+}

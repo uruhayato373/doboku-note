@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.208Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/niji-kijutsu-hinshitsu/shorts/point-acceptance-test-2/shorts.mp4",
-  "durationSeconds": 30.58,
-  "sha256": "627cd1d8669c0d66ffab4d2c88f311dbdf3ac083a11e383abb2700f3bda8746f",
-  "coverSha256": "a390773d5da5992309be578600a7998791472b02de2a772ca0f69e30cba4757b",
-  "renderedAt": "2026-09-05T23:54:46.021Z"
+  "durationSeconds": 30.2,
+  "sha256": "ee8ac70d840c28ccb2a0e429b56c486c4ce1565a7afb011f07c684d396c26110",
+  "coverSha256": "e6c35a157965f5f2dbd7c82d04f60130c9d09df7d4b0b1cfc40bf5e6ff9ffc10",
+  "renderedAt": "2026-09-10T11:13:40.416Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "3d3cd98ae66d3fe102669990ef59f6aa4afb9b6f61b89e73adbe8895d422a159",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "fc4809406d8f3ddca2fd76128b1ccd798f78974d7c5648c78904e01e8b5a1038",
+  "speaker": 13,
+  "narration": "生コンクリートの受入検査では、試験名と、その結果を比べる規格値を対にします。スランプは指定値によって許容差が変わり、空気量もコンクリートの種類を確認します。塩化物イオン量を含め、注文条件と適用規格を先に確かめてから合否を判断しましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "e2d49a64d34dcfa474fbe8c9344b5fa3683f5c0b7236fd28d284b62918e47b0b",
+    "points": "069736c3a7934a28bbe2c44c701fc2d7cd2971c0ba27665fe1b3b9e145d66699",
+    "pointsImage": "6d62155b4a52a7879f2e14b87c15c13addfb48645eda24ad31174a16e552bacf",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:13:40.416Z"
+  }
 }

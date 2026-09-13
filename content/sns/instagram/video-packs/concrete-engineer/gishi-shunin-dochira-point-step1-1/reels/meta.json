@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.202Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gishi-shunin-dochira/shorts/point-step1-1/shorts.mp4",
-  "durationSeconds": 30,
-  "sha256": "62d5a789a5ce7f3b224f2b820ce479c9d9e492016c296057cd497a59d8157432",
-  "coverSha256": "06bcba6fce838b374b682dfd91ab53ba8575a956c24e1128ae2f2629f1d64861",
-  "renderedAt": "2026-09-05T23:33:49.536Z"
+  "durationSeconds": 30.2,
+  "sha256": "ea829306fd50515f0440651159a2ca871d9342d28c0124028e03e8bf6fcb487b",
+  "coverSha256": "268e11896afb00c31c143049256e368520a7a03c2c4da19427083d0f1772b7b6",
+  "renderedAt": "2026-09-10T11:06:04.013Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "75c31cedc2b68c8181f320aa4e3e9417b4742be2f4e7500118562a71da5dcbc8",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "5bb27c2826a77c2c465cc07c281ff45131309675a33bb2827c6a599cc54bf6c8",
+  "speaker": 13,
+  "narration": "技士は日常の技術業務を実施する能力のある技術者、主任技士は計画・管理・指導を実施する高度な技術者と位置づけられています。技士の実施力が主任技士の土台になります。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "24b61c8681c22cffa67554f74536dc6b044149b7ad35bc6fd9bf2e3cb9017f3d",
+    "points": "6173d62e8bcf3a1deaeae1bdcda9485b164574aff7c8dbb99e923869c48be127",
+    "pointsImage": "cc564101a924bab65fb27e171935b58c24e492666e2ff4e251f5f9a21221b238",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:06:04.013Z"
+  }
 }

@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.210Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/roadmap-juken-shikaku/shorts/point-step1-1/shorts.mp4",
-  "durationSeconds": 31,
-  "sha256": "9d57ca82d819f008b0922df9d9378186080b042f586ccec74511edff6e4e3027",
-  "coverSha256": "ec560267e425bd60d9ecc1351c1a32f9381b49a3a08dc5150991667d94c88259",
-  "renderedAt": "2026-09-05T23:57:59.008Z"
+  "durationSeconds": 30.2,
+  "sha256": "61cfd3d450006b77203bc5cbafc5ef275e53bbeaeb7ceece0bc80dd24362372f",
+  "coverSha256": "e2f6dc45a7e4799ce0811e3ae8218a6579f92c943d5b495b627d1961b40d4fc3",
+  "renderedAt": "2026-09-10T11:16:17.083Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "1b748ec14e9f3a6b52c82749967063bce6740f09c13e56d50245caeb78c23a92",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "ba4544fa7f772107b417a63791d3f434c8512b5c799d0db69ea1f84943fd5707",
+  "speaker": 13,
+  "narration": "1級土木の検定は、第一次と第二次で問われ方が異なります。第一次は土木一般、専門土木、法規、施工管理法の知識と応用能力を、選択式で確認します。第二次は経験記述を含む記述式です。第一次だけの合格でも技士補になりますが、技士とは区別しましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "83c1c8c611474655dd986168cb1f516a0c84d797b44fbaf36522efcda55b2ea4",
+    "points": "4fad5dd4dc99f08d94e31d78eaa865312fb42518b8c8f09293d83a0a306437c5",
+    "pointsImage": "8970b9965d98f1218aad5b8035c8d6e74f91c2223d783030213f732f54811c31",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:16:17.083Z"
+  }
 }

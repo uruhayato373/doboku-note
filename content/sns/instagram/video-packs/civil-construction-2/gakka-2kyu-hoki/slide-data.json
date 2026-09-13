@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "gakka-2kyu-hoki",
+  "exam": "civil-construction-2",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "法規の頻出点",
+        "労基法と安衛法"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "reading",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：条文を端から暗記する",
+      "items": [
+        "試験は正誤を問う形式が中心",
+        "優先すべきは労基法・労安法・建設業法"
+      ],
+      "sourceRef": "content/site/civil-construction-2/guide-law-key-points/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "overview",
+      "heading": "法規の4つの柱",
+      "items": [
+        "① 労働基準法",
+        "② 労働安全衛生法",
+        "③ 建設業法／④ 道路・河川・騒音振動"
+      ],
+      "sourceRef": "content/site/civil-construction-2/guide-law-key-points/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "block1",
+      "heading": "労働時間と支払いの原則",
+      "items": [
+        "労働時間は原則1日8時間・1週40時間です。",
+        "18歳未満は、深夜業や危険有害業務などの制限を確認します。",
+        "賃金の支払いは、通貨・直接・全額・毎月1回以上・一定期日が原則です。"
+      ],
+      "sourceRef": "content/site/civil-construction-2/guide-law-key-points/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "block2",
+      "heading": "選任は作業と人数の要件で判断",
+      "items": [
+        "型枠支保工や掘削などは、作業の種類・高さ等に応じて作業主任者を選任します。",
+        "混在現場の統括安全衛生責任者は、元請・下請の人数や工事種類の要件で判断します。"
+      ],
+      "sourceRef": "content/site/civil-construction-2/guide-law-key-points/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "block3",
+      "heading": "技術者は許可業者と元請条件で読む",
+      "items": [
+        "建設業者は、請け負った工事に主任技術者等を配置します。",
+        "元請で下請総額が基準以上となる工事では、監理技術者へ切り替えます。",
+        "施工体制台帳は、作成が必要となる工事の条件と合わせて確認します。"
+      ],
+      "sourceRef": "content/site/civil-construction-2/guide-law-key-points/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "block4",
+      "heading": "許可と届出を区別する",
+      "items": [
+        "道路占用・河川区域内の工事→許可",
+        "特定建設作業（くい打ち等）→事前届出"
+      ],
+      "sourceRef": "content/site/civil-construction-2/guide-law-key-points/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

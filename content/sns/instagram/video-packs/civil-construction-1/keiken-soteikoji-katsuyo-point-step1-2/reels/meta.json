@@ -13,7 +13,27 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-soteikoji-katsuyo/shorts/point-step1-2/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "3156c6341c4a2475a56c53f14ffe510d4da6d790a9f658aeba3ae8ede357dedb",
-  "coverSha256": "23c6e318336cc9cb2b52e0228f77a1d71f90ab415dfb62f7f754e1335bd025cd",
-  "renderedAt": "2026-09-05T23:56:06.816Z"
+  "sha256": "a33d22bd663dde2f56297fe958c6ea3c4ea0f288121cb65d81e302f9b9537589",
+  "coverSha256": "0b58826e2ae476e3ea3648c798c8f1ae5c7f58865becbd17f8c95943357119ee",
+  "renderedAt": "2026-09-10T11:15:06.387Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "6e1da486f2a6430d974d672b979860df1285ea93bc8d230ab28bb8d3c15df5f6",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "0f940cf6c7f376e2078c2741e4450c5e9e36d3f13be2ddde840db53f716225b2",
+  "speaker": 13,
+  "narration": "完成答案を自分の答案に作り替える手順は4つです。まず論理の骨格を読み取り、次に自分の似た経験を当てます。そのうえで固有の中身を入れ替え、最後に通して読んで自分の言葉に均します。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "139f3032b418fa2535a810aeb9475ca4dda1c8225832a8ef5cc412126b771710",
+    "points": "00b96eb2bb8b0ce6c1de745f07590581d6964bc1d03f1a998bbe76b2347ea9e5",
+    "pointsImage": "bf63e8a5fb3da9166fca445e7152e0807da8d580fbe843dc2c3c0da8ee3a38e1",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:15:06.387Z"
+  }
 }

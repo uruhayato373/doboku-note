@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.221Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-sekokeikaku-kiso/shorts/point-step2-2/shorts.mp4",
-  "durationSeconds": 34,
-  "sha256": "ab1b7a5bb0f0f9b44a217e3f54b7801a07337111391ac1e22d8352528551b10e",
-  "coverSha256": "24a6197f74d269b22999683660a509c6442e3403f29607025ae805a394d2065d",
-  "renderedAt": "2026-09-06T00:07:08.692Z"
+  "durationSeconds": 30.2,
+  "sha256": "7494ca984d192c1c583eafc695aa66d56ea18c20b95b25cba5c44fa701d45d2b",
+  "coverSha256": "630eb0d91636912c4e9c3a0d79f06dd5d9833f8afe69ecace25d84dd4a6f4bd6",
+  "renderedAt": "2026-09-10T11:40:54.513Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "057696875099ee06dd6d892811fd99cd61001f54fb1a97cc09c8499203a78474",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "886e49d86067451bdb57e785e1db147e3beb872170ad0db569367a4eb06b5ec6",
+  "speaker": 13,
+  "narration": "施工計画は、事前調査、基本計画、詳細計画、管理計画の4段階で組み立てます。基本計画では施工方法の概略と経済性を比較し、詳細計画では機械選定や人員配置を決め、管理計画では現場組織や資金計画をまとめます。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "3544f5f54fd5fcacecd185d9c942708e945d55dc4ced2c7da6f2d252750fdba6",
+    "points": "5a8126e808ece7cd6557ab5c074f5361e486106e343d6eb50d382a22de50fc27",
+    "pointsImage": "026fcbb89be417171aba2d1d87ca2f439e9f295b2a287a9dacb7947642efb8f2",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:40:54.513Z"
+  }
 }

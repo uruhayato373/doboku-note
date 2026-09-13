@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "enabled": true,
+  "planSha256": "fbabccd82444da5a4b34b2b2e0791b5f0a816b4ee84a2b5e5d79bb4205a775db",
+  "scheduleJst": "毎日20:17に予約投入。公開日時は既存カレンダーを維持。",
+  "uploadRetryNotBefore": "2026-09-10T07:00:00Z",
+  "dailyLimits": {
+    "upload": 60,
+    "audit": 100,
+    "thumbnail": 40,
+    "activate": 20,
+    "delete": 20,
+    "schedule": 20
+  },
+  "deleteOldVersions": true
+}

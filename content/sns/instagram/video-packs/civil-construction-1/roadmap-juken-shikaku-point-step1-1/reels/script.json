@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "roadmap-juken-shikaku",
+  "key": "point-step1-1",
+  "sceneId": "step1",
+  "exam": "civil-construction-1",
+  "narration": "1級土木の検定は、第一次と第二次で問われ方が異なります。第一次は土木一般、専門土木、法規、施工管理法の知識と応用能力を、選択式で確認します。第二次は経験記述を含む記述式です。第一次だけの合格でも技士補になりますが、技士とは区別しましょう。",
+  "visual": {
+    "heading": "第一次と第二次は問われ方が違う",
+    "items": [
+      "第一次：選択式で知識・応用能力を確認",
+      "第一次合格で技士補",
+      "第二次：経験記述を含む記述式"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/guide-exam-overview/article.mdx",
+  "editorialNote": "1級第一次を全問四肢択一とする誤説明を選択式へ修正。"
+}

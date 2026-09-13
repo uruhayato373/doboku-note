@@ -15,8 +15,37 @@ name: 🔁 Sync YouTube descriptions
 on:
   workflow_dispatch:
     inputs:
+      operation:
+        description: "descriptions=概要欄 / thumbnail-inventory=一覧のみ / thumbnail-refresh=確認済みサムネ"
+        type: choice
+        options: [descriptions, thumbnail-inventory, thumbnail-refresh, migration-upload, migration-audit, migration-thumbnail, migration-activate, migration-delete]
+        default: descriptions
+      report_public_key:
+        description: "サムネ棚卸し用の一時公開鍵（秘密鍵を入力しない）"
+        type: string
+        default: ""
       commit:
-        description: "true にすると実際に概要欄を更新する（既定 false = 差分表示のみ）"
+        description: "選択したoperationの実更新（既定 false = 読み取りのみ）"
+        type: boolean
+        default: false
+      plan_sha256:
+        description: "thumbnail-refresh の手元で確認した計画SHA-256"
+        type: string
+        default: ""
+      batch_start:
+        description: "videoId固定順の開始位置（0始まり）"
+        type: string
+        default: "0"
+      batch_limit:
+        description: "処理本数（既定1・最大400）"
+        type: string
+        default: "1"
+      only_video_id:
+        description: "試行用の単一videoId（空なら開始位置・本数を使用）"
+        type: string
+        default: ""
+      public_only:
+        description: "公開中の対象を先に処理する（公開設定は変更しない）"
         type: boolean
         default: false
 
@@ -25,6 +54,7 @@ permissions:
 
 jobs:
   sync:
+    if: inputs.operation == 'descriptions' || inputs.operation == ''
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -78,3 +108,124 @@ jobs:
           echo "::error::検査不成立（台帳が無い / videoId を持つ item が 0 件）。0 件を「差分なし」と読まないための明示的な失敗です。"
           tail -40 /tmp/yt-sync.log || true
           exit 1
+
+  thumbnail-inventory:
+    if: inputs.operation == 'thumbnail-inventory'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          ref: ${{ github.sha }}
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version: "20"
+          cache: npm
+      - run: npm ci --legacy-peer-deps --ignore-scripts
+      - name: Inventory only (no YouTube writes)
+        env:
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+          YOUTUBE_REPORT_PUBLIC_KEY: ${{ inputs.report_public_key }}
+        run: node scripts/youtube-thumbnail-rollout.mjs --mode inventory --out .tmp/youtube-rollout-export
+      - name: Export encrypted report only
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: youtube-thumbnail-report
+          path: .tmp/youtube-rollout-export/*.enc.json
+          include-hidden-files: true
+          retention-days: 3
+          if-no-files-found: warn
+
+  thumbnail-refresh:
+    if: inputs.operation == 'thumbnail-refresh'
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    concurrency:
+      group: youtube-thumbnail-refresh
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          ref: ${{ github.sha }}
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version: "20"
+          cache: npm
+      - run: npm ci --legacy-peer-deps --ignore-scripts
+      - name: Restore approved covers from private transfer storage
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_R2_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
+          CLOUDFLARE_R2_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
+        run: node scripts/stage-youtube-covers.mjs --pull
+      - name: Update only checked thumbnails
+        env:
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+          YOUTUBE_REPORT_PUBLIC_KEY: ${{ inputs.report_public_key }}
+          PLAN_SHA256: ${{ inputs.plan_sha256 }}
+          BATCH_START: ${{ inputs.batch_start }}
+          BATCH_LIMIT: ${{ inputs.batch_limit }}
+          ONLY_VIDEO_ID: ${{ inputs.only_video_id }}
+          APPLY_THUMBNAILS: ${{ inputs.commit }}
+          PUBLIC_ONLY: ${{ inputs.public_only }}
+        run: |
+          args=(--mode refresh --out .tmp/youtube-rollout-export --expect-plan-sha256 "$PLAN_SHA256" --start "$BATCH_START" --limit "$BATCH_LIMIT")
+          if [ -n "$ONLY_VIDEO_ID" ]; then args+=(--only-video-id "$ONLY_VIDEO_ID"); fi
+          if [ "$APPLY_THUMBNAILS" = "true" ]; then args+=(--commit); fi
+          if [ "$PUBLIC_ONLY" = "true" ]; then args+=(--public-only); fi
+          node scripts/youtube-thumbnail-rollout.mjs "${args[@]}"
+      - name: Export encrypted receipts and old thumbnails only
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: youtube-thumbnail-report
+          path: .tmp/youtube-rollout-export/*.enc.json
+          include-hidden-files: true
+          retention-days: 3
+          if-no-files-found: warn
+
+  migration-upload:
+    if: startsWith(inputs.operation, 'migration-')
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    concurrency:
+      group: youtube-video-migration
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          ref: ${{ github.sha }}
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version: '20'
+          cache: npm
+      - run: npm ci --legacy-peer-deps --ignore-scripts
+      - name: Run selected migration phase with verified private receipts
+        env:
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+          YOUTUBE_REPORT_PUBLIC_KEY: ${{ inputs.report_public_key }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_R2_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
+          CLOUDFLARE_R2_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
+          PLAN_SHA256: ${{ inputs.plan_sha256 }}
+          BATCH_START: ${{ inputs.batch_start }}
+          BATCH_LIMIT: ${{ inputs.batch_limit }}
+          APPLY_MIGRATION: ${{ inputs.commit }}
+          MIGRATION_OPERATION: ${{ inputs.operation }}
+        run: node scripts/youtube-migration.mjs
+      - name: Export encrypted migration receipt only
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: youtube-migration-report
+          path: .tmp/youtube-migration-export/*.enc.json
+          include-hidden-files: true
+          retention-days: 3
+          if-no-files-found: warn

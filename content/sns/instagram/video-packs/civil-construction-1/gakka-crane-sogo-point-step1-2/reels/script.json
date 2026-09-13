@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-crane-sogo",
+  "key": "point-step1-2",
+  "sceneId": "step1",
+  "exam": "civil-construction-1",
+  "narration": "定格総荷重は、各作業半径でつることができる最大の荷重で、フックなどのつり具の質量を含みます。定格荷重は、そこからつり具の質量を引いた、実際につり上げられる荷物の質量です。つり具込みが定格総荷重、除いたものが定格荷重、と対で覚えてください。",
+  "visual": {
+    "heading": "定格総荷重と定格荷重",
+    "items": [
+      "定格総荷重＝つり具込みの最大荷重",
+      "定格荷重＝つり具を除いた荷物の質量",
+      "入替え選択肢が頻出"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-crane/article.mdx"
+}

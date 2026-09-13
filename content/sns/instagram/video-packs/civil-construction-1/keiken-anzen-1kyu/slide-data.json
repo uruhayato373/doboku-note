@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "keiken-anzen-1kyu",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "安全管理の答案",
+        "一般論を脱する"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：安全第一に努めた、で書ける",
+      "items": [
+        "「配慮した」だけでは課題にならない",
+        "危険源の予測と対策選定が問われる"
+      ],
+      "sourceRef": "content/note/1級・2級土木/1級土木/1級経験記述テーマ選び5管理/article.md"
+    },
+    {
+      "type": "point",
+      "sceneId": "identify-hazard",
+      "heading": "危険源を現場条件から特定する",
+      "items": [
+        "法面勾配・高所作業・重機輻輳を具体化",
+        "「危険があった」で止めない",
+        "高さ・勾配など具体条件で示す"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "compare-measures",
+      "heading": "危険源に合う対策を比較",
+      "items": [
+        "法面では墜落制止用器具・親綱・防護ネットなどの組合せを検討します。",
+        "足場では手すり・中桟・幅木等、掘削では地山観察・土止め支保工等を確認します。",
+        "設備を列挙するだけでなく、現場条件から選んだ理由を示します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "public-safety",
+      "heading": "公衆災害への対策も書く",
+      "items": [
+        "標識・標示板、保安灯の設置",
+        "通行車両・歩行者の誘導",
+        "車道幅員・歩行者通路の確保"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "safety-activity-ingenuity",
+      "heading": "安全活動は工夫を書く",
+      "items": [
+        "安全施工サイクル・KY活動・TBM",
+        "並べるだけでは差がつかない",
+        "現場に合わせた工夫・新しい取組を書く"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "action-evaluation",
+      "heading": "対応処置と評価",
+      "items": [
+        "対応処置は具体的な数値・基準を入れる",
+        "評価は結果を端的な一文にする"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-2kyu-sekokeikaku",
+  "key": "point-block1-2",
+  "sceneId": "block1",
+  "exam": "civil-construction-2",
+  "narration": "施工計画の作成は、事前調査、基本計画、詳細計画、管理計画の流れで整理できます。まず条件を把握し、施工方法の大枠を決め、それから機械や人員などを具体化します。いきなり細部を決めず、前の段階で得た情報を次へ反映することが大切です。",
+  "visual": {
+    "heading": "作成手順は4段階で進める",
+    "items": [
+      "事前調査→契約・現場条件の把握",
+      "基本計画→施工方法の大枠",
+      "詳細計画→管理計画へと具体化"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-2/guide-construction-plan-key-points/article.mdx"
+}

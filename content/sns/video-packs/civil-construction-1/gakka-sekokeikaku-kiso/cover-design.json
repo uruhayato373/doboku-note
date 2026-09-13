@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "施工計画",
+        "立案の流れ"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/087.png",
+        "sha256": "56bb18a6ccad11e1d2bdd6feb49293b62b99638e1976c421d03143bafec53201",
+        "specSha256": "361f7428029f584c83c39a8e8a5451bc04076df29834951b6a788096f5d603bc"
+      }
+    },
+    "point-step1-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "事前調査",
+        "３つに分ける"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/088.png",
+        "sha256": "94f6aa9d7da49cb1b6c684dc88f5393e41337197b16a4ccc75bf4de4eff97cbc",
+        "specSha256": "57b3d7a93360c938a4cdc28d7e5c4febde4ab200578a97e28c1900bad0e45de9"
+      }
+    },
+    "point-step2-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "施工計画づくり",
+        "４段階で整理"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/089.png",
+        "sha256": "59139422f3a96e6ac3c712485c4ab27d53125e8c221a90afdbb526d327a66e06",
+        "specSha256": "9a19ff65b556500cf43d0fdee2f4719c5699f4bb486c8d4c9307f7cb5bd3f486"
+      }
+    }
+  }
+}

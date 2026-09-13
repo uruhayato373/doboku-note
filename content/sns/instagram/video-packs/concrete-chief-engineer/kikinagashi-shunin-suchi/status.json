@@ -1,0 +1,56 @@
+{
+  "carousel": {
+    "channel": "business-suite",
+    "status": "scheduled",
+    "scheduled_at": "2026-09-17T12:30:00.000+09:00",
+    "posted_at": null,
+    "image_count": 10,
+    "updated_at": "2026-09-11T08:45:10.810+09:00",
+    "post_id": "3588113351354772",
+    "verified_at": "2026-09-11T08:44:45.418+09:00",
+    "verification_receipt": ".claude/state/ig-reconcile/campaign-publication-20260911.json",
+    "uploaded_image_order": [
+      {
+        "file": "carousel/img/00-cover.png",
+        "remotePath": "/v/t39.30808-6/802988523_122117957151302388_3410952260089409338_n.jpg"
+      },
+      {
+        "file": "carousel/img/01-point.png",
+        "remotePath": "/v/t39.30808-6/803101718_122117957229302388_6750573677856291186_n.jpg"
+      },
+      {
+        "file": "carousel/img/02-point.png",
+        "remotePath": "/v/t39.30808-6/802457215_122117957313302388_4741730654563717510_n.jpg"
+      },
+      {
+        "file": "carousel/img/03-point.png",
+        "remotePath": "/v/t39.30808-6/802988518_122117957349302388_3550250190733797085_n.jpg"
+      },
+      {
+        "file": "carousel/img/04-point.png",
+        "remotePath": "/v/t39.30808-6/805218658_122117957427302388_4066559189597556881_n.jpg"
+      },
+      {
+        "file": "carousel/img/05-point.png",
+        "remotePath": "/v/t39.30808-6/803101712_122117957511302388_6038329171672318916_n.jpg"
+      },
+      {
+        "file": "carousel/img/06-point.png",
+        "remotePath": "/v/t39.30808-6/802988518_122117957613302388_3220158439224359956_n.jpg"
+      },
+      {
+        "file": "carousel/img/07-point.png",
+        "remotePath": "/v/t39.30808-6/803505091_122117957661302388_2652116610160896461_n.jpg"
+      },
+      {
+        "file": "carousel/img/08-point.png",
+        "remotePath": "/v/t39.30808-6/803926185_122117957763302388_2651011224373523020_n.jpg"
+      },
+      {
+        "file": "carousel/img/09-cta.png",
+        "remotePath": "/v/t39.30808-6/802988529_122117957805302388_743472976671233253_n.jpg"
+      }
+    ],
+    "image_order_verified_at": "2026-09-11T08:43:48.455+09:00"
+  }
+}

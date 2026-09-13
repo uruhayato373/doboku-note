@@ -1,0 +1,135 @@
+{
+  "updated_at": "2026-09-10T06:26:14.872Z",
+  "exam": "civil-2",
+  "campaign": "character-month-202609",
+  "note": "2026-10-01〜10-10の追加原稿。scheduledはローカル計画で、Xのキューへの投入を示さない。予約実行は週単位の確認後。",
+  "tweets": {
+    "1": {
+      "title": "10/1 12:16 pe-first-stage / 論点解説 / site",
+      "status": "scheduled",
+      "scheduled_at": "2026-10-01T12:16:00.000+09:00",
+      "text": "PDCAのCとA、入れ替わっていない？ CはCheckで評価・点検、AはActで改善・処置。実行しただけで終わらず、結果を次の計画へつなぐ流れとして覚えよう。技術士一次の演習で確認。\n\nhttps://doboku-note.com/tools/kakomon-quiz/pe-first-stage?utm_source=x&utm_medium=social&utm_campaign=character-month-202609&utm_content=2026-10-01-B\n\n#技術士 #技術士第一次試験",
+      "posted_at": null
+    },
+    "2": {
+      "title": "10/2 12:20 pe-first-stage / 論点解説 / linkless",
+      "status": "scheduled",
+      "scheduled_at": "2026-10-02T12:20:00.000+09:00",
+      "text": "許容応力は、基準強さに安全率を掛ける？ 割る？\n基準強さ÷安全率です。同じ基準強さなら、安全率を大きくすると許容応力は小さくなる。式の向きを言葉でも確認してから演習へ。\n\n#技術士 #技術士第一次試験",
+      "posted_at": null
+    },
+    "3": {
+      "title": "10/3 12:24 pe-first-stage / 論点解説 / linkless",
+      "status": "scheduled",
+      "scheduled_at": "2026-10-03T12:24:00.000+09:00",
+      "text": "「平面応力」と「平面ひずみ」は、ゼロとみなす量が違う。薄板では板厚方向の応力、長い構造のモデルでは長手方向のひずみに注目。名前だけでなく、形状と仮定をセットで整理しよう。\n\n#技術士 #技術士第一次試験",
+      "posted_at": null
+    },
+    "4": {
+      "title": "10/4 07:26 civil-2 / 学習のヒント / linkless",
+      "status": "scheduled",
+      "scheduled_at": "2026-10-04T07:26:00.000+09:00",
+      "text": "2級の経験記述、得意なテーマだけで準備が止まっていませんか。令和6年度からは異なる2テーマが必答。安全・品質・工程それぞれについて、自分の工事で課題と対応をメモしておこう。\n\n#2級土木施工管理技士 #施工管理技士",
+      "posted_at": null
+    },
+    "5": {
+      "title": "10/4 12:28 pe-first-stage / 論点解説 / linkless",
+      "status": "scheduled",
+      "scheduled_at": "2026-10-04T12:28:00.000+09:00",
+      "text": "待ち行列で計算が合わない時は、単位を先に確認。到着率が「件／時間」、サービス率が「件／分」のまま割っていない？ M/M/1の利用率は、単位をそろえた到着率÷サービス率です。\n\n#技術士 #技術士第一次試験",
+      "posted_at": null
+    },
+    "6": {
+      "title": "10/4 20:15 civil-2 / マガジン活用 / note",
+      "status": "scheduled",
+      "scheduled_at": "2026-10-04T20:15:00.000+09:00",
+      "text": "2級の模範答案は、問いと並べて読むと使いやすい。年度別過去問集には、設問と複数工事の答案・置換ガイドを収録。現場条件が変わると課題や対応がどう変わるか、自分の工事と比べてみてください。\n\nhttps://note.com/dobokunote/m/md3aa0f9a37d7?utm_source=x&utm_medium=social&utm_campaign=character-month-202609&utm_content=2026-10-04-C\n\n#2級土木施工管理技士 #施工管理技士",
+      "posted_at": null
+    },
+    "7": {
+      "title": "10/5 20:18 civil-2 / 答案の見直し / linkless",
+      "status": "scheduled",
+      "scheduled_at": "2026-10-05T20:18:00.000+09:00",
+      "text": "今夜の答案点検は、課題と対応を線で結ぶだけ。「含水比が高い」が課題なのに、対応が人数の増員だけなら説明がつながりません。何を改善する対策なのか、一つずつ照合しよう。\n\n#2級土木施工管理技士 #施工管理技士",
+      "posted_at": null
+    },
+    "8": {
+      "title": "10/6 12:36 pe-first-stage / 論点解説 / linkless",
+      "status": "scheduled",
+      "scheduled_at": "2026-10-06T12:36:00.000+09:00",
+      "text": "写像の数え方は「行き先の候補数」を「出発側の要素数」だけ掛ける。X→Yなら、Xの各要素がYのどこへ行くかを選べます。直積の要素数との違いを意識して、過去問で数えてみよう。\n\n#技術士 #技術士第一次試験",
+      "posted_at": null
+    },
+    "9": {
+      "title": "10/7 07:35 civil-2 / 学習のヒント / linkless",
+      "status": "scheduled",
+      "scheduled_at": "2026-10-07T07:35:00.000+09:00",
+      "text": "答案の工事概要と本文を見比べよう。概要に書いた工種と、本文で説明する作業は合っている？ 自分が担当した範囲も含め、同じ工事の説明として矛盾がないかを点検するだけの復習です。\n\n#2級土木施工管理技士 #施工管理技士",
+      "posted_at": null
+    },
+    "10": {
+      "title": "10/8 07:38 civil-2 / 学習のヒント / linkless",
+      "status": "scheduled",
+      "scheduled_at": "2026-10-08T07:38:00.000+09:00",
+      "text": "工程表を使い分ける視点。各工種の日程を見たいなら横線式、作業の前後関係や余裕を追いたいならネットワーク式。どちらが優秀かではなく、何を確認したいかで整理しよう。\n\n#2級土木施工管理技士 #施工管理技士",
+      "posted_at": null
+    },
+    "11": {
+      "title": "10/8 12:44 pe-first-stage / 論点解説 / linkless",
+      "status": "scheduled",
+      "scheduled_at": "2026-10-08T12:44:00.000+09:00",
+      "text": "同じ「符号化」でも目的は違う。情報源符号化はデータを圧縮し、通信路符号化は雑音による誤りに備える。「小さくする」と「正しく届ける」を区別して、技術士一次の用語を確認しよう。\n\n#技術士 #技術士第一次試験",
+      "posted_at": null
+    },
+    "12": {
+      "title": "10/8 20:27 civil-2 / マガジン活用 / note",
+      "status": "scheduled",
+      "scheduled_at": "2026-10-08T20:27:00.000+09:00",
+      "text": "完成答案は、そのまま暗記する前に現場条件を比べたい。2級の経験記述マガジンは、安全・品質・工程の答案と置換ガイドを収録。「自分の工事なら何が違うか」を書き込む復習に使えます。\n\nhttps://note.com/dobokunote/m/m1881a9578027?utm_source=x&utm_medium=social&utm_campaign=character-month-202609&utm_content=2026-10-08-C\n\n#2級土木施工管理技士 #施工管理技士",
+      "posted_at": null
+    },
+    "13": {
+      "title": "10/9 07:41 civil-2 / 学習のヒント / linkless",
+      "status": "scheduled",
+      "scheduled_at": "2026-10-09T07:41:00.000+09:00",
+      "text": "サンドマットとプレロード、目的を混同していない？ 前者は表層の排水や建設機械の走行性確保、後者は事前に荷重をかけて圧密沈下を進める工法。名前より、地盤に何をするかを描こう。\n\n#2級土木施工管理技士 #施工管理技士",
+      "posted_at": null
+    },
+    "14": {
+      "title": "10/9 12:48 pe-first-stage / 論点解説 / linkless",
+      "status": "scheduled",
+      "scheduled_at": "2026-10-09T12:48:00.000+09:00",
+      "text": "質量分率をそのままモル分率として使っていない？ 各成分の質量をモル質量で割り、物質量に直してから全体に対する割合を求めます。まず単位をgからmolへ変える一手を確認。\n\n#技術士 #技術士第一次試験",
+      "posted_at": null
+    },
+    "15": {
+      "title": "10/9 20:30 civil-2 / 答案の見直し / linkless",
+      "status": "scheduled",
+      "scheduled_at": "2026-10-09T20:30:00.000+09:00",
+      "text": "施工数量を書いたら、数字の後ろを点検。面積・体積・延長・本数のどれを表している？ 単位が抜けると工事規模を読み取れません。工種に合った量を、手元の記録と照合しておこう。\n\n#2級土木施工管理技士 #施工管理技士",
+      "posted_at": null
+    },
+    "16": {
+      "title": "10/10 07:44 civil-2 / 学習のヒント / linkless",
+      "status": "scheduled",
+      "scheduled_at": "2026-10-10T07:44:00.000+09:00",
+      "text": "資材計画は「注文して届いた」で終わりではありません。保管場所や使用する時期までつながってこそ、現場で使える計画になる。調達と保管、工程表を並べて覚えてみよう。\n\n#2級土木施工管理技士 #施工管理技士",
+      "posted_at": null
+    },
+    "17": {
+      "title": "10/10 12:12 pe-first-stage / 論点解説 / site",
+      "status": "scheduled",
+      "scheduled_at": "2026-10-10T12:12:00.000+09:00",
+      "text": "結晶粒が大きいほど、金属は強くなる？ 通常のホール・ペッチの関係では、結晶粒の微細化で強度が上がります。「大きい＝強い」の直感に頼らず、用語の向きを過去問で確認しよう。\n\nhttps://doboku-note.com/tools/kakomon-quiz/pe-first-stage?utm_source=x&utm_medium=social&utm_campaign=character-month-202609&utm_content=2026-10-10-B\n\n#技術士 #技術士第一次試験",
+      "posted_at": null
+    },
+    "18": {
+      "title": "10/10 20:33 civil-2 / マガジン活用 / note",
+      "status": "scheduled",
+      "scheduled_at": "2026-10-10T20:33:00.000+09:00",
+      "text": "学科記述の復習を「正解を読んだ」で終わらせない。語句を隠し、理由を一文で書き出す練習へ。2級のテーマ別攻略マガジンには、分野別の解答の型と穴埋め語句をまとめています。\n\nhttps://note.com/dobokunote/m/m9a09a8982734?utm_source=x&utm_medium=social&utm_campaign=character-month-202609&utm_content=2026-10-10-C\n\n#2級土木施工管理技士 #施工管理技士",
+      "posted_at": null
+    }
+  },
+  "updatedAt": "2026-09-10T06:26:14.872Z"
+}

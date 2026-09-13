@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.214Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-hoki-kenchiku-kayaku/shorts/point-overview-1/shorts.mp4",
-  "durationSeconds": 31,
-  "sha256": "4907bdc18aece9993061d52c16c44f1aae074e91bc668a94d536e7112c8a4800",
-  "coverSha256": "2939985ffa95f777f7348be6e1f6411f8aae9ead9bcbc4967ff9bd0c22f7eca6",
-  "renderedAt": "2026-09-06T00:03:17.645Z"
+  "durationSeconds": 30.2,
+  "sha256": "7e63f246d8f27e883eec0dba9a6abe80612ee90c40a0253a496175324cc70ccd",
+  "coverSha256": "ce3dd86d08bdaeea7c92bf0e8d1a3449c6e805f1f3c5f63d0a4a0e80c0331818",
+  "renderedAt": "2026-09-10T11:23:16.122Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "76cd74afd9b1656aeb6a43de056fb35521e8fd50fa2871b35f7580a767780aa9",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "1e61351d02774ff0be3205803963b9d8336e8ba55e749e10bcc0043bbefab010",
+  "speaker": 13,
+  "narration": "工事用の仮設建築物には、建築基準法の規制が一部緩和されるものがあります。対象は、工事を施工するために現場へ設ける事務所や材料置場などです。仮設という名前だけで判断せず、用途と設置場所、適用が残る防火などの規定を確認しましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "7c351276893d04395bed14a28ce18777e0ac7a79e3ba5443a5e0e28dbefafdfe",
+    "points": "a04063aeed2a4ed121a863973b6497b852f75a1c52e511e6eeea5998f9a3fb53",
+    "pointsImage": "88a02b0ed67c2baa2940d043d727972e3686c4693ab3ac6677a2aebdd79cddd1",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:23:16.122Z"
+  }
 }

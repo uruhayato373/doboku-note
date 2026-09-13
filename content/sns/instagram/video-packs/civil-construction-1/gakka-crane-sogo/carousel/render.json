@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "gakka-crane-sogo",
+  "inputDigest": "b76090eb5d10490307df088ac81604e3e77cb7237b3a7540c016776f0b84d265",
+  "sourceSha256": "24bc3693fd7c257e74dd6c522d996727758e9b2352be660b03e1940ec99c131a",
+  "rendererSha256": "b04b4ad581c8ab70d15dc33ebed74face3677e1a938690139aa14dad15697a30",
+  "renderedAt": "2026-09-10T10:21:41.268Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-crane-sogo/carousel/img/00-cover.png",
+      "sha256": "193881a760b9f68629c3e219ea652a9800b999606f4540696ad7f0aba76bb6e1",
+      "bytes": 309329,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-crane-sogo/carousel/img/01-point.png",
+      "sha256": "cc49e851f751a7ffe2c605733d9a0ba7ea82b95f50d0bec212ad7688be2eb6b5",
+      "bytes": 106635,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-crane-sogo/carousel/img/02-point.png",
+      "sha256": "9127e59ab4046af932f409c303446700bb4a3c69da31d5a751dc867f2203c9fc",
+      "bytes": 113451,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-crane-sogo/carousel/img/03-point.png",
+      "sha256": "f18628071177234eaa2b3b4d2f15791a5bde98bd44fc809cc26eff5428d5a100",
+      "bytes": 136163,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-crane-sogo/carousel/img/04-point.png",
+      "sha256": "171e01bbd65bfce507ddc6ff98ca701fd71295c85b30208054743b2c9634710f",
+      "bytes": 136332,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-crane-sogo/carousel/img/05-point.png",
+      "sha256": "69c1d84f7f5019be92426c779dd14fb3171ecf0cf097afbf16781e5e6cf61919",
+      "bytes": 143772,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-crane-sogo/carousel/img/06-point.png",
+      "sha256": "17c59fa10f1efab82077d9429275ebff75711a88286df56830fc9353b2b6a739",
+      "bytes": 117169,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-crane-sogo/carousel/img/07-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

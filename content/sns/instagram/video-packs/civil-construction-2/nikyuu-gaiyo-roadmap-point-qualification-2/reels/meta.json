@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.185Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/nikyuu-gaiyo-roadmap/shorts/point-qualification-2/shorts.mp4",
-  "durationSeconds": 30.2,
-  "sha256": "0eb41ef09ede056d2650ee1fcf4cf73502ecb4f6d2c52f456b35e088cc07dece",
-  "coverSha256": "7a0ddaed8906ab53ee70fef5eb866ee016c7aa58636969837ce281cbb1ccae16",
-  "renderedAt": "2026-09-05T23:15:43.262Z"
+  "durationSeconds": 30.37,
+  "sha256": "5a97ebb0b3b1b94660255715eb62f29cc1a196c9106b5eb41e789e4c71f0789d",
+  "coverSha256": "f8a2ff38f9ea3fd249a4726002184a8ddb003d6c35010b0e2184c36f966ea337",
+  "renderedAt": "2026-09-10T10:57:03.486Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "4f3524c701222fa45ff9e8772355dbdb1304c33b5ec9e1b9b7dde2b8e66e2cfc",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "24789efec50247491d80b6966f9bbce8a537e92f43414070b4cf3f3b18d96492",
+  "speaker": 13,
+  "narration": "2級土木の第一次検定は、受検年度中に17歳以上になれば、学歴や実務経験を問わず受けられます。第二次は実務経験などの条件があります。新制度は第一次合格後などの経験を中心に確認し、旧制度には経過措置があります。学歴と経験年数を別の制度の条件と混ぜないようにしましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "c51edb29e8e5ad12a683ca14cfad7285b2f09dc8846cebe33ffb463487a802bd",
+    "points": "ea18c74d6d7fbf20a861c3b14ac0cdffc7d356fdbec2059e20ddc7c70b73515d",
+    "pointsImage": "e34b4d2deed02b88fbb625188845af1e72158524a4a1d723b85664ac340be151",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T10:57:03.486Z"
+  }
 }

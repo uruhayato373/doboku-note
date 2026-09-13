@@ -13,7 +13,27 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/career-tenshoku-timing/shorts/point-step2-2/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "152ea4f73ccb262945e6decc529efc69b02672e705de55ff611cf72d0e57e5f8",
-  "coverSha256": "aa9d903d5a9f12010e9cd845a88b7f397c993ef0b11cd6b2a433e4d8acebda35",
-  "renderedAt": "2026-09-06T00:08:54.643Z"
+  "sha256": "080f62e21019c1ffa1e39c5f63a9782af83a2c0bb1114bd342dcc5e3c5d5d29c",
+  "coverSha256": "0867dff79e5a13d28ad2111bf8a6c20ba63be622bfc39c2b0bbab9c5414fe531",
+  "renderedAt": "2026-09-10T11:48:08.592Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "adef657bdb190e7e2a4ac3d808a74f7f2a05991ed3c7ca7958da45c712869707",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "2ce58a9954cc7dc27daff853f482d25a2b19b1bfc6f48307214ae54a26182bf4",
+  "speaker": 13,
+  "narration": "資格取得と転職の時期は、応募先が求める条件から考えましょう。取得が目前なら、資格を得てから応募できる仕事が広がる場合があります。ただし、資格だけで待遇が決まるわけではありません。取得予定日と担当現場の区切りを並べて、無理のない段取りを組みます。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "35d84c5877b91469d4cddef2013d6aea19930bacfa1ed8766201641601552a74",
+    "points": "8160802fcdd1d1586abc251c69528c171161988a9268b46fd3337da8f2769019",
+    "pointsImage": "fd8c95fd23d6cfc9bac8877953a39aedbe02db53551c30408b7a19aeba3c00ef",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:48:08.592Z"
+  }
 }

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-kijutsu-2kyu",
+  "key": "point-fields-1",
+  "sceneId": "fields",
+  "exam": "civil-construction-2",
+  "narration": "2級土木の学科記述は、土工、コンクリート工、品質、安全、工程、施工計画や環境対策に分けて学びましょう。過去問を分野別に整理すると、繰り返し問われる用語や条件が見えてきます。出題範囲が広く感じても、分野ごとに確認して学習の抜けを減らします。",
+  "visual": {
+    "heading": "出る分野は毎年ほぼ同じ",
+    "items": [
+      "土工／コンクリート工／品質管理",
+      "安全管理／工程管理／施工計画・環境"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-2/secondary-getting-started/article.mdx"
+}

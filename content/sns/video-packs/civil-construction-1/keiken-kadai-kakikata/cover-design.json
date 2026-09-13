@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "技術的課題",
+        "条件から書く"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/114.png",
+        "sha256": "57ed8c649f2cc15112cd825a4fdc7b0fe51225c390acf1d2bf3a1f58227cbd11",
+        "specSha256": "865b56bb717959a42272546dd96d544208361f68401737e4946ed14aca85c5d9"
+      }
+    },
+    "point-block1-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "技術的課題",
+        "３要素で書く"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/115.png",
+        "sha256": "05935ea7416ac17552bae47c25afb62ac5cc657c5cdbafae6cdd373cbef307c7",
+        "specSha256": "1b7909283b7207f08a57bf722a3358d3c5ca9b9c96d3c8cea977b7b5d3734a53"
+      }
+    },
+    "point-block2-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "課題の原因",
+        "現場条件で",
+        "具体化する"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "character": {
+        "pose": "good-sign",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/116.png",
+        "sha256": "56769032e2717e50131ef14c348dee14bbfa567b9c2e2a536979f0223bbd9775",
+        "specSha256": "52c4249a966fd18ac274b02ccedf49efaaa2efb7e05ad0ab271afc24f6389fe9"
+      }
+    }
+  }
+}

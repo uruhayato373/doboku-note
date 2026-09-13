@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "concrete-engineer",
+      "headline": [
+        "コンクリート",
+        "環境配慮の論点"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/306.png",
+        "sha256": "f580681b252e5200a4c35ef186a9af74f176f7657912ad7491fbdc3843058cec",
+        "specSha256": "192779bd0db95c08d1148c397845c9253b833cf5e4390d0e6c0333d7f028901e"
+      }
+    },
+    "point-step1-1": {
+      "format": "shorts",
+      "exam": "concrete-engineer",
+      "headline": [
+        "環境配慮",
+        "４つの軸で",
+        "考える"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/307.png",
+        "sha256": "0ca68b6f9296a2df61ab0ce2694ce5e5014a4bef40cdadd16a2db74529338712",
+        "specSha256": "8a9f8822df861eb61b05dc8d7da647e9bf3d0ad7de9dd78bd5621a15038663d8"
+      }
+    },
+    "point-step2-2": {
+      "format": "shorts",
+      "exam": "concrete-engineer",
+      "headline": [
+        "混合材で",
+        "クリンカー削減"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/308.png",
+        "sha256": "e9c6add85f4c3bec4f00862e0669e66331608f227f422f88b9227614d83bb1ac",
+        "specSha256": "14a8084b6310e9a56a9c91679e100173876dc8e0fc36c52a9688d18ea48b1a52"
+      }
+    }
+  }
+}

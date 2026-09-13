@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "kikinagashi-hinshitsu-kikaku",
+  "key": "point-population-sampling-1",
+  "sceneId": "population-sampling",
+  "exam": "civil-construction-1",
+  "narration": "品質管理の基本用語は、集団の範囲で区別します。調べたい対象の全体が母集団、そこから抜き取るものがサンプルです。検査のために一まとまりとして扱う単位をロットと呼びます。サンプルを調べた結果が、どの範囲の判定に使われるのかを確認しましょう。",
+  "visual": {
+    "heading": "母集団・サンプル・ロット",
+    "items": [
+      "母集団：調べたい対象の集団全体",
+      "サンプル：母集団から抜き取ったもの",
+      "ロット：検査のためのひとまとまり"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-quality-inspection/article.mdx"
+}

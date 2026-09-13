@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.223Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/career-nenshu-up/shorts/point-step1-1/shorts.mp4",
-  "durationSeconds": 30,
-  "sha256": "f1974ebd47f7a687300746c9a389ce7e2985451b3e9fd3a832da5698fc7ec793",
-  "coverSha256": "32de757c1e733fc39eeeee118eff724899b94089f6d56646c388d7d297d02d5d",
-  "renderedAt": "2026-09-06T00:08:25.645Z"
+  "durationSeconds": 30.2,
+  "sha256": "5738ea2a7f19d47c94818bbb68087157d1b926fe4e609265c38d397045d18c39",
+  "coverSha256": "72549a33af67d91b20f219ec924ac8d288a19559a22d1e1cef7fbc575d3742e6",
+  "renderedAt": "2026-09-10T11:46:56.548Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "3f44ca1fc857c13972c28dc1a92dbcbe30ac82c6dcc8b1eabdb9c54369efb339",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "a703f58cac27914513570a3d458d2024dee66ff3408b191339528d12d108ef99",
+  "speaker": 13,
+  "narration": "土木施工管理の年収は、年齢だけでは決まりません。資格、担当工種、工事規模、現場で担う責任によって評価は変わります。相場と比べるときは、同じ職種でも条件をそろえ、基本給と手当、残業代を分けて確認しましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "44398dbf9e8a109256dc5d9c9241330222d637bdff3dbac80b5349d726f2e6b0",
+    "points": "383e75ca17e83ba369e31ac0078fe88e7c8551e524b423a073ff35830803e48e",
+    "pointsImage": "46c7b025606b34c34d2e7d2a6ba1ca7af8d2641a777566bff58987dc08edcdf8",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:46:56.548Z"
+  }
 }

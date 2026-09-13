@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "shunin-production-qc-ronten",
+  "key": "point-step1-2",
+  "sceneId": "step1",
+  "exam": "concrete-chief-engineer",
+  "narration": "コンクリート材料の計量は、目標量からのずれを材料ごとに管理します。セメントや水と、骨材や混和剤では、適用する許容差が異なります。混和材や累加計量には区分や条件もあります。割合だけを暗記せず、材料名と計量方法を確認して、規格の表と照合しましょう。",
+  "visual": {
+    "heading": "計量許容差は材料と方法で確認",
+    "items": [
+      "セメント・水と骨材・混和剤を区別",
+      "混和材の種類を確認",
+      "累加計量の条件も規格表で照合"
+    ]
+  },
+  "sourceRef": "content/site/concrete-chief-engineer/textbook-production-qc/article.mdx",
+  "editorialNote": "混和材と累加計量の適用条件を省いた数値一覧を避け規格区分の確認へ変更。"
+}

@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.198Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/shunin-construction-ronten/shorts/point-step1-2/shorts.mp4",
-  "durationSeconds": 37.4,
-  "sha256": "f4d8ecff255711ce3df15669a131fa515c98bda5c247db6db4a7107c58e04db6",
-  "coverSha256": "a12b0cd212d01f148f75a022051b715b74429fa8add55e964f9db91ec12c4a6e",
-  "renderedAt": "2026-09-05T23:29:54.599Z"
+  "durationSeconds": 30.2,
+  "sha256": "7482488763e57f2dcfda703a73d592439539897038338969e4c43b46e3a2a68f",
+  "coverSha256": "323f8d53e195a28305fbddf8869da6dbe57a3871640c5b4cee4ef327f5c32d53",
+  "renderedAt": "2026-09-10T11:03:15.867Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "f88d4237e84e065ef280f0220c99f7e2431040254cc348304f68d71c306d3892",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "c87f7d5698c58ebb91b803329ff434980e856ba94931c26bc6e17bea2dffb535",
+  "speaker": 13,
+  "narration": "材料分離を防ぐため自由落下高さは1.5メートル以下が標準です。打重ね時間間隔の超過はコールドジョイントを招くため、片押しや階段状の打込み計画で防ぎます。再振動は凝結の始発前に行うのが条件です。打継ぎ面はレイタンスを除去し、乾燥させず湿潤状態を保ってから打ち込みます。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "80f2d65ffad974c0e3ad71842d8e4eb231adf7ac86e179f7125d8b41491b315b",
+    "points": "ad1f3c5a2cb00aad77ff0d61fc221642fbdc9d4a3cafeaa5c700f7ec2725766d",
+    "pointsImage": "cdfeac8defff380bf1437749bca7dfc35c771763472cb878ef5e97b969957447",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:03:15.867Z"
+  }
 }

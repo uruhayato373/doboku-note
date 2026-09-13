@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.215Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-kankyo-hozen/shorts/point-overview-1/shorts.mp4",
-  "durationSeconds": 30.55,
-  "sha256": "f949b0a617be36587ca08159500b955591ce922664d74575743ef984b2a86f6f",
-  "coverSha256": "d4f275c9f8589588ff7b12ccbd7587d4de913ea68b92059dd2d4a0d0d1955945",
-  "renderedAt": "2026-09-06T00:03:33.299Z"
+  "durationSeconds": 30.2,
+  "sha256": "91ba4e42d49821788279728d95544b18e8a4e4426c5dc095672925515cb03a3e",
+  "coverSha256": "354dc6eab74b660979ec2307c6682309e9fea72506187dbebe5684e0b6289cf5",
+  "renderedAt": "2026-09-10T11:23:34.408Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "3006bc784f10aafbc49f7732eabb398f9b0a22d0f67760ad8d3d49cfa991f8e0",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "35fa157faf4a6df09810108558aab333ea170c13dab53445713fe48ff725ab58",
+  "speaker": 13,
+  "narration": "特定建設作業は、騒音や振動が大きければすべて該当するわけではありません。法令で定められた作業の種類と、指定地域かどうかを確認します。開始した日に終わる作業は法令上の対象から除かれますが、自治体の条例なども別に確認することが大切です。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "1c6216c22fa276e3292d4a29a2399607be872b9447539529b63b1177ea2048ad",
+    "points": "6eea488f76402b8961a1645fda16aba6f4342cbe971cc99f91255e04f875f00c",
+    "pointsImage": "9ce7f21439527cfb5865bfded6fcd5b5d32e4366b4cafd7786430ef3b9058d60",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:23:34.408Z"
+  }
 }

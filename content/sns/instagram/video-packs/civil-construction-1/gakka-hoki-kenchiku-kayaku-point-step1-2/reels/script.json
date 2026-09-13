@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-hoki-kenchiku-kayaku",
+  "key": "point-step1-2",
+  "sceneId": "step1",
+  "exam": "civil-construction-1",
+  "narration": "火薬類の手続は、設置、消費、運搬を分けて整理します。火薬庫の設置や発破などの消費は原則として都道府県知事の許可、陸上運搬は都道府県公安委員会への届出を確認します。数量や適用除外、権限移譲もあるため、具体の手続は所管窓口で確かめましょう。",
+  "visual": {
+    "heading": "火薬類の許可権者",
+    "items": [
+      "火薬庫設置・消費（発破）：都道府県知事の許可",
+      "陸上運搬：都道府県公安委員会へ届出"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-explosives-act/article.mdx",
+  "sourceUrls": [
+    "https://www.meti.go.jp/shingikai/sankoshin/hoan_shohi/pdf/hoan_pdf/001_s01_00.pdf",
+    "https://www.police.pref.osaka.lg.jp/tetsuduki/online/taishotetsuzuki/22437.html"
+  ]
+}

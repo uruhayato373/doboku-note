@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "career-white-kigyo",
+  "inputDigest": "96f39f15ffe6f4eca0b3971f5282660f11305eb3ea361a1eb531d337be9f3c89",
+  "sourceSha256": "d1e62a9053e1867211de60e6cd26b15e4b6b5c5144d44164eca09aea05ffddbe",
+  "rendererSha256": "b04b4ad581c8ab70d15dc33ebed74face3677e1a938690139aa14dad15697a30",
+  "renderedAt": "2026-09-10T10:21:10.360Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/career-white-kigyo/carousel/img/00-cover.png",
+      "sha256": "d781ce2f91df95aadf71b2ea7f169020b6c147db44b71c1ff281044a3067ba01",
+      "bytes": 291640,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/career-white-kigyo/carousel/img/01-point.png",
+      "sha256": "e9750b727d3e71007d29115e9c74a7ce3270fe717265488ad90c4c9461b8a908",
+      "bytes": 124443,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/career-white-kigyo/carousel/img/02-point.png",
+      "sha256": "b8cb67c8a0e22a5b18ab5cec09f1656566d671de300fc8489494e35eb7756f30",
+      "bytes": 108537,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/career-white-kigyo/carousel/img/03-point.png",
+      "sha256": "fd8e275600e479ebe16ef1b5bf978027c4be634cf8fdf289ef87d933a504f609",
+      "bytes": 128798,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/career-white-kigyo/carousel/img/04-point.png",
+      "sha256": "a92a64fcaf59f4907d613a1447c670409b728c15419c3cc3249579c6e9c36880",
+      "bytes": 113231,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/career-white-kigyo/carousel/img/05-point.png",
+      "sha256": "1d97af411c3720c23385eeb6221223ba9560ef5c273f540a302b3f10c7c37ba2",
+      "bytes": 118617,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/career-white-kigyo/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

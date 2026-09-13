@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.204Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/kikinagashi-shunin-suchi/shorts/point-wc-ratio-1/shorts.mp4",
-  "durationSeconds": 31.23,
-  "sha256": "fa67be3380ff33c39e2db4b1bdd18a5d64970cabdbea3607f175590ee637c03e",
-  "coverSha256": "b020a1aa3f98487003baeb549f64f9381565aa96cf1e71344fbe0cfba970691a",
-  "renderedAt": "2026-09-05T23:36:57.449Z"
+  "durationSeconds": 30.2,
+  "sha256": "ee1eb55671e89f67f369ddc2b1a13ffb105d588520aef9889053e84e55dedfb5",
+  "coverSha256": "3f874a5cd8d7ae90637073a48504c5501b59e29ab8ddce0d279c198fcde6e65a",
+  "renderedAt": "2026-09-10T11:07:16.214Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "bc5bcc2d07bab649f5271174eceda83ccccdfcd00794f0042ee0ec7e58d35efc",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "bfeb5a1bed7b10431474ecabb37c6cef929bba5bade2d707046e019b290dc697",
+  "speaker": 13,
+  "narration": "水セメント比は、強度と耐久性を考える基本の指標です。一般に小さくすると、適切な締固めと養生のもとで組織が緻密になり、強度や耐久性が高まります。ただし、値だけ小さくすればよいわけではありません。必要な施工性と、環境条件に合う基準を合わせて確認します。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "d50793684478ab34e7d99c4cccc63163abe2103ffc3873c47c4fb45bc7ac85a2",
+    "points": "7c5025fa006d0ea5d76ce04dc7e8f60328d07abb3c38a7c2458ec0dd311b8b5c",
+    "pointsImage": "b09f57db01e22798e25bb4e3411f8c841f9b2299ed2aca92ce4fd6feb410b1d9",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:07:16.214Z"
+  }
 }

@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "shunin-shouronbun-theme",
+  "exam": "concrete-chief-engineer",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "小論文のテーマ",
+        "何が問われた？"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：年度別に丸暗記すれば安心",
+      "items": [
+        "同じテーマが出る保証はない",
+        "傾向で捉え応用できる経験を増やす"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "nendo",
+      "heading": "傾向で捉える",
+      "items": [
+        "実務に直結する領域から出題される",
+        "年度別暗記は効率が悪い"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "ryouiki",
+      "heading": "論じやすい4領域",
+      "items": [
+        "耐久性：劣化機構と抑制対策",
+        "品質管理：配合・検査・養生の管理",
+        "環境配慮／施工トラブル対応"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "gengoka",
+      "heading": "経験ブロックを言語化する",
+      "items": [
+        "事象→原因→対策→結果と留意点",
+        "領域ごとに1セットずつ用意",
+        "試験前にストックしておく"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "kumikae",
+      "heading": "経験ブロックを組み替える",
+      "items": [
+        "テーマが変わっても本論は組める",
+        "切り口を変えれば別領域にも転用可"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

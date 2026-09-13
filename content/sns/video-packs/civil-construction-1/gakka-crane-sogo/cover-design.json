@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "クレーン作業",
+        "性能と安全規定"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "reading",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/027.png",
+        "sha256": "7f8dd9d34259f2fa0040e96a0a2e4f8b5f02b709d0b8a207934605ece3fd0987",
+        "specSha256": "45bc494bd694eb86cdef6ea529b1cf0b09a93a7ca75b7240e5c2cf1620a665d2"
+      }
+    },
+    "point-overview-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "移動式クレーン",
+        "種類を整理"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/028.png",
+        "sha256": "c1528d91b924e5354313ab6805bc4e492140686a7e62a2afd78eda321f6711df",
+        "specSha256": "9b6e568a1525e4169f9bbc65163fe8ae8ab0f87a863574b2412c7ec7c2cdb46d"
+      }
+    },
+    "point-step1-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "定格総荷重と",
+        "定格荷重の違い"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/029.png",
+        "sha256": "10fdcb4da8b9c5484130aae4973a539f85573131fea96fde3921cca818ba6762",
+        "specSha256": "13c526e2e6a73c88265bab97606e0e34d9792633dc0342ec982850d4037e69f7"
+      }
+    }
+  }
+}

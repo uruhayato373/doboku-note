@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "土止め支保工",
+        "明り掘削の基準"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/030.png",
+        "sha256": "ab856fec64f7640f5da7afd364e72bfed5799f0e402dfc5e16339e02271819fe",
+        "specSha256": "4781f6d0f28e4c3ab42e593da0520946cc1664664d42435e86e91e10a2555e34"
+      }
+    },
+    "point-step1-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "地山の掘削",
+        "作業主任者と",
+        "点検を整理"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/031.png",
+        "sha256": "a06fe17cfdcc1cf23b77f46709091cd576b747118ad6926b153cbec9738e7b98",
+        "specSha256": "377404e63ea9a6c6c315b7e6a0840ea3c05fd69be0bc7dd77f9abed468712f00"
+      }
+    },
+    "point-step2-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "掘削面の勾配",
+        "基準を確認"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/032.png",
+        "sha256": "15b02a7a4db9a4e7fd237ca20fa11dbf8ec0cea90062d8cfa6e0989295a31f6c",
+        "specSha256": "dadf5be9f449cf020dabc9d4cdadacd86a8cc1ba15589b313e4081cca742aa1f"
+      }
+    }
+  }
+}

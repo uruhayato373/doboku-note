@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "二次の学科記述",
+        "コンクリート"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/171.png",
+        "sha256": "6c8775580b7c558e5329eb1fe882d276bcf1385782ba18d9baf5926b3c305180",
+        "specSha256": "2aebf0fdc6448bac09a1ab616cfc6e6e36c7e6b63e4b7c1aa821cfb09155b21b"
+      }
+    },
+    "point-overlap-time-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "打重ね時間",
+        "限度を押さえる"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/172.png",
+        "sha256": "4085e3eaf292916456e7b408bcb2e4bc72f0b0bcb620b39e21efcd3399bc1d1d",
+        "specSha256": "b1a1cc6ad8bb9dff64bb0b9c2ffad8df8a6a668f622360c5266242549e448899"
+      }
+    },
+    "point-vibration-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "コンクリート",
+        "締固めの手順"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/173.png",
+        "sha256": "a08cfc3d89d3c592014dd06e13a9fcf06bdf37b7741a07e1d127226f18c34206",
+        "specSha256": "85e4a10f48d520184f8bf350c5bb41b94bb132fda2dab29fd0db3c980018dcf9"
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-ukeoi-yakkan",
+  "key": "point-overview-1",
+  "sceneId": "overview",
+  "exam": "civil-construction-1",
+  "narration": "公共工事の標準請負契約約款では、発注者と受注者の役割を分けて読みます。双方が約款と設計図書に従って契約を履行することが基本です。一括下請負の禁止など、受注者に課される事項もあります。条文を読むときは、誰が何をする義務かを確認しましょう。",
+  "visual": {
+    "heading": "約款の基本構造",
+    "items": [
+      "発注者・受注者とも契約履行義務を負う",
+      "一括下請負の禁止＝受注者の義務"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-standard-contract/article.mdx"
+}

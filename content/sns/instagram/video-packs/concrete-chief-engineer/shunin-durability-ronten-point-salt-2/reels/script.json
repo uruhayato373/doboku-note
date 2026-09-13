@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "shunin-durability-ronten",
+  "key": "point-salt-2",
+  "sceneId": "salt",
+  "exam": "concrete-chief-engineer",
+  "narration": "塩化物イオンは外来塩分と内在塩分に分かれ、腐食発生限界濃度はセメント種類で異なります。対策はかぶり確保・水セメント比低減・混合セメント・エポキシ塗装鉄筋の組み合わせですが、塗装鉄筋は凍害への抵抗性は改善しません。",
+  "visual": {
+    "heading": "塩害の抑制対策",
+    "items": [
+      "腐食発生限界濃度はセメント種類で異なる",
+      "対策はかぶり・水セメント比・混合セメント",
+      "塗装鉄筋は凍害抵抗性を改善しない"
+    ]
+  },
+  "sourceRef": "content/site/concrete-chief-engineer/textbook-durability/article.mdx"
+}

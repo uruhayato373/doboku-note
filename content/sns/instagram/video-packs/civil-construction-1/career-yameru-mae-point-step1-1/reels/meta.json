@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.224Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/career-yameru-mae/shorts/point-step1-1/shorts.mp4",
-  "durationSeconds": 30,
-  "sha256": "577edd2e58fd70ee0588d3e4f597c0945c23a461cbec6f50ec78750dadbece84",
-  "coverSha256": "668196aa8d792352588908c1591628b58b2cefbeb3db60e100c7d1318318020c",
-  "renderedAt": "2026-09-06T00:09:09.650Z"
+  "durationSeconds": 30.2,
+  "sha256": "a8cc9316754f65a777aebbd34e6b5b80bf2856f6530c74f5bc8cdcc046afe52b",
+  "coverSha256": "00bf1a7759cba990a1708acc9e6180edd22b4179c6b5e18f3c36e8a047092800",
+  "renderedAt": "2026-09-10T11:49:04.542Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "ee96e9abec6272de8de32c858ae85ae309c914f32cdb33e9189c519b5f0b349d",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "e0808b85b64792ca08c9b3914e8bcf065bd194d4027ec5a090eddbb9c2a6443b",
+  "speaker": 13,
+  "narration": "辞めたい理由は、仕事内容への不満と、職場環境への不満に分けて整理しましょう。会社や部署の体制が原因なら、環境の変更で改善する可能性があります。仕事そのものが合わない場合とは、検討する選択肢が変わります。困っている場面を具体的に書き出すことから始めます。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "677f0a2e9f7c2a5b081742ef5d145f156d078ebec6a9e7cfb5b0ce15268f8551",
+    "points": "c8c51fb2c7fc1736d43ee508bc0fcdfeefe3881ac27a1036fd285f68ecdc06cd",
+    "pointsImage": "52f099bc194c2d707d34972fb88c9f3e77fc9e5818111c134eaf40598ca041c0",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:49:04.542Z"
+  }
 }

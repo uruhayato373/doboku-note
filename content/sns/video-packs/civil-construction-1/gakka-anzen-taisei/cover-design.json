@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "安全管理体制",
+        "数字を整理"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/021.png",
+        "sha256": "d2a6b63484d5cae399c4ad4631b785b6743b4a97c56b657973b4589b73834002",
+        "specSha256": "2ebd9356eb251564537c436b880676c8f245f70f92ca38f7471c636af6627d46"
+      }
+    },
+    "point-step1-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "度数率と強度率",
+        "違いを整理"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/022.png",
+        "sha256": "5e206091be30bc4700273216b3d94156c1161f441cbbb6d3bbeb9827e91100ea",
+        "specSha256": "2ad7a537895b99798dbc0dff9d7ad28d30c36e7453ceecdd09da7e875228c56a"
+      }
+    },
+    "point-step2-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "安全管理体制",
+        "選任人数を確認"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/023.png",
+        "sha256": "7673478040a624b40ace2733e3cb0856cf6c75f304262af5641fdcd756d12c46",
+        "specSha256": "f0c9cf8cd5a55a68615af1bb34dfe893fca65e8005e7568cce1974726ca4c879"
+      }
+    }
+  }
+}

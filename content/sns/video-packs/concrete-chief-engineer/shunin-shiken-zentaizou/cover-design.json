@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "concrete-chief",
+      "headline": [
+        "主任技士の全体",
+        "択一と小論文"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "wave",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/288.png",
+        "sha256": "033e2a242326d4aaca8b3e82c72686276c7226c0a05a31f6e7abc7500b2e5cc6",
+        "specSha256": "971bccf64dc883a55b4f619e4b6b17b2c9fb90116148144dec617c0aa0173fd2"
+      }
+    },
+    "point-overview-1": {
+      "format": "shorts",
+      "exam": "concrete-chief",
+      "headline": [
+        "主任技士とは",
+        "資格の位置づけ"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/289.png",
+        "sha256": "d9ec861b25179692f004ee63486895d79e7034092c01eb64c03d60f48f8ecc44",
+        "specSha256": "b38e49b1caeb97c8e847a3d6b8368bc82f090608de73d6445a98842b82492f77"
+      }
+    },
+    "point-step1-2": {
+      "format": "shorts",
+      "exam": "concrete-chief",
+      "headline": [
+        "主任技士の試験",
+        "択一と小論文"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/290.png",
+        "sha256": "cef517dfe021fd872783aa0567d69cae1266f3eb1cdeee2548a2f945669c0c89",
+        "specSha256": "fad78702e65a89293e4d43789ed8f8a3bc1ea280b8b3161367ea4b7947ed6fd5"
+      }
+    }
+  }
+}

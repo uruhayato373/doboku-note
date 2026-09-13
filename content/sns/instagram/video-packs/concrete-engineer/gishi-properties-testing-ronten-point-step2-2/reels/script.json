@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gishi-properties-testing-ronten",
+  "key": "point-step2-2",
+  "sceneId": "step2",
+  "exam": "concrete-engineer",
+  "narration": "スランプ試験は、試料を詰めたコーンを引き上げた後、コンクリートがどれだけ下がったかを測ります。採取方法や経過時間、気温も結果に影響します。現場で水を足して数値を合わせると、水セメント比と品質条件が変わるため、受入時の調整方法として扱わないようにしましょう。",
+  "visual": {
+    "heading": "スランプは下がり量を測る",
+    "items": [
+      "試料ではなくコーンを引き上げる",
+      "コンクリートの下がり量を測る",
+      "加水で水セメント比を変えない"
+    ]
+  },
+  "sourceRef": "content/site/concrete-engineer/textbook-properties-testing/article.mdx",
+  "editorialNote": "コーン中の試料を引き上げるように読める誤った主語を修正。"
+}

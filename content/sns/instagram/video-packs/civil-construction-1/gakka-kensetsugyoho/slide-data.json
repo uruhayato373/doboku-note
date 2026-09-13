@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "gakka-kensetsugyoho",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "建設業法",
+        "技術者と許可"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "reading",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "どの制度の金額かを先に確認",
+      "items": [
+        "制度ごとに閾値が別にある",
+        "先に「何を分ける金額か」を確認する"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-construction-business/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "overview",
+      "heading": "軽微な工事の区分を確認",
+      "items": [
+        "建築一式以外は500万円未満が、軽微な建設工事の金額基準です。",
+        "建築一式は1,500万円未満、または木造住宅で延べ面積150m²未満です。",
+        "工事の区分と金額等を確かめ、許可が必要かを判断します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-construction-business/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "特定建設業は元請の下請総額を見る",
+      "items": [
+        "発注者から直接請け負い、下請総額5,000万円以上とする場合が基準です。",
+        "建築一式工事では8,000万円以上が基準となります。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-construction-business/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "監理技術者への切替えは元請が対象",
+      "items": [
+        "発注者から直接請け負った工事の下請総額で判断します。",
+        "5,000万円以上、建築一式8,000万円以上では、監理技術者の配置が必要です。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-construction-business/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "専任は対象工事と請負代金で判断",
+      "items": [
+        "公共性のある重要な工事等で、請負代金4,500万円以上が専任の基準です。",
+        "建築一式工事は9,000万円以上が基準です。",
+        "兼任可能な例外は、個別の要件を確認します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-construction-business/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step4",
+      "heading": "兼任特例を一つの条件で覚えない",
+      "items": [
+        "各現場へ補佐を専任配置する監理技術者の特例は、最大2現場などの要件があります。",
+        "密接な関連がある工事の主任技術者兼任も、条件を満たす場合に限られます。",
+        "特定専門工事は対象工事・金額・承諾等の要件を一緒に確認します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-construction-business/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

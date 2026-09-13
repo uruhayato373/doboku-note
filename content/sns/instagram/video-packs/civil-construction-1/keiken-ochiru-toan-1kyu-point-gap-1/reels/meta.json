@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.229Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-ochiru-toan-1kyu/shorts/point-gap-1/shorts.mp4",
-  "durationSeconds": 30.4,
-  "sha256": "d1c05b58acc73703340356788285ed796d269b1436237abb2f5fc45b8c7b8d73",
-  "coverSha256": "6d2bc307104df25804f156e015680797392e3bf54689d851e644f97b0a22c977",
-  "renderedAt": "2026-09-06T00:11:36.397Z"
+  "durationSeconds": 30.2,
+  "sha256": "e6b0a321f02f6f7bc7cbf0396553f1596925306cfa8dd29ed8106c30e455d8f0",
+  "coverSha256": "94743e6e7dbaa8f3faa477947b8575023e280cce1ffc8b2c06310c8b06a85a62",
+  "renderedAt": "2026-09-10T12:03:17.592Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "c516f2b1cf05a1862ddf6db4af0379864ccb4b3bfe7e102773a0b76088b004b0",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "b6f11a20300cb294dcaf186f0bf3e8dac20ee90245e3b62925f26f306d633697",
+  "speaker": 13,
+  "narration": "1つ目は、課題と対応がつながっていないパターンです。(1)で挙げた技術的課題と、(2)の対応処置が論理的につながっていません。課題の論点に、対応がまっすぐ返っているかを、続けて読み返して確認します。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "c4002c687569bf5cf07f188bab077bbf3a60440d79d1034eb4283f8d27085ca9",
+    "points": "88aaeea9f4dbede58411dda2170da59dd4ae3880342d13c8b5721953494c97eb",
+    "pointsImage": "4fcf6f0ff86b453515e59024aeb508163798cca9157700f7f33b020255c49ae5",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T12:03:17.592Z"
+  }
 }

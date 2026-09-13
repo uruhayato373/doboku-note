@@ -13,7 +13,27 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-hoki-kasen-doro/shorts/point-step1-2/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "f4a9d2d467f87e5237e8ba841311a3272edbb9fd524295d00e6a5340671be8ec",
-  "coverSha256": "c9efade1ffe28335dab859fa168d7fccc1a71e35e53b8ebfe05ed57372ae545f",
-  "renderedAt": "2026-09-06T00:03:15.039Z"
+  "sha256": "84d06b701fe51f1e959c337c9adfc46dc76ef2638ff71237efdebbecf5154c8b",
+  "coverSha256": "0588b4bc59bbc7134f1d46a4d2cf636468ec9d6da703b722c3de97f33efd233a",
+  "renderedAt": "2026-09-10T11:22:59.490Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "c07c146f0518211ee8813acab1737c514cb99ca67f92ad749a43f8d5af908a94",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "960eabb61933ca45a1347b322fbe4201f485cb0ac968181c871abcd749db40ca",
+  "speaker": 13,
+  "narration": "道路の占用許可と使用許可は、相手と目的が異なります。道路を継続して占用する工作物などは道路管理者へ、交通に影響する工事や作業は警察署長へ確認します。同じ工事で両方が必要になる場合もあるため、どちらか一方で済むと決めつけないようにしましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "345c21a02670648464f078ee1e7dd565d8041683263e27233892cbd704c40665",
+    "points": "530ab2680a68d71d77a5665e549922736d139349c165b69a7b2de857c1f32967",
+    "pointsImage": "5bf98d40b3f52e67bc7dd5e782e28dd68a6607728b101384585d8e2fa0925efb",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:22:59.490Z"
+  }
 }

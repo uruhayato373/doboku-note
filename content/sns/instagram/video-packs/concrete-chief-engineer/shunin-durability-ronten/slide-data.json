@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "shunin-durability-ronten",
+  "exam": "concrete-chief-engineer",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "耐久性の頻出点",
+        "劣化を理解する"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：劣化は単一原因で進む",
+      "items": [
+        "中性化の進行が塩害を助長する",
+        "凍結融解が塩化物イオンを内部へ運ぶ"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-durability/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "carbonation",
+      "heading": "中性化フロントの塩化物イオン濃縮",
+      "items": [
+        "pH約9以下で不動態皮膜が破壊",
+        "遊離した塩化物イオンは内部へ移動",
+        "濃縮は中性化フロントより内部側"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-durability/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "salt",
+      "heading": "塩害の抑制対策",
+      "items": [
+        "腐食発生限界濃度はセメント種類で異なる",
+        "対策はかぶり・水セメント比・混合セメント",
+        "塗装鉄筋は凍害抵抗性を改善しない"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-durability/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "frost",
+      "heading": "凍害はAE剤による気泡連行が基本",
+      "items": [
+        "未凍結水の水圧が組織を損傷",
+        "スケーリングとポップアウトが代表的",
+        "吸水率の高い骨材自体も原因になる"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-durability/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "chemical",
+      "heading": "酸による溶解と微生物の作用",
+      "items": [
+        "酸による侵食では、水和生成物が反応して組織が溶解します。",
+        "下水道等の微生物による腐食では、硫化水素が硫酸へ酸化される過程に注目します。",
+        "硫酸をすべての化学的侵食の原因とせず、環境と反応物を区別します。"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-durability/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "asr",
+      "heading": "ASRの3条件とひび割れ方向",
+      "items": [
+        "3条件＝反応性骨材・水酸化アルカリ・水分",
+        "乾燥状態では膨張ひび割れは生じない",
+        "拘束柱では主筋に平行なひび割れ"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-durability/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

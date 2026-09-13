@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-hoki-kasen-doro",
+  "key": "point-overview-1",
+  "sceneId": "overview",
+  "exam": "civil-construction-1",
+  "narration": "河川区域内の手続では、土地の占用と、工作物の設置や掘削を区別します。占用許可は河川管理者が管理する土地が対象です。一方、工作物の設置や掘削は、民有地でも許可が必要になる場合があります。土地の所有者だけで判断せず、行為の種類を確認しましょう。",
+  "visual": {
+    "heading": "河川の許可は行為ごとに確認",
+    "items": [
+      "占用：河川管理者が管理する土地",
+      "工作物・掘削：民有地も対象になり得る",
+      "所有区分だけでなく行為の種類を確認"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-river-act/article.mdx",
+  "editorialNote": "占用対象を官有地だけとする単純化を、河川管理者が管理する土地に修正。",
+  "coverHeadline": [
+    "河川の許可",
+    "行為ごとに確認"
+  ],
+  "sourceUrls": [
+    "https://www.cbr.mlit.go.jp/kisojyo/river-law/hourei.html"
+  ]
+}

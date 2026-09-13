@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "建設廃棄物",
+        "処理の頻出点"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/036.png",
+        "sha256": "240b3343fc65bfe162e5c20a0e7a4b322e10f7507fd086533d0059c047ab20a8",
+        "specSha256": "61ab372dca543ad9a3d5e7c941c2c04306bb6e4fe892a79da6c84c81ca585474"
+      }
+    },
+    "point-overview-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "排出事業者は",
+        "元請業者"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/037.png",
+        "sha256": "0b0da0d03394364d3ba118ece8765c00086694aab2b7862700583472b8017970",
+        "specSha256": "2c91f9e01aa3786bfecacf16ba870aea9caa5c430d0ba799cb5ccc6b9136aa11"
+      }
+    },
+    "point-step1-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "廃棄物の委託",
+        "二者契約で結ぶ"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/038.png",
+        "sha256": "10c0a13f4073edd20dcd19d3e6f4740e7faed8939b910f0a60caa3463d60ff82",
+        "specSha256": "95861b7e139dcfc4f26897b1d22795ae18b4fc456656283ea02001940188043f"
+      }
+    }
+  }
+}

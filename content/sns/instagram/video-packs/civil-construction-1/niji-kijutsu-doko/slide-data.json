@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "niji-kijutsu-doko",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "二次の学科記述",
+        "土工の数字"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：語句だけ覚えれば安全",
+      "items": [
+        "語句と数値は対で問われる",
+        "数値を落とすと部分点どまり"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-earthwork-past-problems/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "thickness",
+      "heading": "盛土の仕上り厚さと敷均し厚さ",
+      "items": [
+        "路体：仕上り30cm以下／敷均し35〜45cm以下",
+        "路床：仕上り20cm以下／敷均し25〜30cm以下"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-earthwork-basics/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "gradient",
+      "heading": "盛土面・のり面の勾配",
+      "items": [
+        "横断勾配：4〜5%程度",
+        "植生工ののり面：1：0.8より緩やか",
+        "段切り：原地盤が1：4より急な場合"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-earthwork-basics/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "soft-ground",
+      "heading": "軟弱地盤対策の目的別区分",
+      "items": [
+        "沈下対策：圧密沈下の促進・全沈下量の減少",
+        "安定対策：強度増加の促進・すべり抵抗の増加",
+        "地震時対策：液状化の防止"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-earthwork-basics/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "failure",
+      "heading": "掘削底面の破壊現象",
+      "items": [
+        "ヒービング：軟弱粘性土で底面が盛り上がる",
+        "ボイリング：砂質地盤＋地下水で砂が湧く",
+        "盤ぶくれ：被圧地下水で難透水層が浮く"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-earthwork-past-problems/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "pattern",
+      "heading": "穴埋め問題の解き方の型",
+      "items": [
+        "前後の文脈で語句／数値を判断",
+        "幅がある数値は幅で答える"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-earthwork-basics/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

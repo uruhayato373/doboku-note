@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "keiken-kadai-kakikata",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "技術的課題",
+        "条件から書く"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：管理項目名を書けば伝わる",
+      "items": [
+        "技術的課題は状況＋原因＋工事規模の3要素",
+        "管理項目名だけでは構成が抜け落ちる"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "block1",
+      "heading": "技術的課題の3要素",
+      "items": [
+        "課題が生じる現場・施工の状況",
+        "その原因",
+        "工事名・施工量から見た規模"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "block2",
+      "heading": "原因を条件で具体化",
+      "items": [
+        "現場条件：地盤・周辺環境など",
+        "気象条件：梅雨・冬季の低温など",
+        "作業条件：機械搬入・ヤードの広さ"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "block3",
+      "heading": "状況を管理テーマに合わせる",
+      "items": [
+        "品質管理：打設時の品質管理など",
+        "安全管理：墜落防止措置など",
+        "工程管理：工程遅延の防止など"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "block4",
+      "heading": "課題の範囲を1つに絞る",
+      "items": [
+        "品質か工程かが判別できる記述にする",
+        "対処策はここでは書かない"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

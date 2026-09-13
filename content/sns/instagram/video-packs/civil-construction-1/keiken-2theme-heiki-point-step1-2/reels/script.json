@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "keiken-2theme-heiki",
+  "key": "point-step1-2",
+  "sceneId": "step1",
+  "exam": "civil-construction-1",
+  "narration": "1つの工事で2つの管理項目を書くと、課題や対応が似通いがちです。同じ工事でも管理項目ごとに困った場面は違います。橋梁工事なら、品質は温度ひび割れ、安全は高所作業の墜落防止というように場面を分けます。",
+  "visual": {
+    "heading": "なぜ書き分けでつまずくか",
+    "items": [
+      "課題・対応が似通いやすい",
+      "管理項目ごとに困った場面が違う",
+      "別の場面・数値で組み立てる"
+    ]
+  },
+  "sourceRef": "content/note/1級・2級土木/1級土木/1級経験記述R6新形式と設問書き分け/article.md"
+}

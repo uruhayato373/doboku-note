@@ -13,7 +13,27 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-unpan-shimekatame-kikai/shorts/point-unpan-2/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "f491ae75a9db8841589caa303c1a91835ec559385a348229804b798481555fe1",
-  "coverSha256": "edb686e857dde6c0e1755421d180e3d55d2989dc3bb38cf5ce8b78d06ffab790",
-  "renderedAt": "2026-09-06T00:07:54.226Z"
+  "sha256": "eca1099c46509fe788aba3913370d43f457a3d379006128c134ed4289a3c9362",
+  "coverSha256": "b368bf92dd9ebda86f2c3a77b868835356e3f87463b38652a24284b0d7f56c23",
+  "renderedAt": "2026-09-10T11:45:46.486Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "4d8fa240e2f4ae5937abd725bb7760cb571233dc0b0afe6300a64f2d034c3d86",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "3273975eb956901c8b7064ce34b8f8418348def9349dd775594573a36ddbb73b",
+  "speaker": 13,
+  "narration": "ダンプトラックは中距離以上の運搬に最も多く使われますが、過積載は法令で禁じられています。不整地運搬車はダンプが入れない不整地・軟弱地・狭い場所に使い、ベルトコンベヤは大量のバラものを連続して運びます。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "1f6751ae1c44c37f5bf81a6e971d63c9b653edf24e503b130d4f70d0e358d918",
+    "points": "ffb97c6ec0d39a4f80751533583870718d422fc47016084371ee4e62de4d51cc",
+    "pointsImage": "04fe4668cfa28014148b461b67f9ed6e958e23760a47c1b1067e705f9cacd6bb",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:45:46.486Z"
+  }
 }

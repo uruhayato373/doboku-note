@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "kikinagashi-hoki-suchi",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "要点を復習",
+        "法規の数字"
+      ],
+      "subtitle": "主要論点を整理した保存版",
+      "character": {
+        "pose": "reading",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "working-hours",
+      "heading": "労働時間の原則を先に確認",
+      "items": [
+        "法定労働時間は、原則として1日8時間・1週40時間です。",
+        "時間外労働の原則上限と特別条項の条件は、分けて確認します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-labor-standards/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "break-time",
+      "heading": "休憩は6時間超と8時間超",
+      "items": [
+        "労働時間が6時間を超える場合は、45分以上の休憩が必要です。",
+        "8時間を超える場合は、1時間以上の休憩が必要です。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-labor-standards/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "holiday-wage",
+      "heading": "休日と割増賃金は別の規定",
+      "items": [
+        "休日は毎週1日以上、または4週間を通じ4日以上が原則です。",
+        "時間外・休日・深夜では割増率が異なるため、区分と条件を確認します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-labor-standards/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "paid-leave",
+      "heading": "年休は勤続期間と出勤率",
+      "items": [
+        "6か月継続勤務し、全労働日の8割以上出勤した場合が基本の付与要件です。",
+        "通常の労働者の初回付与は10日で、所定労働日数による比例付与もあります。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-labor-standards/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "work-rules",
+      "heading": "就業規則の作成・届出",
+      "items": [
+        "常時10人以上の労働者を使用する事業場では、就業規則を作成します。",
+        "作成した就業規則は、所轄の労働基準監督署長へ届け出ます。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-labor-standards/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "dismissal-notice",
+      "heading": "解雇予告は30日前が原則",
+      "items": [
+        "解雇は少なくとも30日前に予告するのが原則です。",
+        "予告しない場合は平均賃金30日分以上の手当が原則で、例外の適用条件も確認します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-labor-standards/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "special-construction",
+      "heading": "特定建設作業の条件",
+      "items": [
+        "指定地域の対象作業について、作業の種類と実施期間を確認します。",
+        "作業開始日に終了する作業は対象から除かれる点を区別します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-noise-vibration-regulation/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "noise-standard",
+      "heading": "敷地境界の数値と届出",
+      "items": [
+        "規制基準は敷地境界で、騒音85dB以下・振動75dB以下です。",
+        "対象作業は、元請業者が原則として開始7日前までに市町村長へ届け出ます。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-noise-vibration-regulation/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

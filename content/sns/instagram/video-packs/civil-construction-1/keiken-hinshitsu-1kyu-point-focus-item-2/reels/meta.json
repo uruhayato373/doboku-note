@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.205Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-hinshitsu-1kyu/shorts/point-focus-item-2/shorts.mp4",
-  "durationSeconds": 36,
-  "sha256": "5ff32285c0a928a18ed9c12cb1107d56aa58aa4739a51a2b3be360f443f3f5c9",
-  "coverSha256": "d9d97c68f9f99a75c15a54c4d15e43e5a22d519109f563e6f9b486ee57a4da98",
-  "renderedAt": "2026-09-05T23:51:01.286Z"
+  "durationSeconds": 30.2,
+  "sha256": "e8d8f39f0991f199f7ac2f4a13b2120118b7ebae215e905f4c76b449799ae17f",
+  "coverSha256": "c358daaf4d5a389165cfec1520c5a1b429b38648029c10ed4f8af4c8c78e9698",
+  "renderedAt": "2026-09-10T11:09:47.688Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "1eb98bf753d6f34e83436877750f9332de73448c55c0a47ab16831f8d8322723",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "50cc926fb23661a3a8de0ddf4fcfe0cf9c447cc8888f1f1e519e91093416c0dd",
+  "speaker": 13,
+  "narration": "品質管理の経験記述は、現場で管理した品質項目を絞ると具体化しやすくなります。盛土なら締固め度や含水比、コンクリートならスランプ、空気量、養生などです。自分が管理した項目について、基準、確認方法、実施した対策をつなげて説明しましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "98107fa8bb9d5e2d828b661b1d111050aa19dd22a16169a103ff06ee22da9c6d",
+    "points": "9bd333ae0af1e6f0dab764fbd1ec25952e3a0d77588f3c152b56d8504a23279c",
+    "pointsImage": "e06e59bba8cc24e1dbb4c5196be633c83edaf72a17f8eb9468f0256c59d33270",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:09:47.688Z"
+  }
 }

@@ -155,16 +155,16 @@
       "status": "active",
       "audience": "human",
       "match": {
-        "pathRegex": "^content/sns/instagram/(?!.*/reels/).+\\.(png|jpe?g)$"
+        "pathRegex": "^content/sns/instagram/(?:(?!.*/reels/).+|.+/reels/cover)\\.(png|jpe?g)$"
       },
       "vaultDir": "制作物/IGレンダー",
       "keyFrom": "stripPrefix:content/sns/instagram/",
       "regenerable": true,
-      "generator": "slide-data.json から再レンダー（ig-post-create / ig-carousel-restyle）",
+      "generator": "slide-data.json / reels/script.json と採用素材から再レンダー（ig-post-create / instagram-carousels:render / render-instagram-video-pack-reels）",
       "requiredBy": [
         ".claude/skills/social/publish-ig-bs"
       ],
-      "reason": "IG カルーセルのレンダー PNG。投稿は人が手元の Playwright で行う。投稿済みを public R2 に置いていたのは旧目標の名残で、サイトは読んでいない。"
+      "reason": "IG カルーセルとReels表紙のレンダー PNG。投稿は人が手元の Playwright で行い、サイトもCIも読まない。"
     },
     {
       "id": "x-rendered-image",
@@ -187,7 +187,7 @@
       "status": "active",
       "audience": "human",
       "match": {
-        "pathRegex": "^\\.tmp/video-render/(?!verify-frames/)[^/]+/.+\\.(png|wav|ass|mp4|json)$"
+        "pathRegex": "^\\.tmp/video-render/(?!verify-frames/|youtube-covers-)[^/]+/.+\\.(png|wav|ass|mp4|json)$"
       },
       "vaultDir": "制作物/動画レンダー",
       "keyFrom": "stripPrefix:.tmp/video-render/",
@@ -197,6 +197,20 @@
         "YouTube へのアップロード（人）"
       ],
       "reason": "16:9 動画のレンダー成果物。render-longform を回す CI ワークフローは存在せず、生成も公開も人が手元で行う。"
+    },
+    {
+      "id": "youtube-approved-cover",
+      "status": "active",
+      "audience": "human",
+      "match": {
+          "pathRegex": "^\\.tmp/video-render/youtube-covers-[a-z0-9-]+/.+\\.png$"
+      },
+      "vaultDir": "制作物/動画レンダー/採用カバー",
+      "keyFrom": "stripPrefix:.tmp/video-render/",
+      "regenerable": false,
+      "generator": null,
+      "requiredBy": ["scripts/lib/youtube-approved-cover.mjs"],
+      "reason": "人が確認したPNGを制作端末の書体に依存せず使う。Macから読み込むためDriveに保管し、フォントを持たない端末での再生成は前提にしない。"
     },
     {
       "id": "kindle-dist",

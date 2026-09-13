@@ -13,7 +13,27 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/kikinagashi-2kyu-matome/shorts/point-soil-tests-1/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "171443f196e443128008583c03cb985e59845081b57b144983c81dac2636b3bb",
-  "coverSha256": "e4dd5464bc2cfec6586851ee8cdb1f96ab3b8747b56495974f5ce5dbe4dc7271",
-  "renderedAt": "2026-09-05T23:22:41.908Z"
+  "sha256": "0b54fc4c48e5c8d46814259f529281d98e01012c6f64a3710a4e32900a44496a",
+  "coverSha256": "2b33959e8f4767110df15fa4591e8d864b10339f7602862b33be4b89965e3a0a",
+  "renderedAt": "2026-09-10T10:57:26.415Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "f0acda6d585cb987ef40242f317048bda9aadb4ab467d5d54da4d5ce79a5f205",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "d641537adf97dcac8cedbd188969c40a222dd898c6dedeaf9247c901390cb646",
+  "speaker": 13,
+  "narration": "土質試験は、求める指標と組み合わせて覚えます。標準貫入試験はエヌ値で地盤の硬さを調べ、平板載荷試験は地盤の支持特性を確認します。現場シービーアール試験は、路床や路盤の支持力を調べる試験です。似た試験名でも、測りたい値を区別しましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "b531e2d87a98dfcf84ec606709509747912cf00635f5f45b6eed366caf942d96",
+    "points": "920d032fdbb83e4f6dafa3ddeb4c157ec82d61fb91089f4bf9fd38e387ee4bd2",
+    "pointsImage": "4ec2b24193a9f14bc0f59bd2b2bbed643638e014d9cd776cc05a1cf7339ce6bd",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T10:57:26.415Z"
+  }
 }

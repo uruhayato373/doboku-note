@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gishi-12week-plan",
+  "key": "point-step2-2",
+  "sceneId": "step2",
+  "exam": "concrete-engineer",
+  "narration": "十二週間の学習計画では、最初の四週間を全体像と基礎の整理に使います。一、二週目は目次と出題範囲を照合し、材料から施工へのつながりを確認します。三、四週目は、性質と試験方法を対にして学びます。何を測るための試験かを説明できるようにしましょう。",
+  "visual": {
+    "heading": "最初の4週間は全体像と基礎",
+    "items": [
+      "1〜2週目：出題範囲と材料の基礎",
+      "3〜4週目：性質と試験方法",
+      "何を測る試験か説明する"
+    ]
+  },
+  "sourceRef": "content/site/concrete-engineer/guide-study-plan/article.mdx"
+}

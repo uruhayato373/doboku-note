@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "gakka-anzen-taisei",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "安全管理体制",
+        "数字を整理"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "同じ50人でも数える範囲が違う",
+      "items": [
+        "事業場単位と混在現場で別の50人",
+        "数える対象も異なる"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-management-system/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "頻度と重さは分母から区別",
+      "items": [
+        "度数率は、延べ実労働100万時間あたりの死傷者数です。",
+        "強度率は、延べ実労働1,000時間あたりの労働損失日数です。",
+        "発生頻度を見る指標か、災害の重さを見る指標かを区別します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-management-system/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "建設業の事業場単位の選任",
+      "items": [
+        "総括安全衛生管理者は、建設業では常時100人以上が基準です。",
+        "安全管理者・衛生管理者は、常時50人以上の事業場が基準です。",
+        "総括安全衛生管理者を置く場合も、それぞれの選任要件を確認します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-management-system/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "統括は混在現場の合計人数",
+      "items": [
+        "特定元方の統括安全衛生責任者は、原則として元請・下請合計50人以上が基準です。",
+        "ずい道等・一定の橋梁・圧気工法などは30人以上となる場合があります。",
+        "現場の工事種類と人数を確認し、元方安全衛生管理者の選任も整理します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-management-system/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step4",
+      "heading": "義務を負う主体まで確認",
+      "items": [
+        "事業者/元方/特定元方/注文者で義務が変わる",
+        "特定元方事業者＝協議組織・連絡調整",
+        "中規模現場は店社安全衛生管理者"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-industrial-safety-law/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

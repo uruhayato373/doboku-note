@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gishi-mix-design-ronten",
+  "key": "point-step2-2",
+  "sceneId": "step2",
+  "exam": "concrete-engineer",
+  "narration": "水セメント比は、強度から求める上限と、耐久性から求める上限を比較し、厳しい方を採用します。強度条件で55パーセント以下、耐久性条件で50パーセント以下なら、50パーセント以下を選ぶという考え方です。",
+  "visual": {
+    "heading": "水セメント比は厳しい方を採用する",
+    "items": [
+      "水セメント比＝単位水量÷単位セメント量×100",
+      "強度からの上限と耐久性からの上限を比較",
+      "小さい方（厳しい方）の値を採用する"
+    ]
+  },
+  "sourceRef": "content/site/concrete-engineer/textbook-mix-design/article.mdx"
+}

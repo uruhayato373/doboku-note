@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-morido-shimekatame",
+  "key": "point-step1-2",
+  "sceneId": "step1",
+  "exam": "civil-construction-1",
+  "narration": "盛土の厚さは、敷き均したときと締め固めた後を区別します。道路盛土の一般的な管理値では、仕上り厚さを路体30センチメートル以下、路床20センチメートル以下とします。敷均し厚さは土質や施工機械でも変わるため、試験施工と適用仕様書で確認しましょう。",
+  "visual": {
+    "heading": "敷均し厚と仕上り厚を区別",
+    "items": [
+      "一般的な仕上り厚：路体30cm以下",
+      "一般的な仕上り厚：路床20cm以下",
+      "敷均し厚は土質・機械・仕様書で確認"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-embankment/article.mdx",
+  "editorialNote": "敷均し厚の幅を普遍的な上限とする誤認を防ぎ、仕様書・試験施工の条件を補足。"
+}

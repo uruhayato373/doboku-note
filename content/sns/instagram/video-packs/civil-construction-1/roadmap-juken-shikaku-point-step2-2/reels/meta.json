@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.210Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/roadmap-juken-shikaku/shorts/point-step2-2/shorts.mp4",
-  "durationSeconds": 30,
-  "sha256": "60826c0a747ce9002be7a671f7433f16f8cc0c13483fba27a8a9aed7761376a1",
-  "coverSha256": "b4a228a367eb947c7d02a8d09ed2bcbb18b54557daa6663974a407f9d1bc17cd",
-  "renderedAt": "2026-09-05T23:58:21.665Z"
+  "durationSeconds": 30.2,
+  "sha256": "21f60163a0f2ac329e2564914969506881041b1e7fd032af29e2c8aa3847f350",
+  "coverSha256": "66a42f548181c1134aa73914a9c329ed08ab3dee14239d0f69bb1ea02581ec9b",
+  "renderedAt": "2026-09-10T11:16:53.163Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "7a6e65fe82e167f78a44fdcf48fb62a8f683a9fd5d9d7f15837168e90f88b4a5",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "da54227022de9d2ebc090fe1bf9ee5370d9df08bf40726857aae5ebef2ce9496",
+  "speaker": 13,
+  "narration": "1級土木の第一次検定は、受検年度中に19歳以上になる人が、実務経験を問わず受けられます。第二次は所定の実務経験が必要です。新制度は資格取得後の経験を中心に確認し、旧制度には経過措置があります。年数だけでなく、使う区分と経験の内容を確認しましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "9585abfb25f1de7b4f3918754b174c63f9899b820aa80d813a9c340699363c47",
+    "points": "5729ea4451cb70d7afa8b2152f948152740c456661d5a5ee82105b8bb7c2c202",
+    "pointsImage": "e4c0c57fcf42b7210227bc2d665859303ba0e73649ddfe02e3209bbc2d26125f",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:16:53.163Z"
+  }
 }

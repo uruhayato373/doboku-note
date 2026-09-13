@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.206Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-sekokeikaku-1kyu/shorts/point-plan-vs-management-1/shorts.mp4",
-  "durationSeconds": 32.2,
-  "sha256": "03f40646ee3a5d80f7c4e139cb5dae043675f8a5ee613bb4b84e718f42c81508",
-  "coverSha256": "15fe5f62080f6031dc1d4158629d4059f4c2f5cab8319cc45709db28dd4fc7e6",
-  "renderedAt": "2026-09-05T23:52:45.026Z"
+  "durationSeconds": 30.8,
+  "sha256": "c5c7eb98f6f6439dfe29d91b316431df29589c40a1d29b6934956d1cad8e222c",
+  "coverSha256": "908c8488958ebf4394f66a5422ecd7f58ccac47c53f8595a1a12171478f7afff",
+  "renderedAt": "2026-09-10T11:11:09.612Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "aa69679e3eb4d4deda6cfcba168b0bc7539be45095fc272ad945b8c103fefb97",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "18babbe7d2cb5c2de205f66bef054e007614715ad481aa0d8a59473922685dab",
+  "speaker": 13,
+  "narration": "施工計画は、工事の条件を踏まえて、施工方法や機械、人員、工程などを事前に検討するものです。着工後の施工管理では、計画に沿って品質、安全、工程を確認します。現場条件が変われば計画も見直します。計画と管理を別々に覚えず、つながりで理解しましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "e6ecddacd10e0ebb1400cba1f03e163304ba05ecf6ba7e6505f843bfbd36d4af",
+    "points": "5c0384b7c8ba0f5b3f7c011c5779a92eb476d58c1bc0c771b006b41152f56da7",
+    "pointsImage": "91a301b635c10789beb2b74ec5b58cf943ff3a2131d48f024983738c6dede8fa",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:11:09.612Z"
+  }
 }

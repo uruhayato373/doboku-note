@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "anzen-ippanron-3riyu",
+  "key": "point-cause1-1",
+  "sceneId": "cause1",
+  "exam": "civil-construction-2",
+  "narration": "原因の1つ目。現場条件が書かれていないことです。墜落防止のため手すりを設置した、だけでは、どの現場でも通る文になります。軟弱地盤だった、交通量の多い道路に近接していた、施工ヤードが狭かった。課題の原因になった自分の現場条件を最初に置いて、そこから課題を導きます。",
+  "visual": {
+    "heading": "原因1　現場条件が書かれていない",
+    "items": [
+      "「手すりを設置した」だけでは匿名の文",
+      "軟弱地盤・道路近接・狭いヤード・梅雨時期",
+      "現場条件 → そこから生じた課題、の順で書く"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+}

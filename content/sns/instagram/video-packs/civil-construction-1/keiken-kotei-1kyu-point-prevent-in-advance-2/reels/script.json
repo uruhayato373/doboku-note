@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "keiken-kotei-1kyu",
+  "key": "point-prevent-in-advance-2",
+  "sceneId": "prevent-in-advance",
+  "exam": "civil-construction-1",
+  "narration": "工程管理は、遅れてから挽回した経験だけが題材ではありません。土工事と杭工事が競合する場合など、事前に施工順序を検討した経験も整理できます。どの競合を予想し、安全を確保しながら工程にどう反映したかを、実際に行った検討と結果で説明しましょう。",
+  "visual": {
+    "heading": "事前の検討を書く",
+    "items": [
+      "競合工程を施工順序の検討で回避",
+      "安全性の確保とセットで書く",
+      "事前の検討は挽回策より厚みが出る"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+}

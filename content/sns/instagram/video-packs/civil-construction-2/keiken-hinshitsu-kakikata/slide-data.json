@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "keiken-hinshitsu-kakikata",
+  "exam": "civil-construction-2",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "品質管理の答案",
+        "組み立て方"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：基準を守れば書ける",
+      "items": [
+        "規格値の遵守だけでは技術的課題にならない",
+        "出発点は「現場条件で達成が難しくなった場面」"
+      ],
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "nagare",
+      "heading": "課題・検討・対応を一本につなぐ",
+      "items": [
+        "現場状況から技術的課題を導き、検討した理由と内容を示します。",
+        "検討項目と対応処置を結びつけ、評価の要否は当該年度の設問に従います。"
+      ],
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "kadai",
+      "heading": "課題は現場条件と規格値のギャップ",
+      "items": [
+        "観点：計画・材料・施工・養生・検査・周知",
+        "軟弱地盤・梅雨・暑さ寒さが原因になる"
+      ],
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "doko",
+      "heading": "土工は原因と測定方法を対応させる",
+      "items": [
+        "締固め不足には、まき出し厚の管理とRI計器・砂置換法などの測定を対応させます。",
+        "雨水による支持力低下には、排水勾配や仮排水路などを検討します。"
+      ],
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "concrete",
+      "heading": "典型パターン：コンクリート・舗装",
+      "items": [
+        "暑中：練混ぜ水冷却・打重ね時間の管理",
+        "寒中：保温養生で初期凍害を防止",
+        "舗装：温度管理を運搬から転圧まで一貫"
+      ],
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "taio",
+      "heading": "処置は管理方法と基準で説明",
+      "items": [
+        "実際に用いた測定方法と管理基準の数値を示します。",
+        "評価を求める設問では、確認できた品質の結果を簡潔に述べます。",
+        "例文の数値をそのまま使わず、自分の現場の事実に置き換えます。"
+      ],
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

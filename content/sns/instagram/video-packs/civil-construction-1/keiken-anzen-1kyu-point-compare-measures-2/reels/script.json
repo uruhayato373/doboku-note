@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "keiken-anzen-1kyu",
+  "key": "point-compare-measures-2",
+  "sceneId": "compare-measures",
+  "exam": "civil-construction-1",
+  "narration": "安全管理の検討では、危険に対して何を比較し、なぜその対策を選んだかを書きます。高所作業なら墜落防止、掘削なら崩壊防止というように、現場条件と対策を結びつけましょう。設備名を並べるだけでなく、採用理由と実際に講じた処置がつながることが大切です。",
+  "visual": {
+    "heading": "安全対策は採用理由まで書く",
+    "items": [
+      "高所作業：墜落防止策を検討",
+      "掘削：地山条件と崩壊防止策を検討",
+      "現場条件→比較→採用理由をつなぐ"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx",
+  "editorialNote": "危険条件を省略した安全設備の一律推奨を避け、答案の検討過程に論点を絞る。"
+}

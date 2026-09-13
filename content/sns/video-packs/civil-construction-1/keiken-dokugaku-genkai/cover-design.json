@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "自分の答案",
+        "採点できる？"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/108.png",
+        "sha256": "5623d9e13e28d42fddaa9b39df356bc99bbf52ab8d4bb795172ca24585e182dd",
+        "specSha256": "95df3f9225c59e92384d9d5fe344cbd704edfc24e9e81a8e6450d351d367ad68"
+      }
+    },
+    "point-layer-overview-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "経験記述の質",
+        "３層で捉える"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/109.png",
+        "sha256": "f749d22ade098b963c6b1cefad89eaa6abc69ce6314cfe62e4319bec7ca372eb",
+        "specSha256": "b88f1dc67b1d02c85cde22fbb8d997324067f794f6d40f8541f91a1196552fb5"
+      }
+    },
+    "point-layer-format-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "経験記述の形式",
+        "自分で確認する"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/110.png",
+        "sha256": "be7d73cfe5d23ac29801e0ca2aaa99d1ddd6b95b81211f5e4c050e6b4e4b9f0f",
+        "specSha256": "e321e745537e4f55deaf99d7ec3d343c177f68014b0e2271bfea97810ca14b0b"
+      }
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "二次の施工計画",
+        "記述の型"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/180.png",
+        "sha256": "663bc54440db53391105992967043f740be36b5a78d2951caf2b1137cc56cc53",
+        "specSha256": "84335d79bc4dff10fdf4d885c8dba5a10f60c9aa568bf6e4e295d02aa0b56b3d"
+      }
+    },
+    "point-pattern1-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "施工計画",
+        "留意事項の",
+        "穴埋め対策"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/181.png",
+        "sha256": "419ac559438d6a5dcab6c5d4bfe97a3d3583dc385b30df3bde288c6c200c3b3e",
+        "specSha256": "cf14cc91677e95fa46ac1e242e27dfa635b5897ebe5e61f0b575d6b107215e54"
+      }
+    },
+    "point-pattern2-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "施工計画書",
+        "何を記載する？"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/182.png",
+        "sha256": "f1ca8e220f3d57d4c3129dd46517ace059737e22f96fc50d8825e45663337222",
+        "specSha256": "48e8221857bd9b163b713313883527a5f55125a96c567d9ec243aa5e19736162"
+      }
+    }
+  }
+}

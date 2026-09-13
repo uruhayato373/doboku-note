@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "軟弱地盤対策",
+        "原理で整理"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/072.png",
+        "sha256": "8e5d76e23db88a5d820cc938dbd4e7c8ac31ab72c52c0b1abf9833ca3ac54ecf",
+        "specSha256": "2aecc29497d48a15f79e107ec6ade32f2a6f650cb4406572047e1c47f148ef6b"
+      }
+    },
+    "point-overview-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "軟弱地盤対策",
+        "５つの原理"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/073.png",
+        "sha256": "3d61d73dfe77c7552616b677ef6562d70c2b41523f224ddbf006d1b104a8439b",
+        "specSha256": "c6bc49a14cb52b0cc853fb5df8c782b4d72f7b1b4f2a97b385cfa4634dc9bd4d"
+      }
+    },
+    "point-step1-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "圧密・排水",
+        "代表工法を整理"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/074.png",
+        "sha256": "fc7d8ca90bbcb1cb328d1d89d67c13ae5760a81b0b0d39fe16bb377f6df219ab",
+        "specSha256": "ae0bf46d10e82a2d638c0fcb35a6be290d1de02afb446a7fe8bf7cbc1601e0a0"
+      }
+    }
+  }
+}

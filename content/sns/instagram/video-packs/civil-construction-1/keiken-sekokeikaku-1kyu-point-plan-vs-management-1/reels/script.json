@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "keiken-sekokeikaku-1kyu",
+  "key": "point-plan-vs-management-1",
+  "sceneId": "plan-vs-management",
+  "exam": "civil-construction-1",
+  "narration": "施工計画は、工事の条件を踏まえて、施工方法や機械、人員、工程などを事前に検討するものです。着工後の施工管理では、計画に沿って品質、安全、工程を確認します。現場条件が変われば計画も見直します。計画と管理を別々に覚えず、つながりで理解しましょう。",
+  "visual": {
+    "heading": "施工計画と管理をつなげる",
+    "items": [
+      "計画：方法・機械・人員・工程を検討",
+      "管理：品質・安全・工程を確認",
+      "条件が変われば計画も見直す"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx",
+  "editorialNote": "施工計画を着工前にしか行わないとする時点固定を修正。"
+}

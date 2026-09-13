@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "roadmap-juken-shikaku",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "１級土木",
+        "受検資格と制度"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "reading",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：受検資格の仕組みが複雑",
+      "items": [
+        "第一次は年齢だけで受験可能",
+        "改正前より見通しやすくなった"
+      ],
+      "sourceRef": "content/site/civil-construction-1/guide-exam-overview/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "1　試験は第一次・第二次の2段階",
+      "items": [
+        "第一次：四肢択一（マークシート）",
+        "第二次：記述式（経験記述を含む）"
+      ],
+      "sourceRef": "content/site/civil-construction-1/guide-exam-overview/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "第一次の年齢と第二次の経験を区別",
+      "items": [
+        "第一次は、受検年度末時点で19歳以上が基準で、実務経験を問いません。",
+        "第二次は、新受検資格や経過措置を含む各経路の実務経験を確認します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/guide-exam-overview/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "3　科目と出題範囲",
+      "items": [
+        "第一次：土木一般・専門土木・法規・施工管理法",
+        "第二次：経験記述を軸に実務の記述力"
+      ],
+      "sourceRef": "content/site/civil-construction-1/guide-exam-overview/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step4",
+      "heading": "合格基準と取得する称号を確認",
+      "items": [
+        "第一次は総得点だけでなく、施工管理法の応用能力の基準も確認します。",
+        "第一次合格で技士補、第一次・第二次の両方の合格で技士となります。",
+        "基準点は当該年度の公式発表を確認します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/guide-exam-overview/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

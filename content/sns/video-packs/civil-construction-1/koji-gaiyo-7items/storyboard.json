@@ -20,8 +20,8 @@
       "narration": "工事名を正式名称で書けば安全、と思われがちですが、概要の要は項目どうしの整合です。工期に対して施工量が多すぎる、工種と数量が対応していない。こうした矛盾は概要だけで見つかります。",
       "caption": "概要の要は項目どうしの整合",
       "visual": {
-        "heading": "誤解：正式名称を書けば安全",
-        "items": ["要は項目どうしの整合", "工期×施工量の矛盾は概要だけで露見する"]
+        "heading": "工事概要の要は、項目どうしの整合",
+        "items": ["工期 × 施工量：この期間で施工できるか", "工種 × 数量：対応する数量を書いているか"]
       },
       "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
     },
@@ -67,6 +67,7 @@
       "caption": "場所は詳しく・立場は現場の立場",
       "visual": {
         "kind": "figure",
+        "flow": ["発注者", "元請会社", "一次下請", "二次下請"],
         "src": "content/site/civil-construction-1/secondary-experience-writing-guide/img/fig-orderer-case.webp",
         "heading": "STEP 3　場所・発注者・立場",
         "items": ["場所：県→市郡→町名・地先まで", "発注者：下請なら注文者を書く", "立場：会社の役職ではなく現場の立場"]

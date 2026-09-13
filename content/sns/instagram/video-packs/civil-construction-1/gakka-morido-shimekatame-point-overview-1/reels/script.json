@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-morido-shimekatame",
+  "key": "point-overview-1",
+  "sceneId": "overview",
+  "exam": "civil-construction-1",
+  "narration": "盛土の前には、基礎地盤の状態を確認します。処理の目的は、盛土とのなじみをよくし、初期の締固めを円滑にすること、支持力を確保し、有機物の腐食による沈下を防ぐことです。軟弱かどうかは、土質と調査結果を合わせて判断しましょう。",
+  "visual": {
+    "heading": "盛土前に基礎地盤を確認",
+    "items": [
+      "盛土とのなじみ・初期締固めを改善",
+      "支持力を確保する",
+      "有機物による沈下や軟弱性を確認"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-embankment/article.mdx",
+  "editorialNote": "単位を欠いた強度数値を削除し、基礎地盤処理の目的に論点を絞る。",
+  "coverHeadline": [
+    "盛土の基礎地盤",
+    "処理の目的"
+  ]
+}

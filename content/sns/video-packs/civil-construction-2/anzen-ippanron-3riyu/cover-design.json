@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-2",
+      "headline": [
+        "安全管理の答案",
+        "一般論になる",
+        "３つの原因"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/198.png",
+        "sha256": "70ccb2ba2c59eaf3e0a2eadcbab22d90a3ace2b97588655d7654bb650ade68d7",
+        "specSha256": "93ef3960b1babd7c59b27de0b8573dde4b98a34e0392eee8a95908de6df82ffc"
+      }
+    },
+    "point-cause1-1": {
+      "format": "shorts",
+      "exam": "civil-2",
+      "headline": [
+        "安全管理の答案",
+        "現場条件がない"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/199.png",
+        "sha256": "57ab0cf329e8f09fc7152002738ef3bb49588683c544cd7b700961bb7e4e7a50",
+        "specSha256": "28d4950ed58703ec55c23707d6b1dcf1ae5e32a67d703014e915f9063d270384"
+      }
+    },
+    "point-cause2-2": {
+      "format": "shorts",
+      "exam": "civil-2",
+      "headline": [
+        "安全管理の答案",
+        "対策の列挙だけ"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/200.png",
+        "sha256": "3efe60f923a2914eb079f78d13678ea67e3ffd830648b809d434a608448260f3",
+        "specSha256": "2efe848690d4d5c8d01cfffe461c66ce651a26c236ebd02aa455893a471fe774"
+      }
+    }
+  }
+}

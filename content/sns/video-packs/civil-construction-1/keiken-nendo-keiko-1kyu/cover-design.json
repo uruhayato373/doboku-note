@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "二次の出題傾向",
+        "５年の流れ"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "reading",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/129.png",
+        "sha256": "e48c2504f4a264f9dd421aad9918863d182b412df9cc2d0be33b954d1e44b00f",
+        "specSha256": "eef7185f3227d906947b34714963d360afcccde72a0f7f7a3a6a4ab3c41015d9"
+      }
+    },
+    "point-overview-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "令和３〜５年度",
+        "１テーマの形式"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/130.png",
+        "sha256": "f107978846b4c981290b2d1cb9945bbfe59377f016b02edb92f7148e46380276",
+        "specSha256": "3688a61848909c9dfdc5c2fa396cc30ca22896467432fe7bb3204cc7b3d3ad35"
+      }
+    },
+    "point-step1-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "令和６年度",
+        "２テーマ必答へ"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/131.png",
+        "sha256": "4a5549df78fd97d12a118e2121eaeb48833e8b07ffae4b534f96fa0e31b9d871",
+        "specSha256": "3e83fc750dcc6ff634252d5c4fef052a0cd9f6b2a9857c96c5917d7ad63a7f26"
+      }
+    }
+  }
+}

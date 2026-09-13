@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "shunin-structural-design-ronten",
+  "key": "point-shear-capacity-2",
+  "sceneId": "shear-capacity",
+  "exam": "concrete-chief-engineer",
+  "narration": "鉄筋コンクリートのせん断耐力は、コンクリートとせん断補強筋が負担する分を考えます。スターラップの量や間隔は、その抵抗に関わります。せん断破壊は急激に起こりやすいため、一般に曲げ破壊を先行させ、変形できる余裕を確保する設計を目指します。",
+  "visual": {
+    "heading": "せん断耐力は負担の分担で理解",
+    "items": [
+      "コンクリートとせん断補強筋が負担",
+      "スターラップの量・間隔が関わる",
+      "曲げ破壊を先行させ変形性能を確保"
+    ]
+  },
+  "sourceRef": "content/site/concrete-chief-engineer/textbook-structural-design/article.mdx",
+  "editorialNote": "主筋降伏強度は寄与しないとの無条件断定や強度のみで耐力が決まる表現を省略。"
+}

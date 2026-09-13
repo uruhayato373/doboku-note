@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.222Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-ukeoi-yakkan/shorts/point-step1-2/shorts.mp4",
-  "durationSeconds": 30.17,
-  "sha256": "1c4a0a05c5e9fc55348ced8ca46472d041f56d7a6e058f14597b3274609e7599",
-  "coverSha256": "ee313c83bb1c66b4c235a85aab090d019d4eb13641a70d07b5aa61b6748723d5",
-  "renderedAt": "2026-09-06T00:07:37.290Z"
+  "durationSeconds": 30.2,
+  "sha256": "28c015c43cfea0cb5970b7683d22f8b8a69af99291a088199029de67faef7cfe",
+  "coverSha256": "f6b0a15f6cf6d701fbf2af332a481f96a8c035db5f3488e30cefa0355f3c6c50",
+  "renderedAt": "2026-09-10T11:45:05.591Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "9027fd11a1329857aaee4f08633c46a95d06cf0694fe28a79a9efe7cbc691076",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "1cef61a9e462fb05617e251a2ca9c4fc110ac36270395318d08ed45565360ece",
+  "speaker": 13,
+  "narration": "公共工事の約款の通知は、誰から誰へ向かうかを対にして覚えます。現場代理人や主任技術者などは、受注者から発注者へ書面で通知します。監督員を置いたときは、発注者から受注者へ知らせます。同じ通知という言葉でも、立場を逆にしないよう注意しましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "15ce0cdd054c70e9117fe60b2d7f395bcda6cefb5a6ddcfe98690c9b1fa8518c",
+    "points": "107b0374cc8b08d1b3aea339cc9eee47017310b156f2754c7470eebddf62f06e",
+    "pointsImage": "bd7efecbb773e889bff2bd1c0614ffbd15810540cd23203f1b5fc7d71a17d3e9",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:45:05.591Z"
+  }
 }

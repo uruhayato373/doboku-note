@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "keiken-ochiru-toan-1kyu",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "経験記述の減点",
+        "共通パターン"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "工事の規模だけで答案は具体化しない",
+      "items": [
+        "大きい工事でも、自分が担当した管理が見えなければ内容は伝わりません。",
+        "規模に見合う現場条件・判断・対応を、経験した範囲で示します。"
+      ],
+      "sourceRef": "content/note/1級・2級土木/1級土木/1級経験記述で落ちる答案/article.md"
+    },
+    {
+      "type": "point",
+      "sceneId": "gap",
+      "heading": "課題と対応がつながらない",
+      "items": [
+        "(1)の課題と(2)の対応が別方向を向く",
+        "課題の論点に対応がまっすぐ返っているか",
+        "(1)(2)を続けて読み返して点検する"
+      ],
+      "sourceRef": "content/note/1級・2級土木/1級土木/1級経験記述で落ちる答案/article.md"
+    },
+    {
+      "type": "point",
+      "sceneId": "generic",
+      "heading": "規模は大きいのに一般論",
+      "items": [
+        "現場に行かなくても書ける記述が典型",
+        "管理基準値・試験方法・有資格者の選任",
+        "数値と固有条件で当事者性を示す"
+      ],
+      "sourceRef": "content/note/1級・2級土木/経験記述-落ちる答案診断-無料/article.md"
+    },
+    {
+      "type": "point",
+      "sceneId": "mismatch",
+      "heading": "概要と本文の工種・数量を照合",
+      "items": [
+        "本文で扱う工種や施工量が、概要と一致するかを確認します。",
+        "課題が概要の条件から自然に読み取れるように書きます。",
+        "本文にだけ出てくる工種があれば、概要と合わせて見直します。"
+      ],
+      "sourceRef": "content/note/1級・2級土木/1級土木/1級経験記述で落ちる答案/article.md"
+    },
+    {
+      "type": "point",
+      "sceneId": "reasonless",
+      "heading": "やったことだけで理由がない",
+      "items": [
+        "対応処置が作業手順の羅列で終わる",
+        "なぜその対策を選んだかの理由がない",
+        "予測→選択理由→対策を一続きに書く"
+      ],
+      "sourceRef": "content/note/1級・2級土木/経験記述-落ちる答案診断-無料/article.md"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

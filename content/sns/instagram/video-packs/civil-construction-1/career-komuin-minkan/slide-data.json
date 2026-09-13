@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "career-komuin-minkan",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "公務員か民間か",
+        "土木の仕事選び"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "仕事と条件の両方で比べる",
+      "items": [
+        "公務員は安定、民間は年収、と一つの軸だけで決めないようにします。",
+        "担当する仕事、給与の仕組み、働き方を並べて考えます。"
+      ],
+      "sourceRef": "content/note/1級・2級土木/公務員土木か民間か-無料/article.md"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "発注者の仕事に活かせる経験",
+      "items": [
+        "発注者として計画・発注・監督・維持管理",
+        "図面の読み方・工程管理の勘所が武器になる"
+      ],
+      "sourceRef": "content/site/civil-construction-1/guide-public-servant/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "公務員の働き方と給与の特徴",
+      "items": [
+        "公共性や雇用の安定を重視する人には、公務員という選択肢があります。",
+        "給与体系や上限は、民間企業の条件と具体的に比較します。"
+      ],
+      "sourceRef": "content/note/1級・2級土木/公務員土木か民間か-無料/article.md"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "民間は会社と現場による違いを見る",
+      "items": [
+        "施工を通じて形に残す達成感や、経験を評価する給与条件が判断材料です。",
+        "勤務時間や休日などは、会社・現場ごとの実態を確認します。"
+      ],
+      "sourceRef": "content/note/1級・2級土木/公務員土木か民間か-無料/article.md"
+    },
+    {
+      "type": "point",
+      "sceneId": "step4",
+      "heading": "応募経路と優先順位を確認",
+      "items": [
+        "公務員の社会人経験者採用など、自治体ごとの募集条件を確認します。",
+        "公務員と民間の両方を比べ、自分が重視する条件から選びます。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/guide-public-servant/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

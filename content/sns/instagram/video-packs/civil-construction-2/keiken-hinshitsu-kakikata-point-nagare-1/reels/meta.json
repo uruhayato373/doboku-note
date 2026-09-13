@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.188Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-hinshitsu-kakikata/shorts/point-nagare-1/shorts.mp4",
-  "durationSeconds": 30.59,
-  "sha256": "80acaf7d4d0f34e07b14f0ffa3bcf2bcc6c4ea838c3d75840316aec84ec123c1",
-  "coverSha256": "9bfd51ef0ceaca2829d483a3fa7a653bf838a6d8253bfde880ee12c1345e7558",
-  "renderedAt": "2026-09-05T23:18:56.257Z"
+  "durationSeconds": 30.37,
+  "sha256": "c35ddb9e1bf35dcf6729986b34377b910015ce080950dad170ae4b5451576bc7",
+  "coverSha256": "46da5ad58875cd2ddb99cd28451601822780f1ec33a9bb6c858cb6f205c46707",
+  "renderedAt": "2026-09-10T10:52:15.256Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "90c679f8d1f4b32cc39ea950d5faf853a54ccab82f5c909ffd5f6a76e8a5fc07",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "84f146bc29524ee37ac432e72a4bbdb433f0aa9dd97f36b21ee723cbf9aa6377",
+  "speaker": 13,
+  "narration": "品質管理の経験記述は、現場状況、技術的課題、検討項目、対応処置をつなぎます。どんな条件があり、何を検討し、なぜその処置を選んだのかを説明しましょう。評価の要否や分量は、受検年度の設問を優先します。指定された欄に、求められた内容を書きます。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "ea07442c558e37378f37e4dc475b5f89f22727e28af9253fb883f70e003c4618",
+    "points": "816bdef5bd821173daf57df0bb2ec4e59ed53aaaaf3525d0f35ec34cfaf94e95",
+    "pointsImage": "e00ecdf625cc5847f7731b006204b956a20d38b0ea053804f51ab6a94d22cfc5",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T10:52:15.256Z"
+  }
 }

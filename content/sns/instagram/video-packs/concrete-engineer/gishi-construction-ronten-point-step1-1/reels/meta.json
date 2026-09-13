@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.197Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gishi-construction-ronten/shorts/point-step1-1/shorts.mp4",
-  "durationSeconds": 30.55,
-  "sha256": "7df0fb2355afbdee1882a916220f7b717366d471f987b68f586805a9ef2599da",
-  "coverSha256": "f9c46c1c7eba73a68a0a028f1c1d5dc62e03b31e90827fdf29930a78a587275c",
-  "renderedAt": "2026-09-05T23:29:32.707Z"
+  "durationSeconds": 30.2,
+  "sha256": "7dab508339f75abfcced19c1e6e57012dbaf922ffebb8e7e5c623f628850b9b9",
+  "coverSha256": "8981028034b71c7ef774d6faa81ae1db311492716ec484754d192704b750135c",
+  "renderedAt": "2026-09-10T11:02:39.540Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "7ae4f9b4305522653511a63ec6fba7678974302075165ebfdb3238ddcc272e34",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "f5c89014815ea454658043c2179b87966355a5f55fb9060e72f51ed1c1e65e26",
+  "speaker": 13,
+  "narration": "施工計画では、構造物の形状、施工量、打込み区画、供給能力、運搬経路、気象条件を整合させます。供給能力より打込み速度を大きく計画すると待ち時間やコールドジョイントが生じます。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "4045c0d06ee373148868c40470a5f35519d22fab02bfd83706b3f3c34050ffc0",
+    "points": "391f99ce46b0796b70f2463f3ce03cec68855f99835be1a4e824dd67edb40860",
+    "pointsImage": "c016146719661c6a949c85389af362c78dde50e6ed25a0d3dd8fde80765f49e5",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:02:39.540Z"
+  }
 }

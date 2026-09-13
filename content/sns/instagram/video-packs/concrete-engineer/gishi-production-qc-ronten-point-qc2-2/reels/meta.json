@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.196Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gishi-production-qc-ronten/shorts/point-qc2-2/shorts.mp4",
-  "durationSeconds": 31.03,
-  "sha256": "f257c4605187e4beb3644ee8e6d60aeca9e6e7ed4849da98d92375a089a750ff",
-  "coverSha256": "08d245a0279feeb8d43ea5d02f47c5ec3942a0939cf9c3a351ce4c395c8ffbb6",
-  "renderedAt": "2026-09-05T23:28:57.133Z"
+  "durationSeconds": 30.2,
+  "sha256": "67aa2a3f0160134addf52112a05db95f1262161c8400eea8c69a0cd037988dd0",
+  "coverSha256": "085b0199579fa3ff6e0b54d2e84e5d6e9bf981c88f72ca8fc5a2049656982c8f",
+  "renderedAt": "2026-09-10T11:01:37.276Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "55ca1ab0db8fa1ff977b28959d49875519a6a71d057e291c9015809c9b1832ba",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "67e147ce51766d78ff1e3cf6cac2caf5c156be51bd24467cf9cb90a55df63fcc",
+  "speaker": 13,
+  "narration": "セメントは種類混同と湿気を避けて貯蔵し、骨材は粒径・種類別に区分します。表面水率は天候で変わるため定期的に測定し、計量値へ反映します。反映が遅れると、単位水量と骨材量が設計値からずれます。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "3dd7cf805b7cbf164ae3fd16ee51979b0f47f2a5056198c0ff0eb2778f806c57",
+    "points": "e7518e68815082b3b30b63e59353ff53d19f1a433ff6656b074bef4f6206da15",
+    "pointsImage": "8a5d84a7959a4045d3aefa3d92070f902ddd1e9b2338216ef6aa5dfa1d50e04e",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:01:37.276Z"
+  }
 }

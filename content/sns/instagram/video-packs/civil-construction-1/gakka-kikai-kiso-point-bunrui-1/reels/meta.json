@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.217Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-kikai-kiso/shorts/point-bunrui-1/shorts.mp4",
-  "durationSeconds": 31.27,
-  "sha256": "c1cd60345f98e62e38160ae6bc29b43dfb028c28364489e619b9c1b60e133613",
-  "coverSha256": "16d8d84e18012213fabb7754de53e38ea39db22acbcca975ecf55b167aca709e",
-  "renderedAt": "2026-09-06T00:04:28.723Z"
+  "durationSeconds": 30.2,
+  "sha256": "865010c898a683acad68f13dd7259c8b180abea5abfe7910507dcde6a01d16ac",
+  "coverSha256": "15652f38ec1c751fc7d2b2c5ae03fba7f7d4fd816e9328d21a73ce6bd91ac65a",
+  "renderedAt": "2026-09-10T11:27:27.764Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "13a7f825b7351d191d25f00a5678a82cd024ce697747c7aa7a48915e4407a69e",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "61d086940d623c1ee338d455a6cc7905ff5e8afc5f93ecba53d4134f0c5cdd20",
+  "speaker": 13,
+  "narration": "建設業法では、トラクタ系・ショベル系・基礎工事用・モータグレーダ・締固め用・舗装用などに区分します。個々の規格は、作業装置の大きさ、作業能力、質量、原動機出力の4種類で代表させます。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "25f49f07190ac02ec2c93dc64cd0d5999cfb407b76dd1880ae9e4c7be4d2ba67",
+    "points": "989acf6cece896df933026f4cfcc92bc00d017900bdbfa3d8185065490e4be71",
+    "pointsImage": "15bd40496c7b6e9f2e1523acc396561579bb838ce696abc8e1dad6c733f9a6e7",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:27:27.764Z"
+  }
 }

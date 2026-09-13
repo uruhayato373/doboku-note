@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "keiken-r6-shinkeishiki",
+  "key": "point-change-1",
+  "sceneId": "change",
+  "exam": "civil-construction-1",
+  "narration": "令和5年度までは1つの管理項目が指定され、設問1で概要、設問2でその項目を書きました。令和6年度からは5項目のうち2つが指定され、同じ工事で両方必答します。設問1と設問2は同一内容にできません。",
+  "visual": {
+    "heading": "何が変わったか",
+    "items": [
+      "令和5年度以前：1項目のみ指定",
+      "令和6年度以降：5項目中2つを同一工事で必答",
+      "設問1・設問2は同一内容不可"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+}

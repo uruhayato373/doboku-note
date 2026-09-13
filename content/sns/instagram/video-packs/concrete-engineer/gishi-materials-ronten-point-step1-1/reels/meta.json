@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.193Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gishi-materials-ronten/shorts/point-step1-1/shorts.mp4",
-  "durationSeconds": 38.33,
-  "sha256": "bac1e34e0f8eace3d5e93d44f3aa0666c156a954e40e30157af928c0285465d2",
-  "coverSha256": "9d518d70ce5e5632067c60130350ff380367713c59b90bf5ad114ec7668d06aa",
-  "renderedAt": "2026-09-05T23:24:37.118Z"
+  "durationSeconds": 30.27,
+  "sha256": "194fb9e941d8c9321ffdc7f36f7dda537198563386812c26b12e47efba2a619d",
+  "coverSha256": "5ed69c720d47d21874939aea607b8541cec8a732a23e9a6d081af9f1db363ba1",
+  "renderedAt": "2026-09-10T10:59:17.696Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "9478fbf73b488ba06594240643d26d7c4c08d493e2fe921acea5d848e208c315",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "3bd1acd429d30100bff3825a61719367a553a5f589984e46601fc7395dde277d",
+  "speaker": 13,
+  "narration": "セメントのクリンカーは、けい酸三カルシウムやけい酸二カルシウムなど四つの化合物からできています。反応が速いものほど初期強度と発熱が大きく、遅いものは長期強度が中心です。早強セメントは寒中施工や工期短縮の現場で選ばれ、中庸熱・低熱セメントはマスコンクリートの温度ひび割れ対策で使われます。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "d8f1237458d9d99ced1d3e633274b8ca30820d5983e404fd87fd38a79f552716",
+    "points": "7a39b7bba5d7a51977cb55456c1c85d650895492d52b2f54f41454a6139b3d0a",
+    "pointsImage": "711a6c0e1e87174cc7c44e9866feea52061ae43c602e623cb72e8d3e494a8caa",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T10:59:17.696Z"
+  }
 }

@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.210Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/roadmap-nanido-goukakuritsu/shorts/point-step2-2/shorts.mp4",
-  "durationSeconds": 30.63,
-  "sha256": "b8074d005db51b0a44575ca7b18f8f6a5791a98f1f590630b00f169c379380e5",
-  "coverSha256": "9a2b7266205c62d325d44cc74ca3124c12a83198110273a1aa20f3037117870d",
-  "renderedAt": "2026-09-05T23:58:56.452Z"
+  "durationSeconds": 30.2,
+  "sha256": "894fc4f806888276c0256a3dec877b2918b31577068ca2ca46ebebd1da7dc62a",
+  "coverSha256": "bb9447db7b8719ff2a79aaca4db02a19530a81e80ecedd9e16bfb194bd6fe902",
+  "renderedAt": "2026-09-10T11:17:12.445Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "dcd47016a42789cde5be5ca926cfdafec3b5dedded4bb0e918733e41e55fab4c",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "42350053fdcf5f59c04198a0163720095f46329ba9ea36ba46423e76037ad37c",
+  "speaker": 13,
+  "narration": "1級土木の第一次検定は、総得点だけでなく、施工管理法の応用能力にも基準があります。片方だけ高得点でも、もう一方を満たさなければ合格できません。練習では総得点と応用能力を分けて集計しましょう。受検年度の正式な合格基準も確認することが大切です。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "1d7b42f8b61d7dd56c75d5b8abadfdd61c91af6fc2fd6b85a430f9d594f01b47",
+    "points": "f8d299074f09c202d420de266c8947244e5e2078cc8cde41df4fee9caef5e085",
+    "pointsImage": "e64c7c771a89eb789a39cf9101ebf59069094ea2e9038264ed787c5eaa85d0f7",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:17:12.445Z"
+  }
 }

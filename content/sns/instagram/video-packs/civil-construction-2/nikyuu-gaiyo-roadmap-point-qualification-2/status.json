@@ -1,11 +1,14 @@
 {
   "reel": {
     "channel": "business-suite",
-    "status": "scheduled",
-    "scheduled_at": "2026-09-21T12:30:00.000+09:00",
+    "status": "draft",
+    "scheduled_at": null,
     "posted_at": null,
     "video": "reels/video.mp4",
     "source": ".",
-    "updated_at": "2026-09-06T09:47:29.011+09:00"
+    "updated_at": "2026-09-10T22:49:52.568Z",
+    "previous_scheduled_at": "2026-09-21T12:30:00.000+09:00",
+    "paused_at": "2026-09-10T22:49:52.568Z",
+    "pause_reason": "current-series-paused-by-user"
   }
 }

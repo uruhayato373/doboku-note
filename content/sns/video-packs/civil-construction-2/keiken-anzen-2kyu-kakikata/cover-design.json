@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-2",
+      "headline": [
+        "安全管理の答案",
+        "数字で具体化"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "good-sign",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/222.png",
+        "sha256": "71fe8a4e940a3c43c35aab232654e6a76bac74e170991efb135b2d32c56199cb",
+        "specSha256": "0c63d04faf288d2bb97ae34d1468c28ebb76da7257d2221793a9b805d77cd96a"
+      }
+    },
+    "point-step1-1": {
+      "format": "shorts",
+      "exam": "civil-2",
+      "headline": [
+        "安全管理の課題",
+        "現場条件から",
+        "絞り込む"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/223.png",
+        "sha256": "2f1c46c7debdf81cde119c002de1bfe238f53d31ee117dff2b04cc5325d11eb5",
+        "specSha256": "d6ae9b0b0799c20b88dde8c9f6273325c8a3da53448499d420b108b06e42f3d4"
+      }
+    },
+    "point-step2-2": {
+      "format": "shorts",
+      "exam": "civil-2",
+      "headline": [
+        "安全管理の検討",
+        "数値基準を",
+        "当てはめる"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/224.png",
+        "sha256": "7c22e60c331c0832051e8ce2275599e92be573d8452b36880db4ae489e5e458f",
+        "specSha256": "3b43071c98a4b65945da1bc46eae4b54a66b923c1bfc667e5865ad21f9bb6522"
+      }
+    }
+  }
+}

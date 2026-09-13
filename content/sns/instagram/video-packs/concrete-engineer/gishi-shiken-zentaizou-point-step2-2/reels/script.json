@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gishi-shiken-zentaizou",
+  "key": "point-step2-2",
+  "sceneId": "step2",
+  "exam": "concrete-engineer",
+  "narration": "コンクリート技士の試験は四肢択一式で、主任技士にある小論文はありません。正解の番号を覚えるだけでなく、各選択肢の数値や適用条件がなぜ違うのかを説明しましょう。間違えた選択肢を正しい文に直す練習をすると、似た問題への対応力を確かめられます。",
+  "visual": {
+    "heading": "試験方式",
+    "items": [
+      "四肢択一式（小論文なし）",
+      "「なぜ正しいか」を説明できる理解が必要",
+      "合格基準点は非公表、高い正答率を狙う"
+    ]
+  },
+  "sourceRef": "content/site/concrete-engineer/guide-overview/article.mdx",
+  "sourceUrls": [
+    "https://www.jci-net.or.jp/j/exam/gishi/pdf/gishi_2026_20260605.pdf"
+  ]
+}

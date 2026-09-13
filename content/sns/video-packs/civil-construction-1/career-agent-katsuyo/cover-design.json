@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "転職エージェント",
+        "選び方と使い方"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/000.png",
+        "sha256": "c2f2ddd52f15d662dfdea1e6a3ac5d96b21ab4e8069487c733ce399db26c2dfd",
+        "specSha256": "4e5e5ab1b30eaf00c57a13db29178cc88ffdb56a890b5eb5c4f8ea1f57e19e96"
+      }
+    },
+    "point-step1-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "転職サービス",
+        "タイプを知る"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/001.png",
+        "sha256": "dcbde1dc68a33fc9507987c13c1e03cc6f4e59343a1833b26651b69d34520abd",
+        "specSha256": "ee7c85ceb916cb2016a8b224eaa95f34f49d2f47f9840c64ad5cc5365e7b37ee"
+      }
+    },
+    "point-step2-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "施工管理の転職",
+        "特化型の強み"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/002.png",
+        "sha256": "7d383ba957b51c35469c8068c09ba025664cdb6e98043629c34dba825de170d4",
+        "specSha256": "67594f5dee410772f01031472c4fed1719ac604f95e24b3cead433fdf938b988"
+      }
+    }
+  }
+}

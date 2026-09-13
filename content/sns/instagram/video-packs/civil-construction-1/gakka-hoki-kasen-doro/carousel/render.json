@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "gakka-hoki-kasen-doro",
+  "inputDigest": "b9d3b99af35d5014cab60cb0c38e1ddaf3bd1c0d02ffecd59d239775e8585950",
+  "sourceSha256": "73339ab849a0ff9bddd4dd7f8d608b2910e91e8d8065da13c0d5f282a6172859",
+  "rendererSha256": "b04b4ad581c8ab70d15dc33ebed74face3677e1a938690139aa14dad15697a30",
+  "renderedAt": "2026-09-10T10:22:24.534Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-hoki-kasen-doro/carousel/img/00-cover.png",
+      "sha256": "aad3b9ac7abea2cc60cb1c2992bac9270c048f4f6ff717cb02d5ebd8d49bd495",
+      "bytes": 322161,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-hoki-kasen-doro/carousel/img/01-point.png",
+      "sha256": "a0346bb04643831d157d85797d0daa91ecffd1e2d1bcfb8799c233b3d68c3f21",
+      "bytes": 102584,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-hoki-kasen-doro/carousel/img/02-point.png",
+      "sha256": "d73258b2540df26fca382b1a3c7926eb5831e49b15088d418b27daaf137ca21c",
+      "bytes": 147430,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-hoki-kasen-doro/carousel/img/03-point.png",
+      "sha256": "c6e8907bc3bb2094686e5071c4778dc0bee7c91d70a214d848c37b697d08a81e",
+      "bytes": 132464,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-hoki-kasen-doro/carousel/img/04-point.png",
+      "sha256": "46815b3daba72e704915d2b7ffaeee93b13a24b06de6dd7e98f4c58faee0822b",
+      "bytes": 149529,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-hoki-kasen-doro/carousel/img/05-point.png",
+      "sha256": "c1390cde7da4dfcac135f46d11ad8c76e725c990fd958948b79d7240202ba18c",
+      "bytes": 111219,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-hoki-kasen-doro/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

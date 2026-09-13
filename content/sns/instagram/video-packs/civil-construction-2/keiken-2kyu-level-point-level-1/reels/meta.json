@@ -13,7 +13,27 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-2kyu-level/shorts/point-level-1/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "53dca786420e0f18446e2c18bd03a7791016c6e5e61b2d2cccd23088e8501b85",
-  "coverSha256": "a383c5c14e18ef0ed6544f8ac29a65a07ba50ad069a6b2d197ce463fd50e3b0b",
-  "renderedAt": "2026-09-05T23:20:42.940Z"
+  "sha256": "eaa2a7fde630d1d80c8f6f15954d85b2dc92ace9052e32cb6e5d6b5406a86fcb",
+  "coverSha256": "24742894a8438b72a3be9bae30d87d3145623db5a671c083936d2b8d695a8fc7",
+  "renderedAt": "2026-09-10T10:55:13.372Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "5be9567a29116d639a5b53348adeae446b01752a3efc10a7b61945a99952f5a1",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "952926e448dbc88ca79d852ec883ee5a88bc864dc7a5e09d2fdf8b6304286efd",
+  "speaker": 13,
+  "narration": "2級土木の経験記述では、珍しい工法を披露するより、自分が担当した施工管理を具体的に説明しましょう。現場での立場を示し、課題にどう対応したかを整理します。現場代理人や主任技術者という肩書を無理に使わず、実際に担った役割を書くことが大切です。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "bb31d5060662365ae272496c63cb41b479ab9f90765d779999fd9b5e80706946",
+    "points": "7d0643a63f91b11654296f2c41aeb1f0d44a3558e234bdbfb59b344d0d5f775d",
+    "pointsImage": "919f46b971051f3d629282f7f59ca354fe52107701bc544ba1a7e5237cf63221",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T10:55:13.372Z"
+  }
 }

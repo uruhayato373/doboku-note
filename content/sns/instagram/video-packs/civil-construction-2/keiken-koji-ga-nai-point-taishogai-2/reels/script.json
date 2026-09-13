@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "keiken-koji-ga-nai",
+  "key": "point-taishogai-2",
+  "sceneId": "taishogai",
+  "exam": "civil-construction-2",
+  "narration": "経験記述の題材は、対象外の一覧にないだけで決めないようにしましょう。同じ現場でも、施工管理と、設計や調査などの業務は区別されます。自分が担当した作業と管理内容を書き出し、受検する級の手引で確認します。判断に迷う場合は試験実施機関へ確認しましょう。",
+  "visual": {
+    "heading": "対象外一覧だけで判断しない",
+    "items": [
+      "施工管理と設計・調査などを区別",
+      "担当作業と管理内容を具体化",
+      "受検する級の手引で確認"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx",
+  "editorialNote": "「一覧以外ならまず対象」という不適切な消去法の断定を修正。",
+  "sourceUrls": [
+    "https://www.jctc.jp/exam/examfaq/"
+  ],
+  "coverHeadline": [
+    "経験記述の対象",
+    "担当業務も確認"
+  ]
+}

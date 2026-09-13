@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gishi-production-qc-ronten",
+  "key": "point-qc1-1",
+  "sceneId": "qc1",
+  "exam": "concrete-engineer",
+  "narration": "レディーミクストコンクリートの呼び方は、種類、呼び強度、スランプ、粗骨材最大寸法、セメント種類を組み合わせた記号です。呼び強度は購入者の指定、配合強度は製造の目標で、ばらつきがあるため配合強度を高く設定します。",
+  "visual": {
+    "heading": "呼び方は品質条件を読み解く記号",
+    "items": [
+      "種類・呼び強度・スランプ・粗骨材寸法・セメント種類の組合せ",
+      "呼び強度＝購入者の指定、配合強度＝製造の目標",
+      "ばらつきに備え配合強度は呼び強度より高く設定"
+    ]
+  },
+  "sourceRef": "content/site/concrete-engineer/textbook-production-qc/article.mdx"
+}

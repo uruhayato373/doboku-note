@@ -95,9 +95,15 @@ title: 動画コンテンツ運用ポリシー
 
 Shortsのプラットフォーム上限と、doboku-noteが採用する推奨尺を混同しない。推奨尺はフォーマット別policyに置く。
 
-16:9通常動画のレンダラーは `npm run render-longform`（`scripts/render-longform.mjs`・純粋ロジックは `scripts/lib/longform-render.mjs`）。scene の視覚要素は additive フィールド `visual: { kind: 'cover'|'points'|'figure', heading, items[], src? }` で持ち、試験色は exam-palette（note-cover-tokens.json）を解決する。`figure` はリポジトリ内の既存SVG/PNG/WebP/JPEGだけを`src`で参照し、本文の図解を1920×1080へ再利用する。出力は `.tmp/video-render/{packId}/`（PNG・WAV・ASS・render-manifest.json・mp4）で、パックディレクトリと Git にはバイナリを書かない。VOICEVOX/ffmpeg の無い環境は `--skip-tts` で PNG/ASS まで生成し、mp4 は Mac または GitHub Actions で同コマンドを完走させる。
+16:9通常動画のレンダラーは `npm run render-longform`（`scripts/render-longform.mjs`・純粋ロジックは `scripts/lib/longform-render.mjs`）。scene の視覚要素は additive フィールド `visual: { kind: 'cover'|'points'|'figure', heading, items[], src?, flow? }` で持ち、試験色は exam-palette（note-cover-tokens.json）を解決する。`figure` はリポジトリ内の既存SVG/PNG/WebP/JPEGだけを`src`で参照し、本文の図解を1920×1080へ再利用する。出力は `.tmp/video-render/{packId}/`（PNG・WAV・ASS・render-manifest.json・mp4）で、パックディレクトリと Git にはバイナリを書かない。VOICEVOX/ffmpeg の無い環境は `--skip-tts` で PNG/ASS まで生成し、mp4 は VOICEVOX と ffmpeg/ffprobe を用意した Windows / Mac 等で同コマンドを完走させる。現在、動画生成用の GitHub Actions ワークフローは無い。
 
-完成したバイナリは `video-render-artifact` group として Google Drive vault `制作物/動画レンダー/` へ退避する。人しか使わないので未公開動画をpublicバケットへ置かず、private R2も恒久保管先にしない。GitHub ActionsのYouTube API資格情報を使う予約投入時だけ、`youtube-longform:stage` で対象mp4とサムネイルをprivate R2へ一時配置できる。予約状態・videoId・publishAtの実査後、同コマンドの`--delete --commit`で対象キーを削除する。既定dry-runで対象を確認してから同期し、実体・台帳・Driveの一致を確認できたものだけを台帳へ記録する。復元は同じgroupを指定する。
+通常動画・パック派生Shortsの説明画面は `scripts/lib/video-explanation.mjs` を共用する。白背景に試験色の見出し・STEPラベル・淡い要点カードを配置し、文字量に応じて文字サイズと行高を配分する。4項目以上の横長画面は複数列にし、字幕領域を空ける。`figure` は元図に基づく短い `flow[]` を指定すると編集可能な縦フローで表示できる。
+
+通常動画の音声は読み辞書を適用し、字幕は元の漢字表記を保持する。`--resume` は `tts-inputs.json` の入力・話者・音声ハッシュの一致を要求し、古い読みの音声を再利用しない。`--resume --refresh-png` は音声の一致判定を保ったまま本文PNGを再生成する。
+
+通常動画と動画パック派生Shortsの合成では、静止画を各場面の音声実尺で切って連結し、字幕込みで1回のエンコードを行う。Shortsの字幕は下端から420px上へ配置し、採用カバーのロゴと重ねない。
+
+完成したバイナリは `video-render-artifact` group として Google Drive vault `制作物/動画レンダー/` へ退避する。未公開動画をpublicバケットへ置かず、private R2も恒久保管先にしない。GitHub ActionsのYouTube API資格情報を使う予約投入時は `youtube-longform:stage` で対象mp4とサムネイルを、採用サムネ更新時は `node scripts/stage-youtube-covers.mjs --commit` で確認済みPNGをprivate R2へ一時配置できる。前者は予約状態・videoId・publishAtの実査後、後者は更新結果の照合と記録取得後に、それぞれのコマンドの `--delete --commit` で転送用キーを削除する。既定dry-runで対象を確認してから同期し、実体・台帳・Driveの一致を確認できたものだけを台帳へ記録する。復元は同じgroupを指定する。
 
 ```bash
 npm run drive-vault-sync -- --group video-render-artifact
@@ -112,6 +118,16 @@ YouTube の stage スクリプトはローカル実体が無くても、`video-r
 `scheduled` / `published` のパックと再生成可能な派生物だけを削除し、QA 待ち・`rendered` の通常動画と
 サムネイルは作業セットとして保持する。台帳外・クラウド未到達・ローカル hash 不一致は削除せず停止する。
 安全ゲートは `tests/video-cache-prune.test.mjs` で機械検証する。
+
+### 人物付き表紙（パック単位で採用）
+
+`cover-design.json` の契約は [SNS画像ポリシー §0.1](./sns-image-policy.md)。通常動画レンダラーは `covers.longform` を先頭sceneへ使う。`--resume` でも先頭PNGは再生成し、`--skip-png` は設定のあるパックで拒否する。Shortsレンダラーは `covers[Shortのkey]` を冒頭へ使い、同じPNGから投稿サムネイルを作る。設定がある場合は旧動画のhash一致だけでは再生成を省略しない。設定のないパックは従来意匠を維持する。
+
+全レンダラーでschemaVersion・見出し行数/文字数・正規の試験キーを検査し、動画レンダラーではパックの試験との一致も要求する。単一サムネ更新の結果はstateの対象派生物の `thumbnailUpdate` に記録する（送信画像SHA・保存確認・実画像の確認面・動画本体の変更有無）。一括更新の詳細結果・前後情報・旧画像は暗号化receiptsを正本とし、公開可能な確認結果を必要に応じ既存stateへ反映する。`.claude/state/youtube-thumbnail-designs.json` は画像チェック台帳であり、外部更新完了を示さない。`cdn-matched` は配信画像の画素一致、`accepted-cdn-pending` はAPI受理後の確認待ち。いずれも公開フィード確認とは別である。`youtube.json` の元レンダーのmedia/thumbnail hashとは分離し、Studio/CDN確認を公開フィード確認へ読み替えない。一括手順は [SNS画像ポリシー §0.1](./sns-image-policy.md)。
+
+`npm run youtube-shorts:render -- --pack-dir PATH --key KEY --preview-only --render-root .tmp/preview` は表紙・本文・CTAのPNGだけを `work/` に生成する。投稿サムネ・mp4・youtube.jsonのhashは書き換えない。公開済みサムネだけの更新ではこちらか `youtube-covers` を使い、動画まで更新したとは記録しない。通常動画の `--skip-tts` も完成動画ではなくPNG/字幕設計の確認用。
+
+採用した締め画像はパックの `cta-design.json`（schemaVersion 1）で指定する。`longform` / `shorts` はそれぞれ `{path, sha256}` を持ち、1920×1080 / 1080×1920 のPNGを全画面で使う。画像の復元・hash・寸法の検査は表紙と共通で、不一致時は停止する。通常動画ではsceneId `cta` を置換し、`--resume` でも反映、`--skip-png` は拒否する。Shorts側には画像に対応する `narration` も必須で、通常動画の `render-manifest.json` に記録した `speaker` と同じ話者で合成し、字幕もこの文面に揃える。音声キャッシュは入力・話者・WAV hashで照合する。`--preview-only` はCTA画像までを検査し、音声は生成しない。設定のない形式は従来のCTAを使う。
 
 ## 5. 状態モデル
 
@@ -225,6 +241,36 @@ manifest parse失敗、sourceRefs未解決、status parse失敗はFAIL（PASSに
 
 APIへ非公開アップロード済みで関連動画設定待ちのShortsは `uploaded_private` とする。各Shortのアップロード成功直後に状態を書き、同一パックの2本目が日次上限で失敗しても1本目の`videoId`を失わない。
 
+### 既存動画の新版への移行
+
+動画ファイルは同じYouTube URLのまま差し替えられない。再アップロードと旧版削除をユーザーが承認した場合も、新版の処理完了・再生・サムネ・公開範囲/予約日時・Shortsの関連動画を確認してから旧版を削除する。旧URLの視聴数やコメントは新版に移らない。
+
+`scripts/prepare-youtube-migration.mjs` は完全なチャンネル一覧と検証済みレンダーから移行計画を作る。`--inventory` / `--progress` / `--verification` にローカルJSONを渡し、既定は計画生成のみ、`--commit` はSHA-256付きの動画・サムネ・計画をprivate R2へ一時転送する。公開リポジトリへ非公開動画IDや旧新対応表を追加しない。恒久的な生成物保管先は引き続きDrive。
+
+生成物の容量が大きいため、転送時は動画を1本ずつ読み、全本のバイナリをメモリに保持しない。Driveとprivate R2の両方で実体をハッシュ照合した完成動画は、手元のキャッシュを整理できる。ローカルmp4がない場合、この計画処理は既知のハッシュに対応するprivate R2実体を読み、ハッシュとffprobeを再検査する（R2の認証情報が必要）。未転送・未検証の完成動画や採用原本を容量対策だけで消さない。再生成可能なWAV・場面PNGは完成mp4の保存検証後に整理できる。
+
+手動workflow `sync-yt-descriptions.yml` の `migration-upload` は計画のハッシュ・チャンネル・旧動画のメタデータ・送信動画のハッシュを照合する。既定dry-run、`commit=true` で通知なしの非公開アップロードだけを行う。既存タイトルとの一致で旧版を再利用しない。private R2へアップロード意図を先に保存し、応答を失った場合は再投稿せず記録と専用タグを照合する。処理完了は動画の尺・縦横寸法・音声ストリームまで実査する。このoperationに公開設定変更・サムネ更新・旧版削除は含まれない。サムネの日次制限中も非公開アップロードの結果を保持し、制限解除後の残工程へ引き継ぐ。
+
+残工程も同じworkflowでphaseを指定する。`migration-audit` は旧版の字幕・再生リスト所属と新版の処理完了を取得し、`commit=true` の場合だけprivate台帳へ記録する（YouTubeへの書き込みなし）。`migration-thumbnail` は再試行可能日時を守り、設定後のCDN画像を比較する。受理済みで表示待ちの場合は再送しない。明示的な上限拒否は24時間の待機後に再試行できる状態として記録し、通信断などで結果不明の場合は再送せず照合する。
+
+`migration-activate` はサムネ実表示・再生・再生リスト/手動字幕・Shorts自身の関連動画の状態が台帳にそろったものだけ、旧版の公開範囲と未来の予約日時へ切り替え、APIで読み直す。確認記録は自動で「確認済み」にせず実査後にprivate台帳へ残す。通常動画を公開した後、その動画を指すShortsや管理台帳の参照を新版へ更新する。`migration-delete` は依存リンクの更新完了を前提に、CIが削除直前の実査を実行する。新版の処理完了・公開範囲/予約・メタデータ・サムネ実表示を読み直し、旧版が含まれる再生リストに新版があることと手動字幕の保存を確認する。旧新IDとリンク確認記録のhashを持つ実査結果をprivate台帳へ保存・読み直し、削除意図を記録してから旧版だけを削除し、APIで不存在を確認する。実査から1時間以内かはCI自身が検査し、人に日時の書き直しを求めない。削除応答を失っても新たな対象を推測しない。移行中は旧IDを参照する日次投入を停止し、次節のprivate台帳キューへ切り替える。
+
+### 定期予約・公開CI（2026-09-10）
+
+`post-youtube-scheduled.yml` は毎日20:17 JSTに、固定した検証済みコードの `node scripts/youtube-delivery.mjs` を実行する。これはAPIへ予約を投入する時刻であり、視聴者への公開は既存カレンダーの `publishAt` にYouTube側が実行する。手動実行は `apply=false` が既定。`apply=true` は同じprivate台帳から続行する。旧 `publish-video-batch.cjs` のタイトル検索による日次投入には戻さず、置換対象IDを固定したキューへ切り替える。停止はActionsのDisable workflowで行う。コードや設定を更新するときは検査を通したコミットをpushし、workflowのcheckout refも更新する。
+
+対象・日次上限は `.claude/config/youtube-delivery.json`。初期対象はA案への置換を承認した既存344本で、legacyのretired 187本や未承認の新規企画は追加しない。現行プラン外の新規動画は自動追加しない。今回の設定を将来の無制限な新規公開承認として流用しない。
+
+処理は処理完了監査→サムネ→公開範囲/予約復元→旧版削除→未予約Shortsの予約→残りの非公開アップロード。Pacific日付ごとの上限をAPI呼出し前に保存するため、手動で同日に再実行しても枠をリセットしない。APIの日次上限は次のPacific午前0時、チャンネルのアップロード/サムネ日次制限は24時間待つ。制限は待機として扱い、認証・データ不一致・応答不明は停止する。1回の予算消化で未処理が残っても次回へ持ち越す。
+
+実行状態はprivate R2の `youtube-migration/bridge-notebook-a-20260909/delivery-state.json` と `receipts/`、生エラーは同prefixの `delivery-error.json`。公開Git・Actionsログ・ジョブサマリーへは件数と固定の待機理由だけを出し、未公開動画IDを含めない。手動移行workflowと同じconcurrency groupで直列化する。
+
+再生確認、Shorts関連動画、依存リンク更新は、証拠がない間は待機理由として残す。CIはこれらの確認済みフラグを自作しない。削除前のAPI・サムネ実査は毎回CIが実行して証拠を保存するため、手書きの削除監査記録は不要。手動字幕がある対象は `captionVerification.tracks[]` の `oldId/newId/contentMatched/newLastUpdated` と実トラックを照合し、旧字幕の更新や未保存があれば停止する。旧版削除済みの未予約Shortsは、関連先IDの確認記録と公開/限定公開の実体を確認し、各 `youtube.json` の未来の日時へ予約する。過ぎた枠を一斉公開に読み替えず `expired-publication-slot` として停止する。移行中の公開Git台帳には旧IDが残るため、private台帳との参照更新を済ませるまでは依存リンク確認を完了扱いにしない。
+
+旧形式の10素材（YouTube実体は重複1本を含む11本）は `content/sns/youtube/legacy-refresh.json` と `scripts/refresh-legacy-youtube.mjs` で再生成する（`--only <key>` で部分再生成）。過去問8素材はハッシュ照合した原本の設問・解答・音声を保ち、表紙とCTAを差し替える。キーワード2素材は既存サイト記事に基づく編集可能なスライド原稿から再描画する。出力は `.tmp/video-render/legacy-brand-a/`、画像確認前の状態は `rendered` であり公開可能とは扱わない。確認後の移行計画は `legacy-metadata.json` の既存タイトル・現内容に即した概要欄・正規URL/UTMを取り込む。
+
+撤去完了の検査は `npm run check-youtube-delivery -- --require-deleted`。private R2の固定planと最新delivery-stateを照合し、全対象の削除済み記録がそろえばexit 0、残件はexit 1、ゼロ件・plan不一致・dry-run・削除数欠測・36時間超の古い記録・認証不可はexit 2とする。オフラインでは `--state <private-state.json> --plan <private-plan.json>` を渡せる。Gitの集計スナップショットだけから全件撤去とは判定しない。
+
 **公開実体の照合**は 2 本立て。実査 `verify-video-publication`（CI 週次＝`verify-yt-status.yml` に同居・creds 必須）が videos.list で削除/非公開・概要欄の `utm_campaign={packId}`/`utm_source=youtube` 欠落・公開済み Short の `relatedVideoId` 未設定を検出し `.claude/state/video-publication-verify.json` へ記録する。**creds 不足・API 失敗は 記録を書かずに exit 2（検査不成立）**——「creds が無い」を「異常なし」と記録すると以後ずっと緑が出て事故が埋もれるため。ゲート `check-video-publication`（オフライン・quality:audit ci:true）はその記録の有無・網羅・鮮度（既定 14 日）・孤児・報告済みドリフトを見る。**published なのに一度も照合していない**状態が最も危険なので V01 で赤にする。対象 0 件（公開前）は件数を明示して PASS（異常 0 件と混同しない）。是正は人が判断し、スクリプトは台帳を書き戻さない。
 
 - ソース未取得と0件を区別
@@ -244,3 +290,7 @@ ThreadsはX本文の機械的な複製先にしない。packから「質問」�
 - 新skill: `skills-registry.md` とskills guide
 - 新チャネル派生: `content/sns/README.md` と各channel policy
 - 戦略・KPI変更: `docs/marketing/06_動画コンテンツ運用設計.md`
+
+### 確認済みPNGを使うカバー
+
+`cover-design.json` の各specに `approvedImage: {path, sha256, specSha256}` がある場合、通常動画・Shortsの共通カバーレンダラーは採用済みPNGを使う。pathは `.tmp/video-render/` 配下、specSha256はapprovedImage以外の入力のhash。入力・画像hash・寸法の不一致は停止し、旧デザインへ戻さない。画像が無い場合はDrive台帳からの復元を試み、不成立なら引継ぎZIPの展開を案内する。画像を使う端末に制作時のポップ体フォントは不要。制作時のフォントファイルは移送しない。手順は [動画生成手順](../../../content/sns/youtube/VIDEO-RENDER.md)。

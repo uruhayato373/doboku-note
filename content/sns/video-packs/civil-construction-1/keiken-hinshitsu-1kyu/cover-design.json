@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "品質管理の答案",
+        "課題から組む"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/111.png",
+        "sha256": "97daa94fe605525f4237f63a88a14f829508f6c0a69e0bbbe89cd2e342e56a5c",
+        "specSha256": "67bda1826986baf2472e28177944107b25ad4e646c2553b62492b9ba10890c6f"
+      }
+    },
+    "point-gap-to-issue-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "現場条件と",
+        "規格値のズレ"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "reading",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/112.png",
+        "sha256": "e7c3112fd24d9b8351560b191f18c7a5b910cc5639b1dfc4a703142974b75ed2",
+        "specSha256": "90eda5ca6bcbf955ee873eeb04ddea30b95a7ba10bc77a8a494a7ba1214b5878"
+      }
+    },
+    "point-focus-item-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "品質管理の答案",
+        "項目を１つに"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/113.png",
+        "sha256": "4f8bb443589ced0620c54b86bb2e4dbf48b25dd67887e834b24f6cf1a0459acf",
+        "specSha256": "38c10f10f8d74388a2c0283d55fe3e4ca2fc129694badd2d6db732d98b11de3b"
+      }
+    }
+  }
+}

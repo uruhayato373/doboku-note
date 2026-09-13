@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-kussaku-tsumikomi-kikai",
+  "key": "point-bulldozer-1",
+  "sceneId": "bulldozer",
+  "exam": "civil-construction-1",
+  "narration": "ブルドーザの走行装置は、クローラ式とホイール式で特徴が異なります。クローラ式は接地面積が広く、ホイール式は移動性に優れます。使えるけん引力は機械の重量と地盤との付着条件に制約されるため、エンジン出力だけを大きくしても、そのまま増えるとは限りません。",
+  "visual": {
+    "heading": "走行装置とけん引力を区別",
+    "items": [
+      "クローラ式：広い接地面積",
+      "ホイール式：移動性に優れる",
+      "けん引力は重量・付着条件にも制約される"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-tractor-bulldozer/article.mdx",
+  "editorialNote": "急勾配の安全性を無条件に保証する表現、けん引力は出力と無関係という断定、質量と力の式混同を修正。"
+}

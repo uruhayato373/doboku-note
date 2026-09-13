@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.204Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/kikinagashi-shunin-suchi/shorts/point-tanni-saikotsu-kuuki-2/shorts.mp4",
-  "durationSeconds": 36.07,
-  "sha256": "c77d2ed648a2c766d18dc67ed40a6ccf871dcd2802b54a29e61503fc8c278856",
-  "coverSha256": "0e0b7b7b86aaea8e46694d8b2dc251be296eb208bd6e470a41ea3d5ed20f2754",
-  "renderedAt": "2026-09-05T23:37:22.181Z"
+  "durationSeconds": 30.2,
+  "sha256": "9269bdd9e5234a8b02b3c5294859ffaf877269ec84e31e5ce92481d8a23d2b29",
+  "coverSha256": "99acf30f6c82dcd89dfdfbe061594f75d89f60b8a0138d2cc77da83478d2a4e2",
+  "renderedAt": "2026-09-10T11:07:52.222Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "662297922c4936b3472f944ab67ad9e01996fe4bb3e2bda5b2daeedc83e07a73",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "56939f6ff8e7313b36f7f2ecb188726f234b39b1be4258eccf22c6106ed85234",
+  "speaker": 13,
+  "narration": "単位水量を増やすと、一般にスランプは大きくなりますが、ブリーディングや乾燥収縮も増えやすくなります。必要な施工性を得るときは、水だけを増やして解決しないことが大切です。細骨材率や混和剤も調整し、強度と耐久性を含めて配合を確認しましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "f7dcef17e0cf460ae5569590d94f29115c48341741c6dc3556dc0c78865d03e1",
+    "points": "dd91b27d47440f06c0f61e39dbbc4622f51a2f344a048de1ae431ee0fb14957f",
+    "pointsImage": "aced8f7a4d8a26e48d8401f4db637c7fcd3445efbebe5546b35f9b5461e501f1",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:07:52.222Z"
+  }
 }

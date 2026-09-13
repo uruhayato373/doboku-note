@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "gakka-nori-hogoko",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "法面保護工",
+        "どう選ぶ？"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：全部丸暗記するしかない",
+      "items": [
+        "軸は「安定度が下がるほど構造物工を足す」の一本"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-cut-slope-protection/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "gensoku",
+      "heading": "安定性・湧水・落石から選定",
+      "items": [
+        "植物が生育できる安定した法面では、植生工を検討します。",
+        "崩壊や湧水のおそれには、構造物工や排水工を組み合わせます。",
+        "落石のおそれがある場合は、防護工やアンカー工などの目的を区別します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-cut-slope-protection/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "hisho",
+      "heading": "植生工を選ぶ3条件",
+      "items": [
+        "土壌が植物の生育に適する",
+        "春・秋の植えつけ適期",
+        "勾配1:0.8より緩やか（寒冷地1:1.5）"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-cut-slope-protection/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "kozobutsu",
+      "heading": "構造物工の選び分け",
+      "items": [
+        "風化しやすい土砂・軟岩＝モルタル/コンクリート吹付工",
+        "湧水箇所は吹付工の剥落に注意",
+        "湧水が多い＝じゃかご工"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-cut-slope-protection/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "haisui",
+      "heading": "法面排水工の2系統",
+      "items": [
+        "表面排水工：法肩・小段・縦排水溝",
+        "地下排水工：暗渠排水・水平排水孔"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-cut-slope-protection/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

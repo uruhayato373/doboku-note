@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.215Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-kanrizu/shorts/point-step1-1/shorts.mp4",
-  "durationSeconds": 30,
-  "sha256": "e5276ed49c381c3d7d951a52cc144b77680111cff623bb6350a4ae4c26272fd1",
-  "coverSha256": "174cfab9ce783e4890e09c5a5836af7ef248d3e0b46a42ad5a14696dc114c66a",
-  "renderedAt": "2026-09-06T00:03:49.315Z"
+  "durationSeconds": 30.2,
+  "sha256": "d9e1ece0e0fb8f8a2c2f1463f2759277dc80a2f79da360aca06380d956b69508",
+  "coverSha256": "dc6de7bc1add91fb0e9a220d2ade0912dd2d58b36d29b97bc76046405de2d06b",
+  "renderedAt": "2026-09-10T11:24:53.147Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "700d79a09bd0b6a4654550684582a4b0e0e6c0978656446a77b4acadd9d3c437",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "58ea11e768674ca3728d9ebeec066bf27aab48dde3aa357022941426d41d4199",
+  "speaker": 13,
+  "narration": "管理図では、ばらつきの原因を偶然原因と異常原因に分けます。偶然原因は、工程に通常伴う小さな変動です。異常原因は、作業方法の変化など特定して対処できる変動です。管理図は異常の兆候を見つけ、原因調査につなげるために使います。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "d7cc57f26c28389df84583c6c87cfc9ed1c2db0620ed0ab8329b4848ba783fac",
+    "points": "860b1781161d11cb6534b89a0c81a6ea2318519916e68d1424d94f4cc4d2cd4d",
+    "pointsImage": "f46daf9c88ca8f7353f81571a6d0e4b3d4847c274240f427d64f3513323f5912",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:24:53.147Z"
+  }
 }

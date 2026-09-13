@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-nanjaku-jiban",
+  "key": "point-overview-1",
+  "sceneId": "overview",
+  "exam": "civil-construction-1",
+  "narration": "軟弱地盤対策工法は、原理によって圧密・排水工法、締固め工法、固結工法、荷重軽減工法、構造物・補強による対策の5つに大別できます。1種類だけで済まないことも多く、複数を組み合わせます。",
+  "visual": {
+    "heading": "工法を原理で5つに束ねる",
+    "items": [
+      "圧密・排水／締固め／固結",
+      "荷重軽減／構造物・補強",
+      "複数工法の組合せも多い"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-soft-ground-drainage/article.mdx"
+}

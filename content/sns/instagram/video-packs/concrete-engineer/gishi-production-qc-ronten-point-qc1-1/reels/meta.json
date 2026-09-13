@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.196Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gishi-production-qc-ronten/shorts/point-qc1-1/shorts.mp4",
-  "durationSeconds": 32,
-  "sha256": "7f2010d8eb4fb169d5fec371ab79fba7f46b71d0a56d7dd352c4e1aa8ff1b71c",
-  "coverSha256": "c3f3618435a67fea4ee7cb74bc105daf5772dfe7e04e254235685863ebe04cf5",
-  "renderedAt": "2026-09-05T23:28:54.843Z"
+  "durationSeconds": 30.2,
+  "sha256": "4b377ec9201b67551ca6aaddc0adf0d4f820a06d3e7798b5b90332ffb1d0b77a",
+  "coverSha256": "592a4c0e3aa5a7b0fce0103d9dc6dd438ddb3d7ffe15cd17d0338140f0e427e2",
+  "renderedAt": "2026-09-10T11:01:25.140Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "bee6919d73a6280eb6643354aad86664c60abf29ec7d7051041e2e8dd4200ceb",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "5db5b5771050d921e24c92bf3b83724d61a730fc22d73a619b85f1c707dfdc04",
+  "speaker": 13,
+  "narration": "レディーミクストコンクリートの呼び方は、種類、呼び強度、スランプ、粗骨材最大寸法、セメント種類を組み合わせた記号です。呼び強度は購入者の指定、配合強度は製造の目標で、ばらつきがあるため配合強度を高く設定します。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "a6e0796fcd4c50faab78c871b3ccf105dea269cbd12930d53d52e42994696a24",
+    "points": "5c8722de781169472aaabf78d17c65fe5335d683340050e4f55f8941528aaa05",
+    "pointsImage": "93d09b138db727a2f00730edcaff084312ba0681da3d843f1cb06bee2ba1ace6",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:01:25.140Z"
+  }
 }

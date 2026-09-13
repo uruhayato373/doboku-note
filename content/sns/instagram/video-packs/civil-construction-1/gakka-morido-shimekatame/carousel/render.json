@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "gakka-morido-shimekatame",
+  "inputDigest": "76981ed764239ee71b6852f82a659329795f2406600b7d4f5b88dc8e8f727088",
+  "sourceSha256": "bffd4ae69661d2219979131d63edee6b2b2d66ddeda59414e8525f779a2a6ece",
+  "rendererSha256": "b04b4ad581c8ab70d15dc33ebed74face3677e1a938690139aa14dad15697a30",
+  "renderedAt": "2026-09-10T10:23:19.971Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-morido-shimekatame/carousel/img/00-cover.png",
+      "sha256": "f2b8db37fa080a01b498901e63d71da78d953444b387ab0d266ae666a0a59246",
+      "bytes": 323240,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-morido-shimekatame/carousel/img/01-point.png",
+      "sha256": "b2f5495b77c96afef6b1a42b404c779b66668f35b51dc4cdea36460589fc42a6",
+      "bytes": 115459,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-morido-shimekatame/carousel/img/02-point.png",
+      "sha256": "a4a473d43ceba5ef3585142f9cf8c09073187907138f6096c7c04d6b71ee05b3",
+      "bytes": 150999,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-morido-shimekatame/carousel/img/03-point.png",
+      "sha256": "9e6cb65d463fbac47cd954d1a7cb4c8b512b55ed153601b8ec7e78166da98fa4",
+      "bytes": 141472,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-morido-shimekatame/carousel/img/04-point.png",
+      "sha256": "1d120f3f83201c20ec1b514a2477a3058644e189d0cb8303f3ffc048aa57b4c1",
+      "bytes": 128323,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-morido-shimekatame/carousel/img/05-point.png",
+      "sha256": "47f8af2d41268a4834d76d8ddcfc777b897a352b8fdc150853609cf0774f50ef",
+      "bytes": 114265,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-morido-shimekatame/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

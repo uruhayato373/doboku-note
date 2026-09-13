@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "shunin-shouronbun-theme",
+  "key": "point-nendo-1",
+  "sceneId": "nendo",
+  "exam": "concrete-chief-engineer",
+  "narration": "テーマは年度暗記でなく傾向で捉えます。出題テーマはコンクリート技術の実務に直結する領域から選ばれ、どのテーマにも対応できる経験の引き出しを用意しておくのが準備の本筋です。",
+  "visual": {
+    "heading": "傾向で捉える",
+    "items": [
+      "実務に直結する領域から出題される",
+      "年度別暗記は効率が悪い"
+    ]
+  },
+  "sourceRef": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+}

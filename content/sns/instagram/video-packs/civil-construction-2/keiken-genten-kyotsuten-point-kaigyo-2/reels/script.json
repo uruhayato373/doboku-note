@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "keiken-genten-kyotsuten",
+  "key": "point-kaigyo-2",
+  "sceneId": "kaigyo",
+  "exam": "civil-construction-2",
+  "narration": "経験記述は、行数を埋めるための不自然な改行を避け、意味のまとまりで書きましょう。内容が短すぎると感じたら、現場条件や検討理由、結果の確認が抜けていないかを見直します。数値や専門用語は、実際の経験を説明するのに必要なものだけ加えます。",
+  "visual": {
+    "heading": "改行より内容の不足を確認",
+    "items": [
+      "意味のまとまりで改行する",
+      "現場条件・検討理由・結果を見直す",
+      "数値や用語は必要な事実だけ加える"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx",
+  "editorialNote": "採点者が必ず見抜くとの断定と字数埋めのための用語追加を修正。"
+}

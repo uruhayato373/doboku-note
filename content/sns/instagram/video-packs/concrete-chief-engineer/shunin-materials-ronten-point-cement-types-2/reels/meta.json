@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.194Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/shunin-materials-ronten/shorts/point-cement-types-2/shorts.mp4",
-  "durationSeconds": 37.5,
-  "sha256": "2c8e419b91b63f0271a20e4d081c106873ff8b5c6cf2312c486245d3ad290236",
-  "coverSha256": "522510d48cb16d747504652fb1bc2913da2529ebf841822dd90ad73abb296a55",
-  "renderedAt": "2026-09-05T23:25:33.221Z"
+  "durationSeconds": 30.2,
+  "sha256": "ebad965ad876d405da81a1e55c9d111ccfc78b735d6431f0e0e989ba7d99f781",
+  "coverSha256": "b66c29e112766328fcdfca3875598a151ca9cb4265c3e90c240be93960ccdbc4",
+  "renderedAt": "2026-09-10T10:59:51.178Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "b6465d6797aa988744d02d57a1a89114d6341ac60cd25b22bb6267cd239a33f0",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "3d23770c31dc094d6a769d711080ef749d003c91170dbe2b98515eee66ab7db5",
+  "speaker": 13,
+  "narration": "セメントの種類は、発熱や強度発現を調整するために組成を変えています。早強は早期強度、中庸熱や低熱は水和熱の抑制、耐硫酸塩は硫酸塩への抵抗性を重視します。成分規定を覚えるときは、化合物名と上限・下限を対にして、種類ごとに確認しましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "044dd6a4f8dd2e392c84946af32991828959ae3ddb7aa0b21a90044a85ee35b1",
+    "points": "90f0d6275ecd43592cdccd40cf2d837b7319af0a0b5cabfc24b79c85b1a3d9e8",
+    "pointsImage": "88b4f46e7632aeaa3f2961618cc4f43d990b400cf9a2f6b7649429d3f325605a",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T10:59:51.178Z"
+  }
 }

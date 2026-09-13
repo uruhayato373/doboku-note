@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "shunin-products-ronten",
+  "key": "point-overview-1",
+  "sceneId": "overview",
+  "exam": "concrete-chief-engineer",
+  "narration": "コンクリート工場製品は、形や製造方法に合わせて締め固めます。即時脱型はブロックや平板、遠心力やロール転圧は管のような形状に使われます。加圧する方法もあります。方法名だけでなく、どんな製品をつくるための技術かを対にすると覚えやすくなります。",
+  "visual": {
+    "heading": "製品の形と締固め方法を対で",
+    "items": [
+      "即時脱型：ブロック・平板",
+      "遠心力・ロール転圧：管状製品",
+      "加圧など製品に合う方法を選ぶ"
+    ]
+  },
+  "sourceRef": "content/site/concrete-chief-engineer/textbook-products/article.mdx"
+}

@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.202Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gishi-shunin-dochira/shorts/point-step2-2/shorts.mp4",
-  "durationSeconds": 30.07,
-  "sha256": "33bd35f5bb642c708ca039360921fce0fbc7de9a35f363883c14a02c6fe82fcb",
-  "coverSha256": "92f98fac107494c5a374aaa576a371db43ad850967fa6ebc18ea3b036f917350",
-  "renderedAt": "2026-09-05T23:33:53.825Z"
+  "durationSeconds": 30.2,
+  "sha256": "782844effc2e66e24c2e05b1e5cd9dfa367f6ef6d1e9f57285edd82aa3f5b85e",
+  "coverSha256": "68db93f2554f1b84959bacedf232d9ba0e6932d87c44521a62efde6a306d57c8",
+  "renderedAt": "2026-09-10T11:06:12.991Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "c5ff6574b6ee83dcdddc9e36210a73abe868df1ed299fe92c5c6a2d20934dc76",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "40d4ff4f5e194494fb1b813bb54fb76e29cfbefcf3a565224c668773977e4e0b",
+  "speaker": 13,
+  "narration": "2026年度の試験時間は、コンクリート技士が二時間、主任技士が三時間です。技士は四肢択一式、主任技士はそれに小論文が加わります。主任技士では択一に時間を使い切らないよう、小論文を書く時間も確保します。年度ごとの実施要領と受験票で確認しましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "26d63e57abf302cdc87ee67617a49b224d14a48e7af6ac31bba640c163a7f42f",
+    "points": "6ae85df6255237e36e715d444dce663f5c6b6341781fb3f32fce89236b52d6d6",
+    "pointsImage": "e65456e4fe76d19efea3c21c634bb8c97e561191ec9195c2155899b2d263e1b3",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:06:12.991Z"
+  }
 }

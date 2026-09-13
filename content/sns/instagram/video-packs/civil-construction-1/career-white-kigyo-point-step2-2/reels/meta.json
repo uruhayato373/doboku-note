@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.225Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/career-white-kigyo/shorts/point-step2-2/shorts.mp4",
-  "durationSeconds": 30,
-  "sha256": "657846535e0cac3f26d23a53845bdec32db7dcdc99486f1ba9040f44e9b304fe",
-  "coverSha256": "9ba841f5514f6cac5f60a649f0d38322bd9e2911c242a64e3800808c11c612dd",
-  "renderedAt": "2026-09-06T00:09:07.657Z"
+  "durationSeconds": 30.2,
+  "sha256": "725dd117bcedc9a1e6b10953ec72c8dd9c68f9fa3fe151afc7e0c0c1ed0bc74f",
+  "coverSha256": "8e1db658421c69b4afb5cea18359f60cf5f7390e41bcb06e5c2fd28a0cad3089",
+  "renderedAt": "2026-09-10T11:49:39.431Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "baa2ef3da8f617cb09d44f119b8080fd76e5d6c102ece42e3c6acc53ee5c8de2",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "e361e71d8b93fa7a4825270c15cad31da172b6083b9ea24f63cec591b34c3184",
+  "speaker": 13,
+  "narration": "建設業でも、2024年4月から時間外労働の上限規制が適用されています。原則は月45時間、年360時間です。求人を見るときは、数字の記載だけでなく、工程調整や人員配置、休日確保の仕組みも確認しましょう。規制への対応を具体的に聞くことが大切です。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "e3fd32608bf2f510d72f1d1c44cfe59ee6db6c5583d4fc1c8172400c889f0161",
+    "points": "f0b448325a629db5e5854f1ebdd6d77e778a24d2ab484aa204c5ddfc9728faf1",
+    "pointsImage": "84fc9221dc3611c6680377c0d553f621f7b4fe4574e67638f6ccaa9f75dffd3b",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:49:39.431Z"
+  }
 }

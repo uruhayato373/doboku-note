@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "gishi-environment-ronten",
+  "exam": "concrete-engineer",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "コンクリート",
+        "環境配慮の論点"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "使用量だけで環境効果を決めない",
+      "items": [
+        "副産物・再生材料の利用は、所要の品質を満たすことと合わせて考えます。",
+        "極端な言い回しだけで正誤を決めず、条件と技術的な理由を確認します。"
+      ],
+      "sourceRef": "content/site/concrete-engineer/textbook-environment/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "ライフサイクルの4つの軸で考える",
+      "items": [
+        "材料製造から解体・再資源化までの全段階で評価",
+        "軸：低炭素・資源循環・長寿命・地域環境",
+        "耐久性不足→更新増→全体負荷が増える場合もある"
+      ],
+      "sourceRef": "content/site/concrete-engineer/textbook-environment/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "混合材はクリンカー削減、置換率は無条件に上げない",
+      "items": [
+        "高炉スラグ・フライアッシュでクリンカー使用量を抑制",
+        "置換率を高くすれば無条件に良いわけではない",
+        "所要強度・脱型時期・耐久性・養生能力を確認"
+      ],
+      "sourceRef": "content/site/concrete-engineer/textbook-environment/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "再生骨材は品質区分と用途で判断する",
+      "items": [
+        "天然骨材の採取と廃棄物量を抑える手段",
+        "付着モルタル量が密度・吸水率・強度へ影響",
+        "品質区分ごとに適用部位・規格が分かれる"
+      ],
+      "sourceRef": "content/site/concrete-engineer/textbook-environment/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step4",
+      "heading": "回収水と戻りコンは管理が前提",
+      "items": [
+        "上澄水とスラッジ水を分け、適用する品質基準を確認します。",
+        "練混ぜ水に使う場合は、条件に合う管理を行います。",
+        "戻りコンクリートは、まず発生を抑える計画を考えます。"
+      ],
+      "sourceRef": "content/site/concrete-engineer/textbook-environment/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

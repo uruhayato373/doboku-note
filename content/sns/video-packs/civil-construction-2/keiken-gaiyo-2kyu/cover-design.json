@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-2",
+      "headline": [
+        "工事概要",
+        "最初の失点防止"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/225.png",
+        "sha256": "669433afc2cdd56c06b598b232d49aa52f6702ce5406bdb43828b9d40b616d70",
+        "specSha256": "2777db25b4e7d8699bb19d9af7ff390f9a086870827c555975aa06d2e474d480"
+      }
+    },
+    "point-step1-1": {
+      "format": "shorts",
+      "exam": "civil-2",
+      "headline": [
+        "工事概要の工種",
+        "管理項目に",
+        "合わせる"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/226.png",
+        "sha256": "dfc6ecafe5953e5c43d44f174255bb9c1dbfb21cde4da815178c10b8110fa15b",
+        "specSha256": "a9838cd83850f6f49a031f3de7f873fcadd60849593b8afa11ad329511b0db86"
+      }
+    },
+    "point-step2-2": {
+      "format": "shorts",
+      "exam": "civil-2",
+      "headline": [
+        "工事の施工量",
+        "数量で書く"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/227.png",
+        "sha256": "9b719c25b7746c7c25a90f52456d43d72addc61f2c3467e563e150ed5178eee2",
+        "specSha256": "582f682a21858044bc0436cb29db04949fffcde08070a5e0c5457683b7453629"
+      }
+    }
+  }
+}

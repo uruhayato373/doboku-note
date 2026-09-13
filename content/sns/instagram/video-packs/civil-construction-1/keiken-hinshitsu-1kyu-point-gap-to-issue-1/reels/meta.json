@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.205Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-hinshitsu-1kyu/shorts/point-gap-to-issue-1/shorts.mp4",
-  "durationSeconds": 30.52,
-  "sha256": "5d0803258e59bc2ffa5552c0c55c7ab5ede022205c1105852695f281af1555c3",
-  "coverSha256": "be4592203189733d5c4163fcb6b1dd01a7649be0f4054d3209cb0dc2c5d6ae35",
-  "renderedAt": "2026-09-05T23:49:04.097Z"
+  "durationSeconds": 30.2,
+  "sha256": "b76221de7d556107ec45b87b941eadd89d7c808313b37ce49d4c1c6f59b5bb21",
+  "coverSha256": "264ed2f289d3990d517906d22ec6610ac838e5937e9a4ec2119603d7328fe528",
+  "renderedAt": "2026-09-10T11:09:13.252Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "b5c7aab27456712e454495e34e5fa99ad4c5b9985baa11391f9b843512da8b6e",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "b80e658f56be050cd7f24d3a6779f7f063e2f5828e61f180d9e1bf559db79378",
+  "speaker": 13,
+  "narration": "技術的課題は、現場条件と規格値のギャップから立てます。粘性土地盤や梅雨時期の含水条件、狭い施工ヤードといった条件が、どの品質にどう影響するかを具体的に書きます。条件をぼかすと課題も曖昧になります。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "665b647817705d52376147209af72f95abbe3a8b140813db537dffce9d57a260",
+    "points": "bed35fb98b957ca4b03498eb4f8a843ca284ba642db0a3f1b914b82cf1e107ab",
+    "pointsImage": "9aec79531ff2c1a62ba073d7b4e5cba60b4dded30904b9d051b8168875c917d7",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:09:13.252Z"
+  }
 }

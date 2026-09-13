@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "concrete-chief",
+      "headline": [
+        "製造と品質管理",
+        "検査の頻出点"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/276.png",
+        "sha256": "0650ff323e6ab5870c85531775f4dac67702c7a2647800ffd6d6ffd26b80b1df",
+        "specSha256": "e806bd490e70568db83421e2573a2f350ba287db0717bbd50054c6a2391cc452"
+      }
+    },
+    "point-overview-1": {
+      "format": "shorts",
+      "exam": "concrete-chief",
+      "headline": [
+        "コンクリートの",
+        "呼び方と",
+        "配合強度"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/277.png",
+        "sha256": "21bc86136ef42cc38a04d3856a78d1e961f985904af1aab8d595bd9dbdf70947",
+        "specSha256": "f9684d20d0976afbba36b375c8df378af36924e4be47fdf92f014aebbf8b1d4e"
+      }
+    },
+    "point-step1-2": {
+      "format": "shorts",
+      "exam": "concrete-chief",
+      "headline": [
+        "計量値の許容差",
+        "基準を整理"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/278.png",
+        "sha256": "43d468a91cd32232b18b2360e24cc63d506b2eed71ea5537a84396d65f2d55fc",
+        "specSha256": "d237cbab332c1de28a3165b0daa2cee99dd9ead9e631a8efdc2a38a1d323b5b1"
+      }
+    }
+  }
+}

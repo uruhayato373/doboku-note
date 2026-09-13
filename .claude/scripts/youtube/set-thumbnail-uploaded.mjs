@@ -1,87 +1,47 @@
 #!/usr/bin/env node
-/**
- * 既にアップ済み（videoId 設定済み）の動画に対してサムネイルを後付け設定する。
- *
- * post-from-schedule.cjs が thumbnails.set を実装する前にアップされた動画向けの
- * 一回限りの補完スクリプト。
- *
- * Usage:
- *   node .claude/scripts/youtube/set-thumbnail-uploaded.mjs
- *   node .claude/scripts/youtube/set-thumbnail-uploaded.mjs --dry-run  # 対象確認のみ
- *
- * 認証: .env.local または環境変数の YOUTUBE_CLIENT_ID / YOUTUBE_CLIENT_SECRET /
- *       YOUTUBE_REFRESH_TOKEN / CLOUDFLARE_* 系
- */
-import { readFileSync, existsSync, writeFileSync, mkdirSync } from 'node:fs';
-import { join } from 'node:path';
-import os from 'node:os';
-import { createReadStream } from 'node:fs';
+/** Single-video thumbnail update. Default: local dry-run, no network and no external writes. */
+import { readFileSync, existsSync, mkdirSync, mkdtempSync, writeFileSync } from 'node:fs';
+import { dirname, join, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { parseArgs } from 'node:util';
 import { google } from 'googleapis';
-import { S3Client, GetObjectCommand, HeadObjectCommand } from '@aws-sdk/client-s3';
+import { thumbnailInput, updateThumbnail } from '../../../scripts/lib/youtube-thumbnail-update.mjs';
 
-function loadEnv() {
+const root = resolve(dirname(fileURLToPath(import.meta.url)), '../../..');
+const { values: args } = parseArgs({ options: {
+  'video-id': { type: 'string' }, image: { type: 'string' }, 'channel-file': { type: 'string' },
+  'expect-sha256': { type: 'string' }, 'check-live': { type: 'boolean' },
+  commit: { type: 'boolean' }, 'dry-run': { type: 'boolean' },
+} });
+
+async function main() {
+  if (!args['video-id'] || !args.image || !args['channel-file']) throw new Error('Usage: --video-id ID --image PNG --channel-file youtube.json [--check-live] [--commit --expect-sha256 HASH]');
+  if (args.commit && args['dry-run']) throw new Error('--commit と --dry-run は併用不可');
+  const channel = JSON.parse(readFileSync(resolve(args['channel-file']), 'utf8')).channel;
+  const buffer = readFileSync(resolve(args.image));
+  const input = await thumbnailInput(buffer, { videoId: args['video-id'], channel,
+    expectedSha256: args['expect-sha256'], commit: args.commit });
+  if (!args.commit && !args['check-live']) {
+    console.log(JSON.stringify({ ...input, targets: 1, checkedLive: 0, changed: 0, mode: 'local-dry-run' }, null, 2));
+    return;
+  }
   const env = { ...process.env };
-  if (existsSync('.env.local')) {
-    for (const line of readFileSync('.env.local', 'utf8').split('\n')) {
+  const envFile = join(root, '.env.local');
+  if (existsSync(envFile)) {
+    for (const line of readFileSync(envFile, 'utf8').split(/\r?\n/)) {
       const m = line.match(/^([A-Z0-9_]+)=(.*)$/);
-      if (m && !env[m[1]]) env[m[1]] = m[2].trim();
+      if (m && !env[m[1]]) env[m[1]] = m[2].trim().replace(/^(["'])(.*)\1$/, '$2');
     }
   }
-  return env;
+  if (['YOUTUBE_CLIENT_ID', 'YOUTUBE_CLIENT_SECRET', 'YOUTUBE_REFRESH_TOKEN'].some(k => !env[k])) throw new Error('YouTube API資格情報がありません。実体確認0件・外部変更0件');
+  const auth = new google.auth.OAuth2(env.YOUTUBE_CLIENT_ID, env.YOUTUBE_CLIENT_SECRET);
+  auth.setCredentials({ refresh_token: env.YOUTUBE_REFRESH_TOKEN });
+  const youtube = google.youtube({ version: 'v3', auth });
+  const base = join(root, '.tmp/youtube-thumbnail-updates');
+  mkdirSync(base, { recursive: true });
+  const out = mkdtempSync(join(base, 'run-'));
+  const record = report => writeFileSync(join(out, 'report.json'), JSON.stringify({ at: new Date().toISOString(), ...report }, null, 2) + '\n');
+  const report = await updateThumbnail(youtube, input, buffer, { commit: args.commit, record });
+  console.log(JSON.stringify({ targets: 1, checkedLive: 1, apiAccepted: report.apiAccepted, phase: report.phase, visualVerified: false, out }, null, 2));
 }
-const env = loadEnv();
-const DRY = process.argv.includes('--dry-run');
-
-const s3 = new S3Client({
-  region: 'auto',
-  endpoint: `https://${env.CLOUDFLARE_ACCOUNT_ID}.r2.cloudflarestorage.com`,
-  credentials: { accessKeyId: env.CLOUDFLARE_R2_ACCESS_KEY_ID, secretAccessKey: env.CLOUDFLARE_R2_SECRET_ACCESS_KEY },
-});
-const BUCKET = 'doboku-note';
-const THUMB_PREFIX = 'sns/youtube-thumbnails/';
-
-const oauth2 = new google.auth.OAuth2(env.YOUTUBE_CLIENT_ID, env.YOUTUBE_CLIENT_SECRET);
-oauth2.setCredentials({ refresh_token: env.YOUTUBE_REFRESH_TOKEN });
-const youtube = google.youtube({ version: 'v3', auth: oauth2 });
-
-async function downloadR2(key, dest) {
-  const obj = await s3.send(new GetObjectCommand({ Bucket: BUCKET, Key: key }));
-  const chunks = [];
-  for await (const c of obj.Body) chunks.push(c);
-  writeFileSync(dest, Buffer.concat(chunks));
-}
-
-async function r2Exists(key) {
-  try { await s3.send(new HeadObjectCommand({ Bucket: BUCKET, Key: key })); return true; } catch { return false; }
-}
-
-const ledger = JSON.parse(readFileSync('.claude/state/youtube-schedule.json', 'utf8'));
-const uploaded = ledger.items.filter((it) => it.videoId);
-console.log(`videoId 設定済み: ${uploaded.length} 本`);
-
-if (DRY) {
-  for (const it of uploaded) console.log(`  ${it.key}  videoId=${it.videoId}`);
-  process.exit(0);
-}
-
-let done = 0, fail = 0;
-for (const it of uploaded) {
-  const thumbKey = `${THUMB_PREFIX}${it.key}.png`;
-  const tmpPng = join(os.tmpdir(), `${it.key}-thumbnail.png`);
-  try {
-    if (!await r2Exists(thumbKey)) { console.log(`  ⚠ ${it.key}: R2 サムネイルなし → generate-thumbnails.mjs を先に実行`); fail++; continue; }
-    await downloadR2(thumbKey, tmpPng);
-    await youtube.thumbnails.set({
-      videoId: it.videoId,
-      media: { mimeType: 'image/png', body: createReadStream(tmpPng) },
-    });
-    console.log(`  ✓ ${it.key} (${it.videoId}) サムネイル設定`);
-    done++;
-  } catch (e) {
-    console.error(`  ✗ ${it.key}: ${e.message}`);
-    fail++;
-  } finally {
-    if (existsSync(tmpPng)) { import('node:fs').then(f => f.unlinkSync(tmpPng)).catch(() => {}); }
-  }
-}
-console.log(`\n完了: ${done} 本 / 失敗 ${fail}`);
+main().catch(error => { console.error(error.message); process.exitCode = 1; });

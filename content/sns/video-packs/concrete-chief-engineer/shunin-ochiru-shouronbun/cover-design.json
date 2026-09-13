@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "concrete-chief",
+      "headline": [
+        "その小論文",
+        "評価されない？"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/273.png",
+        "sha256": "673c3a7454c257e85dbd696d6ccd4e2e1afb090c72b9ac4f272b6de281e3e98e",
+        "specSha256": "a60033851dc679c1e1d0012b1eb1fee4ab7021cd504fdf0ef9394a937bf86212"
+      }
+    },
+    "point-ippan-1": {
+      "format": "shorts",
+      "exam": "concrete-chief",
+      "headline": [
+        "小論文の弱点",
+        "一般論で",
+        "止まってない？"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/274.png",
+        "sha256": "7f005b6d4efb974d6109bea2a69169e710aaf04340f14d58410fc3caed025d1a",
+        "specSha256": "5708dd7d21e5d4d9ac9875b1e6aee7c7eace8273dd5f7fea996ad6509de2d775"
+      }
+    },
+    "point-chusho-2": {
+      "format": "shorts",
+      "exam": "concrete-chief",
+      "headline": [
+        "小論文の弱点",
+        "抽象表現で",
+        "止まってない？"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/275.png",
+        "sha256": "53bcd86bab51a5eea9adcffe3bfa29903f2b2ac26bfed83b7777a89d48d742dd",
+        "specSha256": "d7750f6a49d447b6e9ba40feb7afb5efbfe2b450c422a71155691eb3a549977a"
+      }
+    }
+  }
+}

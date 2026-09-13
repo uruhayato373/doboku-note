@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-haikibutsu-recycle",
+  "key": "point-overview-1",
+  "sceneId": "overview",
+  "exam": "civil-construction-1",
+  "narration": "建設工事で生じる産業廃棄物は、元請業者が排出事業者として処理の責任を負います。下請業者が施工した部分の廃棄物も含めて考えます。許可業者へ処理を委託しても、元請の責任がなくなるわけではありません。委託先と処理状況の確認までが重要です。",
+  "visual": {
+    "heading": "排出事業者は元請業者",
+    "items": [
+      "排出事業者責任＝元請業者が負う",
+      "許可業者に委託しても責任は消えない"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-waste-disposal-manifest/article.mdx",
+  "sourceUrls": [
+    "https://www.env.go.jp/hourei/add/k035.pdf",
+    "https://www.env.go.jp/recycle/waste_law/kaisei2010/qa.html"
+  ]
+}

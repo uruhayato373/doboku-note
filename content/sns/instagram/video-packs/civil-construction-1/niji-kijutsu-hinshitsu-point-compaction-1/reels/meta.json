@@ -13,7 +13,27 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/niji-kijutsu-hinshitsu/shorts/point-compaction-1/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "bbaec2379f8299007cba8e336805e295cdc608c81776f791438001ce231f8dbb",
-  "coverSha256": "e1a5cc6bcbb22fabe554f50ae9592785d6d17c3bc3246b75bf26624a1978ec0c",
-  "renderedAt": "2026-09-05T23:54:26.188Z"
+  "sha256": "0bc4d06624f26776233777e09d7f246383744bb96496a4ded51fb23dbc5bceed",
+  "coverSha256": "f65d28de6473b2f9b2ff5240e251fbc07a74a41c644f409cb46d4e13e42b8c95",
+  "renderedAt": "2026-09-10T11:13:07.135Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "e0d384f9a8280f446c21143ec211331e1a94ef99fe825355d96e13bb83adbd4e",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "81760d896e6deca09174bf7f4c72ec4f698d31f53b6fc2736256830eff3e62b1",
+  "speaker": 13,
+  "narration": "盛土の締固め管理は、品質規定方式と工法規定方式を区別します。品質規定方式は締固め度など、満たすべき品質を示します。工法規定方式は、機種、まき出し厚さ、締固め回数などの施工方法を示します。何を仕様書で定めているかが、二つを見分ける軸です。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "aa3a0b344a9052fd5118805a2ee7fd17ee7f58cc542322398d6f36b57fc8c7e6",
+    "points": "a14c006754ab8671a10fdc51a767184b9b13b2c11b6aefbd802ed2f7a4bfdcc9",
+    "pointsImage": "1e614344588269199d897e84feb5f571c0eb8c11c05a96fdb8658c56016038d7",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:13:07.135Z"
+  }
 }

@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gishi-haigou-keisan",
+  "key": "point-step1-1",
+  "sceneId": "step1",
+  "exam": "concrete-engineer",
+  "narration": "配合計算の基準は、1立方メートル、1000リットルです。百分率は、計算前に小数へ直します。水セメント比とセメント水比を逆にしないことも大切です。この三つを最初に確認してから式を立てましょう。",
+  "visual": {
+    "heading": "計算前に3つをそろえる",
+    "items": [
+      "基準は1m³＝1000L",
+      "百分率は計算前に小数へ直す",
+      "W/CとC/Wを逆にしない"
+    ]
+  },
+  "sourceRef": "content/site/concrete-engineer/textbook-mix-design/article.mdx"
+}

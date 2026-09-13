@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "gakka-roudou-kijun",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "労働基準法",
+        "時間と就業制限"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "reading",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "時間と就業制限は条件から読む",
+      "items": [
+        "法定労働時間と時間外労働の上限を分けます。",
+        "年少者・妊婦・産婦・その他の女性では、対象業務と制限が異なります。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-labor-standards/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "労働時間・休憩・休日の原則",
+      "items": [
+        "労働時間は原則1日8時間・1週40時間です。",
+        "休憩は6時間超で45分以上、8時間超で1時間以上必要です。",
+        "休日は原則毎週1日以上、または4週間を通じ4日以上です。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-labor-standards/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "時間外労働の原則と特別条項",
+      "items": [
+        "時間外労働は原則月45時間・年360時間で、特別な事情がある場合も年720時間以内です。",
+        "休日労働込みで単月100時間未満・2〜6か月平均80時間以内等の条件があります。",
+        "月45時間を超えられるのは年6か月までで、災害復旧等の特例は別に確認します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-labor-standards/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "年少者は業務・年齢・性別を確認",
+      "items": [
+        "18歳未満は、坑内労働や高さ・深さ5m以上で危険を伴う業務などが制限されます。",
+        "足場の組立て・解体等も、対象業務と補助作業の扱いを確認します。",
+        "重量物は年齢・性別・継続か断続かで基準が変わります。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-labor-standards/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step4",
+      "heading": "妊産婦の制限は業務別に確認",
+      "items": [
+        "妊婦が禁止、産婦は申出により禁止となる業務があります。",
+        "重量物や有害物の一部は、その他の女性も対象になるため一律に就業可能としません。",
+        "禁止・申出による制限・就業可能の区分を、業務ごとに読み分けます。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-labor-standards/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

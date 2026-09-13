@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "建設業法",
+        "技術者と許可"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "reading",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/057.png",
+        "sha256": "374912ee58088948ea523d5c957cd52bb6088182d6ab240d463bde1d5b44744d",
+        "specSha256": "877c77688fa563aa8f0f062147b361ddcf47b3b8ceac373a81cb5ae2a4a37df1"
+      }
+    },
+    "point-overview-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "建設業の許可",
+        "必要な境目は？"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/058.png",
+        "sha256": "d5e55c1c1a0a229e7b4b34d450a250504d8dfc3880967af04b8d0612555b9343",
+        "specSha256": "c6f754462533d02538d4c90673e0ab506aca7eaf013fd6bb17d1f4a82d1af09d"
+      }
+    },
+    "point-step1-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "一般と特定",
+        "建設業の境目"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/059.png",
+        "sha256": "f3d6f464ef55f4ab876c85fab03dd0a9c333626f54d95516927912c688753b5b",
+        "specSha256": "98859ff0700e0fd606fa65e9bb36b314d48dfb62cae41e1d5ff5144abb48c9c1"
+      }
+    }
+  }
+}

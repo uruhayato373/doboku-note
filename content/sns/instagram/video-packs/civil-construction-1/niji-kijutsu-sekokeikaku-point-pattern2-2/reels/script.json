@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "niji-kijutsu-sekokeikaku",
+  "key": "point-pattern2-2",
+  "sceneId": "pattern2",
+  "exam": "civil-construction-1",
+  "narration": "施工計画書の記述問題では、項目名から必要な内容を具体化します。現場組織表なら、組織の編成と業務分担です。安全管理なら、責任者の体制や対策方針が軸になります。丸暗記した文を当てはめる前に、その項目で何を伝える計画なのかを確認しましょう。",
+  "visual": {
+    "heading": "パターン2　施工計画書の記載内容",
+    "items": [
+      "現場組織表：組織編成と業務分担",
+      "安全管理：責任者体制と対策方針"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/secondary-construction-plan-basics/article.mdx"
+}

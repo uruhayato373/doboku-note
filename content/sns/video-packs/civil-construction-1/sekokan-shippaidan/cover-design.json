@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "施工管理の失敗",
+        "現場での教訓"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/192.png",
+        "sha256": "a07dc2eb07ef2841f5f1c15b7b79c34b75fbd7ba0c3681715d5fc55c30ffdd87",
+        "specSha256": "ae5c942423d60f56b96802f34516897d630873514ec6c8307b4904f4a3f524d0"
+      }
+    },
+    "point-step1-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "現場の仕事",
+        "一人で抱えない"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/193.png",
+        "sha256": "787c7fc43017c685a764ac9336ad15346554202c286acb92e8caf3a784bcdfae",
+        "specSha256": "d767e5195516ecad1911a4399d846328bf9d97e4290a6522febbd9d07478feb5"
+      }
+    },
+    "point-step2-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "変わらない環境",
+        "耐え続ける前に"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/194.png",
+        "sha256": "54294e79ac45dd389b005de1e7cd513b3ca495e2c2bad1b8f2d96bbc41e8c9fb",
+        "specSha256": "7923c8c461c442a3a09e22fe09ee277b5a25c236cc2532b527f367de10bd1267"
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "keiken-gaiyo-2kyu",
+  "key": "point-step2-2",
+  "sceneId": "step2",
+  "exam": "civil-construction-2",
+  "narration": "施工量は、「一式」だけで済ませず、工種に対応する数量を単位つきで示しましょう。たとえば護岸の延長と掘削土量では、メートルと立方メートルを使い分けます。例文の数値は写さず、自分の工事記録で確認します。規模と本文の課題がつながるかも見直しましょう。",
+  "visual": {
+    "heading": "施工量は単位つきで具体化",
+    "items": [
+      "「一式」だけで済ませない",
+      "延長はm、土量はm³など工種に対応",
+      "数量は自分の工事記録で確認"
+    ]
+  },
+  "sourceRef": "content/note/1級・2級土木/2級土木/工事概要の書き方/article.md",
+  "editorialNote": "例示数値を本人の工事へそのまま転記させないよう単位の対応に焦点化。"
+}

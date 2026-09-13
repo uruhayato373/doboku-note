@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "keiken-r6-shinkeishiki",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "経験記述の形式",
+        "令和６年度から"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：得意な1つを仕上げれば十分",
+      "items": [
+        "令和6年度から出題形式そのものが変化",
+        "指定された2つ目のテーマにも対応が必要"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "change",
+      "heading": "令和6・7年度は2テーマ形式",
+      "items": [
+        "令和5年度までは1管理項目。令和6・7年度は同一工事で2テーマ。",
+        "二つの設問で同じ内容を書かないという条件も確認します。",
+        "以後の年度も必ず同じと決めず、当該年度の問題文に従います。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "structure",
+      "heading": "新形式の解答欄構造",
+      "items": [
+        "(1) 現場状況・技術的課題・検討した項目",
+        "(2) 検討項目への対応処置と評価",
+        "検討した項目は(1)側に入る"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "level2diff",
+      "heading": "2級とは検討項目の位置が違う",
+      "items": [
+        "2級では、検討項目と対応処置を(2)側に書く構造です。",
+        "1級へそのまま移すと(2)側が過密になるため、解答欄に合わせて配分します。",
+        "約200字という教材目安を、公式の必須文字数として扱いません。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "coverage",
+      "heading": "どの2テーマが来ても書ける準備",
+      "items": [
+        "令和6年度：安全管理・施工計画",
+        "令和7年度：品質管理・環境対策",
+        "1つの工事を5管理視点で整理"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

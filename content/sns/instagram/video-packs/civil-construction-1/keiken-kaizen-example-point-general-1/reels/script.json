@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "keiken-kaizen-example",
+  "key": "point-general-1",
+  "sceneId": "general",
+  "exam": "civil-construction-1",
+  "narration": "経験記述は、「品質に留意した」だけでは現場の特徴が伝わりません。工事概要を踏まえ、どの施工部分で、どんな条件から課題が生じたかを説明しましょう。実際の数量や作業条件を入れ、なぜその管理が必要だったのかを自分の経験に基づいて書きます。",
+  "visual": {
+    "heading": "一般論を現場条件に置き換える",
+    "items": [
+      "「品質に留意した」だけで止めない",
+      "施工部分と課題の原因を示す",
+      "実際の数量・作業条件を加える"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-examples/article.mdx",
+  "editorialNote": "TTSで破綻しやすい〇〇を具体的な引用例へ変更。"
+}

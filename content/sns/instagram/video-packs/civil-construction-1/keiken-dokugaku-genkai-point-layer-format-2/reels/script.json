@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "keiken-dokugaku-genkai",
+  "key": "point-layer-format-2",
+  "sceneId": "layer-format",
+  "exam": "civil-construction-1",
+  "narration": "経験記述の形式は、自分でも点検できます。解答欄からはみ出していないか、指定された管理項目に答えているか、工事概要に漏れがないかを確認しましょう。設問どうしの重複にも注意します。添削前に形式を整えると、内容の検討に集中できます。",
+  "visual": {
+    "heading": "添削前に形式を自分で点検",
+    "items": [
+      "解答欄・指定管理項目を確認",
+      "工事概要の項目漏れを確認",
+      "設問どうしの重複を確認"
+    ]
+  },
+  "sourceRef": "content/note/1級・2級土木/経験記述-独学添削の限界-無料/article.md",
+  "editorialNote": "一律の災害・品質1項目制約を避け設問適合の点検へ修正。"
+}

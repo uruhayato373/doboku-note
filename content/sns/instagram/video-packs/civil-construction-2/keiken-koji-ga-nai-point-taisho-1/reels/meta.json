@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.190Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-koji-ga-nai/shorts/point-taisho-1/shorts.mp4",
-  "durationSeconds": 30.13,
-  "sha256": "ac868663ec4c83f4aabc09d2f37bfd8c3bb3b16b134e740ea63fd28da9486fa3",
-  "coverSha256": "04b402e916bde61cd8b0f65883d104d556fbf6fd57ee6974314070186b58cb35",
-  "renderedAt": "2026-09-05T23:21:03.448Z"
+  "durationSeconds": 30.2,
+  "sha256": "4d17c39fe1b501bdc7f40b5bc1773f263932875394c87de2128af213a3d24332",
+  "coverSha256": "223403af4d12790de52cb7f00ddc122cc16a3379b8c38f570114c6f302993e7d",
+  "renderedAt": "2026-09-10T10:55:44.853Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "f31eb3a5f16a980ce352bc5c403899baeb889cb90529d7e584802f0eec6111a5",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "080e20527f74747183bcb752cca8c371da5e7109e61509f66209736ec2af9789",
+  "speaker": 13,
+  "narration": "経験記述の題材がないと感じたら、担当した工事を具体的に書き出しましょう。河川や道路、上下水道などの名称だけでなく、どの施工部分で何を管理したかを整理します。題材に使えるかは工事名だけで判断せず、実務経験の対象と受検の手引を照合します。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "89375a4070bee2d4e083625dd81f0250178ace878f19b80c7dcf0b614286336b",
+    "points": "018a792362e76044f6a6cdc1bf0e31f4174d0ad0d3b7c9b7971dba59414c9b25",
+    "pointsImage": "96d0cb028168f2f725ca06bfbd172a05722731de99984ba0a2b7f5a504c54259",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T10:55:44.853Z"
+  }
 }

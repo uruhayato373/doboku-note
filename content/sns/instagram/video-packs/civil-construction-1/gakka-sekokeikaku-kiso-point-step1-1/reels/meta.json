@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.221Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-sekokeikaku-kiso/shorts/point-step1-1/shorts.mp4",
-  "durationSeconds": 33.1,
-  "sha256": "ec9903fcdb32748cec577aa78ca28a7e470b9f6b24af51e1bc6ab5fd59250335",
-  "coverSha256": "db808c80b923f88306d0576a64deacdb8cb453d3eb551e81460383e0a56a86b9",
-  "renderedAt": "2026-09-06T00:06:52.813Z"
+  "durationSeconds": 30.2,
+  "sha256": "0e19c2ca639853f13131fea2a1ff98ef8ea6e929f0b7cc4c87444393abc53b76",
+  "coverSha256": "7dce4d7ff90a66acfc451cfef1cca92dcc236a22533eacb8a8cb9353289c5364",
+  "renderedAt": "2026-09-10T11:39:24.620Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "b09186f244d258b8ddd4ddb1fabb1c6175b323d8fae72aed929bdb138fe9ca22",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "74472225a6593e1e2ec7984683b01c60178ab55c9bdd348b5878ac00c784fd3b",
+  "speaker": 13,
+  "narration": "施工計画の事前調査では、契約条件、現場の施工条件、気象や地盤などを整理します。契約書と設計図書で要求を確認し、運搬路や周辺環境、地質や地下水位が施工にどう影響するかを調べます。分類名の暗記だけで終わらず、計画へ反映する条件として捉えましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "b1222e5a20ebe6131e1d541c66c877e8790b270ed870cc82df2c49a893f8229a",
+    "points": "feefb55c642336ee07b843b32dde4e59cbaa06566129407fed13d219d70db39a",
+    "pointsImage": "de8a9c534ba180054693fff519e8306238acb762334c05637fc704d1f8fe8745",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:39:24.620Z"
+  }
 }

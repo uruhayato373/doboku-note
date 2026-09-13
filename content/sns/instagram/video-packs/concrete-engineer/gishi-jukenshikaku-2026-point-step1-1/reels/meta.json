@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.201Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gishi-jukenshikaku-2026/shorts/point-step1-1/shorts.mp4",
-  "durationSeconds": 30,
-  "sha256": "7bb5b6a09aac68a42ffb4bac6e46a2413d2c2c8431a6e4ad6f4f38dace13beaf",
-  "coverSha256": "e7707f74b0c162d9c059586da74776a9f7dd93452ef12ed7d3c5be1c46ee78f0",
-  "renderedAt": "2026-09-05T23:32:58.092Z"
+  "durationSeconds": 30.2,
+  "sha256": "800c416f0ed89efdb7355e0b0dd5029f7e7a112700137b6d638d759cf2d7a49b",
+  "coverSha256": "2aad3141c794a642d2a7a31080c6f2441e1bc3a964bee87ef2eb608058027c8b",
+  "renderedAt": "2026-09-10T11:05:26.346Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "4f4c555dc0f0fbf0b27b50d96119af9a52c6accf53537251d9c00c73ab9bc404",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "f2052d4758602f26f31becfa249d6f3c7e615c0c486a20550c59d14b4115d2d3",
+  "speaker": 13,
+  "narration": "2026年度のコンクリート技士は、コンクリート技術関係業務の実務経験が一年以上ある人が受けられる経路へ見直されました。単なる在籍年数ではなく、対象となる技術業務の経験が必要です。主任技士とは条件が異なるため、資格名と年度を確かめて公式案内を確認しましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "3b687da89091a3016cf9d77400f70ea4df47a85e429d7c6230731d3e832987dd",
+    "points": "54b8542e34c8fe6a8ced7fe5bfba774f8c3f4e4432f4ab160bf08a6c7b70ab90",
+    "pointsImage": "ac2beedd9bb352d572481ce17a8ef0ffca2a0ecfec9c1e0cac297568613745b3",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:05:26.346Z"
+  }
 }

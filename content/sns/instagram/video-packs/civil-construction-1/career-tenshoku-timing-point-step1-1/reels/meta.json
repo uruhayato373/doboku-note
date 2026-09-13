@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.224Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/career-tenshoku-timing/shorts/point-step1-1/shorts.mp4",
-  "durationSeconds": 30,
-  "sha256": "2ec7b86c2ec4b550de4453c7cbfdb2ed5f91091b464550805953d1879f99835d",
-  "coverSha256": "77570ac7713766dc2179ab080cab099deee2d4341bea302b571aaeb8db269987",
-  "renderedAt": "2026-09-06T00:08:38.314Z"
+  "durationSeconds": 30.2,
+  "sha256": "da57abcabb4929acd42b01fa212598afb17866a3ebc9da612fbd4b474182a396",
+  "coverSha256": "116afc9d426b080e4816e19c394e354004c5eaf320740fd9be399f04c84e2204",
+  "renderedAt": "2026-09-10T11:47:52.194Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "d78480d5f2743a402c3b13be3ef649a57cc2b60a840774e3467eb64602990eaa",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "df70dec937a9a5edfc8f5f8ccbe21ac76a995d2c2ad07123285c27abf6e021b2",
+  "speaker": 13,
+  "narration": "転職の時期は、担当現場の区切りから考えると段取りを組みやすくなります。竣工後から次の現場に入るまでが一つの候補です。竣工予定から逆算し、応募や面接、引継ぎに必要な時間を確認しましょう。現場の予定が変わることも見込んで準備します。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "0146a805f215baf9cee61313fd55f9044c9954d220f92bf254f7c940527a2e7a",
+    "points": "17961daaa0c5a9dfe2cc809c0d9769347e1bc95db81bdc7a2a4628bd00e06a00",
+    "pointsImage": "e1aa454c062b5a1831eed692060c363f2f2c8ecf6633a9db1e6ba6d9b4d525a4",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:47:52.194Z"
+  }
 }

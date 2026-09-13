@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "keiken-kento-kakikata",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "検討項目",
+        "どう書く？"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "検討項目を書く欄を先に確認",
+      "items": [
+        "検討と対応処置の区切りは、1級と2級で異なります。",
+        "令和6・7年度の1級では、検討項目は(1)側です。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "block1",
+      "heading": "1級R6以降の配分",
+      "items": [
+        "(1) 現場状況・技術的課題＋検討した項目",
+        "(2) 対応処置とその評価",
+        "検討項目は(1)側"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "block2",
+      "heading": "2級の配分をそのまま流用しない",
+      "items": [
+        "2級は検討項目が(2)側に入るため、1級へ流用すると内容が偏ります。",
+        "1級の解答欄に合わせ、課題・検討・処置・評価を配分します。",
+        "約200字という字数は教材上の目安で、公式の指定文字数として扱いません。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "block3",
+      "heading": "何を目的に検討したかを書く",
+      "items": [
+        "「解決方法」と名付けるだけでは、検討した内容が伝わりません。",
+        "工法・配置・構造形式など、何を比較しどう判断したかを具体化します。",
+        "用語を避けること自体でなく、検討過程を示すことが目的です。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "block4",
+      "heading": "一つに絞って集中して書く",
+      "items": [
+        "課題の文は短く",
+        "検討理由と内容は長く",
+        "根拠から結論までつなげる"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

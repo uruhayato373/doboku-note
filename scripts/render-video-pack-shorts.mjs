@@ -1,18 +1,22 @@
 #!/usr/bin/env node
 /**
  * 動画パックの通常動画用 storyboard と生成済み WAV から、関連 Shorts を再生成する。
- * 出力は .tmp/video-render/{packId}/shorts/{key}/。Git には入れず private R2 へ退避する。
+ * 出力は .tmp/video-render/{packId}/shorts/{key}/。Git には入れず Google Drive vault へ保存する。
  */
 import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
 import { createHash } from 'node:crypto';
-import { copyFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { copyFileSync, existsSync, mkdirSync, readFileSync, writeFileSync, rmSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { parseArgs } from 'node:util';
 
+import { buildExplanationNode } from './lib/video-explanation.mjs';
 import { EXAM_TO_PALETTE, wrapJp } from './lib/longform-render.mjs';
+import { renderYoutubeCover, validateCoverDesign } from './lib/youtube-cover.mjs';
+import { readVideoCta } from './lib/video-cta.mjs';
+import { narrationInput, reusableNarration, sha256 as bytesSha256 } from './lib/video-narration-cache.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const W = 1080;
@@ -41,6 +45,8 @@ const { values: args } = parseArgs({
     'pack-dir': { type: 'string' },
     'render-root': { type: 'string' },
     force: { type: 'boolean', default: false },
+    key: { type: 'string' },
+    'preview-only': { type: 'boolean', default: false },
   },
 });
 if (!args['pack-dir']) {
@@ -52,16 +58,20 @@ const packDir = resolve(ROOT, args['pack-dir']);
 const manifest = JSON.parse(readFileSync(join(packDir, 'video-pack.json'), 'utf8'));
 const storyboard = JSON.parse(readFileSync(join(packDir, 'storyboard.json'), 'utf8'));
 const publish = JSON.parse(readFileSync(join(packDir, 'youtube.json'), 'utf8'));
+const coverDesignPath = join(packDir, 'cover-design.json');
+const coverDesign = existsSync(coverDesignPath)
+  ? validateCoverDesign(JSON.parse(readFileSync(coverDesignPath, 'utf8')), { exam: EXAM_TO_PALETTE[manifest.exam] }) : null;
 const renderRoot = args['render-root'] ? resolve(args['render-root']) : join(ROOT, '.tmp', 'video-render');
 const sourceRoot = join(renderRoot, manifest.packId);
+const cta = await readVideoCta(ROOT, packDir, 'shorts');
 
 const { resolveExam } = await import(
   pathToFileURL(resolve(ROOT, '.claude/scripts/sns/lib/exam-palette.mjs')).href
 );
-const { composeShortsVideo, ffmpegAvailable, probeDuration } = await import(
+const { composeStaticSlidesVideo, ffmpegAvailable, probeDuration } = await import(
   pathToFileURL(resolve(ROOT, '.claude/skills/social/yt-shorts-create/scripts/lib/ffmpeg-compose.mjs')).href
 );
-if (!ffmpegAvailable()) throw new Error('ffmpeg / ffprobe が利用できません');
+if (!args['preview-only'] && !ffmpegAvailable()) throw new Error('ffmpeg / ffprobe が利用できません');
 
 const palette = resolveExam(EXAM_TO_PALETTE[manifest.exam]);
 const theme = { base: palette.base, deep: palette.deep, label: palette.label };
@@ -114,32 +124,7 @@ function coverNode(item, scene) {
 }
 
 function pointsNode(scene) {
-  const visual = scene.visual ?? { heading: scene.caption, items: [] };
-  return {
-    type: 'div',
-    props: {
-      style: { display: 'flex', flexDirection: 'column', width: `${W}px`, height: `${H}px`, background: '#fff', fontFamily: FONT_JP },
-      children: [
-        {
-          type: 'div', props: { style: { display: 'flex', height: 180, padding: '0 58px', alignItems: 'center', justifyContent: 'space-between', background: theme.deep }, children: [
-            textNode(theme.label, { color: '#fff', fontSize: 38, fontWeight: 700 }),
-            textNode(examProfile.short, { color: 'rgba(255,255,255,.74)', fontSize: 32, fontWeight: 500 }),
-          ] },
-        },
-        {
-          type: 'div', props: { style: { display: 'flex', flex: 1, flexDirection: 'column', padding: '105px 72px 390px', borderLeft: `14px solid ${theme.base}` }, children: [
-            textNode(wrapJp(visual.heading ?? scene.caption ?? '', 13).join('\n'), { fontSize: 72, fontWeight: 700, lineHeight: 1.45, whiteSpace: 'pre-wrap', color: '#222', marginBottom: 70 }),
-            ...(visual.items ?? []).map((item) => ({
-              type: 'div', props: { style: { display: 'flex', alignItems: 'flex-start', marginBottom: 48 }, children: [
-                textNode('●', { color: theme.base, fontSize: 36, marginRight: 28, marginTop: 8 }),
-                textNode(chunkJpBalanced(item, 17).join('\n'), { color: '#343434', fontSize: 47, fontWeight: 500, lineHeight: 1.65, whiteSpace: 'pre-wrap', flex: 1 }),
-              ] },
-            })),
-          ] },
-        },
-      ],
-    },
-  };
+  return buildExplanationNode(scene, { theme, packTitle: manifest.title, portrait: true });
 }
 
 function fitText(text, maxChars) {
@@ -184,7 +169,7 @@ function assTime(sec) {
 }
 
 function buildAss(segments) {
-  const header = `[Script Info]\nScriptType: v4.00+\nPlayResX: ${W}\nPlayResY: ${H}\n\n[V4+ Styles]\nFormat: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding\nStyle: Default,Noto Sans JP,54,&H00FFFFFF,&H000000FF,&H00000000,&H98000000,1,0,0,0,100,100,0,0,3,3,0,2,64,64,210,1\n\n[Events]\nFormat: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text`;
+  const header = `[Script Info]\nScriptType: v4.00+\nPlayResX: ${W}\nPlayResY: ${H}\n\n[V4+ Styles]\nFormat: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding\nStyle: Default,Noto Sans JP,54,&H00FFFFFF,&H000000FF,&H00000000,&H98000000,1,0,0,0,100,100,0,0,3,3,0,2,64,64,420,1\n\n[Events]\nFormat: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text`;
   const lines = [];
   for (const segment of segments) {
     const chunks = chunkJpBalanced(segment.text, 19);
@@ -205,12 +190,33 @@ async function sha256(path) {
   return createHash('sha256').update(readFileSync(path)).digest('hex');
 }
 
+async function customCtaWav() {
+  const render = JSON.parse(readFileSync(join(sourceRoot, 'render-manifest.json'), 'utf8'));
+  if (!render.tts || !Number.isInteger(render.speaker)) throw new Error('CTA音声の話者を確定するため通常動画を先に再生成してください');
+  const path = join(sourceRoot, 'wav', 'shorts-cta.wav');
+  const recordPath = join(sourceRoot, 'shorts-cta-input.json');
+  const record = existsSync(recordPath) ? JSON.parse(readFileSync(recordPath, 'utf8')) : null;
+  const input = narrationInput(cta.narration, render.speaker);
+  if (existsSync(path) && reusableNarration(record, input, readFileSync(path))) return path;
+  const { isRunning, synthesize } = await import('../.claude/scripts/lib/sns-common/tts-client.mjs');
+  if (!(await isRunning())) throw new Error('Shorts CTA音声の合成にはVOICEVOXが必要です');
+  const bytes = Buffer.from(await synthesize({ text: input.text, speaker: render.speaker }));
+  writeFileSync(path, bytes);
+  writeFileSync(recordPath, JSON.stringify({ inputSha256: input.inputSha256, sha256: bytesSha256(bytes) }, null, 2) + '\n');
+  return path;
+}
+
 async function main() {
   if (!Array.isArray(publish.shorts) || publish.shorts.length !== manifest.outputs?.shorts) {
     throw new Error(`youtube.json shorts は${manifest.outputs?.shorts}件必要です`);
   }
   let changed = false;
-  for (const item of publish.shorts) {
+  const targets = publish.shorts.filter(item => !args.key || item.key === args.key);
+  if (!targets.length) throw new Error('Shorts 対象0件');
+  const authoredCtaWav = cta && !args['preview-only'] ? await customCtaWav() : null;
+  for (const item of targets) {
+    const coverSpec = coverDesign?.covers?.[item.key];
+    if (coverSpec && coverSpec.format !== 'shorts') throw new Error(`${item.key}: cover format が不一致`);
     const sceneIndex = storyboard.scenes.findIndex((scene) => scene.sceneId === item.sceneId);
     if (sceneIndex < 0) throw new Error(`sceneId がありません: ${item.sceneId}`);
     const scene = storyboard.scenes[sceneIndex];
@@ -218,14 +224,14 @@ async function main() {
     if (ctaIndex < 0) throw new Error(`${item.key}: cta scene がありません`);
     const ctaScene = storyboard.scenes[ctaIndex];
     const sourceWav = join(sourceRoot, 'wav', `${String(sceneIndex).padStart(2, '0')}-${scene.sceneId}.wav`);
-    const ctaSourceWav = join(sourceRoot, 'wav', `${String(ctaIndex).padStart(2, '0')}-${ctaScene.sceneId}.wav`);
+    const ctaSourceWav = authoredCtaWav ?? join(sourceRoot, 'wav', `${String(ctaIndex).padStart(2, '0')}-${ctaScene.sceneId}.wav`);
     const outDir = join(sourceRoot, 'shorts', item.key);
     const tmpDir = join(outDir, 'work');
     mkdirSync(tmpDir, { recursive: true });
 
     const existingVideo = join(outDir, 'shorts.mp4');
     const existingThumbnail = join(outDir, 'thumbnail.png');
-    if (!args.force && existsSync(existingVideo) && existsSync(existingThumbnail)) {
+    if (!args['preview-only'] && !coverSpec && !cta && !args.force && existsSync(existingVideo) && existsSync(existingThumbnail)) {
       const videoSha = await sha256(existingVideo);
       const thumbnailSha = await sha256(existingThumbnail);
       if (item.sha256 === videoSha && item.thumbnailSha256 === thumbnailSha) {
@@ -237,9 +243,22 @@ async function main() {
     const coverPng = join(tmpDir, 'cover.png');
     const pointsPng = join(tmpDir, 'points.png');
     const ctaPng = join(tmpDir, 'cta.png');
-    await renderPng(coverNode(item, scene), coverPng);
+    if (coverSpec) {
+      const cover = await renderYoutubeCover(ROOT, coverSpec);
+      writeFileSync(coverPng, cover.buffer);
+      writeFileSync(join(tmpDir, 'cover-provenance.json'), JSON.stringify(cover.provenance, null, 2) + '\n');
+    } else await renderPng(coverNode(item, scene), coverPng);
     await renderPng(pointsNode(scene), pointsPng);
-    await renderPng(ctaNode(), ctaPng);
+    if (cta) {
+      writeFileSync(ctaPng, cta.buffer);
+      writeFileSync(join(tmpDir, 'cta-provenance.json'), JSON.stringify(cta.provenance, null, 2) + '\n');
+    } else await renderPng(ctaNode(), ctaPng);
+
+    // Preview never replaces the upload thumbnail, video hash, or publication input.
+    if (args['preview-only']) {
+      console.log(`${item.key}: PNG 3枚を ${tmpDir} に生成。動画/投稿サムネ/台帳は未変更`);
+      continue;
+    }
 
     const sourceDuration = await probeDuration(sourceWav);
     if (sourceDuration <= HOOK_SECONDS + 1) throw new Error(`${item.key}: 音声が短すぎます`);
@@ -266,16 +285,19 @@ async function main() {
     const assPath = join(outDir, 'subtitles.ass');
     writeFileSync(assPath, buildAss([
       { text: scene.narration, start: 0, duration: narrationDuration },
-      { text: ctaScene.narration, start: narrationDuration, duration: Math.min(ctaSourceDuration, ctaSeconds) },
+      { text: cta?.narration ?? ctaScene.narration, start: narrationDuration, duration: Math.min(ctaSourceDuration, ctaSeconds) },
     ]), 'utf8');
     const outPath = join(outDir, 'shorts.mp4');
-    await composeShortsVideo({
+    await composeStaticSlidesVideo({
       pngPaths: [coverPng, pointsPng, ctaPng],
       wavPaths: [hookWav, pointsWav, ctaWav],
       assPath,
       outPath,
-      options: { tmpDir, requireSubtitles: true },
     });
+    // The single-pass compositor no longer needs the previous intermediate MP4s.
+    for (const name of ['slide-00.mp4', 'slide-01.mp4', 'slide-02.mp4', '_combined.mp4', 'concat.txt']) {
+      rmSync(join(tmpDir, name), { force: true });
+    }
     const durationSeconds = await probeDuration(outPath);
     if (durationSeconds < 30 || durationSeconds > 60) throw new Error(`${item.key}: 推奨尺外 ${durationSeconds.toFixed(2)}s`);
     const thumbnailPath = join(outDir, 'thumbnail.png');

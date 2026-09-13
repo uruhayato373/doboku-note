@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "niji-kijutsu-doko",
+  "key": "point-gradient-2",
+  "sceneId": "gradient",
+  "exam": "civil-construction-1",
+  "narration": "盛土やのり面の勾配は、何のための数値かを分けて覚えます。盛土面の横断勾配は排水、のり面の勾配は安定や植生の適用、傾斜地盤の段切りは盛土とのなじみをよくするためです。似た比率が並んでも、場所と目的を確認してから数値を当てはめましょう。",
+  "visual": {
+    "heading": "勾配は場所と目的で覚える",
+    "items": [
+      "盛土面の横断勾配：排水",
+      "のり面勾配：安定・植生の適用",
+      "傾斜地盤の段切り：盛土とのなじみ"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/secondary-earthwork-basics/article.mdx",
+  "editorialNote": "工法・仕様書条件を欠いた勾配数値の一律適用を避け、区別の論点に焦点化。"
+}

@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "河川・道路・港",
+        "許可と届出"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/045.png",
+        "sha256": "f791264bf8ae4d6f48fafbe29d54347718b18092ad30a9a1105d5e0345b1cae9",
+        "specSha256": "d1960893a038c55aa02bc3b2c248a4200a3d664ef36cadad4fee2f04480b2742"
+      }
+    },
+    "point-overview-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "河川法の規制",
+        "対象地で変わる"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/046.png",
+        "sha256": "f72fbe5d78a7898cf3ff999c88a7fbfb4b9eed95acc1ac56866faa0aa6870f4f",
+        "specSha256": "7266d6ed3e8468464738f145524040bcd21614d1f8c3736d0bcbd1605fc454b2"
+      }
+    },
+    "point-step1-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "道路法の許可",
+        "相手を区別する"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/047.png",
+        "sha256": "a135c2b0dabbcce14870522e5bf78fcc1fab26eb515b5ada2edcf4164ad2467e",
+        "specSha256": "99cfb14d4e918779c6e07d1ae36acfa6c38c8e9a489081fb522be0aacb2613ba"
+      }
+    }
+  }
+}

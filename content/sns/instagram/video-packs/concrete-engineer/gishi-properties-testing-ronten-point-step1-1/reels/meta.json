@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.194Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gishi-properties-testing-ronten/shorts/point-step1-1/shorts.mp4",
-  "durationSeconds": 37.17,
-  "sha256": "da4353631f0a281a09311f3a1267220f52cdee70412191819f5be2b40753dd2c",
-  "coverSha256": "b1df5effc872db0af8a1dc7138b602224bd2454d01319bc4e392d40cb47944c5",
-  "renderedAt": "2026-09-05T23:25:28.753Z"
+  "durationSeconds": 30.2,
+  "sha256": "60b8c2e9d45ee8fbce3e417232cb9d2de3c53e69cb1e87c01776e5159fb4f1ed",
+  "coverSha256": "87552f9bc92689d26fe6eceff798994aad957cc8c9da52384540499ded13296b",
+  "renderedAt": "2026-09-10T11:00:00.465Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "025db561e3efe6cd2036696bb027a176819622fe62a48ee26fa7b58fc0d892ce",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "dce3ef9daba796a295cda42e93d63459cdc9ef983b527e203ea32e462d8d5581",
+  "speaker": 13,
+  "narration": "ワーカビリティーは、材料分離を起こさずに運搬・打込み・締固め・仕上げができる程度を表す総合的な性質です。コンシステンシーは変形や流動への抵抗の程度で、スランプはその一つの指標にすぎません。同じスランプでも打ちにくいと感じるのは、粘性や材料分離抵抗性が別だからです。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "aa6e950a468b1aeef4bf4c6d368bc5bbb47240b32bd3ad6d9c84114105b096c1",
+    "points": "e05abdd15661730b2b36ca10d971d5257964c4df610658265457bb52423899cf",
+    "pointsImage": "bf5f3074ecb98e1bc55eaf6db65ec3bc7a6380b0596f02c20116d0a375d759c7",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:00:00.465Z"
+  }
 }

@@ -4,13 +4,13 @@
  * QA待ち・rendered の通常動画とサムネイルは作業セットとして残す。
  * 既定dry-run。--commitで削除する。
  */
-import { createHash } from 'node:crypto';
 import { spawnSync } from 'node:child_process';
 import {
   existsSync, readFileSync, readdirSync, rmdirSync, statSync, unlinkSync,
 } from 'node:fs';
 import { join, relative, resolve } from 'node:path';
 import { toVaultRel, vaultRelFor } from './lib/drive-vault.mjs';
+import { sha256File as sha256 } from './lib/asset-storage.mjs';
 
 const ROOT = process.cwd();
 const BASE = join(ROOT, '.tmp/video-render');
@@ -25,10 +25,6 @@ const arg = (name) => {
   return index >= 0 ? argv[index + 1] : null;
 };
 const verifiedListPath = resolve(ROOT, arg('--verified-list') ?? '.tmp/video-render-drive-ok.txt');
-
-function sha256(path) {
-  return createHash('sha256').update(readFileSync(path)).digest('hex');
-}
 
 function removeEmptyDirs(dir) {
   if (!existsSync(dir)) return;

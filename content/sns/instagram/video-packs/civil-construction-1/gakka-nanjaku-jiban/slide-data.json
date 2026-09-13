@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "gakka-nanjaku-jiban",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "軟弱地盤対策",
+        "原理で整理"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：工法名をひたすら覚えるしかない",
+      "items": [
+        "原理で5グループに大別できる",
+        "掘削時の排水工法は目的が別"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-soft-ground-drainage/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "overview",
+      "heading": "工法を原理で5つに束ねる",
+      "items": [
+        "圧密・排水／締固め／固結",
+        "荷重軽減／構造物・補強",
+        "複数工法の組合せも多い"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-soft-ground-drainage/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "圧密・排水工法の代表例",
+      "items": [
+        "バーチカルドレーン＝排水距離を短縮",
+        "サンド＝砂柱、ペーパー＝人工ドレーン材",
+        "プレロード＝先行載荷、サーチャージ＝超過載荷"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-soft-ground-drainage/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "締固め工法と固結工法",
+      "items": [
+        "サンドコンパクション：密度増加＋複合地盤化",
+        "深層混合処理：撹拌・高圧噴射で改良体を造成"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-soft-ground-drainage/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "液状化対策の5つの視点",
+      "items": [
+        "水圧の発生防止／速消散",
+        "ずれ変位防止／変形抑制",
+        "杭で上部構造を支える"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-soft-ground-drainage/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step4",
+      "heading": "掘削時の排水工法（目的が別）",
+      "items": [
+        "重力排水：透水係数が大きい土",
+        "強制排水：中程度の透水係数",
+        "電気浸透：透水係数が極めて小さい土"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-soft-ground-drainage/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

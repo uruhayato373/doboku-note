@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "niji-kijutsu-sekokeikaku",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "二次の施工計画",
+        "記述の型"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：現場ごとに違うから対策しづらい",
+      "items": [
+        "出題形式は3パターンに絞られる",
+        "現場が変わっても解答の型は同じ"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-construction-plan-past-problems/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "pattern1",
+      "heading": "パターン1　留意事項の穴埋め",
+      "items": [
+        "第三者災害の防止",
+        "組織の業務分担",
+        "振動・騒音などの環境対策"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-construction-plan-past-problems/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "pattern2",
+      "heading": "パターン2　施工計画書の記載内容",
+      "items": [
+        "現場組織表：組織編成と業務分担",
+        "安全管理：責任者体制と対策方針"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-construction-plan-basics/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "pattern3",
+      "heading": "パターン3　施工手順フローの穴埋め",
+      "items": [
+        "工種名・使用機械・留意事項の3点セット",
+        "例：床掘工→基礎工→据付工→埋戻し工"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-construction-plan-past-problems/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "four-stages",
+      "heading": "計画の4段階に位置づける",
+      "items": [
+        "事前調査で契約条件と現場条件を確認し、基本計画で施工方法の大枠を決めます。",
+        "詳細計画で具体化し、管理計画で工程・品質・安全などの方針を整理します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-construction-plan-basics/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

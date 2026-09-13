@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "shunin-construction-ronten",
+  "inputDigest": "41c22c891734e9cb87c0707254af69fe0d6f7f7cbe92ba2a99f3311d26da6539",
+  "sourceSha256": "24c30798eb3b59a05bcb38e308b0234e4630aed44834d2684cab4f99446f350b",
+  "rendererSha256": "b04b4ad581c8ab70d15dc33ebed74face3677e1a938690139aa14dad15697a30",
+  "renderedAt": "2026-09-10T12:05:40.907Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-construction-ronten/carousel/img/00-cover.png",
+      "sha256": "4b19b2779b682edd8aaea8cc891d033af1188b3d6a998713ec2e1cb7aeff7adc",
+      "bytes": 340129,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-construction-ronten/carousel/img/01-point.png",
+      "sha256": "f2e348444b1cdaf51269028234518b93641d0b6f442c61b78b20afb4651937ff",
+      "bytes": 106611,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-construction-ronten/carousel/img/02-point.png",
+      "sha256": "7da4d73f259e345c1175cd14fc37b70066376c9f86228e994021326a5c893069",
+      "bytes": 113630,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-construction-ronten/carousel/img/03-point.png",
+      "sha256": "57e2a7539c5b5c564a05dde66926cfc47278ab486f9b45c80bd67b1f8c4c80ce",
+      "bytes": 120992,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-construction-ronten/carousel/img/04-point.png",
+      "sha256": "6331f2b994e11f7005fa7bb8102d6f8cb3f1c605026f2ff22141091a05189c4c",
+      "bytes": 112773,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-construction-ronten/carousel/img/05-point.png",
+      "sha256": "cf43f03746f69d55cb6055a0f17a47d1c741dd62cbef320b00da532e0d44ae29",
+      "bytes": 143943,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-construction-ronten/carousel/img/06-point.png",
+      "sha256": "fc39c94e81ff696a0136f476112938316b1f7dcb87cef65b157630dda507c7e9",
+      "bytes": 121697,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-construction-ronten/carousel/img/07-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

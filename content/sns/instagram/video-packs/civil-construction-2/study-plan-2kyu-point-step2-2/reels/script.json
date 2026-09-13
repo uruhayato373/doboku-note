@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "study-plan-2kyu",
+  "key": "point-step2-2",
+  "sceneId": "step2",
+  "exam": "civil-construction-2",
+  "narration": "2級土木の第一次対策は、テキストで全体をつかみ、過去問演習で理解を確かめる流れが基本です。五年分など範囲を決めて繰り返し、間違えた問題は根拠をテキストへ戻って確認します。年数だけで十分と決めず、説明できない選択肢を減らしていきましょう。",
+  "visual": {
+    "heading": "過去問とテキストを往復する",
+    "items": [
+      "テキストで出題範囲をつかむ",
+      "過去問は範囲を決めて繰り返す",
+      "間違えた根拠を確認する"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-2/guide-study-method/article.mdx",
+  "editorialNote": "2ステップ・5年だけで足りるという合格対策の保証を緩和。"
+}

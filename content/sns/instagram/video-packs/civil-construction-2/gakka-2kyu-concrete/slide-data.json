@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "gakka-2kyu-concrete",
+  "exam": "civil-construction-2",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "コンクリート",
+        "頻出点を整理"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "水セメント比と施工性を分けて考える",
+      "items": [
+        "水セメント比は、強度・耐久性に関わる値です。",
+        "水を減らす方法で比率を下げる場合は、流動性や締固めへの影響も確認します。"
+      ],
+      "sourceRef": "content/site/civil-construction-2/guide-concrete-key-points/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "overview",
+      "heading": "コンクリートの4テーマ",
+      "items": [
+        "① 材料",
+        "② 配合とスランプ",
+        "③ 打込み・締固め・養生／④ ひび割れ"
+      ],
+      "sourceRef": "content/site/civil-construction-2/guide-concrete-key-points/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "block1",
+      "heading": "混和剤と混和材を区別する",
+      "items": [
+        "混和剤（AE剤・減水剤）→容積に算入しない",
+        "混和材（フライアッシュ等）→容積に算入する",
+        "骨材は表面乾燥飽水状態が基準"
+      ],
+      "sourceRef": "content/site/civil-construction-2/guide-concrete-key-points/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "block2",
+      "heading": "配合は性能の両立で判断",
+      "items": [
+        "水セメント比を小さくすると、一般に強度や耐久性の確保に有利です。",
+        "同時に単位水量・混和剤等を検討し、必要な施工性を確保します。",
+        "スランプだけを大きくしようと加水すれば、材料分離などの問題を招きます。"
+      ],
+      "sourceRef": "content/site/civil-construction-2/guide-concrete-key-points/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "block3",
+      "heading": "打込み・締固め・養生の手順",
+      "items": [
+        "打重ね時間の限度を守る（コールドジョイント防止）",
+        "バイブレータは鉛直挿入・横移動禁止",
+        "養生は湿潤状態を保つ"
+      ],
+      "sourceRef": "content/site/civil-construction-2/guide-concrete-key-points/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "block4",
+      "heading": "ひび割れは原因に合う対策を選ぶ",
+      "items": [
+        "乾燥収縮・水和熱・沈下・鉄筋腐食では、発生の仕組みが異なります。",
+        "単位水量の抑制・養生・打継ぎ処理などを、原因に対応させて整理します。"
+      ],
+      "sourceRef": "content/site/civil-construction-2/guide-concrete-key-points/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

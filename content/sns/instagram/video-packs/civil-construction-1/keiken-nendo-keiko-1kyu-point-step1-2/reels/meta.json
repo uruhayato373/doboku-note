@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.227Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-nendo-keiko-1kyu/shorts/point-step1-2/shorts.mp4",
-  "durationSeconds": 33.43,
-  "sha256": "ce6d297f1c82f7147745b4b9a724c747ca064896fc0c0f4c55265964275b3657",
-  "coverSha256": "14cb77f0d73742cea5183b50923bfacaf5c07404685f7f40ab4b93b504760f5b",
-  "renderedAt": "2026-09-06T00:11:07.477Z"
+  "durationSeconds": 30.2,
+  "sha256": "93e401fe729f85e9f374acbe258ed24bbe71e720acd3f98805d94d4162b1ccf8",
+  "coverSha256": "0cbd48096e5f4fb0455d0fbb79d4730740b3bd0ee07c3a67ce57c15ebbce6ee2",
+  "renderedAt": "2026-09-10T11:59:41.393Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "5ddb1a01143914e901baeeffe7f8ffb21bc0ca742b5e23b73139ee41124cac1e",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "cea1812c6e398c01a0f2ddcf1ed463a9c5f19d93fedfede32370f532cb074a3f",
+  "speaker": 13,
+  "narration": "令和6年度から、出題形式が大きく変わりました。工事概要を書いたうえで、設問1に安全管理、設問2に施工計画が指定され、同一の工事について両方を必答する形式になりました。設問1と設問2は同一内容の解答ができません。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "2022eef1d8840730219b27e5b4e40dd69a151c8e79f9becdadf2e2e6a070d616",
+    "points": "b1c81561fd81892ae1d9b6a70dd33b5829a602e4b3a7b27217e468d7544f287e",
+    "pointsImage": "e0b1eb2b9dd459e0ecdae21bb28db129e910400c8979bbd856a4be72b214925c",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:59:41.393Z"
+  }
 }

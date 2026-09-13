@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.226Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/kikinagashi-hoki-suchi/shorts/point-avg-wage-contract-1/shorts.mp4",
-  "durationSeconds": 30.17,
-  "sha256": "71d6baa5140bd826091b7dea0ed2c432caf26bc5d04e1605f80130a8a7eb59a7",
-  "coverSha256": "cc9367b8b989fb012ec484880a89abee97ee059b194cb7e01fc6cb76cf6fbf90",
-  "renderedAt": "2026-09-06T00:10:05.896Z"
+  "durationSeconds": 30.2,
+  "sha256": "8e139289bf1b62739ca2a7f0b26ff25bfc7497dd95789b06c91e28cc1b177060",
+  "coverSha256": "a74a9868c7e0268e28cbd0c897eb8e345f2a9ac90e40e83fdc289e6ad4f22559",
+  "renderedAt": "2026-09-10T11:54:55.062Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "7f8225054e543a27c94554f09909718e6debdbb3b7eb851a57c420a049aebcd1",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "998dd4b838a54ad05a32533f3aa95285c8cf30d82a06fc3912fc6481e2670a19",
+  "speaker": 13,
+  "narration": "平均賃金と有期労働契約の期間は、別の数字として覚えます。平均賃金は原則として、算定事由発生前の三か月の賃金総額を、その期間の総日数で割ります。有期契約の期間は原則三年が上限ですが、一定の事業や専門的な労働者などには例外があります。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "68a02abe90e784003302acf06ea719d983d9ec2f86150cbd60e6d517ba4184d9",
+    "points": "db9e9625f9b653b6bfd7ca82019747c1d56aa0c1ea9167ea952899cf690cf2b4",
+    "pointsImage": "dd7b6b0d9ab550402d68bf20e87b71709202e2b4398fc2bba7bc7645aac37643",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:54:55.062Z"
+  }
 }

@@ -13,7 +13,27 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/niji-kijutsu-sekokeikaku/shorts/point-pattern1-1/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "6d0fff88b9d23694606eb5cbe06964bb9836a2600cf34de81bd107338d29bbc1",
-  "coverSha256": "c64f97ad422d152f2e95b1ce9edb2f736caeb164af462dacc75e406aa730d436",
-  "renderedAt": "2026-09-05T23:54:53.111Z"
+  "sha256": "d7c4969081d711fc6c5d330eee6b3111ffa91fa4663bda0c4945cc3486d147d9",
+  "coverSha256": "1ae6c105fafbc1291c60b3569965f70a32292089d23782ea0ad4750fc5717e76",
+  "renderedAt": "2026-09-10T11:13:57.344Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "72141d3490808688bd9b58cb0e687f0027de4ff74ac99995878ff822614600d0",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "660445c8fcc8b0a6a64d72c23577ee6fb91ed65fb29466b1276db2567a26bcee",
+  "speaker": 13,
+  "narration": "学科記述の穴埋めは、用語の暗記だけでなく、文章の目的を読むことが大切です。第三者災害の防止、組織の業務分担、騒音や振動への対策などを、施工計画のどの場面で使う言葉か整理しましょう。出題文の前後を読み、意味のつながる語句を選びます。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "884bfaa0d0a7ed4ac56c06d87be97e39c00e2b4251313779aefc71fbfe27bb3f",
+    "points": "fa5984f1ad361b2c59ab70cf23e761b4385e28245eeddd8916f90270144ddfbf",
+    "pointsImage": "dc50d40d5b3e0df41ff225948ec9285b28a9b4a093f1af40645bb44175e87efc",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:13:57.344Z"
+  }
 }

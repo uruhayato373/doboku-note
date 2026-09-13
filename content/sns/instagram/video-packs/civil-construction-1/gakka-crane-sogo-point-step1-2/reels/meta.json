@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.212Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-crane-sogo/shorts/point-step1-2/shorts.mp4",
-  "durationSeconds": 35.2,
-  "sha256": "dd3d9b1f1821dc7e9ab2baa0a5f506b8cfb27490f195a59520513f146156285b",
-  "coverSha256": "9bbb077315e0a6b89b6be38d0498bc0a3c263bdd32a9351d27407ee89f8a6810",
-  "renderedAt": "2026-09-06T00:01:15.179Z"
+  "durationSeconds": 30.2,
+  "sha256": "e350fd27ec7765a892ed233ea0b0e0d364a14cd5e2c337536a15064f64f5ec60",
+  "coverSha256": "37e473f7468ee94207a00fb56ed9548e9f431d9bb4700e11b5bcfb85bd4cbd5d",
+  "renderedAt": "2026-09-10T11:19:28.624Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "512c1478bb1c7f2a6dbbd84f142cefd001e49b5b6e8056d9763469a090fc3af4",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "d00756ac2807ed4fb4b9bab0405f7bceb6780d1bc84b498201b3f40331974ce8",
+  "speaker": 13,
+  "narration": "定格総荷重は、各作業半径でつることができる最大の荷重で、フックなどのつり具の質量を含みます。定格荷重は、そこからつり具の質量を引いた、実際につり上げられる荷物の質量です。つり具込みが定格総荷重、除いたものが定格荷重、と対で覚えてください。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "56c6b804176ee3453aa0d38f87fa3e1c47fc3170726702530b2943d75ae698a5",
+    "points": "d6ea9ea7a7e9d0678f38d67750b0d46bc47fa19a40f5cd81d25341c4cb68d6a8",
+    "pointsImage": "318c092f4aac14d68de156e41e721b5f9829a5476600ed85aa931a068d56c672",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:19:28.624Z"
+  }
 }

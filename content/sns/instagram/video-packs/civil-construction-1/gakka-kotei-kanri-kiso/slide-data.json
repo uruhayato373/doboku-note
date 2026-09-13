@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "gakka-kotei-kanri-kiso",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "工程表の種類",
+        "どう使い分ける"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：工程表はどれも似た特徴",
+      "items": [
+        "軸は4つ：手順・必要日数・進行度合・工期影響作業",
+        "この4軸のどれがわかるかで種類を判別する"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-schedule-charts/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "横線式① バーチャート",
+      "items": [
+        "所要日数・進捗が直感的にわかる",
+        "工期に影響する作業は不明",
+        "順行法・逆算法・重点法で日程を組む"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-work-scheduling/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "横線式② ガントチャート",
+      "items": [
+        "横軸に達成度、進捗度合がよくわかる",
+        "必要な日数・工期影響作業は不明",
+        "バーチャートと取り違えやすい"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-schedule-charts/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "斜線式工程表",
+      "items": [
+        "横軸に区間（距離程）・縦軸に日数",
+        "トンネル工事など距離進捗型に向く",
+        "工種間の相互関係は不明確"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-schedule-charts/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step4",
+      "heading": "曲線式工程表",
+      "items": [
+        "グラフ式：工種別の出来高比率を斜線で表示",
+        "出来高累計曲線＝Sカーブ（初期・終期は速度低下）",
+        "重要作業・必要日数は不明"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-schedule-charts/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step5",
+      "heading": "バナナ曲線は計画範囲と比較",
+      "items": [
+        "時間経過率に対する出来高を、上下の管理限界曲線と比べます。",
+        "下方限界を下回る場合は工程遅延を確認します。",
+        "上方限界を超えた場合は、人員や機械の過剰配置などがないか検討します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-schedule-charts/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step6",
+      "heading": "ネットワーク式工程表だけがわかること",
+      "items": [
+        "手順・日数・進行度合・工期影響作業の全てが判明",
+        "作成には費用と労力がかかる",
+        "短期単純工事には不向き"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-schedule-charts/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

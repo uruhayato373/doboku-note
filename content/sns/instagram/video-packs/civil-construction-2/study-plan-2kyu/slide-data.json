@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "study-plan-2kyu",
+  "exam": "civil-construction-2",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "２級土木の勉強",
+        "仕事と両立"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "good-sign",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：週末にまとめて勉強すればいい",
+      "items": [
+        "毎日少しずつのほうが定着は上がる",
+        "すき間時間を積み重ねる設計が向く"
+      ],
+      "sourceRef": "content/site/civil-construction-2/guide-study-method/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "1　学習の全体像",
+      "items": [
+        "第一次：知識の網羅と再現",
+        "第二次：経験を言語化して伝える力"
+      ],
+      "sourceRef": "content/site/civil-construction-2/guide-study-plan/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "2　第一次検定の進め方",
+      "items": [
+        "テキストで出題分野の地図を作る",
+        "過去問5年分を繰り返す",
+        "間違えた根拠だけテキストで引く"
+      ],
+      "sourceRef": "content/site/civil-construction-2/guide-study-method/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "3　第二次検定の進め方",
+      "items": [
+        "工事概要→現場状況→技術的課題の順",
+        "箇条書きで埋めてから文章化",
+        "第三者の添削を一度通す"
+      ],
+      "sourceRef": "content/site/civil-construction-2/guide-study-method/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step4",
+      "heading": "4　仕事と両立する週単位の計画",
+      "items": [
+        "すき間時間で過去問、週末に見直し",
+        "残り期間を第一次・第二次に配分"
+      ],
+      "sourceRef": "content/site/civil-construction-2/guide-study-plan/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

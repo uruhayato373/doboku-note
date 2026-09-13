@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "shunin-shiken-zentaizou",
+  "key": "point-overview-1",
+  "sceneId": "overview",
+  "exam": "concrete-chief-engineer",
+  "narration": "コンクリート主任技士は、日本コンクリート工学会が認定する資格です。製造や工事、研究の実施に加え、計画、管理、指導を担う高度な技術者として位置づけられます。学習でも用語を知るだけでなく、なぜその判断をするのかまで説明することを意識しましょう。",
+  "visual": {
+    "heading": "主任技士という資格の位置づけ",
+    "items": [
+      "JCI認定の資格",
+      "計画・改善・指導まで担う高度技術者"
+    ]
+  },
+  "sourceRef": "content/site/concrete-chief-engineer/guide-overview/article.mdx",
+  "sourceUrls": [
+    "https://www.jci-net.or.jp/j/exam/gishi/pdf/gishi_2026_20260605.pdf"
+  ]
+}

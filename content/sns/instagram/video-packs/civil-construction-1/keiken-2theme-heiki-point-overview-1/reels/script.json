@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "keiken-2theme-heiki",
+  "key": "point-overview-1",
+  "sceneId": "overview",
+  "exam": "civil-construction-1",
+  "narration": "令和5年度までは、1つの管理項目を指定し、設問1で工事概要、設問2でその管理項目を書く形式でした。令和6年度からは、品質・安全・工程・施工計画・環境対策の5項目のうち2つが指定され、同一工事の異なる側面を書き分けます。",
+  "visual": {
+    "heading": "R6年度からの形式変化",
+    "items": [
+      "旧：1管理項目を1本記述",
+      "新：5管理から2つを同一工事で記述",
+      "設問1と設問2は別の側面を書く"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+}

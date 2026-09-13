@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "keiken-nendo-keiko-1kyu",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "二次の出題傾向",
+        "５年の流れ"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "reading",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：眺めるだけで流れが分かる",
+      "items": [
+        "年度別に眺めても流れは見えにくい",
+        "R6年度に大きな転換点がある"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-r06/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "overview",
+      "heading": "R3〜R5：1テーマ形式の時代",
+      "items": [
+        "R3・R4：安全管理（交通誘導員のみは除く）",
+        "R5：品質管理",
+        "5管理のうち1つだけを指定する形式"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-r03/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "R6年度：2テーマ必答への転換",
+      "items": [
+        "設問1：安全管理／設問2：施工計画",
+        "同一工事の両方を必答",
+        "設問1と設問2は同一内容不可"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-r06/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "令和7年度の組合せを確認",
+      "items": [
+        "令和7年度は、品質管理と環境対策が指定されました。",
+        "令和6年度に続き2テーマ形式でしたが、将来の固定形式とは断定しません。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-r07/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "出題履歴から準備の幅を考える",
+      "items": [
+        "安全・品質に加え、施工計画・環境対策の出題も振り返ります。",
+        "工程管理も含む複数の視点で、同じ工事の経験を整理します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-r03/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step4",
+      "heading": "年度ごとの条件まで読み直す",
+      "items": [
+        "テーマ名だけでなく、同一内容の禁止など問題文の条件を確認します。",
+        "自分の経験のどの場面が設問に対応するかを書き出します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/secondary-r03/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

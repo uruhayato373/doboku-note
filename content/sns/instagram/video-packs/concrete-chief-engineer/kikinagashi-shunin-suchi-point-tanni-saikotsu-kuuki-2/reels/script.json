@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "kikinagashi-shunin-suchi",
+  "key": "point-tanni-saikotsu-kuuki-2",
+  "sceneId": "tanni-saikotsu-kuuki",
+  "exam": "concrete-chief-engineer",
+  "narration": "単位水量を増やすと、一般にスランプは大きくなりますが、ブリーディングや乾燥収縮も増えやすくなります。必要な施工性を得るときは、水だけを増やして解決しないことが大切です。細骨材率や混和剤も調整し、強度と耐久性を含めて配合を確認しましょう。",
+  "visual": {
+    "heading": "単位水量は増やす影響も考える",
+    "items": [
+      "単位水量増加でスランプは大きくなる傾向",
+      "ブリーディング・収縮も増えやすい",
+      "細骨材率・混和剤も含めて配合を確認"
+    ]
+  },
+  "sourceRef": "content/site/concrete-chief-engineer/textbook-mix-design/article.mdx",
+  "editorialNote": "単位水量の影響に1論点化し、条件を欠く軽量骨材の空気量標準値を省略。",
+  "coverHeadline": [
+    "単位水量",
+    "増やす影響は？"
+  ]
+}

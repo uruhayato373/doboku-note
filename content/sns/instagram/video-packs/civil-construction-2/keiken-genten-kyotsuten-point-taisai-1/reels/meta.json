@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.190Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-genten-kyotsuten/shorts/point-taisai-1/shorts.mp4",
-  "durationSeconds": 31,
-  "sha256": "29fc468fabe3954503e009d250cfa5eb825525c6cf46a9caa5c5b5410260ed26",
-  "coverSha256": "184a0ddbf1ccda87509c312697e9c7cd01b6e1679e42524670610522a8efc714",
-  "renderedAt": "2026-09-05T23:21:22.644Z"
+  "durationSeconds": 30.2,
+  "sha256": "8958c69e15b8cd1cb0fd82b6fa5321bcefdd422dd3cb1498fd296fecb62266c9",
+  "coverSha256": "1d022cf6ed242722828e5791879322e819cd40534ec24f5e464e0769c051e0b7",
+  "renderedAt": "2026-09-10T10:56:19.755Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "3a7f479ce4b5eacf265751b8dbbb2482b360b179bf008947a31085608699ae76",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "44c89c36aecd6a51890405307b9f71e172207a1b4cd111d835beb4444783605a",
+  "speaker": 13,
+  "narration": "経験記述は、読みやすい字で解答欄に収めることも大切です。文字の大きさをそろえ、不自然な空行や余白で分量を増やさないようにしましょう。欄をどれだけ埋めたかだけで判断せず、設問が求める現場状況、検討、対応、評価が書けているかを確認します。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "3e0b844db03e1ef180d34ee016f77c22290acf503ddc08182e3a6ef2d7d693af",
+    "points": "d3fe37af15675a79088ee194b5decacb4109befddd733a48ab2e7f632fcbd8da",
+    "pointsImage": "ea6689422fdbc1a7fbd1baad14354d0c366626d0e238b973e12411e7c1b3b0d0",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T10:56:19.755Z"
+  }
 }

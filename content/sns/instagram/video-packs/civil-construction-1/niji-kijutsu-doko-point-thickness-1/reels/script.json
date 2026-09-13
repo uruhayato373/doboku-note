@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "niji-kijutsu-doko",
+  "key": "point-thickness-1",
+  "sceneId": "thickness",
+  "exam": "civil-construction-1",
+  "narration": "盛土の厚さは、締固め後の仕上りと、締固め前の敷均しを区別しましょう。道路盛土の一般的な管理値は、仕上り厚さが路体30センチメートル以下、路床20センチメートル以下です。敷均し厚さは土質や機械で変わるため、適用仕様書と試験施工で確かめます。",
+  "visual": {
+    "heading": "盛土の厚さは締固め前後を区別",
+    "items": [
+      "一般的な仕上り厚：路体30cm以下",
+      "一般的な仕上り厚：路床20cm以下",
+      "敷均し厚は仕様書と試験施工で確認"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/secondary-earthwork-basics/article.mdx",
+  "editorialNote": "敷均し厚さの範囲を普遍的な上限とする誤認を防ぐ。"
+}

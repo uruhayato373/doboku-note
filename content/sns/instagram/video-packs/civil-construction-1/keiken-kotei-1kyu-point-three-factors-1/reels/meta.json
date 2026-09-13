@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.206Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-kotei-1kyu/shorts/point-three-factors-1/shorts.mp4",
-  "durationSeconds": 30.17,
-  "sha256": "0233727a9e1bae035e88da9174badbc78bd5982da1763748ebd6cacf86c04742",
-  "coverSha256": "abb461b19c519e5feedf6ee2e4244f89ca7b980116a3391897f0e41862a52999",
-  "renderedAt": "2026-09-05T23:50:26.649Z"
+  "durationSeconds": 30.2,
+  "sha256": "226e47f4d2680cf48384287290af074bc090097ded16057e857ccf7b7a25c0b2",
+  "coverSha256": "6dae1fb0df1622327a81a43dcf6cd184c4da843ccf8a70511d517794bc7ea0f1",
+  "renderedAt": "2026-09-10T11:10:08.025Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "3f16c0a543d410f5a588f4f7cb6313048f3483f12237968d4fcf3626c494689e",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "120a2887a22feeeee1bea1b0d1a56ffc2a8985a5e73ac4e4665d0ef5a32ebf76",
+  "speaker": 13,
+  "narration": "工程管理の経験を整理するときは、遅れにつながった原因から振り返ります。天候不順、設計変更、使用機械の故障などが代表例です。自分の工事では何が起き、どの作業に影響したのかを確認しましょう。実際に行った工程の見直しと結びつけることが大切です。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "d10ceb1a332032a5592714c77611ae9fdb53fcad34dac705b1f998843624b802",
+    "points": "34af80d3e38f5aa8ea5c80a4895071c10de33842819ee16878a2632a2084e902",
+    "pointsImage": "81898a829df472f9253cda0b42cb7be62c5b5e4a999b41ba0bf0e98412372e6d",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:10:08.025Z"
+  }
 }

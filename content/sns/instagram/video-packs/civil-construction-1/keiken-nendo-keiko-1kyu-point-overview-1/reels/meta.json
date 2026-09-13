@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.227Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-nendo-keiko-1kyu/shorts/point-overview-1/shorts.mp4",
-  "durationSeconds": 31.4,
-  "sha256": "8aa8a705fbdc978921d437d85e419673475b60204ad03c7d3d968b1c1db2a8ae",
-  "coverSha256": "25374ab64238d98b286c6eb1b6ecf4422826635e8eb32850a4bb8560b32e7ee9",
-  "renderedAt": "2026-09-06T00:10:52.821Z"
+  "durationSeconds": 30.2,
+  "sha256": "0e02ebd6f2a60f1513a61a9ca4c7b4ad58f497107a1207276500350bd86388fa",
+  "coverSha256": "6eceba99006d49156f64d981c418b8de6860994b027aba2194a605f44faff730",
+  "renderedAt": "2026-09-10T11:59:00.811Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "78738c13785a7adc594434b2e689800968f6f23da09507b82ebc387d167fb51e",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "7016d18d0239e073a5126d4ce578b60ef612be23a7a29653033c118bfc895b0d",
+  "speaker": 13,
+  "narration": "令和3年度と令和4年度は、安全管理が指定されました。ただし交通誘導員だけの記述は認められないという条件が付きました。令和5年度は品質管理です。この3年間は、5つの管理項目のうち1つだけを指定する形式でした。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "aceaeea7a59a4ccc1da033cbae2c7189cd0ba7372441a8186f68bd8c34babdfc",
+    "points": "0c0ee0959e5265a8cc9ec8b4be288030d3e9ab83b8e5c2df770e23ce9f45d52f",
+    "pointsImage": "d652247413a8a16c687cc55f58791469369bf9d99fc260b6fca34904d5451149",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:59:00.811Z"
+  }
 }

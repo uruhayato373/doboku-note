@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "一次のあと",
+        "二次の準備へ"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "good-sign",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/168.png",
+        "sha256": "3436080f8e87c42ba552fbc0da05461dbc9a972801f73bcca4bb51649dc06d5b",
+        "specSha256": "50bc2bfa35d7922e920a778659c9596b0424bdaaf00987ed439594d00c067903"
+      }
+    },
+    "point-time-matters-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "二次検定の準備",
+        "期間を活かす"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/169.png",
+        "sha256": "7d5113cbc9f61f8dfc2e1c1b022f15f35d4ce2d645cf72178d59f9511dd7791a",
+        "specSha256": "e0c5c7aa9249fd957fd5d7d2a4c58faa6e7463a0320c8141d03a31fdd498dfc7"
+      }
+    },
+    "point-overview-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "二次検定",
+        "まず全体像"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "wave",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/170.png",
+        "sha256": "5bb10f829380bacf9e9a379c9efc271ab9e50d8f94ea810721ed47b46552961b",
+        "specSha256": "964123c940e646a18bcf56b94c6a9c92cf36ccde533b77a2c273df0057caa8d7"
+      }
+    }
+  }
+}

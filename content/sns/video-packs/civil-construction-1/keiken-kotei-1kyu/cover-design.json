@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "工程管理の答案",
+        "遅延で終えない"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/126.png",
+        "sha256": "7cceff18de3d6af6f8978ae766573356b5516cbe3978bfe2ca7ea0b3e245fa8a",
+        "specSha256": "4303c07d9221d8b0bce28b12365d78e40ac3d1b9e0a1153d45159b47f52e824b"
+      }
+    },
+    "point-three-factors-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "工程の外的要因",
+        "３つに整理"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/127.png",
+        "sha256": "5b1851cde3bc1733f7fb9e73af4855217232e34a67cc0e1b10d0d6ca50e782f8",
+        "specSha256": "532bc11554997e9b286e3e1625b15624dd45ac98eaca4f5688af85fee2530592"
+      }
+    },
+    "point-prevent-in-advance-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "工程管理の答案",
+        "事前の検討を書く"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/128.png",
+        "sha256": "36dc5e136f67d0671e0f12570f7b1b908b1764d06ede04a7a415795463e5b489",
+        "specSha256": "c33b208ad1b5aaac2886ad0c0a3d4c81b4baba73babfbd9f72d1afbd79be2332"
+      }
+    }
+  }
+}

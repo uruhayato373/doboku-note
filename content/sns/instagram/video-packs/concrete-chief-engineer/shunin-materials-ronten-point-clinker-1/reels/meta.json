@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.193Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/shunin-materials-ronten/shorts/point-clinker-1/shorts.mp4",
-  "durationSeconds": 39.1,
-  "sha256": "683f6f390639fd89026b0440073fd2ba5985d2d886833acd838daefbabda5e63",
-  "coverSha256": "153910299573bf28158b03e450298e4cfea08b54ecdb8fa1bf382730aa8c3a14",
-  "renderedAt": "2026-09-05T23:25:03.949Z"
+  "durationSeconds": 30.2,
+  "sha256": "fdee603f068e6e5a88c11c28d4510be19c8cd99382b42d73074fbf0c95684028",
+  "coverSha256": "dbf811795bfa08f775c5de6650ecd06b742d27e83c987a63befb6383d136e2a9",
+  "renderedAt": "2026-09-10T10:59:38.277Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "d8474309750baddbf1d62b7f7ac4676108c03fa6e51f76b139a69f14edba899a",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "ea275a5df57a844165adffbfc47c9bf032cf71595091fb49d6f06892cb479241",
+  "speaker": 13,
+  "narration": "クリンカーは四つの主要化合物で整理します。けい酸三カルシウムは早期強度、けい酸二カルシウムは長期強度に寄与します。アルミン酸三カルシウムは反応が速く、発熱が大きい成分です。鉄アルミン酸四カルシウムは強度への寄与が小さく、反応と発熱の違いを比べて覚えます。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "6ba171267a6cd6ea132429260266b09c65828347c2ec67419cd831bea2e31975",
+    "points": "b7060e5cc52416879b62d946f2919eb796e1d304a3306cf369c98a733601482d",
+    "pointsImage": "499d6403a56135e8e9d43572677b9a1ef564bc8d14b8b53676d78fce6e40d410",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T10:59:38.277Z"
+  }
 }

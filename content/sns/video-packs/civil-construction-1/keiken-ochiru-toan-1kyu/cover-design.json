@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "経験記述の減点",
+        "共通パターン"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/132.png",
+        "sha256": "642ab4ec0feb0a51b643758d601dd28428344f7f4254974edf286439db2be530",
+        "specSha256": "a4bfd1427470c9978afa8de569db46d49157ec7c652f9589d86280672e02b9d5"
+      }
+    },
+    "point-gap-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "課題と対応",
+        "つながってる？"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/133.png",
+        "sha256": "bfe21cc42a7d6984cd052d2d4d3328320d095c5679888bd029bb685a3c81e57f",
+        "specSha256": "b58bc7b504dd780f119ced5647d4a9d7c7609fd087fbd91f823b0549f05af00a"
+      }
+    },
+    "point-generic-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "工事規模は大",
+        "でも答案は",
+        "一般論？"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/134.png",
+        "sha256": "20ec12e296ed2cb969b9805a0f77d82639fde0fc285643d5b682da8abf0322d8",
+        "specSha256": "6cef74f2ccd597690d22b37346fea7fb1655ea33db6c4a9a61b35c39bcd68f52"
+      }
+    }
+  }
+}

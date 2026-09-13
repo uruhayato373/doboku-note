@@ -1,0 +1,329 @@
+{
+  "schemaVersion": 1,
+  "tweets": {
+    "1": {
+      "headline": [
+        "PDCAの後半",
+        "確認から改善へ"
+      ],
+      "points": [
+        "Check：評価・点検",
+        "Act：改善・処置"
+      ],
+      "character": {
+        "pose": "thinking",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "public/quiz/pe-first-stage.json"
+      ],
+      "alt": "PDCAの後半。確認から改善へ。Check：評価・点検。Act：改善・処置。"
+    },
+    "2": {
+      "headline": [
+        "安全率を上げる",
+        "許容応力は？"
+      ],
+      "points": [
+        "許容応力＝基準強さ÷安全率",
+        "同じ強さなら許容応力は低下"
+      ],
+      "character": {
+        "pose": "explaining",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "public/quiz/pe-first-stage.json"
+      ],
+      "alt": "安全率を上げる。許容応力は？。許容応力＝基準強さ÷安全率。同じ強さなら許容応力は低下。"
+    },
+    "3": {
+      "headline": [
+        "平面応力と",
+        "平面ひずみ"
+      ],
+      "points": [
+        "薄板：板厚方向の応力を無視",
+        "長尺：長手方向のひずみを無視"
+      ],
+      "character": {
+        "pose": "pointing",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "public/quiz/pe-first-stage.json"
+      ],
+      "alt": "平面応力と。平面ひずみ。薄板：板厚方向の応力を無視。長尺：長手方向のひずみを無視。"
+    },
+    "4": {
+      "headline": [
+        "得意テーマの",
+        "外も準備する"
+      ],
+      "points": [
+        "令和6年度から2テーマ必答",
+        "安全・品質・工程の素材を整理"
+      ],
+      "character": {
+        "pose": "thinking",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+      ],
+      "alt": "得意テーマの。外も準備する。令和6年度から2テーマ必答。安全・品質・工程の素材を整理。"
+    },
+    "5": {
+      "headline": [
+        "待ち行列は",
+        "単位をそろえる"
+      ],
+      "points": [
+        "件／時と件／分を統一",
+        "利用率＝到着率÷サービス率"
+      ],
+      "character": {
+        "pose": "explaining",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "public/quiz/pe-first-stage.json"
+      ],
+      "alt": "待ち行列は。単位をそろえる。件／時と件／分を統一。利用率＝到着率÷サービス率。"
+    },
+    "6": {
+      "headline": [
+        "答案と設問を",
+        "並べて読む"
+      ],
+      "points": [
+        "年度別の設問条件を確認",
+        "自分の現場と違う点を探す"
+      ],
+      "character": {
+        "pose": "pointing",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "src/lib/note-magazines.ts"
+      ],
+      "alt": "答案と設問を。並べて読む。年度別の設問条件を確認。自分の現場と違う点を探す。"
+    },
+    "7": {
+      "headline": [
+        "課題と対応を",
+        "線で結んでみる"
+      ],
+      "points": [
+        "課題に対する対策になっているか",
+        "話が飛んだ部分を探す"
+      ],
+      "character": {
+        "pose": "thinking",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/civil-construction-2/secondary-experience-writing-examples/article.mdx"
+      ],
+      "alt": "課題と対応を。線で結んでみる。課題に対する対策になっているか。話が飛んだ部分を探す。"
+    },
+    "8": {
+      "headline": [
+        "写像は行き先を",
+        "要素ごとに選ぶ"
+      ],
+      "points": [
+        "X→Y：各Xに行き先を割当て",
+        "総数はYの要素数のX要素数乗"
+      ],
+      "character": {
+        "pose": "explaining",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "public/quiz/pe-first-stage.json"
+      ],
+      "alt": "写像は行き先を。要素ごとに選ぶ。X→Y：各Xに行き先を割当て。総数はYの要素数のX要素数乗。"
+    },
+    "9": {
+      "headline": [
+        "概要と本文は",
+        "同じ工事の話？"
+      ],
+      "points": [
+        "扱う工種が一致しているか",
+        "自分の担当範囲も確認"
+      ],
+      "character": {
+        "pose": "pointing",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+      ],
+      "alt": "概要と本文は。同じ工事の話？。扱う工種が一致しているか。自分の担当範囲も確認。"
+    },
+    "10": {
+      "headline": [
+        "工程表で何を",
+        "確かめたい？"
+      ],
+      "points": [
+        "横線式：工種ごとの日程",
+        "ネットワーク式：前後関係・余裕"
+      ],
+      "character": {
+        "pose": "thinking",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/civil-construction-2/secondary-r06/article.mdx"
+      ],
+      "alt": "工程表で何を。確かめたい？。横線式：工種ごとの日程。ネットワーク式：前後関係・余裕。"
+    },
+    "11": {
+      "headline": [
+        "符号化の目的を",
+        "二つに分ける"
+      ],
+      "points": [
+        "情報源符号化：データ圧縮",
+        "通信路符号化：雑音対策"
+      ],
+      "character": {
+        "pose": "explaining",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "public/quiz/pe-first-stage.json"
+      ],
+      "alt": "符号化の目的を。二つに分ける。情報源符号化：データ圧縮。通信路符号化：雑音対策。"
+    },
+    "12": {
+      "headline": [
+        "完成答案から",
+        "自分の事実へ"
+      ],
+      "points": [
+        "現場条件の違いを確認",
+        "安全・品質・工程で書き分け"
+      ],
+      "character": {
+        "pose": "pointing",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "src/lib/note-magazines.ts"
+      ],
+      "alt": "完成答案から。自分の事実へ。現場条件の違いを確認。安全・品質・工程で書き分け。"
+    },
+    "13": {
+      "headline": [
+        "地盤対策は",
+        "仕組みで覚える"
+      ],
+      "points": [
+        "サンドマット：表層排水・走行性",
+        "プレロード：事前載荷で圧密"
+      ],
+      "character": {
+        "pose": "thinking",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/civil-construction-2/secondary-r06/article.mdx"
+      ],
+      "alt": "地盤対策は。仕組みで覚える。サンドマット：表層排水・走行性。プレロード：事前載荷で圧密。"
+    },
+    "14": {
+      "headline": [
+        "質量の割合を",
+        "モルに直すには"
+      ],
+      "points": [
+        "質量÷モル質量で物質量へ",
+        "各物質量÷全物質量で割合へ"
+      ],
+      "character": {
+        "pose": "explaining",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "public/quiz/pe-first-stage.json"
+      ],
+      "alt": "質量の割合を。モルに直すには。質量÷モル質量で物質量へ。各物質量÷全物質量で割合へ。"
+    },
+    "15": {
+      "headline": [
+        "施工数量は",
+        "単位まで確認"
+      ],
+      "points": [
+        "面積・体積・延長・本数",
+        "工種と数量の整合を確認"
+      ],
+      "character": {
+        "pose": "pointing",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+      ],
+      "alt": "施工数量は。単位まで確認。面積・体積・延長・本数。工種と数量の整合を確認。"
+    },
+    "16": {
+      "headline": [
+        "資材計画は",
+        "保管と使用まで"
+      ],
+      "points": [
+        "注文・調達・保管・使用",
+        "使う時期と工程を合わせる"
+      ],
+      "character": {
+        "pose": "thinking",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "content/site/civil-construction-2/secondary-r06/article.mdx"
+      ],
+      "alt": "資材計画は。保管と使用まで。注文・調達・保管・使用。使う時期と工程を合わせる。"
+    },
+    "17": {
+      "headline": [
+        "結晶粒の大きさ",
+        "強度との関係"
+      ],
+      "points": [
+        "結晶粒の微細化で強度向上",
+        "ホール・ペッチの関係"
+      ],
+      "character": {
+        "pose": "explaining",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "public/quiz/pe-first-stage.json"
+      ],
+      "alt": "結晶粒の大きさ。強度との関係。結晶粒の微細化で強度向上。ホール・ペッチの関係。"
+    },
+    "18": {
+      "headline": [
+        "読んだ知識を",
+        "書ける知識へ"
+      ],
+      "points": [
+        "語句を隠して思い出す",
+        "理由も一文で書いてみる"
+      ],
+      "character": {
+        "pose": "pointing",
+        "frame": "bust"
+      },
+      "sourcePaths": [
+        "src/lib/note-magazines.ts"
+      ],
+      "alt": "読んだ知識を。書ける知識へ。語句を隠して思い出す。理由も一文で書いてみる。"
+    }
+  }
+}

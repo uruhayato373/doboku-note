@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-network-koteihyo",
+  "key": "point-overview-1",
+  "sceneId": "overview",
+  "exam": "civil-construction-1",
+  "narration": "ネットワーク工程表の矢線は作業を表し、尾が開始、頭が終了です。丸は作業のつながるイベントを表し、番号を付けます。ダミーは、実際の作業を伴わず、先行関係を正しく示すための矢線です。所要時間がゼロという点を、通常の作業と区別しましょう。",
+  "visual": {
+    "heading": "矢線・イベント・ダミーを区別",
+    "items": [
+      "矢線：作業、尾が開始・頭が終了",
+      "イベント：作業の結び目に番号を付ける",
+      "ダミー：先行関係を示す所要時間ゼロの矢線"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-network-schedule/article.mdx",
+  "editorialNote": "ダミーの用途を同一作業の区別だけに限定する誤定義を修正。"
+}

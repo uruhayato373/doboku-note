@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.227Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-yosou-renshu/shorts/point-step1-2/shorts.mp4",
-  "durationSeconds": 30.57,
-  "sha256": "7a78b93fde3c93b6d10a197510b8726386fc33ebf1c46218d03991f5a5f2629d",
-  "coverSha256": "87013b0bc7e6e59b1949838c6046bdbf7ad82d133cc749257527f9a3f0a0a779",
-  "renderedAt": "2026-09-06T00:10:50.806Z"
+  "durationSeconds": 30.2,
+  "sha256": "6fe23950291ddf830f18743159352ec8ac89455796130ddb6c6814a10cf06200",
+  "coverSha256": "1baa084c8a299e832365972890e4f11074d0f0ac82ebedc041ff8d7287096a85",
+  "renderedAt": "2026-09-10T11:58:31.204Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "b6a3f66c1f78028c69bd143a8fa8ee1f2d97fe287d27d094fb6e2925f61a5e37",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "74a0be54a451e001559762b146b722f9be689ed9bf02410aa710e6c8ff9193ff",
+  "speaker": 13,
+  "narration": "経験記述は、週一回など無理のない間隔で書く習慣をつくりましょう。お題を選び、自分の工事経験を当てはめ、解答欄を意識して最後まで書きます。少し時間を置いて読み直すと、課題と対応のずれに気づきやすくなります。練習時間は自分の進み具合で調整します。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "adb5d53ce02ce3974ea1d79c97d061a871c5c667a711c63be51a829384151f87",
+    "points": "e551ca0d785908a790b11f4d493ac73f0bae4fe3ac437231cce2c8f63f2993ea",
+    "pointsImage": "ff7edd52707c184ea69fc6e0d9e8c2549679054c3ce86795478ee764873ce381",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:58:31.204Z"
+  }
 }

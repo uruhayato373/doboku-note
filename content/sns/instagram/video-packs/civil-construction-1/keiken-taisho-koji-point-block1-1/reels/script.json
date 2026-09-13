@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "keiken-taisho-koji",
+  "key": "point-block1-1",
+  "sceneId": "block1",
+  "exam": "civil-construction-1",
+  "narration": "経験記述の工事を選ぶときは、自分が施工管理に携わった土木工事を整理します。河川、道路、橋梁、上下水道など、工事の名称だけでなく担当内容まで書き出しましょう。対象となる工事と業務の範囲は、受検する級の最新の手引と照らし合わせて確認します。",
+  "visual": {
+    "heading": "題材は工事名と担当業務で確認",
+    "items": [
+      "自分が携わった土木工事を書き出す",
+      "工事名だけでなく担当内容も整理",
+      "対象範囲は受検する級の手引と照合"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx",
+  "editorialNote": "工種名だけで無条件に対象と断定せず実務内容と手引の照合を補足。",
+  "sourceUrls": [
+    "https://www.jctc.jp/exam/examfaq/"
+  ]
+}

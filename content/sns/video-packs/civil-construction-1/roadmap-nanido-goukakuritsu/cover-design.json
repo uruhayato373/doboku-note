@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "１級土木の難度",
+        "合格率を読む"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "reading",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/189.png",
+        "sha256": "88b77056ac1eb9af2da71ac7770bc4d94eb0446962d0ea874fab54c9ee8aee52",
+        "specSha256": "0beceb480b0a41639caf649450d660555e75b0d2aaff1b61151eba54478c0bf2"
+      }
+    },
+    "point-step1-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "合格率の見方",
+        "第一次と第二次"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/190.png",
+        "sha256": "cb860712ddf70141c9ec8153d95e68f045f47b6edc210740b7f03674739393a1",
+        "specSha256": "7bbfc69feedb154a05e149a7d6fd001c2f7f36f06d4206581526f22e144bd62a"
+      }
+    },
+    "point-step2-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "１級土木",
+        "合格基準を",
+        "先に押さえる"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/191.png",
+        "sha256": "5a543b34920edc64df5304c4f9804a448e20a062f6a7c410fa3e07a582f64732",
+        "specSha256": "d6d68954bf896aa5573f491d684e0946f13f43c820026342395fb1bbb3966ac1"
+      }
+    }
+  }
+}

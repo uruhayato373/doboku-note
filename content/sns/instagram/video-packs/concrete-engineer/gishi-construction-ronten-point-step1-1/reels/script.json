@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gishi-construction-ronten",
+  "key": "point-step1-1",
+  "sceneId": "step1",
+  "exam": "concrete-engineer",
+  "narration": "施工計画では、構造物の形状、施工量、打込み区画、供給能力、運搬経路、気象条件を整合させます。供給能力より打込み速度を大きく計画すると待ち時間やコールドジョイントが生じます。",
+  "visual": {
+    "heading": "施工計画は供給能力と打込み速度をそろえる",
+    "items": [
+      "形状・施工量・区画・供給能力・運搬経路を整合",
+      "供給能力＜打込み速度→待ち時間・コールドジョイント",
+      "受入れ能力を超える配車→待機中のスランプ低下"
+    ]
+  },
+  "sourceRef": "content/site/concrete-engineer/textbook-construction/article.mdx"
+}

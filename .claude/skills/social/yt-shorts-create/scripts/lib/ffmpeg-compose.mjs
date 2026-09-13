@@ -205,7 +205,9 @@ export async function composeStaticSlidesVideo({ pngPaths, wavPaths, assPath, ou
   for (let i = 0; i < pngPaths.length; i++) {
     const videoInput = i * 2;
     const audioInput = videoInput + 1;
-    filters.push(`[${videoInput}:v]fps=30,format=yuv420p,setsar=1[v${i}]`);
+    // 1 fps の静止画入力をそのまま concat すると端数秒が場面ごとに延び、
+    // WAV 実尺で組んだ字幕が先行する。映像も同じ実尺で切ってから連結する。
+    filters.push(`[${videoInput}:v]fps=30,tpad=stop_mode=clone:stop_duration=1,trim=duration=${durations[i]},setpts=PTS-STARTPTS,format=yuv420p,setsar=1[v${i}]`);
     filters.push(`[${audioInput}:a]aresample=async=1:first_pts=0[a${i}]`);
     concatInputs.push(`[v${i}][a${i}]`);
   }

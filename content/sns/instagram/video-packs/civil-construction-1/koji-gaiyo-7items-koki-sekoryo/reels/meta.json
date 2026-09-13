@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.181Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/koji-gaiyo-7items/shorts/koki-sekoryo/shorts.mp4",
-  "durationSeconds": 32.13,
-  "sha256": "6b888980710ce88b7940efc693c37a4062c8ae0c675dbfc394e2cdf51dcac391",
-  "coverSha256": "63ae7697d365978803f636fc8981bc79f99649d7a67e10d9307e5df8d389384d",
-  "renderedAt": "2026-09-05T23:13:57.103Z"
+  "durationSeconds": 30.2,
+  "sha256": "94692e4debb43e9e77e6fb8e5557735bf0bf26ec66a591c9fdaf28a37bdf5301",
+  "coverSha256": "543b2082946e4c08834ef17348173dd8855a2ea2c17662a2c19e1124878c9d85",
+  "renderedAt": "2026-09-10T10:48:29.783Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "4e46aecaf0ba8d9026a91fe01a04a856692380293d49d4b6d810dd66134c1eeb",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "e19610107ee6318a22306efcd01f9151ee5f80aca42eeaadb580fd1bb224583f",
+  "speaker": 13,
+  "narration": "工期は、施工量と突き合わせて確認しましょう。工事記録をもとに、着手と完成の年月日を正確に書きます。下請工事なら、自社が担当した部分の工期です。その期間で記載した数量を施工できるか、本文の工程や作業内容とも矛盾しないかを見直しましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "b585926649c3f0a8435e40a7a160e1471d1395d394a7802c136cd6cfdd5902fa",
+    "points": "49b2878c11d6fe84aa34d65cbfbf32a0c9e22f74c6734821188b554d2b497031",
+    "pointsImage": "33b0ffe5201c2ec3d1cfdf207b7d156d511b263da3bfe923d154f244e4d6a793",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T10:48:29.783Z"
+  }
 }

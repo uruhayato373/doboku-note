@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "concrete-engineer",
+      "headline": [
+        "運搬から養生へ",
+        "施工の頻出点"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/303.png",
+        "sha256": "f2364ba58f0e2aa95b9206f203516a70f9002459f4664314e949f856b90b5aae",
+        "specSha256": "477c5f8616560d4be3086b49c3779512ad8718cb88c7890fa179ff81dcd4bc07"
+      }
+    },
+    "point-step1-1": {
+      "format": "shorts",
+      "exam": "concrete-engineer",
+      "headline": [
+        "供給能力と",
+        "打込み速度を",
+        "そろえる"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/304.png",
+        "sha256": "4c7e2531a9fbe998936390d1dcf5098620801efea4ba65264f598648f1770472",
+        "specSha256": "2b1e57b6e8e82c0035f84eefa1cd93d24b809321bcf0d54fc3990d855b58947f"
+      }
+    },
+    "point-step2-2": {
+      "format": "shorts",
+      "exam": "concrete-engineer",
+      "headline": [
+        "運搬・打込み",
+        "分離を防ぐ",
+        "位置取り"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/305.png",
+        "sha256": "f0128923c3779f421bc99f9f938afc4a140616aa7ac9e8afabab6fee8753dd2f",
+        "specSha256": "bbcd096497a5b5728575ba1373c21419e3f0972c7e01e427968b761cf1c9ddd9"
+      }
+    }
+  }
+}

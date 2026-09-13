@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "gakka-2kyu-sekokeikaku",
+  "exam": "civil-construction-2",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "施工管理法",
+        "頻出点を整理"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：4分野はバラバラに存在する",
+      "items": [
+        "すべて施工計画という入口から出発",
+        "入口の骨組みが他分野の土台になる"
+      ],
+      "sourceRef": "content/site/civil-construction-2/guide-construction-plan-key-points/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "overview",
+      "heading": "施工計画の4つの柱",
+      "items": [
+        "① 作成手順",
+        "② 事前調査",
+        "③ 施工計画書の内容／④ 工程・仮設備計画"
+      ],
+      "sourceRef": "content/site/civil-construction-2/guide-construction-plan-key-points/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "block1",
+      "heading": "作成手順は4段階で進める",
+      "items": [
+        "事前調査→契約・現場条件の把握",
+        "基本計画→施工方法の大枠",
+        "詳細計画→管理計画へと具体化"
+      ],
+      "sourceRef": "content/site/civil-construction-2/guide-construction-plan-key-points/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "block2",
+      "heading": "事前調査は2つの条件を確認",
+      "items": [
+        "自然条件：地形・地質・気象",
+        "立地条件：搬入路・近接構造物・環境制約",
+        "現地踏査でしか分からない情報が多い"
+      ],
+      "sourceRef": "content/site/civil-construction-2/guide-construction-plan-key-points/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "block3",
+      "heading": "施工計画書に書く項目",
+      "items": [
+        "工事概要・計画工程表",
+        "現場組織表・使用機械",
+        "品質・安全・環境・交通の管理計画"
+      ],
+      "sourceRef": "content/site/civil-construction-2/guide-construction-plan-key-points/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "block4",
+      "heading": "工程計画と仮設備計画の区別",
+      "items": [
+        "工程計画：作業可能日数→施工速度",
+        "仮設備計画：設置だけでなく撤去も含む",
+        "指定仮設（発注者指定）／任意仮設（施工者裁量）"
+      ],
+      "sourceRef": "content/site/civil-construction-2/guide-construction-plan-key-points/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

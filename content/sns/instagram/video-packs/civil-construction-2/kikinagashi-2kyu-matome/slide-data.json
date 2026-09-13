@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "kikinagashi-2kyu-matome",
+  "exam": "civil-construction-2",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "要点を復習",
+        "２級土木の要点"
+      ],
+      "subtitle": "主要論点を整理した保存版",
+      "character": {
+        "pose": "smile",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "soil-tests",
+      "heading": "土質試験は求める値から整理",
+      "items": [
+        "標準貫入試験はN値、平板載荷試験は支持力・変形特性を調べます。",
+        "現場CBR試験は、路床・路盤の支持力を確認する試験です。"
+      ],
+      "sourceRef": "content/site/civil-construction-2/guide-earthwork-key-points/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "soil-volume",
+      "heading": "地山を基準にLとCを使う",
+      "items": [
+        "Lは地山からほぐした状態への体積比で、運搬土量に使います。",
+        "Cは地山から締め固めた状態への体積比で、盛土の仕上がり土量に使います。"
+      ],
+      "sourceRef": "content/site/civil-construction-2/guide-earthwork-key-points/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "compaction",
+      "heading": "締固めは乾燥密度で確認",
+      "items": [
+        "最適含水比付近で締め固め、所要の品質を確保します。",
+        "締固め度は、現場の乾燥密度÷最大乾燥密度×100%で求めます。"
+      ],
+      "sourceRef": "content/site/civil-construction-2/guide-earthwork-key-points/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "concrete-materials",
+      "heading": "材料は分類と含水状態を確認",
+      "items": [
+        "混和剤は配合計算で容積に算入せず、混和材は容積に算入する点を区別します。",
+        "骨材の配合計算は、表面乾燥飽水状態を基準にします。"
+      ],
+      "sourceRef": "content/site/civil-construction-2/guide-concrete-key-points/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "placing",
+      "heading": "打込み・締固め・養生をつなぐ",
+      "items": [
+        "打重ね時間を守り、バイブレータは鉛直に挿入してゆっくり抜きます。",
+        "横移動に使わず、打込み後は湿潤状態を保って養生します。"
+      ],
+      "sourceRef": "content/site/civil-construction-2/guide-concrete-key-points/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "foundation-types",
+      "heading": "支持層と地盤から基礎を選ぶ",
+      "items": [
+        "支持層が浅ければ直接基礎、深ければ杭基礎やケーソン基礎を検討します。",
+        "ヒービングは軟弱粘性土、ボイリングは砂質地盤と地下水を結びつけて覚えます。"
+      ],
+      "sourceRef": "content/site/civil-construction-2/guide-foundation-key-points/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "labor-standards",
+      "heading": "法規は主体と条件を添える",
+      "items": [
+        "労働時間は原則1日8時間・1週40時間です。",
+        "主任技術者・監理技術者や安全管理者の選任は、作業・規模・立場の条件を確認します。"
+      ],
+      "sourceRef": "content/site/civil-construction-2/guide-law-key-points/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "planning-steps",
+      "heading": "施工計画は調査から管理へ",
+      "items": [
+        "事前調査→基本計画→詳細計画→管理計画の順に具体化します。",
+        "施工計画書では組織・施工方法・各種管理を整理し、仮設は撤去まで計画します。"
+      ],
+      "sourceRef": "content/site/civil-construction-2/guide-construction-plan-key-points/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

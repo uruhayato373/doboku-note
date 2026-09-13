@@ -13,7 +13,27 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-kensetsugyoho/shorts/point-overview-1/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "96e32f6fc10fe09acc6d2111540335a3f3e48a60b70c48ffb6b9b8b7c44c190c",
-  "coverSha256": "6b6a37d2990736ef013f82cafbbc57978cd9e36cc5ffe7cd91914b39acd8d8a9",
-  "renderedAt": "2026-09-06T00:04:04.807Z"
+  "sha256": "60d6579d3a57e8e8dce14bdfd122733f624e2ae7cc20981abaddd1ad984f64ab",
+  "coverSha256": "8d791580086c3492718de00a526299dc822d466e7e40dfa9d420aefac1a9f8d3",
+  "renderedAt": "2026-09-10T11:26:18.881Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "adcf10fcf9255fcc3daa241fbc5613dae21a6d5ac3fa29f7ec9baf6bee6a5467",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "688c9e6b356157d073a20c1f308472c7ed75e4a1c1fc1d000af18cf728107d21",
+  "speaker": 13,
+  "narration": "建設業の許可では、軽微な工事の範囲を確認します。建築一式以外は、工事一件の請負代金が500万円未満です。建築一式は1500万円未満、または延べ面積150平方メートル未満の木造住宅工事です。金額や面積の未満と以上を取り違えないようにしましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "bb626453c2a665c66a26877be5e224a17154828565d20ceec992a83ad0ee843b",
+    "points": "c12637e46cf72c5bf255fc41fd42d8af136bf9a41d09a78ff09abe879f16726d",
+    "pointsImage": "4952ad422a8027c9338154892f89d25d0c55d2bdd643276a2819638124acc198",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:26:18.881Z"
+  }
 }

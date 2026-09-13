@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-roudou-kijun",
+  "key": "point-step2-2",
+  "sceneId": "step2",
+  "exam": "civil-construction-1",
+  "narration": "割増賃金は、時間外、法定休日、深夜を区別します。法定時間外と深夜はそれぞれ25パーセント以上、法定休日は35パーセント以上です。月60時間を超えた時間外労働は、その超えた部分が50パーセント以上になります。休日をすべて25パーセントと覚えないようにしましょう。",
+  "visual": {
+    "heading": "割増率は労働の区分で覚える",
+    "items": [
+      "法定時間外・深夜：それぞれ25%以上",
+      "法定休日：35%以上",
+      "月60時間超の時間外部分：50%以上"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-labor-standards/article.mdx",
+  "editorialNote": "法定休日を25%とする誤りを35%へ修正。複合条件の省略された上限時間は除き割増率に1論点化。",
+  "sourceUrls": [
+    "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudouseisaku/chushoukigyou/joken_kankyou_rule.html"
+  ],
+  "coverHeadline": [
+    "割増賃金",
+    "労働区分で整理"
+  ]
+}

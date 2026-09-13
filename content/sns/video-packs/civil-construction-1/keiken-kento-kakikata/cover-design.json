@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "検討項目",
+        "どう書く？"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/123.png",
+        "sha256": "dd14b326650abbee3346ba33ca6e15b171868aa8b7223594deee4fb74b4b2888",
+        "specSha256": "c5c4854d2bd023ab1fe8649c0d560da22f2b18ea08f54b26f0d9c2a94aac0f63"
+      }
+    },
+    "point-block1-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "１級の経験記述",
+        "新形式の配分"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/124.png",
+        "sha256": "76017a68c65a403e2ad3b031175b9d3f3a9feb4d10e1ab3e6d28c20be445101b",
+        "specSha256": "4ce3f9291ce20b55100119433131b2f701aa27d3d6484ea5e0acdacd72d6b2b3"
+      }
+    },
+    "point-block2-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "１級と２級",
+        "解答欄の違い"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/125.png",
+        "sha256": "c1a1e6a713ef36b26d4c07ceccaa6f730c069303c60f3ee7a21787f4188fb05e",
+        "specSha256": "5ec4cf050c0dcc6dce220a640465d69d573d036e6c8eca7d5ecdf076778796b4"
+      }
+    }
+  }
+}

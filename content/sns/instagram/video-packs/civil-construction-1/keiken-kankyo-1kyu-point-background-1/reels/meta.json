@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.206Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-kankyo-1kyu/shorts/point-background-1/shorts.mp4",
-  "durationSeconds": 30.61,
-  "sha256": "4a5634903c08cf285a45ffc345a21844667a843acc94a3d32756140034ee7ad9",
-  "coverSha256": "5c931af8b41e7624d278f787aa6e5d25fb3cee6613a04bfceeddb7edecf490da",
-  "renderedAt": "2026-09-05T23:52:21.631Z"
+  "durationSeconds": 30.2,
+  "sha256": "d6430f2d2532699b9cfd6abf38dd3622661dc716ab608b8dbca53dfd1ae39bee",
+  "coverSha256": "0adf355faa196eed9e341a77f80e9d4e7557e64369ba3120a0e477ff75fc1dd8",
+  "renderedAt": "2026-09-10T11:10:44.979Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "7d0f9c93b93eedb3a0a5169de46406e84685e8a33beba794d54b3daf3420c076",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "d290ec3655af05b64748fae7b576028ef850ce396edf0f94e15f8f86152af124",
+  "speaker": 13,
+  "narration": "令和6年度から、5つの管理項目のうち2つが設問1・設問2に指定される形式に変わりました。令和7年度は品質管理・環境対策の組合せで出題されており、単独の追加項目ではありません。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "f762b87347e4f9c1ad09e14fbf0c9455b7bb1fb60fe7b240d3dfee80a4762c7f",
+    "points": "55e76811355da7751801acffc9407438171df770d159aaeb8c0806dad9e1725f",
+    "pointsImage": "07ab2d374684be55b287f87b749cfc276e323e5315b5f856a6e9b1b66df768e7",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:10:44.979Z"
+  }
 }

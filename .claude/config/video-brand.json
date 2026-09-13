@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a",
+  "adoptedAt": "2026-09-09",
+  "logo": {
+    "path": ".tmp/video-render/youtube-cta-20260909/logo-a-transparent.png",
+    "sha256": "a670dee38dcdd41953a0d67f48d28ca24716afacc3a08549c4c1984709339c04",
+    "width": 2172,
+    "height": 724
+  },
+  "longformBackground": {
+    "path": ".tmp/video-render/youtube-cta-20260909/background-longform-a.png",
+    "sha256": "dc0b07b9dd9013a93ebc9dc0cc8720298999a157b51426fd6b4119c3a6d3a91a",
+    "width": 1920,
+    "height": 1080
+  },
+  "shorts": {
+    "path": ".tmp/video-render/youtube-cta-20260909/cta-shorts-a.png",
+    "sha256": "68cae2be6a0ab494ea1a9a6fd1753eacbb781dfc53d307d0fd7db4902ca442c8",
+    "width": 1080,
+    "height": 1920
+  },
+  "shortsNarration": "詳しい解説は、このショートの関連動画からご覧ください。今回のポイントを全体の流れからまとめて確認できます。"
+}

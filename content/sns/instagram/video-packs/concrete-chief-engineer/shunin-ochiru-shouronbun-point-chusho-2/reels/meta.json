@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.203Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/shunin-ochiru-shouronbun/shorts/point-chusho-2/shorts.mp4",
-  "durationSeconds": 30.54,
-  "sha256": "d943e8085d47a1b2e2074ac567fb32b019ce374a607196a7bb6b707850a9be94",
-  "coverSha256": "c88aac5f6d26afc2f79feb5ff1e9cf89e98b8dc5a6b85a186df175f409cffdc7",
-  "renderedAt": "2026-09-05T23:35:55.851Z"
+  "durationSeconds": 30.2,
+  "sha256": "3e8732737982e4d972c1502caa5317acb1f85fbe62cb6ed5afaa8db2b0155a1c",
+  "coverSha256": "457ea901335d1955390c29b4b83e20c73b9a6138809ccef7675300514260e1c6",
+  "renderedAt": "2026-09-10T11:06:49.224Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "86196f31e32cd980d2db6ab617fa8ea0906dc5a3d13902035e951d878fa0bbbf",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "2eefe94f53c2f4f4a3504a0e9f565bfc1f04ea0744604f6370cf0b09e1544f04",
+  "speaker": 13,
+  "narration": "パターン2、抽象表現で止まっている答案です。「適切に管理した」で終わり、どう管理したかの中身がありません。用語を並べるだけでなく、現場の判断や対策に結びつけて書きます。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "a19d416f395b4ed882a6a16d3bfba1ff99f118fef2234da8e6e403e22e819736",
+    "points": "8563495e644ca91494c540cb1f0685b29df3e3bdc514a1f80a7f80a3ee0593dd",
+    "pointsImage": "22912c462c5af03bd26f2b8035a99d9748dee07cd047574171ff885c223b1d79",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:06:49.224Z"
+  }
 }

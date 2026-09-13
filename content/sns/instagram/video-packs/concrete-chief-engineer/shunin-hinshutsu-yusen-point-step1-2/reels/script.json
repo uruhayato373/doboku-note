@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "shunin-hinshutsu-yusen",
+  "key": "point-step1-2",
+  "sceneId": "step1",
+  "exam": "concrete-chief-engineer",
+  "narration": "用材料のセメント・骨材・混和材料、性質のフレッシュ・硬化コンクリート、耐久性の劣化機構は、いずれもほぼ毎年出る定番です。性質と耐久性はまとめて学習すると効率的です。",
+  "visual": {
+    "heading": "定番項目を先に固める",
+    "items": [
+      "用材料：セメント・骨材・混和材料",
+      "性質と耐久性はまとめて学習",
+      "配合設計は解法パターンで得点源"
+    ]
+  },
+  "sourceRef": "content/site/concrete-chief-engineer/guide-trends/article.mdx"
+}

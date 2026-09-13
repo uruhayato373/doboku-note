@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "keiken-kotei-1kyu",
+  "key": "point-three-factors-1",
+  "sceneId": "three-factors",
+  "exam": "civil-construction-1",
+  "narration": "工程管理の経験を整理するときは、遅れにつながった原因から振り返ります。天候不順、設計変更、使用機械の故障などが代表例です。自分の工事では何が起き、どの作業に影響したのかを確認しましょう。実際に行った工程の見直しと結びつけることが大切です。",
+  "visual": {
+    "heading": "工程の遅れは原因から整理",
+    "items": [
+      "天候不順",
+      "設計変更など工事条件の変化",
+      "使用機械の故障など"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx",
+  "editorialNote": "機械故障を含む項目をすべて外的要因と呼ぶ不正確さを修正。",
+  "coverHeadline": [
+    "工程が遅れる",
+    "原因を整理"
+  ]
+}

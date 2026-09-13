@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gishi-shunin-dochira",
+  "key": "point-step2-2",
+  "sceneId": "step2",
+  "exam": "concrete-engineer",
+  "narration": "2026年度の試験時間は、コンクリート技士が二時間、主任技士が三時間です。技士は四肢択一式、主任技士はそれに小論文が加わります。主任技士では択一に時間を使い切らないよう、小論文を書く時間も確保します。年度ごとの実施要領と受験票で確認しましょう。",
+  "visual": {
+    "heading": "試験方式と時間の違い",
+    "items": [
+      "技士：四肢択一のみ、2時間",
+      "主任技士：四肢択一＋小論文、3時間",
+      "主任技士は択一と小論文の時間配分がカギ"
+    ]
+  },
+  "sourceRef": "content/site/concrete-engineer/guide-difference-chief/article.mdx",
+  "sourceUrls": [
+    "https://www.jci-net.or.jp/j/exam/gishi/pdf/gishi_2026_20260605.pdf"
+  ]
+}

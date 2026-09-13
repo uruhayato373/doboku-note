@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.225Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/career-yameru-mae/shorts/point-step2-2/shorts.mp4",
-  "durationSeconds": 30.17,
-  "sha256": "a9d73142454a23072cdae2fff6e98769118f0d765e1f97f0ee491a2fc4d72475",
-  "coverSha256": "0322622eb572e657a5dc509dc3657b560faee474754e30e98b8335692fa2efa4",
-  "renderedAt": "2026-09-06T00:09:22.268Z"
+  "durationSeconds": 30.2,
+  "sha256": "be64a86f02b84f7a9934683eb421beb61ef2ab61bb9d04fb4597c8626cb9d97c",
+  "coverSha256": "a1095d7cfba11335f8ae66a8e961b8c806aa5d6d1fe930e945245961d41b69e7",
+  "renderedAt": "2026-09-10T11:49:59.951Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "19bd79a9414d3861b84d46e429ebf7cf02c5ae2d69b74613f32bfa2be0f8c947",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "8a0eb09602670ac0fe27541b244604863b3ed6d12ad2a3958ad2b607b3ce827c",
+  "speaker": 13,
+  "narration": "退職を考える前に、自分の経験の評価、今の年収と条件、他の働き方の三つを整理しましょう。工種、規模、役割、資格を書き出すと、比較の材料になります。発注者支援や公務員土木なども含め、仕事内容と働く条件を確認して選択肢を考えます。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "051d4c09b62dbb9519e84eba5f5fc3a0414f260619d0ef7351347ebb5e9d2641",
+    "points": "256817b653d46970fa0e6cd0c5534d5e8ac9bd82ad91f7e9a432bbd19ef812e2",
+    "pointsImage": "20a68eccff55cda818f9a27a36636f6274c0e9f7face5dc15321adda872a7e8d",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:49:59.951Z"
+  }
 }

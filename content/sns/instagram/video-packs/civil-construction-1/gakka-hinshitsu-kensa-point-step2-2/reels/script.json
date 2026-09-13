@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-hinshitsu-kensa",
+  "key": "point-step2-2",
+  "sceneId": "step2",
+  "exam": "civil-construction-1",
+  "narration": "抜取検査は、ロットの一部を調べ、その結果からロット全体の合否を判定する方法です。破壊試験のように全数を調べられない場合や、検査数が多い場合に使います。どの範囲を一つのロットにするか、何点を抜き取るかは、適用する検査基準で確認します。",
+  "visual": {
+    "heading": "抜取検査はロット全体を判定",
+    "items": [
+      "一部のサンプルでロット全体を判定",
+      "破壊試験・検査数が多い場合などに用いる",
+      "ロット範囲と抜取数は検査基準で確認"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-quality-inspection/article.mdx",
+  "editorialNote": "特定の舗装検査ロット面積を全工事共通と誤認されないよう省略。"
+}

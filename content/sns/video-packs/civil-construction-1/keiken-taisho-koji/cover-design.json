@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "経験記述に",
+        "書ける工事は？"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/147.png",
+        "sha256": "0faec29426e51c31571cf0b20f4e38e1ea8ddf8469409ccf253877b382b897ff",
+        "specSha256": "5b6579e1dfa9c9e45aca1e966b2f5617dc6c456e52bca8427396010e8a28ce2a"
+      }
+    },
+    "point-block1-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "経験記述",
+        "書ける工事の",
+        "範囲を知る"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/148.png",
+        "sha256": "bf04060641f31fe217b34272a1f5a8262cc717a1ac9bf4565c47a234f23f9ff5",
+        "specSha256": "4a7e5d04415404a68e826cb42e3de6a8ce5530755f62db95f583452f532d3e8c"
+      }
+    },
+    "point-block2-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "経験記述",
+        "書けない工事を",
+        "確認する"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/149.png",
+        "sha256": "1e40d33b5c400effa5d1dcc7d7326be63bb67ff16dc49af28ccd3db9c4cd3895",
+        "specSha256": "66d5a672a1a8b8972ef4eef9cc7b7e62d06f505fc09d2141a27f83b892504474"
+      }
+    }
+  }
+}

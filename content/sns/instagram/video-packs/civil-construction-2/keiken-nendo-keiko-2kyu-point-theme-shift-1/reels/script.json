@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "keiken-nendo-keiko-2kyu",
+  "key": "point-theme-shift-1",
+  "sceneId": "theme-shift",
+  "exam": "civil-construction-2",
+  "narration": "令和3年度は安全か品質、令和4年度は品質か工程、令和5年度は安全か工程を1つ選ぶ形式でした。令和6年度からは設問1・設問2で異なる管理項目が固定され、両方を必答する形式に変わっています。令和6年度は品質と工程、令和7年度は安全と工程でした。この節目が一番の要点です。",
+  "visual": {
+    "heading": "問題1のテーマと形式の変遷",
+    "items": [
+      "R03〜R05：1テーマ選択（3項目）",
+      "R06〜R07：2テーマ必答（各2項目）",
+      "節目は令和6年度の形式変更"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-2/secondary-r07/article.mdx"
+}

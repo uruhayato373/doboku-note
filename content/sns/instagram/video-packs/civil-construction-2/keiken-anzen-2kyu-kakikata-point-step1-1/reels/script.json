@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "keiken-anzen-2kyu-kakikata",
+  "key": "point-step1-1",
+  "sceneId": "step1",
+  "exam": "civil-construction-2",
+  "narration": "安全管理の課題は、現場の具体的な条件から絞りましょう。高所の作業なら墜落、深い掘削なら崩壊など、どんな危険が生じたかを説明します。高さ、地盤、周辺の状況と、必要な安全対策をつなげることで、その現場で検討した理由が伝わります。",
+  "visual": {
+    "heading": "手順1　現場条件から課題を絞る",
+    "items": [
+      "軟弱地盤・道路近接・狭いヤードを書き出す",
+      "課題は一つに絞る（欲張らない）"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+}

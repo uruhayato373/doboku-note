@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "施工管理の転職",
+        "いつ動く？"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/009.png",
+        "sha256": "9f077b519d0492b7523c8effbce83a1878b22cb10bc6b1a1dfddd4c0f8375b15",
+        "specSha256": "b098778d0e17c11025a40a0a7c0396dad4bed30d188aa9b7b919f47190e0d43b"
+      }
+    },
+    "point-step1-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "転職は",
+        "現場の切れ目で"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/010.png",
+        "sha256": "0c17f0366a372646782c7c08a3c6fc7b0ac0342296e74c9cfa79df58d58a7dac",
+        "specSha256": "b6b2fe4d88f1dabbd893b53c7f4d1d96c4bed76b09d26bd641c12cd0c1826989"
+      }
+    },
+    "point-step2-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "転職するなら",
+        "資格の前？後？"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/011.png",
+        "sha256": "c522938b0595ed7a99b0316adf0d785152257aab4025b37ca29e95014b7555f3",
+        "specSha256": "ecd09456c9b79fea16a9c9ff80459a5c5659df59e154628d036a995822cfe96c"
+      }
+    }
+  }
+}

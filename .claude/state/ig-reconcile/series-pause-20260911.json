@@ -1,0 +1,843 @@
+{
+  "schemaVersion": 1,
+  "account": "dobokunotecom",
+  "reason": "User requested pausing the current series",
+  "pausedAt": "2026-09-10T22:51:16.945Z",
+  "futureReservationsCancelled": 34,
+  "pastFailedPostMovedToDraft": 1,
+  "records": [
+    {
+      "path": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-07",
+      "kind": "reel",
+      "title": "【令和7年度 択一｜適性科目】DEI",
+      "previous": {
+        "channel": "business-suite",
+        "status": "scheduled",
+        "scheduled_at": "2026-10-03T19:00:00.000+09:00",
+        "posted_at": null,
+        "video": "reels-pp/q1/video.mp4",
+        "source": "reels-pp/q1",
+        "updated_at": "2026-09-04T22:18:24.307+09:00"
+      },
+      "action": "move-to-draft",
+      "submittedAt": "2026-09-10T22:47:20.416Z",
+      "account": "dobokunotecom",
+      "captionSha256": "b0b6f65426151c406554db94fbc47421ee9ebb03a8bb79c697caad0ccfbddf6c",
+      "captionVerifiedInDraftList": false,
+      "captionVerifiedInDraftCalendar": true
+    },
+    {
+      "path": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-07",
+      "kind": "carousel",
+      "title": "【令和7年度 適性科目 過去問】R07 過去問 #7",
+      "previous": {
+        "channel": "business-suite",
+        "status": "scheduled",
+        "scheduled_at": "2026-10-02T19:00:00.000+09:00",
+        "posted_at": null,
+        "image_count": 10,
+        "updated_at": "2026-09-04T19:35:52.958+09:00"
+      },
+      "action": "move-to-draft",
+      "submittedAt": "2026-09-10T22:49:16.556Z",
+      "account": "dobokunotecom",
+      "captionSha256": "dc24f8a251b575d848607bc00236d1cee5c140361948dcd9cabc61ddbc7e94c7",
+      "captionVerifiedInDraftList": false,
+      "captionVerifiedInDraftCalendar": false
+    },
+    {
+      "path": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-06",
+      "kind": "reel",
+      "title": "【令和7年度 択一｜適性科目】技術士及び技術士補は技術士法第4章（技術士等の義務）の規定の遵守を求められている。次に掲げる（ア）〜（エ）の記述",
+      "previous": {
+        "channel": "business-suite",
+        "status": "scheduled",
+        "scheduled_at": "2026-09-30T19:00:00.000+09:00",
+        "posted_at": null,
+        "video": "reels-pp/q1/video.mp4",
+        "source": "reels-pp/q1",
+        "updated_at": "2026-09-04T22:16:35.907+09:00"
+      },
+      "action": "move-to-draft",
+      "submittedAt": "2026-09-10T22:49:19.743Z",
+      "account": "dobokunotecom",
+      "captionSha256": "127dccc1fb454f167b86836df4de70e2f7084c4a0d97fe55dd4b25ec80bdb669",
+      "captionVerifiedInDraftList": false,
+      "captionVerifiedInDraftCalendar": true
+    },
+    {
+      "path": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-15",
+      "kind": "reel",
+      "title": "【令和7年度 択一｜専門科目（建設部門）】建設工事の施工工法",
+      "previous": {
+        "channel": "business-suite",
+        "status": "scheduled",
+        "scheduled_at": "2026-09-29T19:00:00.000+09:00",
+        "posted_at": null,
+        "video": "reels-pp/q1/video.mp4",
+        "source": "reels-pp/q1",
+        "updated_at": "2026-09-04T22:35:16.538+09:00"
+      },
+      "action": "move-to-draft",
+      "submittedAt": "2026-09-10T22:49:22.895Z",
+      "account": "dobokunotecom",
+      "captionSha256": "afcae142c852aac44253733888b5fab4ae7ac2825ff4f497e1f2de324d624311",
+      "captionVerifiedInDraftList": false,
+      "captionVerifiedInDraftCalendar": true
+    },
+    {
+      "path": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-06",
+      "kind": "carousel",
+      "title": "【令和7年度 適性科目 過去問】R07 過去問 #6",
+      "previous": {
+        "channel": "business-suite",
+        "status": "scheduled",
+        "scheduled_at": "2026-09-28T12:00:00.000+09:00",
+        "posted_at": null,
+        "image_count": 10,
+        "updated_at": "2026-09-04T19:34:22.663+09:00"
+      },
+      "action": "move-to-draft",
+      "submittedAt": "2026-09-10T22:49:26.015Z",
+      "account": "dobokunotecom",
+      "captionSha256": "446ed274d108f4bc055c43b2814951985c72cdd6ec73241799922478032f8467",
+      "captionVerifiedInDraftList": false,
+      "captionVerifiedInDraftCalendar": false
+    },
+    {
+      "path": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-14",
+      "kind": "reel",
+      "title": "【令和7年度 択一｜専門科目（建設部門）】水力発電",
+      "previous": {
+        "channel": "business-suite",
+        "status": "scheduled",
+        "scheduled_at": "2026-09-27T19:00:00.000+09:00",
+        "posted_at": null,
+        "video": "reels-pp/q1/video.mp4",
+        "source": "reels-pp/q1",
+        "updated_at": "2026-09-04T22:33:30.664+09:00"
+      },
+      "action": "move-to-draft",
+      "submittedAt": "2026-09-10T22:49:29.286Z",
+      "account": "dobokunotecom",
+      "captionSha256": "0af6628e8994f2d6385e7e9892e3e24a306ea3b951921ca4b9ed5ed710390028",
+      "captionVerifiedInDraftList": false,
+      "captionVerifiedInDraftCalendar": true
+    },
+    {
+      "path": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-05",
+      "kind": "reel",
+      "title": "【令和7年度 択一｜基礎科目】プラスチックごみ及びその資源循環",
+      "previous": {
+        "channel": "business-suite",
+        "status": "scheduled",
+        "scheduled_at": "2026-09-26T19:00:00.000+09:00",
+        "posted_at": null,
+        "video": "reels-pp/q1/video.mp4",
+        "source": "reels-pp/q1",
+        "updated_at": "2026-09-04T22:14:50.480+09:00"
+      },
+      "action": "move-to-draft",
+      "submittedAt": "2026-09-10T22:49:32.466Z",
+      "account": "dobokunotecom",
+      "captionSha256": "e52bed49605c531b6dcb284111602f6f8d8071c8e0893be64482e2b5da7a7a9b",
+      "captionVerifiedInDraftList": false,
+      "captionVerifiedInDraftCalendar": true
+    },
+    {
+      "path": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-05",
+      "kind": "carousel",
+      "title": "【令和7年度 基礎科目 過去問】R07 過去問 #5",
+      "previous": {
+        "channel": "business-suite",
+        "status": "scheduled",
+        "scheduled_at": "2026-09-25T19:00:00.000+09:00",
+        "posted_at": null,
+        "image_count": 10,
+        "updated_at": "2026-09-04T19:32:51.239+09:00"
+      },
+      "action": "move-to-draft",
+      "submittedAt": "2026-09-10T22:49:35.562Z",
+      "account": "dobokunotecom",
+      "captionSha256": "8e835aeb9c2f2903b7d00de0d42a8ebf5bcdb9a7c95d265d9d3e7bb54dcce80f",
+      "captionVerifiedInDraftList": false,
+      "captionVerifiedInDraftCalendar": false
+    },
+    {
+      "path": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-13",
+      "kind": "reel",
+      "title": "【令和7年度 択一｜専門科目（建設部門）】海岸工学",
+      "previous": {
+        "channel": "business-suite",
+        "status": "scheduled",
+        "scheduled_at": "2026-09-24T19:00:00.000+09:00",
+        "posted_at": null,
+        "video": "reels-pp/q1/video.mp4",
+        "source": "reels-pp/q1",
+        "updated_at": "2026-09-04T22:31:45.872+09:00"
+      },
+      "action": "move-to-draft",
+      "submittedAt": "2026-09-10T22:49:38.791Z",
+      "account": "dobokunotecom",
+      "captionSha256": "f9d29f59fcb5472b8c5c420b2625bd23dd53a051612f853756b5b1a3628c428d",
+      "captionVerifiedInDraftList": false,
+      "captionVerifiedInDraftCalendar": true
+    },
+    {
+      "path": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-04",
+      "kind": "reel",
+      "title": "【令和7年度 択一｜基礎科目】質量分率→モル分率",
+      "previous": {
+        "channel": "business-suite",
+        "status": "scheduled",
+        "scheduled_at": "2026-09-23T19:00:00.000+09:00",
+        "posted_at": null,
+        "video": "reels-pp/q1/video.mp4",
+        "source": "reels-pp/q1",
+        "updated_at": "2026-09-04T22:13:05.898+09:00"
+      },
+      "action": "move-to-draft",
+      "submittedAt": "2026-09-10T22:49:42.533Z",
+      "account": "dobokunotecom",
+      "captionSha256": "35ca7c91216f70a02eb47f1aba07bf34d8a4390c663c255ec21a73be798146f2",
+      "captionVerifiedInDraftList": false,
+      "captionVerifiedInDraftCalendar": true
+    },
+    {
+      "path": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-12",
+      "kind": "reel",
+      "title": "【令和7年度 択一｜専門科目（建設部門）】開水路の流れ",
+      "previous": {
+        "channel": "business-suite",
+        "status": "scheduled",
+        "scheduled_at": "2026-09-22T19:00:00.000+09:00",
+        "posted_at": null,
+        "video": "reels-pp/q1/video.mp4",
+        "source": "reels-pp/q1",
+        "updated_at": "2026-09-04T22:29:59.480+09:00"
+      },
+      "action": "move-to-draft",
+      "submittedAt": "2026-09-10T22:49:46.238Z",
+      "account": "dobokunotecom",
+      "captionSha256": "35b41b8acc417345aecb8a12423844676260b57df0c361ca79c28381b565de1f",
+      "captionVerifiedInDraftList": false,
+      "captionVerifiedInDraftCalendar": true
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/study-plan-2kyu-point-step1-1",
+      "kind": "reel",
+      "title": "2級土木｜学習の全体像",
+      "previous": {
+        "channel": "business-suite",
+        "status": "scheduled",
+        "scheduled_at": "2026-09-22T12:30:00.000+09:00",
+        "posted_at": null,
+        "video": "reels/video.mp4",
+        "source": ".",
+        "updated_at": "2026-09-06T09:49:11.074+09:00"
+      },
+      "action": "move-to-draft",
+      "submittedAt": "2026-09-10T22:49:49.420Z",
+      "account": "dobokunotecom",
+      "captionSha256": "ff90053f771565b38fcb37bd2a8fd1417886bc3a66de8348480a9e15f8aa4259",
+      "captionVerifiedInDraftList": false,
+      "captionVerifiedInDraftCalendar": true
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/nikyuu-gaiyo-roadmap-point-qualification-2",
+      "kind": "reel",
+      "title": "2級土木｜受験資格",
+      "previous": {
+        "channel": "business-suite",
+        "status": "scheduled",
+        "scheduled_at": "2026-09-21T12:30:00.000+09:00",
+        "posted_at": null,
+        "video": "reels/video.mp4",
+        "source": ".",
+        "updated_at": "2026-09-06T09:47:29.011+09:00"
+      },
+      "action": "move-to-draft",
+      "submittedAt": "2026-09-10T22:49:52.568Z",
+      "account": "dobokunotecom",
+      "captionSha256": "5e4fad2689e01ad3af553c7271a73c4f47cfdd5e4b8bc8a9a0d0b2abafbee00d",
+      "captionVerifiedInDraftList": false,
+      "captionVerifiedInDraftCalendar": true
+    },
+    {
+      "path": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-04",
+      "kind": "carousel",
+      "title": "【令和7年度 基礎科目 過去問】R07 過去問 #4",
+      "previous": {
+        "channel": "business-suite",
+        "status": "scheduled",
+        "scheduled_at": "2026-09-21T12:00:00.000+09:00",
+        "posted_at": null,
+        "image_count": 10,
+        "updated_at": "2026-09-04T19:31:20.940+09:00"
+      },
+      "action": "move-to-draft",
+      "submittedAt": "2026-09-10T22:49:55.715Z",
+      "account": "dobokunotecom",
+      "captionSha256": "1317043065ce9a3078f5d1ee4cd725a8d3f22d22d432d69204b53655946fd338",
+      "captionVerifiedInDraftList": false,
+      "captionVerifiedInDraftCalendar": false
+    },
+    {
+      "path": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-11",
+      "kind": "reel",
+      "title": "【令和7年度 択一｜専門科目（建設部門）】コンパクトシティ",
+      "previous": {
+        "channel": "business-suite",
+        "status": "scheduled",
+        "scheduled_at": "2026-09-20T19:00:00.000+09:00",
+        "posted_at": null,
+        "video": "reels-pp/q1/video.mp4",
+        "source": "reels-pp/q1",
+        "updated_at": "2026-09-04T22:28:06.288+09:00"
+      },
+      "action": "move-to-draft",
+      "submittedAt": "2026-09-10T22:49:59.474Z",
+      "account": "dobokunotecom",
+      "captionSha256": "8d5225528f4ae082c4b73b6682eeac2d1a5dfcc359ea638660599ba3ece71a4c",
+      "captionVerifiedInDraftList": false,
+      "captionVerifiedInDraftCalendar": true
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-kento-kakikata-point-block2-2",
+      "kind": "reel",
+      "title": "1級土木｜2級との区切りの違い",
+      "previous": {
+        "channel": "business-suite",
+        "status": "scheduled",
+        "scheduled_at": "2026-09-20T12:30:00.000+09:00",
+        "posted_at": null,
+        "video": "reels/video.mp4",
+        "source": ".",
+        "updated_at": "2026-09-06T09:45:44.929+09:00"
+      },
+      "action": "move-to-draft",
+      "submittedAt": "2026-09-10T22:50:02.712Z",
+      "account": "dobokunotecom",
+      "captionSha256": "5f4001de99e741c04911a962dd3bd1ddd450dfa15fdfe65a3a076ecaf5742345",
+      "captionVerifiedInDraftList": false,
+      "captionVerifiedInDraftCalendar": true
+    },
+    {
+      "path": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-03",
+      "kind": "reel",
+      "title": "【令和7年度 択一｜基礎科目】標的型攻撃対策",
+      "previous": {
+        "channel": "business-suite",
+        "status": "scheduled",
+        "scheduled_at": "2026-09-19T19:00:00.000+09:00",
+        "posted_at": null,
+        "video": "reels-pp/q1/video.mp4",
+        "source": "reels-pp/q1",
+        "updated_at": "2026-09-04T22:11:20.532+09:00"
+      },
+      "action": "move-to-draft",
+      "submittedAt": "2026-09-10T22:50:06.474Z",
+      "account": "dobokunotecom",
+      "captionSha256": "fc42fbd5d45ea933f235a18858efd87568aa3db728840cd337fd6a1ef905e546",
+      "captionVerifiedInDraftList": false,
+      "captionVerifiedInDraftCalendar": true
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/nikyuu-gaiyo-roadmap-point-stage-1",
+      "kind": "reel",
+      "title": "2級土木｜第一次・第二次の2段階",
+      "previous": {
+        "channel": "business-suite",
+        "status": "scheduled",
+        "scheduled_at": "2026-09-19T12:30:00.000+09:00",
+        "posted_at": null,
+        "video": "reels/video.mp4",
+        "source": ".",
+        "updated_at": "2026-09-06T09:44:00.895+09:00"
+      },
+      "action": "move-to-draft",
+      "submittedAt": "2026-09-10T22:50:09.714Z",
+      "account": "dobokunotecom",
+      "captionSha256": "417eb363262bb4bad3163326f2abc6f7708991dcabbfa7946dadd8a37e83a593",
+      "captionVerifiedInDraftList": false,
+      "captionVerifiedInDraftCalendar": true
+    },
+    {
+      "path": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-03",
+      "kind": "carousel",
+      "title": "【令和7年度 基礎科目 過去問】R07 過去問 #3",
+      "previous": {
+        "channel": "business-suite",
+        "status": "scheduled",
+        "scheduled_at": "2026-09-18T19:00:00.000+09:00",
+        "posted_at": null,
+        "image_count": 10,
+        "updated_at": "2026-09-04T19:29:49.217+09:00"
+      },
+      "action": "move-to-draft",
+      "submittedAt": "2026-09-10T22:50:13.115Z",
+      "account": "dobokunotecom",
+      "captionSha256": "381eb7f0050fafe734b82bec1ad3e3eaad5a937b508008cefeb4670074f4fb4f",
+      "captionVerifiedInDraftList": false,
+      "captionVerifiedInDraftCalendar": false
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-kento-kakikata-point-block1-1",
+      "kind": "reel",
+      "title": "1級土木｜1級R6以降の配分",
+      "previous": {
+        "channel": "business-suite",
+        "status": "scheduled",
+        "scheduled_at": "2026-09-18T12:30:00.000+09:00",
+        "posted_at": null,
+        "video": "reels/video.mp4",
+        "source": ".",
+        "updated_at": "2026-09-06T09:42:16.841+09:00"
+      },
+      "action": "move-to-draft",
+      "submittedAt": "2026-09-10T22:50:16.795Z",
+      "account": "dobokunotecom",
+      "captionSha256": "7b7ec66fa462808d920b78a694a23e95df40d835ea309c2b035e6efd346a362e",
+      "captionVerifiedInDraftList": false,
+      "captionVerifiedInDraftCalendar": true
+    },
+    {
+      "path": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-10",
+      "kind": "reel",
+      "title": "【令和7年度 択一｜専門科目（建設部門）】鋼橋の維持管理",
+      "previous": {
+        "channel": "business-suite",
+        "status": "scheduled",
+        "scheduled_at": "2026-09-17T19:00:00.000+09:00",
+        "posted_at": null,
+        "video": "reels-pp/q1/video.mp4",
+        "source": "reels-pp/q1",
+        "updated_at": "2026-09-04T22:26:13.893+09:00"
+      },
+      "action": "move-to-draft",
+      "submittedAt": "2026-09-10T22:50:20.052Z",
+      "account": "dobokunotecom",
+      "captionSha256": "0c2a110f65e36f7a54096862fa765847300967d3ef58448c293d7ee2a8b0f583",
+      "captionVerifiedInDraftList": false,
+      "captionVerifiedInDraftCalendar": true
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-kadai-kakikata-point-block2-2",
+      "kind": "reel",
+      "title": "1級土木｜原因を条件で具体化",
+      "previous": {
+        "channel": "business-suite",
+        "status": "scheduled",
+        "scheduled_at": "2026-09-17T12:30:00.000+09:00",
+        "posted_at": null,
+        "video": "reels/video.mp4",
+        "source": ".",
+        "updated_at": "2026-09-06T09:40:35.519+09:00"
+      },
+      "action": "move-to-draft",
+      "submittedAt": "2026-09-10T22:50:33.108Z",
+      "account": "dobokunotecom",
+      "captionSha256": "6346a9aa7058c541fb561a7bdd31d06b280ffc0d94bb106fa2a19acebd5d7f68",
+      "captionVerifiedInDraftList": true,
+      "captionVerifiedInDraftCalendar": true
+    },
+    {
+      "path": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-02",
+      "kind": "reel",
+      "title": "【令和7年度 択一｜基礎科目】M/M/1待ち行列",
+      "previous": {
+        "channel": "business-suite",
+        "status": "scheduled",
+        "scheduled_at": "2026-09-16T19:00:00.000+09:00",
+        "posted_at": null,
+        "video": "reels-pp/q1/video.mp4",
+        "source": "reels-pp/q1",
+        "updated_at": "2026-09-04T22:07:53.642+09:00"
+      },
+      "action": "move-to-draft",
+      "submittedAt": "2026-09-10T22:50:36.412Z",
+      "account": "dobokunotecom",
+      "captionSha256": "3270fc5227a146eecc4d095a7eb9501c9670d64271d5a111bfe0057fe34b5677",
+      "captionVerifiedInDraftList": true,
+      "captionVerifiedInDraftCalendar": true
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-kadai-kakikata-point-block1-1",
+      "kind": "reel",
+      "title": "1級土木｜技術的課題の3要素",
+      "previous": {
+        "channel": "business-suite",
+        "status": "scheduled",
+        "scheduled_at": "2026-09-16T12:30:00.000+09:00",
+        "posted_at": null,
+        "video": "reels/video.mp4",
+        "source": ".",
+        "updated_at": "2026-09-06T09:38:50.982+09:00"
+      },
+      "action": "move-to-draft",
+      "submittedAt": "2026-09-10T22:50:40.111Z",
+      "account": "dobokunotecom",
+      "captionSha256": "c2b984e6f01226b48b372c1a4b35eb71d192474f3a4a2ec89414dc4094a5cc67",
+      "captionVerifiedInDraftList": true,
+      "captionVerifiedInDraftCalendar": true
+    },
+    {
+      "path": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-09",
+      "kind": "reel",
+      "title": "【令和7年度 択一｜専門科目（建設部門）】土の基本的な性質",
+      "previous": {
+        "channel": "business-suite",
+        "status": "scheduled",
+        "scheduled_at": "2026-09-15T19:00:00.000+09:00",
+        "posted_at": null,
+        "video": "reels-pp/q1/video.mp4",
+        "source": "reels-pp/q1",
+        "updated_at": "2026-09-04T22:24:27.943+09:00"
+      },
+      "action": "move-to-draft",
+      "submittedAt": "2026-09-10T22:50:43.326Z",
+      "account": "dobokunotecom",
+      "captionSha256": "714418e52bb17674b37cef82f8ceb574439ff87755d5a2205633e334abdca377",
+      "captionVerifiedInDraftList": true,
+      "captionVerifiedInDraftCalendar": true
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-taisho-koji-point-block2-2",
+      "kind": "reel",
+      "title": "1級土木｜「書けない」工事の代表例",
+      "previous": {
+        "channel": "business-suite",
+        "status": "scheduled",
+        "scheduled_at": "2026-09-15T12:30:00.000+09:00",
+        "posted_at": null,
+        "video": "reels/video.mp4",
+        "source": ".",
+        "updated_at": "2026-09-06T09:37:06.613+09:00"
+      },
+      "action": "move-to-draft",
+      "submittedAt": "2026-09-10T22:50:47.093Z",
+      "account": "dobokunotecom",
+      "captionSha256": "3106c12e074d0a0bf1c5beff8a5d37d96c26c00b68d83dfde463075602489065",
+      "captionVerifiedInDraftList": true,
+      "captionVerifiedInDraftCalendar": true
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-taisho-koji-point-block1-1",
+      "kind": "reel",
+      "title": "1級土木｜「書ける」工事の範囲",
+      "previous": {
+        "channel": "business-suite",
+        "status": "scheduled",
+        "scheduled_at": "2026-09-14T12:30:00.000+09:00",
+        "posted_at": null,
+        "video": "reels/video.mp4",
+        "source": ".",
+        "updated_at": "2026-09-06T09:34:41.560+09:00"
+      },
+      "action": "move-to-draft",
+      "submittedAt": "2026-09-10T22:50:50.851Z",
+      "account": "dobokunotecom",
+      "captionSha256": "facafcb1e6e384d12afd6db0786ae04d1c441b806095876d3c7f4aa4bd4bd4e2",
+      "captionVerifiedInDraftList": true,
+      "captionVerifiedInDraftCalendar": true
+    },
+    {
+      "path": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-02",
+      "kind": "carousel",
+      "title": "【令和7年度 基礎科目 過去問】R07 過去問 #2",
+      "previous": {
+        "channel": "business-suite",
+        "status": "scheduled",
+        "scheduled_at": "2026-09-14T12:00:00.000+09:00",
+        "posted_at": null,
+        "image_count": 10,
+        "updated_at": "2026-09-04T19:28:08.435+09:00"
+      },
+      "action": "move-to-draft",
+      "submittedAt": "2026-09-10T22:50:54.053Z",
+      "account": "dobokunotecom",
+      "captionSha256": "b9686398b1f8da0c05f8a3f2edbaaa5e88a898cf1b21c8dd2e7af2e499729a05",
+      "captionVerifiedInDraftList": true,
+      "captionVerifiedInDraftCalendar": false
+    },
+    {
+      "path": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-08",
+      "kind": "reel",
+      "title": "【令和7年度 択一｜適性科目】循環型社会の形成",
+      "previous": {
+        "channel": "business-suite",
+        "status": "scheduled",
+        "scheduled_at": "2026-09-13T19:00:00.000+09:00",
+        "posted_at": null,
+        "video": "reels-pp/q1/video.mp4",
+        "source": "reels-pp/q1",
+        "updated_at": "2026-09-04T22:22:39.198+09:00"
+      },
+      "action": "move-to-draft",
+      "submittedAt": "2026-09-10T22:50:57.406Z",
+      "account": "dobokunotecom",
+      "captionSha256": "470ce8fa0bcd1587be9e4f01f912e98465bab5b6517351db1c79d0b2afc81e7f",
+      "captionVerifiedInDraftList": true,
+      "captionVerifiedInDraftCalendar": true
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-2theme-heiki-point-step1-2",
+      "kind": "reel",
+      "title": "1級土木｜なぜ書き分けでつまずくか",
+      "previous": {
+        "channel": "business-suite",
+        "status": "scheduled",
+        "scheduled_at": "2026-09-13T12:30:00.000+09:00",
+        "posted_at": null,
+        "video": "reels/video.mp4",
+        "source": ".",
+        "updated_at": "2026-09-06T09:32:57.221+09:00"
+      },
+      "action": "move-to-draft",
+      "submittedAt": "2026-09-10T22:51:00.652Z",
+      "account": "dobokunotecom",
+      "captionSha256": "caeb9b6746d90dbe8bf5955926e744c8989709efd9e54f024315abea0820e520",
+      "captionVerifiedInDraftList": true,
+      "captionVerifiedInDraftCalendar": true
+    },
+    {
+      "path": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-01",
+      "kind": "reel",
+      "title": "【令和7年度 択一｜基礎科目】構造物の設計",
+      "previous": {
+        "channel": "business-suite",
+        "status": "scheduled",
+        "scheduled_at": "2026-09-12T19:00:00.000+09:00",
+        "posted_at": null,
+        "video": "reels-pp/q1/video.mp4",
+        "source": "reels-pp/q1",
+        "updated_at": "2026-09-04T22:01:20.761+09:00"
+      },
+      "action": "move-to-draft",
+      "submittedAt": "2026-09-10T22:51:03.927Z",
+      "account": "dobokunotecom",
+      "captionSha256": "ce065c08ca23c9aab5c139a06af94136424d1e8650ab82e348858b1d4776a167",
+      "captionVerifiedInDraftList": true,
+      "captionVerifiedInDraftCalendar": true
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-2theme-heiki-point-overview-1",
+      "kind": "reel",
+      "title": "1級土木｜R6年度からの形式変化",
+      "previous": {
+        "channel": "business-suite",
+        "status": "scheduled",
+        "scheduled_at": "2026-09-12T12:30:00.000+09:00",
+        "posted_at": null,
+        "video": "reels/video.mp4",
+        "source": ".",
+        "updated_at": "2026-09-06T09:31:12.998+09:00"
+      },
+      "action": "move-to-draft",
+      "submittedAt": "2026-09-10T22:51:07.258Z",
+      "account": "dobokunotecom",
+      "captionSha256": "ad1468062885961b379c7ea87a8b92ea44ab52ea91c9cfe42b2b22205494b7e5",
+      "captionVerifiedInDraftList": true,
+      "captionVerifiedInDraftCalendar": true
+    },
+    {
+      "path": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-01",
+      "kind": "carousel",
+      "title": "【令和7年度 基礎科目 過去問】R07 過去問 #1",
+      "previous": {
+        "channel": "business-suite",
+        "status": "scheduled",
+        "scheduled_at": "2026-09-11T19:00:00.000+09:00",
+        "posted_at": null,
+        "image_count": 10,
+        "updated_at": "2026-09-04T19:21:43.203+09:00"
+      },
+      "action": "move-to-draft",
+      "submittedAt": "2026-09-10T22:51:10.439Z",
+      "account": "dobokunotecom",
+      "captionSha256": "d6426eb173c7e07bb661c3dad76cf6486a931e86f649fd0681dcf7fd153aeeda",
+      "captionVerifiedInDraftList": true,
+      "captionVerifiedInDraftCalendar": false
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-r6-shinkeishiki-point-structure-2",
+      "kind": "reel",
+      "title": "1級土木｜新形式の解答欄構造",
+      "previous": {
+        "channel": "business-suite",
+        "status": "scheduled",
+        "scheduled_at": "2026-09-11T12:30:00.000+09:00",
+        "posted_at": null,
+        "video": "reels/video.mp4",
+        "source": ".",
+        "updated_at": "2026-09-06T09:29:28.629+09:00",
+        "verification": "Metaプランナーに20:30枠が未反映"
+      },
+      "action": "move-to-draft",
+      "submittedAt": "2026-09-10T22:51:13.692Z",
+      "account": "dobokunotecom",
+      "captionSha256": "7f5da7cae175e8c3e8f62105acde2b70cd2296ebc1c6123e2daab349b0b32891",
+      "captionVerifiedInDraftList": true,
+      "captionVerifiedInDraftCalendar": true
+    },
+    {
+      "path": "content/sns/instagram/civil-1/theme-packs/anzen-scaffold/pack-04",
+      "kind": "carousel",
+      "title": "【頻出論点】安全管理 / 足場・墜落・高所作業  ★★★",
+      "previous": {
+        "channel": "business-suite",
+        "status": "scheduled",
+        "scheduled_at": "2026-09-08T12:00:00.000+09:00",
+        "posted_at": null,
+        "image_count": 10,
+        "updated_at": "2026-08-26T06:20:38.553+09:00"
+      },
+      "action": "move-to-draft",
+      "submittedAt": "2026-09-10T22:51:16.945Z",
+      "account": "dobokunotecom",
+      "captionSha256": "be222f7556088aed624c269c318bb4c2f8203d9e202909802361c20a9385fd46",
+      "captionVerifiedInDraftList": true,
+      "captionVerifiedInDraftCalendar": false
+    }
+  ],
+  "verification": {
+    "calendarCheckedAt": "2026-09-10T23:04:17.604Z",
+    "calendarWindow": "2026-09-11/2026-10-03",
+    "calendarResult": "All future content cards observed as drafts; follower activity suggestions excluded",
+    "identityLimit": "Some carousel identities were verified only during the cancellation operation; calendar chips alone are not identity proof",
+    "evidenceHashes": {
+      "paused.jsonl": "f0e3f3a0a29780c5cf4bd68388c353d5280da949417bf7db6b5d9668f893f394",
+      "draft-verification.json": "14aeceafc9d230100c68151e809ed147ac2ece5a62f4069a0615c8d570c1cc56",
+      "paused-calendar-weeks.json": "aeeed0dcfc641bea64eea1701d7452aed3db476d390e36332b5e8c3d8f9a7169"
+    },
+    "finalScheduledList": {
+      "checkedAt": "2026-09-11T08:44:13.493+09:00",
+      "activeReservations": 9,
+      "allActiveBelongToNewSeries": true,
+      "failedHistoricalRows": 36,
+      "evidenceSha256": "35d4bf5b9e0d3a4878b1703aa043d3289d2dad7cd7d99dce3aac885a75741e86"
+    }
+  },
+  "localHolds": [
+    {
+      "path": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-08",
+      "kind": "carousel",
+      "action": "local-hold-only",
+      "previous": {
+        "channel": "business-suite",
+        "status": "scheduled",
+        "scheduled_at": "2026-10-05T12:00:00.000+09:00",
+        "posted_at": null,
+        "image_count": 10,
+        "updated_at": "2026-09-04T19:37:25.626+09:00"
+      },
+      "externalObservation": "Not present in the fully loaded scheduled list; individual draft ID not reverified in this run",
+      "heldAt": "2026-09-11T08:45:10.810+09:00"
+    },
+    {
+      "path": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-09",
+      "kind": "carousel",
+      "action": "local-hold-only",
+      "previous": {
+        "channel": "business-suite",
+        "status": "scheduled",
+        "scheduled_at": "2026-10-09T19:00:00.000+09:00",
+        "posted_at": null,
+        "image_count": 10,
+        "updated_at": "2026-09-04T19:39:08.257+09:00"
+      },
+      "externalObservation": "Not present in the fully loaded scheduled list; individual draft ID not reverified in this run",
+      "heldAt": "2026-09-11T08:45:10.810+09:00"
+    },
+    {
+      "path": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-10",
+      "kind": "carousel",
+      "action": "local-hold-only",
+      "previous": {
+        "channel": "business-suite",
+        "status": "scheduled",
+        "scheduled_at": "2026-10-12T12:00:00.000+09:00",
+        "posted_at": null,
+        "image_count": 10,
+        "updated_at": "2026-09-04T19:40:50.351+09:00"
+      },
+      "externalObservation": "Not present in the fully loaded scheduled list; individual draft ID not reverified in this run",
+      "heldAt": "2026-09-11T08:45:10.810+09:00"
+    },
+    {
+      "path": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-11",
+      "kind": "carousel",
+      "action": "local-hold-only",
+      "previous": {
+        "channel": "business-suite",
+        "status": "scheduled",
+        "scheduled_at": "2026-10-16T19:00:00.000+09:00",
+        "posted_at": null,
+        "image_count": 10,
+        "updated_at": "2026-09-04T19:42:23.223+09:00"
+      },
+      "externalObservation": "Not present in the fully loaded scheduled list; individual draft ID not reverified in this run",
+      "heldAt": "2026-09-11T08:45:10.810+09:00"
+    },
+    {
+      "path": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-12",
+      "kind": "carousel",
+      "action": "local-hold-only",
+      "previous": {
+        "channel": "business-suite",
+        "status": "scheduled",
+        "scheduled_at": "2026-10-19T12:00:00.000+09:00",
+        "posted_at": null,
+        "image_count": 10,
+        "updated_at": "2026-09-04T19:43:54.217+09:00"
+      },
+      "externalObservation": "Not present in the fully loaded scheduled list; individual draft ID not reverified in this run",
+      "heldAt": "2026-09-11T08:45:10.810+09:00"
+    },
+    {
+      "path": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-13",
+      "kind": "carousel",
+      "action": "local-hold-only",
+      "previous": {
+        "channel": "business-suite",
+        "status": "scheduled",
+        "scheduled_at": "2026-10-23T19:00:00.000+09:00",
+        "posted_at": null,
+        "image_count": 10,
+        "updated_at": "2026-09-04T19:45:25.972+09:00"
+      },
+      "externalObservation": "Not present in the fully loaded scheduled list; individual draft ID not reverified in this run",
+      "heldAt": "2026-09-11T08:45:10.810+09:00"
+    },
+    {
+      "path": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-14",
+      "kind": "carousel",
+      "action": "local-hold-only",
+      "previous": {
+        "channel": "business-suite",
+        "status": "scheduled",
+        "scheduled_at": "2026-10-26T12:00:00.000+09:00",
+        "posted_at": null,
+        "image_count": 10,
+        "updated_at": "2026-09-04T19:46:57.943+09:00"
+      },
+      "externalObservation": "Not present in the fully loaded scheduled list; individual draft ID not reverified in this run",
+      "heldAt": "2026-09-11T08:45:10.810+09:00"
+    },
+    {
+      "path": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-15",
+      "kind": "carousel",
+      "action": "local-hold-only",
+      "previous": {
+        "channel": "business-suite",
+        "status": "scheduled",
+        "scheduled_at": "2026-10-30T19:00:00.000+09:00",
+        "posted_at": null,
+        "image_count": 10,
+        "updated_at": "2026-09-04T19:48:29.760+09:00"
+      },
+      "externalObservation": "Not present in the fully loaded scheduled list; individual draft ID not reverified in this run",
+      "heldAt": "2026-09-11T08:45:10.810+09:00"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-histogram",
+  "key": "point-step1-2",
+  "sceneId": "step1",
+  "exam": "civil-construction-1",
+  "narration": "ヒストグラムでは、分布の形と規格値との位置関係を確認します。規格内でも端に寄っていれば余裕は小さくなります。山が二つある場合は、異なる機械や材料のデータが混ざっていないかを調べましょう。形だけで原因を断定せず、データの採り方も確認します。",
+  "visual": {
+    "heading": "分布の形から原因を探る",
+    "items": [
+      "規格値までの余裕を確認",
+      "ふた山型は異なる条件の混在を疑う",
+      "分布だけで断定せず採取条件も確認"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-histogram/article.mdx",
+  "editorialNote": "つり鐘型を常に理想、ふた山型を必ず2工程混在とする断定を緩和。"
+}

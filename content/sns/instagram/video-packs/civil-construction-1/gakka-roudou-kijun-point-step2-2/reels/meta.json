@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.221Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-roudou-kijun/shorts/point-step2-2/shorts.mp4",
-  "durationSeconds": 32,
-  "sha256": "d41dbc3cec9149ca98257bdc44e95ef8cdf8ac9009ae12e430d74827a48e6df6",
-  "coverSha256": "6ca976a7b1fedecb4bdff4f1185a6fe110cddc96ac9b2a3d5f4006b1a190d1ff",
-  "renderedAt": "2026-09-06T00:06:50.779Z"
+  "durationSeconds": 30.47,
+  "sha256": "3a45134733eee757198b227aebe73dbb707836dc9bb4fbadf4650b67dad56128",
+  "coverSha256": "3fe4a138c7e21e5de1db757a818f7c96184f29c141471cd0b1f1a110149e0da6",
+  "renderedAt": "2026-09-10T11:40:14.163Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "f12d864fa88ab5531eccaa6cc94b381f88fd3d1ca6e2c10c7120ff48973f84db",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "56d8e47857df7760db9a998a6fd8c8e4db8dfebd10cf60afed9b4a9315c9fd04",
+  "speaker": 13,
+  "narration": "割増賃金は、時間外、法定休日、深夜を区別します。法定時間外と深夜はそれぞれ25パーセント以上、法定休日は35パーセント以上です。月60時間を超えた時間外労働は、その超えた部分が50パーセント以上になります。休日をすべて25パーセントと覚えないようにしましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "cea12f3249f2bc5c8f43866591961cf80bb29657cd7939786980e3bea739d7e2",
+    "points": "5bdfcee6265bcb229bbd533851c86381e869f54bd414619957b9a3064da1e80b",
+    "pointsImage": "40b9e07d284c2c7f74fd5eab7f6a17b75c60fc64ca3923efcb8b8ddc89779c85",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:40:14.163Z"
+  }
 }

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "roadmap-juken-shikaku",
+  "key": "point-step2-2",
+  "sceneId": "step2",
+  "exam": "civil-construction-1",
+  "narration": "1級土木の第一次検定は、受検年度中に19歳以上になる人が、実務経験を問わず受けられます。第二次は所定の実務経験が必要です。新制度は資格取得後の経験を中心に確認し、旧制度には経過措置があります。年数だけでなく、使う区分と経験の内容を確認しましょう。",
+  "visual": {
+    "heading": "1級の受検資格は区分から確認",
+    "items": [
+      "第一次：年度中に19歳以上・経験不問",
+      "第二次：所定の実務経験が必要",
+      "新制度・経過措置の旧制度を区別"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/guide-exam-overview/article.mdx",
+  "editorialNote": "第二次はすべて第一次合格後の経験だけという誤認を修正。",
+  "sourceUrls": [
+    "https://www.jctc.jp/exam/examfaq/"
+  ]
+}

@@ -6,3 +6,11 @@ CLOUDFLARE_ACCOUNT_ID = "cc10e4d021f2b259238dc98dfeebe907"
 
 [mcp_servers.aidesigner]
 url = "https://api.aidesigner.ai/api/v1/mcp"
+
+# Local resource policy: built-in filesystem tools and gh cover this repository.
+# These overrides apply only to doboku-note; other projects keep their own MCP settings.
+[mcp_servers.filesystem]
+enabled = false
+
+[mcp_servers.github]
+enabled = false

@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "concrete-engineer",
+      "headline": [
+        "配合計算",
+        "解く手順を型に"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pc-work",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/309.png",
+        "sha256": "7e594ccd48043dabb299c4bbbb852bac52bf3688dfec23bbbe71b2c63039b4a1",
+        "specSha256": "de6cbd7405f35de8871551e037a1a3fc303bf465f27830c9cf5b38ea9cc802ab"
+      }
+    },
+    "point-step1-1": {
+      "format": "shorts",
+      "exam": "concrete-engineer",
+      "headline": [
+        "配合計算の前に",
+        "３つをそろえる"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pc-work",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/310.png",
+        "sha256": "db74612990517664cf4362f0cc59a1c18fdeedd7f33ab3b2a9cc9c480ca6e14a",
+        "specSha256": "dd0ee334f096de5df7b15741fa2b7da19c81e04334726c5e3180210c3a7c4252"
+      }
+    },
+    "point-step2-2": {
+      "format": "shorts",
+      "exam": "concrete-engineer",
+      "headline": [
+        "単位セメント量",
+        "水セメント比で",
+        "求める"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/311.png",
+        "sha256": "21daf7ad8cb7b14a8260c9d06886f55b4f21bb4e1204701b0176eb02bfce5291",
+        "specSha256": "d2d7da2f0f4a2291f40407420a3e2c5591555de3c5fc4dda402bc6387acd2630"
+      }
+    }
+  }
+}

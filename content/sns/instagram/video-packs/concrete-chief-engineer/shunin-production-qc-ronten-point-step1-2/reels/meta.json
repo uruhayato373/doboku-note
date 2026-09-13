@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.196Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/shunin-production-qc-ronten/shorts/point-step1-2/shorts.mp4",
-  "durationSeconds": 38,
-  "sha256": "3c7003545dc2609387097e0ccee5b286d146adfb29b09fc4fdbe7bb196ef5901",
-  "coverSha256": "27c724ca67130fcc4410d88e9825b8e307feb1dd222bd5d24b9c1935b62c01b2",
-  "renderedAt": "2026-09-05T23:29:15.519Z"
+  "durationSeconds": 30.2,
+  "sha256": "51b8fb6274ca439481320c126f44cc81a1a18d19e8198e26d7f8ea159142a139",
+  "coverSha256": "b230ab2bb09b814ad07b762790792a632f57d3f21fb970ca9d787a256f696669",
+  "renderedAt": "2026-09-10T11:02:16.324Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "13eca5e7158bc68be22d68628ff603337a58a16ed3b3e5261f29ae331c7de7af",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "874d3f0e0092855b54a7618655730a00743f9e7e2b5bba078abf11277653964c",
+  "speaker": 13,
+  "narration": "コンクリート材料の計量は、目標量からのずれを材料ごとに管理します。セメントや水と、骨材や混和剤では、適用する許容差が異なります。混和材や累加計量には区分や条件もあります。割合だけを暗記せず、材料名と計量方法を確認して、規格の表と照合しましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "b8840711f1bad8aea2ea94f8ce2ccfe6369856d8556c8415f76367ff6110e9df",
+    "points": "8057c99168684e015f5b2eed2c9a9d6495fce91f95a777630ec29ba248013ec7",
+    "pointsImage": "672e47b207535a560600059a68f78b5741e639fc898b70c452154c1ef3d1a63e",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:02:16.324Z"
+  }
 }

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-kensetsugyoho",
+  "key": "point-step1-2",
+  "sceneId": "step1",
+  "exam": "civil-construction-1",
+  "narration": "一般建設業と特定建設業の区分は、元請として結ぶ下請契約の総額で確認します。一件の工事で5000万円以上、建築一式では8000万円以上となる場合は特定建設業の許可が必要です。自社が受注した請負代金そのものと、下請総額を取り違えないようにしましょう。",
+  "visual": {
+    "heading": "特定建設業は下請総額で判断",
+    "items": [
+      "元請として締結する下請契約の合計",
+      "5000万円以上／建築一式8000万円以上",
+      "元請の受注額そのものと区別"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-construction-business/article.mdx",
+  "editorialNote": "2025年2月1日施行の金額を公式確認し一件工事・下請総額の条件を補足。",
+  "sourceUrls": [
+    "https://www.mlit.go.jp/totikensangyo/const/1_6_bt_000080.html"
+  ]
+}

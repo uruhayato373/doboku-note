@@ -13,7 +13,27 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-kensetsugyoho/shorts/point-step1-2/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "b2455dc3141dd09a9ee0fcebf3e2d315ed9a06e70b4e5d7e71c3b0e77963ffc6",
-  "coverSha256": "0030b20d14df9d0933d22f036d0bc1416898c825585253fc5d13279803135d55",
-  "renderedAt": "2026-09-06T00:04:26.053Z"
+  "sha256": "9773a5e91a25d1440a8ff75d5761d16199b5aa622134f390f2aa3db30be1423d",
+  "coverSha256": "046b832ceba6c0464fc3a610a5d4bae9a81b8561abe5fd00779916060e596f76",
+  "renderedAt": "2026-09-10T11:28:08.231Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "0d4349858b65b7654bedbffba8436eedc591ca34ce5ac4c3c0d7d93d7f8fc728",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "2a3af97b13dd0d9f4a99d11ccbe69532a86d22d9f9b804d839729f97680e37b4",
+  "speaker": 13,
+  "narration": "一般建設業と特定建設業の区分は、元請として結ぶ下請契約の総額で確認します。一件の工事で5000万円以上、建築一式では8000万円以上となる場合は特定建設業の許可が必要です。自社が受注した請負代金そのものと、下請総額を取り違えないようにしましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "c727140c4425272466b175a0026211fb3ea5071d273f83580d41667db692ca4a",
+    "points": "4bdf95fc21fd69085cbbe370b889e1c4657692765bc7a4d1dc6768e408459014",
+    "pointsImage": "942035c96194daf67cc304aee9cabeb498352d9e78447371ed347899a7dbfdc0",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:28:08.231Z"
+  }
 }

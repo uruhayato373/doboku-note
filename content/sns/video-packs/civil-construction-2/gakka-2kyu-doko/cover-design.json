@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-2",
+      "headline": [
+        "土工の頻出点",
+        "要点を押さえる"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/204.png",
+        "sha256": "01aa08f1b8c3e3cde8706a8da82db4936733de71b50b12772bccf892313b090a",
+        "specSha256": "965dd65dab3e3a535ff1f8f37e69f759fe24d24024e84c3f81a53de774a310bc"
+      }
+    },
+    "point-overview-1": {
+      "format": "shorts",
+      "exam": "civil-2",
+      "headline": [
+        "土工の頻出点",
+        "４テーマで整理"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/205.png",
+        "sha256": "911496efba6ce0f71242f59a1748513cde5ffc7eb12da47fe6ace363c80af3c2",
+        "specSha256": "429cdbdc6b40829cface47cc66ffe19162f3bccbad64c27cca0f8c9a5d69a6f0"
+      }
+    },
+    "point-block1-2": {
+      "format": "shorts",
+      "exam": "civil-2",
+      "headline": [
+        "土質試験は",
+        "目的で覚える"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "smile",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/206.png",
+        "sha256": "630cf0b574a0430dd0501d4d43f4b833b5028a56f0eed6d842754b09c5baa9de",
+        "specSha256": "4abab81a27cb3a205b7c568e4b44bf93caaeb1bbb7630bc8ba71f96681f980c1"
+      }
+    }
+  }
+}

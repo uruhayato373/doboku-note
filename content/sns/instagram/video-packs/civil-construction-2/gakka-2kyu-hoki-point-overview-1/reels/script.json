@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-2kyu-hoki",
+  "key": "point-overview-1",
+  "sceneId": "overview",
+  "exam": "civil-construction-2",
+  "narration": "土木の法規は、何を守る法律かで整理しましょう。労働基準法は労働条件、労働安全衛生法は働く人の安全と健康、建設業法は建設業の適正な運営を扱います。道路や河川、騒音や振動の規制は、工事が周囲へ及ぼす影響と結びつけて学びます。",
+  "visual": {
+    "heading": "法規は守る対象で整理",
+    "items": [
+      "労基法：労働条件／安衛法：安全と健康",
+      "建設業法：建設業の適正な運営",
+      "道路・河川・環境：工事と周囲の関係"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-2/guide-law-key-points/article.mdx"
+}

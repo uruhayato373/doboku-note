@@ -13,7 +13,27 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gishi-jis-handan/shorts/point-step1-1/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "15802d89efdf43ad6c71fef3385e0e5125506f2d31da817f1e0ad06e9db78bcf",
-  "coverSha256": "faf191fe4604ef2ffb456c22aa31bd7b85e8bc16df039da5a449a0f8a0bcef8e",
-  "renderedAt": "2026-09-05T23:32:09.511Z"
+  "sha256": "87c702173652e05061b740e5c255fd27eeb52d970a3f84593bf0f89daaa286b0",
+  "coverSha256": "4360b5f6a37305095aca2e829f0bd4a040460dcb682e2709db5cbdf933e69c7c",
+  "renderedAt": "2026-09-10T11:04:45.858Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "92086b02290f3a75e4790d68d7d2c7f0f4b4311178d5891f81f4e9fc0b9839b8",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "9704705226412fb10792c010ea23225cb1176142a3f547a09475b7ea8e728472",
+  "speaker": 13,
+  "narration": "計量誤差の百分率は目標値を分母にして計算します。理由は、規定が「目標に対してどれだけずれたか」を管理する趣旨だからです。符号は過大・過小の方向、絶対値は許容範囲との比較に使います。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "738b40a8e327fcf49ff609b4e972fd41e95c82a215900deea7690ba9849d56ed",
+    "points": "5f9b3285b3f9fdb8c8290ab636655a74dce04b5bb2a366433fdc6711f70cf531",
+    "pointsImage": "27361720decd0b4ef466adf5be981ef27dfcc9fc533df55e69f9dc6aa0f12903",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:04:45.858Z"
+  }
 }

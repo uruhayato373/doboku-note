@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.215Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-hoki-kenchiku-kayaku/shorts/point-step1-2/shorts.mp4",
-  "durationSeconds": 30,
-  "sha256": "4866656e6e5198f73fa7c8abcd6d8fcc5db24043e16e0490335efc970a5e4965",
-  "coverSha256": "a7e7eeb7bc3331b7e11c4c0f3471fdcf97c7144b428577cdd00f8a668a2dbe9b",
-  "renderedAt": "2026-09-06T00:03:31.221Z"
+  "durationSeconds": 30.2,
+  "sha256": "b1ca1712d5a50aa3ff5114679c91a393977085e06ffe84d79ad5540c336df337",
+  "coverSha256": "840635fbd5b6992cc6e8eab73167989f4c156617c0d008df4e73a69682a4ae0c",
+  "renderedAt": "2026-09-10T11:23:53.158Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "df4879d1a3d441c3c5fde1542c288f648104d582d0e07d88cf8e9d266565fda1",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "d8386fe12f3e868c8e87da1110762388a98498127052de33c21be8abfc01edea",
+  "speaker": 13,
+  "narration": "火薬類の手続は、設置、消費、運搬を分けて整理します。火薬庫の設置や発破などの消費は原則として都道府県知事の許可、陸上運搬は都道府県公安委員会への届出を確認します。数量や適用除外、権限移譲もあるため、具体の手続は所管窓口で確かめましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "7fd8d8a6b1b7827a4fe1e6d720801e478000ce888c305ec1d2e68c208baf09d5",
+    "points": "1947063ac24150db7c754ad5f287aefefe2f883b829aea18b62e92b7a87be5aa",
+    "pointsImage": "97a8ced5733a44c1b0e9b9606bc79e90043a0449d3307d90e0d6bf4fb7bcea0d",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:23:53.158Z"
+  }
 }

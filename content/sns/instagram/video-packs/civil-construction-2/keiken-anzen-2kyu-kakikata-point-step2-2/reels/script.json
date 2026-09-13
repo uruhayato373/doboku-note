@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "keiken-anzen-2kyu-kakikata",
+  "key": "point-step2-2",
+  "sceneId": "step2",
+  "exam": "civil-construction-2",
+  "narration": "安全管理の検討項目は、現場の危険に合うものを選びます。高所作業なら作業床や端部の墜落防止、掘削なら地山の状態や崩壊防止を検討します。基準の数値を列挙するだけでなく、なぜその現場で必要だったかと、実際に採った処置を結びつけて書きましょう。",
+  "visual": {
+    "heading": "基準は現場の危険と結びつける",
+    "items": [
+      "高所：作業床・端部の墜落防止",
+      "掘削：地山の状態・崩壊防止",
+      "必要な理由と実施した処置をつなぐ"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-2/guide-safety-management/article.mdx",
+  "editorialNote": "足場種類や作業条件を省略した法定数値の一律提示を避けて答案の考え方に絞る。",
+  "coverHeadline": [
+    "安全管理の検討",
+    "現場条件と結ぶ"
+  ]
+}

@@ -19,8 +19,8 @@
     "publishAt": "2026-09-09T07:30:00+09:00",
     "r2Key": "video/render/keiken-taisho-koji/video.mp4",
     "thumbnailR2Key": "video/render/keiken-taisho-koji/img/00-cover.png",
-    "sha256": "6c14e23f71d24fd6cd939b14650da285e9323035005d738dff67419c1934906d",
-    "thumbnailSha256": "7fb080af848062cd0a064b8887ab1677d9eedbf068b2d8290192937b936cc044"
+    "sha256": "df69f02ec346bbbe28ca5ac214159062a07bfe0aab94c0ca46dc50f1820b6681",
+    "thumbnailSha256": "0faec29426e51c31571cf0b20f4e38e1ea8ddf8469409ccf253877b382b897ff"
   },
   "shorts": [
     {
@@ -40,8 +40,8 @@
       "publishAt": "2026-09-29T12:30:00+09:00",
       "r2Key": "video/render/keiken-taisho-koji/shorts/point-block1-1/shorts.mp4",
       "thumbnailR2Key": "video/render/keiken-taisho-koji/shorts/point-block1-1/thumbnail.png",
-      "sha256": "e0ddb10494f3d9eea0d26481e48c4e9802e450bc9039f6656180da5fddc78737",
-      "thumbnailSha256": "4c68c69e1634d2b546e65b57bd6e3f2b6049ed79105ce929b34f991ad33ae7d8"
+      "sha256": "460b24887a3db5d230610e36f97c5a5ab8be894b68f17f7a97b0815b6828b7e1",
+      "thumbnailSha256": "bf04060641f31fe217b34272a1f5a8262cc717a1ac9bf4565c47a234f23f9ff5"
     },
     {
       "key": "point-block2-2",
@@ -60,8 +60,8 @@
       "publishAt": "2026-10-01T12:30:00+09:00",
       "r2Key": "video/render/keiken-taisho-koji/shorts/point-block2-2/shorts.mp4",
       "thumbnailR2Key": "video/render/keiken-taisho-koji/shorts/point-block2-2/thumbnail.png",
-      "sha256": "19a7babccaf438ac23f1f99d132cdfe156cbcd83d93b8ba35bf859db4af62915",
-      "thumbnailSha256": "a9a6251e1028a75ec753ef3d3d7172d8898ad65c4005815e2ab13f0c700be297"
+      "sha256": "e918a0ba11baaeab50c07d5cc9aef8b345bb7a7042039c56dc2a5bdf5daad054",
+      "thumbnailSha256": "1e40d33b5c400effa5d1dcc7d7326be63bb67ff16dc49af28ccd3db9c4cd3895"
     }
   ]
 }

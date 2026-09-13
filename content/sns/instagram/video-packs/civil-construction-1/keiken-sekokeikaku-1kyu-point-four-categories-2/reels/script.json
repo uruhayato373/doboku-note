@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "keiken-sekokeikaku-1kyu",
+  "key": "point-four-categories-2",
+  "sceneId": "four-categories",
+  "exam": "civil-construction-1",
+  "narration": "施工計画の経験は、仮設計画、工法比較、近接施工への対策、関係者協議に分けると整理できます。たとえば仮設道路の規模や、既設構造物への影響を抑える工法の検討です。この分類を手がかりに、自分が何を比較して計画に反映したかを振り返りましょう。",
+  "visual": {
+    "heading": "施工計画の経験を4系統で整理",
+    "items": [
+      "仮設計画：道路・締切など",
+      "工法比較：施工条件に合う方法",
+      "近接施工への対策・関係者協議"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx",
+  "editorialNote": "必ず4系統に絞るという拘束ではなく経験を整理する補助分類へ変更。"
+}

@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "shunin-r8-juuten",
+  "key": "point-four-tiers-2",
+  "sceneId": "four-tiers",
+  "exam": "concrete-chief-engineer",
+  "narration": "出題傾向は、調べた年度の範囲を決めて整理しましょう。毎年、多くの年、低頻度、その範囲では出題なし、というように分けると優先順位を付けられます。ただし、過去に出ていないことは次も出ない根拠にはなりません。頻出分野を軸にしながら、全体の抜けも確認します。",
+  "visual": {
+    "heading": "出題傾向は調査期間を決めて整理",
+    "items": [
+      "毎年／多くの年／低頻度／期間内に出題なし",
+      "未出題は次も出ないという意味ではない",
+      "頻出分野を軸に全体の抜けも確認"
+    ]
+  },
+  "sourceRef": "content/site/concrete-chief-engineer/guide-trends/article.mdx",
+  "editorialNote": "調査範囲不明の「水・水密は出題なし」と将来の未出題推定を削除。"
+}

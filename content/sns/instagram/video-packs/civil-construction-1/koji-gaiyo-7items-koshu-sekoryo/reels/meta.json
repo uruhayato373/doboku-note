@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.181Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/koji-gaiyo-7items/shorts/koshu-sekoryo/shorts.mp4",
-  "durationSeconds": 32,
-  "sha256": "7b8053e0969eb96c405b61a374b478e0e9b13b6958b7d341fe5050f109576bd5",
-  "coverSha256": "028606adf6fcd1709f1509522d9fde84ba1419cac16f7b0cb22ce765c88c035b",
-  "renderedAt": "2026-09-05T23:13:17.888Z"
+  "durationSeconds": 30.2,
+  "sha256": "a2f4b5bfb093d0e78d6f34fbbc95007584208342682f6d4a9c8bd089f207d5dd",
+  "coverSha256": "62b40b6221592212c4f9dd81faba9f5e2327d33509232c093cd62c8a944a347f",
+  "renderedAt": "2026-09-10T10:43:39.855Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "1e0986e57024e3488101a1ba145c7ce64111a776703fdbea1795933be89c6077",
+  "scriptSha256": "9385bf305497b02eef3c463fa90b3540441b0a120b6da30fc346d69670d336fc",
+  "speaker": 13,
+  "narration": "工種と施工量は、対にして整理しましょう。本文で取り上げる施工部分を先に決め、その工種に対応する数量を単位つきで書きます。たとえば道路工だけで済ませず、道路土工や排水構造物工に分けると、何をどれだけ施工したかが伝わります。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "c59c0f57653613733734e94fbfbc6ed03a8f1707e7165631d6fb5b6b2672aa7d",
+    "points": "8e759e30d9bde63426c519af953432d5542a0d12c74b10886fefb63c2b4315f0",
+    "pointsImage": "99ee718ec8dc0bfeddfd2260fbfa4f114275aafe0839278f4434cb912ce3c060",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T10:43:39.855Z"
+  },
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162"
 }

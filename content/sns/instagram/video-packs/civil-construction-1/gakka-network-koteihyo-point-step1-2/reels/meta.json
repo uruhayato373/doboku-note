@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.220Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-network-koteihyo/shorts/point-step1-2/shorts.mp4",
-  "durationSeconds": 52.37,
-  "sha256": "5abaf3e95eefc8c945f5f3d28e71871f1873a2c20b4ac5432ebd22a6def5405b",
-  "coverSha256": "2ba0c1b14eb002341d729fa0d1cdfb47e17c32a8dbb0cb4bc05ba1acfcc13e88",
-  "renderedAt": "2026-09-06T00:06:10.858Z"
+  "durationSeconds": 30.2,
+  "sha256": "3740cb62d743f0fcfbfd7792409aecb89826be55f31dc3bb96d98a4aaed00243",
+  "coverSha256": "39c29e49629cec6fdbd5b24604a2f3c029abe5e2cb5587318609d578a4b8bc1d",
+  "renderedAt": "2026-09-10T11:36:33.859Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "93c08230ae357f3e2f08781ae822deba878a9591f98646aa3006135de144d4aa",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "8c80fefae977c25e33cb031b1bb34720004df1b29998d3a29c7111409909ea55",
+  "speaker": 13,
+  "narration": "最早開始時刻は、開始イベントをゼロとして、左から右へ作業時間を足して求めます。複数の経路が合流する点では、計算結果の最大値を選びます。すべての先行作業が終わるまで次へ進めないからです。合流時に最小値を選ばないよう注意しましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "04014f9bc870539b6d73558fb411c34267702228ad5360126d613828ec3d6afb",
+    "points": "0d41ece2621914800596f1ee5dfb604fbbb0b179b1d1e3a74279d6ddf1480940",
+    "pointsImage": "8d8e194e5ca43377679878f325e2411d86df0c72054b93f01e4fc05bb0a22457",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:36:33.859Z"
+  }
 }

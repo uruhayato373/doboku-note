@@ -13,7 +13,27 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/career-white-kigyo/shorts/point-step1-1/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "8a90aec83ca95e91e3d4e2031110a63a1929895103a728b8614009c9b9654480",
-  "coverSha256": "49da3c118b3c18153ab32c803abcfc6f923f974fa91cc62eda38d09956a06843",
-  "renderedAt": "2026-09-06T00:08:52.734Z"
+  "sha256": "1a8964b5be5c610d6f63c69863619e8e3e06570b23306de6d6c35960653bd347",
+  "coverSha256": "b81438aa359acdc0269d888adf9659e8c0bb5ffa0be9c89e97682a9a2e37945e",
+  "renderedAt": "2026-09-10T11:48:26.572Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "e74d528d217a064c8fc0a8b304c7d3387a77f85aaa36052d2d66f07bbca9fcf4",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "4c64e34b981bd525999b153a5e9a271963ba433d43b7e4abc0f6700e460486ce",
+  "speaker": 13,
+  "narration": "建設会社の求人票は、残業と休日の数字から確認しましょう。月平均残業時間、年間休日数、完全週休二日制かどうかを見ます。離職率や平均勤続年数、資格手当も比較の材料です。記載がない項目は、面接などで実態を確認してから判断します。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "4f681fcfad717b128973879132b073e1ea450280960da6ee5a9860cce2b47def",
+    "points": "82d395a67979707fdb2c4eae8de62cc65948a6506ea42a450166968aa5070f09",
+    "pointsImage": "20c277aabeeb67d165c56e80d89b1192ac19d51e379af6a354b84e23a99d71df",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:48:26.572Z"
+  }
 }

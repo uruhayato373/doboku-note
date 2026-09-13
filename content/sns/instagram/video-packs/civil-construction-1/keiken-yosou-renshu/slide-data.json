@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "keiken-yosou-renshu",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "経験記述",
+        "予想問題で練習"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "smile",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：読んで覚えれば書ける",
+      "items": [
+        "経験記述は読むより書くほうが伸びる",
+        "本番はお題に合わせて書く力を問う"
+      ],
+      "sourceRef": "content/note/1級・2級土木/経験記述-予想問題で書く練習-無料/article.md"
+    },
+    {
+      "type": "point",
+      "sceneId": "overview",
+      "heading": "過去問の暗記が効きにくい理由",
+      "items": [
+        "本番はテーマ・条件が毎年ずれる",
+        "R6以降は2テーマ必答・各2項目",
+        "書き分けは書いて慣れるもの"
+      ],
+      "sourceRef": "content/note/1級・2級土木/経験記述-予想問題で書く練習-無料/article.md"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "週1回の練習サイクル",
+      "items": [
+        "①お題を引く ②自分の工事を当てる",
+        "③着眼点で書く ④字数を合わせる",
+        "⑤翌週まで寝かせて読み直す"
+      ],
+      "sourceRef": "content/note/1級・2級土木/経験記述-予想問題で書く練習-無料/article.md"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "着眼点で書く・引き出しを増やす",
+      "items": [
+        "課題を1つに絞る・数値を入れる",
+        "検討→処置→評価で締める",
+        "同じ工事を別テーマで使い回してみる"
+      ],
+      "sourceRef": "content/note/1級・2級土木/経験記述-予想問題で書く練習-無料/article.md"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "このサイクルの弱点",
+      "items": [
+        "毎週の新しいお題を用意し続けるのが大変",
+        "書いた答案を誰もチェックしない",
+        "この2つがサイクルを止める原因"
+      ],
+      "sourceRef": "content/note/1級・2級土木/経験記述-予想問題で書く練習-無料/article.md"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

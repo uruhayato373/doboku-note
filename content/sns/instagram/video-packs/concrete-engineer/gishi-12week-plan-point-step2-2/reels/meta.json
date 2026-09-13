@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.192Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gishi-12week-plan/shorts/point-step2-2/shorts.mp4",
-  "durationSeconds": 30.57,
-  "sha256": "2e39c59d06cdb3aea81828d8539ba83839edd37749efcfbfde001dd6cfd89387",
-  "coverSha256": "ac5a5055d3da7da57d422b79e84c97e4096202eedbc76ddaaadf597796db1a04",
-  "renderedAt": "2026-09-05T23:24:18.707Z"
+  "durationSeconds": 30.2,
+  "sha256": "2c8ead1f1fbd1a68ea1af1d5612ef3a1a0f86bdf1543beef93e6167de147b64b",
+  "coverSha256": "d90c95f3bb5ae88189ee3f3789f1c7fc63ab473b552ac2d3ee8153dec984ec9f",
+  "renderedAt": "2026-09-10T10:58:48.810Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "26465466b1a4b615239bb8e5d1dbb734ddf28c4cfd333f3f02dc6b731bdd911d",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "e914bb3a101b12a3ab45ffe97b5fbc4a5529d3b667bf380a84be3162c8a12b6e",
+  "speaker": 13,
+  "narration": "十二週間の学習計画では、最初の四週間を全体像と基礎の整理に使います。一、二週目は目次と出題範囲を照合し、材料から施工へのつながりを確認します。三、四週目は、性質と試験方法を対にして学びます。何を測るための試験かを説明できるようにしましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "8e3a3b936ad4a7e93608823f4cfe7cc03b2495d04b6117715afd321a8d366449",
+    "points": "181897a4b7f4dbffbdbf178d579aaeae4e8f20de1642598539f0ce20cb112862",
+    "pointsImage": "c429a9e6844d3d74763bfc69f0f87eb72f196fc514fa5f6983e04c96c2869142",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T10:58:48.810Z"
+  }
 }

@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "kikinagashi-hoki-suchi",
+  "key": "point-avg-wage-contract-1",
+  "sceneId": "avg-wage-contract",
+  "exam": "civil-construction-1",
+  "narration": "平均賃金と有期労働契約の期間は、別の数字として覚えます。平均賃金は原則として、算定事由発生前の三か月の賃金総額を、その期間の総日数で割ります。有期契約の期間は原則三年が上限ですが、一定の事業や専門的な労働者などには例外があります。",
+  "visual": {
+    "heading": "平均賃金と有期契約を区別",
+    "items": [
+      "平均賃金：原則3か月の賃金総額÷総日数",
+      "有期契約：原則3年が上限",
+      "一定の事業・専門的労働者などは例外"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-labor-standards/article.mdx",
+  "editorialNote": "平均賃金の分母欠落と、無期契約まで3年制限と誤読される表現を修正。",
+  "sourceUrls": [
+    "https://jsite.mhlw.go.jp/kanagawa-roudoukyoku/hourei_seido_tetsuzuki/saiteichingin_chinginseido/heikinchi.html",
+    "https://www.startup-roudou.mhlw.go.jp/qa/zigyonushi/koyou/q2.html"
+  ],
+  "coverHeadline": [
+    "平均賃金と",
+    "有期契約期間"
+  ]
+}

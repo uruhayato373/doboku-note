@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "１級土木",
+        "受検資格と制度"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "reading",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/186.png",
+        "sha256": "4982fd75941c21f6666375ce0c9b2a23c22cf5d5d7b5fd770162156d0799c036",
+        "specSha256": "3c0492571dc0870b75cfa8b047dc1a6ed028067d315fddf511ff0684f9f9e211"
+      }
+    },
+    "point-step1-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "土木の検定は",
+        "第一次・第二次"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/187.png",
+        "sha256": "f978b882269ae2172c2ee9fcca0d76733589f93cdc305640a38fab9dc2dcb374",
+        "specSha256": "036bcc2b3d0dbeb6598dda88285d5708cb12904d2067c2c601715c8b931a1bfe"
+      }
+    },
+    "point-step2-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "１級土木",
+        "第一次から",
+        "受検資格を確認"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "character": {
+        "pose": "reading",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/188.png",
+        "sha256": "edae525c9a176d9cc65f23fe0842618abd7fbeefa0a3519a4d7ada3ab1854638",
+        "specSha256": "5096fa44c6163299c60bb9c94bdadc794e5a1f5d15df10219fc24b18ae1332b0"
+      }
+    }
+  }
+}

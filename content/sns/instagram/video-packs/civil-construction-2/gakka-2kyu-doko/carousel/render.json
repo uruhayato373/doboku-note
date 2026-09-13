@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "gakka-2kyu-doko",
+  "inputDigest": "7eae7ee38617596332dab060b52c9332fab8aa7d16d1ab05f461e6212420f3a0",
+  "sourceSha256": "f8c12a0e0e5079bfccfbe4e34dbe3edb6dc2483ac3530f84ffb4e58fe1db1140",
+  "rendererSha256": "b04b4ad581c8ab70d15dc33ebed74face3677e1a938690139aa14dad15697a30",
+  "renderedAt": "2026-09-10T10:32:32.069Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-doko/carousel/img/00-cover.png",
+      "sha256": "bdaef17c2279a5ebe63bda314aeffa6ea54057d91b681f87feca4403667d422c",
+      "bytes": 339818,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-doko/carousel/img/01-point.png",
+      "sha256": "7a019a8461b857f9de25bb4a1beaa42946d135836a91357537c58eb9cbcca353",
+      "bytes": 109032,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-doko/carousel/img/02-point.png",
+      "sha256": "156d2b377a6052a9012de0cfd7f2e956e518090f63c53a194de3b6b245660f17",
+      "bytes": 92338,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-doko/carousel/img/03-point.png",
+      "sha256": "a2bf51deba92ed527f6a6774ecd3ec4c1f80ac21c37ab606c7c9a6dedbc09b83",
+      "bytes": 115658,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-doko/carousel/img/04-point.png",
+      "sha256": "5d5aa8b8c470a56c1a9fdc329f799c391d7ac393b836218612e48546b4fc7011",
+      "bytes": 129406,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-doko/carousel/img/05-point.png",
+      "sha256": "393944d9d9729270430a6898dbc48e115d0b81a5a8cae6df748ae87de1e0a6c0",
+      "bytes": 149181,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-doko/carousel/img/06-point.png",
+      "sha256": "a6858a54d252f185282b2f7f370bebf53819a838f7e6677c9e853072a70a91c2",
+      "bytes": 120161,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-doko/carousel/img/07-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

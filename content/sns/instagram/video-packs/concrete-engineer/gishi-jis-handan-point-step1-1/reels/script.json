@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gishi-jis-handan",
+  "key": "point-step1-1",
+  "sceneId": "step1",
+  "exam": "concrete-engineer",
+  "narration": "計量誤差の百分率は目標値を分母にして計算します。理由は、規定が「目標に対してどれだけずれたか」を管理する趣旨だからです。符号は過大・過小の方向、絶対値は許容範囲との比較に使います。",
+  "visual": {
+    "heading": "計量誤差は「何と比べているか」で判断する",
+    "items": [
+      "誤差の百分率は目標値を分母に計算する",
+      "符号は過大・過小、絶対値は許容範囲と比較する",
+      "「kgの差だけで判定してよい」という選択肢を切れる"
+    ]
+  },
+  "sourceRef": "content/site/concrete-engineer/textbook-production-qc/article.mdx"
+}

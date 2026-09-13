@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "shunin-ochiru-shouronbun",
+  "key": "point-ippan-1",
+  "sceneId": "ippan",
+  "exam": "concrete-chief-engineer",
+  "narration": "パターン1、一般論に終始している答案です。教科書的な記述だけで、自分の現場や判断が出てきません。他の受験者が書いても同じ内容になっていないか、読み返して確認します。",
+  "visual": {
+    "heading": "パターン1　一般論止まり",
+    "items": [
+      "自分の現場・判断が出てこない",
+      "誰が書いても同じ内容にならないか確認"
+    ]
+  },
+  "sourceRef": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+}

@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "niji-kijutsu-hinshitsu",
+  "key": "point-acceptance-test-2",
+  "sceneId": "acceptance-test",
+  "exam": "civil-construction-1",
+  "narration": "生コンクリートの受入検査では、試験名と、その結果を比べる規格値を対にします。スランプは指定値によって許容差が変わり、空気量もコンクリートの種類を確認します。塩化物イオン量を含め、注文条件と適用規格を先に確かめてから合否を判断しましょう。",
+  "visual": {
+    "heading": "受入検査は指定値と許容差を対で",
+    "items": [
+      "スランプ：指定値に対応する許容差",
+      "空気量：コンクリートの種類を確認",
+      "塩化物イオン量も注文条件・規格と照合"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/secondary-quality-management-basics/article.mdx",
+  "editorialNote": "例外条件を欠いた8〜18cm一律許容差や空気量の一般化を省略。"
+}

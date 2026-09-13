@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "shunin-hinshutsu-yusen",
+  "key": "point-overview-1",
+  "sceneId": "overview",
+  "exam": "concrete-chief-engineer",
+  "narration": "主任技士の択一対策は、八つの分野に分けて全体を確認しましょう。用材料、性質、耐久性、配合設計、製造と品質管理、施工、製品、構造設計です。施工だけでも扱う論点が多いため、目次と過去問を照らし合わせ、学習の抜けを見つけることが大切です。",
+  "visual": {
+    "heading": "主任技士の択一は8分野で整理",
+    "items": [
+      "用材料・性質・耐久性・配合設計",
+      "製造品質管理・施工",
+      "製品・構造設計"
+    ]
+  },
+  "sourceRef": "content/site/concrete-chief-engineer/guide-trends/article.mdx",
+  "editorialNote": "8分野すべて毎年出題・項目数最多という調査範囲不明の断定を省略。"
+}

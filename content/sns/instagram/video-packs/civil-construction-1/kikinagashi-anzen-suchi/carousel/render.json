@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "kikinagashi-anzen-suchi",
+  "inputDigest": "09483d9c58d43a218c15966984bd5262f4349aa2b9d61216179e09b6bd90a9c2",
+  "sourceSha256": "3c58e1080ea07770bf3ecd2f63d93ddbed55ea6d0c52da3e0be78af773bb68cd",
+  "rendererSha256": "b04b4ad581c8ab70d15dc33ebed74face3677e1a938690139aa14dad15697a30",
+  "renderedAt": "2026-09-10T10:26:55.638Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/kikinagashi-anzen-suchi/carousel/img/00-cover.png",
+      "sha256": "edaa3f6fc98629046aabd7dcabc0f6eca33e0b4acf1afa7d6926d77083d76a3e",
+      "bytes": 335643,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/kikinagashi-anzen-suchi/carousel/img/01-point.png",
+      "sha256": "329e4448d709db466ace1822efa7cbbebbc3bb6729d9c80e2c70f3ccb1ca981f",
+      "bytes": 114470,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/kikinagashi-anzen-suchi/carousel/img/02-point.png",
+      "sha256": "54f39b6d224cc2e346343458dd512b06c578135ba556b8c5d55a4edb5636982e",
+      "bytes": 115181,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/kikinagashi-anzen-suchi/carousel/img/03-point.png",
+      "sha256": "cace051c4c7b0c8605a6a402a1c81af733668b3b65918d38fa73e57e4c89a77a",
+      "bytes": 122879,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/kikinagashi-anzen-suchi/carousel/img/04-point.png",
+      "sha256": "cd1122c3ca5fe0e2f31281c4ea5e1cc425e4920a984f51f42f05f5d024f094d3",
+      "bytes": 133868,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/kikinagashi-anzen-suchi/carousel/img/05-point.png",
+      "sha256": "d29fb9aa80080b4438e248f66681e67998e11bcc832c93ee63d75b7390bbbb22",
+      "bytes": 143454,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/kikinagashi-anzen-suchi/carousel/img/06-point.png",
+      "sha256": "d1430970858fbbb1195adad2832c8e86a00b4cb1925c084694ec39d8d54d2b7f",
+      "bytes": 125145,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/kikinagashi-anzen-suchi/carousel/img/07-point.png",
+      "sha256": "476b62326d1b0dbd267622de3d8988c6233a87370bfdee1657189b557bd4581b",
+      "bytes": 145159,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/kikinagashi-anzen-suchi/carousel/img/08-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

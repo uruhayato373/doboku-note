@@ -13,7 +13,27 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gishi-jukenshikaku-2026/shorts/point-step2-2/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "e8d4362d17433b82b57575907db5acca821c4166e38368d4e0aa6a1f68eaa88e",
-  "coverSha256": "76504f75cd1fe82902fd456421f1127df3ce70d01c2c46786e02e3674ef65105",
-  "renderedAt": "2026-09-05T23:33:02.243Z"
+  "sha256": "f4fce4b42643612ff6cb6cbe8e55cd5122143db64376a993102a9c85f0201cc1",
+  "coverSha256": "6ca166165435d87e732380796204741e3be119cad5edb65a39ef0a41348a6655",
+  "renderedAt": "2026-09-10T11:05:35.809Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "0560cbff138922641beb2cdaed982b02c4adc3350d41298604cdd7981eb07400",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "2b73fd695727f33bbb2c41e50d4f4ada389cc06f5401e5f497738f6346e4d792",
+  "speaker": 13,
+  "narration": "コンクリート技士の受験では、指定資格の有効な登録によって、実務経歴書などを省略できる経路があります。資格名だけでなく、必要な登録証や資格者証を確認しましょう。たとえば一級土木・建築施工管理技士は、監理技術者資格者証の要件まで確認することが大切です。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "ee5a3f8e951fb2bda4dc5022e0c0e8be3ecf3d37a6e40b3342f2b1632568dacd",
+    "points": "91774fec545d482596a2ca1b999e1f6127393428a1cd4ace658c37eeb70f738f",
+    "pointsImage": "cd5e55263a884c5a2587b2c592389694320e7ed855c443a3477edc88c4e0295f",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:05:35.809Z"
+  }
 }

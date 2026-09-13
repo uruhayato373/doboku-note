@@ -19,8 +19,8 @@
     "publishAt": "2026-09-23T20:00:00+09:00",
     "r2Key": "video/render/gakka-nanjaku-jiban/video.mp4",
     "thumbnailR2Key": "video/render/gakka-nanjaku-jiban/img/00-cover.png",
-    "sha256": "5bd78170ec125094d1cab83205038d855f4ce0fd7b0fe87301fe4eb3def1a69a",
-    "thumbnailSha256": "fcdd1dd3561c94cfebc1b4e97ed2fba56c3bbc7e1ae9da2843f12903e7c19b32"
+    "sha256": "dc18abef0da11613d0d2d0212c0eb58e1ac770c7384deb39e1b0d2f7e5aeb304",
+    "thumbnailSha256": "8e5d76e23db88a5d820cc938dbd4e7c8ac31ab72c52c0b1abf9833ca3ac54ecf"
   },
   "shorts": [
     {
@@ -40,8 +40,8 @@
       "publishAt": "2026-12-14T20:00:00+09:00",
       "r2Key": "video/render/gakka-nanjaku-jiban/shorts/point-overview-1/shorts.mp4",
       "thumbnailR2Key": "video/render/gakka-nanjaku-jiban/shorts/point-overview-1/thumbnail.png",
-      "sha256": "3fdeb06e74fa5990a2dbd343f4f00dc04bf30bf675076379cb81c9f7cb4ef845",
-      "thumbnailSha256": "77bebc6d10e628e402457a53dd0ae75c9b6feaa1fc301165880106610e3eacc4"
+      "sha256": "172a27134f020b93c5ff3f91f7942157e053bf10bd7620e5a137011622082c31",
+      "thumbnailSha256": "3d61d73dfe77c7552616b677ef6562d70c2b41523f224ddbf006d1b104a8439b"
     },
     {
       "key": "point-step1-2",
@@ -60,8 +60,8 @@
       "publishAt": "2026-12-15T07:30:00+09:00",
       "r2Key": "video/render/gakka-nanjaku-jiban/shorts/point-step1-2/shorts.mp4",
       "thumbnailR2Key": "video/render/gakka-nanjaku-jiban/shorts/point-step1-2/thumbnail.png",
-      "sha256": "76f5961dde956780995efa5a5ee3a77db458ddbf06a408d4261b911184a8f15a",
-      "thumbnailSha256": "0a0986c75dd223e2fd97b491b975d39d617e42467d2d651bc07162eae869663d"
+      "sha256": "4267946cacdd40ceeb5f7d0bef24f9e1f2cfa6bbd7c09ec82e50d705911a065b",
+      "thumbnailSha256": "fc7d8ca90bbcb1cb328d1d89d67c13ae5760a81b0b0d39fe16bb377f6df219ab"
     }
   ]
 }

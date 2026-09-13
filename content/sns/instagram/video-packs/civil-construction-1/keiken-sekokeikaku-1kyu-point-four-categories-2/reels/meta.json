@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.206Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-sekokeikaku-1kyu/shorts/point-four-categories-2/shorts.mp4",
-  "durationSeconds": 33,
-  "sha256": "fcc2f6d3998aa65d4e9dac18e6a165b122749b23fca3c2689979e878fb11e8fd",
-  "coverSha256": "8845d4267009ef3cd8cfc18cdd65c81205d3f07ca25b5fabac5e6ce14e6724a4",
-  "renderedAt": "2026-09-05T23:53:23.816Z"
+  "durationSeconds": 30.2,
+  "sha256": "70d87948fb2f94162f7da5a4ae2b714e9ef2a401a6bc1ffd358d5caab5173eb2",
+  "coverSha256": "85638de2c2ef0074dac28d387a3ad6e1c90fad554e624a1161ce287832806819",
+  "renderedAt": "2026-09-10T11:11:56.944Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "874333c11a06cea3a1c65686f7a1173a7c385b97919fd58ba8d889cf4b490c7a",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "096691d12bfe59eaeb4884baa55957224fccd61ef60a35431b5c0f9c10864b18",
+  "speaker": 13,
+  "narration": "施工計画の経験は、仮設計画、工法比較、近接施工への対策、関係者協議に分けると整理できます。たとえば仮設道路の規模や、既設構造物への影響を抑える工法の検討です。この分類を手がかりに、自分が何を比較して計画に反映したかを振り返りましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "0135e62314a2cdeef4bfe8a4a6c048f09948aa3451b9af813999491c48f542fe",
+    "points": "dc610598387bd65061088cd67abbbb406e39f0740e0f5b3a1de42938b91fa427",
+    "pointsImage": "534d9286ca14d4717397cede12234b86212a3193565b6ee94fee1b4a66200b7d",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:11:56.944Z"
+  }
 }

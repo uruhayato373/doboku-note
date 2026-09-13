@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.218Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-kussaku-tsumikomi-kikai/shorts/point-shovel-2/shorts.mp4",
-  "durationSeconds": 32,
-  "sha256": "6f613a3bc22964dd88894aa0aff82382ece530385e77a0701114f45e6ba9f48c",
-  "coverSha256": "a5b8cc2c8590bd296cef46388054b8be015819650e4f6bb60cbabac21993ef8d",
-  "renderedAt": "2026-09-06T00:05:15.759Z"
+  "durationSeconds": 30.2,
+  "sha256": "9276719ec233ca41e6b265170fac91338ac406f3b5ce91c86c02314b9ac59598",
+  "coverSha256": "cbe4649e869e1cb4ba48a9cfe3c5eded2a20ce936bc2b8c3eca8edc7ab00b25e",
+  "renderedAt": "2026-09-10T11:32:50.620Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "5847e3e3456ec37f39c965fd1ff5dc68f993e629675cf0852bc3b77f13daaa24",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "085def94763fa7e65738e06bfcdb804547cf699344752b57ec0cefb1662c7364",
+  "speaker": 13,
+  "narration": "バックホウはバケットを引き寄せて掘るため、設置地盤より低い所を掘るのに適します。ショベルは前方に押し出して掘るため高い所を削ります。クラムシェルは重力で落下させてつかむため垂直の深掘りに、ドラグラインは遠心力でブームより遠い所まで掘れます。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "2095c01684848a537636b1eb20c3d39d3fd9b84216165620edf238c9c406e033",
+    "points": "02c5bf7cacd97b36838d42d2fb916b17e0342a84620719f3b234cb9a8ea69a78",
+    "pointsImage": "8b19dbd23c48342e9cde8c073787487b6170c5ee3be59b285ff6b48067c308f9",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:32:50.620Z"
+  }
 }

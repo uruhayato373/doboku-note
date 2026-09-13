@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-kotei-kanri-kiso",
+  "key": "point-step1-1",
+  "sceneId": "step1",
+  "exam": "civil-construction-1",
+  "narration": "バーチャートは、各作業の所要日数や進捗が直感的にわかり、作成も修正も容易です。ただし、工期に影響する作業はわかりません。日程の組み方には、着手日から決める順行法、竣工日からたどる逆算法、重点工種を固定する重点法があります。",
+  "visual": {
+    "heading": "横線式① バーチャート",
+    "items": [
+      "所要日数・進捗が直感的にわかる",
+      "工期に影響する作業は不明",
+      "順行法・逆算法・重点法で日程を組む"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-work-scheduling/article.mdx"
+}

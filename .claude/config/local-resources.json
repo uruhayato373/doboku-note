@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "minFreeDiskGiB": 20,
+  "minFreeMemoryGiB": 3,
+  "historyLimit": 12,
+  "scanTimeoutMs": 180000,
+  "growthWarnGiB": 1,
+  "roots": [".git", ".local", ".tmp", ".next", "out", "tools/admin-app/.next", "node_modules", "content", "public"],
+  "budgetsGiB": {".tmp": 2, ".local": 3.5, ".next": 3, "out": 2, "tools/admin-app/.next": 1, ".git/lfs": 2},
+  "cleanup": {
+    "scratch": {"roots": [".tmp/scratch"], "minAgeDays": 7},
+    "build": {"roots": [".next", "out", "tools/admin-app/.next"], "minAgeDays": 14},
+    "browser-cache": {"minAgeDays": 14, "names": ["Cache", "Code Cache", "GPUCache", "DawnCache", "GrShaderCache", "ShaderCache"]}
+  },
+  "cloudSampleCount": 3,
+  "cloudSampleMaxBytes": 52428800
+}

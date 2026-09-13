@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.227Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/kikinagashi-anzen-suchi/shorts/point-scaffold-rail-2/shorts.mp4",
-  "durationSeconds": 30.55,
-  "sha256": "3cbe0bb88a8208da0b1dcb444beb6ceafb3694dcf4a60098684411a26052520f",
-  "coverSha256": "a8f16df4ff8607170b9416c94ddd64e958395fca2b0c69fadd8907ef28c0735e",
-  "renderedAt": "2026-09-06T00:10:37.341Z"
+  "durationSeconds": 30.2,
+  "sha256": "d29f2ce6c9a33ad9e10c3848b396ce289983ae85584149947d5680a028a783ba",
+  "coverSha256": "5172c55d290191cde62391961b3a83b3eb3e27085b794d209e250333f3da6eac",
+  "renderedAt": "2026-09-10T11:57:49.422Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "d84d3be5421eb7d5ba1466c7bc58e504cbaab3afaae3e63e83270d2d0a596c9b",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "0d1bf4cf51fa7a79a9c7a4e4f6027cd602aeb1cc72f6f7d271d5b139f1442f2d",
+  "speaker": 13,
+  "narration": "足場の端部対策では、人の墜落と物の落下を分けて考えます。わく組足場以外の足場では、高さ85センチメートル以上の手すりと、35から50センチメートルの中さんなどが基本です。物の落下には、高さ10センチメートル以上の幅木などで対策します。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "864002811598cf2cab77d2c51d77af31cc659466755910f96a19332a9a989652",
+    "points": "bd6ba0d249286b445857990442ca5c7372c7718e54eae958ba503fc9c019dc75",
+    "pointsImage": "baa630a05690eddc81de9f885c88a0f9f80614d1e7c47458fee444fcb9d13ff2",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:57:49.422Z"
+  }
 }

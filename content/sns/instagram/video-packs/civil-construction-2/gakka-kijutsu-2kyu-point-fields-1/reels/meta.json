@@ -13,7 +13,27 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-kijutsu-2kyu/shorts/point-fields-1/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "e4ecf1ad67c06f927c87be6c6b203761a6a234a0520920169ec7bbc56e2ed56c",
-  "coverSha256": "d214cf81b6567f5f14de3ec8a26d07795b963b947e9bd7e6673920d78f919231",
-  "renderedAt": "2026-09-05T23:20:30.749Z"
+  "sha256": "8d2c8b80293eca1a0319efb7d0991d7923252f0eb2fa15c2222d2469be0d90e3",
+  "coverSha256": "c96764c13571968466a1206137397d118540cd10c3ad9fb858b02d1cdd26f47e",
+  "renderedAt": "2026-09-10T10:54:29.034Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "1376c582e481198c1e0bf7f759f5a7609b34352f85578eb728e2f63b98e126f2",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "8c11aa79543b8ca1cbf23700348326297f933c39c0c45a3499f340206607fc41",
+  "speaker": 13,
+  "narration": "2級土木の学科記述は、土工、コンクリート工、品質、安全、工程、施工計画や環境対策に分けて学びましょう。過去問を分野別に整理すると、繰り返し問われる用語や条件が見えてきます。出題範囲が広く感じても、分野ごとに確認して学習の抜けを減らします。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "03684c831b7739787e15ae38485523de59949482e75cc2a837e5a8680f61f506",
+    "points": "fc9eea835a42f7ec7b9641aa0abb38bad429b21b944787dfa35d5e49807483c6",
+    "pointsImage": "228a1e62f4d4dd1425d4ea99b2269878cadd7fd0b62ad7f6183f839b1875f2a7",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T10:54:29.034Z"
+  }
 }

@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a-v1",
+  "sourcePackId": "roadmap-nanido-goukakuritsu",
+  "inputDigest": "ce1777e429306bafdcfd7b997a64085c307a84b07d59b20543c677eaf0ee5afb",
+  "sourceSha256": "3d56c3cd015dc2ae21a03939518915d9a72d3c6807c1e3893a676d3b284a9c93",
+  "rendererSha256": "b04b4ad581c8ab70d15dc33ebed74face3677e1a938690139aa14dad15697a30",
+  "renderedAt": "2026-09-10T10:30:51.435Z",
+  "images": [
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/roadmap-nanido-goukakuritsu/carousel/img/00-cover.png",
+      "sha256": "aad90aa24606d22688b4c3ac8adf3532c3e9e86e27c81fbe73f1a5dcc6d088ce",
+      "bytes": 313728,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/roadmap-nanido-goukakuritsu/carousel/img/01-point.png",
+      "sha256": "a74580772c5a9f7a9fc8cb32e653f16252b3d9504c8c29e0342bfa0ff3659dce",
+      "bytes": 103280,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/roadmap-nanido-goukakuritsu/carousel/img/02-point.png",
+      "sha256": "e2326bc78565b4ad96aeb2772c7b2f63c82e8c33384a09ca7bef925b90d68b99",
+      "bytes": 149884,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/roadmap-nanido-goukakuritsu/carousel/img/03-point.png",
+      "sha256": "e5d17f16278bef4c8ef38ac47397fedd4317c234e62a3e7c60aaade38f8e033f",
+      "bytes": 96222,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/roadmap-nanido-goukakuritsu/carousel/img/04-point.png",
+      "sha256": "c8305141b52997a80b15176a65d6893b20690d2a8b3c8289bebb7d9ae090289d",
+      "bytes": 147114,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/roadmap-nanido-goukakuritsu/carousel/img/05-point.png",
+      "sha256": "f70ea6dad464789d2d21b9336c199002110c7fbdf6fe0754d45c4f88a6ec67f6",
+      "bytes": 106756,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "content/sns/instagram/video-packs/civil-construction-1/roadmap-nanido-goukakuritsu/carousel/img/06-cta.png",
+      "sha256": "014f8160661a40dca7ebd4ed26d01acac084934f2c015602ea93ae0b345f590d",
+      "bytes": 149434,
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}

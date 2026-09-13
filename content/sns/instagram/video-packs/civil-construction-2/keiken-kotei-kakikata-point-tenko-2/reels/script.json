@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "keiken-kotei-kakikata",
+  "key": "point-tenko-2",
+  "sceneId": "tenko",
+  "exam": "civil-construction-2",
+  "narration": "天候による工程の遅れは、見込みと実際の対応を分けて書くと整理できます。梅雨や台風による休工日を工程計画に織り込み、進捗を確認して必要な調整を行うという流れです。自分の工事で何を見込み、どの作業をどう見直したかを、実際の経験で説明しましょう。",
+  "visual": {
+    "heading": "型①　天候による遅れ",
+    "items": [
+      "休工日込みのネットワーク工程表を作成",
+      "進捗確認しながら遅延工程をフォローアップ"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+}

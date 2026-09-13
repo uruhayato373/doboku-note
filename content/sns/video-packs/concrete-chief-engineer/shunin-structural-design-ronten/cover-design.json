@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "concrete-chief",
+      "headline": [
+        "コンクリート",
+        "構造設計の論点"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/297.png",
+        "sha256": "2acb107d1e02aedf176a50dc5cf066c38ee8edc3e3190794af698fc1b57bb248",
+        "specSha256": "98cca0212c87af51260976b911c92e4036fc227aea65bb2b6da2aa93a4332bf4"
+      }
+    },
+    "point-bending-assumptions-1": {
+      "format": "shorts",
+      "exam": "concrete-chief",
+      "headline": [
+        "曲げ耐力",
+        "４つの仮定"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/298.png",
+        "sha256": "39e94d1e0fdc8d8078e279bafa95774621d1d533fa699204011cf8e8bd6ee423",
+        "specSha256": "c19b44ffc52d9274735f77b90fb610ce83a91be8fe61c65d23729b42f35e7916"
+      }
+    },
+    "point-shear-capacity-2": {
+      "format": "shorts",
+      "exam": "concrete-chief",
+      "headline": [
+        "せん断耐力と",
+        "設計方針"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/299.png",
+        "sha256": "f88e46e7fdb7f65db33c4e60b8123b7bc1a7d72d381f3f4e245379a9ed0346e5",
+        "specSha256": "771824c471f0457fb5effa585de9246f69b8eb3c55f495df97baae1b10cc971a"
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "gakka-kankyo-hozen",
+  "key": "point-overview-1",
+  "sceneId": "overview",
+  "exam": "civil-construction-1",
+  "narration": "特定建設作業は、騒音や振動が大きければすべて該当するわけではありません。法令で定められた作業の種類と、指定地域かどうかを確認します。開始した日に終わる作業は法令上の対象から除かれますが、自治体の条例なども別に確認することが大切です。",
+  "visual": {
+    "heading": "特定建設作業は種類から確認",
+    "items": [
+      "法令で定める作業か確認",
+      "指定地域か確認",
+      "当日終了の除外と自治体条例を区別"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-1/textbook-noise-vibration-regulation/article.mdx",
+  "editorialNote": "2日以上の大きな騒音作業を一律に特定建設作業とする誤定義を修正。",
+  "sourceUrls": [
+    "https://www.env.go.jp/air/sindo/const_guide/full.pdf",
+    "https://www.env.go.jp/info/one-stop/27/008.html"
+  ]
+}

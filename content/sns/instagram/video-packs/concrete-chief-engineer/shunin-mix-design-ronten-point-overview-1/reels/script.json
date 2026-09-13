@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "shunin-mix-design-ronten",
+  "key": "point-overview-1",
+  "sceneId": "overview",
+  "exam": "concrete-chief-engineer",
+  "narration": "コンクリートの配合では、水セメント比、単位水量、細骨材率、空気量を関連づけて考えます。水セメント比は強度と耐久性、単位水量は流動性、細骨材率は粘りに関わります。空気量は耐凍害性にも影響します。一つを変えたとき、他の性能がどう変わるかを確認しましょう。",
+  "visual": {
+    "heading": "配合の4指標を関係で理解",
+    "items": [
+      "水セメント比：強度・耐久性",
+      "単位水量：流動性／細骨材率：粘り",
+      "空気量：耐凍害性にも影響"
+    ]
+  },
+  "sourceRef": "content/site/concrete-chief-engineer/textbook-mix-design/article.mdx",
+  "editorialNote": "水セメント比は密度に効くという元ナレーションを画面と整合する強度・耐久性へ修正。"
+}

@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.228Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-dokugaku-genkai/shorts/point-layer-format-2/shorts.mp4",
-  "durationSeconds": 30.1,
-  "sha256": "6456d7897a7796b626b8a24ccbdece10c7b6fe908b86a78dbbe5db8e2f55d1fb",
-  "coverSha256": "d029b2470a1caf75ac1355ce4b045388d296ed250736f12a8cc6a4a4ea9a8ac2",
-  "renderedAt": "2026-09-06T00:11:20.454Z"
+  "durationSeconds": 30.2,
+  "sha256": "79eced1af83e355aeb4832bd8774c11a105598d1f047fbdb2fa3d42c802a68ec",
+  "coverSha256": "b371d0e87d348f33b61a8581a6bae3b98de60d2b8f08d3c23a52aa3cf2ea8c79",
+  "renderedAt": "2026-09-10T12:01:57.839Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "d62ba35fe24fd46754703030a7f0c299a885672c642ea051286df36633d2265b",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "e6cee73ac331f7d84f34a5f0d1668ee80b1e7df689db19da3868a79c59536eb6",
+  "speaker": 13,
+  "narration": "経験記述の形式は、自分でも点検できます。解答欄からはみ出していないか、指定された管理項目に答えているか、工事概要に漏れがないかを確認しましょう。設問どうしの重複にも注意します。添削前に形式を整えると、内容の検討に集中できます。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "6cc82b4a2c447e4c964bdd3cfcab1dad276435ef08004cd26add1bf7a1fbbca3",
+    "points": "340eeace6d563eb3ffa4a2da7da6437627bd18fe2f4029bae485b4dd29d6c740",
+    "pointsImage": "efb3cbb213ec078080bf31e8668dc8aef191b5e4119fed147296f6aa547357ca",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T12:01:57.839Z"
+  }
 }

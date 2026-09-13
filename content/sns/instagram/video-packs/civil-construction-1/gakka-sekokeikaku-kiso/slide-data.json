@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "gakka-sekokeikaku-kiso",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "施工計画",
+        "立案の流れ"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "施工方法は契約条件から検討する",
+      "items": [
+        "設計図書に示された形状・品質や施工条件を確認します。",
+        "施工者が検討する方法・仮設と、発注者が指定した条件を区別します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-construction-plan-overview/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "事前調査の3カテゴリ",
+      "items": [
+        "契約条件：契約書・設計図書など",
+        "工事条件：地形・立地・運搬路など",
+        "自然条件：気象・地質・地下水位・文化財など"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-construction-plan-overview/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "施工計画作成の4段階",
+      "items": [
+        "① 事前調査 → ② 基本計画（施工方法・経済性）",
+        "③ 詳細計画（機械選定・人員配置・積算）",
+        "④ 管理計画（現場組織・資金・安全衛生）"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-construction-plan-overview/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "代案比較の3観点",
+      "items": [
+        "経済性・施工性・安全性を比較",
+        "1つの案のみで決定しない",
+        "新しい工法・技術も検討対象に含める"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-construction-plan-overview/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step4",
+      "heading": "指定仮設と任意仮設の違い",
+      "items": [
+        "指定仮設は設計図書の指定に従い、変更の要否を確認します。",
+        "任意仮設は施工者の裁量が基本ですが、条件変更時の扱いは契約に照らします。",
+        "直接仮設・共通仮設という費用等の区分は、別の分類軸です。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/textbook-management-subplans/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

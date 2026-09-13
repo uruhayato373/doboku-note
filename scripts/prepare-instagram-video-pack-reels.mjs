@@ -36,7 +36,6 @@ const EXAMS = {
     tags: ['#コンクリート主任技士', '#コンクリート', '#JCI', '#小論文対策', '#配合設計', '#コンクリート施工', '#品質管理', '#耐久性', '#建設技術', '#資格取得'],
   },
 };
-const COMMON_TAGS = ['#土木', '#国家資格', '#資格勉強', '#試験対策', '#過去問', '#勉強垢', '#社会人勉強', '#スキマ時間', '#施工管理', '#doboku_note'];
 
 const todayJst = new Intl.DateTimeFormat('sv-SE', {
   timeZone: 'Asia/Tokyo', year: 'numeric', month: '2-digit', day: '2-digit',
@@ -87,7 +86,7 @@ function captionFor(row) {
   const civil = row.exam.startsWith('civil-construction-');
   const secondary = /施工経験|経験記述|第二次|二次|2次/u.test(`${row.short.title} ${row.scene.narration}`);
   const phaseTags = civil ? [secondary ? '#第二次検定' : '#第一次検定', '#合格'] : [];
-  const tags = [...EXAMS[row.exam].tags, ...phaseTags, ...COMMON_TAGS];
+  const tags = [...new Set([...EXAMS[row.exam].tags.slice(0, 2), ...phaseTags.slice(0, 1), '#試験対策', '#doboku_note'])].slice(0, 5);
   return `${body}\n\n${tags.join(' ')}`;
 }
 function loadRows() {
@@ -172,7 +171,7 @@ if (args.write) {
       sourceShort: relative(ROOT, join(ROOT, '.tmp/video-render', row.packId, 'shorts', row.short.key, 'shorts.mp4')).replace(/\\/g, '/'),
     };
     writeFileSync(metaPath, `${JSON.stringify(meta, null, 2)}\n`);
-    writeFileSync(join(row.destDir, 'reels', 'caption.txt'), `${row.caption}\n`);
+    if (!existsSync(join(row.destDir, 'reels', 'script.json'))) writeFileSync(join(row.destDir, 'reels', 'caption.txt'), `${row.caption}\n`);
     manifests.set(row.manifestPath, row.manifest);
   }
   for (const [manifestPath, manifest] of manifests) {

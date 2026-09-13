@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "concrete-engineer",
+      "headline": [
+        "セメント・骨材",
+        "混和材料の論点"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/318.png",
+        "sha256": "4b8eb8c86411f0598af48f4003366fe6c478651b246b092bfdd6972e6ea7b42a",
+        "specSha256": "00b35c472b253840b559a7475e25402c1203e783edee7308864a59147ecd4d5a"
+      }
+    },
+    "point-step1-1": {
+      "format": "shorts",
+      "exam": "concrete-engineer",
+      "headline": [
+        "セメント比較",
+        "反応・熱・強度"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/319.png",
+        "sha256": "accc2e7106cea98b405cd23665e91608efe1c86c55d518d6e67552e1ef5a28c2",
+        "specSha256": "c995645e603f12d1587a62c5af81de12050a085e8f4d12021bfea3f51ce2be46"
+      }
+    },
+    "point-step2-2": {
+      "format": "shorts",
+      "exam": "concrete-engineer",
+      "headline": [
+        "骨材の含水状態",
+        "表乾が基準"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-a-rollout-20260909/320.png",
+        "sha256": "2a3879c98cd4105785266bd70609cd2c7e86d79957ca493b548023d86c77054d",
+        "specSha256": "c99f884d4227abd069993a8f12a68025fda910d3cccfa8505ab9f6bcdd6dd38f"
+      }
+    }
+  }
+}

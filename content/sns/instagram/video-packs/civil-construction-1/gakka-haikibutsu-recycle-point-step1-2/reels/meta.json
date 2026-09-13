@@ -13,7 +13,27 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-haikibutsu-recycle/shorts/point-step1-2/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "b4c5771d2123e906679e300391c646604e19273798ec9478fa55db03f9536f1c",
-  "coverSha256": "1038691d1c92da47906d9855b7bba4c123a5561c6b9c256f35c408ad6ab0daa4",
-  "renderedAt": "2026-09-06T00:02:23.330Z"
+  "sha256": "743cfb1c5739e96a00193abeb9d0e5c4f21b6b5f2ce48065ef2d39ba7898cc98",
+  "coverSha256": "bdcfbbebae7494539aa21001efda0bfdeb53be2c2139c9c5717aeb3aeaeac17c",
+  "renderedAt": "2026-09-10T11:21:03.774Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "95b5d5a1f99fe912d34da8b9524fd7384074a080610df89399400a4adbb66471",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "fe9b05f156fa928d8076d692527f86b82beea18b32a48c0d84153e7a37bc75b0",
+  "speaker": 13,
+  "narration": "産業廃棄物の処理委託は、排出事業者と収集運搬業者、排出事業者と処分業者が、それぞれ契約するのが原則です。収集運搬と処分を、同じ責任範囲だと思い込まないようにしましょう。誰にどの処理を頼むのかを、契約内容と許可の範囲で確認します。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "6ac7c090208c1d7863f1649655c9fa7510b7771557daf278cc3efc888f731d24",
+    "points": "8e76b01716cc34077cdf351132149d3aeaca0ca010cf5959d29bfcefb3cdbb75",
+    "pointsImage": "5c25b3de32632eedd1935d0b00cf73d4f2255a155f47c1e11d30d75bd499a8c4",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:21:03.774Z"
+  }
 }

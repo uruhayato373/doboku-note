@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "shunin-r8-juuten",
+  "key": "point-overview-1",
+  "sceneId": "overview",
+  "exam": "concrete-chief-engineer",
+  "narration": "主任技士の学習範囲は、用材料、性質、耐久性、配合設計、製造と品質管理、施工、製品、構造設計の八分野で整理できます。施工には運搬や打込み、養生など多くの項目があります。出題の多さだけで偏らず、教材の目次と過去問を使って全体を確認しましょう。",
+  "visual": {
+    "heading": "8分野を見渡して学習範囲を確認",
+    "items": [
+      "用材料・性質・耐久性・配合設計",
+      "製造品質管理・施工・製品・構造設計",
+      "教材の目次と過去問で抜けを確認"
+    ]
+  },
+  "sourceRef": "content/site/concrete-chief-engineer/guide-trends/article.mdx",
+  "editorialNote": "全分野が毎年安定出題・施工が最多との未集計の断定を省略。"
+}

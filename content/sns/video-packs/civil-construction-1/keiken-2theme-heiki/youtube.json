@@ -19,8 +19,8 @@
     "publishAt": "2026-09-08T20:00:00+09:00",
     "r2Key": "video/render/keiken-2theme-heiki/video.mp4",
     "thumbnailR2Key": "video/render/keiken-2theme-heiki/img/00-cover.png",
-    "sha256": "eeb39fd4df120ff5543dd768083d05266cdb166e0739229a98b6d36632255ac5",
-    "thumbnailSha256": "0b61aa838f477cb248e94a29bc14e5f316c28bf37dfad53eba6c1e4699af20d9"
+    "sha256": "e795cd2298b78d20d64174313400a69e8f1e5e10729d315a21993aa7d30be4e1",
+    "thumbnailSha256": "e2a670608ccbb69d31cc57641bdd712a81a50106dc1789fb24abab83bbfffdd8"
   },
   "shorts": [
     {
@@ -40,8 +40,8 @@
       "publishAt": "2026-09-25T12:30:00+09:00",
       "r2Key": "video/render/keiken-2theme-heiki/shorts/point-overview-1/shorts.mp4",
       "thumbnailR2Key": "video/render/keiken-2theme-heiki/shorts/point-overview-1/thumbnail.png",
-      "sha256": "d2875d68375be16c9ed6cdbb080bd16300ea4133e0c6a3ed7b4a5d1c73583f57",
-      "thumbnailSha256": "80c230755fcab7b47389f175d071d086e765a21621a4d813e85d551edbecfb56"
+      "sha256": "2b7e31a51d92d129ddbc253f90b75f3b9e817574f720907ad38f23651f82f6ff",
+      "thumbnailSha256": "7f6bdf19101cd97942202af0e901ba3fcf83cd0aedb8d997e878e3776c9eca28"
     },
     {
       "key": "point-step1-2",
@@ -60,8 +60,8 @@
       "publishAt": "2026-09-27T12:30:00+09:00",
       "r2Key": "video/render/keiken-2theme-heiki/shorts/point-step1-2/shorts.mp4",
       "thumbnailR2Key": "video/render/keiken-2theme-heiki/shorts/point-step1-2/thumbnail.png",
-      "sha256": "0b227e5bfb503f3519c322fe2eac61388fba5d58b86b21bebfa0508a7d6afc8c",
-      "thumbnailSha256": "ba109548dccaeac37d5eae03d9908d3532587df3806387495b053a8645b34ad7"
+      "sha256": "3b70178bce53bbf05a808646d4527de14e2520ac84a67646fa8b5e612a9dee31",
+      "thumbnailSha256": "80cd42fd2e24cdf8e5993ea9146fbd3385239daac266436d6dea6c72c7046bcc"
     }
   ]
 }

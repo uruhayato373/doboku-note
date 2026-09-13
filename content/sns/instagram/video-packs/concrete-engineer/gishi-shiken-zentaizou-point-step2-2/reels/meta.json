@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.191Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gishi-shiken-zentaizou/shorts/point-step2-2/shorts.mp4",
-  "durationSeconds": 30,
-  "sha256": "3afed18f0f4dc6060e14dbd2e14ccd7b83281d17d7d3951a2ca682ec46c12cbc",
-  "coverSha256": "1e0ee5c35f09847e56ecbd4a058626b10388503b07ed7b9ca32489ee63d077ff",
-  "renderedAt": "2026-09-05T23:23:40.692Z"
+  "durationSeconds": 30.2,
+  "sha256": "cffc140d553ca0a34e0cfca6f5d88f2cd01ded83e4ca3b48ed8d19e6f606ec37",
+  "coverSha256": "d9dd023ea9d2a0200081d8afb22355be2915b9d6af724788e8270bb537b70da4",
+  "renderedAt": "2026-09-10T10:58:06.895Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "2c6bb8ea9129b930cb1440df8a84fa091a9d43a485963d254f55f7b29d6e37ab",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "716203adbfaea74ed6814dfc02b4d8667a05e9e40c3903b5b76c7c2abbc186b0",
+  "speaker": 13,
+  "narration": "コンクリート技士の試験は四肢択一式で、主任技士にある小論文はありません。正解の番号を覚えるだけでなく、各選択肢の数値や適用条件がなぜ違うのかを説明しましょう。間違えた選択肢を正しい文に直す練習をすると、似た問題への対応力を確かめられます。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "9fe369bb062a9a4a405a8fd450003bd831fcec481ca55e7e56c1c234f7331407",
+    "points": "aeb52ef75acf9720334e7af8f3f6be646b593b35c135daea814fc263fc047deb",
+    "pointsImage": "ddd7d68479ac41eb7ee05b54cf87210d517fc6f66f0a6e2e582c90f671cc48ce",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T10:58:06.895Z"
+  }
 }

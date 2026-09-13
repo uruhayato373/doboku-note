@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.197Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gishi-construction-ronten/shorts/point-step2-2/shorts.mp4",
-  "durationSeconds": 30.03,
-  "sha256": "f3623cb9f7eddba7c09a9ddeaf3ac6bd284ed489cca116b80a7af9c4cd695780",
-  "coverSha256": "b7b1907cd52149034576c6c5f509737018aabca105d806a3365bfd1a32352198",
-  "renderedAt": "2026-09-05T23:29:29.269Z"
+  "durationSeconds": 30.2,
+  "sha256": "c9a0086c10fb2cbcda31a6474709259f5b3d05d733175f71c080ac57331e2827",
+  "coverSha256": "3badd6529db32c7ad953e6b030363a1bc87d3e59ed7d343f9755e334c65b469a",
+  "renderedAt": "2026-09-10T11:02:55.365Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "63ef006d6932037730813c080770d712823f222f55609a44981b3fc14b8e211c",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "8f3ff6f5ee8b284b5606cdc53eaef9d4c9a900dcb85f5ec8363c8bf045d0270e",
+  "speaker": 13,
+  "narration": "場内運搬と打込みの目的は、材料分離と打込み中断の抑制です。型枠内での横流しは粗骨材の偏りを招くため、打込み位置を移動し供給した場所で締め固めます。一層を厚くしすぎると締固め不足になります。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "ddb8e4bd5f0af9e752efe7925f718642dc3b3f929b742b8e23e0232ba753639d",
+    "points": "39cf5efb1c3688e3715ab98e023e062b58474ee709846c40cbd09188b764e9e8",
+    "pointsImage": "e925b7a66053d0306d5a7a6a77df6db79fd46cbc0d22410824232cd933f20911",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:02:55.365Z"
+  }
 }

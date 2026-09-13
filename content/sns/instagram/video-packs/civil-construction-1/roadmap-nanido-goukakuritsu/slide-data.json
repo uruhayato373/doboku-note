@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "roadmap-nanido-goukakuritsu",
+  "exam": "civil-construction-1",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "１級土木の難度",
+        "合格率を読む"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "reading",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：合格率が低い年度＝難しい",
+      "items": [
+        "第一次と第二次で性質が違う",
+        "変動には制度改正の影響も大きい"
+      ],
+      "sourceRef": "content/site/civil-construction-1/guide-difficulty/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "年度と受検者層を合わせて読む",
+      "items": [
+        "第一次と第二次は受検者の条件が異なるため、合格率だけで難易度を比べません。",
+        "年度ごとの制度変更と受検者層を、公式の結果と合わせて確認します。",
+        "第二次では、経験や知識を文章で伝える準備が別に必要です。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/guide-difficulty/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "2　合格基準を先に押さえる",
+      "items": [
+        "総得点でおおむね6割以上",
+        "第一次は応用能力でも6割以上必要"
+      ],
+      "sourceRef": "content/site/civil-construction-1/guide-difficulty/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "学習時間は自分の現在地で調整",
+      "items": [
+        "教材の独学200〜500時間は計画上の目安で、必要時間を保証する値ではありません。",
+        "実務経験と苦手分野を確かめ、毎日の学習へ配分します。",
+        "過去問の根拠を説明できるかで、進み具合を確認します。"
+      ],
+      "sourceRef": "content/site/civil-construction-1/guide-difficulty/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step4",
+      "heading": "4　難易度を踏まえた対策の方向性",
+      "items": [
+        "第一次：得意分野で6割を確実に確保",
+        "第二次：経験記述の型を早めに固める"
+      ],
+      "sourceRef": "content/site/civil-construction-1/guide-difficulty/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}

@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.219Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-morido-shimekatame/shorts/point-step1-2/shorts.mp4",
-  "durationSeconds": 37.1,
-  "sha256": "117f8db9b1b0abf8ecf79a2a07e401eded4c1c5c449c5bbcbacdd696b8318a28",
-  "coverSha256": "b4cd8dd7a6fe3c8581654691d78ccc3bb5cb0f385d39bef61962a6aabc6ec7c1",
-  "renderedAt": "2026-09-06T00:05:37.960Z"
+  "durationSeconds": 30.2,
+  "sha256": "8547a7d488251611e900082a4f9082ec8a3c9107bb64fa767b2b468550d6085d",
+  "coverSha256": "02bab6a3e937d381dd1e1f89c2663cc4b42b18537e984f9f5a2b0cf185853f51",
+  "renderedAt": "2026-09-10T11:34:02.194Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "455ff0f4dde673b964e7da0dcebc57e3cb6dd541ef5567ec108b69f8e70059ea",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "e6d625caf998b1088575466c880c2567623e906040bc4aaf99401912e830789f",
+  "speaker": 13,
+  "narration": "盛土の厚さは、敷き均したときと締め固めた後を区別します。道路盛土の一般的な管理値では、仕上り厚さを路体30センチメートル以下、路床20センチメートル以下とします。敷均し厚さは土質や施工機械でも変わるため、試験施工と適用仕様書で確認しましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "a5057e90e02cc3fb6de6d12585f653a62afa69635d2811c6de2b8df70a8f31fc",
+    "points": "0a24b7d6a45df74fae2b887529f0fb4f8e254b6712238c54ba510c100c623f4c",
+    "pointsImage": "2318fd3884f02c70368ec9e77bdc380b0109da93d490c889d09d882247d801b3",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:34:02.194Z"
+  }
 }

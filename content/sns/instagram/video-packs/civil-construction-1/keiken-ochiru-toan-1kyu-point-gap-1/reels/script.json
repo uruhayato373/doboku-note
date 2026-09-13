@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "keiken-ochiru-toan-1kyu",
+  "key": "point-gap-1",
+  "sceneId": "gap",
+  "exam": "civil-construction-1",
+  "narration": "1つ目は、課題と対応がつながっていないパターンです。(1)で挙げた技術的課題と、(2)の対応処置が論理的につながっていません。課題の論点に、対応がまっすぐ返っているかを、続けて読み返して確認します。",
+  "visual": {
+    "heading": "課題と対応がつながらない",
+    "items": [
+      "(1)の課題と(2)の対応が別方向を向く",
+      "課題の論点に対応がまっすぐ返っているか",
+      "(1)(2)を続けて読み返して点検する"
+    ]
+  },
+  "sourceRef": "content/note/1級・2級土木/1級土木/1級経験記述で落ちる答案/article.md"
+}

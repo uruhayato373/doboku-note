@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "mode": "video-pack",
+  "sourcePackId": "study-plan-2kyu",
+  "key": "point-step1-1",
+  "sceneId": "step1",
+  "exam": "civil-construction-2",
+  "narration": "第一次は知識の網羅と再現、第二次は自分の実務経験を言語化する力です。第一次は過去問演習、第二次は経験記述の準備と、対策の方向性がまったく違います。時期に応じて重点を切り替えましょう。",
+  "visual": {
+    "heading": "学習の全体像",
+    "items": [
+      "第一次：知識の網羅と再現",
+      "第二次：経験を言語化して伝える力"
+    ]
+  },
+  "sourceRef": "content/site/civil-construction-2/guide-study-plan/article.mdx"
+}

@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "series": "video-pack",
+  "sourcePackId": "shunin-shiken-zentaizou",
+  "exam": "concrete-chief-engineer",
+  "design": "bridge-notebook-a",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": [
+        "主任技士の全体",
+        "択一と小論文"
+      ],
+      "subtitle": "",
+      "character": {
+        "pose": "wave",
+        "frame": "waist"
+      }
+    },
+    {
+      "type": "point",
+      "sceneId": "premise",
+      "heading": "よくある誤解：技士対策の延長で足りる",
+      "items": [
+        "主任技士は応用・判断・立案まで評価",
+        "技士レベルの知識が土台になる"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/guide-overview/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "overview",
+      "heading": "主任技士という資格の位置づけ",
+      "items": [
+        "JCI認定の資格",
+        "計画・改善・指導まで担う高度技術者"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/guide-overview/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step1",
+      "heading": "試験は二本立て",
+      "items": [
+        "四肢択一一問一答＋小論文1題",
+        "誤答・無答は零点",
+        "択一と小論文は別採点"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/guide-overview/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step2",
+      "heading": "出題分野の柱",
+      "items": [
+        "用材料／性質／耐久性",
+        "配合設計／製造品質管理／施工",
+        "製品・構造設計が加わる年度も"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/guide-overview/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step3",
+      "heading": "技士との違い",
+      "items": [
+        "技士：試験実施と結果判定",
+        "主任技士：使用可否の判断と立案",
+        "小論文は根拠ある判断・提案力"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/guide-overview/article.mdx"
+    },
+    {
+      "type": "point",
+      "sceneId": "step4",
+      "heading": "学習の進め方",
+      "items": [
+        "基礎固め→過去問→小論文訓練",
+        "初期段階から二本立てを意識"
+      ],
+      "sourceRef": "content/site/concrete-chief-engineer/guide-overview/article.mdx"
+    },
+    {
+      "type": "cta",
+      "heading": "保存して\n復習しよう",
+      "items": [
+        "詳しい解説はプロフィールのリンクから"
+      ]
+    }
+  ]
+}
