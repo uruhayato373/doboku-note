@@ -31,3 +31,11 @@ test('1,600は同時配車台数ではなく延べ運搬回数',()=>{
  assert.match(article,/1,600回は必要な運搬の延べ回数/);
  assert.doesNotMatch(article,/所要台数|1\{,\}600\\ \\text\{台\}/);
 });
+
+test('機械選定表に原本と異なる速度・距離・単位・作業対応を戻さない',()=>{
+ assert.ok(article.includes('A：1,400以上1,700m/s未満／B：1,800以上2,100m/s未満'));
+ assert.match(article,/\| 自走式スクレーパ \| 200〜1,200m \|/);
+ assert.match(article,/起振力（kN）、振幅（mm）/);
+ assert.match(article,/砂利道補修 \| モータグレーダ/);
+ assert.doesNotMatch(article,/間隔が1\/4|振幅[0-9]|砂防・治山での植栽/);
+});
