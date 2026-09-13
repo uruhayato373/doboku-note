@@ -13,7 +13,7 @@ title: スキル ガバナンス記録
 
 ## カテゴリ構造（件数の SSOT＝`find .claude/skills -name SKILL.md` 実数）
 
-> 2026-09-13 更新: weekly-improve に SEO Rank Watch（--rank-watch）を統合。fetch-gsc-data のPT・両端包含・完全一致条件を補い、nsm-experiment / weekly-review / weekly-plan は専用7日判定へルーティングする。新規スキルは作らず件数は不変。
+> 2026-09-13 更新: weekly-improve に SEO Rank Watch（--rank-watch）を統合。資格受験者の課題を優先し、待機を含むrun記録・28日方針レビューをweekly-improve / weekly-reviewへ結線。fetch-gsc-data のPT・両端包含・完全一致条件を補い、nsm-experiment / weekly-review / weekly-plan は専用7日判定へルーティングする。新規スキルは作らず件数は不変。
 
 > このツリーがスキル件数の**唯一の真実源（SSOT）**。CLAUDE.md など他 doc は件数を重複記載せずここを指す。スキルを追加/削除したら同一 commit でここを更新する（`/doc-declutter` → `doc-curator` でドリフトを棚卸し）。
 

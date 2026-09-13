@@ -1,0 +1,261 @@
+{
+  "version": 1,
+  "type": "measurement",
+  "watchId": "cem-qualification-guide",
+  "scope": {
+    "id": "cem-qualification-guide",
+    "keyword": "技術士総合技術監理部門",
+    "qualification": "pe-comprehensive-management",
+    "targetPath": "/exam/pe-comprehensive-management/guide/exam-index",
+    "contentPath": "content/site/pe-comprehensive-management/exam-index/article.mdx",
+    "intent": "qualification-guide",
+    "mode": "monitor",
+    "priority": 2,
+    "audience": "技術士総監の試験の全体像と学習先を探している人。",
+    "need": "資格の試験構成と、自分が始めるべき学習を把握したい。",
+    "rationale": "幅広い意図の入口は中長期で監視し、具体的な受験課題の改善より先に選ばない。",
+    "nextStep": {
+      "label": "公式キーワード体系から学ぶ",
+      "path": "/exam/pe-comprehensive-management/guide/keyword-2026"
+    },
+    "evidence": {
+      "kind": "gsc",
+      "source": ".claude/state/metrics/gsc/gsc-page-query-2026-09-10T22-51-42.json"
+    },
+    "examEvent": "written",
+    "country": "jpn",
+    "device": null,
+    "enabled": true
+  },
+  "scopeKey": "0efe9c9e0a28e7e3237912813adf369db4fc36e21fbea274670d974de6b238c1",
+  "fetchedAt": "2026-09-13T00:56:07.481Z",
+  "before": {
+    "window": {
+      "startDate": "2026-08-27",
+      "endDate": "2026-09-02"
+    },
+    "metrics": {
+      "rank": null,
+      "impressions": 0,
+      "clicks": 0,
+      "ctr": null,
+      "activeDays": 0
+    },
+    "raw": {
+      "meta": {
+        "siteUrl": "sc-domain:doboku-note.com",
+        "dataState": "final",
+        "type": "web",
+        "timeZone": "America/Los_Angeles",
+        "filters": [
+          {
+            "dimension": "query",
+            "operator": "equals",
+            "expression": "技術士総合技術監理部門"
+          },
+          {
+            "dimension": "page",
+            "operator": "equals",
+            "expression": "https://doboku-note.com/exam/pe-comprehensive-management/guide/exam-index"
+          },
+          {
+            "dimension": "country",
+            "operator": "equals",
+            "expression": "jpn"
+          }
+        ],
+        "startDate": "2026-08-27",
+        "endDate": "2026-09-02",
+        "dimensions": [
+          "date"
+        ],
+        "dimension": "date",
+        "limit": null,
+        "pages_fetched": 1,
+        "row_count": 7,
+        "truncated": false,
+        "api_note": "Search Analytics API は全行の返却を保証しない（sampling / privacy filtering で低ボリューム行が欠落し得る）。row_count は startRow ページングの合算実測値であり、母集合全体とは限らない。"
+      },
+      "rows": [
+        {
+          "keys": [
+            "2026-08-27"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        },
+        {
+          "keys": [
+            "2026-08-28"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        },
+        {
+          "keys": [
+            "2026-08-29"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        },
+        {
+          "keys": [
+            "2026-08-30"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        },
+        {
+          "keys": [
+            "2026-08-31"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        },
+        {
+          "keys": [
+            "2026-09-01"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        },
+        {
+          "keys": [
+            "2026-09-02"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        }
+      ]
+    }
+  },
+  "after": {
+    "window": {
+      "startDate": "2026-09-03",
+      "endDate": "2026-09-09"
+    },
+    "metrics": {
+      "rank": null,
+      "impressions": 0,
+      "clicks": 0,
+      "ctr": null,
+      "activeDays": 0
+    },
+    "raw": {
+      "meta": {
+        "siteUrl": "sc-domain:doboku-note.com",
+        "dataState": "final",
+        "type": "web",
+        "timeZone": "America/Los_Angeles",
+        "filters": [
+          {
+            "dimension": "query",
+            "operator": "equals",
+            "expression": "技術士総合技術監理部門"
+          },
+          {
+            "dimension": "page",
+            "operator": "equals",
+            "expression": "https://doboku-note.com/exam/pe-comprehensive-management/guide/exam-index"
+          },
+          {
+            "dimension": "country",
+            "operator": "equals",
+            "expression": "jpn"
+          }
+        ],
+        "startDate": "2026-09-03",
+        "endDate": "2026-09-09",
+        "dimensions": [
+          "date"
+        ],
+        "dimension": "date",
+        "limit": null,
+        "pages_fetched": 1,
+        "row_count": 7,
+        "truncated": false,
+        "api_note": "Search Analytics API は全行の返却を保証しない（sampling / privacy filtering で低ボリューム行が欠落し得る）。row_count は startRow ページングの合算実測値であり、母集合全体とは限らない。"
+      },
+      "rows": [
+        {
+          "keys": [
+            "2026-09-03"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        },
+        {
+          "keys": [
+            "2026-09-04"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        },
+        {
+          "keys": [
+            "2026-09-05"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        },
+        {
+          "keys": [
+            "2026-09-06"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        },
+        {
+          "keys": [
+            "2026-09-07"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        },
+        {
+          "keys": [
+            "2026-09-08"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        },
+        {
+          "keys": [
+            "2026-09-09"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        }
+      ]
+    }
+  },
+  "contentHash": "bea6d8c93ef7da2b8b1167917e303fa90a2ae0c76091c618b1c29d77b7c0ddd5"
+}

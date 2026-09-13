@@ -130,6 +130,9 @@ jobs:
       - name: Report SEO Rank Watch
         run: npm run seo-rank-watch -- report
 
+      - name: Record SEO Rank Watch decision
+        run: npm run seo-rank-watch -- log-run --reason '週次GSC取得後の資格別候補と待機理由を保存。改善の実施は専用運用が判断する。' --commit
+
       # 収益カバレッジ ダッシュボード用: ページ別流入（report-monetization-coverage.mts が
       # 最新 ga4-page-*.json を読む）。
       - name: Fetch GA4 (page, for monetization coverage)

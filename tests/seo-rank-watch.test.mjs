@@ -1,3 +1,4 @@
+/* global structuredClone */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, rmSync } from 'node:fs';
@@ -5,12 +6,14 @@ import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { calendarDate, addDays, getDateRange, validateRange } from '../scripts/lib/gsc-date-range.mjs';
 import { fetchSearchAnalytics } from '../.claude/skills/analytics/fetch-gsc-data/scripts/fetch-gsc-data.mjs';
-import { CONFIG, LEDGER, KIND, hash, scopeKey, validateConfig, report, aggregate, evaluate, reviewWindows, nextReviewDate, writeSnapshot, updateLedger, recordAction, markDeployed, applyReview, statusOf } from '../scripts/lib/seo-rank-watch.mjs';
+import { CONFIG, LEDGER, KIND, hash, scopeKey, validateConfig, report, aggregate, evaluate, reviewWindows, nextReviewDate, writeSnapshot, updateLedger, recordAction, markDeployed, applyReview, statusOf, decisionRecord, writeDecision, readRuns, validateRun } from '../scripts/lib/seo-rank-watch.mjs';
+import { seasonFor, discoverCandidates } from '../scripts/lib/seo-watch-strategy.mjs';
 import { observationViolations } from '../scripts/check-seo-rank-watch.mjs';
 
 const now = new Date('2026-09-13T02:00:00Z');
-const watch = { id: 'test', keyword: '採算速度とは', targetPath: '/exam/civil-construction-1/textbook/schedule-overview', contentPath: 'content/site/test/article.mdx', country: 'jpn', device: null, priority: 1 };
-const config = { version: 1, siteUrl: 'sc-domain:doboku-note.com', policy: { minImpressions: 20, minActiveDays: 3, maxConcurrent: 2, maxIneffectiveCycles: 3, maxSnapshotAgeDays: 9 }, watchwords: [watch] };
+const watch = { id: 'test', keyword: '採算速度とは', targetPath: '/exam/civil-construction-1/textbook/schedule-overview', contentPath: 'content/site/test/article.mdx', country: 'jpn', device: null, priority: 1,
+  qualification: 'civil-construction-1', intent: 'exam-topic', mode: 'improve', audience: '施工管理の計算問題を学習している受験者。', need: '採算速度を計算し、条件に応じて判断したい。', rationale: '定義と計算を理解して過去問練習へ進むため。', nextStep: { label: '過去問練習', path: '/exam/civil-construction-1/secondary/r07' }, evidence: { kind: 'hypothesis', source: 'Test fixture' } };
+const config = { version: 1, siteUrl: 'sc-domain:doboku-note.com', strategy: { version: 2, objective: '受験者が次の学習行動へ進める検索流入を増やす。', reviewedAt: '2026-09-13', reviewEveryDays: 28, focusQualifications: ['civil-construction-1'] }, policy: { minImpressions: 20, minActiveDays: 3, maxConcurrent: 2, maxIneffectiveCycles: 3, maxSnapshotAgeDays: 9 }, watchwords: [watch] };
 const metric = (rank = 5, impressions = 40) => ({ rank, impressions, activeDays: 5, clicks: 2, ctr: 2 / impressions });
 const action = { method: 'faq', needs: '採算速度の定義と計算方法を知りたい受験者。', gap: '対象ページには用語の区別が説明されていない。', done: '定義を並べて説明するFAQを追加した。', serp: [{ url: 'https://example.com/one', gap: '上位は計算例があるが対象記事にない。' }], contentHash: hash('changed') };
 const measurement = { file: 'fixture.json', after: { metrics: metric() } };
@@ -152,4 +155,75 @@ test('an already first-place keyword is not forcibly selected for improvement', 
   const root = fixture(t);
   writeSnapshot(root, { type: 'measurement', scopeKey: scopeKey(watch), fetchedAt: now.toISOString(), before: { metrics: metric(1) }, after: { metrics: metric(1), window: {} } }, now);
   assert.equal(report(root, now).selected, null);
+});
+
+function addMeasurement(root, w, rank) {
+  writeSnapshot(root, { type: 'measurement', scopeKey: scopeKey(w), fetchedAt: now.toISOString(), before: { metrics: metric(8) }, after: { metrics: metric(rank), window: { startDate: '2026-09-03', endDate: '2026-09-09' } } }, now);
+}
+test('specific exam tasks outrank nearer topic ranks; general definitions stay monitor-only', (t) => {
+  const root = fixture(t), task = { ...watch, id: 'task', keyword: '1級土木 経験記述', intent: 'exam-task', priority: 2, contentPath: 'content/site/task/article.mdx', targetPath: '/exam/civil-construction-1/secondary/r07' };
+  const general = { ...watch, id: 'general', keyword: 'スクレーパとは', intent: 'reference', mode: 'monitor' };
+  writeFileSync(join(root, CONFIG), JSON.stringify({ ...config, watchwords: [watch, task, general] }));
+  for (const [w, rank] of [[watch, 2], [task, 11], [general, 1.5]]) addMeasurement(root, w, rank);
+  const view = report(root, now);
+  assert.equal(view.selected.id, 'task'); assert.equal(view.rows.find((w) => w.id === 'general').tier, null);
+  assert.throws(() => recordAction({ experiments: [] }, config, general, action, measurement, now), /Monitor-only/);
+});
+test('qualification strategy rejects missing purpose, lost coverage and generic auto-improvement', () => {
+  assert.throws(() => validateConfig({ ...config, watchwords: [{ ...watch, need: '' }] }), /need/);
+  assert.throws(() => validateConfig({ ...config, strategy: { ...config.strategy, focusQualifications: [...config.strategy.focusQualifications, 'pe-construction'] } }), /at least one/);
+  assert.throws(() => validateConfig({ ...config, watchwords: [{ ...watch, intent: 'reference' }] }), /monitor-only/);
+});
+test('comparable opportunities give a less recently improved qualification a turn', (t) => {
+  const root = fixture(t), pe = { ...watch, id: 'pe', keyword: '総監 計算問題', qualification: 'pe-comprehensive-management', targetPath: '/exam/pe-comprehensive-management/guide/test', contentPath: 'content/site/pe/article.mdx' };
+  writeFileSync(join(root, CONFIG), JSON.stringify({ ...config, strategy: { ...config.strategy, focusQualifications: [watch.qualification, pe.qualification] }, watchwords: [watch, pe] }));
+  addMeasurement(root, watch, 2); addMeasurement(root, pe, 7);
+  writeFileSync(join(root, LEDGER), JSON.stringify({ experiments: [{ id: 'past', kind: KIND, watchId: watch.id, status: 'proposed', actions: [{ date: '2026-09-12' }], history: [] }] }));
+  assert.equal(report(root, now).selected.id, pe.id);
+});
+test('season uses verified calendar dates, never invents next-year dates', () => {
+  const calendar = { exams: { [watch.qualification]: { events: { second: { label: '第二次検定', date: '2026-10-04' } } } } };
+  assert.equal(seasonFor({ ...watch, examEvent: 'second' }, calendar, now).active, true);
+  assert.equal(seasonFor({ ...watch, examEvent: 'second' }, calendar, new Date('2026-11-01')).active, false);
+  assert.equal(seasonFor({ ...watch, examEvent: 'missing' }, calendar, now).date, null);
+});
+test('waiting decisions are append-only, deduplicated within a day, and keep policy evidence', (t) => {
+  const root = fixture(t); addMeasurement(root, watch, 4);
+  writeFileSync(join(root, LEDGER), JSON.stringify({ experiments: [{ id: 'OTHER1', status: 'running' }, { id: 'OTHER2', status: 'running' }] }));
+  const entry = decisionRecord(report(root, now), '既存実験を維持して待機する。', false, now);
+  assert.equal(entry.result, 'capacity-limit'); assert.equal(entry.candidateId, watch.id); assert.equal(entry.selectedId, null);
+  assert.equal(writeDecision(root, entry).appended, true); assert.equal(writeDecision(root, entry).appended, false);
+  assert.equal(readRuns(root).length, 1); assert.equal(readRuns(root)[0].rows[0].rationale, watch.rationale);
+  assert.throws(() => validateRun({ ...entry, note: 'rewritten' }), /Invalid/);
+});
+test('a recorded policy review schedules the next 28-day review without changing rank data', (t) => {
+  const root = fixture(t);
+  addMeasurement(root, watch, 4);
+  writeFileSync(join(root, CONFIG), JSON.stringify({ ...config, strategy: { ...config.strategy, reviewedAt: '2026-08-01' } }));
+  assert.equal(report(root, now).policyReviewDue, true);
+  assert.equal(report(root, now).selected, null); assert.equal(report(root, now).candidate.id, watch.id);
+  assert.throws(() => decisionRecord(report(root, now), '', true, now), /note/);
+  writeDecision(root, decisionRecord(report(root, now), '資格別の候補と根拠を見直した。', true, now));
+  assert.equal(report(root, now).policyNextReviewDate, '2026-10-11'); assert.equal(report(root, now).policyReviewDue, false);
+});
+test('each improvement freezes qualification, purpose and strategy rationale', () => {
+  const exp = recorded();
+  assert.equal(exp.actions[0].selection.qualification, watch.qualification);
+  assert.equal(exp.actions[0].selection.rationale, watch.rationale);
+  assert.equal(exp.actions[0].selection.strategyVersion, 2);
+  delete exp.actions[0].selection;
+  assert.ok(observationViolations({ experiments: [] }, { experiments: [exp] }, [], () => 'changed').some((s) => s.includes('selection evidence')));
+});
+test('failed executions retain context but do not claim an actionable selection', (t) => {
+  const root = fixture(t); addMeasurement(root, watch, 4);
+  const entry = decisionRecord(report(root, now), 'GSC接続に失敗したため既存データで状況だけ記録。', false, now, true);
+  assert.equal(entry.result, 'failed'); assert.equal(entry.selectedId, null); assert.equal(entry.candidateId, watch.id);
+  assert.throws(() => decisionRecord(report(root, now), '確認未完了なので再試行が必要。', true, now, true), /cannot complete/);
+});
+test('discovery preserves legacy-URL provenance and surfaces low-volume exam demand', () => {
+  const data = { rows: [{ keys: ['https://doboku-note.com/docs/legacy', '1級土木 経験記述 文字数'], position: 9, impressions: 2, clicks: 0 },
+    { keys: ['https://doboku-note.com/practice/general', '一般用語'], position: 2, impressions: 999, clicks: 10 }] };
+  const rows = discoverCandidates(data, config, new Map([['/docs/legacy', '/exam/civil-construction-1/guide/keiken']]));
+  assert.equal(rows.length, 1); assert.equal(rows[0].measurementRequired, true);
+  assert.equal(rows[0].sourcePage, 'https://doboku-note.com/docs/legacy'); assert.match(rows[0].note, /旧URL/);
 });

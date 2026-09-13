@@ -5,17 +5,18 @@ import { resolve, join } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
 import { getDateRange, addDays } from './lib/gsc-date-range.mjs';
-import { WatchError, CONFIG, LEDGER, readJson, validateConfig, report, hash, scopeKey, writeSnapshot, readMeasurements, latestMeasurement, aggregate, enough, validateSnapshot, reviewWindows, statusOf, experimentFor, deploymentFor, updateLedger, recordAction, markDeployed, applyReview, dateJst } from './lib/seo-rank-watch.mjs';
+import { WatchError, CONFIG, LEDGER, readJson, validateConfig, report, hash, scopeKey, writeSnapshot, readMeasurements, latestMeasurement, aggregate, enough, validateSnapshot, reviewWindows, statusOf, experimentFor, deploymentFor, updateLedger, recordAction, markDeployed, applyReview, dateJst, decisionRecord, writeDecision } from './lib/seo-rank-watch.mjs';
+import { discoverCandidates } from './lib/seo-watch-strategy.mjs';
 
 async function main() {
   const { values: opts, positionals } = parseArgs({ allowPositionals: true, options: {
     repo: { type: 'string', default: process.cwd() }, id: { type: 'string' }, action: { type: 'string' },
     'run-id': { type: 'string' }, reason: { type: 'string' }, commit: { type: 'boolean' }, json: { type: 'boolean' },
-    'no-fetch': { type: 'boolean' }, help: { type: 'boolean' },
+    'no-fetch': { type: 'boolean' }, help: { type: 'boolean' }, 'policy-review': { type: 'boolean' }, failure: { type: 'boolean' },
   } });
   const root = resolve(opts.repo), command = positionals[0] ?? 'report';
   if (opts.help) {
-    console.log('seo-rank-watch [report|collect|review|record|deploy|resume|interrupt|discover] [--repo PATH] [--json]\ncollect: read GSC and append snapshots\nreview [--no-fetch] [--commit]: review due observations; dry-run by default\nrecord --id ID --action FILE --commit: record one implemented improvement with needs/gap/done/method/serp\ndeploy --id ID --run-id NUMBER --commit: verify successful production workflow and start observation\nresume --id ID --reason TEXT --commit: reactivate a paused watch\ndiscover: show unregistered page-query candidates; never auto-register');
+    console.log('seo-rank-watch [report|collect|review|record|deploy|resume|interrupt|discover|log-run] [--repo PATH] [--json]\ncollect: read GSC and append snapshots\nreview [--no-fetch] [--commit]: review due observations; dry-run by default\nrecord --id ID --action FILE --commit: record one implemented improvement with needs/gap/done/method/serp\ndeploy --id ID --run-id NUMBER --commit: verify successful production workflow and start observation\nresume --id ID --reason TEXT --commit: reactivate a paused watch\ndiscover: show candidates for each focus qualification; never auto-register\nlog-run [--reason TEXT] [--policy-review|--failure] [--commit]: append selection/waiting reasons and policy evidence; dry-run by default');
     return;
   }
   if (positionals.length > 1) throw new WatchError('Only one command / keyword per invocation');
@@ -57,21 +58,27 @@ async function main() {
     const file = readdirSync(join(root, dir)).filter((f) => /^gsc-page-query-.*\.json$/.test(f)).sort().at(-1);
     if (!file) { console.log('No page-query snapshot'); return; }
     const data = readJson(root, `${dir}/${file}`);
-    const candidates = data.rows.filter((r) => r.position > 1 && r.position <= 20 && r.impressions >= config.policy.minImpressions &&
-      r.keys[0].startsWith('https://doboku-note.com/') && !r.keys[0].includes('/docs/') &&
-      !config.watchwords.some((w) => w.keyword === r.keys[1] && `https://doboku-note.com${w.targetPath}` === r.keys[0]))
-      .sort((a, b) => a.position - b.position || b.impressions - a.impressions).slice(0, 10);
-    console.log(JSON.stringify({ source: `${dir}/${file}`, period: data.meta, note: '登録前に正規URL・実ファイル・検索意図・既存実験を確認。未登録クエリは自動改善しない。', candidates }, null, 2));
+    const redirects = new Map(readFileSync(join(root, 'public/_redirects'), 'utf8').split('\n').map((line) => line.trim().split(/\s+/)).filter(([from, to, status]) => from?.startsWith('/docs/') && to?.startsWith('/exam/') && status === '301').map(([from, to]) => [from, to]));
+    const candidates = discoverCandidates(data, config, redirects);
+    console.log(JSON.stringify({ source: `${dir}/${file}`, period: data.meta, note: '重点資格ごと最大3件。少数表示は需要の手掛かりで、効果判定には不足し得る。旧URLの数値を正規URLの実測と混同しない。', candidates }, null, 2));
     return;
   }
   if (command === 'report') {
     const data = report(root);
     if (opts.json) console.log(JSON.stringify(data, null, 2));
     else {
-      for (const w of data.rows) console.log(`${w.keyword}: ${w.status} / ${w.current?.rank?.toFixed(2) ?? '—'}位 / ${w.current?.impressions ?? '—'}表示 / 前期差 ${w.delta?.toFixed(2) ?? '—'} / レビュー ${w.nextReviewDate ?? '—'}${w.fresh ? '' : ' / 要取得'}`);
+      for (const w of data.rows) console.log(`${w.keyword}: ${w.qualificationLabel} / ${w.mode === 'monitor' && w.status === 'active' ? '監視のみ' : w.status} / ${w.current?.rank?.toFixed(2) ?? '—'}位 / ${w.current?.impressions ?? '—'}表示 / 前期差 ${w.delta?.toFixed(2) ?? '—'} / レビュー ${w.nextReviewDate ?? '—'}${w.fresh ? '' : ' / 要取得'}`);
       console.log(`改善候補: ${data.selected?.keyword ?? 'なし'}${data.capacity ? '' : '（既存実験の同時実行上限）'}`);
+      console.log(`選定順: ${data.selectionOrder}`);
+      if (data.candidate) console.log(`枠が空いた場合の第一候補: ${data.candidate.keyword} / ${data.candidate.reason}`);
+      console.log(`方針レビュー: ${data.policyNextReviewDate}${data.policyReviewDue ? '（期限到来）' : ''}`);
       console.log(`期限到来: ${data.due.join(', ') || 'なし'}。平均順位の変化は施策の因果効果を保証しない。`);
     }
+    return;
+  }
+  if (command === 'log-run') {
+    const entry = decisionRecord(report(root), opts.reason ?? '', opts['policy-review'], new Date(), opts.failure);
+    console.log(JSON.stringify(opts.commit ? { committed: true, ...writeDecision(root, entry), result: entry.result } : { committed: false, entry }, null, 2));
     return;
   }
   if (command === 'review') {

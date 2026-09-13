@@ -2,6 +2,7 @@ import { createHash, randomUUID } from 'node:crypto';
 import { existsSync, readFileSync, readdirSync, mkdirSync, writeFileSync, renameSync, unlinkSync } from 'node:fs';
 import { join } from 'node:path';
 import { addDays, calendarDate, getDateRange } from './gsc-date-range.mjs';
+import { INTENTS, SELECTION_ORDER, strategyErrors, seasonFor, compareCandidates, selectionKey } from './seo-watch-strategy.mjs';
 
 export class WatchError extends Error {}
 
@@ -20,8 +21,8 @@ export function validateConfig(config) {
   const ids = new Set(), scopes = new Set();
   for (const w of config.watchwords) {
     if (!/^[a-z0-9-]+$/.test(w.id ?? '') || ids.has(w.id) || !w.keyword?.trim() || scopes.has(scopeKey(w))) throw new WatchError('Duplicate or invalid watchword');
-    if (!/^\/(exam|practice|standards|topics)\/[\w/-]+$/.test(w.targetPath ?? '') || w.targetPath.endsWith('/') || w.targetPath.includes('..')) throw new WatchError('Use a canonical target path');
-    if (!/^content\/site\/.+\.mdx$/.test(w.contentPath ?? '') || w.contentPath.split('/').includes('..')) throw new WatchError('Invalid content path');
+    if (!/^\/(exam|practice|standards|topics|tools)\/[\w/-]+$/.test(w.targetPath ?? '') || w.targetPath.endsWith('/') || w.targetPath.includes('..')) throw new WatchError('Use a canonical target path');
+    if (!/^(content\/site\/.+\.mdx|src\/app\/tools\/[\w/-]+\/page\.tsx)$/.test(w.contentPath ?? '') || w.contentPath.split('/').includes('..')) throw new WatchError('Invalid content path');
     if (w.country && !/^[a-z]{3}$/.test(w.country)) throw new WatchError('Invalid country');
     if (w.device && !['MOBILE', 'DESKTOP', 'TABLET'].includes(w.device)) throw new WatchError('Invalid device');
     if (![1, 2, 3].includes(w.priority)) throw new WatchError('Priority must be 1, 2 or 3');
@@ -30,6 +31,8 @@ export function validateConfig(config) {
   for (const key of ['minImpressions', 'minActiveDays', 'maxConcurrent', 'maxIneffectiveCycles', 'maxSnapshotAgeDays']) {
     if (!Number.isInteger(config.policy?.[key]) || config.policy[key] < 1) throw new WatchError(`Invalid policy: ${key}`);
   }
+  const errors = strategyErrors(config);
+  if (errors.length) throw new WatchError(errors.join('; '));
   return config;
 }
 export function statusOf(exp) {
@@ -96,6 +99,9 @@ export function report(root, now = new Date()) {
   const config = validateConfig(readJson(root, CONFIG));
   const store = readJson(root, LEDGER);
   const snapshots = readMeasurements(root);
+  const calendar = existsSync(join(root, '.claude/config/exam-calendar.json')) ? readJson(root, '.claude/config/exam-calendar.json') : null;
+  const runs = readRuns(root);
+  const recentActions = Object.fromEntries(config.strategy.focusQualifications.map((id) => [id, store.experiments.filter((e) => e.kind === KIND && config.watchwords.find((w) => w.id === e.watchId)?.qualification === id).flatMap((e) => e.actions ?? []).filter((a) => a.date >= addDays(dateJst(now), -27)).length]));
   const activeExperiments = store.experiments.filter((e) => ['running', 'measuring'].includes(e.status) || (e.kind === KIND && statusOf(e) === 'pending-deploy'));
   const locks = store.experiments.filter((e) => e.kind === KIND && ['observing', 'pending-deploy'].includes(statusOf(e)));
   const rows = config.watchwords.map((w) => {
@@ -107,21 +113,29 @@ export function report(root, now = new Date()) {
     const current = measurement?.after.metrics ?? null;
     const previous = measurement?.before.metrics ?? null;
     let tier = null;
-    if (fresh && w.enabled !== false && status === 'active' && !blocker && current.rank !== 1) {
+    if (fresh && w.enabled !== false && w.mode === 'improve' && status === 'active' && !blocker && current.rank !== 1) {
       if (current.rank !== null && current.rank > 1 && current.rank <= 10 && current.impressions > 0) tier = 0;
       else if (current.rank > 10 && current.rank <= 20 && current.impressions > 0) tier = 1;
       else if (exp?.history?.some((h) => ['improved', 'no-effect'].includes(h.outcome))) tier = 2;
       else if (current.rank === null && w.priority === 1) tier = 3;
     }
-    return { ...w, status, current, previous, delta: current?.rank != null && previous?.rank != null ? previous.rank - current.rank : null,
+    const reason = w.enabled === false ? '監視停止中' : w.mode === 'monitor' ? '監視のみ（改善枠の対象外）' : !fresh ? '新しい固定条件の計測待ち' : blocker ? '同じページが観察中・本番反映待ち' : status !== 'active' ? '観察・監視・再検討の状態を優先' : current?.rank === 1 ? '1位の継続確認を優先' : tier === null ? '現時点では順位・需要の条件外' : `${INTENTS[w.intent]} / 学習価値P${w.priority} / ${['2〜10位', '11〜20位', '再改善候補', '需要未確認の探索候補'][tier]}`;
+    return { ...w, status, current, previous, reason, intentLabel: INTENTS[w.intent], qualificationLabel: calendar?.exams?.[w.qualification]?.label ?? w.qualification,
+      season: seasonFor(w, calendar, now), recentQualificationActions: recentActions[w.qualification], delta: current?.rank != null && previous?.rank != null ? previous.rank - current.rank : null,
       fresh: Boolean(fresh), measurementFile: measurement?.file ?? null, period: measurement?.after.window ?? null,
       nextReviewDate: exp?.next_check_date ?? null, lastReview: exp?.history?.findLast((h) => h.event === 'review') ?? null,
       actions: exp?.actions ?? [], history: exp?.history ?? [], blockedBy: blocker?.id ?? null, pauseReason: exp?.paused_reason ?? null, tier };
   });
-  const candidates = rows.filter((r) => r.tier !== null).sort((a, b) => a.tier - b.tier ||
-    (a.tier === 0 ? a.current.rank - b.current.rank : b.current.impressions - a.current.impressions) || a.priority - b.priority || a.id.localeCompare(b.id));
+  const candidates = rows.filter((r) => r.tier !== null).sort(compareCandidates);
   const capacity = activeExperiments.length < config.policy.maxConcurrent;
-  return { generatedAt: now.toISOString(), rows, candidate: candidates[0] ?? null, selected: capacity ? candidates[0] ?? null : null,
+  const policyReviewedAt = runs.findLast((r) => r.type === 'policy-review')?.date ?? config.strategy.reviewedAt;
+  const policyNextReviewDate = addDays(policyReviewedAt, config.strategy.reviewEveryDays);
+  return { generatedAt: now.toISOString(), rows, candidate: candidates[0] ?? null, selected: capacity && policyNextReviewDate > dateJst(now) ? candidates[0] ?? null : null,
+    candidates: candidates.map((r) => ({ id: r.id, keyword: r.keyword, qualification: r.qualification, reason: r.reason, key: selectionKey(r) })),
+    strategy: config.strategy, configHash: hash(JSON.stringify(config)), selectionOrder: SELECTION_ORDER,
+    policyNextReviewDate, policyReviewDue: policyNextReviewDate <= dateJst(now), lastRuns: runs.slice(-10).reverse(),
+    qualifications: config.strategy.focusQualifications.map((id) => ({ id, label: calendar?.exams?.[id]?.label ?? id, watches: rows.filter((w) => w.qualification === id).length,
+      measured: rows.filter((w) => w.qualification === id && w.fresh).length, recentActions: recentActions[id], candidate: candidates.find((w) => w.qualification === id)?.keyword ?? null })),
     capacity, activeExperiments: activeExperiments.map((e) => ({ id: e.id, title: e.title, nextReviewDate: e.next_check_date })),
     due: rows.filter((r) => r.nextReviewDate && r.nextReviewDate <= dateJst(now) && ['observing', 'achieved'].includes(r.status)).map((r) => r.id) };
 }
@@ -130,6 +144,45 @@ export function writeSnapshot(root, data, now = new Date()) {
   mkdirSync(join(root, HISTORY), { recursive: true });
   writeFileSync(join(root, file), JSON.stringify(data, null, 2) + '\n', { flag: 'wx' });
   return file;
+}
+
+export function readRuns(root) {
+  const dir = join(root, HISTORY);
+  return existsSync(dir) ? readdirSync(dir).filter((f) => /^run-.*\.json$/.test(f)).sort().map((f) => ({ ...readJson(root, `${HISTORY}/${f}`), file: `${HISTORY}/${f}` })) : [];
+}
+
+export function decisionRecord(view, note = '', policyReview = false, now = new Date(), failed = false) {
+  if (policyReview && note.trim().length < 10) throw new WatchError('Policy review requires a concrete review note');
+  if (failed && (note.trim().length < 10 || policyReview)) throw new WatchError('Failure requires a reason and cannot complete a policy review');
+  const data = { version: 1, type: policyReview ? 'policy-review' : 'decision', date: dateJst(now),
+    configHash: view.configHash, strategy: view.strategy, selectionOrder: view.selectionOrder,
+    selectedId: failed ? null : view.selected?.id ?? null, candidateId: view.candidate?.id ?? null,
+    result: failed ? 'failed' : view.selected ? 'ready' : view.policyReviewDue ? 'policy-review-due' : !view.capacity ? 'capacity-limit' : 'no-candidate',
+    activeExperiments: view.activeExperiments, due: view.due, policyNextReviewDate: view.policyNextReviewDate,
+    candidates: view.candidates, qualifications: view.qualifications,
+    rows: view.rows.map((w) => ({ id: w.id, keyword: w.keyword, targetPath: w.targetPath, qualification: w.qualification, intent: w.intent,
+      mode: w.mode, priority: w.priority, rationale: w.rationale, status: w.status, reason: w.reason, season: w.season,
+      current: w.current, previous: w.previous, period: w.period, measurementFile: w.measurementFile, nextReviewDate: w.nextReviewDate,
+      actionCount: w.actions.length, lastReview: w.lastReview })), note: note.trim() };
+  return { ...data, recordedAt: now.toISOString(), fingerprint: hash(JSON.stringify(data)) };
+}
+
+export function validateRun(entry) {
+  const { file: _file, recordedAt, fingerprint, ...data } = entry;
+  if (entry.version !== 1 || !['decision', 'policy-review'].includes(entry.type) || !Number.isFinite(Date.parse(recordedAt)) ||
+      fingerprint !== hash(JSON.stringify(data)) || !Array.isArray(entry.rows) || !/^[a-f0-9]{64}$/.test(entry.configHash)) throw new WatchError('Invalid decision record');
+  if (entry.selectedId && (entry.result !== 'ready' || !entry.candidates?.some((r) => r.id === entry.selectedId))) throw new WatchError('Decision selection has no candidate evidence');
+  return entry;
+}
+
+export function writeDecision(root, entry) {
+  validateRun(entry);
+  const existing = readRuns(root).find((r) => r.fingerprint === entry.fingerprint);
+  if (existing) return { file: existing.file, appended: false };
+  const file = `${HISTORY}/run-${entry.recordedAt.replace(/[:.]/g, '-')}-${randomUUID().slice(0, 8)}.json`;
+  mkdirSync(join(root, HISTORY), { recursive: true });
+  writeFileSync(join(root, file), JSON.stringify(entry, null, 2) + '\n', { flag: 'wx' });
+  return { file, appended: true };
 }
 /** One writer; detect edits by another process before an atomic rename. */
 export async function updateLedger(root, mutate) {
@@ -149,6 +202,7 @@ export async function updateLedger(root, mutate) {
   }
 }
 export function recordAction(store, config, watch, action, measurement, now = new Date()) {
+  if (watch.mode !== 'improve' || !['exam-task', 'exam-topic'].includes(watch.intent)) throw new WatchError('Monitor-only watchwords cannot be improved');
   const exp = experimentFor(store.experiments, watch.id);
   if (statusOf(exp) !== 'active') throw new WatchError('Watchword is not active');
   if (store.experiments.some((e) => e.kind === KIND && ['observing', 'pending-deploy'].includes(statusOf(e)) && samePage(e.scope, watch))) throw new WatchError('Page is locked');
@@ -160,7 +214,10 @@ export function recordAction(store, config, watch, action, measurement, now = ne
   if (last?.outcome === 'no-effect' && exp.actions.at(-1).method === action.method) throw new WatchError('Use a different method after no effect');
   const target = exp ?? { id: `SEO-${watch.id}`, kind: KIND, watchId: watch.id, title: `検索意図の改善: ${watch.keyword}`, scope: { ...watch }, created_at: now.toISOString(), actions: [], history: [] };
   if (exp && scopeKey(exp.scope) !== scopeKey(watch)) throw new WatchError('Scope changed; use a new watch id');
-  target.actions.push({ ...action, date: dateJst(now), rankAtAction: measurement.after.metrics.rank, measurementFile: measurement.file });
+  target.actions.push({ ...action, date: dateJst(now), rankAtAction: measurement.after.metrics.rank, measurementFile: measurement.file,
+    selection: { strategyVersion: config.strategy.version, configHash: hash(JSON.stringify(config)), qualification: watch.qualification, intent: watch.intent,
+      priority: watch.priority, audience: watch.audience, need: watch.need, rationale: watch.rationale, nextStep: watch.nextStep, evidence: watch.evidence,
+      order: SELECTION_ORDER } });
   target.history.push({ date: dateJst(now), event: 'record', actionIndex: target.actions.length - 1 });
   target.baseline = { measurementFile: measurement.file, rank: measurement.after.metrics.rank };
   target.target_metric = '固定クエリ・ページ・地域・端末のGSC平均順位 / 表示 / クリック / CTR';
