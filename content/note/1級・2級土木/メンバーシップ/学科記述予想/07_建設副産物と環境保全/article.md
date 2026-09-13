@@ -1,9 +1,12 @@
 ---
 notePricing: membership
-noteStatus: draft
+noteStatus: published
 noteSeries: 学科記述予想
 membershipOnly: true
 utmCampaign: civil-membership-gakka-recycle
+notePublishedAt: "2026-09-13"
+noteId: "n26f9449013b6"
+noteUrl: "https://note.com/dobokunote/n/n26f9449013b6"
 coverTitle: ["学科記述予想｜建設副産物", "リサイクル法・騒音振動規制"]
 cover:
   variant: crop-safe-v4

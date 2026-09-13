@@ -102,6 +102,7 @@ kuro
 | `建設部門2次｜{他科目} 選択科目 模範解答集` | `bk-{subject}-secondary-magazine`（subject は note-magazines.ts の romaji に合わせる） |
 | `建設部門2次｜{他科目} まるごと合格パック`（必須科目I＋選択科目 バンドル） | `bk-{subject}-pack`（例: `bk-road-pack` / `bk-tunnel-pack` / `bk-urban-planning-pack`。note-magazines.ts の `pe-construction-{subject}-pack` に対応） |
 | `コンクリート主任技士 小論文｜模範答案集`（¥2,480・5本） | `cce-essay-magazine` |
+| `2級土木 施工経験記述｜過去問 模範答案集（R03-R07）`（¥2,480・5本セット） | `civil-2-pastexam-essay` |
 | `コンクリート主任技士 小論文｜実務立場別 模範答案集`（¥5,980・33本） | `cce-essay-persona-pack` |
 | `コンクリート主任技士 まるごとパック`（¥9,800・41記事＝小論文2マガジン＋択一予想50問＋配合計算12問） | `cce-marugoto-pack` |
 
@@ -120,7 +121,7 @@ productId は `article:<slug>` 形式。slug は商品名から推定:
 | `情報管理 × 他4管理｜トレードオフ` | `article:tradeoff-information-management` |
 | `2級土木 施工経験記述｜令和{N}年度` | `article:civil-2-pastexam-essay-r0{N}` |
 | `2級土木 施工経験記述｜品質管理 完成答案集` | `article:civil-2-essay-quality-complete` |
-| `2級土木 施工経験記述｜{工種} 5管理フルカバー完成答案`（想定工事バンク単品¥980） | `article:civil-2-koji-bank-{koshu}`（{koshu} は想定工事バンクの工事番号。例: `article:civil-2-koji-bank-68`＝工事68-上水道配水管布設開削） |
+| `2級土木 施工経験記述｜{工種} 5管理フルカバー完成答案`（想定工事バンク単品¥980） | `article:civil-2-koji-bank-{koshu}`（{koshu} は想定工事バンクの工事番号。例: `article:civil-2-koji-bank-68`＝工事68-上水道配水管布設開削／`article:civil-2-koji-bank-08`＝工事08-補強土壁テールアルメ〔¥1,680〕） |
 | `1級土木 二次学科記述｜{テーマ}`（テーマ別出る順 単品¥580） | `article:civil-1-gakka-kijutsu-{theme}` |
 | `2級土木 二次学科記述｜{テーマ}`（テーマ別出る順 単品） | `article:civil-2-gakka-kijutsu-{theme}` |
 | `1級土木 二次学科記述｜直前暗記ノート` | `article:civil-1-anki-note` |
@@ -130,6 +131,9 @@ productId は `article:<slug>` 形式。slug は商品名から推定:
 | `1級土木 令和8年度 第2次検定｜予想模試3回` | `article:civil-1-r8-mock3-pdf` |
 | `2級土木 令和8年度 第2次検定｜予想模試3回` | `article:civil-2-r8-mock3-pdf` |
 | `コンクリート主任技士｜配合計算 実戦演習12問` | `article:cce-mix-calculation-practice` |
+| `技術士 総合技術監理部門｜択一 過去問PDF 令和（令和元〜7年度）`（単品¥980） | `article:tankan-takuitsu-reiwa-pdf` |
+| `コンクリート主任技士 小論文 模範答案｜生コン工場｜耐久性`（実務立場別 単品） | `article:cce-persona-namacon-durability` |
+| `コンクリート主任技士 小論文 模範答案｜生コン工場｜環境配慮`（実務立場別 単品） | `article:cce-persona-namacon-environment` |
 | `コンクリート主任技士｜令和8年度 四肢択一 予想50問` | `article:cce-r8-mc-50` |
 | `コンクリート技士｜配合計算・JIS判断 実戦演習12問` | `article:ce-mix-jis-practice` |
 | `技術士 建設部門｜道路 R8予想 選択科目II-1` | `article:bk-01-road-r8-yosou-ii1` |
@@ -156,7 +160,7 @@ productId は `article:<slug>` 形式。slug は商品名から推定:
 | `総監口頭試験…「業務経歴」の語り方` | `article:tankan-oral-exam` |
 | `【総監再受験者向け】不合格要因を特定する3パターン分析` | `article:tankan-retake-analysis` |
 | `1級土木 施工経験記述｜令和{N}年度 過去問 模範答案` | `article:civil-1-pastexam-essay-r0{N}` |
-| `1級土木 施工経験記述｜{工種}（5管理 完成答案）`（完全攻略パック単品） | `article:civil-1-keiken-pack-{工事番号 or 工種}`。既出: `article:civil-1-keiken-pack-15`（工事15 橋脚フーチング マスコン）／`article:civil-1-keiken-pack-72`（工事72 既設管更生）／`article:civil-1-keiken-pack-tunnel`（補充のトンネル工） |
+| `1級土木 施工経験記述｜{工種}（5管理 完成答案）`（完全攻略パック単品） | `article:civil-1-keiken-pack-{工事番号 or 工種}`。既出: `article:civil-1-keiken-pack-15`（工事15 橋脚フーチング マスコン）／`article:civil-1-keiken-pack-72`（工事72 既設管更生）／`article:civil-1-keiken-pack-tunnel`（補充のトンネル工）／`article:civil-1-keiken-pack-55`（工事55 河道掘削・しゅんせつ）／`article:civil-1-keiken-pack-105`（工事105 鋼道路橋塗替塗装） |
 | `1級土木 施工経験記述｜{管理A}×{管理B}`（2テーマ組合せ大全 単品） | `article:civil-1-combo-essay-{a}-{b}`（例: `-quality-environment`） |
 
 **推定できない場合**: `article:unknown-{YYYYMMDD}-{index}` として記録し、後でユーザーが修正。

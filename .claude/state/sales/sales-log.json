@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-17",
+  "updatedAt": "2026-09-13",
   "currency": "JPY",
   "source": "note クリエイターダッシュボード「販売履歴」（2026-07 以降は Playwright で read-only 取得し、月次総額をダッシュボード表示と突合）",
   "privacyNote": "購入者名・ハンドルはプライバシー保護のため記録しない（売上分析には date / product / price で十分）。",
@@ -1965,6 +1965,97 @@
       "title": "建設部門2次｜道路まるごと合格パック",
       "type": "magazine",
       "price": 4980
+    },
+    {
+      "date": "2026-09-12",
+      "productId": "civil-2-pastexam-essay",
+      "title": "2級土木 施工経験記述｜過去問 模範答案集（R03-R07）",
+      "type": "magazine",
+      "price": 2480
+    },
+    {
+      "date": "2026-09-07",
+      "productId": "article:civil-1-keiken-pack-55",
+      "title": "1級土木 施工経験記述｜河道掘削・しゅんせつ（出水期・水中作業）5管理 完成答案",
+      "type": "article",
+      "price": 1980
+    },
+    {
+      "date": "2026-09-07",
+      "productId": "article:civil-1-keiken-pack-105",
+      "title": "1級土木 施工経験記述｜鋼道路橋塗替塗装 5管理 完成答案",
+      "type": "article",
+      "price": 1980
+    },
+    {
+      "date": "2026-09-06",
+      "productId": "article:civil-2-koji-bank-08",
+      "title": "2級土木 施工経験記述｜補強土壁（テールアルメ）5管理フルカバー完成答案",
+      "type": "article",
+      "price": 1680
+    },
+    {
+      "date": "2026-09-06",
+      "productId": "article:tankan-takuitsu-reiwa-pdf",
+      "title": "技術士 総合技術監理部門｜択一 過去問PDF 令和（令和元〜7年度 全280問・全選択肢解説）",
+      "type": "article",
+      "price": 980
+    },
+    {
+      "date": "2026-09-05",
+      "productId": "article:cce-persona-namacon-durability",
+      "title": "コンクリート主任技士 小論文 模範答案｜生コン工場｜耐久性",
+      "type": "article",
+      "price": 980
+    },
+    {
+      "date": "2026-09-05",
+      "productId": "membership:civil-lab-annual",
+      "title": "通年プラン｜過去問＆月例予想",
+      "type": "membership",
+      "price": 1480
+    },
+    {
+      "date": "2026-09-04",
+      "productId": "article:civil-1-keiken-pack-105",
+      "title": "1級土木 施工経験記述｜鋼道路橋塗替塗装 5管理 完成答案",
+      "type": "article",
+      "price": 1980
+    },
+    {
+      "date": "2026-09-04",
+      "productId": "civil-2-koji-bank",
+      "title": "2級土木 施工経験記述｜想定工事バンク 5管理フル",
+      "type": "magazine",
+      "price": 5480
+    },
+    {
+      "date": "2026-09-04",
+      "productId": "article:cce-persona-namacon-environment",
+      "title": "コンクリート主任技士 小論文 模範答案｜生コン工場｜環境配慮",
+      "type": "article",
+      "price": 980
+    },
+    {
+      "date": "2026-09-03",
+      "productId": "essay-complete-pack",
+      "title": "技術士 総監｜記述式 完全パック",
+      "type": "magazine",
+      "price": 9800
+    },
+    {
+      "date": "2026-09-03",
+      "productId": "civil-1-keiken-complete-pack",
+      "title": "1級土木 施工経験記述｜完全攻略パック",
+      "type": "magazine",
+      "price": 9800
+    },
+    {
+      "date": "2026-09-01",
+      "productId": "article:cce-mix-calculation-practice",
+      "title": "コンクリート主任技士｜配合計算 実戦演習12問（途中式・全選択肢解説）",
+      "type": "article",
+      "price": 1480
     }
   ]
 }
