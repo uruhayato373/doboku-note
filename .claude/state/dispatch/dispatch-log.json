@@ -871,6 +871,18 @@
       "commit": "c433ec70e71a",
       "verification": "専用28/28、全体1255 PASS・3 skip、root/admin型検査、CLI・履歴保護・文書参照・Codex同期、3資格9語GSC実測、PC1440/390px表示・はみ出し0・JSエラー0、doc-sync指摘0",
       "note": "資格受験者優先の方針を事業戦略とSEO運用referenceへ集約。登録根拠・選定/待機/失敗・28日方針レビューを追記保存し、日次heartbeatを更新。初回は既存実験2件で待機、記事変更なし。実装を同一PRでdevelopへ集約する。"
+    },
+    {
+      "id": "DN-0213",
+      "at": "2026-09-13",
+      "task": "資格別の事業方針・KPI・週次月次改善を管理画面と共通運用へ統合する",
+      "tier": "high",
+      "executor": "codex",
+      "outcome": "done",
+      "plan": null,
+      "commit": "84bff4e4140f",
+      "verification": "business/SEO tests 33 pass; full suite 1263 pass 3 skip; root/admin type-check; doc-sync; local UI save/reload and mobile 390px",
+      "note": "資格別事業方針・KPI・追記型計測/目標/週次月次レビュー・管理画面を統合。Google16集計と初回暫定レビューを記録。note PV/同期間ココナラ/費用時間は欠測として管理。mainデプロイは別判断。"
     }
   ]
 }
