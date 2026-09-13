@@ -85,7 +85,7 @@ test('通常R1の最適化問題は公式の組合せを保ち、アを誤りと
 test('通常R1の文書距離は原典表のD＝3Aで0になり、隣接する木の誤答理由も正しい', () => {
   const q = dataset.questions.find((q) => q.id === 'r01-basic-ⅰ-2-3');
   const rows = [...q.bodyHtml.matchAll(/<tr>([\s\S]*?)<\/tr>/g)].map((row) =>
-    [...row[1].matchAll(/<t[dh][^>]*>([\s\S]*?)<\/t[dh]>/g)].map((cell) => cell[1].replace(/<[^>]*>/g, '').trim()));
+    [...row[1].matchAll(/<t[dh][^>]*>([\s\S]*?)<\/t[dh]>/g)].map((cell) => cell[1].trim()));
   assert.deepEqual(rows.slice(1), [
     ['単語1', '7', '2', '70', '21', '1', '7'],
     ['単語2', '3', '3', '3', '9', '2', '30'],
