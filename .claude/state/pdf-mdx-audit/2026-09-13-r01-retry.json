@@ -1516,13 +1516,16 @@
         2193,
         2373
       ],
-      "sha256": "20523dcaab9a4d4721eb841d56cb22ab01629bd11276237675b0229ae725be88",
+      "sha256": "186736bf4529e9ed6f209ac60cb7bcdeef3154e9e6607a84a97e115c99f2f22e",
       "sourceUrl": "https://www.engineer.or.jp/c_topics/007/attached/attach_7102_11.pdf",
       "sourceComparison": "PASS: source page and cropped figure visually compared",
       "cropReview": "PASS: axes, support conditions, dimensions and legends retained; adjacent question text excluded",
       "gitOriginalPdf": false,
       "deliveryAudience": "site",
-      "deliveryRoute": "public R2 via parent asset workflow"
+      "deliveryRoute": "public R2 via parent asset workflow",
+      "fileSize": 129430,
+      "encoding": "cwebp -q 95 -m 6",
+      "compressionReview": "PASS: original and encoded image viewed at original resolution; groundwater levels 2m/3m/1m/2m, layer weights, A points and a–d labels legible"
     },
     {
       "subject": "construction",
@@ -1835,5 +1838,9 @@
   },
   "parentReleaseWork": [
     "DN-0220: 本番反映と実体確認"
-  ]
+  ],
+  "ciFollowup": {
+    "scope": "自著の語尾・段落、日付形式、数式区切り、既存図の再接続を修正。公式問題文・正答番号は保持。",
+    "evidence": ".claude/state/quality/content-expansion-20260913.json"
+  }
 }
