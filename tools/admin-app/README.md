@@ -11,6 +11,7 @@ npm run admin   # http://127.0.0.1:3021
 
 | タブ | データソース | 備考 |
 |---|---|---|
+| 事業方針と改善（`/metrics/business`） | `.claude/config/business-direction.json`・既存計測/売上・`.claude/state/metrics/business/` | 資格別の提供価値とKPI、週次/月次の期日・判断・実験参照。計測/目標/レビューを同一OriginのローカルJSONフォームで追記保存。CLIと同じ検証を使用し、Git commitは運用スキルが行う。外部API・公開・任意ファイル編集はしない。 |
 | 計測概観 / GA4 / GSC / PSI | `.claude/state/metrics/{ga4,gsc,psi}/*.json` | CI がコミットするスナップショットを読むだけ。**ライブ API は叩かない**（会社 PC はプロキシで Google/Meta 遮断・CI 供給が正）。`?snapshot=` で履歴切替、鮮度バッジ（週次 CI・8 日超で赤） |
 | 検索順位の改善（`/metrics/seo-watch`） | `.claude/config/seo-watchwords.json`・`.claude/state/experiments.json`・GSC rank-watchのwatch/run履歴 | 資格別候補、受験意図・登録根拠・学習導線、固定クエリの7日比較、改善/待機理由、観察期限、28日の方針レビュー。同じ判定関数をCLIと共有し、読み取り専用。 |
 | エージェント / スキル | `.claude/agents/*.md` / `.claude/skills/**/SKILL.md` | gray-matter で frontmatter パース。役割（Generator/Evaluator）・モデル・tools・カテゴリ |

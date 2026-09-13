@@ -172,6 +172,8 @@ if [ $? -ne 0 ]; then
 fi
 
 # SEO観察中ページの変更と順位履歴の書換えを拒否する。
+node scripts/check-business-direction.mjs --staged
+if [ $? -ne 0 ]; then exit 1; fi
 node scripts/check-seo-rank-watch.mjs --staged
 if [ $? -ne 0 ]; then
   exit 1

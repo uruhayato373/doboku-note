@@ -239,11 +239,7 @@
     "version": 2,
     "reviewedAt": "2026-09-13",
     "reviewEveryDays": 28,
-    "focusQualifications": [
-      "civil-construction-1",
-      "pe-comprehensive-management",
-      "pe-construction"
-    ],
-    "objective": "受験者が問題を理解し、過去問学習・答案作成へ進める検索流入を増やす。1位の件数だけで成果を判断しない。"
+    "objective": "受験者が問題を理解し、過去問学習・答案作成へ進める検索流入を増やす。1位の件数だけで成果を判断しない。",
+    "focusSource": ".claude/config/business-direction.json"
   }
 }

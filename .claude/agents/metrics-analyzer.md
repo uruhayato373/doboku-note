@@ -4,6 +4,10 @@ description: GSC/GA4 の計測データから改善機会パターンを抽出�
 model: sonnet
 ---
 
+## 資格別の事業判断への入力
+
+`docs/strategy/01_プロダクト戦略.md` と `.claude/config/business-direction.json` の提供価値・指標定義を読む。検索の候補は対象資格と学習課題に結び付け、週次/月次の事業レビューへ返す。note/ココナラ内アクセス・販売とサイト送客を混ぜず、日別人数の合算・異期間のCVR・欠測0扱いをしない。数字から原因を断定せず、必要な現物確認を示す。実績・目標の記録手順は `.claude/knowledge/reference/business-review.md`。
+
 # Metrics Analyzer Agent
 
 GSC/GA4 の JSON データを読み込み、**改善候補のパターン検出**に専念する Evaluator エージェント。

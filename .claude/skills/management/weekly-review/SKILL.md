@@ -4,7 +4,13 @@ description: >
   前週の成果・KPI・学びを振り返るレビューを生成する。Use when user asks to [週次レビュー, 先週の振り返り, /weekly-review].
 ---
 
-今週の実績を調査し、成果・課題・学びを記録する週次レビューを生成する。
+## 事業の週次判断（最初と最後に実行）
+
+`docs/strategy/01_プロダクト戦略.md` と `.claude/config/business-direction.json` を基準にする。`npm run business-review -- report --json` で前の完了した月曜〜日曜の資格別KPI、欠測、既存レビュー期日を確認する。以下の収集項目はこの判断を支える資料であり、集客だけを成功としない。
+
+収集後、`.claude/knowledge/reference/business-review.md` の手順でsnapshotとweeklyのreviewを追記する。資格別に「実測／未確認／判断／次の一手」を分け、実験IDと次回日を残す。note/ココナラ内アクセス・販売、運営時間も確認する。欠測はprovisional、同じ期間のレビューはsupersedesによる訂正。MDレポートを整理しても機械履歴は削除しない。JSONを明示してコミットする。月次の方針・目標変更は `/monthly-review` へ渡す。
+
+対象週の実績を調査し、成果・課題・学びを記録する週次レビューを生成する。
 
 ## 引数
 
@@ -12,7 +18,7 @@ description: >
 /weekly-review [YYYY-Www]
 ```
 
-- 週番号（任意）: ISO 8601 週番号（例: `2026-W10`）。省略時は今週。
+- 週番号（任意）: ISO 8601 週番号（例: `2026-W10`）。省略時は前の完了した週。
 
 ## 概要
 

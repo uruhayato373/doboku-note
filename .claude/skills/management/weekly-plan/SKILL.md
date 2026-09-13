@@ -4,6 +4,10 @@ description: >
   週次レビュー（/weekly-review）後に翌週の実行計画を並列サブエージェントで生成し、同週の `docs/reviews/weekly/YYYY-Www.md` に「来週の計画」セクションとして追記する（NSM/メトリクス連動・重め・weekly-review 完了後に自動起動）。.claude/todo/weekly.md のタスク選定・優先度付けは /plan-weekly の担当で別物。Use when user asks to [戦略的週次計画, NSM込みの来週計画, weekly-review後の計画生成, /weekly-plan].
 ---
 
+## 共通の判断基準
+
+`docs/strategy/01_プロダクト戦略.md` と `.claude/config/business-direction.json`、直近の `.claude/state/metrics/business/` の週次・月次判断を先に読む。対象資格・読者の課題・現物の不足・変更・評価指標・再計測日を一続きにする。記事数や図数を増やすための計画にしない。実験はexperiments.json、単発実装はbacklogへ接続し、計画へ状態を複製しない。未測定の販売・費用・時間は取得を次の一手に含める。
+
 プロジェクトの現状を調査し、戦略的な週次計画を生成する。
 
 ## 引数

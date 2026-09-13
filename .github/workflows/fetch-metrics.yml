@@ -54,6 +54,16 @@ jobs:
           printf '%s' "$GOOGLE_SERVICE_ACCOUNT_KEY_JSON" > credentials/gsc-service-account.json
           chmod 600 credentials/gsc-service-account.json
 
+      - name: Fetch qualification business metrics (completed week/month)
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+        run: |
+          npm run fetch-business-metrics -- --commit
+          npm run business-review -- snapshot --commit
+          npm run business-review -- snapshot --monthly --commit
+          npm run check-business-direction
+
       - name: Fetch GA4 (channel)
         env:
           GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
@@ -289,7 +299,7 @@ jobs:
           cp -r /tmp/metrics-publish/crosswalk/* .claude/state/metrics/crosswalk/ 2>/dev/null || true
           cp -r /tmp/weekly-metrics-publish/* .claude/state/weekly-metrics/ 2>/dev/null || true
 
-          git add .claude/state/metrics/ga4 .claude/state/metrics/gsc .claude/state/metrics/monetization .claude/state/metrics/crosswalk .claude/state/weekly-metrics
+          git add .claude/state/metrics/business .claude/state/metrics/ga4 .claude/state/metrics/gsc .claude/state/metrics/monetization .claude/state/metrics/crosswalk .claude/state/weekly-metrics
           if git diff --cached --quiet; then
             echo "No changes to publish"
             exit 0

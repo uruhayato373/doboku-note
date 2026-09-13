@@ -8,6 +8,8 @@
 
 **設計思想** — ユーザーが「ここだけで合格できる」体験を軸資格ごとに提供する試験対策ハブ。Obsidian（ステージング）→ doboku-note（プロダクション）→ PWA 過去問演習アプリ（資格別 PWA × 共通エンジン、過去問演習は iOS から移管）の流れでコンテンツを管理。収益モデルは note 有料記事 + YouTube + PWA 過去問アプリ。詳細: `docs/strategy/02_設計思想.md`、`docs/strategy/03_事業戦略.md`、`docs/products/06_PWA過去問アプリ設計方針.md`
 
+**事業の判断基準** — 「図で理解し、過去問で確かめ、答案に活かす。」資格×学習段階の課題を軸に、正確な教材、note/ココナラ販売、受取・費用・運営時間まで確認する。判断理由の正典は `docs/strategy/01_プロダクト戦略.md`、重点資格・KPI定義の機械SSOTは `.claude/config/business-direction.json`。管理画面 `/metrics/business` と SEO・週次/月次レビュー・戦略エージェントはこの設定を参照する。計測/目標/判断は `.claude/state/metrics/business/` に追記、改善状態は既存 `experiments.json`、単発実装はbacklog。図数・記事数・順位だけを成功にせず、欠測を0や利益へ変換しない。手順は `.claude/knowledge/reference/business-review.md`、週次は `/weekly-review`、月次は `/monthly-review`。
+
 **技術スタック**
 
 | レイヤー | 技術 |
@@ -118,6 +120,9 @@ npm run check-ga4-dimensions   # GA4 カスタムディメンション（event_l
 npm run x-own-metrics     # 自投稿の反応（いいね/RT）を採取→型×時間帯×導線の表（.claude/state/x-metrics/・**中央値で読む**。impressions/replies は CLI が返さず取得不可）
 npm run check-keiken-answer-split # 施工経験記述の解答欄の割り振りが級と合っているか（1級=(1)に検討項目/(2)対応処置・評価、2級=(1)課題/(2)検討項目と対応処置。2級式を1級教材へ使うと(2)に3要素が乗り1区画約200字に収まらない。**note 原稿だけでなく退避される模試の生成 markdown も走査**）
 npm run check-jst-date    # 運用記録の日付が UTC で前日付になっていないか（JST 09:00 前の実行事故・pre-commit 同梱）
+npm run business-review       # 資格別KPI・週次/月次レビュー期日の確認（-- report --monthly で前月）
+npm run fetch-business-metrics # GSC/GA4の資格別・完了週/月の集計取得（--commitで追記）
+npm run check-business-direction # 事業方針・指標・履歴・追記専用の検査
 npm run check-experiment-due   # 実験台帳の再計測/close 期限を surface（計測→記録→改善→再計測の最後の輪）
 npm run check-internal-links-vs-gsc # 公開ページが GSC 404/リダイレクト URL を指していないか（旧URL件数を減らす唯一のレバー）
 npm run gsc-indexing:check     # 未登録URLをGSC URL検査で診断（dry-run／:request で登録リクエスト・上限10件/回）
@@ -185,7 +190,7 @@ npm run gsc-indexing:check     # 未登録URLをGSC URL検査で診断（dry-run
 | [tools/admin-app/README.md](tools/admin-app/README.md) | 運営管理画面（ローカル専用・Next.js 版）の起動・タブ構成・設計方針。`npm run admin` で `http://127.0.0.1:3021`。計測（GA4/GSC/PSI）・エージェント/スキル・画像ギャラリー（OGP/記事図版/note/SNS）・SNS状態板・記事/note/マガジン一覧・売上・品質・投稿ジョブ・**TODO（.claude/todo 統合ビュー）**を1画面で。RSC ファースト・ルート node_modules 再利用・**ビルド/デプロイなし・dev モード専用**。投稿は既存 CLI を child_process 実行しガードは CLI 側に残す（旧 zero-dep 版 tools/admin は 2026-07-16 退役） | 管理画面を起動・改修するとき／計測・SNS・画像・売上・品質・TODO を目視管理するとき |
 | `.claude/config/` | ツール設定（OGP テンプレ/ルール/改行設定、PSI しきい値・URL リスト等、エージェント編集領域） | OGP・PSI・自動化ツールのルール・閾値を調整するとき |
 | [docs/strategy/README.md](docs/strategy/README.md) | 戦略の入口・索引（トピック軸＝何の戦略か × 資格軸＝どの資格か の2軸ナビ、横断戦略 ↔ 各 noteコンテンツ計画.md の相互リンク） | 「この戦略はどこ？」と迷ったとき・各資格の戦略入口を辿るとき |
-| `docs/strategy/01_プロダクト戦略.md` | 5問フレームワーク（顧客・問題・解決策・体験・成功指標）の one-page 北極星文書。全戦略の出発点 | 戦略の全体像を把握したいとき・意思決定の根拠を確認するとき |
+| `docs/strategy/01_プロダクト戦略.md` | 学習価値・重点資格・KPI解釈・継続改善の判断理由の正典 | 戦略の全体像を把握したいとき・意思決定の根拠を確認するとき |
 | `docs/strategy/03_事業戦略.md` | v3 事業戦略 | 収益化・差別化戦略の確認時 |
 | `docs/strategy/04_収益化戦略.md` | 収益化戦略（v3＋v8 注記）。note 個別価格・リリース計画の真実源は各試験の noteコンテンツ計画.md へ移譲済み | note・YouTube・PWA/iOS アプリ戦略検討時 |
 | `docs/marketing/01_SNS集客戦略.md` | SNS 集客戦略 v7（Instagram を一次制作チャネルに格上げ・YouTube Shorts は IG Reels mp4 の二次展開に再定義、X＝合格者発信の信頼／note 誘導動線。X 凍結対応は x-post-policy §11、総監 YT は 05 が独立 SSOT。全体像は 00_SNS整理マップ.md） | SNS 投稿設計・YouTube/Instagram 自動化検討時 |

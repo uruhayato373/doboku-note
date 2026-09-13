@@ -69,7 +69,7 @@ export default function MetricsOverview() {
       />
 
       <div className="grid cols-4" style={{ marginBottom: 16 }}>
-        <Kpi label="GA4 アクティブユーザー" value={gaUsers} unit="人" />
+        <Kpi label="GA4 日別ユーザー数の延べ合計" value={gaUsers} unit="人日" />
         <Kpi label="GA4 セッション" value={gaSessions} />
         <Kpi label="GSC クリック（上位100クエリ）" value={gscClicks} />
         <Kpi label="PSI モバイル性能（平均）" value={psiAvg ?? '—'} />

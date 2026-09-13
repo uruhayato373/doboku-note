@@ -10,6 +10,10 @@ description: >
 user-invocable: true
 ---
 
+## 資格別の事業改善との接続
+
+方針・指標の正典は `docs/strategy/01_プロダクト戦略.md` と `.claude/config/business-direction.json`。新たな事業レビュー起点の提案には `businessContext` として qualification（重点資格IDまたはall）、readerNeed、verifiedGap、metricId、reviewRecord（`.claude/state/metrics/business/` のreview参照）を付け、既存のbaseline/next_check_dateに基準期間・再測定日を持たせる。状態台帳はexperiments.jsonを継続する。集客以外の学習・販売・運営負担も評価対象だが、SEO Rank Watchには以下の専用契約を適用する。
+
 **実行環境**: ライブ計測（baseline/current の取得）を伴う操作は **creds + 外部到達性がある環境（macOS 等）専用**。会社 PC（社内プロキシで Google API 遮断）では `metrics-reader.mjs` のライブ呼び出しは通らない。
 
 > その場合は CI がコミットした `.claude/state/metrics/{ga4,gsc}/` のスナップショットを読んで baseline/current を比較する（既定経路）。計測は CI/CD 供給が正で、ローカル creds 未設定は「計測基盤未整備」ではない。恒久ルール: `.claude/knowledge/reference/measurement-incidents.md`（2026-06-05）。
@@ -146,7 +150,7 @@ abandoned  abandoned  running (re-measure)
 
 **目的**: 単一実験の残 actions をステップバイステップで完了させる。
 
-1. 指定 `id` の experiment を `getExperiment(id)` で取得
+1. experiments.jsonから指定idの実験を取得
 2. `pending_user_actions` が空 or 未定義なら「継続作業なし」と返す
 3. 各 `pending_user_actions[]` について順に:
    a. action 名と参照ファイル（`reference`）を表示
@@ -173,58 +177,45 @@ abandoned  abandoned  running (re-measure)
 4. 現状メトリクスと playbook を突き合わせ、適用可能な実験を洗い出す
 5. 各候補を rubric で採点（インパクト 40% / 工数 30% / 学習価値 20% / 確実性 10%）
 6. 加重合計降順で上位 3-5 件を表示
-7. ユーザーに「どれを experiments.json に追加するか」尋ねる
-8. 採用する候補を `addExperiment()` で追加
+7. 依頼済みの改善範囲なら根拠を示して候補を採用する。方針の大きな変更など依頼範囲を超える判断だけ確認する
+8. 既存experiments.jsonを読み、重複しないIDでstatus=proposedの候補を配列に追加する。businessContextと基準・次回日を保存し、他の実験や過去履歴を変更しない（専用ヘルパーモジュールは無い）。
 
-**出力例**:
-```
-=== NSM 実験候補 (propose) ===
-現状: Organic Search 27 UU/週、GSC clicks 2/週、top 10 queries の平均 position 8.3
-
-1. [EXP-??? 加重 2.4]「総合技術監理 キーワード集 2026」title 改善
-   hypothesis: position 7.4 → 3 位以内で CTR 3x 見込み
-   rubric: impact 3 / effort 3 / learning 2 / certainty 2 → 2.4
-   actions: title に「2026 年度試験対応」追記 → デプロイ → 10 日待機
-
-2. ...
-
-どの候補を experiments.json に追加しますか？ (例: "1,3")
-```
+**候補の出力**: 対象資格、読者の課題、現物で確認した不足、基準値と出典・期間、変更案、評価指標、再計測日を示す。順位やCTRの改善を予測で断定しない。
 
 ### start: 実行開始
 
-1. `getExperiment(id)` で取得、存在確認
+1. experiments.jsonから指定IDを取得し、存在を確認する
 2. status が `proposed` であることを確認
 3. **baseline を確定**: この時点のメトリクス（target_metric に対応する値）を取得して experiment.baseline に保存
-4. `transitionStatus(id, 'running')` で遷移
+4. SEOの本番反映待ちを含め既存の同時実験上限を確認し、空きがある場合だけstatusをrunningへ変更する。日付・根拠を履歴へ残す
 5. 実行アクションリスト（experiment.actions）を表示
-6. ユーザーに「実際の編集作業」を促す
+6. 担当の実装スキルで依頼範囲の変更を実装・検証し、実際に行った内容と再計測日を記録する。実装前を改善済みにしない
 
 ### measure: 前後比較
 
-1. `getExperiment(id)` で取得
+1. experiments.jsonから指定IDを取得
 2. status が `running` または `measuring` であることを確認
 3. **ガード: started_at から 10 日未満なら警告**（GSC 3 日遅延 + 初期データのブレを考慮）
 4. 現在のメトリクスを取得
 5. baseline と比較し、target_metric の delta を計算
 6. 効果サマリを表示（改善/悪化/変わらず）
-7. `transitionStatus(id, 'measuring')` で遷移（既に measuring なら再計測）
+7. statusをmeasuringへ変更して履歴へ記録（既に measuring なら再計測）
 
 ### close: 学び記録
 
-1. `getExperiment(id)` で取得
+1. experiments.jsonから指定IDを取得
 2. status が `measuring` であることを確認
-3. 効果判定をユーザーに問う: `success` / `partial` / `no-effect` / `negative`
-4. learnings をユーザーに記述してもらう（何が分かったか、他に転用可能か）
-5. `updateExperiment(id, { result, learnings })`
-6. `transitionStatus(id, 'done')`
+3. 比較期間・実測と判定条件から効果を評価する: `success` / `partial` / `no-effect` / `negative`
+4. learningsを実測に基づき記述する（何が分かったか、他に転用可能か）
+5. 当該実験へresultとlearningsを保存
+6. 測定・判断が済んだ当該実験だけdoneへ変更し、日時と根拠を履歴に追記
 7. **roadmap フィードバック提案**: 成功パターンなら `.claude/todo/backlog.md`（タスクマスタ）への追記提案を出力
 
 ### abandon: 中止
 
-1. `getExperiment(id)` で取得
-2. 中止理由をユーザーから聞く
-3. `transitionStatus(id, 'abandoned', { reason })`
+1. experiments.jsonから指定IDを取得
+2. 依頼範囲と根拠から中止理由を明記する。根拠のない枠空け目的では中止しない
+3. 当該実験のstatusをabandonedへ変更し、理由と日時を履歴に追記
 
 ### list / show
 
@@ -233,17 +224,17 @@ abandoned  abandoned  running (re-measure)
 
 ## 制約事項
 
-- **同時 active 実験 ≤ 2 件**（rubric 原則）: `listActive()` が 2 件以上返す場合、新規 start 時に警告
+- **同時 active 実験 ≤ 2 件**（rubric 原則）: running/measuringとSEOの本番反映待ちを数え、2件以上なら新規startを止める
 - **started_at + 10 日未満の measure は警告**: GSC 3 日遅延 + 短期ノイズを除外
 - **実行（実ファイル編集）は担当外**: 本スキルは lifecycle 管理専任、実コンテンツ編集は `/keyword-page revise` 等の Generator スキルに委譲
 - **自己評価の禁止**: 本スキルは Evaluator 役も兼ねるが、「この learning で roadmap を直接書き換える」ような Generator 行為はしない。提案までが責務
 
 ## 担当外
 
-- **NSM 定義の変更**: `/north-star-metric` スキル（既存、未実装）の担当
+- **NSM 定義の変更**: `/north-star-metric` スキルの担当
 - **コンテンツそのものの編集**: `/keyword-page`, `/check-mdx --rules frontmatter` など専任スキルの担当
 - **週次レポート生成**: `/weekly-review` の担当（本スキルは `experiments.json` の読み書きを担う）
-- **月次集計**: 別スキル（Phase 2 以降）
+- **月次の事業判断**: `/monthly-review` の担当
 
 ## 連携スキル・コンポーネント
 

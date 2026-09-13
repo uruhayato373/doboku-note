@@ -37,7 +37,10 @@ function main() {
   const root = process.cwd(), staged = process.argv.includes('--staged');
   const git = (args) => execFileSync('git', args, { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
   const get = (path) => staged ? git(['show', `:${path}`]) : readFileSync(join(root, path), 'utf8');
-  const config = validateConfig(JSON.parse(get(CONFIG))), ledger = JSON.parse(get(LEDGER)), errors = [];
+  const raw = JSON.parse(get(CONFIG));
+  if (raw.strategy.focusSource !== '.claude/config/business-direction.json' || raw.strategy.focusQualifications) throw new Error('Use business direction as qualification SSOT');
+  raw.strategy.focusQualifications = JSON.parse(get(raw.strategy.focusSource)).qualifications.map(q => q.id);
+  const config = validateConfig(raw), ledger = JSON.parse(get(LEDGER)), errors = [];
   const ids = new Set();
   const calendar = JSON.parse(get('.claude/config/exam-calendar.json'));
   for (const w of config.watchwords) {
