@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="同じ土を土粒子・水・空気の体積に分け、間隙比と飽和度の分母を確認する独自の数値例。"><defs><style>text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;fill:#222;font-size:14px}.head{font-size:16px;font-weight:bold;fill:#1a3a5c}.sub{fill:#555}.line{stroke:#555;fill:none;stroke-width:1.5}.water{fill:#e8f0fe;stroke:#2e6da4}.soil{fill:#fff3cd;stroke:#d4a017}.air{fill:#f5f5f5;stroke:#d7d7d7}.guide{fill:none;stroke:#2e6da4;stroke-dasharray:5 4;stroke-width:1.5}</style></defs><!-- tokens: ink-strong, ink-body, brand, surface, warn -->
+<text class="head" x="200" y="30" text-anchor="middle">比べる相手は、土粒子か間隙か</text>
+<text class="sub" x="200" y="55" text-anchor="middle">体積を分けた模型（単位：cm³）</text>
+<rect class="air" x="45" y="85" width="155" height="40"/>
+<rect class="water" x="45" y="125" width="155" height="60"/>
+<rect class="soil" x="45" y="185" width="155" height="200"/>
+<text x="122" y="110" text-anchor="middle">空気 20</text>
+<text x="122" y="162" text-anchor="middle">水 30</text>
+<text x="122" y="290" text-anchor="middle">土粒子 100</text>
+<path class="line" d="M210 85 H225 V185 H210"/>
+<text class="head" x="244" y="128">間隙 50</text>
+<text class="sub" x="244" y="153">水＋空気</text>
+<rect class="air" x="234" y="209" width="150" height="73" rx="6"/>
+<text x="246" y="233">間隙比</text><text class="head" x="246" y="258">50 ÷ 100＝0.50</text>
+<rect class="water" x="234" y="298" width="150" height="86" rx="6"/>
+<text x="246" y="322">飽和度</text><text class="head" x="246" y="347">30 ÷ 50 × 100</text><text class="head" x="246" y="371">＝60%</text>
+<path class="line" d="M25 411 H375"/>
+<text x="200" y="443" text-anchor="middle">含水比は体積でなく質量で求める</text>
+<text class="head" x="200" y="472" text-anchor="middle">水の質量 ÷ 土粒子の質量 × 100</text></svg>

@@ -1,66 +1,26 @@
-<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
-  style="max-width:400px;width:100%"
-  role="img"
-  aria-label="レディーミクストコンクリート受入検査4項目の判定のしかた。スランプは指定値を中心とした許容差の範囲内、空気量は普通コンクリートで 4.5 プラスマイナス 1.5 パーセントの範囲内、塩化物含有量は 0.30 キログラム毎立方メートル以下という上限、圧縮強度は材齢 28 日で所定の強度を確認する">
-  <defs>
-    <style>
-      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
-      .t-lead { font-size: 11px; fill: #555; }
-      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
-      .t-type { font-size: 11px; fill: #555; }
-      .t-crit { font-size: 11px; fill: #222; }
-      .t-mark { font-size: 11px; fill: #555; }
-      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
-      .t-item { font-size: 11px; fill: #222; }
-      .track { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.2; }
-      .ok { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.2; }
-      .tick { stroke: #3a7d44; stroke-width: 1.5; }
-      .stop { stroke: #b22234; stroke-width: 2; }
-      .tl { stroke: #2e6da4; stroke-width: 1.5; fill: none; }
-      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
-      .rule { stroke: #d7d7d7; stroke-width: 1; }
-    </style>
-    <marker id="ac-a" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
-      <polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/>
-    </marker>
-  </defs>
-
-  <text class="t-lead" x="200" y="18" text-anchor="middle">緑の帯が合格の範囲、赤い線が超えられない上限</text>
-
-  <text class="t-name" x="20" y="56">スランプ</text>
-  <text class="t-type" x="20" y="74">範囲で管理</text>
-  <rect class="track" x="150" y="46" width="200" height="16"/>
-  <rect class="ok" x="220" y="46" width="60" height="16"/>
-  <line class="tick" x1="250" y1="40" x2="250" y2="68"/>
-  <text class="t-crit" x="150" y="86">指定値を中心に許容差の範囲内</text>
-
-  <text class="t-name" x="20" y="122">空気量</text>
-  <text class="t-type" x="20" y="140">範囲で管理</text>
-  <rect class="track" x="150" y="112" width="200" height="16"/>
-  <rect class="ok" x="217" y="112" width="66" height="16"/>
-  <line class="tick" x1="250" y1="106" x2="250" y2="134"/>
-  <text class="t-crit" x="150" y="152">4.5 ± 1.5 %（普通コンクリート）</text>
-
-  <text class="t-name" x="20" y="188">塩化物含有量</text>
-  <text class="t-type" x="20" y="206">上限で管理</text>
-  <rect class="track" x="150" y="178" width="200" height="16"/>
-  <rect class="ok" x="150" y="178" width="100" height="16"/>
-  <line class="stop" x1="250" y1="172" x2="250" y2="200"/>
-  <text class="t-crit" x="150" y="218">0.30 kg/m³ 以下</text>
-  <text class="t-mark" x="256" y="218">この線を超えると不合格</text>
-
-  <text class="t-name" x="20" y="254">圧縮強度</text>
-  <text class="t-type" x="20" y="272">材齢で確認</text>
-  <line class="tl" x1="150" y1="252" x2="350" y2="252" marker-end="url(#ac-a)"/>
-  <line class="tick" x1="320" y1="244" x2="320" y2="260"/>
-  <text class="t-mark" x="320" y="238" text-anchor="middle">28 日</text>
-  <text class="t-crit" x="150" y="284">供試体を採取し所定の強度を確認</text>
-
-  <rect class="box-surf" x="20" y="310" width="360" height="172" rx="6"/>
-  <text class="t-sec" x="200" y="332" text-anchor="middle">読み取り方</text>
-  <line class="rule" x1="36" y1="341" x2="364" y2="341"/>
-  <text class="t-item" x="40" y="366">スランプはワーカビリティ（軟らかさ）の指標</text>
-  <text class="t-item" x="40" y="392">空気量は凍害抵抗性などに影響する</text>
-  <text class="t-item" x="40" y="418">塩化物含有量は鉄筋の腐食を引き起こすため制限する</text>
-  <text class="t-item" x="40" y="444">圧縮強度は後日判明するため到着時の 2 項目が要</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" role="img" aria-label="主な受入検査4項目。荷卸し時にスランプ・空気量・塩化物イオン量を確認し、採取した供試体の圧縮強度は所定の材齢で確認する" style="max-width:400px;width:100%">
+<defs><style>
+text {font-family:Inter,'Noto Sans JP','Hiragino Sans',sans-serif}
+.lead {font-size:14px;font-weight:700;fill:#1a3a5c}.name {font-size:16px;font-weight:700;fill:#1a3a5c}.body {font-size:14px;fill:#222}.note {font-size:14px;fill:#555}.card {fill:#f5f5f5;stroke:#d7d7d7;stroke-width:1.2}.range {fill:#d0e8d0;stroke:#3a7d44;stroke-width:1.2}.track {fill:#fff;stroke:#d7d7d7;stroke-width:1.2}
+</style><marker id="acceptance-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="#2e6da4"/></marker></defs>
+<text x="200" y="25" text-anchor="middle" class="lead">その場の判定と、後日の強度確認を分ける</text>
+<rect x="18" y="42" width="364" height="83" rx="8" class="card"/>
+<text x="30" y="66" class="name">スランプ</text><text x="194" y="66" class="body">指定値 ± 許容差</text>
+<rect x="40" y="80" width="320" height="12" class="track"/><rect x="157" y="80" width="86" height="12" class="range"/><line x1="200" y1="76" x2="200" y2="96" stroke="#3a7d44" stroke-width="2"/>
+<text x="200" y="113" text-anchor="middle" class="note">指定値の周りの範囲で判定</text>
+<rect x="18" y="137" width="364" height="83" rx="8" class="card"/>
+<text x="30" y="161" class="name">空気量</text><text x="155" y="161" class="body">普通：4.5 ± 1.5 %</text>
+<rect x="40" y="175" width="320" height="12" class="track"/><rect x="142" y="175" width="116" height="12" class="range"/><line x1="200" y1="171" x2="200" y2="191" stroke="#3a7d44" stroke-width="2"/>
+<text x="200" y="208" text-anchor="middle" class="note">少なすぎ・多すぎの両方を確認</text>
+<rect x="18" y="232" width="364" height="83" rx="8" class="card"/>
+<text x="30" y="256" class="name">塩化物イオン量</text><text x="317" y="256" class="body">上限</text>
+<rect x="40" y="270" width="320" height="12" class="track"/><rect x="40" y="270" width="180" height="12" class="range"/><line x1="220" y1="266" x2="220" y2="286" stroke="#b22234" stroke-width="2.5"/>
+<text x="200" y="303" text-anchor="middle" class="body">原則 0.30 kg/m³ 以下</text>
+<rect x="18" y="327" width="364" height="91" rx="8" class="card"/>
+<text x="30" y="351" class="name">圧縮強度</text><text x="184" y="351" class="body">所定の材齢で確認</text>
+<path d="M65 374 H334" fill="none" stroke="#2e6da4" stroke-width="2" marker-end="url(#acceptance-arrow)"/>
+<circle cx="65" cy="374" r="4" fill="#2e6da4"/><circle cx="200" cy="374" r="4" fill="#2e6da4"/><circle cx="324" cy="374" r="4" fill="#2e6da4"/>
+<text x="65" y="400" text-anchor="middle" class="body">採取</text><text x="200" y="400" text-anchor="middle" class="body">養生</text><text x="324" y="400" text-anchor="middle" class="body">試験</text>
+<text x="200" y="447" text-anchor="middle" class="lead">荷卸し時の3項目と、後日の強度を区別</text>
+<text x="200" y="473" text-anchor="middle" class="note">指定値・許容差・試験条件は適用規格で確認</text>
 </svg>

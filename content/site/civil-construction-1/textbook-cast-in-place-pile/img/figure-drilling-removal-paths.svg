@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="場所打ち杭の孔壁保護と排土経路。オールケーシングは鋼管とグラブ、アースドリルは安定液とバケット、リバースは孔内水と管内の吸上げ。"><defs><style>
+text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; fill:#222; }
+.name {font-size:15px;font-weight:bold;fill:#1a3a5c;} /* ink / brand-text */
+.label {font-size:14px;fill:#555;} /* ink-body */
+.note {font-size:12px;fill:#555;}
+.panel {fill:#f5f5f5;stroke:#d7d7d7;stroke-width:1.5;} /* surface / border */
+.soil {fill:#fff3cd;stroke:#d4a017;stroke-width:1.5;} /* warn-fill / warn */
+.water {fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5;} /* brand-fill / brand */
+.line {fill:none;stroke:#555;stroke-width:2;}
+.flow {fill:none;stroke:#2e6da4;stroke-width:2;}
+</style><marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#2e6da4"/></marker></defs>
+<text class="label" x="200" y="24" text-anchor="middle">土砂の出口と孔壁の支え方を比べる</text><rect class="panel" x="15" y="38" width="370" height="136" rx="8"/>
+<text class="name" x="32" y="61">オールケーシング</text>
+<path class="soil" d="M30 86 H65 V157 H118 V86 H151 V166 H30 Z"/>
+<text class="label" x="172" y="103">孔壁：全長の鋼管</text><text class="label" x="172" y="134">排土：グラブで搬出</text><path d="M65 80 V161 M118 80 V161" stroke="#2e6da4" stroke-width="6"/>
+<path class="line" d="M92 85 V120 M81 120 H103 L108 137 L96 145 M81 120 L76 137 L88 145"/>
+<path class="flow" d="M135 139 V86" marker-end="url(#arrow)"/><rect class="panel" x="15" y="191" width="370" height="136" rx="8"/>
+<text class="name" x="32" y="214">アースドリル</text>
+<path class="soil" d="M30 239 H65 V310 H118 V239 H151 V319 H30 Z"/>
+<text class="label" x="172" y="256">孔壁：安定液</text><text class="label" x="172" y="287">排土：バケット搬出</text><rect class="water" x="66" y="240" width="51" height="68"/>
+<path class="line" d="M92 225 V270"/><path class="soil" d="M78 270 H106 V291 Q92 298 78 291 Z"/>
+<path class="flow" d="M135 292 V239" marker-end="url(#arrow)"/>
+<path d="M65 230 V254 M118 230 V254" stroke="#555" stroke-width="4"/><rect class="panel" x="15" y="344" width="370" height="136" rx="8"/>
+<text class="name" x="32" y="367">リバース</text>
+<path class="soil" d="M30 392 H65 V463 H118 V392 H151 V472 H30 Z"/>
+<text class="label" x="172" y="409">孔壁：孔内水の水頭差</text><text class="label" x="172" y="440">排土：管内を吸上げ</text><rect class="water" x="66" y="393" width="51" height="68"/>
+<path class="line" d="M85 365 V452 M100 365 V452 M77 453 H108"/>
+<path class="flow" d="M92 439 V376 H136" marker-end="url(#arrow)"/>
+<path class="flow" d="M73 407 V443" marker-end="url(#arrow)"/>
+<path d="M65 384 V409 M118 384 V409" stroke="#555" stroke-width="4"/>
+</svg>
