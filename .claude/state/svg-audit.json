@@ -1,13 +1,13 @@
 {
   "meta": {
-    "generated_at": "2026-09-05T06:14:38.767Z",
+    "generated_at": "2026-09-12T23:49:22.048Z",
     "path": "content/site/**/img/*.svg",
     "file": null,
     "note": "exam crop dirs (h*-primary, primary-h*) are audited for HIGH only — design/canvas patterns are left to civil-exam-figure-auditor"
   },
   "summary": {
-    "scanned_files": 521,
-    "matched_files": 521,
+    "scanned_files": 579,
+    "matched_files": 579,
     "parse_errors": 0,
     "exam_crops_high_only": 20,
     "files_with_issues": 102,

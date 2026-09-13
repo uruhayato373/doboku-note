@@ -1,13 +1,13 @@
 {
-  "updated_at": "2026-08-22T00:00:00.000+09:00",
+  "updated_at": "2026-09-07T06:38:00.000+09:00",
   "exam": "civil-career",
   "campaign": "x-longform-career-2026",
   "note": "X Articleはネイティブ予約不可のため、1回限りのCodexローカル自動化で公開する。翌朝の告知はArticle URL確定後にpublish-xへ解放する。既存9月枠との差し替え済み。",
   "tweets": {
     "1": {
-      "title": "9/6 19:50 civil-1 / X Article自動化 / 辞めるか残るか",
+      "title": "10/2 21:00 civil-1 / X Article自動化 / 辞めるか残るか",
       "status": "scheduled",
-      "scheduled_at": "2026-09-06T19:50:00.000+09:00",
+      "scheduled_at": "2026-10-02T21:00:00.000+09:00",
       "text": "施工管理を辞めたいと思った夜に。仕事内容への不満と、今の職場環境への不満を分けて、続ける・環境を変える・転職するの3択を整理する。",
       "posted_at": null,
       "manual_only": true,
@@ -17,9 +17,9 @@
       "article_url": null
     },
     "2": {
-      "title": "9/7 07:20 civil-1 / X Article告知 / 辞めるか残るか",
+      "title": "10/3 07:20 civil-1 / X Article告知 / 辞めるか残るか",
       "status": "scheduled",
-      "scheduled_at": "2026-09-07T07:20:00.000+09:00",
+      "scheduled_at": "2026-10-03T07:20:00.000+09:00",
       "text": "施工管理を辞めたい夜に、いきなり退職届を書く必要はありません。仕事そのものが嫌なのか、今の会社の環境が嫌なのか。結論の前に分けるべき2つを長文にしました。\n\n{{ARTICLE_URL_01}}\n#施工管理 #転職",
       "posted_at": null,
       "manual_only": true,

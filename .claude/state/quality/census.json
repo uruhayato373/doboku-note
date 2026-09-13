@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-08-30T05:32:38.050Z",
+  "generated_at": "2026-09-11T16:14:25.421Z",
   "thresholds": {
     "fail": 2,
     "thin_chars": 3000,
@@ -11,12 +11,12 @@
     ]
   },
   "totals": {
-    "total": 1151,
+    "total": 1211,
     "scored": 1064,
-    "unscored": 87,
+    "unscored": 147,
     "failed": 0,
-    "thin": 324,
-    "coverage_pct": 92.4
+    "thin": 323,
+    "coverage_pct": 87.9
   },
   "by_category": {
     "civil-construction-1": {
@@ -46,18 +46,18 @@
           "avg_weighted": 2.54
         },
         "textbook": {
-          "total": 49,
+          "total": 63,
           "scored": 45,
-          "unscored": 4,
+          "unscored": 18,
           "failed": 0,
           "thin": 0,
           "avg_weighted": 2.87
         }
       },
       "totals": {
-        "total": 140,
+        "total": 154,
         "scored": 131,
-        "unscored": 9,
+        "unscored": 23,
         "failed": 0,
         "thin": 0
       }
@@ -65,9 +65,9 @@
     "civil-construction-2": {
       "groups": {
         "guide": {
-          "total": 23,
+          "total": 26,
           "scored": 21,
-          "unscored": 2,
+          "unscored": 5,
           "failed": 0,
           "thin": 0,
           "avg_weighted": 2.8
@@ -81,18 +81,18 @@
           "avg_weighted": 2.28
         },
         "secondary": {
-          "total": 8,
+          "total": 9,
           "scored": 8,
-          "unscored": 0,
+          "unscored": 1,
           "failed": 0,
           "thin": 0,
           "avg_weighted": 2.42
         }
       },
       "totals": {
-        "total": 41,
+        "total": 45,
         "scored": 39,
-        "unscored": 2,
+        "unscored": 6,
         "failed": 0,
         "thin": 0
       }
@@ -100,18 +100,18 @@
     "civil-practice": {
       "groups": {
         "guide": {
-          "total": 49,
+          "total": 50,
           "scored": 0,
-          "unscored": 49,
+          "unscored": 50,
           "failed": 0,
           "thin": 0,
           "avg_weighted": null
         }
       },
       "totals": {
-        "total": 49,
+        "total": 50,
         "scored": 0,
-        "unscored": 49,
+        "unscored": 50,
         "failed": 0,
         "thin": 0
       }
@@ -186,6 +186,41 @@
         "thin": 0
       }
     },
+    "concrete-engineer": {
+      "groups": {
+        "guide": {
+          "total": 5,
+          "scored": 0,
+          "unscored": 5,
+          "failed": 0,
+          "thin": 0,
+          "avg_weighted": null
+        },
+        "primary": {
+          "total": 6,
+          "scored": 0,
+          "unscored": 6,
+          "failed": 0,
+          "thin": 0,
+          "avg_weighted": null
+        },
+        "textbook": {
+          "total": 6,
+          "scored": 0,
+          "unscored": 6,
+          "failed": 0,
+          "thin": 0,
+          "avg_weighted": null
+        }
+      },
+      "totals": {
+        "total": 17,
+        "scored": 0,
+        "unscored": 17,
+        "failed": 0,
+        "thin": 0
+      }
+    },
     "pe-comprehensive-management": {
       "groups": {
         "guide": {
@@ -201,7 +236,7 @@
           "scored": 659,
           "unscored": 2,
           "failed": 0,
-          "thin": 307,
+          "thin": 306,
           "avg_weighted": 2.71
         },
         "past-exam": {
@@ -226,15 +261,15 @@
         "scored": 724,
         "unscored": 4,
         "failed": 0,
-        "thin": 307
+        "thin": 306
       }
     },
     "pe-construction": {
       "groups": {
         "guide": {
-          "total": 11,
+          "total": 16,
           "scored": 11,
-          "unscored": 0,
+          "unscored": 5,
           "failed": 0,
           "thin": 0,
           "avg_weighted": 2.55
@@ -257,47 +292,36 @@
         }
       },
       "totals": {
-        "total": 130,
+        "total": 135,
         "scored": 130,
-        "unscored": 0,
+        "unscored": 5,
         "failed": 0,
         "thin": 16
       }
     },
     "pe-first-stage": {
       "groups": {
+        "guide": {
+          "total": 6,
+          "scored": 0,
+          "unscored": 6,
+          "failed": 0,
+          "thin": 0,
+          "avg_weighted": null
+        },
         "primary": {
-          "total": 21,
+          "total": 39,
           "scored": 21,
-          "unscored": 0,
+          "unscored": 18,
           "failed": 0,
           "thin": 0,
           "avg_weighted": 2.61
         }
       },
       "totals": {
-        "total": 21,
+        "total": 45,
         "scored": 21,
-        "unscored": 0,
-        "failed": 0,
-        "thin": 0
-      }
-    },
-    "reference-materials": {
-      "groups": {
-        "_nogroup": {
-          "total": 5,
-          "scored": 0,
-          "unscored": 5,
-          "failed": 0,
-          "thin": 0,
-          "avg_weighted": null
-        }
-      },
-      "totals": {
-        "total": 5,
-        "scored": 0,
-        "unscored": 5,
+        "unscored": 24,
         "failed": 0,
         "thin": 0
       }
@@ -999,14 +1023,6 @@
       "reason": "thin",
       "weighted": 2.9,
       "body_chars": 2814
-    },
-    {
-      "slug": "pe-comprehensive-management-fail-safe",
-      "category": "pe-comprehensive-management",
-      "group": "keyword",
-      "reason": "thin",
-      "weighted": 2.75,
-      "body_chars": 2940
     },
     {
       "slug": "pe-comprehensive-management-fault-avoidance",
@@ -1798,7 +1814,7 @@
       "group": "keyword",
       "reason": "thin",
       "weighted": 2.6,
-      "body_chars": 2818
+      "body_chars": 2879
     },
     {
       "slug": "pe-comprehensive-management-outcome-indicators",
@@ -2142,7 +2158,7 @@
       "group": "keyword",
       "reason": "thin",
       "weighted": 2.75,
-      "body_chars": 2318
+      "body_chars": 2438
     },
     {
       "slug": "pe-comprehensive-management-residual-risk",
@@ -2302,7 +2318,7 @@
       "group": "keyword",
       "reason": "thin",
       "weighted": 2.5,
-      "body_chars": 2831
+      "body_chars": 2810
     },
     {
       "slug": "pe-comprehensive-management-scm-system",
@@ -2899,15 +2915,41 @@
   ],
   "delta": {
     "first_run": false,
-    "previous_generated_at": "2026-08-30T05:17:56.916Z",
+    "previous_generated_at": "2026-09-09T22:07:21.817Z",
     "totals_diff": {
-      "total": 0,
+      "total": 5,
       "scored": 0,
-      "unscored": 0,
+      "unscored": 5,
       "failed": 0,
       "thin": 0
     },
-    "newly_unscored": [],
+    "newly_unscored": [
+      {
+        "slug": "pe-construction-aimai-hyougen-sahou",
+        "category": "pe-construction",
+        "group": "guide"
+      },
+      {
+        "slug": "pe-construction-keyword-note-tsukurikata",
+        "category": "pe-construction",
+        "group": "guide"
+      },
+      {
+        "slug": "pe-construction-setsumon-bunkai",
+        "category": "pe-construction",
+        "group": "guide"
+      },
+      {
+        "slug": "pe-construction-shiken-toujitsu-tejun",
+        "category": "pe-construction",
+        "group": "guide"
+      },
+      {
+        "slug": "pe-construction-suikou-checklist",
+        "category": "pe-construction",
+        "group": "guide"
+      }
+    ],
     "thin_regression": [],
     "score_dropped": []
   },
@@ -2949,7 +2991,7 @@
       "slug": "civil-construction-1-guide-buildjob-review",
       "category": "civil-construction-1",
       "group": "guide",
-      "body_chars": 3194,
+      "body_chars": 3065,
       "scored": false,
       "weighted": null,
       "scored_at": null,
@@ -2971,7 +3013,7 @@
       "slug": "civil-construction-1-guide-career-agent-comparison",
       "category": "civil-construction-1",
       "group": "guide",
-      "body_chars": 5013,
+      "body_chars": 5470,
       "scored": false,
       "weighted": null,
       "scored_at": null,
@@ -3004,7 +3046,7 @@
       "slug": "civil-construction-1-guide-career-consultation-before-quit",
       "category": "civil-construction-1",
       "group": "guide",
-      "body_chars": 3231,
+      "body_chars": 4393,
       "scored": false,
       "weighted": null,
       "scored_at": null,
@@ -3202,7 +3244,7 @@
       "slug": "civil-construction-1-guide-hatchu-shien",
       "category": "civil-construction-1",
       "group": "guide",
-      "body_chars": 3094,
+      "body_chars": 4019,
       "scored": true,
       "weighted": 2.4,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -3224,7 +3266,7 @@
       "slug": "civil-construction-1-guide-last-minute-2026",
       "category": "civil-construction-1",
       "group": "guide",
-      "body_chars": 7585,
+      "body_chars": 7724,
       "scored": true,
       "weighted": 2.85,
       "scored_at": "2026-06-08T05:29:49.891Z",
@@ -3433,7 +3475,7 @@
       "slug": "civil-construction-1-guide-white-company",
       "category": "civil-construction-1",
       "group": "guide",
-      "body_chars": 3007,
+      "body_chars": 3858,
       "scored": true,
       "weighted": 2.8,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -3807,7 +3849,7 @@
       "slug": "civil-construction-1-secondary-experience-writing-examples",
       "category": "civil-construction-1",
       "group": "secondary",
-      "body_chars": 14182,
+      "body_chars": 14383,
       "scored": true,
       "weighted": 2.1,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -3818,7 +3860,7 @@
       "slug": "civil-construction-1-secondary-experience-writing-guide",
       "category": "civil-construction-1",
       "group": "secondary",
-      "body_chars": 17004,
+      "body_chars": 17444,
       "scored": true,
       "weighted": 2.3,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -3906,7 +3948,7 @@
       "slug": "civil-construction-1-secondary-r07",
       "category": "civil-construction-1",
       "group": "secondary",
-      "body_chars": 12704,
+      "body_chars": 12791,
       "scored": true,
       "weighted": 2.8,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -3914,10 +3956,21 @@
       "thin": false
     },
     {
+      "slug": "civil-construction-1-textbook-asphalt-concrete-pavement",
+      "category": "civil-construction-1",
+      "group": "textbook",
+      "body_chars": 15077,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
       "slug": "civil-construction-1-textbook-building-standards",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 5692,
+      "body_chars": 5507,
       "scored": true,
       "weighted": 2.85,
       "scored_at": "2026-04-20T05:46:29.772Z",
@@ -3925,10 +3978,65 @@
       "thin": false
     },
     {
+      "slug": "civil-construction-1-textbook-cast-in-place-pile",
+      "category": "civil-construction-1",
+      "group": "textbook",
+      "body_chars": 8901,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-construction-1-textbook-concrete-materials",
+      "category": "civil-construction-1",
+      "group": "textbook",
+      "body_chars": 12981,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-construction-1-textbook-concrete-mix-design",
+      "category": "civil-construction-1",
+      "group": "textbook",
+      "body_chars": 7804,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-construction-1-textbook-concrete-placement",
+      "category": "civil-construction-1",
+      "group": "textbook",
+      "body_chars": 7952,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-construction-1-textbook-concrete-properties",
+      "category": "civil-construction-1",
+      "group": "textbook",
+      "body_chars": 12677,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
       "slug": "civil-construction-1-textbook-construction-business",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 8154,
+      "body_chars": 7384,
       "scored": true,
       "weighted": 2.85,
       "scored_at": "2026-04-20T05:46:29.772Z",
@@ -3939,7 +4047,7 @@
       "slug": "civil-construction-1-textbook-construction-byproduct-recycle",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 5519,
+      "body_chars": 5536,
       "scored": true,
       "weighted": 3,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -3950,7 +4058,7 @@
       "slug": "civil-construction-1-textbook-construction-mgmt-overview",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 4830,
+      "body_chars": 4835,
       "scored": true,
       "weighted": 2.85,
       "scored_at": "2026-04-20T05:46:29.772Z",
@@ -3961,7 +4069,7 @@
       "slug": "civil-construction-1-textbook-construction-plan-overview",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 8129,
+      "body_chars": 8300,
       "scored": true,
       "weighted": 3,
       "scored_at": "2026-08-26T05:21:33.077Z",
@@ -3972,7 +4080,7 @@
       "slug": "civil-construction-1-textbook-control-chart",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 6659,
+      "body_chars": 6155,
       "scored": true,
       "weighted": 2.7,
       "scored_at": "2026-08-26T05:21:33.077Z",
@@ -3994,7 +4102,7 @@
       "slug": "civil-construction-1-textbook-cut-slope-protection",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 6661,
+      "body_chars": 6674,
       "scored": false,
       "weighted": null,
       "scored_at": null,
@@ -4024,10 +4132,32 @@
       "thin": false
     },
     {
+      "slug": "civil-construction-1-textbook-earth-retaining-cofferdam",
+      "category": "civil-construction-1",
+      "group": "textbook",
+      "body_chars": 6060,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-construction-1-textbook-earthwork-planning",
+      "category": "civil-construction-1",
+      "group": "textbook",
+      "body_chars": 13389,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
       "slug": "civil-construction-1-textbook-embankment",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 5960,
+      "body_chars": 5969,
       "scored": false,
       "weighted": null,
       "scored_at": null,
@@ -4038,7 +4168,7 @@
       "slug": "civil-construction-1-textbook-explosives-act",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 6678,
+      "body_chars": 6306,
       "scored": true,
       "weighted": 3,
       "scored_at": "2026-04-25T07:05:40.433Z",
@@ -4046,10 +4176,21 @@
       "thin": false
     },
     {
+      "slug": "civil-construction-1-textbook-foundation-overview-survey",
+      "category": "civil-construction-1",
+      "group": "textbook",
+      "body_chars": 7765,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
       "slug": "civil-construction-1-textbook-grader-compaction",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 9057,
+      "body_chars": 8756,
       "scored": true,
       "weighted": 3,
       "scored_at": "2026-04-20T05:46:29.772Z",
@@ -4060,7 +4201,7 @@
       "slug": "civil-construction-1-textbook-histogram",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 6512,
+      "body_chars": 6554,
       "scored": true,
       "weighted": 2.85,
       "scored_at": "2026-04-20T05:46:29.772Z",
@@ -4071,7 +4212,7 @@
       "slug": "civil-construction-1-textbook-labor-standards",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 10542,
+      "body_chars": 9151,
       "scored": true,
       "weighted": 2,
       "scored_at": "2026-08-26T05:21:33.077Z",
@@ -4082,7 +4223,7 @@
       "slug": "civil-construction-1-textbook-law-compliance",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 4714,
+      "body_chars": 4617,
       "scored": true,
       "weighted": 3,
       "scored_at": "2026-04-25T07:05:40.433Z",
@@ -4104,7 +4245,7 @@
       "slug": "civil-construction-1-textbook-loader",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 4939,
+      "body_chars": 4931,
       "scored": true,
       "weighted": 3,
       "scored_at": "2026-04-20T05:46:29.772Z",
@@ -4115,7 +4256,7 @@
       "slug": "civil-construction-1-textbook-machinery-overview",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 10198,
+      "body_chars": 9127,
       "scored": true,
       "weighted": 2.2,
       "scored_at": "2026-08-26T05:21:33.077Z",
@@ -4126,7 +4267,7 @@
       "slug": "civil-construction-1-textbook-machinery-structure",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 5310,
+      "body_chars": 4991,
       "scored": true,
       "weighted": 2.85,
       "scored_at": "2026-04-20T05:46:29.772Z",
@@ -4137,7 +4278,7 @@
       "slug": "civil-construction-1-textbook-management-subplans",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 12916,
+      "body_chars": 11951,
       "scored": true,
       "weighted": 2.7,
       "scored_at": "2026-04-20T05:46:29.772Z",
@@ -4148,7 +4289,7 @@
       "slug": "civil-construction-1-textbook-network-schedule",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 7345,
+      "body_chars": 7320,
       "scored": true,
       "weighted": 3,
       "scored_at": "2026-04-20T05:46:29.772Z",
@@ -4159,7 +4300,7 @@
       "slug": "civil-construction-1-textbook-noise-vibration-regulation",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 5708,
+      "body_chars": 5684,
       "scored": true,
       "weighted": 3,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -4167,10 +4308,32 @@
       "thin": false
     },
     {
+      "slug": "civil-construction-1-textbook-pavement-repair-quality",
+      "category": "civil-construction-1",
+      "group": "textbook",
+      "body_chars": 9811,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-construction-1-textbook-pile-foundation-precast",
+      "category": "civil-construction-1",
+      "group": "textbook",
+      "body_chars": 11326,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
       "slug": "civil-construction-1-textbook-port-regulations",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 5649,
+      "body_chars": 5575,
       "scored": true,
       "weighted": 2.7,
       "scored_at": "2026-08-26T05:21:33.077Z",
@@ -4181,7 +4344,7 @@
       "slug": "civil-construction-1-textbook-quality-inspection",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 3528,
+      "body_chars": 3453,
       "scored": true,
       "weighted": 2.8,
       "scored_at": "2026-04-20T05:46:29.772Z",
@@ -4192,7 +4355,7 @@
       "slug": "civil-construction-1-textbook-quality-overview",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 10875,
+      "body_chars": 9510,
       "scored": true,
       "weighted": 2.4,
       "scored_at": "2026-08-26T05:21:33.077Z",
@@ -4200,10 +4363,21 @@
       "thin": false
     },
     {
+      "slug": "civil-construction-1-textbook-rebar-formwork",
+      "category": "civil-construction-1",
+      "group": "textbook",
+      "body_chars": 9469,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
       "slug": "civil-construction-1-textbook-river-act",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 5113,
+      "body_chars": 4776,
       "scored": true,
       "weighted": 2.85,
       "scored_at": "2026-04-20T05:46:29.772Z",
@@ -4214,10 +4388,21 @@
       "slug": "civil-construction-1-textbook-road-act",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 7040,
+      "body_chars": 6533,
       "scored": true,
       "weighted": 2.85,
       "scored_at": "2026-04-20T05:46:29.772Z",
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-construction-1-textbook-road-earthwork-subbase",
+      "category": "civil-construction-1",
+      "group": "textbook",
+      "body_chars": 10368,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
       "failed": false,
       "thin": false
     },
@@ -4236,7 +4421,7 @@
       "slug": "civil-construction-1-textbook-safety-industrial-safety-law",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 4891,
+      "body_chars": 4886,
       "scored": true,
       "weighted": 3,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -4247,7 +4432,7 @@
       "slug": "civil-construction-1-textbook-safety-machinery-crane",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 5065,
+      "body_chars": 5052,
       "scored": true,
       "weighted": 2.8,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -4291,7 +4476,7 @@
       "slug": "civil-construction-1-textbook-safety-work-environment",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 5602,
+      "body_chars": 5582,
       "scored": true,
       "weighted": 2.8,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -4302,7 +4487,7 @@
       "slug": "civil-construction-1-textbook-schedule-charts",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 7105,
+      "body_chars": 6411,
       "scored": true,
       "weighted": 3,
       "scored_at": "2026-08-26T05:21:33.077Z",
@@ -4313,7 +4498,7 @@
       "slug": "civil-construction-1-textbook-schedule-overview",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 6344,
+      "body_chars": 6079,
       "scored": true,
       "weighted": 3,
       "scored_at": "2026-08-26T05:21:33.077Z",
@@ -4324,7 +4509,7 @@
       "slug": "civil-construction-1-textbook-scraper",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 3537,
+      "body_chars": 3842,
       "scored": true,
       "weighted": 2.85,
       "scored_at": "2026-04-20T05:46:29.772Z",
@@ -4335,7 +4520,7 @@
       "slug": "civil-construction-1-textbook-shovel-excavator",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 8975,
+      "body_chars": 8564,
       "scored": true,
       "weighted": 3,
       "scored_at": "2026-04-20T05:46:29.772Z",
@@ -4346,7 +4531,7 @@
       "slug": "civil-construction-1-textbook-site-investigation",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 4614,
+      "body_chars": 4376,
       "scored": true,
       "weighted": 2.85,
       "scored_at": "2026-08-26T05:21:33.077Z",
@@ -4357,7 +4542,7 @@
       "slug": "civil-construction-1-textbook-soft-ground-drainage",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 5867,
+      "body_chars": 5895,
       "scored": false,
       "weighted": null,
       "scored_at": null,
@@ -4368,7 +4553,18 @@
       "slug": "civil-construction-1-textbook-soil-investigation-methods",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 7905,
+      "body_chars": 7845,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-construction-1-textbook-special-concrete-inspection",
+      "category": "civil-construction-1",
+      "group": "textbook",
+      "body_chars": 13012,
       "scored": false,
       "weighted": null,
       "scored_at": null,
@@ -4379,7 +4575,7 @@
       "slug": "civil-construction-1-textbook-standard-contract",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 7179,
+      "body_chars": 6741,
       "scored": true,
       "weighted": 2.85,
       "scored_at": "2026-04-25T07:05:40.433Z",
@@ -4401,7 +4597,7 @@
       "slug": "civil-construction-1-textbook-tractor-bulldozer",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 8278,
+      "body_chars": 7658,
       "scored": true,
       "weighted": 3,
       "scored_at": "2026-04-20T05:46:29.772Z",
@@ -4412,7 +4608,7 @@
       "slug": "civil-construction-1-textbook-transport-machinery",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 7617,
+      "body_chars": 7238,
       "scored": true,
       "weighted": 2.85,
       "scored_at": "2026-04-20T05:46:29.772Z",
@@ -4423,7 +4619,7 @@
       "slug": "civil-construction-1-textbook-waste-disposal-manifest",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 6202,
+      "body_chars": 6198,
       "scored": true,
       "weighted": 3,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -4434,7 +4630,7 @@
       "slug": "civil-construction-1-textbook-water-air-soil-pollution",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 5498,
+      "body_chars": 5487,
       "scored": true,
       "weighted": 3,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -4445,7 +4641,7 @@
       "slug": "civil-construction-1-textbook-work-scheduling",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 7483,
+      "body_chars": 7389,
       "scored": true,
       "weighted": 2.5,
       "scored_at": "2026-08-26T05:21:33.077Z",
@@ -4456,7 +4652,7 @@
       "slug": "civil-construction-2-guide-buildjob-review",
       "category": "civil-construction-2",
       "group": "guide",
-      "body_chars": 3153,
+      "body_chars": 3424,
       "scored": false,
       "weighted": null,
       "scored_at": null,
@@ -4478,7 +4674,7 @@
       "slug": "civil-construction-2-guide-career-agent-comparison",
       "category": "civil-construction-2",
       "group": "guide",
-      "body_chars": 3064,
+      "body_chars": 3656,
       "scored": false,
       "weighted": null,
       "scored_at": null,
@@ -4588,7 +4784,7 @@
       "slug": "civil-construction-2-guide-overview",
       "category": "civil-construction-2",
       "group": "guide",
-      "body_chars": 3690,
+      "body_chars": 3732,
       "scored": true,
       "weighted": 3,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -4698,7 +4894,7 @@
       "slug": "civil-construction-2-guide-young-career",
       "category": "civil-construction-2",
       "group": "guide",
-      "body_chars": 3100,
+      "body_chars": 3608,
       "scored": true,
       "weighted": 2.6,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -4816,10 +5012,21 @@
       "thin": false
     },
     {
+      "slug": "civil-construction-2-secondary-experience-writing-by-theme",
+      "category": "civil-construction-2",
+      "group": "secondary",
+      "body_chars": 4062,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
       "slug": "civil-construction-2-secondary-experience-writing-examples",
       "category": "civil-construction-2",
       "group": "secondary",
-      "body_chars": 3301,
+      "body_chars": 3262,
       "scored": true,
       "weighted": 2.2,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -4841,10 +5048,32 @@
       "slug": "civil-construction-2-secondary-getting-started",
       "category": "civil-construction-2",
       "group": "secondary",
-      "body_chars": 2884,
+      "body_chars": 3023,
       "scored": true,
       "weighted": 2.4,
       "scored_at": "2026-07-10T00:00:00.000Z",
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-construction-2-secondary-grading-and-partial-credit",
+      "category": "civil-construction-2",
+      "group": "guide",
+      "body_chars": 4644,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-construction-2-secondary-last-two-weeks-plan",
+      "category": "civil-construction-2",
+      "group": "guide",
+      "body_chars": 3942,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
       "failed": false,
       "thin": false
     },
@@ -4900,6 +5129,17 @@
       "scored": true,
       "weighted": 2.4,
       "scored_at": "2026-07-10T00:00:00.000Z",
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-construction-2-secondary-written-questions-guide",
+      "category": "civil-construction-2",
+      "group": "guide",
+      "body_chars": 4918,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
       "failed": false,
       "thin": false
     },
@@ -4984,7 +5224,7 @@
       "slug": "civil-practice-concrete-mix-acceptance",
       "category": "civil-practice",
       "group": "guide",
-      "body_chars": 4108,
+      "body_chars": 4151,
       "scored": false,
       "weighted": null,
       "scored_at": null,
@@ -5039,7 +5279,7 @@
       "slug": "civil-practice-construction-plan-document",
       "category": "civil-practice",
       "group": "guide",
-      "body_chars": 4039,
+      "body_chars": 4133,
       "scored": false,
       "weighted": null,
       "scored_at": null,
@@ -5355,6 +5595,17 @@
       "thin": false
     },
     {
+      "slug": "civil-practice-service-commencement",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 3945,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
       "slug": "civil-practice-sheet-pile-snow-coating",
       "category": "civil-practice",
       "group": "guide",
@@ -5446,7 +5697,7 @@
       "slug": "concrete-chief-engineer-guide-essay",
       "category": "concrete-chief-engineer",
       "group": "guide",
-      "body_chars": 4965,
+      "body_chars": 5094,
       "scored": true,
       "weighted": 2.8,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -5457,7 +5708,7 @@
       "slug": "concrete-chief-engineer-guide-overview",
       "category": "concrete-chief-engineer",
       "group": "guide",
-      "body_chars": 3045,
+      "body_chars": 3600,
       "scored": true,
       "weighted": 2.4,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -5468,7 +5719,7 @@
       "slug": "concrete-chief-engineer-guide-trends",
       "category": "concrete-chief-engineer",
       "group": "guide",
-      "body_chars": 3970,
+      "body_chars": 4619,
       "scored": true,
       "weighted": 2.6,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -5567,7 +5818,7 @@
       "slug": "concrete-chief-engineer-textbook-construction",
       "category": "concrete-chief-engineer",
       "group": "textbook",
-      "body_chars": 7628,
+      "body_chars": 7627,
       "scored": true,
       "weighted": 2.25,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -5578,7 +5829,7 @@
       "slug": "concrete-chief-engineer-textbook-durability",
       "category": "concrete-chief-engineer",
       "group": "textbook",
-      "body_chars": 5233,
+      "body_chars": 13361,
       "scored": true,
       "weighted": 2.4,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -5589,7 +5840,7 @@
       "slug": "concrete-chief-engineer-textbook-materials",
       "category": "concrete-chief-engineer",
       "group": "textbook",
-      "body_chars": 6374,
+      "body_chars": 12743,
       "scored": true,
       "weighted": 2.7,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -5600,7 +5851,7 @@
       "slug": "concrete-chief-engineer-textbook-mix-design",
       "category": "concrete-chief-engineer",
       "group": "textbook",
-      "body_chars": 4294,
+      "body_chars": 16066,
       "scored": true,
       "weighted": 2.7,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -5611,7 +5862,7 @@
       "slug": "concrete-chief-engineer-textbook-production-qc",
       "category": "concrete-chief-engineer",
       "group": "textbook",
-      "body_chars": 5427,
+      "body_chars": 5423,
       "scored": true,
       "weighted": 2.7,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -5633,7 +5884,7 @@
       "slug": "concrete-chief-engineer-textbook-properties",
       "category": "concrete-chief-engineer",
       "group": "textbook",
-      "body_chars": 6281,
+      "body_chars": 15495,
       "scored": true,
       "weighted": 2.7,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -5710,7 +5961,7 @@
       "slug": "concrete-diagnostician-primary-exercise-02",
       "category": "concrete-diagnostician",
       "group": "primary",
-      "body_chars": 8483,
+      "body_chars": 8385,
       "scored": false,
       "weighted": null,
       "scored_at": null,
@@ -5732,7 +5983,7 @@
       "slug": "concrete-diagnostician-primary-exercise-04",
       "category": "concrete-diagnostician",
       "group": "primary",
-      "body_chars": 7076,
+      "body_chars": 7116,
       "scored": false,
       "weighted": null,
       "scored_at": null,
@@ -5743,7 +5994,7 @@
       "slug": "concrete-diagnostician-primary-exercise-05",
       "category": "concrete-diagnostician",
       "group": "primary",
-      "body_chars": 7327,
+      "body_chars": 7463,
       "scored": false,
       "weighted": null,
       "scored_at": null,
@@ -5754,7 +6005,7 @@
       "slug": "concrete-diagnostician-primary-exercise-06",
       "category": "concrete-diagnostician",
       "group": "primary",
-      "body_chars": 7693,
+      "body_chars": 7702,
       "scored": false,
       "weighted": null,
       "scored_at": null,
@@ -5843,6 +6094,193 @@
       "category": "concrete-diagnostician",
       "group": "textbook",
       "body_chars": 6342,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "concrete-engineer-guide-books",
+      "category": "concrete-engineer",
+      "group": "guide",
+      "body_chars": 4508,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "concrete-engineer-guide-difference-chief",
+      "category": "concrete-engineer",
+      "group": "guide",
+      "body_chars": 4505,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "concrete-engineer-guide-eligibility-2026",
+      "category": "concrete-engineer",
+      "group": "guide",
+      "body_chars": 3402,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "concrete-engineer-guide-overview",
+      "category": "concrete-engineer",
+      "group": "guide",
+      "body_chars": 3534,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "concrete-engineer-guide-study-plan",
+      "category": "concrete-engineer",
+      "group": "guide",
+      "body_chars": 3538,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "concrete-engineer-primary-construction",
+      "category": "concrete-engineer",
+      "group": "primary",
+      "body_chars": 3013,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "concrete-engineer-primary-environment",
+      "category": "concrete-engineer",
+      "group": "primary",
+      "body_chars": 3231,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "concrete-engineer-primary-materials",
+      "category": "concrete-engineer",
+      "group": "primary",
+      "body_chars": 3398,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "concrete-engineer-primary-mix-design",
+      "category": "concrete-engineer",
+      "group": "primary",
+      "body_chars": 3034,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "concrete-engineer-primary-production-qc",
+      "category": "concrete-engineer",
+      "group": "primary",
+      "body_chars": 3059,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "concrete-engineer-primary-properties-testing",
+      "category": "concrete-engineer",
+      "group": "primary",
+      "body_chars": 3117,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "concrete-engineer-textbook-construction",
+      "category": "concrete-engineer",
+      "group": "textbook",
+      "body_chars": 3486,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "concrete-engineer-textbook-environment",
+      "category": "concrete-engineer",
+      "group": "textbook",
+      "body_chars": 3544,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "concrete-engineer-textbook-materials",
+      "category": "concrete-engineer",
+      "group": "textbook",
+      "body_chars": 3876,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "concrete-engineer-textbook-mix-design",
+      "category": "concrete-engineer",
+      "group": "textbook",
+      "body_chars": 3904,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "concrete-engineer-textbook-production-qc",
+      "category": "concrete-engineer",
+      "group": "textbook",
+      "body_chars": 4116,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "concrete-engineer-textbook-properties-testing",
+      "category": "concrete-engineer",
+      "group": "textbook",
+      "body_chars": 3644,
       "scored": false,
       "weighted": null,
       "scored_at": null,
@@ -8218,12 +8656,12 @@
       "slug": "pe-comprehensive-management-fail-safe",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 2940,
+      "body_chars": 3038,
       "scored": true,
       "weighted": 2.75,
       "scored_at": "2026-06-20T01:46:05.744Z",
       "failed": false,
-      "thin": true
+      "thin": false
     },
     {
       "slug": "pe-comprehensive-management-fail-soft",
@@ -9384,7 +9822,7 @@
       "slug": "pe-comprehensive-management-inspection-methods",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 3090,
+      "body_chars": 3094,
       "scored": true,
       "weighted": 3,
       "scored_at": "2026-06-20T02:03:07.416Z",
@@ -9626,7 +10064,7 @@
       "slug": "pe-comprehensive-management-iso-14000",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 5463,
+      "body_chars": 5512,
       "scored": true,
       "weighted": 3,
       "scored_at": "2026-06-20T01:46:08.109Z",
@@ -9780,7 +10218,7 @@
       "slug": "pe-comprehensive-management-keyword-2026",
       "category": "pe-comprehensive-management",
       "group": "guide",
-      "body_chars": 56839,
+      "body_chars": 56910,
       "scored": true,
       "weighted": 2.4,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -10737,7 +11175,7 @@
       "slug": "pe-comprehensive-management-osh-management-system",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 2818,
+      "body_chars": 2879,
       "scored": true,
       "weighted": 2.6,
       "scored_at": "2026-06-20T01:46:10.340Z",
@@ -12112,7 +12550,7 @@
       "slug": "pe-comprehensive-management-renewable-energy-act",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 2318,
+      "body_chars": 2438,
       "scored": true,
       "weighted": 2.75,
       "scored_at": "2026-06-20T01:46:12.848Z",
@@ -12365,7 +12803,7 @@
       "slug": "pe-comprehensive-management-root-cause-analysis",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 4034,
+      "body_chars": 4504,
       "scored": true,
       "weighted": 2.75,
       "scored_at": "2026-06-20T01:46:13.438Z",
@@ -12607,7 +13045,7 @@
       "slug": "pe-comprehensive-management-scientific-management",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 2831,
+      "body_chars": 2810,
       "scored": true,
       "weighted": 2.5,
       "scored_at": "2026-06-20T01:46:14.010Z",
@@ -13858,6 +14296,17 @@
       "thin": false
     },
     {
+      "slug": "pe-construction-aimai-hyougen-sahou",
+      "category": "pe-construction",
+      "group": "guide",
+      "body_chars": 5818,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
       "slug": "pe-construction-bosai-kokudo-kyoujinka",
       "category": "pe-construction",
       "group": "keyword",
@@ -14004,7 +14453,7 @@
       "slug": "pe-construction-guide-required-essay",
       "category": "pe-construction",
       "group": "guide",
-      "body_chars": 5518,
+      "body_chars": 5527,
       "scored": true,
       "weighted": 2.4,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -14015,7 +14464,7 @@
       "slug": "pe-construction-gyoumu-keireki-hyou",
       "category": "pe-construction",
       "group": "guide",
-      "body_chars": 3663,
+      "body_chars": 4336,
       "scored": true,
       "weighted": 2.6,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -14067,6 +14516,17 @@
       "thin": true
     },
     {
+      "slug": "pe-construction-keyword-note-tsukurikata",
+      "category": "pe-construction",
+      "group": "guide",
+      "body_chars": 5032,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
       "slug": "pe-construction-kokudo-keisei-chiiki",
       "category": "pe-construction",
       "group": "keyword",
@@ -14114,7 +14574,7 @@
       "slug": "pe-construction-pe-secondary-essay-guide",
       "category": "pe-construction",
       "group": "guide",
-      "body_chars": 4314,
+      "body_chars": 4945,
       "scored": true,
       "weighted": 2.2,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -15189,6 +15649,17 @@
       "thin": false
     },
     {
+      "slug": "pe-construction-setsumon-bunkai",
+      "category": "pe-construction",
+      "group": "guide",
+      "body_chars": 5642,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
       "slug": "pe-construction-shakai-shihon-ronbun-keyword",
       "category": "pe-construction",
       "group": "keyword",
@@ -15196,6 +15667,17 @@
       "scored": true,
       "weighted": 2.4,
       "scored_at": "2026-07-10T00:00:00.000Z",
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "pe-construction-shiken-toujitsu-tejun",
+      "category": "pe-construction",
+      "group": "guide",
+      "body_chars": 5125,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
       "failed": false,
       "thin": false
     },
@@ -15231,6 +15713,17 @@
       "scored_at": "2026-07-10T00:00:00.000Z",
       "failed": false,
       "thin": true
+    },
+    {
+      "slug": "pe-construction-suikou-checklist",
+      "category": "pe-construction",
+      "group": "guide",
+      "body_chars": 4322,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
     },
     {
       "slug": "pe-construction-toan-kousei-template",
@@ -15269,7 +15762,7 @@
       "slug": "pe-construction-urban-planning-exam-themes",
       "category": "pe-construction",
       "group": "keyword",
-      "body_chars": 5747,
+      "body_chars": 5741,
       "scored": true,
       "weighted": 2,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -15286,6 +15779,270 @@
       "scored_at": "2026-07-10T00:00:00.000Z",
       "failed": false,
       "thin": true
+    },
+    {
+      "slug": "pe-first-stage-guide-after-pass",
+      "category": "pe-first-stage",
+      "group": "guide",
+      "body_chars": 3216,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "pe-first-stage-guide-aptitude-subject",
+      "category": "pe-first-stage",
+      "group": "guide",
+      "body_chars": 4227,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "pe-first-stage-guide-basic-subject",
+      "category": "pe-first-stage",
+      "group": "guide",
+      "body_chars": 4452,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "pe-first-stage-guide-construction-subject",
+      "category": "pe-first-stage",
+      "group": "guide",
+      "body_chars": 4024,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "pe-first-stage-guide-overview",
+      "category": "pe-first-stage",
+      "group": "guide",
+      "body_chars": 6112,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "pe-first-stage-guide-study-plan",
+      "category": "pe-first-stage",
+      "group": "guide",
+      "body_chars": 3594,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "pe-first-stage-h25-aptitude",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "body_chars": 19391,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "pe-first-stage-h25-basic",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "body_chars": 23975,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "pe-first-stage-h25-construction",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "body_chars": 32709,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "pe-first-stage-h26-aptitude",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "body_chars": 19240,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "pe-first-stage-h26-basic",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "body_chars": 24556,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "pe-first-stage-h26-construction",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "body_chars": 26718,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "pe-first-stage-h27-aptitude",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "body_chars": 25520,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "pe-first-stage-h27-basic",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "body_chars": 34633,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "pe-first-stage-h27-construction",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "body_chars": 44531,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "pe-first-stage-h28-aptitude",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "body_chars": 22100,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "pe-first-stage-h28-basic",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "body_chars": 39726,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "pe-first-stage-h28-construction",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "body_chars": 43920,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "pe-first-stage-h29-aptitude",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "body_chars": 17801,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "pe-first-stage-h29-basic",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "body_chars": 25376,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "pe-first-stage-h29-construction",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "body_chars": 28922,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "pe-first-stage-h30-aptitude",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "body_chars": 19393,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "pe-first-stage-h30-basic",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "body_chars": 25404,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "pe-first-stage-h30-construction",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "body_chars": 29417,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
     },
     {
       "slug": "pe-first-stage-r01-aptitude",
@@ -15313,7 +16070,7 @@
       "slug": "pe-first-stage-r01-construction",
       "category": "pe-first-stage",
       "group": "primary",
-      "body_chars": 29952,
+      "body_chars": 29951,
       "scored": true,
       "weighted": 2.6,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -15478,7 +16235,7 @@
       "slug": "pe-first-stage-r06-construction",
       "category": "pe-first-stage",
       "group": "primary",
-      "body_chars": 29214,
+      "body_chars": 29213,
       "scored": true,
       "weighted": 2.2,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -15515,61 +16272,6 @@
       "scored": true,
       "weighted": 2,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": false,
-      "thin": false
-    },
-    {
-      "slug": "reference-materials-floodgate",
-      "category": "reference-materials",
-      "group": "_nogroup",
-      "body_chars": 9361,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
-      "failed": false,
-      "thin": false
-    },
-    {
-      "slug": "reference-materials-hyogo-port-materials",
-      "category": "reference-materials",
-      "group": "_nogroup",
-      "body_chars": 11763,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
-      "failed": false,
-      "thin": false
-    },
-    {
-      "slug": "reference-materials-inverted-siphon",
-      "category": "reference-materials",
-      "group": "_nogroup",
-      "body_chars": 5354,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
-      "failed": false,
-      "thin": false
-    },
-    {
-      "slug": "reference-materials-river-abandonment",
-      "category": "reference-materials",
-      "group": "_nogroup",
-      "body_chars": 17595,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
-      "failed": false,
-      "thin": false
-    },
-    {
-      "slug": "reference-materials-tunnel-02",
-      "category": "reference-materials",
-      "group": "_nogroup",
-      "body_chars": 16317,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
       "failed": false,
       "thin": false
     }
