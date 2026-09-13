@@ -11,7 +11,7 @@ published: true
 publishedAt: '2026-04-09'
 seoTitle: "並列システム ｜ 技術士 総合技術監理部門 キーワード集"
 created: 2026-04-05
-dateModified: 2026-09-07
+dateModified: 2026-09-13
 reviewStatus: needs-review
 lastRewrittenAt: '2026-07-04T14:22:05Z'
 revisionCycle: 3
@@ -24,6 +24,10 @@ sources:
 並列システムとは、構成要素のうち少なくとも1つが正常に機能していればシステム全体が機能する構成である。すべての要素が故障した場合にのみシステムが停止するため、単一の要素故障がただちに全体停止につながる直列システムとは対照的な性質を持つ。
 
 冗長性（リダンダンシー）を確保するための基本的な構成であり、[FTA](/docs/pe-comprehensive-management-fta)においてANDゲートで接続された事象群は、並列システムに対応する。FTAの文脈で言えば、頂上事象（システム停止）が起こるためには並列に配置されたすべての下位事象（各要素の故障）が同時に成立しなければならず、これはANDゲートの論理構造そのものである。実務では、電源系統の二重化、通信回線の複線化、制御装置の多重化など、単一障害点（シングルポイント・オブ・フェイラー）を排除したい箇所に並列構成が採用される。
+
+<ArticleImage src="/posts/pe-comprehensive-management/system-reliability/img/figure-series-parallel-formulas.svg" alt="直列・並列信頼度の計算式" />
+
+図の並列式は、少なくとも1つの要素で必要な機能を果たし、各要素の故障が独立している場合です。共通電源の喪失などで一緒に止まる場合には、そのまま当てはめられません。
 
 ## 信頼度の計算
 

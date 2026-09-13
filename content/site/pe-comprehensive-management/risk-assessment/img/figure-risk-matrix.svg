@@ -22,7 +22,7 @@
   </defs>
 
   <!-- タイトル -->
-  <text x="200" y="20" class="t-title" text-anchor="middle">リスクマトリクス（生起確率 × 影響度）</text>
+
 
   <!-- 影響度ヘッダー（横軸） -->
   <rect x="100" y="40" width="270" height="26" fill="#e8f0fe" class="grid" />

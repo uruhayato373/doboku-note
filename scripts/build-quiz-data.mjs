@@ -45,19 +45,19 @@ const PE1_SUBJECTS = {
 
 /** "h26" -> "平成26年度", "r01" -> "令和元年度", "r07" -> "令和7年度" */
 function toYearLabel(year) {
-  const m = /^([hr])0*(\d+)$/.exec(String(year).toLowerCase());
+  const m = /^([hr])0*(\d+)(-retry)?$/.exec(String(year).toLowerCase());
   if (!m) return String(year);
   const era = m[1] === 'h' ? '平成' : '令和';
   const n = Number(m[2]);
   const num = n === 1 ? '元' : String(n);
-  return `${era}${num}年度`;
+  return `${era}${num}年度${m[3] ? "（再試験）" : ""}`;
 }
 
 /** 和暦コードを西暦相当の通し番号へ変換し、新しい年度から並べるために使う。 */
 function peYearRank(year) {
-  const m = /^([hr])0*(\d+)$/.exec(String(year).toLowerCase());
+  const m = /^([hr])0*(\d+)(-retry)?$/.exec(String(year).toLowerCase());
   if (!m) return Number.NEGATIVE_INFINITY;
-  return Number(m[2]) + (m[1] === 'h' ? 1988 : 2018);
+  return Number(m[2]) + (m[1] === 'h' ? 1988 : 2018) + (m[3] ? 0.1 : 0);
 }
 
 /** 生の 1 問を共通スキーマへ正規化する（civil-1 系スキーマ） */
@@ -276,15 +276,21 @@ function extractExamPoint(answerPart) {
 
 function buildPeFirstStageDataset({ exam, examLabel, srcPath }) {
   const baseDir = resolve(ROOT, srcPath);
+  // 再試験は同じ年度の通常試験と別の実施回。年度・科目を分けてID衝突を防ぐ。
+  const articlePattern = /^([hr]\d{2}(?:-retry)?)-(basic|aptitude|construction)$/;
   const articleDirs = readdirSync(baseDir)
-    .filter((name) => /^[hr]\d{2}-(basic|aptitude|construction)$/.test(name))
-    .sort((a, b) => peYearRank(b.slice(0, 3)) - peYearRank(a.slice(0, 3))
-      || PE1_SUBJECTS[a.split('-')[1]].order - PE1_SUBJECTS[b.split('-')[1]].order);
+    .filter((name) => articlePattern.test(name))
+    .sort((a, b) => {
+      const [, aYear, aSubject] = a.match(articlePattern);
+      const [, bYear, bSubject] = b.match(articlePattern);
+      return peYearRank(bYear) - peYearRank(aYear)
+        || PE1_SUBJECTS[aSubject].order - PE1_SUBJECTS[bSubject].order;
+    });
   const questions = [];
   const modifiedDates = [];
 
   for (const articleDir of articleDirs) {
-    const [, year, subject] = articleDir.match(/^([hr]\d{2})-(basic|aptitude|construction)$/);
+    const [, year, subject] = articleDir.match(articlePattern);
     const file = resolve(baseDir, articleDir, 'article.mdx');
     const parsed = matter(readFileSync(file, 'utf8'));
     if (parsed.data.dateModified) modifiedDates.push(String(parsed.data.dateModified));
@@ -365,8 +371,11 @@ function buildPeFirstStageDataset({ exam, examLabel, srcPath }) {
     count: questions.filter((q) => q.subject === subject).length,
   }));
   const unscored = questions.filter((q) => q.correct == null);
-  if (questions.length !== 1040 || unscored.length !== 2) {
-    throw new Error(`pe-first-stage: ${questions.length}問 / 採点対象外${unscored.length}問（期待 1040 / 2）`);
+  if (questions.length !== 1120 || unscored.length !== 3) {
+    throw new Error(`pe-first-stage: ${questions.length}問 / 採点対象外${unscored.length}問（期待 1120 / 3）`);
+  }
+  if (new Set(questions.map((q) => q.id)).size !== questions.length) {
+    throw new Error('pe-first-stage: 問題IDが重複しています');
   }
   const malformed = questions.filter((q) =>
     q.options.length !== 5
@@ -377,15 +386,15 @@ function buildPeFirstStageDataset({ exam, examLabel, srcPath }) {
   if (malformed.length) {
     throw new Error(`pe-first-stage: 5肢・5解説・正答範囲の不整合 ${malformed.map((q) => q.id).join(', ')}`);
   }
-  const expectedUnscored = new Set(['h30-aptitude-ⅱ-14', 'r07-construction-ⅲ-13']);
+  const expectedUnscored = new Set(['h30-aptitude-ⅱ-14', 'r01-retry-aptitude-ⅱ-14', 'r07-construction-ⅲ-13']);
   if (unscored.some((q) => !expectedUnscored.has(q.id)) || [...expectedUnscored].some((id) => !unscored.some((q) => q.id === id))) {
     throw new Error(`pe-first-stage: 採点対象外IDが想定外 ${unscored.map((q) => q.id).join(', ')}`);
   }
-  const expectedSubjects = { basic: 390, aptitude: 195, construction: 455 };
+  const expectedSubjects = { basic: 420, aptitude: 210, construction: 490 };
   if (subjects.some(({ subject, count }) => count !== expectedSubjects[subject])) {
     throw new Error(`pe-first-stage: 科目件数が想定外 ${subjects.map(({ subject, count }) => `${subject}=${count}`).join(', ')}`);
   }
-  if (years.length !== 13 || years.some(({ count }) => count !== 80)) {
+  if (years.length !== 14 || years.some(({ count }) => count !== 80)) {
     throw new Error(`pe-first-stage: 年度件数が想定外 ${years.map(({ year, count }) => `${year}=${count}`).join(', ')}`);
   }
   return {

@@ -23,12 +23,12 @@
     <line x1="240" y1="99" x2="240" y2="83" stroke="#555" stroke-width="1.2"/>
     <line x1="240" y1="83" x2="260" y2="83" stroke="#555" stroke-width="1.2"/>
     <rect x="260" y="75" width="40" height="18" rx="3" fill="#555" stroke="#555"/>
-    <text x="280" y="87" text-anchor="middle" fill="#ffffff" font-size="10">a₁</text>
+    <text x="280" y="87" text-anchor="middle" fill="#ffffff" font-size="13">a₁</text>
     <line x1="300" y1="83" x2="350" y2="83" stroke="#555" stroke-width="1.2"/>
     <line x1="240" y1="99" x2="240" y2="115" stroke="#555" stroke-width="1.2"/>
     <line x1="240" y1="115" x2="260" y2="115" stroke="#555" stroke-width="1.2"/>
     <rect x="260" y="107" width="40" height="18" rx="3" fill="#555" stroke="#555"/>
-    <text x="280" y="119" text-anchor="middle" fill="#ffffff" font-size="10">a₂</text>
+    <text x="280" y="119" text-anchor="middle" fill="#ffffff" font-size="13">a₂</text>
     <line x1="300" y1="115" x2="350" y2="115" stroke="#555" stroke-width="1.2"/>
     <line x1="350" y1="83" x2="350" y2="115" stroke="#555" stroke-width="1.2"/>
     <circle cx="350" cy="99" r="3" fill="#222"/>

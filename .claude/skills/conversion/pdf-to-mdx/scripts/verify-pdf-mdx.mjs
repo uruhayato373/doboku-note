@@ -30,6 +30,7 @@ import { execFileSync, execSync } from 'node:child_process';
 import { resolve, dirname, basename, join, extname } from 'node:path';
 import matter from 'gray-matter';
 import sharp from 'sharp';
+import { SITE_CONTENT_ROOT } from '../../../../../scripts/lib/repository-paths.mjs';
 
 // ----------------------------------------------------------------
 // 定数
@@ -162,7 +163,7 @@ while ((m = imgRe.exec(mdxRaw)) !== null) {
 
   const line = findLine(m.index);
   const localPath = attrs.src.startsWith('/posts/')
-    ? join('.local/r2', attrs.src)
+    ? join(SITE_CONTENT_ROOT, attrs.src.slice('/posts/'.length))
     : attrs.src;
   const absPath = resolve(localPath);
   let exists = false;

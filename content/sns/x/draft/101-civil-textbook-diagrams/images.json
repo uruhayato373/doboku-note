@@ -1,0 +1,58 @@
+[
+  {
+    "tweet": "1",
+    "concept": "孔壁保護と排土を分けて覚える",
+    "needs": "孔壁保護と排土を分けて覚えるために、図の条件と確認方法を知りたい。",
+    "file": "img/tweet-01-drilling-removal-paths.png",
+    "article": {
+      "path": "content/site/civil-construction-1/textbook-cast-in-place-pile/article.mdx",
+      "sha256": "49cce63566245eb07cb7da63d0f9275dee2d1262b8c4b75d995e843ac47df1f1"
+    },
+    "figure": {
+      "path": "content/site/civil-construction-1/textbook-cast-in-place-pile/img/figure-drilling-removal-paths.svg",
+      "sha256": "5e3a9e2b7e1f01dfc7a674e248c4d3abdb2267617a5b676e1372a63cb0555dc9"
+    }
+  },
+  {
+    "tweet": "2",
+    "concept": "舗装の荷重はどこへ伝わるか",
+    "needs": "舗装の荷重はどこへ伝わるかために、図の条件と確認方法を知りたい。",
+    "file": "img/tweet-02-pavement-load-path.png",
+    "article": {
+      "path": "content/site/civil-construction-1/textbook-road-earthwork-subbase/article.mdx",
+      "sha256": "79f2c4a038235c705dfc95e1c3fb4e5064d4119afb8d2bb276a4db7f49894d35"
+    },
+    "figure": {
+      "path": "content/site/civil-construction-1/textbook-road-earthwork-subbase/img/figure-pavement-load-path.svg",
+      "sha256": "30e312ce5b1b6f9e0fc4e18b7018b3616693e35f245b36772431ce043c0e74ed"
+    }
+  },
+  {
+    "tweet": "3",
+    "concept": "土の指標は分母を確かめる",
+    "needs": "土の指標は分母を確かめるために、図の条件と確認方法を知りたい。",
+    "file": "img/tweet-03-soil-phase-denominators.png",
+    "article": {
+      "path": "content/site/civil-construction-1/textbook-soil-investigation-methods/article.mdx",
+      "sha256": "dbf2a677c0ff5e8f4e5b7d64542b46f65d8e4588eb3d2a87d462e1258cd9534d"
+    },
+    "figure": {
+      "path": "content/site/civil-construction-1/textbook-soil-investigation-methods/img/figure-soil-phase-denominators.svg",
+      "sha256": "075ce81621768534f4ef165594ef10389fceb9b46019f3aa1f775a9db749e063"
+    }
+  },
+  {
+    "tweet": "4",
+    "concept": "粒径曲線の縦軸を読む",
+    "needs": "粒径曲線の縦軸を読むために、図の条件と確認方法を知りたい。",
+    "file": "img/tweet-04-grain-curve-reading.png",
+    "article": {
+      "path": "content/site/civil-construction-1/textbook-soil-investigation-methods/article.mdx",
+      "sha256": "dbf2a677c0ff5e8f4e5b7d64542b46f65d8e4588eb3d2a87d462e1258cd9534d"
+    },
+    "figure": {
+      "path": "content/site/civil-construction-1/textbook-soil-investigation-methods/img/figure-grain-curve-reading.svg",
+      "sha256": "ad6c3ea912d6dc932dba55a378ba06ffd81147b9c988d72ca94a1a1a202adbd1"
+    }
+  }
+]

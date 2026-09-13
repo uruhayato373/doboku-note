@@ -24,7 +24,7 @@ import { readFileSync, writeFileSync, mkdirSync, readdirSync, existsSync, copyFi
 import { join, resolve, basename } from 'node:path';
 import { parseArgs } from 'node:util';
 import { spawnSync } from 'node:child_process';
-import { synthesize } from '../.claude/scripts/lib/sns-common/tts-client.mjs';
+import { synthesize, listSpeakers } from '../.claude/scripts/lib/sns-common/tts-client.mjs';
 import { applyReadingDict } from '../.claude/scripts/lib/sns-common/reading-dict.mjs';
 import { composeShortsVideo } from '../.claude/skills/social/yt-shorts-create/scripts/lib/ffmpeg-compose.mjs';
 
@@ -34,7 +34,7 @@ const IG = join(ROOT, 'content/sns/instagram');
 const { values } = parseArgs({
   options: {
     pack: { type: 'string' },
-    speaker: { type: 'string', default: '1' }, // VOICEVOX 1=四国めたん（既存リールと統一）
+    speaker: { type: 'string', default: '1' }, // VOICEVOX 1=ずんだもん・あまあま（声名はエンジンへ照会）
   },
 });
 
@@ -65,6 +65,11 @@ if (lines.length !== pngs.length) {
   console.error(`🚨 ナレーション行数(${lines.length}) ≠ スライド枚数(${pngs.length})。script.txt を見直してください`);
   process.exit(1);
 }
+const speakerId = Number(values.speaker);
+const voice = (await listSpeakers()).find(s => s.styles.some(style => style.id === speakerId));
+if (!Number.isInteger(speakerId) || !voice) throw new Error(`VOICEVOX に存在しない speaker: ${values.speaker}`);
+const captionPath = join(reelsDir, 'caption.txt');
+if (!existsSync(captionPath)) throw new Error('reels/caption.txt を先に用意してください');
 
 function ff(args) {
   const r = spawnSync('ffmpeg', args, { stdio: ['ignore', 'ignore', 'inherit'] });
@@ -83,7 +88,7 @@ for (let i = 0; i < pngs.length; i++) {
   pngPaths.push(outPng);
 
   const wav = join(reelWav, `${String(i).padStart(2, '0')}.wav`);
-  const buf = await synthesize({ text: applyReadingDict(lines[i]), speaker: Number(values.speaker) });
+  const buf = await synthesize({ text: applyReadingDict(lines[i]), speaker: speakerId });
   writeFileSync(wav, buf);
   wavPaths.push(wav);
   console.log(`  [${String(i).padStart(2, '0')}] ${basename(pngs[i])}  ナレ${[...lines[i]].length}字`);
@@ -99,6 +104,9 @@ const total = durations.reduce((a, b) => a + b, 0);
 
 // 5. カバー（パディング済み 00）→ reels/cover.png（publish-ig-bs サムネ用）
 copyFileSync(pngPaths[0], join(reelsDir, 'cover.png'));
+// 数値IDから声名を推測せず、実際に合成したエンジンの名称でクレジットする。
+const caption = readFileSync(captionPath, 'utf8').replace(/^音声[：:]\s*VOICEVOX[：:].*$/gm, '').trimEnd();
+writeFileSync(captionPath, `${caption}\n\n音声：VOICEVOX:${voice.name}\n`);
 
 console.log(`✅ 完了: ${rel}/reels/video.mp4  尺 ${total.toFixed(1)}s  ${pngs.length}スライド`);
-console.log(`   cover.png 出力済 / 投稿: node scripts/publish-... or publish-ig-bs post ${rel} --reel --schedule <dt>`);
+console.log(`   cover.png 出力済 / 公開操作は /publish-ig-bs スキルで実行してください`);

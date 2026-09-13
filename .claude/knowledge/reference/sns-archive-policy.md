@@ -55,7 +55,9 @@ Drive へ二重保存しない。
 - `.tmp/yt-gen/` — YouTube 問題ナレーション／カバー音声の生成キャッシュ
 - `.tmp/voicevox/` — VOICEVOX のダウンロード／展開キャッシュ。別の Engine 実体が動くことを確認してから削除
 
-X のカード PNG、YouTube の未公開サムネイル、`content/sns/_assets/` のブランド素材、共通図版は
+サイト図から生成する番号付き `*-diagrams/img/tweet-NN-名前.png` は、元図・元記事のハッシュ確認と再生成コマンドを持つため `x-rendered-image` で Drive へ退避する（詳細は asset-storage-policy.md）。
+
+それ以外の X のカード PNG、YouTube の未公開サムネイル、`content/sns/_assets/` のブランド素材、共通図版は
 公開処理・検査・複数チャネルの入力なのでローカル／Gitに残す。容量が小さいものへ専用 Drive group を
 増やす前に、復元処理と検査の台帳対応に見合う削減量かを確認する。
 

@@ -65,7 +65,7 @@ export function tweetLength(text) {
   return weighted;
 }
 
-function splitTweets(md) {
+export function splitTweets(md) {
   // 制作メモ（HTML コメント）は投稿されないので文字数に数えない。2026-08-18 実測で
   // 除去しないと 145 件が水増しされ、うち 15 件が偽の 280 字超になっていた。
   const blocks = stripTweetMemos(md).split(/^## Tweet /m).filter((_, i) => i > 0);

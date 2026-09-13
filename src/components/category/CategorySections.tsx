@@ -225,17 +225,17 @@ function PeExamTable({ docs }: { docs: DocMeta[] }) {
 function PeFirstStageExamTable({ docs }: { docs: DocMeta[] }) {
   const yearMap = new Map<string, { aptitude?: DocMeta; basic?: DocMeta; construction?: DocMeta }>();
   for (const doc of docs) {
-    const match = doc.slug?.match(/(r|h)(\d+)-(aptitude|basic|construction)$/);
+    const match = doc.slug?.match(/(r|h)(\d+)(-retry)?-(aptitude|basic|construction)$/);
     if (!match) continue;
-    const yearCode = `${match[1]}${match[2]}`;
-    const type = match[3] as 'aptitude' | 'basic' | 'construction';
+    const yearCode = `${match[1]}${match[2]}${match[3] ?? ''}`;
+    const type = match[4] as 'aptitude' | 'basic' | 'construction';
     if (!yearMap.has(yearCode)) yearMap.set(yearCode, {});
     yearMap.get(yearCode)![type] = doc;
   }
 
   const years = Array.from(yearMap.keys()).sort((a, b) => {
-    const valA = (a.startsWith('r') ? 100 : 0) + parseInt(a.slice(1));
-    const valB = (b.startsWith('r') ? 100 : 0) + parseInt(b.slice(1));
+    const valA = (a.startsWith('r') ? 100 : 0) + parseInt(a.slice(1)) + (a.endsWith('-retry') ? 0.1 : 0);
+    const valB = (b.startsWith('r') ? 100 : 0) + parseInt(b.slice(1)) + (b.endsWith('-retry') ? 0.1 : 0);
     return valB - valA;
   });
 
@@ -244,7 +244,7 @@ function PeFirstStageExamTable({ docs }: { docs: DocMeta[] }) {
     const row = yearMap.get(yearCode)!;
     return {
       key: yearCode,
-      label: yearLabel(yearCode),
+      label: yearLabel(yearCode.replace(/-retry$/, '')) + (yearCode.endsWith('-retry') ? '（再試験）' : ''),
       cells: [
         { label: '適性', doc: row.aptitude },
         { label: '基礎', doc: row.basic },
@@ -258,7 +258,7 @@ function PeFirstStageExamTable({ docs }: { docs: DocMeta[] }) {
 
 /**
  * 技術士第二次試験（建設部門）の過去問を 科目 × 年度 のマトリクスで表示。
- * 行 = 必須科目I + 11 選択科目、列 = 令和元〜7年度。受験者は「必須 + 自分の選択科目1つ」を
+ * 行 = 必須科目I + 11 選択科目、列 = 令和元年度以降。受験者は「必須 + 自分の選択科目1つ」を
  * 年度横断で追うため、年度×2-3列の他資格テーブルではなく科目行のマトリクスにする。
  *
  * 描画は全資格共通の ExamMatrix に委譲する（2026-07-30）。旧実装は独自の desktop 表＋モバイル
@@ -281,7 +281,7 @@ function PeConstructionExamTable({ docs }: { docs: DocMeta[] }) {
     map.get(subject)!.set(yearCode, doc);
   }
 
-  // 年度は新しい順（令和7 → 令和元）
+  // 年度は新しい順
   const years = Array.from(yearSet).sort((a, b) => parseInt(b.slice(1)) - parseInt(a.slice(1)));
   const colLabel = (code: string) => {
     const num = parseInt(code.slice(1));

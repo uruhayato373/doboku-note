@@ -1,0 +1,7 @@
+.view { min-width: 0; overflow-wrap: anywhere; }
+.view form { margin-bottom: 20px; }
+.view label { min-width: 0; }
+.view details { padding: 7px 0; border-top: 1px solid var(--border); }
+.view summary { cursor: pointer; line-height: 1.8; }
+.view details p { margin: 10px 0; }
+.view ul { padding-left: 20px; }

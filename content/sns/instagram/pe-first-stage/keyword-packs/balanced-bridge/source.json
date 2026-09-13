@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "article": {
+    "path": "content/site/pe-first-stage/guide-resistance-circuit-calculation/article.mdx",
+    "sha256": "5bbc7d2850d08d819a3811509a125084dc28ff2dc800cbd71c68f7919db568b5"
+  },
+  "figure": {
+    "path": "content/site/pe-first-stage/guide-resistance-circuit-calculation/img/figure-balanced-bridge.svg",
+    "sha256": "fa065727e1b5904814e9333f8060cd80f8942e003f2e4b6942c78343d01421d4"
+  },
+  "needs": "橋形回路の中央枝を外してよい条件を同電位と節点の立式で判断したい。",
+  "nextStep": "https://doboku-note.com/exam/pe-first-stage/guide/resistance-circuit-calculation"
+}

@@ -1,0 +1,44 @@
+[
+  {
+    "tweet": "1",
+    "concept": "射影を内積で検算する",
+    "needs": "射影を内積で検算するために、図の条件と確認方法を知りたい。",
+    "file": "img/tweet-01-vector-projection.png",
+    "article": {
+      "path": "content/site/pe-first-stage/guide-matrix-vector-calculation/article.mdx",
+      "sha256": "beaa1f70c433cbf23c38a03864c45ec7d92ce09ba3eae781f7c3a2614ab91eae"
+    },
+    "figure": {
+      "path": "content/site/pe-first-stage/guide-matrix-vector-calculation/img/figure-vector-projection.svg",
+      "sha256": "931d78b8b21a8643e2253d7b3cc62c0bdfbd4313d61a4488106346f27a339f67"
+    }
+  },
+  {
+    "tweet": "2",
+    "concept": "接線の交点で更新する",
+    "needs": "接線の交点で更新するために、図の条件と確認方法を知りたい。",
+    "file": "img/tweet-02-newton-tangent.png",
+    "article": {
+      "path": "content/site/pe-first-stage/guide-calculus-numerical-calculation/article.mdx",
+      "sha256": "3a57658a59c1db28c04bd550950b045545039fc72ccd2fc2feac908fe82719e1"
+    },
+    "figure": {
+      "path": "content/site/pe-first-stage/guide-calculus-numerical-calculation/img/figure-newton-tangent.svg",
+      "sha256": "5fcfaeb33d490ac7ef4fd9c3369740c7623b4f6545b83d1d4d0efc8f94cacbf7"
+    }
+  },
+  {
+    "tweet": "3",
+    "concept": "同電位なら中央枝は0 A",
+    "needs": "同電位なら中央枝は0 Aために、図の条件と確認方法を知りたい。",
+    "file": "img/tweet-03-balanced-bridge.png",
+    "article": {
+      "path": "content/site/pe-first-stage/guide-resistance-circuit-calculation/article.mdx",
+      "sha256": "5bbc7d2850d08d819a3811509a125084dc28ff2dc800cbd71c68f7919db568b5"
+    },
+    "figure": {
+      "path": "content/site/pe-first-stage/guide-resistance-circuit-calculation/img/figure-balanced-bridge.svg",
+      "sha256": "fa065727e1b5904814e9333f8060cd80f8942e003f2e4b6942c78343d01421d4"
+    }
+  }
+]

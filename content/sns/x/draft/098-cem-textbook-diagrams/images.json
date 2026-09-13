@@ -1,0 +1,268 @@
+[
+  {
+    "tweet": "1",
+    "concept": "KPIと目標をつなぐ",
+    "needs": "目標・成功要因・日常指標を逆算する階層関係を新図にする",
+    "file": "img/tweet-01-key-performance-indicators.png",
+    "article": {
+      "path": "content/site/pe-comprehensive-management/key-performance-indicators/article.mdx",
+      "sha256": "65bc5c772900277eb8c6d71be4b4f7638abc25f45efa4d9f4d936fb806407010"
+    },
+    "figure": {
+      "path": "content/site/pe-comprehensive-management/key-performance-indicators/img/figure-goal-to-kpi.svg",
+      "sha256": "2edf9f3e0844769bc218047f5d0db16499d8e735e883da67b4f048a4fc04848f"
+    }
+  },
+  {
+    "tweet": "2",
+    "concept": "方針・目標・計画の違い",
+    "needs": "方針を測定可能な目標と実行計画へ具体化する関係が必要",
+    "file": "img/tweet-02-quality-policy.png",
+    "article": {
+      "path": "content/site/pe-comprehensive-management/quality-policy/article.mdx",
+      "sha256": "1930fd02ec06be95f1aeb7c0d5fff1a41b711d7b6a713b85a36402c964c8ab91"
+    },
+    "figure": {
+      "path": "content/site/pe-comprehensive-management/quality-policy/img/figure-quality-deployment.svg",
+      "sha256": "2770c147f10fbf6676ce78bcebed2fdea199296e2522d50cac074e895bb93fe7"
+    }
+  },
+  {
+    "tweet": "3",
+    "concept": "抜取検査の合格確率",
+    "needs": "不良率が高いロットほど合格しにくくなる抜取検査のOC曲線の形。既存共用図は存在せず新規制作。",
+    "file": "img/tweet-03-inspection-methods.png",
+    "article": {
+      "path": "content/site/pe-comprehensive-management/inspection-methods/article.mdx",
+      "sha256": "6f5322534db38c6e6b150c2f5584ff84d7c75b4ef5cb2de1e759fee37f271145"
+    },
+    "figure": {
+      "path": "content/site/pe-comprehensive-management/inspection-methods/img/figure-oc-curve-concept.svg",
+      "sha256": "ab506e729c8f84c1074734c4e1145561afb738c6969e082fa5b1d337062a56cf"
+    }
+  },
+  {
+    "tweet": "4",
+    "concept": "負荷と能力を同じ単位で比べる",
+    "needs": "能力を超える負荷と余力の量を新しい棒図で可視化する",
+    "file": "img/tweet-04-load-capacity.png",
+    "article": {
+      "path": "content/site/pe-comprehensive-management/load-capacity/article.mdx",
+      "sha256": "4dbf42539b843668f8122563e739fe3471c6f1a769653ea594a43ac083e4c5b5"
+    },
+    "figure": {
+      "path": "content/site/pe-comprehensive-management/load-capacity/img/figure-load-capacity-gap.svg",
+      "sha256": "5aa98189d1b64560e06e79984263f5001245af83070f40faefa0f4f34706d821"
+    }
+  },
+  {
+    "tweet": "5",
+    "concept": "三点見積りの計算法",
+    "needs": "楽観・最頻・悲観の位置と期待値の違いを数直線で示す",
+    "file": "img/tweet-05-three-point-estimation.png",
+    "article": {
+      "path": "content/site/pe-comprehensive-management/three-point-estimation/article.mdx",
+      "sha256": "e6f3eb3b48c464a29986338d46c14ba5dd6d71cdaee85e882578c37785a657b3"
+    },
+    "figure": {
+      "path": "content/site/pe-comprehensive-management/three-point-estimation/img/figure-three-point-range.svg",
+      "sha256": "e6df479ee34c55c8c0086d2a8b04ef4b3fd086efc3d6c1f8cfaa127e3f97458a"
+    }
+  },
+  {
+    "tweet": "6",
+    "concept": "設備総合効率の3つの損失",
+    "needs": "停止・速度・不良の損失が積として効く構造を段階面積図で示す",
+    "file": "img/tweet-06-overall-equipment-effectiveness.png",
+    "article": {
+      "path": "content/site/pe-comprehensive-management/overall-equipment-effectiveness/article.mdx",
+      "sha256": "90472ff747c1befd66dd36ca25df754d0f0c0b64a0aaec1f9888b236840c6a2a"
+    },
+    "figure": {
+      "path": "content/site/pe-comprehensive-management/overall-equipment-effectiveness/img/figure-oee-losses.svg",
+      "sha256": "132a77e58a175a745df915f50887aba08a0b8a1d1b9756ade39b2d1f24517ac5"
+    }
+  },
+  {
+    "tweet": "7",
+    "concept": "予定が崩れた場合の経路",
+    "needs": "予定外の事態で経路を分岐し代替手段へ進む特徴を新図にする",
+    "file": "img/tweet-07-pdpc-method.png",
+    "article": {
+      "path": "content/site/pe-comprehensive-management/pdpc-method/article.mdx",
+      "sha256": "e8388665e5a61b570b441f0a01429a0b7ba89c669a737e5a5f58bf642bfd3d02"
+    },
+    "figure": {
+      "path": "content/site/pe-comprehensive-management/pdpc-method/img/figure-pdpc-alternative.svg",
+      "sha256": "854e05a97bcf6d83174f59db39c5938e99dad54092ca013298a8928daa7204dd"
+    }
+  },
+  {
+    "tweet": "8",
+    "concept": "派遣の契約と指揮命令",
+    "needs": "雇用関係と指揮命令関係の相手が異なる三者構造を図示する",
+    "file": "img/tweet-08-worker-dispatch-act.png",
+    "article": {
+      "path": "content/site/pe-comprehensive-management/worker-dispatch-act/article.mdx",
+      "sha256": "bc2dd0edefbca24e143179ab3b29eeae5676c65f5667b59d3f23850651bb0d34"
+    },
+    "figure": {
+      "path": "content/site/pe-comprehensive-management/worker-dispatch-act/img/figure-dispatch-relationships.svg",
+      "sha256": "e2f68979f7f62d88590b32ef7e52fa03e8dc012c1425714d97ac07304db52462"
+    }
+  },
+  {
+    "tweet": "9",
+    "concept": "推定と検定の違い",
+    "needs": "標本から母集団を推定する方向と仮説を検定する方向を比較図にする",
+    "file": "img/tweet-09-estimation-testing.png",
+    "article": {
+      "path": "content/site/pe-comprehensive-management/estimation-testing/article.mdx",
+      "sha256": "c08f265c6b25197bc1af99d11b7f0398cf787aba0e6b7117f6af51f47040ccad"
+    },
+    "figure": {
+      "path": "content/site/pe-comprehensive-management/estimation-testing/img/figure-estimate-test.svg",
+      "sha256": "47a7ee030831dc229bc7589243d3479f4c537d2dddfd4dbaaa413d3d1f1660b6"
+    }
+  },
+  {
+    "tweet": "10",
+    "concept": "価値を生む活動のつながり",
+    "needs": "主活動のつながりを支援活動が横断する構造を図示する",
+    "file": "img/tweet-10-value-chain-analysis.png",
+    "article": {
+      "path": "content/site/pe-comprehensive-management/value-chain-analysis/article.mdx",
+      "sha256": "d40ced610ca8160415753b23b244be11cdfd959874b09973adc16cbb83f0279c"
+    },
+    "figure": {
+      "path": "content/site/pe-comprehensive-management/value-chain-analysis/img/figure-value-chain-support.svg",
+      "sha256": "840ccb9521ef2788c7c0ad1733e762197fdf5f49002bef4fd411f9967faa3a58"
+    }
+  },
+  {
+    "tweet": "11",
+    "concept": "情報共有と故障への備え",
+    "needs": "人・物・環境間の情報共有と危険への対応を新図で示す",
+    "file": "img/tweet-11-safety-2-0.png",
+    "article": {
+      "path": "content/site/pe-comprehensive-management/safety-2-0/article.mdx",
+      "sha256": "e5d61cc69b1c64b53cb3fc05f3c18f65b35b4c0f5a1b3c5c1ec06fa842d1e04a"
+    },
+    "figure": {
+      "path": "content/site/pe-comprehensive-management/safety-2-0/img/figure-collaborative-safety.svg",
+      "sha256": "c79989f0608f41976976edf91ea37652c9a5185748955f01bc7570c394e06373"
+    }
+  },
+  {
+    "tweet": "12",
+    "concept": "行動から組織へ原因をたどる",
+    "needs": "組織の潜在的問題が局所的な条件と不安全行動を通じて事故へつながる関係。既存共用図は存在せず新規制作。",
+    "file": "img/tweet-12-tripod-theory.png",
+    "article": {
+      "path": "content/site/pe-comprehensive-management/tripod-theory/article.mdx",
+      "sha256": "327730880de2a4cfd27f8121300fafcbc1323cf2a9be651f4d8ae0b55ea6a8df"
+    },
+    "figure": {
+      "path": "content/site/pe-comprehensive-management/tripod-theory/img/figure-tripod-causal-chain.svg",
+      "sha256": "81212993d51b1ba98946a6ac9b6fcce8c49d873dff8bcd942a24e3068fb4f289"
+    }
+  },
+  {
+    "tweet": "13",
+    "concept": "操作失敗と回復失敗",
+    "needs": "失敗後の回復で最終失敗確率が変わるイベントツリーを新図にする",
+    "file": "img/tweet-13-therp.png",
+    "article": {
+      "path": "content/site/pe-comprehensive-management/therp/article.mdx",
+      "sha256": "12f047a0264b169ab7fc0b56e06a793374a28bf938446c919d90e67bf33327ad"
+    },
+    "figure": {
+      "path": "content/site/pe-comprehensive-management/therp/img/figure-human-error-recovery.svg",
+      "sha256": "5024f2b8d43a7ed51bd26d120044acc3959ccc17994d2096ff8743ee1faf2870"
+    }
+  },
+  {
+    "tweet": "14",
+    "concept": "通常と実際の経過を比べる",
+    "needs": "通常手順と実際の逸脱を時間軸上で対比する図が必要",
+    "file": "img/tweet-14-vta-method.png",
+    "article": {
+      "path": "content/site/pe-comprehensive-management/vta-method/article.mdx",
+      "sha256": "3f6b6283fcc8e66e7a2852829399ca60d35ccd358b04e1dc362ae6df932f42de"
+    },
+    "figure": {
+      "path": "content/site/pe-comprehensive-management/vta-method/img/figure-variation-timeline.svg",
+      "sha256": "a7a13a0a26d50af6c29dd41e993c1ccbd77b88d046cb3804ee1e6005f1339e4b"
+    }
+  },
+  {
+    "tweet": "15",
+    "concept": "深層防護と共通原因",
+    "needs": "防護を段階的に配置し前段の失敗を後段が受ける構造を図示する",
+    "file": "img/tweet-15-defense-in-depth.png",
+    "article": {
+      "path": "content/site/pe-comprehensive-management/defense-in-depth/article.mdx",
+      "sha256": "b414f14f7bdb6302ea9eb18dd16fd804d91afd81102f59eaa3b43fce00cd5744"
+    },
+    "figure": {
+      "path": "content/site/pe-comprehensive-management/defense-in-depth/img/figure-defense-layers.svg",
+      "sha256": "9aff154a142b7dac61a73284a296d0197585588673fcb89ab1b69477bb8a0785"
+    }
+  },
+  {
+    "tweet": "16",
+    "concept": "IPCCとCOPの役割",
+    "needs": "科学的評価と国際交渉・国内実施の役割を混同しない関係図が必要",
+    "file": "img/tweet-16-climate-change-international.png",
+    "article": {
+      "path": "content/site/pe-comprehensive-management/climate-change-international/article.mdx",
+      "sha256": "869c0b1067899534d62e9703212bd8621f8e92986ce77a7b81b8bc8342e3791a"
+    },
+    "figure": {
+      "path": "content/site/pe-comprehensive-management/climate-change-international/img/figure-science-policy-roles.svg",
+      "sha256": "7ae5e957eca89cb25df59d206c61d72893dd91b30fa1ea72bed16d41e7628622"
+    }
+  },
+  {
+    "tweet": "17",
+    "concept": "環境基準と排出基準",
+    "needs": "周辺環境の目標と発生源の規制を測定位置で区別する新図が必要",
+    "file": "img/tweet-17-environmental-standards.png",
+    "article": {
+      "path": "content/site/pe-comprehensive-management/environmental-standards/article.mdx",
+      "sha256": "8cf264509eb454c6f15cb4a1884da46fd268fb4332ba85cc53da8808eece0dfd"
+    },
+    "figure": {
+      "path": "content/site/pe-comprehensive-management/environmental-standards/img/figure-environment-emission.svg",
+      "sha256": "4d7887591637045073e91c0142529630c250782399b3981645a7257610cecb00"
+    }
+  },
+  {
+    "tweet": "18",
+    "concept": "源流対策と末端対策",
+    "needs": "排出口で処理する対策と工程へ戻す予防を新しい工程図で比較する",
+    "file": "img/tweet-18-source-control-principle.png",
+    "article": {
+      "path": "content/site/pe-comprehensive-management/source-control-principle/article.mdx",
+      "sha256": "b3a4820a5e811c92d11d3f412c7ec99079beb15488ce1eb22f6c267e05c7e72e"
+    },
+    "figure": {
+      "path": "content/site/pe-comprehensive-management/source-control-principle/img/figure-source-end-control.svg",
+      "sha256": "d014ca0d8b9ef69153c392f5fa1631e53adb40b8b85628544971d8648aecd007"
+    }
+  },
+  {
+    "tweet": "19",
+    "concept": "身近な主体を広域で補う",
+    "needs": "身近な主体から広域主体へ不足を補う役割関係を新図にする",
+    "file": "img/tweet-19-subsidiarity-principle.png",
+    "article": {
+      "path": "content/site/pe-comprehensive-management/subsidiarity-principle/article.mdx",
+      "sha256": "df1aca18207763cb30cae905fbacb3c78572e03fd0e8a8d4d6e93d612b67f3ac"
+    },
+    "figure": {
+      "path": "content/site/pe-comprehensive-management/subsidiarity-principle/img/figure-subsidiarity-support.svg",
+      "sha256": "03b415622a89ecf63b002fee02163da2509de6302f772f5af3de7815b60482cd"
+    }
+  }
+]

@@ -8,7 +8,7 @@
  *
  * 環境変数:
  *   VOICEVOX_BASE_URL  既定: http://localhost:50021
- *   VOICEVOX_SPEAKER   既定: 1（四国めたん・ノーマル）。Issue #163 SNS-prereq C-3 で確定
+ *   VOICEVOX_SPEAKER   既定: 1（ずんだもん・あまあま）。Issue #163 SNS-prereq C-3 で確定
  */
 
 const DEFAULT_BASE_URL = 'http://localhost:50021';

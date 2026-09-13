@@ -86,6 +86,7 @@ npm run drive-vault-sync      # **人か手元のスクリプトだけが使う*
 npm run check-drive-vault     # 置き場ルールのゲート（asset-storage.json の全 group に audience・site⇒public・ci⇒private|byVisibility・human は理由無しに R2 へ置けない）＋R2 と Drive の同一パス衝突＋drive-manifest の整合。**マウント無しは「実体検査 0 件」と明示**して設定・台帳だけで判定・pre-commit --staged-only ＋ quality:audit
 npm run check-disk-hygiene    # ローカル容量の surfacer（マージ済み worktree・古いビルド成果物・各種キャッシュ・**日次掃除が止まっていること**・会話ログ保持期間）。掃除の実体は `npm run disk-hygiene:fix`＝launchd が日次実行（`npm run disk-hygiene:install`）。Claude/Codex 両方の Stop フックが `--quick` を叩く。**macOS 専用・非 mac は exit 2＝検査不成立**
 npm run check-content-taxonomy # 分類語彙（領域×資格×記事型×テーマ×タグ）の整合。group が許可外・未登録タグは赤、別名綴り・構造タグ不整合は baseline ラチェット（`:ci`）、topic 三方向の 0 件は WARN。規則は content-taxonomy.md・pre-commit --staged ＋ quality:audit
+npm run check-content-expansion # 全教材の論点→記事/図/SNS対応・未確認・原典待ち・成果物変更を検査（管理画面 /content/expansion・週次/月次で確認）
 npm run check-reference-sources # 参考文献台帳・記事 sources ID・出典粒度・非公開文字起こし名の漏洩・未付与 baseline ラチェットを検査（--staged は pre-commit）
 npm run check-reference-sources:deep # Drive の文字起こし frontmatter↔原本台帳と、市販書籍由来記事の40文字以上の逐語一致0を実体照合（Mac・Driveマウント要）
 npm run check-content-layout   # content/ の 6 チャネルに実体があるかを観測（件数・容量。空チャネル＝移行の取りこぼしで fail）
@@ -136,6 +137,7 @@ npm run gsc-indexing:check     # 未登録URLをGSC URL検査で診断（dry-run
 
 | 参照先 | 内容 | いつ読むか |
 |---|---|---|
+| [.claude/knowledge/reference/content-expansion.md](.claude/knowledge/reference/content-expansion.md) | 全教材の論点→記事・図解・SNSの対応表と、未確認・原典待ち・変更後の再確認を管理する手順 | 教材展開・図解整備・週次/月次レビュー時 |
 | [.claude/knowledge/reference/content-authoring.md](.claude/knowledge/reference/content-authoring.md) | MDX コンポーネント・過去問構造・モバイル視認性詳細・画像配信・frontmatter テンプレ | MDX を書く・編集するとき |
 | [.claude/knowledge/reference/reference-sources-policy.md](.claude/knowledge/reference/reference-sources-policy.md) | 参考文献6区分の逐語・図・文字起こし公開・出典粒度と、原本→Drive文字起こし→記事 `sources` ID→検査のライフサイクル SSOT | 原本・一次資料から文字起こしや記事を作るとき／参考文献を追加・変更するとき |
 | [.claude/knowledge/reference/content-taxonomy.md](.claude/knowledge/reference/content-taxonomy.md) | コンテンツ分類の SSOT（領域×資格×記事型×テーマ×タグの語彙と規則・タグの正規表記＝日本語名と別名・原本 class → 展開先の加工ルール表と commercial-book の brief 方式・新規記事のチェックリスト）。値は `src/config/{content-taxonomy,categories,tags,topics}.json`、検査は `npm run check-content-taxonomy` | frontmatter（category/group/tags/topics）を決めるとき・新資格/新タグ/新テーマを足すとき・原本から記事を起こすとき |

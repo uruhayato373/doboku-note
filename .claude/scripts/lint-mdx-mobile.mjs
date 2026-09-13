@@ -919,6 +919,8 @@ function lintCalloutStructure(lines, raw, filePath, findings) {
  * 9-7 MEDIUM 総監ページに教材外の実務応用セクション（pe-comprehensive-management 限定、§15）
  */
 function isExamArchive(filePath) {
+  // 技術士第一次: 通常回と同年度再試験（guide は対象に含めない）
+  if (/pe-first-stage[\\\/][hr]\d{2}(?:-retry)?-(?:basic|aptitude|construction)[\\\/]/.test(filePath)) return true;
   // PE 形式: r05-primary/, h28-secondary/, r05-essay-river-consultant/
   if (/[\\\/](?:r|h)\d{2}-(?:primary|secondary|essay)/.test(filePath)) return true;
   // Civil 形式: primary-r05-a/, primary-h28-b/, secondary-r03/, secondary-concrete-past-problems/

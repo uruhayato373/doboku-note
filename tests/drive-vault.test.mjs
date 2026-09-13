@@ -235,3 +235,10 @@ test('serializeDriveManifest: 妥当な JSON で、entries は 1 件 1 行', () 
   // entries が空でも妥当
   assert.deepEqual(JSON.parse(serializeDriveManifest(emptyDriveManifest())), emptyDriveManifest());
 });
+
+ test('図解制作入力で再現するX画像だけを専用Drive経路へ送る', () => {
+  const path = 'content/sns/x/draft/098-cem-textbook-diagrams/img/tweet-01-kpi.png';
+  assert.equal(driveGroupFor(path, DCFG).id, 'x-rendered-image');
+  assert.equal(vaultRelFor(path, dgroup('x-rendered-image')), '制作物/Xレンダー/draft/098-cem-textbook-diagrams/img/tweet-01-kpi.png');
+  assert.notEqual(driveGroupFor('content/sns/x/draft/095-campaign/img/tweet-01-card.png', DCFG)?.id, 'x-rendered-image');
+});

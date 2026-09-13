@@ -76,6 +76,7 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 | `/social-post` | note / X 投稿テキスト生成の統合スキル | `note投稿文`, `X投稿テキスト`, `/social-post --platform {note\|x}` |
 | `/pe-note-plan` | 技術士総監 記述式 note 有料記事・magazine の**編集ロードマップ**を提案する企画スキル（本文は書かない）。段階投下方針・magazine 在庫・価格・過去問カバレッジを突合し「次に何を・どの順で・いくらで出すか」を優先度付きで提示 | `noteの次の一手`, `magazine企画`, `記述式コンテンツの投下計画`, `/pe-note-plan [--horizon {next\|quarter}]` |
 | `/note-hashtags` | note 公開用ハッシュタグ 99 個を生成（選択科目は `--article II1-1` 等でファイル別出力） | `ハッシュタグ生成`, `/note-hashtags {slug} [--article {suffix}]` |
+| `/ig-figure-pack` | サイトSVGを総監・1級土木・技術士建設部門・技術士一次の4枚図解カルーセル下書きへ展開。元図・資格ラベルを照合し、公開状態は既存SNS台帳で管理 | `図をInstagramへ`, `/ig-figure-pack` |
 | `/ig-post-create` | Instagram カルーセル PNG の**新規生成**（過去問パック・KW 解説の単発）。※既存パック再生成は restyle、figure 変換は figure-pack | `Instagram投稿作成`, `IG スライド`, `/ig-post-create --slug {kw}` |
 | `/ig-figure-pack` | 総監・1級土木・建設部門のサイトSVGを4枚カルーセル下書きへ展開。資格別ラベル・白背景・元図参照・各枚の目視確認と既存公開台帳への引継ぎ | `IG figure 投稿`, `キーワード図解カルーセル`, `/ig-figure-pack {keyword}` |
 | `/ig-carousel-restyle` | tokens.json 更新後に**既存**過去問パック PNG を 3 フォーマット（Carousel/Reels/Stories）一括再生成（新規生成は post-create） | `IGデザイン再適用`, `カルーセル再生成`, `/ig-carousel-restyle --year r07` |

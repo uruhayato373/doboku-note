@@ -45,7 +45,7 @@
   <text class="t-box" x="326" y="143" text-anchor="middle">後工程</text>
 
   <rect class="box-warn" x="150" y="168" width="100" height="22" rx="4"/>
-  <text class="t-tag" x="200" y="183" text-anchor="middle">在庫 多い</text>
+  <text class="t-tag" x="200" y="183" text-anchor="middle">在庫を持ちやすい</text>
 
   <line x1="20" y1="202" x2="380" y2="202" stroke="#d7d7d7" stroke-width="1"/>
 
@@ -53,7 +53,7 @@
   <rect class="box-positive" x="20" y="214" width="12" height="12" rx="2"/>
   <text class="t-panel" x="38" y="224">プル型（引き取り）</text>
 
-  <text class="t-flow" x="200" y="244" text-anchor="middle">生産指示：かんばん ← 後工程 ← 前工程（引き取る）</text>
+  <text class="t-flow" x="200" y="244" text-anchor="middle">生産指示：前工程 ← 後工程の実需（引き取る）</text>
   <line x1="360" y1="252" x2="40" y2="252" stroke="#3a7d44" stroke-width="1.5" marker-end="url(#arrowG)"/>
 
   <rect class="box-brand"    x="24"  y="264" width="100" height="44" rx="6"/>
@@ -64,7 +64,7 @@
   <text class="t-box" x="326" y="291" text-anchor="middle">後工程</text>
 
   <rect class="box-positive" x="150" y="316" width="100" height="18" rx="4"/>
-  <text class="t-tag" x="200" y="329" text-anchor="middle">在庫 少ない</text>
+  <text class="t-tag" x="200" y="329" text-anchor="middle">在庫削減を狙う</text>
 
   <line x1="20" y1="346" x2="380" y2="346" stroke="#d7d7d7" stroke-width="1"/>
 
@@ -72,7 +72,7 @@
   <rect class="box-surface" x="20" y="356" width="360" height="128" rx="8"/>
   <text class="t-panel" x="34" y="378">ちがいの要点</text>
   <text class="t-sum"  x="34" y="402">起点：プッシュ＝需要予測／プル＝後工程の実需</text>
-  <text class="t-sum"  x="34" y="426">在庫：プッシュ＝多い／プル＝少ない</text>
+  <text class="t-sum"  x="34" y="426">在庫：需要変動・リードタイムにも左右される</text>
   <text class="t-sum"  x="34" y="450">代表例：プッシュ＝MRP／プル＝かんばん・JIT</text>
   <text class="t-note" x="34" y="474">共通：モノは前工程→後工程に流れる（情報の向きが逆）</text>
 </svg>

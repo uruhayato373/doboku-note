@@ -127,6 +127,8 @@ CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認し
 | 17 | コンクリート診断士 98問＋記述式8本の技術内容レビュー | 2026-09-05実査で一次演習8記事は13+14+13+12+12+13+10+11=98問、記述式マガジン`mf2a132408b6f`は8記事、サイト`guide-essay`も存在。公開後の人手レビュー完了を示す実体はない | 一次演習98問、note記述式8本、`content/site/concrete-diagnostician/guide-essay`を有資格者が技術レビューし、誤りを修正・再デプロイする。原典照合できない数値を推測で補わない |
 | 18 | GA4 UIバックアップとbing流入の外部照合 | Data API・週次`metrics-analyzer`・note referral集計・商品別期間効率は稼働済み。GA4 UI CSVは3ユニットとも未成立。最新14日のbingは2,683 usersだが日本比率99.4%・engagement 71.3%で自動bot署名は`flagged:false` | ログイン済みGA4 UIで正式レポート名を確定しfixtureを更新する。Bing Webmasterとdevice・landing・新規/再訪を突合し、件数比だけでbot除外しない。API主経路は継続する |
 
+| 19 | 教材展開の原典不足 | 教材対応表 `.claude/state/content-expansion.json` の原典待ち17論点。土木4論点、総監の旧第1章原本不明2論点・記述式教材の遮蔽10論点・総監過去問解説の欠頁1論点。建設キーワード本はp1〜41とp371末尾以降の未収録も範囲制約に含む | 対応表の原本箇所を使って欠頁・遮蔽のない原本を補い、該当論点だけ再照合。既存記事の所在や他の公式問題があることを原典充足とみなさない。管理画面 `/content/expansion?state=blocked` |
+
 **完了条件**: 各行の実体が解消したら行ごと消し、全行が消えたらカードを削除する。
 
 ## 🟡 中 — 2〜3ヶ月以内

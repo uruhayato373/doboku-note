@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500" role="img" aria-label="設計・施工・維持管理が共通のデータを更新して引き継ぐ構造" style="max-width:400px;width:100%">
+<defs><style>
+text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;fill:#222} /* ink-strong */
+.h{font-size:17px;font-weight:bold}.t{font-size:14px}.s{font-size:13px;fill:#555} /* ink-body */
+.b{fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5} /* brand */
+.g{fill:#d0e8d0;stroke:#3a7d44;stroke-width:1.5} /* positive */
+.w{fill:#fff3cd;stroke:#d4a017;stroke-width:1.5} /* warn */
+.a{fill:none;stroke:#2e6da4;stroke-width:2;marker-end:url(#arrow)}
+</style><marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#2e6da4"/></marker></defs>
+<rect x="20" y="20" width="360" height="70" rx="8" class="b"/><text x="200" y="49" text-anchor="middle" class="h">目的：工程をまたぐ手戻りを減らす</text><text x="200" y="74" text-anchor="middle" class="t">必要な情報を次の担当へ</text><rect x="20" y="145" width="160" height="278" rx="8" class="g"/><text x="100" y="245" text-anchor="middle" class="h">共有する情報</text><text x="100" y="276" text-anchor="middle" class="t">形状・属性</text><text x="100" y="302" text-anchor="middle" class="t">条件・履歴</text><rect x="220" y="125" width="160" height="75" rx="8" class="b"/><text x="300" y="154" text-anchor="middle" class="h">調査・設計</text><text x="300" y="179" text-anchor="middle" class="t">条件を整える</text><rect x="220" y="235" width="160" height="75" rx="8" class="b"/><text x="300" y="264" text-anchor="middle" class="h">施工</text><text x="300" y="289" text-anchor="middle" class="t">実績を反映</text><rect x="220" y="345" width="160" height="75" rx="8" class="b"/><text x="300" y="374" text-anchor="middle" class="h">維持管理</text><text x="300" y="399" text-anchor="middle" class="t">状態を更新</text><path d="M220 162 H186" class="a"/><path d="M180 181 H214" class="a"/><path d="M220 272 H186" class="a"/><path d="M180 291 H214" class="a"/><path d="M220 382 H186" class="a"/><path d="M180 401 H214" class="a"/><text x="200" y="465" text-anchor="middle" class="h">担当が変わっても、情報をつなぐ</text>
+</svg>

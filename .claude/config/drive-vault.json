@@ -167,6 +167,22 @@
       "reason": "IG カルーセルのレンダー PNG。投稿は人が手元の Playwright で行う。投稿済みを public R2 に置いていたのは旧目標の名残で、サイトは読んでいない。"
     },
     {
+      "id": "x-rendered-image",
+      "status": "active",
+      "audience": "human",
+      "match": {
+        "pathRegex": "^content/sns/x/draft/\\d{3}-[a-z0-9-]+-diagrams/img/tweet-\\d{2}-[^/]+\\.png$"
+      },
+      "vaultDir": "制作物/Xレンダー",
+      "keyFrom": "stripPrefix:content/sns/x/",
+      "regenerable": true,
+      "generator": "images.json の元記事・図と tweets.md から scripts/render-x-figure-drafts.mjs で再生成",
+      "requiredBy": [
+        ".claude/skills/social/publish-x"
+      ],
+      "reason": "サイト図から生成したX下書き画像。投稿は人が手元で確認して行い、サイトもCIも実体を配信しない。"
+    },
+    {
       "id": "video-render-artifact",
       "status": "active",
       "audience": "human",

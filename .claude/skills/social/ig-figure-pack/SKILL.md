@@ -1,6 +1,6 @@
 ---
 name: ig-figure-pack
-description: サイトSVGを、総監・1級土木・技術士建設部門の図解カルーセル下書き（表紙/図/要点/CTA）へ展開する。資格別ラベル・白背景・元図参照・各スライド目視を必須とし、投稿状態は既存SNS台帳で管理する。過去問クイズはig-post-createを使う。
+description: サイトSVGを、総監・1級土木・技術士建設部門・技術士一次の図解カルーセル下書き（表紙/図/要点/CTA）へ展開する。資格別ラベル・白背景・元図参照・各スライド目視を必須とし、投稿状態は既存SNS台帳で管理する。過去問クイズはig-post-createを使う。
 allowed-tools: Bash, Read, Write, Edit
 ---
 
@@ -21,6 +21,7 @@ allowed-tools: Bash, Read, Write, Edit
 | pe-comprehensive-management | cem | 技術士 総監 | 択一 頻出テーマ | 総監キーワード集 |
 | civil-construction-1 | civil-1 | 1級土木 | 試験の要点 | 1級土木の学習ページ |
 | pe-construction | pe-construction | 技術士 建設部門 | 記述の考え方 | 建設部門の学習ページ |
+| pe-first-stage | pe-first-stage | 技術士 第一次 | 計算の考え方 | 第一次の学習ページ |
 
 未知の資格で総監の既定値を流用しない。略称を追加する場合は共通の資格設定・ラベル解決・検査を一緒に更新する。総監の「頻出」表現は元記事・過去問で根拠を確認できる図だけに使う。
 
@@ -89,3 +90,9 @@ node .claude/scripts/sns/render-figure-sns.mjs \
 ```
 
 `--concept` は44文字以内。未知カテゴリ・形式や長すぎる見出しは書込み前に停止し、文言を黙って切り捨てない。PNGの生成だけで投稿済み・公開済みとは報告しない。
+
+### 同じ図をX下書きへ展開するとき
+
+`content/sns/x/draft/NNN-slug-diagrams/{tweets.md,status.json,images.json}` に、元記事・元図のパスとsha256、学習上の疑問、投稿番号、画像名を記録する。`node scripts/render-x-figure-drafts.mjs --draft NNN-slug-diagrams --check` で下書き状態と元データを確認し、`--check` を外してPNGを生成する。元記事が変わった場合は内容を再確認してからハッシュを更新する。画像はDriveの `x-rendered-image`、公開状態は既存X台帳で管理する。退避対象は番号付き `*-diagrams` 下書きの `img/tweet-NN-名前.png` のみ。既存Xカードはこのgroupの対象外。
+
+図解Reelsの音声クレジットは、生成時にVOICEVOXの話者一覧から実際のspeaker IDの声名を取得し、`reels/caption.txt` に記録する。既定ID 1はずんだもん（あまあま）。声名を数値IDから推測しない。専門用語は生成前に `.claude/scripts/lib/sns-common/reading-dict.mjs` を適用し、実機の読みを確認する。誤読を直した場合は音声・動画を再生成し、Drive台帳とクラウド実体を再照合する。

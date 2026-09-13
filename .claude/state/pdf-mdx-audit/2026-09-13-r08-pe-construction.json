@@ -1,0 +1,2493 @@
+{
+  "id": "DN-0206",
+  "date": "2026-09-13",
+  "status": "complete-local",
+  "scope": "公式R8建設部門全12区分の問題文＋独自学習先と12科目別分析。模範解答の追加なし。",
+  "sourceId": "ipej-past-exams#令和8年度",
+  "landingUrl": "https://www.engineer.or.jp/c_categories/index02022229.html",
+  "sources": [
+    {
+      "slug": "required",
+      "url": "https://www.engineer.or.jp/c_topics/011/attached/attach_11979_1.pdf",
+      "bytes": 158822,
+      "pages": 2,
+      "sha256": "4851c4064583574a45e322b872df8442d1aafbf4679bb4cf9f527ce624f72180",
+      "pageVisualReview": [
+        {
+          "page": 1,
+          "status": "read",
+          "unreadable": false
+        },
+        {
+          "page": 2,
+          "status": "read",
+          "unreadable": false
+        }
+      ]
+    },
+    {
+      "slug": "geotechnical",
+      "url": "https://www.engineer.or.jp/c_topics/011/attached/attach_11979_2.pdf",
+      "bytes": 439717,
+      "pages": 5,
+      "sha256": "13e50c6fb2239707b598617e28946d30c7a5d46751c232db9e10284fbb6f8daf",
+      "pageVisualReview": [
+        {
+          "page": 1,
+          "status": "read",
+          "unreadable": false
+        },
+        {
+          "page": 2,
+          "status": "read",
+          "unreadable": false
+        },
+        {
+          "page": 3,
+          "status": "read",
+          "unreadable": false
+        },
+        {
+          "page": 4,
+          "status": "read",
+          "unreadable": false
+        },
+        {
+          "page": 5,
+          "status": "read",
+          "unreadable": false
+        }
+      ]
+    },
+    {
+      "slug": "steel-concrete",
+      "url": "https://www.engineer.or.jp/c_topics/011/attached/attach_11979_3.pdf",
+      "bytes": 316555,
+      "pages": 4,
+      "sha256": "279383a4a91ea72b0693f02932d80cdcf8737cf5260c1d61d3f77a88636e0036",
+      "pageVisualReview": [
+        {
+          "page": 1,
+          "status": "read",
+          "unreadable": false
+        },
+        {
+          "page": 2,
+          "status": "read",
+          "unreadable": false
+        },
+        {
+          "page": 3,
+          "status": "read",
+          "unreadable": false
+        },
+        {
+          "page": 4,
+          "status": "read",
+          "unreadable": false
+        }
+      ]
+    },
+    {
+      "slug": "urban-planning",
+      "url": "https://www.engineer.or.jp/c_topics/011/attached/attach_11979_4.pdf",
+      "bytes": 262548,
+      "pages": 4,
+      "sha256": "abdda1298f01891e69e36bd7a1a76199521d7febadc7779551345fac5bb5b8c2",
+      "pageVisualReview": [
+        {
+          "page": 1,
+          "status": "read",
+          "unreadable": false
+        },
+        {
+          "page": 2,
+          "status": "read",
+          "unreadable": false
+        },
+        {
+          "page": 3,
+          "status": "read",
+          "unreadable": false
+        },
+        {
+          "page": 4,
+          "status": "read",
+          "unreadable": false
+        }
+      ]
+    },
+    {
+      "slug": "river-coast",
+      "url": "https://www.engineer.or.jp/c_topics/011/attached/attach_11979_5.pdf",
+      "bytes": 298547,
+      "pages": 4,
+      "sha256": "548cad5e44048b315a793d939e0f84a17a15cc430d9ff482456bc3a7d97338d8",
+      "pageVisualReview": [
+        {
+          "page": 1,
+          "status": "read",
+          "unreadable": false
+        },
+        {
+          "page": 2,
+          "status": "read",
+          "unreadable": false
+        },
+        {
+          "page": 3,
+          "status": "read",
+          "unreadable": false
+        },
+        {
+          "page": 4,
+          "status": "read",
+          "unreadable": false
+        }
+      ]
+    },
+    {
+      "slug": "port-airport",
+      "url": "https://www.engineer.or.jp/c_topics/011/attached/attach_11979_6.pdf",
+      "bytes": 338856,
+      "pages": 5,
+      "sha256": "8f02e01ba71c83cb0d8b7dd09e091bb62a3442216392b2a285dfd87a7281db03",
+      "pageVisualReview": [
+        {
+          "page": 1,
+          "status": "read",
+          "unreadable": false
+        },
+        {
+          "page": 2,
+          "status": "read",
+          "unreadable": false
+        },
+        {
+          "page": 3,
+          "status": "read",
+          "unreadable": false
+        },
+        {
+          "page": 4,
+          "status": "read",
+          "unreadable": false
+        },
+        {
+          "page": 5,
+          "status": "read",
+          "unreadable": false
+        }
+      ]
+    },
+    {
+      "slug": "power-civil",
+      "url": "https://www.engineer.or.jp/c_topics/011/attached/attach_11979_7.pdf",
+      "bytes": 250802,
+      "pages": 3,
+      "sha256": "12a699e5f5621db67cfe3c32a6293e272724cdc4a6f07d42480327a740d8f2fd",
+      "pageVisualReview": [
+        {
+          "page": 1,
+          "status": "read",
+          "unreadable": false
+        },
+        {
+          "page": 2,
+          "status": "read",
+          "unreadable": false
+        },
+        {
+          "page": 3,
+          "status": "read",
+          "unreadable": false
+        }
+      ]
+    },
+    {
+      "slug": "road",
+      "url": "https://www.engineer.or.jp/c_topics/011/attached/attach_11979_8.pdf",
+      "bytes": 261027,
+      "pages": 4,
+      "sha256": "c700b96215b4d2cefb8f8d0d6383d5365f8ccbd0daca3cb21ec37c30acd2b5ee",
+      "pageVisualReview": [
+        {
+          "page": 1,
+          "status": "read",
+          "unreadable": false
+        },
+        {
+          "page": 2,
+          "status": "read",
+          "unreadable": false
+        },
+        {
+          "page": 3,
+          "status": "read",
+          "unreadable": false
+        },
+        {
+          "page": 4,
+          "status": "read",
+          "unreadable": false
+        }
+      ]
+    },
+    {
+      "slug": "railway",
+      "url": "https://www.engineer.or.jp/c_topics/011/attached/attach_11979_9.pdf",
+      "bytes": 206192,
+      "pages": 3,
+      "sha256": "fd41c844680a887fe1109fec0ddb9803d9e19109b5d9c9c0c1047fbd606306c6",
+      "pageVisualReview": [
+        {
+          "page": 1,
+          "status": "read",
+          "unreadable": false
+        },
+        {
+          "page": 2,
+          "status": "read",
+          "unreadable": false
+        },
+        {
+          "page": 3,
+          "status": "read",
+          "unreadable": false
+        }
+      ]
+    },
+    {
+      "slug": "tunnel",
+      "url": "https://www.engineer.or.jp/c_topics/011/attached/attach_11979_10.pdf",
+      "bytes": 323134,
+      "pages": 4,
+      "sha256": "6be8f9211344ab32697b870632b5df873e2943c9deeb20e0b51aff9419adf7f6",
+      "pageVisualReview": [
+        {
+          "page": 1,
+          "status": "read",
+          "unreadable": false
+        },
+        {
+          "page": 2,
+          "status": "read",
+          "unreadable": false
+        },
+        {
+          "page": 3,
+          "status": "read",
+          "unreadable": false
+        },
+        {
+          "page": 4,
+          "status": "read",
+          "unreadable": false
+        }
+      ]
+    },
+    {
+      "slug": "construction-planning",
+      "url": "https://www.engineer.or.jp/c_topics/011/attached/attach_11979_11.pdf",
+      "bytes": 421155,
+      "pages": 5,
+      "sha256": "74240c0dae0f3e7d07f9a2b7eaafd9e615b7ee39572775628402b20eed968307",
+      "pageVisualReview": [
+        {
+          "page": 1,
+          "status": "read",
+          "unreadable": false
+        },
+        {
+          "page": 2,
+          "status": "read",
+          "unreadable": false
+        },
+        {
+          "page": 3,
+          "status": "read",
+          "unreadable": false
+        },
+        {
+          "page": 4,
+          "status": "read",
+          "unreadable": false
+        },
+        {
+          "page": 5,
+          "status": "read",
+          "unreadable": false
+        }
+      ]
+    },
+    {
+      "slug": "environment",
+      "url": "https://www.engineer.or.jp/c_topics/011/attached/attach_11979_12.pdf",
+      "bytes": 282983,
+      "pages": 3,
+      "sha256": "f1ea1d0fc50fc09eabc234015a7aebec82dc185461ef4b96c4b5c58c224c00c8",
+      "pageVisualReview": [
+        {
+          "page": 1,
+          "status": "read",
+          "unreadable": false
+        },
+        {
+          "page": 2,
+          "status": "read",
+          "unreadable": false
+        },
+        {
+          "page": 3,
+          "status": "read",
+          "unreadable": false
+        }
+      ]
+    }
+  ],
+  "accounting": {
+    "subjects": 12,
+    "sourcePages": 46,
+    "questionArticles": 12,
+    "analysisArticles": 12,
+    "questions": 90,
+    "numberedSubquestions": 140,
+    "circledRequirementsInConstructionPlanning": 18,
+    "figures": 5,
+    "historyRowsRetainedR01ToR07": 630,
+    "newR08Rows": 90
+  },
+  "questions": [
+    {
+      "slug": "required",
+      "id": "I-1",
+      "page": 1,
+      "visualRead": {
+        "pages": [
+          1
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "required",
+      "id": "I-2",
+      "page": 2,
+      "visualRead": {
+        "pages": [
+          2
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "geotechnical",
+      "id": "II-1-1",
+      "page": 1,
+      "visualRead": {
+        "pages": [
+          1
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "geotechnical",
+      "id": "II-1-2",
+      "page": 1,
+      "visualRead": {
+        "pages": [
+          1
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "geotechnical",
+      "id": "II-1-3",
+      "page": 1,
+      "visualRead": {
+        "pages": [
+          1
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "geotechnical",
+      "id": "II-1-4",
+      "page": 1,
+      "visualRead": {
+        "pages": [
+          1
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "geotechnical",
+      "id": "II-2-1",
+      "page": 2,
+      "visualRead": {
+        "pages": [
+          2
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "geotechnical",
+      "id": "II-2-2",
+      "page": 3,
+      "visualRead": {
+        "pages": [
+          3
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "geotechnical",
+      "id": "III-1",
+      "page": 4,
+      "visualRead": {
+        "pages": [
+          4
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "geotechnical",
+      "id": "III-2",
+      "page": 5,
+      "visualRead": {
+        "pages": [
+          5
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "steel-concrete",
+      "id": "II-1-1",
+      "page": 1,
+      "visualRead": {
+        "pages": [
+          1
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "steel-concrete",
+      "id": "II-1-2",
+      "page": 1,
+      "visualRead": {
+        "pages": [
+          1
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "steel-concrete",
+      "id": "II-1-3",
+      "page": 1,
+      "visualRead": {
+        "pages": [
+          1
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "steel-concrete",
+      "id": "II-1-4",
+      "page": 1,
+      "visualRead": {
+        "pages": [
+          1
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "steel-concrete",
+      "id": "II-2-1",
+      "page": 2,
+      "visualRead": {
+        "pages": [
+          2
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "steel-concrete",
+      "id": "II-2-2",
+      "page": 2,
+      "visualRead": {
+        "pages": [
+          2
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "steel-concrete",
+      "id": "III-1",
+      "page": 3,
+      "visualRead": {
+        "pages": [
+          3
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "steel-concrete",
+      "id": "III-2",
+      "page": 4,
+      "visualRead": {
+        "pages": [
+          4
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "urban-planning",
+      "id": "II-1-1",
+      "page": 1,
+      "visualRead": {
+        "pages": [
+          1
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "urban-planning",
+      "id": "II-1-2",
+      "page": 1,
+      "visualRead": {
+        "pages": [
+          1
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "urban-planning",
+      "id": "II-1-3",
+      "page": 1,
+      "visualRead": {
+        "pages": [
+          1
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "urban-planning",
+      "id": "II-1-4",
+      "page": 1,
+      "visualRead": {
+        "pages": [
+          1
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "urban-planning",
+      "id": "II-2-1",
+      "page": 2,
+      "visualRead": {
+        "pages": [
+          2
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "urban-planning",
+      "id": "II-2-2",
+      "page": 2,
+      "visualRead": {
+        "pages": [
+          2
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "urban-planning",
+      "id": "III-1",
+      "page": 3,
+      "visualRead": {
+        "pages": [
+          3
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "urban-planning",
+      "id": "III-2",
+      "page": 4,
+      "visualRead": {
+        "pages": [
+          4
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "river-coast",
+      "id": "II-1-1",
+      "page": 1,
+      "visualRead": {
+        "pages": [
+          1
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "river-coast",
+      "id": "II-1-2",
+      "page": 1,
+      "visualRead": {
+        "pages": [
+          1
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "river-coast",
+      "id": "II-1-3",
+      "page": 1,
+      "visualRead": {
+        "pages": [
+          1
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "river-coast",
+      "id": "II-1-4",
+      "page": 1,
+      "visualRead": {
+        "pages": [
+          1
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "river-coast",
+      "id": "II-2-1",
+      "page": 2,
+      "visualRead": {
+        "pages": [
+          2
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "river-coast",
+      "id": "II-2-2",
+      "page": 2,
+      "visualRead": {
+        "pages": [
+          2
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "river-coast",
+      "id": "III-1",
+      "page": 3,
+      "visualRead": {
+        "pages": [
+          3
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "river-coast",
+      "id": "III-2",
+      "page": 4,
+      "visualRead": {
+        "pages": [
+          4
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "port-airport",
+      "id": "II-1-1",
+      "page": 1,
+      "visualRead": {
+        "pages": [
+          1
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "port-airport",
+      "id": "II-1-2",
+      "page": 1,
+      "visualRead": {
+        "pages": [
+          1
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "port-airport",
+      "id": "II-1-3",
+      "page": 1,
+      "visualRead": {
+        "pages": [
+          1
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "port-airport",
+      "id": "II-1-4",
+      "page": 1,
+      "visualRead": {
+        "pages": [
+          1
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "port-airport",
+      "id": "II-2-1",
+      "page": 2,
+      "visualRead": {
+        "pages": [
+          2
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "port-airport",
+      "id": "II-2-2",
+      "page": 3,
+      "visualRead": {
+        "pages": [
+          3
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "port-airport",
+      "id": "III-1",
+      "page": 4,
+      "visualRead": {
+        "pages": [
+          4
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "port-airport",
+      "id": "III-2",
+      "page": 5,
+      "visualRead": {
+        "pages": [
+          5
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "power-civil",
+      "id": "II-1-1",
+      "page": 1,
+      "visualRead": {
+        "pages": [
+          1
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "power-civil",
+      "id": "II-1-2",
+      "page": 1,
+      "visualRead": {
+        "pages": [
+          1
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "power-civil",
+      "id": "II-1-3",
+      "page": 1,
+      "visualRead": {
+        "pages": [
+          1
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "power-civil",
+      "id": "II-1-4",
+      "page": 1,
+      "visualRead": {
+        "pages": [
+          1
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "power-civil",
+      "id": "II-2-1",
+      "page": 2,
+      "visualRead": {
+        "pages": [
+          2
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "power-civil",
+      "id": "II-2-2",
+      "page": 2,
+      "visualRead": {
+        "pages": [
+          2
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "power-civil",
+      "id": "III-1",
+      "page": 3,
+      "visualRead": {
+        "pages": [
+          3
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "power-civil",
+      "id": "III-2",
+      "page": 3,
+      "visualRead": {
+        "pages": [
+          3
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "road",
+      "id": "II-1-1",
+      "page": 1,
+      "visualRead": {
+        "pages": [
+          1
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "road",
+      "id": "II-1-2",
+      "page": 1,
+      "visualRead": {
+        "pages": [
+          1
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "road",
+      "id": "II-1-3",
+      "page": 1,
+      "visualRead": {
+        "pages": [
+          1
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "road",
+      "id": "II-1-4",
+      "page": 1,
+      "visualRead": {
+        "pages": [
+          1
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "road",
+      "id": "II-2-1",
+      "page": 2,
+      "visualRead": {
+        "pages": [
+          2
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "road",
+      "id": "II-2-2",
+      "page": 2,
+      "visualRead": {
+        "pages": [
+          2
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "road",
+      "id": "III-1",
+      "page": 3,
+      "visualRead": {
+        "pages": [
+          3
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "road",
+      "id": "III-2",
+      "page": 4,
+      "visualRead": {
+        "pages": [
+          4
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "railway",
+      "id": "II-1-1",
+      "page": 1,
+      "visualRead": {
+        "pages": [
+          1
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "railway",
+      "id": "II-1-2",
+      "page": 1,
+      "visualRead": {
+        "pages": [
+          1
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "railway",
+      "id": "II-1-3",
+      "page": 1,
+      "visualRead": {
+        "pages": [
+          1
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "railway",
+      "id": "II-1-4",
+      "page": 1,
+      "visualRead": {
+        "pages": [
+          1
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "railway",
+      "id": "II-2-1",
+      "page": 2,
+      "visualRead": {
+        "pages": [
+          2
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "railway",
+      "id": "II-2-2",
+      "page": 2,
+      "visualRead": {
+        "pages": [
+          2
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "railway",
+      "id": "III-1",
+      "page": 3,
+      "visualRead": {
+        "pages": [
+          3
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "railway",
+      "id": "III-2",
+      "page": 3,
+      "visualRead": {
+        "pages": [
+          3
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "tunnel",
+      "id": "II-1-1",
+      "page": 1,
+      "visualRead": {
+        "pages": [
+          1
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "tunnel",
+      "id": "II-1-2",
+      "page": 1,
+      "visualRead": {
+        "pages": [
+          1
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "tunnel",
+      "id": "II-1-3",
+      "page": 1,
+      "visualRead": {
+        "pages": [
+          1
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "tunnel",
+      "id": "II-1-4",
+      "page": 1,
+      "visualRead": {
+        "pages": [
+          1
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "tunnel",
+      "id": "II-2-1",
+      "page": 2,
+      "visualRead": {
+        "pages": [
+          2
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "tunnel",
+      "id": "II-2-2",
+      "page": 3,
+      "visualRead": {
+        "pages": [
+          3
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "tunnel",
+      "id": "III-1",
+      "page": 4,
+      "visualRead": {
+        "pages": [
+          4
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "tunnel",
+      "id": "III-2",
+      "page": 4,
+      "visualRead": {
+        "pages": [
+          4
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "construction-planning",
+      "id": "II-1-1",
+      "page": 1,
+      "visualRead": {
+        "pages": [
+          1
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "construction-planning",
+      "id": "II-1-2",
+      "page": 1,
+      "visualRead": {
+        "pages": [
+          1
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "construction-planning",
+      "id": "II-1-3",
+      "page": 1,
+      "visualRead": {
+        "pages": [
+          1
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "construction-planning",
+      "id": "II-1-4",
+      "page": 1,
+      "visualRead": {
+        "pages": [
+          1
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "construction-planning",
+      "id": "II-2-1",
+      "page": 2,
+      "visualRead": {
+        "pages": [
+          2
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "construction-planning",
+      "id": "II-2-2",
+      "page": 3,
+      "visualRead": {
+        "pages": [
+          3
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "construction-planning",
+      "id": "III-1",
+      "page": 4,
+      "visualRead": {
+        "pages": [
+          4
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "construction-planning",
+      "id": "III-2",
+      "page": 5,
+      "visualRead": {
+        "pages": [
+          5
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "environment",
+      "id": "II-1-1",
+      "page": 1,
+      "visualRead": {
+        "pages": [
+          1
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "environment",
+      "id": "II-1-2",
+      "page": 1,
+      "visualRead": {
+        "pages": [
+          1
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "environment",
+      "id": "II-1-3",
+      "page": 1,
+      "visualRead": {
+        "pages": [
+          1
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "environment",
+      "id": "II-1-4",
+      "page": 1,
+      "visualRead": {
+        "pages": [
+          1
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "environment",
+      "id": "II-2-1",
+      "page": 2,
+      "visualRead": {
+        "pages": [
+          2
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "environment",
+      "id": "II-2-2",
+      "page": 2,
+      "visualRead": {
+        "pages": [
+          2
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "environment",
+      "id": "III-1",
+      "page": 3,
+      "visualRead": {
+        "pages": [
+          3
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    },
+    {
+      "slug": "environment",
+      "id": "III-2",
+      "page": 3,
+      "visualRead": {
+        "pages": [
+          3
+        ],
+        "questionAndSubquestions": true,
+        "selectionInstructions": true,
+        "figuresChecked": true,
+        "unreadable": false
+      }
+    }
+  ],
+  "selectionReview": {
+    "required": "I-1/I-2から1問。答案用紙3枚を用いてまとめる（原典に用紙色の指定なし）。",
+    "optional": "全11科目：II-1/II-2両方解答。II-1は4問から1問・緑色1枚、II-2は2問から1問・青色2枚。IIIは2問から1問・赤色3枚。各原本で確認。"
+  },
+  "figures": [
+    {
+      "slug": "geotechnical",
+      "page": 2,
+      "name": "question-ii-2-1-section",
+      "path": "content/site/pe-construction/r08-geotechnical/img/question-ii-2-1-section.webp",
+      "boxAt1800": [
+        200,
+        900,
+        950,
+        590
+      ],
+      "renderDpi": 300,
+      "width": 1853,
+      "height": 1151,
+      "alt": "II-2-1 道路トンネルの断面図。住宅、共同溝、地層、被圧水位と右から左への地下水の流れ。",
+      "sourceId": "ipej-past-exams#令和8年度",
+      "visualReview": "元ページと切抜後の両方を目視。図内ラベル・線・寸法の欠けなし。",
+      "publicUploadPerformed": false
+    },
+    {
+      "slug": "geotechnical",
+      "page": 3,
+      "name": "question-ii-2-2-section",
+      "path": "content/site/pe-construction/r08-geotechnical/img/question-ii-2-2-section.webp",
+      "boxAt1800": [
+        250,
+        750,
+        720,
+        395
+      ],
+      "renderDpi": 300,
+      "width": 1404,
+      "height": 770,
+      "alt": "II-2-2 液状化対策地区の短辺方向断面図。道路、住宅、地下水位と土層。",
+      "sourceId": "ipej-past-exams#令和8年度",
+      "visualReview": "元ページと切抜後の両方を目視。図内ラベル・線・寸法の欠けなし。",
+      "publicUploadPerformed": false
+    },
+    {
+      "slug": "geotechnical",
+      "page": 3,
+      "name": "question-ii-2-2-plan",
+      "path": "content/site/pe-construction/r08-geotechnical/img/question-ii-2-2-plan.webp",
+      "boxAt1800": [
+        235,
+        1190,
+        820,
+        435
+      ],
+      "renderDpi": 300,
+      "width": 1599,
+      "height": 848,
+      "alt": "II-2-2 既存戸建住宅48戸と道路の平面図。周辺の宅地と商業施設は対象外。",
+      "sourceId": "ipej-past-exams#令和8年度",
+      "visualReview": "元ページと切抜後の両方を目視。図内ラベル・線・寸法の欠けなし。",
+      "publicUploadPerformed": false
+    },
+    {
+      "slug": "construction-planning",
+      "page": 2,
+      "name": "question-ii-2-1",
+      "path": "content/site/pe-construction/r08-construction-planning/img/question-ii-2-1.webp",
+      "boxAt1800": [
+        200,
+        1000,
+        915,
+        640
+      ],
+      "renderDpi": 300,
+      "width": 1784,
+      "height": 1248,
+      "alt": "II-2-1 地下街に近接する歩行者用通路の新設計画。新築ビル、地下鉄駅、埋設物、地下水位と地質調査位置。",
+      "sourceId": "ipej-past-exams#令和8年度",
+      "visualReview": "元ページと切抜後の両方を目視。図内ラベル・線・寸法の欠けなし。",
+      "publicUploadPerformed": false
+    },
+    {
+      "slug": "construction-planning",
+      "page": 3,
+      "name": "question-ii-2-2",
+      "path": "content/site/pe-construction/r08-construction-planning/img/question-ii-2-2.webp",
+      "boxAt1800": [
+        150,
+        1060,
+        905,
+        485
+      ],
+      "renderDpi": 300,
+      "width": 1765,
+      "height": 946,
+      "alt": "II-2-2 RC床版更新工事の対象橋りょうと周辺道路の模式図。小学校、市役所、生活道路と幹線道路。",
+      "sourceId": "ipej-past-exams#令和8年度",
+      "visualReview": "元ページと切抜後の両方を目視。図内ラベル・線・寸法の欠けなし。",
+      "publicUploadPerformed": false
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "content/site/pe-construction/r08-required/article.mdx",
+      "sha256": "35ea22f0217fd211bbd0dc4f5fe59ebc2bab790ccd52fdd19f5e9e4011b6e848"
+    },
+    {
+      "path": "content/site/pe-construction/required-exam-themes/article.mdx",
+      "sha256": "d507884da952c5d86a47a8999fd3b01e8ab7089b9e7e88e4e24f3bdf810f441e"
+    },
+    {
+      "path": "content/site/pe-construction/r08-geotechnical/article.mdx",
+      "sha256": "45032ade3012d99935138fc43eb7a9a9da089fb020ca88ffb8256e28e570fc8e"
+    },
+    {
+      "path": "content/site/pe-construction/geotechnical-exam-themes/article.mdx",
+      "sha256": "8099fb9586b3b79e65dd5781254b2628ba0534bdc65b60a14345da085c3037bc"
+    },
+    {
+      "path": "content/site/pe-construction/r08-steel-concrete/article.mdx",
+      "sha256": "cb95b088867314cc6d1b2c52bf00d66b337953164df1a924f7306ff4d6e483c6"
+    },
+    {
+      "path": "content/site/pe-construction/steel-concrete-exam-themes/article.mdx",
+      "sha256": "cf4be240d5b05119e80bcc2f251a5783000bda4f620685cd9dabb9a201716419"
+    },
+    {
+      "path": "content/site/pe-construction/r08-urban-planning/article.mdx",
+      "sha256": "1cdf99119c15369f42b7dd296baf8b5618d8b1477ebf80b6fcce56ed1df24fb1"
+    },
+    {
+      "path": "content/site/pe-construction/urban-planning-exam-themes/article.mdx",
+      "sha256": "f789a3e7575e217475ceaaddc7b4baad91f31d28a86bc3ffe527dc64540e9e3e"
+    },
+    {
+      "path": "content/site/pe-construction/r08-river-coast/article.mdx",
+      "sha256": "208c4ba11db48c5c8d1c3ab8bf2ffccc1cda830140e7191da0aafbcf959d9a9f"
+    },
+    {
+      "path": "content/site/pe-construction/river-coast-exam-themes/article.mdx",
+      "sha256": "1970c72485e9085a65f439114e84446cd8acfc836c935f6311b71cb38d2cfdfd"
+    },
+    {
+      "path": "content/site/pe-construction/r08-port-airport/article.mdx",
+      "sha256": "5751be9d7523ba877092f53910e335e0e12bb11425e55d81ff73ba5e7ce9bb75"
+    },
+    {
+      "path": "content/site/pe-construction/port-airport-exam-themes/article.mdx",
+      "sha256": "2425d7ab64bde9bf74e56b4b189047f72d3d447d8fdcc1e53297c71f1a8fa2a8"
+    },
+    {
+      "path": "content/site/pe-construction/r08-power-civil/article.mdx",
+      "sha256": "bb2edb1373dfa10d6eb3e91c2903bb7682206e4e8e72f82d63f08575288e589f"
+    },
+    {
+      "path": "content/site/pe-construction/power-civil-exam-themes/article.mdx",
+      "sha256": "2846aa89924cf7711414b519501e524be3d719fe151521de573371679f2baf6d"
+    },
+    {
+      "path": "content/site/pe-construction/r08-road/article.mdx",
+      "sha256": "40f7606368f65569194c4334e214c9b31d49fdc26afe9e46687e46f703c63b62"
+    },
+    {
+      "path": "content/site/pe-construction/road-exam-themes/article.mdx",
+      "sha256": "00f0cdce43431340b29dc674ed10cd523411b5d3e996574e283a7ec26dad0b91"
+    },
+    {
+      "path": "content/site/pe-construction/r08-railway/article.mdx",
+      "sha256": "79359de50b6c5154b7304e1cfc6d482b623e74d8358a54870a5c42442a863e56"
+    },
+    {
+      "path": "content/site/pe-construction/railway-exam-themes/article.mdx",
+      "sha256": "d5e4de224e1233088e649a9cb0ecf5cf5e811becb896f57274b6948c98c06909"
+    },
+    {
+      "path": "content/site/pe-construction/r08-tunnel/article.mdx",
+      "sha256": "742e36ba43e5e0660d0301db3731c032a28a26e513b5c790a29e5f3717e0eacb"
+    },
+    {
+      "path": "content/site/pe-construction/tunnel-exam-themes/article.mdx",
+      "sha256": "df8e1c385f14989146e63975fc24bf8bc959fbd6941959183fb4b55752e35b46"
+    },
+    {
+      "path": "content/site/pe-construction/r08-construction-planning/article.mdx",
+      "sha256": "3230fac608f27ae92a934e0f28b4d4353cd2afbf2f746a70f03d1905dea562c8"
+    },
+    {
+      "path": "content/site/pe-construction/construction-planning-exam-themes/article.mdx",
+      "sha256": "30b12d5ac489218ddfaa7dba48d1597950d6a25f8dd8cfb8e7d4d412c04ad3f1"
+    },
+    {
+      "path": "content/site/pe-construction/r08-environment/article.mdx",
+      "sha256": "bb6617c9075edf7813d2e4413d6a5dc2359d5db2ac9cb8256e68c048cc041210"
+    },
+    {
+      "path": "content/site/pe-construction/environment-exam-themes/article.mdx",
+      "sha256": "f36db6c30a671f75ed51f15de2a6ab73dd60f3aca468377422bb956da8fe8dc8"
+    }
+  ],
+  "historyEvidence": "R01–R07の630行は既存分析から継承。今回原本との再照合はR8の90行。",
+  "validation": {
+    "mdxCompile": [
+      {
+        "path": "content/site/pe-construction/r08-required/article.mdx",
+        "compile": true,
+        "questionIds": [
+          "I-1",
+          "I-2"
+        ],
+        "sourceTextRetained": true,
+        "tablesRendered": true
+      },
+      {
+        "path": "content/site/pe-construction/required-exam-themes/article.mdx",
+        "compile": true,
+        "questionIds": [],
+        "sourceTextRetained": true,
+        "tablesRendered": true
+      },
+      {
+        "path": "content/site/pe-construction/r08-geotechnical/article.mdx",
+        "compile": true,
+        "questionIds": [
+          "II-1-1",
+          "II-1-2",
+          "II-1-3",
+          "II-1-4",
+          "II-2-1",
+          "II-2-2",
+          "III-1",
+          "III-2"
+        ],
+        "sourceTextRetained": true,
+        "tablesRendered": true
+      },
+      {
+        "path": "content/site/pe-construction/geotechnical-exam-themes/article.mdx",
+        "compile": true,
+        "questionIds": [],
+        "sourceTextRetained": true,
+        "tablesRendered": true
+      },
+      {
+        "path": "content/site/pe-construction/r08-steel-concrete/article.mdx",
+        "compile": true,
+        "questionIds": [
+          "II-1-1",
+          "II-1-2",
+          "II-1-3",
+          "II-1-4",
+          "II-2-1",
+          "II-2-2",
+          "III-1",
+          "III-2"
+        ],
+        "sourceTextRetained": true,
+        "tablesRendered": true
+      },
+      {
+        "path": "content/site/pe-construction/steel-concrete-exam-themes/article.mdx",
+        "compile": true,
+        "questionIds": [],
+        "sourceTextRetained": true,
+        "tablesRendered": true
+      },
+      {
+        "path": "content/site/pe-construction/r08-urban-planning/article.mdx",
+        "compile": true,
+        "questionIds": [
+          "II-1-1",
+          "II-1-2",
+          "II-1-3",
+          "II-1-4",
+          "II-2-1",
+          "II-2-2",
+          "III-1",
+          "III-2"
+        ],
+        "sourceTextRetained": true,
+        "tablesRendered": true
+      },
+      {
+        "path": "content/site/pe-construction/urban-planning-exam-themes/article.mdx",
+        "compile": true,
+        "questionIds": [],
+        "sourceTextRetained": true,
+        "tablesRendered": true
+      },
+      {
+        "path": "content/site/pe-construction/r08-river-coast/article.mdx",
+        "compile": true,
+        "questionIds": [
+          "II-1-1",
+          "II-1-2",
+          "II-1-3",
+          "II-1-4",
+          "II-2-1",
+          "II-2-2",
+          "III-1",
+          "III-2"
+        ],
+        "sourceTextRetained": true,
+        "tablesRendered": true
+      },
+      {
+        "path": "content/site/pe-construction/river-coast-exam-themes/article.mdx",
+        "compile": true,
+        "questionIds": [],
+        "sourceTextRetained": true,
+        "tablesRendered": true
+      },
+      {
+        "path": "content/site/pe-construction/r08-port-airport/article.mdx",
+        "compile": true,
+        "questionIds": [
+          "II-1-1",
+          "II-1-2",
+          "II-1-3",
+          "II-1-4",
+          "II-2-1",
+          "II-2-2",
+          "III-1",
+          "III-2"
+        ],
+        "sourceTextRetained": true,
+        "tablesRendered": true
+      },
+      {
+        "path": "content/site/pe-construction/port-airport-exam-themes/article.mdx",
+        "compile": true,
+        "questionIds": [],
+        "sourceTextRetained": true,
+        "tablesRendered": true
+      },
+      {
+        "path": "content/site/pe-construction/r08-power-civil/article.mdx",
+        "compile": true,
+        "questionIds": [
+          "II-1-1",
+          "II-1-2",
+          "II-1-3",
+          "II-1-4",
+          "II-2-1",
+          "II-2-2",
+          "III-1",
+          "III-2"
+        ],
+        "sourceTextRetained": true,
+        "tablesRendered": true
+      },
+      {
+        "path": "content/site/pe-construction/power-civil-exam-themes/article.mdx",
+        "compile": true,
+        "questionIds": [],
+        "sourceTextRetained": true,
+        "tablesRendered": true
+      },
+      {
+        "path": "content/site/pe-construction/r08-road/article.mdx",
+        "compile": true,
+        "questionIds": [
+          "II-1-1",
+          "II-1-2",
+          "II-1-3",
+          "II-1-4",
+          "II-2-1",
+          "II-2-2",
+          "III-1",
+          "III-2"
+        ],
+        "sourceTextRetained": true,
+        "tablesRendered": true
+      },
+      {
+        "path": "content/site/pe-construction/road-exam-themes/article.mdx",
+        "compile": true,
+        "questionIds": [],
+        "sourceTextRetained": true,
+        "tablesRendered": true
+      },
+      {
+        "path": "content/site/pe-construction/r08-railway/article.mdx",
+        "compile": true,
+        "questionIds": [
+          "II-1-1",
+          "II-1-2",
+          "II-1-3",
+          "II-1-4",
+          "II-2-1",
+          "II-2-2",
+          "III-1",
+          "III-2"
+        ],
+        "sourceTextRetained": true,
+        "tablesRendered": true
+      },
+      {
+        "path": "content/site/pe-construction/railway-exam-themes/article.mdx",
+        "compile": true,
+        "questionIds": [],
+        "sourceTextRetained": true,
+        "tablesRendered": true
+      },
+      {
+        "path": "content/site/pe-construction/r08-tunnel/article.mdx",
+        "compile": true,
+        "questionIds": [
+          "II-1-1",
+          "II-1-2",
+          "II-1-3",
+          "II-1-4",
+          "II-2-1",
+          "II-2-2",
+          "III-1",
+          "III-2"
+        ],
+        "sourceTextRetained": true,
+        "tablesRendered": true
+      },
+      {
+        "path": "content/site/pe-construction/tunnel-exam-themes/article.mdx",
+        "compile": true,
+        "questionIds": [],
+        "sourceTextRetained": true,
+        "tablesRendered": true
+      },
+      {
+        "path": "content/site/pe-construction/r08-construction-planning/article.mdx",
+        "compile": true,
+        "questionIds": [
+          "II-1-1",
+          "II-1-2",
+          "II-1-3",
+          "II-1-4",
+          "II-2-1",
+          "II-2-2",
+          "III-1",
+          "III-2"
+        ],
+        "sourceTextRetained": true,
+        "tablesRendered": true
+      },
+      {
+        "path": "content/site/pe-construction/construction-planning-exam-themes/article.mdx",
+        "compile": true,
+        "questionIds": [],
+        "sourceTextRetained": true,
+        "tablesRendered": true
+      },
+      {
+        "path": "content/site/pe-construction/r08-environment/article.mdx",
+        "compile": true,
+        "questionIds": [
+          "II-1-1",
+          "II-1-2",
+          "II-1-3",
+          "II-1-4",
+          "II-2-1",
+          "II-2-2",
+          "III-1",
+          "III-2"
+        ],
+        "sourceTextRetained": true,
+        "tablesRendered": true
+      },
+      {
+        "path": "content/site/pe-construction/environment-exam-themes/article.mdx",
+        "compile": true,
+        "questionIds": [],
+        "sourceTextRetained": true,
+        "tablesRendered": true
+      }
+    ],
+    "localBrowser": [
+      {
+        "slug": "r08-required",
+        "url": "http://localhost:3024/exam/pe-construction/past-exams/r08-required",
+        "status": 200,
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "overflow": false,
+        "documentOverflow": false,
+        "imageState": []
+      },
+      {
+        "slug": "required-exam-themes",
+        "url": "http://localhost:3024/exam/pe-construction/keywords/required-exam-themes",
+        "status": 200,
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "overflow": false,
+        "documentOverflow": false,
+        "imageState": []
+      },
+      {
+        "slug": "r08-geotechnical",
+        "url": "http://localhost:3024/exam/pe-construction/past-exams/r08-geotechnical",
+        "status": 200,
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "overflow": false,
+        "documentOverflow": false,
+        "imageState": [
+          {
+            "src": "http://localhost:3024/posts/pe-construction/r08-geotechnical/img/question-ii-2-1-section.webp",
+            "loaded": true,
+            "width": 390
+          },
+          {
+            "src": "http://localhost:3024/posts/pe-construction/r08-geotechnical/img/question-ii-2-2-section.webp",
+            "loaded": true,
+            "width": 390
+          },
+          {
+            "src": "http://localhost:3024/posts/pe-construction/r08-geotechnical/img/question-ii-2-2-plan.webp",
+            "loaded": true,
+            "width": 390
+          }
+        ]
+      },
+      {
+        "slug": "geotechnical-exam-themes",
+        "url": "http://localhost:3024/exam/pe-construction/keywords/geotechnical-exam-themes",
+        "status": 200,
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "overflow": false,
+        "documentOverflow": false,
+        "imageState": []
+      },
+      {
+        "slug": "r08-steel-concrete",
+        "url": "http://localhost:3024/exam/pe-construction/past-exams/r08-steel-concrete",
+        "status": 200,
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "overflow": false,
+        "documentOverflow": false,
+        "imageState": []
+      },
+      {
+        "slug": "steel-concrete-exam-themes",
+        "url": "http://localhost:3024/exam/pe-construction/keywords/steel-concrete-exam-themes",
+        "status": 200,
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "overflow": false,
+        "documentOverflow": false,
+        "imageState": []
+      },
+      {
+        "slug": "r08-urban-planning",
+        "url": "http://localhost:3024/exam/pe-construction/past-exams/r08-urban-planning",
+        "status": 200,
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "overflow": false,
+        "documentOverflow": false,
+        "imageState": []
+      },
+      {
+        "slug": "urban-planning-exam-themes",
+        "url": "http://localhost:3024/exam/pe-construction/keywords/urban-planning-exam-themes",
+        "status": 200,
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "overflow": false,
+        "documentOverflow": false,
+        "imageState": []
+      },
+      {
+        "slug": "r08-river-coast",
+        "url": "http://localhost:3024/exam/pe-construction/past-exams/r08-river-coast",
+        "status": 200,
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "overflow": false,
+        "documentOverflow": false,
+        "imageState": []
+      },
+      {
+        "slug": "river-coast-exam-themes",
+        "url": "http://localhost:3024/exam/pe-construction/keywords/river-coast-exam-themes",
+        "status": 200,
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "overflow": false,
+        "documentOverflow": false,
+        "imageState": []
+      },
+      {
+        "slug": "r08-port-airport",
+        "url": "http://localhost:3024/exam/pe-construction/past-exams/r08-port-airport",
+        "status": 200,
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "overflow": false,
+        "documentOverflow": false,
+        "imageState": []
+      },
+      {
+        "slug": "port-airport-exam-themes",
+        "url": "http://localhost:3024/exam/pe-construction/keywords/port-airport-exam-themes",
+        "status": 200,
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "overflow": false,
+        "documentOverflow": false,
+        "imageState": []
+      },
+      {
+        "slug": "r08-power-civil",
+        "url": "http://localhost:3024/exam/pe-construction/past-exams/r08-power-civil",
+        "status": 200,
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "overflow": false,
+        "documentOverflow": false,
+        "imageState": []
+      },
+      {
+        "slug": "power-civil-exam-themes",
+        "url": "http://localhost:3024/exam/pe-construction/keywords/power-civil-exam-themes",
+        "status": 200,
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "overflow": false,
+        "documentOverflow": false,
+        "imageState": []
+      },
+      {
+        "slug": "r08-road",
+        "url": "http://localhost:3024/exam/pe-construction/past-exams/r08-road",
+        "status": 200,
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "overflow": false,
+        "documentOverflow": false,
+        "imageState": []
+      },
+      {
+        "slug": "road-exam-themes",
+        "url": "http://localhost:3024/exam/pe-construction/keywords/road-exam-themes",
+        "status": 200,
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "overflow": false,
+        "documentOverflow": false,
+        "imageState": []
+      },
+      {
+        "slug": "r08-railway",
+        "url": "http://localhost:3024/exam/pe-construction/past-exams/r08-railway",
+        "status": 200,
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "overflow": false,
+        "documentOverflow": false,
+        "imageState": []
+      },
+      {
+        "slug": "railway-exam-themes",
+        "url": "http://localhost:3024/exam/pe-construction/keywords/railway-exam-themes",
+        "status": 200,
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "overflow": false,
+        "documentOverflow": false,
+        "imageState": []
+      },
+      {
+        "slug": "r08-tunnel",
+        "url": "http://localhost:3024/exam/pe-construction/past-exams/r08-tunnel",
+        "status": 200,
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "overflow": false,
+        "documentOverflow": false,
+        "imageState": []
+      },
+      {
+        "slug": "tunnel-exam-themes",
+        "url": "http://localhost:3024/exam/pe-construction/keywords/tunnel-exam-themes",
+        "status": 200,
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "overflow": false,
+        "documentOverflow": false,
+        "imageState": []
+      },
+      {
+        "slug": "r08-construction-planning",
+        "url": "http://localhost:3024/exam/pe-construction/past-exams/r08-construction-planning",
+        "status": 200,
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "overflow": false,
+        "documentOverflow": false,
+        "imageState": [
+          {
+            "src": "http://localhost:3024/posts/pe-construction/r08-construction-planning/img/question-ii-2-1.webp",
+            "loaded": true,
+            "width": 390
+          },
+          {
+            "src": "http://localhost:3024/posts/pe-construction/r08-construction-planning/img/question-ii-2-2.webp",
+            "loaded": true,
+            "width": 390
+          }
+        ]
+      },
+      {
+        "slug": "construction-planning-exam-themes",
+        "url": "http://localhost:3024/exam/pe-construction/keywords/construction-planning-exam-themes",
+        "status": 200,
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "overflow": false,
+        "documentOverflow": false,
+        "imageState": []
+      },
+      {
+        "slug": "r08-environment",
+        "url": "http://localhost:3024/exam/pe-construction/past-exams/r08-environment",
+        "status": 200,
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "overflow": false,
+        "documentOverflow": false,
+        "imageState": []
+      },
+      {
+        "slug": "environment-exam-themes",
+        "url": "http://localhost:3024/exam/pe-construction/keywords/environment-exam-themes",
+        "status": 200,
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "overflow": false,
+        "documentOverflow": false,
+        "imageState": []
+      }
+    ],
+    "localImages": "5点は未アップロードのためPlaywrightで該当URLをローカル実体へ置換。全件decode成功。",
+    "visualReadStatement": "24トップ画面をコンタクトシートで目視。地盤・施工計画は図掲載箇所も390pxで目視。参考文献末尾のMarkdownリンクを参照抽出契約へ修正し、24ルート再検査で記事・documentとも横はみ出しなし。",
+    "sourceComparison": "46ページを高解像度で視覚照合。OCR誤認を補正し、全90問題の本文を機械でMDX残存照合。",
+    "mobileLint": "HIGH=0",
+    "referenceSources": "全体check-reference-sources PASS",
+    "diffCheck": "PASS"
+  },
+  "remainingIntegration": [
+    "サイト本番反映と公開画像の実体確認はDN-0220で管理"
+  ],
+  "missingSourcePages": [],
+  "unreadableQuestions": [],
+  "independentQa": {
+    "status": "PASS",
+    "scope": {
+      "questionArticles": 12,
+      "analysisArticles": 12,
+      "sourcePdfCount": 12,
+      "sourcePages": 46,
+      "independentVisualPages": 17,
+      "independentVisualQuestions": 50,
+      "independentVisualFigures": 5,
+      "unreviewedOriginalPages": 29,
+      "visualSampling": "required p1–2、geotechnical p1–3、construction-planning p1–3、残り9科目各p1。全46ページの再読ではない。",
+      "deterministic": "全12記事の番号/140小問/丸数字18、公式URLと科目、ローカル原本SHA/ページ数、全5画像と出典頁/設問、全24MDX compile/frontmatter、HEADのR1–R7テーマ630件とR8追加90件/アンカーを実体確認。"
+    },
+    "rubric": {
+      "structure": {
+        "score": 3,
+        "max": 3,
+        "reason": "必須構造、全90問、独自学習案内との分離、630旧テーマ保持と90新行を確認。"
+      },
+      "textFidelity": {
+        "score": 2,
+        "max": 3,
+        "reason": "原本17ページ50問の視覚サンプルで、数量・単位・除外条件を含め有意な誤写なし。未目視29ページの100%一致は主張しない。"
+      },
+      "tablesFiguresMath": {
+        "score": 3,
+        "max": 3,
+        "reason": "図5点を全点原本対照、欠け/誤帰属/問題外の解答ヒントなし。分析35テーブルはGFM ASTでtableとして認識。"
+      },
+      "mdxCompatibility": {
+        "score": 2,
+        "max": 3,
+        "reason": "全24ファイルを独立compileしエラー0、frontmatter lint0件、U+FFFD/H1/未対応記法0。全体本番buildは親の統合工程で、本評価では未実行。"
+      },
+      "metadata": {
+        "score": 2,
+        "max": 3,
+        "reason": "必須項目と出典整合は全件PASS。descriptionは75～120字で旧汎用ルーブリックの240～310字からは逸脱するが、現行check-mdxの50～200字に整合するため延長修正は不要。"
+      },
+      "total": 12,
+      "max": 15,
+      "threshold": 10,
+      "passed": true
+    },
+    "counts": {
+      "questionIds": 90,
+      "numberedSubquestions": 140,
+      "circledRequirements": 18,
+      "originalHistoryThemesRetained": 630,
+      "newR08Themes": 90,
+      "compiledFiles": 24,
+      "frontmatterFindings": 0,
+      "figures": 5,
+      "actualGfmTables": 35
+    },
+    "findings": [
+      {
+        "id": "QA-LOW-01",
+        "severity": "LOW",
+        "scope": "監査記録のみ",
+        "jsonPointer": "/selectionReview/required",
+        "observed": "I-1/I-2から1問。白色3枚。",
+        "message": "原本は用紙色を指定していないため、原本照合記録で「白色」と断定する根拠がない。公開MDXと分析本文は色を書いておらず正しい。",
+        "recommendation": "この記録を「I-1/I-2から1問。答案3枚。原本に用紙色指定なし。」へ整える。"
+      }
+    ],
+    "lowFindingResolution": "selectionReview.requiredの用紙色指定を削除し原典の「3枚を用いて」に一致させた。"
+  }
+}

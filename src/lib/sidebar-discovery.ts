@@ -25,10 +25,10 @@ export function discoveryGroups(category: string, currentSlug: string, docs: Doc
   const current = docs.find(d => d.slug === currentSlug);
   const pool = docs.filter(d => d.slug !== currentSlug && d.published !== false && !d.hideFromCategory && classifyDoc(d) !== 'career');
   const local = currentSlug.slice(category.length + 1);
-  const year = local.match(/^(?:h|r)\d{2}(?=-)/)?.[0];
+  const year = local.match(/^(?:h|r)\d{2}(?:-retry)?(?=-)/)?.[0];
   const subject = year ? local.slice(year.length + 1) : local.replace(/^(textbook|primary|guide)-/, '');
-  const sameSubject = pool.filter(d => d.slug.slice(category.length + 1).replace(/^(?:(?:h|r)\d{2}|textbook|primary|guide)-/, '') === subject);
-  const sameYear = year ? pool.filter(d => d.slug.startsWith(`${category}-${year}-`) && !sameSubject.includes(d)) : [];
+  const sameSubject = pool.filter(d => d.slug.slice(category.length + 1).replace(/^(?:(?:h|r)\d{2}(?:-retry)?|textbook|primary|guide)-/, '') === subject);
+  const sameYear = year ? pool.filter(d => d.slug.slice(category.length + 1).match(/^(?:h|r)\d{2}(?:-retry)?(?=-)/)?.[0] === year && !sameSubject.includes(d)) : [];
   const used = new Set([...sameSubject, ...sameYear].map(d => d.slug));
   const related = pool.filter(d => !used.has(d.slug)).sort((a,b) => {
     const score = (d: DocMeta) => (current?.tags || []).filter(t => !isStructuralTag(t) && d.tags?.includes(t)).length + Number(!!current && classifyDoc(d) === classifyDoc(current));
@@ -36,7 +36,7 @@ export function discoveryGroups(category: string, currentSlug: string, docs: Doc
   });
   return [
     {title:'同じ分野・科目', docs:sameSubject.sort((a,b)=>b.slug.localeCompare(a.slug)).slice(0,4)},
-    {title:'同じ年度の科目',docs:sameYear.slice(0,3)},
+    {title:'同じ年度・実施回の科目',docs:sameYear.slice(0,3)},
     {title:'あわせて学ぶ',docs:related.slice(0,sameSubject.length||sameYear.length?2:4)},
   ].filter(g=>g.docs.length);
 }

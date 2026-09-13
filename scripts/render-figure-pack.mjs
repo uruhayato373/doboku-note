@@ -6,7 +6,7 @@ import { createHash } from 'node:crypto';
 import { parseArgs } from 'node:util';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { Resvg } from '@resvg/resvg-js';
-import { figurePackLabels } from '../.claude/scripts/sns/lib/figure-pack-labels.mjs';
+import { figurePackLabels, FIGURE_PACK_CATEGORIES } from '../.claude/scripts/sns/lib/figure-pack-labels.mjs';
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 export const FIGURE_SLIDES = ['00-cover', '01-figure', '02-text', '03-cta'];
 function inside(root, path) {
@@ -15,11 +15,11 @@ function inside(root, path) {
   return full;
 }
 export function validateFigurePack(pack, root = ROOT) {
-  if (!/^(cem|civil-1|pe-construction)\/keyword-packs\/[a-z0-9-]+$/.test(pack)) throw new Error('packは資格/keyword-packs/slugで指定');
+  if (!/^(cem|civil-1|pe-construction|pe-first-stage)\/keyword-packs\/[a-z0-9-]+$/.test(pack)) throw new Error('packは資格/keyword-packs/slugで指定');
   const dir = join(root, 'content/sns/instagram', pack);
   const source = JSON.parse(readFileSync(join(dir, 'source.json'), 'utf8'));
   if (source.schemaVersion !== 1 || !source.needs || !source.nextStep) throw new Error('source.jsonの疑問・次の学習先が必要');
-  const category = { cem: 'pe-comprehensive-management', 'civil-1': 'civil-construction-1', 'pe-construction': 'pe-construction' }[pack.split('/')[0]];
+  const category = FIGURE_PACK_CATEGORIES[pack.split('/')[0]];
   const articleMatch = source.article?.path?.match(/^content\/site\/([a-z0-9-]+)\/([a-z0-9-]+)\/article\.mdx$/);
   if (!articleMatch || articleMatch[1] !== category) throw new Error('元記事とパックの資格が不一致');
   const figurePrefix = `content/site/${category}/${articleMatch[2]}/img/`;

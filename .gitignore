@@ -402,3 +402,6 @@ content/sources/standards/**/text/*.txt
 # Python の import キャッシュ（scripts 配下の .py を ProcessPool から読むと生える）
 __pycache__/
 *.pyc
+
+# X図解下書きのPNGは制作入力から再生成し、Drive vaultへ保存。
+content/sns/x/draft/*-diagrams/img/tweet-*.png

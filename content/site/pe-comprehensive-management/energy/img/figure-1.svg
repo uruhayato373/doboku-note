@@ -1,4 +1,4 @@
-<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="エネルギー政策の基本視点 S＋3E。安全性を大前提とし、安定供給・経済効率性・環境適合の3Eを優先順位順に示した図">
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="エネルギー政策の基本視点 S＋3E。安全性を大前提とし、安定供給・経済効率性・環境適合の3Eのバランスを示した図">
   <defs>
     <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
@@ -31,7 +31,7 @@
 
   <!-- ===== タイトル ===== -->
   <text class="t-title" x="200" y="28" text-anchor="middle">エネルギー政策の基本視点</text>
-  <text class="t-sub" x="200" y="48" text-anchor="middle">S＋3E（第六次エネルギー基本計画）</text>
+  <text class="t-sub" x="200" y="48" text-anchor="middle">S＋3E（安全性を大前提に3Eを両立）</text>
 
   <!-- ===== S（安全性）— 大前提・別格 surface色 ===== -->
   <!-- surface: ink-strongで別格化 -->
@@ -48,11 +48,11 @@
 
   <!-- ===== 矢印「↓以下3Eを優先順に」===== -->
   <line x1="200" y1="160" x2="200" y2="178" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <text class="t-label" x="200" y="172" text-anchor="middle">3Eを優先順位に従い確保</text>
+  <text class="t-label" x="200" y="172" text-anchor="middle">3Eのバランスを取る</text>
 
   <!-- ===== E1: 安定供給（第一）brand ===== -->
   <rect class="box-brand" x="30" y="186" width="340" height="84" rx="8"/>
-  <text class="t-label" x="370" y="204" text-anchor="end">第一</text>
+  <text class="t-label" x="370" y="204" text-anchor="end">安定供給</text>
   <circle class="badge-brand" cx="68" cy="228" r="18"/>
   <text class="t-badge" x="68" y="234" text-anchor="middle">E1</text>
   <text class="t-main" x="96" y="220">安定供給</text>
@@ -61,7 +61,7 @@
 
   <!-- ===== E2: 経済効率性 positive ===== -->
   <rect class="box-positive" x="30" y="284" width="340" height="84" rx="8"/>
-  <text class="t-label" x="370" y="302" text-anchor="end">第二</text>
+  <text class="t-label" x="370" y="302" text-anchor="end">経済効率性</text>
   <circle class="badge-positive" cx="68" cy="326" r="18"/>
   <text class="t-badge" x="68" y="332" text-anchor="middle">E2</text>
   <text class="t-main" x="96" y="318">経済効率性</text>
@@ -70,7 +70,7 @@
 
   <!-- ===== E3: 環境適合 warn ===== -->
   <rect class="box-warn" x="30" y="382" width="340" height="84" rx="8"/>
-  <text class="t-label" x="370" y="400" text-anchor="end">第三</text>
+  <text class="t-label" x="370" y="400" text-anchor="end">環境適合</text>
   <circle class="badge-warn" cx="68" cy="424" r="18"/>
   <text class="t-badge" x="68" y="430" text-anchor="middle">E3</text>
   <text class="t-main" x="96" y="416">環境適合</text>

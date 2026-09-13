@@ -388,7 +388,8 @@
     "check-ogp-thumbnails": "node scripts/build-ogp-thumbnails.mjs --check",
     "business-review": "node scripts/business-review.mjs",
     "fetch-business-metrics": "node scripts/fetch-business-metrics.mjs",
-    "check-business-direction": "node scripts/check-business-direction.mjs"
+    "check-business-direction": "node scripts/check-business-direction.mjs",
+    "check-content-expansion": "node scripts/check-content-expansion.mjs"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.908.0",

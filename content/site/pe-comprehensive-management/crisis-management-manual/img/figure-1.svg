@@ -1,4 +1,4 @@
-<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="危機への対応4段階サイクル。平常時準備・事前作業・緊急事態対応・事後復旧の順に縦に並び、矢印でつながる危機管理サイクル図">
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="準備から復旧までをつなげるサイクル。平常時準備・事前作業・緊急事態対応・事後復旧の順に縦に並び、矢印でつながる危機管理サイクル図">
   <defs>
     <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
@@ -25,7 +25,7 @@
   </defs>
 
   <!-- title -->
-  <text class="t-title" x="200" y="26" text-anchor="middle">危機への対応4段階</text>
+
 
   <!-- (a) 平常時準備段階 — positive -->
   <rect class="box-positive" x="46" y="60" width="308" height="76" rx="8"/>

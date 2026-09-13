@@ -264,3 +264,5 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 6. **`.claude/knowledge/reference/skills-guide.md` も更新**（ユーザーが起動しうるエージェントなら早引き表＋用途別ガイドに行を追加。CLAUDE.md §8 の要件だが `check-doc-coupling` は agents-registry しか見ないため**手動で忘れない**＝2026-06-18 に cem-essay ペアで取りこぼした再発防止）
 7. CLAUDE.md は per-agent の表を持たず件数・詳細を agents-registry.md に委譲する（CLAUDE.md 本体の編集は不要。`model:` 方針の一文は §5 にある）
 8. 関連する Generator/Evaluator スキルを新設・改廃したら `skills-registry.md`（退役ログ）も更新
+
+2026-09-13: strategy-advisor / todo-planner は `check-content-expansion` で教材・図解の未確認と変更後の再確認を読み、既存backlogと事業レビューへ接続する。
