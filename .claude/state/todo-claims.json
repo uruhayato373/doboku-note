@@ -5,12 +5,5 @@
     "startedAt": "ISO8601",
     "branch": "string"
   },
-  "claims": [
-    {
-      "id": "DN-0212",
-      "owner": "codex",
-      "startedAt": "2026-09-13T00:48:31.275Z",
-      "branch": null
-    }
-  ]
+  "claims": []
 }
