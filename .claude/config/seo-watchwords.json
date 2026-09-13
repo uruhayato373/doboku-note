@@ -14,30 +14,236 @@
       "keyword": "スクレーパとは",
       "targetPath": "/exam/civil-construction-1/textbook/scraper",
       "contentPath": "content/site/civil-construction-1/textbook-scraper/article.mdx",
-      "priority": 1,
+      "priority": 3,
       "country": "jpn",
       "device": null,
-      "enabled": true
+      "enabled": true,
+      "qualification": "civil-construction-1",
+      "intent": "reference",
+      "mode": "monitor",
+      "examEvent": "first",
+      "audience": "施工機械や工程管理の用語を調べる受験者・実務者。",
+      "need": "用語の意味と試験・実務での使い分けを理解したい。",
+      "rationale": "受験目的を特定できない一般語なので計測を継続し、資格課題の改善枠には入れない。",
+      "nextStep": {
+        "label": "年度別の二次問題を確認する",
+        "path": "/exam/civil-construction-1/secondary/r07"
+      },
+      "evidence": {
+        "kind": "gsc",
+        "source": ".claude/state/metrics/gsc/gsc-page-query-2026-09-10T22-51-42.json"
+      }
     },
     {
       "id": "break-even-speed",
       "keyword": "採算速度とは",
       "targetPath": "/exam/civil-construction-1/textbook/schedule-overview",
       "contentPath": "content/site/civil-construction-1/textbook-schedule-overview/article.mdx",
-      "priority": 1,
+      "priority": 3,
       "country": "jpn",
       "device": null,
-      "enabled": true
+      "enabled": true,
+      "qualification": "civil-construction-1",
+      "intent": "reference",
+      "mode": "monitor",
+      "examEvent": "first",
+      "audience": "施工機械や工程管理の用語を調べる受験者・実務者。",
+      "need": "用語の意味と試験・実務での使い分けを理解したい。",
+      "rationale": "受験目的を特定できない一般語なので計測を継続し、資格課題の改善枠には入れない。",
+      "nextStep": {
+        "label": "年度別の二次問題を確認する",
+        "path": "/exam/civil-construction-1/secondary/r07"
+      },
+      "evidence": {
+        "kind": "gsc",
+        "source": ".claude/state/metrics/gsc/gsc-page-query-2026-09-10T22-51-42.json"
+      }
     },
     {
       "id": "civil1-secondary-r07-answers",
       "keyword": "1級土木施工管理技士 2次試験 解答例 令和7年",
       "targetPath": "/exam/civil-construction-1/secondary/r07",
       "contentPath": "content/site/civil-construction-1/secondary-r07/article.mdx",
+      "priority": 1,
+      "country": "jpn",
+      "device": null,
+      "enabled": true,
+      "qualification": "civil-construction-1",
+      "intent": "exam-task",
+      "mode": "improve",
+      "examEvent": "second",
+      "audience": "1級土木の第二次検定に向けて年度別問題を学ぶ受験者。",
+      "need": "令和7年度の設問と解答の考え方を把握し、自分で答案を作りたい。",
+      "rationale": "年度別過去問から答案練習につながる具体的な受験課題を優先する。",
+      "nextStep": {
+        "label": "経験記述の字数を確認する",
+        "path": "/tools/keiken-charcount"
+      },
+      "evidence": {
+        "kind": "gsc",
+        "source": ".claude/state/metrics/gsc/gsc-page-query-2026-09-10T22-51-42.json"
+      }
+    },
+    {
+      "id": "civil1-keiken-charcount",
+      "keyword": "1級土木 経験記述 文字数",
+      "qualification": "civil-construction-1",
+      "targetPath": "/tools/keiken-charcount",
+      "contentPath": "src/app/tools/keiken-charcount/page.tsx",
+      "intent": "exam-task",
+      "mode": "monitor",
+      "priority": 1,
+      "audience": "施工経験記述の答案を作成している1級土木の受験者。",
+      "need": "設問ごとの解答欄に答案が収まるか確認し、超過を直したい。",
+      "rationale": "受験行動に直結するツール需要として監視する。ツール改修は記事1件の改善ループの対象外。",
+      "nextStep": {
+        "label": "令和7年度の設問を確認する",
+        "path": "/exam/civil-construction-1/secondary/r07"
+      },
+      "evidence": {
+        "kind": "gsc",
+        "source": ".claude/state/metrics/gsc/gsc-page-query-2026-09-10T22-51-42.json"
+      },
+      "examEvent": "second",
+      "country": "jpn",
+      "device": null,
+      "enabled": true
+    },
+    {
+      "id": "cem-keywords-2026",
+      "keyword": "総監キーワード2026",
+      "qualification": "pe-comprehensive-management",
+      "targetPath": "/exam/pe-comprehensive-management/guide/keyword-2026",
+      "contentPath": "content/site/pe-comprehensive-management/keyword-2026/article.mdx",
+      "intent": "exam-topic",
+      "mode": "improve",
+      "priority": 1,
+      "audience": "技術士総監の択一・記述に向けて学習範囲を確認する受験者。",
+      "need": "2026年版の公式キーワード体系と各論点の解説を読みたい。",
+      "rationale": "公式体系から個別論点を学ぶ入口として、総監の継続学習につなぐ。",
+      "nextStep": {
+        "label": "記述式の学習方針を確認する",
+        "path": "/exam/pe-comprehensive-management/guide/essay-exam-strategy"
+      },
+      "evidence": {
+        "kind": "gsc",
+        "source": ".claude/state/metrics/gsc/gsc-page-query-2026-09-10T22-51-42.json"
+      },
+      "examEvent": "written",
+      "country": "jpn",
+      "device": null,
+      "enabled": true
+    },
+    {
+      "id": "cem-essay-writing",
+      "keyword": "技術士 総監 論文 書き方",
+      "qualification": "pe-comprehensive-management",
+      "targetPath": "/exam/pe-comprehensive-management/guide/essay-exam-strategy",
+      "contentPath": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx",
+      "intent": "exam-task",
+      "mode": "improve",
       "priority": 2,
+      "audience": "総監記述式の答案構成や5管理の使い方を学ぶ受験者。",
+      "need": "設問に沿って課題と対応策を組み立てる手順を知りたい。",
+      "rationale": "答案作成という課題への適合を仮説登録する。検索需要と上位ページの確認前に不足を断定しない。",
+      "nextStep": {
+        "label": "5管理のキーワードを調べる",
+        "path": "/exam/pe-comprehensive-management/guide/keyword-2026"
+      },
+      "evidence": {
+        "kind": "hypothesis",
+        "source": "資格受験者の具体的課題を優先するユーザー方針（2026-09-13）。需要は未確認。"
+      },
+      "examEvent": "written",
+      "country": "jpn",
+      "device": null,
+      "enabled": true
+    },
+    {
+      "id": "cem-qualification-guide",
+      "keyword": "技術士総合技術監理部門",
+      "qualification": "pe-comprehensive-management",
+      "targetPath": "/exam/pe-comprehensive-management/guide/exam-index",
+      "contentPath": "content/site/pe-comprehensive-management/exam-index/article.mdx",
+      "intent": "qualification-guide",
+      "mode": "monitor",
+      "priority": 2,
+      "audience": "技術士総監の試験の全体像と学習先を探している人。",
+      "need": "資格の試験構成と、自分が始めるべき学習を把握したい。",
+      "rationale": "幅広い意図の入口は中長期で監視し、具体的な受験課題の改善より先に選ばない。",
+      "nextStep": {
+        "label": "公式キーワード体系から学ぶ",
+        "path": "/exam/pe-comprehensive-management/guide/keyword-2026"
+      },
+      "evidence": {
+        "kind": "gsc",
+        "source": ".claude/state/metrics/gsc/gsc-page-query-2026-09-10T22-51-42.json"
+      },
+      "examEvent": "written",
+      "country": "jpn",
+      "device": null,
+      "enabled": true
+    },
+    {
+      "id": "pe-required-model-answer",
+      "keyword": "技術士模範解答",
+      "qualification": "pe-construction",
+      "targetPath": "/exam/pe-construction/guide/hissu-kamoku-kaitourei",
+      "contentPath": "content/site/pe-construction/hissu-kamoku-kaitourei/article.mdx",
+      "intent": "exam-task",
+      "mode": "improve",
+      "priority": 1,
+      "audience": "技術士建設部門の必須科目Iで答案の組み立てを学ぶ受験者。",
+      "need": "模範解答の論理構成を理解し、自分の答案練習に使いたい。",
+      "rationale": "完成答案を学習に使う課題との適合がある。語だけでは部門が曖昧なのでSERPで建設部門への適合を再確認する。",
+      "nextStep": {
+        "label": "令和7年度の必須科目を解く",
+        "path": "/exam/pe-construction/past-exams/r07-required"
+      },
+      "evidence": {
+        "kind": "gsc",
+        "source": ".claude/state/metrics/gsc/gsc-page-query-2026-09-10T22-51-42.json"
+      },
+      "examEvent": "written",
+      "country": "jpn",
+      "device": null,
+      "enabled": true
+    },
+    {
+      "id": "pe-tunnel-exam",
+      "keyword": "技術士 トンネル",
+      "qualification": "pe-construction",
+      "targetPath": "/exam/pe-construction/keywords/tunnel-exam-themes",
+      "contentPath": "content/site/pe-construction/tunnel-exam-themes/article.mdx",
+      "intent": "exam-topic",
+      "mode": "improve",
+      "priority": 2,
+      "audience": "技術士建設部門でトンネルを選択する受験者。",
+      "need": "出題テーマと関連する過去問を整理し、学習範囲を絞りたい。",
+      "rationale": "専門科目の出題分析から過去問に進む学習需要を対象とする。",
+      "nextStep": {
+        "label": "必須科目の答案学習へ進む",
+        "path": "/exam/pe-construction/guide/hissu-kamoku-kaitourei"
+      },
+      "evidence": {
+        "kind": "gsc",
+        "source": ".claude/state/metrics/gsc/gsc-page-query-2026-09-10T22-51-42.json"
+      },
+      "examEvent": "written",
       "country": "jpn",
       "device": null,
       "enabled": true
     }
-  ]
+  ],
+  "strategy": {
+    "version": 2,
+    "reviewedAt": "2026-09-13",
+    "reviewEveryDays": 28,
+    "focusQualifications": [
+      "civil-construction-1",
+      "pe-comprehensive-management",
+      "pe-construction"
+    ],
+    "objective": "受験者が問題を理解し、過去問学習・答案作成へ進める検索流入を増やす。1位の件数だけで成果を判断しない。"
+  }
 }

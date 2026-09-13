@@ -133,7 +133,7 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 |---|---|---|
 | `/plan-weekly` | .claude/todo/ を読んで今週の優先タスクを決め weekly.md を直接更新（Sonnet 1回・軽量。※戦略計画は /weekly-plan） | `今週のタスクを決めて`, `今週何をすべきか`, `weekly.md更新`, `/plan-weekly` |
 | `/backlog-sweep` | backlog から1〜2件を選定→実査→実行→検証→**セクション削除**で台帳を減らす1サイクル（実査で既に完了なら掃除として削除）。`/loop` で自走。**`--audit` は台帳そのものの棚卸し**（`backlog-curator` を同時3体で起動し、1枚単位の sweep では見えない台帳全体を KEEP/RETAG/TRIM/MERGE/DELETE/RESEED/SPLIT に分類）。※計画を書く /plan-weekly とは別物 | `バックログを消化して`, `backlog を減らして`, `sweep を回して`, `バックログを棚卸しして`, `/backlog-sweep`, `/backlog-sweep --audit` |
-| `/weekly-improve` | 計測→改善候補→実験登録。`--rank-watch` は1キーワードの7日観察ループ | `SEO Rank Watch`, `今週の改善`, `PDCA`, `/weekly-improve` |
+| `/weekly-improve` | 計測→改善候補→実験登録。`--rank-watch` は資格受験者優先・7日観察・実行記録・28日方針レビュー | `SEO Rank Watch`, `今週の改善`, `PDCA`, `/weekly-improve` |
 | `/gsc-review` | 月次 GSC index coverage レビュー（gsc-index-auditor 起動→判断ログ追記） | `GSC月次レビュー`, `インデックス率`, `index coverage`, `/gsc-review` |
 | `/seo-growth-review` | SEO 4面（技術/coverage/performance/意図）の Evaluator を束ねる（機械検出→意味評価→統合・修正なし） | `SEO総合レビュー`, `技術SEO監査`, `SEOグロース`, `/seo-growth-review` |
 | `/google-search-growth` | GSC/GA4 の Playwright UI CSV 取得→既存 API と URL 突合→修正候補分類（approval gate で停止・ローカル専用） | `検索流入改善`, `GSC CSV 取得`, `GSC/GA4 統合診断`, `/google-search-growth` |

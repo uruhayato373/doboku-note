@@ -859,6 +859,18 @@
       "commit": "541bb2a1807f",
       "verification": "npm run check-knip-ratchet PASS; standards desktop/mobile 28/28 PASS; GitHub E2E run 34727755992 success",
       "note": "現行仕様書ナビにE2E期待値を同期。adminの実importをREADMEへ記録しKnip誤検出を解消。baselineと検査対象は維持。"
+    },
+    {
+      "id": "DN-0212",
+      "at": "2026-09-13",
+      "task": "SEO Rank Watchを資格受験者優先の選定と継続記録へ改める",
+      "tier": "high",
+      "executor": "codex",
+      "outcome": "done",
+      "plan": null,
+      "commit": "c433ec70e71a",
+      "verification": "専用28/28、全体1255 PASS・3 skip、root/admin型検査、CLI・履歴保護・文書参照・Codex同期、3資格9語GSC実測、PC1440/390px表示・はみ出し0・JSエラー0、doc-sync指摘0",
+      "note": "資格受験者優先の方針を事業戦略とSEO運用referenceへ集約。登録根拠・選定/待機/失敗・28日方針レビューを追記保存し、日次heartbeatを更新。初回は既存実験2件で待機、記事変更なし。実装を同一PRでdevelopへ集約する。"
     }
   ]
 }
