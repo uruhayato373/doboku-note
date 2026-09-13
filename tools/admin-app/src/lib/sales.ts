@@ -6,8 +6,6 @@ import { repoPath } from './repo-root';
  * .claude/state/sales/sales-log.json を月次・商品別に集計（tools/admin/lib/sales.mjs 移植）。
  */
 
-const MILESTONE = 15000; // Web 月収マイルストーン（iOS 着手判断トリガー）
-
 const monthOf = (d: string) => d.slice(0, 7);
 
 export interface ProductAgg {
@@ -19,14 +17,12 @@ export interface MonthAgg {
   month: string;
   count: number;
   revenue: number;
-  milestone: boolean;
   products: ProductAgg[];
 }
 export interface SalesSummary {
   source: string | null;
   updatedAt: string | null;
   currency: string;
-  milestone: number;
   months: MonthAgg[];
   total: { count: number; revenue: number; months: number };
 }
@@ -42,7 +38,7 @@ export function salesSummary(): SalesSummary {
   try {
     data = JSON.parse(readFileSync(repoPath('.claude', 'state', 'sales', 'sales-log.json'), 'utf8'));
   } catch {
-    return { source: null, updatedAt: null, currency: 'JPY', milestone: MILESTONE, months: [], total: { count: 0, revenue: 0, months: 0 } };
+    return { source: null, updatedAt: null, currency: 'JPY', months: [], total: { count: 0, revenue: 0, months: 0 } };
   }
   const sales = data.sales ?? [];
 
@@ -66,7 +62,6 @@ export function salesSummary(): SalesSummary {
         month: m,
         count: mm.count,
         revenue: mm.revenue,
-        milestone: mm.revenue >= MILESTONE,
         products: Object.values(mm.products).sort((a, b) => b.revenue - a.revenue),
       };
     });
@@ -80,7 +75,6 @@ export function salesSummary(): SalesSummary {
     source: data.source ?? null,
     updatedAt: data.updatedAt ?? null,
     currency: data.currency ?? 'JPY',
-    milestone: MILESTONE,
     months,
     total,
   };
