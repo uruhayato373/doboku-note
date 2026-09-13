@@ -4,6 +4,7 @@ import { mkdtempSync, mkdirSync, readFileSync, writeFileSync, rmSync, readdirSyn
 import { join, resolve, dirname } from 'node:path';
 import { tmpdir } from 'node:os';
 import { execFileSync } from 'node:child_process';
+import { execPath } from 'node:process';
 import { applyReplacements, validateAgentResult, waitingReason } from '../scripts/lib/seo-rank-watch-ci.mjs';
 
 const original = '---\ntitle: 試験対策\nseoTitle: 試験対策の方法\ndescription: 試験を学ぶ手順です\npublished: true\nnoindex: false\ncategory: civil-construction-1\n---\n\n## 学習手順\n\n最初に過去問を確認する。次に条件を整理する。繰り返し練習する。\n';
@@ -53,7 +54,7 @@ test('CI prepare/apply records waiting once without changing experiments, and re
   const ledger = { experiments: [{ id: 'EXISTING1', status: 'running' }, { id: 'EXISTING2', status: 'running' }] };
   save('.claude/state/experiments.json', ledger);
   const cli = resolve('scripts/seo-rank-watch-ci.mjs');
-  const run = command => execFileSync(process.execPath, [cli, command, '--dir', join(root, 'output')], { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
+  const run = command => execFileSync(execPath, [cli, command, '--dir', join(root, 'output')], { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
   run('prepare');
   assert.equal(JSON.parse(readFileSync(join(root, 'output/context.json'), 'utf8')).selected, null);
   run('apply'); run('apply');
