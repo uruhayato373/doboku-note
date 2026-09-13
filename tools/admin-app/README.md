@@ -67,6 +67,7 @@ symlink・バイナリを本文として読まないこと・`MIGRATION_MAP` と
 - **ナビ**: 左サイドバー固定（`Nav.tsx`・6 グループ＝コンテンツ/計画/運用/分析/収益/管理）。「コンテンツ」はサイト・note・X・Instagram・YouTube・ココナラ・Kindle・**Brain** の**チャネル別入口**（`すべて`＝`/content`）で、チャネル定義（label・route・タブ）は `src/lib/channel-registry.ts` が唯一の SSOT（fs を持たない純粋モジュール・Nav とサーバー側の双方から import する）。TODO は計画直下にバックログ/週間/月間/年間を表示し、恒久文書・実装計画も管理から参照できる。狭い画面では上部バーへ畳む。
 - **テーマ**: ライト/ダーク切替（`ThemeToggle.tsx`）。色は全て `globals.css` のトークンで、ダークは `:root[data-theme="dark"]` の 1 経路だけ。初期値（保存値 or OS 設定）は `layout.tsx` の head inline script が描画前に解決する（prefers-color-scheme のメディアクエリは持たない＝パレット二重定義を避けるため）。選択は localStorage `admin-theme`。
 - **セキュリティ**: `-H 127.0.0.1` 明示バインド。media route は traversal ガード + MIME allowlist。書き込み操作用の画面・APIは設けず、管理画面は読み取り専用とする。
+- **依存解析**: rootのKnip解析はadminを対象外としているため、`src/lib/markdown.ts`で直接使う`hast-util-sanitize`を`knip.json`の`ignoreDependencies`へ明示する（未使用ではない）。
 - **CI 影響ゼロ**: `tools/**` は root の tsconfig / eslint / knip の対象外。型チェックは `npx tsc -p tools/admin-app/tsconfig.json`。
 - **テスト**: 型チェックが `tools/**` を見ないため、ロジックは root の `npm test` から tsx 経由で実モジュールを叩いて固定する
   （`tests/admin-document-store.test.mjs` = パス復号・トラバーサル・目次 id・sanitize・archive 除外、
