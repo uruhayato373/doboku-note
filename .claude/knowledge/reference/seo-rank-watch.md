@@ -54,6 +54,8 @@
 
 実行主体は `.github/workflows/seo-rank-watch.yml`（毎日09:13 JST、手動起動可）。scheduleはmainの定義から起動し、developのコード・最新台帳を扱う。GitHub側の混雑で起動が遅れることがある。PCの起動やブラウザログインは不要。週次 `fetch-metrics.yml` はGA4/GSCの広域集計を担当し、Rank Watchのcollect・判定・実行記録は日次に一本化する。Codexの事業レビューheartbeatはSEOの取得・改善を重ねて実行しない。
 
+移行確認（2026-09-14）: [初回CI](https://github.com/uruhayato373/doboku-note/actions/runs/34787618022) で9件のGSC snapshotと上限待機の判断記録をdevelopへ保存した。候補なしのため、この回の検索調査・記事改善は未実行。成功確認後、既存Codex automation `seo-rank-watch` は「事業レビュー・図解整備」へ更新してSEO実行指示を除き、事業レビュー・図解整備の指示と日程を維持した。
+
 `scripts/seo-rank-watch-ci.mjs` が既存CLIと同じSSOTを使い、次の順で実行する。
 
 1. 最新の成功した本番デプロイと改善本文hashを照合し、一致したpending-deployだけ観察を開始する。
