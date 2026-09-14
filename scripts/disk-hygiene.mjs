@@ -283,7 +283,7 @@ export function collect({ quick = false, config = loadConfig(), platform = proce
       !quick && existsSync(wt.path)
         ? run('git', ['-C', wt.path, 'status', '--porcelain'], { cwd: wt.path }).stdout.split('\n').filter(Boolean)
         : [];
-    const wtName = wt.path.split('/').pop();
+    const wtName = wt.path.split(/[\\/]/).pop();
     const adminDir = gitCommonDir ? join(gitCommonDir, 'worktrees', wtName) : null;
     const adminMtime = adminDir
       ? Math.max(mtimeOf(join(adminDir, 'HEAD')) || 0, mtimeOf(join(adminDir, 'index')) || 0)

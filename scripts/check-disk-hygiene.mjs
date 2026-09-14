@@ -62,7 +62,7 @@ if (QUICK) {
 
   const wt = byId.worktrees;
   if (wt && wt.actions.length > 0) {
-    const list = wt.actions.map((a) => a.path.split('/').pop()).join(', ');
+    const list = wt.actions.map((a) => a.path.split(/[\\/]/).pop()).join(', ');
     say(`マージ済みで残っている worktree ${wt.actions.length} 本（${list}）。 推奨: git worktree remove <path>`);
   }
 

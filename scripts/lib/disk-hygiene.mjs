@@ -41,15 +41,20 @@ export function hasGitEntry(names) {
  * `git worktree list --porcelain` を構造化する。先頭エントリが main worktree。
  * porcelain は空行区切りで、各ブロックが `worktree <path>` から始まる。
  */
-export function parseWorktreeList(porcelain) {
+export function parseWorktreeList(porcelain, { platform = process.platform } = {}) {
   const out = [];
   let cur = null;
+  // Windows の git はパスを `C:/Users/...` と `/` 区切りで出すが、Node の path.join や REPO_ROOT は
+  // `\` 区切りなので、そのまま比較すると置き場判定・cwd 照合・テストの突合が全部外れる
+  // （2026-09-14 に実測）。win32 ではドライブ文字（`C:/`）か UNC（`//`）で始まるパスだけ
+  // OS の区切りへ正規化する（POSIX 風の `/repo` はテスト入力なので触らない）。
+  const nativePath = (p) => (platform === 'win32' && /^([A-Za-z]:\/|\/\/)/.test(p) ? p.replace(/\//g, '\\') : p);
   for (const raw of String(porcelain || '').split('\n')) {
     const line = raw.trimEnd();
     if (line.startsWith('worktree ')) {
       if (cur) out.push(cur);
       cur = {
-        path: line.slice('worktree '.length),
+        path: nativePath(line.slice('worktree '.length)),
         head: null,
         branch: null,
         bare: false,
@@ -127,8 +132,11 @@ export function classifyWorktree(wt, facts) {
  * allowedRoots はリポジトリ相対（`.claude/worktrees`）と `~` 始まり（`~/.codex/worktrees`）を受ける。
  */
 export function worktreePlacement(path, { repoRoot, home, allowedRoots = [] } = {}) {
-  const p = String(path || '');
-  const norm = (s) => s.replace(/\/+$/, '');
+  // 区切りは `/` に寄せて比較する（Windows は git が `/`、Node が `\` を返し混在する。2026-09-14）。
+  const norm = (s) => String(s || '').replace(/\\/g, '/').replace(/\/+$/, '');
+  const p = norm(path);
+  repoRoot = norm(repoRoot);
+  home = norm(home);
   const expand = (root) => {
     if (root.startsWith('~/')) return norm(`${home}/${root.slice(2)}`);
     if (root.startsWith('/')) return norm(root);
