@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 // check-agent-descriptions — .claude/agents/*.md の frontmatter `description` の長さを baseline ラチェットで止める。
 //
-// 守りたい事故: 81 件の description は**毎セッションの system prompt に全文載る**（合計 17.6k 文字・2026-09-14 実測）。
-// 「担当範囲・安全弁・関連スクリプト」まで description に書く癖で 32 件が 300 文字超（最大 1,179＝coconala-operator）。
+// description は**毎セッションの system prompt に全文載る**。担当範囲・安全弁・関連スクリプトの
+// 詳細を書き込むと固定コストが増えるため、呼出判断に必要な概要だけに絞る。
 // 詳細は本文と agents-registry.md にあるので二重。上限 300 code points（`Use when` の有無は数えるだけ＝skill から呼ばれる
 // Generator/Evaluator は trigger 句を持たないのが正常）。
 // 既存の超過は .claude/state/quality/agent-descriptions-baseline.json に載せ、**新規の超過と既存の悪化**だけ赤にする
-// （返済は DN-0232。返したら --update-baseline で締める）。
+// （超過を解消したら --update-baseline で締める。現在の件数は実行結果を参照）。
 //
 // 使い方:
 //   node scripts/check-agent-descriptions.mjs                  # 全件（quality-audit ci:true）

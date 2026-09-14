@@ -1,6 +1,7 @@
 ---
 name: doc-curator
-description: ドキュメントのライフサイクル（肥大化・陳腐化・重複・完了済み）を監査し、各 doc を KEEP / TRIM / DELETE / CONSOLIDATE に分類して根拠・確信度・必要な後追い（抽出先/参照更新/memory同期）付きで報告する Evaluator エージェント。親が渡した「外部実体の検証済みシグナル」に基づき判定し、doc 本文の自己申告だけで done と決めない。自動修正・自動削除はしない。handoff の既定処分は extract→削除（記録は git 履歴・2026-07-11 archive 廃止）。doc-sync-auditor（コード diff 起点の prose 陳腐化）とは守備範囲が直交。
+description: >
+  文書の肥大化・陳腐化・重複・完了状況を、検証済み外部実体に基づき監査する Evaluator。KEEP/TRIM/DELETE/CONSOLIDATE と抽出・参照更新案を返す。編集・削除はしない。コード差分起点の同期監査は doc-sync-auditor。
 model: sonnet
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 ---

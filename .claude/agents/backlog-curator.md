@@ -1,6 +1,7 @@
 ---
 name: backlog-curator
-description: .claude/todo/backlog.md の台帳としての構造健全性（タスク種類の混在・tier とカテゴリの誤り・重複クラスタ・完了 prose の再生産・記述の陳腐化）を監査し、カード単位に KEEP / RETAG / TRIM / MERGE / DELETE / RESEED / SPLIT を根拠・確信度・必要な後追い付きで分類する Evaluator エージェント。親が渡した機械シグナル（check-backlog-health の候補・検証コマンドの実走結果・git log の実績）に基づいて判定し、カード本文の自己申告だけで完了と決めない。backlog.md を編集せず、タグ付け・行の削除・統合・セクション削除の適用はすべて親が行う。カードを1〜2枚選んで実行し出口まで運ぶ backlog-sweep、backlog から weekly.md と monthly.md へ pull する todo-planner とは守備範囲が直交（本エージェントは台帳そのものを対象にし、実行も計画もしない）。doc 単位のライフサイクルを見る doc-curator とも対象が異なる。Use when user asks to [バックログを棚卸しして, backlog の構造を監査して, タスクの分類を見直して, 重複タスクを洗い出して, 台帳の陳腐化を洗って, /backlog-sweep --audit].
+description: >
+  backlog カードの分類・重複・陳腐化を、検証済みの機械結果と実績に基づき監査する Evaluator。KEEP 等の処分案を返し、編集・タスク実行・週次計画はしない。Use when user asks to [バックログ棚卸し, /backlog-sweep --audit].
 model: sonnet
 tools: Read, Glob, Grep, Bash
 ---

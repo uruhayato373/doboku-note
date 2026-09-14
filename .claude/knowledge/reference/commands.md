@@ -126,11 +126,11 @@ npm run check-jst-date    # 運用記録の日付が UTC で前日付になっ�
 ```bash
 npm run check-backlog-schema # backlog タグ行の語彙・[検証:]の実在・ID(DN-####)必須/重複・完了 prose の混入（pre-commit --staged ＋ quality:audit）
 npm run check-backlog-health # 台帳の候補 surfacer（🟢に沈んだ不具合・種類の矛盾・重複候補・検証ゲート欠落。判定はせず常に exit 0）
-npm run check-codex-compat   # AGENTS.md / .agents/skills / .codex/agents / .codex/hooks.json が正典（CLAUDE.md + .claude/rules / .claude/skills / .claude/agents / .claude/settings.json）の生成物と一致するか（第2SSOT再発防止・pre-commit --staged ＋ quality:audit・再生成は sync-codex-compat。2026-09-14 から agent toml と hooks.json も生成物＝手で編集しない）
+npm run check-codex-compat   # AGENTS.md（共通規約＋rules参照索引）/ .agents/skills / .codex/agents / .codex/hooks.json が正典（CLAUDE.md + .claude/rules / .claude/skills / .claude/agents / .claude/settings.json）の生成物と一致するか（第2SSOT再発防止・pre-commit --staged ＋ quality:audit・再生成は sync-codex-compat。2026-09-14 から agent toml と hooks.json も生成物＝手で編集しない）
 npm run sync-codex-compat    # 正典から AGENTS.md / .agents/skills / .codex/agents/*.toml / .codex/hooks.json を再生成（孤児は削除）
 npm run setup-memory-link    # Claude Code の auto-memory（~/.claude/projects/<key>/memory）を repo の .claude/memory へ junction/symlink（初回は `-- --migrate` で既存 memory を移す・`--settings <dotfiles の json>` で settings.local.json も張る・既存の実ディレクトリは消さず .bak へ退避。両 PC で同じ memory を読ませる）
 npm run check-claude-md-size   # CLAUDE.md（毎ターン再送される核）が 150 行 / 20KB 以下か・12 原則の見出し・.claude/rules の paths: 必須（pre-commit で CLAUDE.md / rules を stage したとき ＋ quality:audit）
-npm run check-agent-descriptions # .claude/agents/*.md の description が 300 code points を超えて増えないか（81 件すべてが毎セッションの system prompt に載る。既存 32 件は baseline＝DN-0232 で返済・pre-commit --staged ＋ quality:audit・`--update-baseline` で締める）
+npm run check-agent-descriptions # .claude/agents/*.md の description が 300 code points を超えて増えないか（81 件すべてが毎セッションの system prompt に載る。全件を上限内へ短縮済み・baseline 超過 0 件・pre-commit --staged ＋ quality:audit・`--update-baseline` で締める）
 npm run session-start        # SessionStart の 6 検査（git-sync / plan-staleness / backlog-due / resources / disk-hygiene / x-sync）を 1 プロセスから順次実行し、出力が非空の検査だけ表示（.claude/settings.json の SessionStart はこれ 1 本。node を 6 本同時起動しない）
 npm run check-project-task-refs # docs/ の恒久文書の廃止参照(task-queue.json)と backlog ID 参照切れ（quality:audit に同梱）
 npm run check-information-architecture # 4 領域（docs/content/.claude/実装）への逆戻り検知（廃止した置き場への新規ファイル・docs への制作物混入・content への台帳混入・二重 SSOT。pre-commit --staged ＋ quality:audit）

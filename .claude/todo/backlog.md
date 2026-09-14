@@ -169,14 +169,6 @@ CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認し
 
 **完了条件**: 両 PC で `git config maintenance.strategy` = `incremental`、Mac の `.git` 実体が partial clone で 1 GB 未満、`garbage 0`。
 
-### [DN-0232] エージェント description 32 件を 300 文字以下に絞り、毎セッションの固定トークンを減らす
-タグ: [エージェント・SSOT] [種類:改善] [Codex候補] [起票:2026-09-14]
-
-**起点**: `.claude/agents/*.md` の frontmatter `description` は全 81 件がセッション冒頭の system prompt に載る（合計 23.2k 文字）。32 件が 300 文字超（最大 1,179＝`coconala-operator`。折り返し description を含めた実測）で、担当範囲・安全弁・関連スクリプトまで description に書いている。詳細は `agents-registry.md` と本文にあるので二重。
-
-**やること**: `scripts/check-agent-descriptions.mjs`（baseline ラチェット・上限 300 code points・`Use when` 必須）が既存 32 件を baseline に持つ（PR #505）。1 件ずつ description を「何をする / 何をしない / Use when」の 3 文に圧縮し、削った内容が本文か `agents-registry.md` に残っていることを確認して `--update-baseline` で baseline を縮める。`check-doc-coupling` が description 変更で registry 更新を要求するので同一 commit で更新する。
-
-**完了条件**: `node scripts/check-agent-descriptions.mjs` の baseline が 0 件、`npm run check-doc-coupling` 緑。
 
 ### [DN-0233] Mac 端末の初期設定を今回の設計に合わせて揃える（hygiene・pre-commit・dotfiles・memory リンク・MCP）
 タグ: [インフラ・計測] [種類:改善] [起票:2026-09-14]

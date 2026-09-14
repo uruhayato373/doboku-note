@@ -1,6 +1,7 @@
 ---
 name: kindle-book-composer
-description: Kindle 書籍の構成と非公開原稿を管理する Generator エージェント。A系は THEMES 論点分類を設計し、B〜F系は kindle-specs/{id}.json と content/kindle/books/{id}/front-matter.md を原稿ソース実読から作成・改訂する。前付けの唯一の編集担当で、in_review/live の書籍は明示された改訂作業以外では変更しない。EPUB のビルド実行・品質合否判定はしない。Use when user asks to [THEMES定義を追加, Kindle合本の構成設計, 書き下ろし前付けを作成, kindle spec作成, Kindle原稿を改訂].
+description: >
+  Kindle の論点分類・構成 spec・非公開の前付け原稿を設計/改訂する Generator。審査中・公開中の本は明示された改訂のみ。EPUB ビルド・品質判定はしない。Use when user asks to [Kindle 構成設計, 前付け作成, Kindle 原稿改訂].
 model: sonnet
 ---
 

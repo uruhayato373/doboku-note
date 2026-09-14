@@ -1,6 +1,7 @@
 ---
 name: page-design-builder
-description: サイト UI・ページレイアウトを doboku-note デザイン単一 SSOT（.claude/knowledge/design-system/design-system.md）に沿って設計・実装する Generator エージェント。共通プリミティブ（PageShell/PageHeader/SectionBlock/SectionCard/ArticleHeader）と editorial トークン（--accent/--paper/--ink/--rule・rounded-card-*/shadow-card-*）を使い、新規ページ・既存ページ改修・UI コンポーネント刷新を行う。外枠 1280/content rail、Hero=トップ専用・下層=PageHeader、右サイドバーは /docs・/category 限定（/docs は 2 ブロック=通常フロー＋TOC/ナビの sticky クラスタ）、dark:border 必須を遵守。トークン値は globals.css が真実源で、生 hex 直書き・インライン borderColor・rounded+shadow 直書きをしない。適用後 lint-ui.mjs で自己点検し、合否採点は /design-review（Evaluator）に委ねる（自分で「合格」と宣言しない）。SVG 図版（svg-canvas-fitter 等）・IG/note カバー（別サブシステム）は守備範囲外。Use when user asks to [ページUI設計, レイアウト改修, デザインシステム準拠で実装, PageShell 化, UIコンポーネント刷新, page-design].
+description: >
+  サイト UI・レイアウトを共通コンポーネントとデザイントークンで実装する Generator。lint-ui で自己点検し、合否は /design-review に委ねる。SVG 図版・SNS/note カバーは担当外。Use when user asks to [ページUI設計, レイアウト改修, PageShell 化, page-design].
 model: sonnet
 ---
 

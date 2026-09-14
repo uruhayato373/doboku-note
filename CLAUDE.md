@@ -38,7 +38,7 @@ npm run test              # node --test tests/*.test.mjs
 npm run refresh-indexes   # MDX 変更後の静的インデックス再生成
 npm run quality:audit     # 機械検査を横断実行（:ci は CI gate 版）
 npm run admin             # 運営管理画面（http://127.0.0.1:3021）
-npm run sync-codex-compat # CLAUDE.md + .claude/rules + skills → AGENTS.md / .agents を再生成
+npm run sync-codex-compat # 共通規約・rules索引・skills・agents・hooks の Codex 用入口を再生成
 npm run check-doc-refs    # doc 参照の実在（pre-commit でも staged を検査）
 npm run check-command-guidance # 案内している npm run / node パスの実在
 npm run check-claude-md-size   # CLAUDE.md ≤150 行・rules の paths: 必須
@@ -46,7 +46,7 @@ npm run check-claude-md-size   # CLAUDE.md ≤150 行・rules の paths: 必須
 
 ## リファレンス索引
 
-詳細・手順は都度 Read する。**全索引 → [reference/README.md](.claude/knowledge/reference/README.md)**、docs の領域 → [docs/README.md](docs/README.md)。領域別の規約は `.claude/rules/*.md`（content-site / content-channels / assets-images / code / skills-agents / todo-plans / docs / operations）が該当ファイルを開いたとき自動で載る。
+詳細・手順は都度 Read する。**全索引 → [reference/README.md](.claude/knowledge/reference/README.md)**、docs の領域 → [docs/README.md](docs/README.md)。領域別の規約は `.claude/rules/*.md`（content-site / content-channels / assets-images / code / skills-agents / todo-plans / docs / operations）は Claude Code が対象に応じて読み込み、Codex は AGENTS.md の索引から該当原本を読む。
 
 | 参照先 | いつ読むか |
 |---|---|
@@ -82,7 +82,7 @@ npm run check-claude-md-size   # CLAUDE.md ≤150 行・rules の paths: 必須
 - コンテンツ編集: 1 記事の修正が完了したら**即 commit**。一時ファイルは `.tmp/` 配下に出す
 
 ### 4. ゴール駆動で実行する
-- タスク着手前に「何が通れば完了か」を定義してから始める
+- タスク着手前に「何が通れば完了か」を定義する。通常は担当 AI が調査→実装→検証まで完結する（[共同開発](.claude/knowledge/reference/codex-division-of-labor.md)）。DN-ID は [claim](.claude/knowledge/reference/todo-lifecycle.md) で二重着手を防ぐ
 - **UI/SSR 変更**: `curl` で `<main>` + 主要キーワード（土木/技術士）を確認（なぜ: Lighthouse は SSR 破壊を捕捉できない・measurement-incidents.md 2026-W16）
 - **deploy 後**: `npm run check-production-ssr` を実行し、exit 0 のときだけ「完了」と報告する。exit 1 は本番異常、exit 2 は検査不成立として別経路で切り分ける（手打ち curl で代用しない）
 - **コンテンツ編集完了条件**: MDX 追加・変更後は `npm run refresh-indexes` を実行してからコミット

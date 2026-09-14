@@ -242,7 +242,7 @@ content/
 .claude/
   todo/             # タスク台帳 4 層（backlog/weekly/monthly/annual・閲覧は admin /todo）
   knowledge/        # 共有SSOT（Admin /knowledge でHTML閲覧）
-  rules/            # パス条件付きルール（paths: 必須・sync-codex-compat が AGENTS.md へ併合）
+  rules/            # パス条件付きルール（paths: 必須・sync-codex-compat が AGENTS.md に参照索引を生成）
   content/          # エージェント管理の非公開チャネル原稿・運用SSOT
   skills/           # 実行能力
   agents/           # 実行能力

@@ -94,7 +94,7 @@ title: 推奨ワークフロー
                            │
                            ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│ 実装（ユーザー or Claude Code）                                  │
+│ 実装（担当 AI またはユーザー）                                  │
 │                                                                 │
 │  週次レビューの申し送りを見ながら修正 → PR → main merge → 本番反映 │
 │    │                                                            │
@@ -243,7 +243,7 @@ CLAUDE.md §1・§2・§5・§10 の根拠と経緯（ルール本文は CLAUDE.
 
 ### worktree はいつ作るか（§5・§10）
 
-- 別の Claude Code セッションが同じリポジトリで並行作業するのが常態（2026-06-11 確認）。同一ワークツリーを共有すると、あるセッションの `git reset --hard`／`checkout` が他セッションの未 push コミット・作業ツリーを破壊する。pathspec commit や push 前確認でも防げない（reset は HEAD・index・作業ツリーを丸ごと書き換える）。2026-06-11 実証: commit が別セッションの reset で消失し gc 後は復旧不能だった
+- Codex / Claude Code の別セッションが同じリポジトリで並行作業するのが常態（2026-06-11 確認）。同一ワークツリーを共有すると、あるセッションの `git reset --hard`／`checkout` が他セッションの未 push コミット・作業ツリーを破壊する。pathspec commit や push 前確認でも防げない（reset は HEAD・index・作業ツリーを丸ごと書き換える）。2026-06-11 実証: commit が別セッションの reset で消失し gc 後は復旧不能だった
 - 各セッションは `git worktree add <別dir> -b <feature> origin/develop` で独立した HEAD／index／作業ツリーを持ち、`develop` へは PR で集約する（`.git` オブジェクトは共有）。Claude Code の `EnterWorktree` は `.claude/worktrees/` に作り、既定の base は origin/main なので、作った直後に `git merge --ff-only origin/develop` で develop 先頭へ合わせる（main 派生のままだと develop 側の新しいゲートが無く重複作業になる）。node_modules は本体へ symlink して使う（Turbopack は symlink を拒否するので dev は `--webpack`）
 - 単一セッションで短時間の作業に worktree は作らない（§5「worktree は複数セッション並行時だけ」）
 

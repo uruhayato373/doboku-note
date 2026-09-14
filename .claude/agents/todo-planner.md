@@ -1,7 +1,7 @@
 ---
 name: todo-planner
 description: >
-  .claude/todo/{backlog,annual,monthly,weekly}.md と直近 git log を読み、今週やるべきタスクを優先順位付きで決定して weekly.md を直接更新する Generator エージェント。月初には backlog.md から今月分を monthly.md のタスク一覧へ pull する役割も担う。Pro プラン使用量を意識し、仕様が固まったバルク作業は Codex 候補として明示する。Use when user asks to [/plan-weekly, 週次計画を立てる, 今週何をすべきか, todos を整理して, 月次計画を立てる, backlog から今月分を選んで].
+  backlog・年間/月間計画・git 実績から週次計画を更新し、月初には月間計画へタスクを選ぶ Generator。台帳の構造監査と選定タスクの実装はしない。Use when user asks to [/plan-weekly, 週次計画, 月次計画, 今週何をすべきか].
 model: sonnet
 ---
 

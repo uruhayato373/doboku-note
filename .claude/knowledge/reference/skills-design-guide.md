@@ -37,9 +37,9 @@ description: >
 
 ### description フィールド（Critical）
 
-- **最大 1024 文字**
+- **スキルは最大 1024 文字、エージェントは 300 code points 以下**（`node scripts/check-agent-descriptions.mjs`）。詳細な手順・制約は本文へ置く。
 - **必須の 2 要素**: 「何をするか（WHAT）」と「いつ使うか（WHEN）」
-- **トリガーフレーズを具体的に含める**: ユーザーが実際に口にしそうな言葉を複数記載
+- **トリガーフレーズを具体的に含める**（スキルから呼ばれる Generator/Evaluator は、呼出条件が概要で明確なら `Use when` の定型句は省略可）: ユーザーが実際に口にしそうな言葉を複数記載
   - ✓ `Use when user asks to [MDX 検査, lint MDX, 構文チェック, /check-mdx]`
   - ✗ `Helps with SEO.`（抽象的すぎる・トリガー無し）
 - **必要ならファイル種別を明記**: `PDF ファイルを受け取る`、`MDX を編集する`、等

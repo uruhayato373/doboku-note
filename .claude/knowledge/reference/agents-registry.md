@@ -8,7 +8,9 @@ title: サブエージェント詳細レジストリ
 
 SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を共通参照する。ig-carousel-writer／ig-reels-writer／x-post-writer は短い見出しと台帳のポーズ候補を制作担当へ渡し、対応QAおよびyt-shorts-publisher-qaは画像の判読・同一性・重なりを確認する。ポーズ分類の真実源は [キャラクター素材ポリシー](./character-asset-policy.md) が案内する台帳で、一覧確認は管理画面 `/gallery/characters`。画像QAから外部投稿の更新完了を推定しない。
 
-> **件数の SSOT**: エージェント数の真実源は `.claude/agents/*.md` の実数（`find .claude/agents -maxdepth 1 -name '*.md' | wc -l`＝現在 **80**）と下記「エージェント一覧」表。CLAUDE.md など他 doc は件数を重複記載せずここを指す。追加/削除は同一 commit でこの表を更新する。
+> **件数の SSOT**: エージェント数の真実源は `.claude/agents/*.md` の実数（`find .claude/agents -maxdepth 1 -name '*.md' | wc -l`＝現在 **81**）と下記「エージェント一覧」表。CLAUDE.md など他 doc は件数を重複記載せずここを指す。追加/削除は同一 commit でこの表を更新する。
+
+**description の運用**: 呼出時の概要は 300 code points 以下とし、詳細な手順・制約は各 agent 本文を読む。Codex 用 TOML は原本から自動生成する。`node scripts/check-agent-descriptions.mjs` が全件を検査し、新規超過・悪化を拒否する。
 
 **いつ読むか**: サブエージェントを呼び出すときに担当範囲を確認するとき、連携設計時、新規エージェント追加時の命名・責務設計時。
 

@@ -1039,6 +1039,18 @@
       "commit": "1f7aef897cec",
       "verification": "27教材930論点・要作業0/原典待ち17/再確認0・47tests・X53独立QA・型検査・本番build・commit全ゲートPASS",
       "note": "教材対応SSOT・admin/content/expansion・記事/図・X53下書き・IG一次3パック・Reels6を整備。原典制約17論点はDN-0135、公開と効果測定はDN-0220。"
+    },
+    {
+      "id": "DN-0232",
+      "at": "2026-09-14",
+      "task": "エージェント description 32 件を 300 文字以下に絞り、毎セッションの固定トークンを減らす",
+      "tier": "mid",
+      "executor": "codex",
+      "outcome": "done",
+      "plan": null,
+      "commit": null,
+      "verification": "node scripts/check-agent-descriptions.mjs; node --test tests/sync-codex-compat.test.mjs tests/check-agent-descriptions.test.mjs",
+      "note": "エージェント説明32件を短縮し全81件300文字以下、詳細制約を本文へ保持。Codex互換生成・役割分担も更新。 実装はこの記録と同じコミットに含む。"
     }
   ]
 }
