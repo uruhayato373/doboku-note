@@ -51,7 +51,8 @@ let HEAD_ONLY = false;
 async function saveScreenshot(page: Page, label: string): Promise<void> {
   if (!fs.existsSync(DEBUG_DIR)) fs.mkdirSync(DEBUG_DIR, { recursive: true });
   const ts = new Date().toISOString().replace(/[:.]/g, "-");
-  const filepath = path.join(DEBUG_DIR, `${ts}_${label}.png`);
+  const safeLabel = label.replace(/[<>:"/\\|?*\x00-\x1f]/g, "-").slice(0, 120);
+  const filepath = path.join(DEBUG_DIR, `${ts}_${safeLabel}.png`);
   try {
     await page.screenshot({ path: filepath, fullPage: true });
     console.log(`📸 screenshot: ${filepath}`);
@@ -769,6 +770,11 @@ async function main() {
       const label = `Tweet ${String(jobs[i].tweet.number).padStart(2, "0")}（${jobs[i].tweet.title}）`;
       const success = await publishTweet(page, jobs[i], i, jobs.length);
       results.push({ label, success });
+      if (!success) {
+        console.error("予約・投稿の失敗を検出したため、残りの処理を中止します。");
+        process.exitCode = 1;
+        break;
+      }
       if (success && !IS_DRY_RUN) {
         updateStatus(jobs[i].draftDir, jobs[i].allTweets, jobs[i].tweet.number, jobs[i].scheduledDate);
       }
@@ -791,4 +797,4 @@ async function main() {
   }
 }
 
-main().catch(console.error);
+main().catch((error) => { console.error(error); process.exitCode = 1; });

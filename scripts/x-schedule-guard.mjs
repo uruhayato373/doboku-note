@@ -20,6 +20,7 @@
  * Usage:
  *   node scripts/x-schedule-guard.mjs               # SSOT 内のみ（高速・Playwright不要）
  *   node scripts/x-schedule-guard.mjs --queue       # X 実キューとも突合（要ログイン済プロファイル）
+ *   node scripts/x-schedule-guard.mjs --queue --headed # 投稿時と同じ表示ありChromeで検査
  *   node scripts/x-schedule-guard.mjs --max-per-day 2
  *   node scripts/x-schedule-guard.mjs --dup 0.55    # near-dup BLOCK しきい値（既定 0.62）
  *   npm run x-schedule-guard
@@ -177,20 +178,33 @@ for (const [u, c] of Object.entries(urlCount)) {
 
 // 6. X 実キュー突合（--queue）-----------------------------------------------
 if (WITH_QUEUE) {
-  console.log("📡 X 予約キューをダンプ中（Playwright, headless）...");
+  console.log(`📡 X 予約キューをダンプ中（Playwright, ${ARGV.includes('--headed') ? 'headed' : 'headless'}）...`);
   try {
     const { chromium } = await import("playwright");
     const PROFILE_DIR = resolveProfileDir("x", { cwd: ROOT, repoRoot: ROOT });
+    if (!fs.existsSync(PROFILE_DIR)) throw new Error('X認証プロフィールがありません');
     const ctx = await chromium.launchPersistentContext(PROFILE_DIR, leanContextOptions({
-      headless: true, channel: "chrome",
+      headless: !ARGV.includes("--headed"), channel: "chrome",
       viewport: { width: 1280, height: 900 }, locale: "ja-JP", timezoneId: "Asia/Tokyo",
       args: ["--disable-blink-features=AutomationControlled"],
     }));
-    const page = ctx.pages()[0] || (await ctx.newPage());
+    const page = await ctx.newPage();
     const snippets = new Set();
     try {
-      await page.goto("https://x.com/compose/post/unsent/scheduled", { waitUntil: "domcontentloaded" });
-      await page.waitForTimeout(5000);
+      await page.goto("https://x.com/home", { waitUntil: "domcontentloaded", timeout: 45000 });
+      const accountButton = page.getByTestId('SideNav_AccountSwitcher_Button');
+      await accountButton.waitFor({ state: 'visible', timeout: 30000 });
+      const expected = JSON.parse(fs.readFileSync(path.join(ROOT, '.claude/config/x-account.json'), 'utf8')).handle;
+      if (!(await accountButton.innerText()).split(/\s+/).includes('@' + expected)) {
+        throw new Error('Xアカウント不一致');
+      }
+      await page.goto("https://x.com/compose/post/unsent/scheduled", { waitUntil: "domcontentloaded", timeout: 45000 });
+      await page.waitForFunction(() =>
+        document.querySelector('[role="dialog"]')?.textContent?.includes('予約済み'),
+        null, { timeout: 30000 });
+      if (page.url() !== 'https://x.com/compose/post/unsent/scheduled') {
+        throw new Error('X予約一覧の表示を確認できません');
+      }
       let stable = 0, last = -1;
       for (let i = 0; i < 50 && stable < 4; i++) {
         const lines = await page.evaluate(() => {
