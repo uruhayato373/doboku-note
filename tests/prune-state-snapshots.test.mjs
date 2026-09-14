@@ -181,11 +181,11 @@ test('CLI: 一時 repo で --commit が計画どおり unlink し、除外 dir �
     assert.ok(!existsSync(join(root, `${W}/2026-W01.json`)));
     // git add <dir> が削除を stage する（workflow の前提）
     execFileSync('git', ['-C', root, 'add', `${M}/psi`, W]);
-    const staged = execFileSync('git', ['-C', root, 'diff', '--cached', '--name-status', '--no-renames'], { encoding: 'utf8' });
+    const staged = execFileSync('git', ['-C', root, '-c', 'core.quotepath=false', 'diff', '--cached', '--name-status', '--no-renames'], { encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 });
     assert.match(staged, /^D\t.*psi-batch-/m);
     assert.match(staged, /^A\t.*psi-batch-2026-09-14T12-00-00\.json/m);
     // 除外 dir に差分が無い
-    const status = execFileSync('git', ['-C', root, 'status', '--porcelain', '--', `${M}/business`, `${M}/gsc/rank-watch`], { encoding: 'utf8' });
+    const status = execFileSync('git', ['-C', root, '-c', 'core.quotepath=false', 'status', '--porcelain', '--', `${M}/business`, `${M}/gsc/rank-watch`], { encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 });
     assert.equal(status.trim(), '');
   } finally {
     rmSync(root, { recursive: true, force: true });

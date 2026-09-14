@@ -46,7 +46,7 @@ function parseArgs(argv) {
 
 /** tracked + untracked（ignore 除く）を同じ集合として扱う。workflow は copy-back 直後＝新ファイルが untracked の状態で呼ぶ */
 function listFiles(root) {
-  const out = execFileSync('git', ['-C', root, 'ls-files', '-z', '--cached', '--others', '--exclude-standard', '--', ...SCAN_ROOTS], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
+  const out = execFileSync('git', ['-C', root, '-c', 'core.quotepath=false', 'ls-files', '-z', '--cached', '--others', '--exclude-standard', '--', ...SCAN_ROOTS], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
   return out.split('\0').filter(Boolean);
 }
 
@@ -60,7 +60,7 @@ function loadPins(root) {
   const businessDir = join(root, METRICS_ROOT, 'business');
   const businessDocs = [];
   if (existsSync(businessDir)) {
-    const names = execFileSync('git', ['-C', root, 'ls-files', '-z', '--cached', '--others', '--exclude-standard', '--', `${METRICS_ROOT}/business`], { encoding: 'utf8' }).split('\0').filter((f) => f.endsWith('.json'));
+    const names = execFileSync('git', ['-C', root, '-c', 'core.quotepath=false', 'ls-files', '-z', '--cached', '--others', '--exclude-standard', '--', `${METRICS_ROOT}/business`], { encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 }).split('\0').filter((f) => f.endsWith('.json'));
     for (const f of names) if (existsSync(join(root, f))) businessDocs.push(readFileSync(join(root, f), 'utf8'));
   }
   return collectPins({ watchwords, businessDocs });
