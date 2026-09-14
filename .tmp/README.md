@@ -1,10 +1,7 @@
 # .tmp/ — 一時出力置き場
 
-- **中身は 3 日で消える**。`scripts/prune-tmp.mjs`（Claude の SessionStart フックと日次の
-  `disk-hygiene:fix`）が mtime 3 日超のファイルを削除する。残したいものはここに置かない。
-- スクショ・SVG の確認・図クロップ・動画/TTS レンダー・OCR の中間生成物はここへ出す（CLAUDE.md §3）。
-- **git worktree をここに作らない**。置き場は `.claude/worktrees/`（Claude）と
-  `~/.codex/worktrees/`（Codex）だけ（CLAUDE.md §10・[disk-hygiene.md](../.claude/knowledge/reference/disk-hygiene.md)）。
-  prune は `.git` を持つディレクトリを飛ばすので実害は止めてあるが、置き場違反は
-  `npm run check-disk-hygiene` が FAIL にする。
-- git 追跡下にあるのはこの README と `.gitkeep` だけ（`.gitignore` の `/.tmp/*`）。
+- 破棄可能な新規出力は `.tmp/scratch/` へ。日次の `disk-hygiene:fix` は共有クリーナーで7日超を判定する。追跡ファイル・登録アセット・リンク・nested Git・検査不成立を保護する。
+- `.tmp/` 全域を日数だけで削除しない。原本・採用画像・引き継ぎ成果物は正規の置き場へ移す。
+- 手動確認は `npm run resources:clean -- --category scratch`（既定dry-run）、削除は `--commit`。`prune-tmp.mjs` も同じ互換入口で、既定では削除しない。
+- git worktreeは `.claude/worktrees/`（Claude）か `~/.codex/worktrees/`（Codex）へ。ここへの配置は `npm run check-disk-hygiene` が検出する。
+- 運用の正典: [disk-hygiene.md](../.claude/knowledge/reference/disk-hygiene.md)。Git追跡はこのREADMEと `.gitkeep` のみ。
