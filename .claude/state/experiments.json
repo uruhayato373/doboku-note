@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-09-13T22:43:48.105Z",
+  "updated_at": "2026-09-14T00:08:35.677Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -971,7 +971,7 @@
         },
         "note": "インプレッション・リプライは agent-reach CLI が返さないため取得不可。いいね0を「誰にも見られていない」と読まないこと。"
       },
-      "status": "running",
+      "status": "measuring",
       "created_at": "2026-08-13T03:51:43.437Z",
       "started_at": "2026-08-13T03:51:43.454Z",
       "paused_at": null,
@@ -984,8 +984,54 @@
         "2026-08-13: 8月増強32本を執筆・投入（8/13-8/31 が1日3本・キュー実在51/51 照合済み）",
         "2026-08-13: 9月90本を執筆（投入は各週の直前・§11.6 の週次バッチ）"
       ],
-      "next_check_date": "2026-08-27",
-      "resume_criteria": "npm run x-own-metrics -- --report で型×時間帯の中央値を再計測し、朝/昼/夜の配置と型の割当を見直す。凍結・警告の兆候が1度でも出たら即 S0 へ後退（policy §11.6）。"
+      "next_check_date": "2026-09-15",
+      "resume_criteria": "npm run x-own-metrics -- --report で型×時間帯の中央値を再計測し、朝/昼/夜の配置と型の割当を見直す。凍結・警告の兆候が1度でも出たら即 S0 へ後退（policy §11.6）。",
+      "measurements": [
+        {
+          "measured_at": "2026-09-14T09:04:58+09:00",
+          "source": ".claude/state/x-metrics/history/2026-09-14.json",
+          "sha256": "004a5b6796bac03eda8a487275546ea209859c9b867ff7077b60e174f58f1dd1",
+          "coverage": "partial",
+          "sampledPosts": 100,
+          "postInterventionPosts": 72,
+          "period": {
+            "startDate": "2026-08-14",
+            "endDate": "2026-09-07"
+          },
+          "followers": 100,
+          "baselineFollowers": 91,
+          "slotResults": {
+            "A(朝)": {
+              "posts": 23,
+              "median": 1,
+              "baseline": 1,
+              "delta": 0
+            },
+            "B(昼)": {
+              "posts": 23,
+              "median": 1,
+              "baseline": 0.5,
+              "delta": 0.5
+            },
+            "C(夜)": {
+              "posts": 23,
+              "median": 1,
+              "baseline": 1,
+              "delta": 0
+            }
+          },
+          "siteClickDelta": null,
+          "note": "100件取得のうち施策開始翌日8/14以降は72件。最新取得投稿は9/7であり9/8〜9/13の公開実体を確認できない。朝・昼・夜は各23件、その他3件。累積いいねの取得時点・経過日数と標本構成が異なるため因果効果は断定しない。クリックの基線が無く、t.coの導線も未解決で送客効果は判定できない。"
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-09-14T00:08:35.677Z",
+          "action": "measured",
+          "summary": "Xの取得100件を開始前後で分離し、開始翌日以降72件のいいねを集計。朝1→1・昼0.5→1・夜1→1。公開取得は9/7までで直近週と送客効果は未評価。枠を空けずmeasuringで保持し、9/15に公開実体と計測範囲を確認する。",
+          "source": ".claude/state/x-metrics/history/2026-09-14.json"
+        }
+      ]
     },
     {
       "id": "EXP-008",

@@ -1,0 +1,27 @@
+{
+  "kind": "review",
+  "qualification": "all",
+  "cadence": "weekly",
+  "period": {
+    "startDate": "2026-09-07",
+    "endDate": "2026-09-13"
+  },
+  "snapshot": ".claude/state/metrics/business/snapshot-2026-09-14T00-05-36-349Z-9c636d0d-128c-4ab1-9f98-c5770e4ef487.json",
+  "qualificationsReviewed": [
+    "civil-construction-1",
+    "pe-comprehensive-management",
+    "pe-construction"
+  ],
+  "status": "provisional",
+  "findings": "対象週のGoogle資格別計測はGSC確定待ち（終了日から4日未満）。前週や9/3〜9/9のローリング値を対象週へ転記しない。note台帳登録分は全体3件6440円、1級土木2件3960円、総監・建設部門は登録0件で網羅性未確認。note新PV、同期間のココナラ、受取・費用・時間は欠測。現物では1級土木 secondary-r07 のMagazineCard（civil-1-pastexam-essay）、総監 essay-exam-strategy の三層構造とFAQ、建設部門 hissu-kamoku-kaitourei の答案から骨子を読む学習手順を確認し、導線欠落を推測で断定しない。EXP-007は取得100件中8/14以降72件を比較し朝1・昼1・夜1、昼の基線比+0.5。最新取得投稿は9/7で、9/8〜13の公開実体とサイト送客効果は未確認。",
+  "decision": "3資格の図解→演習→答案の方針を維持し、暫定レビューとして記録する。EXP-007はmeasuringのまま公開実体と送客比較を確認し、枠空け目的で終了しない。EXP-008は9/18の28日測定を待つ。SEOは日次CIを正とし、ローカルで追加改善・観察操作・重複記録をしない。",
+  "nextAction": "(1) 9/18の既存CIで9/7〜13の資格別Google計測を取得し、同じ週のsnapshot/reviewをsupersedesで更新する。(2) EXP-007は9/15にXの公開ID/時刻と9/8以降の取得欠落を照合し、送客の比較可能性を確認する。(3) note PV・販売網羅性・ココナラ同期間値と運営負担の確認を続ける。DN-0220の未配信素材を公開済みへ数えず、原典待ちはDN-0224の台帳から扱う。",
+  "experimentIds": [
+    "EXP-007",
+    "EXP-008"
+  ],
+  "nextReviewDate": "2026-09-18",
+  "schemaVersion": 1,
+  "createdAt": "2026-09-14T00:08:35.683Z",
+  "strategyHash": "0dcafa7d40353bfb3d3188789620e21885f6b0fb84affd6f87e837ed5f5c9151"
+}
