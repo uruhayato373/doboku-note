@@ -397,6 +397,7 @@
     "x-schedule-guard": "node scripts/x-schedule-guard.mjs",
     "x-schedule-view": "node scripts/x-schedule-view.mjs",
     "x-sync-status": "node scripts/x-sync-status.mjs",
+    "check-x-queue-health": "node scripts/check-x-queue-health.mjs",
     "x-thread-replies": "node scripts/x-thread-replies.mjs",
     "note-reanchor-boundary": "node scripts/note-reanchor-boundary.mjs",
     "build-ogp-thumbnails": "node scripts/build-ogp-thumbnails.mjs",
