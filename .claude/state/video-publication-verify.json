@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "verifiedAt": "2026-09-10T22:01:29.338Z",
+  "verifiedAt": "2026-09-14T08:47:04.211Z",
   "ok": true,
   "reason": null,
-  "checked": 1,
+  "checked": 2,
   "findings": [],
   "entries": {
     "koji-gaiyo-7items/longform": {
@@ -12,6 +12,15 @@
       "status": "published",
       "videoId": "hJYV_U0qKvA",
       "url": "https://www.youtube.com/watch?v=hJYV_U0qKvA",
+      "ok": true,
+      "problems": []
+    },
+    "koji-gaiyo-7items/shorts[0]": {
+      "packId": "koji-gaiyo-7items",
+      "derivative": "shorts[0]",
+      "status": "published",
+      "videoId": "8qhSsq9-x6k",
+      "url": "https://www.youtube.com/watch?v=8qhSsq9-x6k",
       "ok": true,
       "problems": []
     }
