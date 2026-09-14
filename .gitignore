@@ -414,3 +414,6 @@ __pycache__/
 
 # X図解下書きのPNGは制作入力から再生成し、Drive vaultへ保存。
 content/sns/x/draft/*-diagrams/img/tweet-*.png
+
+# Claude Code のマシン固有設定（絶対パス許可・OS 依存の PowerShell 許可）。dotfiles の claude/doboku-note.local.<os>.json を setup-memory-link --settings で置く
+.claude/settings.local.json

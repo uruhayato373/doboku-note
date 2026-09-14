@@ -49,6 +49,9 @@ const SKILL_A = '---\nname: skill-a\ndescription: Test skill A.\n---\n\nBody of 
 function writeMinimalValidFixture(root) {
   writeFile(root, 'CLAUDE.md', '# Test Project\n\nHello.\n');
   writeFile(root, '.claude/skills/dev/skill-a/SKILL.md', SKILL_A);
+  // 2026-09-14 から .claude/agents と .claude/settings.json も正典（無ければ 0 件＝FAIL）
+  writeFile(root, '.claude/agents/base-agent.md', '---\nname: base-agent\ndescription: Base agent.\n---\n\nBase body.\n');
+  writeFile(root, '.claude/settings.json', '{"hooks":{}}\n');
 }
 
 test('1. clean fixture: --write の後は --check が PASS し、生成内容も正しい', () => {
@@ -180,7 +183,7 @@ test('9. --staged: working tree だけ生成済みで index 未 stage だと FAI
   const staged1 = run(root, ['--staged']);
   assert.equal(staged1.status, 1, staged1.stdout + staged1.stderr);
 
-  execFileSync('git', ['add', 'AGENTS.md', '.agents'], { cwd: root });
+  execFileSync('git', ['add', 'AGENTS.md', '.agents', '.codex'], { cwd: root });
   const staged2 = run(root, ['--staged']);
   assert.equal(staged2.status, 0, staged2.stdout + staged2.stderr);
 });
@@ -242,4 +245,73 @@ test('10. canonical 側の非 SKILL.md ペイロード（バイナリ含む）�
 
   assert.equal(run(root, ['--write']).status, 0);
   assert.ok(!existsSync(join(root, '.agents/skills/dev/skill-a/assets')));
+});
+
+// ---- 2026-09-14: .codex/agents/*.toml と .codex/hooks.json も生成物 ----
+
+const AGENT_MD = '---\nname: agent-a\ndescription: >\n  Evaluator agent A.\n  Use when user asks to [x].\nmodel: sonnet\n---\n\n# Agent A\n\nBody with "quotes", a backslash \\d regex and """triple""" quotes.\n';
+const SETTINGS_OK = JSON.stringify({ hooks: { SessionStart: [{ hooks: [{ type: 'command', command: 'node scripts/x.mjs' }] }], Stop: [{ hooks: [{ type: 'command', command: 'node scripts/hooks/agent-hook.mjs check-stray-files', timeout: 20 }] }] } }, null, 2);
+
+function writeAgentFixture(root) {
+  writeMinimalValidFixture(root);
+  writeFile(root, '.claude/agents/agent-a.md', AGENT_MD);
+  writeFile(root, '.claude/settings.json', SETTINGS_OK);
+  writeFile(root, 'scripts/hooks/agent-hook.mjs', '// stub\n');
+}
+
+test('14. .claude/agents/*.md → .codex/agents/*.toml（折り返し description・エスケープ）と hooks.json（SessionStart 除外・timeout 維持）を生成する', () => {
+  const root = makeFixture();
+  writeAgentFixture(root);
+  assert.equal(run(root, ['--write']).status, 0);
+  const toml = readFileSync(join(root, '.codex/agents/agent-a.toml'), 'utf8');
+  assert.match(toml, /^# AUTO-GENERATED/);
+  assert.match(toml, /\nname = "agent-a"\n/);
+  assert.match(toml, /\ndescription = "Evaluator agent A\. Use when user asks to \[x\]\."\n/);
+  assert.match(toml, /developer_instructions = """\n# Agent A\n/);
+  assert.ok(toml.includes('a backslash \\\\d regex'), 'バックスラッシュは \\\\ にエスケープ');
+  assert.ok(toml.includes('""\\"triple""\\" quotes'), '""" は ""\\" に割る');
+  assert.ok(toml.endsWith('\n"""\n'));
+  assert.ok(!toml.includes('.Codex/'));
+  const hooks = JSON.parse(readFileSync(join(root, '.codex/hooks.json'), 'utf8'));
+  assert.deepEqual(Object.keys(hooks.hooks), ['Stop']);
+  assert.equal(hooks.hooks.Stop[0].hooks[0].timeout, 20);
+  assert.equal(run(root, ['--check']).status, 0);
+});
+
+test('15. 正典に無い .codex/agents の孤児は --write が消し、手で変えた toml は --check が mismatch で FAIL する', () => {
+  const root = makeFixture();
+  writeAgentFixture(root);
+  writeFile(root, '.codex/agents/orphan.toml', 'name = "orphan"\n');
+  const w = run(root, ['--write']);
+  assert.equal(w.status, 0);
+  assert.ok(!existsSync(join(root, '.codex/agents/orphan.toml')));
+  writeFileSync(join(root, '.codex/agents/agent-a.toml'), 'name = "agent-a"\n');
+  const c = run(root, ['--check']);
+  assert.equal(c.status, 1);
+  assert.match(c.stderr, /codex agent mismatch/);
+});
+
+test('16. hooks の command に絶対パス、または存在しないスクリプトがあると FAIL する', () => {
+  const root = makeFixture();
+  writeAgentFixture(root);
+  writeFile(root, '.claude/settings.json', JSON.stringify({ hooks: { Stop: [{ hooks: [{ type: 'command', command: "'/Users/x/doboku-note/.codex/hooks/a.sh'" }] }] } }));
+  const c1 = run(root, ['--check']);
+  assert.equal(c1.status, 1);
+  assert.match(c1.stderr, /絶対パスの command/);
+  writeFile(root, '.claude/settings.json', JSON.stringify({ hooks: { Stop: [{ hooks: [{ type: 'command', command: 'node scripts/hooks/missing.mjs' }] }] } }));
+  const c2 = run(root, ['--check']);
+  assert.equal(c2.status, 1);
+  assert.match(c2.stderr, /hook が指すスクリプトが無い: scripts\/hooks\/missing\.mjs/);
+});
+
+test('17. --staged: agents / settings を stage して生成物を stage しないと FAIL、両方 stage すれば PASS', () => {
+  const root = makeFixture({ git: true });
+  writeAgentFixture(root);
+  execFileSync('git', ['add', 'CLAUDE.md', '.claude', 'scripts'], { cwd: root });
+  assert.equal(run(root, ['--write']).status, 0);
+  const c1 = run(root, ['--staged']);
+  assert.equal(c1.status, 1, c1.stdout + c1.stderr);
+  execFileSync('git', ['add', 'AGENTS.md', '.agents', '.codex'], { cwd: root });
+  const c2 = run(root, ['--staged']);
+  assert.equal(c2.status, 0, c2.stdout + c2.stderr);
 });

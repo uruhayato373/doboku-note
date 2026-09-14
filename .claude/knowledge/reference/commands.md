@@ -52,8 +52,11 @@ npm run asset-hydrate         # 退避したアセットを取り戻す（ロー
 npm run check-asset-storage   # 退避台帳の整合（公開バケット誤配置・r2Key 衝突・復元不能・秘密混入）。R2 非アクセスでオフライン完結・quality:audit に同梱
 npm run drive-vault-sync      # **人か手元のスクリプトだけが使う**アセット（原本PDF・ページ画像・配布PDF・未投稿レンダー等）を Google Drive vault へ置く／取り戻す（既定 dry-run・--commit・--from-r2・--dedupe-by-sha・--verify [--deep --cloud]・--pull）。置き場は誰が使うかで決める＝サイト配信→public R2／CI→private R2／人→Drive（asset-storage-policy.md §1・/asset-route）
 npm run check-drive-vault     # 置き場ルールのゲート（asset-storage.json の全 group に audience・site⇒public・ci⇒private|byVisibility・human は理由無しに R2 へ置けない）＋R2 と Drive の同一パス衝突＋drive-manifest の整合。**マウント無しは「実体検査 0 件」と明示**して設定・台帳だけで判定・pre-commit --staged-only ＋ quality:audit
+npm run check-disk-hygiene    # ローカル容量の surfacer（マージ済み worktree・古いビルド成果物・各種キャッシュ・**日次掃除が止まっていること**・会話ログ保持期間）。掃除の実体は `npm run disk-hygiene:fix`＝launchd が日次実行（`npm run disk-hygiene:install`）。Claude/Codex 両方の Stop フックが `--quick` を叩く。**macOS 専用・非 mac は exit 2＝検査不成立**
 npm run check-reference-sources # 参考文献台帳・記事 sources ID・出典粒度・非公開文字起こし名の漏洩・未付与 baseline ラチェットを検査（--staged は pre-commit）
 npm run check-reference-sources:deep # Drive の文字起こし frontmatter↔原本台帳と、市販書籍由来記事の40文字以上の逐語一致0を実体照合（Mac・Driveマウント要）
+npm run check-content-taxonomy # 分類語彙（領域×資格×記事型×テーマ×タグ）の整合。group が許可外・未登録タグは赤、別名綴り・構造タグ不整合は baseline ラチェット（`:ci`）、topic 三方向の 0 件は WARN。規則は content-taxonomy.md・pre-commit --staged ＋ quality:audit
+npm run check-content-expansion # 全教材の論点→記事/図/SNS対応・未確認・原典待ち・成果物変更を検査（管理画面 /content/expansion・週次/月次で確認）
 ```
 
 ## 公的基準（共通仕様書の章記事・ページ画像）
@@ -94,7 +97,7 @@ npm run coconala-pause    # ココナラ出品の受付休止/再開/アーカ�
 
 ```bash
 npm run check-video-content    # 動画パック（DN-0110）の整合ゲート（manifest/sourceRef 漏洩/CTA・UTM/storyboard/逐語転用/status。契約 SSOT は .claude/config/video-content.json と video-content-policy.md。exit 2=検査不成立・quality:audit に同梱）
-npm run render-longform        # 動画パックの 16:9 通常動画レンダラー（storyboard→1920×1080 PNG＋ASS 字幕＋VOICEVOX/ffmpeg mp4。出力は .tmp/video-render/・会社PCは --skip-tts で PNG/ASS まで、mp4 は Mac/Actions）
+npm run render-longform        # 動画パックの 16:9 通常動画レンダラー（storyboard→1920×1080 PNG＋ASS 字幕＋VOICEVOX/ffmpeg mp4。出力は .tmp/video-render/・音声環境無しは --skip-tts で PNG/ASS まで。VOICEVOXとffmpegがあればWindows/Macでmp4生成可・生成用Actionsは未設置）
 npm run check-video-publication # 公開済み派生物の実体照合が回っているか（未照合・鮮度切れ・記録の孤児・実査ドリフト）。実査本体は verify-video-publication＝CI 週次(verify-yt-status.yml)で creds 必須・**対象0件は明示してPASS**・quality:audit に同梱
 npm run x-own-metrics     # 自投稿の反応（いいね/RT）を採取→型×時間帯×導線の表（.claude/state/x-metrics/・**中央値で読む**。impressions/replies は CLI が返さず取得不可）
 ```
@@ -118,8 +121,13 @@ npm run check-jst-date    # 運用記録の日付が UTC で前日付になっ�
 ```bash
 npm run check-backlog-schema # backlog タグ行の語彙・[検証:]の実在・ID(DN-####)必須/重複・完了 prose の混入（pre-commit --staged ＋ quality:audit）
 npm run check-backlog-health # 台帳の候補 surfacer（🟢に沈んだ不具合・種類の矛盾・重複候補・検証ゲート欠落。判定はせず常に exit 0）
-npm run check-codex-compat   # AGENTS.md / .agents/skills が正典（CLAUDE.md / .claude/skills）の生成物と一致するか（第2SSOT再発防止・pre-commit --staged ＋ quality:audit・再生成は sync-codex-compat）
+npm run check-codex-compat   # AGENTS.md / .agents/skills / .codex/agents / .codex/hooks.json が正典（CLAUDE.md + .claude/rules / .claude/skills / .claude/agents / .claude/settings.json）の生成物と一致するか（第2SSOT再発防止・pre-commit --staged ＋ quality:audit・再生成は sync-codex-compat。2026-09-14 から agent toml と hooks.json も生成物＝手で編集しない）
+npm run sync-codex-compat    # 正典から AGENTS.md / .agents/skills / .codex/agents/*.toml / .codex/hooks.json を再生成（孤児は削除）
+npm run setup-memory-link    # Claude Code の auto-memory（~/.claude/projects/<key>/memory）を repo の .claude/memory へ junction/symlink（初回は `-- --migrate` で既存 memory を移す・`--settings <dotfiles の json>` で settings.local.json も張る・既存の実ディレクトリは消さず .bak へ退避。両 PC で同じ memory を読ませる）
 npm run check-project-task-refs # docs/ の恒久文書の廃止参照(task-queue.json)と backlog ID 参照切れ（quality:audit に同梱）
 npm run check-information-architecture # 4 領域（docs/content/.claude/実装）への逆戻り検知（廃止した置き場への新規ファイル・docs への制作物混入・content への台帳混入・二重 SSOT。pre-commit --staged ＋ quality:audit）
 npm run check-relative-links   # Markdown の相対リンク `](../x)` の実在（check-doc-refs はリンク**テキスト**しか見ないので、置き場を変えると href だけ黙って壊れる。pre-commit --staged ＋ quality:audit）
+npm run business-review       # 資格別KPI・週次/月次レビュー期日の確認（-- report --monthly で前月）
+npm run fetch-business-metrics # GSC/GA4の資格別・完了週/月の集計取得（--commitで追記）
+npm run check-business-direction # 事業方針・指標・履歴・追記専用の検査
 ```

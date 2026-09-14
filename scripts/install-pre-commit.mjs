@@ -229,7 +229,16 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
-# AGENTS.md / .agents/skills が正典（CLAUDE.md + .claude/rules / .claude/skills）の生成物と一致するか（第2SSOT再発防止・DN-0098）
+# CLAUDE.md（毎ターン再送される核）が 150 行 / 20KB を超えて戻るのを止める。2026-09-13 のマージで 147→323 行に
+# 復活し develop の CI が 6 run 連続で赤のまま誰も読まなかった再発防止（CLAUDE.md か .claude/rules を stage したときだけ）
+if git diff --cached --name-only | grep -qE '^(CLAUDE\.md|\.claude/rules/)'; then
+  node scripts/check-claude-md-size.mjs
+  if [ $? -ne 0 ]; then
+    exit 1
+  fi
+fi
+
+# AGENTS.md / .agents/skills / .codex/agents / .codex/hooks.json が正典（CLAUDE.md + .claude/rules / .claude/skills / .claude/agents / .claude/settings.json）の生成物と一致するか（第2SSOT再発防止・DN-0098）
 node scripts/sync-codex-compat.mjs --staged
 if [ $? -ne 0 ]; then
   exit 1

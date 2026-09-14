@@ -168,7 +168,7 @@ content/
 - スキル変更 → `.claude/knowledge/reference/skills-registry.md`
 - エージェント変更 → `.claude/knowledge/reference/agents-registry.md`
 
-自動チェック: `.claude/hooks/check-doc-sync.sh`（settings.json の PreToolUse に登録済み）
+自動チェック: `node scripts/hooks/agent-hook.mjs check-doc-sync`（`.claude/settings.json` の PreToolUse と、そこから生成される `.codex/hooks.json` に登録済み。判定は `scripts/lib/agent-hooks.mjs`）
 
 ## todo/ ディレクトリ仕様
 
@@ -248,7 +248,7 @@ content/
   agents/           # 実行能力
   state/            # 状態（JSON のみ）
   config/           # 機械設定（JSON のみ）
-  hooks/            # Claude Code + git hooks
+  settings.json     # Claude Code の hooks・許可（hook の実体は scripts/hooks/agent-hook.mjs。.codex/hooks.json は sync-codex-compat が生成）
   commands/         # カスタムコマンド
   plans/            # 実装プラン（一時）
   pdfs/             # 参照 PDF
@@ -279,20 +279,20 @@ content/
 | 台帳 | `scripts/check-doc-coupling.mjs` | スキル/エージェントの追加・削除・description 変更に対する skills-guide/registry・agents-registry の更新もれ（capability ドリフト） | pre-commit（機械） |
 | handoff | `scripts/check-handoff-extraction.mjs` | handoff 直下 `*.md` を削除するコミットで前送りマーカー（🔴🟡/残タスク/次アクション/別PC 等）があるのに backlog 未同梱＝残タスク抽出もれ／`_archive/` への追加＝廃止機構の復活（2026-07-14 退避事故の再発防止） | pre-commit（機械） |
 | 配線 | `scripts/check-magazine-wiring.mjs` | 新 keiken マガジンが字数ツール（`keiken-charcount`）の探索対象に配線されず字数ゲートを素通りする漏れ（content-line 配線ドリフト） | pre-commit（機械） |
-| クラスタ | `scripts/check-policy-anchors.mjs` ＋ `decision-doc-checkpoint.sh` | 1つの決定が複数文書（ADR/skill/checklist/戦略SoT）に散在し片方だけ更新する横展開もれ（policy ドリフト） | commit フック（機械・advisory）＋ PreCompact/SessionEnd（締め切り） |
+| クラスタ | `scripts/check-policy-anchors.mjs` ＋ `agent-hook.mjs decision-doc-checkpoint` | 1つの決定が複数文書（ADR/skill/checklist/戦略SoT）に散在し片方だけ更新する横展開もれ（policy ドリフト） | commit フック（機械・advisory）＋ PreCompact/SessionEnd（締め切り） |
 | 意味 | `/doc-sync` ＋ `doc-sync-auditor` | コード変更で prose・表・コマンド・件数・閾値が旧仕様化（semantic staleness） | 節目に手動（LLM・sonnet） |
 
 **参照ガード**（`check-doc-refs.mjs`）: スキル・エージェント・docs 内の `.md` / `.mdx` 参照がリポジトリ内に実在するかを検証する。
 
 - 全体検証: `npm run check-doc-refs`
 - pre-commit: staged の `.claude/skills/` `.claude/agents/` `.claude/rules/` `docs/` `CLAUDE.md` を自動検査（`scripts/install-pre-commit.mjs` に登録済み）
-- 対象外（実在しなくても正当）: `.claude/state/**`（生成物）・`.claude/plans/**`（一時）・`.claude/projects/**`（memory）・`docs/handoffs/**`・`docs/reviews/**`・`content/sns/**`（point-in-time 記録）。コード参照（`src/*.tsx` 等）は build/type-check/lint が担う別系統
+- 対象外（実在しなくても正当）: `.claude/state/**`（生成物）・`.claude/plans/**`（一時）・`.claude/memory/**`（Claude Code の auto-memory。2026-09-14 から repo 管理し `node scripts/setup-memory-link.mjs` が両 PC の `~/.claude/projects/<key>/memory` を junction/symlink でここへ向ける。個人知見なので当時のパスを残す）・`docs/handoffs/**`・`docs/reviews/**`・`content/sns/**`（point-in-time 記録）。コード参照（`src/*.tsx` 等）は build/type-check/lint が担う別系統
 
 **台帳ガード**（`check-doc-coupling.mjs`・2026-06-12 新設）: skills SKILL.md の追加/削除/description 変更には `skills-guide.md`＋`skills-registry.md`、agents `.md` の同種変更には `agents-registry.md` が同一コミットに staged されているかを検証。違反でコミット停止。正当に不要なら `SKIP_DOC_COUPLING=1`。CLAUDE.md §8 の文章ルールに強制力を与える。
 
 **クラスタガード**（`check-policy-anchors.mjs`・2026-06-16 新設）: 1 つの決定が複数文書に散在するクラスタ（台帳 `.claude/config/policy-anchors.json`）で、1 ファイルを staged すると同クラスタの全ファイルを「整合を確認せよ」と決定的に提示する（advisory・exit 0）。`files`/`anchor` の実在も検証し、移動・改名で台帳が腐ると exit 1（registry rot）。**意味照合はしない**（それは意味ガード `/doc-sync` の領分）＝「片方だけ更新した」横展開もれを surface する forcing function。あわせて `check-doc-sync.sh`（PreToolUse on git commit）が決定/ポリシー文書の変更時に `/doc-sync` を促し、`decision-doc-checkpoint.sh`（`PreCompact`/`SessionEnd` フック）がセッションの節目・終了時に未コミットの決定文書を締め切りチェックする。台帳の更新は決定クラスタを増減したときに行う。背景: 2026-06-16 per-persona R8 決定の横展開が 3 往復かかった再発防止（[[feedback_content_deprecation_cross_lineage]]）。
 
-**意味ガード**（`/doc-sync`・2026-06-12 新設）: 「ドキュメント化された面」(`src/** scripts/** .claude/** package.json` 等)を変更したタスクの完了時に、変更 diff × 候補 doc を `doc-sync-auditor`（Evaluator・sonnet）で突合し、機械ガードが拾えない陳腐化を検出→適用。純コンテンツ MDX 編集では回さない。**routing drift / discoverability gap（規律 7）も検出対象**。発火トリガーとして `check-doc-sync.sh`（commit フック）が、決定/ポリシー文書の変更に加え **新規スクリプト追加（`scripts/**` への `--diff-filter=A`）でも discoverability 配線＋`/doc-sync` を促す**（2026-06-25 拡張）。
+**意味ガード**（`/doc-sync`・2026-06-12 新設）: 「ドキュメント化された面」(`src/** scripts/** .claude/** package.json` 等)を変更したタスクの完了時に、変更 diff × 候補 doc を `doc-sync-auditor`（Evaluator・sonnet）で突合し、機械ガードが拾えない陳腐化を検出→適用。純コンテンツ MDX 編集では回さない。**routing drift / discoverability gap（規律 7）も検出対象**。発火トリガーとして `agent-hook.mjs check-doc-sync`（commit フック）が、決定/ポリシー文書の変更に加え **新規スクリプト追加（`scripts/**` への `--diff-filter=A`）でも discoverability 配線＋`/doc-sync` を促す**（2026-06-25 拡張）。
 
 **配線ガード**（`check-magazine-wiring.mjs`・2026-07-01 新設）: keiken マガジン（施工経験記述系）を「答案マーカー（`**(N)` / `### 記述例` 等）を持つ article.md」で内容判定し、`keiken-charcount.mjs` の探索フィルタでカバーされない dir を pre-commit で落とす。台帳ガードが skill/agent の登録もれしか見ないのに対し、本ガードは **コンテンツライン（note マガジン）を依存する実行系（字数ゲート）に配線し忘れる content-line 配線ドリフト**を機械検知する。新マガジン追加時の配線チェックリスト（cover 定義・sales-recorder マッピング・字数フィルタ・essay-writer 型・/doc-sync）は `src/lib/note-magazines.ts` の `MAGAZINES_RAW` 直前コメントに明文化。背景: 2026-07-01 想定工事バンク（36本）が dir 名に「経験記述」を含まず一括字数チェックを全スキップしていた再発防止（[[feedback_new_magazine_wiring_gate]]）。
 

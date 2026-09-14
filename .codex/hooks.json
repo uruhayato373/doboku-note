@@ -6,11 +6,11 @@
         "hooks": [
           {
             "type": "command",
-            "command": "echo \"$CLAUDE_TOOL_INPUT\" | grep -q 'git commit' && '/Users/minamidaisuke/doboku-note/.codex/hooks/check-doc-sync.sh' || true"
+            "command": "node scripts/hooks/agent-hook.mjs check-doc-sync"
           },
           {
             "type": "command",
-            "command": "'/Users/minamidaisuke/doboku-note/.codex/hooks/check-gemini-cost.sh'"
+            "command": "node scripts/hooks/agent-hook.mjs check-gemini-cost"
           }
         ]
       }
@@ -21,7 +21,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "'/Users/minamidaisuke/doboku-note/.codex/hooks/check-mojibake.sh'"
+            "command": "node scripts/hooks/agent-hook.mjs check-mojibake"
           }
         ]
       },
@@ -30,27 +30,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "'/Users/minamidaisuke/doboku-note/.codex/hooks/check-mojibake.sh'"
-          }
-        ]
-      }
-    ],
-    "PreCompact": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "'/Users/minamidaisuke/doboku-note/.codex/hooks/decision-doc-checkpoint.sh'"
-          }
-        ]
-      }
-    ],
-    "SessionEnd": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "'/Users/minamidaisuke/doboku-note/.codex/hooks/decision-doc-checkpoint.sh'"
+            "command": "node scripts/hooks/agent-hook.mjs check-mojibake"
           }
         ]
       }
@@ -60,11 +40,32 @@
         "hooks": [
           {
             "type": "command",
-            "command": "'/Users/minamidaisuke/doboku-note/.codex/hooks/check-stray-files.sh'"
+            "command": "node scripts/hooks/agent-hook.mjs check-stray-files"
           },
           {
             "type": "command",
-            "command": "'/Users/minamidaisuke/doboku-note/.codex/hooks/check-disk-hygiene.sh'"
+            "command": "node scripts/hooks/agent-hook.mjs check-disk-hygiene",
+            "timeout": 20
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node scripts/hooks/agent-hook.mjs decision-doc-checkpoint"
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node scripts/hooks/agent-hook.mjs decision-doc-checkpoint"
           }
         ]
       }
