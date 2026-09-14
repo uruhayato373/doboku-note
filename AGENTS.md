@@ -385,7 +385,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 - 汎用の「必ず検証」「ダブルチェック」を足さない。書いてよいのは**決定的ゲート**＝実行するコマンドと合格条件が特定できるものだけ。自分の誤りを直したときも、コマンドと合格条件が特定できるときだけゲート化する（回帰テスト付き）
 - `console.log` 直後の `process.exit` はパイプで出力を捨てる（`--json` が途中で切れる）。`tsc` は `.claude/scripts/**` を見ないので壊れ import は `git grep` で全域を見る。デッドコード監査は `npm run knip`（grep で裏取り）。`pgrep -f` の待機ループは自分のシェルに一致して永久化する
 - ルーティング・パース・リトライ・ステータス処理はコードで決める（サブエージェントに委ねない）。同じ判定を複数箇所に実装しない＝lib に集約する（例: 予定の集約は `scripts/lib/schedule-events.mjs` が唯一の実装、ASP のサイト帰属判定は `scripts/lib/asp-site-guard.mjs`）
-- 新しい script を足したら `package.json` の scripts と [commands.md](./.claude/knowledge/reference/commands.md) に用途と罠を 1 行書き、`quality-audit.mjs` に登録するか「誰が読むか」を決める（`npm run check-command-guidance` が案内の実在を検査し、`check-doc-sync.sh` が新規追加時に配線と `/doc-sync` を促す）
+- 新しい script を足したら `package.json` の scripts と [commands.md](./.claude/knowledge/reference/commands.md) に用途と罠を 1 行書き、`quality-audit.mjs` に登録するか「誰が読むか」を決める（`npm run check-command-guidance` が案内の実在を検査し、`agent-hook.mjs check-doc-sync` が新規追加時に配線と `/doc-sync` を促す）
 
 ## ドキュメント同期プロトコル（CLAUDE.md §8）
 

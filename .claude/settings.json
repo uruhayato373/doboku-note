@@ -1,4 +1,7 @@
 {
+  "env": {
+    "CLOUDFLARE_ACCOUNT_ID": "cc10e4d021f2b259238dc98dfeebe907"
+  },
   "permissions": {
     "deny": [
       "Bash(git reset --hard:*)",
@@ -41,7 +44,27 @@
       "WebFetch",
       "WebSearch",
       "Agent",
-      "Skill"
+      "Skill",
+      "Bash(gh run:*)",
+      "Bash(gh auth:*)",
+      "Bash(gh pr:*)",
+      "Bash(gh api:*)",
+      "Bash(git show:*)",
+      "mcp__playwright__browser_resize",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_take_screenshot",
+      "mcp__playwright__browser_evaluate",
+      "mcp__playwright__browser_snapshot",
+      "mcp__playwright__browser_click",
+      "mcp__playwright__browser_close",
+      "mcp__playwright__browser_tabs",
+      "mcp__visualize__read_me",
+      "mcp__visualize__show_widget",
+      "mcp__Claude_in_Chrome__list_connected_browsers",
+      "mcp__Claude_in_Chrome__navigate",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "mcp__mcp-registry__search_mcp_registry",
+      "mcp__mcp-registry__list_connectors"
     ],
     "ask": [
       "Bash(npm run ogp-backgrounds:*)",
@@ -50,6 +73,9 @@
     ],
     "defaultMode": "bypassPermissions"
   },
+  "enabledMcpjsonServers": [
+    "aidesigner"
+  ],
   "hooks": {
     "SessionStart": [
       {
@@ -103,11 +129,11 @@
         "hooks": [
           {
             "type": "command",
-            "command": "echo \"$CLAUDE_TOOL_INPUT\" | grep -q 'git commit' && .claude/hooks/check-doc-sync.sh || true"
+            "command": "node scripts/hooks/agent-hook.mjs check-doc-sync"
           },
           {
             "type": "command",
-            "command": ".claude/hooks/check-gemini-cost.sh"
+            "command": "node scripts/hooks/agent-hook.mjs check-gemini-cost"
           }
         ]
       }
@@ -118,7 +144,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": ".claude/hooks/check-mojibake.sh"
+            "command": "node scripts/hooks/agent-hook.mjs check-mojibake"
           }
         ]
       },
@@ -127,7 +153,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": ".claude/hooks/check-mojibake.sh"
+            "command": "node scripts/hooks/agent-hook.mjs check-mojibake"
           }
         ]
       }
@@ -137,11 +163,12 @@
         "hooks": [
           {
             "type": "command",
-            "command": ".claude/hooks/check-stray-files.sh"
+            "command": "node scripts/hooks/agent-hook.mjs check-stray-files"
           },
           {
             "type": "command",
-            "command": ".claude/hooks/check-disk-hygiene.sh"
+            "command": "node scripts/hooks/agent-hook.mjs check-disk-hygiene",
+            "timeout": 20
           }
         ]
       }
@@ -151,7 +178,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": ".claude/hooks/decision-doc-checkpoint.sh"
+            "command": "node scripts/hooks/agent-hook.mjs decision-doc-checkpoint"
           }
         ]
       }
@@ -161,7 +188,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": ".claude/hooks/decision-doc-checkpoint.sh"
+            "command": "node scripts/hooks/agent-hook.mjs decision-doc-checkpoint"
           }
         ]
       }
