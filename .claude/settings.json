@@ -82,42 +82,9 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node scripts/x-sync-status.mjs --dry 2>/dev/null || true",
-            "timeout": 60,
-            "statusMessage": "X 投稿状況を確認中...",
-            "async": true
-          },
-          {
-            "type": "command",
-            "command": "node scripts/check-plan-staleness.mjs 2>/dev/null || true",
-            "timeout": 10,
-            "async": true
-          },
-          {
-            "type": "command",
-            "command": "node scripts/check-backlog-health.mjs --due 2>/dev/null || true",
-            "timeout": 15,
-            "async": true
-          },
-          {
-            "type": "command",
-            "command": "node scripts/check-git-sync.mjs 2>/dev/null || true",
-            "timeout": 30,
-            "statusMessage": "origin との同期状況を確認中...",
-            "async": true
-          },
-          {
-            "type": "command",
-            "command": "node scripts/local-resource-audit.mjs --quick",
-            "timeout": 30,
-            "statusMessage": "空き容量とメモリを確認中...",
-            "async": true
-          },
-          {
-            "type": "command",
-            "command": "node scripts/check-disk-hygiene.mjs --quick 2>/dev/null || true",
-            "timeout": 15,
-            "statusMessage": "ローカル容量を確認中...",
+            "command": "node scripts/session-start.mjs 2>/dev/null || true",
+            "timeout": 120,
+            "statusMessage": "同期・台帳・容量を確認中...",
             "async": true
           }
         ]
