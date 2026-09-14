@@ -125,7 +125,7 @@ npm run check-claude-md-size   # CLAUDE.md ≤150 行・rules の paths: 必須
 - **複数セッションは worktree で分離する（最重要）**: 別セッションと同じ作業ツリーを共有すると、相手の `git reset --hard`／`checkout` が未 push コミットを丸ごと壊す（2026-06-11 実証・gc 復旧不能）。`git worktree add <dir> -b <feature> origin/develop` で HEAD/index/作業ツリーを分け、`develop` へは PR で集約する
 - **同一ワークツリーで並行せざるを得ないとき**: push 前に `git log origin/develop..HEAD` で巻き込み確認。commit は `git commit -- <pathspec>`。他テリトリ不可侵。重要な変更は feature ブランチへ即 push して保全。`git stash` は共有スタックを他セッションが pop するので使わない
 - **並行エージェント（同一セッション内）**: 各エージェントが編集したファイルを即 commit（`git status` で staged 確認）
-- **worktree の置き場と後始末**: `.claude/worktrees/`（Claude）と `~/.codex/worktrees/`（Codex）だけ。`.tmp/` に置かない（日次掃除が消す）。マージしたら `git worktree remove` を即実行、中で `npm run build` しない（1 本 4〜5GB）。候補は `npm run check-disk-hygiene`（詳細 → [disk-hygiene.md](.claude/knowledge/reference/disk-hygiene.md)）
+- **worktree の置き場と後始末**: `.claude/worktrees/`（Claude）と `~/.codex/worktrees/`（Codex）だけ。`.tmp/` に置かない（破棄可能な出力との混在を防ぐ）。マージしたら `git worktree remove` を即実行、中で `npm run build` しない（1 本 4〜5GB）。候補は `npm run check-disk-hygiene`（詳細 → [disk-hygiene.md](.claude/knowledge/reference/disk-hygiene.md)）
 
 ### 11. コードベースの規約に合わせる
 - **frontmatter 必須**: `title` / `seoTitle` / `description` / `category` / `tags` / `published`

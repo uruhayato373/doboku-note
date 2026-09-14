@@ -50,3 +50,7 @@ Git LFSは `git lfs prune --dry-run` で候補を確認し、削除時は `git -
 ## 検査
 
 `npm run test:resources` はリンク逸脱・使用中・欠測・破損ダウンロード拒否を検査し、quality:auditのCIゲートにも接続する。定期実行は変化なしなら通知せず、閾値超過・急増・検査失敗・掃除完了で通知する。ローカル欠測をCIのクリーン環境の正常値で代用しない。
+
+日次の `disk-hygiene` もbuild・scratch・browser-cacheは同じ掃除本体を使う。buildには日付付き `.next/dev-backup-YYYYMMDD-HHMMSS` も含む。`--only` は設定から列挙されたrepo内の1対象に限定する指定で、任意パスは受け付けない。中央認証プロファイルもキャッシュ名の許可リストだけを検査する。
+
+監査のprocessGroupsはCodex/ChatGPT・Claude・WebViewも表示する。working setは共有ページを含むため、合計を実占有メモリとして扱わない。シェルに含まれる検索文字列を稼働中サーバーと誤認しないよう、実行ファイルとコマンドを組み合わせて分類する。

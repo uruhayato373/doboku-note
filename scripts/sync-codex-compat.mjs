@@ -373,36 +373,48 @@ function fsSource() {
 
 // ---- git index source（--staged） ----------------------------------------------------------------
 
+let indexEntries;
+const blobCache = new Map();
 function gitIndexEntries(pathspec) {
-  let out;
-  try {
-    out = execFileSync(
-      'git',
-      ['-c', 'core.quotepath=false', 'ls-files', '--stage', '--', pathspec],
-      { encoding: 'utf8', maxBuffer: 256 * 1024 * 1024, cwd: ROOT },
-    );
-  } catch (e) {
-    throw new Error(`git ls-files failed for ${pathspec}: ${e.message}`);
-  }
-  return out
-    .split('\n')
-    .filter(Boolean)
-    .map((line) => {
+  if (!indexEntries) {
+    const out = execFileSync('git', ['ls-files', '--stage', '-z'], { encoding: 'utf8', maxBuffer: 256 * 1024 * 1024, cwd: ROOT });
+    indexEntries = out.split('\0').filter(Boolean).map(line => {
       const tab = line.indexOf('\t');
-      const [mode, sha] = line.slice(0, tab).trim().split(/\s+/);
+      const [mode, sha, stage] = line.slice(0, tab).split(' ');
+      if (stage !== '0') throw new Error('Unmerged index: ' + line.slice(tab + 1));
       return { mode, sha, path: line.slice(tab + 1) };
     });
+  }
+  return indexEntries.filter(e => e.path === pathspec || e.path.startsWith(pathspec + '/'));
 }
-
+function preloadBlobs(entries) {
+  const shas = [...new Set(entries.map(e => e.sha))].filter(sha => !blobCache.has(sha));
+  if (!shas.length) return;
+  const out = execFileSync('git', ['cat-file', '--batch'], { input: shas.join('\n') + '\n', maxBuffer: 256 * 1024 * 1024, cwd: ROOT });
+  let offset = 0;
+  for (const sha of shas) {
+    const end = out.indexOf(10, offset);
+    const [actual, type, sizeText] = out.subarray(offset, end).toString('utf8').split(' ');
+    const size = Number(sizeText);
+    if (actual !== sha || type !== 'blob' || !Number.isSafeInteger(size) || size < 0 || end + size + 1 >= out.length) throw new Error('Invalid git blob: ' + sha);
+    blobCache.set(sha, out.subarray(end + 1, end + 1 + size).toString('utf8'));
+    offset = end + size + 2;
+  }
+}
 function catFile(sha) {
-  return execFileSync('git', ['cat-file', '-p', sha], { encoding: 'utf8', maxBuffer: 256 * 1024 * 1024, cwd: ROOT });
+  preloadBlobs([{ sha }]);
+  return blobCache.get(sha);
 }
 
 function indexSource() {
+  const staged = execFileSync('git', ['diff', '--cached', '--name-only', '--diff-filter=ACMR', '-z'], { cwd: ROOT, encoding: 'utf8' }).split('\0').filter(Boolean);
+  const runtimeEntries = staged.flatMap(path => gitIndexEntries(path)).filter(e => e.mode !== '120000' && TEXT_EXT.has(e.path.slice(e.path.lastIndexOf('.'))) && RUNTIME_SCAN_ROOTS.some(root => e.path === root || e.path.startsWith(root + '/')));
+  preloadBlobs([CLAUDE_MD, AGENTS_MD, CLAUDE_SKILLS_DIR, RULES_DIR, AGENTS_SKILLS_DIR, CLAUDE_AGENTS_DIR, CODEX_AGENTS_DIR, CLAUDE_SETTINGS, CODEX_HOOKS_JSON].flatMap(gitIndexEntries).concat(runtimeEntries));
   let agentsShaByPath = null;
   let codexShaByPath = null;
   return {
     label: 'git index (staged)',
+    runtimeEntries,
     readClaudeMd() {
       const [e] = gitIndexEntries(CLAUDE_MD);
       return e ? catFile(e.sha) : null;
@@ -480,9 +492,13 @@ function indexSource() {
   };
 }
 
-// ---- runtime consumer 走査（常に working tree・モードに依らない） ---------------------------------
+// ---- runtime consumer 走査（staged は変更した index blob、通常/CI は全域） ---------------------------------
 
-function scanRuntimeConsumers() {
+function scanRuntimeConsumers(source) {
+  if (source.runtimeEntries) {
+    const entries = source.runtimeEntries.filter(e => !RUNTIME_CONSUMER_ALLOWLIST.has(e.path));
+    return { scanned: entries.map(e => e.path), hits: entries.filter(e => catFile(e.sha).includes(`${AGENTS_SKILLS_DIR}/`)).map(e => e.path) };
+  }
   const files = [];
   for (const root of RUNTIME_SCAN_ROOTS) {
     const abs = join(ROOT, root);
@@ -499,12 +515,7 @@ function scanRuntimeConsumers() {
   const hits = [];
   for (const f of uniq) {
     if (RUNTIME_CONSUMER_ALLOWLIST.has(f)) continue;
-    let text;
-    try {
-      text = readFileSync(join(ROOT, f), 'utf8');
-    } catch {
-      continue;
-    }
+    const text = readFileSync(join(ROOT, f), 'utf8');
     if (text.includes(`${AGENTS_SKILLS_DIR}/`)) hits.push(f);
   }
   return { scanned: uniq, hits };
@@ -616,8 +627,9 @@ function runCheck(source) {
     agentsMdMismatch = true;
   }
 
-  const runtime = scanRuntimeConsumers();
+  const runtime = scanRuntimeConsumers(source);
 
+  if (source.runtimeEntries && runtime.scanned.length === 0) console.log('[check-codex-compat] runtime consumer: staged対象なし（全域検査は通常/CIで実施）');
   const fmInvalid = errors.filter((e) => e.type === 'invalid-frontmatter');
   const dupNames = errors.filter((e) => e.type === 'duplicate-name');
   const ruleNoPaths = errors.filter((e) => e.type === 'rule-without-paths');
@@ -659,7 +671,7 @@ function runCheck(source) {
 
   const fail =
     canonical.entries.length === 0 ||
-    runtime.scanned.length === 0 ||
+    (!source.runtimeEntries && runtime.scanned.length === 0) ||
     missingSkills.length > 0 ||
     agentsMdMissing ||
     extra.length > 0 ||

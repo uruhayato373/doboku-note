@@ -336,3 +336,26 @@ test('17. --staged: agents / settings を stage して生成物を stage しな�
   const c2 = run(root, ['--staged']);
   assert.equal(c2.status, 0, c2.stdout + c2.stderr);
 });
+
+test('staged consumer inspection reads index bytes, including Unicode, even if worktree was repaired', () => {
+  const root = makeFixture({ git: true }); writeMinimalValidFixture(root);
+  assert.equal(run(root, ['--write']).status, 0);
+  writeFile(root, 'scripts/日本語.mjs', "// 日本語\nconsole.log('.agents/skills/dev/skill-a/x');\n");
+  execFileSync('git', ['add', '.'], { cwd: root });
+  writeFile(root, 'scripts/日本語.mjs', '// repaired but not staged\n');
+  const result = run(root, ['--staged']);
+  assert.equal(result.status, 1, result.stdout + result.stderr);
+  assert.match(result.stdout + result.stderr, /日本語/);
+  execFileSync('git', ['add', 'scripts/日本語.mjs'], { cwd: root });
+  assert.equal(run(root, ['--staged']).status, 0);
+});
+
+test('staged check with no runtime changes reports not applicable while checking all generated definitions', () => {
+  const root = makeFixture({ git: true }); writeMinimalValidFixture(root);
+  assert.equal(run(root, ['--write']).status, 0);
+  execFileSync('git', ['add', '.'], { cwd: root });
+  execFileSync('git', ['-c', 'user.name=Test', '-c', 'user.email=test@example.com', 'commit', '-qm', 'initial'], { cwd: root });
+  const result = run(root, ['--staged']);
+  assert.equal(result.status, 0, result.stdout + result.stderr);
+  assert.match(result.stdout, /staged対象なし/);
+});

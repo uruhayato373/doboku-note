@@ -22,6 +22,7 @@ import { homedir, userInfo } from 'node:os';
 import { join } from 'node:path';
 
 import { REPO_ROOT } from './lib/repository-paths.mjs';
+import { ensureGitMaintenance } from './lib/local-resources.mjs';
 
 const LABEL = 'com.doboku-note.disk-hygiene';
 const HOME = homedir();
@@ -68,6 +69,7 @@ if (argv.includes('--run-now')) {
 }
 
 // --- install ---------------------------------------------------------------
+ensureGitMaintenance(REPO_ROOT);
 if (!existsSync(TEMPLATE)) {
   console.error(`[disk-hygiene:install] ✗ テンプレートが無い: ${TEMPLATE}`);
   process.exit(1);
