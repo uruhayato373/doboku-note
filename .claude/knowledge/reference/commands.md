@@ -121,6 +121,8 @@ npm run check-jst-date    # 運用記録の日付が UTC で前日付になっ�
 npm run check-backlog-schema # backlog タグ行の語彙・[検証:]の実在・ID(DN-####)必須/重複・完了 prose の混入（pre-commit --staged ＋ quality:audit）
 npm run check-backlog-health # 台帳の候補 surfacer（🟢に沈んだ不具合・種類の矛盾・重複候補・検証ゲート欠落。判定はせず常に exit 0）
 npm run check-codex-compat   # AGENTS.md / .agents/skills / .codex/agents / .codex/hooks.json が正典（CLAUDE.md + .claude/rules / .claude/skills / .claude/agents / .claude/settings.json）の生成物と一致するか（第2SSOT再発防止・pre-commit --staged ＋ quality:audit・再生成は sync-codex-compat。2026-09-14 から agent toml と hooks.json も生成物＝手で編集しない）
+npm run sync-codex-compat    # 正典から AGENTS.md / .agents/skills / .codex/agents/*.toml / .codex/hooks.json を再生成（孤児は削除）
+npm run setup-memory-link    # Claude Code の auto-memory（~/.claude/projects/<key>/memory）を repo の .claude/memory へ junction/symlink（初回は `-- --migrate` で既存 memory を移す・`--settings <dotfiles の json>` で settings.local.json も張る・既存の実ディレクトリは消さず .bak へ退避。両 PC で同じ memory を読ませる）
 npm run check-project-task-refs # docs/ の恒久文書の廃止参照(task-queue.json)と backlog ID 参照切れ（quality:audit に同梱）
 npm run check-information-architecture # 4 領域（docs/content/.claude/実装）への逆戻り検知（廃止した置き場への新規ファイル・docs への制作物混入・content への台帳混入・二重 SSOT。pre-commit --staged ＋ quality:audit）
 npm run check-relative-links   # Markdown の相対リンク `](../x)` の実在（check-doc-refs はリンク**テキスト**しか見ないので、置き場を変えると href だけ黙って壊れる。pre-commit --staged ＋ quality:audit）

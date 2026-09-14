@@ -103,7 +103,8 @@ if (STAGED) {
 // point-in-time 記録（当時のパスを参照する歴史的文書）はソースから除外:
 //   docs/handoffs/** = 日付付きセッション引き継ぎ / docs/reviews/** = 週次スナップショット
 //   content/sns/**      = 投稿アーカイブ（/docs/ リンクの実在検証は check-sns-urls.mjs が担当）
-const EXCLUDE_SRC = ['docs/handoffs/', 'docs/reviews/', 'content/sns/'];
+//   .claude/memory/**   = Claude Code の auto-memory（2026-09-14 から repo 管理・当時のパスを残す個人知見。setup-memory-link が両 PC の ~/.claude/projects/<key>/memory をここへ向ける）
+const EXCLUDE_SRC = ['docs/handoffs/', 'docs/reviews/', 'content/sns/', '.claude/memory/'];
 files = files.filter((f) => !EXCLUDE_SRC.some((pre) => f.startsWith(pre)));
 
 // 移動先提案用: リポジトリ内 docs/ .claude/ src/ の全ファイルの basename → パス
@@ -132,8 +133,8 @@ for (const f of files) {
       // ランタイム生成物 / ephemeral / マシン固有 は参照先として実在しなくても正当（壊れではない）:
       //   .claude/state/**   = スキル/エージェントが生成する state・人間向け出力（review-queue.md 等）
       //   .claude/plans/**   = Claude Code の一時プランファイル
-      //   .claude/projects/**= memory（各 PC ローカル、リポジトリ管理外）
-      if (/^\.claude\/(state|plans|projects)\//.test(ref)) continue;
+      //   .claude/projects/**= 旧 memory の置き場（PC ローカル）/ .claude/memory/** = 現 memory（repo 管理・point-in-time）
+      if (/^\.claude\/(state|plans|projects|memory)\//.test(ref)) continue;
       // docs/handoffs/** = point-in-time 記録（extract→削除の運用・2026-07-11〜）。
       // 過去 handoff への出典引用は削除済みでも正当（記録は git 履歴）。information-architecture.md「handoff のライフサイクル」と整合。
       if (/^docs\/handoffs\//.test(ref)) continue;

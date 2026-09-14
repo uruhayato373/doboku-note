@@ -30,7 +30,8 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const toPosix = (v) => v.split(sep).join('/');
 
 /** `.agents/` は `.claude/` の写しで別途 DN-0098 の判断待ち。二重に報告しない。 */
-const EXCLUDE_PREFIXES = ['.agents/'];
+// .claude/memory/ は Claude Code の auto-memory（個人知見の point-in-time 記録。当時の相対パスを残す・check-doc-refs と同じ扱い）
+const EXCLUDE_PREFIXES = ['.agents/', '.claude/memory/'];
 
 /**
  * コードスパン（`...`）とフェンス（```...```）の中身を空白へ潰す。
