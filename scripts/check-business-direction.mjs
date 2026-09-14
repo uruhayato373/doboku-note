@@ -17,11 +17,13 @@ try {
     }
   }
   const git = args => execFileSync('git', args, { encoding: 'utf8', stdio: ['ignore','pipe','pipe'] });
+  const normalizeEol = s => s.split(String.fromCharCode(13)).join('');
   const changes = git(['diff', ...(process.argv.includes('--staged') ? ['--cached'] : ['HEAD']), '--name-only', '--no-renames', '-z', '--', RECORDS]).split('\0').filter(Boolean);
   if (process.argv.includes('--staged')) {
     const stagedPaths = [...changes, '.claude/config/business-direction.json', '.claude/config/seo-watchwords.json'];
     for (const f of stagedPaths) {
-      try { if (git(['show', `:${f}`]) !== readFileSync(f, 'utf8')) errors.push(`${f}: stagedと作業ツリーを揃えて検査してください`); }
+      // autocrlf の端末では index=LF / 作業ツリー=CRLF になるので改行を正規化してから比較する（Windows で常に FAIL する偽赤の再発防止・2026-09-14）
+      try { if (normalizeEol(git(['show', `:${f}`])) !== normalizeEol(readFileSync(f, 'utf8'))) errors.push(`${f}: stagedと作業ツリーを揃えて検査してください`); }
       catch { errors.push(`${f}: stagedから検査できません`); }
     }
   }
