@@ -174,10 +174,10 @@ content/sns/x/
 
 ドラフトに `cards.json`（`schemaVersion:1`、`tweets` はTweet番号をキーとするオブジェクト）がある場合、`gen-x-card` は指定された番号だけを先生付きカードへ生成する。各カードは `headline`（2行・各10文字以内）、`points`（2〜3行・各22文字以内）、`character`（`pose` / `frame`）、`sourcePaths`（根拠となる原稿）、`alt`（画像の説明）を持つ。文字は原稿として編集し、長すぎる文は切り捨てず停止する。原画像は既存の確認済み切り取りを使い、引き伸ばさない。指定のない既存パックは下記の従来レイアウト。
 
-- 生成: `node scripts/gen-x-card.mjs --draft 091 --force`。代表1枚は `--tweet 1` を追加する。生成は直列で、PNGはGitへ追加しない。原稿・設定・描画台帳を保持し、先生原本は既存Drive素材を利用する。公開済み画像とのbyte同一性が必要な場合は再生成で代替しない。
+- 生成: `node scripts/gen-x-card.mjs --draft 091-civil-2026-09-b --force`。代表1枚は `--tweet 1` を追加する。ドラフトはフォルダ名全体で指定する。数字だけの指定は候補が一意の場合のみ受理し、同番号の別企画があれば停止する。生成は直列で、PNGはGitへ追加しない。原稿・設定・描画台帳を保持し、先生原本は既存Drive素材を利用する。公開済み画像とのbyte同一性が必要な場合は再生成で代替しない。
 - 確認: `npm run x-review` → `http://127.0.0.1:3026`。`.claude/config/x-review.json` の期間・対象計画から、画像・本文・日時・note導線を表示する閲覧専用ページ。検索・週別・note絞り込み・拡大・本文コピーに対応。常時起動は不要。
 - 検査: `npm run check-x-review` は期間内の計画と原稿をドラフト・番号・日時で1件ずつ照合し、欠落・余分な原稿・重複・空白日を検出する。日ごとの本数は対象計画に従い、1日3本以内・間隔60分以上・販売1日1本を横断検査する。原稿とstatusの一致、文字数、公開マガジン・UTM・画像用原稿も検査。`-- --local` は端末の全対象PNGをSHA-256照合する。画像のないCIは原稿と描画台帳のみで、画像実体の検査済みとはしない。
-- 状態: `scheduled` は予約用原稿、`queued` は既存の投入済み台帳。確認画面や画像生成からXへの予約完了を推定しない。別企画のArticle公開やURL確定待ちは警告表示して保持する。実投入は§11の実キュー照合へ進む。
+- 状態: 月次計画は当初案として保持し、確認画面ではstatusの `original_scheduled_at`（未設定なら `scheduled_at`）と当初日時の一致を検査したうえで `scheduled_at` の変更後日時へ解決する。Articleの告知解放も当初日時で月次計画のURLを更新し、原稿の見出しには予約台帳の最新タイトルを使う。`scheduled` は予約用原稿、`queued` は既存の投入済み台帳。確認画面や画像生成からXへの予約完了を推定しない。別企画のArticle公開やURL確定待ちは警告表示して保持する。実投入は§11の実キュー照合へ進む。
 
 ### 従来カード
 
@@ -295,7 +295,7 @@ content/sns/x/
 | `--queue`: X 実キューに予約予定の本文が既存 | BLOCK | (a) 古い予約残存の実体検出 |
 
 - **予約フロー**: `x-post-writer`（生成）→ `x-post-qa`（§11 ゲート採点）→ status.json に `scheduled_at` 記入 → **`npm run x-schedule-guard --queue` で緑**→ `publish-x` 実行 → `npm run x-sync-status`（偽成功の実査・§9＋下記 queued 昇格）。緑でない限り予約しない。
-- **状態ライフサイクル**: `scheduled`（計画・未投入）→ `queued`（X キュー投入済。`x-sync-status` がキュー実在を確認して昇格＝§9 偽成功検証を兼ねる）→ `posted`（送信時刻通過後キューから消えたら昇格）。guard / `x-schedule-view` / `x-sync-status` は `scheduled`＋`queued` を「未来予約」として扱い、**guard の `--queue` 二重チェックだけは `queued` を除外**（既にキューに在って当然なので、週次で次バッチを積むとき誤検出で赤にならない）。次バッチは未投入の `scheduled` のみを `publish-x --tweets N-M` で対象化する。
+- **状態ライフサイクル**: `scheduled`（計画・未投入）→ `queued`（対象アカウントのX予約一覧で本文冒頭と予約日時の一致を確認）→ `posted`（公開URLなどで配信を確認）。`x-sync-status` はキュー照合で `queued` へ昇格するが、期限経過とキューからの消失だけでは `posted` にしない。ログイン未完了・別アカウント・一覧取得失敗は検査不成立として停止する。guard は `scheduled`＋`queued` を計画衝突の対象にし、`--queue` の二重投入チェックは `queued` を除外する。`x-schedule-view` と予約充足表示は `queued` だけを予約実績に数え、未投入計画を分ける。最終予約記録は途中の空白がない保証ではない。次バッチは未投入の `scheduled` のみを対象化する。
 - **アカウント境界（epoch）**: 凍結アカウントの drafts は `content/sns/x/_archive-<handle>/` へ退避する。`_` 接頭辞ディレクトリは guard / `x-schedule-view` / `x-sync-status` のスキャン対象外＝**新アカウントは常にクリーンな台帳から始める**。旧アカの予約済み status を新アカで publish しないための物理的隔離。
 
 ### 11.7 競合 read（scout-x-competitors）の安全弁

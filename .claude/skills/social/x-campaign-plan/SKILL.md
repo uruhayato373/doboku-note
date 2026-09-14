@@ -100,4 +100,4 @@ argument-hint: "--month YYYY-MM [--primary-exam civil-1]"
 
 - 原稿執筆 → `x-post-writer` ／ 採点 → `x-post-qa`
 - カード画像 → `/create-x-card`（`gen-x-card.mjs`）
-- 予約実行 → `/publish-x` ／ 消化確認 → `npm run x-sync-status`
+- 予約実行 → `/publish-x` ／ 予約キュー照合 → `npm run x-sync-status`（期限経過だけでは公開済みにしない）

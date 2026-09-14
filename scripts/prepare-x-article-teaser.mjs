@@ -74,6 +74,11 @@ const mapping = {
   4: { articleKey: "7", teaserKey: "8", placeholder: "{{ARTICLE_URL_04}}" },
 };
 
+function planEntryFor(teaser) {
+  const original = teaser.original_scheduled_at ?? teaser.scheduled_at;
+  return plan.posts?.find(post => `${post.date}T${post.time}` === original.slice(0, 16));
+}
+
 for (const [articleNo, item] of Object.entries(mapping)) {
   if (!status.tweets?.[item.articleKey]) fail(`Article ${articleNo} の status がない`);
   if (!status.tweets?.[item.teaserKey]) fail(`Article ${articleNo} の告知 status がない`);
@@ -81,9 +86,7 @@ for (const [articleNo, item] of Object.entries(mapping)) {
   if (!block) fail(`Tweet ${item.teaserKey} のテンプレートがない`);
   if (!block.body.includes(item.placeholder)) fail(`Tweet ${item.teaserKey} に ${item.placeholder} がない`);
   const teaser = status.tweets[item.teaserKey];
-  const date = teaser.scheduled_at.slice(0, 10);
-  const time = teaser.scheduled_at.slice(11, 16);
-  const planEntry = plan.posts?.find((post) => post.date === date && post.time === time);
+  const planEntry = planEntryFor(teaser);
   if (!planEntry || planEntry.funnel !== "x-article") fail(`Article ${articleNo} の月次計画枠がない`);
 }
 
@@ -102,9 +105,7 @@ const selectedBlock = blocks.find((candidate) => candidate.number === Number(sel
 const resolvedBody = selectedBlock.body.replace(selected.placeholder, articleUrl);
 const now = new Date().toISOString();
 const selectedTeaser = status.tweets[selected.teaserKey];
-const selectedDate = selectedTeaser.scheduled_at.slice(0, 10);
-const selectedTime = selectedTeaser.scheduled_at.slice(11, 16);
-const selectedPlanEntry = plan.posts.find((post) => post.date === selectedDate && post.time === selectedTime);
+const selectedPlanEntry = planEntryFor(selectedTeaser);
 
 Object.assign(status.tweets[selected.articleKey], {
   status: "posted",
@@ -126,7 +127,7 @@ for (const item of Object.values(mapping)) {
   const tweetStatus = status.tweets[item.teaserKey];
   if (!tweetStatus.article_url) continue;
   const block = blocks.find((candidate) => candidate.number === Number(item.teaserKey));
-  publishable.push(block.raw.replace(item.placeholder, tweetStatus.article_url));
+  publishable.push(`## Tweet ${item.teaserKey}: ${tweetStatus.title}\n\n${block.body.replace(item.placeholder, tweetStatus.article_url)}`);
 }
 
 if (!DRY_RUN) {

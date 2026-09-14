@@ -2,14 +2,14 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { readXReview } from './lib/x-review.mjs';
+import { readXReview, readXReviewPlans } from './lib/x-review.mjs';
 import { validateReviewSchedule } from './lib/x-review-schedule.mjs';
 import { validateCharacterCard } from './lib/x-character-spec.mjs';
 import { sha256File } from './lib/asset-storage.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const data=readXReview(root),local=process.argv.includes('--local'),errors=[];
 const config=JSON.parse(fs.readFileSync(path.join(root,'.claude/config/x-review.json'),'utf8'));
-const plans=config.plans.flatMap(p=>JSON.parse(fs.readFileSync(path.join(root,p),'utf8')).posts);
+const plans=readXReviewPlans(root, config);
 errors.push(...validateReviewSchedule(data,plans));
 const newRows=data.rows.filter(r=>r.newCard);
 const expected=config.newCardDrafts.reduce((sum,d)=>sum+Object.keys(JSON.parse(fs.readFileSync(path.join(root,'content/sns/x/draft',d,'cards.json'),'utf8')).tweets).length,0);
