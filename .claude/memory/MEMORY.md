@@ -118,7 +118,6 @@
 - [project_civil_membership_library_pivot.md](project_civil_membership_library_pivot.md) — 土木セコカン合格ラボ=ライブラリ内包(完成答案/過去問OK・FLOWのみ一線)。PR#327
 - [project_coconala_tensaku_channel.md](project_coconala_tensaku_channel.md) — ココナラ第3チャネル。**初売上08-04→教材3段はしご＋添削つきプレミアム¥15,000へ再構成・廃止5件archived・不在中は全件休止(8/17復帰)**
 - [project_civil1_flagship_pack.md](project_civil1_flagship_pack.md) — 1級土木 経験記述¥9,800旗艦パック+3層戦略(PR#294)
-- [project_civil1_textbook_transcription.md](project_civil1_textbook_transcription.md) — 1級土木テキスト両編OCR→MD完了(内部リファレンス・条文数値は原典照合)
 - [project_civil1_ig_pack_campaign.md](project_civil1_ig_pack_campaign.md) — 1級土木IGカルーセル全12年度228パック完成。残=reels/stories/採点
 - [project_civil1_combo_essay.md](project_civil1_combo_essay.md) — 1級土木「2テーマ組合せ大全」30答案。残=カバー/公開
 - [project_civil_keiken_note_compat.md](project_civil_keiken_note_compat.md) — 1級2級 施工経験記述noteをnote互換化+カバー完了。残=published:true
@@ -127,7 +126,6 @@
 - [project_keiken_charcount_gate.md](project_keiken_charcount_gate.md) — 経験記述字数チェック/keiken-charcount新設(解答欄超過を公開前圧縮)
 - [project_setsumon3_policy_bank.md](project_setsumon3_policy_bank.md) — 「設問3国家施策バンク」11テーマ(draft,¥2,480)。残=SoT登録/公開
 - [project_pe_construction_note_funnel.md](project_pe_construction_note_funnel.md) — 建設部門noteファネル(もくじ12+無料16本)。論点KW6本hold
-- [project_pe_construction_bk_magazines.md](project_pe_construction_bk_magazines.md) — 建設部門BKマガジン全12本公開完結(¥780統一)+確立パイプライン
 - [project_persona_donsen_hub.md](project_persona_donsen_hub.md) — 総監14ペルソナ導線ハブ完了。残=note実公開/deploy
 - [project_essay_persona_water_municipality.md](project_essay_persona_water_municipality.md) — 総監模範論文 全11ペルソナ公開品質化完了。残=note実公開
 - [project_cross_tradeoff_magazine.md](project_cross_tradeoff_magazine.md) — クロストレードオフ有料6記事published。残=note-magazines.ts登録/図
@@ -136,23 +134,12 @@
 - [project_secondary_q1_cta_policy.md](project_secondary_q1_cta_policy.md) — 二次問1経験記述は書き方置かずCTA。全10ページ適用、未deploy
 - [project_note_live_cta_drift.md](project_note_live_cta_drift.md) — note CTAがソースにあるがライブに出ないドリフト。ライブ照合=note API v3
 - [project_note_cover_g2.md](project_note_cover_g2.md) — noteカバーG2刷新(試験=色/系列=濃淡)。1級2級パイロット完了
-- [project_note_dir_reorg_by_exam.md](project_note_dir_reorg_by_exam.md) — docs/noteを試験別dirへ再編。パス規約変更
-- [project_sales_log.md](project_sales_log.md) — note売上月次ログ機構(sales-log.json+sales-summary)。2026-05でWeb¥15k達成
-- [project_x_multi_exam_agents.md](project_x_multi_exam_agents.md) — X投稿を多資格エージェント分業(x-post-writer/qa)
-- [project_x_30days_campaign.md](project_x_30days_campaign.md) — X30日カウントダウンv2(28件・実体検証済)。旧90件は偽成功
-- [project_ig_exam_packs_exam_axis.md](project_ig_exam_packs_exam_axis.md) — IG _exam-packsは試験軸dir対称化(省略時=技術士総監)
-- [project_yt_shorts_quality_campaign.md](project_yt_shorts_quality_campaign.md) — YT Shorts台本品質139/139完走(v7でIG派生に再定義)
-- [project_ig_carousel_quality_campaign.md](project_ig_carousel_quality_campaign.md) — IG過去問パックR3-R7 42パック完成(727KW版は打切)
-- [project_cem_youtube_strategy_ssot.md](project_cem_youtube_strategy_ssot.md) — 総監YouTube戦略SSOT v1(Shorts稼働中・5ピラー)
-- [project_character_assets.md](project_character_assets.md) — マスコット「doboku-note先生」ポーズ素材再マッピング(15→11、PR#292)
 - [project_svg_illustration_runway.md](project_svg_illustration_runway.md) — 総監KW SVG図版ランウェイ(Tier1=15本・週2-3本)
-- [project_pe_first_stage_audit.md](project_pe_first_stage_audit.md) — pe-first-stage全21ページ監査完了(answer_fail=0/visual=partial)
-- [project_civil_textbook_cycle.md](project_civil_textbook_cycle.md) — 1級土木 textbook/guide品質サイクルRound1(40件採点完了)
 - [project_ios_app_design.md](project_ios_app_design.md) — iOSアプリ設計5ドキュ完成。買い切り¥1,800・着手はWeb¥15k達成後
 - [project_river_design_import.md](project_river_design_import.md) — 河川砂防技術基準(設計編)PDF→MDX変換進捗
-- [project_issue29_internal_links.md](project_issue29_internal_links.md) — Issue#29内部リンク拡充Phase2+2.5完了(648ページ)。次=GSC再測定
-- [project_strategy_docs.md](project_strategy_docs.md) — 戦略ドキュメント4件の作成状況
-- [project_multi_exam_expansion.md](project_multi_exam_expansion.md) — 複数土木系資格対応(案A：分野最上位)—実装完了
 - [project_skill_templates.md](project_skill_templates.md) — スキルテンプレート化。新資格追加時スキル追加不要へ
-- [project_admin_app_consolidation.md](project_admin_app_consolidation.md) — 運営管理画面をNext.js版tools/admin-appに一本化・旧zero-dep admin退役(PR#408・npm run admin :3021)
 - [project_video_content_pipeline.md](project_video_content_pipeline.md) — DN-0110動画パック基盤Phase0-3完了(企画33/pilot4=qa_passed)。残=mp4生成(Mac:VOICEVOX+ffmpeg)とユーザー承認
+
+## 退役した案件（完了。索引から外し、ファイルは残す。必要なら名前で Read）
+
+[project_civil1_textbook_transcription](project_civil1_textbook_transcription.md), [project_pe_construction_bk_magazines](project_pe_construction_bk_magazines.md), [project_note_dir_reorg_by_exam](project_note_dir_reorg_by_exam.md), [project_sales_log](project_sales_log.md), [project_x_multi_exam_agents](project_x_multi_exam_agents.md), [project_x_30days_campaign](project_x_30days_campaign.md), [project_ig_exam_packs_exam_axis](project_ig_exam_packs_exam_axis.md), [project_yt_shorts_quality_campaign](project_yt_shorts_quality_campaign.md), [project_ig_carousel_quality_campaign](project_ig_carousel_quality_campaign.md), [project_cem_youtube_strategy_ssot](project_cem_youtube_strategy_ssot.md), [project_character_assets](project_character_assets.md), [project_pe_first_stage_audit](project_pe_first_stage_audit.md), [project_civil_textbook_cycle](project_civil_textbook_cycle.md), [project_issue29_internal_links](project_issue29_internal_links.md), [project_strategy_docs](project_strategy_docs.md), [project_multi_exam_expansion](project_multi_exam_expansion.md), [project_admin_app_consolidation](project_admin_app_consolidation.md)

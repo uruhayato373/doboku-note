@@ -244,6 +244,12 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+# agent の description が 300 code points を超えて増えないか（毎セッションの system prompt に全文載る。baseline ラチェット）
+node scripts/check-agent-descriptions.mjs --staged
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+
 # スキル/エージェントの追加・削除・description 変更に台帳更新が伴うか検証（capability ドリフトの再発防止）
 node scripts/check-doc-coupling.mjs --staged
 if [ $? -ne 0 ]; then

@@ -26,6 +26,15 @@
 
 認証プロファイル本体、Cookies、Local Storage、IndexedDB、Service Workerは自動削除しない。MCP重複は起動中セッション数と親PIDを確認し、プロセス名だけで終了しない。このプロジェクトのCodex設定ではfilesystem/GitHub MCPを無効化し、既存のファイルツールと `gh` を使う（反映は次のセッション）。
 
+## プロセス上限（2026-09-14）
+
+同一マシンで複数セッションが並行しても、常駐プロセスは**セッション数に比例させない**。
+
+- `next dev`（3020）と `npm run admin`（3021）は**1 マシン 1 本ずつ**。Next 16 は同一ディレクトリで 2 本目の dev server を起動できず、`npm run admin` の `kill-port` は他セッションの admin を殺す。2 本目のセッションは既存のサーバーへブラウザを向ける（`preview_start({url})`）。
+- Claude Code の SessionStart は `npm run session-start` 1 本（6 検査を順次）。node を 6 本同時に起動しない。
+- user-scope の MCP `github` / `filesystem` は置かない（`claude mcp remove -s user github filesystem`）。両方とも起動ごとに 30 秒 timeout し、この repo では `gh` CLI と組み込みファイルツールで足りる。Codex は `.codex/config.toml` で無効化済み。
+- 空きメモリ 3 GiB 未満は `resources:check` が WARN を出す。重い処理（build・レンダー）はその状態で始めない（下の排他）。
+
 ## 重い処理
 
 本番buildと通常動画（承認済み一括を含む）・Shorts・Instagram Reelsのレンダーは共通の排他を使う。Reels内部の既定並列数は1（明示指定時だけ増やす）。空きディスク20GiB・メモリ3GiB未満で開始しない。メモリだけは明示的な `--allow-low-memory` で解除可能。CIは端末用の空き容量閾値を適用しない。直接CLIを実行した処理や外部アプリ全体はこの排他では制御できない。キャッシュを毎回消すと再ビルド負荷が増えるため、週次は期限切れだけを対象にする。
