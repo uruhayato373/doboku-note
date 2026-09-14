@@ -137,7 +137,7 @@ export function xBoard(): XBoard {
       scheduledAt: t.scheduled_at ?? null,
       postedAt: t.posted_at ?? null,
     }));
-    const counts: Record<string, number> = { draft: 0, scheduled: 0, posted: 0, other: 0 };
+    const counts: Record<string, number> = { draft: 0, scheduled: 0, queued: 0, posted: 0, other: 0 };
     for (const t of tweets) t.status in counts ? counts[t.status]!++ : counts.other!++;
     drafts.push({
       name,
@@ -148,10 +148,10 @@ export function xBoard(): XBoard {
       tweets,
     });
   }
-  const totals: Record<string, number> = { draft: 0, scheduled: 0, posted: 0, other: 0, tweets: 0 };
+  const totals: Record<string, number> = { draft: 0, scheduled: 0, queued: 0, posted: 0, other: 0, tweets: 0 };
   for (const d of drafts) {
     totals.tweets! += d.total;
-    for (const k of ['draft', 'scheduled', 'posted', 'other']) totals[k]! += d.counts[k]!;
+    for (const k of ['draft', 'scheduled', 'queued', 'posted', 'other']) totals[k]! += d.counts[k]!;
   }
   return { drafts, totals };
 }

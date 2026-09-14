@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "title": "先生と学ぶ、秋の資格対策",
-  "from": "2026-09-11",
+  "from": "2026-09-15",
   "to": "2026-10-24",
   "timezone": "Asia/Tokyo",
   "plans": [
@@ -10,6 +10,7 @@
     ".claude/config/x-campaigns/2026-10-civil-final.json"
   ],
   "drafts": [
+    "090-civil-2026-09-a",
     "068-civil1-secondary-keiken-w1",
     "082-concrete-pe-competitor-format-repurpose",
     "091-civil-2026-09-b",

@@ -3,6 +3,15 @@ import path from 'node:path';
 import { stripTweetMemos } from './x-tweets-md.mjs';
 import { tweetLength } from '../check-x-length.mjs';
 import { cardSpecHash } from './x-character-spec.mjs';
+import { resolveReviewPlans } from './x-review-schedule.mjs';
+
+export function readXReviewPlans(root, config) {
+  const json = p => JSON.parse(fs.readFileSync(path.join(root, p), 'utf8'));
+  const statuses = config.drafts.flatMap(draft => Object.entries(json(`content/sns/x/draft/${draft}/status.json`).tweets ?? {})
+    .filter(([, t]) => ['scheduled', 'queued', 'posted'].includes(t.status))
+    .map(([num, t]) => ({ ...t, draft, tweet: Number(num) })));
+  return resolveReviewPlans(config.plans.flatMap(p => json(p).posts), statuses);
+}
 
 export function readTweetBlocks(markdown) {
   return Object.fromEntries([...stripTweetMemos(markdown).matchAll(/^## Tweet (\d+):\s*([^\r\n]+)\r?\n([\s\S]*?)(?=^## Tweet |$(?![\s\S]))/gm)]
@@ -12,7 +21,7 @@ export function readTweetBlocks(markdown) {
 export function readXReview(root) {
   const json=p=>JSON.parse(fs.readFileSync(path.join(root,p),'utf8'));
   const config=json('.claude/config/x-review.json');
-  const plans=config.plans.flatMap(p=>json(p).posts);
+  const plans=readXReviewPlans(root, config);
   const ledger=json('.claude/state/sns/x-card-render.json').entries;
   const rows=[];
   for(const draft of config.drafts){
@@ -39,7 +48,7 @@ export function readXReview(root) {
       if(card&&!imagePath)issues.push('この端末では画像の再生成が必要');
       if(/\{\{[^}]+\}\}/.test(text)||t.manual_only)issues.push('別企画の公開・リンク確定待ち');
       const url=text.match(/https?:\/\/[^\s]+/)?.[0]??null;
-      rows.push({id:`${draft}:${num}`,draft,num:Number(num),date:day,time:t.scheduled_at.slice(11,16),status:t.status,
+      rows.push({id:`${draft}:${num}`,draft,num:Number(num),date:day,time:t.scheduled_at.slice(11,16),status:t.status,manualOnly:Boolean(t.manual_only),
         title:card?.headline.join('')??blocks[num]?.title??t.title,exam:plan?.exam??'',funnel:url?.startsWith('https://note.com/')?'note':plan?.funnel??'linkless',
         text,url,weighted:tweetLength(text),imagePath,alt:card?.alt??'既存投稿の画像',newCard:Boolean(card),issues,
         magazineId:plan?.magazineId??null,character:card?.character??null,renderPath,imageSha256:entry?.sha256??null});

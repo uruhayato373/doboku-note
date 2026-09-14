@@ -42,9 +42,9 @@ for (const base of bases) {
   }
 }
 
-// 集計（scheduled=未投入 / queued=キュー投入済 をまとめて「予約」として扱う）
+// scheduled は計画。予約件数と空き日の判定には queued のみ使う。
 const posted   = all.filter(t => t.status === "posted");
-const scheduled = all.filter(t => (t.status === "scheduled" || t.status === "queued") && t.scheduled_at);
+const scheduled = all.filter(t => t.status === "queued" && !t.manual_only && t.scheduled_at);
 const future   = scheduled.filter(t => new Date(t.scheduled_at) >= NOW)
                           .sort((a, b) => new Date(a.scheduled_at) - new Date(b.scheduled_at));
 const WINDOW   = ALL ? Infinity : 7 * 24 * 3600 * 1000;
@@ -58,7 +58,7 @@ for (const t of view) {
 }
 
 console.log(`\n📅 X 投稿スケジュール — ${NOW.toLocaleString("ja-JP", { timeZone: "Asia/Tokyo" })}`);
-console.log(`   投稿済: ${posted.length}件  予約中: ${scheduled.length}件  表示範囲: ${ALL ? "全期間" : "今後7日"}\n`);
+console.log(`   投稿済: ${posted.length}件  未来の予約記録: ${future.length}件  未投入計画: ${all.filter(t => t.status === "scheduled").length}件  表示範囲: ${ALL ? "全期間" : "今後7日"}\n`);
 
 for (const [day, items] of Object.entries(byDay).sort()) {
   const isToday = day === dateKey(NOW.toISOString());

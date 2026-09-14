@@ -363,11 +363,13 @@ function buildSvg({ num, sectionTitle, keywordName, category, contentLines, exam
 // ─── ディレクトリ解決 ─────────────────────────────────────────────────────────
 
 function resolveDraft(draftId) {
-  const padded = String(parseInt(draftId, 10)).padStart(3, "0");
   const entries = readdirSync(DRAFTS_DIR);
-  const match = entries.find((e) => e.startsWith(padded + "-"));
-  if (!match) throw new Error(`Draft not found: ${draftId} (padded: ${padded})`);
-  return { dir: join(DRAFTS_DIR, match), name: match };
+  const exact = entries.includes(draftId) ? draftId : null;
+  const prefix = /^\d+$/.test(draftId) ? String(Number(draftId)).padStart(3, "0") + "-" : null;
+  const matches = exact ? [exact] : entries.filter(e => prefix && e.startsWith(prefix));
+  if (matches.length !== 1) throw new Error(`Draft must match exactly one directory: ${draftId} (${matches.join(", ")})`);
+  const name = matches[0];
+  return { dir: join(DRAFTS_DIR, name), name };
 }
 
 function extractSlug(folderName) {

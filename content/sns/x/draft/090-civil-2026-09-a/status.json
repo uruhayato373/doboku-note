@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-04T13:44:03+09:00",
+  "updated_at": "2026-09-14T11:33:20.985Z",
   "exam": "civil-1",
   "campaign": "civil-secondary-2026",
   "note": "2026-09 分（1日3本・schemaVersion 2）。計画=.claude/config/x-campaigns/2026-09-civil.json。予約は §11.6 に従い1週間分ずつ。",
@@ -83,45 +83,57 @@
     },
     "12": {
       "title": "9/4 20:55 civil-1 / 論点解説 / site",
-      "status": "queued",
+      "status": "posted",
       "scheduled_at": "2026-09-04T20:55:00.000+09:00",
       "text": "盛土の1層仕上り厚さは、路体で30cm以下、路床で20cm以下。路体は下の厚い層だから数字も大きい、路床は表層に近い薄い層だから数字も小さい、と対で覚えると逆にしない。\r\n\r\nhttps://doboku-note.com/docs/civil-construction-1-secondary-earthwork-past-problems?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep04n-earth-past\r\n#1級土木施工管理技士 #施工管理技士 #土工",
-      "posted_at": null
+      "posted_at": "2026-09-04T11:55:00.000Z",
+      "posted_url": "https://x.com/doboku373/status/2095843065118224868",
+      "publication_verified_at": "2026-09-14T11:33:20.985Z"
     },
     "13": {
       "title": "9/5 08:15 concrete-chief / 朝の一問 / linkless",
-      "status": "queued",
+      "status": "posted",
       "scheduled_at": "2026-09-05T08:15:00.000+09:00",
       "text": "コンクリート主任技士 朝の一問。ブリーディングを減らしたいとき、細骨材率は大きくする、小さくする、どちらが正解か。答えは大きくする。細骨材率を下げると粗骨材が相対的に増え、かえって分離しやすくなる。\r\n\r\n#コンクリート主任技士 #コンクリート技士",
-      "posted_at": null
+      "posted_at": "2026-09-04T23:15:00.000Z",
+      "posted_url": "https://x.com/doboku373/status/2096014193292116449",
+      "publication_verified_at": "2026-09-14T11:33:20.985Z"
     },
     "14": {
       "title": "9/5 12:30 concrete-chief / 過去問1問1答 / site",
-      "status": "queued",
+      "status": "posted",
       "scheduled_at": "2026-09-05T12:30:00.000+09:00",
       "text": "【過去問1問1答】配合計算、砂812kg・砕石1010kg（表面水込み）の計量値から求めた空気量は約5.0%。選択肢の「4.5%」は不適当。表面水を差し引いて表乾質量に直す手順を飛ばすと、この誤りに気づけない。\r\n\r\nhttps://doboku-note.com/docs/concrete-chief-engineer-primary-mix-design?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep05-cce-mix\r\n#コンクリート主任技士 #コンクリート技士",
-      "posted_at": null
+      "posted_at": "2026-09-05T03:30:00.000Z",
+      "posted_url": "https://x.com/doboku373/status/2096078367519027285",
+      "publication_verified_at": "2026-09-14T11:33:20.985Z"
     },
     "15": {
       "title": "9/5 21:10 civil-2 / 想定工事バンク / note",
-      "status": "queued",
+      "status": "posted",
       "scheduled_at": "2026-09-05T21:10:00.000+09:00",
       "text": "必出の品質・安全・工程だけ準備しても、当日の組み合わせ次第で対応しきれないことがある。同じ工事で施工計画・環境対策まで書けるようにしておくのが保険になる。8工種36工事、自分の現場に近いものから選べる。\r\n\r\nhttps://note.com/dobokunote/m/m8554e87ca6ec\r\n#2級土木施工管理技士 #施工管理技士 #経験記述",
-      "posted_at": null
+      "posted_at": "2026-09-05T12:10:00.000Z",
+      "posted_url": "https://x.com/doboku373/status/2096209227861623267",
+      "publication_verified_at": "2026-09-14T11:33:20.985Z"
     },
     "16": {
       "title": "9/6 08:30 civil-1 / 共感フック / linkless",
-      "status": "queued",
+      "status": "posted",
       "scheduled_at": "2026-09-06T08:30:00.000+09:00",
       "text": "書いても書いても、これで受かる気がしない。そう感じるのは、比較対象が模範解答だからだと思う。模範解答は完成形で、自分の答案は途中経過。今日の1本を、昨日の自分の答案とだけ比べてみてほしい。\r\n\r\n#1級土木施工管理技士 #施工管理技士",
-      "posted_at": null
+      "posted_at": "2026-09-05T23:30:00.000Z",
+      "posted_url": "https://x.com/doboku373/status/2096380355196395780",
+      "publication_verified_at": "2026-09-14T11:33:20.985Z"
     },
     "17": {
       "title": "9/6 12:45 civil-1 / 要点圧縮 / site",
-      "status": "queued",
+      "status": "posted",
       "scheduled_at": "2026-09-06T12:45:00.000+09:00",
       "text": "施工計画書の記載項目は15もあって多く見えるが、計画(工程・資材・組織)、実施(施工方法)、管理(品質・安全・環境)の3つに分ければ、書き漏れがないか確認しやすくなる。\r\n\r\nhttps://doboku-note.com/docs/civil-construction-1-secondary-construction-plan-basics?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep06-plan-basics\r\n#1級土木施工管理技士 #施工管理技士 #施工計画",
-      "posted_at": null
+      "posted_at": "2026-09-06T03:45:00.000Z",
+      "posted_url": "https://x.com/doboku373/status/2096444528152748373",
+      "publication_verified_at": "2026-09-14T11:33:20.985Z"
     },
     "18": {
       "title": "9/6 19:50 civil-2 / 現場つぶやき / linkless",
@@ -141,80 +153,111 @@
     },
     "20": {
       "title": "9/7 12:20 civil-1 / 引っかけ集 / site",
-      "status": "queued",
+      "status": "posted",
       "scheduled_at": "2026-09-07T12:20:00.000+09:00",
       "text": "【引っかけ集】モルタル吹付工は万能じゃない。湧水のある箇所、湿潤なのり面、凍上するのり面では短期間で崩落することがあり、避けるべき対象になる。多用途に見えて、実は適用条件が狭い工法。\r\n\r\nhttps://doboku-note.com/docs/civil-construction-1-secondary-earthwork-basics?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep07-earth-basics\r\n#1級土木施工管理技士 #施工管理技士 #土工",
-      "posted_at": null
+      "posted_at": "2026-09-07T03:20:00.000Z",
+      "posted_url": "https://x.com/doboku373/status/2096800624616566907",
+      "publication_verified_at": "2026-09-14T11:33:20.985Z"
     },
     "21": {
       "title": "9/7 20:15 civil-1 / 教材フルパック / coconala",
-      "status": "queued",
+      "status": "posted",
       "scheduled_at": "2026-09-07T20:15:00.000+09:00",
       "text": "残り4週間、出題分析→経験記述→学科記述→模試の順で回すつもりなら、教材を1冊ずつ探している時間はもったいない。18冊まとめて用意した。購入後はそのままトークルームでお渡ししている。\r\n\r\nhttps://coconala.com/services/4341188\r\n#1級土木施工管理技士 #施工管理技士",
-      "posted_at": null
+      "posted_at": "2026-09-07T11:15:00.000Z",
+      "posted_url": "https://x.com/doboku373/status/2096920162393866537",
+      "publication_verified_at": "2026-09-14T11:33:20.985Z"
     },
     "22": {
-      "title": "9/8 07:50 civil-2 / 現場つぶやき / linkless",
-      "status": "scheduled",
-      "scheduled_at": "2026-09-08T07:50:00.000+09:00",
+      "title": "9/29 07:23 civil-2 / 現場つぶやき / linkless",
+      "status": "queued",
+      "scheduled_at": "2026-09-29T07:23:00.000+09:00",
       "text": "朝礼で、今日の作業手順を1つずつ声に出して確認していた。誰が何をいつまでにやるか、口頭で終わらせない。経験記述の安全管理で書く「周知徹底」は、こういう場面の言い換えだと思う。\n\n#2級土木施工管理技士 #施工管理技士",
-      "posted_at": null
+      "posted_at": null,
+      "original_scheduled_at": "2026-09-08T07:50:00.000+09:00",
+      "rescheduled_at": "2026-09-14T10:37:07.080Z",
+      "queue_verified_at": "2026-09-14T11:20:02.073Z"
     },
     "23": {
-      "title": "9/8 12:35 civil-2 / 出題実績分析 / site",
-      "status": "scheduled",
-      "scheduled_at": "2026-09-08T12:35:00.000+09:00",
-      "text": "2級の経験記述、2年連続で工程管理が組み合わせに入っている。相方はR6が品質管理、R7が安全管理。工程管理はほぼ固定枠で、相方をどれだけ厚く準備できるかで差がつく年が続いている。\n\nhttps://doboku-note.com/docs/civil-construction-2-secondary-experience-writing-examples?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep08-c2-exp-examples\n#2級土木施工管理技士 #施工管理技士 #経験記述",
-      "posted_at": null
+      "title": "9/28 12:24 civil-2 / 出題実績分析 / site",
+      "status": "queued",
+      "scheduled_at": "2026-09-28T12:24:00.000+09:00",
+      "text": "2級の経験記述は、R6が品質管理と工程管理、R7が安全管理と工程管理。過去2年の組合せだけで今年を決めつけず、それぞれの設問が何を求めているかを確認して準備しよう。\n\nhttps://doboku-note.com/docs/civil-construction-2-secondary-experience-writing-examples?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep08-c2-exp-examples\n\n#2級土木施工管理技士 #施工管理技士 #経験記述",
+      "posted_at": null,
+      "original_scheduled_at": "2026-09-08T12:35:00.000+09:00",
+      "rescheduled_at": "2026-09-14T10:37:07.080Z",
+      "queue_verified_at": "2026-09-14T11:20:02.073Z"
     },
     "24": {
-      "title": "9/8 20:40 concrete-chief / 論点解説 / site",
-      "status": "scheduled",
-      "scheduled_at": "2026-09-08T20:40:00.000+09:00",
+      "title": "10/16 19:54 concrete-chief / 論点解説 / site",
+      "status": "queued",
+      "scheduled_at": "2026-10-16T19:54:00.000+09:00",
       "text": "耐久性の劣化、海水中の化学物質で壊し方が違う。NaClは鋼材の腐食、MgSO4は体積膨張によるひび割れ、MgCl2は組織そのものを多孔質にする。同じ「海水の影響」でもまとめて覚えると選択肢で崩れる。\n\nhttps://doboku-note.com/docs/concrete-chief-engineer-primary-durability?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep08n-cce-durability\n#コンクリート主任技士 #コンクリート技士",
-      "posted_at": null
+      "posted_at": null,
+      "original_scheduled_at": "2026-09-08T20:40:00.000+09:00",
+      "rescheduled_at": "2026-09-14T10:37:07.080Z",
+      "queue_verified_at": "2026-09-14T11:20:02.073Z"
     },
     "25": {
-      "title": "9/9 08:10 civil-1 / リフレーム / linkless",
-      "status": "scheduled",
-      "scheduled_at": "2026-09-09T08:10:00.000+09:00",
+      "title": "9/15 07:10 civil-1 / リフレーム / linkless",
+      "status": "queued",
+      "scheduled_at": "2026-09-15T07:10:00.000+09:00",
       "text": "模範解答を暗記して本番に臨もうとする人がいる。でも試験が見ているのは、暗記した文章を再現する力ではなく、自分の現場をどう捉えたか。型だけ覚えて、中身は自分の記録に差し替える。それで十分。\n\n#1級土木施工管理技士 #施工管理技士 #経験記述",
-      "posted_at": null
+      "posted_at": null,
+      "original_scheduled_at": "2026-09-09T08:10:00.000+09:00",
+      "rescheduled_at": "2026-09-14T10:37:07.080Z",
+      "queue_verified_at": "2026-09-14T11:20:02.073Z"
     },
     "26": {
-      "title": "9/9 12:50 civil-1 / 過去問1問1答 / site",
-      "status": "scheduled",
-      "scheduled_at": "2026-09-09T12:50:00.000+09:00",
-      "text": "【過去問1問1答】管きょ布設の施工手順、コンクリート基礎工の後に来る工種は何か。答えは養生。型枠を外す前に必ず挟む工程で、ここが抜けると出来形管理の確認項目まで崩れる。\n\nhttps://doboku-note.com/docs/civil-construction-1-secondary-construction-plan-past-problems?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep09-plan-past\n#1級土木施工管理技士 #施工管理技士 #施工計画",
-      "posted_at": null
+      "title": "9/15 12:15 civil-1 / 過去問1問1答 / site",
+      "status": "queued",
+      "scheduled_at": "2026-09-15T12:15:00.000+09:00",
+      "text": "管きょ布設の工程表、コンクリートを打った直後に型枠を外してよい？ 打込みから型枠撤去までに必要な工程を確認しよう。施工順序と、各工種で測る出来形の項目を分けて復習すると整理しやすい。\n\nhttps://doboku-note.com/docs/civil-construction-1-secondary-construction-plan-past-problems?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep09-plan-past\n\n#1級土木施工管理技士 #施工管理技士 #施工計画",
+      "posted_at": null,
+      "original_scheduled_at": "2026-09-09T12:50:00.000+09:00",
+      "rescheduled_at": "2026-09-14T10:37:07.080Z",
+      "queue_verified_at": "2026-09-14T11:20:02.073Z"
     },
     "27": {
-      "title": "9/9 21:05 concrete-chief / 小論文模範答案集 / note",
-      "status": "scheduled",
-      "scheduled_at": "2026-09-09T21:05:00.000+09:00",
-      "text": "小論文はテーマが当日発表されるまで分からない。耐久性・品質管理・環境配慮・施工トラブル、出そうな4テーマで型を先に作っておけば、当日は自分の数値に差し替えるだけで済む。\n\nhttps://note.com/dobokunote/m/m758aba129301\n#コンクリート主任技士 #コンクリート技士",
-      "posted_at": null
+      "title": "10/15 19:35 concrete-chief / 小論文模範答案集 / note",
+      "status": "queued",
+      "scheduled_at": "2026-10-15T19:35:00.000+09:00",
+      "text": "小論文は、準備した文章が当日の設問に合うかを確かめて組み直す練習が大切。耐久性・品質管理・環境配慮・施工トラブルの4テーマの模範答案で、論述の組立てを学べます。内容は自分の実務経験に置き換えて活用を。\n\nhttps://note.com/dobokunote/m/m758aba129301?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep09-cce-essay\n\n#コンクリート主任技士 #コンクリート技士",
+      "posted_at": null,
+      "original_scheduled_at": "2026-09-09T21:05:00.000+09:00",
+      "rescheduled_at": "2026-09-14T10:37:07.080Z",
+      "queue_verified_at": "2026-09-14T11:20:02.073Z"
     },
     "28": {
-      "title": "9/10 08:35 concrete-chief / 朝の一問 / linkless",
+      "title": "10/16 07:12 concrete-chief / 朝の一問 / linkless",
       "status": "queued",
-      "scheduled_at": "2026-09-10T08:35:00.000+09:00",
+      "scheduled_at": "2026-10-16T07:12:00.000+09:00",
       "text": "コンクリート主任技士 朝の一問。凍害は骨材が原因になることはない、○か×か。答えは×。吸水率の高い骨材は自ら凍結膨張し、表面のモルタルをはじき飛ばすことがある。セメントペーストだけの現象ではない。\n\n#コンクリート主任技士 #コンクリート技士",
-      "posted_at": null
+      "posted_at": null,
+      "original_scheduled_at": "2026-09-10T08:35:00.000+09:00",
+      "rescheduled_at": "2026-09-14T10:37:07.080Z",
+      "queue_verified_at": "2026-09-14T11:20:02.073Z"
     },
     "29": {
-      "title": "9/10 12:55 concrete-chief / 要点圧縮 / site",
-      "status": "scheduled",
-      "scheduled_at": "2026-09-10T12:55:00.000+09:00",
+      "title": "10/16 12:18 concrete-chief / 要点圧縮 / site",
+      "status": "queued",
+      "scheduled_at": "2026-10-16T12:18:00.000+09:00",
       "text": "主任技士とコンクリート技士の違いは知識量ではなく段階。技士は試験を実施できるか、主任技士はそれを計画・改善・指導できるか。択一の勉強内容は同じでも、小論文で問われる視点はここで分かれる。\n\nhttps://doboku-note.com/docs/concrete-chief-engineer-guide-overview?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep10-cce-overview\n#コンクリート主任技士 #コンクリート技士",
-      "posted_at": null
+      "posted_at": null,
+      "original_scheduled_at": "2026-09-10T12:55:00.000+09:00",
+      "rescheduled_at": "2026-09-14T10:37:07.080Z",
+      "queue_verified_at": "2026-09-14T11:20:02.073Z"
     },
     "30": {
-      "title": "9/10 19:35 civil-1 / 発注者視点解説 / linkless",
-      "status": "scheduled",
-      "scheduled_at": "2026-09-10T19:35:00.000+09:00",
+      "title": "9/26 12:48 civil-1 / 発注者視点解説 / linkless",
+      "status": "queued",
+      "scheduled_at": "2026-09-26T12:48:00.000+09:00",
       "text": "工事概要に書いた工期と、本文で扱う季節が食い違う答案がある。梅雨時期の品質管理を書いているのに、工期は真夏だけだったりする。発注者側は工事概要を先に読むので、ここが噛み合わないと本文の信頼性まで疑われる。\n\n#1級土木施工管理技士 #施工管理技士 #経験記述",
-      "posted_at": null
+      "posted_at": null,
+      "original_scheduled_at": "2026-09-10T19:35:00.000+09:00",
+      "rescheduled_at": "2026-09-14T10:37:07.080Z",
+      "queue_verified_at": "2026-09-14T11:20:02.073Z"
     }
   },
   "updatedAt": "2026-09-04T10:12:18.775Z"

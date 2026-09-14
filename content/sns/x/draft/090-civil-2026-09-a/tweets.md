@@ -133,60 +133,63 @@ https://doboku-note.com/docs/civil-construction-1-secondary-earthwork-basics?utm
 https://coconala.com/services/4341188
 #1級土木施工管理技士 #施工管理技士
 
-## Tweet 22: 9/8 07:50 civil-2 / 現場つぶやき / linkless
+## Tweet 22: 9/29 07:23 civil-2 / 現場つぶやき / linkless
 
 朝礼で、今日の作業手順を1つずつ声に出して確認していた。誰が何をいつまでにやるか、口頭で終わらせない。経験記述の安全管理で書く「周知徹底」は、こういう場面の言い換えだと思う。
 
 #2級土木施工管理技士 #施工管理技士
 
-## Tweet 23: 9/8 12:35 civil-2 / 出題実績分析 / site
+## Tweet 23: 9/28 12:24 civil-2 / 出題実績分析 / site
 
-2級の経験記述、2年連続で工程管理が組み合わせに入っている。相方はR6が品質管理、R7が安全管理。工程管理はほぼ固定枠で、相方をどれだけ厚く準備できるかで差がつく年が続いている。
+2級の経験記述は、R6が品質管理と工程管理、R7が安全管理と工程管理。過去2年の組合せだけで今年を決めつけず、それぞれの設問が何を求めているかを確認して準備しよう。
 
 https://doboku-note.com/docs/civil-construction-2-secondary-experience-writing-examples?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep08-c2-exp-examples
+
 #2級土木施工管理技士 #施工管理技士 #経験記述
 
-## Tweet 24: 9/8 20:40 concrete-chief / 論点解説 / site
+## Tweet 24: 10/16 19:54 concrete-chief / 論点解説 / site
 
 耐久性の劣化、海水中の化学物質で壊し方が違う。NaClは鋼材の腐食、MgSO4は体積膨張によるひび割れ、MgCl2は組織そのものを多孔質にする。同じ「海水の影響」でもまとめて覚えると選択肢で崩れる。
 
 https://doboku-note.com/docs/concrete-chief-engineer-primary-durability?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep08n-cce-durability
 #コンクリート主任技士 #コンクリート技士
 
-## Tweet 25: 9/9 08:10 civil-1 / リフレーム / linkless
+## Tweet 25: 9/15 07:10 civil-1 / リフレーム / linkless
 
 模範解答を暗記して本番に臨もうとする人がいる。でも試験が見ているのは、暗記した文章を再現する力ではなく、自分の現場をどう捉えたか。型だけ覚えて、中身は自分の記録に差し替える。それで十分。
 
 #1級土木施工管理技士 #施工管理技士 #経験記述
 
-## Tweet 26: 9/9 12:50 civil-1 / 過去問1問1答 / site
+## Tweet 26: 9/15 12:15 civil-1 / 過去問1問1答 / site
 
-【過去問1問1答】管きょ布設の施工手順、コンクリート基礎工の後に来る工種は何か。答えは養生。型枠を外す前に必ず挟む工程で、ここが抜けると出来形管理の確認項目まで崩れる。
+管きょ布設の工程表、コンクリートを打った直後に型枠を外してよい？ 打込みから型枠撤去までに必要な工程を確認しよう。施工順序と、各工種で測る出来形の項目を分けて復習すると整理しやすい。
 
 https://doboku-note.com/docs/civil-construction-1-secondary-construction-plan-past-problems?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep09-plan-past
+
 #1級土木施工管理技士 #施工管理技士 #施工計画
 
-## Tweet 27: 9/9 21:05 concrete-chief / 小論文模範答案集 / note
+## Tweet 27: 10/15 19:35 concrete-chief / 小論文模範答案集 / note
 
-小論文はテーマが当日発表されるまで分からない。耐久性・品質管理・環境配慮・施工トラブル、出そうな4テーマで型を先に作っておけば、当日は自分の数値に差し替えるだけで済む。
+小論文は、準備した文章が当日の設問に合うかを確かめて組み直す練習が大切。耐久性・品質管理・環境配慮・施工トラブルの4テーマの模範答案で、論述の組立てを学べます。内容は自分の実務経験に置き換えて活用を。
 
-https://note.com/dobokunote/m/m758aba129301
+https://note.com/dobokunote/m/m758aba129301?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep09-cce-essay
+
 #コンクリート主任技士 #コンクリート技士
 
-## Tweet 28: 9/10 08:35 concrete-chief / 朝の一問 / linkless
+## Tweet 28: 10/16 07:12 concrete-chief / 朝の一問 / linkless
 
 コンクリート主任技士 朝の一問。凍害は骨材が原因になることはない、○か×か。答えは×。吸水率の高い骨材は自ら凍結膨張し、表面のモルタルをはじき飛ばすことがある。セメントペーストだけの現象ではない。
 
 #コンクリート主任技士 #コンクリート技士
 
-## Tweet 29: 9/10 12:55 concrete-chief / 要点圧縮 / site
+## Tweet 29: 10/16 12:18 concrete-chief / 要点圧縮 / site
 
 主任技士とコンクリート技士の違いは知識量ではなく段階。技士は試験を実施できるか、主任技士はそれを計画・改善・指導できるか。択一の勉強内容は同じでも、小論文で問われる視点はここで分かれる。
 
 https://doboku-note.com/docs/concrete-chief-engineer-guide-overview?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep10-cce-overview
 #コンクリート主任技士 #コンクリート技士
 
-## Tweet 30: 9/10 19:35 civil-1 / 発注者視点解説 / linkless
+## Tweet 30: 9/26 12:48 civil-1 / 発注者視点解説 / linkless
 
 工事概要に書いた工期と、本文で扱う季節が食い違う答案がある。梅雨時期の品質管理を書いているのに、工期は真夏だけだったりする。発注者側は工事概要を先に読むので、ここが噛み合わないと本文の信頼性まで疑われる。
 
