@@ -441,6 +441,12 @@ function buildMarkdown(results, meta) {
   return L.join('\n');
 }
 
+export function githubFailureAnnotation(result) {
+  const detail = String(result.excerpt || result.stderrTail || result.stdoutTail || '(出力なし)').slice(0, 4000);
+  const message = `${result.id}: ${result.status} (exit ${result.exitCode})\n${detail}`;
+  return '::error::' + message.replaceAll('%', '%25').replaceAll('\r', '%0D').replaceAll('\n', '%0A');
+}
+
 async function main() {
   const stamp = new Date().toISOString();
   const results = [];
@@ -448,6 +454,9 @@ async function main() {
     const res = await runCheck(check);
     if (res) {
       results.push(res);
+      if (CI && process.env.GITHUB_ACTIONS === 'true' && ['fail', 'timeout'].includes(res.status)) {
+        process.stderr.write(githubFailureAnnotation(res) + '\n');
+      }
       const badge = { pass: 'PASS', fail: 'FAIL', timeout: 'TIMEOUT', skip: 'SKIP' }[res.status];
       const sec = res.durationMs ? ` ${(res.durationMs / 1000).toFixed(1)}s` : '';
       process.stderr.write(`[${badge}] ${res.id}${sec}${res.skipReason ? ' — ' + res.skipReason : ''}\n`);

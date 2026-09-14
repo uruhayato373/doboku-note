@@ -118,3 +118,12 @@ test('CI が赤いことを届ける経路が実在する（ci.yml の失敗通�
   assert.match(ci, /report-automation-failure/, 'ci.yml が automation-failure Issue を起票していない');
   assert.match(ci, /issues:\s*write/, 'ci.yml に issues: write が無い（起票できない）');
 });
+
+test('GitHub annotation exposes failure details without allowing injected workflow commands', async () => {
+  const { githubFailureAnnotation } = await import('../scripts/quality-audit.mjs');
+  const line = githubFailureAnnotation({ id: 'eslint', status: 'fail', exitCode: 1, excerpt: '50%\r\n::notice::injected' });
+  assert.match(line, /^::error::eslint: fail/);
+  assert.ok(line.includes('50%25%0D%0A::notice::injected'));
+  assert.ok(!line.includes('\n') && !line.includes('\r'));
+  assert.ok(githubFailureAnnotation({ id: 'test', status: 'timeout', exitCode: null, excerpt: 'x'.repeat(10000) }).length < 4100);
+});

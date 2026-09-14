@@ -14,7 +14,7 @@ npm run build             # 本番ビルド
 npm run serve             # out/ をローカル配信（既定 3025・`_redirects` の 301 も適用）。**E2E の既定ターゲット**でもある（dev だとルートの初回コンパイルでテストが実行ごとにランダムに落ち、旧 /category/ /docs/ は dev に存在せず検査できない）。要 `npm run build`
 npm run type-check        # TypeScript チェック
 npm run lint              # ESLint チェック（no-console: warn/error のみ許容）
-npm run quality:audit     # コード・記事・画像/SVGの機械チェックを横断実行→.claude/state/quality/audit-latest.md（:ci でCI gate厳格版）
+npm run quality:audit     # コード・記事・画像/SVGの機械チェックを横断実行→.claude/state/quality/audit-latest.md（:ci でCI gate厳格版。GitHub Actionsでは失敗名と要点を検査結果の注釈にも出す）
 npm run refresh-indexes   # 静的インデックス再生成（backlinks + cross-exam + tags + pillar問題 + popular記事[GA4] + 頻出論点）
 npm run admin             # 運営管理画面 Next.js 版（ローカル専用・http://127.0.0.1:3021・計測/エージェント/スキル/ギャラリー/SNS状態/記事/売上/品質/ジョブ/TODO/**プロジェクト**/**ライフサイクル横断 `/content/lifecycle`**/**動画パック `/content/video`**・tools/admin-app）
 npm run test:e2e:admin    # 管理画面の E2E（Project↔TODO の相互リンク・日本語パス・トラバーサル404・レスポンシブ。admin は dev 専用なので CI の e2e には載せない）
