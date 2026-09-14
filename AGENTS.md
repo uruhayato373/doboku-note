@@ -40,7 +40,7 @@ npm run test              # node --test tests/*.test.mjs
 npm run refresh-indexes   # MDX 変更後の静的インデックス再生成
 npm run quality:audit     # 機械検査を横断実行（:ci は CI gate 版）
 npm run admin             # 運営管理画面（http://127.0.0.1:3021）
-npm run sync-codex-compat # CLAUDE.md + .claude/rules + skills → AGENTS.md / .agents を再生成
+npm run sync-codex-compat # 共通規約・rules索引・skills・agents・hooks の Codex 用入口を再生成
 npm run check-doc-refs    # doc 参照の実在（pre-commit でも staged を検査）
 npm run check-command-guidance # 案内している npm run / node パスの実在
 npm run check-claude-md-size   # CLAUDE.md ≤150 行・rules の paths: 必須
@@ -48,7 +48,7 @@ npm run check-claude-md-size   # CLAUDE.md ≤150 行・rules の paths: 必須
 
 ## リファレンス索引
 
-詳細・手順は都度 Read する。**全索引 → [reference/README.md](.claude/knowledge/reference/README.md)**、docs の領域 → [docs/README.md](docs/README.md)。領域別の規約は `.claude/rules/*.md`（content-site / content-channels / assets-images / code / skills-agents / todo-plans / docs / operations）が該当ファイルを開いたとき自動で載る。
+詳細・手順は都度 Read する。**全索引 → [reference/README.md](.claude/knowledge/reference/README.md)**、docs の領域 → [docs/README.md](docs/README.md)。領域別の規約は `.claude/rules/*.md`（content-site / content-channels / assets-images / code / skills-agents / todo-plans / docs / operations）は Claude Code が対象に応じて読み込み、Codex は AGENTS.md の索引から該当原本を読む。
 
 | 参照先 | いつ読むか |
 |---|---|
@@ -84,7 +84,7 @@ npm run check-claude-md-size   # CLAUDE.md ≤150 行・rules の paths: 必須
 - コンテンツ編集: 1 記事の修正が完了したら**即 commit**。一時ファイルは `.tmp/` 配下に出す
 
 ### 4. ゴール駆動で実行する
-- タスク着手前に「何が通れば完了か」を定義してから始める
+- タスク着手前に「何が通れば完了か」を定義する。通常は担当 AI が調査→実装→検証まで完結する（[共同開発](.claude/knowledge/reference/codex-division-of-labor.md)）。DN-ID は [claim](.claude/knowledge/reference/todo-lifecycle.md) で二重着手を防ぐ
 - **UI/SSR 変更**: `curl` で `<main>` + 主要キーワード（土木/技術士）を確認（なぜ: Lighthouse は SSR 破壊を捕捉できない・measurement-incidents.md 2026-W16）
 - **deploy 後**: `npm run check-production-ssr` を実行し、exit 0 のときだけ「完了」と報告する。exit 1 は本番異常、exit 2 は検査不成立として別経路で切り分ける（手打ち curl で代用しない）
 - **コンテンツ編集完了条件**: MDX 追加・変更後は `npm run refresh-indexes` を実行してからコミット
@@ -125,7 +125,7 @@ npm run check-claude-md-size   # CLAUDE.md ≤150 行・rules の paths: 必須
 - **複数セッションは worktree で分離する（最重要）**: 別セッションと同じ作業ツリーを共有すると、相手の `git reset --hard`／`checkout` が未 push コミットを丸ごと壊す（2026-06-11 実証・gc 復旧不能）。`git worktree add <dir> -b <feature> origin/develop` で HEAD/index/作業ツリーを分け、`develop` へは PR で集約する
 - **同一ワークツリーで並行せざるを得ないとき**: push 前に `git log origin/develop..HEAD` で巻き込み確認。commit は `git commit -- <pathspec>`。他テリトリ不可侵。重要な変更は feature ブランチへ即 push して保全。`git stash` は共有スタックを他セッションが pop するので使わない
 - **並行エージェント（同一セッション内）**: 各エージェントが編集したファイルを即 commit（`git status` で staged 確認）
-- **worktree の置き場と後始末**: `.claude/worktrees/`（Claude）と `~/.codex/worktrees/`（Codex）だけ。`.tmp/` に置かない（日次掃除が消す）。マージしたら `git worktree remove` を即実行、中で `npm run build` しない（1 本 4〜5GB）。候補は `npm run check-disk-hygiene`（詳細 → [disk-hygiene.md](.claude/knowledge/reference/disk-hygiene.md)）
+- **worktree の置き場と後始末**: `.claude/worktrees/`（Claude）と `~/.codex/worktrees/`（Codex）だけ。`.tmp/` に置かない（破棄可能な出力との混在を防ぐ）。マージしたら `git worktree remove` を即実行、中で `npm run build` しない（1 本 4〜5GB）。候補は `npm run check-disk-hygiene`（詳細 → [disk-hygiene.md](.claude/knowledge/reference/disk-hygiene.md)）
 
 ### 11. コードベースの規約に合わせる
 - **frontmatter 必須**: `title` / `seoTitle` / `description` / `category` / `tags` / `published`
@@ -151,249 +151,15 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 <!-- END:nextjs-agent-rules -->
 
-## 条件付きルール（.claude/rules/ から併合。Claude Code は該当パスを開いたときだけ読む・Codex はここで全文を読む）
-
-### .claude/rules/assets-images.md
-
-適用パス: `**/img/**`, `content/**/*.svg`, `content/**/*.png`, `content/**/*.webp`, `.claude/config/asset-storage.json`, `.claude/config/drive-vault.json`, `.claude/state/assets/**`, `.github/workflows/r2-*.yml`, `.github/workflows/ogp-supply.yml`
-
-# 画像・図版・アセット置き場の規約
-
-## 置き場は「誰が使うか」で決める（CLAUDE.md §4）
-
-- サイトが配信 → public R2（`storage.doboku-note.com`）／GitHub Actions が読み書き → private R2／人か手元のスクリプトだけ → Google Drive vault。迷ったら `/asset-route`。真実源 [asset-storage-policy.md](./.claude/knowledge/reference/asset-storage-policy.md) §1（各 group の行き先表・Drive vault の 4 フォルダ・端末初期設定・R2→Drive 移行の必須順序〔dry-run→commit→`--verify --cloud`→R2 削除→forget〕・退避後に壊れる読み手の直し方）
-- なぜ: 2026-09-05、共通仕様書のページ画像 3.4GB を private R2 へ上げかけた
-- 機械可読は R2 側 `.claude/config/asset-storage.json`（台帳 `manifest.json`）と Drive 側 `.claude/config/drive-vault.json`（台帳 `drive-manifest.json`）。退避 `npm run asset-offload`（既定 dry-run・`--commit`・`--verify`）、復元 `npm run asset-hydrate`、整合 `npm run check-asset-storage`、Drive 側 `npm run drive-vault-sync` / `npm run check-drive-vault`。Drive クライアント送信中はマウント読みが失敗するので、クラウド件数がローカルと一致してから同期する。詳細は [commands.md](./.claude/knowledge/reference/commands.md)
-- リポジトリ肥大化の監査 `npm run audit-repo-assets`、生成物・著作権物・巨大 blob の新規追跡は `npm run check-git-binary-policy` が baseline ラチェットで止める。`git rm --cached` 後も実体は残るので、件数は追跡下で数える
-
-## 画像追加
-
-- `npm run generate-webp` → webp 参照で commit → R2 は `main` push 時に CI（`r2-sync.yml`）が自動同期（対象 path = `**/img/**`）。`ogp.png` は git 追跡せず develop push 時に CI（`ogp-supply.yml`）が自動生成して R2 へ供給、`ogp.webp` は未使用のため作らない
-
-## 画像削除
-
-- `r2-sync.yml` は**アップロードのみで削除しない**。リポジトリから消しても R2 には残り、URL 直叩きで取得できる状態が続く（2026-07-31 に診断士の書籍スキャン 79 件で発覚）。確実に撤去するには `.claude/config/r2-delete-list.txt` にキーを明示し、`R2 Delete Objects`（`r2-delete.yml`・workflow_dispatch・既定 dry-run）を `commit=true` で実行する。**自動 prune はしない**（R2 にしかない成果物を巻き込むため）。ローカルからは `npm run delete-r2-objects`
-
-## OGP 画像
-
-- develop へ push すれば CI（`ogp-supply.yml`）が欠落・陳腐化を検知して `ogp.png` を自動生成し R2 へ供給する（通常は手動作業不要）。`npm run ogp`（未生成のみ生成）はローカルプレビュー用。即時反映したい場合のみ生成後に `node scripts/asset-offload.mjs --group site-ogp-png --commit` を実行する。忘れて放置すると `og:image` が R2 で 404 のまま → note/X 等の外部リンクカードが生成されない（2026-06-12 pe-construction 全 114 本・手動運用時代の事故）。CI ゲート `npm run check-ogp-coverage`（`r2-audit.yml`）が published 記事の欠落を赤落ちで検知
-- **OGP デザインの真実源は [ogp-prompts.md](./.claude/knowledge/reference/ogp-prompts.md)**（mono-tag 全幅＋資格別テーマ色外枠、2026-06-16〜）。一括再生成 `npm run ogp -- --all --force` 後の目視 QA は `npm run ogp-gallery`（全 OGP を 1 枚の HTML で確認）。タイトルの折返し行数は `npm run check-ogp-line-count`
-- `generate-note-covers` / `ogp --all` は全ディレクトリを再生成する。自分の分だけ `git add` し、残りは `git restore` する
-
-## 図版・写真のポリシー
-
-- 図/写真を追加・置換するとき（図版種別判定フロー・CC/PD 写真ソース・出典表記・写真 SVG 化禁止） → [image-policy.md](./.claude/knowledge/reference/image-policy.md)。図の出所・品質の記録は `npm run audit-figures`
-- サイト図版 `figure-*.svg` の固定キャンバス（feed 4:5 `400×500`／landscape 16:9 `640×360` `--wide`・概念名タイトル禁止・記事+SNS 両用） → [figure-canvas-policy.md](./.claude/knowledge/reference/figure-canvas-policy.md)。機械可読 `.claude/config/figure-canvas.json`、ガード `npm run check-figure-canvas`、整形 `svg-canvas-fitter`、SNS 書き出し `npm run render-figure-sns`
-- SVG の色は `src/styles/globals.css` の `--color-*` が真実源 → [design-system.md](./.claude/knowledge/design-system/design-system.md)。過去問の問題図に解答情報を入れない。過去問データのグラフは SVG 化しない
-- note 記事用 図解 → [note-svg-policy.md](./.claude/knowledge/reference/note-svg-policy.md)。hero/OGP/note カバー/カード/バナーの背景写真（wide/square の 2 マスター→クロップ展開） → [brand-image-system.md](./.claude/knowledge/reference/brand-image-system.md)
-- SNS バイナリ（reels wav/mp4・Shorts mp4）の退避 → [sns-archive-policy.md](./.claude/knowledge/reference/sns-archive-policy.md)
-- 公的基準の原本 PDF → 1 ページ 1 画像＋1 テキスト（`npm run build-standards-page-images` / `npm run check-standards-page-images`。原本の同定は sha256、実体は Google Drive vault、Git には manifest.json だけ）
-- 孤児 `ogp.png/webp` は `check-orphan-ogp`（`--fix` で削除・r2-audit 週次）
-
-### .claude/rules/code.md
-
-適用パス: `src/**`, `scripts/**`, `.claude/scripts/**`, `tools/**`, `tests/**`, `package.json`, `.github/workflows/**`
-
-# コード・スクリプト・CI を変更するときの規約
-
-## UI コンポーネント（CLAUDE.md §7 の詳細）
-
-- デザイントークンを使う（`rounded-card-*` / `shadow-card-*`）。`dark:border-*` を必ず書く。インライン `borderColor` 禁止。色は `brand` / `ink-strong` / `ink-body` / `ink-muted` / `positive` / `warn` / `danger`（真実源: `src/styles/globals.css` の `--color-*`）
-- トークン体系は二系統: editorial `--accent/--paper/--ink/--rule`＝ページ/prose、`--color-*`＝SVG 図版＋Tailwind semantic。レイアウト体系（PageShell/PageHeader/SectionCard）・記事 prose・禁止パターンは [design-system.md](./.claude/knowledge/design-system/design-system.md)。自己点検は `node scripts/lint-ui.mjs`、合否は `/design-review`（`page-design-builder` は自分で合格と言わない）
-- `next/font` は render-blocking、`next/dynamic` を RSC に使うと LCP 悪化。metadata の title template は自動付与（個別に suffix を含めると重複）。計測ピクセル `<img>` は `suppressHydrationWarning` 必須。Tailwind の `content` に無いファイルのクラスは生成されない
-- **この Next.js は学習データと違う**。書く前に `node_modules/next/dist/docs/` の該当ガイドを読む（CLAUDE.md 末尾ブロック）
-
-## 検査スクリプトを書くとき（CLAUDE.md §9「検査ゼロを PASS と呼ばない」の実装側）
-
-- 検査対象数と実検査数を必ず出力する／取得失敗が支配的なら exit 1（「検査不成立」。接続不能は exit 2 で本番異常と分ける＝`check-production-ssr` の形）／ファイル判定はパス全体でなく**ファイル名**で行う（`join()` は Windows で `\` を返す）／note 記事の走査は `/^article(-[^/\\]+)?\.md$/`／外部取得は `fetch` でなく `curl --ssl-no-revoke`（[measurement-incidents.md](./.claude/knowledge/reference/measurement-incidents.md)）
-- **実行系も同じ**: 「対象 0 件で何もしなかった」と「全部失敗して何もできなかった」を区別して出力し、`skip` を無言で積み上げて最後に「全て in-sync」と言わない。2026-07-28 に 5 スクリプトが同時にこの状態だった（経緯は measurement-incidents.md「2026-07-28」）
-- **赤いのに誰も見ていない検査は無いのと同じ**: `scripts/quality-audit.mjs` の検査は `ci: true`（ゲート＝赤落ち）と `ci: false`（report＝報告のみ）に分かれ、report は落ちても CI が緑のまま通る。`note-meta-lint` は Node 22+ の `glob` を import して Node 20 で起動即クラッシュし、report 扱いのため 3 週間 1 件も検査していなかった。**新規検査を report で追加するときは「誰がいつ読むか」を `note:` に書く**。読む人がいないなら `ci:true` にするか、作らない
-- **検出器そのものが無い領域が最も危険**: `report-monetization-coverage` は import 破損で 6 週間実行不能だったが quality-audit に未登録で、週次レビューは古い集計を貼り続けた。週次・月次が読むデータを生成するスクリプトは `--check` モード（成果物を書かずに完走だけ確認）を設けて CI で担保する
-- 汎用の「必ず検証」「ダブルチェック」を足さない。書いてよいのは**決定的ゲート**＝実行するコマンドと合格条件が特定できるものだけ。自分の誤りを直したときも、コマンドと合格条件が特定できるときだけゲート化する（回帰テスト付き）
-- `console.log` 直後の `process.exit` はパイプで出力を捨てる（`--json` が途中で切れる）。`tsc` は `.claude/scripts/**` を見ないので壊れ import は `git grep` で全域を見る。デッドコード監査は `npm run knip`（grep で裏取り）。`pgrep -f` の待機ループは自分のシェルに一致して永久化する
-- ルーティング・パース・リトライ・ステータス処理はコードで決める（サブエージェントに委ねない）。同じ判定を複数箇所に実装しない＝lib に集約する（例: 予定の集約は `scripts/lib/schedule-events.mjs` が唯一の実装、ASP のサイト帰属判定は `scripts/lib/asp-site-guard.mjs`）
-- 新しい script を足したら `package.json` の scripts と [commands.md](./.claude/knowledge/reference/commands.md) に用途と罠を 1 行書き、`quality-audit.mjs` に登録するか「誰が読むか」を決める（`npm run check-command-guidance` が案内の実在を検査し、`agent-hook.mjs check-doc-sync` が新規追加時に配線と `/doc-sync` を促す）
-
-## ドキュメント同期プロトコル（CLAUDE.md §8）
-
-- `src/**` `scripts/**` `.claude/skills/**` `.claude/agents/**` `package.json` `src/config/**` `src/styles/**` 等「ドキュメント化された面」を変更したタスクは、**コミット前に `/doc-sync` を 1 回回す**（変更 diff × 候補 doc を `doc-sync-auditor` で突合し、prose・表・コマンド・件数・閾値の旧仕様化を検出→適用）。`check-doc-refs` / `check-doc-coupling`（機械）が拾えない陳腐化を埋める。純コンテンツ編集では回さない
-- doc を移動・改名したら参照を同一 commit で全更新（`npm run check-doc-refs`・`npm run check-relative-links`）
-
-## 管理画面・データ・CI
-
-- `tools/admin-app/`（`npm run admin`・`http://127.0.0.1:3021`・RSC ファースト・ルート node_modules 再利用・dev 専用でビルド/デプロイなし・投稿は既存 CLI を child_process 実行しガードは CLI 側） → [tools/admin-app/README.md](./tools/admin-app/README.md)。E2E は `npm run test:e2e:admin`（CI の e2e には載せない）。サイトの E2E は `npm run serve`（3025）を既定ターゲットにし、叩く URL は `npm run check-e2e-targets` で out/ に実在させる
-- DB は導入しない（D1 不採用・frontmatter + build-time JSON 継続・再検討トリガー） → [data-storage-decision.md](./.claude/knowledge/reference/data-storage-decision.md)
-- `notebooklm` CLI のクセ → [notebooklm-cli-gotchas.md](./.claude/knowledge/reference/notebooklm-cli-gotchas.md)。Playwright 認証プロファイル → [playwright-auth-profiles.md](./.claude/knowledge/reference/playwright-auth-profiles.md)
-- CI/CD の Secrets・破壊操作の権限設計 → [ci-cd-security-hardening.md](./.claude/knowledge/reference/ci-cd-security-hardening.md)。workflow は full clone 禁止（`npm run check-workflow-clone-depth`）・actionlint/permissions/timeout/SHA 固定（`npm run check-workflow-hygiene`）。自動化の失敗・沈黙は `scripts/report-automation-failure.mjs` で `automation-failure` Issue に記録（GitHub Issue の唯一の例外）
-- 計測は CI/CD 供給が正・ローカル creds 不要（会社 PC はプロキシで外部 API 遮断）。PSI は field(CrUX) で実害判定・lab 単発で CRITICAL を立てない → measurement-incidents.md
-- `npm ci` は ERESOLVE で失敗する。復元は `npm install --legacy-peer-deps`（node_modules 不在だと pre-commit も落ちる）
-
-### .claude/rules/content-channels.md
-
-適用パス: `content/note/**`, `content/sns/**`, `content/kindle/**`, `content/coconala/**`, `content/brain/**`
-
-# 販売・集客チャネルの制作物（note / SNS / Kindle / ココナラ / Brain）を扱うときの規約
-
-サイト記事（`content/site/`）とは別系統。各チャネルの真実源を先に Read してから書く。CLAUDE.md §8「提案の前に現物を確認する」はここで最も効く（既存 CTA・公開状態・価格は必ず実物で裏取り）。
-
-## note（content/note/**）
-
-- 索引と戦略の入口 → `content/note/README.md`（試験別構造・戦略 SSOT 体系）。戦略・Red Line・価格企画の真実源は各試験の `noteコンテンツ計画.md`、**実価格・noteUrl は `src/lib/note-magazines.ts`**（サイト側 CTA の配線は `src/lib/magazine-placement.ts`）
-- 記事を公開レベルへ引き上げる 10 工程（網羅性照合／過去問配置／図版／カバー／e-gov リンク／段落分割／検証） → [note-publish-enhancement.md](./.claude/knowledge/reference/note-publish-enhancement.md)
-- 記事**内部**の構成テンプレ（売れる 9 型＋5 ステップ骨格） → [note-selling-structures.md](./.claude/knowledge/reference/note-selling-structures.md)
-- 記事**間**の導線（L1 全資格サイトマップ / L2 資格別もくじ / L3 記事内 CTA） → [note-funnel-architecture.md](./.claude/knowledge/reference/note-funnel-architecture.md)。機械可読は `.claude/config/note-funnel.json`、監査は `audit-note-funnel` スキル／`npm run check-note-funnel`／`note-funnel-auditor`
-- 総監 記述式の模範論文レビュー（字数→散文性→監理可能性→専門度→白書根拠の 9 ステップ、各施策 600 字以内が最優先） → [note-essay-review-checklist.md](./.claude/knowledge/reference/note-essay-review-checklist.md)
-- 公開状態の照合（`npm run verify-note-magazines`・note public API・会社 PC プロキシは `curl --ssl-no-revoke`） → [note-api-verification.md](./.claude/knowledge/reference/note-api-verification.md)
-- 図解 SVG/PNG（`content/note/**/img/figure-*`） → [note-svg-policy.md](./.claude/knowledge/reference/note-svg-policy.md)。カバー画像は [note-cover.md](./.claude/knowledge/design-system/note-cover.md)
-- 施工経験記述の解答欄の割り振り（1 級=(1)検討項目/(2)対応処置・評価、2 級=(1)課題/(2)検討項目と対応処置） → `npm run check-keiken-answer-split`（note 原稿と模試の生成 markdown を走査）
-- note 記事の走査は `/^article(-[^/\\]+)?\.md$/`（型別 `article-*.md` を落とさない）。note は HTML 非対応。販売履歴のある有料記事を下書きへ戻さない（差し替えは新規＋入替）
-- 売上の記録 → [sales-tracking.md](./.claude/knowledge/reference/sales-tracking.md)（`/record-sales`・`npm run note-sales-fetch`）。会員配信ドリップの真実源は `メンバーシップ/README.md` の配信表（`npm run check-membership-drip`。日付をカードへ複製しない）
-
-## SNS（content/sns/**: instagram / x / youtube）
-
-- 戦略と動線 → `docs/marketing/01_SNS集客戦略.md`（v7: Instagram が一次制作、YouTube Shorts は IG Reels mp4 の二次展開、X は合格者発信の信頼／note 誘導）と `docs/marketing/02_チャネル動線設計.md`（UTM 統一フォーマット・季節×チャネル）
-- 投稿画像（IG/X/Shorts のキャンバス・スワイプ方向・記号統一） → [sns-image-policy.md](./.claude/knowledge/reference/sns-image-policy.md)。6 切り口（結論/理由/体験/反論/数字/ハウツー）と `angle` → [content-angle-policy.md](./.claude/knowledge/reference/content-angle-policy.md)・[sns-repurpose-policy.md](./.claude/knowledge/reference/sns-repurpose-policy.md)
-- Instagram: カルーセル 2 シリーズ → [ig-carousel-skill.md](./.claude/knowledge/reference/ig-carousel-skill.md)、公開状態の照合・未公開の予約（`@dobokunotecom`・`verify-ig-status`→`ig-reconcile`→`ig-publish-auditor`） → [ig-publish-reconcile.md](./.claude/knowledge/reference/ig-publish-reconcile.md)、Reels → [ig-reels-policy.md](./.claude/knowledge/reference/ig-reels-policy.md)、Stories → [ig-stories-policy.md](./.claude/knowledge/reference/ig-stories-policy.md)、ハイライト → [ig-highlight-design-policy.md](./.claude/knowledge/reference/ig-highlight-design-policy.md)
-- X → [x-post-policy.md](./.claude/knowledge/reference/x-post-policy.md)（280 weighted・試験別ベースタグ・5 軸ルーブリック。凍結対策 §11＝重複/連投/一括予約回避）。自投稿の反応は `npm run x-own-metrics`（中央値で読む）
-- YouTube Shorts（IG Reels 派生 mp4 + meta.json・UTM 必須） → [yt-shorts-publisher-policy.md](./.claude/knowledge/reference/yt-shorts-publisher-policy.md)
-- マスコット「doboku-note 先生」素材 → [character-asset-policy.md](./.claude/knowledge/reference/character-asset-policy.md)。`/links` リンクハブ（SNS bio 用・UTM 設計） → [links-hub.md](./.claude/knowledge/reference/links-hub.md)
-- 投稿済みバイナリ（reels wav/mp4・Shorts mp4）の退避 → [sns-archive-policy.md](./.claude/knowledge/reference/sns-archive-policy.md)（Google Drive vault・`drive-vault-sync --group sns-archived-media`）
-- 動画パック（DN-0110） → [video-content-policy.md](./.claude/knowledge/reference/video-content-policy.md)。ゲート `npm run check-video-content`、レンダー `npm run render-longform`、公開実体の照合 `npm run check-video-publication`
-- 投稿 URL がローカル doc-meta-index と一致するか `check-sns-urls`（公開＋refresh 済みなら deploy 前でも結線可）
-
-## Kindle（content/kindle/**）
-
-- 戦略 `content/kindle/strategy.md`。書籍 spec と前付けは `kindle-book-composer`、入稿は `kdp-operator`（`/kdp-publish`）、監査は `kindle-book-qa`
-- 修正版は既存を差し替える（新規作成しない）。提出後は ASIN を catalog に即記録
-- EPUB の章名/frontmatter 印字と BOM → `npm run check-kindle-epub-leak`。KDP カテゴリ未登録 → `npm run check-kdp-category-coverage`。ロイヤリティ → `npm run kdp-report`
-
-## ココナラ（content/coconala/**）・Brain（content/brain/**）
-
-- ココナラ運用 SSOT（受注 E2E・KPI の read-only 自動取得・休止/再開/アーカイブ・捏造 NG・外部誘導 NG・**返信送信は運営者**） → [coconala-operations.md](./.claude/knowledge/reference/coconala-operations.md)。カタログ `src/lib/coconala-services.ts`。ブログ記事 → [coconala-blog-policy.md](./.claude/knowledge/reference/coconala-blog-policy.md)
-- Brain 運用 SSOT（カタログ `src/lib/brain-products.ts`・listings・配布 ZIP→R2・draft-first＋`--commit`・同意モーダルは `--agree` gate） → [brain-operations.md](./.claude/knowledge/reference/brain-operations.md)
-- 売れる型は note-selling-structures.md を横断で参照する（誠実証明のガードレール必須）
-
-### .claude/rules/content-site.md
-
-適用パス: `content/site/**`
-
-# content/site（サイト記事 MDX）を編集するときの規約
-
-CLAUDE.md §2/§3/§11 の記事規約の詳細。真実源は [content-authoring.md](./.claude/knowledge/reference/content-authoring.md)（書き方）と [content-principles.md](./.claude/knowledge/reference/content-principles.md)（品質ルール）。
-
-## 着手前に読む
-
-- MDX を追加・編集する前に content-authoring.md を Read する（MDX コンポーネント・過去問構造・モバイル視認性・画像配信・frontmatter テンプレ）
-- 試験別の整備方針・コンテンツ別レビュー視点・新資格追加手順 → [exam-content-policy.md](./.claude/knowledge/reference/exam-content-policy.md)
-- 原本・一次資料から文字起こしや記事を作る／参考文献を追加・変更する → [reference-sources-policy.md](./.claude/knowledge/reference/reference-sources-policy.md)（参考文献 6 区分の逐語・図・文字起こし公開・出典粒度と、原本→Drive 文字起こし→記事 `sources` ID→検査のライフサイクル）。スキャン書籍の逐語複製で公開記事を作らない
-- キーワードページ・ガイド記事の執筆と評価 → content-principles.md（ExamPoint 個数・参考資料構成・Callout 12 種の使い分け）。ガイド記事は本文 3,000 字以上、試験統計・制度は公開前に一次情報で照合
-
-## 書き方
-
-- Convention A（個別ファイル名・`civil-construction-1/`）と Convention B（`article.mdx`・`pe-comprehensive-management/`）が共存する。新規は B 推奨。既存ファイルの方式を勝手に変換しない
-- 絵文字禁止（`<Callout type="...">` で表現）。数式は KaTeX 一択（`$$...$$` / `$...$`）。表は 2 軸比較のみ・4 列以上禁止。見出しは H2 以下（H1 は frontmatter から自動生成）
-- Callout の選び方は視覚ギャラリー [callout-gallery.md](./docs/design/callout-gallery.md) と [Callout/README.md](./src/components/ui/Callout/README.md)。仕様書調リストは [speclist-gallery.md](./docs/design/speclist-gallery.md) と [SpecSheetList/README.md](./src/components/ui/SpecSheetList/README.md)
-- frontmatter 必須: `title` / `seoTitle` / `description` / `category` / `tags` / `published`。`created` / `dateModified` も frontmatter が真実源（欠けるとビルドが git 履歴へフォールバックし、sitemap lastmod と JSON-LD datePublished がリネームや履歴書換えで動く。検査 `npm run check-mdx-dates`、書き込みは pre-commit の `backfill-mdx-dates --staged`）
-- 書き込みは `lib/mdx-io.mjs` の `writeMdxFile` 経由（直接 `writeFileSync` は CRLF 混在を起こし pre-commit で reject される）。書き込み後は `U+FFFD`（`﹖`）で文字化けを走査する
-- 図・写真を追加・置換するときは `**/img/**` を開くと assets-images ルールが載る（判定フロー・出典表記は [image-policy.md](./.claude/knowledge/reference/image-policy.md)、`figure-*.svg` の固定キャンバスは [figure-canvas-policy.md](./.claude/knowledge/reference/figure-canvas-policy.md)）。過去問の問題図に解答情報を入れない
-- 過去問（primary/secondary）は正答・全選択肢の正誤・ExamPoint（引っかけ 1 行＋items 最大 2）・RelatedKeywords（civil は `civil-construction-1-` 接頭辞）を守る。新年度の過去問は `exam-keyword-map.json` へ追記して backlink を配線する
-
-## 完了条件
-
-- PDF→MDX 変換は `/verify-pdf-mdx` でルーブリック ≥ 2.0
-- MDX 追加・変更後は `npm run refresh-indexes` を実行してから commit（backlinks・cross-exam・tags・pillar 問題・頻出論点のインデックス不整合を防ぐ）
-- 1 記事の修正が完了したら即 commit（`git add` は変更したファイルだけ明示）
-- 統合済み記事を再公開しない: `published: true` なのに `_redirects` の転送元になっているとページは在るのに別ページへ飛ぶ（`npm run check-published-vs-redirects`）
-- 太字・GFM テーブルが実際に描画されるか（`npm run check-bold-rendering` / `npm run check-table-rendering`、機械修正は `npm run fix-bold-rendering`）。本文が指す「表N.M」のキャプション実在（`npm run check-table-references`）
-- 公的基準の章記事 `content/site/standards-articles/` は `npm run build-standard-articles` の生成物。検査は `npm run check-standard-articles`（コマンドの全一覧 → [commands.md](./.claude/knowledge/reference/commands.md)）
-- 公開ページが GSC 404/リダイレクト URL を指していないか（`npm run check-internal-links-vs-gsc`）
-
-### .claude/rules/docs.md
-
-適用パス: `docs/**`, `.claude/knowledge/**`
-
-# docs/ と .claude/knowledge/ の .md を書くときの規約
-
-- Obsidian callout（`> [!note]` 等）の運用は [docs-markdown-style.md](./.claude/knowledge/reference/docs-markdown-style.md) 準拠（推奨 4 タイプ限定。MDX `<Callout>` とは別系統で混同しない）
-- `.claude/knowledge/reference/*.md` は YAML frontmatter `title:` 必須（[README.md](./.claude/knowledge/reference/README.md)「frontmatter スキーマ」）。ファイルを足したら同 README の「ファイル一覧」に行を足す（CLAUDE.md の索引には足さない）
-- `docs/` は人が読む恒久的な戦略・設計・判断だけ（担当・進捗・実装順序は書かない）。領域の入口は [docs/README.md](./docs/README.md)、置き場の判断フローと `docs/`↔`content/`↔`.claude/` の境界は [information-architecture.md](./.claude/knowledge/reference/information-architecture.md)（`npm run check-information-architecture` が廃止した置き場への逆戻りを止める）
-- 1 トピック = 1 SSOT。重複が必要なら片方を正典にし、もう片方は 1 行の参照にする。doc を移動・改名・統廃合したら参照を同一 commit で全更新する（`npm run check-doc-refs`・`npm run check-relative-links`。例示パスはプレースホルダで書く、廃止台帳行は `<!-- doc-ref:ignore -->`）
-- 決定が複数文書に散在するクラスタは `.claude/config/policy-anchors.json`（`npm run check-policy-anchors`）で横展開もれを surface する
-- 完了済み・重複・肥大した doc は定期棚卸し（`npm run check-doc-lifecycle` → `/doc-declutter`）。書く時点で埋め草・同内容の反復・定型の前置きで太らせない
-- 戦略の入口: [docs/strategy/README.md](./docs/strategy/README.md)（トピック軸×資格軸の 2 軸ナビ）→ `docs/strategy/01_プロダクト戦略.md`（5 問フレームワークの北極星）・`docs/strategy/03_事業戦略.md`・`docs/strategy/04_収益化戦略.md`（note 個別価格・リリース計画は各試験の noteコンテンツ計画.md）。SNS は `docs/marketing/01_SNS集客戦略.md`・`docs/marketing/02_チャネル動線設計.md`
-- GSC/GA4 Playwright UI CSV 取得の実装指示書 → [gsc-ga4-playwright-automation-spec.md](./docs/operations/gsc-ga4-playwright-automation-spec.md)
-- 計測事故・外部検証の罠を新たに知ったら [measurement-incidents.md](./.claude/knowledge/reference/measurement-incidents.md) へ「現象 / 根本原因 / 検出経緯 / 対策 / 教訓」で追記（時系列逆順）。作業規律の教訓は memory の feedback
-- `docs/handoffs/` `docs/reviews/` は todo-plans ルール（抽出→削除・point-in-time）に従う
-
-### .claude/rules/operations.md
-
-適用パス: `.claude/state/**`, `.claude/config/**`, `src/lib/note-magazines.ts`, `src/lib/magazine-placement.ts`, `src/lib/coconala-services.ts`, `src/lib/brain-products.ts`
-
-# 運用状態・機械設定・販売カタログを触るときの規約
-
-- `.claude/state/`（状態）と `.claude/config/`（機械設定）は JSON。**`.claude/state/*.md` の新規作成禁止**（人向けの出力は admin が JSON を読んで表示する）。`.claude/config/` はツール設定（OGP テンプレ/ルール/改行設定、PSI しきい値・URL リスト、エージェント編集領域）で、真実源の doc へのポインタを `_doc` に書く
-- 運用記録の日付は JST（`npm run check-jst-date`・UTC で前日付になる事故）。実験台帳の再計測/close 期限は `npm run check-experiment-due`。予約・計画・期日の横断ビューは `npm run schedule-view`
-
-## 計測（GSC / GA4 / PSI）
-
-- **計測は CI/CD 供給が正・ローカル creds 不要**（会社 PC はプロキシで外部 API を遮断する）。**PSI は field(CrUX) で実害判定・lab は診断／単発 lab 値で CRITICAL を立てない** → [measurement-incidents.md](./.claude/knowledge/reference/measurement-incidents.md)。計測データに異常があれば同 doc を先に確認してから結論を出す
-- GSC 継続管理（index coverage / performance / hygiene の分業・閾値・cadence） → [gsc-management.md](./.claude/knowledge/reference/gsc-management.md)。UI CSV 取得は `/google-search-growth`（`npm run google-console:login` → `npm run search-growth:report`、月次期限 `npm run check-gsc-ui-due`、SSOT 整合 `npm run check-google-ui-ssot`）。GA4 カスタムディメンションは `npm run ga4-admin:check` / `npm run check-ga4-dimensions`。未登録 URL の診断は `npm run gsc-indexing:check`
-- GA4 fetch は country=Japan＋参照スパム除外が既定（生データは `--include-all`）。季節性事業なので impressions=0 を即 noindex と判断しない
-
-## 販売カタログ（実価格・公開状態の真実源）
-
-- note: `src/lib/note-magazines.ts`（実価格・noteUrl）。サイト側 CTA の配線は `src/lib/magazine-placement.ts`（civil/docs の note CTA を一元管理・`published:true` でも配置条件を満たさないと出ない）。売上記録 → [sales-tracking.md](./.claude/knowledge/reference/sales-tracking.md)（`/record-sales`・`.claude/state/sales/sales-log.json`・`npm run note-sales-fetch`）
-- ココナラ: `src/lib/coconala-services.ts`。運用 → [coconala-operations.md](./.claude/knowledge/reference/coconala-operations.md)（受注/DM 収集 `npm run coconala-orders` → `npm run check-coconala-orders`、KPI `npm run coconala-analytics` → `npm run check-coconala-analytics`、休止/再開 `npm run coconala-pause`。`paused` は `pauseReason` で retired と absence を区別）
-- Brain: `src/lib/brain-products.ts`。運用 → [brain-operations.md](./.claude/knowledge/reference/brain-operations.md)
-- アフィリエイト: 転職一本（講座/教材/書籍は Red Line）。**3 ASP とも doboku-note と stats47 が同一口座に同居**し判定は `scripts/lib/asp-site-guard.mjs` に集約（不一致は例外で停止） → [affiliate-operations.md](./.claude/knowledge/reference/affiliate-operations.md)。台帳 `.claude/state/ads/affiliate-catalog.json`、設定 `.claude/config/affiliate-asp.json`
-- 会員配信ドリップの真実源は `メンバーシップ/README.md` の配信表（`npm run check-membership-drip`。日付をカードへ複製しない）
-
-### .claude/rules/skills-agents.md
-
-適用パス: `.claude/skills/**`, `.claude/agents/**`, `.claude/commands/**`
-
-# スキル・サブエージェントを追加・修正するときの規約
-
-## 台帳との結合（CLAUDE.md §8）
-
-- `.claude/skills/` または `.claude/agents/` を追加・修正・削除した場合は、同一 commit で [skills-guide.md](./.claude/knowledge/reference/skills-guide.md)（一覧）と [skills-registry.md](./.claude/knowledge/reference/skills-registry.md)（退役ログ）または [agents-registry.md](./.claude/knowledge/reference/agents-registry.md) を必ず更新する。**追加・削除・description 変更は `npm run check-doc-coupling` が pre-commit で機械検知してコミットを止める**（台帳更新もれ＝capability ドリフトの再発防止。正当に不要なら `SKIP_DOC_COUPLING=1`）
-- 件数の SSOT はディレクトリの実数と各 registry の表。CLAUDE.md や他 doc に件数・per-agent の表を書かない
-- 設計チェックリスト（frontmatter 必須要件・description 形式・progressive disclosure・`.claude/pdfs/guide.pdf` 準拠） → [skills-design-guide.md](./.claude/knowledge/reference/skills-design-guide.md)。新規作成は `/create-skill`、既存 description のレビューも同ガイド。新スキルの重複はカテゴリ早引き skills-guide.md で先に確認する
-- コミット前に `/doc-sync` を 1 回回す（スキル・エージェントは「ドキュメント化された面」）
-
-## ハーネス設計原則の実装（CLAUDE.md §5 の詳細）
-
-- サブエージェントは `model: sonnet` 既定。Opus は親エージェントのみ。model 判定ルールは `/create-skill` の「サブエージェント作成時の model 指定ルール」、per-agent の model 一覧は agents-registry.md「エージェント一覧」が唯一
-- audit-only（`*-qa` / `*-auditor` / `*-fact-checker`）は frontmatter に `tools:` allowlist（`Read, Glob, Grep, Bash, WebSearch, WebFetch`）を持ち `Edit`/`Write`/`NotebookEdit` を機構的に除外する。Generator（`*-writer` / `*-rewriter` / `*-restorer`）は `tools:` 無指定。Generator/Evaluator 分離の原則と呼出マップは agents-registry.md
-- 同時起動は原則 3 体まで・Workflow の並行は 2 本まで。委任は「大きく・独立・並列化できる」作業のみ。自分のインライン作業を検証させるためだけの起動はしない（`*-writer`↔`*-qa` の分離パイプラインは別物・維持）。委任には必要最小限の直近コンテキストまたは `fork_turns: none`
-- スキル・エージェントに書いてよい検証は**決定的ゲートだけ**（実行するコマンドと合格条件が特定できるもの）。「必ず最後に検証」「ダブルチェック」「サブエージェントで検証させる」は書かない（CLAUDE.md §9）
-- モデル／reasoning／fork 範囲は実行時の能力。プロバイダ固有のルーティング SSOT をリポジトリに作らない
-- `/schedule`（RemoteTrigger）で定期エージェントを新規作成する前に `/routines`（`RemoteTrigger {action:"list"}`）で既存を確認し、同一成果物の重複・cron 衝突を避ける（2026-05-30 weekly-review 重複事故）
-- 今やること別のスキル推奨組み合わせ → skills-guide.md。スキル→エージェント呼出マップ → agents-registry.md。週次 PDCA・変換フロー → [workflows.md](./.claude/knowledge/reference/workflows.md)
-
-### .claude/rules/todo-plans.md
-
-適用パス: `.claude/todo/**`, `.claude/plans/**`, `docs/handoffs/**`, `docs/reviews/**`
-
-# タスク台帳・実装プラン・handoff を扱うときの規約
-
-## `.claude/todo/`（CLAUDE.md §8）
-
-- backlog がマスタ・ID は `DN-####`・月初に monthly、週初に weekly へ pull（`/plan-weekly`・`todo-planner`）。閲覧は admin `/todo`
-- **backlog に置くのは単発で完了がある未着手タスクだけ** — チャネル状態の複製・反復する運用サイクル・コンテンツ制作企画は置かない。行き先は [todo-standards.md](./.claude/knowledge/reference/todo-standards.md) §1-2
-- **カードに触れたら完了 prose を足さず残作業へ再スコープ**（部分完了は TRIM、タイトルが残作業と乖離したら旧削除＋新 ID で RESEED。確認不要・基準は todo-standards.md「5. 残す条件と削除条件」）してから commit する
-- 週次レビューの申し送りは backlog へ `DN-####` 起票まで完了とする。定期作業は置かない。`[検証:]` に surfacer を書かない
-- ゲート: `npm run check-backlog-schema`（タグ行の語彙・`[検証:]` の実在・ID 必須/重複・完了 prose の混入。pre-commit `--staged`）、`npm run check-backlog-health`（候補 surfacer・常に exit 0）、`npm run check-task-plan-links`（plan↔backlog の結線）、`npm run check-project-task-refs`（docs/ の backlog ID 参照切れ）
-- 実行ライフサイクルの契約 → [todo-lifecycle.md](./.claude/knowledge/reference/todo-lifecycle.md)。台帳の構造監査は `backlog-curator`（`/backlog-sweep --audit`）
-- **GitHub Issue は使わない**（唯一の例外＝`automation-failure` ラベル＝自動化の失敗・沈黙の記録。起票は `scripts/report-automation-failure.mjs`、クローズは人間）
-
-## `.claude/plans/`
-
-- 一案件だけの実装契約。**完了後に削除する**（SessionStart の `scripts/check-plan-staleness.mjs` が古さを警告）。設計と実装の分業（Codex が設計、Claude Code が実装・抽出・plan 削除） → [implementation-handoff.md](./.claude/knowledge/reference/implementation-handoff.md)
-
-## handoff・review（`docs/handoffs/` `docs/reviews/`）
-
-- セッション引き継ぎは `docs/handoffs/YYYY-MM-DD-{context}.md`。**handoff は「タスク→backlog・手順→reference・知見→memory へ抽出→本体は削除（記録は git 履歴）」**（残作業があっても KEEP しない・`handoffs/` は溜めない・`_archive/` は 2026-07-11 廃止）。真実源 → [information-architecture.md](./.claude/knowledge/reference/information-architecture.md)「handoff のライフサイクル」
-- **鉄則＝外部実体（PR merged・published:true・deploy・ファイル実在）を検証してから削除、未確認なら削除しない**
-- 棚卸しは `npm run check-doc-lifecycle`（機械 surfacer）→ `/doc-declutter`（`doc-curator` が KEEP/TRIM/DELETE/CONSOLIDATE を判定→削除/trim/参照更新/memory 同期まで適用）。週次 `/weekly-review` の Agent H が候補を列挙する（surface のみ）
-- point-in-time 記録なので `check-doc-refs` の検査対象外（当時のパスを残してよい）。日付は JST で書く（`npm run check-jst-date`）
+## 条件付きルールの索引
+
+Codex はファイルを読む・編集する前に、以下の適用パスに一致するルール原本をすべて読む。新規ファイルも予定パスで判定し、複数領域にまたがる場合は各ルールを適用する。対象が増えたら追加で読む。同じ原本は変更がなければ再読不要。ルール内の相対参照は原本のディレクトリから解決する。
+
+- [.claude/rules/assets-images.md](.claude/rules/assets-images.md) — `**/img/**`, `content/**/*.svg`, `content/**/*.png`, `content/**/*.webp`, `.claude/config/asset-storage.json`, `.claude/config/drive-vault.json`, `.claude/state/assets/**`, `.github/workflows/r2-*.yml`, `.github/workflows/ogp-supply.yml`
+- [.claude/rules/code.md](.claude/rules/code.md) — `src/**`, `scripts/**`, `.claude/scripts/**`, `tools/**`, `tests/**`, `package.json`, `.github/workflows/**`
+- [.claude/rules/content-channels.md](.claude/rules/content-channels.md) — `content/note/**`, `content/sns/**`, `content/kindle/**`, `content/coconala/**`, `content/brain/**`
+- [.claude/rules/content-site.md](.claude/rules/content-site.md) — `content/site/**`
+- [.claude/rules/docs.md](.claude/rules/docs.md) — `docs/**`, `.claude/knowledge/**`
+- [.claude/rules/operations.md](.claude/rules/operations.md) — `.claude/state/**`, `.claude/config/**`, `src/lib/note-magazines.ts`, `src/lib/magazine-placement.ts`, `src/lib/coconala-services.ts`, `src/lib/brain-products.ts`
+- [.claude/rules/skills-agents.md](.claude/rules/skills-agents.md) — `.claude/skills/**`, `.claude/agents/**`, `.claude/commands/**`
+- [.claude/rules/todo-plans.md](.claude/rules/todo-plans.md) — `.claude/todo/**`, `.claude/plans/**`, `docs/handoffs/**`, `docs/reviews/**`

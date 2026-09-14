@@ -24,7 +24,6 @@ import {
   summarize,
   worktreePlacement,
 } from '../scripts/lib/disk-hygiene.mjs';
-import { pruneTmp } from '../scripts/prune-tmp.mjs';
 
 const DAY = 86_400_000;
 const NOW = Date.UTC(2026, 8, 10, 0, 0, 0);
@@ -245,36 +244,6 @@ test('resolvePlatformPath: 文字列 / OS 別 / ~/ / $AUTH_ROOT / 区切り', ()
   assert.equal(resolvePlatformPath(perOs, { platform: 'linux', home }), null, 'この OS のキーが無ければ null');
   assert.equal(resolvePlatformPath(perOs, { platform: 'win32', home, authRoot: null }), null, '$AUTH_ROOT が解決できなければ null');
   assert.equal(resolvePlatformPath('~/AppData/Local/Packages/OpenAI.Codex_*/Cache', { platform: 'win32', home: 'C:/Users/me' }), 'C:\\Users\\me\\AppData\\Local\\Packages\\OpenAI.Codex_*\\Cache');
-});
-
-// ─── pruneTmp（実ファイル）─────────────────────────────────────────────────
-test('pruneTmp: 古いスクラッチは消すが、worktree（.git を持つ）は丸ごと守る', () => {
-  const root = realpathSync(mkdtempSync(join(tmpdir(), 'prune-tmp-test-')));
-  const old = (NOW - 10 * DAY) / 1000;
-
-  writeFileSync(join(root, 'old.png'), 'x');
-  utimesSync(join(root, 'old.png'), old, old);
-  writeFileSync(join(root, 'fresh.png'), 'x');
-  writeFileSync(join(root, '.gitkeep'), '');
-  utimesSync(join(root, '.gitkeep'), old, old);
-
-  // Codex が .tmp に作った worktree を模す（linked worktree の .git は**ファイル**）
-  const wt = join(root, 'character-framing');
-  mkdirSync(join(wt, 'src'), { recursive: true });
-  writeFileSync(join(wt, '.git'), 'gitdir: /repo/.git/worktrees/character-framing');
-  writeFileSync(join(wt, 'src', 'a.ts'), 'x');
-  utimesSync(join(wt, 'src', 'a.ts'), old, old);
-
-  const res = pruneTmp({ root, days: 3, now: NOW });
-
-  assert.equal(existsSync(join(root, 'old.png')), false, '古いスクラッチは消える');
-  assert.equal(existsSync(join(root, 'fresh.png')), true);
-  assert.equal(existsSync(join(root, '.gitkeep')), true, 'トップレベルの .gitkeep は保護');
-  assert.equal(existsSync(join(wt, 'src', 'a.ts')), true, 'worktree の中は触らない');
-  assert.equal(res.count, 1);
-  assert.deepEqual(res.skippedWorktrees, [wt]);
-
-  rmSync(root, { recursive: true, force: true });
 });
 
 // ─── 実 git での統合（worktree の分類と削除）───────────────────────────────

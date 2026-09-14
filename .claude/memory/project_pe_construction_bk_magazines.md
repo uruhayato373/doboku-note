@@ -1,105 +1,48 @@
 ---
 name: project_pe_construction_bk_magazines
-description: 技術士建設部門 note有料マガジン(BKシリーズ)の公開フェーズ進捗＋確立済み1マガジン公開パイプライン。BK-02河川砂防/BK-03都市計画は公開完了(各¥2,980・18記事)。選択科目=区分1ファイル(II-1/II-2/III各全選択肢網羅)構造
+description: 建設部門BKシリーズの正典への入口、公開時の事故と旧履歴の未確認事項。
 metadata: 
   node_type: memory
   type: project
   originSessionId: 112b542a-e845-4e7d-b5d4-b01158d14385
 ---
 
-技術士建設部門 2次 note有料マガジン（BKシリーズ、元公務員発注者視点）の整備状況。
+# 建設部門 BK マガジン
 
-**【公開フェーズ進捗（2026-06-15〜、最新）】** コンテンツ梱包は完了済み→note 実公開フェーズへ。Windows 会社PC＋Playwright system Chrome（永続プロファイル）で全自動公開を実証（browser-use等LLM系はプロキシ遮断で不可）。**1マガジン公開パイプライン（BK-02/03 で確立・各BK反復）**:
-1. **価格スイープ** frontmatter `price: 1980`→`500`（全 `article-*.md`・CRLF保持の node 置換、`/^(price:[ \t]*)1980/m`→`$1500`）→ commit。
-2. **記事公開バッチ**（背景・直列）: `node scripts/note-publish.mjs --article <path> --commit`（既定draft・--commitで実公開、冪等skip=noteUrl有ればpass、有料境界が試験問題/予想問題の直前でなければABORT）。ランナー雛形 `.tmp/run-bk03-publish.mjs`＝順序R03→R07→R08-yosou × II1/II2/III、**stop-on-failure＋公開済skip＋進捗ログ**。各記事公開後 note-publish が noteUrl/noteId/notePublishedAt を frontmatter writeback（git commitはしない→自分でpathspec commit）。
-3. **マガジン作成**: `node scripts/note-magazine-create.mjs --dir <magazineDir> --commit`（`note掲載文.txt` のタイトル≤30字・機械用セット価格2980 を読む、有料(単体)・category=キャリア、読み戻し検証）→ `/m/{key}` 取得。
-4. **収録**: `node scripts/note-magazine-add-articles.mjs --target <magKey> --notes <id1,..,id18> --commit`（note API で 0→18 件を実体確認）。
-5. **SoT更新** `src/lib/note-magazines.ts`: 該当 id（`pe-construction-{subject}-magazine`）の published:true / noteUrl / price `¥2,980（18記事セット・過去問15＋R8予想3）` / title・description・shortDescription を R8予想込み18記事へ。**並行セッションが同ファイルを編集するため編集直前に再Read＋pathspec commit**。
-6. **検証**: `npm run verify-note-magazines`（SoTズレ0）＋偽成功ガード（公開ページ curl --ssl-no-revoke で `¥500`・`購入手続き` 有・`notePricing`等YAML漏れ無）。
-7. **マガジン見出し画像**（2026-06-16 新設）: `node scripts/note-magazine-cover.mjs --key <magKey> --dir <magazineDir> --commit`（`_cover.png` 1280×670 を `/m/{key}/edit` の「ファイルを選択」→ダイアログ「この画像を使う」→更新）。**`note-magazine-create` は作成時にカバーを設定しない＝systematic欠落**（BK-02/03とも未設定だった）→作成後にこのステップ必須。検証=note API の `cover`/`coverRectangle`（**`eyecatch` ではない**・記事カバーと別フィールド）が**実カバー(`assets.st-note.com/production/uploads/...`)か**。**未設定時は単純な非nullでなく cloudfront の `default_magazine_header` を返す＝デフォルト判定が必要**（`isDefaultCover` ガード追加済、2026-06-16 総監コアパック `m6e7de5e4ea3d` で顕在化）。**全マガジン監査**=API全ページ走査で `isDefaultCover` を数える（2026-06-16 時点 全29マガジン カバー未登録0件＝総監/建設/土木 全商品にカバー有り）。
-8. **各記事の印刷用PDF添付**（2026-06-16 新設）: `node scripts/note-attach-magazine-pdfs.mjs --dir <magazineDir> --commit`（frontmatter noteId↔同dir PDF[II1→/-II-1-/,II2→/-II-2-/,III→/-III-/]を突合し1記事ずつ直列・done-logで再開・1記事最大2回試行）。内部の `note-attach-file.mjs` が editor で本文末尾「+」→ファイル→アップロード→**有料エリア設定で既存境界を非破壊検証（試験問題/予想問題直前=between0・崩れたら中断）**→更新する。冪等（`.pdf` がbodyにあれば再添付せず再公開のみ）＋偽成功ガード（公開ページで有料維持を実査）。**記事に「印刷用PDF｜本記事の模範解答」節（説明文）はあるがPDFファイル本体は未添付だった＝note のファイル添付は markdown不可のプラットフォーム機能（従来「半手動」）**。note公開ボタン「更新する/投稿する」は**設定ページに無く有料エリア設定ビューに出現**（既存の線=「このラインより先を有料にする」バー位置には変更ボタンが無い→直前の制御がバーなら触らない・変更ボタンなら寄せる、でないと正しい線を動かす）。
+2026年6月の制作・公開履歴から再利用する注意点を抽出したメモ。過去の「完了」「残」は現況を保証しない。日別の件数・価格・noteキー・commit列挙は、このファイルのGit履歴を参照する。
 
-**公開完了（各 ¥2,980・18記事・カバー＋PDF全添付・SoT published）**: BK-02 河川砂防（`mba17c3f8b894`）/ BK-03 都市計画（`mc8bd949f1f51`）/ BK-04 土質及び基礎（`me7ebb48b319e`）/ BK-05 鋼構造及びコンクリート（`md38f1de30c31`）/ BK-06 施工計画・施工設備及び積算（`m1562f66d9654`）（2026-06-16）。**BK-07 建設環境（`m76f1e545c541`）は公開済み（記事18・カバー・収録18・SoT）だが PDF添付が 10/18 で停止**（2026-06-16 に note のファイルアップロード1日100件上限に到達）→**残8本（R06/II2・R06/III・R07/II1-III・R08-yosou/II1-III）は翌日に `note-attach-magazine-pdfs --dir BK-07_建設環境 --commit` 再実行で完了**（done-log＋per-article 冪等で済10本はskip、未添付8本のみ upload 消費）。**カバー**=API cover/coverRectangle＋公開ページ og:image＋マガジンページ実査で確認（設定直後はユーザー側キャッシュで「未登録」に見える＝Ctrl+F5で反映）。**印刷用PDF添付**=各記事 公開ページで有料維持＋ダウンロードカード実在を実査（バッチ自動リトライで transient を無停止クリア）。**残（published:false・内容ready・同パイプラインで反復）**: BK-07建設環境/08港湾空港/11トンネル（各18・R8予想込み）、BK-09電力土木/10鉄道（各15・**R8予想なし**＝クラウド予想生成が先）。**BK-01道路**=マガジン公開済(`m9e825cfd8348`)だが記事 noteUrl 0 件の不整合→要整合確認。**BK-I**=記事11投稿済・マガジン公開済(`m0f3bc3933454`)、価格ドリフト要確認。
+## 正典
 
-**【2026-06-17 更新｜BK-08/09 公開＋BK単品¥780統一＋note-publishバグ恒久修正】**
-- **BK単品価格を ¥780 に統一**: 公開済8マガジン143記事を `note-article-price-sweep.mjs --pattern pe-construction --price 780 --commit`（Playwright・API実体検証付き、一過性「価格入力欄未検出」は再実行で冪等回収）で ¥500→¥780 にライブ変更。**新規公開分は frontmatter `price:` が真実源**（note-publish が読む）→公開前に 1980→780 是正必須（note掲載文の単品表記も）。
-- **BK-08 港湾及び空港 公開完了**: `m55096ddb1af6`・¥2,980・**18記事**（R03-R07＋R8予想・各¥780）。全工程（価格是正→記事公開→マガジン作成→収録18/18→カバー→PDF添付18/18→SoT published:true＋noteUrl）API検証済。
-- **BK-09 電力土木 公開完了**: `ma87d182c8113`・¥1,980・**15記事**（R03-R07・予想なし・各¥780）。同上完走。
-- **note-publish 絶対パス二重化バグを恒久修正**（commit `3381a95a1`）: `note-publish-magazine.mjs` の globSync は**絶対パス**を渡すが `note-publish.mjs:44` が `join(ROOT,ARTICLE)` で相対前提→二重化し「article not found」で2記事目停止（BK-08で発覚）。`resolve(ROOT,ARTICLE)` に変更（絶対はそのまま・相対はROOT基準）。BK-09はこの修正後クリーン完走。
-- **BK-10 鉄道 公開完了**: `m535a4a4353c3`・¥1,980・**15記事**（R03-R07・各¥780）。同パイプライン完走。
-- **BK-11 トンネル 公開完了**: `m5da4b560d8be`・¥2,980・**18記事**（R03-R07＋R8予想・各¥780）。収録18/18は今回は偽成功なし（独立API unionでも18/18確認）。
-- **建設部門 BK マガジン 全12本 公開完結（2026-06-17）**: 必須I/道路/河川砂防/都市計画/土質基礎/鋼コン/施工計画/建設環境/港湾空港(`m55096ddb1af6`)/電力土木(`ma87d182c8113`)/鉄道(`m535a4a4353c3`)/トンネル(`m5da4b560d8be`)。SoT `pe-construction-*-magazine` 全て published:true（`verify-note-magazines` 公開済12/未公開0）。本日PDF添付累計=18+15+15+18=66（100/日上限内）。※別途 SoT に bare `pe-construction-required`（-magazine 無し）の旧/重複entryがpublished:falseで残存＝レガシー疑い（実商品は `-required-magazine` が公開済）、要確認だが商品影響なし。
-- **収録の一過性知見（BK-10で顕在化）**: 新規作成直後のマガジンへ `note-magazine-add` すると、UIは「追加N」と報告するのにスクリプト事後検証が `収録0/N` と**偽の0**を返すことがある（note API読み取りの一過性ブレ・実際は永続化済み）→ **API直接 `magazines/{key}/notes` を数回 union して実数を確認**するのが正。さらに特定1記事だけ「target-not-in-dialog」で反復取りこぼす場合は **`--notes <その1キー>` 単独再実行**でダイアログ描画が安定して収録できる。
-- **環境**: 公開作業前提＝`npm ci --legacy-peer-deps`（素の npm ci は `@eslint/js` ERESOLVE で失敗、PR#258の既知）＋ `PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1`（channel:'chrome' でブラウザDL不要）。ログイン済プロファイル `.local/playwright-note-profile` 前提。
+- 商品設計・科目対応・著者訴求: [noteコンテンツ計画](../../content/note/技術士建設部門/noteコンテンツ計画.md)
+- 実価格・マガジンURL・公開状態: [note-magazines.ts](../../src/lib/note-magazines.ts)。記事のnoteId/noteUrlは各原稿のfrontmatter。
+- 公開実体・収録・価格の照合: [note-api-verification](../knowledge/reference/note-api-verification.md)
+- 記事走査・梱包・導線: [content-channelsルール](../rules/content-channels.md)
+- 作業手順: `/note-publish`、`/note-magazine-create`、`/note-magazine-add`、`/note-magazine-cover`、`/note-attach-pdf`。予想問題制作は `/pe-secondary-yosou`。
 
-**公開フェーズの落とし穴/教訓**:
-- **一過性①** 公開後URLが `/n/{id}` でなく `/notes/{id}/landing` にリダイレクトする場合あり→旧 note-publish は noteId 抽出失敗で writeback されず（記事は正常公開）。**修正済**（id抽出を `/n(?:otes)?/` 両対応、commit 5d1249970）。発生時は**絶対に再runしない**（重複公開になる）＝公開ページで実在確認→noteUrl手動writebackでskip化。
-- **一過性②** `ABORT: account != dobokunote`＝ページ読込タイミングのaccount-gate空振り。**公開前にABORTするので重複なし**。**note-publish/note-attach-file の account ゲートを poll 化で根治済み（2026-06-16、単発判定→最大20s）**。
-- **一過性③** `ABORT: editor not loaded`＝`editor.note.com/new` の contenteditable 描画遅延。**note-publish のエディタ読込を waitForSelector(30s) で poll 化で根治済み（2026-06-16）**。公開前ABORTで重複なし。
-- **一過性④** マガジン作成で「作成」後の `/m/{key}` リダイレクトが間に合わず key 空取得（**マガジンは作成済み＝再runで重複作成**）。**note-magazine-create の key 取得を poll＋タイトル一致 API フォールバックで根治済み（2026-06-16、commit 3641211a0）**。key 空のときは API で `name===title` のマガジンを探して回収（再create禁止）。
-- **一過性⑤** 収録（note-magazine-add）で「ダイアログ未展開」の取りこぼし（BK-04=1/18・BK-05=2/18）→**同コマンド再実行で冪等回収**（既収録skip）。
-- **【ハード制約】note のファイルアップロードは 1日100件上限**（2026-06-16 実証＝今日のPDF添付が 18×5＋10＝100 に達し以降全 ABORT「ファイルカード未検出」）。**PDF添付は1マガジン18件＝1日最大5マガジン**（余裕で4）。`embedsBefore==embedsAfter・pdfVisible=false` が連続したら上限到達を疑う（PDF破損/セレクタ不良ではない・40s poll でも出ない）。**収録・記事公開・カバーは別枠（画像 eyecatch は別カウント）でこの100にはファイル(PDF)添付のみ計上**。翌日リセット。再開は done-log＋冪等で未添付分のみ（再公開は upload 消費せず）。**バッチ前に「今日あと何件 PDF を上げたか」を把握して 100 を超えないよう計画する**。
-- **【git】index.lock 放置（stale）**: 並行セッションの git crash で `.git/index.lock` が残り commit が `Unable to create index.lock` で失敗することがある。**worktree は別 index なのでメイン tree の lock は別物**。age（`ls .git/index.lock`）と `git.exe` プロセス有無（tasklist/wmic、`mcp-server-git.exe` は別物＝サーバ）を確認し、**数十分前・git.exe 不在なら stale → `rm -f .git/index.lock` で除去**（git 公式の remedy）。アクティブな git.exe があるときは待つ（[[feedback_shared_index_commit_safety]]）。
-- **バッチ実行パターン（BK-04/05 で確立）**: 価格スイープ→`.tmp/run-bk-publish.mjs <dir>`（直列・retry・published skip・stop-on-failure）背景実行→create→cover→add（取りこぼしは再run）→`note-attach-magazine-pdfs --commit` 背景実行→SoT→verify→push。各長尺バッチは run_in_background＋article-1 watcher で早期検証。
-- **直列制約**: note プロファイルは単一Chrome＝公開バッチ実行中に note-magazine-create 等を同時起動しない。並行Claudeセッションがプロファイルlock（exitCode21）し得る→待つ。
-- **ペース配分**: 約170本の連続有料公開はnote bot検知/レート制限＝収益アカウントリスク→**1マガジンずつユーザー判断で進行**（一気にやらない）。
-- **push統合**: 並行セッション常態で push が non-FF 拒否され得る→**reset/stash禁止**。**メインツリーでの `git merge origin/develop` は並行セッションの未追跡/未コミットファイルが incoming と衝突して abort することがある**（BK-04/05 で発生）→ **worktree 接ぎ木で安全統合**: `git branch <int> develop` → `git worktree add C:/tmp/<int> <int>` → `git -C C:/tmp/<int> merge origin/develop --no-edit`（fresh tree に並行の未コミットが無いので clean）→ `git push origin <int>:develop` → `git worktree remove` ＋ `git branch -D`。メインの local develop は origin より遅れたままで可（[[feedback_deploy_mechanics_parallel_safe]]）。worktree add/merge はツール実行が背景化することがある→worktree HEAD が merge commit か確認してから push。
+過去問の区分別article-*.mdと予想のテーマ別記事が混在する。article.mdだけの走査は選択科目を落とす。字数制限・合格科目・BK番号・価格はここに複製しない。
 
+## 公開時の事故
 
-**公開可能状態に梱包済み（2026-06-09、published:false で SoT 登録済み）**:
-- **BK-I 必須科目I**（5記事＝R03-R07 の article.md）。SoT id=`pe-construction-required-magazine`
-- **BK-01 道路**（15記事＝R03-R07 × II-1/II-2/III）。SoT id=`pe-construction-road-magazine`
+- 公開やマガジン作成が成功してもURL/key取得だけ失敗する場合がある。再作成前に実在を照合して既存IDを回収する。URL未記録を未公開と扱わない。
+- 新規マガジンの収録確認が一時的に0件となった。取得不能・反映待ちと欠落を分け、照合してから未収録分を再実行する。
+- カバーは記事のeyecatchとは別。cover/coverRectangleが非nullでもdefault_magazine_headerなら既定画像のまま。
+- 「印刷用PDF付き」という本文とライブ添付は別。添付後は有料境界とカード実在を確認する。本文更新による添付消失にも注意。
+- 2026-06-16にPDF添付100件で停止した。現在の上限は未確認。カード未検出が続く場合は上限・取得不調を切り分け、done-logとライブから再開する。
+- 同じnote認証プロファイルへの書き込みバッチは直列にする。公開済み判定を確認してから再開する。
+- 著者の経験・合格科目を創作しない。外部factcheckが実施できなければ未確認と残す。字数は各答案を実測する。
+- 必須IのA/B案は当時、設問(2)の最重要課題選択で分岐し、(1)の課題と(4)の倫理は共有可能とした。各案が単独で読めること・各案個別の字数判定が要点。現行writerと原稿を先に確認する。
+- テーマ別PDFで用いた見出しアンカーは「予想問題」「フル模範解答」。旧アンカーを一律転用せず、現行原稿とspecの一致を確認する。
 
-各マガジンの梱包＝**マガジン階層**（`_meta.yaml` + `hashtags.txt` + `_cover.png`、`scripts/generate-magazine-covers.mjs` にエントリ追加→生成、技術士建設部門色=深インディゴ`#33356B`）+ **記事階層**（各記事に `cover:` frontmatterブロック + `img/cover[-IIx].png`（`scripts/generate-note-covers.mjs`）+ `hashtags[-IIx].txt`）+ `src/lib/note-magazines.ts` 登録 + `src/lib/magazine-placement.ts` の `matchPeConstructionEssay`（pe-construction-r0X-{required,road} + 論文ガイド → 該当BK）。残=note本体アップロード→noteUrl記入+published:true（ユーザー手動）。
+## 旧履歴の未確認事項
 
-**記事別カバー/タグ完了（2026-06-09）**: note販売は記事単位なので各記事に固有カバー・タグが要る（マガジン階層だけでは不足）。`note-cover-tokens.json` に `pe-construction`（dir=技術士建設部門・インディゴ）を追加（無いと総監navyにフォールバック）。`generate-note-covers.mjs` を拡張し **1 dir 内の `article*.md` 全てを処理**（`article-II1.md`→`cover-II1.png`、`hashtags-II1.txt`）。BK-I=5カバー、BK-01=15カバー生成済み。
+以下は6月の確認候補で、現在も未完とは断定しない。正典・原稿・ライブと突合し、残る実作業は [backlog](../todo/backlog.md) へ抽出する。
 
-**ハッシュタグは記事ごと約90個**（共通タグ群＋年度/科目テーマ、総監マガジンと同水準。20個で止めない）。
+- BK-07建設環境のPDF残8本（R06 II2/III、R07 II1/II2/III、R08予想 II1/II2/III）。
+- BK-01道路のnoteUrl未記録と予想の公開・収録・添付、BK-Iの価格ドリフト。
+- bare `pe-construction-required` と `pe-construction-required-magazine` の旧重複疑い。
+- frontmatter価格・writerテンプレ・カタログ/liveの整合。公開処理が読むpriceを一律削除しない。
+- 道路予想の外部factcheck、テーマ分割後のカバー/PDF/spec/収録数の整合。
+- II-1/II-2のテーマ別分割、II-2の防災施工テーマ拡張、他科目展開、writer/qaのforecast節との整合、価格・商品計画への反映。
+- 電力土木・鉄道の予想追加、コンピテンシー解説リンクの形式統一。過年度予想の拡充は現在の販売方針に照らして再判断する。
 
-**BK-I 公開済み（2026-06-09）**: noteマガジン `m0f3bc3933454`、単品¥500/セット¥1,980（21%OFF）。note-magazines.ts `published:true`+noteUrl 設定済み、本文URLも実マガジンへ置換済み（deploy待ち）。
-
-**再発防止をエージェントに反映済み（2026-06-09）**: `pe-secondary-exam-writer` に「記事・マガジンの完全梱包DoD」「経験記述免責の誤流用禁止」、`pe-secondary-exam-qa` に「記事単位の完全梱包チェック（cover:ブロック/cover.png/hashtags~90/マガジン_meta・SoT）」「経験記述免責ゲート」を追加。出力JSONにも梱包項目を追加。
-
-**Why**: BK-02〜10（河川/都市計画/施工計画…）も同じ¥1,980・同パイプラインで展開予定。商品設計の真実源は `docs/note/技術士建設部門/noteコンテンツ計画.md`。無料SEOガイド `pe-construction-pe-secondary-essay-guide` が送客ハブ。
-
-**ファイル構成の真実源（2026-06-10 改訂・区分1ファイル＝全選択肢網羅）**: 選択科目は **1科目区分=1記事**で、当該区分で出題された**全選択肢の解答を1ファイルに収録**する（全選択肢網羅がユーザー訴求）。
-- `article-II1.md`（II-1 全設問。年度によりN=2〜4）／`article-II2.md`（II-2-1・II-2-2 両方）／`article-III.md`（III-1・III-2 両方）。**選択科目 dir に `article.md` を置かない**。
-- 必須科目I（BK-I）は `article.md` 1ファイル（I-1・I-2 両方収録）。
-- カバー/タグはファイル名から機械導出（`article-II1.md`→`cover-II1.png`/`hashtags-II1.txt`）。
-- 字数判定は**各選択肢が個別に枚数上限内**か（記事総字数ではない。本番は1選択肢のみ手書き）。
-
-**旧方式（廃止）**: `article.md`=III片側＋`article-III2.md`=III他方（IIIを2分割）、`article-II1-1〜4.md`（設問別4ファイル）、`article-II2.md`（II-2片側のみ）。
-
-**BK-01道路 R03〜R07 全年度 新方式へ移行完了（2026-06-10）**: 各年度 article-II1（全4設問）/article-II2（II-2-1・II-2-2）/article-III（III-1・III-2）の3記事＝計15記事。II-1は4→1機械統合、IIIは既存2ファイルをマージ、II-2は欠けていた選択肢のみ新規執筆（~1,100字）。各選択肢が枚数上限内（II-1各≤600/II-2各≤1200/III各≤1800字、超過2問はトリム済）。note-lint全OK・hashtags85-94個・cover再生成済。並列sub-agentでファイル作業→親が順次commit（commits 2a72e0e58/98b27ef51/9dab441a5/027bed2f6、R07=a33aa4f67/1fba44389）。**カバー生成器バグ修正**: generate-note-covers のdir探索を article.md限定→article*.md検出へ（a44ef6f8c、選択科目dirはarticle.md不在のため）。残=note本体アップロード→published:true（ユーザー手動）。BK-02以降（河川/都市計画…）も同方式で展開。
-
-**How to apply（落とし穴）**: 価格直書き除去・出典追加・note-lint・QA・カバー生成は **必ず `-name "article*.md"` で全 article を対象**にする（`article.md` だけだと選択科目を取りこぼす）。移行時は旧個別ファイル（md/cover/hashtags）の削除と新カバー再生成（`generate-note-covers.mjs`）を忘れない。`pe-secondary-exam-writer`/`pe-secondary-exam-qa` に新命名規則・全選択肢収録ゲートを反映済み（2026-06-10）。
-
-**末尾CTA統一＋公開品質（2026-06-10）**: 全BK記事(174)の末尾CTAを必須科目Iマガジン(`m0f3bc3933454`)に統一（選択科目=クロスセル/必須I=単品→セット）、合格者コメント節は全廃。writer/qa/registryにテンプレ反映。**マガジン概要は `note掲載文.txt`（総監模範論文と同方式・コピペ用4セクション=タイトル30字/価格/説明400字/アピール250字）**。旧 `_meta.yaml` は廃止（BK-01/02/I 全移行済 145e539ad・7fc385abc、建設部門BK残存_meta.yaml=0、構造データ真実源はnote-magazines.tsに一本化）。BK-I(公開済)の per-article noteUrlは記事frontmatterに、マガジンURLはnote-magazines.tsに保全済で_meta.yaml削除はデータ損失なし。writer完全梱包・qa梱包チェック・registry・docs/reference/note-essay-review-checklist(総監側は2026-06-09既済)で統一。総監essay線は既にnote掲載文.txt化済、今回BK線へ拡張。記事本文に`（※note公開後にURLを追加予定）`等プレースホルダー禁止。**BK-01は内容QA全15本pass(平均2.33-2.83)＋_meta/プレースホルダー是正済で公開可能品質**(ce90d85db)。note-magazines.ts登録確認はid(`pe-construction-{subject}-magazine`)で検索（"BK-01"文字列は空振り＝QA誤検知注意）。
-
-**BK-02河川砂防 公開品質化完了（2026-06-10）**: スケルトン（各区分1選択肢のみ・カバー/タグ/_meta無し）から全15記事を全選択肢網羅で新規生成（pe-secondary-exam-writer 5並列、原典river-coast照合）＋カバー15＋hashtags90×15＋マガジン階層（_meta.yaml/_cover.png/hashtags.txt）＋SoT登録(`pe-construction-river-coast-magazine`)＋placement配線＋generate-magazine-covers.mjsにbk-02-river追加。**内容QA全15本pass(平均2.33-3.0)**。commits 0cd9abed2(content)/6a632696e(code)/badf86475(QA是正)。河川砂防海岸は合格3科目外＝「発注者として担当した経験」訴求（合格者表記なし）。**BK-03都市計画 公開品質化完了（2026-06-10）**: 全15記事を全選択肢網羅で新規生成（最新規約=短段落/PDF末尾節/価格非表示/冒頭回遊なし/技術士法45条の2）＋カバー15＋hashtags90×15＋note掲載文.txt＋SoT登録(`pe-construction-urban-planning-magazine`)＋placement＋マガジンカバー＋印刷用PDF15＋代表6記事QA全pass(2.67-3.0)。commits 6443f5989/1a408a7ad/9aee0877f。**都市計画は運営者の真実合格科目として未確定（author.ts bioは道路・河川担当を明記、都市計画は未記載）→「合格者」表記を使わず「元自治体土木職(発注者)の都市計画関連業務経験」訴求**（河川も同様にすべき＝BK-02は河川を発注者経験で書いたが正、writer表のroad/river/urban=合格者ルールは過剰）。**BK-04〜11は未着手スケルトン**（同手順で展開可）。
-
-**予想問題モード新設＋道路R8予想 公開品質化完了（2026-06-10）**: 試験(7月中旬)前のみ価値の時限商品＝予想問題を商品化。戦略判断＝**予想を先に**（試験後無価値の時限商品 vs 過去問11分野展開は常緑・締切なし→試験前は予想優先、BK-04〜11展開は試験後）。`pe-secondary-exam-writer`/`qa` に **forecast モード**を追加（commit 855684fc3、agents-registry同時更新）: `year:R{NN}-yosou`・`forecast:true`、過去問MDXが無いので**テーマ分析記事(`{subject}-exam-themes`)から予想設問を自作**（過去問転載禁止・`## 予想問題`見出しに出典行なし）、`## 予想の根拠`＋予想免責の引用ブロック＋冒頭明示を付す。区分1ファイル/全選択肢網羅/末尾必須ICTA/PDFは過去問と共通。**道路R8予想3記事**（R08-yosou/article-II1〔4設問≤600〕/II2〔2設問≤1200〕/III〔2設問≤1800〕）を生成（commit b325eeecf）、QA全3本pass(2.67-2.83・予想専用ゲート全通過)、カバー3/hashtags90×3/印刷用PDF3(予想問題→設問構成レンジ)。**道路マガジン(m9e825cfd8348・公開済)をR03-R07＋R8予想 全18記事に更新**(note-magazines.ts description/price/shortDesc＋note掲載文.txt)。公開済道路テーマ分析記事(road-exam-themes)の壊れたCTAをMagazineCard化＋competency-revision-r8リンク404是正(c9f7345af/49c2c5724)。**教訓**: 並行エージェント稼働中は `git add`＋bare `git commit` で総監マガジン30 article.mdをindex汚染で巻き込んだ→`git commit -- <pathspec>` を厳守すべき([[feedback_shared_index_commit_safety]])。**必須I R8予想 6テーマ×2案 完成（2026-06-10、commit 6063c9d46）**: 必須Iは全11分野受験者＝最大母数。**複数案併記（A案/B案）**を予想モードに正式追加（writer/qa/registry commit 0220e2f1f）＝総監A/B方式の建設部門版、**分岐軸=設問(2)の最重要課題選択**（(1)3課題は共有・(2)(3)を案別展開・(4)倫理は共通可）、各案3枚級・**案ごとに個別字数判定**（≤1800）。過去問R01-R07の実テーマに照らし**4→6テーマに拡張**（①担い手×建設DX ②気候変動・防災 ③老朽化AM ④CN・GX ⑤国土形成・地域づくり〔新規・R02/R06実績＋国土形成計画2023〕 ⑥インフラDX・データ活用〔新規・R04実績＋改訂コンピで「データ活用」明文化が直撃〕）。①〜④はBK-I既存予想問題(問題のみ)に2案解答追記、⑤⑥はR08-yosou-5/6を問題文から新規。全12案 実測≤1800(④1850→トリム/⑥B案スタブ参照→単独完結化/yosou-5「I-1相当」表記除去)、QA全6本pass(2.67-2.83)。カバー6/hashtags93×6/PDF6。note-magazines.ts BK-Iを R03-R07＋R8予想 全11記事に更新(廃止コメント節言及も除去)。**予想商品の設計思想**: 「I-1/I-2本番再現」でなく「最頻出テーマを各2案で網羅」（テーマカバレッジ型）。
-
-**河川(BK-02)・都市計画(BK-03) R8予想 展開完了（2026-06-10、commit 4661362e3）**: 道路と同方式（区分別article-II1/II2/III・全選択肢網羅、選択科目は2案でなく全選択肢が「複数」）。両科目は著者の合格科目外→**「発注者として担当した経験」訴求（合格者表記なし）**、マガジン未公開(published:false)につき**冒頭回遊なし**（プレースホルダー禁止）。各6記事=河川[II-1堤防/砂防堰堤/河道/海岸4設問・II-2流域治水/施設長寿命化・III気候変動治水/土砂海岸防災]、都市計画[II-1立地適正化/再開発/区画整理/都市施設・II-2立地適正化策定/再開発・IIIコンパクト+ネットワーク/防災まちづくり]。全選択肢実測≤1800・note-lint pass・QA全6本pass(2.5-2.83、都市II-2のみ軸6=2→三側面/文化的価値を締めに加筆強化済)。カバー6/hashtags95-98×6/PDF6/pdf-spec追記。
-
-**価格改定（束ね＋値上げ・総監準拠、2026-06-10 commit dd757310a＋4661362e3）**: 過去問+予想を1マガジンに束ねたまま¥1,980据置は割引深すぎ予想を過小評価→セット価格改定。**BK-I(11記事)=¥2,480、BK-01道路/BK-02河川/BK-03都市計画(各18記事)=¥2,980**、単品¥500据置。真実源note-magazines.ts＋note掲載文.txt（**新「■機械用（編集しない・自動同期）」ブロック=セット価格/単品価格、ユーザー/linter導入**）を同期。新規予想マガジンで束ね方針なら同様に値上げ。残=note本体アップロード→published:true（BK-01道路は公開済マガジンに予想追加、BK-I/02/03は未公開）。
-
-**バックログ**: 各記事frontmatter `price:`（道路1980/必須I500）はnote-magazines.tsと二重管理＝SoT一本化で除去が本筋（全BK横断・未対応）。
-
-**BK-04〜11 クラウド展開の準備完了（2026-06-10、commit 5787c7ba1）**: 残8専門分野(施工計画/土質基礎/鋼コン/建設環境/トンネル/港湾空港/鉄道/電力土木)の**予想を先に**(試験7月中旬の時限商品)クラウド(claude.ai/code)で1科目1指示で回すための準備を実施。①**新スキル `/pe-secondary-yosou <subject>`**(authoring)=生成(forecast writer×3)→**外部事実照合**→6軸採点(qa×3)→梱包(カバー/hashtags/PDF)→SoT登録→pathspec commit を1入口集約。subject↔BK対応表(BK-04施工計画/05土質基礎/06鋼コン/07建設環境/08トンネル/09港湾空港/10鉄道/11電力土木)・**全8科目=発注者経験フレーミング(合格者表記禁止)**・冒頭回遊なし(未公開)を明文化。②**新エージェント `pe-secondary-exam-factcheck`**(Evaluator/WebSearch接地)=数値/基準値/法令条番号/制度名/技術用語分類を国交省・e-Gov・各学会基準書に照合しlikely_wrongをmust_fix化＝**合格科目外の専門事実ハルシネーション捕捉(QA=構造/note-fact-checker=内部 を補完)**。**実行環境の要点**: factcheckのWebSearchは会社PCプロキシで空振り→クラウド/CI/Mac必須(blocked_no_websailで偽装しない)。PDFはChrome headless依存→無ければローカル後追い。価格・公開はユーザー判断(published:false維持)。**予想3記事のみの新マガジンは価格未確定**(道路18記事¥2,980とは構成違い)。過去問15記事/科目は試験後の常緑在庫として同writer過去問モードで別途。
-
-**既知の軽微バックログ**: 全BK記事のfrontmatter `price: 1980` はマガジンセット価格で単品(¥500)と不一致＋note-magazines.tsと二重管理（QAが指摘・非ゲート）。writerテンプレも同様。価格はnote-magazines.tsが真実源なのでfrontmatterから除くのが本筋（未対応・全BK横断要）。
-
-**技術士法の条番号は注意（2026-06-10是正）**: 公益確保の責務=**第45条の2**（第44条は信用失墜行為の禁止）。rubric/writerに第44条の誤記がありBK-02 R04 III・BK-I R03/R07・キーワードpe-construction-guide-required-essayへ伝播→全是正(3b4806927)。新規生成・採点時は条番号を誤らない。
-
-**印刷用PDF（総監方式・2026-06-10）**: 各記事に「問題文＋フル模範解答」のみ抽出したA4 PDFを記事dirに生成（答案書き写し練習用）。spec=`scripts/pdf-specs/BK-{id}.json`（include 2レンジ=`^## 試験問題`→`^## 設問構成と論述方針` ＋ `^## フル模範解答`→`^## 採点者が見る`＝設問構成/採点ポイント/CTA/導入を除外）、`node scripts/magazine-to-pdf.mjs --spec ... --in-place`（Chrome headless要）。BK-01(15)/BK-02(15)/BK-I(R03-R07の5、R08予想は解答後日で除外)＝計35 PDF生成済(379645977/7cf2cace5)。記事わかること＋note掲載文.txtに「印刷用PDF付き」明記、writerにも明文化。総監PDFと同じく記事dirにコミット（gitignore対象外）。
-
-**生成系の品質傾向（QA知見）**: writer生成は字数が上限±数字の際どい値になりやすい→生成後は選択肢別実測で上限-5以内をトリム。本文冒頭のコンピテンシー解説リンクはmarkdownインライン形式で、QAが「サイト無料導線」として頻繁にflag（非ゲート・BK-01同様に許容運用中だが、リンクカード化orテキスト化の全体方針は要検討）。
-
-**テーマ網羅型予想への転換＋競合調査（2026-06-11）**: 予想問題の構成を「年度ミラー型（本番1回分の設問構成を再現）」→「**テーマ網羅型**（出題可能性の高いテーマを広くカバー）」へ寄せる方針を決定。理由＝選択科目は本番が選択問題（II-1=4問中2問・II-2/III=2問中1問選択）で「自分が書けるテーマに当たるか」が合否を分けるため、テーマ網羅の価値が構造的に高い。**判断**: ①テーマ網羅型に寄せる ②科目マガジンに束ねて増強（薄い市場＝11分野で17,730人・人気科目でも1-2千人→SKU増やさず客を分散させない）。**note競合実地調査（note public search API `/api/v3/searches?context=note|magazine&q=...`、curl --ssl-no-revoke で会社PCから到達可）**: (A)「予想問題N解答案」¥500/記事・**テーマ別×回数制(第1〜10回+)**＝ユーザー提案と完全同型の勝ちパターン実証済(鋼コンで深掘り) (B)「R08模擬試験」¥2,970-3,520/記事「1800字では伝えきれない全詳解」超高単価全科目 (C)「傾向と対策テキスト」科目別マガジン¥1,500-3,800 (D)「NotebookLM×Claude辛口採点」¥400=AI生成明示 (E)無料リードマグネット多数(31記事マガジン/AI活用/白書¥300)。**差別化の核**=競合のAI生成系は「AIが作った」明示で精度不安→採点で取り繕う。当方は**元公務員(発注者)監修×白書一次照合の仕組み**(note-fact-checker スコープD＋pe-secondary-exam-factcheck)＝「AIに書かせた予想でなく発注者が白書を読み込んで張ったヤマ」と訴求できる(競合が出せないコピー)。**道路パイロット完成・commit eed3e31a8**: BK-01道路 R08-yosou article-III を年度ミラー(III-1脱炭素/III-2高速4車線=2問)→テーマ網羅(4問)へ。**致命ギャップ発見**=年度ミラーは各スロット1択のみ採用するため、防災(7年連続出題)が現IIIに不在だった。追加=III-3能登半島地震の事前防災・強靱化(R06 III-2啓開=事後の裏返し)＋III-4 xROAD道路DX深化(R07 III-2の深化)＋**テーマ網羅マップ**(4テーマ×区分×出題根拠を冒頭に箇条書き=表はnote非対応でlint NG)。検証=note-lint OK/全4問≤1800字(writer自己申告1300は過少→III-4実測1873で73字超過→トリムで1763)/U+FFFD 0。**未了(承認後)**: カバー/PDF再生成(現PDF/PNGは2問版で陳腐化)、factcheck(WebSearch環境)、QA採点、II-1/II-2の同様テーマ網羅拡張・他科目展開。戦略のnoteコンテンツ計画.md正式反映は未実施(ユーザー判断)。
-
-**テーマ別ブロック→テーマ別記事分割（2026-06-11 続き）**: 道路IIIパイロットを段階的に改良。①A構造(設問種別セクション別=予想問題/根拠/骨子/解答/採点が各々III-1〜4横並び)は4テーマで情報分散→**B構造(テーマ別ブロック)**に再編(commit 972544c5f、各テーマに予想問題→なぜ出るか→骨子→解答→採点を集約)。②さらに**テーマ別の独立note記事に分割**(commit: article-III.md削除→article-III-1〜4.md新規)。理由＝競合「予想問題N解答案」(¥500/記事・テーマ別)と同型で、テーマ単位購入＋ロングテール検索発見性。各記事は単独で読めるヘッダ・テーマ網羅シリーズ案内(全4テーマ導線)・必須IマガジンCTA・PDF節を持つ。h2に`## 予想問題`/`## フル模範解答`が戻りPDF spec標準アンカー復活。**過去問(R03-R07)は区分1ファイル据え置き＝予想のみテーマ別**(商品特性で使い分け)。**命名規則**: 予想テーマ別=`article-III-N.md`(N=テーマ番号、旧廃止の設問別article-II1-1〜4とは別物。dir=R08-yosouで文脈明確)。検証=note-lint全4 OK/U+FFFD 0/フル模範解答全4≤1800字(1666/1633/1651/1760)。**lint地雷**: `**選択科目III R8予想テーマ網羅シリーズ（全4テーマ）**`等の太字内全角括弧→`**…**（…）`へ。テーマ網羅マップ表もnote非対応→箇条書き。**未了(承認後)**: カバー4・hashtags4・PDF4生成、pdf-spec追記、note-magazines.ts/note掲載文.txt更新(記事数増)、factcheck、QA、II-2拡張(防災施工系=道路啓開/床版取替が手薄)、II-1/II-2も同様テーマ別分割するか、価格設計(テーマ別単品¥300?¥500?+セット)、pe-secondary-yosouパイプライン改修(区分1ファイル→予想はテーマ別記事生成へ)、他10科目展開。**パイプライン方針変更**: pe-secondary-exam-writer/qa/skillは現状「区分1ファイル全選択肢網羅」前提→予想問題はテーマ別記事へ方針転換が必要(過去問は区分1ファイル維持)。
-
-**1記事1ディレクトリ再編＋スキル標準化＋III梱包完成（2026-06-11 続き2）**: ①**1記事1dir構造に再編**(commit済): `R08-yosou/{dir}/article.md`+img/cover.png+hashtags.txt+PDF。dir名=`II-1/`/`II-2/`/`III-1_脱炭素/`/`III-2_4車線化/`/`III-3_事前防災/`/`III-4_xROAD/`。旧III単一残骸(hashtags-III/cover-III/旧PDF)削除。**docs/noteはサイトビルド対象外→ビルド無影響**。②**pe-secondary-yosouスキル全面改修**(commit 80ca89a81、skills-guide/registry同時更新): 予想=テーマ別記事(テーマ網羅型)・1記事1dir・記事内h2ブロック構成を標準化、過去問は区分1ファイル据え置き、writer/qa forecast節改修は残件(親プロンプトで当面補う)。③**III-1〜4梱包完成**(commit済): カバー/hashtags90/PDF同梱。**ツール検証(他科目で再利用)**: generate-note-coversは部分一致target(`"BK-01_道路/R08-yosou/III"`)＋再帰＋article.md対応で自動生成(img/cover.png+svg)。magazine-to-pdf `--in-place`は記事dirへ配置(ステージング=C:\tmp\{srcDir末尾}-pdf、Chrome利用可)。hashtags=共通ベース72(技術士/学習/道路/土木/発注者/note/R8予想系)＋テーマ固有18=90。pdf-spec include=`## 予想問題`→`## なぜこのテーマ`/`## フル模範解答`→`## 採点ポイント`。**道路 公開可能品質到達(2026-06-11)**: ①note-magazines.ts/note掲載文.txt を R8予想6記事/全21に更新(価格¥2,980/¥500据え置き、記事数はforward-looking=note.com側R8予想未アップロード)。②**QA全4III記事pass**(pe-secondary-exam-qa: III-1脱炭素2.67/III-2_4車線化3.0/III-3事前防災2.83/III-4xROAD2.67、全must_fix=0・全公開可、R06啓開・R07xROADとの差別化維持確認)。II-1/II-2は旧QA有効(内容不変)。③**QA共通指摘の字数表示乖離を全6記事修正**(「計約1,300字」→実測値1,630-1,760字10字丸め、II-1-4は601字→587字トリムで600制限解消)。**公開前の残**: factcheck(WebSearch=クラウド/Mac必須、道路は合格科目で低リスク)、note.com実アップロード+価格設定+公開(ユーザー手動・Mac・publish-note/note-edit-session、既存マガジンm9e825cfd8348にR8予想6記事追加)。**他科目の残**: 価格設計(テーマ別単品)、II-2拡張(防災施工系=道路啓開/床版取替)、writer/qa forecast節改修、BK-02〜11展開。
-
-関連: [[feedback_no_price_in_mdx_body]] [[feedback_note_article_three_set_dod]] [[feedback_note_prepublish_verify_not_proxy]] [[project_note_write_automation]]
+関連: [[feedback_no_price_in_mdx_body]] [[feedback_note_article_three_set_dod]] [[feedback_note_prepublish_verify_not_proxy]] [[project_note_write_automation]] [[feedback_shared_index_commit_safety]] [[feedback_deploy_mechanics_parallel_safe]] [[feedback_platform_only_artifacts_destroyed_by_bulk_ops]]

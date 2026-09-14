@@ -19,6 +19,10 @@ try {
     // LFS is a subset of .git, not an extra contribution to the total.
     snapshot.directories.push(scanTree(root, '.git/lfs', deadline));
     snapshot.processes = processInventory(root);
+    snapshot.processGroups = Object.entries(snapshot.processes.rows.reduce((groups, row) => {
+      const group = groups[row.kind] ||= { count: 0, bytes: 0 };
+      group.count++; group.bytes += row.bytes; return groups;
+    }, {})).map(([kind, stats]) => ({ kind, ...stats })).sort((a, b) => b.bytes - a.bytes);
   }
   snapshot.warnings = warningsFor(snapshot, policy, previous);
   snapshot.errors = (snapshot.directories || []).flatMap(row => row.errors.map(error => `${row.path}: ${error}`));
@@ -35,6 +39,7 @@ try {
   else {
     console.log(`[resources] free disk ${(snapshot.machine.freeDiskBytes / GiB).toFixed(1)} GiB; free memory ${(snapshot.machine.freeMemoryBytes / GiB).toFixed(1)} GiB`);
     for (const row of snapshot.directories || []) console.log(`  ${row.path}: ${(row.bytes / GiB).toFixed(2)} GiB / ${row.files} files / links skipped ${row.links}`);
+    for (const group of snapshot.processGroups || []) console.log(`  ${group.kind}: ${(group.bytes / GiB).toFixed(2)} GiB working set / ${group.count} processes (shared pages included)`);
     for (const warning of snapshot.warnings) console.log(`  WARN ${warning}`);
     for (const error of snapshot.errors) console.error(`  INCOMPLETE ${error}`);
   }

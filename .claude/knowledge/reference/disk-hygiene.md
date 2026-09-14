@@ -4,7 +4,7 @@
 gitignore 済み・ホーム配下・worktree の中に溜まるので、CI にも pre-commit にも映らない。
 2026-09-10 に空きが 7.5GB（228GB 中 96%）まで落ちて初めて気づいた。ここはその再発防止の運用 SSOT。
 
-真実源: 機械可読は [`.claude/config/disk-hygiene.json`](../../config/disk-hygiene.json)、
+真実源: 日次カテゴリは [disk-hygiene.json](../../config/disk-hygiene.json)、build・scratch・browserの掃除条件は [local-resources.json](../../config/local-resources.json)。
 判定ロジックは `scripts/lib/disk-hygiene.mjs`、検査は `npm run check-disk-hygiene`、
 掃除は `npm run disk-hygiene:fix`（日次。macOS は launchd、Windows はタスクスケジューラ）。
 
@@ -38,8 +38,8 @@ Codex で作業した分は永久に掃除されない（実測で Codex の wor
 ## 3. worktree の置き場と後始末
 
 - 置き場は **`.claude/worktrees/`（Claude）と `~/.codex/worktrees/`（Codex）だけ**。
-- **`.tmp/` に置かない**。`scripts/prune-tmp.mjs` が 3 日超のファイルを消すので、worktree の中身が削られる。
-  （prune-tmp は `.git` を持つディレクトリを丸ごと飛ばすので実害は止めてあるが、置き場違反は検査が FAIL にする）
+- **`.tmp/` に置かない**。破棄可能な出力と worktree を混在させない。
+  （掃除は `.tmp/scratch` 限定で nested Git を保護する。置き場違反は検査が FAIL にする）
 - マージしたら `git worktree remove <path>` を即実行する。ブランチは残るので履歴は失われない。
 - worktree の中で `npm run build` しない。E2E に要るときだけビルドし、終わったら消す。
 - 長期に残したい worktree は `git worktree lock <path>`。自動掃除の対象から外れる。
@@ -51,16 +51,18 @@ Codex で作業した分は永久に掃除されない（実測で Codex の wor
 | id | 消すもの | ガード（全部満たすときだけ削除） |
 |---|---|---|
 | `worktrees` | マージ済み worktree | merged／作業ツリーが clean／未 lock／24 時間以上静止／その配下を cwd にしているプロセスが無い。`git worktree remove` は **`--force` を使わない**（untracked が残っていれば git が拒否する＝最後の砦） |
-| `build-artifacts` | 7 日超の `.next` / `out` | そのパスを cwd にした `next build/dev/start`・`npm run serve` が動いていない |
-| `tmp-scratch` | `.tmp/` の 3 日超 | `.git` を持つディレクトリは丸ごと除外 |
-| `playwright-cache` | Chromium のディスクキャッシュ | そのプロファイルを使うブラウザが起動していない（`--user-data-dir=` をプロセス一覧で照合・Windows は大小文字無視）。**ログイン実体（Cookies・Login Data・Local Storage）は触らない**。macOS はキャッシュが `~/Library/Caches/doboku-note/playwright-auth/profiles/` に分離されるが、Windows はプロファイル直下（`Default/Cache` 等）に同居するので root を `$AUTH_ROOT/profiles` にしてサブディレクトリだけ消す（一覧は `PROFILE_CACHE_SUBDIRS`＝`auth:migrate` の除外と共通） |
+| `build-artifacts` | 現在の repo の `.next` / `out` / admin `.next` と日付付き dev-backup（14日超） | `resources:clean` と共通。リンク・追跡・登録アセット・nested Git・使用中・検査不成立を保護 |
+| `tmp-scratch` | `.tmp/scratch/` の7日超 | `resources:clean` の保護条件を適用。`.tmp` の他のファイルは残す |
+| `playwright-cache` | repo `.local` と中央認証プロファイルの許可リスト内キャッシュ（14日超） | ブラウザ使用中・リンク・検査不成立では残す。Cookies・Local Storage・IndexedDB・Service Workerは対象外 |
 | `codex-browser-cache` | ChatGPT/Codex アプリ内蔵ブラウザの HTTP キャッシュ（Windows・実測 330MB） | `ChatGPT.exe` が動いていない（開いているファイルを消すと失敗するだけでなく stamp も書けなくなる） |
 | `sparkle-updates` | Codex 自動更新の残骸 | コマンドラインに現れているサブディレクトリは除外 |
 | `npm-cache` | `_cacache`（3GB 超のとき） | `npm install` / `npm ci` が動いていない（常駐の `npm exec` は除外する。さもないと永久に掃除できない） |
 | `npx-cache` | 30 日超の `_npx/<id>` | 稼働中プロセスが参照していない |
 | `claude-workflow-transcripts` | 14 日超の Workflow 記録 | — |
 
-**プロセス名だけで判定しない。** 2026-09-10 の実装時、`next dev`（別リポジトリ）・常駐の Sparkle ヘルパ・
+build・scratch・browserの保持期間と許可リストは `.claude/config/local-resources.json` が正典。linked worktreeのビルドは個別削除せず、上記worktree全体の整理で回収する。
+
+build/browserは安全側に倒して該当プロセスがあれば掃除を見送る。他の項目では**プロセス名だけで判定しない。** 2026-09-10 の実装時、`next dev`（別リポジトリ）・常駐の Sparkle ヘルパ・
 常駐 MCP の `npm exec` が「稼働中」と読まれ、3 つのガードが恒久的に掃除を止めていた。
 pid で ps のフルコマンドと lsof の cwd を突き合わせ、「そのパスで動いているか」を見る。
 
@@ -128,4 +130,6 @@ Windows 実測（2026-09-14・16GB 機）: X 用プロファイル 1.4GB のう�
 
 関連: [asset-storage-policy.md](asset-storage-policy.md)（置き場のルーティング） /
 [information-architecture.md](information-architecture.md)（情報の置き場） /
-`scripts/prune-tmp.mjs`（`.tmp` の掃除本体）
+`scripts/prune-tmp.mjs`（scratch限定の互換入口・既定dry-run、削除は `--commit`）
+
+導入コマンドはGitの `maintenance start` も登録する。既存登録への再実行は可能で、登録失敗を成功として扱わない。

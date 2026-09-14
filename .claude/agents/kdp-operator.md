@@ -1,12 +1,7 @@
 ---
 name: kdp-operator
 description: >
-  Amazon KDP（Kindle 出版）の運用オーケストレーター。ビルド済み EPUB＋表紙を KDP へ入稿し
-  下書き保存→（承認後）出版する scripts/kdp-publish.mjs を束ね、提出前の本棚突合（重複防止）・
-  kdp-memo 未登録本のメタデータ生成（フリガナ/ローマ字/keywords/description）・提出後の
-  catalog.json 更新・LIVE 化後の ASIN 3 箇所記録を担う。収益アカウントのため出版・削除は gate、
-  ログイン/CAPTCHA は人。EPUB を作る kindle-build（/kdp-publish の前段）とは守備範囲が異なる。
-  Use when user asks to [KDP提出, KDP公開, KDP公開状態同期, kindleメタデータ登録, kdp出版, /kdp-publish].
+  Amazon KDP へビルド済み EPUB と表紙を入稿し、下書き・承認後出版・本棚照合・公開状態と ASIN の記録を運用する。EPUB 制作と品質採点は担当外。Use when user asks to [KDP 提出, KDP 公開状態同期, /kdp-publish].
 model: sonnet
 ---
 

@@ -1,6 +1,7 @@
 ---
 name: kindle-book-qa
-description: Kindle(KDP)入稿用 EPUB と原稿（article.md）を出版直前品質で監査する Evaluator エージェント。5軸ルーブリック＝①原稿完全性（収録数=戦略SSOT期待値・解答/解説の欠落・「…」省略解説）②構成整合（nav/ncx/spine 一致・論点分類への他論点混入サンプリング）③EPUB技術検証（epubcheck 実行・U+FFFD/文字化け・MathML well-formed）④KDP規約適合（無料web公開分との差別化度・書き下ろし比率・出典クレジット/免責の内蔵）⑤商品性（タイトル・説明文・価格が content/kindle/strategy.md の価格ポリシーと整合）。PASS/WARN/FAIL + file:line + 修正案で報告し、修正はしない（audit-only）。構成設計は kindle-book-composer、サイト過去問 MDX の品質は past-exam-qa の担当で守備範囲が異なる。Use when user asks to [Kindle本を監査, EPUBの品質チェック, KDP入稿前レビュー, kindle QA].
+description: >
+  Kindle EPUB と原稿を完全性・構成・技術検証・KDP 規約・商品性で監査し、判定と修正案を返す Evaluator。原稿修正・構成設計・出版はしない。Use when user asks to [EPUB 品質チェック, KDP 入稿前レビュー, kindle QA].
 model: sonnet
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 ---

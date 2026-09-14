@@ -1,6 +1,7 @@
 ---
 name: past-exam-rewriter
-description: past-exam-qa の指摘を過去問記事の MDX に適用する校正 Generator エージェント（技術士総監・1級2級土木の択一 primary／記述 secondary 横断）。ExamPoint の折衷案圧縮（引っかけ1行 summary ＋ items 最大2・体言止め・lint 9-11 準拠）、ドリフト見出し撤去、RelatedKeywords の接頭辞/slug 修正、各選択肢の正誤理由の補完、文体統一を行う。設問文・正答行・KaTeX は原則保持し、正答が誤りと指摘された時のみ慎重に修正。Edit ツールで外科的に編集し、返却前に lint 9-11 / U+FFFD を自己点検。civil の図は civil-exam-figure-extractor、civil 二次の解答補完は civil-secondary-exam-writer、civil 一次の壊れ ExamPoint 再生成は civil-exampoint-restorer に委ねる。Use when user asks to [過去問の指摘を修正, 過去問を校正, ExamPoint を圧縮, 過去問構造を統一, 過去問品質サイクルの修正フェーズ].
+description: >
+  総監・1級2級土木の択一/記述過去問 MDX に past-exam-qa の指摘を適用する Generator。設問文・正答・KaTeX は原則保持し、正答変更は誤りの指摘時のみ。図処理・二次解答の新規補完は担当外。Use when user asks to [過去問校正, ExamPoint 圧縮, 過去問構造統一].
 model: sonnet
 ---
 

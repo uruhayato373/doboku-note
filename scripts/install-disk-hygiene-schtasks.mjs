@@ -23,6 +23,7 @@ import { homedir } from 'node:os';
 import { join } from 'node:path';
 
 import { REPO_ROOT } from './lib/repository-paths.mjs';
+import { ensureGitMaintenance, renderCleanupWrapper } from './lib/local-resources.mjs';
 
 const TASK_NAME = 'doboku-note disk-hygiene';
 const HOME = homedir();
@@ -76,18 +77,12 @@ if (argv.includes('--run-now')) {
 }
 
 // --- install ---------------------------------------------------------------
+ensureGitMaintenance(REPO_ROOT);
 mkdirSync(LOG_DIR, { recursive: true });
 const script = join(REPO_ROOT, 'scripts', 'disk-hygiene.mjs');
 // node の出力は UTF-8、cmd の echo は cp932 で書く。ja-JP の %date% は曜日「(月)」を含むので
 // 先頭 10 文字（YYYY/MM/DD）だけ使い、ログを ASCII + UTF-8 に保つ。
-const wrapper = [
-  '@echo off',
-  `cd /d "${REPO_ROOT}"`,
-  `echo [%date:~0,10% %time:~0,8%] start >> "${LOG}"`,
-  `"${process.execPath}" "${script}" --fix >> "${LOG}" 2>&1`,
-  `echo [%date:~0,10% %time:~0,8%] exit=%errorlevel% >> "${LOG}"`,
-  '',
-].join('\r\n');
+const wrapper = renderCleanupWrapper({ root: REPO_ROOT, node: process.execPath, script, log: LOG });
 writeFileSync(WRAPPER, wrapper);
 
 const register = [

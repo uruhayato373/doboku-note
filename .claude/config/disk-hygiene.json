@@ -9,12 +9,9 @@
   "thresholds": {
     "freeWarnBytes": 32212254720,
     "freeFailBytes": 16106127360,
-    "buildArtifactMaxAgeDays": 7,
-    "tmpPruneDays": 3,
     "workflowTranscriptMaxAgeDays": 14,
     "npxMaxAgeDays": 30,
     "npmCacheMaxBytes": 3221225472,
-    "playwrightCacheMaxBytes": 209715200,
     "sparkleMaxAgeDays": 2,
     "worktreeIdleHours": 24,
     "automationMaxAgeDays": 3,
@@ -30,21 +27,6 @@
     "origin/main",
     "develop",
     "main"
-  ],
-  "playwrightCacheRoot": {
-    "darwin": "~/Library/Caches/doboku-note/playwright-auth/profiles",
-    "win32": "$AUTH_ROOT/profiles"
-  },
-  "playwrightCacheSubdirs": [
-    "Default/Cache",
-    "Default/Code Cache",
-    "Default/GPUCache",
-    "Default/DawnWebGPUCache",
-    "Default/DawnGraphiteCache",
-    "Default/Service Worker/CacheStorage",
-    "GraphiteDawnCache",
-    "ShaderCache",
-    "GrShaderCache"
   ],
   "sparkleRoot": "~/Library/Caches/com.openai.codex/org.sparkle-project.Sparkle",
   "codexBrowserCacheRoot": {

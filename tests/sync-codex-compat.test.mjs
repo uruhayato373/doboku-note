@@ -190,7 +190,7 @@ test('9. --staged: working tree だけ生成済みで index 未 stage だと FAI
 
 const RULE_A = '---\npaths:\n  - "content/site/**"\n  - "src/**/*.ts"\n---\n\n# ルール A\n\n- 詳細は [content-authoring.md](../knowledge/reference/content-authoring.md) と [docs/README.md](../../docs/README.md)\n';
 
-test('11. .claude/rules/*.md は AGENTS.md 末尾に「条件付きルール」節として併合され、相対リンクはルート起点へ書き換わる', () => {
+test('11. 適用パスと原本リンクを索引にし、rule 本文は常時コンテキストへ複製しない', () => {
   const root = makeFixture();
   writeMinimalValidFixture(root);
   writeFile(root, '.claude/rules/a.md', RULE_A);
@@ -202,10 +202,13 @@ test('11. .claude/rules/*.md は AGENTS.md 末尾に「条件付きルール」�
 
   const agentsMd = readFileSync(join(root, 'AGENTS.md'), 'utf8');
   assert.ok(agentsMd.includes('# Test Project\n\nHello.\n\n## 条件付きルール'), 'CLAUDE.md 本文の直後に節が続く');
-  assert.ok(agentsMd.includes('### .claude/rules/a.md\n\n適用パス: `content/site/**`, `src/**/*.ts`\n\n# ルール A\n'));
-  assert.ok(agentsMd.includes('### .claude/rules/sub/b.md\n\n適用パス: `scripts/**`\n\n# ルール B\n'));
-  assert.ok(agentsMd.includes('](./.claude/knowledge/reference/content-authoring.md)'), '../knowledge → ./.claude/knowledge');
-  assert.ok(agentsMd.includes('](./docs/README.md)'), '../../docs → ./docs');
+  assert.ok(agentsMd.includes('[.claude/rules/a.md](.claude/rules/a.md) — `content/site/**`, `src/**/*.ts`'));
+  assert.ok(agentsMd.includes('[.claude/rules/sub/b.md](.claude/rules/sub/b.md) — `scripts/**`'));
+  assert.ok(agentsMd.includes('一致するルール原本をすべて読む'));
+  assert.ok(agentsMd.includes('新規ファイルも予定パスで判定'));
+  assert.ok(agentsMd.includes('相対参照は原本のディレクトリから解決'));
+  assert.ok(!agentsMd.includes('# ルール A'));
+  assert.ok(!agentsMd.includes('content-authoring.md'), '本文中のリンクも複製しない');
   assert.ok(!agentsMd.includes('paths:'), 'frontmatter は複製しない');
 
   assert.equal(run(root, ['--check']).status, 0);
@@ -224,16 +227,34 @@ test('12. paths: の無い rule は rule-without-paths で --check / --write が
   assert.match(c.stdout + c.stderr, /\.claude\/rules\/always\.md/);
 });
 
-test('13. rule 本文を変えて再生成しないと --check が AGENTS.md mismatch で FAIL する', () => {
+test('13. rule 本文だけの更新は再生成不要、適用パスの変更は未同期として検出する', () => {
   const root = makeFixture();
   writeMinimalValidFixture(root);
   writeFile(root, '.claude/rules/a.md', RULE_A);
   assert.equal(run(root, ['--write']).status, 0);
 
   writeFile(root, '.claude/rules/a.md', RULE_A.replace('ルール A', 'ルール A 改'));
+  assert.equal(run(root, ['--check']).status, 0, '原本参照なので本文更新を複製しない');
+  writeFile(root, '.claude/rules/a.md', RULE_A.replace('content/site/**', 'content/note/**'));
   const c = run(root, ['--check']);
   assert.equal(c.status, 1);
   assert.match(c.stdout + c.stderr, /mismatch:\n  - AGENTS\.md/);
+});
+
+test('13b. rule の削除と追加は索引の更新漏れとして検出する', () => {
+  const root = makeFixture();
+  writeMinimalValidFixture(root);
+  writeFile(root, '.claude/rules/a.md', RULE_A);
+  assert.equal(run(root, ['--write']).status, 0);
+  rmSync(join(root, '.claude/rules/a.md'));
+  assert.equal(run(root, ['--check']).status, 1);
+  assert.equal(run(root, ['--write']).status, 0);
+  writeFile(root, '.claude/rules/new.md', RULE_A);
+  assert.equal(run(root, ['--check']).status, 1);
+  assert.equal(run(root, ['--write']).status, 0);
+  const generated = readFileSync(join(root, 'AGENTS.md'), 'utf8');
+  assert.ok(generated.includes('](.claude/rules/new.md)'));
+  assert.ok(!generated.includes('](.claude/rules/a.md)'));
 });
 
 test('10. canonical 側の非 SKILL.md ペイロード（バイナリ含む）は .agents 側へ複製されない', () => {
@@ -314,4 +335,27 @@ test('17. --staged: agents / settings を stage して生成物を stage しな�
   execFileSync('git', ['add', 'AGENTS.md', '.agents', '.codex'], { cwd: root });
   const c2 = run(root, ['--staged']);
   assert.equal(c2.status, 0, c2.stdout + c2.stderr);
+});
+
+test('staged consumer inspection reads index bytes, including Unicode, even if worktree was repaired', () => {
+  const root = makeFixture({ git: true }); writeMinimalValidFixture(root);
+  assert.equal(run(root, ['--write']).status, 0);
+  writeFile(root, 'scripts/日本語.mjs', "// 日本語\nconsole.log('.agents/skills/dev/skill-a/x');\n");
+  execFileSync('git', ['add', '.'], { cwd: root });
+  writeFile(root, 'scripts/日本語.mjs', '// repaired but not staged\n');
+  const result = run(root, ['--staged']);
+  assert.equal(result.status, 1, result.stdout + result.stderr);
+  assert.match(result.stdout + result.stderr, /日本語/);
+  execFileSync('git', ['add', 'scripts/日本語.mjs'], { cwd: root });
+  assert.equal(run(root, ['--staged']).status, 0);
+});
+
+test('staged check with no runtime changes reports not applicable while checking all generated definitions', () => {
+  const root = makeFixture({ git: true }); writeMinimalValidFixture(root);
+  assert.equal(run(root, ['--write']).status, 0);
+  execFileSync('git', ['add', '.'], { cwd: root });
+  execFileSync('git', ['-c', 'user.name=Test', '-c', 'user.email=test@example.com', 'commit', '-qm', 'initial'], { cwd: root });
+  const result = run(root, ['--staged']);
+  assert.equal(result.status, 0, result.stdout + result.stderr);
+  assert.match(result.stdout, /staged対象なし/);
 });

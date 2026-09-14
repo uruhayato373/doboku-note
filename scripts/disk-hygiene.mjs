@@ -23,7 +23,7 @@ import { join, relative, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { REPO_ROOT } from './lib/repository-paths.mjs';
-import { pruneTmp } from './prune-tmp.mjs';
+import { cleanMain } from './local-resource-clean.mjs';
 import { resolveAuthRoot } from './lib/playwright-auth-profile.mjs';
 import { listProcesses } from './lib/process-list.mjs';
 import {
@@ -36,7 +36,6 @@ import {
   itemsForPlatform,
   parseCleanupPeriodDays,
   parseWorktreeList,
-  planArtifactRemoval,
   referencedNpxIds,
   resolvePlatformPath,
   selectStaleDirs,
@@ -376,91 +375,20 @@ export function collect({ quick = false, config = loadConfig(), platform = proce
     return itemsForPlatform(items, platform);
   }
 
-  // --- ビルド成果物（main と各 worktree の .next / out）--------------------
-  // 稼働判定は「ビルド/配信のフルコマンド」×「その worktree を cwd にしている」の二条件。
-  // プロセス名だけだと別リポジトリの next dev を、cwd だけだとエージェント自身の node を拾う。
-  const BUILD_CMD = /next (build|dev|start)|static-server|npm run serve/;
-  const artifactActions = [];
-  let artifactBytes = 0;
-  let anyBuildRunning = false;
-  for (const wt of wtList) {
-    const wtBuildRunning = cwdInUse(cwds, wt.path, { commandPattern: BUILD_CMD }) === true;
-    if (wtBuildRunning) anyBuildRunning = true;
-    for (const kind of ['.next', 'out']) {
-      const p = join(wt.path, kind);
-      if (!existsSync(p)) continue;
-      const stampFile = kind === '.next' ? join(p, 'BUILD_ID') : join(p, 'index.html');
-      const plan = planArtifactRemoval({
-        kind,
-        path: p,
-        newestMtimeMs: mtimeOf(stampFile) ?? mtimeOf(p),
-        now,
-        maxAgeDays: t.buildArtifactMaxAgeDays,
-        buildOrServeRunning: wtBuildRunning,
-      });
-      if (plan.action === 'delete') {
-        const b = quick ? null : dirBytes(p);
-        artifactBytes += b || 0;
-        artifactActions.push({ kind: 'rm', path: p, reason: plan.reason, bytes: b });
-      }
+  // Daily and manual cleanup share scope, retention, locks and live-process guards.
+  for (const [id, category] of [['build-artifacts', 'build'], ['tmp-scratch', 'scratch'], ['playwright-cache', 'browser-cache']]) {
+    try {
+      const report = cleanMain(['--category', category], { quiet: true });
+      const eligible = report.rows.filter(row => row.eligible);
+      items.push({ id, status: !report.complete ? 'warn' : eligible.length ? 'warn' : 'ok',
+        bytes: report.rows.reduce((sum, row) => sum + row.bytes, 0),
+        detail: `検査 ${report.rows.length} 件 / 整理候補 ${eligible.length} 件${report.complete ? '' : ' / 検査不成立'}`,
+        actions: [{ kind: 'resources-clean', category, path: category }] });
+    } catch (error) {
+      items.push({ id, status: 'warn', bytes: null, detail: `検査不成立: ${error.message}`,
+        actions: [{ kind: 'resources-clean', category, path: category }] });
     }
   }
-  items.push({
-    id: 'build-artifacts',
-    status: artifactActions.length > 0 ? 'warn' : 'ok',
-    bytes: artifactBytes || null,
-    detail: artifactActions.length
-      ? `${t.buildArtifactMaxAgeDays} 日超の .next / out ${artifactActions.length} 件（再生成可）`
-      : anyBuildRunning
-        ? 'build / dev server 稼働中の worktree があるため一部対象外'
-        : `古いビルド成果物なし（${t.buildArtifactMaxAgeDays} 日超が対象）`,
-    actions: artifactActions,
-  });
-
-  // --- .tmp スクラッチ ----------------------------------------------------
-  const tmpRoot = join(REPO_ROOT, '.tmp');
-  items.push({
-    id: 'tmp-scratch',
-    status: 'ok',
-    bytes: quick ? null : dirBytes(tmpRoot),
-    detail: `${t.tmpPruneDays} 日超のスクラッチを掃除（worktree は除外）`,
-    actions: [{ kind: 'prune-tmp', path: tmpRoot, days: t.tmpPruneDays }],
-  });
-
-  // --- Playwright の Chromium ディスクキャッシュ（ログインは別ディレクトリ）-
-  // macOS はキャッシュが ~/Library/Caches に分離される。Windows はプロファイル直下に同居するので
-  // root は $AUTH_ROOT/profiles、消すのはサブディレクトリ（Cache / Code Cache / Service Worker …）だけ。
-  // 使用中判定は --user-data-dir= のパス一致（Windows は大小文字を無視）。
-  const pwRoot = expandPath(config.playwrightCacheRoot, platform);
-  const pwActions = [];
-  let pwBytes = 0;
-  const psTextCmp = platform === 'win32' ? psText.toLowerCase() : psText;
-  const profileInUse = (profile) =>
-    psTextCmp.includes(`--user-data-dir=${platform === 'win32' ? profile.toLowerCase() : profile}`);
-  for (const profile of listDirs(pwRoot)) {
-    if (profileInUse(profile)) continue;
-    for (const sub of config.playwrightCacheSubdirs) {
-      const p = join(profile, sub);
-      if (!existsSync(p)) continue;
-      const b = quick ? null : dirBytes(p);
-      pwBytes += b || 0;
-      pwActions.push({ kind: 'rm', path: p, reason: 'Chromium のディスクキャッシュ（Cookie・Local Storage は触らない）', bytes: b });
-    }
-  }
-  const pwOver = !quick && pwBytes > t.playwrightCacheMaxBytes;
-  items.push({
-    id: 'playwright-cache',
-    platform: ['darwin', 'win32'],
-    status: pwRoot === null ? 'unsupported' : pwOver ? 'warn' : 'ok',
-    bytes: pwBytes || null,
-    detail:
-      pwRoot === null
-        ? 'この OS の Playwright キャッシュ置き場が設定に無い'
-        : pwActions.length
-          ? `${pwActions.length} 件・${bytesHuman(pwBytes)}（閾値 ${bytesHuman(t.playwrightCacheMaxBytes)}）`
-          : 'キャッシュなし（または全プロファイル使用中）',
-    actions: pwOver ? pwActions : [],
-  });
 
   // --- ChatGPT/Codex アプリ内蔵ブラウザのキャッシュ（Windows・実測 330MB）-----
   // MSIX パッケージの LocalCache 配下。ChatGPT.exe が動いている間はファイルが開かれているので触らない。
@@ -581,6 +509,10 @@ export function collect({ quick = false, config = loadConfig(), platform = proce
     }
   }
 
+  if (!psLines?.length) {
+    for (const item of items) item.actions = [];
+    items.push({ id: 'process-inspection', status: 'fail', bytes: null, detail: 'プロセス取得不成立・削除を停止', actions: [{ kind: 'inspection-failed', path: 'processes' }] });
+  }
   return itemsForPlatform(items, platform);
 }
 
@@ -603,6 +535,7 @@ export function applyFixes(items, { dryRun = true, log = console.log } = {}) {
         continue;
       }
       try {
+        if (action.kind === 'inspection-failed') throw new Error('process inspection unavailable');
         if (action.kind === 'rm') {
           rmSync(action.path, { recursive: true, force: true });
         } else if (action.kind === 'worktree-remove') {
@@ -620,11 +553,12 @@ export function applyFixes(items, { dryRun = true, log = console.log } = {}) {
           removed += 1;
           bytes += action.bytes || 0;
           continue;
-        } else if (action.kind === 'prune-tmp') {
-          const res = pruneTmp({ root: action.path, days: action.days });
-          log(`${label} — ${res.count} 件削除（${bytesHuman(res.bytes)}）`);
-          removed += res.count;
-          bytes += res.bytes;
+        } else if (action.kind === 'resources-clean') {
+          const res = cleanMain(['--category', action.category, '--commit'], { quiet: true });
+          log(`${label} — ${res.deleted} 件削除（${bytesHuman(res.freedBytes)}）`);
+          removed += res.deleted;
+          bytes += res.freedBytes;
+          if (!res.complete) failures += 1;
           continue;
         } else if (action.kind === 'npm-cache-clean') {
           const r = run('npm', ['cache', 'clean', '--force'], { timeout: 300_000 });

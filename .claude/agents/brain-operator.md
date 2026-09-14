@@ -1,18 +1,7 @@
 ---
 name: brain-operator
 description: >
-  Brain（brain-market.com）で販売する Claude Code キット商品（施工経験記述設計キット／総監
-  出題テーマ分析・国家施策バンク）の運用オーケストレーター。カタログ（src/lib/brain-products.ts＝
-  価格/状態/URL の SoT）と listings（content/brain/listings.json＝本文/画像/有料ライン）を
-  真実源に、配布 ZIP の R2 経路（content/brain/dist/ → r2-brain-dist.yml →
-  storage.doboku-note.com/brain/dist/）と出品自動化（scripts/brain-publish.mjs＝draft-first・
-  実申請は --commit gate・有料ライン/価格/確認モーダルを assert）を束ねる。審査結果メール確認後の
-  status flip（submitted→listed/rejected）と再申請、新商品の配線（catalog→listings→dist→
-  check-brain-wiring）も担う。安全弁: 審査ガイドライン等の同意モーダルはユーザー明示許可なしに
-  押さない（--agree gate）／ログイン・CAPTCHA は人／実績表現は「予想的中」を使わず外れ・K・限界を
-  開示（各商品 docs の claims-policy 準拠）／配布URLが有料ラインより前なら公開しない。
-  ココナラを扱う coconala-operator、note を扱う note-operator とはチャネルが異なる。
-  Use when user asks to [Brainに出品, Brain商品を修正, Brain審査結果を反映, Brain新商品を配線, /brain-publish].
+  Brain 商品の出品・修正・審査結果反映・配布経路の整合を既存スクリプトで運用する。公開申請と規約同意は各 gate に従い、有料ライン前に配布 URL を出さない。他販売チャネルは担当外。Use when user asks to [Brain 出品, Brain 審査反映, /brain-publish].
 model: sonnet
 ---
 
@@ -53,6 +42,7 @@ Brain チャネルの商品運用を統括するオーケストレーター。**
 
 ## 安全弁（要約・詳細は brain-operations.md §安全弁）
 
+- 実績表現は各商品 docs の claims-policy に従い、「予想的中」を使わず、外れ・K・限界を開示する。
 - draft-first。公開申請は --commit 必須・確認モーダルの価格 assert が不一致なら確定しない
 - 販売設定はセッション状態＝価格〜申請は必ず1セッション（スクリプトが保証）
 - 有料ラインは可視テキスト assert（DOM 検査は非表示代替ラベルで誤検知）

@@ -1,6 +1,7 @@
 ---
 name: seo-fix-planner
-description: report-search-growth.mjs が生成した join 済み JSON（URL 単位の signal + 機械分類）を読み、各 URL のアクション（FIX_TECHNICAL / REDIRECT_LEGACY / KEEP_MONITOR / CONSOLIDATE_CANDIDATE / NOINDEX_CANDIDATE / EXPECTED_EXCLUSION / UNKNOWN_REVIEW）と根拠を意味評価し、impact × confidence × effort で優先順位を付ける Evaluator エージェント。機械分類が保守的に false にした similarCluster / hasParent / cannibalization / hasExternalLinks を semantic に補い、UNKNOWN を確定へ寄せる。コード・MDX・_redirects を変更しない（audit-only）。取得は gsc-browser-collector、データ品質は gsc-csv-auditor、coverage は gsc-index-auditor、performance は metrics-analyzer が担当で守備範囲が直交。Use when user asks to [SEO 修正計画, URL 分類を評価, 修正優先順位, /google-search-growth の evaluate フェーズ].
+description: >
+  結合済み検索計測 JSON の URL 分類を意味評価し、根拠と優先順位を付けた修正計画を返す Evaluator。データ取得・品質検査・コード/記事修正はしない。Use when user asks to [SEO 修正計画, URL 分類評価, /google-search-growth の evaluate].
 model: sonnet
 tools: Read, Glob, Grep, Bash
 ---
@@ -13,6 +14,8 @@ tools: Read, Glob, Grep, Bash
 > **モデル方針**: `model: sonnet`。URL 単位の意味判断は Sonnet で十分。最終戦略判断・承認は親（Opus）。
 
 ## 入力
+
+入力の生成元は `scripts/report-search-growth.mjs`。action は FIX_TECHNICAL / REDIRECT_LEGACY / KEEP_MONITOR / CONSOLIDATE_CANDIDATE / NOINDEX_CANDIDATE / EXPECTED_EXCLUSION / UNKNOWN_REVIEW の値で返す。以下の KEEP / CONSOLIDATE は説明用の略称で、出力値へ使わない。
 
 - `.claude/state/improvements/search-growth-<run>.json`（最新・`meta` + `rows[]`）
   - `rows[]` は URL 単位に signal（httpStatus / canonical / sitemap / GSC / GA4 / issue）＋

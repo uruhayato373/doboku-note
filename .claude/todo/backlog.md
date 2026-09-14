@@ -158,25 +158,16 @@ CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認し
 
 ## 🟡 中 — 2〜3ヶ月以内
 
-### [DN-0231] 既存 clone を partial clone 化し、git maintenance で pack を自動整理する（履歴は書き換えない）
+### [DN-0231] Mac のGit保守を導入し、次回clone時にpartial cloneを使う（履歴は書き換えない）
 タグ: [インフラ・計測] [種類:改善] [起票:2026-09-14]
 
 **起点**: 旧カード「git 履歴の次回切り詰め（`size-pack` 1.05 GiB の回収）」は 2026-09-14 に「履歴は書き換えない」と決めて廃止した。代わりに clone 側を軽くする。Windows は 09-14 に `git maintenance start` 済み（`maintenance.strategy=incremental`）。`.git/lfs` の孤児 2.25 GB（参照 0）は同日に削除済み。
 
-1. Mac: `git maintenance start`。新規 clone なら `git clone --filter=blob:none`、既存 clone なら `git config remote.origin.promisor true && git config remote.origin.partialclonefilter blob:none` の後 `git gc` で履歴 blob を落とす。
+1. Mac: `npm run disk-hygiene:install` でGit保守も登録する。次回clone時は `git clone --filter=blob:none` を使う。既存cloneへのpromisor設定と `git gc` だけでは到達可能な履歴blobは落ちない。現checkoutの自動置換や履歴切り詰めはしない。根拠: [Git gc](https://git-scm.com/docs/git-gc)、[partial clone](https://git-scm.com/docs/partial-clone)。
 2. 両 PC: `git count-objects -vH` の `size-pack` と `garbage`、`git config maintenance.strategy` を `asset-storage-policy.md` §8 の末尾へ実測として 1 行記録する（Windows の 09-14 実測: size-pack 1.11 GiB / garbage 2 = 8.45 MiB の tmp_pack）。
-3. `scripts/install-disk-hygiene-launchd.mjs` / `install-disk-hygiene-schtasks.mjs` の Install で `git maintenance start` を冪等に呼ぶ（Windows 対応 diff が develop に載ってから）。
 
-**完了条件**: 両 PC で `git config maintenance.strategy` = `incremental`、Mac の `.git` 実体が partial clone で 1 GB 未満、`garbage 0`。
+**完了条件**: Macで保守登録を確認して両PCの実測を記録する。次回clone時のfilter確認はcloneを更新する際に行い、既存packの強制削除を完了条件にしない。
 
-### [DN-0232] エージェント description 32 件を 300 文字以下に絞り、毎セッションの固定トークンを減らす
-タグ: [エージェント・SSOT] [種類:改善] [Codex候補] [起票:2026-09-14]
-
-**起点**: `.claude/agents/*.md` の frontmatter `description` は全 81 件がセッション冒頭の system prompt に載る（合計 23.2k 文字）。32 件が 300 文字超（最大 1,179＝`coconala-operator`。折り返し description を含めた実測）で、担当範囲・安全弁・関連スクリプトまで description に書いている。詳細は `agents-registry.md` と本文にあるので二重。
-
-**やること**: `scripts/check-agent-descriptions.mjs`（baseline ラチェット・上限 300 code points・`Use when` 必須）が既存 32 件を baseline に持つ（PR #505）。1 件ずつ description を「何をする / 何をしない / Use when」の 3 文に圧縮し、削った内容が本文か `agents-registry.md` に残っていることを確認して `--update-baseline` で baseline を縮める。`check-doc-coupling` が description 変更で registry 更新を要求するので同一 commit で更新する。
-
-**完了条件**: `node scripts/check-agent-descriptions.mjs` の baseline が 0 件、`npm run check-doc-coupling` 緑。
 
 ### [DN-0233] Mac 端末の初期設定を今回の設計に合わせて揃える（hygiene・pre-commit・dotfiles・memory リンク・MCP）
 タグ: [インフラ・計測] [種類:改善] [起票:2026-09-14]

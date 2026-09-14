@@ -30,7 +30,9 @@ export function scanTree(root, rel, deadline = Date.now() + 180000, collect = fa
     if (st.isSymbolicLink()) { result.links++; return; }
     result.newestMs = Math.max(result.newestMs, st.mtimeMs);
     if (st.isDirectory()) {
-      for (const e of readdirSync(abs, { withFileTypes: true })) visit(join(abs, e.name));
+      const children = readdirSync(abs, { withFileTypes: true });
+      if (collect && children.some(e => e.name === '.git')) throw new Error('nested repository is protected');
+      for (const e of children) visit(join(abs, e.name));
     } else if (st.isFile()) {
       result.bytes += st.size; result.files++;
       if (collect) result.entries.push({ path: relative(root, abs).split(sep).join('/'), bytes: st.size, mtimeMs: st.mtimeMs });
@@ -51,13 +53,13 @@ export function processInventory(root) {
     if (r.status !== 0) return { complete: false, rows: [], reason: 'process inspection unavailable' };
     const rows = r.stdout.trim().split('\n').flatMap(line => {
       const m = line.trim().match(/^(\d+)\s+(\d+)\s+(\d+)\s+(.+)$/);
-      return m ? [{ pid: +m[1], parentPid: +m[2], bytes: +m[3] * 1024, kind: /chrome|chromium|safari|firefox/i.test(m[4]) ? 'browser' : /node|next|ffmpeg|python/i.test(m[4]) ? 'unknown-runtime' : 'other' }] : [];
+      return m ? [{ pid: +m[1], parentPid: +m[2], bytes: +m[3] * 1024, kind: /chatgpt|claude|codex/i.test(m[4]) ? 'agent' : /webview/i.test(m[4]) ? 'webview' : /chrome|chromium|safari|firefox/i.test(m[4]) ? 'browser' : /node|next|ffmpeg|python/i.test(m[4]) ? 'unknown-runtime' : 'other' }] : [];
     });
     return { complete: rows.length > 0, rows };
   }
   const r = spawnSync('powershell.exe', ['-NoProfile', '-NonInteractive', '-File', script], { encoding: 'utf8', timeout: 30000, windowsHide: true, maxBuffer: 2 * 1024 * 1024 });
   if (r.status !== 0) return { complete: false, rows: [], reason: 'process inspection unavailable' };
-  try { return { complete: true, rows: JSON.parse(r.stdout || '[]') }; }
+  try { const rows = JSON.parse(r.stdout || '[]'); return { complete: Array.isArray(rows) && rows.length > 0, rows: Array.isArray(rows) ? rows : [] }; }
   catch { return { complete: false, rows: [], reason: 'invalid process inspection' }; }
 }
 export function warningsFor(snapshot, policy, previous) {
@@ -88,4 +90,20 @@ export function acquireLock(root, name) {
   }
   writeFileSync(join(dir, 'owner.json'), JSON.stringify({ pid: process.pid, startedAt: new Date().toISOString() }));
   return () => { unlinkSync(join(dir, 'owner.json')); rmdirSync(dir); };
+}
+
+export function ensureGitMaintenance(root, run = spawnSync) {
+  const result = run('git', ['maintenance', 'start'], { cwd: root, encoding: 'utf8', timeout: 30000, windowsHide: true });
+  if (result.status !== 0) throw new Error(`git maintenance registration failed: ${result.error?.message || result.stderr || result.status}`);
+}
+
+export function renderCleanupWrapper({ root, node, script, log }) {
+  return [
+    '@echo off', `cd /d "${root}"`,
+    `echo [%date:~0,10% %time:~0,8%] start >> "${log}"`,
+    `"${node}" "${script}" --fix >> "${log}" 2>&1`,
+    'set "cleanupExit=%errorlevel%"',
+    `echo [%date:~0,10% %time:~0,8%] exit=%cleanupExit% >> "${log}"`,
+    'exit /b %cleanupExit%', ''
+  ].join('\r\n');
 }

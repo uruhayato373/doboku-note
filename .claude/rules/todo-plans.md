@@ -20,7 +20,7 @@ paths:
 
 ## `.claude/plans/`
 
-- 一案件だけの実装契約。**完了後に削除する**（SessionStart の `scripts/check-plan-staleness.mjs` が古さを警告）。設計と実装の分業（Codex が設計、Claude Code が実装・抽出・plan 削除） → [implementation-handoff.md](../knowledge/reference/implementation-handoff.md)
+- 一案件だけの実装契約。**完了後に削除する**（SessionStart の `scripts/check-plan-staleness.mjs` が古さを警告）。通常は担当 AI が設計から実装・検証・抽出まで完結し、必要なときだけ引き継ぐ → [implementation-handoff.md](../knowledge/reference/implementation-handoff.md)
 
 ## handoff・review（`docs/handoffs/` `docs/reviews/`）
 
