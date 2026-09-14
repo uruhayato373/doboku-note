@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-09-12T23:53:38.846Z",
-  "scanned": 579,
+  "generated_at": "2026-09-14T01:16:16.452Z",
+  "scanned": 590,
   "skipped_photo": 36,
   "framed": 0,
   "errors": 0,
   "counts": {
     "HIGH": 337,
     "MEDIUM": 0,
-    "LOW": 195
+    "LOW": 197
   },
   "violations": [
     {
@@ -2865,6 +2865,20 @@
       "severity": "HIGH",
       "side": "left",
       "detail": "left縁でストローク中割りの疑い（縁2行/内側4行の密度比 85%≥50%・縁幅 10%）"
+    },
+    {
+      "path": "content/site/pe-construction/r08-construction-planning/img/question-ii-2-2.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "left",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
+      "path": "content/site/pe-construction/r08-geotechnical/img/question-ii-2-2-plan.webp",
+      "rule": "STRAY_LABEL",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "bottom縁の分離島（高さ42px・全インクの2.3%・白ギャップ55px）＝小見出し/軸/写り込みのいずれか（要目視）"
     },
     {
       "path": "content/site/pe-construction/shakai-shihon-ronbun-keyword/img/fig01.png",
