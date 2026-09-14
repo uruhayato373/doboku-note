@@ -46,6 +46,7 @@
 ## 設計方針
 
 - **git 管理対象**: 状態遷移の履歴を追跡可能にするため、差分コミットを許容
+- **日付付き snapshot の寿命**（2026-09-14）: `metrics/**` と `weekly-metrics/` の日付付きファイルは `scripts/lib/prune-state-snapshots.mjs` の `POLICIES` に寿命を宣言する（psi 14 件・ga4/gsc 90 日〔prefix ごと最新 1 件は残す〕・url-inspection 6 件・monetization 4 件・crosswalk 8 件・weekly-metrics 26 週・基準線は `keep-all`）。削除は書き手の workflow が commit 直前に `npm run prune-state-snapshots -- --commit --family …` で行い、未宣言の日付付きファイルは `quality:audit` の `snapshot-lifetime` が赤にする。`metrics/business/**`・`metrics/gsc/rank-watch/**` は不変台帳で対象外。読み手は最新 1〜2 件しか見ないので旧版は git 履歴で足りる
 - **Next.js ランタイム非依存**: `src/` から import されることはない（エージェント作業領域）
 - **`data/` からの移動**: 旧 `data/*.json` は 2026-04-15 に `.claude/state/` 配下へ集約（ADR: `.claude/knowledge/reference/data-storage-decision.md`）
 - **タスクの単一正源**: やるべきことは `.claude/todo/`（annual/monthly/weekly、手動運用）に集約。旧 `task-queue.json` + 旧 Project TODO ビュー 自動生成は 2026-06-11 廃止

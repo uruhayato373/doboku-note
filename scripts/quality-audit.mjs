@@ -241,6 +241,7 @@ const CHECKS = [
   // Git に何を追跡してよいかのラチェット（DN-0111 Phase 1・2026-08-21 追加）。
   // 既存違反（教材ページ画像 868 / base64 SVG 756 等）は baseline で猶予し、増加だけを止める。
   // baseline 更新: npm run check-git-binary-policy -- --update-baseline
+  { id: 'snapshot-lifetime', cmd: ['node', 'scripts/prune-state-snapshots.mjs', '--check-coverage'], timeout: 60_000, ci: true, note: '.claude/state/metrics/** と weekly-metrics/ の日付付き snapshot すべてに寿命（scripts/lib/prune-state-snapshots.mjs POLICIES）が宣言されているか。未宣言＝誰も消せず永久に増える系列。削除本体は書き手の workflow（psi-audit / fetch-metrics / index-coverage）が commit 直前に --commit で実行' },
   { id: 'git-binary-policy', npm: 'check-git-binary-policy', timeout: 120_000, ci: true, note: '生成物・著作権物・巨大 blob・拡張子偽装の新規追跡を baseline ラチェットで止める（HEAD 4.16GiB / remote 11GB の再発防止）' },
   { id: 'knip-ratchet', npm: 'check-knip-ratchet', timeout: 300_000, ci: true, note: 'デッドコードが baseline から増えていないか' },
   {
