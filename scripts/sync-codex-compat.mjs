@@ -377,7 +377,7 @@ let indexEntries;
 const blobCache = new Map();
 function gitIndexEntries(pathspec) {
   if (!indexEntries) {
-    const out = execFileSync('git', ['ls-files', '--stage', '-z'], { encoding: 'utf8', maxBuffer: 256 * 1024 * 1024, cwd: ROOT });
+    const out = execFileSync('git', ['-c', 'core.quotepath=false', 'ls-files', '--stage', '-z'], { encoding: 'utf8', maxBuffer: 256 * 1024 * 1024, cwd: ROOT });
     indexEntries = out.split('\0').filter(Boolean).map(line => {
       const tab = line.indexOf('\t');
       const [mode, sha, stage] = line.slice(0, tab).split(' ');
@@ -407,7 +407,7 @@ function catFile(sha) {
 }
 
 function indexSource() {
-  const staged = execFileSync('git', ['diff', '--cached', '--name-only', '--diff-filter=ACMR', '-z'], { cwd: ROOT, encoding: 'utf8' }).split('\0').filter(Boolean);
+  const staged = execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--cached', '--name-only', '--diff-filter=ACMR', '-z'], { cwd: ROOT, encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 }).split('\0').filter(Boolean);
   const runtimeEntries = staged.flatMap(path => gitIndexEntries(path)).filter(e => e.mode !== '120000' && TEXT_EXT.has(e.path.slice(e.path.lastIndexOf('.'))) && RUNTIME_SCAN_ROOTS.some(root => e.path === root || e.path.startsWith(root + '/')));
   preloadBlobs([CLAUDE_MD, AGENTS_MD, CLAUDE_SKILLS_DIR, RULES_DIR, AGENTS_SKILLS_DIR, CLAUDE_AGENTS_DIR, CODEX_AGENTS_DIR, CLAUDE_SETTINGS, CODEX_HOOKS_JSON].flatMap(gitIndexEntries).concat(runtimeEntries));
   let agentsShaByPath = null;
