@@ -1,14 +1,22 @@
 {
   "_doc": "check-backlog-verify が前回の status を覚えておくための状態。red → green の遷移だけが「完了の疑い」で、常時 green は [検証:] の指定が完了判定になっていない疑い（surfacer を指している）。",
-  "updatedAt": "2026-09-04",
+  "updatedAt": "2026-09-14",
   "commands": {
-    "psi-audit:check": {
+    "check-content-expansion": {
+      "status": "green",
+      "at": "2026-09-14"
+    },
+    "resources:cloud": {
       "status": "red",
-      "at": "2026-09-04"
+      "at": "2026-09-14"
+    },
+    "check-video-content": {
+      "status": "green",
+      "at": "2026-09-14"
     },
     "quality:audit:ci": {
-      "status": "red",
-      "at": "2026-09-04"
+      "status": "error",
+      "at": "2026-09-14"
     }
   }
 }
