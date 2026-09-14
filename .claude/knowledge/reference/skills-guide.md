@@ -106,7 +106,7 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 | スキル | 一言説明 | 呼ぶとき |
 |---|---|---|
 | `/dev-start` | ポート 3020 をクリーンアップして開発サーバー起動 | `開発サーバー`, `dev start`, `/dev-start` |
-| `/deploy` | Cloudflare Pages へデプロイ | `デプロイ`, `本番反映`, `/deploy` |
+| `/deploy` | Cloudflare Pages へデプロイ・公開後SSR検査（社内回線遮断時はCIで再検査） | `デプロイ`, `本番反映`, `/deploy` |
 | `/code-review` | Next.js コード品質レビュー | `コードレビュー`, `/code-review` |
 | `/review` | 対象ファイル種別を自動判定しレビュースキルを実行 | `レビューして`, `/review` |
 | `/pr-create` | 現ブランチから GitHub PR を作成 | `PR作成`, `/pr-create` |
