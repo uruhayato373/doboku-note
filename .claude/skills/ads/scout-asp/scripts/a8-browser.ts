@@ -30,6 +30,7 @@ import * as path from "path";
 import * as fs from "fs";
 import { createRequire } from "module";
 import { resolveProfileDir, resolveStatePath } from "../../../../../scripts/lib/playwright-auth-profile.mjs";
+import { leanContextOptions } from "../../../../../scripts/lib/playwright-launch.mjs";
 
 const require = createRequire(import.meta.url);
 const core = require("../../../../scripts/ads/lib/a8-scout-core.mjs");
@@ -927,13 +928,13 @@ async function main() {
 
   fs.mkdirSync(PROFILE_DIR, { recursive: true });
   fs.mkdirSync(path.dirname(STATE_PATH), { recursive: true });
-  const context: BrowserContext = await chromium.launchPersistentContext(PROFILE_DIR, {
+  const context: BrowserContext = await chromium.launchPersistentContext(PROFILE_DIR, leanContextOptions({
     headless: !args.includes("--headed"),
     viewport: { width: 1280, height: 900 },
     locale: "ja-JP",
     timezoneId: "Asia/Tokyo",
     args: ["--disable-blink-features=AutomationControlled"],
-  });
+  }));
   const page = context.pages()[0] || (await context.newPage());
   await restoreSession(context);
 

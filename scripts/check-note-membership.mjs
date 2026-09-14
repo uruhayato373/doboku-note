@@ -31,6 +31,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { leanContextOptions } from './lib/playwright-launch.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const CFG = join(ROOT, '.claude/config/note-membership.json');
@@ -103,9 +104,9 @@ let liveChecked = 0;
 if (LIVE) {
   const { chromium } = await import('playwright');
   const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
-  const ctx = await chromium.launchPersistentContext(resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT }), {
+  const ctx = await chromium.launchPersistentContext(resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT }), leanContextOptions({
     channel: 'chrome', headless: false, ignoreHTTPSErrors: true, ...(PROXY ? { proxy: { server: PROXY } } : {}),
-  });
+  }));
   try {
     const page = ctx.pages()[0] || (await ctx.newPage());
     await page.goto('https://note.com/membership/settings/manage', { waitUntil: 'domcontentloaded', timeout: 60000 });

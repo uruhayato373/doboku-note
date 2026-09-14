@@ -21,6 +21,8 @@ import {
   authRootExists,
   redactAuthDiagnostic,
   looksLikeSecretKey,
+  legacyWindowsAuthRoots,
+  PROFILE_CACHE_SUBDIRS,
 } from '../scripts/lib/playwright-auth-profile.mjs';
 
 const REPO_ROOT = fileURLToPath(new URL('..', import.meta.url));
@@ -42,15 +44,23 @@ function writeFixtureRegistry(dir, servicesOverride) {
 
 // --- resolveDefaultAuthRoot ------------------------------------------------
 
-test('Windows: LOCALAPPDATA があればそれを使う', () => {
+test('Windows: 既定は AppData の外（~/.local/state）。MSIX アプリからの書き込みが仮想化されないため', () => {
   const root = resolveDefaultAuthRoot({ platform: 'win32', env: { LOCALAPPDATA: 'C:\\Users\\tester\\AppData\\Local' }, homeDir: 'C:\\Users\\tester' });
-  assert.match(root, /AppData[\\/]Local[\\/]doboku-note[\\/]playwright-auth$/);
+  assert.equal(root, 'C:\\Users\\tester\\.local\\state\\doboku-note\\playwright-auth');
+  assert.doesNotMatch(root, /AppData/);
 });
 
-test('Windows: LOCALAPPDATA が無ければ homeDir/AppData/Local へフォールバック', () => {
-  const root = resolveDefaultAuthRoot({ platform: 'win32', env: {}, homeDir: 'C:\\Users\\tester' });
-  assert.match(root, /AppData[\\/]Local[\\/]doboku-note[\\/]playwright-auth$/);
-  assert.match(root, /tester/);
+test('Windows: legacyWindowsAuthRoots は旧既定 %LOCALAPPDATA% と Codex(MSIX) の仮想化先を返す', () => {
+  const roots = legacyWindowsAuthRoots({ env: { LOCALAPPDATA: 'C:\\Users\\tester\\AppData\\Local' }, homeDir: 'C:\\Users\\tester' });
+  assert.equal(roots[0], 'C:\\Users\\tester\\AppData\\Local\\doboku-note\\playwright-auth');
+  assert.match(roots[1], /Packages\\OpenAI\.Codex_\*\\LocalCache\\Local\\doboku-note\\playwright-auth$/);
+  // LOCALAPPDATA 未設定は homeDir/AppData/Local へフォールバック
+  assert.match(legacyWindowsAuthRoots({ env: {}, homeDir: 'C:\\Users\\tester' })[0], /^C:\\Users\\tester\\AppData\\Local\\/);
+});
+
+test('PROFILE_CACHE_SUBDIRS はログイン実体（Cookies / Local Storage）を含まない', () => {
+  for (const p of PROFILE_CACHE_SUBDIRS) assert.doesNotMatch(p, /Cookies|Local Storage|IndexedDB|Login Data/);
+  assert.ok(PROFILE_CACHE_SUBDIRS.includes('Default/Service Worker/CacheStorage'));
 });
 
 test('macOS: space を含む Application Support パスを組み立てる', () => {

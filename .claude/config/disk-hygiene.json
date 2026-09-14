@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "description": "ローカルディスク肥大を止める機械可読の設定（2026-09-10 / DN-0176）。検査は scripts/check-disk-hygiene.mjs、掃除は scripts/disk-hygiene.mjs --fix、日次実行は launchd（npm run disk-hygiene:install）。運用の真実源は .claude/knowledge/reference/disk-hygiene.md。",
+  "description": "ローカルディスク肥大を止める機械可読の設定（2026-09-10 / DN-0176、2026-09-14 に Windows 対応）。検査は scripts/check-disk-hygiene.mjs、掃除は scripts/disk-hygiene.mjs --fix、日次実行は macOS が launchd（npm run disk-hygiene:install）、Windows がタスクスケジューラ（npm run disk-hygiene:install:win）。運用の真実源は .claude/knowledge/reference/disk-hygiene.md。パス値は文字列か OS 別オブジェクト { darwin, win32 }。~/ は home、$AUTH_ROOT は Playwright の auth root（scripts/lib/playwright-auth-profile.mjs が解決）、* は実在ディレクトリで展開。",
   "philosophy": [
     "削除してよいのは再生成できるものだけ。履歴（Codex セッション・Claude の .jsonl・生成画像）は容量を報告するだけで消さない。",
     "迷ったら残す。ガードの材料が取れなかったときは keep 側へ倒す。",
@@ -18,11 +18,23 @@
     "sparkleMaxAgeDays": 2,
     "worktreeIdleHours": 24,
     "automationMaxAgeDays": 3,
-    "claudeCleanupMaxDays": 7
+    "claudeCleanupMaxDays": 7,
+    "codexBrowserCacheMaxBytes": 104857600
   },
-  "allowedWorktreeRoots": [".claude/worktrees", "~/.codex/worktrees"],
-  "baseRefs": ["origin/develop", "origin/main", "develop", "main"],
-  "playwrightCacheRoot": "~/Library/Caches/doboku-note/playwright-auth/profiles",
+  "allowedWorktreeRoots": [
+    ".claude/worktrees",
+    "~/.codex/worktrees"
+  ],
+  "baseRefs": [
+    "origin/develop",
+    "origin/main",
+    "develop",
+    "main"
+  ],
+  "playwrightCacheRoot": {
+    "darwin": "~/Library/Caches/doboku-note/playwright-auth/profiles",
+    "win32": "$AUTH_ROOT/profiles"
+  },
   "playwrightCacheSubdirs": [
     "Default/Cache",
     "Default/Code Cache",
@@ -35,15 +47,39 @@
     "GrShaderCache"
   ],
   "sparkleRoot": "~/Library/Caches/com.openai.codex/org.sparkle-project.Sparkle",
+  "codexBrowserCacheRoot": {
+    "win32": "~/AppData/Local/Packages/OpenAI.Codex_*/LocalCache/Roaming/Codex/web/Codex/Default/Partitions/codex-browser-app/Cache"
+  },
   "claudeProjectsRoot": "~/.claude/projects",
   "claudeSettingsPath": "~/.claude/settings.json",
-  "stampPath": "~/Library/Logs/doboku-note/disk-hygiene.last-ok",
+  "stampPath": {
+    "darwin": "~/Library/Logs/doboku-note/disk-hygiene.last-ok",
+    "win32": "~/.local/state/doboku-note/logs/disk-hygiene.last-ok"
+  },
   "reportOnly": [
-    { "path": "~/.codex/sessions", "note": "Codex の会話履歴（ユーザーデータ・自動削除しない）" },
-    { "path": "~/.codex/archived_sessions", "note": "Codex のアーカイブ済み会話（30 日超は手で棚卸し）" },
-    { "path": "~/.codex/generated_images", "note": "Codex の生成画像" },
-    { "path": "~/.codex/worktrees", "note": "Codex の worktree 置き場（中身は worktrees 項目が判定する）" },
-    { "path": "~/stats47/.turbo/cache", "note": "stats47 の Turbo キャッシュ。掃除はあちらの launchd に置く（対象外）" },
-    { "path": "~/stats47/apps/web/.next", "note": "stats47 のビルド成果物（対象外・報告のみ）" }
+    {
+      "path": "~/.codex/sessions",
+      "note": "Codex の会話履歴（ユーザーデータ・自動削除しない）"
+    },
+    {
+      "path": "~/.codex/archived_sessions",
+      "note": "Codex のアーカイブ済み会話（30 日超は手で棚卸し）"
+    },
+    {
+      "path": "~/.codex/generated_images",
+      "note": "Codex の生成画像"
+    },
+    {
+      "path": "~/.codex/worktrees",
+      "note": "Codex の worktree 置き場（中身は worktrees 項目が判定する）"
+    },
+    {
+      "path": "~/stats47/.turbo/cache",
+      "note": "stats47 の Turbo キャッシュ。掃除はあちらの launchd に置く（対象外）"
+    },
+    {
+      "path": "~/stats47/apps/web/.next",
+      "note": "stats47 のビルド成果物（対象外・報告のみ）"
+    }
   ]
 }

@@ -53,6 +53,12 @@ npm run drive-vault-sync      # **人か手元のスクリプトだけが使う*
 npm run check-drive-vault     # 置き場ルールのゲート（asset-storage.json の全 group に audience・site⇒public・ci⇒private|byVisibility・human は理由無しに R2 へ置けない）＋R2 と Drive の同一パス衝突＋drive-manifest の整合。**マウント無しは「実体検査 0 件」と明示**して設定・台帳だけで判定・pre-commit --staged-only ＋ quality:audit
 npm run check-reference-sources # 参考文献台帳・記事 sources ID・出典粒度・非公開文字起こし名の漏洩・未付与 baseline ラチェットを検査（--staged は pre-commit）
 npm run check-reference-sources:deep # Drive の文字起こし frontmatter↔原本台帳と、市販書籍由来記事の40文字以上の逐語一致0を実体照合（Mac・Driveマウント要）
+npm run check-disk-hygiene    # ローカル容量の surfacer（macOS / Windows 両対応・他 OS 専用項目は n/a。exit 2 は「検査できるはずの項目に材料が無い」）
+npm run disk-hygiene:fix      # 再生成可能な滞留物をガード付きで削除（日次実行の実体。dry-run は node scripts/disk-hygiene.mjs --dry-run）
+npm run disk-hygiene:install  # macOS: launchd へ日次登録（-- --status / --run-now / --uninstall）
+npm run disk-hygiene:install:win # Windows: タスクスケジューラへ日次登録（12:30・逃した回は次回起動時。ログと stamp は ~/.local/state/doboku-note/logs/。AppData 配下にしないのは MSIX アプリからの読み書きが仮想化されるため）
+npm run auth:doctor           # Playwright auth root の診断（Windows は旧 %LOCALAPPDATA% と Codex(MSIX) サンドボックスの取り残しも警告）
+npm run auth:migrate          # 旧置き場のプロファイルを新 root へコピー（既定 dry-run・--commit。Cookie が最新の候補を選び、キャッシュは運ばない）
 ```
 
 ## 公的基準（共通仕様書の章記事・ページ画像）

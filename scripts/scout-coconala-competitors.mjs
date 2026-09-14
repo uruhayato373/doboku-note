@@ -28,6 +28,7 @@ import { mkdirSync, writeFileSync, readFileSync, readdirSync, existsSync } from 
 import { join } from 'node:path';
 import { todayJst } from './lib/jst-date.mjs';
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
+import { leanContextOptions } from './lib/playwright-launch.mjs';
 
 const ROOT = process.cwd();
 const CONFIG_PATH = join(ROOT, '.claude/config/coconala-competitors.json');
@@ -187,7 +188,7 @@ async function main() {
     locale: 'ja-JP',
   };
   if (!IS_CI) launchOptions.channel = 'chrome';
-  const ctx = await chromium.launchPersistentContext(PROFILE, launchOptions);
+  const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions(launchOptions));
   const page = ctx.pages()[0] ?? (await ctx.newPage());
 
   const market = loadMarketServices();

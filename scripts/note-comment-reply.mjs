@@ -27,6 +27,7 @@ import { chromium } from 'playwright';
 import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { leanContextOptions } from './lib/playwright-launch.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
@@ -36,10 +37,10 @@ const SUBMIT = process.argv.includes('--submit');
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 if (!NOTE || !BODY) { console.error('usage: node scripts/note-comment-reply.mjs <noteId> <本文txt> [--submit]'); process.exit(1); }
 
-const ctx = await chromium.launchPersistentContext(resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT }), {
+const ctx = await chromium.launchPersistentContext(resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT }), leanContextOptions({
   channel: 'chrome', headless: false, ignoreHTTPSErrors: true, viewport: { width: 1400, height: 1050 },
   args: ['--disable-blink-features=AutomationControlled'], ...(PROXY ? { proxy: { server: PROXY } } : {}),
-});
+}));
 try {
   const page = ctx.pages()[0] || (await ctx.newPage());
   await page.goto('https://note.com/settings/account', { waitUntil: 'domcontentloaded', timeout: 60000 });

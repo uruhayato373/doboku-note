@@ -33,6 +33,7 @@ import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { parseNoteText, checkLimits } from './lib/note-meta.mjs';
+import { leanContextOptions } from './lib/playwright-launch.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -97,12 +98,12 @@ function articleNotes(key) {
 }
 
 // ---- 実行 ----
-const ctx = await chromium.launchPersistentContext(PROFILE, {
+const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
   headless: false, channel: 'chrome',
   proxy: PROXY ? { server: PROXY } : undefined,
   ignoreHTTPSErrors: true, viewport: { width: 1366, height: 1100 },
   args: ['--disable-blink-features=AutomationControlled'],
-});
+}));
 const page = ctx.pages()[0] || (await ctx.newPage());
 let exitCode = 0;
 

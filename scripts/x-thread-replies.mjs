@@ -27,6 +27,7 @@ import * as fs from "node:fs";
 import * as path from "node:path";
 import { fileURLToPath } from "node:url";
 import { resolveProfileDir } from "./lib/playwright-auth-profile.mjs";
+import { leanContextOptions } from "./lib/playwright-launch.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, "..");
@@ -187,11 +188,11 @@ if (!RUN) {
 }
 if (due.length === 0) { console.log("実行対象なし"); process.exit(0); }
 
-const ctx = await chromium.launchPersistentContext(PROFILE, {
+const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
   headless: false, channel: "chrome", ignoreHTTPSErrors: true,
   viewport: { width: 1280, height: 1000 },
   args: ["--disable-blink-features=AutomationControlled"],
-});
+}));
 const page = ctx.pages()[0] || (await ctx.newPage());
 
 // 投稿先の取り違えは即停止。旧凍結アカウントのセッションが残っていてもリプライしない。

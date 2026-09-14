@@ -18,8 +18,9 @@
  *   node scripts/check-disk-hygiene.mjs --quick --stop # 今すぐ効く 2 件だけ（Stop フック・毎ターン鳴る）
  *   node scripts/check-disk-hygiene.mjs --json
  *
- * 検査件数を必ず出す（CLAUDE.md §9）。macOS 専用項目が検査できない環境では
- * 「検査不成立」と明示して exit 2 にする（緑にしない）。
+ * 検査件数を必ず出す（CLAUDE.md §9）。検査できるはずの項目に材料が無い環境では
+ * 「検査不成立」と明示して exit 2 にする（緑にしない）。他 OS 専用の項目（Sparkle は mac、
+ * Codex 内蔵ブラウザは win）は n/a として数えず、macOS / Windows のどちらでも検査が成立する。
  * ---------------------------------------------------------------------------
  */
 import { collect, loadConfig } from './disk-hygiene.mjs';
@@ -79,12 +80,12 @@ if (QUICK) {
 console.log(formatTable(items, summary));
 if (summary.unsupported > 0) {
   console.log(
-    `[check-disk-hygiene] 検査不成立: macOS 専用 ${summary.unsupported} 項目が未検査（Mac で実行する）。緑にしない。`,
+    `[check-disk-hygiene] 検査不成立: ${summary.unsupported} 項目を検査できなかった（この OS の置き場が設定に無い等）。緑にしない。`,
   );
 }
 if (summary.fail > 0) {
   console.log('[check-disk-hygiene] ✗ FAIL あり。上の詳細に推奨コマンドがある。');
 } else if (summary.exitCode === 0) {
-  console.log('[check-disk-hygiene] ✓ 問題なし。掃除は launchd が日次で回している。');
+  console.log(`[check-disk-hygiene] ✓ 問題なし。掃除は ${process.platform === 'win32' ? 'タスクスケジューラ' : 'launchd'} が日次で回している。`);
 }
 process.exit(summary.exitCode);

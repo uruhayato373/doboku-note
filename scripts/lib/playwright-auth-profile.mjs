@@ -115,9 +115,12 @@ export function resolveDefaultAuthRoot({ platform, env, homeDir }) {
   // ネイティブ path のままでよい（そちらは常に「今動いている OS」のパスを扱う前提）。
   const p = platform === 'win32' ? win32 : posix;
   if (platform === 'win32') {
-    const localAppData = env?.LOCALAPPDATA;
-    const base = localAppData && localAppData.trim() !== '' ? localAppData : p.resolve(homeDir, 'AppData', 'Local');
-    return p.resolve(base, APP_DIR_NAME, AUTH_SUBDIR);
+    // 2026-09-14: 旧既定の %LOCALAPPDATA% は、MSIX アプリ（ChatGPT/Codex）から書くと
+    // %LOCALAPPDATA%\Packages\<PFN>\LocalCache\Local へ仮想化（リダイレクト）され、
+    // Claude Code / ターミナルからは見えない＝ログインとプロファイルが二重になる。
+    // AppData の外（Linux の XDG state 相当）を既定にする。旧置き場は legacyWindowsAuthRoots が
+    // auth:doctor / auth:migrate の移行元として拾う。
+    return p.resolve(homeDir, '.local', 'state', APP_DIR_NAME, AUTH_SUBDIR);
   }
   if (platform === 'darwin') {
     return p.resolve(homeDir, 'Library', 'Application Support', APP_DIR_NAME, AUTH_SUBDIR);
@@ -127,6 +130,37 @@ export function resolveDefaultAuthRoot({ platform, env, homeDir }) {
   const base = xdgStateHome && xdgStateHome.trim() !== '' ? xdgStateHome : p.resolve(homeDir, '.local', 'state');
   return p.resolve(base, APP_DIR_NAME, AUTH_SUBDIR);
 }
+
+/**
+ * Windows で「以前の既定」または「MSIX 仮想化で迷い込んだ」auth root の候補（pure・存在確認しない）。
+ * `*` を含むものは呼び出し側が実在ディレクトリで展開する。
+ *   1. %LOCALAPPDATA%\doboku-note\playwright-auth（2026-09-14 までの既定）
+ *   2. %LOCALAPPDATA%\Packages\OpenAI.Codex_*\LocalCache\Local\doboku-note\playwright-auth（Codex から 1 に書いた実体）
+ */
+export function legacyWindowsAuthRoots({ env, homeDir } = {}) {
+  const localAppData = env?.LOCALAPPDATA && env.LOCALAPPDATA.trim() !== '' ? env.LOCALAPPDATA : win32.resolve(homeDir ?? '', 'AppData', 'Local');
+  return [
+    win32.resolve(localAppData, APP_DIR_NAME, AUTH_SUBDIR),
+    win32.resolve(localAppData, 'Packages', 'OpenAI.Codex_*', 'LocalCache', 'Local', APP_DIR_NAME, AUTH_SUBDIR),
+  ];
+}
+
+/**
+ * プロファイル内で「ログインに不要・再生成できる」ディレクトリ（プロファイル相対）。
+ * migrate のコピー除外と disk-hygiene の掃除対象で同じ一覧を使う。
+ */
+export const PROFILE_CACHE_SUBDIRS = Object.freeze([
+  'Default/Cache',
+  'Default/Code Cache',
+  'Default/GPUCache',
+  'Default/DawnWebGPUCache',
+  'Default/DawnGraphiteCache',
+  'Default/Service Worker/CacheStorage',
+  'Default/Service Worker/ScriptCache',
+  'GraphiteDawnCache',
+  'ShaderCache',
+  'GrShaderCache',
+]);
 
 /**
  * 危険な auth root（repo root / .git / worktree root / repo 配下 .local / filesystem root /

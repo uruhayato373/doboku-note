@@ -36,6 +36,7 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 import { chromium } from 'playwright';
 import { readFileSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
+import { leanContextOptions } from './lib/playwright-launch.mjs';
 
 const ROOT = process.cwd();
 const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
@@ -54,7 +55,7 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 mkdirSync(join(ROOT, '.tmp'), { recursive: true });
 console.log(`[prep] note=${NOTE} sections=${SECTIONS.length} items=${ALL_IDS.length} mode=${COMMIT ? 'COMMIT' : 'DRY'}`);
 
-const ctx = await chromium.launchPersistentContext(PROFILE, { headless: false, channel: 'chrome', viewport: { width: 1366, height: 1000 }, args: ['--disable-blink-features=AutomationControlled'] });
+const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({ headless: false, channel: 'chrome', viewport: { width: 1366, height: 1000 }, args: ['--disable-blink-features=AutomationControlled'] }));
 let exitCode = 0;
 try {
   const page = ctx.pages()[0] || (await ctx.newPage());

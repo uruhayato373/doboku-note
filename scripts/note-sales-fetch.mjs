@@ -45,6 +45,7 @@ import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { resolveSaleEntry, reconcileTotal, canonicalizeProductId } from './lib/sales-normalize.mjs';
+import { leanContextOptions } from './lib/playwright-launch.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -88,13 +89,13 @@ function loadMagazines() {
 
 console.log(`=== ${NAME}: ${MONTH_ARG} / mode=${COMMIT ? 'COMMIT(sales-log差し替え)' : 'DRY-RUN(書き込みなし)'} ===`);
 
-const ctx = await chromium.launchPersistentContext(PROFILE, {
+const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
   headless: false,
   channel: 'chrome',
   ignoreHTTPSErrors: true,
   viewport: { width: 1366, height: 1000 },
   args: ['--disable-blink-features=AutomationControlled'],
-});
+}));
 
 try {
   const page = ctx.pages()[0] || (await ctx.newPage());

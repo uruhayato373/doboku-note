@@ -6,7 +6,7 @@ gitignore 済み・ホーム配下・worktree の中に溜まるので、CI に�
 
 真実源: 機械可読は [`.claude/config/disk-hygiene.json`](../../config/disk-hygiene.json)、
 判定ロジックは `scripts/lib/disk-hygiene.mjs`、検査は `npm run check-disk-hygiene`、
-掃除は `npm run disk-hygiene:fix`（日次 launchd）。
+掃除は `npm run disk-hygiene:fix`（日次。macOS は launchd、Windows はタスクスケジューラ）。
 
 ## 1. 何が溜まるか（2026-09-10 の実測）
 
@@ -29,7 +29,7 @@ Sparkle と stats47 の Turbo キャッシュは**生成元を止められない
 | 層 | 何をするか | 実体 |
 |---|---|---|
 | 生成元を止める | worktree の置き場ルール・`register.sh` の後始末・会話ログの保持期間 | CLAUDE.md §10、`book_ocr_concat.py`、`~/.claude/settings.json` |
-| 自動掃除 | 日次 04:17 に再生成可能なものだけ削除 | launchd `com.doboku-note.disk-hygiene` → `scripts/scheduled/disk-hygiene.sh` |
+| 自動掃除 | 日次に再生成可能なものだけ削除 | macOS: launchd `com.doboku-note.disk-hygiene`（04:17）→ `scripts/scheduled/disk-hygiene.sh` / Windows: タスクスケジューラ `doboku-note disk-hygiene`（12:30・逃した回は次回起動時）→ `~/.local/state/doboku-note/disk-hygiene.cmd` |
 | surfacer | 残っている滞留物と**掃除が止まっていること**を出す | `npm run check-disk-hygiene`、両ツールの Stop フック、Claude の SessionStart |
 
 **ツールに依存しない面が要る**のが設計の要。掃除を Claude の SessionStart に載せると、
@@ -53,7 +53,8 @@ Codex で作業した分は永久に掃除されない（実測で Codex の wor
 | `worktrees` | マージ済み worktree | merged／作業ツリーが clean／未 lock／24 時間以上静止／その配下を cwd にしているプロセスが無い。`git worktree remove` は **`--force` を使わない**（untracked が残っていれば git が拒否する＝最後の砦） |
 | `build-artifacts` | 7 日超の `.next` / `out` | そのパスを cwd にした `next build/dev/start`・`npm run serve` が動いていない |
 | `tmp-scratch` | `.tmp/` の 3 日超 | `.git` を持つディレクトリは丸ごと除外 |
-| `playwright-cache` | Chromium のディスクキャッシュ | そのプロファイルを使うブラウザが起動していない。**ログイン実体は `~/Library/Application Support/doboku-note/playwright-auth/` にあり触らない**（Cookies・Login Data・Local Storage は別ディレクトリ） |
+| `playwright-cache` | Chromium のディスクキャッシュ | そのプロファイルを使うブラウザが起動していない（`--user-data-dir=` をプロセス一覧で照合・Windows は大小文字無視）。**ログイン実体（Cookies・Login Data・Local Storage）は触らない**。macOS はキャッシュが `~/Library/Caches/doboku-note/playwright-auth/profiles/` に分離されるが、Windows はプロファイル直下（`Default/Cache` 等）に同居するので root を `$AUTH_ROOT/profiles` にしてサブディレクトリだけ消す（一覧は `PROFILE_CACHE_SUBDIRS`＝`auth:migrate` の除外と共通） |
+| `codex-browser-cache` | ChatGPT/Codex アプリ内蔵ブラウザの HTTP キャッシュ（Windows・実測 330MB） | `ChatGPT.exe` が動いていない（開いているファイルを消すと失敗するだけでなく stamp も書けなくなる） |
 | `sparkle-updates` | Codex 自動更新の残骸 | コマンドラインに現れているサブディレクトリは除外 |
 | `npm-cache` | `_cacache`（3GB 超のとき） | `npm install` / `npm ci` が動いていない（常駐の `npm exec` は除外する。さもないと永久に掃除できない） |
 | `npx-cache` | 30 日超の `_npx/<id>` | 稼働中プロセスが参照していない |
@@ -73,15 +74,16 @@ Drive vault と R2 は「台帳で管理する制作物・原本」の置き場�
 ## 6. 導入・確認・解除
 
 ```bash
-npm run disk-hygiene:install                # launchd へ登録（毎日 04:17）
-npm run disk-hygiene:install -- --status    # 登録状況
+npm run disk-hygiene:install                # macOS: launchd へ登録（毎日 04:17）
+npm run disk-hygiene:install:win            # Windows: タスクスケジューラへ登録（毎日 12:30・StartWhenAvailable）
+npm run disk-hygiene:install -- --status    # 登録状況（Windows は :win）
 npm run disk-hygiene:install -- --run-now   # 今すぐ 1 回
 npm run disk-hygiene:install -- --uninstall # 解除
 npm run check-disk-hygiene                  # いまの状態（表・exit 0/1/2）
 node scripts/disk-hygiene.mjs --dry-run     # 何を消すかとガード理由（削除しない）
 ```
 
-ログは `~/Library/Logs/doboku-note/disk-hygiene.log`。完走したときだけ
+ログは macOS が `~/Library/Logs/doboku-note/disk-hygiene.log`、Windows が `~/.local/state/doboku-note/logs/disk-hygiene.log`（AppData 配下にしないのは MSIX アプリ〔ChatGPT/Codex〕から読むと仮想化で別の場所を見るため）。完走したときだけ
 `disk-hygiene.last-ok` を更新し、検査はその鮮度で「掃除が止まっている」を検知する。
 **止まったことを検知できないと、また静かに溜まる。**
 
@@ -102,11 +104,27 @@ node scripts/disk-hygiene.mjs --dry-run     # 何を消すかとガード理由�
 | `日次掃除が N 日止まっている` | `npm run disk-hygiene:install -- --status` → 未登録なら再インストール、失敗ならログを見る |
 | `cleanupPeriodDays が未設定` | 上の 6 節のとおり `~/.claude/settings.json` に入れる |
 
-## 8. 非 macOS
+## 8. Windows（2026-09-14 対応）
 
-launchd も `~/Library` も無いので、macOS 専用の項目は「未検査」と明示して **exit 2＝検査不成立**にする
-（緑にしない）。会社 PC で `npm run check-disk-hygiene` が exit 2 を返すのは正常。
-`quality:audit` の登録も `process.platform === 'darwin'` 以外は skip 理由付きで飛ばす。
+macOS と同じ検査・掃除が動く。違いは置き場と実行基盤だけで、設定（`disk-hygiene.json`）のパス値は
+OS 別オブジェクト `{ darwin, win32 }` で持つ（`~/` は home、`$AUTH_ROOT` は Playwright の auth root、
+`*` は実在ディレクトリで展開）。
+
+| | macOS | Windows |
+|---|---|---|
+| 日次実行 | launchd 04:17 | タスクスケジューラ 12:30（逃した回は次回起動時） |
+| ログ・stamp | `~/Library/Logs/doboku-note/` | `~/.local/state/doboku-note/logs/` |
+| Playwright キャッシュ | `~/Library/Caches/…/profiles/<p>/Default/Cache` | `<auth root>/profiles/<p>/Default/Cache`（同居） |
+| 片方にしか無い項目 | `sparkle-updates` | `codex-browser-cache` |
+
+他 OS 専用の項目は `n/a`（実検査にも未検査にも数えない）なので、どちらの OS でも検査は成立する。
+`unsupported`（exit 2）になるのは「検査できるはずなのに材料が無い」ときだけ（この OS の置き場が設定に無い等）。
+`du` / `ps` / `lsof` が無い分は Node の再帰と `Win32_Process`（PowerShell・1〜2 秒）で代替し、
+cwd 照合（worktree・ビルド成果物の稼働判定）だけは Windows では取れないので「判定不能＝残す」に倒れる。
+
+Windows 実測（2026-09-14・16GB 機）: X 用プロファイル 1.4GB のうちログインに要るのは 56MB、
+`.local` の旧プロファイル 10 本で 2.7GB がキャッシュだった。生成元は
+[playwright-auth-profiles.md](playwright-auth-profiles.md) §「省メモリ起動」で止めている。
 
 関連: [asset-storage-policy.md](asset-storage-policy.md)（置き場のルーティング） /
 [information-architecture.md](information-architecture.md)（情報の置き場） /

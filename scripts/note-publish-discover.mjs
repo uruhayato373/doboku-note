@@ -20,6 +20,7 @@ import { chromium } from 'playwright';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { leanContextOptions } from './lib/playwright-launch.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
@@ -30,10 +31,10 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const NOTE = process.argv[2];
 if (!NOTE) { console.error('usage: node .tmp/note-publish-dialog-probe.mjs <noteId>'); process.exit(1); }
 
-const ctx = await chromium.launchPersistentContext(PROFILE, {
+const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
   channel: 'chrome', headless: false, ignoreHTTPSErrors: true,
   ...(PROXY ? { proxy: { server: PROXY } } : {}),
-});
+}));
 try {
   const page = ctx.pages()[0] || (await ctx.newPage());
   await page.goto('https://note.com/settings/account', { waitUntil: 'domcontentloaded', timeout: 60000 }).catch(() => {});

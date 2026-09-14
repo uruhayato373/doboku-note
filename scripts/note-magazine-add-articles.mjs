@@ -49,6 +49,7 @@ import { spawnSync } from 'node:child_process';
 import { mkdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { leanContextOptions } from './lib/playwright-launch.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -151,12 +152,12 @@ mkdirSync(TMP, { recursive: true });
 // ---- ブラウザ ----
 let ctx;
 try {
-  ctx = await chromium.launchPersistentContext(PROFILE, {
+  ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
     headless: false, channel: 'chrome',
     proxy: PROXY ? { server: PROXY } : undefined,
     ignoreHTTPSErrors: true, viewport: { width: 1366, height: 1000 },
     args: ['--disable-blink-features=AutomationControlled'],
-  });
+  }));
 } catch (e) {
   const msg = String(e).split('\n')[0];
   console.error('\nLAUNCH_FAIL:', msg);

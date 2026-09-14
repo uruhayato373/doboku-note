@@ -16,6 +16,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { chromium } from "playwright";
 import { resolveProfileDir } from "./lib/playwright-auth-profile.mjs";
+import { leanContextOptions } from "./lib/playwright-launch.mjs";
 
 const ROOT = process.cwd();
 const DRAFT_DIR = path.join(ROOT, "content/sns/x/draft/094-career-longform-pilot");
@@ -218,14 +219,14 @@ async function main() {
   if (publish) assertTimeWindow(item);
 
   fs.mkdirSync(PROFILE_DIR, { recursive: true });
-  const context = await chromium.launchPersistentContext(PROFILE_DIR, {
+  const context = await chromium.launchPersistentContext(PROFILE_DIR, leanContextOptions({
     headless: true,
     channel: "chrome",
     viewport: { width: 1280, height: 900 },
     locale: "ja-JP",
     timezoneId: "Asia/Tokyo",
     args: ["--disable-blink-features=AutomationControlled"],
-  });
+  }));
   const page = context.pages()[0] || (await context.newPage());
 
   try {

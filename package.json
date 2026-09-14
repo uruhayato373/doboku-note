@@ -21,6 +21,7 @@
     "audit-repo-assets": "node scripts/audit-repository-assets.mjs",
     "disk-hygiene:fix": "node scripts/disk-hygiene.mjs --fix",
     "disk-hygiene:install": "node scripts/install-disk-hygiene-launchd.mjs",
+    "disk-hygiene:install:win": "node scripts/install-disk-hygiene-schtasks.mjs",
     "audit-katex": "node scripts/audit-katex-warnings.mjs",
     "audit-katex:ci": "node scripts/audit-katex-warnings.mjs --strict",
     "audit-note-cards": "node scripts/audit-note-cards.mjs",

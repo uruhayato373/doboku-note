@@ -19,6 +19,7 @@ import { spawnSync } from 'node:child_process';
 import { join, dirname, relative } from 'node:path';
 import { chromium } from 'playwright';
 import { recordPublishedTagHash } from './lib/note-republish-hash.mjs';
+import { leanContextOptions } from './lib/playwright-launch.mjs';
 
 const ROOT = process.cwd();
 const argv = process.argv.slice(2);
@@ -121,10 +122,10 @@ if (!COMMIT) { console.log(`\n[dry-run] 追加対象 ${plans.length} 記事（--
 if (!plans.length) { console.log('追加すべきタグなし（全て in-sync）。'); process.exit(0); }
 
 // ---- commit: ブラウザで不足タグを追加 ----
-const ctx = await chromium.launchPersistentContext(PROFILE, {
+const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
   headless: false, channel: 'chrome', viewport: { width: 1366, height: 1000 },
   args: ['--disable-blink-features=AutomationControlled'],
-});
+}));
 let ok = 0, fail = 0;
 try {
   const page = ctx.pages()[0] || (await ctx.newPage());

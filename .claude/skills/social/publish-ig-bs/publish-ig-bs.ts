@@ -47,6 +47,7 @@ import * as fs from "fs";
 import { spawnSync } from "child_process";
 import { resolveProfileDir } from "../../../../scripts/lib/playwright-auth-profile.mjs";
 import { uploadInstagramImagesInOrder } from "../../../../scripts/lib/instagram-image-upload.mjs";
+import { leanContextOptions } from "../../../../scripts/lib/playwright-launch.mjs";
 
 // ─── 設定 ─────────────────────────────────────────────
 const PROJECT_ROOT = path.resolve(__dirname, "../../../..");
@@ -1239,14 +1240,14 @@ function parseArgs(): Cli {
 // ─── メイン ────────────────────────────────────────────
 async function launch(): Promise<{ context: BrowserContext; page: Page }> {
   if (!fs.existsSync(PROFILE_DIR)) fs.mkdirSync(PROFILE_DIR, { recursive: true });
-  const context = await chromium.launchPersistentContext(PROFILE_DIR, {
+  const context = await chromium.launchPersistentContext(PROFILE_DIR, leanContextOptions({
     headless: false,
     channel: "chrome",
     viewport: { width: 1366, height: 950 },
     locale: "ja-JP",
     timezoneId: "Asia/Tokyo",
     args: ["--disable-blink-features=AutomationControlled"],
-  });
+  }));
   const page = context.pages()[0] || (await context.newPage());
   return { context, page };
 }

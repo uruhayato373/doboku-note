@@ -35,6 +35,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { todayJst } from './lib/jst-date.mjs';
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
+import { leanContextOptions } from './lib/playwright-launch.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PROFILE = resolveProfileDir('kdp', { cwd: ROOT, repoRoot: ROOT });
@@ -78,11 +79,11 @@ if (existsSync(CATALOG)) {
 const lookupId = (t) => exactToId.get(t) ?? baseToId.get(t.split(': ')[0]) ?? null;
 
 // ── 起動 ─────────────────────────────────────────────────────────────────
-const ctx = await chromium.launchPersistentContext(PROFILE, {
+const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
   headless: false, channel: 'chrome', proxy: PROXY ? { server: PROXY } : undefined,
   ignoreHTTPSErrors: true, viewport: { width: 1440, height: 1100 },
   args: ['--disable-blink-features=AutomationControlled'],
-});
+}));
 const bodyText = (page) => page.evaluate(() => document.body.innerText || '');
 const shot = async (page, s) => { try { await page.screenshot({ path: join(TMP, `kdp-report-${s}.png`) }); } catch {} };
 const abort = async (page, msg, step) => { console.error(`ABORT: ${msg}`); if (page) await shot(page, step); await ctx.close(); process.exit(2); };

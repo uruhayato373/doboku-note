@@ -14,6 +14,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseNoteText } from './lib/note-meta.mjs';
+import { leanContextOptions } from './lib/playwright-launch.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
@@ -33,10 +34,10 @@ if (!meta.title) { console.error('ABORT: title 解析失敗'); process.exit(1); 
 if (!FREE && !price) { console.error('ABORT: price 解析失敗（無料マガジンなら --free）', price); process.exit(1); }
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-const ctx = await chromium.launchPersistentContext(PROFILE, {
+const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
   headless: false, channel: 'chrome', proxy: PROXY ? { server: PROXY } : undefined,
   ignoreHTTPSErrors: true, viewport: { width: 1366, height: 1000 }, args: ['--disable-blink-features=AutomationControlled'],
-});
+}));
 try {
   const page = ctx.pages()[0] || (await ctx.newPage());
   await page.goto('https://note.com/settings/account', { waitUntil: 'domcontentloaded', timeout: 60000 }); await sleep(4000);

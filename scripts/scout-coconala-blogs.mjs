@@ -32,6 +32,7 @@ import { mkdirSync, writeFileSync, readFileSync, existsSync, writeSync } from 'n
 import { join } from 'node:path';
 import { todayJst } from './lib/jst-date.mjs';
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
+import { leanContextOptions } from './lib/playwright-launch.mjs';
 
 const ROOT = process.cwd();
 const CONFIG_PATH = join(ROOT, '.claude/config/coconala-blog.json');
@@ -102,14 +103,14 @@ async function scrapeUser(page, id) {
 
 const prev = existsSync(LATEST_PATH) ? JSON.parse(readFileSync(LATEST_PATH, 'utf8')) : null;
 
-const context = await chromium.launchPersistentContext(PROFILE, {
+const context = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
   headless: !HEADED,
   channel: 'chrome',
   proxy: PROXY ? { server: PROXY } : undefined,
   ignoreHTTPSErrors: true,
   viewport: { width: 1366, height: 1000 },
   args: ['--disable-blink-features=AutomationControlled'],
-});
+}));
 const page = context.pages()[0] || (await context.newPage());
 
 const out = {

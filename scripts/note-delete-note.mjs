@@ -44,6 +44,7 @@ import { chromium } from 'playwright';
 import { spawnSync } from 'node:child_process';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { leanContextOptions } from './lib/playwright-launch.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
@@ -162,10 +163,10 @@ async function loadAllDrafts(page) {
   return { rows, declared, complete: declared != null && rows.length >= declared };
 }
 
-const ctx = await chromium.launchPersistentContext(PROFILE, {
+const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
   headless: false, channel: 'chrome', proxy: PROXY ? { server: PROXY } : undefined,
   ignoreHTTPSErrors: true, viewport: { width: 1366, height: 1000 }, args: ['--disable-blink-features=AutomationControlled'],
-});
+}));
 try {
   const page = ctx.pages()[0] || (await ctx.newPage());
   // 1. account ゲート

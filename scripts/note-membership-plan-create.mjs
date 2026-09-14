@@ -29,6 +29,7 @@ import { chromium } from 'playwright';
 import { mkdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { leanContextOptions } from './lib/playwright-launch.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
@@ -46,10 +47,10 @@ if (!NAME || !DESC) { console.error('必須: --name <プラン名> --desc <説�
 if ([...DESC].length > 140) { console.error(`ABORT: 説明が ${[...DESC].length} 字（上限140）`); process.exit(1); }
 mkdirSync(TMP, { recursive: true });
 
-const ctx = await chromium.launchPersistentContext(PROFILE, {
+const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
   headless: false, channel: 'chrome', proxy: PROXY ? { server: PROXY } : undefined,
   ignoreHTTPSErrors: true, viewport: { width: 1366, height: 1000 }, args: ['--disable-blink-features=AutomationControlled'],
-});
+}));
 try {
   const page = ctx.pages()[0] || (await ctx.newPage());
   await page.goto('https://note.com/settings/account', { waitUntil: 'domcontentloaded', timeout: 60000 });
