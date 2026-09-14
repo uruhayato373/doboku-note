@@ -5,7 +5,7 @@
 //   node scripts/setup-memory-link.mjs [--dry-run] [--migrate] [--target <dir>] [--cwd <dir>] [--home <dir>] [--settings <json>]
 //
 // <key> は Claude Code の規則＝cwd の絶対パスの英数字以外を `-` に置換（`C:\Users\x\doboku-note` → `C--Users-x-doboku-note`、
-// `/Users/x/doboku-note` → `-Users-x-doboku-note`）。worktree で実行した場合も target は**メイン作業ツリー**の .claude/memory
+// Mac の `~` 直下なら `-Users-<name>-doboku-note`）。worktree で実行した場合も target は**メイン作業ツリー**の .claude/memory
 // （`git rev-parse --git-common-dir` の親）＝ memory は 1 本に集約する。
 //
 // 既存の memory が実ディレクトリのときは消さない: --migrate なら target へ内容を移してからリンク（target に無い／新しい
