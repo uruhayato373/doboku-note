@@ -179,6 +179,7 @@
 - **削除済みカードはマージで戻る**。古い develop から切った branch を merge すると、その間に削除したカードが衝突なしで復活する。`check-backlog-health` は「ID の再利用」しか見ないので、完了→削除の後は develop 先端で branch を切り直すか、merge 後に台帳 diff を見る。
 - **取得失敗を数えない surfacer は緑を出す**。`check-external-write-orphans` は run の取得失敗を warning に流して「✓ 痕跡なし」を返した。プロキシ環境では常に部分不成立になるので、取得失敗件数を出力し支配的なら「検査不成立」にする（DN-0225）。
 - 露出（impressions ×2.7）とインデックス率（−30pt）は同時に動く。URL 移行期は GSC の単一指標で良し悪しを決めない。
+- **偽赤も偽緑と同じ害**。09-13 に追加された pre-commit の `check-business-direction --staged` は index（LF）と作業ツリー（CRLF）を生文字列で比較していて、autocrlf の Windows 端末では**無関係なコミットでも必ず FAIL** した（本レビューのコミットで発覚）。改行を正規化して比較するよう修正済み。新しいゲートは Mac 以外の端末で一度は通す。
 
 ## 来週への申し送り
 
