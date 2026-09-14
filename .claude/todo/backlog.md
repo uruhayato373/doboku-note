@@ -26,6 +26,15 @@
 
 
 
+### [DN-0235] develop への push で赤くなる CI（quality audit + build）に読み手を付ける
+タグ: [エージェント・SSOT] [種類:不具合] [起票:2026-09-14]
+
+**起点**: 2026-09-13T21:53 のマージ `0cf7faeb`（feat/claude-md-slim → develop）で CLAUDE.md が 147 行から 323 行へ戻り、`check-claude-md-size`（quality-audit `ci:true`）が develop の push ごとに落ちている。09-14 までに **6 run 連続で failure** だが、develop 直 push は PR の赤と違って誰の画面にも出ないため、1 日以上誰も気づかなかった（CLAUDE.md §9「赤いのに誰も見ていない検査は無いのと同じ」）。
+
+**やること**: develop の直近 `Pre-merge check` の conclusion を機械で surface する。候補は (a) SessionStart の `scripts/check-git-sync.mjs` に `gh run list --branch develop --limit 1` の failure を 1 行足す（`gh` が使える端末のみ・プロキシで取れないときは「未取得」と出す）、(b) `/weekly-review` の automation-failure 節に develop の失敗 run を列挙する。少なくとも (a) を入れ、`gh` 不可のときに緑と混同しない出力にする。
+
+**完了条件**: develop の最新 run が failure のとき、次のセッション開始時に赤い 1 行が出ること。CLAUDE.md の復元そのものは別作業（設定一本化の PR）で行う。
+
 ### [DN-0226] knip ratchet の赤（Unlisted binaries `ps` / `powershell.exe`）を解消し baseline を締め直す
 タグ: [エージェント・SSOT] [種類:不具合] [Codex候補] [検証:check-knip-ratchet] [起票:2026-09-14]
 
@@ -148,6 +157,35 @@ CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認し
 **完了条件**: 各行の実体が解消したら行ごと消し、全行が消えたらカードを削除する。
 
 ## 🟡 中 — 2〜3ヶ月以内
+
+### [DN-0231] 既存 clone を partial clone 化し、git maintenance で pack を自動整理する（履歴は書き換えない）
+タグ: [インフラ・計測] [種類:改善] [起票:2026-09-14]
+
+**起点**: 旧カード「git 履歴の次回切り詰め（`size-pack` 1.05 GiB の回収）」は 2026-09-14 に「履歴は書き換えない」と決めて廃止した。代わりに clone 側を軽くする。Windows は 09-14 に `git maintenance start` 済み（`maintenance.strategy=incremental`）。`.git/lfs` の孤児 2.25 GB（参照 0）は同日に削除済み。
+
+1. Mac: `git maintenance start`。新規 clone なら `git clone --filter=blob:none`、既存 clone なら `git config remote.origin.promisor true && git config remote.origin.partialclonefilter blob:none` の後 `git gc` で履歴 blob を落とす。
+2. 両 PC: `git count-objects -vH` の `size-pack` と `garbage`、`git config maintenance.strategy` を `asset-storage-policy.md` §8 の末尾へ実測として 1 行記録する（Windows の 09-14 実測: size-pack 1.11 GiB / garbage 2 = 8.45 MiB の tmp_pack）。
+3. `scripts/install-disk-hygiene-launchd.mjs` / `install-disk-hygiene-schtasks.mjs` の Install で `git maintenance start` を冪等に呼ぶ（Windows 対応 diff が develop に載ってから）。
+
+**完了条件**: 両 PC で `git config maintenance.strategy` = `incremental`、Mac の `.git` 実体が partial clone で 1 GB 未満、`garbage 0`。
+
+### [DN-0232] エージェント description 24 件を 300 文字以下に絞り、毎セッションの固定トークンを減らす
+タグ: [エージェント・SSOT] [種類:改善] [Codex候補] [起票:2026-09-14]
+
+**起点**: `.claude/agents/*.md` の frontmatter `description` は全 81 件がセッション冒頭の system prompt に載る（合計 17.6k 文字）。24 件が 300 文字超（最大 731＝`coconala-operator`）で、担当範囲・安全弁・関連スクリプトまで description に書いている。詳細は `agents-registry.md` と本文にあるので二重。
+
+**やること**: `scripts/check-agent-descriptions.mjs`（baseline ラチェット・上限 300 code points・`Use when` 必須）が既存 24 件を baseline に持つ。1 件ずつ description を「何をする / 何をしない / Use when」の 3 文に圧縮し、削った内容が本文か `agents-registry.md` に残っていることを確認して `--update-baseline` で baseline を縮める。`check-doc-coupling` が description 変更で registry 更新を要求するので同一 commit で更新する。
+
+**完了条件**: `node scripts/check-agent-descriptions.mjs` の baseline が 0 件、`npm run check-doc-coupling` 緑。
+
+### [DN-0233] Mac 端末の初期設定を今回の設計に合わせて揃える（hygiene・pre-commit・dotfiles・memory リンク・MCP）
+タグ: [インフラ・計測] [種類:改善] [起票:2026-09-14]
+
+**起点**: 2026-09-14 の設計（`~/.claude/plans/greedy-jingling-boole.md`）で個人設定は private dotfiles + symlink、memory は repo `.claude/memory/` を junction/symlink、user-scope MCP `github`/`filesystem` は削除、と決めた。Windows は同日に実施済み。Mac は未着手。
+
+Mac で行う（各 1 回・順に）: (1) `git pull` で Windows 対応・設定一本化の PR を取り込む、(2) `npm run disk-hygiene:install` と `npm run pre-commit:install`、(3) dotfiles の `bin/link.mjs --host mac` で `~/.claude/settings.json`（`cleanupPeriodDays: 7` 入り）と `~/.codex/config.toml` を張る、(4) `node scripts/setup-memory-link.mjs` で `~/.claude/projects/-Users-minamidaisuke-doboku-note/memory` を repo へ向ける（既存の実ディレクトリは `memory.bak-*` に退避される）、(5) `claude mcp remove -s user github filesystem`、(6) DN-0231 の partial clone。
+
+**完了条件**: Mac で `npm run check-disk-hygiene` が FAIL 0、`claude mcp list` に github/filesystem が無い、memory リンクが symlink で `MEMORY.md` の行数が repo と一致、`npm run check-codex-compat` 緑。
 
 ### [DN-0227] YouTube 公開照合の `recorded_but_gone` 6 件を切り分け、台帳を実体に合わせる
 タグ: [SNS・マーケ] [種類:不具合] [起票:2026-09-14]
@@ -302,6 +340,24 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 ## 🟢 低 — 時期未定
 
 
+### [DN-0234] Codex の archived_sessions 1.25 GB を棚卸しして 30 日超を消す
+タグ: [インフラ・計測] [種類:改善] [起票:2026-09-14]
+
+**起点**: `~/.codex/archived_sessions` 1.34 GB・`sessions` 65 MB・`plugins` 455 MB（Windows 09-14 実測）。`disk-hygiene.json` の `reportOnly` で「30 日超は手で棚卸し」と決めており自動削除しない。`thread_history_1.sqlite` 725 MB も同居。
+
+**やること**: 30 日超のアーカイブを日付で選んで削除し、`npm run check-disk-hygiene` の `history:*` 行で残量を確認する。Codex 本体の設定に保持期間があればそれを使い、無ければ四半期の棚卸しとして `disk-hygiene.md` §5 に手順を 2 行足す。
+
+**完了条件**: `archived_sessions` が 300 MB 未満、手順が doc にあること。
+
+### [DN-0236] SessionStart の 6 スクリプトから `run()` を export し、1 プロセス内で順次実行する
+タグ: [エージェント・SSOT] [種類:改善] [Codex候補] [起票:2026-09-14]
+
+**起点**: SessionStart hook は `x-sync-status --dry` / `check-plan-staleness` / `check-backlog-health --due` / `check-git-sync` / `local-resource-audit --quick` / `check-disk-hygiene --quick` の node を 6 本同時に起動する。09-14 の設計で `scripts/session-start.mjs` が `execFileSync` で順次呼ぶ形にしたが、各 script が `main()` をモジュール内に閉じているため子プロセスは残る。
+
+**やること**: 6 本それぞれに `export async function run({ quiet })` を足し（既存の CLI 経路は維持）、`session-start.mjs` を import 呼び出しに切り替える。`check-git-sync` の `git fetch` はそのまま。
+
+**完了条件**: `node scripts/session-start.mjs` の実行中に node プロセスが 1 本、出力は現状と同じ、`node --test tests/session-start.test.mjs` 緑。
+
 ### [DN-0229] EXP-005 の未処理の申し送り（deploy 後の mobile lab LCP 再計測）を閉じる
 タグ: [インフラ・計測] [種類:改善] [起票:2026-09-14]
 
@@ -389,16 +445,6 @@ Drive台帳・vault・Drive APIの照合前にローカル実体を削除しな�
 - 陳腐化の本来の受け皿は `[検証:]` ではなく**定期棚卸し**（`check-backlog-due` → `/backlog-sweep --audit`）。`check-backlog-health` の S7（検証ゲート欠落）は 0 にする対象ではなく、読むための数
 
 ---
-
-
-### [DN-0155] git履歴の次回切り詰め（.git実体1.0GBの回収）
-タグ: [インフラ・計測] [種類:改善] [起票:2026-08-29]
-
-`.git` の `size-pack` は1.05GiB。通常のcommitでは過去blobを回収できないため、全worktreeと
-長時間プロセスを停止し、`asset-storage-policy.md` §8の履歴切り詰め手順を単独で実行する。
-`seo-meta` は追跡スナップショットを1件に固定済みで、明示的な`--snapshot`以外は
-`seo-meta-latest.json`を上書きする。履歴切り詰め後に`git count-objects -vH`とfresh clone容量を記録し、
-主要ブランチ・タグ・Cloudflareデプロイ・R2復元経路を確認してからカードを削除する。
 
 
 ## 🟣 判断待ち — ユーザーの意思決定が必要
