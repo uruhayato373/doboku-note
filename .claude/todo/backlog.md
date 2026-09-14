@@ -26,6 +26,15 @@
 
 
 
+### [DN-0226] knip ratchet の赤（Unlisted binaries `ps` / `powershell.exe`）を解消し baseline を締め直す
+タグ: [エージェント・SSOT] [種類:不具合] [Codex候補] [検証:check-knip-ratchet] [起票:2026-09-14]
+
+2026-09-13 の返済・締め直し（DN-0205 #6）の直後に、`scripts/lib/local-resources.mjs` が呼ぶ `ps` と `powershell.exe` が Unlisted binaries 0 → 2 として赤になった（`npx knip --include binaries` で実測）。システムバイナリなので 09-13 と同じく `knip.json` の `ignoreBinaries` へ入れる。併せて knip の Configuration hints（`hast-util-sanitize` を ignoreDependencies から、`du` を ignoreBinaries から外せる）も処理する。返済分（Unlisted dependencies 13→9・Unused dependencies 2→1）は `--update-baseline` で締め直す。
+
+DN-0205（09-13 に完了・削除済み）は codex branch のマージ e019b1b1 で台帳に復活していたため、本カード起票時に再削除した。完了→削除の後は develop 先端から branch を切る（マージで戻る）。
+
+**完了条件**: `npm run check-knip-ratchet` が緑（増加 0）で、baseline が実測と一致していること。
+
 ### [DN-0224] 教材の原典待ち17論点を復旧し記事・図解・SNSとの対応を再照合する
 タグ: [コンテンツ品質] [種類:改善] [起票:2026-09-14] [検証:check-content-expansion]
 
@@ -140,6 +149,34 @@ CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認し
 
 ## 🟡 中 — 2〜3ヶ月以内
 
+### [DN-0227] YouTube 公開照合の `recorded_but_gone` 6 件を切り分け、台帳を実体に合わせる
+タグ: [SNS・マーケ] [種類:不具合] [起票:2026-09-14]
+
+`verify-yt-status`（CI 週次）が 08-28 以降ずっと同じ 6 件を「記録はあるがライブから消えた」と返している: r03-pack-01-q1（pJE0G113lWE）・r03-pack-03-q1（v78PwwNo_fQ）・q2（l-aSQXfwOq8）・q3（AxGWdocgSZ0）・q4（GZzG6IqyXyI）・r03-pack-04-q1（V9iQe4iQcI0）。09-09〜10 に旧動画の削除・置換フェーズを整備しているので、置換で削除された旧 ID なのか、記録側の誤りなのかを YouTube Studio か Data API で確認し、置換後 ID への更新か削除記録のどちらかを台帳へ書く。
+
+**完了条件**: `.claude/state/yt-verify/latest.json` の `recorded_but_gone` が 0 で、6 件それぞれの処置（置換 ID／削除日）が台帳に残っていること。認証が要るので Mac か CI（verify-yt-status.yml）で行う。
+
+### [DN-0228] PSI の field(CrUX) が全 URL で null の期間を「判定不能」として機械で示し、判定規則を固定する
+タグ: [インフラ・計測] [種類:改善] [Codex候補] [起票:2026-09-14]
+
+2026-08-18 以降の全 psi-batch で 22/22 URL の `field_data` が null（`field_availability.url_level` / `origin_level` とも false）。W36 の週次レビューがこれを「復旧」と誤記した（measurement-incidents.md 2026-09-14）。実害判定（Critical）は field でしか立てられないので、この期間は判定不能であることを人が読み違えない形にする。
+
+1. `fetch-psi-data` の batch サマリ（または weekly-metrics の psi 節）に「field 非 null URL 数 / 対象数（url_level・origin_level 別）」を出力し、週次レビューの PSI 節はその機械値を転記する
+2. `.claude/config/psi-config.json` の `judgment` に「field 無し期間の扱い」を明文化する（lab は直近 5 バッチ中央値・重大度は Medium 上限・復旧報告は非 null になったバッチ名と URL 数を併記）
+3. origin レベルも無い＝CrUX の母数不足の可能性が高いので、対象 22 URL の見直しか、母数のあるトップ・ハブに絞るかを判断して記録する
+
+**完了条件**: 週次レビューが機械出力から field 件数を転記でき、field 無し期間の判定規則が psi-config と measurement-incidents.md で一致していること。
+
+### [DN-0230] 週次レビューの申し送りが台帳へ届かない構造を塞ぐ（振り分けの必須化＋削除時の抽出ゲート）
+タグ: [エージェント・SSOT] [種類:改善] [Codex候補] [起票:2026-09-14]
+
+`/weekly-review` の出口は `docs/reviews/weekly/*-review.md` の「来週への申し送り」と `/weekly-plan` の Must/Should/Could までで、`.claude/todo/weekly.md` を書く `/plan-weekly` はそれを読まない。旧レビューの削除も `check-handoff-extraction` の対象外（`docs/handoffs/` だけ）なので、前送りの漏れを機械が止めない。2026-09-14 の W37 レビューで、申し送り 5 件に台帳上の居場所が無いことを実測。
+
+1. weekly-review SKILL の Phase 4 に「申し送りの各行を backlog 起票／weekly 定常運用／既存 ID・Issue・実験への接続 のいずれかへ振り分け、振り分け先をレビューに書く」を必須化する（skills-guide の更新は doc-coupling が要求）
+2. `scripts/check-handoff-extraction.mjs` の抽出ゲートを `docs/reviews/weekly/*.md` の削除にも適用する（削除される本文の申し送り行と DN-ID が backlog か最新レビューに残っているかを検査）。回帰テストを `tests/` に置く
+
+**完了条件**: 1・2 に回帰テストがあり、旧週レビューを抽出せずに削除するコミットが pre-commit で止まること。
+
 ### [DN-0225] `check-external-write-orphans` が取得失敗を数えずに「✓ 痕跡なし」を返す偽 PASS を直す
 タグ: [エージェント・SSOT] [種類:不具合] [Codex候補] [起票:2026-09-14]
 
@@ -168,26 +205,6 @@ CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認し
 **停止条件**: 通常回の記事・正答キーを上書きしない。公式PDFで省略された問題は推測補完せず、その範囲を明示する。DN-0135の既存問題の原典待ちとは別対象。
 
 **完了条件**: 3記事・計80問について収録または公式省略の理由が揃い、収録問題の正答を再試験の公式表と全件照合する。通常回とのslug・問題ID衝突0、対象MDXの構文・出典・リンク検査と `npm run refresh-indexes` を通す。PWAが未対応なら必要な変更を含めてから完了とする。
-
-### [DN-0205] `quality:audit:ci` の赤ゲート 8 件を解消し、CI が緑になる状態へ戻す
-タグ: [エージェント・SSOT] [種類:不具合] [Codex候補] [検証:quality:audit:ci] [起票:2026-09-13]
-
-2026-09-12 のコンテンツ展開の着手前から赤で、どのカードにも載っていなかった（「赤いのに誰も見ていない検査」）。実体は 2026-09-13 に `npm run quality:audit:ci` で照合。反復する運用サイクル由来の赤（`sales-freshness`＝転記 27 日・`membership-drip`＝学科 06/07 の配信超過・`disk-hygiene`）はこのカードに含めない（weekly の運用側）。
-
-| # | ゲート | 実体（2026-09-13） | 直し方 |
-|---|---|---|---|
-| 1 | unit-tests | `asset-storage` config の `site-ogp-thumbnails` に Phase 宣言が無い／admin のツール一覧にカードが無い（2 件 not ok） | config と admin ルーティングを実装に合わせる |
-| 2 | playwright-auth-wiring | `scripts/lib/disk-hygiene.mjs:260` に Mac 絶対パス直書き 1 件 | resolver 経由へ |
-| 3 | gate-parity | `check-standards-data` がどこからも呼ばれていない | `build-standards-data` が呼ぶなら registry へ記録、否なら quality-audit へ配線 |
-| 4 | project-task-refs | `docs/handoffs/2026-09-07-backlog-sweep-and-a8-blocker.md` が DN-0179/0108/0176/0177 を参照（完了済み・handoff 未抽出） | handoff を抽出して削除（information-architecture.md の handoff ライフサイクル） |
-| 5 | orphan-ogp | `reference-materials/tunnel-02/ogp.png` が manifest に残存 | `.claude/state/assets/manifest.json` から手で削除 |
-| 6 | knip-ratchet | Unused files 44 → 45 | grep 裏取りのうえ削除か `knip.json` ignore |
-| 7 | drive-vault | `.tmp/video-render/{chokuzen-check-1kyu-niji,gishi-haigou-keisan}` の mp4 が台帳 sha256 と不一致 2 件 | 再レンダー物なら台帳を更新、旧物なら vault 側を正 |
-| 8 | note-funnel | ドリフト 8 件 | `audit-note-funnel` の指摘どおり wire-cta（既存もくじ重複に注意） |
-
-**完了条件**: `npm run quality:audit:ci` で上記 8 ゲートが PASS。行ごとに消し、全行消えたらカードを削除する。
-
-
 
 ### [DN-0120] 9月中旬のA8成果を取り込み、転職アフィリ継続を再判定する
 タグ: [収益化] [種類:改善] [起票:2026-08-24] [期日:2026-09-16]
@@ -284,6 +301,13 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 
 ## 🟢 低 — 時期未定
 
+
+### [DN-0229] EXP-005 の未処理の申し送り（deploy 後の mobile lab LCP 再計測）を閉じる
+タグ: [インフラ・計測] [種類:改善] [起票:2026-09-14]
+
+`check-experiments-due` が毎週「EXP-005: 未処理の申し送り 1 件（deploy 後に r07-a の mobile lab LCP を再計測して効果判定）」を出し続けている。EXP-005 は done で、learnings に「field が FAST な領域で lab を目標指標にすると判定不能に陥る」と結論済みなので、この申し送りは lab 再計測ではなく (a) close 理由を書いて pending を空にする、または (b) field（`url_level` が戻ったときの p75）へ書き換える、のどちらかで閉じる。
+
+**完了条件**: `npm run check-experiments-due -- --json` の `issues[]` に EXP-005 が出ないこと。
 
 ### [DN-0180] Drive共通仕様書文字起こし350本とstandards-libraryの関係を整理する
 タグ: [エージェント・SSOT] [種類:改善] [Codex候補] [起票:2026-09-06]
