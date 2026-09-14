@@ -883,3 +883,13 @@ DN-0120（A8 成果の取り込み）を会社 PC で進めようとして `auth
 - **原因**: 比較対象の範囲が違った。GSC は Google 検索のみ、GA4 の Organic Search は Bing・Yahoo 等も含む。2026-08-21〜09-03 の GA4 source 別監査では Bing 2,683 users、Google 82 usersで、Googleだけなら約5.9 users/日となりGSCの約5.3 clicks/日と同程度だった。Bing は99.5%が国内・engagement 71.3%で、既存のbot判定にも該当しない。
 - **切り分け**: hostName 別28日値は `doboku-note.com` 7,539 sessions、`localhost` 732、`127.0.0.1` 1。ローカル混入は全体の8.9%で、40倍超の差の主因ではない。GSCプロパティも意図どおり `sc-domain:doboku-note.com` だった。
 - **恒久ルール**: NSMは従来どおりGA4 Organic Search の activeUsers（全検索エンジン）を使う。GSC clicks はGoogle検索の露出・CTR診断に限定し、GA4 Organic Search 全体と同じ母数として比較しない。Google流入だけを照合するときは GA4 `sessionSource=google` と比較する。
+
+## 2026-09-14 — PSI `field_data` のキー存在を「field あり」と読んだ（W36 週次レビューの偽復旧）
+
+- **事象**: 2026-W36 レビューが「PSI field(CrUX) が 12 バッチ連続 null から復旧（直近 3 バッチ 22/22 URL で field あり）」と記録した。W37 で `psi-batch-*.json` を読み直すと、2026-08-18 以降の全 46 バッチで `field_data.{LCP,INP,CLS,FCP,TTFB}` は 22/22 URL とも `null`、`field_availability.url_level / origin_level` も全て false だった。復旧は起きていない。
+- **原因**: `psi-batch` の `field_data` はキーが常に存在し、CrUX が無いときは値だけ null になる。「キーがある＝データがある」と読んだ。検査 0 件の緑（CLAUDE.md §9）の変種。
+- **影響**: field による実害判定が 4 週以上できていない状態を「解消」と申し送り、EXP-005 の教訓（lab を目標指標にしない）を無効化しかけた。優先順位の歪みは W37 で訂正。
+- **恒久ルール**:
+  - PSI の field は**非 null の件数**で読む。`field_availability.url_level` が true の URL 数（および origin_level）を数え、0 なら「field なし・実害判定不能」と書く。
+  - 週次レビューの PSI 節は、field が無い期間は「復旧」「FAST」を書かず、lab は中央値の推移だけを載せる（実害判定は保留）。
+  - 復旧を報告するときは、非 null になったバッチ名と URL 数を併記する（「直近 3 バッチ」のような件数だけの記述で終えない）。
