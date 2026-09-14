@@ -18,6 +18,7 @@
     "out/**"
   ],
   "ignoreBinaries": [
+    "cmd.exe",
     "du",
     "ffmpeg",
     "ffprobe",
@@ -30,6 +31,8 @@
     "pdftotext",
     "pkill",
     "powershell",
+    "powershell.exe",
+    "ps",
     "python",
     "rclone",
     "tesseract",
