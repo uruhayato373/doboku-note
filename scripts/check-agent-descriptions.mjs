@@ -81,7 +81,7 @@ function listWorkingTree() {
 }
 
 function listStaged() {
-  const out = execFileSync('git', ['diff', '--cached', '--name-only', '--diff-filter=AM', '--', AGENTS_DIR], { cwd: REPO_ROOT, encoding: 'utf8' });
+  const out = execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--cached', '--name-only', '--diff-filter=AM', '--', AGENTS_DIR], { cwd: REPO_ROOT, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 });
   return out
     .split(/\r?\n/)
     .filter((p) => p.endsWith('.md') && !p.slice(AGENTS_DIR.length + 1).includes('/'))
