@@ -151,6 +151,7 @@
     "check-reference-sources:deep": "node scripts/check-reference-sources.mjs --deep",
     "update-ogp-srchash": "node scripts/update-ogp-srchash.mjs",
     "check-git-binary-policy": "node scripts/check-git-binary-policy.mjs",
+    "prune-state-snapshots": "node scripts/prune-state-snapshots.mjs",
     "check-knip-ratchet": "node scripts/check-knip-ratchet.mjs",
     "check-lcp-image-hints": "node scripts/check-lcp-image-hints.mjs",
     "check-links": "node .claude/skills/quality/check-mdx/scripts/rules/links/check-links.mjs",

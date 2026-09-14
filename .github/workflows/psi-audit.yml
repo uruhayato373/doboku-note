@@ -87,6 +87,10 @@ jobs:
           mkdir -p .claude/state/metrics/psi
           cp -r /tmp/psi-publish/* .claude/state/metrics/psi/ 2>/dev/null || true
 
+          # 寿命表（scripts/lib/prune-state-snapshots.mjs）に従って古い batch を消す。書き手と同じ commit で消すのが唯一安全
+          # （別 commit で消すと上の reset --hard + copy-back に黙って戻される）。git add <dir> は削除も stage する。
+          node scripts/prune-state-snapshots.mjs --commit --family psi
+
           git add .claude/state/metrics/psi
           if git diff --cached --quiet; then
             echo "No PSI changes to publish"

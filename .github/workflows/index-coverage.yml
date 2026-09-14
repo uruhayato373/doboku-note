@@ -176,6 +176,9 @@ jobs:
             SUBJECT="chore(metrics): index-coverage audit $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
           fi
 
+          # 寿命表（scripts/lib/prune-state-snapshots.mjs）に従って古い batch を消す（history.json へ追記した後・gsc/rank-watch は除外 dir）。
+          node scripts/prune-state-snapshots.mjs --commit --family url-inspection,gsc
+
           git add .claude/state/metrics/url-inspection .claude/state/metrics/gsc
           if git diff --cached --quiet; then
             echo "No changes to publish"
