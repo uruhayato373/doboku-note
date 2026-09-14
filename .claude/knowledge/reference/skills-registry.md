@@ -6,6 +6,8 @@ title: スキル ガバナンス記録
 
 # スキル ガバナンス記録
 
+> 2026-09-14 更新: publish-x にローカルの実予約定期検査 `check-x-queue-health` を結線。Codex朝夜監視が実行し、CIには認証を要求しない。スキル件数は不変。
+
 > 2026-09-14 更新: weekly-review のX集計を投入済み最終予約記録（last_queued_at）へ修正。x-campaign-plan はキュー照合と公開確認を区別する。件数は不変。
 
 - 2026-09-14: `deploy` のローカル接続不成立時は、既存デプロイworkflowの `verify_only=true` で外部SSR検査へ接続。再ビルド・再デプロイを省く。
