@@ -4,6 +4,11 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      verify_only:
+        description: '本番表示の検査だけを実行（ビルド・再デプロイなし）'
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -24,14 +29,17 @@ jobs:
           cache: "npm"
 
       - name: Install Dependencies
+        if: inputs.verify_only != true
         run: npm ci --legacy-peer-deps
 
       - name: Build
+        if: inputs.verify_only != true
         run: npm run build
         env:
           NEXT_PUBLIC_GA_ID: G-8VXJ1RL1HG
 
       - name: Deploy to Cloudflare Pages
+        if: inputs.verify_only != true
         run: npx wrangler@3 pages deploy out --project-name=doboku-note --commit-message="deploy ${{ github.sha }}"
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -39,3 +47,6 @@ jobs:
           CLOUDFLARE_R2_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
           CLOUDFLARE_R2_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
           CLOUDFLARE_R2_BUCKET_NAME: doboku-note
+
+      - name: Verify production SSR
+        run: npm run check-production-ssr

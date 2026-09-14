@@ -113,7 +113,7 @@ npm run check-production-ssr
 
 - 500 の場合 → Cloudflare API token 期限切れを仮説1番に確認（GitHub Secrets で再発行）
 - `<main` が 0 → SSR 壊れ。ユーザーに即報告し .claude/todo/backlog.md に起票
-- exit 2 の場合 → **デプロイの成否を報告しない**。まず自分の接続経路を疑う
+- ローカルで exit 2 の場合 → その結果をデプロイの成否の根拠にしない。公開後の `cloudflare-deploy.yml` にある SSR 検査結果を確認する。再検査は `gh workflow run cloudflare-deploy.yml --ref main -f verify_only=true`（再デプロイなし）。外部検査の exit 0 を確認して完了報告する。
 
 ### Step 8: 完了報告
 
