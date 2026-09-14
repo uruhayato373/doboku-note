@@ -5,6 +5,7 @@ import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { chromium } from 'playwright';
 import { assessInstagramPlanner } from './lib/instagram-planner-check.mjs';
+import { leanContextOptions } from './lib/playwright-launch.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const account = JSON.parse(readFileSync(join(ROOT, '.claude/config/ig-account.json'), 'utf8'));
@@ -22,13 +23,13 @@ const { resolveProfileDir } = await import(
   pathToFileURL(join(ROOT, 'scripts/lib/playwright-auth-profile.mjs')).href
 );
 const profile = resolveProfileDir(account.authService, { cwd: ROOT, repoRoot: ROOT });
-const context = await chromium.launchPersistentContext(profile, {
+const context = await chromium.launchPersistentContext(profile, leanContextOptions({
   headless: true,
   channel: 'chrome',
   viewport: { width: 1500, height: 1400 },
   locale: 'ja-JP',
   timezoneId: 'Asia/Tokyo',
-});
+}));
 const page = context.pages()[0] || await context.newPage();
 try {
   await page.goto(account.plannerUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });

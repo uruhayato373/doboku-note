@@ -24,6 +24,8 @@ import { fileURLToPath } from 'node:url';
 
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { pruneTmp } from './prune-tmp.mjs';
+import { resolveAuthRoot } from './lib/playwright-auth-profile.mjs';
+import { listProcesses } from './lib/process-list.mjs';
 import {
   automationFreshness,
   bytesHuman,
@@ -36,6 +38,7 @@ import {
   parseWorktreeList,
   planArtifactRemoval,
   referencedNpxIds,
+  resolvePlatformPath,
   selectStaleDirs,
   worktreePlacement,
 } from './lib/disk-hygiene.mjs';
@@ -47,13 +50,49 @@ export function loadConfig(path = CONFIG_PATH) {
   return JSON.parse(readFileSync(path, 'utf-8'));
 }
 
-const expandHome = (p) => (String(p).startsWith('~/') ? join(HOME, String(p).slice(2)) : String(p));
+/** Playwright の auth root（測れなければ null。$AUTH_ROOT を使う項目は「この OS に無い」扱いになる）。 */
+function safeAuthRoot() {
+  try {
+    return resolveAuthRoot();
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * 設定のパス値を今の OS 向けに解決する。文字列 / OS 別オブジェクト / `~/` / `$AUTH_ROOT` を受ける。
+ * null は「この OS では該当なし」。
+ */
+function expandPath(value, platform = process.platform, authRoot = safeAuthRoot()) {
+  return resolvePlatformPath(value, { platform, home: HOME, authRoot });
+}
+
+/**
+ * パス中の `*` を含むセグメントを実在ディレクトリで展開する（MSIX の `OpenAI.Codex_<hash>` のように
+ * 末尾ハッシュが環境で変わる置き場のため）。`*` が無ければそのまま 1 件。存在しないものは返さない。
+ */
+function expandStarSegments(path) {
+  if (!path) return [];
+  if (!path.includes('*')) return existsSync(path) ? [path] : [];
+  const sep = path.includes('\\') ? '\\' : '/';
+  const parts = path.split(/[\\/]/);
+  const starIdx = parts.findIndex((p) => p.includes('*'));
+  const parent = parts.slice(0, starIdx).join(sep);
+  const escaped = parts[starIdx].split('*').map((x) => x.replace(/[.+?^${}()|[\]\\]/g, '\\$&'));
+  const re = new RegExp(`^${escaped.join('.*')}$`, 'i');
+  const rest = parts.slice(starIdx + 1).join(sep);
+  return listDirs(parent)
+    .filter((d) => re.test(d.split(/[\\/]/).pop()))
+    .flatMap((d) => expandStarSegments(rest ? `${d}${sep}${rest}` : d));
+}
 
 // --- 実測ヘルパ（失敗は例外にせず null / 空を返す。掃除で作業を止めない）-------------
 
 function run(cmd, args, { cwd = REPO_ROOT, timeout = 15_000 } = {}) {
   try {
-    const r = spawnSync(cmd, args, { cwd, timeout, encoding: 'utf-8', maxBuffer: 32 * 1024 * 1024 });
+    // Windows の npm は npm.cmd で、Node 20.12+ は .cmd を shell 無しで spawn できない（EINVAL）。
+    const shell = process.platform === 'win32' && cmd === 'npm';
+    const r = spawnSync(cmd, args, { cwd, timeout, encoding: 'utf-8', maxBuffer: 32 * 1024 * 1024, shell, windowsHide: true });
     if (r.error || r.status !== 0) return { ok: false, stdout: r.stdout || '', stderr: r.stderr || '' };
     return { ok: true, stdout: r.stdout || '', stderr: r.stderr || '' };
   } catch {
@@ -61,13 +100,45 @@ function run(cmd, args, { cwd = REPO_ROOT, timeout = 15_000 } = {}) {
   }
 }
 
-/** ディレクトリの実容量。du が使えないときは null（測れないものを 0 と言わない）。 */
+/** ディレクトリの実容量。du が無い環境（Windows）は Node で歩く。測れないときは null（0 と言わない）。 */
 function dirBytes(path) {
   if (!existsSync(path)) return null;
-  const r = run('du', ['-sk', path], { cwd: HOME, timeout: 120_000 });
-  if (!r.ok) return null;
-  const kb = Number(String(r.stdout).trim().split(/\s+/)[0]);
-  return Number.isFinite(kb) ? kb * 1024 : null;
+  if (process.platform !== 'win32') {
+    const r = run('du', ['-sk', path], { cwd: HOME, timeout: 120_000 });
+    if (r.ok) {
+      const kb = Number(String(r.stdout).trim().split(/\s+/)[0]);
+      if (Number.isFinite(kb)) return kb * 1024;
+    }
+  }
+  return dirBytesNative(path);
+}
+
+function dirBytesNative(path) {
+  let total = 0;
+  const stack = [path];
+  try {
+    while (stack.length) {
+      const dir = stack.pop();
+      let entries;
+      try {
+        entries = readdirSync(dir, { withFileTypes: true });
+      } catch {
+        continue;
+      }
+      for (const e of entries) {
+        const p = join(dir, e.name);
+        if (e.isDirectory()) stack.push(p);
+        else if (e.isFile()) {
+          try {
+            total += statSync(p).size;
+          } catch {}
+        }
+      }
+    }
+    return total;
+  } catch {
+    return null;
+  }
 }
 
 function mtimeOf(path) {
@@ -107,19 +178,9 @@ function listDirs(root) {
   }
 }
 
-/** 稼働中プロセスの pid とコマンドライン（darwin/linux のみ。失敗は null＝判定不能＝残す）。 */
+/** 稼働中プロセスの pid とコマンドライン（darwin/linux は ps、win32 は Win32_Process。失敗は null＝判定不能＝残す）。 */
 function processLines(platform) {
-  if (platform === 'win32') return null;
-  const r = run('ps', ['-axo', 'pid=,command='], { cwd: HOME, timeout: 15_000 });
-  if (!r.ok) return null;
-  return r.stdout
-    .split('\n')
-    .filter(Boolean)
-    .map((line) => {
-      const m = line.trim().match(/^(\d+)\s+(.*)$/);
-      return m ? { pid: m[1], command: m[2] } : null;
-    })
-    .filter(Boolean);
+  return listProcesses({ platform, timeout: 20_000 });
 }
 
 /**
@@ -222,7 +283,7 @@ export function collect({ quick = false, config = loadConfig(), platform = proce
       !quick && existsSync(wt.path)
         ? run('git', ['-C', wt.path, 'status', '--porcelain'], { cwd: wt.path }).stdout.split('\n').filter(Boolean)
         : [];
-    const wtName = wt.path.split('/').pop();
+    const wtName = wt.path.split(/[\\/]/).pop();
     const adminDir = gitCommonDir ? join(gitCommonDir, 'worktrees', wtName) : null;
     const adminMtime = adminDir
       ? Math.max(mtimeOf(join(adminDir, 'HEAD')) || 0, mtimeOf(join(adminDir, 'index')) || 0)
@@ -269,7 +330,7 @@ export function collect({ quick = false, config = loadConfig(), platform = proce
   });
 
   // --- 会話ログの保持期間（リポジトリ外の設定なので検査だけ）---------------
-  const settingsPath = expandHome(config.claudeSettingsPath);
+  const settingsPath = expandPath(config.claudeSettingsPath);
   let days = null;
   try {
     days = parseCleanupPeriodDays(readFileSync(settingsPath, 'utf-8'));
@@ -286,7 +347,7 @@ export function collect({ quick = false, config = loadConfig(), platform = proce
   });
 
   // --- 日次掃除が生きているか --------------------------------------------
-  const stampPath = expandHome(config.stampPath);
+  const stampPath = expandPath(config.stampPath);
   const fresh = automationFreshness({ stampMtimeMs: mtimeOf(stampPath), now, maxAgeDays: t.automationMaxAgeDays });
   items.push({
     id: 'automation',
@@ -304,6 +365,7 @@ export function collect({ quick = false, config = loadConfig(), platform = proce
       'build-artifacts',
       'tmp-scratch',
       'playwright-cache',
+      'codex-browser-cache',
       'sparkle-updates',
       'npm-cache',
       'npx-cache',
@@ -366,33 +428,61 @@ export function collect({ quick = false, config = loadConfig(), platform = proce
   });
 
   // --- Playwright の Chromium ディスクキャッシュ（ログインは別ディレクトリ）-
-  const pwRoot = expandHome(config.playwrightCacheRoot);
+  // macOS はキャッシュが ~/Library/Caches に分離される。Windows はプロファイル直下に同居するので
+  // root は $AUTH_ROOT/profiles、消すのはサブディレクトリ（Cache / Code Cache / Service Worker …）だけ。
+  // 使用中判定は --user-data-dir= のパス一致（Windows は大小文字を無視）。
+  const pwRoot = expandPath(config.playwrightCacheRoot, platform);
   const pwActions = [];
   let pwBytes = 0;
+  const psTextCmp = platform === 'win32' ? psText.toLowerCase() : psText;
+  const profileInUse = (profile) =>
+    psTextCmp.includes(`--user-data-dir=${platform === 'win32' ? profile.toLowerCase() : profile}`);
   for (const profile of listDirs(pwRoot)) {
-    if (psText.includes(`--user-data-dir=${profile}`)) continue;
+    if (profileInUse(profile)) continue;
     for (const sub of config.playwrightCacheSubdirs) {
       const p = join(profile, sub);
       if (!existsSync(p)) continue;
       const b = quick ? null : dirBytes(p);
       pwBytes += b || 0;
-      pwActions.push({ kind: 'rm', path: p, reason: 'Chromium のディスクキャッシュ（ログインは Application Support 側）', bytes: b });
+      pwActions.push({ kind: 'rm', path: p, reason: 'Chromium のディスクキャッシュ（Cookie・Local Storage は触らない）', bytes: b });
     }
   }
   const pwOver = !quick && pwBytes > t.playwrightCacheMaxBytes;
   items.push({
     id: 'playwright-cache',
-    platform: ['darwin'],
-    status: pwOver ? 'warn' : 'ok',
+    platform: ['darwin', 'win32'],
+    status: pwRoot === null ? 'unsupported' : pwOver ? 'warn' : 'ok',
     bytes: pwBytes || null,
-    detail: pwActions.length
-      ? `${pwActions.length} 件・${bytesHuman(pwBytes)}（閾値 ${bytesHuman(t.playwrightCacheMaxBytes)}）`
-      : 'キャッシュなし（または全プロファイル使用中）',
+    detail:
+      pwRoot === null
+        ? 'この OS の Playwright キャッシュ置き場が設定に無い'
+        : pwActions.length
+          ? `${pwActions.length} 件・${bytesHuman(pwBytes)}（閾値 ${bytesHuman(t.playwrightCacheMaxBytes)}）`
+          : 'キャッシュなし（または全プロファイル使用中）',
     actions: pwOver ? pwActions : [],
   });
 
+  // --- ChatGPT/Codex アプリ内蔵ブラウザのキャッシュ（Windows・実測 330MB）-----
+  // MSIX パッケージの LocalCache 配下。ChatGPT.exe が動いている間はファイルが開かれているので触らない。
+  const codexRoots = expandStarSegments(expandPath(config.codexBrowserCacheRoot, platform));
+  const chatgptRunning = /chatgpt\.exe/i.test(psText);
+  const codexBytes = quick ? null : codexRoots.reduce((s, p) => s + (dirBytes(p) || 0), 0);
+  const codexOver = !quick && !chatgptRunning && Number.isFinite(codexBytes) && codexBytes > t.codexBrowserCacheMaxBytes;
+  items.push({
+    id: 'codex-browser-cache',
+    platform: ['win32'],
+    status: codexOver ? 'warn' : 'ok',
+    bytes: codexBytes || null,
+    detail: chatgptRunning
+      ? `ChatGPT 稼働中のため対象外（${bytesHuman(codexBytes || 0)}）`
+      : codexRoots.length
+        ? `${bytesHuman(codexBytes || 0)}（閾値 ${bytesHuman(t.codexBrowserCacheMaxBytes)}）`
+        : 'ChatGPT/Codex アプリのキャッシュなし',
+    actions: codexOver ? codexRoots.map((p) => ({ kind: 'rm', path: p, reason: 'Codex 内蔵ブラウザの HTTP キャッシュ（再生成可）', bytes: dirBytes(p) })) : [],
+  });
+
   // --- Codex 自動更新の残骸（10 日で 4.6GB 溜まった実測）-------------------
-  const sparkleRoot = expandHome(config.sparkleRoot);
+  const sparkleRoot = expandPath(config.sparkleRoot);
   const sparkleEntries = listDirs(sparkleRoot).map((p) => ({ path: p, newestMtimeMs: mtimeOf(p) }));
   // Autoupdate ヘルパは常駐しているので、名前で見ると永久に掃除できない。
   // 実際にコマンドラインへ現れているサブディレクトリだけを使用中として除く。
@@ -417,7 +507,8 @@ export function collect({ quick = false, config = loadConfig(), platform = proce
   // --- npm キャッシュ ------------------------------------------------------
   const npmCacheRoot = run('npm', ['config', 'get', 'cache'], { timeout: 20_000 }).stdout.trim() || join(HOME, '.npm');
   const cacacheDir = join(npmCacheRoot, '_cacache');
-  const cacacheBytes = quick ? null : dirBytes(cacacheDir);
+  // clean 直後は _cacache 自体が無い。「無い」は 0 であって「測れなかった」ではない。
+  const cacacheBytes = quick ? null : existsSync(cacacheDir) ? dirBytes(cacacheDir) : 0;
   // `npm exec`（常駐 MCP）は永久に居るので除く。キャッシュ掃除と競合するのは install/ci だけ。
   const npmBusy = /npm (install|ci)\b/.test(psText);
   const npmOver = Number.isFinite(cacacheBytes) && cacacheBytes > t.npmCacheMaxBytes && !npmBusy;
@@ -453,7 +544,7 @@ export function collect({ quick = false, config = loadConfig(), platform = proce
   });
 
   // --- Claude Workflow の子エージェント transcript（OCR で 1 セッション 3.1GB）
-  const projectsRoot = expandHome(config.claudeProjectsRoot);
+  const projectsRoot = expandPath(config.claudeProjectsRoot);
   const key = claudeProjectKey(REPO_ROOT);
   const wfEntries = [];
   for (const proj of listDirs(projectsRoot)) {
@@ -478,7 +569,7 @@ export function collect({ quick = false, config = loadConfig(), platform = proce
   // --- 履歴（報告のみ・消さない）-----------------------------------------
   if (!quick) {
     for (const entry of config.reportOnly) {
-      const p = expandHome(entry.path);
+      const p = expandPath(entry.path);
       if (!existsSync(p)) continue;
       items.push({
         id: `history:${entry.path.replace(/^~\//, '')}`,
@@ -504,7 +595,7 @@ export function applyFixes(items, { dryRun = true, log = console.log } = {}) {
   let bytes = 0;
   let failures = 0;
   for (const item of items || []) {
-    if (item.status === 'unsupported') continue;
+    if (item.status === 'unsupported' || item.status === 'n/a') continue;
     for (const action of item.actions || []) {
       const label = `[disk-hygiene] ${item.id} ${action.kind} ${action.path}${action.bytes ? ` (${bytesHuman(action.bytes)})` : ''}`;
       if (dryRun) {
@@ -579,7 +670,7 @@ if (isMain) {
 
   if (fix && res.ok) {
     // 「掃除が止まっていること」を検査側が検知できるよう、完走したときだけ更新する。
-    const stampPath = expandHome(config.stampPath);
+    const stampPath = expandPath(config.stampPath);
     try {
       mkdirSync(dirname(stampPath), { recursive: true });
       writeFileSync(stampPath, `${new Date().toISOString()} removed=${res.removed} bytes=${res.bytes}\n`);

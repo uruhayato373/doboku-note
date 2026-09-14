@@ -41,15 +41,20 @@ export function hasGitEntry(names) {
  * `git worktree list --porcelain` を構造化する。先頭エントリが main worktree。
  * porcelain は空行区切りで、各ブロックが `worktree <path>` から始まる。
  */
-export function parseWorktreeList(porcelain) {
+export function parseWorktreeList(porcelain, { platform = process.platform } = {}) {
   const out = [];
   let cur = null;
+  // Windows の git はパスを `C:/Users/...` と `/` 区切りで出すが、Node の path.join や REPO_ROOT は
+  // `\` 区切りなので、そのまま比較すると置き場判定・cwd 照合・テストの突合が全部外れる
+  // （2026-09-14 に実測）。win32 ではドライブ文字（`C:/`）か UNC（`//`）で始まるパスだけ
+  // OS の区切りへ正規化する（POSIX 風の `/repo` はテスト入力なので触らない）。
+  const nativePath = (p) => (platform === 'win32' && /^([A-Za-z]:\/|\/\/)/.test(p) ? p.replace(/\//g, '\\') : p);
   for (const raw of String(porcelain || '').split('\n')) {
     const line = raw.trimEnd();
     if (line.startsWith('worktree ')) {
       if (cur) out.push(cur);
       cur = {
-        path: line.slice('worktree '.length),
+        path: nativePath(line.slice('worktree '.length)),
         head: null,
         branch: null,
         bare: false,
@@ -127,8 +132,11 @@ export function classifyWorktree(wt, facts) {
  * allowedRoots はリポジトリ相対（`.claude/worktrees`）と `~` 始まり（`~/.codex/worktrees`）を受ける。
  */
 export function worktreePlacement(path, { repoRoot, home, allowedRoots = [] } = {}) {
-  const p = String(path || '');
-  const norm = (s) => s.replace(/\/+$/, '');
+  // 区切りは `/` に寄せて比較する（Windows は git が `/`、Node が `\` を返し混在する。2026-09-14）。
+  const norm = (s) => String(s || '').replace(/\\/g, '/').replace(/\/+$/, '');
+  const p = norm(path);
+  repoRoot = norm(repoRoot);
+  home = norm(home);
   const expand = (root) => {
     if (root.startsWith('~/')) return norm(`${home}/${root.slice(2)}`);
     if (root.startsWith('/')) return norm(root);
@@ -262,12 +270,39 @@ export function claudeProjectKey(repoRoot) {
   return String(repoRoot || '').replace(/[/\\:]/g, '-');
 }
 
-/** darwin 専用項目は他 OS では unsupported（クラッシュさせず「検査していない」と言う）。 */
+/**
+ * 設定のパス値を今の OS 向けに解決する（pure・fs に触れない）。
+ *   - 文字列はそのまま、`{ darwin: ..., win32: ... }` は platform のキーを引く（無ければ null＝この OS に無い）
+ *   - `~/` は home、`$AUTH_ROOT` は Playwright の auth root（Windows は AppData 外。MSIX アプリの
+ *     仮想化で Codex から見える場所が変わるため、設定に絶対パスを書かず解決結果を差し込む）
+ * 2026-09-14: Chromium のキャッシュは macOS だと `~/Library/Caches` に分離されるが、Windows は
+ *   プロファイル直下（`Default/Cache` 等）に同居する。root を OS 別に持つのはそのため。
+ */
+export function resolvePlatformPath(value, { platform, home, authRoot = null } = {}) {
+  let raw = value;
+  if (raw && typeof raw === 'object') raw = raw[platform] ?? null;
+  if (raw === null || raw === undefined || raw === '') return null;
+  let out = String(raw);
+  if (out.startsWith('~/')) out = `${home}/${out.slice(2)}`;
+  if (out.includes('$AUTH_ROOT')) {
+    if (!authRoot) return null;
+    out = out.replace('$AUTH_ROOT', authRoot);
+  }
+  return platform === 'win32' ? out.replace(/\//g, '\\') : out;
+}
+
+/**
+ * OS 専用項目は他 OS では n/a（クラッシュさせず「この OS には存在しない」と言う）。
+ * 2026-09-14: Windows も検査対象になり、Sparkle（mac）と Codex 内蔵ブラウザ（win）のように
+ *   片方にしか無い項目が増えた。「存在しない」を「検査していない（unsupported）」と同じに数えると
+ *   どちらの OS でも常に exit 2 になり検査が成立しなくなるので、n/a は実検査にも未検査にも数えない。
+ *   unsupported は「検査できるはずなのに材料が無い」（設定にこの OS の置き場が無い等）に限る。
+ */
 export function itemsForPlatform(items, platform) {
   return (items || []).map((item) => {
     const platforms = item.platform;
     if (Array.isArray(platforms) && !platforms.includes(platform)) {
-      return { ...item, status: 'unsupported', detail: `${platforms.join('/')} 専用（現在 ${platform}）` };
+      return { ...item, status: 'n/a', detail: `${platforms.join('/')} 専用（現在 ${platform}・この OS には無い）`, actions: [] };
     }
     return item;
   });
@@ -279,19 +314,20 @@ export function itemsForPlatform(items, platform) {
  */
 export function summarize(items, { mode = 'full' } = {}) {
   const list = items || [];
-  const examined = list.filter((i) => i.status !== 'unsupported' && i.status !== 'skipped').length;
+  const examined = list.filter((i) => i.status !== 'unsupported' && i.status !== 'skipped' && i.status !== 'n/a').length;
   const fail = list.filter((i) => i.status === 'fail').length;
   const warn = list.filter((i) => i.status === 'warn').length;
   const unsupported = list.filter((i) => i.status === 'unsupported').length;
+  const notApplicable = list.filter((i) => i.status === 'n/a').length;
   let exitCode = fail > 0 ? 1 : 0;
   if (mode === 'quick') exitCode = 0;
   else if (examined === 0 || unsupported > 0) exitCode = 2;
-  return { total: list.length, examined, fail, warn, unsupported, exitCode };
+  return { total: list.length, examined, fail, warn, unsupported, notApplicable, exitCode };
 }
 
 /** 表示用の表。列は 状態 / 項目 / 容量 / 詳細。 */
 export function formatTable(items, summary) {
-  const mark = { ok: '✓', warn: '⚠', fail: '✗', unsupported: '-', skipped: '-' };
+  const mark = { ok: '✓', warn: '⚠', fail: '✗', unsupported: '-', skipped: '-', 'n/a': '·' };
   const lines = (items || []).map((i) => {
     const size = Number.isFinite(i.bytes) ? bytesHuman(i.bytes) : '';
     return `  ${mark[i.status] || '?'} ${String(i.id).padEnd(28)} ${size.padStart(9)}  ${i.detail || ''}`;
@@ -300,6 +336,7 @@ export function formatTable(items, summary) {
     `[check-disk-hygiene] 検査対象 ${summary.total} 項目 / 実検査 ${summary.examined}` +
       `（FAIL ${summary.fail} / WARN ${summary.warn}` +
       (summary.unsupported ? ` / 未検査 ${summary.unsupported}＝検査不成立` : '') +
+      (summary.notApplicable ? ` / 他 OS 専用 ${summary.notApplicable}` : '') +
       '）',
   );
   return lines.join('\n');

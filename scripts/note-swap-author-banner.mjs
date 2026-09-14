@@ -30,6 +30,7 @@ import { publishLive } from './lib/note-live-publish.mjs';
 import { fetchNoteBody } from './lib/note-live-check.mjs';
 import { recordPublishedHash } from './lib/note-republish-hash.mjs';
 import { todayJst } from './lib/jst-date.mjs';
+import { leanContextOptions } from './lib/playwright-launch.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
@@ -1192,14 +1193,14 @@ if (COMMIT) {
 }
 
 if (!stoppedByLimit && !stateError) {
-  const context = await chromium.launchPersistentContext(PROFILE, {
+  const context = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
     headless: false,
     channel: 'chrome',
     proxy: PROXY ? { server: PROXY } : undefined,
     ignoreHTTPSErrors: true,
     viewport: { width: 1366, height: 1000 },
     args: ['--disable-blink-features=AutomationControlled'],
-  });
+  }));
   try {
     await context.grantPermissions(['clipboard-read', 'clipboard-write'], { origin: 'https://editor.note.com' });
     const page = context.pages()[0] || (await context.newPage());

@@ -28,6 +28,7 @@ import { publishLive } from './lib/note-live-publish.mjs';
 import { fetchNoteBody } from './lib/note-live-check.mjs';
 import { listAttachedFiles } from './lib/note-attach.mjs';
 import { evaluatePostSaveGate, evaluatePreSaveGate, expectationsByNoteId, recordAttachmentLoss } from './lib/note-attachments.mjs';
+import { leanContextOptions } from './lib/playwright-launch.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
@@ -97,10 +98,10 @@ async function main() {
   }
   if (!COMMIT) { console.log('\nDRY-RUN のみ（--commit で再設定）'); return; }
 
-  const context = await chromium.launchPersistentContext(PROFILE, {
+  const context = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
     headless: false, channel: 'chrome', proxy: PROXY ? { server: PROXY } : undefined,
     ignoreHTTPSErrors: true, viewport: { width: 1366, height: 1000 }, args: ['--disable-blink-features=AutomationControlled'],
-  });
+  }));
   // 添付（配布 PDF）の期待値。保存前ゲートの基準にする。
   const EXPECT = expectationsByNoteId({ root: ROOT });
   let ok = 0, fail = 0;

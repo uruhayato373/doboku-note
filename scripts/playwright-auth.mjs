@@ -11,11 +11,13 @@ import {
   readdirSync,
   statfsSync,
 } from 'node:fs';
-import { dirname, join } from 'node:path';
+import { dirname, join, relative, sep } from 'node:path';
 import { hostname } from 'node:os';
 import { fileURLToPath } from 'node:url';
 import {
+  PROFILE_CACHE_SUBDIRS,
   ensureAuthDirectories,
+  legacyWindowsAuthRoots,
   loadAuthRegistry,
   redactAuthDiagnostic,
   resolveAuthRoot,
@@ -27,6 +29,7 @@ import {
 } from './lib/playwright-auth-profile.mjs';
 import { acquireAuthLock, readAuthLock, withAuthLock } from './lib/playwright-auth-lock.mjs';
 import { captureAuthSnapshot, classifyAuthSnapshot, loadAuthAdapter, pollAuthStatus } from './lib/playwright-auth-adapters.mjs';
+import { mergeLeanOptions } from './lib/playwright-launch.mjs';
 
 export const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -125,8 +128,82 @@ function hasBrowserLock(profilePath) {
 function legacyPaths(repoRoot, entry) {
   const legacyRoot = join(repoRoot, '.local');
   return {
+    label: 'repo .local',
     profilePath: join(legacyRoot, entry.profileDirName),
     statePath: entry.stateFileName ? join(legacyRoot, entry.stateFileName) : null,
+  };
+}
+
+/** パス中の `*` セグメントを実在ディレクトリで展開する（無ければ空）。 */
+function expandStar(path) {
+  if (!path.includes('*')) return existsSync(path) ? [path] : [];
+  const parts = path.split(/[\\/]/);
+  const i = parts.findIndex((p) => p.includes('*'));
+  const parent = parts.slice(0, i).join(sep);
+  const escaped = parts[i].split('*').map((x) => x.replace(/[.+?^${}()|[\]\\]/g, '\\$&'));
+  const re = new RegExp('^' + escaped.join('.*') + '$', 'i');
+  let names = [];
+  try {
+    names = readdirSync(parent, { withFileTypes: true }).filter((e) => e.isDirectory() && re.test(e.name)).map((e) => e.name);
+  } catch {
+    return [];
+  }
+  const rest = parts.slice(i + 1).join(sep);
+  return names.flatMap((n) => expandStar(rest ? join(parent, n, rest) : join(parent, n)));
+}
+
+/**
+ * 移行元の候補を順に返す。repo `.local`（全 OS）→ Windows は旧既定 %LOCALAPPDATA% と
+ * Codex（MSIX）の仮想化先。現在の auth root と同じ場所は候補から外す。
+ */
+function legacyCandidates(context, entry) {
+  const repoRoot = context.repoRoot ?? REPO_ROOT;
+  const options = authOptions(context);
+  const out = [legacyPaths(repoRoot, entry)];
+  const platform = context.platform ?? process.platform;
+  if (platform === 'win32') {
+    const currentRoot = resolveAuthRoot(options).toLowerCase();
+    const homeDir = options.homeDir ?? process.env.USERPROFILE ?? process.env.HOME;
+    for (const pattern of legacyWindowsAuthRoots({ env: options.env, homeDir })) {
+      for (const root of expandStar(pattern)) {
+        if (root.toLowerCase() === currentRoot) continue;
+        out.push({
+          label: /[\\/]Packages[\\/]/i.test(root) ? 'Codex (MSIX) sandbox' : 'legacy %LOCALAPPDATA%',
+          profilePath: join(root, 'profiles', entry.profileDirName),
+          statePath: entry.stateFileName ? join(root, 'states', entry.stateFileName) : null,
+        });
+      }
+    }
+  }
+  return out;
+}
+
+const sourceHasData = (c) => existsSync(c.profilePath) || Boolean(c.statePath && existsSync(c.statePath));
+
+/** ログイン実体の新しさ（Cookie DB の mtime。無ければ profile ディレクトリ）。候補が複数あるとき最新を運ぶ。 */
+function loginMtimeMs(c) {
+  for (const rel of ['Default/Network/Cookies', 'Default/Cookies', '']) {
+    try {
+      return lstatSync(rel ? join(c.profilePath, ...rel.split('/')) : c.profilePath).mtimeMs;
+    } catch {}
+  }
+  return c.statePath && existsSync(c.statePath) ? lstatSync(c.statePath).mtimeMs : 0;
+}
+
+function pickNewestSource(candidates) {
+  return candidates
+    .filter(sourceHasData)
+    .map((c) => ({ ...c, loginMtimeMs: loginMtimeMs(c) }))
+    .sort((a, b) => b.loginMtimeMs - a.loginMtimeMs)[0] ?? null;
+}
+
+/** cpSync の filter: プロファイルのキャッシュ（再生成可）は移さない。ログイン実体だけ運ぶ。 */
+function profileCopyFilter(sourceRoot) {
+  const skip = PROFILE_CACHE_SUBDIRS.map((p) => p.split('/').join(sep).toLowerCase());
+  return (src) => {
+    const rel = relative(sourceRoot, src).toLowerCase();
+    if (!rel) return true;
+    return !skip.some((s) => rel === s || rel.startsWith(s + sep));
   };
 }
 
@@ -160,14 +237,15 @@ export function inspectDoctor(context = {}, selected = null) {
 
   const services = paths.services.map((item) => {
     const entry = registry.services[item.service];
-    const legacy = legacyPaths(context.repoRoot ?? REPO_ROOT, entry);
-    const legacyExists = existsSync(legacy.profilePath) || Boolean(legacy.statePath && existsSync(legacy.statePath));
+    const legacySources = legacyCandidates(context, entry).filter(sourceHasData);
+    const legacyExists = legacySources.length > 0;
     const targetExists = existsSync(item.profilePath) || Boolean(item.statePath && existsSync(item.statePath));
     return {
       service: item.service,
       profileExists: existsSync(item.profilePath),
       stateExists: Boolean(item.statePath && existsSync(item.statePath)),
       legacyExists,
+      legacySources: legacySources.map((c) => ({ label: c.label, profilePath: c.profilePath })),
       duplicateProfileLocations: legacyExists && targetExists,
       lock: inspectLock(item.service, options),
       note: 'profileExistsはauthenticatedを意味しない',
@@ -178,7 +256,11 @@ export function inspectDoctor(context = {}, selected = null) {
     warnings.push('DOBOKU_PROFILE_ROOTはdeprecated。DOBOKU_AUTH_ROOTへ新しいOS外部auth rootを設定する');
   }
   if (!writable) warnings.push(`auth rootを作成できる権限がない: ${ancestor}`);
-  if (services.some((item) => item.legacyExists)) warnings.push('legacy profile/stateあり。auth:migrateをdry-runで確認する');
+  for (const item of services) {
+    for (const src of item.legacySources) {
+      warnings.push(`${item.service}: ${src.label} に profile あり（${src.profilePath}）。auth:migrate を dry-run で確認する`);
+    }
+  }
   if (services.some((item) => item.lock.exists)) warnings.push('service lockあり。自動削除せずPID/hostnameを確認する');
   return {
     ok: paths.ok && readable && writable,
@@ -199,18 +281,23 @@ function migrationPlan(context, service) {
   const options = authOptions(context);
   const entry = loadAuthRegistry({ cwd: repoRoot }).services[service];
   if (!entry) throw new Error(`未知のservice: ${service}`);
-  const source = legacyPaths(repoRoot, entry);
+  const candidates = legacyCandidates(context, entry);
+  const source = pickNewestSource(candidates) ?? legacyPaths(repoRoot, entry);
+  const skippedSources = candidates
+    .filter((c) => sourceHasData(c) && c.profilePath !== source.profilePath)
+    .map((c) => ({ label: c.label, profilePath: c.profilePath, loginMtimeMs: loginMtimeMs(c) }));
   const target = {
     profilePath: resolveProfileDir(service, options),
     statePath: resolveStatePath(service, options),
   };
   const lock = readAuthLock(service, { authOptions: options });
-  const sourceExists = existsSync(source.profilePath) || Boolean(source.statePath && existsSync(source.statePath));
+  const sourceExists = sourceHasData(source);
   const targetBlocked = isNonEmpty(target.profilePath) || Boolean(target.statePath && existsSync(target.statePath));
   const browserInUse = hasBrowserLock(source.profilePath) || hasBrowserLock(target.profilePath);
   return {
     service,
     source,
+    skippedSources,
     target,
     sourceExists,
     targetBlocked,
@@ -234,7 +321,14 @@ export function migrateAuthProfile(context = {}, service, commit = false) {
   try {
     if (existsSync(plan.source.profilePath)) {
       mkdirSync(dirname(plan.target.profilePath), { recursive: true });
-      cpSync(plan.source.profilePath, plan.target.profilePath, { recursive: true, errorOnExist: true, force: false });
+      // キャッシュ（Cache / Code Cache / Service Worker …）は運ばない。Windows 実測で 1.4GB のうち
+      // ログインに要るのは 56MB だった。除外一覧は PROFILE_CACHE_SUBDIRS（disk-hygiene と共通）。
+      cpSync(plan.source.profilePath, plan.target.profilePath, {
+        recursive: true,
+        errorOnExist: true,
+        force: false,
+        filter: profileCopyFilter(plan.source.profilePath),
+      });
     }
     if (plan.source.statePath && existsSync(plan.source.statePath)) {
       mkdirSync(dirname(plan.target.statePath), { recursive: true });
@@ -259,14 +353,16 @@ async function openAuthContext(service, context, headed) {
   const profilePath = resolveProfileDir(service, options);
   const { chromium } = context.playwright ?? (await import('playwright'));
   const proxy = (context.env ?? process.env).HTTPS_PROXY || (context.env ?? process.env).HTTP_PROXY;
-  const browser = await chromium.launchPersistentContext(profilePath, {
+  // 認証 CLI は人が操作する短命プロセスで service lock も持つので起動ガードは掛けず、
+  // 省キャッシュ設定（Service Worker 遮断・ディスクキャッシュ最小化）だけ重ねる。
+  const browser = await chromium.launchPersistentContext(profilePath, mergeLeanOptions({
     channel: 'chrome',
     headless: !headed,
     proxy: proxy ? { server: proxy } : undefined,
     ignoreHTTPSErrors: true,
     viewport: { width: 1366, height: 1000 },
     args: ['--disable-blink-features=AutomationControlled'],
-  });
+  }, { allowServiceWorkers: (context.env ?? process.env).DOBOKU_PW_ALLOW_SW === '1' }));
   const statePath = resolveStatePath(service, options);
   if (statePath && existsSync(statePath)) {
     try {

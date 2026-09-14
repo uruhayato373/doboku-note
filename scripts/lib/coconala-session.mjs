@@ -21,6 +21,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { todayJst } from './jst-date.mjs';
 import { resolveProfileDir } from './playwright-auth-profile.mjs';
+import { leanContextOptions } from './playwright-launch.mjs';
 
 export const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 export const PROFILE = resolveProfileDir('coconala', { cwd: ROOT, repoRoot: ROOT });
@@ -129,14 +130,14 @@ export function writeBackCatalog(id, url, today) {
  * headless は既定 false（ログイン状態の目視・初回ログインのため）。--headless で上書き可。
  */
 export async function launchContext({ headless = false } = {}) {
-  return chromium.launchPersistentContext(PROFILE, {
+  return chromium.launchPersistentContext(PROFILE, leanContextOptions({
     headless,
     channel: 'chrome',
     proxy: PROXY ? { server: PROXY } : undefined,
     ignoreHTTPSErrors: true,
     viewport: { width: 1366, height: 1000 },
     args: ['--disable-blink-features=AutomationControlled'],
-  });
+  }));
 }
 
 /**

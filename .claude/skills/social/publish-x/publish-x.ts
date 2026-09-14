@@ -29,6 +29,7 @@ import { chromium, type BrowserContext, type Page } from "playwright";
 import * as path from "path";
 import * as fs from "fs";
 import { resolveProfileDir } from "../../../../scripts/lib/playwright-auth-profile.mjs";
+import { leanContextOptions } from "../../../../scripts/lib/playwright-launch.mjs";
 
 // ─── 設定 ─────────────────────────────────────────────
 const PROJECT_ROOT = path.resolve(__dirname, "../../../..");
@@ -749,14 +750,14 @@ async function main() {
 
   if (!fs.existsSync(PROFILE_DIR)) fs.mkdirSync(PROFILE_DIR, { recursive: true });
 
-  const context: BrowserContext = await chromium.launchPersistentContext(PROFILE_DIR, {
+  const context: BrowserContext = await chromium.launchPersistentContext(PROFILE_DIR, leanContextOptions({
     headless: false,
     channel: "chrome",
     viewport: { width: 1280, height: 900 },
     locale: "ja-JP",
     timezoneId: "Asia/Tokyo",
     args: ["--disable-blink-features=AutomationControlled"],
-  });
+  }));
 
   const page = context.pages()[0] || (await context.newPage());
 

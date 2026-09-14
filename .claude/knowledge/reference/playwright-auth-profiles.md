@@ -11,12 +11,20 @@ SNS・販売・計測サービスの Playwright ログインを、worktree や O
 
 | OS | 既定 auth root |
 |---|---|
-| Windows | `%LOCALAPPDATA%\doboku-note\playwright-auth` |
+| Windows | `%USERPROFILE%\.local\state\doboku-note\playwright-auth`（2026-09-14 まで `%LOCALAPPDATA%\doboku-note\playwright-auth`） |
 | macOS | `~/Library/Application Support/doboku-note/playwright-auth` |
 | Linux | `${XDG_STATE_HOME:-~/.local/state}/doboku-note/playwright-auth` |
 
 auth root の下は `profiles/`、`states/`、`locks/`、`metadata/` に分ける。Cookie や storageState は
 PC ごとに独立保持し、Windows と Mac の間でコピー・Git・OneDrive・iCloud・Dropbox 同期をしない。
+
+> [!warning]
+> Windows の既定を AppData の外へ移した理由（2026-09-14）: `%LOCALAPPDATA%` は MSIX アプリ
+> （ChatGPT/Codex）の中から書くと `%LOCALAPPDATA%\Packages\OpenAI.Codex_<hash>\LocalCache\Local\` へ
+> 仮想化（リダイレクト）され、Claude Code や通常のターミナルからは見えない。実測で Codex が X に
+> ログインしたプロファイルはサンドボックス側にだけあり、`.local` の旧コピーと二重になっていた。
+> `~/.local/state` は仮想化の対象外なので Codex と Claude Code が同じ 1 本を使う。旧置き場は
+> `auth:doctor` が「legacy %LOCALAPPDATA%」「Codex (MSIX) sandbox」として警告し、`auth:migrate` の移行元になる。
 
 ## サービスと例外
 
@@ -51,7 +59,10 @@ npm run auth:paths -- --service note
 npm run auth:doctor -- --service note
 ```
 
-旧 `.local/playwright-*-profile` がある場合は、サービス単位で dry-run してからコピーする。
+旧 `.local/playwright-*-profile`・Windows の旧 `%LOCALAPPDATA%` root・Codex(MSIX) サンドボックスに
+プロファイルがある場合は、サービス単位で dry-run してからコピーする。候補が複数あれば **Cookie DB が最新の
+ものを運び**、他は `skippedSources` に出す。コピーは **キャッシュ（`PROFILE_CACHE_SUBDIRS`＝Cache / Code Cache /
+GPUCache / Service Worker …）を除外**する（Windows 実測: X 1.4GB → 56MB）。
 移行先が既に存在する、lock がある、Chrome が使用中のときは中断する。旧 source は自動削除しない。
 
 ```bash
@@ -124,12 +135,32 @@ operator/skill が持つ dry-run→`--commit` ゲートに従い、認証 CLI �
 
 Windows と Mac の双方で note の別プロセス再利用・worktree 非依存を確認済み。
 
+## 省メモリ起動と起動ガード（2026-09-14）
+
+全 `launchPersistentContext` は `scripts/lib/playwright-launch.mjs` の `leanContextOptions({...})` で options を包む
+（認証 CLI の login/status だけは人が操作する短命プロセスなのでガード無しの `mergeLeanOptions`）。
+
+- **キャッシュを持たない**: `--disk-cache-size=1` `--media-cache-size=1` `--disable-gpu-shader-disk-cache` と
+  `serviceWorkers: 'block'`。ログインに要るのは Cookie・Local Storage の数十 MB で、Service Worker の
+  CacheStorage（X で 767MB）や Code Cache は SNS/管理画面の操作に要らない。サイトが SW を要求したら
+  `DOBOKU_PW_ALLOW_SW=1`
+- **空きメモリガード**: 利用可能メモリ < 2GiB なら起動を見送る（`LaunchGuardError` / `LOW_MEMORY`）。
+  16GB 機で Claude Desktop・ChatGPT・Chrome と並走させて OS ごと固まった再発防止。閾値は
+  `DOBOKU_PW_MIN_FREE_MB`、macOS は `vm_stat` の free+inactive+speculative で測る
+- **同時 1 本ガード**: auth root 配下のプロファイルを使う Chrome が既に居れば見送る
+  （`BROWSER_ALREADY_RUNNING`）。service lock はサービス単位なので、x と instagram の並走はこれで止める。
+  意図して並走するなら `DOBOKU_PW_ALLOW_PARALLEL=1`、両方外すなら `DOBOKU_PW_SKIP_GUARD=1`
+- 測れなかった（プロセス一覧・メモリが取れない）ときは止めない。残ったキャッシュは disk-hygiene の
+  `playwright-cache` が日次で回収する（[disk-hygiene.md](disk-hygiene.md) §4・§8）
+
 ## セキュリティ
 
 - `profiles/` と `states/` はログイン Cookie を含む。コミット、共有、ログ添付、クラウド同期をしない
 - registry と metadata に password、Cookie、token、secret、2FA、recovery code を書かない
 - ログやスクリーンショットへメールアドレス・氏名・token 付き URL を残さない
 - 旧 profile の削除は自動化しない。新 root の再利用を一定期間確認してから人が処遇を決める
+  （2026-09-14 Windows: 10 サービスを `~/.local/state` へ移行済み。`.local` と Codex サンドボックスの旧コピーは
+  キャッシュだけ削って保持。`auth:status` で新 root の再利用を確認したら人が消す）
 - CI は実 profile を使わない。テストが明示した一時 root 以外は resolver が拒否する
 
 ## 検証

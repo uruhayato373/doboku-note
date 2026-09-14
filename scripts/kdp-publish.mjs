@@ -34,6 +34,7 @@ import { fileURLToPath } from 'node:url';
 import { homedir } from 'node:os';
 import { resolveBook, validateBook, getDefaults, AI_AMOUNT_LABELS } from './lib/kdp-common.mjs';
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
+import { leanContextOptions } from './lib/playwright-launch.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PROFILE = resolveProfileDir('kdp', { cwd: ROOT, repoRoot: ROOT });
@@ -96,11 +97,11 @@ const K = (id) => `kdp-${id || 'bookshelf'}`;
 const shot = async (page, step) => { try { await page.screenshot({ path: join(TMP, `${K(ID)}-${step}.png`) }); console.log(`[shot] .tmp/${K(ID)}-${step}.png`); } catch {} };
 
 // ── 起動 ─────────────────────────────────────────────────────────────────
-const ctx = await chromium.launchPersistentContext(PROFILE, {
+const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
   headless: false, channel: 'chrome', proxy: PROXY ? { server: PROXY } : undefined,
   ignoreHTTPSErrors: true, viewport: { width: 1366, height: 1000 },
   args: ['--disable-blink-features=AutomationControlled'],
-});
+}));
 
 try {
   const page = ctx.pages()[0] || (await ctx.newPage());

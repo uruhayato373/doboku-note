@@ -44,6 +44,7 @@ import { chromium } from 'playwright';
 import { mkdirSync, writeFileSync, readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
+import { leanContextOptions } from './lib/playwright-launch.mjs';
 
 const ROOT = process.cwd();
 const OUT_DIR = join(ROOT, '.claude/state/coconala');
@@ -182,7 +183,7 @@ function loadPrev() {
 
 async function main() {
   mkdirSync(OUT_DIR, { recursive: true });
-  const ctx = await chromium.launchPersistentContext(PROFILE, {
+  const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
     headless: !HEADED,
     channel: 'chrome',
     proxy: PROXY ? { server: PROXY } : undefined,
@@ -190,7 +191,7 @@ async function main() {
     viewport: { width: 1366, height: 1000 },
     args: ['--disable-blink-features=AutomationControlled'],
     locale: 'ja-JP',
-  });
+  }));
   const page = ctx.pages()[0] ?? (await ctx.newPage());
 
   const prev = loadPrev();

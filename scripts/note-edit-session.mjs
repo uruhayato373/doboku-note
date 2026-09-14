@@ -26,6 +26,7 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 import { chromium } from 'playwright';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { leanContextOptions } from './lib/playwright-launch.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const PROJECT_ROOT = join(__dirname, '..');
@@ -49,14 +50,14 @@ console.log('開く URL         :', target);
 
 let ctx;
 try {
-  ctx = await chromium.launchPersistentContext(userDataDir, {
+  ctx = await chromium.launchPersistentContext(userDataDir, leanContextOptions({
     headless: false,
     channel: 'chrome', // システム Chrome（組み込み Chromium は bot 判定される）
     proxy: proxy ? { server: proxy } : undefined,
     ignoreHTTPSErrors: true,
     viewport: { width: 1366, height: 900 },
     args: ['--disable-blink-features=AutomationControlled'],
-  });
+  }));
 } catch (e) {
   const msg = String(e).split('\n')[0];
   console.error('\nLAUNCH_FAIL:', msg);

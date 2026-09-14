@@ -22,6 +22,7 @@ import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { createHash } from "node:crypto";
 import { resolveProfileDir, resolveStatePath } from "./playwright-auth-profile.mjs";
+import { leanContextOptions } from "./playwright-launch.mjs";
 
 const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 export const CONFIG_PATH = ".claude/config/google-console-automation.json";
@@ -117,7 +118,7 @@ export async function launchContext(cfg, { headless } = {}) {
   mkdirSync(dir, { recursive: true });
   const state = authStatePath(cfg);
   if (state) mkdirSync(dirname(state), { recursive: true });
-  const ctx = await chromium.launchPersistentContext(dir, {
+  const ctx = await chromium.launchPersistentContext(dir, leanContextOptions({
     channel: cfg.browser.channel || "chrome",
     headless: headless ?? cfg.browser.headless ?? false,
     acceptDownloads: true,
@@ -129,7 +130,7 @@ export async function launchContext(cfg, { headless } = {}) {
       "--no-first-run",
       "--no-default-browser-check",
     ],
-  });
+  }));
   // navigator.webdriver を undefined に（自動化検知の主シグナルを無効化）
   await ctx.addInitScript(() => {
     try {

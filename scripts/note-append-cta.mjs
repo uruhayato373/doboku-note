@@ -27,6 +27,7 @@ import { chromium } from 'playwright';
 import { join, dirname } from 'node:path';
 import { mkdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
+import { leanContextOptions } from './lib/playwright-launch.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
@@ -56,10 +57,10 @@ mkdirSync(join(ROOT, '.tmp'), { recursive: true });
 
 console.log(`[prep] note=${NOTE} urlKey=${URL_KEY} mode=${COMMIT ? 'COMMIT(更新する)' : 'DRY-RUN(更新しない)'}`);
 
-const ctx = await chromium.launchPersistentContext(PROFILE, {
+const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
   headless: false, channel: 'chrome', proxy: PROXY ? { server: PROXY } : undefined,
   ignoreHTTPSErrors: true, viewport: { width: 1366, height: 1000 }, args: ['--disable-blink-features=AutomationControlled'],
-});
+}));
 let exitCode = 0;
 try {
   const page = ctx.pages()[0] || (await ctx.newPage());

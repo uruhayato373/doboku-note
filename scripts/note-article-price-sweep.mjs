@@ -41,6 +41,7 @@ import { listAttachedFiles } from './lib/note-attach.mjs';
 import { evaluatePostSaveGate, evaluatePreSaveGate, expectationsByNoteId, recordAttachmentLoss } from './lib/note-attachments.mjs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { leanContextOptions } from './lib/playwright-launch.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -219,12 +220,12 @@ if (!COMMIT) {
 // ---- Playwright で価格変更 ----
 console.log(`\n[4] 価格変更を実行（${toChange.length} 件）`);
 
-const ctx = await chromium.launchPersistentContext(PROFILE, {
+const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
   headless: false, channel: 'chrome',
   proxy: PROXY ? { server: PROXY } : undefined,
   ignoreHTTPSErrors: true, viewport: { width: 1366, height: 1000 },
   args: ['--disable-blink-features=AutomationControlled'],
-});
+}));
 const page = ctx.pages()[0] || (await ctx.newPage());
 
 // 添付（配布 PDF）の期待値。価格変更は本文へ触らないが、**壊れた状態のエディタのまま「更新する」を

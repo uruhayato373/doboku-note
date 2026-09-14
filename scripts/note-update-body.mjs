@@ -65,6 +65,7 @@ import { assertLiveBody, expectedFreePreviewMin } from './lib/note-live-check.mj
 import { publishLive } from './lib/note-live-publish.mjs';
 import { attachFileInEditor, listAttachedFiles, resolveLocalFiles } from './lib/note-attach.mjs';
 import { todayJst } from './lib/jst-date.mjs';
+import { leanContextOptions } from './lib/playwright-launch.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
@@ -659,13 +660,13 @@ function liveIssues(chk) {
 const articles = loadArticles();
 console.log(`=== note-update-body: ${articles.length} 件 / mode=${COMMIT ? 'COMMIT(ライブ反映)' : 'DRY-RUN(反映しない)'} ===`);
 
-const ctx = await chromium.launchPersistentContext(PROFILE, {
+const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
   headless: false, channel: 'chrome',
   proxy: PROXY ? { server: PROXY } : undefined,
   ignoreHTTPSErrors: true,
   viewport: { width: 1366, height: 1000 },
   args: ['--disable-blink-features=AutomationControlled'],
-});
+}));
 
 let ok = 0, fail = 0;
 try {

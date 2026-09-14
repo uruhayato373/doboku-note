@@ -41,6 +41,7 @@ import { fileURLToPath } from 'node:url';
 import { readFileSync, existsSync } from 'node:fs';
 import { ensureLocal } from './lib/asset-storage.mjs';
 import { recordPublishedAssetHash, recordPublishedMetaHash } from './lib/note-republish-hash.mjs';
+import { leanContextOptions } from './lib/playwright-launch.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
@@ -171,7 +172,7 @@ async function doOne(page, { abs, noteId, pricing, cover }) {
 
 const list = arts();
 console.log(`=== note-update-cover: ${list.length}件 mode=${COMMIT ? 'COMMIT' : 'DRY'} ===`);
-const ctx = await chromium.launchPersistentContext(PROFILE, { headless: false, channel: 'chrome', ignoreHTTPSErrors: true, viewport: { width: 1366, height: 1000 }, args: ['--disable-blink-features=AutomationControlled'] });
+const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({ headless: false, channel: 'chrome', ignoreHTTPSErrors: true, viewport: { width: 1366, height: 1000 }, args: ['--disable-blink-features=AutomationControlled'] }));
 let ok = 0, fail = 0; const fails = [];
 try {
   const page = ctx.pages()[0] || (await ctx.newPage());

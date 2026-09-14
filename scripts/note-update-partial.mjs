@@ -11,6 +11,7 @@ import {
   normalizeAttachmentSnapshot,
   sameAttachmentSnapshot,
 } from './lib/note-partial-update.mjs';
+import { leanContextOptions } from './lib/playwright-launch.mjs';
 
 /**
  * 公開済み note 記事の「指定した範囲だけ」を更新する。
@@ -811,14 +812,14 @@ async function runSpec(page, specArg) {
 }
 
 console.log(`[batch] specs=${specArgs.length}/${listedSpecs.length} start=${START} mode=${COMMIT ? 'COMMIT' : 'DRY-READONLY'}`);
-const context = await chromium.launchPersistentContext(PROFILE, {
+const context = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
   headless: false,
   channel: 'chrome',
   proxy: PROXY ? { server: PROXY } : undefined,
   ignoreHTTPSErrors: true,
   viewport: { width: 1366, height: 1000 },
   args: ['--disable-blink-features=AutomationControlled'],
-});
+}));
 
 let exitCode = 0;
 try {

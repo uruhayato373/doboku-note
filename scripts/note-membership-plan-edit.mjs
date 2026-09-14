@@ -51,6 +51,7 @@ import { chromium } from 'playwright';
 import { mkdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { leanContextOptions } from './lib/playwright-launch.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -75,10 +76,10 @@ if (!PLAN) { console.error('必須: --plan <planId>（/membership/settings/manag
 
 mkdirSync(TMP, { recursive: true });
 
-const ctx = await chromium.launchPersistentContext(PROFILE, {
+const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
   channel: 'chrome', headless: false, ignoreHTTPSErrors: true,
   ...(PROXY ? { proxy: { server: PROXY } } : {}),
-});
+}));
 const page = ctx.pages()[0] || await ctx.newPage();
 
 // --- account gate ---

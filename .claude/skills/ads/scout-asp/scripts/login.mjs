@@ -18,6 +18,7 @@ import { mkdirSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
 import { resolveProfileDir, resolveStatePath } from "../../../../../scripts/lib/playwright-auth-profile.mjs";
+import { leanContextOptions } from "../../../../../scripts/lib/playwright-launch.mjs";
 
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "../../../../..");
 const AUTH_OPTIONS = { cwd: REPO_ROOT, repoRoot: REPO_ROOT };
@@ -32,13 +33,13 @@ const TIMEOUT_MS = 12 * 60 * 1000;
 
 mkdirSync(PROFILE_DIR, { recursive: true });
 mkdirSync(dirname(STATE_PATH), { recursive: true });
-const ctx = await chromium.launchPersistentContext(PROFILE_DIR, {
+const ctx = await chromium.launchPersistentContext(PROFILE_DIR, leanContextOptions({
   headless: false,
   viewport: { width: 1280, height: 900 },
   locale: "ja-JP",
   timezoneId: "Asia/Tokyo",
   args: ["--disable-blink-features=AutomationControlled"],
-});
+}));
 const page = ctx.pages()[0] ?? (await ctx.newPage());
 await page.goto(HOME_URL, { waitUntil: "domcontentloaded" });
 

@@ -27,6 +27,7 @@
 import fs from "fs";
 import path from "path";
 import { resolveProfileDir } from "./lib/playwright-auth-profile.mjs";
+import { leanContextOptions } from "./lib/playwright-launch.mjs";
 
 const ROOT = process.cwd();
 const ARGV = process.argv.slice(2);
@@ -180,11 +181,11 @@ if (WITH_QUEUE) {
   try {
     const { chromium } = await import("playwright");
     const PROFILE_DIR = resolveProfileDir("x", { cwd: ROOT, repoRoot: ROOT });
-    const ctx = await chromium.launchPersistentContext(PROFILE_DIR, {
+    const ctx = await chromium.launchPersistentContext(PROFILE_DIR, leanContextOptions({
       headless: true, channel: "chrome",
       viewport: { width: 1280, height: 900 }, locale: "ja-JP", timezoneId: "Asia/Tokyo",
       args: ["--disable-blink-features=AutomationControlled"],
-    });
+    }));
     const page = ctx.pages()[0] || (await ctx.newPage());
     const snippets = new Set();
     try {

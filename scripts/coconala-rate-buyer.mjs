@@ -34,15 +34,16 @@ import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
+import { leanContextOptions } from './lib/playwright-launch.mjs';
 const ROOT=join(dirname(fileURLToPath(import.meta.url)),'..');
 const PROXY=process.env.HTTPS_PROXY||process.env.HTTP_PROXY||'';
 const sleep=(ms)=>new Promise(r=>setTimeout(r,ms));
 const ROOM=process.argv[2];
 const COMMENT=readFileSync(process.argv[3],'utf8').trim();
 const SUBMIT=process.argv.includes('--submit');
-const ctx=await chromium.launchPersistentContext(resolveProfileDir('coconala',{cwd:ROOT,repoRoot:ROOT}),{
+const ctx=await chromium.launchPersistentContext(resolveProfileDir('coconala',{cwd:ROOT,repoRoot:ROOT}),leanContextOptions({
   channel:'chrome',headless:false,ignoreHTTPSErrors:true,viewport:{width:1400,height:1050},
-  args:['--disable-blink-features=AutomationControlled'],...(PROXY?{proxy:{server:PROXY}}:{})});
+  args:['--disable-blink-features=AutomationControlled'],...(PROXY?{proxy:{server:PROXY}}:{})}));
 try{
   const page=ctx.pages()[0]||await ctx.newPage();
   await page.goto(`https://coconala.com/ratings/provider_add/${ROOM}`,{waitUntil:'domcontentloaded',timeout:90000});

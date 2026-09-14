@@ -19,6 +19,7 @@ import {
   parseWorktreeList,
   planArtifactRemoval,
   referencedNpxIds,
+  resolvePlatformPath,
   selectStaleDirs,
   summarize,
   worktreePlacement,
@@ -201,15 +202,19 @@ test('claudeProjectKey / bytesHuman', () => {
 });
 
 // ─── プラットフォームと集計（検査ゼロを PASS と呼ばない）──────────────────
-test('itemsForPlatform: darwin 専用は他 OS で unsupported（落とさず未検査と言う）', () => {
-  const items = [{ id: 'a' }, { id: 'b', platform: ['darwin'] }];
+test('itemsForPlatform: 他 OS 専用は n/a（落とさず「この OS には無い」と言い、actions も空にする）', () => {
+  const items = [{ id: 'a' }, { id: 'b', platform: ['darwin'], actions: [{ kind: 'rm', path: '/x' }] }, { id: 'c', platform: ['win32'] }];
   const win = itemsForPlatform(items, 'win32');
   assert.equal(win[0].status, undefined);
-  assert.equal(win[1].status, 'unsupported');
-  assert.equal(itemsForPlatform(items, 'darwin')[1].status, undefined);
+  assert.equal(win[1].status, 'n/a');
+  assert.deepEqual(win[1].actions, []);
+  assert.equal(win[2].status, undefined);
+  const mac = itemsForPlatform(items, 'darwin');
+  assert.equal(mac[1].status, undefined);
+  assert.equal(mac[2].status, 'n/a');
 });
 
-test('summarize: 未検査ありは exit 2＝検査不成立・quick は常に 0', () => {
+test('summarize: 未検査ありは exit 2＝検査不成立・n/a は数えない・quick は常に 0', () => {
   const withUnsupported = [{ status: 'ok' }, { status: 'unsupported' }];
   assert.equal(summarize(withUnsupported, { mode: 'full' }).exitCode, 2);
   assert.equal(summarize(withUnsupported, { mode: 'quick' }).exitCode, 0);
@@ -219,6 +224,27 @@ test('summarize: 未検査ありは exit 2＝検査不成立・quick は常に 0
   assert.equal(s.examined, 3);
   assert.equal(s.fail, 1);
   assert.equal(s.warn, 1);
+  // 他 OS 専用（n/a）は実検査にも未検査にも入らず、mac / win のどちらでも検査が成立する
+  const cross = summarize([{ status: 'ok' }, { status: 'n/a' }], { mode: 'full' });
+  assert.equal(cross.exitCode, 0);
+  assert.equal(cross.examined, 1);
+  assert.equal(cross.unsupported, 0);
+  assert.equal(cross.notApplicable, 1);
+  assert.equal(summarize([{ status: 'n/a' }], { mode: 'full' }).exitCode, 2, 'n/a だけ＝実検査 0 は検査不成立');
+});
+
+test('resolvePlatformPath: 文字列 / OS 別 / ~/ / $AUTH_ROOT / 区切り', () => {
+  const home = '/Users/me';
+  assert.equal(resolvePlatformPath('~/Library/Caches/x', { platform: 'darwin', home }), '/Users/me/Library/Caches/x');
+  const perOs = { darwin: '~/Library/Caches/p', win32: '$AUTH_ROOT/profiles' };
+  assert.equal(resolvePlatformPath(perOs, { platform: 'darwin', home }), '/Users/me/Library/Caches/p');
+  assert.equal(
+    resolvePlatformPath(perOs, { platform: 'win32', home: 'C:/Users/me', authRoot: 'C:\\Users\\me\\.local\\state\\doboku-note\\playwright-auth' }),
+    'C:\\Users\\me\\.local\\state\\doboku-note\\playwright-auth\\profiles',
+  );
+  assert.equal(resolvePlatformPath(perOs, { platform: 'linux', home }), null, 'この OS のキーが無ければ null');
+  assert.equal(resolvePlatformPath(perOs, { platform: 'win32', home, authRoot: null }), null, '$AUTH_ROOT が解決できなければ null');
+  assert.equal(resolvePlatformPath('~/AppData/Local/Packages/OpenAI.Codex_*/Cache', { platform: 'win32', home: 'C:/Users/me' }), 'C:\\Users\\me\\AppData\\Local\\Packages\\OpenAI.Codex_*\\Cache');
 });
 
 // ─── pruneTmp（実ファイル）─────────────────────────────────────────────────

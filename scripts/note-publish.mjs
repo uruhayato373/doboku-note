@@ -48,6 +48,7 @@ import { cardifyBareUrls, repairUrlHeadings, listUrlHeadingsInEditor } from './l
 import { extractBodyImages, insertImagesAtPlaceholders } from './lib/note-images.mjs';
 import { assertLiveBody, expectedFreePreviewMin } from './lib/note-live-check.mjs';
 import { todayJst } from './lib/jst-date.mjs';
+import { leanContextOptions } from './lib/playwright-launch.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
@@ -147,10 +148,10 @@ console.log(`[prep] title="${title.slice(0, 40)}" paid=${isPaid} price=${price} 
 const existingUrl = fmField('noteUrl');
 if (existingUrl && /^https?:\/\//.test(existingUrl)) { console.log('[skip] 既に公開済み: ' + existingUrl); process.exit(0); }
 
-const ctx = await chromium.launchPersistentContext(PROFILE, {
+const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
   headless: false, channel: 'chrome', proxy: PROXY ? { server: PROXY } : undefined,
   ignoreHTTPSErrors: true, viewport: { width: 1366, height: 1000 }, args: ['--disable-blink-features=AutomationControlled'],
-});
+}));
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 let publishedUrl = null;
 try {

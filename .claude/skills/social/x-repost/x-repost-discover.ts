@@ -20,6 +20,7 @@ import { chromium, type BrowserContext, type Page } from "playwright";
 import * as path from "path";
 import * as fs from "fs";
 import { resolveProfileDir } from "../../../../scripts/lib/playwright-auth-profile.mjs";
+import { leanContextOptions } from "../../../../scripts/lib/playwright-launch.mjs";
 
 const PROJECT_ROOT = path.resolve(__dirname, "../../../..");
 const PROFILE_DIR = resolveProfileDir("x", { cwd: PROJECT_ROOT, repoRoot: PROJECT_ROOT });
@@ -203,14 +204,14 @@ async function main() {
   console.log(`🚀 x-repost discover 開始（own=@${ownHandle}, 既リポスト ${seenIds.size} 件除外, ハンドルCD ${cooledHandles.size} 件除外）`);
 
   if (!fs.existsSync(PROFILE_DIR)) fs.mkdirSync(PROFILE_DIR, { recursive: true });
-  const context: BrowserContext = await chromium.launchPersistentContext(PROFILE_DIR, {
+  const context: BrowserContext = await chromium.launchPersistentContext(PROFILE_DIR, leanContextOptions({
     headless: !HEADED,
     channel: "chrome",
     viewport: { width: 1280, height: 900 },
     locale: "ja-JP",
     timezoneId: "Asia/Tokyo",
     args: ["--disable-blink-features=AutomationControlled"],
-  });
+  }));
   const page = context.pages()[0] || (await context.newPage());
 
   const all: Candidate[] = [];

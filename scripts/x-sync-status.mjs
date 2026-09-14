@@ -15,6 +15,7 @@ import fs from "fs";
 import path from "path";
 import { glob } from "glob";
 import { resolveProfileDir } from "./lib/playwright-auth-profile.mjs";
+import { leanContextOptions } from "./lib/playwright-launch.mjs";
 
 const ROOT = process.cwd();
 const PROFILE_DIR = resolveProfileDir("x", { cwd: ROOT, repoRoot: ROOT });
@@ -23,11 +24,11 @@ const NOW = new Date();
 
 // ── 1. X キューから予約本文スニペット収集 ───────────────────────────────────
 async function dumpScheduledSnippets() {
-  const ctx = await chromium.launchPersistentContext(PROFILE_DIR, {
+  const ctx = await chromium.launchPersistentContext(PROFILE_DIR, leanContextOptions({
     headless: true, channel: "chrome",
     viewport: { width: 1280, height: 900 }, locale: "ja-JP", timezoneId: "Asia/Tokyo",
     args: ["--disable-blink-features=AutomationControlled"],
-  });
+  }));
   const page = ctx.pages()[0] || (await ctx.newPage());
   const snippets = new Set();
   try {
