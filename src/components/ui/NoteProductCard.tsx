@@ -1,6 +1,7 @@
 import MetaCard from './MetaCard/MetaCard';
 import { type NoteMagazine, buildMagazineUrl } from '@/lib/note-magazines';
 import { brandOf } from '@/lib/exam-brand';
+import { NOTE_LINK_REL } from '@/lib/external-link-rel';
 
 /** 公開済み教材のサイト用プレビュー。note表紙の保存場所や再生成には依存しない。 */
 export default function NoteProductCard({ product, category, placement }: {
@@ -11,7 +12,7 @@ export default function NoteProductCard({ product, category, placement }: {
   const url = buildMagazineUrl(product, `${category}-${placement}`);
   const tracking = { 'data-cta': 'note', 'data-cta-label': product.id, 'data-cta-placement': placement };
   return <MetaCard padding="none" className="p-2" ariaLabel="学習教材">
-    {image && <a href={url} target="_blank" rel="noopener noreferrer" {...tracking}
+    {image && <a href={url} target="_blank" rel={NOTE_LINK_REL} {...tracking}
       aria-label={`${product.shortTitle || product.title}の内容をnoteで見る`}
       className="focus-ring group mx-auto block w-full max-w-[300px] overflow-hidden">
       <div className="relative aspect-[6/5] overflow-hidden bg-[var(--paper)]">
@@ -27,7 +28,7 @@ export default function NoteProductCard({ product, category, placement }: {
     <h2 className="mt-2 text-lg font-bold text-[var(--ink)]">{product.shortTitle || product.title}</h2>
     <p className="mt-2 text-sm leading-relaxed text-[var(--ink-body)]">{product.shortDescription || product.description}</p>
     <p className="mt-2 text-sm font-bold text-[var(--ink)]">{product.price}</p>
-    <a href={url} target="_blank" rel="noopener noreferrer" {...tracking}
+    <a href={url} target="_blank" rel={NOTE_LINK_REL} {...tracking}
       className="focus-ring mt-3 flex min-h-11 items-center justify-center border border-[var(--accent)] bg-[var(--accent-fill)] p-2 text-sm font-bold text-[var(--accent)] hover:underline">教材の内容を見る（note） →</a>
     </div>
   </MetaCard>;

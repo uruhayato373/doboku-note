@@ -5,6 +5,7 @@ import {
   type MagazineId,
 } from "@/lib/note-magazines";
 import { brandOf } from "@/lib/exam-brand";
+import { NOTE_LINK_REL } from "@/lib/external-link-rel";
 
 interface MagazineHeroCtaProps {
   /** note-magazines.ts に登録済みのマガジン ID */
@@ -49,7 +50,7 @@ export default function MagazineHeroCta({
     <a
       href={buildMagazineUrl(magazine, utmContent)}
       target="_blank"
-      rel="noopener noreferrer"
+      rel={NOTE_LINK_REL}
       data-cta="note"
       data-cta-label={`${id}:${utmContent}`}
       data-cta-placement={placement}

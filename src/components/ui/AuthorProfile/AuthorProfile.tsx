@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { AUTHOR } from "@/config/author";
+import { NOTE_LINK_REL } from "@/lib/external-link-rel";
 
 /**
  * AuthorProfile — 運営者プロフィールの共通コンポーネント（SSOT）。
@@ -70,7 +71,7 @@ function NoteCta() {
     <a
       href={AUTHOR.noteCta.url}
       target="_blank"
-      rel="noopener noreferrer"
+      rel={NOTE_LINK_REL}
       className="flex items-center justify-center gap-2 rounded-full bg-[var(--accent)] px-3.5 py-2 text-[14px] font-bold text-[var(--paper)] transition-opacity hover:opacity-90"
     >
       {AUTHOR.noteCta.label}
