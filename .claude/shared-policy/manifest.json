@@ -8,23 +8,29 @@
     "POLICY.md": {
       "sourcePath": "memos/共通事業方針SSOT.md",
       "version": "1.0.0",
-      "updated": "2026-09-15"
+      "updated": "2026-09-15",
+      "title": "共通事業方針（HARM）",
+      "summary": "HARM・5 つの判断の問い・原則・エージェントの判断契約。企画・収益化・週次/月次計画の前に読む。"
     },
     "REPURPOSE.md": {
       "sourcePath": "memos/リパーパス戦略SSOT.md",
       "version": "1.0.0",
-      "updated": "2026-09-15"
+      "updated": "2026-09-15",
+      "title": "SNS リパーパス戦略（6 切り口）",
+      "summary": "結論／理由／体験／反論／数字／ハウツーの 6 切り口と angle パラメータ。X / IG / YouTube へ展開するときの切り口。"
     },
     "STRUCTURE.md": {
       "sourcePath": "memos/note記事構成SSOT.md",
       "version": "1.0.0",
-      "updated": "2026-09-15"
+      "updated": "2026-09-15",
+      "title": "note 記事の構成（売れる 9 型）",
+      "summary": "5 ステップ骨格・売れる 9 型・強化 6 部品・制約。記事タイプ別の使い分け・章立て・回遊は各プロジェクト側。"
     }
   },
   "files": {
-    ".claude/shared-policy/POLICY.md": "432ae5acb12cbcc5ea9c0219b8b2f1dbecb4acbb58ff0564940e63a4b7358ad2",
-    ".claude/shared-policy/REPURPOSE.md": "8bdb3e2f7a18bbc15905075e122759c3e57e733a4b05ee8cd406498a9ac8fa30",
-    ".claude/shared-policy/STRUCTURE.md": "85576b3fb0e1047d0e2184c88caaf182ad27e7384b6216cd08d2e5c95247521d",
-    ".claude/shared-policy/sync.mjs": "9512a64ecf2c1414593a8acf5dad0f9e0ec457a1790207011f302f073950213f"
+    ".claude/shared-policy/POLICY.md": "b1a94053ac28f339fb4a5601298286b348018129e7f29f080a46221cf34a1da5",
+    ".claude/shared-policy/REPURPOSE.md": "f09b8b7b28f17fdd85ae1c0ea1c38cdb2b3e01f6c2e139087e5e69cee123107e",
+    ".claude/shared-policy/STRUCTURE.md": "fb5eac279d29e53bec238b4f0905e470c2a3a05d2d66f7bd1b1bee71b14429f3",
+    ".claude/shared-policy/sync.mjs": "6dc6b0de42d667f6afe3789bb852ca8c7e63f694866ea7edc6e0d621b9a709d0"
   }
 }

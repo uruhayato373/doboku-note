@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { rootById } from '@/lib/document-roots';
-import { SHARED_POLICY_LABELS, sharedPolicyDocs } from '@/lib/shared-policy';
+import { sharedPolicyDocs } from '@/lib/shared-policy';
 
 export const dynamic = 'force-dynamic';
 
@@ -25,15 +25,14 @@ export default function SharedPolicyIndexPage() {
 
       <div className="knowledge-grid">
         {docs.map((d) => {
-          const label = SHARED_POLICY_LABELS[d.name] ?? { title: d.slug, summary: '' };
           return (
             <Link className="knowledge-card" href={`${descriptor.routeBase}/${d.slug}`} key={d.name}>
               <div className="knowledge-card-meta">
                 <span className="chip">v{d.version}</span>
                 <span className="chip chip-outline">{d.updated}</span>
               </div>
-              <h2>{label.title}</h2>
-              <p>{label.summary}</p>
+              <h2>{d.title}</h2>
+              <p>{d.summary}</p>
               <code>{descriptor.filePrefix}/{d.name} ← {d.sourcePath}</code>
             </Link>
           );

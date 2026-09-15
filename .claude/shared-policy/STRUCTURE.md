@@ -2,6 +2,8 @@
 version: 1.0.0
 updated: 2026-09-15
 owner: uruhayato373
+title: note 記事の構成（売れる 9 型）
+summary: 5 ステップ骨格・売れる 9 型・強化 6 部品・制約。記事タイプ別の使い分け・章立て・回遊は各プロジェクト側。
 type: reference
 # GENERATED FROM: memos/note記事構成SSOT.md (obsidian). DO NOT EDIT.
 ---

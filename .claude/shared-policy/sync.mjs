@@ -18,7 +18,11 @@ const read = (file) => readFileSync(file, 'utf8').replace(/\r\n/g, '\n');
 const json = (file) => JSON.parse(read(file));
 const serialize = (value) => `${JSON.stringify(value, null, 2)}\n`;
 
-/** SSOTの先頭YAMLフロントマターから version/updated だけを拾う簡易パーサ（コメント行 `#` は無視）。 */
+/**
+ * SSOTの先頭YAMLフロントマターから version/updated/title/summary を拾う簡易パーサ（コメント行 `#` は無視）。
+ * title/summary は消費側の管理画面が索引カードに出す。無ければ配布そのものを拒否する——
+ * 「配ったのに画面では素っ気ない名前」を作らないため（2026-09-15）。
+ */
 export function frontmatter(text) {
   const match = text.match(/^---\n([\s\S]*?)\n---\n/);
   if (!match) throw new Error('Missing frontmatter in shared policy SSOT');
@@ -28,7 +32,9 @@ export function frontmatter(text) {
     const [, key, value] = line.match(/^(\w+):\s*(.+)$/) ?? [];
     if (key) fields[key] = value.trim();
   }
-  if (!fields.version || !fields.updated) throw new Error('Shared policy SSOT frontmatter missing version/updated');
+  for (const key of ['version', 'updated', 'title', 'summary']) {
+    if (!fields[key]) throw new Error(`Shared policy SSOT frontmatter missing ${key}`);
+  }
   return fields;
 }
 
@@ -56,9 +62,9 @@ export function outputs(source) {
   const meta = {};
   for (const [name, sourceDoc] of Object.entries(docs)) {
     const sourceText = read(join(source, sourceDoc));
-    const { version, updated } = frontmatter(sourceText);
+    const { version, updated, title, summary } = frontmatter(sourceText);
     files[`${folder}/${name}`] = render(sourceText, sourceDoc);
-    meta[name] = { sourcePath: sourceDoc, version, updated };
+    meta[name] = { sourcePath: sourceDoc, version, updated, title, summary };
   }
   files[`${folder}/sync.mjs`] = read(join(source, folder, 'sync.mjs'));
   const manifest = {

@@ -2,6 +2,8 @@
 version: 1.0.0
 updated: 2026-09-15
 owner: uruhayato373
+title: 共通事業方針（HARM）
+summary: HARM・5 つの判断の問い・原則・エージェントの判断契約。企画・収益化・週次/月次計画の前に読む。
 # GENERATED FROM: memos/共通事業方針SSOT.md (obsidian). DO NOT EDIT.
 ---
 

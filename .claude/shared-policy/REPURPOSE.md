@@ -2,6 +2,8 @@
 version: 1.0.0
 updated: 2026-09-15
 owner: uruhayato373
+title: SNS リパーパス戦略（6 切り口）
+summary: 結論／理由／体験／反論／数字／ハウツーの 6 切り口と angle パラメータ。X / IG / YouTube へ展開するときの切り口。
 type: reference
 # GENERATED FROM: memos/リパーパス戦略SSOT.md (obsidian). DO NOT EDIT.
 ---
