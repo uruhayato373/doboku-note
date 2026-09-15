@@ -1,5 +1,7 @@
 # admin-app — 運営管理ダッシュボード（Next.js 版）
 
+「戦略・収益化」→「共通事業方針」(`/strategy/policy`) で、Obsidian vault正本(`.claude/共通事業方針SSOT.md`)から配布された共通事業方針・HARMを読み取り専用表示する。全画面共通の表示ではなく、この専用ページだけに置く。入力は `.claude/shared-policy/POLICY.md`（配布物）と `application.json`（個別適用）。起動前に `npm run policy:check`、正本改定後はObsidian vault側で `npm run policy:sync`。エージェントと画面は同じ版を参照し、個別のKPI・商品・優先順位は既存戦略を維持する。
+
 ローカル専用の運営ダッシュボード。**デプロイしない・ビルドしない・dev モード専用**。
 旧 zero-dep 版（`tools/admin/`・node:http）は 2026-07-16 に退役し、本アプリへ一本化した。
 

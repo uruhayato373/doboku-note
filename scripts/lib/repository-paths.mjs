@@ -61,6 +61,8 @@ export const TODO_ROOT = at('.claude', 'todo');
 export const PLANS_ROOT = at('.claude', 'plans');
 export const STATE_ROOT = at('.claude', 'state');
 export const CONFIG_ROOT = at('.claude', 'config');
+/** 3プロジェクト共通事業方針の配布物置き場（正本はObsidian vault、ここは写し）。 */
+export const SHARED_POLICY_ROOT = at('.claude', 'shared-policy');
 
 /**
  * 移行元（2026-08-18 時点の現行 SSOT）。移動が完了した領域はここから外す。
