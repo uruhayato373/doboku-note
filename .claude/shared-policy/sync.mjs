@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 
 const consumers = { stats47: 'stats47-monorepo', 'doboku-note': 'doboku-note' };
 const folder = '.claude/shared-policy';
-const sourceDoc = '.claude/共通事業方針SSOT.md';
+const sourceDoc = 'memos/共通事業方針SSOT.md';
 const hash = (text) => createHash('sha256').update(text.replace(/\r\n/g, '\n')).digest('hex');
 const read = (file) => readFileSync(file, 'utf8').replace(/\r\n/g, '\n');
 const json = (file) => JSON.parse(read(file));

@@ -2,7 +2,7 @@
 version: 1.0.0
 updated: 2026-09-15
 owner: uruhayato373
-# GENERATED FROM: .claude/共通事業方針SSOT.md (obsidian). DO NOT EDIT.
+# GENERATED FROM: memos/共通事業方針SSOT.md (obsidian). DO NOT EDIT.
 ---
 
 # 共通事業方針 — HARMと需要の確認
@@ -42,4 +42,4 @@ stats47 / doboku-note / このObsidian vault の3プロジェクトで共有す�
 
 対象作業では着手前にこの方針と各プロジェクトの適用方針を読み、判断理由に『読者の課題／HARMと理由／提供価値・支払う理由／需要の証拠または未検証／次の検証』を短く含める。一般的な法令・権限・安全規約やユーザーの具体的な指示を上書きしない。
 
-正本はこの文書(Obsidian vault `.claude/共通事業方針SSOT.md`)。配布された写し(`.claude/shared-policy/POLICY.md`)は各プロジェクトで直接編集しない。
+正本はこの文書(Obsidian vault `memos/共通事業方針SSOT.md`)。配布された写し(`.claude/shared-policy/POLICY.md`)は各プロジェクトで直接編集しない。
