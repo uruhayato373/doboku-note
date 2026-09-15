@@ -113,7 +113,7 @@ test('allowlist された全ルートが列挙でき、移行 fallback を持た
   const rows = JSON.parse(out);
   assert.deepEqual(
     rows.map((r) => r.routeBase).sort(),
-    ['/content', '/docs', '/knowledge', '/plans'],
+    ['/content', '/docs', '/knowledge', '/plans', '/strategy/policy'],
     'ルートの集合が変わっている（追加したら意図的にこの期待値を更新する）',
   );
   // 「1 件も検査していない」を緑にしない（CLAUDE.md §9）
