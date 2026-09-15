@@ -1179,6 +1179,21 @@ const MAGAZINES_RAW = {
     badge: 'note 限定 PDF教材',
   },
 
+  // batch A 残（noteコンテンツ計画.md:261-273 のマトリクス）。2026-09-15 作成・公開時に noteUrl を埋める。
+  // 2026-09-15 公開: note にマガジン作成（key m99468c7c717f）→ 必須I 11＋河川砂防 18＝29 記事を API で収録確認 → カバー SET。
+  'pe-construction-river-coast-pack': {
+    id: 'pe-construction-river-coast-pack',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m99468c7c717f',
+    title: '技術士 建設部門 2次｜河川・砂防 まるごと合格パック（必須科目I＋河川、砂防及び海岸・海洋 選択科目）',
+    description:
+      '必須科目I 模範解答集（R03-R07＋R8予想・全11記事）と河川、砂防及び海岸・海洋 選択科目 模範解答集（R03-R07＋R8予想・全18記事）を束ねた合格パック。単品合計¥6,460が¥4,980。元・地方自治体の土木職（発注者）かつ河川科目合格者の視点で、本番で実際に解く「必須I＋河川砂防」の組み合わせをそのまま収録。',
+    shortTitle: '建設部門2次｜河川砂防 合格パック',
+    shortDescription: '必須I＋河川砂防 全29記事。単品合計¥6,460が¥4,980（約23%OFF）。',
+    price: '¥4,980（必須I＋河川砂防 2マガジン・単品合計¥6,460、約23%OFF）',
+    badge: 'note 限定 合格パック',
+  },
+
   // ---- RCCM（建設コンサルタンツ協会・2026-09-15 新設）----
   // 原稿配置: content/note/RCCM/magazines/。id 接頭辞 rccm-（exam-brand.ts examKeyOf → 'rccm'）。
   // 2026 年度は CBT 試験期間 9/1〜10/31 が進行中（exam-calendar.json rccm）。問題III は事前公開 6 テーマから 1 題。
