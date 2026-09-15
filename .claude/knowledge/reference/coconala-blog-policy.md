@@ -81,7 +81,7 @@ angle の語彙は [content-angle-policy.md](content-angle-policy.md) と共通�
 - **お気に入り数は総じて 0〜10**。バズる面ではない＝**積み上げと検索一致**で戦う面
 - **有料ブログも存在する**（500円・1,500円の実例）。無料で始め、実績が出てから検討
 
-標準構成（[note-selling-structures.md](note-selling-structures.md) の**失敗談→教訓型**を基底に翻案）:
+標準構成（[STRUCTURE.md](../../shared-policy/STRUCTURE.md) の**失敗談→教訓型**を基底に翻案）:
 
 1. **リード**（3〜5行）— 読者の詰まりを名指しする。連載なら位置づけを1行
 2. **本題**（見出し2〜4個）— 型・手順・失敗例。§2 の境界内で具体を出し切る
@@ -165,7 +165,7 @@ v1 では自動収集しない（ダッシュボードのスクレイプは §4 
 
 - プラットフォーム仕様・セレクタ・ダイアログ: [coconala-operations.md §9](coconala-operations.md)
 - ココナラ全体の運用 SSOT（安全弁・受注・KPI）: [coconala-operations.md](coconala-operations.md)
-- 記事構成の型（9型・強化6部品）: [note-selling-structures.md](note-selling-structures.md)
+- 記事構成の型（9型・強化6部品）: [STRUCTURE.md](../../shared-policy/STRUCTURE.md)。記事タイプ別の使い分け: [note-selling-structures.md](note-selling-structures.md)
 - angle の語彙と層別: [content-angle-policy.md](content-angle-policy.md)
 - 戦略・競合・工数: [ココナラ展開キット.md](../../../content/note/1級・2級土木/ココナラ展開キット.md)
 - 権威表現の真実源: [author-authority-banner.md](author-authority-banner.md)

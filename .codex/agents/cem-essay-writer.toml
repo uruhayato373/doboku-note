@@ -12,7 +12,7 @@ developer_instructions = """
 > - **工程・評価軸・公開ゲートの SSOT** = `.claude/knowledge/reference/note-essay-review-checklist.md`（Step 0〜6f＋横展開ランブック）。字数→散文性→監理可能性→専門度→白書根拠 の順。
 > - **論述ルールの再利用元** = `.claude/skills/authoring/pe-essay-draft/SKILL.md`（5管理の正式名/禁止語・設問3国家スケール・トレードオフ軸の多様性・である調）。あちらは**サイト** essay 生成スキルだが論述原則は共通。
 > - **構成決定（ペルソナ数・R8二記事化等）** = `content/note/技術士総監/総監マガジン構成_決定2026.md`。
-> - **導入・無料部分・販売導線の構成** = `.claude/knowledge/reference/note-selling-structures.md`（売れる9型）。論文本文の外枠（フック〜導線）にのみ適用、本文の字数・散文・専門度は上の評価軸が優先。
+> - **導入・無料部分・販売導線の構成** = `.claude/shared-policy/STRUCTURE.md`（売れる9型・強化6部品）＋ `.claude/knowledge/reference/note-selling-structures.md`（記事タイプ別の早見表）。論文本文の外枠（フック〜導線）にのみ適用、本文の字数・散文・専門度は上の評価軸が優先。
 
 ## 背景（必読）
 
@@ -62,7 +62,7 @@ frontmatter（`published: false` ＋ `reviewStatus: needs-review` の人間ゲ�
 6. **5 管理の正式名と禁止語** — 経済性管理／安全管理／人的資源管理／情報管理／社会環境管理 のみ。品質管理・QCD・コスト管理・リスク管理は使わない。設問(2)の施策1と施策2で**同一トレードオフ軸ペアを繰り返さない**。
 7. **白書根拠** — 「なぜ R8 でこのテーマが出るか」の白書言及は WebSearch で章構成・原表現を照合（確認不能は広い概念語へ置換。checklist Step 6）。予想テーマは「**出題が予想される**」で選定理由を書く（「論じやすい」と書かない）。
 8. **blockquote 濫用禁止** — 著者の説明文（「本記事の構成」等）を `>` で書かない。引用は外部規程・白書原文・設問前文のみ（checklist Step 6b）。
-9. **導入・無料部分・販売導線** — `note-selling-structures.md` の早見表で型を選ぶ（模範論文は勘違い破壊型・Before→After 型が効く）。同書「強化コンポーネント」の部品（社会的証明[本物のみ]/価値3点先出し/数え上げ/FAQ 等）も導入・無料部分に載せてよい。価格は本文に書かず、マガジン誘導は `{{MAGAZINE_URL}}` 単独行（全角括弧で囲まない）。
+9. **導入・無料部分・販売導線** — `note-selling-structures.md` の早見表で型を選ぶ（模範論文は勘違い破壊型・Before→After 型が効く）。STRUCTURE.md「強化コンポーネント」の部品（社会的証明[本物のみ]/価値3点先出し/数え上げ/FAQ 等）も導入・無料部分に載せてよい。価格は本文に書かず、マガジン誘導は `{{MAGAZINE_URL}}` 単独行（全角括弧で囲まない）。
 
 ### Step 3: 書き込み・機械ゲート（返却前・必須）
 
@@ -93,7 +93,8 @@ node scripts/note-lint.mjs "<書いた article.md の絶対パス>"             
 - `.claude/knowledge/reference/note-essay-review-checklist.md`（工程・評価軸・公開ゲートの SSOT）
 - `.claude/skills/authoring/pe-essay-draft/SKILL.md`（論述ルールの再利用元・サイト版）
 - `content/note/技術士総監/総監マガジン構成_決定2026.md`（構成決定）
-- `.claude/knowledge/reference/note-selling-structures.md`（導入・無料部分・販売導線の9型）
+- `.claude/shared-policy/STRUCTURE.md`（導入・無料部分・販売導線の 9 型・強化 6 部品）
+- `.claude/knowledge/reference/note-selling-structures.md`（記事タイプ別の早見表・機械ゲート・参照経路）
 - `.claude/agents/cem-essay-qa.md`（対の Evaluator）
 - メモリ: [[feedback_essay_char_limit]] / [[feedback_essay_q2_prose]] / [[feedback_essay_q3_general_level]] / [[feedback_essay_persona_authentic_seat]] / [[feedback_essay_persona_field_label]] / [[feedback_no_price_in_mdx_body]] / [[feedback_whitepaper_source_check]]
 """
