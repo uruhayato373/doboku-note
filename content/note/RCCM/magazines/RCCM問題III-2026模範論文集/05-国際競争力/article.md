@@ -3,10 +3,10 @@ notePricing: paid
 price: 780
 paidBoundary: "模範論文"
 noteMagazine: RCCM問題III-2026模範論文集
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/n9a0a469b2c47"
+noteId: "n9a0a469b2c47"
+notePublishedAt: "2026-09-15"
+noteStatus: published
 utmCampaign: rccm-2026
 rccmTheme: 5
 rccmKeywords: ["都市課題", "技術基準", "国際標準", "国際建設契約", "ODA", "官民連携", "インフラ輸出", "復興", "防災", "人材育成"]
@@ -39,7 +39,10 @@ cover:
 
 本記事は有料マガジン **RCCM問題III 管理技術力｜2026年度 公開6テーマ 模範論文集**（公開6テーマ全部の模範論文＋指定語の使い方＋部門別置換ポイント収録。単品でそろえるより割安）の収録記事です。公開6テーマのどれが出題されても骨子を作れるよう、6テーマをまとめたマガジンでの購入がお得です。
 
-{{MAGAZINE_URL}}
+https://note.com/dobokunote/m/m770bef96b39f
+
+<!-- cta:pack-top -->
+> RCCM 問題III（管理技術力）は公開6テーマから1題が出ます。6テーマ全部の模範論文と指定用語の使い方をまとめた[2026年度 6テーマ 模範論文集](https://note.com/dobokunote/m/m770bef96b39f)が1冊目。序章（無料）と他の記事は[RCCMもくじ](https://note.com/dobokunote/n/nd297cb9b31e0)から選べます。
 
 ## テーマの読み解き
 
@@ -101,6 +104,15 @@ cover:
 本記事では、技術基準の差異整理→国際建設契約の実務習得→官民連携・インフラ輸出への参入→防災・復興の知見を活かした提案力→人材育成という順で積み上げます。
 
 最後に、海外案件特有のリスクへの留意点を添えています。
+
+---
+
+<!-- cta:rccm-mokuji -->
+RCCM のほかの記事・教材は「RCCMもくじ」から一覧できます。
+
+https://note.com/dobokunote/n/nd297cb9b31e0
+
+---
 
 ## 模範論文
 

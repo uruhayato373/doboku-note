@@ -3,10 +3,10 @@ notePricing: paid
 price: 780
 paidBoundary: "模範論文"
 noteMagazine: RCCM問題III-2026模範論文集
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/n22cc6600fd68"
+noteId: "n22cc6600fd68"
+notePublishedAt: "2026-09-15"
+noteStatus: published
 utmCampaign: rccm-2026
 rccmTheme: 6
 rccmKeywords: ["3次元モデル", "電子納品", "BIM/CIMの活用目的", "生産性向上", "フロントローディング", "デジタルトランスフォーメーション（DX）", "データ連携", "プロセス改革"]
@@ -39,7 +39,10 @@ cover:
 
 本記事は有料マガジン **RCCM問題III 管理技術力｜2026年度 公開6テーマ 模範論文集**（公開6テーマ全部の模範論文＋指定語の使い方＋部門別置換ポイント収録。単品でそろえるより割安）の収録記事です。公開6テーマのどれが出題されても骨子を作れるよう、6テーマをまとめたマガジンでの購入がお得です。
 
-{{MAGAZINE_URL}}
+https://note.com/dobokunote/m/m770bef96b39f
+
+<!-- cta:pack-top -->
+> RCCM 問題III（管理技術力）は公開6テーマから1題が出ます。6テーマ全部の模範論文と指定用語の使い方をまとめた[2026年度 6テーマ 模範論文集](https://note.com/dobokunote/m/m770bef96b39f)が1冊目。序章（無料）と他の記事は[RCCMもくじ](https://note.com/dobokunote/n/nd297cb9b31e0)から選べます。
 
 ## テーマの読み解き
 
@@ -93,6 +96,15 @@ cover:
 本記事では、活用目的の明確化→電子納品要領への習熟→データ連携を見据えたモデル管理→組織的なプロセス改革、という順で積み上げます。
 
 最後に、モデルの精度設定に関する留意点を添えています。
+
+---
+
+<!-- cta:rccm-mokuji -->
+RCCM のほかの記事・教材は「RCCMもくじ」から一覧できます。
+
+https://note.com/dobokunote/n/nd297cb9b31e0
+
+---
 
 ## 模範論文
 

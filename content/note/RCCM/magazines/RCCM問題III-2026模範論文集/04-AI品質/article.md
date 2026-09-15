@@ -3,10 +3,10 @@ notePricing: paid
 price: 780
 paidBoundary: "模範論文"
 noteMagazine: RCCM問題III-2026模範論文集
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/nd21e8797275a"
+noteId: "nd21e8797275a"
+notePublishedAt: "2026-09-15"
+noteStatus: published
 utmCampaign: rccm-2026
 rccmTheme: 4
 rccmKeywords: ["建設コンサルタントの役割", "業務の効率化", "生産性向上", "信頼性", "品質管理", "照査体制", "エラー防止", "建設DX", "技術継承", "判断支援", "情報セキュリティ", "リスクと対策"]
@@ -35,7 +35,10 @@ cover:
 - 1,200〜1,600字の模範論文（指定用語「」5語以上を使用）
 - 道路／河川、砂防及び海岸・海洋／都市計画及び地方計画／建設環境 4部門での置換ポイント
 
-{{MAGAZINE_URL}}
+https://note.com/dobokunote/m/m770bef96b39f
+
+<!-- cta:pack-top -->
+> RCCM 問題III（管理技術力）は公開6テーマから1題が出ます。6テーマ全部の模範論文と指定用語の使い方をまとめた[2026年度 6テーマ 模範論文集](https://note.com/dobokunote/m/m770bef96b39f)が1冊目。序章（無料）と他の記事は[RCCMもくじ](https://note.com/dobokunote/n/nd297cb9b31e0)から選べます。
 
 ## テーマの読み解き
 
@@ -77,6 +80,15 @@ RCCM問題IIIの2026年度公開テーマの一つ「AI技術の活用と成果�
 目安は約850字とし、判断支援・照査体制の再構築・情報セキュリティとリスク対策・技術継承という4つの提案を、いずれも管理技術者が発注者と協議しながら進める取り組みとして書きます。
 
 国土交通省の生成AI利活用計画書のように、受発注者協議で利用範囲を定める仕組みを踏まえ、「AIを使うかどうか」ではなく「AIと技術者の役割をどう分担するか」という視点で構成すると、業務遂行能力の観点が答案に自然に表れます。
+
+---
+
+<!-- cta:rccm-mokuji -->
+RCCM のほかの記事・教材は「RCCMもくじ」から一覧できます。
+
+https://note.com/dobokunote/n/nd297cb9b31e0
+
+---
 
 ## 模範論文
 

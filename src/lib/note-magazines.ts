@@ -1199,10 +1199,11 @@ const MAGAZINES_RAW = {
   // 2026 年度は CBT 試験期間 9/1〜10/31 が進行中（exam-calendar.json rccm）。問題III は事前公開 6 テーマから 1 題。
   // 公式過去問は非公開のため問題文は収録せず、模範論文・テンプレ・論点集は全て自作。
   // 公開時: noteUrl 埋め → published:true → note-funnel.json exams.rccm → sales-recorder.md 行（同一 commit）。
+  // 2026-09-15 公開: 7 記事（序章無料＋6 テーマ ¥780）を note 公開 → マガジン m770bef96b39f（¥3,480）へ 7/7 収録 → カバー SET。
   'rccm-mondai3-magazine': {
     id: 'rccm-mondai3-magazine',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m770bef96b39f',
     title: 'RCCM 問題III 管理技術力｜2026年度 公開6テーマ 模範論文集',
     description:
       'RCCM資格試験 試験B 問題III（管理技術力）の2026年度 公開6テーマ（地方公共団体のインフラ老朽化とインフラマネジメント／安全・安心な国土づくり／SDGs／AI技術の活用と成果品の品質向上／国際競争力の強化／BIM/CIM）それぞれに、①現状と課題 ②対策のあり方の構成で1,200〜1,600字の模範論文を収録。指定語を「」で自然に使う配置、部門別の置換ポイント、発注者として成果品を検査してきた視点の採点ポイント付き。序章は無料。',

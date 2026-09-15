@@ -3,10 +3,10 @@ notePricing: paid
 price: 780
 paidBoundary: "模範論文"
 noteMagazine: RCCM問題III-2026模範論文集
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/nf3fd06886cf0"
+noteId: "nf3fd06886cf0"
+notePublishedAt: "2026-09-15"
+noteStatus: published
 utmCampaign: rccm-2026
 rccmTheme: 1
 rccmKeywords: ["老朽化", "人口減少", "地方公共団体", "インフラの再構築", "マネジメントサイクル", "広域連携", "多様な契約方式", "群マネ", "官民連携", "新技術"]
@@ -39,7 +39,10 @@ cover:
 
 本記事は有料マガジン **RCCM問題III 管理技術力｜2026年度 公開6テーマ 模範論文集**（公開6テーマ全部の模範論文＋指定語の使い方＋部門別置換ポイント収録。単品でそろえるより割安）の収録記事です。公開6テーマのどれが出題されても骨子を作れるよう、6テーマをまとめたマガジンでの購入がお得です。
 
-{{MAGAZINE_URL}}
+https://note.com/dobokunote/m/m770bef96b39f
+
+<!-- cta:pack-top -->
+> RCCM 問題III（管理技術力）は公開6テーマから1題が出ます。6テーマ全部の模範論文と指定用語の使い方をまとめた[2026年度 6テーマ 模範論文集](https://note.com/dobokunote/m/m770bef96b39f)が1冊目。序章（無料）と他の記事は[RCCMもくじ](https://note.com/dobokunote/n/nd297cb9b31e0)から選べます。
 
 ## テーマの読み解き
 
@@ -95,6 +98,15 @@ cover:
 各取り組みには期待効果を短く添え、最後に留意点（群マネの合意形成には相応の期間を要すること等）を一言加えると、机上の理想論に見えなくなります。
 
 管理技術者の視点では、地方公共団体が行う予算配分や条例改正そのものを「私が実施する」と書かず、「発注者に提案する」「圏域内の合意形成を技術的に支援する」という受注者としての立場を崩さないことが重要です。
+
+---
+
+<!-- cta:rccm-mokuji -->
+RCCM のほかの記事・教材は「RCCMもくじ」から一覧できます。
+
+https://note.com/dobokunote/n/nd297cb9b31e0
+
+---
 
 ## 模範論文
 

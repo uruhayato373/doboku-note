@@ -3,10 +3,10 @@ notePricing: paid
 price: 780
 paidBoundary: "模範論文"
 noteMagazine: RCCM問題III-2026模範論文集
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/nb9366fb0397f"
+noteId: "nb9366fb0397f"
+notePublishedAt: "2026-09-15"
+noteStatus: published
 utmCampaign: rccm-2026
 rccmTheme: 3
 rccmKeywords: ["飢餓", "水循環", "エネルギー", "技術革新", "まちづくり", "気候変動", "生物多様性"]
@@ -35,7 +35,10 @@ cover:
 - 1,200〜1,600字の模範論文（指定用語「」5語以上を使用）
 - 道路／河川、砂防及び海岸・海洋／都市計画及び地方計画／建設環境 4部門での置換ポイント
 
-{{MAGAZINE_URL}}
+https://note.com/dobokunote/m/m770bef96b39f
+
+<!-- cta:pack-top -->
+> RCCM 問題III（管理技術力）は公開6テーマから1題が出ます。6テーマ全部の模範論文と指定用語の使い方をまとめた[2026年度 6テーマ 模範論文集](https://note.com/dobokunote/m/m770bef96b39f)が1冊目。序章（無料）と他の記事は[RCCMもくじ](https://note.com/dobokunote/n/nd297cb9b31e0)から選べます。
 
 ## テーマの読み解き
 
@@ -80,6 +83,15 @@ SDGs（持続可能な開発目標）は、2015年の国連サミットで採択
 「発注者に提案する」「協議で合意形成する」という管理技術者の立場を一貫させ、エネルギーや生物多様性、技術革新（ICT・データ活用）を各分野の提案に横串を通す形で位置づけると、①②のつながりが自然になります。
 
 最後は提案の効果だけで終えず、実施にあたっての留意点を一文添えると、答案に実務の厚みが出ます。
+
+---
+
+<!-- cta:rccm-mokuji -->
+RCCM のほかの記事・教材は「RCCMもくじ」から一覧できます。
+
+https://note.com/dobokunote/n/nd297cb9b31e0
+
+---
 
 ## 模範論文
 

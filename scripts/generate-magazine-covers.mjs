@@ -514,6 +514,15 @@ export const MAGAZINES = [
     fontSize: 42,
     fillBg: '#334155',
   },
+  {
+    id: 'rccm-mondai3',
+    fileBaseName: 'rccm-mondai3-cover',
+    magazineDir: 'content/note/RCCM/magazines/RCCM問題III-2026模範論文集',
+    lines: ['RCCM 問題III 管理技術力', '2026年度 公開6テーマ', '模範論文集（序章無料）'],
+    category: 'RCCM',
+    fontSize: 42,
+    fillBg: '#742D15',
+  },
 ];
 
 // 資格別ブランド写真プール（サイト OGP と共有・brand-image-system.md §3。generate-note-covers.mjs と対）

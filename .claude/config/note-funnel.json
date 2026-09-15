@@ -7,6 +7,30 @@
     "noteUrl": "https://note.com/dobokunote/n/n296a88f64ac2"
   },
   "exams": {
+    "rccm": {
+      "label": "RCCM",
+      "articleGlob": "content/note/RCCM",
+      "excludeDirs": [
+        "RCCMもくじ"
+      ],
+      "magazineExamMatch": [
+        "^rccm-"
+      ],
+      "L2": {
+        "noteId": "nd297cb9b31e0",
+        "title": "RCCMもくじ",
+        "articleDir": "content/note/RCCM/RCCMもくじ",
+        "noteUrl": "https://note.com/dobokunote/n/nd297cb9b31e0"
+      },
+      "topCta": {
+        "marker": "cta:pack-top",
+        "text": "<!-- cta:pack-top -->\n> RCCM 問題III（管理技術力）は公開6テーマから1題が出ます。6テーマ全部の模範論文と指定用語の使い方をまとめた[2026年度 6テーマ 模範論文集](https://note.com/dobokunote/m/m770bef96b39f)が1冊目。序章（無料）と他の記事は[RCCMもくじ](https://note.com/dobokunote/n/nd297cb9b31e0)から選べます。"
+      },
+      "bottomCta": {
+        "marker": "cta:rccm-mokuji",
+        "text": "<!-- cta:rccm-mokuji -->\nRCCM のほかの記事・教材は「RCCMもくじ」から一覧できます。\n\nhttps://note.com/dobokunote/n/nd297cb9b31e0"
+      }
+    },
     "tankan": {
       "label": "技術士総監",
       "articleGlob": "content/note/技術士総監",

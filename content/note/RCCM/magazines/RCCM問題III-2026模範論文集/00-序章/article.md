@@ -1,10 +1,10 @@
 ---
 notePricing: free
 noteMagazine: RCCM問題III-2026模範論文集
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/n801ee5046624"
+noteId: "n801ee5046624"
+notePublishedAt: "2026-09-15"
+noteStatus: published
 utmCampaign: rccm-2026
 cover:
   variant: crop-safe-v4
@@ -35,7 +35,10 @@ cover:
 
 公開6テーマ全部の模範論文集はこちらです。
 
-{{MAGAZINE_URL}}
+https://note.com/dobokunote/m/m770bef96b39f
+
+<!-- cta:pack-top -->
+> RCCM 問題III（管理技術力）は公開6テーマから1題が出ます。6テーマ全部の模範論文と指定用語の使い方をまとめた[2026年度 6テーマ 模範論文集](https://note.com/dobokunote/m/m770bef96b39f)が1冊目。序章（無料）と他の記事は[RCCMもくじ](https://note.com/dobokunote/n/nd297cb9b31e0)から選べます。
 
 ## 問題III「管理技術力」で問われていること
 
@@ -244,4 +247,11 @@ RCCMの保有や建設コンサルタントへの在籍、試験の採点者と�
 
 6テーマ全ての模範論文・指定用語の使用チェック表・部門別の置換ポイントは、本マガジンでまとめて確認できます。
 
-{{MAGAZINE_URL}}
+https://note.com/dobokunote/m/m770bef96b39f
+
+---
+
+<!-- cta:rccm-mokuji -->
+RCCM のほかの記事・教材は「RCCMもくじ」から一覧できます。
+
+https://note.com/dobokunote/n/nd297cb9b31e0

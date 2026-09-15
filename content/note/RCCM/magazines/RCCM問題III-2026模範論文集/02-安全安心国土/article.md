@@ -3,10 +3,10 @@ notePricing: paid
 price: 780
 paidBoundary: "模範論文"
 noteMagazine: RCCM問題III-2026模範論文集
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/n6e62015aabde"
+noteId: "n6e62015aabde"
+notePublishedAt: "2026-09-15"
+noteStatus: published
 utmCampaign: rccm-2026
 rccmTheme: 2
 rccmKeywords: ["巨大災害", "マネジメント", "サプライチェーン", "インフラ", "国土強靭化", "ハード対策", "ソフト対策", "災害に強いまちづくり", "渇水", "火災", "事前復興まちづくり", "官民連携"]
@@ -39,7 +39,10 @@ cover:
 
 本記事は有料マガジン **RCCM問題III 管理技術力｜2026年度 公開6テーマ 模範論文集**（公開6テーマ全部の模範論文＋指定語の使い方＋部門別置換ポイント収録。単品でそろえるより割安）の収録記事です。公開6テーマのどれが出題されても骨子を作れるよう、6テーマをまとめたマガジンでの購入がお得です。
 
-{{MAGAZINE_URL}}
+https://note.com/dobokunote/m/m770bef96b39f
+
+<!-- cta:pack-top -->
+> RCCM 問題III（管理技術力）は公開6テーマから1題が出ます。6テーマ全部の模範論文と指定用語の使い方をまとめた[2026年度 6テーマ 模範論文集](https://note.com/dobokunote/m/m770bef96b39f)が1冊目。序章（無料）と他の記事は[RCCMもくじ](https://note.com/dobokunote/n/nd297cb9b31e0)から選べます。
 
 ## テーマの読み解き
 
@@ -99,6 +102,15 @@ cover:
 各取り組みには期待効果を短く添え、最後に留意点（ハード対策の整備水準には限界があり、ソフト対策との組合せが前提であること等）を一言加えると、施策の羅列で終わりません。
 
 管理技術者の視点では、避難指示の発令や国土強靱化基本計画そのものの改定といった行政権限に属す施策を「私が実施する」と書かず、「防災インフラの整備・運用を発注者に提案する」「関係機関との協議で合意形成を支援する」という受注者としての立場を保ちます。
+
+---
+
+<!-- cta:rccm-mokuji -->
+RCCM のほかの記事・教材は「RCCMもくじ」から一覧できます。
+
+https://note.com/dobokunote/n/nd297cb9b31e0
+
+---
 
 ## 模範論文
 
