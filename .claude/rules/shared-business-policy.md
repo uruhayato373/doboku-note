@@ -14,6 +14,7 @@ paths:
 |---|---|---|
 | `.claude/shared-policy/POLICY.md` | `memos\共通事業方針SSOT.md` | 事業・収益化判断枠組み(HARM・5つの判断の問い・原則) |
 | `.claude/shared-policy/REPURPOSE.md` | `memos\リパーパス戦略SSOT.md` | SNS リパーパス戦略(6切り口・`angle` パラメータ・運用ルール)。X / IG / YouTube の writer エージェントと各チャネル policy が参照する(2026-09-15 に knowledge/reference 配下の旧 sns-repurpose-policy から移設・削除済み) |
+| `.claude/shared-policy/STRUCTURE.md` | `memos\note記事構成SSOT.md` | note 記事本文の型(5 ステップ骨格・売れる 9 型・強化 6 部品・制約)。writer エージェントは `knowledge/reference/note-selling-structures.md`(doboku-note での適用表・機械ゲート・参照経路)経由で参照する(2026-09-15 に本文を移設) |
 
 - **正本**: Obsidian vault `C:\Users\m004195\obsidian\memos\` 配下の上記 SSOT。編集はそのファイルだけで行う。doboku-note側の `.claude/shared-policy/*.md` は正本から配布された写しで、**手編集しない**(手編集は`npm run policy:check`/`policy:sync`が改変として検出し失敗する)
 - **配布**: 正本更新後、Obsidian vaultで `npm run policy:sync` を実行するとstats47・doboku-noteへ配布される。配布物は 上記 `*.md`(本文) / `sync.mjs`(検証スクリプト) / `manifest.json`(SHA-256・`docs` に文書ごとの version・updated・sourcePath。トップレベルの version/updated/sourcePath は POLICY.md の値)

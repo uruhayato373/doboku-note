@@ -14,11 +14,17 @@
       "sourcePath": "memos/リパーパス戦略SSOT.md",
       "version": "1.0.0",
       "updated": "2026-09-15"
+    },
+    "STRUCTURE.md": {
+      "sourcePath": "memos/note記事構成SSOT.md",
+      "version": "1.0.0",
+      "updated": "2026-09-15"
     }
   },
   "files": {
     ".claude/shared-policy/POLICY.md": "432ae5acb12cbcc5ea9c0219b8b2f1dbecb4acbb58ff0564940e63a4b7358ad2",
     ".claude/shared-policy/REPURPOSE.md": "8bdb3e2f7a18bbc15905075e122759c3e57e733a4b05ee8cd406498a9ac8fa30",
-    ".claude/shared-policy/sync.mjs": "ee6ab65d82ecfe508a3240029eb35b3bede0cfa80328f70054d9dfb6310244b5"
+    ".claude/shared-policy/STRUCTURE.md": "85576b3fb0e1047d0e2184c88caaf182ad27e7384b6216cd08d2e5c95247521d",
+    ".claude/shared-policy/sync.mjs": "9512a64ecf2c1414593a8acf5dad0f9e0ec457a1790207011f302f073950213f"
   }
 }

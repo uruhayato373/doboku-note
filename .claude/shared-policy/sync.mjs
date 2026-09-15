@@ -10,6 +10,7 @@ const folder = '.claude/shared-policy';
 const docs = {
   'POLICY.md': 'memos/共通事業方針SSOT.md',
   'REPURPOSE.md': 'memos/リパーパス戦略SSOT.md',
+  'STRUCTURE.md': 'memos/note記事構成SSOT.md',
 };
 const primaryDoc = Object.keys(docs)[0];
 const hash = (text) => createHash('sha256').update(text.replace(/\r\n/g, '\n')).digest('hex');
