@@ -35,7 +35,7 @@ frontmatter `group` の語彙は 7 値。定義は**問題形式**で与え、�
 
 | group | 定義 | 許可カテゴリ（`categories.json` の `groups`） | 構成ルールの真実源 |
 |---|---|---|---|
-| `guide` | 試験全体・学習法・キャリアの案内。本文 3,000 字以上 | 全資格＋`civil-practice`（唯一の group） | content-principles §20 / §25 / §26 |
+| `guide` | 試験全体・学習法・キャリアの案内。本文 3,000 字以上 | 全資格＋`civil-practice`・`rccm`（この 2 つは唯一の group。rccm は過去問が事務局非公開のため） | content-principles §20 / §25 / §26 |
 | `pillar` | 資格内の 1 分野＝1 本の**分野ハブ**（配下の keyword・past-exam の目次役。試験全体を扱う guide と区別する） | `pe-comprehensive-management`（5 管理） | 本書（H2 ＝ 分野の論点地図＋配下記事へのリンク） |
 | `textbook` | 分野別の体系解説（章）。civil・concrete 系では分野ハブを兼ねる（pillar と併用しない） | `civil-construction-1/2`、concrete 3 資格 | content-principles §22 |
 | `keyword` | 1 語 1 記事の用語解説 | `pe-comprehensive-management`、`pe-construction` | content-principles §5 / §6 / §12 / §17 / §18 / §19 |

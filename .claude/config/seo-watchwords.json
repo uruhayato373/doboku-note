@@ -233,6 +233,31 @@
       "country": "jpn",
       "device": null,
       "enabled": true
+    },
+    {
+      "id": "rccm-mondai3-themes-2026",
+      "keyword": "RCCM 問題III 管理技術力 公開テーマ 2026",
+      "targetPath": "/exam/rccm/guide/mondai3-themes-2026",
+      "contentPath": "content/site/rccm/guide-mondai3-themes-2026/article.mdx",
+      "priority": 3,
+      "country": "jpn",
+      "device": null,
+      "enabled": true,
+      "qualification": "rccm",
+      "intent": "exam-task",
+      "mode": "improve",
+      "examEvent": "cbtEnd",
+      "audience": "RCCM 試験B 問題III（管理技術力）を受ける建設コンサルタントの技術者。",
+      "need": "公開6テーマの読み解きと指定用語の使い方を知り、1,200〜1,600字の答案の骨子を作りたい。",
+      "rationale": "問題IIIは事前公開テーマ制で検索意図が明確。note の模範論文集（rccm-mondai3-magazine）へ直結する受験課題を優先する。",
+      "nextStep": {
+        "label": "公開6テーマの模範論文で骨子を確認する",
+        "path": "/exam/rccm/guide/mondai3-themes-2026"
+      },
+      "evidence": {
+        "kind": "hypothesis",
+        "source": "2026-09-15 note 流入元実測（memory note-traffic-sources-2026-09）と協会の 2026 年度出題テーマ PDF。GSC 実績は未取得（新カテゴリ）"
+      }
     }
   ],
   "strategy": {
