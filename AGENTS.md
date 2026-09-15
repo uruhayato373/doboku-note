@@ -161,6 +161,6 @@ Codex はファイルを読む・編集する前に、以下の適用パスに�
 - [.claude/rules/content-site.md](.claude/rules/content-site.md) — `content/site/**`
 - [.claude/rules/docs.md](.claude/rules/docs.md) — `docs/**`, `.claude/knowledge/**`
 - [.claude/rules/operations.md](.claude/rules/operations.md) — `.claude/state/**`, `.claude/config/**`, `src/lib/note-magazines.ts`, `src/lib/magazine-placement.ts`, `src/lib/coconala-services.ts`, `src/lib/brain-products.ts`
-- [.claude/rules/shared-business-policy.md](.claude/rules/shared-business-policy.md) — `.claude/shared-policy/**`, `tools/admin-app/src/app/strategy/policy/**`, `tools/admin-app/src/lib/document-roots.ts`, `tools/admin-app/src/components/Nav.tsx`
+- [.claude/rules/shared-business-policy.md](.claude/rules/shared-business-policy.md) — `.claude/shared-policy/**`, `tools/admin-app/src/app/strategy/policy/**`, `tools/admin-app/src/lib/document-roots.ts`, `tools/admin-app/src/components/Nav.tsx`, `tools/admin-app/src/lib/shared-policy.ts`
 - [.claude/rules/skills-agents.md](.claude/rules/skills-agents.md) — `.claude/skills/**`, `.claude/agents/**`, `.claude/commands/**`
 - [.claude/rules/todo-plans.md](.claude/rules/todo-plans.md) — `.claude/todo/**`, `.claude/plans/**`, `docs/handoffs/**`, `docs/reviews/**`

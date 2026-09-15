@@ -1,32 +1,45 @@
-import { DocDetailView } from '@/components/DocDetailView';
+import Link from 'next/link';
 import { rootById } from '@/lib/document-roots';
+import { SHARED_POLICY_LABELS, sharedPolicyDocs } from '@/lib/shared-policy';
 
 export const dynamic = 'force-dynamic';
 
 /**
- * 3プロジェクト共通事業方針(HARM)の読み取り専用ミラー。
- * 正本はObsidian vault `memos/共通事業方針SSOT.md`。配布物は `npm run policy:sync` で更新する。
+ * 3 プロジェクト共通 SSOT（共通事業方針 / SNS リパーパス戦略 / note 記事構成）の索引。
+ * 正本は Obsidian vault `memos/*SSOT.md`。ここにあるのは `npm run policy:sync` で配布された写しで、
+ * 一覧の出どころは `.claude/shared-policy/manifest.json`（文書ごとの version / updated / 正本パス）。
+ * 本文は `/strategy/policy/<NAME>` で読み取り専用表示する。
  */
-export default function SharedPolicyPage() {
+export default function SharedPolicyIndexPage() {
+  const descriptor = rootById('shared-policy')!;
+  const docs = sharedPolicyDocs();
+
   return (
-    <DocDetailView
-      descriptor={rootById('shared-policy')!}
-      path={['POLICY']}
-      headMeta={({ frontmatter }) => (
-        <div className="doc-taxonomy-row">
-          {frontmatter.version ? <span className="chip">v{String(frontmatter.version)}</span> : null}
-          <span className="chip chip-outline">正本: Obsidian vault memos/共通事業方針SSOT.md</span>
-        </div>
-      )}
-      railTop={() => (
-        <section className="facet">
-          <h4>責務の境界</h4>
-          <p className="project-rail-meta">
-            HARM・5つの判断の問い・原則はここが正本の写し。doboku-noteの対象読者・提供商品・KPI・優先順位は
-            <code> docs/strategy/04_収益化戦略.md</code> が管理する。
-          </p>
-        </section>
-      )}
-    />
+    <section className="page">
+      <h1>共通方針（Obsidian 正本の写し）</h1>
+      <p className="project-rail-meta">
+        stats47 / doboku-note / Obsidian vault で共有する判断枠組み。正本は Obsidian vault の <code>memos/*SSOT.md</code>、
+        写しは手編集せず <code>policy:sync</code> / <code>policy:check</code> で扱う（規約:{' '}
+        <code>.claude/rules/shared-business-policy.md</code>）。
+      </p>
+
+      <div className="knowledge-grid">
+        {docs.map((d) => {
+          const label = SHARED_POLICY_LABELS[d.name] ?? { title: d.slug, summary: '' };
+          return (
+            <Link className="knowledge-card" href={`${descriptor.routeBase}/${d.slug}`} key={d.name}>
+              <div className="knowledge-card-meta">
+                <span className="chip">v{d.version}</span>
+                <span className="chip chip-outline">{d.updated}</span>
+              </div>
+              <h2>{label.title}</h2>
+              <p>{label.summary}</p>
+              <code>{descriptor.filePrefix}/{d.name} ← {d.sourcePath}</code>
+            </Link>
+          );
+        })}
+      </div>
+      {docs.length === 0 && <div className="card empty">{descriptor.emptyState}</div>}
+    </section>
   );
 }

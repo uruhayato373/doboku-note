@@ -75,7 +75,7 @@ const GROUPS: { title: string; entries: NavEntry[] }[] = [
   {
     title: '戦略・収益化',
     entries: [
-      { href: '/strategy/policy', label: '共通事業方針', match: '/strategy/policy' },
+      { href: '/strategy/policy', label: '共通方針', match: '/strategy/policy' },
       { href: '/metrics/business', label: '事業方針と改善', match: '/metrics/business' },
       { href: '/sales', label: '売上', match: '/sales' },
       { href: '/affiliate', label: 'アフィリエイト', match: '/affiliate' },
