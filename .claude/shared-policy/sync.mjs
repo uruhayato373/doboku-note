@@ -1,3 +1,4 @@
+import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, readFileSync, writeFileSync, renameSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
@@ -120,16 +121,36 @@ function main() {
   const value = (flag) => { const i = args.indexOf(flag); if (i < 0) return undefined; if (!args[i + 1] || args[i + 1].startsWith('--')) throw new Error(`Missing value: ${flag}`); return resolve(args[i + 1]); };
   for (let i = 0; i < args.length; i++) {
     if (['--source', '--target'].includes(args[i])) { i++; continue; }
-    if (!['--sync', '--check', '--all'].includes(args[i])) throw new Error(`Unknown option: ${args[i]}`);
+    if (!['--sync', '--check', '--all', '--staged'].includes(args[i])) throw new Error(`Unknown option: ${args[i]}`);
   }
   if (args.includes('--sync') === args.includes('--check')) throw new Error('Choose --sync or --check');
   const here = dirname(fileURLToPath(import.meta.url));
   const root = resolve(here, '../..');
   const central = json(join(root, 'package.json')).name === 'obsidian-scripts';
+  if (args.includes('--staged')) {
+    // pre-commit 用: 配布対象（正本 SSOT か sync.mjs 自身）が staged なときだけ検査する。
+    // 正本を直して commit したのに配布し忘れる事故を、その場で止めるのが目的。
+    if (!central) throw new Error('--staged is only available at the source');
+    const staged = execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--cached', '--name-only', '--diff-filter=ACMR'], { cwd: root, encoding: 'utf8' })
+      .split('\n').map((line) => line.trim().replace(/\\/g, '/')).filter(Boolean);
+    const watched = [...Object.values(docs), `${folder}/sync.mjs`];
+    const hit = staged.filter((path) => watched.includes(path));
+    if (!hit.length) return;
+    console.log(`shared-policy: 配布対象が staged（${hit.join(', ')}）→ 配布状態を検査`);
+    process.on('exit', (code) => { if (code) console.error('  → 正本を変えたら `npm run policy:sync` で配布し、stats47 / doboku-note 側も commit してください。'); });
+  }
   const source = value('--source') ?? (central ? root : resolve(root, '../obsidian'));
   const target = value('--target');
   if (args.includes('--all') && !central) throw new Error('--all is only available at the source');
-  const targets = args.includes('--all') ? Object.keys(consumers).map((id) => resolve(source, '..', id)) : [target ?? root];
+  let targets = args.includes('--all') ? Object.keys(consumers).map((id) => resolve(source, '..', id)) : [target ?? root];
+  if (args.includes('--all')) {
+    // 消費側リポは同じ親ディレクトリに checkout されている前提。無い環境（CI・単独 clone）では
+    // 検査できないだけで異常ではないので SKIP にする（ここで落ちると npm run check の全ガードが道連れになる）。
+    const missing = targets.filter((root) => !existsSync(join(root, 'package.json')));
+    for (const root of missing) console.log(`SKIP ${root}: not checked out here`);
+    targets = targets.filter((root) => !missing.includes(root));
+    if (!targets.length) { console.log(`SKIP ${args.includes('--check') ? 'check' : 'sync'}: no consumer repositories checked out`); return; }
+  }
   if (!existsSync(source) && !central && args.includes('--check') && !args.includes('--source')) {
     const manifest = verify(root);
     console.log(`PASS local integrity: ${manifest.version}; source unavailable, latest version not checked`);
