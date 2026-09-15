@@ -1214,10 +1214,11 @@ const MAGAZINES_RAW = {
     ctaCatch: '公開6テーマ、どれが出ても骨子が書ける',
     ctaButton: '模範論文を note で見る',
   },
+  // 2026-09-16 公開（n10b786536829・¥1,980・境界=テンプレート）。
   'rccm-mondai1-template': {
     id: 'rccm-mondai1-template',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/n/n10b786536829',
     title: 'RCCM 問題I 業務経験論文｜2,400字テンプレートと部門別記入例',
     description:
       'RCCM資格試験 試験A 問題I（業務経験論文・2,400字）を、業務実績証明書に書いた業務と整合させて組み立てるテンプレート。技術上の問題点／業務上の問題点の立て方、落ちる論文3型、道路・河川砂防・鋼構造コンクリートの記入例3本を収録。',

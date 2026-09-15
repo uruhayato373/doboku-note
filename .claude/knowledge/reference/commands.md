@@ -81,6 +81,7 @@ npm run check-standards-page-images # 上の provenance 整合（catalog↔manif
 
 ```bash
 npm run kdp-report        # Kindle 月次ロイヤリティを KDP レポートから取得→.claude/state/sales/kdp-royalties.json（ローカル専用・読み取り専用・当月/前月のみ）
+npm run note-traffic-fetch # note ダッシュボード「アクセス状況」を read-only 取得→.claude/state/metrics/note/{referrers,articles-pv}-YYYY-MM.json（--month は今月/先月のみ・--commit で保存・--check は fixture で正規化の完走確認＝quality:audit ci・ログイン要・DN-0240）。流入元は自己閲覧を含み、サイト経由は PR #511 deploy 前は no referrer に含まれる
 npm run note-sales-fetch  # note 売上履歴を read-only 取得→検算OKで.claude/state/sales/sales-log.jsonの当月を差し替え（--month YYYY-MM --commit・ログイン要・DN-0018）
 npm run check-magazine-cta # 公開マガジンがサイトで1面以上CTAとして出るか（top/中間CTA/MagazineCard・quality:audit に同梱）
 npm run check-rccm-essay  # RCCM 問題III 模範論文の出題条件（模範論文 1,200〜1,600 字・指定用語「」4 語以上・①②見出し・問題再現節なし・paidBoundary 実在）。対象は content/note/RCCM/** の rccmKeywords 付き article.md。--staged は pre-commit、--strict は推奨帯外も違反（writer/qa の返却前ゲート）。対象 0 件は exit 2＝検査不成立（quality:audit に同梱）

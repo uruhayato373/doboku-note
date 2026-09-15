@@ -167,6 +167,7 @@ const CHECKS = [
   { id: 'magazine-cta-reachability', npm: 'check-magazine-cta:ci', timeout: 120_000, ci: true, note: '公開マガジンがサイト内で 1 面以上 CTA として出るか（top / 中間CTA / MagazineCard）。baseline 外の新規 0 面で落ちる' },
   { id: 'note-hashtags', npm: 'check-note-hashtags', timeout: 90_000, ci: true, note: 'note 記事ハッシュタグ 90 個以上（全量 backstop・pre-commit は staged のみ）' },
   { id: 'note-boundary', npm: 'check-note-boundary', timeout: 90_000, ci: true, note: 'paid published 記事の有料境界(paidBoundary)解決可能性（全ロック/漏洩の RULE_GAP 再発防止・全量）' },
+  { id: 'note-traffic-fetch-check', cmd: ['npm', 'run', '--silent', 'note-traffic-fetch', '--', '--check'], timeout: 30_000, ci: true, note: 'note 流入元・記事別 PV 取得（DN-0240）の正規化が fixture で完走するか（ブラウザ不要）。週次レビューと EXP-010 が読むデータの生成器が壊れて沈黙する事故（report-monetization-coverage 6 週間）の再発防止' },
   { id: 'rccm-essay', npm: 'check-rccm-essay', timeout: 60_000, ci: true, note: 'RCCM 問題III 模範論文の出題条件（1,200〜1,600 字・指定用語「」4 語以上・問題再現節なし・paidBoundary 実在）。対象 0 件は exit 2＝検査不成立で赤（記事が 1 本も無い状態で緑にしない）' },
   { id: 'magazine-membership', npm: 'check-magazine-membership', timeout: 90_000, ci: true, note: 'マガジン収録の三軸（repo実数=frontmatter noteMagazine 集計 ↔ SoT price 件数 ↔ ライブ snapshot）。SoTとライブが同値で古びる事故(2026-08-24 ゼネコン/河川コンサル各2本未収録)は第三軸=repoでしか割れない。ネットワーク非依存(snapshot 読取のみ)' },
   { id: 'note-paid-cta', npm: 'check-note-paid-cta', timeout: 90_000, ci: true, note: '有料記事の L2 もくじ CTA が有料境界より前（無料プレビュー内）にあるか。末尾配置は非購入者に不可視' },
