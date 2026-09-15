@@ -1,9 +1,12 @@
 ---
 notePricing: membership
-noteStatus: draft
+noteStatus: published
 noteSeries: 学科記述予想
 membershipOnly: true
 utmCampaign: civil-membership-gakka-river
+notePublishedAt: "2026-09-15"
+noteId: "na77250f0e9d0"
+noteUrl: "https://note.com/dobokunote/n/na77250f0e9d0"
 coverTitle: ["学科記述予想｜専門土木", "河川・砂防の施工"]
 cover:
   variant: crop-safe-v4
