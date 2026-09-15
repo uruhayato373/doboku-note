@@ -1,6 +1,14 @@
+---
+version: 1.0.0
+updated: 2026-09-15
+owner: uruhayato373
+type: reference
+# GENERATED FROM: memos/リパーパス戦略SSOT.md (obsidian). DO NOT EDIT.
+---
+
 # SNS リパーパス戦略（6切り口フレームワーク）
 
-**真実源**: 本ファイル。X / Instagram / YouTube 全チャネル共通。各チャネル policy はここを参照する。
+**正本はこの文書**（Obsidian vault `memos/リパーパス戦略SSOT.md`）。X / Instagram / YouTube 全チャネル共通で、stats47 / doboku-note / kazu-note が共有する。**編集はこのファイルだけで行い**、`npm run policy:sync` で各プロジェクトの `.claude/shared-policy/REPURPOSE.md` へ配布する。配布された写しは直接編集しない。各チャネルの policy と writer エージェントは写しを参照する。
 
 同一のコアコンテンツ（キーワード・過去問・note 記事）を6つの切り口で展開し、
 同一フォロワーへの繰り返し配信を可能にするクロスチャネル共通原則。
@@ -20,7 +28,7 @@
 
 ---
 
-## 2. チャネル別の適用方法
+## 2. チャネル別の適用方法（書き出し例は doboku-note・技術士の題材）
 
 ### X（テキスト中心）
 

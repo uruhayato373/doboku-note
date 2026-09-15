@@ -20,7 +20,7 @@
 | `09_YouTube戦略_コンクリート技士・主任技士.md` | v1.2 | 2026-09-05 | **コンクリート技士・主任技士 YT の独立 SSOT**。通常動画28本＋Shorts56本を承認済み |
 | `.claude/knowledge/reference/x-post-policy.md` | — | — | X 投稿規約＋**凍結ガードレール §11**（doc本体より詳細） |
 | `.claude/knowledge/reference/content-angle-policy.md` | v1 | 2026-06-09 | **6切り口**（結論/理由/体験/反論/数字/ハウツー）の SSOT・Red Line 1-5 |
-| `.claude/knowledge/reference/sns-repurpose-policy.md` | — | — | 6切り口のチャネル別適用 |
+| `.claude/shared-policy/REPURPOSE.md` | — | — | 6切り口のチャネル別適用 |
 | `.claude/knowledge/reference/ig-{carousel-skill,reels-policy,stories-policy,highlight-design-policy,publish-reconcile}.md` | — | — | IG 各コンテンツ型の規約 |
 | `.claude/knowledge/reference/yt-shorts-publisher-policy.md` | — | — | YT Shorts 品質基準（4軸） |
 | `.claude/knowledge/reference/video-content-policy.md` | v1 | 2026-08-21 | 動画パックschema・状態・専用Generator/Evaluator・機械/公開ゲート |
@@ -95,7 +95,7 @@
 ### 横断レイヤー（型に直交する編集レンズ）
 
 - **6切り口**（`content-angle-policy.md`）: 結論／理由／体験／反論／数字／ハウツーを `angle` パラメータで全チャネル横断適用。層別＝TOFU に number/counter/conclusion・現受験生に howto/reason・公務員に experience/conclusion。
-- **リパーパス**（`sns-repurpose-policy.md`）: 同一コアを6切り口でチャネル別に展開。X は §5.5、IG/YT は各 writer が参照。
+- **リパーパス**（`.claude/shared-policy/REPURPOSE.md`）: 同一コアを6切り口でチャネル別に展開。X は §5.5、IG/YT は各 writer が参照。
 - **画像規約**（`sns-image-policy.md`）＋**図版キャンバス**（`figure-canvas-policy.md`）＝雛形の視覚仕様。
 
 ### 型バックログ（競合調査 2026-07-04 で surface・未実装）

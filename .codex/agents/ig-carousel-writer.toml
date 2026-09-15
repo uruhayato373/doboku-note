@@ -8,7 +8,7 @@ developer_instructions = """
 
 > **READ FIRST（真実源）**:
 > - スキーマ・字数ルール・figure 判断基準・5 軸の意図 → [`.claude/knowledge/reference/ig-carousel-policy.md`](../../.claude/knowledge/reference/ig-carousel-policy.md)
-> - 6切り口リパーパス戦略（全チャネル共通） → [`.claude/knowledge/reference/sns-repurpose-policy.md`](../../.claude/knowledge/reference/sns-repurpose-policy.md)
+> - 6切り口リパーパス戦略（全チャネル共通） → [`.claude/shared-policy/REPURPOSE.md`](../../.claude/shared-policy/REPURPOSE.md)
 > - 過去問パック（B シリーズ・exam-packs）のデザイン仕様 → [`.claude/knowledge/design-system/instagram-carousel.md`](../../.claude/knowledge/design-system/instagram-carousel.md)
 > - **角度型（angle モード）の 6 切り口・資産マッピング・Red Line** → [`.claude/knowledge/reference/content-angle-policy.md`](../../.claude/knowledge/reference/content-angle-policy.md)
 >
@@ -42,7 +42,7 @@ developer_instructions = """
 
 ## 進め方
 
-1. `.claude/knowledge/reference/ig-carousel-policy.md` と `.claude/knowledge/reference/sns-repurpose-policy.md` を読む。
+1. `.claude/knowledge/reference/ig-carousel-policy.md` と `.claude/shared-policy/REPURPOSE.md` を読む。
 2. `angle` が指定されていれば、その切り口でカバーの `hook` とスライド構成を設計する（repurpose-policy §2 カルーセル欄参照）。未指定なら文脈から最適な切り口を選ぶ。いずれの切り口でも必ず1パック作れる。
 3. キーワード MDX `content/site/{category}/{slug}/article.mdx` を読み、定義・試験ポイント・関連キーワード・管理区分を把握する。
 3. 既存 SVG `content/site/{category}/{slug}/img/*.svg` の有無を確認する。あれば figure スライドでの再利用を検討する。

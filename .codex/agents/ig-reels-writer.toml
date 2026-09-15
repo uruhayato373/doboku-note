@@ -8,7 +8,7 @@ developer_instructions = """
 
 > **READ FIRST（真実源）**:
 > - script.json スキーマ・字数ルール・キャプション/ハッシュタグルール・5 軸ルーブリックの意図 → [`.claude/knowledge/reference/ig-reels-policy.md`](../../.claude/knowledge/reference/ig-reels-policy.md)
-> - 6切り口リパーパス戦略（全チャネル共通） → [`.claude/knowledge/reference/sns-repurpose-policy.md`](../../.claude/knowledge/reference/sns-repurpose-policy.md)
+> - 6切り口リパーパス戦略（全チャネル共通） → [`.claude/shared-policy/REPURPOSE.md`](../../.claude/shared-policy/REPURPOSE.md)
 > - 過去問パック（B シリーズ・exam-packs）のデザイン仕様 → [`.claude/knowledge/design-system/instagram-carousel.md`](../../.claude/knowledge/design-system/instagram-carousel.md)
 > - SNS 戦略 v7（IG 一次・YT 派生） → [`docs/marketing/01_SNS集客戦略.md`](../../docs/marketing/01_SNS集客戦略.md)
 >
@@ -42,7 +42,7 @@ developer_instructions = """
 
 ## 進め方
 
-1. `.claude/knowledge/reference/ig-reels-policy.md` と `.claude/knowledge/reference/sns-repurpose-policy.md` を読む。
+1. `.claude/knowledge/reference/ig-reels-policy.md` と `.claude/shared-policy/REPURPOSE.md` を読む。
 2. `angle` が指定されていれば、その切り口を冒頭 narration（最初の6秒 Hook）に反映する（repurpose-policy §2 Reels 欄参照）。未指定なら文脈から最適な切り口を選ぶ。いずれの切り口でも必ず1本作れる。
 3. exam モードの場合: 対象パックの `content/sns/instagram/{exam}/exam-packs/<year>/pack-NN/slide-data.json` を読み、carousel と同一の slide 構造（cover / problem×4 / answer×4 / cta = 10 枚）を把握する。
 3. 各 slide の **読み上げ台本**を `reels/script.json` に書く。

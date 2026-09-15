@@ -1,11 +1,24 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "source": "obsidian",
   "sourcePath": "memos/共通事業方針SSOT.md",
   "version": "1.0.0",
   "updated": "2026-09-15",
+  "docs": {
+    "POLICY.md": {
+      "sourcePath": "memos/共通事業方針SSOT.md",
+      "version": "1.0.0",
+      "updated": "2026-09-15"
+    },
+    "REPURPOSE.md": {
+      "sourcePath": "memos/リパーパス戦略SSOT.md",
+      "version": "1.0.0",
+      "updated": "2026-09-15"
+    }
+  },
   "files": {
     ".claude/shared-policy/POLICY.md": "432ae5acb12cbcc5ea9c0219b8b2f1dbecb4acbb58ff0564940e63a4b7358ad2",
-    ".claude/shared-policy/sync.mjs": "a7ce9261019852c1b9db8dd37c3a530ed8e55d3f8b69db9f7dc105b4f9541eb5"
+    ".claude/shared-policy/REPURPOSE.md": "8bdb3e2f7a18bbc15905075e122759c3e57e733a4b05ee8cd406498a9ac8fa30",
+    ".claude/shared-policy/sync.mjs": "0472c1a4000f022ca881962251c003db7b7d5c571633d6c5c83fbb18dffe1811"
   }
 }

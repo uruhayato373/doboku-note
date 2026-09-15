@@ -96,7 +96,7 @@ content/sns/x/
 
 ### 5.1 切り口分割（angle-slice）型の作法
 
-→ **真実源**: [`.claude/knowledge/reference/sns-repurpose-policy.md`](./sns-repurpose-policy.md)（X / IG / YT 全チャネル共通）
+→ **真実源**: [`.claude/shared-policy/REPURPOSE.md`](../../shared-policy/REPURPOSE.md)（X / IG / YT 全チャネル共通）
 
 1 テーマを 6 切り口に刻み、単発投稿 ×6（1 日 1 本で約 1 週間分のネタ）として量産する。総監はキーワード 740+ ページと note 記事が厚く、最も効く。`angle=all` を指定すると6切り口すべてを生成する。`type` パラメータとは直交するため、`question` 型でも `keyword` 型でも任意の切り口で書ける。
 
@@ -155,7 +155,7 @@ content/sns/x/
 
 ## 5.5 リパーパス戦略（同一コアを6切り口で展開）
 
-→ §5.1 の angle-slice 型を参照。X / IG / YT 全チャネル共通の戦略詳細は [`.claude/knowledge/reference/sns-repurpose-policy.md`](./sns-repurpose-policy.md) を参照。投稿型↔角度（`angle`）の全対応表は [`.claude/knowledge/reference/content-angle-policy.md`](./content-angle-policy.md) §6.3 参照。
+→ §5.1 の angle-slice 型を参照。X / IG / YT 全チャネル共通の戦略詳細は [`.claude/shared-policy/REPURPOSE.md`](../../shared-policy/REPURPOSE.md) を参照。投稿型↔角度（`angle`）の全対応表は [`.claude/knowledge/reference/content-angle-policy.md`](./content-angle-policy.md) §6.3 参照。
 
 ## 6. URL / UTM
 

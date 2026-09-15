@@ -5,7 +5,12 @@ import { fileURLToPath } from 'node:url';
 
 const consumers = { stats47: 'stats47-monorepo', 'doboku-note': 'doboku-note' };
 const folder = '.claude/shared-policy';
-const sourceDoc = 'memos/共通事業方針SSOT.md';
+/** 配布する文書。キー = 消費側の `.claude/shared-policy/` 内のファイル名、値 = obsidian の正本。先頭が主文書（manifest のトップレベル version/updated/sourcePath に載る）。 */
+const docs = {
+  'POLICY.md': 'memos/共通事業方針SSOT.md',
+  'REPURPOSE.md': 'memos/リパーパス戦略SSOT.md',
+};
+const primaryDoc = Object.keys(docs)[0];
 const hash = (text) => createHash('sha256').update(text.replace(/\r\n/g, '\n')).digest('hex');
 const read = (file) => readFileSync(file, 'utf8').replace(/\r\n/g, '\n');
 const json = (file) => JSON.parse(read(file));
@@ -29,7 +34,7 @@ export function frontmatter(text) {
  * SSOT本文をそのまま配布する。生成コメントはYAMLフロントマター内の `#` コメント行として
  * 挿入する(本文中のHTMLコメントとして入れると、react-markdown等が素通しして可視テキスト化する)。
  */
-export function render(sourceText) {
+export function render(sourceText, sourceDoc) {
   return sourceText.replace(
     /^---\n([\s\S]*?)\n---\n/,
     (_, fm) => `---\n${fm}\n# GENERATED FROM: ${sourceDoc} (obsidian). DO NOT EDIT.\n---\n`,
@@ -45,30 +50,40 @@ function identity(root) {
 
 function outputs(source) {
   if (json(join(source, 'package.json')).name !== 'obsidian-scripts') throw new Error('Invalid source repository');
-  const sourceText = read(join(source, sourceDoc));
-  const { version, updated } = frontmatter(sourceText);
-  const files = {
-    [`${folder}/POLICY.md`]: render(sourceText),
-    [`${folder}/sync.mjs`]: read(join(source, folder, 'sync.mjs')),
-  };
+  const files = {};
+  const meta = {};
+  for (const [name, sourceDoc] of Object.entries(docs)) {
+    const sourceText = read(join(source, sourceDoc));
+    const { version, updated } = frontmatter(sourceText);
+    files[`${folder}/${name}`] = render(sourceText, sourceDoc);
+    meta[name] = { sourcePath: sourceDoc, version, updated };
+  }
+  files[`${folder}/sync.mjs`] = read(join(source, folder, 'sync.mjs'));
   const manifest = {
-    schemaVersion: 1,
+    schemaVersion: 2,
     source: 'obsidian',
-    sourcePath: sourceDoc,
-    version,
-    updated,
+    // トップレベルは主文書（POLICY.md）の値。stats47 admin 等の既存読者との互換のため残す
+    sourcePath: meta[primaryDoc].sourcePath,
+    version: meta[primaryDoc].version,
+    updated: meta[primaryDoc].updated,
+    docs: meta,
     files: Object.fromEntries(Object.entries(files).map(([path, text]) => [path, hash(text)])),
   };
   return { ...files, [`${folder}/manifest.json`]: serialize(manifest) };
 }
 
+/**
+ * 消費側の配布物が manifest どおりか（手編集・欠落が無いか）を検査する。
+ * 検査対象は manifest が自己申告するファイル集合。正本側の現行文書セットとの差（文書の追加・削除）は
+ * synchronize の --check が見る——ここで現行セットを要求すると、旧 manifest からの更新自体が拒否される。
+ */
 export function verify(root) {
   identity(root);
   const manifest = json(join(root, folder, 'manifest.json'));
-  const required = [`${folder}/POLICY.md`, `${folder}/sync.mjs`];
-  if (manifest.schemaVersion !== 1 || manifest.source !== 'obsidian' ||
-      Object.keys(manifest.files ?? {}).sort().join('|') !== required.sort().join('|')) throw new Error('Invalid manifest');
-  for (const path of required) {
+  const listed = Object.keys(manifest.files ?? {});
+  if (![1, 2].includes(manifest.schemaVersion) || manifest.source !== 'obsidian' ||
+      !listed.includes(`${folder}/sync.mjs`) || listed.some((path) => !path.startsWith(`${folder}/`))) throw new Error('Invalid manifest');
+  for (const path of listed) {
     if (!existsSync(join(root, path)) || hash(read(join(root, path))) !== manifest.files[path]) {
       throw new Error(`Shared policy modified or missing: ${path}`);
     }
@@ -85,7 +100,7 @@ export function synchronize({ source, targets, check = false }) {
     if (existsSync(join(root, folder, 'manifest.json'))) verify(root);
     else if (check || Object.keys(files).some((path) => existsSync(join(root, path)))) throw new Error(`Missing manifest or unmanaged files: ${root}`);
     if (check) for (const [path, text] of Object.entries(files)) {
-      if (read(join(root, path)) !== text) throw new Error(`Shared policy is out of date: ${root}/${path}`);
+      if (!existsSync(join(root, path)) || read(join(root, path)) !== text) throw new Error(`Shared policy is out of date: ${root}/${path}`);
     }
     return { root, files };
   });
