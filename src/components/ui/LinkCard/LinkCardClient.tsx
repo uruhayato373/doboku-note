@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { externalLinkRel } from "@/lib/external-link-rel";
 
 interface LinkCardClientProps {
   readonly url: string;
@@ -26,7 +27,7 @@ export default function LinkCardClient({
       <a
         href={url}
         target="_blank"
-        rel="noopener noreferrer"
+        rel={externalLinkRel(url)}
         className="card-interactive focus-ring group block w-full max-w-2xl cursor-pointer overflow-hidden card-surface-content hover:shadow-card-hover"
       >
         <span className="flex flex-col sm:flex-row sm:items-center">
