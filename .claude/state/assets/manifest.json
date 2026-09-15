@@ -50443,6 +50443,102 @@
         "scripts/check-orphan-ogp.mjs"
       ],
       "srcHash": "406de6caab648a33"
+    },
+    "content/note/RCCM/magazines/RCCM問題III-2026模範論文集/06-BIM-CIM/img/cover.png": {
+      "bucket": "private",
+      "r2Key": "note/covers/RCCM/magazines/RCCM問題III-2026模範論文集/06-BIM-CIM/img/cover.png",
+      "sha256": "d73df70429f30b527e900ca8689d73a8a33f9d3a01e2c08cef9e0005ead26080",
+      "bytes": 46279,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "note-cover-png",
+      "verifiedAt": "2026-09-15T21:00:33.143Z",
+      "width": 1280,
+      "height": 670
+    },
+    "content/note/RCCM/magazines/RCCM問題III-2026模範論文集/02-安全安心国土/img/cover.png": {
+      "bucket": "private",
+      "r2Key": "note/covers/RCCM/magazines/RCCM問題III-2026模範論文集/02-安全安心国土/img/cover.png",
+      "sha256": "57c0ef26591711b9e52fef33935ef97879f6f77d6320988ca0ee5a6ac086d192",
+      "bytes": 49807,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "note-cover-png",
+      "verifiedAt": "2026-09-15T21:00:33.244Z",
+      "width": 1280,
+      "height": 670
+    },
+    "content/note/RCCM/magazines/RCCM問題III-2026模範論文集/03-SDGs/img/cover.png": {
+      "bucket": "private",
+      "r2Key": "note/covers/RCCM/magazines/RCCM問題III-2026模範論文集/03-SDGs/img/cover.png",
+      "sha256": "9da44b57d58a737e8f2d2d2e7081e09ba05c2cfaa4001b9ed1d8ced800aa5e5c",
+      "bytes": 45100,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "note-cover-png",
+      "verifiedAt": "2026-09-15T21:00:33.245Z",
+      "width": 1280,
+      "height": 670
+    },
+    "content/note/RCCM/magazines/RCCM問題III-2026模範論文集/00-序章/img/cover.png": {
+      "bucket": "private",
+      "r2Key": "note/covers/RCCM/magazines/RCCM問題III-2026模範論文集/00-序章/img/cover.png",
+      "sha256": "7371104c34681f43ce4bfa6cd59c79f115c910b476407517bb0291d254bbb5a9",
+      "bytes": 49511,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "note-cover-png",
+      "verifiedAt": "2026-09-15T21:00:33.311Z",
+      "width": 1280,
+      "height": 670
+    },
+    "content/note/RCCM/magazines/RCCM問題III-2026模範論文集/04-AI品質/img/cover.png": {
+      "bucket": "private",
+      "r2Key": "note/covers/RCCM/magazines/RCCM問題III-2026模範論文集/04-AI品質/img/cover.png",
+      "sha256": "1f6f4ceafb5275f38ade55a840730e6300cd3e0a9e1cf47a4e93d48b33050786",
+      "bytes": 46747,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "note-cover-png",
+      "verifiedAt": "2026-09-15T21:00:33.316Z",
+      "width": 1280,
+      "height": 670
+    },
+    "content/note/RCCM/magazines/RCCM問題III-2026模範論文集/05-国際競争力/img/cover.png": {
+      "bucket": "private",
+      "r2Key": "note/covers/RCCM/magazines/RCCM問題III-2026模範論文集/05-国際競争力/img/cover.png",
+      "sha256": "a6011215b28a910046d3c94aa1ec4fdbc581cbf671fde32e39b22817300fe3f3",
+      "bytes": 48338,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "note-cover-png",
+      "verifiedAt": "2026-09-15T21:00:33.352Z",
+      "width": 1280,
+      "height": 670
+    },
+    "content/note/RCCM/RCCMもくじ/img/cover.png": {
+      "bucket": "private",
+      "r2Key": "note/covers/RCCM/RCCMもくじ/img/cover.png",
+      "sha256": "32b016aa7f9ec78d197e2cf019b5e27a214fb3ea7a69334666e684548eebd295",
+      "bytes": 51909,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "note-cover-png",
+      "verifiedAt": "2026-09-15T21:00:33.849Z",
+      "width": 1280,
+      "height": 670
+    },
+    "content/note/RCCM/magazines/RCCM問題III-2026模範論文集/01-インフラ老朽化/img/cover.png": {
+      "bucket": "private",
+      "r2Key": "note/covers/RCCM/magazines/RCCM問題III-2026模範論文集/01-インフラ老朽化/img/cover.png",
+      "sha256": "e5280752b3c7dbc0ce39f3b78c66c6ea8002d99f9edacb5ad69a51169d2548e9",
+      "bytes": 49014,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "note-cover-png",
+      "verifiedAt": "2026-09-15T21:00:33.904Z",
+      "width": 1280,
+      "height": 670
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",
