@@ -53,6 +53,18 @@ https://note.com/dobokunote/m/m0f3bc3933454
 
 https://note.com/dobokunote/m/mebca45bcc745
 
+**トンネル まるごと合格パック**（必須科目I＋トンネル選択科目）— 選択科目がトンネルの人向け。「必須I＋トンネル」全29記事のセットで、単品2誌より割安です。
+
+https://note.com/dobokunote/m/m2029e394e260
+
+**都市計画 まるごと合格パック**（必須科目I＋都市及び地方計画 選択科目）— 選択科目が都市計画の人向け。「必須I＋都市計画」全29記事のセットです。
+
+https://note.com/dobokunote/m/m5f63da67c0f3
+
+**河川砂防 まるごと合格パック**（必須科目I＋河川、砂防及び海岸・海洋 選択科目）— 選択科目が河川砂防の人向け。「必須I＋河川砂防」全29記事のセットです。
+
+https://note.com/dobokunote/m/m99468c7c717f
+
 ### 選択科目の模範解答（自分の科目を1つ）
 
 必須科目Iに加えて、自分の受験する選択科目を1つそろえるのが基本の組み合わせです。
@@ -111,6 +123,7 @@ https://note.com/dobokunote/m/mebca45bcc745
 
 - **必須科目Iの型と模範解答がほしい** → [必須科目I 模範解答集](https://note.com/dobokunote/m/m0f3bc3933454)
 - **選択科目が道路** → 必須Iとセットの [道路 まるごと合格パック](https://note.com/dobokunote/m/mebca45bcc745) が割安
+- **選択科目がトンネル／都市計画／河川砂防** → 必須Iとセットの [トンネル](https://note.com/dobokunote/m/m2029e394e260)・[都市計画](https://note.com/dobokunote/m/m5f63da67c0f3)・[河川砂防](https://note.com/dobokunote/m/m99468c7c717f) まるごと合格パックが割安
 - **自分の選択科目の模範解答がほしい** → 上の「選択科目の模範解答」から該当科目を
 - **発注者・合格者視点の解答を読みたい** → 道路・河川・都市計画は合格者解答、他科目は発注者監修
 

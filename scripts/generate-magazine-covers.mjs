@@ -487,6 +487,42 @@ export const MAGAZINES = [
     fontSize: 42,
     fillBg: '#334155',
   },
+  {
+    id: 'pe-construction-tunnel-pack',
+    fileBaseName: 'pe-construction-tunnel-pack-cover',
+    magazineDir: 'content/note/技術士建設部門/magazines/PACK-02_トンネルまるごと合格パック',
+    lines: ['建設部門 2次 合格パック', 'トンネル（必須科目I＋トンネル）', '全29記事 ¥4,980'],
+    category: '技術士（建設部門）',
+    fontSize: 42,
+    fillBg: '#334155',
+  },
+  {
+    id: 'pe-construction-urban-planning-pack',
+    fileBaseName: 'pe-construction-urban-planning-pack-cover',
+    magazineDir: 'content/note/技術士建設部門/magazines/PACK-03_都市計画まるごと合格パック',
+    lines: ['建設部門 2次 合格パック', '都市計画（必須科目I＋都市計画）', '全29記事 ¥4,980'],
+    category: '技術士（建設部門）',
+    fontSize: 42,
+    fillBg: '#334155',
+  },
+  {
+    id: 'pe-construction-river-coast-pack',
+    fileBaseName: 'pe-construction-river-coast-pack-cover',
+    magazineDir: 'content/note/技術士建設部門/magazines/PACK-04_河川砂防まるごと合格パック',
+    lines: ['建設部門 2次 合格パック', '河川砂防（必須科目I＋河川砂防）', '全29記事 ¥4,980'],
+    category: '技術士（建設部門）',
+    fontSize: 42,
+    fillBg: '#334155',
+  },
+  {
+    id: 'rccm-mondai3',
+    fileBaseName: 'rccm-mondai3-cover',
+    magazineDir: 'content/note/RCCM/magazines/RCCM問題III-2026模範論文集',
+    lines: ['RCCM 問題III 管理技術力', '2026年度 公開6テーマ', '模範論文集（序章無料）'],
+    category: 'RCCM',
+    fontSize: 42,
+    fillBg: '#742D15',
+  },
 ];
 
 // 資格別ブランド写真プール（サイト OGP と共有・brand-image-system.md §3。generate-note-covers.mjs と対）

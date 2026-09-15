@@ -86,6 +86,13 @@ content/note/
 
 - Kindle 択一シリーズと同一原稿の A4 PDF を有料 note 単発記事として併売する従チャネル。対象 4 商品＝2級土木一次（`civil-2-takuitsu-pdf`・上記 1級・2級土木配下）／技術士一次（`pe1-takuitsu-pdf`）／総監 令和（`tankan-takuitsu-reiwa-pdf`）／総監 平成（`tankan-takuitsu-heisei-pdf`）。**全4商品 2026-07-12 公開済**。真実源＝`content/kindle/strategy.md`・`src/lib/note-magazines.ts`
 
+### RCCM（`RCCM/`）— 2026-09-15 新設
+
+- **有料**（`RCCM/magazines/`）: 問題III 管理技術力｜2026年度 公開6テーマ 模範論文集（`rccm-mondai3-magazine`・¥3,480・単品¥780×6＋序章無料）／問題I 業務経験論文テンプレ（`rccm-mondai1-template`・¥1,980）／問題II・IV 論点集と予想50問（`rccm-takuitsu-yosou-50`・¥1,480）。2026 年度は CBT 試験期間 9/1〜10/31 の直前期に投入
+- **無料**: `RCCMもくじ`（L2）＋ lead-in 3 本（指定語の使い方／落ちる業務経験論文／CBT 直前 2 週間の学習計画）
+- **試験事実の SSOT**: `RCCM/magazines/RCCM問題III-2026模範論文集/_facts-2026.md`（協会の出題テーマ PDF が一次出典。過去問は事務局非公開＝問題文の転載禁止・全て自作）
+- **戦略 SSOT**: `RCCM/noteコンテンツ計画.md`。Generator/Evaluator は `rccm-essay-writer` / `rccm-essay-qa`、機械ゲートは `npm run check-rccm-essay`
+
 ### コンクリート主任技士（`コンクリート主任技士/`）
 
 - **有料マガジン**（`コンクリート主任技士/magazines/`）: 四肢択一-R8予想問題集（企画）・小論文-模範答案集

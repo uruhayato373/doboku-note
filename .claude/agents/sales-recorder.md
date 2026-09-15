@@ -105,6 +105,7 @@ kuro
 | `2級土木 施工経験記述｜過去問 模範答案集（R03-R07）`（¥2,480・5本セット） | `civil-2-pastexam-essay` |
 | `コンクリート主任技士 小論文｜実務立場別 模範答案集`（¥5,980・33本） | `cce-essay-persona-pack` |
 | `コンクリート主任技士 まるごとパック`（¥9,800・41記事＝小論文2マガジン＋択一予想50問＋配合計算12問） | `cce-marugoto-pack` |
+| `RCCM問題III｜2026年度 6テーマ 模範論文集`（¥3,480・6本＋序章） | `rccm-mondai3-magazine` |
 
 ### 単品記事（type: article）
 
@@ -127,6 +128,9 @@ productId は `article:<slug>` 形式。slug は商品名から推定:
 | `1級土木 二次学科記述｜直前暗記ノート` | `article:civil-1-anki-note` |
 | `2級土木 二次学科記述｜直前暗記ノート` | `article:civil-2-anki-note` |
 | `1級土木 第1次検定｜出る順 合格ノート` | `article:civil-1-ichiji-ronten` |
+| `RCCM問題III｜{テーマ短名} 模範論文`（単品¥780・テーマ番号 01〜06） | `article:rccm-mondai3-{NN}`（{NN} は `_facts-2026.md` のテーマ番号 2 桁。例: `article:rccm-mondai3-01`＝インフラ老朽化） |
+| `RCCM問題I｜業務経験論文テンプレと記入例`（¥1,980） | `article:rccm-mondai1-template` |
+| `RCCM問題II・IV｜論点集と予想50問`（¥1,480） | `article:rccm-takuitsu-yosou-50` |
 | `1級土木 二次｜出題分析と直前の重点` | `article:civil-1-r8-bunseki` |
 | `1級土木 令和8年度 第2次検定｜予想模試3回` | `article:civil-1-r8-mock3-pdf` |
 | `2級土木 令和8年度 第2次検定｜予想模試3回` | `article:civil-2-r8-mock3-pdf` |

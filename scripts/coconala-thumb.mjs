@@ -45,7 +45,10 @@ const BG_WIDE = {
 const THEMES = {
   default: { bar: NAVY, eyebrow: NAVY },
   'civil-2': { bar: '#2a7050', eyebrow: '#215a40' }, // brand tint #2a7050（緑）系
+  rccm: { bar: '#9c3d1e', eyebrow: '#742d15' }, // --exam-rccm（赤褐色）系。note-cover-tokens.json exams.rccm と同色
 };
+// RCCM は写真マスター未整備のため書類系の既定背景（bg-docs）を使う
+const BG_RCCM = '.claude/config/coconala/assets/bg-docs.png';
 // wide 1600×667 から 4:3（889×667）をどの x から切るか（右端 = 1600-889 = 711）
 const CROP_X = { moshi: 711, kanseitoan: 380, full: 560, premium: 200 };
 
@@ -72,6 +75,24 @@ async function croppedBgDataUri(examKey, line) {
 
 // サムネ用の短い訴求コピー（カタログの正式タイトルとは別＝クリック訴求に最適化）
 const THUMB_COPY = {
+  'coconala-rccm-mondai3-tensaku': {
+    eyebrow: 'RCCM資格試験 ／ 試験B 問題III 管理技術力',
+    title: ['RCCM 問題III', '論文 添削'],
+    hook: '公開6テーマ対応。①課題②あり方と\n指定語「」を発注者視点で赤入れ',
+    priceLabel: '1テーマ・再確認1回込み',
+  },
+  'coconala-rccm-mondai1-shindan': {
+    eyebrow: 'RCCM資格試験 ／ 試験A 問題I 業務経験論文',
+    title: ['RCCM 業務経験', '論文 診断'],
+    hook: '業務実績証明書との整合と\n問題点の立て方を発注者視点で判定',
+    priceLabel: '1本診断',
+  },
+  'coconala-rccm-mondai3-pdf': {
+    eyebrow: 'RCCM資格試験 ／ 試験B 問題III 管理技術力',
+    title: ['RCCM 問題III', '模範論文 6テーマ'],
+    hook: '2026年度 公開6テーマ全部の模範論文\n＋指定語チェック表・部門別置換',
+    priceLabel: 'PDF',
+  },
   'coconala-sokan-bunseki-pdf': {
     eyebrow: '技術士総合技術監理部門 ／ 記述式 必須科目I-2',
     title: ['総監 出題', 'テーマ分析'],
@@ -268,6 +289,7 @@ async function resolveVisual(id, svc, bgOverride) {
   const scope = svc.examScope ?? [];
   const line = productLine(id);
   const examKey = scope.length === 1 ? scope[0] : null;
+  if (examKey === 'rccm') return { uri: bgDataUri(BG_RCCM), theme: THEMES.rccm, note: 'bg=docs(rccm)' };
   if (examKey && BG_WIDE[examKey] && line) {
     return {
       uri: await croppedBgDataUri(examKey, line),

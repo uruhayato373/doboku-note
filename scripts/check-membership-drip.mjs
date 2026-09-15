@@ -48,6 +48,8 @@ export const GRACE_DAYS = 1;
 export const SERIES = [
   { re: /^学科\s*(\d+)/, dir: '学科記述予想', prefix: '' },
   { re: /^添削練習\s*(\d+)/, dir: '添削事例アーカイブ', prefix: '事例' },
+  // 経験記述の週次お題（W6 以降は 1級二次 10/4 へ向けて圧縮日程。README 配信表に「経験記述 WNN …」行で日付を持つ）
+  { re: /^経験記述\s*W(\d+)/, dir: '予想問題マガジン', prefix: '' },
 ];
 
 /** README の「| 公開予定日 | 記事 |」表を行の配列にする。 */
@@ -186,7 +188,7 @@ function main() {
     console.log(JSON.stringify({ today, graceDays: GRACE_DAYS, rows: rows.length, inspected, published, pending, fails, warns }, null, 2));
   } else {
     console.log(`[${NAME}] 配信表 ${rows.length} 行 / 実検査 ${inspected} 件（公開済み ${published} / 未公開 ${pending}）・基準日 ${today}（JST）`);
-    console.log(`[${NAME}]   射程外: 経験記述 W1〜W11 は表に公開予定日の列が無いため未検査`);
+    console.log(`[${NAME}]   射程外: 配信表に無い行（経験記述 W1〜W6 は 2026-09-15 までに配信済みで表に載せていない）`);
     for (const w of warns) console.log(`  [WARN] ${w.kind} ${w.row.label}（予定 ${w.row.date}） — ${w.detail}`);
     for (const f of fails) console.log(`  [FAIL] ${f.kind} ${f.row.label}（予定 ${f.row.date}） — ${f.detail}`);
     if (fails.length === 0) {

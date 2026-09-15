@@ -1095,10 +1095,11 @@ const MAGAZINES_RAW = {
     price: '¥4,980（必須I＋道路 2マガジン・単品合計¥6,960、約28%OFF）',
     badge: 'note 限定 合格パック',
   },
+  // 2026-09-15 公開: note にマガジン作成（key m2029e394e260）→ 必須I 11＋トンネル 18＝29 記事を API で収録確認 → カバー SET。
   'pe-construction-tunnel-pack': {
     id: 'pe-construction-tunnel-pack',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m2029e394e260',
     title: '技術士 建設部門 2次｜トンネル まるごと合格パック（必須科目I＋トンネル選択科目）',
     description:
       '必須科目I 模範解答集（R03-R07＋R8予想・全11記事）とトンネル選択科目 模範解答集（R03-R07＋R8予想・全18記事）を束ねた合格パック。単品合計¥6,460が¥4,980。元・地方自治体の土木職（発注者）視点で、本番で実際に解く「必須I＋トンネル」の組み合わせをそのまま収録。',
@@ -1107,10 +1108,11 @@ const MAGAZINES_RAW = {
     price: '¥4,980（必須I＋トンネル 2マガジン・単品合計¥6,460、約23%OFF）',
     badge: 'note 限定 合格パック',
   },
+  // 2026-09-15 公開: note にマガジン作成（key m5f63da67c0f3）→ 必須I 11＋都市計画 18＝29 記事を API で収録確認 → カバー SET。
   'pe-construction-urban-planning-pack': {
     id: 'pe-construction-urban-planning-pack',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m5f63da67c0f3',
     title: '技術士 建設部門 2次｜都市計画 まるごと合格パック（必須科目I＋都市計画選択科目）',
     description:
       '必須科目I 模範解答集（R03-R07＋R8予想・全11記事）と都市及び地方計画 選択科目 模範解答集（R03-R07＋R8予想・全18記事）を束ねた合格パック。単品合計¥6,460が¥4,980。元・地方自治体の土木職（発注者）かつ都市計画科目合格者の視点で、本番で実際に解く「必須I＋都市計画」の組み合わせをそのまま収録。',
@@ -1175,6 +1177,67 @@ const MAGAZINES_RAW = {
       '総合技術監理部門の択一式（平成21〜30年度 全400問）を、5つの管理を横断しつつ各選択肢に正誤の理由を付けて解説したA4印刷用PDF。管理の原則を問う平成期の良問で5管理の基礎を固める過去問演習教材。令和分と合わせて10年超を回せる。',
     price: '¥980',
     badge: 'note 限定 PDF教材',
+  },
+
+  // batch A 残（noteコンテンツ計画.md:261-273 のマトリクス）。2026-09-15 作成・公開時に noteUrl を埋める。
+  // 2026-09-15 公開: note にマガジン作成（key m99468c7c717f）→ 必須I 11＋河川砂防 18＝29 記事を API で収録確認 → カバー SET。
+  'pe-construction-river-coast-pack': {
+    id: 'pe-construction-river-coast-pack',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m99468c7c717f',
+    title: '技術士 建設部門 2次｜河川・砂防 まるごと合格パック（必須科目I＋河川、砂防及び海岸・海洋 選択科目）',
+    description:
+      '必須科目I 模範解答集（R03-R07＋R8予想・全11記事）と河川、砂防及び海岸・海洋 選択科目 模範解答集（R03-R07＋R8予想・全18記事）を束ねた合格パック。単品合計¥6,460が¥4,980。元・地方自治体の土木職（発注者）かつ河川科目合格者の視点で、本番で実際に解く「必須I＋河川砂防」の組み合わせをそのまま収録。',
+    shortTitle: '建設部門2次｜河川砂防 合格パック',
+    shortDescription: '必須I＋河川砂防 全29記事。単品合計¥6,460が¥4,980（約23%OFF）。',
+    price: '¥4,980（必須I＋河川砂防 2マガジン・単品合計¥6,460、約23%OFF）',
+    badge: 'note 限定 合格パック',
+  },
+
+  // ---- RCCM（建設コンサルタンツ協会・2026-09-15 新設）----
+  // 原稿配置: content/note/RCCM/magazines/。id 接頭辞 rccm-（exam-brand.ts examKeyOf → 'rccm'）。
+  // 2026 年度は CBT 試験期間 9/1〜10/31 が進行中（exam-calendar.json rccm）。問題III は事前公開 6 テーマから 1 題。
+  // 公式過去問は非公開のため問題文は収録せず、模範論文・テンプレ・論点集は全て自作。
+  // 公開時: noteUrl 埋め → published:true → note-funnel.json exams.rccm → sales-recorder.md 行（同一 commit）。
+  // 2026-09-15 公開: 7 記事（序章無料＋6 テーマ ¥780）を note 公開 → マガジン m770bef96b39f（¥3,480）へ 7/7 収録 → カバー SET。
+  'rccm-mondai3-magazine': {
+    id: 'rccm-mondai3-magazine',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m770bef96b39f',
+    title: 'RCCM 問題III 管理技術力｜2026年度 公開6テーマ 模範論文集',
+    description:
+      'RCCM資格試験 試験B 問題III（管理技術力）の2026年度 公開6テーマ（地方公共団体のインフラ老朽化とインフラマネジメント／安全・安心な国土づくり／SDGs／AI技術の活用と成果品の品質向上／国際競争力の強化／BIM/CIM）それぞれに、①現状と課題 ②対策のあり方の構成で1,200〜1,600字の模範論文を収録。指定語を「」で自然に使う配置、部門別の置換ポイント、発注者として成果品を検査してきた視点の採点ポイント付き。序章は無料。',
+    shortTitle: 'RCCM問題III 6テーマ 模範論文集',
+    shortDescription: '公開6テーマ全部の模範論文（1,200〜1,600字）＋指定語の使い方＋部門別置換。単品¥780×6が¥3,480。',
+    price: '¥3,480（6テーマ・単品合計¥4,680、約26%OFF）',
+    badge: 'note 限定 教材',
+    ctaCatch: '公開6テーマ、どれが出ても骨子が書ける',
+    ctaButton: '模範論文を note で見る',
+  },
+  // 2026-09-16 公開（n10b786536829・¥1,980・境界=テンプレート）。
+  'rccm-mondai1-template': {
+    id: 'rccm-mondai1-template',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/n/n10b786536829',
+    title: 'RCCM 問題I 業務経験論文｜2,400字テンプレートと部門別記入例',
+    description:
+      'RCCM資格試験 試験A 問題I（業務経験論文・2,400字）を、業務実績証明書に書いた業務と整合させて組み立てるテンプレート。技術上の問題点／業務上の問題点の立て方、落ちる論文3型、道路・河川砂防・鋼構造コンクリートの記入例3本を収録。',
+    shortTitle: 'RCCM問題I 業務経験論文テンプレ',
+    shortDescription: '2,400字の穴埋め骨子＋部門別記入例3本。業務実績証明書との整合から書く。',
+    price: '¥1,980',
+    badge: 'note 限定 教材',
+  },
+  'rccm-takuitsu-yosou-50': {
+    id: 'rccm-takuitsu-yosou-50',
+    published: false,
+    noteUrl: '',
+    title: 'RCCM 問題II・問題IV｜択一 論点集と予想50問（全選択肢解説）',
+    description:
+      'RCCM資格試験 問題II（業務関連法制度・建設一般知識・技術者倫理）と問題IV-1（土木基礎知識）の出題範囲マップと、オリジナル予想50問（全選択肢の正誤理由付き）。問1〜10は無料で公開。',
+    shortTitle: 'RCCM 択一 論点集と予想50問',
+    shortDescription: '問題II・IV-1 の出題範囲マップ＋予想50問。問1〜10は無料。',
+    price: '¥1,480',
+    badge: 'note 限定 教材',
   },
 } as const satisfies Record<string, NoteMagazine>;
 
