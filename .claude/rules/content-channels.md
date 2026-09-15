@@ -27,7 +27,7 @@ paths:
 ## SNS（content/sns/**: instagram / x / youtube）
 
 - 戦略と動線 → `docs/marketing/01_SNS集客戦略.md`（v7: Instagram が一次制作、YouTube Shorts は IG Reels mp4 の二次展開、X は合格者発信の信頼／note 誘導）と `docs/marketing/02_チャネル動線設計.md`（UTM 統一フォーマット・季節×チャネル）
-- 投稿画像（IG/X/Shorts のキャンバス・スワイプ方向・記号統一） → [sns-image-policy.md](../knowledge/reference/sns-image-policy.md)。6 切り口（結論/理由/体験/反論/数字/ハウツー）と `angle` → [content-angle-policy.md](../knowledge/reference/content-angle-policy.md)・[sns-repurpose-policy.md](../knowledge/reference/sns-repurpose-policy.md)
+- 投稿画像（IG/X/Shorts のキャンバス・スワイプ方向・記号統一） → [sns-image-policy.md](../knowledge/reference/sns-image-policy.md)。6 切り口（結論/理由/体験/反論/数字/ハウツー）と `angle` → [content-angle-policy.md](../knowledge/reference/content-angle-policy.md)・[.claude/shared-policy/REPURPOSE.md](../shared-policy/REPURPOSE.md)
 - Instagram: カルーセル 2 シリーズ → [ig-carousel-skill.md](../knowledge/reference/ig-carousel-skill.md)、公開状態の照合・未公開の予約（`@dobokunotecom`・`verify-ig-status`→`ig-reconcile`→`ig-publish-auditor`） → [ig-publish-reconcile.md](../knowledge/reference/ig-publish-reconcile.md)、Reels → [ig-reels-policy.md](../knowledge/reference/ig-reels-policy.md)、Stories → [ig-stories-policy.md](../knowledge/reference/ig-stories-policy.md)、ハイライト → [ig-highlight-design-policy.md](../knowledge/reference/ig-highlight-design-policy.md)
 - X → [x-post-policy.md](../knowledge/reference/x-post-policy.md)（280 weighted・試験別ベースタグ・5 軸ルーブリック。凍結対策 §11＝重複/連投/一括予約回避）。自投稿の反応は `npm run x-own-metrics`（中央値で読む）
 - YouTube Shorts（IG Reels 派生 mp4 + meta.json・UTM 必須） → [yt-shorts-publisher-policy.md](../knowledge/reference/yt-shorts-publisher-policy.md)

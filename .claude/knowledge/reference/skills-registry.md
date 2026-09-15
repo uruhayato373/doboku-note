@@ -1,11 +1,14 @@
 ---
-
 title: スキル ガバナンス記録
 ---
 
 > 2026-09-13 更新: weekly-review / monthly-review に全教材対応表の整合確認（check-content-expansion）を結線。未確認・原典待ち・確認後の変更を継続確認し、制作数と公開・効果を区別する。ig-figure-packは技術士一次の資格ラベル・元記事対応・検査を追加。スキル件数は不変。
 
 # スキル ガバナンス記録
+
+> 2026-09-14 更新: publish-x にローカルの実予約定期検査 `check-x-queue-health` を結線。Codex朝夜監視が実行し、CIには認証を要求しない。スキル件数は不変。
+
+> 2026-09-14 更新: weekly-review のX集計を投入済み最終予約記録（last_queued_at）へ修正。x-campaign-plan はキュー照合と公開確認を区別する。件数は不変。
 
 - 2026-09-14: `deploy` のローカル接続不成立時は、既存デプロイworkflowの `verify_only=true` で外部SSR検査へ接続。再ビルド・再デプロイを省く。
 - 2026-09-09: `yt-shorts-create` 共有合成ライブラリの通常動画で、静止画を音声実尺へ揃えてから連結し、端数秒による字幕先行を修正。実ffmpegの回帰テストを追加。

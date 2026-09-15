@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { validateReviewSchedule } from '../scripts/lib/x-review-schedule.mjs';
+import { validateReviewSchedule, resolveReviewPlans } from '../scripts/lib/x-review-schedule.mjs';
 
 const plans = [
   {draft:'one',tweet:1,date:'2026-10-10',time:'07:20'},
@@ -28,4 +28,21 @@ test('計画の重複と空白日を止める',()=>{
   const errors=validateReviewSchedule(data,[...plans,plans[0]]);
   assert.ok(errors.some(e=>e.includes('計画が重複')));
   assert.ok(errors.some(e=>e.includes('投稿予定がありません')));
+});
+
+test('前月からの延期を期間判定の前に反映し、元計画と違う日時変更を拒否する', () => {
+  const plan = [{ draft: 'one', tweet: 1, date: '2026-09-10', time: '07:20' }];
+  const status = [{ draft: 'one', tweet: 1, original_scheduled_at: '2026-09-10T07:20:00+09:00', scheduled_at: '2026-10-10T08:00:00+09:00' }];
+  const resolved = resolveReviewPlans(plan, status);
+  assert.equal(resolved[0].date, '2026-10-10');
+  assert.equal(resolved[0].time, '08:00');
+  assert.equal(plan[0].date, '2026-09-10');
+  assert.throws(() => resolveReviewPlans(plan, [{ ...status[0], original_scheduled_at: '2026-09-11T07:20:00+09:00' }]), /不一致/);
+});
+
+test('旧計画の日時で原稿を対応させ、候補が重複すれば止める', () => {
+  const plan = [{ date: '2026-09-10', time: '07:20' }];
+  const status = { draft: 'one', tweet: 1, original_scheduled_at: '2026-09-10T07:20:00+09:00', scheduled_at: '2026-10-10T08:00:00+09:00' };
+  assert.equal(resolveReviewPlans(plan, [status])[0].draft, 'one');
+  assert.throws(() => resolveReviewPlans(plan, [status, { ...status, draft: 'two' }]), /複数/);
 });

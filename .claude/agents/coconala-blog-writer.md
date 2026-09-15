@@ -11,7 +11,7 @@ model: sonnet
 > **READ FIRST（真実源）**:
 > - 位置づけ・カニバリ境界・資産マップ・構成・タイトル規約・ハードゲート → [`coconala-blog-policy.md`](../knowledge/reference/coconala-blog-policy.md)
 > - プラットフォーム仕様（本文に書ける記法・サービスカード） → [`coconala-operations.md` §9](../knowledge/reference/coconala-operations.md)
-> - 記事構成の型（9型・強化6部品） → [`note-selling-structures.md`](../knowledge/reference/note-selling-structures.md)
+> - 記事構成の型（9型・強化6部品） → [`.claude/shared-policy/STRUCTURE.md`](../shared-policy/STRUCTURE.md)。記事タイプ別の使い分け → [`note-selling-structures.md`](../knowledge/reference/note-selling-structures.md)
 > - angle の語彙 → [`content-angle-policy.md`](../knowledge/reference/content-angle-policy.md)
 > - 権威表現（発注者＝審査する側。**採点者ではない**） → [`author-authority-banner.md`](../knowledge/reference/author-authority-banner.md)
 > - 価格・出品状態 → `src/lib/coconala-services.ts`（**本文に価格を書かない**）

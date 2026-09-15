@@ -3,59 +3,19 @@
  * x-sync-status.mjs
  *
  * X の予約キュー（Playwright 実ダンプ）と content/sns/x/ 配下の status.json を突合し、
- * 「scheduled_at が過去 かつ X キューに存在しない」→ posted に昇格させる。
+ * 未来予約の実在を照合する。過去日時のキュー不在だけでは公開済みと判定しない。
  *
  * Usage:
  *   node scripts/x-sync-status.mjs          # sync + 表示
  *   node scripts/x-sync-status.mjs --dry    # 変更せず確認のみ
  *   npm run x-sync-status
  */
-import { chromium } from "playwright";
 import fs from "fs";
 import path from "path";
-import { glob } from "glob";
-import { resolveProfileDir } from "./lib/playwright-auth-profile.mjs";
-import { leanContextOptions } from "./lib/playwright-launch.mjs";
-
+import { readScheduledQueue, isTweetInQueue } from "./lib/x-scheduled-queue.mjs";
 const ROOT = process.cwd();
-const PROFILE_DIR = resolveProfileDir("x", { cwd: ROOT, repoRoot: ROOT });
 const DRY = process.argv.includes("--dry");
 const NOW = new Date();
-
-// ── 1. X キューから予約本文スニペット収集 ───────────────────────────────────
-async function dumpScheduledSnippets() {
-  const ctx = await chromium.launchPersistentContext(PROFILE_DIR, leanContextOptions({
-    headless: true, channel: "chrome",
-    viewport: { width: 1280, height: 900 }, locale: "ja-JP", timezoneId: "Asia/Tokyo",
-    args: ["--disable-blink-features=AutomationControlled"],
-  }));
-  const page = ctx.pages()[0] || (await ctx.newPage());
-  const snippets = new Set();
-  try {
-    await page.goto("https://x.com/compose/post/unsent/scheduled", { waitUntil: "domcontentloaded" });
-    await page.waitForTimeout(5000);
-    let stable = 0, lastSize = -1;
-    for (let i = 0; i < 50 && stable < 4; i++) {
-      const lines = await page.evaluate(() => {
-        const dlg = document.querySelector('[role="dialog"]') || document.body;
-        return (dlg.innerText || "").split("\n").map(s => s.trim()).filter(s => s.length > 4);
-      });
-      lines.forEach(l => snippets.add(l));
-      await page.evaluate(() => {
-        const dlg = document.querySelector('[role="dialog"]') || document.body;
-        let best = dlg, bestH = 0;
-        dlg.querySelectorAll("div").forEach(d => {
-          if (d.scrollHeight > d.clientHeight + 20 && d.clientHeight > bestH) { best = d; bestH = d.clientHeight; }
-        });
-        best.scrollBy(0, 1200);
-      });
-      await page.waitForTimeout(700);
-      if (snippets.size === lastSize) stable++; else stable = 0;
-      lastSize = snippets.size;
-    }
-  } finally { await ctx.close(); }
-  return snippets;
-}
 
 // ── 2. status.json 収集 ─────────────────────────────────────────────────────
 function loadAllStatuses() {
@@ -81,21 +41,14 @@ function loadAllStatuses() {
   return results;
 }
 
-// ── 3. スニペット突合：本文冒頭15字がキューに含まれるか ─────────────────────
-function isInQueue(tweet, snippets) {
-  const text = tweet.text || tweet.title || "";
-  const needle = text.slice(0, 15).replace(/\s+/g, " ").trim();
-  if (!needle) return false;
-  for (const s of snippets) { if (s.includes(needle)) return true; }
-  return false;
-}
-
 // ── main ────────────────────────────────────────────────────────────────────
 console.log(`\n🔄 X status sync ${DRY ? "[DRY RUN]" : ""} — ${NOW.toLocaleString("ja-JP", { timeZone: "Asia/Tokyo" })}`);
 console.log("📡 X 予約キューをダンプ中（Playwright、ヘッドレス）...");
-let snippets;
+let snippets, queueRows;
 try {
-  snippets = await dumpScheduledSnippets();
+  const snapshot = await readScheduledQueue({ root: ROOT });
+  queueRows = snapshot.rows;
+  snippets = new Set(snapshot.rows.flatMap(r => r.text.split("\n").map(s => s.trim()).filter(Boolean)));
   console.log(`   キュー取得: ${snippets.size} 行`);
 } catch (e) {
   console.error("❌ Playwright エラー:", e.message);
@@ -103,9 +56,9 @@ try {
 }
 
 const entries = loadAllStatuses();
-let promoted = 0, alreadyPosted = 0, stillScheduled = 0, future = 0, queued = 0, notQueued = 0, manualOnly = 0, missingFromQueue = 0;
+let unconfirmed = 0, alreadyPosted = 0, stillScheduled = 0, future = 0, queued = 0, notQueued = 0, manualOnly = 0, missingFromQueue = 0;
 const missingList = [];
-const promotedList = [];
+const unconfirmedList = [];
 const queuedList = [];
 
 for (const entry of entries) {
@@ -122,13 +75,13 @@ for (const entry of entries) {
     if (tweet.manual_only === true) { manualOnly++; return; }
     const scheduledAt = tweet.scheduled_at ? new Date(tweet.scheduled_at) : null;
     if (!scheduledAt) return;
-    const inQueue = isInQueue(tweet, snippets);
+    const inQueue = isTweetInQueue(tweet, queueRows);
 
     if (scheduledAt > NOW) {
       // 未来予約。キューに在れば scheduled→queued へ昇格（偽成功の実査 + 後日 guard の二重誤検出回避）
       if (tweet.status === "scheduled") {
         if (inQueue) {
-          if (!DRY) { tweet.status = "queued"; dirty = true; }
+          if (!DRY) { tweet.status = "queued"; tweet.queue_verified_at = NOW.toISOString(); dirty = true; }
           queued++;
           queuedList.push({ file: entry.file, title: tweet.title, at: tweet.scheduled_at });
         } else {
@@ -151,17 +104,11 @@ for (const entry of entries) {
       return;
     }
 
-    // 過去予約（送信時刻が過ぎた）→ キューから消えていれば posted
-    if (inQueue) {
-      stillScheduled++;
-    } else {
-      if (!DRY) {
-        tweet.status = "posted";
-        tweet.posted_at = tweet.posted_at || scheduledAt.toISOString();
-        dirty = true;
-      }
-      promoted++;
-      promotedList.push({ file: entry.file, title: tweet.title, at: tweet.scheduled_at });
+    // キュー不在は未投入・取消でも起きる。公開URLを実査するまで posted にしない。
+    if (inQueue) stillScheduled++;
+    else {
+      unconfirmed++;
+      unconfirmedList.push({ file: entry.file, title: tweet.title, at: tweet.scheduled_at });
     }
   };
 
@@ -178,7 +125,7 @@ for (const entry of entries) {
 }
 
 console.log(`\n━━━ 結果 ━━━`);
-console.log(`  posted に昇格   : ${promoted} 件${DRY ? " (dry: 未書込み)" : ""}`);
+console.log(`  期限超過・公開未確認: ${unconfirmed} 件（状態は変更しない）`);
 console.log(`  queued に昇格    : ${queued} 件${DRY ? " (dry: 未書込み)" : ""}（未来予約をキューで実査）`);
 console.log(`  既存 posted     : ${alreadyPosted} 件`);
 console.log(`  X キュー残存    : ${stillScheduled} 件`);
@@ -195,8 +142,10 @@ if (missingList.length) {
   missingList.forEach(p => console.log(`  ⚠ ${p.at?.slice(0, 16)}  ${p.title}`));
   console.log(`  → X 側で予約解除/下書き化/凍結が起きていないか確認し、必要なら再投入する。`);
 }
-if (promotedList.length) {
-  console.log(`\nposted 昇格:`);
-  promotedList.forEach(p => console.log(`  ✅ ${p.at?.slice(0, 16)}  ${p.title}`));
+if (unconfirmedList.length) {
+  console.log(`\n期限超過・公開未確認:`);
+  unconfirmedList.forEach(p => console.log(`  ⚠ ${p.at?.slice(0, 16)}  ${p.title}`));
 }
 console.log();
+
+if (missingFromQueue > 0) process.exitCode = 1;

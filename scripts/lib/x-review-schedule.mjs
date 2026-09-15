@@ -1,4 +1,23 @@
-// 期間内の計画と表示対象を1件ずつ照合する。日ごとの本数は計画が真実源。
+// 元の月次計画を保持し、台帳に記録した日程変更だけを確認画面へ反映する。
+export function resolveReviewPlans(plans, statuses) {
+  return plans.map(post => {
+    const original = `${post.date}T${post.time}`;
+    const matches = statuses.filter(t => post.draft
+      ? t.draft === post.draft && t.tweet === post.tweet
+      : (t.original_scheduled_at ?? t.scheduled_at)?.slice(0, 16) === original);
+    if (matches.length > 1) throw new Error(`${original}: 計画に対応する台帳が複数あります`);
+    const t = matches[0];
+    if (!t) return post;
+    if ((t.original_scheduled_at ?? t.scheduled_at)?.slice(0, 16) !== original) {
+      throw new Error(`${t.draft}:${t.tweet}: 日程変更前の日時と月次計画が不一致`);
+    }
+    if (!Number.isFinite(Date.parse(t.scheduled_at))) throw new Error(`${t.draft}:${t.tweet}: 変更後の日時が不正`);
+    return { ...post, draft: t.draft, tweet: t.tweet,
+      date: t.scheduled_at.slice(0, 10), time: t.scheduled_at.slice(11, 16) };
+  });
+}
+
+// 期間内の実行計画と表示対象を1件ずつ照合する。
 export function validateReviewSchedule(data, plans) {
   const errors = [], expected = new Map(), actual = new Set(), byDay = new Map();
   const inPeriod = date => date >= data.from && date <= data.to;

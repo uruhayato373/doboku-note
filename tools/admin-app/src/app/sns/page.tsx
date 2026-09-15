@@ -76,7 +76,7 @@ export default async function SnsBoardPage() {
         <h2>
           X ドラフト
           <span className="sub">
-            合計 tweet {x.totals.tweets ?? 0} · 投稿 {x.totals.posted ?? 0} / 予約 {x.totals.scheduled ?? 0} / 下書 {x.totals.draft ?? 0}
+            合計 tweet {x.totals.tweets ?? 0} · 投稿 {x.totals.posted ?? 0} / 予約投入済 {x.totals.queued ?? 0} / 未投入計画 {x.totals.scheduled ?? 0} / 下書 {x.totals.draft ?? 0}
           </span>
         </h2>
         <div className="table-wrap">
@@ -84,7 +84,7 @@ export default async function SnsBoardPage() {
             <thead>
               <tr>
                 <th>ドラフト</th>
-                <th>投稿 / 予約 / 下書</th>
+                <th>投稿 / 予約投入済 / 未投入計画 / 下書</th>
                 <th className="num">tweet数</th>
                 <th>更新</th>
               </tr>
@@ -94,7 +94,7 @@ export default async function SnsBoardPage() {
                 <tr key={d.name}>
                   <td className="mono">{d.name}</td>
                   <td>
-                    {d.counts.posted} / {d.counts.scheduled} / {d.counts.draft}
+                    {d.counts.posted} / {d.counts.queued} / {d.counts.scheduled} / {d.counts.draft}
                   </td>
                   <td className="num">{d.total}</td>
                   <td className="muted">{d.updatedAt ? d.updatedAt.slice(0, 10) : ''}</td>

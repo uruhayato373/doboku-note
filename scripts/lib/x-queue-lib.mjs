@@ -56,7 +56,7 @@ export function parseDatesFromRaw(raw, now) {
 
 /**
  * status.json の中身から投入状況を集計する。
- * `lastScheduled` が**キュー充足の真実源**（tweets.md の見出し日付ではない）。
+ * `lastScheduled` は queued の最終日時。連続した予約の充足は保証しない。
  * @param {unknown} data パース済み status.json（壊れていれば null を渡す）
  */
 export function summarizeStatus(data) {
@@ -67,8 +67,8 @@ export function summarizeStatus(data) {
   for (const t of Object.values(tweets || {})) {
     if (!t || typeof t !== "object") continue;
     if (t.status === "posted") posted++;
-    else if (t.scheduled_at) queued++;
-    if (t.scheduled_at) {
+    else if (t.status === "queued" && !t.manual_only && Number.isFinite(Date.parse(t.scheduled_at))) queued++;
+    if (t.status === "queued" && !t.manual_only && t.scheduled_at) {
       const d = new Date(t.scheduled_at);
       if (!Number.isNaN(d.getTime()) && (!lastScheduled || d > lastScheduled)) lastScheduled = d;
     }

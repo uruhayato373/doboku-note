@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// session-start — Claude Code の SessionStart で走る 6 検査を 1 プロセスから順次呼ぶ。
+// session-start — Claude Code の SessionStart で走る 7 検査を 1 プロセスから順次呼ぶ。
 //
 // それまで .claude/settings.json は 6 本の `node …` を同時起動していた（async）。同一マシンで複数セッションが
 // 並行する常態では起動のたびに node が 6 本 × セッション数立ち上がり、空きメモリ 3 GiB 未満の端末で重い処理ゲート
@@ -18,6 +18,7 @@ const ROOT = fileURLToPath(new URL('..', import.meta.url)).replace(/[\\/]$/, '')
 /** 順番は「早く終わる・並行セッションの安全に効く」順。timeout は旧 settings.json の値を踏襲 */
 export const CHECKS = [
   { name: 'git-sync', script: 'scripts/check-git-sync.mjs', args: [], timeout: 30_000 },
+  { name: 'shared-policy', script: 'scripts/check-shared-policy.mjs', args: [], timeout: 20_000 },
   { name: 'plan-staleness', script: 'scripts/check-plan-staleness.mjs', args: [], timeout: 10_000 },
   { name: 'backlog-due', script: 'scripts/check-backlog-health.mjs', args: ['--due'], timeout: 15_000 },
   { name: 'resources', script: 'scripts/local-resource-audit.mjs', args: ['--quick'], timeout: 30_000 },

@@ -1,5 +1,5 @@
 import {
-  CONTENT_ROOT, DOCS_ROOT, KNOWLEDGE_ROOT, PLANS_ROOT,
+  CONTENT_ROOT, DOCS_ROOT, KNOWLEDGE_ROOT, PLANS_ROOT, SHARED_POLICY_ROOT,
 } from '../../../../scripts/lib/repository-paths.mjs';
 import type { DocumentSource } from './document-store';
 import { contentSegmentLabel } from './channel-registry';
@@ -67,6 +67,15 @@ export const ROOTS: RootDescriptor[] = [
     filePrefix: '.claude/plans',
     allowedExtensions: MD,
     emptyState: '実行中の実装契約はありません（完了した plan は削除する運用）。',
+  },
+  {
+    id: 'shared-policy',
+    label: '共通事業方針',
+    routeBase: '/strategy/policy',
+    root: SHARED_POLICY_ROOT as string,
+    filePrefix: '.claude/shared-policy',
+    allowedExtensions: MD,
+    emptyState: '配布物がありません（Obsidian vault で npm run policy:sync を実行）。',
   },
 ];
 

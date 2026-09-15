@@ -323,8 +323,7 @@ test('Phase 03 runtimeは共通resolverを使い、account configはlogical serv
     'scripts/lib/google-console-browser.mjs',
     'scripts/verify-ig-status.mjs',
     'scripts/x-article-publish.mjs',
-    'scripts/x-schedule-guard.mjs',
-    'scripts/x-sync-status.mjs',
+    'scripts/lib/x-scheduled-queue.mjs',
     'scripts/x-thread-replies.mjs',
     '.claude/skills/ads/scout-asp/scripts/a8-browser.ts',
     '.claude/skills/ads/scout-asp/scripts/login.mjs',
@@ -337,6 +336,13 @@ test('Phase 03 runtimeは共通resolverを使い、account configはlogical serv
     const source = readFileSync(join(REPO_ROOT, file), 'utf8');
     assert.match(source, /playwright-auth-profile\.mjs/, file);
     assert.doesNotMatch(source, /\.local\/playwright-[A-Za-z0-9_-]+-profile/, file);
+  }
+
+  for (const file of ['scripts/x-schedule-guard.mjs', 'scripts/x-sync-status.mjs']) {
+    const source = readFileSync(join(REPO_ROOT, file), 'utf8');
+    assert.match(source, /import\s+\{[^}]*readScheduledQueue[^}]*\}\s+from\s+["']\.\/lib\/x-scheduled-queue\.mjs["']/, file);
+    assert.match(source, /await readScheduledQueue\(/, file);
+    assert.doesNotMatch(source, /launchPersistentContext|\.local\/playwright-[A-Za-z0-9_-]+-profile/, file);
   }
 
   for (const [file, expected] of [

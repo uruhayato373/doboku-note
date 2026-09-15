@@ -411,7 +411,7 @@ sales-log が 34 日止まっていたことに誰も気づかず、下流のガ
 調査項目:
 - node scripts/x-queue-surfacer.mjs   （オフライン・status.json + tweets.md 読みのみ。
   ルーチンのリモート checkout でもローカル creds 無しで動く）
-  - 既存予約の充足ライン（covered_until）と、lookahead（既定 8 日）内に go-live を迎える
+  - 投入済み台帳の最終予約日時（last_queued_at、ISO形式。途中の空白を含み、連続した充足を保証しない）と、lookahead（既定 8 日）内に go-live を迎える
     未投入下書きを DUE / OVERDUE で列挙する
 
 出力形式: スクリプト出力（📮 ヘッダ + 表 + 投入手順）をそのまま「## SNS 予約キュー投入（X）」

@@ -8,7 +8,7 @@ X 投稿の下書き（`content/sns/x/draft/<NNN>-<exam>-<topic>/tweets.md`）�
 
 > **READ FIRST（真実源）**:
 > - 文字数ルール・試験別タグ・投稿型・UTM・カード仕様 → [`.claude/knowledge/reference/x-post-policy.md`](../../.claude/knowledge/reference/x-post-policy.md)
-> - 6切り口リパーパス戦略（全チャネル共通） → [`.claude/knowledge/reference/sns-repurpose-policy.md`](../../.claude/knowledge/reference/sns-repurpose-policy.md)
+> - 6切り口リパーパス戦略（全チャネル共通） → [`.claude/shared-policy/REPURPOSE.md`](../../.claude/shared-policy/REPURPOSE.md)
 > - 戦略上の位置づけ → `docs/marketing/01_SNS集客戦略.md` の X 節
 > - **投稿型 ↔ 6 切り口（angle）の対応・資産マッピング・Red Line** → [`.claude/knowledge/reference/content-angle-policy.md`](../../.claude/knowledge/reference/content-angle-policy.md)
 > - **1級・2級土木の試験日SSOT** → [`.claude/config/exam-calendar.json`](../../.claude/config/exam-calendar.json)
@@ -46,7 +46,7 @@ X 投稿の下書き（`content/sns/x/draft/<NNN>-<exam>-<topic>/tweets.md`）�
 1. `.claude/knowledge/reference/x-post-policy.md` を読む（文字数・試験別タグ・投稿型・リパーパス戦略・偽成功検証）。
    - 試験日・残日数・「約N週」を書く場合は `.claude/config/exam-calendar.json` を参照し、記憶や既存原稿から転記しない。
    - 対象月の `.claude/config/x-campaigns/YYYY-MM-*.json` があれば、日付・試験軸・投稿型・着地先を変更せず原稿化する。
-2. `angle` の処理（`sns-repurpose-policy.md` §3 参照）：
+2. `angle` の処理（`.claude/shared-policy/REPURPOSE.md` §3 参照）：
    - `angle=all` → 6切り口それぞれで1本ずつ、計6本生成する
    - `angle` 指定あり → その切り口の視点1本のみ生成する
    - `angle` 未指定 → 文脈から最適な切り口を選ぶ。`count` が複数なら切り口を自然にばらす

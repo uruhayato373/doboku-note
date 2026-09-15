@@ -27,8 +27,7 @@
  */
 import fs from "fs";
 import path from "path";
-import { resolveProfileDir } from "./lib/playwright-auth-profile.mjs";
-import { leanContextOptions } from "./lib/playwright-launch.mjs";
+import { readScheduledQueue } from "./lib/x-scheduled-queue.mjs";
 
 const ROOT = process.cwd();
 const ARGV = process.argv.slice(2);
@@ -180,51 +179,8 @@ for (const [u, c] of Object.entries(urlCount)) {
 if (WITH_QUEUE) {
   console.log(`📡 X 予約キューをダンプ中（Playwright, ${ARGV.includes('--headed') ? 'headed' : 'headless'}）...`);
   try {
-    const { chromium } = await import("playwright");
-    const PROFILE_DIR = resolveProfileDir("x", { cwd: ROOT, repoRoot: ROOT });
-    if (!fs.existsSync(PROFILE_DIR)) throw new Error('X認証プロフィールがありません');
-    const ctx = await chromium.launchPersistentContext(PROFILE_DIR, leanContextOptions({
-      headless: !ARGV.includes("--headed"), channel: "chrome",
-      viewport: { width: 1280, height: 900 }, locale: "ja-JP", timezoneId: "Asia/Tokyo",
-      args: ["--disable-blink-features=AutomationControlled"],
-    }));
-    const page = await ctx.newPage();
-    const snippets = new Set();
-    try {
-      await page.goto("https://x.com/home", { waitUntil: "domcontentloaded", timeout: 45000 });
-      const accountButton = page.getByTestId('SideNav_AccountSwitcher_Button');
-      await accountButton.waitFor({ state: 'visible', timeout: 30000 });
-      const expected = JSON.parse(fs.readFileSync(path.join(ROOT, '.claude/config/x-account.json'), 'utf8')).handle;
-      if (!(await accountButton.innerText()).split(/\s+/).includes('@' + expected)) {
-        throw new Error('Xアカウント不一致');
-      }
-      await page.goto("https://x.com/compose/post/unsent/scheduled", { waitUntil: "domcontentloaded", timeout: 45000 });
-      await page.waitForFunction(() =>
-        document.querySelector('[role="dialog"]')?.textContent?.includes('予約済み'),
-        null, { timeout: 30000 });
-      if (page.url() !== 'https://x.com/compose/post/unsent/scheduled') {
-        throw new Error('X予約一覧の表示を確認できません');
-      }
-      let stable = 0, last = -1;
-      for (let i = 0; i < 50 && stable < 4; i++) {
-        const lines = await page.evaluate(() => {
-          const dlg = document.querySelector('[role="dialog"]') || document.body;
-          return (dlg.innerText || "").split("\n").map(s => s.trim()).filter(s => s.length > 4);
-        });
-        lines.forEach(l => snippets.add(l));
-        await page.evaluate(() => {
-          const dlg = document.querySelector('[role="dialog"]') || document.body;
-          let best = dlg, bestH = 0;
-          dlg.querySelectorAll("div").forEach(d => {
-            if (d.scrollHeight > d.clientHeight + 20 && d.clientHeight > bestH) { best = d; bestH = d.clientHeight; }
-          });
-          best.scrollBy(0, 1200);
-        });
-        await page.waitForTimeout(700);
-        if (snippets.size === last) stable++; else stable = 0;
-        last = snippets.size;
-      }
-    } finally { await ctx.close(); }
+    const snapshot = await readScheduledQueue({ root: ROOT, headless: !ARGV.includes('--headed') });
+    const snippets = new Set(snapshot.rows.flatMap(r => r.text.split("\n").map(s => s.trim()).filter(Boolean)));
     console.log(`   キュー取得: ${snippets.size} 行`);
     // 未投入(scheduled)のみ照合。queued は既にキュー投入済＝在って当然なので除外（後日 run の二重誤検出回避）。
     for (const t of future.filter(t => t.status === "scheduled" && t.manual_only !== true)) {

@@ -10,8 +10,8 @@
  * 設計:
  *   - オフライン（status.json + tweets.md のみ・Playwright/外部 API 不要）。
  *     → 週次レビューのクラウドルーチン（ローカル creds 無し）でもそのまま動く。
- *   - 投入状態は status.json の SSOT で判定する（publish-x が投入時に scheduled_at を埋める）。
- *     status.json が無い or scheduled_at 未設定のツイート = 未投入。
+ *   - 投入状態は status.json の SSOT で判定する（x-sync-status が実査して queued にする）。
+ *     scheduled は日時設定済みでも未投入。queued だけが予約投入済み。
  *   - go-live 日は tweets.md ヘッダ "— M/D 残りN日" の最小日付から読む。
  *   - 本スクリプトは surface のみ（投入はローカルの publish-x で人手）。
  *
@@ -59,7 +59,7 @@ const fmt = (d) => `${d.getMonth() + 1}/${d.getDate()}`;
 const daysUntil = (d) => Math.ceil((d.getTime() - NOW.getTime()) / DAY_MS);
 
 const drafts = [];
-let coveredUntil = null; // 既存予約が埋まっている最終 go-live 日
+let lastQueuedAt = null; // 投入済み台帳の最終日時（連続した充足の保証ではない）
 
 if (fs.existsSync(DRAFT_DIR)) {
   for (const name of fs.readdirSync(DRAFT_DIR).sort()) {
@@ -74,14 +74,11 @@ if (fs.existsSync(DRAFT_DIR)) {
     const end = dates.length ? new Date(Math.max(...dates.map((d) => d.getTime()))) : null;
     const { exists, queued, posted, lastScheduled } = countQueued(path.join(dir, "status.json"));
 
-    const unqueued = count - queued - posted;
+    const unqueued = Math.max(0, count - queued - posted);
     const state = unqueued <= 0 ? "fully-queued" : queued + posted > 0 ? "partial" : "未投入";
 
-    // キュー充足は **status.json の scheduled_at の最大値**で測る（実際に予約が入っている最終日時）。
-    // 2026-08-17 まで tweets.md の見出し日付で測っていたため、見出しに日付を持たない
-    // キャンペーン pack（083-092・9月90件を含む）が 1 件も算入されず、キューが埋まっているのに
-    // 「残り -43 日」と永久に赤く出ていた（原則9 の構造的な赤）。
-    if (lastScheduled && (!coveredUntil || lastScheduled > coveredUntil)) coveredUntil = lastScheduled;
+    // queued の最終日時だけを表示する。途中の空白は due と日別ビューで確認。
+    if (lastScheduled && (!lastQueuedAt || lastScheduled > lastQueuedAt)) lastQueuedAt = lastScheduled;
 
     drafts.push({ name, count, queued, posted, unqueued, state, start, end });
   }
@@ -110,7 +107,7 @@ if (JSON_OUT) {
       {
         now: NOW.toISOString(),
         lookahead_days: LOOKAHEAD_DAYS,
-        covered_until: coveredUntil ? fmt(coveredUntil) : null,
+        last_queued_at: lastQueuedAt ? lastQueuedAt.toISOString() : null,
         due: due.map((d) => ({
           draft: d.name,
           period: d.start ? `${fmt(d.start)}-${fmt(d.end)}` : null,
@@ -133,7 +130,7 @@ if (JSON_OUT) {
 const lines = [];
 lines.push(`📮 X 予約キュー投入 surfacer — ${NOW.getFullYear()}/${fmt(NOW)}`);
 lines.push(
-  `   キュー充足: ${coveredUntil ? `${fmt(coveredUntil)} まで（残り ${daysUntil(coveredUntil)} 日）` : "なし（未投入のみ）"}` +
+  `   最終予約記録（途中の空白を含む）: ${lastQueuedAt ? fmt(lastQueuedAt) : "なし"}` +
     `   lookahead: ${LOOKAHEAD_DAYS} 日`
 );
 lines.push("");

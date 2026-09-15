@@ -72,7 +72,7 @@ test('summarizeStatus: queued / posted の数え分けと lastScheduled', () => 
   const r = summarizeStatus({
     tweets: {
       1: { status: 'posted', scheduled_at: '2026-09-01T07:15:00.000+09:00' },
-      2: { status: 'scheduled', scheduled_at: '2026-09-10T19:35:00.000+09:00' },
+      2: { status: 'queued', scheduled_at: '2026-09-10T19:35:00.000+09:00' },
       3: { status: 'draft' },
     },
   });
@@ -81,10 +81,10 @@ test('summarizeStatus: queued / posted の数え分けと lastScheduled', () => 
   assert.equal(r.lastScheduled.toISOString(), new Date('2026-09-10T19:35:00.000+09:00').toISOString());
 });
 
-test('summarizeStatus: posted も lastScheduled に算入する（充足は予約実体で測る）', () => {
+test('summarizeStatus: posted は未来の予約充足に算入しない', () => {
   const r = summarizeStatus({ tweets: { 1: { status: 'posted', scheduled_at: '2026-09-30T12:00:00.000+09:00' } } });
   assert.equal(r.queued, 0);
-  assert.equal(r.lastScheduled.toISOString(), new Date('2026-09-30T12:00:00.000+09:00').toISOString());
+  assert.equal(r.lastScheduled, null);
 });
 
 test('summarizeStatus: 壊れた入力でも落ちず 0 を返す', () => {
@@ -95,7 +95,14 @@ test('summarizeStatus: 壊れた入力でも落ちず 0 を返す', () => {
 
 test('summarizeStatus: 不正な scheduled_at は lastScheduled を汚さない', () => {
   const r = summarizeStatus({
-    tweets: { 1: { scheduled_at: 'not-a-date' }, 2: { scheduled_at: '2026-09-05T10:00:00.000+09:00' } },
+    tweets: { 1: { status: 'queued', scheduled_at: 'not-a-date' }, 2: { status: 'queued', scheduled_at: '2026-09-05T10:00:00.000+09:00' } },
   });
   assert.equal(ymd(r.lastScheduled), '2026-9-5');
+});
+
+// 2026-09-14: 9月の実キューが空なのに予定だけで10月まで確保と表示した事故。
+test('予定日時だけでは予約投入済みと数えない（手動公開枠・差替済みを含む）', () => {
+  const tweets = Object.fromEntries(['scheduled', 'draft', 'replaced', 'paused'].map((status, i) => [i, {status, scheduled_at:'2026-10-24T12:00:00+09:00'}]));
+  tweets.manual = {status:'queued', manual_only:true, scheduled_at:'2026-10-24T12:00:00+09:00'};
+  assert.deepEqual(summarizeStatus({tweets}), {queued:0, posted:0, lastScheduled:null});
 });
