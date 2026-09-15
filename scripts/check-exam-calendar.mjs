@@ -56,6 +56,13 @@ const expected = {
     exam: "2026-07-26",
     source: "https://www.jci-net.or.jp/j/exam/shindan/",
   },
+  rccm: {
+    applicationDeadline: "2026-06-10",
+    cbtStart: "2026-09-01",
+    cbtEnd: "2026-10-31",
+    result: "2027-03-01",
+    source: "https://www.rccm-cpd.com/rccm/rccmtop.html",
+  },
 };
 
 const errors = [];

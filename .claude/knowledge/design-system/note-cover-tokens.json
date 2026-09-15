@@ -120,6 +120,16 @@
       "deep": "#0E2645",
       "soft": "#27507F",
       "accent": "#1E73C8"
+    },
+    "rccm": {
+      "dir": "RCCM",
+      "label": "RCCM（建設コンサルタンツ協会）",
+      "short": "RCCM",
+      "hue": "rust",
+      "base": "#9C3D1E",
+      "deep": "#742D15",
+      "soft": "#BE5E3A",
+      "accent": "#16365C"
     }
   },
 

@@ -18,7 +18,8 @@ export type ExamKey =
   | 'civil-2'
   | 'concrete'
   | 'concrete-chief'
-  | 'concrete-diagnosis';
+  | 'concrete-diagnosis'
+  | 'rccm';
 
 /**
  * マガジン id から資格キーを推定する（links / 導線が共有）。
@@ -38,6 +39,8 @@ function examKeyOf(id: string): ExamKey {
   if (id.startsWith('cd-')) return 'concrete-diagnosis';
   if (id.startsWith('cce-')) return 'concrete-chief';
   if (id.startsWith('ce-')) return 'concrete';
+  // RCCM（建設コンサルタンツ協会）。rccm-* を tankan フォールバックより先に判定する（2026-09-15 新設）。
+  if (id.startsWith('rccm-')) return 'rccm';
   return 'tankan';
 }
 
@@ -96,6 +99,11 @@ export const EXAM_BRAND: Record<ExamKey, ExamBrand> = {
     label: 'コンクリート診断士',
     themeVar: '--exam-concrete-diagnosis',
     ctaBg: '/images/cta-bg/concrete-diagnosis.webp',
+  },
+  // RCCM は専用の背景イラスト未整備のためテーマ色のベタ塗りにフォールバック（vertical 公開時に card 画像を追加）。
+  rccm: {
+    label: 'RCCM',
+    themeVar: '--exam-rccm',
   },
 };
 

@@ -487,6 +487,24 @@ export const MAGAZINES = [
     fontSize: 42,
     fillBg: '#334155',
   },
+  {
+    id: 'pe-construction-tunnel-pack',
+    fileBaseName: 'pe-construction-tunnel-pack-cover',
+    magazineDir: 'content/note/技術士建設部門/magazines/PACK-02_トンネルまるごと合格パック',
+    lines: ['建設部門 2次 合格パック', 'トンネル（必須科目I＋トンネル）', '全29記事 ¥4,980'],
+    category: '技術士（建設部門）',
+    fontSize: 42,
+    fillBg: '#334155',
+  },
+  {
+    id: 'pe-construction-urban-planning-pack',
+    fileBaseName: 'pe-construction-urban-planning-pack-cover',
+    magazineDir: 'content/note/技術士建設部門/magazines/PACK-03_都市計画まるごと合格パック',
+    lines: ['建設部門 2次 合格パック', '都市計画（必須科目I＋都市計画）', '全29記事 ¥4,980'],
+    category: '技術士（建設部門）',
+    fontSize: 42,
+    fillBg: '#334155',
+  },
 ];
 
 // 資格別ブランド写真プール（サイト OGP と共有・brand-image-system.md §3。generate-note-covers.mjs と対）
