@@ -32,6 +32,9 @@ const CATEGORY_JUMPS: Record<string, JumpItem[]> = {
     { href: '#sec-textbook', label: 'テキスト', goal: '知識を学ぶ' },
     { href: '#sec-primary', label: '過去問', goal: '問題を解く' },
   ],
+  rccm: [
+    { href: '#sec-guide', label: '受験ガイド', goal: '試験を知る' },
+  ],
   'pe-first-stage': [
     { href: '#sec-guide', label: '受験ガイド', goal: '試験を知る' },
     { href: '#sec-fields', label: '科目別対策', goal: '科目を学ぶ' },

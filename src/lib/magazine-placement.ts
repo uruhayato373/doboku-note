@@ -747,6 +747,12 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     };
   }
 
+  // RCCM（2026-09-16 新設・ガイドのみ）: 問題III 系は模範論文集、問題I は業務経験論文テンプレ、それ以外は模範論文集を top。
+  if (slug.startsWith('rccm-')) {
+    const product = slug === 'rccm-guide-mondai1-keiken-ronbun' ? 'rccm-mondai1-template' : slug === 'rccm-guide-mondai2-4-takuitsu' ? 'rccm-takuitsu-yosou-50' : 'rccm-mondai3-magazine';
+    return { top: slot(product, slug, 'top'), inline: [] };
+  }
+
   return EMPTY;
 }
 

@@ -75,6 +75,9 @@ export function classifyDoc(meta: DocMeta): DocGroupKey {
     return 'guide';
   }
 
+  // RCCM は過去問が事務局非公開のためガイドのみ（2026-09-16 新設）
+  if (category === 'rccm') return 'guide';
+
   return 'keyword';
 }
 
@@ -121,6 +124,9 @@ const GROUP_LABELS: Record<string, Partial<Record<DocGroupKey, string>>> = {
     textbook: 'テキスト（分野別解説）',
     primary: '過去問（四肢択一）',
   },
+  rccm: {
+    guide: '受験ガイド',
+  },
 };
 
 export function getGroupOrder(category: string): DocGroupKey[] {
@@ -131,6 +137,7 @@ export function getGroupOrder(category: string): DocGroupKey[] {
   if (category === 'concrete-engineer' || category === 'concrete-chief-engineer' || category === 'concrete-diagnostician') return CONCRETE_GROUP_ORDER;
   // 土木施工の実務は guide のみ（工種別ブロックは PracticeView が curriculum の fields で描画）
   if (category === 'civil-practice') return ['guide'];
+  if (category === 'rccm') return ['guide'];
   return ['keyword'];
 }
 

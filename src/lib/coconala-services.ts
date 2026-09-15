@@ -473,8 +473,8 @@ const SERVICES_RAW = {
   // RCCM 合格・コンサル在籍は名乗らない。出品は /coconala-publish --commit（status:'draft' → 'listed' と serviceUrl を同時に埋める）。
   'coconala-rccm-mondai3-tensaku': {
     id: 'coconala-rccm-mondai3-tensaku',
-    status: 'draft',
-    serviceUrl: '',
+    status: 'listed',
+    serviceUrl: 'https://coconala.com/services/4403575',
     title: 'RCCM問題III 管理技術力の論文を添削します',
     shortTitle: 'RCCM 問題III 添削',
     description:
@@ -483,11 +483,12 @@ const SERVICES_RAW = {
     priceYen: 6000,
     examScope: ['rccm'],
     weeklyCapacity: 2,
+    listedAt: '2026-09-16',
   },
   'coconala-rccm-mondai1-shindan': {
     id: 'coconala-rccm-mondai1-shindan',
-    status: 'draft',
-    serviceUrl: '',
+    status: 'listed',
+    serviceUrl: 'https://coconala.com/services/4403577',
     title: 'RCCM業務経験論文の減点箇所を診断します',
     shortTitle: 'RCCM 問題I 診断',
     description:
@@ -496,12 +497,13 @@ const SERVICES_RAW = {
     priceYen: 2000,
     examScope: ['rccm'],
     weeklyCapacity: 3,
+    listedAt: '2026-09-16',
   },
   'coconala-rccm-mondai3-pdf': {
     id: 'coconala-rccm-mondai3-pdf',
-    status: 'draft',
-    serviceUrl: '',
-    title: 'RCCM問題III 6テーマの模範論文PDFを送ります',
+    status: 'listed',
+    serviceUrl: 'https://coconala.com/services/4403588',
+    title: 'RCCM問題III 模範論文6本のPDFを送ります',
     shortTitle: 'RCCM 問題III 模範論文 PDF',
     description:
       'RCCM資格試験 2026年度 問題III（管理技術力）の公開6テーマ全部の模範論文（各1,200〜1,600字・①現状と課題／②対策のあり方）と、指定語の使用チェック表・部門別の置換ポイントをまとめた印刷用PDF。購入後トークルームでお送りする。出題や合格を保証するものではない。',
@@ -509,6 +511,7 @@ const SERVICES_RAW = {
     priceYen: 3000,
     examScope: ['rccm'],
     weeklyCapacity: 20,
+    listedAt: '2026-09-16',
   },
 } as const satisfies Record<string, CoconalaService>;
 

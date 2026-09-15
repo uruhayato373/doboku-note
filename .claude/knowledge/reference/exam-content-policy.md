@@ -158,6 +158,14 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 9. **OGP 画像を生成**（公開前必須）: `npm run ogp -- --all`（未生成分のみ生成）→ 新規 `ogp.png` を pathspec commit。**新カテゴリは OGP が 0 枚から始まる**ため、これを忘れると `og:image` が R2 で 404 になり、**note / X / Facebook 等の外部リンクカードが生成されない**（2026-06-12 pe-construction で全114本が該当）。`published:false` のドラフトは仕様上スキップされる＝公開化（`published:true`）のタイミングで再実行する。`ogp.png` は `r2-sync.yml` の path フィルタ（`**/ogp.png`）経由で main push 時に R2 同期される。詳細 → [measurement-incidents.md](./measurement-incidents.md)「2026-06-12 OGP 404」
 10. `src/components/ui/ArticleFooter/ArticleFooter.tsx` と `src/lib/category-groups.ts` の資格別分岐を確認する。同型の分岐が3資格以上に増えた場合だけ config / strategy factory 化し、新資格が未発生の段階では抽象化を先行しない。
 
+### 新資格メモ: RCCM（`rccm`、2026-09-16 新設・**ガイドのみ**）
+
+- groups = guide のみ。variant=pe / order=2.7 / `home-exam-cards.json` order 8 / テーマ色 `--exam-rccm`（`#9C3D1E` 赤褐色・note カバー `exams.rccm` と同色）。ExamKey は `rccm`（マガジン id 接頭辞 `rccm-`）。
+- **過去問は事務局非公開**（jcca.or.jp の past_tests は 404・2026-09-15）。よって `primary` を作らず、民間サイトの再現問題も引用しない。試験事実・公開テーマ・指定用語の SSOT は `content/note/RCCM/magazines/RCCM問題III-2026模範論文集/_facts-2026.md`（協会の出題テーマ PDF が一次出典）。数値・日付は `exam-calendar.json` / `exam-stats.json`（`latest` は一次未照合で null）を参照し、ガイドは `guide-fact-checker` を通す。
+- 収益面は note 先行（問題III 模範論文集 `rccm-mondai3-magazine`・問題I テンプレ `rccm-mondai1-template`）。サイトのガイド 7 本（`category-curriculum.json rccm.examGuide.slugs`）は 2027-03-01 合格発表・5 月申込期の検索流入を仕込む位置づけで、`magazine-placement.ts` は `rccm-*` を top CTA へ一括解決する。
+- Generator は `civil-guide-writer` 相当の汎用手順（sonnet・`category: rccm`）、Evaluator は `guide-qa`＋`guide-fact-checker`。note 教材は `rccm-essay-writer` / `rccm-essay-qa`（`check-rccm-essay` が出題条件を機械化）。
+- 運営者の座は「発注者として建設コンサルタント業務を発注し成果品を検査・評定した技術士（建設・総監）」に限定し、RCCM 保有・コンサル在籍・採点者・合格体験を名乗らない。
+
 ### 新資格メモ: コンクリート診断士（`concrete-diagnostician`、2026-05-30 新設 → 2026-07-31 公開）
 
 - groups = guide / textbook / primary。variant=civil / order=2.6。**2026-07-31 に 18 記事（ガイド4・テキスト6章・演習問題8）を公開**（`visible` 解除・`home-exam-cards.json` order 7・`category-curriculum.json` に受験ガイド4本）。テーマ色は `--exam-concrete-diagnosis`（`#6E3A8C` 紫。note カバー/OGP と同一の資格アイデンティティ色）。

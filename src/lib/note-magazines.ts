@@ -1227,10 +1227,11 @@ const MAGAZINES_RAW = {
     price: '¥1,980',
     badge: 'note 限定 教材',
   },
+  // 2026-09-16 公開（n012c976933f8・¥1,480・境界=予想問題11・content-qa 14/15 pass・問44 の落下高を JIS A 1219 で 76cm に是正）。
   'rccm-takuitsu-yosou-50': {
     id: 'rccm-takuitsu-yosou-50',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/n/n012c976933f8',
     title: 'RCCM 問題II・問題IV｜択一 論点集と予想50問（全選択肢解説）',
     description:
       'RCCM資格試験 問題II（業務関連法制度・建設一般知識・技術者倫理）と問題IV-1（土木基礎知識）の出題範囲マップと、オリジナル予想50問（全選択肢の正誤理由付き）。問1〜10は無料で公開。',
