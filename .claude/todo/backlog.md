@@ -81,6 +81,33 @@
 
 
 
+
+### [DN-0243] 2級土木 二次まるごとパック（¥8,800）と直前総仕上げパック（¥2,480）＋ 2級 出題分析・直前重点（¥580）を 10/25 前に出す
+タグ: [収益化] [種類:制作] [起票:2026-09-16] [期日:2026-09-28]
+
+**起点**: 売上実測（2026-05〜09・293 件）で「全部パック」が売上 28%・「試験の区切りに沿った解像度」が 51%。2級は 7 SKU（単品計 ¥14,480）あるのにパックが無く、1級にある「出題分析・直前重点」も無い。計画 `~/.claude/plans/rccm-staged-reef.md` P1-7/P1-8/P2-a。
+
+**やること**: (1) `civil-2-r8-bunseki`（¥580・`1級土木-R8二次-出題分析直前重点/{article.md,構成案.md}` の鏡・素材は 2級 テーマ別出る順 5 本の頻度表＋過去問模範答案集 R03-R07・「予想」を商品名に使わない・`note-fact-checker`）。(2) `civil-2-niji-marugoto-pack`（¥8,800・想定工事バンク＋過去問模範答案集＋完成答案集＋学科記述出る順を `--from`、暗記 n793523a059e5＋模試 n50aefe3ad7da を `--notes`・無料 案内記事 1 本は 1級 n824a4ea20acf の鏡・`note-magazine-membership.json` packs ブロック・`magazine-placement.ts` civil-2 3 ブランチの top）。(3) `civil-2-chokuzen-pack`（¥2,480・模試＋暗記＋(1)・`secondary-last-two-weeks-plan` に新ブランチ）。各 SKU で `sales-recorder.md` 行・土木もくじ 2級節を同一 commit。
+
+**完了条件**: 3 SKU が note ライブ・`check-magazine-cta:ci`/`check-magazine-membership`/`check-sales-mapping`/`audit-note-funnel --live` 緑。
+
+### [DN-0244] RCCM 問題II・IV 直前暗記ノート（¥980）を公開し まるごとパックへ追加収録する
+タグ: [収益化] [種類:制作] [起票:2026-09-16] [期日:2026-10-09]
+
+**起点**: `rccm-marugoto-pack`（me2b526bf77f4・¥5,980）を 2026-09-16 に公開。CBT 〜10/31 の窓で「直前」需要に応える暗記素材が無い。計画 P2-c。
+
+**やること**: `content/note/RCCM/magazines/RCCM問題II-IV-直前暗記ノート/article.md`（`1級土木-二次学科記述-直前暗記ノート` の型＝`Q. …／A. …` 1 行 1 対・分野 H2・2 番目の H2 が `paidBoundary`・A5 赤シート PDF は Windows で印刷）。素材は `RCCM問題II-IV-論点集予想50問/article.md` と `content/site/rccm/guide-mondai2-4-takuitsu`。カウントダウン訴求・本文の価格記載・過去問の復元をしない。`note-fact-checker` → `note-publish --commit` → `note-magazine-add-articles --target me2b526bf77f4 --notes <n…> --commit` → 掲載文の本数・単品合計（¥7,920）更新 → `note-edit-magazine`。
+
+**完了条件**: 記事ライブ・まるごとパック 10 記事を API 実体確認・`check-sales-mapping` 緑（`article:rccm-anki-note` 行）。
+
+### [DN-0245] コンクリート主任技士 直前暗記ノート（¥980）＋択一 直前パック（¥2,980）／技術士一次・コン技士の直前暗記＋パック
+タグ: [収益化] [種類:制作] [起票:2026-09-16] [期日:2026-11-15]
+
+**起点**: 主任技士（11/29）は まるごとパック ¥9,800 はあるが直前商品が無い。技術士一次（11/22）・コン技士（11/29）は単品 1 本ずつ。計画 P2-b / P1-9 / P1-10 / P3。
+
+**やること**: (1) `cce-anki-note`（一問一答 150 問・素材は `四肢択一-R8予想50問`＋`配合計算-実戦演習`・backlog #16 の過去問復元禁止を守る）→ (2) `cce-takuitsu-chokuzen-pack`（¥2,980・nfad294307263＋n5a55ae6dc16b＋(1)・コンクリート資格もくじ :82-124）→ (3) `cce-marugoto-pack` へ (1) を追加収録。(4) 技術士一次 直前暗記ノート ¥980＋`pe1-chokuzen-pack` ¥1,980（`pe1-takuitsu-pdf`＋暗記）。(5) コン技士 直前暗記 ¥780＋`ce-chokuzen-pack` ¥1,480（`ce-mix-jis-practice`＋暗記）。
+
+**完了条件**: 各 SKU ライブ・`check-magazine-cta:ci`（concrete 系は非 HUB なので top 配線必須）・`check-sales-mapping` 緑。11/8 までに (1)〜(4)、11/15 までに (5)。
 ### [DN-0235] develop への push で赤くなる CI（quality audit + build）に読み手を付ける
 タグ: [エージェント・SSOT] [種類:不具合] [起票:2026-09-14]
 

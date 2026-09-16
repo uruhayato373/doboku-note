@@ -523,6 +523,25 @@ export const MAGAZINES = [
     fontSize: 42,
     fillBg: '#742D15',
   },
+  {
+    id: 'civil-1-chokuzen-pack',
+    fileBaseName: 'civil-1-chokuzen-pack-cover',
+    magazineDir: 'content/note/1級・2級土木/1級土木/magazines/1級土木-二次直前総仕上げパック',
+    lines: ['1級土木 二次検定', '直前総仕上げパック', '模試3回＋暗記160問＋出題分析'],
+    category: '1級土木施工管理技士',
+    fontSize: 42,
+    accentColor: '#f0c040',
+    fillBg: '#123a63',
+  },
+  {
+    id: 'rccm-marugoto-pack',
+    fileBaseName: 'rccm-marugoto-pack-cover',
+    magazineDir: 'content/note/RCCM/magazines/RCCM-まるごとパック',
+    lines: ['RCCM 資格試験', 'まるごとパック', '問題I〜IV 全対応'],
+    category: 'RCCM',
+    fontSize: 42,
+    fillBg: '#742D15',
+  },
 ];
 
 // 資格別ブランド写真プール（サイト OGP と共有・brand-image-system.md §3。generate-note-covers.mjs と対）

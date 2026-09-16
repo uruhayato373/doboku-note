@@ -65,9 +65,13 @@ https://note.com/dobokunote/m/m150c9db08902
 
 https://note.com/dobokunote/m/m8290970a7f05
 
-**二次検定まるごとパック**（経験記述＋学科記述＋直前暗記）— 経験記述だけでなく、学科記述（問題2〜11）と直前暗記までまとめて仕上げたい人向けの上位パックです。
+**二次検定まるごとパック**（経験記述＋学科記述＋直前暗記＋予想模試＋出題分析）— 経験記述だけでなく、学科記述（問題2〜11）と直前暗記、予想模試3回、出題分析までまとめて仕上げたい人向けの最上位パックです。
 
 https://note.com/dobokunote/m/md29a34906314
+
+**二次 直前総仕上げパック**（予想模試3回＋直前暗記ノート＋出題分析）— 教材はそろっていて、試験直前2週間を「模試で確認 → 暗記で穴埋め → 分析で優先順位」の3点で回し切りたい人向けです。
+
+https://note.com/dobokunote/m/m7a9b3ad964f6
 
 そのほかの1級教材（目的に合わせて追加）:
 
@@ -135,6 +139,8 @@ https://note.com/dobokunote/n/n6b66793ca20c
 - [1級 施工経験記述で落ちる答案の共通点](https://note.com/dobokunote/n/nfea4a39cf108)
 - [1級 経験記述を自分の現場に置換する方法](https://note.com/dobokunote/n/nd88d5ec77f2d)
 - [1級 経験記述 テーマ選び5管理](https://note.com/dobokunote/n/nd4c5c13ee445)
+- [1級 テキスト精読ガイド 施工管理・法規編（一次・出題頻度順）](https://note.com/dobokunote/n/n653cd1b3ee71)
+- [1級 テキスト精読ガイド 土木一般・共通工学編（一次・出題頻度順）](https://note.com/dobokunote/n/nd4320a66d09f)
 
 ### 2級土木
 
@@ -148,6 +154,7 @@ https://note.com/dobokunote/n/n6b66793ca20c
 - [2級 経験記述 R6新形式](https://note.com/dobokunote/n/n3a5866854425)
 - [2級 経験記述を自分の現場に置換する方法](https://note.com/dobokunote/n/nc60854accc56)
 - [2級 経験記述 テーマ選び](https://note.com/dobokunote/n/n26e51803f01b)
+- [2級 テキスト精読ガイド 全分野編（一次・出題頻度順）](https://note.com/dobokunote/n/na8e28f954797)
 
 ---
 
@@ -194,6 +201,8 @@ https://note.com/dobokunote/n/n6b66793ca20c
 - **経験記述の完成答案がほしい** → [1級](https://note.com/dobokunote/m/m150c9db08902)／[2級](https://note.com/dobokunote/m/m1881a9578027) 完成答案集
 - **過去問の年度別模範答案がほしい** → [1級](https://note.com/dobokunote/m/m3a578194a0a9)／[2級](https://note.com/dobokunote/m/md3aa0f9a37d7) 過去問模範答案集
 - **複数テーマに備えたい**（1級） → [2テーマ組合せ大全](https://note.com/dobokunote/m/m74cfd7c695d6)
+- **試験直前2週間を回し切りたい**（1級） → [直前総仕上げパック](https://note.com/dobokunote/m/m7a9b3ad964f6)（模試3回＋暗記＋出題分析）
+- **一次のテキストをどこから読むか決めたい** → [1級 精読ガイド](https://note.com/dobokunote/n/n653cd1b3ee71)／[2級 精読ガイド](https://note.com/dobokunote/n/na8e28f954797)（無料）
 - **予想問題と添削で合格まで伴走してほしい** → 会員制「土木セコカン合格ラボ」（上の「会員制で伴走してほしい方へ」を参照）
 
 ---

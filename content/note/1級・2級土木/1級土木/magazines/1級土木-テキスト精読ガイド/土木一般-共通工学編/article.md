@@ -2,6 +2,10 @@
 notePricing: free
 noteSeries: 1級土木 テキスト精読ガイド
 utmCampaign: civil1-reading-guide
+noteStatus: published
+notePublishedAt: "2026-09-16"
+noteId: "nd4320a66d09f"
+noteUrl: "https://note.com/dobokunote/n/nd4320a66d09f"
 cover:
   variant: crop-safe-v4
   leadIn: "1級土木 第1次検定｜精読"
