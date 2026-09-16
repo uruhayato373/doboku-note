@@ -1,0 +1,48 @@
+{
+  "_doc": ".claude/knowledge/design-system/note-cover-character-v5.md",
+  "articleOverrides": {
+    "content/note/技術士総監/口頭試験対策-完全版/article.md": {
+      "leadIn": "技術士 総監｜口頭試験",
+      "headline": "完全準備システム",
+      "hi": "想定問答",
+      "hiSuffix": "と準備計画",
+      "benefit": "筆記合格発表から本番まで"
+    },
+    "content/note/技術士総監/週次レビュー-テンプレ集/article.md": {
+      "leadIn": "技術士 総監｜二次対策",
+      "headline": "週次レビュー",
+      "hi": "記入式",
+      "hiSuffix": "テンプレート",
+      "benefit": "4フェーズの学習を毎週振り返る"
+    }
+  },
+  "retiredMagazineIds": {
+    "whitepaper-r7-strategy": "src/lib/note-magazines.ts の退役記録に従う。2026-05-25に無料記事化済みでマガジン出力先がない。"
+  },
+  "additionalMagazines": [
+    {
+      "id": "civil-membership-odai-lab",
+      "magazineDir": "content/note/1級・2級土木/メンバーシップ/予想問題マガジン",
+      "qualifier": "1級・2級土木｜会員専用",
+      "magazineName": "週次お題ラボ",
+      "proof": "施工経験記述の演習",
+      "benefit": "自分が経験した工事で書く"
+    },
+    {
+      "id": "cce-essay-magazine",
+      "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-小論文-模範答案集",
+      "qualifier": "コンクリート主任技士｜小論文",
+      "magazineName": "模範答案集",
+      "proof": "答案の型とテーマ別の論述",
+      "benefit": "実務経験を技術論述へ"
+    },
+    {
+      "id": "cce-essay-persona-pack",
+      "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-実務立場別小論文集",
+      "qualifier": "コンクリート主任技士｜小論文",
+      "magazineName": "実務立場別答案",
+      "proof": "製造・施工・発注者・設計",
+      "benefit": "自分の実務に近い立場で書く"
+    }
+  ]
+}

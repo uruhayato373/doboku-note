@@ -79,6 +79,8 @@ npm run check-standards-page-images # 上の provenance 整合（catalog↔manif
 
 ## note・会員・売上・Kindle
 
+`npm run note-character-covers -- --source-root /path/to/source-checkout --output-root /path/to/isolated-output` — キャラクター付きカバーを独立出力先へ全件生成。原稿・公開noteは変更せず、運営者がmanifestの実件数・失敗・描画枠を確認してから差し替える（[仕様](../design-system/note-cover-character-v5.md)）。
+
 ```bash
 npm run kdp-report        # Kindle 月次ロイヤリティを KDP レポートから取得→.claude/state/sales/kdp-royalties.json（ローカル専用・読み取り専用・当月/前月のみ）
 npm run note-sales-fetch  # note 売上履歴を read-only 取得→検算OKで.claude/state/sales/sales-log.jsonの当月を差し替え（--month YYYY-MM --commit・ログイン要・DN-0018）
