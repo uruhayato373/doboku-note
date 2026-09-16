@@ -690,14 +690,23 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   // 9.5. コンクリート主任技士の試験概要・傾向・分野別過去問 → R8四肢択一予想50問。
   //      mix-design は分野特化の配合計算12問を優先し、essay は小論文商品を優先する。
   //      published:false の間は slot() が空になり、公開前リンクは露出しない。
-  if (
-    slug === 'concrete-chief-engineer-guide-overview' ||
-    slug === 'concrete-chief-engineer-guide-trends' ||
-    (/^concrete-chief-engineer-primary-/.test(slug) &&
-      slug !== 'concrete-chief-engineer-primary-mix-design')
-  ) {
+  //      2026-09-17: 試験概要・傾向の 2 本は 択一 直前パック（予想50問＋配合計算＋暗記ノート ¥2,980）を top に昇格。
+  //      分野別過去問は予想50問のまま。体系テキスト 7 章（mix-design 除く）は直前暗記ノートを top に置く。
+  if (slug === 'concrete-chief-engineer-guide-overview' || slug === 'concrete-chief-engineer-guide-trends') {
+    return {
+      top: slot('cce-takuitsu-chokuzen-pack', slug, 'top'),
+      inline: [],
+    };
+  }
+  if (/^concrete-chief-engineer-primary-/.test(slug) && slug !== 'concrete-chief-engineer-primary-mix-design') {
     return {
       top: slot('cce-r8-mc-50', slug, 'top'),
+      inline: [],
+    };
+  }
+  if (/^concrete-chief-engineer-textbook-/.test(slug) && slug !== 'concrete-chief-engineer-textbook-mix-design') {
+    return {
+      top: slot('cce-anki-note', slug, 'top'),
       inline: [],
     };
   }

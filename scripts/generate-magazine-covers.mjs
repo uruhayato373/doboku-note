@@ -607,6 +607,15 @@ export const MAGAZINES = [
     fillBg: '#1C5038',
   },
   {
+    id: 'cce-takuitsu-chokuzen-pack',
+    fileBaseName: 'cce-takuitsu-chokuzen-pack-cover',
+    magazineDir: 'content/note/コンクリート主任技士/magazines/コンクリート主任技士-択一直前パック',
+    lines: ['コンクリート主任技士', '択一 直前パック', '予想50問＋配合計算＋暗記157問'],
+    category: 'コンクリート主任技士',
+    fontSize: 42,
+    fillBg: '#0f6e6e',
+  },
+  {
     id: 'civil-2-chokuzen-pack',
     fileBaseName: 'civil-2-chokuzen-pack-cover',
     magazineDir: 'content/note/1級・2級土木/2級土木/magazines/2級土木-二次直前総仕上げパック',

@@ -101,6 +101,18 @@ https://note.com/dobokunote/n/nfad294307263
 
 https://note.com/dobokunote/n/n5a55ae6dc16b
 
+### 8分野の数値と定義を直前に一気に確認したい
+
+材料・性質・耐久性・配合・製造品質管理・施工・製品・構造の頻出数値・定義・配合計算の公式を一問一答157問にした直前暗記ノートです。最初の分野（コンクリート用材料）は無料で読めます。
+
+https://note.com/dobokunote/n/n25197277c5a9
+
+### 択一を直前2週間で仕上げたい
+
+予想50問・配合計算12問・直前暗記ノートの3点を束ねた択一の直前パックです。予想問題で実力を確認し、配合計算で手順を固め、暗記ノートで抜けを潰す使い方です。
+
+https://note.com/dobokunote/m/mfdf781d7222b
+
 ### 小論文の型と4テーマを一度に固めたい
 
 解法ガイドと、[品質管理](https://doboku-note.com/docs/pe-comprehensive-management-quality-control?utm_source=note&utm_medium=referral&utm_campaign=103-concrete-index&utm_content=kw-quality-control)・耐久性・環境配慮・施工トラブルのフル模範小論文を収録した基本セットです。まず小論文教材を1つ選ぶなら、ここから始められます。
@@ -117,7 +129,7 @@ https://note.com/dobokunote/m/m4ee0a96dce31
 
 ### 択一も小論文もまとめてそろえたい
 
-上の4つ（答案の型と4テーマ・実務立場別32答案・令和8年度予想50問・配合計算12問）を1つに束ねた最上位パックです。単品でそろえるより割安で、購入後は収録記事すべてを読めます。
+上の5つ（答案の型と4テーマ・実務立場別32答案・令和8年度予想50問・配合計算12問・直前暗記ノート）を1つに束ねた最上位パックです。単品でそろえるより割安で、購入後は収録記事すべてを読めます。
 
 内容の全体像は[まるごとパックの案内](https://note.com/dobokunote/n/n5395599af1f8)で無料で確認できます。
 
