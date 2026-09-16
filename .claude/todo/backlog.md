@@ -57,14 +57,6 @@
 
 **完了条件**: `npm run note-traffic-fetch -- --month 2026-09 --commit` で 2 ファイルが書かれ、検査対象数/実検査数を出力、test 緑、週次レビューが参照。
 
-### [DN-0241] 建設部門 まるごと合格パック batch B/C（鋼コン・土質基礎・鉄道／建設環境・港湾空港・施工計画・電力土木）を公開する
-タグ: [収益化] [種類:制作] [起票:2026-09-16] [期日:2026-11-15]
-
-**起点**: batch A（トンネル・都市計画・河川砂防）を 2026-09-15 に公開（`note-magazines.ts` published:true・各 29 記事・カバー SET）。マトリクスと停止条件は `content/note/技術士建設部門/noteコンテンツ計画.md:261-282`。
-
-**やること**: 各科目で PACK-NN `note掲載文.txt`（PACK-02 を型に科目名・記事数を置換）→ `generate-magazine-covers` spec → `note-magazine-create --commit` → `note-magazine-add-articles --from m0f3bc3933454,<科目 key> --commit` → `note-magazine-cover --commit` → `note-magazines.ts` エントリ published:true → `*-exam-themes` に MagazineCard → 建設部門もくじ追記＋ライブ反映。
-
-**完了条件**: 7 パックが note ライブ・`check-magazine-cta:ci`/`check-magazine-membership`/`audit-note-funnel` 緑。成功指標は科目売上の公開前後差（パック単体で判定しない）。
 
 ### [DN-0242] 1級・2級 二次直前の note CTA 切替（〜10/4・〜10/25）と試験後の無料フォロー記事
 タグ: [収益化] [種類:改善] [起票:2026-09-16] [期日:2026-10-26]

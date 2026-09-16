@@ -65,6 +65,34 @@ https://note.com/dobokunote/m/m5f63da67c0f3
 
 https://note.com/dobokunote/m/m99468c7c717f
 
+**鋼コン まるごと合格パック**（必須科目I＋鋼構造及びコンクリート 選択科目）— 選択科目が鋼コンの人向け。「必須I＋鋼コン」全29記事のセットです。
+
+https://note.com/dobokunote/m/m56b2dcc4cca2
+
+**土質基礎 まるごと合格パック**（必須科目I＋土質及び基礎 選択科目）— 選択科目が土質基礎の人向け。「必須I＋土質基礎」全29記事のセットです。
+
+https://note.com/dobokunote/m/m621daa62a087
+
+**鉄道 まるごと合格パック**（必須科目I＋鉄道 選択科目）— 選択科目が鉄道の人向け。「必須I＋鉄道」全29記事のセットです。
+
+https://note.com/dobokunote/m/m98f92c18412e
+
+**建設環境 まるごと合格パック**（必須科目I＋建設環境 選択科目）— 選択科目が建設環境の人向け。「必須I＋建設環境」全29記事のセットです。
+
+https://note.com/dobokunote/m/me506e9bdde6a
+
+**港湾空港 まるごと合格パック**（必須科目I＋港湾及び空港 選択科目）— 選択科目が港湾空港の人向け。「必須I＋港湾空港」全29記事のセットです。
+
+https://note.com/dobokunote/m/m64bd0cbd7111
+
+**施工計画 まるごと合格パック**（必須科目I＋施工計画、施工設備及び積算 選択科目）— 選択科目が施工計画の人向け。「必須I＋施工計画」全29記事のセットです。
+
+https://note.com/dobokunote/m/m8bc3c8660afb
+
+**電力土木 まるごと合格パック**（必須科目I＋電力土木 選択科目）— 選択科目が電力土木の人向け。「必須I＋電力土木」全29記事のセットです。
+
+https://note.com/dobokunote/m/m476ad50d2942
+
 ### 選択科目の模範解答（自分の科目を1つ）
 
 必須科目Iに加えて、自分の受験する選択科目を1つそろえるのが基本の組み合わせです。
@@ -123,7 +151,7 @@ https://note.com/dobokunote/m/m99468c7c717f
 
 - **必須科目Iの型と模範解答がほしい** → [必須科目I 模範解答集](https://note.com/dobokunote/m/m0f3bc3933454)
 - **選択科目が道路** → 必須Iとセットの [道路 まるごと合格パック](https://note.com/dobokunote/m/mebca45bcc745) が割安
-- **選択科目がトンネル／都市計画／河川砂防** → 必須Iとセットの [トンネル](https://note.com/dobokunote/m/m2029e394e260)・[都市計画](https://note.com/dobokunote/m/m5f63da67c0f3)・[河川砂防](https://note.com/dobokunote/m/m99468c7c717f) まるごと合格パックが割安
+- **選択科目が道路以外** → 必須Iとセットの [トンネル](https://note.com/dobokunote/m/m2029e394e260)・[都市計画](https://note.com/dobokunote/m/m5f63da67c0f3)・[河川砂防](https://note.com/dobokunote/m/m99468c7c717f)・[鋼コン](https://note.com/dobokunote/m/m56b2dcc4cca2)・[土質基礎](https://note.com/dobokunote/m/m621daa62a087)・[鉄道](https://note.com/dobokunote/m/m98f92c18412e)・[建設環境](https://note.com/dobokunote/m/me506e9bdde6a)・[港湾空港](https://note.com/dobokunote/m/m64bd0cbd7111)・[施工計画](https://note.com/dobokunote/m/m8bc3c8660afb)・[電力土木](https://note.com/dobokunote/m/m476ad50d2942) まるごと合格パックが割安（全11科目）
 - **自分の選択科目の模範解答がほしい** → 上の「選択科目の模範解答」から該当科目を
 - **発注者・合格者視点の解答を読みたい** → 道路・河川・都市計画は合格者解答、他科目は発注者監修
 

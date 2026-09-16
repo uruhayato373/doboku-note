@@ -1213,6 +1213,97 @@ const MAGAZINES_RAW = {
     price: '¥4,980（必須I＋河川砂防 2マガジン・単品合計¥6,460、約23%OFF）',
     badge: 'note 限定 合格パック',
   },
+  // batch B/C（DN-0241）。2026-09-16 公開: note にマガジン作成（key m56b2dcc4cca2）→ 必須I 11＋鋼コン 18＝29 記事を API で収録確認 → カバー SET。
+  'pe-construction-steel-concrete-pack': {
+    id: 'pe-construction-steel-concrete-pack',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m56b2dcc4cca2',
+    title: '技術士 建設部門 2次｜鋼コン まるごと合格パック（必須科目I＋鋼構造及びコンクリート 選択科目）',
+    description:
+      '必須科目I 模範解答集（R03-R07＋R8予想・全11記事）と鋼構造及びコンクリート 選択科目 模範解答集（R03-R07＋R8予想・全18記事）を束ねた合格パック。単品合計¥6,460が¥4,980。元・地方自治体の土木職（発注者）視点で、本番で実際に解く「必須I＋鋼コン」の組み合わせをそのまま収録。',
+    shortTitle: '建設部門2次｜鋼コン 合格パック',
+    shortDescription: '必須I＋鋼コン 全29記事。単品合計¥6,460が¥4,980（約23%OFF）。',
+    price: '¥4,980（必須I＋鋼コン 2マガジン・単品合計¥6,460、約23%OFF）',
+    badge: 'note 限定 合格パック',
+  },
+  // batch B/C（DN-0241）。2026-09-16 公開: note にマガジン作成（key m621daa62a087）→ 必須I 11＋土質基礎 18＝29 記事を API で収録確認 → カバー SET。
+  'pe-construction-geotechnical-pack': {
+    id: 'pe-construction-geotechnical-pack',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m621daa62a087',
+    title: '技術士 建設部門 2次｜土質基礎 まるごと合格パック（必須科目I＋土質及び基礎 選択科目）',
+    description:
+      '必須科目I 模範解答集（R03-R07＋R8予想・全11記事）と土質及び基礎 選択科目 模範解答集（R03-R07＋R8予想・全18記事）を束ねた合格パック。単品合計¥6,460が¥4,980。元・地方自治体の土木職（発注者）視点で、本番で実際に解く「必須I＋土質基礎」の組み合わせをそのまま収録。',
+    shortTitle: '建設部門2次｜土質基礎 合格パック',
+    shortDescription: '必須I＋土質基礎 全29記事。単品合計¥6,460が¥4,980（約23%OFF）。',
+    price: '¥4,980（必須I＋土質基礎 2マガジン・単品合計¥6,460、約23%OFF）',
+    badge: 'note 限定 合格パック',
+  },
+  // batch B/C（DN-0241）。2026-09-16 公開: note にマガジン作成（key m98f92c18412e）→ 必須I 11＋鉄道 18＝29 記事を API で収録確認 → カバー SET。
+  'pe-construction-railway-pack': {
+    id: 'pe-construction-railway-pack',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m98f92c18412e',
+    title: '技術士 建設部門 2次｜鉄道 まるごと合格パック（必須科目I＋鉄道 選択科目）',
+    description:
+      '必須科目I 模範解答集（R03-R07＋R8予想・全11記事）と鉄道 選択科目 模範解答集（R03-R07＋R8予想・全18記事）を束ねた合格パック。単品合計¥6,460が¥4,980。元・地方自治体の土木職（発注者）視点で、本番で実際に解く「必須I＋鉄道」の組み合わせをそのまま収録。',
+    shortTitle: '建設部門2次｜鉄道 合格パック',
+    shortDescription: '必須I＋鉄道 全29記事。単品合計¥6,460が¥4,980（約23%OFF）。',
+    price: '¥4,980（必須I＋鉄道 2マガジン・単品合計¥6,460、約23%OFF）',
+    badge: 'note 限定 合格パック',
+  },
+  // batch B/C（DN-0241）。2026-09-16 公開: note にマガジン作成（key me506e9bdde6a）→ 必須I 11＋建設環境 18＝29 記事を API で収録確認 → カバー SET。
+  'pe-construction-environment-pack': {
+    id: 'pe-construction-environment-pack',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/me506e9bdde6a',
+    title: '技術士 建設部門 2次｜建設環境 まるごと合格パック（必須科目I＋建設環境 選択科目）',
+    description:
+      '必須科目I 模範解答集（R03-R07＋R8予想・全11記事）と建設環境 選択科目 模範解答集（R03-R07＋R8予想・全18記事）を束ねた合格パック。単品合計¥6,460が¥4,980。元・地方自治体の土木職（発注者）視点で、本番で実際に解く「必須I＋建設環境」の組み合わせをそのまま収録。',
+    shortTitle: '建設部門2次｜建設環境 合格パック',
+    shortDescription: '必須I＋建設環境 全29記事。単品合計¥6,460が¥4,980（約23%OFF）。',
+    price: '¥4,980（必須I＋建設環境 2マガジン・単品合計¥6,460、約23%OFF）',
+    badge: 'note 限定 合格パック',
+  },
+  // batch B/C（DN-0241）。2026-09-16 公開: note にマガジン作成（key m64bd0cbd7111）→ 必須I 11＋港湾空港 18＝29 記事を API で収録確認 → カバー SET。
+  'pe-construction-port-airport-pack': {
+    id: 'pe-construction-port-airport-pack',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m64bd0cbd7111',
+    title: '技術士 建設部門 2次｜港湾空港 まるごと合格パック（必須科目I＋港湾及び空港 選択科目）',
+    description:
+      '必須科目I 模範解答集（R03-R07＋R8予想・全11記事）と港湾及び空港 選択科目 模範解答集（R03-R07＋R8予想・全18記事）を束ねた合格パック。単品合計¥6,460が¥4,980。元・地方自治体の土木職（発注者）視点で、本番で実際に解く「必須I＋港湾空港」の組み合わせをそのまま収録。',
+    shortTitle: '建設部門2次｜港湾空港 合格パック',
+    shortDescription: '必須I＋港湾空港 全29記事。単品合計¥6,460が¥4,980（約23%OFF）。',
+    price: '¥4,980（必須I＋港湾空港 2マガジン・単品合計¥6,460、約23%OFF）',
+    badge: 'note 限定 合格パック',
+  },
+  // batch B/C（DN-0241）。2026-09-16 公開: note にマガジン作成（key m8bc3c8660afb）→ 必須I 11＋施工計画 18＝29 記事を API で収録確認 → カバー SET。
+  'pe-construction-construction-planning-pack': {
+    id: 'pe-construction-construction-planning-pack',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m8bc3c8660afb',
+    title: '技術士 建設部門 2次｜施工計画 まるごと合格パック（必須科目I＋施工計画、施工設備及び積算 選択科目）',
+    description:
+      '必須科目I 模範解答集（R03-R07＋R8予想・全11記事）と施工計画、施工設備及び積算 選択科目 模範解答集（R03-R07＋R8予想・全18記事）を束ねた合格パック。単品合計¥6,460が¥4,980。元・地方自治体の土木職（発注者）視点で、本番で実際に解く「必須I＋施工計画」の組み合わせをそのまま収録。',
+    shortTitle: '建設部門2次｜施工計画 合格パック',
+    shortDescription: '必須I＋施工計画 全29記事。単品合計¥6,460が¥4,980（約23%OFF）。',
+    price: '¥4,980（必須I＋施工計画 2マガジン・単品合計¥6,460、約23%OFF）',
+    badge: 'note 限定 合格パック',
+  },
+  // batch B/C（DN-0241）。2026-09-16 公開: note にマガジン作成（key m476ad50d2942）→ 必須I 11＋電力土木 18＝29 記事を API で収録確認 → カバー SET。
+  'pe-construction-power-civil-pack': {
+    id: 'pe-construction-power-civil-pack',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m476ad50d2942',
+    title: '技術士 建設部門 2次｜電力土木 まるごと合格パック（必須科目I＋電力土木 選択科目）',
+    description:
+      '必須科目I 模範解答集（R03-R07＋R8予想・全11記事）と電力土木 選択科目 模範解答集（R03-R07＋R8予想・全18記事）を束ねた合格パック。単品合計¥6,460が¥4,980。元・地方自治体の土木職（発注者）視点で、本番で実際に解く「必須I＋電力土木」の組み合わせをそのまま収録。',
+    shortTitle: '建設部門2次｜電力土木 合格パック',
+    shortDescription: '必須I＋電力土木 全29記事。単品合計¥6,460が¥4,980（約23%OFF）。',
+    price: '¥4,980（必須I＋電力土木 2マガジン・単品合計¥6,460、約23%OFF）',
+    badge: 'note 限定 合格パック',
+  },
 
   // ---- RCCM（建設コンサルタンツ協会・2026-09-15 新設）----
   // 原稿配置: content/note/RCCM/magazines/。id 接頭辞 rccm-（exam-brand.ts examKeyOf → 'rccm'）。
