@@ -5,7 +5,7 @@ import { pathToFileURL, fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import matter from 'gray-matter';
-import { renderNoteCharacterCover, resolveCoverExam } from './lib/note-character-cover.mjs';
+import { renderNoteCharacterCover, resolveCoverExam, assignCoverPoses } from './lib/note-character-cover.mjs';
 
 const ownRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
@@ -19,6 +19,8 @@ if (sourceRoot === outputRoot || outputRoot === sourceContent || outputRoot.star
   throw new Error('生成先を原稿ツリーに重ねられません。独立した出力ディレクトリを指定してください');
 }
 const tokens = JSON.parse(readFileSync(join(sourceRoot, '.claude/knowledge/design-system/note-cover-tokens.json'), 'utf8'));
+const poseLabels = Object.fromEntries(JSON.parse(readFileSync(join(sourceRoot, '.claude/config/character-poses.json'), 'utf8'))
+  .poses.map(pose => [pose.slug, pose.label]));
 const v4Map = JSON.parse(readFileSync(join(sourceRoot, '.claude/config/note-cover-magazine-v4.json'), 'utf8'));
 const config = JSON.parse(readFileSync(join(ownRoot, '.claude/config/note-character-covers.json'), 'utf8'));
 const { MAGAZINES } = await import(pathToFileURL(join(sourceRoot, 'scripts/generate-magazine-covers.mjs')).href);
@@ -66,7 +68,8 @@ for (const raw of magazines) {
       palette: { band: mag.fillBg || tokens.exams[examKey].deep, label: mag.category } },
   });
 }
-const selected = filter ? targets.filter(target => target.key.includes(filter)) : targets;
+const posedTargets = assignCoverPoses(targets);
+const selected = filter ? posedTargets.filter(target => target.key.includes(filter)) : posedTargets;
 if (!selected.length) throw new Error('生成対象0件');
 const seen = new Set();
 for (const target of selected) {
@@ -78,7 +81,7 @@ const report = { version: 1, generatedAt: new Date().toISOString(), sourceRoot,
   sourceHead: execFileSync('git', ['rev-parse', 'HEAD'], { cwd: sourceRoot, encoding: 'utf8' }).trim(),
   generatorHead: execFileSync('git', ['rev-parse', 'HEAD'], { cwd: ownRoot, encoding: 'utf8' }).trim(),
   rendererSha256: hash(readFileSync(join(ownRoot, 'scripts/lib/note-character-cover.mjs'))),
-  targetCount: selected.length, generatedCount: 0, failedCount: 0, retired, targets: [], errors };
+  targetCount: selected.length, generatedCount: 0, failedCount: 0, poseLabels, poseCounts: {}, retired, targets: [], errors };
 const reportPath = join(outputRoot, 'manifest.json');
 const save = () => { writeFileSync(reportPath + '.tmp', JSON.stringify(report, null, 2) + '\n'); renameSync(reportPath + '.tmp', reportPath); };
 save();
@@ -91,6 +94,7 @@ for (const [index, target] of selected.entries()) {
     const { buffer, ...design } = result;
     report.targets.push({ ...target, design, outputSha256: hash(buffer), byteLength: buffer.length });
     report.generatedCount++;
+    report.poseCounts[result.pose] = (report.poseCounts[result.pose] || 0) + 1;
   } catch (error) {
     report.errors.push({ key: target.key, error: error.message }); report.failedCount++;
     console.error(`[失敗] ${target.key}: ${error.message}`);

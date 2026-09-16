@@ -1,5 +1,6 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
+import { createHash } from 'node:crypto';
 import satori from 'satori';
 import sharp from 'sharp';
 import opentype from '@shuding/opentype.js';
@@ -31,6 +32,49 @@ export function coverCopy({ cover = {}, coverTitle, title, magazine = false, lin
     proof: clean(magazine ? cover.proof : [cover.hi, cover.hiSuffix].filter(Boolean).join(' ')) || fallback[2] || '',
     benefit: clean(cover.benefit) || fallback.slice(3).join(' '),
   };
+}
+
+export function coverPoseCandidates(input) {
+  if (input.cover?.character) return { poses: [input.cover.character], reason: '原稿指定' };
+  const copy = coverCopy(input);
+  const topic = [input.title, copy.headline, copy.lead, copy.proof].filter(Boolean).join(' ');
+  if (/\b(?:AI|DX|ICT|BIM|CIM|ChatGPT)\b|生成AI|データ活用|デジタル/i.test(topic)) {
+    return { poses: ['pc-work'], reason: 'AI・デジタル活用' };
+  }
+  if (/合格体験|合格記|合格報告|合格しました/.test(topic)) return { poses: ['congrats'], reason: '合格体験・報告' };
+  if (/もくじ|目次|サイトマップ|はじめに|自己紹介|会員案内|メンバーシップ案内/.test(topic)) {
+    return { poses: ['wave', 'smile'], reason: '案内・導入' };
+  }
+  if (/精読|暗記|勉強法|学習法|学習計画|学習習慣|独学|テキスト/.test(topic)) {
+    return { poses: ['reading', 'thinking', 'smile'], reason: '精読・学習法' };
+  }
+  if (/過去問|予想|演習|模擬|お題|問題集|想定問答|口頭試験/.test(topic)) {
+    return { poses: ['thinking', 'pointing', 'reading'], reason: '問題演習・問いかけ' };
+  }
+  if (input.magazine) return { poses: ['good-sign', 'explaining', 'reading', 'smile'], reason: '教材セットの案内' };
+  if (/注意|失敗|間違|落とし穴|\bNG\b/.test(topic)) return { poses: ['pointing', 'thinking'], reason: '注意点・振り返り' };
+  if (/模範|完成答案|記述|論文|解答|答案|テンプレ|施工経験/.test(topic)) {
+    return { poses: ['reading', 'explaining', 'pointing', 'thinking'], reason: '答案・書き方の解説' };
+  }
+  return { poses: ['explaining', 'pointing', 'reading'], reason: '知識・要点の解説' };
+}
+
+function selectPose(input, key, previousPose) {
+  const { poses, reason } = coverPoseCandidates(input);
+  const choices = poses.length > 1 ? poses.filter(pose => pose !== previousPose) : poses;
+  const index = createHash('sha256').update(key).digest().readUInt32BE(0) % choices.length;
+  return { pose: choices[index], reason };
+}
+
+// Assign the full inventory before filtering so individual rerenders keep their pose.
+export function assignCoverPoses(targets) {
+  const previous = new Map();
+  return targets.map(target => {
+    const group = `${target.kind}/${target.input.examKey}`;
+    const poseSelection = selectPose(target.input, target.key, previous.get(group));
+    previous.set(group, poseSelection.pose);
+    return { ...target, input: { ...target.input, poseSelection } };
+  });
 }
 
 function context(root) {
@@ -98,10 +142,16 @@ export async function renderNoteCharacterCover(root, input) {
   const dark = Boolean(input.magazine);
   const band = palette.band;
   const ink = dark ? '#ffffff' : '#102B49';
-  const pose = input.cover?.character || (dark ? 'good-sign' : 'pointing');
+  const selection = input.cover?.character ? { pose: input.cover.character, reason: '原稿指定' }
+    : input.poseSelection || selectPose(input, input.title || copy.headline);
+  const { pose } = selection;
   if (!ctx.characters.has(pose)) ctx.characters.set(pose, renderCharacterFrame(root, { pose, frame: 'waist', width: 280 }));
   const character = await ctx.characters.get(pose);
   const characterSrc = `data:image/png;base64,${character.buffer.toString('base64')}`;
+  const characterScale = Math.min(1, 330 / character.height);
+  const characterBox = { width: Math.round(character.width * characterScale), height: Math.round(character.height * characterScale) };
+  characterBox.left = 750 + Math.round((280 - characterBox.width) / 2);
+  characterBox.top = 172;
   const alias = input.examKey === 'civil-1-2' ? 'civil-1' : input.examKey;
   if (!ctx.backgrounds.has(alias)) {
     let src = null;
@@ -126,8 +176,8 @@ export async function renderNoteCharacterCover(root, input) {
     at(278, 0, 746, 670, [], { background: dark ? `linear-gradient(90deg, ${band}00, ${band}dd 15%, ${band}ee 70%, ${band}00)` : 'linear-gradient(90deg, #ffffff00, #f8fbfff5 15%, #f8fbfff5 75%, #ffffff00)' }),
     at(345, 45, 590, 35, textNode('doboku-note', 24, ink, { fontFamily: 'Inter' })),
     at(345, 128, 590, 45, textNode(copy.lead, fitted(copy.lead, 28, 584), dark ? '#f6e2b4' : band), { alignItems: 'center' }),
-    { type: 'img', props: { src: characterSrc, width: character.width, height: character.height,
-      style: { position: 'absolute', left: 750, top: 172 } } },
+    { type: 'img', props: { src: characterSrc, width: characterBox.width, height: characterBox.height,
+      style: { position: 'absolute', left: characterBox.left, top: characterBox.top } } },
     ...layout.lines.map((line, i) => at(HEADLINE.x, linesTop + i * layout.lineHeight, HEADLINE.width, layout.lineHeight,
       textNode(line, layout.size, dark && i === layout.lines.length - 1 ? '#FFD266' : ink,
         { lineHeight: 1.04, WebkitTextStrokeWidth: layout.size / 85, WebkitTextStrokeColor: dark && i === layout.lines.length - 1 ? '#FFD266' : ink }, `headline-${i}`))),
@@ -148,6 +198,6 @@ export async function renderNoteCharacterCover(root, input) {
   if (nodes.length !== layout.lines.length) errors.push('主見出しの実描画枠を取得できません');
   if (errors.length) throw new Error(errors.join(' / '));
   const buffer = await sharp(Buffer.from(svg)).png().toBuffer();
-  return { buffer, copy, layout, pose, sourceSha256: character.sourceSha256,
+  return { buffer, copy, layout, pose, poseReason: selection.reason, characterBox, sourceSha256: character.sourceSha256,
     measuredHeadlineNodes: nodes.map(({ left, top, width, height }) => ({ left, top, width, height })) };
 }

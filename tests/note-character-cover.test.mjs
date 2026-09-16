@@ -6,7 +6,31 @@ import { spawnSync } from 'node:child_process';
 import { mkdtempSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import sharp from 'sharp';
-import { coverCopy, headlineLayout, resolveCoverExam, renderNoteCharacterCover } from '../scripts/lib/note-character-cover.mjs';
+import { coverCopy, headlineLayout, resolveCoverExam, renderNoteCharacterCover, coverPoseCandidates, assignCoverPoses } from '../scripts/lib/note-character-cover.mjs';
+
+test('pose choices follow the topic and keep explicit editorial choices', () => {
+  const input = title => ({ title });
+  assert.deepEqual(coverPoseCandidates(input('AIで施工経験記述を書く')).poses, ['pc-work']);
+  assert.deepEqual(coverPoseCandidates(input('合格体験記')).poses, ['congrats']);
+  assert.ok(coverPoseCandidates(input('総監のもくじ')).poses.includes('wave'));
+  assert.ok(coverPoseCandidates(input('テキスト精読')).poses.includes('reading'));
+  assert.ok(coverPoseCandidates(input('令和8年 予想問題')).poses.includes('thinking'));
+  assert.ok(!coverPoseCandidates(input('まるごと合格パック')).poses.includes('congrats'));
+  assert.deepEqual(coverPoseCandidates({ title: 'AI学習法', cover: { character: 'thinking' } }).poses, ['thinking']);
+});
+
+test('a series has reproducible variation without changing its supplied copy', () => {
+  const targets = Array.from({ length: 40 }, (_, i) => ({ key: `article-${i}`, kind: 'article',
+    input: { title: `施工経験記述 完成答案 ${i}`, examKey: 'civil-1', cover: { headline: `工事${i}` } } }));
+  const first = assignCoverPoses(targets), second = assignCoverPoses(targets);
+  assert.deepEqual(first, second);
+  assert.ok(new Set(first.map(t => t.input.poseSelection.pose)).size >= 3);
+  first.forEach((t, i) => {
+    assert.deepEqual(t.input.cover, targets[i].input.cover);
+    if (i) assert.notEqual(t.input.poseSelection.pose, first[i - 1].input.poseSelection.pose);
+  });
+  assert.equal(targets[0].input.poseSelection, undefined);
+});
 
 test('output roots cannot overlap the source checkout or its content tree', () => {
   const root = mkdtempSync(resolve(tmpdir(), 'note-cover-output-'));
@@ -59,4 +83,21 @@ test('actual article and magazine renders preserve the main text in both center 
     }
     assert.match(result.sourceSha256, /^[a-f0-9]{64}$/);
   }
+});
+
+test('all nine usable waist poses keep hands and props clear of text and the benefit band', async () => {
+  const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+  for (const pose of ['pointing', 'good-sign', 'explaining', 'wave', 'thinking', 'congrats', 'smile', 'pc-work', 'reading']) {
+    const result = await renderNoteCharacterCover(root, {
+      cover: { headline: '工程管理', character: pose, benefit: '工程表を書く' },
+      examKey: 'civil-1', palette: { band: '#1E73C8' },
+    });
+    assert.equal(result.pose, pose);
+    const box = result.characterBox;
+    assert.ok(box.left >= 750 && box.left + box.width <= 1030, pose);
+    assert.ok(box.top + box.height <= 502, pose);
+    assert.ok(result.measuredHeadlineNodes.every(n => n.left + n.width < box.left), pose);
+  }
+  await assert.rejects(renderNoteCharacterCover(root, { cover: { headline: '注意点', character: 'surprised' },
+    examKey: 'civil-1', palette: { band: '#1E73C8' } }), /要修正・未確認/);
 });
