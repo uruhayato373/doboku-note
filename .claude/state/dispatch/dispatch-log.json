@@ -1063,6 +1063,18 @@
       "commit": "912295c02365",
       "verification": "npm run check-magazine-membership && npm run check-magazine-cta:ci && node scripts/audit-note-funnel.mjs --live --ci",
       "note": "2026-09-16 batch B/C 7 パックを note に作成・各 29 記事を API 実体確認・カバー SET・note-magazines.ts published:true・*-exam-themes に MagazineCard・建設部門もくじ 11 科目化してライブ反映。全 11 科目のパック公開完了"
+    },
+    {
+      "id": "DN-0243",
+      "at": "2026-09-17",
+      "task": "2級土木 二次まるごとパック（¥8,800）と直前総仕上げパック（¥2,480）＋ 2級 出題分析・直前重点（¥580）を 10/25 前に出す",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "195101391c4a",
+      "verification": "npm run check-magazine-membership && npm run check-magazine-cta:ci && npm run check-sales-mapping && node scripts/audit-note-funnel.mjs --live --ci",
+      "note": "2026-09-17 出題分析 n4e4f4930cf2e（¥580）・まるごと m2d9a069b6f87（¥8,800・78 記事）・直前 md3518107aa97（¥2,480・3 記事）を note 公開・API 実体確認・カバー SET・案内記事 n89b3048e5d24・土木もくじ反映・placement/membership/台帳 配線"
     }
   ]
 }

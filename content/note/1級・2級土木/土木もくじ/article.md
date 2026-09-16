@@ -96,10 +96,19 @@ https://note.com/dobokunote/m/m1881a9578027
 
 https://note.com/dobokunote/m/m8554e87ca6ec
 
+**二次検定まるごとパック**（経験記述＋学科記述＋直前対策の7点）— 想定工事バンク・過去問模範答案集・完成答案集・学科記述出る順・直前暗記ノート・予想模試3回・出題分析をまとめて仕上げたい人向けの最上位パックです。
+
+https://note.com/dobokunote/m/m2d9a069b6f87
+
+**二次 直前総仕上げパック**（予想模試3回＋直前暗記ノート＋出題分析）— 試験直前2週間を「模試で確認 → 暗記で穴埋め → 分析で優先順位」の3点で回し切りたい人向けです。
+
+https://note.com/dobokunote/m/md3518107aa97
+
 そのほかの2級教材（目的に合わせて追加）:
 
 - [施工経験記述 過去問 模範答案集（R03-R07）](https://note.com/dobokunote/m/md3aa0f9a37d7) — 出題された年度の設問でそのまま演習したい人向け
 - [二次学科記述 テーマ別 出る順（問題2〜9）](https://note.com/dobokunote/m/m9a09a8982734) — 経験記述以外の学科記述も出る順で固めたい人向け
+- [出題分析と直前の重点（過去5年の実績）](https://note.com/dobokunote/n/n4e4f4930cf2e) — まず何から手を付けるか、直前2週間の優先順位を決めたい人向け
 - [第1次検定 過去問PDF（R03-R07 前期後期 全630問・全選択肢解説）](https://note.com/dobokunote/n/n4963f45bd6f8) — まず一次を過去問演習で突破したい人向け
 - [令和8年度 二次検定 予想模試3回](https://note.com/dobokunote/n/n50aefe3ad7da) — 本番形式で時間を測って仕上げたい人向け
 - [二次検定 直前暗記ノート](https://note.com/dobokunote/n/n793523a059e5) — 試験直前に重要語句を絞って確認したい人向け
@@ -201,7 +210,8 @@ https://note.com/dobokunote/n/n6b66793ca20c
 - **経験記述の完成答案がほしい** → [1級](https://note.com/dobokunote/m/m150c9db08902)／[2級](https://note.com/dobokunote/m/m1881a9578027) 完成答案集
 - **過去問の年度別模範答案がほしい** → [1級](https://note.com/dobokunote/m/m3a578194a0a9)／[2級](https://note.com/dobokunote/m/md3aa0f9a37d7) 過去問模範答案集
 - **複数テーマに備えたい**（1級） → [2テーマ組合せ大全](https://note.com/dobokunote/m/m74cfd7c695d6)
-- **試験直前2週間を回し切りたい**（1級） → [直前総仕上げパック](https://note.com/dobokunote/m/m7a9b3ad964f6)（模試3回＋暗記＋出題分析）
+- **試験直前2週間を回し切りたい** → [1級](https://note.com/dobokunote/m/m7a9b3ad964f6)／[2級](https://note.com/dobokunote/m/md3518107aa97) 直前総仕上げパック（模試3回＋暗記＋出題分析）
+- **二次の教材をまとめてそろえたい** → [1級](https://note.com/dobokunote/m/md29a34906314)／[2級](https://note.com/dobokunote/m/m2d9a069b6f87) 二次検定まるごとパック
 - **一次のテキストをどこから読むか決めたい** → [1級 精読ガイド](https://note.com/dobokunote/n/n653cd1b3ee71)／[2級 精読ガイド](https://note.com/dobokunote/n/na8e28f954797)（無料）
 - **予想問題と添削で合格まで伴走してほしい** → 会員制「土木セコカン合格ラボ」（上の「会員制で伴走してほしい方へ」を参照）
 

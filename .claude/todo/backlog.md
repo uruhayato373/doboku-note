@@ -74,14 +74,6 @@
 
 
 
-### [DN-0243] 2級土木 二次まるごとパック（¥8,800）と直前総仕上げパック（¥2,480）＋ 2級 出題分析・直前重点（¥580）を 10/25 前に出す
-タグ: [収益化] [種類:制作] [起票:2026-09-16] [期日:2026-09-28]
-
-**起点**: 売上実測（2026-05〜09・293 件）で「全部パック」が売上 28%・「試験の区切りに沿った解像度」が 51%。2級は 7 SKU（単品計 ¥14,480）あるのにパックが無く、1級にある「出題分析・直前重点」も無い。計画 `~/.claude/plans/rccm-staged-reef.md` P1-7/P1-8/P2-a。
-
-**やること**: (1) `civil-2-r8-bunseki`（¥580・`1級土木-R8二次-出題分析直前重点/{article.md,構成案.md}` の鏡・素材は 2級 テーマ別出る順 5 本の頻度表＋過去問模範答案集 R03-R07・「予想」を商品名に使わない・`note-fact-checker`）。(2) `civil-2-niji-marugoto-pack`（¥8,800・想定工事バンク＋過去問模範答案集＋完成答案集＋学科記述出る順を `--from`、暗記 n793523a059e5＋模試 n50aefe3ad7da を `--notes`・無料 案内記事 1 本は 1級 n824a4ea20acf の鏡・`note-magazine-membership.json` packs ブロック・`magazine-placement.ts` civil-2 3 ブランチの top）。(3) `civil-2-chokuzen-pack`（¥2,480・模試＋暗記＋(1)・`secondary-last-two-weeks-plan` に新ブランチ）。各 SKU で `sales-recorder.md` 行・土木もくじ 2級節を同一 commit。
-
-**完了条件**: 3 SKU が note ライブ・`check-magazine-cta:ci`/`check-magazine-membership`/`check-sales-mapping`/`audit-note-funnel --live` 緑。
 
 ### [DN-0244] RCCM 問題II・IV 直前暗記ノート（¥980）を公開し まるごとパックへ追加収録する
 タグ: [収益化] [種類:制作] [起票:2026-09-16] [期日:2026-10-09]

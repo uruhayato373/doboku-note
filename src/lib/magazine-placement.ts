@@ -412,7 +412,7 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   //    （予想問題集 civil-2-yosou-essay は 2026-06-02 退役。環境対策のみ完成答案集へ昇格）
   if (/^civil-construction-2-secondary-r0[1-9]$/.test(slug)) {
     return {
-      top: slot('civil-2-koji-bank', slug, 'top'),
+      top: slot('civil-2-niji-marugoto-pack', slug, 'top'), // 二次まるごと（7 点の最上位バンドル・2026-09-17）
       inline: [
         slot('civil-membership-lab', slug, 'inline-1'), // 本文中間 CTA = 会員（合格ラボ）
         slot('civil-2-r8-bunseki', slug, 'inline-2'), // 出題分析・直前重点（入口・2026-09-17）
@@ -424,22 +424,47 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
       ],
     };
   }
-  // 7.6. 2級 直前2週間ガイド（secondary-last-two-weeks-plan）→ 出題分析・直前重点 led（2026-09-17）。
-  //      civil-2 は catch-all が無いので明示ブランチ。直前パック（civil-2-chokuzen-pack）公開後は top をパックへ差し替える。
-  if (slug === 'civil-construction-2-secondary-last-two-weeks-plan') {
+  // 7.5b. 2級 経験記述 テーマ別の書き方（secondary-experience-writing-by-theme）→ 想定工事バンク led
+  //       （テーマ×工事の完成答案を探す読者。まるごとパックが 3 面の top を取ったので、旗艦単品の面をここで確保・2026-09-17）。
+  if (slug === 'civil-construction-2-secondary-experience-writing-by-theme') {
+    return {
+      top: slot('civil-2-koji-bank', slug, 'top'),
+      inline: [
+        slot('civil-membership-lab', slug, 'inline-1'),
+        slot('civil-2-niji-marugoto-pack', slug, 'inline-2'),
+        slot('civil-2-experience-essay', slug, 'inline-3'),
+      ],
+    };
+  }
+  // 7.5c. 2級 学科記述の対策・採点と部分点（guide）→ 出題分析・直前重点 led（出る順と優先順位を求める読者・2026-09-17）。
+  if (slug === 'civil-construction-2-secondary-written-questions-guide' || slug === 'civil-construction-2-secondary-grading-and-partial-credit') {
     return {
       top: slot('civil-2-r8-bunseki', slug, 'top'),
       inline: [
         slot('civil-membership-lab', slug, 'inline-1'),
-        slot('civil-2-anki-note', slug, 'inline-2'), // 直前暗記ノート
-        slot('civil-2-r8-mock3-pdf', slug, 'inline-3'), // 予想模試3回
-        slot('civil-2-koji-bank', slug, 'inline-4'),
+        slot('civil-2-gakka-kijutsu', slug, 'inline-2'), // 学科記述 テーマ別出る順
+        slot('civil-2-anki-note', slug, 'inline-3'), // 直前暗記ノート
+        slot('civil-2-chokuzen-pack', slug, 'inline-4'),
+      ],
+    };
+  }
+  // 7.6. 2級 直前2週間ガイド（secondary-last-two-weeks-plan）→ 直前総仕上げパック led（2026-09-17・模試3回＋暗記＋出題分析 ¥2,480）。
+  //      civil-2 は catch-all が無いので明示ブランチ。
+  if (slug === 'civil-construction-2-secondary-last-two-weeks-plan') {
+    return {
+      top: slot('civil-2-chokuzen-pack', slug, 'top'),
+      inline: [
+        slot('civil-membership-lab', slug, 'inline-1'),
+        slot('civil-2-niji-marugoto-pack', slug, 'inline-2'), // 二次まるごと（7 点の最上位バンドル）
+        slot('civil-2-r8-bunseki', slug, 'inline-3'), // 出題分析・直前重点
+        slot('civil-2-anki-note', slug, 'inline-4'), // 直前暗記ノート
+        slot('civil-2-r8-mock3-pdf', slug, 'inline-5'), // 予想模試3回
       ],
     };
   }
   if (/^civil-construction-2-secondary-experience-writing-(guide|examples)$/.test(slug)) {
     return {
-      top: slot('civil-2-koji-bank', slug, 'top'),
+      top: slot('civil-2-niji-marugoto-pack', slug, 'top'), // 二次まるごと（2026-09-17）
       inline: [
         slot('civil-membership-lab', slug, 'inline-1'), // 本文中間 CTA = 会員（合格ラボ）
         slot('civil-2-koji-bank', slug, 'inline-2'),
@@ -452,7 +477,7 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   //      top-of-funnel の入口記事。civil-2 は catch-all が無いため明示ブランチが必要（2026-07-04 新設）。
   if (slug === 'civil-construction-2-secondary-getting-started') {
     return {
-      top: slot('civil-2-koji-bank', slug, 'top'),
+      top: slot('civil-2-niji-marugoto-pack', slug, 'top'), // 二次まるごと（2026-09-17）
       inline: [
         slot('civil-membership-lab', slug, 'inline-1'), // 本文中間 CTA = 会員（合格ラボ）
         slot('civil-2-koji-bank', slug, 'inline-2'),
