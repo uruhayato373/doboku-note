@@ -683,6 +683,21 @@ const MAGAZINES_RAW = {
     ctaPose: 'pointing',
   },
 
+  // 2級 二次 出題分析・直前重点（2026-09-17 公開・n4e4f4930cf2e・¥580）。1級 civil-1-r8-bunseki の鏡。
+  // 素材は 2級 テーマ別出る順 5 本の頻度表＋過去問模範答案集 R03-R07（自前集計・後ろ向き分析）。直前パック（civil-2-chokuzen-pack）の構成要素。
+  'civil-2-r8-bunseki': {
+    id: 'civil-2-r8-bunseki',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/n/n4e4f4930cf2e',
+    title: '2級土木 二次｜出題分析と直前の重点（過去5年の実績から攻め所を絞る）',
+    description:
+      '2級土木施工管理技士 第2次検定の令和3〜7年度を後ろ向きに分析し、経験記述テーマの出題履歴（工程管理 4 年連続・R06 以降 2 テーマ必答）と学科記述の出る順トップ10論点を横断で整理。10/25 までの直前2週間で「どのテーマを・どの順で・何日かけて」回すかを日割りロードマップに落とした、直前期の優先順位づけ記事。',
+    shortTitle: '2級土木 二次 出題分析・直前重点',
+    shortDescription: '過去5年の出題実績から出る順トップ10論点と直前2週間ロードマップを整理。',
+    price: '¥580',
+    badge: 'note 限定',
+  },
+
   // P3b: 2級 学科記述 直前暗記ノート（どぼくじら¥500×500部超の低価格エントリー枠に対抗）
   'civil-2-anki-note': {
     id: 'civil-2-anki-note',

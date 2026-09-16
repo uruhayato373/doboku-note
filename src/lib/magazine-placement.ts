@@ -415,11 +415,25 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
       top: slot('civil-2-koji-bank', slug, 'top'),
       inline: [
         slot('civil-membership-lab', slug, 'inline-1'), // 本文中間 CTA = 会員（合格ラボ）
-        slot('civil-2-koji-bank', slug, 'inline-2'),
-        slot('civil-2-gakka-kijutsu', slug, 'inline-3'), // 学科記述（問題2〜9）
-        slot('civil-2-anki-note', slug, 'inline-4'), // 直前暗記ノート
-        slot('civil-2-pastexam-essay', slug, 'inline-5'),
-        slot('civil-2-experience-essay', slug, 'inline-6'),
+        slot('civil-2-r8-bunseki', slug, 'inline-2'), // 出題分析・直前重点（入口・2026-09-17）
+        slot('civil-2-koji-bank', slug, 'inline-3'),
+        slot('civil-2-gakka-kijutsu', slug, 'inline-4'), // 学科記述（問題2〜9）
+        slot('civil-2-anki-note', slug, 'inline-5'), // 直前暗記ノート
+        slot('civil-2-pastexam-essay', slug, 'inline-6'),
+        slot('civil-2-experience-essay', slug, 'inline-7'),
+      ],
+    };
+  }
+  // 7.6. 2級 直前2週間ガイド（secondary-last-two-weeks-plan）→ 出題分析・直前重点 led（2026-09-17）。
+  //      civil-2 は catch-all が無いので明示ブランチ。直前パック（civil-2-chokuzen-pack）公開後は top をパックへ差し替える。
+  if (slug === 'civil-construction-2-secondary-last-two-weeks-plan') {
+    return {
+      top: slot('civil-2-r8-bunseki', slug, 'top'),
+      inline: [
+        slot('civil-membership-lab', slug, 'inline-1'),
+        slot('civil-2-anki-note', slug, 'inline-2'), // 直前暗記ノート
+        slot('civil-2-r8-mock3-pdf', slug, 'inline-3'), // 予想模試3回
+        slot('civil-2-koji-bank', slug, 'inline-4'),
       ],
     };
   }
