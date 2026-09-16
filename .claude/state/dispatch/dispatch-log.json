@@ -1075,6 +1075,18 @@
       "commit": "195101391c4a",
       "verification": "npm run check-magazine-membership && npm run check-magazine-cta:ci && npm run check-sales-mapping && node scripts/audit-note-funnel.mjs --live --ci",
       "note": "2026-09-17 出題分析 n4e4f4930cf2e（¥580）・まるごと m2d9a069b6f87（¥8,800・78 記事）・直前 md3518107aa97（¥2,480・3 記事）を note 公開・API 実体確認・カバー SET・案内記事 n89b3048e5d24・土木もくじ反映・placement/membership/台帳 配線"
+    },
+    {
+      "id": "DN-0244",
+      "at": "2026-09-17",
+      "task": "RCCM 問題II・IV 直前暗記ノート（¥980）を公開し まるごとパックへ追加収録する",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "49eba8090169",
+      "verification": "npm run check-magazine-cta:ci && npm run check-sales-mapping && node scripts/audit-note-funnel.mjs --live --ci",
+      "note": "2026-09-17 RCCM 択一 直前暗記ノート n6a82c25cc9de（¥980・159 問）を公開し まるごとパック me2b526bf77f4 へ追加収録（10 記事・単品計 ¥7,920）。掲載文・SKU・台帳・もくじ反映"
     }
   ]
 }

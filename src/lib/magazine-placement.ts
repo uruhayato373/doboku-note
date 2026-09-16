@@ -803,7 +803,9 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
       : slug === 'rccm-guide-mondai2-4-takuitsu' ? 'rccm-takuitsu-yosou-50'
       : slug === 'rccm-guide-mondai3-themes-2026' ? 'rccm-mondai3-magazine'
       : 'rccm-marugoto-pack';
-    return { top: slot(product, slug, 'top'), inline: [] };
+    // 択一ガイドは直前暗記ノート（2026-09-17）を本文中間に添える（top は予想50問のまま）。
+    const inline = slug === 'rccm-guide-mondai2-4-takuitsu' ? [slot('rccm-anki-note', slug, 'inline-1')] : [];
+    return { top: slot(product, slug, 'top'), inline };
   }
 
   return EMPTY;

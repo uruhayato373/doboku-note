@@ -75,14 +75,6 @@
 
 
 
-### [DN-0244] RCCM 問題II・IV 直前暗記ノート（¥980）を公開し まるごとパックへ追加収録する
-タグ: [収益化] [種類:制作] [起票:2026-09-16] [期日:2026-10-09]
-
-**起点**: `rccm-marugoto-pack`（me2b526bf77f4・¥5,980）を 2026-09-16 に公開。CBT 〜10/31 の窓で「直前」需要に応える暗記素材が無い。計画 P2-c。
-
-**やること**: `content/note/RCCM/magazines/RCCM問題II-IV-直前暗記ノート/article.md`（`1級土木-二次学科記述-直前暗記ノート` の型＝`Q. …／A. …` 1 行 1 対・分野 H2・2 番目の H2 が `paidBoundary`・A5 赤シート PDF は Windows で印刷）。素材は `RCCM問題II-IV-論点集予想50問/article.md` と `content/site/rccm/guide-mondai2-4-takuitsu`。カウントダウン訴求・本文の価格記載・過去問の復元をしない。`note-fact-checker` → `note-publish --commit` → `note-magazine-add-articles --target me2b526bf77f4 --notes <n…> --commit` → 掲載文の本数・単品合計（¥7,920）更新 → `note-edit-magazine`。
-
-**完了条件**: 記事ライブ・まるごとパック 10 記事を API 実体確認・`check-sales-mapping` 緑（`article:rccm-anki-note` 行）。
 
 ### [DN-0245] コンクリート主任技士 直前暗記ノート（¥980）＋択一 直前パック（¥2,980）／技術士一次・コン技士の直前暗記＋パック
 タグ: [収益化] [種類:制作] [起票:2026-09-16] [期日:2026-11-15]
@@ -92,6 +84,15 @@
 **やること**: (1) `cce-anki-note`（一問一答 150 問・素材は `四肢択一-R8予想50問`＋`配合計算-実戦演習`・backlog #16 の過去問復元禁止を守る）→ (2) `cce-takuitsu-chokuzen-pack`（¥2,980・nfad294307263＋n5a55ae6dc16b＋(1)・コンクリート資格もくじ :82-124）→ (3) `cce-marugoto-pack` へ (1) を追加収録。(4) 技術士一次 直前暗記ノート ¥980＋`pe1-chokuzen-pack` ¥1,980（`pe1-takuitsu-pdf`＋暗記）。(5) コン技士 直前暗記 ¥780＋`ce-chokuzen-pack` ¥1,480（`ce-mix-jis-practice`＋暗記）。
 
 **完了条件**: 各 SKU ライブ・`check-magazine-cta:ci`（concrete 系は非 HUB なので top 配線必須）・`check-sales-mapping` 緑。11/8 までに (1)〜(4)、11/15 までに (5)。
+
+### [DN-0246] 会員 経験記述 W8〜W11 を公開日後に特典マガジン mbe07bd5cecda へ収録する
+タグ: [収益化] [種類:定期] [起票:2026-09-17] [期日:2026-09-29]
+
+**起点**: 2026-09-17 に W8〜W11 を `note-publish --schedule` で予約投稿した（README 配信表・`noteStatus: reserved`）。予約中の記事は `note-magazine-add-articles` で収録できない（exit 7・実測）ため、公開後に手動で収録する必要がある。
+
+**やること**: 各公開日の後に `node scripts/note-magazine-add-articles.mjs --target mbe07bd5cecda --notes <key> --commit`。W8 `n8acfea17f953`（9/19）／W9 `ne3cf6dac882f`（9/22）／W10 `n1911131aa726`（9/24）／W11 `n64f9653dc30c`（9/28）。学科09/10・添削01 は単独記事なので収録不要。
+
+**完了条件**: 特典マガジンの収録が 7→11 件（API 実体確認）・`npm run check-membership-drip` 緑。
 ### [DN-0235] develop への push で赤くなる CI（quality audit + build）に読み手を付ける
 タグ: [エージェント・SSOT] [種類:不具合] [起票:2026-09-14]
 

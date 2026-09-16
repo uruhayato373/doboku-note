@@ -1,9 +1,12 @@
 ---
 notePricing: membership
-noteStatus: draft
+noteStatus: reserved
 noteSeries: 学科記述予想
 membershipOnly: true
 utmCampaign: civil-membership-gakka-pavement
+notePublishedAt: "2026-09-18"
+noteId: "nafecfeede3a6"
+noteUrl: "https://note.com/dobokunote/n/nafecfeede3a6"
 coverTitle: ["学科記述予想｜専門土木", "道路・アスファルト舗装"]
 cover:
   variant: crop-safe-v4
