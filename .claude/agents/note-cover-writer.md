@@ -74,11 +74,11 @@ V4 のコピー規則（G2 との違い）:
 ## 品質ガード
 
 - `cover:` には**文字列のみ**。色・hex・座標・フォント・px を書かない。
-- `chips` は厳密に 3 個。`icon` は catalog 内のみ（外れると add-note-cover が FAIL する）。
+- `chips` / `banner` / `meta` は新規に書かない（G2 レガシー・V5 では読まれない。既存分の残置は可）。
 - 固有名詞・数値・年号は H1/本文に忠実に（推測で盛らない）。
-- 価格・note ID を `cover.meta` に数値で書かない。
+- 価格・note ID をカバー文言に数値で書かない。
 - article.md の **本文・他の frontmatter キーは編集しない**（cover: ブロックの追加のみ）。注入は必ず `add-note-cover.mjs` 経由（直接 writeFileSync で CRLF を混在させない）。
-- banner が長い記事は生成 PNG を Read して、正方形クロップ（中央630）で両端が切れていないか確認する。
+- headline が長い記事は `npm run check-note-cover-fit` で先に止め、生成 PNG を Read して折り返しと人物ポーズを確認する。
 
 ## 出力
 

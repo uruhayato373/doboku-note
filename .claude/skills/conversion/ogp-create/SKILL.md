@@ -215,23 +215,20 @@ npm run note-update-cover -- --list <file> --commit  # 公開済み記事の sta
 
 > 主見出しは 96〜48px・最大 3 行で x=345〜739 の枠へ折り返す。入らない文言は**省略せず生成失敗**になる（`check-note-cover-fit` が同じ実測で commit 前に止める）。
 
-### `cover:` ブロック（G2 を出すための frontmatter）
+### `cover:` ブロック（V5 が読む frontmatter）
 
 ```yaml
 cover:
-  leadIn: "1級土木施工管理技士 二次"   # 上部リード文（37px）
-  hi: "安全"                          # 強調キーワード（色ボックス HiBox）
-  hiSuffix: "管理"                    # HiBox 直後の語（58px）
-  banner: "完成答案と添削例"           # 全幅バナー帯。最重要・正方形クロップでも残す（自動で590px幅にフィット）
-  meta: "有料マガジン"                 # 右上メタ（任意）
+  leadIn: "1級土木施工管理技士 二次"   # リード（資格・試験区分）
+  headline: "安全管理"                 # 主見出し（最重要・96〜48px・最大 3 行）
+  hi: "完成答案"                       # 補足（hi+hiSuffix で 1 フレーズ）
+  hiSuffix: "と添削例"
+  benefit: "書き換えてそのまま使える"  # 訴求帯
   tone: deep                          # 任意。省略時は notePricing から自動
-  chips:                              # 必ず3個。icon は tokens の catalog から
-    - { icon: doc,   text: "完成答案" }
-    - { icon: edit,  text: "添削例つき" }
-    - { icon: check, text: "減点ポイント" }
+  character: reading                  # 任意。ポーズ slug の明示指定（未指定は内容から自動選択）
 ```
 
-仕様詳細・試験パレット・アイコン一覧は [`.claude/knowledge/design-system/note-cover.md`](../../../../.claude/knowledge/design-system/note-cover.md) と [`note-cover-tokens.json`](../../../../.claude/knowledge/design-system/note-cover-tokens.json) を参照。
+`banner` / `meta` / `chips`（G2）と `visualAsset` / `visualPrompt`（V4）は読まれない。仕様・ポーズの使い分けは [`note-cover-character-v5.md`](../../../../.claude/knowledge/design-system/note-cover-character-v5.md)、試験パレットは [`note-cover-tokens.json`](../../../../.claude/knowledge/design-system/note-cover-tokens.json) を参照。
 
 ## 事前条件
 

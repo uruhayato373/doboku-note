@@ -95,7 +95,7 @@ frontmatter に `forecast: true`（`year: R{NN}-yosou`）がある予想問題�
 
 note 販売は記事単位のため、article.md 単体では公開不可。次を確認し、欠落は `issues` に列挙する（[[feedback_note_article_three_set_dod]]）:
 
-- **`cover:` frontmatter ブロック**の有無（`coverTitle` だけでは記事カバーが生成されない）
+- **`cover:` frontmatter ブロック**の有無（`leadIn`/`headline`/`hi`/`hiSuffix`/`benefit`。`coverTitle` だけでも生成はされるが見出しの精密制御ができない）
 - **`{記事dir}/img/cover-{suffix}.png`** の有無（選択科目は `cover-II1.png` / `cover-II2.png` / `cover-III.png`、必須Iは `cover.png`。`generate-note-covers.mjs` で生成。ファイル名から機械導出されるため article 名と一致すること）
 - **`{記事dir}/hashtags-{suffix}.txt`** の有無と**タグ数（目安90個・最低でも~80）**＋**1行1個フォーマット（`行数==タグ数`、スペース区切り1行は不可＝note貼付不可）**。生成は `/note-hashtags` スキルが owner。選択科目は `hashtags-II1.txt` / `hashtags-II2.txt` / `hashtags-III.txt`、必須Iは `hashtags.txt`
 - **マガジン階層**: `note掲載文.txt` / `_cover.png` / `hashtags.txt` / `note-magazines.ts` 登録（公開前 published:false）/ `magazine-placement.ts` 配線の有無。**`note-magazines.ts` の登録確認は id（`pe-construction-road-magazine` 等）で検索する**（"BK-01" 文字列では空振りする＝誤検知に注意）。**`magazine-placement.ts` はサイトの doc slug（`pe-construction-r0X-required` 等）→ マガジンの対応を定義するもので、配線はマガジン単位で1回成立していれば足りる。個別の note 記事 dir（`R0X` / `R08-yosou-N` 等の年度・予想サブdir）は固有のサイト slug を持たず placement 登録対象外なので、「この記事 dir が placement 未登録」だと指摘しない（誤検知）**
