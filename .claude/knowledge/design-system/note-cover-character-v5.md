@@ -36,7 +36,7 @@ npm run note-character-covers -- --filter 工程管理
 
 別セッションの作業中は専用worktreeから元checkoutを読み取り、出力先を分ける。生成後に元原稿／旧カバーのhashを再照合し、変わった対象は再生成・再確認してから置換する。worktreeを分けてもnote認証プロファイルと公開記事は共有されるので、ブラウザを併用しない。記事・マガジンの更新を逐次実行し、公開APIのカバー変更と公開範囲・価格の保持を確認する。
 
-生成物の保存先は[アセット置き場](../reference/asset-storage-policy.md)に従う。記事カバーはprivate R2（`node scripts/asset-offload.mjs --group note-cover-png --include-untracked --commit`）、マガジンはDrive vault（`node scripts/drive-vault-sync.mjs --group note-magazine-cover-png --commit`）。生成結果だけをGitへ追加しない。公開側の差し替えは `scripts/note-update-cover.mjs`（記事）/ `scripts/note-magazine-cover.mjs`（マガジン）。2026-09-17 の全量差し替えの記録は `.claude/state/note/cover-rollout/`。
+生成物の保存先は[アセット置き場](../reference/asset-storage-policy.md)に従う。記事カバーはprivate R2（`node scripts/asset-offload.mjs --group note-cover-png --include-untracked --commit`）、マガジンはDrive vault（`node scripts/drive-vault-sync.mjs --group note-magazine-cover-png --commit`）。生成結果だけをGitへ追加しない。公開側の差し替えは `scripts/note-update-cover.mjs`（記事）/ `scripts/note-magazine-cover.mjs`（マガジン）を `npm run note-cover-rollout -- reconcile → snapshot → plan → run [--magazines] → verify → record` が逐次投入・突合・記録する（作業場 `.tmp/note-cover-rollout/`）。2026-09-17 の全量差し替えの記録は `.claude/state/note/cover-rollout/`。
 
 テスト: `node --test tests/note-character-cover.test.mjs`（通常生成器が旧テンプレを import しない静的ゲートを含む）。
 

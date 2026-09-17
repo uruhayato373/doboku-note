@@ -81,6 +81,8 @@ npm run check-standards-page-images # 上の provenance 整合（catalog↔manif
 
 `npm run note-character-covers -- --source-root /path/to/source-checkout --output-root /path/to/isolated-output` — V5 キャラクターカバーを独立出力先へ全件生成し照合用 manifest を残す（全量差し替え用）。通常の記事・マガジン生成は `node scripts/generate-note-covers.mjs [dir]` / `node scripts/generate-magazine-covers.mjs [id]` で、同じ描画・同じポーズ割当（[仕様](../design-system/note-cover-character-v5.md)）。文言が枠に入るかは `npm run check-note-cover-fit`（pre-commit は `--staged`・実測幅）。
 
+`npm run note-cover-rollout -- <reconcile|snapshot|plan|run|verify|record>` — 全量差し替えの照合（manifest↔最新原稿・差分だけ再生成）→ 公開 API の前後スナップショット → 対象/保留の決定 → 既存 CLI（note-update-cover / note-magazine-cover）への逐次投入（回線待ち・chunk 再試行・未 OK だけ再走査）→ eyecatch 変化と price/status/is_limited 不変の突合 → `.claude/state/note/cover-rollout/<date>.json` への記録。作業場は `.tmp/note-cover-rollout/`（消えると再開できない。`generated/manifest.json` と `live-before.json` は残す）。罠: CLI の「新カバー未確認」中断は coverless を防げない（削除が先に live へ書かれる・measurement-incidents 2026-09-18）ので verify で eyecatch を必ず見る。
+
 ```bash
 npm run kdp-report        # Kindle 月次ロイヤリティを KDP レポートから取得→.claude/state/sales/kdp-royalties.json（ローカル専用・読み取り専用・当月/前月のみ）
 npm run note-sales-fetch  # note 売上履歴を read-only 取得→検算OKで.claude/state/sales/sales-log.jsonの当月を差し替え（--month YYYY-MM --commit・ログイン要・DN-0018）

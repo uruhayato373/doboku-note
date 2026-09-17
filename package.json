@@ -313,6 +313,7 @@
     "note-convert-to-paid": "node scripts/note-convert-to-paid.mjs",
     "note-cover-gallery": "node scripts/note-cover-gallery.mjs",
     "note-character-covers": "node scripts/generate-note-character-covers.mjs",
+    "note-cover-rollout": "node scripts/note-cover-rollout.mjs",
     "note-delete-note": "node scripts/note-delete-note.mjs",
     "note-edit-magazine": "node scripts/note-edit-magazine.mjs",
     "note-edit-session": "node scripts/note-edit-session.mjs",
