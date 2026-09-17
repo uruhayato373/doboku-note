@@ -22,6 +22,7 @@ import 'katex/dist/katex.min.css';
 import rehypeHeadingIds from '@/lib/rehype-heading-ids';
 import rehypeExamReferences from '@/lib/rehype-exam-references';
 import rehypeMidCta from '@/lib/rehype-mid-cta';
+import rehypeScrollableFocus from '@/lib/rehype-scrollable-focus';
 import rehypeExternalLinks from 'rehype-external-links';
 import { MDXProvider } from '@mdx-js/react';
 import SafeMdx from '@/components/mdx/SafeMdx';
@@ -80,6 +81,7 @@ function buildMdxOptions(midCtaPositions?: readonly number[]) {
   const rehypePlugins: Pluggable[] = [
     rehypeHeadingIds,
     rehypeKatex,
+    rehypeScrollableFocus,
     rehypeExamReferences,
     [rehypeExternalLinks, { target: '_blank', rel: ['noopener', 'noreferrer'] }] satisfies Pluggable,
   ];
