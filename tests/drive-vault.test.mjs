@@ -242,3 +242,16 @@ test('serializeDriveManifest: 妥当な JSON で、entries は 1 件 1 行', () 
   assert.equal(vaultRelFor(path, dgroup('x-rendered-image')), '制作物/Xレンダー/draft/098-cem-textbook-diagrams/img/tweet-01-kpi.png');
   assert.notEqual(driveGroupFor('content/sns/x/draft/095-campaign/img/tweet-01-card.png', DCFG)?.id, 'x-rendered-image');
 });
+
+// 2026-09-17: --staged-only の再追跡検知は coexistWithGit: true の group（kindle-dist＝Git が正本・Drive は控え）を
+// 偽陽性にしない。routingFor は group id しか返さないので、判定は設定を引いて行う（check-drive-vault.mjs と同じ式）。
+test('drive-reentry: coexistWithGit の group は staged 再追跡とみなさない', () => {
+  const dcfg = loadDriveConfig();
+  const r = routingFor('scripts/kindle-dist/h-01.epub', loadR2Config(), dcfg);
+  assert.ok(r.driveActive.includes('kindle-dist'));
+  const strict = r.driveActive.filter((id) => !(dcfg.groups || []).find((g) => g.id === id)?.coexistWithGit);
+  assert.deepEqual(strict, []);
+  const r2 = routingFor('content/sns/instagram/video-packs/x/reels/cover.png', loadR2Config(), dcfg);
+  const strict2 = r2.driveActive.filter((id) => !(dcfg.groups || []).find((g) => g.id === id)?.coexistWithGit);
+  assert.ok(strict2.length >= 1, 'coexistWithGit でない Drive group は引き続き検知する');
+});

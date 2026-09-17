@@ -11,7 +11,9 @@
 //     "bookId": "c-01", "title": "...", "subtitle": "...", "price": 690,
 //     "examName": "技術士第二次試験",
 //     "sources": ["content/note/技術士建設部門/magazines/BK-01_道路/R08-yosou/II-1/article.md", ...],
-//     "frontMatter": "content/kindle/books/c-01/front-matter.md"  // 任意（出版時は必須）
+//     "frontMatter": "content/kindle/books/c-01/front-matter.md",  // 任意（出版時は必須）
+//     "creditBody": "…",        // 任意: 出典文を上書き（過去問非公開の RCCM 等）
+//     "chapterLabel": "headline" // 任意: 章ラベルに V4 カバーの cover.headline を使う（h 系）
 //   }
 
 import { readFileSync, existsSync, mkdirSync } from 'node:fs'
@@ -23,7 +25,10 @@ const REPO = resolve(import.meta.dirname, '..')
 const AUTHOR = 'doboku-note'
 const PUBLISHER = 'doboku-note'
 const DEFAULT_EXAM = '技術士第二次試験'
-const creditBody = (examName) =>
+// 出典文は既定で「日本技術士会の過去問題を出典」だが、RCCM（h 系）のように過去問が非公開で
+// 全て自作の書籍では偽になるため、spec.creditBody で上書きできる（2026-09-17）。
+const creditBody = (examName, override) =>
+  override ||
   `公益社団法人 日本技術士会が実施する${examName}の過去問題を出典としています。問題文の著作権は同会に帰属します。模範解答・解説および編集・再構成は著者によるものです。`
 const DISCLAIMER =
   '本書の模範解答は著者による一例であり、唯一の正解ではありません。法令・制度は改正されることがあるため、受験にあたっては必ず最新の一次情報をご確認ください。'
@@ -53,6 +58,9 @@ function splitFrontmatter(raw) {
   for (const line of m[1].split('\n')) {
     const kv = line.match(/^(\w[\w-]*):\s*(.*)$/)
     if (kv) fm[kv[1]] = kv[2].replace(/^["']|["']$/g, '')
+    // ネストした cover.headline（V4 カバー）だけは章ラベル用に拾う（他のネストキーは無視）。
+    const nk = line.match(/^\s+(headline):\s*(.*)$/)
+    if (nk && !fm[nk[1]]) fm[nk[1]] = nk[2].replace(/^["']|["']$/g, '')
   }
   return { fm, body: src.slice(m[0].length) }
 }
@@ -107,8 +115,10 @@ function stripNoteCta(body) {
     out = kept.join('\n')
   }
   // (2) インライン note CTA 行を除去（価格・完全パック・R8予想誘導・magazine 案内・note.com）
+  //     2026-09-17（h-01 QA）: マーカー無しの素の段落「本記事は有料マガジン **…** の収録記事です。…」と、
+  //     URL 除去後に宙に浮く「…はこちらです。」型の 1 文も、Kindle では別商品への誘導になるので落とす。
   out = out.split('\n').filter((l) =>
-    !/もあわせてご覧ください|「完全パック」|magazine ¥|magazine セット|単品[^\S\n]*[:：]|21%OFF|｜note|note\.com/.test(l),
+    !/もあわせてご覧ください|「完全パック」|magazine ¥|magazine セット|単品[^\S\n]*[:：]|21%OFF|｜note|note\.com|^本記事は有料マガジン|^[^。\n]{0,40}はこちらです。$/.test(l),
   ).join('\n')
   // (3) CTA 除去で生じた連続区切り/空行を整理し、末尾の孤立区切りを落とす
   out = out.replace(/(?:^|\n)---[^\S\n]*(?=\n[^\S\n]*---)/g, '').replace(/\n{3,}/g, '\n\n').replace(/(?:\n[^\S\n]*---[^\S\n]*)+[\s]*$/, '\n')
@@ -154,7 +164,7 @@ function main() {
     id: 'p-credit', href: 'p-credit.xhtml', label: '出典・免責',
     content: xhtmlDoc('出典・免責',
       `<div class="front"><h1>出典・免責</h1>
-<p class="credit"><strong>出典</strong><br/>${xesc(creditBody(spec.examName || DEFAULT_EXAM))}</p>
+<p class="credit"><strong>出典</strong><br/>${xesc(creditBody(spec.examName || DEFAULT_EXAM, spec.creditBody))}</p>
 <p class="credit"><strong>免責</strong><br/>${xesc(DISCLAIMER)}</p>
 <p class="credit"><strong>著者</strong>　${xesc(AUTHOR)}<br/><strong>発行</strong>　${xesc(PUBLISHER)}</p></div>`),
   })
@@ -180,7 +190,9 @@ function main() {
     const cleaned = stripLinks(stripNoteCta(stripNoteSections(body, dropRes)))
     chap++
     const id = `chap-${String(chap).padStart(2, '0')}`
-    const label = fm.theme || fm.coverTitle || basename(resolve(srcPath, '..'))
+    // 章ラベル: fm.theme / fm.coverTitle（旧 C/F 系）→ spec.chapterLabel === 'headline' のときだけ V4 カバーの
+    // cover.headline（`  headline:` ネスト）→ dir 名。opt-in なのは、F 系（R03〜R07 の年度 dir）の既刊 TOC を変えないため（2026-09-17 h-01 QA）。
+    const label = fm.theme || fm.coverTitle || (spec.chapterLabel === 'headline' ? fm.headline : null) || basename(resolve(srcPath, '..'))
     pages.push({
       id, href: `${id}.xhtml`, label,
       content: xhtmlDoc(label, `<div class="essay">${mdToXhtml(cleaned)}</div>`),
@@ -196,7 +208,7 @@ function main() {
         publisher: PUBLISHER,
         description: spec.description ||
           `${spec.examName || DEFAULT_EXAM}「${spec.title}」の模範解答集。`,
-        rights: creditBody(spec.examName || DEFAULT_EXAM),
+        rights: creditBody(spec.examName || DEFAULT_EXAM, spec.creditBody),
       },
       css: ESSAY_CSS,
       pages,

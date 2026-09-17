@@ -1058,6 +1058,21 @@ const MAGAZINES_RAW = {
     ctaPose: 'pointing',
   },
 
+  // 建設部門 口頭試験対策（2026-09-17 下書き・¥1,980・改訂コンピテンシー対応の想定問答 33 問）。筆記合格発表 D 当日に公開（DN-0248）。
+  // guide-fact-checker で 720 字・20 分・4 試問事項・技術士法 3 義務 2 責務・改訂 4 項目を照合済み。published:false の間はサイト CTA に出ない。
+  'pe-construction-oral-guide': {
+    id: 'pe-construction-oral-guide',
+    published: false,
+    noteUrl: '',
+    title: '技術士 建設部門｜口頭試験対策（令和8年度 改訂コンピテンシー対応の想定問答バンクと準備ロードマップ）',
+    description:
+      '技術士第二次試験 建設部門の口頭試験を、改訂コンピテンシーに対応した4つの試問事項（コミュニケーション・リーダーシップ／評価・マネジメント／技術者倫理／継続研さん）ごとの想定問答33問と、筆記合格発表から当日までの週次ロードマップで準備する。業務経歴票720字を口頭2分に圧縮する型、落ちる回答の型5つ、当日チェックリスト付き。想定問答は運営者が独自に作成したもので、実際の出題を再現したものではありません。',
+    shortTitle: '建設部門 口頭試験対策',
+    shortDescription: '改訂コンピテンシー対応の想定問答33問＋合格発表後の週次ロードマップ。',
+    price: '¥1,980',
+    badge: 'note 限定',
+  },
+
   // 技術士 建設部門 2次（BK シリーズ）。公開済み（published:true・noteUrl 埋め済み）。
   // CTA は pe-construction-r0X-required ページ等で発火。価格ラダーは各エントリ price 参照。
   'pe-construction-required-magazine': {

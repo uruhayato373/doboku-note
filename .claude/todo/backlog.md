@@ -46,6 +46,8 @@
 
 **やること**: ヒアリング回答 → §8 と本文 3 箇所を書き換え → note meta＋`paidBoundary`（第 4 章 H2）→ `/note-prepublish-review` → `noteStatus: draft` で待機。建設部門版（R8 改訂コンピテンシー別想定問答）を親が下書き → `pe-secondary-exam-factcheck`＋`guide-fact-checker`。無料「筆記合格発表後にやること」総監/建設 各 1 本。発表日 D は engineer.or.jp の公式掲載で確認し `exam-calendar.json` へ入れてから、D 当日に 4 本公開・CTA 配線・X `2026-11-pe-oral.json`。
 
+**進捗（2026-09-17）**: 建設部門 口頭対策 `content/note/技術士建設部門/magazines/建設部門-口頭試験対策/article.md`（¥1,980・想定問答 33 問・guide-fact-checker 済・`noteStatus: draft`・SKU `pe-construction-oral-guide` published:false）と無料「筆記合格発表後にやること」総監/建設 2 本（draft）を作成済み。残り＝総監 完全版の hearing-sheet 反映と D 当日の公開・配線。
+
 **完了条件**: D 当日に 4 本ライブ、`audit-note-funnel` ドリフト 0、X 11 月計画が `check-x-campaign-plan` 緑。
 
 ### [DN-0249] note 流入元・記事別 PV を月次で機械取得する `note-traffic-fetch` を新設し週次レビューへ配線する
