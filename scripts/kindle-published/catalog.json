@@ -1369,9 +1369,14 @@
           "version": "1.0",
           "date": "2026-09-17",
           "change": "制作完了(EPUB＋前付け＋表紙＋kdp-memo)・kindle-book-qa の指摘（note 誘導段落の残留・目次ラベル）を builder で是正・KDP提出待ち（KDP Select OFF＝note 併売）"
+        },
+        {
+          "version": "1.0",
+          "date": "2026-09-17",
+          "change": "KDP 下書き保存（draft A14KZQN4AVIH1Q・¥980・KDP Select OFF＝JP 35%）。出版は運営者確認後に --publish-only --commit-publish"
         }
       ],
-      "draftAsin": null,
+      "draftAsin": "A14KZQN4AVIH1Q",
       "publishedDate": null
     }
   ]

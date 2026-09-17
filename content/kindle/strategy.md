@@ -524,7 +524,7 @@
 
 | # | 内容 | ASIN | 出版日 | 価格 | 状態 |
 |---|---|---|---|---|---|
-| H-01 | 2026年度 公開6テーマ 模範論文集（序章＋6テーマ・note m770bef96b39f と同一原稿） | — | 未提出 | ¥980（QA は note ¥3,480 比 28% を指摘・C 系前例に倣い ¥1,250 も検討） | **ready**（2026-09-17 EPUB＋表紙＋kdp-memo 完成・epubcheck 0/0/0・KDP Select OFF＝note 併売。KDP はログイン切れで下書き未提出） |
+| H-01 | 2026年度 公開6テーマ 模範論文集（序章＋6テーマ・note m770bef96b39f と同一原稿） | draft A14KZQN4AVIH1Q | 未出版（下書き 2026-09-17） | ¥980（QA は note ¥3,480 比 28% を指摘・C 系前例に倣い ¥1,250 も検討） | **ready**（2026-09-17 EPUB＋表紙＋kdp-memo 完成・epubcheck 0/0/0・KDP Select OFF＝note 併売。KDP はログイン切れで下書き未提出） |
 
 > H 系は過去問非公開の資格なので、`build-essay-kindle.mjs` の出典文を `spec.creditBody` で「協会公開テーマを一次出典・過去問は一切収録せず全て自作」へ上書きする（既定文「日本技術士会の過去問題を出典」は偽になる）。章ラベルは `spec.chapterLabel: "headline"` で V4 カバーの短名を使う。
 
