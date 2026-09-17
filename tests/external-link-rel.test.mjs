@@ -17,7 +17,7 @@ function tsx(code) {
 
 test('externalLinkRel: note.com は noopener のみ、他は noopener noreferrer', () => {
   const out = tsx(`
-    import { externalLinkRel, isNoteUrl } from './src/lib/external-link-rel.ts';
+    import { externalLinkRel } from './src/lib/external-link-rel.ts';
     process.stdout.write(JSON.stringify({
       mag: externalLinkRel('https://note.com/dobokunote/m/m0123456789ab?utm_source=doboku-note'),
       note: externalLinkRel('https://note.com/dobokunote/n/n0123456789ab'),
@@ -26,7 +26,7 @@ test('externalLinkRel: note.com は noopener のみ、他は noopener noreferrer
       coconala: externalLinkRel('https://coconala.com/services/1'),
       lookalike: externalLinkRel('https://note.com.example.org/x'),
       http: externalLinkRel('http://note.com/dobokunote'),
-      isNote: isNoteUrl('https://note.com/dobokunote'),
+      isNote: externalLinkRel('https://note.com/dobokunote') === 'noopener',
     }));
   `);
   const r = JSON.parse(out);

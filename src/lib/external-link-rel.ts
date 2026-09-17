@@ -7,11 +7,11 @@
  * tab-napping 対策は `noopener` で足りる。note 以外の外部サイトは従来どおり referrer を渡さない。
  */
 export const NOTE_LINK_REL = 'noopener';
-export const EXTERNAL_LINK_REL = 'noopener noreferrer';
+const EXTERNAL_LINK_REL = 'noopener noreferrer';
 
 const NOTE_ORIGIN = /^https:\/\/(www\.)?note\.com(\/|$)/;
 
-export function isNoteUrl(url: string): boolean {
+function isNoteUrl(url: string): boolean {
   return NOTE_ORIGIN.test(url);
 }
 
