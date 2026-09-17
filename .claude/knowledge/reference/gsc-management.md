@@ -522,6 +522,6 @@ EXP-006 の本判定は予定どおり next_check 2026-08-27 に、カバレッ�
 - 打ち手 1（PR #517）: pre-commit が frontmatter だけの一括 commit（tags 付与・sources 結線）でも `dateModified` を更新し、**2 週間で sitemap 1,556 件中 1,209 件の lastmod が「更新」扱い**になっていた。本文・title・seoTitle・description が変わらない diff では据え置く。lastmod を信用できる信号に戻し、再クロール枠を未クロール側へ回す
 - 打ち手 2（同 PR）: `gsc-request-indexing` を正規パス対応にし、検出-未登録 10 本へ登録リクエスト送信（受理 10 / button-not-found 1 = law-compliance の重複判定ページ / 上限持ち越し 2）。EXP-006（crawled-not-indexed 対象）と違い、今回の対象は**未クロール**なので「強制クロール」として直接効く前提。効果は 9/24 の中間 Inspection と 10/1 月次で読む
 - 打ち手 3（同 PR）: R8 予想問題テーマ 6 本の `hideFromCategory` を外す（被リンク 1 本＝sitemap 中で最弱・6 本とも未登録）
-- 判断保留（人間）: `/standards/` の分冊ページ（九州 `part-01` 50・近畿 `chapters/*` 43 ほか）は被リンク 1〜5 本・4 週で表示 5・クリック 0。中核 `/exam/` が索引 70% へ戻るまで sitemap から外すかは戦略判断
+- 打ち手 4（ユーザー承認・同 PR）: `/standards/` の逐語分冊 `part-N` **133 件を sitemap から一時除外**（1,556→1,423）。実測は被リンク中央値 4 本・4 週で表示 104・クリック 3。近畿 `chapters/N` 43 件は IA 設計（05_情報アーキテクチャ.md）で検索の主導線なので残す。noindex ではなくページ・内部リンク・index 済み 25 件はそのまま。**復帰条件**: `/exam/` の索引率が 70% へ戻る、または 10/1 月次で再判断（`generate-sitemap.mjs` の除外 1 行を消すだけ）
 - 触らない: インターフェアリングフロート seoTitle 実験（8/26 開始・判定 9/23）
 - 次回: 9/24 頃に `index-coverage.yml` を workflow_dispatch で中間計測（quota 1,516/2,000）→ 10/1 月次で本判定。残る優先 URL（`.tmp/gsc-priority-urls.txt` の 43 件目以降）は日次上限 10 件で継続

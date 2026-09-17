@@ -132,6 +132,15 @@ function getUrlMeta(urlPath, slug) {
   if (/^\/exam\/[^/]+$/.test(urlPath) || /^\/standards\/[^/]+$/.test(urlPath) || /^\/topics\/[^/]+$/.test(urlPath)) {
     return { priority: '0.8', changefreq: 'monthly' };
   }
+  // 2026-09-17: 8/22 の URL 移行で /exam 中核 723 件が「検出-未登録」（再クロール待ち）の間、
+  // 基準類の逐語分冊（part-N 133 件・原典照合用の二次層）は sitemap から外して待ち行列を短くする。
+  // 実測: 被リンク中央値 4 本・4 週で表示 104・クリック 3。章記事（chapters/N）は検索の主導線
+  // （docs/strategy/05_情報アーキテクチャ.md）なので残す。ページ・内部リンク・index 済み分は
+  // そのまま（noindex ではない）。復帰条件は gsc-management.md 2026-09-17 エントリ
+  // （/exam の索引率が 70% へ戻る、または 10/1 月次で再判断）。
+  if (/^\/standards\/[^/]+\/[^/]+\/part-\d+$/.test(urlPath)) {
+    return null;
+  }
   // 基準類の章記事。編・章・節で構造化した検索インデックスの中心（逐語の分冊ページより上に置く）。
   // 改訂は年単位なので changefreq は yearly。canonical でない機関の章は noindex なので
   // out/ の robots メタ検査（下の noindex 除外）で自動的にここへ来ない。
