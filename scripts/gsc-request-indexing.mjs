@@ -329,6 +329,7 @@ async function main() {
     filter: result.filter,
     ...result.summary,
     slugs: result.items.map((i) => i.slug),
+    acceptedSlugs: result.items.filter((i) => i.request?.requested).map((i) => i.slug),
   });
   hist.runs.sort((a, b) => String(a.runId).localeCompare(String(b.runId)));
   writeFileSync(hp, JSON.stringify(hist, null, 2), "utf-8");

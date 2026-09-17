@@ -70,7 +70,7 @@ function scanHeadings(md) {
       date,
       inner,
       weekly: inner.includes("週次") || inner.includes("/weekly-improve"),
-      monthly: inner.includes("月次") || inner.includes("/gsc-review"),
+      monthly: inner.includes("月次") || inner.includes("coverage") || inner.includes("/gsc-review"),
       auto: inner.includes("自動レビュー"),
     });
   }
@@ -158,7 +158,7 @@ function evalWeekly() {
 
 // ── monthly-auto ─────────────────────────────────────────────────
 function evalMonthly() {
-  const label = "GSC自動レビュー(月次)";
+  const label = "GSC自動レビュー(coverage)";
   const command = `対話セッションで /routines（list-first）→ 停止なら再作成 / 応急は /gsc-review`;
   if (brokenInspection) {
     return {

@@ -167,7 +167,7 @@ jobs:
             **したがってあなたはリポジトリのファイルを一切書きません。** 代わりに:
 
             - 週次エントリ → `/tmp/weekly-entry.md` に**追記する本文だけ**を書く
-            - 月次エントリ → `/tmp/monthly-entry.md` に同様に書く
+            - coverage エントリ → `/tmp/monthly-entry.md` に同様に書く（ファイル名は歴史的に monthly のまま）
             - metrics-analyzer の分析結果 → `/tmp/improvements.md` に書く
             - **commit / push もしない**
 
@@ -205,16 +205,16 @@ jobs:
             2. 返ってきた内容を `/tmp/improvements.md` に Write する（後続 bash が所定パスへ配置する）
             3. Phase 0-4 で除外すべき候補を落としたうえで、`/tmp/weekly-entry.md` に**追記本文だけ**を Write する（**20 行以内**。上位 3 件まで、残りは「他 N 件 → improvements/{TODAY}.md」と参照で済ませる。問題なしの軸は 1 行で「✓」）。1 行目は必ず `### {TODAY}（週次・自動レビュー）` とし、続けて **観測**（窓とパターン別件数を 1 行）/ **上位候補と推奨**（URL・数値・推奨アクションを最大 3 件）/ **自動裁定**（各候補に「推奨=実験化候補」「見送り(理由)」「保留(再浮上条件)」を 1 行ずつ）/ **注記**（自動生成・人間の上書き歓迎）の 4 ブロック
 
-            ## Phase 2: 月次 coverage 記録（条件付き）
+            ## Phase 2: coverage 記録（新しい inspection-batch があるときだけ・index-coverage.yml は週次）
 
-            1. **整合ゲート**: `.claude/state/metrics/gsc/index-coverage-history.json` の**最終エントリだけ**を `tail` 相当の手段で見て、`gates.latestBatch` と同月か確かめる。同月でなければ月次エントリは書かず `【要確認】batch はあるが history 未追記（append-coverage-history の失敗疑い）` として報告のみ
+            1. **整合ゲート**: `.claude/state/metrics/gsc/index-coverage-history.json` の**最終エントリだけ**を `tail` 相当の手段で見て、`gates.latestBatch` と同じ日付か確かめる。違えば coverage エントリは書かず `【要確認】batch はあるが history 未追記（append-coverage-history の失敗疑い）` として報告のみ
             2. サブエージェント `gsc-index-auditor`（sonnet）を**同期で**起動し、最新 batch（1,000 件超）と history を診断させる。**batch JSON をあなたが開かない**。**Phase 1 の `/tmp/weekly-entry.md` を書き終えてから**起動すること（週次を人質にしない）
             3. **異常判定**（1 つでも該当なら最終報告を【要確認】にする）: indexed_ratio < 60% / 前回比 −5pt 超の低下 / discovered_not_indexed が sitemap の 20% 超 / hygiene（404+redirect）> 0 / inspected < sitemap_urls / batch の results が空 or 前回比 50% 以上減
-            4. `/tmp/monthly-entry.md` に**追記本文だけ**を Write する（**25 行以内**。hygiene URL は代表 3 件＋総数）。1 行目は `### {TODAY}（月次・自動レビュー）` とし、続けて **観測**（history.json の該当月エントリを正として inspected/sitemap/indexed/ratio/前回比/discovered/crawled-not-indexed/hygiene）/ **原因バケット**（権威性・技術・hygiene の auditor 判定を各 1 行）/ **推奨アクション**（本 doc 上部の「判断マトリクス」に沿って 1〜3 行）/ **異常フラグ**（該当項目。なければ「なし」）/ **注記**（自動生成・最終決定は人間）
+            4. `/tmp/monthly-entry.md` に**追記本文だけ**を Write する（**25 行以内**。hygiene URL は代表 3 件＋総数）。1 行目は `### {TODAY}（coverage・自動レビュー）` とし、続けて **観測**（history.json の該当 batch エントリを正として inspected/sitemap/indexed/ratio/前回比/discovered/crawled-not-indexed/hygiene）/ **原因バケット**（権威性・技術・hygiene の auditor 判定を各 1 行）/ **推奨アクション**（本 doc 上部の「判断マトリクス」に沿って 1〜3 行）/ **異常フラグ**（該当項目。なければ「なし」）/ **注記**（自動生成・最終決定は人間）
 
             ## Phase 3: 報告
 
-            1. **異常なし**: 3 行以内の要約で静かに終わる（「週次: /tmp/weekly-entry.md に出力（候補 N 件）/ 月次: スキップ or 出力済み」）
+            1. **異常なし**: 3 行以内の要約で静かに終わる（「週次: /tmp/weekly-entry.md に出力（候補 N 件）/ coverage: スキップ or 出力済み」）
             2. **異常あり**（Phase 0 の鮮度ゲート・Phase 2 の異常判定）: 最終報告の先頭を `【要確認】` にして数値と回復コマンドを列挙し、**GitHub Issue に記録する**:
                `node scripts/report-automation-failure.mjs --channel gsc-auto-review --title "<事象を 1 行で>" --body-file /tmp/body.md`
                このスクリプトが重複防止（同 channel の open Issue があればコメント追記）を担う
@@ -275,7 +275,7 @@ jobs:
           echo "--- 断片の検証 ---"
           set +e
           validate /tmp/weekly-entry.md "週次" 20;  W=$?
-          validate /tmp/monthly-entry.md "月次" 25; M=$?
+          validate /tmp/monthly-entry.md "coverage" 25; M=$?
           set -e
           [ "$W" = 2 ] && exit 1
           [ "$M" = 2 ] && exit 1
@@ -343,9 +343,9 @@ jobs:
               console.error("::error::週次の記録が必要だったのに追記されていない（Claude は成功終了したが仕事をしていない）。artifact の claude-execution-log を確認する");
               process.exit(1);
             }
-            // 月次は整合ゲート（history 未追記）で正当にスキップされうるので warning に留める。
+            // coverage は整合ゲート（history 未追記）で正当にスキップされうるので warning に留める。
             if (!monthlyBefore && !after.monthlyAlreadyLogged) {
-              console.log("::warning::月次の記録が未追記のまま。整合ゲートで止まった可能性（Claude の最終報告を確認）");
+              console.log("::warning::coverage の記録が未追記のまま。整合ゲートで止まった可能性（Claude の最終報告を確認）");
             }
             console.log("[verify] 記録層の更新を確認");
           '
