@@ -1028,6 +1028,35 @@ const MAGAZINES_RAW = {
     price: '¥1,280',
     badge: 'note 限定 教材',
   },
+  // コンクリート技士 直前暗記ノート（2026-09-17・n0bbd4a5a8b57・¥780・境界=コンクリートの性質と試験）。技士テキスト 6 章＋配合計算・JIS判断 12 問から一問一答へ再構成。
+  'ce-anki-note': {
+    id: 'ce-anki-note',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/n/n0bbd4a5a8b57',
+    title: 'コンクリート技士｜四肢択一 直前暗記ノート（一問一答139問・6分野の数値と定義）',
+    description:
+      'コンクリート技士 四肢択一の6分野（材料・性質と試験・配合・製造品質管理・施工・環境と耐久性）の頻出数値・定義・配合計算の公式を一問一答139問に整理した暗記ノート。出題分野から独自に整理。最初の分野（コンクリート用材料）は無料。',
+    shortTitle: '技士 択一 直前暗記ノート',
+    shortDescription: '6分野の数値・定義・公式を一問一答139問に。材料の分野は無料。',
+    price: '¥780',
+    badge: 'note 限定 教材',
+  },
+  // コンクリート技士 択一 直前パック（2026-09-17・note key m49ac37c76bef）。配合計算・JIS判断 12 問＋直前暗記ノート（単品計 ¥2,060 → ¥1,480）。
+  'ce-chokuzen-pack': {
+    id: 'ce-chokuzen-pack',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m49ac37c76bef',
+    title: 'コンクリート技士 択一｜直前パック（配合計算・JIS判断 実戦演習12問＋直前暗記ノート）',
+    description:
+      'コンクリート技士試験（11/29）の四肢択一を直前期に2点で仕上げるパック。配合計算・JIS判断 実戦演習12問（途中式・全選択肢解説）で計算と判断の手順を固め、直前暗記ノート（一問一答139問）で数値・定義の抜けを潰す。単品合計¥2,060が¥1,480。',
+    shortTitle: '技士 択一 直前パック',
+    shortDescription: '配合計算・JIS判断12問＋暗記139問の2点セット、単品合計¥2,060が¥1,480。',
+    price: '¥1,480（配合計算＋暗記ノート・単品合計¥2,060、約28%OFF）',
+    badge: 'note 限定 直前パック',
+    ctaCatch: '技士の択一は、計算と暗記の2点で仕上げる',
+    ctaButton: '直前パックを見てみる',
+    ctaPose: 'pointing',
+  },
 
   // 技術士 建設部門 2次（BK シリーズ）。公開済み（published:true・noteUrl 埋め済み）。
   // CTA は pe-construction-r0X-required ページ等で発火。価格ラダーは各エントリ price 参照。
@@ -1260,6 +1289,35 @@ const MAGAZINES_RAW = {
       '技術士 第一次試験（建設部門）の令和元〜7年度 全7年分・基礎科目210問＋適性科目105問＋専門科目245問＝全560問を収録。公式正答番号のある559問は全選択肢の正誤理由を解説し、残る1問も正答を断定せず5肢の論点を整理。11週間の学習計画・周回記録・3科目の答案記入シートも付いたA4印刷用PDF。',
     price: '¥1,480',
     badge: 'note 限定 PDF教材',
+  },
+  // 技術士 第一次 直前暗記ノート（2026-09-17・n7b4f17a09d3f・¥980・境界=適性科目｜技術士法と倫理）。基礎 5 群・適性・専門建設部門のガイド 6 本から一問一答へ再構成。
+  'pe1-anki-note': {
+    id: 'pe1-anki-note',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/n/n7b4f17a09d3f',
+    title: '技術士 第一次試験｜直前暗記ノート（一問一答156問・基礎科目・適性科目・専門科目 建設部門）',
+    description:
+      '技術士 第一次試験の基礎科目（5群の頻出論点と3群解析の公式）・適性科目（技術士法第4章の3義務2責務・倫理綱領・知財・情報・労働・環境）・専門科目 建設部門（分野別の頻出数値と定義）を一問一答156問に整理した暗記ノート。最初の科目（基礎科目）は無料。',
+    shortTitle: '技術士一次 直前暗記ノート',
+    shortDescription: '基礎・適性・専門建設部門の頻出を一問一答156問に。基礎科目は無料。',
+    price: '¥980',
+    badge: 'note 限定 教材',
+  },
+  // 技術士 第一次 直前パック（2026-09-17・note key mfa3fcffdd85d）。過去問PDF 合本＋直前暗記ノート（単品計 ¥2,460 → ¥1,980）。
+  'pe1-chokuzen-pack': {
+    id: 'pe1-chokuzen-pack',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/mfa3fcffdd85d',
+    title: '技術士 第一次試験｜直前パック（過去問PDF 合本 全560問＋直前暗記ノート）',
+    description:
+      '技術士 第一次試験（11/22）を直前期に2点で仕上げるパック。令和元〜7年度 全560問の過去問PDF 合本（全選択肢解説・A4印刷用）で「全選択肢を根拠から説明できる」状態をつくり、直前暗記ノート（一問一答156問）で数値・条文・公式の抜けを潰す。単品合計¥2,460が¥1,980。',
+    shortTitle: '技術士一次 直前パック',
+    shortDescription: '過去問PDF 全560問＋暗記156問の2点セット、単品合計¥2,460が¥1,980。',
+    price: '¥1,980（過去問PDF＋暗記ノート・単品合計¥2,460、約20%OFF）',
+    badge: 'note 限定 直前パック',
+    ctaCatch: '一次は、過去問と暗記の2点で仕上げる',
+    ctaButton: '直前パックを見てみる',
+    ctaPose: 'pointing',
   },
   'tankan-takuitsu-reiwa-pdf': {
     id: 'tankan-takuitsu-reiwa-pdf',

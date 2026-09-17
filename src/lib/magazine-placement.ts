@@ -755,6 +755,13 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
       inline: [],
     };
   }
+  // 10.7. コンクリート技士 その他の体系テキスト 4 章 → 直前暗記ノート、概要・学習計画 → 択一 直前パック（2026-09-17・wire-ahead）。
+  if (/^concrete-engineer-textbook-(materials|properties-testing|construction|environment)$/.test(slug)) {
+    return { top: slot('ce-anki-note', slug, 'top'), inline: [] };
+  }
+  if (slug === 'concrete-engineer-guide-overview' || slug === 'concrete-engineer-guide-study-plan') {
+    return { top: slot('ce-chokuzen-pack', slug, 'top'), inline: [] };
+  }
 
   // 11. 高流入なのに note 導線が無かった 5 面（DN-0128・2026-08-25）。
   //     W33/W34/W35 と 3 週続けて Must に挙がり続けた面のうち、実際に未配線だったもの。
@@ -773,6 +780,14 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   // 総監 r0X-primary → 択一 過去問PDF（4.2）と同型。group=primary なので inline は描画されない。
   if (/^pe-first-stage-r0[1-9]-(basic|aptitude|construction)$/.test(slug)) {
     return { top: slot('pe1-takuitsu-pdf', slug, 'top'), inline: [] };
+  }
+  // 技術士 第一次試験 ガイド（2026-09-17）: 科目ガイド・計算ガイドは直前暗記ノート、概要・学習計画は直前パック（過去問PDF＋暗記）を top。
+  // published:false の間は slot() が空になり露出しない（wire-ahead）。
+  if (/^pe-first-stage-guide-(basic-subject|aptitude-subject|construction-subject|calculus-numerical-calculation|matrix-vector-calculation|resistance-circuit-calculation)$/.test(slug)) {
+    return { top: slot('pe1-anki-note', slug, 'top'), inline: [] };
+  }
+  if (slug === 'pe-first-stage-guide-overview' || slug === 'pe-first-stage-guide-study-plan') {
+    return { top: slot('pe1-chokuzen-pack', slug, 'top'), inline: [] };
   }
 
   // コンクリート主任技士 テキスト/過去問 → 小論文 入口マガジン（¥2,480 5本セット）。

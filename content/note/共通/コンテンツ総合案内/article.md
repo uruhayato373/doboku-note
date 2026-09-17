@@ -81,6 +81,12 @@ doboku-note をご覧いただきありがとうございます。まず、あ�
 
 https://note.com/dobokunote/n/n466132e6fd74
 
+直前期は、基礎5群・適性・専門建設部門の頻出論点を一問一答にした直前暗記ノート（最初の科目は無料）と、過去問PDFと暗記ノートを束ねた直前パックがあります。
+
+https://note.com/dobokunote/n/n7b4f17a09d3f
+
+https://note.com/dobokunote/m/mfa3fcffdd85d
+
 ---
 
 ## サイト・SNS
@@ -99,7 +105,7 @@ https://note.com/dobokunote/n/n466132e6fd74
 - **施工管理技士の経験記述で詰まっている** → [土木もくじ](https://note.com/dobokunote/n/n4fde0f62dc20)
 - **コンクリート技士・主任技士・診断士を対策したい** → [コンクリート資格もくじ](https://note.com/dobokunote/n/nd59f471c9214)
 - **RCCM 問題III 管理技術力の模範論文がほしい** → [RCCMもくじ](https://note.com/dobokunote/n/nd297cb9b31e0)
-- **技術士第一次試験を過去問で進めたい** → [令和元〜7年度 全560問の過去問PDF](https://note.com/dobokunote/n/n466132e6fd74)
+- **技術士第一次試験を過去問で進めたい** → [令和元〜7年度 全560問の過去問PDF](https://note.com/dobokunote/n/n466132e6fd74)／直前は[過去問PDF＋暗記ノートの直前パック](https://note.com/dobokunote/m/mfa3fcffdd85d)
 - **どの資格を受けるか迷っている** → 上の各資格の説明を読み比べてください
 
 ---

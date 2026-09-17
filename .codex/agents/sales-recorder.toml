@@ -104,6 +104,8 @@ kuro
 | `コンクリート主任技士 小論文｜実務立場別 模範答案集`（¥5,980・33本） | `cce-essay-persona-pack` |
 | `コンクリート主任技士 まるごとパック`（¥9,800・42記事＝小論文2マガジン＋択一予想50問＋配合計算12問＋直前暗記ノート） | `cce-marugoto-pack` |
 | `コンクリート主任技士 択一｜直前パック`（¥2,980・予想50問＋配合計算＋直前暗記ノート・2026-09-17 新設） | `cce-takuitsu-chokuzen-pack` |
+| `技術士 第一次試験｜直前パック`（¥1,980・過去問PDF 合本＋直前暗記ノート・2026-09-17 新設） | `pe1-chokuzen-pack` |
+| `コンクリート技士 択一｜直前パック`（¥1,480・配合計算・JIS判断12問＋直前暗記ノート・2026-09-17 新設） | `ce-chokuzen-pack` |
 | `RCCM問題III｜2026年度 6テーマ 模範論文集`（¥3,480・6本＋序章） | `rccm-mondai3-magazine` |
 | `RCCM まるごとパック（問題I〜IV 全対応）`（¥5,980・問題III マガジン＋問題I テンプレ＋択一予想50問＋直前暗記ノート＝10記事・2026-09-16 新設） | `rccm-marugoto-pack` |
 
@@ -145,6 +147,7 @@ productId は `article:<slug>` 形式。slug は商品名から推定:
 | `コンクリート主任技士｜令和8年度 四肢択一 予想50問` | `article:cce-r8-mc-50` |
 | `コンクリート主任技士｜四肢択一 直前暗記ノート`（¥980・2026-09-17） | `article:cce-anki-note` |
 | `コンクリート技士｜配合計算・JIS判断 実戦演習12問` | `article:ce-mix-jis-practice` |
+| `コンクリート技士｜四肢択一 直前暗記ノート`（¥780・2026-09-17） | `article:ce-anki-note` |
 | `技術士 建設部門｜道路 R8予想 選択科目II-1` | `article:bk-01-road-r8-yosou-ii1` |
 | `技術士 建設部門｜道路 R8予想 選択科目II-2` | `article:bk-01-road-r8-yosou-ii2-*` |
 | `技術士 建設部門｜道路 R8予想 選択科目III` | `article:bk-01-road-r8-yosou-iii-*` |
@@ -159,6 +162,7 @@ productId は `article:<slug>` 形式。slug は商品名から推定:
 | `2級土木 第1次検定｜過去問PDF` / `2級土木 一次 過去問PDF`（Kindle択一の従チャネル・¥1,480） | `article:civil-2-takuitsu-pdf` |
 | `1級土木 第1次検定｜過去問PDF` / `1級土木 一次 過去問PDF`（Kindle択一の従チャネル・¥1,980） | `article:civil-1-takuitsu-pdf` |
 | `技術士 第一次試験｜過去問PDF 合本` / `技術士一次 過去問PDF`（¥1,480） | `article:pe1-takuitsu-pdf` |
+| `技術士 第一次試験｜直前暗記ノート`（¥980・2026-09-17） | `article:pe1-anki-note` |
 | `技術士 総合技術監理部門｜択一 過去問PDF 令和` / `総監 択一過去問PDF 令和`（¥980） | `article:tankan-takuitsu-reiwa-pdf` |
 | `技術士 総合技術監理部門｜択一 過去問PDF 平成` / `総監 択一過去問PDF 平成`（¥980） | `article:tankan-takuitsu-heisei-pdf` |
 

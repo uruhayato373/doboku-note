@@ -85,17 +85,18 @@ content/note/
 ### 択一過去問PDF 従チャネル（横断・Kindle 併売）
 
 - Kindle 択一シリーズと同一原稿の A4 PDF を有料 note 単発記事として併売する従チャネル。対象 4 商品＝2級土木一次（`civil-2-takuitsu-pdf`・上記 1級・2級土木配下）／技術士一次（`pe1-takuitsu-pdf`）／総監 令和（`tankan-takuitsu-reiwa-pdf`）／総監 平成（`tankan-takuitsu-heisei-pdf`）。**全4商品 2026-07-12 公開済**。真実源＝`content/kindle/strategy.md`・`src/lib/note-magazines.ts`
+- 2026-09-17: `技術士一次/magazines/` に直前暗記ノート（`pe1-anki-note`・¥980）と直前パック（`pe1-chokuzen-pack`・¥1,980・過去問PDF＋暗記）を追加。コンクリート技士も `コンクリート技士/magazines/` に直前暗記ノート（`ce-anki-note`・¥780）と択一 直前パック（`ce-chokuzen-pack`・¥1,480）
 
 ### RCCM（`RCCM/`）— 2026-09-15 新設
 
-- **有料**（`RCCM/magazines/`）: 問題III 管理技術力｜2026年度 公開6テーマ 模範論文集（`rccm-mondai3-magazine`・¥3,480・単品¥780×6＋序章無料）／問題I 業務経験論文テンプレ（`rccm-mondai1-template`・¥1,980）／問題II・IV 論点集と予想50問（`rccm-takuitsu-yosou-50`・¥1,480）。2026 年度は CBT 試験期間 9/1〜10/31 の直前期に投入
+- **有料**（`RCCM/magazines/`）: 問題III 管理技術力｜2026年度 公開6テーマ 模範論文集（`rccm-mondai3-magazine`・¥3,480・単品¥780×6＋序章無料）／問題I 業務経験論文テンプレ（`rccm-mondai1-template`・¥1,980）／問題II・IV 論点集と予想50問（`rccm-takuitsu-yosou-50`・¥1,480）／択一 直前暗記ノート（`rccm-anki-note`・¥980・2026-09-17）／まるごとパック（`rccm-marugoto-pack`・¥5,980・上 4 商品 10 記事・2026-09-16）。2026 年度は CBT 試験期間 9/1〜10/31 の直前期に投入
 - **無料**: `RCCMもくじ`（L2）＋ lead-in 3 本（指定語の使い方／落ちる業務経験論文／CBT 直前 2 週間の学習計画）
 - **試験事実の SSOT**: `RCCM/magazines/RCCM問題III-2026模範論文集/_facts-2026.md`（協会の出題テーマ PDF が一次出典。過去問は事務局非公開＝問題文の転載禁止・全て自作）
 - **戦略 SSOT**: `RCCM/noteコンテンツ計画.md`。Generator/Evaluator は `rccm-essay-writer` / `rccm-essay-qa`、機械ゲートは `npm run check-rccm-essay`
 
 ### コンクリート主任技士（`コンクリート主任技士/`）
 
-- **有料マガジン**（`コンクリート主任技士/magazines/`）: 四肢択一-R8予想問題集（企画）・小論文-模範答案集
+- **有料**（`コンクリート主任技士/`）: 小論文 模範答案集（`cce-essay-magazine`・¥2,480）／実務立場別小論文集（`cce-essay-persona-pack`・¥5,980）／四肢択一 R8予想50問（`cce-r8-mc-50`・¥1,980）／配合計算 実戦演習（`cce-mix-calculation-practice`・¥1,480）／直前暗記ノート（`cce-anki-note`・¥980・2026-09-17）／択一 直前パック（`cce-takuitsu-chokuzen-pack`・¥2,980・2026-09-17）／まるごとパック（`cce-marugoto-pack`・¥9,800・42 記事）。L2 は `コンクリート資格もくじ`（技士・主任技士・診断士 共用）
 - **サイト側の宿題**: 商品拡充が実現した時点で L2 もくじ（concrete 系の資格別もくじ）をサイトへ新設する（旧 backlog DN-0041 P7 を撤収）
 
 ### コンクリート診断士（`コンクリート診断士/`）
