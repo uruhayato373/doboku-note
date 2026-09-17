@@ -374,12 +374,13 @@ content/site/**/ogp.webp
 content/site/**/ogp.png
 content/site/**/ogp-thumb-*.webp
 
-# content/note/**/magazines/*/_cover.png（46件・45.1MB）は実体を Google Drive vault
+# content/note/**/_cover.png（マガジンカバー・2026-09-17 時点 67 件）は実体を Google Drive vault
 # （drive-vault.json の note-magazine-cover-png group・台帳 drive-manifest.json）に置く。
 # マガジンにはarticle.mdが無く既存note-cover-pngのfrontmatter判定が使えないため
 # 別グループとして分離。復元は node scripts/drive-vault-sync.mjs --pull --path 'content/note/{該当パス}/'。
-# 2026-08-29。2026-09-05 に private R2 から Drive vault へ移設。
-content/note/**/magazines/*/_cover.png
+# 2026-08-29。2026-09-05 に private R2 から Drive vault へ移設。2026-09-17 に magazines/ 直下以外
+# （メンバーシップ特典マガジン `メンバーシップ/予想問題マガジン/_cover.png`）も同じ扱いに広げた。
+content/note/**/_cover.png
 
 # .claude/config/coconala/assets/（59件・28.3MB）は実体を Google Drive vault
 # （drive-vault.json の coconala-asset group・台帳 drive-manifest.json）に置く。

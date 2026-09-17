@@ -250,7 +250,7 @@
       "status": "active",
       "audience": "human",
       "match": {
-        "pathRegex": "^content/note/.+/magazines/[^/]+/_cover\\.png$"
+        "pathRegex": "^content/note/.+/_cover\\.png$"
       },
       "vaultDir": "制作物/マガジンカバー",
       "keyFrom": "stripPrefix:content/note/",
