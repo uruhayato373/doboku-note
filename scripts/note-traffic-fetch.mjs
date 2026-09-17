@@ -6,7 +6,7 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
  * note ダッシュボード「アクセス状況」（/dashboard）を Playwright read-only で取得し、
  *   .claude/state/metrics/note/referrers-YYYY-MM.json   … 記事の流入元（月次時系列＋対象月の内訳）
  *   .claude/state/metrics/note/articles-pv-YYYY-MM.json … 対象期間の記事別 インプレッション/PV/スキ/売上
- * を書く（DN-0240）。
+ * を書く（DN-0249）。
  *
  * 背景（2026-09-15 実測）: 収益の出所は note 内回遊＋note 記事への検索直で 73〜80%、X 0.2%。
  *   サイト→note は rel=noreferrer で不可視だった（PR #511 で是正・EXP-010）。この「どこから来たか」を
