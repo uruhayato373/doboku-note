@@ -90,7 +90,7 @@ content/note/
 ### RCCM（`RCCM/`）— 2026-09-15 新設
 
 - **有料**（`RCCM/magazines/`）: 問題III 管理技術力｜2026年度 公開6テーマ 模範論文集（`rccm-mondai3-magazine`・¥3,480・単品¥780×6＋序章無料）／問題I 業務経験論文テンプレ（`rccm-mondai1-template`・¥1,980）／問題II・IV 論点集と予想50問（`rccm-takuitsu-yosou-50`・¥1,480）／択一 直前暗記ノート（`rccm-anki-note`・¥980・2026-09-17）／まるごとパック（`rccm-marugoto-pack`・¥5,980・上 4 商品 10 記事・2026-09-16）。2026 年度は CBT 試験期間 9/1〜10/31 の直前期に投入
-- **無料**: `RCCMもくじ`（L2）＋ lead-in 3 本（指定語の使い方／落ちる業務経験論文／CBT 直前 2 週間の学習計画）
+- **無料**: `RCCMもくじ`（L2）＋ lead-in 3 本（指定語の使い方／落ちる業務経験論文／CBT 直前 2 週間の学習計画・2026-09-17 公開済み）
 - **試験事実の SSOT**: `RCCM/magazines/RCCM問題III-2026模範論文集/_facts-2026.md`（協会の出題テーマ PDF が一次出典。過去問は事務局非公開＝問題文の転載禁止・全て自作）
 - **戦略 SSOT**: `RCCM/noteコンテンツ計画.md`。Generator/Evaluator は `rccm-essay-writer` / `rccm-essay-qa`、機械ゲートは `npm run check-rccm-essay`
 
