@@ -893,3 +893,13 @@ DN-0120（A8 成果の取り込み）を会社 PC で進めようとして `auth
   - PSI の field は**非 null の件数**で読む。`field_availability.url_level` が true の URL 数（および origin_level）を数え、0 なら「field なし・実害判定不能」と書く。
   - 週次レビューの PSI 節は、field が無い期間は「復旧」「FAST」を書かず、lab は中央値の推移だけを載せる（実害判定は保留）。
   - 復旧を報告するときは、非 null になったバッチ名と URL 数を併記する（「直近 3 バッチ」のような件数だけの記述で終えない）。
+
+## 2026-09-18 — note editor はカバーの削除を「更新する」より前に live へ書く（note-update-cover の coverless 防止が効かない）
+
+- **事象**: V5 カバー全量差し替え（858 記事）の途中で Mac がバッテリー切れでスリープし、復帰直後の 2 記事で `note-update-cover.mjs` が「新カバー未確認→保存中断(coverless防止)」で止まった。公開 API で確認すると、1 本は `eyecatch` が空（coverless）、1 本は新カバーに変わっていた。「更新する」を押していないのにカバーは live に反映されていた。
+- **原因**: note の editor は既存カバーの「削除」と新カバーのアップロードを、記事本文の「更新する」とは別に即時保存する。CLI の fail-safe は「本文・価格を触らない」までしか保証せず、削除→アップロード確認失敗の順序では coverless を作る。DRY モード（`--commit` 無し）も同じ理由でカバーだけは live に反映され得る。
+- **影響**: 有料記事 1 本が数分間 coverless（同日中に再実行して復旧）。
+- **恒久ルール**:
+  - `note-update-cover` の「新カバー未確認」は**中断＝安全ではない**。出た記事は公開 API（`fetchNoteDetails`）で `eyecatch` を確かめ、同じ記事を再実行する（CLI ヘッダに明記）。load 確認の待ち時間は 12 秒→45 秒へ延長。
+  - 長時間の逐次実行は `caffeinate -i -w <pid>` と AC 給電で回す（スリープ復帰直後のページは遅く、確認が落ちる）。
+  - 公開反映の完了判定は CLI の `ok=` ではなく、前後スナップショットの `eyecatch` 変化・`price`/`status`/`is_limited` 不変で行う（[note-cover-character-v5.md](../design-system/note-cover-character-v5.md)）。

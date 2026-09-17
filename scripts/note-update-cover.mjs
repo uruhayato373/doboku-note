@@ -8,14 +8,14 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
  * "stale カバー" を解消する。検出は `cover.png` の git 最終コミット日 > frontmatter notePublishedAt。
  *
  * 使い方:
- *   node scripts/note-update-cover.mjs --article <article.md path>            # DRY（差し替え load 確認まで・保存しない）
+ *   node scripts/note-update-cover.mjs --article <article.md path>            # DRY（差し替え load 確認まで・「更新する」は押さない。※カバー自体は live へ反映され得る＝下記 fail-safe）
  *   node scripts/note-update-cover.mjs --article <article.md path> --commit   # ライブ反映（公開に進む→更新する）
  *   node scripts/note-update-cover.mjs --list <list.txt> --commit             # 複数（# 始まりは無視）
  *
  * フロー（doOne）:
  *   editor 遷移 → (既存カバーあれば)カバーimg(img[src*=st-note] top<360)click → 「削除」(button exact)
  *   → button[name=画像を追加] click → モーダル「画像をアップロード」を fileChooser で受け setFiles
- *   → トリミング「保存」(exact) → 新カバー load 確認(st-note|blob|uploads, top<380, 10×polling)＝fail-safe
+ *   → トリミング「保存」(exact) → 新カバー load 確認(st-note|blob|uploads, top<380, 30×1.5s polling)＝fail-safe
  *   → --commit のみ: 公開に進む →
  *        [有料] 有料エリア設定 click → 「このラインより先を有料にする」line present を読み取り検証
  *               （line は動かさない＝本文を触らないので paywall 境界は元々保持される）→ 無ければ ABORT
@@ -23,7 +23,10 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
  *      → 更新する(exact) → 更新通知は必ず「いいえ」（購入者への通知スパム防止）
  *
  * fail-safe:
- *   - 新カバー load 未確認なら「更新する」を押さない（coverless 化を防ぐ）
+ *   - 新カバー load 未確認なら「更新する」を押さない。**ただし note の editor はカバーの削除・アップロードを
+ *     「更新する」より前に live へ書き込む**（2026-09-18 実測: 未確認で中断した 2 本のうち 1 本は eyecatch が
+ *     空、1 本は新カバーに変わっていた）。中断は「本文・価格を触らない」保証にはなるが coverless 化は防げないので、
+ *     [FAIL] 新カバー未確認 が出た記事は必ず公開 API で eyecatch を確かめ、同じ記事を再実行する
  *   - 有料記事で境界 line を確認できないなら ABORT（paywall 保護）
  *
  * 検証: ライブ反映後は note API v3 で eyecatch が新 ID・can_read=false・price 不変 を確認すること
@@ -105,12 +108,14 @@ async function doOne(page, { abs, noteId, pricing, cover }) {
   const save = page.getByRole('button', { name: '保存', exact: true });
   if (await save.count()) { await save.first().click(); console.log('[crop] 保存'); await sleep(3000); }
   // 3. 新カバー load 確認（fail-safe）
+  // 12 秒（10×1.2s）ではスリープ復帰直後の遅いページで取り逃がした（2026-09-18・2 本）。削除は既に live へ
+  // 書かれているので、ここで諦めると coverless になる。待ち時間を 45 秒に延ばす。
   let okImg = false;
-  for (let i = 0; i < 10 && !okImg; i++) {
+  for (let i = 0; i < 30 && !okImg; i++) {
     okImg = await page.evaluate(() => [...document.querySelectorAll('img')].some((i) => /st-note|blob:|uploads/.test(i.src || '') && i.getBoundingClientRect().top < 380 && i.width > 110));
-    if (!okImg) await sleep(1200);
+    if (!okImg) await sleep(1500);
   }
-  if (!okImg) { console.error('[FAIL] 新カバー未確認→保存中断(coverless防止)'); await page.screenshot({ path: join(ROOT, `.tmp/nc-fail-${noteId}.png`) }); return false; }
+  if (!okImg) { console.error('[FAIL] 新カバー未確認→保存中断（削除は live に反映済みの可能性あり: 公開 API で eyecatch を確認して再実行）'); await page.screenshot({ path: join(ROOT, `.tmp/nc-fail-${noteId}.png`) }); return false; }
   console.log('[ok] 新カバー load確認');
   if (!COMMIT) { console.log('[dry] 未保存'); return true; }
   // 4. 公開に進む → 設定ページ
