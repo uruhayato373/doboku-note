@@ -365,14 +365,14 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 3. 次記事「土木公務員に技術士は必要？」の着手可否は 1・2 の結果を見てから判断する（語順違いの類似ページは作らない）
 
 ## 🟢 低 — 時期未定
-### [DN-0242] CodeQL と npm audit を CI に入れる
+### [DN-0242] npm audit を CI の job summary に出す（CodeQL は GitHub 既定セットアップで稼働済み）
 タグ: [インフラ・計測] [種類:改善] [起票:2026-09-17]
 
-**起点**: 公開リポで無料。secret scanning と Dependabot は有効だが、静的解析と既知脆弱性の棚卸しは無い。静的サイトなので価値は中程度、工数は極小。
+**起点**: 2026-09-17 の PR checks を見ると CodeQL（Analyze javascript-typescript / python）と Socket Security は **GitHub 側の既定セットアップで既に走っている**（リポジトリに workflow は無い）。残るのは npm 依存の既知脆弱性の棚卸しだけ。静的サイトなので価値は中程度、工数は極小。
 
-**やること**: `.github/workflows/codeql.yml`（javascript-typescript・週次 + PR）。ci.yml に `npm audit --audit-level=high` を warn（`|| true` で job summary に出し、red にはしない。ERESOLVE 環境で audit fix を自動適用しない）。
+**やること**: ci.yml に `npm audit --audit-level=high` を warn（`|| true` で job summary に出し、red にはしない。ERESOLVE 環境で audit fix を自動適用しない）。CodeQL の workflow は作らない（既定セットアップと二重になる）。
 
-**完了条件**: CodeQL が週次で緑、audit の high 以上が job summary に列挙される。
+**完了条件**: audit の high 以上が PR の job summary に列挙される。
 
 ### [DN-0243] 年度表現の陳腐化（「2026 年度」「令和 8 年」）を年替わりで検知する
 タグ: [コンテンツ品質] [種類:改善] [検証:check-exam-calendar] [起票:2026-09-17]
