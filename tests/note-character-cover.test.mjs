@@ -6,7 +6,10 @@ import { spawnSync } from 'node:child_process';
 import { mkdtempSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import sharp from 'sharp';
-import { coverCopy, headlineLayout, resolveCoverExam, renderNoteCharacterCover, coverPoseCandidates, assignCoverPoses } from '../scripts/lib/note-character-cover.mjs';
+import { readFileSync } from 'node:fs';
+import { coverCopy, headlineLayout, resolveCoverExam, renderNoteCharacterCover, coverPoseCandidates, assignCoverPoses, coverFitIssues } from '../scripts/lib/note-character-cover.mjs';
+import { loadNoteCoverInventory } from '../scripts/lib/note-cover-inventory.mjs';
+import { MAGAZINES } from '../scripts/generate-magazine-covers.mjs';
 
 test('pose choices follow the topic and keep explicit editorial choices', () => {
   const input = title => ({ title });
@@ -100,4 +103,32 @@ test('all nine usable waist poses keep hands and props clear of text and the ben
   }
   await assert.rejects(renderNoteCharacterCover(root, { cover: { headline: '注意点', character: 'surprised' },
     examKey: 'civil-1', palette: { band: '#1E73C8' } }), /要修正・未確認/);
+});
+
+test('fit gate uses the real font and rejects copy the renderer would refuse', () => {
+  const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+  assert.deepEqual(coverFitIssues(root, { cover: { headline: '工程管理', leadIn: '1級土木', hi: '予想', hiSuffix: 'テーマ', benefit: '工程表を書く' } }), []);
+  const long = coverFitIssues(root, { cover: { headline: '長い主見出し'.repeat(20), benefit: '長い訴求'.repeat(30) } });
+  assert.equal(long.length, 2);
+  assert.match(long[0], /省略せず要編集/);
+  assert.match(long[1], /^benefit: /);
+  assert.match(coverFitIssues(root, { cover: {} })[0], /主見出しがありません/);
+});
+
+test('article, magazine and batch generators share one inventory so a single rerender keeps its pose', async () => {
+  const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+  const inventory = await loadNoteCoverInventory(root, { magazines: MAGAZINES });
+  const articles = inventory.targets.filter(t => t.kind === 'article');
+  const magazines = inventory.targets.filter(t => t.kind === 'magazine');
+  assert.ok(articles.length > 500 && magazines.length > 40, `検査不成立: 記事${articles.length}・マガジン${magazines.length}`);
+  assert.ok(inventory.targets.every(t => t.input.poseSelection?.pose && t.imagePath.endsWith('.png')));
+  assert.ok(inventory.targets.every(t => t.input.cover?.character ? t.input.poseSelection.pose === t.input.cover.character : true));
+  assert.equal(inventory.errors.length, 0);
+  assert.ok(inventory.retired.some(r => r.id === 'whitepaper-r7-strategy'));
+  // 通常生成器は旧 G2/V4 テンプレを import しない（1 件再生成で旧デザインへ戻る回帰の静的ゲート）
+  for (const file of ['scripts/generate-note-covers.mjs', 'scripts/generate-magazine-covers.mjs', 'scripts/check-note-cover-fit.mjs']) {
+    const source = readFileSync(resolve(root, file), 'utf8');
+    assert.doesNotMatch(source, /ogp-templates\.mjs|renderTemplate\(|v4FitIssues/, file);
+    assert.match(source, /note-cover-inventory\.mjs/, file);
+  }
 });

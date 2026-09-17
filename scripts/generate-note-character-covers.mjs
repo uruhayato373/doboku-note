@@ -1,11 +1,19 @@
 #!/usr/bin/env node
-import { readFileSync, readdirSync, existsSync, mkdirSync, writeFileSync, renameSync } from 'node:fs';
-import { resolve, join, dirname, relative } from 'node:path';
-import { pathToFileURL, fileURLToPath } from 'node:url';
-import { createHash } from 'node:crypto';
+// generate-note-character-covers.mjs — note カバー（記事＋マガジン）を独立した出力先へ一括生成し、照合用 manifest を書く。
+//
+// 通常運用の生成器は generate-note-covers.mjs（記事・CI）/ generate-magazine-covers.mjs（マガジン）で、
+// 描画・対象一覧・ポーズ割当はどれも同じ lib（note-character-cover / note-cover-inventory）。
+// 本スクリプトは全量差し替えのときに、原稿ツリーへ書かず manifest（入力・旧画像・出力の hash、ポーズ、
+// 実描画枠）を残すための入口。仕様: .claude/knowledge/design-system/note-cover-character-v5.md
+//
+//   npm run note-character-covers -- --source-root /path/to/source-checkout --output-root /path/to/isolated-output
+//   npm run note-character-covers -- --filter 工程管理          # 記事相対パス / magazine:<ID> の部分一致
+import { readFileSync, existsSync, mkdirSync, writeFileSync, renameSync } from 'node:fs';
+import { resolve, join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
-import matter from 'gray-matter';
-import { renderNoteCharacterCover, resolveCoverExam, assignCoverPoses } from './lib/note-character-cover.mjs';
+import { renderNoteCharacterCover } from './lib/note-character-cover.mjs';
+import { loadNoteCoverInventory, hashBytes as hash } from './lib/note-cover-inventory.mjs';
 
 const ownRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
@@ -13,69 +21,14 @@ const option = name => { const i = args.indexOf(name); return i < 0 ? null : arg
 const sourceRoot = resolve(option('--source-root') || ownRoot);
 const outputRoot = resolve(option('--output-root') || join(ownRoot, '.tmp/note-character-covers'));
 const filter = option('--filter');
-const hash = value => createHash('sha256').update(value).digest('hex');
 const sourceContent = join(sourceRoot, 'content');
 if (sourceRoot === outputRoot || outputRoot === sourceContent || outputRoot.startsWith(sourceContent + '/')) {
   throw new Error('生成先を原稿ツリーに重ねられません。独立した出力ディレクトリを指定してください');
 }
-const tokens = JSON.parse(readFileSync(join(sourceRoot, '.claude/knowledge/design-system/note-cover-tokens.json'), 'utf8'));
-const poseLabels = Object.fromEntries(JSON.parse(readFileSync(join(sourceRoot, '.claude/config/character-poses.json'), 'utf8'))
-  .poses.map(pose => [pose.slug, pose.label]));
-const v4Map = JSON.parse(readFileSync(join(sourceRoot, '.claude/config/note-cover-magazine-v4.json'), 'utf8'));
-const config = JSON.parse(readFileSync(join(ownRoot, '.claude/config/note-character-covers.json'), 'utf8'));
-const { MAGAZINES } = await import(pathToFileURL(join(sourceRoot, 'scripts/generate-magazine-covers.mjs')).href);
-const targets = [];
-const errors = [];
-const articleFiles = [];
-function walk(dir) {
-  for (const entry of readdirSync(dir, { withFileTypes: true })) {
-    const path = join(dir, entry.name);
-    if (entry.isDirectory() && entry.name !== 'img' && !entry.isSymbolicLink()) walk(path);
-    else if (entry.isFile() && /^article(?:-[^/]+)?\.md$/.test(entry.name)) articleFiles.push(path);
-  }
-}
-walk(join(sourceRoot, 'content/note'));
-for (const path of articleFiles.sort()) {
-  const source = relative(sourceRoot, path).replaceAll('\\', '/');
-  const raw = readFileSync(path, 'utf8');
-  const { data, content } = matter(raw);
-  const examKey = resolveCoverExam(source, tokens);
-  const exam = tokens.exams[examKey];
-  const title = data.title || content.match(/^#\s+(.+)$/m)?.[1];
-  const suffix = path.match(/\/article(-[^/]+)?\.md$/)?.[1] || '';
-  const imagePath = relative(sourceRoot, join(dirname(path), 'img', `cover${suffix}.png`)).replaceAll('\\', '/');
-  targets.push({ key: source, kind: 'article', source, sourceSha256: hash(raw), imagePath,
-    previousImageSha256: existsSync(join(sourceRoot, imagePath)) ? hash(readFileSync(join(sourceRoot, imagePath))) : null,
-    noteId: data.noteId || data.noteUrl?.match(/\/n\/(n[0-9a-f]+)/)?.[1] || null,
-    noteStatus: data.noteStatus || null,
-    input: { cover: { ...data.cover, ...config.articleOverrides[source] }, coverTitle: data.coverTitle, title, examKey, category: exam.short,
-      palette: { band: exam[data.cover?.tone || (data.notePricing === 'paid' ? 'deep' : 'base')] || exam.base } },
-  });
-}
-const retired = [];
-const magazines = [...MAGAZINES, ...config.additionalMagazines.filter(extra => !MAGAZINES.some(mag => mag.id === extra.id))];
-for (const raw of magazines) {
-  if (config.retiredMagazineIds[raw.id]) { retired.push({ id: raw.id, reason: config.retiredMagazineIds[raw.id] }); continue; }
-  const mag = { ...raw, ...(v4Map[raw.id] || {}) };
-  if (!mag.magazineDir) { errors.push({ key: `magazine:${mag.id}`, error: 'magazineDirがありません' }); continue; }
-  const examKey = mag.examKey || resolveCoverExam(mag.magazineDir, tokens);
-  const imagePath = `${mag.magazineDir}/_cover.png`;
-  targets.push({ key: `magazine:${mag.id}`, kind: 'magazine', source: 'scripts/generate-magazine-covers.mjs',
-    sourceSha256: hash(JSON.stringify(mag)), imagePath,
-    previousImageSha256: existsSync(join(sourceRoot, imagePath)) ? hash(readFileSync(join(sourceRoot, imagePath))) : null,
-    noteKey: mag.noteKey || null,
-    input: { ...mag, cover: mag, magazine: true, examKey,
-      palette: { band: mag.fillBg || tokens.exams[examKey].deep, label: mag.category } },
-  });
-}
-const posedTargets = assignCoverPoses(targets);
-const selected = filter ? posedTargets.filter(target => target.key.includes(filter)) : posedTargets;
+const inventory = await loadNoteCoverInventory(sourceRoot, { configRoot: ownRoot });
+const { retired, errors, poseLabels } = inventory;
+const selected = filter ? inventory.targets.filter(target => target.key.includes(filter)) : inventory.targets;
 if (!selected.length) throw new Error('生成対象0件');
-const seen = new Set();
-for (const target of selected) {
-  if (seen.has(target.imagePath)) throw new Error(`出力先が重複しています: ${target.imagePath}`);
-  seen.add(target.imagePath);
-}
 mkdirSync(outputRoot, { recursive: true });
 const report = { version: 1, generatedAt: new Date().toISOString(), sourceRoot,
   sourceHead: execFileSync('git', ['rev-parse', 'HEAD'], { cwd: sourceRoot, encoding: 'utf8' }).trim(),

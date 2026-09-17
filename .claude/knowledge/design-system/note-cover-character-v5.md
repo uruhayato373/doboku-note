@@ -1,19 +1,25 @@
 ---
-title: note キャラクターカバーの一括生成
+title: note キャラクターカバー（V5・既定）
 ---
 
-# note キャラクターカバーの一括生成
+# note キャラクターカバー（V5・既定）
 
-2026-09-16のモックを元に、既存の先生と強調した日本語見出しを合成する独立生成コマンド。既存V4の生成器・公開画像はこのコマンドだけでは切り替わらない。生成結果のmanifestを運営者が確認し、公開側の更新は既存のnoteカバー更新CLIで行う。
+2026-09-16のモックを元に、既存の先生と強調した日本語見出しを合成する note カバーのデザイン。2026-09-17 から記事・マガジンの通常生成器と CI 供給がこの描画を使う（旧 G2/V4 テンプレへは戻らない）。描画は `scripts/lib/note-character-cover.mjs`、対象一覧とポーズ割当は `scripts/lib/note-cover-inventory.mjs` に集約し、次の入口はどれも同じ入力・同じポーズ・同じ画像になる。
+
+| 入口 | 出力先 | 使いどころ |
+|---|---|---|
+| `node scripts/generate-note-covers.mjs [dir]` | `content/note/**/img/cover*.png` | 記事の通常生成。CI の note-cover-supply.yml が欠落 dir を 1 件ずつ渡す |
+| `node scripts/generate-magazine-covers.mjs [id]` | `<magazineDir>/_cover.png` | マガジンの通常生成 |
+| `npm run note-character-covers -- --source-root … --output-root …` | 独立出力先 ＋ `manifest.json` | 全量差し替え。原稿ツリーに書かず照合用の hash・ポーズ・実描画枠を残す |
 
 ```bash
 npm run note-character-covers -- --source-root /path/to/source-checkout --output-root /path/to/isolated-output
 npm run note-character-covers -- --filter 工程管理
 ```
 
-生成先の既定は`.tmp/note-character-covers/`。原稿ツリー直下への出力を拒否し、記事は元の`content/note/**/img/cover*.png`、マガジンは`_cover.png`という相対パスを出力先の下に再現する。記事原稿、元カバー、共有認証プロファイル、公開noteには書き込まない。
+一括生成の既定出力先は`.tmp/note-character-covers/`。原稿ツリー直下への出力を拒否し、記事は元の`content/note/**/img/cover*.png`、マガジンは`_cover.png`という相対パスを出力先の下に再現する。記事原稿、元カバー、共有認証プロファイル、公開noteには書き込まない。`--filter`は記事の相対パスまたは`magazine:<ID>`の部分一致。見出し本文の検索ではない。
 
-`--filter`は記事の相対パスまたは`magazine:<ID>`の部分一致。見出し本文の検索ではない。
+原稿の commit 前ゲートは `npm run check-note-cover-fit`（pre-commit は `--staged`）。描画と同じ関数（`coverFitIssues`）で同梱フォントの実測幅を見るので、緑なら同じ文言で生成は失敗しない。
 
 ## デザインと検査
 
@@ -30,9 +36,9 @@ npm run note-character-covers -- --filter 工程管理
 
 別セッションの作業中は専用worktreeから元checkoutを読み取り、出力先を分ける。生成後に元原稿／旧カバーのhashを再照合し、変わった対象は再生成・再確認してから置換する。worktreeを分けてもnote認証プロファイルと公開記事は共有されるので、ブラウザを併用しない。記事・マガジンの更新を逐次実行し、公開APIのカバー変更と公開範囲・価格の保持を確認する。
 
-生成物の保存先は[アセット置き場](../reference/asset-storage-policy.md)に従う。記事カバーはprivate R2、マガジンはDrive vault。生成結果だけをGitへ追加しない。
+生成物の保存先は[アセット置き場](../reference/asset-storage-policy.md)に従う。記事カバーはprivate R2（`node scripts/asset-offload.mjs --group note-cover-png --include-untracked --commit`）、マガジンはDrive vault（`node scripts/drive-vault-sync.mjs --group note-magazine-cover-png --commit`）。生成結果だけをGitへ追加しない。公開側の差し替えは `scripts/note-update-cover.mjs`（記事）/ `scripts/note-magazine-cover.mjs`（マガジン）。2026-09-17 の全量差し替えの記録は `.claude/state/note/cover-rollout/`。
 
-テスト: `node --test tests/note-character-cover.test.mjs`。
+テスト: `node --test tests/note-character-cover.test.mjs`（通常生成器が旧テンプレを import しない静的ゲートを含む）。
 
 ## ポーズの使い分け
 

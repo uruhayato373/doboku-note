@@ -79,7 +79,7 @@ npm run check-standards-page-images # 上の provenance 整合（catalog↔manif
 
 ## note・会員・売上・Kindle
 
-`npm run note-character-covers -- --source-root /path/to/source-checkout --output-root /path/to/isolated-output` — キャラクター付きカバーを独立出力先へ全件生成。原稿・公開noteは変更せず、運営者がmanifestの実件数・失敗・描画枠を確認してから差し替える（[仕様](../design-system/note-cover-character-v5.md)）。
+`npm run note-character-covers -- --source-root /path/to/source-checkout --output-root /path/to/isolated-output` — V5 キャラクターカバーを独立出力先へ全件生成し照合用 manifest を残す（全量差し替え用）。通常の記事・マガジン生成は `node scripts/generate-note-covers.mjs [dir]` / `node scripts/generate-magazine-covers.mjs [id]` で、同じ描画・同じポーズ割当（[仕様](../design-system/note-cover-character-v5.md)）。文言が枠に入るかは `npm run check-note-cover-fit`（pre-commit は `--staged`・実測幅）。
 
 ```bash
 npm run kdp-report        # Kindle 月次ロイヤリティを KDP レポートから取得→.claude/state/sales/kdp-royalties.json（ローカル専用・読み取り専用・当月/前月のみ）

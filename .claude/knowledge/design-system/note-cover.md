@@ -1,6 +1,9 @@
 # note カバー画像デザイン仕様（G2「全幅バナー帯」）
 
-note 記事・有料マガジンのカバー画像（1280×670）の真実源仕様。値の SSoT は [`note-cover-tokens.json`](note-cover-tokens.json)。本書はレイアウト意図と運用ルールを説明する。
+> [!warning]
+> **描画は 2026-09-17 から V5 キャラクターカバーに切り替わった**（SSOT: [note-cover-character-v5.md](note-cover-character-v5.md)）。`generate-note-covers.mjs` / `generate-magazine-covers.mjs` / CI（note-cover-supply.yml）はいずれも V5 を描き、本書と [Crop-safe V4](note-cover-crop-safe-v4.md) のレイアウト幾何（バナー帯・HiBox・チップ・三重安全領域）はもう描画されない。本書で今も有効なのは **試験=色/系列=濃淡の二軸カラー**（`note-cover-tokens.json` の `exams`）と **frontmatter `cover:` の文言フィールド**（leadIn / headline / hi / hiSuffix / benefit を V5 がそのまま使う）、および「ライブ反映」の運用。`banner` / `chips` / `meta` / `visualAsset` は読まれない。
+
+note 記事・有料マガジンのカバー画像（1280×670）の G2 時代の仕様。値の SSoT は [`note-cover-tokens.json`](note-cover-tokens.json)。本書はレイアウト意図と運用ルールを説明する。
 
 > 出典: claude.ai/design プロトタイプ「G2 案」（handoff `covers-g2-all.jsx`）を satori 本番レンダラへ移植。
 
@@ -101,13 +104,13 @@ cover:
 ## 生成・検証
 
 ```bash
-# G2 cover ブロックがある記事だけ G2、無ければ mono-tag
+# 描画は V5（note-cover-character-v5.md）。cover: の文言と coverTitle をそのまま使う
 node scripts/generate-note-covers.mjs                       # 全件
-node scripts/generate-note-covers.mjs 1級土木                # slug 前方一致
-node scripts/generate-note-covers.mjs 安全管理 --debug-safety # 中央630赤枠を重畳
+node scripts/generate-note-covers.mjs 1級土木                # slug 部分一致
+node scripts/generate-note-covers.mjs 安全管理               # 1 記事だけ再生成（全件生成と同じポーズ・同じ画像）
 ```
 
-`--debug-safety` で中央 630×630 の赤枠を重ねて、最重要テキストがクロップ内に収まるか目視する。
+主見出しの実描画枠は生成時に Satori から取り、中央 630×216 の外に出れば生成失敗になる（`--debug-safety` の赤枠目視は V5 では廃止）。
 
 ```bash
 # 全 cover を1枚 HTML で一覧目視（OGP の ogp-gallery と対称・資格×種別で絞込）

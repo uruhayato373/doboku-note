@@ -18,7 +18,9 @@ export function resolveCoverExam(path, tokens) {
     if (key !== 'civil-1-2' && value?.dir && segments.includes(value.dir)) return key;
   }
   if (segments.includes(tokens.exams['civil-1-2']?.dir)) return 'civil-1-2';
-  throw new Error(`カバーの試験区分を解決できません: ${path}`);
+  // 未知 dir は無言でフォールバックしない（2026-08-18 に技術士一次が総監色で 1 か月超出荷された事故の再発防止）。
+  const known = Object.values(tokens.exams).filter((exam) => exam?.dir).map((exam) => exam.dir).join(' / ');
+  throw new Error(`カバーの試験区分を解決できません: ${path}（note-cover-tokens.json の exams に dir を追加する。既知: ${known}）`);
 }
 
 export function coverCopy({ cover = {}, coverTitle, title, magazine = false, lines, category = '' }) {
@@ -76,6 +78,32 @@ export function assignCoverPoses(targets) {
     return { ...target, input: { ...target.input, poseSelection } };
   });
 }
+
+/** 補足行のフォントサイズ。max から幅に収まるまで縮め、18px 未満になる文言は失敗（省略しない）。 */
+export function fittedSize(text, max, width, measure) {
+  const size = Math.min(max, Math.floor(width / (measure(text, 1) || 1)));
+  if (text && size < 18) throw new Error(`補足が長すぎます（省略せず要編集）: ${text}`);
+  return size;
+}
+
+// 描画と同じ実測で、主見出し・リード・補足・訴求帯が枠に入るかだけを検査する（PNG は作らない）。
+// check-note-cover-fit（pre-commit）が原稿の cover: を生成前に止めるために使う。
+export function coverFitIssues(root, input) {
+  const ctx = context(root);
+  const measure = (text, size) => ctx.font.getAdvanceWidth(text, size);
+  const errors = [];
+  let copy;
+  try { copy = coverCopy(input); } catch (error) { return [error.message]; }
+  try { headlineLayout(copy.headline, measure); } catch (error) { errors.push(error.message); }
+  for (const [label, text, max, width] of [['lead', copy.lead, ...LEAD_FIT], ['proof', copy.proof, ...PROOF_FIT], ['benefit', copy.benefit, ...BENEFIT_FIT]]) {
+    try { fittedSize(text, max, width, measure); } catch (error) { errors.push(`${label}: ${error.message}`); }
+  }
+  return errors;
+}
+
+const LEAD_FIT = [28, 584];
+const PROOF_FIT = [32, 388];
+const BENEFIT_FIT = [26, 554];
 
 function context(root) {
   if (contexts.has(root)) return contexts.get(root);
@@ -164,26 +192,22 @@ export async function renderNoteCharacterCover(root, input) {
     ctx.backgrounds.set(alias, src);
   }
   const background = ctx.backgrounds.get(alias);
-  const fitted = (text, max, width) => {
-    const size = Math.min(max, Math.floor(width / (measure(text, 1) || 1)));
-    if (text && size < 18) throw new Error(`補足が長すぎます（省略せず要編集）: ${text}`);
-    return size;
-  };
+  const fitted = (text, max, width) => fittedSize(text, max, width, measure);
   const linesTop = HEADLINE.y + (HEADLINE.height - layout.lines.length * layout.lineHeight) / 2;
   const children = [
     at(0, 0, 1280, 670, [], { background: dark ? `linear-gradient(130deg, ${band}, #0f172b)` : 'linear-gradient(130deg, #f7fbff, #eaf2fa)' }),
     ...(background ? [{ type: 'img', props: { src: background, width: 1280, height: 670, style: { position: 'absolute', left: 0, top: 0, opacity: dark ? .13 : .45 } } }] : []),
     at(278, 0, 746, 670, [], { background: dark ? `linear-gradient(90deg, ${band}00, ${band}dd 15%, ${band}ee 70%, ${band}00)` : 'linear-gradient(90deg, #ffffff00, #f8fbfff5 15%, #f8fbfff5 75%, #ffffff00)' }),
     at(345, 45, 590, 35, textNode('doboku-note', 24, ink, { fontFamily: 'Inter' })),
-    at(345, 128, 590, 45, textNode(copy.lead, fitted(copy.lead, 28, 584), dark ? '#f6e2b4' : band), { alignItems: 'center' }),
+    at(345, 128, 590, 45, textNode(copy.lead, fitted(copy.lead, ...LEAD_FIT), dark ? '#f6e2b4' : band), { alignItems: 'center' }),
     { type: 'img', props: { src: characterSrc, width: characterBox.width, height: characterBox.height,
       style: { position: 'absolute', left: characterBox.left, top: characterBox.top } } },
     ...layout.lines.map((line, i) => at(HEADLINE.x, linesTop + i * layout.lineHeight, HEADLINE.width, layout.lineHeight,
       textNode(line, layout.size, dark && i === layout.lines.length - 1 ? '#FFD266' : ink,
         { lineHeight: 1.04, WebkitTextStrokeWidth: layout.size / 85, WebkitTextStrokeColor: dark && i === layout.lines.length - 1 ? '#FFD266' : ink }, `headline-${i}`))),
     at(345, 437, 394, 5, [], { background: '#E8B640' }),
-    ...(copy.proof ? [at(345, 454, 394, 40, textNode(copy.proof, fitted(copy.proof, 32, 388), dark ? '#ffe2a2' : band), { alignItems: 'center' })] : []),
-    ...(copy.benefit ? [at(345, 510, 590, 52, textNode(copy.benefit, fitted(copy.benefit, 26, 554), dark ? '#28364a' : '#ffffff'),
+    ...(copy.proof ? [at(345, 454, 394, 40, textNode(copy.proof, fitted(copy.proof, ...PROOF_FIT), dark ? '#ffe2a2' : band), { alignItems: 'center' })] : []),
+    ...(copy.benefit ? [at(345, 510, 590, 52, textNode(copy.benefit, fitted(copy.benefit, ...BENEFIT_FIT), dark ? '#28364a' : '#ffffff'),
       { alignItems: 'center', justifyContent: 'center', background: dark ? '#F2CB74' : band, borderRadius: 9 })] : []),
   ];
   const nodes = [];
