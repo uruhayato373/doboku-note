@@ -38,7 +38,7 @@ Google Search Console の継続管理（インデックス被覆・検索パフ�
 | `ga4-admin-setup` | Script（ローカル手動・Playwright） | GA4 管理画面の設定を desired state と突合し、**不足カスタムディメンションを作成**（既定 dry-run・`--commit` で実行）。データ保持は観測のみ | `config/ga4-admin-desired-state.json` → `metrics/ga4-admin/inventory-latest.json` |
 | `check-ga4-dimensions` | Script（ゲート・オフライン） | desired state と最後の実機観測を突合。blocking なカスタムディメンション（`event_label`/`cta_placement`）が未登録なら exit 1 | inventory-latest → exit 0/1 |
 | `check-internal-links-vs-gsc` | Script（ゲート・オフライン） | **公開ページ**が GSC の 404/リダイレクト URL を指していないか（SSOT と全 MDX/src を突合）。旧 URL 件数を能動的に減らせる唯一のレバー | `gsc-ui/ssot` + MDX → exit 0/1 |
-| `gsc-request-indexing` | Script（ローカル手動・Playwright） | 未登録 URL を URL 検査で診断し、**インデックス登録をリクエスト**（既定 dry-run・`--commit` gate・上限 10 件/回）。crawled-not-indexed への直接レバー | SSOT → `gsc-indexing/{requests-latest,history}.json` |
+| `gsc-request-indexing` | Script（ローカル手動・Playwright） | 未登録 URL を URL 検査で診断し、**インデックス登録をリクエスト**（既定 dry-run・`--commit` gate・上限 10 件/回）。crawled-not-indexed への直接レバー。**discovered-not-indexed（未クロール）には強制クロールとしてより直接に効く**。入力は `--from-ssot` / `--urls` / `--file`（正規パス。旧 `/docs/slug` は `_redirects` の 301 先へ自動変換） | SSOT または URL 一覧 → `gsc-indexing/{requests-latest,history}.json` |
 | `seo-rank-watch` | Script（週次CIでcollect、セッションでreview/1件改善） | 固定クエリの確定7日比較・本番反映起点の観察。入口 `/weekly-improve --rank-watch`、詳細 [運用手順](seo-rank-watch.md) | `metrics/gsc/rank-watch/`（追記）＋既存 `experiments.json` |
 | `check-experiment-due` | Script（surfacer） | 実験台帳の再計測/close 期限（サイクルの最後の輪）。weekly-review が列挙 | `experiments.json` → DUE 一覧 |
 | `search-growth:cem-plan` | Script（月次・ローカル手動） | 総監 crawled-not-indexed の 5 分類再分類（下記「総監 CNI 5分類の運用ルール」） | URL Inspection 履歴 → `improvements/cem-index-consolidation-*.{json,md}` |
