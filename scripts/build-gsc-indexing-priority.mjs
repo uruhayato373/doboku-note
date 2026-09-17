@@ -56,7 +56,9 @@ const out = {
   gscPageFile: gscPageFile.replace(/\\/g, "/"),
   gscPageWindow: { startDate: gscPage.meta?.startDate ?? null, endDate: gscPage.meta?.endDate ?? null },
   counts,
-  items,
+  // JSON は先頭 200 件まで（週次 commit の差分を抑える）。全件は txt にある。
+  items: items.slice(0, 200),
+  itemsTruncated: items.length > 200,
 };
 writeFileSync(join(OUT_DIR, "priority-latest.json"), JSON.stringify(out, null, 2) + "\n", "utf8");
 const txt = [
