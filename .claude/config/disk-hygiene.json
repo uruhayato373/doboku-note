@@ -62,6 +62,18 @@
     {
       "path": "~/stats47/apps/web/.next",
       "note": "stats47 のビルド成果物（対象外・報告のみ）"
+    },
+    {
+      "path": "~/Library/Application Support/Claude/vm_bundles",
+      "note": "Claude デスクトップアプリの VM bundle（2026-09-16 に 12GB 生成・空きを 26→5.5GB に落とした主因）。アプリのデータなので自動削除しない。不要ならアプリ側の設定/再作成で処理"
+    },
+    {
+      "path": "~/.cache/codex-runtimes",
+      "note": "Codex のランタイムキャッシュ（1.6GB・報告のみ）"
+    },
+    {
+      "path": "~/Library/Caches/ms-playwright",
+      "note": "Playwright のブラウザ本体（1.1GB・note/X/KDP 自動化が使う。消すと次回 npx playwright install）"
     }
   ]
 }
