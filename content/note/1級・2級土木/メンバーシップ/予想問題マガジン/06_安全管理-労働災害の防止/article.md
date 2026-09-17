@@ -1,9 +1,12 @@
 ---
 notePricing: membership
-noteStatus: draft
+noteStatus: published
 noteDraftId: "n81850411ecb7"
 noteSeries: 経験記述-週次お題ラボ
 noteMagazine: 経験記述-週次お題ラボ
+notePublishedAt: "2026-09-15"
+noteId: "n81850411ecb7"
+noteUrl: "https://note.com/dobokunote/n/n81850411ecb7"
 membershipOnly: true
 utmCampaign: civil-membership-odai-safety-labor
 coverTitle: ["今週のお題｜安全管理", "労働災害の防止"]

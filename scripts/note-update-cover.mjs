@@ -62,7 +62,8 @@ function parse(p) {
   const raw = readFileSync(abs, 'utf8').replace(/^﻿/, '');
   const fm = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/)?.[1] || '';
   const f = (k) => (fm.match(new RegExp('^' + k + ':\\s*(?:"(.*?)"|\'(.*?)\'|(.+?))\\s*$', 'm')) || []).slice(1).find(Boolean) || '';
-  const noteId = f('noteId');
+  // noteUrl だけの記事（noteId 未記録・2026-09-17 時点 7 本）も対象にする（note-update-body と同じ解決順）
+  const noteId = f('noteId') || (f('noteUrl').match(/\/n\/(n[0-9a-f]+)/) || [])[1] || '';
   const pricing = f('notePricing');
   const m = abs.match(/article-([A-Za-z0-9-]+)\.md$/);
   const cover = m ? join(dirname(abs), 'img', `cover-${m[1]}.png`) : join(dirname(abs), 'img', 'cover.png');
