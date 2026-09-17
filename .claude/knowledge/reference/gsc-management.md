@@ -515,3 +515,13 @@ EXP-006 の本判定は予定どおり next_check 2026-08-27 に、カバレッ�
 - 推奨アクション: ①10 月計測で /standards/kyushu・/exam/pe-comprehensive-management の discovered→indexed 移行速度を追跡し、改善が無ければ恒久的権威性不足へ評価切替 ②canonical 不一致 32 URL に絞った gsc-indexing:request（上限 10 件/回）を検討 ③/standards/ 章記事の量と検索価値密度の要否は人間の戦略判断へ
 - 異常フラグ: **ratio 41.8% < 60%**・**前回比 −29.9pt（>5pt）**・**discovered 723 > sitemap 20%**（3 件該当。crawled_not_indexed 激減・inspected=sitemap・batch 非空は正常）
 - 注記: 自動生成・最終決定は人間。異常 3 件はいずれも URL 移行の再クロール待ちで説明可能だが、機械判定に従い【要確認】として Issue 起票。10 月月次が回復判定の期限
+### 2026-09-17（URL 移行後の中間読み・登録リクエスト 10 件・クロール枠の漏れを修正）
+
+- 観測（本番 1,556 URL を全クロールして内部リンクを実測 × 9/7 batch）: 検出-未登録 723 件の被リンク中央値 26 本（索引済み 33 本）・被リンク 0 は 0 件・fetch/robots 異常 0 ＝**リンク不足でも技術問題でもなく、8/22 移行後の再クロール待ち**。Google 側 `referring_urls` は 672 件で空＝新 URL 体系のリンクグラフ自体が未クロール
+- 中間読み（GSC URL 検査・表示実績のある未登録 188 URL の上位 42 本・`requests-latest.json`）: **28 本（67%）が 9/7→9/17 の 10 日で登録済みへ移行**。残 14 本のうち検出-未登録 11・重複（旧 /docs を正規と判定）3。「数週間で収束」の Google 公式見込みどおりに進んでいる
+- 打ち手 1（PR #517）: pre-commit が frontmatter だけの一括 commit（tags 付与・sources 結線）でも `dateModified` を更新し、**2 週間で sitemap 1,556 件中 1,209 件の lastmod が「更新」扱い**になっていた。本文・title・seoTitle・description が変わらない diff では据え置く。lastmod を信用できる信号に戻し、再クロール枠を未クロール側へ回す
+- 打ち手 2（同 PR）: `gsc-request-indexing` を正規パス対応にし、検出-未登録 10 本へ登録リクエスト送信（受理 10 / button-not-found 1 = law-compliance の重複判定ページ / 上限持ち越し 2）。EXP-006（crawled-not-indexed 対象）と違い、今回の対象は**未クロール**なので「強制クロール」として直接効く前提。効果は 9/24 の中間 Inspection と 10/1 月次で読む
+- 打ち手 3（同 PR）: R8 予想問題テーマ 6 本の `hideFromCategory` を外す（被リンク 1 本＝sitemap 中で最弱・6 本とも未登録）
+- 判断保留（人間）: `/standards/` の分冊ページ（九州 `part-01` 50・近畿 `chapters/*` 43 ほか）は被リンク 1〜5 本・4 週で表示 5・クリック 0。中核 `/exam/` が索引 70% へ戻るまで sitemap から外すかは戦略判断
+- 触らない: インターフェアリングフロート seoTitle 実験（8/26 開始・判定 9/23）
+- 次回: 9/24 頃に `index-coverage.yml` を workflow_dispatch で中間計測（quota 1,516/2,000）→ 10/1 月次で本判定。残る優先 URL（`.tmp/gsc-priority-urls.txt` の 43 件目以降）は日次上限 10 件で継続
