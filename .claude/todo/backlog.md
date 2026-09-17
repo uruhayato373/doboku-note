@@ -30,7 +30,7 @@
 
 **完了条件**: 3 商品が note/ココナラでライブ、`verify-note-magazines` と `check-coconala-wiring` 緑、RCCMもくじに 3 節の実 URL。
 
-### [DN-0238] サイト新資格 `/exam/rccm/`（ガイド 7 本）を PR-1 で公開し、重点資格へ登録する
+### [DN-0247] サイト新資格 `/exam/rccm/`（ガイド 7 本）を PR-1 で公開し、重点資格へ登録する
 タグ: [コンテンツ品質] [種類:制作] [起票:2026-09-16] [期日:2026-10-10]
 
 **起点**: PR #513 で ExamKey/カレンダー/エージェントの scaffold は入ったが、サイト面は無い（note マガジンの site 面は 総監 資格地図・1級 コンサル転職ガイドの MagazineCard 2 面のみ）。2027-03-01 合格発表・5 月申込期の検索流入を仕込む。
@@ -39,7 +39,7 @@
 
 **完了条件**: `check-home-exam-coverage`/`check-content-taxonomy`/`check-category-curriculum`/`check-guide-length`/`quality:audit:ci`/`build` 緑、`npm run serve` で `/exam/rccm/` に `<main>`、deploy 後 `check-production-ssr` exit 0。
 
-### [DN-0239] 技術士 口頭試験対策（総監 完全版 ¥2,980・建設部門 新規 ¥1,980）を筆記合格発表当日に公開する
+### [DN-0248] 技術士 口頭試験対策（総監 完全版 ¥2,980・建設部門 新規 ¥1,980）を筆記合格発表当日に公開する
 タグ: [収益化] [種類:制作] [起票:2026-09-16] [期日:2026-10-26]
 
 **起点**: 7 月の購入者への再接触経路が note フォロー以外に無い（LINE はやらないと決定）。`content/note/技術士総監/口頭試験対策-完全版/article.md` は 33k 字の下書きで `[!todo] 運営者記入` 4 箇所が `hearing-sheet.md` H1〜H22 の回答待ち（人作業・10/10 目安）。
@@ -48,7 +48,7 @@
 
 **完了条件**: D 当日に 4 本ライブ、`audit-note-funnel` ドリフト 0、X 11 月計画が `check-x-campaign-plan` 緑。
 
-### [DN-0240] note 流入元・記事別 PV を月次で機械取得する `note-traffic-fetch` を新設し週次レビューへ配線する
+### [DN-0249] note 流入元・記事別 PV を月次で機械取得する `note-traffic-fetch` を新設し週次レビューへ配線する
 タグ: [インフラ・計測] [種類:改善] [起票:2026-09-16] [期日:2026-10-05]
 
 **起点**: 2026-09-15 の手動 Playwright 実測で「収益は note 内回遊＋検索直で 73〜80%、X 0.2%、サイト経由は noreferrer で不可視」が判明（memory `note-traffic-sources-2026-09`）。business-direction の notePv は欠測のまま。EXP-010 の判定にも要る。
@@ -57,7 +57,7 @@
 
 **完了条件**: `npm run note-traffic-fetch -- --month 2026-09 --commit` で 2 ファイルが書かれ、検査対象数/実検査数を出力、test 緑、週次レビューが参照。
 
-### [DN-0241] 建設部門 まるごと合格パック batch B/C（鋼コン・土質基礎・鉄道／建設環境・港湾空港・施工計画・電力土木）を公開する
+### [DN-0251] 建設部門 まるごと合格パック batch B/C（鋼コン・土質基礎・鉄道／建設環境・港湾空港・施工計画・電力土木）を公開する
 タグ: [収益化] [種類:制作] [起票:2026-09-16] [期日:2026-11-15]
 
 **起点**: batch A（トンネル・都市計画・河川砂防）を 2026-09-15 に公開（`note-magazines.ts` published:true・各 29 記事・カバー SET）。マトリクスと停止条件は `content/note/技術士建設部門/noteコンテンツ計画.md:261-282`。
@@ -66,7 +66,7 @@
 
 **完了条件**: 7 パックが note ライブ・`check-magazine-cta:ci`/`check-magazine-membership`/`audit-note-funnel` 緑。成功指標は科目売上の公開前後差（パック単体で判定しない）。
 
-### [DN-0242] 1級・2級 二次直前の note CTA 切替（〜10/4・〜10/25）と試験後の無料フォロー記事
+### [DN-0250] 1級・2級 二次直前の note CTA 切替（〜10/4・〜10/25）と試験後の無料フォロー記事
 タグ: [収益化] [種類:改善] [起票:2026-09-16] [期日:2026-10-26]
 
 **起点**: 計画 T1。civil-1-keiken-complete-pack（¥9,800）は直近 2 件実売。**2026-09-16 実査**: ローカルの note-funnel `topCtaOverrides`（1級 `m150c9db08902` 完成答案集 ¥2,480）は 2026-09-06 の commit f02bcdd1e で切り替えたが note へ未反映（`check-note-republish` の civil ドリフト約 250 本の正体）。**ライブは完全攻略パック（m8290970a7f05）のまま**＝直前期に望ましい状態なので、10/4 までは触らない。
