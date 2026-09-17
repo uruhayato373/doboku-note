@@ -1,0 +1,917 @@
+{
+  "kind": "snapshot",
+  "qualification": "all",
+  "schemaVersion": 1,
+  "period": {
+    "startDate": "2026-09-07",
+    "endDate": "2026-09-13"
+  },
+  "createdAt": "2026-09-17T23:16:25.531Z",
+  "strategyHash": "0dcafa7d40353bfb3d3188789620e21885f6b0fb84affd6f87e837ed5f5c9151",
+  "strategy": {
+    "version": 1,
+    "effectiveDate": "2026-09-13",
+    "objective": "受験者の理解・演習・答案作成をつなぎ、継続可能な収益と運営負担で資格別の学習体験を育てる。",
+    "positioning": "図で理解し、過去問で確かめ、答案に活かす。",
+    "qualifications": [
+      {
+        "id": "civil-construction-1",
+        "label": "1級土木施工管理技士",
+        "audience": "第一次・第二次検定の受験者",
+        "promise": "施工の構造・手順・違いを図で理解し、選択肢の判定と経験記述に活かす。",
+        "journey": [
+          "図解・教科書",
+          "過去問・演習",
+          "経験記述・答案確認"
+        ],
+        "offer": "note教材、ココナラ診断・添削・答案作成"
+      },
+      {
+        "id": "pe-comprehensive-management",
+        "label": "技術士 総合技術監理部門",
+        "audience": "総監の択一・記述式を学ぶ受験者",
+        "promise": "5管理の関係とトレードオフを図で整理し、過去問と論述に結び付ける。",
+        "journey": [
+          "キーワードの関係図",
+          "択一の理由確認",
+          "管理間の論述"
+        ],
+        "offer": "noteキーワード・模範論文教材"
+      },
+      {
+        "id": "pe-construction",
+        "label": "技術士 建設部門",
+        "audience": "第二次試験の必須・選択科目を学ぶ受験者",
+        "promise": "原因・対策・適用条件・残留リスクを構造化し、専門答案を組み立てる。",
+        "journey": [
+          "論点の構造理解",
+          "年度別過去問",
+          "課題・解決策・留意点"
+        ],
+        "offer": "note科目別の模範解答教材"
+      }
+    ],
+    "northStar": {
+      "current": "organicUsers",
+      "role": "集客の継続指標。事業全体の成功や合格への貢献を単独では表さない。",
+      "candidate": "理解から演習・答案確認まで進んだ学習者",
+      "readiness": "資格横断の計測範囲・重複排除・同意と品質を検証するまで正式なNSMへ置換しない。"
+    },
+    "review": {
+      "weekly": "前の完了した月曜〜日曜。実験の結果・欠測と次の一手を確認。",
+      "monthly": "前の完了した暦月。資格・商品・費用と重点配分を見直す。",
+      "timezone": "Asia/Tokyo",
+      "maxPriorities": 3
+    },
+    "metrics": [
+      {
+        "id": "organicUsers",
+        "stage": "集客",
+        "label": "自然検索アクティブユーザー",
+        "unit": "人",
+        "definition": "GA4 Organic Search・日本。期間全体を重複排除した値。日別や資格別の人数を合算しない。",
+        "channel": "GA4",
+        "target": null
+      },
+      {
+        "id": "gscClicks",
+        "stage": "集客",
+        "label": "Google検索クリック",
+        "unit": "回",
+        "definition": "日本・Web検索。資格別は正規URL配下のページ集計。匿名化やAPI制限により全体と一致しない場合がある。",
+        "channel": "GSC",
+        "target": null
+      },
+      {
+        "id": "quizStarts",
+        "stage": "学習",
+        "label": "演習開始",
+        "unit": "回",
+        "definition": "quiz_startのイベント回数。合格率やユニーク学習者数ではない。",
+        "channel": "GA4",
+        "target": null
+      },
+      {
+        "id": "quizCompletions",
+        "stage": "学習",
+        "label": "演習完了",
+        "unit": "回",
+        "definition": "quiz_completeのイベント回数。実装対象と計測範囲を示す。",
+        "channel": "GA4",
+        "target": null
+      },
+      {
+        "id": "noteCtaClicks",
+        "stage": "送客",
+        "label": "note CTAクリック",
+        "unit": "回",
+        "definition": "サイトのnote_cta_click。購入者との紐付けはない。",
+        "channel": "GA4",
+        "target": null
+      },
+      {
+        "id": "notePv",
+        "stage": "販売",
+        "label": "note記事PV",
+        "unit": "回",
+        "definition": "記事を開いた回数。旧全体ビュー・マガジン閲覧・インプレッションと別指標。自己閲覧を含む。",
+        "channel": "note",
+        "target": null
+      },
+      {
+        "id": "noteImpressions",
+        "stage": "販売",
+        "label": "noteインプレッション",
+        "unit": "回",
+        "definition": "note新ダッシュボードでの露出。PVと足さず、旧全体ビューへ接続しない。",
+        "channel": "note",
+        "target": null
+      },
+      {
+        "id": "noteSales",
+        "stage": "販売",
+        "label": "note販売件数",
+        "unit": "件",
+        "definition": "既存sales-logの取引件数。記事・マガジンを分け、サイト流入に帰属させない。",
+        "channel": "note",
+        "target": null
+      },
+      {
+        "id": "noteRevenue",
+        "stage": "販売",
+        "label": "note販売額",
+        "unit": "円",
+        "definition": "既存sales-logの販売額。手数料控除前。入金額や利益ではない。",
+        "channel": "note",
+        "target": null
+      },
+      {
+        "id": "coconalaViews",
+        "stage": "販売",
+        "label": "ココナラ閲覧数",
+        "unit": "回",
+        "definition": "サービス分析の閲覧数。rolling30日の週次スナップショットを合算しない。",
+        "channel": "coconala",
+        "target": null
+      },
+      {
+        "id": "coconalaInquiries",
+        "stage": "販売",
+        "label": "ココナラ購入前相談",
+        "unit": "件",
+        "definition": "対象期間に受けた購入前相談。注文・完了件数と区別する。個人情報は記録しない。",
+        "channel": "coconala",
+        "target": null
+      },
+      {
+        "id": "coconalaOrders",
+        "stage": "販売",
+        "label": "ココナラ購入件数",
+        "unit": "件",
+        "definition": "サービス分析で定義される販売数。トークルームの完了件数と区別する。",
+        "channel": "coconala",
+        "target": null
+      },
+      {
+        "id": "coconalaRevenue",
+        "stage": "販売",
+        "label": "ココナラ販売額",
+        "unit": "円",
+        "definition": "サービス分析の販売額。手数料控除前。",
+        "channel": "coconala",
+        "target": null
+      },
+      {
+        "id": "netReceipts",
+        "stage": "運営",
+        "label": "手数料等控除後の受取額",
+        "unit": "円",
+        "definition": "対象チャネルの実受取額。販売額から未確認の料率で推計しない。",
+        "channel": "operations",
+        "target": null
+      },
+      {
+        "id": "costYen",
+        "stage": "運営",
+        "label": "運営費用",
+        "unit": "円",
+        "definition": "対象期間に対応する費用。計上範囲を出典に記す。未記録をゼロにしない。",
+        "channel": "operations",
+        "target": null
+      },
+      {
+        "id": "workMinutes",
+        "stage": "運営",
+        "label": "運営作業時間",
+        "unit": "分",
+        "definition": "対象期間の制作・保守・顧客対応の合計。観測できた範囲を示す。",
+        "channel": "operations",
+        "target": null
+      },
+      {
+        "id": "qualityDefects",
+        "stage": "品質",
+        "label": "重大な教材不備",
+        "unit": "件",
+        "definition": "対象・実検査数を示した品質検査の重大不備件数。未検査を0件と扱わない。",
+        "channel": "operations",
+        "target": null
+      }
+    ],
+    "rules": [
+      "図の枚数・記事数・検索1位の数を事業成果にしない。",
+      "図は構造・比較・因果・手順の理解を助ける場合に使う。正確性・出典・スマートフォン可読性を確認する。",
+      "販売チャネル内の集客とサイト送客を区別し、異期間・異対象の数値を割ってCVRにしない。",
+      "目標値は実測の期間・対象・理由を添えて設定し、過去の目標は追記履歴に残す。",
+      "重点資格外の既存教材を一律削除せず、保守・需要に応じて判断する。",
+      "改善状態は既存experiments.json、単発の実装タスクはbacklogを正とする。SEOの7日観察と同時実験上限を守る。"
+    ],
+    "salesAttribution": {
+      "source": "既存sales-logの商品ID命名と商品カタログ。未一致・複数資格の会員商品は全体のみに含める。",
+      "rules": [
+        {
+          "prefixes": [
+            "civil-1-",
+            "article:civil-1-"
+          ],
+          "qualification": "civil-construction-1"
+        },
+        {
+          "prefixes": [
+            "bk-",
+            "article:bk-"
+          ],
+          "qualification": "pe-construction"
+        },
+        {
+          "prefixes": [
+            "essay-",
+            "tankan-",
+            "tradeoff-",
+            "article:essay-",
+            "article:tankan-",
+            "article:tradeoff-",
+            "article:setsumon3-",
+            "article:r8-"
+          ],
+          "ids": [
+            "r8-essay-forecast"
+          ],
+          "qualification": "pe-comprehensive-management"
+        }
+      ]
+    }
+  },
+  "cells": [
+    {
+      "qualification": "all",
+      "metric": "organicUsers",
+      "value": 2158,
+      "coverage": "complete",
+      "source": ".claude/state/metrics/business/measurement-2026-09-17T23-16-25-314Z-0591ec7e-7f0d-42f6-9f03-825b9197dead.json",
+      "note": "GA4 Data API properties/419382901・日本。自然検索人数は期間全体。資格別は正規URL配下、演習は1級土木ツールを含む。",
+      "target": null
+    },
+    {
+      "qualification": "all",
+      "metric": "gscClicks",
+      "value": 116,
+      "coverage": "complete",
+      "source": ".claude/state/metrics/business/measurement-2026-09-17T23-16-25-318Z-1a5e8db8-b162-4867-ba6a-d1f4918cade4.json",
+      "note": "GSC Search Analytics API sc-domain:doboku-note.com・日本/Web/final・日付は太平洋時間。資格別は正規URL配下。",
+      "target": null
+    },
+    {
+      "qualification": "all",
+      "metric": "quizStarts",
+      "value": 3,
+      "coverage": "complete",
+      "source": ".claude/state/metrics/business/measurement-2026-09-17T23-16-25-314Z-0591ec7e-7f0d-42f6-9f03-825b9197dead.json",
+      "note": "GA4 Data API properties/419382901・日本。自然検索人数は期間全体。資格別は正規URL配下、演習は1級土木ツールを含む。",
+      "target": null
+    },
+    {
+      "qualification": "all",
+      "metric": "quizCompletions",
+      "value": 0,
+      "coverage": "complete",
+      "source": ".claude/state/metrics/business/measurement-2026-09-17T23-16-25-314Z-0591ec7e-7f0d-42f6-9f03-825b9197dead.json",
+      "note": "GA4 Data API properties/419382901・日本。自然検索人数は期間全体。資格別は正規URL配下、演習は1級土木ツールを含む。",
+      "target": null
+    },
+    {
+      "qualification": "all",
+      "metric": "noteCtaClicks",
+      "value": 79,
+      "coverage": "complete",
+      "source": ".claude/state/metrics/business/measurement-2026-09-17T23-16-25-314Z-0591ec7e-7f0d-42f6-9f03-825b9197dead.json",
+      "note": "GA4 Data API properties/419382901・日本。自然検索人数は期間全体。資格別は正規URL配下、演習は1級土木ツールを含む。",
+      "target": null
+    },
+    {
+      "qualification": "all",
+      "metric": "notePv",
+      "value": null,
+      "coverage": "missing",
+      "source": null,
+      "note": "この資格・指標・期間の集計は未取得です。",
+      "target": null
+    },
+    {
+      "qualification": "all",
+      "metric": "noteImpressions",
+      "value": null,
+      "coverage": "missing",
+      "source": null,
+      "note": "この資格・指標・期間の集計は未取得です。",
+      "target": null
+    },
+    {
+      "qualification": "all",
+      "metric": "noteSales",
+      "value": 3,
+      "coverage": "partial",
+      "source": ".claude/state/sales/sales-log.json",
+      "note": "台帳への登録分。月別の取得完了証明がないため網羅性は未確認。",
+      "target": null
+    },
+    {
+      "qualification": "all",
+      "metric": "noteRevenue",
+      "value": 6440,
+      "coverage": "partial",
+      "source": ".claude/state/sales/sales-log.json",
+      "note": "登録分の販売額。利益ではない。全体には重点外・資格未帰属を含む。",
+      "target": null
+    },
+    {
+      "qualification": "all",
+      "metric": "coconalaViews",
+      "value": null,
+      "coverage": "missing",
+      "source": null,
+      "note": "この資格・指標・期間の集計は未取得です。",
+      "target": null
+    },
+    {
+      "qualification": "all",
+      "metric": "coconalaInquiries",
+      "value": null,
+      "coverage": "missing",
+      "source": null,
+      "note": "この資格・指標・期間の集計は未取得です。",
+      "target": null
+    },
+    {
+      "qualification": "all",
+      "metric": "coconalaOrders",
+      "value": null,
+      "coverage": "missing",
+      "source": null,
+      "note": "この資格・指標・期間の集計は未取得です。",
+      "target": null
+    },
+    {
+      "qualification": "all",
+      "metric": "coconalaRevenue",
+      "value": null,
+      "coverage": "missing",
+      "source": null,
+      "note": "この資格・指標・期間の集計は未取得です。",
+      "target": null
+    },
+    {
+      "qualification": "all",
+      "metric": "netReceipts",
+      "value": null,
+      "coverage": "missing",
+      "source": null,
+      "note": "この資格・指標・期間の集計は未取得です。",
+      "target": null
+    },
+    {
+      "qualification": "all",
+      "metric": "costYen",
+      "value": null,
+      "coverage": "missing",
+      "source": null,
+      "note": "この資格・指標・期間の集計は未取得です。",
+      "target": null
+    },
+    {
+      "qualification": "all",
+      "metric": "workMinutes",
+      "value": null,
+      "coverage": "missing",
+      "source": null,
+      "note": "この資格・指標・期間の集計は未取得です。",
+      "target": null
+    },
+    {
+      "qualification": "all",
+      "metric": "qualityDefects",
+      "value": null,
+      "coverage": "missing",
+      "source": null,
+      "note": "この資格・指標・期間の集計は未取得です。",
+      "target": null
+    },
+    {
+      "qualification": "civil-construction-1",
+      "metric": "organicUsers",
+      "value": 924,
+      "coverage": "complete",
+      "source": ".claude/state/metrics/business/measurement-2026-09-17T23-16-25-320Z-bdd3c274-aafd-4ce5-83d0-20b2d7830468.json",
+      "note": "GA4 Data API properties/419382901・日本。自然検索人数は期間全体。資格別は正規URL配下、演習は1級土木ツールを含む。",
+      "target": null
+    },
+    {
+      "qualification": "civil-construction-1",
+      "metric": "gscClicks",
+      "value": 3,
+      "coverage": "complete",
+      "source": ".claude/state/metrics/business/measurement-2026-09-17T23-16-25-323Z-baeb9c07-2028-4384-94fb-b8bad0f65a1c.json",
+      "note": "GSC Search Analytics API sc-domain:doboku-note.com・日本/Web/final・日付は太平洋時間。資格別は正規URL配下。",
+      "target": null
+    },
+    {
+      "qualification": "civil-construction-1",
+      "metric": "quizStarts",
+      "value": 2,
+      "coverage": "complete",
+      "source": ".claude/state/metrics/business/measurement-2026-09-17T23-16-25-320Z-bdd3c274-aafd-4ce5-83d0-20b2d7830468.json",
+      "note": "GA4 Data API properties/419382901・日本。自然検索人数は期間全体。資格別は正規URL配下、演習は1級土木ツールを含む。",
+      "target": null
+    },
+    {
+      "qualification": "civil-construction-1",
+      "metric": "quizCompletions",
+      "value": 0,
+      "coverage": "complete",
+      "source": ".claude/state/metrics/business/measurement-2026-09-17T23-16-25-320Z-bdd3c274-aafd-4ce5-83d0-20b2d7830468.json",
+      "note": "GA4 Data API properties/419382901・日本。自然検索人数は期間全体。資格別は正規URL配下、演習は1級土木ツールを含む。",
+      "target": null
+    },
+    {
+      "qualification": "civil-construction-1",
+      "metric": "noteCtaClicks",
+      "value": 35,
+      "coverage": "complete",
+      "source": ".claude/state/metrics/business/measurement-2026-09-17T23-16-25-320Z-bdd3c274-aafd-4ce5-83d0-20b2d7830468.json",
+      "note": "GA4 Data API properties/419382901・日本。自然検索人数は期間全体。資格別は正規URL配下、演習は1級土木ツールを含む。",
+      "target": null
+    },
+    {
+      "qualification": "civil-construction-1",
+      "metric": "notePv",
+      "value": null,
+      "coverage": "missing",
+      "source": null,
+      "note": "この資格・指標・期間の集計は未取得です。",
+      "target": null
+    },
+    {
+      "qualification": "civil-construction-1",
+      "metric": "noteImpressions",
+      "value": null,
+      "coverage": "missing",
+      "source": null,
+      "note": "この資格・指標・期間の集計は未取得です。",
+      "target": null
+    },
+    {
+      "qualification": "civil-construction-1",
+      "metric": "noteSales",
+      "value": 2,
+      "coverage": "partial",
+      "source": ".claude/state/sales/sales-log.json",
+      "note": "台帳への登録分。月別の取得完了証明がないため網羅性は未確認。",
+      "target": null
+    },
+    {
+      "qualification": "civil-construction-1",
+      "metric": "noteRevenue",
+      "value": 3960,
+      "coverage": "partial",
+      "source": ".claude/state/sales/sales-log.json",
+      "note": "登録分の販売額。利益ではない。全体には重点外・資格未帰属を含む。",
+      "target": null
+    },
+    {
+      "qualification": "civil-construction-1",
+      "metric": "coconalaViews",
+      "value": null,
+      "coverage": "missing",
+      "source": null,
+      "note": "この資格・指標・期間の集計は未取得です。",
+      "target": null
+    },
+    {
+      "qualification": "civil-construction-1",
+      "metric": "coconalaInquiries",
+      "value": null,
+      "coverage": "missing",
+      "source": null,
+      "note": "この資格・指標・期間の集計は未取得です。",
+      "target": null
+    },
+    {
+      "qualification": "civil-construction-1",
+      "metric": "coconalaOrders",
+      "value": null,
+      "coverage": "missing",
+      "source": null,
+      "note": "この資格・指標・期間の集計は未取得です。",
+      "target": null
+    },
+    {
+      "qualification": "civil-construction-1",
+      "metric": "coconalaRevenue",
+      "value": null,
+      "coverage": "missing",
+      "source": null,
+      "note": "この資格・指標・期間の集計は未取得です。",
+      "target": null
+    },
+    {
+      "qualification": "civil-construction-1",
+      "metric": "netReceipts",
+      "value": null,
+      "coverage": "missing",
+      "source": null,
+      "note": "この資格・指標・期間の集計は未取得です。",
+      "target": null
+    },
+    {
+      "qualification": "civil-construction-1",
+      "metric": "costYen",
+      "value": null,
+      "coverage": "missing",
+      "source": null,
+      "note": "この資格・指標・期間の集計は未取得です。",
+      "target": null
+    },
+    {
+      "qualification": "civil-construction-1",
+      "metric": "workMinutes",
+      "value": null,
+      "coverage": "missing",
+      "source": null,
+      "note": "この資格・指標・期間の集計は未取得です。",
+      "target": null
+    },
+    {
+      "qualification": "civil-construction-1",
+      "metric": "qualityDefects",
+      "value": null,
+      "coverage": "missing",
+      "source": null,
+      "note": "この資格・指標・期間の集計は未取得です。",
+      "target": null
+    },
+    {
+      "qualification": "pe-comprehensive-management",
+      "metric": "organicUsers",
+      "value": 179,
+      "coverage": "complete",
+      "source": ".claude/state/metrics/business/measurement-2026-09-17T23-16-25-326Z-65909a2c-be58-4dc7-873a-8a5e743b75d4.json",
+      "note": "GA4 Data API properties/419382901・日本。自然検索人数は期間全体。資格別は正規URL配下、演習は1級土木ツールを含む。",
+      "target": null
+    },
+    {
+      "qualification": "pe-comprehensive-management",
+      "metric": "gscClicks",
+      "value": 2,
+      "coverage": "complete",
+      "source": ".claude/state/metrics/business/measurement-2026-09-17T23-16-25-328Z-106d5409-c9f9-4b89-9385-db4426f56423.json",
+      "note": "GSC Search Analytics API sc-domain:doboku-note.com・日本/Web/final・日付は太平洋時間。資格別は正規URL配下。",
+      "target": null
+    },
+    {
+      "qualification": "pe-comprehensive-management",
+      "metric": "quizStarts",
+      "value": null,
+      "coverage": "missing",
+      "source": null,
+      "note": "この資格・指標・期間の集計は未取得です。",
+      "target": null
+    },
+    {
+      "qualification": "pe-comprehensive-management",
+      "metric": "quizCompletions",
+      "value": null,
+      "coverage": "missing",
+      "source": null,
+      "note": "この資格・指標・期間の集計は未取得です。",
+      "target": null
+    },
+    {
+      "qualification": "pe-comprehensive-management",
+      "metric": "noteCtaClicks",
+      "value": 6,
+      "coverage": "complete",
+      "source": ".claude/state/metrics/business/measurement-2026-09-17T23-16-25-326Z-65909a2c-be58-4dc7-873a-8a5e743b75d4.json",
+      "note": "GA4 Data API properties/419382901・日本。自然検索人数は期間全体。資格別は正規URL配下、演習は1級土木ツールを含む。",
+      "target": null
+    },
+    {
+      "qualification": "pe-comprehensive-management",
+      "metric": "notePv",
+      "value": null,
+      "coverage": "missing",
+      "source": null,
+      "note": "この資格・指標・期間の集計は未取得です。",
+      "target": null
+    },
+    {
+      "qualification": "pe-comprehensive-management",
+      "metric": "noteImpressions",
+      "value": null,
+      "coverage": "missing",
+      "source": null,
+      "note": "この資格・指標・期間の集計は未取得です。",
+      "target": null
+    },
+    {
+      "qualification": "pe-comprehensive-management",
+      "metric": "noteSales",
+      "value": 0,
+      "coverage": "partial",
+      "source": ".claude/state/sales/sales-log.json",
+      "note": "台帳への登録分。月別の取得完了証明がないため網羅性は未確認。",
+      "target": null
+    },
+    {
+      "qualification": "pe-comprehensive-management",
+      "metric": "noteRevenue",
+      "value": 0,
+      "coverage": "partial",
+      "source": ".claude/state/sales/sales-log.json",
+      "note": "登録分の販売額。利益ではない。全体には重点外・資格未帰属を含む。",
+      "target": null
+    },
+    {
+      "qualification": "pe-comprehensive-management",
+      "metric": "coconalaViews",
+      "value": null,
+      "coverage": "missing",
+      "source": null,
+      "note": "この資格・指標・期間の集計は未取得です。",
+      "target": null
+    },
+    {
+      "qualification": "pe-comprehensive-management",
+      "metric": "coconalaInquiries",
+      "value": null,
+      "coverage": "missing",
+      "source": null,
+      "note": "この資格・指標・期間の集計は未取得です。",
+      "target": null
+    },
+    {
+      "qualification": "pe-comprehensive-management",
+      "metric": "coconalaOrders",
+      "value": null,
+      "coverage": "missing",
+      "source": null,
+      "note": "この資格・指標・期間の集計は未取得です。",
+      "target": null
+    },
+    {
+      "qualification": "pe-comprehensive-management",
+      "metric": "coconalaRevenue",
+      "value": null,
+      "coverage": "missing",
+      "source": null,
+      "note": "この資格・指標・期間の集計は未取得です。",
+      "target": null
+    },
+    {
+      "qualification": "pe-comprehensive-management",
+      "metric": "netReceipts",
+      "value": null,
+      "coverage": "missing",
+      "source": null,
+      "note": "この資格・指標・期間の集計は未取得です。",
+      "target": null
+    },
+    {
+      "qualification": "pe-comprehensive-management",
+      "metric": "costYen",
+      "value": null,
+      "coverage": "missing",
+      "source": null,
+      "note": "この資格・指標・期間の集計は未取得です。",
+      "target": null
+    },
+    {
+      "qualification": "pe-comprehensive-management",
+      "metric": "workMinutes",
+      "value": null,
+      "coverage": "missing",
+      "source": null,
+      "note": "この資格・指標・期間の集計は未取得です。",
+      "target": null
+    },
+    {
+      "qualification": "pe-comprehensive-management",
+      "metric": "qualityDefects",
+      "value": null,
+      "coverage": "missing",
+      "source": null,
+      "note": "この資格・指標・期間の集計は未取得です。",
+      "target": null
+    },
+    {
+      "qualification": "pe-construction",
+      "metric": "organicUsers",
+      "value": 44,
+      "coverage": "complete",
+      "source": ".claude/state/metrics/business/measurement-2026-09-17T23-16-25-331Z-162d9c19-5fd6-43ce-8f41-04acdfbdf865.json",
+      "note": "GA4 Data API properties/419382901・日本。自然検索人数は期間全体。資格別は正規URL配下、演習は1級土木ツールを含む。",
+      "target": null
+    },
+    {
+      "qualification": "pe-construction",
+      "metric": "gscClicks",
+      "value": 0,
+      "coverage": "complete",
+      "source": ".claude/state/metrics/business/measurement-2026-09-17T23-16-25-334Z-31247e3e-e281-48e6-873e-ce2a0453f4d4.json",
+      "note": "GSC Search Analytics API sc-domain:doboku-note.com・日本/Web/final・日付は太平洋時間。資格別は正規URL配下。",
+      "target": null
+    },
+    {
+      "qualification": "pe-construction",
+      "metric": "quizStarts",
+      "value": null,
+      "coverage": "missing",
+      "source": null,
+      "note": "この資格・指標・期間の集計は未取得です。",
+      "target": null
+    },
+    {
+      "qualification": "pe-construction",
+      "metric": "quizCompletions",
+      "value": null,
+      "coverage": "missing",
+      "source": null,
+      "note": "この資格・指標・期間の集計は未取得です。",
+      "target": null
+    },
+    {
+      "qualification": "pe-construction",
+      "metric": "noteCtaClicks",
+      "value": 1,
+      "coverage": "complete",
+      "source": ".claude/state/metrics/business/measurement-2026-09-17T23-16-25-331Z-162d9c19-5fd6-43ce-8f41-04acdfbdf865.json",
+      "note": "GA4 Data API properties/419382901・日本。自然検索人数は期間全体。資格別は正規URL配下、演習は1級土木ツールを含む。",
+      "target": null
+    },
+    {
+      "qualification": "pe-construction",
+      "metric": "notePv",
+      "value": null,
+      "coverage": "missing",
+      "source": null,
+      "note": "この資格・指標・期間の集計は未取得です。",
+      "target": null
+    },
+    {
+      "qualification": "pe-construction",
+      "metric": "noteImpressions",
+      "value": null,
+      "coverage": "missing",
+      "source": null,
+      "note": "この資格・指標・期間の集計は未取得です。",
+      "target": null
+    },
+    {
+      "qualification": "pe-construction",
+      "metric": "noteSales",
+      "value": 0,
+      "coverage": "partial",
+      "source": ".claude/state/sales/sales-log.json",
+      "note": "台帳への登録分。月別の取得完了証明がないため網羅性は未確認。",
+      "target": null
+    },
+    {
+      "qualification": "pe-construction",
+      "metric": "noteRevenue",
+      "value": 0,
+      "coverage": "partial",
+      "source": ".claude/state/sales/sales-log.json",
+      "note": "登録分の販売額。利益ではない。全体には重点外・資格未帰属を含む。",
+      "target": null
+    },
+    {
+      "qualification": "pe-construction",
+      "metric": "coconalaViews",
+      "value": null,
+      "coverage": "missing",
+      "source": null,
+      "note": "この資格・指標・期間の集計は未取得です。",
+      "target": null
+    },
+    {
+      "qualification": "pe-construction",
+      "metric": "coconalaInquiries",
+      "value": null,
+      "coverage": "missing",
+      "source": null,
+      "note": "この資格・指標・期間の集計は未取得です。",
+      "target": null
+    },
+    {
+      "qualification": "pe-construction",
+      "metric": "coconalaOrders",
+      "value": null,
+      "coverage": "missing",
+      "source": null,
+      "note": "この資格・指標・期間の集計は未取得です。",
+      "target": null
+    },
+    {
+      "qualification": "pe-construction",
+      "metric": "coconalaRevenue",
+      "value": null,
+      "coverage": "missing",
+      "source": null,
+      "note": "この資格・指標・期間の集計は未取得です。",
+      "target": null
+    },
+    {
+      "qualification": "pe-construction",
+      "metric": "netReceipts",
+      "value": null,
+      "coverage": "missing",
+      "source": null,
+      "note": "この資格・指標・期間の集計は未取得です。",
+      "target": null
+    },
+    {
+      "qualification": "pe-construction",
+      "metric": "costYen",
+      "value": null,
+      "coverage": "missing",
+      "source": null,
+      "note": "この資格・指標・期間の集計は未取得です。",
+      "target": null
+    },
+    {
+      "qualification": "pe-construction",
+      "metric": "workMinutes",
+      "value": null,
+      "coverage": "missing",
+      "source": null,
+      "note": "この資格・指標・期間の集計は未取得です。",
+      "target": null
+    },
+    {
+      "qualification": "pe-construction",
+      "metric": "qualityDefects",
+      "value": null,
+      "coverage": "missing",
+      "source": null,
+      "note": "この資格・指標・期間の集計は未取得です。",
+      "target": null
+    }
+  ],
+  "sources": [
+    {
+      "file": ".claude/state/metrics/business/measurement-2026-09-17T23-16-25-314Z-0591ec7e-7f0d-42f6-9f03-825b9197dead.json",
+      "sha256": "5efb401f0340154e706967fc8e190bfb08f3f3288333074bc23cedaf552231a2"
+    },
+    {
+      "file": ".claude/state/metrics/business/measurement-2026-09-17T23-16-25-318Z-1a5e8db8-b162-4867-ba6a-d1f4918cade4.json",
+      "sha256": "571462c5e0811e34bd28516ccefbedcb2b63acce102f5fcc13e4507c8e60893a"
+    },
+    {
+      "file": ".claude/state/sales/sales-log.json",
+      "sha256": "37165ddce65ef7483ef9b50fb523ffd9076c05a908bf48b936ae80553a9badfb"
+    },
+    {
+      "file": ".claude/state/metrics/business/measurement-2026-09-17T23-16-25-320Z-bdd3c274-aafd-4ce5-83d0-20b2d7830468.json",
+      "sha256": "60f550d2dc5d62aebd99a4de6eca10fdbd6b7892897ae14be2648e1095bfa423"
+    },
+    {
+      "file": ".claude/state/metrics/business/measurement-2026-09-17T23-16-25-323Z-baeb9c07-2028-4384-94fb-b8bad0f65a1c.json",
+      "sha256": "d50e6a12b8e40fcde9bb0948ad9f055fb2c0e11af15e4984f2805b379d6861b7"
+    },
+    {
+      "file": ".claude/state/metrics/business/measurement-2026-09-17T23-16-25-326Z-65909a2c-be58-4dc7-873a-8a5e743b75d4.json",
+      "sha256": "ad807a25a3e66e8a389242eef81103aeae7ee9efcb6c8d31aa786613d515a2cb"
+    },
+    {
+      "file": ".claude/state/metrics/business/measurement-2026-09-17T23-16-25-328Z-106d5409-c9f9-4b89-9385-db4426f56423.json",
+      "sha256": "f3c4d85eabc1bd552cc58179a9439a78d7b42dc4e79e36b881f0d914e7c68fab"
+    },
+    {
+      "file": ".claude/state/metrics/business/measurement-2026-09-17T23-16-25-331Z-162d9c19-5fd6-43ce-8f41-04acdfbdf865.json",
+      "sha256": "e6ae357d07d878519d076005ea0f9d158ab778f96687204eb9076a60bdaef719"
+    },
+    {
+      "file": ".claude/state/metrics/business/measurement-2026-09-17T23-16-25-334Z-31247e3e-e281-48e6-873e-ce2a0453f4d4.json",
+      "sha256": "dc34741657644d418c805ad14aed71ee43d75fb13a152efb4c9dc349500fbdc3"
+    }
+  ]
+}
