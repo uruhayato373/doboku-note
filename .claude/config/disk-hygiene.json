@@ -65,7 +65,8 @@
     },
     {
       "path": "~/Library/Application Support/Claude/vm_bundles",
-      "note": "Claude デスクトップアプリの VM bundle（2026-09-16 に 12GB 生成・空きを 26→5.5GB に落とした主因）。アプリのデータなので自動削除しない。不要ならアプリ側の設定/再作成で処理"
+      "note": "Claude デスクトップアプリの VM bundle（Cowork のフル VM サンドボックス。rootfs.img.zst 1.1GB を展開すると 10GB になる）。2026-09-16 に 12GB へ膨らみ空きを 26→5.5GB に落とした。3GB 超で WARN・消すのは人（9/17 に Trash へ移動）",
+      "warnBytes": 3221225472
     },
     {
       "path": "~/.cache/codex-runtimes",
