@@ -28,6 +28,7 @@ import { readdirSync } from "node:fs";
 import { join, relative } from "node:path";
 import { readMdxFile, writeMdxFile } from "./lib/mdx-io.mjs";
 import { loadGitDates, lookupGitDates } from "./lib/git-dates.mjs";
+import { classifyStagedDiff, frontmatterEndLine } from "./lib/staged-diff-kind.mjs";
 
 const POSTS_DIR = "content/site";
 
@@ -103,6 +104,11 @@ function addFrontmatterFields(raw, created, dateModified, refresh = false) {
 //
 // 部分 staging（git add -p）されたファイルは触らない。作業ツリーを書き換えて add し直すと
 // **staged していない変更まで巻き込む**ため、警告だけ出して人に判断を委ねる。
+//
+// frontmatter だけの変更（tags / sources / note 配線など）では dateModified を動かさない。
+// lastmod は sitemap 経由で Googlebot のクロール優先度に使われる信号で、一括の
+// メタ配線で数百ページを「更新」と申告すると信号として無視され、クロール枠も浪費する。
+// 本文・title・seoTitle・description が変わったときだけ更新する。
 function runStaged() {
   const git = (a) => execFileSync("git", ["-c", "core.quotepath=false", ...a], { encoding: "utf8", maxBuffer: 64 * 1024 * 1024 });
   const staged = git(["diff", "--cached", "--name-only", "--diff-filter=AM"])
@@ -115,7 +121,7 @@ function runStaged() {
   const dirty = new Set(git(["diff", "--name-only"]).split("\n").filter(Boolean));
   const today = new Date(Date.now() + 9 * 3600 * 1000).toISOString().slice(0, 10); // JST
 
-  let bumped = 0, partial = 0, unchanged = 0;
+  let bumped = 0, partial = 0, unchanged = 0, metaOnly = 0;
   for (const file of staged) {
     if (dirty.has(file)) {
       partial++;
@@ -125,6 +131,11 @@ function runStaged() {
     const { raw, eol } = readMdxFile(file);
     const fmMatch = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/);
     if (!fmMatch) continue;
+    const kind = classifyStagedDiff(git(["diff", "--cached", "-U0", "--", file]), frontmatterEndLine(raw));
+    if (kind === "meta-only" && /^dateModified:\s/m.test(fmMatch[1])) {
+      metaOnly++;
+      continue;
+    }
     let fmBody = fmMatch[1];
     const before = fmBody;
     if (/^dateModified:\s/m.test(fmBody)) fmBody = fmBody.replace(/^dateModified:.*$/m, `dateModified: ${today}`);
@@ -136,7 +147,7 @@ function runStaged() {
     git(["add", "--", file]);
     bumped++;
   }
-  console.log(`[mdx-dates --staged] staged ${staged.length} 件 / dateModified を ${today} へ更新 ${bumped} 件 / 据え置き ${unchanged} 件 / 部分 staging ${partial} 件`);
+  console.log(`[mdx-dates --staged] staged ${staged.length} 件 / dateModified を ${today} へ更新 ${bumped} 件 / frontmatter のみの変更で据え置き ${metaOnly} 件 / 据え置き ${unchanged} 件 / 部分 staging ${partial} 件`);
   if (partial > 0) {
     console.error("  部分 staging のファイルは dateModified が更新されていない。");
     console.error("  全体を staged にしてから commit し直すか、frontmatter を手で直すこと。");

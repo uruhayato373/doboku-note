@@ -12,9 +12,14 @@
  *
  * CLI:
  *   node scripts/gsc-request-indexing.mjs --from-ssot --group textbook --category civil-construction-1
- *   node scripts/gsc-request-indexing.mjs --urls /docs/a,/docs/b            # 明示指定
+ *   node scripts/gsc-request-indexing.mjs --urls /exam/a/b,/standards/c     # 明示指定（正規パス）
+ *   node scripts/gsc-request-indexing.mjs --file .tmp/urls.txt              # 1 行 1 URL（# 行は無視）
  *   node scripts/gsc-request-indexing.mjs --from-ssot ... --commit          # 実際にリクエスト
  *   node scripts/gsc-request-indexing.mjs --from-ssot ... --limit 10        # 日次クォータ対策
+ *
+ * URL の正規化: 旧 `/docs/<slug>`（または裸の slug）を渡されたら `public/_redirects` の 301 先
+ * （2026-08-22 の情報設計移行後の正規パス）へ置き換えてから検査する。旧 URL のまま検査すると
+ * 「ページにリダイレクトがあります」しか返らず、登録リクエストも押せない。
  *
  * 安全弁:
  *   - **既定 dry-run**。`--commit` 無しでは「インデックス登録をリクエスト」を押さない。
@@ -43,20 +48,23 @@ import {
   makeRunId,
 } from "./lib/google-console-browser.mjs";
 import { collectFailedRequests } from "./lib/report-honesty.mjs";
+import { normalizeTargetPath, parseLegacyRedirects } from "./lib/legacy-routes.mjs";
 
 const STATE_DIR = ".claude/state/metrics/gsc-indexing";
 const SSOT_URLS = ".claude/state/metrics/gsc-ui/ssot/urls";
 const META = "src/config/doc-meta-index.json";
+const REDIRECTS = "public/_redirects";
 const SITE = "https://doboku-note.com";
 
 function parseArgs() {
   const a = process.argv.slice(2);
-  const o = { commit: false, headed: false, fromSsot: false, urls: null, group: null, category: null, limit: 10 };
+  const o = { commit: false, headed: false, fromSsot: false, urls: null, file: null, group: null, category: null, limit: 10 };
   for (let i = 0; i < a.length; i++) {
     if (a[i] === "--commit") o.commit = true;
     else if (a[i] === "--headed") o.headed = true;
     else if (a[i] === "--from-ssot") o.fromSsot = true;
     else if (a[i] === "--urls") o.urls = a[++i];
+    else if (a[i] === "--file") o.file = a[++i];
     else if (a[i] === "--group") o.group = a[++i];
     else if (a[i] === "--category") o.category = a[++i];
     else if (a[i] === "--limit") o.limit = parseInt(a[++i], 10) || 10;
@@ -70,6 +78,10 @@ function gitCommit() {
   } catch {
     return null;
   }
+}
+
+function loadLegacyRoutes() {
+  return existsSync(REDIRECTS) ? parseLegacyRedirects(readFileSync(REDIRECTS, "utf8")) : new Map();
 }
 
 /** 「クロール済み - インデックス未登録」の SSOT から対象 slug を選ぶ（category / group で絞る）。 */
@@ -190,16 +202,20 @@ async function main() {
   const runId = makeRunId();
   mkdirSync(STATE_DIR, { recursive: true });
 
-  let slugs = [];
+  const legacyRoutes = loadLegacyRoutes();
+  let inputs = [];
   if (opts.urls) {
-    slugs = opts.urls.split(",").map((s) => s.trim().replace(/^\/docs\//, "")).filter(Boolean);
+    inputs = opts.urls.split(",");
+  } else if (opts.file) {
+    inputs = readFileSync(opts.file, "utf8").split(/\r?\n/).filter((l) => l.trim() && !l.trim().startsWith("#"));
   } else if (opts.fromSsot) {
-    slugs = targetsFromSsot({ category: opts.category, group: opts.group });
+    inputs = targetsFromSsot({ category: opts.category, group: opts.group }).map((s) => `/docs/${s}`);
   }
+  const slugs = [...new Set(inputs.map((s) => normalizeTargetPath(s, legacyRoutes)).filter(Boolean))];
 
   // §9: 対象 0 件を成功にしない
   if (slugs.length === 0) {
-    console.error("[gsc-indexing] ✗ 対象 0 件（--from-ssot の絞り込みが一致しない、または --urls 未指定）。");
+    console.error("[gsc-indexing] ✗ 対象 0 件（--from-ssot の絞り込みが一致しない、または --urls / --file 未指定）。");
     process.exit(2);
   }
 
@@ -245,7 +261,7 @@ async function main() {
     });
 
     for (const slug of slugs) {
-      const target = `${SITE}/docs/${slug}`;
+      const target = `${SITE}${slug}`;
       const item = { slug, url: target, inspected: null, request: null };
       const reached = await inspectViaSearchBar(page, cfg, target);
       item.reachedVerdict = reached;
@@ -254,7 +270,7 @@ async function main() {
         : { state: null, reason: null, lastCrawl: null, crawlAllowed: null, indexingAllowed: null };
       const st = item.inspected.state ?? "unknown";
       console.log(
-        `  ${slug.padEnd(44)} state=${String(st).padEnd(22)} reason=${item.inspected.reason ?? "-"}` +
+        `  ${slug.padEnd(64)} state=${String(st).padEnd(22)} reason=${item.inspected.reason ?? "-"}` +
           ` crawl=${item.inspected.crawlAllowed ?? "?"} index=${item.inspected.indexingAllowed ?? "?"}`,
       );
 
