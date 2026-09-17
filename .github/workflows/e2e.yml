@@ -13,10 +13,16 @@ on:
       - "playwright.config.ts"
       - "e2e/**"
       - ".github/workflows/e2e.yml"
+  # コンテンツは develop へ直 push されるため PR 経路の E2E を通らない。MDX コンポーネントの誤用で
+  # 画面が壊れても ci.yml（build + check-seo-build）は通ることがあるので、develop を夜間 1 回だけ回す。
+  # schedule はデフォルトブランチ（main）版の workflow で動くが、checkout は develop に向ける。
+  schedule:
+    - cron: "0 18 * * *" # UTC 18:00 = JST 03:00
   workflow_dispatch:
 
 permissions:
   contents: read
+  issues: write # 夜間 run の失敗を automation-failure Issue に記録する（限定例外）
 
 jobs:
   e2e:
@@ -26,6 +32,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          ref: ${{ github.event_name == 'schedule' && 'develop' || github.ref }}
 
       - name: Setup Node.js
         uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
@@ -63,6 +71,23 @@ jobs:
 
       - name: Run E2E
         run: npm run test:e2e
+
+      # 夜間 run は PR に紐づかず誰も見ないので、失敗を Issue にする（PR run は PR 上で見える）。
+      - name: Report - nightly E2E failure
+        if: failure() && github.event_name == 'schedule'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          {
+            echo "develop の夜間 E2E が失敗した。PR を経ずに develop へ入った変更（コンテンツ・MDX コンポーネント）で画面が壊れている可能性。"
+            echo ""
+            echo "- run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}（artifact: playwright-e2e-${{ github.run_attempt }}）"
+            echo "- 再現: \`npm run build && npm run test:e2e\`（a11y だけなら \`npm run test:e2e:a11y\`）"
+          } > /tmp/e2e-body.md
+          node scripts/report-automation-failure.mjs \
+            --channel e2e-nightly \
+            --title "develop 夜間 E2E 失敗" \
+            --body-file /tmp/e2e-body.md
 
       - name: Upload Playwright artifacts
         if: failure()
