@@ -84,6 +84,27 @@ function loadLegacyRoutes() {
   return existsSync(REDIRECTS) ? parseLegacyRedirects(readFileSync(REDIRECTS, "utf8")) : new Map();
 }
 
+const COOLDOWN_DAYS = 14;
+
+/** history.json の run から、直近 N 日に受理された URL パスの集合を作る。 */
+function recentlyAcceptedPaths(days) {
+  const p = join(STATE_DIR, "history.json");
+  const set = new Set();
+  if (!existsSync(p)) return set;
+  let runs = [];
+  try {
+    runs = JSON.parse(readFileSync(p, "utf8")).runs ?? [];
+  } catch {
+    return set;
+  }
+  const cutoff = Date.now() - days * 86400000;
+  for (const r of runs) {
+    const t = Date.parse(r.collectedAt ?? "");
+    if (Number.isFinite(t) && t >= cutoff) for (const s of r.acceptedSlugs ?? []) set.add(s);
+  }
+  return set;
+}
+
 /** 「クロール済み - インデックス未登録」の SSOT から対象 slug を選ぶ（category / group で絞る）。 */
 function targetsFromSsot({ category, group }) {
   const p = join(SSOT_URLS, "crawledNotIndexed--allKnownPages.json");
@@ -211,11 +232,21 @@ async function main() {
   } else if (opts.fromSsot) {
     inputs = targetsFromSsot({ category: opts.category, group: opts.group }).map((s) => `/docs/${s}`);
   }
-  const slugs = [...new Set(inputs.map((s) => normalizeTargetPath(s, legacyRoutes)).filter(Boolean))];
+  const normalized = [...new Set(inputs.map((s) => normalizeTargetPath(s, legacyRoutes)).filter(Boolean))];
+  // 直近 14 日に受理済みの URL は飛ばす（history.json は commit される SSOT なので、Windows と Mac の
+  // どちらから走らせても同じ 10 件を二重送信して日次クォータを無駄にしない。git pull が前提）。
+  const recentlyAccepted = recentlyAcceptedPaths(COOLDOWN_DAYS);
+  const slugs = normalized.filter((p) => !recentlyAccepted.has(p));
+  const cooled = normalized.length - slugs.length;
+  if (cooled > 0) console.log(`  直近 ${COOLDOWN_DAYS} 日にリクエスト済みのため除外: ${cooled} 件`);
 
   // §9: 対象 0 件を成功にしない
   if (slugs.length === 0) {
-    console.error("[gsc-indexing] ✗ 対象 0 件（--from-ssot の絞り込みが一致しない、または --urls / --file 未指定）。");
+    console.error(
+      cooled > 0
+        ? `[gsc-indexing] ✗ 対象 0 件（${cooled} 件すべて直近 ${COOLDOWN_DAYS} 日にリクエスト済み。順位表の続きを渡すか、次回の順位表を待つ）。`
+        : "[gsc-indexing] ✗ 対象 0 件（--from-ssot の絞り込みが一致しない、または --urls / --file 未指定）。",
+    );
     process.exit(2);
   }
 

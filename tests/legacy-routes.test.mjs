@@ -28,3 +28,8 @@ test('正規パスはそのまま、転送先の無い旧 /docs は捨てずに�
   assert.equal(normalizeTargetPath('/docs/unknown-slug', map), '/docs/unknown-slug');
   assert.equal(normalizeTargetPath('   ', map), null);
 });
+
+test('Git Bash（MSYS）が書き換えた "C:/Program Files/Git/exam/..." を元のパスに戻す', () => {
+  assert.equal(normalizeTargetPath('C:/Program Files/Git/exam/civil-construction-1/guide/vs-pe', map), '/exam/civil-construction-1/guide/vs-pe');
+  assert.equal(normalizeTargetPath('C:/Program Files/Git/docs/pe-comprehensive-management-alarp-principle', map), '/exam/pe-comprehensive-management/keywords/alarp-principle');
+});
