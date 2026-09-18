@@ -92,11 +92,16 @@ if (LIST) {
 }
 
 const targets = [];
+let reservedSkipped = 0;
 for (const f of files) {
   const raw = readFileSync(f, 'utf-8');
   const noteId = (raw.match(/^noteId:[ \t]*["']?(n[0-9a-f]{6,})/m) || [])[1]
     || (raw.match(/^noteUrl:[ \t]*["']?[^"'\n]*\/(n[0-9a-f]{6,})/m) || [])[1];
   if (!noteId) continue; // 未公開
+  // 予約投稿（noteStatus: reserved）は noteId 書き戻し済みでも go-live 前で API がタグを返さない
+  // （0 タグの偽赤・2026-09-17 の W8〜W11 等 6 本で実発生）。go-live 後に verify-note-status --fix が
+  // published へ是正してから検査に入る。件数は末尾サマリに出す（無言 skip にしない）。
+  if (/^noteStatus:[ \t]*reserved\b/m.test(raw)) { reservedSkipped++; continue; }
   const rel = relative(process.cwd(), f).replace(/\\/g, '/').replace(/^content\/note\//, '');
   targets.push({ f, rel, noteId });
   if (targets.length >= LIMIT) break;
@@ -131,7 +136,7 @@ if (JSON_OUT) {
   process.exit(notConclusive || short.length ? 1 : 0);
 }
 
-console.log(`[check-note-live-tags] 実検査 ${inspected}本（対象${targets.length}・取得失敗${fetchFail}・計測不能${unmeasurable.length}）／目標 ${GOAL} タグ`);
+console.log(`[check-note-live-tags] 実検査 ${inspected}本（対象${targets.length}・取得失敗${fetchFail}・計測不能${unmeasurable.length}・予約中で対象外${reservedSkipped}）／目標 ${GOAL} タグ`);
 
 if (unmeasurable.length) {
   console.log(`  計測不能 ${unmeasurable.length} 件（未ログイン API が中身を返さない＝メンバーシップ限定等）:`);

@@ -26,6 +26,7 @@
 import { readFileSync, writeFileSync, readdirSync, existsSync, writeSync } from 'node:fs';
 import { join } from 'node:path';
 import { spawnSync } from 'node:child_process';
+import { pathToFileURL } from 'node:url';
 import { MIN_FREE_PREVIEW_CHARS, expectedFreePreviewMin, textLen } from './lib/note-live-check.mjs';
 
 const ROOT = 'content/note';
@@ -104,7 +105,8 @@ function fetchNote(noteId, retries = 3) {
   return { data: null, error: lastErr };
 }
 
-function analyzeSource(raw) {
+// テストが import する（probe 選定の回帰）。実行部は下の isMain ガード内。
+export function analyzeSource(raw) {
   const body = stripFm(raw);
   const pricing = fm(raw, 'notePricing');
   const price = Number(fm(raw, 'price') || 0);
@@ -122,9 +124,16 @@ function analyzeSource(raw) {
     }
     // paid probe: 境界H2の「直後の本文段落」（見出し自体は note 目次に出て free 本文にヒットし
     //   偽陽性になるため使わない）。目次に出ない実コンテンツが live 無料本文に出たら本物の漏洩。
+    // 2026-09-18: 無料側の本文（SoT の境界より前）に同じ文が引用されている記事（RCCM 論文集の
+    //   「テーマの読み解き」が模範論文の冒頭文を再掲）で偽陽性になったので、probe は SoT の
+    //   無料部分に現れない行から選ぶ。無料側に無い文が live 無料本文に出て初めて漏洩と言える。
+    const freePart = norm(lines.slice(0, bIdx).join('\n'));
     for (let i = bIdx + 1; i < lines.length; i++) {
       const t = norm(lines[i]);
-      if (t.length >= 12 && !/^!\[|^#|note\.com/.test(lines[i].trim())) { paidProbe = t.slice(0, 30); break; }
+      if (t.length < 12 || /^!\[|^#|note\.com/.test(lines[i].trim())) continue;
+      const cand = t.slice(0, 30);
+      if (freePart.includes(cand)) continue; // 無料側にも在る文は判別に使えない
+      paidProbe = cand; break;
     }
   }
   // 無料プレビューの下限は**書き込み経路と同じ記事別値**を使う（note-publish.mjs / note-update-body.mjs）。
@@ -136,6 +145,9 @@ function analyzeSource(raw) {
   return { pricing, price, boundary, hasBoundary: bIdx >= 0, freeProbe, paidProbe, expectedFreeImgs, minFreeChars };
 }
 
+// import 時は実行しない（テストが analyzeSource を読めるようにする）。
+const isMain = process.argv[1] && pathToFileURL(process.argv[1]).href === import.meta.url;
+if (isMain) {
 const files = walk(ROOT).slice(0, LIMIT === Infinity ? undefined : LIMIT * 3);
 const targets = [];
 for (const f of files) {
@@ -251,4 +263,5 @@ if (CI) {
     process.exit(1);
   }
   console.log(`[check-note-structure --ci] ✓ 未許可 CRITICAL 0（WAIVED ${waived} は allowlist）`);
+}
 }
