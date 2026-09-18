@@ -34,6 +34,15 @@ export function records(root) {
   if (!existsSync(dir)) return [];
   return readdirSync(dir).filter(f => /^(measurement|snapshot|review|target)-[\w-]+\.json$/.test(f)).sort().map(f => ({ ...readJson(root, `${RECORDS}/${f}`), file: `${RECORDS}/${f}` }));
 }
+/**
+ * 記録を検証するときの事業方針。レビュー/目標は参照するスナップショットに凍結された strategy を正とする
+ * （重点資格を後から増やしても過去記録は不変＝「過去の目標は追記履歴に残す」。2026-09-15 に RCCM 追加で
+ * 過去レビューが『重点資格をすべて確認』で偽赤になったのを是正）。スナップショット参照が無い記録は現行方針。
+ */
+export function strategyForRecord(record, rows, config) {
+  const snap = record.snapshot ? rows.find(x => x.kind === 'snapshot' && x.file === record.snapshot) : null;
+  return snap?.strategy?.qualifications && snap.strategy.metrics ? snap.strategy : config;
+}
 export function currentRecords(rows, kind) {
   const replaced = new Set(rows.map(r => r.supersedes).filter(Boolean));
   return rows.filter(r => r.kind === kind && !replaced.has(r.file)).sort((a, b) => b.createdAt.localeCompare(a.createdAt));

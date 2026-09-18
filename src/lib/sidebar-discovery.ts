@@ -4,12 +4,13 @@ import { classifyDoc } from './doc-classifier';
 import { getMagazine, type MagazineId } from './note-magazines';
 import { resolvePlacement } from './magazine-placement';
 
-export const DISCOVERY_CATEGORIES = ['pe-first-stage', 'pe-construction', 'concrete-engineer', 'concrete-chief-engineer', 'concrete-diagnostician', 'civil-practice'];
+export const DISCOVERY_CATEGORIES = ['pe-first-stage', 'pe-construction', 'concrete-engineer', 'concrete-chief-engineer', 'concrete-diagnostician', 'civil-practice', 'rccm'];
 const products: Partial<Record<string, MagazineId>> = {
   'pe-first-stage': 'pe1-takuitsu-pdf',
   'concrete-engineer': 'ce-mix-jis-practice',
   'concrete-chief-engineer': 'cce-marugoto-pack',
   'concrete-diagnostician': 'cd-essay-magazine',
+  rccm: 'rccm-mondai3-magazine',
 };
 export function sidebarProduct(category: string, doc?: DocMeta) {
   if (!products[category]) return null;

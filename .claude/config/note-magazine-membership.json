@@ -35,6 +35,7 @@
     "コンクリート主任技士-実務立場別小論文集": "cce-essay-persona-pack",
     "コンクリート主任技士-小論文-模範答案集": "cce-essay-magazine",
     "コンクリート診断士-記述式-模範答案集": "cd-essay-magazine",
+    "RCCM問題III-2026模範論文集": "rccm-mondai3-magazine",
     "経験記述-週次お題ラボ": "civil-membership-odai-lab",
     "2級土木-想定工事バンク": "civil-2-koji-bank",
     "1級土木-施工経験記述-2テーマ組合せ大全": "civil-1-combo-essay",
@@ -66,6 +67,18 @@
       },
       "reason": "1級土木 二次検定まるごとパック。実測（2026-08-24）のライブ 108 本＝完全攻略パックから 101 本＋テーマ別出る順 5 本＋固有 2 本（パック案内 ¥0 がラベル付き 1 本、直前暗記ノート ¥980 が extras 1 本）。**一部同梱**なので構成元をまるごと足さない"
     },
+    "civil-2-niji-marugoto-pack": {
+      "labels": [
+        "2級土木-二次まるごとパック"
+      ],
+      "fromMagazines": {
+        "civil-2-koji-bank": 61,
+        "civil-2-pastexam-essay": 5,
+        "civil-2-experience-essay": 3,
+        "civil-2-gakka-kijutsu": 5
+      },
+      "reason": "2級土木 二次検定まるごとパック（¥8,800・2026-09-17 新設）。想定工事バンク 61（索引含む）＋過去問模範答案集 5＋完成答案集 3＋学科記述出る順 5 を**まるごと**同梱（API 実測 77＝74＋extras 3）、パック案内 ¥0 がラベル付き 1 本。単体記事 3 本（直前暗記ノート・R8予想模試3回・出題分析）は extras"
+    },
     "cce-marugoto-pack": {
       "labels": [
         "コンクリート主任技士-まるごとパック"
@@ -90,16 +103,20 @@
       "reason": "総監択一式 頻出計算問題 6パターン（¥780・note key ne190c3ef2fca）を販促として同梱。精読ガイド本体 5 本とは別シリーズ"
     },
     "civil-1-niji-marugoto-pack": {
-      "count": 1,
-      "reason": "直前暗記ノート（¥980・note key na84b001e827e）を同梱。noteMagazine ラベルは『1級土木-二次まるごとパック』のパック案内記事のみなので、この 1 本は集計に乗らない"
+      "count": 3,
+      "reason": "直前暗記ノート（¥980・na84b001e827e）＋ 2026-09-16 追加収録の R8予想模試3回（¥2,480・nc2a33b52a2f7）と出題分析・直前重点（¥980・nd68f3f6b5f9e）の計 3 本を同梱。noteMagazine ラベルは『1級土木-二次まるごとパック』のパック案内記事のみなので、この 3 本は集計に乗らない"
     },
     "civil-1-keiken-complete-pack": {
       "count": 14,
       "reason": "ライブにしか存在しない旧版 14 本（工事01〜14 の ¥1,280 版・2026-06-30 公開）。repo の frontmatter は ¥1,980 改訂版を指すため noteMagazine 集計では数えられない platform-only artifact。**旧版を非公開にする決定が出たらこの値を 0 に戻す**（そのときライブも 169→155 になる）。値上げ時に旧記事を残して新記事を作ると二重公開になる、という失敗形の記録も兼ねる。"
     },
+    "civil-2-niji-marugoto-pack": {
+      "count": 3,
+      "reason": "直前暗記ノート（¥580・n793523a059e5）・R8予想模試3回（¥1,980・n50aefe3ad7da）・出題分析と直前の重点（¥580・n4e4f4930cf2e）の単体記事 3 本を同梱。noteMagazine ラベルを持たないため集計に乗らない"
+    },
     "cce-marugoto-pack": {
-      "count": 2,
-      "reason": "四肢択一 R8予想50問（¥1,980・cce-r8-mc-50）と配合計算 実戦演習12問（¥1,480・cce-mix-calculation-practice）を同梱。どちらも単体記事で noteMagazine ラベルを持たないため集計に乗らない"
+      "count": 3,
+      "reason": "四肢択一 R8予想50問（¥1,980・cce-r8-mc-50）・配合計算 実戦演習12問（¥1,480・cce-mix-calculation-practice）・2026-09-17 追加の直前暗記ノート（¥980・cce-anki-note）を同梱。いずれも単体記事で noteMagazine ラベルを持たないため集計に乗らない"
     }
   }
 }

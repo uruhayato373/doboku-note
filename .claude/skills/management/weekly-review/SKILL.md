@@ -53,6 +53,7 @@ description: >
 調査項目:
 - docs/ 配下で今週新規作成・更新されたファイル
 - カテゴリ別のページ数変動
+- **note の流入元・記事別 PV（月次）**: `.claude/state/metrics/note/referrers-YYYY-MM.json`（月次時系列の `targetMonth.sources`＝no referrer / note.com / Google / Bing / Yahoo / X）と `articles-pv-YYYY-MM.json`（PV 順の記事一覧）を読む。無ければ「未取得」と書き、次セッションで `npm run note-traffic-fetch -- --month YYYY-MM --commit`（ローカル・要ログイン）。収益は note 内回遊＋検索直で決まる（2026-09-15 実測）ので、X・サイト経由の PV を売上の理由にしない。business-review の `notePv` 計測はこのファイルの `summary.pageViews` を出典（`source`）にして記録する
 - note 公開状態ドリフト: `npm run verify-note-status` を実行（noteId 保有 article.md の
   frontmatter noteStatus ↔ ライブ公開状態を note 公開 API で突合・creds 不要）。
   ドリフト（ライブ=published / frontmatter=draft）があれば `-- --fix` で是正してコミット。

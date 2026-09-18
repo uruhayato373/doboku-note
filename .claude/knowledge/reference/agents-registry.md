@@ -8,7 +8,7 @@ title: サブエージェント詳細レジストリ
 
 SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を共通参照する。ig-carousel-writer／ig-reels-writer／x-post-writer は短い見出しと台帳のポーズ候補を制作担当へ渡し、対応QAおよびyt-shorts-publisher-qaは画像の判読・同一性・重なりを確認する。ポーズ分類の真実源は [キャラクター素材ポリシー](./character-asset-policy.md) が案内する台帳で、一覧確認は管理画面 `/gallery/characters`。画像QAから外部投稿の更新完了を推定しない。
 
-> **件数の SSOT**: エージェント数の真実源は `.claude/agents/*.md` の実数（`find .claude/agents -maxdepth 1 -name '*.md' | wc -l`＝現在 **81**）と下記「エージェント一覧」表。CLAUDE.md など他 doc は件数を重複記載せずここを指す。追加/削除は同一 commit でこの表を更新する。
+> **件数の SSOT**: エージェント数の真実源は `.claude/agents/*.md` の実数（`find .claude/agents -maxdepth 1 -name '*.md' | wc -l`＝現在 **83**）と下記「エージェント一覧」表。CLAUDE.md など他 doc は件数を重複記載せずここを指す。追加/削除は同一 commit でこの表を更新する。
 
 **description の運用**: 呼出時の概要は 300 code points 以下とし、詳細な手順・制約は各 agent 本文を読む。Codex 用 TOML は原本から自動生成する。`node scripts/check-agent-descriptions.mjs` が全件を検査し、新規超過・悪化を拒否する。
 
@@ -168,6 +168,8 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `past-exam-rewriter`           | `past-exam-qa` の指摘を過去問 MDX に外科的適用する校正 Generator（総監＋土木の primary/secondary）。ExamPoint 折衷案圧縮（lint 9-11 準拠）・ドリフト見出し「各選択肢の検証：」撤去・RelatedKeywords 接頭辞/slug 修正・正誤理由補完・文体統一。設問文/正答/KaTeX は保持、正答修正は QA が誤りと明示時のみ慎重に。**設問文・選択肢本文が別問題に化けているケースは対象外＝統計/条文推測で書き直さず親へエスカレーション（原典PDF照合は親の担当）**。Edit で外科編集（whole-file Write 禁止＝CRLF事故）。civil の図/二次解答補完/一次の大量壊れExamPoint復元は civil 専用 Generator（figure-extractor/secondary-exam-writer/exampoint-restorer）に委譲 | Generator | sonnet | 親が起動（過去問品質サイクル）、`past-exam-qa` と対 | ✅ 運用中（2026-06-18 起動） |
 | `cem-essay-writer`             | 技術士総合技術監理部門（総監）記述式 note 有料マガジン用 模範論文／模範解答 article.md を生成（4タイプ＝persona模範論文〔総監模範論文-{persona}・R03-R07＋R08予想2記事〕/R8予想問題集/設問3国家施策バンク/5管理クロストレードオフ）。各施策600字以内・答案散文・導入ですます/答案である調・5管理正式名とトレードオフ多様性・設問3は国家スケール×一般技術者レベル・著者の真正経験座（元自治体土木＝発注者）。**返却前ゲート＝`essay-shisaku-charcount --strict`／`check-essay-heading-structure --strict`／`note-lint`**。工程・評価軸の真実源は `note-essay-review-checklist.md`、論述ルールは `pe-essay-draft`（サイト版）から再利用。**サイトの r0X-essay-{attr} を書く `/pe-essay-draft` とは別物** | Generator    | sonnet  | `note-essay-review-checklist.md` ランブック連携、`cem-essay-qa` と対 | ✅ 運用中（2026-06-18 起動） |
 | `cem-essay-qa`                 | 技術士総合技術監理部門（総監）記述式 note マガジン模範論文／模範解答 article.md の**5軸**採点（字数〔各施策600字〕→散文性→監理可能性〔越権排除〕→専門度〔設問3 NG用語/5管理正式名〕→白書根拠・真正性〔ペルソナ経験座・専門分野ラベル〕）＋必須ゲート（`essay-shisaku-charcount --strict`／`check-essay-heading-structure --strict`／`note-lint`／答案箇条書き0／blockquote濫用0／本文価格・URL直書き0〔導線リンクカードURL単独行は許可〕）。評価軸の真実源は `note-essay-review-checklist.md`。生成・修正しない（audit-only） | Evaluator    | sonnet  | `cem-essay-writer` と対、`note-essay-review-checklist.md` 参照 | ✅ 運用中（2026-06-18 起動） |
+| `rccm-essay-writer`            | RCCM 資格試験の note 有料教材（問題III 管理技術力＝協会が事前公開する 6 テーマ別の模範論文 1,200〜1,600 字・指定用語「」4 語以上／問題I 業務経験論文 2,400 字テンプレ＋部門別記入例）を `content/note/RCCM/magazines/**` に生成。試験事実・指定用語の SSOT は `_facts-2026.md`（協会 PDF 一次出典）。語り手は建設コンサルタントの管理技術者（受注者）、運営者の座（発注者として成果品を検査・評定した技術士）を超える主張と試験問題の転載を禁止。**返却前ゲート＝`check-rccm-essay --strict`／`note-lint`** | Generator    | sonnet  | `rccm-essay-qa` と対 | ✅ 運用中（2026-09-15 新設） |
+| `rccm-essay-qa`                | RCCM note 教材 article.md の **5 軸**採点（字数・形式〔模範論文 1,200〜1,600 字・①②見出し〕→指定用語〔「」4 語以上・因果の中で使う〕→視点・構成〔管理技術者視点・発注者権限施策の排除〕→専門度〔コンサル実務語彙・部門別置換〕→事実根拠・真正性〔`_facts-2026.md` 整合・転載なし・座の逸脱なし〕）＋必須ゲート（`check-rccm-essay --strict`／`note-lint`／価格・URL 直書き 0／問題再現節 0）。生成・修正しない（audit-only） | Evaluator    | sonnet  | `rccm-essay-writer` と対 | ✅ 運用中（2026-09-15 新設） |
 
 ### 退役したエージェント
 
@@ -225,6 +227,7 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | **ig-highlight-qa** | `highlights/NN_*/slide-data.json` + `img/*.png` | サムネ識別性・リードコピー力・ジャンル一貫性・余白配分／セーフエリア（4軸）。IG UI セーフエリア侵入・本文 y>=1280 侵入・06_materials の note 有料直リンクを重大減点。`ig-stories-qa`（過去問 4 枚連投）とは別文脈 | IG ハイライト slide-data.json 執筆後 / PNG 生成後 |
 | **pe-secondary-exam-qa** | `content/note/技術士建設部門/magazines/{magazine}/{year}/article.md`（論述式 模範解答） | 設問適合・論述構成/論点絞り込み・分かりやすさ/あいまい表現排除・発注者視点/専門性・note完成度（5軸）＋字数上限〔枚数×600字〕・note-lint・設問1対1・論述式文体ゲート。論述原則は `技術士論文の書き方`（非公開・原則抽出）由来 | 技術士二次 模範解答 article.md 生成後 |
 | **cem-essay-qa** | `content/note/技術士総監/magazines/{magazine}/{slug}/article.md`（総監記述式 模範論文／模範解答） | 字数〔各施策600字〕・散文性・監理可能性〔越権排除〕・専門度〔設問3 NG用語/5管理正式名〕・白書根拠/真正性〔ペルソナ経験座〕（5軸）＋字数 strict・見出し構造・note-lint・blockquote濫用ゲート。評価軸の真実源は `note-essay-review-checklist.md`。pe-secondary-exam-qa（建設部門）/cem-qa（キーワードページ）と守備範囲が直交 | 総監 note 記述式 模範論文 article.md 生成後 |
+| **rccm-essay-qa** | `content/note/RCCM/magazines/{magazine}/{slug}/article.md`（RCCM 問題III 模範論文・問題I テンプレ） | 字数・形式〔1,200〜1,600 字・①②〕・指定用語〔「」4 語以上〕・視点/構成〔管理技術者視点〕・専門度・事実根拠/真正性（5軸）＋`check-rccm-essay --strict`・note-lint・問題再現節 0 ゲート。試験事実の真実源は `_facts-2026.md` | RCCM note 教材 article.md 生成後 |
 | **past-exam-qa** | `.mdx`（過去問 primary/secondary・`pe-comprehensive-management`/`pe-first-stage`/`civil-construction-1`/`-2`/`concrete-chief-engineer`/`concrete-diagnostician`） | 構造統一・正答正確性/全選択肢正誤検証・ExamPoint 折衷案準拠・RelatedKeywords健全性・モバイル文体（primary 5軸／secondary は軸3=ExamPoint を除外し4軸正規化、加重 ≥2.0 で合格） | 既存過去問記事の品質監査時・過去問品質サイクルの評価フェーズ |
 
 **対象ファイル・軸・起動タイミングが全て異なる**ため、これらは統合しない（「対象ドメインの分離」原則）。
@@ -250,6 +253,7 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | UI・ページデザイン | `page-design-builder`（`design-system.md` 準拠で実装）→ `/design-review --visual`（light/dark × desktop/mobile 視覚回帰）→ 親が `lint-ui.mjs` 検証・`/simplify` で微修正 |
 | 過去問品質サイクル | `past-exam-qa`（評価・指摘）→ `past-exam-rewriter`（指摘適用）→ 親が lint-mdx-mobile/validate-mdx で検証 → 再評価 → 親が明示パス commit |
 | 総監 記述式 模範論文サイクル | `cem-essay-writer`（生成・自己ゲート）→ `cem-essay-qa`（5軸採点）→ 不合格は writer へ修正指示で再走 → 親が配線（note-magazines.ts/note掲載文.txt/PDF spec）・公開後 URL 反映・明示パス commit。ランブック＝`note-essay-review-checklist.md` |
+| RCCM note 教材サイクル | `rccm-essay-writer`（生成・`check-rccm-essay --strict` 自己ゲート）→ `rccm-essay-qa`（5軸採点）→ 不合格は writer へ修正指示で再走 → 親が配線（`note-magazines.ts rccm-*`／`note-magazine-membership.json`／`sales-recorder.md`）・カバー・公開・明示パス commit。試験事実は `content/note/RCCM/magazines/RCCM問題III-2026模範論文集/_facts-2026.md` が SSOT |
 
 **注**: 月次企画・四半期レビュー・試験シーズン対策・広告最適化は Phase 2 で再開予定。
 
