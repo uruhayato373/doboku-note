@@ -350,6 +350,17 @@ jobs:
             console.log("[verify] 記録層の更新を確認");
           '
 
+      # 記録層の更新まで確認できたら gsc-auto-review channel の open Issue を自動クローズ
+      # （weekly-review-guard の「記録層の沈黙」も同 channel なので、ここで一緒に閉じる）。
+      - name: Resolve - gsc-auto-review Issue (記録層が更新された)
+        if: success() && steps.pre.outputs.has_token == 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/report-automation-failure.mjs --resolve --channel gsc-auto-review \
+            --body "復旧 run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
       # Claude 自体が落ちたら Issue に記録する（沈黙させない）。
       - name: Report - action failure
         if: failure() && steps.pre.outputs.has_token == 'true'

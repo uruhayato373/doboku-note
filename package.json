@@ -347,6 +347,7 @@
     "quality-snapshot": "node scripts/quality-snapshot.mjs",
     "quality:audit": "node scripts/quality-audit.mjs",
     "quality:audit:ci": "node scripts/quality-audit.mjs --ci",
+    "quality:audit:ops": "node scripts/quality-audit.mjs --ops",
     "check-external-write-orphans": "node scripts/check-external-write-orphans.mjs",
     "record-monthly-snapshot": "node scripts/record-monthly-snapshot.mjs",
     "refresh-indexes": "npm run build-backlinks && npm run build-indexes && npm run build-public-redirects && npm run build-keyword-relations && npm run build-pillar-exam-questions && npm run build-popular-pages && npm run build-frequent-topics && npm run build-standards-data",

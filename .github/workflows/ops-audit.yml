@@ -1,0 +1,107 @@
+name: Audit ops alerts (投稿・配信・転記の遅れ)
+
+# quality-audit の ops 区分（`ops: true`＝運用アラート）を日次で回し、遅れを automation-failure
+# Issue（channel: ops）へ届ける。復旧（全 PASS）で同 Issue を自動クローズする。
+#
+# なぜ Pre-merge check（ci.yml）から分けるか（2026-09-18）:
+#   membership-drip（会員記事の配信予定日超過）は ci:true に置かれていて、記事が 2 日遅れるたびに
+#   **全 PR が赤**になっていた。30 日で Pre-merge 58 敗のうち 13 敗がこれで、その陰で unit-tests の
+#   赤 6 回が読まれなかった。壁時計に依存する検査は PR の diff では直せないので、マージゲートではなく
+#   日次アラートとして別チャネルで出す。区分の定義は scripts/quality-audit.mjs ヘッダ「設計」。
+#
+# 通知の到達: Issue は repo owner に assign される（GITHUB_REPOSITORY_OWNER 既定）ので GitHub の
+# 通知メールが届く。Slack にも出したければ secret `SLACK_WEBHOOK_URL` を足すだけでよい
+# （未設定なら何もしない）。真実源: scripts/report-automation-failure.mjs ヘッダ。
+#
+# ref は develop: 配信表（content/note/**/README.md）と記事 frontmatter は develop が先行し、
+# main は deploy 時にしか進まない。main を見ると「develop では公開済み」でも赤が出る。
+
+on:
+  schedule:
+    - cron: "45 22 * * *" # 毎日 07:45 JST（22:45 UTC）
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write # automation-failure Issue の起票・自動クローズ（限定例外）
+
+jobs:
+  ops:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout develop
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          ref: develop
+
+      - name: Setup Node.js
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version: "22"
+
+      # ops 区分の検査は node: 標準モジュールだけで動く（membership-drip / sales-freshness）。
+      # npm ci は不要。依存が要る検査を ops に足すときは、ここに npm ci を入れる。
+      - name: Run ops audit
+        id: ops
+        continue-on-error: true
+        run: |
+          set +e
+          node scripts/quality-audit.mjs --ops > "$RUNNER_TEMP/ops.txt" 2>&1
+          rc=$?
+          set -e
+          cat "$RUNNER_TEMP/ops.txt"
+          echo "rc=$rc" >> "$GITHUB_OUTPUT"
+          {
+            echo "## ops 区分（$(date -u +%Y-%m-%dT%H:%MZ)・rc=$rc）"
+            echo '```'
+            cat "$RUNNER_TEMP/ops.txt"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Report - ops alerts (automation-failure Issue)
+        if: steps.ops.outputs.rc == '1'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          {
+            echo "投稿・配信・転記の遅れが検出されました（quality-audit の ops 区分）。"
+            echo ""
+            echo "- run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            echo ""
+            echo '```'
+            grep -E '^\[FAIL\]|^--- |^\[quality-audit\] ops' "$RUNNER_TEMP/ops.txt" | head -40
+            echo '```'
+            echo ""
+            echo "- 定義: \`scripts/quality-audit.mjs\` の CHECKS（ops:true）"
+            echo "- 再現: \`node scripts/quality-audit.mjs --ops\`"
+            echo "- 配信して noteStatus を更新する／転記を回す（\`npm run note-sales-fetch\`）と、翌朝の run で自動クローズされる"
+          } > "$RUNNER_TEMP/ops-body.md"
+          node scripts/report-automation-failure.mjs \
+            --channel ops \
+            --title "投稿・配信・転記に遅れがあります" \
+            --body-file "$RUNNER_TEMP/ops-body.md"
+
+      - name: Resolve - close ops Issue on recovery
+        if: steps.ops.outputs.rc == '0'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          node scripts/report-automation-failure.mjs --resolve --channel ops \
+            --body "復旧 run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+      # rc≠0 は job も赤にする（Issue が主経路・赤は workflow-health の連続失敗カウント用）。
+      # rc=2 は検査不成立（ops:true が 0 件 or フラグ構成の破損）＝「遅れなし」ではないので緑にしない。
+      - name: Fail on ops alerts / 検査不成立
+        if: steps.ops.outputs.rc != '0'
+        env:
+          RC: ${{ steps.ops.outputs.rc }}
+        run: |
+          if [ "$RC" = "1" ]; then
+            echo "::error::ops 区分に遅れがあります。automation-failure Issue（channel: ops）を参照。"
+          else
+            echo "::error::ops 区分の検査が不成立（rc=$RC）。scripts/quality-audit.mjs の ops フラグ構成を確認。"
+          fi
+          exit 1
