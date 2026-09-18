@@ -115,7 +115,8 @@
   "budgets": {
     "_comment": "ディレクトリ別の追跡総量上限（MiB）。個別ファイルが小さくても件数で膨らむ経路を止める。狙いは通常の執筆ペースを妨げず『まとまった投入』を止めること。2026-08-29 の全ストレージ最適化（ogp.png/webp・note magazine cover・coconala/repo-archive・kindle-dist backup を R2 へ退避）で実測が content/note 99.2 / content/site 69.0 / content/sns 28.3 / content/sources 0.0 / scripts 82.2 MiB まで下がったため締め直した。次に大きく下がる移行があればそのたびに再度締める。",
     "content/note": 150,
-    "content/site": 120,
+    "_content_site_note": "2026-09-18: 120→135。08-29 の 69 MiB から標準仕様書の章記事化（standards-library 31 / standards-articles 17 MiB・.md 41.5 MiB）で 120.05 MiB に達し、RCCM ガイド等の散文 659 行の着地で 0.05 MiB 超過した。散文の成長は止める対象ではない。次の締め直しは content/site の .png 25.6 MiB（405 件）を R2 へ退避したとき（DN-0111 Phase 4）",
+    "content/site": 135,
     "content/sns": 60,
     "content/sources": 20,
     "scripts": 100
