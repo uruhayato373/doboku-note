@@ -2,6 +2,18 @@
 # Issue #73 / Issue #84 の LCP 6628ms 対策。
 # 出典: performance-auditor 調査 2026-04-24
 
+# セキュリティヘッダ（2026-09-17・axe/Lighthouse best-practices と production-sweep が検査）。
+# X-Content-Type-Options / Referrer-Policy は Cloudflare 既定で付くが、明示して依存を切る。
+# CSP は GA・KaTeX フォント・R2 画像・埋め込みの棚卸しと report 先が要るので別途（ここでは入れない）。
+# X-Frame-Options は SAMEORIGIN（自サイト内 iframe は許し、他サイトへの埋め込みだけ拒む）。
+# HSTS は apex だけ（includeSubDomains は R2/www 以外の HTTP 経路が無いと確認してから）。
+/*
+  Strict-Transport-Security: max-age=31536000
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
 # HTML は毎回検証して最新を返す
 /*.html
   Cache-Control: public, max-age=0, must-revalidate

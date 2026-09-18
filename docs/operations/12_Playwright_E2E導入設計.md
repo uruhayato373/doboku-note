@@ -36,8 +36,9 @@
 - `e2e/navigation.spec.ts`
 - `e2e/cta.spec.ts`
 - `e2e/mobile.spec.ts`
+- `e2e/a11y.spec.ts`（axe・WCAG 2.1 A/AA。代表 8 ページ×light/dark。critical 0＋serious は `e2e/a11y-baseline.json` のラチェット。`test:e2e:a11y` / 基準更新 `test:e2e:a11y:baseline`）
 - `e2e/fixtures.ts`（ブラウザエラー監視）
-- `test:e2e`／`test:e2e:ui`／`test:e2e:headed`／`test:e2e:report`
+- `test:e2e`／`test:e2e:ui`／`test:e2e:headed`／`test:e2e:report`／`test:e2e:a11y`
 - `.github/workflows/e2e.yml`
 - 失敗時のtrace／screenshot／HTML report保存
 
@@ -199,7 +200,7 @@ CTA期待値をspecへ大量に直書きしない。既存の`src/lib/note-magaz
 
 - `pull_request`で`src/**`、`package.json`、`playwright.config.ts`、`e2e/**`変更時
 - `workflow_dispatch`
-- 必要ならmainへのpush
+- `schedule`（毎日 JST 03:00・checkout は develop）。コンテンツは develop へ直 push され PR 経路を通らないため、MDX コンポーネント誤用による画面崩れを夜間に拾う。失敗は `automation-failure` Issue（channel `e2e-nightly`）
 
 実行順。
 

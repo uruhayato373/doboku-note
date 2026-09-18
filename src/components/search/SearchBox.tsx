@@ -156,13 +156,16 @@ export function SearchBox({
 
         {inputValue && (
           <button
+            type="button"
             onClick={handleClear}
+            aria-label="検索語を消去"
             className={cn(
               "focus-ring absolute inset-y-0 right-0 flex items-center rounded-card-inline",
               compact ? "pr-2" : "pr-3"
             )}
           >
             <svg
+              aria-hidden="true"
               className={cn(
                 "text-[var(--ink-muted)] hover:text-[var(--ink)] transition-colors",
                 compact ? "h-4 w-4" : "h-5 w-5"

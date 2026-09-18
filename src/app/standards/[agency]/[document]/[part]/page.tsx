@@ -159,7 +159,7 @@ export default async function StandardPartPage({ params }: { params: Promise<Par
                       <strong>原本画質による判読注記：</strong>{range.range}
                     </div>
                   ))}
-                  <div className="overflow-x-auto border border-[var(--rule-soft)] bg-[var(--paper)]">
+                  <div tabIndex={0} className="focus-ring overflow-x-auto border border-[var(--rule-soft)] bg-[var(--paper)]">
                     <pre
                       data-text-sha256={page.textSha256 ?? undefined}
                       className="min-w-max p-4 font-mono text-[12px] leading-[1.65] text-[var(--ink-body)]"
