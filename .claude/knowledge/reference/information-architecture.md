@@ -184,10 +184,18 @@ content/
 > Issue は通知が飛び open のまま残るので、**能動的な通知チャネル**として機能する。
 >
 > 起票は `scripts/report-automation-failure.mjs` に集約（重複防止＝同 channel の open Issue が
-> あれば新規作成せずコメント追記／**クローズは人間**＝復旧の実体検証を挟む）。
+> あれば新規作成せずコメント追記）。**クローズは起票元の自動化が次に成功したとき `--resolve` で自動**
+> （2026-09-18 に「クローズは人間」から転換。復旧しても誰も閉じず open 8 件・最古 43 日が溜まり、通知
+> チャネルとして死んでいた＝W37 レビュー「消化停止」。自動クローズ後は **7 日超 open だけが慢性問題**として
+> 週次レビューに残る）。`--resolve` の配線が無い channel（人手ルーティンからの起票）だけ人が閉じる。
+> 起票時は repo owner に assign（`GITHUB_REPOSITORY_OWNER` 既定）＝GitHub の通知メールで届く。
+> secret `SLACK_WEBHOOK_URL` を足せば Slack にも起票・再発・復旧を送る（未設定なら何もしない）。
 > 現在の起票元: `ci.yml`（**Pre-merge check が赤**・2026-08-24 追加）・`uptime-ping.yml`（SSR 健全性の失敗・同）・
 > `weekly-review-guard.yml`（記録層の沈黙／**重要 workflow が赤いまま・動いていない**／**quality-audit の report 区分 FAIL**・同）・
-> `index-coverage.yml`（閾値の無条件異常）・`gsc-auto-review.yml`（CI 実行失敗・記録未生成・実行時の【要確認】）。
+> `index-coverage.yml`（閾値の無条件異常）・`gsc-auto-review.yml`（CI 実行失敗・記録未生成・実行時の【要確認】）・
+> `seo-rank-watch.yml`（日次処理の失敗）・`ops-audit.yml`（**投稿・配信・転記の遅れ**＝quality-audit の ops 区分・2026-09-18 追加。
+> それまで membership-drip が Pre-merge のゲートに混ざり、記事が 2 日遅れるたびに全 PR が赤になっていた）。
+> `tests/report-automation-failure.test.mjs` が「起票する channel には必ず `--resolve` がある」ことを固定する。
 >
 > **2026-08-24 の実査**: それまで `ci.yml` は起票元に含まれておらず、「CI が赤い」ことを読む機械・スキル・
 > ダッシュボード・週次レビューがリポジトリ内に 1 つも無かった。develop の Pre-merge check が

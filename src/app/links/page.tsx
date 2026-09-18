@@ -151,6 +151,16 @@ const EXAM_CARDS: ExamCard[] = [
       href: "/exam/concrete-diagnostician",
     },
   },
+  {
+    key: "rccm",
+    heading: "RCCM",
+    tagline: "問題III 管理技術力の公開テーマを読み解き、業務経験論文を業務実績と整合させる",
+    site: {
+      label: "サイトで無料学習",
+      sub: "試験制度・公開テーマ・業務経験論文・択一・学習計画",
+      href: "/exam/rccm",
+    },
+  },
 ];
 
 const EXAM_GROUPS: {
@@ -176,6 +186,12 @@ const EXAM_GROUPS: {
     title: "コンクリート",
     description: "技士から主任技士、維持管理の診断士まで段階別に学ぶ",
     keys: ["concrete", "concrete-chief", "concrete-diagnosis"],
+  },
+  {
+    id: "rccm",
+    title: "RCCM（建設コンサルタント）",
+    description: "試験A（業務経験論文・択一）と試験B（管理技術力・択一）を CBT 期間に合わせて対策",
+    keys: ["rccm"],
   },
 ];
 

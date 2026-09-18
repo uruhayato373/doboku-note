@@ -609,5 +609,20 @@
         }
       ]
     }
+  },
+  "rccm": {
+    "examGuide": {
+      "title": "受験ガイド",
+      "description": "試験制度・公開テーマ・業務経験論文・択一・学習計画・技術士との違い",
+      "slugs": [
+        "guide-overview",
+        "guide-mondai3-themes-2026",
+        "guide-mondai1-keiken-ronbun",
+        "guide-mondai2-4-takuitsu",
+        "guide-study-plan",
+        "guide-eligibility-application",
+        "guide-difference-pe"
+      ]
+    }
   }
 }

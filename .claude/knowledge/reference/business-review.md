@@ -25,6 +25,8 @@ GA4人数は期間全体に対するAPI集計。資格別は正規URL配下の�
 
 noteアクセスなどAPI収集していない値は、各管理画面で期間・対象・定義を確認し `/metrics/business` のフォーム、またはJSONから記録する。`source` に取得面・確認範囲を記す。新PVと旧全体ビューは接続しない。ココナラは `/coconala-analytics` の既存収集を使い、30日窓と暦月の違いを保つ。認証・ログイン・UI変更で取得できなければ、値を作らず次回の取得対象へ残す。
 
+note の `notePv` / `noteImpressions` は `npm run note-traffic-fetch -- --month YYYY-MM --commit` が書く `.claude/state/metrics/note/referrers-YYYY-MM.json` の `summary` を出典にする（`source: "note ダッシュボード アクセス状況（referrers-YYYY-MM.json）"`・自己閲覧を含む・`coverage: complete`）。流入元の内訳（`targetMonth.sources`）は指標にせず findings に書く。
+
 `measurement` の必須項目: `kind`, `qualification`（allまたは重点資格ID）, `period.startDate/endDate`, `channel`（GA4/GSC/note/coconala/operations）, `subject`, `source`, `coverage`（complete/partial）, `values`（指標ID→非負整数またはnull）。資格全体の集計は `subject: aggregate`。特定記事・商品はそのIDを用い、合計欄へ自動加算しない。全体には重点資格外・資格未帰属を含む。note売上の既存台帳集計は登録分であり、網羅性を確認するまでは部分集計と表示する。
 
 顧客名・メール・相談本文・認証情報を含めない。`null`は欠測。0は対象を確認した実測。費用・受取・時間が揃わない状態で利益や時給を推計しない。

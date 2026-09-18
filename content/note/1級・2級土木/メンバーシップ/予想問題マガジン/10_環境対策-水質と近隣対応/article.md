@@ -1,8 +1,11 @@
 ---
 notePricing: membership
-noteStatus: draft
+noteStatus: reserved
 noteSeries: 経験記述-週次お題ラボ
 noteMagazine: 経験記述-週次お題ラボ
+notePublishedAt: "2026-09-24"
+noteId: "n1911131aa726"
+noteUrl: "https://note.com/dobokunote/n/n1911131aa726"
 membershipOnly: true
 utmCampaign: civil-membership-odai-env-water
 coverTitle: ["今週のお題｜環境対策", "水質・濁水・近隣対応"]

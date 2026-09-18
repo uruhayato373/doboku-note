@@ -1051,6 +1051,54 @@
       "commit": null,
       "verification": "node scripts/check-agent-descriptions.mjs; node --test tests/sync-codex-compat.test.mjs tests/check-agent-descriptions.test.mjs",
       "note": "エージェント説明32件を短縮し全81件300文字以下、詳細制約を本文へ保持。Codex互換生成・役割分担も更新。 実装はこの記録と同じコミットに含む。"
+    },
+    {
+      "id": "DN-0241",
+      "at": "2026-09-16",
+      "task": "建設部門 まるごと合格パック batch B/C（鋼コン・土質基礎・鉄道／建設環境・港湾空港・施工計画・電力土木）を公開する",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "912295c02365",
+      "verification": "npm run check-magazine-membership && npm run check-magazine-cta:ci && node scripts/audit-note-funnel.mjs --live --ci",
+      "note": "2026-09-16 batch B/C 7 パックを note に作成・各 29 記事を API 実体確認・カバー SET・note-magazines.ts published:true・*-exam-themes に MagazineCard・建設部門もくじ 11 科目化してライブ反映。全 11 科目のパック公開完了"
+    },
+    {
+      "id": "DN-0243",
+      "at": "2026-09-17",
+      "task": "2級土木 二次まるごとパック（¥8,800）と直前総仕上げパック（¥2,480）＋ 2級 出題分析・直前重点（¥580）を 10/25 前に出す",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "195101391c4a",
+      "verification": "npm run check-magazine-membership && npm run check-magazine-cta:ci && npm run check-sales-mapping && node scripts/audit-note-funnel.mjs --live --ci",
+      "note": "2026-09-17 出題分析 n4e4f4930cf2e（¥580）・まるごと m2d9a069b6f87（¥8,800・78 記事）・直前 md3518107aa97（¥2,480・3 記事）を note 公開・API 実体確認・カバー SET・案内記事 n89b3048e5d24・土木もくじ反映・placement/membership/台帳 配線"
+    },
+    {
+      "id": "DN-0244",
+      "at": "2026-09-17",
+      "task": "RCCM 問題II・IV 直前暗記ノート（¥980）を公開し まるごとパックへ追加収録する",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "49eba8090169",
+      "verification": "npm run check-magazine-cta:ci && npm run check-sales-mapping && node scripts/audit-note-funnel.mjs --live --ci",
+      "note": "2026-09-17 RCCM 択一 直前暗記ノート n6a82c25cc9de（¥980・159 問）を公開し まるごとパック me2b526bf77f4 へ追加収録（10 記事・単品計 ¥7,920）。掲載文・SKU・台帳・もくじ反映"
+    },
+    {
+      "id": "DN-0245",
+      "at": "2026-09-17",
+      "task": "コンクリート主任技士 直前暗記ノート（¥980）＋択一 直前パック（¥2,980）／技術士一次・コン技士の直前暗記＋パック",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "34814e9da382",
+      "verification": "npm run check-magazine-cta:ci && npm run check-sales-mapping && node scripts/audit-note-funnel.mjs --live --ci",
+      "note": "2026-09-17 主任技士 暗記 n25197277c5a9＋択一直前 mfdf781d7222b＋まるごと追加収録／技術士一次 暗記 n7b4f17a09d3f＋直前パック mfa3fcffdd85d／コン技士 暗記 n0bbd4a5a8b57＋直前パック m49ac37c76bef を公開・API 実体確認・カバー SET・placement/台帳/もくじ・L1 反映"
     }
   ]
 }

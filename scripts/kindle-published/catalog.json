@@ -1,7 +1,7 @@
 {
   "_comment": "Kindle 全書籍のマスター登録簿。status=ready(制作完了・提出待ち)/in_review(KDP審査中)/live(公開). epub/cover は git 追跡(A系=kindle-published/・B-F=kindle-dist/). 提出後 ASIN と status=live を更新。再生成は npm run sync-kindle-dist。",
   "schemaVersion": 1,
-  "updatedAt": "2026-09-04",
+  "updatedAt": "2026-09-17",
   "books": [
     {
       "id": "A-00",
@@ -1348,6 +1348,36 @@
       ],
       "draftAsin": "A1SOBDV0E25MSK",
       "publishedDate": "2026-09-04"
+    },
+    {
+      "id": "h-01",
+      "asin": null,
+      "title": "RCCM 問題III 管理技術力 模範論文集 2026年度版",
+      "subtitle": "公開6テーマ 全部の模範論文（1,200〜1,600字・指定用語「」4語以上）",
+      "series": "H RCCM資格試験",
+      "priceJpy": 980,
+      "royalty": 0.7,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/h-01.json",
+      "epub": "kindle-dist/h-01.epub",
+      "cover": "kindle-dist/h-01.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_h-01.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-09-17",
+          "change": "制作完了(EPUB＋前付け＋表紙＋kdp-memo)・kindle-book-qa の指摘（note 誘導段落の残留・目次ラベル）を builder で是正・KDP提出待ち（KDP Select OFF＝note 併売）"
+        },
+        {
+          "version": "1.0",
+          "date": "2026-09-17",
+          "change": "KDP 下書き保存（draft A14KZQN4AVIH1Q・¥980・KDP Select OFF＝JP 35%）。出版は運営者確認後に --publish-only --commit-publish"
+        }
+      ],
+      "draftAsin": "A14KZQN4AVIH1Q",
+      "publishedDate": null
     }
   ]
 }

@@ -2,12 +2,13 @@
   "schemaVersion": 1,
   "title": "先生と学ぶ、秋の資格対策",
   "from": "2026-09-15",
-  "to": "2026-10-24",
+  "to": "2026-10-31",
   "timezone": "Asia/Tokyo",
   "plans": [
     ".claude/config/x-campaigns/2026-09-civil.json",
     ".claude/config/x-campaigns/2026-10-character.json",
-    ".claude/config/x-campaigns/2026-10-civil-final.json"
+    ".claude/config/x-campaigns/2026-10-civil-final.json",
+    ".claude/config/x-campaigns/2026-10-rccm.json"
   ],
   "drafts": [
     "090-civil-2026-09-a",
@@ -17,7 +18,8 @@
     "092-civil-2026-09-c",
     "094-career-longform-pilot",
     "096-character-2026-10-a",
-    "097-civil2-final-2026-10"
+    "097-civil2-final-2026-10",
+    "104-rccm-2026-10"
   ],
   "newCardDrafts": [
     "091-civil-2026-09-b",

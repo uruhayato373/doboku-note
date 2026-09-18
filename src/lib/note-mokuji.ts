@@ -24,6 +24,7 @@ const FUNNEL_KEY_BY_EXAM: Partial<Record<ExamKey, string>> = {
   'pe-construction': 'pe-construction',
   'civil-1': 'civil',
   'civil-2': 'civil',
+  rccm: 'rccm',
 };
 
 /** 資格の L2 もくじ（無ければ null）。concrete / pe-first-stage は未整備。 */

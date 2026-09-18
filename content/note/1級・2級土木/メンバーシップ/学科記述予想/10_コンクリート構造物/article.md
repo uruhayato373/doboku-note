@@ -1,9 +1,12 @@
 ---
 notePricing: membership
-noteStatus: draft
+noteStatus: reserved
 noteSeries: 学科記述予想
 membershipOnly: true
 utmCampaign: civil-membership-gakka-structure
+notePublishedAt: "2026-09-22"
+noteId: "nbc5c184c22bd"
+noteUrl: "https://note.com/dobokunote/n/nbc5c184c22bd"
 coverTitle: ["学科記述予想｜専門土木", "コンクリート構造物・基礎工"]
 cover:
   variant: crop-safe-v4

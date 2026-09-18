@@ -163,6 +163,16 @@ jobs:
             --title "サイト健全性チェック失敗（uptime-ping）" \
             --body-file /tmp/uptime-body.md
 
+      # 健全に戻ったら uptime channel の open Issue を自動クローズ（1 日 3 回走るので復旧は同日中に閉じる）。
+      - name: Resolve uptime Issue (復旧)
+        if: steps.check.outputs.failed == 'false'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/report-automation-failure.mjs --resolve --channel uptime \
+            --body "復旧 run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
       - name: Fail on uptime failure (アラート)
         if: steps.check.outputs.failed == 'true'
         run: |
