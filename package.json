@@ -294,6 +294,7 @@
     "google-console:normalize": "node scripts/normalize-google-console-csv.mjs",
     "gsc-indexing:check": "node scripts/gsc-request-indexing.mjs",
     "gsc-indexing:request": "node scripts/gsc-request-indexing.mjs --commit",
+    "indexnow:submit": "node scripts/indexnow-submit.mjs",
     "gsc-ui:fetch": "node scripts/fetch-gsc-ui-csv.mjs",
     "guide-covers": "node scripts/generate-guide-covers.mjs",
     "ig-status": "node scripts/ig-status.mjs",

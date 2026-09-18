@@ -1,0 +1,8 @@
+{
+  "_comment": "IndexNow（Bing/Yandex 等）への更新通知。key は公開必須の識別子で秘密ではない（public/<key>.txt と一致させる）。Google には効かない。運用は gsc-management.md、実行は indexnow-submit.yml（deploy 成功後）。",
+  "host": "doboku-note.com",
+  "key": "3ab8a475546ea376a49025a7559f81e2",
+  "keyLocation": "https://doboku-note.com/3ab8a475546ea376a49025a7559f81e2.txt",
+  "endpoint": "https://api.indexnow.org/indexnow",
+  "windowDays": 7
+}
