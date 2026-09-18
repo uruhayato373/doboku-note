@@ -47,6 +47,7 @@ import {
 } from '@/config/affiliate-creatives';
 import type React from 'react';
 import { getPublicDocPath } from '@/lib/content-routes';
+import { externalLinkRel } from '@/lib/external-link-rel';
 
 
 
@@ -81,7 +82,8 @@ function buildMdxOptions(midCtaPositions?: readonly number[]) {
     rehypeHeadingIds,
     rehypeKatex,
     rehypeExamReferences,
-    [rehypeExternalLinks, { target: '_blank', rel: ['noopener', 'noreferrer'] }] satisfies Pluggable,
+    // 本文中の外部リンク。note.com だけ referrer を渡す（判定は external-link-rel.ts に集約）
+    [rehypeExternalLinks, { target: '_blank', rel: (el) => externalLinkRel(String(el.properties?.href ?? '')) }] satisfies Pluggable,
   ];
   if (midCtaPositions && midCtaPositions.length > 0) {
     rehypePlugins.push([rehypeMidCta, { positions: midCtaPositions }] satisfies Pluggable);

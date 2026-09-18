@@ -1,6 +1,7 @@
 import Image from "next/image";
 import MagazineBadge from "@/components/ui/MagazineBadge/MagazineBadge";
 import { brandOf } from "@/lib/exam-brand";
+import { NOTE_LINK_REL } from "@/lib/external-link-rel";
 
 interface MagazineInlineCardProps {
   readonly url: string;
@@ -40,7 +41,7 @@ export default function MagazineInlineCard({
     <a
       href={url}
       target="_blank"
-      rel="noopener noreferrer"
+      rel={NOTE_LINK_REL}
       data-cta="note"
       data-cta-label={`${magazineId}:${trackLabel ?? "unknown"}`}
       data-cta-placement={placement}

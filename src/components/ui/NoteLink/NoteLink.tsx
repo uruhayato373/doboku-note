@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ExternalLink } from "lucide-react";
+import { NOTE_LINK_REL } from "@/lib/external-link-rel";
 
 interface NoteLinkProps {
   /** note 記事の URL（例: https://note.com/dobokunote/n/nc360aaa381b0） */
@@ -55,7 +56,7 @@ export default function NoteLink({
     <a
       href={url}
       target="_blank"
-      rel="noopener noreferrer"
+      rel={NOTE_LINK_REL}
       data-cta={isProduct ? "note" : "note-article"}
       data-cta-label={trackLabel ?? trackLabelFromUrl(url)}
       data-cta-placement={placement}

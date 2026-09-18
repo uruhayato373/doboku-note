@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { type ResolvedHubCta } from '@/lib/hub-cta';
+import { NOTE_LINK_REL } from '@/lib/external-link-rel';
 
 // カテゴリ hub 本文の note CTA。資格別リッチ背景（cta-bg/*.webp・右にモチーフ/左空き）＋
 // 左の余白へ HTML 文字（濃色＋白グローで可読）。文言/価格/リンク先は resolveHubCta がデータ駆動で供給。
@@ -20,7 +21,7 @@ export default function HubCtaBanner({
     <a
       href={cta.url}
       target="_blank"
-      rel="noopener noreferrer"
+      rel={NOTE_LINK_REL}
       data-cta="note"
       data-cta-label={cta.trackLabel}
       data-cta-placement={placement}

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { AUTHOR } from "@/config/author";
 import MetaCard from "@/components/ui/MetaCard/MetaCard";
+import { NOTE_LINK_REL } from "@/lib/external-link-rel";
 
 interface AuthorCardProps {
   publishedAt?: string;
@@ -73,7 +74,7 @@ export default function AuthorCard({
           <a
             href={AUTHOR.noteCta.url}
             target="_blank"
-            rel="noopener noreferrer"
+            rel={NOTE_LINK_REL}
             className="mt-4 inline-flex items-center gap-2 px-3.5 py-2 rounded-md bg-[var(--accent)] text-white text-sm font-bold shadow-sm hover:bg-[var(--accent)] transition-colors"
           >
             {AUTHOR.noteCta.label}

@@ -13,6 +13,7 @@ import { pickCoconalaFor, pickBrainFor } from "@/lib/exam-key-bridge";
 import { mokujiFor } from "@/lib/note-mokuji";
 import ServiceIcon, { type ServiceChannel } from "@/components/icons/ServiceIcon";
 import AuthorProfile from "@/components/ui/AuthorProfile/AuthorProfile";
+import { externalLinkRel } from "@/lib/external-link-rel";
 
 export const metadata: Metadata = {
   // title テンプレート "%s | doboku-note" がサイト名を付与するため、ここでは重ねない
@@ -257,7 +258,7 @@ function CardRow({
   const cls =
     'focus-ring group flex gap-2.5 border-b border-[var(--rule-soft)] py-2.5 last:border-b-0';
   return external ? (
-    <a href={href} target="_blank" rel="noopener noreferrer" className={cls}>
+    <a href={href} target="_blank" rel={externalLinkRel(href)} className={cls}>
       {inner}
     </a>
   ) : (
