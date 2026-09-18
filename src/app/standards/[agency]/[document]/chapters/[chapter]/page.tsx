@@ -13,6 +13,7 @@ import StandardsNavigation from '@/components/standards/StandardsNavigation';
 import StandardTopicLinks from '@/components/standards/StandardTopicLinks';
 import SourceRef from '@/components/standards/SourceRef';
 import rehypeHeadingIds from '@/lib/rehype-heading-ids';
+import rehypeScrollableFocus from '@/lib/rehype-scrollable-focus';
 import { buildPageMetadata } from '@/lib/metadata';
 import { getStandardDocuments, standardDocumentPath, standardPartPath } from '@/lib/standards';
 import {
@@ -95,7 +96,7 @@ export default async function StandardChapterPage({ params }: { params: Promise<
   const mdxOptions = {
     blockJS: false as const,
     blockDangerousJS: true as const,
-    mdxOptions: { remarkPlugins: [remarkGfm], rehypePlugins: [rehypeHeadingIds] },
+    mdxOptions: { remarkPlugins: [remarkGfm], rehypePlugins: [rehypeHeadingIds, rehypeScrollableFocus] },
   };
   const components = {
     // 生成器が埋めた <SourceRef pages="151-153" /> に、原典へ戻すための文書コンテキストを束ねる

@@ -188,6 +188,7 @@
     "check-note-membership": "node scripts/check-note-membership.mjs",
     "check-membership-drip": "node scripts/check-membership-drip.mjs",
     "check-production-ssr": "node scripts/check-production-ssr.mjs",
+    "check-production-sweep": "node scripts/check-production-sweep.mjs",
     "check-note-membership:live": "node scripts/check-note-membership.mjs --live",
     "check-note-paid-cta": "node scripts/wire-note-paid-cta.mjs --check",
     "check-note-price-consistency": "node scripts/check-note-price-consistency.mjs",
@@ -295,6 +296,7 @@
     "gsc-indexing:request": "node scripts/gsc-request-indexing.mjs --commit",
     "gsc-indexing:priority": "node scripts/build-gsc-indexing-priority.mjs",
     "check-gsc-indexing-due": "node scripts/check-gsc-indexing-due.mjs",
+    "indexnow:submit": "node scripts/indexnow-submit.mjs",
     "gsc-ui:fetch": "node scripts/fetch-gsc-ui-csv.mjs",
     "guide-covers": "node scripts/generate-guide-covers.mjs",
     "ig-status": "node scripts/ig-status.mjs",
@@ -378,6 +380,8 @@
     "test:ads": "node --test .claude/scripts/ads/__tests__/*.test.mjs",
     "test:e2e": "playwright test",
     "test:e2e:admin": "playwright test -c playwright.admin.config.ts",
+    "test:e2e:a11y": "playwright test e2e/a11y.spec.ts --project=desktop-chromium",
+    "test:e2e:a11y:baseline": "node -e \"process.env.A11Y_UPDATE_BASELINE='1';require('child_process').execFileSync('npx',['playwright','test','e2e/a11y.spec.ts','--project=desktop-chromium','--workers=1'],{stdio:'inherit',shell:true})\"",
     "test:e2e:headed": "playwright test --headed",
     "test:e2e:report": "playwright show-report",
     "test:e2e:ui": "playwright test --ui",
@@ -449,6 +453,7 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
     "@eslint/js": "^10.0.1",
     "@playwright/test": "^1.48.2",
     "@resvg/resvg-js": "^2.6.2",

@@ -1,0 +1,98 @@
+name: IndexNow submit (Bing)
+
+# 本番 deploy が成功したあと、sitemap の lastmod が直近 7 日の URL を IndexNow へ通知する。
+# Google は IndexNow に参加していない（Google 側は index-coverage.yml / gsc-request-indexing）。
+# 状態は持たない: deploy ごとに直近 7 日を再送する（IndexNow は再送を許容。lastmod は pre-commit が
+# 本文変更のときだけ動かすので、送る集合は実際に変わったページ）。
+# 設計の真実源: .claude/knowledge/reference/gsc-management.md「Bing（IndexNow）」。
+#
+# workflow_run はデフォルトブランチ（main）の版で動く。deploy の直後なので本番には key ファイルも
+# 新しい sitemap も既に載っている。
+
+on:
+  workflow_run:
+    workflows: ["Deploy to production (Cloudflare Pages)"]
+    types: [completed]
+  workflow_dispatch:
+    inputs:
+      days:
+        description: "lastmod の窓（日）。既定は config の windowDays"
+        required: false
+        default: ""
+      dry_run:
+        description: "true なら対象 URL を出すだけで送信しない"
+        required: false
+        default: "false"
+
+permissions:
+  contents: read
+  issues: write # 送信失敗を automation-failure Issue に記録する（限定例外）
+
+jobs:
+  submit:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version: "20"
+
+      # 依存ゼロ（node:fs と global fetch だけ）なので npm ci しない。
+      - name: Submit recently modified URLs
+        id: submit
+        env:
+          DAYS: ${{ github.event.inputs.days }}
+          DRY_RUN: ${{ github.event.inputs.dry_run }}
+        run: |
+          set +e
+          ARGS=""
+          [ -n "$DAYS" ] && ARGS="$ARGS --days $DAYS"
+          [ "$DRY_RUN" = "true" ] && ARGS="$ARGS --dry-run"
+          node scripts/indexnow-submit.mjs $ARGS 2>&1 | tee /tmp/indexnow.log
+          rc=${PIPESTATUS[0]}
+          set -e
+          echo "rc=$rc" >> "$GITHUB_OUTPUT"
+          {
+            echo "## IndexNow submit（rc=$rc）"
+            echo '```'
+            cat /tmp/indexnow.log
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          # 0 = 送信済み or 対象 0 件 / 1 = 送信して非 2xx / 2 = 検査不成立（sitemap・key が読めない）
+          exit "$rc"
+
+      - name: Report - submit failure
+        if: failure() && github.event_name != 'workflow_dispatch'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          {
+            echo "IndexNow への送信が失敗（rc=${{ steps.submit.outputs.rc }}）。Bing 側の更新通知が止まっている。"
+            echo ""
+            echo '```'
+            cat /tmp/indexnow.log 2>/dev/null || echo "(log なし)"
+            echo '```'
+            echo ""
+            echo "- rc=2 は検査不成立（本番 sitemap か \`public/<key>.txt\` が読めない）。deploy 直後の伝播待ちなら \`gh workflow run indexnow-submit.yml\` で再実行"
+            echo "- rc=1 は IndexNow が非 2xx。403/422 は key・host の不一致、429 は送信間隔"
+            echo "- 設定: \`.claude/config/indexnow.json\` / 判定: \`scripts/lib/indexnow.mjs\`"
+          } > /tmp/indexnow-body.md
+          node scripts/report-automation-failure.mjs \
+            --channel indexnow \
+            --title "IndexNow 送信失敗（rc=${{ steps.submit.outputs.rc }}）" \
+            --body-file /tmp/indexnow-body.md
+
+      # 送信が通ったら indexnow channel の open Issue を自動クローズ（起票と対）。
+      - name: Resolve - indexnow Issue (復旧)
+        if: success() && github.event_name != 'workflow_dispatch'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          node scripts/report-automation-failure.mjs --resolve --channel indexnow \
+            --body "復旧 run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"

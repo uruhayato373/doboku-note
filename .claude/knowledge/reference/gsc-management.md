@@ -49,6 +49,15 @@ Google Search Console の継続管理（インデックス被覆・検索パフ�
 > [!important]
 > Coverage（gsc-index-auditor）と Performance（metrics-analyzer）は**守備範囲が直交**。前者は「載っているか」、後者は「載っているページがどう成績を出すか」。混同しない。
 
+## Bing（IndexNow）
+
+Google は登録リクエストの API を提供しないが、Bing / Yandex / Naver は **IndexNow** で更新 URL を受け付ける。
+`indexnow-submit.yml` が本番 deploy 成功後に、本番 sitemap の lastmod が直近 7 日の URL を
+`https://api.indexnow.org/indexnow` へ送る（状態を持たず再送許容・1 回 10,000 URL まで）。
+key は `.claude/config/indexnow.json` と `public/<key>.txt` の一致が前提（公開必須の識別子で秘密ではない）。
+失敗（非 2xx・sitemap/key が読めない）は `automation-failure` Issue。Google の index には無関係＝本 doc の
+coverage 指標は動かない。効果は GA4 の `Organic Search` のうち Bing セッションで見る（GSC には出ない）。
+
 ## 閾値
 
 | 指標 | 警戒 | 目標 |
