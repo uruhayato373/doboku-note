@@ -86,3 +86,13 @@ jobs:
             --channel indexnow \
             --title "IndexNow 送信失敗（rc=${{ steps.submit.outputs.rc }}）" \
             --body-file /tmp/indexnow-body.md
+
+      # 送信が通ったら indexnow channel の open Issue を自動クローズ（起票と対）。
+      - name: Resolve - indexnow Issue (復旧)
+        if: success() && github.event_name != 'workflow_dispatch'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          node scripts/report-automation-failure.mjs --resolve --channel indexnow \
+            --body "復旧 run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
