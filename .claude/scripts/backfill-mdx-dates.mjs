@@ -24,7 +24,7 @@
  */
 
 import { execFileSync } from "node:child_process";
-import { readdirSync } from "node:fs";
+import { readdirSync, existsSync } from "node:fs";
 import { join, relative } from "node:path";
 import { readMdxFile, writeMdxFile } from "./lib/mdx-io.mjs";
 import { loadGitDates, lookupGitDates } from "./lib/git-dates.mjs";
@@ -109,8 +109,20 @@ function addFrontmatterFields(raw, created, dateModified, refresh = false) {
 // lastmod は sitemap 経由で Googlebot のクロール優先度に使われる信号で、一括の
 // メタ配線で数百ページを「更新」と申告すると信号として無視され、クロール枠も浪費する。
 // 本文・title・seoTitle・description が変わったときだけ更新する。
+export function isMergeInProgress(gitDir) {
+  // マージ commit では「相手側の変更」が staged に載るだけで、この端末で記事を編集したわけではない。
+  // ここで日付を打つと、他 branch の記事 20 本の dateModified がマージ日に動く＝lastmod の偽更新
+  // （2026-09-19 に #517 のマージで実発生。sitemap の lastmod が動き、クロール枠を無駄にする）。
+  return existsSync(join(gitDir, "MERGE_HEAD"));
+}
+
 function runStaged() {
   const git = (a) => execFileSync("git", ["-c", "core.quotepath=false", ...a], { encoding: "utf8", maxBuffer: 64 * 1024 * 1024 });
+  const gitDir = git(["rev-parse", "--git-dir"]).trim();
+  if (isMergeInProgress(gitDir)) {
+    console.log("[mdx-dates --staged] マージ commit のため据え置き（相手側の変更に今日の日付を打たない）");
+    return 0;
+  }
   const staged = git(["diff", "--cached", "--name-only", "--diff-filter=AM"])
     .split("\n").filter((p) => p.startsWith("content/site/") && p.endsWith(".mdx"));
   if (staged.length === 0) {
