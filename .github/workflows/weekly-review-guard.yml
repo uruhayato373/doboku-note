@@ -57,6 +57,10 @@ jobs:
             echo '```'
             node scripts/check-gsc-ui-due.mjs || true
             echo '```'
+            echo '### GSC 登録リクエストの放置検知（check-gsc-indexing-due）'
+            echo '```'
+            node scripts/check-gsc-indexing-due.mjs || true
+            echo '```'
             echo '### GSC 自動レビューの発火監視（check-gsc-auto-review）'
             echo '```'
             node scripts/check-gsc-auto-review.mjs || true
