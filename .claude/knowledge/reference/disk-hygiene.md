@@ -70,6 +70,8 @@ pid で ps のフルコマンドと lsof の cwd を突き合わせ、「その�
 
 Codex の会話履歴・アーカイブ・生成画像、Claude の `.jsonl`、stats47 のキャッシュ。
 `reportOnly` に並べてあり、容量だけを表に出す。棚卸しは人が判断する。
+
+`warnBytes` を持つ項目は、超えたときだけ WARN にする（削除 action は付けない）。2026-09-17 に Claude デスクトップアプリの `vm_bundles`（Cowork のフル VM サンドボックス。`rootfs.img.zst` 1.1GB を展開すると 10GB）が 12GB に膨らんで空きを 26→5.5GB に落としたのに「報告のみ」で埋もれた再発防止。vm_bundles は 3GB。
 Drive vault と R2 は「台帳で管理する制作物・原本」の置き場なので、**会話履歴やキャッシュを入れない**
 （`check-drive-vault` の整合が崩れる）。置き場の判断は [asset-storage-policy.md](asset-storage-policy.md) §1。
 
@@ -133,3 +135,5 @@ Windows 実測（2026-09-14・16GB 機）: X 用プロファイル 1.4GB のう�
 `scripts/prune-tmp.mjs`（scratch限定の互換入口・既定dry-run、削除は `--commit`）
 
 導入コマンドはGitの `maintenance start` も登録する。既存登録への再実行は可能で、登録失敗を成功として扱わない。
+
+> [!note] 2026-09-17 追記: 空きが 26GB→5.5GB に落ちた主因は Claude デスクトップアプリの `~/Library/Application Support/Claude/vm_bundles`（12GB・9/16 生成）で、リポジトリ側の開発生成物（`.tmp` 121MB・`.local` 237MB・`.next` 177MB）ではない。`reportOnly` に vm_bundles／`~/.cache/codex-runtimes`（1.6GB）／`~/Library/Caches/ms-playwright`（1.1GB）を追加し、日次レポートで見えるようにした（消す判断は人）。Workflow transcript（OCR セッション 3.2GB）は既存の 14 日ルールで 9/24〜27 に自動回収される。

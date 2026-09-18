@@ -35,7 +35,8 @@ export type CoconalaExamScope =
   | 'civil-1'
   | 'civil-2'
   | 'pe-construction'
-  | 'pe-comprehensive-management';
+  | 'pe-comprehensive-management'
+  | 'rccm';
 
 export interface CoconalaService {
   readonly id: string;
@@ -464,6 +465,53 @@ const SERVICES_RAW = {
     examScope: ['pe-comprehensive-management'],
     weeklyCapacity: 20,
     listedAt: '2026-07-22',
+  },
+
+  // ---- RCCM（2026-09-15 新設・CBT 試験期間 9/1〜10/31 の直前期向け）----
+  // 競合実測（.claude/state/coconala/market-research.json）: 経験論文添削 ¥6,500〜13,000、
+  // 択一予想 ¥2,500（★4.9・48件）。運営者の座は「発注者としてコンサル業務を発注・検査した技術士（建設・総監）」。
+  // RCCM 合格・コンサル在籍は名乗らない。出品は /coconala-publish --commit（status:'draft' → 'listed' と serviceUrl を同時に埋める）。
+  'coconala-rccm-mondai3-tensaku': {
+    id: 'coconala-rccm-mondai3-tensaku',
+    status: 'listed',
+    serviceUrl: 'https://coconala.com/services/4403575',
+    title: 'RCCM問題III 管理技術力の論文を添削します',
+    shortTitle: 'RCCM 問題III 添削',
+    description:
+      'RCCM資格試験 試験B 問題III（管理技術力・1,200〜1,600字）の下書き1テーマ分を、発注者としてコンサルタントの成果品を検査・評定してきた技術士（建設部門・総合技術監理部門）が添削。①現状と課題／②対策のあり方の構成、指定語の「」使用（4語以上）、管理技術者としての視点逸脱、字数超過を指摘し、書き換え案を返却する。1往復の再確認付き。合格を保証するものではない。',
+    price: '¥6,000（1テーマ・再確認1回）',
+    priceYen: 6000,
+    examScope: ['rccm'],
+    weeklyCapacity: 2,
+    listedAt: '2026-09-16',
+  },
+  'coconala-rccm-mondai1-shindan': {
+    id: 'coconala-rccm-mondai1-shindan',
+    status: 'listed',
+    serviceUrl: 'https://coconala.com/services/4403577',
+    title: 'RCCM業務経験論文の減点箇所を診断します',
+    shortTitle: 'RCCM 問題I 診断',
+    description:
+      'RCCM資格試験 試験A 問題I（業務経験論文・2,400字以内）の下書きを、業務実績証明書との整合、技術上の問題点と業務上の問題点の立て方、結論の具体性の観点で診断。合格可能性の A/B/C 判定と減点ポイント ワースト3、字数チェックを返却する。診断のみで書き換え文は提供しない。経験していない業務の創作はお受けしない。',
+    price: '¥2,000（1本診断）',
+    priceYen: 2000,
+    examScope: ['rccm'],
+    weeklyCapacity: 3,
+    listedAt: '2026-09-16',
+  },
+  'coconala-rccm-mondai3-pdf': {
+    id: 'coconala-rccm-mondai3-pdf',
+    status: 'listed',
+    serviceUrl: 'https://coconala.com/services/4403588',
+    title: 'RCCM問題III 模範論文6本のPDFを送ります',
+    shortTitle: 'RCCM 問題III 模範論文 PDF',
+    description:
+      'RCCM資格試験 2026年度 問題III（管理技術力）の公開6テーマ全部の模範論文（各1,200〜1,600字・①現状と課題／②対策のあり方）と、指定語の使用チェック表・部門別の置換ポイントをまとめた印刷用PDF。購入後トークルームでお送りする。出題や合格を保証するものではない。',
+    price: '¥3,000（PDF）',
+    priceYen: 3000,
+    examScope: ['rccm'],
+    weeklyCapacity: 20,
+    listedAt: '2026-09-16',
   },
 } as const satisfies Record<string, CoconalaService>;
 

@@ -68,7 +68,7 @@ gh secret delete SECRET_ACCESS_KEY
 
 - **R2監査キーの最小権限化**: Cloudflareダッシュボードで「R2への読み取り専用」スコープのAPIトークンを新規発行し、GitHub Secretsへ`CLOUDFLARE_R2_AUDIT_ACCESS_KEY_ID`/`CLOUDFLARE_R2_AUDIT_SECRET_ACCESS_KEY`として登録する。登録するだけで`r2-audit.yml`のフォールバック式が自動的に優先利用する（ワークフロー変更不要）
 - **mainへのPRレビュー必須化**: 単独運用のため必須ではないが、`/deploy`前にセルフレビューの型を強制したいなら「Require a pull request before merging」を有効化（承認数0でも「PRを経由する」制約は課せる）
-- **automation-failure Issue #457のクローズ**: 対象workflowは回復済みだが18日openのまま。dedup仕様で以後の失敗コメントが埋没している。DN-0135のIssue #473と同種のため統合を検討（クローズはユーザー）
+- **automation-failure Issue #457のクローズ**: 対象workflowは回復済みだが18日openのまま。dedup仕様で以後の失敗コメントが埋没している。DN-0135のIssue #473と同種のため統合を検討（2026-09-18 から起票元 workflow の次回成功で `--resolve` が自動クローズ。gsc-auto-review channel は gsc-auto-review.yml と weekly-review-guard.yml の両方に配線済み）
 
 ## 実行後の確認コマンド
 

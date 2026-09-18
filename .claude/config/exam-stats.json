@@ -146,6 +146,19 @@
         "passRate": 17.7
       },
       "note": "申込 3,835 に対し受験 3,030（欠席率 約21%）。受験前に講習会受講が必須。受験者は微減トレンド（2021年 3,611 → 2025年 3,030）。"
+    },
+    "rccm": {
+      "label": "RCCM資格試験",
+      "issuer": "一般社団法人 建設コンサルタンツ協会（JCCA）RCCM資格制度事務局",
+      "source": "https://www.rccm-cpd.com/rccm/rccmtop.html",
+      "latest": null,
+      "history": {
+        "2021": { "examinees": 5723, "passers": 2698, "passRate": 47.1 },
+        "2022": { "examinees": 5451, "passers": 2626, "passRate": 48.2 },
+        "2023": { "examinees": 5515, "passers": 2253, "passRate": 40.9 },
+        "2025": { "examinees": null, "passers": null, "passRate": 34.4 }
+      },
+      "note": "latest は公式一次情報（協会の年次報告 PDF）で未照合のため null。history は 2026-09-15 に二次情報（ジョブハウス建設コラム＝協会 PDF 引用・河野測量設計 令和7年度合格率）から転記した暫定値で、記事へ引用する前に協会の年次報告で照合する。合格率は年により 34〜48% と幅がある。"
     }
   },
   "peSecondaryDivisions": {

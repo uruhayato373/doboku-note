@@ -60,6 +60,7 @@ function expectedImagesOf(raw) {
 }
 
 const targets = [];
+let reserved = 0;
 for (const f of walk(join(ROOT, 'content/note'), [])) {
   if (FILTER && !f.includes(FILTER)) continue;
   const raw = readFileSync(f, 'utf8');
@@ -70,10 +71,14 @@ for (const f of walk(join(ROOT, 'content/note'), [])) {
   // 351 本（建設部門208・総監107・土木28・コンクリート診断士8）を無言でスキップし、
   // 698 本中 347 本しか検査していなかった。CLAUDE.md §9「検査ゼロを PASS と呼ばない」の同型。
   if (!/^noteUrl:\s*\S/m.test(fm) && !/noteStatus:.*publish/.test(fm)) continue;
+  // 予約投稿（noteStatus: reserved）は noteUrl/noteId の書き戻しがあっても go-live 前で、
+  // 公開 API は本文を返さない（画像 0 で必ず BAD になる偽赤・2026-09-17 の W8〜W11 予約で実発生）。
+  // go-live 後は verify-note-status --fix が published に是正するので、そこから検査に入る。
+  if (/^noteStatus:\s*reserved\b/m.test(fm)) { reserved++; continue; }
   const m = fm.match(/noteId:\s*"?(n[0-9a-f]{12})"?/);
   if (m) targets.push({ noteId: m[1], path: f.slice(ROOT.length + 1), expectedImgs: expectedImagesOf(raw) });
 }
-if (!PATHS_ONLY) console.log(`[check-note-live-headings] published ${targets.length} 件を検査`);
+if (!PATHS_ONLY) console.log(`[check-note-live-headings] published ${targets.length} 件を検査（予約中 ${reserved} 件は go-live 前のため対象外）`);
 
 async function check({ noteId, path, expectedImgs }) {
   const { body, error, unmeasurable } = await fetchNoteBody(noteId, { retries: 2, delayMs: 2000 });

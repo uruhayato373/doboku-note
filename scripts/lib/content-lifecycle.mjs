@@ -158,6 +158,9 @@ export function kindleStatusToStage(status) {
   switch (status) {
     case 'draft':
       return 'draft';
+    // catalog.json の schema: ready=制作完了・提出待ち（運営者の出版承認を待つ）→ review。
+    // 2026-09-17 の h-01 で初出。写像が無いと lifecycle 集計が unknown に落ちる。
+    case 'ready':
     case 'in_review':
       return 'review';
     case 'live':

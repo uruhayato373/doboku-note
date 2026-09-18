@@ -62,6 +62,19 @@
     {
       "path": "~/stats47/apps/web/.next",
       "note": "stats47 のビルド成果物（対象外・報告のみ）"
+    },
+    {
+      "path": "~/Library/Application Support/Claude/vm_bundles",
+      "note": "Claude デスクトップアプリの VM bundle（Cowork のフル VM サンドボックス。rootfs.img.zst 1.1GB を展開すると 10GB になる）。2026-09-16 に 12GB へ膨らみ空きを 26→5.5GB に落とした。3GB 超で WARN・消すのは人（9/17 に Trash へ移動）",
+      "warnBytes": 3221225472
+    },
+    {
+      "path": "~/.cache/codex-runtimes",
+      "note": "Codex のランタイムキャッシュ（1.6GB・報告のみ）"
+    },
+    {
+      "path": "~/Library/Caches/ms-playwright",
+      "note": "Playwright のブラウザ本体（1.1GB・note/X/KDP 自動化が使う。消すと次回 npx playwright install）"
     }
   ]
 }

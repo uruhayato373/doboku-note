@@ -53,6 +53,7 @@ description: >
 調査項目:
 - docs/ 配下で今週新規作成・更新されたファイル
 - カテゴリ別のページ数変動
+- **note の流入元・記事別 PV（月次）**: `.claude/state/metrics/note/referrers-YYYY-MM.json`（月次時系列の `targetMonth.sources`＝no referrer / note.com / Google / Bing / Yahoo / X）と `articles-pv-YYYY-MM.json`（PV 順の記事一覧）を読む。無ければ「未取得」と書き、次セッションで `npm run note-traffic-fetch -- --month YYYY-MM --commit`（ローカル・要ログイン）。収益は note 内回遊＋検索直で決まる（2026-09-15 実測）ので、X・サイト経由の PV を売上の理由にしない。business-review の `notePv` 計測はこのファイルの `summary.pageViews` を出典（`source`）にして記録する
 - note 公開状態ドリフト: `npm run verify-note-status` を実行（noteId 保有 article.md の
   frontmatter noteStatus ↔ ライブ公開状態を note 公開 API で突合・creds 不要）。
   ドリフト（ライブ=published / frontmatter=draft）があれば `-- --fix` で是正してコミット。
@@ -473,11 +474,14 @@ gh issue list --label automation-failure --state open --json number,title,create
 
 レビューには次の 1 行で書く:
 
-- **自動化の失敗**: open N 件（最古 M 日前）。channel 別に「復旧済みなら閉じる / 未復旧なら原因を 1 行」。
-  **7 日以上 open のものは必ず言及する**（放置＝チャネルが死ぬ）。クローズは復旧の実体を確認した人間が行う
-  （`report-automation-failure.mjs` は自動クローズしない）。起票元は `ci.yml`（Pre-merge が赤）・
-  `uptime-ping.yml`・`weekly-review-guard.yml`（記録層の沈黙／workflow health／report 区分 FAIL）・
-  `index-coverage.yml`・`gsc-auto-review.yml`
+- **自動化の失敗**: open N 件（最古 M 日前）。channel 別に「未復旧なら原因を 1 行」。
+  **7 日以上 open のものは必ず言及する**（放置＝チャネルが死ぬ）。復旧した Issue は起票元 workflow の次の
+  成功で `report-automation-failure.mjs --resolve` が自動クローズする（2026-09-18 から。それ以前は人手クローズで
+  open 8 件・最古 43 日が溜まり、この節自体が「消化停止」と書く状態だった）。したがって **open のまま残っている
+  ＝まだ復旧していない**と読む。`--resolve` の配線が無い channel（人手ルーティン起票）だけ復旧確認後に人が閉じる。
+  起票元は `ci.yml`（Pre-merge が赤）・`uptime-ping.yml`・`weekly-review-guard.yml`（記録層の沈黙／workflow health／
+  report 区分 FAIL）・`index-coverage.yml`・`gsc-auto-review.yml`・`seo-rank-watch.yml`・`ops-audit.yml`（投稿・配信・
+  転記の遅れ＝quality-audit の ops 区分）
 
 
 ### Phase 3: 出力（md ファイル保存）

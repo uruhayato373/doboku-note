@@ -32,6 +32,7 @@ const EXAM_THEME: Record<string, ExamTheme> = {
   "concrete-engineer": { bar: "bg-[var(--exam-concrete)]", hoverBorder: "hover:border-[var(--exam-concrete)]" },
   "concrete-chief-engineer": { bar: "bg-[var(--exam-concrete-chief)]", hoverBorder: "hover:border-[var(--exam-concrete-chief)]" },
   "concrete-diagnostician": { bar: "bg-[var(--exam-concrete-diagnosis)]", hoverBorder: "hover:border-[var(--exam-concrete-diagnosis)]" },
+  rccm: { bar: "bg-[var(--exam-rccm)]", hoverBorder: "hover:border-[var(--exam-rccm)]" },
 };
 const FALLBACK_THEME: ExamTheme = { bar: "bg-[var(--accent)]", hoverBorder: "hover:border-[var(--accent)]" };
 
@@ -45,6 +46,7 @@ const EXAM_IMAGE: Record<string, string> = {
   "concrete-engineer": "/images/card-concrete-engineer.webp",
   "concrete-chief-engineer": "/images/card-concrete-chief-engineer.webp",
   "concrete-diagnostician": "/images/card-concrete-diagnostician.webp",
+  rccm: "/images/card-rccm.webp",
 };
 
 // export: 検索ゼロステート（SearchZeroState）が同じ資格カードデザインを横展開するため（DN-0079③）。

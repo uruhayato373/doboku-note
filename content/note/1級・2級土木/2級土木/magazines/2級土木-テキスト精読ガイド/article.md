@@ -2,6 +2,10 @@
 notePricing: free
 noteSeries: 2級土木 テキスト精読ガイド
 utmCampaign: civil2-reading-guide
+noteStatus: published
+notePublishedAt: "2026-09-16"
+noteId: "na8e28f954797"
+noteUrl: "https://note.com/dobokunote/n/na8e28f954797"
 cover:
   variant: crop-safe-v4
   leadIn: "2級土木 第1次検定｜精読"

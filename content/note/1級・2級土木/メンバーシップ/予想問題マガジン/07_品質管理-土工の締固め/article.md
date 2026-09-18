@@ -1,8 +1,11 @@
 ---
 notePricing: membership
-noteStatus: draft
+noteStatus: published
 noteSeries: 経験記述-週次お題ラボ
 noteMagazine: 経験記述-週次お題ラボ
+notePublishedAt: "2026-09-17"
+noteId: "naae8119cce47"
+noteUrl: "https://note.com/dobokunote/n/naae8119cce47"
 membershipOnly: true
 utmCampaign: civil-membership-odai-quality-earthwork
 coverTitle: ["今週のお題｜品質管理", "土工・盛土の締固め"]

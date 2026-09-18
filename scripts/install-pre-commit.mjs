@@ -398,6 +398,12 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+# RCCM 問題III 模範論文の出題条件（1,200〜1,600 字・指定用語「」4 語以上・問題再現節なし）
+node scripts/check-rccm-essay.mjs --staged
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+
 # frontmatter の重複キー（後勝ちで値が黙って入れ替わる）
 node scripts/check-note-frontmatter-dup.mjs --staged
 if [ $? -ne 0 ]; then

@@ -261,16 +261,18 @@ Priority 4: 港湾・鉄道・電力（市場小・実務薄め）
 | BK | パック商品ID | 表示名 | ソースkey | 記事数 | batch |
 |---|---|---|---|---:|---|
 | 01 | `pe-construction-road-pack` | 道路 | `m9e825cfd8348` | 24 | 公開済み（参照商品） |
-| 11 | `pe-construction-tunnel-pack` | トンネル | `m5da4b560d8be` | 18 | A |
-| 03 | `pe-construction-urban-planning-pack` | 都市計画 | `mc8bd949f1f51` | 18 | A |
-| 02 | `pe-construction-river-coast-pack` | 河川・砂防 | `mba17c3f8b894` | 18 | A |
-| 05 | `pe-construction-steel-concrete-pack` | 鋼構造・コンクリート | `md38f1de30c31` | 18 | B |
-| 04 | `pe-construction-geotechnical-pack` | 土質・基礎 | `me7ebb48b319e` | 18 | B |
-| 10 | `pe-construction-railway-pack` | 鉄道 | `m535a4a4353c3` | 18 | B |
-| 07 | `pe-construction-environment-pack` | 建設環境 | `m76f1e545c541` | 18 | C |
-| 08 | `pe-construction-port-airport-pack` | 港湾・空港 | `m55096ddb1af6` | 18 | C |
-| 06 | `pe-construction-construction-planning-pack` | 施工計画 | `m1562f66d9654` | 18 | C |
-| 09 | `pe-construction-power-civil-pack` | 電力土木 | `ma87d182c8113` | 18 | C |
+| 11 | `pe-construction-tunnel-pack` | トンネル | `m5da4b560d8be` | 18 | A（公開 2026-09-15・m2029e394e260） |
+| 03 | `pe-construction-urban-planning-pack` | 都市計画 | `mc8bd949f1f51` | 18 | A（公開 2026-09-15・m5f63da67c0f3） |
+| 02 | `pe-construction-river-coast-pack` | 河川・砂防 | `mba17c3f8b894` | 18 | A（公開 2026-09-15・m99468c7c717f） |
+| 05 | `pe-construction-steel-concrete-pack` | 鋼構造・コンクリート | `md38f1de30c31` | 18 | B（公開 2026-09-16・m56b2dcc4cca2） |
+| 04 | `pe-construction-geotechnical-pack` | 土質・基礎 | `me7ebb48b319e` | 18 | B（公開 2026-09-16・m621daa62a087） |
+| 10 | `pe-construction-railway-pack` | 鉄道 | `m535a4a4353c3` | 18 | B（公開 2026-09-16・m98f92c18412e） |
+| 07 | `pe-construction-environment-pack` | 建設環境 | `m76f1e545c541` | 18 | C（公開 2026-09-16・me506e9bdde6a） |
+| 08 | `pe-construction-port-airport-pack` | 港湾・空港 | `m55096ddb1af6` | 18 | C（公開 2026-09-16・m64bd0cbd7111） |
+| 06 | `pe-construction-construction-planning-pack` | 施工計画 | `m1562f66d9654` | 18 | C（公開 2026-09-16・m8bc3c8660afb） |
+| 09 | `pe-construction-power-civil-pack` | 電力土木 | `ma87d182c8113` | 18 | C（公開 2026-09-16・m476ad50d2942） |
+
+> [!note] 全 11 科目のパック公開完了（2026-09-16）。batch B/C は売上実測（全部パックが売上 28%）を受けて 11/15 期日を前倒しし同日に 7 件を作成・収録（各 29 記事を API 実体確認）・カバー SET。以後の成功指標は科目売上の公開前後差（`sales-log` の `bk-{subject}-pack`）。
 
 **note タイトル（30字制約対応の短縮名）**: 「建設部門2次｜{科目名}まるごと合格パック」形式。
 説明本文には試験上の正式科目名を記載する（例: 「鋼構造及びコンクリート」「施工計画、施工設備及び積算」）。

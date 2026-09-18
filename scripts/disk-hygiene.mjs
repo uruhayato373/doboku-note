@@ -499,11 +499,17 @@ export function collect({ quick = false, config = loadConfig(), platform = proce
     for (const entry of config.reportOnly) {
       const p = expandPath(entry.path);
       if (!existsSync(p)) continue;
+      const bytes = statSync(p).isDirectory() ? dirBytes(p) : statSync(p).size;
+      // warnBytes を持つ項目は、超えたら WARN（消すのは人。2026-09-17: Claude アプリの vm_bundles が 12GB に膨らみ
+      // 空きを 26→5.5GB に落としたのに「報告のみ」で埋もれた再発防止）。
+      const over = Number.isFinite(entry.warnBytes) && bytes > entry.warnBytes;
       items.push({
         id: `history:${entry.path.replace(/^~\//, '')}`,
-        status: 'ok',
-        bytes: statSync(p).isDirectory() ? dirBytes(p) : statSync(p).size,
-        detail: `報告のみ（自動削除しない）: ${entry.note}`,
+        status: over ? 'warn' : 'ok',
+        bytes,
+        detail: over
+          ? `${(entry.warnBytes / 1024 ** 3).toFixed(1)} GB 超（報告のみ・自動削除しない・人が棚卸し）: ${entry.note}`
+          : `報告のみ（自動削除しない）: ${entry.note}`,
         actions: [],
       });
     }

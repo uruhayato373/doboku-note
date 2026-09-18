@@ -35,7 +35,7 @@ X 投稿の下書き（`content/sns/x/draft/<NNN>-<exam>-<topic>/tweets.md`）�
 
 | パラメータ | 説明 | 例 |
 |---|---|---|
-| `exam` | 試験軸 | `pe-comprehensive` / `pe-construction` / `civil-1` / `civil-2` / `concrete-chief` / `concrete-diagnosis` |
+| `exam` | 試験軸 | `pe-comprehensive` / `pe-construction` / `civil-1` / `civil-2` / `concrete-chief` / `concrete-diagnosis` / `rccm` |
 | `type` | 投稿型 | `keyword` / `question` / `trap`（引っかけ）/ `mnemonic`（暗記）/ `magazine` / `angle-slice`（切り口分割）/ `experience`（合格者の思考・体験の断片） |
 | `topic` | 対象（slug / 年度パック / テーマ / note 記事 dir） | `heinrich-law` / `r05z-pack-01` / `施工経験記述` / `公務員が総監を取るメリット` |
 | `count` | 生成ツイート数 | `4`（既定） |
@@ -60,6 +60,7 @@ X 投稿の下書き（`content/sns/x/draft/<NNN>-<exam>-<topic>/tweets.md`）�
    - `angle-slice`: 1 テーマ（keyword/note 記事）を **結論・理由・体験・反論・数字・ハウツー** の 6 切り口に刻んで 6 ツイート化（作法は policy §5.1）。**体験軸は合格者の権威で書く**（運営者は総監合格者）。真実を超える固有値は捏造しない。URL は結論・ハウツーの 2 本のみ。
    - `experience`: 既存 note 記事（公務員クラスター 8 本・将来の合格体験 E-1〜E-4 等）の `article.md`。**思考・つまずき・気づきの断片**を 1 ツイートに圧縮し、フルは note 有料へ誘導する（Red Line: 一次情報を割らない）。一人称・体験談トーン。
    - **コンクリート系**（`concrete-chief` / `concrete-diagnosis`）: サイト記事 `content/site/concrete-chief-engineer/**`（19 本）・`concrete-diagnostician/**`（18 本）。**表記は必ず「コンクリート主任技士」**（技師ではない・`exam-calendar.json` policy）。診断士は試験終了済み（7/26・合否 9/30 頃）なので**直前対策は書かない**——合否待ち期の心理・来年度受験の検討・実務での活かし方に寄せる。
+   - **RCCM**（`rccm`）: 素材は `content/note/RCCM/**`（試験事実・公開 6 テーマ・指定用語は `magazines/RCCM問題III-2026模範論文集/_facts-2026.md` が SSOT。日付は `exam-calendar.json` rccm）。2026 年度は CBT 試験期間 9/1〜10/31＝受験日は人によって違うので「試験まであと N 日」と書かない。**試験問題の再現・指定用語の羅列だけの投稿はしない**（公開テーマの読み解き・骨子の作り方・指定語の使い方に寄せる）。運営者は RCCM 保有者・コンサル在籍ではない（発注者として成果品を検査した技術士）＝合格体験は書かない。
 
 ### 実績・社会的証明を書くときのガードレール（policy §5.3）
 
