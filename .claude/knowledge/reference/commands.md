@@ -14,7 +14,7 @@ npm run build             # 本番ビルド
 npm run serve             # out/ をローカル配信（既定 3025・`_redirects` の 301 も適用）。**E2E の既定ターゲット**でもある（dev だとルートの初回コンパイルでテストが実行ごとにランダムに落ち、旧 /category/ /docs/ は dev に存在せず検査できない）。要 `npm run build`
 npm run type-check        # TypeScript チェック
 npm run lint              # ESLint チェック（no-console: warn/error のみ許容）
-npm run quality:audit     # コード・記事・画像/SVGの機械チェックを横断実行→.claude/state/quality/audit-latest.md（:ci でCI gate厳格版。GitHub Actionsでは失敗名と要点を検査結果の注釈にも出す）
+npm run quality:audit     # コード・記事・画像/SVGの機械チェックを横断実行→.claude/state/quality/audit-latest.md（:ci でCI gate厳格版。GitHub Actionsでは失敗名と要点を検査結果の注釈にも出す。:ops で運用アラート区分〔ops:true＝配信・転記の遅れ〕だけ実行＝ops-audit.yml が日次で回し automation-failure Issue channel ops へ。--ci/--report-only/--ops は排他・0 件実行は exit 2）
 npm run refresh-indexes   # 静的インデックス再生成（backlinks + cross-exam + tags + pillar問題 + popular記事[GA4] + 頻出論点）
 npm run admin             # 運営管理画面 Next.js 版（ローカル専用・http://127.0.0.1:3021・計測/エージェント/スキル/ギャラリー/SNS状態/記事/売上/品質/ジョブ/TODO/**プロジェクト**/**ライフサイクル横断 `/content/lifecycle`**/**動画パック `/content/video`**・tools/admin-app）
 npm run test:e2e:admin    # 管理画面の E2E（Project↔TODO の相互リンク・日本語パス・トラバーサル404・レスポンシブ。admin は dev 専用なので CI の e2e には載せない）
@@ -83,7 +83,8 @@ npm run check-standards-page-images # 上の provenance 整合（catalog↔manif
 npm run kdp-report        # Kindle 月次ロイヤリティを KDP レポートから取得→.claude/state/sales/kdp-royalties.json（ローカル専用・読み取り専用・当月/前月のみ）
 npm run note-sales-fetch  # note 売上履歴を read-only 取得→検算OKで.claude/state/sales/sales-log.jsonの当月を差し替え（--month YYYY-MM --commit・ログイン要・DN-0018）
 npm run check-magazine-cta # 公開マガジンがサイトで1面以上CTAとして出るか（top/中間CTA/MagazineCard・quality:audit に同梱）
-npm run check-membership-drip # 会員配信ドリップの遅れ・実体欠落（真実源＝メンバーシップ/README.md の配信表。予定日を1日以上過ぎた未配信は赤。日付をカードへ複製すると必ずずれるので複製しない・quality:audit に同梱）
+npm run check-sales-freshness # sales-log.json の転記（note-sales-fetch）が止まっていないか（判定軸は updatedAt＝転記日。最終売上日で測ると閑散期に偽赤。quality:audit の **ops 区分**＝ops-audit.yml が日次で Issue へ。取得自体は認証が要るのでローカル専用）
+npm run check-membership-drip # 会員配信ドリップの遅れ・実体欠落（真実源＝メンバーシップ/README.md の配信表。予定日を1日以上過ぎた未配信は赤。日付をカードへ複製すると必ずずれるので複製しない・quality:audit の **ops 区分**＝PR は赤くせず ops-audit.yml が日次で Issue へ。2026-09-18 まで ci 区分に居て 30 日に 13 回 Pre-merge を落としていた）
 npm run check-kindle-epub-leak # 配布EPUBに章名 article.mdx / YAML frontmatter が印字されていないか＋ソースMDXのBOM検査（BOMで frontmatter の ^--- が外れるのが真因。pre-commit は --bom-only・quality:audit に同梱）
 npm run check-kdp-category-coverage # 新刊(buildSpec持ち)のid接頭辞がKDPカテゴリー(.claude/config/kdp-memo.json categoryAssign)へ明示登録されているか（未登録は警告なく既定「技術士」へ入稿される。2026-08-28 g-01実測の再発防止・quality:audit に同梱）
 ```

@@ -16,7 +16,7 @@ paths:
 - 週次レビューの申し送りは backlog へ `DN-####` 起票まで完了とする。定期作業は置かない。`[検証:]` に surfacer を書かない
 - ゲート: `npm run check-backlog-schema`（タグ行の語彙・`[検証:]` の実在・ID 必須/重複・完了 prose の混入。pre-commit `--staged`）、`npm run check-backlog-health`（候補 surfacer・常に exit 0）、`npm run check-task-plan-links`（plan↔backlog の結線）、`npm run check-project-task-refs`（docs/ の backlog ID 参照切れ）
 - 実行ライフサイクルの契約 → [todo-lifecycle.md](../knowledge/reference/todo-lifecycle.md)。台帳の構造監査は `backlog-curator`（`/backlog-sweep --audit`）
-- **GitHub Issue は使わない**（唯一の例外＝`automation-failure` ラベル＝自動化の失敗・沈黙の記録。起票は `scripts/report-automation-failure.mjs`、クローズは人間）
+- **GitHub Issue は使わない**（唯一の例外＝`automation-failure` ラベル＝自動化の失敗・沈黙の記録。起票は `scripts/report-automation-failure.mjs`、復旧時は起票元 workflow の成功で `--resolve` が自動クローズ。配線の無い channel だけ人が閉じる）
 
 ## `.claude/plans/`
 

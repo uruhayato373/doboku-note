@@ -10,12 +10,19 @@
  * 使い方:
  *   node scripts/quality-audit.mjs         # 全チェック実行 → .claude/state/quality/audit-latest.{json,md}
  *   node scripts/quality-audit.mjs --ci    # ci:true の厳格サブセットのみ・fail/timeout で exit 1・レポート書込なし
+ *   node scripts/quality-audit.mjs --ops   # ops:true（運用アラート）のみ・fail で exit 1・0 件実行で exit 2（ops-audit.yml が日次で回す）
  *   node scripts/quality-audit.mjs --json  # 結果 JSON を stdout に出す（レポートファイルも書く）
  *
  * 設計:
  *   - 各チェックは spawnSync で独立プロセス実行。timeout 到達で SIGTERM → status='timeout'（ハング対策完結）。
  *   - `ci: true` = マージ前に守るべき厳格チェック（型・テスト・MDX・lint・ラチェット・リンク・台帳整合）。
- *   - `ci: false` = report-only（棚卸し・情報提供。census/knip/env-inventory 等。--ci では実行しない）。
+ *     **結果が PR の diff だけで決まる検査に限る**。壁時計（配信予定日・鮮度）や外部状態に依存する検査を
+ *     ここへ入れると、diff と無関係に全 PR が赤くなり、赤が読まれなくなる（2026-09: membership-drip が
+ *     30 日で 13 回 Pre-merge を落とし、その陰で unit-tests の赤 6 回が埋もれた）。
+ *   - `ops: true` = 運用アラート（投稿・配信・転記の遅れ）。ci:false 必須。PR は絶対に赤くしない。
+ *     ops-audit.yml が日次で `--ops` を回し、FAIL は automation-failure Issue（channel: ops）へ、
+ *     復旧は同 workflow の成功で自動クローズ（report-automation-failure --resolve）。
+ *   - `ci: false`（ops 無し）= report-only（棚卸し・情報提供。census/knip/env-inventory 等。--ci では実行しない）。
  *   - `skip(env)` が理由文字列を返したらスキップ（dev server 必須・build 成果物必須など）。
  *   - 外部 API・公開更新（note/R2/deploy/fetch-*）は定義に載せない（副作用ゼロを保証）。
  *   - 存在しない npm script は skip 扱い（新チェックの段階導入に耐える）。
@@ -46,6 +53,15 @@ const CI = argv.includes('--ci');
 const REPORT_ONLY = argv.includes('--report-only');
 if (CI && REPORT_ONLY) {
   process.stderr.write('[quality-audit] --ci と --report-only は併用できません（対象が排他）\n');
+  process.exit(2);
+}
+/**
+ * --ops: ops:true（運用アラート）だけを実行し、FAIL があれば exit 1、1 件も実行できなければ exit 2。
+ * --ci / --report-only とは対象が排他（ops は ci:false かつ report digest からも除外される）。
+ */
+const OPS = argv.includes('--ops');
+if (OPS && (CI || REPORT_ONLY)) {
+  process.stderr.write('[quality-audit] --ops は --ci / --report-only と併用できません（対象が排他）\n');
   process.exit(2);
 }
 const EMIT_JSON = argv.includes('--json');
@@ -161,7 +177,8 @@ const CHECKS = [
   { id: 'pe-construction-subject-links', cmd: ['node', 'scripts/check-pe-construction-subject-links.mjs'], timeout: 60_000, ci: true, note: '建設部門の過去問84本↔keyword35本の科目単位双方向導線と、設問単位mapの細粒度限定ポリシーを検証' },
   { id: 'career-separation', npm: 'check-career-separation', timeout: 60_000, ci: true },
   { id: 'ssot-consumers', npm: 'check-ssot-consumers', timeout: 60_000, ci: true },
-  { id: 'sales-freshness', npm: 'check-sales-freshness', timeout: 30_000, ci: true, note: '売上転記が止まっていないか（updatedAt が 21 日超で赤）。2026-07 は 18% しか転記されず 34 日誰も気づかなかった' },
+  // 壁時計依存（転記日からの経過日数）なので ops 区分（ヘッダ「設計」）。2026-09-18 に ci から移した。
+  { id: 'sales-freshness', npm: 'check-sales-freshness', timeout: 30_000, ci: false, ops: true, note: '売上転記（note-sales-fetch）が止まっていないか（updatedAt が 21 日超で赤・閑散期でも偽赤にならない）。2026-07 は 18% しか転記されず 34 日誰も気づかなかった。取得は認証が要るのでローカル専用＝CI は「やっていない」ことだけを言う。読み手＝ops-audit.yml（日次 --ops → automation-failure Issue channel ops・復旧で自動クローズ）' },
   { id: 'sales-mapping', npm: 'check-sales-mapping', timeout: 60_000, ci: true, note: 'sales-log の productId と note-magazines.ts の公開済み単品が sales-recorder.md の mapping に文書化されているか（初売上前の新商品も先行検知）' },
   { id: 'note-funnel', npm: 'check-note-funnel', timeout: 90_000, ci: true },
   { id: 'magazine-cta-reachability', npm: 'check-magazine-cta:ci', timeout: 120_000, ci: true, note: '公開マガジンがサイト内で 1 面以上 CTA として出るか（top / 中間CTA / MagazineCard）。baseline 外の新規 0 面で落ちる' },
@@ -172,7 +189,8 @@ const CHECKS = [
   { id: 'note-frontmatter-dup', npm: 'check-note-frontmatter-dup', timeout: 60_000, ci: true, note: 'frontmatter トップレベルキーの重複。YAML 重複キーで gray-matter が停止し PDF 生成が落ちる' },
   { id: 'note-vocabulary-boundary', npm: 'check-note-vocabulary-boundary', timeout: 60_000, ci: true, note: 'noteSeries(編集ラベル)とnoteMagazine(商品ラベル)の取り違え検知（内部id混入/他マガジンラベル混入/index×商品の共存）。DN-0125' },
   { id: 'note-link-cards', npm: 'check-note-link-cards', timeout: 60_000, ci: true, note: '自社note記事はサイト管理画像付き NoteLink に限定。生リンク・旧noteカバー・画像欠落を禁止' },
-  { id: 'membership-drip', npm: 'check-membership-drip', timeout: 30_000, ci: true, note: '会員配信ドリップの遅れ・実体欠落。配信表(README)が真実源で、予定日を GRACE_DAYS 以上過ぎた未配信は赤。2026-08-27 に学科02が2日遅れで沈黙していた（カード側の日付が正典とずれていて気づけなかった）' },
+  // ── ops（運用アラート）── 壁時計依存。PR の diff では直せないので ci:true に置かない（ヘッダ「設計」参照）。
+  { id: 'membership-drip', npm: 'check-membership-drip', timeout: 30_000, ci: false, ops: true, note: '会員配信ドリップの遅れ・実体欠落。配信表(README)が真実源で、予定日を GRACE_DAYS 以上過ぎた未配信は赤。2026-08-27 に学科02が2日遅れで沈黙していた（カード側の日付が正典とずれていて気づけなかった）。読み手＝ops-audit.yml（日次 --ops → automation-failure Issue channel ops・復旧で自動クローズ）。2026-09-18 まで ci 区分に居て 30 日に 13 回 Pre-merge を落としていたため ops へ移した' },
   { id: 'note-membership', npm: 'check-note-membership', timeout: 60_000, ci: true, note: 'メンバーシップの会費/定員/planId が SSOT config と一致するか。note は会費を変更できずプラン作り直しが唯一の手段なので、ドリフト放置は修復不能に近づく（--live は実機突合・ローカル専用）' },
   // 分類語彙（領域×資格×記事型×テーマ×タグ）の整合。未登録タグ・別名綴り・構造タグ不整合は baseline ラチェット
   // （content-taxonomy-baseline.json）。WARN（topic 三方向の 0 件・未使用タグ）の読み手＝/weekly-review Phase 2。
@@ -286,6 +304,29 @@ const CHECKS = [
   },
 ];
 
+// ops:true は ci:false 必須。ops を ci に混ぜると壁時計依存の赤が全 PR に出る（ヘッダ「設計」）。
+{
+  const bad = CHECKS.filter((c) => c.ops && c.ci).map((c) => c.id);
+  if (bad.length) {
+    process.stderr.write(`[quality-audit] ✗ 検査不成立: ops:true は ci:false でなければならない: ${bad.join(', ')}\n`);
+    process.exit(2);
+  }
+}
+
+/**
+ * どのモードでどの検査を走らせるか。純関数（テストが import する）。
+ *   ci         … ci:true のみ
+ *   reportOnly … ci:false かつ ops でなく digest:false でもないもの
+ *   ops        … ops:true のみ
+ *   full       … すべて
+ */
+export function selectsCheck(check, mode) {
+  if (mode.ci) return Boolean(check.ci);
+  if (mode.ops) return Boolean(check.ops);
+  if (mode.reportOnly) return !check.ci && !check.ops && check.digest !== false;
+  return true;
+}
+
 // expectedFail は ci:true には付けられない。ゲートに「失敗が正常」を認めると Pre-merge の
 // 判定が空文になる。設定ミスは検査不成立（exit 2）で止める。
 {
@@ -357,17 +398,18 @@ function failureExcerpt(stdout, stderr, maxLines = 40) {
 
 async function runCheck(check) {
   const started = Date.now();
-  if (CI && !check.ci) return null; // --ci では report-only を実行しない
-  // --report-only は report 区分だけを走らせる。digest:false は「常に非ゼロで判定に使えない
-  // 情報出力」なので、週次 Issue の対象からも外す（毎週飛ぶ通知は読まれなくなる）。
-  if (REPORT_ONLY && (check.ci || check.digest === false)) return null;
+  // --ci は ci:true だけ / --ops は ops:true だけ / --report-only は report 区分だけ。
+  // digest:false は「常に非ゼロで判定に使えない情報出力」なので週次 Issue の対象からも外す
+  // （毎週飛ぶ通知は読まれなくなる）。ops は日次の別チャネル（ops-audit.yml）が読むので
+  // 週次 digest からも外す（同じ FAIL が 2 つの Issue に出ると片方が読まれなくなる）。
+  if (!selectsCheck(check, { ci: CI, ops: OPS, reportOnly: REPORT_ONLY })) return null;
   if (check.skip) {
     const reason = await check.skip();
-    if (reason) return { id: check.id, ci: check.ci, status: 'skip', skipReason: reason, durationMs: 0, note: check.note, expectedFail: check.expectedFail ?? null };
+    if (reason) return { id: check.id, ci: check.ci, ops: Boolean(check.ops), status: 'skip', skipReason: reason, durationMs: 0, note: check.note, expectedFail: check.expectedFail ?? null };
   }
   const command = resolveCommand(check);
   if (!command) {
-    return { id: check.id, ci: check.ci, status: 'skip', skipReason: `npm script '${check.npm}' が未定義`, durationMs: 0, note: check.note, expectedFail: check.expectedFail ?? null };
+    return { id: check.id, ci: check.ci, ops: Boolean(check.ops), status: 'skip', skipReason: `npm script '${check.npm}' が未定義`, durationMs: 0, note: check.note, expectedFail: check.expectedFail ?? null };
   }
   // Windows では npm/npx の実体が .cmd のため shell 無しの spawnSync は ENOENT で即死する。
   // これを放置すると node 直起動の検査だけが走り、残り全部が 0.0s FAIL になる＝「偽赤」で
@@ -384,7 +426,7 @@ async function runCheck(check) {
   else if (r.status === 0) status = 'pass';
   else status = 'fail';
   return {
-    id: check.id, ci: check.ci, status, exitCode: r.status ?? null, durationMs,
+    id: check.id, ci: check.ci, ops: Boolean(check.ops), status, exitCode: r.status ?? null, durationMs,
     stdoutTail: tail(r.stdout), stderrTail: tail(r.stderr), note: check.note,
     expectedFail: check.expectedFail ?? null,
     // 全文はここでしか手に入らない（tail 済みの文字列からは信号行を拾えない）
@@ -406,7 +448,7 @@ function buildMarkdown(results, meta) {
   L.push('# 機械品質監査レポート (quality:audit)');
   L.push('');
   L.push(`- 生成: ${meta.stamp}`);
-  L.push(`- モード: ${CI ? 'CI（厳格サブセット）' : 'フル（report 含む）'}`);
+  L.push(`- モード: ${CI ? 'CI（厳格サブセット）' : OPS ? 'ops（運用アラート）' : 'フル（report / ops 含む）'}`);
   const counts = results.reduce((a, r) => { a[r.status] = (a[r.status] || 0) + 1; return a; }, {});
   L.push(`- 結果: pass ${counts.pass || 0} / fail ${counts.fail || 0} / timeout ${counts.timeout || 0} / skip ${counts.skip || 0}`);
   L.push('');
@@ -417,7 +459,7 @@ function buildMarkdown(results, meta) {
     if (r.expectedFail && (r.status === 'fail' || r.status === 'timeout')) badge = 'EXPECTED';
     const sec = r.durationMs ? `${(r.durationMs / 1000).toFixed(1)}s` : '—';
     const memo = r.status === 'skip' ? (r.skipReason || '') : (r.note || '');
-    L.push(`| ${r.id} | ${r.ci ? 'ci' : 'report'} | ${badge} | ${sec} | ${memo} |`);
+    L.push(`| ${r.id} | ${r.ci ? 'ci' : r.ops ? 'ops' : 'report'} | ${badge} | ${sec} | ${memo} |`);
   }
   const failed = results.filter((r) => r.status === 'fail' || r.status === 'timeout');
   if (failed.length) {
@@ -465,7 +507,7 @@ async function main() {
   const meta = { stamp, census: censusSummary() };
   const failed = results.filter((r) => r.status === 'fail' || r.status === 'timeout');
 
-  if (!CI) {
+  if (!CI && !OPS) {
     mkdirSync(OUT_DIR, { recursive: true });
     writeFileSync(JSON_OUT, JSON.stringify({ generated_at: stamp, ci: CI, results, census: meta.census }, null, 2));
     writeFileSync(MD_OUT, buildMarkdown(results, meta));
@@ -501,6 +543,19 @@ async function main() {
       process.stderr.write(`[quality-audit] report 区分の失敗: ${ids.join(', ')}\n`);
       process.exitCode = 1;
     }
+  }
+
+  // --ops: 検査ゼロを PASS と呼ばない（ops フラグ構成が壊れた）。FAIL は詳細を出して exit 1。
+  if (OPS && results.length === 0) {
+    process.stderr.write('[quality-audit] ✗ 検査不成立: ops:true の検査が 1 件も実行されなかった\n');
+    process.exitCode = 2;
+  } else if (OPS && failed.length) {
+    for (const r of failed) {
+      process.stderr.write(`\n--- ${r.id} — ${r.status} (exit ${r.exitCode}) ---\n`);
+      process.stderr.write((r.excerpt || '(出力なし)') + '\n');
+    }
+    process.stderr.write(`[quality-audit] ops 区分の失敗: ${failed.map((f) => f.id).join(', ')}\n`);
+    process.exitCode = 1;
   }
 
   if (CI && failed.length) {
