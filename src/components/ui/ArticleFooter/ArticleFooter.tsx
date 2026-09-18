@@ -89,6 +89,7 @@ export default function ArticleFooter({
     'concrete-diagnostician',
     'pe-first-stage',
     'pe-comprehensive-management',
+    'rccm',
   ]);
   const endBannerAd =
     !isCareer && category && endBannerCategories.has(category)

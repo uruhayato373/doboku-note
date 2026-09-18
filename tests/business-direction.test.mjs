@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { mkdtempSync, mkdirSync, readFileSync, writeFileSync, rmSync } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
-import { reviewPeriod, direction, saveRecord, records, buildReport, snapshot, assertLocalWrite } from '../scripts/lib/business-direction.mjs';
+import { reviewPeriod, direction, saveRecord, records, buildReport, snapshot, assertLocalWrite, strategyForRecord } from '../scripts/lib/business-direction.mjs';
 const now = new Date('2026-09-13T01:00:00Z'), period = { startDate: '2026-08-01', endDate: '2026-08-31' };
 function fixture(t) {
  const root=mkdtempSync(join(tmpdir(),'business-'));t.after(()=>rmSync(root,{recursive:true,force:true}));
@@ -59,4 +59,12 @@ test('write endpoint requires local same-origin JSON',()=>{
  assert.doesNotThrow(()=>assertLocalWrite(new Request('http://localhost:3021/metrics/business/record',{method:'POST',headers:{origin:'http://127.0.0.1:3021',host:'127.0.0.1:3021','content-type':'application/json'}})));
  assert.throws(()=>assertLocalWrite(make('https://evil.example')));
  assert.throws(()=>assertLocalWrite(make('http://127.0.0.1:3021','evil.example')));
+});
+test('past reviews are validated against the strategy frozen in their snapshot, not the current one',()=>{
+ const frozen={qualifications:[{id:'a'}],metrics:[{id:'m'}]};
+ const rows=[{kind:'snapshot',file:'s1',strategy:frozen},{kind:'review',file:'r1',snapshot:'s1'},{kind:'measurement',file:'m1'}];
+ const current={qualifications:[{id:'a'},{id:'b'}],metrics:[{id:'m'}]};
+ assert.equal(strategyForRecord(rows[1],rows,current),frozen);
+ assert.equal(strategyForRecord(rows[2],rows,current),current);
+ assert.equal(strategyForRecord({kind:'review',file:'r2',snapshot:'missing'},rows,current),current);
 });

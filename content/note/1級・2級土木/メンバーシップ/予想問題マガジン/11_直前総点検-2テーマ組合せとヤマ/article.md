@@ -1,8 +1,11 @@
 ---
 notePricing: membership
-noteStatus: draft
+noteStatus: reserved
 noteSeries: 経験記述-週次お題ラボ
 noteMagazine: 経験記述-週次お題ラボ
+notePublishedAt: "2026-09-28"
+noteId: "n64f9653dc30c"
+noteUrl: "https://note.com/dobokunote/n/n64f9653dc30c"
 membershipOnly: true
 utmCampaign: civil-membership-odai-final-check
 coverTitle: ["直前総点検｜経験記述", "2テーマ組合せとヤマ予想"]

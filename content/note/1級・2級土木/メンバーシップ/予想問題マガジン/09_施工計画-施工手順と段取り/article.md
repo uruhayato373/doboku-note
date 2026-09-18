@@ -1,8 +1,11 @@
 ---
 notePricing: membership
-noteStatus: draft
+noteStatus: reserved
 noteSeries: 経験記述-週次お題ラボ
 noteMagazine: 経験記述-週次お題ラボ
+notePublishedAt: "2026-09-22"
+noteId: "ne3cf6dac882f"
+noteUrl: "https://note.com/dobokunote/n/ne3cf6dac882f"
 membershipOnly: true
 utmCampaign: civil-membership-odai-plan-procedure
 coverTitle: ["今週のお題｜施工計画", "施工手順と段取り"]

@@ -528,3 +528,19 @@ EXP-006 の本判定は予定どおり next_check 2026-08-27 に、カバレッ�
 - 打ち手 4（ユーザー承認・同 PR）: `/standards/` の逐語分冊 `part-N` **133 件を sitemap から一時除外**（1,556→1,423）。実測は被リンク中央値 4 本・4 週で表示 104・クリック 3。近畿 `chapters/N` 43 件は IA 設計（05_情報アーキテクチャ.md）で検索の主導線なので残す。noindex ではなくページ・内部リンク・index 済み 25 件はそのまま。**復帰条件**: `/exam/` の索引率が 70% へ戻る、または 10/1 月次で再判断（`generate-sitemap.mjs` の除外 1 行を消すだけ）
 - 触らない: インターフェアリングフロート seoTitle 実験（8/26 開始・判定 9/23）
 - 次回: 9/24 頃に `index-coverage.yml` を workflow_dispatch で中間計測（quota 1,516/2,000）→ 10/1 月次で本判定。残る優先 URL（`.tmp/gsc-priority-urls.txt` の 43 件目以降）は日次上限 10 件で継続
+
+### 2026-09-18（週次・自動レビュー）
+
+- 観測: GSC 2026-08-18〜09-14（truncated:false・前週窓と約75%重複）／GA4 28日窓 08-20〜09-16。High-Impr-Low-CTR 138件・Rank-Stuck 57件・Hidden-Winner 66件・**Cannibalization 8件（前週4→倍増）**・Traffic-Drop 18件（/docs 旧 URL 主体・緩衝窓）・Orphan-Query 実質1〜2件・SNS-Source-Shift 1件・Content-Decay ✓ なし
+- 上位候補と推奨:
+  1. Cannibalization 悪化 — 前回「次回解消を確認」→ 未解消・4→8件へ倍増。`/docs/civil-construction-1-textbook-network-schedule`（impr 1114+316・clicks 3）が301先 `/exam/.../network-schedule`（impr 42+18）を上回り続ける。`public/_redirects` の301は正常＝Google 再クロール未反映
+  2. `/exam/civil-construction-1/textbook/pile-foundation-precast` — High-Impr-Low-CTR（新規・impr119・CTR0%・pos5.8）。5位台で0クリック、メタ実験（≤5URL・14〜28日）の有力候補
+  3. 「リスクマトリックス/マトリクス」Orphan-Query 拡大 — impr 計7→33・pos30台。専用キーワードページなし（risk-treatment 等の周辺のみ）。新設候補
+- 他 5 件 → improvements/2026-09-18.md（river-act 新規 High-Impr-Low-CTR・keyword-2026 実験は impr 倍増も CTR0% 継続・civil-construction-2 Hidden-Winner 2,976 へ拡大・x/social 23→3・youtube 0→8）
+- 自動裁定:
+  - 候補1: 保留（301 伝播待ち継続。再浮上条件＝次週も新旧併存が継続 → URL Inspection での現物確認へ切替を推奨）
+  - 候補2: 推奨=実験化候補（メタ実験枠 ≤5URL・14〜28日。一括変更はしない）
+  - 候補3: 推奨=実験化候補（コンテンツ新設＝メタ変更なしのため実験枠外で着手可）
+  - GA4 bot/テスト混入疑い（前回保留）: 4URL とも前週と完全一致＝窓内の静止残存で「継続流入」の再浮上条件未達 → 保留継続
+  - schedule-overview / secondary/r07（前回実験化候補）: 窓75%重複で数値変化なし → 推奨維持・新規動きなし
+- 注記: 自動生成（人間の上書き歓迎）。窓の75%重複により週次差分の解像度が低い点に留意。インターフェアリングフロート実験の判定期日 09-23 は次回確認

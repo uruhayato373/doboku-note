@@ -2,7 +2,7 @@
 import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { direction, records, validateRecord, buildReport, hash, RECORDS } from './lib/business-direction.mjs';
+import { direction, records, validateRecord, buildReport, hash, strategyForRecord, RECORDS } from './lib/business-direction.mjs';
 try {
   const root = process.cwd(), config = direction(root), rows = records(root);
   const errors = [];
@@ -13,7 +13,7 @@ try {
       for (const s of r.sources ?? []) if (!existsSync(join(root, s.file)) || !/^[a-f0-9]{64}$/.test(s.sha256)) errors.push(`${r.file}: source missing`);
     } else {
       const before = rows.filter(x => x.createdAt < r.createdAt || (x.createdAt === r.createdAt && x.file !== r.file));
-      try { validateRecord(r, config, before, new Date(r.createdAt)); } catch (e) { errors.push(`${r.file}: ${e.message}`); }
+      try { validateRecord(r, strategyForRecord(r, rows, config), before, new Date(r.createdAt)); } catch (e) { errors.push(`${r.file}: ${e.message}`); }
     }
   }
   const git = args => execFileSync('git', args, { encoding: 'utf8', stdio: ['ignore','pipe','pipe'] });

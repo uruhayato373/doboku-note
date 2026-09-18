@@ -1,9 +1,12 @@
 ---
 notePricing: membership
-noteStatus: draft
+noteStatus: reserved
 noteSeries: 添削練習アーカイブ
 membershipOnly: true
 utmCampaign: civil-membership-addelta-01
+notePublishedAt: "2026-09-25"
+noteId: "n19ae06c719ce"
+noteUrl: "https://note.com/dobokunote/n/n19ae06c719ce"
 coverTitle: ["添削練習アーカイブ 01", "工事概要を具体化する"]
 cover:
   variant: crop-safe-v4

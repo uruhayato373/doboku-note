@@ -93,6 +93,7 @@ jobs:
           node scripts/check-gsc-auto-review.mjs --json > /tmp/auto-review.json || true
           if ! node -e "process.exit(JSON.parse(require('fs').readFileSync('/tmp/auto-review.json','utf8')).anyDue ? 0 : 1)"; then
             echo "GSC 自動レビューは正常（DUE なし）— Issue は起票しない"
+            node scripts/report-automation-failure.mjs --resolve --channel gsc-auto-review --body "復旧 run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" || true
             exit 0
           fi
           {
@@ -146,6 +147,7 @@ jobs:
           # rc=0 発火あり / rc=1 2週連続で成果物なし / rc=2 検査不成立（gh 不通）
           if [ "$rc" = "0" ]; then
             echo "ルーティンは生きています — Issue は起票しない"
+            node scripts/report-automation-failure.mjs --resolve --channel weekly-pdca --body "復旧 run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" || true
             exit 0
           fi
           if [ "$rc" = "2" ]; then
@@ -188,6 +190,7 @@ jobs:
           if node scripts/check-workflow-health.mjs > /tmp/wf-health.txt 2>&1; then
             echo 'workflow health: 全て健全'
             cat /tmp/wf-health.txt
+            node scripts/report-automation-failure.mjs --resolve --channel workflow-health --body "復旧 run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" || true
             exit 0
           fi
           {
@@ -222,6 +225,7 @@ jobs:
           if node scripts/quality-audit.mjs --report-only > /tmp/report-digest.txt 2>&1; then
             echo 'report 区分: FAIL なし'
             tail -20 /tmp/report-digest.txt
+            node scripts/report-automation-failure.mjs --resolve --channel report-checks --body "復旧 run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" || true
             exit 0
           fi
           {

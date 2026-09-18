@@ -237,6 +237,16 @@ jobs:
             --title "閾値ゲートが赤（無条件異常）" \
             --body-file /tmp/coverage-body.md
 
+      # 閾値ゲートが緑に戻った月に index-coverage channel の open Issue を自動クローズ（月次なので最長 1 か月）。
+      - name: Resolve - coverage Issue (閾値が緑)
+        if: success() && steps.coverage_gate.outcome == 'success'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/report-automation-failure.mjs --resolve --channel index-coverage \
+            --body "復旧 run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
       - name: Cleanup credentials
         if: always()
         run: rm -f credentials/gsc-service-account.json
