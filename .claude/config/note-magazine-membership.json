@@ -44,9 +44,7 @@
     "2級土木-施工経験記述-完成答案集": "civil-2-experience-essay",
     "2級土木-施工経験記述-過去問模範答案集": "civil-2-pastexam-essay",
     "1級土木-二次学科記述-テーマ別出る順": "civil-1-gakka-kijutsu",
-    "2級土木-二次学科記述-テーマ別出る順": "civil-2-gakka-kijutsu",
-    "1級土木-R8二次-予想模試3回": "civil-1-r8-mock3-pdf",
-    "2級土木-R8二次-予想模試3回": "civil-2-r8-mock3-pdf"
+    "2級土木-二次学科記述-テーマ別出る順": "civil-2-gakka-kijutsu"
   },
   "packs": {
     "_doc": "複数ラベルを 1 マガジンへ束ねる商品。期待 = Σ(labels の repo 公開記事数) + extras。",
@@ -91,7 +89,13 @@
     }
   },
   "excluded": {
-    "_doc": "マガジンに対応しないことが正しいラベル。理由必須。"
+    "_doc": "マガジンに対応しないことが正しいラベル。理由必須。",
+    "1級土木-R8二次-予想模試3回": {
+      "reason": "単発記事の PDF 商品（civil-1-r8-mock3-pdf・note では /n/ の 1 記事で公開・マガジンではない）。ライブのマガジン軸が存在しないので --ci で未照合になる。2026-09-18"
+    },
+    "2級土木-R8二次-予想模試3回": {
+      "reason": "単発記事の PDF 商品（civil-2-r8-mock3-pdf・note では /n/ の 1 記事で公開・マガジンではない）。同上。2026-09-18"
+    }
   },
   "extras": {
     "essay-road-municipality-magazine": {
