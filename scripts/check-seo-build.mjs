@@ -132,9 +132,15 @@ function looksLike404(seo) {
 const SITEMAP_OPTIONAL = new Set([
   '/search', // 検索 UI。クエリ依存で単体の検索価値が無いため意図的に非掲載
 ]);
+// パターンでの意図的な非掲載。**generate-sitemap.mjs の除外条件と同じ式を書く**（片方だけ変えると
+// ここが 133 件の偽赤になる・2026-09-17 の実測）。
+//   - /standards/<局>/<種別>/part-N: 基準類の逐語分冊（原典照合用の二次層）。/exam 中核の再クロール待ちの間、
+//     sitemap から外して待ち行列を短くする。復帰条件は gsc-management.md 2026-09-17 エントリ。
+const SITEMAP_OPTIONAL_PATTERNS = [/^\/standards\/[^/]+\/[^/]+\/part-\d+$/];
+const sitemapOptional = (r) => SITEMAP_OPTIONAL.has(r) || SITEMAP_OPTIONAL_PATTERNS.some((re) => re.test(r));
 {
   const candidates = [...routeSet].filter(
-    (r) => !sitemapPaths.has(r) && !SITEMAP_OPTIONAL.has(r) && !redirectSources.has(r),
+    (r) => !sitemapPaths.has(r) && !sitemapOptional(r) && !redirectSources.has(r),
   );
   let missing = 0;
   for (const route of candidates) {
@@ -157,7 +163,7 @@ const SITEMAP_OPTIONAL = new Set([
   // §9: 検査ゼロを PASS と呼ばない。母集合と該当数を必ず出す。
   console.log(
     `[sitemap 被覆] HTML ルート ${routeSet.size} 件を検査 → 未掲載 ${missing} 件`
-      + `（除外: optional ${SITEMAP_OPTIONAL.size} / redirect ${redirectSources.size} / noindex・404 は個別判定）`,
+      + `（除外: optional ${SITEMAP_OPTIONAL.size}＋pattern ${[...routeSet].filter((r) => SITEMAP_OPTIONAL_PATTERNS.some((re) => re.test(r))).length} / redirect ${redirectSources.size} / noindex・404 は個別判定）`,
   );
 }
 
