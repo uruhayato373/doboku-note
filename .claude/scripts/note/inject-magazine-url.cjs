@@ -7,7 +7,7 @@
  * .claude/knowledge/reference/note-essay-review-checklist.md Step 10）。
  *
  * Usage:
- *   node .claude/scripts/note/inject-magazine-url.cjs <persona> <マガジンURL>
+ *   node .claude/scripts/note/inject-magazine-url.cjs <persona|マガジンdirパス> <マガジンURL>
  *   例) node .claude/scripts/note/inject-magazine-url.cjs 自治体下水道担当 https://note.com/dobokunote/m/mf1cbc32d53aa
  *
  * 対象: content/note/技術士総監/magazines/総監模範論文-<persona>/<RXX>/article.md（全年度）
@@ -65,12 +65,20 @@ function main() {
     process.exit(2);
   }
 
-  const dirName = persona.startsWith("総監模範論文-")
-    ? persona
-    : `総監模範論文-${persona}`;
-  const personaDir = path.join(MAG_ROOT, dirName);
+  // 第1引数がマガジン dir のパス（PROJECT_ROOT 相対 or 絶対）ならそれを使う（2026-09-15: RCCM など総監以外のマガジンに対応）。
+  // 従来どおりペルソナ名だけを渡した場合は 総監模範論文-<persona> に解決する。
+  const asPath = path.isAbsolute(persona) ? persona : path.join(PROJECT_ROOT, persona);
+  let personaDir;
+  if (fs.existsSync(asPath) && fs.statSync(asPath).isDirectory()) {
+    personaDir = asPath;
+  } else {
+    const dirName = persona.startsWith("総監模範論文-")
+      ? persona
+      : `総監模範論文-${persona}`;
+    personaDir = path.join(MAG_ROOT, dirName);
+  }
   if (!fs.existsSync(personaDir)) {
-    console.error(`ペルソナdir不在: ${personaDir}`);
+    console.error(`マガジンdir不在: ${personaDir}`);
     process.exit(2);
   }
 

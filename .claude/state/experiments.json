@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-09-17T04:51:37.535Z",
+  "updated_at": "2026-09-18T04:42:03.677Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -1127,6 +1127,126 @@
       ],
       "next_check_date": "2026-09-18",
       "resume_criteria": "deploy 後に started_at と next_check_date（deploy+28日）を入れて status=running へ。再計測は npm run report-career-funnel。判定は cta_placement 作成日（2026-07-25）以降の窓で行う。実装の詳細は git 履歴（2026-08-21 のキャリアファネル再設計コミット群）、恒久ルールは affiliate-operations.md。close 時に note キャリア L2 を作るかを判断する（GSC クリックが 0 から動き hub→柱 の遷移が観測できたときだけ作る。既存L1/L2再編は2026-09-05にライブ反映済み。判断の根拠は affiliate-operations.md「note キャリア L2 は『先に作らない』」）。"
+    },
+    {
+      "id": "EXP-009",
+      "title": "RCCM 問題III 模範論文集を 2026 年度 CBT 期間（〜10/31）に note で販売し、新資格の WTP を実売で検証",
+      "hypothesis": "収益は note 内回遊＋note 記事への検索直で決まる（2026-09-15 流入元実測）。受験者 5,500 人規模で協会が事前公開する 6 テーマ制の問題III は、総監 5 管理の資産を転用した模範論文集（¥3,480・単品 ¥780）で試験期間内に実売が立つ。立たなければ 06_多資格展開戦略 の不採用へ戻す。",
+      "target_metric": "sales-log の rccm-* 売上（noteRevenue・qualification=rccm 帰属）と note 記事別 PV",
+      "target_delta": "2026-10-31 までに rccm-* 売上 ¥30,000 以上（マガジン 5 件相当）。¥10,000 未満なら 2027 サイクルの商品追加を止め、記事は保守のみ",
+      "baseline": {
+        "measured_at": "2026-09-15",
+        "note": "公開日=2026-09-15（マガジン m770bef96b39f・序章＋6 本）。基線売上 ¥0。X 送客は同 CBT 期間内で 10/11〜10/31 の 21 本（2026-10-rccm.json）。サイト vertical（/exam/rccm/）は 10/10 PR 予定で本実験の期間中は寄与を期待しない。2026-09-16〜17 追記: rccm-* の対象 SKU は 問題III マガジン・問題I・択一予想50問・暗記ノート・まるごとパックの 5 種（帰属 prefixes rccm-）"
+      },
+      "businessContext": {
+        "qualification": "all",
+        "readerNeed": "RCCM 試験B 問題III で公開 6 テーマのどれが出ても骨子が書けるようにしたい（1,200〜1,600 字・指定用語「」4 語以上）",
+        "verifiedGap": "note 内に競合（petenconsul 1 テーマ ¥1,000／303geos 24 解答例 ¥3,500）はあるが、指定用語の因果配置・部門別置換・発注者視点の採点ポイントを 1 冊にした教材は無い（2026-09-15 competitors-snapshot と note 検索で確認）",
+        "metricId": "noteRevenue",
+        "reviewRecord": ".claude/state/metrics/business/review-2026-09-14T00-08-35-683Z-fa0ea0d1-ad8b-448f-83b1-afeca29e370a.json"
+      },
+      "status": "running",
+      "created_at": "2026-09-16T00:30:00.000Z",
+      "started_at": "2026-09-16T00:30:00.000Z",
+      "paused_at": null,
+      "paused_reason": null,
+      "result": null,
+      "learnings": null,
+      "closed_at": null,
+      "actions": [
+        "2026-09-15: 問題III 模範論文集 7 本を note 公開・マガジン m770bef96b39f 作成・RCCMもくじ nd297cb9b31e0・L1/L2 導線配線（PR #513）",
+        "2026-09-16: X 2026-10-rccm.json（21 本・販売 4 本）を計画",
+        "2026-09-16: X 計画を実台帳の空きに合わせ 10/23〜10/31 の 9 本へ縮小し 9/17 に X へ予約投入（queued 実査）。まるごとパック me2b526bf77f4（¥5,980）を EXP-009 判定を待たず前倒し新設。9/17 に択一 直前暗記ノート n6a82c25cc9de（¥980）を公開しパックへ追加収録（10 記事）"
+      ],
+      "next_check_date": "2026-10-01",
+      "resume_criteria": null,
+      "measurements": [],
+      "history": [
+        {
+          "at": "2026-09-16T00:30:00.000Z",
+          "event": "propose→start",
+          "note": "10/1 に note-sales-fetch --month 2026-09 で初回計測、11/1 に最終判定"
+        }
+      ]
+    },
+    {
+      "id": "EXP-010",
+      "title": "note CTA の rel=noreferrer を外し、note ダッシュボード「記事の流入元」でサイト経由の寄与を可視化する",
+      "hypothesis": "サイト→note の CTA が全て rel=\"noopener noreferrer\" だったため note 側で doboku-note.com が流入元に現れず no referrer に溶けていた。noopener のみにすれば翌月の流入元に doboku-note.com が現れ、サイト SEO 投資の売上寄与を初めて測れる。",
+      "target_metric": "note ダッシュボード 記事の流入元（月次時系列）の doboku-note.com PV",
+      "target_delta": "2026-10 の流入元に doboku-note.com が 1 PV 以上で出現し、GA4 note_cta_click（同月）と桁が合う",
+      "baseline": {
+        "measured_at": "2026-09-15",
+        "note": "2025/9〜2026/9 の流入元に doboku-note.com は 0 件（no referrer 38.7%・note.com 35.7%・検索直 24.8%・X 0.2%）。GA4 note CTA クリックは 8/13〜9/9 で約 200"
+      },
+      "businessContext": {
+        "qualification": "all",
+        "readerNeed": "（計測基盤）サイト読者が note 教材へ辿り着いているかを知る",
+        "verifiedGap": "note 側の流入元にサイトが出ないため、サイト SEO・図・品質基盤の売上寄与が測れていなかった（2026-09-15 実測）",
+        "metricId": "noteCtaClicks",
+        "reviewRecord": ".claude/state/metrics/business/review-2026-09-14T00-08-35-683Z-fa0ea0d1-ad8b-448f-83b1-afeca29e370a.json"
+      },
+      "status": "running",
+      "created_at": "2026-09-16T00:30:00.000Z",
+      "started_at": "2026-09-16T00:30:00.000Z",
+      "paused_at": null,
+      "paused_reason": null,
+      "result": null,
+      "learnings": null,
+      "closed_at": null,
+      "actions": [
+        "2026-09-15: PR #511 feat/note-link-referrer（src/lib/external-link-rel.ts に判定集約・note.com は noopener のみ）。deploy 待ち"
+      ],
+      "next_check_date": "2026-11-01",
+      "resume_criteria": null,
+      "measurements": [],
+      "history": [
+        {
+          "at": "2026-09-16T00:30:00.000Z",
+          "event": "propose→start",
+          "note": "deploy 後の翌月（2026-10）を note-traffic-fetch で取得して判定"
+        }
+      ]
+    },
+    {
+      "id": "EXP-011",
+      "title": "直前パック・全部パックの追加で直前期の note 売上を伸ばす（1級・2級土木 10/4・10/25、RCCM 〜10/31、主任技士・技士・技術士一次 11/22〜29）",
+      "hypothesis": "sales-log 実測（2026-05〜09・293 件）で「全部パック」が件数 8%・売上 28%、「試験の区切りに沿った解像度」が 51%、読者職種で切ったペルソナ SKU は 8/14 が売上ゼロ。競合の直前パック（模試3回 ¥2,480）に対し、既存単品を「模試＋暗記＋出題分析」で束ねた直前パックと、資格ごとの全部パックを埋めれば、新規原稿ほぼゼロで直前期の売上が増える。",
+      "target_metric": "sales-log の新 SKU（civil-1-chokuzen-pack / civil-2-niji-marugoto-pack / civil-2-chokuzen-pack / civil-2-r8-bunseki / rccm-marugoto-pack / rccm-anki-note / pe-construction-{7科目}-pack / cce-anki-note / cce-takuitsu-chokuzen-pack / pe1-anki-note / pe1-chokuzen-pack / ce-anki-note / ce-chokuzen-pack）の売上と、既存パックの売上前後差",
+      "target_delta": "2026-11-30 までに新 SKU 合計 ¥60,000 以上、かつ 1級・2級土木の 9〜10 月 note 売上が 2026-08（¥39,520）の 2 倍以上。¥20,000 未満なら 2027 は直前パックを新設せず既存パックの改題・値付けのみ",
+      "baseline": {
+        "measured_at": "2026-09-17",
+        "note": "2026-08 月次 note 売上 ¥39,520（16 件）・2026-09 は 9/12 時点 ¥41,080（13 件）。新 SKU は全て 2026-09-16〜17 公開（基線売上 ¥0）。建設部門 7 パックは 11/15 期日を前倒しして 9/16 に公開"
+      },
+      "businessContext": {
+        "qualification": "all",
+        "readerNeed": "試験直前 2 週間に、教材を選び直さず「模試で確認→暗記で穴埋め→分析で優先順位」を 1 セットで回したい／二次・択一の教材を 1 回の購入でまとめて揃えたい",
+        "verifiedGap": "当サイトは模試・暗記・出題分析を単品で持ちながら束ねておらず、2級土木・RCCM・主任技士・技術士一次・技士に直前パック／全部パックが無かった（2026-09-16 カタログ棚卸し）。競合 chansato_st は 1級二次の模試3回を ¥2,480→セール ¥1,980 で販売",
+        "metricId": "noteRevenue",
+        "reviewRecord": ".claude/state/metrics/business/review-2026-09-14T00-08-35-683Z-fa0ea0d1-ad8b-448f-83b1-afeca29e370a.json"
+      },
+      "status": "running",
+      "created_at": "2026-09-17T00:00:00.000Z",
+      "started_at": "2026-09-17T00:00:00.000Z",
+      "paused_at": null,
+      "paused_reason": null,
+      "result": null,
+      "learnings": null,
+      "closed_at": null,
+      "actions": [
+        "2026-09-16: 1級 直前総仕上げパック m7a9b3ad964f6 ¥2,980／RCCM まるごと me2b526bf77f4 ¥5,980／1級まるごと・総監完全パックへ追加収録／精読ガイド 3 本無料公開／建設部門 7 科目パック（DN-0241）",
+        "2026-09-17: 2級 出題分析 n4e4f4930cf2e ¥580／2級 まるごと m2d9a069b6f87 ¥8,800（78 記事）／2級 直前 md3518107aa97 ¥2,480／RCCM 暗記 n6a82c25cc9de／主任技士 暗記 n25197277c5a9・択一直前 mfdf781d7222b ¥2,980／技術士一次・技士の暗記＋直前パック（同日）"
+      ],
+      "next_check_date": "2026-10-01",
+      "resume_criteria": null,
+      "measurements": [],
+      "history": [
+        {
+          "at": "2026-09-17T00:00:00.000Z",
+          "event": "propose→start",
+          "note": "10/1・11/1・12/1 に note-sales-fetch --month で計測。12/1 に最終判定"
+        }
+      ]
     }
   ]
 }

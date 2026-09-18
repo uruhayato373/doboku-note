@@ -276,7 +276,7 @@
 - タッチターゲット 44px 以上。
 - **フォーカス表示**: リンク・ボタン・入力欄・textarea・select などの操作要素は、ブラウザ既定 outline を残すか `.focus-ring` を付ける。
 - **ダークモード**: bare な border は既定で `--rule-soft` に追従するが、明示的に色を付けた border には必ず `dark:border-*` を併記する。
-- **コントラスト 4.5:1（WCAG AA）は E2E の axe がゲート**（`npm run test:e2e:a11y`・critical 0 かつ serious が `e2e/a11y-baseline.json` を超えない）。dark で `text-white` を使うバッジ／CTA は背景トークンが薄色に反転しないか確認する（`bg-brand` は dark で `#93b8e0` になり白文字は 2.06 で落ちる）。既知 29 箇所は DN-0237。
+- **コントラスト 4.5:1（WCAG AA）は E2E の axe がゲート**（`npm run test:e2e:a11y`・critical 0 かつ serious が `e2e/a11y-baseline.json` を超えない）。dark で `text-white` を使うバッジ／CTA は背景トークンが薄色に反転しないか確認する（`bg-brand` は dark で `#93b8e0` になり白文字は 2.06 で落ちる）。既知 29 箇所は DN-0251。
 - **横スクロール領域（`<pre>`・`.katex-display`・`overflow-x-auto`）には `tabIndex={0}`**（MDX 由来は `rehype-scrollable-focus` が自動付与。React で書く場合は自分で付ける）。
 
 ---

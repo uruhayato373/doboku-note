@@ -54,6 +54,7 @@ const CATEGORY_TO_EXAM_KEY = {
   'concrete-engineer': 'concrete-engineer',
   'concrete-chief-engineer': 'concrete-chief',
   'concrete-diagnostician': 'concrete-diagnosis',
+  rccm: 'rccm',
   'pe-construction': 'pe-construction',
   'pe-first-stage': 'pe-comprehensive',
   // 資格に紐づかない実務カテゴリ。`common`（土木・建設 共通・bronze）を明示的に指す。

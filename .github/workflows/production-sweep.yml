@@ -83,3 +83,13 @@ jobs:
             --channel production-sweep \
             --title "本番スイープ失敗（rc=${{ steps.sweep.outputs.rc }}）" \
             --body-file /tmp/sweep-body.md
+
+      # 全 URL が健全に戻ったら production-sweep channel の open Issue を自動クローズ（起票と対）。
+      - name: Resolve - production-sweep Issue (復旧)
+        if: success() && github.event_name != 'workflow_dispatch'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          node scripts/report-automation-failure.mjs --resolve --channel production-sweep \
+            --body "復旧 run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"

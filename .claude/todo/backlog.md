@@ -21,11 +21,72 @@
 
 ## 🔴 高 — 来月中に着手
 
+### [DN-0237] RCCM 問題I 業務経験論文テンプレ・択一論点集 50 問・ココナラ 3 出品を CBT 期間内（〜10/31）に出す
+タグ: [収益化] [種類:制作] [起票:2026-09-16] [期日:2026-10-10]
+
+**起点**: 2026-09-15 に問題III 模範論文集（m770bef96b39f）を note 公開し EXP-009 を開始。計画 `~/.claude/plans/rccm-staged-reef.md` T2 の残商品。試験事実の SSOT は `content/note/RCCM/magazines/RCCM問題III-2026模範論文集/_facts-2026.md`。
+
+**やること**: (1) `rccm-mondai1-template`（¥1,980・`rccm-essay-writer type=mondai1` → `rccm-essay-qa`）を公開し RCCMもくじ nd297cb9b31e0 の問題I 節を実 URL に差し替える。(2) `rccm-takuitsu-yosou-50`（¥1,480・問1〜10 無料・全問自作・`content-qa`＋`note-fact-checker`）。(3) ココナラ `coconala-rccm-mondai3-tensaku` / `-mondai1-shindan` / `-mondai3-pdf` を `/coconala-publish --commit`（PDF は `magazine-pdf-builder`・印刷 PDF は Windows）。各公開時に `note-magazines.ts` published:true・`sales-recorder.md`・もくじ追記を同一 commit で。
+
+**完了条件**: 3 商品が note/ココナラでライブ、`verify-note-magazines` と `check-coconala-wiring` 緑、RCCMもくじに 3 節の実 URL。
+
+### [DN-0247] サイト新資格 `/exam/rccm/`（ガイド 7 本）を PR-1 で公開し、重点資格へ登録する
+タグ: [コンテンツ品質] [種類:制作] [起票:2026-09-16] [期日:2026-10-10]
+
+**起点**: PR #513 で ExamKey/カレンダー/エージェントの scaffold は入ったが、サイト面は無い（note マガジンの site 面は 総監 資格地図・1級 コンサル転職ガイドの MagazineCard 2 面のみ）。2027-03-01 合格発表・5 月申込期の検索流入を仕込む。
+
+**やること**: 計画 §PR-1 の Commit A（categories/home-exam-cards/tags/curriculum/doc-classifier/category-groups/sidebar-discovery/next-step/magazine-placement/note-mokuji/ogp-create/card 画像）→ B（CategoryPage/JumpNav/ExamCards/links/StructuredData/SearchFilters/ArticleFooter）→ C（`content/site/rccm/{guide-overview, guide-mondai3-themes-2026, guide-mondai1-keiken-ronbun, guide-mondai2-4-takuitsu, guide-study-plan, guide-eligibility-application, guide-difference-pe}` 各 ≥3,000 字・`civil-guide-writer category=rccm`→`guide-fact-checker`→`guide-qa`・exam-content-policy Part 4 メモ）。同時に `business-direction.json qualifications[]` へ rccm を追加し `seo-watchwords.json` に improve 候補 1 件以上（`seo-rank-watch-ci` が要求）。画像生成に課金ツールを使う前にユーザー確認。
+
+**完了条件**: `check-home-exam-coverage`/`check-content-taxonomy`/`check-category-curriculum`/`check-guide-length`/`quality:audit:ci`/`build` 緑、`npm run serve` で `/exam/rccm/` に `<main>`、deploy 後 `check-production-ssr` exit 0。
+
+### [DN-0248] 技術士 口頭試験対策（総監 完全版 ¥2,980・建設部門 新規 ¥1,980）を筆記合格発表当日に公開する
+タグ: [収益化] [種類:制作] [起票:2026-09-16] [期日:2026-10-26]
+
+**起点**: 7 月の購入者への再接触経路が note フォロー以外に無い（LINE はやらないと決定）。`content/note/技術士総監/口頭試験対策-完全版/article.md` は 33k 字の下書きで `[!todo] 運営者記入` 4 箇所が `hearing-sheet.md` H1〜H22 の回答待ち（人作業・10/10 目安）。
+
+**やること**: ヒアリング回答 → §8 と本文 3 箇所を書き換え → note meta＋`paidBoundary`（第 4 章 H2）→ `/note-prepublish-review` → `noteStatus: draft` で待機。建設部門版（R8 改訂コンピテンシー別想定問答）を親が下書き → `pe-secondary-exam-factcheck`＋`guide-fact-checker`。無料「筆記合格発表後にやること」総監/建設 各 1 本。発表日 D は engineer.or.jp の公式掲載で確認し `exam-calendar.json` へ入れてから、D 当日に 4 本公開・CTA 配線・X `2026-11-pe-oral.json`。
+
+**進捗（2026-09-17）**: 建設部門 口頭対策 `content/note/技術士建設部門/magazines/建設部門-口頭試験対策/article.md`（¥1,980・想定問答 33 問・guide-fact-checker 済・`noteStatus: draft`・SKU `pe-construction-oral-guide` published:false）と無料「筆記合格発表後にやること」総監/建設 2 本（draft）を作成済み。残り＝総監 完全版の hearing-sheet 反映と D 当日の公開・配線。
+
+**完了条件**: D 当日に 4 本ライブ、`audit-note-funnel` ドリフト 0、X 11 月計画が `check-x-campaign-plan` 緑。
+
+### [DN-0249] note 流入元・記事別 PV を月次で機械取得する `note-traffic-fetch` を新設し週次レビューへ配線する
+タグ: [インフラ・計測] [種類:改善] [起票:2026-09-16] [期日:2026-10-05]
+
+**起点**: 2026-09-15 の手動 Playwright 実測で「収益は note 内回遊＋検索直で 73〜80%、X 0.2%、サイト経由は noreferrer で不可視」が判明（memory `note-traffic-sources-2026-09`）。business-direction の notePv は欠測のまま。EXP-010 の判定にも要る。
+
+**やること**: `scripts/note-traffic-fetch.mjs`（`note-sales-fetch.mjs` を型に read-only: `/dashboard` → 期間 → 「時系列」→ データテーブル innerText）＋ `scripts/lib/note-traffic-normalize.mjs`（純関数・test）→ `.claude/state/metrics/note/referrers-YYYY-MM.json`・`articles-pv-YYYY-MM.json`。`package.json`・commands.md・`quality-audit.mjs`（`--check` モード）・`weekly-review/SKILL.md`・`business-review.md`（notePv の出典）に配線。
+
+**完了条件**: `npm run note-traffic-fetch -- --month 2026-09 --commit` で 2 ファイルが書かれ、検査対象数/実検査数を出力、test 緑、週次レビューが参照。
+
+
+### [DN-0250] 1級・2級 二次直前の note CTA 切替（〜10/4・〜10/25）と試験後の無料フォロー記事
+タグ: [収益化] [種類:改善] [起票:2026-09-16] [期日:2026-10-26]
+
+**起点**: 計画 T1。civil-1-keiken-complete-pack（¥9,800）は直近 2 件実売。**2026-09-16 実査**: ローカルの note-funnel `topCtaOverrides`（1級 `m150c9db08902` 完成答案集 ¥2,480）は 2026-09-06 の commit f02bcdd1e で切り替えたが note へ未反映（`check-note-republish` の civil ドリフト約 250 本の正体）。**ライブは完全攻略パック（m8290970a7f05）のまま**＝直前期に望ましい状態なので、10/4 までは触らない。
+
+**やること**: 10/4 までライブ（完全攻略パック）を維持。10/5 以降に 9/6 の低価格先出し方針（完成答案集→上位パック）を採るか判断してから `note-update-body` で反映する（ドリフト 250 本の一括反映は内容を確認してから）。2級は 10/25 まで同様に据え置き。試験後に無料「R8 二次 自己採点の目安と合格発表までにやること」を各級 1 本（会員ラボ・次年度導線）。
+
+**完了条件**: 切替と復帰がそれぞれ `audit-note-funnel` 緑でライブ反映され、無料 2 本が公開。
 
 
 
 
 
+
+
+
+
+
+
+### [DN-0246] 会員 経験記述 W8〜W11 を公開日後に特典マガジン mbe07bd5cecda へ収録する
+タグ: [収益化] [種類:定期] [起票:2026-09-17] [期日:2026-09-29]
+
+**起点**: 2026-09-17 に W8〜W11 を `note-publish --schedule` で予約投稿した（README 配信表・`noteStatus: reserved`）。予約中の記事は `note-magazine-add-articles` で収録できない（exit 7・実測）ため、公開後に手動で収録する必要がある。
+
+**やること**: 各公開日の後に `node scripts/note-magazine-add-articles.mjs --target mbe07bd5cecda --notes <key> --commit`。W8 `n8acfea17f953`（9/19）／W9 `ne3cf6dac882f`（9/22）／W10 `n1911131aa726`（9/24）／W11 `n64f9653dc30c`（9/28）。学科09/10・添削01 は単独記事なので収録不要。
+
+**完了条件**: 特典マガジンの収録が 7→11 件（API 実体確認）・`npm run check-membership-drip` 緑。
 ### [DN-0235] develop への push で赤くなる CI（quality audit + build）に読み手を付ける
 タグ: [エージェント・SSOT] [種類:不具合] [起票:2026-09-14]
 
@@ -157,7 +218,7 @@ CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認し
 **完了条件**: 各行の実体が解消したら行ごと消し、全行が消えたらカードを削除する。
 
 ## 🟡 中 — 2〜3ヶ月以内
-### [DN-0237] dark モードの色コントラスト不足 29 箇所を直し、a11y ベースラインをゼロへ締める
+### [DN-0251] dark モードの色コントラスト不足 29 箇所を直し、a11y ベースラインをゼロへ締める
 タグ: [コンテンツ品質] [種類:不具合] [検証:test:e2e:a11y] [起票:2026-09-17]
 
 **起点**: axe（WCAG 2.1 AA）を代表 8 ページ×light/dark で回したところ、色コントラスト（serious）が 29 ノード。critical（検索の消去ボタンに名前なし）と scrollable-region-focusable は同 PR で修正済み。コントラストは `e2e/a11y-baseline.json` にラチェットとして固定し、悪化だけ止めている。
@@ -172,6 +233,42 @@ CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認し
 **やること**: dark で `text-white` を使うバッジ／CTA は `dark:text-[var(--ink-strong)]` か背景を濃色トークンにする（design-system.md の色選定・page-design-builder → /design-review）。`--hero-cta-button` と `--ink-muted` は数値を 1〜2 段だけ濃くして 4.5 を満たす。直したら `npm run test:e2e:a11y:baseline` で減った件数を commit（増やす更新はしない）。
 
 **完了条件**: `e2e/a11y-baseline.json` の全キーが `{}`（serious 0）で `npm run test:e2e:a11y` が緑。
+
+### [DN-0238] ビジュアルリグレッション（Playwright toHaveScreenshot）を代表テンプレに入れる
+タグ: [コンテンツ品質] [種類:改善] [起票:2026-09-17]
+
+**起点**: 2026-09-17 の CI 監査（第 1 バッチ #519 で axe・本番スイープ・夜間 E2E を導入）で残った最大の穴。CSS・Tailwind 変更によるレイアウト崩れは lint-ui でも axe でも捕まらず、Tailwind の transform 変種が本 build で無効だった件（memory）もこの種だった。
+
+**やること**: `e2e/a11y.spec.ts` と同じ代表 8 テンプレ（home / 資格ハブ / KW 記事 / 過去問 / テキスト / 基準章 / ツール / 検索）× desktop・mobile × light/dark の約 32 枚を `toHaveScreenshot` で固定。アニメーション無効化・GA 等の外部要素をマスク・`maxDiffPixelRatio` は 0.01 から。基準画像は CI（ubuntu・同一フォント）で生成して commit し、ローカルは `--update-snapshots` を使わない運用を docs/operations/12 に書く。
+
+**完了条件**: PR の E2E で意図しないレイアウト差分が赤になる。基準更新の手順（CI の artifact から取り込む）が docs にあり、1 回の意図的な UI 変更で更新を実演済み。
+
+### [DN-0239] 日本語校正（textlint + prh）を変更ファイルだけのラチェットで導入する
+タグ: [コンテンツ品質] [種類:改善] [起票:2026-09-17]
+
+**起点**: 1,267 記事の表記ゆれ（施工/施行、〜ヶ所/〜か所、全角英数、機種依存文字）と冗長表現を人手では追えない。既存の check-mdx は構造（Callout・表・リンク）を見るが日本語そのものは見ていない。
+
+**やること**: `textlint` + `textlint-rule-preset-ja-technical-writing` + `textlint-rule-prh`（自前辞書 `.textlintrc` / `prh.yml`。土木用語の正表記を最初は 30 語程度）。全件は初回ノイズが多いので、**pre-commit と CI では staged / PR diff の MDX だけ**に掛ける。全件は `report` として週次で件数を出し、辞書を育てながら漸減させる。数式・コード・frontmatter は除外設定。
+
+**完了条件**: `npm run lint:ja`（変更ファイル）が quality-audit `ci:true`、`lint:ja:all` が report で件数を出す。誤検知を潰した辞書と除外が commit され、直近 2 週間で偽陽性による差し戻しが 0。
+
+### [DN-0240] Lighthouse CI を PR に入れ、a11y / SEO / best-practices をゲートにする
+タグ: [インフラ・計測] [種類:改善] [起票:2026-09-17]
+
+**起点**: PSI は本番の事後計測（毎日 22 URL・CrUX）で、マージ前に LCP 画像肥大や a11y スコア低下を止める手段が無い。
+
+**やること**: `@lhci/cli` を e2e.yml と同じ build 成果物（`npm run serve`）に対して 3〜4 ページ（home / KW 記事 / 過去問 / ツール）で実行。`categories:accessibility ≥ 0.95`・`seo ≥ 0.95`・`best-practices ≥ 0.9` は error、`performance` は lab の揺れが大きいので warn（値は job summary）。`lighthouserc.json` を SSOT にし、PSI 側の閾値（psi-config）と二重管理しないよう役割を commands.md に書く。
+
+**完了条件**: PR で lhci が走り、a11y/SEO/BP のしきい値割れが赤になる。performance は warn のみで、揺れによる赤が 2 週間で 0。
+
+### [DN-0241] JSON-LD の @type 別必須プロパティを check-seo-build で検証する
+タグ: [インフラ・計測] [種類:改善] [検証:check-seo-build] [起票:2026-09-17]
+
+**起点**: check-seo-build は JSON-LD の parse エラーは見るが、`FAQPage` / `Article` / `BreadcrumbList` / `HowTo` の必須キー欠落（リッチリザルト落ち）は見ていない。
+
+**やること**: `scripts/check-seo-build.mjs` に `@type` → 必須キー表（Article: headline/datePublished/author、FAQPage: mainEntity[].name/acceptedAnswer.text、BreadcrumbList: itemListElement[].position/name/item 等）を足し、欠落を error、推奨キー欠落を warn にする。表は Google の構造化データ ガイドの必須欄を根拠にコメントで URL を残す。
+
+**完了条件**: `npm run check-seo-build:ci` が必須キー欠落を 1 件も残さず緑。意図的に headline を消したフィクスチャで赤になる回帰テスト付き。
 
 
 ### [DN-0231] Mac のGit保守を導入し、次回clone時にpartial cloneを使う（履歴は書き換えない）
@@ -345,6 +442,24 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 3. 次記事「土木公務員に技術士は必要？」の着手可否は 1・2 の結果を見てから判断する（語順違いの類似ページは作らない）
 
 ## 🟢 低 — 時期未定
+### [DN-0242] npm audit を CI の job summary に出す（CodeQL は GitHub 既定セットアップで稼働済み）
+タグ: [インフラ・計測] [種類:改善] [起票:2026-09-17]
+
+**起点**: 2026-09-17 の PR checks を見ると CodeQL（Analyze javascript-typescript / python）と Socket Security は **GitHub 側の既定セットアップで既に走っている**（リポジトリに workflow は無い）。残るのは npm 依存の既知脆弱性の棚卸しだけ。静的サイトなので価値は中程度、工数は極小。
+
+**やること**: ci.yml に `npm audit --audit-level=high` を warn（`|| true` で job summary に出し、red にはしない。ERESOLVE 環境で audit fix を自動適用しない）。CodeQL の workflow は作らない（既定セットアップと二重になる）。
+
+**完了条件**: audit の high 以上が PR の job summary に列挙される。
+
+### [DN-0243] 年度表現の陳腐化（「2026 年度」「令和 8 年」）を年替わりで検知する
+タグ: [コンテンツ品質] [種類:改善] [検証:check-exam-calendar] [起票:2026-09-17]
+
+**起点**: ガイド・KW 記事に当年度の表現が本文・title・description に多数ある。年明けに一斉に古くなるが、現状は exam-calendar 検査が試験日程の JSON だけを見ている。
+
+**やること**: `business-direction.json`（または exam-calendar）の当年度を真実源に、`content/site/**` の title/seoTitle/description/本文で **前年度以前の年度表現**（「2025 年度」「令和 7 年度」）を warn で列挙する report を作り、年度切替（毎年 1 月）に `ci:true` へ上げる運用を書く。過去問記事の年度（R7 問題）は対象外にするパターンを用意する。
+
+**完了条件**: 年度切替後の最初の週次で、旧年度表現の一覧が出て 2 週間以内に 0 になる。
+
 
 
 ### [DN-0234] Codex の archived_sessions 1.25 GB を棚卸しして 30 日超を消す

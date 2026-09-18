@@ -56,6 +56,13 @@ const expected = {
     exam: "2026-07-26",
     source: "https://www.jci-net.or.jp/j/exam/shindan/",
   },
+  rccm: {
+    applicationDeadline: "2026-06-10",
+    cbtStart: "2026-09-01",
+    cbtEnd: "2026-10-31",
+    result: "2027-03-01",
+    source: "https://www.rccm-cpd.com/rccm/rccmtop.html",
+  },
 };
 
 const errors = [];
@@ -125,7 +132,8 @@ const PATH_LITERAL_ROOTS = [
   { glob: "docs/marketing", startsWith: "09_YouTube戦略_コンクリート技士", why: "docs/marketing/09_YouTube戦略_コンクリート技士・主任技士.md" },
 ];
 const forbidden = [
-  { pattern: /2026-10-27/g, reason: "2級後期・第二次は2026-10-25" },
+  // ISO 予約時刻（2026-10-27T21:05…）は試験日の誤記ではなく X 台帳の投稿日なので除外する（2026-09-16・RCCM 10/27 投稿で偽赤）
+  { pattern: /2026-10-27(?!T\d)/g, reason: "2級後期・第二次は2026-10-25" },
   { pattern: /10月27日/g, reason: "2級後期・第二次は10月25日" },
   { pattern: /10\/4-10\/27/g, reason: "土木第二次は1級10/4・2級10/25" },
   {

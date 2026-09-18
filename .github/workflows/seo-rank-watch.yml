@@ -135,6 +135,14 @@ jobs:
         run: |
           node scripts/check-seo-rank-watch.mjs
           node scripts/seo-rank-watch-ci.mjs persist --dir "$RUNNER_TEMP/seo-rank-watch"
+      # 日次処理が完走したら seo-rank-watch channel の open Issue を自動クローズ。
+      - name: Resolve the automation failure Issue on success
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          node scripts/report-automation-failure.mjs --resolve --channel seo-rank-watch --body "復旧 run: $RUN_URL"
       - name: Daily report
         if: always()
         run: node scripts/seo-rank-watch-ci.mjs summary --dir "$RUNNER_TEMP/seo-rank-watch"

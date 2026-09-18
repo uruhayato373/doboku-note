@@ -337,3 +337,26 @@ test('disk-hygiene.json: 必須キーと閾値の整合', async () => {
   // .tmp が許可置き場に混ざっていないこと（prune が中身を消すため）
   assert.equal(cfg.allowedWorktreeRoots.some((r) => r.includes('.tmp')), false);
 });
+
+// ─── reportOnly の warnBytes（2026-09-17: Claude アプリの vm_bundles 12GB が「報告のみ」で埋もれた再発防止）──
+test('reportOnly.warnBytes: 超えたら warn、無ければ ok（消す action は持たない）', async () => {
+  const { readFileSync, mkdirSync, writeFileSync, rmSync } = await import('node:fs');
+  const { mkdtempSync } = await import('node:fs');
+  const { tmpdir } = await import('node:os');
+  const { join } = await import('node:path');
+  const { collect, loadConfig } = await import('../scripts/disk-hygiene.mjs');
+  const cfg = JSON.parse(readFileSync('.claude/config/disk-hygiene.json', 'utf-8'));
+  const vm = cfg.reportOnly.find((e) => e.path.endsWith('Claude/vm_bundles'));
+  assert.ok(vm && Number.isInteger(vm.warnBytes) && vm.warnBytes >= 1024 ** 3, 'vm_bundles は 1GB 以上の warnBytes を持つ');
+
+  const dir = mkdtempSync(join(tmpdir(), 'dh-report-'));
+  writeFileSync(join(dir, 'blob.bin'), Buffer.alloc(64 * 1024));
+  const config = { ...loadConfig(), reportOnly: [{ path: dir, note: 'test', warnBytes: 1024 }, { path: dir, note: 'test2', warnBytes: 10 * 1024 ** 3 }] };
+  const items = collect({ quick: false, config });
+  const hits = items.filter((i) => i.id === `history:${dir}`);
+  assert.equal(hits.length, 2);
+  assert.equal(hits[0].status, 'warn');
+  assert.equal(hits[1].status, 'ok');
+  assert.ok(hits.every((h) => h.actions.length === 0), 'reportOnly は削除 action を持たない');
+  rmSync(dir, { recursive: true, force: true });
+});

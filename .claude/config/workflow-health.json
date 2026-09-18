@@ -54,6 +54,12 @@
       "_note": "1 日 3 回。サイトが落ちていることを最初に掴む経路なので age は最も短く"
     },
     {
+      "workflow": "ops-audit.yml",
+      "maxAgeDays": 30,
+      "maxConsecutiveFailures": 14,
+      "_note": "日次 07:45 JST。ops 区分（配信・転記の遅れ）は遅れが続く限り赤が正常なので、連続失敗では判定せず**沈黙**（最後の run から 30 日）だけを見る。遅れ自体は Issue（channel: ops）が主経路。rc=2（検査不成立）が続く場合は 14 日で拾う"
+    },
+    {
       "workflow": "index-coverage.yml",
       "maxAgeDays": 40,
       "maxConsecutiveFailures": 2,

@@ -102,7 +102,10 @@ async function main() {
     if (n > 1) { conflicts++; fail('routing-conflict', '複数 group に一致（R2: ' + r.r2.join(',') + ' / Drive: ' + r.driveActive.join(',') + '）。同じパスを両 tier に置かない', p); }
     if (r.drivePending.length && r.r2.length) pendingOverlap++;
     if (STAGED_ONLY && r.driveActive.length) {
-      fail('drive-reentry', 'Drive 管轄（' + r.driveActive.join(',') + '）のファイルを Git に入れようとしている。実体は vault、Git には台帳だけ', p);
+      // coexistWithGit: true の group（kindle-dist 等「Git が正本・Drive は控え」）は Git 追跡が正しい状態なので再追跡とみなさない
+      //（2026-09-17: h-01 の EPUB/表紙 commit で偽陽性。g-02 まで同型の commit が通っていたのは規則追加前）。
+      const strict = r.driveActive.filter((id) => !(dcfg.groups || []).find((g) => g.id === id)?.coexistWithGit);
+      if (strict.length) fail('drive-reentry', 'Drive 管轄（' + strict.join(',') + '）のファイルを Git に入れようとしている。実体は vault、Git には台帳だけ', p);
     }
   }
 

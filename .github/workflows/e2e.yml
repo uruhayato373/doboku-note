@@ -89,6 +89,16 @@ jobs:
             --title "develop 夜間 E2E 失敗" \
             --body-file /tmp/e2e-body.md
 
+      # 夜間 run が緑に戻ったら e2e-nightly channel の open Issue を自動クローズ（起票と対）。
+      - name: Resolve - nightly E2E Issue (復旧)
+        if: success() && github.event_name == 'schedule'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          node scripts/report-automation-failure.mjs --resolve --channel e2e-nightly \
+            --body "復旧 run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
       - name: Upload Playwright artifacts
         if: failure()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
