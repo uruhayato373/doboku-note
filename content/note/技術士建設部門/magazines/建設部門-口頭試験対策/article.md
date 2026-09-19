@@ -2,8 +2,11 @@
 notePricing: paid
 noteSeries: 技術士建設部門-口頭試験対策
 utmCampaign: pe-construction-oral
+notePublishedAt: "2026-09-19"
+noteId: "n5bc0bcde96ac"
+noteUrl: "https://note.com/dobokunote/n/n5bc0bcde96ac"
 price: 1980
-noteStatus: draft
+noteStatus: published
 paidBoundary: "想定問答バンク｜コミュニケーション・リーダーシップ"
 coverTitle: ["技術士 建設部門", "口頭試験 想定問答"]
 cover:
