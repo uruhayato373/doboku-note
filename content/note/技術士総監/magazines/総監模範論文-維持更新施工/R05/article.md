@@ -55,6 +55,13 @@ cover:
 
 https://note.com/dobokunote/m/mabf26d2c72fb
 
+---
+
+<!-- cta:tankan-mokuji -->
+総監のほかの無料記事・有料マガジンは「総監もくじ」から一覧できます。
+
+https://note.com/dobokunote/n/n3ed4c77ceed6
+
 ## 試験問題（令和5年度 必須科目 I-2）
 
 以下は解答対象の設問です。見出しと番号表示を整えて掲載しています。前文を含む原問題は[日本技術士会の令和5年度問題PDF](https://www.engineer.or.jp/c_topics/009/attached/attach_9651_2.pdf)で確認できます。
