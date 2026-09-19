@@ -30,8 +30,13 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10 # 2026-08-29: doc-meta-index生成用のnpm ci追加分の余裕（元5分）
     steps:
-      - name: Checkout
+      # develop を見る（2026-09-19）: 週次レビューは develop に先に入り、main へは deploy 時にしか進まない。
+      # 既定（main）のままだと「レビューは出ているのに deploy 前で main に無い」だけで欠落と誤判定する。
+      # 他の surfacer（report 区分・experiments・GSC 記録層）も develop のほうが実態に近い。
+      - name: Checkout develop
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: develop
 
       - name: Setup Node.js
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
