@@ -12,10 +12,10 @@ notePricing: paid
 noteSeries: 総監模範論文-上下水道コンサルペルソナ
 utmCampaign: essay-water-consul-r03
 noteMagazine: 総監模範論文-上下水道コンサル
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/n72f2e133b7b7"
+noteId: "n72f2e133b7b7"
+notePublishedAt: "2026-09-19"
+noteStatus: published
 price: 500
 cover:
   variant: crop-safe-v4
@@ -52,7 +52,7 @@ cover:
 
 上下水道コンサルの R03〜R07 をまとめて読む場合は、次のマガジンから確認できます。
 
-{{MAGAZINE_URL}}
+https://note.com/dobokunote/m/me0255472f9ed
 
 ## 試験問題（令和3年度 必須科目 I-2）
 
@@ -209,4 +209,4 @@ A 案・B 案のうち自分に近い業務を選び、成果物、判断権限�
 
 R03 のデータ利活用から R07 の少子高齢化まで、異なる業務を題材に、受注者が動かせる人員・設計工程・判断材料を比較できます。
 
-{{MAGAZINE_URL}}
+https://note.com/dobokunote/m/me0255472f9ed
