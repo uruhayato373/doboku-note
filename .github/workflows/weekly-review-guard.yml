@@ -49,6 +49,10 @@ jobs:
           {
             echo "## PDCA サイクルの状態（$(date -u +%Y-%m-%dT%H:%MZ)）"
             echo
+            echo '### A8 成果レポート取り込みの期限（check-a8-report-due・2026-09-19 追加）'
+            echo '```'
+            node scripts/check-a8-report-due.mjs || true
+            echo '```'
             echo '### 実験の再計測期限（check-experiment-due）'
             echo '```'
             node scripts/check-experiment-due.mjs || true
@@ -127,51 +131,9 @@ jobs:
       - name: Gate - internal links vs GSC 404/redirect
         run: node scripts/check-internal-links-vs-gsc.mjs
 
-      # ルーティンが「実際に成果物を出したか」を PR の実在で検査する（2026-08-16 追加）。
-      # 上の Check last week's review は**レビューの存在**しか見ないため、ルーティンが死んでいても
-      # 対話セッションで人が書けば緑になる。実際 W32/W33 の 2 週連続失敗は、W31/W32 が人手で
-      # 書かれていたせいで 13 日間ガードに映らなかった。「成果物がある」と「自動化が生きている」は
-      # 別の命題で、後者を直接見る検査がこれ。
-      # 赤落ちはさせず Issue で能動通知する（GSC auto review の沈黙報告と同じ方針＝
-      # 人手で回した週まで赤くすると、常に赤いゲートは読み飛ばされて本物の欠落を隠す）。
-      - name: Report - weekly PDCA routine silence
-        if: always()
-        continue-on-error: true
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          set +e
-          node scripts/check-weekly-routine-fired.mjs
-          rc=$?
-          set -e
-          # rc=0 発火あり / rc=1 2週連続で成果物なし / rc=2 検査不成立（gh 不通）
-          if [ "$rc" = "0" ]; then
-            echo "ルーティンは生きています — Issue は起票しない"
-            node scripts/report-automation-failure.mjs --resolve --channel weekly-pdca --body "復旧 run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" || true
-            exit 0
-          fi
-          if [ "$rc" = "2" ]; then
-            echo "::warning::routine 発火の検査が不成立（gh 不通）。異常なしとは扱わない"
-            exit 0
-          fi
-          {
-            echo "クラウドルーティン \`doboku-note weekly PDCA\` が **2 週連続で成果物を出していません**。"
-            echo ""
-            echo '```'
-            node scripts/check-weekly-routine-fired.mjs || true
-            echo '```'
-            echo ""
-            echo "週次レビューのファイル自体は人手でも書けるため、\`check-weekly-review\` は緑のまま通ります。"
-            echo "緑であることを「自動化が生きている」と読まないでください（2026-08-16 の 13 日欠落の原因）。"
-            echo ""
-            echo "- 確認: \`RemoteTrigger {action:\"get\", trigger_id:\"trig_01Edgim5qXCiGwKtnL4AVEmM\"}\`（\`list\` はページ送りが効かない）"
-            echo "- 応急: 対話セッションで \`/weekly-review\` を実行してサイクルを埋める"
-            echo "- 真実源: \`.claude/knowledge/reference/workflows.md\`「発火の信頼性」"
-          } > /tmp/routine-silence.md
-          node scripts/report-automation-failure.mjs \
-            --channel weekly-pdca \
-            --title "週次ルーティンが2週連続で成果物を出していません" \
-            --body-file /tmp/routine-silence.md
+      # （2026-09-19 撤去）「ルーティンが PR を出したか」の検査（check-weekly-routine-fired / channel weekly-pdca）は、
+      # 週次レビューをクラウドルーティンからローカル実行（土曜・/weekly-review）へ切り替えたため廃止。
+      # 欠落の backstop は下の「Check last week's review exists」（ファイルの実在）だけに一本化する。
 
       # 重要 workflow が「赤いまま」「動いていないまま」を検知する watchdog（2026-08-24 新設）。
       #
