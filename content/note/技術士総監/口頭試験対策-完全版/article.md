@@ -85,6 +85,11 @@ https://note.com/dobokunote/n/n8ab5e6bc2970
 
 ---
 
+<!-- cta:tankan-mokuji -->
+総監のほかの無料記事・有料マガジンは「総監もくじ」から一覧できます。
+
+https://note.com/dobokunote/n/n3ed4c77ceed6
+
 ## 3. 筆記合格発表から本番までの週次準備ロードマップ
 
 令和8年度は筆記合格発表が11月上旬、口頭試験が12月上旬〜翌年1月中旬の予定です。日程は[日本技術士会の実施案内](https://www.engineer.or.jp/c_topics/011/011631.html)を確認し、本人に通知された受験日から逆算してください。ここでは準備を「6つの区切り」に分けて考えます。実際の期間が短い場合は、各区切りの作業を圧縮して並行して進めてください。
@@ -388,10 +393,6 @@ https://note.com/dobokunote/n/n8ab5e6bc2970
 
 準備の軸は一貫しています。経歴票を何度も読み返し、5管理のフレームで自分の業務を説明する練習を重ね、最後は必ず声に出して、できれば第三者の前で確認する。この積み重ねが、本番でどんな角度の質問が来ても崩れない回答につながります。
 
-<!-- cta:tankan-mokuji -->
-総監のほかの無料記事・有料マガジンは「総監もくじ」から一覧できます。
-
-https://note.com/dobokunote/n/n3ed4c77ceed6
 
 <!-- cta:site-application-guide -->
 経歴票の書き方そのものを見直したい方は、doboku-note の [出願の留意点（業務経歴票の書き方）](https://doboku-note.com/docs/pe-comprehensive-management-exam-application-guide?utm_source=note&utm_medium=referral&utm_campaign=koutou-taisaku-kanzen&utm_content=exam-application-guide) も合わせて参照してください。
