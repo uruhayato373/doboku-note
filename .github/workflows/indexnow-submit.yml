@@ -42,6 +42,20 @@ jobs:
         with:
           node-version: "20"
 
+      # deploy 直後は key ファイルがまだ edge に伝播しておらず IndexNow が 403 を返す
+      # （2026-09-19 の初回 run で実発生・手動再送は 200）。本番で key の中身が一致するまで待つ。
+      - name: Wait for key file on production (edge propagation)
+        if: ${{ github.event_name == 'workflow_run' }}
+        run: |
+          KEY=$(node -e 'const c=require("./.claude/config/indexnow.json");process.stdout.write(c.key||"")')
+          HOST=$(node -e 'const c=require("./.claude/config/indexnow.json");process.stdout.write(c.host||"doboku-note.com")')
+          for i in $(seq 1 18); do
+            body=$(curl -sS --max-time 15 -A "Mozilla/5.0" "https://$HOST/$KEY.txt" || true)
+            if [ "$body" = "$KEY" ]; then echo "key file OK after $i tries"; exit 0; fi
+            sleep 10
+          done
+          echo "::warning::key ファイルが 180 秒待っても本番で一致しない（HTTP 403 になりうる）。送信は続行する"
+
       # 依存ゼロ（node:fs と global fetch だけ）なので npm ci しない。
       - name: Submit recently modified URLs
         id: submit
