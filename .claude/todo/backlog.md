@@ -583,14 +583,14 @@ Drive台帳・vault・Drive APIの照合前にローカル実体を削除しな�
 
 ## 🟣 判断待ち — ユーザーの意思決定が必要
 
-### [DN-0257] X Article パイロットの 1 回限り Codex 自動化が 2 回連続で発火せず（Article 1・2）。復旧経路を決めて残り 3 本を出す
+### [DN-0257] X Article 2（市場価値）を手動復旧で公開し、告知 Tweet 4 の枠を決める
 タグ: [SNS・マーケ] [種類:不具合] [検証:check-x-queue-health] [起票:2026-09-19] [期日:2026-09-27]
 
-**起点**: `check-x-queue-health` が `article_overdue: 094-career-longform-pilot/Article-2（09-16 20:30）` を出している。Article 1（09-06）・2（09-13）は 09-14 に 09-22 / 09-16 へ組み直したが、Article 2 は再び未公開（`status.json` の `article_url: null`）。X Article はネイティブ予約不可で、公開は Codex の 1 回限りローカル自動化 `x-article-N` 頼み（README）だが、発火した形跡が無い。Article 3 は 09-20 19:35・4 は 09-27 20:15 で、同じ経路のままでは再発する。告知短文（Article URL 待ち）も連鎖して止まる。
+**起点**: Codex の 1 回限りローカル自動化は Mac スリープ中に発火せず、起床時（05:30 前後）に遅延実行されて `x-article:publish` の公開窓（15 分前〜120 分後）を外し exit 1 で停止していた（Article 1: 09-07 04:50、Article 2: 09-14 / 09-17 05:30・`~/.codex/automations/x-article-*/memory.md`）。2026-09-20 に Article 3・1・4 は同じ日のまま早朝（09-20 09:20 / 09-22 05:40 / 09-27 05:40）へ移し、Codex の rrule も更新済み（告知枠は不変）。Article 2 は 09-13・09-16 の枠を逸失したまま `article_url: null`。Claude Code の auto mode は X への公開を実行できない（Real-World Transactions で拒否）。
 
-**やること**: 復旧経路を 1 つに決める。(a) 手動復旧: 予定時刻に `npm run x-article:publish -- --article 2 --publish`（時刻窓外なら `--force`・ログイン済み X プロファイル・8GB Mac は `DOBOKU_PW_MIN_FREE_MB=1024`）を人が起動し、成功後 `prepare-x-article-teaser` で告知を解放。(b) Codex 自動化を捨て、launchd の一発ジョブ（絶対パス・PATH に node@20・完了後 `launchctl remove`）へ移す。いずれも Article 2 の枠を Article 3（09-20）と重ねず、1 日 3 件上限と x-post-policy §11 の連投回避を守って `status.json` の `scheduled_at` を組み直す。
+**やること**: (1) 人が `DOBOKU_PW_MIN_FREE_MB=1024 npm run x-article:publish -- --article 2 --publish --force` を起動し（時刻窓外なので `--force`・ログイン済み X プロファイル）、成功したら `npm run x-article:prepare -- --article 2 --url <URL>` で Tweet 4 を解放する。(2) 9 月は全日 3 件で埋まっているので Tweet 4 の枠は `x-schedule-guard --max-per-day 3` を通る日へ置く（無ければ 10 月の枠と差し替えるか告知を見送る）。(3) 09-20 09:20 の Article 3 が Codex で定刻に出たか `memory.md` で確認し、出ていなければ早朝移行そのものを見直す。
 
-**完了条件**: `npm run check-x-queue-health` の issues に `article_overdue` / `teaser_missing` が無く、4 本の `article_url` が埋まっている。
+**完了条件**: `npm run check-x-queue-health` の issues が空で、4 本の `article_url` が埋まっている。
 
 ### [DN-0254] Instagram 公開照合（verify-ig-status）を CI 週次へ移すか（Meta アクセストークンを GitHub Secrets に置くかの判断）
 タグ: [SNS・マーケ] [種類:改善] [起票:2026-09-19]
