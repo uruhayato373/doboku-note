@@ -112,7 +112,7 @@ https://note.com/dobokunote/n/n6a82c25cc9de
 
 https://note.com/dobokunote/m/m770bef96b39f
 
-問題I〜IVを含めた試験全体の対策は、こちらのまるごとパックで確認できます。
+問題I・II・III・IV-1の教材は、こちらのまるごとパックにまとめています。問題IV-2の部門別専門技術知識は含みません。
 
 https://note.com/dobokunote/m/me2b526bf77f4
 
