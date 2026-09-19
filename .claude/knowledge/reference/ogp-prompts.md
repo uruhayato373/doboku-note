@@ -8,7 +8,7 @@ doboku-note のサイト OGP / note カバー共通テンプレ T06 Mono Tag の
 OGP デザインはここで継続的に検討・改善する。レイアウト・配色・フォント・テーマ色・変更履歴をこのファイルに記録し、実装（`ogp-templates.mjs`）と常に一致させる。コマンド・引数・トラブルシューティングなど運用面は [`ogp-create` SKILL.md](../../skills/conversion/ogp-create/SKILL.md) を参照。
 
 - **OGP サイズ**: 1200×630（doboku-note サイト用）
-- **note カバーサイズ**: 1280×670（note 公開用ドラフト用、同テンプレを再利用）
+- **note カバーサイズ**: 1280×670（note 公開用。描画は 2026-09-17 から本スキル外の V5 キャラクターカバー `scripts/lib/note-character-cover.mjs`。フォントと資格別背景写真だけを共有）
 - **テンプレ実装**: `.claude/skills/conversion/ogp-create/scripts/lib/ogp-templates.mjs` の `renderMonoTag` が真実源
 - **ベースは CSS のみで完結**（背景画像なしでも成立）。文字・ブランド枠は常に satori が正確に描く
 - **配色は 2026-07-02 にライト写真前面を既定化**（資格別ブランド写真＋淡スクリム＋濃色文字。トップ hero / ExamCards / note カバーと世界観を統一）。**資格別 AI 背景（下記「資格別 AI 背景」）を Codex 生成のブランド写真へ差し替え**、`resolveBackgroundImage` で自動合成。旧ダーク配色（深紺グラデ地・2026-06-29〜2026-07-02 既定）は **`--dark` フラグ**で描画可能（互換保持）。※過去に AI 背景が「暗スクリムで濁る」ため見送られた経緯があるが、明るい写真＋淡スクリム＋濃色文字で解消（サンプル比較で確認）
@@ -131,7 +131,9 @@ npm run ogp-gallery -- --open  # .tmp/ogp-gallery.html を生成しブラウザ�
 
 `scripts/ogp-gallery.mjs` が `content/site/**/ogp.png` を走査し、1 枚の HTML グリッドに一覧化する。長タイトルのはみ出し・改行崩れ・テーマ色枠・余白をまとめて確認できる。
 
-## 派生テンプレ: magazine-banner（note マガジンヘッダー対応）
+## 派生テンプレ: magazine-banner（note マガジンヘッダー対応・レガシー）
+
+> 2026-09-17 に `generate-magazine-covers.mjs` が V5 キャラクターカバー（濃色・`note-cover-character-v5.md`）へ移行し、本テンプレは呼ばれなくなった。以下は履歴。
 
 | 観点 | 仕様 |
 |---|---|
@@ -141,7 +143,9 @@ npm run ogp-gallery -- --open  # .tmp/ogp-gallery.html を生成しブラウザ�
 | レイアウト | 画面を 3 ゾーンに分割。上ゾーン＝ワードマーク＋カテゴリチップ、**中央帯（1280×216）＝マガジン名を縦横中央**、下ゾーン＝シアンアクセント＋ドメイン。全要素を全幅中央寄せ |
 | 実装 | `ogp-templates.mjs` の `renderMagazineBanner`（`HEADER_BAND_HEIGHT = 216`） |
 
-## 派生テンプレ: note-cover-g2（note 記事カバー・試験色分け）
+## 派生テンプレ: note-cover-g2（note 記事カバー・試験色分け・レガシー）
+
+> 2026-07-24 に V4（crop-safe）へ、2026-09-17 に V5 キャラクターカバー（`note-cover-character-v5.md`）へ移行し、`generate-note-covers.mjs` はどちらも描画しない。二軸カラー（試験=色 / 系列=濃淡）だけが V5 に引き継がれている。以下は履歴。
 
 | 観点 | 仕様 |
 |---|---|

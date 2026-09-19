@@ -46,7 +46,7 @@ editorial 基調：`--accent #2a5f96` / `--ink #181a1f` / CTA=`--color-warn #d4a
 | トップ hero | 2.4:1 | wide | `public/images/hero-home-v2.webp`（現行。`hero-home.webp` はロールバック用に保持） |
 | ホームカード | 16:9 | wide | `public/images/card-<category>.webp` |
 | OGP 背景 | 1.9:1 | wide | `.claude/config/ogp/backgrounds/<exam-key>.png` |
-| note カバー背景 | 1.91:1 | wide | **実装済み（2026-07-24・Crop-safe V4）**: `generate-note-covers.mjs` / `generate-magazine-covers.mjs` の `brandPoolVisual()` が `.claude/config/ogp/backgrounds/<exam-key>.png` を 1280×670 center-crop して V4 の既定背景に使う（visualAsset 未指定時の自動フォールバック。civil-1-2 は civil-1 を流用）。記事は中央 paper スクリム・マガジンは fillBg 濃色スクリムで文字可読性を担保。個別 visualAsset は上書き opt-in |
+| note カバー背景 | 1.91:1 | wide | **実装済み（2026-07-24 V4 → 2026-09-17 V5 キャラクターカバー）**: `generate-note-covers.mjs` / `generate-magazine-covers.mjs` が共有する `scripts/lib/note-character-cover.mjs` が `.claude/config/ogp/backgrounds/<exam-key>.png` を 1280×670 center-crop して背景に使う（civil-1-2 は civil-1 を流用）。記事は明色（写真 opacity .45＋白帯）・マガジンは濃色（写真 opacity .13＋fillBg 帯）で文字可読性を担保。個別 `visualAsset` の上書きは V5 で廃止（読まれない） |
 | 広告バナー | 300×250 | square | `public/images/ads/<exam-key>-300x250.*`（自社ハウスバナー/ディスプレイ広告用の予備素材。サイト内の note CTA タイルは焼き込み画像を廃し `public/images/cta-bg/<exam>.webp` イラスト＋HTML 文字でデータ駆動＝`src/lib/exam-brand.ts`。2026-07）|
 
 ## 4. 生成→保存→反映パイプライン
@@ -75,7 +75,7 @@ editorial 基調：`--accent #2a5f96` / `--ink #181a1f` / CTA=`--color-warn #d4a
 
 ## 6. 運用メモ・未実装
 
-- **note カバーの写真化**：`generate-note-covers.mjs` は OGP と同一 renderer を使うが、mono-tag フォールバック系に `resolveBackgroundImage` を渡す配線が未実装（低工数）。G2 カラーカバー（`cover:` ブロック・マスコット付き）は別デザインで写真化は設計判断。
+- **note カバーの写真化**：2026-09-17 の V5 キャラクターカバーで解決済み（全記事・全マガジンが資格別ブランド写真プールを背景に、先生の立ち絵を右側へ合成。`note-cover-character-v5.md`）。OGP の mono-tag とは別 renderer。
 - **広告 300×250**：AdSense 枠は Google 配信で自画像は載らない。本システムは**自社ハウスバナー/ディスプレイ広告クリエイティブ**用途を想定。
 - **pe-first-stage**：OGP は exam-key `pe-comprehensive` を共有。ホームカードのみ独自画像可。
 - **再生成トリガー**：背景差替時は OGP 全再生成（`npm run ogp -- --all --force`）。カバー/カードは対応スクリプトで再生成。

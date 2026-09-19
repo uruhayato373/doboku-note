@@ -15,9 +15,9 @@ doboku-note 本体（`content/site/**/img/*.svg`）は本ポリシー対象外�
 
 ## cover.png のセーフティゾーン（参考）
 
-`content/note/**/img/cover.png` は `scripts/generate-note-covers.mjs` が `.claude/skills/conversion/ogp-create/scripts/lib/ogp-templates.mjs` のテンプレで生成する。サイズは note 推奨の 1280×670。frontmatter に `cover:` ブロックがあれば **note-cover-g2**（試験色分け・全幅バナー帯）、無ければ **mono-tag** にフォールバック（仕様は `.claude/knowledge/design-system/note-cover.md`）。
+`content/note/**/img/cover.png` は `scripts/generate-note-covers.mjs` が `scripts/lib/note-character-cover.mjs`（V5 キャラクターカバー・2026-09-17〜）で生成する。サイズは note 推奨の 1280×670。文言は frontmatter `cover:`（leadIn / headline / hi+hiSuffix / benefit）、無ければ `coverTitle` → title（仕様は `.claude/knowledge/design-system/note-cover-character-v5.md`）。
 
-**セーフティゾーン**: 中央 **630×630** 厳守（SAFE_L=325〜SAFE_R=955）。G2 ではバナー帯テキスト・強調キーワード(HiBox)・リード文がこの内側（バナーは自動で 590px 幅にフィット）。mono-tag ではタイトル・カテゴリチップ・ワードマーク・下部メタがこの内側。装飾（グリッド・同心円・ロゴ・右上メタ・両端チップ）は全幅 OK（クロップで欠けても問題なし）。
+**セーフティゾーン**: 主見出しは x=345〜739・y=239〜435 の枠に 96〜48px・最大 3 行で実測して収め、Satori の実描画枠が中央 630×216 の外に出れば生成失敗。リード 584px・補足 388px・訴求帯 554px。人物（右側 280×330）・ロゴ・背景写真は全幅側（クロップで欠けても問題なし）。
 
 note の記事一覧・SNS 自動共有は中央正方形クロップのケースが多いため、**主要コンテンツが中央 630×630 から外れると意味が伝わらなくなる**。テンプレ実装はこの制約を満たすよう設計されているので、独自に SVG/PNG を作る場合も同じ範囲を踏襲する。
 

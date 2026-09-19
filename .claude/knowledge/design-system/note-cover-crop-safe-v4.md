@@ -1,5 +1,8 @@
 # note カバー Crop-safe V4 実装仕様
 
+> [!warning]
+> **描画は 2026-09-17 から V5 キャラクターカバーへ移行**（SSOT: [note-cover-character-v5.md](note-cover-character-v5.md)）。V4 の三重安全領域レイアウト（`renderNoteCoverCropSafeV4`）は通常生成器・CI から呼ばれなくなった。本書で今も有効なのは **frontmatter の文言フィールド**（`cover.variant: crop-safe-v4` の leadIn / headline / hi / hiSuffix / benefit、マガジンの qualifier / magazineName / proof / benefit）＝V5 がそのままコピーとして読む。フィット判定は `check-note-cover-fit` が V5 の実測で行い、§7 の固定フォント字数上限は適用されない。`visualAsset` / `visualPrompt` は読まれない。
+
 > [!note]
 > **全量移行済み（2026-07-24〜25）・V4 が既定**：パイロット6件合格 → 全 715 記事＋46 マガジンを V4 化（G2 残 0）→ note.com ライブ反映 702/706 記事＋36/36 誌 完了（残4件= free×メンバーシップ連携 LP の手動対応、backlog 起票済み）。実施記録は §14。本ファイルが V4 仕様の SSOT。
 

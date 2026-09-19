@@ -228,6 +228,15 @@ CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認し
 
 ## 🟡 中 — 2〜3ヶ月以内
 
+### [DN-0256] V5 カバー未反映の保留 12 記事を公開後に差し替える（予約 7・下書き 3・noteId 無し 2）
+タグ: [コンテンツ品質] [種類:定期] [起票:2026-09-19] [期日:2026-10-05]
+
+**起点**: V5 カバー全量差し替え（記録 `.claude/state/note/cover-rollout/2026-09-17.json`・09-19 完走）は公開済み 856/858 に反映したが、計画時に予約公開中・下書き・noteId 無しだった 12 本（`live.articles.held`）は対象外のまま。予約分（会員 W8〜W11・学科10・添削01 等）は予約時の旧デザインのカバーで go-live する（W8 は 09-19 に公開済み）。マガジン側の保留 2（`civil-1-anki` / `civil-2-anki` の `_cover.png`）は単発記事の名残で対象外。
+
+**やること**: 各記事の公開後に `DOBOKU_PW_MIN_FREE_MB=1024 node scripts/note-update-cover.mjs --article <path> --commit`（8GB Mac は環境変数必須・ログイン済みプロファイル）。まとめて回すなら `npm run note-cover-rollout -- plan` → `run` で held が解消した分だけ拾える。マガジン内 ¥100 記事は「更新する」未検出で CLI は fail になるが editor がカバーを先に live へ書くため API で eyecatch 変化を確認すれば完了扱い（09-19 実測 2 本）。
+
+**完了条件**: 12 本の live eyecatch が V5（`generated/manifest.json` の hash）と一致し、記録 JSON の held が 0。
+
 ### [DN-0252] 実験期限 surfacer の重複（check-experiment-due / check-experiments-due）を 1 本に統合する
 タグ: [エージェント・SSOT] [種類:改善] [起票:2026-09-19]
 

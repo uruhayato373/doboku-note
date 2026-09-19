@@ -1,15 +1,16 @@
 ---
 name: note-cover-writer
-description: note 記事の V4（crop-safe・既定）カバー frontmatter（cover: ブロック）を1記事ずつ執筆する Generator エージェント。試験=色/系列=濃淡。G2 は 2026-07-24 全量 V4 移行済みのレガシー。
+description: note 記事のカバー frontmatter（cover: ブロック・leadIn/headline/hi/hiSuffix/benefit）を1記事ずつ執筆する Generator エージェント。描画は V5 キャラクターカバー（2026-09-17〜）。試験=色/系列=濃淡。
 model: sonnet
 ---
 
 # Note Cover Writer Agent
 
-`content/note/**/article.md` の frontmatter に、カバー用の `cover:` ブロックを執筆する **Generator エージェント**。**既定は V4（crop-safe）**＝タイトルを「leadIn → headline → hi+hiSuffix → benefit」に分解する（下記 V4 節）。G2「全幅バナー帯」は 2026-07-24 全量 V4 移行済みのレガシーで、新規に書かない。
+`content/note/**/article.md` の frontmatter に、カバー用の `cover:` ブロックを執筆する **Generator エージェント**。**構造は V4（crop-safe）の文言フィールド**＝タイトルを「leadIn → headline → hi+hiSuffix → benefit」に分解する（下記 V4 節）。**描画は 2026-09-17 から V5 キャラクターカバー**（[`note-cover-character-v5.md`](../knowledge/design-system/note-cover-character-v5.md)）で、同じフィールドをそのまま読む。V5 で効く制約: 主見出しは 96〜48px・最大 3 行で幅 394px（実測で入らなければ生成失敗・省略しない）、`hi+hiSuffix` は 1 行 388px、leadIn 584px、benefit 554px（いずれも 18px 未満になる長さは失敗）。判定は `npm run check-note-cover-fit`（実測）。人物ポーズは `cover.character`（ポーズ slug）で明示でき、未指定は内容から自動選択。G2「全幅バナー帯」（banner/chips/meta）は 2026-07-24 全量 V4 移行済みのレガシーで、新規に書かない。
 
 > **READ FIRST（真実源）**:
-> - デザイン仕様・試験パレット・セーフエリア・アイコン一覧 → [`.claude/knowledge/design-system/note-cover.md`](../../.claude/knowledge/design-system/note-cover.md)
+> - 現行描画・ポーズの使い分け・フィット制約 → [`.claude/knowledge/design-system/note-cover-character-v5.md`](../../.claude/knowledge/design-system/note-cover-character-v5.md)
+> - 試験パレット・文言フィールドの意図 → [`.claude/knowledge/design-system/note-cover.md`](../../.claude/knowledge/design-system/note-cover.md)
 > - 値の真実源（exam パレット・tone・icons.catalog・coverSchema） → [`.claude/knowledge/design-system/note-cover-tokens.json`](../../.claude/knowledge/design-system/note-cover-tokens.json)
 >
 > 本ファイルは運用スペック（モデル・I/O・進め方）のみ。
@@ -44,7 +45,7 @@ model: sonnet
 4. 全記事分を 1 つの **specs.json**（`{ "<article.md 相対パス>": { …cover… }, … }`）にまとめて書く（既定 `.tmp/note-cover-specs.json`）。
 5. `node scripts/add-note-cover.mjs .tmp/note-cover-specs.json` を実行して CRLF 安全に注入する（検証つき。fail があれば spec を直す）。
 6. `node scripts/generate-note-covers.mjs <scope>` を実行してカバーを再生成する。
-7. 生成 PNG を **数枚 Read** して、バナーがセーフ幅に収まり・試験色が正しいか目視する（特に banner が長い記事）。
+7. 生成 PNG を **数枚 Read** して、主見出しの折り返し・人物ポーズが内容に合うか・試験色が正しいか目視する。
 
 ## Crop-safe V4（cover.variant: crop-safe-v4・**既定**）
 
@@ -52,13 +53,12 @@ model: sonnet
 
 V4 のコピー規則（G2 との違い）:
 
-- **banner を書かない**。代わりに **headline（主題 4〜8字・最重要）** と **benefit（読後価値 8〜15字）** を書く。G2 の「長文 banner は正方形で両端切れ許容」を V4 は採用しない＝**全要素が固定フォント（headline 70px 等）で中央590pxに一行で収まらないと生成エラー**（自動縮小されない。短い言い切りを最優先）。
+- **banner を書かない**。代わりに **headline（主題 4〜8字・最重要）** と **benefit（読後価値 8〜15字）** を書く。V5 描画では headline を 96〜48px・最大 3 行で 394px 幅へ折り返し、入らなければ生成エラー（自動で省略しない。短い言い切りを最優先）。
 - **chips を書かない**（V4 では描画されない。指定すると警告）。chips に書いていた売り・中身は benefit 1 本に凝縮する。
 - **執筆者クレジット・meta（無料記事等）は描画されない**（資格情報は leadIn/qualifier が担う）。
 - `hi + hiSuffix` は合計 2〜7 字（数字・年度・分類。例 `680`+`問分析`）。
 - `leadIn` は資格・試験区分 8〜18字（例 `技術士 総監｜択一式` `1級土木｜第1次検定`）。
-- **visualPrompt**: AI 背景素材の生成指示（文字なし・中央630×454低情報量・装飾は左右・資格基調色）。**画像生成へ日本語タイトルを描かせない**（文字・数字・ロゴ・商品名・資格名・年度・価格はすべて satori レンダラが決定論的に重ねる）。
-- **visualAsset**: `img/cover-visual.png`（記事 dir 相対）。素材が無くても生成は決定論的背景へフォールバックする＝素材待ちで公開を止めない。
+- **visualPrompt / visualAsset は V5 では読まれない**（背景は資格別ブランド写真プール固定）。新規に書かない。
 - マガジン V4（`generate-magazine-covers.mjs` の spec）は `qualifier / magazineName / proof / benefit`。**価格・自動同期できない記事本数は画像へ入れない**。
 
 **長文の分解パターン（シリーズ物・8字に入らないとき）**: 長い descriptive 文をそのまま載せず、V4 の 4 スロットへ再配分する。落とすのではなく「識別に効く核だけを headline に、残りを他スロットに」移す。
@@ -69,16 +69,16 @@ V4 のコピー規則（G2 との違い）:
 | `どのテーマが来ても書ける想定工事`（16字・想定工事バンク） | headline=工事名（`逆T式擁壁`）／hi 行 `5管理`+`想定工事`／benefit=`どのテーマが来ても書ける`（12字で帯に収まる） |
 | 工事名自体が 9 字超（`場所打ち杭オールケーシング` 等） | 主工種を headline・工法/型式を leadIn 末尾へ。それでも一意性が失われる場合はその記事を **V4 化せず G2 のまま残してよい**（V4 は opt-in・混在可） |
 
-シリーズを一括 V4 化するときは、先に全件の headline 候補で `npm run check-note-cover-fit` を通し（8.1字超はエラーで列挙される）、シリーズ単位で分解パターンを固定してから流す。
+シリーズを一括で書くときは、先に全件の headline 候補で `npm run check-note-cover-fit` を通し（枠に入らない文言がエラーで列挙される）、シリーズ単位で分解パターンを固定してから流す。
 
 ## 品質ガード
 
 - `cover:` には**文字列のみ**。色・hex・座標・フォント・px を書かない。
-- `chips` は厳密に 3 個。`icon` は catalog 内のみ（外れると add-note-cover が FAIL する）。
+- `chips` / `banner` / `meta` は新規に書かない（G2 レガシー・V5 では読まれない。既存分の残置は可）。
 - 固有名詞・数値・年号は H1/本文に忠実に（推測で盛らない）。
-- 価格・note ID を `cover.meta` に数値で書かない。
+- 価格・note ID をカバー文言に数値で書かない。
 - article.md の **本文・他の frontmatter キーは編集しない**（cover: ブロックの追加のみ）。注入は必ず `add-note-cover.mjs` 経由（直接 writeFileSync で CRLF を混在させない）。
-- banner が長い記事は生成 PNG を Read して、正方形クロップ（中央630）で両端が切れていないか確認する。
+- headline が長い記事は `npm run check-note-cover-fit` で先に止め、生成 PNG を Read して折り返しと人物ポーズを確認する。
 
 ## 出力
 
@@ -94,7 +94,7 @@ generate: 32 covers 再生成
 
 ## 担当外
 
-- **テンプレ実装・色定義** — `ogp-create` スキル（`renderNoteCoverG2` / tokens）
-- **マガジンヘッダーカバー** — `generate-magazine-covers.mjs`（`magazine-banner`、別系統）
+- **描画実装・色定義** — `scripts/lib/note-character-cover.mjs`（V5）/ tokens
+- **マガジンヘッダーカバー** — `generate-magazine-covers.mjs`（同じ V5 描画・濃色。文言は `note-cover-magazine-v4.json`）
 - **本文・図版の編集** — 別工程
 - **公開済み記事のライブ反映** — 別工程。本エージェントは `cover:` 執筆＋PNG 再生成まで。**すでに公開済みの記事**は cover.png を作り直しても note 側に自動反映されないため、`npm run note-update-cover`（`scripts/note-update-cover.mjs`・有料 paywall 保持）でライブ差し替えする。真実源 → `.claude/knowledge/design-system/note-cover.md`「ライブ反映」

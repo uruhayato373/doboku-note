@@ -104,9 +104,9 @@ diff /tmp/textbook-toc.txt /tmp/note-toc.txt
 # {管理名}｜総監キーワード精読ガイド｜{サブタイトル}
 ```
 
-- **カギ括弧（「」）禁止** — `generate-note-covers.mjs` の wrap で行頭・行末分割される
-- **メインタイトルは管理名（4-6 文字）** — カバー画像で大きく表示される最大要素
-- **サブタイトル `｜...` 以降** — `extractTitle()` が切り捨てるため自由に書ける（SEO 視点で使える）
+- **カギ括弧（「」）禁止** — カバーの主見出し折り返し（`headlineLayout`）が括弧の直後・直前で行を切らないため、無理な改行位置になる
+- **メインタイトルは管理名（4-6 文字）** — カバー画像で大きく表示される最大要素（カバーの文言は frontmatter `cover:` に分解して書く。H1 をそのまま描くのは `cover:` も `coverTitle` も無いときだけ）
+- **サブタイトル `｜...` 以降** — カバーには `cover.leadIn` / `headline` を使うので H1 のサブタイトルは自由に書ける（SEO 視点で使える）
 
 ### 例（安全管理）
 
@@ -365,37 +365,33 @@ done
 
 ```bash
 node scripts/generate-note-covers.mjs {管理名スラッグ}
-# → content/note/{slug}/img/cover.{svg,png} が生成される
+# → content/note/{slug}/img/cover.png が生成される（PNG のみ）
 ```
 
-### デザイン: V4（crop-safe・既定）
+### デザイン: V5 キャラクターカバー（既定・2026-09-17〜）
 
-`article.md` frontmatter の `cover:` ブロックは **V4（`variant: crop-safe-v4`）が既定**（2026-07-24 全量移行済み・試験区分=ベース色は dir から自動解決）。cover: ブロック自体が無ければ `mono-tag`（`coverTitle` から）にフォールバック。旧 G2「全幅バナー帯」（banner/chips/meta）はレガシーで新規に書かない。
+描画は `scripts/lib/note-character-cover.mjs`（先生の立ち絵＋太い日本語見出し・記事は明色）。`article.md` frontmatter の `cover:` ブロックの文言フィールドをそのまま読む（試験区分=ベース色は dir から自動解決。`variant` は残っていてよいが読まれない）。cover: ブロック自体が無ければ `coverTitle`（1 行目=リード・2 行目=主見出し・3 行目=補足）→ title の順にフォールバック。旧 G2「全幅バナー帯」の banner/chips/meta と V4 の visualAsset/visualPrompt は読まれない。
 
 ```yaml
 cover:
-  variant: crop-safe-v4
   leadIn: "1級土木｜第2次検定"        # 資格・試験区分 8〜18字
-  headline: "安全管理 完成答案"       # 主題 4〜8字目安・最重要（70px固定・590pxに一行）
+  headline: "安全管理 完成答案"       # 主題 4〜8字目安・最重要（96〜48px・最大 3 行・幅 394px に実測で収める）
   hi: "R7"
-  hiSuffix: "対応"                    # hi+hiSuffix 合計 2〜7字
-  benefit: "書き換えてそのまま使える"  # 読後価値 8〜15字
+  hiSuffix: "対応"                    # hi+hiSuffix 合計 2〜7字（1 行 388px）
+  benefit: "書き換えてそのまま使える"  # 読後価値 8〜15字（訴求帯 554px）
+  character: reading                  # 任意。ポーズ slug の明示指定（未指定は内容から自動選択）
 ```
 
-コピー規則・字数上限・安全領域 → `.claude/knowledge/design-system/note-cover-crop-safe-v4.md`（SSOT）、値 → `note-cover-tokens.json`。
+コピー規則・ポーズの使い分け・フィット制約 → `.claude/knowledge/design-system/note-cover-character-v5.md`（SSOT）、色 → `note-cover-tokens.json`。
 
-### H1 の確認（mono-tag フォールバック時）
+### タイトルのフォールバック（cover: が無いとき）
 
-`cover:` が無い記事はカバー中央タイトルを `extractTitle(H1)` で抽出する（`generate-note-covers.mjs`）。
-
-- `｜` 以降は切り捨て
-- `【...】` は除去
-- カギ括弧は wrap で分割される → **B1 で除去済みであるべき**
+`cover:` が無い記事は `coverTitle`、それも無ければ frontmatter `title` または H1 をそのまま主見出しに使う（`｜` や `【...】` の除去はしない）。長いタイトルは枠に入らず生成が失敗するので、`cover:` か `coverTitle` を書く。
 
 ### 検証
 
-- 中央 630×630 セーフティゾーン内にバナー帯テキスト・強調キーワードが収まる（`--debug-safety` で赤枠確認。これは note-cover-g2 の話。mono-tag フォールバックは 2026-06-16 以降は全幅化しており中央枠制約は適用しない）
-- note 一覧・リンクカードの中央クロップでも欠けない（バナーは自動で 590px 幅にフィット）
+- `npm run check-note-cover-fit`（pre-commit は `--staged`）が描画と同じ実測幅で主見出し・リード・補足・訴求帯の枠入りを検査する。緑なら生成は失敗しない
+- 生成時に Satori から主見出しの実描画枠を取り、中央 630×216 の外に出れば生成失敗（`--debug-safety` の赤枠目視は廃止）
 - `1280×670` のサイズが維持されている
 
 ---

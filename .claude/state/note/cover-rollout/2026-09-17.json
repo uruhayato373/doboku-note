@@ -1,0 +1,173 @@
+{
+  "version": 1,
+  "date": "2026-09-17",
+  "status": "done",
+  "design": "note-cover-character-v5",
+  "recordedAt": "2026-09-19T07:18:48.779Z",
+  "generator": {
+    "head": "51cf5431402cfc4e37a03f41b7d0384b125bcd1e",
+    "rendererSha256": "6c797f0bac593429d03360ddea017d5de47c9e26491a809f1bd1b6c4c16a2ace"
+  },
+  "source": {
+    "root": "/Users/minamidaisuke/doboku-note",
+    "head": "1cd3afb4fe90bf72d724e12280c37029eb9d6ac2",
+    "dirty": []
+  },
+  "generated": {
+    "targets": 937,
+    "articles": 870,
+    "magazines": 67,
+    "failed": 0,
+    "poseCounts": {
+      "pc-work": 47,
+      "reading": 246,
+      "explaining": 144,
+      "thinking": 225,
+      "pointing": 234,
+      "smile": 29,
+      "wave": 2,
+      "good-sign": 10
+    },
+    "retired": [
+      {
+        "id": "whitepaper-r7-strategy",
+        "reason": "src/lib/note-magazines.ts の退役記録に従う。2026-05-25に無料記事化済みでマガジン出力先がない。"
+      }
+    ],
+    "reconcile": {
+      "checkedAt": "2026-09-17T12:21:24.940Z",
+      "newTargets": 0,
+      "changedInputs": 0,
+      "changedPoses": 0,
+      "removed": 0
+    }
+  },
+  "supply": {
+    "articleCoversR2": {
+      "group": "note-cover-png",
+      "uploaded": 870,
+      "verified": 870,
+      "skipped": 0,
+      "failed": 0
+    },
+    "magazineCoversDrive": {
+      "group": "note-magazine-cover-png",
+      "copied": 67,
+      "adopted": 0,
+      "unchanged": 0,
+      "failed": 0
+    }
+  },
+  "live": {
+    "verifiedAt": "2026-09-19T07:11:33.570Z",
+    "articles": {
+      "planned": 858,
+      "ok": 856,
+      "failed": [
+        {
+          "key": "content/note/技術士総監/magazines/総監記述式-5管理クロストレードオフ/序章/article.md",
+          "noteId": "ndb524ed63c92",
+          "cli": null,
+          "problems": []
+        },
+        {
+          "key": "content/note/技術士総監/magazines/総監記述式-設問3国家施策バンク/00-序章/article.md",
+          "noteId": "n3eb135ebdff7",
+          "cli": "[FAIL] 更新する未検出",
+          "problems": []
+        }
+      ],
+      "notRun": 0,
+      "held": [
+        {
+          "key": "content/note/1級・2級土木/メンバーシップ/予想問題マガジン/08_工程管理-工程管理手法/article.md",
+          "noteId": "n8acfea17f953",
+          "reason": "公開 API で取得不能（note details unavailable）＝下書き・非公開・削除のいずれか"
+        },
+        {
+          "key": "content/note/1級・2級土木/メンバーシップ/予想問題マガジン/09_施工計画-施工手順と段取り/article.md",
+          "noteId": "ne3cf6dac882f",
+          "reason": "公開 API で取得不能（note details unavailable）＝下書き・非公開・削除のいずれか"
+        },
+        {
+          "key": "content/note/1級・2級土木/メンバーシップ/予想問題マガジン/10_環境対策-水質と近隣対応/article.md",
+          "noteId": "n1911131aa726",
+          "reason": "公開 API で取得不能（note details unavailable）＝下書き・非公開・削除のいずれか"
+        },
+        {
+          "key": "content/note/1級・2級土木/メンバーシップ/予想問題マガジン/11_直前総点検-2テーマ組合せとヤマ/article.md",
+          "noteId": "n64f9653dc30c",
+          "reason": "公開 API で取得不能（note details unavailable）＝下書き・非公開・削除のいずれか"
+        },
+        {
+          "key": "content/note/1級・2級土木/メンバーシップ/学科記述予想/09_道路・舗装/article.md",
+          "noteId": "nafecfeede3a6",
+          "reason": "公開 API で取得不能（note details unavailable）＝下書き・非公開・削除のいずれか"
+        },
+        {
+          "key": "content/note/1級・2級土木/メンバーシップ/学科記述予想/10_コンクリート構造物/article.md",
+          "noteId": "nbc5c184c22bd",
+          "reason": "公開 API で取得不能（note details unavailable）＝下書き・非公開・削除のいずれか"
+        },
+        {
+          "key": "content/note/1級・2級土木/メンバーシップ/添削事例アーカイブ/事例01_工事概要の具体性/article.md",
+          "noteId": "n19ae06c719ce",
+          "reason": "公開 API で取得不能（note details unavailable）＝下書き・非公開・削除のいずれか"
+        },
+        {
+          "key": "content/note/技術士建設部門/magazines/建設部門-口頭試験対策/article.md",
+          "noteId": null,
+          "reason": "下書き（noteId 無し）"
+        },
+        {
+          "key": "content/note/技術士建設部門/筆記合格発表後にやること-無料/article.md",
+          "noteId": null,
+          "reason": "下書き（noteId 無し）"
+        },
+        {
+          "key": "content/note/技術士総監/口頭試験対策-完全版/article.md",
+          "noteId": null,
+          "reason": "noteId 無し（未公開）"
+        },
+        {
+          "key": "content/note/技術士総監/筆記合格発表後にやること-無料/article.md",
+          "noteId": null,
+          "reason": "下書き（noteId 無し）"
+        },
+        {
+          "key": "content/note/技術士総監/週次レビュー-テンプレ集/article.md",
+          "noteId": null,
+          "reason": "noteId 無し（未公開）"
+        }
+      ]
+    },
+    "magazines": {
+      "planned": 65,
+      "ok": 65,
+      "failed": [],
+      "notRun": [],
+      "held": [
+        {
+          "key": "magazine:civil-1-anki",
+          "noteKey": null,
+          "reason": "単発記事（note マガジンではない）。記事カバー img/cover.png 側で反映"
+        },
+        {
+          "key": "magazine:civil-2-anki",
+          "noteKey": null,
+          "reason": "単発記事（note マガジンではない）。記事カバー img/cover.png 側で反映"
+        }
+      ]
+    },
+    "checks": [
+      "eyecatch / cover が更新前と異なる",
+      "price 不変",
+      "status 不変",
+      "is_limited / can_read 不変（記事）"
+    ]
+  },
+  "resume": null,
+  "notes": [
+    "2026-09-19: 公開反映を再開し完走。articles ok 856 / failed 2 / held 12（予約公開中 7・下書き 3・noteId 無し 2）。failed 2（総監記述式-5管理クロストレードオフ/序章・設問3国家施策バンク/00-序章・いずれもマガジン内 ¥100 記事）は note-update-cover が「更新する」に到達できない（エディタに有料エリア設定が無く公開フローが異なる）が、editor はカバーを「更新する」前に live へ書くため verify の live 検査は問題ゼロ（eyecatch 変化・price/status/is_limited 不変・API 実測 315254164 / 315254300）。実体は完了。09-19 10:38〜16:00 の run は launchd 配下（nohup はセッション終了で死ぬ）、ディスク満杯（11:00〜11:11）に当たった chunk の 18 失敗は次ラウンドで回収。"
+  ]
+}

@@ -124,10 +124,11 @@ forecast: true
 theme: "{当該区分の予想テーマ}"
 coverTitle: "技術士 建設部門｜{専門分野名} R8予想 {区分} 予想問題＋模範解答"
 cover:
+  leadIn: "技術士 建設部門｜{専門分野名} {区分}"
+  headline: "{テーマの核 4〜8字}"
   hi: "R8予想"
   hiSuffix: "{道路II-1 等}"
-  banner: "{テーマ}｜予想問題＋模範解答"
-  meta: "R8予想問題"
+  benefit: "予想問題＋模範解答"
 ```
 （`price` は **BK 単品＝¥500**〔道路マガジンSoT・note掲載文.txt 準拠。¥1,980 は旧誤デフォルト〕。マガジンのセット価格は note掲載文.txt が真実源。`noteUrl`/`noteId`/`notePublishedAt` は空文字）
 
@@ -345,7 +346,7 @@ writeFileSync(outPath, content, 'utf8');
 
 note の販売は**記事（年度・科目）単位**。article.md だけでは公開できない。1 記事 = 次の 3 点セット：
 
-1. **article.md** — frontmatter に **`cover:` ブロック**（`leadIn`/`hi`/`hiSuffix`/`banner`/`meta`/`chips`）を含める（`coverTitle` だけでは記事カバーが生成されない）。改訂コンピテンシー反映記事は冒頭明示も付ける
+1. **article.md** — frontmatter に **`cover:` ブロック**（`leadIn`/`headline`/`hi`/`hiSuffix`/`benefit`）を含める（`coverTitle` だけでも生成はされるが、見出し・訴求文の精密制御は `cover:` で行う。`banner`/`meta`/`chips` は V5 描画で読まれない）。改訂コンピテンシー反映記事は冒頭明示も付ける
 2. **img/cover.png** — `node scripts/generate-note-covers.mjs "{magazine名}"` で生成（`cover:` ブロックから）。色は `note-cover-tokens.json` の試験キーで解決（**技術士建設部門は `pe-construction`＝インディゴ #33356B を登録済み**。未登録だと総監navyにフォールバック）
 3. **hashtags-{suffix}.txt** — **`/note-hashtags {slug} --article {suffix}` スキルで生成**（owner）。**1行1個**・最大99個・空行/コメント/重複禁止（note貼付前提。`行数==タグ数`）。**スペース区切り1行は不可**（note にコピペできない。2026-06-09 是正）。BK は年度/科目テーマ＋建設部門共通で~90個。区分内の全選択肢テーマを横断して代表タグを選ぶ。命名は `hashtags-II1.txt` / `hashtags-II2.txt` / `hashtags-III.txt`（上の命名規則テーブル参照）
 

@@ -36,13 +36,13 @@ note 公開用ドラフト（`content/note/`）のカバー画像（1280×670）
 | ID | 用途 | デザイン |
 |---|---|---|
 | `mono-tag` | サイト OGP（1200×630）共通（T06） | warm off-white 背景 + 薄い濃紺グリッド + シアン/紺アクセントバー + Navy カテゴリチップ + **全幅・縦中央寄せ大タイトル（最大76px）** + **資格別テーマ色 16px 外枠**（下部メタ・タグラインは撤去済み）。**任意で資格別 AI 背景**（あり時は最背面に画像＋可読性スクリム `rgba(253,252,248,0.7)`／なし時は上記オフホワイト固定・後方互換、下記「資格別 AI 背景」） |
-| `magazine-banner` | note マガジンヘッダー（1280×670） | 中央 1280×216 帯クロップ対応。`generate-magazine-covers.mjs` 専用 |
-| `crop-safe-v4` | note 記事/マガジンカバー（1280×670・**既定**） | 三重安全領域（square/list/core-safe）で表示面トリミングに耐える。leadIn→headline(70px固定)→hi+hiSuffix→benefit（マガジンは qualifier/magazineName/proof/benefit）。中央590px一行フィット必須（超過は生成エラー）。背景=資格別ブランド写真プール。仕様 SSOT: `note-cover-crop-safe-v4.md` |
-| `note-cover-g2` | note 記事カバー（1280×670・**レガシー**） | 全幅バナー帯。**試験区分=ベース色 / 系列=濃淡** で色判別。リード文→強調キーワード(HiBox)→全幅バナー帯→チップ3つ。**2026-07-24 に全量 V4 移行済み（残 0）**・新規に使わない |
+| `magazine-banner` | note マガジンヘッダー（1280×670・**レガシー**） | 中央 1280×216 帯クロップ対応。2026-09-17 に `generate-magazine-covers.mjs` が V5 へ移行し、呼ばれなくなった |
+| `crop-safe-v4` | note 記事/マガジンカバー（1280×670・**レガシー**） | 三重安全領域（square/list/core-safe）。2026-09-17 に V5 キャラクターカバー（`scripts/lib/note-character-cover.mjs`・本スキル外）へ移行。frontmatter の文言フィールド（leadIn/headline/hi/hiSuffix/benefit）は V5 がそのまま読む。仕様 SSOT: `note-cover-character-v5.md` |
+| `note-cover-g2` | note 記事カバー（1280×670・**レガシー**） | 全幅バナー帯。**2026-07-24 に全量 V4 移行済み（残 0）**・新規に使わない |
 
 過去 Phase で 5 種テンプレ（navy-white / dark-wood / red-line / blackboard / dark-grid）を併用していたが、2026-04-29 に T06 Mono Tag に統一（理由: SNS シェアでブランド一貫性を担保 + メンテ単純化）。**旧**テンプレの背景画像 (`assets/fonts/ogp-backgrounds/*.png`) は履歴として残置しているが現在は参照されない。新しい資格別 AI 背景は別系統で `.claude/config/ogp/backgrounds/<exam-key>.png|webp|jpg` に置き、`ogp-create.mjs` の `resolveBackgroundImage` が参照する（任意・未配置なら従来のオフホワイト+グリッドにフォールバック。下記「資格別 AI 背景」）。
 
-**note 記事カバーは `crop-safe-v4`（2026-07-24 全量移行）が標準**。サイト OGP（`mono-tag`）とは別系統だが、V4 背景は同じ資格別ブランド写真プール（`.claude/config/ogp/backgrounds/`）を共有する。値の真実源は [`.claude/knowledge/design-system/note-cover-tokens.json`](../../../../.claude/knowledge/design-system/note-cover-tokens.json)、V4 仕様は [`.claude/knowledge/design-system/note-cover-crop-safe-v4.md`](../../../../.claude/knowledge/design-system/note-cover-crop-safe-v4.md)（G2 レガシー仕様は [`note-cover.md`](../../../../.claude/knowledge/design-system/note-cover.md)）。
+**note 記事・マガジンカバーは 2026-09-17 から V5 キャラクターカバー（本スキル外の `scripts/lib/note-character-cover.mjs`）が標準**。サイト OGP（`mono-tag`）とは別系統だが、背景は同じ資格別ブランド写真プール（`.claude/config/ogp/backgrounds/`）とフォント（本スキルの `assets/fonts/`）を共有する。値の真実源は [`.claude/knowledge/design-system/note-cover-tokens.json`](../../../../.claude/knowledge/design-system/note-cover-tokens.json)、V4 仕様は [`.claude/knowledge/design-system/note-cover-crop-safe-v4.md`](../../../../.claude/knowledge/design-system/note-cover-crop-safe-v4.md)（G2 レガシー仕様は [`note-cover.md`](../../../../.claude/knowledge/design-system/note-cover.md)）。
 
 ## 全幅レイアウト（2026-06-16〜）
 
@@ -196,43 +196,39 @@ ogp:
 `src/lib/r2-image-loader.ts` の `getOgpImageUrl` が返す URL と 1:1 対応する。
 本番配信は `https://storage.doboku-note.com/posts/{category}/{localSlug}/ogp.png`。
 
-## note カバー（兄弟スクリプト・V4 既定）
+## note カバー（兄弟スクリプト・V5 既定）
 
-`scripts/generate-note-covers.mjs` が `content/note/{slug}/img/cover.png`（1280×670）を出力する。テンプレロジックは本スキルが真実源。
+`scripts/generate-note-covers.mjs` が `content/note/{slug}/img/cover.png`（1280×670）を出力する。**描画は 2026-09-17 から本スキルのテンプレではなく V5 キャラクターカバー**（`scripts/lib/note-character-cover.mjs`・SSOT [`note-cover-character-v5.md`](../../../../.claude/knowledge/design-system/note-cover-character-v5.md)）。本スキルが提供するのはフォント（`assets/fonts/`）と資格別ブランド写真プールだけ。
 
-- **`cover.variant: crop-safe-v4`（既定・全記事移行済み）は `renderNoteCoverCropSafeV4`** で描画（背景=ブランド写真プール→決定論フォールバック）。
-- variant 無しの `cover:` ブロックは `note-cover-g2`（レガシー・新規に書かない）。
-- **`cover:` ブロック自体が無ければ `mono-tag`**（`coverTitle` から）にフォールバック。
-- 試験区分は `content/note/{技術士総監,共通,...}/` のトップ dir、または `1級・2級土木/{1級土木,2級土木}/` の級サブ dir から（パスセグメント一致で）自動解決し、ベース色を決める（1級=青/2級=緑/1級・2級土木 直下=civil-1-2）。系列(濃淡)は `notePricing`（paid→濃 / free→標準）または `cover.tone` で決まる。
+- コピーは frontmatter `cover:`（leadIn / headline / hi+hiSuffix / benefit）、無ければ `coverTitle`（1 行目=リード・2 行目=主見出し・3 行目=補足）、それも無ければ title。
+- 人物ポーズは `cover.character` の明示指定を最優先し、未指定は内容から自動選択（全件に割り当ててから絞るので 1 記事再生成でも同じポーズ）。
+- 試験区分は `content/note/{技術士総監,共通,...}/` のトップ dir、または `1級・2級土木/{1級土木,2級土木}/` の級サブ dir から（パスセグメント一致で）自動解決し、帯の色を決める（1級=青/2級=緑/1級・2級土木 直下=civil-1-2）。系列(濃淡)は `notePricing`（paid→濃 / free→標準）または `cover.tone` で決まる。
 
 ```bash
 node scripts/generate-note-covers.mjs            # 全 note 記事
 node scripts/generate-note-covers.mjs 1級土木    # slug 部分一致で対象を絞る
 node scripts/generate-note-covers.mjs 安全管理   # slug 部分一致で 1 記事だけ再生成
 npm run note-cover-gallery                        # 全 cover を1枚 HTML で目視（OGP の ogp-gallery と対称・資格×種別で絞込）
-npm run check-note-cover-fit                      # banner/hi/leadIn がフル1280幅超で画面外に切れる"真の溢れ"を検出（0件必須・pre-commit でも --staged）
+npm run check-note-cover-fit                      # 主見出し・リード・補足・訴求帯が描画枠に入るか実測（0件必須・pre-commit でも --staged）
 npm run note-update-cover -- --list <file> --commit  # 公開済み記事の stale カバーをライブ差し替え（有料 paywall 保持・本文不触）
 ```
 
-> banner は工事名列挙・科目名等の **descriptive テキストが正規**で 7〜11 字超を許容（`bannerFontSize` が 48px まで自動縮小しフル幅には収まる／正方形クロップで両端が切れるのは想定内）。`check-note-cover-fit` が止めるのは**フル幅すら超えて画面外で切れる**ケースのみ。真実源 [`note-cover.md`](../../../../.claude/knowledge/design-system/note-cover.md)。
+> 主見出しは 96〜48px・最大 3 行で x=345〜739 の枠へ折り返す。入らない文言は**省略せず生成失敗**になる（`check-note-cover-fit` が同じ実測で commit 前に止める）。
 
-### `cover:` ブロック（G2 を出すための frontmatter）
+### `cover:` ブロック（V5 が読む frontmatter）
 
 ```yaml
 cover:
-  leadIn: "1級土木施工管理技士 二次"   # 上部リード文（37px）
-  hi: "安全"                          # 強調キーワード（色ボックス HiBox）
-  hiSuffix: "管理"                    # HiBox 直後の語（58px）
-  banner: "完成答案と添削例"           # 全幅バナー帯。最重要・正方形クロップでも残す（自動で590px幅にフィット）
-  meta: "有料マガジン"                 # 右上メタ（任意）
+  leadIn: "1級土木施工管理技士 二次"   # リード（資格・試験区分）
+  headline: "安全管理"                 # 主見出し（最重要・96〜48px・最大 3 行）
+  hi: "完成答案"                       # 補足（hi+hiSuffix で 1 フレーズ）
+  hiSuffix: "と添削例"
+  benefit: "書き換えてそのまま使える"  # 訴求帯
   tone: deep                          # 任意。省略時は notePricing から自動
-  chips:                              # 必ず3個。icon は tokens の catalog から
-    - { icon: doc,   text: "完成答案" }
-    - { icon: edit,  text: "添削例つき" }
-    - { icon: check, text: "減点ポイント" }
+  character: reading                  # 任意。ポーズ slug の明示指定（未指定は内容から自動選択）
 ```
 
-仕様詳細・試験パレット・アイコン一覧は [`.claude/knowledge/design-system/note-cover.md`](../../../../.claude/knowledge/design-system/note-cover.md) と [`note-cover-tokens.json`](../../../../.claude/knowledge/design-system/note-cover-tokens.json) を参照。
+`banner` / `meta` / `chips`（G2）と `visualAsset` / `visualPrompt`（V4）は読まれない。仕様・ポーズの使い分けは [`note-cover-character-v5.md`](../../../../.claude/knowledge/design-system/note-cover-character-v5.md)、試験パレットは [`note-cover-tokens.json`](../../../../.claude/knowledge/design-system/note-cover-tokens.json) を参照。
 
 ## 事前条件
 
