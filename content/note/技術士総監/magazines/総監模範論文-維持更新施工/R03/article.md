@@ -12,10 +12,11 @@ notePricing: paid
 noteSeries: 総監模範論文-維持更新施工ペルソナ
 utmCampaign: essay-maintenance-r03
 noteMagazine: 総監模範論文-維持更新施工
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/nd411f1d72fdb"
+noteId: "nd411f1d72fdb"
+notePublishedAt: "2026-09-19"
+noteStatus: published
+noteDraftId: nd411f1d72fdb
 price: 500
 cover:
   variant: crop-safe-v4
@@ -53,7 +54,7 @@ cover:
 
 維持更新施工のR03〜R07をまとめて読む場合は、マガジンをご利用ください。
 
-{{MAGAZINE_URL}}
+https://note.com/dobokunote/m/mabf26d2c72fb
 
 ## 試験問題（令和3年度 必須科目 I-2）
 
@@ -206,10 +207,10 @@ cover:
 
 供用条件と受注者の権限を固定し、お題に合わせて管理判断を変える練習にご活用ください。
 
-{{MAGAZINE_URL}}
+https://note.com/dobokunote/m/mabf26d2c72fb
 
 ---
 
 **印刷用 PDF｜本記事の模範論文**
 
-試験問題とA案・B案のフル解答を印刷し、手書き練習や読み返しに使えるPDFを添付する予定です。
+試験問題とA案・B案のフル解答を印刷し、手書き練習や読み返しに使えるPDFは、この下の添付から利用できます。
