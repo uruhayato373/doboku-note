@@ -134,8 +134,8 @@ description: >
 - 「壊れた内部リンク」（`check-internal-links-vs-gsc` が ERROR を返したときのみ）
 - 「A8 成果取込 DUE（月次）」（`check-a8-report-due` が due のときのみ・→ 次セッションで `/a8-report`）
 - 「A8 集計の取りこぼし / 混入疑い」（`check-a8-report-due` の `issues[]` が空でないとき・due でなくても出す）
-- 「実験の再測定 DUE」（`check-experiments-due` が due のときのみ・→ 次セッションで各要素の `review` コマンドを実行）
-- 「実験の未処理の申し送り」（`check-experiments-due` の `issues[]` が空でないとき・due でなくても出す）
+- 「実験の再測定 DUE」（`check-experiment-due` の `dueCount > 0` のときのみ・→ 次セッションで各要素の `review` コマンドを実行）
+- 「実験の未処理の申し送り」（`check-experiment-due` の `issues[]` が空でないとき・due でなくても出す）
 ```
 
 #### Agent C: NSM / パフォーマンス指標 + 実験進捗
@@ -159,7 +159,7 @@ A. NSM 指標取得（既定 = スナップショット読み）:
 - いずれの出力も「## NSM（オーガニック検索流入）」セクションとしてレビューに埋め込む
 
 B. 実験進捗レポート:
-- **期限判定はまず `npm run check-experiments-due -- --json` を実行し、その結果を転記する**
+- **期限判定はまず `npm run check-experiment-due -- --json` を実行し、その結果を転記する**（2026-09-19 に check-experiments-due を統合・削除。判定の唯一の実装は `scripts/lib/experiment-due.mjs`）
   （LLM が経過日数を数え直さない。期限計算は決定的に決まる＝CLAUDE.md §5）。
   - `dueExperiments[]` … 再測定・裁定の期限が来ている実験。各要素の `reason` をそのまま出す
     （measure 期限超過 / next_check_date 未設定のまま滞留 / proposed のまま滞留）
