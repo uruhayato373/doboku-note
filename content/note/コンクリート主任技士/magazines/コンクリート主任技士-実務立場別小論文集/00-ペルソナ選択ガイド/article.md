@@ -153,6 +153,43 @@ cover:
 
 答案に厚みを出すのは、肩書きではなく、実際に自分が判断した場面の記憶だからです。
 
+### 立場別4テーマセットから選ぶ
+
+立場別に4テーマをまとめたセットから選べます。全32答案集または主任技士まるごとパックを購入済みの方は、同じ記事を読めるため追加購入は不要です。 掲載する答案は各立場を想定した学習用モデルで、著者自身の職歴ではありません。
+
+生コン工場の4テーマ
+
+https://note.com/dobokunote/m/me1d498428b43
+
+プレキャスト工場の4テーマ
+
+https://note.com/dobokunote/m/mf2e0acf10805
+
+ゼネコン土木施工の4テーマ
+
+https://note.com/dobokunote/m/m8af7494fcabf
+
+維持管理・補修の4テーマ
+
+https://note.com/dobokunote/m/m842b2a1c7c1f
+
+発注者・監督員の4テーマ
+
+https://note.com/dobokunote/m/ma33ab3cc69e2
+
+ゼネコン建築施工の4テーマ
+
+https://note.com/dobokunote/m/m1d67b91fe039
+
+設計コンサルの4テーマ
+
+https://note.com/dobokunote/m/mc34747eabe91
+
+試験・検査機関の4テーマ
+
+https://note.com/dobokunote/m/m8bc94bb05c0a
+
+
 ## 4つのテーマは共通
 
 どの立場を選んでも、扱うテーマは共通の4つです。

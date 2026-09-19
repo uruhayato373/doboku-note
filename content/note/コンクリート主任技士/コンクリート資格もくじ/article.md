@@ -149,6 +149,19 @@ https://note.com/dobokunote/m/m09d20bfd9738
 
 ---
 
+### 立場別4テーマセットから選ぶ
+
+自分の立場の4テーマだけをまとめて読むセットも選べます。全32答案集または主任技士まるごとパックを購入済みの方は、同じ記事を読めるため追加購入は不要です。
+
+- [生コン工場の4テーマ](https://note.com/dobokunote/m/me1d498428b43)
+- [プレキャスト工場の4テーマ](https://note.com/dobokunote/m/mf2e0acf10805)
+- [ゼネコン土木施工の4テーマ](https://note.com/dobokunote/m/m8af7494fcabf)
+- [維持管理・補修の4テーマ](https://note.com/dobokunote/m/m842b2a1c7c1f)
+- [発注者・監督員の4テーマ](https://note.com/dobokunote/m/ma33ab3cc69e2)
+- [ゼネコン建築施工の4テーマ](https://note.com/dobokunote/m/m1d67b91fe039)
+- [設計コンサルの4テーマ](https://note.com/dobokunote/m/mc34747eabe91)
+- [試験・検査機関の4テーマ](https://note.com/dobokunote/m/m8bc94bb05c0a)
+
 ## コンクリート診断士｜変状から調査・評価・対策へ
 
 診断士の記述式では、ひび割れ・浮き・剥離・錆汁などの変状から、劣化機構を一つに決めつけず、必要な調査を選び、結果を評価して対策を提案する流れが重要です。
