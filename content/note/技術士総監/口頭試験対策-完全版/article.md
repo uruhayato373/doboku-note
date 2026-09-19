@@ -1,9 +1,12 @@
 ---
 notePricing: paid
 price: 2980
-noteStatus: draft
+noteStatus: published
 noteSeries: 総監口頭試験-完全準備
 utmCampaign: koutou-taisaku-kanzen
+notePublishedAt: "2026-09-19"
+noteId: "n6992933e3caf"
+noteUrl: "https://note.com/dobokunote/n/n6992933e3caf"
 paidBoundary: 3. 筆記合格発表から本番までの週次準備ロードマップ
 cover:
   variant: crop-safe-v4
