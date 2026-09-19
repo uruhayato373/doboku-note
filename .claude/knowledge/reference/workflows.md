@@ -15,15 +15,19 @@ title: 推奨ワークフロー
 ```
 金曜:
 1. 06:00 JST  fetch-metrics.yml（自動）<- GSC + GA4 取得
-2. PM         /weekly-review          <- 実績を振り返る（進捗・コンテンツ品質・PSI 推移）
-3. PM         /weekly-plan            <- 来週の計画を立てる（前週の申し送り・backlog から選定）
+土曜:
+2. 09:00 JST  /weekly-review          <- 実績を振り返る（進捗・コンテンツ品質・PSI 推移）
+3. 09:00 JST  /weekly-plan            <- 来週の計画を立てる（前週の申し送り・backlog から選定）
 月曜:
 4. 11:17 JST  weekly-review-guard.yml（自動）<- 先週分の *-review.md 欠落を赤落ちで検知
 ```
 
 詳細は `.claude/skills/management/weekly-review/SKILL.md` と `.claude/skills/management/weekly-plan/SKILL.md` を参照。
 
-**発火の信頼性（サイレント欠落の防止）**: 手順 2-3 は**クラウドルーティン**（正典 = `doboku-note weekly PDCA`・`/schedule` で作成）が金曜 PM に発火して回す。状態はクラウド側にしか無く repo からは見えないため、停止・無効・cron ズレで**発火しなくなっても気づけない**（実際 2026-W27/W28 の 2 週分が silent 欠落）。これを防ぐため `weekly-review-guard.yml`（`npm run check-weekly-review`＝`scripts/check-weekly-review.mjs`）が毎週月曜に「先週分の `docs/reviews/weekly/YYYY-Www-review.md` が生成済みか」を検査し、無ければ赤落ちさせる（生成はしない＝ルーティンの責務、ガードは欠落検知のみ）。赤落ち時は対話セッションで `/routines`（list-first）→ 無ければ `/schedule` 再作成、cron ズレなら `update`。ルーティン監査の真実源は [.claude/skills/management/routines/SKILL.md](../../skills/management/routines/SKILL.md)。
+**発火の信頼性（サイレント欠落の防止）**: 手順 2-3 は**クラウドルーティン**（正典 = `doboku-note weekly PDCA`・`/schedule` で作成）が**土曜 09:00 JST**（cron `0 0 * * 6`・2026-09-19 に金曜 20:00 から変更）に発火して回す。状態はクラウド側にしか無く repo からは見えないため、停止・無効・cron ズレで**発火しなくなっても気づけない**（実際 2026-W27/W28 の 2 週分が silent 欠落）。これを防ぐため `weekly-review-guard.yml`（`npm run check-weekly-review`＝`scripts/check-weekly-review.mjs`）が毎週月曜に「先週分の `docs/reviews/weekly/YYYY-Www-review.md` が生成済みか」を検査し、無ければ赤落ちさせる（生成はしない＝ルーティンの責務、ガードは欠落検知のみ）。赤落ち時は対話セッションで `/routines`（list-first）→ 無ければ `/schedule` 再作成、cron ズレなら `update`。ルーティン監査の真実源は [.claude/skills/management/routines/SKILL.md](../../skills/management/routines/SKILL.md)。
+
+> [!warning] 沈黙の第 2 型＝サンドボックスの許可プロンプト待ち（2026-09-19）
+> ルーティンは `.claude/` 配下への書き込み（doboku-note の `.claude/state/**`、obsidian リポジトリ側の `.claude/agent-log.md` <!-- doc-ref:ignore -->）を Bash の `mkdir`/`tar` や Edit で行うと「sensitive file」の許可プロンプトで止まり、人が claude.ai で承認するまで **数日** `requires_action` のまま沈黙する。Phase 8.5 の起票にも到達しない（失敗ではなく待機のため）。2026-09-18 は存在しない `metrics-data` ブランチ展開の `mkdir -p .claude/state/metrics` で止まり W38 が欠落、2026-09-11 は Phase 9 の Edit で止まり 09-14 の承認まで待った。対処＝ルーティン本文で `.claude/` を**読むだけ**にし、書き込みは既存スクリプト実行に任せる（本文に明記済み）。診断は `RemoteTrigger list_runs` の `worker_status: requires_action` と `get_run_log` 末尾の `permission prompt` 行。
 
 > [!warning] 「停止」より「発火しているのに沈黙」の方が多い（2026-08-16）
 > 2026-W33 の欠落を調べたところ、ルーティンは **enabled のまま毎週きちんと発火していた**（`last_fired_at` 2026-08-14）。にもかかわらず成果物が出ていなかった。欠落を「ルーティンが止まった」と決めつけると診断を誤る。
