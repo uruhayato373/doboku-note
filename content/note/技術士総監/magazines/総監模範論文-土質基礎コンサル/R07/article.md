@@ -12,10 +12,10 @@ notePricing: paid
 noteSeries: 総監模範論文-土質基礎コンサルペルソナ
 utmCampaign: essay-geotechnical-r07
 noteMagazine: 総監模範論文-土質基礎コンサル
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/n70bf3908a556"
+noteId: "n70bf3908a556"
+notePublishedAt: "2026-09-19"
+noteStatus: published
 price: 500
 cover:
   variant: crop-safe-v4
@@ -52,7 +52,7 @@ A 案は現場の情報を解釈する力、B 案は設計と独立照査を継�
 
 土質・基礎コンサル向けの R03〜R07 をまとめたマガジンでは、年度ごとに異なる設問構造を練習できます。
 
-{{MAGAZINE_URL}}
+https://note.com/dobokunote/m/mcfcab1d96ed4
 
 <!-- cta:tankan-mokuji -->
 総監の教材一覧は「総監もくじ」から確認できます。
@@ -214,7 +214,7 @@ https://note.com/dobokunote/n/n3ed4c77ceed6
 
 まず今回の答案を自分の役割で書き直し、次に別年度の設問へ展開してください。
 
-{{MAGAZINE_URL}}
+https://note.com/dobokunote/m/mcfcab1d96ed4
 
 **印刷用 PDF｜本記事の模範論文**
 
