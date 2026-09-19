@@ -9,10 +9,10 @@ notePricing: paid
 price: 1980
 paidBoundary: "記入例1"
 noteSeries: RCCM問題I-土質及び基礎
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/nd595a03ef3a7"
+noteId: "nd595a03ef3a7"
+notePublishedAt: "2026-09-19"
+noteStatus: published
 utmCampaign: rccm-mondai1-department-2026
 cover:
   variant: crop-safe-v4
