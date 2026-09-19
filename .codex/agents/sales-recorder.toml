@@ -102,6 +102,17 @@ kuro
 | `コンクリート主任技士 小論文｜模範答案集`（¥2,480・5本） | `cce-essay-magazine` |
 | `2級土木 施工経験記述｜過去問 模範答案集（R03-R07）`（¥2,480・5本セット） | `civil-2-pastexam-essay` |
 | `コンクリート主任技士 小論文｜実務立場別 模範答案集`（¥5,980・33本） | `cce-essay-persona-pack` |
+| `主任技士 小論文｜生コン工場の4テーマ`（有料4記事＋無料ガイド） | `cce-persona-namacon-pack` |
+| `主任技士 小論文｜プレキャスト工場の4テーマ`（有料4記事＋無料ガイド） | `cce-persona-precast-pack` |
+| `主任技士 小論文｜土木施工の4テーマ`（有料4記事＋無料ガイド） | `cce-persona-civil-contractor-pack` |
+| `主任技士 小論文｜維持管理補修の4テーマ`（有料4記事＋無料ガイド） | `cce-persona-maintenance-pack` |
+| `主任技士 小論文｜発注者の4テーマ`（有料4記事＋無料ガイド） | `cce-persona-owner-pack` |
+| `主任技士 小論文｜建築施工の4テーマ`（有料4記事＋無料ガイド） | `cce-persona-building-contractor-pack` |
+| `主任技士 小論文｜設計コンサルの4テーマ`（有料4記事＋無料ガイド） | `cce-persona-design-consultant-pack` |
+| `主任技士 小論文｜試験検査機関の4テーマ`（有料4記事＋無料ガイド） | `cce-persona-testing-pack` |
+| `技術士 総監｜土質基礎コンサルの記述式5年分` | `essay-geotechnical-consultant-magazine` |
+| `技術士 総監｜上下水道コンサルの記述式5年分` | `essay-water-consultant-magazine` |
+| `技術士 総監｜維持更新施工の記述式5年分` | `essay-maintenance-contractor-magazine` |
 | `コンクリート主任技士 まるごとパック`（¥9,800・42記事＝小論文2マガジン＋択一予想50問＋配合計算12問＋直前暗記ノート） | `cce-marugoto-pack` |
 | `コンクリート主任技士 択一｜直前パック`（¥2,980・予想50問＋配合計算＋直前暗記ノート・2026-09-17 新設） | `cce-takuitsu-chokuzen-pack` |
 | `技術士 第一次試験｜直前パック`（¥1,980・過去問PDF 合本＋直前暗記ノート・2026-09-17 新設） | `pe1-chokuzen-pack` |
@@ -170,6 +181,11 @@ productId は `article:<slug>` 形式。slug は商品名から推定:
 | `気候変動適応 × グリーンインフラ`（総監R8予想） | `article:r8-climate-adaptation-green-infra` |
 | `地方創生・東京一極集中｜設問(3)` | `article:setsumon3-regional-revitalization` |
 | `令和{N}年度 総監記述式 模範論文｜{ペルソナ}版`（過去問年度版・R8予想ではない） | `article:essay-{persona}-r0{N}`（例: `essay-sewage-municipality-r07`） |
+| `総監口頭試験 完全準備システム｜想定25問と立場別回答例` | `article:tankan-oral-complete` |
+| `RCCM問題I｜上水道の業務経験記入例` | `article:rccm-mondai1-water` |
+| `RCCM問題I｜下水道の業務経験記入例` | `article:rccm-mondai1-sewer` |
+| `RCCM問題I｜土質及び基礎の業務経験記入例` | `article:rccm-mondai1-geotechnical` |
+| `技術士 建設部門｜口頭試験対策` | `article:pe-construction-oral-guide` |
 | `総監口頭試験…「業務経歴」の語り方` | `article:tankan-oral-exam` |
 | `【総監再受験者向け】不合格要因を特定する3パターン分析` | `article:tankan-retake-analysis` |
 | `1級土木 施工経験記述｜令和{N}年度 過去問 模範答案` | `article:civil-1-pastexam-essay-r0{N}` |

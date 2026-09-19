@@ -6,9 +6,12 @@ title: note 模範論文レビュー手順書
 
 `content/note/magazines/総監模範論文-*/` および `content/note/magazines/総監記述式-R8予想問題集/` 配下のフル模範論文を公開レベルに引き上げるための実施手順。`.claude/knowledge/reference/content-principles.md`「note 模範論文の品質原則」と対をなす。
 
-> **重要（2026-06-16 方針転換・旧「決定2026」を撤回）**: ペルソナ模範論文は**全14ペルソナで R03-R07 ＋ R8予想2記事（`R08-yosou-1`/`-2`）を作成する**（真実源 → [総監マガジン構成_決定2026.md](../../../content/note/技術士総監/総監マガジン構成_決定2026.md) 2026-06-16追補）。旧「決定2026」の **「per-persona R8予想は作らない・evergreen純化・R8は横断フラッグシップに一本化」は撤回**（実装が原則と逆にドリフトし 14中12ペルソナが既にR8同梱だったため、整合の最小コストは「2つに足す」と判断）。**トレードオフ＝全記事パックで R8 が per-persona と横断「R8予想問題集」で二重化するのを受容**（横断R8予想問題集はテーマ駆動フラッグシップとして併存）。よって R08予想2記事化（Step 6d 等）は legacy でなく**全ペルソナの標準工程**。なお 2026-06-12 に削除されたゼネコン/河川コンサルの per-persona R8予想は本転換により**再作成済（PR #249）**、自治体道路担当はデモ1本のため `R08-yosou-1`/`-2` 2記事への拡充が残作業。
+> **重要（2026-06-16 方針転換・旧「決定2026」を撤回）**: 以下は当時の既存14商品を対象とする。新規過去問専用商品の例外は「目的」の構成設定を参照。 ペルソナ模範論文は**全14ペルソナで R03-R07 ＋ R8予想2記事（`R08-yosou-1`/`-2`）を作成する**（真実源 → [総監マガジン構成_決定2026.md](../../../content/note/技術士総監/総監マガジン構成_決定2026.md) 2026-06-16追補）。旧「決定2026」の **「per-persona R8予想は作らない・evergreen純化・R8は横断フラッグシップに一本化」は撤回**（実装が原則と逆にドリフトし 14中12ペルソナが既にR8同梱だったため、整合の最小コストは「2つに足す」と判断）。**トレードオフ＝全記事パックで R8 が per-persona と横断「R8予想問題集」で二重化するのを受容**（横断R8予想問題集はテーマ駆動フラッグシップとして併存）。よって R08予想2記事化（Step 6d 等）は legacy でなく**全ペルソナの標準工程**。なお 2026-06-12 に削除されたゼネコン/河川コンサルの per-persona R8予想は本転換により**再作成済（PR #249）**、自治体道路担当はデモ1本のため `R08-yosou-1`/`-2` 2記事への拡充が残作業。
 
 ## 目的
+
+> [!note]
+> 2026-09-19以降に追加する土質基礎コンサル・上下水道コンサル・維持更新施工は、R03〜R07の過去問5年分として制作する。終了済みR8試験の予想を新規に作らない。対象は `.claude/config/cem-essay-structure.json` で明示し、`check-essay-heading-structure` は5年度の欠落を検査する。既存商品のR8予想要件は維持し、新商品でもR8記事を追加した場合は構造を検査する。
 
 模範論文を**本番再現可能な字数（各施策600字以内）**かつ**読者がそのまま参考にできる品質**で公開する。試行錯誤の繰り返しを避けるため、評価軸を **字数 → 散文性 → 監理可能性 → 専門度 → 白書根拠** の順で固定する。
 
@@ -215,14 +218,14 @@ grep -nc "^> " article.md
 
 - `img/cover.png`: `node scripts/generate-note-covers.mjs "{persona}"` で生成（部分一致で当該マガジン配下を一括生成）
   - **frontmatter `cover.headline` は短い単一テーマに留める**（V5 では主見出しを 96〜48px・最大 3 行・幅 394px へ実測で折り返し、入らなければ生成失敗。`cover.banner` は読まれない）。長い銘（例「資源循環 × サプライチェーン強靭化｜…」）は `npm run check-note-cover-fit` で先に止める。完全テーマは `cover.hiSuffix` とタイトルに既出なので重複させない。生成後は cover.png を必ず目視確認
-- `hashtags.txt`: `/note-hashtags` スキルで生成（記事の論点に沿った 80〜90 個・単一行 space 区切り。本文には入れない＝[[feedback_note_prepublish_verify_not_proxy]] の SoT 規約）
+- `hashtags.txt`: `/note-hashtags` スキルで生成（記事の論点に沿った 90〜99 個・1行1タグ。本文には入れない＝[[feedback_note_prepublish_verify_not_proxy]] の SoT 規約）
 
 ```
 ls content/note/技術士総監/magazines/総監模範論文-{persona}/{RXX}/img/cover.png
 ls content/note/技術士総監/magazines/総監模範論文-{persona}/{RXX}/hashtags.txt
 ```
 
-未生成なら公開不可。**全ペルソナで R03〜R07 ＋ `R08-yosou-1`/`R08-yosou-2` の 7 記事**を生成・対象とする（2026-06-16 方針転換。旧「新規はR03-R07の5記事のみ・per-persona R8は作らない＝決定2026」を撤回）。R8予想は各テーマ（気候変動適応／資源循環）× A案/B案で2記事化する。横断「R8予想問題集」はフラッグシップとして併存。
+未生成なら公開不可。既存商品は **R03〜R07 ＋ `R08-yosou-1`/`R08-yosou-2` の7記事**を対象とする。構成設定の `pastExamOnlyPersonas` 登録商品は **R03〜R07の5記事**を必須とし、終了済みのR8予想を追加生成しない。予想記事を追加する場合は2記事とも必須とする。R8予想は各テーマ（気候変動適応／資源循環）× A案/B案で2記事化する。横断「R8予想問題集」はフラッグシップとして併存。
 
 ## Step 6d: 見出し構成チェック（正準=自治体道路担当）
 
@@ -284,9 +287,11 @@ node -e "const fs=require('fs');const t=fs.readFileSync(process.argv[1],'utf8').
 | 価格 | 記載先 | 形式 |
 |---|---|---|
 | 単品（¥500） | 各記事 `article.md` frontmatter | `price: 500` |
-| セット（¥2,480） | `src/lib/note-magazines.ts` の該当エントリ `price` フィールド | `price: '¥2,480（7本セット、単品比29%OFF）'` |
+| 既存7本商品のセット（例: ¥2,480） | `src/lib/note-magazines.ts` の該当エントリ `price` フィールド | `price: '¥2,480（7本セット、単品比29%OFF）'` |
 
-7本×¥500＝¥3,500 → ¥2,480 で **29%OFF**（5本構成の旧ペルソナは「5本セット」「17%OFF」表記）。**note-magazines.ts の `price` 追記漏れに注意**（旧 `_meta.yaml` 廃止で宙に浮きやすい）。
+2026-09-19追加の過去問専用3商品は5本×¥500＝¥2,500に対しセット¥1,980（約21%OFF）。実価格は商品ごとのSoTを確認する。
+
+既存の7本構成例では7本×¥500＝¥3,500 → ¥2,480 で **29%OFF**（5本構成の旧ペルソナは「5本セット」「17%OFF」表記）。**note-magazines.ts の `price` 追記漏れに注意**（旧 `_meta.yaml` 廃止で宙に浮きやすい）。
 
 ## Step 7: 修正方針の提示とユーザー承認
 
@@ -329,7 +334,7 @@ note でマガジンを作成する際は、**マガジン名・説明・価格�
 | note 互換 | `node scripts/note-lint.mjs $(find …/{persona} -name article.md)` | 表・太字内全角括弧・文字化け 0 |
 | 見出し構成 | `node scripts/check-essay-heading-structure.mjs "{persona}" --strict` | 構造違反0（特にR08） |
 | 引用記号 | `grep -rc "^> " {persona}/*/article.md`（Step 6b） | フレーミング文（本記事の構成・本論文は・A案/B案対象者注記・R4は/R5は 等）に blockquote を使わない＝**全記事 0**（公開済 河川/都市計画/下水道が基準）。設問前文・白書原文の真正引用のみ例外 |
-| 記事ごとアセット | Step 6c（cover・hashtags）＋ Step 6e（PDF・冒頭訴求） | 全ペルソナ **R03-R07＋R8予想2記事の7記事**を生成（2026-06-16 方針転換。旧「5記事のみ・per-persona R8作らない＝決定2026」撤回） |
+| 記事ごとアセット | Step 6c（cover・hashtags）＋ Step 6e（PDF・冒頭訴求） | 既存商品は **R03-R07＋R8予想2記事**、`pastExamOnlyPersonas` 登録商品は **R03-R07の5記事**。予想記事を追加した場合は両方を検査 |
 | マガジン掲載文・価格 | Step 6f | `note掲載文.txt` 作成（`npm run note-meta-lint` で タイトル≤30/説明≤400/アピール≤250 を検査・段落分割・価格欄＋任意の機械ブロック）／`_meta.yaml` 不在／note-magazines.ts に `price`／ドリフトは `npm run verify-note-magazines -- --vs-txt` |
 
 ---
@@ -352,6 +357,6 @@ note でマガジンを作成する際は、**マガジン名・説明・価格�
 
 - `.claude/knowledge/reference/content-principles.md`「note 模範論文の品質原則」（5 原則の定義）
 - `content/note/技術士総監/magazines/総監模範論文-自治体道路担当/R06/article.md`（R03-R07 構造ベンチマーク）
-- `content/note/技術士総監/magazines/総監模範論文-自治体下水道担当/R08-yosou-1`・`R08-yosou-2`（**全ペルソナで作る R08 2記事化の手本**＝2026-06-16 方針転換。気候変動適応／資源循環の各テーマを A案/B案で解く）
+- `content/note/技術士総監/magazines/総監模範論文-自治体下水道担当/R08-yosou-1`・`R08-yosou-2`（**予想付き既存商品の R08 2記事化の手本**＝2026-06-16 方針転換。気候変動適応／資源循環の各テーマを A案/B案で解く）
 - `content/note/技術士総監/magazines/総監模範論文-自治体下水道担当/note掲載文.txt`（掲載文の手本）
 - メモリ `feedback_essay_char_limit.md` `feedback_essay_q2_prose.md` `feedback_essay_q3_general_level.md` `feedback_essay_persona_label.md` `feedback_whitepaper_source_check.md` `feedback_essay_magazine_meta_yaml_retired.md`
