@@ -15,6 +15,11 @@ updates:
       npm-minor-patch:
         update-types: ["minor", "patch"]
     labels: ["dependencies"]
+    ignore:
+      # TypeScript のメジャーはツールチェーン（typescript-eslint・Next の型プラグイン）の追随を待ってから手で上げる。
+      # 2026-09-19: 7.0.2 の PR #525 は tsconfig baseUrl 廃止（TS5102）＋ typescript-eslint クラッシュ（reading 'Cjs'）で赤。
+      - dependency-name: "typescript"
+        update-types: ["version-update:semver-major"]
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
