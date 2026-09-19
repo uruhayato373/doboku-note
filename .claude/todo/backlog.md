@@ -21,6 +21,15 @@
 
 ## 🔴 高 — 来月中に着手
 
+### [DN-0255] index coverage の中間計測（index-coverage.yml を手動 dispatch）と #485 の判定
+タグ: [インフラ・計測] [種類:改善] [起票:2026-09-19] [期日:2026-09-24]
+
+**起点**: #485（index coverage 41.8%・3 週目）の主因は URL 移行後の再クロール待ちで、打ち手（#517 の sitemap 縮小 133 件・登録リクエスト 10 件・#518 の IndexNow）は 2026-09-19 に本番反映済み。効果は月次（10/1）まで見えないので、計画どおり 9/24 頃に中間計測を入れる（URL Inspection quota 1,516/2,000）。
+
+**やること**: `gh workflow run index-coverage.yml --ref main` → 完走後に `node .claude/scripts/check-coverage-thresholds.mjs` の結果と `gsc-management.md` 09-17 エントリの復帰条件（/exam の索引率 70%）を照合し、同エントリへ観測を 1 行追記する。閾値が緑なら #485 は --resolve で自動クローズ、赤なら 10/1 の本判定まで待つ理由を Issue に 1 行。
+
+**完了条件**: 中間計測の run が success で、gsc-management.md に 09-24 の観測行がある。
+
 ### [DN-0237] RCCM 問題I 業務経験論文テンプレ・択一論点集 50 問・ココナラ 3 出品を CBT 期間内（〜10/31）に出す
 タグ: [収益化] [種類:制作] [起票:2026-09-16] [期日:2026-10-10]
 
