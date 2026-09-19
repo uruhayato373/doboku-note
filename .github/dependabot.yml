@@ -20,6 +20,10 @@ updates:
       # 2026-09-19: 7.0.2 の PR #525 は tsconfig baseUrl 廃止（TS5102）＋ typescript-eslint クラッシュ（reading 'Cjs'）で赤。
       - dependency-name: "typescript"
         update-types: ["version-update:semver-major"]
+      # Tailwind 4 は設定が CSS ファースト（@config → @theme・tailwind.config の廃止・@tailwind ディレクティブ変更）へ変わる
+      # 移行作業そのもの。#533（3.4.19→4.3.3）は build/e2e とも赤。計画して手で上げる
+      - dependency-name: "tailwindcss"
+        update-types: ["version-update:semver-major"]
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
