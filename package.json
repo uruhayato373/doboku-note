@@ -108,7 +108,6 @@
     "seo-rank-watch": "node scripts/seo-rank-watch.mjs",
     "check-seo-rank-watch": "node scripts/check-seo-rank-watch.mjs",
     "check-experiment-due": "node scripts/check-experiment-due.mjs",
-    "check-experiments-due": "node scripts/check-experiments-due.mjs",
     "check-figure-canvas": "node scripts/check-figure-canvas.mjs",
     "check-figure-crop": "node scripts/check-figure-crop-integrity.mjs",
     "check-figure-crop:ci": "node scripts/check-figure-crop-integrity.mjs --ci",

@@ -26,6 +26,7 @@
  * ---------------------------------------------------------------------------
  */
 import { readFileSync, existsSync } from "node:fs";
+import { judgeLedger } from "./lib/experiment-due.mjs";
 
 const LEDGER = ".claude/state/experiments.json";
 const argv = process.argv.slice(2);
@@ -46,58 +47,9 @@ if (!existsSync(LEDGER)) {
 const ledger = JSON.parse(readFileSync(LEDGER, "utf8"));
 const experiments = Array.isArray(ledger.experiments) ? ledger.experiments : [];
 
-// §9: 検査対象数を必ず出す。0 件なら「異常なし」ではなく「台帳が空」と言う。
-const daysSince = (iso) => {
-  const ms = Date.parse(iso ?? "");
-  return Number.isFinite(ms) ? Math.floor((Date.now() - ms) / 86400000) : null;
-};
-const lastHistoryDate = (e) => e.history?.at(-1)?.date ?? e.started_at ?? e.created_at ?? null;
+// 判定は scripts/lib/experiment-due.mjs（純関数・唯一の実装）。§9: 検査対象数を必ず出す。
+const { items, due, issues } = judgeLedger(experiments, Date.now(), { runningDays: RUNNING_GRACE, closeDays: CLOSE_GRACE, proposeDays: PROPOSE_GRACE });
 
-const items = [];
-for (const e of experiments) {
-  const reasons = [];
-  const st = e.status;
-  const sinceStart = daysSince(e.started_at ?? e.created_at);
-  const sinceTouch = daysSince(lastHistoryDate(e));
-
-  if (st === "running") {
-    const nc = e.next_check_date ? Date.parse(e.next_check_date) : null;
-    if (nc != null && Number.isFinite(nc) && nc <= Date.now()) {
-      reasons.push({ kind: "MEASURE_DUE", detail: `next_check_date ${String(e.next_check_date).slice(0, 10)} を超過` });
-    } else if (nc == null && sinceStart != null && sinceStart >= RUNNING_GRACE) {
-      reasons.push({ kind: "MEASURE_DUE", detail: `開始から ${sinceStart}日（next_check_date 未設定・しきい値 ${RUNNING_GRACE}日）` });
-    }
-    // baseline が無い running は前後比較が原理的に不可能
-    if (!e.baseline || (typeof e.baseline === "object" && Object.keys(e.baseline).length === 0)) {
-      reasons.push({ kind: "NO_BASELINE", detail: "running だが baseline が無い＝前後比較ができない" });
-    }
-  }
-  if (st === "measuring" && sinceTouch != null && sinceTouch >= CLOSE_GRACE) {
-    reasons.push({ kind: "CLOSE_DUE", detail: `measuring のまま ${sinceTouch}日（しきい値 ${CLOSE_GRACE}日）` });
-  }
-  if (st === "proposed" && sinceTouch != null && sinceTouch >= PROPOSE_GRACE) {
-    reasons.push({ kind: "DECIDE_DUE", detail: `proposed のまま ${sinceTouch}日（start か abandon の判断待ち）` });
-  }
-  const pending = Array.isArray(e.pending_user_actions) ? e.pending_user_actions : [];
-  if (pending.length > 0 && st !== "done" && st !== "abandoned") {
-    reasons.push({ kind: "PENDING", detail: `要人手 ${pending.length} 件: ${pending.map((p) => p.action).join(" / ")}` });
-  }
-
-  items.push({
-    id: e.id,
-    review: e.kind === "seo-rank-watch" ? `npm run seo-rank-watch -- review --id ${e.watchId} --no-fetch` : `/nsm-experiment ${st === "measuring" ? "close" : "measure"} ${e.id}`,
-    title: e.title,
-    status: st,
-    targetMetric: e.target_metric ?? null,
-    nextCheckDate: e.next_check_date ?? null,
-    daysSinceStart: sinceStart,
-    daysSinceTouch: sinceTouch,
-    due: reasons.length > 0,
-    reasons,
-  });
-}
-
-const due = items.filter((i) => i.due);
 const result = {
   check: "experiment-due",
   thresholds: { runningDays: RUNNING_GRACE, closeDays: CLOSE_GRACE, proposeDays: PROPOSE_GRACE },
@@ -105,6 +57,8 @@ const result = {
   byStatus: items.reduce((a, i) => ((a[i.status] = (a[i.status] ?? 0) + 1), a), {}),
   dueCount: due.length,
   due,
+  // 旧 check-experiments-due（2026-09-19 に統合・削除）の互換: PENDING を人向け 1 行で
+  issues,
   review: "/nsm-experiment measure <id> / close <id>（PDCA の再計測フェーズ）",
 };
 
