@@ -24,6 +24,7 @@
 //   node scripts/verify-note-status.mjs --ci       # ドリフト/検査不成立で exit 1（GitHub Actions 用）
 
 import { readFileSync, writeFileSync, readdirSync, mkdirSync } from 'node:fs';
+import { setNoteStatus } from './lib/note-status.mjs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
@@ -98,17 +99,11 @@ function fetchLiveStatus(noteId, attempt = 0) {
   }
 }
 
-// frontmatter ブロック内の既存 noteStatus 行のみを置換（行末コード保持・注入はしない）
-function setNoteStatus(raw, value) {
-  const m = raw.match(/^(---\n[\s\S]*?\n---)/);
-  if (!m) return raw;
-  const head = m[1];
-  if (!/^noteStatus:.*$/m.test(head)) return raw; // 行が無ければ何もしない
-  return raw.replace(head, head.replace(/^noteStatus:.*$/m, `noteStatus: ${value}`));
-}
+// noteStatus 行の置換は scripts/lib/note-status.mjs（純関数・テスト対象）
 
 const articles = findArticles(NOTE_DIR);
 const drift = [];     // ライブ=published / 既存 noteStatus≠publish（自己修復対象）
+const unfixable = []; // --fix で書き換えられなかった（frontmatter を解釈できない等）＝是正済みと呼ばない
 const warn = [];      // noteStatus=publish 主張だがライブ≠published（手動確認）
 const noLive = [];    // noteId 有だが取得不能（throttle/network・予約未live）
 let tracked = 0, untracked = 0, noId = 0, fixedCount = 0;
@@ -133,7 +128,11 @@ for (const file of articles) {
   if (live === 'published') {
     if (!fmPublished) {
       drift.push({ rel, noteId, status, live });
-      if (FIX) { writeFileSync(file, setNoteStatus(raw, 'published')); fixedCount++; }
+      if (FIX) {
+        const next = setNoteStatus(raw, 'published');
+        if (next !== raw) { writeFileSync(file, next); fixedCount++; }
+        else unfixable.push({ rel, noteId, status });
+      }
     }
   } else if (live === null) {
     noLive.push({ rel, noteId, status });
@@ -181,8 +180,9 @@ if (JSON_OUT) {
     process.exitCode = 1;
   }
   if (drift.length) {
-    console.log(`\n■ ドリフト（ライブ=published / noteStatus≠publish）: ${drift.length} 本${FIX ? ' → 是正済み' : ''}`);
-    for (const d of drift) console.log(`  ${FIX ? 'FIX ' : 'DRIFT '}[${d.status || '空'}→published] ${d.rel}`);
+    console.log(`\n■ ドリフト（ライブ=published / noteStatus≠publish）: ${drift.length} 本${FIX ? ` → 是正 ${fixedCount} 本${unfixable.length ? `・書き換え不能 ${unfixable.length} 本` : ''}` : ''}`);
+    for (const d of drift) console.log(`  ${FIX ? (unfixable.some((u) => u.rel === d.rel) ? 'UNFIXED ' : 'FIX ') : 'DRIFT '}[${d.status || '空'}→published] ${d.rel}`);
+    if (FIX && unfixable.length) { console.error(`  ✗ ${unfixable.length} 本は frontmatter を解釈できず書き換えていない（是正済みではない）`); process.exitCode = 1; }
     if (!FIX) console.log(`  → 是正するには: npm run verify-note-status -- --fix`);
   }
   if (warn.length) {

@@ -249,6 +249,7 @@ function collectNoteCareer(cfg) {
 function main() {
   const jsonOut = process.argv.includes("--json");
   const freeze = process.argv.includes("--freeze");
+  const checkOnly = process.argv.includes("--check"); // 成果物を書かずに完走だけ確認（quality-audit ci 用・DN-0253）
   const say = jsonOut ? console.error : console.log;
   const warnings = [];
 
@@ -490,6 +491,10 @@ function main() {
     warnings,
   };
 
+  if (checkOnly) {
+    console.log(`[report-career-funnel --check] 完走（career 記事 ${ledger.length} 本・警告 ${warnings.length}・書き込みなし）`);
+    return;
+  }
   writeFileSync(join(AFF_DIR, "career-funnel-latest.json"), `${JSON.stringify(result, null, 2)}\n`);
   writeFileSync(join(AFF_DIR, "career-funnel-latest.md"), renderMarkdown(result, cfg));
   let frozen = null;

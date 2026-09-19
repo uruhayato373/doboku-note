@@ -1,5 +1,5 @@
 {
-  "measuredAt": "2026-09-07",
+  "measuredAt": "2026-09-19",
   "inspected": 575,
   "target": 575,
   "fetchFail": 0,
@@ -15,5 +15,13 @@
       "note": "全件実査での live=0 はスクロール待ちの取りこぼしによる偽陰性。08-03/08-25 の添付が現存する"
     }
   ],
-  "recoveredInConfirm": []
+  "recoveredInConfirm": [
+    {
+      "noteId": "n75e8307c3701",
+      "at": "2026-09-19",
+      "scanLive": 0,
+      "confirmLive": 1,
+      "want": 1
+    }
+  ]
 }

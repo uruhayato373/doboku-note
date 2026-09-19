@@ -289,6 +289,20 @@ const CHECKS = [
     timeout: 120_000, ci: true,
     note: '収益カバレッジ集計が実行可能か（import 破損・入力欠落を検知）',
   },
+  // 月次レビューが読むアフィリエイト集計 2 本（BuildJob EPC・キャリアファネル）も同型で担保する（DN-0253）。
+  // 入力はコミット済み GA4/GSC/A8 スナップショットと doc-meta-index なので creds 不要で常に走る。
+  {
+    id: 'buildjob-affiliate-report',
+    cmd: ['node', '.claude/scripts/report-buildjob-affiliate.mjs', '--check'],
+    timeout: 60_000, ci: true,
+    note: 'BuildJob クリック×A8 成果の EPC 集計が実行可能か（成果物は書かない・月次レビューが読む）',
+  },
+  {
+    id: 'career-funnel-report',
+    cmd: ['node', '.claude/scripts/report-career-funnel.mjs', '--check'],
+    timeout: 60_000, ci: true,
+    note: 'キャリアファネル集計（流入→回遊→CTA→成果）が実行可能か（成果物は書かない・月次レビューと EXP-008 が読む）',
+  },
   // 公開 SEO ページ（frequent-topics）を生成するスクリプトが実行できることを毎回確かめる。
   // Windows で `new URL("..", import.meta.url).pathname` が `/C:/Users/…` を返し
   // `C:\C:\Users\…` になって ENOENT で落ちる状態のまま、何週間も気づかれなかった

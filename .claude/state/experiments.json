@@ -708,6 +708,11 @@
           "date": "2026-08-02T21:43:50.604Z",
           "action": "closed",
           "summary": "no-effect で close。field は介入前後とも FAST(822→826ms)＝実害ゼロ、lab はノイズ支配で判定不能。学び=目標指標を field で設定する（lab は診断用）。副産物として check-lcp-image-hints が残存。"
+        },
+        {
+          "date": "2026-09-19T09:30:00.000Z",
+          "action": "pending_closed",
+          "summary": "DN-0229: 申し送り「deploy 後に r07-a の mobile lab LCP を再計測」を lab 再計測せずに閉じる。EXP-005 は 08-02 に no-effect で close 済みで、learnings のとおり field(CrUX) が FAST な領域で lab を判定指標にしても方向が定まらない（08-02 の n=2 で実証）。field p75 は 822→826ms で維持＝追加計測の判断価値なし。"
         }
       ],
       "initial_baseline_2026_06_26": {
@@ -762,13 +767,7 @@
           "not_yet": "本番 deploy 前のため lab LCP 改善は未計測。deploy 後の psi-batch で判定する"
         }
       ],
-      "pending_user_actions": [
-        {
-          "action": "deploy 後に r07-a の mobile lab LCP を再計測して効果判定",
-          "detail": "/deploy 実行 -> 翌日以降の psi-batch で civil-construction-1-primary-r07-a の lab LCP 中央値を baseline 5653ms と比較",
-          "reference": "docs/reviews/weekly/2026-W31-review.md"
-        }
-      ],
+      "pending_user_actions": [],
       "measurement": {
         "measured_at": "2026-08-02T21:40:23.096Z",
         "window": "deploy(2026-08-01)後の mobile バッチ 2 日分（08-01/08-02）",

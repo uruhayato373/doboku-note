@@ -235,24 +235,6 @@ CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認し
 
 **完了条件**: 12 本の live eyecatch が V5（`generated/manifest.json` の hash）と一致し、記録 JSON の held が 0。
 
-### [DN-0252] 実験期限 surfacer の重複（check-experiment-due / check-experiments-due）を 1 本に統合する
-タグ: [エージェント・SSOT] [種類:改善] [起票:2026-09-19]
-
-**起点**: 2026-09-19 の配線棚卸しで、`experiments.json` の再計測・裁定期限を判定する surfacer が 2 本あり（`check-experiment-due` は weekly-review-guard が週次実行、`check-experiments-due` は週次スキル内だけ）、同日に両方が EXP-005 / EXP-008 を「要対応」と出していた。CLAUDE.md §7「同じ判定を複数箇所に実装しない」の型。
-
-**やること**: 判定ロジックを 1 本（`scripts/lib/`）へ集約し、npm script は 1 つに減らす。weekly-review SKILL と guard の参照を同一 commit で更新（check-command-guidance / gate-parity が止める）。
-
-**完了条件**: `npm run check-experiment-due` だけが残り、`tests/` に期限判定の回帰テストがある。
-
-### [DN-0253] アフィリ基線レポート（report-career-funnel / report-buildjob-affiliate）を月次レビューへ配線する
-タグ: [収益化] [種類:改善] [起票:2026-09-19]
-
-**起点**: 2026-09-19 の配線棚卸しで、GA4 snapshot ベースのアフィリ基線レポート 2 本がどこからも呼ばれていなかった（EXP-008 の申し送り「deploy から 28 日後に report-career-funnel を再実行」も未処理）。転職アフィリの継続判定（DN-0120）に必要な材料が機械で供給されていない。
-
-**やること**: monthly-review SKILL の収益節に 2 本を組み込み（結果を読む・LLM が解釈する）、`--check` モードを quality-audit へ登録して実行可能性を CI で担保する（code ルール「検出器そのものが無い領域が最も危険」）。
-
-**完了条件**: 月次レビューに 2 本の出力節があり、quality-audit に `--check` が ci:true で載っている。
-
 ### [DN-0251] dark モードの色コントラスト不足 29 箇所を直し、a11y ベースラインをゼロへ締める
 タグ: [コンテンツ品質] [種類:不具合] [検証:test:e2e:a11y] [起票:2026-09-17]
 
@@ -515,13 +497,6 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 
 **完了条件**: `node scripts/session-start.mjs` の実行中に node プロセスが 1 本、出力は現状と同じ、`node --test tests/session-start.test.mjs` 緑。
 
-### [DN-0229] EXP-005 の未処理の申し送り（deploy 後の mobile lab LCP 再計測）を閉じる
-タグ: [インフラ・計測] [種類:改善] [起票:2026-09-14]
-
-`check-experiments-due` が毎週「EXP-005: 未処理の申し送り 1 件（deploy 後に r07-a の mobile lab LCP を再計測して効果判定）」を出し続けている。EXP-005 は done で、learnings に「field が FAST な領域で lab を目標指標にすると判定不能に陥る」と結論済みなので、この申し送りは lab 再計測ではなく (a) close 理由を書いて pending を空にする、または (b) field（`url_level` が戻ったときの p75）へ書き換える、のどちらかで閉じる。
-
-**完了条件**: `npm run check-experiments-due -- --json` の `issues[]` に EXP-005 が出ないこと。
-
 ### [DN-0180] Drive共通仕様書文字起こし350本とstandards-libraryの関係を整理する
 タグ: [エージェント・SSOT] [種類:改善] [Codex候補] [起票:2026-09-06]
 
@@ -605,6 +580,15 @@ Drive台帳・vault・Drive APIの照合前にローカル実体を削除しな�
 
 
 ## 🟣 判断待ち — ユーザーの意思決定が必要
+
+### [DN-0257] X Article パイロットの 1 回限り Codex 自動化が 2 回連続で発火せず（Article 1・2）。復旧経路を決めて残り 3 本を出す
+タグ: [SNS・マーケ] [種類:不具合] [検証:check-x-queue-health] [起票:2026-09-19] [期日:2026-09-27]
+
+**起点**: `check-x-queue-health` が `article_overdue: 094-career-longform-pilot/Article-2（09-16 20:30）` を出している。Article 1（09-06）・2（09-13）は 09-14 に 09-22 / 09-16 へ組み直したが、Article 2 は再び未公開（`status.json` の `article_url: null`）。X Article はネイティブ予約不可で、公開は Codex の 1 回限りローカル自動化 `x-article-N` 頼み（README）だが、発火した形跡が無い。Article 3 は 09-20 19:35・4 は 09-27 20:15 で、同じ経路のままでは再発する。告知短文（Article URL 待ち）も連鎖して止まる。
+
+**やること**: 復旧経路を 1 つに決める。(a) 手動復旧: 予定時刻に `npm run x-article:publish -- --article 2 --publish`（時刻窓外なら `--force`・ログイン済み X プロファイル・8GB Mac は `DOBOKU_PW_MIN_FREE_MB=1024`）を人が起動し、成功後 `prepare-x-article-teaser` で告知を解放。(b) Codex 自動化を捨て、launchd の一発ジョブ（絶対パス・PATH に node@20・完了後 `launchctl remove`）へ移す。いずれも Article 2 の枠を Article 3（09-20）と重ねず、1 日 3 件上限と x-post-policy §11 の連投回避を守って `status.json` の `scheduled_at` を組み直す。
+
+**完了条件**: `npm run check-x-queue-health` の issues に `article_overdue` / `teaser_missing` が無く、4 本の `article_url` が埋まっている。
 
 ### [DN-0254] Instagram 公開照合（verify-ig-status）を CI 週次へ移すか（Meta アクセストークンを GitHub Secrets に置くかの判断）
 タグ: [SNS・マーケ] [種類:改善] [起票:2026-09-19]

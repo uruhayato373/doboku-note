@@ -348,8 +348,13 @@ lines.push("- 面別内訳には GA4 の `event_label` カスタムディメン�
 lines.push("");
 
 const md = lines.join("\n");
-if (!existsSync(AFF_DIR)) mkdirSync(AFF_DIR, { recursive: true });
 const outPath = join(AFF_DIR, "buildjob-report-latest.md");
+// --check: 成果物を書かずに完走だけ確認する（quality-audit ci 用。DN-0253・入力の import 破損や snapshot 欠落を CI で拾う）
+if (process.argv.includes("--check")) {
+  console.log(`[report-buildjob-affiliate --check] 完走（${md.split("\n").length} 行を生成・書き込みなし）`);
+  process.exit(0);
+}
+if (!existsSync(AFF_DIR)) mkdirSync(AFF_DIR, { recursive: true });
 writeFileSync(outPath, md + "\n");
 
 // ---- コンソールサマリ -------------------------------------------------------
