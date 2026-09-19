@@ -218,6 +218,25 @@ CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認し
 **完了条件**: 各行の実体が解消したら行ごと消し、全行が消えたらカードを削除する。
 
 ## 🟡 中 — 2〜3ヶ月以内
+
+### [DN-0252] 実験期限 surfacer の重複（check-experiment-due / check-experiments-due）を 1 本に統合する
+タグ: [エージェント・SSOT] [種類:改善] [起票:2026-09-19]
+
+**起点**: 2026-09-19 の配線棚卸しで、`experiments.json` の再計測・裁定期限を判定する surfacer が 2 本あり（`check-experiment-due` は weekly-review-guard が週次実行、`check-experiments-due` は週次スキル内だけ）、同日に両方が EXP-005 / EXP-008 を「要対応」と出していた。CLAUDE.md §7「同じ判定を複数箇所に実装しない」の型。
+
+**やること**: 判定ロジックを 1 本（`scripts/lib/`）へ集約し、npm script は 1 つに減らす。weekly-review SKILL と guard の参照を同一 commit で更新（check-command-guidance / gate-parity が止める）。
+
+**完了条件**: `npm run check-experiment-due` だけが残り、`tests/` に期限判定の回帰テストがある。
+
+### [DN-0253] アフィリ基線レポート（report-career-funnel / report-buildjob-affiliate）を月次レビューへ配線する
+タグ: [収益化] [種類:改善] [起票:2026-09-19]
+
+**起点**: 2026-09-19 の配線棚卸しで、GA4 snapshot ベースのアフィリ基線レポート 2 本がどこからも呼ばれていなかった（EXP-008 の申し送り「deploy から 28 日後に report-career-funnel を再実行」も未処理）。転職アフィリの継続判定（DN-0120）に必要な材料が機械で供給されていない。
+
+**やること**: monthly-review SKILL の収益節に 2 本を組み込み（結果を読む・LLM が解釈する）、`--check` モードを quality-audit へ登録して実行可能性を CI で担保する（code ルール「検出器そのものが無い領域が最も危険」）。
+
+**完了条件**: 月次レビューに 2 本の出力節があり、quality-audit に `--check` が ci:true で載っている。
+
 ### [DN-0251] dark モードの色コントラスト不足 29 箇所を直し、a11y ベースラインをゼロへ締める
 タグ: [コンテンツ品質] [種類:不具合] [検証:test:e2e:a11y] [起票:2026-09-17]
 
@@ -570,3 +589,13 @@ Drive台帳・vault・Drive APIの照合前にローカル実体を削除しな�
 
 
 ## 🟣 判断待ち — ユーザーの意思決定が必要
+
+### [DN-0254] Instagram 公開照合（verify-ig-status）を CI 週次へ移すか（Meta アクセストークンを GitHub Secrets に置くかの判断）
+タグ: [SNS・マーケ] [種類:改善] [起票:2026-09-19]
+
+**起点**: 2026-09-19 の配線棚卸しで、IG の公開状態照合は週次スキル内だけで（ローカル・Meta 認証）、YouTube（verify-yt-status.yml・週次 CI）と違って機械で回っていない。CI 化には長期トークンを Secrets に置く必要があり、漏洩時の影響（投稿権限）と運用（60 日更新）を運営者が判断する。
+
+**選択肢**: (a) Secrets に置いて verify-yt-status.yml と同型の週次 workflow にする / (b) ローカル週次のまま（現状）で、SessionStart の催促に組み込む。
+
+**完了条件**: どちらかを選び、(a) なら workflow と secret 名を ci-cd-security-hardening.md に記録、(b) なら本カードを閉じて weekly-review SKILL に「ローカル限定」と明記（既に記載あり）。
+

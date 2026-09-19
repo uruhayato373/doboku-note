@@ -24,7 +24,9 @@ title: 推奨ワークフロー
 
 詳細は `.claude/skills/management/weekly-review/SKILL.md` と `.claude/skills/management/weekly-plan/SKILL.md` を参照。
 
-**発火の信頼性（サイレント欠落の防止）**: 手順 2-3 は**クラウドルーティン**（正典 = `doboku-note weekly PDCA`・`/schedule` で作成）が**土曜 09:00 JST**（cron `0 0 * * 6`・2026-09-19 に金曜 20:00 から変更）に発火して回す。状態はクラウド側にしか無く repo からは見えないため、停止・無効・cron ズレで**発火しなくなっても気づけない**（実際 2026-W27/W28 の 2 週分が silent 欠落）。これを防ぐため `weekly-review-guard.yml`（`npm run check-weekly-review`＝`scripts/check-weekly-review.mjs`）が毎週月曜に「先週分の `docs/reviews/weekly/YYYY-Www-review.md` が生成済みか」を検査し、無ければ赤落ちさせる（生成はしない＝ルーティンの責務、ガードは欠落検知のみ）。赤落ち時は対話セッションで `/routines`（list-first）→ 無ければ `/schedule` 再作成、cron ズレなら `update`。ルーティン監査の真実源は [.claude/skills/management/routines/SKILL.md](../../skills/management/routines/SKILL.md)。
+**実行主体（2026-09-19 にローカルへ切替）**: 手順 2-3 は**ローカルの対話セッションで `/weekly-review` を土曜に実行する**（完了後に `/weekly-plan` が自動で続く）。クラウドルーティン `doboku-note weekly PDCA`（`trig_01Edgim5qXCiGwKtnL4AVEmM`）は **enabled:false で退役**（本文は保持・再開は `RemoteTrigger update {enabled:true}`）。理由: サンドボックスでは `.claude/` 配下への書き込みが許可プロンプトで止まり数日沈黙する（下の callout）うえ、Playwright/tsx 依存の検査（`check-note-attachments:live`・`report-monetization-coverage`）が cloud では動かず、週次の材料が欠ける。ローカルなら全部揃う。欠落の backstop は月曜の `weekly-review-guard.yml`「Check last week's review exists」（ファイル実在）と SessionStart の `check-weekly-review-due`（土曜 09:00 JST を過ぎて今週分が無ければ 1 行で催促）。旧「ルーティンが PR を出したか」検査（`check-weekly-routine-fired` / channel weekly-pdca）は撤去。
+
+> [!note] 以下 2 つの callout はルーティン時代の記録（再開するときの前提知識）
 
 > [!warning] 沈黙の第 2 型＝サンドボックスの許可プロンプト待ち（2026-09-19）
 > ルーティンは `.claude/` 配下への書き込み（doboku-note の `.claude/state/**`、obsidian リポジトリ側の `.claude/agent-log.md` <!-- doc-ref:ignore -->）を Bash の `mkdir`/`tar` や Edit で行うと「sensitive file」の許可プロンプトで止まり、人が claude.ai で承認するまで **数日** `requires_action` のまま沈黙する。Phase 8.5 の起票にも到達しない（失敗ではなく待機のため）。2026-09-18 は存在しない `metrics-data` ブランチ展開の `mkdir -p .claude/state/metrics` で止まり W38 が欠落、2026-09-11 は Phase 9 の Edit で止まり 09-14 の承認まで待った。対処＝ルーティン本文で `.claude/` を**読むだけ**にし、書き込みは既存スクリプト実行に任せる（本文に明記済み）。診断は `RemoteTrigger list_runs` の `worker_status: requires_action` と `get_run_log` 末尾の `permission prompt` 行。
@@ -36,7 +38,7 @@ title: 推奨ワークフロー
 >
 > 調査の実務:
 > - **trigger_id は `RemoteTrigger {action:"get"}` で直接引く**。`list` はページ送りが効かず（`next_cursor` を body に渡しても無視される）、先頭 20 件が別プロジェクトの使い捨て `send_later` トリガーで埋まって正典まで辿り着けない。ID は memory `cloud-routines-minimized` に記録がある
-> - **発火の成否は「PR が存在するか」で見る**（`gh pr list` の `headRefName` が `claude/weekly-pdca-YYYY-Www`）。機械判定は `npm run check-weekly-routine-fired`
+> - **発火の成否は「PR が存在するか」で見る**（`gh pr list` の `headRefName` が `claude/weekly-pdca-YYYY-Www`）。機械判定は `npm run check-weekly-routine-fired`（2026-09-19 撤去）
 > - **`git ls-remote` でブランチの有無を見てはいけない**（2026-08-16 に私が踏んだ罠）。PR の close/merge 後にブランチは自動削除されるため、**成功した週でも空になる**。「ブランチが無い＝push 前に落ちた＝起動失敗」と推論したが、これは**不在を証拠と取り違えた誤り**だった。失敗がどの段階で起きているかは、この方法では分からない
 >
 > 対処として、ルーティン本文に **Phase 8.5「沈黙の禁止」**（PR 作成に到達しなければ `scripts/report-automation-failure.mjs` で automation-failure を起票してから終了）を追加し、モデル指定を `claude-sonnet-4-6` から `claude-sonnet-5` へ更新した。**ただし後者は実行ログを見られないまま立てた仮説であり、根本原因は未特定**（環境失効・認証切れ等の可能性が残る）。

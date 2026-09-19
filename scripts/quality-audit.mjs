@@ -178,6 +178,10 @@ const CHECKS = [
   { id: 'career-separation', npm: 'check-career-separation', timeout: 60_000, ci: true },
   { id: 'ssot-consumers', npm: 'check-ssot-consumers', timeout: 60_000, ci: true },
   // 壁時計依存（転記日からの経過日数）なので ops 区分（ヘッダ「設計」）。2026-09-18 に ci から移した。
+  { id: 'note-delivery-due', npm: 'check-note-delivery-due', timeout: 30_000, ci: false, ops: true, note: '購入者が商品（PDF 添付）を受け取れない状態の放置（2026-08-11 の事故＝約束した添付が無いまま 4 日販売）。committed state の鮮度（実査 STALE_DAYS 超）・未解消・取得失敗を見る。実査本体は check-note-attachments:live（ローカル・要ログイン）。読み手＝ops-audit.yml（日次 --ops → automation-failure Issue channel ops・復旧で自動クローズ）。2026-09-19 まで週次スキル内で LLM が叩くだけだった' },
+  // ココナラ分析 snapshot と kpi-log の整合（オフライン）。取得本体 coconala-analytics.mjs は要ログインでローカル専用なので、
+  // ここは「取得が回っていない／新商品が snapshot に無い」を週次で拾う（2026-09-19 まで週次スキル内で LLM が叩くだけだった）。
+  { id: 'coconala-analytics', npm: 'check-coconala-analytics', timeout: 60_000, ci: false, note: '読み手＝weekly-review-guard の report digest（--report-only を週次実行し FAIL は automation-failure Issue へ集約）。listed 商品が analytics snapshot に無い＝取得（ローカル）を回す合図' },
   { id: 'sales-freshness', npm: 'check-sales-freshness', timeout: 30_000, ci: false, ops: true, note: '売上転記（note-sales-fetch）が止まっていないか（updatedAt が 21 日超で赤・閑散期でも偽赤にならない）。2026-07 は 18% しか転記されず 34 日誰も気づかなかった。取得は認証が要るのでローカル専用＝CI は「やっていない」ことだけを言う。読み手＝ops-audit.yml（日次 --ops → automation-failure Issue channel ops・復旧で自動クローズ）' },
   { id: 'sales-mapping', npm: 'check-sales-mapping', timeout: 60_000, ci: true, note: 'sales-log の productId と note-magazines.ts の公開済み単品が sales-recorder.md の mapping に文書化されているか（初売上前の新商品も先行検知）' },
   { id: 'note-funnel', npm: 'check-note-funnel', timeout: 90_000, ci: true },
