@@ -43,6 +43,94 @@
       "magazineName": "実務立場別答案",
       "proof": "製造・施工・発注者・設計",
       "benefit": "自分の実務に近い立場で書く"
+    },
+    {
+      "id": "cce-persona-namacon-pack",
+      "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-生コン工場-4テーマ",
+      "qualifier": "コンクリート主任技士｜小論文",
+      "magazineName": "生コン工場",
+      "proof": "実務立場別の4テーマ",
+      "benefit": "自分の実務から答案を組み立てる"
+    },
+    {
+      "id": "cce-persona-precast-pack",
+      "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-プレキャスト工場-4テーマ",
+      "qualifier": "コンクリート主任技士｜小論文",
+      "magazineName": "プレキャスト工場",
+      "proof": "実務立場別の4テーマ",
+      "benefit": "自分の実務から答案を組み立てる"
+    },
+    {
+      "id": "cce-persona-civil-contractor-pack",
+      "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-ゼネコン土木施工-4テーマ",
+      "qualifier": "コンクリート主任技士｜小論文",
+      "magazineName": "土木施工",
+      "proof": "実務立場別の4テーマ",
+      "benefit": "自分の実務から答案を組み立てる"
+    },
+    {
+      "id": "cce-persona-maintenance-pack",
+      "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-維持管理補修-4テーマ",
+      "qualifier": "コンクリート主任技士｜小論文",
+      "magazineName": "維持管理補修",
+      "proof": "実務立場別の4テーマ",
+      "benefit": "自分の実務から答案を組み立てる"
+    },
+    {
+      "id": "cce-persona-owner-pack",
+      "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-発注者監督員-4テーマ",
+      "qualifier": "コンクリート主任技士｜小論文",
+      "magazineName": "発注者",
+      "proof": "実務立場別の4テーマ",
+      "benefit": "自分の実務から答案を組み立てる"
+    },
+    {
+      "id": "cce-persona-building-contractor-pack",
+      "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-ゼネコン建築施工-4テーマ",
+      "qualifier": "コンクリート主任技士｜小論文",
+      "magazineName": "建築施工",
+      "proof": "実務立場別の4テーマ",
+      "benefit": "自分の実務から答案を組み立てる"
+    },
+    {
+      "id": "cce-persona-design-consultant-pack",
+      "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-設計コンサル-4テーマ",
+      "qualifier": "コンクリート主任技士｜小論文",
+      "magazineName": "設計コンサル",
+      "proof": "実務立場別の4テーマ",
+      "benefit": "自分の実務から答案を組み立てる"
+    },
+    {
+      "id": "cce-persona-testing-pack",
+      "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-試験検査機関-4テーマ",
+      "qualifier": "コンクリート主任技士｜小論文",
+      "magazineName": "試験検査機関",
+      "proof": "実務立場別の4テーマ",
+      "benefit": "自分の実務から答案を組み立てる"
+    },
+    {
+      "id": "essay-geotechnical-consultant-magazine",
+      "magazineDir": "content/note/技術士総監/magazines/総監模範論文-土質基礎コンサル",
+      "qualifier": "技術士 総監｜記述式",
+      "magazineName": "土質基礎コンサル",
+      "proof": "令和3〜7年度の模範論文",
+      "benefit": "自分の権限から5つの管理をつなぐ"
+    },
+    {
+      "id": "essay-water-consultant-magazine",
+      "magazineDir": "content/note/技術士総監/magazines/総監模範論文-上下水道コンサル",
+      "qualifier": "技術士 総監｜記述式",
+      "magazineName": "上下水道コンサル",
+      "proof": "令和3〜7年度の模範論文",
+      "benefit": "自分の権限から5つの管理をつなぐ"
+    },
+    {
+      "id": "essay-maintenance-contractor-magazine",
+      "magazineDir": "content/note/技術士総監/magazines/総監模範論文-維持更新施工",
+      "qualifier": "技術士 総監｜記述式",
+      "magazineName": "維持更新施工",
+      "proof": "令和3〜7年度の模範論文",
+      "benefit": "自分の権限から5つの管理をつなぐ"
     }
   ]
 }
