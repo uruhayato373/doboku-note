@@ -1,16 +1,42 @@
 {
-  "checkedAt": "2026-09-10T23:43:08.783Z",
+  "checkedAt": "2026-09-17T23:55:38.873Z",
   "summary": {
-    "files": 1230,
-    "occurrences": 2712,
-    "uniqueUrls": 1997,
-    "ok": 1853,
-    "broken": 0,
+    "files": 1267,
+    "occurrences": 3157,
+    "uniqueUrls": 2265,
+    "ok": 2107,
+    "broken": 1,
     "timeout": 1,
-    "errors": 143
+    "errors": 156
   },
-  "broken": [],
+  "broken": [
+    {
+      "url": "https://www.mhlw.go.jp/content/11300000/001401851.pdf",
+      "status": 404,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.mhlw.go.jp/content/11300000/001401851.pdf",
+      "locations": [
+        {
+          "relativePath": "civil-construction-1/textbook-concrete-placement/article.mdx",
+          "line": 250
+        }
+      ]
+    }
+  ],
   "errors": [
+    {
+      "url": "https://www.skr.mlit.go.jp/etc/hibiwarejireisyu.pdf",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "civil-construction-1/secondary-concrete-past-problems/article.mdx",
+          "line": 612
+        }
+      ]
+    },
     {
       "url": "http://www.kajima.co.jp/technology/",
       "status": 403,
@@ -20,88 +46,79 @@
       "locations": [
         {
           "relativePath": "civil-construction-1/textbook-asphalt-concrete-pavement/article.mdx",
-          "line": 504
+          "line": 517
         },
         {
           "relativePath": "civil-construction-1/textbook-cast-in-place-pile/article.mdx",
-          "line": 246
+          "line": 257
         },
         {
           "relativePath": "civil-construction-1/textbook-concrete-materials/article.mdx",
-          "line": 370
+          "line": 386
         },
         {
           "relativePath": "civil-construction-1/textbook-concrete-mix-design/article.mdx",
-          "line": 299
+          "line": 310
         },
         {
           "relativePath": "civil-construction-1/textbook-concrete-placement/article.mdx",
-          "line": 233
+          "line": 263
         },
         {
           "relativePath": "civil-construction-1/textbook-concrete-properties/article.mdx",
-          "line": 353
+          "line": 371
         },
         {
           "relativePath": "civil-construction-1/textbook-cut-slope-protection/article.mdx",
-          "line": 231
+          "line": 233
         },
         {
           "relativePath": "civil-construction-1/textbook-earth-retaining-cofferdam/article.mdx",
-          "line": 206
+          "line": 212
         },
         {
           "relativePath": "civil-construction-1/textbook-earthwork-planning/article.mdx",
-          "line": 493
+          "line": 498
         },
         {
           "relativePath": "civil-construction-1/textbook-embankment/article.mdx",
-          "line": 214
+          "line": 216
         },
         {
           "relativePath": "civil-construction-1/textbook-foundation-overview-survey/article.mdx",
-          "line": 289
+          "line": 300
         },
         {
           "relativePath": "civil-construction-1/textbook-pavement-repair-quality/article.mdx",
-          "line": 304
+          "line": 306
         },
         {
           "relativePath": "civil-construction-1/textbook-pile-foundation-precast/article.mdx",
-          "line": 372
+          "line": 383
         },
         {
           "relativePath": "civil-construction-1/textbook-rebar-formwork/article.mdx",
-          "line": 303
+          "line": 323
         },
         {
           "relativePath": "civil-construction-1/textbook-road-earthwork-subbase/article.mdx",
-          "line": 324
+          "line": 338
         },
         {
           "relativePath": "civil-construction-1/textbook-soft-ground-drainage/article.mdx",
-          "line": 178
+          "line": 189
         },
         {
           "relativePath": "civil-construction-1/textbook-soil-investigation-methods/article.mdx",
-          "line": 244
+          "line": 269
         },
         {
           "relativePath": "civil-construction-1/textbook-special-concrete-inspection/article.mdx",
-          "line": 431
-        }
-      ]
-    },
-    {
-      "url": "https://www.kajima.co.jp/csr/",
-      "status": 403,
-      "ok": false,
-      "redirected": false,
-      "finalUrl": "https://www.kajima.co.jp/csr/",
-      "locations": [
+          "line": 442
+        },
         {
-          "relativePath": "civil-construction-1/textbook-construction-business/article.mdx",
-          "line": 248
+          "relativePath": "civil-construction-1/textbook-water-sewer/article.mdx",
+          "line": 230
         }
       ]
     },
@@ -114,43 +131,43 @@
       "locations": [
         {
           "relativePath": "civil-construction-1/textbook-construction-mgmt-overview/article.mdx",
-          "line": 248
+          "line": 250
         },
         {
           "relativePath": "civil-construction-1/textbook-construction-plan-overview/article.mdx",
-          "line": 393
+          "line": 395
         },
         {
           "relativePath": "civil-construction-1/textbook-control-chart/article.mdx",
-          "line": 275
+          "line": 277
         },
         {
           "relativePath": "civil-construction-1/textbook-demolition/article.mdx",
-          "line": 387
+          "line": 393
         },
         {
           "relativePath": "civil-construction-1/textbook-management-subplans/article.mdx",
-          "line": 489
+          "line": 491
         },
         {
           "relativePath": "civil-construction-1/textbook-quality-inspection/article.mdx",
-          "line": 146
+          "line": 148
         },
         {
           "relativePath": "civil-construction-1/textbook-quality-overview/article.mdx",
-          "line": 399
+          "line": 401
         },
         {
           "relativePath": "civil-construction-1/textbook-river-act/article.mdx",
-          "line": 203
+          "line": 205
         },
         {
           "relativePath": "civil-construction-1/textbook-schedule-charts/article.mdx",
-          "line": 284
+          "line": 286
         },
         {
           "relativePath": "civil-construction-1/textbook-schedule-overview/article.mdx",
-          "line": 272
+          "line": 274
         }
       ]
     },
@@ -163,31 +180,31 @@
       "locations": [
         {
           "relativePath": "civil-construction-1/textbook-construction-plan-overview/article.mdx",
-          "line": 392
+          "line": 394
         },
         {
           "relativePath": "civil-construction-1/textbook-control-chart/article.mdx",
-          "line": 274
+          "line": 276
         },
         {
           "relativePath": "civil-construction-1/textbook-demolition/article.mdx",
-          "line": 386
+          "line": 392
         },
         {
           "relativePath": "civil-construction-1/textbook-quality-inspection/article.mdx",
-          "line": 145
+          "line": 147
         },
         {
           "relativePath": "civil-construction-1/textbook-quality-overview/article.mdx",
-          "line": 400
+          "line": 402
         },
         {
           "relativePath": "civil-construction-1/textbook-schedule-charts/article.mdx",
-          "line": 285
+          "line": 287
         },
         {
           "relativePath": "civil-construction-1/textbook-schedule-overview/article.mdx",
-          "line": 271
+          "line": 273
         }
       ]
     },
@@ -199,7 +216,7 @@
       "locations": [
         {
           "relativePath": "civil-construction-1/textbook-crane/article.mdx",
-          "line": 234
+          "line": 236
         }
       ]
     },
@@ -211,15 +228,15 @@
       "locations": [
         {
           "relativePath": "civil-construction-1/textbook-distance-angle/article.mdx",
-          "line": 335
+          "line": 337
         },
         {
           "relativePath": "civil-construction-1/textbook-leveling/article.mdx",
-          "line": 325
+          "line": 328
         },
         {
           "relativePath": "civil-construction-1/textbook-surveying-basics/article.mdx",
-          "line": 183
+          "line": 195
         }
       ]
     },
@@ -231,11 +248,11 @@
       "locations": [
         {
           "relativePath": "civil-construction-1/textbook-distance-angle/article.mdx",
-          "line": 336
+          "line": 338
         },
         {
           "relativePath": "civil-construction-1/textbook-surveying-basics/article.mdx",
-          "line": 181
+          "line": 193
         }
       ]
     },
@@ -248,7 +265,7 @@
       "locations": [
         {
           "relativePath": "civil-construction-1/textbook-explosives-act/article.mdx",
-          "line": 181
+          "line": 183
         }
       ]
     },
@@ -261,7 +278,7 @@
       "locations": [
         {
           "relativePath": "civil-construction-1/textbook-histogram/article.mdx",
-          "line": 315
+          "line": 317
         }
       ]
     },
@@ -273,7 +290,7 @@
       "locations": [
         {
           "relativePath": "civil-construction-1/textbook-labor-standards/article.mdx",
-          "line": 308
+          "line": 310
         }
       ]
     },
@@ -285,7 +302,7 @@
       "locations": [
         {
           "relativePath": "civil-construction-1/textbook-leveling/article.mdx",
-          "line": 326
+          "line": 329
         }
       ]
     },
@@ -298,23 +315,36 @@
       "locations": [
         {
           "relativePath": "civil-construction-1/textbook-loader/article.mdx",
-          "line": 241
+          "line": 243
         },
         {
           "relativePath": "civil-construction-1/textbook-machinery-overview/article.mdx",
-          "line": 323
+          "line": 325
         },
         {
           "relativePath": "civil-construction-1/textbook-machinery-structure/article.mdx",
-          "line": 187
+          "line": 189
         },
         {
           "relativePath": "civil-construction-1/textbook-shovel-excavator/article.mdx",
-          "line": 329
+          "line": 331
         },
         {
           "relativePath": "civil-construction-1/textbook-tractor-bulldozer/article.mdx",
-          "line": 321
+          "line": 323
+        }
+      ]
+    },
+    {
+      "url": "https://www.pmi.org/learning/library/basics-cpm-scheduling-software-axon-8170",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.pmi.org/learning/library/basics-cpm-scheduling-software-axon-8170",
+      "locations": [
+        {
+          "relativePath": "civil-construction-1/textbook-network-schedule/article.mdx",
+          "line": 208
         }
       ]
     },
@@ -327,15 +357,15 @@
       "locations": [
         {
           "relativePath": "civil-construction-1/textbook-network-schedule/article.mdx",
-          "line": 355
+          "line": 361
         },
         {
           "relativePath": "civil-construction-1/textbook-schedule-charts/article.mdx",
-          "line": 283
+          "line": 285
         },
         {
           "relativePath": "civil-construction-1/textbook-work-scheduling/article.mdx",
-          "line": 364
+          "line": 366
         },
         {
           "relativePath": "pe-comprehensive-management/analogous-estimation/article.mdx",
@@ -351,7 +381,19 @@
       "locations": [
         {
           "relativePath": "civil-construction-1/textbook-site-investigation/article.mdx",
-          "line": 231
+          "line": 233
+        }
+      ]
+    },
+    {
+      "url": "https://www.gsi.go.jp/common/000268565.pdf",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "civil-construction-1/textbook-surveying-basics/article.mdx",
+          "line": 190
         }
       ]
     },
@@ -363,7 +405,58 @@
       "locations": [
         {
           "relativePath": "civil-construction-1/textbook-surveying-basics/article.mdx",
-          "line": 182
+          "line": 194
+        }
+      ]
+    },
+    {
+      "url": "https://www.meti.go.jp/shingikai/mono_info_service/ai_shakai_jisso/20260331_report.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.meti.go.jp/shingikai/mono_info_service/ai_shakai_jisso/20260331_report.html",
+      "locations": [
+        {
+          "relativePath": "civil-practice/ai-document-verification/article.mdx",
+          "line": 32
+        }
+      ]
+    },
+    {
+      "url": "https://www.gsi.go.jp/kiban/faq.html",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "civil-practice/gis-layer-validation/article.mdx",
+          "line": 32
+        }
+      ]
+    },
+    {
+      "url": "https://swehb.nasa.gov/spaces/7150/pages/16449960/SWE-070%2B-%2BModels%2BSimulations%2BTools",
+      "status": 500,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://swehb.nasa.gov/spaces/7150/pages/16449960/SWE-070%2B-%2BModels%2BSimulations%2BTools",
+      "locations": [
+        {
+          "relativePath": "civil-practice/numerical-model-review/article.mdx",
+          "line": 34
+        }
+      ]
+    },
+    {
+      "url": "https://www.grc.nasa.gov/www/wind/valid/tutorial/overview.html",
+      "status": 500,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.grc.nasa.gov/www/wind/valid/tutorial/overview.html",
+      "locations": [
+        {
+          "relativePath": "civil-practice/numerical-model-review/article.mdx",
+          "line": 60
         }
       ]
     },
@@ -388,7 +481,7 @@
       "locations": [
         {
           "relativePath": "concrete-diagnostician/textbook-investigation/article.mdx",
-          "line": 162
+          "line": 215
         }
       ]
     },
@@ -572,7 +665,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/cash-flow-statement/article.mdx",
-          "line": 223
+          "line": 225
         }
       ]
     },
@@ -780,6 +873,22 @@
       ]
     },
     {
+      "url": "https://tenbou.nies.go.jp/science/description/detail.php?id=59",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/design-for-environment/article.mdx",
+          "line": 93
+        },
+        {
+          "relativePath": "pe-comprehensive-management/end-of-pipe/article.mdx",
+          "line": 101
+        }
+      ]
+    },
+    {
       "url": "https://www.jpo.go.jp/system/design/gaiyo/index.html",
       "status": 403,
       "ok": false,
@@ -856,6 +965,32 @@
       ]
     },
     {
+      "url": "https://www.enecho.meti.go.jp/about/special/johoteikyo/energykihonkeikaku2025_02.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.enecho.meti.go.jp/about/special/johoteikyo/energykihonkeikaku2025_02.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/energy/article.mdx",
+          "line": 42
+        }
+      ]
+    },
+    {
+      "url": "https://www.enecho.meti.go.jp/statistics/total_energy/results.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.enecho.meti.go.jp/statistics/total_energy/results.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/energy/article.mdx",
+          "line": 46
+        }
+      ]
+    },
+    {
       "url": "https://www.enecho.meti.go.jp/category/others/basic_plan/",
       "status": 403,
       "ok": false,
@@ -864,7 +999,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/energy/article.mdx",
-          "line": 143
+          "line": 145
         },
         {
           "relativePath": "pe-comprehensive-management/s-plus-3e/article.mdx",
@@ -881,7 +1016,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/energy/article.mdx",
-          "line": 144
+          "line": 146
         },
         {
           "relativePath": "pe-comprehensive-management/energy-conservation-act/article.mdx",
@@ -1109,6 +1244,18 @@
       ]
     },
     {
+      "url": "https://tenbou.nies.go.jp/science/description/detail.php?id=18",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/heat-island-effect/article.mdx",
+          "line": 123
+        }
+      ]
+    },
+    {
       "url": "https://www.meti.go.jp/policy/safety_security/industrial_safety/sangyo/hipregas/kisei/index.html",
       "status": 403,
       "ok": false,
@@ -1130,11 +1277,11 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/human-error-probability/article.mdx",
-          "line": 155
+          "line": 159
         },
         {
           "relativePath": "pe-comprehensive-management/vta-method/article.mdx",
-          "line": 91
+          "line": 89
         }
       ]
     },
@@ -1198,7 +1345,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/interlock/article.mdx",
-          "line": 83
+          "line": 87
         }
       ]
     },
@@ -1456,7 +1603,19 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/pdpc-method/article.mdx",
-          "line": 101
+          "line": 105
+        }
+      ]
+    },
+    {
+      "url": "https://tenbou.nies.go.jp/science/description/detail.php?id=83",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/pops-convention/article.mdx",
+          "line": 114
         }
       ]
     },
@@ -1688,7 +1847,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/root-cause-analysis/article.mdx",
-          "line": 148
+          "line": 151
         }
       ]
     },
@@ -1726,7 +1885,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/safety-2-0/article.mdx",
-          "line": 97
+          "line": 101
         }
       ]
     },
@@ -1751,7 +1910,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/safety-control/article.mdx",
-          "line": 124
+          "line": 128
         }
       ]
     },
@@ -1975,7 +2134,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/value-chain-analysis/article.mdx",
-          "line": 108
+          "line": 112
         }
       ]
     },
@@ -2069,18 +2228,44 @@
           "line": 100
         }
       ]
+    },
+    {
+      "url": "https://www.chusho.meti.go.jp/pamflet/hakusyo/2021/chusho/b2_2_1.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.chusho.meti.go.jp/pamflet/hakusyo/2021/chusho/b2_2_1.html",
+      "locations": [
+        {
+          "relativePath": "pe-construction/ninaite-dx-ronbun-keyword/article.mdx",
+          "line": 170
+        }
+      ]
+    },
+    {
+      "url": "https://www.meti.go.jp/policy/it_policy/kaden_recycle/faq/faq.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.meti.go.jp/policy/it_policy/kaden_recycle/faq/faq.html",
+      "locations": [
+        {
+          "relativePath": "pe-first-stage/r01-retry-basic/article.mdx",
+          "line": 1119
+        }
+      ]
     }
   ],
   "timeout": [
     {
-      "url": "https://business.adobe.com/jp/blog/basics/digital-rights-management",
+      "url": "https://www.stockholmresilience.org/research/planetary-boundaries.html",
       "status": 0,
       "ok": false,
       "error": "TIMEOUT",
       "locations": [
         {
-          "relativePath": "pe-comprehensive-management/digital-rights/article.mdx",
-          "line": 106
+          "relativePath": "pe-comprehensive-management/planetary-boundaries/article.mdx",
+          "line": 89
         }
       ]
     }

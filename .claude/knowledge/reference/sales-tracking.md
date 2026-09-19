@@ -139,7 +139,11 @@ npm run report-note-funnel-efficiency
 | 建設部門 選択科目 模範解答集 | `bk-{subject}-secondary-magazine`（例: `bk-road-secondary-magazine` / `bk-geotechnical-secondary-magazine` / `bk-port-airport-secondary-magazine`。subject は note-magazines.ts の romaji に合わせる） |
 | 建設部門 まるごと合格パック（必須科目I＋選択科目） | `bk-{subject}-pack`（例: `bk-road-pack`。note-magazines.ts の `pe-construction-{subject}-pack` に対応） |
 | 1級2級土木 学科記述セット | `civil-1-gakka-kijutsu`（¥2,480）/ `civil-2-gakka-kijutsu`（¥1,980） |
-| 1級土木 二次まるごとパック | `civil-1-niji-marugoto-pack`（¥11,800・108記事バンドル） |
+| 1級土木 二次まるごとパック | `civil-1-niji-marugoto-pack`（¥11,800・110記事バンドル・2026-09-16 に模試3回＋出題分析を追加） |
+| 1級土木 直前総仕上げパック | `civil-1-chokuzen-pack`（¥2,980・模試3回＋暗記＋出題分析の 3 記事） |
+| 2級土木 二次まるごとパック | `civil-2-niji-marugoto-pack`（¥8,800・78記事バンドル） |
+| 2級土木 直前総仕上げパック | `civil-2-chokuzen-pack`（¥2,480・模試3回＋暗記＋出題分析の 3 記事） |
+| RCCM まるごとパック | `rccm-marugoto-pack`（¥5,980・問題I〜IV 9 記事） |
 | コンクリート主任技士 小論文 | `cce-essay-magazine`（¥2,480・5本）/ `cce-essay-persona-pack`（¥5,980・33本・実務立場別） |
 
 ### 単品記事

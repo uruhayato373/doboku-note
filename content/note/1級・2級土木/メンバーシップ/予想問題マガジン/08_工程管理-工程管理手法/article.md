@@ -1,8 +1,11 @@
 ---
 notePricing: membership
-noteStatus: draft
+noteStatus: reserved
 noteSeries: 経験記述-週次お題ラボ
 noteMagazine: 経験記述-週次お題ラボ
+notePublishedAt: "2026-09-19"
+noteId: "n8acfea17f953"
+noteUrl: "https://note.com/dobokunote/n/n8acfea17f953"
 membershipOnly: true
 utmCampaign: civil-membership-odai-schedule-method
 coverTitle: ["今週のお題｜工程管理", "工程管理手法の活用"]

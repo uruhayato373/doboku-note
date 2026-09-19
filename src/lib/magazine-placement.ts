@@ -412,20 +412,59 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   //    （予想問題集 civil-2-yosou-essay は 2026-06-02 退役。環境対策のみ完成答案集へ昇格）
   if (/^civil-construction-2-secondary-r0[1-9]$/.test(slug)) {
     return {
-      top: slot('civil-2-koji-bank', slug, 'top'),
+      top: slot('civil-2-niji-marugoto-pack', slug, 'top'), // 二次まるごと（7 点の最上位バンドル・2026-09-17）
       inline: [
         slot('civil-membership-lab', slug, 'inline-1'), // 本文中間 CTA = 会員（合格ラボ）
-        slot('civil-2-koji-bank', slug, 'inline-2'),
-        slot('civil-2-gakka-kijutsu', slug, 'inline-3'), // 学科記述（問題2〜9）
+        slot('civil-2-r8-bunseki', slug, 'inline-2'), // 出題分析・直前重点（入口・2026-09-17）
+        slot('civil-2-koji-bank', slug, 'inline-3'),
+        slot('civil-2-gakka-kijutsu', slug, 'inline-4'), // 学科記述（問題2〜9）
+        slot('civil-2-anki-note', slug, 'inline-5'), // 直前暗記ノート
+        slot('civil-2-pastexam-essay', slug, 'inline-6'),
+        slot('civil-2-experience-essay', slug, 'inline-7'),
+      ],
+    };
+  }
+  // 7.5b. 2級 経験記述 テーマ別の書き方（secondary-experience-writing-by-theme）→ 想定工事バンク led
+  //       （テーマ×工事の完成答案を探す読者。まるごとパックが 3 面の top を取ったので、旗艦単品の面をここで確保・2026-09-17）。
+  if (slug === 'civil-construction-2-secondary-experience-writing-by-theme') {
+    return {
+      top: slot('civil-2-koji-bank', slug, 'top'),
+      inline: [
+        slot('civil-membership-lab', slug, 'inline-1'),
+        slot('civil-2-niji-marugoto-pack', slug, 'inline-2'),
+        slot('civil-2-experience-essay', slug, 'inline-3'),
+      ],
+    };
+  }
+  // 7.5c. 2級 学科記述の対策・採点と部分点（guide）→ 出題分析・直前重点 led（出る順と優先順位を求める読者・2026-09-17）。
+  if (slug === 'civil-construction-2-secondary-written-questions-guide' || slug === 'civil-construction-2-secondary-grading-and-partial-credit') {
+    return {
+      top: slot('civil-2-r8-bunseki', slug, 'top'),
+      inline: [
+        slot('civil-membership-lab', slug, 'inline-1'),
+        slot('civil-2-gakka-kijutsu', slug, 'inline-2'), // 学科記述 テーマ別出る順
+        slot('civil-2-anki-note', slug, 'inline-3'), // 直前暗記ノート
+        slot('civil-2-chokuzen-pack', slug, 'inline-4'),
+      ],
+    };
+  }
+  // 7.6. 2級 直前2週間ガイド（secondary-last-two-weeks-plan）→ 直前総仕上げパック led（2026-09-17・模試3回＋暗記＋出題分析 ¥2,480）。
+  //      civil-2 は catch-all が無いので明示ブランチ。
+  if (slug === 'civil-construction-2-secondary-last-two-weeks-plan') {
+    return {
+      top: slot('civil-2-chokuzen-pack', slug, 'top'),
+      inline: [
+        slot('civil-membership-lab', slug, 'inline-1'),
+        slot('civil-2-niji-marugoto-pack', slug, 'inline-2'), // 二次まるごと（7 点の最上位バンドル）
+        slot('civil-2-r8-bunseki', slug, 'inline-3'), // 出題分析・直前重点
         slot('civil-2-anki-note', slug, 'inline-4'), // 直前暗記ノート
-        slot('civil-2-pastexam-essay', slug, 'inline-5'),
-        slot('civil-2-experience-essay', slug, 'inline-6'),
+        slot('civil-2-r8-mock3-pdf', slug, 'inline-5'), // 予想模試3回
       ],
     };
   }
   if (/^civil-construction-2-secondary-experience-writing-(guide|examples)$/.test(slug)) {
     return {
-      top: slot('civil-2-koji-bank', slug, 'top'),
+      top: slot('civil-2-niji-marugoto-pack', slug, 'top'), // 二次まるごと（2026-09-17）
       inline: [
         slot('civil-membership-lab', slug, 'inline-1'), // 本文中間 CTA = 会員（合格ラボ）
         slot('civil-2-koji-bank', slug, 'inline-2'),
@@ -438,7 +477,7 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   //      top-of-funnel の入口記事。civil-2 は catch-all が無いため明示ブランチが必要（2026-07-04 新設）。
   if (slug === 'civil-construction-2-secondary-getting-started') {
     return {
-      top: slot('civil-2-koji-bank', slug, 'top'),
+      top: slot('civil-2-niji-marugoto-pack', slug, 'top'), // 二次まるごと（2026-09-17）
       inline: [
         slot('civil-membership-lab', slug, 'inline-1'), // 本文中間 CTA = 会員（合格ラボ）
         slot('civil-2-koji-bank', slug, 'inline-2'),
@@ -459,13 +498,14 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
       top: slot('civil-1-niji-marugoto-pack', slug, 'top'),
       inline: [
         slot('civil-membership-lab', slug, 'inline-1'), // 本文中間 CTA = 会員（合格ラボ）
-        slot('civil-1-r8-bunseki', slug, 'inline-2'), // 出題分析・直前重点（入口）→ 下位で上位商品へ
-        slot('civil-1-niji-marugoto-pack', slug, 'inline-3'), // 二次まるごと（経験+学科+暗記の最上位バンドル）
-        slot('civil-1-keiken-complete-pack', slug, 'inline-4'),
-        slot('civil-1-gakka-kijutsu', slug, 'inline-5'), // 学科記述（問題2〜11）
-        slot('civil-1-pastexam-essay', slug, 'inline-6'),
-        slot('civil-1-experience-essay', slug, 'inline-7'),
-        slot('civil-1-combo-essay', slug, 'inline-8'),
+        slot('civil-1-chokuzen-pack', slug, 'inline-2'), // 直前総仕上げパック（模試3回＋暗記＋出題分析・2026-09-16）
+        slot('civil-1-r8-bunseki', slug, 'inline-3'), // 出題分析・直前重点（入口）→ 下位で上位商品へ
+        slot('civil-1-niji-marugoto-pack', slug, 'inline-4'), // 二次まるごと（経験+学科+暗記+模試+分析の最上位バンドル）
+        slot('civil-1-keiken-complete-pack', slug, 'inline-5'),
+        slot('civil-1-gakka-kijutsu', slug, 'inline-6'), // 学科記述（問題2〜11）
+        slot('civil-1-pastexam-essay', slug, 'inline-7'),
+        slot('civil-1-experience-essay', slug, 'inline-8'),
+        slot('civil-1-combo-essay', slug, 'inline-9'),
       ],
     };
   }
@@ -550,7 +590,11 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     if (CIVIL_EXAM_PREP_GUIDES.has(bare)) {
       const soft: MagazineId = isCivil1 ? 'civil-1-experience-essay' : 'civil-2-experience-essay';
       const flagship: MagazineId = isCivil1 ? 'civil-1-keiken-complete-pack' : 'civil-2-koji-bank';
+      // top は無料の精読ガイド（一次・出題頻度順の読み方・2026-09-16 公開）。試験系ガイドの読者は一次学習中が多く、
+      // 無料記事で note 側へ回遊させてから一次過去問 PDF・二次商品へつなぐ。
+      const readingGuide: MagazineId = isCivil1 ? 'civil-1-reading-guide' : 'civil-2-reading-guide';
       return {
+        top: slot(readingGuide, slug, 'top'),
         inline: [
           slot('civil-membership-lab', slug, 'inline-1'),
           slot(soft, slug, 'inline-2'),
@@ -559,12 +603,13 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
       };
     }
     if (isCivil1 && CIVIL_SECONDARY_ADJACENT_GUIDES.has(bare)) {
-      // 直前対策（civil-1 のみ実在）: 二次まるごと旗艦 led ＋ 直前暗記 ＋ 学科記述 ＋ 会員伴走。
+      // 直前対策（civil-1 のみ実在）: 直前総仕上げパック led（2026-09-16・模試3回＋暗記＋出題分析 ¥2,980）
+      // ＋ 二次まるごと旗艦 ＋ 直前暗記 ＋ 学科記述 ＋ 会員伴走。
       return {
-        top: slot('civil-1-niji-marugoto-pack', slug, 'top'),
+        top: slot('civil-1-chokuzen-pack', slug, 'top'),
         inline: [
           slot('civil-membership-lab', slug, 'inline-1'), // 本文中間 CTA = 会員（合格ラボ）
-          slot('civil-1-niji-marugoto-pack', slug, 'inline-2'), // 経験+学科+暗記の最上位バンドル
+          slot('civil-1-niji-marugoto-pack', slug, 'inline-2'), // 経験+学科+暗記+模試+分析の最上位バンドル
           slot('civil-1-anki-note', slug, 'inline-3'), // 直前暗記ノート（赤シートPDF付）
           slot('civil-1-gakka-kijutsu', slug, 'inline-4'), // 学科記述 テーマ別出る順
           slot('civil-1-keiken-complete-pack', slug, 'inline-5'),
@@ -581,8 +626,9 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   if (docGroup === 'textbook' && slug.startsWith('civil-construction-1-')) {
     return {
       inline: [
-        slot('civil-membership-lab', slug, 'inline-1'),
-        slot('civil-1-experience-essay', slug, 'inline-2'),
+        slot('civil-1-reading-guide', slug, 'inline-1'), // 無料 精読ガイド（一次・出題頻度順の読み方・2026-09-16 公開）
+        slot('civil-membership-lab', slug, 'inline-2'),
+        slot('civil-1-experience-essay', slug, 'inline-3'),
       ],
     };
   }
@@ -598,8 +644,9 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
       top: slot(resolveCivil1PrimaryLead(), slug, 'top'),
       inline: [
         slot('civil-1-ichiji-ronten', slug, 'inline-1'), // 一次の出る順ノート（不合格→来年再挑戦の層向け）
-        slot('civil-membership-lab', slug, 'inline-2'),
-        slot('civil-1-experience-essay', slug, 'inline-3'),
+        slot('civil-1-reading-guide', slug, 'inline-2'), // 無料 精読ガイド（一次・2026-09-16 公開）
+        slot('civil-membership-lab', slug, 'inline-3'),
+        slot('civil-1-experience-essay', slug, 'inline-4'),
       ],
     };
   }
@@ -610,8 +657,9 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     return {
       top: slot('civil-membership-lab', slug, 'top'),
       inline: [
-        slot('civil-membership-lab', slug, 'inline-1'),
-        slot('civil-2-experience-essay', slug, 'inline-2'),
+        slot('civil-2-reading-guide', slug, 'inline-1'), // 無料 精読ガイド（一次後期 10/25 の入口・2026-09-16 公開）
+        slot('civil-membership-lab', slug, 'inline-2'),
+        slot('civil-2-experience-essay', slug, 'inline-3'),
       ],
     };
   }
@@ -642,14 +690,23 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   // 9.5. コンクリート主任技士の試験概要・傾向・分野別過去問 → R8四肢択一予想50問。
   //      mix-design は分野特化の配合計算12問を優先し、essay は小論文商品を優先する。
   //      published:false の間は slot() が空になり、公開前リンクは露出しない。
-  if (
-    slug === 'concrete-chief-engineer-guide-overview' ||
-    slug === 'concrete-chief-engineer-guide-trends' ||
-    (/^concrete-chief-engineer-primary-/.test(slug) &&
-      slug !== 'concrete-chief-engineer-primary-mix-design')
-  ) {
+  //      2026-09-17: 試験概要・傾向の 2 本は 択一 直前パック（予想50問＋配合計算＋暗記ノート ¥2,980）を top に昇格。
+  //      分野別過去問は予想50問のまま。体系テキスト 7 章（mix-design 除く）は直前暗記ノートを top に置く。
+  if (slug === 'concrete-chief-engineer-guide-overview' || slug === 'concrete-chief-engineer-guide-trends') {
+    return {
+      top: slot('cce-takuitsu-chokuzen-pack', slug, 'top'),
+      inline: [],
+    };
+  }
+  if (/^concrete-chief-engineer-primary-/.test(slug) && slug !== 'concrete-chief-engineer-primary-mix-design') {
     return {
       top: slot('cce-r8-mc-50', slug, 'top'),
+      inline: [],
+    };
+  }
+  if (/^concrete-chief-engineer-textbook-/.test(slug) && slug !== 'concrete-chief-engineer-textbook-mix-design') {
+    return {
+      top: slot('cce-anki-note', slug, 'top'),
       inline: [],
     };
   }
@@ -698,6 +755,13 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
       inline: [],
     };
   }
+  // 10.7. コンクリート技士 その他の体系テキスト 4 章 → 直前暗記ノート、概要・学習計画 → 択一 直前パック（2026-09-17・wire-ahead）。
+  if (/^concrete-engineer-textbook-(materials|properties-testing|construction|environment)$/.test(slug)) {
+    return { top: slot('ce-anki-note', slug, 'top'), inline: [] };
+  }
+  if (slug === 'concrete-engineer-guide-overview' || slug === 'concrete-engineer-guide-study-plan') {
+    return { top: slot('ce-chokuzen-pack', slug, 'top'), inline: [] };
+  }
 
   // 11. 高流入なのに note 導線が無かった 5 面（DN-0128・2026-08-25）。
   //     W33/W34/W35 と 3 週続けて Must に挙がり続けた面のうち、実際に未配線だったもの。
@@ -716,6 +780,14 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   // 総監 r0X-primary → 択一 過去問PDF（4.2）と同型。group=primary なので inline は描画されない。
   if (/^pe-first-stage-r0[1-9]-(basic|aptitude|construction)$/.test(slug)) {
     return { top: slot('pe1-takuitsu-pdf', slug, 'top'), inline: [] };
+  }
+  // 技術士 第一次試験 ガイド（2026-09-17）: 科目ガイド・計算ガイドは直前暗記ノート、概要・学習計画は直前パック（過去問PDF＋暗記）を top。
+  // published:false の間は slot() が空になり露出しない（wire-ahead）。
+  if (/^pe-first-stage-guide-(basic-subject|aptitude-subject|construction-subject|calculus-numerical-calculation|matrix-vector-calculation|resistance-circuit-calculation)$/.test(slug)) {
+    return { top: slot('pe1-anki-note', slug, 'top'), inline: [] };
+  }
+  if (slug === 'pe-first-stage-guide-overview' || slug === 'pe-first-stage-guide-study-plan') {
+    return { top: slot('pe1-chokuzen-pack', slug, 'top'), inline: [] };
   }
 
   // コンクリート主任技士 テキスト/過去問 → 小論文 入口マガジン（¥2,480 5本セット）。
@@ -745,6 +817,19 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
       top: slot('cd-essay-magazine', slug, 'top'),
       inline: [slot('cd-essay-magazine', slug, 'inline-1')],
     };
+  }
+
+  // RCCM（2026-09-16 新設・ガイドのみ）: 問題別ガイドは対応する単品（問題III 模範論文集／問題I テンプレ／択一予想50問）、
+  //   全体像・学習計画・受験資格・技術士との違いの 4 本は まるごとパック（問題I〜IV 全対応）を top。
+  if (slug.startsWith('rccm-')) {
+    const product: MagazineId =
+      slug === 'rccm-guide-mondai1-keiken-ronbun' ? 'rccm-mondai1-template'
+      : slug === 'rccm-guide-mondai2-4-takuitsu' ? 'rccm-takuitsu-yosou-50'
+      : slug === 'rccm-guide-mondai3-themes-2026' ? 'rccm-mondai3-magazine'
+      : 'rccm-marugoto-pack';
+    // 択一ガイドは直前暗記ノート（2026-09-17）を本文中間に添える（top は予想50問のまま）。
+    const inline = slug === 'rccm-guide-mondai2-4-takuitsu' ? [slot('rccm-anki-note', slug, 'inline-1')] : [];
+    return { top: slot(product, slug, 'top'), inline };
   }
 
   return EMPTY;

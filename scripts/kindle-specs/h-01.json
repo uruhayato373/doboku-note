@@ -1,0 +1,25 @@
+{
+  "bookId": "h-01",
+  "title": "RCCM 問題III 管理技術力 模範論文集 2026年度版",
+  "subtitle": "公開6テーマ 全部の模範論文（1,200〜1,600字・指定用語「」4語以上）",
+  "price": 980,
+  "examName": "RCCM資格試験",
+  "creditIssuer": "一般社団法人 建設コンサルタンツ協会",
+  "creditBody": "本書は、一般社団法人 建設コンサルタンツ協会が事前公開する2026年度 RCCM資格試験 問題III（管理技術力）の出題テーマ（設問①②・指定用語）を一次出典としています。RCCM資格試験の過去の試験問題は同協会が公開していないため、本書は過去問を一切収録・再現しておらず、テーマの読み解き・答案構成・模範論文・解説はすべて著者が独自に作成したものです。",
+  "description": "RCCM資格試験 試験B 問題III（管理技術力）は、協会が事前に公開する6テーマから1題が出題されます。本書は2026年度の公開6テーマ全部について、①現状と課題・②あり方の構成で1,200〜1,600字の模範論文を収録し、指定用語を「」で因果の中に置く配置、指定用語の使用チェック、道路・河川砂防・都市計画・建設環境への置換ポイント、発注者として成果品を検査・評定してきた立場からの採点ポイントを添えています。",
+  "sources": [
+    "content/note/RCCM/magazines/RCCM問題III-2026模範論文集/00-序章/article.md",
+    "content/note/RCCM/magazines/RCCM問題III-2026模範論文集/01-インフラ老朽化/article.md",
+    "content/note/RCCM/magazines/RCCM問題III-2026模範論文集/02-安全安心国土/article.md",
+    "content/note/RCCM/magazines/RCCM問題III-2026模範論文集/03-SDGs/article.md",
+    "content/note/RCCM/magazines/RCCM問題III-2026模範論文集/04-AI品質/article.md",
+    "content/note/RCCM/magazines/RCCM問題III-2026模範論文集/05-国際競争力/article.md",
+    "content/note/RCCM/magazines/RCCM問題III-2026模範論文集/06-BIM-CIM/article.md"
+  ],
+  "dropSections": [
+    "^マガジンの使い方",
+    "^運営者について"
+  ],
+  "frontMatter": "content/kindle/books/h-01/front-matter.md",
+  "chapterLabel": "headline"
+}

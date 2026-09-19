@@ -1,9 +1,9 @@
 {
   "version": 1,
   "date": "2026-09-17",
-  "status": "in-progress",
+  "status": "done",
   "design": "note-cover-character-v5",
-  "recordedAt": "2026-09-17T23:26:57.693Z",
+  "recordedAt": "2026-09-19T07:18:48.779Z",
   "generator": {
     "head": "51cf5431402cfc4e37a03f41b7d0384b125bcd1e",
     "rendererSha256": "6c797f0bac593429d03360ddea017d5de47c9e26491a809f1bd1b6c4c16a2ace"
@@ -59,241 +59,25 @@
     }
   },
   "live": {
-    "verifiedAt": "2026-09-17T23:16:27.692Z",
+    "verifiedAt": "2026-09-19T07:11:33.570Z",
     "articles": {
       "planned": 858,
-      "ok": 342,
+      "ok": 856,
       "failed": [
         {
-          "key": "content/note/RCCM/RCCMもくじ/article.md",
-          "noteId": "nd297cb9b31e0",
-          "cli": "[ERR] content/note/RCCM/RCCMもくじ/article.md page.goto: Timeout 60000ms exceeded.",
-          "problems": [
-            "eyecatch 不変"
-          ]
-        },
-        {
-          "key": "content/note/RCCM/RCCM問題III-指定語の使い方-無料/article.md",
-          "noteId": "n7570e79a4d27",
-          "cli": "[ERR] content/note/RCCM/RCCM問題III-指定語の使い方-無料/article.md page.goto: Timeout 60000ms exceeded.",
-          "problems": [
-            "eyecatch 不変"
-          ]
-        },
-        {
-          "key": "content/note/RCCM/RCCM業務経験論文-落ちる論文-無料/article.md",
-          "noteId": "n67ac63e3df10",
-          "cli": "[ERR] content/note/RCCM/RCCM業務経験論文-落ちる論文-無料/article.md page.goto: net::ERR_CONNECTION_TIMED_OUT at https://editor.note.c",
-          "problems": [
-            "eyecatch 不変"
-          ]
-        },
-        {
-          "key": "content/note/RCCM/magazines/RCCM問題I-業務経験論文テンプレ/article.md",
-          "noteId": "n10b786536829",
-          "cli": "[ERR] content/note/RCCM/magazines/RCCM問題I-業務経験論文テンプレ/article.md page.goto: Timeout 60000ms exceeded.",
-          "problems": [
-            "eyecatch 不変"
-          ]
-        },
-        {
-          "key": "content/note/RCCM/magazines/RCCM問題II-IV-直前暗記ノート/article.md",
-          "noteId": "n6a82c25cc9de",
-          "cli": "[ERR] content/note/RCCM/magazines/RCCM問題II-IV-直前暗記ノート/article.md page.goto: net::ERR_CONNECTION_TIMED_OUT at https://edi",
-          "problems": [
-            "eyecatch 不変"
-          ]
-        },
-        {
-          "key": "content/note/RCCM/magazines/RCCM問題II-IV-論点集予想50問/article.md",
-          "noteId": "n012c976933f8",
-          "cli": "[ERR] content/note/RCCM/magazines/RCCM問題II-IV-論点集予想50問/article.md page.goto: net::ERR_CONNECTION_TIMED_OUT at https://ed",
-          "problems": [
-            "eyecatch 不変"
-          ]
-        },
-        {
-          "key": "content/note/RCCM/magazines/RCCM問題III-2026模範論文集/00-序章/article.md",
-          "noteId": "n801ee5046624",
-          "cli": "[ERR] content/note/RCCM/magazines/RCCM問題III-2026模範論文集/00-序章/article.md page.goto: net::ERR_CONNECTION_TIMED_OUT at https",
-          "problems": [
-            "eyecatch 不変"
-          ]
-        },
-        {
-          "key": "content/note/RCCM/magazines/RCCM問題III-2026模範論文集/01-インフラ老朽化/article.md",
-          "noteId": "nf3fd06886cf0",
-          "cli": "[ERR] content/note/RCCM/magazines/RCCM問題III-2026模範論文集/01-インフラ老朽化/article.md page.goto: Timeout 60000ms exceeded.",
-          "problems": [
-            "eyecatch 不変"
-          ]
-        },
-        {
-          "key": "content/note/RCCM/magazines/RCCM問題III-2026模範論文集/02-安全安心国土/article.md",
-          "noteId": "n6e62015aabde",
-          "cli": "[ERR] content/note/RCCM/magazines/RCCM問題III-2026模範論文集/02-安全安心国土/article.md page.goto: net::ERR_CONNECTION_TIMED_OUT at h",
-          "problems": [
-            "eyecatch 不変"
-          ]
-        },
-        {
-          "key": "content/note/RCCM/magazines/RCCM問題III-2026模範論文集/03-SDGs/article.md",
-          "noteId": "nb9366fb0397f",
-          "cli": "[ERR] content/note/RCCM/magazines/RCCM問題III-2026模範論文集/03-SDGs/article.md page.goto: net::ERR_CONNECTION_TIMED_OUT at htt",
-          "problems": [
-            "eyecatch 不変"
-          ]
-        },
-        {
-          "key": "content/note/RCCM/magazines/RCCM問題III-2026模範論文集/04-AI品質/article.md",
-          "noteId": "nd21e8797275a",
-          "cli": "[ERR] content/note/RCCM/magazines/RCCM問題III-2026模範論文集/04-AI品質/article.md page.goto: net::ERR_CONNECTION_TIMED_OUT at htt",
-          "problems": [
-            "eyecatch 不変"
-          ]
-        },
-        {
-          "key": "content/note/RCCM/magazines/RCCM問題III-2026模範論文集/05-国際競争力/article.md",
-          "noteId": "n9a0a469b2c47",
-          "cli": "[ERR] content/note/RCCM/magazines/RCCM問題III-2026模範論文集/05-国際競争力/article.md page.goto: Timeout 60000ms exceeded.",
-          "problems": [
-            "eyecatch 不変"
-          ]
-        },
-        {
-          "key": "content/note/RCCM/magazines/RCCM問題III-2026模範論文集/06-BIM-CIM/article.md",
-          "noteId": "n22cc6600fd68",
-          "cli": "[ERR] content/note/RCCM/magazines/RCCM問題III-2026模範論文集/06-BIM-CIM/article.md page.goto: net::ERR_CONNECTION_TIMED_OUT at ",
-          "problems": [
-            "eyecatch 不変"
-          ]
-        },
-        {
-          "key": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-まるごとパック/article.md",
-          "noteId": "n5395599af1f8",
-          "cli": "[ERR] content/note/コンクリート主任技士/magazines/コンクリート主任技士-まるごとパック/article.md page.goto: net::ERR_NETWORK_CHANGED at https://edi",
-          "problems": [
-            "eyecatch 不変"
-          ]
-        },
-        {
-          "key": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-実務立場別小論文集/00-ペルソナ選択ガイド/article.md",
-          "noteId": "n6a56bef2fe2b",
-          "cli": "[ERR] content/note/コンクリート主任技士/magazines/コンクリート主任技士-実務立場別小論文集/00-ペルソナ選択ガイド/article.md page.goto: net::ERR_INTERNET_DISCON",
-          "problems": [
-            "eyecatch 不変"
-          ]
-        },
-        {
-          "key": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-実務立場別小論文集/01-生コン工場-品質管理/article.md",
-          "noteId": "n15770a95fcc7",
-          "cli": "[ERR] content/note/コンクリート主任技士/magazines/コンクリート主任技士-実務立場別小論文集/01-生コン工場-品質管理/article.md page.goto: net::ERR_INTERNET_DISCO",
-          "problems": [
-            "eyecatch 不変"
-          ]
-        },
-        {
-          "key": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-実務立場別小論文集/01-生コン工場-施工トラブル/article.md",
-          "noteId": "neafba6a77507",
-          "cli": "[ERR] content/note/コンクリート主任技士/magazines/コンクリート主任技士-実務立場別小論文集/01-生コン工場-施工トラブル/article.md page.goto: net::ERR_INTERNET_DIS",
-          "problems": [
-            "eyecatch 不変"
-          ]
-        },
-        {
-          "key": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-実務立場別小論文集/03-ゼネコン施工-環境配慮/article.md",
-          "noteId": "nfa67791ed05c",
-          "cli": "[ABORT] 有料境界line未確認→保存中断(paywall保護)",
+          "key": "content/note/技術士総監/magazines/総監記述式-5管理クロストレードオフ/序章/article.md",
+          "noteId": "ndb524ed63c92",
+          "cli": null,
           "problems": []
         },
         {
-          "key": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-実務立場別小論文集/03-ゼネコン施工-耐久性/article.md",
-          "noteId": "ne884f9334c72",
-          "cli": "[ABORT] 有料境界line未確認→保存中断(paywall保護)",
+          "key": "content/note/技術士総監/magazines/総監記述式-設問3国家施策バンク/00-序章/article.md",
+          "noteId": "n3eb135ebdff7",
+          "cli": "[FAIL] 更新する未検出",
           "problems": []
-        },
-        {
-          "key": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-実務立場別小論文集/04-維持管理補修-品質管理/article.md",
-          "noteId": "n000ac2ed704d",
-          "cli": "[ABORT] 有料境界line未確認→保存中断(paywall保護)",
-          "problems": []
-        },
-        {
-          "key": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-実務立場別小論文集/04-維持管理補修-施工トラブル/article.md",
-          "noteId": "n915c531fd7ee",
-          "cli": "[ABORT] 有料境界line未確認→保存中断(paywall保護)",
-          "problems": []
-        },
-        {
-          "key": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-実務立場別小論文集/04-維持管理補修-環境配慮/article.md",
-          "noteId": "n7c43b47e5286",
-          "cli": "[ABORT] 有料境界line未確認→保存中断(paywall保護)",
-          "problems": []
-        },
-        {
-          "key": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-実務立場別小論文集/04-維持管理補修-耐久性/article.md",
-          "noteId": "n6f4e0bf19d3c",
-          "cli": "[ABORT] 有料境界line未確認→保存中断(paywall保護)",
-          "problems": []
-        },
-        {
-          "key": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-実務立場別小論文集/07-設計コンサル-施工トラブル/article.md",
-          "noteId": "n3e21cf65b568",
-          "cli": "[ERR] content/note/コンクリート主任技士/magazines/コンクリート主任技士-実務立場別小論文集/07-設計コンサル-施工トラブル/article.md page.goto: Target page, context",
-          "problems": [
-            "eyecatch 不変"
-          ]
-        },
-        {
-          "key": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-実務立場別小論文集/07-設計コンサル-環境配慮/article.md",
-          "noteId": "n82bdc51e4239",
-          "cli": "[ERR] content/note/コンクリート主任技士/magazines/コンクリート主任技士-実務立場別小論文集/07-設計コンサル-環境配慮/article.md page.goto: Target page, context o",
-          "problems": [
-            "eyecatch 不変"
-          ]
-        },
-        {
-          "key": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-実務立場別小論文集/07-設計コンサル-耐久性/article.md",
-          "noteId": "nafe5a35ba5f1",
-          "cli": "[ERR] content/note/コンクリート主任技士/magazines/コンクリート主任技士-実務立場別小論文集/07-設計コンサル-耐久性/article.md page.goto: Target page, context or",
-          "problems": [
-            "eyecatch 不変"
-          ]
-        },
-        {
-          "key": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-実務立場別小論文集/08-試験検査機関-品質管理/article.md",
-          "noteId": "nca88fa269d45",
-          "cli": "[ERR] content/note/コンクリート主任技士/magazines/コンクリート主任技士-実務立場別小論文集/08-試験検査機関-品質管理/article.md page.goto: Target page, context o",
-          "problems": [
-            "eyecatch 不変"
-          ]
-        },
-        {
-          "key": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-実務立場別小論文集/08-試験検査機関-施工トラブル/article.md",
-          "noteId": "nb5dee851a926",
-          "cli": "[ERR] content/note/コンクリート主任技士/magazines/コンクリート主任技士-実務立場別小論文集/08-試験検査機関-施工トラブル/article.md page.goto: Target page, context",
-          "problems": [
-            "eyecatch 不変"
-          ]
-        },
-        {
-          "key": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-実務立場別小論文集/08-試験検査機関-環境配慮/article.md",
-          "noteId": "n9b6c5260d8b2",
-          "cli": "[ERR] content/note/コンクリート主任技士/magazines/コンクリート主任技士-実務立場別小論文集/08-試験検査機関-環境配慮/article.md page.goto: Target page, context o",
-          "problems": [
-            "eyecatch 不変"
-          ]
-        },
-        {
-          "key": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-実務立場別小論文集/08-試験検査機関-耐久性/article.md",
-          "noteId": "n68ab727e113a",
-          "cli": "[ERR] content/note/コンクリート主任技士/magazines/コンクリート主任技士-実務立場別小論文集/08-試験検査機関-耐久性/article.md page.goto: Target page, context or",
-          "problems": [
-            "eyecatch 不変"
-          ]
         }
       ],
-      "notRun": 486,
+      "notRun": 0,
       "held": [
         {
           "key": "content/note/1級・2級土木/メンバーシップ/予想問題マガジン/08_工程管理-工程管理手法/article.md",
@@ -382,12 +166,8 @@
       "is_limited / can_read 不変（記事）"
     ]
   },
-  "resume": {
-    "command": "node scripts/note-cover-rollout.mjs run → verify → record --status done",
-    "remaining": 516,
-    "notes": [
-      "作業場 .tmp/note-cover-rollout/（generated・live-before・live-plan・logs）を残したまま同じ checkout で再開する",
-      "別 checkout にしか無い原稿は article.md を一時展開してから run（materialized-articles.txt）"
-    ]
-  }
+  "resume": null,
+  "notes": [
+    "2026-09-19: 公開反映を再開し完走。articles ok 856 / failed 2 / held 12（予約公開中 7・下書き 3・noteId 無し 2）。failed 2（総監記述式-5管理クロストレードオフ/序章・設問3国家施策バンク/00-序章・いずれもマガジン内 ¥100 記事）は note-update-cover が「更新する」に到達できない（エディタに有料エリア設定が無く公開フローが異なる）が、editor はカバーを「更新する」前に live へ書くため verify の live 検査は問題ゼロ（eyecatch 変化・price/status/is_limited 不変・API 実測 315254164 / 315254300）。実体は完了。09-19 10:38〜16:00 の run は launchd 配下（nohup はセッション終了で死ぬ）、ディスク満杯（11:00〜11:11）に当たった chunk の 18 失敗は次ラウンドで回収。"
+  ]
 }

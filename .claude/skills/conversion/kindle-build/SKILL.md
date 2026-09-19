@@ -37,7 +37,8 @@ Kindle 出版戦略（[strategy.md](../../../../content/kindle/strategy.md) = �
 | E-01 | E: 2級土木択一 全期合本 | `build-pe1-kindle.mjs --spec kindle-specs/e-01.json` | spec + 前付け（出典=全国建設研修センター） | LIVE |
 | b-reiwa/b-heisei | B: 総監択一 合本 | `build-pe1-kindle.mjs --spec kindle-specs/{id}.json` | spec + 前付け（出典=第二次試験・spec.examName） | 全2冊 LIVE |
 | c-01〜c-11/c-I | C: 建設二次 模範解答 essay | `node scripts/build-essay-kindle.mjs --spec scripts/kindle-specs/{id}.json` | spec（sources=模範解答 md）+ 前付け | 全12冊 LIVE |
-| f-01〜f-16 | F: 総監 記述式 essay | `build-essay-kindle.mjs --spec kindle-specs/{id}.json` | spec + 前付け | F-01〜07 LIVE / F-08〜16 ready |
+| f-01〜f-16 | F: 総監 記述式 essay | `build-essay-kindle.mjs --spec kindle-specs/{id}.json` | spec + 前付け | 全16冊 LIVE |
+| h-01 | H: RCCM 問題III 模範論文集 | `build-essay-kindle.mjs --spec kindle-specs/h-01.json`（`creditBody`＝過去問非公開の出典文上書き・`chapterLabel: headline`） | spec + 前付け | ready（2026-09-17・KDP 未提出） |
 
 表紙は全冊 spec 駆動で再生成可能（`scripts/kindle-covers/specs/<id>.json`＋`backgrounds/`、下記「表紙」参照）。全書籍の状態・ASIN は [`scripts/kindle-published/catalog.json`](../../../../scripts/kindle-published/catalog.json)（マスター登録簿）が真実源。
 

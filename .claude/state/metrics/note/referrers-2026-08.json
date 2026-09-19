@@ -1,0 +1,314 @@
+{
+  "schemaVersion": 1,
+  "month": "2026-08",
+  "fetchedAt": "2026-09-15T21:12:16.816Z",
+  "source": "note ダッシュボード「アクセス状況」記事の流入元（Playwright read-only・自己閲覧を含む・doboku-note.com は 2026-09 まで rel=noreferrer で no referrer に含まれる）",
+  "period": {
+    "from": "2026-08-01",
+    "to": "2026-08-31"
+  },
+  "monthly": [
+    {
+      "month": "2025-09",
+      "sources": {
+        "no referrer": 0,
+        "note.com": 0,
+        "Google": 0,
+        "www.bing.com": 0,
+        "search.yahoo.co.jp": 0,
+        "X": 0,
+        "notification": 0,
+        "copilot.microsoft.com": 0,
+        "chatgpt.com": 0,
+        "service.smt.docomo.ne.jp": 0,
+        "other": 0
+      },
+      "total": 0
+    },
+    {
+      "month": "2025-10",
+      "sources": {
+        "no referrer": 0,
+        "note.com": 0,
+        "Google": 0,
+        "www.bing.com": 0,
+        "search.yahoo.co.jp": 0,
+        "X": 0,
+        "notification": 0,
+        "copilot.microsoft.com": 0,
+        "chatgpt.com": 0,
+        "service.smt.docomo.ne.jp": 0,
+        "other": 0
+      },
+      "total": 0
+    },
+    {
+      "month": "2025-11",
+      "sources": {
+        "no referrer": 0,
+        "note.com": 0,
+        "Google": 0,
+        "www.bing.com": 0,
+        "search.yahoo.co.jp": 0,
+        "X": 0,
+        "notification": 0,
+        "copilot.microsoft.com": 0,
+        "chatgpt.com": 0,
+        "service.smt.docomo.ne.jp": 0,
+        "other": 0
+      },
+      "total": 0
+    },
+    {
+      "month": "2025-12",
+      "sources": {
+        "no referrer": 0,
+        "note.com": 0,
+        "Google": 0,
+        "www.bing.com": 0,
+        "search.yahoo.co.jp": 0,
+        "X": 0,
+        "notification": 0,
+        "copilot.microsoft.com": 0,
+        "chatgpt.com": 0,
+        "service.smt.docomo.ne.jp": 0,
+        "other": 0
+      },
+      "total": 0
+    },
+    {
+      "month": "2026-01",
+      "sources": {
+        "no referrer": 0,
+        "note.com": 0,
+        "Google": 0,
+        "www.bing.com": 0,
+        "search.yahoo.co.jp": 0,
+        "X": 0,
+        "notification": 0,
+        "copilot.microsoft.com": 0,
+        "chatgpt.com": 0,
+        "service.smt.docomo.ne.jp": 0,
+        "other": 0
+      },
+      "total": 0
+    },
+    {
+      "month": "2026-02",
+      "sources": {
+        "no referrer": 0,
+        "note.com": 0,
+        "Google": 0,
+        "www.bing.com": 0,
+        "search.yahoo.co.jp": 0,
+        "X": 0,
+        "notification": 0,
+        "copilot.microsoft.com": 0,
+        "chatgpt.com": 0,
+        "service.smt.docomo.ne.jp": 0,
+        "other": 0
+      },
+      "total": 0
+    },
+    {
+      "month": "2026-03",
+      "sources": {
+        "no referrer": 0,
+        "note.com": 0,
+        "Google": 0,
+        "www.bing.com": 0,
+        "search.yahoo.co.jp": 0,
+        "X": 0,
+        "notification": 0,
+        "copilot.microsoft.com": 0,
+        "chatgpt.com": 0,
+        "service.smt.docomo.ne.jp": 0,
+        "other": 0
+      },
+      "total": 0
+    },
+    {
+      "month": "2026-04",
+      "sources": {
+        "no referrer": 0,
+        "note.com": 0,
+        "Google": 0,
+        "www.bing.com": 0,
+        "search.yahoo.co.jp": 0,
+        "X": 0,
+        "notification": 0,
+        "copilot.microsoft.com": 0,
+        "chatgpt.com": 0,
+        "service.smt.docomo.ne.jp": 0,
+        "other": 0
+      },
+      "total": 0
+    },
+    {
+      "month": "2026-05",
+      "sources": {
+        "no referrer": 164,
+        "note.com": 913,
+        "Google": 148,
+        "www.bing.com": 35,
+        "search.yahoo.co.jp": 61,
+        "X": 25,
+        "notification": 2,
+        "copilot.microsoft.com": 0,
+        "chatgpt.com": 0,
+        "service.smt.docomo.ne.jp": 0,
+        "other": 7
+      },
+      "total": 1355
+    },
+    {
+      "month": "2026-06",
+      "sources": {
+        "no referrer": 1236,
+        "note.com": 3930,
+        "Google": 852,
+        "www.bing.com": 531,
+        "search.yahoo.co.jp": 262,
+        "X": 9,
+        "notification": 24,
+        "copilot.microsoft.com": 13,
+        "chatgpt.com": 3,
+        "service.smt.docomo.ne.jp": 8,
+        "other": 45
+      },
+      "total": 6913
+    },
+    {
+      "month": "2026-07",
+      "sources": {
+        "no referrer": 3603,
+        "note.com": 5301,
+        "Google": 2661,
+        "www.bing.com": 1311,
+        "search.yahoo.co.jp": 894,
+        "X": 30,
+        "notification": 8,
+        "copilot.microsoft.com": 13,
+        "chatgpt.com": 10,
+        "service.smt.docomo.ne.jp": 6,
+        "other": 44
+      },
+      "total": 13881
+    },
+    {
+      "month": "2026-08",
+      "sources": {
+        "no referrer": 4524,
+        "note.com": 1719,
+        "Google": 624,
+        "www.bing.com": 300,
+        "search.yahoo.co.jp": 244,
+        "X": 9,
+        "notification": 3,
+        "copilot.microsoft.com": 7,
+        "chatgpt.com": 7,
+        "service.smt.docomo.ne.jp": 2,
+        "other": 16
+      },
+      "total": 7455
+    },
+    {
+      "month": "2026-09",
+      "sources": {
+        "no referrer": 4197,
+        "note.com": 720,
+        "Google": 394,
+        "www.bing.com": 243,
+        "search.yahoo.co.jp": 149,
+        "X": 2,
+        "notification": 6,
+        "copilot.microsoft.com": 0,
+        "chatgpt.com": 1,
+        "service.smt.docomo.ne.jp": 5,
+        "other": 9
+      },
+      "total": 5726
+    }
+  ],
+  "targetMonth": {
+    "month": "2026-08",
+    "sources": {
+      "no referrer": 4524,
+      "note.com": 1719,
+      "Google": 624,
+      "www.bing.com": 300,
+      "search.yahoo.co.jp": 244,
+      "X": 9,
+      "notification": 3,
+      "copilot.microsoft.com": 7,
+      "chatgpt.com": 7,
+      "service.smt.docomo.ne.jp": 2,
+      "other": 16
+    },
+    "total": 7455
+  },
+  "pie": [
+    {
+      "source": "no referrer",
+      "pv": 4524,
+      "share": 60.7
+    },
+    {
+      "source": "note.com",
+      "pv": 1719,
+      "share": 23.1
+    },
+    {
+      "source": "Google",
+      "pv": 624,
+      "share": 8.4
+    },
+    {
+      "source": "www.bing.com",
+      "pv": 300,
+      "share": 4
+    },
+    {
+      "source": "search.yahoo.co.jp",
+      "pv": 244,
+      "share": 3.3
+    },
+    {
+      "source": "X",
+      "pv": 9,
+      "share": 0.1
+    },
+    {
+      "source": "chatgpt.com",
+      "pv": 7,
+      "share": 0.1
+    },
+    {
+      "source": "copilot.microsoft.com",
+      "pv": 7,
+      "share": 0.1
+    },
+    {
+      "source": "notification",
+      "pv": 3,
+      "share": 0
+    },
+    {
+      "source": "amcuc7519.active-w.net",
+      "pv": 2,
+      "share": 0
+    },
+    {
+      "source": "other",
+      "pv": 16,
+      "share": 0.2
+    }
+  ],
+  "summary": {
+    "impressions": 83523,
+    "pageViews": 7455,
+    "likes": 81,
+    "comments": 3,
+    "salesYen": 71640
+  }
+}

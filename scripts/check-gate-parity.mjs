@@ -82,6 +82,9 @@ const otherCallers = () =>
   callersIn([
     ...walkFiles(join(ROOT, '.github/workflows'), /\.ya?ml$/),
     ...walkFiles(join(ROOT, '.claude/skills'), /\.md$/),
+    // SessionStart フック（scripts/session-start.mjs の CHECKS）も配線点。ここから呼ばれる surfacer
+    // （backlog-due / weekly-review-due 等）をオーファン扱いすると baseline へ逃がす誘因になる（2026-09-19）。
+    join(ROOT, 'scripts/session-start.mjs'),
   ]);
 
 const scripts = checkScripts();

@@ -110,5 +110,27 @@
       { "label": "演習問題", "groups": ["primary"], "tags": [] },
       { "label": "テキスト", "groups": ["textbook"], "tags": [] }
     ]
+  },
+  {
+    "slug": "rccm",
+    "order": 8,
+    "label": "RCCM",
+    "en": "Registered Civil Engineering Consulting Manager",
+    "subtitle": "試験A・試験B（CBT）対策",
+    "description": "問題III 管理技術力の公開テーマの読み解き、問題I 業務経験論文の書き方、問題II・IV 択一の範囲、CBT期間の学習計画を発注者視点で整理。",
+    "nextExam": "2027年9〜10月（CBT・予定）",
+    "stats": [
+      {
+        "label": "記事",
+        "total": true
+      },
+      {
+        "label": "ガイド",
+        "groups": [
+          "guide"
+        ],
+        "tags": []
+      }
+    ]
   }
 ]

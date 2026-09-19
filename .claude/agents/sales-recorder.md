@@ -89,7 +89,10 @@ kuro
 | `1級土木 施工経験記述｜完全攻略パック` | `civil-1-keiken-complete-pack` |
 | `1級土木 二次学科記述｜テーマ別 出る順`（セット） | `civil-1-gakka-kijutsu` |
 | `2級土木 二次学科記述｜テーマ別 出る順`（セット） | `civil-2-gakka-kijutsu` |
-| `1級土木 二次検定まるごとパック`（経験＋学科＋暗記の統合） | `civil-1-niji-marugoto-pack` |
+| `1級土木 二次検定まるごとパック`（経験＋学科＋暗記＋模試＋分析の統合・2026-09 模試3回と出題分析を追加収録） | `civil-1-niji-marugoto-pack` |
+| `1級土木 二次｜直前総仕上げパック`（¥2,980・予想模試3回＋直前暗記ノート＋出題分析の3点セット・2026-09-16 新設） | `civil-1-chokuzen-pack` |
+| `2級土木 二次検定まるごとパック`（¥8,800・想定工事バンク＋過去問模範答案＋完成答案＋学科出る順＋暗記＋模試3回＋出題分析＝77記事・2026-09-17 新設） | `civil-2-niji-marugoto-pack` |
+| `2級土木 二次｜直前総仕上げパック`（¥2,480・予想模試3回＋直前暗記ノート＋出題分析・2026-09-17 新設） | `civil-2-chokuzen-pack` |
 | `技術士 建設部門 2次｜必須科目I` / `必須科目I 模範解答集` | `bk-i-required-essay-magazine` |
 | `建設部門2次｜道路 選択科目 模範解答集` | `bk-road-secondary-magazine` |
 | `建設部門2次｜土質基礎 選択科目 模範解答集` | `bk-geotechnical-secondary-magazine` |
@@ -104,7 +107,12 @@ kuro
 | `コンクリート主任技士 小論文｜模範答案集`（¥2,480・5本） | `cce-essay-magazine` |
 | `2級土木 施工経験記述｜過去問 模範答案集（R03-R07）`（¥2,480・5本セット） | `civil-2-pastexam-essay` |
 | `コンクリート主任技士 小論文｜実務立場別 模範答案集`（¥5,980・33本） | `cce-essay-persona-pack` |
-| `コンクリート主任技士 まるごとパック`（¥9,800・41記事＝小論文2マガジン＋択一予想50問＋配合計算12問） | `cce-marugoto-pack` |
+| `コンクリート主任技士 まるごとパック`（¥9,800・42記事＝小論文2マガジン＋択一予想50問＋配合計算12問＋直前暗記ノート） | `cce-marugoto-pack` |
+| `コンクリート主任技士 択一｜直前パック`（¥2,980・予想50問＋配合計算＋直前暗記ノート・2026-09-17 新設） | `cce-takuitsu-chokuzen-pack` |
+| `技術士 第一次試験｜直前パック`（¥1,980・過去問PDF 合本＋直前暗記ノート・2026-09-17 新設） | `pe1-chokuzen-pack` |
+| `コンクリート技士 択一｜直前パック`（¥1,480・配合計算・JIS判断12問＋直前暗記ノート・2026-09-17 新設） | `ce-chokuzen-pack` |
+| `RCCM問題III｜2026年度 6テーマ 模範論文集`（¥3,480・6本＋序章） | `rccm-mondai3-magazine` |
+| `RCCM まるごとパック（問題I〜IV 全対応）`（¥5,980・問題III マガジン＋問題I テンプレ＋択一予想50問＋直前暗記ノート＝10記事・2026-09-16 新設） | `rccm-marugoto-pack` |
 
 ### 単品記事（type: article）
 
@@ -127,7 +135,14 @@ productId は `article:<slug>` 形式。slug は商品名から推定:
 | `1級土木 二次学科記述｜直前暗記ノート` | `article:civil-1-anki-note` |
 | `2級土木 二次学科記述｜直前暗記ノート` | `article:civil-2-anki-note` |
 | `1級土木 第1次検定｜出る順 合格ノート` | `article:civil-1-ichiji-ronten` |
+| `1級土木 テキスト精読ガイド`（無料・全2巻。売上は発生しない） | `article:civil-1-reading-guide` |
+| `2級土木 テキスト精読ガイド`（無料・全1巻。売上は発生しない） | `article:civil-2-reading-guide` |
+| `RCCM問題III｜{テーマ短名} 模範論文`（単品¥780・テーマ番号 01〜06） | `article:rccm-mondai3-{NN}`（{NN} は `_facts-2026.md` のテーマ番号 2 桁。例: `article:rccm-mondai3-01`＝インフラ老朽化） |
+| `RCCM問題I｜業務経験論文テンプレと記入例`（¥1,980） | `article:rccm-mondai1-template` |
+| `RCCM問題II・IV｜論点集と予想50問`（¥1,480） | `article:rccm-takuitsu-yosou-50` |
+| `RCCM 問題II・問題IV｜択一 直前暗記ノート`（¥980・2026-09-17） | `article:rccm-anki-note` |
 | `1級土木 二次｜出題分析と直前の重点` | `article:civil-1-r8-bunseki` |
+| `2級土木 二次｜出題分析と直前の重点`（¥580・2026-09-17） | `article:civil-2-r8-bunseki` |
 | `1級土木 令和8年度 第2次検定｜予想模試3回` | `article:civil-1-r8-mock3-pdf` |
 | `2級土木 令和8年度 第2次検定｜予想模試3回` | `article:civil-2-r8-mock3-pdf` |
 | `コンクリート主任技士｜配合計算 実戦演習12問` | `article:cce-mix-calculation-practice` |
@@ -135,7 +150,9 @@ productId は `article:<slug>` 形式。slug は商品名から推定:
 | `コンクリート主任技士 小論文 模範答案｜生コン工場｜耐久性`（実務立場別 単品） | `article:cce-persona-namacon-durability` |
 | `コンクリート主任技士 小論文 模範答案｜生コン工場｜環境配慮`（実務立場別 単品） | `article:cce-persona-namacon-environment` |
 | `コンクリート主任技士｜令和8年度 四肢択一 予想50問` | `article:cce-r8-mc-50` |
+| `コンクリート主任技士｜四肢択一 直前暗記ノート`（¥980・2026-09-17） | `article:cce-anki-note` |
 | `コンクリート技士｜配合計算・JIS判断 実戦演習12問` | `article:ce-mix-jis-practice` |
+| `コンクリート技士｜四肢択一 直前暗記ノート`（¥780・2026-09-17） | `article:ce-anki-note` |
 | `技術士 建設部門｜道路 R8予想 選択科目II-1` | `article:bk-01-road-r8-yosou-ii1` |
 | `技術士 建設部門｜道路 R8予想 選択科目II-2` | `article:bk-01-road-r8-yosou-ii2-*` |
 | `技術士 建設部門｜道路 R8予想 選択科目III` | `article:bk-01-road-r8-yosou-iii-*` |
@@ -150,6 +167,7 @@ productId は `article:<slug>` 形式。slug は商品名から推定:
 | `2級土木 第1次検定｜過去問PDF` / `2級土木 一次 過去問PDF`（Kindle択一の従チャネル・¥1,480） | `article:civil-2-takuitsu-pdf` |
 | `1級土木 第1次検定｜過去問PDF` / `1級土木 一次 過去問PDF`（Kindle択一の従チャネル・¥1,980） | `article:civil-1-takuitsu-pdf` |
 | `技術士 第一次試験｜過去問PDF 合本` / `技術士一次 過去問PDF`（¥1,480） | `article:pe1-takuitsu-pdf` |
+| `技術士 第一次試験｜直前暗記ノート`（¥980・2026-09-17） | `article:pe1-anki-note` |
 | `技術士 総合技術監理部門｜択一 過去問PDF 令和` / `総監 択一過去問PDF 令和`（¥980） | `article:tankan-takuitsu-reiwa-pdf` |
 | `技術士 総合技術監理部門｜択一 過去問PDF 平成` / `総監 択一過去問PDF 平成`（¥980） | `article:tankan-takuitsu-heisei-pdf` |
 

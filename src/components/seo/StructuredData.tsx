@@ -106,6 +106,8 @@ function getExamName(category: string | undefined): string {
       return "コンクリート主任技士";
     case "concrete-diagnostician":
       return "コンクリート診断士";
+    case "rccm":
+      return "RCCM資格試験";
     // 資格に紐づかない実務カテゴリ（variant: general）
     case "civil-practice":
       return "土木施工の実務";

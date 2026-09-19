@@ -1,15 +1,18 @@
 name: Index coverage audit (URL Inspection)
 
 # サイト全 sitemap URL の Google index 状態（送信して登録 / 検出-未登録 等）を
-# URL Inspection API で月次取得し、.claude/state/metrics/url-inspection/ と
-# index-coverage-history.json（時系列）に commit する。
+# URL Inspection API で週次取得し、.claude/state/metrics/url-inspection/ と
+# index-coverage-history.json（時系列）に commit する。あわせて登録リクエストの順位表
+# （gsc-indexing/priority-latest.*）を作る＝人間が残す作業は「順位表の先頭から 10 件送る」だけ。
 # ローカルは creds 未設定で叩けない（計測は CI/CD 供給が正・measurement-incidents.md 2026-06-05）ため CI で実行。
 # 設計の真実源: .claude/knowledge/reference/gsc-management.md / 分業: gsc-index-auditor + /gsc-review。
-# URL Inspection は 2,000 URL/日/property が上限。月次なら quota 余裕（現在 ~1030 URL）。
+# URL Inspection は 2,000 URL/日/property が上限。sitemap ~1,420 URL で 1 回 ~35 分（2026-09-07 実測）。
+# 2026-09-17 に月次→週次へ（8/22 URL 移行の再クロール待ち 723 件の収束を週単位で追い、
+# 金曜の gsc-auto-review.yml が毎週 coverage エントリを観測ログへ追記できるようにする）。
 
 on:
   schedule:
-    - cron: "0 2 1 * *" # UTC 02:00 毎月1日 = JST 11:00 毎月1日
+    - cron: "0 2 * * 3" # UTC 02:00 毎週水曜 = JST 11:00 水曜（金曜 JST 12:00 の gsc-auto-review より前）
   workflow_dispatch:
 
 # DN-0109 Phase 1: develop への自動書込み系ワークフロー間の push 衝突を防ぐ共通グループ。
@@ -37,12 +40,12 @@ jobs:
         # フックの drift guard が bot commit を拒否して落ちる（2026-08-20 に psi-audit が
         # `[pre-commit] 導入済みフックが古い` で実際に失敗した）。fetch-metrics.yml と同じ形で
         # 最初から develop を checkout し、順序依存そのものを無くす。
-        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: develop
 
       - name: Setup Node.js
-        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: "20"
           cache: "npm"
@@ -172,14 +175,16 @@ jobs:
               --batch "$LATEST" \
               --date "$(date -u +%Y-%m-%d)" \
               --sitemap-count "${SITEMAP_COUNT:-0}" \
-              --notes "monthly cron (index-coverage.yml)"
+              --notes "weekly cron (index-coverage.yml)"
+            # 登録リクエストの順位表（表示実績のある未登録を先頭に）。人間は先頭から 10 件/日送るだけ。
+            node scripts/build-gsc-indexing-priority.mjs
             SUBJECT="chore(metrics): index-coverage audit $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
           fi
 
           # 寿命表（scripts/lib/prune-state-snapshots.mjs）に従って古い batch を消す（history.json へ追記した後・gsc/rank-watch は除外 dir）。
           node scripts/prune-state-snapshots.mjs --commit --family url-inspection,gsc
 
-          git add .claude/state/metrics/url-inspection .claude/state/metrics/gsc
+          git add .claude/state/metrics/url-inspection .claude/state/metrics/gsc .claude/state/metrics/gsc-indexing/priority-latest.json .claude/state/metrics/gsc-indexing/priority-latest.txt
           if git diff --cached --quiet; then
             echo "No changes to publish"
             exit 0
@@ -187,7 +192,7 @@ jobs:
           git commit -m "$SUBJECT"
           git push origin develop
 
-      # 完全性ゲート: publish の**後**（部分結果は develop に残す）。inspect が完走しなかった月は
+      # 完全性ゲート: publish の**後**（部分結果は develop に残す）。inspect が完走しなかった週は
       # history が更新されず、閾値ゲートは前月のエントリを見て緑になってしまうので、ここで赤にする。
       - name: Gate - inspection completeness
         id: completeness_gate
@@ -200,8 +205,8 @@ jobs:
 
       # 機械ゲート: publish の**後**に走らせる（赤でも取得済みデータは develop に残る）。
       # 赤にするのは「機械が無条件に異常と断定できるもの」だけ（inspected 0 / 1900 件上限到達 /
-      # indexed_ratio < 60%）。前月比の低下や hygiene は warning に留め、判断は
-      # GitHub Actions `gsc-auto-review.yml` が観測ログへ記録する＝月次 red の狼少年化を防ぐ。
+      # indexed_ratio < 60%）。前回比の低下や hygiene は warning に留め、判断は
+      # GitHub Actions `gsc-auto-review.yml` が観測ログへ記録する＝週次 red の狼少年化を防ぐ。
       - name: Gate - coverage thresholds
         id: coverage_gate
         run: node .claude/scripts/check-coverage-thresholds.mjs
@@ -231,6 +236,16 @@ jobs:
             --channel index-coverage \
             --title "閾値ゲートが赤（無条件異常）" \
             --body-file /tmp/coverage-body.md
+
+      # 閾値ゲートが緑に戻った月に index-coverage channel の open Issue を自動クローズ（月次なので最長 1 か月）。
+      - name: Resolve - coverage Issue (閾値が緑)
+        if: success() && steps.coverage_gate.outcome == 'success'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/report-automation-failure.mjs --resolve --channel index-coverage \
+            --body "復旧 run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
       - name: Cleanup credentials
         if: always()

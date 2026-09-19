@@ -21,12 +21,12 @@ Google Search Console の継続管理（インデックス被覆・検索パフ�
 
 | 担当 | 種別 | 責務 | 入力 → 出力 |
 |---|---|---|---|
-| `index-coverage.yml` | CI（月次・JST 11:00 毎月1日） | 全 sitemap URL の URL Inspection（5 並列・checkpoint）+ 履歴追記。完走しなかった月は batch に `partial:true` が立ち、history には積まず完全性ゲートで赤にする（2026-09-01 の 120 分 cancelled の再発防止） | API/sitemap → `url-inspection/*.json` + `index-coverage-history.json`（develop） |
+| `index-coverage.yml` | CI（**週次**・水 JST 11:00。2026-09-17 に月次から変更） | 全 sitemap URL の URL Inspection（5 並列・checkpoint・~35 分）+ 履歴追記 + **登録リクエスト順位表**（`gsc-indexing/priority-latest.{json,txt}`＝表示実績のある未登録を先頭に、直近 14 日にリクエスト済みは除外）。完走しなかった月は batch に `partial:true` が立ち、history には積まず完全性ゲートで赤にする（2026-09-01 の 120 分 cancelled の再発防止） | API/sitemap → `url-inspection/*.json` + `index-coverage-history.json`（develop） |
 | `fetch-metrics.yml` | CI（週次・金 JST 6:00） | GSC query/date/page/page×query + GA4 | API → `.claude/state/metrics/{gsc,ga4}/` |
 | `gsc-index-auditor` | Evaluator（sonnet） | coverage 分類・indexed_ratio・履歴差分・原因バケット・hygiene URL surface | url-inspection + history → 診断テキスト（audit-only） |
 | `metrics-analyzer` | Evaluator（sonnet） | index 済みページの performance 8 パターン（SNS-Source-Shift＋page×query の Cannibalization/Content-Decay 含む） | gsc/ga4（`gsc-page-query-*` 含む）→ `improvements/*.md` |
 | `performance-auditor` | Evaluator（sonnet） | CWV / PSI | psi → improvements |
-| **`gsc-auto-review.yml`** | **CI（週次・金 JST 12:00・要 `CLAUDE_CODE_OAUTH_TOKEN`）** | **記録層の自動化**。オーケストレータ＝`claude-fable-5`。毎週 metrics-analyzer を起動し観測ログへ週次エントリを追記。未記録の inspection-batch があれば同一実行で gsc-index-auditor も起動し月次エントリを追記。異常時のみ `automation-failure` Issue 起票。**重い JSON 走査は sonnet サブエージェント側**（親は生の計測 JSON とログ全文を読まない） | committed state → `gsc-management.md` 観測ログ ＋ `improvements/*.md`（develop へ push） |
+| **`gsc-auto-review.yml`** | **CI（週次・金 JST 12:00・要 `CLAUDE_CODE_OAUTH_TOKEN`）** | **記録層の自動化**。オーケストレータ＝`claude-fable-5`。毎週 metrics-analyzer を起動し観測ログへ週次エントリを追記。未記録の inspection-batch があれば同一実行で gsc-index-auditor も起動し coverage エントリ（見出し `（coverage・自動レビュー）`・旧称 月次）を追記。異常時のみ `automation-failure` Issue 起票。**重い JSON 走査は sonnet サブエージェント側**（親は生の計測 JSON とログ全文を読まない） | committed state → `gsc-management.md` 観測ログ ＋ `improvements/*.md`（develop へ push） |
 | ~~`doboku-note GSC auto review`~~ | クラウドルーティン（**退役 2026-08-06**） | 上記 CI が引き継ぎ自走を確認したため `enabled:false`。実行履歴が repo から見えないためクラウドは正にしない | — |
 | `/gsc-review` | Skill（月次・**手動**） | `gsc-auto-review.yml` の応急・深掘り・上書き用。CI データ確認 → gsc-index-auditor 起動 → 観測ログ追記 | — |
 | `/weekly-improve` | Skill（週次・**手動**） | 同上（performance 側）。metrics-analyzer 起動 | — |
@@ -38,7 +38,8 @@ Google Search Console の継続管理（インデックス被覆・検索パフ�
 | `ga4-admin-setup` | Script（ローカル手動・Playwright） | GA4 管理画面の設定を desired state と突合し、**不足カスタムディメンションを作成**（既定 dry-run・`--commit` で実行）。データ保持は観測のみ | `config/ga4-admin-desired-state.json` → `metrics/ga4-admin/inventory-latest.json` |
 | `check-ga4-dimensions` | Script（ゲート・オフライン） | desired state と最後の実機観測を突合。blocking なカスタムディメンション（`event_label`/`cta_placement`）が未登録なら exit 1 | inventory-latest → exit 0/1 |
 | `check-internal-links-vs-gsc` | Script（ゲート・オフライン） | **公開ページ**が GSC の 404/リダイレクト URL を指していないか（SSOT と全 MDX/src を突合）。旧 URL 件数を能動的に減らせる唯一のレバー | `gsc-ui/ssot` + MDX → exit 0/1 |
-| `gsc-request-indexing` | Script（ローカル手動・Playwright） | 未登録 URL を URL 検査で診断し、**インデックス登録をリクエスト**（既定 dry-run・`--commit` gate・上限 10 件/回）。crawled-not-indexed への直接レバー | SSOT → `gsc-indexing/{requests-latest,history}.json` |
+| `check-gsc-indexing-due` | Script（surfacer・オフライン） | 順位表に表示実績のある未登録が残っているのに、受理された登録リクエストが 7 日以上無ければ DUE。順位表が無いときは検査不能として DUE。weekly-review-guard が毎週 job summary へ | `gsc-indexing/{priority-latest,history}.json` → DUE |
+| `gsc-request-indexing` | Script（ローカル手動・Playwright） | 未登録 URL を URL 検査で診断し、**インデックス登録をリクエスト**（既定 dry-run・`--commit` gate・上限 10 件/回）。crawled-not-indexed への直接レバー。**discovered-not-indexed（未クロール）には強制クロールとしてより直接に効く**。入力は `--from-ssot` / `--urls` / `--file`（正規パス。旧 `/docs/slug` は `_redirects` の 301 先へ自動変換） | SSOT または URL 一覧 → `gsc-indexing/{requests-latest,history}.json` |
 | `seo-rank-watch` | Script（週次CIでcollect、セッションでreview/1件改善） | 固定クエリの確定7日比較・本番反映起点の観察。入口 `/weekly-improve --rank-watch`、詳細 [運用手順](seo-rank-watch.md) | `metrics/gsc/rank-watch/`（追記）＋既存 `experiments.json` |
 | `check-experiment-due` | Script（surfacer） | 実験台帳の再計測/close 期限（サイクルの最後の輪）。weekly-review が列挙 | `experiments.json` → DUE 一覧 |
 | `search-growth:cem-plan` | Script（月次・ローカル手動） | 総監 crawled-not-indexed の 5 分類再分類（下記「総監 CNI 5分類の運用ルール」） | URL Inspection 履歴 → `improvements/cem-index-consolidation-*.{json,md}` |
@@ -47,6 +48,15 @@ Google Search Console の継続管理（インデックス被覆・検索パフ�
 
 > [!important]
 > Coverage（gsc-index-auditor）と Performance（metrics-analyzer）は**守備範囲が直交**。前者は「載っているか」、後者は「載っているページがどう成績を出すか」。混同しない。
+
+## Bing（IndexNow）
+
+Google は登録リクエストの API を提供しないが、Bing / Yandex / Naver は **IndexNow** で更新 URL を受け付ける。
+`indexnow-submit.yml` が本番 deploy 成功後に、本番 sitemap の lastmod が直近 7 日の URL を
+`https://api.indexnow.org/indexnow` へ送る（状態を持たず再送許容・1 回 10,000 URL まで）。
+key は `.claude/config/indexnow.json` と `public/<key>.txt` の一致が前提（公開必須の識別子で秘密ではない）。
+失敗（非 2xx・sitemap/key が読めない）は `automation-failure` Issue。Google の index には無関係＝本 doc の
+coverage 指標は動かない。効果は GA4 の `Organic Search` のうち Bing セッションで見る（GSC には出ない）。
 
 ## 閾値
 
@@ -60,17 +70,19 @@ Google Search Console の継続管理（インデックス被覆・検索パフ�
 ## cadence
 
 - **週次（CI・自動）**: `gsc-auto-review.yml`（金 JST 12:00＝fetch-metrics の 6 時間後）が
-  metrics-analyzer を起動 → 観測ログへ週次エントリ。**未記録の inspection-batch があれば同一実行で月次診断も行う**
-  （月初後の最初の金曜に発火）。よって下の月次 CI → 記録の流れは**人手を介さず閉じる**。
+  metrics-analyzer を起動 → 観測ログへ週次エントリ。**未記録の inspection-batch があれば同一実行で coverage 診断も行う**
+  （水曜の index-coverage.yml の 2 日後＝毎週発火）。よって下の coverage CI → 記録の流れは**人手を介さず閉じる**。
   `/gsc-review`・`/weekly-improve` は応急・深掘り・上書き用として存続
-- **月次（CI・自動）**: `index-coverage.yml`（毎月1日 JST 11:00）→ `check-coverage-thresholds` が無条件異常を赤落ち →
-  次の金曜に `gsc-auto-review.yml` が観測ログへ記録（手動で先回りするなら `/gsc-review`）
+- **週次（CI・自動・coverage）**: `index-coverage.yml`（水 JST 11:00）→ `check-coverage-thresholds` が無条件異常を赤落ち → 順位表 `priority-latest.*` を commit →
+  金曜の `gsc-auto-review.yml` が観測ログへ coverage エントリを記録（手動で先回りするなら `/gsc-review`）。
+  **人間に残る作業は 1 つ**: 月曜の weekly-review-guard が `check-gsc-indexing-due` で DUE を出したら
+  `npm run gsc-indexing:request -- --file .claude/state/metrics/gsc-indexing/priority-latest.txt`（10 件/回・要ログイン）
 - **月次（ローカル・手動）**: `/google-search-growth` で理由別 UI CSV を取得 → 突合 → 修正計画 → 観測ログ追記。**放置防止**は `check-gsc-ui-due`（30日）を weekly-review が surface（DUE なら次セッションで実行）。`/gsc-review`（coverage 全体）の深掘り＝理由ごとの例 URL を足す層。
 - **週次**: `fetch-metrics.yml`（CI・金 JST 6:00）→ `/weekly-improve`（performance 側）
 
 > [!warning] 何が自動で回り、何が回らないか（2026-09-07 更新）
 > **自動（GitHub Actions cron・実績で確認）**: fetch-metrics（週次）/ psi-audit（日次）/
-> index-coverage（月次）/ gsc-auto-review（週次）/ link-audit / r2-audit / note-live-audit / uptime-ping。
+> index-coverage（週次・2026-09-17〜）/ gsc-auto-review（週次）/ link-audit / r2-audit / note-live-audit / uptime-ping。
 > **オフライン surfacer も CI 側で自動**（`weekly-review-guard.yml` が毎週月曜に実行）:
 > check-experiment-due / check-gsc-ui-due / **check-gsc-auto-review** / check-google-ui-ssot /
 > check-ga4-dimensions を job summary へ出力し、check-internal-links-vs-gsc は hard fail させる。
@@ -515,3 +527,29 @@ EXP-006 の本判定は予定どおり next_check 2026-08-27 に、カバレッ�
 - 推奨アクション: ①10 月計測で /standards/kyushu・/exam/pe-comprehensive-management の discovered→indexed 移行速度を追跡し、改善が無ければ恒久的権威性不足へ評価切替 ②canonical 不一致 32 URL に絞った gsc-indexing:request（上限 10 件/回）を検討 ③/standards/ 章記事の量と検索価値密度の要否は人間の戦略判断へ
 - 異常フラグ: **ratio 41.8% < 60%**・**前回比 −29.9pt（>5pt）**・**discovered 723 > sitemap 20%**（3 件該当。crawled_not_indexed 激減・inspected=sitemap・batch 非空は正常）
 - 注記: 自動生成・最終決定は人間。異常 3 件はいずれも URL 移行の再クロール待ちで説明可能だが、機械判定に従い【要確認】として Issue 起票。10 月月次が回復判定の期限
+### 2026-09-17（URL 移行後の中間読み・登録リクエスト 10 件・クロール枠の漏れを修正）
+
+- 観測（本番 1,556 URL を全クロールして内部リンクを実測 × 9/7 batch）: 検出-未登録 723 件の被リンク中央値 26 本（索引済み 33 本）・被リンク 0 は 0 件・fetch/robots 異常 0 ＝**リンク不足でも技術問題でもなく、8/22 移行後の再クロール待ち**。Google 側 `referring_urls` は 672 件で空＝新 URL 体系のリンクグラフ自体が未クロール
+- 中間読み（GSC URL 検査・表示実績のある未登録 188 URL の上位 42 本・`requests-latest.json`）: **28 本（67%）が 9/7→9/17 の 10 日で登録済みへ移行**。残 14 本のうち検出-未登録 11・重複（旧 /docs を正規と判定）3。「数週間で収束」の Google 公式見込みどおりに進んでいる
+- 打ち手 1（PR #517）: pre-commit が frontmatter だけの一括 commit（tags 付与・sources 結線）でも `dateModified` を更新し、**2 週間で sitemap 1,556 件中 1,209 件の lastmod が「更新」扱い**になっていた。本文・title・seoTitle・description が変わらない diff では据え置く。lastmod を信用できる信号に戻し、再クロール枠を未クロール側へ回す
+- 打ち手 2（同 PR）: `gsc-request-indexing` を正規パス対応にし、検出-未登録 10 本へ登録リクエスト送信（受理 10 / button-not-found 1 = law-compliance の重複判定ページ / 上限持ち越し 2）。EXP-006（crawled-not-indexed 対象）と違い、今回の対象は**未クロール**なので「強制クロール」として直接効く前提。効果は 9/24 の中間 Inspection と 10/1 月次で読む
+- 打ち手 3（同 PR）: R8 予想問題テーマ 6 本の `hideFromCategory` を外す（被リンク 1 本＝sitemap 中で最弱・6 本とも未登録）
+- 打ち手 4（ユーザー承認・同 PR）: `/standards/` の逐語分冊 `part-N` **133 件を sitemap から一時除外**（1,556→1,423）。実測は被リンク中央値 4 本・4 週で表示 104・クリック 3。近畿 `chapters/N` 43 件は IA 設計（05_情報アーキテクチャ.md）で検索の主導線なので残す。noindex ではなくページ・内部リンク・index 済み 25 件はそのまま。**復帰条件**: `/exam/` の索引率が 70% へ戻る、または 10/1 月次で再判断（`generate-sitemap.mjs` の除外 1 行を消すだけ）
+- 触らない: インターフェアリングフロート seoTitle 実験（8/26 開始・判定 9/23）
+- 次回: 9/24 頃に `index-coverage.yml` を workflow_dispatch で中間計測（quota 1,516/2,000）→ 10/1 月次で本判定。残る優先 URL（`.tmp/gsc-priority-urls.txt` の 43 件目以降）は日次上限 10 件で継続
+
+### 2026-09-18（週次・自動レビュー）
+
+- 観測: GSC 2026-08-18〜09-14（truncated:false・前週窓と約75%重複）／GA4 28日窓 08-20〜09-16。High-Impr-Low-CTR 138件・Rank-Stuck 57件・Hidden-Winner 66件・**Cannibalization 8件（前週4→倍増）**・Traffic-Drop 18件（/docs 旧 URL 主体・緩衝窓）・Orphan-Query 実質1〜2件・SNS-Source-Shift 1件・Content-Decay ✓ なし
+- 上位候補と推奨:
+  1. Cannibalization 悪化 — 前回「次回解消を確認」→ 未解消・4→8件へ倍増。`/docs/civil-construction-1-textbook-network-schedule`（impr 1114+316・clicks 3）が301先 `/exam/.../network-schedule`（impr 42+18）を上回り続ける。`public/_redirects` の301は正常＝Google 再クロール未反映
+  2. `/exam/civil-construction-1/textbook/pile-foundation-precast` — High-Impr-Low-CTR（新規・impr119・CTR0%・pos5.8）。5位台で0クリック、メタ実験（≤5URL・14〜28日）の有力候補
+  3. 「リスクマトリックス/マトリクス」Orphan-Query 拡大 — impr 計7→33・pos30台。専用キーワードページなし（risk-treatment 等の周辺のみ）。新設候補
+- 他 5 件 → improvements/2026-09-18.md（river-act 新規 High-Impr-Low-CTR・keyword-2026 実験は impr 倍増も CTR0% 継続・civil-construction-2 Hidden-Winner 2,976 へ拡大・x/social 23→3・youtube 0→8）
+- 自動裁定:
+  - 候補1: 保留（301 伝播待ち継続。再浮上条件＝次週も新旧併存が継続 → URL Inspection での現物確認へ切替を推奨）
+  - 候補2: 推奨=実験化候補（メタ実験枠 ≤5URL・14〜28日。一括変更はしない）
+  - 候補3: 推奨=実験化候補（コンテンツ新設＝メタ変更なしのため実験枠外で着手可）
+  - GA4 bot/テスト混入疑い（前回保留）: 4URL とも前週と完全一致＝窓内の静止残存で「継続流入」の再浮上条件未達 → 保留継続
+  - schedule-overview / secondary/r07（前回実験化候補）: 窓75%重複で数値変化なし → 推奨維持・新規動きなし
+- 注記: 自動生成（人間の上書き歓迎）。窓の75%重複により週次差分の解像度が低い点に留意。インターフェアリングフロート実験の判定期日 09-23 は次回確認

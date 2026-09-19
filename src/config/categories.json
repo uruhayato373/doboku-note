@@ -114,6 +114,18 @@
     "order": 2.6
   },
   {
+    "slug": "rccm",
+    "label": "RCCM",
+    "subtitle": "試験A・試験B（CBT）対策",
+    "description": "RCCM資格試験（建設コンサルタンツ協会）の対策。試験A（問題I 業務経験論文・問題II 択一）と試験B（問題III 管理技術力・問題IV 択一）の制度、公開テーマの読み解き、業務経験論文の書き方、CBT期間中の学習計画を、発注者としてコンサルタント業務を検査してきた技術士が整理したノート。過去問は事務局非公開のため問題文は掲載せず、対策記事で構成。",
+    "variant": "pe",
+    "area": "exam",
+    "groups": [
+      "guide"
+    ],
+    "order": 2.7
+  },
+  {
     "slug": "civil-practice",
     "label": "土木施工の実務",
     "subtitle": "現場の判断基準と管理値",

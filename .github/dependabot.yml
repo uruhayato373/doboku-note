@@ -1,0 +1,33 @@
+# Dependabot version updates（2026-09-17）。security updates はリポジトリ設定で別途有効。
+# npm は minor/patch をまとめて月 1 本（major は個別）。ERESOLVE のため CI は --legacy-peer-deps で
+# 入れている（code ルール）ので、Dependabot PR が落ちたら peer 依存を疑う。
+# github-actions は SHA 固定（check-workflow-hygiene）を保ったまま更新する。
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+      timezone: "Asia/Tokyo"
+    target-branch: "develop"
+    open-pull-requests-limit: 3
+    groups:
+      npm-minor-patch:
+        update-types: ["minor", "patch"]
+    labels: ["dependencies"]
+    ignore:
+      # TypeScript のメジャーはツールチェーン（typescript-eslint・Next の型プラグイン）の追随を待ってから手で上げる。
+      # 2026-09-19: 7.0.2 の PR #525 は tsconfig baseUrl 廃止（TS5102）＋ typescript-eslint クラッシュ（reading 'Cjs'）で赤。
+      - dependency-name: "typescript"
+        update-types: ["version-update:semver-major"]
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+      timezone: "Asia/Tokyo"
+    target-branch: "develop"
+    open-pull-requests-limit: 3
+    groups:
+      actions:
+        patterns: ["*"]
+    labels: ["dependencies"]

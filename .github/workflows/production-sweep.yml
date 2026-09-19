@@ -1,0 +1,95 @@
+name: Production sweep (all sitemap URLs)
+
+# 本番 deploy 成功後に sitemap 全 URL を実際に叩く。check-seo-build は out/ の検査で、
+# Cloudflare 層（_redirects・_headers・キャッシュ・R2 の og:image）は本番でしか見えない。
+# 検査内容と exit code は scripts/check-production-sweep.mjs ヘッダ、閾値は scripts/lib/production-sweep.mjs。
+# 失敗（本番異常 rc=1 / 検査不成立 rc=2）は automation-failure Issue に記録する。
+#
+# workflow_run はデフォルトブランチ（main）の版で動く。
+
+on:
+  workflow_run:
+    workflows: ["Deploy to production (Cloudflare Pages)"]
+    types: [completed]
+  schedule:
+    - cron: "30 20 * * 0" # UTC 20:30 日曜 = JST 05:30 月曜（weekly-review-guard の前）
+  workflow_dispatch:
+    inputs:
+      sample:
+        description: "先頭 N 件だけ（空なら全件）"
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+  issues: write # 本番異常を automation-failure Issue に記録する（限定例外）
+
+jobs:
+  sweep:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "20"
+
+      # deploy 直後は Cloudflare のエッジ伝播が数十秒遅れることがある。1 分待ってから叩く。
+      - name: Wait for edge propagation
+        if: ${{ github.event_name == 'workflow_run' }}
+        run: sleep 60
+
+      # 依存ゼロ（node:child_process + curl）なので npm ci しない。
+      - name: Sweep production
+        id: sweep
+        env:
+          SAMPLE: ${{ github.event.inputs.sample }}
+        run: |
+          set +e
+          ARGS=""
+          [ -n "$SAMPLE" ] && ARGS="--sample $SAMPLE"
+          node scripts/check-production-sweep.mjs $ARGS 2>&1 | tee /tmp/sweep.log
+          rc=${PIPESTATUS[0]}
+          set -e
+          echo "rc=$rc" >> "$GITHUB_OUTPUT"
+          {
+            echo "## Production sweep（rc=$rc）"
+            echo '```'
+            head -60 /tmp/sweep.log
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          exit "$rc"
+
+      - name: Report - production anomaly
+        if: failure() && github.event_name != 'workflow_dispatch'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          {
+            echo "本番全 URL スイープが失敗（rc=${{ steps.sweep.outputs.rc }}）。rc=1 は本番異常（非 200・転送元が sitemap に混入・canonical ずれ・og:image 欠落・セキュリティヘッダ不足）、rc=2 は検査不成立（sitemap 取得不可・接続失敗 5% 超）。"
+            echo ""
+            echo '```'
+            head -80 /tmp/sweep.log 2>/dev/null || echo "(log なし)"
+            echo '```'
+            echo ""
+            echo "- 再実行: \`gh workflow run production-sweep.yml\`（手元: \`npm run check-production-sweep -- --sample 50\`）"
+            echo "- 判定: \`scripts/lib/production-sweep.mjs\` / 実行: \`scripts/check-production-sweep.mjs\`"
+          } > /tmp/sweep-body.md
+          node scripts/report-automation-failure.mjs \
+            --channel production-sweep \
+            --title "本番スイープ失敗（rc=${{ steps.sweep.outputs.rc }}）" \
+            --body-file /tmp/sweep-body.md
+
+      # 全 URL が健全に戻ったら production-sweep channel の open Issue を自動クローズ（起票と対）。
+      - name: Resolve - production-sweep Issue (復旧)
+        if: success() && github.event_name != 'workflow_dispatch'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          node scripts/report-automation-failure.mjs --resolve --channel production-sweep \
+            --body "復旧 run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"

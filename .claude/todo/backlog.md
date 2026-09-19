@@ -21,11 +21,81 @@
 
 ## 🔴 高 — 来月中に着手
 
+### [DN-0255] index coverage の中間計測（index-coverage.yml を手動 dispatch）と #485 の判定
+タグ: [インフラ・計測] [種類:改善] [起票:2026-09-19] [期日:2026-09-24]
+
+**起点**: #485（index coverage 41.8%・3 週目）の主因は URL 移行後の再クロール待ちで、打ち手（#517 の sitemap 縮小 133 件・登録リクエスト 10 件・#518 の IndexNow）は 2026-09-19 に本番反映済み。効果は月次（10/1）まで見えないので、計画どおり 9/24 頃に中間計測を入れる（URL Inspection quota 1,516/2,000）。
+
+**やること**: `gh workflow run index-coverage.yml --ref main` → 完走後に `node .claude/scripts/check-coverage-thresholds.mjs` の結果と `gsc-management.md` 09-17 エントリの復帰条件（/exam の索引率 70%）を照合し、同エントリへ観測を 1 行追記する。閾値が緑なら #485 は --resolve で自動クローズ、赤なら 10/1 の本判定まで待つ理由を Issue に 1 行。
+
+**完了条件**: 中間計測の run が success で、gsc-management.md に 09-24 の観測行がある。
+
+### [DN-0237] RCCM 問題I 業務経験論文テンプレ・択一論点集 50 問・ココナラ 3 出品を CBT 期間内（〜10/31）に出す
+タグ: [収益化] [種類:制作] [起票:2026-09-16] [期日:2026-10-10]
+
+**起点**: 2026-09-15 に問題III 模範論文集（m770bef96b39f）を note 公開し EXP-009 を開始。計画 `~/.claude/plans/rccm-staged-reef.md` T2 の残商品。試験事実の SSOT は `content/note/RCCM/magazines/RCCM問題III-2026模範論文集/_facts-2026.md`。
+
+**やること**: (1) `rccm-mondai1-template`（¥1,980・`rccm-essay-writer type=mondai1` → `rccm-essay-qa`）を公開し RCCMもくじ nd297cb9b31e0 の問題I 節を実 URL に差し替える。(2) `rccm-takuitsu-yosou-50`（¥1,480・問1〜10 無料・全問自作・`content-qa`＋`note-fact-checker`）。(3) ココナラ `coconala-rccm-mondai3-tensaku` / `-mondai1-shindan` / `-mondai3-pdf` を `/coconala-publish --commit`（PDF は `magazine-pdf-builder`・印刷 PDF は Windows）。各公開時に `note-magazines.ts` published:true・`sales-recorder.md`・もくじ追記を同一 commit で。
+
+**完了条件**: 3 商品が note/ココナラでライブ、`verify-note-magazines` と `check-coconala-wiring` 緑、RCCMもくじに 3 節の実 URL。
+
+### [DN-0247] サイト新資格 `/exam/rccm/`（ガイド 7 本）を PR-1 で公開し、重点資格へ登録する
+タグ: [コンテンツ品質] [種類:制作] [起票:2026-09-16] [期日:2026-10-10]
+
+**起点**: PR #513 で ExamKey/カレンダー/エージェントの scaffold は入ったが、サイト面は無い（note マガジンの site 面は 総監 資格地図・1級 コンサル転職ガイドの MagazineCard 2 面のみ）。2027-03-01 合格発表・5 月申込期の検索流入を仕込む。
+
+**やること**: 計画 §PR-1 の Commit A（categories/home-exam-cards/tags/curriculum/doc-classifier/category-groups/sidebar-discovery/next-step/magazine-placement/note-mokuji/ogp-create/card 画像）→ B（CategoryPage/JumpNav/ExamCards/links/StructuredData/SearchFilters/ArticleFooter）→ C（`content/site/rccm/{guide-overview, guide-mondai3-themes-2026, guide-mondai1-keiken-ronbun, guide-mondai2-4-takuitsu, guide-study-plan, guide-eligibility-application, guide-difference-pe}` 各 ≥3,000 字・`civil-guide-writer category=rccm`→`guide-fact-checker`→`guide-qa`・exam-content-policy Part 4 メモ）。同時に `business-direction.json qualifications[]` へ rccm を追加し `seo-watchwords.json` に improve 候補 1 件以上（`seo-rank-watch-ci` が要求）。画像生成に課金ツールを使う前にユーザー確認。
+
+**完了条件**: `check-home-exam-coverage`/`check-content-taxonomy`/`check-category-curriculum`/`check-guide-length`/`quality:audit:ci`/`build` 緑、`npm run serve` で `/exam/rccm/` に `<main>`、deploy 後 `check-production-ssr` exit 0。
+
+### [DN-0248] 技術士 口頭試験対策（総監 完全版 ¥2,980・建設部門 新規 ¥1,980）を筆記合格発表当日に公開する
+タグ: [収益化] [種類:制作] [起票:2026-09-16] [期日:2026-10-26]
+
+**起点**: 7 月の購入者への再接触経路が note フォロー以外に無い（LINE はやらないと決定）。`content/note/技術士総監/口頭試験対策-完全版/article.md` は 33k 字の下書きで `[!todo] 運営者記入` 4 箇所が `hearing-sheet.md` H1〜H22 の回答待ち（人作業・10/10 目安）。
+
+**やること**: ヒアリング回答 → §8 と本文 3 箇所を書き換え → note meta＋`paidBoundary`（第 4 章 H2）→ `/note-prepublish-review` → `noteStatus: draft` で待機。建設部門版（R8 改訂コンピテンシー別想定問答）を親が下書き → `pe-secondary-exam-factcheck`＋`guide-fact-checker`。無料「筆記合格発表後にやること」総監/建設 各 1 本。発表日 D は engineer.or.jp の公式掲載で確認し `exam-calendar.json` へ入れてから、D 当日に 4 本公開・CTA 配線・X `2026-11-pe-oral.json`。
+
+**進捗（2026-09-17）**: 建設部門 口頭対策 `content/note/技術士建設部門/magazines/建設部門-口頭試験対策/article.md`（¥1,980・想定問答 33 問・guide-fact-checker 済・`noteStatus: draft`・SKU `pe-construction-oral-guide` published:false）と無料「筆記合格発表後にやること」総監/建設 2 本（draft）を作成済み。残り＝総監 完全版の hearing-sheet 反映と D 当日の公開・配線。
+
+**完了条件**: D 当日に 4 本ライブ、`audit-note-funnel` ドリフト 0、X 11 月計画が `check-x-campaign-plan` 緑。
+
+### [DN-0249] note 流入元・記事別 PV を月次で機械取得する `note-traffic-fetch` を新設し週次レビューへ配線する
+タグ: [インフラ・計測] [種類:改善] [起票:2026-09-16] [期日:2026-10-05]
+
+**起点**: 2026-09-15 の手動 Playwright 実測で「収益は note 内回遊＋検索直で 73〜80%、X 0.2%、サイト経由は noreferrer で不可視」が判明（memory `note-traffic-sources-2026-09`）。business-direction の notePv は欠測のまま。EXP-010 の判定にも要る。
+
+**やること**: `scripts/note-traffic-fetch.mjs`（`note-sales-fetch.mjs` を型に read-only: `/dashboard` → 期間 → 「時系列」→ データテーブル innerText）＋ `scripts/lib/note-traffic-normalize.mjs`（純関数・test）→ `.claude/state/metrics/note/referrers-YYYY-MM.json`・`articles-pv-YYYY-MM.json`。`package.json`・commands.md・`quality-audit.mjs`（`--check` モード）・`weekly-review/SKILL.md`・`business-review.md`（notePv の出典）に配線。
+
+**完了条件**: `npm run note-traffic-fetch -- --month 2026-09 --commit` で 2 ファイルが書かれ、検査対象数/実検査数を出力、test 緑、週次レビューが参照。
+
+
+### [DN-0250] 1級・2級 二次直前の note CTA 切替（〜10/4・〜10/25）と試験後の無料フォロー記事
+タグ: [収益化] [種類:改善] [起票:2026-09-16] [期日:2026-10-26]
+
+**起点**: 計画 T1。civil-1-keiken-complete-pack（¥9,800）は直近 2 件実売。**2026-09-16 実査**: ローカルの note-funnel `topCtaOverrides`（1級 `m150c9db08902` 完成答案集 ¥2,480）は 2026-09-06 の commit f02bcdd1e で切り替えたが note へ未反映（`check-note-republish` の civil ドリフト約 250 本の正体）。**ライブは完全攻略パック（m8290970a7f05）のまま**＝直前期に望ましい状態なので、10/4 までは触らない。
+
+**やること**: 10/4 までライブ（完全攻略パック）を維持。10/5 以降に 9/6 の低価格先出し方針（完成答案集→上位パック）を採るか判断してから `note-update-body` で反映する（ドリフト 250 本の一括反映は内容を確認してから）。2級は 10/25 まで同様に据え置き。試験後に無料「R8 二次 自己採点の目安と合格発表までにやること」を各級 1 本（会員ラボ・次年度導線）。
+
+**完了条件**: 切替と復帰がそれぞれ `audit-note-funnel` 緑でライブ反映され、無料 2 本が公開。
 
 
 
 
 
+
+
+
+
+
+
+### [DN-0246] 会員 経験記述 W8〜W11 を公開日後に特典マガジン mbe07bd5cecda へ収録する
+タグ: [収益化] [種類:定期] [起票:2026-09-17] [期日:2026-09-29]
+
+**起点**: 2026-09-17 に W8〜W11 を `note-publish --schedule` で予約投稿した（README 配信表・`noteStatus: reserved`）。予約中の記事は `note-magazine-add-articles` で収録できない（exit 7・実測）ため、公開後に手動で収録する必要がある。
+
+**やること**: 各公開日の後に `node scripts/note-magazine-add-articles.mjs --target mbe07bd5cecda --notes <key> --commit`。W8 `n8acfea17f953`（9/19）／W9 `ne3cf6dac882f`（9/22）／W10 `n1911131aa726`（9/24）／W11 `n64f9653dc30c`（9/28）。学科09/10・添削01 は単独記事なので収録不要。
+
+**完了条件**: 特典マガジンの収録が 7→11 件（API 実体確認）・`npm run check-membership-drip` 緑。
 ### [DN-0235] develop への push で赤くなる CI（quality audit + build）に読み手を付ける
 タグ: [エージェント・SSOT] [種類:不具合] [起票:2026-09-14]
 
@@ -157,6 +227,41 @@ CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認し
 **完了条件**: 各行の実体が解消したら行ごと消し、全行が消えたらカードを削除する。
 
 ## 🟡 中 — 2〜3ヶ月以内
+
+### [DN-0252] 実験期限 surfacer の重複（check-experiment-due / check-experiments-due）を 1 本に統合する
+タグ: [エージェント・SSOT] [種類:改善] [起票:2026-09-19]
+
+**起点**: 2026-09-19 の配線棚卸しで、`experiments.json` の再計測・裁定期限を判定する surfacer が 2 本あり（`check-experiment-due` は weekly-review-guard が週次実行、`check-experiments-due` は週次スキル内だけ）、同日に両方が EXP-005 / EXP-008 を「要対応」と出していた。CLAUDE.md §7「同じ判定を複数箇所に実装しない」の型。
+
+**やること**: 判定ロジックを 1 本（`scripts/lib/`）へ集約し、npm script は 1 つに減らす。weekly-review SKILL と guard の参照を同一 commit で更新（check-command-guidance / gate-parity が止める）。
+
+**完了条件**: `npm run check-experiment-due` だけが残り、`tests/` に期限判定の回帰テストがある。
+
+### [DN-0253] アフィリ基線レポート（report-career-funnel / report-buildjob-affiliate）を月次レビューへ配線する
+タグ: [収益化] [種類:改善] [起票:2026-09-19]
+
+**起点**: 2026-09-19 の配線棚卸しで、GA4 snapshot ベースのアフィリ基線レポート 2 本がどこからも呼ばれていなかった（EXP-008 の申し送り「deploy から 28 日後に report-career-funnel を再実行」も未処理）。転職アフィリの継続判定（DN-0120）に必要な材料が機械で供給されていない。
+
+**やること**: monthly-review SKILL の収益節に 2 本を組み込み（結果を読む・LLM が解釈する）、`--check` モードを quality-audit へ登録して実行可能性を CI で担保する（code ルール「検出器そのものが無い領域が最も危険」）。
+
+**完了条件**: 月次レビューに 2 本の出力節があり、quality-audit に `--check` が ci:true で載っている。
+
+### [DN-0251] dark モードの色コントラスト不足 29 箇所を直し、a11y ベースラインをゼロへ締める
+タグ: [コンテンツ品質] [種類:不具合] [検証:test:e2e:a11y] [起票:2026-09-17]
+
+**起点**: axe（WCAG 2.1 AA）を代表 8 ページ×light/dark で回したところ、色コントラスト（serious）が 29 ノード。critical（検索の消去ボタンに名前なし）と scrollable-region-focusable は同 PR で修正済み。コントラストは `e2e/a11y-baseline.json` にラチェットとして固定し、悪化だけ止めている。
+
+**実測**（`.tmp/axe-contrast.mjs`・本番）:
+- dark: `bg-brand` + `text-white`（brand が dark で `#93b8e0` に反転）= 2.06 — 「note 限定」バッジ・note CTA アンカー（r06 ×12・alarp ×3）
+- dark: バッジ `text-white` on `#80858f` = 3.7 — KW 記事右上の管理分類バッジ・textbook の章バッジ（×4）
+- dark: `--color-positive` 系 `#86efac` + `text-white` = 1.4 — keiken-charcount の判定ピル
+- light/dark 共通: `--hero-cta-button #12886f` on white = 4.39（要 4.5）— secondary/r06 の CTA ×6
+- light/dark 共通: `--ink-muted #697080` on `#edf3fa` = 4.44 / dark `#80858f` on `#1d2836` = 4.02 — 章番号・ラベル小文字
+
+**やること**: dark で `text-white` を使うバッジ／CTA は `dark:text-[var(--ink-strong)]` か背景を濃色トークンにする（design-system.md の色選定・page-design-builder → /design-review）。`--hero-cta-button` と `--ink-muted` は数値を 1〜2 段だけ濃くして 4.5 を満たす。直したら `npm run test:e2e:a11y:baseline` で減った件数を commit（増やす更新はしない）。
+
+**完了条件**: `e2e/a11y-baseline.json` の全キーが `{}`（serious 0）で `npm run test:e2e:a11y` が緑。
+
 ### [DN-0238] ビジュアルリグレッション（Playwright toHaveScreenshot）を代表テンプレに入れる
 タグ: [コンテンツ品質] [種類:改善] [起票:2026-09-17]
 
@@ -493,3 +598,13 @@ Drive台帳・vault・Drive APIの照合前にローカル実体を削除しな�
 
 
 ## 🟣 判断待ち — ユーザーの意思決定が必要
+
+### [DN-0254] Instagram 公開照合（verify-ig-status）を CI 週次へ移すか（Meta アクセストークンを GitHub Secrets に置くかの判断）
+タグ: [SNS・マーケ] [種類:改善] [起票:2026-09-19]
+
+**起点**: 2026-09-19 の配線棚卸しで、IG の公開状態照合は週次スキル内だけで（ローカル・Meta 認証）、YouTube（verify-yt-status.yml・週次 CI）と違って機械で回っていない。CI 化には長期トークンを Secrets に置く必要があり、漏洩時の影響（投稿権限）と運用（60 日更新）を運営者が判断する。
+
+**選択肢**: (a) Secrets に置いて verify-yt-status.yml と同型の週次 workflow にする / (b) ローカル週次のまま（現状）で、SessionStart の催促に組み込む。
+
+**完了条件**: どちらかを選び、(a) なら workflow と secret 名を ci-cd-security-hardening.md に記録、(b) なら本カードを閉じて weekly-review SKILL に「ローカル限定」と明記（既に記載あり）。
+

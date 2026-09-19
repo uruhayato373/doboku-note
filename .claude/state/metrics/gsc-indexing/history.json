@@ -180,6 +180,92 @@
         "civil-construction-1-textbook-management-subplans",
         "civil-construction-1-textbook-site-investigation"
       ]
+    },
+    {
+      "runId": "2026-09-17T06-52-02Z",
+      "collectedAt": "2026-09-17T06:52:02.697Z",
+      "mode": "dry-run",
+      "status": "dry-ok",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 11,
+      "accepted": 0,
+      "alreadyIndexed": 10,
+      "unreadable": 0,
+      "slugs": [
+        "/exam/civil-construction-1/secondary/r06",
+        "/exam/pe-comprehensive-management/keywords/fool-proof",
+        "/exam/pe-comprehensive-management/keywords/root-cause-analysis",
+        "/exam/pe-comprehensive-management/keywords/vta-method",
+        "/exam/civil-construction-1/guide/buildjob-review",
+        "/exam/pe-construction/keywords/river-coast-exam-themes",
+        "/exam/pe-comprehensive-management/keywords/alarp-principle",
+        "/exam/pe-comprehensive-management/keywords/mentor",
+        "/exam/civil-construction-2/secondary/r07",
+        "/exam/pe-construction/keywords/tunnel-exam-themes",
+        "/exam/civil-construction-1/primary/r04-a"
+      ]
+    },
+    {
+      "runId": "2026-09-17T06-53-24Z",
+      "collectedAt": "2026-09-17T06:53:24.807Z",
+      "mode": "commit",
+      "status": "ok",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 31,
+      "accepted": 10,
+      "alreadyIndexed": 18,
+      "unreadable": 0,
+      "slugs": [
+        "/exam/civil-construction-2/secondary/r07",
+        "/exam/pe-comprehensive-management/keywords/break-even-point",
+        "/exam/pe-comprehensive-management/keywords/predictive-maintenance",
+        "/exam/pe-construction/guide/hissu-kamoku-kaitourei",
+        "/exam/pe-comprehensive-management/keywords/green-infrastructure",
+        "/exam/pe-construction/keywords/urban-planning-exam-themes",
+        "/exam/pe-construction/keywords/steel-concrete-exam-themes",
+        "/exam/pe-construction/past-exams/r01-construction-planning",
+        "/exam/civil-construction-1/secondary/earthwork-past-problems",
+        "/exam/civil-construction-1/guide/vs-pe",
+        "/exam/pe-construction/past-exams/r07-geotechnical",
+        "/exam/civil-construction-2/guide/schedule-management",
+        "/exam/civil-construction-1/secondary/getting-started",
+        "/exam/civil-construction-1/textbook/law-compliance",
+        "/exam/pe-first-stage/primary/r06-basic",
+        "/exam/pe-comprehensive-management/past-exams/r06-primary",
+        "/exam/civil-construction-1/primary/r05-b",
+        "/exam/civil-construction-1/textbook/safety-work-environment",
+        "/exam/pe-first-stage/primary/r07-basic",
+        "/exam/pe-comprehensive-management/keywords/pmbok",
+        "/exam/pe-construction/past-exams/r06-road",
+        "/practice/subbase-subgrade-control",
+        "/practice/backfill-river-excavation",
+        "/exam/pe-comprehensive-management/keywords/lopa",
+        "/exam/pe-construction/keywords/road-exam-themes",
+        "/exam/concrete-chief-engineer/textbook/products",
+        "/exam/pe-construction/keywords/geotechnical-exam-themes",
+        "/exam/pe-construction/past-exams/r07-construction-planning",
+        "/exam/pe-first-stage/primary/r03-aptitude",
+        "/exam/pe-construction/past-exams/r07-urban-planning",
+        "/exam/pe-construction/past-exams/r05-urban-planning"
+      ],
+      "acceptedSlugs": [
+        "/exam/civil-construction-2/secondary/r07",
+        "/exam/pe-construction/guide/hissu-kamoku-kaitourei",
+        "/exam/pe-construction/keywords/urban-planning-exam-themes",
+        "/exam/pe-construction/keywords/steel-concrete-exam-themes",
+        "/exam/civil-construction-1/guide/vs-pe",
+        "/exam/civil-construction-1/secondary/getting-started",
+        "/exam/pe-first-stage/primary/r06-basic",
+        "/exam/pe-first-stage/primary/r07-basic",
+        "/exam/pe-comprehensive-management/keywords/pmbok",
+        "/exam/concrete-chief-engineer/textbook/products"
+      ]
     }
   ]
 }
