@@ -1,0 +1,17 @@
+{
+  "srcDir": "content/note/技術士建設部門/magazines/建設部門-口頭試験対策",
+  "outDir": ".tmp/persona-expansion-pdfs/建設部門-口頭試験対策",
+  "deliverTo": "in-place",
+  "articles": [
+    {
+      "src": "article.md",
+      "out": "建設部門-口頭試験対策-想定33問",
+      "include": [
+        {
+          "from": "^## 1\\. 口頭試験の全体像",
+          "to": "^口頭試験は、業務経歴票「業務内容の詳細」720字以内が出発点になります。"
+        }
+      ]
+    }
+  ]
+}

@@ -18,6 +18,12 @@ const ROOT = 'content/note/技術士総監/magazines';
 const args = process.argv.slice(2);
 const STRICT = args.includes('--strict');
 const only = args.find((a) => !a.startsWith('--'));
+const structure = JSON.parse(readFileSync('.claude/config/cem-essay-structure.json', 'utf8'));
+const pastExamOnly = structure.pastExamOnlyPersonas;
+if (!pastExamOnly || Array.isArray(pastExamOnly) || typeof pastExamOnly !== 'object'
+    || Object.entries(pastExamOnly).some(([key, reason]) => !key.startsWith('総監模範論文-') || typeof reason !== 'string' || reason.length < 6)) {
+  throw new Error('cem-essay-structure.json の過去問商品設定が不正です');
+}
 
 function headings(file) {
   if (!existsSync(file)) return null;
@@ -62,11 +68,16 @@ const personas = only
   : readdirSync(ROOT).filter((d) => d.startsWith('総監模範論文-'));
 
 let total = 0;
+let inspected = 0;
+let expected = 0;
+if (!personas.length) throw new Error('検査対象のペルソナが0件です');
 for (const p of personas) {
   const lines = [];
   for (const y of ['R03', 'R04', 'R05', 'R06', 'R07']) {
+    expected++;
     const hs = headings(join(ROOT, p, y, 'article.md'));
     if (!hs) { lines.push(`  ${y}: 記事欠落`); total++; continue; }
+    inspected++;
     const iss = checkPastYear(hs);
     if (iss.length) { lines.push(`  ${y}: ${iss.join(' / ')}`); total += iss.length; }
   }
@@ -74,6 +85,9 @@ for (const p of personas) {
   // 旧形式（単一 R08-yosou に2問併記）は要2記事化として違反扱い。
   const r1 = headings(join(ROOT, p, 'R08-yosou-1', 'article.md'));
   const r2 = headings(join(ROOT, p, 'R08-yosou-2', 'article.md'));
+  const forecastRequired = !Object.hasOwn(pastExamOnly, p);
+  expected += forecastRequired || r1 || r2 ? 2 : 0;
+  inspected += Number(Boolean(r1)) + Number(Boolean(r2));
   if (r1 && r2) {
     for (const [slug, hs] of [['R08-yosou-1', r1], ['R08-yosou-2', r2]]) {
       const iss = checkPastYear(hs); // R08記事も過去問型（試験問題/A案/B案/設問1-3/採点者）
@@ -82,12 +96,12 @@ for (const p of personas) {
   } else if (headings(join(ROOT, p, 'R08-yosou', 'article.md'))) {
     lines.push('  R08: 旧単一記事（R08-yosou）。新標準=予想問題ごと R08-yosou-1/-2 の2記事×A/B案へ分割が必要');
     total++;
-  } else {
+  } else if (forecastRequired || r1 || r2) {
     lines.push('  R08予想: 記事欠落（R08-yosou-1 / R08-yosou-2）'); total++;
   }
 
   if (lines.length) { console.log(`\n✗ ${p.replace('総監模範論文-', '')}`); lines.forEach((l) => console.log(l)); }
   else if (only) console.log(`✓ ${p.replace('総監模範論文-', '')}: 構造不変条件すべて満たす`);
 }
-console.log(`\n見出し構成 違反: ${total}`);
+console.log(`\n対象 ${personas.length} 商品 / 予定 ${expected} 記事 / 実検査 ${inspected} 記事 / 見出し構成 違反: ${total}`);
 if (STRICT && total > 0) process.exit(1);

@@ -50,7 +50,7 @@ cover:
 
 https://note.com/dobokunote/m/m6e7de5e4ea3d
 
-**総監記述式 完全パック**（型×設問3×予想×全ペルソナ＋精読の全部入り）— 迷わず全部そろえたい人向けの最上位。コアパックの中身に加え、14の立場別模範論文と精読ガイドまでを含みます。
+**総監記述式 完全パック**（型×設問3×予想×全ペルソナ＋精読の全部入り）— 迷わず全部そろえたい人向けの最上位。コアパックの中身に加え、20の立場別模範論文と精読ガイドまでを含みます。
 
 単品で買い集めるより割安に、総監の記述式対策を一望できます。
 
@@ -62,7 +62,7 @@ https://note.com/dobokunote/m/m6854c7437d4d
 
 ---
 
-## あなたの立場の模範論文（14ペルソナ）
+## あなたの立場の模範論文（20ペルソナ）
 
 総監の記述式は「自分の立場でどう書くか」で説得力が変わります。あなたの職種・部署に最も近い1本を選んでください。
 
@@ -73,6 +73,17 @@ https://note.com/dobokunote/m/m6854c7437d4d
 自治体（発注者）系 — [道路](https://note.com/dobokunote/m/m52186ffd12ca)／[河川](https://note.com/dobokunote/m/m32a8a5b3b473)／[砂防](https://note.com/dobokunote/m/m7cd44bf57187)／[都市計画](https://note.com/dobokunote/m/mf8c77e995511)／[契約・調達](https://note.com/dobokunote/m/m55b930cbfcf9)／[技術基準](https://note.com/dobokunote/m/mf9f281e2cb32)／[上水道](https://note.com/dobokunote/m/mf4c6792b4f9c)／[下水道](https://note.com/dobokunote/m/mf1cbc32d53aa)／[港湾](https://note.com/dobokunote/m/mf762f616c065)／[公園緑地](https://note.com/dobokunote/m/m6d1810e50b0a)
 
 ---
+
+### 受注者の立場をさらに選ぶ
+
+土質基礎コンサル・上下水道コンサル・維持更新施工・鋼コンコンサル・トンネルコンサル・道路舗装施工は、令和3〜7年度の各年A・B案を収録しています。これら6セットは完全パックにも含まれます。完全パックを購入済みの方は追加購入不要です。
+
+- [土質基礎コンサル](https://note.com/dobokunote/m/mcfcab1d96ed4)
+- [上下水道コンサル](https://note.com/dobokunote/m/me0255472f9ed)
+- [維持更新施工](https://note.com/dobokunote/m/mabf26d2c72fb)
+- [鋼コンコンサル](https://note.com/dobokunote/m/m4748140fa8aa)
+- [トンネルコンサル](https://note.com/dobokunote/m/m0e0e97176181)
+- [道路舗装施工](https://note.com/dobokunote/m/mb671a0340871)
 
 ## 共通装備（テーマを問わず効く土台）
 
@@ -105,6 +116,12 @@ https://note.com/dobokunote/m/m6854c7437d4d
 - 有料版は、上の「有料マガジン」の R8予想問題集・コアパックに収録しています。
 
 ---
+
+### 筆記の次は口頭試験の準備へ
+
+想定25問、週次準備ロードマップ、3つの架空事例と記入ワークで、自分の業務を総監の視点から説明する練習ができます。口頭試験対策は記述式完全パックとは別売です。
+
+- [総監 口頭試験対策・完全準備](https://note.com/dobokunote/n/n6992933e3caf)
 
 ## 無料で全体像をつかむ
 

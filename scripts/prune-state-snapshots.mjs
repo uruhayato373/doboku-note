@@ -129,4 +129,4 @@ function main() {
   return failed ? 1 : 0;
 }
 
-process.exit(main());
+process.exitCode = main();

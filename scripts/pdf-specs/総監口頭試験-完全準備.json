@@ -1,0 +1,20 @@
+{
+  "srcDir": "content/note/技術士総監/口頭試験対策-完全版",
+  "outDir": ".tmp/persona-expansion-pdfs/総監口頭試験-完全準備",
+  "deliverTo": "in-place",
+  "articles": [
+    {
+      "src": "article.md",
+      "out": "総監口頭試験-完全準備-想定25問",
+      "include": [
+        {
+          "from": "^## 2\\. 口頭試験の全体像",
+          "to": "^<!-- cta:tankan-mokuji -->"
+        },
+        {
+          "from": "^経歴票の書き方そのものを見直したい方は"
+        }
+      ]
+    }
+  ]
+}

@@ -141,9 +141,9 @@ npm run report-note-funnel-efficiency
 | 1級2級土木 学科記述セット | `civil-1-gakka-kijutsu`（¥2,480）/ `civil-2-gakka-kijutsu`（¥1,980） |
 | 1級土木 二次まるごとパック | `civil-1-niji-marugoto-pack`（¥11,800・110記事バンドル・2026-09-16 に模試3回＋出題分析を追加） |
 | 1級土木 直前総仕上げパック | `civil-1-chokuzen-pack`（¥2,980・模試3回＋暗記＋出題分析の 3 記事） |
-| 2級土木 二次まるごとパック | `civil-2-niji-marugoto-pack`（¥8,800・78記事バンドル） |
+| 2級土木 二次まるごとパック | `civil-2-niji-marugoto-pack`（¥8,800・79記事バンドル） |
 | 2級土木 直前総仕上げパック | `civil-2-chokuzen-pack`（¥2,480・模試3回＋暗記＋出題分析の 3 記事） |
-| RCCM まるごとパック | `rccm-marugoto-pack`（¥5,980・問題I〜IV 9 記事） |
+| RCCM まるごとパック | `rccm-marugoto-pack`（¥5,980・問題I〜IV 16記事） |
 | コンクリート主任技士 小論文 | `cce-essay-magazine`（¥2,480・5本）/ `cce-essay-persona-pack`（¥5,980・33本・実務立場別） |
 
 ### 単品記事
@@ -157,6 +157,8 @@ npm run report-note-funnel-efficiency
 | 総監 計算問題 | `article:tankan-calc-6patterns` |
 | 総監 トレードオフ単品 | `article:tradeoff-information-management` |
 | 2級土木 経験記述 | `article:civil-2-pastexam-essay-r06` |
+| 2級土木 小規模地域インフラ4工事 | `article:civil-2-small-infra-4` |
+| RCCM 問題I 部門別業務経験例 | `article:rccm-mondai1-{road\|river-coast\|steel-concrete}` |
 | 建設部門 道路 単品 | `article:bk-01-road-r8-yosou-ii1` |
 | 建設部門 他科目 R8予想単品 | `article:bk-{subject}-r8-yosou-{ii1\|ii2\|iii}`（例: `bk-steel-concrete-r8-yosou-ii1` / `bk-port-airport-r8-yosou-ii2` / `bk-environment-r8-yosou-iii`） |
 | 建設部門 過去問単品 | `article:bk-i-r07-required`（必須科目I R07 等） |

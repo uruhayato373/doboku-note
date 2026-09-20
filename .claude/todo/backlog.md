@@ -48,16 +48,14 @@
 
 **完了条件**: `check-home-exam-coverage`/`check-content-taxonomy`/`check-category-curriculum`/`check-guide-length`/`quality:audit:ci`/`build` 緑、`npm run serve` で `/exam/rccm/` に `<main>`、deploy 後 `check-production-ssr` exit 0。
 
-### [DN-0248] 技術士 口頭試験対策（総監 完全版 ¥2,980・建設部門 新規 ¥1,980）を筆記合格発表当日に公開する
+### [DN-0248] 技術士 口頭試験対策の無料導入2本と告知を筆記合格発表日に公開する
 タグ: [収益化] [種類:制作] [起票:2026-09-16] [期日:2026-10-26]
 
-**起点**: 7 月の購入者への再接触経路が note フォロー以外に無い（LINE はやらないと決定）。`content/note/技術士総監/口頭試験対策-完全版/article.md` は 33k 字の下書きで `[!todo] 運営者記入` 4 箇所が `hearing-sheet.md` H1〜H22 の回答待ち（人作業・10/10 目安）。
+**起点**: 7月の購入者へ、筆記の結果に応じた次の準備を案内する。送客先の有料教材と価格・公開URLは `src/lib/note-magazines.ts` の `tankan-oral-complete` / `pe-construction-oral-guide` を参照する。
 
-**やること**: ヒアリング回答 → §8 と本文 3 箇所を書き換え → note meta＋`paidBoundary`（第 4 章 H2）→ `/note-prepublish-review` → `noteStatus: draft` で待機。建設部門版（R8 改訂コンピテンシー別想定問答）を親が下書き → `pe-secondary-exam-factcheck`＋`guide-fact-checker`。無料「筆記合格発表後にやること」総監/建設 各 1 本。発表日 D は engineer.or.jp の公式掲載で確認し `exam-calendar.json` へ入れてから、D 当日に 4 本公開・CTA 配線・X `2026-11-pe-oral.json`。
+**やること**: 総監・建設部門の無料「筆記合格発表後にやること」2本を公開前に事実照合し、旧「有料教材は公開予定」表記を公開済みURLへの案内へ直す。総監の成績通知の評価区分、口頭試験の試問事項、業務内容の詳細720字以内、建設部門のコンピテンシー改訂の説明を一次資料と照合する。発表日Dは日本技術士会の公式掲載と `exam-calendar.json` を突合し、D当日に無料2本を公開してL2へ配線する。X告知は `2026-11-pe-oral.json` にまとめる。
 
-**進捗（2026-09-17）**: 建設部門 口頭対策 `content/note/技術士建設部門/magazines/建設部門-口頭試験対策/article.md`（¥1,980・想定問答 33 問・guide-fact-checker 済・`noteStatus: draft`・SKU `pe-construction-oral-guide` published:false）と無料「筆記合格発表後にやること」総監/建設 2 本（draft）を作成済み。残り＝総監 完全版の hearing-sheet 反映と D 当日の公開・配線。
-
-**完了条件**: D 当日に 4 本ライブ、`audit-note-funnel` ドリフト 0、X 11 月計画が `check-x-campaign-plan` 緑。
+**完了条件**: 無料2本がライブ、有料教材へのリンクが公開URLと一致、`audit-note-funnel` ドリフト0、X11月計画が `check-x-campaign-plan` 緑。
 
 ### [DN-0249] note 流入元・記事別 PV を月次で機械取得する `note-traffic-fetch` を新設し週次レビューへ配線する
 タグ: [インフラ・計測] [種類:改善] [起票:2026-09-16] [期日:2026-10-05]
