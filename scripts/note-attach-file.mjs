@@ -16,6 +16,7 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
  *
  * 使い方:
  *   node scripts/note-attach-file.mjs --note <noteKey> --file <pdf path>            # probe
+ *   node scripts/note-attach-file.mjs --note <noteKey> --file <pdf path> --draft-only # 下書きへ添付して保存
  *   node scripts/note-attach-file.mjs --note <noteKey> --file <pdf path> --commit   # 実保存
  *
  * 安全弁（収益アカウント）: account=dobokunote assert / 既定 probe /
@@ -37,12 +38,15 @@ const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 const argv = process.argv.slice(2);
 const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : null; };
 const COMMIT = argv.includes('--commit');
+const DRAFT_ONLY = argv.includes('--draft-only');
+const MUTATE = COMMIT || DRAFT_ONLY;
 const FORCE = argv.includes('--force'); // 既存PDFカードがあっても添付する（1記事に複数PDFを順に添付する用）
 const ANCHOR = getArg('--anchor'); // 指定テキストを含む最小段落の直後へ挿入（省略時は本文末尾）。未検出は ABORT（誤挿入回避）
 let wasFreeArticle = false; // 無料記事（有料エリア設定なし）を検出したら true。後段の有料維持検証をスキップ。
 const NOTE = getArg('--note');
 const FILE = getArg('--file');
 if (!NOTE || !FILE) { console.error('--note <key> --file <pdf> required'); process.exit(1); }
+if (COMMIT && DRAFT_ONLY) { console.error('--commit と --draft-only は同時指定できません'); process.exit(1); }
 // 有料境界の見出し regex（H2 innerText 先頭一致）。既定=総監/建設の「試験問題/予想問題」。
 // 他コンテンツ型（例: 直前暗記ノート）は --boundary-regex で上書き（note-publish の paidBoundary と対応）。
 const BOUNDARY = getArg('--boundary-regex') || '試験問題|予想問題';
@@ -58,7 +62,7 @@ if (!existsSync(fileAbs)) {
     process.exit(1);
   }
 }
-console.log(`[prep] note=${NOTE} file=${fileAbs} mode=${COMMIT ? 'COMMIT' : 'PROBE'}`);
+console.log(`[prep] note=${NOTE} file=${fileAbs} mode=${COMMIT ? 'COMMIT' : DRAFT_ONLY ? 'DRAFT_ONLY' : 'PROBE'}`);
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
@@ -88,7 +92,7 @@ try {
   const already = await page.evaluate(() => /\.pdf/i.test(document.querySelector('[contenteditable=true]')?.innerText || ''));
   console.log('[2.5] 既存PDFカード=' + already);
 
-  if (!COMMIT) {
+  if (!MUTATE) {
     // PROBE: 本文末尾に空段落 → メニューを開いて項目ダンプのみ（保存しない）
     await page.click('[contenteditable=true]'); await sleep(500);
     await page.keyboard.press('Control+End'); await sleep(500);
@@ -102,7 +106,7 @@ try {
     console.log('PROBE のみ（--commit で添付保存）'); await ctx.close(); process.exit(0);
   }
 
-  // ===== COMMIT: （未添付 or --force なら）ファイル添付 → 再公開 =====
+  // ===== MUTATE: （未添付 or --force なら）ファイル添付 → 下書き保存または再公開 =====
   if (!already || FORCE) {
     // 3. 本文末尾へ → 空段落 →「+」→ ファイル → native filechooser で PDF
     //    ※ Control+End は Windows 専用ショートカットで Mac では効かず、caret が先頭のまま
@@ -156,6 +160,19 @@ try {
   } else {
     console.log('[3-4] 既添付のため添付スキップ → 再公開のみ実行（live 反映保証）');
   }
+
+  if (DRAFT_ONLY) {
+    const draft = page.getByRole('button', { name: '下書き保存', exact: true });
+    if (!(await draft.count())) { console.error('ABORT: 下書き保存 未検出'); await ctx.close(); process.exit(6); }
+    await draft.first().click(); await sleep(3500);
+    console.log('[5d] PDF 添付済み下書きを保存');
+    await page.goto(`https://editor.note.com/notes/${NOTE}/edit/`, { waitUntil: 'domcontentloaded', timeout: 60000 });
+    await page.waitForSelector('[contenteditable=true]', { timeout: 30000 }); await sleep(2500);
+    const persisted = await page.evaluate(() => /\.pdf/i.test(document.querySelector('[contenteditable=true]')?.innerText || ''));
+    console.log('[5d] 再読込後PDFカード=' + persisted);
+    if (!persisted) { console.error('[5d] ★偽成功: 下書き再読込後にPDFカードが無い★'); exitCode = 9; }
+    await page.screenshot({ path: join(ROOT, '.tmp/attach-draft-done.png'), fullPage: false }).catch(() => {});
+  } else {
 
   // 5. 公開に進む
   const next = page.getByRole('button', { name: '公開に進む' });
@@ -259,6 +276,7 @@ try {
       exitCode = 9;
     }
   }
+  }
 } finally { await ctx.close(); }
 
 // ===== 偽成功ガード: 公開ページで「有料のまま」を実体検証（無料記事は非該当） =====
@@ -275,7 +293,7 @@ if (COMMIT && exitCode === 0 && !wasFreeArticle) {
 }
 // 添付が live に載ったらアセット hash を in-sync 化する。--note しか受け取らないので、
 // PDF の置き場（記事 dir）から noteId 一致の article*.md を逆引きしてキーにする。
-if (exitCode === 0) {
+if (COMMIT && exitCode === 0) {
   try {
     const dir = dirname(fileAbs).replace(/\\/g, '/');
     const cands = [dir, dir.replace(/\/pdf$/, '')];

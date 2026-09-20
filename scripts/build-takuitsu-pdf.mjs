@@ -84,8 +84,17 @@ async function preprocess(body, images, imageSrc) {
   const push = (html) => { tokens.push(html); return TOK(tokens.length - 1) }
   let out = body
 
+  // MDX の実装コメントは紙面へ出さない。
+  out = out.replace(/\{\/\*[\s\S]*?\*\/\}/g, '')
+
   // RelatedKeywords（サイト内リンク）は Kindle/PDF に不要 → 除去
   out = out.replace(/<RelatedKeywords[\s\S]*?\/>/g, '')
+
+  // Callout はタイトル付き要点ボックスへ変換する。生タグの紙面流出を防ぐ。
+  out = out
+    .replace(/<Callout\s+[^>]*title="([^"]*)"[^>]*>/g, (_, title) =>
+      push(`<div class="exampoint"><p class="ep-head"><strong>${xesc(title)}</strong></p>`))
+    .replace(/<\/Callout>/g, () => push('</div>'))
 
   // ArticleImage → img（webp/png は sharp で JPEG 化し base64 埋め込み）
   const imgTasks = []
@@ -319,10 +328,11 @@ async function main() {
   const { chapters, qTotal, mathChaps } = await renderSources(spec, images, imageSrc)
 
   const examName = spec.examName || DEFAULT_EXAM
+  const credit = spec.creditText || creditBody(examName, spec.creditIssuer)
   const coverHtml = `<div class="cover"><h1>${xesc(spec.title)}</h1>
 <p class="sub">― ${xesc(spec.subtitle)} ―</p><p class="author">${xesc(AUTHOR)}</p></div>`
   const creditHtml = `<div class="front"><h1>出典・免責</h1>
-<p class="credit"><strong>出典</strong><br/>${xesc(creditBody(examName, spec.creditIssuer))}</p>
+<p class="credit"><strong>出典</strong><br/>${xesc(credit)}</p>
 <p class="credit"><strong>免責</strong><br/>${xesc(DISCLAIMER)}</p>
 <p class="credit"><strong>著者・発行</strong>　${xesc(AUTHOR)}</p></div>`
 
@@ -338,7 +348,9 @@ async function main() {
   const htmlPath = outPath.replace(/\.pdf$/, '.html')
   writeFileSync(htmlPath, html)
 
-  const browser = await chromium.launch({ headless: true })
+  // CI/端末ごとに Playwright 同梱 Chromium の有無が異なるため、note 自動化と同じ
+  // システム Chrome を使う。ブラウザ更新後に executable missing で生成不能になるのを避ける。
+  const browser = await chromium.launch({ headless: true, channel: 'chrome' })
   try {
     const page = await browser.newPage()
     // 大量の設問＋base64画像で HTML が巨大化するため setContent でなく file:// goto。
