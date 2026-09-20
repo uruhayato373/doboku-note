@@ -88,6 +88,7 @@ npm run check-standards-page-images # 上の provenance 整合（catalog↔manif
 
 ```bash
 npm run kdp-report        # Kindle 月次ロイヤリティを KDP レポートから取得→.claude/state/sales/kdp-royalties.json（ローカル専用・読み取り専用・当月/前月のみ）
+npm run check-kdp-report-freshness # KDPロイヤリティ台帳の期限とdoboku-note LIVE全冊のcatalog紐付けを検査（共有口座の他サイト書籍は除外。16日以降=前月確定、28日以降=当月推計。quality:auditのops区分が日次通知）
 npm run note-traffic-fetch # note ダッシュボード「アクセス状況」を read-only 取得→.claude/state/metrics/note/{referrers,articles-pv}-YYYY-MM.json（--month は今月/先月のみ・--commit で保存・--check は fixture で正規化の完走確認＝quality:audit ci・ログイン要・DN-0249）。流入元は自己閲覧を含み、サイト経由は PR #511 deploy 前は no referrer に含まれる
 npm run note-sales-fetch  # note 売上履歴を read-only 取得→検算OKで.claude/state/sales/sales-log.jsonの当月を差し替え（--month YYYY-MM --commit・ログイン要・DN-0018）
 npm run check-magazine-cta # 公開マガジンがサイトで1面以上CTAとして出るか（top/中間CTA/MagazineCard・quality:audit に同梱）

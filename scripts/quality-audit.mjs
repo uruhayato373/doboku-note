@@ -183,6 +183,7 @@ const CHECKS = [
   // ここは「取得が回っていない／新商品が snapshot に無い」を週次で拾う（2026-09-19 まで週次スキル内で LLM が叩くだけだった）。
   { id: 'coconala-analytics', npm: 'check-coconala-analytics', timeout: 60_000, ci: false, note: '読み手＝weekly-review-guard の report digest（--report-only を週次実行し FAIL は automation-failure Issue へ集約）。listed 商品が analytics snapshot に無い＝取得（ローカル）を回す合図' },
   { id: 'sales-freshness', npm: 'check-sales-freshness', timeout: 30_000, ci: false, ops: true, note: '売上転記（note-sales-fetch）が止まっていないか（updatedAt が 21 日超で赤・閑散期でも偽赤にならない）。2026-07 は 18% しか転記されず 34 日誰も気づかなかった。取得は認証が要るのでローカル専用＝CI は「やっていない」ことだけを言う。読み手＝ops-audit.yml（日次 --ops → automation-failure Issue channel ops・復旧で自動クローズ）' },
+  { id: 'kdp-report-freshness', npm: 'check-kdp-report-freshness', timeout: 30_000, ci: false, ops: true, note: 'KDP 月次ロイヤリティの取得停止を検知する。毎月16日以降は前月確定値、28日以降は当月推計値、共有口座のうちdoboku-note LIVE全冊のcatalog紐付けを要求する。取得は認証が要るためローカル専用。読み手＝ops-audit.yml（日次 --ops → automation-failure Issue channel ops・復旧で自動クローズ）' },
   { id: 'sales-mapping', npm: 'check-sales-mapping', timeout: 60_000, ci: true, note: 'sales-log の productId と note-magazines.ts の公開済み単品が sales-recorder.md の mapping に文書化されているか（初売上前の新商品も先行検知）' },
   { id: 'note-funnel', npm: 'check-note-funnel', timeout: 90_000, ci: true },
   { id: 'magazine-cta-reachability', npm: 'check-magazine-cta:ci', timeout: 120_000, ci: true, note: '公開マガジンがサイト内で 1 面以上 CTA として出るか（top / 中間CTA / MagazineCard）。baseline 外の新規 0 面で落ちる' },

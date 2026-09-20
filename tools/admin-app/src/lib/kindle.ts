@@ -65,6 +65,8 @@ export interface KindleRoyaltyView {
   estimated?: boolean;
   caveat?: string | null;
   total?: { bookCount?: number; ebook?: number; print?: number; kenp?: number; royalty?: number } | null;
+  accountTotal?: { bookCount?: number; ebook?: number; print?: number; kenp?: number; royalty?: number } | null;
+  accountKenpPagesRead?: number | null;
   perBook?: Array<{ bookId: string; title: string; royalty: number; inCatalog: boolean }>;
 }
 

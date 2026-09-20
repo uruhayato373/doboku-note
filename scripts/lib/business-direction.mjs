@@ -60,7 +60,7 @@ export function validateRecord(record, config, history = [], now = new Date()) {
     if (r.kind === 'target') required(old.metric === r.metric, '指標が異なります');
   }
   if (r.kind === 'measurement') {
-    required(['GA4', 'GSC', 'note', 'coconala', 'operations'].includes(r.channel), '計測元が不正です');
+    required(['GA4', 'GSC', 'note', 'KDP', 'coconala', 'operations'].includes(r.channel), '計測元が不正です');
     required(nonempty(r.source) && r.source.length <= 500 && !/[?]|(?:token|password|secret|BEGIN PRIVATE KEY)/i.test(r.source), '出典は秘密情報・URLクエリを含めず記録してください');
     required(nonempty(r.subject) && ['complete', 'partial'].includes(r.coverage), '計測対象と完全性を指定してください');
     required(r.values && Object.keys(r.values).length > 0, '計測値がありません');
@@ -146,6 +146,32 @@ export function sourceFacts(root, c, period) {
       const selected = qualification === 'all' ? sales : sales.filter(s => c.salesAttribution.rules.find(rule => rule.ids?.includes(s.productId) || rule.prefixes.some(prefix => s.productId?.startsWith(prefix)))?.qualification === qualification);
       put('noteSales', selected.length, period, salesPath, qualification, 'partial', '台帳への登録分。月別の取得完了証明がないため網羅性は未確認。');
       put('noteRevenue', selected.reduce((sum, s) => sum + s.price, 0), period, salesPath, qualification, 'partial', '登録分の販売額。利益ではない。全体には重点外・資格未帰属を含む。');
+    }
+  }
+  const kdpPath = '.claude/state/sales/kdp-royalties.json';
+  if (existsSync(join(root, kdpPath))) {
+    const ledger = readJson(root, kdpPath);
+    const catalogPath = 'scripts/kindle-published/catalog.json';
+    const expectedBookIds = existsSync(join(root, catalogPath))
+      ? readJson(root, catalogPath).books.filter(book => book.status === 'live').map(book => book.id)
+      : [];
+    const entry = Object.values(ledger.months ?? {}).find(row => row?.range?.start === period.startDate && row?.range?.end === period.endDate);
+    if (entry) {
+      const sourcePeriod = { startDate: entry.range.start, endDate: entry.range.end };
+      const books = Array.isArray(entry.books) ? entry.books : [];
+      const foundBookIds = new Set(books.map(book => book.bookId).filter(Boolean));
+      const expectedBookIdSet = new Set(expectedBookIds);
+      const complete = entry.estimated === false
+        && expectedBookIds.length > 0
+        && expectedBookIds.every(id => foundBookIds.has(id));
+      const coverage = complete ? 'complete' : 'partial';
+      const note = `${entry.estimated ? '推計値' : '確定値'}。doboku-note書籍 ${expectedBookIds.filter(id => foundBookIds.has(id)).length}/${expectedBookIds.length} 冊をcatalogへ紐付け（共有KDP口座の他サイト書籍は除外）。販売額・入金額ではない。`;
+      const scopedBooks = books.filter(book => expectedBookIdSet.has(book.bookId));
+      put('kdpRoyalty', scopedBooks.reduce((sum, book) => sum + (Number(book.royalty) || 0), 0), sourcePeriod, kdpPath, 'all', coverage, `${note} 共有口座全体の合計は使わず、書籍別行を合算。`);
+      for (const qualification of c.qualifications.map(q => q.id)) {
+        const selected = books.filter(book => c.kindleAttribution?.rules?.find(rule => rule.ids?.includes(book.bookId) || rule.prefixes?.some(prefix => book.bookId?.startsWith(prefix)))?.qualification === qualification);
+        put('kdpRoyalty', selected.reduce((sum, book) => sum + (Number(book.royalty) || 0), 0), sourcePeriod, kdpPath, qualification, coverage, `${note} 書籍IDの資格帰属で集計。`);
+      }
     }
   }
   const cocoPath = '.claude/state/coconala/analytics-snapshot.json';

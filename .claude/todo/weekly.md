@@ -44,6 +44,8 @@
 | 週 | ID | 出口 |
 |---|---|---|
 | 2026-W39（09/21〜09/27） | DN-0260 | `h-01` の出版前確認後、`node scripts/kdp-publish.mjs --id h-01 --publish-only --commit-publish` で審査へ提出し、`node scripts/kdp-publish.mjs --sync-status` で LIVE・ASIN を確認して Kindle カタログへ記録する |
+| 2026-W40（09/28〜10/04） | 定常運用 | `npm run kdp-report -- --month 2026-09` で9月推計を取得し、h-01を含む書籍別行のcatalog紐付けを確認する |
+| 2026-W42（10/12〜10/18） | 定常運用 | 10/16以降に9月を再取得して確定値へ更新し、書籍別にdoboku-note分だけを月次事業レビューのKDPロイヤリティへ反映する |
 
 ## 今週やらないこと
 

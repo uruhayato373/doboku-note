@@ -1,4 +1,4 @@
-name: Audit ops alerts (投稿・配信・転記の遅れ)
+name: Audit ops alerts (投稿・配信・販売計測の遅れ)
 
 # quality-audit の ops 区分（`ops: true`＝運用アラート）を日次で回し、遅れを automation-failure
 # Issue（channel: ops）へ届ける。復旧（全 PASS）で同 Issue を自動クローズする。
@@ -40,7 +40,7 @@ jobs:
         with:
           node-version: "22"
 
-      # ops 区分の検査は node: 標準モジュールだけで動く（membership-drip / sales-freshness）。
+      # ops 区分の検査は node: 標準モジュールだけで動く（membership-drip / sales-freshness / kdp-report-freshness）。
       # npm ci は不要。依存が要る検査を ops に足すときは、ここに npm ci を入れる。
       - name: Run ops audit
         id: ops
@@ -66,7 +66,7 @@ jobs:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         run: |
           {
-            echo "投稿・配信・転記の遅れが検出されました（quality-audit の ops 区分）。"
+            echo "投稿・配信・販売計測の遅れが検出されました（quality-audit の ops 区分）。"
             echo ""
             echo "- run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
             echo ""
@@ -76,11 +76,11 @@ jobs:
             echo ""
             echo "- 定義: \`scripts/quality-audit.mjs\` の CHECKS（ops:true）"
             echo "- 再現: \`node scripts/quality-audit.mjs --ops\`"
-            echo "- 配信して noteStatus を更新する／転記を回す（\`npm run note-sales-fetch\`）と、翌朝の run で自動クローズされる"
+            echo "- 配信して noteStatus を更新する／note転記（\`npm run note-sales-fetch\`）／KDP月次取得（\`npm run kdp-report\`）を回すと、翌朝の run で自動クローズされる"
           } > "$RUNNER_TEMP/ops-body.md"
           node scripts/report-automation-failure.mjs \
             --channel ops \
-            --title "投稿・配信・転記に遅れがあります" \
+            --title "投稿・配信・販売計測に遅れがあります" \
             --body-file "$RUNNER_TEMP/ops-body.md"
 
       - name: Resolve - close ops Issue on recovery

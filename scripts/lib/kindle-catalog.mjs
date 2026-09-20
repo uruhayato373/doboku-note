@@ -179,11 +179,14 @@ export function joinRoyalties(books, royaltiesJson) {
   const month = monthKeys[monthKeys.length - 1]
   const m = royaltiesJson.months[month]
   const byId = new Map(books.map((b) => [b.id, b]))
+  // KDP レポートは複数サイト共用口座の全書籍を返す。catalog にある doboku-note 書籍だけを
+  // 集計し、口座合計をサイト売上として表示しない。
   // KDP レポート由来の books[] は同一 bookId が複数行に分かれることがある
   // （マーケットプレイス別内訳等・未マージのまま供給される。2026-08-28 実測: e-01 が2行）。
   // bookId で合算する（合計値は変えず、表示上の重複行と React key 衝突を防ぐ）。
   const merged = new Map()
   for (const b of m.books || []) {
+    if (!b.bookId || !byId.has(b.bookId)) continue
     const prev = merged.get(b.bookId)
     if (prev) {
       prev.ebook += b.ebook || 0
@@ -197,15 +200,23 @@ export function joinRoyalties(books, royaltiesJson) {
       })
     }
   }
-  const perBook = [...merged.values()].map((b) => ({ ...b, inCatalog: byId.has(b.bookId) }))
+  const perBook = [...merged.values()].map((b) => ({ ...b, inCatalog: true }))
+  const total = perBook.reduce((sum, book) => ({
+    bookCount: sum.bookCount + 1,
+    ebook: sum.ebook + book.ebook,
+    print: sum.print + book.print,
+    kenp: sum.kenp + book.kenp,
+    royalty: sum.royalty + book.royalty,
+  }), { bookCount: 0, ebook: 0, print: 0, kenp: 0, royalty: 0 })
   return {
     ok: true,
     month,
     fetchedAt: m.fetchedAt ?? null,
     estimated: Boolean(m.estimated),
     caveat: royaltiesJson.caveat ?? null,
-    total: m.total ?? null,
-    kenpPagesRead: m.kenpPagesRead ?? null,
+    total,
+    accountTotal: m.total ?? null,
+    accountKenpPagesRead: m.kenpPagesRead ?? null,
     perBook,
   }
 }

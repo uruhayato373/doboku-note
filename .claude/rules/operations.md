@@ -22,6 +22,7 @@ paths:
 ## 販売カタログ（実価格・公開状態の真実源）
 
 - note: `src/lib/note-magazines.ts`（実価格・noteUrl）。サイト側 CTA の配線は `src/lib/magazine-placement.ts`（civil/docs の note CTA を一元管理・`published:true` でも配置条件を満たさないと出ない）。売上記録 → [sales-tracking.md](../knowledge/reference/sales-tracking.md)（`/record-sales`・`.claude/state/sales/sales-log.json`・`npm run note-sales-fetch`）
+- KDP: `scripts/kindle-published/catalog.json`（公開状態）と `.claude/state/sales/kdp-royalties.json`（月次ロイヤリティ）。共有口座では書籍別行をcatalogへ照合し、doboku-note分だけを事業計測へ入れる。運用 → [sales-tracking.md](../knowledge/reference/sales-tracking.md)（`npm run kdp-report`・`npm run check-kdp-report-freshness`）
 - ココナラ: `src/lib/coconala-services.ts`。運用 → [coconala-operations.md](../knowledge/reference/coconala-operations.md)（受注/DM 収集 `npm run coconala-orders` → `npm run check-coconala-orders`、KPI `npm run coconala-analytics` → `npm run check-coconala-analytics`、休止/再開 `npm run coconala-pause`。`paused` は `pauseReason` で retired と absence を区別）
 - Brain: `src/lib/brain-products.ts`。運用 → [brain-operations.md](../knowledge/reference/brain-operations.md)
 - アフィリエイト: 転職一本（講座/教材/書籍は Red Line）。**3 ASP とも doboku-note と stats47 が同一口座に同居**し判定は `scripts/lib/asp-site-guard.mjs` に集約（不一致は例外で停止） → [affiliate-operations.md](../knowledge/reference/affiliate-operations.md)。台帳 `.claude/state/ads/affiliate-catalog.json`、設定 `.claude/config/affiliate-asp.json`

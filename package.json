@@ -303,6 +303,7 @@
     "inspect-url": "node .claude/scripts/inspect-url.mjs",
     "kdp-batch": "node scripts/kdp-batch.mjs",
     "kdp-report": "node scripts/kdp-report.mjs",
+    "check-kdp-report-freshness": "node scripts/check-kdp-report-freshness.mjs",
     "knip": "knip",
     "lint": "eslint src/",
     "note-account-name": "node scripts/note-account-name.mjs",

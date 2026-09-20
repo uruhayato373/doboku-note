@@ -7,8 +7,9 @@ import { reviewPeriod, direction, saveRecord, records, buildReport, snapshot, as
 const now = new Date('2026-09-13T01:00:00Z'), period = { startDate: '2026-08-01', endDate: '2026-08-31' };
 function fixture(t) {
  const root=mkdtempSync(join(tmpdir(),'business-'));t.after(()=>rmSync(root,{recursive:true,force:true}));
- for(const p of ['.claude/config','.claude/state/sales','.claude/state/metrics/ga4'])mkdirSync(join(root,p),{recursive:true});
+ for(const p of ['.claude/config','.claude/state/sales','.claude/state/metrics/ga4','scripts/kindle-published'])mkdirSync(join(root,p),{recursive:true});
  writeFileSync(join(root,'.claude/config/business-direction.json'),readFileSync('.claude/config/business-direction.json'));
+ writeFileSync(join(root,'scripts/kindle-published/catalog.json'),JSON.stringify({books:[]}));
  writeFileSync(join(root,'.claude/state/experiments.json'),JSON.stringify({experiments:[{id:'SEO-test'},{id:'perf-lcp-mobile-2026-W17'}]})); return root;
 }
 const measure = (values = { notePv: 10 }) => ({kind:'measurement', qualification:'all', period, channel:'note', subject:'aggregate', source:'note新ダッシュボード・全記事',coverage:'complete',values});
@@ -20,6 +21,22 @@ test('calendar periods are completed JST weeks and months',()=>{
 test('missing is null, sales coverage partial, no invented earnings',t=>{
  const root=fixture(t);writeFileSync(join(root,'.claude/state/sales/sales-log.json'),JSON.stringify({sales:[{date:'2026-08-10',price:1000}]}));
  const r=buildReport(root,period,now);assert.equal(r.cells.find(c=>c.metric==='noteRevenue').value,1000);assert.equal(r.cells.find(c=>c.metric==='noteRevenue').coverage,'partial');assert.equal(r.cells.find(c=>c.metric==='notePv').value,null);assert.equal(r.operatingBalance[0].value,null);
+});
+test('KDP monthly ledger enters business review with completeness and qualification attribution',t=>{
+ const root=fixture(t);
+ const books=[
+  {bookId:'A-01',title:'civil',royalty:700},
+  {bookId:'f-01',title:'sokan',royalty:300},
+  {bookId:'g-01',title:'concrete',royalty:200},
+ ];
+ writeFileSync(join(root,'scripts/kindle-published/catalog.json'),JSON.stringify({books:books.map(book=>({id:book.bookId,status:'live'}))}));
+ writeFileSync(join(root,'.claude/state/sales/kdp-royalties.json'),JSON.stringify({months:{'2026-08':{range:{start:'2026-08-01',end:'2026-08-31'},estimated:false,total:{bookCount:3,royalty:1200},kenpPagesRead:88,books}}}));
+ const r=buildReport(root,period,now);
+ assert.equal(r.cells.find(c=>c.qualification==='all'&&c.metric==='kdpRoyalty').value,1200);
+ assert.equal(r.cells.find(c=>c.qualification==='all'&&c.metric==='kdpRoyalty').coverage,'complete');
+ assert.equal(r.cells.find(c=>c.qualification==='civil-construction-1'&&c.metric==='kdpRoyalty').value,700);
+ assert.equal(r.cells.find(c=>c.qualification==='pe-comprehensive-management'&&c.metric==='kdpRoyalty').value,300);
+ assert.equal(r.cells.find(c=>c.qualification==='rccm'&&c.metric==='kdpRoyalty').value,0);
 });
 test('daily users never summed and different windows never substituted',t=>{
  const root=fixture(t);writeFileSync(join(root,'.claude/state/metrics/ga4/ga4-date-test.json'),JSON.stringify({meta:period,rows:[{activeUsers:10},{activeUsers:10}]}));

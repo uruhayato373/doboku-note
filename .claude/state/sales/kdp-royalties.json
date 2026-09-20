@@ -303,7 +303,644 @@
           "royalty": 0
         }
       ]
+    },
+    "2026-08": {
+      "fetchedAt": "2026-09-20T08:54:12.400Z",
+      "range": {
+        "start": "2026-08-01",
+        "end": "2026-08-31"
+      },
+      "estimated": false,
+      "total": {
+        "bookCount": 77,
+        "ebook": 5159,
+        "print": 0,
+        "kenp": 884,
+        "royalty": 6043
+      },
+      "kenpPagesRead": 88400,
+      "marketplaces": [
+        {
+          "marketplace": "日本",
+          "currency": "JPY",
+          "ebook": 5159,
+          "paperback": 0,
+          "hardcover": 0,
+          "kenpPages": 88400
+        }
+      ],
+      "books": [
+        {
+          "bookId": "c-07",
+          "title": "技術士 建設部門 建設環境 二次 模範解答集: 過去問 R03-R07 全15記事",
+          "ebook": 1590,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 1590
+        },
+        {
+          "bookId": "d-03",
+          "title": "技術士第一次試験 専門科目（建設部門）過去問7年分完全解説: 令和元〜7年度 245問",
+          "ebook": 620,
+          "print": 0,
+          "kenp": 244,
+          "royalty": 864
+        },
+        {
+          "bookId": "c-11",
+          "title": "技術士 建設部門 トンネル 二次 模範解答集: 過去問 R03-R07 全15記事",
+          "ebook": 795,
+          "print": 0,
+          "kenp": 6,
+          "royalty": 801
+        },
+        {
+          "bookId": "c-05",
+          "title": "技術士 建設部門 鋼構造及びコンクリート 二次 模範解答集: 過去問 R03-R07 全15記事",
+          "ebook": 795,
+          "print": 0,
+          "kenp": 5,
+          "royalty": 800
+        },
+        {
+          "bookId": "c-02",
+          "title": "技術士 建設部門 河川砂防 二次 模範解答集: 過去問 R03-R07 全15記事",
+          "ebook": 795,
+          "print": 0,
+          "kenp": 2,
+          "royalty": 797
+        },
+        {
+          "bookId": "d-01",
+          "title": "技術士第一次試験 基礎科目 過去問7年分完全解説: 令和元〜7年度 210問",
+          "ebook": 310,
+          "print": 0,
+          "kenp": 167,
+          "royalty": 477
+        },
+        {
+          "bookId": null,
+          "title": "消費量日本一の食卓 — 家計調査で読む47都道府県の食",
+          "ebook": 254,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 254
+        },
+        {
+          "bookId": "e-02",
+          "title": "1級土木施工管理技士 第1次検定 過去問完全解説【平成26〜令和7年度 全年度】: 平成26〜令和7年度 全1162問",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 100,
+          "royalty": 100
+        },
+        {
+          "bookId": "c-10",
+          "title": "技術士 建設部門 鉄道 二次 模範解答集: 過去問 R03-R07 全15記事",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 96,
+          "royalty": 96
+        },
+        {
+          "bookId": "c-04",
+          "title": "技術士 建設部門 土質及び基礎 二次 模範解答集: 過去問 R03-R07 全15記事",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 95,
+          "royalty": 95
+        },
+        {
+          "bookId": "e-01",
+          "title": "2級土木施工管理技士 第1次検定 過去問完全解説【令和3〜7年度 全期】: 令和3〜7年度 前期・後期 全630問",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 38,
+          "royalty": 38
+        },
+        {
+          "bookId": "c-06",
+          "title": "技術士 建設部門 施工計画 二次 模範解答集: 過去問 R03-R07 全15記事",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 38,
+          "royalty": 38
+        },
+        {
+          "bookId": "A-01",
+          "title": "1級土木施工管理技士 一次検定 安全管理 論点別過去問: 平成26〜令和7年度 12年分・127問を9論点に再構成",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 23,
+          "royalty": 23
+        },
+        {
+          "bookId": "d-00",
+          "title": "技術士第一次試験 基礎・適性・専門（建設部門）過去問7年分完全解説【合本】: 令和元〜7年度 基礎210問＋適性105問＋専門245問 計560問",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 18,
+          "royalty": 18
+        },
+        {
+          "bookId": "c-I",
+          "title": "技術士 建設部門 必須科目I 二次 模範解答集: 過去問 R03-R07 全5記事",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 12,
+          "royalty": 12
+        },
+        {
+          "bookId": "f-11",
+          "title": "技術士 総合技術監理部門 記述式 模範論文 自治体道路担当編（令和3〜7年度）: 令和3〜7年度 必須科目 模範論文 全5本",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 12,
+          "royalty": 12
+        },
+        {
+          "bookId": "f-13",
+          "title": "技術士 総合技術監理部門 記述式 模範論文 道路橋梁コンサル編（令和3〜7年度）: 令和3〜7年度 必須科目 模範論文 全5本",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 10,
+          "royalty": 10
+        },
+        {
+          "bookId": "b-reiwa",
+          "title": "技術士総合技術監理部門 択一過去問 令和元〜令和7年度完全解説【合本】: 令和元〜令和7年度 280問",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 6,
+          "royalty": 6
+        },
+        {
+          "bookId": "d-02",
+          "title": "技術士第一次試験 適性科目 過去問7年分完全解説: 令和元〜7年度 105問",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 5,
+          "royalty": 5
+        },
+        {
+          "bookId": "c-08",
+          "title": "技術士 建設部門 港湾及び空港 二次 模範解答集: 過去問 R03-R07 全15記事",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 5,
+          "royalty": 5
+        },
+        {
+          "bookId": "f-15",
+          "title": "技術士 総合技術監理部門 記述式 5管理クロストレードオフ論文集: 5管理のトレードオフ設計 全5本",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 2,
+          "royalty": 2
+        },
+        {
+          "bookId": "A-04",
+          "title": "1級土木施工管理技士 一次検定 環境管理 論点別過去問: 平成26〜令和7年度 12年分・31問を5論点に再構成",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": "A-06",
+          "title": "1級土木施工管理技士 一次検定 工程管理 論点別過去問: 平成26〜令和7年度 12年分・31問を4論点に再構成",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": "A-03",
+          "title": "1級土木施工管理技士 一次検定 施工計画 論点別過去問: 平成26〜令和7年度 12年分・42問を6論点に再構成",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": "A-00",
+          "title": "1級土木施工管理技士 一次検定 全6科目 論点別過去問 完全版: 平成26〜令和7年度 12年分・全422問を6科目39論点に再構成",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": "A-05",
+          "title": "1級土木施工管理技士 一次検定 品質管理 論点別過去問: 平成26〜令和7年度 12年分・65問を5論点に再構成",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": "A-02",
+          "title": "1級土木施工管理技士 一次検定 法規 論点別過去問: 平成26〜令和7年度 12年分・126問を10論点に再構成",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": null,
+          "title": "47都道府県ランキング大全 — 意外な1位・最下位",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": null,
+          "title": "エネルギーとインフラの地図 — 電力・再エネ・ガス",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": null,
+          "title": "エネルギーとインフラの地図 — 電力・再エネ・水道",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": "g-02",
+          "title": "コンクリート主任技士 体系解説＋過去問解説303問: 平成26〜令和5年度 四肢択一を8分野別に収録",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": "g-01",
+          "title": "コンクリート診断士 体系解説＋四肢択一演習98問: 変状・劣化機構・調査・診断・対策・維持管理の6分野＋演習8回",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": null,
+          "title": "データで見る47都道府県 医療・介護",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": null,
+          "title": "データで見る47都道府県 家計・消費",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": null,
+          "title": "データで見る47都道府県 観光・宿泊",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": null,
+          "title": "データで見る47都道府県 教育・子育て",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": null,
+          "title": "データで見る47都道府県 所得・賃金・採用",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": null,
+          "title": "データで見る47都道府県 人口・世帯",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": null,
+          "title": "デジタル生活の地図 — 通信・PC・テレワーク",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": null,
+          "title": "安全と環境の地図 — 犯罪・労災・公害・防災",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": null,
+          "title": "安全と環境の地図 — 犯罪・労災・公害・防災",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": null,
+          "title": "観光とインバウンドの地図 — 宿泊・国籍・回復",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": null,
+          "title": "観光とインバウンドの地図 — 宿泊・国籍・回復",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": null,
+          "title": "関東データブック — 統計で読む県の横顔",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": "c-09",
+          "title": "技術士 建設部門 電力土木 二次 模範解答集: 過去問 R03-R07 全15記事",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": "c-03",
+          "title": "技術士 建設部門 都市計画 二次 模範解答集: 過去問 R03-R07 全15記事",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": "c-01",
+          "title": "技術士 建設部門 道路 二次 模範解答集: 過去問 R03-R07 全15記事",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": "f-16",
+          "title": "技術士 総合技術監理部門 記述式 設問3 国家施策バンク（11テーマ）: 設問(3)の国家施策 全11テーマ",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": "f-01",
+          "title": "技術士 総合技術監理部門 記述式 模範論文 ゼネコン編（令和3〜7年度）: 令和3〜7年度 必須科目 模範論文 全5本",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": "f-02",
+          "title": "技術士 総合技術監理部門 記述式 模範論文 河川コンサル編（令和3〜7年度）: 令和3〜7年度 必須科目 模範論文 全5本",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": "f-04",
+          "title": "技術士 総合技術監理部門 記述式 模範論文 自治体下水道担当編（令和3〜7年度）: 令和3〜7年度 必須科目 模範論文 全5本",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": "f-08",
+          "title": "技術士 総合技術監理部門 記述式 模範論文 自治体河川担当編（令和3〜7年度）: 令和3〜7年度 必須科目 模範論文 全5本",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": "f-07",
+          "title": "技術士 総合技術監理部門 記述式 模範論文 自治体技術基準担当編（令和3〜7年度）: 令和3〜7年度 必須科目 模範論文 全5本",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": "f-06",
+          "title": "技術士 総合技術監理部門 記述式 模範論文 自治体契約調達担当編（令和3〜7年度）: 令和3〜7年度 必須科目 模範論文 全5本",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": "f-05",
+          "title": "技術士 総合技術監理部門 記述式 模範論文 自治体公園緑地担当編（令和3〜7年度）: 令和3〜7年度 必須科目 模範論文 全5本",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": "f-09",
+          "title": "技術士 総合技術監理部門 記述式 模範論文 自治体港湾担当編（令和3〜7年度）: 令和3〜7年度 必須科目 模範論文 全5本",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": "f-10",
+          "title": "技術士 総合技術監理部門 記述式 模範論文 自治体砂防担当編（令和3〜7年度）: 令和3〜7年度 必須科目 模範論文 全5本",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": "f-03",
+          "title": "技術士 総合技術監理部門 記述式 模範論文 自治体上水道担当編（令和3〜7年度）: 令和3〜7年度 必須科目 模範論文 全5本",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": "f-12",
+          "title": "技術士 総合技術監理部門 記述式 模範論文 自治体都市計画担当編（令和3〜7年度）: 令和3〜7年度 必須科目 模範論文 全5本",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": "f-14",
+          "title": "技術士 総合技術監理部門 記述式 模範論文 都市計画コンサル編（令和3〜7年度）: 令和3〜7年度 必須科目 模範論文 全5本",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": "b-heisei",
+          "title": "技術士総合技術監理部門 択一過去問 平成21〜平成30年度完全解説【合本】: 平成21〜平成30年度 400問",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": null,
+          "title": "教育と子育ての地図 — 教育費・進学率・子育て指標",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": null,
+          "title": "教育と子育ての地図 — 教育費・進学率・待機児童",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": null,
+          "title": "九州・沖縄データブック — 統計で読む県の横顔",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": null,
+          "title": "健康と医療の地図 — 寿命・自殺・介護2040",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": null,
+          "title": "産業と地域経済の地図 — 製造・中小・地価",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": null,
+          "title": "産業と地域経済の地図 — 製造・中小・農林",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": null,
+          "title": "自治体財政の地図 — 財政力・借金・将来負担",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": null,
+          "title": "実質手取りの地図 — 住む県で変わる、暮らしのお金: 年収ランキングでは見えない47都道府県の家計",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": null,
+          "title": "食卓の支出と購入数量 — 家計調査の地域差を読む",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": null,
+          "title": "人口減少と世帯の地図 — 未婚・単身・東京集中",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": null,
+          "title": "年収が高い県は、暮らしも豊かなのか: 家賃と物価を引いて読み直す47都道府県の家計",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": null,
+          "title": "文化・スポーツ・余暇の地図",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": null,
+          "title": "文化・スポーツ・余暇の地図",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        },
+        {
+          "bookId": null,
+          "title": "北海道データブック — 統計で読む県の横顔",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 0
+        }
+      ],
+      "scope": {
+        "accountBookCount": 77,
+        "accountRows": 75,
+        "externalRows": 30,
+        "expectedDobokuBooks": 45,
+        "matchedDobokuBooks": 45,
+        "missingDobokuBookIds": [],
+        "dobokuRoyalty": 5789
+      }
     }
   },
-  "updatedAt": "2026-07-30"
+  "updatedAt": "2026-09-20"
 }

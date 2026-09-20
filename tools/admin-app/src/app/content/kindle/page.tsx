@@ -125,10 +125,16 @@ export default async function KindleContentPage() {
         {royalties?.ok ? (
           <>
             <p className="small">
-              {royalties.month} 月・冊数 {royalties.total?.bookCount ?? '—'}・電子書籍 {royalties.total?.ebook ?? '—'}
+              {royalties.month} 月・doboku-note {royalties.total?.bookCount ?? '—'}冊・電子書籍 {royalties.total?.ebook ?? '—'}
               ・KENP {royalties.total?.kenp ?? '—'}・ロイヤリティ計 {fmtYen(royalties.total?.royalty)}
               {royalties.estimated && <span className="project-warning-text"> （推計値）</span>}
             </p>
+            {royalties.accountTotal && (
+              <p className="small muted">
+                共有KDP口座全体: {royalties.accountTotal.bookCount ?? '—'}冊・ロイヤリティ {fmtYen(royalties.accountTotal.royalty)}
+                {royalties.accountKenpPagesRead != null ? `・KENP既読 ${royalties.accountKenpPagesRead}ページ` : ''}。他サイト分を上の集計から除外。
+              </p>
+            )}
             {royalties.caveat && <p className="small muted">{royalties.caveat}</p>}
             {royalties.fetchedAt && <p className="small muted">取得日時: {royalties.fetchedAt}</p>}
             {royalties.perBook && royalties.perBook.length > 0 && (

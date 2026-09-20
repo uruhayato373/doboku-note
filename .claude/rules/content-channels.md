@@ -40,7 +40,7 @@ paths:
 
 - 戦略 `content/kindle/strategy.md`。書籍 spec と前付けは `kindle-book-composer`、入稿は `kdp-operator`（`/kdp-publish`）、監査は `kindle-book-qa`
 - 修正版は既存を差し替える（新規作成しない）。提出後は ASIN を catalog に即記録
-- EPUB の章名/frontmatter 印字と BOM → `npm run check-kindle-epub-leak`。KDP カテゴリ未登録 → `npm run check-kdp-category-coverage`。ロイヤリティ → `npm run kdp-report`
+- EPUB の章名/frontmatter 印字と BOM → `npm run check-kindle-epub-leak`。KDP カテゴリ未登録 → `npm run check-kdp-category-coverage`。ロイヤリティ取得 → `npm run kdp-report`、期限監視 → `npm run check-kdp-report-freshness`
 
 ## ココナラ（content/coconala/**）・Brain（content/brain/**）
 

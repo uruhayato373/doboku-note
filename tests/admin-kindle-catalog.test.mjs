@@ -147,10 +147,11 @@ test('joinRoyalties: 最新月を選び bookId で catalog と join し estimate
   assert.equal(r.month, '2026-07')
   assert.equal(r.estimated, true)
   assert.equal(r.caveat, '推計値・KENPは翌月確定')
-  assert.equal(r.total.royalty, 1712)
+  assert.equal(r.total.royalty, 900)
+  assert.equal(r.accountTotal.royalty, 1712)
   const byId = Object.fromEntries(r.perBook.map((b) => [b.bookId, b]))
   assert.equal(byId['d-01'].inCatalog, true)
-  assert.equal(byId['unknown-id'].inCatalog, false)
+  assert.equal(byId['unknown-id'], undefined)
 })
 
 test('joinRoyalties: royalties が null/months 欠如なら ok:false を返す（空データを健全と言わない）', () => {

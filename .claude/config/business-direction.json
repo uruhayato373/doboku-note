@@ -148,6 +148,15 @@
       "target": null
     },
     {
+      "id": "kdpRoyalty",
+      "stage": "販売",
+      "label": "KDPロイヤリティ",
+      "unit": "円",
+      "definition": "KDPレポートの月次推計または確定ロイヤリティ。estimatedと取得完全性を示し、販売額や入金額へ読み替えない。",
+      "channel": "KDP",
+      "target": null
+    },
+    {
       "id": "coconalaViews",
       "stage": "販売",
       "label": "ココナラ閲覧数",
@@ -267,6 +276,28 @@
           "article:rccm-",
           "coconala:coconala-rccm-"
         ],
+        "qualification": "rccm"
+      }
+    ]
+  },
+  "kindleAttribution": {
+    "source": "scripts/kindle-published/catalog.json の書籍ID。重点資格に一意帰属できない技術士一次・2級土木・コンクリート系は全体のみに含める。",
+    "rules": [
+      {
+        "prefixes": ["A-"],
+        "ids": ["e-02"],
+        "qualification": "civil-construction-1"
+      },
+      {
+        "prefixes": ["b-", "f-"],
+        "qualification": "pe-comprehensive-management"
+      },
+      {
+        "prefixes": ["c-"],
+        "qualification": "pe-construction"
+      },
+      {
+        "prefixes": ["h-"],
         "qualification": "rccm"
       }
     ]

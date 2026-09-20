@@ -70,8 +70,10 @@ const num = (s) => Number(String(s).replace(/[¥￥,\s]/g, '')) || 0;
 // 完全一致で外れたら「: 」前の主タイトルで引き直す（主タイトル重複時は曖昧なので引かない）。
 const exactToId = new Map();
 const baseToId = new Map();
+let catalogBooks = [];
 if (existsSync(CATALOG)) {
-  for (const b of JSON.parse(readFileSync(CATALOG, 'utf8')).books || []) {
+  catalogBooks = JSON.parse(readFileSync(CATALOG, 'utf8')).books || [];
+  for (const b of catalogBooks) {
     exactToId.set(b.subtitle ? `${b.title}: ${b.subtitle}` : b.title, b.id);
     baseToId.set(b.title, baseToId.has(b.title) ? null : b.id);
   }
@@ -236,6 +238,20 @@ try {
     marketplaces,
     books: books.sort((a, b) => b.royalty - a.royalty),
   };
+  const expectedDobokuIds = catalogBooks.filter((book) => book.status === 'live').map((book) => book.id);
+  const foundDobokuIds = [...new Set(entry.books.map((book) => book.bookId).filter(Boolean))];
+  entry.scope = {
+    accountBookCount: total.bookCount,
+    accountRows: entry.books.length,
+    externalRows: entry.books.filter((book) => !book.bookId).length,
+    expectedDobokuBooks: expectedDobokuIds.length,
+    matchedDobokuBooks: foundDobokuIds.length,
+    missingDobokuBookIds: expectedDobokuIds.filter((id) => !foundDobokuIds.includes(id)),
+    dobokuRoyalty: entry.books.filter((book) => expectedDobokuIds.includes(book.bookId)).reduce((sum, book) => sum + (Number(book.royalty) || 0), 0),
+  };
+  if (entry.scope.missingDobokuBookIds.length) {
+    await abort(page, `doboku-note LIVE書籍が ${entry.scope.matchedDobokuBooks}/${entry.scope.expectedDobokuBooks} 冊（不足: ${entry.scope.missingDobokuBookIds.join(', ')}）。保存しない`, '04-scope');
+  }
 
   const state = existsSync(STATE) ? JSON.parse(readFileSync(STATE, 'utf8')) : {
     version: 1,
@@ -248,8 +264,9 @@ try {
   state.updatedAt = todayJst();
 
   const top = entry.books.slice(0, 5).map((b) => `  ${(b.bookId || '--').padEnd(5)} ¥${String(b.royalty).padStart(5)}  ${b.title.slice(0, 44)}`).join('\n');
-  console.log(`\n[${MONTH}] 推計ロイヤリティ ¥${total.royalty}（電子書籍 ¥${total.ebook} / 紙 ¥${total.print} / KENP ¥${total.kenp}）` +
-    `${entry.kenpPagesRead != null ? ` / 既読 ${entry.kenpPagesRead} ページ` : ''}\n${top}`);
+  console.log(`\n[${MONTH}] ${entry.estimated ? '推計' : '確定'}ロイヤリティ ¥${total.royalty}（電子書籍 ¥${total.ebook} / 紙 ¥${total.print} / KENP ¥${total.kenp}）` +
+    `${entry.kenpPagesRead != null ? ` / 既読 ${entry.kenpPagesRead} ページ` : ''}` +
+    ` / doboku-note ${entry.scope.matchedDobokuBooks}/${entry.scope.expectedDobokuBooks} 冊（共有口座外部 ${entry.scope.externalRows} 行）\n${top}`);
 
   if (DRY) console.log(`\n[dry-run] 保存せず終了（保存先: ${STATE}）`);
   else { mkdirSync(dirname(STATE), { recursive: true }); writeFileSync(STATE, JSON.stringify(state, null, 2) + '\n'); console.log(`\n[saved] ${STATE}`); }

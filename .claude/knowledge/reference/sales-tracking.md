@@ -237,12 +237,13 @@ npm run sales-summary -- 2026-06   # 当月内の商品別内訳を確認
 ## Kindle（KDP）ロイヤリティ（非 note チャネル・2026-07-31〜）
 
 note の販売履歴が「1 購入 = 1 レコードの手動転記」なのに対し、Kindle は Amazon 側が月次で
-集計した**推計ロイヤリティ**しか出さない。粒度が違うため sales-log.json には混ぜず、
+集計したロイヤリティを出す。当月は推計、前月は翌月15日頃の確定後に再取得する。粒度が違うため sales-log.json には混ぜず、
 別ファイル `.claude/state/sales/kdp-royalties.json` に月次で保存する。
 
 ```bash
 npm run kdp-report                 # 当月を取得して保存
 npm run kdp-report -- --dry-run    # 保存せず表示のみ
+npm run check-kdp-report-freshness # 取得期限・全書籍行・catalog紐付けを検査
 ```
 
 | 項目 | 内容 |
@@ -252,8 +253,13 @@ npm run kdp-report -- --dry-run    # 保存せず表示のみ
 | 突合 | 書籍は `scripts/kindle-published/catalog.json` の `title: subtitle` で `bookId` に紐づけ（副題ドリフト時は主タイトルで再照合） |
 | 期間 | 当月と前月のみ（KDP の日付入力は React が握り潰すためカレンダーのプリセットを使う）。それ以前の確定値は `/pmr` を目視 |
 
-**運用**: 月末に当月を 1 回、翌月に前月を再取得して上書き（KENP は翌月 15 日頃に確定するため）。
-当月分は `estimated: true` で記録される。取得できなかった項目は 0 埋めせず `null` で残す。
+**運用**: 毎月28日以降に当月を 1 回、翌月16日以降に前月を再取得して上書きする（KENP は翌月15日頃に確定）。
+当月分は `estimated: true`、確定再取得は `estimated: false` で記録する。取得できなかった項目は 0 埋めせず `null` で残す。
+`check-kdp-report-freshness` はこの2期限に加え、共有KDP口座のうちdoboku-note catalogでLIVEの書籍が全冊取得・紐付けできることを確認する。
+他サイトの書籍行は `externalRows` として数えるが、doboku-noteの取得完全性の母数には入れない。
+`quality:audit --ops` と日次 `ops-audit.yml` が停止を通知し、復旧時に通知を閉じる。月次事業レビューは同じ台帳の
+書籍別行からdoboku-note分の `kdpRoyalty` だけを合算し、推計はpartial、確定かつ全冊紐付け済みのみcompleteとして扱う。
+KENP既読ページは共有口座全体値でサイト帰属できないため、台帳と管理画面には参考表示するが事業レビューへは入れない。
 
 ---
 

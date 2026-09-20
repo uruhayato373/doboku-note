@@ -66,7 +66,7 @@ model: sonnet
 
 補助:
 - `node scripts/gen-kdp-memo.mjs <id>`（コピペ用メモ txt 生成・メタデータ人手確認用）
-- `npm run kdp-report`（**別スクリプト**・読み取り専用）: KDP レポート画面から月次ロイヤリティを取得し `.claude/state/sales/kdp-royalties.json` へ保存。当月/前月のみ。売上の把握はこちらで、`kdp-publish` は入稿・価格側という分担 → [sales-tracking.md](../knowledge/reference/sales-tracking.md)
+- `npm run kdp-report`（**別スクリプト**・読み取り専用）: KDP レポート画面から月次ロイヤリティを取得し `.claude/state/sales/kdp-royalties.json` へ保存。当月/前月のみ。`npm run check-kdp-report-freshness` が月次期限・全冊取得・catalog紐付けを日次監視する。売上の把握はこちらで、`kdp-publish` は入稿・価格側という分担 → [sales-tracking.md](../knowledge/reference/sales-tracking.md)
 
 ## 実行手順
 
