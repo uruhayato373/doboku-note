@@ -113,6 +113,8 @@ npm run sales-summary -- 2026-06   # 指定月（位置引数。--month フラ�
 2. `npm run sales-summary -- YYYY-MM` と比較
 3. 差異があれば sales-log.json を確認・修正
 
+毎月5日以降、`check-sales-freshness` は前月の `note-traffic-fetch` 結果を要求し、月次売上表示と同月の sales-log 合計を照合する。月初4日までは前々月を対象にする。`updatedAt` が新しくても未取得・金額不一致ならFAILとし、販売明細の取りこぼしを緑にしない。販売履歴のパスワード再確認は人がブラウザで通し、その後 `note-sales-fetch --commit` を再実行する。
+
 ### 4. 商品別CTAとの期間効率
 
 ```bash

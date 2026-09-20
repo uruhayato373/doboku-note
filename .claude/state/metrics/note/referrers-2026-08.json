@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "month": "2026-08",
-  "fetchedAt": "2026-09-15T21:12:16.816Z",
+  "fetchedAt": "2026-09-20T09:10:25.823Z",
   "source": "note ダッシュボード「アクセス状況」記事の流入元（Playwright read-only・自己閲覧を含む・doboku-note.com は 2026-09 まで rel=noreferrer で no referrer に含まれる）",
   "period": {
     "from": "2026-08-01",
@@ -19,8 +19,8 @@
         "X": 0,
         "notification": 0,
         "copilot.microsoft.com": 0,
-        "chatgpt.com": 0,
         "service.smt.docomo.ne.jp": 0,
+        "chatgpt.com": 0,
         "other": 0
       },
       "total": 0
@@ -36,8 +36,8 @@
         "X": 0,
         "notification": 0,
         "copilot.microsoft.com": 0,
-        "chatgpt.com": 0,
         "service.smt.docomo.ne.jp": 0,
+        "chatgpt.com": 0,
         "other": 0
       },
       "total": 0
@@ -53,8 +53,8 @@
         "X": 0,
         "notification": 0,
         "copilot.microsoft.com": 0,
-        "chatgpt.com": 0,
         "service.smt.docomo.ne.jp": 0,
+        "chatgpt.com": 0,
         "other": 0
       },
       "total": 0
@@ -70,8 +70,8 @@
         "X": 0,
         "notification": 0,
         "copilot.microsoft.com": 0,
-        "chatgpt.com": 0,
         "service.smt.docomo.ne.jp": 0,
+        "chatgpt.com": 0,
         "other": 0
       },
       "total": 0
@@ -87,8 +87,8 @@
         "X": 0,
         "notification": 0,
         "copilot.microsoft.com": 0,
-        "chatgpt.com": 0,
         "service.smt.docomo.ne.jp": 0,
+        "chatgpt.com": 0,
         "other": 0
       },
       "total": 0
@@ -104,8 +104,8 @@
         "X": 0,
         "notification": 0,
         "copilot.microsoft.com": 0,
-        "chatgpt.com": 0,
         "service.smt.docomo.ne.jp": 0,
+        "chatgpt.com": 0,
         "other": 0
       },
       "total": 0
@@ -121,8 +121,8 @@
         "X": 0,
         "notification": 0,
         "copilot.microsoft.com": 0,
-        "chatgpt.com": 0,
         "service.smt.docomo.ne.jp": 0,
+        "chatgpt.com": 0,
         "other": 0
       },
       "total": 0
@@ -138,8 +138,8 @@
         "X": 0,
         "notification": 0,
         "copilot.microsoft.com": 0,
-        "chatgpt.com": 0,
         "service.smt.docomo.ne.jp": 0,
+        "chatgpt.com": 0,
         "other": 0
       },
       "total": 0
@@ -155,8 +155,8 @@
         "X": 25,
         "notification": 2,
         "copilot.microsoft.com": 0,
-        "chatgpt.com": 0,
         "service.smt.docomo.ne.jp": 0,
+        "chatgpt.com": 0,
         "other": 7
       },
       "total": 1355
@@ -172,8 +172,8 @@
         "X": 9,
         "notification": 24,
         "copilot.microsoft.com": 13,
-        "chatgpt.com": 3,
         "service.smt.docomo.ne.jp": 8,
+        "chatgpt.com": 3,
         "other": 45
       },
       "total": 6913
@@ -189,8 +189,8 @@
         "X": 30,
         "notification": 8,
         "copilot.microsoft.com": 13,
-        "chatgpt.com": 10,
         "service.smt.docomo.ne.jp": 6,
+        "chatgpt.com": 10,
         "other": 44
       },
       "total": 13881
@@ -206,8 +206,8 @@
         "X": 9,
         "notification": 3,
         "copilot.microsoft.com": 7,
-        "chatgpt.com": 7,
         "service.smt.docomo.ne.jp": 2,
+        "chatgpt.com": 7,
         "other": 16
       },
       "total": 7455
@@ -215,19 +215,19 @@
     {
       "month": "2026-09",
       "sources": {
-        "no referrer": 4197,
-        "note.com": 720,
-        "Google": 394,
-        "www.bing.com": 243,
-        "search.yahoo.co.jp": 149,
+        "no referrer": 5587,
+        "note.com": 1046,
+        "Google": 495,
+        "www.bing.com": 357,
+        "search.yahoo.co.jp": 189,
         "X": 2,
         "notification": 6,
-        "copilot.microsoft.com": 0,
+        "copilot.microsoft.com": 1,
+        "service.smt.docomo.ne.jp": 6,
         "chatgpt.com": 1,
-        "service.smt.docomo.ne.jp": 5,
-        "other": 9
+        "other": 22
       },
-      "total": 5726
+      "total": 7712
     }
   ],
   "targetMonth": {
@@ -241,8 +241,8 @@
       "X": 9,
       "notification": 3,
       "copilot.microsoft.com": 7,
-      "chatgpt.com": 7,
       "service.smt.docomo.ne.jp": 2,
+      "chatgpt.com": 7,
       "other": 16
     },
     "total": 7455
@@ -305,7 +305,7 @@
     }
   ],
   "summary": {
-    "impressions": 83523,
+    "impressions": 83515,
     "pageViews": 7455,
     "likes": 81,
     "comments": 3,

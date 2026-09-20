@@ -92,7 +92,7 @@ npm run check-kdp-report-freshness # KDPロイヤリティ台帳の期限とdobo
 npm run note-traffic-fetch # note ダッシュボード「アクセス状況」を read-only 取得→.claude/state/metrics/note/{referrers,articles-pv}-YYYY-MM.json（--month は今月/先月のみ・--commit で保存・--check は fixture で正規化の完走確認＝quality:audit ci・ログイン要・DN-0249）。流入元は自己閲覧を含み、サイト経由は PR #511 deploy 前は no referrer に含まれる
 npm run note-sales-fetch  # note 売上履歴を read-only 取得→検算OKで.claude/state/sales/sales-log.jsonの当月を差し替え（--month YYYY-MM --commit・ログイン要・DN-0018）
 npm run check-magazine-cta # 公開マガジンがサイトで1面以上CTAとして出るか（top/中間CTA/MagazineCard・quality:audit に同梱）
-npm run check-sales-freshness # sales-log.json の転記（note-sales-fetch）が止まっていないか（判定軸は updatedAt＝転記日。最終売上日で測ると閑散期に偽赤。quality:audit の **ops 区分**＝ops-audit.yml が日次で Issue へ。取得自体は認証が要るのでローカル専用）
+npm run check-sales-freshness # sales-log.json の転記停止（updatedAt）と、毎月5日以降に前月noteアクセス取得・月次売上表示との金額一致を検査（quality:audit の **ops 区分**＝ops-audit.yml が日次で Issue へ。取得自体は認証が要るのでローカル専用）
 npm run check-weekly-review-due # 週次レビュー（ローカル実行・土曜）の忘れを催促（土曜 09:00 JST 以降に今週分、月〜金は先週分の *-review.md が無ければ exit 1・SessionStart フックが呼ぶ。最終 backstop は月曜の weekly-review-guard）
 npm run verify-note-status # frontmatter noteStatus ↔ note ライブ公開状態の照合（read-only・note-live-audit.yml 週次）。`-- --fix` はライブ published に合わせ既存 noteStatus 行だけ是正し、実際に書き換わった本数を「是正」と数える（CRLF 記事で 1 バイトも変わらず是正済みと数えた偽成功が 2026-09-19 にあり・書き換え不能は UNFIXED で exit 1）
 npm run check-membership-drip # 会員配信ドリップの遅れ・実体欠落（真実源＝メンバーシップ/README.md の配信表。予定日を1日以上過ぎた未配信は赤。日付をカードへ複製すると必ずずれるので複製しない・quality:audit の **ops 区分**＝PR は赤くせず ops-audit.yml が日次で Issue へ。2026-09-18 まで ci 区分に居て 30 日に 13 回 Pre-merge を落としていた）

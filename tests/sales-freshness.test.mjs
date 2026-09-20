@@ -12,7 +12,7 @@
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { assessSalesLog, ageInDays } from '../scripts/check-sales-freshness.mjs';
+import { assessSalesBenchmark, assessSalesLog, ageInDays, dueSalesMonth } from '../scripts/check-sales-freshness.mjs';
 
 const at = (y, m, d) => Date.UTC(y, m - 1, d);
 const NOW = at(2026, 8, 17);
@@ -77,4 +77,29 @@ test('実データ相当（今日転記・280件）は OK', () => {
   assert.equal(r.status, 'OK');
   assert.equal(r.count, 2);
   assert.equal(r.latest, '2026-08-17');
+});
+
+test('note月次売上と販売明細の不一致をFAILにする', () => {
+  const sales = { sales: [
+    { date: '2026-08-01', price: 1000 },
+    { date: '2026-08-20', price: 2000 },
+    { date: '2026-09-01', price: 9999 },
+  ] };
+  assert.equal(assessSalesBenchmark(sales, { month: '2026-08', summary: { salesYen: 3000 } }).status, 'OK');
+  const bad = assessSalesBenchmark(sales, { month: '2026-08', summary: { salesYen: 71640 } });
+  assert.equal(bad.status, 'FAIL');
+  assert.equal(bad.actual, 3000);
+  assert.match(bad.reason, /不一致/);
+});
+
+test('note月次売上の検査対象が0件・不正値でもPASSにしない', () => {
+  assert.equal(assessSalesBenchmark({ sales: [] }, { month: '2026-08', summary: { salesYen: 0 } }).status, 'OK');
+  assert.equal(assessSalesBenchmark({ sales: [] }, { month: '2026/08', summary: { salesYen: 0 } }).status, 'FAIL');
+  assert.equal(assessSalesBenchmark({ sales: [] }, { month: '2026-08', summary: {} }).status, 'FAIL');
+});
+
+test('5日以降は前月、月初は前々月を月次照合対象にする', () => {
+  assert.equal(dueSalesMonth(new Date('2026-09-04T03:00:00Z')), '2026-07'); // JST 9/4 12:00
+  assert.equal(dueSalesMonth(new Date('2026-09-05T03:00:00Z')), '2026-08'); // JST 9/5 12:00
+  assert.equal(dueSalesMonth(new Date('2027-01-10T03:00:00Z')), '2026-12');
 });

@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "fetchedAt": "2026-08-23T21:30:30.818Z",
-  "fetchedOnJst": "2026-08-24",
+  "fetchedAt": "2026-09-20T09:17:47.558Z",
+  "fetchedOnJst": "2026-09-20",
   "status": "ok",
   "source": "coconala.com /mypage/analytics（Playwright・read-only・書き込みなし）",
   "caveats": [
@@ -11,24 +11,24 @@
   ],
   "period": {
     "services": {
-      "from": "2026-07-25",
-      "to": "2026-08-23",
+      "from": "2026-08-21",
+      "to": "2026-09-19",
       "label": "過去30日間",
       "windowDays": 30
     },
     "blogs": {
-      "from": "2026-07-26",
-      "to": "2026-08-24",
+      "from": "2026-08-22",
+      "to": "2026-09-20",
       "label": "過去30日間",
       "windowDays": 30
     }
   },
   "totals": {
     "impressions": null,
-    "views": 321,
-    "orders": 2,
-    "salesYen": 10000,
-    "favorites": 3,
+    "views": 344,
+    "orders": 1,
+    "salesYen": 2500,
+    "favorites": 2,
     "masked": [
       "impressions"
     ]
@@ -38,10 +38,10 @@
       "serviceId": "coconala-shindan",
       "numericId": "4317349",
       "catalogStatus": "listed",
-      "title": "土木施工管理の経験記述を発注者目線で診断します",
+      "title": "1・2級土木の経験記述を元発注者が診断します",
       "ok": true,
       "impressions": null,
-      "views": 33,
+      "views": 19,
       "orders": 0,
       "favorites": 0,
       "masked": [
@@ -52,10 +52,10 @@
       "serviceId": "coconala-tensaku-set",
       "numericId": "4317375",
       "catalogStatus": "listed",
-      "title": "土木施工管理の経験記述を発注者目線で添削します",
+      "title": "新形式対応 土木経験記述を元発注者が添削します",
       "ok": true,
       "impressions": null,
-      "views": 19,
+      "views": 46,
       "orders": 0,
       "favorites": 1,
       "masked": [
@@ -66,7 +66,7 @@
       "serviceId": "coconala-sakusei",
       "numericId": "4317796",
       "catalogStatus": "listed",
-      "title": "土木施工管理の経験記述をヒアリングで作成します",
+      "title": "土木経験記述をヒアリングで構成します",
       "ok": true,
       "impressions": null,
       "views": 17,
@@ -80,10 +80,10 @@
       "serviceId": "coconala-sakusei-4theme",
       "numericId": "4350199",
       "catalogStatus": "listed",
-      "title": "土木施工管理の経験記述を4テーマ分作成します",
+      "title": "土木経験記述を4テーマ分構成します",
       "ok": true,
       "impressions": null,
-      "views": 13,
+      "views": 24,
       "orders": 0,
       "favorites": 1,
       "masked": [
@@ -97,7 +97,7 @@
       "title": "1級土木 経験記述の模範答案セットを送ります",
       "ok": true,
       "impressions": null,
-      "views": 17,
+      "views": 14,
       "orders": 0,
       "favorites": 0,
       "masked": [
@@ -111,7 +111,7 @@
       "title": "2級土木 経験記述の模範答案セットを送ります",
       "ok": true,
       "impressions": null,
-      "views": 16,
+      "views": 21,
       "orders": 0,
       "favorites": 0,
       "masked": [
@@ -122,12 +122,12 @@
       "serviceId": "coconala-1kyu-moshi-pdf",
       "numericId": "4317886",
       "catalogStatus": "listed",
-      "title": "1級土木二次の予想模擬試験を送ります",
+      "title": "R8対応 1級土木二次の予想模試3回分を送ります",
       "ok": true,
       "impressions": null,
-      "views": 59,
+      "views": 51,
       "orders": 1,
-      "favorites": 1,
+      "favorites": 0,
       "masked": [
         "impressions"
       ]
@@ -136,10 +136,10 @@
       "serviceId": "coconala-2kyu-moshi-pdf",
       "numericId": "4317889",
       "catalogStatus": "listed",
-      "title": "2級土木二次の予想模擬試験を送ります",
+      "title": "R8対応 2級土木二次の予想模試3回分を送ります",
       "ok": true,
       "impressions": null,
-      "views": 13,
+      "views": 16,
       "orders": 0,
       "favorites": 0,
       "masked": [
@@ -150,10 +150,10 @@
       "serviceId": "coconala-1kyu-full-pdf",
       "numericId": "4341188",
       "catalogStatus": "listed",
-      "title": "1級土木二次 教材フルパックを送ります",
+      "title": "R8対応 1級土木二次の教材フルパックを送ります",
       "ok": true,
       "impressions": null,
-      "views": 25,
+      "views": 45,
       "orders": 0,
       "favorites": 0,
       "masked": [
@@ -164,10 +164,10 @@
       "serviceId": "coconala-2kyu-full-pdf",
       "numericId": "4341191",
       "catalogStatus": "listed",
-      "title": "2級土木二次 教材フルパックを送ります",
+      "title": "R8対応 2級土木二次の教材フルパックを送ります",
       "ok": true,
       "impressions": null,
-      "views": 16,
+      "views": 19,
       "orders": 0,
       "favorites": 0,
       "masked": [
@@ -181,7 +181,7 @@
       "title": "1級土木二次 教材一式と経験記述添削をします",
       "ok": true,
       "impressions": null,
-      "views": 17,
+      "views": 14,
       "orders": 0,
       "favorites": 0,
       "masked": [
@@ -195,7 +195,7 @@
       "title": "施工経験記述を自作するAI設計キットを渡します",
       "ok": true,
       "impressions": null,
-      "views": 17,
+      "views": 14,
       "orders": 0,
       "favorites": 0,
       "masked": [
@@ -209,7 +209,49 @@
       "title": "技術士総監 記述式の出題テーマ分析を送ります",
       "ok": true,
       "impressions": null,
-      "views": 25,
+      "views": 24,
+      "orders": 0,
+      "favorites": 0,
+      "masked": [
+        "impressions"
+      ]
+    },
+    {
+      "serviceId": "coconala-rccm-mondai3-tensaku",
+      "numericId": "4403575",
+      "catalogStatus": "listed",
+      "title": "RCCM問題III 管理技術力の論文を添削します",
+      "ok": true,
+      "impressions": null,
+      "views": 4,
+      "orders": 0,
+      "favorites": 0,
+      "masked": [
+        "impressions"
+      ]
+    },
+    {
+      "serviceId": "coconala-rccm-mondai1-shindan",
+      "numericId": "4403577",
+      "catalogStatus": "listed",
+      "title": "RCCM業務経験論文の減点箇所を診断します",
+      "ok": true,
+      "impressions": null,
+      "views": 4,
+      "orders": 0,
+      "favorites": 0,
+      "masked": [
+        "impressions"
+      ]
+    },
+    {
+      "serviceId": "coconala-rccm-mondai3-pdf",
+      "numericId": "4403588",
+      "catalogStatus": "listed",
+      "title": "RCCM問題III 模範論文6本のPDFを送ります",
+      "ok": true,
+      "impressions": null,
+      "views": 5,
       "orders": 0,
       "favorites": 0,
       "masked": [
@@ -251,46 +293,53 @@
   ],
   "blogs": [
     {
+      "title": "経験記述の直しは効く順番から｜添削で最初に見る4点",
+      "kind": "記事",
+      "status": "公開中",
+      "postedOn": "2026-09-06",
+      "views": 14
+    },
+    {
       "title": "【第5回】経験記述の安全管理、品質管理と同じ手順で書く",
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-08-22",
-      "views": 10
+      "views": 23
     },
     {
       "title": "総合技術監理 記述式の出題テーマに共通する型",
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-08-18",
-      "views": 13
+      "views": 8
     },
     {
       "title": "【第4回】経験記述の品質管理、設問1〜評価まで書く手順",
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-08-17",
-      "views": 17
+      "views": 14
     },
     {
       "title": "【第3回】経験記述は予想テーマで書く練習｜週1回5ステップ",
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-08-17",
-      "views": 21
+      "views": 10
     },
     {
       "title": "【第2回】経験記述が独学で伸びない理由｜自己採点が成立しない構造",
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-08-13",
-      "views": 21
+      "views": 12
     },
     {
       "title": "【第1回】経験記述で落ちる答案に共通する3つの型｜1級・2級土木",
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-08-12",
-      "views": 21
+      "views": 11
     }
   ],
   "scan": {
@@ -301,16 +350,16 @@
         "url": "https://coconala.com/mypage/analytics?ref=menu",
         "ok": true,
         "cards": 5,
-        "blogs": 6,
-        "serviceCards": 13
+        "blogs": 7,
+        "serviceCards": 16
       },
       {
         "key": "services",
         "label": "サービス別",
         "url": "https://coconala.com/mypage/analytics/{id}",
         "ok": true,
-        "rows": 13,
-        "expected": 13,
+        "rows": 16,
+        "expected": 16,
         "skipped": 5
       }
     ],

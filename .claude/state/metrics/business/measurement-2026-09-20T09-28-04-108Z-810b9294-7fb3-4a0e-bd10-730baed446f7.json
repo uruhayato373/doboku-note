@@ -1,0 +1,18 @@
+{
+  "kind": "measurement",
+  "period": {
+    "startDate": "2026-08-01",
+    "endDate": "2026-08-31"
+  },
+  "channel": "coconala",
+  "subject": "aggregate",
+  "coverage": "partial",
+  "source": "resolved-inquiries DM 10051134。8月中に見積り提案から受注・納品へ進んだ購入前相談1件を確認。全DM月次件数の完全記録ではない。",
+  "values": {
+    "coconalaInquiries": 1
+  },
+  "qualification": "civil-construction-1",
+  "schemaVersion": 1,
+  "createdAt": "2026-09-20T09:28:04.108Z",
+  "strategyHash": "c84e4b384e1cda935a5e3e748cc494564c5a34875116c80f1e6a72a580217282"
+}

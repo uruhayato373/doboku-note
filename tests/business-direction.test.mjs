@@ -3,11 +3,11 @@ import assert from 'node:assert/strict';
 import { mkdtempSync, mkdirSync, readFileSync, writeFileSync, rmSync } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
-import { reviewPeriod, direction, saveRecord, records, buildReport, snapshot, assertLocalWrite, strategyForRecord } from '../scripts/lib/business-direction.mjs';
+import { reviewPeriod, direction, saveRecord, records, buildReport, snapshot, assertLocalWrite, strategyForRecord, noteArticleQualification } from '../scripts/lib/business-direction.mjs';
 const now = new Date('2026-09-13T01:00:00Z'), period = { startDate: '2026-08-01', endDate: '2026-08-31' };
 function fixture(t) {
  const root=mkdtempSync(join(tmpdir(),'business-'));t.after(()=>rmSync(root,{recursive:true,force:true}));
- for(const p of ['.claude/config','.claude/state/sales','.claude/state/metrics/ga4','scripts/kindle-published'])mkdirSync(join(root,p),{recursive:true});
+ for(const p of ['.claude/config','.claude/state/sales','.claude/state/metrics/ga4','.claude/state/metrics/note','.claude/state/coconala','scripts/kindle-published'])mkdirSync(join(root,p),{recursive:true});
  writeFileSync(join(root,'.claude/config/business-direction.json'),readFileSync('.claude/config/business-direction.json'));
  writeFileSync(join(root,'scripts/kindle-published/catalog.json'),JSON.stringify({books:[]}));
  writeFileSync(join(root,'.claude/state/experiments.json'),JSON.stringify({experiments:[{id:'SEO-test'},{id:'perf-lcp-mobile-2026-W17'}]})); return root;
@@ -37,6 +37,45 @@ test('KDP monthly ledger enters business review with completeness and qualificat
  assert.equal(r.cells.find(c=>c.qualification==='civil-construction-1'&&c.metric==='kdpRoyalty').value,700);
  assert.equal(r.cells.find(c=>c.qualification==='pe-comprehensive-management'&&c.metric==='kdpRoyalty').value,300);
  assert.equal(r.cells.find(c=>c.qualification==='rccm'&&c.metric==='kdpRoyalty').value,0);
+});
+test('note monthly traffic enters all as complete and qualification rows as partial',t=>{
+ const root=fixture(t);
+ writeFileSync(join(root,'.claude/state/metrics/note/referrers-2026-08.json'),JSON.stringify({month:'2026-08',period:{from:'2026-08-01',to:'2026-08-31'},summary:{pageViews:100,impressions:1000,salesYen:5000}}));
+ writeFileSync(join(root,'.claude/state/metrics/note/articles-pv-2026-08.json'),JSON.stringify({rows:[
+  {title:'1級土木 二次対策',pageViews:20,impressions:200},
+  {title:'技術士 建設部門｜必須科目I',pageViews:30,impressions:300},
+  {title:'資格横断記事',pageViews:50,impressions:500},
+ ]}));
+ writeFileSync(join(root,'.claude/state/note-published.json'),JSON.stringify({items:[]}));
+ const r=buildReport(root,period,now);
+ assert.equal(r.cells.find(c=>c.qualification==='all'&&c.metric==='notePv').value,100);
+ assert.equal(r.cells.find(c=>c.qualification==='all'&&c.metric==='notePv').coverage,'complete');
+ assert.equal(r.cells.find(c=>c.qualification==='civil-construction-1'&&c.metric==='notePv').value,20);
+ assert.equal(r.cells.find(c=>c.qualification==='civil-construction-1'&&c.metric==='notePv').coverage,'partial');
+ assert.equal(r.cells.find(c=>c.qualification==='pe-construction'&&c.metric==='noteImpressions').value,300);
+ assert.equal(r.cells.find(c=>c.qualification==='rccm'&&c.metric==='notePv').value,0);
+});
+test('note article classification uses published slug and safe title fallbacks',()=>{
+ assert.equal(noteArticleQualification('任意タイトル',[{title:'任意タイトル',slug:'技術士総監/example'}]),'pe-comprehensive-management');
+ assert.equal(noteArticleQualification('技術士 建設部門｜道路 R07',[]),'pe-construction');
+ assert.equal(noteArticleQualification('2級土木 二次対策',[{title:'2級土木 二次対策',slug:'1級・2級土木/x'}]),null);
+});
+test('coconala transaction snapshot supplies exact monthly orders and revenue',t=>{
+ const root=fixture(t);
+ writeFileSync(join(root,'.claude/state/coconala/orders-snapshot.json'),JSON.stringify({status:'ok',scan:{tabsOk:7,tabsTotal:7},orders:[
+  {talkroomId:'1',soldOn:'2026-08-04',priceYen:2500},
+  {talkroomId:'2',soldOn:'2026-08-06',priceYen:7500},
+ ]}));
+ writeFileSync(join(root,'.claude/state/coconala/orders-log.json'),JSON.stringify({orders:[
+  {talkroomId:'1',serviceId:'coconala-1kyu-moshi-pdf',grade:1},
+  {talkroomId:'2',serviceId:'coconala-1kyu-full-pdf',grade:1},
+ ]}));
+ const r=buildReport(root,period,now);
+ assert.equal(r.cells.find(c=>c.qualification==='all'&&c.metric==='coconalaOrders').value,2);
+ assert.equal(r.cells.find(c=>c.qualification==='all'&&c.metric==='coconalaRevenue').value,10000);
+ assert.equal(r.cells.find(c=>c.qualification==='civil-construction-1'&&c.metric==='coconalaRevenue').value,10000);
+ assert.equal(r.cells.find(c=>c.qualification==='rccm'&&c.metric==='coconalaOrders').value,0);
+ assert.equal(r.cells.find(c=>c.qualification==='pe-construction'&&c.metric==='coconalaOrders').coverage,'not-applicable');
 });
 test('daily users never summed and different windows never substituted',t=>{
  const root=fixture(t);writeFileSync(join(root,'.claude/state/metrics/ga4/ga4-date-test.json'),JSON.stringify({meta:period,rows:[{activeUsers:10},{activeUsers:10}]}));

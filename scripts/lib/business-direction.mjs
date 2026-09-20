@@ -16,6 +16,8 @@ export function direction(root) {
   required(c.version === 1 && nonempty(c.positioning) && c.qualifications.length > 0, '事業方針が不正です');
   required(new Set(c.qualifications.map(q => q.id)).size === c.qualifications.length, '資格IDが重複しています');
   required(new Set(c.metrics.map(m => m.id)).size === c.metrics.length && c.metrics.every(m => nonempty(m.definition) && m.target === null), '指標定義が不正です。目標は履歴へ記録してください');
+  const scopes = new Set(['all', ...c.qualifications.map(q => q.id)]);
+  required(c.metrics.every(m => !m.appliesTo || (Array.isArray(m.appliesTo) && m.appliesTo.length > 0 && m.appliesTo.every(x => scopes.has(x)))), '指標の適用資格が不正です');
   return c;
 }
 export function reviewPeriod(cadence, today = jst()) {
@@ -125,6 +127,21 @@ function latest(root, dir, prefix) {
   const f = readdirSync(join(root, dir)).filter(f => f.startsWith(prefix) && f.endsWith('.json')).sort().at(-1);
   return f ? { data: readJson(root, `${dir}/${f}`), file: `${dir}/${f}` } : null;
 }
+export const normalizeNoteTitle = value => String(value ?? '').normalize('NFKC').replace(/[【】｜|\s　・:：?？!！()（）\-—–―〜～「」『』［］\[\]]/g, '').toLowerCase();
+export function noteArticleQualification(title, publishedItems = []) {
+  const normalized = normalizeNoteTitle(title);
+  const published = publishedItems.find(item => normalizeNoteTitle(item.title) === normalized);
+  const slug = published?.slug ?? '';
+  if (slug.startsWith('技術士総監/') || /総監|総合技術監理/.test(title)) return 'pe-comprehensive-management';
+  if (slug.startsWith('RCCM/') || /RCCM/i.test(title)) return 'rccm';
+  if (slug.startsWith('技術士建設部門/') || /技術士\s*建設部門|建設部門もくじ/.test(title)) return 'pe-construction';
+  if (slug.startsWith('1級・2級土木/')) {
+    if (/2級土木/.test(title) && !/1級土木|1級・2級土木|1・2級土木/.test(title)) return null;
+    return 'civil-construction-1';
+  }
+  if (/1級土木|1級・2級土木|1・2級土木/.test(title)) return 'civil-construction-1';
+  return null;
+}
 /** Existing source ledgers remain authoritative. No customer details enter the report. */
 export function sourceFacts(root, c, period) {
   const facts = [];
@@ -138,6 +155,30 @@ export function sourceFacts(root, c, period) {
   if (quiz) for (const [event, metric] of [['quiz_start', 'quizStarts'], ['quiz_complete', 'quizCompletions']]) {
     const row = quiz.data.rows?.find(r => r.eventName === event);
     put(metric, row?.eventCount ?? null, quiz.data.meta, quiz.file, 'civil-construction-1', row ? 'complete' : 'partial', '無料演習ツールのみ。イベント欠落は0と確定しない。');
+  }
+  const noteMonth = period.startDate.slice(0, 7);
+  const noteTrafficPath = `.claude/state/metrics/note/referrers-${noteMonth}.json`;
+  const noteArticlesPath = `.claude/state/metrics/note/articles-pv-${noteMonth}.json`;
+  if (existsSync(join(root, noteTrafficPath))) {
+    const traffic = readJson(root, noteTrafficPath);
+    const sourcePeriod = { startDate: traffic.period?.from, endDate: traffic.period?.to };
+    if (samePeriod(sourcePeriod, period)) {
+      put('notePv', traffic.summary?.pageViews ?? null, sourcePeriod, noteTrafficPath, 'all', 'complete', 'noteアクセス状況の対象月全記事。自己閲覧を含む。');
+      put('noteImpressions', traffic.summary?.impressions ?? null, sourcePeriod, noteTrafficPath, 'all', 'complete', 'noteアクセス状況の対象月全記事。PVとは別指標。');
+      if (existsSync(join(root, noteArticlesPath))) {
+        const articleData = readJson(root, noteArticlesPath);
+        const publishedPath = '.claude/state/note-published.json';
+        const publishedItems = existsSync(join(root, publishedPath)) ? readJson(root, publishedPath).items ?? [] : [];
+        const rows = Array.isArray(articleData.rows) ? articleData.rows : [];
+        const classified = rows.map(row => ({ row, qualification: noteArticleQualification(row.title, publishedItems) }));
+        for (const qualification of c.qualifications.map(q => q.id)) {
+          const selected = classified.filter(x => x.qualification === qualification).map(x => x.row);
+          const note = `記事別 ${selected.length}/${rows.length} 行を公開台帳とタイトル規則で資格帰属。未帰属記事があるため資格別は部分集計。`;
+          put('notePv', selected.reduce((sum, row) => sum + (Number(row.pageViews) || 0), 0), sourcePeriod, noteArticlesPath, qualification, 'partial', note);
+          put('noteImpressions', selected.reduce((sum, row) => sum + (Number(row.impressions) || 0), 0), sourcePeriod, noteArticlesPath, qualification, 'partial', note);
+        }
+      }
+    }
   }
   const salesPath = '.claude/state/sales/sales-log.json';
   if (existsSync(join(root, salesPath))) {
@@ -174,10 +215,35 @@ export function sourceFacts(root, c, period) {
       }
     }
   }
+  const cocoOrdersPath = '.claude/state/coconala/orders-snapshot.json';
+  const cocoLogPath = '.claude/state/coconala/orders-log.json';
+  if (existsSync(join(root, cocoOrdersPath))) {
+    const snapshot = readJson(root, cocoOrdersPath);
+    const orders = (snapshot.orders ?? []).filter(order => order.soldOn >= period.startDate && order.soldOn <= period.endDate);
+    const log = existsSync(join(root, cocoLogPath)) ? readJson(root, cocoLogPath).orders ?? [] : [];
+    const logByRoom = new Map(log.map(order => [String(order.talkroomId), order]));
+    const fullScan = snapshot.status === 'ok' && snapshot.scan?.tabsOk === snapshot.scan?.tabsTotal && snapshot.scan?.tabsTotal > 0;
+    const mapped = orders.every(order => Number.isInteger(order.priceYen) && order.priceYen >= 0 && logByRoom.has(String(order.talkroomId)));
+    const coverage = fullScan && mapped ? 'complete' : 'partial';
+    const sourcePeriod = period;
+    const note = `取引管理 ${snapshot.scan?.tabsOk ?? 0}/${snapshot.scan?.tabsTotal ?? 0} タブ・対象月 ${orders.length} 件をorders-logへ突合。キャンセルは除外。`;
+    put('coconalaOrders', orders.length, sourcePeriod, cocoOrdersPath, 'all', coverage, note);
+    put('coconalaRevenue', orders.reduce((sum, order) => sum + (Number(order.priceYen) || 0), 0), sourcePeriod, cocoOrdersPath, 'all', coverage, `${note} 手数料控除前。`);
+    for (const qualification of c.qualifications.map(q => q.id)) {
+      const selected = orders.filter(order => {
+        const logged = logByRoom.get(String(order.talkroomId));
+        if (!logged) return false;
+        if (logged.serviceId?.startsWith('coconala-rccm-')) return qualification === 'rccm';
+        return qualification === 'civil-construction-1' && logged.grade === 1;
+      });
+      put('coconalaOrders', selected.length, sourcePeriod, cocoOrdersPath, qualification, coverage, `${note} serviceIdと級で資格帰属。`);
+      put('coconalaRevenue', selected.reduce((sum, order) => sum + (Number(order.priceYen) || 0), 0), sourcePeriod, cocoOrdersPath, qualification, coverage, `${note} serviceIdと級で資格帰属。手数料控除前。`);
+    }
+  }
   const cocoPath = '.claude/state/coconala/analytics-snapshot.json';
   if (existsSync(join(root, cocoPath))) {
     const coco = readJson(root, cocoPath), p = coco.period?.services;
-    if (p) for (const [field, metric] of [['views','coconalaViews'], ['orders','coconalaOrders'], ['salesYen','coconalaRevenue']]) put(metric, coco.totals?.[field] ?? null, { startDate: p.startDate ?? p.from, endDate: p.endDate ?? p.to }, cocoPath, 'all', 'partial', 'サービス分析の全体値。期間・欠測・マスクは元データを確認。');
+    if (p) put('coconalaViews', coco.totals?.views ?? null, { startDate: p.startDate ?? p.from, endDate: p.endDate ?? p.to }, cocoPath, 'all', 'partial', 'サービス分析の全体値。30日ローリングであり、暦月へ換算しない。');
   }
   return facts;
 }
@@ -187,11 +253,13 @@ export function buildReport(root, period = reviewPeriod('weekly'), now = new Dat
   const observations = currentRecords(history, 'measurement');
   const sources = sourceFacts(root, c, period);
   const cells = ['all', ...c.qualifications.map(q => q.id)].flatMap(qualification => c.metrics.map(metric => {
+    const applicable = !metric.appliesTo || metric.appliesTo.includes(qualification);
+    if (!applicable) return { qualification, metric: metric.id, value: null, coverage: 'not-applicable', source: null, note: 'この資格では現在この指標を運用対象にしていません。', target: null, applicable: false };
     const measured = observations.find(r => r.qualification === qualification && r.subject === 'aggregate' && samePeriod(r.period, period) && Object.hasOwn(r.values, metric.id));
     const auto = sources.find(r => r.qualification === qualification && r.metric === metric.id && samePeriod(r.period, period));
     const fact = measured ? { value: measured.values[metric.id], source: measured.file, coverage: measured.coverage, note: measured.source } : auto;
     const target = currentRecords(history, 'target').find(t => t.qualification === qualification && t.metric === metric.id && t.effectiveDate <= period.startDate);
-    return { qualification, metric: metric.id, value: fact?.value ?? null, coverage: fact?.coverage ?? 'missing', source: fact?.source ?? null, note: fact?.note ?? 'この資格・指標・期間の集計は未取得です。', target: target ?? null };
+    return { qualification, metric: metric.id, value: fact?.value ?? null, coverage: fact?.coverage ?? 'missing', source: fact?.source ?? null, note: fact?.note ?? 'この資格・指標・期間の集計は未取得です。', target: target ?? null, applicable: true };
   }));
   const reviews = currentRecords(history, 'review');
   const due = ['weekly', 'monthly'].map(cadence => {

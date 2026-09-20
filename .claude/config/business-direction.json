@@ -91,7 +91,11 @@
       "unit": "回",
       "definition": "quiz_startのイベント回数。合格率やユニーク学習者数ではない。",
       "channel": "GA4",
-      "target": null
+      "target": null,
+      "appliesTo": [
+        "all",
+        "civil-construction-1"
+      ]
     },
     {
       "id": "quizCompletions",
@@ -100,7 +104,11 @@
       "unit": "回",
       "definition": "quiz_completeのイベント回数。実装対象と計測範囲を示す。",
       "channel": "GA4",
-      "target": null
+      "target": null,
+      "appliesTo": [
+        "all",
+        "civil-construction-1"
+      ]
     },
     {
       "id": "noteCtaClicks",
@@ -163,7 +171,12 @@
       "unit": "回",
       "definition": "サービス分析の閲覧数。rolling30日の週次スナップショットを合算しない。",
       "channel": "coconala",
-      "target": null
+      "target": null,
+      "appliesTo": [
+        "all",
+        "civil-construction-1",
+        "rccm"
+      ]
     },
     {
       "id": "coconalaInquiries",
@@ -172,7 +185,12 @@
       "unit": "件",
       "definition": "対象期間に受けた購入前相談。注文・完了件数と区別する。個人情報は記録しない。",
       "channel": "coconala",
-      "target": null
+      "target": null,
+      "appliesTo": [
+        "all",
+        "civil-construction-1",
+        "rccm"
+      ]
     },
     {
       "id": "coconalaOrders",
@@ -181,7 +199,12 @@
       "unit": "件",
       "definition": "サービス分析で定義される販売数。トークルームの完了件数と区別する。",
       "channel": "coconala",
-      "target": null
+      "target": null,
+      "appliesTo": [
+        "all",
+        "civil-construction-1",
+        "rccm"
+      ]
     },
     {
       "id": "coconalaRevenue",
@@ -190,7 +213,12 @@
       "unit": "円",
       "definition": "サービス分析の販売額。手数料控除前。",
       "channel": "coconala",
-      "target": null
+      "target": null,
+      "appliesTo": [
+        "all",
+        "civil-construction-1",
+        "rccm"
+      ]
     },
     {
       "id": "netReceipts",

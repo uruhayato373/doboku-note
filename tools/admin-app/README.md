@@ -14,7 +14,7 @@ npm run admin   # http://127.0.0.1:3021
 | タブ | データソース | 備考 |
 |---|---|---|
 | 教材からの展開（`/content/expansion`） | `.claude/state/content-expansion.json`・参考文献台帳・成果物実体 | 教材別の本文・図解・SNS対応、未確認・原典待ち・確認後の変更を100論点ずつ閲覧。制作と公開・効果を区別 |
-| 事業方針と改善（`/metrics/business`） | `.claude/config/business-direction.json`・既存計測/売上・`.claude/state/metrics/business/` | 資格別の提供価値とKPI、週次/月次の期日・判断・実験参照。計測/目標/レビューを同一OriginのローカルJSONフォームで追記保存。CLIと同じ検証を使用し、Git commitは運用スキルが行う。外部API・公開・任意ファイル編集はしない。 |
+| 事業方針と改善（`/metrics/business`） | `.claude/config/business-direction.json`・既存計測/売上・`.claude/state/metrics/business/` | 資格別の提供価値とKPI、週次/月次の期日・判断・実験参照。資格に適用しない指標は対象外として欠測へ数えない。計測/目標/レビューを同一OriginのローカルJSONフォームで追記保存。CLIと同じ検証を使用し、Git commitは運用スキルが行う。外部API・公開・任意ファイル編集はしない。 |
 | 計測概観 / GA4 / GSC / PSI | `.claude/state/metrics/{ga4,gsc,psi}/*.json` | CI がコミットするスナップショットを読むだけ。**ライブ API は叩かない**（会社 PC はプロキシで Google/Meta 遮断・CI 供給が正）。`?snapshot=` で履歴切替、鮮度バッジ（週次 CI・8 日超で赤） |
 | 検索順位の改善（`/metrics/seo-watch`） | `.claude/config/seo-watchwords.json`・`.claude/state/experiments.json`・GSC rank-watchのwatch/run履歴 | 資格別候補、受験意図・登録根拠・学習導線、固定クエリの7日比較、改善/待機理由、観察期限、28日の方針レビュー。同じ判定関数をCLIと共有し、読み取り専用。 |
 | エージェント / スキル | `.claude/agents/*.md` / `.claude/skills/**/SKILL.md` | gray-matter で frontmatter パース。役割（Generator/Evaluator）・モデル・tools・カテゴリ |

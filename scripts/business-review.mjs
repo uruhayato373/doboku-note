@@ -21,7 +21,8 @@ try {
     if (args.includes('--json')) console.log(JSON.stringify(r, null, 2));
     else {
       console.log(`${r.strategy.positioning}\n対象期間 ${period.startDate}〜${period.endDate}`);
-      console.log(`計測: ${r.cells.filter(c => c.value != null).length}/${r.cells.length}（欠測は0ではありません）`);
+      const applicable = r.cells.filter(c => c.applicable !== false);
+      console.log(`計測: ${applicable.filter(c => c.value != null).length}/${applicable.length}（対象外 ${r.cells.length - applicable.length}、欠測は0ではありません）`);
       for (const d of r.due) console.log(`${d.cadence}: ${d.period.startDate}〜${d.period.endDate} / ${d.due ? '要レビュー' : '次回待ち'} / ${d.status}`);
       for (const review of r.followups) console.log(`暫定レビュー再確認: ${review.period.startDate}〜${review.period.endDate} / ${review.file}`);
       for (const target of r.targetsDue) console.log(`目標の見直し: ${target.qualification} / ${target.metric}`);

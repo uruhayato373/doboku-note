@@ -32,8 +32,10 @@
 import { readFileSync, existsSync, writeSync } from 'node:fs';
 
 const SALES_LOG = '.claude/state/sales/sales-log.json';
+const NOTE_METRICS_DIR = '.claude/state/metrics/note';
 const STALE_WARN = 10; // 10 日転記が無ければ注意
 const STALE_FAIL = 21; // 3 週間走っていなければ「止まっている」と断定する
+const MONTHLY_DUE_DAY = 5; // 5日以降は前月のnoteアクセス＋売上表示を要求する
 //   ← 事故（2026-07-14 停止・8/17 発覚＝34 日）を FAIL 側に入れるための値。
 //     35 日にすると当の事故が WARN 止まりで鳴らない。逆に短すぎると月次運用を殺すので 3 週間。
 const JSON_OUT = process.argv.includes('--json');
@@ -83,6 +85,33 @@ export function assessSalesLog(log, nowUtc = todayUtc) {
   return { ...base, status: 'OK', reason: null };
 }
 
+/** noteアクセス状況の月次売上表示と販売明細台帳を突合する。件数ではなく金額の完全性ゲート。 */
+export function assessSalesBenchmark(log, traffic) {
+  const month = traffic?.month;
+  const expected = traffic?.summary?.salesYen;
+  if (!/^\d{4}-\d{2}$/.test(month ?? '') || !Number.isInteger(expected) || expected < 0) {
+    return { status: 'FAIL', reason: 'note月次売上の照合値が読めない', month: month ?? null, expected: null, actual: null };
+  }
+  const rows = (log?.sales ?? []).filter(sale => String(sale.date ?? '').startsWith(`${month}-`));
+  const actual = rows.reduce((sum, sale) => sum + (Number(sale.price) || 0), 0);
+  return {
+    status: actual === expected ? 'OK' : 'FAIL',
+    reason: actual === expected ? null : `${month} の販売明細 ¥${actual.toLocaleString()} がnote月次売上 ¥${expected.toLocaleString()} と不一致`,
+    month,
+    expected,
+    actual,
+    count: rows.length,
+  };
+}
+
+export function dueSalesMonth(now = new Date()) {
+  const parts = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Tokyo', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(now);
+  const get = type => Number(parts.find(part => part.type === type)?.value);
+  const delta = get('day') >= MONTHLY_DUE_DAY ? -1 : -2;
+  const date = new Date(Date.UTC(get('year'), get('month') - 1 + delta, 1));
+  return `${date.getUTCFullYear()}-${String(date.getUTCMonth() + 1).padStart(2, '0')}`;
+}
+
 // import 時に CLI を走らせない（テストから assessSalesLog だけ使うため）。
 // ガードが無いと、データが古いときの process.exit(1) がテスト実行そのものを殺す。
 const isMain = process.argv[1] && process.argv[1].endsWith('check-sales-freshness.mjs');
@@ -101,15 +130,22 @@ if (isMain) {
     process.exit(1);
   }
 
-  const r = assessSalesLog(log);
+  const freshness = assessSalesLog(log);
+  const dueMonth = dueSalesMonth();
+  const dueFile = `referrers-${dueMonth}.json`;
+  let benchmark = existsSync(`${NOTE_METRICS_DIR}/${dueFile}`)
+    ? assessSalesBenchmark(log, JSON.parse(readFileSync(`${NOTE_METRICS_DIR}/${dueFile}`, 'utf8')))
+    : { status: 'FAIL', reason: `${dueMonth} のnoteアクセス・月次売上表示が未取得`, month: dueMonth, expected: null, actual: null, count: 0 };
+  const r = benchmark?.status === 'FAIL' ? { ...freshness, status: 'FAIL', reason: benchmark.reason } : freshness;
 
   if (JSON_OUT) {
-    writeSync(1, JSON.stringify({ check: 'sales-freshness', staleWarnDays: STALE_WARN, staleFailDays: STALE_FAIL, ...r }, null, 2) + '\n');
+    writeSync(1, JSON.stringify({ check: 'sales-freshness', staleWarnDays: STALE_WARN, staleFailDays: STALE_FAIL, monthlyDueDay: MONTHLY_DUE_DAY, ...r, benchmark }, null, 2) + '\n');
     process.exit(r.status === 'FAIL' ? 1 : 0);
   }
 
   // 実検査数を必ず出す（緑を見たら「何件検査したか」を確認できるように）
   console.log(`${TAG} 実検査 ${r.count} 件（日付あり ${r.datedCount ?? 0} 件）／転記 ${r.updatedAt ?? '-'}（${r.updatedAge ?? '-'} 日前）／最終売上 ${r.latest ?? '-'}（${r.latestAge ?? '-'} 日前）`);
+  if (benchmark) console.log(`${TAG} 月次照合 ${benchmark.month}: 販売明細 ${benchmark.count} 件 ¥${benchmark.actual?.toLocaleString() ?? '-'} / note表示 ¥${benchmark.expected?.toLocaleString() ?? '-'}`);
 
   if (r.status === 'FAIL') {
     console.error(`${TAG} ✗ FAIL: ${r.reason}`);

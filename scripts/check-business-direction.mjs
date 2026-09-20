@@ -37,7 +37,8 @@ try {
     if (!['all', ...config.qualifications.map(q => q.id)].includes(b.qualification) || !config.metrics.some(m => m.id === b.metricId) || !b.readerNeed?.trim() || !b.verifiedGap?.trim() || !rows.some(r => r.kind === 'review' && r.file === b.reviewRecord)) errors.push(`${e.id}: businessContextの資格・指標・レビュー参照を確認してください`);
   }
   const report = buildReport(root);
-  console.log(`[business-direction] ${errors.length ? 'FAIL' : 'PASS'}: ${config.qualifications.length}資格 / ${config.metrics.length}指標 / ${rows.length}履歴。計測 ${report.cells.filter(c => c.value != null).length}/${report.cells.length}`);
+  const applicable = report.cells.filter(c => c.applicable !== false);
+  console.log(`[business-direction] ${errors.length ? 'FAIL' : 'PASS'}: ${config.qualifications.length}資格 / ${config.metrics.length}指標 / ${rows.length}履歴。計測 ${applicable.filter(c => c.value != null).length}/${applicable.length}（対象外 ${report.cells.length - applicable.length}）`);
   for (const e of errors) console.error(e);
   if (errors.length) process.exitCode = 1;
 } catch (e) { console.error(`[business-direction] FAIL: ${e.message}`); process.exitCode = 1; }

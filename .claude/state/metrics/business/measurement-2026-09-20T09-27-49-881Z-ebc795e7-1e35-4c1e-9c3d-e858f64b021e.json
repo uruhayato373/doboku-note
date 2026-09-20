@@ -1,0 +1,18 @@
+{
+  "kind": "measurement",
+  "period": {
+    "startDate": "2026-08-01",
+    "endDate": "2026-08-31"
+  },
+  "channel": "operations",
+  "subject": "aggregate",
+  "coverage": "partial",
+  "source": "C8購入者指摘インシデント1件を実査。教材全体の全数品質監査ではない。",
+  "values": {
+    "qualityDefects": 1
+  },
+  "qualification": "all",
+  "schemaVersion": 1,
+  "createdAt": "2026-09-20T09:27:49.881Z",
+  "strategyHash": "c84e4b384e1cda935a5e3e748cc494564c5a34875116c80f1e6a72a580217282"
+}

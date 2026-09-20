@@ -1,0 +1,29 @@
+{
+  "kind": "review",
+  "qualification": "all",
+  "period": {
+    "startDate": "2026-08-01",
+    "endDate": "2026-08-31"
+  },
+  "cadence": "monthly",
+  "status": "provisional",
+  "snapshot": ".claude/state/metrics/business/snapshot-2026-09-20T09-28-39-692Z-7ba3eceb-f648-4d05-8999-14e4bafcbc7a.json",
+  "supersedes": ".claude/state/metrics/business/review-2026-09-13T02-22-01-166Z-e9ff0ae8-3da5-4581-921c-1ff9ab682777.json",
+  "qualificationsReviewed": [
+    "civil-construction-1",
+    "pe-comprehensive-management",
+    "pe-construction",
+    "rccm"
+  ],
+  "findings": "8月は適用対象76セル中51セルを記録（完全29・部分22・欠測25）。自然検索全体3617人、note全体PV 7,455・表示83,515を取得。note月次売上表示71,640円に対し販売明細台帳は16件39,520円で32,120円不足し、販売明細は未完。KDPは45/45冊を照合した確定5,789円。ココナラは全タブ実査で3件12,500円を確認し、購入前相談1件とC8重大不備1件は部分実測。RCCMのGoogle・CTA、ココナラ暦月閲覧、実受取・費用・作業時間は欠測。",
+  "decision": "取得できる計測は共通事業レビューへ接続した。note販売差額が解消するまでnote販売実績を完全値や利益として扱わない。KDPとココナラ注文実績は期間と対象が揃った値を採用し、30日ローリング閲覧を8月値へ換算しない。指標を運用していない資格は対象外とし、欠測と混同しない。",
+  "nextAction": "note販売履歴のパスワード再確認を人が通した後、2026-08を再取得して71,640円と検算する。9月28日に9月noteアクセス・KDP推計と運営工数の記録可否を確認する。DM 10051134の再オープンとroom 18194267の記録は運営者が返信・評価の実体を確認して閉じる。",
+  "experimentIds": [
+    "EXP-007",
+    "EXP-008"
+  ],
+  "nextReviewDate": "2026-09-28",
+  "schemaVersion": 1,
+  "createdAt": "2026-09-20T09:29:05.191Z",
+  "strategyHash": "c84e4b384e1cda935a5e3e748cc494564c5a34875116c80f1e6a72a580217282"
+}
