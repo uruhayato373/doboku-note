@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-19T23:18:08.260Z",
+  "updated_at": "2026-09-20T00:02:59.671Z",
   "exam": "civil-career",
   "campaign": "x-longform-career-2026",
   "note": "X Articleはネイティブ予約不可のため、1回限りのCodexローカル自動化で公開する。翌朝の告知はArticle URL確定後にpublish-xへ解放する。既存9月枠との差し替え済み。 2026-09-20: Codex ローカル自動化は Mac スリープ中に発火せず起床時(05:30前後)に遅延実行され公開窓(15分前〜120分後)を外していた(Article 1: 09-07 04:50 / Article 2: 09-14・09-17 05:30)。Article 3・1・4 は同じ日のまま早朝へ移し、告知短文の枠は変えない。",
@@ -33,27 +33,26 @@
     },
     "3": {
       "title": "9/16 20:30 civil-1 / X Article自動化 / 市場価値",
-      "status": "scheduled",
+      "status": "posted",
       "scheduled_at": "2026-09-16T20:30:00+09:00",
       "text": "1級土木施工管理技士の市場価値は、資格名だけで決まらない。制度上担える役割と、工種・工事規模・立場の伝え方を整理する。",
-      "posted_at": null,
+      "posted_at": "2026-09-20T00:02:59.671Z",
       "manual_only": true,
       "publication_mode": "codex-local-once",
       "source_file": "articles/02-market-value.md",
       "site_target": "https://doboku-note.com/docs/civil-construction-1-guide-market-value?utm_source=x&utm_medium=social&utm_campaign=x-longform-career-2026&utm_content=article-02",
-      "article_url": null,
+      "article_url": "https://x.com/doboku373/status/2101459864715510124",
       "original_scheduled_at": "2026-09-13T20:30:00.000+09:00"
     },
     "4": {
       "title": "9/17 08:00 civil-1 / X Article告知 / 市場価値",
       "status": "scheduled",
       "scheduled_at": "2026-09-17T08:00:00+09:00",
-      "text": "1級土木の価値は、資格手当だけでは測れません。監理技術者として担える役割と、自分の工種・規模・立場をどう伝えるか。転職前に整理したい考え方をまとめました。\n\n{{ARTICLE_URL_02}}\n#1級土木施工管理技士 #施工管理技士",
+      "text": "1級土木の価値は、資格手当だけでは測れません。監理技術者として担える役割と、自分の工種・規模・立場をどう伝えるか。転職前に整理したい考え方をまとめました。\n\nhttps://x.com/doboku373/status/2101459864715510124\n#1級土木施工管理技士 #施工管理技士",
       "posted_at": null,
-      "manual_only": true,
+      "manual_only": false,
       "publication_mode": "publish-x-after-article",
-      "blocked_reason": "article_url_pending",
-      "article_url": null,
+      "article_url": "https://x.com/doboku373/status/2101459864715510124",
       "original_scheduled_at": "2026-09-14T08:00:00.000+09:00"
     },
     "5": {
