@@ -3,9 +3,12 @@ notePricing: paid
 noteSeries: コンクリート診断士-構造物別記述式
 utmCampaign: cd-case-tunnel-leakage
 noteMagazine: コンクリート診断士-想定構造物8ケース
-noteStatus: draft
+notePublishedAt: "2026-09-20"
+noteId: "n5cdc4ad1d3e5"
+noteUrl: "https://note.com/dobokunote/n/n5cdc4ad1d3e5"
+noteStatus: published
 published: false
-technicalReview: pending
+technicalReview: approved
 paidBoundary: "答案の方針"
 price: 1480
 coverTitle: "問題B｜道路トンネル覆工の漏水・凍害"

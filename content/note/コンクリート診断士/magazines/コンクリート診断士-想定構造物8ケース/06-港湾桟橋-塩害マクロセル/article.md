@@ -3,9 +3,12 @@ notePricing: paid
 noteSeries: コンクリート診断士-構造物別記述式
 utmCampaign: cd-case-port-chloride
 noteMagazine: コンクリート診断士-想定構造物8ケース
-noteStatus: draft
+notePublishedAt: "2026-09-20"
+noteId: "n2abab9b8d0bd"
+noteUrl: "https://note.com/dobokunote/n/n2abab9b8d0bd"
+noteStatus: published
 published: false
-technicalReview: pending
+technicalReview: approved
 paidBoundary: "答案の方針"
 price: 1480
 coverTitle: "問題B｜港湾桟橋の塩害・再劣化"

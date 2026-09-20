@@ -3,9 +3,12 @@ notePricing: paid
 noteSeries: コンクリート診断士-構造物別記述式
 utmCampaign: cd-case-building-fire
 noteMagazine: コンクリート診断士-想定構造物8ケース
-noteStatus: draft
+notePublishedAt: "2026-09-20"
+noteId: "n3c1b3a072b44"
+noteUrl: "https://note.com/dobokunote/n/n3c1b3a072b44"
+noteStatus: published
 published: false
-technicalReview: pending
+technicalReview: approved
 paidBoundary: "答案の方針"
 price: 1480
 coverTitle: "問題B｜立体駐車場の火害診断"

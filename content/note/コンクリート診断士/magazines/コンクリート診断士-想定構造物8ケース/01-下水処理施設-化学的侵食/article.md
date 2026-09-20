@@ -3,9 +3,12 @@ notePricing: paid
 noteSeries: コンクリート診断士-構造物別記述式
 utmCampaign: cd-case-sewer-chemical
 noteMagazine: コンクリート診断士-想定構造物8ケース
-noteStatus: draft
+notePublishedAt: "2026-09-20"
+noteId: "nb50fc8e878e8"
+noteUrl: "https://note.com/dobokunote/n/nb50fc8e878e8"
+noteStatus: published
 published: false
-technicalReview: pending
+technicalReview: approved
 paidBoundary: "答案の方針"
 price: 1480
 coverTitle: "問題B｜下水処理施設の化学的侵食"

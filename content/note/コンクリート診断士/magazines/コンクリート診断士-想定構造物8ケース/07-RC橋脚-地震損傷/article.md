@@ -3,9 +3,12 @@ notePricing: paid
 noteSeries: コンクリート診断士-構造物別記述式
 utmCampaign: cd-case-pier-seismic
 noteMagazine: コンクリート診断士-想定構造物8ケース
-noteStatus: draft
+notePublishedAt: "2026-09-20"
+noteId: "nac1f317c880c"
+noteUrl: "https://note.com/dobokunote/n/nac1f317c880c"
+noteStatus: published
 published: false
-technicalReview: pending
+technicalReview: approved
 paidBoundary: "答案の方針"
 price: 1480
 coverTitle: "問題B｜RC橋脚の地震損傷"
