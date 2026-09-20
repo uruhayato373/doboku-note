@@ -50,7 +50,8 @@
     "総監模範論文-維持更新施工": "essay-maintenance-contractor-magazine",
     "総監模範論文-鋼コンコンサル": "essay-steel-concrete-consultant-magazine",
     "総監模範論文-トンネルコンサル": "essay-tunnel-consultant-magazine",
-    "総監模範論文-道路舗装施工": "essay-road-paving-contractor-magazine"
+    "総監模範論文-道路舗装施工": "essay-road-paving-contractor-magazine",
+    "コンクリート診断士-想定構造物8ケース": "cd-structure-case-bank"
   },
   "packs": {
     "_doc": "複数ラベルを 1 マガジンへ束ねる商品。期待 = Σ(labels の repo 公開記事数) + extras。",
@@ -126,13 +127,56 @@
         "RCCM問題III-2026模範論文集"
       ],
       "reason": "問題IIIの序章と6テーマを全収録。問題Iテンプレと部門別6記事、択一予想、暗記はラベルなし単発商品のためextrasで数える。問題IV-2は含まない。"
+    },
+    "cd-road-bridge-pack": {
+      "labels": [],
+      "fromMagazines": {
+        "cd-essay-magazine": 5,
+        "cd-structure-case-bank": 4
+      },
+      "reason": "解法ガイドと道路・橋梁系8ケースを選抜収録。既存記述式から5記事、構造物別から4記事の全9記事。"
+    },
+    "cd-water-underground-pack": {
+      "labels": [],
+      "fromMagazines": {
+        "cd-essay-magazine": 2,
+        "cd-structure-case-bank": 4
+      },
+      "reason": "解法ガイドと水・地下系5ケースを選抜収録。既存記述式から2記事、構造物別から4記事の全6記事。"
+    },
+    "cd-building-facility-pack": {
+      "labels": [],
+      "fromMagazines": {
+        "cd-essay-magazine": 3,
+        "cd-structure-case-bank": 2
+      },
+      "reason": "解法ガイドと建築・施設系4ケースを選抜収録。既存記述式から3記事、構造物別から2記事の全5記事。"
+    },
+    "cd-problem-a-pack": {
+      "labels": [],
+      "fromMagazines": {
+        "cd-essay-magazine": 3
+      },
+      "reason": "既存記述式から解法ガイドと問題A模範答案2本を選抜した全3記事。"
+    },
+    "cd-problem-b-pack": {
+      "labels": [],
+      "fromMagazines": {
+        "cd-essay-magazine": 6,
+        "cd-structure-case-bank": 8
+      },
+      "reason": "解法ガイド、既存の問題B 5ケース、構造物別8ケースを収録した全14記事。"
+    },
+    "cd-essay-complete-pack": {
+      "labels": [
+        "コンクリート診断士-記述式-模範答案集",
+        "コンクリート診断士-想定構造物8ケース"
+      ],
+      "reason": "既存記述式8記事と構造物別8記事をすべて収録した問題A・B完全パック。全16記事。"
     }
   },
   "excluded": {
     "_doc": "マガジンに対応しないことが正しいラベル。理由必須。",
-    "コンクリート診断士-想定構造物8ケース": {
-      "reason": "技術レビュー待ちのdraft 8記事。レビュー完了後にcd-structure-case-bankをnoteへ作成し、labelsへ移してライブ収録数を照合する。2026-09-20"
-    },
     "1級土木-R8二次-予想模試3回": {
       "reason": "単発記事の PDF 商品（civil-1-r8-mock3-pdf・note では /n/ の 1 記事で公開・マガジンではない）。ライブのマガジン軸が存在しないので --ci で未照合になる。2026-09-18"
     },

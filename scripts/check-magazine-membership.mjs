@@ -263,7 +263,9 @@ function main() {
   for (const [label, id] of Object.entries(labelMap)) add(id, label);
   for (const [id, pack] of Object.entries(packs)) for (const l of pack.labels ?? []) add(id, l);
 
-  const gatedIds = [...new Set([...idToLabels.keys(), ...Object.keys(extras)])];
+  // fromMagazines だけで構成する選抜パックも検査対象に含める。pack.labels が空でも、
+  // 構成元の部分収録数とライブ件数を突合できる。
+  const gatedIds = [...new Set([...idToLabels.keys(), ...Object.keys(packs), ...Object.keys(extras)])];
   if (gatedIds.length === 0) fail('ゲート対象のマガジンが 0 件');
 
   const rows = gatedIds.map((id) => {

@@ -1052,12 +1052,11 @@ const MAGAZINES_RAW = {
     badge: 'note 限定 教材',
   },
 
-  // コンクリート診断士の商品拡張（2026-09-20設計）。技術レビュー完了後にnote実機へ作成し、
-  // noteUrlを設定してpublished:trueへ切り替える。原稿は8本を一度だけ持ち、各パックへ再収録する。
+  // コンクリート診断士の商品拡張（2026-09-20公開）。原稿は8本を一度だけ持ち、各パックへ再収録する。
   'cd-structure-case-bank': {
     id: 'cd-structure-case-bank',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/md94d10122def',
     title: 'コンクリート診断士 記述式｜構造物別 想定8ケース',
     description:
       '下水処理施設、道路トンネル、立体駐車場、PC橋、配水池、港湾桟橋、RC橋脚、RC擁壁の8構造物を題材に、変状把握から劣化機構の推定、調査、評価、対策までを一貫して論じる問題Bのオリジナル想定問題とフル模範答案集。',
@@ -1068,8 +1067,8 @@ const MAGAZINES_RAW = {
   },
   'cd-road-bridge-pack': {
     id: 'cd-road-bridge-pack',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m7a59ccbb7e47',
     title: 'コンクリート診断士 記述式｜道路・橋梁8ケース',
     description:
       '既存の塩害・ASR・凍害・疲労複合に、道路トンネル、PC橋、港湾桟橋、地震後のRC橋脚を加えた道路・橋梁系8ケース。解法ガイドを含む全9記事を、道路・橋梁の維持管理に携わる受験者向けに再収録する。',
@@ -1080,8 +1079,8 @@ const MAGAZINES_RAW = {
   },
   'cd-water-underground-pack': {
     id: 'cd-water-underground-pack',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m00172a143bcc',
     title: 'コンクリート診断士 記述式｜水・地下5ケース',
     description:
       '中性化、下水処理施設の化学的侵食、道路トンネルの漏水・凍害、配水池のひび割れ・漏水、RC擁壁の初期欠陥・中性化を収録。水処理・地下構造物・擁壁の診断に近い受験者向けの5ケースと解法ガイド。',
@@ -1092,8 +1091,8 @@ const MAGAZINES_RAW = {
   },
   'cd-building-facility-pack': {
     id: 'cd-building-facility-pack',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/me3141ce22b7e',
     title: 'コンクリート診断士 記述式｜建築・施設4ケース',
     description:
       '中性化、ASR、立体駐車場の火害、RC擁壁の初期欠陥・中性化を収録。建築・施設管理に近い受験者が、外観変状から調査、性能評価、補修・補強までを練習する4ケースと解法ガイド。',
@@ -1104,8 +1103,8 @@ const MAGAZINES_RAW = {
   },
   'cd-problem-a-pack': {
     id: 'cd-problem-a-pack',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m864077343c10',
     title: 'コンクリート診断士 記述式｜問題A集中パック',
     description:
       '診断士の役割と倫理、維持管理の考え方を論じる問題Aの模範答案2本に、答案の型と採点視点をまとめた解法ガイドを加えた全3記事。問題Aだけを短期間で固めたい受験者向け。',
@@ -1116,8 +1115,8 @@ const MAGAZINES_RAW = {
   },
   'cd-problem-b-pack': {
     id: 'cd-problem-b-pack',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m629f8736f9c3',
     title: 'コンクリート診断士 記述式｜問題B 13ケース',
     description:
       '既存の劣化機構別5ケースと、新規の構造物別8ケースを統合した問題Bの全13ケース。変状把握、劣化機構の推定、調査、評価、対策の型を横断して反復できる。解法ガイドを含む全14記事。',
@@ -1128,8 +1127,8 @@ const MAGAZINES_RAW = {
   },
   'cd-essay-complete-pack': {
     id: 'cd-essay-complete-pack',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m8a5396da31ce',
     title: 'コンクリート診断士 記述式｜問題A・B 完全パック',
     description:
       '解法ガイド、問題Aの模範答案2本、問題Bの劣化機構別5ケースと構造物別8ケースを統合した記述式全16記事。問題A・Bを一つの商品で通して練習したい受験者向け。',
