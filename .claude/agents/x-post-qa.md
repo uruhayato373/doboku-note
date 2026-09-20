@@ -51,7 +51,8 @@ X 投稿下書き（`tweets.md`）と予約投稿状態の **品質評価**を�
 - **実績・社会的証明の裏取り（policy §5.3・writer のガードレール表と対）**: 以下は**書いた時点で軸 2 を 0 点**にする。
   - ココナラの**★レビュー・高評価**への言及（購入者→出品者のレビューは 0 件。記録上あるのは出品者→購入者の評価だけ）
   - **note の「今月」「直近」の売上を、鮮度検査が緑でないまま書くこと**（`npm run check-sales-freshness` が OK なら突合が成立するので可。WARN/FAIL なら転記が止まっており実態と乖離する。§5.3 は sales-log 突合を必須にしている）
-  - コンクリート Kindle（g-01 / g-02）を「発売中」と書く（提出待ち・ASIN 未取得）
+  - Kindleカタログが`ready` / `in_review`またはASIN未取得の本を「発売中」と書く。g-01 / g-02は`status: live`かつASIN確認済みなので対象外
+  - noteの`cd-takuitsu-98-pdf` / `cd-marugoto-pack`を、2026-11-26より前または`note-magazines.ts`が`published:false`のまま販売中として送客する
   - 合格保証・断定表現（「これで受かる」等）
   書いてよい上限は「販売実績 2 件」「リピート 1 件」「レギュラーランク」「本人確認済み」まで。
 - **送客先が今も買えるか**: `coconala-services.ts` で `status:'listed'`／`note-magazines.ts` で `published:true` を確認。受付終了・未公開への送客 → 軸 4 を 0 点。

@@ -216,7 +216,7 @@ CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認し
 | 13 | LINE 一次→二次ブリッジの器 | 磁石記事・配信台本3通・友だち追加CTA文言は完成済み。残るのは外部アカウントと実URLだけ | LINE公式アカウント開設→`delivery-script.md`を管理画面へ転記→`friend-add-cta.md`のプレースホルダーを実URLへ差し替え、X・note・サイトへ配置 |
 | 15 | Cloudflare / R2 認証キーの最小権限化 | 固定90/180日ローテーションの根拠はない。R2監査専用キーの作成手順は`ci-cd-security-hardening.md`に既存 | Cloudflare管理画面で`CLOUDFLARE_API_TOKEN`の実期限・権限を確認し、R2読み取り専用キーを`CLOUDFLARE_R2_AUDIT_*`へ登録。`r2-audit.yml`が汎用キーへフォールバックせず成功することを確認 |
 | 16 | コンクリート主任技士の原典待ち問題 | H25 skip 18問・H24 conflict 4問とR6/R7はローカル原典がなく、推測補完できない。詳細は`exam-content-policy.md`の主任技士メモが真実源 | 原典入手後に問題・公式解答表を視覚照合し、復元できた設問だけ追加。解答キーに合わせた本文創作は禁止 |
-| 17 | コンクリート診断士 98問＋記述式8本の技術内容レビュー | 2026-09-05実査で一次演習8記事は13+14+13+12+12+13+10+11=98問、記述式マガジン`mf2a132408b6f`は8記事、サイト`guide-essay`も存在。公開後の人手レビュー完了を示す実体はない | 一次演習98問、note記述式8本、`content/site/concrete-diagnostician/guide-essay`を有資格者が技術レビューし、誤りを修正・再デプロイする。原典照合できない数値を推測で補わない |
+| 17 | コンクリート診断士 98問＋既存8本＋新規8本の技術内容レビュー | 2026-09-20実査で一次演習98問、既存記述式8記事、サイト`guide-essay`に加え、構造物別の新規8記事と9商品分の掲載文・価格・公開順を整備済み。レビュー表は`content/note/コンクリート診断士/技術レビューチェックリスト.md`。Kindle `g-01`のSelect自動更新はオフ、現行期間は2026-11-25まで | 一次演習98問、既存記述式8本、`guide-essay`、新規構造物別8本を有資格者が技術レビューする。指摘修正後に記述式7商品を公開する。択一98問PDFとまるごとパックはSelect満了を実機再確認し2026-11-26以降に公開する。原典照合できない数値を推測で補わない |
 | 18 | GA4 UIバックアップとbing流入の外部照合 | Data API・週次`metrics-analyzer`・note referral集計・商品別期間効率は稼働済み。GA4 UI CSVは3ユニットとも未成立。最新14日のbingは2,683 usersだが日本比率99.4%・engagement 71.3%で自動bot署名は`flagged:false` | ログイン済みGA4 UIで正式レポート名を確定しfixtureを更新する。Bing Webmasterとdevice・landing・新規/再訪を突合し、件数比だけでbot除外しない。API主経路は継続する |
 
 
@@ -616,4 +616,3 @@ Drive台帳・vault・Drive APIの照合前にローカル実体を削除しな�
 **選択肢**: (a) Secrets に置いて verify-yt-status.yml と同型の週次 workflow にする / (b) ローカル週次のまま（現状）で、SessionStart の催促に組み込む。
 
 **完了条件**: どちらかを選び、(a) なら workflow と secret 名を ci-cd-security-hardening.md に記録、(b) なら本カードを閉じて weekly-review SKILL に「ローカル限定」と明記（既に記載あり）。
-
