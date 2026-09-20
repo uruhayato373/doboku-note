@@ -83,7 +83,7 @@ note 有料記事・マガジンの販売履歴を一元管理する運用手順
 - 総額が一致したら、その月は**追記ではなく差し替える**。部分的に手入力された月へ追記すると
   重複と誤転記（実際に 2026-07-13 の1件が日付か金額違いで残っていた）が混ざる
 
-`productId` の解決順: 手当表 → 既存ログの同名 → `src/lib/note-magazines.ts` の `title`/`shortTitle` →
+`productId` の解決順: 手当表 → 既存ログの同一タイトルに紐づく確定済みproductIdが1種類だけなら再利用 → `src/lib/note-magazines.ts` の `title`/`shortTitle` →
 `content/note/**/article*.md` の H1 → ディレクトリ名。note の表示名はカタログ名と揺れるので
 （例「技術士 総監｜記述式 完全パック」＝ `essay-complete-pack`）、揺れは手当表で吸収する。
 
@@ -171,6 +171,7 @@ npm run report-note-funnel-efficiency
 | 1級2級土木 学科記述 直前暗記ノート | `article:civil-1-anki-note`（¥980）/ `article:civil-2-anki-note`（¥580）。noteUrl は `/n/…` 単品（マガジン非収録） |
 | 1級土木 第1次検定 出る順 合格ノート | `article:civil-1-ichiji-ronten` |
 | 1級土木 二次 出題分析と直前の重点 | `article:civil-1-r8-bunseki` |
+| 1級土木 施工経験記述 工種別5管理完成答案 | `article:civil-1-keiken-pack-{工事番号 or 工種}`。確定済みは `15` / `24` / `51` / `55` / `72` / `76` / `102` / `105` / `108` / `tunnel` |
 | コンクリート主任技士 配合計算 実戦演習12問 | `article:cce-mix-calculation-practice` |
 | コンクリート主任技士 令和8年度 四肢択一 予想50問 | `article:cce-r8-mc-50` |
 | コンクリート診断士 四肢択一演習98問 PDF | `article:cd-takuitsu-98-pdf` |

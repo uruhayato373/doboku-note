@@ -183,10 +183,21 @@ export function sourceFacts(root, c, period) {
   const salesPath = '.claude/state/sales/sales-log.json';
   if (existsSync(join(root, salesPath))) {
     const sales = readJson(root, salesPath).sales.filter(s => s.date.slice(0, 10) >= period.startDate && s.date.slice(0, 10) <= period.endDate);
+    const totalRevenue = sales.reduce((sum, sale) => sum + (Number(sale.price) || 0), 0);
+    const traffic = existsSync(join(root, noteTrafficPath)) ? readJson(root, noteTrafficPath) : null;
+    const trafficPeriod = { startDate: traffic?.period?.from, endDate: traffic?.period?.to };
+    const salesComplete = samePeriod(trafficPeriod, period)
+      && Number.isInteger(traffic?.summary?.salesYen)
+      && traffic.summary.salesYen === totalRevenue
+      && sales.every(sale => !String(sale.productId ?? '').startsWith('article:unknown-'));
+    const salesCoverage = salesComplete ? 'complete' : 'partial';
+    const salesNote = salesComplete
+      ? `販売履歴 ${sales.length} 件・¥${totalRevenue.toLocaleString()}をnote月次売上表示と照合し一致。productId未解決0件。`
+      : '台帳への登録分。note月次売上表示との一致またはproductId解決が未完のため網羅性は未確認。';
     for (const qualification of ['all', ...c.qualifications.map(q => q.id)]) {
       const selected = qualification === 'all' ? sales : sales.filter(s => c.salesAttribution.rules.find(rule => rule.ids?.includes(s.productId) || rule.prefixes.some(prefix => s.productId?.startsWith(prefix)))?.qualification === qualification);
-      put('noteSales', selected.length, period, salesPath, qualification, 'partial', '台帳への登録分。月別の取得完了証明がないため網羅性は未確認。');
-      put('noteRevenue', selected.reduce((sum, s) => sum + s.price, 0), period, salesPath, qualification, 'partial', '登録分の販売額。利益ではない。全体には重点外・資格未帰属を含む。');
+      put('noteSales', selected.length, period, salesPath, qualification, salesCoverage, `${salesNote} 全体には重点資格外・複数資格商品を含む。`);
+      put('noteRevenue', selected.reduce((sum, s) => sum + s.price, 0), period, salesPath, qualification, salesCoverage, `${salesNote} 販売額は利益・実受取ではない。`);
     }
   }
   const kdpPath = '.claude/state/sales/kdp-royalties.json';

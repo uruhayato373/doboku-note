@@ -44,7 +44,7 @@ import { chromium } from 'playwright';
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { resolveSaleEntry, reconcileTotal, canonicalizeProductId } from './lib/sales-normalize.mjs';
+import { resolveKnownSaleEntry, resolveSaleEntry, reconcileTotal, canonicalizeProductId } from './lib/sales-normalize.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -212,16 +212,17 @@ try {
 
   // 4. 正規化・検算
   const magazines = loadMagazines();
+  const log = existsSync(SALES_LOG) ? JSON.parse(readFileSync(SALES_LOG, 'utf8')) : { version: 1, currency: 'JPY', sales: [] };
   const entries = [];
   let unknownIdx = 0;
   for (const r of rawRows) {
     const dateIso = toIsoDate(r.date);
     const price = Number(r.priceText.replace(/[^\d]/g, ''));
-    const resolved = resolveSaleEntry({ title: r.title, date: dateIso }, magazines, unknownIdx);
+    const cleanTitle = r.title.replace(/^(?:記事購入|マガジン|メンバーシップ)[・･]/, '');
+    const resolved = resolveKnownSaleEntry(cleanTitle, log.sales) ?? resolveSaleEntry({ title: r.title, date: dateIso }, magazines, unknownIdx);
     if (!resolved.resolved) unknownIdx++;
     // 販売履歴の表示は「記事購入・<題名>」「マガジン・<題名>」「メンバーシップ・<プラン>」。ログの title は題名だけ
-    const title = r.title.replace(/^(?:記事購入|マガジン|メンバーシップ)[・･]/, '');
-    entries.push({ date: dateIso, productId: canonicalizeProductId(resolved.productId), title, type: resolved.type, price });
+    entries.push({ date: dateIso, productId: canonicalizeProductId(resolved.productId), title: cleanTitle, type: resolved.type, price });
   }
 
   const check = reconcileTotal(entries, dashboardTotal);
@@ -246,7 +247,6 @@ try {
   }
 
   // 5. 差し替え（追記ではない）
-  const log = existsSync(SALES_LOG) ? JSON.parse(readFileSync(SALES_LOG, 'utf8')) : { version: 1, currency: 'JPY', sales: [] };
   const kept = (log.sales || []).filter((s) => !String(s.date || '').startsWith(MONTH_ARG));
   const removed = (log.sales || []).length - kept.length;
   log.sales = [...kept, ...entries.map(({ date, productId, title, type, price }) => ({ date, productId, title, type, price }))];

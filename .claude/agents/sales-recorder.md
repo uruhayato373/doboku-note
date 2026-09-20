@@ -199,7 +199,7 @@ productId は `article:<slug>` 形式。slug は商品名から推定:
 | `総監口頭試験…「業務経歴」の語り方` | `article:tankan-oral-exam` |
 | `【総監再受験者向け】不合格要因を特定する3パターン分析` | `article:tankan-retake-analysis` |
 | `1級土木 施工経験記述｜令和{N}年度 過去問 模範答案` | `article:civil-1-pastexam-essay-r0{N}` |
-| `1級土木 施工経験記述｜{工種}（5管理 完成答案）`（完全攻略パック単品） | `article:civil-1-keiken-pack-{工事番号 or 工種}`。既出: `article:civil-1-keiken-pack-15`（工事15 橋脚フーチング マスコン）／`article:civil-1-keiken-pack-72`（工事72 既設管更生）／`article:civil-1-keiken-pack-tunnel`（補充のトンネル工）／`article:civil-1-keiken-pack-55`（工事55 河道掘削・しゅんせつ）／`article:civil-1-keiken-pack-105`（工事105 鋼道路橋塗替塗装） |
+| `1級土木 施工経験記述｜{工種}（5管理 完成答案）`（完全攻略パック単品） | `article:civil-1-keiken-pack-{工事番号 or 工種}`。既出: `article:civil-1-keiken-pack-15`（工事15 橋脚フーチング マスコン）／`article:civil-1-keiken-pack-24`（工事24 PC橋上部工）／`article:civil-1-keiken-pack-51`（工事51 河川護岸ブロック張）／`article:civil-1-keiken-pack-55`（工事55 河道掘削・しゅんせつ）／`article:civil-1-keiken-pack-72`（工事72 既設管更生）／`article:civil-1-keiken-pack-76`（工事76 橋脚躯体）／`article:civil-1-keiken-pack-102`（工事102 橋梁支承取替）／`article:civil-1-keiken-pack-105`（工事105 鋼道路橋塗替塗装）／`article:civil-1-keiken-pack-108`（工事108 橋梁床版下面炭素繊維補強）／`article:civil-1-keiken-pack-tunnel`（補充のトンネル工） |
 | `1級土木 施工経験記述｜{管理A}×{管理B}`（2テーマ組合せ大全 単品） | `article:civil-1-combo-essay-{a}-{b}`（例: `-quality-environment`） |
 
 **推定できない場合**: `article:unknown-{YYYYMMDD}-{index}` として記録し、後でユーザーが修正。

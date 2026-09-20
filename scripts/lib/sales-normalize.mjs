@@ -10,10 +10,8 @@
  *
  * 1. **マガジン（type: magazine）**: `src/lib/note-magazines.ts` を実行時に読み、
  *    `title` / `shortTitle` との一致でマガジン `id` を直接解決する。SoT が 1 つなので陳腐化しない。
- * 2. **単品記事（type: article）**: 商品名パターンは記事ごとに手作りの slug（工事番号・テーマ名等）が
- *    絡み、SoT からの機械推定に馴染まない。ここでは推定を試みず、
- *    `article:unknown-{YYYYMMDD}-{index}` で保留し、`sales-recorder.md` の既存フォールバックと
- *    同じ形で人手確認へ回す（誤った id を確信ありげに書き込まない）。
+ * 2. **単品記事（type: article）**: 既存ログで同じ表示名に確定済み id が1つだけあれば再利用する。
+ *    初出の商品名は推定せず、`article:unknown-{YYYYMMDD}-{index}` で人手確認へ回す。
  * 3. **既知の表記ゆれ**: アルゴリズムで一般化できない drift（サフィックス付与・命名規則の変更等）は
  *    `PRODUCT_ID_ALIASES` に個別登録する。新しい drift を見つけたら 1 行足す。
  */
@@ -79,6 +77,19 @@ export function resolveMembershipId(rawTitle) {
   if (!plan) return null;
   const hit = MEMBERSHIP_PLANS.find((p) => plan === p.match || plan.includes(p.match));
   return hit ? hit.productId : null;
+}
+
+/** 既存ログで同じ表示名に確定済みの id が1つだけなら再利用する。 */
+export function resolveKnownSaleEntry(rawTitle, sales = []) {
+  const title = String(rawTitle || '').normalize('NFKC').trim();
+  if (!title) return null;
+  const matches = (sales || []).filter((sale) =>
+    String(sale?.title || '').normalize('NFKC').trim() === title &&
+    sale?.productId && !String(sale.productId).startsWith('article:unknown-'));
+  const ids = [...new Set(matches.map((sale) => canonicalizeProductId(sale.productId)))];
+  if (ids.length !== 1) return null;
+  const hit = matches.find((sale) => canonicalizeProductId(sale.productId) === ids[0]);
+  return { type: hit?.type || (ids[0].startsWith('article:') ? 'article' : 'magazine'), productId: ids[0], resolved: true };
 }
 
 /**

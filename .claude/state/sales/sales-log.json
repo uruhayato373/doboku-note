@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-13",
+  "updatedAt": "2026-09-20",
   "currency": "JPY",
   "source": "note クリエイターダッシュボード「販売履歴」（2026-07 以降は Playwright で read-only 取得し、月次総額をダッシュボード表示と突合）",
   "privacyNote": "購入者名・ハンドルはプライバシー保護のため記録しない（売上分析には date / product / price で十分）。",
@@ -1855,118 +1855,6 @@
       "price": 2980
     },
     {
-      "date": "2026-08-01",
-      "productId": "article:tradeoff-social-environment-management",
-      "title": "社会環境管理 × 他4管理｜トレードオフ構造と総監的解決策",
-      "type": "article",
-      "price": 780
-    },
-    {
-      "date": "2026-08-01",
-      "productId": "article:tradeoff-safety-management",
-      "title": "安全管理 × 他4管理｜トレードオフ構造と総監的解決策",
-      "type": "article",
-      "price": 780
-    },
-    {
-      "date": "2026-08-01",
-      "productId": "article:tradeoff-information-management",
-      "title": "情報管理 × 他4管理｜トレードオフ構造と総監的解決策",
-      "type": "article",
-      "price": 780
-    },
-    {
-      "date": "2026-08-01",
-      "productId": "article:tradeoff-human-resource-management",
-      "title": "人的資源管理 × 他4管理｜トレードオフ構造と総監的解決策",
-      "type": "article",
-      "price": 780
-    },
-    {
-      "date": "2026-08-01",
-      "productId": "article:tradeoff-economic-management",
-      "title": "経済性管理 × 他4管理｜トレードオフ構造と総監的解決策",
-      "type": "article",
-      "price": 780
-    },
-    {
-      "date": "2026-08-01",
-      "productId": "article:tankan-oral-exam",
-      "title": "総監口頭試験20分で落ちない「業務経歴」の語り方｜5管理で再構成する実演例と想定質問対策",
-      "type": "article",
-      "price": 500
-    },
-    {
-      "date": "2026-08-03",
-      "productId": "civil-1-keiken-complete-pack",
-      "title": "1級土木 施工経験記述｜完全攻略パック",
-      "type": "magazine",
-      "price": 9800
-    },
-    {
-      "date": "2026-08-03",
-      "productId": "article:civil-1-pastexam-essay-r07",
-      "title": "1級土木 施工経験記述｜令和7年度 過去問 模範答案（品質管理＋環境対策）",
-      "type": "article",
-      "price": 980
-    },
-    {
-      "date": "2026-08-03",
-      "productId": "bk-i-required-essay-magazine",
-      "title": "技術士 建設部門 2次｜必須科目I 模範解答集",
-      "type": "magazine",
-      "price": 3480
-    },
-    {
-      "date": "2026-08-05",
-      "productId": "membership:civil-lab-annual",
-      "title": "通年プラン｜過去問＆月例予想",
-      "type": "membership",
-      "price": 1480
-    },
-    {
-      "date": "2026-08-07",
-      "productId": "bk-i-required-essay-magazine",
-      "title": "技術士 建設部門 2次｜必須科目I 模範解答集",
-      "type": "magazine",
-      "price": 3480
-    },
-    {
-      "date": "2026-08-11",
-      "productId": "bk-railway-secondary-magazine",
-      "title": "建設部門2次｜鉄道 選択科目 模範解答集",
-      "type": "magazine",
-      "price": 2980
-    },
-    {
-      "date": "2026-08-11",
-      "productId": "bk-road-pack",
-      "title": "建設部門2次｜道路まるごと合格パック",
-      "type": "magazine",
-      "price": 4980
-    },
-    {
-      "date": "2026-08-15",
-      "productId": "article:civil-1-keiken-pack-tunnel",
-      "title": "1級土木 施工経験記述｜トンネル工 完成答案（品質管理・安全管理・環境対策）",
-      "type": "article",
-      "price": 1980
-    },
-    {
-      "date": "2026-08-16",
-      "productId": "article:civil-2-pastexam-essay-r06",
-      "title": "2級土木 施工経験記述｜令和6年度 過去問 模範答案（品質管理＋工程管理）",
-      "type": "article",
-      "price": 980
-    },
-    {
-      "date": "2026-08-17",
-      "productId": "bk-road-pack",
-      "title": "建設部門2次｜道路まるごと合格パック",
-      "type": "magazine",
-      "price": 4980
-    },
-    {
       "date": "2026-09-12",
       "productId": "civil-2-pastexam-essay",
       "title": "2級土木 施工経験記述｜過去問 模範答案集（R03-R07）",
@@ -2056,6 +1944,188 @@
       "title": "コンクリート主任技士｜配合計算 実戦演習12問（途中式・全選択肢解説）",
       "type": "article",
       "price": 1480
+    },
+    {
+      "date": "2026-08-30",
+      "productId": "civil-1-niji-marugoto-pack",
+      "title": "1級土木 二次検定まるごとパック",
+      "type": "magazine",
+      "price": 11800
+    },
+    {
+      "date": "2026-08-26",
+      "productId": "article:civil-2-pastexam-essay-r06",
+      "title": "2級土木 施工経験記述｜令和6年度 過去問 模範答案（品質管理＋工程管理）",
+      "type": "article",
+      "price": 980
+    },
+    {
+      "date": "2026-08-24",
+      "productId": "article:civil-1-keiken-pack-102",
+      "title": "1級土木 施工経験記述｜橋梁支承取替 5管理 完成答案",
+      "type": "article",
+      "price": 1980
+    },
+    {
+      "date": "2026-08-24",
+      "productId": "article:civil-1-keiken-pack-108",
+      "title": "1級土木 施工経験記述｜橋梁床版下面炭素繊維補強 5管理 完成答案",
+      "type": "article",
+      "price": 1980
+    },
+    {
+      "date": "2026-08-22",
+      "productId": "civil-2-koji-bank",
+      "title": "2級土木 施工経験記述｜想定工事バンク 5管理フル",
+      "type": "magazine",
+      "price": 5480
+    },
+    {
+      "date": "2026-08-22",
+      "productId": "article:civil-1-keiken-pack-24",
+      "title": "1級土木 施工経験記述｜PC橋上部工（場所打ち・固定支保工）5管理 完成答案",
+      "type": "article",
+      "price": 1980
+    },
+    {
+      "date": "2026-08-22",
+      "productId": "article:civil-1-keiken-pack-76",
+      "title": "1級土木 施工経験記述｜橋脚躯体（張出し）5管理 完成答案",
+      "type": "article",
+      "price": 1980
+    },
+    {
+      "date": "2026-08-20",
+      "productId": "tankan-reading-guide",
+      "title": "技術士 総監｜5管理 テキスト精読ガイド",
+      "type": "magazine",
+      "price": 1980
+    },
+    {
+      "date": "2026-08-20",
+      "productId": "article:civil-1-keiken-pack-51",
+      "title": "1級土木 施工経験記述｜河川護岸 ブロック張（5管理 完成答案）",
+      "type": "article",
+      "price": 1980
+    },
+    {
+      "date": "2026-08-18",
+      "productId": "article:civil-1-keiken-pack-72",
+      "title": "1級土木 施工経験記述｜既設管更生工事 5管理 完成答案",
+      "type": "article",
+      "price": 1980
+    },
+    {
+      "date": "2026-08-17",
+      "productId": "bk-road-pack",
+      "title": "建設部門2次｜道路まるごと合格パック",
+      "type": "magazine",
+      "price": 4980
+    },
+    {
+      "date": "2026-08-16",
+      "productId": "article:civil-2-pastexam-essay-r06",
+      "title": "2級土木 施工経験記述｜令和6年度 過去問 模範答案（品質管理＋工程管理）",
+      "type": "article",
+      "price": 980
+    },
+    {
+      "date": "2026-08-15",
+      "productId": "article:civil-1-keiken-pack-tunnel",
+      "title": "1級土木 施工経験記述｜トンネル工 完成答案（品質管理・安全管理・環境対策）",
+      "type": "article",
+      "price": 1980
+    },
+    {
+      "date": "2026-08-11",
+      "productId": "bk-railway-secondary-magazine",
+      "title": "建設部門2次｜鉄道 選択科目 模範解答集",
+      "type": "magazine",
+      "price": 2980
+    },
+    {
+      "date": "2026-08-11",
+      "productId": "bk-road-pack",
+      "title": "建設部門2次｜道路まるごと合格パック",
+      "type": "magazine",
+      "price": 4980
+    },
+    {
+      "date": "2026-08-07",
+      "productId": "pe-construction-required-magazine",
+      "title": "技術士 建設部門 2次｜必須科目I 模範解答集",
+      "type": "magazine",
+      "price": 3480
+    },
+    {
+      "date": "2026-08-05",
+      "productId": "membership:civil-lab-annual",
+      "title": "通年プラン｜過去問＆月例予想",
+      "type": "membership",
+      "price": 1480
+    },
+    {
+      "date": "2026-08-03",
+      "productId": "civil-1-keiken-complete-pack",
+      "title": "1級土木 施工経験記述｜完全攻略パック",
+      "type": "magazine",
+      "price": 9800
+    },
+    {
+      "date": "2026-08-03",
+      "productId": "article:civil-1-pastexam-essay-r07",
+      "title": "1級土木 施工経験記述｜令和7年度 過去問 模範答案（品質管理＋環境対策）",
+      "type": "article",
+      "price": 980
+    },
+    {
+      "date": "2026-08-03",
+      "productId": "pe-construction-required-magazine",
+      "title": "技術士 建設部門 2次｜必須科目I 模範解答集",
+      "type": "magazine",
+      "price": 3480
+    },
+    {
+      "date": "2026-08-01",
+      "productId": "article:tradeoff-social-environment",
+      "title": "社会環境管理 × 他4管理｜トレードオフ構造と総監的解決策",
+      "type": "article",
+      "price": 780
+    },
+    {
+      "date": "2026-08-01",
+      "productId": "article:tradeoff-safety",
+      "title": "安全管理 × 他4管理｜トレードオフ構造と総監的解決策",
+      "type": "article",
+      "price": 780
+    },
+    {
+      "date": "2026-08-01",
+      "productId": "article:tradeoff-information-management",
+      "title": "情報管理 × 他4管理｜トレードオフ構造と総監的解決策",
+      "type": "article",
+      "price": 780
+    },
+    {
+      "date": "2026-08-01",
+      "productId": "article:tradeoff-human-resource",
+      "title": "人的資源管理 × 他4管理｜トレードオフ構造と総監的解決策",
+      "type": "article",
+      "price": 780
+    },
+    {
+      "date": "2026-08-01",
+      "productId": "article:tradeoff-economic",
+      "title": "経済性管理 × 他4管理｜トレードオフ構造と総監的解決策",
+      "type": "article",
+      "price": 780
+    },
+    {
+      "date": "2026-08-01",
+      "productId": "article:tankan-oral-exam",
+      "title": "総監口頭試験20分で落ちない「業務経歴」の語り方｜5管理で再構成する実演例と想定質問対策",
+      "type": "article",
+      "price": 500
     }
   ]
 }

@@ -26,7 +26,7 @@
 | x-queue-surfacer | 投入待ちなし（充足10/24）。096〜103の日付書式判定は DN-0220 の SNS 接続後に見直す |
 | verify-ig-status（ig-reconcile） | snapshot が09-10で4日超過。再実行して published_UNrecorded/scheduled/anomaly を更新する |
 | check-coconala-orders | 09-20に全7タブ・取引3件・DM4件を再取得。DM 10051134の再オープン確認とroom 18194267の納品・評価記録を運営者が閉じる |
-| check-sales-freshness | 08月note表示71,640円に対し販売明細39,520円でFAIL。販売履歴のパスワード再確認後に `npm run note-sales-fetch -- --month 2026-08 --commit` を再実行する |
+| check-sales-freshness | 08月販売履歴26件71,640円を再取得し、note表示71,640円と一致。未解決productId 0件・監査PASS |
 | note-traffic-fetch | 08月の全記事820件・PV 7,455・表示83,515を取得済み。資格別は未帰属記事があるためpartialとして事業レビューへ反映 |
 | check-gsc-ui-due | ga4-ui が due（完全取得の記録なし）。`/google-search-growth` で取得する |
 | check-doc-lifecycle | handoff 2件の棚卸し候補あり。`/doc-declutter` を回す |

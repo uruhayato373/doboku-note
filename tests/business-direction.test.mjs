@@ -55,6 +55,18 @@ test('note monthly traffic enters all as complete and qualification rows as part
  assert.equal(r.cells.find(c=>c.qualification==='pe-construction'&&c.metric==='noteImpressions').value,300);
  assert.equal(r.cells.find(c=>c.qualification==='rccm'&&c.metric==='notePv').value,0);
 });
+test('note sales become complete only when monthly display matches and every product id is resolved',t=>{
+ const root=fixture(t);
+ writeFileSync(join(root,'.claude/state/metrics/note/referrers-2026-08.json'),JSON.stringify({month:'2026-08',period:{from:'2026-08-01',to:'2026-08-31'},summary:{pageViews:100,impressions:1000,salesYen:3000}}));
+ writeFileSync(join(root,'.claude/state/sales/sales-log.json'),JSON.stringify({sales:[
+  {date:'2026-08-01',productId:'article:civil-1-keiken-pack-24',price:1000},
+  {date:'2026-08-02',productId:'pe-construction-required-magazine',price:2000},
+ ]}));
+ const r=buildReport(root,period,now);
+ assert.equal(r.cells.find(c=>c.qualification==='all'&&c.metric==='noteRevenue').coverage,'complete');
+ assert.equal(r.cells.find(c=>c.qualification==='civil-construction-1'&&c.metric==='noteRevenue').value,1000);
+ assert.equal(r.cells.find(c=>c.qualification==='pe-construction'&&c.metric==='noteRevenue').value,2000);
+});
 test('note article classification uses published slug and safe title fallbacks',()=>{
  assert.equal(noteArticleQualification('任意タイトル',[{title:'任意タイトル',slug:'技術士総監/example'}]),'pe-comprehensive-management');
  assert.equal(noteArticleQualification('技術士 建設部門｜道路 R07',[]),'pe-construction');

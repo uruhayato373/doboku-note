@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {
   canonicalizeProductId,
   resolveMagazineId,
+  resolveKnownSaleEntry,
   resolveSaleEntry,
   reconcileTotal,
 } from '../scripts/lib/sales-normalize.mjs';
@@ -59,6 +60,26 @@ test('resolveSaleEntry は未一致を article:unknown-* へ保留する（人�
   const r = resolveSaleEntry({ title: '技術士 建設部門｜道路 R8予想 選択科目II-1', date: '2026-06-17' }, MAGAZINES, 2);
   assert.equal(r.resolved, false);
   assert.equal(r.productId, 'article:unknown-20260617-2');
+});
+
+test('既存ログで同じ表示名に確定済みの単一 id があれば再利用する', () => {
+  const sales = [
+    { title: '1級土木 完成答案', productId: 'article:civil-1-keiken-pack-24', type: 'article' },
+    { title: '別商品', productId: 'article:other', type: 'article' },
+  ];
+  assert.deepEqual(resolveKnownSaleEntry('1級土木 完成答案', sales), {
+    type: 'article', productId: 'article:civil-1-keiken-pack-24', resolved: true,
+  });
+});
+
+test('同名に複数 id がある場合と unknown だけの場合は再利用しない', () => {
+  assert.equal(resolveKnownSaleEntry('同名', [
+    { title: '同名', productId: 'article:a', type: 'article' },
+    { title: '同名', productId: 'article:b', type: 'article' },
+  ]), null);
+  assert.equal(resolveKnownSaleEntry('未解決', [
+    { title: '未解決', productId: 'article:unknown-20260801-0', type: 'article' },
+  ]), null);
 });
 
 test('reconcileTotal は明細合計と月次表示額が一致すれば ok', () => {
