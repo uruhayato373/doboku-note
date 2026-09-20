@@ -461,6 +461,24 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 3. 次記事「土木公務員に技術士は必要？」の着手可否は 1・2 の結果を見てから判断する（語順違いの類似ページは作らない）
 
 ## 🟢 低 — 時期未定
+
+### [DN-0258] macOS ローカルで `npm test` が 2 件だけ赤になる（CI は緑）— realpath と pipe 8192 バイト
+タグ: [インフラ・計測] [種類:不具合] [検証:test] [起票:2026-09-20]
+
+**起点**: 2026-09-19 の `quality:audit --ci` ローカル全量で unit-tests が赤。`tests/prune-state-snapshots.test.mjs`「CLI: 一時 repo で --commit が計画どおり unlink し…」は子プロセスの JSON 出力が 8192 バイトで切れて parse 失敗（pipe の既定バッファ）、「defaultMemoryTarget: worktree でもメイン作業ツリーの .claude/memory を指す」は `/var/folders/...` と `/private/var/folders/...`（macOS の symlink）の比較で不一致。Linux の CI では両方通るため、ローカルの赤が「自分の変更のせいか」を毎回切り分ける手間になる。
+
+**やること**: (1) 子プロセス出力は `maxBuffer` 明示＋ファイル経由か `spawnSync` の `stdout` 全読みにする。(2) パス比較は両辺を `fs.realpathSync` してから比べる（テスト側・本体側のどちらに置くかは他テストの流儀に合わせる）。
+
+**完了条件**: macOS で `npm test` が 0 fail、CI も緑。
+
+### [DN-0259] `*-diagrams` X カード PNG（098/099・35 枚）が `.gitignore` 下で描画台帳に載らず、ローカルの `check-x-card-render` が恒常赤
+タグ: [SNS・マーケ] [種類:改善] [検証:check-x-card-render] [起票:2026-09-20]
+
+**起点**: `.gitignore:417` の `content/sns/x/draft/*-diagrams/img/tweet-*.png` で 098-cem-textbook-diagrams / 099-pe-construction-textbook-diagrams の X カード 35 枚は追跡外。`check-x-card-render`（ci:true）は台帳 `.claude/state/sns/x-card-render.json` と実 PNG を突合するので、CI（PNG 無し）は緑・ローカル（PNG あり・台帳無し）は赤になり、ローカルの `quality:audit --ci` が毎回この 35 件で落ちる（2026-09-19 実測）。`gen-x-card --all --force` で台帳へ載せると今度は CI 側が「台帳にあるのに PNG が無い」になる恐れがある。
+
+**やること**: 検査の対象を「git 追跡下の PNG」に限定する（`git rm --cached` 後の on-disk 件数と同じ「ローカルだけ緑/赤」の型・`git ls-files -z` で列挙）か、`*-diagrams` の ignore をやめて追跡するかを決めて 1 つにする。決めたら `check-x-card-render` の走査元を合わせ、ローカルと CI の結果を一致させる。
+
+**完了条件**: ローカルと CI の `check-x-card-render` が同じ結果（緑）になり、098/099 の 35 枚の扱いが台帳か ignore のどちらかに一本化されている。
 ### [DN-0242] npm audit を CI の job summary に出す（CodeQL は GitHub 既定セットアップで稼働済み）
 タグ: [インフラ・計測] [種類:改善] [起票:2026-09-17]
 
@@ -583,14 +601,14 @@ Drive台帳・vault・Drive APIの照合前にローカル実体を削除しな�
 
 ## 🟣 判断待ち — ユーザーの意思決定が必要
 
-### [DN-0257] X Article 2（市場価値）を手動復旧で公開し、告知 Tweet 4 の枠を決める
-タグ: [SNS・マーケ] [種類:不具合] [検証:check-x-queue-health] [起票:2026-09-19] [期日:2026-09-27]
+### [DN-0257] X Article パイロット: 告知 Tweet 4 の枠を決めて予約し、Article 3・1・4 の早朝 Codex 発火を確認する
+タグ: [SNS・マーケ] [種類:不具合] [検証:check-x-queue-health] [起票:2026-09-19] [期日:2026-09-28]
 
-**起点**: Codex の 1 回限りローカル自動化は Mac スリープ中に発火せず、起床時（05:30 前後）に遅延実行されて `x-article:publish` の公開窓（15 分前〜120 分後）を外し exit 1 で停止していた（Article 1: 09-07 04:50、Article 2: 09-14 / 09-17 05:30・`~/.codex/automations/x-article-*/memory.md`）。2026-09-20 に Article 3・1・4 は同じ日のまま早朝（09-20 09:20 / 09-22 05:40 / 09-27 05:40）へ移し、Codex の rrule も更新済み（告知枠は不変）。Article 2 は 09-13・09-16 の枠を逸失したまま `article_url: null`。Claude Code の auto mode は X への公開を実行できない（Real-World Transactions で拒否）。
+**起点**: Codex の 1 回限りローカル自動化は Mac スリープ中に発火せず、起床時（05:30 前後）に遅延実行されて `x-article:publish` の公開窓（15 分前〜120 分後）を外し exit 1 で停止していた（`~/.codex/automations/x-article-*/memory.md`）。2026-09-20 に Article 2 は手動復旧で公開済み（https://x.com/doboku373/status/2101459864715510124・URL は台帳へ書き戻し・Tweet 4 は `tweets.md` に解放済み）。Article 3・1・4 は同じ日のまま早朝（09-20 09:20 / 09-22 05:40 / 09-27 05:40）へ移し、Codex の rrule も `automation.toml` 直接編集で更新した（アプリ側の再読込は未確認）。
 
-**やること**: (1) 人が `DOBOKU_PW_MIN_FREE_MB=1024 npm run x-article:publish -- --article 2 --publish --force` を起動し（時刻窓外なので `--force`・ログイン済み X プロファイル）、成功したら `npm run x-article:prepare -- --article 2 --url <URL>` で Tweet 4 を解放する。(2) 9 月は全日 3 件で埋まっているので Tweet 4 の枠は `x-schedule-guard --max-per-day 3` を通る日へ置く（無ければ 10 月の枠と差し替えるか告知を見送る）。(3) 09-20 09:20 の Article 3 が Codex で定刻に出たか `memory.md` で確認し、出ていなければ早朝移行そのものを見直す。
+**やること**: (1) Tweet 4 の枠: 元の 09-17 08:00 は逸失し 9 月は全日 3 本で埋まっている。09-22 07:54 の `091#25`（linkless・X キュー投入済）を Tweet 4 に差し替える案＝X 側の予約を削除 → `status.json` で `replaced` → `x-schedule-guard --max-per-day 3` → `publish-x 094 --tweet 4 <日時> --dry-run` → 予約。見送るなら Tweet 4 を `cancelled` にして台帳を閉じる。(2) 09-20 09:20 の Article 3 が定刻に出たか `x-article-3/memory.md` と `article-drafts.json` の `article_url` で確認。出ていなければ ChatGPT アプリの Automations で次回時刻を直す（rrule 直接編集が効いていない可能性）。(3) 09-22・09-27 も同様に翌朝確認。
 
-**完了条件**: `npm run check-x-queue-health` の issues が空で、4 本の `article_url` が埋まっている。
+**完了条件**: `npm run check-x-queue-health` の issues が空で、4 本の `article_url` が埋まっている（Tweet 4 を見送る場合は台帳が `cancelled` で issues が空）。
 
 ### [DN-0254] Instagram 公開照合（verify-ig-status）を CI 週次へ移すか（Meta アクセストークンを GitHub Secrets に置くかの判断）
 タグ: [SNS・マーケ] [種類:改善] [起票:2026-09-19]
