@@ -162,14 +162,19 @@ async function findPublishedUrl(page, item) {
   const showArticle = page.getByRole("menuitem", { name: "記事を表示", exact: true });
   if ((await showArticle.count()) !== 1) fail(`公開済みArticleの表示メニューを一意に特定できない: ${item.title}`);
   await Promise.all([
-    page.waitForURL(/\/article\/\d+/, { timeout: 15000 }),
+    // 2026-09-20 実測: 「記事を表示」の遷移先が /article/<id> でなく /status/<id> になった（X 側の仕様変更）。
+    // 旧形式だけ待つと公開済みでも 15 秒で timeout → exit 1 になり、公開成功が「失敗」に見える
+    page.waitForURL(/\/(article|status)\/\d+/, { timeout: 15000 }),
     showArticle.click(),
   ]);
   const articleUrl = page.url().split("?")[0];
-  if (!/^https:\/\/x\.com\/doboku373\/article\/\d+$/.test(articleUrl)) {
+  if (!/^https:\/\/x\.com\/doboku373\/(article|status)\/\d+$/.test(articleUrl)) {
     fail(`公開URLの形式が不正: ${articleUrl}`);
   }
-  if ((await page.getByText(item.title, { exact: true }).count()) === 0) {
+  // /status/ 側は遷移直後に本文が描画されていない（2026-09-20 実測: 公開済みなのに count 0 で fail）。待って確認する
+  const liveTitle = page.getByText(item.title, { exact: true }).first();
+  const seen = await liveTitle.waitFor({ state: "visible", timeout: 15000 }).then(() => true, () => false);
+  if (!seen) {
     fail(`公開URLでタイトルを確認できない: ${articleUrl}`);
   }
   return articleUrl;
