@@ -39,6 +39,12 @@
 | DN-0227 | YouTube 公開照合 `recorded_but_gone` 6件の切り分け | 認証が要るため Mac か CI（verify-yt-status.yml） |
 | DN-0224 | 教材原典待ち17論点の復旧を再開する | 別PCで原本入手・再撮影後に再照合。詳細は[実装計画](../plans/DN-0224-source-recovery.md) |
 
+## 今後の確定予定（KDP）
+
+| 週 | ID | 出口 |
+|---|---|---|
+| 2026-W39（09/21〜09/27） | DN-0260 | `h-01` の出版前確認後、`node scripts/kdp-publish.mjs --id h-01 --publish-only --commit-publish` で審査へ提出し、`node scripts/kdp-publish.mjs --sync-status` で LIVE・ASIN を確認して Kindle カタログへ記録する |
+
 ## 今週やらないこと
 
 - **DN-0184**（YouTube/SNS 人物テンプレートの複数ポーズ実装）— 大規模改修。今週は計測debt（DN-0026/DN-0185）を優先する
