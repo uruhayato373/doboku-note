@@ -173,6 +173,13 @@
         "コンクリート診断士-想定構造物8ケース"
       ],
       "reason": "既存記述式8記事と構造物別8記事をすべて収録した問題A・B完全パック。全16記事。"
+    },
+    "cd-marugoto-pack": {
+      "labels": [],
+      "fromMagazines": {
+        "cd-essay-complete-pack": 16
+      },
+      "reason": "記述式完全パックの16記事と四肢択一98問PDFの単体記事1本を収録した全17記事。"
     }
   },
   "excluded": {
@@ -211,6 +218,10 @@
     "cce-marugoto-pack": {
       "count": 3,
       "reason": "四肢択一 R8予想50問（¥1,980・cce-r8-mc-50）・配合計算 実戦演習12問（¥1,480・cce-mix-calculation-practice）・2026-09-17 追加の直前暗記ノート（¥980・cce-anki-note）を同梱。いずれも単体記事で noteMagazine ラベルを持たないため集計に乗らない"
+    },
+    "cd-marugoto-pack": {
+      "count": 1,
+      "reason": "四肢択一演習98問PDF（¥1,480・n4acd2c7a2f13）を記述式完全パック16記事と合わせて収録。単体記事でnoteMagazineラベルを持たないため集計に乗らない。"
     },
     "cce-persona-namacon-pack": {
       "count": 5,

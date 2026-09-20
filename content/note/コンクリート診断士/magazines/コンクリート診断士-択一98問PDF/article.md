@@ -1,9 +1,12 @@
 ---
 notePricing: paid
-noteStatus: draft
+noteStatus: published
 noteDraftId: n4acd2c7a2f13
 noteSeries: コンクリート診断士-四肢択一98問PDF
 utmCampaign: cd-takuitsu-98-pdf
+notePublishedAt: "2026-09-20"
+noteId: "n4acd2c7a2f13"
+noteUrl: "https://note.com/dobokunote/n/n4acd2c7a2f13"
 price: 1480
 paidBoundary: "PDF のダウンロードと学習手順"
 coverTitle:
@@ -22,6 +25,12 @@ cover:
 コンクリート診断士の四肢択一は、用語を覚えるだけでは安定しません。似た選択肢の違いを見抜き、誤っている箇所を説明できるまで反復する必要があります。
 
 この教材は、試験の出題分野を踏まえて作成した**オリジナル演習98問**を、A4印刷用PDFにまとめたものです。実在する過去問題の再録ではありません。
+
+**この記事でわかること**
+
+- 四肢択一8回・全98問で確認できる出題分野
+- 4つの選択肢を正誤判定するための復習方法
+- PDFを1周目・2周目で使い分ける学習手順
 
 **こんな人のための教材です**
 
