@@ -1,0 +1,549 @@
+{
+  "version": 1,
+  "type": "decision",
+  "date": "2026-09-20",
+  "configHash": "0f766522f275e3f9e633778ac4e826200436e03bea7daf74473fcb1109420d6a",
+  "strategy": {
+    "version": 2,
+    "reviewedAt": "2026-09-13",
+    "reviewEveryDays": 28,
+    "objective": "受験者が問題を理解し、過去問学習・答案作成へ進める検索流入を増やす。1位の件数だけで成果を判断しない。",
+    "focusSource": ".claude/config/business-direction.json",
+    "focusQualifications": [
+      "civil-construction-1",
+      "pe-comprehensive-management",
+      "pe-construction",
+      "rccm"
+    ]
+  },
+  "selectionOrder": "受験意図 → 学習上の価値 → 試験時期 → 順位・需要の段階 → 直近の資格別改善数 → 順位・表示回数",
+  "selectedId": null,
+  "candidateId": "civil1-secondary-r07-answers",
+  "result": "capacity-limit",
+  "activeExperiments": [
+    {
+      "id": "EXP-007",
+      "title": "X を1日1本→3本へ増量（型×時間帯スロット A/B/C の設計）",
+      "nextReviewDate": "2026-09-15"
+    },
+    {
+      "id": "EXP-008",
+      "title": "キャリア（転職アフィリエイト）を悩み起点の hub→5柱→ツールへ再設計",
+      "nextReviewDate": "2026-09-18"
+    },
+    {
+      "id": "EXP-009",
+      "title": "RCCM 問題III 模範論文集を 2026 年度 CBT 期間（〜10/31）に note で販売し、新資格の WTP を実売で検証",
+      "nextReviewDate": "2026-10-01"
+    },
+    {
+      "id": "EXP-010",
+      "title": "note CTA の rel=noreferrer を外し、note ダッシュボード「記事の流入元」でサイト経由の寄与を可視化する",
+      "nextReviewDate": "2026-11-01"
+    },
+    {
+      "id": "EXP-011",
+      "title": "直前パック・全部パックの追加で直前期の note 売上を伸ばす（1級・2級土木 10/4・10/25、RCCM 〜10/31、主任技士・技士・技術士一次 11/22〜29）",
+      "nextReviewDate": "2026-10-01"
+    }
+  ],
+  "due": [],
+  "policyNextReviewDate": "2026-10-11",
+  "candidates": [
+    {
+      "id": "civil1-secondary-r07-answers",
+      "keyword": "1級土木施工管理技士 2次試験 解答例 令和7年",
+      "qualification": "civil-construction-1",
+      "reason": "受験の具体的な課題 / 学習価値P1 / 需要未確認の探索候補",
+      "key": [
+        0,
+        1,
+        0,
+        3,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "pe-required-model-answer",
+      "keyword": "技術士模範解答",
+      "qualification": "pe-construction",
+      "reason": "受験の具体的な課題 / 学習価値P1 / 需要未確認の探索候補",
+      "key": [
+        0,
+        1,
+        1,
+        3,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "cem-keywords-2026",
+      "keyword": "総監キーワード2026",
+      "qualification": "pe-comprehensive-management",
+      "reason": "試験論点の学習 / 学習価値P1 / 需要未確認の探索候補",
+      "key": [
+        1,
+        1,
+        1,
+        3,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "pe-tunnel-exam",
+      "keyword": "技術士 トンネル",
+      "qualification": "pe-construction",
+      "reason": "試験論点の学習 / 学習価値P2 / 2〜10位",
+      "key": [
+        1,
+        2,
+        1,
+        0,
+        0,
+        8
+      ]
+    }
+  ],
+  "qualifications": [
+    {
+      "id": "civil-construction-1",
+      "label": "1級土木施工管理技術検定",
+      "watches": 4,
+      "measured": 4,
+      "recentActions": 0,
+      "candidate": "1級土木施工管理技士 2次試験 解答例 令和7年"
+    },
+    {
+      "id": "pe-comprehensive-management",
+      "label": "技術士第二次試験 総合技術監理部門",
+      "watches": 3,
+      "measured": 3,
+      "recentActions": 0,
+      "candidate": "総監キーワード2026"
+    },
+    {
+      "id": "pe-construction",
+      "label": "技術士第二次試験 建設部門",
+      "watches": 2,
+      "measured": 2,
+      "recentActions": 0,
+      "candidate": "技術士模範解答"
+    },
+    {
+      "id": "rccm",
+      "label": "RCCM資格試験",
+      "watches": 1,
+      "measured": 1,
+      "recentActions": 0,
+      "candidate": null
+    }
+  ],
+  "rows": [
+    {
+      "id": "scraper-definition",
+      "keyword": "スクレーパとは",
+      "targetPath": "/exam/civil-construction-1/textbook/scraper",
+      "qualification": "civil-construction-1",
+      "intent": "reference",
+      "mode": "monitor",
+      "priority": 3,
+      "rationale": "受験目的を特定できない一般語なので計測を継続し、資格課題の改善枠には入れない。",
+      "status": "active",
+      "reason": "監視のみ（改善枠の対象外）",
+      "season": {
+        "active": false,
+        "label": "次年度日程待ち",
+        "date": "2026-07-05",
+        "daysUntil": -77
+      },
+      "current": {
+        "rank": 7.711111111111111,
+        "impressions": 45,
+        "clicks": 0,
+        "ctr": 0,
+        "activeDays": 7
+      },
+      "previous": {
+        "rank": 7,
+        "impressions": 73,
+        "clicks": 1,
+        "ctr": 0.0136986301369863,
+        "activeDays": 7
+      },
+      "period": {
+        "startDate": "2026-09-10",
+        "endDate": "2026-09-16"
+      },
+      "measurementFile": ".claude/state/metrics/gsc/rank-watch/watch-2026-09-20T04-53-00-995Z-56ed1aa3.json",
+      "nextReviewDate": null,
+      "actionCount": 0,
+      "lastReview": null
+    },
+    {
+      "id": "break-even-speed",
+      "keyword": "採算速度とは",
+      "targetPath": "/exam/civil-construction-1/textbook/schedule-overview",
+      "qualification": "civil-construction-1",
+      "intent": "reference",
+      "mode": "monitor",
+      "priority": 3,
+      "rationale": "受験目的を特定できない一般語なので計測を継続し、資格課題の改善枠には入れない。",
+      "status": "active",
+      "reason": "監視のみ（改善枠の対象外）",
+      "season": {
+        "active": false,
+        "label": "次年度日程待ち",
+        "date": "2026-07-05",
+        "daysUntil": -77
+      },
+      "current": {
+        "rank": null,
+        "impressions": 0,
+        "clicks": 0,
+        "ctr": null,
+        "activeDays": 0
+      },
+      "previous": {
+        "rank": 9.093023255813954,
+        "impressions": 43,
+        "clicks": 0,
+        "ctr": 0,
+        "activeDays": 3
+      },
+      "period": {
+        "startDate": "2026-09-10",
+        "endDate": "2026-09-16"
+      },
+      "measurementFile": ".claude/state/metrics/gsc/rank-watch/watch-2026-09-20T04-53-01-518Z-4629ef83.json",
+      "nextReviewDate": null,
+      "actionCount": 0,
+      "lastReview": null
+    },
+    {
+      "id": "civil1-secondary-r07-answers",
+      "keyword": "1級土木施工管理技士 2次試験 解答例 令和7年",
+      "targetPath": "/exam/civil-construction-1/secondary/r07",
+      "qualification": "civil-construction-1",
+      "intent": "exam-task",
+      "mode": "improve",
+      "priority": 1,
+      "rationale": "年度別過去問から答案練習につながる具体的な受験課題を優先する。",
+      "status": "active",
+      "reason": "受験の具体的な課題 / 学習価値P1 / 需要未確認の探索候補",
+      "season": {
+        "active": true,
+        "label": "第二次検定",
+        "date": "2026-10-04",
+        "daysUntil": 14
+      },
+      "current": {
+        "rank": null,
+        "impressions": 0,
+        "clicks": 0,
+        "ctr": null,
+        "activeDays": 0
+      },
+      "previous": {
+        "rank": 11.068965517241379,
+        "impressions": 29,
+        "clicks": 1,
+        "ctr": 0.034482758620689655,
+        "activeDays": 3
+      },
+      "period": {
+        "startDate": "2026-09-10",
+        "endDate": "2026-09-16"
+      },
+      "measurementFile": ".claude/state/metrics/gsc/rank-watch/watch-2026-09-20T04-53-01-898Z-756718e8.json",
+      "nextReviewDate": null,
+      "actionCount": 0,
+      "lastReview": null
+    },
+    {
+      "id": "civil1-keiken-charcount",
+      "keyword": "1級土木 経験記述 文字数",
+      "targetPath": "/tools/keiken-charcount",
+      "qualification": "civil-construction-1",
+      "intent": "exam-task",
+      "mode": "monitor",
+      "priority": 1,
+      "rationale": "受験行動に直結するツール需要として監視する。ツール改修は記事1件の改善ループの対象外。",
+      "status": "active",
+      "reason": "監視のみ（改善枠の対象外）",
+      "season": {
+        "active": true,
+        "label": "第二次検定",
+        "date": "2026-10-04",
+        "daysUntil": 14
+      },
+      "current": {
+        "rank": 9.2,
+        "impressions": 5,
+        "clicks": 1,
+        "ctr": 0.2,
+        "activeDays": 3
+      },
+      "previous": {
+        "rank": 9.4,
+        "impressions": 10,
+        "clicks": 0,
+        "ctr": 0,
+        "activeDays": 4
+      },
+      "period": {
+        "startDate": "2026-09-10",
+        "endDate": "2026-09-16"
+      },
+      "measurementFile": ".claude/state/metrics/gsc/rank-watch/watch-2026-09-20T04-53-02-200Z-75f8ea95.json",
+      "nextReviewDate": null,
+      "actionCount": 0,
+      "lastReview": null
+    },
+    {
+      "id": "cem-keywords-2026",
+      "keyword": "総監キーワード2026",
+      "targetPath": "/exam/pe-comprehensive-management/guide/keyword-2026",
+      "qualification": "pe-comprehensive-management",
+      "intent": "exam-topic",
+      "mode": "improve",
+      "priority": 1,
+      "rationale": "公式体系から個別論点を学ぶ入口として、総監の継続学習につなぐ。",
+      "status": "active",
+      "reason": "試験論点の学習 / 学習価値P1 / 需要未確認の探索候補",
+      "season": {
+        "active": false,
+        "label": "次年度日程待ち",
+        "date": "2026-07-19",
+        "daysUntil": -63
+      },
+      "current": {
+        "rank": null,
+        "impressions": 0,
+        "clicks": 0,
+        "ctr": null,
+        "activeDays": 0
+      },
+      "previous": {
+        "rank": null,
+        "impressions": 0,
+        "clicks": 0,
+        "ctr": null,
+        "activeDays": 0
+      },
+      "period": {
+        "startDate": "2026-09-10",
+        "endDate": "2026-09-16"
+      },
+      "measurementFile": ".claude/state/metrics/gsc/rank-watch/watch-2026-09-20T04-53-02-788Z-3ea6657c.json",
+      "nextReviewDate": null,
+      "actionCount": 0,
+      "lastReview": null
+    },
+    {
+      "id": "cem-essay-writing",
+      "keyword": "技術士 総監 論文 書き方",
+      "targetPath": "/exam/pe-comprehensive-management/guide/essay-exam-strategy",
+      "qualification": "pe-comprehensive-management",
+      "intent": "exam-task",
+      "mode": "improve",
+      "priority": 2,
+      "rationale": "答案作成という課題への適合を仮説登録する。検索需要と上位ページの確認前に不足を断定しない。",
+      "status": "active",
+      "reason": "現時点では順位・需要の条件外",
+      "season": {
+        "active": false,
+        "label": "次年度日程待ち",
+        "date": "2026-07-19",
+        "daysUntil": -63
+      },
+      "current": {
+        "rank": null,
+        "impressions": 0,
+        "clicks": 0,
+        "ctr": null,
+        "activeDays": 0
+      },
+      "previous": {
+        "rank": null,
+        "impressions": 0,
+        "clicks": 0,
+        "ctr": null,
+        "activeDays": 0
+      },
+      "period": {
+        "startDate": "2026-09-10",
+        "endDate": "2026-09-16"
+      },
+      "measurementFile": ".claude/state/metrics/gsc/rank-watch/watch-2026-09-20T04-53-03-533Z-3c2e3596.json",
+      "nextReviewDate": null,
+      "actionCount": 0,
+      "lastReview": null
+    },
+    {
+      "id": "cem-qualification-guide",
+      "keyword": "技術士総合技術監理部門",
+      "targetPath": "/exam/pe-comprehensive-management/guide/exam-index",
+      "qualification": "pe-comprehensive-management",
+      "intent": "qualification-guide",
+      "mode": "monitor",
+      "priority": 2,
+      "rationale": "幅広い意図の入口は中長期で監視し、具体的な受験課題の改善より先に選ばない。",
+      "status": "active",
+      "reason": "監視のみ（改善枠の対象外）",
+      "season": {
+        "active": false,
+        "label": "次年度日程待ち",
+        "date": "2026-07-19",
+        "daysUntil": -63
+      },
+      "current": {
+        "rank": 42,
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0,
+        "activeDays": 1
+      },
+      "previous": {
+        "rank": null,
+        "impressions": 0,
+        "clicks": 0,
+        "ctr": null,
+        "activeDays": 0
+      },
+      "period": {
+        "startDate": "2026-09-10",
+        "endDate": "2026-09-16"
+      },
+      "measurementFile": ".claude/state/metrics/gsc/rank-watch/watch-2026-09-20T04-53-03-758Z-4590f7a7.json",
+      "nextReviewDate": null,
+      "actionCount": 0,
+      "lastReview": null
+    },
+    {
+      "id": "pe-required-model-answer",
+      "keyword": "技術士模範解答",
+      "targetPath": "/exam/pe-construction/guide/hissu-kamoku-kaitourei",
+      "qualification": "pe-construction",
+      "intent": "exam-task",
+      "mode": "improve",
+      "priority": 1,
+      "rationale": "完成答案を学習に使う課題との適合がある。語だけでは部門が曖昧なのでSERPで建設部門への適合を再確認する。",
+      "status": "active",
+      "reason": "受験の具体的な課題 / 学習価値P1 / 需要未確認の探索候補",
+      "season": {
+        "active": false,
+        "label": "次年度日程待ち",
+        "date": "2026-07-20",
+        "daysUntil": -62
+      },
+      "current": {
+        "rank": null,
+        "impressions": 0,
+        "clicks": 0,
+        "ctr": null,
+        "activeDays": 0
+      },
+      "previous": {
+        "rank": null,
+        "impressions": 0,
+        "clicks": 0,
+        "ctr": null,
+        "activeDays": 0
+      },
+      "period": {
+        "startDate": "2026-09-10",
+        "endDate": "2026-09-16"
+      },
+      "measurementFile": ".claude/state/metrics/gsc/rank-watch/watch-2026-09-20T04-53-04-080Z-348aae8c.json",
+      "nextReviewDate": null,
+      "actionCount": 0,
+      "lastReview": null
+    },
+    {
+      "id": "pe-tunnel-exam",
+      "keyword": "技術士 トンネル",
+      "targetPath": "/exam/pe-construction/keywords/tunnel-exam-themes",
+      "qualification": "pe-construction",
+      "intent": "exam-topic",
+      "mode": "improve",
+      "priority": 2,
+      "rationale": "専門科目の出題分析から過去問に進む学習需要を対象とする。",
+      "status": "active",
+      "reason": "試験論点の学習 / 学習価値P2 / 2〜10位",
+      "season": {
+        "active": false,
+        "label": "次年度日程待ち",
+        "date": "2026-07-20",
+        "daysUntil": -62
+      },
+      "current": {
+        "rank": 8,
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0,
+        "activeDays": 1
+      },
+      "previous": {
+        "rank": null,
+        "impressions": 0,
+        "clicks": 0,
+        "ctr": null,
+        "activeDays": 0
+      },
+      "period": {
+        "startDate": "2026-09-10",
+        "endDate": "2026-09-16"
+      },
+      "measurementFile": ".claude/state/metrics/gsc/rank-watch/watch-2026-09-20T04-53-04-576Z-40af8959.json",
+      "nextReviewDate": null,
+      "actionCount": 0,
+      "lastReview": null
+    },
+    {
+      "id": "rccm-mondai3-themes-2026",
+      "keyword": "RCCM 問題III 管理技術力 公開テーマ 2026",
+      "targetPath": "/exam/rccm/guide/mondai3-themes-2026",
+      "qualification": "rccm",
+      "intent": "exam-task",
+      "mode": "improve",
+      "priority": 3,
+      "rationale": "問題IIIは事前公開テーマ制で検索意図が明確。note の模範論文集（rccm-mondai3-magazine）へ直結する受験課題を優先する。",
+      "status": "active",
+      "reason": "現時点では順位・需要の条件外",
+      "season": {
+        "active": true,
+        "label": "CBT 試験期間 終了",
+        "date": "2026-10-31",
+        "daysUntil": 41
+      },
+      "current": {
+        "rank": null,
+        "impressions": 0,
+        "clicks": 0,
+        "ctr": null,
+        "activeDays": 0
+      },
+      "previous": {
+        "rank": null,
+        "impressions": 0,
+        "clicks": 0,
+        "ctr": null,
+        "activeDays": 0
+      },
+      "period": {
+        "startDate": "2026-09-10",
+        "endDate": "2026-09-16"
+      },
+      "measurementFile": ".claude/state/metrics/gsc/rank-watch/watch-2026-09-20T04-53-04-930Z-d7191855.json",
+      "nextReviewDate": null,
+      "actionCount": 0,
+      "lastReview": null
+    }
+  ],
+  "note": "既存実験の同時実行上限のため改善を待機。EXP-007（再確認 2026-09-15）、EXP-008（再確認 2026-09-18）、EXP-009（再確認 2026-10-01）、EXP-010（再確認 2026-11-01）、EXP-011（再確認 2026-10-01）。枠空け目的の終了は行わない。",
+  "recordedAt": "2026-09-20T04:53:08.866Z",
+  "fingerprint": "d135e2b43e950ec4d3c9344b43c91779536945ce326ae064c29d9f6efdbebd5b"
+}
