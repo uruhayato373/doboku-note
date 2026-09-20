@@ -49178,6 +49178,26 @@
         "scripts/note-update-cover.mjs",
         "tools/admin-app（画像ギャラリー）"
       ]
+    },
+    "content/note/コンクリート診断士/magazines/コンクリート診断士-択一98問PDF/img/cover.png": {
+      "bucket": "private",
+      "r2Key": "note/covers/コンクリート診断士/magazines/コンクリート診断士-択一98問PDF/img/cover.png",
+      "sha256": "56bb875229fbe9f85c2cc9009b5842a67077a480e69af3e1fd8c78db49ab54d4",
+      "bytes": 774788,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "note-cover-png",
+      "verifiedAt": "2026-09-20T07:42:19.723Z",
+      "width": 1280,
+      "height": 670,
+      "logicalPath": "content/note/コンクリート診断士/magazines/コンクリート診断士-択一98問PDF/img/cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-note-covers.mjs",
+      "requiredBy": [
+        "scripts/note-publish.mjs",
+        "scripts/note-update-cover.mjs",
+        "tools/admin-app（画像ギャラリー）"
+      ]
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",

@@ -507,6 +507,14 @@ export const MAGAZINES = [
     fillBg: '#522A69',
   },
   {
+    id: 'cd-marugoto-pack',
+    magazineDir: 'content/note/コンクリート診断士/magazines/コンクリート診断士-まるごとパック',
+    lines: ['コンクリート診断士', '択一・記述式 まるごと', '98問PDF＋記述式全16記事'],
+    category: 'コンクリート診断士',
+    fontSize: 42,
+    fillBg: '#522A69',
+  },
+  {
     id: 'cce-marugoto',
     fileBaseName: 'cce-marugoto-cover',
     magazineDir: 'content/note/コンクリート主任技士/magazines/コンクリート主任技士-まるごとパック',

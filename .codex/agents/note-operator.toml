@@ -138,9 +138,9 @@ note.com への高レベル操作指示を受け取り、既存の決定的ス�
 
 ## 安全弁
 
-1. **dry-run 必須**: 全スクリプトは既定 dry-run。`--commit` は明示的に
+1. **書込みゲート必須**: 全スクリプトは既定 dry-run。公開・更新は`--commit`を明示する。`note-attach-file`だけは、公開前下書きへPDFを保存する`--draft-only`も書込みゲートとして認める（`--commit`と排他・保存後にエディタ再読込でPDFカードを検証）
 2. **account ゲート**: 全スクリプトは `dobokunote` アカウントを検証
-3. **検証必須**: 変更後は note API で実体検証
+3. **検証必須**: 公開側の変更後は note API で実体検証。`note-attach-file --draft-only`は非公開なので、保存後のエディタ再読込でPDFカードを検証
 4. **SoT 整合**: スクリプト実行後は必ず `note-magazines.ts` を更新
 
 ## 制約事項
