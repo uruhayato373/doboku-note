@@ -45,8 +45,22 @@ test('warning thresholds and growth distinguish LFS and multiple tool processes'
 });
 test('heavy-work wrapper propagates child failure and releases its lock', () => {
   const run = () => spawnSync(process.execPath, ['scripts/local-resource-run.mjs', '--', 'node', '-e', 'process.exit(7)'], { encoding: 'utf8', env: { ...process.env, CI: 'true' }, timeout: 10000 });
-  assert.equal(run().status, 7);
-  assert.equal(run().status, 7);
+  const runWhenAvailable = () => {
+    const deadline = Date.now() + 10000;
+    let result;
+    do {
+      result = run();
+      if (result.status !== 1 || !/heavy-work already running/.test(result.stderr)) return result;
+      Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 25);
+    } while (Date.now() < deadline);
+    return result;
+  };
+  // disk-hygiene.test.mjs also exercises the repository-wide heavy-work lock.
+  // Files run in parallel under node --test, so wait for that intentional owner.
+  const first = runWhenAvailable();
+  assert.equal(first.status, 7, `first run from test pid ${process.pid}: ${first.stderr || first.stdout}`);
+  const second = runWhenAvailable();
+  assert.equal(second.status, 7, `second run from test pid ${process.pid}: ${second.stderr || second.stdout}`);
 });
 test('quick startup probe remains available while a full audit holds its lock', () => {
   const release = acquireLock(process.cwd(), 'audit');

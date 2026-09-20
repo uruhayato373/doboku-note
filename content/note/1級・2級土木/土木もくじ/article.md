@@ -83,6 +83,10 @@ https://note.com/dobokunote/m/m7a9b3ad964f6
 - [第1次検定 過去問PDF（H26-R7 全1162問・全選択肢解説）](https://note.com/dobokunote/n/n155093f42183) — まず一次を過去問演習で突破したい人向け
 - [令和8年度 二次検定 予想模試3回](https://note.com/dobokunote/n/nc2a33b52a2f7) — 本番形式で時間を測って仕上げたい人向け
 - [二次検定 直前暗記ノート](https://note.com/dobokunote/n/na84b001e827e) — 試験直前に重要語句を絞って確認したい人向け
+- [橋梁維持更新 8工事](https://note.com/dobokunote/m/mbcc9f67baf80) — 橋梁補修・更新に近い現場から5管理を選びたい人向け
+- [道路・トンネル維持 7工事](https://note.com/dobokunote/m/ma782ece5c04e) — 供用下の道路・トンネル工事に絞って準備したい人向け
+- [河川・災害復旧 10工事](https://note.com/dobokunote/m/m713ed083f60a) — 河川・砂防・海岸・災害復旧から工事を選びたい人向け
+- [上下水道・処理施設 7工事](https://note.com/dobokunote/m/mf5b91216ae1f) — 供用を続けながら行う施設更新に近い人向け
 
 ---
 
@@ -96,7 +100,7 @@ https://note.com/dobokunote/m/m1881a9578027
 
 https://note.com/dobokunote/m/m8554e87ca6ec
 
-**二次検定まるごとパック**（経験記述＋学科記述＋直前対策の7点）— 想定工事バンク・過去問模範答案集・完成答案集・学科記述出る順・直前暗記ノート・予想模試3回・出題分析をまとめて仕上げたい人向けの最上位パックです。
+**二次検定まるごとパック**（経験記述＋学科記述＋直前対策の8点）— 想定工事バンク・過去問模範答案集・完成答案集・学科記述出る順・直前暗記ノート・予想模試3回・出題分析・小規模地域インフラ4工事をまとめて仕上げたい人向けの最上位パックです。
 
 https://note.com/dobokunote/m/m2d9a069b6f87
 
@@ -112,6 +116,10 @@ https://note.com/dobokunote/m/md3518107aa97
 - [第1次検定 過去問PDF（R03-R07 前期後期 全630問・全選択肢解説）](https://note.com/dobokunote/n/n4963f45bd6f8) — まず一次を過去問演習で突破したい人向け
 - [令和8年度 二次検定 予想模試3回](https://note.com/dobokunote/n/n50aefe3ad7da) — 本番形式で時間を測って仕上げたい人向け
 - [二次検定 直前暗記ノート](https://note.com/dobokunote/n/n793523a059e5) — 試験直前に重要語句を絞って確認したい人向け
+- [地域道路・付帯施設 10工事](https://note.com/dobokunote/m/m0c3962036eb8) — 生活道路・舗装・防護柵・法面に近い現場から選びたい人向け
+- [上下水道・排水 5工事](https://note.com/dobokunote/m/m605fc37bee01) — 水路・水道・下水・雨水排水に絞って準備したい人向け
+- [河川・農林・公園 7工事](https://note.com/dobokunote/m/m22183b1034b2) — 河川・農業施設・林道・公園に近い現場から選びたい人向け
+- [小規模地域インフラ4工事・12答案](https://note.com/dobokunote/n/n697209bf671b) — 弁室、バス停、排水機場、漁港斜路の小規模工事から品質・安全・工程を準備したい人向け
 
 ---
 

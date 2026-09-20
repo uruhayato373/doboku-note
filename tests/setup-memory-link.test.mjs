@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
-import { existsSync, lstatSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, utimesSync, writeFileSync } from 'node:fs';
+import { existsSync, lstatSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, realpathSync, rmSync, utimesSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import process from 'node:process';
 import { join, resolve } from 'node:path';
@@ -25,9 +25,10 @@ test('defaultMemoryTarget: worktree でもメイン作業ツリーの .claude/me
     execFileSync('git', ['-C', root, '-c', 'user.email=t@t', '-c', 'user.name=t', 'commit', '-q', '-m', 'init']);
     const wt = join(root, '.claude', 'worktrees', 'x');
     execFileSync('git', ['-C', root, 'worktree', 'add', '-q', wt]);
-    assert.equal(resolve(defaultMemoryTarget(root)).toLowerCase(), resolve(join(root, '.claude', 'memory')).toLowerCase());
+    const canonical = (path) => join(realpathSync(resolve(path, '..')), 'memory').toLowerCase();
+    assert.equal(canonical(defaultMemoryTarget(root)), canonical(join(root, '.claude', 'memory')));
     const fromWt = defaultMemoryTarget(wt);
-    assert.equal(resolve(fromWt).toLowerCase(), resolve(join(root, '.claude', 'memory')).toLowerCase());
+    assert.equal(canonical(fromWt), canonical(join(root, '.claude', 'memory')));
   } finally {
     rmSync(root, { recursive: true, force: true });
   }

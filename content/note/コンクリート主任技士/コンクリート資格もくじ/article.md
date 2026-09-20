@@ -149,9 +149,9 @@ https://note.com/dobokunote/m/m09d20bfd9738
 
 ---
 
-### 立場別4テーマセットから選ぶ
+### 立場別セット・テーマ別セットから選ぶ
 
-自分の立場の4テーマだけをまとめて読むセットも選べます。全32答案集または主任技士まるごとパックを購入済みの方は、同じ記事を読めるため追加購入は不要です。
+自分の立場の4テーマをまとめたセットと、1テーマを8つの実務立場で比較するセットから選べます。全32答案集または主任技士まるごとパックを購入済みの方は、同じ記事を読めるため追加購入は不要です。
 
 - [生コン工場の4テーマ](https://note.com/dobokunote/m/me1d498428b43)
 - [プレキャスト工場の4テーマ](https://note.com/dobokunote/m/mf2e0acf10805)
@@ -161,6 +161,10 @@ https://note.com/dobokunote/m/m09d20bfd9738
 - [ゼネコン建築施工の4テーマ](https://note.com/dobokunote/m/m1d67b91fe039)
 - [設計コンサルの4テーマ](https://note.com/dobokunote/m/mc34747eabe91)
 - [試験・検査機関の4テーマ](https://note.com/dobokunote/m/m8bc94bb05c0a)
+- [品質管理を8つの実務立場で比較](https://note.com/dobokunote/m/m1930448a1a68)
+- [耐久性を8つの実務立場で比較](https://note.com/dobokunote/m/m8c199a48d1c9)
+- [環境配慮を8つの実務立場で比較](https://note.com/dobokunote/m/m87990d073b2f)
+- [施工トラブルを8つの実務立場で比較](https://note.com/dobokunote/m/m01a4cf69b414)
 
 ## コンクリート診断士｜変状から調査・評価・対策へ
 
