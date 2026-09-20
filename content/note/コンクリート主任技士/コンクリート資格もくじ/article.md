@@ -181,6 +181,18 @@ https://note.com/dobokunote/m/mf2a132408b6f
 
 [診断士の無料記事・過去問・分野別テキスト一覧](https://doboku-note.com/exam/concrete-diagnostician?utm_source=note&utm_medium=referral&utm_campaign=103-concrete-index)
 
+### 記述式教材を目的別に選ぶ
+
+問題A・問題Bを通して仕上げる完全パック、問題別の集中パック、構造物や実務分野から選べるパックを用意しています。同じ記事を複数の商品に収録しているため、購入済みの記事がある場合は収録範囲を確認してください。
+
+- [問題A・B 完全パック｜全16記事](https://note.com/dobokunote/m/m8a5396da31ce) — 解法ガイド、問題A 2本、問題B 13ケースをまとめて対策
+- [問題A 集中パック｜全3記事](https://note.com/dobokunote/m/m864077343c10) — 診断士の役割・倫理と維持管理の論述を集中練習
+- [問題B 13ケース｜全14記事](https://note.com/dobokunote/m/m629f8736f9c3) — 劣化機構別5ケースと構造物別8ケースを横断
+- [構造物別 想定8ケース](https://note.com/dobokunote/m/md94d10122def) — 下水、トンネル、駐車場、PC橋、配水池、桟橋、橋脚、擁壁
+- [道路・橋梁8ケース｜全9記事](https://note.com/dobokunote/m/m7a59ccbb7e47) — 道路・橋梁の維持管理に近い受験者向け
+- [水・地下5ケース｜全6記事](https://note.com/dobokunote/m/m00172a143bcc) — 水処理、地下構造物、擁壁に近い受験者向け
+- [建築・施設4ケース｜全5記事](https://note.com/dobokunote/m/me3141ce22b7e) — 建築、施設管理に近い受験者向け
+
 ---
 
 ## 目的から逆引き
