@@ -91,7 +91,7 @@ kuro
 | `2級土木 二次学科記述｜テーマ別 出る順`（セット） | `civil-2-gakka-kijutsu` |
 | `1級土木 二次検定まるごとパック`（経験＋学科＋暗記＋模試＋分析の統合・2026-09 模試3回と出題分析を追加収録） | `civil-1-niji-marugoto-pack` |
 | `1級土木 二次｜直前総仕上げパック`（¥2,980・予想模試3回＋直前暗記ノート＋出題分析の3点セット・2026-09-16 新設） | `civil-1-chokuzen-pack` |
-| `2級土木 二次検定まるごとパック`（¥8,800・想定工事バンク＋過去問模範答案＋完成答案＋学科出る順＋暗記＋模試3回＋出題分析＝77記事・2026-09-17 新設） | `civil-2-niji-marugoto-pack` |
+| `2級土木 二次検定まるごとパック`（¥8,800・想定工事バンク＋過去問模範答案＋完成答案＋学科出る順＋暗記＋模試3回＋出題分析＝79記事） | `civil-2-niji-marugoto-pack` |
 | `2級土木 二次｜直前総仕上げパック`（¥2,480・予想模試3回＋直前暗記ノート＋出題分析・2026-09-17 新設） | `civil-2-chokuzen-pack` |
 | `技術士 建設部門 2次｜必須科目I` / `必須科目I 模範解答集` | `bk-i-required-essay-magazine` |
 | `建設部門2次｜道路 選択科目 模範解答集` | `bk-road-secondary-magazine` |
@@ -123,7 +123,7 @@ kuro
 | `技術士 第一次試験｜直前パック`（¥1,980・過去問PDF 合本＋直前暗記ノート・2026-09-17 新設） | `pe1-chokuzen-pack` |
 | `コンクリート技士 択一｜直前パック`（¥1,480・配合計算・JIS判断12問＋直前暗記ノート・2026-09-17 新設） | `ce-chokuzen-pack` |
 | `RCCM問題III｜2026年度 6テーマ 模範論文集`（¥3,480・6本＋序章） | `rccm-mondai3-magazine` |
-| `RCCM まるごとパック（問題I〜IV 全対応）`（¥5,980・問題III マガジン＋問題I テンプレ＋択一予想50問＋直前暗記ノート＝10記事・2026-09-16 新設） | `rccm-marugoto-pack` |
+| `RCCM まるごとパック（問題I〜IV 全対応）`（¥5,980・問題I〜IV 全16記事） | `rccm-marugoto-pack` |
 
 ### 単品記事（type: article）
 
@@ -140,6 +140,7 @@ productId は `article:<slug>` 形式。slug は商品名から推定:
 | `情報管理 × 他4管理｜トレードオフ` | `article:tradeoff-information-management` |
 | `2級土木 施工経験記述｜令和{N}年度` | `article:civil-2-pastexam-essay-r0{N}` |
 | `2級土木 施工経験記述｜品質管理 完成答案集` | `article:civil-2-essay-quality-complete` |
+| `2級土木 施工経験記述｜小規模地域インフラ4工事` | `article:civil-2-small-infra-4` |
 | `2級土木 施工経験記述｜{工種} 5管理フルカバー完成答案`（想定工事バンク単品¥980） | `article:civil-2-koji-bank-{koshu}`（{koshu} は想定工事バンクの工事番号。例: `article:civil-2-koji-bank-68`＝工事68-上水道配水管布設開削／`article:civil-2-koji-bank-08`＝工事08-補強土壁テールアルメ〔¥1,680〕） |
 | `1級土木 二次学科記述｜{テーマ}`（テーマ別出る順 単品¥580） | `article:civil-1-gakka-kijutsu-{theme}` |
 | `2級土木 二次学科記述｜{テーマ}`（テーマ別出る順 単品） | `article:civil-2-gakka-kijutsu-{theme}` |
@@ -150,6 +151,9 @@ productId は `article:<slug>` 形式。slug は商品名から推定:
 | `2級土木 テキスト精読ガイド`（無料・全1巻。売上は発生しない） | `article:civil-2-reading-guide` |
 | `RCCM問題III｜{テーマ短名} 模範論文`（単品¥780・テーマ番号 01〜06） | `article:rccm-mondai3-{NN}`（{NN} は `_facts-2026.md` のテーマ番号 2 桁。例: `article:rccm-mondai3-01`＝インフラ老朽化） |
 | `RCCM問題I｜業務経験論文テンプレと記入例`（¥1,980） | `article:rccm-mondai1-template` |
+| `RCCM 問題I｜道路の業務経験記入例2本` | `article:rccm-mondai1-road` |
+| `RCCM 問題I｜河川、砂防及び海岸・海洋の業務経験記入例2本` | `article:rccm-mondai1-river-coast` |
+| `RCCM 問題I｜鋼構造及びコンクリートの業務経験記入例2本` | `article:rccm-mondai1-steel-concrete` |
 | `RCCM問題II・IV｜論点集と予想50問`（¥1,480） | `article:rccm-takuitsu-yosou-50` |
 | `RCCM 問題II・問題IV｜択一 直前暗記ノート`（¥980・2026-09-17） | `article:rccm-anki-note` |
 | `1級土木 二次｜出題分析と直前の重点` | `article:civil-1-r8-bunseki` |

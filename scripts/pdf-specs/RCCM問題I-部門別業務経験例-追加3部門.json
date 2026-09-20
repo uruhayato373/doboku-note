@@ -1,0 +1,39 @@
+{
+  "srcDir": "content/note/RCCM/magazines/RCCM問題I-部門別業務経験例",
+  "outDir": ".tmp/wave2-persona-pdfs/RCCM問題I-部門別業務経験例-追加3部門",
+  "articles": [
+    {
+      "src": "04-道路/article.md",
+      "out": "RCCM問題I-道路-業務経験記入例2本",
+      "include": [
+        {
+          "from": "^## この教材の使い方と公式情報",
+          "to": "^<!-- cta:rccm-mokuji -->"
+        },
+        { "from": "^## 記入例1" }
+      ]
+    },
+    {
+      "src": "05-河川砂防及び海岸海洋/article.md",
+      "out": "RCCM問題I-河川砂防及び海岸海洋-業務経験記入例2本",
+      "include": [
+        {
+          "from": "^## 公式情報と練習原稿の扱い",
+          "to": "^<!-- cta:rccm-mokuji -->"
+        },
+        { "from": "^## 記入例1" }
+      ]
+    },
+    {
+      "src": "06-鋼構造及びコンクリート/article.md",
+      "out": "RCCM問題I-鋼構造及びコンクリート-業務経験記入例2本",
+      "include": [
+        {
+          "from": "^## 公式情報と練習原稿の扱い",
+          "to": "^<!-- cta:rccm-mokuji -->"
+        },
+        { "from": "^## 記入例1" }
+      ]
+    }
+  ]
+}

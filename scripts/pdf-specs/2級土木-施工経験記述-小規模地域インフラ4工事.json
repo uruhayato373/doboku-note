@@ -1,0 +1,16 @@
+{
+  "srcDir": "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-小規模地域インフラ4工事",
+  "deliverTo": "in-place",
+  "articles": [
+    {
+      "src": "article.md",
+      "out": "2級土木-施工経験記述-小規模地域インフラ4工事",
+      "include": [
+        {
+          "from": "^## 想定工事①",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ]
+    }
+  ]
+}

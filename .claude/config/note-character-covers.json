@@ -109,6 +109,118 @@
       "benefit": "自分の実務から答案を組み立てる"
     },
     {
+      "id": "civil-1-keiken-bridge-maintenance-pack",
+      "magazineDir": "content/note/1級・2級土木/1級土木/magazines/1級土木-橋梁維持更新8工事",
+      "qualifier": "1級土木｜施工経験記述",
+      "magazineName": "橋梁維持更新 8工事",
+      "proof": "橋梁補修・更新の5管理",
+      "benefit": "自分の橋梁工事に近い答案を選ぶ"
+    },
+    {
+      "id": "civil-1-keiken-road-tunnel-pack",
+      "magazineDir": "content/note/1級・2級土木/1級土木/magazines/1級土木-道路トンネル維持7工事",
+      "qualifier": "1級土木｜施工経験記述",
+      "magazineName": "道路・トンネル維持",
+      "proof": "供用下7工事の5管理",
+      "benefit": "維持更新の制約を答案にする"
+    },
+    {
+      "id": "civil-1-keiken-river-disaster-pack",
+      "magazineDir": "content/note/1級・2級土木/1級土木/magazines/1級土木-河川災害復旧10工事",
+      "qualifier": "1級土木｜施工経験記述",
+      "magazineName": "河川・災害復旧",
+      "proof": "復旧10工事の5管理",
+      "benefit": "緊急性と二次災害を答案にする"
+    },
+    {
+      "id": "civil-1-keiken-water-treatment-pack",
+      "magazineDir": "content/note/1級・2級土木/1級土木/magazines/1級土木-上下水道処理施設7工事",
+      "qualifier": "1級土木｜施工経験記述",
+      "magazineName": "上下水道・処理施設",
+      "proof": "供用施設7工事の5管理",
+      "benefit": "水処理施設の経験から書く"
+    },
+    {
+      "id": "civil-2-keiken-local-road-pack",
+      "magazineDir": "content/note/1級・2級土木/2級土木/magazines/2級土木-地域道路付帯施設10工事",
+      "qualifier": "2級土木｜施工経験記述",
+      "magazineName": "地域道路・付帯施設",
+      "proof": "身近な道路10工事",
+      "benefit": "経験した道路工事から選ぶ"
+    },
+    {
+      "id": "civil-2-keiken-water-drainage-pack",
+      "magazineDir": "content/note/1級・2級土木/2級土木/magazines/2級土木-上下水道排水5工事",
+      "qualifier": "2級土木｜施工経験記述",
+      "magazineName": "上下水道・排水",
+      "proof": "水路・管路5工事",
+      "benefit": "住宅地の供用工事から書く"
+    },
+    {
+      "id": "civil-2-keiken-river-rural-park-pack",
+      "magazineDir": "content/note/1級・2級土木/2級土木/magazines/2級土木-河川農林公園7工事",
+      "qualifier": "2級土木｜施工経験記述",
+      "magazineName": "河川・農林・公園",
+      "proof": "地域施設7工事",
+      "benefit": "身近な公共工事から書く"
+    },
+    {
+      "id": "cce-theme-quality-pack",
+      "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-品質管理8立場",
+      "qualifier": "コンクリート主任技士｜小論文",
+      "magazineName": "品質管理 8立場",
+      "proof": "製造・施工・発注・設計",
+      "benefit": "自分の権限に合う答案を選ぶ"
+    },
+    {
+      "id": "cce-theme-durability-pack",
+      "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-耐久性8立場",
+      "qualifier": "コンクリート主任技士｜小論文",
+      "magazineName": "耐久性 8立場",
+      "proof": "材料・施工・診断・検査",
+      "benefit": "責任範囲から耐久性を書く"
+    },
+    {
+      "id": "cce-theme-environment-pack",
+      "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-環境配慮8立場",
+      "qualifier": "コンクリート主任技士｜小論文",
+      "magazineName": "環境配慮 8立場",
+      "proof": "ライフサイクルで比較",
+      "benefit": "実務に沿う環境対策を書く"
+    },
+    {
+      "id": "cce-theme-trouble-pack",
+      "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-施工トラブル8立場",
+      "qualifier": "コンクリート主任技士｜小論文",
+      "magazineName": "施工トラブル 8立場",
+      "proof": "初動から再発防止まで",
+      "benefit": "越権せず対応を論じる"
+    },
+    {
+      "id": "essay-steel-concrete-consultant-magazine",
+      "magazineDir": "content/note/技術士総監/magazines/総監模範論文-鋼コンコンサル",
+      "qualifier": "技術士 総監｜記述式",
+      "magazineName": "鋼コンコンサル",
+      "proof": "令和3〜7年度の模範論文",
+      "benefit": "鋼橋・コンクリート構造を5管理で論じる"
+    },
+    {
+      "id": "essay-tunnel-consultant-magazine",
+      "magazineDir": "content/note/技術士総監/magazines/総監模範論文-トンネルコンサル",
+      "qualifier": "技術士 総監｜記述式",
+      "magazineName": "トンネルコンサル",
+      "proof": "令和3〜7年度の模範論文",
+      "benefit": "調査・設計・診断を5管理で論じる"
+    },
+    {
+      "id": "essay-road-paving-contractor-magazine",
+      "magazineDir": "content/note/技術士総監/magazines/総監模範論文-道路舗装施工",
+      "qualifier": "技術士 総監｜記述式",
+      "magazineName": "道路舗装施工",
+      "proof": "令和3〜7年度の模範論文",
+      "benefit": "舗装施工の判断を5管理で論じる"
+    },
+    {
       "id": "essay-geotechnical-consultant-magazine",
       "magazineDir": "content/note/技術士総監/magazines/総監模範論文-土質基礎コンサル",
       "qualifier": "技術士 総監｜記述式",
