@@ -601,12 +601,12 @@ Drive台帳・vault・Drive APIの照合前にローカル実体を削除しな�
 
 ## 🟣 判断待ち — ユーザーの意思決定が必要
 
-### [DN-0257] X Article パイロット: 告知 Tweet 4 の枠を決めて予約し、Article 3・1・4 の早朝 Codex 発火を確認する
+### [DN-0257] X Article パイロット: Article 3・1・4 の公開時刻を Codex アプリ側で確定し、告知 Tweet 4 の枠を決める
 タグ: [SNS・マーケ] [種類:不具合] [検証:check-x-queue-health] [起票:2026-09-19] [期日:2026-09-28]
 
-**起点**: Codex の 1 回限りローカル自動化は Mac スリープ中に発火せず、起床時（05:30 前後）に遅延実行されて `x-article:publish` の公開窓（15 分前〜120 分後）を外し exit 1 で停止していた（`~/.codex/automations/x-article-*/memory.md`）。2026-09-20 に Article 2 は手動復旧で公開済み（https://x.com/doboku373/status/2101459864715510124・URL は台帳へ書き戻し・Tweet 4 は `tweets.md` に解放済み）。Article 3・1・4 は同じ日のまま早朝（09-20 09:20 / 09-22 05:40 / 09-27 05:40）へ移し、Codex の rrule も `automation.toml` 直接編集で更新した（アプリ側の再読込は未確認）。
+**起点**: Codex の 1 回限りローカル自動化は Mac スリープ中に発火せず、起床時（05:30 前後）に遅延実行されて `x-article:publish` の公開窓（15 分前〜120 分後）を外し exit 1 で停止していた（`~/.codex/automations/x-article-*/memory.md`）。Article 2 は 2026-09-20 08:54 に手動復旧で公開済み（https://x.com/doboku373/status/2101459864715510124・台帳へ書き戻し・Tweet 4 は `tweets.md` に解放済み）。同日、`automation.toml` の rrule を直接編集して Article 3 を 09:20 へ寄せたが、Mac 稼働中・アプリ起動中でも 09:37 まで発火せず＝**アプリは toml 直接編集を読まない**。台帳と toml は元の夕方枠（09-20 19:35 / 09-22 20:20 / 09-27 20:15）へ戻してある。
 
-**やること**: (1) Tweet 4 の枠: 元の 09-17 08:00 は逸失し 9 月は全日 3 本で埋まっている。09-22 07:54 の `091#25`（linkless・X キュー投入済）を Tweet 4 に差し替える案＝X 側の予約を削除 → `status.json` で `replaced` → `x-schedule-guard --max-per-day 3` → `publish-x 094 --tweet 4 <日時> --dry-run` → 予約。見送るなら Tweet 4 を `cancelled` にして台帳を閉じる。(2) 09-20 09:20 の Article 3 が定刻に出たか `x-article-3/memory.md` と `article-drafts.json` の `article_url` で確認。出ていなければ ChatGPT アプリの Automations で次回時刻を直す（rrule 直接編集が効いていない可能性）。(3) 09-22・09-27 も同様に翌朝確認。
+**やること**: (1) 夕方枠のまま出すなら、各予定の 15 分前〜2 時間後は Mac を起こしておく（09-20 19:35 が最初）。早朝へ移すなら **ChatGPT アプリの Automations 画面で時刻を変え、同時に `article-drafts.json` / `status.json` の `scheduled_at` を合わせる**（片方だけ変えると時刻窓で必ず止まる）。(2) 各回の翌朝に `x-article-N/memory.md` と `article_url` を確認し、逸失したら手動復旧 `DOBOKU_PW_MIN_FREE_MB=1024 npm run x-article:publish -- --article N --publish --force`（Claude Code の auto mode は拒否するので人が起動）。(3) Tweet 4 の枠: 元の 09-17 08:00 は逸失し 9 月は全日 3 本で埋まっている。09-22 07:54 の `091#25`（linkless・X キュー投入済）を差し替える案＝X 側の予約を削除 → `status.json` で `replaced` → `x-schedule-guard --max-per-day 3` → `publish-x 094 --tweet 4 <日時> --dry-run` → 予約。見送るなら Tweet 4 を `cancelled` にして台帳を閉じる。
 
 **完了条件**: `npm run check-x-queue-health` の issues が空で、4 本の `article_url` が埋まっている（Tweet 4 を見送る場合は台帳が `cancelled` で issues が空）。
 

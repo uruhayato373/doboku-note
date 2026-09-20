@@ -1,13 +1,13 @@
 {
-  "updated_at": "2026-09-20T00:02:59.671Z",
+  "updated_at": "2026-09-20T00:38:29.091Z",
   "exam": "civil-career",
   "campaign": "x-longform-career-2026",
-  "note": "X Articleはネイティブ予約不可のため、1回限りのCodexローカル自動化で公開する。翌朝の告知はArticle URL確定後にpublish-xへ解放する。既存9月枠との差し替え済み。 2026-09-20: Codex ローカル自動化は Mac スリープ中に発火せず起床時(05:30前後)に遅延実行され公開窓(15分前〜120分後)を外していた(Article 1: 09-07 04:50 / Article 2: 09-14・09-17 05:30)。Article 3・1・4 は同じ日のまま早朝へ移し、告知短文の枠は変えない。",
+  "note": "X Articleはネイティブ予約不可のため、1回限りのCodexローカル自動化で公開する。翌朝の告知はArticle URL確定後にpublish-xへ解放する。既存9月枠との差し替え済み。 2026-09-20: Codex ローカル自動化は Mac スリープ中に発火せず起床時(05:30前後)に遅延実行され公開窓を外していた(Article 1: 09-07 04:50 / Article 2: 09-14・09-17 05:30)。Article 2 は 09-20 08:54 に手動復旧で公開。automation.toml の rrule を直接編集して早朝へ寄せたが Codex アプリは新時刻(09:20)で発火せず(Mac 稼働中)→ 台帳は元の夕方枠へ戻した。時刻変更はアプリの Automations UI と台帳を同時に行う(DN-0257)。",
   "tweets": {
     "1": {
-      "title": "9/22 05:40 civil-1 / X Article自動化 / 辞めるか残るか",
+      "title": "9/22 20:20 civil-1 / X Article自動化 / 辞めるか残るか",
       "status": "scheduled",
-      "scheduled_at": "2026-09-22T05:40:00+09:00",
+      "scheduled_at": "2026-09-22T20:20:00+09:00",
       "text": "施工管理を辞めたいと思った夜に。仕事内容への不満と、今の職場環境への不満を分けて、続ける・環境を変える・転職するの3択を整理する。",
       "posted_at": null,
       "manual_only": true,
@@ -15,8 +15,7 @@
       "source_file": "articles/01-quit-or-stay.md",
       "site_target": "https://doboku-note.com/docs/civil-construction-1-guide-quit-or-stay?utm_source=x&utm_medium=social&utm_campaign=x-longform-career-2026&utm_content=article-01",
       "article_url": null,
-      "original_scheduled_at": "2026-09-06T19:50:00+09:00",
-      "previous_scheduled_at": "2026-09-22T20:20:00+09:00"
+      "original_scheduled_at": "2026-09-06T19:50:00+09:00"
     },
     "2": {
       "title": "9/23 07:40 civil-1 / X Article告知 / 辞めるか残るか",
@@ -56,9 +55,9 @@
       "original_scheduled_at": "2026-09-14T08:00:00.000+09:00"
     },
     "5": {
-      "title": "9/20 09:20 civil-1 / X Article自動化 / キャリアパス",
+      "title": "9/20 19:35 civil-1 / X Article自動化 / キャリアパス",
       "status": "scheduled",
-      "scheduled_at": "2026-09-20T09:20:00+09:00",
+      "scheduled_at": "2026-09-20T19:35:00+09:00",
       "text": "施工管理の次は同業他社だけではない。発注者支援、建設コンサル、公務員、技術士まで、資格と経験を捨てずに働き方を変える道を整理する。",
       "posted_at": null,
       "manual_only": true,
@@ -66,8 +65,7 @@
       "source_file": "articles/03-career-path.md",
       "site_target": "https://doboku-note.com/docs/civil-construction-1-guide-career-path?utm_source=x&utm_medium=social&utm_campaign=x-longform-career-2026&utm_content=article-03",
       "article_url": null,
-      "original_scheduled_at": "2026-09-20T19:35:00.000+09:00",
-      "previous_scheduled_at": "2026-09-20T19:35:00+09:00"
+      "original_scheduled_at": "2026-09-20T19:35:00.000+09:00"
     },
     "6": {
       "title": "9/21 07:15 civil-1 / X Article告知 / キャリアパス",
@@ -82,9 +80,9 @@
       "original_scheduled_at": "2026-09-21T07:15:00.000+09:00"
     },
     "7": {
-      "title": "9/27 05:40 civil-2 / X Article自動化 / 2級・若手",
+      "title": "9/27 20:15 civil-2 / X Article自動化 / 2級・若手",
       "status": "scheduled",
-      "scheduled_at": "2026-09-27T05:40:00+09:00",
+      "scheduled_at": "2026-09-27T20:15:00+09:00",
       "text": "2級の制度上の役割、若手が求人で確認する順番、実務経験を1級へつなぐ考え方を一つの読み物にまとめる。",
       "posted_at": null,
       "manual_only": true,
@@ -92,8 +90,7 @@
       "source_file": "articles/04-civil2-young-career.md",
       "site_target": "https://doboku-note.com/docs/civil-construction-2-guide-career?utm_source=x&utm_medium=social&utm_campaign=x-longform-career-2026&utm_content=article-04",
       "article_url": null,
-      "original_scheduled_at": "2026-09-27T20:15:00.000+09:00",
-      "previous_scheduled_at": "2026-09-27T20:15:00+09:00"
+      "original_scheduled_at": "2026-09-27T20:15:00.000+09:00"
     },
     "8": {
       "title": "9/28 07:50 civil-2 / X Article告知 / 2級・若手",
