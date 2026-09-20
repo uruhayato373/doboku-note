@@ -1,7 +1,7 @@
 {
   "_comment": "Kindle 全書籍のマスター登録簿。status=ready(制作完了・提出待ち)/in_review(KDP審査中)/live(公開). epub/cover は git 追跡(A系=kindle-published/・B-F=kindle-dist/). 提出後 ASIN と status=live を更新。再生成は npm run sync-kindle-dist。",
   "schemaVersion": 1,
-  "updatedAt": "2026-09-17",
+  "updatedAt": "2026-09-20",
   "books": [
     {
       "id": "A-00",
@@ -1309,10 +1309,16 @@
           "version": "1.0",
           "date": "2026-09-04",
           "change": "KDP本棚実査でLIVE化(販売中)を確認・ASIN=B0HGXCGGS2・catalogへ反映（正確な公開日は本棚に記録が無く不明）"
+        },
+        {
+          "version": "1.0",
+          "date": "2026-09-20",
+          "change": "KDP Select実機確認: 現行期間は2026-08-28〜2026-11-25。noteで択一98問PDFを展開するため自動更新をオフにし、再読込後もオフを確認"
         }
       ],
       "draftAsin": "A2OMU1X8YED1C1",
-      "publishedDate": "2026-09-04"
+      "publishedDate": "2026-09-04",
+      "notes": "KDP Select加入中（2026-08-28〜2026-11-25）。2026-09-20に自動更新をオフにし、再読込後も未選択を確認。択一98問のnote PDFは2026-11-26以降に公開する。"
     },
     {
       "id": "g-02",

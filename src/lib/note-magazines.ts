@@ -1052,6 +1052,117 @@ const MAGAZINES_RAW = {
     badge: 'note 限定 教材',
   },
 
+  // コンクリート診断士の商品拡張（2026-09-20設計）。技術レビュー完了後にnote実機へ作成し、
+  // noteUrlを設定してpublished:trueへ切り替える。原稿は8本を一度だけ持ち、各パックへ再収録する。
+  'cd-structure-case-bank': {
+    id: 'cd-structure-case-bank',
+    published: false,
+    noteUrl: '',
+    title: 'コンクリート診断士 記述式｜構造物別 想定8ケース',
+    description:
+      '下水処理施設、道路トンネル、立体駐車場、PC橋、配水池、港湾桟橋、RC橋脚、RC擁壁の8構造物を題材に、変状把握から劣化機構の推定、調査、評価、対策までを一貫して論じる問題Bのオリジナル想定問題とフル模範答案集。',
+    shortTitle: '診断士 記述式｜構造物別8ケース',
+    shortDescription: '8構造物で、診断から対策までの答案構成を反復する。',
+    price: '¥3,980（8本セット・単品各¥1,480）',
+    badge: 'note 限定 教材',
+  },
+  'cd-road-bridge-pack': {
+    id: 'cd-road-bridge-pack',
+    published: false,
+    noteUrl: '',
+    title: 'コンクリート診断士 記述式｜道路・橋梁8ケース',
+    description:
+      '既存の塩害・ASR・凍害・疲労複合に、道路トンネル、PC橋、港湾桟橋、地震後のRC橋脚を加えた道路・橋梁系8ケース。解法ガイドを含む全9記事を、道路・橋梁の維持管理に携わる受験者向けに再収録する。',
+    shortTitle: '診断士｜道路・橋梁8ケース',
+    shortDescription: '道路・橋梁の変状を8ケースで答案化。解法ガイド付き。',
+    price: '¥3,980（9記事セット）',
+    badge: 'note 限定 立場別',
+  },
+  'cd-water-underground-pack': {
+    id: 'cd-water-underground-pack',
+    published: false,
+    noteUrl: '',
+    title: 'コンクリート診断士 記述式｜水・地下5ケース',
+    description:
+      '中性化、下水処理施設の化学的侵食、道路トンネルの漏水・凍害、配水池のひび割れ・漏水、RC擁壁の初期欠陥・中性化を収録。水処理・地下構造物・擁壁の診断に近い受験者向けの5ケースと解法ガイド。',
+    shortTitle: '診断士｜水・地下5ケース',
+    shortDescription: '水処理・地下構造物・擁壁の5ケース。解法ガイド付き。',
+    price: '¥2,980（6記事セット）',
+    badge: 'note 限定 立場別',
+  },
+  'cd-building-facility-pack': {
+    id: 'cd-building-facility-pack',
+    published: false,
+    noteUrl: '',
+    title: 'コンクリート診断士 記述式｜建築・施設4ケース',
+    description:
+      '中性化、ASR、立体駐車場の火害、RC擁壁の初期欠陥・中性化を収録。建築・施設管理に近い受験者が、外観変状から調査、性能評価、補修・補強までを練習する4ケースと解法ガイド。',
+    shortTitle: '診断士｜建築・施設4ケース',
+    shortDescription: '建築・施設管理に近い4ケース。解法ガイド付き。',
+    price: '¥2,480（5記事セット）',
+    badge: 'note 限定 立場別',
+  },
+  'cd-problem-a-pack': {
+    id: 'cd-problem-a-pack',
+    published: false,
+    noteUrl: '',
+    title: 'コンクリート診断士 記述式｜問題A集中パック',
+    description:
+      '診断士の役割と倫理、維持管理の考え方を論じる問題Aの模範答案2本に、答案の型と採点視点をまとめた解法ガイドを加えた全3記事。問題Aだけを短期間で固めたい受験者向け。',
+    shortTitle: '診断士｜問題A集中パック',
+    shortDescription: '問題Aの模範答案2本と解法ガイドを収録。',
+    price: '¥1,980（3記事セット）',
+    badge: 'note 限定 教材',
+  },
+  'cd-problem-b-pack': {
+    id: 'cd-problem-b-pack',
+    published: false,
+    noteUrl: '',
+    title: 'コンクリート診断士 記述式｜問題B 13ケース',
+    description:
+      '既存の劣化機構別5ケースと、新規の構造物別8ケースを統合した問題Bの全13ケース。変状把握、劣化機構の推定、調査、評価、対策の型を横断して反復できる。解法ガイドを含む全14記事。',
+    shortTitle: '診断士｜問題B 13ケース',
+    shortDescription: '劣化機構別5＋構造物別8の全13ケース。',
+    price: '¥4,980（14記事セット）',
+    badge: 'note 限定 問題B完全版',
+  },
+  'cd-essay-complete-pack': {
+    id: 'cd-essay-complete-pack',
+    published: false,
+    noteUrl: '',
+    title: 'コンクリート診断士 記述式｜問題A・B 完全パック',
+    description:
+      '解法ガイド、問題Aの模範答案2本、問題Bの劣化機構別5ケースと構造物別8ケースを統合した記述式全16記事。問題A・Bを一つの商品で通して練習したい受験者向け。',
+    shortTitle: '診断士 記述式 完全パック',
+    shortDescription: '解法ガイド＋問題A 2本＋問題B 13ケースの全16記事。',
+    price: '¥5,980（16記事セット）',
+    badge: 'note 限定 完全パック',
+  },
+  'cd-takuitsu-98-pdf': {
+    id: 'cd-takuitsu-98-pdf',
+    published: false,
+    noteUrl: '',
+    title: 'コンクリート診断士｜四肢択一演習98問 PDF',
+    description:
+      '変状、劣化機構、調査、診断、対策、維持管理の6分野を扱うオリジナル四肢択一演習98問のA4印刷用PDF。Kindle版のKDP Select独占期間が満了する2026年11月25日までは公開しない。',
+    shortTitle: '診断士｜四肢択一98問 PDF',
+    shortDescription: '6分野のオリジナル四肢択一演習98問を印刷用PDFに。',
+    price: '¥1,480',
+    badge: 'note 限定 PDF教材',
+  },
+  'cd-marugoto-pack': {
+    id: 'cd-marugoto-pack',
+    published: false,
+    noteUrl: '',
+    title: 'コンクリート診断士｜択一・記述式 まるごとパック',
+    description:
+      '四肢択一演習98問の印刷用PDFと、解法ガイド、問題Aの模範答案2本、問題Bの13ケースを束ねる全17記事の総合教材。択一PDFはKDP Select満了後の2026年11月26日以降に追加し、それまでは公開しない。',
+    shortTitle: '診断士 択一・記述式 まるごと',
+    shortDescription: '択一98問PDF＋記述式全16記事を一括収録。',
+    price: '¥6,980（17記事セット）',
+    badge: 'note 限定 まるごとパック',
+  },
+
   // 原稿配置: content/note/コンクリート主任技士/magazines/コンクリート主任技士-小論文-模範答案集/
   // コンクリート主任技士 小論文（記述式）模範答案集。解法ガイド + テーマ別フル模範小論文 4 本。
   // concrete-chief-engineer vertical は公開済 (guide/textbook/primary 計19記事 published:true)。
