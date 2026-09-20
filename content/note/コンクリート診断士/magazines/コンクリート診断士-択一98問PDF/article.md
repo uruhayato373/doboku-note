@@ -74,6 +74,7 @@ cover:
 
 ---
 
+<!-- cta:concrete-mokuji -->
 コンクリート診断士の記述式教材と商品一覧は「コンクリート資格もくじ」で確認できます。
 
 https://note.com/dobokunote/n/nd59f471c9214
