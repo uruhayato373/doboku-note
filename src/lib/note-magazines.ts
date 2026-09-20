@@ -1139,11 +1139,11 @@ const MAGAZINES_RAW = {
   },
   'cd-takuitsu-98-pdf': {
     id: 'cd-takuitsu-98-pdf',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/n/n4acd2c7a2f13',
     title: 'コンクリート診断士｜四肢択一演習98問 PDF',
     description:
-      '変状、劣化機構、調査、診断、対策、維持管理の6分野を扱うオリジナル四肢択一演習98問のA4印刷用PDF。Kindle版のKDP Select独占期間が満了する2026年11月25日までは公開しない。',
+      '変状、劣化機構、調査、診断、対策、維持管理の6分野を扱うオリジナル四肢択一演習98問のA4印刷用PDF。8回分・全選択肢解説つき。',
     shortTitle: '診断士｜四肢択一98問 PDF',
     shortDescription: '6分野のオリジナル四肢択一演習98問を印刷用PDFに。',
     price: '¥1,480',
@@ -1151,11 +1151,11 @@ const MAGAZINES_RAW = {
   },
   'cd-marugoto-pack': {
     id: 'cd-marugoto-pack',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m1526302c9c99',
     title: 'コンクリート診断士｜択一・記述式 まるごとパック',
     description:
-      '四肢択一演習98問の印刷用PDFと、解法ガイド、問題Aの模範答案2本、問題Bの13ケースを束ねる全17記事の総合教材。択一PDFはKDP Select満了後の2026年11月26日以降に追加し、それまでは公開しない。',
+      '四肢択一演習98問の印刷用PDFと、解法ガイド、問題Aの模範答案2本、問題Bの13ケースを束ねる全17記事の総合教材。',
     shortTitle: '診断士 択一・記述式 まるごと',
     shortDescription: '択一98問PDF＋記述式全16記事を一括収録。',
     price: '¥6,980（17記事セット）',

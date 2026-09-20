@@ -185,6 +185,8 @@ https://note.com/dobokunote/m/mf2a132408b6f
 
 問題A・問題Bを通して仕上げる完全パック、問題別の集中パック、構造物や実務分野から選べるパックを用意しています。同じ記事を複数の商品に収録しているため、購入済みの記事がある場合は収録範囲を確認してください。
 
+- [択一・記述式 まるごとパック｜全17記事](https://note.com/dobokunote/m/m1526302c9c99) — 四肢択一演習98問PDFと記述式全16記事をまとめて対策
+- [四肢択一演習98問 PDF](https://note.com/dobokunote/n/n4acd2c7a2f13) — 8回分・全選択肢解説つきのA4印刷用PDF
 - [問題A・B 完全パック｜全16記事](https://note.com/dobokunote/m/m8a5396da31ce) — 解法ガイド、問題A 2本、問題B 13ケースをまとめて対策
 - [問題A 集中パック｜全3記事](https://note.com/dobokunote/m/m864077343c10) — 診断士の役割・倫理と維持管理の論述を集中練習
 - [問題B 13ケース｜全14記事](https://note.com/dobokunote/m/m629f8736f9c3) — 劣化機構別5ケースと構造物別8ケースを横断

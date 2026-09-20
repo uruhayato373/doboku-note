@@ -171,6 +171,7 @@ npm run report-note-funnel-efficiency
 | 1級土木 二次 出題分析と直前の重点 | `article:civil-1-r8-bunseki` |
 | コンクリート主任技士 配合計算 実戦演習12問 | `article:cce-mix-calculation-practice` |
 | コンクリート主任技士 令和8年度 四肢択一 予想50問 | `article:cce-r8-mc-50` |
+| コンクリート診断士 四肢択一演習98問 PDF | `article:cd-takuitsu-98-pdf` |
 | コンクリート技士 配合計算・JIS判断 実戦演習12問 | `article:ce-mix-jis-practice` |
 | 1級土木 第1次検定 過去問PDF | `article:civil-1-takuitsu-pdf` |
 

@@ -728,6 +728,12 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     };
   }
 
+  // 10.1. コンクリート診断士 四肢択一の無料演習8回 → 98問PDF。
+  //       各回を解いた直後に、8回分をまとめた印刷用教材へつなぐ。
+  if (/^concrete-diagnostician-primary-exercise-0[1-8]$/.test(slug)) {
+    return { top: slot('cd-takuitsu-98-pdf', slug, 'top'), inline: [] };
+  }
+
   // 10.5. コンクリート主任技士 配合設計 → 配合計算の分野一致商品。
   //       過去問解説／体系解説を読んだ直後に、別数値のオリジナル12問で定着させる。
   //       published:false の間は slot() が空になり、公開前のリンク露出を防ぐ。
@@ -814,7 +820,7 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   // 中間 CTA の条件（h2>=5・8,000字）を満たすため inline も置く。
   if (slug === 'concrete-diagnostician-guide-overview') {
     return {
-      top: slot('cd-essay-magazine', slug, 'top'),
+      top: slot('cd-marugoto-pack', slug, 'top'),
       inline: [slot('cd-essay-magazine', slug, 'inline-1')],
     };
   }
