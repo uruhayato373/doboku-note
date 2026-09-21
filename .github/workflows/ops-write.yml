@@ -2,7 +2,7 @@ name: "Ops Write (CI write operations)"
 
 # workflow_dispatch 専用。外部サービス（note / ココナラ / Brain / KDP / X）への**書き込み**を
 # CI から実行する唯一の入口。実行できる operation は .claude/config/ci-write-operations.json
-# （カタログ・17 操作）だけで、この choice の並びはそのキーと同期させる（check-playwright-auth-wiring
+# （カタログ・18 操作）だけで、この choice の並びはそのキーと同期させる（check-playwright-auth-wiring
 # の 9 番目の検査がカタログと playwright-auth-profiles.json ci.writeScripts の整合を見る）。
 #
 # 安全境界（scripts/lib/ci-write-gate.mjs・scripts/ops-write.mjs）: 人は Mac で
@@ -42,6 +42,7 @@ on:
           - kdp.publish
           - x.article-publish
           - x.thread-replies
+          - instagram.publish-bs
       args:
         description: "operation の引数（JSON 文字列。例: {\"article\":\"content/note/foo/article.md\"}）"
         required: false

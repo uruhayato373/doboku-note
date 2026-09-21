@@ -326,6 +326,28 @@
       "ledger": [
         "content/sns/x/draft"
       ]
+    },
+    "instagram.publish-bs": {
+      "service": "instagram",
+      "script": ".claude/skills/social/publish-ig-bs/publish-ig-bs.ts",
+      "risk": "high",
+      "argsSchema": {
+        "pack": "string",
+        "schedule": "string",
+        "reel": "boolean?"
+      },
+      "inputs": [
+        "content/sns/instagram/{pack}"
+      ],
+      "commitArgs": [
+        "post"
+      ],
+      "verify": [
+        "scripts/verify-ig-status.mjs"
+      ],
+      "ledger": [
+        "content/sns/instagram"
+      ]
     }
   }
 }

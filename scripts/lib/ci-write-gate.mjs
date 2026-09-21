@@ -205,8 +205,13 @@ export function buildPlan(root, op, args, deps = {}) {
   return { plan, hash: sha256Hex(stableStringify(plan)) };
 }
 
+/** .mjs は node、.ts は npx tsx（publish-ig-bs.ts / publish-x.ts 等のスキル本体）。 */
+export function runnerFor(script) {
+  return /\.(ts|mts)$/.test(script) ? ['npx', 'tsx'] : ['node'];
+}
+
 export function buildCommitCommand(op, args) {
-  return ['node', op.script, ...op.commitArgs, ...argsToFlags(args)];
+  return [...runnerFor(op.script), op.script, ...op.commitArgs, ...argsToFlags(args)];
 }
 
 /**

@@ -15,13 +15,20 @@ Playwright で Business Suite（business.facebook.com）のコンポーザを自
 
 ## CI 経路（2026-09-21）
 
-**投稿は Graph API**（`scripts/ig-graph-publish.mjs`。公式 API・即時公開のみ・予約不可）を CI から実行する。本スキル（Business Suite Playwright）は**プランナー確認のみ**に位置づけ、予約投稿・ToS グレーな DOM 操作を CI へは移さない。
+**投稿も本スキル（Business Suite Playwright）を CI で回す。** Meta の利用制限で Graph API トークンを発行できないため、
+`scripts/ig-graph-publish.mjs`（公式 API・即時公開のみ）は制限が解けたときの代替として残すが主経路ではない。
+CI 実行は `ops-write.yml`（dispatch + plan hash）で、セッションは encrypted-state（`login-collectors.yml` と同じ
+`restore-auth-state`）。手順:
 
 ```
-node scripts/ig-graph-publish.mjs --pack <pack> --format carousel --commit --json
+npm run ops-write:plan -- --operation instagram.publish-bs --args '{"pack":"<exam>/<pack>","schedule":"YYYY-MM-DDTHH:MM"}'
+# → 表示された hash と inputs（パック配下の caption/画像の sha256）を確認してから
+gh workflow run ops-write.yml --ref develop -f operation=instagram.publish-bs -f args='{...同じ JSON...}' -f plan_sha256=<hash> -f commit=true
 ```
 
-env: `IG_GRAPH_ACCESS_TOKEN` / `IG_BUSINESS_ACCOUNT_ID` / `IG_GRAPH_API_VERSION`（任意）。メディアは投稿直前に `scripts/stage-ig-media-r2.mjs` で public R2 へ一時公開されるため、投稿後の cleanup（同スクリプトの `--cleanup`）を確認する。IG は `.claude/config/ci-write-operations.json` のカタログ対象外（Playwright encrypted-state を経由しない API 経路のため）。
+`commit=false` なら plan だけ。`--reel` は args に `"reel": true`。CI は headless なので初回は `commit=false` で plan を確認し、
+Mac の `--dry-run` でセレクタが生きていることを確かめてから `commit=true` に進む（Business Suite の UI 変更で
+セレクタが外れたら Issue `ops-write-instagram` が立つ）。予約スロットの実体確認（プランナー月ビュー）はローカル。
 
 ## 既存予約・公開済み投稿を改修するとき
 
