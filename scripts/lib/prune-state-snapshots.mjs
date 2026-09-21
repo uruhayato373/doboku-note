@@ -60,6 +60,8 @@ export const POLICIES = [
   { family: 'gsc-ui', dir: `${METRICS_ROOT}/gsc-ui/ssot/diff`, match: /^\d{4}-\d{2}-\d{2}T\d{2}-\d{2}-\d{2}Z?\.json$/, rule: 'keep-all' }, // check-google-ui-ssot の marker↔history↔urls 整合が run 単位で参照
   { family: 'gsc', dir: `${METRICS_ROOT}/gsc`, match: /^coverage-diagnosis-\d{4}-\d{2}-\d{2}T\d{2}-\d{2}-\d{2}Z?\.(json|md)$/, rule: 'keep-all' }, // 2026-04 の単発診断（analyze-gsc-coverage が読む）。増えない
   { family: 'notes', dir: `${METRICS_ROOT}/notes`, match: /-\d{4}-\d{2}-\d{2}\.md$/, rule: 'keep-all' },
+  { family: 'instagram', dir: `${METRICS_ROOT}/instagram`, match: /^ig-insights-\d{4}-\d{2}-\d{2}\.json$/, rule: { maxAgeDays: 180, keepNewestPerPrefix: 1 } },
+  { family: 'cloudflare', dir: `${METRICS_ROOT}/cloudflare`, match: /^cf-zone-\d{4}-\d{2}-\d{2}\.json$/, rule: { maxAgeDays: 120, keepNewestPerPrefix: 1 } },
 ];
 
 export const FAMILIES = [...new Set(POLICIES.map((p) => p.family))];

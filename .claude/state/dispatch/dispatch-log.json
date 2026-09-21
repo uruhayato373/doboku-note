@@ -1099,6 +1099,18 @@
       "commit": "34814e9da382",
       "verification": "npm run check-magazine-cta:ci && npm run check-sales-mapping && node scripts/audit-note-funnel.mjs --live --ci",
       "note": "2026-09-17 主任技士 暗記 n25197277c5a9＋択一直前 mfdf781d7222b＋まるごと追加収録／技術士一次 暗記 n7b4f17a09d3f＋直前パック mfa3fcffdd85d／コン技士 暗記 n0bbd4a5a8b57＋直前パック m49ac37c76bef を公開・API 実体確認・カバー SET・placement/台帳/もくじ・L1 反映"
+    },
+    {
+      "id": "DN-0254",
+      "at": "2026-09-21",
+      "task": "Instagram 公開照合（verify-ig-status）を CI 週次へ移すか（Meta アクセストークンを GitHub Secrets に置くかの判断）",
+      "tier": "hold",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "de4b1e15c76b",
+      "verification": "fetch-ig-insights.yml + ci-cd-security-hardening.md に Secrets 記録",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }

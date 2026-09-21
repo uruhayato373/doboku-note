@@ -1,5 +1,8 @@
+import { existsSync, readdirSync, statSync } from 'node:fs';
+import { join } from 'node:path';
 import LineChart, { type LinePoint } from '@/components/charts/LineChart';
 import { Freshness, Kpi, PageHead } from '@/components/ui';
+import { repoPath } from '@/lib/repo-root';
 import {
   ageInDays,
   latestSnapshot,
@@ -7,6 +10,34 @@ import {
   readJsonFile,
   type SnapshotFile,
 } from '@/lib/snapshots';
+
+/**
+ * ga4/gsc/psi 以外（date-only ファイル名: `<prefix><YYYY-MM-DD>.json`）の最新スナップショットを
+ * 鮮度表にだけ出すためのローカル解決。listSnapshots の TS_RE（時刻まで含むスタンプ）とは
+ * ファイル名形式が違うため lib/snapshots.ts の型（MetricKind）は流用しない。
+ * stamp は Freshness/ageInDays が読める形（`YYYY-MM-DDT00-00-00`）へ正規化して渡す。
+ */
+function latestDateFileSnapshot(dir: string, prefix: string): SnapshotFile | null {
+  const abs = repoPath('.claude', 'state', dir);
+  if (!existsSync(abs)) return null;
+  const re = new RegExp(`^${prefix}(\\d{4}-\\d{2}-\\d{2})\\.json$`);
+  let best: { file: string; date: string; mtimeMs: number } | null = null;
+  for (const file of readdirSync(abs)) {
+    const m = re.exec(file);
+    if (!m) continue;
+    if (!best || m[1]! > best.date) {
+      best = { file, date: m[1]!, mtimeMs: statSync(join(abs, file)).mtimeMs };
+    }
+  }
+  if (!best) return null;
+  return {
+    prefix,
+    file: best.file,
+    abs: join(abs, best.file),
+    stamp: `${best.date}T00-00-00`,
+    mtimeMs: best.mtimeMs,
+  };
+}
 
 export const dynamic = 'force-dynamic'; // 常にワークツリーの最新スナップショットを読む
 
@@ -59,6 +90,10 @@ export default function MetricsOverview() {
 
   const period = ga?.meta.startDate && ga?.meta.endDate ? `${ga.meta.startDate} 〜 ${ga.meta.endDate}` : '';
 
+  // Instagram / Cloudflare（CI 取得・date-only ファイル名）
+  const igSnap = latestDateFileSnapshot('metrics/instagram', 'ig-insights-');
+  const cfSnap = latestDateFileSnapshot('metrics/cloudflare', 'cf-zone-');
+
   return (
     <>
       <PageHead
@@ -108,6 +143,8 @@ export default function MetricsOverview() {
                   ['GA4 (date)', gaSnap],
                   ['GSC (query)', gscSnap],
                   ['PSI (batch)', psiSnap],
+                  ['Instagram (insights)', igSnap],
+                  ['Cloudflare (zone)', cfSnap],
                 ] as [string, SnapshotFile | null][]
               ).map(([label, snap]) => (
                 <tr key={label}>
