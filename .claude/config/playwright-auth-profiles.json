@@ -10,7 +10,7 @@
       "accountConfigPath": null,
       "sessionMode": "profile",
       "interactiveLoginRequired": true,
-      "notes": "専用 account config JSON は無し。各スクリプトがマイページ本文の名前一致で assert する。",
+      "notes": "専用 account config JSON は無し。各スクリプトがマイページ本文の名前一致で assert する。 2026-09-21 CI 実測: traffic・添付 live 検査（615 本・67 分）・会員限定検査は成立。note-sales-fetch は購入者一覧のパスワード再確認で ABORT（hosted CI 不可・ローカル儀式に残す）。Mac セッションは CI 利用後も健在。",
       "ci": {
         "mode": "encrypted-state",
         "enabled": true,
@@ -259,7 +259,7 @@
       "accountConfigPath": ".claude/config/a8-report-automation.json",
       "sessionMode": "profile-plus-state",
       "interactiveLoginRequired": true,
-      "notes": "A8 は揮発性セッション Cookie のため永続プロファイルだけでは認証が残らず、storageState の Cookie 再注入を併用する。アカウント assert は「サイト」ではなく口座（メディアID）。 2026-09-21: 旧 management.af8.jp は DNS 不解決。URL の真実源は a8-report-automation.json の baseUrl+homePath（media-console.a8.net）。",
+      "notes": "A8 は揮発性セッション Cookie のため永続プロファイルだけでは認証が残らず、storageState の Cookie 再注入を併用する。アカウント assert は「サイト」ではなく口座（メディアID）。 2026-09-21: 旧 management.af8.jp は DNS 不解決。URL の真実源は a8-report-automation.json の baseUrl+homePath（media-console.a8.net）。 2026-09-21 CI 実測: 口座 assert OK・site-summary/program-detail/period-monthly は取得・normalize・develop へ commit 成立。period-daily は headless で期間入力欄が見つからず CI 対象外（--reports で 3 本に限定）。",
       "ci": {
         "mode": "encrypted-state",
         "enabled": true,
