@@ -315,6 +315,11 @@ jobs:
             mkdir -p "${RUNNER_TEMP}/out/$(dirname "$f")"
             cp -r "$f" "${RUNNER_TEMP}/out/$f"
           done
+          staged=$(find "${RUNNER_TEMP}/out" -type f | wc -l | tr -d ' ')
+          echo "staged files: ${staged}"
+          if [ "${{ matrix.mode }}" = "collect" ] && [ "${staged}" = "0" ]; then
+            echo "::warning::collect モードなのに .claude/state に変更がありません（collector が何も書いていない・または書き先が違う）"
+          fi
 
       - name: Upload staged state
         if: always()
@@ -322,6 +327,9 @@ jobs:
         with:
           name: auth-state-${{ matrix.service }}
           path: ${{ runner.temp }}/out
+          # 成果物は全部 .claude/state 配下＝隠しディレクトリ。既定（false）だと 1 件も上がらず publish が「変更なし」になる
+          # （2026-09-21 canary run 35564319389 で実測。収集と書き戻しは成功していたのに記録が残らなかった）。
+          include-hidden-files: true
           if-no-files-found: ignore
 
       - name: Report failure (automation-failure Issue)

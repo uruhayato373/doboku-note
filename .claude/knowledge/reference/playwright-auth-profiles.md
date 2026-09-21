@@ -192,6 +192,9 @@ coconala の account assert が通った＝この方式の成立を実証）。�
 PutObject に IfMatch で付けていたバグ（R2 は PutObject の IfMatch を評価し 412 を返す）。CAS は manifest.json に対して行い、
 初回は IfNoneMatch: `*`。cas-conflict は「他の書き手を潰さなかった」正常 skip（exit 0・write:false）で、R2 障害だけが赤。
 ローカルの rclone 経路は IfMatch を無視するので、この種のバグは実 CI でしか出ない。
+**3 回目の canary（run 35564319389・collect）**: 復元・収集（coconala-orders 7/7・analytics 16/16）・書き戻し（gen 3）まで成功したが、
+`upload-artifact` が既定で隠しディレクトリ（`.claude/`）を除外するため成果物が publish job に渡らず「変更なし」になった。
+`include-hidden-files: true` が必須（sync-yt-descriptions.yml と同じ）。Stage 段階で staged 件数を出し、collect で 0 件なら warning。
 
 **誰が復号できるか**: repo の Secrets を読める workflow を起動できる人＝repo write 権限者。fork PR には
 Secrets が渡らないため復号できない。
