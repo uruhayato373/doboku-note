@@ -67,8 +67,8 @@
       "workflow": "login-collectors.yml",
       "branch": "develop",
       "maxAgeDays": 10,
-      "maxConsecutiveFailures": 2,
-      "_note": "週次 cron の和集合。全サービス disabled の間は plan が 0 件で緑（沈黙）＝canary 開始までは age を見ない"
+      "maxConsecutiveFailures": 6,
+      "_note": "週次 cron の和集合（2026-09-21 に全サービス enabled:true）。state 未 export のサービスは restore が state-missing＝exit 2 で Issue auth-state-<svc> を立て、Mac での auth:login → auth:export を催促する。全部が揃うまで run 自体は赤になりうるので、連続失敗の閾値は緩め"
     },
     {
       "workflow": "cloudflare-metrics.yml",
@@ -86,7 +86,7 @@
       "branch": "develop",
       "maxAgeDays": 3,
       "maxConsecutiveFailures": 3,
-      "_note": "30 分刻み。x が enabled:false の間は plan-x が 0 件で緑"
+      "_note": "30 分刻み。承認済みキュー（status.json scheduled/queued）が空の間は plan-x が 0 件で緑。x の cron 投稿は頻度ゲート 12 規則を全通過したときだけ"
     }
   ]
 }

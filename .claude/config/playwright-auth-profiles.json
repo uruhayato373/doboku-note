@@ -13,8 +13,8 @@
       "notes": "専用 account config JSON は無し。各スクリプトがマイページ本文の名前一致で assert する。",
       "ci": {
         "mode": "encrypted-state",
-        "enabled": false,
-        "canary": true,
+        "enabled": true,
+        "canary": false,
         "operations": [
           "read",
           "write"
@@ -67,7 +67,7 @@
       "ci": {
         "mode": "encrypted-state",
         "enabled": true,
-        "canary": true,
+        "canary": false,
         "operations": [
           "read",
           "write"
@@ -98,7 +98,7 @@
       "ci": {
         "mode": "encrypted-state",
         "enabled": true,
-        "canary": true,
+        "canary": false,
         "operations": [
           "read",
           "write"
@@ -138,8 +138,8 @@
       "notes": "専用 account config JSON は無し。",
       "ci": {
         "mode": "encrypted-state",
-        "enabled": false,
-        "canary": true,
+        "enabled": true,
+        "canary": false,
         "operations": [
           "read",
           "write"
@@ -168,8 +168,8 @@
       "notes": null,
       "ci": {
         "mode": "encrypted-state",
-        "enabled": false,
-        "canary": true,
+        "enabled": true,
+        "canary": false,
         "operations": [
           "read",
           "write"
@@ -204,8 +204,8 @@
       "notes": "Facebook Business Suite 経由。ig-account.json は logical authService のみを持ち、物理パスはこの registry と共通 resolver が決める。 2026-09-21: Meta の利用制限で Graph API が使えないため、照合（verify-ig-status）と予約投稿（publish-ig-bs）は encrypted-state の Playwright で CI 化する。",
       "ci": {
         "mode": "encrypted-state",
-        "enabled": false,
-        "canary": true,
+        "enabled": true,
+        "canary": false,
         "operations": [
           "read",
           "write"
@@ -234,8 +234,8 @@
       "notes": "共通 DOBOKU_AUTH_ROOT を使用。旧 DOBOKU_PROFILE_ROOT（repository root の意味）は Phase 05 完了まで config の legacy path と組み合わせる明示 fallback のみ。",
       "ci": {
         "mode": "encrypted-state",
-        "enabled": false,
-        "canary": true,
+        "enabled": true,
+        "canary": false,
         "operations": [
           "read"
         ],
@@ -262,8 +262,8 @@
       "notes": "A8 は揮発性セッション Cookie のため永続プロファイルだけでは認証が残らず、storageState の Cookie 再注入を併用する。アカウント assert は「サイト」ではなく口座（メディアID）。",
       "ci": {
         "mode": "encrypted-state",
-        "enabled": false,
-        "canary": true,
+        "enabled": true,
+        "canary": false,
         "operations": [
           "read",
           "write"
@@ -316,8 +316,8 @@
       "notes": "sessionPersistsAcrossProcesses: false。保存した storageState を別プロセスで復元できないことがあり、ログインから操作まで同一プロセスで完結させる制約がある。afb 既定は stats47（asp-site-guard が例外で停止）。",
       "ci": {
         "mode": "encrypted-state",
-        "enabled": false,
-        "canary": true,
+        "enabled": true,
+        "canary": false,
         "operations": [
           "read"
         ],
