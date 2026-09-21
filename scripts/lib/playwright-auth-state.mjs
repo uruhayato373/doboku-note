@@ -297,50 +297,64 @@ export async function getState({ s3, bucket, key }) {
 }
 
 /**
- * 暗号化 state を CAS（If-Match）付きで置く。
- * 手順: 既存 state.age があれば prev へ CopyObject 退避 → PutObject state.age → PutObject manifest.json。
+ * 暗号化 state を CAS 付きで置く。
+ * CAS の対象は **manifest.json**（getManifest で得た etag）。state.age の etag は呼び出し側が持たないので、
+ * state.age に IfMatch を付けると必ず 412 になる（2026-09-21 canary run 35563187633 で実測・修正）。
+ * 手順:
+ *   1. ifMatchEtag があれば manifest の現 etag を HEAD で確認（不一致なら何も書かずに cas-conflict）
+ *   2. 既存 state.age があれば prev へ CopyObject 退避
+ *   3. PutObject state.age（無条件）
+ *   4. PutObject manifest.json（IfMatch: ifMatchEtag／初回は IfNoneMatch: '*'）。412 なら state.age を prev から戻して cas-conflict
  * @param {{ s3: object, bucket: string, keys: { state: string, prev: string, manifest: string },
  *           ciphertext: Uint8Array, manifest: object, ifMatchEtag?: string|null }} params
  * @returns {Promise<{ ok: true, etag: string|undefined } | { ok: false, reason: 'cas-conflict' }>}
  */
 export async function putStateWithCAS({ s3, bucket, keys, ciphertext, manifest, ifMatchEtag }) {
   const { PutObjectCommand, CopyObjectCommand, HeadObjectCommand } = await import('@aws-sdk/client-s3');
+  const isMissing = (e) => e?.name === 'NotFound' || e?.name === 'NoSuchKey' || e?.$metadata?.httpStatusCode === 404;
+  const isPrecondition = (e) => e?.name === 'PreconditionFailed' || e?.$metadata?.httpStatusCode === 412;
 
-  // 既存 state があれば prev へ退避する。
+  // 1. manifest の事前確認（書く前に競合を検出して state.age を汚さない）
+  if (ifMatchEtag) {
+    try {
+      const head = await s3.send(new HeadObjectCommand({ Bucket: bucket, Key: keys.manifest }));
+      if (head?.ETag && head.ETag !== ifMatchEtag) return { ok: false, reason: 'cas-conflict' };
+    } catch (e) {
+      if (isMissing(e)) return { ok: false, reason: 'cas-conflict' }; // etag を持っているのに manifest が消えている
+      throw e;
+    }
+  }
+
+  // 2. 既存 state があれば prev へ退避する。
   let existing = true;
   try {
     await s3.send(new HeadObjectCommand({ Bucket: bucket, Key: keys.state }));
   } catch (e) {
-    if (e?.name === 'NotFound' || e?.$metadata?.httpStatusCode === 404) existing = false;
+    if (isMissing(e)) existing = false;
     else throw e;
   }
   if (existing) {
-    await s3.send(new CopyObjectCommand({
-      Bucket: bucket,
-      Key: keys.prev,
-      CopySource: `${bucket}/${keys.state}`,
-    }));
+    await s3.send(new CopyObjectCommand({ Bucket: bucket, Key: keys.prev, CopySource: `${bucket}/${keys.state}` }));
   }
 
+  // 3. state.age（無条件）
+  const putRes = await s3.send(new PutObjectCommand({ Bucket: bucket, Key: keys.state, Body: ciphertext }));
+
+  // 4. manifest.json（CAS）
+  const manifestParams = { Bucket: bucket, Key: keys.manifest, Body: JSON.stringify(manifest, null, 2), ContentType: 'application/json' };
+  if (ifMatchEtag) manifestParams.IfMatch = ifMatchEtag;
+  else manifestParams.IfNoneMatch = '*';
   try {
-    const putParams = { Bucket: bucket, Key: keys.state, Body: ciphertext };
-    if (ifMatchEtag) putParams.IfMatch = ifMatchEtag;
-    const putRes = await s3.send(new PutObjectCommand(putParams));
-
-    await s3.send(new PutObjectCommand({
-      Bucket: bucket,
-      Key: keys.manifest,
-      Body: JSON.stringify(manifest, null, 2),
-      ContentType: 'application/json',
-    }));
-
-    return { ok: true, etag: putRes.ETag };
+    await s3.send(new PutObjectCommand(manifestParams));
   } catch (e) {
-    if (e?.name === 'PreconditionFailed' || e?.$metadata?.httpStatusCode === 412) {
-      return { ok: false, reason: 'cas-conflict' };
+    if (!isPrecondition(e)) throw e;
+    // 競合: state.age は既に上書きしたので prev から戻す（prev が無ければそのまま）
+    if (existing) {
+      await s3.send(new CopyObjectCommand({ Bucket: bucket, Key: keys.state, CopySource: `${bucket}/${keys.prev}` })).catch(() => {});
     }
-    throw e;
+    return { ok: false, reason: 'cas-conflict' };
   }
+  return { ok: true, etag: putRes.ETag };
 }
 
 async function streamToBytes(body) {

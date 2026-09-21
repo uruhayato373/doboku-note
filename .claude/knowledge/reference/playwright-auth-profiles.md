@@ -187,6 +187,11 @@ Business Suite の account assert は本文にハンドルが出ないため、�
 **初回 canary（2026-09-21・run 35561546852）の教訓**: composite action で `npm run auth:ci-restore -- --json > file` としていたため、
 npm のバナー（`> pkg@ver script`）が stdout に混ざり JSON が読めず `status=unknown` で失敗した（復元自体は成功していた）。
 CI で JSON を stdout から受ける呼び出しは `node scripts/playwright-auth.mjs ci-*` の直叩きに限る（wiring 検査 10 が `npm run auth:ci-*` を拒否）。
+**2 回目の canary（run 35563187633）**: 復元は `authenticated`（GitHub Actions の ubuntu runner・datacenter IP・headless Chrome で
+coconala の account assert が通った＝この方式の成立を実証）。書き戻しが `cas-conflict` で落ちたのは、manifest の etag を state.age の
+PutObject に IfMatch で付けていたバグ（R2 は PutObject の IfMatch を評価し 412 を返す）。CAS は manifest.json に対して行い、
+初回は IfNoneMatch: `*`。cas-conflict は「他の書き手を潰さなかった」正常 skip（exit 0・write:false）で、R2 障害だけが赤。
+ローカルの rclone 経路は IfMatch を無視するので、この種のバグは実 CI でしか出ない。
 
 **誰が復号できるか**: repo の Secrets を読める workflow を起動できる人＝repo write 権限者。fork PR には
 Secrets が渡らないため復号できない。
