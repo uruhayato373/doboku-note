@@ -32,7 +32,7 @@
  */
 import { readFileSync, readdirSync, lstatSync, existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
-import { join, dirname, basename } from 'node:path';
+import { join, dirname, basename, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadAuthRegistry, CI_ALWAYS_ALLOWED_SCRIPTS } from './lib/playwright-auth-profile.mjs';
 import { loadCatalog } from './lib/ci-write-gate.mjs';
@@ -70,6 +70,9 @@ function walk(dir, out = []) {
 // 検査対象: scripts/ と .claude/skills/（実装コードのみ。docs/reference の説明文は誤検知源なので対象外）
 const targets = [...walk(join(ROOT, 'scripts')), ...walk(join(ROOT, '.claude/skills'))];
 
+// (10) .github 配下で auth:ci-* を npm 経由（"npm" + " run"）で呼ぶと npm のバナーが stdout に混ざり JSON が読めない
+// （canary 実測）。node 直叩きに限る。正規表現は文字列連結で組む（check-command-guidance が案内文と誤認しないため）。
+const NPM_RUN_AUTH_CI_RE = new RegExp('npm' + ' run (-s |--silent )?auth:ci-');
 const findings = {
   registry: [],
   macAbsolutePath: [],
@@ -80,6 +83,7 @@ const findings = {
   loginCollectorsWiring: [],
   trackedAuthStateFiles: [],
   ciWriteCatalog: [],
+  npmRunAuthCi: [],
 };
 
 // 1. registry schema
@@ -258,6 +262,25 @@ for (const file of targets) {
   }
 }
 
+
+// 10. .github 配下の npm 経由 auth:ci-* 呼び出し（stdout の JSON を壊す）
+{
+  const ghDir = join(ROOT, '.github');
+  const walkYml = (dir, out = []) => {
+    if (!existsSync(dir)) return out;
+    for (const e of readdirSync(dir, { withFileTypes: true })) {
+      const p = join(dir, e.name);
+      if (e.isDirectory()) walkYml(p, out);
+      else if (/\.ya?ml$/.test(e.name)) out.push(p);
+    }
+    return out;
+  };
+  for (const f of walkYml(ghDir)) {
+    const lines = readFileSync(f, 'utf8').split('\n');
+    lines.forEach((l, i) => { if (NPM_RUN_AUTH_CI_RE.test(l)) findings.npmRunAuthCi.push(`${relative(ROOT, f).split(sep).join('/')}:${i + 1}`); });
+  }
+}
+
 const counts = Object.fromEntries(Object.entries(findings).map(([k, v]) => [k, v.length]));
 const total = Object.values(counts).reduce((a, b) => a + b, 0);
 
@@ -297,6 +320,8 @@ if (JSON_OUT) {
   for (const f of findings.trackedAuthStateFiles) console.log(`      ${f}`);
   console.log(`[${NAME}] 9. ops-write カタログ整合: ${counts.ciWriteCatalog}`);
   for (const f of findings.ciWriteCatalog) console.log(`      ${f}`);
+  console.log(`[${NAME}] 10. .github の npm 経由 auth:ci-* 呼び出し（stdout JSON を壊す・node 直叩きに）: ${counts.npmRunAuthCi}`);
+  for (const f of findings.npmRunAuthCi) console.log(`      ${f}`);
   console.log(`[${NAME}] 合計 ${total} 件`);
 }
 

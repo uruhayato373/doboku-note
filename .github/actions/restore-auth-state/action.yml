@@ -84,7 +84,9 @@ runs:
       run: |
         set +e
         out_file="${RUNNER_TEMP}/restore-${{ inputs.service }}.json"
-        npm run auth:ci-restore -- --service "${{ inputs.service }}" --json > "${out_file}"
+        # npm run ではなく node 直叩き: npm run は "> pkg@ver script" のバナーを stdout に混ぜるため、
+        # JSON を読む側が parse できず status=unknown になる（2026-09-21 canary run 35561546852 で実測）。
+        node scripts/playwright-auth.mjs ci-restore --service "${{ inputs.service }}" --json > "${out_file}"
         rc=$?
         set -e
 

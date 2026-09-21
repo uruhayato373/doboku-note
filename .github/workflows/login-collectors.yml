@@ -302,7 +302,7 @@ jobs:
         id: writeback
         if: always() && steps.restore.outcome == 'success' && steps.restore.outputs.status == 'authenticated'
         run: |
-          npm run auth:ci-writeback -- --service "${{ matrix.service }}" --collector-exit "${{ steps.collect_rc.outputs.rc }}" --json
+          node scripts/playwright-auth.mjs ci-writeback --service "${{ matrix.service }}" --collector-exit "${{ steps.collect_rc.outputs.rc }}" --json
 
       - name: Stage outputs
         if: always()

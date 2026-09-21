@@ -146,7 +146,7 @@ jobs:
       - name: Writeback auth state (auth:ci-writeback)
         if: always() && steps.restore.outcome == 'success' && steps.restore.outputs.status == 'authenticated'
         run: |
-          npm run auth:ci-writeback -- --service x --collector-exit "${{ steps.publish.outputs.rc || '0' }}" --json
+          node scripts/playwright-auth.mjs ci-writeback --service x --collector-exit "${{ steps.publish.outputs.rc || '0' }}" --json
 
       - name: Publish snapshots to develop (content/sns/x + state)
         if: always() && steps.restore.outputs.status == 'authenticated'

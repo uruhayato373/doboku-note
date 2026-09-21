@@ -184,6 +184,9 @@ age の公開鍵はレジストリ `ciAuthState.ageRecipient`（commit してよ
 `authenticated` のまま（セッション巻き添え無し）。instagram（Business Suite）も同様に export gen 1 → `ci-restore` authenticated →
 `verify-ig-status --no-planner` がライブ 122 投稿を読み snapshot を書く（exit 2＝慢性ドリフトは workflow 側で成功扱い）→ writeback gen 2 → Mac 健在。
 Business Suite の account assert は本文にハンドルが出ないため、プランナー URL の `asset_id=<ページ ID>`（`ig-account.json businessSuite.assetId`）で行う。
+**初回 canary（2026-09-21・run 35561546852）の教訓**: composite action で `npm run auth:ci-restore -- --json > file` としていたため、
+npm のバナー（`> pkg@ver script`）が stdout に混ざり JSON が読めず `status=unknown` で失敗した（復元自体は成功していた）。
+CI で JSON を stdout から受ける呼び出しは `node scripts/playwright-auth.mjs ci-*` の直叩きに限る（wiring 検査 10 が `npm run auth:ci-*` を拒否）。
 
 **誰が復号できるか**: repo の Secrets を読める workflow を起動できる人＝repo write 権限者。fork PR には
 Secrets が渡らないため復号できない。
