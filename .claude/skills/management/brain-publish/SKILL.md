@@ -18,6 +18,18 @@ user-invocable: true
 Brain 商品の出品（下書き作成〜公開申請）。運用・スキーマ・挙動のクセの真実源は
 [.claude/knowledge/reference/brain-operations.md](../../../../.claude/knowledge/reference/brain-operations.md)。
 
+## CI 経路（ops-write.yml・2026-09-21）
+
+`brain.publish`（出品・公開申請）／`brain.profile-edit`（プロフィール編集）は `ops-write.yml`（dispatch + plan hash）から実行できる。
+
+```
+npm run ops-write:plan -- --operation brain.publish --args '{"service":"<id>"}'
+# hash を確認 → 内容確認 →
+gh workflow run ops-write.yml --ref develop -f operation=brain.publish -f args='{"service":"<id>"}' -f plan_sha256=<hash> -f commit=true
+```
+
+`brain.profile-edit` は `args` に `bio-file`（必須）・`avatar`（任意）を渡す。カテゴリ変更（再審査を伴う・in-place 不可）はカタログ外＝CI 化していない。真実源 `.claude/config/ci-write-operations.json` / `scripts/lib/ci-write-gate.mjs`。
+
 ## 手順
 
 1. **整合ゲート**: `npm run check-brain-wiring` が green であること（catalog↔listings↔dist ZIP↔配布URL位置）。

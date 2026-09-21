@@ -23,6 +23,18 @@ Playwright スクリプトで、判断（重複突合・未登録本のメタデ
 /kdp-publish {id} --commit-publish  →  出版（不可逆・審査へ）
 ```
 
+## CI 経路（ops-write.yml・2026-09-21）
+
+`kdp.publish`（出版・risk highest）は `ops-write.yml`（dispatch + plan hash）から実行できる。
+
+```
+npm run ops-write:plan -- --operation kdp.publish --args '{"id":"<id>"}'
+# hash を確認 → 内容確認 → 人が Kindle Previewer で目視承認済みであること →
+gh workflow run ops-write.yml --ref develop -f operation=kdp.publish -f args='{"id":"<id>"}' -f plan_sha256=<hash> -f commit=true
+```
+
+不可逆（審査へ提出）のため、`commit=true` を叩く前の目視承認は省略しない。真実源 `.claude/config/ci-write-operations.json` / `scripts/lib/ci-write-gate.mjs`。
+
 ## 前提
 
 > [!caution] アカウントの「本の作成数制限」で新規提出が丸ごと止まる（2026-07-30 実測）

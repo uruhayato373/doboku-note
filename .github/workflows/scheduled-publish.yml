@@ -1,0 +1,204 @@
+name: "🗓 Scheduled publish (approved queue)"
+
+# 承認済みキュー（content/sns/x/{draft,published}/*/status.json の scheduled/queued）から
+# 期日到来分を CI で自動投稿する。判定・頻度ゲート本体は scripts/x-publish-scheduled.mjs
+# （scripts/lib/x-frequency-gate.mjs）。認証は login-collectors.yml と同じ
+# encrypted-state（.github/actions/restore-auth-state）。
+#
+# TODO: note / instagram の scheduled publish job は別ユニット（⑱⑲）の成果が揃ってから追加する。
+# 今回は x のみ。
+on:
+  schedule:
+    # UTC 22:00〜14:30（30分刻み）＝ JST 07:00〜23:30
+    - cron: "0,30 22-23 * * *"
+    - cron: "0,30 0-14 * * *"
+  workflow_dispatch:
+    inputs:
+      channel:
+        description: "対象チャネル"
+        type: choice
+        default: x
+        options:
+          - x
+          - note
+          - instagram
+      commit:
+        description: "true で実際に投稿する（false は dry-run 確認のみ）"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  plan-x:
+    if: github.event_name == 'schedule' || inputs.channel == 'x'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    outputs:
+      due: ${{ steps.plan.outputs.due }}
+      plan_hash: ${{ steps.plan.outputs.plan_hash }}
+    steps:
+      - name: Checkout develop
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: develop
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Build doc meta index
+        run: node .claude/scripts/build-doc-meta-index.mjs --ci
+
+      # --plan-only は候補選定と plan hash まで（Playwright を開かない）。plan hash はキュー項目
+      # { draft, key, text, title, scheduledAt, kind } の sha256 で、「人が status.json を scheduled にした内容」
+      # そのものを承認とみなす。publish-x はこの hash を DOBOKU_CI_WRITE_PLAN_SHA256 として渡し、
+      # スクリプト側が再計算して一致したときだけ --commit する（resolver の writeScripts 許可条件も同じ env）。
+      - name: Plan (queue selection + plan hash, no Playwright)
+        id: plan
+        run: |
+          set +e
+          node scripts/x-publish-scheduled.mjs --plan-only --json > plan.json
+          rc=$?
+          set -e
+          cat plan.json
+
+          result=$(node -e "console.log(JSON.parse(require('fs').readFileSync('plan.json','utf8')).result || '')")
+          plan_hash=$(node -e "console.log(JSON.parse(require('fs').readFileSync('plan.json','utf8')).planHash || '')")
+          echo "plan result: ${result} (rc=${rc}) plan_hash=${plan_hash}"
+          if [ "$result" = "plan" ] && [ -n "$plan_hash" ]; then
+            echo "due=1" >> "$GITHUB_OUTPUT"
+            echo "plan_hash=${plan_hash}" >> "$GITHUB_OUTPUT"
+          else
+            echo "due=0" >> "$GITHUB_OUTPUT"
+          fi
+
+  publish-x:
+    needs: plan-x
+    if: needs.plan-x.outputs.due == '1'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    concurrency:
+      group: auth-state-x
+      cancel-in-progress: false
+    permissions:
+      contents: write
+      issues: write
+    env:
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
+      CLOUDFLARE_R2_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
+      DOBOKU_AUTH_AGE_IDENTITY: ${{ secrets.DOBOKU_AUTH_AGE_IDENTITY }}
+    steps:
+      # 同時起動の cron が同じ瞬間に集中しないための分散。
+      - name: Jitter
+        run: sleep $((RANDOM % 900))
+
+      - name: Checkout develop
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: develop
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Build doc meta index
+        run: node .claude/scripts/build-doc-meta-index.mjs --ci
+
+      - name: Restore auth state
+        id: restore
+        continue-on-error: true
+        uses: ./.github/actions/restore-auth-state
+        with:
+          service: x
+
+      - name: Publish (x-publish-scheduled)
+        id: publish
+        if: steps.restore.outputs.status == 'authenticated'
+        continue-on-error: true
+        env:
+          DOBOKU_CI_WRITE_PLAN_SHA256: ${{ needs.plan-x.outputs.plan_hash }}
+        run: |
+          set +e
+          if [ "${{ github.event_name }}" = "schedule" ] || [ "${{ inputs.commit }}" = "true" ]; then
+            node scripts/x-publish-scheduled.mjs --commit --json
+          else
+            node scripts/x-publish-scheduled.mjs --json
+          fi
+          echo "rc=$?" >> "$GITHUB_OUTPUT"
+
+      - name: Writeback auth state (auth:ci-writeback)
+        if: always() && steps.restore.outcome == 'success' && steps.restore.outputs.status == 'authenticated'
+        run: |
+          npm run auth:ci-writeback -- --service x --collector-exit "${{ steps.publish.outputs.rc || '0' }}" --json
+
+      - name: Publish snapshots to develop (content/sns/x + state)
+        if: always() && steps.restore.outputs.status == 'authenticated'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add content/sns/x .claude/state/x-publish .claude/state/x-repost 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "No changes to publish"
+          else
+            git commit -m "chore(x): scheduled publish $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
+            git push origin develop
+          fi
+
+      - name: Report failure (automation-failure Issue)
+        if: always() && (steps.restore.outputs.status != 'authenticated' || (steps.publish.outputs.rc != '' && steps.publish.outputs.rc != '0'))
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          {
+            echo "- run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            echo "- restore status: \`${{ steps.restore.outputs.status }}\`"
+            echo "- publish rc: \`${{ steps.publish.outputs.rc }}\`"
+          } > /tmp/x-publish-body.md
+          node scripts/report-automation-failure.mjs \
+            --channel x-publish \
+            --title "scheduled x publish: ${{ steps.restore.outputs.status }} / rc=${{ steps.publish.outputs.rc }}" \
+            --body-file /tmp/x-publish-body.md
+
+      - name: Resolve automation-failure Issue（成功）
+        if: always() && steps.restore.outputs.status == 'authenticated' && steps.publish.outputs.rc == '0'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/report-automation-failure.mjs --resolve --channel x-publish \
+            --body "復旧 run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+      - name: Cleanup auth root
+        if: always()
+        run: rm -rf "${DOBOKU_AUTH_ROOT}"
+
+      - name: Fail on auth state not ready（検査不成立）
+        if: steps.restore.outputs.status != 'authenticated'
+        run: |
+          echo "::error::x の認証状態が authenticated ではありません（status=${{ steps.restore.outputs.status }}）。検査不成立。"
+          exit 1
+
+      - name: Fail on publish error
+        if: steps.publish.outputs.rc != '' && steps.publish.outputs.rc != '0'
+        run: |
+          echo "::error::x-publish-scheduled が rc=${{ steps.publish.outputs.rc }} で終了しました。"
+          exit 1

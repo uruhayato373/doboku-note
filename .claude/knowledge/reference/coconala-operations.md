@@ -431,6 +431,9 @@ exit 2（snapshot 欠落・陳腐化）で commit を止めると、無関係な
 
 note-publish 流儀の決定的 Playwright。ログイン済みプロファイル `.local/playwright-coconala-profile`（初回のみ headed で手動ログイン）。
 
+> [!note] CI 経路（ops-write.yml・2026-09-21）
+> `coconala.publish` / `coconala.edit` は `ops-write.yml`（dispatch + plan hash）から実行できる書き込みで、下表のうち出品・修正だけが対象（受注収集・休止/再開・ブログ等は引き続きローカルのみ）。詳細は `.claude/skills/management/coconala-publish/SKILL.md`「CI 経路」節。
+
 | スクリプト | 役割 |
 |---|---|
 | `scripts/coconala-publish.mjs --service <id> [--commit]` | 新規出品。`/services/add`→種別=テキストチャット→「内容の入力に進む」で下書き生成→フォーム充填→下書き保存（既定）/公開（`--commit`）→公開時カタログへ `listed`＋`serviceUrl`＋`listedAt` 書き戻し |
@@ -556,7 +559,7 @@ note-publish 流儀の決定的 Playwright。ログイン済みプロファイ�
 - **公開ボタン**: 新規＝「公開する」／公開中サービスの更新＝「更新する」（form lib が両対応）。公開成功で `/services/new_open/{id}` へ遷移。
 - QA/有料オプション/画像は v1 未対応（公開後 UI 手動）。
 
-**規約**: 2026-07-18 時点で利用規約・ルールに「出品者が自分の出品をブラウザ自動化することを禁じる明示条項」は確認できず（第13条2項22号は購入者側の自動応答が対象）。禁止行為一覧(zendesk)の1面は 403 で未確認・bot 検知の運用リスクは残るため、出品/価格改定時の**低頻度**利用に限る。
+**規約**: 2026-07-18 時点で利用規約・ルールに「出品者が自分の出品をブラウザ自動化することを禁じる明示条項」は確認できず（第13条2項22号は購入者側の自動応答が対象）。禁止行為一覧(zendesk)の1面は 403 で未確認・bot 検知の運用リスクは残るため、出品/価格改定時の**低頻度**利用に限る。CI 経路（`ops-write.yml` の `coconala.publish` / `coconala.edit`）も同じ低頻度前提で、人が plan hash で内容確認した dispatch のみに限定する（cron 等の無人定期実行はしない）。
 
 ## 9. ココナラブログ／コンテンツマーケット（2026-08-12 実機調査）
 

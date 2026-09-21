@@ -213,13 +213,15 @@ jobs:
           c=$?; [ "$c" -ne 0 ] && rc=$c
           echo "rc=${rc}" >> "$GITHUB_OUTPUT"
 
-      - name: "brain: placeholder (Part C 未実装)"
+      - name: "brain: sales fetch"
         id: collect_brain
         if: matrix.service == 'brain' && steps.restore.outputs.status == 'authenticated' && matrix.mode != 'probe-only'
         continue-on-error: true
         run: |
-          echo "brain-sales-fetch は Part C で追加（probe-only 相当）"
-          echo "rc=0" >> "$GITHUB_OUTPUT"
+          set +e
+          node scripts/brain-sales-fetch.mjs --json
+          rc=$?
+          echo "rc=${rc}" >> "$GITHUB_OUTPUT"
 
       - name: "instagram: public status reconcile (verify-ig-status, no planner)"
         id: collect_instagram

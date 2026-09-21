@@ -106,6 +106,17 @@ npm run check-kindle-epub-leak # 配布EPUBに章名 article.mdx / YAML frontmat
 npm run check-kdp-category-coverage # 新刊(buildSpec持ち)のid接頭辞がKDPカテゴリー(.claude/config/kdp-memo.json categoryAssign)へ明示登録されているか（未登録は警告なく既定「技術士」へ入稿される。2026-08-28 g-01実測の再発防止・quality:audit に同梱）
 ```
 
+## CI 書き込み操作・予約投稿（ops-write・2026-09-21）
+
+```bash
+npm run ops-write:plan -- --operation <id> --args '{"...":"..."}' # plan hash を計算し内容を表示するだけ（ブラウザ・書き込みなし・カタログは .claude/config/ci-write-operations.json）。hash確認後 gh workflow run ops-write.yml へ渡す。罠: 記事や引数を確認後に変更すると hash 不一致で exec が exit 2＝何もしない
+npm run ops-write -- exec --operation <id> --args '{...}' --plan-sha256 <hash> --commit # CI 専用（GITHUB_ACTIONS/CI env が無いと exit 2）。手元での動作確認には向かない
+npm run x-publish-scheduled -- --commit --json # 承認済みキューから期日到来分のXを投稿（scheduled-publish.yml の cron 専用実体）。罠: 頻度ゲート（x-frequency-gate.mjs 12規則）が判定不能なものは必ず block（投稿しない）側に倒す＝「なぜ投稿されないか」は counts/blocks を読む
+npm run ig-graph-publish -- --pack <pack> --format carousel --commit --json # Instagram Graph API で即時公開（予約不可・publish-ig-bs とは別経路）。env: IG_GRAPH_ACCESS_TOKEN / IG_BUSINESS_ACCOUNT_ID / IG_GRAPH_API_VERSION。罠: 投稿用メディアは public R2 に一時公開されるため stage-ig-media-r2 の --cleanup 実行を確認する（残すと公開URLが残置）
+npm run stage-ig-media-r2 -- --pack <pack> --format carousel --cleanup # ig-graph-publish が使う一時公開/削除の単体実行（--dry-run で URL 計算だけ）
+npm run brain-sales-fetch  # Brain 売上を read-only 取得（ログイン要・ローカル専用）
+```
+
 ## ココナラ
 
 ```bash

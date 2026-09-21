@@ -299,6 +299,29 @@ content/sns/x/
 - **状態ライフサイクル**: `scheduled`（計画・未投入）→ `queued`（対象アカウントのX予約一覧で本文冒頭と予約日時の一致を確認）→ `posted`（公開URLなどで配信を確認）。`x-sync-status` はキュー照合で `queued` へ昇格するが、期限経過とキューからの消失だけでは `posted` にしない。ログイン未完了・別アカウント・一覧取得失敗は検査不成立として停止する。guard は `scheduled`＋`queued` を計画衝突の対象にし、`--queue` の二重投入チェックは `queued` を除外する。`x-schedule-view` と予約充足表示は `queued` だけを予約実績に数え、未投入計画を分ける。最終予約記録は途中の空白がない保証ではない。次バッチは未投入の `scheduled` のみを対象化する。
 - **アカウント境界（epoch）**: 凍結アカウントの drafts は `content/sns/x/_archive-<handle>/` へ退避する。`_` 接頭辞ディレクトリは guard / `x-schedule-view` / `x-sync-status` のスキャン対象外＝**新アカウントは常にクリーンな台帳から始める**。旧アカの予約済み status を新アカで publish しないための物理的隔離。
 
+### 11.5.1 CI 投稿の頻度ゲート（scheduled-publish.yml・2026-09-21）
+
+> **背景**: `scheduled-publish.yml`（30 分刻み cron）が承認済みキューから期日到来分を CI で自動投稿する。手元 Playwright 実行では人が都度目視していた歯止め（§11.1〜11.2）を、CI 経路ではコードで再現する必要がある。実体は `scripts/lib/x-frequency-gate.mjs`（純関数・fs/ネットワーク非依存）。
+
+**12 規則**（`evaluateXFrequencyGate`。1 件でも該当すれば `allow:false` で投稿しない）:
+
+1. `ledger-unavailable` — 台帳（status.json + posted-log.jsonl）が読めない
+2. `paused` — `.claude/state/x-repost/PAUSED` が存在する
+3. `account-state` — live のアカウント状態が `ok` でない
+4. `live-unavailable` — live 取得ができない、または `todayCount` が null
+5. `ledger-live-mismatch` — 台帳の当日件数と live の `todayCount` が不一致
+6. `per-day` — 当日 posted + 候補1件が上限（既定2）超
+7. `sales-per-day` — 当日の販売系 posted が上限（既定1）以上
+8. `per-week` — 直近7日の posted + 候補1件が上限（既定3）超
+9. `min-gap` — 直近 posted からの経過が下限（既定60分）未満
+10. `near-dup` — 直近30日の posted とのトライグラム Jaccard 類似度が閾値（既定0.62）以上
+11. `same-minute` — 直近7日に同一 HH:MM の posted が repeat 閾値以上
+12. `same-media` — 直近 posted が候補と同一画像を repeat 閾値回連続
+
+- **判定不能は投稿しない**: ledger 未取得・live 未取得・account-state 異常はいずれも「わからない」を allow 側に倒さず block する（§9 偽成功検証と同じ設計思想）。
+- **ライブ件数と台帳の突合**（規則5）: X 実キュー/実績（live）と `content/sns/x/*/status.json` 台帳が食い違えば、二重投稿や記録漏れの兆候として block する。
+- **account-state で自動 PAUSED**: live のアカウント状態異常（ロック・機能制限）を検知したら人の判断を待たず block する。`limits` は `clampLimits` で既定値より緩められない（count 系は下げる方向のみ・間隔/窓は伸ばす方向のみ）。
+
 ### 11.7 競合 read（scout-x-competitors）の安全弁
 
 > 節番号は 2026-08-13 に §11.6 から §11.7 へ変更（復帰ゲートと番号が重複していた。参照の多数は復帰ゲート側を指していたためそちらを §11.6 のまま残した）。
@@ -326,7 +349,7 @@ content/sns/x/
 | 段階 | 状態 | 満たすべき条件（全て） |
 |---|---|---|
 | **S0 縮退** | 完全手動・低頻度 | `x-post-writer` で下書きのみ／投稿・リプライは人手／`publish-x` 停止 |
-| **S1 予約補助の再開** | `publish-x` を予約のみに限定復帰 | ① @doboku373 が凍結・機能制限なしで最低 **4 週間**手動運用を継続（ロック/警告ゼロ）② その間の手動投稿が §11.1〜11.2 を実際に満たしていた（near-dup なし・同時刻並べなし）③ `npm run x-schedule-guard --queue` が緑 ④ 1 日 **2 本**上限（`--max-per-day 2`）を維持 |
+| **S1 予約補助の再開** | CI cron（`scheduled-publish.yml`）による予約投稿へ限定復帰 | ① 1 日 **2 本**上限・§11.5.1 の全ゲート（12 規則）通過が条件 ② canary は `commit:false`（dry-run）× 3 回で判定結果を確認 → 問題なければ 1 日 **1 本を 2 週間** → 1 日 **2 本**へ引き上げ ③ この間 @doboku373 に凍結・機能制限・警告がゼロであること |
 | **S2 通常運用（現在）** | 予約を平常運用値に戻す | ⑤ S1 で `publish-x` 予約を最低 **2 週間**回して再凍結・警告ゼロ ⑥ `x-sync-status` の偽成功検証（§9）で予約→投稿の消化が実測できている ⑦ 1 日上限を §11.2 の平常値（最大 3 本目安）へ緩和してよい |
 
 **S2 到達の根拠（2026-08-13 時点の observable な事実）**

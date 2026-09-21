@@ -28,6 +28,7 @@
 import fs from "fs";
 import path from "path";
 import { readScheduledQueue } from "./lib/x-scheduled-queue.mjs";
+import { normalize, trigrams, jaccard } from "./lib/x-text-similarity.mjs";
 
 const ROOT = process.cwd();
 const ARGV = process.argv.slice(2);
@@ -73,25 +74,7 @@ function loadTweets() {
 }
 
 // ── near-duplicate 検出（正規化 → 文字トライグラム Jaccard）───────────────
-function normalize(text) {
-  return (text || "")
-    .replace(/https?:\/\/\S+/g, " ")     // URL 除去
-    .replace(/#\S+/g, " ")               // ハッシュタグ除去
-    .replace(/[0-9０-９]+/g, "#")         // 数字を正規化（カウントダウンの日数差を無視）
-    .replace(/\s+/g, "")                 // 空白除去
-    .toLowerCase();
-}
-function trigrams(s) {
-  const g = new Set();
-  for (let i = 0; i < s.length - 2; i++) g.add(s.slice(i, i + 3));
-  return g;
-}
-function jaccard(a, b) {
-  if (!a.size || !b.size) return 0;
-  let inter = 0;
-  for (const x of a) if (b.has(x)) inter++;
-  return inter / (a.size + b.size - inter);
-}
+// normalize/trigrams/jaccard は scripts/lib/x-text-similarity.mjs へ切り出し済み（挙動不変）。
 
 // ── main ───────────────────────────────────────────────────────────────────
 const all = loadTweets();
@@ -195,7 +178,9 @@ if (WITH_QUEUE) {
       }
     }
   } catch (e) {
-    blocks.push(`キュー突合に失敗（Playwrightエラー: ${e.message}）。--queue 無しの結果は信用できるが実体未検証`);
+    // Playwright起動不能（メモリ不足等の環境要因）は「実データが二重投稿を示した」わけではない
+    // ＝判定不能であって否定的事実ではないため BLOCK ではなく WARN 扱いにする（CLAUDE.md §9）。
+    warns.push(`キュー突合に失敗（Playwrightエラー: ${e.message}）。--queue 無しの結果は信用できるが実体未検証`);
   }
 }
 

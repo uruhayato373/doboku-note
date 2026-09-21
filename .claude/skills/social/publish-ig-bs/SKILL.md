@@ -13,6 +13,16 @@ argument-hint: "post <pack> --schedule <YYYY-MM-DDTHH:MM> [--reel] [--dry-run] [
 
 Playwright で Business Suite（business.facebook.com）のコンポーザを自動操作し、Instagram カルーセルを予約投稿する。設計は [[publish-x]] に倣う（永続プロファイル・システム Chrome で bot 回避・偽成功を出さない fail-safe・dry-run 必須）。
 
+## CI 経路（2026-09-21）
+
+**投稿は Graph API**（`scripts/ig-graph-publish.mjs`。公式 API・即時公開のみ・予約不可）を CI から実行する。本スキル（Business Suite Playwright）は**プランナー確認のみ**に位置づけ、予約投稿・ToS グレーな DOM 操作を CI へは移さない。
+
+```
+node scripts/ig-graph-publish.mjs --pack <pack> --format carousel --commit --json
+```
+
+env: `IG_GRAPH_ACCESS_TOKEN` / `IG_BUSINESS_ACCOUNT_ID` / `IG_GRAPH_API_VERSION`（任意）。メディアは投稿直前に `scripts/stage-ig-media-r2.mjs` で public R2 へ一時公開されるため、投稿後の cleanup（同スクリプトの `--cleanup`）を確認する。IG は `.claude/config/ci-write-operations.json` のカタログ対象外（Playwright encrypted-state を経由しない API 経路のため）。
+
 ## 既存予約・公開済み投稿を改修するとき
 
 [SNS 投稿画像ポリシー §0.1](../../../knowledge/reference/sns-image-policy.md) を先に読む。新規投稿フローを既存投稿の編集代わりに再実行しない。投稿 ID・予約の実体・変更可能項目を確認し、対応する編集処理がない場合はその不足を明示する。保存後の実表示と予約日時・公開状態の再照合までを外部更新の完了条件とする。
