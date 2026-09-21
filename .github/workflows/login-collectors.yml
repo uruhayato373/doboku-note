@@ -298,9 +298,12 @@ jobs:
           esac
           echo "rc=${rc:-0}" >> "$GITHUB_OUTPUT"
 
+      # 書き戻しの失敗（R2 障害）は job を止めず Issue に載せる（session が回転しないと数週で失効するので沈黙させない）。
+      # cas-conflict は CLI 側で write:false の正常終了（Mac の新しい export を潰さなかっただけ）。
       - name: Writeback auth state (auth:ci-writeback)
         id: writeback
         if: always() && steps.restore.outcome == 'success' && steps.restore.outputs.status == 'authenticated'
+        continue-on-error: true
         run: |
           node scripts/playwright-auth.mjs ci-writeback --service "${{ matrix.service }}" --collector-exit "${{ steps.collect_rc.outputs.rc }}" --json
 
@@ -322,7 +325,7 @@ jobs:
           if-no-files-found: ignore
 
       - name: Report failure (automation-failure Issue)
-        if: always() && (steps.restore.outputs.status != 'authenticated' || steps.collect_rc.outputs.rc != '0')
+        if: always() && (steps.restore.outputs.status != 'authenticated' || steps.collect_rc.outputs.rc != '0' || steps.writeback.outcome == 'failure')
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -343,7 +346,7 @@ jobs:
             --body-file /tmp/auth-state-body.md
 
       - name: Resolve automation-failure Issue（成功）
-        if: always() && steps.restore.outputs.status == 'authenticated' && steps.collect_rc.outputs.rc == '0'
+        if: always() && steps.restore.outputs.status == 'authenticated' && steps.collect_rc.outputs.rc == '0' && steps.writeback.outcome != 'failure'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -365,6 +368,12 @@ jobs:
         if: steps.restore.outputs.status == 'authenticated' && steps.collect_rc.outputs.rc != '0'
         run: |
           echo "::error::${{ matrix.service }} の collector が rc=${{ steps.collect_rc.outputs.rc }} で失敗しました。"
+          exit 1
+
+      - name: Fail on writeback error（R2 障害）
+        if: steps.restore.outputs.status == 'authenticated' && steps.collect_rc.outputs.rc == '0' && steps.writeback.outcome == 'failure'
+        run: |
+          echo "::error::${{ matrix.service }} の暗号化 state 書き戻しが失敗しました（R2 障害）。session が回転しないと失効が早まります。"
           exit 1
 
   publish:

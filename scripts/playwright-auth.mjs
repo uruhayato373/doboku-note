@@ -782,7 +782,9 @@ export async function ciWritebackAuthState(context = {}, service, collectorExitC
       now: context.now ?? new Date(),
     });
     const putResult = await putStateWithCAS({ s3, bucket, keys, ciphertext, manifest, ifMatchEtag: etag });
-    if (!putResult.ok) return { ok: false, command: 'ci-writeback', service, exitCode: 1, reason: putResult.reason };
+    // cas-conflict は「その間に別の書き手（Mac の export 等）が置いた」＝古い方を潰さなかったという正常な skip。
+    // R2 障害（例外）だけを exit 1 にする。
+    if (!putResult.ok) return { ok: true, command: 'ci-writeback', service, write: false, reason: putResult.reason, generation: remoteManifest?.generation ?? null };
     return { ok: true, command: 'ci-writeback', service, write: true, reason: 'ok', generation: manifest.generation };
   } catch (error) {
     return { ok: false, command: 'ci-writeback', service, exitCode: 1, reason: String(error.message).slice(0, 200) };

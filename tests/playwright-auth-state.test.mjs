@@ -309,6 +309,9 @@ function makeFakeS3() {
       if (input.IfMatch && (!existing || existing.etag !== input.IfMatch)) {
         throw new PreconditionFailedError();
       }
+      if (input.IfNoneMatch === '*' && existing) {
+        throw new PreconditionFailedError();
+      }
       etagCounter += 1;
       const etag = `"etag-${etagCounter}"`;
       store.set(input.Key, { body: Buffer.from(input.Body), etag });
@@ -365,19 +368,37 @@ test('putStateWithCAS: 既存 state があれば prev へ退避してから上�
   assert.deepEqual(s3.store.get(keys.state).body, Buffer.from('new-cipher'));
 });
 
-test('putStateWithCAS: IfMatch 不一致は cas-conflict を返し、prev 退避済みでも state は書き換えない', async () => {
+test('putStateWithCAS: CAS は manifest の etag に対して行い、不一致なら state を書き換えず cas-conflict', async () => {
   const s3 = makeFakeS3();
   const keys = objectKeys('note', { keyPrefix: 'auth-state/' });
-  s3.store.set(keys.state, { body: Buffer.from('old-cipher'), etag: '"e-old"' });
+  s3.store.set(keys.state, { body: Buffer.from('old-cipher'), etag: '"e-state"' });
+  s3.store.set(keys.manifest, { body: Buffer.from('{"generation":1}'), etag: '"e-manifest"' });
 
-  const result = await putStateWithCAS({
-    s3, bucket: 'b', keys,
-    ciphertext: Buffer.from('new-cipher'),
-    manifest: { schemaVersion: 1, generation: 2 },
-    ifMatchEtag: '"e-does-not-match"',
-  });
-  assert.deepEqual(result, { ok: false, reason: 'cas-conflict' });
-  assert.deepEqual(s3.store.get(keys.state).body, Buffer.from('old-cipher'));
+  // 呼び出し側が持つのは manifest の etag。state.age の etag ではない（2026-09-21 canary で 412 になった原因）。
+  const ok = await putStateWithCAS({ s3, bucket: 'b', keys, ciphertext: Buffer.from('new-cipher'), manifest: { generation: 2 }, ifMatchEtag: '"e-manifest"' });
+  assert.equal(ok.ok, true);
+  assert.deepEqual(s3.store.get(keys.state).body, Buffer.from('new-cipher'));
+  assert.deepEqual(s3.store.get(keys.prev).body, Buffer.from('old-cipher'));
+  const manifestPut = s3.calls.find((c) => c.name === 'PutObjectCommand' && c.input.Key === keys.manifest);
+  assert.equal(manifestPut.input.IfMatch, '"e-manifest"');
+  const statePut = s3.calls.find((c) => c.name === 'PutObjectCommand' && c.input.Key === keys.state);
+  assert.equal(statePut.input.IfMatch, undefined, 'state.age には IfMatch を付けない');
+
+  // 不一致（Mac 側が新しい export を置いた後の CI 書き戻し）: 事前 HEAD で止まり state は変わらない
+  const conflict = await putStateWithCAS({ s3, bucket: 'b', keys, ciphertext: Buffer.from('newer'), manifest: { generation: 3 }, ifMatchEtag: '"e-manifest"' });
+  assert.deepEqual(conflict, { ok: false, reason: 'cas-conflict' });
+  assert.deepEqual(s3.store.get(keys.state).body, Buffer.from('new-cipher'));
+});
+
+test('putStateWithCAS: 初回（manifest 無し）は IfNoneMatch で置き、既に誰かが置いていれば cas-conflict', async () => {
+  const s3 = makeFakeS3();
+  const keys = objectKeys('kdp', { keyPrefix: 'auth-state/' });
+  const first = await putStateWithCAS({ s3, bucket: 'b', keys, ciphertext: Buffer.from('c1'), manifest: { generation: 1 }, ifMatchEtag: null });
+  assert.equal(first.ok, true);
+  assert.equal(s3.calls.find((c) => c.name === 'PutObjectCommand' && c.input.Key === keys.manifest).input.IfNoneMatch, '*');
+  const second = await putStateWithCAS({ s3, bucket: 'b', keys, ciphertext: Buffer.from('c2'), manifest: { generation: 1 }, ifMatchEtag: null });
+  assert.deepEqual(second, { ok: false, reason: 'cas-conflict' });
+  assert.deepEqual(s3.store.get(keys.state).body, Buffer.from('c1'), 'state.age は prev から戻される');
 });
 
 // ---------------------------------------------------------------------------
