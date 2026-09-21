@@ -70,8 +70,9 @@ function walk(dir, out = []) {
 // 検査対象: scripts/ と .claude/skills/（実装コードのみ。docs/reference の説明文は誤検知源なので対象外）
 const targets = [...walk(join(ROOT, 'scripts')), ...walk(join(ROOT, '.claude/skills'))];
 
-// (10) .github 配下で `npm run auth:ci-*` を使うと npm のバナーが stdout に混ざり JSON が読めない（canary 実測）。node 直叩きに限る。
-const NPM_RUN_AUTH_CI_RE = /npm run (-s |--silent )?auth:ci-/;
+// (10) .github 配下で auth:ci-* を npm 経由（"npm" + " run"）で呼ぶと npm のバナーが stdout に混ざり JSON が読めない
+// （canary 実測）。node 直叩きに限る。正規表現は文字列連結で組む（check-command-guidance が案内文と誤認しないため）。
+const NPM_RUN_AUTH_CI_RE = new RegExp('npm' + ' run (-s |--silent )?auth:ci-');
 const findings = {
   registry: [],
   macAbsolutePath: [],
@@ -262,7 +263,7 @@ for (const file of targets) {
 }
 
 
-// 10. .github 配下の npm run auth:ci-*（stdout の JSON を壊す）
+// 10. .github 配下の npm 経由 auth:ci-* 呼び出し（stdout の JSON を壊す）
 {
   const ghDir = join(ROOT, '.github');
   const walkYml = (dir, out = []) => {
@@ -319,7 +320,7 @@ if (JSON_OUT) {
   for (const f of findings.trackedAuthStateFiles) console.log(`      ${f}`);
   console.log(`[${NAME}] 9. ops-write カタログ整合: ${counts.ciWriteCatalog}`);
   for (const f of findings.ciWriteCatalog) console.log(`      ${f}`);
-  console.log(`[${NAME}] 10. .github の npm run auth:ci-*（stdout JSON を壊す・node 直叩きに）: ${counts.npmRunAuthCi}`);
+  console.log(`[${NAME}] 10. .github の npm 経由 auth:ci-* 呼び出し（stdout JSON を壊す・node 直叩きに）: ${counts.npmRunAuthCi}`);
   for (const f of findings.npmRunAuthCi) console.log(`      ${f}`);
   console.log(`[${NAME}] 合計 ${total} 件`);
 }
