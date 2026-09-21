@@ -232,6 +232,9 @@ jobs:
           node scripts/verify-ig-status.mjs --no-planner --json > "$RUNNER_TEMP/ig-status.json"
           rc=$?
           node -e "const j=require(process.argv[1]); console.log('[instagram] live', j.live?.posts ?? '?', '/ counts', JSON.stringify(j.counts ?? {}))" "$RUNNER_TEMP/ig-status.json" || true
+          # exit 2 = SoT ドリフトあり（snapshot は書けている）。ドリフトは慢性（2026-09-21 実測 published_UNrecorded 47）なので
+          # 収集としては成功扱いにし、是正は /ig-reconcile が snapshot を読んで行う。exit 1（ライブ取得失敗）だけを失敗にする。
+          if [ "$rc" -eq 2 ]; then echo "::notice::instagram SoT ドリフトあり（snapshot に記録・/ig-reconcile で是正）"; rc=0; fi
           echo "rc=${rc}" >> "$GITHUB_OUTPUT"
 
       - name: "x: own metrics + repost discover"

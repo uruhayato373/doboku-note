@@ -181,7 +181,9 @@ age の公開鍵はレジストリ `ciAuthState.ageRecipient`（commit してよ
 存在しないキーでも exit 0（空出力 / `[]`）を返すため、アダプタは `[]` を「無い」として NoSuchKey/NotFound に写像する。
 往復の実測: coconala を export（gen 1）→ CI 模擬 env で `ci-restore` が `authenticated` → `coconala-orders --headless`
 が 7/7 タブ取得 → `ci-writeback` で gen 2（`state.prev.age` 退避・`operatorExportedAt` 維持）→ Mac 側 `auth:status` は
-`authenticated` のまま（セッション巻き添え無し）。
+`authenticated` のまま（セッション巻き添え無し）。instagram（Business Suite）も同様に export gen 1 → `ci-restore` authenticated →
+`verify-ig-status --no-planner` がライブ 122 投稿を読み snapshot を書く（exit 2＝慢性ドリフトは workflow 側で成功扱い）→ writeback gen 2 → Mac 健在。
+Business Suite の account assert は本文にハンドルが出ないため、プランナー URL の `asset_id=<ページ ID>`（`ig-account.json businessSuite.assetId`）で行う。
 
 **誰が復号できるか**: repo の Secrets を読める workflow を起動できる人＝repo write 権限者。fork PR には
 Secrets が渡らないため復号できない。

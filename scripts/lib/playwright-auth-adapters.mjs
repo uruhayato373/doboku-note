@@ -71,10 +71,16 @@ export function loadAuthAdapter(serviceId, options) {
 
   if (serviceId === 'instagram') {
     const account = readJson(repoRoot, '.claude/config/ig-account.json');
+    // Business Suite のプランナーは本文にハンドル/ページ名を出さない（アカウント表示は img/aria）。
+    // ログイン済みならプランナー URL に asset_id=<Doboku-note ページ ID> が付いてリダイレクトされるので、
+    // それを account assert にする（2026-09-21 実測: 旧 marker では常に unknown だった）。
+    const assetId = account.businessSuite?.assetId;
     return {
       ...adapter,
       checkUrl: account.plannerUrl,
-      expectedMarkers: [account.handle, account.fbPageName].filter(Boolean),
+      expectedMarkers: assetId ? [`asset_id=${assetId}`] : [account.handle, account.fbPageName].filter(Boolean),
+      loggedOutMarkers: ['ログイン', 'Log in'],
+      missingAssertReason: assetId ? null : 'ig-account.json businessSuite.assetId が未設定',
     };
   }
   if (serviceId === 'google') {
