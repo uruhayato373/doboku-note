@@ -324,7 +324,7 @@
   },
   "ciAuthState": {
     "_doc": "暗号化 storageState の置き場。ageRecipient は公開鍵（commit してよい）。秘密 identity は GitHub Secret（identityEnv）と Mac の auth root だけに置く。bucket は asset-storage.json の buckets キー。keyPrefix 配下は auth-state/<service>/{state.age,state.prev.age,manifest.json}。",
-    "ageRecipient": null,
+    "ageRecipient": "age1qtl6yff54vnf4wrm3fryjf6lacgfh8a3tc6hmm0aswcjljv5tpqq0rd8nk",
     "bucket": "private",
     "keyPrefix": "auth-state/",
     "identityEnv": "DOBOKU_AUTH_AGE_IDENTITY"

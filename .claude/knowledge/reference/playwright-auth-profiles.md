@@ -175,6 +175,13 @@ raw profile（キャッシュ・拡張機能・他ドメインの cookie を含�
 **どこへ**: private R2（`doboku-note-archive`）の `auth-state/<service>/{state.age,state.prev.age,manifest.json}`。
 age の公開鍵はレジストリ `ciAuthState.ageRecipient`（commit してよい）。秘密 identity は GitHub Secret
 `DOBOKU_AUTH_AGE_IDENTITY` と Mac の auth root（`age/identity.txt`）だけに置く。
+**Mac からの転送は rclone**（remote `doboku-r2`・`scripts/lib/rclone-s3-adapter.mjs`）。この PC に R2 の access key を
+置かない方針（`.env.example`）のまま `auth:export` が動く。rclone 経路は CAS（If-Match）非対応だが、CI の書き戻しは
+`restoredGeneration` 一致でしか書かないので衝突は CI 側で止まる。実測（2026-09-21）: `rclone cat`/`lsjson` は
+存在しないキーでも exit 0（空出力 / `[]`）を返すため、アダプタは `[]` を「無い」として NoSuchKey/NotFound に写像する。
+往復の実測: coconala を export（gen 1）→ CI 模擬 env で `ci-restore` が `authenticated` → `coconala-orders --headless`
+が 7/7 タブ取得 → `ci-writeback` で gen 2（`state.prev.age` 退避・`operatorExportedAt` 維持）→ Mac 側 `auth:status` は
+`authenticated` のまま（セッション巻き添え無し）。
 
 **誰が復号できるか**: repo の Secrets を読める workflow を起動できる人＝repo write 権限者。fork PR には
 Secrets が渡らないため復号できない。

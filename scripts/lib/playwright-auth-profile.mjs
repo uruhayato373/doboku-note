@@ -451,6 +451,9 @@ export function redactAuthDiagnostic(value, keyHint) {
   // profile/state/lockの**パス**と公開URLはCLIの診断対象そのもの。長いASCII文字列でも
   // secretではないため、keyが明示する診断フィールドではtoken風ヒューリスティックを適用しない。
   if (keyHint && /(?:path|url)$/i.test(keyHint)) return value;
+  // age の公開 recipient（age1…）は公開鍵で、registry に commit する値そのもの。伏せると keygen の
+  // 出力が使えない。秘密 identity は AGE-SECRET-KEY-1… で始まり、この分岐には入らず伏せられる。
+  if (keyHint === 'recipient' && typeof value === 'string' && /^age1[0-9a-z]{20,}$/.test(value)) return value;
   if (value === null || value === undefined) return value;
   if (Array.isArray(value)) return value.map((v) => redactAuthDiagnostic(v));
   if (typeof value === 'object') {

@@ -489,12 +489,21 @@ async function resolveBucketName(bucketKey) {
   return bucket.name;
 }
 
-/** private R2 の s3 クライアントを用意する（context.s3 があればそれを使い、実 R2 には触れない）。 */
+/**
+ * private R2 のクライアントを用意する。優先順位:
+ *   1. context.s3（テスト注入）
+ *   2. env の R2 key（CI・Secrets）→ 本物の S3 クライアント（CAS 対応）
+ *   3. Mac の rclone remote `doboku-r2`（この PC に key を置かない方針のための代替経路・CAS 非対応）
+ */
 async function resolveS3Client(context) {
   if (context.s3) return context.s3;
-  const { loadEnvLocal, makeS3 } = await import('./lib/asset-storage.mjs');
+  const { loadEnvLocal, makeS3, hasR2Credentials, loadConfig } = await import('./lib/asset-storage.mjs');
   loadEnvLocal();
-  return makeS3();
+  if (hasR2Credentials()) return makeS3();
+  const { rcloneRemoteAvailable, makeRcloneS3 } = await import('./lib/rclone-s3-adapter.mjs');
+  const remote = loadConfig().buckets?.private?.rcloneRemote ?? 'doboku-r2';
+  if (await rcloneRemoteAvailable(remote)) return makeRcloneS3({ remote });
+  throw new Error(`AUTH_CI_STATE_NO_TRANSPORT: R2 key（env）も rclone remote "${remote}:" も無い。CI は Secrets、Mac は rclone config を確認`);
 }
 
 function writeMetadataFile(service, options, data) {

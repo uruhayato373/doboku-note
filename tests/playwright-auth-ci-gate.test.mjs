@@ -152,6 +152,15 @@ test('loadAuthRegistry: version 2 は全サービスに ci ブロック必須', 
   } finally { rmSync(dir, { recursive: true, force: true }); }
 });
 
+test('redactAuthDiagnostic: 公開 recipient は伏せず、秘密 identity は伏せる', async () => {
+  const { redactAuthDiagnostic } = await import('../scripts/lib/playwright-auth-profile.mjs');
+  const rec = 'age1qyqszqgpqyqszqgpqyqszqgpqyqszqgpqyqszqgpqyqszqgpqyqs3290gq';
+  const out = redactAuthDiagnostic({ recipient: rec, identity: 'AGE-SECRET-KEY-1QYQSZQGPQYQSZQGPQYQSZQGPQYQSZQGPQYQSZQGPQYQSZQGPQYQS3290GQ', other: rec });
+  assert.equal(out.recipient, rec);
+  assert.equal(out.identity, '[REDACTED]');
+  assert.equal(out.other, '[REDACTED]');
+});
+
 test('getCIAuthStateConfig: recipient は age 公開鍵形式のみ', () => {
   assert.equal(getCIAuthStateConfig({ ciAuthState: null }).ageRecipient, null);
   assert.equal(getCIAuthStateConfig({ ciAuthState: { ageRecipient: 'age1qyqszqgpqyqszqgpqyqszqgpqyqszqgpqyqszqgpqyqszqgpqyqs3290gq' } }).bucket, 'private');
