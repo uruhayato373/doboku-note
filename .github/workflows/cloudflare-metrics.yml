@@ -69,7 +69,9 @@ jobs:
 
           node scripts/prune-state-snapshots.mjs --commit --family cloudflare
 
-          git add .claude/state/metrics/cloudflare
+          # 取得が失敗した run ではディレクトリ自体が無い。pathspec 不一致で git が exit 128 になり
+          # 「取得失敗」が「publish 失敗」に見えるのを避ける（2026-09-21 初回 run で実測）。
+          if [ -d .claude/state/metrics/cloudflare ]; then git add .claude/state/metrics/cloudflare; fi
           if git diff --cached --quiet; then
             echo "No changes to publish"
             exit 0
