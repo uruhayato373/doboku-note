@@ -162,7 +162,9 @@ jobs:
           # fetch の exit 2 = 部分取得（例: period-daily の期間入力欄が headless で見つからない・2026-09-21 run 35600802709 は 3/4）。
           # 取れた分は normalize して記録に載せる（normalize は status!=downloaded の unit を skip する）。
           # ただし rc は 2 のまま返して run を赤にし、欠けたレポート名を Issue に残す（部分取得を緑と呼ばない）。
-          npm run a8-ui:fetch -- --month "$(date -u -d 'last month' +%Y-%m)"
+          # period-daily は headless で期間入力欄（placeholder="開始月"）が見つからず取れない（2026-09-21 run 35606444641）。
+          # CI では 3 レポートに絞って status=ok で完走させ、period-daily は月次のローカル儀式（a8-report）に残す。
+          npm run a8-ui:fetch -- --month "$(date -u -d 'last month' +%Y-%m)" --reports site-summary,program-detail,period-monthly
           frc=$?
           nrc=0
           if [ "$frc" -eq 0 ] || [ "$frc" -eq 2 ]; then
@@ -209,7 +211,10 @@ jobs:
       # note は 2 段に分ける。traffic/sales（数分・記録の本体）と live 検査（添付 615 本で 60 分超）を同じ step にすると、
       # live 検査で job timeout に当たった時点で run ごと cancel され、取得済みの traffic/sales も捨てられる
       # （2026-09-21 run 35600808577: 8 月の流入 820 記事を取った後に [280/615] で cancel）。
-      - name: "note: traffic + sales"
+      # note-sales-fetch（購入者一覧 /sitesettings/purchasers）は note が機微ページとして**端末ごとにパスワード再確認**を求め、
+      # CI の新規コンテキストでは必ず「パスワード再確認画面」で ABORT する（2026-09-21 run 35606437507）。人が通す以外に無いので
+      # 売上取得はローカル儀式（check-sales-freshness が催促）に残し、CI は traffic（アクセス状況）だけを取る。
+      - name: "note: traffic"
         id: collect_note
         if: matrix.service == 'note' && steps.restore.outputs.status == 'authenticated' && matrix.mode != 'probe-only'
         continue-on-error: true
@@ -217,8 +222,6 @@ jobs:
           set +e
           rc=0
           npm run note-traffic-fetch -- --commit
-          c=$?; [ "$c" -ne 0 ] && rc=$c
-          npm run note-sales-fetch -- --month "$(date -u +%Y-%m)" --commit
           c=$?; [ "$c" -ne 0 ] && rc=$c
           echo "rc=${rc}" >> "$GITHUB_OUTPUT"
 
