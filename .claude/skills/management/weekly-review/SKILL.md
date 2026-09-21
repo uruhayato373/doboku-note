@@ -80,7 +80,7 @@ description: >
   再実査は `npm run check-note-attachments:live`（ローカル・要ログイン・575 本で 20〜35 分）。
   `attachmentLossPending` が 1 以上なら、**本文更新で添付を捨てたまま再添付していない**記事がある
   （`--allow-attachment-loss` の負債）。実査は手動なので最大14日気づけない穴を、捨てた瞬間の記録で埋めている。
-  ※有料エリアの添付は未ログイン HTML に出ないため CI では原理的に検査できない。
+  ※有料エリアの添付は未ログイン HTML に出ないため、CI は `login-collectors.yml`（encrypted-state・canary 卒業後） で note セッションを復元して `check-note-attachments:live` を回す。ローカルは canary 卒業前のフォールバック。
   だからこそ「回し忘れ」を週次で拾う（2026-08-11 の事故＝購入者からの指摘で発覚した再発防止）。
 - **ココナラブログの健全性**: `npm run check-coconala-blog -- --json`（オフライン・`content/coconala/blog/**` を読む・creds不要）。
   見るのは2つ。①**公開済み記事の送客先が `listed` から外れていないか**（出品を休止/廃止すると

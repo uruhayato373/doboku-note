@@ -34,8 +34,8 @@ function makeTmpDir(prefix) {
 // テスト用の最小 registry を temporary directory に書き出し、そのディレクトリを cwd として使う。
 function writeFixtureRegistry(dir, servicesOverride) {
   const services = servicesOverride ?? {
-    note: { profileDirName: 'playwright-note-profile', stateFileName: null, loginUrl: 'https://example.com/login', checkUrl: 'https://example.com', accountConfigPath: null, sessionMode: 'profile', interactiveLoginRequired: true, ciAllowed: false, notes: null },
-    a8: { profileDirName: 'playwright-a8-profile', stateFileName: 'playwright-a8-state.json', loginUrl: 'https://example.com/login', checkUrl: 'https://example.com', accountConfigPath: null, sessionMode: 'profile-plus-state', interactiveLoginRequired: true, ciAllowed: false, notes: null },
+    note: { profileDirName: 'playwright-note-profile', stateFileName: null, loginUrl: 'https://example.com/login', checkUrl: 'https://example.com', accountConfigPath: null, sessionMode: 'profile', interactiveLoginRequired: true, ci: { mode: 'none', enabled: false, canary: false, operations: ['read'], cron: null, readOnlyScripts: [], writeScripts: [], stateDomains: [] }, notes: null },
+    a8: { profileDirName: 'playwright-a8-profile', stateFileName: 'playwright-a8-state.json', loginUrl: 'https://example.com/login', checkUrl: 'https://example.com', accountConfigPath: null, sessionMode: 'profile-plus-state', interactiveLoginRequired: true, ci: { mode: 'none', enabled: false, canary: false, operations: ['read'], cron: null, readOnlyScripts: [], writeScripts: [], stateDomains: [] }, notes: null },
   };
   const configDir = join(dir, '.claude', 'config');
   mkdirSync(configDir, { recursive: true });
@@ -208,7 +208,7 @@ test('secret らしいキー（password）を含む registry は拒否', () => {
   const dir = makeTmpDir('doboku-auth-registry-secret-');
   try {
     writeFixtureRegistry(dir, {
-      note: { profileDirName: 'playwright-note-profile', stateFileName: null, loginUrl: 'https://example.com', checkUrl: 'https://example.com', accountConfigPath: null, sessionMode: 'profile', interactiveLoginRequired: true, ciAllowed: false, notes: null, password: 'hunter2' },
+      note: { profileDirName: 'playwright-note-profile', stateFileName: null, loginUrl: 'https://example.com', checkUrl: 'https://example.com', accountConfigPath: null, sessionMode: 'profile', interactiveLoginRequired: true, ci: { mode: 'none', enabled: false, canary: false, operations: ['read'], cron: null, readOnlyScripts: [], writeScripts: [], stateDomains: [] }, notes: null, password: 'hunter2' },
     });
     assert.throws(() => loadAuthRegistry({ cwd: dir }), /AUTH_REGISTRY_SECRET_LIKE_KEY/);
   } finally {

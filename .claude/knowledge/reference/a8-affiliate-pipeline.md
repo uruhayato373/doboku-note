@@ -76,9 +76,9 @@ candidate → applied → approved → harvested → registered → published
 | doboku の 3 軸に写像できない案件を候補にしない | vertical 未解決は `pending-vertical`（IT フリーランスが建設サイトの候補に並んでいた事故の再発防止） |
 | 読者と無関係な業種を候補にしない | curated `offTargetKeywords`（薬剤師/看護/介護 等）→ `offTarget`。**blocklist（Red Line＝規約NG・カニバリ）とは別枠**にして Red Line の意味を濁らせない |
 
-## 実行形態（ローカル限定・OS は問わない）
+## 実行形態（対話フローはローカル・定期取得は CI・OS は問わない）
 
-- Playwright プロファイル（`.local/playwright-a8-profile`）がローカルにあるため **GitHub Actions では動かない**。
+- 初回ログインと申請の対話フローはローカル（auth root の `playwright-a8-profile`）。成果 CSV の定期取得は `login-collectors.yml`（encrypted-state・canary 卒業後） が private R2 の暗号化 storageState を復元して GitHub Actions で回す。
   ローカルであれば Mac / Windows どちらでも動く（2026-07-27 に可搬化・Windows で実走確認）。
 - **初回のみ人間**: `login.mjs` で A8 手動ログイン（credential は env に置かない）→ `list --dry-run --headed` で A8 の
   DOM をダンプしてセレクタ実機調整。これが済むまで実操作しない。

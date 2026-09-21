@@ -35,7 +35,7 @@ function makeFixture() {
     accountConfigPath: null,
     sessionMode,
     interactiveLoginRequired: true,
-    ciAllowed: false,
+    ci: { mode: 'none', enabled: false, canary: false, operations: ['read'], cron: null, readOnlyScripts: [], writeScripts: [], stateDomains: [] },
     notes: null,
   });
   writeFileSync(

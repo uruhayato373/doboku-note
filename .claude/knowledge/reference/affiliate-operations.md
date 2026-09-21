@@ -332,7 +332,7 @@ npm run a8-ui:normalize -- --latest
 ```
 
 `headless:false` で起動するので、ログインと CAPTCHA だけ人間が通せば以降は自動で進む
-（`scripts/fetch-a8-ui-csv.mjs`・プロファイルは `.local/playwright-a8-profile`・ローカル専用）。
+（`scripts/fetch-a8-ui-csv.mjs`・プロファイルは auth root の `playwright-a8-profile`・定期取得は `login-collectors.yml`（encrypted-state・canary 卒業後））。
 取り込み後の EPC は `npm run report-buildjob-affiliate` で見る。
 
 **当月分の確定額は翌月以降へずれる**。A8 の承認処理が月をまたぐため `revenueYen: 0` は異常ではなく、

@@ -524,7 +524,7 @@ lab が恒常的に悪い理由自体は本物だった。Playwright + `Performa
 > [!note] 例外レーン: A8.net は「ローカル実行が正規手順」
 > このルールは **公開 API がある計測（GA4/GSC/PSI）** の話。A8.net は公開 API が無く、
 > `ads/scout-asp`（提携）・`ads/a8-report`（成果レポート）とも **Playwright + 人間ログインのローカル実行が
-> 唯一の正規手順**で、CI 化できない（cron も作らない）。放置防止は `check-a8-report-due` が
+> 唯一の正規手順**だった。2026-09-21 から定期取得は `login-collectors.yml`（encrypted-state・canary 卒業後） が担い、ローカルは canary 卒業前のフォールバックと申請（`affiliate-apply`）の主経路。放置防止は `check-a8-report-due` が
 > 週次 PDCA へ surface する方式で担保する。「ローカルで外部を叩くのは常に誤り」と読まないこと。
 
 ### 教訓
