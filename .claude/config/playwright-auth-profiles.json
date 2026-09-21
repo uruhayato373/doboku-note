@@ -135,10 +135,10 @@
       "accountConfigPath": null,
       "sessionMode": "profile",
       "interactiveLoginRequired": true,
-      "notes": "専用 account config JSON は無し。",
+      "notes": "専用 account config JSON は無し。 2026-09-21 実測: CI 復元で Amazon サインイン画面へ redirect（端末変更で再認証要求）、Mac 側セッションも失効。hosted CI 不可のため enabled:false。",
       "ci": {
         "mode": "encrypted-state",
-        "enabled": true,
+        "enabled": false,
         "canary": false,
         "operations": [
           "read",
@@ -201,10 +201,10 @@
       "accountConfigPath": ".claude/config/ig-account.json",
       "sessionMode": "profile",
       "interactiveLoginRequired": true,
-      "notes": "Facebook Business Suite 経由。ig-account.json は logical authService のみを持ち、物理パスはこの registry と共通 resolver が決める。 2026-09-21: Meta の利用制限で Graph API が使えないため、照合（verify-ig-status）と予約投稿（publish-ig-bs）は encrypted-state の Playwright で CI 化する。",
+      "notes": "Facebook Business Suite 経由。ig-account.json は logical authService のみを持ち、物理パスはこの registry と共通 resolver が決める。 2026-09-21: Meta の利用制限で Graph API が使えないため、照合（verify-ig-status）と予約投稿（publish-ig-bs）は encrypted-state の Playwright で CI 化する。 2026-09-21 実測: Business Suite も同様に、CI で 1 回使った直後に Meta がセッションを全面失効（Mac・CI とも expired）。hosted CI 不可のため enabled:false。",
       "ci": {
         "mode": "encrypted-state",
-        "enabled": true,
+        "enabled": false,
         "canary": false,
         "operations": [
           "read",
@@ -231,10 +231,10 @@
       "accountConfigPath": ".claude/config/google-console-automation.json",
       "sessionMode": "profile",
       "interactiveLoginRequired": true,
-      "notes": "共通 DOBOKU_AUTH_ROOT を使用。旧 DOBOKU_PROFILE_ROOT（repository root の意味）は Phase 05 完了まで config の legacy path と組み合わせる明示 fallback のみ。",
+      "notes": "共通 DOBOKU_AUTH_ROOT を使用。旧 DOBOKU_PROFILE_ROOT（repository root の意味）は Phase 05 完了まで config の legacy path と組み合わせる明示 fallback のみ。 2026-09-21 実測: CI 復元は authenticated になるが、その直後に Google がセッションを全面失効（Mac 側も CI 書き戻し state も expired）。datacenter IP＝端末結びつきの検知。hosted CI 不可のため enabled:false。定期取得は residential IP の self-hosted runner かローカル儀式。",
       "ci": {
         "mode": "encrypted-state",
-        "enabled": true,
+        "enabled": false,
         "canary": false,
         "operations": [
           "read"
@@ -313,10 +313,10 @@
       "accountConfigPath": ".claude/config/affiliate-asp.json",
       "sessionMode": "same-process",
       "interactiveLoginRequired": true,
-      "notes": "sessionPersistsAcrossProcesses: false。保存した storageState を別プロセスで復元できないことがあり、ログインから操作まで同一プロセスで完結させる制約がある。afb 既定は stats47（asp-site-guard が例外で停止）。 2026-09-21: URL を affiliate-asp.json（baseUrl+homePath / readyPath）に合わせた。判定はテキストでなく #top_site_select の DOM（readyMarker）。",
+      "notes": "sessionPersistsAcrossProcesses: false。保存した storageState を別プロセスで復元できないことがあり、ログインから操作まで同一プロセスで完結させる制約がある。afb 既定は stats47（asp-site-guard が例外で停止）。 2026-09-21: URL を affiliate-asp.json（baseUrl+homePath / readyPath）に合わせた。判定はテキストでなく #top_site_select の DOM（readyMarker）。 2026-09-21 実測: CI 復元で requiredlogin へ redirect（sessionPersistsAcrossProcesses:false のとおり別プロセスでは持ち出せない）。hosted CI 不可のため enabled:false。提携/成果の機械取得は Gmail 通知経路（未実装）が代替候補。",
       "ci": {
         "mode": "encrypted-state",
-        "enabled": true,
+        "enabled": false,
         "canary": false,
         "operations": [
           "read"

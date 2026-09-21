@@ -8,6 +8,22 @@ title: 計測・検証事故の記録
 
 個別事例は時系列の逆順（新しい順）で追記する。各事例は「現象 / 根本原因 / 気づきの遅延理由（or 検出経緯）/ 適用した対策 / 教訓」を明記する。
 
+## 2026-09-21: 暗号化 storageState を hosted CI で使うと Google / Meta / Amazon はセッションを全面失効させる
+
+- 現象: `login-collectors.yml`（GitHub hosted runner・ubuntu・headless Chrome）で Mac から export した storageState を復元したところ、
+  google と instagram（Business Suite）は復元直後の判定は `authenticated` だったが、**その run の後に Mac 側も CI 書き戻し state も `expired`**
+  （再 probe で `login画面へredirect`）。kdp は復元時点で Amazon サインイン画面へ redirect（端末変更の再認証要求）し Mac 側も失効。
+  x は「セキュリティ検証の実行（悪意のあるボットから保護）」の JS 挑戦ページで判定不能。afb は `requiredlogin` へ redirect（別プロセスでは
+  セッションを持ち出せない・registry の `sessionPersistsAcrossProcesses:false` どおり）。一方 **coconala は 5 回の run で復元→収集→書き戻し
+  （gen 5）→develop への commit まで成立し Mac 側も健在**、a8・note は probe で `authenticated`・Mac 側健在（run 35567204004 / 35598921125 ほか）。
+- 原因: Google / Meta / Amazon はセッション cookie を端末・IP・指紋に結びつけ、datacenter IP からの利用を「別端末」とみなして
+  セッション自体を無効化する（cookie の中身の問題ではない）。X は datacenter IP に JS 挑戦を出す。afb はサーバ側でプロセス単位に束縛。
+- 対策: registry で google / instagram / kdp / afb / x を `ci.enabled:false`（hosted CI 不可）とし、coconala / a8 / note だけ cron。
+  Mac 側の失効は各サービスで `npm run auth:login` を再実行して回復する（人の操作）。**5 サービスを CI に載せるには residential IP かつ
+  同一端末指紋＝Mac 自身を self-hosted runner にする以外に経路が無い**（当初の設計判断で見送った選択肢）。
+- 教訓: 「CI で 1 回 authenticated が出た」を成功と呼ばない。**CI 実行後に Mac 側 `auth:status` が authenticated のままか**まで見て初めて
+  そのサービスは hosted CI 可と判定する（canary 手順の必須確認項目）。診断は `ci-restore` の `diag`（URL・タイトル・本文先頭・スクリーンショット）。
+
 ## 2026-09-20: 無料の選択ガイドが有料マガジン内で全文非公開
 
 - 現象: 主任技士の選択ガイド `n6a56bef2fe2b` は価格0円・公開済みだったが、未ログインAPIでは `body:null`、`can_read:false`。追加した8商品のリンクを公開後検証が検出できなかった。
