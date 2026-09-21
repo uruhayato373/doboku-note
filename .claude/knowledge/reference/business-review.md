@@ -7,7 +7,7 @@
 - 既存実績: note=`.claude/state/sales/sales-log.json`、KDP=`.claude/state/sales/kdp-royalties.json`、ココナラ=`.claude/state/coconala/{analytics-snapshot,orders-snapshot,orders-log}.json`（閲覧は30日窓、注文・販売額は暦月）、GSC/GA4=`.claude/state/metrics/`。商品状態・価格・顧客対応の台帳は従来どおり。
 - 追加計測・目標・凍結スナップショット・判断履歴: `.claude/state/metrics/business/`。1回1ファイル・追記専用。訂正は `supersedes` で旧ファイルを参照し、削除・上書きしない。
 - 改善の状態: `.claude/state/experiments.json`。レビューは実験IDを参照するだけで別の実験状態台帳を作らない。
-- Instagram: `.claude/state/metrics/instagram/ig-insights-*.json`（CI 週次・`fetch-ig-insights.yml` が Graph API で取得）。
+- Instagram: `.claude/state/metrics/instagram/ig-insights-*.json`（Meta 利用制限中は取得停止＝欠測のまま。`fetch-ig-insights.yml` は dispatch 専用・Graph API で取得）。
 - Cloudflare: `.claude/state/metrics/cloudflare/cf-zone-*.json`（CI 日次・`cloudflare-metrics.yml`）。
 
 ## 計測

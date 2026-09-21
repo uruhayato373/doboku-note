@@ -7,9 +7,9 @@ name: 📸 Fetch Instagram insights (weekly)
 # 前提 Secrets: IG_GRAPH_ACCESS_TOKEN / IG_BUSINESS_ACCOUNT_ID
 # 実装: scripts/fetch-ig-insights.mjs（lib: scripts/lib/ig-graph.mjs, scripts/lib/ig-reconcile-core.mjs）
 
+# 2026-09-21: Meta の利用制限で Graph API トークンを発行できないため cron を外し dispatch 専用にする。
+# 公開状態の照合は login-collectors.yml（encrypted-state・verify-ig-status）が担う。制限が解けたら cron を戻す。
 on:
-  schedule:
-    - cron: "30 20 * * 4" # JST 05:30 Friday（UTC 20:30 Thursday）
   workflow_dispatch:
 
 # DN-0109 Phase 1: develop への自動書込み系ワークフロー間の push 衝突を防ぐ共通グループ。

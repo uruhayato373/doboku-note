@@ -62,8 +62,8 @@ description: >
   frontmatter noteStatus ↔ ライブ公開状態を note 公開 API で突合・creds 不要）。
   ドリフト（ライブ=published / frontmatter=draft）があれば `-- --fix` で是正してコミット。
   ※予約投稿は go-live がサーバ側後刻で writeback できず draft 取り残しが起きるため週次で自己修復する
-- IG 公開状態ドリフト: 照合は CI 週次（`fetch-ig-insights.yml`）が `.claude/state/ig-reconcile/snapshot.json` を
-  `source:"graph-api"` で書く。週次レビューはこの snapshot を読む（実行しない）。★ドリフトが出たら次セッションで
+- IG 公開状態ドリフト: 照合は CI 週次 `login-collectors.yml`（encrypted-state・`verify-ig-status --no-planner`・PR #549） が `.claude/state/ig-reconcile/snapshot.json` を
+  `source:"playwright"` で書く（Graph API 版は Meta 利用制限で待機）。週次レビューはこの snapshot を読む（実行しない）。★ドリフトが出たら次セッションで
   `/ig-reconcile` を実行して posted.json backfill / 未公開を予約（真実源 `.claude/knowledge/reference/ig-publish-reconcile.md`）。
   Playwright 版 `npm run verify-ig-status` はプランナー実体確認が要るときのフォールバック（ローカル実行限定）
 - note 競合再スキャン期限: `npm run check-competitor-scan-due -- --json` を実行（四半期＝90日。creds不要・ローカルhistory参照）。

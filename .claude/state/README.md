@@ -31,7 +31,7 @@
 | `civil-quality-cycle-state.json` | 1級土木版の状態遷移 | `/civil-textbook-cycle` |
 | `experiments.json` | NSM 実験の状態（running / measuring / done） | `/nsm-experiment` |
 | `metrics/` | PSI / GA4 / GSC の生 JSON（CI が develop に直接 commit） | `.github/workflows/psi-audit.yml` / `fetch-metrics.yml` |
-| `metrics/instagram/` | Instagram Graph API の media+insights+SoT 照合スナップショット（`ig-insights-YYYY-MM-DD.json`） | `.github/workflows/fetch-ig-insights.yml`（週次） |
+| `metrics/instagram/` | Instagram Graph API の media+insights スナップショット（Meta 利用制限中は取得停止・欠測）。SoT 照合 snapshot は `ig-reconcile/`（`login-collectors.yml` の `verify-ig-status`）（`ig-insights-YYYY-MM-DD.json`） | `.github/workflows/fetch-ig-insights.yml`（週次） |
 | `metrics/cloudflare/` | Cloudflare GraphQL Analytics のゾーン別日次集計（`cf-zone-YYYY-MM-DD.json`） | `.github/workflows/cloudflare-metrics.yml`（日次） |
 | `cloudflare/zone-config-latest.json` | Cloudflare ゾーン設定の最新スナップショット（ドリフト検知の基準） | `.github/workflows/cloudflare-config-audit.yml`（月次） |
 | `note/magazines-snapshot.json` | note ライブのマガジン一覧＋**収録記事リスト**（`check-magazine-membership` の軸 C。鮮度 9 日超は検査不成立扱い） | `.github/workflows/note-live-audit.yml`（週次・CI が develop に直接 commit） |

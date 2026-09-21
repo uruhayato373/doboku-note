@@ -9,9 +9,10 @@
 // 設計: verify-note-status.mjs（note 版 reconciler）の IG 版。投稿も削除もしない＝検知と報告のみ。
 //   実際の是正/予約は `/ig-reconcile` スキルが operator 確認のうえ行う。
 //
-// CI 週次の照合は Graph API（scripts/fetch-ig-insights.mjs --reconcile・別ユニットで実装）が
-//   同じ core（scripts/lib/ig-reconcile-core.mjs）で snapshot を書く。本スクリプトは
-//   プランナー実体確認が要るときのローカル・フォールバック。
+// CI 週次の照合は login-collectors.yml（encrypted-state・PR #549）が本スクリプトを --no-planner で回す。
+//   Graph API 版（scripts/fetch-ig-insights.mjs --reconcile）は Meta 利用制限で待機（dispatch 専用）。
+//   いずれも同じ core（scripts/lib/ig-reconcile-core.mjs）で snapshot を書く。プランナー実体確認が要るときは
+//   ローカルで --no-planner 無しに回す。
 //
 // 真実源: アカウントハンドルは .claude/config/ig-account.json（@dobokunotecom）。
 // 前提: Playwright + 共通 auth resolver 配下のログイン済み Instagram プロファイルが必要。
