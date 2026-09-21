@@ -97,7 +97,7 @@
       "notes": "sellerName: dobokunote の本文一致 assert あり。",
       "ci": {
         "mode": "encrypted-state",
-        "enabled": false,
+        "enabled": true,
         "canary": true,
         "operations": [
           "read",
