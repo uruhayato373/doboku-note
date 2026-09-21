@@ -23,7 +23,9 @@ import { leanContextOptions } from './playwright-launch.mjs';
 import { attachCISession } from './playwright-auth-state.mjs';
 
 export const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
-export const PROFILE = resolveProfileDir('brain', { cwd: ROOT, repoRoot: ROOT });
+// 遅延解決: import 時に resolver を呼ぶと、ブラウザを開かないオフライン検査（CI の quality-audit）まで
+// CI 判定で落ちる（2026-09-21 PR #549）。profile が要るのは launch の瞬間だけ。
+export const profileDir = () => resolveProfileDir('brain', { cwd: ROOT, repoRoot: ROOT });
 /** アカウント・認証設定は content/brain へ移行しない（config に残す・DN-0103 対象外）。 */
 export const ACCOUNT_PATH = join(ROOT, '.claude/config/brain-account.json');
 export const CATALOG_PATH = join(ROOT, 'src/lib/brain-products.ts');
@@ -82,7 +84,7 @@ export function writeBackCatalog(serviceId, articleId) {
 }
 
 export async function launchContext({ headless = false } = {}) {
-  const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
+  const ctx = await chromium.launchPersistentContext(profileDir(), leanContextOptions({
     headless,
     channel: 'chrome',
     proxy: PROXY ? { server: PROXY } : undefined,

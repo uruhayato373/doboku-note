@@ -33,7 +33,9 @@ import { attachCISession } from './playwright-auth-state.mjs';
 export const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 
 /** 全 note-*.mjs / check-note-*.mjs が共有する永続プロファイル（note ログインセッション）。 */
-export const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
+// 遅延解決: import 時に resolver を呼ぶと、ブラウザを開かないオフライン検査（CI の quality-audit）まで
+// CI 判定で落ちる（2026-09-21 PR #549）。profile が要るのは launch の瞬間だけ。
+export const profileDir = () => resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
 
 /** 会社 PC のプロキシ越しに Chrome を起動するため。未設定なら undefined（システム既定）。 */
 const ENV_PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
@@ -44,14 +46,14 @@ export const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
  * note 編集スクリプト共通のブラウザ起動。
  *
  * 既存 15 本以上の実測でもっとも多い形
- *   `chromium.launchPersistentContext(PROFILE, { headless:false, channel:'chrome',
+ *   `chromium.launchPersistentContext(profileDir(), { headless:false, channel:'chrome',
  *      proxy: PROXY ? {server:PROXY} : undefined, ignoreHTTPSErrors:true,
  *      viewport:{width:1366,height:1000}, args:['--disable-blink-features=AutomationControlled'] })`
  * を既定値として関数化した。viewport だけがスクリプトごとに 1366x1000 / 1366x1100 /
  * 1400x1050 / 1280x900 とズレていたので、そこだけ opts.viewport で吸収する。
  *
  * @param {object} [opts]
- * @param {string} [opts.profile=PROFILE]  永続プロファイルのパス
+ * @param {string} [opts.profile]  永続プロファイルのパス（既定 profileDir()）
  * @param {boolean} [opts.headless=false]  既定は headed（目視ログイン・bot 判定回避のため）
  * @param {{width:number,height:number}} [opts.viewport={width:1366,height:1000}]
  * @param {string} [opts.proxy]  未指定なら環境変数 HTTPS_PROXY/HTTP_PROXY を使う
@@ -60,13 +62,13 @@ export const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
  */
 export async function launchNoteContext(opts = {}) {
   const {
-    profile = PROFILE,
+    profile = null,
     headless = false,
     viewport = { width: 1366, height: 1000 },
     proxy = ENV_PROXY,
     extraArgs = [],
   } = opts;
-  const ctx = await chromium.launchPersistentContext(profile, leanContextOptions({
+  const ctx = await chromium.launchPersistentContext(profile ?? profileDir(), leanContextOptions({
     headless,
     channel: 'chrome', // システム Chrome（組み込み Chromium は note/Google に bot 判定される）
     proxy: proxy ? { server: proxy } : undefined,

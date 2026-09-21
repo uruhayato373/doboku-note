@@ -25,7 +25,9 @@ import { leanContextOptions } from './playwright-launch.mjs';
 import { attachCISession } from './playwright-auth-state.mjs';
 
 export const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
-export const PROFILE = resolveProfileDir('coconala', { cwd: ROOT, repoRoot: ROOT });
+// 遅延解決: import 時に resolver を呼ぶと、ブラウザを開かないオフライン検査（check-coconala-blog 等・CI の
+// quality-audit）まで CI 判定で落ちる（2026-09-21 PR #549）。profile が要るのは launch の瞬間だけ。
+export const profileDir = () => resolveProfileDir('coconala', { cwd: ROOT, repoRoot: ROOT });
 export const ACCOUNT_PATH = join(ROOT, '.claude/config/coconala-account.json');
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 
@@ -131,7 +133,7 @@ export function writeBackCatalog(id, url, today) {
  * headless は既定 false（ログイン状態の目視・初回ログインのため）。--headless で上書き可。
  */
 export async function launchContext({ headless = false } = {}) {
-  const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
+  const ctx = await chromium.launchPersistentContext(profileDir(), leanContextOptions({
     headless,
     channel: 'chrome',
     proxy: PROXY ? { server: PROXY } : undefined,
