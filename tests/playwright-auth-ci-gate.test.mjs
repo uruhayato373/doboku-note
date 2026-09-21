@@ -102,8 +102,11 @@ test('allowlist: read-only script は許可・未登録 script は拒否・write
     );
     // 認証 CLI 自身は常に許可
     assert.equal(typeof resolveProfileDir('kdp', { ...base, invokedScript: 'scripts/playwright-auth.mjs' }), 'string');
-    // mode:none のサービスは CI で一切許可しない
-    assert.throws(() => resolveProfileDir('instagram', { ...base, invokedScript: 'scripts/verify-ig-status.mjs' }), /AUTH_CI_MODE_NONE/);
+    // mode:none のサービス（moshimo）は CI で一切許可しない
+    assert.throws(() => resolveProfileDir('moshimo', { ...base, invokedScript: 'scripts/affiliate-status.mjs' }), /AUTH_CI_MODE_NONE/);
+    // instagram は 2026-09-21 から encrypted-state（Meta 利用制限で Graph API 不可）。照合は read、予約投稿は write
+    assert.equal(typeof resolveProfileDir('instagram', { ...base, invokedScript: 'scripts/verify-ig-status.mjs' }), 'string');
+    assert.throws(() => resolveProfileDir('instagram', { ...base, invokedScript: '.claude/skills/social/publish-ig-bs/publish-ig-bs.ts' }), /AUTH_CI_WRITE_REQUIRES_PLAN_HASH/);
     // ensureAuthDirectories も同じゲートを通る（書き込み側の入口）
     assert.throws(() => ensureAuthDirectories('coconala', { ...base, invokedScript: 'scripts/coconala-publish.mjs' }), /AUTH_CI_WRITE_REQUIRES_PLAN_HASH/);
     assert.equal(existsSync(join(runnerTemp, 'doboku-auth', 'profiles', 'playwright-coconala-profile')), false, '拒否時はディレクトリを作らない');

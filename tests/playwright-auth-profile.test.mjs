@@ -305,9 +305,9 @@ test('Phase 03の6サービスはprofile/state制約を同じauth rootで区別�
     for (const service of ['x', 'instagram', 'google', 'a8', 'moshimo', 'afb']) {
       assert.equal(resolveProfileDir(service, options), join(dir, 'profiles', `playwright-${service === 'instagram' ? 'ig-bs' : service}-profile`));
     }
-    // registry v2（2026-09-21）: encrypted-state で CI へ持ち出すサービスは state を持つ。instagram は mode:none のまま。
+    // registry v2（2026-09-21）: encrypted-state で CI へ持ち出すサービスは state を持つ（instagram も Meta 利用制限で Playwright 経路）。moshimo だけ mode:none。
     assert.equal(resolveStatePath('x', options), join(dir, 'states', 'playwright-x-state.json'));
-    assert.equal(resolveStatePath('instagram', options), null);
+    assert.equal(resolveStatePath('instagram', options), join(dir, 'states', 'playwright-ig-bs-state.json'));
     assert.equal(resolveStatePath('google', options), join(dir, 'states', 'playwright-google-state.json'));
     assert.equal(resolveStatePath('a8', options), join(dir, 'states', 'playwright-a8-state.json'));
     assert.equal(resolveStatePath('moshimo', options), join(dir, 'states', 'playwright-moshimo-state.json'));

@@ -192,24 +192,32 @@
     },
     "instagram": {
       "profileDirName": "playwright-ig-bs-profile",
-      "stateFileName": null,
+      "stateFileName": "playwright-ig-bs-state.json",
       "loginUrl": "https://business.facebook.com/latest/home",
       "checkUrl": "https://business.facebook.com/latest/content_calendar",
       "accountConfigPath": ".claude/config/ig-account.json",
       "sessionMode": "profile",
       "interactiveLoginRequired": true,
-      "notes": "Facebook Business Suite 経由。ig-account.json は logical authService のみを持ち、物理パスはこの registry と共通 resolver が決める。",
+      "notes": "Facebook Business Suite 経由。ig-account.json は logical authService のみを持ち、物理パスはこの registry と共通 resolver が決める。 2026-09-21: Meta の利用制限で Graph API が使えないため、照合（verify-ig-status）と予約投稿（publish-ig-bs）は encrypted-state の Playwright で CI 化する。",
       "ci": {
-        "mode": "none",
+        "mode": "encrypted-state",
         "enabled": false,
-        "canary": false,
+        "canary": true,
         "operations": [
-          "read"
+          "read",
+          "write"
         ],
-        "cron": null,
-        "stateDomains": [],
-        "readOnlyScripts": [],
-        "writeScripts": []
+        "cron": "40 21 * * 4",
+        "stateDomains": [
+          "facebook.com",
+          "instagram.com"
+        ],
+        "readOnlyScripts": [
+          "scripts/verify-ig-status.mjs"
+        ],
+        "writeScripts": [
+          ".claude/skills/social/publish-ig-bs/publish-ig-bs.ts"
+        ]
       }
     },
     "google": {

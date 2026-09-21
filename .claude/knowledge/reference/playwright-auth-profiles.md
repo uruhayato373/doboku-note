@@ -35,7 +35,7 @@ PC ごとに独立保持し、Windows と Mac の間でコピー・Git・OneDriv
 | `coconala` | `playwright-coconala-profile` | profile | `.claude/config/coconala-account.json` | encrypted-state / read+write |
 | `kdp` | `playwright-kdp-profile` | profile | KDP 本棚の実体 | encrypted-state / read+write |
 | `x` | `playwright-x-profile` | profile | `.claude/config/x-account.json` | encrypted-state / read+write |
-| `instagram` | `playwright-ig-bs-profile` | profile | `.claude/config/ig-account.json` | none / read |
+| `instagram` | `playwright-ig-bs-profile` | profile | `.claude/config/ig-account.json` | encrypted-state / read+write（Meta 利用制限で Graph API 不可＝Playwright 照合・予約投稿） |
 | `google` | `playwright-google-profile` | profile | GSC/GA4 の対象プロパティ | encrypted-state / read |
 | `a8` | `playwright-a8-profile` | profile-plus-state | メディア ID `a25050375786` | encrypted-state / read+write |
 | `moshimo` | `playwright-moshimo-profile` | profile-plus-state | `.claude/config/affiliate-asp.json` | none / read |

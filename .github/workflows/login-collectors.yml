@@ -18,6 +18,7 @@ on:
     - cron: "10 22 * * 5" # x        金 22:10 UTC = 土 07:10 JST
     - cron: "20 21 2 * *" # google   毎月2日 21:20 UTC = 3日 06:20 JST
     - cron: "30 22 3 * *" # afb      毎月3日 22:30 UTC = 4日 07:30 JST
+    - cron: "40 21 * * 4" # instagram 木 21:40 UTC = 金 06:40 JST（Meta 利用制限中は Graph API 不可＝Playwright 照合）
   workflow_dispatch:
     inputs:
       service:
@@ -34,6 +35,7 @@ on:
           - x
           - google
           - afb
+          - instagram
       mode:
         description: "collect=収集まで実行 / probe-only=認証状態の復元確認のみ"
         type: choice
@@ -219,6 +221,19 @@ jobs:
           echo "brain-sales-fetch は Part C で追加（probe-only 相当）"
           echo "rc=0" >> "$GITHUB_OUTPUT"
 
+      - name: "instagram: public status reconcile (verify-ig-status, no planner)"
+        id: collect_instagram
+        if: matrix.service == 'instagram' && steps.restore.outputs.status == 'authenticated' && matrix.mode != 'probe-only'
+        continue-on-error: true
+        run: |
+          set +e
+          # プランナー（予約スロット）の月ビュー走査は headless で不安定なので CI では --no-planner。
+          # 予約の実体確認が要るときはローカルで verify-ig-status を回す（フォールバック）。
+          node scripts/verify-ig-status.mjs --no-planner --json > "$RUNNER_TEMP/ig-status.json"
+          rc=$?
+          node -e "const j=require(process.argv[1]); console.log('[instagram] live', j.live?.posts ?? '?', '/ counts', JSON.stringify(j.counts ?? {}))" "$RUNNER_TEMP/ig-status.json" || true
+          echo "rc=${rc}" >> "$GITHUB_OUTPUT"
+
       - name: "x: own metrics + repost discover"
         id: collect_x
         if: matrix.service == 'x' && steps.restore.outputs.status == 'authenticated' && matrix.mode != 'probe-only'
@@ -273,6 +288,7 @@ jobs:
             x) rc="${{ steps.collect_x.outputs.rc }}" ;;
             google) rc="${{ steps.collect_google.outputs.rc }}" ;;
             afb) rc="${{ steps.collect_afb.outputs.rc }}" ;;
+            instagram) rc="${{ steps.collect_instagram.outputs.rc }}" ;;
             *) rc="" ;;
           esac
           echo "rc=${rc:-0}" >> "$GITHUB_OUTPUT"
