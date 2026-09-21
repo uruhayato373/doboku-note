@@ -1,0 +1,261 @@
+{
+  "version": 1,
+  "type": "measurement",
+  "watchId": "civil1-secondary-r07-answers",
+  "scope": {
+    "id": "civil1-secondary-r07-answers",
+    "keyword": "1級土木施工管理技士 2次試験 解答例 令和7年",
+    "targetPath": "/exam/civil-construction-1/secondary/r07",
+    "contentPath": "content/site/civil-construction-1/secondary-r07/article.mdx",
+    "priority": 1,
+    "country": "jpn",
+    "device": null,
+    "enabled": true,
+    "qualification": "civil-construction-1",
+    "intent": "exam-task",
+    "mode": "improve",
+    "examEvent": "second",
+    "audience": "1級土木の第二次検定に向けて年度別問題を学ぶ受験者。",
+    "need": "令和7年度の設問と解答の考え方を把握し、自分で答案を作りたい。",
+    "rationale": "年度別過去問から答案練習につながる具体的な受験課題を優先する。",
+    "nextStep": {
+      "label": "経験記述の字数を確認する",
+      "path": "/tools/keiken-charcount"
+    },
+    "evidence": {
+      "kind": "gsc",
+      "source": ".claude/state/metrics/gsc/gsc-page-query-2026-09-10T22-51-42.json"
+    }
+  },
+  "scopeKey": "ac5b5a0258ec692b52bcb4190c1c4340bfd8a03dbf485a4a653ea60a468b7610",
+  "fetchedAt": "2026-09-21T04:54:03.705Z",
+  "before": {
+    "window": {
+      "startDate": "2026-09-04",
+      "endDate": "2026-09-10"
+    },
+    "metrics": {
+      "rank": 11.068965517241379,
+      "impressions": 29,
+      "clicks": 1,
+      "ctr": 0.034482758620689655,
+      "activeDays": 3
+    },
+    "raw": {
+      "meta": {
+        "siteUrl": "sc-domain:doboku-note.com",
+        "dataState": "final",
+        "type": "web",
+        "timeZone": "America/Los_Angeles",
+        "filters": [
+          {
+            "dimension": "query",
+            "operator": "equals",
+            "expression": "1級土木施工管理技士 2次試験 解答例 令和7年"
+          },
+          {
+            "dimension": "page",
+            "operator": "equals",
+            "expression": "https://doboku-note.com/exam/civil-construction-1/secondary/r07"
+          },
+          {
+            "dimension": "country",
+            "operator": "equals",
+            "expression": "jpn"
+          }
+        ],
+        "startDate": "2026-09-04",
+        "endDate": "2026-09-10",
+        "dimensions": [
+          "date"
+        ],
+        "dimension": "date",
+        "limit": null,
+        "pages_fetched": 1,
+        "row_count": 7,
+        "truncated": false,
+        "api_note": "Search Analytics API は全行の返却を保証しない（sampling / privacy filtering で低ボリューム行が欠落し得る）。row_count は startRow ページングの合算実測値であり、母集合全体とは限らない。"
+      },
+      "rows": [
+        {
+          "keys": [
+            "2026-09-04"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        },
+        {
+          "keys": [
+            "2026-09-05"
+          ],
+          "clicks": 0,
+          "impressions": 6,
+          "ctr": 0,
+          "position": 10.833333333333334
+        },
+        {
+          "keys": [
+            "2026-09-06"
+          ],
+          "clicks": 1,
+          "impressions": 18,
+          "ctr": 0.05555555555555555,
+          "position": 11
+        },
+        {
+          "keys": [
+            "2026-09-07"
+          ],
+          "clicks": 0,
+          "impressions": 5,
+          "ctr": 0,
+          "position": 11.6
+        },
+        {
+          "keys": [
+            "2026-09-08"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        },
+        {
+          "keys": [
+            "2026-09-09"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        },
+        {
+          "keys": [
+            "2026-09-10"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        }
+      ]
+    }
+  },
+  "after": {
+    "window": {
+      "startDate": "2026-09-11",
+      "endDate": "2026-09-17"
+    },
+    "metrics": {
+      "rank": null,
+      "impressions": 0,
+      "clicks": 0,
+      "ctr": null,
+      "activeDays": 0
+    },
+    "raw": {
+      "meta": {
+        "siteUrl": "sc-domain:doboku-note.com",
+        "dataState": "final",
+        "type": "web",
+        "timeZone": "America/Los_Angeles",
+        "filters": [
+          {
+            "dimension": "query",
+            "operator": "equals",
+            "expression": "1級土木施工管理技士 2次試験 解答例 令和7年"
+          },
+          {
+            "dimension": "page",
+            "operator": "equals",
+            "expression": "https://doboku-note.com/exam/civil-construction-1/secondary/r07"
+          },
+          {
+            "dimension": "country",
+            "operator": "equals",
+            "expression": "jpn"
+          }
+        ],
+        "startDate": "2026-09-11",
+        "endDate": "2026-09-17",
+        "dimensions": [
+          "date"
+        ],
+        "dimension": "date",
+        "limit": null,
+        "pages_fetched": 1,
+        "row_count": 7,
+        "truncated": false,
+        "api_note": "Search Analytics API は全行の返却を保証しない（sampling / privacy filtering で低ボリューム行が欠落し得る）。row_count は startRow ページングの合算実測値であり、母集合全体とは限らない。"
+      },
+      "rows": [
+        {
+          "keys": [
+            "2026-09-11"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        },
+        {
+          "keys": [
+            "2026-09-12"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        },
+        {
+          "keys": [
+            "2026-09-13"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        },
+        {
+          "keys": [
+            "2026-09-14"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        },
+        {
+          "keys": [
+            "2026-09-15"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        },
+        {
+          "keys": [
+            "2026-09-16"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        },
+        {
+          "keys": [
+            "2026-09-17"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        }
+      ]
+    }
+  },
+  "contentHash": "65fbe0153a505cec574fa8671b395a4c3cd8d6d93e56f9fca74a3b94004feb9e"
+}
