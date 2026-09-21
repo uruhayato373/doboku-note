@@ -62,10 +62,10 @@ description: >
   frontmatter noteStatus ↔ ライブ公開状態を note 公開 API で突合・creds 不要）。
   ドリフト（ライブ=published / frontmatter=draft）があれば `-- --fix` で是正してコミット。
   ※予約投稿は go-live がサーバ側後刻で writeback できず draft 取り残しが起きるため週次で自己修復する
-- IG 公開状態ドリフト: `npm run verify-ig-status` を実行（posted.json/status.json ↔ ライブ
-  グリッド＋プランナーを突合・read-only・★ドリフトで exit 2）。★が出たら次セッションで
+- IG 公開状態ドリフト: 照合は CI 週次（`fetch-ig-insights.yml`）が `.claude/state/ig-reconcile/snapshot.json` を
+  `source:"graph-api"` で書く。週次レビューはこの snapshot を読む（実行しない）。★ドリフトが出たら次セッションで
   `/ig-reconcile` を実行して posted.json backfill / 未公開を予約（真実源 `.claude/knowledge/reference/ig-publish-reconcile.md`）。
-  ※Playwright + ログイン済みプロファイル必須＝ローカル実行限定。クラウド週次では実行不可なのでサーフェスのみ
+  Playwright 版 `npm run verify-ig-status` はプランナー実体確認が要るときのフォールバック（ローカル実行限定）
 - note 競合再スキャン期限: `npm run check-competitor-scan-due -- --json` を実行（四半期＝90日。creds不要・ローカルhistory参照）。
   `due:true` なら「次セッションで `/competitor-review`（scout→competitor-analyst→09反映）」をサーフェスのみ（実取得はしない）。
 - GSC/GA4 UI 取得期限（月次）: `npm run check-gsc-ui-due -- --json` を実行（30日。committed `{gsc-ui,ga4-ui}/last-run.json` 参照・creds不要）。

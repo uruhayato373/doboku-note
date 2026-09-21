@@ -75,6 +75,8 @@
 
 **完了条件**: `npm run note-traffic-fetch -- --month 2026-09 --commit` で 2 ファイルが書かれ、検査対象数/実検査数を出力、test 緑、週次レビューが参照。
 
+**2026-09-21 追記**: 取得本体（note ダッシュボード）は暗号化 storageState 方式で CI 化する（別 PR・login-collectors.yml）。本カードの残件は business-direction の出典記述と週次配線のみ。
+
 
 ### [DN-0250] 1級・2級 二次直前の note CTA 切替（〜10/4・〜10/25）と試験後の無料フォロー記事
 タグ: [収益化] [種類:改善] [起票:2026-09-16] [期日:2026-10-26]
@@ -617,11 +619,3 @@ Drive台帳・vault・Drive APIの照合前にローカル実体を削除しな�
 
 **完了条件**: `npm run check-x-queue-health` の issues が空で、4 本の `article_url` が埋まっている（Tweet 4 を見送る場合は台帳が `cancelled` で issues が空）。
 
-### [DN-0254] Instagram 公開照合（verify-ig-status）を CI 週次へ移すか（Meta アクセストークンを GitHub Secrets に置くかの判断）
-タグ: [SNS・マーケ] [種類:改善] [起票:2026-09-19]
-
-**起点**: 2026-09-19 の配線棚卸しで、IG の公開状態照合は週次スキル内だけで（ローカル・Meta 認証）、YouTube（verify-yt-status.yml・週次 CI）と違って機械で回っていない。CI 化には長期トークンを Secrets に置く必要があり、漏洩時の影響（投稿権限）と運用（60 日更新）を運営者が判断する。
-
-**選択肢**: (a) Secrets に置いて verify-yt-status.yml と同型の週次 workflow にする / (b) ローカル週次のまま（現状）で、SessionStart の催促に組み込む。
-
-**完了条件**: どちらかを選び、(a) なら workflow と secret 名を ci-cd-security-hardening.md に記録、(b) なら本カードを閉じて weekly-review SKILL に「ローカル限定」と明記（既に記載あり）。

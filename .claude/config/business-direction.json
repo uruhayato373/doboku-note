@@ -255,6 +255,46 @@
       "definition": "対象・実検査数を示した品質検査の重大不備件数。未検査を0件と扱わない。",
       "channel": "operations",
       "target": null
+    },
+    {
+      "id": "igReach",
+      "stage": "集客",
+      "label": "Instagram リーチ（延べ）",
+      "unit": "人日",
+      "definition": "アカウント日次リーチの合計（延べ）。ユニークではない。",
+      "channel": "instagram",
+      "target": null,
+      "appliesTo": ["all"]
+    },
+    {
+      "id": "igFollowers",
+      "stage": "集客",
+      "label": "Instagram フォロワー",
+      "unit": "人",
+      "definition": "期間末時点のフォロワー数（ストック）。",
+      "channel": "instagram",
+      "target": null,
+      "appliesTo": ["all"]
+    },
+    {
+      "id": "cfRequestsJp",
+      "stage": "集客",
+      "label": "Cloudflare リクエスト（日本）",
+      "unit": "件",
+      "definition": "Cloudflare edge 集計・bot を含む・GA4 と一致しない。GA4 の bot 疑義の突合用。",
+      "channel": "cloudflare",
+      "target": null,
+      "appliesTo": ["all"]
+    },
+    {
+      "id": "cfRequestsOther",
+      "stage": "集客",
+      "label": "Cloudflare リクエスト（日本以外）",
+      "unit": "件",
+      "definition": "Cloudflare edge 集計・bot を含む・GA4 と一致しない。GA4 の bot 疑義の突合用。",
+      "channel": "cloudflare",
+      "target": null,
+      "appliesTo": ["all"]
     }
   ],
   "rules": [

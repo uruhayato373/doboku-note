@@ -29,6 +29,8 @@ IG カルーセルの「実際に公開されているか（現状確認）」�
 
 ### 1. 照合（現状確認・read-only）
 
+照合は CI 週次（`fetch-ig-insights.yml`）が Graph API で `.claude/state/ig-reconcile/snapshot.json` を `source:"graph-api"` で書く。本スキルはその snapshot を読むのが既定で、Playwright 版 `verify-ig-status` はプランナー実体確認が要るときのフォールバックとして残す。
+
 ```bash
 npm run verify-ig-status            # 全パック / npm run verify-ig-status -- --exam=cem で絞る
 npm run verify-ig-status -- --json  # 機械処理用

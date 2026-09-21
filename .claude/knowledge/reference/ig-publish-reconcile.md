@@ -100,7 +100,7 @@ Instagram カルーセルの「実際に公開されているか（現状確認�
 
 ## 8. 週次運用
 
-`/weekly-review` が `npm run verify-ig-status` を回し、★ドリフトを週次レビューにサーフェスする（`verify-note-status` と同じ位置づけ＝network 依存ゆえ CI ゲートにはせず週次/手動）。ドリフトが出たら次セッションで `/ig-reconcile` を実行して是正・予約する。
+照合は CI 週次（`fetch-ig-insights.yml`）が `snapshot.json` を `source:"graph-api"` で書く。週次レビューはこの snapshot を読む（実行しない）。Playwright 版 `verify-ig-status` はプランナー実体確認が要るときのフォールバック。ドリフトが出たら次セッションで `/ig-reconcile` を実行して是正・予約する。
 
 ## 関連
 

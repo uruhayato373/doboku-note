@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { mkdtempSync, mkdirSync, readFileSync, writeFileSync, rmSync } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
-import { reviewPeriod, direction, saveRecord, records, buildReport, snapshot, assertLocalWrite, strategyForRecord, noteArticleQualification } from '../scripts/lib/business-direction.mjs';
+import { reviewPeriod, direction, saveRecord, records, buildReport, snapshot, assertLocalWrite, strategyForRecord, noteArticleQualification, validateRecord, latestAll, unionDaily } from '../scripts/lib/business-direction.mjs';
 const now = new Date('2026-09-13T01:00:00Z'), period = { startDate: '2026-08-01', endDate: '2026-08-31' };
 function fixture(t) {
  const root=mkdtempSync(join(tmpdir(),'business-'));t.after(()=>rmSync(root,{recursive:true,force:true}));
@@ -127,6 +127,39 @@ test('write endpoint requires local same-origin JSON',()=>{
  assert.doesNotThrow(()=>assertLocalWrite(new Request('http://localhost:3021/metrics/business/record',{method:'POST',headers:{origin:'http://127.0.0.1:3021',host:'127.0.0.1:3021','content-type':'application/json'}})));
  assert.throws(()=>assertLocalWrite(make('https://evil.example')));
  assert.throws(()=>assertLocalWrite(make('http://127.0.0.1:3021','evil.example')));
+});
+test('instagram and cloudflare source facts are all-only with period coverage',t=>{
+ const root=fixture(t);
+ mkdirSync(join(root,'.claude/state/metrics/instagram'),{recursive:true});
+ mkdirSync(join(root,'.claude/state/metrics/cloudflare'),{recursive:true});
+ writeFileSync(join(root,'.claude/state/metrics/instagram/ig-insights-2026-08-15.json'),JSON.stringify({fetchedAt:'2026-08-16T00:00:00Z',account:{followersCount:500},daily:Array.from({length:31},(_, i)=>({date:`2026-08-${String(i+1).padStart(2,'0')}`,reach:10}))}));
+ writeFileSync(join(root,'.claude/state/metrics/cloudflare/cf-zone-2026-08-15.json'),JSON.stringify({fetchedAt:'2026-08-16T00:00:00Z',daily:Array.from({length:30},(_, i)=>({date:`2026-08-${String(i+1).padStart(2,'0')}`,jp:{requests:100},other:{requests:20}}))}));
+ const r=buildReport(root,period,now);
+ assert.equal(r.cells.find(c=>c.qualification==='all'&&c.metric==='igReach').value,310);
+ assert.equal(r.cells.find(c=>c.qualification==='all'&&c.metric==='igReach').coverage,'complete');
+ assert.equal(r.cells.find(c=>c.qualification==='all'&&c.metric==='igFollowers').value,500);
+ assert.equal(r.cells.find(c=>c.qualification==='civil-construction-1'&&c.metric==='igReach').coverage,'not-applicable');
+ assert.equal(r.cells.find(c=>c.qualification==='all'&&c.metric==='cfRequestsJp').value,3000);
+ assert.equal(r.cells.find(c=>c.qualification==='all'&&c.metric==='cfRequestsOther').value,600);
+ assert.equal(r.cells.find(c=>c.qualification==='all'&&c.metric==='cfRequestsJp').coverage,'partial');
+});
+test('unionDaily takes the later snapshot value for a shared date',()=>{
+ const snapshots=[
+  {file:'a',data:{daily:[{date:'2026-08-01',reach:1},{date:'2026-08-02',reach:2}]}},
+  {file:'b',data:{daily:[{date:'2026-08-02',reach:20},{date:'2026-08-03',reach:3}]}},
+ ];
+ assert.deepEqual(unionDaily(snapshots),[{date:'2026-08-01',reach:1},{date:'2026-08-02',reach:20},{date:'2026-08-03',reach:3}]);
+});
+test('latestAll returns [] when the directory is absent',t=>{
+ const root=fixture(t);
+ assert.deepEqual(latestAll(root,'.claude/state/metrics/instagram','ig-insights-'),[]);
+});
+test('validateRecord accepts instagram/cloudflare channels and rejects unknown ones',t=>{
+ const root=fixture(t), c=direction(root);
+ const base={kind:'measurement',qualification:'all',period,subject:'aggregate',source:'Instagram Graph API',coverage:'complete'};
+ assert.doesNotThrow(()=>validateRecord({...base,channel:'instagram',values:{igReach:100}},c,[],now));
+ assert.doesNotThrow(()=>validateRecord({...base,channel:'cloudflare',values:{cfRequestsJp:100}},c,[],now));
+ assert.throws(()=>validateRecord({...base,channel:'tiktok',values:{igReach:100}},c,[],now),/計測元/);
 });
 test('past reviews are validated against the strategy frozen in their snapshot, not the current one',()=>{
  const frozen={qualifications:[{id:'a'}],metrics:[{id:'m'}]};
