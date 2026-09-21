@@ -76,6 +76,8 @@
     "check-content-taxonomy:ci": "node scripts/check-content-taxonomy.mjs --ci",
     "check-character-avatars": "node scripts/check-character-avatars.mjs",
     "check-coconala-analytics": "node scripts/check-coconala-analytics.mjs",
+    "check-ig-insights-freshness": "node scripts/check-ig-insights-freshness.mjs",
+    "check-cloudflare-metrics-freshness": "node scripts/check-cloudflare-metrics-freshness.mjs",
     "check-coconala-blog": "node scripts/check-coconala-blog.mjs",
     "check-coconala-orders": "node scripts/check-coconala-orders.mjs",
     "check-coconala-wiring": "node scripts/check-coconala-wiring.mjs",
