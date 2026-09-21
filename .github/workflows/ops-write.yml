@@ -178,7 +178,7 @@ jobs:
       - name: Writeback auth state (auth:ci-writeback)
         if: always() && needs.resolve.outputs.playwright != 'false' && steps.restore.outcome == 'success' && steps.restore.outputs.status == 'authenticated'
         run: |
-          npm run auth:ci-writeback -- --service "${{ needs.resolve.outputs.service }}" --collector-exit "${{ steps.exec.outputs.rc || 1 }}" --json
+          node scripts/playwright-auth.mjs ci-writeback --service "${{ needs.resolve.outputs.service }}" --collector-exit "${{ steps.exec.outputs.rc || 1 }}" --json
 
       # カタログの op.ledger に列挙された台帳パスだけを commit する（ledger が空の操作は
       # 差分が無ければ何もしない）。commit → fetch → rebase → push の順を厳守する
