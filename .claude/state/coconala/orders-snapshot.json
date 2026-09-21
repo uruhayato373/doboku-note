@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fetchedAt": "2026-09-20T09:20:55.128Z",
+  "fetchedAt": "2026-09-21T06:20:37.662Z",
   "status": "ok",
   "source": "coconala.com /mypage/received_orders/*（Playwright・read-only）",
   "privacyNote": "購入者名・購入者ID・トークルーム本文・DM 本文は保存しない。保存するのは talkroomId / dmId / サービス / 金額 / 日付 / ステータス / 未返信 / 返信期限のみ。DM は subject（引用されたサービス名）だけを採る。送信者名と本文プレビューはブラウザ内で判定にのみ使い、結果のブール値（fromStaff / oneWay / violationRemoved）だけを残す。",
@@ -76,7 +76,7 @@
       "priceYen": 2500,
       "soldOn": "2026-08-25",
       "deliveryDueSet": false,
-      "statusLabel": "評価未入力",
+      "statusLabel": "完了",
       "lastMessageAt": "09/07 13:38",
       "unreplied": false,
       "replyDueAt": null

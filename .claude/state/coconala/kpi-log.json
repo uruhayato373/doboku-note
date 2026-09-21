@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-20",
+  "updatedAt": "2026-09-21",
   "source": "ココナラ「サービス・ブログ分析」を npm run coconala-analytics（Playwright・read-only）で収集し、--append-kpi で upsert する。数値は対象期間の累計（既定30日ローリング）であって週次増分ではない。手動貼付も引き続き可。",
   "howToUpdate": "npm run coconala-analytics -- --append-kpi → weekly / blogsWeekly を weekOf 単位で upsert → npm run check-coconala-analytics で鮮度・欠測・整合を確認 → /coconala-status で撤退ライン判定。",
   "weekly": [
@@ -375,8 +375,8 @@
       "favorites": 0,
       "orders": 0,
       "period": {
-        "from": "2026-08-21",
-        "to": "2026-09-19"
+        "from": "2026-08-22",
+        "to": "2026-09-20"
       },
       "windowDays": 30,
       "cumulative": true,
@@ -389,8 +389,8 @@
       "favorites": 0,
       "orders": 1,
       "period": {
-        "from": "2026-08-21",
-        "to": "2026-09-19"
+        "from": "2026-08-22",
+        "to": "2026-09-20"
       },
       "windowDays": 30,
       "cumulative": true,
@@ -399,12 +399,12 @@
     {
       "weekOf": "2026-09-14",
       "serviceId": "coconala-1kyu-premium",
-      "views": 14,
+      "views": 12,
       "favorites": 0,
       "orders": 0,
       "period": {
-        "from": "2026-08-21",
-        "to": "2026-09-19"
+        "from": "2026-08-22",
+        "to": "2026-09-20"
       },
       "windowDays": 30,
       "cumulative": true,
@@ -417,8 +417,8 @@
       "favorites": 0,
       "orders": 0,
       "period": {
-        "from": "2026-08-21",
-        "to": "2026-09-19"
+        "from": "2026-08-22",
+        "to": "2026-09-20"
       },
       "windowDays": 30,
       "cumulative": true,
@@ -427,12 +427,12 @@
     {
       "weekOf": "2026-09-14",
       "serviceId": "coconala-2kyu-kanseitoan-pdf",
-      "views": 21,
+      "views": 20,
       "favorites": 0,
       "orders": 0,
       "period": {
-        "from": "2026-08-21",
-        "to": "2026-09-19"
+        "from": "2026-08-22",
+        "to": "2026-09-20"
       },
       "windowDays": 30,
       "cumulative": true,
@@ -441,12 +441,12 @@
     {
       "weekOf": "2026-09-14",
       "serviceId": "coconala-2kyu-moshi-pdf",
-      "views": 16,
+      "views": 15,
       "favorites": 0,
       "orders": 0,
       "period": {
-        "from": "2026-08-21",
-        "to": "2026-09-19"
+        "from": "2026-08-22",
+        "to": "2026-09-20"
       },
       "windowDays": 30,
       "cumulative": true,
@@ -455,12 +455,12 @@
     {
       "weekOf": "2026-09-14",
       "serviceId": "coconala-civil-keiken-kit",
-      "views": 14,
+      "views": 13,
       "favorites": 0,
       "orders": 0,
       "period": {
-        "from": "2026-08-21",
-        "to": "2026-09-19"
+        "from": "2026-08-22",
+        "to": "2026-09-20"
       },
       "windowDays": 30,
       "cumulative": true,
@@ -473,8 +473,8 @@
       "favorites": 0,
       "orders": 0,
       "period": {
-        "from": "2026-08-21",
-        "to": "2026-09-19"
+        "from": "2026-08-22",
+        "to": "2026-09-20"
       },
       "windowDays": 30,
       "cumulative": true,
@@ -487,8 +487,8 @@
       "favorites": 0,
       "orders": 0,
       "period": {
-        "from": "2026-08-21",
-        "to": "2026-09-19"
+        "from": "2026-08-22",
+        "to": "2026-09-20"
       },
       "windowDays": 30,
       "cumulative": true,
@@ -501,8 +501,8 @@
       "favorites": 0,
       "orders": 0,
       "period": {
-        "from": "2026-08-21",
-        "to": "2026-09-19"
+        "from": "2026-08-22",
+        "to": "2026-09-20"
       },
       "windowDays": 30,
       "cumulative": true,
@@ -515,8 +515,8 @@
       "favorites": 0,
       "orders": 0,
       "period": {
-        "from": "2026-08-21",
-        "to": "2026-09-19"
+        "from": "2026-08-22",
+        "to": "2026-09-20"
       },
       "windowDays": 30,
       "cumulative": true,
@@ -525,12 +525,12 @@
     {
       "weekOf": "2026-09-14",
       "serviceId": "coconala-sakusei",
-      "views": 17,
+      "views": 18,
       "favorites": 0,
       "orders": 0,
       "period": {
-        "from": "2026-08-21",
-        "to": "2026-09-19"
+        "from": "2026-08-22",
+        "to": "2026-09-20"
       },
       "windowDays": 30,
       "cumulative": true,
@@ -539,12 +539,12 @@
     {
       "weekOf": "2026-09-14",
       "serviceId": "coconala-sakusei-4theme",
-      "views": 24,
-      "favorites": 1,
+      "views": 23,
+      "favorites": 0,
       "orders": 0,
       "period": {
-        "from": "2026-08-21",
-        "to": "2026-09-19"
+        "from": "2026-08-22",
+        "to": "2026-09-20"
       },
       "windowDays": 30,
       "cumulative": true,
@@ -553,12 +553,12 @@
     {
       "weekOf": "2026-09-14",
       "serviceId": "coconala-shindan",
-      "views": 19,
+      "views": 18,
       "favorites": 0,
       "orders": 0,
       "period": {
-        "from": "2026-08-21",
-        "to": "2026-09-19"
+        "from": "2026-08-22",
+        "to": "2026-09-20"
       },
       "windowDays": 30,
       "cumulative": true,
@@ -571,8 +571,8 @@
       "favorites": 0,
       "orders": 0,
       "period": {
-        "from": "2026-08-21",
-        "to": "2026-09-19"
+        "from": "2026-08-22",
+        "to": "2026-09-20"
       },
       "windowDays": 30,
       "cumulative": true,
@@ -581,12 +581,12 @@
     {
       "weekOf": "2026-09-14",
       "serviceId": "coconala-tensaku-set",
-      "views": 46,
-      "favorites": 1,
+      "views": 44,
+      "favorites": 0,
       "orders": 0,
       "period": {
-        "from": "2026-08-21",
-        "to": "2026-09-19"
+        "from": "2026-08-22",
+        "to": "2026-09-20"
       },
       "windowDays": 30,
       "cumulative": true,
@@ -771,11 +771,11 @@
       "slug": "anzen-kanri-kakikata",
       "blogId": "796664",
       "title": "【第5回】経験記述の安全管理、品質管理と同じ手順で書く",
-      "views": 23,
+      "views": 15,
       "postedOn": "2026-08-22",
       "period": {
-        "from": "2026-08-22",
-        "to": "2026-09-20"
+        "from": "2026-08-23",
+        "to": "2026-09-21"
       },
       "windowDays": 30,
       "cumulative": true,
@@ -786,11 +786,11 @@
       "slug": "dokugaku-tensaku-genkai",
       "blogId": "791954",
       "title": "【第2回】経験記述が独学で伸びない理由｜自己採点が成立しない構造",
-      "views": 12,
+      "views": 11,
       "postedOn": "2026-08-13",
       "period": {
-        "from": "2026-08-22",
-        "to": "2026-09-20"
+        "from": "2026-08-23",
+        "to": "2026-09-21"
       },
       "windowDays": 30,
       "cumulative": true,
@@ -801,11 +801,11 @@
       "slug": "hinshitsu-kanri-kakikata",
       "blogId": "794258",
       "title": "【第4回】経験記述の品質管理、設問1〜評価まで書く手順",
-      "views": 14,
+      "views": 13,
       "postedOn": "2026-08-17",
       "period": {
-        "from": "2026-08-22",
-        "to": "2026-09-20"
+        "from": "2026-08-23",
+        "to": "2026-09-21"
       },
       "windowDays": 30,
       "cumulative": true,
@@ -816,11 +816,11 @@
       "slug": "ochiru-keiken-kijutsu-3-pattern",
       "blogId": "791576",
       "title": "【第1回】経験記述で落ちる答案に共通する3つの型｜1級・2級土木",
-      "views": 11,
+      "views": 10,
       "postedOn": "2026-08-12",
       "period": {
-        "from": "2026-08-22",
-        "to": "2026-09-20"
+        "from": "2026-08-23",
+        "to": "2026-09-21"
       },
       "windowDays": 30,
       "cumulative": true,
@@ -834,8 +834,8 @@
       "views": 8,
       "postedOn": "2026-08-18",
       "period": {
-        "from": "2026-08-22",
-        "to": "2026-09-20"
+        "from": "2026-08-23",
+        "to": "2026-09-21"
       },
       "windowDays": 30,
       "cumulative": true,
@@ -849,8 +849,8 @@
       "views": 14,
       "postedOn": "2026-09-06",
       "period": {
-        "from": "2026-08-22",
-        "to": "2026-09-20"
+        "from": "2026-08-23",
+        "to": "2026-09-21"
       },
       "windowDays": 30,
       "cumulative": true,
@@ -861,11 +861,11 @@
       "slug": "yosou-mondai-kaku-renshu",
       "blogId": "794012",
       "title": "【第3回】経験記述は予想テーマで書く練習｜週1回5ステップ",
-      "views": 10,
+      "views": 9,
       "postedOn": "2026-08-17",
       "period": {
-        "from": "2026-08-22",
-        "to": "2026-09-20"
+        "from": "2026-08-23",
+        "to": "2026-09-21"
       },
       "windowDays": 30,
       "cumulative": true,
