@@ -704,6 +704,20 @@ export async function ciRestoreAuthState(context = {}, service) {
       async () => classifyAuthSnapshot(adapter, await captureAuthSnapshot(service, opened.page)),
       { attempts: context.statusAttempts ?? 6, sleep: (ms) => opened.page.waitForTimeout(ms) },
     );
+    // authenticated 以外は「何が見えていたか」を残す（URL・タイトル・本文先頭・スクリーンショット）。
+    // CI では画面を見られないので、これが無いと unknown の原因（bot 挑戦・別ページ・描画待ち）を切り分けられない。
+    if (probe.status !== 'authenticated') {
+      const snap = await captureAuthSnapshot(service, opened.page).catch(() => ({}));
+      probe.diag = { url: snap.url ?? null, title: snap.title ?? null, textHead: String(snap.text ?? '').replace(/\s+/g, ' ').slice(0, 240), hasPasswordField: !!snap.hasPasswordField };
+      const diagDir = env.DOBOKU_AUTH_DIAG_DIR;
+      if (diagDir) {
+        const { mkdirSync: mk } = await import('node:fs');
+        mk(diagDir, { recursive: true });
+        const shot = join(diagDir, `auth-diag-${service}.png`);
+        await opened.page.screenshot({ path: shot, fullPage: false }).catch(() => {});
+        probe.diag.screenshotPath = shot;
+      }
+    }
   } catch (error) {
     return { ok: false, service, status: 'error', reason: String(error.message).slice(0, 200), exitCode: 1 };
   } finally {
@@ -719,7 +733,7 @@ export async function ciRestoreAuthState(context = {}, service) {
       restoredAt: (context.now ?? new Date()).toISOString(),
     });
   }
-  return { ok: probe.status === 'authenticated', service, status: probe.status, reason: probe.reason, generation: manifest.generation, cookies };
+  return { ok: probe.status === 'authenticated', service, status: probe.status, reason: probe.reason, generation: manifest.generation, cookies, ...(probe.diag ? { diag: probe.diag } : {}) };
 }
 
 /** CI 専用: collector 実行後、書き戻すべきか decideWriteback で判定し、必要なら暗号化して R2 へ書き戻す。 */

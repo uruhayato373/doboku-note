@@ -35,6 +35,7 @@ runs:
           echo "DOBOKU_PW_MIN_FREE_MB=1024"
           echo "DOBOKU_PW_LOCALE=ja-JP"
           echo "DOBOKU_PW_TIMEZONE=Asia/Tokyo"
+          echo "DOBOKU_AUTH_DIAG_DIR=${RUNNER_TEMP}/auth-diag"
         } >> "$GITHUB_ENV"
 
     # 2. Chrome の所在を確認する。ubuntu-latest に事前インストール済みならそれを使い、
@@ -110,6 +111,12 @@ runs:
         " "${out_file}")
 
         echo "restore status=${status} generation=${generation} cookies=${cookies} rc=${rc}"
+        if [ "${status}" != "authenticated" ]; then
+          # CLI の出力は redactAuthDiagnostic 済み（cookie/identity は出ない）。unknown/expired/blocked の切り分け用に URL・タイトル・本文先頭を残す。
+          echo "::group::restore diagnostics (${{ inputs.service }})"
+          cat "${out_file}" || true
+          echo "::endgroup::"
+        fi
 
         {
           echo "status=${status}"
@@ -117,3 +124,14 @@ runs:
           echo "cookies=${cookies}"
           echo "rc=${rc}"
         } >> "$GITHUB_OUTPUT"
+
+    # 5. authenticated 以外のときだけ、画面のスクリーンショットを短期保持の artifact に残す（CI では画面を見られないため）。
+    #    運営者自身のアカウント画面なので retention は 1 日・private repo の範囲。
+    - name: Upload auth diagnostics (non-authenticated only)
+      if: steps.restore.outputs.status != 'authenticated'
+      uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+      with:
+        name: auth-diag-${{ inputs.service }}-${{ github.run_id }}
+        path: ${{ runner.temp }}/auth-diag
+        if-no-files-found: ignore
+        retention-days: 1
