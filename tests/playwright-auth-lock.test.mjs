@@ -12,7 +12,7 @@ function fixture() {
   const root = mkdtempSync(join(tmpdir(), 'doboku-auth-lock-'));
   return {
     root,
-    authOptions: { cwd: REPO_ROOT, repoRoot: REPO_ROOT, overrideRoot: root, homeDir: '/home/tester' },
+    authOptions: { cwd: REPO_ROOT, repoRoot: REPO_ROOT, overrideRoot: root, homeDir: '/home/tester', isCI: false }, // isCI:false＝ローカル機を模す（CI 自動検出を切る）
   };
 }
 

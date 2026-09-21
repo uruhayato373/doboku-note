@@ -135,7 +135,7 @@ test('filesystem root（ドライブ直下・POSIX root）は拒否', () => {
 
 test('安全な絶対パスは許可', () => {
   const safe = process.platform === 'win32' ? 'C:\\Users\\tester\\AppData\\Local\\doboku-note\\playwright-auth' : '/home/tester/.local/state/doboku-note/playwright-auth';
-  const r = validateAuthRoot(safe, { homeDir: process.platform === 'win32' ? 'C:\\Users\\tester' : '/home/tester' });
+  const r = validateAuthRoot(safe, { homeDir: process.platform === 'win32' ? 'C:\\Users\\tester' : '/home/tester', isCI: false });
   assert.equal(r.ok, true);
 });
 
@@ -255,6 +255,7 @@ test('Phase 02の4サービスは同じ一時auth rootから別profileへ解決�
         repoRoot: REPO_ROOT,
         overrideRoot: dir,
         homeDir: '/home/tester',
+        isCI: false,
       });
       assert.equal(actual, join(dir, 'profiles', profileName));
     }
@@ -299,13 +300,15 @@ test('Phase 03の6サービスはprofile/state制約を同じauth rootで区別�
       repoRoot: REPO_ROOT,
       overrideRoot: dir,
       homeDir: '/home/tester',
+      isCI: false, // ローカル機を模す（GitHub Actions 上で npm test が走っても CI 自動検出で拒否されない）
     };
     for (const service of ['x', 'instagram', 'google', 'a8', 'moshimo', 'afb']) {
       assert.equal(resolveProfileDir(service, options), join(dir, 'profiles', `playwright-${service === 'instagram' ? 'ig-bs' : service}-profile`));
     }
-    assert.equal(resolveStatePath('x', options), null);
+    // registry v2（2026-09-21）: encrypted-state で CI へ持ち出すサービスは state を持つ。instagram は mode:none のまま。
+    assert.equal(resolveStatePath('x', options), join(dir, 'states', 'playwright-x-state.json'));
     assert.equal(resolveStatePath('instagram', options), null);
-    assert.equal(resolveStatePath('google', options), null);
+    assert.equal(resolveStatePath('google', options), join(dir, 'states', 'playwright-google-state.json'));
     assert.equal(resolveStatePath('a8', options), join(dir, 'states', 'playwright-a8-state.json'));
     assert.equal(resolveStatePath('moshimo', options), join(dir, 'states', 'playwright-moshimo-state.json'));
     assert.equal(resolveStatePath('afb', options), join(dir, 'states', 'playwright-afb-state.json'));
