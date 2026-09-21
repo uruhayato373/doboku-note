@@ -68,6 +68,12 @@
       "branch": "develop",
       "maxAgeDays": 10,
       "maxConsecutiveFailures": 6,
+      "schedule": {
+        "activeSince": "2026-09-21T21:20:00Z",
+        "maxAgeDays": 8,
+        "graceHours": 12,
+        "_why": "canary を全部 workflow_dispatch で緑にしたため、cron が死んでも手動成功が maxAgeDays を永久にマスクする（契約が禁じる「手動成功による異常隠蔽」）。event=schedule の run だけで発火の有無・鮮度を独立に見る。activeSince=最初の a8 cron 枠（月 21:20 UTC）。有効サービス a8(月)/coconala(火)/note(水) は週 3 発火するので、8 日発火無し＝cron 全停止。graceHours=GitHub の schedule 登録遅延＋初回発火遅延のバッファ"
+      },
       "_note": "週次 cron の和集合（2026-09-21 に全サービス enabled:true）。state 未 export のサービスは restore が state-missing＝exit 2 で Issue auth-state-<svc> を立て、Mac での auth:login → auth:export を催促する。全部が揃うまで run 自体は赤になりうるので、連続失敗の閾値は緩め"
     },
     {

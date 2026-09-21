@@ -49,7 +49,7 @@ const CONFIG_PATH = join(ROOT, '.claude/config/workflow-health.json');
  */
 export function fetchRuns(workflow, branch, limit = 30) {
   const args = ['run', 'list', '--workflow', workflow, '--limit', String(limit),
-    '--json', 'conclusion,status,createdAt,databaseId'];
+    '--json', 'conclusion,status,createdAt,databaseId,event'];
   if (branch) args.push('--branch', branch);
   const out = execFileSync('gh', args, {
     cwd: ROOT, encoding: 'utf8', timeout: 60_000, maxBuffer: 32 * 1024 * 1024,
@@ -58,15 +58,68 @@ export function fetchRuns(workflow, branch, limit = 30) {
 }
 
 /**
+ * cron が「実際に発火しているか」を event=schedule の run だけで判定する（純関数）。
+ *
+ * ★なぜ独立の次元が要るか（2026-09-22）
+ *   auditRuns の success/連続失敗は **event を区別しない**ので、workflow_dispatch や
+ *   push の成功が「最後の success は 0 日前」を作り、**cron が一度も発火していなくても
+ *   健全に見える**。これは契約が禁じる「手動成功による異常隠蔽」そのもの。
+ *   login-collectors は canary を全部 dispatch で回して緑にしたので、schedule が
+ *   死んでいても手動成功が永久にマスクする。ここは schedule で起動した run だけを見る。
+ *
+ *   「発火したか」と「成功したか」は別物なので、ここでは conclusion を問わない
+ *   （成功/失敗は auditRuns が全 run で見る）。発火の有無・鮮度だけを判定する。
+ *
+ * @param {{ activeSince: string, maxAgeDays: number, graceHours?: number }} cfg
+ * @returns {{ ok: boolean, kind: string, lastScheduleAt: string|null, scheduleAgeDays: number|null, detail: string }|null}
+ *   cfg 不在なら null（schedule 次元を評価しない）。
+ */
+export function auditSchedule(name, runs, cfg, now) {
+  if (!cfg || !cfg.activeSince || !Number.isFinite(cfg.maxAgeDays)) return null;
+  const activeMs = Date.parse(cfg.activeSince);
+  if (!Number.isFinite(activeMs)) return null;
+  const graceMs = (cfg.graceHours ?? 0) * 3_600_000;
+  const deadlineMs = activeMs + graceMs;
+
+  const scheduled = (runs ?? [])
+    .filter((r) => r.event === 'schedule')
+    .sort((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt));
+  const lastScheduleAt = scheduled[0]?.createdAt ?? null;
+  const scheduleAgeDays = lastScheduleAt
+    ? Math.floor((now - Date.parse(lastScheduleAt)) / 86_400_000)
+    : null;
+
+  // まだ最初の予定枠＋猶予に達していない＝異常ではない（発火を待っている段階）。
+  if (now < deadlineMs) {
+    return { ok: true, kind: 'schedule-pending', lastScheduleAt, scheduleAgeDays,
+      detail: `schedule 発火はまだ期待していない（active ${cfg.activeSince} + 猶予 ${cfg.graceHours ?? 0}h）` };
+  }
+  if (lastScheduleAt == null) {
+    return { ok: false, kind: 'schedule-never-fired', lastScheduleAt, scheduleAgeDays,
+      detail: `cron が一度も発火していない（active ${cfg.activeSince} 以降・手動 run では判定しない）` };
+  }
+  if (scheduleAgeDays > cfg.maxAgeDays) {
+    return { ok: false, kind: 'schedule-stale', lastScheduleAt, scheduleAgeDays,
+      detail: `最後の schedule 発火が ${scheduleAgeDays} 日前（上限 ${cfg.maxAgeDays} 日・cron 停止/無効化を疑う）` };
+  }
+  return { ok: true, kind: 'schedule-ok', lastScheduleAt, scheduleAgeDays, detail: '' };
+}
+
+/**
  * run 一覧から健全性を判定する（純関数・テストから使う）。
  *
  * `status !== 'completed'` の run（実行中）は判定から除く——「まだ結果が出ていない」を
  * 失敗として数えると、走っている最中に赤くなる。
+ *
+ * config に `schedule` があれば、cron 発火の有無・鮮度も独立に検査する（手動成功で
+ * マスクされない）。schedule 次元は run の status を問わない（in_progress も発火の証拠）。
  */
-export function auditRuns(name, runs, { maxAgeDays, maxConsecutiveFailures }, now) {
+export function auditRuns(name, runs, { maxAgeDays, maxConsecutiveFailures, schedule }, now) {
+  const scheduleAudit = auditSchedule(name, runs, schedule, now);
   const done = (runs ?? []).filter((r) => r.status === 'completed');
   if (done.length === 0) {
     return { name, ok: false, kind: 'no-runs', total: runs?.length ?? 0,
+      schedule: scheduleAudit,
       detail: '完了した run が 1 件も無い（未発火・cron 停止・履歴外）' };
   }
   // gh は新しい順で返す。念のため createdAt で降順に固定する。
@@ -91,12 +144,15 @@ export function auditRuns(name, runs, { maxAgeDays, maxConsecutiveFailures }, no
   if (consecutiveFailures >= maxConsecutiveFailures) {
     reasons.push(`${consecutiveFailures} 連続で失敗（上限 ${maxConsecutiveFailures - 1}）`);
   }
+  // cron 発火の異常は成功/失敗とは独立に赤にする（手動成功でマスクさせない）。
+  if (scheduleAudit && !scheduleAudit.ok) reasons.push(scheduleAudit.detail);
 
   return {
     name, ok: reasons.length === 0,
     kind: reasons.length ? 'unhealthy' : 'ok',
     ageDays, consecutiveFailures, total: sorted.length,
     lastSuccessAt: lastSuccess?.createdAt ?? null,
+    schedule: scheduleAudit,
     detail: reasons.join(' / '),
   };
 }
@@ -140,8 +196,11 @@ function main() {
   say(`[check-workflow-health] workflow ${targets.length} 本中 ${rows.length} 本を実検査`
     + `${errors.length ? `（取得失敗 ${errors.length} 本）` : ''} / 不健全 ${bad.length} 本`);
   for (const r of rows) {
+    const sched = r.schedule
+      ? ` / cron発火 ${r.schedule.lastScheduleAt == null ? '無し' : `${r.schedule.scheduleAgeDays}日前`}`
+      : '';
     say(`  ${r.ok ? '✓' : '✗'} ${r.name.padEnd(28)} 最終success ${r.ageDays == null ? '無し' : `${r.ageDays}日前`}`
-      + ` / 連続失敗 ${r.consecutiveFailures}${r.detail ? `  — ${r.detail}` : ''}`);
+      + ` / 連続失敗 ${r.consecutiveFailures}${sched}${r.detail ? `  — ${r.detail}` : ''}`);
   }
   for (const e of errors) say(`  ? ${e.workflow.padEnd(28)} 取得失敗: ${e.error}`);
 
