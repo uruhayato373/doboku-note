@@ -63,10 +63,10 @@
       "accountConfigPath": ".claude/config/brain-account.json",
       "sessionMode": "profile",
       "interactiveLoginRequired": true,
-      "notes": null,
+      "notes": " 2026-09-21: Brain チャネルから撤退の方針（ユーザー決定）。CI 対象外（enabled:false）。ログイン・export も行わない。",
       "ci": {
         "mode": "encrypted-state",
-        "enabled": true,
+        "enabled": false,
         "canary": false,
         "operations": [
           "read",
@@ -165,10 +165,10 @@
       "accountConfigPath": ".claude/config/x-account.json",
       "sessionMode": "profile",
       "interactiveLoginRequired": true,
-      "notes": null,
+      "notes": " 2026-09-21: GitHub hosted runner から x.com を開くと「セキュリティ検証の実行（悪意のあるボットから保護）」の挑戦ページになり判定不能（run 35570971566）。datacenter IP 起因で cookie の問題ではない。hosted CI では動かないため enabled:false。読み取り・投稿とも当面ローカル（または residential IP の self-hosted runner）。",
       "ci": {
         "mode": "encrypted-state",
-        "enabled": true,
+        "enabled": false,
         "canary": false,
         "operations": [
           "read",
@@ -254,12 +254,12 @@
     "a8": {
       "profileDirName": "playwright-a8-profile",
       "stateFileName": "playwright-a8-state.json",
-      "loginUrl": "https://management.af8.jp/",
-      "checkUrl": "https://management.af8.jp/",
+      "loginUrl": "https://media-console.a8.net/home",
+      "checkUrl": "https://media-console.a8.net/home",
       "accountConfigPath": ".claude/config/a8-report-automation.json",
       "sessionMode": "profile-plus-state",
       "interactiveLoginRequired": true,
-      "notes": "A8 は揮発性セッション Cookie のため永続プロファイルだけでは認証が残らず、storageState の Cookie 再注入を併用する。アカウント assert は「サイト」ではなく口座（メディアID）。",
+      "notes": "A8 は揮発性セッション Cookie のため永続プロファイルだけでは認証が残らず、storageState の Cookie 再注入を併用する。アカウント assert は「サイト」ではなく口座（メディアID）。 2026-09-21: 旧 management.af8.jp は DNS 不解決。URL の真実源は a8-report-automation.json の baseUrl+homePath（media-console.a8.net）。",
       "ci": {
         "mode": "encrypted-state",
         "enabled": true,
@@ -308,12 +308,12 @@
     "afb": {
       "profileDirName": "playwright-afb-profile",
       "stateFileName": "playwright-afb-state.json",
-      "loginUrl": "https://www.afi-b.com/member/login",
-      "checkUrl": "https://www.afi-b.com/member/",
+      "loginUrl": "https://www.afi-b.com/pa/",
+      "checkUrl": "https://www.afi-b.com/pa/promolist/?rel=non",
       "accountConfigPath": ".claude/config/affiliate-asp.json",
       "sessionMode": "same-process",
       "interactiveLoginRequired": true,
-      "notes": "sessionPersistsAcrossProcesses: false。保存した storageState を別プロセスで復元できないことがあり、ログインから操作まで同一プロセスで完結させる制約がある。afb 既定は stats47（asp-site-guard が例外で停止）。",
+      "notes": "sessionPersistsAcrossProcesses: false。保存した storageState を別プロセスで復元できないことがあり、ログインから操作まで同一プロセスで完結させる制約がある。afb 既定は stats47（asp-site-guard が例外で停止）。 2026-09-21: URL を affiliate-asp.json（baseUrl+homePath / readyPath）に合わせた。判定はテキストでなく #top_site_select の DOM（readyMarker）。",
       "ci": {
         "mode": "encrypted-state",
         "enabled": true,

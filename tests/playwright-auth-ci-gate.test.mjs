@@ -199,3 +199,10 @@ test('共有セッション lib は CI 環境でも import だけでは resolver
     assert.equal(r.status, 0, `${lib}: import が CI 環境で失敗した\n${r.stderr}`);
   }
 });
+
+test('classifyAuthSnapshot: X の datacenter 向けボット挑戦ページは blocked（unknown で待たない）', async () => {
+  const { classifyAuthSnapshot } = await import('../scripts/lib/playwright-auth-adapters.mjs');
+  const adapter = { supported: true, expectedMarkers: ['@doboku373'], expiredPattern: /\/login/i, loggedOutMarkers: [] };
+  const r = classifyAuthSnapshot(adapter, { url: 'https://x.com/home', title: 'しばらくお待ちください...', text: 'x.com セキュリティ検証の実行 この Web サイトは、悪意のあるボットから保護するためにセキュリティ サービスを使用しています。' });
+  assert.equal(r.status, 'blocked');
+});
