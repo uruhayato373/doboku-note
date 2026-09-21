@@ -159,8 +159,18 @@ jobs:
         continue-on-error: true
         run: |
           set +e
-          npm run a8-ui:fetch -- --month "$(date -u -d 'last month' +%Y-%m)" && npm run a8-ui:normalize
-          rc=$?
+          # fetch の exit 2 = 部分取得（例: period-daily の期間入力欄が headless で見つからない・2026-09-21 run 35600802709 は 3/4）。
+          # 取れた分は normalize して記録に載せる（normalize は status!=downloaded の unit を skip する）。
+          # ただし rc は 2 のまま返して run を赤にし、欠けたレポート名を Issue に残す（部分取得を緑と呼ばない）。
+          npm run a8-ui:fetch -- --month "$(date -u -d 'last month' +%Y-%m)"
+          frc=$?
+          nrc=0
+          if [ "$frc" -eq 0 ] || [ "$frc" -eq 2 ]; then
+            npm run a8-ui:normalize
+            nrc=$?
+          fi
+          if [ "$frc" -eq 0 ]; then rc=$nrc; else rc=$frc; fi
+          [ "$frc" -eq 2 ] && echo "::warning::a8 は部分取得（fetch rc=2）。取れた分は normalize 済み。欠けたレポートは fetch ログ参照"
           echo "rc=${rc}" >> "$GITHUB_OUTPUT"
 
       - name: "kdp: report"
