@@ -3,7 +3,7 @@ name: ig-reconcile
 description: >
   Instagram の公開状態をライブのグリッド＋プランナーと照合し（現状確認）、ローカル SoT
   (posted.json/status.json) のドリフトを是正し、未公開パックを安全に予約投稿まで運ぶ運用スキル。
-  `verify-ig-status` でドリフトを検出→posted.json backfill / draft 誤記録是正→`ig-publish-auditor`
+  CI 週次 snapshot（`fetch-ig-insights.yml`・フォールバックは `verify-ig-status`）でドリフトを検出→posted.json backfill / draft 誤記録是正→`ig-publish-auditor`
   で公開可否ゲート→`publish-ig-bs` で衝突しない時間帯へ予約→プランナーで実体確認。投稿/予約は
   operator 確認後のみ・公開済み投稿の削除は対象外（不可逆）。Use when user asks to
   [IG公開状態を確認, インスタ公開状態, 未公開を予約投稿, IGのSoTドリフト是正, IG status reconcile, /ig-reconcile].
@@ -72,4 +72,4 @@ npm run verify-ig-status -- --json  # 機械処理用
 - `verify-ig-status`（`scripts/verify-ig-status.mjs`）= 照合エンジン（read-only）。`ig-status` = ローカル投稿記録 CRUD。
 - `publish-ig-bs` = 予約投稿エンジン（本スキルが呼ぶ）。
 - `ig-publish-auditor`（Evaluator）= 公開可否ゲート＋異常検出。
-- 週次: `/weekly-review` が `npm run verify-ig-status` を回しドリフトをサーフェス（定期実行の入口）。
+- 週次: CI（`fetch-ig-insights.yml`）が `.claude/state/ig-reconcile/snapshot.json` を書き、`/weekly-review` はそれを読む（実行しない）。`verify-ig-status` はプランナー実体確認が必要なときのローカルフォールバック。
