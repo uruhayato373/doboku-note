@@ -264,6 +264,7 @@
         ],
         "readOnlyScripts": [
           "scripts/fetch-a8-ui-csv.mjs",
+          "scripts/normalize-a8-csv.mjs",
           "scripts/affiliate-status.mjs"
         ],
         "writeScripts": [

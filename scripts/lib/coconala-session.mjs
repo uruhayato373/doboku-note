@@ -20,8 +20,9 @@ import { readFileSync, existsSync, writeFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { todayJst } from './jst-date.mjs';
-import { resolveProfileDir } from './playwright-auth-profile.mjs';
+import { resolveProfileDir, resolveStatePath } from './playwright-auth-profile.mjs';
 import { leanContextOptions } from './playwright-launch.mjs';
+import { attachCISession } from './playwright-auth-state.mjs';
 
 export const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 export const PROFILE = resolveProfileDir('coconala', { cwd: ROOT, repoRoot: ROOT });
@@ -130,7 +131,7 @@ export function writeBackCatalog(id, url, today) {
  * headless は既定 false（ログイン状態の目視・初回ログインのため）。--headless で上書き可。
  */
 export async function launchContext({ headless = false } = {}) {
-  return chromium.launchPersistentContext(PROFILE, leanContextOptions({
+  const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
     headless,
     channel: 'chrome',
     proxy: PROXY ? { server: PROXY } : undefined,
@@ -138,6 +139,8 @@ export async function launchContext({ headless = false } = {}) {
     viewport: { width: 1366, height: 1000 },
     args: ['--disable-blink-features=AutomationControlled'],
   }));
+  await attachCISession(ctx, 'coconala', { statePath: resolveStatePath('coconala', { cwd: ROOT, repoRoot: ROOT }) });
+  return ctx;
 }
 
 /**

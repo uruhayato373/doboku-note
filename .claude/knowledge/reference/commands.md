@@ -62,6 +62,11 @@ npm run disk-hygiene:install  # macOS: launchd 日次掃除＋Git maintenance登
 npm run disk-hygiene:install:win # Windows: タスクスケジューラ日次掃除＋Git maintenance登録（12:30・逃した回は次回起動時。ログと stamp は ~/.local/state/doboku-note/logs/。AppData 配下にしないのは MSIX アプリからの読み書きが仮想化されるため）
 npm run auth:doctor           # Playwright auth root の診断（Windows は旧 %LOCALAPPDATA% と Codex(MSIX) サンドボックスの取り残しも警告）
 npm run auth:migrate          # 旧置き場のプロファイルを新 root へコピー（既定 dry-run・--commit。Cookie が最新の候補を選び、キャッシュは運ばない）
+npm run auth:keygen           # CI用age keypair生成。recipient未設定でのexportは拒否されるので先に実行する
+npm run auth:export           # ローカルstorageStateをage暗号化しprivate R2へ書き出す。recipient未設定だと拒否される
+npm run auth:ci-restore       # CI専用。暗号化stateを復元。authenticated以外はexit 2でリトライしない（人の再ログイン待ち）
+npm run auth:ci-writeback     # CI専用。更新後のstorageStateをCAS（etag/generation）で書き戻す
+npm run auth:ci-plan          # ops-writeのwrite planを作りDOBOKU_CI_WRITE_PLAN_SHA256を計算する
 npm run check-content-taxonomy # 分類語彙（領域×資格×記事型×テーマ×タグ）の整合。group が許可外・未登録タグは赤、別名綴り・構造タグ不整合は baseline ラチェット（`:ci`）、topic 三方向の 0 件は WARN。規則は content-taxonomy.md・pre-commit --staged ＋ quality:audit
 npm run check-content-expansion # 全教材の論点→記事/図/SNS対応・未確認・原典待ち・成果物変更を検査（管理画面 /content/expansion・週次/月次で確認）
 ```

@@ -20,6 +20,15 @@
  *   DOBOKU_PW_ALLOW_PARALLEL=1  別プロファイルの Chrome 稼働中でも起動を許す
  *   DOBOKU_PW_MIN_FREE_MB=NNNN  空きメモリ閾値（既定 2048）
  *   DOBOKU_PW_ALLOW_SW=1        Service Worker を許可（サイト側で必要になったとき）
+ *
+ * CI 用 env 上書き（login-collectors.yml の composite action が設定する。人が headed で使うときは触らない）:
+ *   DOBOKU_PW_HEADLESS=1           headless:true にし、headless 化に要る Chromium 引数を追加する。
+ *                                   base.headless:false をハードコードしている既存呼び出し元を無改造で
+ *                                   headless 化するための唯一の例外（理由: CI ランナーには表示系が無い）
+ *   DOBOKU_PW_USER_AGENT            userAgent を上書き
+ *   DOBOKU_PW_LOCALE                locale を上書き
+ *   DOBOKU_PW_TIMEZONE              timezoneId を上書き
+ *   DOBOKU_PW_EXECUTABLE_PATH       executablePath を上書き（指定時は channel を外す。両方あると Playwright が例外）
  * ---------------------------------------------------------------------------
  */
 import { spawnSync } from 'node:child_process';
@@ -35,6 +44,9 @@ export const LEAN_CHROMIUM_ARGS = Object.freeze([
   '--media-cache-size=1',
   '--disable-gpu-shader-disk-cache',
 ]);
+
+/** DOBOKU_PW_HEADLESS=1 のときに追加する Chromium 引数（CI の表示系なし環境向け）。 */
+export const CI_HEADLESS_CHROMIUM_ARGS = Object.freeze(['--headless=new', '--no-first-run', '--no-default-browser-check']);
 
 export const DEFAULT_MIN_FREE_BYTES = 2 * 1024 ** 3;
 
@@ -52,15 +64,30 @@ export class LaunchGuardError extends Error {
  *   - args は和集合（重複除去・呼び出し側の順序を先頭に保つ）
  *   - serviceWorkers は base が持っていればそのまま、無ければ 'block'（allowServiceWorkers で 'allow'）
  */
-export function mergeLeanOptions(base = {}, { allowServiceWorkers = false } = {}) {
+export function mergeLeanOptions(base = {}, { allowServiceWorkers = false, env = process.env } = {}) {
   const baseArgs = Array.isArray(base.args) ? base.args : [];
   const args = [...baseArgs];
   for (const a of LEAN_CHROMIUM_ARGS) if (!args.includes(a)) args.push(a);
-  return {
+
+  const out = {
     ...base,
     args,
     serviceWorkers: base.serviceWorkers ?? (allowServiceWorkers ? 'allow' : 'block'),
   };
+
+  if (env.DOBOKU_PW_HEADLESS === '1') {
+    out.headless = true;
+    for (const a of CI_HEADLESS_CHROMIUM_ARGS) if (!out.args.includes(a)) out.args.push(a);
+  }
+  if (env.DOBOKU_PW_USER_AGENT) out.userAgent = env.DOBOKU_PW_USER_AGENT;
+  if (env.DOBOKU_PW_LOCALE) out.locale = env.DOBOKU_PW_LOCALE;
+  if (env.DOBOKU_PW_TIMEZONE) out.timezoneId = env.DOBOKU_PW_TIMEZONE;
+  if (env.DOBOKU_PW_EXECUTABLE_PATH) {
+    out.executablePath = env.DOBOKU_PW_EXECUTABLE_PATH;
+    delete out.channel;
+  }
+
+  return out;
 }
 
 /**
@@ -167,5 +194,5 @@ export function guardBrowserLaunch(options = {}) {
 export function leanContextOptions(base = {}, options = {}) {
   const env = options.env ?? process.env;
   guardBrowserLaunch(options);
-  return mergeLeanOptions(base, { allowServiceWorkers: env.DOBOKU_PW_ALLOW_SW === '1' });
+  return mergeLeanOptions(base, { allowServiceWorkers: env.DOBOKU_PW_ALLOW_SW === '1', env });
 }

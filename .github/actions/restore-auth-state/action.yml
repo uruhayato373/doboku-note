@@ -1,0 +1,117 @@
+name: "Restore auth state (encrypted)"
+description: >-
+  DOBOKU_AUTH_AGE_IDENTITY で R2 上の age 暗号化 storageState を復号し、
+  Playwright 用の CI 認証環境（DOBOKU_AUTH_ROOT・DOBOKU_PW_*）を用意する。
+  真実源: .claude/config/playwright-auth-profiles.json（ciAuthState）/
+  scripts/lib/playwright-auth-profile.mjs（getCIAuthStateConfig 等）。
+
+inputs:
+  service:
+    description: "playwright-auth-profiles.json の services キー（例: note, a8, kdp）"
+    required: true
+
+outputs:
+  status:
+    description: "authenticated / expired / blocked / unknown / state-missing"
+    value: ${{ steps.restore.outputs.status }}
+  generation:
+    description: "R2 上の世代識別子（無ければ空文字）"
+    value: ${{ steps.restore.outputs.generation }}
+  cookies:
+    description: "restore 結果に含まれる cookie 件数等（秘密値は含まない）"
+    value: ${{ steps.restore.outputs.cookies }}
+
+runs:
+  using: "composite"
+  steps:
+    # 1. 共通 env を $GITHUB_ENV へ。以降のステップ・呼び出し元ジョブの後続ステップからも見える。
+    - name: Configure auth environment
+      shell: bash
+      run: |
+        {
+          echo "DOBOKU_AUTH_ROOT=${RUNNER_TEMP}/doboku-auth"
+          echo "DOBOKU_AUTH_SESSION_MODE=encrypted-state"
+          echo "DOBOKU_PW_HEADLESS=1"
+          echo "DOBOKU_PW_MIN_FREE_MB=1024"
+          echo "DOBOKU_PW_LOCALE=ja-JP"
+          echo "DOBOKU_PW_TIMEZONE=Asia/Tokyo"
+        } >> "$GITHUB_ENV"
+
+    # 2. Chrome の所在を確認する。ubuntu-latest に事前インストール済みならそれを使い、
+    #    無ければ browser-actions/setup-chrome（SHA 固定）で導入する。
+    - name: Detect preinstalled Chrome
+      id: chrome
+      shell: bash
+      run: |
+        if [ -x /opt/google/chrome/chrome ]; then
+          version=$(/opt/google/chrome/chrome --version | grep -oE '[0-9]+' | head -1)
+          echo "DOBOKU_PW_USER_AGENT=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/${version}.0.0.0 Safari/537.36" >> "$GITHUB_ENV"
+          echo "source=preinstalled" >> "$GITHUB_OUTPUT"
+        else
+          echo "source=setup-chrome" >> "$GITHUB_OUTPUT"
+        fi
+
+    - name: Setup Chrome (fallback)
+      if: steps.chrome.outputs.source == 'setup-chrome'
+      id: setup_chrome
+      uses: browser-actions/setup-chrome@48ad923757ca74d66703209fe939badbdf80f2f4 # v2.2.0
+      with:
+        chrome-version: stable
+
+    - name: Point Playwright at setup-chrome binary
+      if: steps.chrome.outputs.source == 'setup-chrome'
+      shell: bash
+      run: echo "DOBOKU_PW_EXECUTABLE_PATH=${{ steps.setup_chrome.outputs.chrome-path }}" >> "$GITHUB_ENV"
+
+    # 3. Secret の存在確認。値は絶対に出力しない（長さだけ）。
+    #    落とし穴②: Secret が未設定/空文字だと restore が誤った「state-missing」判定を返し、
+    #    復号失敗の原因が secret 未設定だと気づかれないまま毎回赤くなる。ここで先に落とす。
+    - name: Verify age identity secret presence
+      shell: bash
+      run: |
+        len=${#DOBOKU_AUTH_AGE_IDENTITY}
+        echo "DOBOKU_AUTH_AGE_IDENTITY length: ${len}"
+        if [ "${len}" = "0" ]; then
+          echo "::error::DOBOKU_AUTH_AGE_IDENTITY Secret が空です（未設定 or 空文字）。ciAuthState.ageRecipient / identityEnv の配線を確認してください。"
+          exit 1
+        fi
+
+    # 4. 復号・復元。rc は outputs.rc にも残し、呼び出し元ジョブが collector 実行の可否と
+    #    最終ゲート（authenticated 以外は検査不成立）を判断する。
+    - name: Restore auth state (auth:ci-restore)
+      id: restore
+      shell: bash
+      run: |
+        set +e
+        out_file="${RUNNER_TEMP}/restore-${{ inputs.service }}.json"
+        npm run auth:ci-restore -- --service "${{ inputs.service }}" --json > "${out_file}"
+        rc=$?
+        set -e
+
+        status=$(node -e "
+          try {
+            const d = JSON.parse(require('fs').readFileSync(process.argv[1], 'utf8'));
+            console.log(d.status || 'unknown');
+          } catch { console.log('unknown'); }
+        " "${out_file}")
+        generation=$(node -e "
+          try {
+            const d = JSON.parse(require('fs').readFileSync(process.argv[1], 'utf8'));
+            console.log(d.generation ?? '');
+          } catch { console.log(''); }
+        " "${out_file}")
+        cookies=$(node -e "
+          try {
+            const d = JSON.parse(require('fs').readFileSync(process.argv[1], 'utf8'));
+            console.log(d.cookies ?? '');
+          } catch { console.log(''); }
+        " "${out_file}")
+
+        echo "restore status=${status} generation=${generation} cookies=${cookies} rc=${rc}"
+
+        {
+          echo "status=${status}"
+          echo "generation=${generation}"
+          echo "cookies=${cookies}"
+          echo "rc=${rc}"
+        } >> "$GITHUB_OUTPUT"

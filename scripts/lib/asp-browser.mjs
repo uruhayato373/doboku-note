@@ -26,6 +26,7 @@ import {
   startStatusTicker,
 } from "./google-console-browser.mjs";
 import { assertSiteOrThrow, extractSiteId, SiteAttributionError } from "./asp-site-guard.mjs";
+import { attachCISession } from "./playwright-auth-state.mjs";
 
 export {
   launchContext,
@@ -100,6 +101,10 @@ async function restoreSession(ctx, asp) {
 export async function openAsp(asp, { isReady, label = "ASP" } = {}) {
   const bcfg = aspBrowserCfg(asp);
   const ctx = await launchContext(bcfg, { headless: asp.browser.headless });
+  // afb だけ対象（a8 は自前の restoreA8Session、moshimo は ci.mode:'none'）。
+  if (asp.browser.authService === "afb") {
+    await attachCISession(ctx, "afb", { statePath: statePath(asp) });
+  }
   const session = await restoreSession(ctx, asp);
   const page = ctx.pages()[0] ?? (await ctx.newPage());
 

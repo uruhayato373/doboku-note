@@ -36,6 +36,31 @@ test('mergeLeanOptions: serviceWorkers は呼び出し側が勝つ・allowServic
   assert.deepEqual(mergeLeanOptions().args, [...LEAN_CHROMIUM_ARGS]);
 });
 
+test('mergeLeanOptions: CI 用 env 上書き（env 未設定ならローカル挙動は完全に不変）', () => {
+  const base = { headless: false, channel: 'chrome', args: ['--a'] };
+  const noEnv = mergeLeanOptions(base, { env: {} });
+  assert.equal(noEnv.headless, false);
+  assert.equal(noEnv.channel, 'chrome');
+  assert.deepEqual(noEnv.args, ['--a', ...LEAN_CHROMIUM_ARGS]);
+
+  const headless = mergeLeanOptions(base, { env: { DOBOKU_PW_HEADLESS: '1' } });
+  assert.equal(headless.headless, true);
+  for (const a of ['--headless=new', '--no-first-run', '--no-default-browser-check']) {
+    assert.ok(headless.args.includes(a), a);
+  }
+
+  const uaLocale = mergeLeanOptions(base, {
+    env: { DOBOKU_PW_USER_AGENT: 'UA/1.0', DOBOKU_PW_LOCALE: 'ja-JP', DOBOKU_PW_TIMEZONE: 'Asia/Tokyo' },
+  });
+  assert.equal(uaLocale.userAgent, 'UA/1.0');
+  assert.equal(uaLocale.locale, 'ja-JP');
+  assert.equal(uaLocale.timezoneId, 'Asia/Tokyo');
+
+  const execPath = mergeLeanOptions(base, { env: { DOBOKU_PW_EXECUTABLE_PATH: '/usr/bin/chromium' } });
+  assert.equal(execPath.executablePath, '/usr/bin/chromium');
+  assert.equal('channel' in execPath, false);
+});
+
 // --- evaluateLaunchGuard ----------------------------------------------------
 
 test('evaluateLaunchGuard: 空きメモリ不足と別プロファイル稼働中を理由付きで止める', () => {

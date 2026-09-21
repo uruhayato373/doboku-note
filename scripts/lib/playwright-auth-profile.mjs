@@ -34,7 +34,7 @@ const REGISTRY_PATH = '.claude/config/playwright-auth-profiles.json';
 const APP_DIR_NAME = 'doboku-note';
 const AUTH_SUBDIR = 'playwright-auth';
 
-/** CI で常に許可する script（認証 CLI 自身。restore / writeback / status probe を行う）。 */
+/** CI で常に profile を得てよい script（認証 CLI 自身だけ。restore / writeback / status probe を行う）。 */
 export const CI_ALWAYS_ALLOWED_SCRIPTS = Object.freeze(['scripts/playwright-auth.mjs']);
 export const CI_SESSION_MODE_ENV = 'DOBOKU_AUTH_SESSION_MODE';
 export const CI_SESSION_MODE_VALUE = 'encrypted-state';

@@ -26,8 +26,9 @@
 import { chromium } from 'playwright';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { resolveProfileDir } from './playwright-auth-profile.mjs';
+import { resolveProfileDir, resolveStatePath } from './playwright-auth-profile.mjs';
 import { leanContextOptions } from './playwright-launch.mjs';
+import { attachCISession } from './playwright-auth-state.mjs';
 
 export const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 
@@ -65,7 +66,7 @@ export async function launchNoteContext(opts = {}) {
     proxy = ENV_PROXY,
     extraArgs = [],
   } = opts;
-  return chromium.launchPersistentContext(profile, leanContextOptions({
+  const ctx = await chromium.launchPersistentContext(profile, leanContextOptions({
     headless,
     channel: 'chrome', // システム Chrome（組み込み Chromium は note/Google に bot 判定される）
     proxy: proxy ? { server: proxy } : undefined,
@@ -73,6 +74,8 @@ export async function launchNoteContext(opts = {}) {
     viewport,
     args: ['--disable-blink-features=AutomationControlled', ...extraArgs],
   }));
+  await attachCISession(ctx, 'note', { statePath: resolveStatePath('note', opts) });
+  return ctx;
 }
 
 /**

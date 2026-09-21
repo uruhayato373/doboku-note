@@ -49,11 +49,20 @@ export function loadAuthAdapter(serviceId, options) {
   }
   if (serviceId === 'kdp') {
     const memo = readJson(repoRoot, '.claude/config/kdp-memo.json');
-    return {
-      ...adapter,
-      expectedMarkers: [memo.defaults?.accountEmail].filter(Boolean),
-      missingAssertReason: memo.defaults?.accountEmail ? null : 'kdp-memo.json defaults.accountEmail が未設定',
-    };
+    const accountEmail = memo.defaults?.accountEmail;
+    const checkUrl = 'https://kdpreports.amazon.co.jp/dashboard';
+    if (!accountEmail) {
+      // account config が無くても、ダッシュボード文言そのものを account marker として使う
+      // （口座を取り違えないための担保は kdp-report.mjs の LIVE 書籍 fail-closed 側にある）。
+      return {
+        ...adapter,
+        checkUrl,
+        expectedMarkers: ['ロイヤリティの見積り'],
+        missingAssertReason: null,
+        note: '口座スコープは kdp-report.mjs の LIVE 書籍 fail-closed が担保',
+      };
+    }
+    return { ...adapter, checkUrl, expectedMarkers: [accountEmail], missingAssertReason: null };
   }
   if (serviceId === 'x') {
     const account = readJson(repoRoot, '.claude/config/x-account.json');

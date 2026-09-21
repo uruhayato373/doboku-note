@@ -18,8 +18,9 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { todayJst } from './jst-date.mjs';
 import { BRAIN_LISTINGS_PATH, BRAIN_DIST_ROOT } from './repository-paths.mjs';
-import { resolveProfileDir } from './playwright-auth-profile.mjs';
+import { resolveProfileDir, resolveStatePath } from './playwright-auth-profile.mjs';
 import { leanContextOptions } from './playwright-launch.mjs';
+import { attachCISession } from './playwright-auth-state.mjs';
 
 export const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 export const PROFILE = resolveProfileDir('brain', { cwd: ROOT, repoRoot: ROOT });
@@ -81,7 +82,7 @@ export function writeBackCatalog(serviceId, articleId) {
 }
 
 export async function launchContext({ headless = false } = {}) {
-  return chromium.launchPersistentContext(PROFILE, leanContextOptions({
+  const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
     headless,
     channel: 'chrome',
     proxy: PROXY ? { server: PROXY } : undefined,
@@ -89,6 +90,8 @@ export async function launchContext({ headless = false } = {}) {
     viewport: { width: 1400, height: 1000 },
     args: ['--disable-blink-features=AutomationControlled'],
   }));
+  await attachCISession(ctx, 'brain', { statePath: resolveStatePath('brain', { cwd: ROOT, repoRoot: ROOT }) });
+  return ctx;
 }
 
 /**

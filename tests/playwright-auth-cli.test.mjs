@@ -55,16 +55,151 @@ function makeFixture() {
   };
 }
 
+/** ci-plan / export / ci-restore 用: registry version 2（ci ブロック必須）の fixture。 */
+function makeCIFixture({ ageRecipient = null } = {}) {
+  const base = mkdtempSync(join(tmpdir(), 'doboku-auth-ci-cli-'));
+  const repoRoot = join(base, 'repo');
+  const overrideRoot = join(base, 'auth');
+  const configDir = join(repoRoot, '.claude', 'config');
+  mkdirSync(configDir, { recursive: true });
+  const ci = (overrides = {}) => ({
+    mode: 'encrypted-state',
+    enabled: true,
+    canary: false,
+    operations: ['read', 'write'],
+    cron: '0 3 * * *',
+    readOnlyScripts: [],
+    writeScripts: [],
+    stateDomains: ['note.com'],
+    ...overrides,
+  });
+  writeFileSync(
+    join(configDir, 'playwright-auth-profiles.json'),
+    JSON.stringify({
+      version: 2,
+      services: {
+        note: {
+          profileDirName: 'playwright-note-profile',
+          stateFileName: 'playwright-note-state.json',
+          loginUrl: 'http://127.0.0.1/login',
+          checkUrl: 'http://127.0.0.1/check',
+          sessionMode: 'profile',
+          ci: ci(),
+        },
+        brain: {
+          profileDirName: 'playwright-brain-profile',
+          stateFileName: 'playwright-brain-state.json',
+          loginUrl: 'http://127.0.0.1/login',
+          checkUrl: 'http://127.0.0.1/check',
+          sessionMode: 'profile',
+          ci: ci({ canary: true }),
+        },
+        a8: {
+          profileDirName: 'playwright-a8-profile',
+          stateFileName: 'playwright-a8-state.json',
+          loginUrl: 'http://127.0.0.1/login',
+          checkUrl: 'http://127.0.0.1/check',
+          sessionMode: 'profile',
+          ci: ci({ enabled: false, cron: null }),
+        },
+      },
+      ciAuthState: {
+        ageRecipient,
+        bucket: 'private',
+        keyPrefix: 'auth-state/',
+        identityEnv: 'DOBOKU_AUTH_AGE_IDENTITY',
+      },
+    }),
+  );
+  return {
+    base,
+    repoRoot,
+    overrideRoot,
+    homeDir: join(base, 'home'),
+    env: {},
+  };
+}
+
 test('parseAuthArgsは全commandのservice/json/commitを一貫して解釈する', () => {
   assert.deepEqual(
     parseAuthArgs(['migrate', '--service', 'note', '--commit', '--json']),
     {
       command: 'migrate', service: 'note', all: false, commit: true,
-      json: true, help: false, timeoutMs: 600000,
+      json: true, help: false, timeoutMs: 600000, force: false, headed: false,
+      event: null, schedule: null, mode: null, collectorExit: null,
     },
   );
   assert.equal(parseAuthArgs(['status', '--all']).all, true);
   assert.equal(parseAuthArgs(['paths', '--help']).help, true);
+});
+
+test('parseAuthArgsはci-plan/ci-writeback/keygen/export用の新フラグを解釈する', () => {
+  const plan = parseAuthArgs(['ci-plan', '--event', 'schedule', '--schedule', '0 3 * * *', '--mode', 'probe-only', '--json']);
+  assert.equal(plan.event, 'schedule');
+  assert.equal(plan.schedule, '0 3 * * *');
+  assert.equal(plan.mode, 'probe-only');
+
+  const writeback = parseAuthArgs(['ci-writeback', '--service', 'note', '--collector-exit', '1']);
+  assert.equal(writeback.service, 'note');
+  assert.equal(writeback.collectorExit, '1');
+
+  const keygen = parseAuthArgs(['keygen', '--force']);
+  assert.equal(keygen.force, true);
+
+  const exportArgs = parseAuthArgs(['export', '--service', 'note', '--headed']);
+  assert.equal(exportArgs.headed, true);
+});
+
+test('ci-planはfixture registryからmatrixを組み立てる（executeAuthCommand経由）', async () => {
+  const f = makeCIFixture();
+  try {
+    const result = await executeAuthCommand(['ci-plan', '--event', 'schedule', '--schedule', '0 3 * * *', '--json'], f);
+    assert.equal(result.ok, true);
+    assert.deepEqual(result.matrix, [{ service: 'note', mode: 'collect' }]);
+    assert.equal(result.counts.enabled, 2); // note, brain（a8はdisabled）
+    assert.equal(result.counts.due, 1);
+  } finally {
+    rmSync(f.base, { recursive: true, force: true });
+  }
+});
+
+test('ci-planはworkflow_dispatchでdisabled serviceを指定するとinvalid', async () => {
+  const f = makeCIFixture();
+  try {
+    const result = await executeAuthCommand(['ci-plan', '--event', 'workflow_dispatch', '--service', 'a8', '--json'], f);
+    assert.equal(result.ok, false);
+    assert.equal(result.invalid, true);
+  } finally {
+    rmSync(f.base, { recursive: true, force: true });
+  }
+});
+
+test('ci-restoreを非CIで呼ぶとAUTH_CI_ONLYで拒否する', async () => {
+  const f = makeCIFixture();
+  try {
+    await assert.rejects(
+      executeAuthCommand(['ci-restore', '--service', 'note'], { ...f, isCI: false }),
+      /AUTH_CI_ONLY/,
+    );
+  } finally {
+    rmSync(f.base, { recursive: true, force: true });
+  }
+});
+
+test('exportはageRecipient未設定だとAUTH_CI_STATE_RECIPIENT_MISSINGで拒否する', async () => {
+  const f = makeCIFixture({ ageRecipient: null });
+  try {
+    await assert.rejects(
+      executeAuthCommand(['export', '--service', 'note'], {
+        ...f,
+        playwright: { chromium: { launchPersistentContext: async () => { throw new Error('ブラウザは起動されないはず'); } } },
+        s3: { send: async () => { throw new Error('R2は呼ばれないはず'); } },
+      }),
+      /AUTH_CI_STATE_RECIPIENT_MISSING/,
+    );
+  } finally {
+    rmSync(f.base, { recursive: true, force: true });
+  }
 });
 
 test('pathsは完全offline・副作用なしでprofile/state/lockを返す', async () => {

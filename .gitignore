@@ -418,3 +418,8 @@ content/sns/x/draft/*-diagrams/img/tweet-*.png
 
 # Claude Code のマシン固有設定（絶対パス許可・OS 依存の PowerShell 許可）。dotfiles の claude/doboku-note.local.<os>.json を setup-memory-link --settings で置く
 .claude/settings.local.json
+
+# Playwright CI encrypted-state の一時展開先・storageState（2026-09-21）。実体は private R2（auth-state/）。
+**/playwright-*-state*.json
+**/storage-state*.json
+.tmp/auth-state/

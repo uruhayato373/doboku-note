@@ -105,11 +105,11 @@ description: >
   公開ページが 404/リダイレクト URL を指していれば ERROR。GSC の 404・リダイレクト件数を能動的に
   減らせる唯一のレバー（旧 URL 自体は Google が再クロールをやめるまで消えない）。
   `due:true` なら「次セッションで `/google-search-growth`（GSC 理由別 UI CSV → API 突合 → 修正計画）」をサーフェスのみ。
-  ※Playwright + Google ログイン必須＝ローカル実行限定。クラウド週次では実行不可なのでサーフェスのみ（真実源 `.claude/knowledge/reference/gsc-management.md`）
+  ※Playwright + Google ログイン必須。CI は `login-collectors.yml`（encrypted-state・canary卒業後）。ローカル実行はフォールバック（真実源 `.claude/knowledge/reference/gsc-management.md`）
 - A8 成果取込期限（月次）: `npm run check-a8-report-due -- --json` を実行（30日。committed `affiliate/a8-ui/last-run.json` 参照・creds不要）。
   `due:true` なら「次セッションで `/a8-report`（A8 レポート CSV → 正規化 → EPC 分母）」をサーフェスのみ。
   併せて `issues[]` も surface する＝`unmapped`（掲載中の広告が集計されていない）と `crossCheckExceeded`（stats47 混入の疑い）は
-  期限に関係なく要対応。※Playwright + A8 ログイン必須＝ローカル実行限定。A8 は公開 API 無しでクラウド週次では実行不可
+  期限に関係なく要対応。※Playwright + A8 ログイン必須。CI は `login-collectors.yml`（encrypted-state・canary卒業後）。ローカル実行はフォールバック。A8 は公開 API 無し
   （真実源 `.claude/knowledge/reference/a8-affiliate-pipeline.md`）
 - note 再公開ドリフト: `npm run check-note-republish` を実行（公開記事のソース**本文＋ハッシュタグ**が公開時から変更＝要再公開を surface・creds不要・ローカルhash突合）。
   「要再公開(本文drift)」は `note-update-body --commit`、「要再公開(タグdrift)」は `note-sync-tags --commit`（公開済み記事へのタグ差分追加）で次セッションに live 反映をサーフェスのみ（実反映はローカル実機＝クラウド週次では不可）。verify-note-status(公開状態) とは直交。
