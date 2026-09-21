@@ -195,6 +195,12 @@ PutObject に IfMatch で付けていたバグ（R2 は PutObject の IfMatch �
 **3 回目の canary（run 35564319389・collect）**: 復元・収集（coconala-orders 7/7・analytics 16/16）・書き戻し（gen 3）まで成功したが、
 `upload-artifact` が既定で隠しディレクトリ（`.claude/`）を除外するため成果物が publish job に渡らず「変更なし」になった。
 `include-hidden-files: true` が必須（sync-yt-descriptions.yml と同じ）。Stage 段階で staged 件数を出し、collect で 0 件なら warning。
+**全サービスの export（2026-09-21・Mac）で直した判定の穴**: a8 は registry の旧 URL `management.af8.jp` が DNS 不解決（真実源は
+a8-report-automation.json の `media-console.a8.net`）／afb は adapter が `supported:false` で export が成立しなかった（判定を
+`#top_site_select` の DOM に）／google は最後に開いたプロパティ（stats47）に飛ぶので `?resource_id=sc-domain:doboku-note.com` を明示／
+brain は sellerName がメニュー内で不可視（「記事を書く」で判定・ただし撤退方針で CI 対象外）／**x は hosted runner だと
+「セキュリティ検証の実行」のボット挑戦ページになり判定不能**（cookie の問題ではなく datacenter IP。`enabled:false`・ローカルか
+residential IP の self-hosted runner が要る）。headed でないと 403 になるサイト向けに `auth:export --headed` を追加。
 
 **誰が復号できるか**: repo の Secrets を読める workflow を起動できる人＝repo write 権限者。fork PR には
 Secrets が渡らないため復号できない。

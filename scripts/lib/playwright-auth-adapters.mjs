@@ -35,9 +35,11 @@ export function loadAuthAdapter(serviceId, options) {
     return { ...adapter, checkUrl: 'https://note.com/settings/account', expectedMarkers: ['dobokunote'] };
   }
   if (serviceId === 'brain') {
-    const account = readJson(repoRoot, '.claude/config/brain-account.json');
-    // ログアウト時は /mypage のまま本文が「ログイン」だけになる（redirect しない）。
-    return { ...adapter, expectedMarkers: [account.sellerName].filter(Boolean), loggedOutMarkers: ['ログイン'] };
+    // sellerName は折り畳みメニュー内で可視テキストに出ない（brain-session.mjs assertAccount は best-effort 扱い）。
+    // ログイン済みの確実な信号は brain-session.mjs waitForLogin と同じ「記事を書く」ボタン。
+    // ログアウト時は /mypage のまま本文が「ログイン」＋「新規登録」になる（redirect しない）。
+    // 2026-09-21: 旧 marker（sellerName）では headed ログイン後も authenticated にならず 10 分待ちになった。
+    return { ...adapter, checkUrl: 'https://brain-market.com/mypage', expectedMarkers: ['記事を書く'], loggedOutMarkers: ['新規登録'] };
   }
   if (serviceId === 'coconala') {
     const account = readJson(repoRoot, '.claude/config/coconala-account.json');
@@ -88,7 +90,9 @@ export function loadAuthAdapter(serviceId, options) {
     const property = String(config.gsc?.property ?? '').replace(/^sc-domain:/, '');
     return {
       ...adapter,
-      checkUrl: config.gsc?.baseUrl ?? adapter.checkUrl,
+      // 最後に開いたプロパティ（共用口座では stats47 など）に飛ぶので、resource_id を明示して doboku-note のプロパティを開く。
+      // 2026-09-21: 明示しないと URL にも本文にも property が出ず authenticated なのに unknown になった。
+      checkUrl: `${config.gsc?.baseUrl ?? adapter.checkUrl}?resource_id=${encodeURIComponent(config.gsc?.property ?? '')}`,
       expectedMarkers: [property].filter(Boolean),
       // 未ログインの GSC は /login ではなく紹介ページ（/search-console/about）へ退避する。
       expiredPattern: /(?:\/search-console\/about|\/login|\/signin|ServiceLogin|InteractiveLogin)/i,
@@ -106,10 +110,16 @@ export function loadAuthAdapter(serviceId, options) {
     const root = readJson(repoRoot, '.claude/config/affiliate-asp.json');
     const asp = root.asps?.[serviceId];
     if (serviceId === 'afb') {
+      // 2026-09-21: export（同一プロセスで login→state 取得）を成立させるため supported に。
+      // 判定は affiliate-asp.json の readyPath/readyMarker（#top_site_select の DOM）。テキスト一致は読み込み途中を通すので使わない。
+      // 別プロセスの status は従来どおり信頼できない（sessionPersistsAcrossProcesses:false）が、export は同一プロセスなので可。
+      const readyPath = asp?.readyPath ?? '/pa/promolist/?rel=non';
       return {
         ...adapter,
-        supported: false,
-        unsupportedReason: 'afbはloginから操作まで同一processで完結する必要があり、別process statusは非対応',
+        checkUrl: new URL(readyPath, asp?.baseUrl ?? 'https://www.afi-b.com').href,
+        expectedMarkers: ['AFB_READY_MARKER'],
+        expiredPattern: new RegExp(asp?.reAuthPattern ?? 'requiredlogin|/login', 'i'),
+        domMarkerSelector: asp?.readyMarker ?? '#top_site_select',
       };
     }
     const siteId = asp.sites?.[root.targetSiteName];
@@ -132,7 +142,8 @@ export function classifyAuthSnapshot(adapter, snapshot) {
   }
   const url = String(snapshot.url ?? '');
   const haystack = [url, snapshot.title, snapshot.text, snapshot.accountText].filter(Boolean).join('\n');
-  if (/captcha|challenge|bot check|access denied|ブロックされました|安全でないブラウザ/i.test(haystack)) {
+  // 「セキュリティ検証の実行 / 悪意のあるボットから保護」は X が datacenter IP に出す JS 挑戦ページ（2026-09-21 CI 実測）
+  if (/captcha|challenge|bot check|access denied|ブロックされました|安全でないブラウザ|セキュリティ検証|悪意のあるボット|しばらくお待ちください/i.test(haystack)) {
     return { status: 'blocked', reason: 'CAPTCHA・bot判定・アクセス遮断の可能性' };
   }
   if (adapter.expiredPattern?.test(url)) {
@@ -200,6 +211,11 @@ export async function captureAuthSnapshot(serviceId, page) {
       .first()
       .innerText()
       .catch(() => '');
+  }
+  if (serviceId === 'afb') {
+    // 管理画面固有の DOM（サイト切替ウィジェット）があれば ready。テキストではなく DOM で判定する。
+    const present = await page.locator('#top_site_select').count().catch(() => 0);
+    if (present > 0) base.accountText = 'AFB_READY_MARKER';
   }
   return base;
 }

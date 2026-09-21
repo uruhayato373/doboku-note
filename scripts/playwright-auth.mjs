@@ -588,7 +588,8 @@ export async function exportAuthState(context = {}, service) {
     try {
       ensureAuthDirectories(service, options);
       const sameProcess = entry.sessionMode === 'same-process';
-      opened = await openAuthContext(service, context, sameProcess);
+      // --headed: headless を bot 判定で 403 にするサイト（Brain 等）は headed で認証確認してから export する
+      opened = await openAuthContext(service, context, sameProcess || Boolean(context.headed));
       let probeStatus;
       if (sameProcess) {
         // afb: login 直後の同一プロセスでしか state が取れないため、export 自体が headed ログインを兼ねる。
@@ -827,7 +828,7 @@ export async function executeAuthCommand(argv, context = {}) {
     return { ok: results.every((item) => item.ok), command: 'status', results };
   }
   if (args.command === 'keygen') return keygenAuth({ ...context, force: args.force });
-  if (args.command === 'export') return { command: 'export', ...(await exportAuthState({ ...context, timeoutMs: args.timeoutMs }, args.service)) };
+  if (args.command === 'export') return { command: 'export', ...(await exportAuthState({ ...context, timeoutMs: args.timeoutMs, headed: args.headed }, args.service)) };
   if (args.command === 'ci-restore') return { command: 'ci-restore', ...(await ciRestoreAuthState({ ...context, timeoutMs: args.timeoutMs }, args.service)) };
   if (args.command === 'ci-writeback') return ciWritebackAuthState(context, args.service, args.collectorExit);
   if (args.command === 'ci-plan') {
