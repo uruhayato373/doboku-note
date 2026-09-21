@@ -9,6 +9,11 @@
 // 設計: verify-note-status.mjs（note 版 reconciler）の IG 版。投稿も削除もしない＝検知と報告のみ。
 //   実際の是正/予約は `/ig-reconcile` スキルが operator 確認のうえ行う。
 //
+// CI 週次の照合は login-collectors.yml（encrypted-state・PR #549）が本スクリプトを --no-planner で回す。
+//   Graph API 版（scripts/fetch-ig-insights.mjs --reconcile）は Meta 利用制限で待機（dispatch 専用）。
+//   いずれも同じ core（scripts/lib/ig-reconcile-core.mjs）で snapshot を書く。プランナー実体確認が要るときは
+//   ローカルで --no-planner 無しに回す。
+//
 // 真実源: アカウントハンドルは .claude/config/ig-account.json（@dobokunotecom）。
 // 前提: Playwright + 共通 auth resolver 配下のログイン済み Instagram プロファイルが必要。
 //   ローカル実行限定（会社 PC のプロキシ下では外部到達不可・[[measurement-incidents]] 参照）。
@@ -27,8 +32,7 @@ import { readFileSync, existsSync, mkdirSync, writeFileSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { chromium } from "playwright";
-import { IG_DIR, walkPacks, packInfo, readPostedRaw } from "./ig-status.mjs";
-import { markAmbiguousClaims, dropResolvedFalseMatches } from "./lib/ig-ambiguity.mjs";
+import { IG_DIR, normHead, localPacks as localPacksCore, reconcile as reconcileCore, driftCount as driftCountCore, buildSnapshot } from "./lib/ig-reconcile-core.mjs";
 import { resolveProfileDir, resolveStatePath } from "./lib/playwright-auth-profile.mjs";
 import { attachCISession } from "./lib/playwright-auth-state.mjs";
 import { leanContextOptions } from "./lib/playwright-launch.mjs";
@@ -51,55 +55,9 @@ function loadAccount() {
   return JSON.parse(readFileSync(p, "utf8"));
 }
 
-// caption の先頭行を正規化（記号/空白を除き先頭 24 文字）。ローカル caption.txt とライブ og:title の突合キー。
-function normHead(s) {
-  if (!s) return "";
-  const first = String(s).split("\n").map((x) => x.trim()).filter(Boolean)[0] || "";
-  return first.replace(/[\s　・「」（）()【】、。:：!！?？📋✅▶#＃]/g, "").slice(0, 24);
-}
-
-// ─── ローカルパック収集 ────────────────────────────────────────
-function captionHead(packDir) {
-  for (const rel of ["carousel/caption.txt", "caption.txt"]) {
-    const p = join(packDir, rel);
-    if (existsSync(p)) return normHead(readFileSync(p, "utf8"));
-  }
-  return "";
-}
-function shortcodeOf(url) {
-  const m = String(url || "").match(/\/(?:p|reel)\/([A-Za-z0-9_-]+)/);
-  return m ? m[1] : null;
-}
-function localPacks() {
-  return walkPacks(IG_DIR)
-    .map((dir) => {
-      const info = packInfo(dir);
-      if (EXAM && info.exam !== EXAM) return null;
-      const postedRaw = readPostedRaw(dir);
-      const carouselUrl = postedRaw?.carousel?.url || (postedRaw?.url ?? null);
-      // status.json（schema A: {carousel:{status,scheduled_at}} / schema B: {carousel:"draft",posted}）
-      let statusRaw = null;
-      const sp = join(dir, "status.json");
-      if (existsSync(sp)) { try { statusRaw = JSON.parse(readFileSync(sp, "utf8")); } catch {} }
-      const carStatus = statusRaw?.carousel;
-      const scheduled = typeof carStatus === "object" && carStatus?.status === "scheduled" ? carStatus.scheduled_at : null;
-      const draftFlag = carStatus === "draft" || statusRaw?.posted === false;
-      const hasContent = existsSync(join(dir, "carousel/caption.txt")) || existsSync(join(dir, "caption.txt"));
-      // リール軸: posted.json.reels（投稿済）/ status.json.reel scheduled（予約）/ reels 素材（script.txt|video.mp4）
-      const reelStatus = statusRaw?.reel;
-      const reelPostedUrl = postedRaw?.reels?.url || null;
-      const reelScheduledAt = typeof reelStatus === "object" && reelStatus?.status === "scheduled" ? reelStatus.scheduled_at : null;
-      const reelMaterial = existsSync(join(dir, "reels/script.txt")) || existsSync(join(dir, "reels/video.mp4"));
-      return {
-        rel: info.rel, head: captionHead(dir),
-        recordedShortcode: shortcodeOf(carouselUrl), recordedUrl: carouselUrl,
-        scheduledAt: scheduled, draftFlag, hasContent,
-        reelPostedUrl, reelScheduledAt, reelMaterial,
-      };
-    })
-    .filter(Boolean)
-    .filter((p) => p.hasContent || p.recordedShortcode); // 投稿素材か記録を持つパックのみ
-}
+// normHead / captionHead / shortcodeOf / localPacks / reconcile / driftCount / buildSnapshot は
+// scripts/lib/ig-reconcile-core.mjs へ切り出し済み（CI の Graph API 版と共有するため）。
+function localPacks() { return localPacksCore({ exam: EXAM, igDir: IG_DIR }); }
 
 // 投稿の現存＋型を直接チェック。記録済み shortcode はグリッド走査の取りこぼし（遅延ロードで全件は
 // 載らない）に左右されないよう URL を直接叩く。型は reel / carousel を区別する（rio 事故＝リールを
@@ -196,65 +154,6 @@ async function readPlanner(page, account) {
   return byDay;
 }
 
-// ─── 照合 ─────────────────────────────────────────────────────
-function reconcile(packs, liveData) {
-  // head → [{shortcode,type}]（型を保持し anomaly を型考慮にする）
-  const headToLive = {};
-  for (const lv of liveData.live) { if (lv.head) (headToLive[lv.head] ||= []).push({ shortcode: lv.shortcode, type: lv.type || "carousel" }); }
-
-  const cats = { published_recorded: [], published_UNrecorded: [], draft_misrecorded: [], scheduled: [], unpublished: [], recorded_but_gone: [], type_mismatch: [], anomaly: [], reel_gap: [], reel_built_unposted: [] };
-  for (const p of packs) {
-    const matched = p.head ? (headToLive[p.head] || []) : [];
-    const matchedCarousel = matched.filter((m) => m.type === "carousel").map((m) => m.shortcode);
-    // 記録側は直接存在チェック＋型の結果を使う（exists: true=生存/false=削除/null=取得不能→生存扱い）
-    const recInfo = p.recordedShortcode ? liveData.recordedInfo?.[p.recordedShortcode] : undefined;
-
-    // anomaly は「同テーマの同型（カルーセル）が 2 件以上」のみ。カルーセル＋リールの併存は正常運用なので除外。
-    if (matchedCarousel.length >= 2) cats.anomaly.push({ ...p, matched: matchedCarousel, reason: "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）" });
-
-    if (p.recordedShortcode) {
-      if (recInfo?.exists === false) { cats.recorded_but_gone.push(p); continue; }  // 記録 URL が削除済み（確定）
-      if (recInfo?.type === "reel") {                                                // ★記録 carousel が実はリール（rio 型）
-        // カルーセル記録がリールを指す＝カルーセル実質欠落。型不整合として赤フラグし、carousel-done に含めない。
-        cats.type_mismatch.push({ ...p, recordedType: "reel", note: "posted.json は carousel だが実体はリール＝カルーセル実質なし" });
-        continue;
-      }
-      cats.published_recorded.push(p);                                               // 生存 carousel or 取得不能（生存扱い）
-      continue;
-    }
-    if (matchedCarousel.length >= 1) {                          // 記録は無いがライブのカルーセルに一致
-      if (p.draftFlag) cats.draft_misrecorded.push({ ...p, matched: matchedCarousel });
-      else cats.published_UNrecorded.push({ ...p, matched: matchedCarousel });
-      continue;
-    }
-    if (p.scheduledAt) { cats.scheduled.push(p); continue; }    // status.json で予約済み
-    cats.unpublished.push(p);                                   // 真の未公開（予約候補）
-  }
-
-  // リール軸（別axis・carousel カテゴリと排他ではない）: カルーセルは出たがリールが無いパックを surface。
-  const carouselDone = new Set([...cats.published_recorded, ...cats.published_UNrecorded, ...cats.draft_misrecorded, ...cats.scheduled].map((p) => p.rel));
-  for (const p of packs) {
-    if (!carouselDone.has(p.rel)) continue;                     // カルーセル未了はリールギャップに含めない
-    if (p.reelPostedUrl || p.reelScheduledAt) continue;        // リール投稿済み or 予約済み＝OK
-    if (p.reelMaterial) cats.reel_built_unposted.push(p);       // 素材はあるが未投稿/未予約
-    else cats.reel_gap.push(p);                                 // カルーセル済みだがリール未作成（素材も無し）
-  }
-
-  // 逆方向の衝突検査: matched はパック→ライブの片方向しか見ないので、1 本のライブ投稿に複数パックが
-  // マッチしても各パックは matched=1 のまま published_UNrecorded に入る。これを「一意対応」と読んで
-  // backfill すると未投稿のパックに投稿済みの記録が付く（2026-08-27 の事故未遂・[[ig-ambiguity]]）。
-  markAmbiguousClaims(cats);
-
-  // 誤ヒットの解消: matched が全て他パックの posted.json へ割当済みなら、そのパックは
-  // 「投稿済みなのに未記録」ではなく「テーマ名が同じせいで誤ヒットしただけの未投稿」。
-  // 判定の証拠は posted.json という形で既にリポジトリにあるので、手で維持する除外リストは要らない
-  // （DN-0149・人間判定で正のパックへ backfill したあと、残りの候補が毎回再浮上していた）。
-  const claimedBy = new Map();
-  for (const p of packs) if (p.recordedShortcode) claimedBy.set(p.recordedShortcode, p.rel);
-  dropResolvedFalseMatches(cats, claimedBy);
-  return cats;
-}
-
 // ─── main ─────────────────────────────────────────────────────
 const account = loadAccount();
 const packs = localPacks();
@@ -263,14 +162,10 @@ const recordedShortcodes = packs.map((p) => p.recordedShortcode).filter(Boolean)
 let liveData;
 try { liveData = await readLive(account, recordedShortcodes); }
 catch (e) { console.error("[verify-ig-status] ライブ取得失敗:", String(e)); process.exit(1); }
-const cats = reconcile(packs, liveData);
+const cats = reconcileCore(packs, liveData);
 
-const driftCount = cats.published_UNrecorded.length + cats.draft_misrecorded.length + cats.recorded_but_gone.length + cats.type_mismatch.length + cats.anomaly.length;
-const snapshot = {
-  account: account.handle, at: new Date().toISOString(),
-  counts: Object.fromEntries(Object.entries(cats).map(([k, v]) => [k, v.length])),
-  live: { posts: liveData.shortcodes.length, scheduledByDay: liveData.scheduled }, cats,
-};
+const driftCount = driftCountCore(cats);
+const snapshot = buildSnapshot({ account: account.handle, cats, liveData, source: "playwright" });
 const snapDir = join(ROOT, ".claude/state/ig-reconcile");
 mkdirSync(snapDir, { recursive: true });
 writeFileSync(join(snapDir, "snapshot.json"), JSON.stringify(snapshot, null, 2) + "\n", "utf8");

@@ -97,7 +97,7 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 | `/note-magazine-cover` | note 有料マガジンの**見出し画像（cover）**を `_cover.png`（1280×670）から設定（Playwright × システム Chrome）。`note-magazine-create` が作成時に付けない systematic 欠落を補う＝**マガジン作成パイプラインの一工程**。**既定 probe・実保存は `--commit`**・「この画像を使う」→更新・保存後 API で `cover`/`coverRectangle`（`eyecatch` でない）が実カバー（未設定時 cloudfront `default_magazine_header`＝デフォルト判定）かを検証。Windows可 | `noteマガジンのカバー設定`, `マガジン見出し画像`, `マガジン画像が未登録`, `/note-magazine-cover --key {key} --dir {magazineDir}` |
 | `/note-attach-pdf` | note 記事の**本文末尾（有料記事は有料エリア内）に印刷用 PDF をダウンロードカードとして添付**（Playwright × システム Chrome）。`note-publish` が扱わない「ファイル添付」（従来半手動）を自動化。1記事=`note-attach-file.mjs`／1マガジン直列バッチ=`note-attach-magazine-pdfs.mjs`（noteId↔PDF 突合・done-log 再開・最大2回試行）。**既定 dry/probe、`--draft-only` は下書きへ実添付→保存→再読込でカード永続化を検証、`--commit` は公開/更新→ライブ添付を実測**（両者は排他）。有料境界を**非破壊検証**（既定=試験問題直前を維持・**別型は `--boundary-regex "<H2先頭一致>"` で上書き**、例 暗記ノート=`コンクリート工`／`2. コンクリート工`・崩れたら中断）。**PDF挿入は既定で本文末尾へJSで caret 移動**（旧 Control+End は Windows専用でMac無効→冒頭挿入=無料流出だった・2026-07-04是正）。**`note-attach-file --anchor "<段落テキスト>"` で指定段落の直後に挿入も可**（未検出は ABORT・複数は `--force` 併用）。Windows/Mac可 | `note記事にPDF添付`, `印刷用PDFを記事末尾に`, `下書きにPDF添付`, `/note-attach-pdf --dir {magazineDir} [--commit] [--boundary-regex "<H2>"]`, `note-attach-file --note {key} --file {pdf} [--commit\|--draft-only]` |
 | `/publish-ig-bs` | Playwright × Meta Business Suite で IG **カルーセル/リール**を**予約投稿**（`--reel` で reels/video.mp4・IG 単独化・spinbutton 時刻・dry-run 必須）。即時は `--now`（Graph API 経路は 2026-06-17 全廃＝IG 投稿は本スキルに一本化） | `IG予約投稿`, `インスタ予約`, `リール予約`, `Business Suite 投稿`, `/publish-ig-bs` |
-| `/ig-reconcile` | IG 公開状態をライブのグリッド＋プランナーと照合（`verify-ig-status`）し、posted.json/status.json のドリフトを是正・未公開を安全に予約まで運ぶ運用スキル。`ig-publish-auditor` で公開可否ゲート→`publish-ig-bs` で衝突しない時間帯へ予約→プランナー実体確認。投稿/予約は operator 確認後・削除は対象外。真実源 `.claude/knowledge/reference/ig-publish-reconcile.md` | `IG公開状態を確認`, `未公開を予約投稿`, `IGのSoTドリフト是正`, `IG status reconcile`, `/ig-reconcile` |
+| `/ig-reconcile` | IG 公開状態を CI 週次 snapshot（`login-collectors.yml` の `verify-ig-status`・encrypted-state）と照合し、posted.json/status.json のドリフトを是正・未公開を安全に予約まで運ぶ運用スキル。`ig-publish-auditor` で公開可否ゲート→`publish-ig-bs` で衝突しない時間帯へ予約→プランナー実体確認。投稿/予約は operator 確認後・削除は対象外。真実源 `.claude/knowledge/reference/ig-publish-reconcile.md` | `IG公開状態を確認`, `未公開を予約投稿`, `IGのSoTドリフト是正`, `IG status reconcile`, `/ig-reconcile` |
 | `/x-repost` | 高エンゲージな技術士総監/1級・2級土木ツイートを検索 → `x-repost-curator` で選別＋引用コメント生成 → Playwright で引用RP（ローカル `/loop` 運用・dry-run 必須） | `Xリポスト`, `引用リポスト`, `/x-repost` |
 | `/yt-shorts-create` | **v7: IG Reels mp4 から YouTube Shorts を派生**（**≤60秒**トリム〔60秒超は通常動画扱い〕+ 概要欄差替、`--from-reels`。投稿は3本/日・JST07:30/12:30/20:00、真実源 policy §5-7。MDX 直結 `--slug` は廃止） | `YouTube Shorts`, `YT 派生`, `/yt-shorts-create --from-reels r03-pack-01` |
 
@@ -206,7 +206,7 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 - 週次レビュー: `/weekly-review` の **Agent F**（SNS 流入・投稿実績）＋ `metrics-analyzer` の **Pattern 6 SNS-Source-Shift**（急落/新規成長 source を surface）
 - X UTM ゲート: `npm run check-x-utm`（pre-commit・X 送客リンクに `utm_source=x`/`utm_medium=social` 必須）
 - YT 公開照合: `npm run verify-yt-status`（`verify-yt-status.yml` 週次・削除/非公開/アップ穴を検知・read-only → `.claude/state/yt-verify/latest.json`）
-- IG 公開照合: `/ig-reconcile`（`verify-ig-status`）／型・雛形の索引: `docs/marketing/00_SNS整理マップ.md §型カタログ`
+- IG 公開照合: `/ig-reconcile`（CI snapshot＝`login-collectors.yml` の `verify-ig-status`）／型・雛形の索引: `docs/marketing/00_SNS整理マップ.md §型カタログ`
 
 ### PDF を MDX に変換したい
 

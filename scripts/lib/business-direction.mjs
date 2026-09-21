@@ -62,7 +62,7 @@ export function validateRecord(record, config, history = [], now = new Date()) {
     if (r.kind === 'target') required(old.metric === r.metric, '指標が異なります');
   }
   if (r.kind === 'measurement') {
-    required(['GA4', 'GSC', 'note', 'KDP', 'coconala', 'operations'].includes(r.channel), '計測元が不正です');
+    required(['GA4', 'GSC', 'note', 'KDP', 'coconala', 'operations', 'instagram', 'cloudflare'].includes(r.channel), '計測元が不正です');
     required(nonempty(r.source) && r.source.length <= 500 && !/[?]|(?:token|password|secret|BEGIN PRIVATE KEY)/i.test(r.source), '出典は秘密情報・URLクエリを含めず記録してください');
     required(nonempty(r.subject) && ['complete', 'partial'].includes(r.coverage), '計測対象と完全性を指定してください');
     required(r.values && Object.keys(r.values).length > 0, '計測値がありません');
@@ -126,6 +126,35 @@ function latest(root, dir, prefix) {
   if (!existsSync(join(root, dir))) return null;
   const f = readdirSync(join(root, dir)).filter(f => f.startsWith(prefix) && f.endsWith('.json')).sort().at(-1);
   return f ? { data: readJson(root, `${dir}/${f}`), file: `${dir}/${f}` } : null;
+}
+/** dir 配下で prefix + *.json に一致するファイル全部を名前順（＝日付昇順）で返す。無ければ []。 */
+export function latestAll(root, dir, prefix) {
+  if (!existsSync(join(root, dir))) return [];
+  return readdirSync(join(root, dir)).filter(f => f.startsWith(prefix) && f.endsWith('.json')).sort()
+    .map(f => ({ file: `${dir}/${f}`, data: readJson(root, `${dir}/${f}`) }));
+}
+/**
+ * latestAll() が返す [{file, data}] の各 data[key]（日別行の配列）を date で合流させる。
+ * 同じ date が複数 snapshot にあれば、後で処理した snapshot（＝名前順で後＝新しい）を採用する（後勝ち）。
+ * 戻り値は date 昇順の配列。
+ */
+export function unionDaily(snapshots, key = 'daily') {
+  const byDate = new Map();
+  for (const snap of snapshots ?? []) {
+    for (const row of Array.isArray(snap?.data?.[key]) ? snap.data[key] : []) {
+      if (row?.date) byDate.set(row.date, row);
+    }
+  }
+  return [...byDate.values()].sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0));
+}
+/** rows（{date,...}[]）が period の全日を含めば complete、欠落があれば partial（欠落日数つき）。 */
+export function coverageForPeriod(rows, period) {
+  const have = new Set((rows ?? []).map(r => r.date));
+  let missingDays = 0;
+  for (let d = period.startDate; d <= period.endDate; d = addDays(d, 1)) {
+    if (!have.has(d)) missingDays += 1;
+  }
+  return { coverage: missingDays === 0 ? 'complete' : 'partial', missingDays };
 }
 export const normalizeNoteTitle = value => String(value ?? '').normalize('NFKC').replace(/[【】｜|\s　・:：?？!！()（）\-—–―〜～「」『』［］\[\]]/g, '').toLowerCase();
 export function noteArticleQualification(title, publishedItems = []) {
@@ -250,6 +279,25 @@ export function sourceFacts(root, c, period) {
       put('coconalaOrders', selected.length, sourcePeriod, cocoOrdersPath, qualification, coverage, `${note} serviceIdと級で資格帰属。`);
       put('coconalaRevenue', selected.reduce((sum, order) => sum + (Number(order.priceYen) || 0), 0), sourcePeriod, cocoOrdersPath, qualification, coverage, `${note} serviceIdと級で資格帰属。手数料控除前。`);
     }
+  }
+  const igSnapshots = latestAll(root, '.claude/state/metrics/instagram', 'ig-insights-');
+  if (igSnapshots.length > 0) {
+    const igDaily = unionDaily(igSnapshots, 'daily').filter(r => r.date >= period.startDate && r.date <= period.endDate);
+    const { coverage: igCoverage } = coverageForPeriod(igDaily, period);
+    const igFile = igSnapshots.at(-1).file;
+    const igReach = igDaily.reduce((sum, row) => sum + (Number(row.reach) || 0), 0);
+    put('igReach', igReach, period, igFile, 'all', igCoverage, 'アカウント日次リーチの合計（延べ）。ユニークではない。');
+    const followersCount = igSnapshots.at(-1).data?.account?.followersCount;
+    put('igFollowers', Number.isFinite(followersCount) ? followersCount : null, period, igFile, 'all', 'complete', '期間末時点のストック。');
+  }
+  const cfSnapshots = latestAll(root, '.claude/state/metrics/cloudflare', 'cf-zone-');
+  if (cfSnapshots.length > 0) {
+    const cfDaily = unionDaily(cfSnapshots, 'daily').filter(r => r.date >= period.startDate && r.date <= period.endDate);
+    const { coverage: cfCoverage } = coverageForPeriod(cfDaily, period);
+    const cfFile = cfSnapshots.at(-1).file;
+    const cfNote = 'Cloudflare edge 集計・bot を含む・GA4 と一致しない。GA4 の bot 疑義の突合用。';
+    put('cfRequestsJp', cfDaily.reduce((sum, row) => sum + (Number(row.jp?.requests) || 0), 0), period, cfFile, 'all', cfCoverage, cfNote);
+    put('cfRequestsOther', cfDaily.reduce((sum, row) => sum + (Number(row.other?.requests) || 0), 0), period, cfFile, 'all', cfCoverage, cfNote);
   }
   const cocoPath = '.claude/state/coconala/analytics-snapshot.json';
   if (existsSync(join(root, cocoPath))) {

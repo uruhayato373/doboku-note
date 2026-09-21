@@ -125,6 +125,17 @@ npm run check-video-publication # 公開済み派生物の実体照合が回っ�
 npm run x-own-metrics     # 自投稿の反応（いいね/RT）を採取→型×時間帯×導線の表（.claude/state/x-metrics/・**中央値で読む**。impressions/replies は CLI が返さず取得不可）
 ```
 
+## Instagram・Cloudflare（CI 取得・freshness）
+
+```bash
+npm run fetch-ig-insights          # Instagram Graph API で media+insights+SoT 照合を取得→.claude/state/metrics/instagram/・.claude/state/ig-reconcile/snapshot.json（CI 週次 fetch-ig-insights.yml が実行。0 件取得は exit 2＝成果物を書かない）
+npm run ig-graph-token             # IG_GRAPH_ACCESS_TOKEN のローテ（長期トークン発行→ローカルで `gh secret set` へ手動投入。ローカル専用・秘密値を出力しない）
+npm run fetch-cloudflare-analytics # Cloudflare GraphQL Analytics でゾーン別日次集計を取得→.claude/state/metrics/cloudflare/（CI 日次 cloudflare-metrics.yml。0 件は exit 2）
+npm run fetch-cloudflare-zone-config # Cloudflare ゾーン設定（キャッシュ/圧縮/WAF/Bot Management）を取得しドリフト検知→.claude/state/cloudflare/zone-config-latest.json（CI 月次 cloudflare-config-audit.yml。**ドリフト採用は `--accept-baseline` を人が確認してから**）
+npm run check-ig-insights-freshness # IG 週次取得の停止とトークン失効 7 日前を検知（quality-audit の ops 区分・snapshot 0 件は FAIL）
+npm run check-cloudflare-metrics-freshness # Cloudflare 日次/月次取得の停止を検知（quality-audit の ops 区分・zone snapshot 3 日超／config 10 日超で FAIL）
+```
+
 ## 計測・GSC・GA4・期日
 
 ```bash
