@@ -1,10 +1,13 @@
-// ci-write-gate.test.mjs — CI 書き込み操作の安全境界（カタログ・plan hash・env）の回帰テスト。
+// ci-write-gate.test.mjs — CI 書き込み操作の安全境界（カタログ・repo 由来の plan hash・env）の回帰テスト。
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import { mkdtempSync, rmSync, writeFileSync, mkdirSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 
 import {
-  stableStringify, planHash, verifyPlanHash, validateCatalog, operationFromCatalog, validateArgs,
-  argsToFlags, buildPlanCommand, buildCommitCommand, decideExecution, gateEnvFor, PLAN_ONLY_HASH, WRITE_PLAN_HASH_ENV,
+  stableStringify, validateCatalog, operationFromCatalog, validateArgs, argsToFlags, resolveInputs, hashInputs,
+  buildPlan, buildCommitCommand, decideExecution, gateEnvFor, WRITE_PLAN_HASH_ENV,
 } from '../scripts/lib/ci-write-gate.mjs';
 
 const registry = {
@@ -15,46 +18,28 @@ const registry = {
   },
 };
 const op = (patch = {}) => ({
-  service: 'note', script: 'scripts/note-publish.mjs', risk: 'high',
-  argsSchema: { slug: 'string', price: 'number?', force: 'boolean?' },
-  planArgs: ['--dry-run', '--json'], commitArgs: ['--commit'], verify: ['scripts/verify-note-status.mjs'], ledger: ['.claude/state/note-published.json'],
+  id: 'note.publish', service: 'note', script: 'scripts/note-publish.mjs', risk: 'high',
+  argsSchema: { article: 'string', schedule: 'string?', force: 'boolean?' },
+  inputs: ['{article}'], commitArgs: ['--commit'], verify: ['scripts/verify-note-status.mjs'], ledger: ['.claude/state/note-published.json'],
   ...patch,
 });
 const catalog = (ops) => ({ version: 1, operations: ops });
 const allExist = () => true;
 
-test('planHash はキー順・空白に依存せず、生テキスト差分では変わる', () => {
-  const a = '{"b":1,"a":[1,2]}';
-  const b = '{ "a": [1, 2], "b": 1 }';
-  assert.equal(planHash(a), planHash(b));
-  assert.notEqual(planHash(a), planHash('{"b":2,"a":[1,2]}'));
-  assert.equal(stableStringify({ z: 1, a: { d: null, c: [true] } }), '{"a":{"c":[true],"d":null},"z":1}');
-});
-
-test('verifyPlanHash は 64 hex 以外・不一致を拒否', () => {
-  const text = '{"x":1}';
-  const h = planHash(text);
-  assert.equal(verifyPlanHash(text, h).ok, true);
-  assert.equal(verifyPlanHash(text, h.toUpperCase()).ok, true);
-  assert.equal(verifyPlanHash(text, 'abc').ok, false);
-  assert.equal(verifyPlanHash(text, '').ok, false);
-  assert.equal(verifyPlanHash('{"x":2}', h).ok, false);
-});
-
-test('validateCatalog: 正常なカタログを通し、writeScripts 外・read-only service・mode none を拒否', () => {
+test('validateCatalog: 正常なカタログを通し、writeScripts 外・read-only service・mode none・不正 inputs を拒否', () => {
   assert.equal(validateCatalog(catalog({ 'note.publish': op() }), { registry, fileExists: allExist }), true);
   assert.throws(() => validateCatalog(catalog({ 'note.publish': op({ script: 'scripts/note-delete-note.mjs' }) }), { registry, fileExists: allExist }), /not in note\.ci\.writeScripts/);
   assert.throws(() => validateCatalog(catalog({ 'google.request-indexing': op({ service: 'google', script: 'scripts/gsc-request-indexing.mjs' }) }), { registry, fileExists: allExist }), /lacks write/);
   assert.throws(() => validateCatalog(catalog({ 'instagram.publish': op({ service: 'instagram', script: 'scripts/x.mjs' }) }), { registry, fileExists: allExist }), /no encrypted-state/);
-  assert.throws(() => validateCatalog(catalog({ 'note.publish': op({ planArgs: ['--json'] }) }), { registry, fileExists: allExist }), /--dry-run/);
-  assert.throws(() => validateCatalog(catalog({ 'note.publish': op({ planArgs: ['--dry-run', '--commit'] }) }), { registry, fileExists: allExist }), /must not include --commit/);
-  assert.throws(() => validateCatalog(catalog({ 'note.publish': op({ commitArgs: [] }) }), { registry, fileExists: allExist }), /commitArgs must include/);
+  assert.throws(() => validateCatalog(catalog({ 'note.publish': op({ commitArgs: [] }) }), { registry, fileExists: allExist }), /commitArgs must not be empty/);
   assert.throws(() => validateCatalog(catalog({ 'note.publish': op({ risk: 'none' }) }), { registry, fileExists: allExist }), /risk/);
   assert.throws(() => validateCatalog(catalog({ 'note.publish': op({ script: '../x.mjs' }) }), { registry, fileExists: allExist }), /repo-relative/);
+  assert.throws(() => validateCatalog(catalog({ 'note.publish': op({ inputs: ['../etc'] }) }), { registry, fileExists: allExist }), /inputs must be repo-relative/);
+  assert.throws(() => validateCatalog(catalog({ 'note.publish': op({ inputs: ['{schedule}'] }) }), { registry, fileExists: allExist }), /required string arg/);
   assert.throws(() => validateCatalog(catalog({ 'note.publish': op() }), { registry, fileExists: () => false }), /does not exist/);
   assert.throws(() => validateCatalog(catalog({ NotePublish: op() }), { registry, fileExists: allExist }), /kebab-case/);
   // API 経路（playwright:false）は registry を要求しない
-  assert.equal(validateCatalog(catalog({ 'ig.publish': op({ service: 'instagram-graph', script: 'scripts/ig-graph-publish.mjs', playwright: false }) }), { registry, fileExists: allExist }), true);
+  assert.equal(validateCatalog(catalog({ 'ig.publish': op({ service: 'instagram-graph', script: 'scripts/ig-graph-publish.mjs', playwright: false, inputs: [] }) }), { registry, fileExists: allExist }), true);
 });
 
 test('operationFromCatalog / validateArgs / argsToFlags', () => {
@@ -62,33 +47,47 @@ test('operationFromCatalog / validateArgs / argsToFlags', () => {
   const o = operationFromCatalog(cat, 'note.publish');
   assert.equal(o.id, 'note.publish');
   assert.throws(() => operationFromCatalog(cat, 'note.delete'), /CI_WRITE_UNKNOWN_OPERATION/);
-  assert.deepEqual(validateArgs(o, '{"slug":"abc","price":500,"force":true}'), { slug: 'abc', price: 500, force: true });
-  assert.deepEqual(validateArgs(o, { slug: 'abc' }), { slug: 'abc' });
-  assert.throws(() => validateArgs(o, {}), /"slug" is required/);
-  assert.throws(() => validateArgs(o, { slug: 'a', extra: 1 }), /unknown arg/);
-  assert.throws(() => validateArgs(o, { slug: 'a', price: '500' }), /must be a number/);
-  assert.throws(() => validateArgs(o, { slug: 'a\nb' }), /single-line/);
+  assert.deepEqual(validateArgs(o, '{"article":"content/note/a/article.md","force":true}'), { article: 'content/note/a/article.md', force: true });
+  assert.throws(() => validateArgs(o, {}), /"article" is required/);
+  assert.throws(() => validateArgs(o, { article: 'a', extra: 1 }), /unknown arg/);
+  assert.throws(() => validateArgs(o, { article: '../../etc/passwd' }), /no \.\./);
+  assert.throws(() => validateArgs(o, { article: '/abs' }), /leading/);
+  assert.throws(() => validateArgs(o, { article: '--commit' }), /leading/);
+  assert.throws(() => validateArgs(o, { article: 'a\nb' }), /single-line/);
   assert.throws(() => validateArgs(o, 'not json'), /not valid JSON/);
-  assert.deepEqual(argsToFlags({ slug: 'abc', price: 500, force: true, quiet: false }), ['--force', '--price', '500', '--slug', 'abc']);
-  assert.deepEqual(buildPlanCommand(o, { slug: 'abc' }), ['node', 'scripts/note-publish.mjs', '--dry-run', '--json', '--slug', 'abc']);
-  assert.deepEqual(buildCommitCommand(o, { slug: 'abc' }), ['node', 'scripts/note-publish.mjs', '--commit', '--slug', 'abc']);
+  assert.deepEqual(argsToFlags({ article: 'x.md', force: true, quiet: false }), ['--article', 'x.md', '--force']);
+  assert.deepEqual(buildCommitCommand(o, { article: 'x.md' }), ['node', 'scripts/note-publish.mjs', '--commit', '--article', 'x.md']);
 });
 
-test('decideExecution: plan-only / hash-mismatch / execute', () => {
-  const plan = '{"target":"abc","changes":1}';
-  const h = planHash(plan);
-  assert.deepEqual(decideExecution({ commit: false, expectedHash: h, planJsonText: plan }), { execute: false, reason: 'plan-only', hash: h });
-  const mm = decideExecution({ commit: true, expectedHash: planHash('{"target":"abc","changes":2}'), planJsonText: plan });
-  assert.equal(mm.execute, false); assert.equal(mm.reason, 'hash-mismatch');
-  assert.equal(decideExecution({ commit: true, expectedHash: '', planJsonText: plan }).reason, 'hash-mismatch');
-  assert.deepEqual(decideExecution({ commit: true, expectedHash: h, planJsonText: plan }), { execute: true, reason: 'execute', hash: h });
+test('buildPlan: repo の inputs ハッシュから決まり、内容が変わると hash が変わる', () => {
+  const root = mkdtempSync(join(tmpdir(), 'ci-write-gate-'));
+  try {
+    mkdirSync(join(root, 'content/note/a'), { recursive: true });
+    writeFileSync(join(root, 'content/note/a/article.md'), '# v1\n');
+    writeFileSync(join(root, 'content/note/a/cover.png'), 'img');
+    const o = op({ inputs: ['content/note/{slug}'], argsSchema: { slug: 'string' } });
+    const p1 = buildPlan(root, o, { slug: 'a' });
+    assert.deepEqual(Object.keys(p1.plan.inputs).sort(), ['content/note/a/article.md', 'content/note/a/cover.png']);
+    assert.match(p1.hash, /^[0-9a-f]{64}$/);
+    // 同じ tree・同じ args → 同じ hash（キー順に依存しない）
+    assert.equal(buildPlan(root, o, { slug: 'a' }).hash, p1.hash);
+    assert.equal(stableStringify({ b: 1, a: [1] }), '{"a":[1],"b":1}');
+    // 記事を変えると hash が変わる（人が確認した内容と実行内容の同一性）
+    writeFileSync(join(root, 'content/note/a/article.md'), '# v2\n');
+    assert.notEqual(buildPlan(root, o, { slug: 'a' }).hash, p1.hash);
+    // 存在しない input は拒否
+    assert.throws(() => buildPlan(root, o, { slug: 'zzz' }), /CI_WRITE_INPUT_MISSING/);
+    assert.deepEqual(resolveInputs(o, { slug: 'a' }), ['content/note/a']);
+    assert.throws(() => hashInputs(root, ['nope']), /INPUT_MISSING/);
+  } finally { rmSync(root, { recursive: true, force: true }); }
 });
 
-test('gateEnvFor: plan は全 0・commit は本物の hash のみ', () => {
-  assert.deepEqual(gateEnvFor('plan'), { [WRITE_PLAN_HASH_ENV]: PLAN_ONLY_HASH });
+test('decideExecution: plan-only / hash-mismatch / execute、gateEnvFor は本物の hash のみ', () => {
   const h = 'f'.repeat(64);
-  assert.deepEqual(gateEnvFor('commit', h), { [WRITE_PLAN_HASH_ENV]: h });
-  assert.throws(() => gateEnvFor('commit', PLAN_ONLY_HASH), /real plan hash/);
-  assert.throws(() => gateEnvFor('commit', 'abc'), /real plan hash/);
-  assert.throws(() => gateEnvFor('verify'), /unknown stage/);
+  assert.deepEqual(decideExecution({ commit: false, expectedHash: h, actualHash: h }), { execute: false, reason: 'plan-only', hash: h });
+  assert.equal(decideExecution({ commit: true, expectedHash: 'a'.repeat(64), actualHash: h }).reason, 'hash-mismatch');
+  assert.equal(decideExecution({ commit: true, expectedHash: '', actualHash: h }).reason, 'hash-mismatch');
+  assert.deepEqual(decideExecution({ commit: true, expectedHash: h.toUpperCase(), actualHash: h }), { execute: true, reason: 'execute', hash: h });
+  assert.deepEqual(gateEnvFor(h), { [WRITE_PLAN_HASH_ENV]: h });
+  assert.throws(() => gateEnvFor('abc'), /real plan hash/);
 });
