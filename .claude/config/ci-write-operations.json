@@ -1,0 +1,353 @@
+{
+  "version": 1,
+  "_doc": "ops-write.yml が実行してよい外部書き込み操作のカタログ（SSOT）。ここに無い operation は CI で実行できない。plan hash は「operation + args + inputs（repo 内ファイルの sha256）」の安定化 JSON から決まり（scripts/lib/ci-write-gate.mjs）、人が `npm run ops-write:plan` で得た hash を dispatch の plan_sha256 に渡す。CI は checkout 後に同じ plan を再計算し、一致したときだけ DOBOKU_CI_WRITE_PLAN_SHA256 を付けて commitArgs で script を実行する。script は当該 service の playwright-auth-profiles.json ci.writeScripts に入っていなければカタログ検証で拒否される（check-playwright-auth-wiring）。inputs の {name} は argsSchema の必須 string 引数で展開する。verify は実行後に走る live 検査、ledger は commit する台帳パス。risk は canary 順序の目安（low → highest）。",
+  "operations": {
+    "note.sync-tags": {
+      "service": "note",
+      "script": "scripts/note-sync-tags.mjs",
+      "risk": "low",
+      "argsSchema": {
+        "article": "string"
+      },
+      "inputs": [
+        "{article}"
+      ],
+      "commitArgs": [
+        "--commit"
+      ],
+      "verify": [
+        "scripts/check-note-live-tags.mjs"
+      ],
+      "ledger": []
+    },
+    "note.update-body": {
+      "service": "note",
+      "script": "scripts/note-update-body.mjs",
+      "risk": "medium",
+      "argsSchema": {
+        "article": "string"
+      },
+      "inputs": [
+        "{article}"
+      ],
+      "commitArgs": [
+        "--commit"
+      ],
+      "verify": [
+        "scripts/verify-note-status.mjs"
+      ],
+      "ledger": [
+        ".claude/state/note-republish-hashes.json",
+        ".claude/state/note-republish"
+      ]
+    },
+    "note.update-cover": {
+      "service": "note",
+      "script": "scripts/note-update-cover.mjs",
+      "risk": "medium",
+      "argsSchema": {
+        "article": "string"
+      },
+      "inputs": [
+        "{article}"
+      ],
+      "commitArgs": [
+        "--commit"
+      ],
+      "verify": [
+        "scripts/verify-note-status.mjs"
+      ],
+      "ledger": []
+    },
+    "note.update-partial": {
+      "service": "note",
+      "script": "scripts/note-update-partial.mjs",
+      "risk": "medium",
+      "argsSchema": {
+        "spec": "string"
+      },
+      "inputs": [
+        "{spec}"
+      ],
+      "commitArgs": [
+        "--commit"
+      ],
+      "verify": [
+        "scripts/verify-note-status.mjs"
+      ],
+      "ledger": []
+    },
+    "note.publish": {
+      "service": "note",
+      "script": "scripts/note-publish.mjs",
+      "risk": "high",
+      "argsSchema": {
+        "article": "string",
+        "schedule": "string?"
+      },
+      "inputs": [
+        "{article}"
+      ],
+      "commitArgs": [
+        "--commit"
+      ],
+      "verify": [
+        "scripts/verify-note-status.mjs"
+      ],
+      "ledger": [
+        ".claude/state/note-published.json",
+        ".claude/state/note-publish"
+      ]
+    },
+    "note.price-sweep": {
+      "service": "note",
+      "script": "scripts/note-article-price-sweep.mjs",
+      "risk": "high",
+      "argsSchema": {
+        "pattern": "string",
+        "price": "number"
+      },
+      "inputs": [
+        "src/lib/note-magazines.ts"
+      ],
+      "commitArgs": [
+        "--commit"
+      ],
+      "verify": [
+        "scripts/verify-note-status.mjs"
+      ],
+      "ledger": []
+    },
+    "note.append-cta": {
+      "service": "note",
+      "script": "scripts/note-append-cta.mjs",
+      "risk": "medium",
+      "argsSchema": {
+        "note": "string",
+        "text": "string",
+        "url": "string"
+      },
+      "inputs": [],
+      "commitArgs": [
+        "--commit"
+      ],
+      "verify": [
+        "scripts/verify-note-status.mjs"
+      ],
+      "ledger": []
+    },
+    "note.magazine-add-articles": {
+      "service": "note",
+      "script": "scripts/note-magazine-add-articles.mjs",
+      "risk": "medium",
+      "argsSchema": {
+        "target": "string",
+        "from": "string"
+      },
+      "inputs": [],
+      "commitArgs": [
+        "--commit"
+      ],
+      "verify": [
+        "scripts/verify-note-magazines.mjs"
+      ],
+      "ledger": [
+        ".claude/state/note/magazines-snapshot.json"
+      ]
+    },
+    "note.attach-file": {
+      "service": "note",
+      "script": "scripts/note-attach-file.mjs",
+      "risk": "medium",
+      "argsSchema": {
+        "note": "string",
+        "file": "string"
+      },
+      "inputs": [
+        "{file}"
+      ],
+      "commitArgs": [
+        "--commit"
+      ],
+      "verify": [
+        "scripts/check-note-attachments.mjs"
+      ],
+      "ledger": [
+        ".claude/state/note-attach-done.json"
+      ]
+    },
+    "note.membership-plan-edit": {
+      "service": "note",
+      "script": "scripts/note-membership-plan-edit.mjs",
+      "risk": "high",
+      "argsSchema": {
+        "plan": "string",
+        "price": "number?",
+        "limit": "number?"
+      },
+      "inputs": [],
+      "commitArgs": [
+        "--commit"
+      ],
+      "verify": [
+        "scripts/note-membership-plan-status.mjs"
+      ],
+      "ledger": []
+    },
+    "coconala.publish": {
+      "service": "coconala",
+      "script": "scripts/coconala-publish.mjs",
+      "risk": "high",
+      "argsSchema": {
+        "service": "string"
+      },
+      "inputs": [
+        ".claude/config/coconala-listings.json",
+        "content/coconala/products"
+      ],
+      "commitArgs": [
+        "--commit"
+      ],
+      "verify": [
+        "scripts/check-coconala-analytics.mjs"
+      ],
+      "ledger": [
+        ".claude/config/coconala-listings.json"
+      ]
+    },
+    "coconala.edit": {
+      "service": "coconala",
+      "script": "scripts/coconala-edit.mjs",
+      "risk": "medium",
+      "argsSchema": {
+        "service": "string",
+        "fields": "string?"
+      },
+      "inputs": [
+        ".claude/config/coconala-listings.json",
+        "content/coconala/products"
+      ],
+      "commitArgs": [
+        "--commit"
+      ],
+      "verify": [
+        "scripts/check-coconala-analytics.mjs"
+      ],
+      "ledger": [
+        ".claude/config/coconala-listings.json"
+      ]
+    },
+    "brain.publish": {
+      "service": "brain",
+      "script": "scripts/brain-publish.mjs",
+      "risk": "high",
+      "argsSchema": {
+        "service": "string",
+        "edit-url": "string?"
+      },
+      "inputs": [
+        "content/brain/listings.json",
+        "content/brain/assets"
+      ],
+      "commitArgs": [
+        "--commit"
+      ],
+      "verify": [],
+      "ledger": [
+        "content/brain/listings.json"
+      ]
+    },
+    "brain.profile-edit": {
+      "service": "brain",
+      "script": "scripts/brain-profile-edit.mjs",
+      "risk": "low",
+      "argsSchema": {
+        "bio-file": "string",
+        "avatar": "string?"
+      },
+      "inputs": [
+        "{bio-file}"
+      ],
+      "commitArgs": [
+        "--commit"
+      ],
+      "verify": [],
+      "ledger": []
+    },
+    "kdp.publish": {
+      "service": "kdp",
+      "script": "scripts/kdp-publish.mjs",
+      "risk": "highest",
+      "argsSchema": {
+        "id": "string"
+      },
+      "inputs": [
+        ".claude/config/kdp-memo.json",
+        "content/kindle/books/{id}"
+      ],
+      "commitArgs": [
+        "--commit-publish"
+      ],
+      "verify": [],
+      "ledger": [
+        ".claude/config/kdp-memo.json"
+      ]
+    },
+    "x.article-publish": {
+      "service": "x",
+      "script": "scripts/x-article-publish.mjs",
+      "risk": "high",
+      "argsSchema": {
+        "article": "string"
+      },
+      "inputs": [
+        "content/sns/x/draft/094-career-longform-pilot"
+      ],
+      "commitArgs": [
+        "--publish"
+      ],
+      "verify": [],
+      "ledger": [
+        "content/sns/x/draft/094-career-longform-pilot"
+      ]
+    },
+    "x.thread-replies": {
+      "service": "x",
+      "script": "scripts/x-thread-replies.mjs",
+      "risk": "high",
+      "argsSchema": {},
+      "inputs": [
+        "content/sns/x/draft"
+      ],
+      "commitArgs": [
+        "--run"
+      ],
+      "verify": [],
+      "ledger": [
+        "content/sns/x/draft"
+      ]
+    },
+    "instagram.publish-bs": {
+      "service": "instagram",
+      "script": ".claude/skills/social/publish-ig-bs/publish-ig-bs.ts",
+      "risk": "high",
+      "argsSchema": {
+        "pack": "string",
+        "schedule": "string",
+        "reel": "boolean?"
+      },
+      "inputs": [
+        "content/sns/instagram/{pack}"
+      ],
+      "commitArgs": [
+        "post"
+      ],
+      "verify": [
+        "scripts/verify-ig-status.mjs"
+      ],
+      "ledger": [
+        "content/sns/instagram"
+      ]
+    }
+  }
+}

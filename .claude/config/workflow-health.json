@@ -80,6 +80,13 @@
       "maxAgeDays": 10,
       "maxConsecutiveFailures": 4,
       "_note": "ドリフト中は赤が正常。沈黙（最後の成功からの日数）を主に見る"
+    },
+    {
+      "workflow": "scheduled-publish.yml",
+      "branch": "develop",
+      "maxAgeDays": 3,
+      "maxConsecutiveFailures": 3,
+      "_note": "30 分刻み。x が enabled:false の間は plan-x が 0 件で緑"
     }
   ]
 }

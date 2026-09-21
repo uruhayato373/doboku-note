@@ -13,6 +13,23 @@ argument-hint: "post <pack> --schedule <YYYY-MM-DDTHH:MM> [--reel] [--dry-run] [
 
 Playwright で Business Suite（business.facebook.com）のコンポーザを自動操作し、Instagram カルーセルを予約投稿する。設計は [[publish-x]] に倣う（永続プロファイル・システム Chrome で bot 回避・偽成功を出さない fail-safe・dry-run 必須）。
 
+## CI 経路（2026-09-21）
+
+**投稿も本スキル（Business Suite Playwright）を CI で回す。** Meta の利用制限で Graph API トークンを発行できないため、
+`scripts/ig-graph-publish.mjs`（公式 API・即時公開のみ）は制限が解けたときの代替として残すが主経路ではない。
+CI 実行は `ops-write.yml`（dispatch + plan hash）で、セッションは encrypted-state（`login-collectors.yml` と同じ
+`restore-auth-state`）。手順:
+
+```
+npm run ops-write:plan -- --operation instagram.publish-bs --args '{"pack":"<exam>/<pack>","schedule":"YYYY-MM-DDTHH:MM"}'
+# → 表示された hash と inputs（パック配下の caption/画像の sha256）を確認してから
+gh workflow run ops-write.yml --ref develop -f operation=instagram.publish-bs -f args='{...同じ JSON...}' -f plan_sha256=<hash> -f commit=true
+```
+
+`commit=false` なら plan だけ。`--reel` は args に `"reel": true`。CI は headless なので初回は `commit=false` で plan を確認し、
+Mac の `--dry-run` でセレクタが生きていることを確かめてから `commit=true` に進む（Business Suite の UI 変更で
+セレクタが外れたら Issue `ops-write-instagram` が立つ）。予約スロットの実体確認（プランナー月ビュー）はローカル。
+
 ## 既存予約・公開済み投稿を改修するとき
 
 [SNS 投稿画像ポリシー §0.1](../../../knowledge/reference/sns-image-policy.md) を先に読む。新規投稿フローを既存投稿の編集代わりに再実行しない。投稿 ID・予約の実体・変更可能項目を確認し、対応する編集処理がない場合はその不足を明示する。保存後の実表示と予約日時・公開状態の再照合までを外部更新の完了条件とする。

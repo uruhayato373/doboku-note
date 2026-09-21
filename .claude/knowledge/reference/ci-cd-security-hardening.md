@@ -71,6 +71,17 @@ gh secret delete SECRET_ACCESS_KEY
 - **mainへのPRレビュー必須化**: 単独運用のため必須ではないが、`/deploy`前にセルフレビューの型を強制したいなら「Require a pull request before merging」を有効化（承認数0でも「PRを経由する」制約は課せる）
 - **automation-failure Issue #457のクローズ**: 対象workflowは回復済みだが18日openのまま。dedup仕様で以後の失敗コメントが埋没している。DN-0135のIssue #473と同種のため統合を検討（2026-09-18 から起票元 workflow の次回成功で `--resolve` が自動クローズ。gsc-auto-review channel は gsc-auto-review.yml と weekly-review-guard.yml の両方に配線済み）
 
+## external-writes（ops-write.yml）の権限設計（2026-09-21）
+
+`ops-write.yml`（外部サービスへの書き込み・[04_自動化マップ.md](../../../docs/operations/04_自動化マップ.md)「CI で実行するが承認は人」）を安全に運用するための追加事項:
+
+- **書き込み権限は catalog + plan hash + allowlist の 3 点で縛る**（このいずれか単独では防げない）:
+  1. **catalog**（`.claude/config/ci-write-operations.json`）— 実行できる operation をカタログにあるものだけに限定する。カタログ外の script は起動できない
+  2. **plan hash**（`DOBOKU_CI_WRITE_PLAN_SHA256`・`scripts/lib/ci-write-gate.mjs`）— 人が確認した内容（args・repo 内 inputs のハッシュ）と、CI が実行する内容が同一であることを機械的に保証する。不一致は exit 2 で何もしない
+  3. **allowlist**（`playwright-auth-profiles.json` の `ci.writeScripts`）— resolver（`playwright-auth-profile.mjs`）は、この env が無い、または script がサービスの `writeScripts` に無ければ profile を返さない＝書き込みできない
+- **Instagram は Meta 利用制限中のため Graph API 経路（`fetch-ig-insights` / `ig-graph-publish`）は待機**。照合・予約投稿は encrypted-state の Playwright（`login-collectors.yml` / `ops-write.yml` の `instagram.publish-bs`）。制限が解けて Graph API に戻すときはトークンに `instagram_content_publish` scope が必要（`ig-graph-publish.mjs` が投稿・カルーセル・リール・ストーリーズを作成する。read-only の `instagram_basic` だけでは公開できない）。トークン発行時に scope を確認する
+- **GitHub Environment `external-writes`（required reviewer）を推奨**: `ops-write.yml` の `write` job は現状 `environment:` 未指定（Environment 未作成のためコメントアウト中）。作成後は `environment: external-writes` を有効化し、`Required reviewers` を設定すると `commit=true` の dispatch に人の承認が挟まる（上表「1-c」の Environment 活用パターンと同型）。unused Environments の扱い（削除 or 承認ゲート化）を決めるときに合わせて検討する
+
 ## 実行後の確認コマンド
 
 ```bash

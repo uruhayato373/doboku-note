@@ -7,7 +7,7 @@
  * 違反 0 件を要求する。`--ratchet` は前回計測（.claude/state/quality/playwright-auth-wiring-last.json）
  * と比較し、**増加した項目だけ**を FAIL にする（減少・横ばいは許容 — 段階移行を妨げない）。
  *
- * 検査 8 種:
+ * 検査 9 種:
  *   1. registry の schema 健全性（loadAuthRegistry が例外を投げないか・危険な profileDirName）
  *   2. Mac ユーザー名の認証絶対パス直書き（/Users/<name>/doboku-note）
  *   3. `.local/playwright-*-profile` の runtime 直書き（実装コードのみ・reference文書は対象外）
@@ -20,6 +20,9 @@
  *      readOnlyScripts/writeScripts か auth CLI（CI_ALWAYS_ALLOWED_SCRIPTS）に入っているか
  *      （service ブロック単位の厳密対応が難しいため、workflow 全体で見た緩い判定にしている）
  *   8. git 追跡下に生の storageState/auth state っぽい json ファイルが無いか
+ *   9. `.claude/config/ci-write-operations.json`（ops-write カタログ）を loadCatalog で検証（registry
+ *      突合込み）し、`.github/workflows/ops-write.yml` の `inputs.operation.options` がカタログの
+ *      キー集合と完全一致するか（2026-09-21）
  *
  * Usage:
  *   node scripts/check-playwright-auth-wiring.mjs              人間向けレポート・exit 0
@@ -32,6 +35,7 @@ import { execFileSync } from 'node:child_process';
 import { join, dirname, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadAuthRegistry, CI_ALWAYS_ALLOWED_SCRIPTS } from './lib/playwright-auth-profile.mjs';
+import { loadCatalog } from './lib/ci-write-gate.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const NAME = 'check-playwright-auth-wiring';
@@ -75,6 +79,7 @@ const findings = {
   ciBlockWiring: [],
   loginCollectorsWiring: [],
   trackedAuthStateFiles: [],
+  ciWriteCatalog: [],
 };
 
 // 1. registry schema
@@ -98,6 +103,12 @@ try {
 // 6. ci ブロック配線
 // readOnlyScripts に write 系の動詞が混入していないかのヒューリスティック（ファイル名ベース）。
 const WRITE_VERB_RE = /(^|[-_])(publish|delete|update|edit|price|pause|rate|upload|post|apply|create|attach|append|insert|add|reply|replies|swap|convert|reanchor|sync-tags|thumb|profile)([-_.]|$)/;
+// readOnlyScripts は「ops-write の plan hash が無くても常時許可」という意味であり、write 系動詞の
+// 有無で見ているのは「人の承認（ops-write）を経ずに書き込む隠れた抜け道」を検出するためのヒューリス
+// ティック。ただし scripts/x-publish-scheduled.mjs は ops-write カタログの対象ではなく、独自の頻度
+// ゲート（scripts/lib/x-frequency-gate.mjs・12 規則＋dry-run 既定）で書き込みを制御する設計上の例外
+// （x-post-policy.md §11「CI 投稿の頻度ゲート」）。ファイル名を書き換えて隠すのではなくここに明示する。
+const WRITE_VERB_EXCEPTIONS = new Set(['scripts/x-publish-scheduled.mjs']);
 // workflow が呼ぶが認証セッションと無関係な運用スクリプト（profile を要求しないので resolver の
 // allowlist には入れない。ここは「workflow 参照 → allowlist」検査の除外リスト）。
 const WORKFLOW_UTILITY_SCRIPTS = new Set([
@@ -119,7 +130,7 @@ if (loadedRegistry) {
       }
     }
     for (const script of readOnly) {
-      if (WRITE_VERB_RE.test(basename(script))) {
+      if (WRITE_VERB_RE.test(basename(script)) && !WRITE_VERB_EXCEPTIONS.has(script)) {
         findings.ciBlockWiring.push(`service "${id}": readOnlyScripts に write 系動詞のファイル名が混入（${script}）`);
       }
     }
@@ -172,6 +183,38 @@ try {
   }
 } catch (e) {
   findings.trackedAuthStateFiles.push(`git ls-files 失敗: ${e.message}`);
+}
+
+// 9. ops-write カタログ（loadCatalog は registry 突合込みで throw する）と
+// ops-write.yml の inputs.operation.options のキー集合整合
+const OPS_WRITE_WORKFLOW_PATH = join(ROOT, '.github/workflows/ops-write.yml');
+let ciWriteCatalog = null;
+try {
+  ciWriteCatalog = loadCatalog(ROOT, { registry: loadedRegistry ?? undefined });
+} catch (e) {
+  findings.ciWriteCatalog.push(`catalog 読み込み/検証失敗: ${e.message}`);
+}
+if (ciWriteCatalog) {
+  const catalogKeys = new Set(Object.keys(ciWriteCatalog.operations));
+  if (!existsSync(OPS_WRITE_WORKFLOW_PATH)) {
+    findings.ciWriteCatalog.push('ops-write.yml が存在しない');
+  } else {
+    const workflowText = readFileSync(OPS_WRITE_WORKFLOW_PATH, 'utf8');
+    const optionsMatch = workflowText.match(/operation:\n(?:.*\n)*?\s+options:\n([\s\S]*?)\n\s*args:/);
+    if (!optionsMatch) {
+      findings.ciWriteCatalog.push('ops-write.yml から inputs.operation.options を抽出できない');
+    } else {
+      const workflowKeys = new Set(
+        [...optionsMatch[1].matchAll(/^\s*-\s*(\S+)\s*$/gm)].map((m) => m[1]),
+      );
+      for (const key of catalogKeys) {
+        if (!workflowKeys.has(key)) findings.ciWriteCatalog.push(`ops-write.yml の options に無い operation: ${key}`);
+      }
+      for (const key of workflowKeys) {
+        if (!catalogKeys.has(key)) findings.ciWriteCatalog.push(`ops-write.yml の options にあるがカタログに無い operation: ${key}`);
+      }
+    }
+  }
 }
 
 const MAC_PATH_RE = /\/Users\/[A-Za-z0-9_.-]+\/doboku-note/;
@@ -252,6 +295,8 @@ if (JSON_OUT) {
   for (const f of findings.loginCollectorsWiring) console.log(`      ${f}`);
   console.log(`[${NAME}] 8. git 追跡下の生 auth state ファイル: ${counts.trackedAuthStateFiles}`);
   for (const f of findings.trackedAuthStateFiles) console.log(`      ${f}`);
+  console.log(`[${NAME}] 9. ops-write カタログ整合: ${counts.ciWriteCatalog}`);
+  for (const f of findings.ciWriteCatalog) console.log(`      ${f}`);
   console.log(`[${NAME}] 合計 ${total} 件`);
 }
 

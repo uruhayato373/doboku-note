@@ -15,6 +15,18 @@ argument-hint: "--article <article.md path> [--commit] [--schedule YYYY-MM-DDTHH
 - `publish-note`（browser-use=Mac）: LLM バックエンドが必要で会社PCプロキシでは不可。Mac 専用。
 - **publishing は意図的にユーザー起動限定**（`disable-model-invocation: true`）。エージェントが勝手に公開しない。決定的フローのためサブエージェント化もしない（原則5）。
 
+## CI 経路（ops-write.yml・2026-09-21）
+
+`note.publish`（本スキルの `scripts/note-publish.mjs`）は `ops-write.yml`（dispatch + plan hash）から実行できる。
+
+```
+npm run ops-write:plan -- --operation note.publish --args '{"article":"content/note/<dir>/article.md"}'
+# hash を確認 → 内容確認 →
+gh workflow run ops-write.yml --ref develop -f operation=note.publish -f args='{"article":"..."}' -f plan_sha256=<hash> -f commit=true
+```
+
+同カタログには note 系の他操作（`note.update-body` / `note.update-cover` / `note.update-partial` / `note.sync-tags` / `note.price-sweep` / `note.append-cta` / `note.magazine-add-articles` / `note.attach-file` / `note.membership-plan-edit`）もあり、それぞれ対応スクリプトの `--commit` を同じ plan hash ゲートで実行する。真実源 `.claude/config/ci-write-operations.json` / `scripts/lib/ci-write-gate.mjs`。
+
 ## 安全弁（収益アカウントのため必須・崩さない）
 
 1. **account=dobokunote を assert**（不一致は即中断・1記事も触らない。誤公開事故の再発防止）

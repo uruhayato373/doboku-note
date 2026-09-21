@@ -66,7 +66,7 @@
       "notes": null,
       "ci": {
         "mode": "encrypted-state",
-        "enabled": false,
+        "enabled": true,
         "canary": true,
         "operations": [
           "read",
@@ -76,7 +76,9 @@
         "stateDomains": [
           "brain-market.com"
         ],
-        "readOnlyScripts": [],
+        "readOnlyScripts": [
+          "scripts/brain-sales-fetch.mjs"
+        ],
         "writeScripts": [
           "scripts/brain-publish.mjs",
           "scripts/brain-profile-edit.mjs",
@@ -183,6 +185,7 @@
           ".claude/skills/social/x-repost/x-repost-discover.ts"
         ],
         "writeScripts": [
+          "scripts/x-publish-scheduled.mjs",
           ".claude/skills/social/publish-x/publish-x.ts",
           ".claude/skills/social/x-repost/x-repost-exec.ts",
           "scripts/x-article-publish.mjs",

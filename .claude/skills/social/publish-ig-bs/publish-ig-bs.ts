@@ -1176,13 +1176,16 @@ function parseArgs(): Cli {
       "使い方:\n" +
         "  npx tsx publish-ig-bs.ts login\n" +
         "  npx tsx publish-ig-bs.ts post <pack> --schedule YYYY-MM-DDTHH:MM [--reel] [--dry-run] [--pause] [--keep-fb]\n" +
+        "  npx tsx publish-ig-bs.ts post --pack <pack> --schedule YYYY-MM-DDTHH:MM   （ops-write 経由の書き方）\n" +
         "  npx tsx publish-ig-bs.ts post <pack> --now [--reel] [--dry-run]\n" +
         "    --reel : カルーセルでなく reels/video.mp4 をリール予約投稿"
     );
     process.exit(1);
   }
 
-  const packArg = args[1];
+  // ops-write（CI）は引数を --key value で渡すので、位置引数の代わりに --pack <rel> も受ける。
+  const packFlagIdx = args.indexOf("--pack");
+  const packArg = packFlagIdx >= 0 ? args[packFlagIdx + 1] : args[1];
   if (!packArg || packArg.startsWith("--")) {
     console.error("🚨 <pack>（パックのパス）を指定してください");
     process.exit(1);
