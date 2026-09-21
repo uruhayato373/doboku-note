@@ -64,6 +64,13 @@
       "_note": "月次（毎月 1 日）。週次の基準で判定すると正常な待ち時間で必ず赤くなる"
     },
     {
+      "workflow": "login-collectors.yml",
+      "branch": "develop",
+      "maxAgeDays": 10,
+      "maxConsecutiveFailures": 2,
+      "_note": "週次 cron の和集合。全サービス disabled の間は plan が 0 件で緑（沈黙）＝canary 開始までは age を見ない"
+    },
+    {
       "workflow": "cloudflare-metrics.yml",
       "maxAgeDays": 3,
       "maxConsecutiveFailures": 3

@@ -21,9 +21,10 @@ Claude Codeに、次の処理を安全かつ再実行可能な形で実装させ
 ## 2. 重要な制約
 
 - GoogleのID・パスワード・Cookie・サービスアカウントJSONをGit管理しない。
-- Playwrightの永続プロファイルは `.local/playwright-google-profile/` に保存する。
+- Playwrightの永続プロファイルは auth root（`npm run auth:paths -- --service google`）に保存する。
 - 初回ログイン、2段階認証、CAPTCHAは人間がheadedブラウザで完了する。
-- ブラウザ自動化はローカル限定。CIではサービスアカウントAPIだけを使う。
+- CIは暗号化storageState（`login-collectors.yml`・googleはcanary卒業を最後に回す）。失効時は
+  `check-gsc-ui-due` の期限surfaceとローカル儀式（`auth:login` → `auth:status`）が正。
 - GSCのPage indexing CSVは例URLが最大1,000件で、総数そのものではない。
 - Indexing APIを一般記事の登録要求に使わない。対象はJobPostingまたはBroadcastEventに限定される。
 - 「検証を開始」「インデックス登録をリクエスト」「GA4設定変更」は外部状態を変えるため自動実行しない。

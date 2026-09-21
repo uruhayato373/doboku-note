@@ -62,6 +62,11 @@ npm run disk-hygiene:install  # macOS: launchd 日次掃除＋Git maintenance登
 npm run disk-hygiene:install:win # Windows: タスクスケジューラ日次掃除＋Git maintenance登録（12:30・逃した回は次回起動時。ログと stamp は ~/.local/state/doboku-note/logs/。AppData 配下にしないのは MSIX アプリからの読み書きが仮想化されるため）
 npm run auth:doctor           # Playwright auth root の診断（Windows は旧 %LOCALAPPDATA% と Codex(MSIX) サンドボックスの取り残しも警告）
 npm run auth:migrate          # 旧置き場のプロファイルを新 root へコピー（既定 dry-run・--commit。Cookie が最新の候補を選び、キャッシュは運ばない）
+npm run auth:keygen           # CI用age keypair生成。recipient未設定でのexportは拒否されるので先に実行する
+npm run auth:export           # ローカルstorageStateをage暗号化しprivate R2へ書き出す。recipient未設定だと拒否される
+npm run auth:ci-restore       # CI専用。暗号化stateを復元。authenticated以外はexit 2でリトライしない（人の再ログイン待ち）
+npm run auth:ci-writeback     # CI専用。更新後のstorageStateをCAS（etag/generation）で書き戻す
+npm run auth:ci-plan          # ops-writeのwrite planを作りDOBOKU_CI_WRITE_PLAN_SHA256を計算する
 npm run check-content-taxonomy # 分類語彙（領域×資格×記事型×テーマ×タグ）の整合。group が許可外・未登録タグは赤、別名綴り・構造タグ不整合は baseline ラチェット（`:ci`）、topic 三方向の 0 件は WARN。規則は content-taxonomy.md・pre-commit --staged ＋ quality:audit
 npm run check-content-expansion # 全教材の論点→記事/図/SNS対応・未確認・原典待ち・成果物変更を検査（管理画面 /content/expansion・週次/月次で確認）
 ```
@@ -87,7 +92,7 @@ npm run check-standards-page-images # 上の provenance 整合（catalog↔manif
 `npm run note-cover-rollout -- <reconcile|snapshot|plan|run|verify|record>` — 全量差し替えの照合（manifest↔最新原稿・差分だけ再生成）→ 公開 API の前後スナップショット → 対象/保留の決定 → 既存 CLI（note-update-cover / note-magazine-cover）への逐次投入（回線待ち・chunk 再試行・未 OK だけ再走査）→ eyecatch 変化と price/status/is_limited 不変の突合 → `.claude/state/note/cover-rollout/<date>.json` への記録。作業場は `.tmp/note-cover-rollout/`（消えると再開できない。`generated/manifest.json` と `live-before.json` は残す）。罠: CLI の「新カバー未確認」中断は coverless を防げない（削除が先に live へ書かれる・measurement-incidents 2026-09-18）ので verify で eyecatch を必ず見る。
 
 ```bash
-npm run kdp-report        # Kindle 月次ロイヤリティを KDP レポートから取得→.claude/state/sales/kdp-royalties.json（ローカル専用・読み取り専用・当月/前月のみ）
+npm run kdp-report        # Kindle 月次ロイヤリティを KDP レポートから取得→.claude/state/sales/kdp-royalties.json（読み取り専用・当月/前月のみ・定期取得は login-collectors.yml）
 npm run check-kdp-report-freshness # KDPロイヤリティ台帳の期限とdoboku-note LIVE全冊のcatalog紐付けを検査（共有口座の他サイト書籍は除外。16日以降=前月確定、28日以降=当月推計。quality:auditのops区分が日次通知）
 npm run note-traffic-fetch # note ダッシュボード「アクセス状況」を read-only 取得→.claude/state/metrics/note/{referrers,articles-pv}-YYYY-MM.json（--month は今月/先月のみ・--commit で保存・--check は fixture で正規化の完走確認＝quality:audit ci・ログイン要・DN-0249）。流入元は自己閲覧を含み、サイト経由は PR #511 deploy 前は no referrer に含まれる
 npm run note-sales-fetch  # note 売上履歴を read-only 取得→検算OKで.claude/state/sales/sales-log.jsonの当月を差し替え（--month YYYY-MM --commit・ログイン要・DN-0018）
@@ -104,9 +109,9 @@ npm run check-kdp-category-coverage # 新刊(buildSpec持ち)のid接頭辞がKD
 ## ココナラ
 
 ```bash
-npm run coconala-orders   # ココナラ受注＋購入前DMの実体を read-only 収集→orders-snapshot.json（ローカル専用・Playwright・書き込みなし）
+npm run coconala-orders   # ココナラ受注＋購入前DMの実体を read-only 収集→orders-snapshot.json（Playwright・書き込みなし・定期取得は login-collectors.yml）
 npm run check-coconala-orders # 上記 snapshot ↔ orders-log をオフライン突合（記録漏れ・金額ズレ・返信期限〔48h自動キャンセル〕・DM要対応）
-npm run coconala-analytics # ココナラ分析画面（全体/サービス別/ブログ別）を read-only 収集→analytics-snapshot.json（--append-kpi で kpi-log へ週次 upsert・ローカル専用・Playwright・書き込みなし）
+npm run coconala-analytics # ココナラ分析画面（全体/サービス別/ブログ別）を read-only 収集→analytics-snapshot.json（--append-kpi で kpi-log へ週次 upsert・定期取得は login-collectors.yml・Playwright・書き込みなし）
 npm run check-coconala-analytics # 上記の鮮度・欠測・マスク値（0000は0でない）・kpi-log 整合をオフライン検査
 npm run coconala-pause    # ココナラ出品の受付休止/再開/アーカイブ（--resume --absence で不在明け一括復帰・既定 dry-run）
 ```

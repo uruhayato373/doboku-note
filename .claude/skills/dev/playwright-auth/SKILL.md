@@ -19,6 +19,8 @@ disable-model-invocation: true
 - `login <service>`: headed Chromeで人間がログイン
 - `status <service|--all>`: read-onlyページでaccount assert
 - `migrate <service> [--commit]`: 同一PCの旧profileをcopy。既定dry-run
+- `keygen`: CI用age keypairを生成する（identityはMacのauth root、recipientはregistryへ）
+- `export <service>`: authenticatedなローカルstorageStateをage暗号化しprivate R2へ書き出す
 
 ## 手順
 
@@ -35,6 +37,7 @@ disable-model-invocation: true
 - lockを自動削除せず、processをkillしない。
 - login/statusは投稿・公開・購入・申請・download・uploadを行わない。
 - afbの別process statusは`unsupported`。GmailはPlaywright対象外。
+- CIで使うのは暗号化stateのみ。loginは常にローカル。exportはauthenticatedのときだけ送る。
 
 ## 参照
 

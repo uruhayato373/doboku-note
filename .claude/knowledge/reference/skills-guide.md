@@ -112,7 +112,7 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 | `/pr-create` | 現ブランチから GitHub PR を作成 | `PR作成`, `/pr-create` |
 | `/simplify` | 変更 diff を点検し最小差分で修正→lint→PR チェーン | `diff確認`, `最小修正`, `/simplify` |
 | `/create-skill` | スキル作成ガイド | `スキルを作りたい`, `/create-skill` |
-| `/playwright-auth` | Windows/Mac各PCのPlaywright認証profileを共通CLIで保存先確認・offline診断・手動login・read-only status・安全copy移行。自動削除/kill/PC間同期なし | `Playwrightログイン`, `認証profile診断`, `auth status`, `/playwright-auth doctor` |
+| `/playwright-auth` | Windows/Mac各PCのPlaywright認証profileを共通CLIで保存先確認・offline診断・手動login・read-only status・安全copy移行・CI用ageキー生成（keygen）・storageStateのencrypted-state書き出し（export）。自動削除/kill/PC間同期なし | `Playwrightログイン`, `認証profile診断`, `auth status`, `/playwright-auth doctor` |
 | `/sync-r2-images` | R2 画像のローカル同期 | `R2同期`, `/sync-r2-images` |
 | `/diff-r2` | ローカル（`content/site/`）↔ R2（prefix `posts/`）の双方向差分検出 | `R2差分`, `/diff-r2` |
 | `/asset-route` | Git の外に置くアセットの置き場を「誰が使うか」で決める決定木＋コマンド（サイト配信→public R2 / CI→private R2 / 人・手元→Google Drive vault）。新 group 追加・R2→Drive 移行の必須順序・マウント無し/プレースホルダサイズの罠。真実源 `asset-storage-policy.md` §1 | `アセットの置き場`, `R2かDriveか`, `/asset-route` |

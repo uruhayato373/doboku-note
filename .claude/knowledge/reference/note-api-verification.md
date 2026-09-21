@@ -322,7 +322,7 @@ note のタグ上限99で追加できない記事に汎用タグ退避（`--evic
 | 層 | ゲート | 見るもの | どこで |
 |---|---|---|---|
 | ソース | `npm run check-note-attachments` | PDF 配布を約束している記事に、添付すべき PDF 実体がディスク上にあるか | pre-commit（`--staged`）＋ CI 全量（r2-audit.yml） |
-| ライブ | `npm run check-note-attachments:live` | 添付リンク（`api/v2/attachments/download`）が期待本数あるか | **ローカル専用**（要 note ログイン） |
+| ライブ | `npm run check-note-attachments:live` | 添付リンク（`api/v2/attachments/download`）が期待本数あるか | `login-collectors.yml`（encrypted-state・canary 卒業後）。ローカルはフォールバック（要 note ログイン） |
 
 **添付が失われる入口は4つあり、それぞれ別のゲートで塞ぐ**（横断ゲート1本では「気づくのが遅い」ため、各工程の出口で落とす）:
 

@@ -23,6 +23,7 @@ import { fileURLToPath } from "node:url";
 import { createHash } from "node:crypto";
 import { resolveProfileDir, resolveStatePath } from "./playwright-auth-profile.mjs";
 import { leanContextOptions } from "./playwright-launch.mjs";
+import { attachCISession } from "./playwright-auth-state.mjs";
 
 const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 export const CONFIG_PATH = ".claude/config/google-console-automation.json";
@@ -131,6 +132,8 @@ export async function launchContext(cfg, { headless } = {}) {
       "--no-default-browser-check",
     ],
   }));
+  // A8 は a8-report-browser.mjs の restoreA8Session が同じ statePath を独自に読むため対象外。
+  if (state && authService(cfg) === "google") await attachCISession(ctx, "google", { statePath: state });
   // navigator.webdriver を undefined に（自動化検知の主シグナルを無効化）
   await ctx.addInitScript(() => {
     try {

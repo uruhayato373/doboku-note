@@ -7,12 +7,19 @@
  * 違反 0 件を要求する。`--ratchet` は前回計測（.claude/state/quality/playwright-auth-wiring-last.json）
  * と比較し、**増加した項目だけ**を FAIL にする（減少・横ばいは許容 — 段階移行を妨げない）。
  *
- * 検査 5 種:
+ * 検査 8 種:
  *   1. registry の schema 健全性（loadAuthRegistry が例外を投げないか・危険な profileDirName）
  *   2. Mac ユーザー名の認証絶対パス直書き（/Users/<name>/doboku-note）
  *   3. `.local/playwright-*-profile` の runtime 直書き（実装コードのみ・reference文書は対象外）
  *   4. `launchPersistentContext` を使うが共通 resolver を import していないファイル
  *   5. profile/state らしい変数を標準出力へ出す危険コード候補（console.log(PROFILE) 等）
+ *   6. registry の ci ブロック配線（2026-09-21）: readOnlyScripts/writeScripts の実在、readOnlyScripts に
+ *      write系動詞（publish/delete/update 等）のファイル名が混入していないか、mode encrypted-state なら
+ *      stateDomains と stateFileName が必須
+ *   7. `.github/workflows/login-collectors.yml` が呼ぶ script が、いずれかの service の
+ *      readOnlyScripts/writeScripts か auth CLI（CI_ALWAYS_ALLOWED_SCRIPTS）に入っているか
+ *      （service ブロック単位の厳密対応が難しいため、workflow 全体で見た緩い判定にしている）
+ *   8. git 追跡下に生の storageState/auth state っぽい json ファイルが無いか
  *
  * Usage:
  *   node scripts/check-playwright-auth-wiring.mjs              人間向けレポート・exit 0
@@ -21,9 +28,10 @@
  *   node scripts/check-playwright-auth-wiring.mjs --json       機械可読出力
  */
 import { readFileSync, readdirSync, lstatSync, existsSync, mkdirSync, writeFileSync } from 'node:fs';
-import { join, dirname } from 'node:path';
+import { execFileSync } from 'node:child_process';
+import { join, dirname, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { loadAuthRegistry } from './lib/playwright-auth-profile.mjs';
+import { loadAuthRegistry, CI_ALWAYS_ALLOWED_SCRIPTS } from './lib/playwright-auth-profile.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const NAME = 'check-playwright-auth-wiring';
@@ -58,12 +66,22 @@ function walk(dir, out = []) {
 // 検査対象: scripts/ と .claude/skills/（実装コードのみ。docs/reference の説明文は誤検知源なので対象外）
 const targets = [...walk(join(ROOT, 'scripts')), ...walk(join(ROOT, '.claude/skills'))];
 
-const findings = { registry: [], macAbsolutePath: [], localProfileDirect: [], missingResolverImport: [], stdoutLeak: [] };
+const findings = {
+  registry: [],
+  macAbsolutePath: [],
+  localProfileDirect: [],
+  missingResolverImport: [],
+  stdoutLeak: [],
+  ciBlockWiring: [],
+  loginCollectorsWiring: [],
+  trackedAuthStateFiles: [],
+};
 
 // 1. registry schema
+let loadedRegistry = null;
 try {
-  const registry = loadAuthRegistry({ cwd: ROOT });
-  for (const [id, entry] of Object.entries(registry.services)) {
+  loadedRegistry = loadAuthRegistry({ cwd: ROOT });
+  for (const [id, entry] of Object.entries(loadedRegistry.services)) {
     const dirName = entry.profileDirName;
     if (!dirName || typeof dirName !== 'string' || /[\\/]|\.\./.test(dirName)) {
       findings.registry.push(`service "${id}": profileDirName が不正または path traversal の疑い（${dirName}）`);
@@ -75,6 +93,85 @@ try {
   }
 } catch (e) {
   findings.registry.push(`registry 読み込み失敗: ${e.message}`);
+}
+
+// 6. ci ブロック配線
+// readOnlyScripts に write 系の動詞が混入していないかのヒューリスティック（ファイル名ベース）。
+const WRITE_VERB_RE = /(^|[-_])(publish|delete|update|edit|price|pause|rate|upload|post|apply|create|attach|append|insert|add|reply|replies|swap|convert|reanchor|sync-tags|thumb|profile)([-_.]|$)/;
+// workflow が呼ぶが認証セッションと無関係な運用スクリプト（profile を要求しないので resolver の
+// allowlist には入れない。ここは「workflow 参照 → allowlist」検査の除外リスト）。
+const WORKFLOW_UTILITY_SCRIPTS = new Set([
+  'scripts/report-automation-failure.mjs',
+  'scripts/install-pre-commit.mjs',
+  '.claude/scripts/build-doc-meta-index.mjs',
+]);
+const allCiScripts = new Set([...CI_ALWAYS_ALLOWED_SCRIPTS, ...WORKFLOW_UTILITY_SCRIPTS]);
+if (loadedRegistry) {
+  for (const [id, entry] of Object.entries(loadedRegistry.services)) {
+    const ci = entry.ci;
+    if (!ci || typeof ci !== 'object') continue;
+    const readOnly = Array.isArray(ci.readOnlyScripts) ? ci.readOnlyScripts : [];
+    const write = Array.isArray(ci.writeScripts) ? ci.writeScripts : [];
+    for (const script of [...readOnly, ...write]) {
+      allCiScripts.add(script);
+      if (!existsSync(join(ROOT, script))) {
+        findings.ciBlockWiring.push(`service "${id}": script が存在しない（${script}）`);
+      }
+    }
+    for (const script of readOnly) {
+      if (WRITE_VERB_RE.test(basename(script))) {
+        findings.ciBlockWiring.push(`service "${id}": readOnlyScripts に write 系動詞のファイル名が混入（${script}）`);
+      }
+    }
+    if (ci.mode === 'encrypted-state') {
+      if (!Array.isArray(ci.stateDomains) || ci.stateDomains.length === 0) {
+        findings.ciBlockWiring.push(`service "${id}": mode encrypted-state だが stateDomains が空`);
+      }
+      if (!entry.stateFileName) {
+        findings.ciBlockWiring.push(`service "${id}": mode encrypted-state だが stateFileName が未設定`);
+      }
+    }
+  }
+}
+
+// 7. login-collectors.yml が呼ぶ script の allowlist 整合
+// service ブロック単位の厳密な if 判定は workflow 構文解析が要るため、workflow 全体で
+// 参照される script が「いずれかの service の allowlist か auth CLI」に入っているかの緩い判定にする。
+const LOGIN_COLLECTORS_PATH = join(ROOT, '.github/workflows/login-collectors.yml');
+let loginCollectorsScanned = false;
+if (existsSync(LOGIN_COLLECTORS_PATH)) {
+  loginCollectorsScanned = true;
+  const pkgScripts = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')).scripts || {};
+  const workflowText = readFileSync(LOGIN_COLLECTORS_PATH, 'utf8');
+  const referenced = new Set();
+  for (const m of workflowText.matchAll(/\bnode\s+(scripts\/[A-Za-z0-9._\/-]+\.mjs)\b/g)) referenced.add(m[1]);
+  for (const m of workflowText.matchAll(/\bnpx\s+tsx\s+([A-Za-z0-9._\/-]+\.ts)\b/g)) referenced.add(m[1]);
+  for (const m of workflowText.matchAll(/\bnpm run ([a-z0-9][a-z0-9:_-]*)/g)) {
+    const cmd = pkgScripts[m[1]];
+    if (!cmd) continue;
+    const sm = cmd.match(/\bnode\s+(scripts\/[A-Za-z0-9._\/-]+\.mjs)\b/);
+    if (sm) referenced.add(sm[1]);
+  }
+  for (const script of referenced) {
+    if (!allCiScripts.has(script)) {
+      findings.loginCollectorsWiring.push(`login-collectors.yml が参照するが allowlist に無い script（${script}）`);
+    }
+  }
+}
+// workflow 未作成の間は「検査対象 0（未実装）」であり「違反 0（合格）」と区別して報告する。
+// strict の合否には含めない（ここで落とすと workflow 実装前のブランチが恒久的に赤くなるため）。
+
+// 8. git 追跡下に生の storageState/auth state っぽい json ファイルが無いか
+const TRACKED_STATE_RE = /(playwright-.*state|storage-?state).*\.json$/i;
+try {
+  const tracked = execFileSync('git', ['-c', 'core.quotepath=false', 'ls-files', '-z'], {
+    cwd: ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024,
+  }).split('\0').filter(Boolean);
+  for (const f of tracked) {
+    if (TRACKED_STATE_RE.test(basename(f))) findings.trackedAuthStateFiles.push(f);
+  }
+} catch (e) {
+  findings.trackedAuthStateFiles.push(`git ls-files 失敗: ${e.message}`);
 }
 
 const MAC_PATH_RE = /\/Users\/[A-Za-z0-9_.-]+\/doboku-note/;
@@ -136,7 +233,7 @@ function saveLastRun(counts) {
 }
 
 if (JSON_OUT) {
-  console.log(JSON.stringify({ targetsScanned: targets.length, counts, total, findings }, null, 2));
+  console.log(JSON.stringify({ targetsScanned: targets.length, loginCollectorsScanned, counts, total, findings }, null, 2));
 } else {
   console.log(`[${NAME}] scripts/ + .claude/skills/ の実装コード ${targets.length} 件を実検査`);
   console.log(`[${NAME}] 1. registry schema 違反: ${counts.registry}`);
@@ -149,6 +246,12 @@ if (JSON_OUT) {
   for (const f of findings.missingResolverImport) console.log(`      ${f}`);
   console.log(`[${NAME}] 5. profile/state の標準出力への露出候補（ヒューリスティック）: ${counts.stdoutLeak}`);
   for (const f of findings.stdoutLeak.slice(0, 10)) console.log(`      ${f}`);
+  console.log(`[${NAME}] 6. ci ブロック配線違反: ${counts.ciBlockWiring}`);
+  for (const f of findings.ciBlockWiring) console.log(`      ${f}`);
+  console.log(`[${NAME}] 7. login-collectors.yml allowlist 整合: ${loginCollectorsScanned ? counts.loginCollectorsWiring : '対象なし（workflow 未作成）'}`);
+  for (const f of findings.loginCollectorsWiring) console.log(`      ${f}`);
+  console.log(`[${NAME}] 8. git 追跡下の生 auth state ファイル: ${counts.trackedAuthStateFiles}`);
+  for (const f of findings.trackedAuthStateFiles) console.log(`      ${f}`);
   console.log(`[${NAME}] 合計 ${total} 件`);
 }
 

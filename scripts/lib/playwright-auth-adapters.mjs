@@ -49,11 +49,20 @@ export function loadAuthAdapter(serviceId, options) {
   }
   if (serviceId === 'kdp') {
     const memo = readJson(repoRoot, '.claude/config/kdp-memo.json');
-    return {
-      ...adapter,
-      expectedMarkers: [memo.defaults?.accountEmail].filter(Boolean),
-      missingAssertReason: memo.defaults?.accountEmail ? null : 'kdp-memo.json defaults.accountEmail が未設定',
-    };
+    const accountEmail = memo.defaults?.accountEmail;
+    const checkUrl = 'https://kdpreports.amazon.co.jp/dashboard';
+    if (!accountEmail) {
+      // account config が無くても、ダッシュボード文言そのものを account marker として使う
+      // （口座を取り違えないための担保は kdp-report.mjs の LIVE 書籍 fail-closed 側にある）。
+      return {
+        ...adapter,
+        checkUrl,
+        expectedMarkers: ['ロイヤリティの見積り'],
+        missingAssertReason: null,
+        note: '口座スコープは kdp-report.mjs の LIVE 書籍 fail-closed が担保',
+      };
+    }
+    return { ...adapter, checkUrl, expectedMarkers: [accountEmail], missingAssertReason: null };
   }
   if (serviceId === 'x') {
     const account = readJson(repoRoot, '.claude/config/x-account.json');
@@ -62,10 +71,16 @@ export function loadAuthAdapter(serviceId, options) {
 
   if (serviceId === 'instagram') {
     const account = readJson(repoRoot, '.claude/config/ig-account.json');
+    // Business Suite のプランナーは本文にハンドル/ページ名を出さない（アカウント表示は img/aria）。
+    // ログイン済みならプランナー URL に asset_id=<Doboku-note ページ ID> が付いてリダイレクトされるので、
+    // それを account assert にする（2026-09-21 実測: 旧 marker では常に unknown だった）。
+    const assetId = account.businessSuite?.assetId;
     return {
       ...adapter,
       checkUrl: account.plannerUrl,
-      expectedMarkers: [account.handle, account.fbPageName].filter(Boolean),
+      expectedMarkers: assetId ? [`asset_id=${assetId}`] : [account.handle, account.fbPageName].filter(Boolean),
+      loggedOutMarkers: ['ログイン', 'Log in'],
+      missingAssertReason: assetId ? null : 'ig-account.json businessSuite.assetId が未設定',
     };
   }
   if (serviceId === 'google') {

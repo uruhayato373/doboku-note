@@ -71,7 +71,7 @@ npx tsx .claude/skills/social/x-repost/x-repost-exec.ts --dry-run
 /loop 4h /x-repost
 ```
 
-- クラウド `/schedule`（RemoteTrigger）は **使えない**（ローカル X セッション依存・datacenter IP ボット判定）。
+- クラウド `/schedule`（RemoteTrigger）は使わない。定期実行は discover（読み取り）が `login-collectors.yml`（encrypted-state・canary 卒業後）、exec（引用投稿）は `scheduled-publish.yml` の頻度ゲート経路（Part C・canary 中）。
 - 1日2-3件運用なら 4〜6 時間間隔で十分（`config.maxPerRun=3`、exec 内でランダム待機 `minDelaySec`〜`maxDelaySec`）。
 
 ### 一時停止（キルスイッチ）

@@ -79,8 +79,28 @@ gh secret list   # 4件が消えていること
 gh api repos/uruhayato373/doboku-note/environments   # 方針に応じて0件 or Production/Previewが残る
 ```
 
+## Playwright CI encrypted-state（2026-09-21）
+
+### 新Secret
+
+- `DOBOKU_AUTH_AGE_IDENTITY` — age秘密identity。`login-collectors.yml`がCIでstorageStateを復号するために読む。Mac側は`auth root/age/identity.txt`に置き、同期しない。
+
+### R2オブジェクト
+
+- `auth-state/*`（private バケット `doboku-note-archive`）— age暗号化したPlaywright storageState。`.claude/config/asset-storage.json`のinvariantsで offload/hydrate/groups の対象外と明記。
+
+### 脅威モデル
+
+- オブジェクト＝収益口座のフルセッション（note/coconala/brain/kdp/x/google/a8/afbのCookie・localStorage）。復号されれば各サービスへその口座としてアクセスできる
+- read-only運用の担保は資格情報自体ではなく allowlist（`ci.readOnlyScripts`/`ci.writeScripts`・resolverの`AUTH_CI_SCRIPT_NOT_ALLOWLISTED`）
+- repo write権限者はSecretsを読めるworkflowを起動できるため復号可能（GitHub側の権限モデルに従う）
+- fork PRにはSecretsが渡らない。`pull_request_target`は使用しない
+- ローテーション手順: `auth:keygen --force` → registryのageRecipient更新 + GitHub Secret更新 → 全サービス`auth:export`再実行 → 旧`state.prev.age`削除
+- 失効手順: 対象サービス側でログアウトする（storageStateは自動的に無効化される）
+
 ## 関連
 
 - `scripts/check-workflow-hygiene.mjs` — SHA-pin/permissions/timeout-minutesの機械ゲート（既に対応済み・本ドキュメントの対象外）
 - `.github/workflows/r2-delete.yml` — 既に良い設計の参考実装（workflow_dispatch限定・dry-run既定）
+- `.claude/knowledge/reference/playwright-auth-profiles.md` §CI — encrypted-stateの詳細設計
 - CLAUDE.md §10「重要なステップごとにチェックポイントを置く」— 複数セッション常態下でのforce-pushの危険性

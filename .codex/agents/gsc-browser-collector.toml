@@ -102,7 +102,7 @@ GSC/GA4 の UI CSV を取得する既存スクリプトを実行し、生成物�
 - **CAPTCHA / 2FA を自動突破しない**。ログインは人間。
 - Cookie・メールアドレス・storageState を標準出力・引用しない。
 - selector 候補が 0/複数のとき推測クリックしない（スクリプトが dump→停止する）。
-- CI では使わない（CI は既存サービスアカウント API 経路）。
+- CI では本エージェントを使わない。GSC/GA4 UI CSV の定期取得は `login-collectors.yml`（encrypted-state・canary 卒業後） が同じ script（`fetch-gsc-ui-csv` / `fetch-ga4-ui-csv`）を直接回す。本エージェントはローカル対話呼び出しの Generator。
 
 ## 参照
 

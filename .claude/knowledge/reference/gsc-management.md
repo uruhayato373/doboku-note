@@ -92,8 +92,8 @@ coverage 指標は動かない。効果は GA4 の `Organic Search` のうち Bi
 > どちらも repo 側から沈黙を検知し `automation-failure` Issue になる。
 >
 > **自動で回っていないもの**:
-> 1. **Playwright 経路は原理的に CI 化不可**（Google ログインが必要）＝`search-growth:audit` /
->    `ga4-admin:check` / `gsc-indexing:request` は月次の手動儀式。放置検知は上の surfacer が担う。
+> 1. **Playwright 経路のうち取得（`fetch-gsc-ui-csv` / `fetch-ga4-ui-csv`）は `login-collectors.yml`（encrypted-state・canary 卒業後） が暗号化 storageState で担う**。
+>    管理操作系（`ga4-admin:check` / `gsc-indexing:request`）は本人セッション必須のまま月次の手動儀式。放置検知は上の surfacer が担う。
 > 2. **`/nsm-experiment measure` の実行も手動**。期限の surface は自動、判断と記録は人（セッション）。
 >    実験の start（`running` 遷移）も人の判断＝ルーティンは**推奨までで登録しない**。
 >
@@ -117,8 +117,8 @@ coverage 指標は動かない。効果は GA4 の `Organic Search` のうち Bi
 > [!important] CI 例外＝ブラウザは本人セッションで通る
 > 本 doc の原則は「計測は CI/CD 供給が正・ローカル creds 不要（会社 PC はプロキシで外部 API 遮断）」。
 > だが `/google-search-growth` は **正当な例外**＝Playwright が**ユーザーの実 Google セッション**で GSC UI を
-> 開くため、サービスアカウント API が遮断される環境でも UI CSV を取得できる。ログイン/2FA/CAPTCHA は人間、
-> CI 化不可（ゆえに `check-gsc-ui-due` で月次を催促する手動儀式）。将来セッションはこれを「ローカルで計測する
+> 開くため、サービスアカウント API が遮断される環境でも UI CSV を取得できる。初回ログイン/2FA/CAPTCHA は人間、
+> 以後の定期取得は `login-collectors.yml`（encrypted-state・canary 卒業後） が担い、失効時だけ人が再ログイン→`auth:export`（`check-gsc-ui-due` は canary 卒業まで催促を続ける）。将来セッションはこれを「ローカルで計測する
 > な」ルール違反と誤認して退役させないこと（[measurement-incidents.md](measurement-incidents.md) 2026-06-05 の対象は API）。
 
 ## 判断マトリクス（原因バケット → 打ち手）

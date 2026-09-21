@@ -8,7 +8,8 @@
     "manifest は一時ファイルへ書いて検証成功後に置換する（途中で落ちても既存 manifest を壊さない）。",
     "manifest に秘密値・署名 URL・Cookie・ローカル絶対パスを書かない。",
     "private バケットにカスタムドメインを付けない。private アセットの URL を画面・ログ・manifest へ出さない。",
-    "hydrate の解決順は ローカル実体 → cache → R2 → （再生成可能なら）generator。--offline は R2 を使わない。"
+    "hydrate の解決順は ローカル実体 → cache → R2 → （再生成可能なら）generator。--offline は R2 を使わない。",
+    "auth-state/ は暗号化 storageState 専用（login-collectors）。offload/hydrate/groups の対象外。"
   ],
   "bucketRouting": "group.bucket は public / private / byVisibility の 3 値。byVisibility は visibilityFrom の判定結果でファイル単位に振り分ける（公開済み→public、下書き・未投稿・判定不能→private）。さらに group.audience が bucket を縛る（site⇒public、ci⇒private|byVisibility）。human の group はここに置かない（drive-vault.json へ）。",
   "buckets": {

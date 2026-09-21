@@ -28,18 +28,18 @@ PC ごとに独立保持し、Windows と Mac の間でコピー・Git・OneDriv
 
 ## サービスと例外
 
-| service | profile | sessionMode | アカウント assert |
-|---|---|---|---|
-| `note` | `playwright-note-profile` | profile | note の `dobokunote` 表示 |
-| `brain` | `playwright-brain-profile` | profile | `.claude/config/brain-account.json` |
-| `coconala` | `playwright-coconala-profile` | profile | `.claude/config/coconala-account.json` |
-| `kdp` | `playwright-kdp-profile` | profile | KDP 本棚の実体 |
-| `x` | `playwright-x-profile` | profile | `.claude/config/x-account.json` |
-| `instagram` | `playwright-ig-bs-profile` | profile | `.claude/config/ig-account.json` |
-| `google` | `playwright-google-profile` | profile | GSC/GA4 の対象プロパティ |
-| `a8` | `playwright-a8-profile` | profile-plus-state | メディア ID `a25050375786` |
-| `moshimo` | `playwright-moshimo-profile` | profile-plus-state | `.claude/config/affiliate-asp.json` |
-| `afb` | `playwright-afb-profile` | same-process | ASP site guard |
+| service | profile | sessionMode | アカウント assert | ci.mode / ci.operations |
+|---|---|---|---|---|
+| `note` | `playwright-note-profile` | profile | note の `dobokunote` 表示 | encrypted-state / read+write |
+| `brain` | `playwright-brain-profile` | profile | `.claude/config/brain-account.json` | encrypted-state / read+write |
+| `coconala` | `playwright-coconala-profile` | profile | `.claude/config/coconala-account.json` | encrypted-state / read+write |
+| `kdp` | `playwright-kdp-profile` | profile | KDP 本棚の実体 | encrypted-state / read+write |
+| `x` | `playwright-x-profile` | profile | `.claude/config/x-account.json` | encrypted-state / read+write |
+| `instagram` | `playwright-ig-bs-profile` | profile | `.claude/config/ig-account.json` | encrypted-state / read+write（Meta 利用制限で Graph API 不可＝Playwright 照合・予約投稿） |
+| `google` | `playwright-google-profile` | profile | GSC/GA4 の対象プロパティ | encrypted-state / read |
+| `a8` | `playwright-a8-profile` | profile-plus-state | メディア ID `a25050375786` | encrypted-state / read+write |
+| `moshimo` | `playwright-moshimo-profile` | profile-plus-state | `.claude/config/affiliate-asp.json` | none / read |
+| `afb` | `playwright-afb-profile` | same-process | ASP site guard | encrypted-state / read |
 
 A8 は揮発性 Cookie のため `states/playwright-a8-state.json` の再注入を併用する。afb は保存 state を
 別プロセスで再利用できない場合があるため、ログインから操作まで同一プロセスで完結させる。
@@ -161,7 +161,60 @@ Windows と Mac の双方で note の別プロセス再利用・worktree 非依�
 - 旧 profile の削除は自動化しない。新 root の再利用を一定期間確認してから人が処遇を決める
   （2026-09-14 Windows: 10 サービスを `~/.local/state` へ移行済み。`.local` と Codex サンドボックスの旧コピーは
   キャッシュだけ削って保持。`auth:status` で新 root の再利用を確認したら人が消す）
-- CI は実 profile を使わない。テストが明示した一時 root 以外は resolver が拒否する
+
+## §CI（encrypted-state・2026-09-21）
+
+CI（GitHub Actions hosted runner）は実 profile を使わない。`.claude/config/playwright-auth-profiles.json`
+の `ci.mode === 'encrypted-state'` のサービスだけ、age 暗号化した storageState を private R2 から
+復元して動く。テストが明示した一時 root 以外は resolver が拒否する（`DOBOKU_AUTH_SESSION_MODE` と
+`RUNNER_TEMP`/`os.tmpdir()` 配下の root が揃ったときだけ）。
+
+**何を持ち出すか**: 各サービスの `stateDomains` でフィルタした storageState（cookie / localStorage）だけ。
+raw profile（キャッシュ・拡張機能・他ドメインの cookie を含む）は一切持ち出さない。
+
+**どこへ**: private R2（`doboku-note-archive`）の `auth-state/<service>/{state.age,state.prev.age,manifest.json}`。
+age の公開鍵はレジストリ `ciAuthState.ageRecipient`（commit してよい）。秘密 identity は GitHub Secret
+`DOBOKU_AUTH_AGE_IDENTITY` と Mac の auth root（`age/identity.txt`）だけに置く。
+**Mac からの転送は rclone**（remote `doboku-r2`・`scripts/lib/rclone-s3-adapter.mjs`）。この PC に R2 の access key を
+置かない方針（`.env.example`）のまま `auth:export` が動く。rclone 経路は CAS（If-Match）非対応だが、CI の書き戻しは
+`restoredGeneration` 一致でしか書かないので衝突は CI 側で止まる。実測（2026-09-21）: `rclone cat`/`lsjson` は
+存在しないキーでも exit 0（空出力 / `[]`）を返すため、アダプタは `[]` を「無い」として NoSuchKey/NotFound に写像する。
+往復の実測: coconala を export（gen 1）→ CI 模擬 env で `ci-restore` が `authenticated` → `coconala-orders --headless`
+が 7/7 タブ取得 → `ci-writeback` で gen 2（`state.prev.age` 退避・`operatorExportedAt` 維持）→ Mac 側 `auth:status` は
+`authenticated` のまま（セッション巻き添え無し）。instagram（Business Suite）も同様に export gen 1 → `ci-restore` authenticated →
+`verify-ig-status --no-planner` がライブ 122 投稿を読み snapshot を書く（exit 2＝慢性ドリフトは workflow 側で成功扱い）→ writeback gen 2 → Mac 健在。
+Business Suite の account assert は本文にハンドルが出ないため、プランナー URL の `asset_id=<ページ ID>`（`ig-account.json businessSuite.assetId`）で行う。
+
+**誰が復号できるか**: repo の Secrets を読める workflow を起動できる人＝repo write 権限者。fork PR には
+Secrets が渡らないため復号できない。
+
+**CAS と世代**: manifest の etag へ `IfMatch` した上で generation を進める。CI からの書き戻しは
+`restoredGeneration` と一致するときだけ許可し、Mac 側の新しい export を CI が上書きしない。
+`state.prev.age` で 1 世代戻せる。
+
+**kill switch**: `ci.enabled:false` でサービス単位に即停止できる（YAML は変更しない）。
+
+**canary 手順**: `ci.canary:true` の間は cron に載せず `workflow_dispatch` の service 明示だけで動く。
+卒業手順は dispatch で probe-only を 2 回 → collect（read）を別日で 3 回 → その間 Mac の
+`auth:status` が引き続き `authenticated` のまま（CI 復元がローカル profile を壊していないことの確認）
+→ 問題が無ければ `canary:false` にする。
+
+**allowlist**: `readOnlyScripts` は常時許可。`writeScripts` は `DOBOKU_CI_WRITE_PLAN_SHA256`
+（ops-write の plan hash）が無いと resolver が拒否する。それ以外の script は
+`AUTH_CI_SCRIPT_NOT_ALLOWLISTED` で常に拒否する。
+
+**人が残る操作**: 初回ログイン、2FA、CAPTCHA、`auth:export`（authenticated なローカル profile から
+暗号化 state を書き出す操作そのものは人がローカルで実行する）。
+
+**コマンド一覧**:
+
+```bash
+npm run auth:keygen          # age keypair 生成（identity は Mac の auth root、recipient は registry へ）
+npm run auth:export          # ローカルの authenticated な storageState を暗号化して private R2 へ書き出す
+npm run auth:ci-restore      # CI 専用。暗号化 state を復元し一時 root へ展開する
+npm run auth:ci-writeback    # CI 専用。更新後の storageState を CAS で書き戻す
+npm run auth:ci-plan         # ops-write の write plan を作り DOBOKU_CI_WRITE_PLAN_SHA256 を計算する
+```
 
 ## 検証
 

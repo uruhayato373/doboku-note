@@ -103,7 +103,7 @@ A8 の 1 口座に **stats47** と **doboku-note** の 2 サイトが載って�
 - **口座 assert を迂回しない**（`--force` 相当の手段を作らない・config の `mediaId` を書き換えて通さない）。
 - Cookie・storageState・口座番号・振込情報を標準出力・引用しない。
 - selector 候補が 0/複数のとき推測クリックしない（スクリプトが dump→停止する）。
-- CI では使わない（ログイン必須のローカル専用。会社 PC プロキシ下でもブラウザ経由は到達可）。
+- CI では本エージェントを使わない。成果 CSV の定期取得は `login-collectors.yml`（encrypted-state・canary 卒業後） が `fetch-a8-ui-csv` を直接回す。本エージェントはローカル対話呼び出しの Generator（会社 PC プロキシ下でもブラウザ経由は到達可）。
 
 ## 参照
 

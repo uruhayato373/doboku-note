@@ -52,5 +52,9 @@
     "profileGuide": "content/sns/instagram/profile.md",
     "linkHub": ".claude/knowledge/reference/links-hub.md"
   },
-  "_note": "Instagram運用アカウントとプロフィール表示値の単一機械可読SSOT。スキル・エージェント・Playwrightはhandle/displayName/bio/websiteUrl/pinnedPosts/highlightsを本ファイルから読む。content/sns/instagram/profile.mdは設計理由と履歴の人間向け資料であり表示値の真実源ではない。publish-ig-bs.tsとverify-ig-status.mjsもhandleは本configを正とする。"
+  "_note": "Instagram運用アカウントとプロフィール表示値の単一機械可読SSOT。スキル・エージェント・Playwrightはhandle/displayName/bio/websiteUrl/pinnedPosts/highlightsを本ファイルから読む。content/sns/instagram/profile.mdは設計理由と履歴の人間向け資料であり表示値の真実源ではない。publish-ig-bs.tsとverify-ig-status.mjsもhandleは本configを正とする。",
+  "businessSuite": {
+    "assetId": "1094537940409154",
+    "_note": "Meta Business Suite のプランナー URL に付く asset_id（Doboku-note ページの公開 ID・秘密ではない）。ログイン済み判定の account assert に使う（2026-09-21 実測）。"
+  }
 }

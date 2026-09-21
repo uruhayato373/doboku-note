@@ -33,7 +33,8 @@ import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { chromium } from "playwright";
 import { IG_DIR, normHead, localPacks as localPacksCore, reconcile as reconcileCore, driftCount as driftCountCore, buildSnapshot } from "./lib/ig-reconcile-core.mjs";
-import { resolveProfileDir } from "./lib/playwright-auth-profile.mjs";
+import { resolveProfileDir, resolveStatePath } from "./lib/playwright-auth-profile.mjs";
+import { attachCISession } from "./lib/playwright-auth-state.mjs";
 import { leanContextOptions } from "./lib/playwright-launch.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -81,6 +82,7 @@ async function readLive(account, recordedShortcodes) {
   const ctx = await chromium.launchPersistentContext(profile, leanContextOptions({
     headless: true, channel: "chrome", viewport: { width: 1500, height: 1400 },
   }));
+  await attachCISession(ctx, account.authService, { statePath: resolveStatePath(account.authService, { cwd: ROOT, repoRoot: ROOT }) });
   const page = ctx.pages()[0] || (await ctx.newPage());
   try {
     // 1) プロフィールグリッドから公開中 shortcode を収集（未記録投稿の発見用・直近を best-effort）

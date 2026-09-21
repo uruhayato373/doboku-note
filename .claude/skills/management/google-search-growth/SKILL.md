@@ -29,7 +29,7 @@ GSC/GA4 を横断して「どの URL が・なぜ検索に効いていないか�
 
 ## 前提と安全弁
 
-- **Playwright はローカル専用**（`.local/playwright-google-profile/`・gitignore 済み）。CI では使わない。
+- **Playwright はローカル専用**（`.local/playwright-google-profile/`・gitignore 済み）。CI は `login-collectors.yml`（encrypted-state・canary卒業後）。ローカル実行はフォールバック。
 - ログイン・2FA・CAPTCHA は**人間**が headed ブラウザで完了する（自動突破しない）。
 - 対象は `sc-domain:doboku-note.com` / GA4 `419382901`。不一致なら停止。
 - **外部状態を変える操作（検証開始・インデックス登録リクエスト・設定保存）は実行しない**。
