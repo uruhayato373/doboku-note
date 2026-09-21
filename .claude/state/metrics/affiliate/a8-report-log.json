@@ -3,8 +3,8 @@
   "_comment": "A8 レポート CSV（fetch-a8-ui-csv.mjs）の正規化 SSOT。A8 は確定処理で過去分が遡及変化するため upsert 運用（最新 fetch が正）。手で編集しない。",
   "_siteScopeNote": "siteSummary のみ doboku-note に完全分離された実績（真実源）。monthly / daily / programPeriod は **口座横断**（stats47 込み）で、programPeriod は programIdMap の allowlist で doboku 分だけを抽出したもの。crossCheck が siteSummary との突合結果。",
   "site": "doboku-note",
-  "updatedAt": "2026-09-07T21:14:44.495Z",
-  "lastRun": "2026-09-07T21-04-01Z",
+  "updatedAt": "2026-09-21T13:45:23.936Z",
+  "lastRun": "2026-09-21T13-44-15Z",
   "period": {
     "raw": "202608-202608",
     "start": "2026-08",
@@ -85,7 +85,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     }
   ],
@@ -201,6 +201,22 @@
       "pendingRevenueYen": 0,
       "fetchedAt": "2026-07-27T02:05:55.410Z",
       "period": "202601-202607"
+    },
+    {
+      "month": "2026-08",
+      "accountWide": true,
+      "impressions": 152014,
+      "clicks": 369,
+      "conversions": 0,
+      "grossRevenueYen": 0,
+      "approved": 0,
+      "revenueYen": 0,
+      "cancelledCount": 0,
+      "cancelledYen": 0,
+      "pendingCount": 0,
+      "pendingRevenueYen": 0,
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
+      "period": "202608-202608"
     }
   ],
   "daily": [
@@ -3974,7 +3990,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -3992,7 +4008,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4010,7 +4026,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4028,7 +4044,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4046,7 +4062,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4064,7 +4080,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4082,7 +4098,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4100,7 +4116,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4118,7 +4134,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4136,7 +4152,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4154,7 +4170,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4172,7 +4188,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4190,7 +4206,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4208,7 +4224,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4226,7 +4242,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4244,7 +4260,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4262,7 +4278,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4280,7 +4296,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4298,7 +4314,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4316,7 +4332,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4334,7 +4350,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4352,7 +4368,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4370,7 +4386,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4388,7 +4404,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4406,7 +4422,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4424,7 +4440,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4442,7 +4458,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4460,7 +4476,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4478,7 +4494,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4496,7 +4512,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4514,7 +4530,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4532,7 +4548,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4550,7 +4566,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4568,7 +4584,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4586,7 +4602,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4604,7 +4620,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4622,7 +4638,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4640,7 +4656,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4658,7 +4674,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4676,7 +4692,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4694,7 +4710,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4712,7 +4728,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4730,7 +4746,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4748,7 +4764,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4766,7 +4782,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4784,7 +4800,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4802,7 +4818,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4820,7 +4836,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4838,7 +4854,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4856,7 +4872,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4874,7 +4890,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4892,7 +4908,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4910,7 +4926,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4928,7 +4944,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4946,7 +4962,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4964,7 +4980,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -4982,7 +4998,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -5000,7 +5016,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -5018,7 +5034,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -5036,7 +5052,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -5054,7 +5070,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -5072,7 +5088,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -5090,7 +5106,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -5108,7 +5124,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -5126,7 +5142,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -5144,7 +5160,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -5162,7 +5178,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -5180,7 +5196,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -5198,7 +5214,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -5216,7 +5232,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -5234,7 +5250,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -5252,7 +5268,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -5270,7 +5286,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     },
     {
@@ -5288,7 +5304,7 @@
       "cancelledYen": 0,
       "pendingCount": 0,
       "pendingRevenueYen": 0,
-      "fetchedAt": "2026-09-07T21:04:01.453Z",
+      "fetchedAt": "2026-09-21T13:44:15.167Z",
       "period": "202608-202608"
     }
   ],
