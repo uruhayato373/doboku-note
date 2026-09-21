@@ -105,7 +105,7 @@ jobs:
     needs: plan
     if: needs.plan.outputs.count != '0'
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 120
     strategy:
       matrix:
         include: ${{ fromJson(needs.plan.outputs.matrix) }}
@@ -206,7 +206,10 @@ jobs:
           c=$?; [ "$c" -ne 0 ] && rc=$c
           echo "rc=${rc}" >> "$GITHUB_OUTPUT"
 
-      - name: "note: traffic + sales + attachments + membership"
+      # note は 2 段に分ける。traffic/sales（数分・記録の本体）と live 検査（添付 615 本で 60 分超）を同じ step にすると、
+      # live 検査で job timeout に当たった時点で run ごと cancel され、取得済みの traffic/sales も捨てられる
+      # （2026-09-21 run 35600808577: 8 月の流入 820 記事を取った後に [280/615] で cancel）。
+      - name: "note: traffic + sales"
         id: collect_note
         if: matrix.service == 'note' && steps.restore.outputs.status == 'authenticated' && matrix.mode != 'probe-only'
         continue-on-error: true
@@ -217,10 +220,23 @@ jobs:
           c=$?; [ "$c" -ne 0 ] && rc=$c
           npm run note-sales-fetch -- --month "$(date -u +%Y-%m)" --commit
           c=$?; [ "$c" -ne 0 ] && rc=$c
+          echo "rc=${rc}" >> "$GITHUB_OUTPUT"
+
+      # live 検査は step 単位の timeout で打ち切り、後続（writeback / stage / publish）を必ず走らせる。
+      # 未完了なら state が更新されず、ops の check-note-delivery-due が鮮度で拾う（沈黙しない）。
+      - name: "note: live checks (attachments / membership)"
+        id: collect_note_live
+        if: matrix.service == 'note' && steps.restore.outputs.status == 'authenticated' && matrix.mode != 'probe-only'
+        continue-on-error: true
+        timeout-minutes: 75
+        run: |
+          set +e
+          rc=0
           npm run check-note-attachments:live
           c=$?; [ "$c" -ne 0 ] && rc=$c
           npm run check-note-membership:live
           c=$?; [ "$c" -ne 0 ] && rc=$c
+          [ "$rc" -ne 0 ] && echo "::warning::note の live 検査が rc=${rc}（添付/会員限定）。traffic/sales の記録は別 step で確保済み"
           echo "rc=${rc}" >> "$GITHUB_OUTPUT"
 
       - name: "brain: sales fetch"
