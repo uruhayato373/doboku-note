@@ -7,6 +7,8 @@
 - 既存実績: note=`.claude/state/sales/sales-log.json`、KDP=`.claude/state/sales/kdp-royalties.json`、ココナラ=`.claude/state/coconala/{analytics-snapshot,orders-snapshot,orders-log}.json`（閲覧は30日窓、注文・販売額は暦月）、GSC/GA4=`.claude/state/metrics/`。商品状態・価格・顧客対応の台帳は従来どおり。
 - 追加計測・目標・凍結スナップショット・判断履歴: `.claude/state/metrics/business/`。1回1ファイル・追記専用。訂正は `supersedes` で旧ファイルを参照し、削除・上書きしない。
 - 改善の状態: `.claude/state/experiments.json`。レビューは実験IDを参照するだけで別の実験状態台帳を作らない。
+- Instagram: `.claude/state/metrics/instagram/ig-insights-*.json`（Meta 利用制限中は取得停止＝欠測のまま。`fetch-ig-insights.yml` は dispatch 専用・Graph API で取得）。
+- Cloudflare: `.claude/state/metrics/cloudflare/cf-zone-*.json`（CI 日次・`cloudflare-metrics.yml`）。
 
 ## 計測
 
@@ -32,6 +34,8 @@ note の `notePv` / `noteImpressions` は `npm run note-traffic-fetch -- --month
 `measurement` の必須項目: `kind`, `qualification`（allまたは重点資格ID）, `period.startDate/endDate`, `channel`（GA4/GSC/note/KDP/coconala/operations）, `subject`, `source`, `coverage`（complete/partial/not-applicable）, `values`（指標ID→非負整数またはnull）。`not-applicable` は指標の `appliesTo` 外だけに使う。資格全体の集計は `subject: aggregate`。特定記事・商品はそのIDを用い、合計欄へ自動加算しない。全体には重点資格外・資格未帰属を含む。指標の `appliesTo` 外は対象外として欠測の母数へ入れない。note売上の既存台帳集計は登録分であり、月次表示との一致を確認するまでは部分集計と表示する。KDPは確定月かつcatalogのLIVE全冊を照合できた期間だけcompleteとする。
 
 顧客名・メール・相談本文・認証情報を含めない。`null`は欠測。0は対象を確認した実測。費用・受取・時間が揃わない状態で利益や時給を推計しない。
+
+Instagram のリーチは日次合計＝延べ（同一ユーザーの重複を含む）であり、フォロワー数は期間末時点のストックとして読む。Cloudflare のリクエスト数は bot を含むため GA4 の代替にはせず、突合用にのみ使う。
 
 ## レビュー
 

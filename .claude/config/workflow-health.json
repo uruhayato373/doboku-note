@@ -71,6 +71,17 @@
       "_note": "週次 cron の和集合。全サービス disabled の間は plan が 0 件で緑（沈黙）＝canary 開始までは age を見ない"
     },
     {
+      "workflow": "cloudflare-metrics.yml",
+      "maxAgeDays": 3,
+      "maxConsecutiveFailures": 3
+    },
+    {
+      "workflow": "cloudflare-config-audit.yml",
+      "maxAgeDays": 10,
+      "maxConsecutiveFailures": 4,
+      "_note": "ドリフト中は赤が正常。沈黙（最後の成功からの日数）を主に見る"
+    },
+    {
       "workflow": "scheduled-publish.yml",
       "branch": "develop",
       "maxAgeDays": 3,

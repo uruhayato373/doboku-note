@@ -1,0 +1,18 @@
+{
+  "_doc": "Cloudflare Analytics/ゾーン設定監視の設定値 SSOT。scripts/lib/cloudflare-analytics.mjs・scripts/lib/cloudflare-zone-config.mjs が参照する定数（API トークン等の秘匿値はここに置かない・環境変数側）。",
+  "zoneName": "doboku-note.com",
+  "graphql": "https://api.cloudflare.com/client/v4/graphql",
+  "rest": "https://api.cloudflare.com/client/v4",
+  "settingsWatched": [],
+  "rulesetPhases": [
+    "http_request_cache_settings",
+    "http_response_compression",
+    "http_request_firewall_managed",
+    "http_request_dynamic_redirect",
+    "http_request_firewall_custom"
+  ],
+  "analytics": {
+    "windowDays": 7,
+    "topPaths": 50
+  }
+}

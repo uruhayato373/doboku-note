@@ -3,7 +3,7 @@
 Instagram カルーセルの「実際に公開されているか（現状確認）」と「未公開パックの予約投稿」を**反復運用**するための真実源。手動投稿後の SoT ドリフトを定期的に検出・是正し、未公開を安全に予約まで運ぶ。
 
 - 実行スキル: **`/ig-reconcile`**（`.claude/skills/social/ig-reconcile/`）
-- 照合エンジン: **`npm run verify-ig-status`**（`scripts/verify-ig-status.mjs`・read-only）
+- 照合エンジン: **`npm run verify-ig-status`**（`scripts/verify-ig-status.mjs`・read-only）。CI 週次は `login-collectors.yml`（encrypted-state・`verify-ig-status --no-planner`・PR #549） が同じスクリプトを回す。Graph API 版（`fetch-ig-insights.mjs --reconcile`）は Meta の利用制限で Graph API が使えないため待機（dispatch 専用）
 - 公開可否ゲート/異常検出: **`ig-publish-auditor`**（Evaluator・`.claude/agents/`）
 - 投稿エンジン: **`publish-ig-bs`**（既存・予約投稿）
 - アカウント SSOT: **`.claude/config/ig-account.json`**
@@ -100,7 +100,7 @@ Instagram カルーセルの「実際に公開されているか（現状確認�
 
 ## 8. 週次運用
 
-`/weekly-review` が `npm run verify-ig-status` を回し、★ドリフトを週次レビューにサーフェスする（`verify-note-status` と同じ位置づけ＝network 依存ゆえ CI ゲートにはせず週次/手動）。ドリフトが出たら次セッションで `/ig-reconcile` を実行して是正・予約する。
+照合は CI 週次 `login-collectors.yml`（encrypted-state・`verify-ig-status --no-planner`・PR #549） が `snapshot.json` を `source:"playwright"` で書く。週次レビューはこの snapshot を読む（実行しない）。Playwright 版 `verify-ig-status` はプランナー実体確認が要るときのフォールバック。ドリフトが出たら次セッションで `/ig-reconcile` を実行して是正・予約する。
 
 ## 関連
 

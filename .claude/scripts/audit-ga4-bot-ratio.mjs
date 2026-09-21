@@ -6,6 +6,7 @@
  *
  * 既存の `fetch-ga4-data.mjs` の SPAM_REFERRAL_SOURCES を補強する判断材料。
  * 海外比率 ≥ 80% かつ users ≥ 5 の source は除外候補。
+ * bot 込み分母の突合先は .claude/state/metrics/cloudflare/cf-zone-*.json（Cloudflare リクエスト数）。
  *
  * Usage:
  *   node .claude/scripts/audit-ga4-bot-ratio.mjs                 # 過去 14 日
