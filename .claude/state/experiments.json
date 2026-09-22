@@ -1114,7 +1114,8 @@
         "2026-08-21: Phase 02 キャリア hub 新設・hub↔5柱 双方向・柱へ未接続 13→0・サービス比較を公表値の横並びへ",
         "2026-08-21: Phase 03 悩み別 CTA（career-pathways.ts）・キャリア記事の記事末 affiliate を内部導線へ・career_need_select 配線",
         "2026-08-21: Phase 05 /tools/career-check（選択式のみ・個人情報を持たない・緊急時は公的窓口）",
-        "2026-08-21: 本番 deploy 完了（main 42deb5f2a / run 32456590522）。28 日クロック開始＝再計測は 2026-09-18"
+        "2026-08-21: 本番 deploy 完了（main 42deb5f2a / run 32456590522）。28 日クロック開始＝再計測は 2026-09-18",
+        "2026-09-22: wave-2 反映開始（基線 career-funnel-baseline-2026-09-16.json を凍結）。測定は展開後に実施（ユーザー判断で展開優先）"
       ],
       "pending_user_actions": [
         {
