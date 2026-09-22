@@ -208,7 +208,24 @@ const CIVIL_SECONDARY_ADJACENT_GUIDES: ReadonlySet<string> = new Set([
  * note 上の単独記事として SNS 集客 → 後続商品送客を担う (詳細:
  * docs/handoffs/2026-05-25-whitepaper-r7-free-lead-magnet.md)。
  */
-export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedPlacement {
+export function resolvePlacement(
+  slug: string,
+  docGroup: DocGroupKey,
+  isCareer = false,
+): ResolvedPlacement {
+  // 0. career 記事（frontmatter `tags: [career]`）には note 二次 CTA を一切置かない。
+  //
+  //    「学習意図＝note／キャリア意図＝転職アフィリ」の分離は 2026-07-01 に決めた方針だが、
+  //    実装は **civil-construction-1/2 の guide だけ** slug 接頭辞で判定していた（下の 11 番）。
+  //    そのため他資格の career 記事はカテゴリ既定の配線へ素通りする。2026-09-22 に
+  //    rccm-guide-career-value（RCCM 初の career 記事）を新設したところ、記事冒頭に
+  //    rccm-marugoto-pack が出た＝「RCCM を取ると仕事がどう変わるか」を読みに来た転職意図の
+  //    読者へ受験対策パックを正面売りする状態だった。
+  //
+  //    判定を slug 接頭辞ではなく真実源（isCareerDoc = tags に career）へ寄せ、入口 1 箇所で
+  //    止める。sidebar-discovery は別途 isCareerDoc で早期 return しており二重には掛からない。
+  if (isCareer) return EMPTY;
+
   // 1. 完全一致: 記述式戦略ハブは精読ガイド + 新規プレミアム + 全 3 ペルソナ模範論文を提示 (強 CTA)
   if (slug === 'pe-comprehensive-management-essay-exam-strategy') {
     // パイプライン順 (完全パック → コアパック → 型 → 設問3 → 予想 → 模範論文 → 精読基礎)。

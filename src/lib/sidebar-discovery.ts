@@ -19,7 +19,7 @@ export function sidebarProduct(category: string, doc?: DocMeta) {
   // classifyDoc は 'career' を返さない（career は group: guide のまま・doc-classifier.ts:11-14）ため、
   // 旧実装 `classifyDoc(doc) === 'career'` は常に false の死んだガードだった（2026-09-22 是正）。
   if (isCareerDoc(doc)) return null;
-  const placement = resolvePlacement(doc.slug, classifyDoc(doc));
+  const placement = resolvePlacement(doc.slug, classifyDoc(doc), isCareerDoc(doc));
   const slot = placement.top || placement.inline[0];
   return slot ? getMagazine(slot.magazineId) : null;
 }

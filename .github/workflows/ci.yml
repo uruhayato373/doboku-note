@@ -53,6 +53,12 @@ jobs:
       - name: Check build-time SEO (out/)
         run: npm run check-seo-build:ci
 
+      # --built は「学習系ナビに career 記事が混ざっていないか」を out/ の HTML で見る。
+      # 2026-09 の URL 分割で走査先が out/docs のまま取り残され、誰も起動していなかったため
+      # 壊れたまま気づかれなかった。ここに置いて読み手を作る（0 箇所なら検査不成立で赤）。
+      - name: Check career separation (out/)
+        run: npm run check-career-separation:built
+
       # 「CI が赤い」ことを人へ届ける唯一の経路（2026-08-24 新設）。
       #
       # これが無かった間、develop の Pre-merge check は 2026-08-19 から **24 連続で赤**だったのに

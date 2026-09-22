@@ -77,7 +77,7 @@ const MID_MIN_CHARS = 8000;
 const MID_SLOT_MIN_H2 = 3;
 const MID_SLOT_MIN_CHARS = 2500;
 
-type Doc = { slug: string; category: string; group: string; body: string };
+type Doc = { slug: string; category: string; group: string; body: string; isCareer: boolean };
 
 // src/lib/doc-classifier.ts:31-39 と同じ対応表。frontmatter の生値 → DocGroupKey。
 const GROUP_FIELD_MAP: Record<string, string> = {
@@ -105,11 +105,16 @@ function collectDocs(): Doc[] {
       // （src/lib/doc-classifier.ts:31-39）。past-exam → pastExam の変換を
       // 落とすと、その記事の配線が丸ごと検査対象外になる。
       const rawGroup = (raw.match(/^group:\s*(.+)$/m) || [])[1]?.trim() ?? '';
+      // career 記事は resolvePlacement が EMPTY を返す（magazine-placement.ts の 0 番ガード）。
+      // ここで tags を見ないと、実際には出ない note CTA を「導線あり」と数えてしまう。
+      const fm = raw.match(/^---[\s\S]*?\n---/)?.[0] ?? '';
+      const isCareer = /^\s*-\s*career\s*$/m.test(fm);
       out.push({
         slug: `${category.name}-${name}`,
         category: category.name,
         group: GROUP_FIELD_MAP[rawGroup] ?? rawGroup,
         body: raw.replace(/^---[\s\S]*?\n---\n/, ''),
+        isCareer,
       });
     }
   }
@@ -154,7 +159,7 @@ const ensure = (id: string): Reach => {
 };
 
 for (const d of docs) {
-  const p = resolvePlacement(d.slug, d.group as never);
+  const p = resolvePlacement(d.slug, d.group as never, d.isCareer);
   if (p.top && getMagazine(p.top.magazineId)) {
     const r = ensure(p.top.magazineId); r.routes.push(`top:${d.slug}`); r.categories.add(d.category);
   }
