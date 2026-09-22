@@ -209,6 +209,13 @@ export const HIGH_INTENT_CAREER_SLUGS: ReadonlySet<string> = new Set([
   // 2026-09-22: GSC で career クラスタの実クリックを出している 2 本のうちの 1 本（平均 7.8 位）。
   // career タグが無く funnel レポート・広告ポリシーの外にあったため、タグ付けと同時に登録する。
   "pe-comprehensive-management-public-engineer-qualification-map",
+  // 2026-09-22 第2波の新設（公務員土木クラスタ＋RCCM キャリア価値）。
+  // rccm-guide-career-value は本文アフィリを置かない設計だが、career タグを持つ以上
+  // check-career-separation の WARN を避けるためここに収録する（サイドバーは資格別 creative）。
+  "civil-construction-1-guide-quit-public-engineer",
+  "civil-construction-1-guide-public-engineer-salary-table",
+  "civil-construction-1-guide-public-engineer-exam-study",
+  "rccm-guide-career-value",
 ]);
 
 /**

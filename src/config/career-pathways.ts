@@ -167,6 +167,7 @@ const NEED_RULES: ReadonlyArray<{ readonly need: CareerNeed; readonly patterns: 
       "dx-jobs",
       "company-types",
       "career-change",
+      "exam-study",
       "haken-seishain",
       "young-career",
       "age-career",
