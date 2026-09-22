@@ -145,6 +145,8 @@ npm run fetch-cloudflare-analytics # Cloudflare GraphQL Analytics でゾーン�
 npm run fetch-cloudflare-zone-config # Cloudflare ゾーン設定（キャッシュ/圧縮/WAF/Bot Management）を取得しドリフト検知→.claude/state/cloudflare/zone-config-latest.json（CI 月次 cloudflare-config-audit.yml。**ドリフト採用は `--accept-baseline` を人が確認してから**）
 npm run check-ig-insights-freshness # IG 週次取得の停止とトークン失効 7 日前を検知（quality-audit の ops 区分・snapshot 0 件は FAIL）
 npm run check-cloudflare-metrics-freshness # Cloudflare 日次/月次取得の停止を検知（quality-audit の ops 区分・zone snapshot 3 日超／config 10 日超で FAIL）
+npm run fetch-afb-outcomes         # afb 公式 conversion API で成果（pending/approved/rejected・報酬額）を取得→.claude/state/metrics/affiliate/afb-outcomes-latest.json（`--commit` 必須で書き込み・CI 週次 fetch-metrics.yml。AFB_API_KEY 必須・提携状態スキャンとは別系統）
+npm run check-afb-outcomes-freshness # afb 成果取得の停止を検知（quality-audit の ops 区分・10 日超で FAIL）
 ```
 
 ## 計測・GSC・GA4・期日

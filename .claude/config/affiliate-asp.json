@@ -66,6 +66,12 @@
 
     "afb": {
       "label": "afb（アフィリエイトB）",
+      "api": {
+        "partnerId": "460158",
+        "specUrl": "https://drive.google.com/file/d/1-k9l9QA16sNhSzxtX7LK1A2szQx25OY7/view",
+        "specUpdated": "2023-12-25",
+        "_note": "stats47 と同一口座。サイト分離は partner_site_id=984453 を行ごとに assertSiteOrThrow で検査"
+      },
       "baseUrl": "https://www.afi-b.com",
       "homePath": "/pa/",
       "reAuthPattern": "requiredlogin|/login",
