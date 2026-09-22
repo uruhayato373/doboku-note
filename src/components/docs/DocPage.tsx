@@ -258,7 +258,8 @@ export async function renderDocPage(slugStr: string) {
 
   // note 有料マガジン CTA の配置を解決。
   // published: false や noteUrl 空のマガジンは getMagazine() で防御的に弾く。
-  const magazinePlacement = resolvePlacement(slugStr, docGroup);
+  // career 記事（tags: [career]）には note 二次 CTA を置かない。判定は真実源の isCareerDoc。
+  const magazinePlacement = resolvePlacement(slugStr, docGroup, isCareerDoc(doc.meta));
   type RenderableSlot = { slot: (typeof magazinePlacement.inline)[number]; magazine: NoteMagazine };
   const filterRenderable = (
     slots: ReadonlyArray<(typeof magazinePlacement.inline)[number]>,

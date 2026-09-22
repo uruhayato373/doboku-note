@@ -14,7 +14,7 @@
 //     - HARD FAIL: career タグなのに group が guide でない（分類の前提崩れ）
 //     - WARN: career タグなのに HIGH_INTENT_CAREER_SLUGS 未収録（アフィリ面の取りこぼし）
 //   [built]（--built・CI 向け・`npm run build` 後）
-//     - HARD FAIL: out/docs/**.html の <ul data-nav-list="exam-guide"> 内に career slug へのリンク
+//     - HARD FAIL: out/{exam,practice,standards,topics}/**.html の <ul data-nav-list="exam-guide"> 内に career slug へのリンク
 //
 // 真実源: frontmatter `tags: [career]`（唯一の実データ）。述語は src/lib/doc-classifier.ts の isCareerDoc。
 // 関連ゲート: check-category-curriculum.mjs（curriculum config の整合。守備範囲が別）。
@@ -82,9 +82,16 @@ if (!BUILT) {
   }
 } else {
   // ---- 4. ビルド後: 学習系ナビ一覧に career リンクが無い ----------------------
-  const outDir = path.join(ROOT, 'out/docs');
-  if (!fs.existsSync(outDir)) {
-    console.error('[check-career-separation] out/docs がありません。先に `npm run build` を実行してください。');
+  // 2026-09-22: 公開 URL を /docs/* から /exam/ /practice/ /standards/ /topics/ へ
+  // 分割した際、この --built 経路が out/docs を見たままだった。ディレクトリが存在しないので
+  // exit 1 で即死し、**ビルド後の混入検査が 1 箇所も走らない状態**が続いていた
+  // （「検査不成立」と「異常 0 件」が同じ赤/緑に見える例）。走査先を実在する領域へ移す。
+  const AREA_DIRS = ['exam', 'practice', 'standards', 'topics'];
+  const outDirs = AREA_DIRS.map((d) => path.join(ROOT, 'out', d)).filter((d) => fs.existsSync(d));
+  if (outDirs.length === 0) {
+    console.error(
+      `[check-career-separation] out/{${AREA_DIRS.join(',')}} がどれもありません。先に \`npm run build\` を実行してください。`,
+    );
     process.exit(1);
   }
   const htmlFiles = [];
@@ -95,7 +102,7 @@ if (!BUILT) {
       else if (e.name.endsWith('.html')) htmlFiles.push(p);
     }
   };
-  walk(outDir);
+  for (const d of outDirs) walk(d);
 
   let listsFound = 0;
   for (const file of htmlFiles) {
@@ -104,7 +111,11 @@ if (!BUILT) {
     const lists = html.matchAll(/<ul[^>]*data-nav-list="exam-guide"[^>]*>([\s\S]*?)<\/ul>/g);
     for (const m of lists) {
       listsFound++;
-      const hrefs = [...m[1].matchAll(/href="\/docs\/([^"]+?)\/?"/g)].map((x) => x[1]);
+      // href は正規 URL（/exam/<category>/<group>/<slug>）。career slug 台帳は
+      // フラット表記（<category>-<group>-<slug>）なので、パスを繋ぎ直して突き合わせる。
+      const hrefs = [...m[1].matchAll(/href="\/(?:exam|practice|standards|topics)\/([^"]+?)\/?"/g)].map(
+        (x) => x[1].split('/').join('-'),
+      );
       const mixed = hrefs.filter((s) => careerSlugs.has(s));
       if (mixed.length > 0) {
         errors.push(`${path.relative(ROOT, file)}: 学習系ナビに career 記事 ${mixed.length} 件が混入 → ${mixed.join(', ')}`);
@@ -112,7 +123,13 @@ if (!BUILT) {
     }
   }
   if (listsFound === 0) {
-    warnings.push('exam-guide ナビ一覧が 1 件も見つかりません（data-nav-list マーカーが外れた可能性）');
+    // 検査ゼロを PASS と呼ばない。2026-09-22 まで走査先が out/docs のままで 0 箇所だったため、
+    // 「混入なし」と「1 箇所も見ていない」が区別できなかった。WARN ではなく検査不成立にする。
+    console.error(
+      `[check-career-separation] ✗ 検査不成立: exam-guide ナビ一覧が 1 件も見つかりません` +
+        `（HTML ${htmlFiles.length} 件を走査）。data-nav-list マーカーが外れたか、走査先の URL 体系が変わった可能性。`,
+    );
+    process.exit(1);
   } else {
     console.log(`[check-career-separation] 検査した学習系ナビ一覧: ${listsFound} 箇所（${htmlFiles.length} HTML）`);
   }
