@@ -206,6 +206,9 @@ export const HIGH_INTENT_CAREER_SLUGS: ReadonlySet<string> = new Set([
   // **これは台帳登録であって配置ではない**: アフィリ面は resolveDocsCareerSidebarAd が
   // category で決めており、このセットは 2026-07-28 以降 arm 判定に使っていない（上のコメント）。
   "civil-construction-1-public-servant-merit",
+  // 2026-09-22: GSC で career クラスタの実クリックを出している 2 本のうちの 1 本（平均 7.8 位）。
+  // career タグが無く funnel レポート・広告ポリシーの外にあったため、タグ付けと同時に登録する。
+  "pe-comprehensive-management-public-engineer-qualification-map",
 ]);
 
 /**

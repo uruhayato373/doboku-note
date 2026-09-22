@@ -11,8 +11,15 @@
 //   - expiresAt が過去日の mat が src/MDX に出現 → WARN（exit 0）。失効 creative の配置放置リマインド。
 //   - プレースホルダ（XXXX 等、A8 mat 形式 "AAAA+BBBB+CCCC+DDDD" に合致しない）→ 無視。
 //
+// content/note の扱い（2026-09-22 追加）:
+//   note は HTML/コンポーネント非対応で、A8 の「リンク先URLコピー」を **URL 単独行**で貼るのが
+//   唯一の手段。したがって content/site の「生 mat 直書き禁止」をそのまま適用できない。
+//   許可条件は **registry の surfaces に "note-article" を持つ mat だけ**（現状 NTJWY 1 種）。
+//   それ以外の mat が note に出たら ERROR＝サイト用バナー mat の誤貼り・未申告案件を止める。
+//   それまで content/note は走査対象外で、note の 6 本は registry ゲートの外にあった。
+//
 // 使い方:
-//   node scripts/check-affiliate-mats.mjs            # src/ + content/site 全体
+//   node scripts/check-affiliate-mats.mjs            # src/ + content/site + content/note 全体
 //   node scripts/check-affiliate-mats.mjs --staged   # git staged の該当ファイルのみ（pre-commit 用）
 
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
@@ -34,7 +41,9 @@ const today = todayJst(); // YYYY-MM-DD
 
 // A8 mat 形式: 英数を + で 4 連結（例 4B3VR8+F0LMU2+4R40+TSBE9）。XXXX 等の単一トークンは除外。
 const MAT_RE = /a8mat=([A-Z0-9]+(?:\+[A-Z0-9]+){3})/g;
-const SCAN_DIRS = ['src', 'content/site'];
+const SCAN_DIRS = ['src', 'content/site', 'content/note'];
+// note 本文で生 mat を許す唯一の条件（registry の surfaces）。
+const NOTE_SURFACE = 'note-article';
 const SCAN_EXT = /\.(ts|tsx|mjs|mts|js|jsx|md|mdx|json)$/;
 
 function walk(dir, out = []) {
@@ -64,6 +73,7 @@ if (STAGED) {
 
 const unknown = []; // { file, mat }  src/ で許可リスト外
 const mdxRaw = []; // { file, mat }  content/site に生 mat 直書き（禁止）
+const noteDisallowed = []; // { file, mat }  content/note に note-article 以外の mat（禁止）
 const expiredHits = new Set(); // mat
 const seenKnown = new Set();
 
@@ -75,6 +85,7 @@ for (const file of files) {
     continue;
   }
   const isMdx = file.startsWith('content/site');
+  const isNote = file.startsWith('content/note');
   for (const m of text.matchAll(MAT_RE)) {
     const mat = m[1];
     // MDX 本文に生 mat 直書きは禁止（preset コンポーネント経由のみ）。既知/未知を問わず ERROR。
@@ -83,6 +94,10 @@ for (const file of files) {
       seenKnown.add(mat);
       const entry = known.get(mat);
       if (entry.expiresAt && entry.expiresAt < today) expiredHits.add(mat);
+      // note は URL 単独行が唯一の手段なので生 mat を許すが、note 用に宣言された mat に限る。
+      if (isNote && !(entry.surfaces ?? []).includes(NOTE_SURFACE)) noteDisallowed.push({ file, mat });
+    } else if (isNote) {
+      noteDisallowed.push({ file, mat });
     } else if (!isMdx) {
       unknown.push({ file, mat });
     }
@@ -108,6 +123,16 @@ if (mdxRaw.length > 0) {
   );
 }
 
+if (noteDisallowed.length > 0) {
+  console.error(
+    `[check-affiliate-mats] ✗ content/note に note 用でない a8mat が ${noteDisallowed.length} 件あります（禁止）:`,
+  );
+  for (const u of noteDisallowed) console.error(`  - ${u.mat}  (${u.file})`);
+  console.error(
+    `  → note に貼ってよいのは registry の surfaces に "${NOTE_SURFACE}" を持つ mat だけ（サイト用バナー mat の誤貼り・未申告案件を止める）。`,
+  );
+}
+
 if (unknown.length > 0) {
   console.error(
     `[check-affiliate-mats] ✗ 許可リスト(${REGISTRY})に無い mat が ${unknown.length} 件見つかりました:`,
@@ -118,7 +143,7 @@ if (unknown.length > 0) {
   );
 }
 
-if (mdxRaw.length > 0 || unknown.length > 0) {
+if (mdxRaw.length > 0 || unknown.length > 0 || noteDisallowed.length > 0) {
   process.exit(1);
 }
 

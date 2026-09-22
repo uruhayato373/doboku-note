@@ -1,6 +1,6 @@
 import type { DocMeta } from './docs';
 import { isStructuralTag } from '@/lib/content-taxonomy';
-import { classifyDoc } from './doc-classifier';
+import { classifyDoc, isCareerDoc } from './doc-classifier';
 import { getMagazine, type MagazineId } from './note-magazines';
 import { resolvePlacement } from './magazine-placement';
 
@@ -15,7 +15,10 @@ const products: Partial<Record<string, MagazineId>> = {
 export function sidebarProduct(category: string, doc?: DocMeta) {
   if (!products[category]) return null;
   if (!doc) return getMagazine(products[category]!);
-  if (classifyDoc(doc) === 'career') return null;
+  // career 記事に note 商品カードを出さない（学習意図＝note／キャリア意図＝転職アフィリの分離）。
+  // classifyDoc は 'career' を返さない（career は group: guide のまま・doc-classifier.ts:11-14）ため、
+  // 旧実装 `classifyDoc(doc) === 'career'` は常に false の死んだガードだった（2026-09-22 是正）。
+  if (isCareerDoc(doc)) return null;
   const placement = resolvePlacement(doc.slug, classifyDoc(doc));
   const slot = placement.top || placement.inline[0];
   return slot ? getMagazine(slot.magazineId) : null;
@@ -24,7 +27,7 @@ export function sidebarProduct(category: string, doc?: DocMeta) {
 /** 同じ科目の年度違い、同年度の別科目、同分野の教材と演習を先に出す。 */
 export function discoveryGroups(category: string, currentSlug: string, docs: DocMeta[]) {
   const current = docs.find(d => d.slug === currentSlug);
-  const pool = docs.filter(d => d.slug !== currentSlug && d.published !== false && !d.hideFromCategory && classifyDoc(d) !== 'career');
+  const pool = docs.filter(d => d.slug !== currentSlug && d.published !== false && !d.hideFromCategory && !isCareerDoc(d));
   const local = currentSlug.slice(category.length + 1);
   const year = local.match(/^(?:h|r)\d{2}(?:-retry)?(?=-)/)?.[0];
   const subject = year ? local.slice(year.length + 1) : local.replace(/^(textbook|primary|guide)-/, '');

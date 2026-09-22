@@ -156,7 +156,7 @@ const NEED_RULES: ReadonlyArray<{ readonly need: CareerNeed; readonly patterns: 
   { need: "workstyle", patterns: ["white-company", "job-reality", "women"] },
   { need: "quit-or-stay", patterns: ["quit"] },
   { need: "pay", patterns: ["salary", "allowance", "career-cases"] },
-  { need: "market-value", patterns: ["market-value", "grade-comparison"] },
+  { need: "market-value", patterns: ["market-value", "grade-comparison", "qualification-map"] },
   {
     need: "career-path",
     patterns: [
