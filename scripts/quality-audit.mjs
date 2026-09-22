@@ -197,6 +197,16 @@ const CHECKS = [
   { id: 'note-frontmatter-dup', npm: 'check-note-frontmatter-dup', timeout: 60_000, ci: true, note: 'frontmatter トップレベルキーの重複。YAML 重複キーで gray-matter が停止し PDF 生成が落ちる' },
   { id: 'note-vocabulary-boundary', npm: 'check-note-vocabulary-boundary', timeout: 60_000, ci: true, note: 'noteSeries(編集ラベル)とnoteMagazine(商品ラベル)の取り違え検知（内部id混入/他マガジンラベル混入/index×商品の共存）。DN-0125' },
   { id: 'note-link-cards', npm: 'check-note-link-cards', timeout: 60_000, ci: true, note: '自社note記事はサイト管理画像付き NoteLink に限定。生リンク・旧noteカバー・画像欠落を禁止' },
+  // 以下 5 本は pre-commit で `--staged` だけが走っており、**全量モードに読み手が無かった**
+  // （2026-09-22 是正）。staged 経路は「その PR で触ったファイル」しか見ないので、
+  // ファイル名判定の Windows `\` バグのように **全量だと 0 件検査になる回帰**を誰も拾えない
+  // （feedback: gate-zero-coverage-false-pass）。いずれもオフライン（doc-meta-index と repo のみ）・
+  // 1 秒未満・diff で結果が決まるので ci:true の条件を満たす。
+  { id: 'note-site-utm', npm: 'check-note-site-utm', timeout: 60_000, ci: true, note: 'note 本文から /docs/ への送客リンクの UTM 規約（全量 backstop・pre-commit は staged のみ）' },
+  { id: 'x-utm', npm: 'check-x-utm', timeout: 60_000, ci: true, note: 'X 投稿の送客リンクの UTM 規約（全量 backstop・pre-commit は staged のみ）' },
+  { id: 'sns-urls', cmd: ['node', 'scripts/check-sns-urls.mjs'], timeout: 60_000, ci: true, note: 'SNS 投稿の /docs/ リンクが doc-meta-index に実在するか（全量 backstop・pre-commit は staged のみ）' },
+  { id: 'sns-urls-mdx', cmd: ['node', 'scripts/check-sns-urls.mjs', '--mdx'], timeout: 60_000, ci: true, note: '同上の MDX 本文コーパス（全量のみ・pre-commit では走らない）' },
+  { id: 'sns-urls-note', cmd: ['node', 'scripts/check-sns-urls.mjs', '--note'], timeout: 60_000, ci: true, note: '同上の note 本文コーパス（content/note/**/*.md・全量のみ・pre-commit では走らない）' },
   // ── ops（運用アラート）── 壁時計依存。PR の diff では直せないので ci:true に置かない（ヘッダ「設計」参照）。
   { id: 'membership-drip', npm: 'check-membership-drip', timeout: 30_000, ci: false, ops: true, note: '会員配信ドリップの遅れ・実体欠落。配信表(README)が真実源で、予定日を GRACE_DAYS 以上過ぎた未配信は赤。2026-08-27 に学科02が2日遅れで沈黙していた（カード側の日付が正典とずれていて気づけなかった）。読み手＝ops-audit.yml（日次 --ops → automation-failure Issue channel ops・復旧で自動クローズ）。2026-09-18 まで ci 区分に居て 30 日に 13 回 Pre-merge を落としていたため ops へ移した' },
   { id: 'note-membership', npm: 'check-note-membership', timeout: 60_000, ci: true, note: 'メンバーシップの会費/定員/planId が SSOT config と一致するか。note は会費を変更できずプラン作り直しが唯一の手段なので、ドリフト放置は修復不能に近づく（--live は実機突合・ローカル専用）' },

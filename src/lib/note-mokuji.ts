@@ -15,8 +15,9 @@ type FunnelL2 = { readonly noteId: string; readonly title: string; readonly note
 const EXAMS = noteFunnel.exams as Record<string, { L2?: FunnelL2 } | undefined>;
 
 /**
- * funnel の資格キー（`tankan` / `pe-construction` / `civil`）と ExamKey の対応。
+ * funnel の資格キー（`.claude/config/note-funnel.json` の `exams.*`）と ExamKey の対応。
  * **1級・2級土木は L2 が 1 本しかない**（`civil` = 土木もくじ）ため両方が同じ記事を指す。
+ * **コンクリート 3 資格も L2 が 1 本**（`nd59f471c9214` = コンクリート資格もくじ）で共通。
  * note は記事内アンカーに対応しないので、着地はもくじ先頭で共通・UTM で流入元を分ける。
  */
 const FUNNEL_KEY_BY_EXAM: Partial<Record<ExamKey, string>> = {
@@ -25,9 +26,12 @@ const FUNNEL_KEY_BY_EXAM: Partial<Record<ExamKey, string>> = {
   'civil-1': 'civil',
   'civil-2': 'civil',
   rccm: 'rccm',
+  concrete: 'concrete-engineer',
+  'concrete-chief': 'concrete-chief',
+  'concrete-diagnosis': 'concrete-diagnosis',
 };
 
-/** 資格の L2 もくじ（無ければ null）。concrete / pe-first-stage は未整備。 */
+/** 資格の L2 もくじ（無ければ null）。pe-first-stage は未整備。 */
 export function mokujiFor(key: ExamKey): FunnelL2 | null {
   const funnelKey = FUNNEL_KEY_BY_EXAM[key];
   if (!funnelKey) return null;

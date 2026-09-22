@@ -131,6 +131,7 @@ const DUE_RULES = [
   { id: 'S11', why: '実績コミット後にカード本文が未更新', hit: (r) => (r.staleAfterCommitTotal ?? 0) >= 2 },
   { id: 'S12', why: '完了 prose 蓄積（TRIM 候補）3 件以上', hit: (r) => (r.completionProseHeavy?.length ?? 0) >= 3 },
   { id: 'S13', why: 'チャネル状態複製の疑い 3 件以上', hit: (r) => (r.ssotDuplicationSuspects?.length ?? 0) >= 3 },
+  { id: 'S14', why: '期日超過のカード', hit: (r) => (r.overdueDue?.length ?? 0) >= 1 },
 ];
 
 /** JST の YYYY-MM-DD（UTC 実行で前日付になる事故を避ける・check-jst-date と同じ規律）。 */
@@ -294,6 +295,23 @@ export function computeSsotDuplicationSuspects(cards, threshold = 2) {
     .sort((a, b) => b.count - a.count);
 }
 
+/**
+ * 期日（`[期日:YYYY-MM-DD]`）を過ぎたまま残っているカード（2026-09-22）。
+ *
+ * backlog の `[期日:]` は **これまで機械の読み手が 1 つも無かった**。`schedule-view` は
+ * 月ビューを人が pull したときだけ出るので、期日当日に何も起きない。DN-0250（土木 CTA の
+ * 切替）は最初の行動が 10/4 なのにカードの期日が 10/26 で、過ぎても誰も気づかない形だった。
+ *
+ * 判定は「今日より前」＝当日は hit させない（当日はまだ間に合う）。日付は JST
+ * （`jstToday()`・UTC 実行で前日付になる事故を避ける）。
+ */
+export function computeOverdueDue(cards, todayYmd) {
+  return cards
+    .filter((c) => c.due && c.due < todayYmd)
+    .map((c) => ({ id: c.id, line: c.line, due: c.due, title: c.title }))
+    .sort((a, b) => a.due.localeCompare(b.due));
+}
+
 function main() {
 const backlogPath = join(ROOT, '.claude/todo/backlog.md');
 if (!existsSync(backlogPath)) {
@@ -435,6 +453,7 @@ const s11Degraded = Boolean(blameSec.degraded) || Boolean(commitTimeById.degrade
 const staleAfterCommit = s11Degraded ? [] : computeStaleAfterCommit(cards, commitTimeById, blameSec);
 const proseHeavy = computeCompletionProseHeavy(cards);
 const ssotSuspects = computeSsotDuplicationSuspects(cards);
+const overdueDue = computeOverdueDue(cards, jstToday());
 
 const report = {
   cards: cards.length,
@@ -463,6 +482,7 @@ const report = {
   staleAfterCommit,
   completionProseHeavy: proseHeavy,
   ssotDuplicationSuspects: ssotSuspects,
+  overdueDue,
 };
 
 if (RECORD) {
@@ -483,6 +503,8 @@ if (DUE) {
   console.log('─── backlog 棚卸しの期限 ───────────────────────');
   if (monthly) console.log(`  月初の棚卸しが未実施（前回: ${last ? last.date : '記録なし'}）`);
   for (const h of hits) console.log(`  ${h.id} ${h.why}`);
+  // S14 は「どのカードがいつ切れたか」が分からないと動けないので明細を出す。
+  for (const c of report.overdueDue ?? []) console.log(`    期日超過 ${c.id ?? '(ID無し)'} ${c.due} ${c.title}`);
   console.log(`  → /backlog-sweep --audit（カード ${cards.length} 件・詳細は npm run check-backlog-health）`);
   console.log('────────────────────────────────────────────────');
   console.log('');
