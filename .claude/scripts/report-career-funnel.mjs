@@ -15,6 +15,7 @@
  * Usage:
  *   node .claude/scripts/report-career-funnel.mjs            レポート生成（latest を上書き）
  *   node .claude/scripts/report-career-funnel.mjs --freeze   基線を固定名で凍結（Phase 06 の比較対象）
+ *                                                    既存があれば中止。撮り直しは --refreeze
  *   node .claude/scripts/report-career-funnel.mjs --json     機械可読（stdout は JSON だけ）
  *
  * exit: 0 生成成功 / 2 検査不成立
@@ -495,13 +496,25 @@ function main() {
     console.log(`[report-career-funnel --check] 完走（career 記事 ${ledger.length} 本・警告 ${warnings.length}・書き込みなし）`);
     return;
   }
+  // 中止するなら latest も書かない（失敗した実行が成果物だけ更新するのを防ぐ）。
+  const frozen = freeze ? join(AFF_DIR, `career-funnel-baseline-${windows.ga4.end}.json`) : null;
+  if (frozen) {
+    // 基線は「その時点のサイトの姿」を固定するもので、上書きすると比較対象そのものが動く。
+    // ファイル名は GA4 窓の終端日なので、同じ窓の取得データのまま記事を増やして再凍結すると
+    // 名前は同じまま careerArticles だけが増え、差分が消える（2026-09-22 に実際に起きた:
+    // 第 2 波を出荷した後に再実行し、39 本の基線が 44 本へ書き換わった）。
+    // 明示の --refreeze が無ければ既存を守る。
+    if (existsSync(frozen) && !process.argv.includes("--refreeze")) {
+      console.error(
+        `✗ 基線 ${relative(frozen)} は既に存在します（凍結済み）。上書きすると比較対象が動くため中止しました。\n` +
+          `  意図して撮り直すなら --refreeze を付けてください。別の窓で凍結したいなら GA4 スナップショットを更新してから実行します。`,
+      );
+      process.exit(1);
+    }
+  }
   writeFileSync(join(AFF_DIR, "career-funnel-latest.json"), `${JSON.stringify(result, null, 2)}\n`);
   writeFileSync(join(AFF_DIR, "career-funnel-latest.md"), renderMarkdown(result, cfg));
-  let frozen = null;
-  if (freeze) {
-    frozen = join(AFF_DIR, `career-funnel-baseline-${windows.ga4.end}.json`);
-    writeFileSync(frozen, `${JSON.stringify(result, null, 2)}\n`);
-  }
+  if (frozen) writeFileSync(frozen, `${JSON.stringify(result, null, 2)}\n`);
 
   say(
     `[report-career-funnel] career 記事 ${ledger.length} 本 / site MDX ${siteFiles} 件＋設定 ${extraScanned} 件を実走査 / ` +

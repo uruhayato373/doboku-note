@@ -163,7 +163,7 @@ npm run indexnow:submit        # sitemap の lastmod が直近 7 日の URL を 
 npm run check-experiment-due   # 実験台帳の再計測/close/decide 期限と要人手（pending_user_actions）を surface（計測→記録→改善→再計測の最後の輪。2026-09-19 に旧 check-experiments-due を統合＝判定は scripts/lib/experiment-due.mjs が唯一。`-- --json` で issues も出す）
 npm run check-jst-date    # 運用記録の日付が UTC で前日付になっていないか（JST 09:00 前の実行事故・pre-commit 同梱）
 npm run report-buildjob-affiliate # BuildJob クリック×A8 成果の EPC レポート→.claude/state/metrics/affiliate/buildjob-report-latest.md（月次レビューが読む。`-- --check` は書かずに完走だけ＝quality-audit ci）
-npm run report-career-funnel      # キャリアファネル（流入→回遊→CTA→成果）→career-funnel-latest.{json,md}（`--freeze` で基線凍結・`--json`・`--check` は書かずに完走だけ＝quality-audit ci。GA4 と GSC は窓が違うので出所を跨いで割らない）
+npm run report-career-funnel      # キャリアファネル（流入→回遊→CTA→成果）→career-funnel-latest.{json,md}（`--freeze` で基線凍結＝**既存があれば exit 1 で中止**し latest も書かない。撮り直しは `--refreeze`。`--json`・`--check` は書かずに完走だけ＝quality-audit ci。GA4 と GSC は窓が違うので出所を跨いで割らない）
 ```
 
 ## 台帳・ドキュメント整合
