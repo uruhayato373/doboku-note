@@ -114,6 +114,19 @@ export function classifyNotSet({ windowStart, registeredAt }) {
   return { kind: "pre-registration", preRegistrationDays: days };
 }
 
+/**
+ * afb-outcomes-latest.json（fetch-afb-outcomes.mjs の出力・records は conversionId で重複排除済み）から
+ * 状態別件数を数える。ファイルが無い（未取得）と records が空（取得できたが 0 件）を区別するため、
+ * 呼び出し側は afb が null かどうかで判定し、これは非 null のときだけ呼ぶ。
+ */
+export function summarizeAfb(afb) {
+  const counts = { pending: 0, approved: 0, rejected: 0 };
+  for (const r of afb?.records ?? []) {
+    if (counts[r.status] != null) counts[r.status] += 1;
+  }
+  return counts;
+}
+
 /** A8 レコード配列を合算する。 */
 export function sumA8(rows) {
   return rows.reduce(
@@ -262,6 +275,7 @@ function main() {
     ga4Page: latestSnapshot(GA4_DIR, "ga4-page-"),
     gscPageQuery: latestSnapshot(GSC_DIR, "gsc-page-query-"),
     a8: existsSync(join(AFF_DIR, "a8-results.json")) ? join(AFF_DIR, "a8-results.json") : null,
+    afb: existsSync(join(AFF_DIR, "afb-outcomes-latest.json")) ? join(AFF_DIR, "afb-outcomes-latest.json") : null,
   };
   const missing = Object.entries(inputs)
     .filter(([, v]) => !v)
@@ -279,6 +293,7 @@ function main() {
   const ga4Page = inputs.ga4Page ? readJson(inputs.ga4Page) : { meta: null, rows: [] };
   const gscPageQuery = readJson(inputs.gscPageQuery);
   const a8 = inputs.a8 ? readJson(inputs.a8) : { records: [] };
+  const afb = inputs.afb ? readJson(inputs.afb) : null;
 
   const windows = checkWindows(ga4Label.meta, gscPageQuery.meta);
   if (!windows.aligned) {
@@ -483,6 +498,7 @@ function main() {
         allTime: sumA8(a8All),
         monthsInWindow: [...new Set(a8InWindow.map((r) => r.month))],
       },
+      afb: afb ? { observedAt: afb.observedAt, period: afb.period, counts: summarizeAfb(afb) } : null,
     },
     pillars: pillarSummary,
     ledger,
@@ -508,6 +524,11 @@ function main() {
       `GSC ${gscCareerRows}/${(gscPageQuery.rows ?? []).length} 行が career に一致 / WARN ${warnings.length}`,
   );
   for (const w of warnings) say(`  WARN ${w}`);
+  say(
+    result.funnel.afb
+      ? `  afb: pending ${result.funnel.afb.counts.pending} approved ${result.funnel.afb.counts.approved} rejected ${result.funnel.afb.counts.rejected}`
+      : "  afb: 未取得",
+  );
   if (frozen) say(`  基線を凍結: ${relative(frozen)}`);
   if (jsonOut) process.stdout.write(`${JSON.stringify(result, null, 2)}\n`);
   else say("  出力: .claude/state/metrics/affiliate/career-funnel-latest.{json,md}");
@@ -583,6 +604,17 @@ function renderMarkdown(r, cfg) {
   );
   L.push(`累計: 発生 ${a.conversions} ／ 確定 ${a.approved} ／ 確定報酬 ¥${a.revenueYen}`, "");
   L.push("_A8 管理画面のクリックは口座共用（stats47 と同居）のため分母に使わない。分母は GA4。_", "");
+
+  L.push("### 6. afb 成果（公式 API）", "");
+  if (r.funnel.afb) {
+    const c = r.funnel.afb.counts;
+    L.push(
+      `取得: ${r.funnel.afb.observedAt}（窓 ${r.funnel.afb.period.start}〜${r.funnel.afb.period.end}）／ pending ${c.pending} ／ approved ${c.approved} ／ rejected ${c.rejected}`,
+      "",
+    );
+  } else {
+    L.push("afb: 未取得（fetch-afb-outcomes.mjs --commit が未実行、または fetch-metrics.yml が止まっている）", "");
+  }
 
   if (r.baselineDrift.length) {
     L.push("## 起票時基線からのずれ（±30% 超）", "");
