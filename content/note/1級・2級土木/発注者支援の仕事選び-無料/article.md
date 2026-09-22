@@ -91,6 +91,13 @@ cover:
 土木の学習と仕事選びの情報は[doboku-note](https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=civil-career-support-role&utm_content=site-footer)にまとめています。
 
 
+<!-- career-expansion-links -->
+## 次に整理したいこと
+
+発注者としての経験を応募書類へ落とすなら、[「調整業務」を民間にも伝わる担当経験へ](https://note.com/dobokunote/n/n433cce5f118f)が具体的です。
+
+そもそも辞めるかどうかから整理したい場合は、[経験・生活費・次の働き方を整理する](https://note.com/dobokunote/n/n7a81ebf1cdc5)へ。
+
 <!-- cta:civil-mokuji -->
 資格学習の記事は、土木もくじから探せます。
 

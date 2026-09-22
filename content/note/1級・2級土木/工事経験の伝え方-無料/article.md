@@ -88,6 +88,13 @@ cover:
 土木・建設系資格の学習と、資格を生かす準備を[doboku-note](https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=civil-career-work-history&utm_content=site-footer)で発信しています。
 
 
+<!-- career-expansion-links -->
+## 次に整理したいこと
+
+発注者側の経験を書き出す場合は、[「調整業務」を民間にも伝わる担当経験へ](https://note.com/dobokunote/n/n433cce5f118f)が対になります。
+
+書類が整ったあとの相談の進め方は、[登録・電話・面談・応募前の準備](https://note.com/dobokunote/n/n5a823955985c)にあります。
+
 <!-- cta:civil-mokuji -->
 資格学習の記事は、土木もくじから探せます。
 

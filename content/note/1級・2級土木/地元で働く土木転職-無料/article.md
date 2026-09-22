@@ -93,6 +93,13 @@ cover:
 土木の学習とキャリアの情報を[doboku-note](https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=civil-career-local-work&utm_content=site-footer)で発信しています。
 
 
+<!-- career-expansion-links -->
+## 次に整理したいこと
+
+家族との時間を条件に入れたい場合は、[休日・帰宅・出張の希望を伝える方法](https://note.com/dobokunote/n/n45e5ec2f687e)で伝え方を整理できます。
+
+候補が 2 社に絞れたら、[同じ年収の2社を給与・休日・担当現場で比べる方法](https://note.com/dobokunote/n/nf17ae9b9f3f7)が次の一歩です。
+
 <!-- cta:civil-mokuji -->
 資格学習の記事は、土木もくじから探せます。
 

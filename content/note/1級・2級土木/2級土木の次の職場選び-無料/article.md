@@ -92,6 +92,13 @@ cover:
 次の職場を選ぶときは、資格名の先にある毎日の仕事まで確認していきましょう。土木の学習とキャリアの情報を[doboku-note](https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=civil-career-young-next-role&utm_content=site-footer)にまとめています。
 
 
+<!-- career-expansion-links -->
+## 次に整理したいこと
+
+次の職場で任される工事を面接で確かめたい場合は、[同じ年収の2社を給与・休日・担当現場で比べる方法](https://note.com/dobokunote/n/nf17ae9b9f3f7)が使えます。
+
+応募書類で工事経験をどう書くかは、[「施工管理を担当しました」で終わらない工事経験の伝え方](https://note.com/dobokunote/n/ne990d6bf4ce1)にまとめています。
+
 <!-- cta:civil-mokuji -->
 資格学習の記事は、土木もくじから探せます。
 

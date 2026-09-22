@@ -93,6 +93,13 @@ cover:
 土木の学習と働き方の情報を[doboku-note](https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=civil-career-family-time&utm_content=site-footer)で発信しています。
 
 
+<!-- career-expansion-links -->
+## 次に整理したいこと
+
+勤務地そのものを動かす選択肢は、[「転勤なし」の次に確認する勤務地と出張](https://note.com/dobokunote/n/n01a775d6c669)にまとめています。
+
+いつ動くかを決めかねている場合は、[情報収集・応募・入社を分ける在職中の進め方](https://note.com/dobokunote/n/n401905648243)へ。
+
 <!-- cta:civil-mokuji -->
 資格学習の記事は、土木もくじから探せます。
 

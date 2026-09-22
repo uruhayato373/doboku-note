@@ -92,6 +92,13 @@ cover:
 土木の学習とキャリアの情報を[doboku-note](https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=civil-career-offer-comparison&utm_content=site-footer)で発信しています。
 
 
+<!-- career-expansion-links -->
+## 次に整理したいこと
+
+勤務地と出張の条件をもう一段確かめたい場合は、[「転勤なし」の次に確認する勤務地と出張](https://note.com/dobokunote/n/n01a775d6c669)を先に読んでください。
+
+提示された年収の内訳が気になる場合は、[資格手当・担当業務・給与内訳で確認すること](https://note.com/dobokunote/n/nfbff7b1469b6)で分解できます。
+
 <!-- cta:civil-mokuji -->
 資格学習の記事は、土木もくじから探せます。
 

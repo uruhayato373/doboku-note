@@ -92,6 +92,13 @@ cover:
 土木の学習と資格活用を[doboku-note](https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=civil-career-public-work-history&utm_content=site-footer)で発信しています。
 
 
+<!-- career-expansion-links -->
+## 次に整理したいこと
+
+発注者の経験を活かす進路そのものを比べたい場合は、[発注者支援への転職｜仕事内容・常駐先・配属変更で確認したいこと](https://note.com/dobokunote/n/n266f0cdd99ef)があります。
+
+公務員と民間のどちらに身を置くかから考え直すなら、[公務員土木か民間か｜仕事内容・働き方・採用ルートで比べる選び方](https://note.com/dobokunote/n/n8b03a7de0c6b)へ。
+
 <!-- cta:civil-mokuji -->
 資格学習の記事は、土木もくじから探せます。
 
