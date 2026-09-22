@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "fetchedAt": "2026-09-21T06:27:46.210Z",
-  "fetchedOnJst": "2026-09-21",
+  "fetchedAt": "2026-09-22T23:48:43.576Z",
+  "fetchedOnJst": "2026-09-23",
   "status": "ok",
   "source": "coconala.com /mypage/analytics（Playwright・read-only・書き込みなし）",
   "caveats": [
@@ -11,21 +11,21 @@
   ],
   "period": {
     "services": {
-      "from": "2026-08-22",
-      "to": "2026-09-20",
+      "from": "2026-08-24",
+      "to": "2026-09-22",
       "label": "過去30日間",
       "windowDays": 30
     },
     "blogs": {
-      "from": "2026-08-23",
-      "to": "2026-09-21",
+      "from": "2026-08-25",
+      "to": "2026-09-23",
       "label": "過去30日間",
       "windowDays": 30
     }
   },
   "totals": {
     "impressions": null,
-    "views": 336,
+    "views": 324,
     "orders": 1,
     "salesYen": 2500,
     "favorites": 0,
@@ -41,7 +41,7 @@
       "title": "1・2級土木の経験記述を元発注者が診断します",
       "ok": true,
       "impressions": null,
-      "views": 18,
+      "views": 17,
       "orders": 0,
       "favorites": 0,
       "masked": [
@@ -55,7 +55,7 @@
       "title": "新形式対応 土木経験記述を元発注者が添削します",
       "ok": true,
       "impressions": null,
-      "views": 44,
+      "views": 40,
       "orders": 0,
       "favorites": 0,
       "masked": [
@@ -69,7 +69,7 @@
       "title": "土木経験記述をヒアリングで構成します",
       "ok": true,
       "impressions": null,
-      "views": 18,
+      "views": 15,
       "orders": 0,
       "favorites": 0,
       "masked": [
@@ -97,7 +97,7 @@
       "title": "1級土木 経験記述の模範答案セットを送ります",
       "ok": true,
       "impressions": null,
-      "views": 14,
+      "views": 12,
       "orders": 0,
       "favorites": 0,
       "masked": [
@@ -111,7 +111,7 @@
       "title": "2級土木 経験記述の模範答案セットを送ります",
       "ok": true,
       "impressions": null,
-      "views": 20,
+      "views": 18,
       "orders": 0,
       "favorites": 0,
       "masked": [
@@ -125,7 +125,7 @@
       "title": "R8対応 1級土木二次の予想模試3回分を送ります",
       "ok": true,
       "impressions": null,
-      "views": 51,
+      "views": 49,
       "orders": 1,
       "favorites": 0,
       "masked": [
@@ -139,7 +139,7 @@
       "title": "R8対応 2級土木二次の予想模試3回分を送ります",
       "ok": true,
       "impressions": null,
-      "views": 15,
+      "views": 14,
       "orders": 0,
       "favorites": 0,
       "masked": [
@@ -153,7 +153,7 @@
       "title": "R8対応 1級土木二次の教材フルパックを送ります",
       "ok": true,
       "impressions": null,
-      "views": 45,
+      "views": 44,
       "orders": 0,
       "favorites": 0,
       "masked": [
@@ -181,7 +181,7 @@
       "title": "1級土木二次 教材一式と経験記述添削をします",
       "ok": true,
       "impressions": null,
-      "views": 12,
+      "views": 11,
       "orders": 0,
       "favorites": 0,
       "masked": [
@@ -223,7 +223,7 @@
       "title": "RCCM問題III 管理技術力の論文を添削します",
       "ok": true,
       "impressions": null,
-      "views": 4,
+      "views": 7,
       "orders": 0,
       "favorites": 0,
       "masked": [
@@ -237,7 +237,7 @@
       "title": "RCCM業務経験論文の減点箇所を診断します",
       "ok": true,
       "impressions": null,
-      "views": 4,
+      "views": 5,
       "orders": 0,
       "favorites": 0,
       "masked": [
@@ -251,7 +251,7 @@
       "title": "RCCM問題III 模範論文6本のPDFを送ります",
       "ok": true,
       "impressions": null,
-      "views": 5,
+      "views": 6,
       "orders": 0,
       "favorites": 0,
       "masked": [
@@ -297,42 +297,42 @@
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-09-06",
-      "views": 14
+      "views": 16
     },
     {
       "title": "【第5回】経験記述の安全管理、品質管理と同じ手順で書く",
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-08-22",
-      "views": 15
+      "views": 12
     },
     {
       "title": "総合技術監理 記述式の出題テーマに共通する型",
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-08-18",
-      "views": 8
+      "views": 6
     },
     {
       "title": "【第4回】経験記述の品質管理、設問1〜評価まで書く手順",
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-08-17",
-      "views": 13
+      "views": 11
     },
     {
       "title": "【第3回】経験記述は予想テーマで書く練習｜週1回5ステップ",
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-08-17",
-      "views": 9
+      "views": 8
     },
     {
       "title": "【第2回】経験記述が独学で伸びない理由｜自己採点が成立しない構造",
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-08-13",
-      "views": 11
+      "views": 9
     },
     {
       "title": "【第1回】経験記述で落ちる答案に共通する3つの型｜1級・2級土木",
