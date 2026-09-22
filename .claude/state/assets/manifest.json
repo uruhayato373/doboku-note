@@ -52034,6 +52034,66 @@
         "scripts/check-orphan-ogp.mjs"
       ],
       "srcHash": "3702b43c9657d5ff"
+    },
+    "content/note/1級・2級土木/転職相談の前に緊急度を確かめる-無料/img/cover.png": {
+      "bucket": "private",
+      "r2Key": "note/covers/1級・2級土木/転職相談の前に緊急度を確かめる-無料/img/cover.png",
+      "sha256": "ed2a6550f5ce7ef60af22db800d818c3f1d3269cce0f3d7bc9aec7fe2c706e76",
+      "bytes": 838764,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "note-cover-png",
+      "verifiedAt": "2026-09-22T10:03:10.016Z",
+      "width": 1280,
+      "height": 670
+    },
+    "content/note/1級・2級土木/給料表で読む土木公務員の年収-無料/img/cover.png": {
+      "bucket": "private",
+      "r2Key": "note/covers/1級・2級土木/給料表で読む土木公務員の年収-無料/img/cover.png",
+      "sha256": "31d81bcac30f4cede4e2e9836e0c082d56aa5a3aba94cd3b60e416c226885c61",
+      "bytes": 842747,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "note-cover-png",
+      "verifiedAt": "2026-09-22T10:03:11.052Z",
+      "width": 1280,
+      "height": 670
+    },
+    "content/note/1級・2級土木/公務員土木を辞める前の棚卸し-無料/img/cover.png": {
+      "bucket": "private",
+      "r2Key": "note/covers/1級・2級土木/公務員土木を辞める前の棚卸し-無料/img/cover.png",
+      "sha256": "650849a2bbd8a90298586500b731a5889416c1a1ef0ef573185781bb876553c7",
+      "bytes": 847841,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "note-cover-png",
+      "verifiedAt": "2026-09-22T10:03:11.566Z",
+      "width": 1280,
+      "height": 670
+    },
+    "content/note/1級・2級土木/公務員技術職の試験を受けるか決める-無料/img/cover.png": {
+      "bucket": "private",
+      "r2Key": "note/covers/1級・2級土木/公務員技術職の試験を受けるか決める-無料/img/cover.png",
+      "sha256": "839981cd9972e38cba539c9177dc145670e6398e0440b03049e1c6c4cdcf5a26",
+      "bytes": 829723,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "note-cover-png",
+      "verifiedAt": "2026-09-22T10:03:13.477Z",
+      "width": 1280,
+      "height": 670
+    },
+    "content/note/1級・2級土木/RCCMを持つ人の次の職場-無料/img/cover.png": {
+      "bucket": "private",
+      "r2Key": "note/covers/1級・2級土木/RCCMを持つ人の次の職場-無料/img/cover.png",
+      "sha256": "69109ede1487c4dadfe8d40ab74a05146ae564449a61500dc35be10432252f5b",
+      "bytes": 846541,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "note-cover-png",
+      "verifiedAt": "2026-09-22T10:03:13.520Z",
+      "width": 1280,
+      "height": 670
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",
