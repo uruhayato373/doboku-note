@@ -20,6 +20,7 @@ import {
   foldEvents,
   isHighIntentQuery,
   stalenessDays,
+  summarizeAfb,
   sumA8,
 } from "../.claude/scripts/report-career-funnel.mjs";
 
@@ -149,6 +150,22 @@ test("A8 取消: 確定がマイナスでも合算が壊れない", () => {
 test("A8: 欠損フィールドは 0 として扱い NaN を作らない", () => {
   const s = sumA8([{ month: "2026-05" }, { month: "2026-06", clicks: 3 }]);
   assert.deepEqual(s, { clicks: 3, conversions: 0, approved: 0, revenueYen: 0 });
+});
+
+test("afb: 状態別件数を数える（fetch-afb-outcomes.mjs の records は conversionId で重複排除済み）", () => {
+  const afb = {
+    records: [
+      { conversionId: "1", status: "pending" },
+      { conversionId: "2", status: "approved" },
+      { conversionId: "3", status: "approved" },
+      { conversionId: "4", status: "rejected" },
+    ],
+  };
+  assert.deepEqual(summarizeAfb(afb), { pending: 1, approved: 2, rejected: 1 });
+});
+
+test("afb: records が空でも 0 件として数える（未取得と混同しない側の責務は呼び出し側）", () => {
+  assert.deepEqual(summarizeAfb({ records: [] }), { pending: 0, approved: 0, rejected: 0 });
 });
 
 test("stats47 混入疑い: A8 クリックが GA4 クリックを大きく上回る形を数値で示せる", () => {

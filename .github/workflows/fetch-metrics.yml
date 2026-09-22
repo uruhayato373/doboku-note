@@ -198,6 +198,16 @@ jobs:
           GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
         run: npm run fetch-ga4-cta-clicks -- --by-placement
 
+      # afb（アフィリエイトB）成果を公式 API で取得する。Playwright 提携状態スキャンとは別系統
+      # （読み取り専用の conversion API・doboku-note の partner_site_id=984453 を行ごとに検査して
+      # 他サイト混入を防ぐ）。取得失敗はワークフロー全体を落とさず、鮮度は quality-audit の ops 区分
+      # （check-afb-outcomes-freshness）が日次で見る。
+      - name: Fetch afb outcomes (official API)
+        continue-on-error: true
+        env:
+          AFB_API_KEY: ${{ secrets.AFB_API_KEY }}
+        run: node .claude/scripts/fetch-afb-outcomes.mjs --commit
+
       # 週次 NSM スナップショット（.claude/state/weekly-metrics/YYYY-Www.json）。
       # 2026-W18 でローカル手動実行が途絶したのを CI 供給へ移行（measurement-incidents.md
       # 「計測は CI/CD 供給が正」2026-06-05）。metrics-reader が NSM+SNS流入(source別WoW)を
@@ -281,18 +291,21 @@ jobs:
           # 残す（drift guard に拒否されると bot commit が丸ごと落ちるため）。
           npm run pre-commit:install
 
-          mkdir -p .claude/state/metrics/ga4 .claude/state/metrics/gsc .claude/state/metrics/monetization .claude/state/metrics/crosswalk .claude/state/weekly-metrics
+          mkdir -p .claude/state/metrics/ga4 .claude/state/metrics/gsc .claude/state/metrics/monetization .claude/state/metrics/crosswalk .claude/state/metrics/affiliate .claude/state/weekly-metrics
           cp -r /tmp/metrics-publish/ga4/* .claude/state/metrics/ga4/ 2>/dev/null || true
           cp -r /tmp/metrics-publish/gsc/* .claude/state/metrics/gsc/ 2>/dev/null || true
           cp -r /tmp/metrics-publish/monetization/* .claude/state/metrics/monetization/ 2>/dev/null || true
           cp -r /tmp/metrics-publish/crosswalk/* .claude/state/metrics/crosswalk/ 2>/dev/null || true
+          cp -r /tmp/metrics-publish/affiliate/* .claude/state/metrics/affiliate/ 2>/dev/null || true
           cp -r /tmp/weekly-metrics-publish/* .claude/state/weekly-metrics/ 2>/dev/null || true
 
           # 寿命表（scripts/lib/prune-state-snapshots.mjs）に従って古い snapshot を消す（business は除外 dir・触らない）。
+          # affiliate family は keep-all（`-YYYY-MM-DD.json` は消さない台帳）なので prune 対象に含めても実害は無いが、
+          # 台帳性格が他 family と違うため対象には入れない（誤って keep-all の前提が壊れたときに気づけるようにする）。
           # 書き手と同じ commit で消すのが唯一安全（別 commit は上の reset --hard + copy-back に戻される）。
           node scripts/prune-state-snapshots.mjs --commit --family ga4,gsc,monetization,crosswalk,weekly-metrics
 
-          git add .claude/state/metrics/business .claude/state/metrics/ga4 .claude/state/metrics/gsc .claude/state/metrics/monetization .claude/state/metrics/crosswalk .claude/state/weekly-metrics
+          git add .claude/state/metrics/business .claude/state/metrics/ga4 .claude/state/metrics/gsc .claude/state/metrics/monetization .claude/state/metrics/crosswalk .claude/state/metrics/affiliate .claude/state/weekly-metrics
           if git diff --cached --quiet; then
             echo "No changes to publish"
             exit 0
