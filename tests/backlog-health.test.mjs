@@ -6,6 +6,7 @@ import {
   computeStaleAfterCommit,
   computeCompletionProseHeavy,
   computeSsotDuplicationSuspects,
+  computeOverdueDue,
 } from '../scripts/check-backlog-health.mjs';
 
 /**
@@ -251,4 +252,34 @@ test('computeSsotDuplicationSuspects: samplesは先頭2件までしか持たな�
   const r = computeSsotDuplicationSuspects(cards);
   assert.equal(r[0].count, 3);
   assert.equal(r[0].samples.length, 2);
+});
+
+/**
+ * S14「期日超過」の契約（2026-09-22）。
+ *
+ * backlog の `[期日:]` は機械の読み手が 1 つも無く、期日当日に何も起きなかった
+ * （DN-0250 は最初の行動が 10/4 なのにカード期日が 10/26 だった）。
+ * 当日はまだ間に合うので hit させない＝「今日より前」だけを拾う、を固定する。
+ */
+const card = (id, due, title = 'x') => ({ id, due, title, line: 1 });
+
+test('S14: 期日が今日より前のカードだけを拾う', () => {
+  const rows = computeOverdueDue(
+    [card('DN-0001', '2026-10-04'), card('DN-0002', '2026-10-05'), card('DN-0003', '2026-10-06')],
+    '2026-10-05',
+  );
+  assert.deepEqual(rows.map((r) => r.id), ['DN-0001'], '当日(0002)・未来(0003)は hit しない');
+});
+
+test('S14: 期日なし・超過なしでは 0 件', () => {
+  assert.equal(computeOverdueDue([card('DN-0001', null), card('DN-0002', undefined)], '2026-10-05').length, 0);
+  assert.equal(computeOverdueDue([], '2026-10-05').length, 0);
+});
+
+test('S14: 複数の超過は古い順に並ぶ', () => {
+  const rows = computeOverdueDue(
+    [card('DN-0002', '2026-10-03'), card('DN-0001', '2026-09-30')],
+    '2026-10-05',
+  );
+  assert.deepEqual(rows.map((r) => r.id), ['DN-0001', 'DN-0002']);
 });
