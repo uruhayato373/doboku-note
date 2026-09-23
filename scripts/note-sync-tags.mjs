@@ -36,6 +36,9 @@ const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] :
 const COMMIT = argv.includes('--commit');
 const PRUNE = argv.includes('--prune');
 const MAX_ADD = Number(getArg('--max-add') || 0) || Infinity; // テスト用: 1記事あたり追加上限
+// 公開 API の読み取り間隔。900本を 0.25 秒間隔で読んだ直後に note.com 全体が 403（CloudFront）になった
+// （2026-09-23・約1分で解除）。一括では 1 秒空け、403 は待って読み直し、続くなら止める。
+const THROTTLE_MS = Number(getArg('--throttle-ms') || 1000);
 const GOAL = 90;     // ライブで満たしたい下限
 const ARTICLE = getArg('--article');
 const LIST = getArg('--list');
@@ -82,13 +85,21 @@ function resolve(inputPath) {
 const tagsOf = (d) => (d?.hashtag_notes || []).map((h) => (h?.hashtag?.name || '').replace(/^#/, '')).filter(Boolean);
 
 async function liveTags(noteId, retries = 3) {
+  let blocked = 0;
   for (let a = 0; a <= retries; a++) {
     const r = spawnSync('curl', [
-      '-sS', '-m', '30', '--ssl-no-revoke',
+      '-sS', '-m', '30', '--ssl-no-revoke', '-w', '\n%{http_code}',
       '-H', 'User-Agent: Mozilla/5.0', '-H', 'Accept: application/json',
       `https://note.com/api/v3/notes/${noteId}`,
     ], { encoding: 'utf-8', maxBuffer: 32 * 1024 * 1024 });
-    const out = (r.stdout || '').trim();
+    const raw = (r.stdout || '').trim();
+    const code = raw.slice(raw.lastIndexOf('\n') + 1);
+    const out = raw.slice(0, raw.lastIndexOf('\n')).trim();
+    if (code === '403') { // アクセス制限: 間隔を大きく空けて読み直す。最後まで 403 なら blocked を返す
+      blocked++;
+      if (a < retries) { spawnSync(process.execPath, ['-e', `setTimeout(()=>{},${60000 * (a + 1)})`]); continue; }
+      return { blocked: true };
+    }
     if (out.startsWith('{')) {
       try {
         const d = JSON.parse(out)?.data || {};
@@ -110,7 +121,9 @@ for (const a of articles) {
   if (err) { console.log(`[skip] ${err}: ${a}`); continue; }
   if (!noteId) { console.log(`[skip] noteId なし（未公開?）: ${a}`); continue; }
   considered++;
+  if (considered > 1) await sleep(THROTTLE_MS);
   const got = await liveTags(noteId);
+  if (got?.blocked) { console.error(`\n[note-sync-tags] ✗ note.com が 403（アクセス制限）を返し続ける。続けると長引くので中断（${considered}本目）。時間を置いて再実行する。`); process.exit(2); }
   if (got == null) { console.log(`[skip] API 取得失敗: ${noteId}`); fetchFail++; continue; }
   if (got.unmeasurable) {
     console.log(`[defer] ${noteId} 公開 API ではタグを読めない（会員限定など）→ --commit 時にログインして読む  ${a.replace(/^content\/note\//, '')}`);
@@ -286,6 +299,7 @@ try {
       // 検証: API 再取得でライブが目標(≥90)に達したか。note 上限ゆえ desired 全一致でなく件数で判定。
       await sleep(3000);
       const got = p.viaLogin ? await authedTags(p.noteId) : await liveTags(p.noteId);
+      if (got?.blocked) { console.error('[6] ✗ note.com が 403（アクセス制限）→ 残りを中断'); fail++; break; }
       const after = got && !got.unmeasurable ? got.tags : null;
       if (after == null) { console.log('[6] WARN: API検証未達 → 手動確認'); fail++; continue; }
       const v = verifyTagSync({ after, plan: p.plan, liveCount: p.liveCount, rejected });
