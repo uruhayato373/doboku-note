@@ -34,6 +34,7 @@ import { checkPauseReasons, findOverdueResume } from './lib/coconala-guards.mjs'
 import { todayJst } from './lib/jst-date.mjs';
 import { loadManifest as loadAssetManifest } from './lib/asset-storage.mjs';
 import { loadDriveManifest } from './lib/drive-vault.mjs';
+import { parseNotePrices, checkPriceParity } from './lib/coconala-price-parity.mjs';
 
 const ROOT = process.cwd();
 const CATALOG_PATH = join(ROOT, 'src/lib/coconala-services.ts');
@@ -42,6 +43,7 @@ const ORDERS_PATH = join(ROOT, '.claude/state/coconala/orders-log.json');
 const KPI_PATH = join(ROOT, '.claude/state/coconala/kpi-log.json');
 const SALES_PATH = join(ROOT, '.claude/state/sales/sales-log.json');
 const LISTINGS_PATH = join(ROOT, '.claude/config/coconala-listings.json');
+const NOTE_MAGAZINES_PATH = join(ROOT, 'src/lib/note-magazines.ts');
 const ASSETS_DIR = join(ROOT, '.claude/config/coconala/assets');
 
 const staged = process.argv.includes('--staged');
@@ -59,6 +61,9 @@ if (staged) {
       p.includes('src/lib/coconala-services.ts') ||
       p.includes('.claude/state/coconala/') ||
       p.includes('.claude/config/coconala-account.json') ||
+      p.includes('.claude/config/coconala-listings.json') ||
+      // note の値上げでココナラが価格ルールの下限を割るのも検知する
+      p.includes('src/lib/note-magazines.ts') ||
       p.includes('.claude/state/sales/sales-log.json') ||
       p.includes('scripts/check-coconala-wiring.mjs')
   );
@@ -104,6 +109,8 @@ function parseCatalog() {
       pauseReason: rm ? rm[1] : null,
       resumeOn: om ? om[1] : null,
       priceHistory,
+      notePriceBasis: (slice.match(/notePriceBasis:\s*'([^']*)'/) || [])[1] ?? null,
+      notePriceExempt: (slice.match(/notePriceExempt:\s*'([^']*)'/) || [])[1] ?? null,
     };
   });
 }
@@ -198,6 +205,19 @@ for (const s of catalog) {
   } else {
     thumbLocal += 1;
   }
+}
+
+// 10. 価格ルール: PDF 商品は note で同じ中身を最安で買う価格 × 1.1（ココナラの刻みで切り上げ）以上（2026-09-23 ユーザー決定）。
+//     ココナラで note より安く売ると note の買い手を奪う。note の値上げでも下限が上がるので note-magazines.ts の変更でも走らせる。
+let parityRows = [];
+let parityExempt = [];
+if (existsSync(NOTE_MAGAZINES_PATH)) {
+  const parity = checkPriceParity(catalog, parseNotePrices(readFileSync(NOTE_MAGAZINES_PATH, 'utf-8')));
+  violations.push(...parity.violations);
+  parityRows = parity.rows;
+  parityExempt = parity.exempt;
+} else {
+  violations.push('src/lib/note-magazines.ts が無く、価格ルール（note より安く売らない）を検査できません');
 }
 
 // 2 & 3. orders-log の serviceId 実在＋priceYen 一致
@@ -316,6 +336,9 @@ if (violations.length) {
 console.log(
   `[check-coconala-wiring] 商品画像 ${thumbLocal + thumbInLedger}/${catalog.length} 件を確認` +
     `（ローカル実体 ${thumbLocal} / 退避台帳 ${thumbInLedger}）`
+);
+console.log(
+  `[check-coconala-wiring] 価格ルール: PDF ${parityRows.length} 件を note 基準で検査（対象外 ${parityExempt.length} 件: ${parityExempt.join(', ') || 'なし'}）`
 );
 console.log(
   `[check-coconala-wiring] ✓ カタログ ${catalog.length} 件（listed ${listed.length}）・受注 ${
