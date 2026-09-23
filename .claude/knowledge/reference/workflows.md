@@ -136,7 +136,7 @@ title: 推奨ワークフロー
 
 note 導線の機械監査は CI が担当する。`r2-audit.yml` がソース D1-D4/D6、`note-live-audit.yml` がライブ反映 D5（配線後に再投稿せず live が死ぬドリフト）を週次検査する。修復はログイン済みブラウザが必要な `note-append-cta`、意味的レビューは `/audit-note-funnel --semantic`（`note-funnel-auditor`）をオンデマンドで行う。真実源は [note-funnel-architecture.md](note-funnel-architecture.md)。
 
-**`npm run check-note-republish`**（公開記事の本文＋ハッシュタグの再公開ドリフト・creds不要）は `note-live-audit.yml` が週次 artifact として保存する（正常な公開待ちも含むため非ゲート）。本文drift→`note-update-body --commit`、タグdrift→`note-sync-tags --commit` で解消する。有料境界の構成監査 `check-note-structure --ci` も同 workflow が FULL_LOCK/漏洩/画像/価格を検出する。ソース側の境界欠落は `npm run check-note-boundary`（pre-commit＋CI）が事前に止める。
+**`npm run check-note-republish`**（公開記事の本文＋ハッシュタグの再公開ドリフト・creds不要）は `note-live-audit.yml` が週次 artifact として保存する（正常な公開待ちも含むため非ゲート）。本文drift→`note-update-body --commit`、タグdrift→`note-sync-tags --commit` で解消する（ライブが上限99で埋まり dry-run に「余分=N」が出る記事は `--prune --commit`）。有料境界の構成監査 `check-note-structure --ci` も同 workflow が FULL_LOCK/漏洩/画像/価格を検出する。ソース側の境界欠落は `npm run check-note-boundary`（pre-commit＋CI）が事前に止める。
 
 転職アフィリの週次監視は **`/weekly-improve` の Phase 3.5**（`affiliate_cta_click` の by-label CTR・BuildJob 期限・EPC 布石）。**2026-09-01（= 8/31 15:00 UTC）に BuildJob ¥50,000 キャンペーンが終了し全 BuildJob 面が GKS へ自動復帰する（SSG・ビルド時刻確定）**。9 月最初の本番ビルド後の週次で、hub / サイドバー / 記事末 / 本文中間の BuildJob 面が消え GKS へ戻ったかを curl で 1 回検証する（未復帰なら creative 定数を手動 revert）。配置・期限の真実源は [affiliate-operations.md](../../../.claude/knowledge/reference/affiliate-operations.md)。
 

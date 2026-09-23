@@ -294,7 +294,7 @@ node scripts/check-note-price-consistency.mjs --json      # 機械可読
 
 `check-note-structure` の `TAG_SHORT` が唯一 live を実測していたが、`sev:'INFO'` 固定で `--ci` ゲート（CRITICAL のみ判定）に載らず誰も落としていなかった。**TAG_SHORT は INFO のまま残す**（レポート用）——CRITICAL に格上げすると「有料記事の全ロック・課金漏洩」と同列になり優先度が壊れるため、タグは独立ゲートで別管理にする。
 
-不足の解消は `node scripts/note-sync-tags.mjs --list <対象> --commit`（差分だけ追加・本文と有料境界は非破壊）。構造的にライブへ入らない記事は `.claude/config/note-live-tags-allow.json` に**理由つきで**免除する。
+不足の解消は `node scripts/note-sync-tags.mjs --list <対象> --commit`（差分だけ追加・本文と有料境界は非破壊）。ライブが上限99で埋まっていると足す余地が無く、原稿を直しても一致しない（2026-09-23 土木もくじ: 余分11・不足7）。dry-run の `余分=N` がその印で、`--prune --commit` で原稿に無いタグを外してから足し、ライブを原稿と同じ集合にする。構造的にライブへ入らない記事は `.claude/config/note-live-tags-allow.json` に**理由つきで**免除する。
 
 **2026-07-30 完了**: 全量ゲートで **対象675・取得失敗0・計測不能3・実検査672本すべて90以上**（`npm run check-note-live-tags` exit 0）。上表の 250 本は 07-28 夜の 362 件＋07-30 の 74 件で解消した。
 
