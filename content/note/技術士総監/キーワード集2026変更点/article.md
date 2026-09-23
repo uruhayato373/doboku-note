@@ -51,7 +51,7 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 ### 経済性管理
 
-- **[サプライチェーンマネジメント**（SCM）**](https://doboku-note.com/docs/pe-comprehensive-management-supply-chain-management?utm_source=note&utm_medium=referral&utm_campaign=99-keyword-2026-changes)** や **[BCP・BCM](https://doboku-note.com/docs/pe-comprehensive-management-business-continuity-plan?utm_source=note&utm_medium=referral&utm_campaign=99-keyword-2026-changes)** が、事業企画の中でより明確に位置づけられました。近年の自然災害やパンデミックを踏まえ、事業継続の観点が経済性管理にも統合されています
+- **[サプライチェーンマネジメント **（SCM）**](https://doboku-note.com/docs/pe-comprehensive-management-supply-chain-management?utm_source=note&utm_medium=referral&utm_campaign=99-keyword-2026-changes)** や **[BCP・BCM](https://doboku-note.com/docs/pe-comprehensive-management-business-continuity-plan?utm_source=note&utm_medium=referral&utm_campaign=99-keyword-2026-changes)** が、事業企画の中でより明確に位置づけられました。近年の自然災害やパンデミックを踏まえ、事業継続の観点が経済性管理にも統合されています
 - **[ESG・環境評価](https://doboku-note.com/docs/pe-comprehensive-management-esg-environmental-assessment?utm_source=note&utm_medium=referral&utm_campaign=99-keyword-2026-changes)** が事業企画セクションに追加されました。投資判断におけるESGの視点が総監の経済性管理にも反映されています
 - **[ライフサイクルマネジメント](https://doboku-note.com/docs/pe-comprehensive-management-lifecycle-management?utm_source=note&utm_medium=referral&utm_campaign=99-keyword-2026-changes)** の記載が拡充されています。設備のライフサイクル全体を見据えた管理の重要性が強調されています
 
@@ -88,7 +88,7 @@ https://note.com/dobokunote/n/n9f48dd4d895a
 
 ### 安全管理
 
-- **[Safety2.0**（協調安全）**](https://doboku-note.com/docs/pe-comprehensive-management-safety-2-0?utm_source=note&utm_medium=referral&utm_campaign=99-keyword-2026-changes)** が安全の概念に追加されました。IoT時代の安全の在り方として、人と機械の協調による安全確保の概念が明記されています
+- **[Safety2.0 **（協調安全）**](https://doboku-note.com/docs/pe-comprehensive-management-safety-2-0?utm_source=note&utm_medium=referral&utm_campaign=99-keyword-2026-changes)** が安全の概念に追加されました。IoT時代の安全の在り方として、人と機械の協調による安全確保の概念が明記されています
 - **南海トラフ地震臨時情報** 関連のガイドラインが危機管理の文脈でより重要になっています
 
 変更点をふまえて安全管理の全体を体系的に整理したい方はこちら（有料マガジン収録）
@@ -97,8 +97,8 @@ https://note.com/dobokunote/n/nb68184641be8
 
 ### 社会環境管理
 
-- **[カーボンニュートラル](https://doboku-note.com/docs/pe-comprehensive-management-carbon-neutral?utm_source=note&utm_medium=referral&utm_campaign=99-keyword-2026-changes)**・**[GX**（グリーントランスフォーメーション）**](https://doboku-note.com/docs/pe-comprehensive-management-green-transformation?utm_source=note&utm_medium=referral&utm_campaign=99-keyword-2026-changes)** の記載が充実しています。2050年[カーボンニュートラル](https://doboku-note.com/docs/pe-comprehensive-management-carbon-neutral?utm_source=note&utm_medium=referral&utm_campaign=99-keyword-2026-changes)宣言以降の政策動向が反映されています
-- **[サーキュラーエコノミー**（循環経済）**](https://doboku-note.com/docs/pe-comprehensive-management-circular-economy?utm_source=note&utm_medium=referral&utm_campaign=99-keyword-2026-changes)** が、従来の3R（Reduce, Reuse, Recycle）の発展形として位置づけられました
+- **[カーボンニュートラル](https://doboku-note.com/docs/pe-comprehensive-management-carbon-neutral?utm_source=note&utm_medium=referral&utm_campaign=99-keyword-2026-changes)**・**[GX **（グリーントランスフォーメーション）**](https://doboku-note.com/docs/pe-comprehensive-management-green-transformation?utm_source=note&utm_medium=referral&utm_campaign=99-keyword-2026-changes)** の記載が充実しています。2050年[カーボンニュートラル](https://doboku-note.com/docs/pe-comprehensive-management-carbon-neutral?utm_source=note&utm_medium=referral&utm_campaign=99-keyword-2026-changes)宣言以降の政策動向が反映されています
+- **[サーキュラーエコノミー **（循環経済）**](https://doboku-note.com/docs/pe-comprehensive-management-circular-economy?utm_source=note&utm_medium=referral&utm_campaign=99-keyword-2026-changes)** が、従来の3R（Reduce, Reuse, Recycle）の発展形として位置づけられました
 
 変更点をふまえて社会環境管理の全体を体系的に整理したい方はこちら（有料マガジン収録）
 
@@ -188,7 +188,7 @@ https://note.com/dobokunote/n/n3d73729e6cc7
 
 ## 関連リソース
 
-**doboku-note — キーワード集 2026 全文**（Web 版）** + 650 キーワード解説**（無料）
+**doboku-note — キーワード集 2026 全文 **（Web 版）** + 650 キーワード解説**（無料）
 https://doboku-note.com/category/pe-comprehensive-management?utm_source=note&utm_medium=referral&utm_campaign=99-keyword-2026-changes
 
 - キーワード集 2026 を Web 上で閲覧・全文検索可能

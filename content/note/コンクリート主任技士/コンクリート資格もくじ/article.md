@@ -173,8 +173,6 @@ https://note.com/dobokunote/m/m09d20bfd9738
 問題A・問題Bの考え方と、塩害・中性化・ASR・凍害・疲労複合の答案をまとめた記述式教材はこちらです。
 
 
-![](img/figure-author-authority-concrete.png)
-
 上位資格の分析力・発注者として書類を評価してきた目・合格者の当事者性で、あなたの答案を合格ラインへ引き上げます。
 
 https://note.com/dobokunote/m/mf2a132408b6f

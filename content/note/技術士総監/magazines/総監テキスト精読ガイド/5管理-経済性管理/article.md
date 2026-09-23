@@ -87,7 +87,7 @@ https://note.com/dobokunote/n/n3ed4c77ceed6
 
 3手法の使い分けが経済性管理で最頻出の論点です。
 
-**[NPV**（正味現在価値法）**](https://doboku-note.com/docs/pe-comprehensive-management-npv-net-present-value?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 将来キャッシュフローを現在価値に割り引いて合計し、初期投資と比較。**NPV > 0 なら投資可**。時間価値を考慮できる最も理論的に正確な手法。
+**[NPV **（正味現在価値法）**](https://doboku-note.com/docs/pe-comprehensive-management-npv-net-present-value?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 将来キャッシュフローを現在価値に割り引いて合計し、初期投資と比較。**NPV > 0 なら投資可**。時間価値を考慮できる最も理論的に正確な手法。
 
 **[回収期間法](https://doboku-note.com/docs/pe-comprehensive-management-payback-period-method?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 毎年の正味現金流入額で投資額を何年で回収できるかを計算。シンプルだが「**回収後のキャッシュフローを考慮しない**」のが最大の弱点。リスク重視の企業に適する。
 
@@ -314,7 +314,7 @@ QC7つ道具は主に**数値データ**を扱うことに適した7手法です
 
 **総合生産計画**
 
-**総合生産計画** — 生産計画の最初に行われ、**[大日程計画](https://doboku-note.com/docs/pe-comprehensive-management-master-schedule-planning?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)**とも呼ばれる。[需要予測](https://doboku-note.com/docs/pe-comprehensive-management-demand-forecasting?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)量と生産能力を合理的に均衡させることが目的です。
+**総合生産計画** — 生産計画の最初に行われ、**[大日程計画](https://doboku-note.com/docs/pe-comprehensive-management-master-schedule-planning?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** とも呼ばれる。[需要予測](https://doboku-note.com/docs/pe-comprehensive-management-demand-forecasting?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)量と生産能力を合理的に均衡させることが目的です。
 
 均衡させるためには、[需要予測](https://doboku-note.com/docs/pe-comprehensive-management-demand-forecasting?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)量を満足するために必要な労働力・在庫・残業・外注の各量を求めます。コストの最小化だけでなく、**雇用の安定化や在庫の適正化**も重要な要素です。
 
@@ -337,7 +337,7 @@ JIT を実現する基盤が **平準化生産**（最終組立工程の生産�
 
 [SCM（サプライチェーンマネジメント）](https://doboku-note.com/docs/pe-comprehensive-management-supply-chain-management?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management) — 材料供給から生産・流通・販売に至る物・サービスの供給連鎖をネットワークで結び、需要情報を企業間でリアルタイム共有することで業務全体のスピードと効率を高める経営コンセプト。
 
-基本的な考え方は **[TOC**（制約条件の理論：Theory of Constraints）**](https://doboku-note.com/docs/pe-comprehensive-management-theory-of-constraints?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — ボトルネック工程を継続的に改善して全体システムのパフォーマンスを向上させます。
+基本的な考え方は **[TOC **（制約条件の理論：Theory of Constraints）**](https://doboku-note.com/docs/pe-comprehensive-management-theory-of-constraints?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — ボトルネック工程を継続的に改善して全体システムのパフォーマンスを向上させます。
 
 **ブルウィップ効果** — 川下から川上に段階がさかのぼるにつれ、[需要予測](https://doboku-note.com/docs/pe-comprehensive-management-demand-forecasting?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)量の変動が増幅していく現象。SCM の典型的失敗パターンとして択一に出ます。
 
@@ -383,7 +383,7 @@ SCM 見直しの方向性は4つ — 部素材調達先の多様化／生産拠�
 
 **[類推見積り](https://doboku-note.com/docs/pe-comprehensive-management-analogous-estimation?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 過去の類似作業の実績データを使う見積り。簡便だが類似プロジェクトがないと使えない。
 
-**[パラメトリック見積り**（係数見積り）**](https://doboku-note.com/docs/pe-comprehensive-management-parametric-estimation?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 過去のデータをもとに得られたパラメータ（係数）を使う。
+**[パラメトリック見積り **（係数見積り）**](https://doboku-note.com/docs/pe-comprehensive-management-parametric-estimation?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 過去のデータをもとに得られたパラメータ（係数）を使う。
 
 **[三点見積り](https://doboku-note.com/docs/pe-comprehensive-management-three-point-estimation?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 悲観値（P）・最頻値（M）・楽観値（O）を加重平均する手法。
 
@@ -397,7 +397,7 @@ SCM 見直しの方向性は4つ — 部素材調達先の多様化／生産拠�
 
 **PERT**（Program Evaluation and Review Technique） — 1950 年代に米海軍がミサイル開発のために開発したスケジューリング手法。所要時間からネットワーク図（アローダイアグラム）を作成。
 
-**[CPM**（Critical Path Method）**](https://doboku-note.com/docs/pe-comprehensive-management-pert-cpm?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 1950 年代に建設計画用に開発。前進計算で**最早開始日・最早終了日**を、後退計算で**最遅開始日・最遅終了日**を求め、その差から**フロート**（余裕日）を計算します。
+**[CPM **（Critical Path Method）**](https://doboku-note.com/docs/pe-comprehensive-management-pert-cpm?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 1950 年代に建設計画用に開発。前進計算で**最早開始日・最早終了日**を、後退計算で**最遅開始日・最遅終了日**を求め、その差から**フロート**（余裕日）を計算します。
 
 **フロート** — プロジェクト終了日を遅らせず当該作業を遅らせられる余裕日。プロジェクト全体の余裕日を**トータルフロート**、2つの作業関係だけで継続作業を遅らせず先行作業を遅らせられる余裕日を**フリーフロート**と呼びます。
 
@@ -479,7 +479,7 @@ SCM 見直しの方向性は4つ — 部素材調達先の多様化／生産拠�
 
 **活動基準原価計算**（ABC）
 
-**[活動基準原価計算**（ABC：Activity Based Costing）**](https://doboku-note.com/docs/pe-comprehensive-management-activity-abc?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 活動ごとに発生した原価を正しく振り分ける手法。
+**[活動基準原価計算 **（ABC：Activity Based Costing）**](https://doboku-note.com/docs/pe-comprehensive-management-activity-abc?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 活動ごとに発生した原価を正しく振り分ける手法。
 
 **伝統的原価計算の問題** — 多量生産品に間接費が多く配賦され、少量生産品の間接費負担が過小になる。ABC は **少量生産品に製造間接費を多く配賦** する結果になります。金融業・サービス業でも活用されています。
 
@@ -509,7 +509,7 @@ SCM 見直しの方向性は4つ — 部素材調達先の多様化／生産拠�
 
 **マテリアルフローコスト会計**（MFCA）
 
-**MFCA**（Material Flow Cost Accounting） — 製造プロセスでロスとなったマテリアル（原材料・副資材・エネルギー）を**「負の製品コスト」**として算出する会計手法。
+**MFCA**（Material Flow Cost Accounting） — 製造プロセスでロスとなったマテリアル（原材料・副資材・エネルギー）を **「負の製品コスト」** として算出する会計手法。
 
 経営者に対して**廃棄物削減を動機付ける**点が特徴で、環境会計と原価管理を結びつける手法として近年注目されています。
 
@@ -535,7 +535,7 @@ SCM 見直しの方向性は4つ — 部素材調達先の多様化／生産拠�
 
 ![財務3表の関係（B/S・P/L・C/F）](img/figure-6-financial-statements.png)
 
-**[貸借対照表**（B/S：Balance Sheet）**](https://doboku-note.com/docs/pe-comprehensive-management-balance-sheet?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 一定時点（通常は決算日）の財政状態を表す書類。**借方**（資産）**と貸方**（負債＋純資産）**を一致させる**のが基本構造です。
+**[貸借対照表 **（B/S：Balance Sheet）**](https://doboku-note.com/docs/pe-comprehensive-management-balance-sheet?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 一定時点（通常は決算日）の財政状態を表す書類。**借方**（資産）**と貸方**（負債＋純資産）**を一致させる**のが基本構造です。
 
 **借方**（資産） — 流動資産／固定資産（有形固定資産・無形固定資産・投資その他の資産）／繰延資産
 
@@ -545,7 +545,7 @@ SCM 見直しの方向性は4つ — 部素材調達先の多様化／生産拠�
 
 **損益計算書**（P/L）
 
-**[損益計算書**（P/L：Profit and Loss Statement）**](https://doboku-note.com/docs/pe-comprehensive-management-income-statement?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 一定期間（通常 1 年）の経営成績を表します。**5 段階の利益**が階層的に算出されます。
+**[損益計算書 **（P/L：Profit and Loss Statement）**](https://doboku-note.com/docs/pe-comprehensive-management-income-statement?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 一定期間（通常 1 年）の経営成績を表します。**5 段階の利益**が階層的に算出されます。
 
 1. **売上総利益**（粗利） ＝ 売上高 − 売上原価
 2. **営業利益** ＝ 売上総利益 − 販売費及び一般管理費
@@ -559,7 +559,7 @@ SCM 見直しの方向性は4つ — 部素材調達先の多様化／生産拠�
 
 **キャッシュ・フロー計算書**（C/F）
 
-**[キャッシュ・フロー計算書**（C/F）**](https://doboku-note.com/docs/pe-comprehensive-management-cash-flow-statement?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 営業活動・投資活動・財務活動の3区分で現金の出入りを記載。
+**[キャッシュ・フロー計算書 **（C/F）**](https://doboku-note.com/docs/pe-comprehensive-management-cash-flow-statement?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 営業活動・投資活動・財務活動の3区分で現金の出入りを記載。
 
 - **営業 CF** — 本業による収入。[減価償却費](https://doboku-note.com/docs/pe-comprehensive-management-depreciation-residual-value?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)は**非現金支出費用**のため利益に加え戻されて記載
 - **投資 CF** — 設備や有価証券の取得・売却による増減。投資が多い製造業では通常マイナス
@@ -666,7 +666,7 @@ JIS Z 8115 で定義される追加用語も択一で問われます。
 
 **階層化意思決定法**（AHP）
 
-**[AHP**（Analytic Hierarchy Process）**](https://doboku-note.com/docs/pe-comprehensive-management-analytic-hierarchy-process?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 階層構造を使って代替案を定量評価する手法。複数階層の評価要因の**重要度係数**と**評価値**から代替案の総合評価値を算出します。
+**[AHP **（Analytic Hierarchy Process）**](https://doboku-note.com/docs/pe-comprehensive-management-analytic-hierarchy-process?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 階層構造を使って代替案を定量評価する手法。複数階層の評価要因の**重要度係数**と**評価値**から代替案の総合評価値を算出します。
 
 **重要度係数の制約** — 各階層での合計が 1（W₁ ＋ W₂ ＝ 1、W₁₁ ＋ W₁₂ ＝ 1 など）。
 

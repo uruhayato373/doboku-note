@@ -469,7 +469,7 @@ QCサークル活動のほか、**ZD 運動** （Zero Defects、従業員の創�
 
 **KY活動とKYT** — 日々の労働前に職場で行われる危険予知（KY）活動。KYT（危険予知訓練）では①現状把握→②本質追及→③対策樹立→④目標設定の**4ラウンド法**が用いられます。
 
-**[TBM**（ツールボックスミーティング）**](https://doboku-note.com/docs/pe-comprehensive-management-tbm-toolbox-meeting?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)** — 作業前に職場で行われる小集団ミーティング。[KYT](https://doboku-note.com/docs/pe-comprehensive-management-kyt?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)（危険予知訓練）が実施されます。
+**[TBM **（ツールボックスミーティング）**](https://doboku-note.com/docs/pe-comprehensive-management-tbm-toolbox-meeting?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)** — 作業前に職場で行われる小集団ミーティング。[KYT](https://doboku-note.com/docs/pe-comprehensive-management-kyt?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)（危険予知訓練）が実施されます。
 
 **自動走行に関するガイドライン**
 
@@ -491,13 +491,13 @@ QCサークル活動のほか、**ZD 運動** （Zero Defects、従業員の創�
 
 企業を対象にした危機の事例は、自然災害・大規模事故・[感染症](https://doboku-note.com/docs/pe-comprehensive-management-infectious-disease-pandemic?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)・サイバー攻撃・[テロ](https://doboku-note.com/docs/pe-comprehensive-management-terrorism?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)・風評被害など多彩です。
 
-すべての危機に対応するという考え方として**[オールハザードアプローチ](https://doboku-note.com/docs/pe-comprehensive-management-all-hazard-approach?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)**があります。
+すべての危機に対応するという考え方として **[オールハザードアプローチ](https://doboku-note.com/docs/pe-comprehensive-management-all-hazard-approach?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)** があります。
 
 特定の災害種別に限定しない対応体制の考え方で、一つの組織行動原則です。
 
 **危機への対応**（4段階）
 
-[危機管理マニュアル](https://doboku-note.com/docs/pe-comprehensive-management-crisis-management-manual?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)の対応は以下の段階で事前に検討・準備されている必要があります。なお危機管理においては人の安全だけでなく、危機時の警備対策や**[サイバーセキュリティ](https://doboku-note.com/docs/pe-comprehensive-management-cybersecurity-safety?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)対策**も含めて検討する必要があります。
+[危機管理マニュアル](https://doboku-note.com/docs/pe-comprehensive-management-crisis-management-manual?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)の対応は以下の段階で事前に検討・準備されている必要があります。なお危機管理においては人の安全だけでなく、危機時の警備対策や **[サイバーセキュリティ](https://doboku-note.com/docs/pe-comprehensive-management-cybersecurity-safety?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)対策**も含めて検討する必要があります。
 
 - **平常時準備段階** — トップの危機管理に対する強い意志を示すことが重要
 - **事前作業段階** — 想定危機の洗い出し・影響度検討、危機管理計画の策定・緊急対策本部等の体制準備・連絡体制整備
@@ -628,7 +628,7 @@ QCサークル活動のほか、**ZD 運動** （Zero Defects、従業員の創�
 
 各事象の発生をYES/NOで表し、それぞれの発生確率を計算して二分岐させていきます。
 
-**「[FTA](https://doboku-note.com/docs/pe-comprehensive-management-fta?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)は原因の遡及**（トップダウン）**、[ETA](https://doboku-note.com/docs/pe-comprehensive-management-eta?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)は事象の展開**（ボトムアップ）**」**という対比が択一の定番です。
+**「[FTA](https://doboku-note.com/docs/pe-comprehensive-management-fta?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)は原因の遡及**（トップダウン）**、[ETA](https://doboku-note.com/docs/pe-comprehensive-management-eta?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)は事象の展開**（ボトムアップ）」という対比が択一の定番です。
 
 **HAZOP**（危険と運転性の研究）
 
@@ -663,7 +663,7 @@ QCサークル活動のほか、**ZD 運動** （Zero Defects、従業員の創�
 
 **システム信頼度解析**
 
-[システム信頼性](https://doboku-note.com/docs/pe-comprehensive-management-system-reliability?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)の計算では**[信頼性ブロック図](https://doboku-note.com/docs/pe-comprehensive-management-reliability-block-diagram?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)**を用います。信頼性（e）と故障率（f）には **e + f = 1** の関係があります。
+[システム信頼性](https://doboku-note.com/docs/pe-comprehensive-management-system-reliability?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)の計算では **[信頼性ブロック図](https://doboku-note.com/docs/pe-comprehensive-management-reliability-block-diagram?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)** を用います。信頼性（e）と故障率（f）には **e + f = 1** の関係があります。
 
 **[直列システム](https://doboku-note.com/docs/pe-comprehensive-management-series-system?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)**（すべての構成要素が正常でなければ動かない）
 

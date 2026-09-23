@@ -364,15 +364,15 @@ https://note.com/dobokunote/n/n3ed4c77ceed6
 
 **[人事考課管理](https://doboku-note.com/docs/pe-comprehensive-management-personnel-management?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** の重視点は **2つ** — Ⓐ **透明性** （評価基準・ルールの公開、被考課者へのフィードバック）／Ⓑ **加点主義** （減点主義は無難志向を生むため、革新的業務への挑戦意欲を刺激する加点主義が望ましい）。
 
-**評価3指標** — Ⓐ **[情意考課](https://doboku-note.com/docs/pe-comprehensive-management-attitude-appraisal?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** （勤務態度・意欲）／Ⓑ **[業績考課**（成績考課）**](https://doboku-note.com/docs/pe-comprehensive-management-performance-evaluation?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** （目標達成度・活動）／Ⓒ **[能力考課](https://doboku-note.com/docs/pe-comprehensive-management-competency-evaluation?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** （難易度の高い仕事の達成度）。情意・業績は短期、能力はやや長期で評価するのが一般的です。
+**評価3指標** — Ⓐ **[情意考課](https://doboku-note.com/docs/pe-comprehensive-management-attitude-appraisal?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** （勤務態度・意欲）／Ⓑ **[業績考課 **（成績考課）**](https://doboku-note.com/docs/pe-comprehensive-management-performance-evaluation?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** （目標達成度・活動）／Ⓒ **[能力考課](https://doboku-note.com/docs/pe-comprehensive-management-competency-evaluation?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** （難易度の高い仕事の達成度）。情意・業績は短期、能力はやや長期で評価するのが一般的です。
 
 **[人事考課の3原則](https://doboku-note.com/docs/pe-comprehensive-management-appraisal-three-principles?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** — 公平の原則・客観性の原則・透明性の原則。
 
 **[相対評価・絶対評価](https://doboku-note.com/docs/pe-comprehensive-management-relative-absolute-evaluation?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** — 絶対評価は基準作成が困難で評価項目過多になりやすく、相対評価はグループ全体レベルに左右される。両者の調整が必要。
 
-**[MBO**（目標管理制度）**](https://doboku-note.com/docs/pe-comprehensive-management-mbo?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** — 期初に従業員に自ら目標設定させ、上司と相談で決定。マグレガーのY理論の実践版。経営戦略 → 部門方針 → 個人目標 へのカスケードが基本。
+**[MBO **（目標管理制度）**](https://doboku-note.com/docs/pe-comprehensive-management-mbo?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** — 期初に従業員に自ら目標設定させ、上司と相談で決定。マグレガーのY理論の実践版。経営戦略 → 部門方針 → 個人目標 へのカスケードが基本。
 
-**[多面評価**（360度評価）**](https://doboku-note.com/docs/pe-comprehensive-management-360-degree-evaluation?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** — 上司・同僚・部下・本人など多方向からの評価。公正性向上の利点と、実施コスト・評価者負担増のトレードオフ。
+**[多面評価 **（360度評価）**](https://doboku-note.com/docs/pe-comprehensive-management-360-degree-evaluation?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** — 上司・同僚・部下・本人など多方向からの評価。公正性向上の利点と、実施コスト・評価者負担増のトレードオフ。
 
 **[成果主義賃金](https://doboku-note.com/docs/pe-comprehensive-management-performance-based-pay?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** — 短期的成果への努力集中の利点がある一方、個人主義の蔓延・短期成果分野への興味偏重・長期教育の困難化が弊害。**MBOが根幹** となります。
 
@@ -395,7 +395,7 @@ https://note.com/dobokunote/n/n3ed4c77ceed6
 
 ### 人的資源開発（10教育訓練手法）
 
-人材育成手法は **[OJT**（職場内訓練）**と OFF-JT**（職場外訓練）**](https://doboku-note.com/docs/pe-comprehensive-management-ojt-off-jt?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** の二項対立が基本です。
+人材育成手法は **[OJT **（職場内訓練）**と OFF-JT**（職場外訓練）**](https://doboku-note.com/docs/pe-comprehensive-management-ojt-off-jt?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** の二項対立が基本です。
 
 - **OJT** — 実際の仕事を通じた計画的訓練。即効性があるが、知識の体系的取得は困難
 - **OFF-JT** — 集合教育・通信教育・社内外講習会。専門家から知識・情報を得られ、社員の一体感醸成にも有効
@@ -444,7 +444,7 @@ https://doboku-note.com/category/pe-comprehensive-management?utm_source=note&utm
 
 - **[人的資源管理ピラーページ](https://doboku-note.com/docs/pe-comprehensive-management-human-resource-management-pillar?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** — 関連キーワードの全体マップ
 - **択一式過去問** — [R07](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management) ／ [R06](https://doboku-note.com/docs/pe-comprehensive-management-r06-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management) ／ [R05](https://doboku-note.com/docs/pe-comprehensive-management-r05-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management) ／ [R04](https://doboku-note.com/docs/pe-comprehensive-management-r04-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management) ／ [R03](https://doboku-note.com/docs/pe-comprehensive-management-r03-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)
-- **[記述式過去問 R04**（DX）**](https://doboku-note.com/docs/pe-comprehensive-management-r04-secondary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)**
+- **[記述式過去問 R04 **（DX）**](https://doboku-note.com/docs/pe-comprehensive-management-r04-secondary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)**
 
 **マガジン購入で割引**（総監テキスト精読ガイド 5 管理セット）
 

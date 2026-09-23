@@ -208,8 +208,6 @@ https://note.com/dobokunote/m/m8bc94bb05c0a
 各記事は、想定問題・答案の方針・序論から結論までのフル答案・採点者視点のチェックポイント・自分の案件への置換ガイドで構成しています。
 
 
-![](img/figure-author-authority-concrete.png)
-
 上位資格の分析力・発注者として書類を評価してきた目・合格者の当事者性で、あなたの答案を合格ラインへ引き上げます。
 
 https://note.com/dobokunote/m/m4ee0a96dce31

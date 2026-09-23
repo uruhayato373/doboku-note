@@ -344,13 +344,13 @@ RFM分析 — Recency（最終購買日）・Frequency（購買頻度）・Monet
 
 情報セキュリティの基本は**CIAの3要素**です。
 
-- **[機密性**（Confidentiality）**](https://doboku-note.com/docs/pe-comprehensive-management-confidentiality?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)** — 許可された者のみが情報にアクセスできる状態
-- **[完全性**（Integrity）**](https://doboku-note.com/docs/pe-comprehensive-management-integrity-security?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)** — 情報が正確かつ完全であり、不正に改ざんされていない状態
+- **[機密性 **（Confidentiality）**](https://doboku-note.com/docs/pe-comprehensive-management-confidentiality?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)** — 許可された者のみが情報にアクセスできる状態
+- **[完全性 **（Integrity）**](https://doboku-note.com/docs/pe-comprehensive-management-integrity-security?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)** — 情報が正確かつ完全であり、不正に改ざんされていない状態
 - **可用性**（Availability） — 許可された者が必要な時に情報にアクセスできる状態
 
 [ISMS（情報セキュリティマネジメントシステム）](https://doboku-note.com/docs/pe-comprehensive-management-isms-iso27001?utm_source=note&utm_medium=referral&utm_campaign=99-information-management) — ISO/IEC 27001に準拠したマネジメントシステム。情報セキュリティ方針は**トップマネジメント**（経営者）**が確立・発行**する点が択一の引っかけです（実務担当者ではない）。
 
-**[ISO/IEC 15408**（コモンクライテリア）**](https://doboku-note.com/docs/pe-comprehensive-management-common-criteria?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)** — セキュリティ製品・システムの**技術的機能**を評価する国際規格。組織の運用・管理面はISMSの範疇であり、ISO/IEC 15408の評価対象外です。CCRA制度により加盟国間で認証を相互承認できます。
+**[ISO/IEC 15408 **（コモンクライテリア）**](https://doboku-note.com/docs/pe-comprehensive-management-common-criteria?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)** — セキュリティ製品・システムの**技術的機能**を評価する国際規格。組織の運用・管理面はISMSの範疇であり、ISO/IEC 15408の評価対象外です。CCRA制度により加盟国間で認証を相互承認できます。
 
 **[プライバシーマーク制度](https://doboku-note.com/docs/pe-comprehensive-management-privacy-mark?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)** — 個人情報保護マネジメントシステム（JIS Q 15001）に準拠した評価制度。ISMSとは別制度です。
 

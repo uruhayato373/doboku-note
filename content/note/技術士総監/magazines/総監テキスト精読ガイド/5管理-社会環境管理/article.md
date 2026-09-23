@@ -52,7 +52,7 @@ https://note.com/dobokunote/n/n3ed4c77ceed6
 
 「持続可能な開発」は、1984年に国連に設置された **環境と開発に関する世界委員会** （[WCED](https://doboku-note.com/docs/pe-comprehensive-management-wced?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)、ブルントラント委員会）で「将来世代のニーズを損なうことなく現在世代のニーズを満たす開発」と定義されました。この定義は択一の選択肢として頻出します。
 
-**[SDGs**（持続可能な開発目標）**](https://doboku-note.com/docs/pe-comprehensive-management-sdgs?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)**
+**[SDGs **（持続可能な開発目標）**](https://doboku-note.com/docs/pe-comprehensive-management-sdgs?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)**
 
 SDGs は2015年9月の国連サミットで採択された「持続可能な開発のための2030アジェンダ」に基づく **2016〜2030年の国際目標** で、17の目標と169のターゲットで構成されます。前身は2001年策定の MDGs（ミレニアム開発目標）です。
 
@@ -66,7 +66,7 @@ SDGs は2015年9月の国連サミットで採択された「持続可能な開�
 
 [**国連環境開発会議**](https://doboku-note.com/docs/pe-comprehensive-management-unced-earth-summit?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management) （地球サミット）は1992年にブラジルのリオ・デ・ジャネイロで開催され、**環境と開発に関するリオ宣言** （リオ宣言）として持続可能な開発のあり方を示す27の原則が採択されました。同時に「[気候変動枠組条約](https://unfccc.int/)」「生物多様性条約」「森林原則声明」「[アジェンダ21](https://doboku-note.com/docs/pe-comprehensive-management-agenda-21?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)」も採択されています。
 
-**[人間開発指数**（HDI）**](https://doboku-note.com/docs/pe-comprehensive-management-human-development-index?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)** — 国連開発計画が設定した、各国の人間開発の度合いを測る指数。①健康（平均寿命指数）②知識（就学予想年数指数＋平均就学年数指数）③生活水準（GNI）の3分野の平均達成度で評価します。
+**[人間開発指数 **（HDI）**](https://doboku-note.com/docs/pe-comprehensive-management-human-development-index?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)** — 国連開発計画が設定した、各国の人間開発の度合いを測る指数。①健康（平均寿命指数）②知識（就学予想年数指数＋平均就学年数指数）③生活水準（GNI）の3分野の平均達成度で評価します。
 
 > **【出題例: [R3年度 Ⅰ-1-33](https://doboku-note.com/docs/pe-comprehensive-management-r03-primary?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management#1-33)】** 持続可能な開発に関する記述で最も適切なものはどれか。 → **正答チェック対象：「将来世代のニーズを損なうことなく現在世代のニーズを満たす」というブルントラント定義の整合性。「持続可能な開発」を「経済成長を伴わない発展」と誤解させる選択肢が引っかけ。**
 
@@ -167,7 +167,7 @@ SDGs は2015年9月の国連サミットで採択された「持続可能な開�
 
 **生物多様性**
 
-**[生物多様性条約**（CBD）**](https://doboku-note.com/docs/pe-comprehensive-management-convention-on-biodiversity?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)** — 1993年発効。3つの目的が定められています。
+**[生物多様性条約 **（CBD）**](https://doboku-note.com/docs/pe-comprehensive-management-convention-on-biodiversity?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)** — 1993年発効。3つの目的が定められています。
 
 1. 生物多様性の保全
 2. 生物多様性の構成要素の持続的な利用
@@ -385,8 +385,8 @@ SDGs は2015年9月の国連サミットで採択された「持続可能な開�
 
 環境保全のため設けられた基本原則は7つあります。テキストでは（5原則ではなく）**7原則** であることに注意。
 
-- **[拡大生産者責任**（EPR）**](https://doboku-note.com/docs/pe-comprehensive-management-extended-producer-responsibility?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)** — Extended Producer Responsibilities。OECD が提唱。製品の **製造・流通・消費** だけでなく **廃棄・リサイクル** に要する費用までも生産者の責任に拡大。循環型社会形成基本法の一原則となっており、**[環境配慮設計**（DfE）**](https://doboku-note.com/docs/pe-comprehensive-management-design-for-environment?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)** の促進が期待されます。
-- **[汚染者負担の原則**（PPP）**](https://doboku-note.com/docs/pe-comprehensive-management-polluter-pays-principle?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)** — Polluter Pays Principal。OECD が1972年に取り入れ。汚染者が環境劣化に対処する費用を負担。**地域的な汚染や廃棄物処理には適用容易だが、地球温暖化のような全地球的影響には適用が難しい**。
+- **[拡大生産者責任 **（EPR）**](https://doboku-note.com/docs/pe-comprehensive-management-extended-producer-responsibility?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)** — Extended Producer Responsibilities。OECD が提唱。製品の **製造・流通・消費** だけでなく **廃棄・リサイクル** に要する費用までも生産者の責任に拡大。循環型社会形成基本法の一原則となっており、**[環境配慮設計 **（DfE）**](https://doboku-note.com/docs/pe-comprehensive-management-design-for-environment?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)** の促進が期待されます。
+- **[汚染者負担の原則 **（PPP）**](https://doboku-note.com/docs/pe-comprehensive-management-polluter-pays-principle?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)** — Polluter Pays Principal。OECD が1972年に取り入れ。汚染者が環境劣化に対処する費用を負担。**地域的な汚染や廃棄物処理には適用容易だが、地球温暖化のような全地球的影響には適用が難しい**。
 - **[予防的措置](https://doboku-note.com/docs/pe-comprehensive-management-precautionary-principle?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)** — 環境に重大かつ不可逆的な影響を及ぼす可能性がある場合、**科学的因果関係が十分証明されないような不確実性があっても規制的措置を行う**。生物多様性にも適用される。
 - **順応的取組** — 自然の環境変動による想定外の事態を **管理システムにあらかじめ取り込み、結果に合わせて柔軟に対応** する方法。自然再生に用いられるが、**生物多様性の保全に適用するのは望ましくない**。
 - **[源流対策原則](https://doboku-note.com/docs/pe-comprehensive-management-source-control-principle?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)** — 排出口での規制ではなく、**製品の設計や製法に工夫を加え、汚染物質や排出物をそもそも作らない** ことを優先する原則。
@@ -422,7 +422,7 @@ SDGs は2015年9月の国連サミットで採択された「持続可能な開�
 
 > **【出題例: [R5年度 Ⅰ-1-37](https://doboku-note.com/docs/pe-comprehensive-management-r05-primary?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management#1-37)】** 環境経済評価手法に関する記述で最も不適切なものはどれか。 → **正答チェック対象：5手法の系統分類、顕示選好型 vs 表明選好型、各手法の適用範囲。「ヘドニック法はアンケート手法」「コンジョイント分析は顕示選好型」とする選択肢は誤り。**
 
-**[環境影響評価**（環境アセスメント）**](https://doboku-note.com/docs/pe-comprehensive-management-environmental-impact-assessment?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)**
+**[環境影響評価 **（環境アセスメント）**](https://doboku-note.com/docs/pe-comprehensive-management-environmental-impact-assessment?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)**
 
 大規模な開発事業を行うときに、あらかじめその開発が環境に与える影響を予測・評価し、住民・関係自治体の意見を聴いたり専門家の審査を受けることで適正な環境配慮を確保する手続き。**[環境影響評価法](https://laws.e-gov.go.jp/law/409AC0000000081)** に定められています。
 
@@ -451,7 +451,7 @@ SDGs は2015年9月の国連サミットで採択された「持続可能な開�
 
 > **【出題例: [R5年度 Ⅰ-1-39](https://doboku-note.com/docs/pe-comprehensive-management-r05-primary?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management#1-39)】** 環境影響評価法に関する記述で最も適切なものはどれか。 → **正答チェック対象：第一種事業の義務、計画段階環境配慮書、スクリーニングとスコーピングの位置づけ、SEA との関係。「スクリーニングは第一種事業に対し実施」とする選択肢は誤り**（第二種事業のみ）**。**
 
-**[ライフサイクルアセスメント**（LCA）**](https://doboku-note.com/docs/pe-comprehensive-management-lifecycle-assessment?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)**
+**[ライフサイクルアセスメント **（LCA）**](https://doboku-note.com/docs/pe-comprehensive-management-lifecycle-assessment?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)**
 
 ある製品またはサービスのライフサイクル（**原材料調達→製造→流通→使用→廃棄・リサイクル**）における環境負荷を定量的に評価する手法。最も多い対象は CO₂ で、ISO 14040 規格に基づく4プロセスで実施されます。
 
@@ -478,11 +478,11 @@ SDGs は2015年9月の国連サミットで採択された「持続可能な開�
 2. **特性化** — 各環境問題に関連するインベントリ項目がどの程度影響を及ぼすかを **定量的に示す**
 3. **重み付け** — 異なるインパクトカテゴリを相対比較するため重み付けを行い **統合化指標** を計算
 
-**[環境配慮設計**（DfE）**](https://doboku-note.com/docs/pe-comprehensive-management-design-for-environment?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)** — 「製品のライフサイクル全般にわたって環境への影響を考慮した設計」。**環境適合設計** や **エコデザイン** とも呼ばれます。かつては末端で排水・排ガス処理を行う **[エンドオブパイプ](https://doboku-note.com/docs/pe-comprehensive-management-end-of-pipe?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)** 型対策が中心でしたが、[源流対策原則](https://doboku-note.com/docs/pe-comprehensive-management-source-control-principle?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)の流れで DfE が主流に。
+**[環境配慮設計 **（DfE）**](https://doboku-note.com/docs/pe-comprehensive-management-design-for-environment?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)** — 「製品のライフサイクル全般にわたって環境への影響を考慮した設計」。**環境適合設計** や **エコデザイン** とも呼ばれます。かつては末端で排水・排ガス処理を行う **[エンドオブパイプ](https://doboku-note.com/docs/pe-comprehensive-management-end-of-pipe?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)** 型対策が中心でしたが、[源流対策原則](https://doboku-note.com/docs/pe-comprehensive-management-source-control-principle?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)の流れで DfE が主流に。
 
 > **【出題例: [R6年度 Ⅰ-1-38](https://doboku-note.com/docs/pe-comprehensive-management-r06-primary?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management#1-38)】** LCA に関する記述で最も不適切なものはどれか。 → **正答チェック対象：4プロセスの順序、積み上げ法と産業連関法の特徴、クローズド／オープンループの定義、影響評価の3ステップ。「産業連関法は新技術の分析にも適している」とする選択肢は誤り。**
 
-**[環境教育**（ESD）**](https://doboku-note.com/docs/pe-comprehensive-management-esd?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)**
+**[環境教育 **（ESD）**](https://doboku-note.com/docs/pe-comprehensive-management-esd?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)**
 
 **ESD** （Education for Sustainable Development、持続可能な開発のための教育）— 2002年「持続可能な開発に関する世界首脳会議」で日本が提唱。2019年のユネスコ総会で **ESD for 2030** が採択されました。環境基本法第25条、教育基本法第2条第4号、環境教育等促進法第1条で環境教育の重要性が示されています。
 
@@ -490,7 +490,7 @@ SDGs は2015年9月の国連サミットで採択された「持続可能な開�
 
 ## 組織の社会的責任と環境管理活動（優先度: 高）
 
-**[社会的責任投資**（SRI）**と ESG 投資](https://doboku-note.com/docs/pe-comprehensive-management-sri?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)**
+[**社会的責任投資**（SRI）**と ESG 投資**](https://doboku-note.com/docs/pe-comprehensive-management-sri?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)
 
 **SRI** （Socially Responsible Investment）— 従来の投資先の財務的評価に加え、社会・環境・倫理など **投資先の社会的評価** を考慮する投資行動。**[CSR](https://doboku-note.com/docs/pe-comprehensive-management-csr?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)** （Corporate Social Responsibility、組織の社会的責任）への関心の高まりから生まれました。
 
@@ -527,7 +527,7 @@ TCFD 賛同機関数（2023年5月）は日本1342・英国514・米国477で、
 6. **国際行動規範の尊重** — 法の支配の尊重と同時に国際行動規範も尊重
 7. **人権の尊重** — 人権を尊重し、その重要性と普遍性を認識
 
-**[環境マネジメントシステム**（ISO 14001）**](https://doboku-note.com/docs/pe-comprehensive-management-iso-14000?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)**
+**[環境マネジメントシステム **（ISO 14001）**](https://doboku-note.com/docs/pe-comprehensive-management-iso-14000?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)**
 
 ISO 14000 シリーズの中核。組織が自主的に環境マネジメントシステム（EMS）を構築・改善するための国際規格。**経営者の責任を重くし、環境方針の決定にはトップマネジメントが深く関わる** ことが求められます。**[PDCA サイクル](https://doboku-note.com/docs/pe-comprehensive-management-pdca-cycle?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)** による継続的改善を中心に構築され、認証取得は義務ではなく自主的な選択。
 

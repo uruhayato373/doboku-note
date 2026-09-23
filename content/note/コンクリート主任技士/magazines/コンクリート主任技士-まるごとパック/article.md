@@ -122,8 +122,6 @@ https://note.com/dobokunote/m/m09d20bfd9738
 コンクリート技士・主任技士・診断士の無料記事と教材は「コンクリート資格もくじ」から一覧できます。
 
 
-![](img/figure-author-authority-concrete.png)
-
 上位資格の分析力・発注者として書類を評価してきた目・合格者の当事者性で、あなたの答案を合格ラインへ引き上げます。
 
 https://note.com/dobokunote/n/nd59f471c9214
