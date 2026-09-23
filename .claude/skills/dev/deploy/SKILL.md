@@ -81,6 +81,23 @@ git push origin main
 
 GitHub Actions の `cloudflare-deploy.yml` ワークフローが自動でトリガーされる。
 
+> [!warning] 先頭が `[skip ci]` だとデプロイが起動しない（2026-09-23）
+> GitHub は push の**先頭 commit** のメッセージに `[skip ci]` があると、push 起点の
+> ワークフローを丸ごと飛ばす。`cloudflare-deploy.yml` も例外ではない。
+> ops-write / fetch-metrics / ogp-supply 等の bot が数分おきに `[skip ci]` 付きで
+> develop へ台帳を積むので、**develop の先頭をそのまま昇格すると高い確率でこれを踏む**。
+> push は成功して見えるので、確認しなければ「デプロイした」と誤報告する。
+>
+> push 後に必ず run の起動を確かめ、起動していなければ手動で起動する:
+>
+> ```bash
+> gh run list --workflow=cloudflare-deploy.yml --limit 1   # 今 push した SHA の run があるか
+> gh workflow run cloudflare-deploy.yml --ref main          # 無ければ手動起動（verify_only 既定 false＝ビルド＋デプロイ）
+> ```
+>
+> 昇格する commit は「最後に CI を通った commit」以降が `[skip ci]` の台帳だけであることを
+> `git diff --stat <CI済み SHA> origin/develop` で確かめてから選ぶ（サイト内容が未検証のまま出ないように）。
+
 ### Step 7: 元のブランチに戻る
 
 ```bash
