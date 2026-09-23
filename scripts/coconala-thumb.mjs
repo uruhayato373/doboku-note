@@ -93,6 +93,42 @@ const THUMB_COPY = {
     hook: '2026年度 公開6テーマ全部の模範論文\n＋指定語チェック表・部門別置換',
     priceLabel: 'PDF',
   },
+  'coconala-rccm-takuitsu-pdf': {
+    eyebrow: 'RCCM資格試験 ／ 問題II・問題IV-1 択一',
+    title: ['RCCM 択一', '予想50問＋159問'],
+    hook: '過去問非公開の択一を、全選択肢解説の\n予想50問と一問一答159問で',
+    priceLabel: 'PDF2冊',
+  },
+  'coconala-rccm-mondai1-pdf': {
+    eyebrow: 'RCCM資格試験 ／ 試験A 問題I 業務経験論文',
+    title: ['RCCM 問題I', 'テンプレ＋記入例'],
+    hook: '2,400字の構成テンプレートと\n受験部門の記入例2本（6部門対応）',
+    priceLabel: 'PDF2冊',
+  },
+  'coconala-cce-essay-pdf': {
+    eyebrow: 'コンクリート主任技士 ／ 小論文',
+    title: ['主任技士 小論文', '模範答案'],
+    hook: '答案の型の解法ガイドと\n4テーマの模範答案・置換ガイド',
+    priceLabel: 'PDF5冊',
+  },
+  'coconala-cce-takuitsu-pdf': {
+    eyebrow: 'コンクリート主任技士 ／ 四肢択一',
+    title: ['主任技士 択一', '直前パック'],
+    hook: '予想50問・配合計算12問・\n一問一答157問で直前の総仕上げ',
+    priceLabel: 'PDF3冊',
+  },
+  'coconala-pe-oral-pdf': {
+    eyebrow: '技術士第二次試験 ／ 口頭試験',
+    title: ['口頭試験', '想定問答PDF'],
+    hook: '総監版・建設部門版から1冊。\n想定問答と筆記合格後の準備ロードマップ',
+    priceLabel: 'PDF1冊',
+  },
+  'coconala-pe-oral-qa': {
+    eyebrow: '技術士第二次試験 ／ 口頭試験',
+    title: ['口頭試験', '想定質問を作成'],
+    hook: '業務内容の詳細720字から\n想定質問20問と回答の骨子',
+    priceLabel: 'テキスト完結',
+  },
   'coconala-sokan-bunseki-pdf': {
     eyebrow: '技術士総合技術監理部門 ／ 記述式 必須科目I-2',
     title: ['総監 出題', 'テーマ分析'],

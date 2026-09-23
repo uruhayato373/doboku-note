@@ -51,19 +51,26 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 | `coconala-sakusei` | S3 答案作成（ヒアリング→文章化・2テーマ・¥8,000）。質問シートで本人の実工事を吸い上げ答案ドラフト化（捏造禁止・本人確認必須・週2枠） |
 | `coconala-sakusei-4theme` | S3+ 答案作成 上位版（4テーマ・¥16,000・週1枠）。本試験は5管理から2テーマが当日指定されるため、4テーマ備えて出題を外す事故に保険をかける商品。運用はシートを2回分受領し `--mode sakusei` を2テーマずつ2回（コード変更なし）。ちゃんさと（作成代行 2問¥16,000／4問¥32,000）の半額帯・S3 の価格アンカーも兼ねる |
 | `coconala-bunseki-pdf` | C1 出題分析 PDF。**paused（2026-08-05 統廃合）**＝C10 フルパック限定収録 |
-| `coconala-kanseitoan-pdf` | C2' 1級 経験記述 **模範答案セット** PDF 10冊（テーマ別5＋年度別5＝旧C2+C4 統合・¥5,000）。納品= C2 5冊+C4 5冊 |
-| `coconala-2kyu-kanseitoan-pdf` | C3' 2級 模範答案セット PDF 8冊（テーマ別3＋年度別5＝旧C3+C5 統合・¥4,000） |
+| `coconala-kanseitoan-pdf` | C2' 1級 経験記述 **模範答案セット** PDF 10冊（テーマ別5＋年度別5＝旧C2+C4 統合・¥5,500）。納品= C2 5冊+C4 5冊 |
+| `coconala-2kyu-kanseitoan-pdf` | C3' 2級 模範答案セット PDF 8冊（テーマ別3＋年度別5＝旧C3+C5 統合・¥5,000） |
 | `coconala-1kyu-kakomon-pdf` | C4 過去問模範答案。**paused**＝C2' へ統合 |
 | `coconala-2kyu-kakomon-pdf` | C5 過去問模範答案。**paused**＝C3' へ統合 |
 | `coconala-1kyu-gakka-pdf` | C6 学科記述攻略。**paused**＝C10 フルパック限定収録 |
 | `coconala-2kyu-gakka-pdf` | C7 学科記述攻略。**paused**＝C11 フルパック限定収録 |
 | `coconala-1kyu-moshi-pdf` | C8 1級 二次 予想模擬試験 PDF（問題冊子＋解答解説）。build-once の静的模試・Red Line #10 例外運用（計画 §4） |
 | `coconala-2kyu-moshi-pdf` | C9 2級 二次 予想模擬試験 PDF（問題冊子＋解答解説） |
-| `coconala-1kyu-full-pdf` | C10 1級 二次 **教材フルパック**（分析+模範答案+学科+模試・PDF 18冊・¥10,000）。顧客の買い分け混乱シグナル（2026-08-05 初受注 DM）を受けた旗艦。分析(C1)と学科(C6)はパック限定収録。納品は既存 C系 PDF をそのまま送付（新規ビルドなし）。決定ログ→展開キット §2 |
-| `coconala-2kyu-full-pdf` | C11 2級 二次 教材フルパック（模範答案+学科+模試・PDF 15冊・¥7,000）。学科(C7)はパック限定。C10 の2級版 |
+| `coconala-1kyu-full-pdf` | C10 1級 二次 **教材フルパック**（分析+模範答案+学科+模試・PDF 18冊・¥12,000＝2026-09-23 改定）。顧客の買い分け混乱シグナル（2026-08-05 初受注 DM）を受けた旗艦。分析(C1)と学科(C6)はパック限定収録。納品は既存 C系 PDF をそのまま送付（新規ビルドなし）。決定ログ→展開キット §2 |
+| `coconala-2kyu-full-pdf` | C11 2級 二次 教材フルパック（模範答案+学科+模試・PDF 15冊・¥10,000＝2026-09-23 改定）。学科(C7)はパック限定。C10 の2級版 |
 | `coconala-1kyu-premium` | C12 1級 二次 **プレミアム**（教材フルパック18冊 ＋ 経験記述添削2テーマ・書き直し1回・¥15,000）。純教材の天井 ¥10,000 を超える唯一の手段＝労働を足す。**weeklyCapacity=1**（添削は本番納品が未経験のため工数実測まで絞る）。決定ログ→展開キット §2 追補2 |
 | `coconala-civil-keiken-kit` | K1 制作物（DLキット）テスト出品。1級・2級 施工経験記述の**自作 AI 設計キット**（Claude Code＋Node.js 前提・provision_format=2）。`status:'draft'`。公開前ゲート=(1) 納品ZIPは外部URL(note/サイト)除去版へ差替（安全弁#2）、(2) `/coconala-publish --commit`。客層が限定される test 出品 |
 | `coconala-sokan-bunseki-pdf` | K2 単発PDF（テスト出品）。**総監** 記述式I-2 出題テーマ分析（provision_format=3・PDF は write_pdf 生成＝外部URL0件・`assets/pdf/coconala-sokan-bunseki.pdf`）。有料note施策バンク本文は非転載（分析/読み方に限定＝非カニバリ）。`status:'draft'`。総監はココナラ客層が薄い前提の test |
+| `coconala-rccm-mondai3-pdf` | R1 RCCM 問題III 模範論文 PDF（序章＋公開6テーマ＝7冊）。納品物は `build-coconala-content-pdf.mjs --product R1` で生成（2026-09-23 に初めて作成。それまで出品中なのに納品物が無かった） |
+| `coconala-rccm-takuitsu-pdf` | R2 RCCM 択一 PDF 2冊（予想50問＋一問一答159問・¥3,000）。`--product R2`。試験 CBT 期間（〜10/31）向けの季節商品。判断→[09 §D7](../../../docs/strategy/09_販売チャネル競合分析.md) |
+| `coconala-rccm-mondai1-pdf` | R3 RCCM 問題I テンプレ＋受験部門の記入例2本（¥4,500）。`--product R3`（テンプレ1冊＋6部門）。購入時メッセージで部門を確認してから送る |
+| `coconala-cce-essay-pdf` / `coconala-cce-takuitsu-pdf` | K1 コンクリート主任技士 小論文 PDF5冊（¥3,000）／K2 択一直前パック PDF3冊（¥3,500）。`--product K1`/`K2`。需要未検証の試験出品（本試験 11/29 後に販売実績で継続判断＝backlog DN-0265） |
+| （特典）A1/A2 | 1級・2級 二次の直前暗記ノート。単独出品せず、1級の模試・フルパック・プレミアムに A1、2級の模試・フルパックに A2 を同梱（出品本文に明記・2026-09-23〜）。模試は同日に note の直前総仕上げパックより高い価格へ改定したうえで同梱した |
+| `coconala-pe-oral-pdf` | O1 技術士 口頭試験 想定問答 PDF（総監版／建設部門版から購入者の部門に合う1冊・¥3,500）。`--product O1`。購入時メッセージで部門を確認してから送る |
+| `coconala-pe-oral-qa` | 技術士 口頭試験 想定質問作成（業務内容の詳細720字＋経歴 → 想定質問20問＋回答の骨子・テキスト完結・¥5,000・週2枠）。捏造禁止＝事実が足りない箇所は確認事項で返す。ヒアリングシートと納品の型→ `content/coconala/products/coconala-pe-oral-qa/運用テンプレ.md` |
 
 **サイト内動線（記事内 CTA）**: `/links` ハブに加え、二次系の高適合記事の末尾にサービスを文脈 CTA として出す。配線 SoT は `src/lib/offsite-cta.ts`（slug→listed サービス・note の magazine-placement.ts と直交）、描画は `OffsiteCta` コンポーネント。listed のみ発火・外部 URL に UTM 非付与・クリックは `data-cta="coconala"`（AnalyticsProvider）・1ページ最大3枚・1級/2級は slug prefix で PDF を出し分け。対応表:
 
@@ -449,6 +456,9 @@ note-publish 流儀の決定的 Playwright。ログイン済みプロファイ�
 | `scripts/coconala-profile.mjs [--commit]` | プロフィール（職業/アピール/自己紹介）を `coconala-account.json` の値へ反映。**プロフィール編集（/mypage/user）はインライン編集型**（フィールドは初期描画に無く、セクション見出し近傍の鉛筆 `.d-profileItemControlButton` クリックで展開・2026-07-20 UI 変更対応済み）。ナビ誤爆は URL 不変 assert で検知 |
 | 共有 `scripts/lib/coconala-{session,form}.mjs` | プロファイル起動・login 待ち・account assert・カタログ/listings 解析・フォーム充填 |
 
+> [!warning] 同じ日に新規出品を重ねると「内容の入力に進む」の後で止まる（2026-09-23 観測・原因は未確認）
+> 1日に4件を新規出品した後、5件目以降は種別の選択までは正常なのに、`/services/add` から下書きページへ進まず `ABORT: 内容入力ページに遷移していない` で止まった（3回。下書きは作られず、孤児も残らない）。1日あたりの新規作成に上限がある可能性がある。再試行を重ねず、翌日に1件ずつ出品する。既存商品の編集（`coconala-edit`）は同じ日でも通った。
+
 > [!warning] 出品文面の掃除は listings の grep だけでは終わらない
 > **プロフィール bio は全サービスページに描画される**ため、listings と カタログを直しても
 > 同じ表現が全ページに残る（2026-08-12 に「採点者に伝わる答案へ」が全13ページで実際に発生）。
@@ -523,7 +533,7 @@ note-publish 流儀の決定的 Playwright。ログイン済みプロファイ�
 | スクリプト | 役割 |
 |---|---|
 | `scripts/lib/strip-note-funnel.mjs` | note 記事から CTA コメントブロック・裸URL・note 商品誘導文・ペイウォール文・**note 専用節（印刷用PDF 案内）・著者バナー画像とその定型キャプション**を機械除去し、最後に**除去で中身が空になった見出し/太字ラベルを落とす**。`assertNoFunnel` で残存検査。境界は `tests/strip-note-funnel.test.mjs` で固定 |
-| `scripts/build-coconala-content-pdf.mjs` | `PRODUCTS` 定義（C1〜C9）の源を strip → クリーン版を staging → `magazine-to-pdf` で PDF 生成 → **pdftotext で note.com/URL が 0件でなければ FAIL**。出力 `.claude/config/coconala/assets/pdf/*.pdf`（`CHROME_PATH=... node scripts/build-coconala-content-pdf.mjs [--product C8]`）。C1〜C7 の源は note 記事、**C8/C9（模試）は生成 markdown**（`generated:true`・源 `.claude/config/coconala/assets/moshi-src/{C8,C9}/`・strip は冪等で二重担保） |
+| `scripts/build-coconala-content-pdf.mjs` | `PRODUCTS` 定義（C1〜C9・A1/A2 特典・R1〜R3・K1/K2・O1）の源を strip → クリーン版を staging → `magazine-to-pdf` で PDF 生成 → **pdftotext で note.com/URL が 0件でなければ FAIL**。出力 `.claude/config/coconala/assets/pdf/*.pdf`（`CHROME_PATH=... node scripts/build-coconala-content-pdf.mjs [--product C8]`）。C1〜C7・A1/A2 の源は土木の note 記事、**C8/C9（模試）は生成 markdown**（`generated:true`・源 `.claude/config/coconala/assets/moshi-src/{C8,C9}/`・strip は冪等で二重担保）。土木以外（RCCM・技術士・コンクリート）は `noteRelative:true` で `content/note/` からの相対パスで源を引く。strip の後に、公的出典のリンクは出典名だけ残して URL を落とし（HTML コメントも除去）、「本記事」を「本資料」へ置換する。note 固有の一文は商品ごとの `replace` で直し、**置換対象が源に無ければ FAIL**（源の改稿で置換が空振りしたまま納品しないため）。範囲の終端は `includeTo` で指定できる |
 
 > [!warning] 納品前は「URL 0 件」だけでなく **PDF そのもの**を見る（2026-08-06）
 > ビルドのゲートは「note.com/URL が残っていないか」しか見ない。これは緑のまま、

@@ -226,15 +226,21 @@ productId は `coconala:<serviceId>` 形式（接頭辞でチャネル判別＝`
 | `経験記述 添削（2テーマセット）` / `coconala-tensaku-set`（¥6,000） | `coconala:coconala-tensaku-set` |
 | `経験記述 答案作成（ヒアリング）` / `coconala-sakusei`（¥8,000） | `coconala:coconala-sakusei` |
 | `経験記述 答案作成 4テーマ` / `coconala-sakusei-4theme`（¥16,000） | `coconala:coconala-sakusei-4theme` |
-| `1級 経験記述 模範答案セット PDF` / `coconala-kanseitoan-pdf`（**¥5,000**・旧「完成答案集¥3,500」を改装） | `coconala:coconala-kanseitoan-pdf` |
-| `2級 経験記述 模範答案セット PDF` / `coconala-2kyu-kanseitoan-pdf`（**¥4,000**・旧¥3,000 を改装） | `coconala:coconala-2kyu-kanseitoan-pdf` |
-| `1級 二次 予想模擬試験 PDF` / `coconala-1kyu-moshi-pdf`（¥2,500） | `coconala:coconala-1kyu-moshi-pdf` |
-| `2級 二次 予想模擬試験 PDF` / `coconala-2kyu-moshi-pdf`（¥2,000） | `coconala:coconala-2kyu-moshi-pdf` |
-| `1級 二次 教材フルパック PDF` / `coconala-1kyu-full-pdf`（**¥10,000**・2026-08-05 新設） | `coconala:coconala-1kyu-full-pdf` |
-| `2級 二次 教材フルパック PDF` / `coconala-2kyu-full-pdf`（**¥7,000**・同上） | `coconala:coconala-2kyu-full-pdf` |
-| `1級 二次 プレミアム（教材＋添削）` / `coconala-1kyu-premium`（**¥15,000**・同上・週1枠） | `coconala:coconala-1kyu-premium` |
+| `1級 経験記述 模範答案セット PDF` / `coconala-kanseitoan-pdf`（**¥5,500**・2026-09-23 改定・旧¥5,000） | `coconala:coconala-kanseitoan-pdf` |
+| `2級 経験記述 模範答案セット PDF` / `coconala-2kyu-kanseitoan-pdf`（**¥5,000**・2026-09-23 改定・旧¥4,000） | `coconala:coconala-2kyu-kanseitoan-pdf` |
+| `1級 二次 予想模擬試験 PDF` / `coconala-1kyu-moshi-pdf`（**¥3,500**・2026-09-23 改定・旧¥2,500） | `coconala:coconala-1kyu-moshi-pdf` |
+| `2級 二次 予想模擬試験 PDF` / `coconala-2kyu-moshi-pdf`（**¥3,000**・2026-09-23 改定・旧¥2,000） | `coconala:coconala-2kyu-moshi-pdf` |
+| `1級 二次 教材フルパック PDF` / `coconala-1kyu-full-pdf`（**¥12,000**・2026-09-23 改定・旧¥10,000） | `coconala:coconala-1kyu-full-pdf` |
+| `2級 二次 教材フルパック PDF` / `coconala-2kyu-full-pdf`（**¥10,000**・2026-09-23 改定・旧¥7,000） | `coconala:coconala-2kyu-full-pdf` |
+| `1級 二次 プレミアム（教材＋添削）` / `coconala-1kyu-premium`（**¥17,000**・2026-09-23 改定・旧¥15,000・週1枠） | `coconala:coconala-1kyu-premium` |
 | `経験記述 AI設計キット（DL）` / `coconala-civil-keiken-kit`（¥8,000） | `coconala:coconala-civil-keiken-kit` |
 | `総監 出題テーマ分析 PDF` / `coconala-sokan-bunseki-pdf`（¥2,500） | `coconala:coconala-sokan-bunseki-pdf` |
+| `RCCM 択一 予想50問＋一問一答 PDF` / `coconala-rccm-takuitsu-pdf`（¥3,000・2026-09-23 新設） | `coconala:coconala-rccm-takuitsu-pdf` |
+| `技術士 口頭試験 想定問答 PDF` / `coconala-pe-oral-pdf`（¥3,500・同上） | `coconala:coconala-pe-oral-pdf` |
+| `RCCM 問題I テンプレ＋記入例 PDF` / `coconala-rccm-mondai1-pdf`（¥4,500・同上） | `coconala:coconala-rccm-mondai1-pdf` |
+| `コンクリート主任技士 小論文 PDF` / `coconala-cce-essay-pdf`（¥3,000・同上） | `coconala:coconala-cce-essay-pdf` |
+| `コンクリート主任技士 択一直前パック PDF` / `coconala-cce-takuitsu-pdf`（¥3,500・同上） | `coconala:coconala-cce-takuitsu-pdf` |
+| `技術士 口頭試験 想定質問作成` / `coconala-pe-oral-qa`（¥5,000・同上・週2枠） | `coconala:coconala-pe-oral-qa` |
 
 > **アーカイブ済み（2026-08-05 の統廃合で恒久廃止・新規売上は発生しない）**:
 > `coconala-bunseki-pdf`（出題分析）／`coconala-1kyu-kakomon-pdf`・`coconala-2kyu-kakomon-pdf`（過去問模範答案）／

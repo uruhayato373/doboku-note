@@ -1,7 +1,7 @@
 ---
 name: coconala-order
 description: >
-  ココナラで受注した 1級・2級土木 経験記述サービス（S1 診断 / S2 添削 / S3 答案作成 / C1〜C9 コンテンツPDF）
+  ココナラで受注したサービス（1級・2級土木 S1 診断 / S2 添削 / S3 答案作成 / C系・RCCM・コンクリート主任技士・技術士口頭の PDF / 技術士口頭 想定質問作成）
   1件を、受領から納品文面ドラフトまで通す統括スキル。coconala-operator を起動し、商品タイプ別に分岐して
   /keiken-tensaku（S1=診断・S2=添削・S3=作成）でドラフト生成、または C系=PDF即送付文を生成 → orders-log 追記。
   最終赤入れとトークルームへの送信は運営者（人間）。捏造禁止・外部誘導禁止・個人情報非コミット。
@@ -37,8 +37,13 @@ user-invocable: true
 **S3 答案作成（`coconala-sakusei`）**
 3. 作成用ヒアリングシート（キット §4b）を検査。**宣誓チェック未記入・素材不足なら追加質問を出して停止**（創作で埋めない）→ `/keiken-tensaku <path> --grade N --mode sakusei` → `答案ドラフト.md`（事実確認チェックリスト付き）→ 納品文面（本人の事実確認が必須と明記）。
 
-**C系 コンテンツPDF（`coconala-*-pdf`・C1〜C9）**
-3. **ヒアリング不要**。該当 PDF を `.claude/config/coconala/assets/pdf/` から特定 → キット §4c「C系 PDF 送付」文を商品名・本数で埋める（トークルームで PDF 添付は運営者手作業）。個別相談は S2/S3 へ誘導。
+**コンテンツPDF（`coconala-*-pdf`）**
+3. **ヒアリング不要**。該当 PDF を `.claude/config/coconala/assets/pdf/` から特定 → キット §4c「C系 PDF 送付」文を商品名・本数で埋める（トークルームで PDF 添付は運営者手作業）。個別相談は S2/S3 へ誘導。PDF と商品の対応は `scripts/build-coconala-content-pdf.mjs` の `PRODUCTS`（`label`）が正。
+   - **特典の同梱**: 1級の模試・フルパック・プレミアムには `coconala-A1-1級二次-直前暗記ノート.pdf`、2級の模試・フルパックには `coconala-A2-2級二次-直前暗記ノート.pdf` を必ず添える（出品本文で約束している）。
+   - **部門を選ぶ商品**: `coconala-rccm-mondai1-pdf`（R3＝テンプレ＋受験部門の記入例）と `coconala-pe-oral-pdf`（O1＝総監版／建設部門版）は、購入時メッセージの部門を確認してから該当の1冊を送る。部門が書かれていなければ確認メッセージの文案を出して停止する。
+
+**技術士 口頭試験 想定質問作成（`coconala-pe-oral-qa`）**
+3. 土木の `/keiken-tensaku` は使わない。`content/coconala/products/coconala-pe-oral-qa/運用テンプレ.md` §2 のヒアリングシートを送り、提出物（業務内容の詳細・業務経歴・部門）の欠落を検査。欠けていれば追加質問を出して停止 → 同 §3 の型で想定質問20問と回答の骨子を作る（各骨子に提出物の根拠を付け、根拠の無い骨子は確認事項へ回す＝創作しない）。
 
 **共通の後段**
 4. **orders-log 追記**: `date` / `serviceId` / **`talkroomId`（必須）** / `priceYen`（カタログから）/ `grade`（C系は null 可）/ `status:'received'` / `replyDueAt`（snapshot から転記）/ `deliveredAt:null` / `artifacts:[]`。

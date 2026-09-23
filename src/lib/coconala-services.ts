@@ -36,7 +36,8 @@ export type CoconalaExamScope =
   | 'civil-2'
   | 'pe-construction'
   | 'pe-comprehensive-management'
-  | 'rccm';
+  | 'rccm'
+  | 'concrete-chief-engineer';
 
 export interface CoconalaService {
   readonly id: string;
@@ -55,6 +56,11 @@ export interface CoconalaService {
   readonly price: string;
   /** 機械照合用の価格。orders-log.json / sales-log.json の実績と突合する */
   readonly priceYen: number;
+  /**
+   * 価格改定の履歴。旧定価と、その価格が有効だった最終日（ISO 日付）。
+   * orders-log の過去受注は「受注日時点の定価」と突合する（check-coconala-wiring）。無ければ現行 priceYen と突合。
+   */
+  readonly priceHistory?: readonly { readonly priceYen: number; readonly until: string }[];
   readonly examScope: readonly CoconalaExamScope[];
   /** 週あたりの受付枠（Red Line #1: 定員なし恒久添削の禁止を機械的に表明する） */
   readonly weeklyCapacity: number;
@@ -224,8 +230,9 @@ const SERVICES_RAW = {
     shortTitle: '1級 経験記述 模範答案セット PDF',
     description:
       '1級土木施工管理技士 第2次検定 施工経験記述の模範答案セット PDF 10冊。テーマ別の完成答案集5冊（品質管理・安全管理・工程管理・施工計画・環境対策＝完成答案3例＋NG→合格＋採点チェック）と、年度別の過去問模範答案5冊（令和3〜7年度＝各年度の出題テーマに沿った模範答案＋置換ガイド）を一括収録。テーマから引くか年度から引くか、両方の索引で自分の工事に置き換えられます。購入後トークルームで PDF をお送りします。',
-    price: '¥5,000（PDF 10冊・テーマ別＋年度別）',
-    priceYen: 5000,
+    price: '¥5,500（PDF 10冊・テーマ別＋年度別）',
+    priceYen: 5500,
+    priceHistory: [{ priceYen: 5000, until: '2026-09-22' }],
     examScope: ['civil-1'],
     weeklyCapacity: 10,
     listedAt: '2026-07-18',
@@ -241,8 +248,9 @@ const SERVICES_RAW = {
     shortTitle: '2級 経験記述 模範答案セット PDF',
     description:
       '2級土木施工管理技士 第2次検定 施工経験記述の模範答案セット PDF 8冊。テーマ別の完成答案集3冊（品質管理・安全管理・工程管理＝完成答案＋NG→合格＋採点チェック）と、年度別の過去問模範答案5冊（令和3〜7年度＝各年度の出題テーマに沿った模範答案＋置換ガイド）を一括収録。テーマから引くか年度から引くか、両方の索引で自分の工事に置き換えられます。購入後トークルームで PDF をお送りします。',
-    price: '¥4,000（PDF 8冊・テーマ別＋年度別）',
-    priceYen: 4000,
+    price: '¥5,000（PDF 8冊・テーマ別＋年度別）',
+    priceYen: 5000,
+    priceHistory: [{ priceYen: 4000, until: '2026-09-22' }],
     examScope: ['civil-2'],
     weeklyCapacity: 10,
     listedAt: '2026-07-18',
@@ -338,8 +346,9 @@ const SERVICES_RAW = {
     shortTitle: '1級 二次 予想模試3回 PDF',
     description:
       '1級土木施工管理技士 第2次検定の予想模擬試験3回分・PDF 6冊（各回の問題冊子＋解答解説）。施工経験記述は毎回2テーマ、学科記述は必須・選択構造で通し演習できます。令和3〜7年度の出題傾向から作成した自主教材で、自己採点・復習計画つき。購入後トークルームでお送りします（本試験の出題を保証するものではありません）。',
-    price: '¥2,500（予想模試3回・PDF 6冊）',
-    priceYen: 2500,
+    price: '¥3,500（予想模試3回・PDF 6冊＋特典 直前暗記ノート）',
+    priceYen: 3500,
+    priceHistory: [{ priceYen: 2500, until: '2026-09-22' }],
     examScope: ['civil-1'],
     weeklyCapacity: 20,
     listedAt: '2026-07-18',
@@ -354,8 +363,9 @@ const SERVICES_RAW = {
     shortTitle: '2級 二次 予想模試3回 PDF',
     description:
       '2級土木施工管理技士 第2次検定の予想模擬試験3回分・PDF 6冊（各回の問題冊子＋解答解説）。施工経験記述は毎回2テーマ、学科記述は必須4問＋選択2問で通し演習できます。令和3〜7年度の出題傾向から作成した自主教材で、自己採点・復習計画つき。購入後トークルームでお送りします（本試験の出題を保証するものではありません）。',
-    price: '¥2,000（予想模試3回・PDF 6冊）',
-    priceYen: 2000,
+    price: '¥3,000（予想模試3回・PDF 6冊＋特典 直前暗記ノート）',
+    priceYen: 3000,
+    priceHistory: [{ priceYen: 2000, until: '2026-09-22' }],
     examScope: ['civil-2'],
     weeklyCapacity: 20,
     listedAt: '2026-07-18',
@@ -381,8 +391,9 @@ const SERVICES_RAW = {
     shortTitle: '1級 二次 教材フルパック PDF',
     description:
       '1級土木施工管理技士 第2次検定の対策PDFを全部入りでまとめたフルパック（計22冊）。出題分析＋直前重点（1冊）・経験記述 模範答案（テーマ別5冊＋年度別5冊）・学科記述 攻略（5冊・5論点）・予想模擬試験3回分（問題冊子＋解答解説の6冊）を一括でお送りします。出題分析と学科記述攻略はこのパックのみの収録。分析→インプット→演習→模試まで一気通貫。購入後トークルームで PDF をお送りします（本試験の出題を保証するものではありません）。',
-    price: '¥10,000（PDF 22冊・全部入り）',
-    priceYen: 10000,
+    price: '¥12,000（PDF 22冊・全部入り＋特典 直前暗記ノート）',
+    priceYen: 12000,
+    priceHistory: [{ priceYen: 10000, until: '2026-09-22' }],
     examScope: ['civil-1'],
     weeklyCapacity: 20,
     listedAt: '2026-08-05',
@@ -398,8 +409,9 @@ const SERVICES_RAW = {
     shortTitle: '2級 二次 教材フルパック PDF',
     description:
       '2級土木施工管理技士 第2次検定の対策PDFを全部入りでまとめたフルパック（計19冊）。経験記述 模範答案（テーマ別3冊＋年度別5冊）・学科記述 攻略（5冊・5論点）・予想模擬試験3回分（問題冊子＋解答解説の6冊）を一括でお送りします。学科記述攻略はこのパックのみの収録。インプット→演習→模試まで一気通貫。購入後トークルームで PDF をお送りします（本試験の出題を保証するものではありません）。',
-    price: '¥7,000（PDF 19冊・全部入り）',
-    priceYen: 7000,
+    price: '¥10,000（PDF 19冊・全部入り＋特典 直前暗記ノート）',
+    priceYen: 10000,
+    priceHistory: [{ priceYen: 7000, until: '2026-09-22' }],
     examScope: ['civil-2'],
     weeklyCapacity: 20,
     listedAt: '2026-08-05',
@@ -424,8 +436,9 @@ const SERVICES_RAW = {
     shortTitle: '1級 二次 プレミアム（教材＋添削）',
     description:
       '1級土木施工管理技士 第2次検定の対策PDF 22冊（出題分析・経験記述模範答案10冊・学科記述攻略5冊・予想模擬試験3回分6冊／計145ページ）に、施工経験記述の添削（新形式2テーマ・赤入れ＋書き直し1回）を組み合わせたセット。教材で書き方を掴み、実際に書いた答案を元自治体土木（発注者＝提出書類を審査する側）の目で赤入れします。購入後トークルームでPDFをお送りし、答案はヒアリングシートご記入後に添削します。経験していない工事の答案作成（捏造）はお受けしません。合格を保証するものではありません。',
-    price: '¥15,000（PDF22冊＋添削2テーマ・書き直し1回）',
-    priceYen: 15000,
+    price: '¥17,000（PDF22冊＋添削2テーマ・書き直し1回）',
+    priceYen: 17000,
+    priceHistory: [{ priceYen: 15000, until: '2026-09-22' }],
     examScope: ['civil-1'],
     weeklyCapacity: 1,
     listedAt: '2026-08-05',
@@ -507,11 +520,111 @@ const SERVICES_RAW = {
     shortTitle: 'RCCM 問題III 模範論文 PDF',
     description:
       'RCCM資格試験 2026年度 問題III（管理技術力）の公開6テーマ全部の模範論文（各1,200〜1,600字・①現状と課題／②対策のあり方）と、指定語の使用チェック表・部門別の置換ポイントをまとめた印刷用PDF。購入後トークルームでお送りする。出題や合格を保証するものではない。',
-    price: '¥3,000（PDF）',
-    priceYen: 3000,
+    price: '¥4,000（PDF）',
+    priceYen: 4000,
+    priceHistory: [{ priceYen: 3000, until: '2026-09-22' }],
     examScope: ['rccm'],
     weeklyCapacity: 20,
     listedAt: '2026-09-16',
+  },
+  // R2（2026-09-23・09 §D7）: 択一は 303geos（¥2,500×49）だけが埋める白地。源は note の予想50問＋直前暗記ノート
+  // （note 定価の合計 ¥2,460 を下回らない）。build-coconala-content-pdf.mjs --product R2 で PDF 2冊。
+  'coconala-rccm-takuitsu-pdf': {
+    id: 'coconala-rccm-takuitsu-pdf',
+    status: 'listed',
+    serviceUrl: 'https://coconala.com/services/4415185',
+    title: 'RCCM択一 予想50問と一問一答を送ります',
+    shortTitle: 'RCCM 択一 PDF',
+    description:
+      'RCCM資格試験の択一（試験A 問題II・試験B 問題IV-1）対策PDF2冊。オリジナル予想50問（全選択肢の正誤理由・計算は途中式付き）と、登録規程から土木基礎までの一問一答159問。過去問題は非公開のため、公開の一次出典から作成した自作問題で、実際の試験問題の再現ではない。購入後トークルームでお送りする。出題や合格を保証するものではない。',
+    price: '¥3,000（PDF2冊）',
+    priceYen: 3000,
+    priceHistory: [{ priceYen: 2500, until: '2026-09-22' }],
+    examScope: ['rccm'],
+    weeklyCapacity: 20,
+    listedAt: '2026-09-23',
+  },
+
+  // R3（2026-09-23）: 問題I の PDF。診断（人の作業）はあったが PDF が無かった。303geos が 9月に同型を新設。
+  // 源は note のテンプレ（¥1,980）＋部門別記入例（各¥1,980）。購入者の受験部門の1本を送る＝note 定価の合計 ¥3,960 を下回らない。
+  'coconala-rccm-mondai1-pdf': {
+    id: 'coconala-rccm-mondai1-pdf',
+    status: 'listed',
+    serviceUrl: 'https://coconala.com/services/4415242',
+    title: 'RCCM業務経験論文のテンプレと記入例を送ります',
+    shortTitle: 'RCCM 問題I テンプレ＋記入例 PDF',
+    description:
+      'RCCM資格試験 試験A 問題I（業務経験論文・2,400字以内）のテンプレートと、受験部門の記入例2本のPDF。上水道・下水道・土質及び基礎・道路・河川砂防及び海岸海洋・鋼構造及びコンクリートの6部門から1部門を選ぶ。記入例は架空の業務に基づく練習用で、そのまま使う原稿ではない。出題や合格を保証するものではない。',
+    price: '¥4,500（テンプレ＋1部門の記入例2本）',
+    priceYen: 4500,
+    priceHistory: [{ priceYen: 4000, until: '2026-09-22' }],
+    examScope: ['rccm'],
+    weeklyCapacity: 20,
+    listedAt: '2026-09-23',
+  },
+
+  // ---- 技術士 口頭試験（2026-09-23・09 §D7）----
+  // 土木二次の需要が消える11〜1月に立つ季節商品。出品31件・レビュー108件と小さい市場。運営者は技術士
+  // （建設部門・総合技術監理部門）。ビデオ面接は日時調整の負担が大きいので出さず、PDF とテキスト完結型に限る。
+  'coconala-pe-oral-pdf': {
+    id: 'coconala-pe-oral-pdf',
+    status: 'listed',
+    serviceUrl: 'https://coconala.com/services/4415186',
+    title: '技術士口頭試験の想定問答PDFを送ります',
+    shortTitle: '技術士 口頭試験 想定問答 PDF',
+    description:
+      '技術士第二次試験の口頭試験に向けた想定問答と準備ロードマップのPDF。総合技術監理部門版（想定25問・立場別の回答例）と建設部門版（改訂コンピテンシー対応の想定問答バンク）から、受験部門に合う1冊をお送りする。回答例は架空の業務に基づく例示で、実際の試問の再現ではない。合格を保証するものではない。',
+    price: '¥3,500（PDF1冊）',
+    priceYen: 3500,
+    priceHistory: [{ priceYen: 3000, until: '2026-09-22' }],
+    examScope: ['pe-comprehensive-management', 'pe-construction'],
+    weeklyCapacity: 20,
+    listedAt: '2026-09-23',
+  },
+  'coconala-pe-oral-qa': {
+    id: 'coconala-pe-oral-qa',
+    status: 'listed',
+    serviceUrl: 'https://coconala.com/services/4415190',
+    title: '技術士口頭試験の想定質問を経歴から作ります',
+    shortTitle: '技術士 口頭試験 想定質問作成',
+    description:
+      '受験申込書の「業務内容の詳細」（720字以内）と業務経歴をもとに、口頭試験で聞かれやすい想定質問20問と、ご本人の事実から組み立てた回答の骨子を返すテキスト完結のサービス。ビデオ面接ではない。経験していない業務の創作はせず、事実が足りない箇所は確認事項として返す。建設部門・総合技術監理部門に対応。合格を保証するものではない。',
+    price: '¥5,000（想定質問20問＋回答骨子）',
+    priceYen: 5000,
+    examScope: ['pe-comprehensive-management', 'pe-construction'],
+    weeklyCapacity: 2,
+    listedAt: '2026-09-23',
+  },
+
+  // ---- コンクリート主任技士（2026-09-23・試験出品）----
+  // 本試験 2026-11-29。ココナラの出品は1件・レビュー0で、空白か需要不在かを判別できない（09 §D7）。
+  // PDF は1件ごとの作業がほぼ無いので小さく試し、試験後に販売実績で継続を判断する（backlog DN-0265）。
+  // 運営者はコンクリート主任技士を保有（src/config/author.ts）。KDP の g-02 は Select OFF で PDF 販売と衝突しない。
+  'coconala-cce-essay-pdf': {
+    id: 'coconala-cce-essay-pdf',
+    status: 'draft',
+    serviceUrl: '',
+    title: 'コンクリート主任技士の小論文模範答案を送ります',
+    shortTitle: 'コンクリート主任技士 小論文 PDF',
+    description:
+      'コンクリート主任技士試験の小論文対策PDF5冊。答案の型と時間配分をまとめた解法ガイドと、品質管理・耐久性・環境配慮・施工トラブルの4テーマの模範答案（想定問題・答案の方針・チェックポイント・自分の案件への置換ガイド付き）。模範答案は架空の案件に基づく例示。出題や合格を保証するものではない。',
+    price: '¥3,000（PDF5冊）',
+    priceYen: 3000,
+    examScope: ['concrete-chief-engineer'],
+    weeklyCapacity: 20,
+  },
+  'coconala-cce-takuitsu-pdf': {
+    id: 'coconala-cce-takuitsu-pdf',
+    status: 'draft',
+    serviceUrl: '',
+    title: 'コンクリート主任技士 択一直前パックを送ります',
+    shortTitle: 'コンクリート主任技士 択一直前パック PDF',
+    description:
+      'コンクリート主任技士試験の四肢択一対策PDF3冊。8分野のオリジナル予想50問（全選択肢解説）、配合計算の実戦演習12問（途中式付き）、数値と定義の一問一答157問。予想は出題を保証するものではなく、実際の試験問題の再現ではない。',
+    price: '¥3,500（PDF3冊）',
+    priceYen: 3500,
+    examScope: ['concrete-chief-engineer'],
+    weeklyCapacity: 20,
   },
 } as const satisfies Record<string, CoconalaService>;
 

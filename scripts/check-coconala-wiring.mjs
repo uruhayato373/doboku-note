@@ -90,6 +90,11 @@ function parseCatalog() {
     const lm = slice.match(/listedAt:\s*'([^']*)'/);
     const rm = slice.match(/pauseReason:\s*'([^']*)'/);
     const om = slice.match(/resumeOn:\s*'([^']*)'/);
+    // 価格改定の履歴（旧定価と有効最終日）。過去受注を受注日時点の定価で突合するために使う
+    const hm = slice.match(/priceHistory:\s*\[([^\]]*)\]/);
+    const priceHistory = hm
+      ? [...hm[1].matchAll(/priceYen:\s*(\d+),\s*until:\s*'([^']+)'/g)].map((x) => ({ priceYen: parseInt(x[1], 10), until: x[2] }))
+      : [];
     return {
       id: cur.id,
       status: cur.status,
@@ -98,6 +103,7 @@ function parseCatalog() {
       listedAt: lm ? lm[1] : null,
       pauseReason: rm ? rm[1] : null,
       resumeOn: om ? om[1] : null,
+      priceHistory,
     };
   });
 }
@@ -195,6 +201,11 @@ for (const s of catalog) {
 }
 
 // 2 & 3. orders-log の serviceId 実在＋priceYen 一致
+// 受注日時点の定価。priceHistory（until 昇順）で受注日が until 以前の最初の旧定価、無ければ現行価格。
+const priceAt = (svc, date) => {
+  const hist = [...(svc.priceHistory ?? [])].sort((a, b) => a.until.localeCompare(b.until));
+  return hist.find((h) => typeof date === 'string' && date <= h.until)?.priceYen ?? svc.priceYen;
+};
 const orders = readJson(ORDERS_PATH);
 if (orders?.__parseError) violations.push(`orders-log.json が JSON として壊れています: ${orders.__parseError}`);
 else if (orders) {
@@ -221,10 +232,10 @@ else if (orders) {
             ' — 定価と違う額の根拠が無いと、後から値引きミスと正当な見積りを区別できません'
         );
       }
-    } else if (typeof o.priceYen === 'number' && svc.priceYen !== null && o.priceYen !== svc.priceYen) {
+    } else if (typeof o.priceYen === 'number' && svc.priceYen !== null && o.priceYen !== priceAt(svc, o.date)) {
       violations.push(
-        `orders-log[${i}] priceYen 不一致: 実績 ${o.priceYen} vs カタログ ${svc.priceYen}（${o.serviceId}）` +
-          ' — 価格改定なら実績は当時の額のままで正なので memo に改定日を書き、カタログ側の改定を確認' +
+        `orders-log[${i}] priceYen 不一致: 実績 ${o.priceYen} vs 受注日時点の定価 ${priceAt(svc, o.date)}（${o.serviceId}・${o.date}）` +
+          ' — 価格改定なら実績は当時の額のままで正なので、カタログの priceHistory に旧定価と有効最終日を足す' +
           '（カスタム見積りなら quote ブロックを付ける）'
       );
     }
