@@ -51,7 +51,7 @@
 
 ## ④ 04-cta.png
 📚 残り 3 問はフィードのカルーセル投稿で
-[リンクスタンプ] doboku-note.com/docs/pe-comprehensive-management/r03
+[リンクスタンプ] doboku-note.com/exam/pe-comprehensive-management/past-exams/r03-primary
 ```
 
 ### ルール
@@ -68,7 +68,7 @@
 
 1. **リンクスタンプ URL 確定**
    - 02-problem: 対応カルーセル投稿 URL（投稿後に追記。Writer の段階では「カルーセル投稿 URL（投稿後追記）」プレースホルダで可）
-   - 04-cta: doboku-note.com の該当年度ハブページ URL（例: `https://doboku-note.com/docs/pe-comprehensive-management/r03`）
+   - 04-cta: doboku-note.com の該当年度の過去問ページ URL（例: `https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r03-primary`。年度ハブは無いので択一か記述の 1 本を選ぶ。旧 `/docs/pe-comprehensive-management/r03` 形式は 404）
 
 2. **ハイライト先確定**
    - ハイライト名: `R<年> 過去問`（例: 「R03 過去問」「R07 過去問」）

@@ -39,7 +39,7 @@
   "privacyStatus": "private",                            // 初期は private、本番運用で public
   "sourcePackId": "r03-pack-01",                         // 派生元の IG Reels パック ID
   "sourceYear": "r03",
-  "sourceUrl": "https://doboku-note.com/docs/pe-comprehensive-management/r03",
+  "sourceUrl": "https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r03-primary",
   "durationSeconds": 42.3,                               // ffprobe 実測
   "derivedFrom": "instagram-reels",                      // v7 で必須（独立生成と区別）
   "relatedVideoId": "..."                               // 通常動画がある場合の主導線
@@ -61,7 +61,7 @@ YouTubeの現行仕様では、Shortsの説明欄・コメントに置いた外�
 この動画は IG Reels で公開した過去問パックから 1 問抜粋した YouTube Shorts 派生版です。
 
 ▼ 詳細解説（doboku-note）
-https://doboku-note.com/docs/pe-comprehensive-management/r03?utm_source=youtube&utm_medium=video&utm_campaign=exam-pack-r03-pack-01&utm_content=shorts
+https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r03-primary?utm_source=youtube&utm_medium=video&utm_campaign=exam-pack-r03-pack-01&utm_content=shorts
 
 ▼ 受験記・解答再現（note）
 https://note.com/{author}?utm_source=youtube&utm_medium=video&utm_campaign=note&utm_content=shorts
