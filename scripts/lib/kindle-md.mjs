@@ -4,7 +4,11 @@
 // 空行の先読み（次の非空行が同種リストなら閉じない）で回避する。
 import { xesc } from './epub-writer.mjs'
 
-export const inlineMd = (s) => xesc(s).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+// `〇〇` は note 原稿で「自分の現場の値に差し替える箇所」を示す。記号のまま印字すると文字化けに見えるため
+// 点線の下線（.fill・CSS は各ビルダー）で示す（2026-09-23 i/j 系 QA で i-01 554 箇所・i-11 848 箇所を検出）。
+export const inlineMd = (s) => xesc(s).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/`([^`]+?)`/g, '<span class="fill">$1</span>')
+  // note 原稿の単位表記 m<sup>3</sup> は xesc で文字列化されるので、sup/sub だけ実タグに戻す（i/j 系で 280 箇所）
+  .replace(/&lt;(sup|sub)&gt;(.+?)&lt;\/\1&gt;/g, '<$1>$2</$1>')
 
 export function mdToXhtml(text) {
   const lines = text.split('\n')

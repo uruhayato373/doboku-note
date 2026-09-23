@@ -38,7 +38,9 @@ Kindle 出版戦略（[strategy.md](../../../../content/kindle/strategy.md) = �
 | b-reiwa/b-heisei | B: 総監択一 合本 | `build-pe1-kindle.mjs --spec kindle-specs/{id}.json` | spec + 前付け（出典=第二次試験・spec.examName） | 全2冊 LIVE |
 | c-01〜c-11/c-I | C: 建設二次 模範解答 essay | `node scripts/build-essay-kindle.mjs --spec scripts/kindle-specs/{id}.json` | spec（sources=模範解答 md）+ 前付け | 全12冊 LIVE |
 | f-01〜f-16 | F: 総監 記述式 essay | `build-essay-kindle.mjs --spec kindle-specs/{id}.json` | spec + 前付け | 全16冊 LIVE |
-| h-01 | H: RCCM 問題III 模範論文集 | `build-essay-kindle.mjs --spec kindle-specs/h-01.json`（`creditBody`＝過去問非公開の出典文上書き・`chapterLabel: headline`） | spec + 前付け | ready（2026-09-17・KDP 未提出） |
+| h-01 | H: RCCM 問題III 模範論文集 | `build-essay-kindle.mjs --spec kindle-specs/h-01.json`（`creditBody`＝過去問非公開の出典文上書き・`chapterLabel: headline`） | spec + 前付け | in_review（2026-09-23 出版申請） |
+| i-01〜i-04 / i-11〜i-24 | I: 1級土木 第2次検定 記述（施工経験記述・学科記述・想定工事14分冊） | `build-essay-kindle.mjs --spec kindle-specs/{id}.json`（`chapterLabel: h1-tail`・`dropLines`・`replaceText`） | spec + 前付け | 2026-09-23 新設 |
+| j-01〜j-03 / j-11〜j-15 | J: 2級土木 第2次検定 記述（同上・想定工事5分冊） | 同上 | spec + 前付け | 2026-09-23 新設 |
 
 表紙は全冊 spec 駆動で再生成可能（`scripts/kindle-covers/specs/<id>.json`＋`backgrounds/`、下記「表紙」参照）。全書籍の状態・ASIN は [`scripts/kindle-published/catalog.json`](../../../../scripts/kindle-published/catalog.json)（マスター登録簿）が真実源。
 
@@ -48,7 +50,7 @@ Kindle 出版戦略（[strategy.md](../../../../content/kindle/strategy.md) = �
 ### ビルダー別の要点（2026-07-11 拡張）
 
 - **build-pe1-kindle**（択一・D/E/B）: `spec.examName`/`spec.creditIssuer` で出典切替。インライン `<ExamPoint>文</ExamPoint>`（2級形式）と props 型の両対応。画像は年度スコープ href（`img/{articleId}-{name}`）で年度間衝突を防止、`sanitizeMathml` で KaTeX の不可視演算子/mtable width/多文字演算子の epubcheck エラーを除去。選択肢 loose list の番号リセットは空行先読みで回避
-- **build-essay-kindle**（記述式・C/F）: 純散文用。`stripNoteSections`（## CTA節）+ `stripNoteCta`（`**bold**` 疑似見出しフッター＋インライン note CTA）+ `stripLinks`（サイトへの全リンク形式=https/相対/裸スラッグの誘導文を除去）。**R8予想は spec の sources から除外して evergreen 化**（来年度受験者向け）
+- **build-essay-kindle**（記述式・C/F/H/I/J）: 純散文用。`stripNoteSections`（## CTA節）+ spec `dropLines`（行単位の除去。節の除去の後に効くので、見出しに一致させても節は消える）+ `stripNoteCta`（`**bold**` 疑似見出しフッター＋インライン note CTA）+ `stripLinks`（サイトへの全リンク形式=https/相対/裸スラッグの誘導文を除去）+ spec `replaceText`（語の置換）。章名は `chapterLabel`（`headline`＝V4 カバー短名、`h1-tail`＝H1 の最後の「｜」以降）。**R8予想は spec の sources から除外して evergreen 化**（来年度受験者向け）
 - markdown レンダラは両者とも `scripts/lib/kindle-md.mjs` を共有（essay 側）。pe1 は自前 mdToXhtml（統合は回帰実績ありで保留）
 
 ## 実行手順

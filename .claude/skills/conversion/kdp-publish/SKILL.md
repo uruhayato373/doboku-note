@@ -169,7 +169,7 @@ node scripts/kdp-publish.mjs --list-drafts               # 本棚確認
 node scripts/kdp-publish.mjs --delete-drafts <ASIN>      # 下書きのみ・下書き assert
 ```
 
-### カテゴリー末端の較正（A/E系・未検証系統）
+### カテゴリー末端の較正（新しい系統で verified:false のとき）
 ```
 node scripts/kdp-publish.mjs --diag-category --asin <既存draft ASIN>
 ```

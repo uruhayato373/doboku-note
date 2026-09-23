@@ -1501,6 +1501,708 @@
         }
       ],
       "submittedDate": "2026-09-23"
+    },
+    {
+      "id": "i-01",
+      "asin": null,
+      "title": "1級土木施工管理技士 第2次検定 施工経験記述 過去問模範答案集",
+      "subtitle": "令和3〜7年度 年度別5回分の模範答案と書き方",
+      "series": "I 1級土木 第2次検定 記述",
+      "seriesVolume": 1,
+      "priceJpy": 1980,
+      "royalty": 0.35,
+      "chapterCount": 5,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/i-01.json",
+      "epub": "kindle-dist/i-01.epub",
+      "cover": "kindle-dist/i-01.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-01.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-09-23",
+          "change": "制作完了（note の1級土木 第2次検定 記述マガジン 5 本を再編集＋書き下ろし前付け）。KDP Select OFF＝note 併売のため日本 35%"
+        }
+      ],
+      "draftAsin": null,
+      "publishedDate": null
+    },
+    {
+      "id": "i-02",
+      "asin": null,
+      "title": "1級土木施工管理技士 第2次検定 施工経験記述 完成答案集",
+      "subtitle": "品質・安全・工程・施工計画・環境 5管理の工種別完成答案",
+      "series": "I 1級土木 第2次検定 記述",
+      "seriesVolume": 2,
+      "priceJpy": 1980,
+      "royalty": 0.35,
+      "chapterCount": 5,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/i-02.json",
+      "epub": "kindle-dist/i-02.epub",
+      "cover": "kindle-dist/i-02.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-02.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-09-23",
+          "change": "制作完了（note の1級土木 第2次検定 記述マガジン 5 本を再編集＋書き下ろし前付け）。KDP Select OFF＝note 併売のため日本 35%"
+        }
+      ],
+      "draftAsin": null,
+      "publishedDate": null
+    },
+    {
+      "id": "i-03",
+      "asin": null,
+      "title": "1級土木施工管理技士 第2次検定 施工経験記述 2テーマ組合せ大全",
+      "subtitle": "5管理 全10組合せ（令和6年度からの2テーマ必答に対応）",
+      "series": "I 1級土木 第2次検定 記述",
+      "seriesVolume": 3,
+      "priceJpy": 2980,
+      "royalty": 0.35,
+      "chapterCount": 10,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/i-03.json",
+      "epub": "kindle-dist/i-03.epub",
+      "cover": "kindle-dist/i-03.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-03.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-09-23",
+          "change": "制作完了（note の1級土木 第2次検定 記述マガジン 10 本を再編集＋書き下ろし前付け）。KDP Select OFF＝note 併売のため日本 35%"
+        }
+      ],
+      "draftAsin": null,
+      "publishedDate": null
+    },
+    {
+      "id": "i-04",
+      "asin": null,
+      "title": "1級土木施工管理技士 第2次検定 学科記述 テーマ別出る順＋直前暗記ノート",
+      "subtitle": "令和3〜7年度の頻出論点と解答の型・穴埋め頻出語句",
+      "series": "I 1級土木 第2次検定 記述",
+      "seriesVolume": 4,
+      "priceJpy": 2480,
+      "royalty": 0.35,
+      "chapterCount": 6,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/i-04.json",
+      "epub": "kindle-dist/i-04.epub",
+      "cover": "kindle-dist/i-04.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-04.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-09-23",
+          "change": "制作完了（note の1級土木 第2次検定 記述マガジン 6 本を再編集＋書き下ろし前付け）。KDP Select OFF＝note 併売のため日本 35%"
+        }
+      ],
+      "draftAsin": null,
+      "publishedDate": null
+    },
+    {
+      "id": "i-11",
+      "asin": null,
+      "title": "1級土木施工管理技士 第2次検定 施工経験記述 想定工事 完成答案集 土工・盛土・造成編",
+      "subtitle": "14工事×5管理（品質・安全・工程・施工計画・環境）の記入例",
+      "series": "I 1級土木 第2次検定 記述",
+      "seriesVolume": 5,
+      "priceJpy": 2980,
+      "royalty": 0.35,
+      "chapterCount": 14,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/i-11.json",
+      "epub": "kindle-dist/i-11.epub",
+      "cover": "kindle-dist/i-11.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-11.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-09-23",
+          "change": "制作完了（note の1級土木 第2次検定 記述マガジン 14 本を再編集＋書き下ろし前付け）。KDP Select OFF＝note 併売のため日本 35%"
+        }
+      ],
+      "draftAsin": null,
+      "publishedDate": null
+    },
+    {
+      "id": "i-12",
+      "asin": null,
+      "title": "1級土木施工管理技士 第2次検定 施工経験記述 想定工事 完成答案集 コンクリート工編",
+      "subtitle": "12工事×5管理（品質・安全・工程・施工計画・環境）の記入例＋補充答案",
+      "series": "I 1級土木 第2次検定 記述",
+      "seriesVolume": 6,
+      "priceJpy": 2980,
+      "royalty": 0.35,
+      "chapterCount": 13,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/i-12.json",
+      "epub": "kindle-dist/i-12.epub",
+      "cover": "kindle-dist/i-12.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-12.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-09-23",
+          "change": "制作完了（note の1級土木 第2次検定 記述マガジン 13 本を再編集＋書き下ろし前付け）。KDP Select OFF＝note 併売のため日本 35%"
+        }
+      ],
+      "draftAsin": null,
+      "publishedDate": null
+    },
+    {
+      "id": "i-13",
+      "asin": null,
+      "title": "1級土木施工管理技士 第2次検定 施工経験記述 想定工事 完成答案集 基礎・杭工編",
+      "subtitle": "10工事×5管理（品質・安全・工程・施工計画・環境）の記入例＋補充答案",
+      "series": "I 1級土木 第2次検定 記述",
+      "seriesVolume": 7,
+      "priceJpy": 2980,
+      "royalty": 0.35,
+      "chapterCount": 11,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/i-13.json",
+      "epub": "kindle-dist/i-13.epub",
+      "cover": "kindle-dist/i-13.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-13.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-09-23",
+          "change": "制作完了（note の1級土木 第2次検定 記述マガジン 11 本を再編集＋書き下ろし前付け）。KDP Select OFF＝note 併売のため日本 35%"
+        }
+      ],
+      "draftAsin": null,
+      "publishedDate": null
+    },
+    {
+      "id": "i-14",
+      "asin": null,
+      "title": "1級土木施工管理技士 第2次検定 施工経験記述 想定工事 完成答案集 道路・舗装編",
+      "subtitle": "14工事×5管理（品質・安全・工程・施工計画・環境）の記入例",
+      "series": "I 1級土木 第2次検定 記述",
+      "seriesVolume": 8,
+      "priceJpy": 2980,
+      "royalty": 0.35,
+      "chapterCount": 14,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/i-14.json",
+      "epub": "kindle-dist/i-14.epub",
+      "cover": "kindle-dist/i-14.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-14.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-09-23",
+          "change": "制作完了（note の1級土木 第2次検定 記述マガジン 14 本を再編集＋書き下ろし前付け）。KDP Select OFF＝note 併売のため日本 35%"
+        }
+      ],
+      "draftAsin": null,
+      "publishedDate": null
+    },
+    {
+      "id": "i-15",
+      "asin": null,
+      "title": "1級土木施工管理技士 第2次検定 施工経験記述 想定工事 完成答案集 河川・海岸・港湾編",
+      "subtitle": "12工事×5管理（品質・安全・工程・施工計画・環境）の記入例",
+      "series": "I 1級土木 第2次検定 記述",
+      "seriesVolume": 9,
+      "priceJpy": 2980,
+      "royalty": 0.35,
+      "chapterCount": 12,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/i-15.json",
+      "epub": "kindle-dist/i-15.epub",
+      "cover": "kindle-dist/i-15.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-15.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-09-23",
+          "change": "制作完了（note の1級土木 第2次検定 記述マガジン 12 本を再編集＋書き下ろし前付け）。KDP Select OFF＝note 併売のため日本 35%"
+        }
+      ],
+      "draftAsin": null,
+      "publishedDate": null
+    },
+    {
+      "id": "i-16",
+      "asin": null,
+      "title": "1級土木施工管理技士 第2次検定 施工経験記述 想定工事 完成答案集 上下水道・管渠編",
+      "subtitle": "12工事×5管理（品質・安全・工程・施工計画・環境）の記入例",
+      "series": "I 1級土木 第2次検定 記述",
+      "seriesVolume": 10,
+      "priceJpy": 2980,
+      "royalty": 0.35,
+      "chapterCount": 12,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/i-16.json",
+      "epub": "kindle-dist/i-16.epub",
+      "cover": "kindle-dist/i-16.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-16.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-09-23",
+          "change": "制作完了（note の1級土木 第2次検定 記述マガジン 12 本を再編集＋書き下ろし前付け）。KDP Select OFF＝note 併売のため日本 35%"
+        }
+      ],
+      "draftAsin": null,
+      "publishedDate": null
+    },
+    {
+      "id": "i-17",
+      "asin": null,
+      "title": "1級土木施工管理技士 第2次検定 施工経験記述 想定工事 完成答案集 橋梁・構造物編",
+      "subtitle": "12工事×5管理（品質・安全・工程・施工計画・環境）の記入例",
+      "series": "I 1級土木 第2次検定 記述",
+      "seriesVolume": 11,
+      "priceJpy": 2980,
+      "royalty": 0.35,
+      "chapterCount": 12,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/i-17.json",
+      "epub": "kindle-dist/i-17.epub",
+      "cover": "kindle-dist/i-17.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-17.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-09-23",
+          "change": "制作完了（note の1級土木 第2次検定 記述マガジン 12 本を再編集＋書き下ろし前付け）。KDP Select OFF＝note 併売のため日本 35%"
+        }
+      ],
+      "draftAsin": null,
+      "publishedDate": null
+    },
+    {
+      "id": "i-18",
+      "asin": null,
+      "title": "1級土木施工管理技士 第2次検定 施工経験記述 想定工事 完成答案集 トンネル・専門工事編",
+      "subtitle": "14工事×5管理（品質・安全・工程・施工計画・環境）の記入例＋補充答案",
+      "series": "I 1級土木 第2次検定 記述",
+      "seriesVolume": 12,
+      "priceJpy": 2980,
+      "royalty": 0.35,
+      "chapterCount": 16,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/i-18.json",
+      "epub": "kindle-dist/i-18.epub",
+      "cover": "kindle-dist/i-18.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-18.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-09-23",
+          "change": "制作完了（note の1級土木 第2次検定 記述マガジン 16 本を再編集＋書き下ろし前付け）。KDP Select OFF＝note 併売のため日本 35%"
+        }
+      ],
+      "draftAsin": null,
+      "publishedDate": null
+    },
+    {
+      "id": "i-19",
+      "asin": null,
+      "title": "1級土木施工管理技士 第2次検定 施工経験記述 想定工事 完成答案集 橋梁維持更新編",
+      "subtitle": "8工事×5管理（品質・安全・工程・施工計画・環境）の記入例",
+      "series": "I 1級土木 第2次検定 記述",
+      "seriesVolume": 13,
+      "priceJpy": 2980,
+      "royalty": 0.35,
+      "chapterCount": 8,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/i-19.json",
+      "epub": "kindle-dist/i-19.epub",
+      "cover": "kindle-dist/i-19.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-19.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-09-23",
+          "change": "制作完了（note の1級土木 第2次検定 記述マガジン 8 本を再編集＋書き下ろし前付け）。KDP Select OFF＝note 併売のため日本 35%"
+        }
+      ],
+      "draftAsin": null,
+      "publishedDate": null
+    },
+    {
+      "id": "i-20",
+      "asin": null,
+      "title": "1級土木施工管理技士 第2次検定 施工経験記述 想定工事 完成答案集 道路・トンネル維持編",
+      "subtitle": "7工事×5管理（品質・安全・工程・施工計画・環境）の記入例",
+      "series": "I 1級土木 第2次検定 記述",
+      "seriesVolume": 14,
+      "priceJpy": 2980,
+      "royalty": 0.35,
+      "chapterCount": 7,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/i-20.json",
+      "epub": "kindle-dist/i-20.epub",
+      "cover": "kindle-dist/i-20.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-20.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-09-23",
+          "change": "制作完了（note の1級土木 第2次検定 記述マガジン 7 本を再編集＋書き下ろし前付け）。KDP Select OFF＝note 併売のため日本 35%"
+        }
+      ],
+      "draftAsin": null,
+      "publishedDate": null
+    },
+    {
+      "id": "i-21",
+      "asin": null,
+      "title": "1級土木施工管理技士 第2次検定 施工経験記述 想定工事 完成答案集 河川・災害復旧編",
+      "subtitle": "10工事×5管理（品質・安全・工程・施工計画・環境）の記入例",
+      "series": "I 1級土木 第2次検定 記述",
+      "seriesVolume": 15,
+      "priceJpy": 2980,
+      "royalty": 0.35,
+      "chapterCount": 10,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/i-21.json",
+      "epub": "kindle-dist/i-21.epub",
+      "cover": "kindle-dist/i-21.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-21.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-09-23",
+          "change": "制作完了（note の1級土木 第2次検定 記述マガジン 10 本を再編集＋書き下ろし前付け）。KDP Select OFF＝note 併売のため日本 35%"
+        }
+      ],
+      "draftAsin": null,
+      "publishedDate": null
+    },
+    {
+      "id": "i-22",
+      "asin": null,
+      "title": "1級土木施工管理技士 第2次検定 施工経験記述 想定工事 完成答案集 上下水道・処理施設編",
+      "subtitle": "7工事×5管理（品質・安全・工程・施工計画・環境）の記入例",
+      "series": "I 1級土木 第2次検定 記述",
+      "seriesVolume": 16,
+      "priceJpy": 2980,
+      "royalty": 0.35,
+      "chapterCount": 7,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/i-22.json",
+      "epub": "kindle-dist/i-22.epub",
+      "cover": "kindle-dist/i-22.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-22.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-09-23",
+          "change": "制作完了（note の1級土木 第2次検定 記述マガジン 7 本を再編集＋書き下ろし前付け）。KDP Select OFF＝note 併売のため日本 35%"
+        }
+      ],
+      "draftAsin": null,
+      "publishedDate": null
+    },
+    {
+      "id": "i-23",
+      "asin": null,
+      "title": "1級土木施工管理技士 第2次検定 施工経験記述 想定工事 完成答案集 港湾・空港・鉄道・農業編",
+      "subtitle": "9工事×5管理（品質・安全・工程・施工計画・環境）の記入例",
+      "series": "I 1級土木 第2次検定 記述",
+      "seriesVolume": 17,
+      "priceJpy": 2980,
+      "royalty": 0.35,
+      "chapterCount": 9,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/i-23.json",
+      "epub": "kindle-dist/i-23.epub",
+      "cover": "kindle-dist/i-23.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-23.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-09-23",
+          "change": "制作完了（note の1級土木 第2次検定 記述マガジン 9 本を再編集＋書き下ろし前付け）。KDP Select OFF＝note 併売のため日本 35%"
+        }
+      ],
+      "draftAsin": null,
+      "publishedDate": null
+    },
+    {
+      "id": "i-24",
+      "asin": null,
+      "title": "1級土木施工管理技士 第2次検定 施工経験記述 想定工事 完成答案集 エネルギー・環境・新技術編",
+      "subtitle": "9工事×5管理（品質・安全・工程・施工計画・環境）の記入例",
+      "series": "I 1級土木 第2次検定 記述",
+      "seriesVolume": 18,
+      "priceJpy": 2980,
+      "royalty": 0.35,
+      "chapterCount": 9,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/i-24.json",
+      "epub": "kindle-dist/i-24.epub",
+      "cover": "kindle-dist/i-24.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-24.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-09-23",
+          "change": "制作完了（note の1級土木 第2次検定 記述マガジン 9 本を再編集＋書き下ろし前付け）。KDP Select OFF＝note 併売のため日本 35%"
+        }
+      ],
+      "draftAsin": null,
+      "publishedDate": null
+    },
+    {
+      "id": "j-01",
+      "asin": null,
+      "title": "2級土木施工管理技士 第2次検定 施工経験記述 過去問模範答案集",
+      "subtitle": "令和3〜7年度 年度別5回分の模範答案と書き方",
+      "series": "J 2級土木 第2次検定 記述",
+      "seriesVolume": 1,
+      "priceJpy": 1980,
+      "royalty": 0.35,
+      "chapterCount": 5,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/j-01.json",
+      "epub": "kindle-dist/j-01.epub",
+      "cover": "kindle-dist/j-01.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_j-01.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-09-23",
+          "change": "制作完了（note の2級土木 第2次検定 記述マガジン 5 本を再編集＋書き下ろし前付け）。KDP Select OFF＝note 併売のため日本 35%"
+        }
+      ],
+      "draftAsin": null,
+      "publishedDate": null
+    },
+    {
+      "id": "j-02",
+      "asin": null,
+      "title": "2級土木施工管理技士 第2次検定 施工経験記述 完成答案集",
+      "subtitle": "品質・安全・工程の工種別完成答案＋小規模地域インフラ4工事",
+      "series": "J 2級土木 第2次検定 記述",
+      "seriesVolume": 2,
+      "priceJpy": 1980,
+      "royalty": 0.35,
+      "chapterCount": 4,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/j-02.json",
+      "epub": "kindle-dist/j-02.epub",
+      "cover": "kindle-dist/j-02.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_j-02.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-09-23",
+          "change": "制作完了（note の2級土木 第2次検定 記述マガジン 4 本を再編集＋書き下ろし前付け）。KDP Select OFF＝note 併売のため日本 35%"
+        }
+      ],
+      "draftAsin": null,
+      "publishedDate": null
+    },
+    {
+      "id": "j-03",
+      "asin": null,
+      "title": "2級土木施工管理技士 第2次検定 学科記述 テーマ別出る順＋直前暗記ノート",
+      "subtitle": "令和3〜7年度の頻出論点と解答の型・穴埋め頻出語句",
+      "series": "J 2級土木 第2次検定 記述",
+      "seriesVolume": 3,
+      "priceJpy": 1980,
+      "royalty": 0.35,
+      "chapterCount": 6,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/j-03.json",
+      "epub": "kindle-dist/j-03.epub",
+      "cover": "kindle-dist/j-03.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_j-03.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-09-23",
+          "change": "制作完了（note の2級土木 第2次検定 記述マガジン 6 本を再編集＋書き下ろし前付け）。KDP Select OFF＝note 併売のため日本 35%"
+        }
+      ],
+      "draftAsin": null,
+      "publishedDate": null
+    },
+    {
+      "id": "j-11",
+      "asin": null,
+      "title": "2級土木施工管理技士 第2次検定 施工経験記述 想定工事 完成答案集 土工・コンクリート・基礎編",
+      "subtitle": "16工事×品質・安全・工程の記入例（施工計画・環境対策の備えつき）",
+      "series": "J 2級土木 第2次検定 記述",
+      "seriesVolume": 4,
+      "priceJpy": 1980,
+      "royalty": 0.35,
+      "chapterCount": 16,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/j-11.json",
+      "epub": "kindle-dist/j-11.epub",
+      "cover": "kindle-dist/j-11.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_j-11.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-09-23",
+          "change": "制作完了（note の2級土木 第2次検定 記述マガジン 16 本を再編集＋書き下ろし前付け）。KDP Select OFF＝note 併売のため日本 35%"
+        }
+      ],
+      "draftAsin": null,
+      "publishedDate": null
+    },
+    {
+      "id": "j-12",
+      "asin": null,
+      "title": "2級土木施工管理技士 第2次検定 施工経験記述 想定工事 完成答案集 道路・舗装・橋梁・法面編",
+      "subtitle": "13工事×品質・安全・工程の記入例（施工計画・環境対策の備えつき）",
+      "series": "J 2級土木 第2次検定 記述",
+      "seriesVolume": 5,
+      "priceJpy": 1980,
+      "royalty": 0.35,
+      "chapterCount": 13,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/j-12.json",
+      "epub": "kindle-dist/j-12.epub",
+      "cover": "kindle-dist/j-12.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_j-12.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-09-23",
+          "change": "制作完了（note の2級土木 第2次検定 記述マガジン 13 本を再編集＋書き下ろし前付け）。KDP Select OFF＝note 併売のため日本 35%"
+        }
+      ],
+      "draftAsin": null,
+      "publishedDate": null
+    },
+    {
+      "id": "j-13",
+      "asin": null,
+      "title": "2級土木施工管理技士 第2次検定 施工経験記述 想定工事 完成答案集 河川・海岸・農林・公園編",
+      "subtitle": "13工事×品質・安全・工程の記入例（施工計画・環境対策の備えつき）",
+      "series": "J 2級土木 第2次検定 記述",
+      "seriesVolume": 6,
+      "priceJpy": 1980,
+      "royalty": 0.35,
+      "chapterCount": 13,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/j-13.json",
+      "epub": "kindle-dist/j-13.epub",
+      "cover": "kindle-dist/j-13.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_j-13.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-09-23",
+          "change": "制作完了（note の2級土木 第2次検定 記述マガジン 13 本を再編集＋書き下ろし前付け）。KDP Select OFF＝note 併売のため日本 35%"
+        }
+      ],
+      "draftAsin": null,
+      "publishedDate": null
+    },
+    {
+      "id": "j-14",
+      "asin": null,
+      "title": "2級土木施工管理技士 第2次検定 施工経験記述 想定工事 完成答案集 上下水道・排水編",
+      "subtitle": "8工事×品質・安全・工程の記入例（施工計画・環境対策の備えつき）",
+      "series": "J 2級土木 第2次検定 記述",
+      "seriesVolume": 7,
+      "priceJpy": 1980,
+      "royalty": 0.35,
+      "chapterCount": 8,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/j-14.json",
+      "epub": "kindle-dist/j-14.epub",
+      "cover": "kindle-dist/j-14.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_j-14.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-09-23",
+          "change": "制作完了（note の2級土木 第2次検定 記述マガジン 8 本を再編集＋書き下ろし前付け）。KDP Select OFF＝note 併売のため日本 35%"
+        }
+      ],
+      "draftAsin": null,
+      "publishedDate": null
+    },
+    {
+      "id": "j-15",
+      "asin": null,
+      "title": "2級土木施工管理技士 第2次検定 施工経験記述 想定工事 完成答案集 地域道路・付帯施設編",
+      "subtitle": "10工事×品質・安全・工程の記入例（施工計画・環境対策の備えつき）",
+      "series": "J 2級土木 第2次検定 記述",
+      "seriesVolume": 8,
+      "priceJpy": 1980,
+      "royalty": 0.35,
+      "chapterCount": 10,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/j-15.json",
+      "epub": "kindle-dist/j-15.epub",
+      "cover": "kindle-dist/j-15.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_j-15.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-09-23",
+          "change": "制作完了（note の2級土木 第2次検定 記述マガジン 10 本を再編集＋書き下ろし前付け）。KDP Select OFF＝note 併売のため日本 35%"
+        }
+      ],
+      "draftAsin": null,
+      "publishedDate": null
     }
   ]
 }

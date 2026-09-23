@@ -32,6 +32,9 @@ const BOM = Buffer.from([0xef, 0xbb, 0xbf]);
 const LEAKS = [
   { re: /article\.mdx/, why: '章タイトルがソースのファイル名のまま（frontmatter の title を拾えていない）' },
   { re: /seoTitle:/, why: 'YAML frontmatter が本文として印字されている' },
+  // 2026-09-23: note 原稿の記入例 `〇〇` がレンダラ未対応で記号のまま印字されていた（i-01 554・i-11 848 箇所）
+  // 対象はインラインの `x` だけ（``` のフェンスは d-00/d-01/e-02 に既存の別欠陥があり、別タスクで扱う）
+  { re: /`[^`<\n]+`/, why: 'markdown のインライン code（`x`）が記号のまま印字されている（kindle-md の inlineMd を確認）' },
 ];
 
 const errors = [];

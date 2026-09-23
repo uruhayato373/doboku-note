@@ -14,6 +14,9 @@
 //     "frontMatter": "content/kindle/books/c-01/front-matter.md",  // 任意（出版時は必須）
 //     "creditBody": "…",        // 任意: 出典文を上書き（過去問非公開の RCCM 等）
 //     "chapterLabel": "headline" // 任意: 章ラベルに V4 カバーの cover.headline を使う（h 系）
+//                                //   "h1-tail" = 本文 H1 の最後の「｜」より後ろ（i/j 系。coverTitle が配列で使えないため）
+//     "dropLines": ["^この教材は、"] // 任意: 一致する行を全章から除く（章ごとに繰り返す著者紹介・添削誘導など）
+//     "replaceText": [["この記事", "この章"]] // 任意: 章本文の語の置換（note 記事の言い回しを書籍向けにする）
 //   }
 
 import { readFileSync, existsSync, mkdirSync } from 'node:fs'
@@ -121,7 +124,9 @@ function stripNoteCta(body) {
     !/もあわせてご覧ください|「完全パック」|magazine ¥|magazine セット|単品[^\S\n]*[:：]|21%OFF|｜note|note\.com|^本記事は有料マガジン|^[^。\n]{0,40}はこちらです。$/.test(l),
   ).join('\n')
   // (3) CTA 除去で生じた連続区切り/空行を整理し、末尾の孤立区切りを落とす
-  out = out.replace(/(?:^|\n)---[^\S\n]*(?=\n[^\S\n]*---)/g, '').replace(/\n{3,}/g, '\n\n').replace(/(?:\n[^\S\n]*---[^\S\n]*)+[\s]*$/, '\n')
+  //     2026-09-23: 区切りの間に空行が挟まる形（note 原稿の標準）も畳む。旧式は隣接行だけを見ていたため、
+  //     i/j 系で CTA・関連リンクを除いた章末に孤立 <hr/> が全章で残った。
+  out = out.replace(/(?:^|\n)[^\S\n]*---[^\S\n]*(?=(?:\n[^\S\n]*)*\n[^\S\n]*---[^\S\n]*(?:\n|$))/g, '').replace(/\n{3,}/g, '\n\n').replace(/(?:\s*\n[^\S\n]*---[^\S\n]*)+\s*$/, '\n')
   return out
 }
 
@@ -149,6 +154,8 @@ function main() {
   const outDir = args.outDir || spec.outDir || resolve(REPO, `.tmp/kindle-${spec.bookId}`)
   mkdirSync(outDir, { recursive: true })
   const dropRes = (spec.dropSections || []).map((s) => new RegExp(s)).concat(DEFAULT_DROP)
+  const dropLineRes = (spec.dropLines || []).map((s) => new RegExp(s))
+  const stripLines = (body) => dropLineRes.length ? body.split('\n').filter((l) => !dropLineRes.some((re) => re.test(l))).join('\n') : body
 
   const pages = []
   // 扉
@@ -187,12 +194,15 @@ function main() {
   for (const srcRel of spec.sources) {
     const srcPath = resolve(REPO, srcRel)
     const { fm, body } = splitFrontmatter(readFileSync(srcPath, 'utf8'))
-    const cleaned = stripLinks(stripNoteCta(stripNoteSections(body, dropRes)))
+    const cleaned = (spec.replaceText || []).reduce((t, [from, to]) => t.split(from).join(to),
+      stripLinks(stripNoteCta(stripLines(stripNoteSections(body, dropRes)))))
     chap++
     const id = `chap-${String(chap).padStart(2, '0')}`
     // 章ラベル: fm.theme / fm.coverTitle（旧 C/F 系）→ spec.chapterLabel === 'headline' のときだけ V4 カバーの
     // cover.headline（`  headline:` ネスト）→ dir 名。opt-in なのは、F 系（R03〜R07 の年度 dir）の既刊 TOC を変えないため（2026-09-17 h-01 QA）。
-    const label = fm.theme || fm.coverTitle || (spec.chapterLabel === 'headline' ? fm.headline : null) || basename(resolve(srcPath, '..'))
+    // i/j 系（1級・2級土木）は coverTitle が YAML 配列で文字列のまま章ラベルに漏れるため、H1 の末尾を使う。
+    const h1Tail = spec.chapterLabel === 'h1-tail' ? ((body.match(/^# (.+)$/m) || [])[1] || '').split('｜').pop().trim() : ''
+    const label = h1Tail || fm.theme || fm.coverTitle || (spec.chapterLabel === 'headline' ? fm.headline : null) || basename(resolve(srcPath, '..'))
     pages.push({
       id, href: `${id}.xhtml`, label,
       content: xhtmlDoc(label, `<div class="essay">${mdToXhtml(cleaned)}</div>`),
@@ -241,6 +251,7 @@ blockquote { margin: 0.5em 0 0.9em; padding: 0.2em 0.8em; border-left: 3px solid
 .cover-title .author { margin-top: 3em; font-size: 1.1em; }
 .front { margin-top: 1.5em; }
 .credit { font-size: 0.95em; line-height: 1.9; }
+.fill { border-bottom: 1px dotted #1a4a6e; }
 `
 
 main()
