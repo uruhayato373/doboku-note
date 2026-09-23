@@ -19,13 +19,36 @@
  * 真実源: .claude/knowledge/reference/note-api-verification.md「live 本文整合性検査」
  */
 import { existsSync } from 'node:fs';
-import { resolve } from 'node:path';
+import { resolve, basename, join } from 'node:path';
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 // トークンは全角括弧＝markdown 変換されない・deriveProbe の probe 候補（記号なし16字以上）にならない。
 const tokenFor = (n) => `〔〔IMG:${n}〕〕`;
 const TOKEN_RE = /〔〔IMG:\d+〕〕/g;
+
+/**
+ * 著者オーソリティ バナーの記事ごとの複製は **生成物で git 管理外**（.gitignore の
+ * `content/note/（任意の階層）/img/figure-author-authority*.png`）。原本は下の追跡ディレクトリにあり、
+ * 各記事のコピーは scripts/distribute-author-authority-banner.mjs が原本を複製しただけ
+ * （2026-09-23 に 251 枚すべてが原本 2 種とバイト一致することを確認）。
+ *
+ * そのため git の checkout（CI の ops-write・worktree）では記事側のファイルが無い。
+ * 以前はここで「ファイル無し」として画像行を黙って除去しており、**CI で再公開した
+ * 7 記事のライブからバナーが消えた**（2026-09-23）。記事側に無ければ原本で解決する。
+ */
+export const AUTHOR_BANNER_RE = /^figure-author-authority[^/]*\.png$/;
+export const AUTHOR_BANNER_ORIGIN_DIR = 'content/note/共通/著者オーソリティ/img';
+
+/** 記事側に無いバナーを追跡原本のパスへ解決する。該当しなければ null。 */
+export function resolveAuthorBannerOrigin(abs) {
+  const name = basename(abs);
+  if (!AUTHOR_BANNER_RE.test(name)) return null;
+  const i = abs.lastIndexOf('/content/note/');
+  if (i < 0) return null;
+  const origin = join(abs.slice(0, i), AUTHOR_BANNER_ORIGIN_DIR, name);
+  return existsSync(origin) ? origin : null;
+}
 
 /**
  * 本文 markdown の画像行 `^![alt](path)$` を一意トークンへ置換する（除去しない）。
@@ -46,8 +69,12 @@ export function extractBodyImages(body, articleDir) {
     const rel = m[2].trim();
     // 外部 URL 画像は対象外（除去＝従来挙動）。ローカル相対パスのみアップロード対象。
     if (/^https?:\/\//.test(rel)) { missing.push(rel + '（外部URL・除去）'); return null; }
-    const abs = resolve(articleDir, rel);
-    if (!existsSync(abs)) { missing.push(rel + '（ファイル無し・除去）'); return null; }
+    let abs = resolve(articleDir, rel);
+    if (!existsSync(abs)) {
+      const origin = resolveAuthorBannerOrigin(abs);
+      if (origin) abs = origin;
+      else { missing.push(rel + '（ファイル無し・除去）'); return null; }
+    }
     const token = tokenFor(n++);
     images.push({ token, abs, alt });
     return token;

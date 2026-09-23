@@ -22,6 +22,7 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
  *   --images-only             全文置換せず、SoT の各画像を既存本文のアンカー直後に追加挿入するのみ
  *                             （PDF 添付カード・有料境界・本文を触らない＝有料PDF記事の画像欠落修復用）
  *   --img-lenient             本文画像アップロードが一部失敗しても中断せず続行（既定は保存せず ABORT）
+ *   --allow-missing-images    ローカルの画像ファイルが無い行を本文から除去して続行（既定は保存せず中断）
  *   --reattach-pdf            全文置換で消える PDF 添付を、同じセッションで貼り直す（保存前に復元＋実体確認）。
  *                             ローカルに実ファイルが揃わなければ本文を触らず中断する
  *   --max-consecutive-fail N  --list バッチで N 本連続失敗したら残りを実行せず中断（既定 3）
@@ -82,6 +83,8 @@ const KEEP_BOUNDARY = argv.includes('--keep-boundary'); // 有料: 境界を動�
 const BOUNDARY_ARG = getArg('--boundary-h2');      // 明示指定は frontmatter paidBoundary より優先
 const IMAGES_ONLY = argv.includes('--images-only'); // 全文置換せず画像だけ追加（PDF添付カード保護）
 const IMG_LENIENT = argv.includes('--img-lenient'); // 画像挿入 failed でも続行（既定は ABORT）
+// ローカル画像ファイルが無い行を除去して続行する（既定は保存せず中断）。2026-09-23 の画像消失事故の再発防止。
+const ALLOW_MISSING_IMAGES = argv.includes('--allow-missing-images');
 // 全文置換は本文内の PDF 添付カードも消す。既定では添付を検出したら中断する（--allow-attachment-loss で明示解除）。
 // 2026-07-28: 建設部門の送客リンク是正で 196 本を全文置換し、6/16 に添付した PDF カードを消してしまった。
 const ALLOW_ATTACH_LOSS = argv.includes('--allow-attachment-loss');
@@ -197,6 +200,17 @@ function parseArticle(articlePath) {
   }
   const { body: tokenBody, images, missing } = extractBodyImages(body, dir);
   images.forEach((im, idx) => { im.anchor = anchors[idx] || ''; });
+  // ローカルのファイルが無い画像行を黙って除去すると、ライブの本文から画像が消える。
+  // 2026-09-23 に ops-write（CI）で再公開した 7 記事から著者バナーが消えた（CI の checkout には
+  // git 管理外の画像が無い）。バナーは note-images の原本フォールバックで解決するようにしたので、
+  // ここに残るのはそれ以外の本当に欠けた画像。黙って消さず、この記事は保存せず中断する。
+  const localMissing = missing.filter((x) => x.includes('（ファイル無し'));
+  if (localMissing.length && !ALLOW_MISSING_IMAGES) {
+    throw new Error(
+      `ローカルの画像ファイルが無い（${localMissing.length} 件）ため保存せず中断: ${localMissing.join(' / ')}`
+      + ' → 画像を用意して再実行する。意図して本文から外すなら --allow-missing-images',
+    );
+  }
   if (missing.length) console.log(`[img] WARN 除去した画像行: ${missing.join(' / ')}`);
   // 有料記事は API 本文が paywall で切断されるため、live 検証の期待画像数は「境界より前の画像枚数」。
   let expectedImgs = images.length;
