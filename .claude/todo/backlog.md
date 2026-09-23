@@ -181,9 +181,9 @@
 ### [DN-0287] `/standards/` の逐語分冊 part-N を sitemap に戻す（復帰条件を 9/23 に満たした）
 タグ: [インフラ・計測] [種類:改善] [起票:2026-09-24] [期日:2026-10-01]
 
-**起点**: 2026-09-17 に part-N 133 件を sitemap から一時的に外し、戻す条件を「`/exam/` の索引率 70%」とした。9/23 の週次 batch で `/exam/` は 1,015 / 1,207＝84.1%。PR #597 で除外を外した（CI のビルドで sitemap 1,568 件・check-seo-build の error 0 を確認済み・gsc-management.md に判断を記録済み）。
+**起点**: 2026-09-17 に part-N 133 件を sitemap から一時的に外し、戻す条件を「`/exam/` の索引率 70%」とした。9/23 の週次 batch で `/exam/` は 1,015 / 1,207＝84.1%。除外を外す変更（PR #597・CI のビルドで sitemap 1,568 件・check-seo-build の error 0）は develop にある。
 
-**やること**: PR #597 をマージし、次の deploy に含める。
+**やること**: develop → main の次の deploy（`/deploy`）に含め、deploy 後に本番の sitemap 件数を確かめる。
 
 **完了条件**: 本番 sitemap に `/standards/*/*/part-N` が載り、次の週次 batch の `sitemap_urls` が約 1,568 になっている。
 
