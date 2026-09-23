@@ -5,7 +5,7 @@
  * CI が作る順位表（priority-latest.json）に「表示実績のある未登録 URL」が残っているのに、
  * 直近 7 日に受理された登録リクエストが無ければ DUE。weekly-review-guard が毎週 job summary に出す。
  * 送信は gsc-request-indexing.yml（self-hosted runner の Mac・画面操作）が行う。hosted runner では Google が
- * セッションを失効させるので使えない。runner を設定するまでは人がローカルで送る（DN-0285）。
+ * セッションを失効させるので使えない。runner を設定するまでは人がローカルで送る（DN-0291）。
  *
  * 使い方:
  *   npm run check-gsc-indexing-due            # 人向け

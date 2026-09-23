@@ -18,7 +18,7 @@
  *   4. plan 段階に profile は要らない（dry-run で下書きを作る＝それ自体が書き込み、という既存 CLI の
  *      性質に依存しない）。
  *   5. **定期実行（scheduled）**: カタログで `scheduled.args` を持つ risk=low の操作だけ、人の hash なしに
- *      CI が固定引数で plan を作って実行してよい（2026-09-24・GSC の登録リクエスト＝DN-0286）。承認の対象は
+ *      CI が固定引数で plan を作って実行してよい（2026-09-24・GSC の登録リクエスト＝DN-0291）。承認の対象は
  *      「引数を固定したカタログ定義」そのもので、PR レビューを経てカタログに入った時点で承認済みとみなす。
  *      引数は dispatch から変えられない。hash 照合と resolver 側の許可条件（env の plan hash）は通常と同じ。
  *   6. **self-hosted 限定（requiresSelfHostedRunner）**: Google は GitHub hosted runner（datacenter IP）で

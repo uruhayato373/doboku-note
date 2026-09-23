@@ -1,7 +1,7 @@
 name: GSC request indexing (self-hosted)
 
 # 順位表（index-coverage.yml が水曜に作る .claude/state/metrics/gsc-indexing/priority-latest.txt）の先頭から、
-# 未登録 URL に GSC の「インデックス登録をリクエスト」を送る（DN-0286）。Google は登録リクエストの API を
+# 未登録 URL に GSC の「インデックス登録をリクエスト」を送る（DN-0291）。Google は登録リクエストの API を
 # 出していないので画面操作で、1 日 10 件前後が上限。結果は gsc-indexing/{requests-latest,history}.json に
 # commit し、14 日以内に受理した URL は scripts/gsc-request-indexing.mjs が自分で除外する。
 #
@@ -10,7 +10,7 @@ name: GSC request indexing (self-hosted)
 # .claude/knowledge/reference/measurement-incidents.md）。実行先はカタログの google.request-indexing の
 # selfHostedRunsOn（runs-on に渡すラベル配列。例: ["self-hosted","macOS","doboku-mac"]・"self-hosted" 必須は
 # ci-write-gate が検証）で決め、null の間は gate job が警告と job summary を出して何もしない
-# （検査ゼロを緑と呼ばない）。立ち上げと canary は backlog DN-0285。
+# （検査ゼロを緑と呼ばない）。立ち上げと canary は backlog DN-0291。
 #
 # 書き込みの承認: .claude/config/ci-write-operations.json の google.request-indexing（risk low・scheduled・
 # requiresSelfHostedRunner）。引数は固定で、ops-write.mjs exec --scheduled が CI 自身で plan を作る
@@ -51,7 +51,7 @@ jobs:
             process.stdout.write(Array.isArray(l) && l.includes('self-hosted') ? JSON.stringify(l) : '');
           ")
           if [ -z "${labels}" ]; then
-            echo "::warning::google.request-indexing の selfHostedRunsOn が null のため登録リクエストを送らない（hosted runner では Google のセッションが失効する・DN-0285）"
+            echo "::warning::google.request-indexing の selfHostedRunsOn が null のため登録リクエストを送らない（hosted runner では Google のセッションが失効する・DN-0291）"
             {
               echo "## GSC request indexing: skipped"
               echo "self-hosted runner が未設定（ci-write-operations.json の selfHostedRunsOn が null）。登録リクエストは 1 件も送っていない。"

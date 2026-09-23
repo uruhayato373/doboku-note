@@ -377,7 +377,7 @@
           "limit": 10
         }
       },
-      "_note": "GSC の URL 検査で順位表の先頭から未登録 URL に登録リクエストを送る（DN-0286）。Google は登録リクエストの API を出していないので画面操作。1 日 10 件前後が上限。送るのはクロール要求だけでページ内容は変えない＝risk low・scheduled（人の hash 不要）。hosted runner では Google がセッションを失効させるため self-hosted 限定（gsc-request-indexing.yml）。selfHostedRunsOn は runs-on に渡すラベル配列（例 [\"self-hosted\",\"macOS\",\"doboku-mac\"]）で、null の間は workflow が何もしない（DN-0285 で Mac を runner 登録してから設定する）。"
+      "_note": "GSC の URL 検査で順位表の先頭から未登録 URL に登録リクエストを送る（DN-0291）。Google は登録リクエストの API を出していないので画面操作。1 日 10 件前後が上限。送るのはクロール要求だけでページ内容は変えない＝risk low・scheduled（人の hash 不要）。hosted runner では Google がセッションを失効させるため self-hosted 限定（gsc-request-indexing.yml）。selfHostedRunsOn は runs-on に渡すラベル配列（例 [\"self-hosted\",\"macOS\",\"doboku-mac\"]）で、null の間は workflow が何もしない（DN-0291 で Mac を runner 登録してから設定する）。"
     }
   }
 }
