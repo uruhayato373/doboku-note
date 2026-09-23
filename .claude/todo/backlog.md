@@ -21,6 +21,15 @@
 
 ## 🔴 高 — 来月中に着手
 
+### [DN-0267] コンクリート主任技士のココナラ2件（小論文 PDF・択一直前パック PDF）を1日1件ずつ出品する
+タグ: [収益化] [種類:制作] [起票:2026-09-23] [期日:2026-09-26]
+
+**起点**: 2026-09-23 に出品文・サムネ・納品PDF（K1 5冊・K2 3冊、Drive vault 保管済み）を用意したが、同日5件目以降の新規出品が「内容の入力に進む」の後で止まり、draft のまま残った（原因未確認・coconala-operations.md §8 の注記）。本試験は 2026-11-29。主任技士の受験者が小論文と択一を直前に固める教材で、HARMはA。需要の証拠は無い試験出品で、継続判断は DN-0265。
+
+**やること**: develop で `node scripts/coconala-publish.mjs --service coconala-cce-essay-pdf --image thumb-cce-essay-pdf.png --commit` を実行し、翌日以降に `coconala-cce-takuitsu-pdf`（`thumb-cce-takuitsu-pdf.png`）を同様に出品する。止まったら再試行を重ねず翌日に回す。カタログへの書き戻し（listed・serviceUrl・listedAt）を commit する。
+
+**完了条件**: 2件の公開ページがログアウト状態で HTTP 200、価格がカタログ（¥3,000・¥3,500）と一致し、`npm run check-coconala-wiring` が通る。
+
 ### [DN-0262] 1級・2級土木 第2次検定 記述 Kindle（I・J系）26冊を KDP へ3回に分けて提出する
 タグ: [収益化] [種類:制作] [起票:2026-09-23] [期日:2026-10-17]
 
