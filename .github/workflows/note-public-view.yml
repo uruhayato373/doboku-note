@@ -1,0 +1,109 @@
+name: Audit note public view
+
+# note 公開記事を「未ログインの読者にどう見えるか」で週次検査する（scripts/check-note-public-view.mjs）。
+# API 層（添付 PDF の本数・価格・カバー・無料記事の全文会員限定）とブラウザ層（スマホ幅で画像・リンクカード・
+# はみ出し）。公開 API と公開ページだけを使うのでログイン情報は要らない。
+# note-live-audit（本文の構造）とは別 workflow にする: ブラウザ層は 20 分ほどかかり、落ちても本文の構造検査の
+# 結果を巻き込まないため。
+# pull_request は検査スクリプト自体を変えたときだけ、抽出 40 本で CI から note を開けるかを確かめる。
+
+on:
+  schedule:
+    - cron: "15 23 * * 0" # 毎週月曜 08:15 JST（note-live-audit 07:30 の後）
+  workflow_dispatch:
+    inputs:
+      sample:
+        description: "ブラウザ層を等間隔に N 本だけ（空なら全件）"
+        required: false
+        default: ""
+  pull_request:
+    paths:
+      - scripts/check-note-public-view.mjs
+      - scripts/lib/note-public-view.mjs
+      - .claude/config/note-public-view.json
+      - .github/workflows/note-public-view.yml
+
+permissions:
+  contents: read
+  issues: write # 異常を automation-failure Issue に記録する（限定例外）
+
+concurrency:
+  group: note-public-view-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          # 定期・手動は develop を検査する（既定ブランチの main は古いことがある）。PR は PR の内容。
+          # 空文字は式で偽になるので `cond && '' || 'develop'` と書くと PR でも develop になる（2026-09-23 に実際に踏んだ）
+          ref: ${{ github.event_name != 'pull_request' && 'develop' || github.ref }}
+
+      - name: Setup Node
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Audit note public view
+        id: audit
+        env:
+          SAMPLE: ${{ github.event_name == 'pull_request' && '40' || inputs.sample }}
+        run: |
+          set -o pipefail
+          mkdir -p .tmp/note-public-view
+          args=(--out .tmp/note-public-view/report.json)
+          if [ -n "${SAMPLE}" ]; then args+=(--sample "${SAMPLE}"); fi
+          node scripts/check-note-public-view.mjs "${args[@]}" 2>&1 | tee .tmp/note-public-view.log
+
+      - name: Upload report and screenshots
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: note-public-view
+          path: |
+            .tmp/note-public-view.log
+            .tmp/note-public-view/
+          if-no-files-found: ignore
+          include-hidden-files: true # .tmp/ 配下（既定では . 始まりのパスを落とす）
+
+      - name: Report failure
+        if: failure() && github.event_name != 'pull_request'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          {
+            echo "note 公開ページの見え方に不整合（または検査不成立）。"
+            echo ""
+            echo '```'
+            grep -E 'BAD|✗|検査不成立' .tmp/note-public-view.log | head -60 || true
+            echo '```'
+            echo ""
+            echo "- スクリーンショットと結果 JSON: run の成果物 note-public-view"
+            echo "- run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            echo "- 例外台帳: \`.claude/config/note-public-view.json\`（意図した全文ロック・判断待ち）"
+          } > /tmp/npv-body.md
+          node scripts/report-automation-failure.mjs \
+            --channel note-public-view \
+            --title "公開ページの見え方に不整合" \
+            --body-file /tmp/npv-body.md
+
+      - name: Resolve failure channel
+        if: success() && github.event_name != 'pull_request'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/report-automation-failure.mjs --resolve --channel note-public-view \
+            --body "復旧 run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"

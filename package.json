@@ -200,6 +200,7 @@
     "check-note-duplicate-images": "node scripts/check-note-duplicate-images.mjs",
     "check-note-link-cards": "node scripts/check-note-link-cards.mjs",
     "check-note-live-headings": "node scripts/check-note-live-headings.mjs",
+    "check-note-public-view": "node scripts/check-note-public-view.mjs",
     "check-note-live-tags": "node scripts/check-note-live-tags.mjs",
     "check-note-membership": "node scripts/check-note-membership.mjs",
     "check-membership-drip": "node scripts/check-membership-drip.mjs",

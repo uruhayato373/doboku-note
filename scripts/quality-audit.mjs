@@ -210,6 +210,7 @@ const CHECKS = [
   // （feedback: gate-zero-coverage-false-pass）。いずれもオフライン（doc-meta-index と repo のみ）・
   // 1 秒未満・diff で結果が決まるので ci:true の条件を満たす。
   { id: 'note-site-utm', npm: 'check-note-site-utm', timeout: 60_000, ci: true, note: 'note 本文から /docs/ への送客リンクの UTM 規約（全量 backstop・pre-commit は staged のみ）' },
+  { id: 'x-length', cmd: ['node', 'scripts/check-x-length.mjs', '--pending-only', '--over'], timeout: 60_000, ci: true, note: '未投稿の X 投稿が 280 字（重み付き）を超えていないか。投稿済み（posted/replaced）は X 上で確定済みなので対象外。2026-09-23 まで CI に無く、投稿済み 1 件が 290 字だった' },
   { id: 'x-utm', npm: 'check-x-utm', timeout: 60_000, ci: true, note: 'X 投稿の送客リンクの UTM 規約（全量 backstop・pre-commit は staged のみ）' },
   { id: 'sns-urls', cmd: ['node', 'scripts/check-sns-urls.mjs'], timeout: 60_000, ci: true, note: 'SNS 投稿の /docs/ リンクが doc-meta-index に実在するか（全量 backstop・pre-commit は staged のみ）' },
   { id: 'sns-urls-mdx', cmd: ['node', 'scripts/check-sns-urls.mjs', '--mdx'], timeout: 60_000, ci: true, note: '同上の MDX 本文コーパス（全量のみ・pre-commit では走らない）' },

@@ -43,8 +43,11 @@ export function isUnmeasurable(data) {
   return d.status === 'published' && !(d.body || '') && !(d.hashtag_notes || []).length;
 }
 
-/** public API の生データを取得（body/hashtags/price/status と計測可否）。 */
-export async function fetchNoteMeta(noteId, { retries = 2, delayMs = 3000 } = {}) {
+/**
+ * public API の data をそのまま取る（curl 経路・リトライ付き）。取れなければ { data: null, error }。
+ * 生の項目（remained_file_num・eyecatch など）が要る検査は check-note-public-view が使う。
+ */
+export async function fetchNoteData(noteId, { retries = 2, delayMs = 3000 } = {}) {
   let lastErr = 'unknown';
   for (let i = 0; i <= retries; i++) {
     const r = spawnSync('curl', [
@@ -54,24 +57,33 @@ export async function fetchNoteMeta(noteId, { retries = 2, delayMs = 3000 } = {}
     ], { encoding: 'utf-8', maxBuffer: 32 * 1024 * 1024 });
     const out = (r.stdout || '').trim();
     if (out.startsWith('{')) {
-      try {
-        const d = JSON.parse(out)?.data || {};
-        return {
-          body: d.body || '', hashtags: (d.hashtag_notes || []).length,
-          price: d.price ?? null, status: d.status ?? null,
-          // メンバーシップ限定の直接シグナル（2026-08-06 実測・n66570efb6d23）。
-          // isUnmeasurable の「body 空＋タグ空」という間接推定より確かなので、
-          // 会員限定かどうかの判定はこちらを優先する。API が返さない場合は null。
-          isLimited: typeof d.is_limited === 'boolean' ? d.is_limited : null,
-          unmeasurable: isUnmeasurable(d), error: null,
-        };
-      } catch (e) { lastErr = `parse: ${String(e.message || e)}`; }
+      try { return { data: JSON.parse(out)?.data || {}, error: null }; } catch (e) { lastErr = `parse: ${String(e.message || e)}`; }
     } else {
       lastErr = (r.stderr || '').trim().split('\n')[0] || `non-json (${out.slice(0, 40)})`;
     }
     if (i < retries) sleepSync(delayMs);
   }
-  return { body: '', hashtags: 0, price: null, status: null, isLimited: null, unmeasurable: false, error: String(lastErr) };
+  return { data: null, error: String(lastErr) };
+}
+
+/** 取れなければ null（呼び出し側で取得失敗として数える）。 */
+export async function fetchNoteRaw(noteId, opts) {
+  return (await fetchNoteData(noteId, opts)).data;
+}
+
+/** public API の生データを取得（body/hashtags/price/status と計測可否）。 */
+export async function fetchNoteMeta(noteId, opts = {}) {
+  const { data: d, error } = await fetchNoteData(noteId, opts);
+  if (!d) return { body: '', hashtags: 0, price: null, status: null, isLimited: null, unmeasurable: false, error };
+  return {
+    body: d.body || '', hashtags: (d.hashtag_notes || []).length,
+    price: d.price ?? null, status: d.status ?? null,
+    // メンバーシップ限定の直接シグナル（2026-08-06 実測・n66570efb6d23）。
+    // isUnmeasurable の「body 空＋タグ空」という間接推定より確かなので、
+    // 会員限定かどうかの判定はこちらを優先する。API が返さない場合は null。
+    isLimited: typeof d.is_limited === 'boolean' ? d.is_limited : null,
+    unmeasurable: isUnmeasurable(d), error: null,
+  };
 }
 
 export async function fetchNoteBody(noteId, opts = {}) {
