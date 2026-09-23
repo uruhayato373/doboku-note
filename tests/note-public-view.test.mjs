@@ -72,3 +72,12 @@ test('代表ページ: グループごとに公開・更新がいちばん新し
   ]);
   assert.deepEqual(reps.map((r) => r.path), ['a2', 'b1', 'c1']);
 });
+
+test('本文の画像 URL の抽出と、配信サーバーの応答の分類', async () => {
+  const { extractImageUrls, classifyImageStatus } = await import('../scripts/lib/note-public-view.mjs');
+  const html = '<figure><img src="https://assets.st-note.com/img/a.png" alt=""></figure><img src="https://assets.st-note.com/img/a.png"><img src="data:x"><p>x</p>';
+  assert.deepEqual(extractImageUrls(html), ['https://assets.st-note.com/img/a.png']);
+  assert.equal(classifyImageStatus(200), 'ok');
+  for (const s of [403, 404, 410]) assert.equal(classifyImageStatus(s), 'broken');
+  for (const s of [0, 429, 500]) assert.equal(classifyImageStatus(s), 'unknown');
+});

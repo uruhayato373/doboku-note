@@ -4,9 +4,10 @@
  *
  * 2 層（判定は scripts/lib/note-public-view.mjs の純関数）:
  *   API 層（全件・ログイン不要）: 添付 PDF の本数（有料エリア見出し「N ファイル」＝remained_file_num）・
- *     価格・カバー画像・無料記事の全文会員限定。PDF はディスクに無くても退避台帳から「あるべき本数」を出す。
- *   ブラウザ層（全件・いちばん狭い帯の 360px・ログインなし）: 画像が読み込めるか・リンクカードが描画されるか・
- *     本文が横にはみ出さないか。異常のあったページは最初の画面をスクリーンショットで残す。
+ *     価格・カバー画像・無料記事の全文会員限定・本文の画像が配信サーバーにあるか（URL へ HEAD）。
+ *     PDF はディスクに無くても退避台帳から「あるべき本数」を出す。
+ *   ブラウザ層は代表ページだけ（2026-09-23 CI 実測: 記事ページを全件開くと note が途中から 403 を返し続け、
+ *     間隔を空けても 90 分で終わらなかった。全件は手元で --all-pages）。
  *   代表ページ（--review）: 資格 × 記事の種類ごとに 1 本（公開・更新がいちばん新しいもの）を、note の
  *     ブレイクポイントで区切った帯ごとの画面幅（.claude/config/public-view-breakpoints.json）で開き直し、
  *     同じ数値判定をしたうえで「最初の画面」と「有料エリア直前（無ければ本文末尾）」を撮る。画像は週次
@@ -20,7 +21,8 @@
  * 使い方:
  *   node scripts/check-note-public-view.mjs                  # 全件（API＋ブラウザ）
  *   node scripts/check-note-public-view.mjs --api-only       # API 層だけ（数分）
- *   node scripts/check-note-public-view.mjs --sample 40      # ブラウザ層を等間隔に 40 本だけ
+ *   node scripts/check-note-public-view.mjs --all-pages      # 全件をブラウザでも開く（360px・手元向け・時間がかかる）
+ *   node scripts/check-note-public-view.mjs --all-pages --sample 40  # 全件ブラウザを等間隔に 40 本だけ
  *   node scripts/check-note-public-view.mjs 技術士総監        # パス部分一致で絞る
  *   --out <path>   結果 JSON を保存（CI の成果物）
  *   --review       代表ページを全画面幅で検査・撮影する（.tmp/note-public-view/review/ と index.json）
@@ -32,7 +34,9 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { walkArticles, expectedPdfs, frontmatterValue } from './lib/note-attachments.mjs';
 import { fetchNoteRaw } from './lib/note-live-check.mjs';
-import { evaluateApi, evaluateRendered, noteGroup, pickRepresentatives } from './lib/note-public-view.mjs';
+import { evaluateApi, evaluateRendered, noteGroup, pickRepresentatives, extractImageUrls, classifyImageStatus } from './lib/note-public-view.mjs';
+import { execFile } from 'node:child_process';
+import { promisify } from 'node:util';
 import { loadBreakpointConfig, contextOptions, launchPublicBrowser, openAndSettle, shootTopAndEnd, countMediaQueriesInPage, significantBreakpoints, breakpointDrift, TransientServerError } from './lib/public-view-browser.mjs';
 import { guardBrowserLaunch } from './lib/playwright-launch.mjs';
 
@@ -42,6 +46,7 @@ const API_ONLY = argv.includes('--api-only');
 const argValue = (name) => { const i = argv.indexOf(name); return i >= 0 ? argv[i + 1] : null; };
 const SAMPLE = Number(argValue('--sample') || 0);
 const REVIEW = argv.includes('--review');
+const ALL_PAGES = argv.includes('--all-pages');
 const OUT = argValue('--out');
 const FILTER = argv.find((a, i) => !a.startsWith('--') && !['--sample', '--out'].includes(argv[i - 1])) || '';
 const SHOT_DIR = join(ROOT, '.tmp/note-public-view');
@@ -107,6 +112,7 @@ const results = new Map(targets.map((t) => [t.noteId, { path: t.path, url: t.url
 let apiFail = 0;
 let apiLimited = 0;
 const limitedIds = new Set();
+const imageUsers = new Map(); // 画像 URL → 使っている記事
 for (let i = 0; i < targets.length; i += 8) {
   await Promise.all(targets.slice(i, i + 8).map(async (t) => {
     const d = await fetchNoteRaw(t.noteId);
@@ -115,9 +121,32 @@ for (let i = 0; i < targets.length; i += 8) {
     if (d.is_limited === true) { apiLimited++; limitedIds.add(t.noteId); }
     const v = evaluateApi(t.src, { price: d.price ?? null, is_limited: d.is_limited ?? null, eyecatch: d.eyecatch ?? null, remained_file_num: d.remained_file_num ?? 0, body: d.body || '' });
     r.bad.push(...v.bad); r.warn.push(...v.warn);
+    for (const u of extractImageUrls(d.body)) (imageUsers.get(u) || imageUsers.set(u, []).get(u)).push(t.noteId);
   }));
 }
 console.log(`  API 層: ${targets.length - apiFail} 本を検査（取得失敗 ${apiFail}・会員限定で添付を数えられない ${apiLimited}）`);
+
+// 本文の画像が配信サーバーにあるか（HEAD）。記事ページではなく CDN に問い合わせるので note の制限には当たらない
+const execFileP = promisify(execFile);
+let imgUnknown = 0;
+let imgBroken = 0;
+const imgList = [...imageUsers.keys()];
+for (let i = 0; i < imgList.length; i += 8) {
+  await Promise.all(imgList.slice(i, i + 8).map(async (u) => {
+    let status = 0;
+    try {
+      const { stdout } = await execFileP('curl', ['-s', '-o', '/dev/null', '-I', '-L', '-m', '20', '--ssl-no-revoke', '-w', '%{http_code}', u]);
+      status = Number(stdout) || 0;
+    } catch { /* 取得失敗は判定できない側 */ }
+    const c = classifyImageStatus(status);
+    if (c === 'unknown') { imgUnknown++; return; }
+    if (c === 'broken') {
+      imgBroken++;
+      for (const id of imageUsers.get(u)) results.get(id).bad.push(`本文の画像が配信されていない（HTTP ${status}・${u.split('/').pop()}）`);
+    }
+  }));
+}
+console.log(`  本文の画像: ${imgList.length} 枚を確認（欠け ${imgBroken}・判定できない ${imgUnknown}）`);
 
 // ---- ブラウザ層
 const MEASURE = () => {
@@ -160,8 +189,8 @@ let viewFail = 0;
 let reps = [];
 let repFail = 0;
 let bpReport = null;
-if (!API_ONLY) {
-  viewTargets = SAMPLE > 0 ? targets.filter((_, i) => i % Math.max(1, Math.floor(targets.length / SAMPLE)) === 0).slice(0, SAMPLE) : targets;
+if (!API_ONLY && (ALL_PAGES || REVIEW)) {
+  if (ALL_PAGES) viewTargets = SAMPLE > 0 ? targets.filter((_, i) => i % Math.max(1, Math.floor(targets.length / SAMPLE)) === 0).slice(0, SAMPLE) : targets;
   // 認証プロファイルを使わない匿名ブラウザなので、他の note 操作とは衝突しない。空きメモリだけ見る。
   guardBrowserLaunch({ processRows: [] });
   const browser = await launchPublicBrowser();
@@ -192,7 +221,7 @@ if (!API_ONLY) {
     await Promise.all(viewTargets.slice(i, i + CONCURRENCY).map(inspect));
   }
   await context.close();
-  console.log(`  ブラウザ層（${baseVp.width}px）: ${viewTargets.length - viewFail} 本を検査（開けない ${viewFail}${SAMPLE ? `・抽出 ${SAMPLE} 本` : ''}）`);
+  if (ALL_PAGES) console.log(`  全件ブラウザ（${baseVp.width}px）: ${viewTargets.length - viewFail} 本を検査（開けない ${viewFail}${SAMPLE ? `・抽出 ${SAMPLE} 本` : ''}）`);
 
   // ---- 代表ページ × 画面幅（ブレイクポイントの帯ごと）
   if (REVIEW) {
@@ -255,7 +284,8 @@ if (OUT) {
   writeFileSync(OUT, JSON.stringify({ targets: targets.length, apiFail, apiLimited, viewTargets: viewTargets.length, viewFail, representatives: reps.length, repFail, breakpoints: bpReport, bad, warn }, null, 2) + '\n');
 }
 
-const failRate = Math.max(apiFail / targets.length, viewTargets.length ? viewFail / viewTargets.length : 0);
+const repLoads = reps.length * BP.note.viewports.length;
+const failRate = Math.max(apiFail / targets.length, viewTargets.length ? viewFail / viewTargets.length : 0, repLoads ? repFail / repLoads : 0, imgList.length ? imgUnknown / imgList.length : 0);
 if (failRate > 0.2) {
   console.error(`[check-note-public-view] ✗ 検査不成立: 取得・表示の失敗が ${Math.round(failRate * 100)}%（API ${apiFail}/${targets.length}・ブラウザ ${viewFail}/${viewTargets.length}）`);
   process.exit(1);

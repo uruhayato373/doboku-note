@@ -97,3 +97,15 @@ export function pickRepresentatives(list) {
   }
   return [...best.values()].sort((a, b) => a.group.localeCompare(b.group, 'ja'));
 }
+
+/** 公開 API の本文 HTML から画像の URL を取り出す（重複は除く）。 */
+export function extractImageUrls(bodyHtml) {
+  return [...new Set([...(bodyHtml || '').matchAll(/<img\b[^>]*\bsrc="([^"]+)"/g)].map((m) => m[1]).filter((u) => /^https?:\/\//.test(u)))];
+}
+
+/** 画像 URL への HEAD の結果を分類する。404・403・410 は欠け（読者に表示されない）、それ以外の失敗は判定できない。 */
+export function classifyImageStatus(status) {
+  if (status >= 200 && status < 400) return 'ok';
+  if ([403, 404, 410].includes(status)) return 'broken';
+  return 'unknown';
+}
