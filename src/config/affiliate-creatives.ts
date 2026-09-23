@@ -206,9 +206,11 @@ export const HIGH_INTENT_CAREER_SLUGS: ReadonlySet<string> = new Set([
   // **これは台帳登録であって配置ではない**: アフィリ面は resolveDocsCareerSidebarAd が
   // category で決めており、このセットは 2026-07-28 以降 arm 判定に使っていない（上のコメント）。
   "civil-construction-1-public-servant-merit",
-  // 2026-09-22: GSC で career クラスタの実クリックを出している 2 本のうちの 1 本（平均 7.8 位）。
-  // career タグが無く funnel レポート・広告ポリシーの外にあったため、タグ付けと同時に登録する。
-  "pe-comprehensive-management-public-engineer-qualification-map",
+  // 2026-09-22 に一度ここへ入れたが、同日中に取り消した。根拠にした「career クラスタの
+  // 実クリックを出している・平均 7.8 位」が GSC の実データで裏付けられなかったため
+  // （page-query スナップショット 5 本を遡って imp=1 / clk=0、唯一のクエリは
+  // 「公務員 土木職 資格」＝資格選びの学習意図）。記事自体も「目的別に資格を比較する」
+  // 内容で転職意図ではない。career タグを外して学習系へ戻した。
   // 2026-09-22 第2波の新設（公務員土木クラスタ＋RCCM キャリア価値）。
   // rccm-guide-career-value は本文アフィリを置かない設計だが、career タグを持つ以上
   // check-career-separation の WARN を避けるためここに収録する（サイドバーは資格別 creative）。

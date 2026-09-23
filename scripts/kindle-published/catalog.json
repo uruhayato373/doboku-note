@@ -10,7 +10,7 @@
       "subtitle": "平成26〜令和7年度 12年分・全422問を6科目39論点に再構成",
       "series": "1級土木施工管理技士 第1次検定 論点別過去問",
       "seriesVolume": 0,
-      "priceJpy": 1200,
+      "priceJpy": 1250,
       "royalty": 0.7,
       "questionCount": 422,
       "rontenCount": 39,
@@ -36,7 +36,8 @@
         }
       ],
       "notes": "LIVE（2026-07-15 本棚突合で確認）。分冊 A-01〜A-06 との重複コンテンツ規約は審査を通過。",
-      "dist": "kindle-published/kindle-A-00-goubon.epub"
+      "dist": "kindle-published/kindle-A-00-goubon.epub",
+      "draftAsin": "A2901CR7S6QQJY"
     },
     {
       "id": "A-01",
@@ -280,7 +281,7 @@
       "title": "技術士総合技術監理部門 択一過去問 令和元〜令和7年度完全解説【合本】",
       "subtitle": "令和元〜令和7年度 280問",
       "series": "B 技術士総監 択一",
-      "priceJpy": 490,
+      "priceJpy": 1250,
       "royalty": 0.7,
       "status": "live",
       "submittedDate": "2026-07-16",
@@ -303,7 +304,8 @@
           "date": "2026-07-16",
           "change": "KDP 新規提出・レビュー中"
         }
-      ]
+      ],
+      "draftAsin": "AP3EM9WBN9XUM"
     },
     {
       "id": "b-heisei",
@@ -311,7 +313,7 @@
       "title": "技術士総合技術監理部門 択一過去問 平成21〜平成30年度完全解説【合本】",
       "subtitle": "平成21〜平成30年度 400問",
       "series": "B 技術士総監 択一",
-      "priceJpy": 490,
+      "priceJpy": 1250,
       "royalty": 0.7,
       "status": "live",
       "builder": "scripts/build-pe1-kindle.mjs",
@@ -334,7 +336,8 @@
       ],
       "submittedDate": "2026-07-20",
       "notes": "2026-07-20 KDP提出（レビュー中）。LIVE化したら ASIN/publishedDate/status=live を catalog/戦略doc/README の3箇所に記録。",
-      "publishedDate": "2026-07-23"
+      "publishedDate": "2026-07-23",
+      "draftAsin": "A1JJR5WB9IUSGM"
     },
     {
       "id": "d-01",
@@ -373,7 +376,7 @@
       "title": "技術士第一次試験 適性科目 過去問7年分完全解説",
       "subtitle": "令和元〜7年度 105問",
       "series": "D 技術士一次 科目別",
-      "priceJpy": 390,
+      "priceJpy": 590,
       "royalty": 0.7,
       "status": "live",
       "submittedDate": "2026-07-12",
@@ -396,7 +399,8 @@
           "date": "2026-07-15",
           "change": "KDP 本棚突合で LIVE 確認・ASIN=B0H8L2WXBY"
         }
-      ]
+      ],
+      "draftAsin": "A2AGFBUNYF1QD"
     },
     {
       "id": "d-03",
@@ -432,7 +436,8 @@
           "date": "2026-09-04",
           "change": "修正版EPUBへ差し替え。原稿チェック完了・下書き保存後の再読込検証済み。KDP Select早期解除をサポートへ申請"
         }
-      ]
+      ],
+      "draftAsin": "A3S27ORYENCQ8Q"
     },
     {
       "id": "d-00",
@@ -468,7 +473,8 @@
           "date": "2026-09-04",
           "change": "修正版EPUBへ差し替え。原稿チェック完了・正常保存・誤字脱字0件を再確認。KDP Select早期解除をサポートへ申請"
         }
-      ]
+      ],
+      "draftAsin": "A3CP4T0YDLYMJM"
     },
     {
       "id": "c-01",
