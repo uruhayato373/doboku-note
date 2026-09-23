@@ -1,8 +1,11 @@
 ---
 title: 公務員技術職（土木）を受けるか決める｜専門試験の出題構成から現在地を見積もる
 notePricing: free
-noteStatus: draft
+noteStatus: published
 utmCampaign: civil-career-public-exam
+notePublishedAt: "2026-09-23"
+noteId: "n74574220cc9d"
+noteUrl: "https://note.com/dobokunote/n/n74574220cc9d"
 coverTitle:
   - 受けるか決める前に
   - 出題構成を先に見る
