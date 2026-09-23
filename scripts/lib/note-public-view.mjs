@@ -68,14 +68,30 @@ export function evaluateRendered(m) {
 }
 
 /**
- * 目視確認に回すページを選ぶ。等間隔に n 本、開始位置を週番号でずらす（毎週違うページ・続けると全体を一巡）。
- * @param {Array} list 対象
- * @param {number} n 撮るページ数
- * @param {number} week 週番号（呼び出し側が Date から出す。テストで固定できるよう引数にする）
+ * 代表ページのグループ（資格 × 記事の種類）。撮影と画面幅ごとの検査はグループごとに 1 本だけ行う。
+ * @param {{ rel: string, pricing: string|null, pdfs: number }} a rel は content/note/ からの相対パス
  */
-export function pickReview(list, n, week) {
-  if (!n || !list.length) return [];
-  const step = Math.max(1, Math.floor(list.length / n));
-  const offset = ((week % step) + step) % step;
-  return list.filter((_, i) => i >= offset && (i - offset) % step === 0).slice(0, n);
+export function noteGroup({ rel, pricing, pdfs }) {
+  const parts = rel.split('/');
+  const qual = parts[0];
+  let kind;
+  if (/もくじ/.test(rel)) kind = 'もくじ';
+  else if (parts[parts.length - 3] === 'magazines') kind = 'マガジン入口';
+  else if (pricing === 'membership') kind = '会員限定';
+  else if (pricing === 'paid') kind = pdfs > 0 ? '有料PDF付き' : '有料';
+  else kind = '無料';
+  return `${qual}｜${kind}`;
+}
+
+/**
+ * グループごとに、公開・更新がいちばん新しい記事を代表にする（直近の変更が目に入る）。同日はパス順。
+ * @param {{ group: string, date: string, path: string }[]} list date は YYYY-MM-DD（無ければ空）
+ */
+export function pickRepresentatives(list) {
+  const best = new Map();
+  for (const t of list) {
+    const cur = best.get(t.group);
+    if (!cur || t.date > cur.date || (t.date === cur.date && t.path < cur.path)) best.set(t.group, t);
+  }
+  return [...best.values()].sort((a, b) => a.group.localeCompare(b.group, 'ja'));
 }

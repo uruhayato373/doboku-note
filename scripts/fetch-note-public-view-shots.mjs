@@ -4,8 +4,8 @@
  *
  * 週次レビュー（土曜・ローカル・/weekly-review）で、エージェントが note 公開ページの見た目を画像で確かめる
  * ための入口。判定は CI が数値で済ませており、ここで取るのは「数値では決められない見た目の崩れ」を見る材料。
- * 最新の完了した定期・手動の run（PR の run は撮影 4 本の経路確認なので除く）の成果物 note-public-view を
- * .tmp/note-public-view-review/<runId>/ に展開し、review/index.json の件数を出す。
+ * 最新の完了した run の成果物 note-public-view を .tmp/note-public-view-review/<runId>/ に展開し、
+ * note と YouTube の review/index.json（代表ページ × ブレイクポイントごとの画面幅）の件数を出す。
  *
  * 使い方: node scripts/fetch-note-public-view-shots.mjs [--json] [--run <runId>]（--run は PR の run を含め任意の run を指定）
  * 終了コード: 0 = 取得できた / 2 = gh が使えない・対象の run や成果物が無い（未確認として扱う）
@@ -29,19 +29,19 @@ try {
 }
 const run = runArg ? runs.find((r) => r.databaseId === runArg) || { databaseId: runArg, createdAt: '?', conclusion: '?' }
   : runs.find((r) => r.status === 'completed' && r.event !== 'pull_request');
-if (!run) fail('完了した定期・手動の run が無い（main へのデプロイ前は定期実行が起動しない）');
+if (!run) fail('完了した定期・手動の run が無い');
 
-// 成果物は .tmp/note-public-view/ 以下の構造のまま展開されることがあるので、index.json を探す
-const findIndex = (d) => {
+// 成果物は .tmp/ 以下の構造のまま展開されるので、review/index.json をすべて探す（note と YouTube）
+const findIndexes = (d, acc = []) => {
   for (const e of readdirSync(d, { withFileTypes: true })) {
     const p = join(d, e.name);
-    if (e.isDirectory()) { const hit = findIndex(p); if (hit) return hit; }
-    else if (e.name === 'index.json' && d.endsWith('review')) return p;
+    if (e.isDirectory()) findIndexes(p, acc);
+    else if (e.name === 'index.json' && d.endsWith('review')) acc.push(p);
   }
-  return null;
+  return acc;
 };
 const dir = join(ROOT, '.tmp/note-public-view-review', String(run.databaseId));
-if (!(existsSync(dir) && findIndex(dir))) {
+if (!(existsSync(dir) && findIndexes(dir).length)) {
   mkdirSync(dir, { recursive: true });
   try {
     gh(['run', 'download', String(run.databaseId), '-n', 'note-public-view', '-D', dir]);
@@ -49,10 +49,21 @@ if (!(existsSync(dir) && findIndex(dir))) {
     fail(`run ${run.databaseId} の成果物を取れない（保存期間切れの可能性・${String(e.stderr || e.message).split('\n')[0]}）`);
   }
 }
-const indexPath = findIndex(dir);
-if (!indexPath) fail(`run ${run.databaseId} の成果物に review/index.json が無い（撮影 0 枚）`);
-const pages = JSON.parse(readFileSync(indexPath, 'utf8'));
-const shots = pages.reduce((n, p) => n + (p.shots?.length || 0), 0);
-const summary = { runId: run.databaseId, createdAt: run.createdAt, conclusion: run.conclusion, reviewDir: dirname(indexPath), pages: pages.length, shots, missingShots: pages.filter((p) => !p.shots?.length).length };
+const indexes = findIndexes(dir);
+if (!indexes.length) fail(`run ${run.databaseId} の成果物に review/index.json が無い（撮影 0 枚）`);
+const services = indexes.map((p) => {
+  const j = JSON.parse(readFileSync(p, 'utf8'));
+  const pages = j.pages || [];
+  return {
+    service: j.service || 'note',
+    reviewDir: dirname(p),
+    pages: pages.length,
+    viewports: (j.viewports || []).map((v) => v.width),
+    shots: pages.reduce((n, pg) => n + (pg.shots?.length || 0), 0),
+    missingShots: pages.filter((pg) => !pg.shots?.length).length,
+    breakpointDrift: j.breakpoints?.drift || null,
+  };
+});
+const summary = { runId: run.databaseId, createdAt: run.createdAt, conclusion: run.conclusion, services };
 if (JSON_OUT) console.log(JSON.stringify(summary, null, 2));
-else console.log(`[fetch-note-public-view-shots] run ${summary.runId}（${summary.createdAt}・${summary.conclusion}）: ${summary.pages} ページ・${summary.shots} 枚 → ${summary.reviewDir}${summary.missingShots ? `（撮れなかったページ ${summary.missingShots}）` : ''}`);
+else for (const s of services) console.log(`[fetch-note-public-view-shots] run ${summary.runId}（${summary.createdAt}・${summary.conclusion}）${s.service}: ${s.pages} ページ × ${s.viewports.length} 画面幅・${s.shots} 枚 → ${s.reviewDir}${s.missingShots ? `（撮れなかったページ ${s.missingShots}）` : ''}`);

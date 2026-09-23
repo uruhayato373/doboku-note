@@ -1,0 +1,155 @@
+{
+  "_doc": "公開ページの見え方検査（check-note-public-view / check-youtube-public-view）が撮る画面幅。各サービスの CSS の media query（min/max-width）を規則数で数えた実測から、レイアウトが切り替わる幅（breakpoints＝下の帯の最大幅。max-width: 480 と min-width: 481 はどちらも 480）と、その各帯から 1 つずつ選んだ画面幅（viewports）を持つ。週次の実行で CSS を数え直し、ここに無い主要な切り替わり幅が出たら WARN（サービス側の変更に追随するため）。数え直した結果は run の成果物に残る。",
+  "significantRuleCount": 15,
+  "note": {
+    "measuredAt": "2026-09-23",
+    "measuredOn": "https://note.com/dobokunote/n/n93378353b1bc（有料記事ページ）",
+    "breakpoints": [
+      360,
+      480,
+      768,
+      940
+    ],
+    "_breakpointsNote": "2026-09-23 に significantBreakpoints で数えた値。768（min-769 423・max-768 112）、480（max-480 353・min-481 94）、940（min-941 51・max-940 32）、360（max-360 19）",
+    "viewports": [
+      {
+        "name": "sp-s",
+        "width": 360,
+        "height": 780,
+        "device": "phone",
+        "_band": "〜360"
+      },
+      {
+        "name": "sp",
+        "width": 390,
+        "height": 844,
+        "device": "phone",
+        "_band": "361〜480"
+      },
+      {
+        "name": "tab",
+        "width": 768,
+        "height": 1024,
+        "device": "tablet",
+        "_band": "481〜768"
+      },
+      {
+        "name": "tab-l",
+        "width": 834,
+        "height": 1112,
+        "device": "tablet",
+        "_band": "769〜940"
+      },
+      {
+        "name": "pc",
+        "width": 1280,
+        "height": 900,
+        "device": "desktop",
+        "_band": "941〜"
+      }
+    ],
+    "allPagesViewport": "sp-s"
+  },
+  "youtube": {
+    "measuredAt": "2026-09-23",
+    "measuredOn": "https://www.youtube.com/shorts/pJE0G113lWE（デスクトップ版）",
+    "breakpoints": [
+      527,
+      600,
+      656,
+      750,
+      839,
+      875,
+      1023,
+      1080,
+      1293,
+      1719
+    ],
+    "_breakpointsNote": "2026-09-23 に scripts/lib/public-view-browser.mjs の significantBreakpoints（規則 15 件以上・320px 以上）で数えた値。主なもの: 527（max-527.9 364・min-528 31）、1023（min-1024 49・max-1023.9 39）、839、656、1719、1293。スマホの UA では別サイト m.youtube.com に切り替わる",
+    "viewports": [
+      {
+        "name": "w390",
+        "width": 390,
+        "height": 844,
+        "device": "phone",
+        "_band": "〜527（モバイル版 m.youtube.com）"
+      },
+      {
+        "name": "w560",
+        "width": 560,
+        "height": 900,
+        "device": "tablet",
+        "_band": "528〜600"
+      },
+      {
+        "name": "w630",
+        "width": 630,
+        "height": 900,
+        "device": "tablet",
+        "_band": "601〜656"
+      },
+      {
+        "name": "w700",
+        "width": 700,
+        "height": 1000,
+        "device": "tablet",
+        "_band": "657〜750"
+      },
+      {
+        "name": "w800",
+        "width": 800,
+        "height": 1000,
+        "device": "tablet",
+        "_band": "751〜839"
+      },
+      {
+        "name": "w860",
+        "width": 860,
+        "height": 1100,
+        "device": "tablet",
+        "_band": "840〜875"
+      },
+      {
+        "name": "w960",
+        "width": 960,
+        "height": 1100,
+        "device": "tablet",
+        "_band": "876〜1023"
+      },
+      {
+        "name": "w1050",
+        "width": 1050,
+        "height": 800,
+        "device": "desktop",
+        "_band": "1024〜1080"
+      },
+      {
+        "name": "w1280",
+        "width": 1280,
+        "height": 900,
+        "device": "desktop",
+        "_band": "1081〜1293"
+      },
+      {
+        "name": "w1440",
+        "width": 1440,
+        "height": 900,
+        "device": "desktop",
+        "_band": "1294〜1719"
+      },
+      {
+        "name": "w1920",
+        "width": 1920,
+        "height": 1080,
+        "device": "desktop",
+        "_band": "1720〜"
+      }
+    ]
+  },
+  "userAgents": {
+    "phone": "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1",
+    "tablet": "Mozilla/5.0 (iPad; CPU OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1",
+    "desktop": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36"
+  },
+  "minDeviceWidth": 320
+}

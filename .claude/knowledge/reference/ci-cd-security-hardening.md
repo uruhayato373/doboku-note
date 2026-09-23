@@ -79,7 +79,7 @@ gh secret delete SECRET_ACCESS_KEY
   1. **catalog**（`.claude/config/ci-write-operations.json`）— 実行できる operation をカタログにあるものだけに限定する。カタログ外の script は起動できない
   2. **plan hash**（`DOBOKU_CI_WRITE_PLAN_SHA256`・`scripts/lib/ci-write-gate.mjs`）— 人が確認した内容（args・repo 内 inputs のハッシュ）と、CI が実行する内容が同一であることを機械的に保証する。不一致は exit 2 で何もしない
   3. **allowlist**（`playwright-auth-profiles.json` の `ci.writeScripts`）— resolver（`playwright-auth-profile.mjs`）は、この env が無い、または script がサービスの `writeScripts` に無ければ profile を返さない＝書き込みできない
-- **Instagram は Meta 利用制限中のため Graph API 経路（`fetch-ig-insights` / `ig-graph-publish`）は待機**。照合・予約投稿は encrypted-state の Playwright（`login-collectors.yml` / `ops-write.yml` の `instagram.publish-bs`）。制限が解けて Graph API に戻すときはトークンに `instagram_content_publish` scope が必要（`ig-graph-publish.mjs` が投稿・カルーセル・リール・ストーリーズを作成する。read-only の `instagram_basic` だけでは公開できない）。トークン発行時に scope を確認する
+- **Instagram は Graph API を使わない（2026-09-23 ユーザー決定）**。それまでは Meta の利用制限でトークンを発行できず `fetch-ig-insights` / `ig-graph-publish` を待機させていたが、制限が解けても戻さない。照合・予約投稿は encrypted-state の Playwright（`login-collectors.yml` / `ops-write.yml` の `instagram.publish-bs`）
 - **GitHub Environment `external-writes`（required reviewer）を推奨**: `ops-write.yml` の `write` job は現状 `environment:` 未指定（Environment 未作成のためコメントアウト中）。作成後は `environment: external-writes` を有効化し、`Required reviewers` を設定すると `commit=true` の dispatch に人の承認が挟まる（上表「1-c」の Environment 活用パターンと同型）。unused Environments の扱い（削除 or 承認ゲート化）を決めるときに合わせて検討する
 
 ## 実行後の確認コマンド
