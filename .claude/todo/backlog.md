@@ -273,7 +273,7 @@ CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認し
 
 **起点**: 2026-09-23 の `check-note-republish` で、本文145本（総監117本）・タグ136本・素材197本が原稿と公開記事でずれていた。検出は週1回の note-live-audit（月曜・報告のみ）で、ずれが何日残っても止まらない。同日、別セッションが `note-update-body` の分割一括反映（spec d1／d1b）で本文のずれを解消中。部分更新（`note-update-partial`・`note-append-cta`）は反映済みとして記録しない設計のため、部分更新だけで直した記事もずれとして残り続ける。
 
-**やること**: (1) 一括反映の完了後に `check-note-republish` を再実行し、残ったずれを「本文・タグ・素材」別に解消する（部分更新で直した記事は本文全体の反映で記録を一致させる）。(2) `check-note-republish` に「原稿の最終変更からN日を超えてずれている記事があれば exit 1」のモードを足し、quality-audit の ops 区分（日次 ops-audit）へ登録する。N は運用上の反映周期（週次の note-live-audit）より長くし、壁時計依存なので ci には入れない。
+**やること**: (1) 一括反映の完了後に `check-note-republish` を再実行し、残ったずれを「本文・タグ・素材」別に解消する（部分更新で直した記事は本文全体の反映で記録を一致させる）。素材（カバー・本文画像・PDF）のずれは、2026-09-19 に完了した V5 カバー全量差し替えが記事ごとの素材記録（`recordPublishedAssetHash`）を付けていないことによる「記録だけのずれ」が大半とみられる。公開 API の eyecatch と V5 生成 manifest の出力を突き合わせ、一致したものだけ記録を付け直す（一致しないものは `note-update-cover` で反映）。(2) `check-note-republish` に「原稿の最終変更からN日を超えてずれている記事があれば exit 1」のモードを足し、quality-audit の ops 区分（日次 ops-audit）へ登録する。N は運用上の反映周期（週次の note-live-audit）より長くし、壁時計依存なので ci には入れない。
 
 **完了条件**: `node scripts/check-note-republish.mjs --json` で本文・タグ・素材のずれが0件（または理由付きの除外のみ）。新モードが ops-audit で実行され、検査件数（対象・実検査）を出力し、N日超のずれが0件で緑になる。
 
