@@ -133,10 +133,8 @@ const SITEMAP_OPTIONAL = new Set([
   '/search', // 検索 UI。クエリ依存で単体の検索価値が無いため意図的に非掲載
 ]);
 // パターンでの意図的な非掲載。**generate-sitemap.mjs の除外条件と同じ式を書く**（片方だけ変えると
-// ここが 133 件の偽赤になる・2026-09-17 の実測）。
-//   - /standards/<局>/<種別>/part-N: 基準類の逐語分冊（原典照合用の二次層）。/exam 中核の再クロール待ちの間、
-//     sitemap から外して待ち行列を短くする。復帰条件は gsc-management.md 2026-09-17 エントリ。
-const SITEMAP_OPTIONAL_PATTERNS = [/^\/standards\/[^/]+\/[^/]+\/part-\d+$/];
+// ここが偽赤になる・2026-09-17 の part-N 133 件で実測）。現在は該当なし（part-N は 2026-09-24 に sitemap へ復帰）。
+const SITEMAP_OPTIONAL_PATTERNS = [];
 const sitemapOptional = (r) => SITEMAP_OPTIONAL.has(r) || SITEMAP_OPTIONAL_PATTERNS.some((re) => re.test(r));
 {
   const candidates = [...routeSet].filter(
