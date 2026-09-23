@@ -13,3 +13,8 @@ test('バッククォートの記入例は点線下線の span になり、記�
 test('対になっていないバッククォートと HTML 特殊文字はそのまま安全に出す', () => {
   assert.equal(inlineMd('a ` b <c>'), 'a ` b &lt;c&gt;')
 })
+
+test('note 原稿の m<sup>3</sup> は上付きタグとして通す（文字列化しない）', () => {
+  assert.equal(inlineMd('盛土量 12,000m<sup>3</sup>'), '盛土量 12,000m<sup>3</sup>')
+  assert.equal(inlineMd('<script>x</script>'), '&lt;script&gt;x&lt;/script&gt;')
+})
