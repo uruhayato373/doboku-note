@@ -39,7 +39,7 @@ user-invocable: true
 
 **コンテンツPDF（`coconala-*-pdf`）**
 3. **ヒアリング不要**。該当 PDF を `.claude/config/coconala/assets/pdf/` から特定 → キット §4c「C系 PDF 送付」文を商品名・本数で埋める（トークルームで PDF 添付は運営者手作業）。個別相談は S2/S3 へ誘導。PDF と商品の対応は `scripts/build-coconala-content-pdf.mjs` の `PRODUCTS`（`label`）が正。
-   - **特典の同梱**: 1級のフルパック・プレミアムには `coconala-A1-1級二次-直前暗記ノート.pdf`、2級のフルパックには `coconala-A2-2級二次-直前暗記ノート.pdf` を必ず添える（出品本文で約束している）。
+   - **特典の同梱**: 1級の模試・フルパック・プレミアムには `coconala-A1-1級二次-直前暗記ノート.pdf`、2級の模試・フルパックには `coconala-A2-2級二次-直前暗記ノート.pdf` を必ず添える（出品本文で約束している）。
    - **部門を選ぶ商品**: `coconala-rccm-mondai1-pdf`（R3＝テンプレ＋受験部門の記入例）と `coconala-pe-oral-pdf`（O1＝総監版／建設部門版）は、購入時メッセージの部門を確認してから該当の1冊を送る。部門が書かれていなければ確認メッセージの文案を出して停止する。
 
 **技術士 口頭試験 想定質問作成（`coconala-pe-oral-qa`）**
