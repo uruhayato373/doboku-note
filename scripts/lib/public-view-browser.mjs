@@ -101,20 +101,34 @@ export async function launchPublicBrowser() {
   return chromium.launch({ headless: true, ...(process.env.CI ? {} : { channel: 'chrome' }) });
 }
 
-/** サーバー側の一時的な失敗（5xx）。読者から見た不整合ではないので、呼び出し側は「開けない」に数える。 */
-export class TransientServerError extends Error {}
+/**
+ * サーバー側の一時的な失敗（5xx）やアクセス制限（403・429）。読者から見た不整合ではないので、
+ * 呼び出し側は「開けない」に数える。throttled=true なら短時間に開きすぎたので、しばらく休む。
+ */
+export class TransientServerError extends Error {
+  constructor(message, { throttled = false } = {}) { super(message); this.throttled = throttled; }
+}
+
+/** やり直す価値のある HTTP ステータス（5xx と、アクセス制限の 403・429）。 */
+export function isRetryableStatus(status) {
+  return status >= 500 || status === 403 || status === 429;
+}
 
 /**
  * ページを開き、遅延読み込みの画像を読ませるため下までスクロールしてから落ち着くのを待つ。
- * 5xx は 3 秒おいて 1 回だけやり直し、それでも 5xx なら TransientServerError を投げる
- * （2026-09-23: note が 150 回中 1 回 503 を返し、読者向けの異常として報告しかけた）。
+ * 5xx・403・429 は待ってから 1 回だけやり直し（403・429 は 20 秒、5xx は 3 秒）、それでも同じなら
+ * TransientServerError を投げる。2026-09-23: note が 150 回中 1 回 503 を返し、CI で全件を 3 並列で開いた
+ * ときは途中から 60 本が 403 になった（記事の異常ではなく、開きすぎによる拒否）。
  */
 export async function openAndSettle(page, url, { readySelector = null } = {}) {
   let resp = await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 45_000 });
-  if ((resp?.status() ?? 0) >= 500) {
-    await page.waitForTimeout(3000);
+  let status = resp?.status() ?? 0;
+  if (isRetryableStatus(status)) {
+    const throttled = status === 403 || status === 429;
+    await page.waitForTimeout(throttled ? 20_000 : 3000);
     resp = await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 45_000 });
-    if ((resp?.status() ?? 0) >= 500) throw new TransientServerError(`HTTP ${resp.status()}（やり直しても同じ）`);
+    status = resp?.status() ?? 0;
+    if (isRetryableStatus(status)) throw new TransientServerError(`HTTP ${status}（やり直しても同じ）`, { throttled: status === 403 || status === 429 });
   }
   const ready = readySelector
     ? await page.waitForSelector(readySelector, { timeout: 20_000 }).then(() => true).catch(() => false)

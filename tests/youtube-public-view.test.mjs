@@ -3,7 +3,7 @@
  */
 import { strict as assert } from 'node:assert';
 import test from 'node:test';
-import { collectPublicVideos, watchUrl, evaluateYoutubePage, pickYoutubeRepresentatives } from '../scripts/lib/youtube-public-view.mjs';
+import { collectPublicVideos, watchUrl, classifyOembed, pickYoutubeRepresentatives } from '../scripts/lib/youtube-public-view.mjs';
 
 const now = new Date('2026-09-23T12:00:00Z');
 
@@ -26,12 +26,13 @@ test('視聴ページの URL: Shorts は /shorts/、通常動画は /watch', () 
   assert.equal(watchUrl({ videoId: 'y', kind: 'long' }), 'https://www.youtube.com/watch?v=y');
 });
 
-test('視聴ページ: 非公開・削除の表示は BAD、bot 確認は「検査できない」、正常は空', () => {
-  assert.match(evaluateYoutubePage({ status: 200, text: 'この動画は非公開です' }).bad[0], /非公開/);
-  assert.match(evaluateYoutubePage({ status: 200, text: 'Video unavailable' }).bad[0], /unavailable/);
-  const b = evaluateYoutubePage({ status: 200, text: 'Sign in to confirm you’re not a bot' });
-  assert.equal(b.blocked, true); assert.deepEqual(b.bad, []);
-  assert.deepEqual(evaluateYoutubePage({ status: 200, text: '技術士総監 令和3年度 択一' }), { bad: [], warn: [], blocked: false });
+test('oEmbed: 200 は公開、404 は削除・再生不可、403 は非公開で BAD、401 は WARN、それ以外は判定できない', () => {
+  assert.deepEqual(classifyOembed(200), { bad: [], warn: [], unknown: false });
+  assert.match(classifyOembed(404).bad[0], /削除/);
+  assert.match(classifyOembed(403).bad[0], /非公開/);
+  assert.match(classifyOembed(401).warn[0], /埋め込み/);
+  assert.equal(classifyOembed(0).unknown, true);
+  assert.equal(classifyOembed(429).unknown, true);
 });
 
 test('代表動画: 種類ごとに公開がいちばん新しい 1 本', () => {

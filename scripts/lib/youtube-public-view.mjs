@@ -1,8 +1,9 @@
 /**
  * youtube-public-view.mjs — YouTube の公開動画を「未ログインの視聴者にどう見えるか」で判定する純関数群。
  *
- * 公開状態の照合（API）は既存の verify-yt-status（週次・Data API）が持つ。ここは視聴ページそのものが
- * 見られるか（非公開・削除・再生不可の表示が出ていないか）と、代表動画の見た目（画面幅ごとの撮影）を扱う。
+ * 公開状態の照合（Data API）は既存の verify-yt-status が持つが、ドリフトを出しても workflow は緑のまま
+ * 誰も読んでいなかった（2026-09-17〜 recorded_but_gone 6 件）。ここは視聴者から見られるかを oEmbed で
+ * 判定して週次の失敗にし、代表動画の見た目（画面幅ごとの撮影）を扱う。
  * 実行側: scripts/check-youtube-public-view.mjs（週次 note-public-view.yml に同居）。
  */
 
@@ -34,21 +35,19 @@ export function watchUrl(v) {
   return v.kind === 'shorts' ? `https://www.youtube.com/shorts/${v.videoId}` : `https://www.youtube.com/watch?v=${v.videoId}`;
 }
 
-const UNAVAILABLE = /この動画は非公開です|動画を再生できません|この動画は利用できません|この動画は削除されました|Video unavailable|This video is private|This video isn['’]t available|This video has been removed/;
-const BOT_CHECK = /ロボットではないことを確認|confirm you['’]re not a bot|Sign in to confirm/;
-
 /**
- * 視聴ページの見え方を判定する。bot 確認に当たったときは「見られない」ではなく「検査できない」（blocked）。
- * @param {{ status: number, text: string }} m text は document.body.innerText
- * @returns {{ bad: string[], warn: string[], blocked: boolean }}
+ * YouTube oEmbed（ログイン不要・API キー不要）の HTTP ステータスで、視聴者から見られるかを判定する。
+ * 200 = 公開、404 = 削除・再生不可、403 = 非公開、401 = 埋め込み不可（公開だが埋め込みを禁止）。
+ * CI のブラウザでは YouTube が bot 確認でプレーヤーを隠すため、再生可否をページの文言では判定しない
+ * （2026-09-23: CI で 15 本中 14 本が「Video unavailable」に見えたが、oEmbed では 2 本が 200）。
+ * @returns {{ bad: string[], warn: string[], unknown: boolean }}
  */
-export function evaluateYoutubePage({ status, text }) {
-  if (BOT_CHECK.test(text || '')) return { bad: [], warn: ['YouTube の bot 確認に当たり検査できない'], blocked: true };
-  const bad = [];
-  if (status >= 400) bad.push(`HTTP ${status}`);
-  const hit = (text || '').match(UNAVAILABLE);
-  if (hit) bad.push(`視聴ページに「${hit[0]}」と出る（台帳では公開）`);
-  return { bad, warn: [], blocked: false };
+export function classifyOembed(status) {
+  if (status === 200) return { bad: [], warn: [], unknown: false };
+  if (status === 404) return { bad: ['YouTube 上で削除・再生不可（oEmbed 404・台帳では公開）'], warn: [], unknown: false };
+  if (status === 403) return { bad: ['非公開になっている（oEmbed 403・台帳では公開）'], warn: [], unknown: false };
+  if (status === 401) return { bad: [], warn: ['埋め込みが無効（oEmbed 401）'], unknown: false };
+  return { bad: [], warn: [`oEmbed を判定できない（HTTP ${status || '000'}）`], unknown: true };
 }
 
 /** 種類（Shorts / 通常動画）ごとに、公開がいちばん新しい 1 本を代表にする。同日は videoId 順。 */

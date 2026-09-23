@@ -51,7 +51,7 @@ export function evaluateApi(src, live) {
 
 /**
  * ブラウザで計測した DOM の値から不整合を返す。
- * @param {{ status: number, bodyFound: boolean, locked: boolean, imgs: number, imgBroken: number, imgPending: number, cardHeights: number[], overflow: string[] }} m
+ * @param {{ status: number, bodyFound: boolean, locked: boolean, imgs: number, imgBroken: number, imgPending: number, cardHeights: number[], overflow: string[], scrollBlocks?: number }} m
  */
 export function evaluateRendered(m) {
   const bad = [];
@@ -64,6 +64,8 @@ export function evaluateRendered(m) {
   const small = (m.cardHeights || []).filter((h) => h < MIN_CARD_HEIGHT);
   if (small.length) bad.push(`リンクカードが描画されていない ${small.length} 件（高さ ${small.join('/')}px）`);
   if ((m.overflow || []).length) bad.push(`スマホ幅で横にはみ出す（${m.overflow.slice(0, 2).join(', ')}）`);
+  // コードブロック等の横スクロール枠の中が画面より長い: ページは崩れないが、横に動かさないと読めない
+  if (m.scrollBlocks > 0) warn.push(`横スクロールしないと読めない枠 ${m.scrollBlocks} 個（コードブロック等）`);
   return { bad, warn };
 }
 

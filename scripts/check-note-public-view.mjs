@@ -33,7 +33,7 @@ import { fileURLToPath } from 'node:url';
 import { walkArticles, expectedPdfs, frontmatterValue } from './lib/note-attachments.mjs';
 import { fetchNoteRaw } from './lib/note-live-check.mjs';
 import { evaluateApi, evaluateRendered, noteGroup, pickRepresentatives } from './lib/note-public-view.mjs';
-import { loadBreakpointConfig, contextOptions, launchPublicBrowser, openAndSettle, shootTopAndEnd, countMediaQueriesInPage, significantBreakpoints, breakpointDrift } from './lib/public-view-browser.mjs';
+import { loadBreakpointConfig, contextOptions, launchPublicBrowser, openAndSettle, shootTopAndEnd, countMediaQueriesInPage, significantBreakpoints, breakpointDrift, TransientServerError } from './lib/public-view-browser.mjs';
 import { guardBrowserLaunch } from './lib/playwright-launch.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -46,7 +46,22 @@ const OUT = argValue('--out');
 const FILTER = argv.find((a, i) => !a.startsWith('--') && !['--sample', '--out'].includes(argv[i - 1])) || '';
 const SHOT_DIR = join(ROOT, '.tmp/note-public-view');
 const REVIEW_DIR = join(SHOT_DIR, 'review');
-const CONCURRENCY = 3;
+// 同時に開く数とページ間の間隔。3 並列・間隔なしで全件を開くと note が途中から 403 を返した（2026-09-23 CI）
+const CONCURRENCY = 2;
+const PAGE_GAP_MS = 400;
+const COOLDOWN_MS = 60_000;
+let cooldownUntil = 0;
+const sleep = (ms) => new Promise((res) => setTimeout(res, ms));
+/** 開く前に: 制限に当たった直後なら休み明けまで待ち、毎回少し間を空ける。 */
+async function politeWait() {
+  if (Date.now() < cooldownUntil) await sleep(cooldownUntil - Date.now());
+  await sleep(PAGE_GAP_MS);
+}
+/** 開けなかったときの記録。アクセス制限なら全体で一度休む。 */
+function noteOpenFailure(e) {
+  if (e instanceof TransientServerError && e.throttled) cooldownUntil = Date.now() + COOLDOWN_MS;
+  return String(e.message || e).split('\n')[0];
+}
 
 const policy = JSON.parse(readFileSync(join(ROOT, '.claude/config/note-public-view.json'), 'utf8'));
 const BP = loadBreakpointConfig();
@@ -114,8 +129,30 @@ const MEASURE = () => {
     imgBroken: imgs.filter((i) => i.complete && i.naturalWidth === 0).length,
     imgPending: imgs.filter((i) => !i.complete).length,
     cardHeights: [...(body?.querySelectorAll('figure[embedded-service]') || [])].map((f) => Math.round(f.getBoundingClientRect().height)),
-    overflow: [...(body?.querySelectorAll('*') || [])].filter((e) => e.getBoundingClientRect().right > cw + 1).slice(0, 3).map((e) => e.tagName.toLowerCase()),
+    // はみ出した要素は「タグ名: 文字列の先頭」で返す（どこが原因か報告から分かるように）。
+    // 横スクロールする枠（コードブロック等）の中のはみ出しはページを崩さないので別に数える
+    ...(() => {
+      const inScroller = (e) => {
+        for (let a = e.parentElement; a && a !== body; a = a.parentElement) {
+          if (/(auto|scroll)/.test(getComputedStyle(a).overflowX)) return true;
+        }
+        return false;
+      };
+      const wide = [...(body?.querySelectorAll('*') || [])].filter((e) => e.getBoundingClientRect().right > cw + 1);
+      const label = (e) => `${e.tagName.toLowerCase()}: ${(e.textContent || '').trim().slice(0, 30)}`;
+      return {
+        overflow: wide.filter((e) => !inScroller(e)).slice(0, 3).map(label),
+        scrollBlocks: new Set(wide.filter(inScroller).map((e) => e.closest('pre') || e.parentElement)).size,
+      };
+    })(),
   };
+};
+/** 異常時のスクリーンショット: はみ出しがあればその要素、無ければ最初の画面を写す。 */
+const SCROLL_TO_PROBLEM = () => {
+  const body = document.querySelector('.note-common-styles__textnote-body');
+  const cw = document.documentElement.clientWidth;
+  const el = [...(body?.querySelectorAll('*') || [])].find((e) => e.getBoundingClientRect().right > cw + 1 && !e.closest('pre'));
+  if (el) el.scrollIntoView({ block: 'center' }); else window.scrollTo(0, 0);
 };
 const BODY = '.note-common-styles__textnote-body';
 let viewTargets = [];
@@ -133,6 +170,7 @@ if (!API_ONLY) {
   const context = await browser.newContext(contextOptions(baseVp, BP));
   mkdirSync(SHOT_DIR, { recursive: true });
   const inspect = async (t) => {
+    await politeWait();
     const page = await context.newPage();
     const r = results.get(t.noteId);
     try {
@@ -140,12 +178,12 @@ if (!API_ONLY) {
       const v = evaluateRendered({ status, bodyFound: ready, locked: limitedIds.has(t.noteId), ...(await page.evaluate(MEASURE)) });
       r.bad.push(...v.bad.map((x) => `[${baseVp.width}px] ${x}`)); r.warn.push(...v.warn);
       if (v.bad.length) {
-        await page.evaluate(() => window.scrollTo(0, 0));
+        await page.evaluate(SCROLL_TO_PROBLEM);
         await page.screenshot({ path: join(SHOT_DIR, `${t.noteId}.png`) }).catch(() => {});
       }
     } catch (e) {
       viewFail++;
-      r.warn.push(`ブラウザで開けない: ${String(e.message || e).split('\n')[0].slice(0, 80)}`);
+      r.warn.push(`ブラウザで開けない: ${noteOpenFailure(e).slice(0, 80)}`);
     } finally {
       await page.close().catch(() => {});
     }
@@ -164,6 +202,7 @@ if (!API_ONLY) {
     for (const vp of BP.note.viewports) {
       const ctx = await browser.newContext(contextOptions(vp, BP));
       const shootOne = async (t) => {
+        await politeWait();
         const page = await ctx.newPage();
         const r = results.get(t.noteId);
         let entry = index.find((e) => e.noteId === t.noteId);
@@ -183,7 +222,7 @@ if (!API_ONLY) {
           }
         } catch (e) {
           repFail++;
-          r.warn.push(`[${vp.width}px] ブラウザで開けない: ${String(e.message || e).split('\n')[0].slice(0, 60)}`);
+          r.warn.push(`[${vp.width}px] ブラウザで開けない: ${noteOpenFailure(e).slice(0, 60)}`);
         } finally {
           await page.close().catch(() => {});
         }

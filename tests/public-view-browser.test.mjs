@@ -37,3 +37,9 @@ test('端末の種類ごとに UA・タッチ・倍率を変える', () => {
   assert.equal(phone.isMobile, true); assert.equal(phone.deviceScaleFactor, 2); assert.match(phone.userAgent, /iPhone/);
   assert.equal(pc.isMobile, false); assert.equal(pc.deviceScaleFactor, 1); assert.match(pc.userAgent, /Macintosh/);
 });
+
+test('やり直す価値のあるステータス: 5xx と、アクセス制限の 403・429（404 は本当の欠落なのでやり直さない）', async () => {
+  const { isRetryableStatus } = await import('../scripts/lib/public-view-browser.mjs');
+  for (const s of [500, 503, 403, 429]) assert.equal(isRetryableStatus(s), true, String(s));
+  for (const s of [200, 301, 404, 410]) assert.equal(isRetryableStatus(s), false, String(s));
+});

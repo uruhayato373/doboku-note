@@ -39,6 +39,10 @@ test('画面: 壊れた画像・描画されないカード・はみ出しは BA
   assert.match(evaluateRendered({ ...ok, cardHeights: [139, MIN_CARD_HEIGHT - 1] }).bad[0], /リンクカード/);
   assert.match(evaluateRendered({ ...ok, overflow: ['table'] }).bad[0], /はみ出す/);
   assert.match(evaluateRendered({ ...ok, imgPending: 1 }).warn[0], /読み込みが終わらない/);
+  // コードブロックの中の長い行はページを崩さない: BAD ではなく WARN（2026-09-23 の R8予想問題）
+  const scroll = evaluateRendered({ ...ok, scrollBlocks: 1 });
+  assert.deepEqual(scroll.bad, []);
+  assert.match(scroll.warn[0], /横スクロール/);
 });
 
 test('画面: 会員限定は本文要素が無くても BAD にしない（2026-09-23 の誤検出）。公開記事で無ければ BAD', () => {
