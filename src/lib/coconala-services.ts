@@ -101,6 +101,8 @@ export interface CoconalaService {
  *   本エントリ追加だけでは依存する実行系に配線されない。新サービスを足したら:
  *   1. 投入本文: .claude/config/coconala-listings.json に category/genreFacets/provisionFormat/
  *      catchphrase(15-30字)/body(≤1000)/purchaseNote(≤500) を追加
+ *   1b. PDF 商品（id が -pdf）なら notePriceBasis（note で同じ中身を買う方法）か notePriceExempt（対象外の理由）を書く。
+ *       価格は note 基準 × 1.1 を価格刻みで切り上げた額以上（check-coconala-wiring 検査10・coconala-operations.md §2.6）
  *   2. 商品画像: scripts/coconala-thumb.mjs の THUMB_COPY に追加 → npm run coconala-thumb で
  *      thumb-<id から coconala- を除いた key>.png を生成
  *   3. コンテンツPDF商品(C系)なら: scripts/build-coconala-content-pdf.mjs の PRODUCTS に源記事を追加
@@ -108,7 +110,8 @@ export interface CoconalaService {
  *   4. 売上記録: .claude/agents/sales-recorder.md の productId マッピング表＋.claude/knowledge/reference/sales-tracking.md
  *   5. ドキュメント: .claude/knowledge/reference/coconala-operations.md のサービス表＋ココナラ展開キット.md §2
  *   6. check-coconala-wiring.mjs が pre-commit で catalog↔listings↔商品画像↔state↔sales の
- *      整合/カバレッジを機械検知する（listings/画像の漏れ・serviceUrl 空・priceYen 不一致で落ちる）
+ *      整合/カバレッジを機械検知する（listings/画像の漏れ・serviceUrl 空・受注額と定価の不一致・PDF 価格ルール違反で落ちる）。
+ *      出品・編集後は npm run check-coconala-live で公開ページ（価格・本文）との一致も確かめる
  *   7. 変更後は /doc-sync を1回回して prose 陳腐化を点検（CLAUDE.md §8）
  */
 const SERVICES_RAW = {

@@ -40,6 +40,8 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 | `serviceUrl` | 出品後の URL（`https://coconala.com/services/{n}`）。listed なら必須・照合キー |
 | `price` / `priceYen` | 表示文字列 / 機械照合用。**必ず同時に更新**する |
 | `weeklyCapacity` | 週の受付枠（Red Line #1「定員なし恒久添削の禁止」の機械的表明） |
+| `priceHistory` | 価格改定の履歴（旧定価と有効最終日）。過去受注の突合に使う（§6 検査3） |
+| `notePriceBasis` / `notePriceExempt` | PDF 商品の価格ルール（note より安く売らない）の基準／対象外の理由（§2.6・§6 検査10） |
 | `title` | ココナラのサービスタイトル（**25字未満・末尾「ます」必須**＝ココナラ側バリデーション。出品自動化が使う） |
 
 現行サービス（価格の実値はカタログが真実源。ここでは id と役割のみ）:
@@ -386,16 +388,19 @@ npm run coconala-rate-buyer -- <talkroomId> <コメントtxt> --submit   # 送�
 
 ## 6. ドリフト検知（`npm run check-coconala-wiring`）
 
-`scripts/check-coconala-wiring.mjs`（pre-commit・`--staged` で関連 staged 時のみ発火）。決定論的検査＝CLAUDE.md 原則5。
+`scripts/check-coconala-wiring.mjs`（pre-commit・`--staged` で関連 staged 時のみ発火＋CI の `quality-audit --ci` で全件）。決定論的検査＝CLAUDE.md 原則5。
 
 | # | 検査 | 落ちる例 |
 |---|---|---|
 | 1 | listed は serviceUrl 必須（`https://coconala.com/services/{n}`） | 出品したのに URL 未記入で /links が空リンクを出す |
 | 2 | orders-log / kpi-log の serviceId がカタログに実在 | typo・退役サービスの記録 |
-| 3 | orders-log の priceYen がカタログと一致 | 価格改定の取り残し |
+| 3 | orders-log の priceYen が受注日時点の定価（カタログの `priceHistory`、無ければ現行 `priceYen`）と一致。見積り受注は `quote.amountYen` と一致 | 価格改定の取り残し・値引きミス |
 | 4 | sales-log の `coconala:<id>` がカタログに実在 | 売上の productId 命名ミス |
 | 5 | listed があるなら account の profileUrl が非空 | 出品済みなのにアカウント SSOT が空 |
 | 6 | 一度も出品していない（`draft` かつ `listedAt` 未設定）サービスに受注/KPI 実績が無い | 未出品なのに閲覧・販売が立つ論理矛盾（ダミー値の混入・serviceId 取り違え）。※ listed 後に `paused`/`draft` へ戻した場合は `listedAt` が残るので誤検知しない |
+| 7 | 全カタログに listings エントリ（カテゴリ・本文）と商品画像（ローカル実体か Drive 台帳）がある | listings の書き忘れ・サムネ未生成 |
+| 8 | `paused` には `pauseReason`（retired / absence）が必須。absence の復帰予定日超過は警告（検査9） | 一括復帰で恒久廃止まで復活 |
+| 10 | PDF 商品（id が `-pdf`・paused 以外）は `notePriceBasis` の note 基準 × 1.1 を価格刻みで切り上げた額以上（無ければ `notePriceExempt` に理由）。§2.6 | note より安く売る・note の値上げに追随し忘れ |
 
 > 出品したら**カタログを先に更新**（`status: 'listed'` ＋ `serviceUrl` ＋ `listedAt`）してから KPI・受注を記録する。
 > 順序を逆にすると検査6で落ちる（＝実績の記録先を間違えていないかの早期検知）。
