@@ -23,6 +23,9 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
  *                             （PDF 添付カード・有料境界・本文を触らない＝有料PDF記事の画像欠落修復用）
  *   --img-lenient             本文画像アップロードが一部失敗しても中断せず続行（既定は保存せず ABORT）
  *   --allow-missing-images    ローカルの画像ファイルが無い行を本文から除去して続行（既定は保存せず中断）
+ *   --trial-line-bottom       メンバーシップ特典マガジンの無料記事: 試し読みラインを末尾直前に置き、ほぼ全文を誰でも読める状態にする
+ *   --keep-member-lock        同上: ラインを引かず全文の会員限定を保つ（意図して全文ロックしている記事用）。
+ *                             無料記事で試し読み画面が出たとき、どちらも無ければ保存せず中断する（2026-09-23〜）
  *   --reattach-pdf            全文置換で消える PDF 添付を、同じセッションで貼り直す（保存前に復元＋実体確認）。
  *                             ローカルに実ファイルが揃わなければ本文を触らず中断する
  *   --max-consecutive-fail N  --list バッチで N 本連続失敗したら残りを実行せず中断（既定 3）
@@ -147,6 +150,10 @@ function recordAttach(noteId, pdfPath) {
   } catch (e) { console.log('[attach-log] 記録失敗:', e.message); }
 }
 const TRIAL_LINE_BOTTOM = argv.includes('--trial-line-bottom'); // メンバーシップ試し読み: ラインを末尾直前に置き ほぼ全文を無料プレビュー化（入口LP復旧用）
+// メンバーシップ試し読み: ラインを引かず全文の会員限定を保つ（合格ラボの「はじめに」・索引など、無料設定のまま
+// 意図して全文ロックしている記事用）。2026-09-23 から、無料記事は --trial-line-bottom かこれを指定しないと
+// 試し読み画面で中断する（指定なしで進むと、誰でも読めていた記事が全文会員限定になった）。
+const KEEP_MEMBER_LOCK = argv.includes('--keep-member-lock');
 
 // 目次が「最初のh2より後」に入って直せなかった記事（バッチ末尾サマリで失敗として可視化する）
 const tocProblems = [];
@@ -180,6 +187,7 @@ function parseArticle(articlePath) {
   const title = fmField('title'); // --pause 時にユーザーへ提示する新タイトル（本文には出さない）
   const notePricing = fmField('notePricing');
   const isPaid = notePricing === 'paid';
+  const isMembership = notePricing === 'membership';
   // 有料境界の解決順（note-publish と統一）: --boundary-h2 明示 > frontmatter paidBoundary > 既定
   const boundary = BOUNDARY_ARG || fmField('paidBoundary') || '試験問題|予想問題';
   let body = raw.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n*/, '');
@@ -222,7 +230,7 @@ function parseArticle(articlePath) {
   // 本文 H1（ライブ題名との突合に使う）。body からは :171 で剥がされるのでここで拾って渡す。
   const bodyH1 = (raw.match(/^#\s+(.+)$/m) || [])[1]?.trim() ?? '';
   const minFreeChars = isPaid ? expectedFreePreviewMin(tokenBody, boundary) : 0;
-  return { abs, noteId, title, bodyH1, body: tokenBody, images, isPaid, boundary, expectedImgs, minFreeChars };
+  return { abs, noteId, title, bodyH1, body: tokenBody, images, isPaid, isMembership, boundary, expectedImgs, minFreeChars };
 }
 
 /**
@@ -380,7 +388,7 @@ async function insertTocBlock(page, noteId) {
 // 本文H1とライブ題名の食い違い（frontmatter に title が無い記事）。最終サマリで surface する。
 const TITLE_DRIFTS = [];
 
-async function updateArticle(page, { abs, noteId, title, bodyH1, body, images, isPaid, boundary, expectedImgs, minFreeChars }, probe) {
+async function updateArticle(page, { abs, noteId, title, bodyH1, body, images, isPaid, isMembership, boundary, expectedImgs, minFreeChars }, probe) {
   console.log(`\n[article] ${noteId} — ${abs.split(/[/\\]/).slice(-2).join('/')}`);
 
   // 2. 編集 URL へ遷移
@@ -410,6 +418,7 @@ async function updateArticle(page, { abs, noteId, title, bodyH1, body, images, i
     const live = await publishLive(page, noteId, boundary, isPaid, {
       keepBoundary: KEEP_BOUNDARY,
       trialLineBottom: TRIAL_LINE_BOTTOM,
+      membershipLock: isMembership || KEEP_MEMBER_LOCK,
     });
     if (!live) { console.error(`[FAIL] ライブ反映に失敗: ${noteId}`); return false; }
     const chk = await assertLiveBody(noteId, { expectedImgs, paid: isPaid, minFreeChars });
@@ -643,6 +652,7 @@ async function updateArticle(page, { abs, noteId, title, bodyH1, body, images, i
   const live = await publishLive(page, noteId, boundary, isPaid, {
     keepBoundary: KEEP_BOUNDARY,
     trialLineBottom: TRIAL_LINE_BOTTOM,
+    membershipLock: isMembership || KEEP_MEMBER_LOCK,
   });
   if (!live) { console.error(`[FAIL] ライブ反映に失敗: ${noteId}`); return false; }
 
@@ -653,6 +663,10 @@ async function updateArticle(page, { abs, noteId, title, bodyH1, body, images, i
     console.log(`[5e] WARN: API検証がネットワークで未達（${chk.fetchError}）→ 手動確認: curl --ssl-no-revoke https://note.com/api/v3/notes/${noteId}`);
   } else if (!chk.ok) {
     console.error(`[5e] FAIL: 公開本文に不整合: ${liveIssues(chk)} → 再実行 or note エディタで手動修正`);
+    return false;
+  } else if (!isPaid && !isMembership && !TRIAL_LINE_BOTTOM && !KEEP_MEMBER_LOCK && chk.isLimited === true) {
+    // 無料記事なのに会員限定になった＝未ログインで読めない（中身を検査できず img=0 でも OK に見える）
+    console.error(`[5e] FAIL: 無料記事が会員限定（is_limited=true）で公開された。--trial-line-bottom で再実行して読める状態に戻す: ${noteId}`);
     return false;
   } else {
     console.log(`[5e] API 実体検証 OK（URL見出し0 空引用0 img=${chk.imgLive}）`);

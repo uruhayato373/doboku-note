@@ -25,6 +25,7 @@
  */
 import { readFileSync, readdirSync, existsSync } from "node:fs";
 import { basename, join } from "node:path";
+import { readDocMetaIndex } from "./lib/doc-meta-index.mjs";
 
 const MIN_GAP_MIN = 60;      // 同一日の投稿間隔の下限（分）
 const SALES_FUNNELS = ["note", "coconala", "brain"];
@@ -40,7 +41,7 @@ if (files.length === 0) {
   console.error("[check-x-campaign-plan] NG: 検査対象 0 ファイル（検査不成立）");
   process.exit(1);
 }
-const docIndex = JSON.parse(readFileSync("src/config/doc-meta-index.json", "utf8"));
+const docIndex = readDocMetaIndex();
 const docs = new Set(Object.keys(docIndex.docs ?? docIndex));
 // 公開URLへ移行済みの記事も同じ公開記事索引から検証する。
 const publicPaths = new Set(readFileSync('public/_redirects', 'utf8').split(/\r?\n/)

@@ -392,22 +392,24 @@ live 層を CI に載せないのは、**有料エリア内の添付カードが
 ### PDF 生成の環境依存（2026-07-04 訂正）
 - **Mac でハングするのは `magazine-to-pdf.mjs` の Chrome `--print-to-pdf` 経路だけ**。**Playwright `chromium.launch({headless:true})` → `page.pdf()` は Mac で正常動作**する（実例 `scripts/generate-anki-pdf.mjs`＝A5赤シートPDF・`--sample` で見本PNG）。カスタムHTML→PDF は magazine-to-pdf でなく `page.pdf()` を使う。
 
-## live 本文整合性検査: check-note-live-headings（URL見出し/空引用/画像欠落の検知網）
+## live 本文整合性検査: check-note-live-headings（URL見出し/空引用/画像欠落/見出し食い違い/太字記号の検知網）
 
 note-publish / note-update-body には、SoT どおりに live が反映されない 3 系統の破損があった:
 
 - **URL 見出し化**（2026-07-14・291 本中 7 本）— 旧リンクカード化で URL 単独行が h2 見出しに化けて note ネイティブ目次に URL 露出。原因は (1) Enter 後の embed 変換が非同期なのに盲目 4500ms 待ちのレース、(2) `Set` dedup による重複 URL 未処理、(3) 選択先ブロック種の無検査。共有実装 `scripts/lib/note-cardify.mjs` で根治（毎回 DOM 再クエリ・段落限定選択・カード生成の実測待ち）。
 - **空引用**（2026-07-15・5 本）— 複数行 blockquote が paste で中身脱落し「空の引用」だけ残る。note-lint ルール 9（`>` 連続 2 行以上をブロック・`SKIP_NOTE_BQ=1` で回避）で予防し、修復は SoT を単一行 blockquote／平文へ書き換えて再貼付。
+- **見出しの破壊**（2026-09-23・3 本）— 冒頭 CTA の部分更新（`replaceTopCta`）で CTA 文が `h2` になり、直後の見出しが「R」＋カード＋残りの段落に割れた。見出しに URL が無いので URL 見出し検査では拾えなかった（DN-0272）。
+- **太字記号の残り**（2026-09-23・9 本）— 閉じ `**` の直前が約物・直後が文字だと太字にならず `**` がそのまま出る。原稿側は `check-bold-rendering` が note 記事も検査する（下記 content-principles）。
 - **本文画像欠落**（2026-07-15・33 本）— paste 前処理が `![](img/xxx.png)` を除去していたため図が live に載らなかった。`scripts/lib/note-images.mjs` で、画像行を一意トークン `〔〔IMG:n〕〕` へ置換して paste→「＋」メニューで実画像アップロード（キャプション=alt）する方式に変更。トークン残存/挿入失敗は保存/公開せず中断。
 
 3 層の防衛網:
 
 1. **書き込みスクリプト内蔵ゲート**: `note-publish.mjs` / `note-update-body.mjs` はカード化後に URL 見出しを修復（`repairUrlHeadings`）・本文画像をアップロード（`insertImagesAtPlaceholders`）し、残存/失敗すれば**保存/公開せず中断**。公開/更新後は public API で本文を自動検証（`assertLiveBody`＝URL見出し/空引用/画像欠落の 3 検査）。ネットワーク未達は WARN（手動確認コマンド表示）。共有実装は `scripts/lib/note-live-check.mjs`。
-2. **横断スイープ**: `npm run check-note-live-headings` — 公開判定（noteUrl 非空 OR noteStatus=published）の全記事を live API から並列 8 で取得し、3 検査で不整合を列挙。BAD≥1 で exit 1。`note-live-audit.yml` が週次実行する。有料記事は API 本文が paywall で切断されるため画像期待値は「有料境界より前の枚数」、境界が SoT に無い有料は画像検査 skip（PARTIAL）。`--paths` で BAD の article.md パスのみ出力（修復 list 生成用）。
-3. **lint 予防**（note-lint）: ルール 8＝無料記事の地の文 200 字以上段落（`SKIP_NOTE_PARA=1`）、ルール 9＝複数行 blockquote（`SKIP_NOTE_BQ=1`）。既存違反はバーンダウン（触った記事から漸次是正）。
+2. **横断スイープ**: `npm run check-note-live-headings` — 公開判定（noteUrl 非空 OR noteStatus=published）の全記事を live API から並列 8 で取得し、5 検査（URL見出し/空引用/画像欠落/見出し食い違い/太字記号）で不整合を列挙。見出し食い違い（原稿の `#`・`##` のうち先頭のタイトル行を除いたものと live の `h2` を多重集合で比較）と太字記号は、**再公開台帳と本文ハッシュが一致する記事だけ**を見る（原稿を直して未再公開の記事は live が古いのが正常で、同じ週次ジョブの `check-note-republish` が要再公開として出す。除外件数は出力する）。BAD≥1 で exit 1。`note-live-audit.yml` が週次実行する。有料記事は API 本文が paywall で切断されるため画像期待値は「有料境界より前の枚数」、境界が SoT に無い有料は画像検査 skip（PARTIAL）。`--paths` で BAD の article.md パスのみ出力（修復 list 生成用）。
+3. **lint 予防**（note-lint）: ルール 8＝無料記事の地の文 200 字以上段落（`SKIP_NOTE_PARA=1`）、ルール 9＝複数行 blockquote（`SKIP_NOTE_BQ=1`）、ルール 10＝同じ画像の重複（2 枚目が CDN 確定せず全文更新が中断する。全件は `check-note-duplicate-images` が CI で同じ判定を当てる）。既存違反はバーンダウン（触った記事から漸次是正）。
 
 ```bash
-npm run check-note-live-headings                          # 全 published を 3 検査でスイープ
+npm run check-note-live-headings                          # 全 published を 5 検査でスイープ（見出し/太字記号は要再公開を除く）
 node scripts/check-note-live-headings.mjs content/note/共通  # パス絞り込み
 node scripts/check-note-live-headings.mjs --paths         # BAD パスのみ（list 生成）
 ```
@@ -417,7 +419,7 @@ node scripts/check-note-live-headings.mjs --paths         # BAD パスのみ（l
 - **無料記事の画像欠落**: `node scripts/note-update-body.mjs --article <path> --commit`。全文再貼付＋画像アップロードで一括反映。
 - **有料 PDF 記事**（`paidBoundary` あり・paid 領域に PDF 添付カード）: 全文置換は PDF 添付カードを破壊するため **`--images-only`**（本文アンカー直後に画像だけ追加・境界/カード不変）を使う。空引用も直す必要がある場合のみ全文 `--commit`（`paidBoundary` で境界保持）→ 破壊された PDF は `note-attach-file.mjs --note <key> --file <pdf> --commit` で再添付。
 - 画像挿入が一部失敗しても続行したいときは `--img-lenient`（既定は保存せず ABORT）。
-- **メンバーシップ連携記事**（`price=0` だが `is_limited=true` の会員限定＝合格ラボの索引/はじめに/入口LP）: 公開設定が3段フロー（`公開に進む → 試し読みエリアを設定 → 更新する`）。`note-update-body.mjs` は `試し読みエリアを設定` を自動検出し、既定は**試し読みラインを動かさず更新**（完全会員限定＝無料プレビュー0の記事はこれで維持）。**入口LPの無料プレビューを復旧するときは `--trial-line-bottom`**（ラインを「末尾の1つ手前」に設置＝ほぼ全文を無料プレビュー化）。**罠: ラインを本文の絶対最後に置くと会員限定にする中身が0で無効化され note が全文ロック（bodyLen→0）に戻す**ため、末尾の1つ手前に置く。前後で公開API `body`（無料プレビュー量）を実査すること。
+- **メンバーシップ連携記事**（`price=0` だが `is_limited=true` の会員限定＝合格ラボの索引/はじめに/入口LP）: 公開設定が3段フロー（`公開に進む → 試し読みエリアを設定 → 更新する`）。`note-update-body.mjs` は `試し読みエリアを設定` を自動検出する。`notePricing: membership` の記事は**試し読みラインを動かさず更新**（完全会員限定を維持）。**`notePricing: free` の記事は `--trial-line-bottom` か `--keep-member-lock`（意図して全文ロックしている記事＝合格ラボの「はじめに」・索引など）を指定しないと保存せず中断する**（2026-09-23〜。指定なしで進むと、誰でも読めていた無料のペルソナ選択ガイドが全文会員限定になった。公開後も無料記事が `is_limited=true` なら [5e] で FAIL）。`note-update-partial` / `note-swap-author-banner` も `--keep-member-lock` を受け付ける。**入口LPの無料プレビューを復旧するときは `--trial-line-bottom`**（ラインを「末尾の1つ手前」に設置＝ほぼ全文を無料プレビュー化）。**罠: ラインを本文の絶対最後に置くと会員限定にする中身が0で無効化され note が全文ロック（bodyLen→0）に戻す**ため、末尾の1つ手前に置く。前後で公開API `body`（無料プレビュー量）を実査すること。
 
 ## 記事 frontmatter への公開URL backfill: backfill-note-article-meta
 

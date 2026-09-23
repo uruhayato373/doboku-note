@@ -7,6 +7,11 @@
  *   (1) URL 見出し   — <h1-6> 内に URL（cardify グリッチ・目次に URL 露出。2026-07-14 発覚）
  *   (2) 空引用       — 中身空の <blockquote>（複数行 blockquote が paste 脱落した痕跡）
  *   (3) 画像欠落     — live <img> 数 < SoT 期待枚数（本文画像が除去されて載らない。2026-07-15 発覚）
+ *   (4) 見出し食い違い — 原稿の見出し（note で h2 になる # / ##）とライブの h2 が一致しない
+ *                       （冒頭 CTA の部分更新で CTA 文が見出しになり、直後の見出しが割れた。2026-09-23 発覚）
+ *   (5) 太字記号     — ライブ本文に ** が記号のまま残る（太字にならなかった強調。2026-09-23 発覚）
+ *   (4)(5) は再公開台帳と本文ハッシュが一致する記事だけを見る。原稿を直して未再公開の記事は
+ *   ライブが古いのが正常で、そちらは check-note-republish（同じ週次ジョブ）が要再公開として出す。
  *
  * SoT 期待画像数 = 本文の `![](...)` 行数（frontmatter/コメント除く）。有料記事は API 本文が
  * paywall で切断されるため「有料境界より前の画像のみ」を期待値とし、境界が SoT に無い有料は
@@ -23,7 +28,8 @@
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { fetchNoteBody, findUrlHeadings, countEmptyBlockquotes, countImgs } from './lib/note-live-check.mjs';
+import { fetchNoteBody, findUrlHeadings, countEmptyBlockquotes, countImgs, sotH2s, liveH2s, diffHeadings, findLiteralStars, stripHtmlComments } from './lib/note-live-check.mjs';
+import { bodyHash, loadState } from './lib/note-republish-hash.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const rawArgs = process.argv.slice(2);
@@ -59,8 +65,21 @@ function expectedImagesOf(raw) {
   return lines.slice(0, bIdx).filter(isImg).length;
 }
 
+// 見出し比較の上限行（有料は公開 API が有料境界の手前しか返さない）。境界不明の有料は null（比較しない）。
+function headingLimitOf(raw) {
+  const fm = raw.startsWith('---') ? raw.split('---')[1] || '' : '';
+  const md = raw.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n*/, '');
+  if (!/notePricing:\s*"?paid"?/.test(fm)) return { md, limit: Infinity };
+  const boundary = (fm.match(/paidBoundary:\s*"?(.+?)"?\s*$/m) || [])[1] || '試験問題|予想問題';
+  const bre = new RegExp('^##\\s+(' + boundary + ')');
+  const idx = stripHtmlComments(md).split('\n').findIndex((l) => bre.test(l.trim()));
+  return { md, limit: idx < 0 ? null : idx };
+}
+
+const republished = loadState().hashes || {};
 const targets = [];
 let reserved = 0;
+let driftSkipped = 0;
 for (const f of walk(join(ROOT, 'content/note'), [])) {
   if (FILTER && !f.includes(FILTER)) continue;
   const raw = readFileSync(f, 'utf8');
@@ -76,11 +95,19 @@ for (const f of walk(join(ROOT, 'content/note'), [])) {
   // go-live 後は verify-note-status --fix が published に是正するので、そこから検査に入る。
   if (/^noteStatus:\s*reserved\b/m.test(fm)) { reserved++; continue; }
   const m = fm.match(/noteId:\s*"?(n[0-9a-f]{12})"?/);
-  if (m) targets.push({ noteId: m[1], path: f.slice(ROOT.length + 1), expectedImgs: expectedImagesOf(raw) });
+  if (!m) continue;
+  const path = f.slice(ROOT.length + 1).replaceAll('\\', '/');
+  const inSync = republished[path] === bodyHash(raw);
+  if (!inSync) driftSkipped++;
+  const { md, limit } = headingLimitOf(raw);
+  targets.push({ noteId: m[1], path, expectedImgs: expectedImagesOf(raw), sotHeadings: inSync && limit != null ? sotH2s(md, limit) : null, inSync });
 }
-if (!PATHS_ONLY) console.log(`[check-note-live-headings] published ${targets.length} 件を検査（予約中 ${reserved} 件は go-live 前のため対象外）`);
+if (!PATHS_ONLY) {
+  console.log(`[check-note-live-headings] published ${targets.length} 件を検査（予約中 ${reserved} 件は go-live 前のため対象外）`);
+  console.log(`  見出し・太字記号の検査は再公開台帳と一致する ${targets.length - driftSkipped} 件（要再公開 ${driftSkipped} 件はライブが古いのが正常なので除外）`);
+}
 
-async function check({ noteId, path, expectedImgs }) {
+async function check({ noteId, path, expectedImgs, sotHeadings, inSync }) {
   const { body, error, unmeasurable } = await fetchNoteBody(noteId, { retries: 2, delayMs: 2000 });
   if (error) return { noteId, path, status: 'FETCH_ERR', labels: [], err: error.slice(0, 50) };
   // 未ログインで中身が返らない記事（メンバーシップ限定等）は body='' なので、そのまま検査すると
@@ -94,7 +121,23 @@ async function check({ noteId, path, expectedImgs }) {
   if (emptyBq) labels.push(`[空引用 ${emptyBq}]`);
   const partial = expectedImgs == null;
   if (!partial && imgLive < expectedImgs) labels.push(`[画像欠落 live=${imgLive}/sot=${expectedImgs}]`);
-  return { noteId, path, status: labels.length ? 'BAD' : (partial && expectedImgs !== 0 ? 'PARTIAL' : 'OK'), labels, urlH };
+  const details = [...urlH];
+  if (sotHeadings) {
+    const { missing, extra } = diffHeadings(sotHeadings, liveH2s(body));
+    if (missing.length || extra.length) {
+      labels.push(`[見出し食い違い 欠落${missing.length}/余分${extra.length}]`);
+      for (const h of missing) details.push(`欠落: ${h.slice(0, 60)}`);
+      for (const h of extra) details.push(`余分: ${h.slice(0, 60)}`);
+    }
+  }
+  if (inSync) {
+    const stars = findLiteralStars(body);
+    if (stars.length) {
+      labels.push(`[太字記号 ${stars.length}]`);
+      details.push(...stars.slice(0, 3).map((x) => `記号: ${x}`));
+    }
+  }
+  return { noteId, path, status: labels.length ? 'BAD' : (partial && expectedImgs !== 0 ? 'PARTIAL' : 'OK'), labels, urlH: details };
 }
 
 const results = [];
@@ -124,7 +167,7 @@ if (unmeas.length) {
 if (errs.length) console.log(`  WARN: FETCH_ERR ${errs.length} 件（ネットワーク未達・再実行かプロキシ外で確認）: ${errs.slice(0, 3).map((r) => r.noteId).join(', ')}${errs.length > 3 ? '…' : ''}`);
 
 if (bad.length) {
-  console.error(`[check-note-live-headings] ✗ live 本文に不整合 ${bad.length} 件（URL見出し/空引用/画像欠落）。修復: node scripts/note-update-body.mjs --article <path> --commit`);
+  console.error(`[check-note-live-headings] ✗ live 本文に不整合 ${bad.length} 件（URL見出し/空引用/画像欠落/見出し食い違い/太字記号）。修復: node scripts/note-update-body.mjs --article <path> --commit`);
   process.exit(1);
 }
 

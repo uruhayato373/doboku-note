@@ -793,6 +793,9 @@ async function runSpec(page, specArg) {
 
   const published = await publishLive(page, noteId, article.paidBoundary || '試験問題|予想問題', article.isPaid, {
     keepBoundary: true,
+    // 無料記事がメンバーシップ特典マガジンに入っていると、ラインなしの更新で全文が会員限定になる。
+    // 意図して全文ロックしている記事だけ --keep-member-lock で通す（無ければ publishLive が中断する）
+    membershipLock: article.notePricing === 'membership' || process.argv.includes('--keep-member-lock'),
     screenshotPrefix: 'note-partial',
   });
   if (!published) throw new Error('公開更新フローに失敗');

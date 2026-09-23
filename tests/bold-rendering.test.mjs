@@ -133,3 +133,11 @@ test("renderStats: 崩れた太字を literal として数え、成立した太�
   assert.equal(ok.literal, 0);
   assert.equal(ok.strong, 1);
 });
+
+test("回帰(2026-09-23): 太字のリンク **[表題](url)** の (url) を補足の括弧として外へ出さない", () => {
+  const src = "考え方として**[オールハザードアプローチ](https://example.com/a?utm_source=note)**で対応する。";
+  const { line } = fixLine(src);
+  assert.match(line, /\[オールハザードアプローチ\]\(https:\/\/example\.com\/a\?utm_source=note\)/, `リンクが壊れた: ${line}`);
+  assert.doesNotMatch(line, /\]\*\*\(/, `リンク先が太字の外に出た: ${line}`);
+  assertRenders(line);
+});

@@ -1157,6 +1157,9 @@ async function processArticle(page, article) {
   const published = await publishLive(page, article.noteId, article.boundary, article.isPaid, {
     keepBoundary: false,
     trialLineBottom: false,
+    // 無料記事がメンバーシップ特典マガジンに入っていると、ラインなしの更新で全文が会員限定になる（2026-09-23）。
+    // 意図して全文ロックしている記事だけ --keep-member-lock で通す（無ければ publishLive が中断する）
+    membershipLock: article.isMembership || process.argv.includes('--keep-member-lock'),
     screenshotPrefix: 'swap-banner',
   });
   if (!published) return { ok: false, reason: 'publishLive が失敗' };

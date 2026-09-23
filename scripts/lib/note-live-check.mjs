@@ -165,3 +165,84 @@ export async function assertLiveBody(noteId, { expectedImgs = null, paid = false
   const ok = urlHeadings.length === 0 && emptyBq === 0 && !imgShort && !freeShort;
   return { ok, urlHeadings, emptyBq, imgLive, imgShort, freeChars, freeShort, unmeasurable: false, isLimited, fetchError: null };
 }
+
+// ---- 見出し構造の食い違い（2026-09-23 追加） ----
+// 冒頭 CTA の部分更新が CTA 文を <h2> にし、直後の見出しを「R」＋カード＋残りの段落に割った
+// 記事が 2 本あった（R8予想問題・総監択一式17年分分析）。見出しに URL は入らないので
+// findUrlHeadings では拾えない。原稿の H2 とライブの h2 を突き合わせれば、割れ（原稿にあって
+// ライブに無い）も CTA の見出し化（ライブにあって原稿に無い）も同じ判定で拾える。
+// 原稿を直したが未再公開の記事も食い違うので、呼び出し側は再公開台帳と一致する記事にだけ使う。
+
+// 比較用のテキスト化。1 回の置換だと除去後に新しいタグ（`<<b>b>` → `<b>`）が現れるので、
+// 変化が無くなるまで繰り返す（出力を HTML として使う処理ではないが、除去を不完全にしない）。
+export function removeUntilStable(s, re) {
+  let prev;
+  let cur = String(s);
+  do { prev = cur; cur = cur.replace(re, ''); } while (cur !== prev);
+  return cur;
+}
+export const stripTags = (s) => removeUntilStable(s, /<[^>]*>/g);
+export const stripHtmlComments = (s) => removeUntilStable(s, /<!--[\s\S]*?-->/g);
+
+const decodeEntities = (s) => s
+  .replace(/&nbsp;/g, ' ').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+  .replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&amp;/g, '&');
+
+/** 見出し比較用の正規化（記法・タグ・空白・全半角の揺れを落とす）。 */
+export function normalizeHeading(s) {
+  return decodeEntities(stripTags(s)
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, '')
+    .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1'))
+    .replace(/[*_`]/g, '')
+    .normalize('NFKC')
+    .replace(/\s+/g, '');
+}
+
+/**
+ * 原稿本文（frontmatter 除去済み・コメント含む可）の見出しのうち、note で <h2> になるもの
+ * （`#` と `##`。note の見出しは h2/h3 の 2 段なので `#` も h2 になる）。コードブロック内は数えない。
+ * limitLine を渡すとその行より前だけ（有料記事は公開 API が有料境界の手前しか返さないため）。
+ */
+export function sotH2s(markdownBody, limitLine = Infinity) {
+  const out = [];
+  let inFence = false;
+  let seenContent = false;
+  const lines = stripHtmlComments(markdownBody).split('\n');
+  for (let i = 0; i < lines.length && i < limitLine; i++) {
+    const l = lines[i];
+    if (/^\s*```/.test(l)) { inFence = !inFence; seenContent = true; continue; }
+    if (inFence) continue;
+    const m = l.match(/^#{1,2}\s+(.+?)\s*$/);
+    // 本文先頭の `# タイトル` は note の記事タイトルになり、本文には入らない
+    const isTitle = m && !seenContent && /^#\s/.test(l);
+    if (l.trim()) seenContent = true;
+    if (m && !isTitle) out.push(normalizeHeading(m[1]));
+  }
+  return out.filter(Boolean);
+}
+
+/** ライブ本文の h2 一覧（正規化済み）。 */
+export function liveH2s(html) {
+  return [...(html || '').matchAll(/<h2\b[^>]*>([\s\S]*?)<\/h2>/g)].map((m) => normalizeHeading(m[1])).filter(Boolean);
+}
+
+/** 2 つの見出し一覧の食い違い（重複を数える多重集合比較）。 */
+export function diffHeadings(sot, live) {
+  const count = (list) => list.reduce((m, h) => m.set(h, (m.get(h) || 0) + 1), new Map());
+  const s = count(sot);
+  const l = count(live);
+  const missing = [];
+  const extra = [];
+  for (const [h, n] of s) for (let i = 0; i < n - (l.get(h) || 0); i++) missing.push(h);
+  for (const [h, n] of l) for (let i = 0; i < n - (s.get(h) || 0); i++) extra.push(h);
+  return { missing, extra };
+}
+
+/**
+ * ライブ本文に記号のまま残った `**`（太字にならなかった強調）。コード内は除く。
+ * 原稿側は check-bold-rendering が止めるが、公開済みの本文は再公開までライブに残る。
+ */
+export function findLiteralStars(html) {
+  const text = decodeEntities(stripTags(removeUntilStable(html || '', /<(pre|code)\b[\s\S]*?<\/\1>/g)));
+  return [...text.matchAll(/.{0,12}\*\*.{0,12}/g)].map((m) => m[0].replace(/\s+/g, ' '));
+}
