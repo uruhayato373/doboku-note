@@ -249,6 +249,7 @@ blockquote { margin: 0.5em 0 0.9em; padding: 0.2em 0.8em; border-left: 3px solid
 .cover-title .author { margin-top: 3em; font-size: 1.1em; }
 .front { margin-top: 1.5em; }
 .credit { font-size: 0.95em; line-height: 1.9; }
+.fill { border-bottom: 1px dotted #1a4a6e; }
 `
 
 main()
