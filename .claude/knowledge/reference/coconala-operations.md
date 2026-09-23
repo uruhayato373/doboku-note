@@ -541,6 +541,8 @@ note-publish 流儀の決定的 Playwright。ログイン済みプロファイ�
 
 **画像の差し替え（`--replace-image`・2026-08-05）**: populated スロットの削除ボタン `a.js_delete-button` は **width/height が 0**（hover 依存）で通常クリックできない。Playwright の actionability を迂回する `dispatchEvent('click')` で削除→再アップロードする（`replaceImage` in coconala-form.mjs）。各スロットが持つ `input[type=file][data-service-image-id]` へ直接 `setInputFiles` する方式は **AJAX が発火せず失敗する**（試行済み）。
 
+**`--replace-image` は全スロットを消す（2026-09-23）**: 画像2枚の商品（診断・添削）はサムネ差し替えでギャラリーも消えるので、直後に `--image gallery-*.png --force-image` で入れ直す。間を空けると別セッションの note 一括更新がブラウザを取り、同時1本ガードで入れ直しが弾かれて「サムネ1枚だけ」の状態が公開に残る（9/23 に実際に20分残った）。並走が続くときは `DOBOKU_PW_ALLOW_PARALLEL=1` にして空きメモリガード（既定 2048MB）は残し、`LaunchGuardError` のときだけ待ち直す。途中で「未ログイン」になったら `npm run auth:login -- --service coconala` で人がログインし直してから再開する。
+
 **アップロード（自動化済み・2026-07-18）**: `node scripts/coconala-edit.mjs --service <id> --service-id <n> --image <png> --commit`。「画像を追加」（`a.js_upload-…`・javascript:;）クリックで隠し file input（`data[UploadedFile][n1][image_files]`）が出現→setInputFiles→**トリミングモーダルなし**でスロットに直接入る（populated 判定＝`a.js_delete-button` の数）。既に画像があれば skip（`--force-image` で追加）。`--image` かつ `--fields` 無しなら**画像だけ更新**（本文フィールドは触らない）。
 
 > [!warning] `--image` のパス解決と orphan draft（2026-07-18 事故→恒久対策）
