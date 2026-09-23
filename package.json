@@ -213,6 +213,7 @@
     "check-note-price-consistency": "node scripts/check-note-price-consistency.mjs",
     "check-note-republish": "node scripts/check-note-republish.mjs",
     "check-note-site-utm": "node scripts/check-note-site-utm.mjs",
+    "fix-legacy-site-links": "node scripts/fix-legacy-site-links.mjs",
     "check-note-structure": "node scripts/check-note-structure.mjs",
     "check-ogp-coverage": "node scripts/check-ogp-coverage.mjs",
     "check-ogp-design": "node scripts/check-ogp-design.mjs",

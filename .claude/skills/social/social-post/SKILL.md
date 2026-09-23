@@ -72,7 +72,7 @@ doboku-note の既存コンテンツを活用して note.com / X 向けの投稿
     - **Mermaid 図**（` ```mermaid ` ）→ コードブロックの生テキストとして表示される。図解は SVG→PNG で
 - **マークダウン表は PNG に置換**: 上記ルール適用時の実装パターン — `scripts/render-figure-{slug}.mjs` のような記事専用 SVG→PNG レンダラを 1 本書き（`sharp(Buffer.from(svg)).png().toFile(...)`）、`content/note/{slug}/img/figure-{slug}.png` に出力。色は `scripts/generate-note-covers.mjs` の `BRAND` / `BRAND_FILL` / `INK_*` 定数を流用。先行例: `scripts/render-figure-soukan-analysis.mjs`（総監択一式17年分分析）
 - **画像指示**: 本文中に図版を入れる位置には `![alt](./img/figure-{slug}.png)` で参照を書く。生成前のドラフト段階では `[画像: ○○の図を挿入]` プレースホルダで OK。**画像は note エディタに別途ドラッグ&ドロップで配置する**（markdown の `![](path)` 記法ではローカルパスが解決されない）
-- **キーワード内部リンク（全占有方針）**: doboku-note にキーワードページがある用語は本文中に `[キーワード](https://doboku-note.com/docs/pe-comprehensive-management-{slug})` 形式で **インラインリンク** を仕込む。実機検証で動作確認済（平文中・括弧内連続・bullet 内の太字いずれも note でハイパーリンク化される 2026-04-29）。**note 記事は doboku-note への導線が主目的**なので、リンクは出し惜しみしない。ルール:
+- **キーワード内部リンク（全占有方針）**: doboku-note にキーワードページがある用語は本文中に `[キーワード](https://doboku-note.com/exam/pe-comprehensive-management/keywords/{slug})` 形式で **インラインリンク** を仕込む。実機検証で動作確認済（平文中・括弧内連続・bullet 内の太字いずれも note でハイパーリンク化される 2026-04-29）。**note 記事は doboku-note への導線が主目的**なので、リンクは出し惜しみしない。ルール:
   - **同一キーワードの全 occurrence をリンク化**（「初出のみ」は採らない。読者がどこからクリックしても遷移できる方が導線として強い）。同一目標 URL に複数回リンクが付くのは OK
   - **markdown 見出し（`#`〜`###`）は除外**。ただし bullet list の太字キャプション（`- **キーワード** — 説明`）や本文段落内の太字（`**foo**`）は **リンク化 OK**
   - **「同義語が連続して出てくる場合」は連続リンクを避ける**: `BCP・事業継続計画` のように同一 URL を指す同義語が隣接する場合は、片方だけリンク化（視覚ノイズ防止）。`X理論 ↔ Y理論` のような 1 概念のペアも `[X理論 ↔ Y理論](url)` で 1 リンクにまとめる
@@ -182,7 +182,7 @@ ls content/note/{slug}/img/
 {問題のテーマを1文で要約。答えを明かさず興味を引く問いかけ}
 
 正答・解説はこちら
-https://doboku-note.com/docs/pe-comprehensive-management-{slug}
+https://doboku-note.com/exam/pe-comprehensive-management/past-exams/{slug}
 
 #技術士 #技術士総監 #過去問対策
 ```
@@ -193,7 +193,7 @@ https://doboku-note.com/docs/pe-comprehensive-management-{slug}
 {問題のテーマを1文で要約。答えを明かさず興味を引く問いかけ}
 
 正答・解説はこちら
-https://doboku-note.com/docs/pe-comprehensive-management-{slug}
+https://doboku-note.com/exam/pe-comprehensive-management/past-exams/{slug}
 
 5管理の論点まとめ → https://note.com/dobokunote/m/m607bf095b02a
 
@@ -220,7 +220,7 @@ https://doboku-note.com/docs/pe-comprehensive-management-{slug}
 
 {概念の本質を1〜2文で。試験での重要性に触れる}
 
-https://doboku-note.com/docs/pe-comprehensive-management-{slug}
+https://doboku-note.com/exam/pe-comprehensive-management/keywords/{slug}
 
 #技術士 #技術士総監
 ```
@@ -234,7 +234,7 @@ https://doboku-note.com/docs/pe-comprehensive-management-{slug}
 {試験での出題ポイントや関連する管理分野を1文}
 
 詳しい解説・過去問での出題例はこちら
-https://doboku-note.com/docs/pe-comprehensive-management-{slug}
+https://doboku-note.com/exam/pe-comprehensive-management/keywords/{slug}
 
 #技術士 #技術士総監 #{該当管理}
 ```
@@ -270,8 +270,8 @@ https://doboku-note.com/docs/pe-comprehensive-management-{slug}
 ## サイト URL
 
 - トップ: `https://doboku-note.com`
-- カテゴリ: `https://doboku-note.com/category/pe-comprehensive-management`
-- 個別記事: `https://doboku-note.com/docs/pe-comprehensive-management-{slug}`
+- カテゴリ: `https://doboku-note.com/exam/pe-comprehensive-management`
+- 個別記事: `https://doboku-note.com/exam/pe-comprehensive-management/{種別}/{slug}`（種別＝keywords / past-exams / guide。旧 `/docs/...` は 301 なので使わない。対応表は `public/_redirects`）
 
 ## ハーネス設計上の位置づけ
 

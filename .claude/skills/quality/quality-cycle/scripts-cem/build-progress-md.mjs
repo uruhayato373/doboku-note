@@ -15,6 +15,7 @@
  */
 import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
+import { slugFromKey } from '../../../../../scripts/lib/url-normalization.mjs';
 
 const ROOT = process.cwd();
 const SCORES_PATH = join(ROOT, '.claude/state/quality-scores.json');
@@ -23,7 +24,7 @@ const SUMMARIES_PATH = join(ROOT, '.claude/state/keyword-summaries.json');
 const GSC_DIR = join(ROOT, '.claude/state/metrics/gsc');
 const OUT_PATH = join(ROOT, 'docs/editorial/05_品質サイクル進捗.md');
 
-const URL_PREFIX = 'https://doboku-note.com/docs/pe-comprehensive-management-';
+const SLUG_PREFIX = 'pe-comprehensive-management-';
 const LOCAL_PREFIX = 'http://localhost:3020/docs/pe-comprehensive-management-';
 const AUTO_START = '<!-- AUTO-GENERATED-START: build-progress-md.mjs -->';
 const AUTO_END = '<!-- AUTO-GENERATED-END -->';
@@ -43,9 +44,23 @@ function loadLatestGscPage() {
   return { ...loadJson(join(GSC_DIR, latest)), file: latest };
 }
 
+// 旧 /docs/pe-comprehensive-management-{slug} と 2026-08-22 移行後の新 URL
+// （/exam/pe-comprehensive-management/keywords/{slug} 等）の両方を同じ slug に寄せる。
+// 以前は旧 URL だけを見ていたため、移行後の GSC 行（新 URL）が進捗表から落ちていた。
 function urlToSlug(url) {
-  if (!url.startsWith(URL_PREFIX)) return null;
-  return url.slice(URL_PREFIX.length).replace(/\/$/, '');
+  const full = slugFromKey(url);
+  return full?.startsWith(SLUG_PREFIX) ? full.slice(SLUG_PREFIX.length) : null;
+}
+
+// 移行期は新旧 URL の行が同じ slug に 2 行ある。表示・クリックは合算し、順位は表示回数で重み付けする。
+function mergeGscRow(prev, row) {
+  if (!prev) return { ...row };
+  const impressions = (prev.impressions ?? 0) + (row.impressions ?? 0);
+  const clicks = (prev.clicks ?? 0) + (row.clicks ?? 0);
+  const position = impressions
+    ? ((prev.position ?? 0) * (prev.impressions ?? 0) + (row.position ?? 0) * (row.impressions ?? 0)) / impressions
+    : prev.position ?? row.position ?? null;
+  return { ...prev, impressions, clicks, position };
 }
 
 // ── 行ビルド ────────────────────────────────────────────────────
@@ -54,7 +69,7 @@ function buildRows({ scores, state, summaries, gsc }) {
   const gscBySlug = new Map();
   for (const row of gsc.rows || []) {
     const slug = urlToSlug(row.keys?.[0] || '');
-    if (slug) gscBySlug.set(slug, row);
+    if (slug) gscBySlug.set(slug, mergeGscRow(gscBySlug.get(slug), row));
   }
 
   const rows = [];

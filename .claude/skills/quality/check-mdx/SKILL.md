@@ -127,7 +127,7 @@ HTTP HEAD（並列 10 / タイムアウト 15 秒）で検証。対象は `conte
 
 決定的検証（ネットワーク不要・誤検出ゼロ）。`content/site/**` と `content/note/**/article.md` の両方を走査。
 
-**対象リンク形式**: 相対 `[text](/docs/slug)`、絶対 `[text](https://doboku-note.com/docs/slug)`、裸 URL（note リンクカード形式）。
+**対象リンク形式**: 相対 `[text](/docs/slug)`、絶対 `[text](https://doboku-note.com/docs/slug)`、新 URL `[text](https://doboku-note.com/exam/...)`（`public/_redirects` で旧 slug へ戻して同じ検査にかける）、裸 URL（note リンクカード形式）。
 
 **検証内容**:
 - `BROKEN_SLUG` (HIGH): `/docs/{slug}` の slug が `content/site` 由来の有効 slug 集合に無い

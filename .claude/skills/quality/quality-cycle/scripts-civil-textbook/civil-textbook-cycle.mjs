@@ -35,6 +35,7 @@ import { readdirSync, readFileSync, writeFileSync, existsSync, mkdirSync } from 
 import { join, dirname } from 'node:path';
 import { execSync } from 'node:child_process';
 import matter from 'gray-matter';
+import { loadSiteRoutes, siteUrlForSlug } from '../../../../../scripts/lib/site-links.mjs';
 import {
   readScores,
   readState,
@@ -382,7 +383,7 @@ function runReview() {
     md += `- **質的コメント**: ${scoreEntry.qualitative_comment ?? '(なし)'}\n`;
     md += `- **ファイル**: \`content/site/civil-construction-1/${slug}/article.mdx\`\n`;
     md += `- **確認URL**: <http://localhost:3020/docs/civil-construction-1-${slug}>\n`;
-    md += `- **本番URL**: <https://doboku-note.com/docs/civil-construction-1-${slug}>\n`;
+    md += `- **本番URL**: <${siteUrlForSlug(`civil-construction-1-${slug}`, loadSiteRoutes())}>\n`;
     md += `- **最終アクション**: ${lastHistory.action || 'N/A'} (${lastHistory.date || 'N/A'})\n\n`;
   });
 

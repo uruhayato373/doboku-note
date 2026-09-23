@@ -65,7 +65,7 @@ model: sonnet
 
 ## ④ 04-cta.png
 📚 残り 3 問はフィードのカルーセル投稿で
-[リンクスタンプ] doboku-note.com/docs/pe-comprehensive-management/r03
+[リンクスタンプ] doboku-note.com/exam/pe-comprehensive-management/past-exams/r03-primary
 ```
 
 ## 品質ガード

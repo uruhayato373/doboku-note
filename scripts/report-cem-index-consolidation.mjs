@@ -16,6 +16,7 @@ import {
   classifyCemIndexCandidate,
 } from "./lib/cem-index-classifier.mjs";
 import { toJoinKey } from "./lib/url-normalization.mjs";
+import { loadSiteRoutes, siteUrlForSlug } from "./lib/site-links.mjs";
 
 const ROOT = process.cwd();
 const METRICS = join(ROOT, ".claude/state/metrics");
@@ -255,7 +256,7 @@ function main() {
       ga4ObservedSnapshots: usage.observedSnapshots || 0,
       inspectionStates,
       relatedCandidate: target?.fullSlug || null,
-      relatedCandidateUrl: target ? `https://doboku-note.com/docs/${target.fullSlug}` : null,
+      relatedCandidateUrl: target ? siteUrlForSlug(target.fullSlug, loadSiteRoutes()) : null,
       relatedCandidateLabel: target?.label || null,
       relatedCandidateScore: target?.score || 0,
       action: classified.action,
