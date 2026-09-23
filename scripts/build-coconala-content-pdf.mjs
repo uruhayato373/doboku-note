@@ -36,15 +36,11 @@ const resolveSrc = (src, prod) => prod.generated
 // 公的出典のリンク（国交省・日本技術士会・e-Gov 等）は外部誘導ではないが、納品 PDF は URL 0件を
 // 不変条件にしている。strip 後に、リンクは表示テキスト（出典名）だけ残し、HTML コメントは落とす。
 // strip は `<!-- cta:... -->` を目印に CTA ブロックを探すので、必ず strip の後に掛ける。
-// コメントは1回の置換だと入れ子状の入力で `<!--` が残りうるので、変化しなくなるまで繰り返し、閉じていない開始記号も落とす。
-const stripHtmlComments = (md) => {
-  let prev;
-  do {
-    prev = md;
-    md = md.replace(/<!--[\s\S]*?-->/g, '');
-  } while (md !== prev);
-  return md.replace(/<!--/g, '');
-};
+// コメントを空文字で消すと前後がつながって `<!--` が新たにできうる（CodeQL js/incomplete-multi-character-sanitization）。
+// 空白に置き換えて連結を防ぎ、閉じていない開始記号も空白にする。
+const stripHtmlComments = (md) => md
+  .replace(/<!--[\s\S]*?-->/g, ' ')
+  .replace(/<!--/g, ' ');
 const delinkUrls = (md) => stripHtmlComments(md)
   .replace(/\[([^\]]+)\]\(https?:\/\/[^)\s]+\)/g, '$1');
 // 納品物は「記事」ではないので呼び方を資料へ寄せる。記事固有の一文（note の無料範囲・他記事への案内）は
