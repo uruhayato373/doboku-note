@@ -47,7 +47,12 @@ function buildSiteRoutes(redirectsPath) {
   return { legacy, canonical, hubs, loaded: legacy.size > 0 };
 }
 
-const trimSlash = (p) => (p.length > 1 ? p.replace(/\/+$/, "") : p);
+// 末尾の / を落とす。`/\/+$/` の正規表現は / が大量に続く入力で二乗時間になる（CodeQL js/polynomial-redos）ので使わない。
+const trimSlash = (p) => {
+  let end = p.length;
+  while (end > 1 && p[end - 1] === "/") end -= 1;
+  return p.slice(0, end);
+};
 
 /**
  * パスを分類する。

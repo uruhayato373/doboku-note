@@ -82,3 +82,13 @@ test("siteUrlForSlug は表にあれば新 URL、無ければ旧 URL を返す",
   );
   assert.equal(siteUrlForSlug("no-such", routes), "https://doboku-note.com/docs/no-such");
 });
+
+test("末尾スラッシュの除去は線形時間で、ルートの / は残す", () => {
+  const routes = routesFrom(REDIRECTS);
+  assert.equal(classifySitePath("/exam/pe-comprehensive-management/keywords/cost-benefit-analysis///", routes).kind, "ok");
+  const long = `/exam/${"/".repeat(50000)}x`;
+  const t0 = Date.now();
+  classifySitePath(long, routes);
+  assert.ok(Date.now() - t0 < 500, "スラッシュが大量に続く入力で遅くならない");
+  assert.equal(classifySitePath("/docs/", routes).path, "/docs");
+});
