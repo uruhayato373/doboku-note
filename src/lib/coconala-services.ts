@@ -517,8 +517,8 @@ const SERVICES_RAW = {
   // （note 定価の合計 ¥2,460 を下回らない）。build-coconala-content-pdf.mjs --product R2 で PDF 2冊。
   'coconala-rccm-takuitsu-pdf': {
     id: 'coconala-rccm-takuitsu-pdf',
-    status: 'draft',
-    serviceUrl: '',
+    status: 'listed',
+    serviceUrl: 'https://coconala.com/services/4415185',
     title: 'RCCM択一 予想50問と一問一答を送ります',
     shortTitle: 'RCCM 択一 PDF',
     description:
@@ -527,6 +527,7 @@ const SERVICES_RAW = {
     priceYen: 2500,
     examScope: ['rccm'],
     weeklyCapacity: 20,
+    listedAt: '2026-09-23',
   },
 
   // ---- 技術士 口頭試験（2026-09-23・09 §D7）----
@@ -534,8 +535,8 @@ const SERVICES_RAW = {
   // （建設部門・総合技術監理部門）。ビデオ面接は日時調整の負担が大きいので出さず、PDF とテキスト完結型に限る。
   'coconala-pe-oral-pdf': {
     id: 'coconala-pe-oral-pdf',
-    status: 'draft',
-    serviceUrl: '',
+    status: 'listed',
+    serviceUrl: 'https://coconala.com/services/4415186',
     title: '技術士口頭試験の想定問答PDFを送ります',
     shortTitle: '技術士 口頭試験 想定問答 PDF',
     description:
@@ -544,11 +545,12 @@ const SERVICES_RAW = {
     priceYen: 3000,
     examScope: ['pe-comprehensive-management', 'pe-construction'],
     weeklyCapacity: 20,
+    listedAt: '2026-09-23',
   },
   'coconala-pe-oral-qa': {
     id: 'coconala-pe-oral-qa',
-    status: 'draft',
-    serviceUrl: '',
+    status: 'listed',
+    serviceUrl: 'https://coconala.com/services/4415190',
     title: '技術士口頭試験の想定質問を経歴から作ります',
     shortTitle: '技術士 口頭試験 想定質問作成',
     description:
@@ -557,6 +559,7 @@ const SERVICES_RAW = {
     priceYen: 5000,
     examScope: ['pe-comprehensive-management', 'pe-construction'],
     weeklyCapacity: 2,
+    listedAt: '2026-09-23',
   },
 } as const satisfies Record<string, CoconalaService>;
 

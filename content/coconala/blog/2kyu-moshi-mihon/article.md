@@ -1,9 +1,9 @@
 ---
 title: "2級土木 二次 予想模試の中身を見本公開｜設問1問と教材構成"
-status: "draft"
-blogUrl: ""
-blogId: ""
-publishedAt: ""
+status: "published"
+blogUrl: "https://coconala.com/blogs/6197366/813777"
+blogId: "813777"
+publishedAt: "2026-09-23"
 exam: civil-2
 angle: ハウツー
 category: 学び
