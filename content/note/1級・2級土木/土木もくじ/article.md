@@ -221,8 +221,13 @@ https://note.com/dobokunote/n/n6b66793ca20c
 - **試験直前2週間を回し切りたい** → [1級](https://note.com/dobokunote/m/m7a9b3ad964f6)／[2級](https://note.com/dobokunote/m/md3518107aa97) 直前総仕上げパック（模試3回＋暗記＋出題分析）
 - **二次の教材をまとめてそろえたい** → [1級](https://note.com/dobokunote/m/md29a34906314)／[2級](https://note.com/dobokunote/m/m2d9a069b6f87) 二次検定まるごとパック
 - **一次のテキストをどこから読むか決めたい** → [1級 精読ガイド](https://note.com/dobokunote/n/n653cd1b3ee71)／[2級 精読ガイド](https://note.com/dobokunote/n/na8e28f954797)（無料）
-- **自分の答案を1回だけ見てほしい** → ココナラの[診断](https://coconala.com/services/4317349)／[添削](https://coconala.com/services/4317375)（単発。毎週の伴走は次の合格ラボ）
 - **予想問題と添削で合格まで伴走してほしい** → 会員制「土木セコカン合格ラボ」（上の「会員制で伴走してほしい方へ」を参照）
+
+自分の答案を1回だけ見てほしい場合は、ココナラで単発の診断と添削を受け付けています（毎週の伴走は上の合格ラボ）。
+
+https://coconala.com/services/4317349
+
+https://coconala.com/services/4317375
 
 ---
 
