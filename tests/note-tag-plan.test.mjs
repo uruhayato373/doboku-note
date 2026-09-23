@@ -67,3 +67,22 @@ test('chip の正規表現: 後ろの改行を許し、前方一致の別タグ�
   assert.equal(tagChipPattern('1級').test('#施工管理技士1級'), false);
   assert.equal(tagChipPattern('C++').test('#C++\n'), true);
 });
+
+test('大文字小文字だけの違いは一致とみなす（note はタグの大文字小文字を区別しない）', () => {
+  const p = planTagSync({ live: ['gx', 'Cp', 'a'], desired: ['GX', 'CP', 'a'], prune: true });
+  assert.equal(p.changed, false);
+  assert.deepEqual(p.extra, []);
+  assert.deepEqual(p.missing, []);
+  const plan = planTagSync({ live: ['x', 'y'], desired: ['x', 'Z'], prune: true });
+  assert.equal(verifyTagSync({ after: ['x', 'z'], plan, liveCount: 2 }).ok, true);
+});
+
+test('入力欄が受け付けなかったタグは失敗にせず別枠で返す', () => {
+  const plan = planTagSync({ live: ['a', 'b'], desired: ['a', 'c', 'i-Construction'], prune: true });
+  const v = verifyTagSync({ after: ['a', 'c'], plan, liveCount: 2, rejected: ['i-Construction'] });
+  assert.equal(v.ok, true);
+  assert.deepEqual(v.rejected, ['i-Construction']);
+  const addOnly = planTagSync({ live: ['a'], desired: ['a', 'i-Construction'] });
+  assert.equal(verifyTagSync({ after: ['a'], plan: addOnly, liveCount: 1, rejected: ['i-Construction'] }).ok, true);
+  assert.equal(verifyTagSync({ after: ['a'], plan: addOnly, liveCount: 1 }).ok, false);
+});

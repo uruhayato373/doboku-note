@@ -8,11 +8,15 @@
 
 export const NOTE_TAG_CAP = 99;
 
+// note のタグは大文字小文字を区別しない（原稿 GX を足してもライブは既存の gx のまま・2026-09-23 実測）。
+// 比較はこのキーで行い、大文字小文字だけの違いは「一致」とみなす（消して足し直しても変わらないため）。
+export const tagKey = (t) => t.toLowerCase();
+
 export function planTagSync({ live, desired, prune = false, cap = NOTE_TAG_CAP }) {
-  const liveSet = new Set(live);
-  const desiredSet = new Set(desired);
-  const missing = desired.filter((t) => !liveSet.has(t));
-  const extraAll = live.filter((t) => !desiredSet.has(t));
+  const liveSet = new Set(live.map(tagKey));
+  const desiredSet = new Set(desired.map(tagKey));
+  const missing = desired.filter((t) => !liveSet.has(tagKey(t)));
+  const extraAll = live.filter((t) => !desiredSet.has(tagKey(t)));
   const extra = prune ? extraAll : [];
   const kept = live.length - extra.length;
   const addable = missing.slice(0, Math.max(0, cap - kept));
@@ -28,17 +32,23 @@ export function planTagSync({ live, desired, prune = false, cap = NOTE_TAG_CAP }
 }
 
 // 保存後のライブを計画どおりか判定する。prune では「消すはずのタグが残っていない」も見る。
-export function verifyTagSync({ after, plan, liveCount }) {
-  const afterSet = new Set(after);
-  const leftover = plan.extra.filter((t) => afterSet.has(t));
-  const notAdded = plan.addable.filter((t) => !afterSet.has(t));
+// rejected は入力欄が受け付けなかったタグ（i-Construction など・2026-09-23 実測）。保存の失敗ではないので
+// notAdded から外し、別枠で返す（原稿側で直すもの）。
+export function verifyTagSync({ after, plan, liveCount, rejected = [] }) {
+  const afterSet = new Set(after.map(tagKey));
+  const rejectedSet = new Set(rejected.map(tagKey));
+  const leftover = plan.extra.filter((t) => afterSet.has(tagKey(t)));
+  const missingAfter = plan.addable.filter((t) => !afterSet.has(tagKey(t)));
+  const notAdded = missingAfter.filter((t) => !rejectedSet.has(tagKey(t)));
+  const rejectedMissing = missingAfter.filter((t) => rejectedSet.has(tagKey(t)));
   if (plan.extra.length) {
-    if (leftover.length || notAdded.length) return { ok: false, leftover, notAdded };
-    return { ok: true, leftover, notAdded };
+    if (leftover.length || notAdded.length) return { ok: false, leftover, notAdded, rejected: rejectedMissing };
+    return { ok: true, leftover, notAdded, rejected: rejectedMissing };
   }
-  // 追加だけのとき: 件数が増えていなければ保存が拒否された（上限超過など）
-  if (after.length <= liveCount) return { ok: false, leftover, notAdded, reason: 'count-not-increased' };
-  return { ok: true, leftover, notAdded };
+  // 追加だけのとき: 件数が増えていなければ保存が拒否された（上限超過など）。全部が入力不可なら増えないのが正しい
+  if (after.length <= liveCount && rejectedMissing.length < plan.addable.length) return { ok: false, leftover, notAdded, rejected: rejectedMissing, reason: 'count-not-increased' };
+  if (notAdded.length) return { ok: false, leftover, notAdded, rejected: rejectedMissing };
+  return { ok: true, leftover, notAdded, rejected: rejectedMissing };
 }
 
 // 公開設定のタグ chip（<button>#タグ<削除アイコン></button>）の文字に一致させる正規表現。
