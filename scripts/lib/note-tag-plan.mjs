@@ -57,3 +57,9 @@ export function tagChipPattern(tag) {
   const esc = tag.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   return new RegExp(`^\\s*#${esc}\\s*$`);
 }
+
+// note のタグ入力欄が受け付けない文字。Enter を押しても chip にならず入力欄に残る（2026-09-23 実測:
+// i-Construction・Park-PFI・地方創生2.0・BIM/CIM は不可、Society5_0・BIM_CIM・TECFORCE は可）。
+// 原稿では "_" に置き換える（既存の i_Construction・BIM_CIM と同じ書き方）。
+export const NOTE_TAG_REJECTED_CHARS = /[-./]/;
+export const isEnterableTag = (tag) => !NOTE_TAG_REJECTED_CHARS.test(tag);

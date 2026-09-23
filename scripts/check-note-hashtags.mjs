@@ -4,6 +4,7 @@
 // ルール:
 //   note 記事の hashtags ファイル（<article dir>/hashtags.txt および型別 hashtags-<type>.txt）は
 //   タグ 90 個以上を必須とする。下回るものは赤落ち。
+//   note のタグ欄が受け付けない文字（- . /）を含むタグも赤落ち（入力できずライブと永久にずれる・2026-09-23）。
 //
 // 背景: note のハッシュタグは記事の発見性（タグ面の露出・関連記事表示）を左右する。
 //   1 タグ = 1 行・`#` 接頭辞・空行は無視。note-publish.mjs が公開時にこのファイルを読み込む
@@ -18,6 +19,7 @@
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
+import { isEnterableTag } from './lib/note-tag-plan.mjs';
 
 const THRESHOLD = 90;
 const ROOT = 'content/note';
@@ -32,6 +34,11 @@ function walk(dir, out = []) {
     else if (/^hashtags(-[^/]+)?\.txt$/.test(e)) out.push(p.split('\\').join('/'));
   }
   return out;
+}
+
+// note のタグ欄に入力できないタグ（- . / を含む）。原稿では "_" に置き換える。
+function unenterableTags(file) {
+  return readFileSync(file, 'utf8').split(/\s+/).map((t) => t.replace(/^#/, '')).filter(Boolean).filter((t) => !isEnterableTag(t));
 }
 
 // タグ数 = 空行を除いた行数（1 行 1 タグ・# 接頭辞は問わない）。
@@ -63,8 +70,9 @@ if (STAGED) {
   files = walk(ROOT);
 }
 
-const rows = files.map((f) => ({ f, n: countTags(f) }));
+const rows = files.map((f) => ({ f, n: countTags(f), bad: unenterableTags(f) }));
 const under = rows.filter((r) => r.n < THRESHOLD).sort((a, b) => a.n - b.n);
+const withBad = rows.filter((r) => r.bad.length);
 
 const scope = STAGED ? 'staged ' : ALL ? '全 ' : '';
 
@@ -86,10 +94,17 @@ if (!STAGED && rows.length === 0) {
   process.exit(1);
 }
 
-if (!under.length) {
-  console.log(`[check-note-hashtags] ✓ ${scope}${rows.length} 件の hashtags は全て ${THRESHOLD} タグ以上`);
+if (withBad.length) {
+  console.error(`[check-note-hashtags] ✗ note のタグ欄に入力できないタグ（- . / を含む）が ${withBad.length} 件（${scope}${rows.length} 件中）:`);
+  for (const r of withBad) console.error(`     ${r.bad.join(' ')}  ${r.f.replace(`${ROOT}/`, '')}`);
+  console.error('  "_" に置き換える（例: i-Construction → i_Construction・BIM/CIM → BIM_CIM・地方創生2.0 → 地方創生2_0）。');
+}
+
+if (!under.length && !withBad.length) {
+  console.log(`[check-note-hashtags] ✓ ${scope}${rows.length} 件の hashtags は全て ${THRESHOLD} タグ以上・入力できない文字なし`);
   process.exit(0);
 }
+if (!under.length) process.exit(1);
 
 console.error(`[check-note-hashtags] ✗ ${THRESHOLD} タグ未満が ${under.length} 件（${scope}${rows.length} 件中）:`);
 for (const r of under) {

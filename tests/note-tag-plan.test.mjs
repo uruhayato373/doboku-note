@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { planTagSync, tagChipPattern, verifyTagSync } from '../scripts/lib/note-tag-plan.mjs';
+import { isEnterableTag, planTagSync, tagChipPattern, verifyTagSync } from '../scripts/lib/note-tag-plan.mjs';
 
 const range = (p, n) => Array.from({ length: n }, (_, i) => `${p}${i}`);
 
@@ -85,4 +85,9 @@ test('入力欄が受け付けなかったタグは失敗にせず別枠で返�
   const addOnly = planTagSync({ live: ['a'], desired: ['a', 'i-Construction'] });
   assert.equal(verifyTagSync({ after: ['a'], plan: addOnly, liveCount: 1, rejected: ['i-Construction'] }).ok, true);
   assert.equal(verifyTagSync({ after: ['a'], plan: addOnly, liveCount: 1 }).ok, false);
+});
+
+test('note のタグ欄が受け付けない文字（- . /）を判定する', () => {
+  for (const t of ['i-Construction', 'Park-PFI', '地方創生2.0', 'BIM/CIM', 'ETC2.0データ']) assert.equal(isEnterableTag(t), false, t);
+  for (const t of ['i_Construction', 'Society5_0', 'BIM_CIM', 'TECFORCE', '施工管理']) assert.equal(isEnterableTag(t), true, t);
 });
