@@ -38,9 +38,12 @@
       "r2Url": "https://storage.doboku-note.com/sns/youtube-shorts/r03-pack-01-q1.mp4",
       "durationSeconds": 39.39,
       "publishAt": "2026-06-09T07:30:00+09:00",
-      "status": "uploaded",
-      "videoId": "pJE0G113lWE",
-      "uploadedAt": "2026-06-05T23:13:02.281Z"
+      "status": "retired",
+      "videoId": null,
+      "uploadedAt": "2026-06-05T23:13:02.281Z",
+      "lostVideoId": "pJE0G113lWE",
+      "retiredAt": "2026-09-24",
+      "retiredReason": "2026-09-24 ユーザー決定で台帳を停止済みにそろえた。YouTube 上で消失（oEmbed 404・verify-yt-status recorded_but_gone。2026-08-27 の退役時点で 06-09〜06-13 公開分の連続 404 として把握済みだったが、この 6 本だけ uploaded のまま残っていた）。元の動画 ID は lostVideoId"
     },
     {
       "key": "r03-pack-01-q2",
@@ -254,9 +257,12 @@
       "r2Url": "https://storage.doboku-note.com/sns/youtube-shorts/r03-pack-03-q1.mp4",
       "durationSeconds": 39.23,
       "publishAt": "2026-06-11T20:00:00+09:00",
-      "status": "uploaded",
-      "videoId": "v78PwwNo_fQ",
-      "uploadedAt": "2026-06-17T19:49:26.075Z"
+      "status": "retired",
+      "videoId": null,
+      "uploadedAt": "2026-06-17T19:49:26.075Z",
+      "lostVideoId": "v78PwwNo_fQ",
+      "retiredAt": "2026-09-24",
+      "retiredReason": "2026-09-24 ユーザー決定で台帳を停止済みにそろえた。YouTube 上で消失（oEmbed 404・verify-yt-status recorded_but_gone。2026-08-27 の退役時点で 06-09〜06-13 公開分の連続 404 として把握済みだったが、この 6 本だけ uploaded のまま残っていた）。元の動画 ID は lostVideoId"
     },
     {
       "key": "r03-pack-03-q2",
@@ -281,9 +287,12 @@
       "r2Url": "https://storage.doboku-note.com/sns/youtube-shorts/r03-pack-03-q2.mp4",
       "durationSeconds": 42.82,
       "publishAt": "2026-06-12T07:30:00+09:00",
-      "status": "uploaded",
-      "videoId": "l-aSQXfwOq8",
-      "uploadedAt": "2026-06-17T19:49:30.491Z"
+      "status": "retired",
+      "videoId": null,
+      "uploadedAt": "2026-06-17T19:49:30.491Z",
+      "lostVideoId": "l-aSQXfwOq8",
+      "retiredAt": "2026-09-24",
+      "retiredReason": "2026-09-24 ユーザー決定で台帳を停止済みにそろえた。YouTube 上で消失（oEmbed 404・verify-yt-status recorded_but_gone。2026-08-27 の退役時点で 06-09〜06-13 公開分の連続 404 として把握済みだったが、この 6 本だけ uploaded のまま残っていた）。元の動画 ID は lostVideoId"
     },
     {
       "key": "r03-pack-03-q3",
@@ -308,9 +317,12 @@
       "r2Url": "https://storage.doboku-note.com/sns/youtube-shorts/r03-pack-03-q3.mp4",
       "durationSeconds": 39.42,
       "publishAt": "2026-06-12T12:30:00+09:00",
-      "status": "uploaded",
-      "videoId": "AxGWdocgSZ0",
-      "uploadedAt": "2026-06-17T19:49:34.413Z"
+      "status": "retired",
+      "videoId": null,
+      "uploadedAt": "2026-06-17T19:49:34.413Z",
+      "lostVideoId": "AxGWdocgSZ0",
+      "retiredAt": "2026-09-24",
+      "retiredReason": "2026-09-24 ユーザー決定で台帳を停止済みにそろえた。YouTube 上で消失（oEmbed 404・verify-yt-status recorded_but_gone。2026-08-27 の退役時点で 06-09〜06-13 公開分の連続 404 として把握済みだったが、この 6 本だけ uploaded のまま残っていた）。元の動画 ID は lostVideoId"
     },
     {
       "key": "r03-pack-03-q4",
@@ -335,9 +347,12 @@
       "r2Url": "https://storage.doboku-note.com/sns/youtube-shorts/r03-pack-03-q4.mp4",
       "durationSeconds": 39.26,
       "publishAt": "2026-06-12T20:00:00+09:00",
-      "status": "uploaded",
-      "videoId": "GZzG6IqyXyI",
-      "uploadedAt": "2026-06-17T19:49:39.192Z"
+      "status": "retired",
+      "videoId": null,
+      "uploadedAt": "2026-06-17T19:49:39.192Z",
+      "lostVideoId": "GZzG6IqyXyI",
+      "retiredAt": "2026-09-24",
+      "retiredReason": "2026-09-24 ユーザー決定で台帳を停止済みにそろえた。YouTube 上で消失（oEmbed 404・verify-yt-status recorded_but_gone。2026-08-27 の退役時点で 06-09〜06-13 公開分の連続 404 として把握済みだったが、この 6 本だけ uploaded のまま残っていた）。元の動画 ID は lostVideoId"
     },
     {
       "key": "r03-pack-04-q1",
@@ -362,9 +377,12 @@
       "r2Url": "https://storage.doboku-note.com/sns/youtube-shorts/r03-pack-04-q1.mp4",
       "durationSeconds": 43.4,
       "publishAt": "2026-06-13T07:30:00+09:00",
-      "status": "uploaded",
-      "videoId": "V9iQe4iQcI0",
-      "uploadedAt": "2026-06-17T19:49:44.008Z"
+      "status": "retired",
+      "videoId": null,
+      "uploadedAt": "2026-06-17T19:49:44.008Z",
+      "lostVideoId": "V9iQe4iQcI0",
+      "retiredAt": "2026-09-24",
+      "retiredReason": "2026-09-24 ユーザー決定で台帳を停止済みにそろえた。YouTube 上で消失（oEmbed 404・verify-yt-status recorded_but_gone。2026-08-27 の退役時点で 06-09〜06-13 公開分の連続 404 として把握済みだったが、この 6 本だけ uploaded のまま残っていた）。元の動画 ID は lostVideoId"
     },
     {
       "key": "r03-pack-04-q2",
