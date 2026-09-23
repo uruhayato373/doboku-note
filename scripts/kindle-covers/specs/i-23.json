@@ -1,0 +1,21 @@
+{
+  "bookId": "i-23",
+  "background": "scripts/kindle-covers/backgrounds/a-02.png",
+  "accent": "#1E73C8",
+  "kicker": "1級土木施工管理技士 第2次検定",
+  "titleLines": [
+    {
+      "text": "施工経験記述",
+      "size": 225
+    },
+    {
+      "text": "港湾・空港・鉄道・農業編",
+      "size": 112
+    }
+  ],
+  "subLines": [
+    "想定工事 完成答案集",
+    "9工事×5管理の記入例"
+  ],
+  "brand": "doboku-note"
+}

@@ -1,0 +1,20 @@
+{
+  "bookId": "i-02",
+  "background": "scripts/kindle-covers/backgrounds/a-03.png",
+  "accent": "#1E73C8",
+  "kicker": "1級土木施工管理技士 第2次検定",
+  "titleLines": [
+    {
+      "text": "施工経験記述",
+      "size": 225
+    },
+    {
+      "text": "完成答案集",
+      "size": 270
+    }
+  ],
+  "subLines": [
+    "5管理の工種別完成答案"
+  ],
+  "brand": "doboku-note"
+}
