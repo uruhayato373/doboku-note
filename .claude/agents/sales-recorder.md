@@ -224,6 +224,7 @@ productId は `coconala:<serviceId>` 形式（接頭辞でチャネル判別＝`
 |---|---|
 | `経験記述 合格診断` / `coconala-shindan`（¥1,500） | `coconala:coconala-shindan` |
 | `経験記述 添削（2テーマセット）` / `coconala-tensaku-set`（¥6,000） | `coconala:coconala-tensaku-set` |
+| `経験記述 添削（4テーマセット）` / `coconala-tensaku-4theme`（¥12,000） | `coconala:coconala-tensaku-4theme` |
 | `経験記述 答案作成（ヒアリング）` / `coconala-sakusei`（¥8,000） | `coconala:coconala-sakusei` |
 | `経験記述 答案作成 4テーマ` / `coconala-sakusei-4theme`（¥16,000） | `coconala:coconala-sakusei-4theme` |
 | `1級 経験記述 模範答案セット PDF` / `coconala-kanseitoan-pdf`（**¥5,500**・2026-09-23 改定・旧¥5,000） | `coconala:coconala-kanseitoan-pdf` |
