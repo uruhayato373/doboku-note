@@ -145,11 +145,11 @@ https://note.com/dobokunote/n/n6b66793ca20c
 
 書き方の基本と工種別の記入例は、サイトで無料公開しています。
 
-[1級 施工経験記述 出題傾向と対策](https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil-keiken-leadmagnet&utm_content=guide-civil-1)
+[1級 施工経験記述 出題傾向と対策](https://doboku-note.com/exam/civil-construction-1/secondary/experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil-keiken-leadmagnet&utm_content=guide-civil-1)
 
-[2級 施工経験記述 出題傾向と書き方](https://doboku-note.com/docs/civil-construction-2-secondary-experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil-keiken-leadmagnet&utm_content=guide-civil-2)
+[2級 施工経験記述 出題傾向と書き方](https://doboku-note.com/exam/civil-construction-2/secondary/experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil-keiken-leadmagnet&utm_content=guide-civil-2)
 
-診断のあと、直した文章がどの水準かを見比べたい方は[施工経験記述の記述例](https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-examples?utm_source=note&utm_medium=referral&utm_campaign=civil-keiken-leadmagnet&utm_content=experience-writing-examples)をご覧ください。
+診断のあと、直した文章がどの水準かを見比べたい方は[施工経験記述の記述例](https://doboku-note.com/exam/civil-construction-1/secondary/experience-writing-examples?utm_source=note&utm_medium=referral&utm_campaign=civil-keiken-leadmagnet&utm_content=experience-writing-examples)をご覧ください。
 
 ---
 

@@ -51,7 +51,7 @@ cover:
 - **盛土施工**（締固め機械の選定・情報化施工）— 優先度 ★★★
 - **のり面保護工・軟弱地盤対策** — 優先度 ★★☆
 
-→ [土工の重要ポイント（無料）](https://doboku-note.com/docs/civil-construction-2-guide-earthwork-key-points?utm_source=note&utm_medium=referral&utm_campaign=civil2-reading-guide&utm_content=earthwork-key-points)
+→ [土工の重要ポイント（無料）](https://doboku-note.com/exam/civil-construction-2/guide/earthwork-key-points?utm_source=note&utm_medium=referral&utm_campaign=civil2-reading-guide&utm_content=earthwork-key-points)
 
 ## コンクリート工
 
@@ -62,7 +62,7 @@ cover:
 - **打込み・締固め・養生** — 優先度 ★★★
 - **ひび割れ**（温度ひび割れ・乾燥収縮等の原因）— 優先度 ★★☆
 
-→ [コンクリートの重要ポイント（無料）](https://doboku-note.com/docs/civil-construction-2-guide-concrete-key-points?utm_source=note&utm_medium=referral&utm_campaign=civil2-reading-guide&utm_content=concrete-key-points)
+→ [コンクリートの重要ポイント（無料）](https://doboku-note.com/exam/civil-construction-2/guide/concrete-key-points?utm_source=note&utm_medium=referral&utm_campaign=civil2-reading-guide&utm_content=concrete-key-points)
 
 ## 基礎工
 
@@ -73,7 +73,7 @@ cover:
 - **杭基礎**（既製杭・場所打ち杭）**とケーソン基礎** — 優先度 ★★★
 - **土留めと掘削底面の安定**（ヒービング・ボイリング）— 優先度 ★★☆
 
-→ [基礎工の重要ポイント（無料）](https://doboku-note.com/docs/civil-construction-2-guide-foundation-key-points?utm_source=note&utm_medium=referral&utm_campaign=civil2-reading-guide&utm_content=foundation-key-points)
+→ [基礎工の重要ポイント（無料）](https://doboku-note.com/exam/civil-construction-2/guide/foundation-key-points?utm_source=note&utm_medium=referral&utm_campaign=civil2-reading-guide&utm_content=foundation-key-points)
 
 ## 施工計画
 
@@ -84,7 +84,7 @@ cover:
 - **施工計画書の主な記載内容** — 優先度 ★★★
 - **工程計画と仮設備計画**（作業可能日数・指定仮設と任意仮設の区別）— 優先度 ★★☆
 
-→ [施工計画の重要ポイント（無料）](https://doboku-note.com/docs/civil-construction-2-guide-construction-plan-key-points?utm_source=note&utm_medium=referral&utm_campaign=civil2-reading-guide&utm_content=construction-plan-key-points)
+→ [施工計画の重要ポイント（無料）](https://doboku-note.com/exam/civil-construction-2/guide/construction-plan-key-points?utm_source=note&utm_medium=referral&utm_campaign=civil2-reading-guide&utm_content=construction-plan-key-points)
 
 ## 工程管理
 
@@ -94,7 +94,7 @@ cover:
 - **ネットワーク式工程表とクリティカルパス**（最長経路の考え方）— 優先度 ★★★
 - **出来高累計曲線**（バナナ曲線） — 優先度 ★★☆
 
-→ [工程管理の重要ポイント（無料）](https://doboku-note.com/docs/civil-construction-2-guide-schedule-management?utm_source=note&utm_medium=referral&utm_campaign=civil2-reading-guide&utm_content=schedule-management)
+→ [工程管理の重要ポイント（無料）](https://doboku-note.com/exam/civil-construction-2/guide/schedule-management?utm_source=note&utm_medium=referral&utm_campaign=civil2-reading-guide&utm_content=schedule-management)
 
 ## 品質管理
 
@@ -105,7 +105,7 @@ cover:
 - **盛土の締固め管理**（品質規定方式・工法規定方式）— 優先度 ★★★
 - **レディーミクストコンクリートの受入検査**（スランプ・空気量等）— 優先度 ★★★
 
-→ [品質管理の重要ポイント（無料）](https://doboku-note.com/docs/civil-construction-2-guide-quality-management?utm_source=note&utm_medium=referral&utm_campaign=civil2-reading-guide&utm_content=quality-management)
+→ [品質管理の重要ポイント（無料）](https://doboku-note.com/exam/civil-construction-2/guide/quality-management?utm_source=note&utm_medium=referral&utm_campaign=civil2-reading-guide&utm_content=quality-management)
 
 ## 安全管理
 
@@ -116,7 +116,7 @@ cover:
 - **明り掘削**（地山掘削）の安全対策 — 優先度 ★★☆
 - **支保工と作業主任者の選任**（選任が必要な作業の判別）— 優先度 ★★★
 
-→ [安全管理の重要ポイント（無料）](https://doboku-note.com/docs/civil-construction-2-guide-safety-management?utm_source=note&utm_medium=referral&utm_campaign=civil2-reading-guide&utm_content=safety-management)
+→ [安全管理の重要ポイント（無料）](https://doboku-note.com/exam/civil-construction-2/guide/safety-management?utm_source=note&utm_medium=referral&utm_campaign=civil2-reading-guide&utm_content=safety-management)
 
 ## 法規
 
@@ -127,10 +127,10 @@ cover:
 - **建設業法**（主任技術者・監理技術者の配置、施工体制台帳）— 優先度 ★★★
 - **道路・河川・騒音振動などの法令**（許可と届出の区別）— 優先度 ★★☆
 
-→ [法規の重要ポイント（無料）](https://doboku-note.com/docs/civil-construction-2-guide-law-key-points?utm_source=note&utm_medium=referral&utm_campaign=civil2-reading-guide&utm_content=law-key-points)
+→ [法規の重要ポイント（無料）](https://doboku-note.com/exam/civil-construction-2/guide/law-key-points?utm_source=note&utm_medium=referral&utm_campaign=civil2-reading-guide&utm_content=law-key-points)
 
 ## 次に読むもの
 
 土木一般・施工管理法・法規の8分野を一通り押さえたら、第1次検定の対策としては過去問演習が次の一手です。専門土木の分野別解説記事は順次追加予定です。
 
-経験記述の準備を始めたい方は、[施工経験記述 出題傾向と書き方（無料）](https://doboku-note.com/docs/civil-construction-2-secondary-experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil2-reading-guide&utm_content=experience-writing-guide)もあわせてご覧ください。
+経験記述の準備を始めたい方は、[施工経験記述 出題傾向と書き方（無料）](https://doboku-note.com/exam/civil-construction-2/secondary/experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil2-reading-guide&utm_content=experience-writing-guide)もあわせてご覧ください。

@@ -290,8 +290,8 @@ CO中毒が防止すべき災害として示されているが、酸素・CO濃�
 
 **関連リンク**
 
-- [出題傾向と書き方（無料・doboku-note）](https://doboku-note.com/docs/civil-construction-2-secondary-experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil2-koji-bank-koji23&utm_content=guide)
-- [工種別 記入例（無料・doboku-note）](https://doboku-note.com/docs/civil-construction-2-secondary-experience-writing-examples?utm_source=note&utm_medium=referral&utm_campaign=civil2-koji-bank-koji23&utm_content=examples)
+- [出題傾向と書き方（無料・doboku-note）](https://doboku-note.com/exam/civil-construction-2/secondary/experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil2-koji-bank-koji23&utm_content=guide)
+- [工種別 記入例（無料・doboku-note）](https://doboku-note.com/exam/civil-construction-2/secondary/experience-writing-examples?utm_source=note&utm_medium=referral&utm_campaign=civil2-koji-bank-koji23&utm_content=examples)
 
 ---
 

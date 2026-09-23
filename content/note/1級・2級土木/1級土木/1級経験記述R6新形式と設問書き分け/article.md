@@ -91,7 +91,7 @@ https://note.com/dobokunote/m/m150c9db08902
 
 **施工経験記述 出題傾向と対策**（無料・doboku-note｜令和6年 形式見直しの仕様）
 
-https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-guide
+https://doboku-note.com/exam/civil-construction-1/secondary/experience-writing-guide
 
 **1級土木 施工経験記述 2テーマ組合せ大全**（全10組合せ・同一工事で書き分け）
 
@@ -101,7 +101,7 @@ https://note.com/dobokunote/m/m74cfd7c695d6
 
 https://note.com/dobokunote/m/m150c9db08902
 
-設問ごとの書き分けを具体的な文章で確認したい方は[施工経験記述の記述例](https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-examples?utm_source=note&utm_medium=referral&utm_campaign=c1-essay-r6-split&utm_content=experience-writing-examples)をご覧ください。
+設問ごとの書き分けを具体的な文章で確認したい方は[施工経験記述の記述例](https://doboku-note.com/exam/civil-construction-1/secondary/experience-writing-examples?utm_source=note&utm_medium=referral&utm_campaign=c1-essay-r6-split&utm_content=experience-writing-examples)をご覧ください。
 
 ---
 

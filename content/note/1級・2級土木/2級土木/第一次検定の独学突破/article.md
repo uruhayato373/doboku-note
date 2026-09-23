@@ -85,13 +85,13 @@ cover:
 
 ## 関連リソース
 
-[2級土木施工管理技士の過去問解説・テキスト（無料・doboku-note）](https://doboku-note.com/docs/civil-construction-2-guide-exam-overview?utm_source=note&utm_medium=referral&utm_campaign=2c-primary-selfstudy&utm_content=exam-overview)
+[2級土木施工管理技士の過去問解説・テキスト（無料・doboku-note）](https://doboku-note.com/exam/civil-construction-2/guide/exam-overview?utm_source=note&utm_medium=referral&utm_campaign=2c-primary-selfstudy&utm_content=exam-overview)
 
 **2級土木 施工経験記述 完成答案集**（二次対策のフル答案）
 
 https://note.com/dobokunote/m/m1881a9578027
 
-独学で進めるときの時間配分は[2級土木の学習計画の立て方](https://doboku-note.com/docs/civil-construction-2-guide-study-plan?utm_source=note&utm_medium=referral&utm_campaign=2c-primary-selfstudy&utm_content=study-plan)にまとめています。
+独学で進めるときの時間配分は[2級土木の学習計画の立て方](https://doboku-note.com/exam/civil-construction-2/guide/study-plan?utm_source=note&utm_medium=referral&utm_campaign=2c-primary-selfstudy&utm_content=study-plan)にまとめています。
 
 ---
 

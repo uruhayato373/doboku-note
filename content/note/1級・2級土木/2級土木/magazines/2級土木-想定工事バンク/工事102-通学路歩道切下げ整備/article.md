@@ -203,8 +203,8 @@ https://note.com/dobokunote/n/n4fde0f62dc20
 
 **関連リンク**
 
-- [2級土木 経験記述の書き方](https://doboku-note.com/docs/civil-construction-2-secondary-experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil2-koji-bank-koji102&utm_content=guide)
-- [2級土木 工事別記入例](https://doboku-note.com/docs/civil-construction-2-secondary-experience-writing-examples?utm_source=note&utm_medium=referral&utm_campaign=civil2-koji-bank-koji102&utm_content=examples)
+- [2級土木 経験記述の書き方](https://doboku-note.com/exam/civil-construction-2/secondary/experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil2-koji-bank-koji102&utm_content=guide)
+- [2級土木 工事別記入例](https://doboku-note.com/exam/civil-construction-2/secondary/experience-writing-examples?utm_source=note&utm_medium=referral&utm_campaign=civil2-koji-bank-koji102&utm_content=examples)
 
 ---
 

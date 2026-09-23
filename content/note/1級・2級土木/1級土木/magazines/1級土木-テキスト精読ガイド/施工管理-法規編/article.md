@@ -56,7 +56,7 @@ cover:
 - **原価管理計画**（実行予算とPDCAサイクル） — 隔年出題 — 優先度 ★★☆
 - **施工体制台帳・建設副産物対策** — 3年に1回程度 — 優先度 ★☆☆
 
-→ [施工計画の重要ポイント（無料）](https://doboku-note.com/docs/civil-construction-1-guide-construction-plan?utm_source=note&utm_medium=referral&utm_campaign=civil1-reading-guide&utm_content=construction-plan)
+→ [施工計画の重要ポイント（無料）](https://doboku-note.com/exam/civil-construction-1/guide/construction-plan?utm_source=note&utm_medium=referral&utm_campaign=civil1-reading-guide&utm_content=construction-plan)
 
 ## 工程管理（5〜7問）
 
@@ -70,7 +70,7 @@ cover:
 - **工程と建設機械の組合せ・サイクルタイム** — 隔年出題 — 優先度 ★★☆
 - **PERT・CPMの対比** — 3年に1回 — 優先度 ★☆☆
 
-→ [工程管理の重要ポイント（無料）](https://doboku-note.com/docs/civil-construction-1-guide-schedule-management?utm_source=note&utm_medium=referral&utm_campaign=civil1-reading-guide&utm_content=schedule-management)
+→ [工程管理の重要ポイント（無料）](https://doboku-note.com/exam/civil-construction-1/guide/schedule-management?utm_source=note&utm_medium=referral&utm_campaign=civil1-reading-guide&utm_content=schedule-management)
 
 ## 品質管理（5〜7問）
 
@@ -84,7 +84,7 @@ cover:
 - **アスファルト舗装の品質管理**（締固め度・平坦性） — 隔年出題 — 優先度 ★★☆
 - **ISO 9001品質マネジメントシステム** — 3年に1回 — 優先度 ★☆☆
 
-→ [品質管理の重要ポイント（無料）](https://doboku-note.com/docs/civil-construction-1-guide-quality-management?utm_source=note&utm_medium=referral&utm_campaign=civil1-reading-guide&utm_content=quality-management)
+→ [品質管理の重要ポイント（無料）](https://doboku-note.com/exam/civil-construction-1/guide/quality-management?utm_source=note&utm_medium=referral&utm_campaign=civil1-reading-guide&utm_content=quality-management)
 
 ## 安全管理（8〜10問・最大分野）
 
@@ -98,7 +98,7 @@ cover:
 - **労働災害の統計指標**（度数率・強度率・年千人率） — 隔年出題 — 優先度 ★★☆
 - **計画の届出**（大臣・労働基準監督署長） — 3年に1回程度 — 優先度 ★☆☆
 
-→ [安全管理の重要ポイント（無料）](https://doboku-note.com/docs/civil-construction-1-guide-safety-management?utm_source=note&utm_medium=referral&utm_campaign=civil1-reading-guide&utm_content=safety-management)
+→ [安全管理の重要ポイント（無料）](https://doboku-note.com/exam/civil-construction-1/guide/safety-management?utm_source=note&utm_medium=referral&utm_campaign=civil1-reading-guide&utm_content=safety-management)
 
 ## 環境保全（5〜7問目安）
 
@@ -112,7 +112,7 @@ cover:
 - **建設発生土の区分と利用用途** — 隔年出題 — 優先度 ★★☆
 - **土壌汚染対策・薬液注入工の調査基準** — 3年に1回程度 — 優先度 ★☆☆
 
-→ [環境保全管理の重要ポイント（無料）](https://doboku-note.com/docs/civil-construction-1-guide-environment-management?utm_source=note&utm_medium=referral&utm_campaign=civil1-reading-guide&utm_content=environment-management)
+→ [環境保全管理の重要ポイント（無料）](https://doboku-note.com/exam/civil-construction-1/guide/environment-management?utm_source=note&utm_medium=referral&utm_campaign=civil1-reading-guide&utm_content=environment-management)
 
 ## 法規（12問中8問を選択）
 
@@ -129,10 +129,10 @@ cover:
 
 12問中8問を選べるため、苦手な法令が1〜2つ残っても、労働安全衛生法・建設業法などの得意分野で確実に得点する戦略が有効です。
 
-→ [法規の重要ポイント（無料）](https://doboku-note.com/docs/civil-construction-1-guide-law-key-points?utm_source=note&utm_medium=referral&utm_campaign=civil1-reading-guide&utm_content=law-key-points)
+→ [法規の重要ポイント（無料）](https://doboku-note.com/exam/civil-construction-1/guide/law-key-points?utm_source=note&utm_medium=referral&utm_campaign=civil1-reading-guide&utm_content=law-key-points)
 
 ## 次に読むもの
 
 施工管理・法規編（本記事）の6分野を一通り押さえたら、次は土木一般・共通工学編（土工・建設機械・コンクリート工・基礎工・測量・解体工事）です。こちらは別記事で精読の地図を用意します。
 
-経験記述の準備を始めたい方は、[施工経験記述 出題傾向と書き方（無料）](https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil1-reading-guide&utm_content=experience-writing-guide)もあわせてご覧ください。
+経験記述の準備を始めたい方は、[施工経験記述 出題傾向と書き方（無料）](https://doboku-note.com/exam/civil-construction-1/secondary/experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil1-reading-guide&utm_content=experience-writing-guide)もあわせてご覧ください。
