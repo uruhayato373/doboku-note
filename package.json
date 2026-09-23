@@ -494,7 +494,7 @@
     "fflate": "^0.8.3",
     "glob": "^13.0.6",
     "https-proxy-agent": "^9.1.0",
-    "js-yaml": "^4.3.1",
+    "js-yaml": "^4.3.2",
     "knip": "^6.36.0",
     "node-html-parser": "^9.0.4",
     "pagefind": "^1.5.2",
@@ -509,6 +509,9 @@
   "overrides": {
     "google-artifactregistry-auth": {
       "google-auth-library": "^10.6.2"
+    },
+    "gray-matter": {
+      "js-yaml": "^3.15.2"
     }
   },
   "engines": {
