@@ -61,6 +61,14 @@ export interface CoconalaService {
    * orders-log の過去受注は「受注日時点の定価」と突合する（check-coconala-wiring）。無ければ現行 priceYen と突合。
    */
   readonly priceHistory?: readonly { readonly priceYen: number; readonly until: string }[];
+  /**
+   * PDF 商品の価格ルール（note より安く売らない）の基準。note で同じ中身を買う方法を note-magazines.ts の id で書く。
+   * 'a + b' は合計、'a | b' は安い方、先頭 'each:' は購入者ごとにどれか1つを送る商品で高い方を基準にする。
+   * check-coconala-wiring が「基準 × 1.1 をココナラの価格刻みで切り上げた額」以上であることを検査する。
+   */
+  readonly notePriceBasis?: string;
+  /** note に同じ中身の商品が無い PDF の理由（notePriceBasis の代わり） */
+  readonly notePriceExempt?: string;
   readonly examScope: readonly CoconalaExamScope[];
   /** 週あたりの受付枠（Red Line #1: 定員なし恒久添削の禁止を機械的に表明する） */
   readonly weeklyCapacity: number;
@@ -233,6 +241,7 @@ const SERVICES_RAW = {
     price: '¥5,500（PDF 10冊・テーマ別＋年度別）',
     priceYen: 5500,
     priceHistory: [{ priceYen: 5000, until: '2026-09-22' }],
+    notePriceBasis: 'civil-1-experience-essay + civil-1-pastexam-essay',
     examScope: ['civil-1'],
     weeklyCapacity: 10,
     listedAt: '2026-07-18',
@@ -251,6 +260,7 @@ const SERVICES_RAW = {
     price: '¥5,000（PDF 8冊・テーマ別＋年度別）',
     priceYen: 5000,
     priceHistory: [{ priceYen: 4000, until: '2026-09-22' }],
+    notePriceBasis: 'civil-2-experience-essay + civil-2-pastexam-essay',
     examScope: ['civil-2'],
     weeklyCapacity: 10,
     listedAt: '2026-07-18',
@@ -349,6 +359,7 @@ const SERVICES_RAW = {
     price: '¥3,500（予想模試3回・PDF 6冊＋特典 直前暗記ノート）',
     priceYen: 3500,
     priceHistory: [{ priceYen: 2500, until: '2026-09-22' }],
+    notePriceBasis: 'civil-1-chokuzen-pack | civil-1-r8-mock3-pdf + civil-1-anki-note',
     examScope: ['civil-1'],
     weeklyCapacity: 20,
     listedAt: '2026-07-18',
@@ -366,6 +377,7 @@ const SERVICES_RAW = {
     price: '¥3,000（予想模試3回・PDF 6冊＋特典 直前暗記ノート）',
     priceYen: 3000,
     priceHistory: [{ priceYen: 2000, until: '2026-09-22' }],
+    notePriceBasis: 'civil-2-chokuzen-pack | civil-2-r8-mock3-pdf + civil-2-anki-note',
     examScope: ['civil-2'],
     weeklyCapacity: 20,
     listedAt: '2026-07-18',
@@ -394,6 +406,7 @@ const SERVICES_RAW = {
     price: '¥12,000（PDF 22冊・全部入り＋特典 直前暗記ノート）',
     priceYen: 12000,
     priceHistory: [{ priceYen: 10000, until: '2026-09-22' }],
+    notePriceBasis: 'civil-1-niji-marugoto-pack | civil-1-chokuzen-pack + civil-1-experience-essay + civil-1-pastexam-essay + civil-1-gakka-kijutsu',
     examScope: ['civil-1'],
     weeklyCapacity: 20,
     listedAt: '2026-08-05',
@@ -412,6 +425,7 @@ const SERVICES_RAW = {
     price: '¥10,000（PDF 19冊・全部入り＋特典 直前暗記ノート）',
     priceYen: 10000,
     priceHistory: [{ priceYen: 7000, until: '2026-09-22' }],
+    notePriceBasis: 'civil-2-niji-marugoto-pack | civil-2-chokuzen-pack + civil-2-experience-essay + civil-2-pastexam-essay + civil-2-gakka-kijutsu',
     examScope: ['civil-2'],
     weeklyCapacity: 20,
     listedAt: '2026-08-05',
@@ -475,6 +489,7 @@ const SERVICES_RAW = {
       '技術士総合技術監理部門（総監）記述式（必須科目I-2）の出題傾向分析 PDF。令和6〜8年度の実績（カーボン／少子高齢化／地方創生）から「社会課題×5管理のトレードオフ」系統の読み方、設問3の解答様式（課題×施策2組・各約600字・5管理2つ以上の明記）、出そうなテーマの見極め方、R8地方創生の正直な検証（本命は外し・候補群で当てた）を収録。購入後トークルームで PDF をお送りします。出題を保証するものではありません。',
     price: '¥2,500（PDF）',
     priceYen: 2500,
+    notePriceExempt: '出題テーマ分析は note に同じ中身の商品が無い（note の施策バンク本文は転載しない設計）',
     examScope: ['pe-comprehensive-management'],
     weeklyCapacity: 20,
     listedAt: '2026-07-22',
@@ -523,6 +538,7 @@ const SERVICES_RAW = {
     price: '¥4,000（PDF）',
     priceYen: 4000,
     priceHistory: [{ priceYen: 3000, until: '2026-09-22' }],
+    notePriceBasis: 'rccm-mondai3-magazine',
     examScope: ['rccm'],
     weeklyCapacity: 20,
     listedAt: '2026-09-16',
@@ -540,6 +556,7 @@ const SERVICES_RAW = {
     price: '¥3,000（PDF2冊）',
     priceYen: 3000,
     priceHistory: [{ priceYen: 2500, until: '2026-09-22' }],
+    notePriceBasis: 'rccm-takuitsu-yosou-50 + rccm-anki-note',
     examScope: ['rccm'],
     weeklyCapacity: 20,
     listedAt: '2026-09-23',
@@ -558,6 +575,7 @@ const SERVICES_RAW = {
     price: '¥4,500（テンプレ＋1部門の記入例2本）',
     priceYen: 4500,
     priceHistory: [{ priceYen: 4000, until: '2026-09-22' }],
+    notePriceBasis: 'each: rccm-mondai1-template + rccm-mondai1-water | rccm-mondai1-template + rccm-mondai1-sewer | rccm-mondai1-template + rccm-mondai1-geotechnical | rccm-mondai1-template + rccm-mondai1-road | rccm-mondai1-template + rccm-mondai1-river-coast | rccm-mondai1-template + rccm-mondai1-steel-concrete',
     examScope: ['rccm'],
     weeklyCapacity: 20,
     listedAt: '2026-09-23',
@@ -577,6 +595,7 @@ const SERVICES_RAW = {
     price: '¥3,500（PDF1冊）',
     priceYen: 3500,
     priceHistory: [{ priceYen: 3000, until: '2026-09-22' }],
+    notePriceBasis: 'each: tankan-oral-complete | pe-construction-oral-guide',
     examScope: ['pe-comprehensive-management', 'pe-construction'],
     weeklyCapacity: 20,
     listedAt: '2026-09-23',
@@ -610,6 +629,7 @@ const SERVICES_RAW = {
       'コンクリート主任技士試験の小論文対策PDF5冊。答案の型と時間配分をまとめた解法ガイドと、品質管理・耐久性・環境配慮・施工トラブルの4テーマの模範答案（想定問題・答案の方針・チェックポイント・自分の案件への置換ガイド付き）。模範答案は架空の案件に基づく例示。出題や合格を保証するものではない。',
     price: '¥3,000（PDF5冊）',
     priceYen: 3000,
+    notePriceBasis: 'cce-essay-magazine',
     examScope: ['concrete-chief-engineer'],
     weeklyCapacity: 20,
   },
@@ -623,6 +643,7 @@ const SERVICES_RAW = {
       'コンクリート主任技士試験の四肢択一対策PDF3冊。8分野のオリジナル予想50問（全選択肢解説）、配合計算の実戦演習12問（途中式付き）、数値と定義の一問一答157問。予想は出題を保証するものではなく、実際の試験問題の再現ではない。',
     price: '¥3,500（PDF3冊）',
     priceYen: 3500,
+    notePriceBasis: 'cce-takuitsu-chokuzen-pack | cce-r8-mc-50 + cce-mix-calculation-practice + cce-anki-note',
     examScope: ['concrete-chief-engineer'],
     weeklyCapacity: 20,
   },

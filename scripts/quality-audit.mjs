@@ -183,10 +183,14 @@ const CHECKS = [
   // ココナラ分析 snapshot と kpi-log の整合（オフライン）。取得本体 coconala-analytics.mjs は要ログインでローカル専用なので、
   // ここは「取得が回っていない／新商品が snapshot に無い」を週次で拾う（2026-09-19 まで週次スキル内で LLM が叩くだけだった）。
   { id: 'coconala-analytics', npm: 'check-coconala-analytics', timeout: 60_000, ci: false, ops: true, note: 'ココナラ分析の鮮度・listed全件取得・kpi-log整合を検査。取得は 2026-09-21 以降 login-collectors.yml（coconala 火 cron・暗号化 state）が hosted CI で回す（失効時のフォールバックはローカル認証実行）。読み手＝ops-audit.yml（日次Issue）で、停止は同ワークフローへ集約する。' },
+  // ココナラの公開ページ（ログイン不要の構造化データ）とカタログ／listings の突合。外部の状態に依存するので ops 区分。
+  { id: 'coconala-live', npm: 'check-coconala-live', timeout: 240_000, ci: false, ops: true, note: 'ココナラ公開ページの価格・タイトル・キャッチ・本文・出品者・販売状態がカタログ／listings と一致するか（2026-09-23 新設）。読み手＝ops-audit.yml（日次 --ops）→ automation-failure Issue（channel ops）。exit 2 は取得失敗が過半＝検査不成立' },
   { id: 'sales-freshness', npm: 'check-sales-freshness', timeout: 30_000, ci: false, ops: true, note: '売上転記（note-sales-fetch）の停止と、note-traffic-fetchで取得済みの月次売上表示との金額不一致を検知する（updatedAt が 21 日超または月次不一致で赤・閑散期でも偽赤にならない）。2026-07 は 18% しか転記されず 34 日誰も気づかなかった。取得は認証が要るのでローカル専用。読み手＝ops-audit.yml（日次 --ops → automation-failure Issue channel ops・復旧で自動クローズ）' },
   { id: 'kdp-report-freshness', npm: 'check-kdp-report-freshness', timeout: 30_000, ci: false, ops: true, note: 'KDP 月次ロイヤリティの取得停止を検知する。毎月16日以降は前月確定値、28日以降は当月推計値、共有口座のうちdoboku-note LIVE全冊のcatalog紐付けを要求する。取得は認証が要るためローカル専用。読み手＝ops-audit.yml（日次 --ops → automation-failure Issue channel ops・復旧で自動クローズ）' },
   { id: 'cloudflare-metrics-freshness', npm: 'check-cloudflare-metrics-freshness', timeout: 30_000, ci: false, ops: true, note: 'Cloudflare zone analytics 日次取得（cloudflare-metrics.yml）と zone 設定監査（cloudflare-config-audit.yml）の停止を検知する。ドリフト自体は channel cloudflare-config が持つ。読み手＝ops-audit.yml（日次 --ops）' },
   { id: 'afb-outcomes-freshness', npm: 'check-afb-outcomes-freshness', timeout: 30_000, ci: false, ops: true, note: 'afb 成果（公式 API・fetch-metrics.yml 週次）の取得停止を検知。読み手＝ops-audit.yml（日次 --ops）' },
+  // カタログ↔listings↔画像↔受注／KPI／売上の整合と、PDF 商品の価格ルール（note より安く売らない）。結果はリポジトリの差分だけで決まる。
+  { id: 'coconala-wiring', npm: 'check-coconala-wiring', timeout: 60_000, ci: true, note: 'pre-commit（--staged）だけだと hook を通らない commit や note 価格の変更で取りこぼすため CI でも全件検査（2026-09-23）' },
   { id: 'sales-mapping', npm: 'check-sales-mapping', timeout: 60_000, ci: true, note: 'sales-log の productId と note-magazines.ts の公開済み単品が sales-recorder.md の mapping に文書化されているか（初売上前の新商品も先行検知）' },
   { id: 'note-funnel', npm: 'check-note-funnel', timeout: 90_000, ci: true },
   { id: 'magazine-cta-reachability', npm: 'check-magazine-cta:ci', timeout: 120_000, ci: true, note: '公開マガジンがサイト内で 1 面以上 CTA として出るか（top / 中間CTA / MagazineCard）。baseline 外の新規 0 面で落ちる' },

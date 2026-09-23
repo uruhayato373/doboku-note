@@ -255,6 +255,19 @@ DM 一覧 = `/message?fromMyPage=true`、行 = `a.c-messageItemWrap[href="/mypag
 - `skipped[]` は公開中でない（`paused`）ため分析ページが構造的に無いもの。黙って落とさず残す
 - `masked` は画面が `0000` でマスクした指標（セラーサクセス未加入の表示数）。0 ではなく `null`
 
+### 2.6 SoT と live・note 価格の整合（機械検査・2026-09-23 新設）
+
+出品・価格・本文は Playwright で live に書くので、「SoT を直したが live に反映し忘れた」「UI で直して SoT が古い」「価格 select が失敗したのに ok:true」というずれが起きうる。次の2本で止める。
+
+| 検査 | 見るもの | いつ走るか |
+|---|---|---|
+| `npm run check-coconala-live` | listed の全サービスについて、公開ページの構造化データ（schema.org Product・ログイン不要）の価格＝`priceYen`、名前＝タイトル＋キャッチコピー、説明文＝listings の `body`（空白・改行は無視）、出品者名、販売可能状態 | 日次の ops-audit（`quality-audit --ops`）。食い違いは automation-failure Issue（channel ops） |
+| `npm run check-coconala-wiring`（検査10） | PDF 商品の価格ルール＝`notePriceBasis`（note で同じ中身を買う方法）の基準 × 1.1 をココナラの価格刻みで切り上げた額以上。note に同じ中身が無い PDF は `notePriceExempt` に理由 | pre-commit（カタログ・listings・`note-magazines.ts` の変更時）と CI（`quality-audit --ci`） |
+
+- 出品文・価格を変えたら、SoT（カタログ・listings）を先に直して `coconala-edit` で反映し、`check-coconala-live` が緑になるまでを1セットにする。
+- note の値上げで価格ルールの下限が上がると `check-coconala-wiring` が落ちる。ココナラ側も改定するか、note の値上げを見直す。
+- 過去の受注額はカタログの `priceHistory`（旧定価と有効最終日）で受注日時点の定価と突合する（検査3）。
+
 ## 3. 受注フロー（`/coconala-order`）
 
 ```

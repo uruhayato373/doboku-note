@@ -84,6 +84,7 @@
     "fetch-cloudflare-analytics": "node scripts/fetch-cloudflare-analytics.mjs",
     "fetch-cloudflare-zone-config": "node scripts/fetch-cloudflare-zone-config.mjs",
     "check-coconala-blog": "node scripts/check-coconala-blog.mjs",
+    "check-coconala-live": "node scripts/check-coconala-live.mjs",
     "check-coconala-orders": "node scripts/check-coconala-orders.mjs",
     "check-coconala-wiring": "node scripts/check-coconala-wiring.mjs",
     "check-competitor-scan-due": "node scripts/check-competitor-scan-due.mjs",
