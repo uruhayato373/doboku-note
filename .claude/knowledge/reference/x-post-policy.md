@@ -35,6 +35,7 @@ Evaluator（`x-post-qa`）が共通参照する。
 node scripts/check-x-length.mjs                 # 全ドラフト（既定280・[longform]は25,000で判定）
 node scripts/check-x-length.mjs --draft 040     # 単一
 node scripts/check-x-length.mjs --over          # 違反のみ
+node scripts/check-x-length.mjs --pending-only  # 投稿済み（posted/replaced）を除く。CI ゲート quality-audit x-length はこれ（2026-09-23〜）
 ```
 
 > 既知の落とし穴: `check-x-length` は Windows で空振りした事例あり（[[measurement-incidents]] 系）。違反ゼロ表示を鵜呑みにせず、weighted 計算を目視確認する。

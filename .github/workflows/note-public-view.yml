@@ -39,8 +39,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          # 定期・手動は develop を検査する（既定ブランチの main は古いことがある）。PR は PR の内容
-          ref: ${{ github.event_name == 'pull_request' && '' || 'develop' }}
+          # 定期・手動は develop を検査する（既定ブランチの main は古いことがある）。PR は PR の内容。
+          # 空文字は式で偽になるので `cond && '' || 'develop'` と書くと PR でも develop になる（2026-09-23 に実際に踏んだ）
+          ref: ${{ github.event_name != 'pull_request' && 'develop' || github.ref }}
 
       - name: Setup Node
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0

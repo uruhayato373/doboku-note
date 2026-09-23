@@ -21,6 +21,7 @@
  *   node scripts/check-x-length.mjs --draft 004      # 単一
  *   node scripts/check-x-length.mjs --over           # 違反のみ表示
  *   node scripts/check-x-length.mjs --json           # JSON 出力
+ *   node scripts/check-x-length.mjs --pending-only   # 投稿済み（status.json の posted/replaced）を除く＝CI ゲート（quality-audit x-length）
  *
  * Exit code: 違反があれば 1
  */
@@ -99,6 +100,26 @@ export function splitTweets(md) {
   return rows;
 }
 
+// 投稿済み・差し替え済みの投稿は X 上で確定しているので、原稿を直しても意味がない（CI の対象外）。
+const SETTLED = new Set(["posted", "replaced"]);
+
+/** status.json から「投稿番号 → status」を読む（無ければ空）。 */
+function statusOf(folder) {
+  const p = join(DRAFTS_DIR, folder, "status.json");
+  if (!existsSync(p)) return {};
+  try {
+    const tweets = JSON.parse(readFileSync(p, "utf8")).tweets || {};
+    return Object.fromEntries(Object.entries(tweets).map(([k, v]) => [String(Number(k)), v?.status]));
+  } catch {
+    return {};
+  }
+}
+
+/** 投稿済み（posted / replaced）を除く。--pending-only（CI）の対象選別。 */
+export function pendingOnly(rows, statusByNum) {
+  return rows.filter((r) => !SETTLED.has(statusByNum[String(Number(r.num))]));
+}
+
 function checkDraft(folder) {
   const path = join(DRAFTS_DIR, folder, "tweets.md");
   if (!existsSync(path)) return null;
@@ -130,6 +151,7 @@ function main() {
   const args = process.argv.slice(2);
   const draftIdx = args.indexOf("--draft");
   const onlyOver = args.includes("--over");
+  const pending = args.includes("--pending-only");
   const asJson = args.includes("--json");
 
   let folders;
@@ -141,9 +163,12 @@ function main() {
   }
 
   const all = [];
+  let settled = 0;
   for (const f of folders) {
     const rows = checkDraft(f) || [];
-    all.push(...rows);
+    const kept = pending ? pendingOnly(rows, statusOf(f)) : rows;
+    settled += rows.length - kept.length;
+    all.push(...kept);
   }
 
   const violations = all.filter((r) => r.over);
@@ -184,7 +209,7 @@ function main() {
     }
     const lfCount = all.filter((r) => r.longform).length;
     console.log(
-      `\n── Summary: ${all.length} tweets / ${violations.length} violations (short ${LIMIT} / longform ${LONGFORM_LIMIT}; ${lfCount} longform)`
+      `\n── Summary: ${all.length} tweets / ${violations.length} violations (short ${LIMIT} / longform ${LONGFORM_LIMIT}; ${lfCount} longform)${pending ? ` / 投稿済み ${settled} 件は対象外` : ""}`
     );
   }
 
