@@ -163,14 +163,52 @@
 
 **進捗（2026-09-23）**: ユーザー指示で ¥2,980（日本 35%）に改定し出版申請済み＝catalog `in_review`。残＝`--sync-status` で LIVE と ASIN を確認し catalog・Kindle 戦略へ反映。
 
-### [DN-0255] index coverage の中間計測（index-coverage.yml を手動 dispatch）と #485 の判定
-タグ: [インフラ・計測] [種類:改善] [起票:2026-09-19] [期日:2026-09-24]
+### [DN-0285] Google（GSC）のログインを CI の暗号化 state で動かし、canary を卒業させる
+タグ: [インフラ・計測] [種類:改善] [検証:check-playwright-auth-wiring:strict] [起票:2026-09-24]
 
-**起点**: #485（index coverage 41.8%・3 週目）の主因は URL 移行後の再クロール待ちで、打ち手（#517 の sitemap 縮小 133 件・登録リクエスト 10 件・#518 の IndexNow）は 2026-09-19 に本番反映済み。効果は月次（10/1）まで見えないので、計画どおり 9/24 頃に中間計測を入れる（URL Inspection quota 1,516/2,000）。
+**起点**: GSC の登録リクエスト（`gsc-request-indexing`）と月次の理由別 UI CSV（`/google-search-growth`）は Mac のブラウザでしか動かず、登録済みページを増やす作業が人の手で止まる（受理は 7/30・8/4・9/17 の計 30 件だけ・`gsc-indexing/history.json`）。CI ログインの仕組み（`login-collectors.yml`・age 暗号化 storageState・private R2）は note / coconala / a8 で稼働中で、google の collect step も配線済みだが、`.claude/config/playwright-auth-profiles.json` の google は `enabled:false`・`operations:["read"]`。hosted runner（データセンター IP）で Google が通るかは未検証（X はボット挑戦で不可だった・playwright-auth-profiles.md §CI）。
 
-**やること**: `gh workflow run index-coverage.yml --ref main` → 完走後に `node .claude/scripts/check-coverage-thresholds.mjs` の結果と `gsc-management.md` 09-17 エントリの復帰条件（/exam の索引率 70%）を照合し、同エントリへ観測を 1 行追記する。閾値が緑なら #485 は --resolve で自動クローズ、赤なら 10/1 の本判定まで待つ理由を Issue に 1 行。
+**やること**:
+1. Mac: `npm run auth:status -- --service google` → expired なら `npm run auth:login -- --service google` → `npm run auth:export -- --service google`
+2. `login-collectors.yml` を `service=google mode=probe-only` で別日に 2 回 dispatch し `authenticated` を確認する。そのたびに Mac の `auth:status` が `authenticated` のままか見る（CI での復元を理由に Google が Mac 側セッションを失効させないこと）
+3. `mode=collect`（`gsc-ui:fetch`・`fetch-ga4-ui-csv`）を別日で 3 回 → 問題なければ `canary:false`・`enabled:true`（手順は playwright-auth-profiles.md §CI「canary 手順」）。gsc-management.md 分業表の `/google-search-growth` を「取得は CI」に書き換える
+4. ボット挑戦・本人確認・Mac 側のログアウトが出たら即 `enabled:false` に戻し、self-hosted runner（自宅回線）案を 🟣 に起票して止める
 
-**完了条件**: 中間計測の run が success で、gsc-management.md に 09-24 の観測行がある。
+**注意**: 暗号化 state は Google アカウントのセッションそのもので、repo の write 権限者は workflow 経由で復号できる。メインの Google アカウントではなく、doboku-note の GSC / GA4 の権限だけを持つ専用アカウントでログインするのが安全（登録リクエストに要る GSC 権限＝オーナーか「フル」かを先に確認する）。
+
+**完了条件**: google が `enabled:true`・`canary:false` で、collect の scheduled run が 1 回 success、その後も Mac の `auth:status` が `authenticated`。
+
+### [DN-0286] GSC の登録リクエスト送信を CI で自動化する（順位表の先頭から 1 日 10 件）
+タグ: [インフラ・計測] [種類:改善] [検証:check-playwright-auth-wiring:strict] [起票:2026-09-24]
+
+**起点**: 9/23 の週次 batch で未登録は 288 件（検出-未登録 233・旧 `/docs/` を正規に選ばれた重複 18・Google に未認識 23・クロール済み-未登録 14）。送る順番の表 `.claude/state/metrics/gsc-indexing/priority-latest.txt` は毎週 CI が作るが、送信は Mac で `npm run gsc-indexing:request` を手で叩くしかない（gsc-management.md:78）。GSC の上限は 1 日 10 件前後なので、週 1 回の手作業だと週 10 件で頭打ちになる。DN-0285 が前提。
+
+**やること**:
+1. `scripts/gsc-request-indexing.mjs` を google の `writeScripts` に入れ、`operations` に `write` を足す。headless で「インデックス登録をリクエスト」ボタンと受理文言が読めるか確かめる
+2. 書き込みゲートの扱いを決めて実装する。今の `ops-write.yml` は毎回人が plan hash を渡す前提（`scripts/lib/ci-write-gate.mjs`）で定期実行に向かない。推奨: `.claude/config/ci-write-operations.json` に「定期書き込み」の区分を足し、入力を CI が作った順位表・上限 10 件・`--commit` に固定する（カタログ登録の PR レビューを承認とみなす）
+3. 新 workflow（例 `gsc-request-indexing.yml`）: 送信前に `node scripts/build-gsc-indexing-priority.mjs` を再実行して直近 14 日の受理済みを外し、先頭 10 件を送る → `gsc-indexing/{requests-latest,history}.json` を develop へ commit（`concurrency: develop-git-write`）→ state を writeback。失敗は `node scripts/report-automation-failure.mjs --channel gsc-indexing`
+4. 最初は週 1 回（水曜の index-coverage の後）で 2 回回し、Google 側の警告や Mac 側のログアウトが無ければ毎日に上げる
+5. 人の手順を消す: gsc-management.md（分業表の `gsc-request-indexing` 行・cadence の「人間に残る作業」）、`index-coverage.yml` 冒頭コメント、`scripts/check-gsc-indexing-due.mjs` の回復コマンド、`.claude/config/workflow-health.json`、docs/operations/04_自動化マップ.md。コミット前に `/doc-sync`
+
+**完了条件**: scheduled run が画面文言で確認した受理 1 件以上を `history.json` に記録し、`node scripts/check-gsc-indexing-due.mjs` が OK。gsc-management.md に Mac での手動送信手順が残っていない。
+
+### [DN-0287] `/standards/` の逐語分冊 part-N を sitemap に戻す（復帰条件を 9/23 に満たした）
+タグ: [インフラ・計測] [種類:改善] [起票:2026-09-24] [期日:2026-10-01]
+
+**起点**: 2026-09-17 に part-N 133 件を sitemap から一時的に外し、戻す条件を「`/exam/` の索引率 70%」とした（gsc-management.md 2026-09-17 エントリ）。9/23 の週次 batch で `/exam/` は 1,015 / 1,207＝84.1% になり条件を満たした（#485 も同日に自動クローズ）。
+
+**やること**: `scripts/generate-sitemap.mjs:136-141` の除外ブロックを消し、sitemap が約 1,567 URL（URL Inspection の上限 1,900 以内）になることを確かめて develop へ入れる。gsc-management.md に判断を 1 エントリ追記する。戻した翌週の batch では検出-未登録が一時的に増える見込みなので、そのことも書いて金曜の自動レビューが異常と読まないようにする。
+
+**完了条件**: 本番 sitemap に `/standards/*/*/part-N` が載り、次の週次 batch の `sitemap_urls` に反映されている。
+
+### [DN-0288] note・SNS のリンクを作る側と検査する側が旧 `/docs/` URL を正としているのを直す
+タグ: [インフラ・計測] [種類:不具合] [検証:check-note-site-utm] [起票:2026-09-24]
+
+**起点**: 8/22 の URL 移行後も、note・SNS からサイトへ張るリンクの生成と検査が `https://doboku-note.com/docs/{slug}` を正としている。`scripts/check-note-site-utm.mjs:68` は `/docs/` だけをサイトリンクと見なし、:120 の対処文も `/docs/` を指示する。同じ前提が `scripts/check-x-utm.mjs:86`・`scripts/check-sns-urls.mjs:71`・`.claude/agents/note-link-injector.md:33`・`.claude/agents/pe-secondary-exam-writer.md`・`.claude/agents/pe-secondary-exam-qa.md`・`.claude/agents/ig-stories-writer.md`・`.claude/skills/social/social-post/SKILL.md`・docs/marketing/02_チャネル動線設計.md にある。新しい note・投稿を出すたびに 301 経由の旧 URL へのリンクが増える（旧 URL は直近 28 日でも表示 4,487 回＝全体の 32% を取っている・`gsc-page-2026-09-23T06-54-58.json` 上位 1,000 行）。
+
+**やること**: 検査 3 本を新 URL（`/exam/` `/practice/` `/standards/` `/topics/`）をサイトリンクとして扱う形に直し、旧 `/docs/` は warning で出す（既存本文の張り替え＝DN-0289 が済んだら error に上げる）。新旧の対応は `scripts/lib/legacy-routes.mjs` の `normalizeTargetPath` を使い、判定を重複実装しない。エージェント・スキル・02_チャネル動線設計.md の URL 例を新 URL に替え、`npm run sync-codex-compat` で Codex 側も揃える。
+
+**完了条件**: 新 URL の UTM 付きリンクが 3 本の検査を通り、旧 `/docs/` は warning になる（テスト付き）。生成側の URL 例に `doboku-note.com/docs/` が残っていない。
 
 ### [DN-0237] RCCM 問題I 業務経験論文テンプレ・択一論点集 50 問・ココナラ 3 出品を CBT 期間内（〜10/31）に出す
 タグ: [収益化] [種類:制作] [起票:2026-09-16] [期日:2026-10-10]
@@ -371,6 +409,18 @@ CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認し
 **完了条件**: 各行の実体が解消したら行ごと消し、全行が消えたらカードを削除する。
 
 ## 🟡 中 — 2〜3ヶ月以内
+
+### [DN-0289] 公開済み note 669 本の本文にある旧 `/docs/` リンク 1,990 本を新 URL へ張り替えて再公開する
+タグ: [SNS・マーケ] [種類:改善] [起票:2026-09-24]
+
+**起点**: `content/note/**` のうち `noteUrl` を持つ 669 本が `https://doboku-note.com/docs/...` へのリンクを計 1,990 本含む（2026-09-24 集計）。どれも 301 で新 URL に届くが、note.com からの被リンクが旧 URL を指し続けることは、Google が旧 URL を正規に選ぶ要因の一つになりうる。9/23 の batch では新 URL 18 件が「重複・Google が旧 `/docs/` を正規に選択」だった。ただしその筆頭の `cost-benefit-analysis` は note からのリンクが 0 本で、18 件の主因は Google の再クロール待ちと見ている。読者のクリックも毎回 301 を 1 回挟む。DN-0288 が前提（検査が新 URL を受け入れないと pre-commit で止まる）。
+
+**やること**:
+1. `normalizeTargetPath` で旧パスを新パスに置き換える（UTM のクエリは残す）スクリプトを dry-run し、置き換えられない行（`public/_redirects` に無い slug）を一覧にする
+2. `lib/mdx-io.mjs` の `writeMdxFile` で書き戻し、マガジン単位で commit する
+3. 再公開は `ops-write.yml` の `note.update-body` をバッチで回す。外向きの大量更新なので、対象本数・間隔・順番（表示の多い記事から）をユーザーに確認してから始める。最初の数本で有料エリアと添付が壊れないことを note 上で確かめる
+
+**完了条件**: `grep -rl "doboku-note.com/docs/" content/note` が 0 件で、再公開した本文から 20 本を抜き出して note 上に旧 URL が残っていないことを確認済み。
 
 ### [DN-0284] ココナラ出品の文面変更と4テーマ添削の追加（PR #595・#596）について /doc-sync を1回回す
 タグ: [エージェント・SSOT] [種類:改善] [検証:check-doc-refs] [起票:2026-09-24]
@@ -841,6 +891,15 @@ Drive台帳・vault・Drive APIの照合前にローカル実体を削除しな�
 
 
 ## 🟣 判断待ち — ユーザーの意思決定が必要
+
+### [DN-0290] 旧 `/docs/` URL を一時 sitemap で出し直し、301 の処理を早めるかを決める
+タグ: [インフラ・計測] [種類:意思決定] [起票:2026-09-24] [期日:2026-10-08]
+
+**起点**: 移行から 1 か月経っても、旧 `/docs/` URL 413 件が直近 28 日で表示 4,487 回（全体 14,183 回の 32%）・クリック 76 を取っている（`gsc-page-2026-09-23T06-54-58.json` の上位 1,000 行なので下限）。新 URL 18 件は Google が旧 URL を正規に選んだ「重複」で、週次の自動レビューでも旧 URL が新 URL を上回るカニバリが 4 件から 8 件に増えた（gsc-management.md 2026-09-18）。旧 URL が再クロールされないと 301 が処理されず、評価が新 URL に移らない。
+
+**やること**: (a) 旧 URL だけを載せた一時 sitemap（例 `sitemap-legacy.xml`）を GSC に送り、Google に 301 を早く見つけさせる、(b) 何もせず自然な再クロールを待つ、のどちらにするかを決める。(a) は未クロールの新 URL 233 件とクロール枠を取り合う恐れがあるので、Google のサイト移転ガイドの記述を一次情報で確かめてから判断する。判断材料として、次の 2 回の週次 batch と `gsc-page` で旧 URL の表示の比率が下がっているかを見る。
+
+**完了条件**: 判断と根拠を gsc-management.md に記録する。(a) にするなら作業カードを別に起票する。
 
 ### [DN-0265] コンクリート主任技士のココナラ試験出品（PDF 2件）を本試験後に継続か休止か判定する
 タグ: [収益化] [種類:意思決定] [起票:2026-09-23] [期日:2026-12-15]
