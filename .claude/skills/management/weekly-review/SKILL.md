@@ -116,12 +116,18 @@ description: >
 - note 構成監査（月次寄り・network依存）: `node scripts/check-note-structure.mjs`（公開API無料本文とソース paidBoundary を突合し FULL_LOCK/PAYWALL_LEAK/BOUNDARY_SHIFT/IMG_MISSING/PRICE_MISMATCH を検出・creds不要）。CRITICAL があれば該当記事の境界を `note-update-body --commit` で再設定するようサーフェスのみ（audit-note-funnel --live と同じ live 隔離枠）。
   **出力の「実検査 N本（対象M・取得失敗K）」を必ず読む**。live 系の検査は取得できていなければ「異常なし」ではなく「検査できていない」＝ N が対象数から大きく欠けていたら結果を信用しない（取得失敗率 >20% ならスクリプト側が exit 1 で落とす）。2026-07-28 まで 675/675 が取得失敗でも緑を返していた実績がある。同種の live 検査 `check-note-live-headings` も同じ観点で見る。
 
+- **note 公開ページの目視確認（エージェント・2026-09-23〜）**: 週次 CI `note-public-view.yml` は数値で判定し（添付 PDF・価格・全文会員限定・画像・カード・はみ出し）、加えて毎週ずらしながら 24 ページの「最初の画面」と「有料エリア直前」を撮って成果物に残す。数値で決められない見た目の崩れはここで見る。
+  1. `node scripts/fetch-note-public-view-shots.mjs --json` で最新の定期 run の画像を `.tmp/note-public-view-review/<runId>/` へ取る。exit 2 は「未確認」と書く（画像 0 枚を「異常なし」と呼ばない）。
+  2. sonnet のサブエージェント（`general-purpose`・1 体）に `review/index.json` と画像の場所を渡し、各ページの 2 枚を Read で見て次を報告させる（判定の根拠は画像に写っているものだけ・推測で埋めない）: 記号がそのまま出ている（`**`・バッククォート・`\*`）／カバーの文字が切れる・重なる／本文の図が記事の題材と合わない・別記事の図／レイアウト崩れ・空の枠／画面の価格表示と `index.json` の原稿価格（pricing・price）の食い違い／**有料エリアの直前までで何が手に入るか分からない**（購入判断に要る情報が無い）。返り値はページごとに `noteId・URL・何が・どちらの画像か・重さ（直す/様子見）` の表。
+  3. 「直す」は親が画像を見て確かめてから backlog へ DN を起票する（原因が原稿なら原稿を直して再公開、共通の型なら検査側で機械化できないかも書く）。
+
 出力形式:
 - 「今週追加したページ」
 - 「更新したページ」
 - 「note 公開状態ドリフト是正（N 本）」（あれば）
 - 「note 再公開ドリフト（本文 N 本 / タグ N 本）」（`check-note-republish` が drift のときのみ）
 - 「note 構成監査 CRITICAL（境界破損 N 本）」（`check-note-structure` が CRITICAL のときのみ）
+- 「note 公開ページの目視確認（run・N ページ／M 枚・指摘 K 件）」（画像を取れなかった週は「未確認」と理由）
 - 「競合再スキャン DUE」（`check-competitor-scan-due` が due のときのみ）
 - 「GSC/GA4 UI 取得 DUE（月次）」（`check-gsc-ui-due` の `anyDue` が true のときのみ・理由つき・→ 次セッションで `/google-search-growth`）
 - 「GA4 設定ドリフト」（`check-ga4-dimensions` が blockingMissing を返したときのみ・→ 次セッションで `npm run ga4-admin:apply`）
