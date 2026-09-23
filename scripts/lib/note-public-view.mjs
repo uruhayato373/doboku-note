@@ -66,3 +66,16 @@ export function evaluateRendered(m) {
   if ((m.overflow || []).length) bad.push(`スマホ幅で横にはみ出す（${m.overflow.slice(0, 2).join(', ')}）`);
   return { bad, warn };
 }
+
+/**
+ * 目視確認に回すページを選ぶ。等間隔に n 本、開始位置を週番号でずらす（毎週違うページ・続けると全体を一巡）。
+ * @param {Array} list 対象
+ * @param {number} n 撮るページ数
+ * @param {number} week 週番号（呼び出し側が Date から出す。テストで固定できるよう引数にする）
+ */
+export function pickReview(list, n, week) {
+  if (!n || !list.length) return [];
+  const step = Math.max(1, Math.floor(list.length / n));
+  const offset = ((week % step) + step) % step;
+  return list.filter((_, i) => i >= offset && (i - offset) % step === 0).slice(0, n);
+}

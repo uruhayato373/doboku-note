@@ -47,3 +47,14 @@ test('画面: 会員限定は本文要素が無くても BAD にしない（2026
   assert.match(evaluateRendered({ ...base, locked: false }).bad[0], /本文の要素/);
   assert.match(evaluateRendered({ ...base, status: 404, locked: false }).bad[0], /HTTP 404/);
 });
+
+test('目視確認の抽出: 等間隔に n 本、週ごとに開始位置がずれ、step 週で全体を一巡する', async () => {
+  const { pickReview } = await import('../scripts/lib/note-public-view.mjs');
+  const list = Array.from({ length: 100 }, (_, i) => i);
+  assert.deepEqual(pickReview(list, 4, 0), [0, 25, 50, 75]);
+  assert.deepEqual(pickReview(list, 4, 1), [1, 26, 51, 76]);
+  const seen = new Set();
+  for (let w = 0; w < 25; w++) pickReview(list, 4, w).forEach((i) => seen.add(i));
+  assert.equal(seen.size, 100);
+  assert.deepEqual(pickReview(list, 0, 3), []);
+});

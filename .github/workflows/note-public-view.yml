@@ -59,10 +59,13 @@ jobs:
         id: audit
         env:
           SAMPLE: ${{ github.event_name == 'pull_request' && '40' || inputs.sample }}
+          REVIEW_SHOTS: ${{ github.event_name == 'pull_request' && '4' || '24' }}
         run: |
           set -o pipefail
           mkdir -p .tmp/note-public-view
-          args=(--out .tmp/note-public-view/report.json)
+          # --review-shots: 週次レビューでエージェントが画像で見るための撮影（判定には使わない）。
+          # PR は撮影の経路だけ確かめる（4 本）
+          args=(--out .tmp/note-public-view/report.json --review-shots "${REVIEW_SHOTS}")
           if [ -n "${SAMPLE}" ]; then args+=(--sample "${SAMPLE}"); fi
           node scripts/check-note-public-view.mjs "${args[@]}" 2>&1 | tee .tmp/note-public-view.log
 
@@ -76,6 +79,7 @@ jobs:
             .tmp/note-public-view/
           if-no-files-found: ignore
           include-hidden-files: true # .tmp/ 配下（既定では . 始まりのパスを落とす）
+          retention-days: 21 # 週次レビュー（土曜・ローカル）が取りに行く。2 回逃しても残る長さ
 
       - name: Report failure
         if: failure() && github.event_name != 'pull_request'

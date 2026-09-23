@@ -18,6 +18,9 @@
  *   node scripts/check-note-public-view.mjs --sample 40      # ブラウザ層を等間隔に 40 本だけ
  *   node scripts/check-note-public-view.mjs 技術士総監        # パス部分一致で絞る
  *   --out <path>   結果 JSON を保存（CI の成果物）
+ *   --review-shots N  目視確認用に N ページの「最初の画面」と「有料エリア直前（無ければ本文末尾）」を撮る。
+ *                     判定には使わない（数値で決められない見た目の崩れを、週次レビューでエージェントが画像で見る）。
+ *                     抽出は週ごとにずらすので、続けると公開記事の全体を順に見られる。.tmp/note-public-view/review/
  * 例外台帳: .claude/config/note-public-view.json（意図した全文ロック・判断待ち）
  * 終了コード: 0 = 異常なし / 1 = 異常あり、または取得失敗が 20% を超えた（検査不成立）
  */
@@ -26,7 +29,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { walkArticles, expectedPdfs, frontmatterValue } from './lib/note-attachments.mjs';
 import { fetchNoteRaw } from './lib/note-live-check.mjs';
-import { evaluateApi, evaluateRendered } from './lib/note-public-view.mjs';
+import { evaluateApi, evaluateRendered, pickReview } from './lib/note-public-view.mjs';
 import { guardBrowserLaunch } from './lib/playwright-launch.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -34,9 +37,11 @@ const argv = process.argv.slice(2);
 const API_ONLY = argv.includes('--api-only');
 const argValue = (name) => { const i = argv.indexOf(name); return i >= 0 ? argv[i + 1] : null; };
 const SAMPLE = Number(argValue('--sample') || 0);
+const REVIEW_SHOTS = Number(argValue('--review-shots') || 0);
 const OUT = argValue('--out');
-const FILTER = argv.find((a, i) => !a.startsWith('--') && !['--sample', '--out'].includes(argv[i - 1])) || '';
+const FILTER = argv.find((a, i) => !a.startsWith('--') && !['--sample', '--out', '--review-shots'].includes(argv[i - 1])) || '';
 const SHOT_DIR = join(ROOT, '.tmp/note-public-view');
+const REVIEW_DIR = join(SHOT_DIR, 'review');
 const CONCURRENCY = 3;
 
 const policy = JSON.parse(readFileSync(join(ROOT, '.claude/config/note-public-view.json'), 'utf8'));
@@ -105,6 +110,9 @@ if (!API_ONLY) {
     userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1',
   });
   mkdirSync(SHOT_DIR, { recursive: true });
+  const reviewSet = new Set(pickReview(viewTargets, REVIEW_SHOTS, Math.floor(Date.now() / (7 * 24 * 60 * 60 * 1000))).map((t) => t.noteId));
+  const reviewIndex = [];
+  if (reviewSet.size) mkdirSync(REVIEW_DIR, { recursive: true });
   const inspect = async (t) => {
     const page = await context.newPage();
     const r = results.get(t.noteId);
@@ -134,6 +142,7 @@ if (!API_ONLY) {
         await page.evaluate(() => window.scrollTo(0, 0));
         await page.screenshot({ path: join(SHOT_DIR, `${t.noteId}.png`) }).catch(() => {});
       }
+      if (reviewSet.has(t.noteId)) reviewIndex.push(await reviewShots(page, t));
     } catch (e) {
       viewFail++;
       r.warn.push(`ブラウザで開けない: ${String(e.message || e).split('\n')[0].slice(0, 80)}`);
@@ -145,7 +154,35 @@ if (!API_ONLY) {
     await Promise.all(viewTargets.slice(i, i + CONCURRENCY).map(inspect));
   }
   await browser.close();
+  if (reviewSet.size) {
+    writeFileSync(join(REVIEW_DIR, 'index.json'), JSON.stringify(reviewIndex.filter(Boolean), null, 2) + '\n');
+    console.log(`  目視確認用: ${reviewIndex.filter((r) => r?.shots.length).length} ページを撮影（.tmp/note-public-view/review/）`);
+  }
   console.log(`  ブラウザ層: ${viewTargets.length - viewFail} 本を検査（開けない ${viewFail}${SAMPLE ? `・抽出 ${SAMPLE} 本` : ''}）`);
+}
+
+/** 最初の画面と、有料エリア見出しの直前（無ければ本文の末尾）を JPEG で撮る。失敗しても検査は続ける。 */
+async function reviewShots(page, t) {
+  const base = join(REVIEW_DIR, t.noteId);
+  const shots = [];
+  try {
+    await page.evaluate(() => window.scrollTo(0, 0));
+    await page.screenshot({ path: `${base}-top.jpg`, type: 'jpeg', quality: 70 });
+    shots.push(`${t.noteId}-top.jpg`);
+    const moved = await page.evaluate(() => {
+      const target = document.querySelector('.m-paywallHeader')
+        || document.querySelector('.note-common-styles__textnote-body')?.lastElementChild;
+      if (!target) return false;
+      target.scrollIntoView({ block: 'end' });
+      return true;
+    });
+    if (moved) {
+      await page.waitForTimeout(500);
+      await page.screenshot({ path: `${base}-end.jpg`, type: 'jpeg', quality: 70 });
+      shots.push(`${t.noteId}-end.jpg`);
+    }
+  } catch { /* 撮れなかったページは index の shots が欠ける＝レビュー側で件数を数える */ }
+  return { noteId: t.noteId, path: t.path, url: t.url, pricing: t.src.pricing, price: t.src.price, shots };
 }
 
 // ---- 集計
