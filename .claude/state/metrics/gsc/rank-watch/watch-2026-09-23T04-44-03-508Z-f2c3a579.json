@@ -1,0 +1,261 @@
+{
+  "version": 1,
+  "type": "measurement",
+  "watchId": "civil1-keiken-charcount",
+  "scope": {
+    "id": "civil1-keiken-charcount",
+    "keyword": "1級土木 経験記述 文字数",
+    "qualification": "civil-construction-1",
+    "targetPath": "/tools/keiken-charcount",
+    "contentPath": "src/app/tools/keiken-charcount/page.tsx",
+    "intent": "exam-task",
+    "mode": "monitor",
+    "priority": 1,
+    "audience": "施工経験記述の答案を作成している1級土木の受験者。",
+    "need": "設問ごとの解答欄に答案が収まるか確認し、超過を直したい。",
+    "rationale": "受験行動に直結するツール需要として監視する。ツール改修は記事1件の改善ループの対象外。",
+    "nextStep": {
+      "label": "令和7年度の設問を確認する",
+      "path": "/exam/civil-construction-1/secondary/r07"
+    },
+    "evidence": {
+      "kind": "gsc",
+      "source": ".claude/state/metrics/gsc/gsc-page-query-2026-09-10T22-51-42.json"
+    },
+    "examEvent": "second",
+    "country": "jpn",
+    "device": null,
+    "enabled": true
+  },
+  "scopeKey": "0427ae65c6358403c82c5bfaa2c72a496aa7589a4dc10fb476d8215027bc7109",
+  "fetchedAt": "2026-09-23T04:44:03.508Z",
+  "before": {
+    "window": {
+      "startDate": "2026-09-06",
+      "endDate": "2026-09-12"
+    },
+    "metrics": {
+      "rank": 9.5,
+      "impressions": 10,
+      "clicks": 1,
+      "ctr": 0.1,
+      "activeDays": 4
+    },
+    "raw": {
+      "meta": {
+        "siteUrl": "sc-domain:doboku-note.com",
+        "dataState": "final",
+        "type": "web",
+        "timeZone": "America/Los_Angeles",
+        "filters": [
+          {
+            "dimension": "query",
+            "operator": "equals",
+            "expression": "1級土木 経験記述 文字数"
+          },
+          {
+            "dimension": "page",
+            "operator": "equals",
+            "expression": "https://doboku-note.com/tools/keiken-charcount"
+          },
+          {
+            "dimension": "country",
+            "operator": "equals",
+            "expression": "jpn"
+          }
+        ],
+        "startDate": "2026-09-06",
+        "endDate": "2026-09-12",
+        "dimensions": [
+          "date"
+        ],
+        "dimension": "date",
+        "limit": null,
+        "pages_fetched": 1,
+        "row_count": 7,
+        "truncated": false,
+        "api_note": "Search Analytics API は全行の返却を保証しない（sampling / privacy filtering で低ボリューム行が欠落し得る）。row_count は startRow ページングの合算実測値であり、母集合全体とは限らない。"
+      },
+      "rows": [
+        {
+          "keys": [
+            "2026-09-06"
+          ],
+          "clicks": 0,
+          "impressions": 5,
+          "ctr": 0,
+          "position": 9.6
+        },
+        {
+          "keys": [
+            "2026-09-07"
+          ],
+          "clicks": 0,
+          "impressions": 3,
+          "ctr": 0,
+          "position": 9
+        },
+        {
+          "keys": [
+            "2026-09-08"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        },
+        {
+          "keys": [
+            "2026-09-09"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        },
+        {
+          "keys": [
+            "2026-09-10"
+          ],
+          "clicks": 1,
+          "impressions": 1,
+          "ctr": 1,
+          "position": 10
+        },
+        {
+          "keys": [
+            "2026-09-11"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 10
+        },
+        {
+          "keys": [
+            "2026-09-12"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        }
+      ]
+    }
+  },
+  "after": {
+    "window": {
+      "startDate": "2026-09-13",
+      "endDate": "2026-09-19"
+    },
+    "metrics": {
+      "rank": 8.833333333333334,
+      "impressions": 6,
+      "clicks": 0,
+      "ctr": 0,
+      "activeDays": 3
+    },
+    "raw": {
+      "meta": {
+        "siteUrl": "sc-domain:doboku-note.com",
+        "dataState": "final",
+        "type": "web",
+        "timeZone": "America/Los_Angeles",
+        "filters": [
+          {
+            "dimension": "query",
+            "operator": "equals",
+            "expression": "1級土木 経験記述 文字数"
+          },
+          {
+            "dimension": "page",
+            "operator": "equals",
+            "expression": "https://doboku-note.com/tools/keiken-charcount"
+          },
+          {
+            "dimension": "country",
+            "operator": "equals",
+            "expression": "jpn"
+          }
+        ],
+        "startDate": "2026-09-13",
+        "endDate": "2026-09-19",
+        "dimensions": [
+          "date"
+        ],
+        "dimension": "date",
+        "limit": null,
+        "pages_fetched": 1,
+        "row_count": 7,
+        "truncated": false,
+        "api_note": "Search Analytics API は全行の返却を保証しない（sampling / privacy filtering で低ボリューム行が欠落し得る）。row_count は startRow ページングの合算実測値であり、母集合全体とは限らない。"
+      },
+      "rows": [
+        {
+          "keys": [
+            "2026-09-13"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        },
+        {
+          "keys": [
+            "2026-09-14"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        },
+        {
+          "keys": [
+            "2026-09-15"
+          ],
+          "clicks": 0,
+          "impressions": 3,
+          "ctr": 0,
+          "position": 8.666666666666668
+        },
+        {
+          "keys": [
+            "2026-09-16"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        },
+        {
+          "keys": [
+            "2026-09-17"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 8
+        },
+        {
+          "keys": [
+            "2026-09-18"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 9.5
+        },
+        {
+          "keys": [
+            "2026-09-19"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        }
+      ]
+    }
+  },
+  "contentHash": "0384464740e8fd2aefa403375460fa34ed2c72b7e793feff0e52e46c1b515cbb"
+}
