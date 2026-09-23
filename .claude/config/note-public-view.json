@@ -1,0 +1,14 @@
+{
+  "_doc": "check-note-public-view.mjs（週次 note-public-view.yml）の例外台帳。無料設定（notePricing: free）なのに未ログインで本文 0 字（全文会員限定）の記事のうち、意図したもの（intentional）と判断待ち（pending・WARN 扱い）を理由つきで持つ。ここに無い記事が全文ロックになったら FAIL。判断が出たら pending から外す（開けるなら --trial-line-bottom で再公開、閉じるなら intentional へ移す）。",
+  "intentional": {
+    "content/note/1級・2級土木/メンバーシップ/はじめに-合格ラボ/article.md": "合格ラボ（メンバーシップ）の「はじめに」。会員向けの案内で全文会員限定が既定（note-api-verification.md「メンバーシップ連携記事」）"
+  },
+  "pending": {
+    "content/note/1級・2級土木/1級土木/magazines/1級土木-二次まるごとパック/article.md": "DN-0275: 入口 LP が未ログインで本文 0 字。開けるかをユーザーが判断",
+    "content/note/1級・2級土木/2級土木/magazines/2級土木-二次まるごとパック/article.md": "DN-0275: 入口 LP が未ログインで本文 0 字。開けるかをユーザーが判断",
+    "content/note/コンクリート主任技士/magazines/コンクリート主任技士-まるごとパック/article.md": "DN-0275: 入口 LP が未ログインで本文 0 字。開けるかをユーザーが判断",
+    "content/note/1級・2級土木/1級土木/magazines/1級土木-経験記述-完全攻略パック/00-完全攻略ガイド-想定工事索引/article.md": "DN-0275: 索引の全文ロックが意図どおりか未確認",
+    "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/00-想定工事索引/article.md": "DN-0275: 索引の全文ロックが意図どおりか未確認",
+    "content/note/RCCM/magazines/RCCM問題III-2026模範論文集/00-序章/article.md": "DN-0275: 序章の全文ロックが意図どおりか未確認"
+  }
+}

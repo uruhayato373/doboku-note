@@ -93,6 +93,12 @@
       "maxAgeDays": 3,
       "maxConsecutiveFailures": 3,
       "_note": "30 分刻み。承認済みキュー（status.json scheduled/queued）が空の間は plan-x が 0 件で緑。x の cron 投稿は頻度ゲート 12 規則を全通過したときだけ"
+    },
+    {
+      "workflow": "note-public-view.yml",
+      "maxAgeDays": 10,
+      "maxConsecutiveFailures": 2,
+      "_note": "週次（日 23:15 UTC）。note 公開ページの見え方（添付 PDF・価格・全文会員限定・画像・カード）。止まると読者に見える事故が検知されなくなる"
     }
   ]
 }
