@@ -237,6 +237,9 @@ productId は `coconala:<serviceId>` 形式（接頭辞でチャネル判別＝`
 | `総監 出題テーマ分析 PDF` / `coconala-sokan-bunseki-pdf`（¥2,500） | `coconala:coconala-sokan-bunseki-pdf` |
 | `RCCM 択一 予想50問＋一問一答 PDF` / `coconala-rccm-takuitsu-pdf`（¥2,500・2026-09-23 新設） | `coconala:coconala-rccm-takuitsu-pdf` |
 | `技術士 口頭試験 想定問答 PDF` / `coconala-pe-oral-pdf`（¥3,000・同上） | `coconala:coconala-pe-oral-pdf` |
+| `RCCM 問題I テンプレ＋記入例 PDF` / `coconala-rccm-mondai1-pdf`（¥4,000・同上） | `coconala:coconala-rccm-mondai1-pdf` |
+| `コンクリート主任技士 小論文 PDF` / `coconala-cce-essay-pdf`（¥3,000・同上） | `coconala:coconala-cce-essay-pdf` |
+| `コンクリート主任技士 択一直前パック PDF` / `coconala-cce-takuitsu-pdf`（¥3,000・同上） | `coconala:coconala-cce-takuitsu-pdf` |
 | `技術士 口頭試験 想定質問作成` / `coconala-pe-oral-qa`（¥5,000・同上・週2枠） | `coconala:coconala-pe-oral-qa` |
 
 > **アーカイブ済み（2026-08-05 の統廃合で恒久廃止・新規売上は発生しない）**:

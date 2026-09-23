@@ -36,7 +36,8 @@ export type CoconalaExamScope =
   | 'civil-2'
   | 'pe-construction'
   | 'pe-comprehensive-management'
-  | 'rccm';
+  | 'rccm'
+  | 'concrete-chief-engineer';
 
 export interface CoconalaService {
   readonly id: string;
@@ -530,6 +531,22 @@ const SERVICES_RAW = {
     listedAt: '2026-09-23',
   },
 
+  // R3（2026-09-23）: 問題I の PDF。診断（人の作業）はあったが PDF が無かった。303geos が 9月に同型を新設。
+  // 源は note のテンプレ（¥1,980）＋部門別記入例（各¥1,980）。購入者の受験部門の1本を送る＝note 定価の合計 ¥3,960 を下回らない。
+  'coconala-rccm-mondai1-pdf': {
+    id: 'coconala-rccm-mondai1-pdf',
+    status: 'draft',
+    serviceUrl: '',
+    title: 'RCCM業務経験論文のテンプレと記入例を送ります',
+    shortTitle: 'RCCM 問題I テンプレ＋記入例 PDF',
+    description:
+      'RCCM資格試験 試験A 問題I（業務経験論文・2,400字以内）のテンプレートと、受験部門の記入例2本のPDF。上水道・下水道・土質及び基礎・道路・河川砂防及び海岸海洋・鋼構造及びコンクリートの6部門から1部門を選ぶ。記入例は架空の業務に基づく練習用で、そのまま使う原稿ではない。出題や合格を保証するものではない。',
+    price: '¥4,000（テンプレ＋1部門の記入例2本）',
+    priceYen: 4000,
+    examScope: ['rccm'],
+    weeklyCapacity: 20,
+  },
+
   // ---- 技術士 口頭試験（2026-09-23・09 §D7）----
   // 土木二次の需要が消える11〜1月に立つ季節商品。出品31件・レビュー108件と小さい市場。運営者は技術士
   // （建設部門・総合技術監理部門）。ビデオ面接は日時調整の負担が大きいので出さず、PDF とテキスト完結型に限る。
@@ -560,6 +577,37 @@ const SERVICES_RAW = {
     examScope: ['pe-comprehensive-management', 'pe-construction'],
     weeklyCapacity: 2,
     listedAt: '2026-09-23',
+  },
+
+  // ---- コンクリート主任技士（2026-09-23・試験出品）----
+  // 本試験 2026-11-29。ココナラの出品は1件・レビュー0で、空白か需要不在かを判別できない（09 §D7）。
+  // PDF は1件ごとの作業がほぼ無いので小さく試し、試験後に販売実績で継続を判断する（backlog DN-0265）。
+  // 運営者はコンクリート主任技士を保有（src/config/author.ts）。KDP の g-02 は Select OFF で PDF 販売と衝突しない。
+  'coconala-cce-essay-pdf': {
+    id: 'coconala-cce-essay-pdf',
+    status: 'draft',
+    serviceUrl: '',
+    title: 'コンクリート主任技士の小論文模範答案を送ります',
+    shortTitle: 'コンクリート主任技士 小論文 PDF',
+    description:
+      'コンクリート主任技士試験の小論文対策PDF5冊。答案の型と時間配分をまとめた解法ガイドと、品質管理・耐久性・環境配慮・施工トラブルの4テーマの模範答案（想定問題・答案の方針・チェックポイント・自分の案件への置換ガイド付き）。模範答案は架空の案件に基づく例示。出題や合格を保証するものではない。',
+    price: '¥3,000（PDF5冊）',
+    priceYen: 3000,
+    examScope: ['concrete-chief-engineer'],
+    weeklyCapacity: 20,
+  },
+  'coconala-cce-takuitsu-pdf': {
+    id: 'coconala-cce-takuitsu-pdf',
+    status: 'draft',
+    serviceUrl: '',
+    title: 'コンクリート主任技士 択一直前パックを送ります',
+    shortTitle: 'コンクリート主任技士 択一直前パック PDF',
+    description:
+      'コンクリート主任技士試験の四肢択一対策PDF3冊。8分野のオリジナル予想50問（全選択肢解説）、配合計算の実戦演習12問（途中式付き）、数値と定義の一問一答157問。予想は出題を保証するものではなく、実際の試験問題の再現ではない。',
+    price: '¥3,000（PDF3冊）',
+    priceYen: 3000,
+    examScope: ['concrete-chief-engineer'],
+    weeklyCapacity: 20,
   },
 } as const satisfies Record<string, CoconalaService>;
 

@@ -11,7 +11,7 @@
  *
  * マッピングは PRODUCTS 定数（＝coconala-listings.json の商品と対応）。
  * 土木以外（RCCM・技術士）は noteRelative で content/note/ からの相対パスで源を引く。
- * 使い方: CHROME_PATH=... node scripts/build-coconala-content-pdf.mjs [--product C1|C2|R1|R2|O1]
+ * 使い方: CHROME_PATH=... node scripts/build-coconala-content-pdf.mjs [--product C1|…|C9|A1|A2|R1|R2|R3|K1|K2|O1]
  * ---------------------------------------------------------------------------
  */
 import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync } from 'node:fs';
@@ -162,6 +162,53 @@ const PRODUCTS = {
     articles: [
       { src: 'RCCM/magazines/RCCM問題II-IV-論点集予想50問/article.md', out: 'coconala-R2-RCCM択一-予想50問', includeFrom: '^## 問題IIの出題範囲マップ', replace: [['問1〜10は無料です。\n', '']] },
       { src: 'RCCM/magazines/RCCM問題II-IV-直前暗記ノート/article.md', out: 'coconala-R2-RCCM択一-一問一答159問', includeFrom: '^## この暗記ノートの使い方', replace: [['当サイトの「', '同梱の「']] },
+    ],
+  },
+  // A1/A2: 1級・2級 二次 学科記述の直前暗記ノート。単独出品せず、フルパック・プレミアムの特典として同梱する
+  // （模試には付けない。付けると note の直前総仕上げパック＝模試＋暗記＋分析を下回る）。
+  A1: {
+    label: 'coconala-1kyu-full-pdf / coconala-1kyu-premium の特典',
+    articles: [{ src: '1級土木-二次学科記述-直前暗記ノート/article.md', out: 'coconala-A1-1級二次-直前暗記ノート', includeFrom: '^## この暗記ノートの使い方', replace: [['**付属の印刷用PDF**（A5・赤シート対応）を現場ポケットに入れて回す：この一問一答を赤シートで隠せるA5サイズの印刷用PDFを記事末尾に添付しています（本文の一問一答リストと同内容）。', '**印刷して**現場のポケットに入れて回す：「A.」の側を紙で隠して使います。'], ['当マガジン「1級土木 二次学科記述 テーマ別出る順」の各テーマ別記事', '「1級土木 二次学科記述 テーマ別出る順」の各テーマ別教材']] }],
+  },
+  A2: {
+    label: 'coconala-2kyu-full-pdf の特典',
+    articles: [{ src: '2級土木-二次学科記述-直前暗記ノート/article.md', out: 'coconala-A2-2級二次-直前暗記ノート', includeFrom: '^## この一問一答の使い方', replace: [['赤シートで「A.」を隠し、Qを見て答えを口に出せるか確認します（赤シート対応のA5印刷用PDFを記事末尾に添付しています）。', '印刷して「A.」の側を紙で隠し、Qを見て答えを口に出せるか確認します。'], ['「なぜそうなるか」はテーマ別記事で確認してください。', '「なぜそうなるか」は学科記述のテーマ別教材で確認してください。'], ['当マガジン収録の「2級土木 二次学科記述 テーマ別出る順」5記事', '「2級土木 二次学科記述 テーマ別出る順」5本'], ['当サイト掲載のR03〜R07 第2次検定', 'R03〜R07 第2次検定']] }],
+  },
+  // R3: RCCM 問題I 業務経験論文（テンプレ＋6部門の記入例）。購入者の受験部門の記入例とテンプレを送る。
+  R3: {
+    label: 'coconala-rccm-mondai1-pdf',
+    noteRelative: true,
+    articles: [
+      { src: 'RCCM/magazines/RCCM問題I-業務経験論文テンプレ/article.md', out: 'coconala-R3-RCCM問題I-00-テンプレート', includeFrom: '^## 問題Iで問われていること' },
+      ...['01-上水道', '02-下水道', '03-土質及び基礎', '04-道路', '05-河川砂防及び海岸海洋', '06-鋼構造及びコンクリート'].map((d) => ({
+        src: `RCCM/magazines/RCCM問題I-部門別業務経験例/${d}/article.md`,
+        out: `coconala-R3-RCCM問題I-${d}`,
+        // 部門ごとに冒頭節の見出しが違う（使い方と公式情報／公式情報と記入例の位置づけ／公式情報と練習原稿の扱い）
+        includeFrom: '^## .*公式情報',
+      })),
+    ],
+  },
+  // K1: コンクリート主任技士 小論文（解法ガイド＋4テーマの模範答案）。
+  K1: {
+    label: 'coconala-cce-essay-pdf',
+    noteRelative: true,
+    articles: [
+      { src: 'コンクリート主任技士/magazines/コンクリート主任技士-小論文-模範答案集/解法ガイド/article.md', out: 'coconala-K1-主任技士小論文-00-解法ガイド', includeFrom: '^## 小論文は「翻訳」の試験である' },
+      ...['品質管理', '耐久性', '環境配慮', '施工トラブル'].map((t, i) => ({
+        src: `コンクリート主任技士/magazines/コンクリート主任技士-小論文-模範答案集/${t}/article.md`,
+        out: `coconala-K1-主任技士小論文-${String(i + 1).padStart(2, '0')}-${t}`,
+        includeFrom: '^## 想定問題（代表例）',
+      })),
+    ],
+  },
+  // K2: コンクリート主任技士 択一 直前パック（予想50問＋配合計算12問＋一問一答157問）。
+  K2: {
+    label: 'coconala-cce-takuitsu-pdf',
+    noteRelative: true,
+    articles: [
+      { src: 'コンクリート主任技士/四肢択一-R8予想50問/article.md', out: 'coconala-K2-主任技士択一-予想50問', includeFrom: '^## 予想の考え方', replace: [['分野正答率70%未満は、無料テキストと過去問解説へ戻る', '分野正答率70%未満は、テキストと過去問で基礎へ戻る']] },
+      { src: 'コンクリート主任技士/配合計算-実戦演習/article.md', out: 'coconala-K2-主任技士択一-配合計算12問', includeFrom: '^## 収録する計算パターン' },
+      { src: 'コンクリート主任技士/magazines/コンクリート主任技士-直前暗記ノート/article.md', out: 'coconala-K2-主任技士択一-一問一答157問', includeFrom: '^## この暗記ノートの使い方', replace: [['当サイトの「コンクリート主任技士｜令和8年度 四肢択一予想50問」', '同梱の「コンクリート主任技士｜令和8年度 四肢択一予想50問」']] },
     ],
   },
   // O1: 技術士 口頭試験 想定問答（総監版・建設部門版）。購入者の部門に合う1冊を送る。

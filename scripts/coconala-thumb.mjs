@@ -99,6 +99,24 @@ const THUMB_COPY = {
     hook: '過去問非公開の択一を、全選択肢解説の\n予想50問と一問一答159問で',
     priceLabel: 'PDF2冊',
   },
+  'coconala-rccm-mondai1-pdf': {
+    eyebrow: 'RCCM資格試験 ／ 試験A 問題I 業務経験論文',
+    title: ['RCCM 問題I', 'テンプレ＋記入例'],
+    hook: '2,400字の構成テンプレートと\n受験部門の記入例2本（6部門対応）',
+    priceLabel: 'PDF2冊',
+  },
+  'coconala-cce-essay-pdf': {
+    eyebrow: 'コンクリート主任技士 ／ 小論文',
+    title: ['主任技士 小論文', '模範答案'],
+    hook: '答案の型の解法ガイドと\n4テーマの模範答案・置換ガイド',
+    priceLabel: 'PDF5冊',
+  },
+  'coconala-cce-takuitsu-pdf': {
+    eyebrow: 'コンクリート主任技士 ／ 四肢択一',
+    title: ['主任技士 択一', '直前パック'],
+    hook: '予想50問・配合計算12問・\n一問一答157問で直前の総仕上げ',
+    priceLabel: 'PDF3冊',
+  },
   'coconala-pe-oral-pdf': {
     eyebrow: '技術士第二次試験 ／ 口頭試験',
     title: ['口頭試験', '想定問答PDF'],
