@@ -119,7 +119,8 @@
     "content/site": 135,
     "content/sns": 60,
     "content/sources": 20,
-    "scripts": 100
+    "_scripts_note": "2026-09-23: 100→130。I・J系 Kindle 26冊の配布物（表紙 jpg 21 MiB・EPUB 1.7 MiB）で 107.4 MiB に達した。kindle-dist は allowlist で Git 正本と決めている（DN-0151(3)）ため退避せず上限を上げる。表紙は spec と背景から決定的に再生成できるので、次に超えるときは表紙 jpg の追跡をやめて提出時に sync-kindle-dist で作る案を先に検討する",
+    "scripts": 130
   },
   "derivedPairRules": [
     {
