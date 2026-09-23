@@ -32,6 +32,8 @@
 2. 制作表記を「技術士（建設部門・総合技術監理部門）・1級土木施工管理技士」に直す。`scripts/update-youtube-authority-metadata.mjs` は最初の「▼」の前に表記を差し込むので、リンクを冒頭へ移すと表記まで上がる。差し込み位置も合わせて直す。
 3. 全 `youtube.json` を再生成し、予約済み・公開済み（`.claude/state/video-content-status.json` の longform と Shorts）へ `publish-video-pack.cjs --phase metadata` で同期する。ローカルに YouTube の資格情報が無いため、CI から実行する経路を用意する。
 
+**A8 リンク**: 概要欄にココナラ登録の A8 リンクを置く場合、YouTube チャンネルは A8 の掲載サイトに未登録（2026-09-24 時点で stats47・doboku-note・kazu-note のみ）。先に掲載サイトとして登録する（DN-0283 と同じプログラム）。
+
 **順序・禁止**: DN-0110 の移行（移行計画の `desiredSnippet`・`planSha256`）と衝突させない。移行が終わってから、または計画を作り直せる状態で着手する。公開面で「総監は上位資格」と書かない（07 §2）。
 
 **完了条件**: 予約済み・公開済みの全件の概要欄が新テンプレートと一致し、`verify-video-publication` の実査が通る。
@@ -46,6 +48,22 @@
 **禁止**: 凍結対策（同ポリシー §11）の重複・連投・一括予約の制限を守る。
 
 **完了条件**: ポリシーへの追記と、10月キャンペーンの該当投稿が `check-x-campaign-plan` を通る。
+
+### [DN-0283] サイトのココナラ出品リンクを A8 の商品リンクに切り替える（会員登録 ¥100・PR 表記つき）
+タグ: [収益化] [種類:改善] [検証:check-affiliate-mats] [起票:2026-09-24]
+
+**起点**: 2026-09-24 のユーザー決定で、ちゃんさとと同じくココナラ登録のアフィリエイトを始める（「アフィリは転職一本」の例外。自社出品への送客なので note とカニバらない）。同日に実装を始めたが、Claude Code の自動モードの安全判定（traffic redirection）で止まった。**ユーザーが許可してから実装する**。
+
+**A8 実機で確認した事実（2026-09-24）**:
+
+- 提携済みプログラム `s00000012624009`（株式会社ココナラ・「発注者 募集」）。成果は「ココナラを初めて使う人の会員登録 ¥100」。購入 ¥2,500 は Web・デザイン・動画・IT などのカテゴリだけで、当サイトの出品（学習指導・資格）の購入は対象外。特典を付けた誘導は否認条件。再訪問期間90日。
+- 掲載サイトは `doboku-note`（`websiteId=002`）を選ぶ（既定は stats47）。商品リンク作成で「カテゴリ・出品者プロフィール・サービスページ」を飛び先にできる。
+- 生成結果は全サービスで同じ形: `https://px.a8.net/svt/ejp?a8mat=4B3RUY+AINQAI+2PEO+1NIX2A&a8ejpredirect=<サービスURLを encodeURIComponent>`、計測ピクセル `https://www15.a8.net/0.gif?a8mat=4B3RUY+AINQAI+2PEO+1NIX2A`（listed 20件で照合済み）。A8 は生成リンクの改変を禁じている。
+- テキスト素材「無料登録はこちら」は `4B3RUY+AINQAI+2PEO+1HMAQQ`（YouTube 等で単独リンクにする場合）。
+
+**やること**: (1) `src/config/affiliate-creatives.ts` に mat・ピクセル・`coconalaAffiliateHref(serviceUrl)` を置く。(2) `src/lib/offsite-cta.ts` と `src/components/ui/OffsiteCta/OffsiteCta.tsx`、`src/app/links/page.tsx` のココナラ導線をこの href に替え、`AffiliatePrBadge`・`AFFILIATE_LINK_REL`・1ページ1ピクセル（`TrackingPixel`）を付ける（OffsiteCta の「アフィリではないので PR 表記不要」のコメントも直す）。(3) `src/config/affiliate-mats.json` に mat を登録。(4) A8 の実出力と照合するテストを足す。(5) `affiliate-operations.md` §1 に例外を書く。
+
+**完了条件**: `check-affiliate-mats`・型検査・テストが通り、build 後の経験記述ページで PR 表記と A8 の href を確認できる。
 
 ### [DN-0274] 総監 模範論文マガジン 40 本（PDF 付き）の全文更新をライブへ反映する（9/23 の要再公開一括処理の残り）
 タグ: [収益化] [種類:改善] [起票:2026-09-23] [期日:2026-09-25]
