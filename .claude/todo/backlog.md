@@ -84,6 +84,8 @@
 
 2026-09-23 のセッションが、9/24 16:09 から自動で流す予約を入れている（前日最後のアップロードから 24 時間 15 分後）。ただしこの予約はそのセッションのバックグラウンド処理なので、**PC を閉じる・スリープする・セッションが終わると実行されない**。実行されたかどうかは完了条件のコマンドで確かめる。
 
+この予約は worktree `.claude/worktrees/fix-funnel-exclude`（detached HEAD・`day2.sh`）で動いている。2026-09-24 朝の時点で、この worktree には develop に無いコミットが2件ある（`bdc2704b5`・`18c71857c`。後者の本文は「develop へは 90fecb1d3 で反映済み」とあるが、`note-republish-hashes.json` は develop と156行違う）。流し終わったら台帳の差分と未反映分を develop へ入れ、worktree を `git worktree remove` する。予約の実行中は消さない。
+
 **やること**: 完了条件のコマンドで、上の 40 本がまだ drift に残っているかを確かめる。残っていれば、次の順で流す。
 1. `git fetch` 後、develop の最新で作業する。PDF は Git 管理外なので、各記事フォルダへ `node scripts/drive-vault-sync.mjs --pull --path <記事フォルダ>/` で取り込む（`*.pdf` がフォルダにあることを確認）。
 2. 残っている記事のパスを 1 行 1 本で `.tmp/day2.txt` に書き、15 本ずつに分けて `DOBOKU_PW_MIN_FREE_MB=1536 node scripts/note-update-body.mjs --list <15本のファイル> --reattach-pdf --commit` を 1 つずつ実行する（ブラウザは同時に 1 つだけ。各回の間を 2 分空ける）。
@@ -369,6 +371,15 @@ CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認し
 **完了条件**: 各行の実体が解消したら行ごと消し、全行が消えたらカードを削除する。
 
 ## 🟡 中 — 2〜3ヶ月以内
+
+### [DN-0284] ココナラ出品の文面変更と4テーマ添削の追加（PR #595・#596）について /doc-sync を1回回す
+タグ: [エージェント・SSOT] [種類:改善] [検証:check-doc-refs] [起票:2026-09-24]
+
+**起点**: 2026-09-24 に `src/lib/coconala-services.ts`（タイトル変更・`coconala-tensaku-4theme` 追加）と `scripts/coconala-thumb.mjs` を変えた。規約（code ルール「ドキュメント同期プロトコル」）ではコミット前に `/doc-sync` を回すが、そのセッションでは skill を呼べなかったため、運用表（coconala-operations.md）・売上記録の対応表・展開キットは手で直した。
+
+**やること**: `/doc-sync` を2つのマージコミット（`56749ec1f`・`bc9759e50`）の差分に対して1回回し、旧タイトル（「1・2級土木の経験記述を元発注者が診断します」「新形式対応 土木経験記述を元発注者が添削します」）やココナラの出品数・価格表の陳腐化を直す。`.claude/state/coconala/` の実測スナップショットは当時の記録なので直さない。
+
+**完了条件**: doc-sync-auditor の指摘が0件になるか、指摘を適用して `check-doc-refs` が通る。
 
 ### [DN-0279] 無料模試とサービス紹介の動画パックを作る（同じ形式の無料版→有料版、申し込み方の実演）
 タグ: [SNS・マーケ] [種類:制作] [検証:check-video-content] [起票:2026-09-23]
