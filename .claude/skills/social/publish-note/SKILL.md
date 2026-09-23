@@ -200,7 +200,7 @@ browser-use --headed --profile "$NOTE_PROFILE" state 2>&1 > /tmp/note-acct.txt
 - **Playwright 版も目次挿入に対応済（2026-07-02）**＝`note-publish.mjs`（新規公開・Phase 6.5）と `note-update-body.mjs`（全文置換後の再挿入・4.5）が H2>=3 で本文先頭に note ネイティブ目次（`#toc-setting`）を挿入する（`--no-toc` で抑止）。目次は Phase 4.5（browser-use）だけの手作業ではなくなった。検証は screenshot 目視（`.tmp/np-toc.png` / `.tmp/nu-toc-*.png`）
 - **macOS 実行の注意（note-update-body）**: 本文全置換の「全選択」は Meta+A（Ctrl+A は行頭移動で空化に失敗→本文二重化）。`note-publish.mjs` は /new 空エディタ paste なので影響なし。無料記事の `--commit` は「更新する」まで自動完走（2026-07-14 実証で旧「未対応」は解消）
 - **メンバーシップ連携記事（price=0 だが会員限定）**: `note-update-body` は3段の試し読みフロー（`公開に進む → 試し読みエリアを設定 → 更新する`）に対応。入口LP（まるごとパック等）の無料プレビュー復旧は `--trial-line-bottom`（試し読みラインを末尾-1に設置。絶対末尾は全ロックに戻る罠あり）。詳細 SSOT: `.claude/knowledge/reference/note-api-verification.md`「メンバーシップ試し読みフロー」
-- **公開済み記事へのタグ差分追加**: `scripts/note-sync-tags.mjs`（本文非破壊・note上限99・不足分をlive照合で追加）。note-update-body はタグを触らない（本文専用）。タグdrift は `check-note-republish` が surface
+- **公開済み記事へのタグ差分追加**: `scripts/note-sync-tags.mjs`（本文非破壊・note上限99・不足分をlive照合で追加。上限99で足せないときは `--prune` で原稿に無いタグを外してから足す）。note-update-body はタグを触らない（本文専用）。タグdrift は `check-note-republish` が surface
 - **frontmatter の note* 行**: `note-publish.mjs` の公開後 writeback は `noteUrl`/`noteId`/`notePublishedAt`/`noteStatus` を **行が無ければ挿入**する（`setFmField`・2026-07-02 是正）。旧実装は replace-only で、テンプレに note* 行が無い記事は URL 記録が無音失敗し、`note-publish-magazine` の冪等ガード（noteUrl 有無）も効かず一括重複公開の危険があった
 - **Phase 7-Tags**: `<RXX>/hashtags.txt` の内容を入力
 - 予約日時があれば予約投稿、なければ「今すぐ公開」または下書き保存のみ

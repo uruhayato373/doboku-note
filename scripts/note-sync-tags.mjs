@@ -11,6 +11,11 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 //   node scripts/note-sync-tags.mjs --article <path>            # dry-run（不足タグ表示のみ・更新しない）
 //   node scripts/note-sync-tags.mjs --article <path> --commit   # 実適用
 //   node scripts/note-sync-tags.mjs --list <file> --commit      # バッチ（1行1 article パス）
+//   node scripts/note-sync-tags.mjs --article <path> --prune --commit  # 原稿に無いライブタグも消し、原稿と同じ集合にする
+//
+// 既定は「足すだけ」。ライブが上限99に達していると不足を1つも足せない（2026-09-23 土木もくじ: 余分11・不足7）。
+// --prune は原稿に無いタグを公開設定のタグ欄から外してから不足を足す。原稿（hashtags*.txt）が正で、
+// 検証は「消すはずのタグが残っていない・足すはずのタグが全部ある」をライブ API で見る。
 //
 // 安全弁: account=dobokunote assert・不足0なら冪等skip・更新後にAPIで全タグ実在を検証してから記録。
 
@@ -19,14 +24,15 @@ import { spawnSync } from 'node:child_process';
 import { join, dirname, relative } from 'node:path';
 import { chromium } from 'playwright';
 import { recordPublishedTagHash } from './lib/note-republish-hash.mjs';
+import { NOTE_TAG_CAP, planTagSync, tagChipPattern, verifyTagSync } from './lib/note-tag-plan.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 
 const ROOT = process.cwd();
 const argv = process.argv.slice(2);
 const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : null; };
 const COMMIT = argv.includes('--commit');
+const PRUNE = argv.includes('--prune');
 const MAX_ADD = Number(getArg('--max-add') || 0) || Infinity; // テスト用: 1記事あたり追加上限
-const NOTE_CAP = 99; // note のハッシュタグ上限（超えると更新が全体拒否される。note-publish も 99 で slice）
 const GOAL = 90;     // ライブで満たしたい下限
 const ARTICLE = getArg('--article');
 const LIST = getArg('--list');
@@ -100,15 +106,12 @@ for (const a of articles) {
   considered++;
   const live = await liveTags(noteId);
   if (live == null) { console.log(`[skip] API 取得失敗: ${noteId}`); fetchFail++; continue; }
-  const liveSet = new Set(live);
-  const missing = desired.filter((t) => !liveSet.has(t));
-  // note 上限を超えると更新が全体拒否されるため、追加は (99 - live) までにキャップ。
-  const capacity = Math.max(0, NOTE_CAP - live.length);
-  const addable = missing.slice(0, capacity);
-  const willBe = live.length + addable.length;
-  const note = missing.length > addable.length ? ` (上限99で${missing.length - addable.length}件は追加不可)` : '';
-  console.log(`[plan] ${noteId} live=${live.length} desired=${desired.length} 不足=${missing.length} → 追加${addable.length}で live=${willBe}${willBe < GOAL ? ' ⚠<90' : ''}${note}  ${a.replace(/^content\/note\//, '')}`);
-  if (addable.length) plans.push({ a, noteId, tagsFile, desired, missing: addable, liveCount: live.length });
+  // note 上限を超えると更新が全体拒否されるため、追加は上限内に切る（prune なら余分を消した後の空きで数える）。
+  const plan = planTagSync({ live, desired, prune: PRUNE });
+  const note = plan.overflow ? ` (上限${NOTE_TAG_CAP}で${plan.overflow}件は追加不可)` : '';
+  const extraNote = PRUNE ? ` 削除${plan.extra.length}` : (plan.extraCount ? ` 余分=${plan.extraCount}（--prune で削除）` : '');
+  console.log(`[plan] ${noteId} live=${live.length} desired=${desired.length} 不足=${plan.missing.length}${extraNote} → 追加${plan.addable.length}で live=${plan.willBe}${plan.willBe < GOAL ? ' ⚠<90' : ''}${note}  ${a.replace(/^content\/note\//, '')}`);
+  if (plan.changed) plans.push({ a, noteId, tagsFile, desired, plan, missing: plan.addable, extra: plan.extra, liveCount: live.length });
 }
 
 // 取得できていないなら「in-sync」ではなく「判定できていない」。緑を返さない（偽 PASS の封じ）。
@@ -118,8 +121,8 @@ if (considered > 0 && fetchFail / considered > 0.2) {
   process.exit(1);
 }
 
-if (!COMMIT) { console.log(`\n[dry-run] 追加対象 ${plans.length} 記事（--commit で実適用）。`); process.exit(0); }
-if (!plans.length) { console.log('追加すべきタグなし（全て in-sync）。'); process.exit(0); }
+if (!COMMIT) { console.log(`\n[dry-run] ${PRUNE ? '変更' : '追加'}対象 ${plans.length} 記事（--commit で実適用）。`); process.exit(0); }
+if (!plans.length) { console.log(`${PRUNE ? '変更' : '追加'}すべきタグなし（${considered - fetchFail} 本を実検査・全て in-sync）。`); process.exit(0); }
 
 // ---- commit: ブラウザで不足タグを追加 ----
 const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
@@ -137,7 +140,7 @@ try {
 
   for (const p of plans) {
     try {
-      console.log(`\n[article] ${p.noteId} — 不足${p.missing.length}タグ追加`);
+      console.log(`\n[article] ${p.noteId} — 不足${p.missing.length}タグ追加${p.extra.length ? `・余分${p.extra.length}タグ削除` : ''}`);
       await page.goto(`https://editor.note.com/notes/${p.noteId}/edit/`, { waitUntil: 'domcontentloaded', timeout: 60000 });
       await page.waitForSelector('[contenteditable=true]', { timeout: 30000 });
       await sleep(3000);
@@ -162,6 +165,26 @@ try {
       const tagInput = page.locator('input[placeholder*="ハッシュタグ"]');
       if (!(await tagInput.count())) { console.error('[3] ABORT: ハッシュタグ入力未検出'); fail++; continue; }
       const chipCount = () => page.evaluate(() => (document.body.innerText.match(/#[^\s#]+/g) || []).length);
+
+      // --prune: 原稿に無いタグを外す。公開設定のタグ chip は <button>#タグ<span role="img" aria-label="削除"></button>
+      // （2026-09-23 実測）で、削除アイコンを押すと外れる。おすすめタグ等の同名ボタンと取り違えないよう
+      // 「文字が #タグ と完全一致し、削除アイコンを持つ button」だけを対象にし、1個に定まらなければ保存しない。
+      // hasText の正規表現は前後の空白を詰めないので tagChipPattern で空白を許す（無いと全タグが 0 件・09-23 実測）。
+      if (p.extra.length) {
+        const chipFor = (t) => page.locator('button')
+          .filter({ hasText: tagChipPattern(t) })
+          .filter({ has: page.locator('[aria-label="削除"]') });
+        const notRemoved = [];
+        for (const t of p.extra) {
+          const chip = chipFor(t);
+          if ((await chip.count()) !== 1) { notRemoved.push(t); continue; }
+          await chip.first().locator('[aria-label="削除"]').click();
+          await sleep(300);
+          if (await chipFor(t).count()) notRemoved.push(t);
+        }
+        console.log(`[3a] 削除=${p.extra.length - notRemoved.length}/${p.extra.length}`);
+        if (notRemoved.length) { console.error(`[3a] ABORT: 外せないタグ ${notRemoved.join(' ')} → 保存せず中断`); await page.screenshot({ path: join(ROOT, `.tmp/nst-prune-${p.noteId}.png`) }); fail++; continue; }
+      }
       const before = await chipCount();
       await tagInput.first().scrollIntoViewIfNeeded();
       await tagInput.first().click();
@@ -195,7 +218,7 @@ try {
       // ゲートは「確定=0（入力欄が一度もクリアされない＝完全未反映）」でのみ中断。chipCount(body innerText)は
       // メンバーシップ記事等でタグ widget を拾えず偽陰性になるため主ゲートにしない。実体は保存後の
       // API 検証([6] live≥90)で担保する。
-      if (committed === 0 && afterChips <= before) { console.error('[3] ABORT: タグが1つも確定できず（入力未反映）→ 保存せず中断'); await page.screenshot({ path: join(ROOT, `.tmp/nst-notags-${p.noteId}.png`) }); fail++; continue; }
+      if (toAdd.length && committed === 0 && afterChips <= before) { console.error('[3] ABORT: タグが1つも確定できず（入力未反映）→ 保存せず中断'); await page.screenshot({ path: join(ROOT, `.tmp/nst-notags-${p.noteId}.png`) }); fail++; continue; }
 
       // 境界保持（本文は触っていないので、有料/試し読みは「開いて更新するを出す」だけ・ライン不動）
       const area = page.getByRole('button', { name: '有料エリア設定' });
@@ -232,7 +255,9 @@ try {
       await sleep(3000);
       const after = await liveTags(p.noteId);
       if (after == null) { console.log('[6] WARN: API検証未達 → 手動確認'); fail++; continue; }
-      if (after.length <= p.liveCount) { console.error(`[6] FAIL: ライブ件数が増えていない（${p.liveCount}→${after.length}・上限超過で拒否の可能性）→ 手動確認`); fail++; continue; }
+      const v = verifyTagSync({ after, plan: p.plan, liveCount: p.liveCount });
+      if (!v.ok && v.reason === 'count-not-increased') { console.error(`[6] FAIL: ライブ件数が増えていない（${p.liveCount}→${after.length}・上限超過で拒否の可能性）→ 手動確認`); fail++; continue; }
+      if (!v.ok) { console.error(`[6] FAIL: 計画と不一致（残った余分: ${v.leftover.join(' ') || 'なし'} / 入らなかった不足: ${v.notAdded.join(' ') || 'なし'}）→ 手動確認`); fail++; continue; }
       if (after.length < GOAL) { console.error(`[6] FAIL: ライブ${after.length}が目標${GOAL}未満 → 手動確認`); fail++; continue; }
       console.log(`[6] API検証OK（live=${after.length}・目標${GOAL}達成）`);
       // ライブが ≥90 に達した＝タグ意図を反映。source タグ hash を in-sync 化（以降の source 変更は再度 drift）。
