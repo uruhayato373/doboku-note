@@ -496,7 +496,7 @@ textbook（個別概念ページ）では原則 ExamPoint を 1 個末尾配置�
 - OK: `**¥2,480** （6 本セット、単品比 17%OFF）`
 
 **機械検知**:
-- サイト側 MDX: `scripts/check-bold-rendering.mjs`（`npm run check-bold-rendering`）が原因 1 を検知。規則を再実装せず **remark で実パース**し、`text` ノードに `**` が残る＝描画されていない、で判定する（ground truth）。pre-commit（`--staged`）と `quality:audit --ci` の両経路に結線済み。機械的に安全な形の一括修正は `npm run fix-bold-rendering`（dry-run 既定・`--commit` で適用）
+- サイト側 MDX と note 記事（`content/note/**/article*.md`・2026-09-23 から）: `scripts/check-bold-rendering.mjs`（`npm run check-bold-rendering`）が原因 1 を検知。規則を再実装せず **remark で実パース**し、`text` ノードに `**` が残る＝描画されていない、で判定する（ground truth）。pre-commit（`--staged`）と `quality:audit --ci` の両経路に結線済み。機械的に安全な形の一括修正は `npm run fix-bold-rendering`（dry-run 既定・`--commit` で適用）
   - 旧 `pre-commit-mdx.mjs` の `checkBoldEndingParen` は 2026-08-04 に削除。`）」』】）` の 5 文字だけを見る近似ルールで、`。，％℃` や壊れたリンクを取りこぼす一方、実際には描画される形を誤検知していた
 - note 側ドラフト: `/note-prepublish-review` Phase 1 § 4b の **Pattern A**（`**…（…）…**` 任意位置・リンク有無不問）が原因 1・2 の両方を検出して BLOCK
 - 補助: 同 Phase の **Pattern B'**（`)**（` 境界）はリンク URL 直後の全角括弧連続パターンを検出

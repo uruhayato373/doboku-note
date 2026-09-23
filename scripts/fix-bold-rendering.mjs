@@ -176,6 +176,9 @@ export function fixLine(line) {
       if (opener) {
         // (1) 末尾が閉じ括弧 → 対応する開き括弧までを丸ごと外へ出す
         const at = content.lastIndexOf(opener);
+        // リンクの (URL) は補足の括弧ではない。外へ出すと **[表題]**(url) になりリンクが壊れる
+        // （2026-09-23 に note の 3 か所で実発生）。空白で flanking を成立させる後段の手当てに任せる。
+        if (at > 0 && content[at - 1] === "]") continue;
         if (at <= 0) {
           // 対応する開きが無い / 中身が括弧グループそのもの → 人へ回す
           skipped++;

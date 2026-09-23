@@ -29,16 +29,13 @@
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
+import { readDocMetaIndex } from './lib/doc-meta-index.mjs';
 
 const STAGED = process.argv.includes('--staged');
 const MDX = process.argv.includes('--mdx');
 const NOTE = process.argv.includes('--note');
-const META = 'src/config/doc-meta-index.json';
-if (!existsSync(META)) {
-  console.error(`[check-sns-urls] ${META} が無いため検証をスキップ`);
-  process.exit(0);
-}
-const valid = new Set(Object.keys(JSON.parse(readFileSync(META, 'utf8')).docs));
+// 索引が無ければ生成してから検証する（以前は無いと黙って検証をスキップしていた＝検査ゼロの緑）
+const valid = new Set(Object.keys(readDocMetaIndex().docs));
 
 function walk(dir, out = [], re = /\.(md|txt|json)$/) {
   if (!existsSync(dir)) return out;

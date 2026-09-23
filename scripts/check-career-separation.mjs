@@ -22,6 +22,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { readDocMetaIndex } from './lib/doc-meta-index.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const BUILT = process.argv.includes('--built');
@@ -30,7 +31,7 @@ const errors = [];
 const warnings = [];
 
 // ---- career slug 集合（真実源 = doc-meta-index の tags）------------------------
-const index = JSON.parse(fs.readFileSync(path.join(ROOT, 'src/config/doc-meta-index.json'), 'utf8'));
+const index = readDocMetaIndex(ROOT);
 const docs = index.docs; // { fullSlug: { category, group, tags, ... } }
 
 const careerSlugs = new Set();

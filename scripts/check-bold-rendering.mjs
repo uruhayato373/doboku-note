@@ -17,7 +17,8 @@
  *   node scripts/check-bold-rendering.mjs --json     # 機械可読（fixer が読む）
  */
 
-import { readFileSync, writeSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
+import { writeAllSync } from './lib/write-all-sync.mjs';
 import { execFileSync } from "node:child_process";
 import { readdirSync } from "node:fs";
 import { unified } from "unified";
@@ -29,7 +30,19 @@ const args = process.argv.slice(2);
 const STAGED = args.includes("--staged");
 const JSON_OUT = args.includes("--json");
 
-const ROOTS = ["content/site"];
+// note 記事も同じパーサ系（CommonMark の flanking 規則）で描画されるので対象に含める。
+// 2026-09-23 に公開中の note 911 本を実測し、9 本の本文に ** がそのまま出ていた
+// （`**「管理行為」**で` など）。content/site だけを見ていたため素通りしていた。
+const TARGETS = [
+  { root: "content/site", isTarget: (name) => name.endsWith(".mdx") },
+  // note 記事の走査はファイル名で判定する（型別の article-<型>.md を落とさない）
+  { root: "content/note", isTarget: (name) => /^article(-[^/\\]+)?\.md$/.test(name) },
+];
+const ROOTS = TARGETS.map((t) => t.root);
+const isTargetPath = (p) => {
+  const name = p.split("/").pop();
+  return TARGETS.some((t) => p.startsWith(`${t.root}/`) && t.isTarget(name));
+};
 
 /**
  * 既知の未修正。件数は必ず出力し、黙って隠さない（CLAUDE.md §9）。
@@ -85,7 +98,7 @@ function listFiles() {
     return out
       .split("\n")
       .map((s) => s.trim())
-      .filter((f) => f.endsWith(".mdx") && ROOTS.some((r) => f.startsWith(r)));
+      .filter(isTargetPath);
   }
   // fs.globSync は Node 22+ 専用。CI は Node 20 なので使えない
   // （使うと対象0件になり「検査不成立」で落ちる。2026-08-04 に CI で顕在化）。
@@ -100,7 +113,7 @@ function listFiles() {
     for (const e of entries) {
       const p = `${dir}/${e.name}`;
       if (e.isDirectory()) walk(p);
-      else if (e.isFile() && e.name.endsWith(".mdx")) out.push(p);
+      else if (e.isFile() && isTargetPath(p)) out.push(p);
     }
   };
   ROOTS.forEach(walk);
@@ -139,7 +152,7 @@ for (const file of files) {
 }
 
 if (JSON_OUT) {
-  writeSync(1, JSON.stringify({ scanned: files.length, findings }, null, 2) + '\n');
+  writeAllSync(1, JSON.stringify({ scanned: files.length, findings }, null, 2) + '\n');
   process.exit(findings.length ? 1 : 0);
 }
 
