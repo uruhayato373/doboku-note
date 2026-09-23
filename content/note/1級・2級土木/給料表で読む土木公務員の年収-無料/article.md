@@ -1,7 +1,10 @@
 ---
 notePricing: free
-noteStatus: draft
+noteStatus: published
 utmCampaign: civil-career-salary-table
+notePublishedAt: "2026-09-23"
+noteId: "n523e6403a937"
+noteUrl: "https://note.com/dobokunote/n/n523e6403a937"
 coverTitle:
   - 給料表で読む年収
   - 級と号給で自分の額を出す

@@ -1,8 +1,11 @@
 ---
 title: 転職を考える前に緊急度を確かめる｜健康・法令違反・相談窓口の3つの問い
 notePricing: free
-noteStatus: draft
+noteStatus: published
 utmCampaign: civil-career-urgency
+notePublishedAt: "2026-09-23"
+noteId: "n394a24392863"
+noteUrl: "https://note.com/dobokunote/n/n394a24392863"
 coverTitle:
   - 転職より先に
   - 相談窓口を確保する

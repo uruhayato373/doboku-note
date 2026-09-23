@@ -1,8 +1,11 @@
 ---
 title: 公務員土木を辞める前の棚卸し｜持ち出せる経験と、失うものを2列で書き出す
 notePricing: free
-noteStatus: draft
+noteStatus: published
 utmCampaign: civil-career-public-quit-inventory
+notePublishedAt: "2026-09-23"
+noteId: "n844dc3ac8383"
+noteUrl: "https://note.com/dobokunote/n/n844dc3ac8383"
 coverTitle:
   - 辞める前に終わらせる
   - 自治体土木の棚卸し
