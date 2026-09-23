@@ -30,6 +30,8 @@
 
 **完了条件**: catalogの`h-01`がASIN付きLIVEとなり、Amazon商品ページのタイトル一致を実査できること。公開後の販売・KENPは次回の既存KDPレポートで未計測のまま0扱いせず確認する。
 
+**進捗（2026-09-23）**: ユーザー指示で ¥2,980（日本 35%）に改定し出版申請済み＝catalog `in_review`。残＝`--sync-status` で LIVE と ASIN を確認し catalog・Kindle 戦略へ反映。
+
 ### [DN-0255] index coverage の中間計測（index-coverage.yml を手動 dispatch）と #485 の判定
 タグ: [インフラ・計測] [種類:改善] [起票:2026-09-19] [期日:2026-09-24]
 
