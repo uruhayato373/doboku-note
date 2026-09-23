@@ -221,8 +221,8 @@ R8 予想テーマ × ゼネコン（施工者）ペルソナでは、以下の 
 
 **doboku-note の関連ガイド**
 
-- [1 パターン × 複数年度流用戦略](https://doboku-note.com/docs/pe-comprehensive-management-essay-pattern-cross-year-application?utm_source=note&utm_medium=referral&utm_campaign=essay-general-contractor-r08-yosou-2) — ゼネコン A 案・B 案で R5/R6/R7 + R8 予想を書ききる
-- [5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-general-contractor-r08-yosou-2) — 施工者特有の「安全 × 経済性」「社環 × 経済性」トレードオフの解決フレーム集
+- [1 パターン × 複数年度流用戦略](https://doboku-note.com/exam/pe-comprehensive-management/guide/essay-pattern-cross-year-application?utm_source=note&utm_medium=referral&utm_campaign=essay-general-contractor-r08-yosou-2) — ゼネコン A 案・B 案で R5/R6/R7 + R8 予想を書ききる
+- [5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/exam/pe-comprehensive-management/guide/management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-general-contractor-r08-yosou-2) — 施工者特有の「安全 × 経済性」「社環 × 経済性」トレードオフの解決フレーム集
 
 ---
 

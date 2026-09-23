@@ -294,7 +294,7 @@ https://note.com/dobokunote/m/m6e7de5e4ea3d
 
 ---
 
-受験コストの大半は学習時間です。doboku-note では[総合技術監理部門 合格戦略](https://doboku-note.com/docs/pe-comprehensive-management-exam-passing-strategy?utm_source=note&utm_medium=referral&utm_campaign=95-roi-calculator)と総監択一過去問 17 年分、[キーワード集 2026 全項目](https://doboku-note.com/docs/pe-comprehensive-management-keyword-2026?utm_source=note&utm_medium=referral&utm_campaign=95-roi-calculator)を無料公開しています。まず 1 年分眺めて、「これなら手が届きそうか」を肌で確かめてください。
+受験コストの大半は学習時間です。doboku-note では[総合技術監理部門 合格戦略](https://doboku-note.com/exam/pe-comprehensive-management/guide/exam-passing-strategy?utm_source=note&utm_medium=referral&utm_campaign=95-roi-calculator)と総監択一過去問 17 年分、[キーワード集 2026 全項目](https://doboku-note.com/exam/pe-comprehensive-management/guide/keyword-2026?utm_source=note&utm_medium=referral&utm_campaign=95-roi-calculator)を無料公開しています。まず 1 年分眺めて、「これなら手が届きそうか」を肌で確かめてください。
 
 https://doboku-note.com
 
@@ -335,7 +335,7 @@ https://doboku-note.com
 
 **サイトの深掘り解説**（無料・doboku-note）
 
-[民間建設技術者が総監を取るメリット（経審・受注・キャリア）](https://doboku-note.com/docs/pe-comprehensive-management-private-engineer-comprehensive-merit?utm_source=note&utm_medium=referral&utm_campaign=95-roi-calculator&utm_content=private-engineer-merit)
+[民間建設技術者が総監を取るメリット（経審・受注・キャリア）](https://doboku-note.com/exam/pe-comprehensive-management/guide/private-engineer-comprehensive-merit?utm_source=note&utm_medium=referral&utm_campaign=95-roi-calculator&utm_content=private-engineer-merit)
 
 **note のおすすめ記事**
 

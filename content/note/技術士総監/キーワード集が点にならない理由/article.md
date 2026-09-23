@@ -49,7 +49,7 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 キーワード集は5管理の概念体系に沿って項目を並べた本で、各項目が試験で何回問われるかは示していません。だから全項目を平等に通読すると、17年で1回しか出ない項目にも、毎年問われる項目にも同じ時間を使ってしまいます。
 
-たとえば安全管理の[製造物責任法（PL法）](https://doboku-note.com/docs/pe-comprehensive-management-product-liability-act?utm_source=note&utm_medium=referral&utm_campaign=91-keyword-not-scoring)は過去17年中10年で出題される頻出論点です。一方、ほとんど問われない項目も同じ数だけ並んでいます。通読ではこの両者が同じ重みになり、結果として「出る論点が薄いまま」になります。
+たとえば安全管理の[製造物責任法（PL法）](https://doboku-note.com/exam/pe-comprehensive-management/keywords/product-liability-act?utm_source=note&utm_medium=referral&utm_campaign=91-keyword-not-scoring)は過去17年中10年で出題される頻出論点です。一方、ほとんど問われない項目も同じ数だけ並んでいます。通読ではこの両者が同じ重みになり、結果として「出る論点が薄いまま」になります。
 
 得点に直結するのは、項目を**出題頻度で「高・中・低」に仕分け、高から固める**読み方です。
 
@@ -57,13 +57,13 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 択一の誤答選択肢は、決まったパターンで作られています。
 
-- 用語の定義を逆にする（[信頼性設計 ↔ 保全性設計](https://doboku-note.com/docs/pe-comprehensive-management-reliability-maintainability-design?utm_source=note&utm_medium=referral&utm_campaign=91-keyword-not-scoring)、[X理論 ↔ Y理論](https://doboku-note.com/docs/pe-comprehensive-management-mcgregor-xy-theory?utm_source=note&utm_medium=referral&utm_campaign=91-keyword-not-scoring)）
+- 用語の定義を逆にする（[信頼性設計 ↔ 保全性設計](https://doboku-note.com/exam/pe-comprehensive-management/keywords/reliability-maintainability-design?utm_source=note&utm_medium=referral&utm_campaign=91-keyword-not-scoring)、[X理論 ↔ Y理論](https://doboku-note.com/exam/pe-comprehensive-management/keywords/mcgregor-xy-theory?utm_source=note&utm_medium=referral&utm_campaign=91-keyword-not-scoring)）
 - 法令の数値を微妙にずらす（労働時間「40時間/週」を「44時間/週」に）
 - 「すべて」「のみ」「常に」で例外を消す
 
 キーワード集は用語の正しい意味を載せるだけで、「どこを、どうひっくり返して誤答にするか」は載っていません。引っかけは過去問の解答解説からしか逆算できず、通読だけでは選択肢を切る精度が上がらないのです。
 
-たとえば事業継続（[BCM](https://doboku-note.com/docs/pe-comprehensive-management-business-continuity-plan?utm_source=note&utm_medium=referral&utm_campaign=91-keyword-not-scoring)）の対象範囲は、自社だけでなく委託先・調達先・供給先まで含みます。択一ではここを「自社の人的・物的被害のみ」と範囲を狭めて誤答にする選択肢が出ます。用語を「知っている」だけの受験者は、もっともらしい選択肢として読み飛ばしてしまう。「どこを狭めて誤りにするか」を過去問で押さえているかどうかが、そのまま1問の差になります。
+たとえば事業継続（[BCM](https://doboku-note.com/exam/pe-comprehensive-management/keywords/business-continuity-plan?utm_source=note&utm_medium=referral&utm_campaign=91-keyword-not-scoring)）の対象範囲は、自社だけでなく委託先・調達先・供給先まで含みます。択一ではここを「自社の人的・物的被害のみ」と範囲を狭めて誤答にする選択肢が出ます。用語を「知っている」だけの受験者は、もっともらしい選択肢として読み飛ばしてしまう。「どこを狭めて誤りにするか」を過去問で押さえているかどうかが、そのまま1問の差になります。
 
 ## 理由3：記述式の「トレードオフ視点」で束ねられていない
 
@@ -85,7 +85,7 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 ## 具体例：1論点を「出題視点」で読み直す
 
-安全管理の[信頼性設計と保全性設計](https://doboku-note.com/docs/pe-comprehensive-management-reliability-maintainability-design?utm_source=note&utm_medium=referral&utm_campaign=91-keyword-not-scoring)を例に、通読と出題視点で何が変わるかを見てみます。
+安全管理の[信頼性設計と保全性設計](https://doboku-note.com/exam/pe-comprehensive-management/keywords/reliability-maintainability-design?utm_source=note&utm_medium=referral&utm_campaign=91-keyword-not-scoring)を例に、通読と出題視点で何が変わるかを見てみます。
 
 **通読での扱い**
 
@@ -109,7 +109,7 @@ https://note.com/dobokunote/m/m607bf095b02a
 2. **間違えた論点をキーワード集に戻って確認し、優先度「高」マークを付ける** — このとき、1回だけ間違えた論点と複数年で落としている論点を区別し、後者を最優先にします
 3. **高優先度の論点に、引っかけパターンとトレードオフ相手を1行ずつ書き足す** — 「信頼性設計：保全性設計と逆転されやすい／経済性と対立」のように、1論点1行で十分です。これがそのまま直前期の見直しノートになります
 
-doboku-note では[キーワード集2026の全項目](https://doboku-note.com/docs/pe-comprehensive-management-keyword-2026?utm_source=note&utm_medium=referral&utm_campaign=91-keyword-not-scoring)をWeb検索でき、17年分の択一過去問も解答解説つきで公開しています。まず過去問を解いて、自分の弱点論点を出題視点で洗い出すところから始めてください。試験全体の進め方は[総合技術監理部門 合格戦略](https://doboku-note.com/docs/pe-comprehensive-management-exam-passing-strategy?utm_source=note&utm_medium=referral&utm_campaign=91-keyword-not-scoring)も参考になります。
+doboku-note では[キーワード集2026の全項目](https://doboku-note.com/exam/pe-comprehensive-management/guide/keyword-2026?utm_source=note&utm_medium=referral&utm_campaign=91-keyword-not-scoring)をWeb検索でき、17年分の択一過去問も解答解説つきで公開しています。まず過去問を解いて、自分の弱点論点を出題視点で洗い出すところから始めてください。試験全体の進め方は[総合技術監理部門 合格戦略](https://doboku-note.com/exam/pe-comprehensive-management/guide/exam-passing-strategy?utm_source=note&utm_medium=referral&utm_campaign=91-keyword-not-scoring)も参考になります。
 
 ## 5管理を出題視点で再構成した精読ガイド
 

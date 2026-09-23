@@ -39,7 +39,7 @@ cover:
 
 トレードオフとは、一方を改善しようとすると他方が悪化する関係のことです。
 
-総監の文脈では、**5 つの管理**（[経済性管理](https://doboku-note.com/docs/pe-comprehensive-management-economic-management-pillar?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)・[人的資源管理](https://doboku-note.com/docs/pe-comprehensive-management-human-resource-management-pillar?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)・[情報管理](https://doboku-note.com/docs/pe-comprehensive-management-information-management-pillar?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)・[安全管理](https://doboku-note.com/docs/pe-comprehensive-management-safety-management-pillar?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)・[社会環境管理](https://doboku-note.com/docs/pe-comprehensive-management-social-environment-management-pillar?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)）**それぞれの「核となる目標」が同じ局面で対称的に衝突する**構造を指す。
+総監の文脈では、**5 つの管理**（[経済性管理](https://doboku-note.com/exam/pe-comprehensive-management/pillar/economic-management-pillar?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)・[人的資源管理](https://doboku-note.com/exam/pe-comprehensive-management/pillar/human-resource-management-pillar?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)・[情報管理](https://doboku-note.com/exam/pe-comprehensive-management/pillar/information-management-pillar?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)・[安全管理](https://doboku-note.com/exam/pe-comprehensive-management/pillar/safety-management-pillar?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)・[社会環境管理](https://doboku-note.com/exam/pe-comprehensive-management/pillar/social-environment-management-pillar?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)）**それぞれの「核となる目標」が同じ局面で対称的に衝突する**構造を指す。
 
 ここで重要なのは、**管理間トレードオフは「解決策の選択肢の対立」ではない**ということ。
 
@@ -114,7 +114,7 @@ cover:
 
 重要なのは、**自分の業務経験の中にこの 10 通りのどれが当てはまるかを考えられるようになること**。記述式では、与えられた事例に対してこのマトリクスのどの部分が問われているかを素早く判断し、論述に組み込むことが求められます。
 
-このマトリクスの詳細な解説や過去問出題パターンは、[doboku-note の 5 管理間トレードオフ解説ページ](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)で確認できる。
+このマトリクスの詳細な解説や過去問出題パターンは、[doboku-note の 5 管理間トレードオフ解説ページ](https://doboku-note.com/exam/pe-comprehensive-management/guide/management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)で確認できる。
 
 17 年分の択一式・記述式データをもとに各ペアの頻出パターンを整理しており、本記事と併読すると論点の輪郭が立体的に掴めます。
 
@@ -134,25 +134,25 @@ cover:
 
 経験豊富なベテラン技術者に重要な業務を任せたい。
 
-しかし、[アクセス権限](https://doboku-note.com/docs/pe-comprehensive-management-access-control?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)を広く付与すればするほど、[情報漏洩](https://doboku-note.com/docs/pe-comprehensive-management-data-leak-tampering-loss?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)のリスクが高まる。
+しかし、[アクセス権限](https://doboku-note.com/exam/pe-comprehensive-management/keywords/access-control?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)を広く付与すればするほど、[情報漏洩](https://doboku-note.com/exam/pe-comprehensive-management/keywords/data-leak-tampering-loss?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)のリスクが高まる。
 
 人的資源管理はベテランの知識・経験を最大限に活用したいと要求する一方、情報管理は情報セキュリティを確保し漏洩リスクを最小化したいと要求するため、人材活用と情報管理の厳格化が真っ向から相反します。
 
 近年の DX 推進やテレワーク普及に伴い、この種のトレードオフは増加傾向にあります。
 
-実例として [令和 4 年度 記述式（DX）](https://doboku-note.com/docs/pe-comprehensive-management-r04-secondary?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)・[令和 3 年度 記述式（データ利活用）](https://doboku-note.com/docs/pe-comprehensive-management-r03-secondary?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking) は、この対立構造を直球で問うた典型例です。
+実例として [令和 4 年度 記述式（DX）](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r04-secondary?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)・[令和 3 年度 記述式（データ利活用）](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r03-secondary?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking) は、この対立構造を直球で問うた典型例です。
 
 ### 例3：エネルギーの安定供給と環境負荷（経済性管理 × 社会環境管理）
 
 社会インフラの維持にはエネルギーの安定供給が不可欠だが、化石燃料への依存は環境負荷を増大させます。
 
-経済性管理はエネルギーの安定かつ経済的な供給を要求する一方、社会環境管理は環境負荷の低減と[脱炭素](https://doboku-note.com/docs/pe-comprehensive-management-carbon-neutral?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)を要求します。
+経済性管理はエネルギーの安定かつ経済的な供給を要求する一方、社会環境管理は環境負荷の低減と[脱炭素](https://doboku-note.com/exam/pe-comprehensive-management/keywords/carbon-neutral?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)を要求します。
 
 両者の対立の本質は、**短期的な経済合理性と長期的な環境保全のあいだ** に横たわります。
 
 このトレードオフは社会全体のスケールで議論されるものだが、総監の記述式では個別のプロジェクトレベルに落とし込んで論じることが求められます。
 
-[令和 6 年度 記述式（カーボンニュートラル）](https://doboku-note.com/docs/pe-comprehensive-management-r06-secondary?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)・[令和 7 年度 記述式（少子高齢化）](https://doboku-note.com/docs/pe-comprehensive-management-r07-secondary?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking) はこの対立構造を真正面から問う典型例です。
+[令和 6 年度 記述式（カーボンニュートラル）](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r06-secondary?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)・[令和 7 年度 記述式（少子高齢化）](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r07-secondary?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking) はこの対立構造を真正面から問う典型例です。
 
 ## 4. トレードオフ改善の考え方
 
@@ -178,7 +178,7 @@ cover:
 
 各フレームについて **適用条件・答案で使う典型フレーズ・減点される NG パターン** を併記します。
 
-#### ① [ALARP](https://doboku-note.com/docs/pe-comprehensive-management-alarp-principle?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)（As Low As Reasonably Practicable）
+#### ① [ALARP](https://doboku-note.com/exam/pe-comprehensive-management/keywords/alarp-principle?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)（As Low As Reasonably Practicable）
 
 リスクを「合理的に実行可能な限り」低減する考え方。許容不可領域・ALARP 領域・広義許容領域の 3 段階で整理します。
 
@@ -186,9 +186,9 @@ cover:
 - **答案フレーズ例**: 「本事業のリスクは ALARP 領域にあり、追加対策の限界費用と便益を比較した上で、費用対効果が見合う範囲まで低減を図る」
 - **NG パターン**: 「ALARP の原則に従い対策する」だけで終わる。**3 領域のどこにあるか・なぜそう判断したか** を述べないと評価されません
 
-#### ② LCA / LCC（[ライフサイクル評価](https://doboku-note.com/docs/pe-comprehensive-management-lifecycle-management?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)）
+#### ② LCA / LCC（[ライフサイクル評価](https://doboku-note.com/exam/pe-comprehensive-management/keywords/lifecycle-management?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)）
 
-[LCA（ライフサイクルアセスメント）](https://doboku-note.com/docs/pe-comprehensive-management-lifecycle-assessment?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)（Life Cycle Assessment、環境負荷の一体評価）と LCC（Life Cycle Cost、総コスト評価）を組み合わせます。
+[LCA（ライフサイクルアセスメント）](https://doboku-note.com/exam/pe-comprehensive-management/keywords/lifecycle-assessment?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)（Life Cycle Assessment、環境負荷の一体評価）と LCC（Life Cycle Cost、総コスト評価）を組み合わせます。
 
 **両者を混同しないことが採点上きわめて重要**（LCA = 環境、LCC = コスト）。
 
@@ -204,7 +204,7 @@ cover:
 - **答案フレーズ例**: 「Phase 1 で限定部署にパイロット導入し、KPI（生産性／インシデント率）を 3 ヶ月測定。閾値達成を確認後、Phase 2 で全社展開する」
 - **NG パターン**: 「徐々に進める」「様子を見ながら」だけ。**フェーズ区切りの判定基準** を書かないと一般論扱い
 
-#### ④ [合意形成](https://doboku-note.com/docs/pe-comprehensive-management-consensus-instruments?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)（Consensus Building）
+#### ④ [合意形成](https://doboku-note.com/exam/pe-comprehensive-management/keywords/consensus-instruments?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)（Consensus Building）
 
 ステークホルダーを早期に巻き込み、納得感のもとで意思決定します。説明責任と透明性が鍵。
 
@@ -217,14 +217,14 @@ cover:
 リスク量（発生確率 × 影響度）に比例した資源配分を行います。最頻出の万能フレームで、ALARP・LCC とも組み合わせやすいフレームです。
 
 - **適用条件**: 経済性管理と安全管理・情報管理・社会環境管理の対立すべて。資源制約下での優先順位付けが必要な場合
-- **答案フレーズ例**: 「[リスクマトリクス](https://doboku-note.com/docs/pe-comprehensive-management-risk-map-matrix?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)（発生頻度 × 影響度）で重大リスクを 3 件抽出し、対策投資額を 7:2:1 の比率で配分する」
-- **NG パターン**: 「重要なリスクから対策する」だけ。**リスク評価の手法**（マトリクス・PRA・[FMEA](https://doboku-note.com/docs/pe-comprehensive-management-fmea?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)）**と配分根拠** を示さないと採点者には届きません
+- **答案フレーズ例**: 「[リスクマトリクス](https://doboku-note.com/exam/pe-comprehensive-management/keywords/risk-map-matrix?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)（発生頻度 × 影響度）で重大リスクを 3 件抽出し、対策投資額を 7:2:1 の比率で配分する」
+- **NG パターン**: 「重要なリスクから対策する」だけ。**リスク評価の手法**（マトリクス・PRA・[FMEA](https://doboku-note.com/exam/pe-comprehensive-management/keywords/fmea?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)）**と配分根拠** を示さないと採点者には届きません
 
 下図は、この 5 つのフレームが 10 の管理ペアに対してどう適用できるかをまとめたもの。
 
 ![解決フレーム × 管理ペア 適用マトリクス](img/figure-2-solution-frames.png)
 
-5 つの解決フレームの詳細な使い方や実際の記述例は、[doboku-note の記述式戦略ページ](https://doboku-note.com/docs/pe-comprehensive-management-essay-exam-strategy?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)にまとめています。
+5 つの解決フレームの詳細な使い方や実際の記述例は、[doboku-note の記述式戦略ページ](https://doboku-note.com/exam/pe-comprehensive-management/guide/essay-exam-strategy?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)にまとめています。
 
 答案の骨格として活用してほしいです。
 
@@ -236,7 +236,7 @@ cover:
 
 - 経済性 × 安全（**S**）— 第三：**情報管理** / 施策キーワード: AI による事故予兆検知 / IoT モニタリング / 過去災害データのシミュレーション
 - 経済性 × 社会環境（**S**）— 第三：**人的資源管理** / 施策: 環境教育 / グリーンスキル研修 / ESG 視点での意思決定権限委譲
-- 経済性 × 人的資源（**A**）— 第三：**情報管理** / 施策: [OJT](https://doboku-note.com/docs/pe-comprehensive-management-ojt-off-jt?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking) 効果測定 KPI 可視化 / 教育 ROI 分析 / スキルマップのデータベース化
+- 経済性 × 人的資源（**A**）— 第三：**情報管理** / 施策: [OJT](https://doboku-note.com/exam/pe-comprehensive-management/keywords/ojt-off-jt?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking) 効果測定 KPI 可視化 / 教育 ROI 分析 / スキルマップのデータベース化
 - 経済性 × 情報（**A**）— 第三：**安全管理** / 施策: ALARP に基づくセキュリティ投資 / リスクベース投資判断 / 損害コスト評価
 - 人的資源 × 安全（**A**）— 第三：**経済性管理** / 施策: 安全装備の費用便益分析 / 教育コストの定量評価 / 労災保険コスト最適化
 - 安全 × 社会環境（**A**）— 第三：**人的資源管理** / 施策: 防災教育 / 住民参加型ワークショップ / ステークホルダー対話の組織化
@@ -259,7 +259,7 @@ cover:
 3. **解決の方向性を 2〜3 個並べる** — 標準形と制約条件別の派生形を散文で提示する
 4. **第三の管理を検討する** — 残り 3 つの管理のうち、この対立を緩和できる視点はないか
 5. **解決フレームを名指しする** — ALARP / LCA / LCC / 段階的実施 / 合意形成 / リスクベースのうち、1〜2 個を答案に明示する
-6. **[残留リスク](https://doboku-note.com/docs/pe-comprehensive-management-residual-risk?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)を評価する** — 改善策を講じてもなお残るリスクを認識し、監視体制と見直しトリガー（年次レビュー・KPI 閾値超過時の再評価 等）を示す
+6. **[残留リスク](https://doboku-note.com/exam/pe-comprehensive-management/keywords/residual-risk?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)を評価する** — 改善策を講じてもなお残るリスクを認識し、監視体制と見直しトリガー（年次レビュー・KPI 閾値超過時の再評価 等）を示す
 
 このステップは、記述式の答案構成にそのまま使えます。
 
@@ -292,7 +292,7 @@ cover:
 
 選んだトレードオフに対し、「第三の管理で解決する」アプローチを適用します。
 
-具体的な管理技術の名称（PERT、[リスクアセスメント](https://doboku-note.com/docs/pe-comprehensive-management-risk-assessment?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)、[OJT](https://doboku-note.com/docs/pe-comprehensive-management-ojt-off-jt?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking) 等）を挙げながら、実現可能な対策を示します。
+具体的な管理技術の名称（PERT、[リスクアセスメント](https://doboku-note.com/exam/pe-comprehensive-management/keywords/risk-assessment?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)、[OJT](https://doboku-note.com/exam/pe-comprehensive-management/keywords/ojt-off-jt?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking) 等）を挙げながら、実現可能な対策を示します。
 
 **第 4 段階：残留リスクと継続的改善**
 
@@ -305,17 +305,17 @@ cover:
 - **トレードオフを認識するだけで終わっている** — 対立を指摘しただけでは不十分。改善策まで踏み込みます
 - **解決策が一般論にとどまっている** — 「安全に配慮する」ではなく、具体的な手法（リスクアセスメントの結果に基づく安全機器の選定等）を示します
 
-記述式答案でトレードオフをどう論述するかの実践的なテクニックは、[doboku-note の記述式戦略ページ](https://doboku-note.com/docs/pe-comprehensive-management-essay-exam-strategy?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)で詳解しています。
+記述式答案でトレードオフをどう論述するかの実践的なテクニックは、[doboku-note の記述式戦略ページ](https://doboku-note.com/exam/pe-comprehensive-management/guide/essay-exam-strategy?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)で詳解しています。
 
-過去問を使った実践的な対策は [択一式・記述式 過去問一覧](https://doboku-note.com/docs/pe-comprehensive-management-exam-index?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking) から取り組めます。
+過去問を使った実践的な対策は [択一式・記述式 過去問一覧](https://doboku-note.com/exam/pe-comprehensive-management/guide/exam-index?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking) から取り組めます。
 
 ## 6. 答案サンプル 2 本 — どう書けば評価されるのか
 
-> **サンプルの位置づけ**: このサンプルは **「Ⅱ 施策」設問の 1 枚分**（600 字）**を対象としたフレーム** です。5 枚全体の三層構造（Ⅰ 管理対象と前提条件 → Ⅱ 施策 → Ⅲ 将来展望）の設計方法は、[記述式試験の解答戦略（doboku-note）](https://doboku-note.com/docs/pe-comprehensive-management-essay-exam-strategy?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)で詳解しています。論文全体の骨格を先に把握してからサンプルを読むと、「この 1 枚が 5 枚のどこに当たるか」が見えて理解が深まります。
+> **サンプルの位置づけ**: このサンプルは **「Ⅱ 施策」設問の 1 枚分**（600 字）**を対象としたフレーム** です。5 枚全体の三層構造（Ⅰ 管理対象と前提条件 → Ⅱ 施策 → Ⅲ 将来展望）の設計方法は、[記述式試験の解答戦略（doboku-note）](https://doboku-note.com/exam/pe-comprehensive-management/guide/essay-exam-strategy?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)で詳解しています。論文全体の骨格を先に把握してからサンプルを読むと、「この 1 枚が 5 枚のどこに当たるか」が見えて理解が深まります。
 
 ここまでの理論を「実際の答案でどう書くか」に翻訳します。
 
-過去問 2 年（[令和 2 年度 異常な自然現象 BCP](https://doboku-note.com/docs/pe-comprehensive-management-r02-secondary?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)・[令和 6 年度 カーボンニュートラル](https://doboku-note.com/docs/pe-comprehensive-management-r06-secondary?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)）を題材に、**4 段構造で 600 字 × 1 枚分の答案骨子** を示します。
+過去問 2 年（[令和 2 年度 異常な自然現象 BCP](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r02-secondary?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)・[令和 6 年度 カーボンニュートラル](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r06-secondary?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)）を題材に、**4 段構造で 600 字 × 1 枚分の答案骨子** を示します。
 
 各サンプルに採点者視点の **添削コメント**（◎ 高評価点 / × 減点リスク）を付けます。
 
@@ -327,7 +327,7 @@ cover:
 
 本事業では、経済性管理（短期収益・コスト最適化）と安全管理（事業場・第三者影響の回避）が ALARP 領域で衝突する。
 
-具体的には、設備保護のための嵩上げ工事（[リスクアセスメント](https://doboku-note.com/docs/pe-comprehensive-management-risk-assessment?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)結果は浸水確率 30 年 1 回・損害額 5 億円）と、工事中の生産停止 6 ヶ月による機会損失 8 億円が対立する。
+具体的には、設備保護のための嵩上げ工事（[リスクアセスメント](https://doboku-note.com/exam/pe-comprehensive-management/keywords/risk-assessment?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)結果は浸水確率 30 年 1 回・損害額 5 億円）と、工事中の生産停止 6 ヶ月による機会損失 8 億円が対立する。
 
 **第 2 段**（200 字）**第三の管理＝情報管理の活用**
 
@@ -347,7 +347,7 @@ cover:
 
 残留リスクとして、**シミュレーション精度の限界**（過去データに含まれない極端事象）が残る。
 
-これに対しては、年 1 回の事業継続計画見直し（[BCP](https://doboku-note.com/docs/pe-comprehensive-management-business-continuity-plan?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking) 訓練）と、シミュレーションモデルの定期更新で対応する。
+これに対しては、年 1 回の事業継続計画見直し（[BCP](https://doboku-note.com/exam/pe-comprehensive-management/keywords/business-continuity-plan?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking) 訓練）と、シミュレーションモデルの定期更新で対応する。
 
 **添削コメント**：
 
@@ -365,7 +365,7 @@ cover:
 
 本事業では、経済性管理（コスト・工期の最適化）と社会環境管理（環境保全・社会受容性）が長期と短期の時間軸で衝突する。
 
-具体的には、[脱炭素](https://doboku-note.com/docs/pe-comprehensive-management-carbon-neutral?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)のための電動・水素重機への転換（CO2 削減 60%）と、初期投資 5 億円・新型重機の燃費／メンテコスト未確定が対立する。
+具体的には、[脱炭素](https://doboku-note.com/exam/pe-comprehensive-management/keywords/carbon-neutral?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)のための電動・水素重機への転換（CO2 削減 60%）と、初期投資 5 億円・新型重機の燃費／メンテコスト未確定が対立する。
 
 **LCA と LCC の両軸で評価し、移行期の経済性悪化をどう吸収するかが論点**。
 
@@ -377,7 +377,7 @@ cover:
 
 (2) ESG 視点の意思決定権限を **現場リーダー**（30 名）に委譲し、現場ごとの最適化判断を可能にする。
 
-(3) [合意形成](https://doboku-note.com/docs/pe-comprehensive-management-consensus-instruments?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)として、労使協議会で移行スケジュールと評価制度を共有し、不安を低減する。
+(3) [合意形成](https://doboku-note.com/exam/pe-comprehensive-management/keywords/consensus-instruments?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)として、労使協議会で移行スケジュールと評価制度を共有し、不安を低減する。
 
 **第 3 段**（150 字）**施策の効果と副次効果**
 
@@ -447,7 +447,7 @@ LCC 試算では従来重機との総コストが 8 年で逆転。副次効果�
 
 **タスク**：
 
-1. 平日 2 日（30 分 × 2）：[令和 7 年度](https://doboku-note.com/docs/pe-comprehensive-management-r07-secondary?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)・[令和 6 年度](https://doboku-note.com/docs/pe-comprehensive-management-r06-secondary?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)・[令和 5 年度](https://doboku-note.com/docs/pe-comprehensive-management-r05-secondary?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)を読み、設問ごとにトレードオフを抽出して A4 1 枚にメモ
+1. 平日 2 日（30 分 × 2）：[令和 7 年度](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r07-secondary?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)・[令和 6 年度](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r06-secondary?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)・[令和 5 年度](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r05-secondary?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)を読み、設問ごとにトレードオフを抽出して A4 1 枚にメモ
 2. 週末 1 日（60 分）：抽出した各トレードオフを「§4.4 マッピング表」と照合し、第三の管理候補を 2 つずつ書き出す
 
 **セルフチェック**：
@@ -470,7 +470,7 @@ LCC 試算では従来重機との総コストが 8 年で逆転。副次効果�
     - 第 3 段（150 字）：施策の効果と並行で発生する副次効果
     - 第 4 段（100 字）：残留リスクと継続的改善
 3. §6 の答案サンプル 2 本と自分の答案を見比べ、削れる冗長表現・足りない数値を確認
-4. 書いた 1 枚が **論文全体の三層構造**（Ⅰ 管理対象 → Ⅱ 施策 → Ⅲ 将来展望）**のどの層に相当する設問か** を確認し、残りの層をどう書くかの骨子を余白にメモする（三層構造の詳細は [記述式試験の解答戦略](https://doboku-note.com/docs/pe-comprehensive-management-essay-exam-strategy?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking) 参照）
+4. 書いた 1 枚が **論文全体の三層構造**（Ⅰ 管理対象 → Ⅱ 施策 → Ⅲ 将来展望）**のどの層に相当する設問か** を確認し、残りの層をどう書くかの骨子を余白にメモする（三層構造の詳細は [記述式試験の解答戦略](https://doboku-note.com/exam/pe-comprehensive-management/guide/essay-exam-strategy?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking) 参照）
 
 **セルフチェック**：
 
@@ -485,7 +485,7 @@ LCC 試算では従来重機との総コストが 8 年で逆転。副次効果�
 
 **タスク**：
 
-1. 直近の過去問（[令和 7 年度](https://doboku-note.com/docs/pe-comprehensive-management-r07-secondary?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)）を 1 本選び、本番と同じ 3 時間 30 分で 600 字 × 5 枚を書ききる
+1. 直近の過去問（[令和 7 年度](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r07-secondary?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)）を 1 本選び、本番と同じ 3 時間 30 分で 600 字 × 5 枚を書ききる
 2. 終了直後に以下のセルフ添削チェック（30 分）
 
 **セルフ添削チェックリスト**：
@@ -517,7 +517,7 @@ https://doboku-note.com/category/pe-comprehensive-management?utm_source=note&utm
 
 - 17 年分の択一式過去問（全問解答解説付き）
 - 650 以上のキーワード解説ページ
-- 5 管理間トレードオフの解決フレーム（[詳細記事](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)）
+- 5 管理間トレードオフの解決フレーム（[詳細記事](https://doboku-note.com/exam/pe-comprehensive-management/guide/management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)）
 - スマホ対応（通勤中の学習に最適）
 
 **あわせて読みたい 無料 note 記事**

@@ -225,8 +225,8 @@ R8 予想テーマ × 契約・調達担当ペルソナでは、以下の 4 点�
 
 **doboku-note の関連ガイド**
 
-- [1 パターン × 複数年度流用戦略](https://doboku-note.com/docs/pe-comprehensive-management-essay-pattern-cross-year-application?utm_source=note&utm_medium=referral&utm_campaign=essay-procurement-muni-r08-yosou-4) — 契約調達担当の A 案・B 案で R5/R6/R7 + R8 予想を書ききる
-- [5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-procurement-muni-r08-yosou-4) — 調達担当特有の「経 × 社環」「人 × 経」トレードオフの解決フレーム集
+- [1 パターン × 複数年度流用戦略](https://doboku-note.com/exam/pe-comprehensive-management/guide/essay-pattern-cross-year-application?utm_source=note&utm_medium=referral&utm_campaign=essay-procurement-muni-r08-yosou-4) — 契約調達担当の A 案・B 案で R5/R6/R7 + R8 予想を書ききる
+- [5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/exam/pe-comprehensive-management/guide/management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-procurement-muni-r08-yosou-4) — 調達担当特有の「経 × 社環」「人 × 経」トレードオフの解決フレーム集
 
 ---
 

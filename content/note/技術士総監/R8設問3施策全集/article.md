@@ -255,8 +255,8 @@ cover:
 
 本試験の設問文全文と出題背景は、doboku-note のサイトで確認できます。
 
-- [令和8年度 総監記述式 過去問解説（必須科目I-2）](https://doboku-note.com/docs/pe-comprehensive-management-r08-secondary?utm_source=note&utm_medium=referral&utm_campaign=r8-s3-zenshu) — 設問全文・図のアウトプット一覧・出題背景
-- [総監記述式 論文戦略](https://doboku-note.com/docs/pe-comprehensive-management-essay-exam-strategy?utm_source=note&utm_medium=referral&utm_campaign=r8-s3-zenshu) — テーマに依存しない答案の型
+- [令和8年度 総監記述式 過去問解説（必須科目I-2）](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r08-secondary?utm_source=note&utm_medium=referral&utm_campaign=r8-s3-zenshu) — 設問全文・図のアウトプット一覧・出題背景
+- [総監記述式 論文戦略](https://doboku-note.com/exam/pe-comprehensive-management/guide/essay-exam-strategy?utm_source=note&utm_medium=referral&utm_campaign=r8-s3-zenshu) — テーマに依存しない答案の型
 
 設問(1)(2)を含む**全14ペルソナの地方創生 模範解答**（自治体10・受注者4）は、本文掲載＋立場別の無料PDFで別記事にまとめています。
 

@@ -66,7 +66,7 @@ https://note.com/dobokunote/n/n3ed4c77ceed6
 
 ## 試験問題（令和3年度 必須科目 I-2）
 
-本記事が解答するのは、技術士総合技術監理部門 令和3年度 必須科目（記述式）I-2「データ利活用」です。前文（出題の背景）の全文は [令和3年度 総監記述式 過去問解説](https://doboku-note.com/docs/pe-comprehensive-management-r03-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-gc-r03) に掲載しています。ここでは解答すべき設問を再掲します。
+本記事が解答するのは、技術士総合技術監理部門 令和3年度 必須科目（記述式）I-2「データ利活用」です。前文（出題の背景）の全文は [令和3年度 総監記述式 過去問解説](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r03-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-gc-r03) に掲載しています。ここでは解答すべき設問を再掲します。
 
 あなたがこれまでに経験した、あるいはよく知っている事業又はプロジェクト（以下「事業・プロジェクト等」という。）を1つ取り上げ、その目的や創出している成果物等を踏まえ、その事業・プロジェクト等にデータを利活用することに関して総合技術監理の視点から以下の（1）〜（3）の問いに答えよ。
 
@@ -105,7 +105,7 @@ https://note.com/dobokunote/n/n3ed4c77ceed6
 - **立場**: 工事部長（複数現場の総括、安全衛生管理、原価管理、技術調整）
 - **前提条件**: ICT 施工は標準化済みだが BIM/CIM・建機 IoT データは現場ごとに孤立、AI 解析は試行段階
 
-ゼネコンペルソナの他の管理対象パターン（橋梁・トンネル・ダム等）への置き換えは [ゼネコン向け 模範論文ハブ](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-general-contractor?utm_source=note&utm_medium=referral&utm_campaign=essay-gc-r03) を参照してください。
+ゼネコンペルソナの他の管理対象パターン（橋梁・トンネル・ダム等）への置き換えは [ゼネコン向け 模範論文ハブ](https://doboku-note.com/exam/pe-comprehensive-management/guide/pattern-essay-general-contractor?utm_source=note&utm_medium=referral&utm_campaign=essay-gc-r03) を参照してください。
 
 ## A 案 設問（１）事業の内容と現在のデータ利活用の状況
 
@@ -226,8 +226,8 @@ R3 ゼネコン版は「現場孤立」を率直に認めた上で、現実的�
 
 **doboku-note の関連ガイド**
 
-- [令和3年度 総監記述式 過去問解説](https://doboku-note.com/docs/pe-comprehensive-management-r03-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-gc-r03) — 必須科目の問題文全文と前文分析・論文骨子
-- [5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-gc-r03) — 段階的実施・合意形成などのフレーム集
+- [令和3年度 総監記述式 過去問解説](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r03-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-gc-r03) — 必須科目の問題文全文と前文分析・論文骨子
+- [5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/exam/pe-comprehensive-management/guide/management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-gc-r03) — 段階的実施・合意形成などのフレーム集
 
 ---
 

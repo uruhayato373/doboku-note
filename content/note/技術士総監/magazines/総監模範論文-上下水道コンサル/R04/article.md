@@ -65,7 +65,7 @@ https://note.com/dobokunote/n/n3ed4c77ceed6
 
 出典：[日本技術士会・令和4年度 必須科目の原問題](https://www.engineer.or.jp/c_topics/008/attached/attach_8867_2.pdf)。
 
-本記事が解答するのは、技術士総合技術監理部門 令和4年度 必須科目（記述式）I-2「DX推進」です。前文（DXとデジタル技術の利用の区別など出題の背景）の全文は [令和4年度 総監記述式 過去問解説](https://doboku-note.com/docs/pe-comprehensive-management-r04-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-water-consul-r04) に掲載しています。ここでは、原問の要求項目と枚数制約を保って設問を整理しています。
+本記事が解答するのは、技術士総合技術監理部門 令和4年度 必須科目（記述式）I-2「DX推進」です。前文（DXとデジタル技術の利用の区別など出題の背景）の全文は [令和4年度 総監記述式 過去問解説](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r04-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-water-consul-r04) に掲載しています。ここでは、原問の要求項目と枚数制約を保って設問を整理しています。
 
 あなたがこれまでに経験した、若しくはよく知っている事業や組織に関するデジタル技術の利用の変遷を振り返り、今後のDX推進に向けた現実的な計画について、総合技術監理の視点から以下の（1）〜（3）の問いに答えよ。なお、過去の変遷は「デジタル技術の利用」、最近・未来のビジネスやプロセスの変革は「DX」として区別する。
 

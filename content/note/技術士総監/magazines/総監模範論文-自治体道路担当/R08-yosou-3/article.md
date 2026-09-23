@@ -175,8 +175,8 @@ https://note.com/dobokunote/n/n3ed4c77ceed6
 
 **doboku-note の関連ガイド**
 
-- [1 パターン × 複数年度流用戦略](https://doboku-note.com/docs/pe-comprehensive-management-essay-pattern-cross-year-application?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r08-3) — 橋梁長寿命化・バイパス整備で R5/R6/R7 + R8 予想を書ききる
-- [5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r08-3) — 各トレードオフの解決フレーム集
+- [1 パターン × 複数年度流用戦略](https://doboku-note.com/exam/pe-comprehensive-management/guide/essay-pattern-cross-year-application?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r08-3) — 橋梁長寿命化・バイパス整備で R5/R6/R7 + R8 予想を書ききる
+- [5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/exam/pe-comprehensive-management/guide/management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r08-3) — 各トレードオフの解決フレーム集
 
 ---
 

@@ -65,7 +65,7 @@ https://note.com/dobokunote/n/n3ed4c77ceed6
 
 出典：[日本技術士会・令和3年度 必須科目の原問題](https://www.engineer.or.jp/c_topics/007/attached/attach_7933_2.pdf)。
 
-本記事が解答するのは、技術士総合技術監理部門 令和3年度 必須科目（記述式）I-2「データ利活用」です。前文（出題の背景）の全文は [令和3年度 総監記述式 過去問解説](https://doboku-note.com/docs/pe-comprehensive-management-r03-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-water-consul-r03) に掲載しています。ここでは、原問の要求項目と枚数制約を保って設問を整理しています。
+本記事が解答するのは、技術士総合技術監理部門 令和3年度 必須科目（記述式）I-2「データ利活用」です。前文（出題の背景）の全文は [令和3年度 総監記述式 過去問解説](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r03-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-water-consul-r03) に掲載しています。ここでは、原問の要求項目と枚数制約を保って設問を整理しています。
 
 あなたがこれまでに経験した、あるいはよく知っている事業又はプロジェクト（以下「事業・プロジェクト等」という。）を1つ取り上げ、その目的や創出している成果物等を踏まえ、その事業・プロジェクト等にデータを利活用することに関して総合技術監理の視点から以下の（1）〜（3）の問いに答えよ。
 

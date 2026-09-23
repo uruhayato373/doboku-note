@@ -68,7 +68,7 @@ https://note.com/dobokunote/n/n3ed4c77ceed6
 
 ## 試験問題（令和6年度 必須科目 I-2）
 
-本記事が解答するのは、技術士総合技術監理部門 令和6年度 必須科目（記述式）I-2「カーボンニュートラル（CN）」です。前文（CN の定義・2050 年長期戦略など出題の背景）の全文は [令和6年度 総監記述式 過去問解説](https://doboku-note.com/docs/pe-comprehensive-management-r06-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-river-r06) に掲載しています。ここでは解答すべき設問を再掲します（解答中、カーボンニュートラルは CN と略す）。
+本記事が解答するのは、技術士総合技術監理部門 令和6年度 必須科目（記述式）I-2「カーボンニュートラル（CN）」です。前文（CN の定義・2050 年長期戦略など出題の背景）の全文は [令和6年度 総監記述式 過去問解説](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r06-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-river-r06) に掲載しています。ここでは解答すべき設問を再掲します（解答中、カーボンニュートラルは CN と略す）。
 
 あなたがこれまでに経験した、若しくはよく知っている事業や組織を1つ取り上げ、その目的や創出している成果物等を踏まえ、CN 実現に向けた施策について総合技術監理の視点から以下の（1）〜（2）の問いに答えよ。さらに、取り上げた事業や組織の枠を超え、2050 年 CN 達成に向け我が国が取るべき施策について（3）の問いに答えよ。
 
@@ -239,8 +239,8 @@ R6 河川コンサル版は「自社の直接排出は限定的 → 本業を通
 
 **doboku-note の関連ガイド**
 
-- [令和6年度 総監記述式 過去問解説](https://doboku-note.com/docs/pe-comprehensive-management-r06-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-river-r06) — 必須科目の問題文全文と他ペルソナの解き方
-- [5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-river-r06) — 合意形成・段階的実施・LCA などフレーム集
+- [令和6年度 総監記述式 過去問解説](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r06-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-river-r06) — 必須科目の問題文全文と他ペルソナの解き方
+- [5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/exam/pe-comprehensive-management/guide/management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-river-r06) — 合意形成・段階的実施・LCA などフレーム集
 
 ---
 

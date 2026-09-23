@@ -218,8 +218,8 @@ R8 予想テーマでは、過去問対策に加えて以下の 4 点が都市�
 
 **doboku-note の関連ガイド**
 
-- [1 パターン × 複数年度流用戦略](https://doboku-note.com/docs/pe-comprehensive-management-essay-pattern-cross-year-application?utm_source=note&utm_medium=referral&utm_campaign=essay-urban-muni-r08-6) — 調達リスク・供給網強靱化で R5/R6/R7 + R8 予想を書ききる
-- [5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-urban-muni-r08-6) — 各トレードオフの解決フレーム集
+- [1 パターン × 複数年度流用戦略](https://doboku-note.com/exam/pe-comprehensive-management/guide/essay-pattern-cross-year-application?utm_source=note&utm_medium=referral&utm_campaign=essay-urban-muni-r08-6) — 調達リスク・供給網強靱化で R5/R6/R7 + R8 予想を書ききる
+- [5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/exam/pe-comprehensive-management/guide/management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-urban-muni-r08-6) — 各トレードオフの解決フレーム集
 
 ---
 

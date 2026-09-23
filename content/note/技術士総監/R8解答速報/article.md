@@ -44,7 +44,7 @@ cover:
 
 総監は、択一式（I-1）と記述式（I-2）を合わせた**必須科目I の総合で60%以上**が合格ラインです。択一で得点を稼ぎ、記述で大きく崩さないことが基本戦略になります。
 
-なお、**択一40問の全問と当サイトの暫定解答・解説**は、[令和8年度 択一式（全40問）](https://doboku-note.com/docs/pe-comprehensive-management-r08-primary?utm_source=note&utm_medium=referral&utm_campaign=r8-sokuho)にまとめています（公式正答の発表後に照合・更新します）。
+なお、**択一40問の全問と当サイトの暫定解答・解説**は、[令和8年度 択一式（全40問）](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r08-primary?utm_source=note&utm_medium=referral&utm_campaign=r8-sokuho)にまとめています（公式正答の発表後に照合・更新します）。
 
 ## 2. I-1 択一式（40問）の解答方針
 
@@ -66,7 +66,7 @@ cover:
 
 今年は特定の管理に極端な難問が偏る印象はなく、失点したなら人的資源管理の**労働法規の細部**か、**用語の定義の取り違え**が原因になりやすい構成でした。公式正答の発表前ですので、体感ボーダーの断定は控えますが、5管理のどこで落としたかを分野単位で振り返るのが有効です。
 
-各管理のキーワードは、doboku-note の[総合技術監理部門 試験インデックス](https://doboku-note.com/docs/pe-comprehensive-management-exam-index?utm_source=note&utm_medium=referral&utm_campaign=r8-sokuho)から650以上の解説ページで確認できます。全40問の暫定解答と選択肢別の解説は[令和8年度 択一式（全40問）](https://doboku-note.com/docs/pe-comprehensive-management-r08-primary?utm_source=note&utm_medium=referral&utm_campaign=r8-sokuho)へ。
+各管理のキーワードは、doboku-note の[総合技術監理部門 試験インデックス](https://doboku-note.com/exam/pe-comprehensive-management/guide/exam-index?utm_source=note&utm_medium=referral&utm_campaign=r8-sokuho)から650以上の解説ページで確認できます。全40問の暫定解答と選択肢別の解説は[令和8年度 択一式（全40問）](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r08-primary?utm_source=note&utm_medium=referral&utm_campaign=r8-sokuho)へ。
 
 ## 3. I-2 記述式の出題テーマと解答方針
 
@@ -87,7 +87,7 @@ cover:
 
 図から具体的なアウトプットを選ばせる形式は新しいものの、「社会構造テーマ × 5管理のトレードオフ」を書かせる骨格は、令和7年度の「少子高齢化」、令和6年度の「カーボンニュートラル」と同じ系統です。テーマが変わっても答案の組み立て方は共通しています。
 
-問題文の全文は[令和8年度 記述式（必須科目I-2）](https://doboku-note.com/docs/pe-comprehensive-management-r08-secondary?utm_source=note&utm_medium=referral&utm_campaign=r8-sokuho)に収録しています。
+問題文の全文は[令和8年度 記述式（必須科目I-2）](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r08-secondary?utm_source=note&utm_medium=referral&utm_campaign=r8-sokuho)に収録しています。
 
 ### 3.2 解答方針（骨子の例）
 
@@ -101,7 +101,7 @@ cover:
 
 https://note.com/dobokunote/n/nf3062e8f07e0
 
-テーマに依存しない骨子の作り方は[総監記述式 論文戦略](https://doboku-note.com/docs/pe-comprehensive-management-essay-exam-strategy?utm_source=note&utm_medium=referral&utm_campaign=r8-sokuho)にまとめています。5管理のトレードオフの型を体系的に押さえたい方は、20セル（5管理×他4管理）を網羅した「5管理クロス・トレードオフ」が近道です。
+テーマに依存しない骨子の作り方は[総監記述式 論文戦略](https://doboku-note.com/exam/pe-comprehensive-management/guide/essay-exam-strategy?utm_source=note&utm_medium=referral&utm_campaign=r8-sokuho)にまとめています。5管理のトレードオフの型を体系的に押さえたい方は、20セル（5管理×他4管理）を網羅した「5管理クロス・トレードオフ」が近道です。
 
 https://note.com/dobokunote/m/m921fbe060575
 
@@ -126,7 +126,7 @@ https://note.com/dobokunote/n/nce1ea1317eab
 
 「総監はどんな試験か」が具体的に見える**試験直後の今こそ、来年に向けた学習を始める最良のタイミング**です。総監記述式は、テーマを当てにいくのではなく、**どんなお題でも4ステップで組める型**を身につけた人が受かります。
 
-- まず**トレードオフ思考**という総監の核心を掴む → [トレードオフ思考 完全ガイド](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=r8-sokuho)
+- まず**トレードオフ思考**という総監の核心を掴む → [トレードオフ思考 完全ガイド](https://doboku-note.com/exam/pe-comprehensive-management/guide/management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=r8-sokuho)
 - 17年分の出題形式の変遷と来季予測 → [出題傾向変遷マップ（無料）](https://note.com/dobokunote/n/nc360aaa381b0)
 - 過去問17年分＋650キーワード解説（すべて無料）→ [総合技術監理部門 カテゴリ](https://doboku-note.com/category/pe-comprehensive-management?utm_source=note&utm_medium=referral&utm_campaign=r8-sokuho)
 

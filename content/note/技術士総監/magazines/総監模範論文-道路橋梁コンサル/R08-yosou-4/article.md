@@ -232,8 +232,8 @@ R8 予想テーマ × 道路橋梁コンサルペルソナでは、以下の 4 �
 
 **doboku-note の関連ガイド**
 
-- [1 パターン × 複数年度流用戦略](https://doboku-note.com/docs/pe-comprehensive-management-essay-pattern-cross-year-application?utm_source=note&utm_medium=referral&utm_campaign=essay-road-consul-r08-yosou-4) — 橋梁長寿命化・道路改良設計で R5/R6/R7 + R8 予想を書ききる
-- [5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-road-consul-r08-yosou-4) — 受注者固有の「経済性 × 人的資源」「情報 × 社会環境」トレードオフの解決フレーム集
+- [1 パターン × 複数年度流用戦略](https://doboku-note.com/exam/pe-comprehensive-management/guide/essay-pattern-cross-year-application?utm_source=note&utm_medium=referral&utm_campaign=essay-road-consul-r08-yosou-4) — 橋梁長寿命化・道路改良設計で R5/R6/R7 + R8 予想を書ききる
+- [5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/exam/pe-comprehensive-management/guide/management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-road-consul-r08-yosou-4) — 受注者固有の「経済性 × 人的資源」「情報 × 社会環境」トレードオフの解決フレーム集
 
 ---
 

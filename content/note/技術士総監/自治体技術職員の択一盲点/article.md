@@ -59,7 +59,7 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 発注者にとって、工事中の安全は基本的に施工者（受注者）の責任です。労働災害の防止も、現場の安全教育も、施工計画に基づいて施工者が回します。発注者は安全管理計画を確認し指導する立場ではありますが、労働安全衛生の実務そのものを担うわけではありません。
 
-この感覚のまま安全管理8問に臨むと、かなり苦戦します。択一の安全管理は、[労働安全衛生法](https://doboku-note.com/docs/pe-comprehensive-management-occupational-safety-act?utm_source=note&utm_medium=referral&utm_campaign=92-civil-servant-blindspots)の事業者責任の細部、[FMEA](https://doboku-note.com/docs/pe-comprehensive-management-fmea?utm_source=note&utm_medium=referral&utm_campaign=92-civil-servant-blindspots)・[FTA](https://doboku-note.com/docs/pe-comprehensive-management-fta?utm_source=note&utm_medium=referral&utm_campaign=92-civil-servant-blindspots)といった安全工学の解析手法、システム信頼性の計算──と、施工者・製造業側の知識が中心だからです。
+この感覚のまま安全管理8問に臨むと、かなり苦戦します。択一の安全管理は、[労働安全衛生法](https://doboku-note.com/exam/pe-comprehensive-management/keywords/occupational-safety-act?utm_source=note&utm_medium=referral&utm_campaign=92-civil-servant-blindspots)の事業者責任の細部、[FMEA](https://doboku-note.com/exam/pe-comprehensive-management/keywords/fmea?utm_source=note&utm_medium=referral&utm_campaign=92-civil-servant-blindspots)・[FTA](https://doboku-note.com/exam/pe-comprehensive-management/keywords/fta?utm_source=note&utm_medium=referral&utm_campaign=92-civil-servant-blindspots)といった安全工学の解析手法、システム信頼性の計算──と、施工者・製造業側の知識が中心だからです。
 
 「現場の安全は施工者がやること」という発注者の実務感覚は、ここでは通用しません。安全管理8問は、発注者にとって最も“自分の仕事から遠い”8問になりがちです。だからこそ、実務の延長で何となく解こうとせず、座学として正面から取り組む必要があります。
 
@@ -67,7 +67,7 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 発注者の技術職員は、経済性管理に苦手意識を持たない人が多いはずです。積算、予算管理、契約事務は日常業務そのもの。「経済性管理は得意分野」と感じるのは自然なことです。
 
-ところが、択一の経済性管理8問は、積算スキルとは別物です。出題の中心は、[QC7つ道具](https://doboku-note.com/docs/pe-comprehensive-management-quality-control?utm_source=note&utm_medium=referral&utm_campaign=92-civil-servant-blindspots)などの統計的品質管理、[PERT/CPM](https://doboku-note.com/docs/pe-comprehensive-management-pert-cpm?utm_source=note&utm_medium=referral&utm_campaign=92-civil-servant-blindspots)のネットワーク工程計算、[工程能力指数](https://doboku-note.com/docs/pe-comprehensive-management-process-capability-index?utm_source=note&utm_medium=referral&utm_campaign=92-civil-servant-blindspots)、財務諸表、設備保全──いずれも、施工者の品質・工程管理や、企業経営の世界の知識です。
+ところが、択一の経済性管理8問は、積算スキルとは別物です。出題の中心は、[QC7つ道具](https://doboku-note.com/exam/pe-comprehensive-management/keywords/quality-control?utm_source=note&utm_medium=referral&utm_campaign=92-civil-servant-blindspots)などの統計的品質管理、[PERT/CPM](https://doboku-note.com/exam/pe-comprehensive-management/keywords/pert-cpm?utm_source=note&utm_medium=referral&utm_campaign=92-civil-servant-blindspots)のネットワーク工程計算、[工程能力指数](https://doboku-note.com/exam/pe-comprehensive-management/keywords/process-capability-index?utm_source=note&utm_medium=referral&utm_campaign=92-civil-servant-blindspots)、財務諸表、設備保全──いずれも、施工者の品質・工程管理や、企業経営の世界の知識です。
 
 発注者が積算で扱う「歩掛・単価・数量」と、択一が問う「工程能力指数の計算・クリティカルパスの算出」は、同じ経済性管理でもまったく別の引き出しにあります。「経済性は得意」という思い込みが、かえって対策を後回しにさせる──これが2つ目の盲点です。得意だと感じている分野ほど、過去問で一度実力を測ってみてください。
 
@@ -77,7 +77,7 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 そのため人的資源管理は「自分の仕事ではない」と感じられ、勉強の優先順位が下がりがちです。しかし択一では、ここからも8問出ます。
 
-しかも人的資源管理の択一は、[マズローの欲求階層](https://doboku-note.com/docs/pe-comprehensive-management-maslow-hierarchy-of-needs?utm_source=note&utm_medium=referral&utm_campaign=92-civil-servant-blindspots)・[ハーズバーグの二要因理論](https://doboku-note.com/docs/pe-comprehensive-management-herzberg-two-factor-theory?utm_source=note&utm_medium=referral&utm_campaign=92-civil-servant-blindspots)・[マグレガーのX理論Y理論](https://doboku-note.com/docs/pe-comprehensive-management-mcgregor-xy-theory?utm_source=note&utm_medium=referral&utm_campaign=92-civil-servant-blindspots)といった動機づけ理論、組織形態の比較、[労働基準法](https://doboku-note.com/docs/pe-comprehensive-management-labor-standards-act?utm_source=note&utm_medium=referral&utm_campaign=92-civil-servant-blindspots)の数値規定──と、実務経験が乏しくても座学の暗記で確実に得点できる分野でもあります。
+しかも人的資源管理の択一は、[マズローの欲求階層](https://doboku-note.com/exam/pe-comprehensive-management/keywords/maslow-hierarchy-of-needs?utm_source=note&utm_medium=referral&utm_campaign=92-civil-servant-blindspots)・[ハーズバーグの二要因理論](https://doboku-note.com/exam/pe-comprehensive-management/keywords/herzberg-two-factor-theory?utm_source=note&utm_medium=referral&utm_campaign=92-civil-servant-blindspots)・[マグレガーのX理論Y理論](https://doboku-note.com/exam/pe-comprehensive-management/keywords/mcgregor-xy-theory?utm_source=note&utm_medium=referral&utm_campaign=92-civil-servant-blindspots)といった動機づけ理論、組織形態の比較、[労働基準法](https://doboku-note.com/exam/pe-comprehensive-management/keywords/labor-standards-act?utm_source=note&utm_medium=referral&utm_campaign=92-civil-servant-blindspots)の数値規定──と、実務経験が乏しくても座学の暗記で確実に得点できる分野でもあります。
 
 裏を返せば、人的資源管理は「実務で触れないから後回し」にした人と、「暗記分野と割り切って詰めた人」とで最も差がつく8問です。発注者にとっては、手薄になりやすいが対策の費用対効果は高い分野と言えます。
 
@@ -92,7 +92,7 @@ https://note.com/dobokunote/m/m607bf095b02a
 3. 盲点3分野（安全管理・経済性管理の手法系・人的資源管理）に学習時間を重点配分する
 4. 各分野の頻出論点を、出題頻度の高い順に潰していく
 
-学習の全体設計は[総合技術監理部門 合格戦略](https://doboku-note.com/docs/pe-comprehensive-management-exam-passing-strategy?utm_source=note&utm_medium=referral&utm_campaign=92-civil-servant-blindspots)も参考になります。発注者という立場の強みと弱みを正しく把握することが、限られた勉強時間を最も活かす出発点になります。
+学習の全体設計は[総合技術監理部門 合格戦略](https://doboku-note.com/exam/pe-comprehensive-management/guide/exam-passing-strategy?utm_source=note&utm_medium=referral&utm_campaign=92-civil-servant-blindspots)も参考になります。発注者という立場の強みと弱みを正しく把握することが、限られた勉強時間を最も活かす出発点になります。
 
 ## 5管理を出題視点で整理した精読ガイド
 

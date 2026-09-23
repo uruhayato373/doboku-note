@@ -43,7 +43,7 @@ cover:
 
 自治体の技術職員、とくに発注者の仕事は、純粋な技術判断だけでは回りません。事業の優先順位づけ、限られた予算の配分、住民への説明、工期と安全、環境への配慮──複数の要求が同時に押し寄せ、どれを立ててどれを譲るかを日々判断しています。
 
-総監が扱う5管理（経済性・人的資源・情報・安全・社会環境）と、その間の[トレードオフ](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=93-civil-servant-merits)は、まさにこの「複数の要求の板挟み」を整理する枠組みです。総監の勉強をして実感したのは、これまで経験と勘でこなしてきた発注者の判断に、共通の言葉と型が与えられたということでした。
+総監が扱う5管理（経済性・人的資源・情報・安全・社会環境）と、その間の[トレードオフ](https://doboku-note.com/exam/pe-comprehensive-management/guide/management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=93-civil-servant-merits)は、まさにこの「複数の要求の板挟み」を整理する枠組みです。総監の勉強をして実感したのは、これまで経験と勘でこなしてきた発注者の判断に、共通の言葉と型が与えられたということでした。
 
 たとえば、ある道路改良事業で工期短縮（経済性管理）と沿道の安全確保（安全管理）が正面からぶつかったとします。以前の私は「どちらを優先するか」の二択で考えていました。
 
@@ -101,7 +101,7 @@ cover:
 
 ここまで読んで「受けてみようか」と思えたら、いきなり参考書を買う前に、まず試験の中身を眺めてみることをおすすめします。
 
-doboku-note では、総監の択一式過去問17年分と、キーワード集2026の全項目を無料で公開しています。まず過去問を1年分眺めて、「これなら手が届きそうか」を肌で確かめてみてください。試験の全体像と学習の進め方は[総合技術監理部門 合格戦略](https://doboku-note.com/docs/pe-comprehensive-management-exam-passing-strategy?utm_source=note&utm_medium=referral&utm_campaign=93-civil-servant-merits)にまとめています。
+doboku-note では、総監の択一式過去問17年分と、キーワード集2026の全項目を無料で公開しています。まず過去問を1年分眺めて、「これなら手が届きそうか」を肌で確かめてみてください。試験の全体像と学習の進め方は[総合技術監理部門 合格戦略](https://doboku-note.com/exam/pe-comprehensive-management/guide/exam-passing-strategy?utm_source=note&utm_medium=referral&utm_campaign=93-civil-servant-merits)にまとめています。
 
 https://doboku-note.com
 

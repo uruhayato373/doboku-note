@@ -72,7 +72,7 @@ https://note.com/dobokunote/n/n3ed4c77ceed6
 
 ## 試験問題（令和3年度 必須科目 I-2）
 
-本記事が解答するのは、技術士総合技術監理部門 令和3年度 必須科目（記述式）I-2「データ利活用」です。前文（出題の背景）の全文は [令和3年度 総監記述式 過去問解説](https://doboku-note.com/docs/pe-comprehensive-management-r03-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-urban-muni-r03) に掲載しています。ここでは解答すべき設問を再掲します。
+本記事が解答するのは、技術士総合技術監理部門 令和3年度 必須科目（記述式）I-2「データ利活用」です。前文（出題の背景）の全文は [令和3年度 総監記述式 過去問解説](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r03-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-urban-muni-r03) に掲載しています。ここでは解答すべき設問を再掲します。
 
 あなたがこれまでに経験した、あるいはよく知っている事業又はプロジェクト（以下「事業・プロジェクト等」という。）を1つ取り上げ、その目的や創出している成果物等を踏まえ、その事業・プロジェクト等にデータを利活用することに関して総合技術監理の視点から以下の（1）〜（3）の問いに答えよ。
 
@@ -235,8 +235,8 @@ https://note.com/dobokunote/n/n3ed4c77ceed6
 
 **doboku-note の関連ガイド**
 
-- [令和3年度 総監記述式 過去問解説](https://doboku-note.com/docs/pe-comprehensive-management-r03-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-urban-muni-r03) — 必須科目の問題文全文と他ペルソナの解き方
-- [5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-urban-muni-r03) — 段階的実施・合意形成・LCA などフレーム集
+- [令和3年度 総監記述式 過去問解説](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r03-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-urban-muni-r03) — 必須科目の問題文全文と他ペルソナの解き方
+- [5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/exam/pe-comprehensive-management/guide/management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-urban-muni-r03) — 段階的実施・合意形成・LCA などフレーム集
 
 ---
 

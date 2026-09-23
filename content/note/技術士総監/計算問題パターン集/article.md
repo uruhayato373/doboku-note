@@ -37,7 +37,7 @@ H21〜R07（17 年分・520 問）の過去問を分類すると、毎年必ず�
 
 ![計算問題 6パターン — 難易度と所要時間の目安](img/figure-2-matrix.png)
 
-パターン 1（統計・信頼性計算）・パターン 2（BEP）は公式当てはめで即答できるため、本記事の冒頭から自然に易しいパターンから演習できます。最頻出のパターン 6（NPV）は条件の読み取りに時間がかかるため、基本を固めてから取り組みましょう。計算問題全体の出題分野・試験戦略については、[総合技術監理部門 合格戦略](https://doboku-note.com/docs/pe-comprehensive-management-exam-passing-strategy?utm_source=note&utm_medium=referral&utm_campaign=calc-problems-6patterns) も参考にしてください。
+パターン 1（統計・信頼性計算）・パターン 2（BEP）は公式当てはめで即答できるため、本記事の冒頭から自然に易しいパターンから演習できます。最頻出のパターン 6（NPV）は条件の読み取りに時間がかかるため、基本を固めてから取り組みましょう。計算問題全体の出題分野・試験戦略については、[総合技術監理部門 合格戦略](https://doboku-note.com/exam/pe-comprehensive-management/guide/exam-passing-strategy?utm_source=note&utm_medium=referral&utm_campaign=calc-problems-6patterns) も参考にしてください。
 
 ---
 
@@ -70,7 +70,7 @@ Cpk = min{(規格上限 - 平均値) / (3 x 標準偏差), (平均値 - 規格�
 - Cp = 1.33 のとき、規格幅 = 8シグマ → 規格外の割合は約0.006%
 - 3シグマルール: 平均値から3シグマの範囲に全体の約99.73%が含まれる
 
-公式の詳しい導出と関連例題は doboku-note の[工程能力指数（Cp・Cpk）キーワードページ](https://doboku-note.com/docs/pe-comprehensive-management-process-capability-index?utm_source=note&utm_medium=referral&utm_campaign=calc-problems-6patterns)を参照してください。
+公式の詳しい導出と関連例題は doboku-note の[工程能力指数（Cp・Cpk）キーワードページ](https://doboku-note.com/exam/pe-comprehensive-management/keywords/process-capability-index?utm_source=note&utm_medium=referral&utm_campaign=calc-problems-6patterns)を参照してください。
 
 **過去問演習: 平成30年度 I-1-1**（選択肢3）
 
@@ -105,7 +105,7 @@ R_並列 = 1 - (1 - 0.9)² = 1 - 0.01 = **0.99**
 
 **得点のコツ**: 「**並列は故障確率の積を 1 から引く**」と覚えておけば、直感的に解けます。OR ゲートの確率を単純加算（0.05 + 0.10 = 0.15）するのは典型的な誤答パターンで、正しくは 1 - (1-0.05)(1-0.10) = 0.145 です。R07 出題の MTBF/MTTR もこの公式系の延長です。
 
-直列・並列の信頼度ブロック図と FT（フォールトツリー）の構造は doboku-note の[フォールトツリー分析 (FTA) キーワードページ](https://doboku-note.com/docs/pe-comprehensive-management-fta?utm_source=note&utm_medium=referral&utm_campaign=calc-problems-6patterns)・[並列冗長構成キーワードページ](https://doboku-note.com/docs/pe-comprehensive-management-parallel-system?utm_source=note&utm_medium=referral&utm_campaign=calc-problems-6patterns)で図解しています。
+直列・並列の信頼度ブロック図と FT（フォールトツリー）の構造は doboku-note の[フォールトツリー分析 (FTA) キーワードページ](https://doboku-note.com/exam/pe-comprehensive-management/keywords/fta?utm_source=note&utm_medium=referral&utm_campaign=calc-problems-6patterns)・[並列冗長構成キーワードページ](https://doboku-note.com/exam/pe-comprehensive-management/keywords/parallel-system?utm_source=note&utm_medium=referral&utm_campaign=calc-problems-6patterns)で図解しています。
 
 ### 1-C. 労働災害統計（度数率・強度率・年千人率）
 
@@ -129,7 +129,7 @@ R_並列 = 1 - (1 - 0.9)² = 1 - 0.01 = **0.99**
 
 **得点のコツ**: **倍率の混同**（×1,000 と ×1,000,000）が最頻出ミス。「**度数=百万、強度=千、千人=千**」とリズムで覚えます。また、損失日数は実休業日数そのままではなく **× 300/365** で年換算する点も頻出の引っかけです。
 
-3 指標の定義・計算例・全産業平均との比較は doboku-note の[労働災害統計（度数率・強度率・年千人率）キーワードページ](https://doboku-note.com/docs/pe-comprehensive-management-accident-statistics?utm_source=note&utm_medium=referral&utm_campaign=calc-problems-6patterns)で詳しく解説しています。
+3 指標の定義・計算例・全産業平均との比較は doboku-note の[労働災害統計（度数率・強度率・年千人率）キーワードページ](https://doboku-note.com/exam/pe-comprehensive-management/keywords/accident-statistics?utm_source=note&utm_medium=referral&utm_campaign=calc-problems-6patterns)で詳しく解説しています。
 
 ### 1-D. MTBF・MTTR（信頼性指標）
 
@@ -150,11 +150,11 @@ MTBF = 1,093,800 / 987 ≒ **1,108 時間**（カタログ値 1,000h を上回�
 
 **得点のコツ**: MTBF と MTTR を取り違えるのが典型ミス。「**B=Between=故障間隔**（長い方が良い）」「**R=Repair=修復時間**（短い方が良い）」と覚えると混同しません。「総稼働時間」と「実稼働時間（稼働率を乗じた値）」の使い分けも頻出ポイントです。
 
-設備信頼性の全体像とバスタブカーブ（初期故障期・偶発故障期・摩耗故障期）は doboku-note の[設備信頼性キーワードページ](https://doboku-note.com/docs/pe-comprehensive-management-equipment-reliability?utm_source=note&utm_medium=referral&utm_campaign=calc-problems-6patterns)・[バスタブカーブキーワードページ](https://doboku-note.com/docs/pe-comprehensive-management-bathtub-curve?utm_source=note&utm_medium=referral&utm_campaign=calc-problems-6patterns)で図解しています。
+設備信頼性の全体像とバスタブカーブ（初期故障期・偶発故障期・摩耗故障期）は doboku-note の[設備信頼性キーワードページ](https://doboku-note.com/exam/pe-comprehensive-management/keywords/equipment-reliability?utm_source=note&utm_medium=referral&utm_campaign=calc-problems-6patterns)・[バスタブカーブキーワードページ](https://doboku-note.com/exam/pe-comprehensive-management/keywords/bathtub-curve?utm_source=note&utm_medium=referral&utm_campaign=calc-problems-6patterns)で図解しています。
 
 ---
 
-これら 4 サブ分類は、いずれも**公式 1〜2 個を覚えれば即答**できる「落としてはいけない」問題群です。類題は doboku-note の[平成30年度 択一式過去問](https://doboku-note.com/docs/pe-comprehensive-management-h30-primary?utm_source=note&utm_medium=referral&utm_campaign=calc-problems-6patterns)・[令和7年度 択一式過去問](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=calc-problems-6patterns)などに収録されています。
+これら 4 サブ分類は、いずれも**公式 1〜2 個を覚えれば即答**できる「落としてはいけない」問題群です。類題は doboku-note の[平成30年度 択一式過去問](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/h30-primary?utm_source=note&utm_medium=referral&utm_campaign=calc-problems-6patterns)・[令和7年度 択一式過去問](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r07-primary?utm_source=note&utm_medium=referral&utm_campaign=calc-problems-6patterns)などに収録されています。
 
 
 ## パターン 2: 損益分岐点（BEP）
@@ -173,7 +173,7 @@ MTBF = 1,093,800 / 987 ≒ **1,108 時間**（カタログ値 1,000h を上回�
 損益分岐点売上高 = 固定費 / 限界利益率
 目標利益達成売上高 = (固定費 + 目標利益) / 限界利益率
 
-公式の導出と CVP 分析の応用は doboku-note の[損益分岐点（BEP）キーワードページ](https://doboku-note.com/docs/pe-comprehensive-management-break-even-point?utm_source=note&utm_medium=referral&utm_campaign=calc-problems-6patterns)で詳しく解説しています。
+公式の導出と CVP 分析の応用は doboku-note の[損益分岐点（BEP）キーワードページ](https://doboku-note.com/exam/pe-comprehensive-management/keywords/break-even-point?utm_source=note&utm_medium=referral&utm_campaign=calc-problems-6patterns)で詳しく解説しています。
 
 **過去問演習: 令和7年度 I-1-3**
 
@@ -210,7 +210,7 @@ MTBF = 1,093,800 / 987 ≒ **1,108 時間**（カタログ値 1,000h を上回�
 
 **得点のコツ**: 変動費率と限界利益率は補数の関係（合計100%）にあります。選択肢でこの2つを入れ替えた引っかけが頻出するので、必ず公式に当てはめて検算しましょう。
 
-この問題の詳細解説は doboku-note の[令和7年度 択一式過去問](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=calc-problems-6patterns)で確認できます。
+この問題の詳細解説は doboku-note の[令和7年度 択一式過去問](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r07-primary?utm_source=note&utm_medium=referral&utm_campaign=calc-problems-6patterns)で確認できます。
 
 
 ## パターン 3: 線形計画法
@@ -221,7 +221,7 @@ MTBF = 1,093,800 / 987 ≒ **1,108 時間**（カタログ値 1,000h を上回�
 
 ![線形計画法 — 実行可能領域と頂点法](./img/figure-12-lp-feasible-region.png)
 
-実行可能領域・目的関数の図解・グラフ解法は doboku-note の[線形計画法キーワードページ](https://doboku-note.com/docs/pe-comprehensive-management-linear-programming?utm_source=note&utm_medium=referral&utm_campaign=calc-problems-6patterns)で詳しく解説しています。
+実行可能領域・目的関数の図解・グラフ解法は doboku-note の[線形計画法キーワードページ](https://doboku-note.com/exam/pe-comprehensive-management/keywords/linear-programming?utm_source=note&utm_medium=referral&utm_campaign=calc-problems-6patterns)で詳しく解説しています。
 
 **基本概念**
 
@@ -269,7 +269,7 @@ MTBF = 1,093,800 / 987 ≒ **1,108 時間**（カタログ値 1,000h を上回�
 
 **得点のコツ**: まず制約条件に違反する選択肢を除外し、残りの選択肢に目的関数を代入して比較すると短時間で解けます。グラフを描かなくても選択肢代入法で対応できます。
 
-線形計画法の詳細は doboku-note の[線形計画法](https://doboku-note.com/docs/pe-comprehensive-management-linear-programming?utm_source=note&utm_medium=referral&utm_campaign=calc-problems-6patterns)キーワードページで確認できます。
+線形計画法の詳細は doboku-note の[線形計画法](https://doboku-note.com/exam/pe-comprehensive-management/keywords/linear-programming?utm_source=note&utm_medium=referral&utm_campaign=calc-problems-6patterns)キーワードページで確認できます。
 
 
 
@@ -290,7 +290,7 @@ PERT（Program Evaluation and Review Technique）は、プロジェクトの各�
 - トータルフロート（TF）: TF = LF - EF（余裕時間）
 - クリティカルパス: TF = 0 の作業をつなげた経路（最長経路）
 
-PERT/CPM の理論と実例は doboku-note の[PERT・クリティカルパスキーワードページ](https://doboku-note.com/docs/pe-comprehensive-management-pert-cpm?utm_source=note&utm_medium=referral&utm_campaign=calc-problems-6patterns)で詳しく解説しています。
+PERT/CPM の理論と実例は doboku-note の[PERT・クリティカルパスキーワードページ](https://doboku-note.com/exam/pe-comprehensive-management/keywords/pert-cpm?utm_source=note&utm_medium=referral&utm_campaign=calc-problems-6patterns)で詳しく解説しています。
 
 **解法の手順**
 
@@ -354,7 +354,7 @@ PERT/CPM の理論と実例は doboku-note の[PERT・クリティカルパス�
 
 **得点のコツ**: 最長経路が複数ある場合、それら「すべて」に含まれる作業の合集合がクリティカルパス上の作業になります。選択肢3・4のように一方のパスのみ列挙した選択肢は不正解です。
 
-PERT の類題も doboku-note の[令和7年度 択一式過去問](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=calc-problems-6patterns)・[平成26年度 択一式過去問](https://doboku-note.com/docs/pe-comprehensive-management-h26-primary?utm_source=note&utm_medium=referral&utm_campaign=calc-problems-6patterns)に収録されています。
+PERT の類題も doboku-note の[令和7年度 択一式過去問](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r07-primary?utm_source=note&utm_medium=referral&utm_campaign=calc-problems-6patterns)・[平成26年度 択一式過去問](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/h26-primary?utm_source=note&utm_medium=referral&utm_campaign=calc-problems-6patterns)に収録されています。
 
 
 ## パターン 5: 負荷工数・残業時間の計算
@@ -372,7 +372,7 @@ PERT の類題も doboku-note の[令和7年度 択一式過去問](https://dobo
 必要生産数 = 計画良品数 / 良品率
 総残業時間 = 負荷工数 - 能力工数
 
-負荷と能力のバランス調整・山積み山崩しの考え方は doboku-note の[負荷工数（負荷・能力管理）キーワードページ](https://doboku-note.com/docs/pe-comprehensive-management-load-capacity?utm_source=note&utm_medium=referral&utm_campaign=calc-problems-6patterns)で詳しく解説しています。
+負荷と能力のバランス調整・山積み山崩しの考え方は doboku-note の[負荷工数（負荷・能力管理）キーワードページ](https://doboku-note.com/exam/pe-comprehensive-management/keywords/load-capacity?utm_source=note&utm_medium=referral&utm_campaign=calc-problems-6patterns)で詳しく解説しています。
 
 **過去問演習: 平成30年度 I-1-7**
 
@@ -403,7 +403,7 @@ PERT の類題も doboku-note の[令和7年度 択一式過去問](https://dobo
 
 **得点のコツ**: 「分」を「時間」に換算する際のミス（20分 = 0.3333時間）と、良品率による必要生産数の割り戻し（計画良品数/良品率）がポイントです。条件を表に整理してから計算に入ると、見落としを防げます。
 
-この問題の詳細解説は doboku-note の[平成30年度 択一式過去問](https://doboku-note.com/docs/pe-comprehensive-management-h30-primary?utm_source=note&utm_medium=referral&utm_campaign=calc-problems-6patterns)で確認できます。
+この問題の詳細解説は doboku-note の[平成30年度 択一式過去問](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/h30-primary?utm_source=note&utm_medium=referral&utm_campaign=calc-problems-6patterns)で確認できます。
 
 
 ## パターン 6: NPV・現在価値計算
@@ -425,7 +425,7 @@ PV = C / (1 + r)^t
 
 PV = A x {1 - 1/(1+r)^n} / r
 
-NPV の理論的背景・割引率の決め方・年金現価係数の使い方は doboku-note の[NPV（正味現在価値）キーワードページ](https://doboku-note.com/docs/pe-comprehensive-management-npv-net-present-value?utm_source=note&utm_medium=referral&utm_campaign=calc-problems-6patterns)・[割引率キーワードページ](https://doboku-note.com/docs/pe-comprehensive-management-discount-rate?utm_source=note&utm_medium=referral&utm_campaign=calc-problems-6patterns)で詳しく解説しています。
+NPV の理論的背景・割引率の決め方・年金現価係数の使い方は doboku-note の[NPV（正味現在価値）キーワードページ](https://doboku-note.com/exam/pe-comprehensive-management/keywords/npv-net-present-value?utm_source=note&utm_medium=referral&utm_campaign=calc-problems-6patterns)・[割引率キーワードページ](https://doboku-note.com/exam/pe-comprehensive-management/keywords/discount-rate?utm_source=note&utm_medium=referral&utm_campaign=calc-problems-6patterns)で詳しく解説しています。
 
 ![NPV 計算の概念図 — 時間軸キャッシュフロー・割引・現在価値合計](./img/figure-14-npv-cashflow.png)
 
@@ -489,7 +489,7 @@ NPV = 1,863 - 1,200 - 396 ≈ 267万円
 
 **得点のコツ**: 「4年経過後の年初」とは「4年末」と同じタイミングです。中間追加投資がある問題では、追加投資の時点を数直線で整理してから計算に入ることでミスを防げます。
 
-類題は doboku-note の[平成26年度 択一式過去問](https://doboku-note.com/docs/pe-comprehensive-management-h26-primary?utm_source=note&utm_medium=referral&utm_campaign=calc-problems-6patterns)・[平成24年度 択一式過去問](https://doboku-note.com/docs/pe-comprehensive-management-h24-primary?utm_source=note&utm_medium=referral&utm_campaign=calc-problems-6patterns)に解説付きで掲載しています。経済性管理の全体像は [経済性管理ピラー](https://doboku-note.com/docs/pe-comprehensive-management-economic-management-pillar?utm_source=note&utm_medium=referral&utm_campaign=calc-problems-6patterns) でまとめて確認できます。
+類題は doboku-note の[平成26年度 択一式過去問](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/h26-primary?utm_source=note&utm_medium=referral&utm_campaign=calc-problems-6patterns)・[平成24年度 択一式過去問](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/h24-primary?utm_source=note&utm_medium=referral&utm_campaign=calc-problems-6patterns)に解説付きで掲載しています。経済性管理の全体像は [経済性管理ピラー](https://doboku-note.com/exam/pe-comprehensive-management/pillar/economic-management-pillar?utm_source=note&utm_medium=referral&utm_campaign=calc-problems-6patterns) でまとめて確認できます。
 
 
 ## まとめ: 計算問題の攻略法
@@ -502,7 +502,7 @@ NPV = 1,863 - 1,200 - 396 ≈ 267万円
 
 3. **選択肢から逆算する** --- 5択であることを活かしましょう。計算結果が選択肢のどれに最も近いかで判断できるため、端数処理に神経質になりすぎる必要はありません
 
-計算問題はパターンが決まっているため、各パターン3~5問を演習すれば十分に対応できます。doboku-note には17年分の択一式過去問を全問解答解説付きで収録しているので、計算問題だけを横断的に演習する使い方もできます。まずは[試験インデックス](https://doboku-note.com/docs/pe-comprehensive-management-exam-index?utm_source=note&utm_medium=referral&utm_campaign=calc-problems-6patterns)から該当年度を選んで演習を始めてみましょう。
+計算問題はパターンが決まっているため、各パターン3~5問を演習すれば十分に対応できます。doboku-note には17年分の択一式過去問を全問解答解説付きで収録しているので、計算問題だけを横断的に演習する使い方もできます。まずは[試験インデックス](https://doboku-note.com/exam/pe-comprehensive-management/guide/exam-index?utm_source=note&utm_medium=referral&utm_campaign=calc-problems-6patterns)から該当年度を選んで演習を始めてみましょう。
 
 ---
 

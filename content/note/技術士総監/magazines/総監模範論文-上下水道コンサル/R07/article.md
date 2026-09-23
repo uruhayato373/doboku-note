@@ -65,7 +65,7 @@ https://note.com/dobokunote/n/n3ed4c77ceed6
 
 出典：[日本技術士会・令和7年度 必須科目の原問題](https://www.engineer.or.jp/c_topics/011/attached/attach_11181_2.pdf)。
 
-本記事が解答するのは、技術士総合技術監理部門 令和7年度 必須科目（記述式）I-2「少子高齢化」です。前文（少子高齢化の現状など出題の背景）の全文は [令和7年度 総監記述式 過去問解説](https://doboku-note.com/docs/pe-comprehensive-management-r07-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-water-consul-r07) に掲載しています。ここでは、原問の要求項目と枚数制約を保って設問を整理しています。
+本記事が解答するのは、技術士総合技術監理部門 令和7年度 必須科目（記述式）I-2「少子高齢化」です。前文（少子高齢化の現状など出題の背景）の全文は [令和7年度 総監記述式 過去問解説](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r07-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-water-consul-r07) に掲載しています。ここでは、原問の要求項目と枚数制約を保って設問を整理しています。
 
 あなたがこれまでに経験した、若しくはよく知っている事業や組織を1つ取り上げ、その目的や創出している成果物等を踏まえ、少子高齢化に伴う課題と施策について総合技術監理の視点から以下の（1）〜（2）の問いに答えよ。さらに、取り上げた事業や組織の枠を超え、少子高齢化に伴う諸課題に対して我が国において取るべき施策について（3）の問いに答えよ。
 

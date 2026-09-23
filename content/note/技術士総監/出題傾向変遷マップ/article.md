@@ -56,7 +56,7 @@ cover:
 
 過去問学習を始めるとき、多くの受験者は「新しい年度だけ見ればよい」と考えがちです。しかし総監記述式は、作問委員の任期に連動して出題スタイルが切り替わるため、古い年度を見ないと「現在の形式が何から変わってきたのか」という感覚が掴めません。
 
-また、過去のテーマは形式が違っても **現在の頻出テーマ**（[BCP](https://doboku-note.com/docs/pe-comprehensive-management-business-continuity-plan?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map)・[インフラ老朽化](https://doboku-note.com/docs/pe-comprehensive-management-aging-infrastructure?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map)・[リスクマネジメント](https://doboku-note.com/docs/pe-comprehensive-management-risk-management-system?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map)・人材不足など）**の原点** になっているケースが多いです。
+また、過去のテーマは形式が違っても **現在の頻出テーマ**（[BCP](https://doboku-note.com/exam/pe-comprehensive-management/keywords/business-continuity-plan?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map)・[インフラ老朽化](https://doboku-note.com/exam/pe-comprehensive-management/keywords/aging-infrastructure?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map)・[リスクマネジメント](https://doboku-note.com/exam/pe-comprehensive-management/keywords/risk-management-system?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map)・人材不足など）**の原点** になっているケースが多いです。
 
 各年度の「問い方の違い」と「テーマの普遍性」を切り分けて読むことが、学習効率を高める近道となります。
 
@@ -94,7 +94,7 @@ cover:
 
 ### 3.1 各年度のテーマと構造
 
-**H21「不測事態・リスク認識」** --- プロジェクトで過去に発生した不測事態を取り上げ、影響と原因を分析し、将来への前提設定を [5 管理](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map)の観点から 3 つ選んで論じる。
+**H21「不測事態・リスク認識」** --- プロジェクトで過去に発生した不測事態を取り上げ、影響と原因を分析し、将来への前提設定を [5 管理](https://doboku-note.com/exam/pe-comprehensive-management/guide/management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map)の観点から 3 つ選んで論じる。
 
 受験者の実経験に強く依拠する設問構成。
 
@@ -104,7 +104,7 @@ cover:
 
 **H24「環境変化への対応」** --- 新製品開発／新システム開発／建設工事／地域開発計画から 1 つを選び、実施中に発生した課題に対する **複数案**（3 案）**比較検討** を求める。トレードオフ分析が明示的に要求された初期の年。
 
-**H25「メンテナンス最適化」** --- [ライフサイクル](https://doboku-note.com/docs/pe-comprehensive-management-lifecycle-management?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map)全体（計画・施工・運保）を 3 ステージに分けて課題を抽出させる **ライフサイクル分析型**。
+**H25「メンテナンス最適化」** --- [ライフサイクル](https://doboku-note.com/exam/pe-comprehensive-management/keywords/lifecycle-management?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map)全体（計画・施工・運保）を 3 ステージに分けて課題を抽出させる **ライフサイクル分析型**。
 
 設問数が 2 問に圧縮され、1 問あたりの論述密度が上がった。
 
@@ -120,7 +120,7 @@ cover:
 
 **現在の受験者への示唆**: 第 1 期の過去問は「形式の練習」にはそのまま使えませんが、**各年のテーマ**（リスク・メンテナンス・人口減少・BCP）**は令和期と地続き** なので、論点抽出の訓練素材として読むと効果的です。
 
-特に H26（人口減少社会）と H23（BCP）は現代との接続性が高く、問題文と設問を確認するだけで十分な価値があります → [平成26年度 記述式（doboku-note）](https://doboku-note.com/docs/pe-comprehensive-management-h26-secondary?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map)・[平成23年度 記述式](https://doboku-note.com/docs/pe-comprehensive-management-h23-secondary?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map)
+特に H26（人口減少社会）と H23（BCP）は現代との接続性が高く、問題文と設問を確認するだけで十分な価値があります → [平成26年度 記述式（doboku-note）](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/h26-secondary?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map)・[平成23年度 記述式](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/h23-secondary?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map)
 
 ## 4. 第 2 期（H28〜R02）──転換期
 
@@ -132,19 +132,19 @@ cover:
 
 設問数は 4 問に増え、時間軸が過去〜現在〜未来へ拡張された転換点。
 
-**H29「事業の持続可能性**（SDGs）**」** --- 2015 年の [SDGs](https://doboku-note.com/docs/pe-comprehensive-management-sdgs?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map) 採択を受け、事業を取り上げて **過去・現在・将来の課題** をそれぞれ詳述し、5 管理の視点から解決方策を提案する。
+**H29「事業の持続可能性**（SDGs）**」** --- 2015 年の [SDGs](https://doboku-note.com/exam/pe-comprehensive-management/keywords/sdgs?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map) 採択を受け、事業を取り上げて **過去・現在・将来の課題** をそれぞれ詳述し、5 管理の視点から解決方策を提案する。
 
 H28 の時間軸拡張路線を継承。
 
-**H30「働き方改革」** --- 平成 29 年の[働き方改革](https://doboku-note.com/docs/pe-comprehensive-management-work-life-balance?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map)実行計画を背景に、事業・プロジェクトの現在の課題を 2 つ取り上げ、技術や方策で解決する道筋を論じる。
+**H30「働き方改革」** --- 平成 29 年の[働き方改革](https://doboku-note.com/exam/pe-comprehensive-management/keywords/work-life-balance?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map)実行計画を背景に、事業・プロジェクトの現在の課題を 2 つ取り上げ、技術や方策で解決する道筋を論じる。
 
 **社会制度の変化と事業実務を接続** する設問。
 
-**R01「ヒューマンエラー」** --- 事業・プロジェクトを 1 つ取り上げ、計画段階と実施段階それぞれで発生した[ヒューマンエラー](https://doboku-note.com/docs/pe-comprehensive-management-human-error-probability?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map)事例を分析し、今後の新技術による防止策を提案する。
+**R01「ヒューマンエラー」** --- 事業・プロジェクトを 1 つ取り上げ、計画段階と実施段階それぞれで発生した[ヒューマンエラー](https://doboku-note.com/exam/pe-comprehensive-management/keywords/human-error-probability?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map)事例を分析し、今後の新技術による防止策を提案する。
 
 設問数が 2 問に圧縮され、1 問あたりの論述密度が最大化した年。
 
-**R02「異常気象**（BCP）**」** --- [異常な自然現象](https://doboku-note.com/docs/pe-comprehensive-management-disaster-prevention?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map)（暴風・豪雨・地震・津波等）を 1 つ選び、事業場が受ける主要な被害 3 つ（A・B・C）と対策（A0/A1... のラベル付き）を示す。
+**R02「異常気象**（BCP）**」** --- [異常な自然現象](https://doboku-note.com/exam/pe-comprehensive-management/keywords/disaster-prevention?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map)（暴風・豪雨・地震・津波等）を 1 つ選び、事業場が受ける主要な被害 3 つ（A・B・C）と対策（A0/A1... のラベル付き）を示す。
 
 **ラベル付与形式** が新たに登場。
 
@@ -157,7 +157,7 @@ H28 の時間軸拡張路線を継承。
 
 **現在の受験者への示唆**: 第 2 期は現在の形式の原点であり、**そのまま答案練習に使える**。
 
-特に H30（働き方改革）・R01（ヒューマンエラー）・R02（BCP）は令和期の過去問として最も学習価値が高いです → [平成30年度 記述式（doboku-note）](https://doboku-note.com/docs/pe-comprehensive-management-h30-secondary?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map)・[令和2年度 記述式](https://doboku-note.com/docs/pe-comprehensive-management-r02-secondary?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map)
+特に H30（働き方改革）・R01（ヒューマンエラー）・R02（BCP）は令和期の過去問として最も学習価値が高いです → [平成30年度 記述式（doboku-note）](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/h30-secondary?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map)・[令和2年度 記述式](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r02-secondary?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map)
 
 ## 5. 第 3 期（R03〜R07）──定着期
 
@@ -169,11 +169,11 @@ H28 の時間軸拡張路線を継承。
 
 **R04「DX**（デジタル変革）**」** --- 単なるデジタル化ではなく「変革」としての DX を、事業の変遷とともに論じる。R03 のデータ活用テーマを発展させた形。
 
-**R05「SWOT 分析・組織戦略」** --- 論述対象が **「組織」** へシフトし、[SWOT 分析](https://doboku-note.com/docs/pe-comprehensive-management-swot-analysis?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map)の枠組みをベースに組織戦略を立案させる構造。
+**R05「SWOT 分析・組織戦略」** --- 論述対象が **「組織」** へシフトし、[SWOT 分析](https://doboku-note.com/exam/pe-comprehensive-management/keywords/swot-analysis?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map)の枠組みをベースに組織戦略を立案させる構造。
 
 作問委員の入れ替わりを感じさせる新展開。
 
-**R06「カーボンニュートラル」** --- 2050 年 [カーボンニュートラル](https://doboku-note.com/docs/pe-comprehensive-management-carbon-neutral?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map)に向けた事業戦略を 5 管理の視点から論じる。
+**R06「カーボンニュートラル」** --- 2050 年 [カーボンニュートラル](https://doboku-note.com/exam/pe-comprehensive-management/keywords/carbon-neutral?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map)に向けた事業戦略を 5 管理の視点から論じる。
 
 **社会環境管理の比重が増大** した年。
 
@@ -187,9 +187,9 @@ H28 の時間軸拡張路線を継承。
 
 **現在の受験者への示唆**: R03〜R07 は直近 5 年分として **最優先で学習すべき範囲** です。特に R04〜R07 は本サイトにも複数パターンの模範論文例を掲載しているので、自分の専門科目に近いものを参考にしてください。
 
-時事テーマへの対処法（「総監の枠組みで処理する」具体的な方法）は [記述式 論文戦略（doboku-note）](https://doboku-note.com/docs/pe-comprehensive-management-essay-exam-strategy?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map) にまとめています。
+時事テーマへの対処法（「総監の枠組みで処理する」具体的な方法）は [記述式 論文戦略（doboku-note）](https://doboku-note.com/exam/pe-comprehensive-management/guide/essay-exam-strategy?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map) にまとめています。
 
-また直近の R07 過去問は [令和7年度 記述式（少子高齢化）](https://doboku-note.com/docs/pe-comprehensive-management-r07-secondary?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map) から確認できます。
+また直近の R07 過去問は [令和7年度 記述式（少子高齢化）](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r07-secondary?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map) から確認できます。
 
 ## 6. 受験者への実践的示唆
 
@@ -211,29 +211,29 @@ H28 の時間軸拡張路線を継承。
 
 ### 7.1 第 3 期（R03〜R07）
 
-- [令和 7 年度 記述式](https://doboku-note.com/docs/pe-comprehensive-management-r07-secondary?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map) --- 少子高齢化
-- [令和 6 年度 記述式](https://doboku-note.com/docs/pe-comprehensive-management-r06-secondary?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map) --- カーボンニュートラル
-- [令和 5 年度 記述式](https://doboku-note.com/docs/pe-comprehensive-management-r05-secondary?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map) --- SWOT 分析・組織戦略
-- [令和 4 年度 記述式](https://doboku-note.com/docs/pe-comprehensive-management-r04-secondary?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map) --- DX
-- [令和 3 年度 記述式](https://doboku-note.com/docs/pe-comprehensive-management-r03-secondary?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map) --- データ利活用
+- [令和 7 年度 記述式](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r07-secondary?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map) --- 少子高齢化
+- [令和 6 年度 記述式](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r06-secondary?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map) --- カーボンニュートラル
+- [令和 5 年度 記述式](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r05-secondary?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map) --- SWOT 分析・組織戦略
+- [令和 4 年度 記述式](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r04-secondary?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map) --- DX
+- [令和 3 年度 記述式](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r03-secondary?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map) --- データ利活用
 
 ### 7.2 第 2 期（H28〜R02）
 
-- [令和 2 年度 記述式](https://doboku-note.com/docs/pe-comprehensive-management-r02-secondary?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map) --- 異常気象（BCP）
-- [令和元年度 記述式](https://doboku-note.com/docs/pe-comprehensive-management-r01-secondary?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map) --- ヒューマンエラー
-- [平成 30 年度 記述式](https://doboku-note.com/docs/pe-comprehensive-management-h30-secondary?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map) --- 働き方改革
-- [平成 29 年度 記述式](https://doboku-note.com/docs/pe-comprehensive-management-h29-secondary?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map) --- 事業の持続可能性（SDGs）
-- [平成 28 年度 記述式](https://doboku-note.com/docs/pe-comprehensive-management-h28-secondary?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map) --- 科学技術進展と事業変化
+- [令和 2 年度 記述式](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r02-secondary?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map) --- 異常気象（BCP）
+- [令和元年度 記述式](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r01-secondary?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map) --- ヒューマンエラー
+- [平成 30 年度 記述式](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/h30-secondary?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map) --- 働き方改革
+- [平成 29 年度 記述式](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/h29-secondary?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map) --- 事業の持続可能性（SDGs）
+- [平成 28 年度 記述式](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/h28-secondary?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map) --- 科学技術進展と事業変化
 
 ### 7.3 第 1 期（H21〜H27）
 
-- [平成 27 年度 記述式](https://doboku-note.com/docs/pe-comprehensive-management-h27-secondary?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map) --- リスクマネジメント
-- [平成 26 年度 記述式](https://doboku-note.com/docs/pe-comprehensive-management-h26-secondary?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map) --- 人口減少社会
-- [平成 25 年度 記述式](https://doboku-note.com/docs/pe-comprehensive-management-h25-secondary?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map) --- メンテナンス最適化
-- [平成 24 年度 記述式](https://doboku-note.com/docs/pe-comprehensive-management-h24-secondary?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map) --- 環境変化への対応
-- [平成 23 年度 記述式](https://doboku-note.com/docs/pe-comprehensive-management-h23-secondary?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map) --- BCP
-- [平成 22 年度 記述式](https://doboku-note.com/docs/pe-comprehensive-management-h22-secondary?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map) --- 技術の負の遺産化
-- [平成 21 年度 記述式](https://doboku-note.com/docs/pe-comprehensive-management-h21-secondary?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map) --- 不測事態・リスク認識
+- [平成 27 年度 記述式](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/h27-secondary?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map) --- リスクマネジメント
+- [平成 26 年度 記述式](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/h26-secondary?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map) --- 人口減少社会
+- [平成 25 年度 記述式](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/h25-secondary?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map) --- メンテナンス最適化
+- [平成 24 年度 記述式](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/h24-secondary?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map) --- 環境変化への対応
+- [平成 23 年度 記述式](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/h23-secondary?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map) --- BCP
+- [平成 22 年度 記述式](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/h22-secondary?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map) --- 技術の負の遺産化
+- [平成 21 年度 記述式](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/h21-secondary?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map) --- 不測事態・リスク認識
 
 ## 8. 補章: 令和 8 年度の出題テーマ予測
 
@@ -286,7 +286,7 @@ R06 カーボンニュートラルが「緩和策」だったのに対し「適�
 
 どのテーマが出ても、(1) 前文から問題の本質を把握し、(2) 自分の業務経験を 5 管理の視点で分析し、(3) 管理間のトレードオフを特定し、(4) 統合的な解決策を提示する、この 4 ステップを答案に落とし込めるかが合否を分けます。
 
-R03〜R07 の過去問を使った前文分析と骨子構成の練習を繰り返すことが、最も確実な R08 対策です → [総合技術監理部門 試験インデックス](https://doboku-note.com/docs/pe-comprehensive-management-exam-index?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map)
+R03〜R07 の過去問を使った前文分析と骨子構成の練習を繰り返すことが、最も確実な R08 対策です → [総合技術監理部門 試験インデックス](https://doboku-note.com/exam/pe-comprehensive-management/guide/exam-index?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map)
 
 ## 9. まとめ
 

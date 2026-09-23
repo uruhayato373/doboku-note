@@ -103,7 +103,7 @@ cover:
 
 ## 受けてみようと思ったら
 
-総監に関心が向いてきたら、まず試験の中身を眺めてみることをおすすめします。doboku-note では総監の択一式過去問17年分と[キーワード集2026の全項目](https://doboku-note.com/docs/pe-comprehensive-management-keyword-2026?utm_source=note&utm_medium=referral&utm_campaign=95-civil-servant-qualifications)を無料で公開しています。学習の進め方は[総合技術監理部門 合格戦略](https://doboku-note.com/docs/pe-comprehensive-management-exam-passing-strategy?utm_source=note&utm_medium=referral&utm_campaign=95-civil-servant-qualifications)にまとめています。
+総監に関心が向いてきたら、まず試験の中身を眺めてみることをおすすめします。doboku-note では総監の択一式過去問17年分と[キーワード集2026の全項目](https://doboku-note.com/exam/pe-comprehensive-management/guide/keyword-2026?utm_source=note&utm_medium=referral&utm_campaign=95-civil-servant-qualifications)を無料で公開しています。学習の進め方は[総合技術監理部門 合格戦略](https://doboku-note.com/exam/pe-comprehensive-management/guide/exam-passing-strategy?utm_source=note&utm_medium=referral&utm_campaign=95-civil-servant-qualifications)にまとめています。
 
 https://doboku-note.com
 

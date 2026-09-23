@@ -65,7 +65,7 @@ https://note.com/dobokunote/n/n3ed4c77ceed6
 
 出典：[日本技術士会・令和6年度 必須科目の原問題](https://www.engineer.or.jp/c_topics/010/attached/attach_10373_2.pdf)。
 
-本記事が解答するのは、技術士総合技術監理部門 令和6年度 必須科目（記述式）I-2「カーボンニュートラル（CN）」です。前文（CN の定義・2050 年長期戦略など出題の背景）の全文は [令和6年度 総監記述式 過去問解説](https://doboku-note.com/docs/pe-comprehensive-management-r06-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-water-consul-r06) に掲載しています。ここでは、原問の要求項目と枚数制約を保って設問を整理しています（解答中、カーボンニュートラルは CN と略します）。
+本記事が解答するのは、技術士総合技術監理部門 令和6年度 必須科目（記述式）I-2「カーボンニュートラル（CN）」です。前文（CN の定義・2050 年長期戦略など出題の背景）の全文は [令和6年度 総監記述式 過去問解説](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r06-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-water-consul-r06) に掲載しています。ここでは、原問の要求項目と枚数制約を保って設問を整理しています（解答中、カーボンニュートラルは CN と略します）。
 
 あなたがこれまでに経験した、若しくはよく知っている事業や組織を1つ取り上げ、その目的や創出している成果物等を踏まえ、CN 実現に向けた施策について総合技術監理の視点から以下の（1）〜（2）の問いに答えよ。さらに、取り上げた事業や組織の枠を超え、2050 年 CN 達成に向け我が国が取るべき施策について（3）の問いに答えよ。
 

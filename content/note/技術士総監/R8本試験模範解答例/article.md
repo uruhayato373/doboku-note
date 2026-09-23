@@ -50,7 +50,7 @@ https://note.com/dobokunote/n/nf3062e8f07e0
 - **設問(2)**：2つの取組それぞれの具体的内容・効果・障害と対応方策（各1枚以内、5管理のうち2つ以上の視点と異なる管理分野間のトレードオフを明記）
 - **設問(3)**：事業・組織の枠を超えた、国として取るべき施策を2つ（各1枚以内、複数視点での重大な障害と対応方策）
 
-設問文の全文は、doboku-note の[令和8年度 総監記述式 過去問解説](https://doboku-note.com/docs/pe-comprehensive-management-r08-secondary?utm_source=note&utm_medium=referral&utm_campaign=r8-i2-model-answer)に掲載しています。
+設問文の全文は、doboku-note の[令和8年度 総監記述式 過去問解説](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r08-secondary?utm_source=note&utm_medium=referral&utm_campaign=r8-i2-model-answer)に掲載しています。
 
 ## 立場別 模範解答（全14版）
 
@@ -1009,7 +1009,7 @@ https://note.com/dobokunote/n/nf3062e8f07e0
 
 https://note.com/dobokunote/n/nce1ea1317eab
 
-テーマに依存しない答案の型は[総監記述式 論文戦略](https://doboku-note.com/docs/pe-comprehensive-management-essay-exam-strategy?utm_source=note&utm_medium=referral&utm_campaign=r8-i2-model-answer)に整理しています。立場別の過去問フル模範論文（R03〜R07・14ペルソナ）や演習まで一式そろえるなら、完全パックが近道です。
+テーマに依存しない答案の型は[総監記述式 論文戦略](https://doboku-note.com/exam/pe-comprehensive-management/guide/essay-exam-strategy?utm_source=note&utm_medium=referral&utm_campaign=r8-i2-model-answer)に整理しています。立場別の過去問フル模範論文（R03〜R07・14ペルソナ）や演習まで一式そろえるなら、完全パックが近道です。
 
 https://note.com/dobokunote/m/m171222175fac
 
