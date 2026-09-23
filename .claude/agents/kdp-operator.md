@@ -48,19 +48,19 @@ model: sonnet
 ## 担当外
 
 - **EPUB 生成・原稿修正**: `/kindle-build`＋`kindle-book-composer`／ビルダー修正が担当。
-- **既刊 EPUB 差し替え（--update-manuscript）**: 未実装（DOM 未較正）。案件発生時に `--dump` で較正してから。
 - **出版可否の戦略判断・価格決定**: 親（Opus）／`content/kindle/strategy.md` の責務。
 
 ## 利用可能なスクリプト（`scripts/kdp-publish.mjs`）
 
 | フラグ | 用途 |
 |---|---|
-| `--sync-status` | catalog 各冊を本棚でタイトル検索し {asin,status,提出日,asinMatch,**livePriceJpy,catalogPriceJpy,priceMatch**} を `.tmp/kdp-sync-status.json` に出力（突合・LIVE検知・重複防止・**価格ドリフト検知**）。**本棚の列挙ではない**——本棚はページネーションで先頭10冊しか DOM に無く、`title-setup/kindle/` の ID は 13〜14 桁の内部IDで ASIN ではないため、列挙方式は live 33 冊の口座で 10 件しか拾えず半分がゴミだった（2026-07-30 に置換）。ASIN 既知の本を1件も再現できなければ **exit 1（検査不成立）**＝ `found:false` を「本棚に無い」の証拠にしない。**出版直後の「レビュー中」は ASIN 未発番なので、状態語も行の根拠に含める**（含めないとレビュー中の本が消えて found:false になり、重複作成に繋がる。2026-08-03 に f-09 で実測） |
+| `--sync-status` | catalog 各冊を本棚でタイトル検索し {asin,status,提出日,asinMatch,**livePriceJpy,catalogPriceJpy,priceMatch,pendingChanges,titleId**} を `.tmp/kdp-sync-status.json` に出力（突合・LIVE検知・重複防止・**価格ドリフト検知（不一致は exit 1）**・**未出版の変更あり一覧**・欠けた `draftAsin` を本棚の内部IDで補完）。**本棚の列挙ではない**——本棚はページネーションで先頭10冊しか DOM に無く、`title-setup/kindle/` の ID は 13〜14 桁の内部IDで ASIN ではないため、列挙方式は live 33 冊の口座で 10 件しか拾えず半分がゴミだった（2026-07-30 に置換）。ASIN 既知の本を1件も再現できなければ **exit 1（検査不成立）**＝ `found:false` を「本棚に無い」の証拠にしない。**出版直後の「レビュー中」は ASIN 未発番なので、状態語も行の根拠に含める**（含めないとレビュー中の本が消えて found:false になり、重複作成に繋がる。2026-08-03 に f-09 で実測） |
 | `--id <id>` | 新規提出（詳細→カテゴリー→原稿/表紙→処理完了待ち→AI申告→アクセシビリティ→価格→下書き保存）＋チェックリスト |
 | `--id <id> --commit-publish` | 上記＋出版（不可逆）＋出版後検証。**承認後のみ** |
 | `--list-drafts` | 本棚を `.tmp` へダンプ（読み取り） |
 | `--delete-drafts <ASIN,...>` | 下書きのみ削除（下書き assert・1件ずつ） |
-| `--id <id> --set-price` | 既刊の価格改定。既定は dry-run（現在価格と目標価格を出すだけ）で、保存は `--commit` が要る。価格の真実源は spec の `price`（catalog の `priceJpy` と同期させる）。**審査中（変更事項のレビュー中）の本は pricing ページが本棚へリダイレクトされる**ため、直後の再取得では検証できない → 本棚の表示価格で突合する |
+| `--id <id> --set-price` | 既刊の価格改定。既定は dry-run（AI申告の要否・現在価格・目標価格で入れた場合の日本の実効レートを出すだけ）で、保存は `--commit` が要る。価格の真実源は spec の `price`（spec の無い A 系は catalog）。**成功時に catalog.priceJpy を書き戻す**ので spec だけ直せばよい（片側残りは `check-kindle-prices` が CI で止める）。未回答の AI 申告は先に埋めて下書き保存し、日本の実効レートが `catalog.royalty` と違えば保存せず停止。成功判定は本棚への遷移＋エラー表示なし。**保存済みの未出版変更も一緒に出版される**。審査中の本は pricing が本棚へリダイレクトされるので、直後の検証は本棚の表示価格で行う |
+| `--id <id> --update-manuscript [--commit]` | LIVE 本の原稿だけを差し替えて下書き保存（本棚・コンテンツページでタイトル/ASIN を照合、未回答の AI 申告は同じページで埋める）。公開は `--publish-only` か次の `--set-price` |
 | `--dump --asin <ASIN> --page <details\|content\|pricing>` | KDP UI 変更時の再較正（HTML+スクショ） |
 | `--diag-category --asin <ASIN>` | カテゴリーカスケードの候補実測（A/E系 末端ラベル較正） |
 

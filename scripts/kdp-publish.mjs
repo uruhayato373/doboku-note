@@ -32,7 +32,7 @@ import { join, dirname, basename } from 'node:path';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { homedir } from 'node:os';
-import { resolveBook, validateBook, getDefaults, AI_AMOUNT_LABELS } from './lib/kdp-common.mjs';
+import { resolveBook, validateBook, getDefaults, hasSpec } from './lib/kdp-common.mjs';
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 
@@ -42,6 +42,7 @@ const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 const TMP = join(ROOT, '.tmp');
 const CATALOG = join(ROOT, 'scripts/kindle-published/catalog.json');
 mkdirSync(TMP, { recursive: true });
+const readCatalogRow = (id) => (existsSync(CATALOG) ? JSON.parse(readFileSync(CATALOG, 'utf8')).books?.find((b) => b.id === id) || null : null);
 
 // ── 引数 ─────────────────────────────────────────────────────────────────
 const argv = process.argv.slice(2);
@@ -64,8 +65,14 @@ const defaults = getDefaults();
 
 // ── データ準備（book-less モードでは不要）─────────────────────────────────
 let book = null;
-if (ID) {
-  book = resolveBook(ID, { requireMemo: !(MODE_DUMP || MODE_DIAG_CAT) });
+if (ID && MODE_SET_PRICE && !hasSpec(ID)) {
+  // spec の無い既刊（A 系＝build-takuitsu-reconstruct 製）は catalog を価格の真実源にする。
+  const row = readCatalogRow(ID);
+  if (!row) { console.error(`ABORT: spec も catalog 行も無い: ${ID}`); process.exit(1); }
+  book = { id: ID, title: row.title, price: row.priceJpy, aiDeclaration: defaults.aiDeclaration };
+  console.log(`[prep] ${ID} は spec 無し → catalog.priceJpy ¥${book.price} を目標にする`);
+} else if (ID) {
+  book = resolveBook(ID, { requireMemo: !(MODE_DUMP || MODE_DIAG_CAT || MODE_SET_PRICE) });
   const errs = validateBook(book);
   if (errs.length && !(MODE_DUMP || MODE_DIAG_CAT)) { console.error('ABORT: メタデータ検証エラー:\n  - ' + errs.join('\n  - ')); process.exit(1); }
   book.epub = join(homedir(), 'Downloads', `kindle-${ID}.epub`);
@@ -95,6 +102,101 @@ const setDraftAsin = (id, asin) => {
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const K = (id) => `kdp-${id || 'bookshelf'}`;
 const shot = async (page, step) => { try { await page.screenshot({ path: join(TMP, `${K(ID)}-${step}.png`) }); console.log(`[shot] .tmp/${K(ID)}-${step}.png`); } catch {} };
+
+// ── AI 生成コンテンツ申告（コンテンツページ・新規提出／価格改定／原稿差し替えで共用）──
+// 2026-09-23: KDP が申告を必須化（require_generative_ai_questionnaire_affirmation=true）。7 月提出の
+// 既刊は未回答のまま残り、価格改定の出版が「この項目は必須です」で弾かれた（d-00/d-03 実測）。
+// 回答済みの本は申告を書き換えない（提出時の申告を尊重）。未回答のときだけ config の値で埋める。
+const AI_SELECTS = { text: '#generative-ai-questionnaire-text', images: '#generative-ai-questionnaire-images', translations: '#generative-ai-questionnaire-translations' };
+const readAiDeclaration = (page) => page.evaluate((sels) => {
+  const out = {};
+  for (const [k, s] of Object.entries(sels)) out[k] = document.querySelector(s)?.value ?? null;
+  out.present = !!document.querySelector(sels.text);
+  out.answered = [...document.querySelectorAll('[data-a-accordion-name="generative-ai-questionnaire-accordion"] [role="radio"]')]
+    .some((r) => r.getAttribute('aria-checked') === 'true');
+  return out;
+}, AI_SELECTS);
+const aiAnswered = (st, ai) => {
+  const anyAi = ai.text !== 'NONE' || ai.images !== 'NONE' || ai.translations !== 'NONE';
+  return st.answered && (!anyAi || (st.text && st.images && st.translations));
+};
+async function fillAiDeclaration(page, ai) {
+  const anyAi = ai.text !== 'NONE' || ai.images !== 'NONE' || ai.translations !== 'NONE';
+  const target = anyAi ? 'はい' : 'いいえ';
+  const row = page.locator(`[data-a-accordion-name="generative-ai-questionnaire-accordion"] [data-a-accordion-row-name="${anyAi ? 'yes' : 'no'}"] a.a-accordion-row`);
+  const radio = (await row.count()) ? row.first() : page.getByText(target, { exact: true }).first();
+  await radio.scrollIntoViewIfNeeded(); await sleep(400);
+  await radio.click(); await sleep(2000);
+  if (anyAi) {
+    // option の value は内部値（NONE / FEW_AND_EXTENSIVE …）と同一
+    for (const [k, sel] of Object.entries(AI_SELECTS)) await page.selectOption(sel, { value: ai[k] || 'NONE' });
+    // 画像=AI生成 を選ぶと「使用したAIツール名」が必須で出現
+    if (ai.images !== 'NONE' && ai.imageTool) {
+      await sleep(1500);
+      const near = page.locator(AI_SELECTS.images).locator('xpath=ancestor::div[contains(@class,"a-row")][1]/following::input[@type="text"][1]');
+      try { await near.fill(ai.imageTool); console.log(`[ai] AIツール名="${ai.imageTool}"`); } catch { console.log('[ai] AIツール名 記入失敗'); }
+    }
+  }
+  console.log(`[ai] AI申告: ${target}${anyAi ? ` (text=${ai.text} img=${ai.images} tr=${ai.translations})` : ''}`);
+}
+
+// 既刊のコンテンツページで AI 申告が未回答なら埋めて下書き保存する。
+// 戻り値: 'already'（回答済み）/ 'needed'（dry-run で未回答を検出）/ 'filled'（埋めて保存・再検証済み）
+async function ensureAiDeclarationSaved(page, titleId, ai, { commit }) {
+  const url = `https://kdp.amazon.co.jp/ja_JP/title-setup/kindle/${titleId}/content`;
+  await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
+  await page.waitForSelector(AI_SELECTS.text, { state: 'attached', timeout: 30000 }).catch(() => {});
+  await sleep(3000);
+  const st = await readAiDeclaration(page);
+  if (!st.present) throw new Error('コンテンツページに AI 申告欄が見つからない（UI 変更の可能性）');
+  if (aiAnswered(st, ai)) return 'already';
+  if (!commit) return 'needed';
+  await fillAiDeclaration(page, ai);
+  await page.locator('#save-announce').click({ timeout: 10000 });
+  let saved = false;
+  for (let t = 0; t < 12 && !saved; t++) { await sleep(2500); saved = /正常に保存しました/.test(await page.evaluate(() => document.body.innerText || '').catch(() => '')); }
+  if (!saved) throw new Error('AI 申告の下書き保存で「正常に保存しました」を確認できない');
+  await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
+  await page.waitForSelector(AI_SELECTS.text, { state: 'attached', timeout: 30000 }).catch(() => {});
+  await sleep(3000);
+  const after = await readAiDeclaration(page);
+  if (!aiAnswered(after, ai)) throw new Error(`AI 申告が保存後に未回答のまま: ${JSON.stringify(after)}`);
+  return 'filled';
+}
+
+// 出版ボタン押下後の結果。成功＝価格ページを離れ（本棚 ?publishedId= へ遷移）、可視のエラーが無いこと。
+// 2026-09-23: 旧判定は本文に「保存」等の語があれば成功としており、ボタン名「下書きとして保存」に
+// 一致して必須項目エラーを成功と誤報した（d-00/d-03）。本文の文言では判定しない。
+async function readPublishOutcome(page) {
+  let errors = [];
+  for (let t = 0; t < 12; t++) {
+    await sleep(2500);
+    errors = await page.evaluate(() => [...document.querySelectorAll('.a-alert-error')]
+      .filter((e) => e.offsetWidth || e.offsetHeight)
+      .map((e) => (e.innerText || '').replace(/\s+/g, ' ').trim()).filter(Boolean)).catch(() => []);
+    if (errors.length || !/\/pricing/i.test(page.url())) break;
+  }
+  // 失敗時はエラー表示の付いた欄を特定する（「この項目は必須です」だけでは直す場所が分からない）
+  const fields = errors.length ? await page.evaluate(() => {
+    const vis = (e) => !!(e.offsetWidth || e.offsetHeight);
+    return [...document.querySelectorAll('.a-alert-inline-error, .a-form-error, [aria-invalid="true"]')].filter(vis).map((e) => {
+      const input = e.matches('input,select,textarea') ? e : e.closest('.a-row, .a-section, td, div')?.querySelector('input,select,textarea');
+      const box = e.closest('tr, .a-section, .a-box, .a-row');
+      return { name: input?.name || input?.id || null, near: (box?.innerText || '').replace(/\s+/g, ' ').trim().slice(0, 120) };
+    });
+  }).catch(() => []) : [];
+  return { ok: !errors.length && !/\/pricing/i.test(page.url()), errors, fields, url: page.url() };
+}
+
+// 改定成功時に catalog.priceJpy を書き戻す（spec と catalog の片側残りを作らない・check-kindle-prices）。
+const writeCatalogPrice = (id, price, from) => {
+  const c = readCatalog(); const b = c?.books?.find((x) => x.id === id); if (!b) return;
+  b.priceJpy = price;
+  (b.priceHistory ||= []).push({ date: new Date().toLocaleDateString('sv-SE', { timeZone: 'Asia/Tokyo' }), from: Number(from), to: price });
+  writeFileSync(CATALOG, JSON.stringify(c, null, 2) + '\n');
+  console.log(`[catalog] ${id} priceJpy = ${price}`);
+};
+const ROYALTY_RADIO = { 0.7: '70_PERCENT', 0.35: '35_PERCENT' };
 
 // ── 起動 ─────────────────────────────────────────────────────────────────
 const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
@@ -262,6 +364,9 @@ try {
       await ctx.close(); process.exit(4);
     }
 
+    // 必須化された AI 申告が未回答なら同じページで埋める（後の出版で弾かれないように）
+    if (!aiAnswered(await readAiDeclaration(page), book.aiDeclaration)) await fillAiDeclaration(page, book.aiDeclaration);
+
     await page.locator('#save-announce').click({ timeout: 10000 });
     let saved = false;
     for (let t = 0; t < 12; t++) {
@@ -320,16 +425,20 @@ try {
       return await page.evaluate(() => {
         const STAT = /下書き|レビュー中|販売中|ブロック|出版準備中|非公開/;
         const rows = [...document.querySelectorAll('tr.mt-row')]
-          .map((tr) => (tr.textContent || '').replace(/\s+/g, ' ').trim())
+          .map((tr) => ({ t: (tr.textContent || '').replace(/\s+/g, ' ').trim(), tr }))
           // 出版直後の「レビュー中」は ASIN がまだ発番されない。ASIN か「下書き」でしか
           // 行を拾わないと、この状態の本が丸ごと消えて found:false になる（＝本棚に無い、と
           // 誤読して重複作成しかねない。2026-08-03 に f-09 で実測）。状態語も行の根拠に加える。
-          .filter((t) => t.includes('著:') && (/ASIN:\s*B0[0-9A-Z]{8}/.test(t) || STAT.test(t)));
-        return rows.map((t) => ({
+          .filter(({ t }) => t.includes('著:') && (/ASIN:\s*B0[0-9A-Z]{8}/.test(t) || STAT.test(t)));
+        return rows.map(({ t, tr }) => ({
           shelfTitle: t.split('著:')[0].trim().slice(0, 80),
           asin: (t.match(/ASIN:\s*(B0[0-9A-Z]{8})/) || [])[1] || null,
           status: (t.match(STAT) || [])[0] || null,
           submittedAt: (t.match(/提出日:\s*([0-9]{4}年[0-9]{1,2}月[0-9]{1,2}日)/) || [])[1] || null,
+          // 保存済みで未出版の変更（原稿差し替え等）。次の出版（--set-price 含む）で一緒に公開される。
+          pendingChanges: /未出版の変更あり/.test(t),
+          // title-setup の内部ID（--set-price / --publish-only の宛先。catalog.draftAsin に書き戻す）
+          titleId: (([...tr.querySelectorAll('a[href*="title-setup/kindle/"]')].map((a) => (a.getAttribute('href').match(/title-setup\/kindle\/([A-Z0-9]+)/) || [])[1]).find(Boolean)) || null),
           // 本棚行の表示価格。UI で手動改定すると catalog/spec と割れるので必ず持ち帰る。
           priceJpy: (() => { const m = t.match(/¥\s*([0-9][0-9,]*)/); return m ? Number(m[1].replace(/,/g, '')) : null; })(),
         }));
@@ -355,6 +464,7 @@ try {
         livePriceJpy: mine?.priceJpy ?? null, catalogPriceJpy: b.priceJpy ?? null,
         priceMatch: mine?.priceJpy != null && b.priceJpy != null ? mine.priceJpy === b.priceJpy : null,
         asinMatch: mine?.asin && b.asin ? mine.asin === b.asin : null,
+        pendingChanges: mine?.pendingChanges ?? null, titleId: mine?.titleId ?? null,
         ambiguous: !mine && rows.length > 1 ? rows.length : undefined,
       });
     }
@@ -371,6 +481,10 @@ try {
     const priceDrift = priced.filter((i) => i.priceMatch === false);
     console.log(`[sync] 価格突合 ${priced.length} 冊（比較不能 ${items.length - priced.length} 冊）／不一致 ${priceDrift.length} 件`);
     for (const i of priceDrift) console.log(`   PRICE DRIFT ${i.id}: live ¥${i.livePriceJpy} ≠ catalog ¥${i.catalogPriceJpy}`);
+    const pending = items.filter((i) => i.pendingChanges);
+    console.log(`[sync] 未出版の変更あり ${pending.length} 冊${pending.length ? `: ${pending.map((i) => i.id).join(', ')}（次の出版・--set-price で一緒に公開される）` : ''}`);
+    // 内部ID の欠けを本棚から補完（--set-price の前提。ASIN 一致の行だけを信用する）
+    for (const i of items) if (i.titleId && i.asinMatch === true && !books.find((b) => b.id === i.id)?.draftAsin) setDraftAsin(i.id, i.titleId);
     writeSync(1, JSON.stringify(items, null, 2) + '\n');
     writeFileSync(join(TMP, 'kdp-sync-status.json'), JSON.stringify(items, null, 2) + '\n');
     console.log('[sync] .tmp/kdp-sync-status.json に保存（kdp-operator が catalog と突合）');
@@ -388,6 +502,10 @@ try {
     if (mismatch.length) {
       console.error(`\n[sync] ✗ ASIN 不一致 ${mismatch.length} 件（catalog と本棚がずれている）:`);
       for (const m of mismatch) console.error(`  ${m.id} catalog=${m.catalogAsin} 本棚=${m.asin}`);
+      process.exit(1);
+    }
+    if (priceDrift.length) {
+      console.error(`\n[sync] ✗ 価格ドリフト ${priceDrift.length} 件。KDP 側が正なら catalog/spec を直し、catalog が正なら --set-price --commit で KDP を直す。`);
       process.exit(1);
     }
     process.exit(0);
@@ -517,50 +635,87 @@ try {
   }
 
   // ═══ MODE: --set-price（既刊の価格改定。価格ページ直行で JP 価格だけ差し替える）════
-  // 用途: LIVE 済みの本の値付けを変える。既定は dry-run（現在値と目標値を出すだけ）で、
+  // 用途: LIVE 済みの本の値付けを変える。既定は dry-run（現在値・目標値・AI 申告の要否を出すだけ）で、
   //   実際の保存は --commit が要る（収益アカウントの公開価格を変えるため）。
-  // 価格の真実源は spec の price（= catalog.priceJpy と同期させて運用する）。
+  // 価格の真実源は spec の price（spec の無い A 系は catalog.priceJpy）。成功時に catalog を書き戻す。
+  // 出版は保存済みの未出版変更（原稿差し替え等）も一緒に公開する。本棚の「未出版の変更あり」は
+  //   --sync-status が一覧化するので、中身を把握してから実行する。
   if (MODE_SET_PRICE) {
-    const cat0 = readCatalog();
-    const row = cat0?.books?.find((b) => b.id === ID);
+    const row = readCatalogRow(ID);
     const tid = getArg('--asin') || row?.draftAsin;
     if (!tid) { console.error(`ABORT: ${ID} の draftAsin（title-setup の内部ID）が catalog に無い`); await ctx.close(); process.exit(1); }
+    // catalog.royalty ＝ 日本（Amazon.co.jp）の実効レート。プランのラジオ値ではない。
+    const wantRoy = ROYALTY_RADIO[row?.royalty ?? 0.7];
+    if (!wantRoy) { console.error(`ABORT: catalog.royalty=${row?.royalty} を KDP の選択肢に対応づけられない`); await ctx.close(); process.exit(1); }
+
+    // 必須化された AI 申告が未回答だと出版が弾かれるため、価格に触る前に埋めて下書き保存する。
+    let aiState;
+    try { aiState = await ensureAiDeclarationSaved(page, tid, book.aiDeclaration, { commit: COMMIT }); }
+    catch (e) { console.error('ABORT: ' + e.message); await shot(page, 'price-ai-fail'); await ctx.close(); process.exit(3); }
+    console.log(`[price] AI 申告: ${aiState}${aiState === 'needed' ? '（--commit で config の値を入れて下書き保存する）' : ''}`);
+
     await page.goto(`https://kdp.amazon.co.jp/ja_JP/title-setup/kindle/${tid}/pricing`, { waitUntil: 'domcontentloaded', timeout: 60000 });
     await sleep(6000);
     if (!/\/pricing/i.test(page.url())) { console.error('ABORT: 価格ページに到達できず URL=' + page.url()); await shot(page, 'price-nav-fail'); await ctx.close(); process.exit(3); }
 
     const PRICE_SEL = 'input[name="data[digital][channels][amazon][JP][price_vat_inclusive]"]';
-    const readState = () => page.evaluate((sel) => ({
-      roy: (document.querySelector('input[name="data[digital][royalty_rate]-radio"]:checked') || {}).value || '',
-      price: (document.querySelector(sel) || {}).value || '',
-    }), PRICE_SEL);
+    // roy はラジオ（プラン）、jpRate は Amazon.co.jp 行の実効レート。KDP セレクト未登録だと
+    // ラジオが 70% でも日本は 35% になる（2026-09-23 d-00 実測: ラジオ 70%・JP 行 35%・¥1,250 で ¥398）。
+    const readState = () => page.evaluate((sel) => {
+      // 価格グリッドは div 描画で、行は data-potter-pricing-grid-marketplace-name="JP" の箱
+      const jpRow = document.querySelector('[data-potter-pricing-grid-marketplace-name="JP"]');
+      const jpRate = ((jpRow?.innerText || '').match(/(35|70)%/) || [])[1] || '';
+      return {
+        roy: (document.querySelector('input[name="data[digital][royalty_rate]-radio"]:checked') || {}).value || '',
+        price: (document.querySelector(sel) || {}).value || '',
+        jpRate,
+      };
+    }, PRICE_SEL);
     const before = await readState();
-    console.log(`[price] ${ID} (${tid}) 現在: ロイヤリティ=${before.roy} / JP価格=${before.price} → 目標 ¥${book.price}`);
+    console.log(`[price] ${ID} (${tid}) 現在: ロイヤリティ=${before.roy}（日本の実効 ${before.jpRate || '不明'}%）/ JP価格=${before.price} → 目標 ¥${book.price}（期待ロイヤリティ ${wantRoy}）`);
+    if (before.jpRate && `${before.jpRate}_PERCENT` !== wantRoy) {
+      console.error(`ABORT: 日本の実効レートが ${before.jpRate}% で catalog.royalty（${wantRoy}）と違う。KDP セレクト登録状態を確認し、catalog.royalty と価格を決め直してから再実行`);
+      await ctx.close(); process.exit(3);
+    }
     if (!before.price) { console.error('ABORT: 現在価格を読めず（UI 変更の可能性）'); await shot(page, 'price-read-fail'); await ctx.close(); process.exit(3); }
-    if (String(before.price) === String(book.price)) { console.log('[price] 既に目標価格。変更不要'); await ctx.close(); process.exit(0); }
-    if (!COMMIT) { console.log('[price] dry-run（--commit で保存）'); await ctx.close(); process.exit(0); }
-
+    if (String(before.price) === String(book.price)) {
+      console.log('[price] 既に目標価格。変更不要');
+      if (COMMIT && row?.priceJpy !== book.price) writeCatalogPrice(ID, book.price, row?.priceJpy);
+      await ctx.close(); process.exit(0);
+    }
     const p = page.locator(PRICE_SEL);
     await p.scrollIntoViewIfNeeded(); await p.fill(String(book.price)); await p.press('Tab');
     await sleep(3000);
     const after = await readState();
-    if (String(after.price) !== String(book.price) || after.roy !== '70_PERCENT') {
-      console.error(`ABORT: 入力が反映されない（価格=${after.price} ロイヤリティ=${after.roy}）→ 保存せず停止`);
+    if (!COMMIT) {
+      // 入力欄に入れただけ（保存しない）。KDP が計算した日本の実効レートを事前に見せる
+      console.log(`[price] dry-run: ¥${book.price} を入れた場合の日本の実効レート=${after.jpRate || '読めず'}%（保存せず終了。--commit で保存）`);
+      await ctx.close(); process.exit(`${after.jpRate}_PERCENT` === wantRoy ? 0 : 3);
+    }
+    // 判定は日本の実効レートで行う（KDP セレクト外の本はラジオ 70% のまま日本だけ 35% になる）
+    if (String(after.price) !== String(book.price) || `${after.jpRate}_PERCENT` !== wantRoy) {
+      console.error(`ABORT: 入力が反映されない、またはロイヤリティが期待と違う（価格=${after.price} ロイヤリティ=${after.roy} 日本の実効=${after.jpRate || '読めず'}%）→ 保存せず停止`);
+      if (after.jpRate && `${after.jpRate}_PERCENT` !== wantRoy) console.error('  日本の実効レートが違う＝KDP セレクト未登録の可能性。catalog.royalty と価格を決め直す');
       await shot(page, 'price-fill-fail'); await ctx.close(); process.exit(3);
     }
-    console.log('[price] 保存: 「Kindle本を出版」/「変更を保存」クリック…');
+    console.log('[price] 保存: 「Kindle本を出版」クリック…');
     let clicked = false;
-    for (const sel of ['#save-and-publish', '#save-and-publish-announce', 'button:has-text("Kindle 本を出版")', 'button:has-text("Kindle本を出版")', 'button:has-text("変更を保存")']) {
+    for (const sel of ['#save-and-publish', '#save-and-publish-announce', 'button:has-text("Kindle 本を出版")', 'button:has-text("Kindle本を出版")']) {
       try { const l = page.locator(sel); if (await l.count()) { await l.first().scrollIntoViewIfNeeded(); await l.first().click({ timeout: 10000 }); clicked = true; break; } } catch {}
     }
-    if (!clicked) { console.error('ABORT: 保存ボタンが見つからない（価格は未保存）'); await shot(page, 'price-btn-fail'); await ctx.close(); process.exit(3); }
-    await sleep(9000);
+    if (!clicked) { console.error('ABORT: 出版ボタンが見つからない（価格は未保存）'); await shot(page, 'price-btn-fail'); await ctx.close(); process.exit(3); }
+    const outcome = await readPublishOutcome(page);
     await shot(page, 'price-saved');
-    let txt = ''; try { txt = await page.evaluate(() => document.body.innerText || ''); } catch {}
-    const okSave = /おめでとう|レビュー中|審査|提出されました|公開されます|更新|保存/.test(txt);
-    console.log(`[price] 結果: ${okSave ? `OK ¥${before.price} → ¥${book.price}（反映まで最大 72h）` : 'WARN 確認文言なし（要スクショ確認）'} URL=${page.url()}`);
+    if (!outcome.ok) {
+      console.error(`FAIL: 出版されていない（URL=${outcome.url}）${outcome.errors.length ? '\n  エラー: ' + outcome.errors.join(' / ') : '（価格ページに留まったまま）'}`);
+      for (const f of outcome.fields) console.error(`  欄: ${f.name || '(名前なし)'} … ${f.near}`);
+      try { await page.screenshot({ path: join(TMP, `${K(ID)}-price-fail-full.png`), fullPage: true }); console.error(`  全体スクショ: .tmp/${K(ID)}-price-fail-full.png`); } catch {}
+      await ctx.close(); process.exit(4);
+    }
+    console.log(`[price] OK ¥${before.price} → ¥${book.price}（変更事項のレビューへ・反映まで最大 72h） URL=${outcome.url}`);
+    writeCatalogPrice(ID, book.price, before.price);
     await ctx.close();
-    process.exit(okSave ? 0 : 4);
+    process.exit(0);
   }
 
   // ═══ MODE: --publish-only（設定済みドラフトを価格ページ直行で出版・詳細/カテゴリーに触れない）════
@@ -583,13 +738,12 @@ try {
     let clicked = false;
     for (const sel of ['#save-and-publish', '#save-and-publish-announce', 'button:has-text("Kindle 本を出版")', 'button:has-text("Kindle本を出版")']) { try { const l = page.locator(sel); if (await l.count()) { await l.first().scrollIntoViewIfNeeded(); await l.first().click({ timeout: 10000 }); clicked = true; break; } } catch {} }
     if (!clicked) { console.error('ABORT: 出版ボタンが見つからない'); await shot(page, 'pub-btn-fail'); await ctx.close(); process.exit(3); }
-    await sleep(9000);
+    const outcome = await readPublishOutcome(page);
     await shot(page, 'pub-published');
-    let after = ''; try { after = await page.evaluate(() => document.body.innerText || ''); } catch {}
-    const okPub = /おめでとう|レビュー中|出版申請|審査|提出されました|公開されます|出版準備/.test(after);
-    console.log(`[pub] 結果: ${okPub ? 'OK 出版リクエスト送信（審査へ・通常72h）' : 'WARN 確認文言なし（要スクショ確認）'} URL=${page.url()}`);
+    if (!outcome.ok) console.error(`FAIL: 出版されていない（URL=${outcome.url}）${outcome.errors.length ? ' エラー: ' + outcome.errors.join(' / ') : ''}`);
+    else console.log(`[pub] OK 出版リクエスト送信（審査へ・通常72h） URL=${outcome.url}`);
     await ctx.close();
-    process.exit(okPub ? 0 : 4);
+    process.exit(outcome.ok ? 0 : 4);
   }
 
   // ═══════════════ 新規提出フロー（既定 / --commit-publish で出版）═══════════════
@@ -741,26 +895,8 @@ try {
   console.log('[3] 表紙: ' + (coverOk ? 'ok' : 'fail'));
   if (!coverOk) { await shot(page, '04b-cover-fail'); console.error('ABORT: 表紙がアップロードされないまま（3回試行）。スクショで表紙欄を確認'); await ctx.close(); process.exit(4); }
 
-  // ── AI 生成コンテンツ申告（config の aiDeclaration に準拠）──
-  const ai = book.aiDeclaration;
-  const anyAi = ai.text !== 'NONE' || ai.images !== 'NONE' || ai.translations !== 'NONE';
-  try {
-    const target = anyAi ? 'はい' : 'いいえ';
-    await page.getByText(target, { exact: true }).first().scrollIntoViewIfNeeded(); await sleep(400);
-    await page.getByText(target, { exact: true }).first().click(); await sleep(2000);
-    if (anyAi) {
-      await page.selectOption('#generative-ai-questionnaire-text', { label: AI_AMOUNT_LABELS[ai.text] || 'なし' });
-      await page.selectOption('#generative-ai-questionnaire-images', { label: AI_AMOUNT_LABELS[ai.images] || 'なし' });
-      await page.selectOption('#generative-ai-questionnaire-translations', { label: AI_AMOUNT_LABELS[ai.translations] || 'なし' });
-      // 画像=AI生成 を選ぶと「使用したAIツール名」が必須で出現
-      if (ai.images !== 'NONE' && ai.imageTool) {
-        await sleep(1500);
-        const near = page.locator('#generative-ai-questionnaire-images').locator('xpath=ancestor::div[contains(@class,"a-row")][1]/following::input[@type="text"][1]');
-        try { await near.fill(ai.imageTool); console.log(`[4] AIツール名="${ai.imageTool}"`); } catch { console.log('[4] AIツール名 記入失敗'); }
-      }
-    }
-    console.log(`[4] AI申告: ${target}${anyAi ? ` (img=${ai.images})` : ''}`);
-  } catch (e) { console.log('[4] AI申告 WARN: ' + e.message.split('\n')[0]); }
+  // ── AI 生成コンテンツ申告（config の aiDeclaration に準拠・fillAiDeclaration を共用）──
+  try { await fillAiDeclaration(page, book.aiDeclaration); } catch (e) { console.log('[4] AI申告 WARN: ' + e.message.split('\n')[0]); }
   await sleep(1000);
 
   // ── アクセシビリティ（画像alt questionnaire・React制御ラジオ）──
@@ -840,13 +976,11 @@ try {
   console.log('[6] ★出版: 「Kindle本を出版」クリック…');
   let pub = false;
   for (const sel of ['#save-and-publish', 'button:has-text("Kindle 本を出版")', 'button:has-text("Kindle本を出版")']) { try { const l = page.locator(sel); if (await l.count()) { await l.first().scrollIntoViewIfNeeded(); await l.first().click({ timeout: 8000 }); pub = true; break; } } catch {} }
-  await sleep(8000);
+  const outcome = pub ? await readPublishOutcome(page) : { ok: false, errors: ['出版ボタンが見つからない'], url: page.url() };
   await shot(page, '09-published');
-  let after = ''; try { after = await page.evaluate(() => document.body.innerText || ''); } catch {}
-  const okPub = /おめでとう|レビュー中|出版申請|審査|Kindle 本が提出されました/.test(after);
-  console.log('[6] 出版後: ' + (okPub ? 'リクエスト送信確認（審査へ・通常72h）' : 'WARN 確認文言なし（スクショ確認）') + ' URL=' + page.url());
+  console.log('[6] 出版後: ' + (outcome.ok ? 'リクエスト送信確認（審査へ・通常72h）' : `FAIL 出版されていない${outcome.errors.length ? '（' + outcome.errors.join(' / ') + '）' : ''}`) + ' URL=' + outcome.url);
   await ctx.close();
-  process.exit(pub && okPub ? 0 : 2);
+  process.exit(outcome.ok ? 0 : 2);
 } catch (e) {
   console.error('FATAL: ' + (e.stack || e.message));
   try { await ctx.close(); } catch {}
