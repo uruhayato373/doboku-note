@@ -114,7 +114,7 @@ https://note.com/dobokunote/m/m09d20bfd9738
 
 本パックは合格を保証するものではありません。
 
-購入前に試験の全体像だけ確認したい方は、[コンクリート主任技士 試験概要](https://doboku-note.com/docs/concrete-chief-engineer-guide-overview?utm_source=note&utm_medium=referral&utm_campaign=cce-marugoto&utm_content=guide-overview)を無料で公開しています。
+購入前に試験の全体像だけ確認したい方は、[コンクリート主任技士 試験概要](https://doboku-note.com/exam/concrete-chief-engineer/guide/overview?utm_source=note&utm_medium=referral&utm_campaign=cce-marugoto&utm_content=guide-overview)を無料で公開しています。
 
 ---
 
