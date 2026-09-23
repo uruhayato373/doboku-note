@@ -8,6 +8,7 @@
 - [feedback_prevention_over_patching.md](feedback_prevention_over_patching.md)
 - [feedback_gate_zero_coverage_false_pass.md](feedback_gate_zero_coverage_false_pass.md)
 - [feedback_spec_from_measurement_not_catalog.md](feedback_spec_from_measurement_not_catalog.md)
+- [feedback_read_auth_notes_before_ci_proposal.md](feedback_read_auth_notes_before_ci_proposal.md)
 - [feedback_out_of_expertise_needs_independent_qa.md](feedback_out_of_expertise_needs_independent_qa.md)
 - [feedback_platform_only_artifacts_destroyed_by_bulk_ops.md](feedback_platform_only_artifacts_destroyed_by_bulk_ops.md)
 - [feedback_handoff_extract_before_delete.md](feedback_handoff_extract_before_delete.md)
