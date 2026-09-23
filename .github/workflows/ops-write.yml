@@ -213,8 +213,15 @@ jobs:
             git push origin HEAD:develop
           fi
 
+      # GH_TOKEN が無いと report-automation-failure の gh 呼び出しが即失敗する。
+      # 2026-09-23 まで両ステップとも env が無く、(a) 失敗しても Issue が起票されず
+      # (b) 成功しても resolve が exit 1 で job を赤くしていた（＝書き込み成功でも必ず赤）。
+      # continue-on-error は ci.yml と同じ扱い: 通知の失敗で本体の成否を歪めない。
       - name: Report failure
         if: always() && steps.exec.outputs.rc != '0'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           node scripts/report-automation-failure.mjs \
             --channel "ops-write-${{ needs.resolve.outputs.service }}" \
@@ -223,6 +230,9 @@ jobs:
 
       - name: Resolve failure channel on success
         if: always() && steps.exec.outputs.rc == '0' && inputs.commit == true
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           node scripts/report-automation-failure.mjs --resolve --channel "ops-write-${{ needs.resolve.outputs.service }}"
 
