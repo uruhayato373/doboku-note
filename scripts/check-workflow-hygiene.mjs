@@ -55,6 +55,15 @@ function isPinned(ref) {
  * workflow の全 job / 全 step から `run:` の中身だけを集める。
  * コメント行やプロンプト本文を判定材料にしないための前処理。
  */
+/**
+ * workflow の steps を「- name:」単位に素朴に分割する。
+ * env とその step の run が同じ塊に入れば十分なので、YAML パーサは使わない。
+ */
+function splitSteps(content) {
+  const jobs = content.split(/^jobs:/m)[1] || '';
+  return jobs.split(/\n(?=\s{6}- (?:name|uses|run):)/);
+}
+
 function collectRunScripts(content) {
   let doc;
   try { doc = load(content); } catch { return []; }
@@ -88,6 +97,7 @@ export function findCollapsedContinuations(runScript) {
 async function main() {
   const files = listWorkflowFiles();
   let hookCommitScanned = 0;
+  let ghStepsScanned = 0;
   if (files.length === 0) {
     console.error(`${TAG} FAIL: workflow ファイルが 0 件（走査不成立）`);
     process.exit(2);
@@ -175,6 +185,31 @@ async function main() {
       hookCommitScanned++;
     }
 
+    // 7. gh を使う通知ステップに GH_TOKEN があるか。
+    //    report-automation-failure.mjs は内部で `gh issue list/create/close` を叩く。
+    //    GH_TOKEN が無いと gh が即エラーを返し、
+    //      (a) 失敗しても automation-failure Issue が起票されない＝赤が誰にも届かない
+    //      (b) 成功時の --resolve が exit 1 になり、**本体が成功しても job が赤**になる
+    //    2026-09-23 に ops-write.yml の 2 ステップが両方これで、note 書き込みが
+    //    成功しているのにワークフローは failure という状態だった。静的に止める。
+    for (const rawStep of splitSteps(content)) {
+      // コメント行を落としてから判定する。ci.yml には「report-automation-failure.mjs が
+      // 重複防止を担う」という**説明コメント**が別ステップの直後にあり、素朴に regex すると
+      // 無関係なステップを違反と誤検知する（2026-09-23 に実際に踏んだ）。
+      const step = rawStep.replace(/^\s*#.*$/gm, '');
+      if (!/report-automation-failure\.mjs/.test(step)) continue;
+      ghStepsScanned++;
+      if (!/GH_TOKEN\s*:/.test(step)) {
+        const name = (rawStep.match(/^\s*-?\s*name:\s*(.+)$/m) || [, '(name 無し)'])[1].trim();
+        violations.push({
+          file, kind: 'gh-token', line: 0,
+          message: `report-automation-failure を呼ぶステップ「${name}」に GH_TOKEN が無い`
+            + '（gh が即失敗し、通知が届かないか job が理由なく赤くなる）'
+            + ' → `env: GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}` を足す（ci.yml が見本）',
+        });
+      }
+    }
+
     // 6. 行継続の潰れ（findCollapsedContinuations 参照）
     for (const script of runScripts) {
       for (const h of findCollapsedContinuations(script)) {
@@ -187,7 +222,7 @@ async function main() {
     }
   }
 
-  const result = { check: 'workflow-hygiene', filesScanned: files.length, jobsScanned: jobCount, usesScanned: usesCount, hookCommitScanned, violations };
+  const result = { check: 'workflow-hygiene', filesScanned: files.length, jobsScanned: jobCount, usesScanned: usesCount, hookCommitScanned, ghStepsScanned, violations };
 
   if (JSON_OUT) {
     console.log(JSON.stringify(result, null, 2));
@@ -195,9 +230,10 @@ async function main() {
   }
 
   console.log(`${TAG} workflow ${files.length} 本 / job ${jobCount} 件 / uses 参照 ${usesCount} 件を実検査`
-    + `（うち フック有効で commit する ${hookCommitScanned} 本の doc-meta-index も確認）`);
+    + `（うち フック有効で commit する ${hookCommitScanned} 本の doc-meta-index、`
+    + `gh 通知ステップ ${ghStepsScanned} 件の GH_TOKEN も確認）`);
   if (violations.length === 0) {
-    console.log(`${TAG} ✓ actionlint / permissions / timeout-minutes / SHA固定 / doc-meta-index / 行継続 いずれも違反なし`);
+    console.log(`${TAG} ✓ actionlint / permissions / timeout-minutes / SHA固定 / doc-meta-index / 行継続 / GH_TOKEN いずれも違反なし`);
     process.exit(0);
   }
   for (const v of violations) {
