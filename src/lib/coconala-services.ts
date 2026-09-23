@@ -535,8 +535,8 @@ const SERVICES_RAW = {
   // 源は note のテンプレ（¥1,980）＋部門別記入例（各¥1,980）。購入者の受験部門の1本を送る＝note 定価の合計 ¥3,960 を下回らない。
   'coconala-rccm-mondai1-pdf': {
     id: 'coconala-rccm-mondai1-pdf',
-    status: 'draft',
-    serviceUrl: '',
+    status: 'listed',
+    serviceUrl: 'https://coconala.com/services/4415242',
     title: 'RCCM業務経験論文のテンプレと記入例を送ります',
     shortTitle: 'RCCM 問題I テンプレ＋記入例 PDF',
     description:
@@ -545,6 +545,7 @@ const SERVICES_RAW = {
     priceYen: 4000,
     examScope: ['rccm'],
     weeklyCapacity: 20,
+    listedAt: '2026-09-23',
   },
 
   // ---- 技術士 口頭試験（2026-09-23・09 §D7）----

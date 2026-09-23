@@ -456,6 +456,9 @@ note-publish 流儀の決定的 Playwright。ログイン済みプロファイ�
 | `scripts/coconala-profile.mjs [--commit]` | プロフィール（職業/アピール/自己紹介）を `coconala-account.json` の値へ反映。**プロフィール編集（/mypage/user）はインライン編集型**（フィールドは初期描画に無く、セクション見出し近傍の鉛筆 `.d-profileItemControlButton` クリックで展開・2026-07-20 UI 変更対応済み）。ナビ誤爆は URL 不変 assert で検知 |
 | 共有 `scripts/lib/coconala-{session,form}.mjs` | プロファイル起動・login 待ち・account assert・カタログ/listings 解析・フォーム充填 |
 
+> [!warning] 同じ日に新規出品を重ねると「内容の入力に進む」の後で止まる（2026-09-23 観測・原因は未確認）
+> 1日に4件を新規出品した後、5件目以降は種別の選択までは正常なのに、`/services/add` から下書きページへ進まず `ABORT: 内容入力ページに遷移していない` で止まった（3回。下書きは作られず、孤児も残らない）。1日あたりの新規作成に上限がある可能性がある。再試行を重ねず、翌日に1件ずつ出品する。既存商品の編集（`coconala-edit`）は同じ日でも通った。
+
 > [!warning] 出品文面の掃除は listings の grep だけでは終わらない
 > **プロフィール bio は全サービスページに描画される**ため、listings と カタログを直しても
 > 同じ表現が全ページに残る（2026-08-12 に「採点者に伝わる答案へ」が全13ページで実際に発生）。
