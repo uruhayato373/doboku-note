@@ -16,15 +16,29 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
  * @param {string} noteId
  * @param {string} boundary 有料境界に使う H2 の先頭一致正規表現
  * @param {boolean} isPaid notePricing: paid のとき true
- * @param {{keepBoundary?: boolean, trialLineBottom?: boolean, screenshotPrefix?: string}} options
+ * @param {{keepBoundary?: boolean, trialLineBottom?: boolean, membershipLock?: boolean, screenshotPrefix?: string}} options
+ *   membershipLock: 会員限定で公開してよい記事（notePricing: membership）のとき true
  * @returns {Promise<boolean>}
  */
+/**
+ * 公開設定に「試し読みエリアを設定」が出たとき（記事がメンバーシップ特典マガジンに入っている）の行き先。
+ * ラインを引かずに更新すると、note は全文を会員限定にする。無料の入口記事でこれを踏むと、
+ * 誰でも読めていた記事が未ログインで読めなくなる（2026-09-23・コンクリート主任技士の
+ * ペルソナ選択ガイドで実発生。更新前は本文 14,148 字を公開していた）。
+ * @returns {'line-bottom'|'keep-locked'|'abort'}
+ */
+export function trialFlowAction({ trialLineBottom = false, membershipLock = false } = {}) {
+  if (trialLineBottom) return 'line-bottom';
+  if (membershipLock) return 'keep-locked';
+  return 'abort';
+}
+
 export async function publishLive(
   page,
   noteId,
   boundary = '試験問題|予想問題',
   isPaid = true,
-  { keepBoundary = false, trialLineBottom = false, screenshotPrefix = 'nu' } = {},
+  { keepBoundary = false, trialLineBottom = false, membershipLock = false, screenshotPrefix = 'nu' } = {},
 ) {
   const shot = (name) => join(ROOT, `.tmp/${screenshotPrefix}-${name}-${noteId}.png`);
 
@@ -130,6 +144,13 @@ export async function publishLive(
       return false;
     }
   } else if (await page.getByRole('button', { name: '試し読みエリアを設定', exact: true }).count()) {
+    if (trialFlowAction({ trialLineBottom, membershipLock }) === 'abort') {
+      console.error('[5b] ABORT: この記事はメンバーシップ特典マガジンに入っており、ラインを引かずに更新すると全文が会員限定になる。'
+        + '誰でも読める状態を保つなら --trial-line-bottom（ラインを末尾直前に置く）、意図して全文ロックしている記事なら'
+        + ' --keep-member-lock で再実行する。保存せず中断。');
+      await page.screenshot({ path: shot('trialguard') });
+      return false;
+    }
     console.log('[5b] メンバーシップ試し読みフロー' + (trialLineBottom ? '（ラインを末尾直前に設置＝ほぼ全文プレビュー）' : '（ラインを動かさず更新へ進む）'));
     await page.getByRole('button', { name: '試し読みエリアを設定', exact: true }).first().click();
     await sleep(4000);
