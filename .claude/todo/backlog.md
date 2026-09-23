@@ -21,12 +21,12 @@
 
 ## 🔴 高 — 来月中に着手
 
-### [DN-0262] 1級・2級土木 第2次検定 記述 Kindle（I・J系）の第2弾・第3弾を KDP へ提出する
-タグ: [収益化] [種類:制作] [起票:2026-09-23] [期日:2026-10-10]
+### [DN-0262] 1級・2級土木 第2次検定 記述 Kindle（I・J系）26冊を KDP へ3回に分けて提出する
+タグ: [収益化] [種類:制作] [起票:2026-09-23] [期日:2026-10-17]
 
-**起点**: 2026-09-23 にユーザーが「二次記述系も全部Kindle化」と指示し、26冊を制作した。KDP の新規作成は週10冊が上限（`content/kindle/strategy.md`「提出ペースと作成数制限」）のため、同戦略の I・Jシリーズ節の提出計画どおり3回に分ける。2級は 10/25 の試験前に LIVE にしたい。
+**起点**: 2026-09-23 にユーザーが「二次記述系も全部Kindle化」と指示し、26冊を制作した。KDP の新規作成は週10冊が上限（`content/kindle/strategy.md`「提出ペースと作成数制限」）。9/23 の i-04 で制限に到達したため（本は作成されていない）、同戦略の I・Jシリーズ節の改定後の計画で出す。2級は 10/25 の試験前に LIVE にしたい。
 
-**やること**: 第2弾は 9/30 以降に `node scripts/kdp-batch.mjs j-03 j-01 j-02 j-11 j-12 j-13 j-14 j-15 i-16 i-13`、第3弾は 10/7 以降に `node scripts/kdp-batch.mjs i-18 i-19 i-20 i-21 i-22 i-23 i-24`。note 用ブラウザが別セッションで動いているときは `DOBOKU_PW_ALLOW_PARALLEL=1` を付ける。作成数制限で止まったら（exit 2）残りは7日後に回す。LIVE 化は `node scripts/kdp-publish.mjs --sync-status` で確かめ、ASIN と公開日を catalog と戦略へ記録する。
+**やること**: 9/30 に `node scripts/kdp-batch.mjs j-03` を1冊だけ流して回復を確かめ、通れば続けて `node scripts/kdp-batch.mjs j-01 j-02 j-11 j-12 j-13 j-14 j-15 i-04 i-01`。第2弾は 10/7 以降に `node scripts/kdp-batch.mjs i-02 i-03 i-11 i-12 i-14 i-15 i-17 i-16 i-13 i-18`、第3弾は 10/14 以降に `node scripts/kdp-batch.mjs i-19 i-20 i-21 i-22 i-23 i-24`。note 用ブラウザが別セッションで動いているときは `DOBOKU_PW_ALLOW_PARALLEL=1` を付ける。作成数制限で止まったら（exit 2）翌日以降に1冊で再確認する。提出週に既刊の価格改定（再出版）を重ねない。LIVE 化は `node scripts/kdp-publish.mjs --sync-status` で確かめ、ASIN と公開日を catalog と戦略へ記録する。
 
 **完了条件**: catalog の i・j 系26冊がすべて ASIN 付き `live` になること。
 
