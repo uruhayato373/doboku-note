@@ -18,6 +18,8 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 // 検証は「消すはずのタグが残っていない・足すはずのタグが全部ある」をライブ API で見る。
 //
 // 安全弁: account=dobokunote assert・不足0なら冪等skip・更新後にAPIで全タグ実在を検証してから記録。
+// 会員限定記事は未ログインの公開 API がタグを空で返す（isUnmeasurable）。0 個と読んで足しにいくと既存タグに
+// 重なるので dry-run では計画せず、--commit 時にログイン済みブラウザの API で読んでから計画・検証する。
 
 import { readFileSync, existsSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
@@ -26,6 +28,7 @@ import { chromium } from 'playwright';
 import { recordPublishedTagHash } from './lib/note-republish-hash.mjs';
 import { NOTE_TAG_CAP, planTagSync, tagChipPattern, verifyTagSync } from './lib/note-tag-plan.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
+import { isUnmeasurable } from './lib/note-live-check.mjs';
 
 const ROOT = process.cwd();
 const argv = process.argv.slice(2);
@@ -33,6 +36,9 @@ const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] :
 const COMMIT = argv.includes('--commit');
 const PRUNE = argv.includes('--prune');
 const MAX_ADD = Number(getArg('--max-add') || 0) || Infinity; // テスト用: 1記事あたり追加上限
+// 公開 API の読み取り間隔。900本を 0.25 秒間隔で読んだ直後に note.com 全体が 403（CloudFront）になった
+// （2026-09-23・約1分で解除）。一括では 1 秒空け、403 は待って読み直し、続くなら止める。
+const THROTTLE_MS = Number(getArg('--throttle-ms') || 1000);
 const GOAL = 90;     // ライブで満たしたい下限
 const ARTICLE = getArg('--article');
 const LIST = getArg('--list');
@@ -76,18 +82,28 @@ function resolve(inputPath) {
 // 取得は curl 経路（2026-07-28 修正）: Node の fetch はプロキシ env を見ないため会社 PC では
 //   全件失敗し、全記事が [skip] API 取得失敗 → 「追加すべきタグなし（全て in-sync）」と表示して
 //   **exit 0＝同期したつもりで1件も同期していない偽 PASS** になっていた。
+const tagsOf = (d) => (d?.hashtag_notes || []).map((h) => (h?.hashtag?.name || '').replace(/^#/, '')).filter(Boolean);
+
 async function liveTags(noteId, retries = 3) {
+  let blocked = 0;
   for (let a = 0; a <= retries; a++) {
     const r = spawnSync('curl', [
-      '-sS', '-m', '30', '--ssl-no-revoke',
+      '-sS', '-m', '30', '--ssl-no-revoke', '-w', '\n%{http_code}',
       '-H', 'User-Agent: Mozilla/5.0', '-H', 'Accept: application/json',
       `https://note.com/api/v3/notes/${noteId}`,
     ], { encoding: 'utf-8', maxBuffer: 32 * 1024 * 1024 });
-    const out = (r.stdout || '').trim();
+    const raw = (r.stdout || '').trim();
+    const code = raw.slice(raw.lastIndexOf('\n') + 1);
+    const out = raw.slice(0, raw.lastIndexOf('\n')).trim();
+    if (code === '403') { // アクセス制限: 間隔を大きく空けて読み直す。最後まで 403 なら blocked を返す
+      blocked++;
+      if (a < retries) { spawnSync(process.execPath, ['-e', `setTimeout(()=>{},${60000 * (a + 1)})`]); continue; }
+      return { blocked: true };
+    }
     if (out.startsWith('{')) {
       try {
-        const j = JSON.parse(out);
-        return (j?.data?.hashtag_notes || []).map((h) => (h?.hashtag?.name || '').replace(/^#/, '')).filter(Boolean);
+        const d = JSON.parse(out)?.data || {};
+        return { tags: tagsOf(d), unmeasurable: isUnmeasurable(d) };
       } catch { /* retry */ }
     }
     if (a < retries) spawnSync(process.execPath, ['-e', `setTimeout(()=>{},${1200 * (a + 1)})`]);
@@ -97,6 +113,7 @@ async function liveTags(noteId, retries = 3) {
 
 // ---- dry-run: 差分だけ表示 ----
 const plans = [];
+const deferred = []; // 会員限定など、未ログインではタグを読めない記事（--commit でログインして読む）
 let fetchFail = 0;
 let considered = 0;
 for (const a of articles) {
@@ -104,8 +121,16 @@ for (const a of articles) {
   if (err) { console.log(`[skip] ${err}: ${a}`); continue; }
   if (!noteId) { console.log(`[skip] noteId なし（未公開?）: ${a}`); continue; }
   considered++;
-  const live = await liveTags(noteId);
-  if (live == null) { console.log(`[skip] API 取得失敗: ${noteId}`); fetchFail++; continue; }
+  if (considered > 1) await sleep(THROTTLE_MS);
+  const got = await liveTags(noteId);
+  if (got?.blocked) { console.error(`\n[note-sync-tags] ✗ note.com が 403（アクセス制限）を返し続ける。続けると長引くので中断（${considered}本目）。時間を置いて再実行する。`); process.exit(2); }
+  if (got == null) { console.log(`[skip] API 取得失敗: ${noteId}`); fetchFail++; continue; }
+  if (got.unmeasurable) {
+    console.log(`[defer] ${noteId} 公開 API ではタグを読めない（会員限定など）→ --commit 時にログインして読む  ${a.replace(/^content\/note\//, '')}`);
+    deferred.push({ a, noteId, tagsFile, desired });
+    continue;
+  }
+  const live = got.tags;
   // note 上限を超えると更新が全体拒否されるため、追加は上限内に切る（prune なら余分を消した後の空きで数える）。
   const plan = planTagSync({ live, desired, prune: PRUNE });
   const note = plan.overflow ? ` (上限${NOTE_TAG_CAP}で${plan.overflow}件は追加不可)` : '';
@@ -121,15 +146,16 @@ if (considered > 0 && fetchFail / considered > 0.2) {
   process.exit(1);
 }
 
-if (!COMMIT) { console.log(`\n[dry-run] ${PRUNE ? '変更' : '追加'}対象 ${plans.length} 記事（--commit で実適用）。`); process.exit(0); }
-if (!plans.length) { console.log(`${PRUNE ? '変更' : '追加'}すべきタグなし（${considered - fetchFail} 本を実検査・全て in-sync）。`); process.exit(0); }
+if (!COMMIT) { console.log(`\n[dry-run] ${PRUNE ? '変更' : '追加'}対象 ${plans.length} 記事・ログイン後に判定 ${deferred.length} 記事（--commit で実適用）。`); process.exit(0); }
+if (!plans.length && !deferred.length) { console.log(`${PRUNE ? '変更' : '追加'}すべきタグなし（${considered - fetchFail} 本を実検査・全て in-sync）。`); process.exit(0); }
 
 // ---- commit: ブラウザで不足タグを追加 ----
 const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
   headless: false, channel: 'chrome', viewport: { width: 1366, height: 1000 },
   args: ['--disable-blink-features=AutomationControlled'],
 }));
-let ok = 0, fail = 0;
+let ok = 0, fail = 0, partial = 0;
+const rejectedAll = new Map(); // 入力欄が受け付けなかったタグ → 件数（原稿側で直す）
 try {
   const page = ctx.pages()[0] || (await ctx.newPage());
   await page.goto('https://note.com/settings/account', { waitUntil: 'domcontentloaded', timeout: 60000 });
@@ -137,6 +163,23 @@ try {
   for (let i = 0; i < 10; i++) { await sleep(2000); if (/dobokunote/.test(await page.evaluate(() => document.body.innerText || ''))) { acct = true; break; } }
   if (!acct) { console.error('ABORT: account != dobokunote'); await ctx.close(); process.exit(2); }
   console.log('[1] account gate OK (dobokunote)');
+
+  // ログイン済みコンテキストの API（著者本人には会員限定記事のタグも返る）
+  const authedTags = async (noteId) => {
+    try {
+      const r = await ctx.request.get(`https://note.com/api/v3/notes/${noteId}`, { timeout: 30000 });
+      if (!r.ok()) return null;
+      const d = (await r.json())?.data;
+      return d ? { tags: tagsOf(d), unmeasurable: isUnmeasurable(d) } : null;
+    } catch { return null; }
+  };
+  for (const x of deferred) {
+    const got = await authedTags(x.noteId);
+    if (!got || got.unmeasurable) { console.log(`[skip] ログインしてもタグを読めない: ${x.noteId}（手動確認）`); fail++; continue; }
+    const plan = planTagSync({ live: got.tags, desired: x.desired, prune: PRUNE });
+    console.log(`[plan*] ${x.noteId} live=${got.tags.length} desired=${x.desired.length} 不足=${plan.missing.length}${PRUNE ? ` 削除${plan.extra.length}` : ''} → 追加${plan.addable.length}で live=${plan.willBe}（ログインで取得）`);
+    if (plan.changed) plans.push({ ...x, plan, missing: plan.addable, extra: plan.extra, liveCount: got.tags.length, viaLogin: true });
+  }
 
   for (const p of plans) {
     try {
@@ -196,6 +239,7 @@ try {
       // サジェストを閉じてから Enter を再試行、それでも残れば入力をクリアして連結を断つ。
       const inputVal = async () => (await tagInput.first().inputValue().catch(() => '')) || '';
       let committed = 0;
+      const rejected = [];
       for (const t of toAdd) {
         await tagInput.first().click();
         if ((await inputVal()).length) await tagInput.first().fill(''); // 前タグの残骸を除去（連結防止）
@@ -209,6 +253,7 @@ try {
         }
         if ((await inputVal()).length) { // なお未確定: 連結を防ぐためクリアしてスキップ
           await tagInput.first().fill(''); await sleep(120);
+          rejected.push(t);
         } else { committed++; }
       }
       console.log(`[3b] 確定=${committed}/${toAdd.length}`);
@@ -253,12 +298,20 @@ try {
 
       // 検証: API 再取得でライブが目標(≥90)に達したか。note 上限ゆえ desired 全一致でなく件数で判定。
       await sleep(3000);
-      const after = await liveTags(p.noteId);
+      const got = p.viaLogin ? await authedTags(p.noteId) : await liveTags(p.noteId);
+      if (got?.blocked) { console.error('[6] ✗ note.com が 403（アクセス制限）→ 残りを中断'); fail++; break; }
+      const after = got && !got.unmeasurable ? got.tags : null;
       if (after == null) { console.log('[6] WARN: API検証未達 → 手動確認'); fail++; continue; }
-      const v = verifyTagSync({ after, plan: p.plan, liveCount: p.liveCount });
+      const v = verifyTagSync({ after, plan: p.plan, liveCount: p.liveCount, rejected });
       if (!v.ok && v.reason === 'count-not-increased') { console.error(`[6] FAIL: ライブ件数が増えていない（${p.liveCount}→${after.length}・上限超過で拒否の可能性）→ 手動確認`); fail++; continue; }
       if (!v.ok) { console.error(`[6] FAIL: 計画と不一致（残った余分: ${v.leftover.join(' ') || 'なし'} / 入らなかった不足: ${v.notAdded.join(' ') || 'なし'}）→ 手動確認`); fail++; continue; }
       if (after.length < GOAL) { console.error(`[6] FAIL: ライブ${after.length}が目標${GOAL}未満 → 手動確認`); fail++; continue; }
+      if (v.rejected.length) {
+        // 入力できないタグが残る＝原稿とライブは一致しない。ハッシュは記録せず、原稿を直す対象として出す。
+        for (const t of v.rejected) rejectedAll.set(t, (rejectedAll.get(t) || 0) + 1);
+        console.log(`[6] 一部入力不可（live=${after.length}）: ${v.rejected.join(' ')} は入力欄が受け付けない → 原稿の hashtags を直す`);
+        partial++; continue;
+      }
       console.log(`[6] API検証OK（live=${after.length}・目標${GOAL}達成）`);
       // ライブが ≥90 に達した＝タグ意図を反映。source タグ hash を in-sync 化（以降の source 変更は再度 drift）。
       if (recordPublishedTagHash(relative(ROOT, p.tagsFile))) console.log('[6b] タグハッシュ記録（in-sync）');
@@ -268,5 +321,6 @@ try {
 } finally {
   await ctx.close();
 }
-console.log(`\n[done] ok=${ok} fail=${fail} / ${plans.length}`);
+if (rejectedAll.size) console.log(`\n[rejected] 入力欄が受け付けなかったタグ: ${[...rejectedAll].map(([t, n]) => `${t}(${n})`).join(' ')}`);
+console.log(`\n[done] ok=${ok} fail=${fail} partial=${partial} / ${plans.length}`);
 process.exit(fail ? 1 : 0);
