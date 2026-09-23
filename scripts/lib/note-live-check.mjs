@@ -173,14 +173,24 @@ export async function assertLiveBody(noteId, { expectedImgs = null, paid = false
 // ライブに無い）も CTA の見出し化（ライブにあって原稿に無い）も同じ判定で拾える。
 // 原稿を直したが未再公開の記事も食い違うので、呼び出し側は再公開台帳と一致する記事にだけ使う。
 
+// 比較用のテキスト化。1 回の置換だと除去後に新しいタグ（`<<b>b>` → `<b>`）が現れるので、
+// 変化が無くなるまで繰り返す（出力を HTML として使う処理ではないが、除去を不完全にしない）。
+export function removeUntilStable(s, re) {
+  let prev;
+  let cur = String(s);
+  do { prev = cur; cur = cur.replace(re, ''); } while (cur !== prev);
+  return cur;
+}
+export const stripTags = (s) => removeUntilStable(s, /<[^>]*>/g);
+export const stripHtmlComments = (s) => removeUntilStable(s, /<!--[\s\S]*?-->/g);
+
 const decodeEntities = (s) => s
   .replace(/&nbsp;/g, ' ').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
   .replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&amp;/g, '&');
 
 /** 見出し比較用の正規化（記法・タグ・空白・全半角の揺れを落とす）。 */
 export function normalizeHeading(s) {
-  return decodeEntities(String(s)
-    .replace(/<[^>]+>/g, '')
+  return decodeEntities(stripTags(s)
     .replace(/!\[[^\]]*\]\([^)]*\)/g, '')
     .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1'))
     .replace(/[*_`]/g, '')
@@ -197,7 +207,7 @@ export function sotH2s(markdownBody, limitLine = Infinity) {
   const out = [];
   let inFence = false;
   let seenContent = false;
-  const lines = markdownBody.replace(/<!--[\s\S]*?-->/g, '').split('\n');
+  const lines = stripHtmlComments(markdownBody).split('\n');
   for (let i = 0; i < lines.length && i < limitLine; i++) {
     const l = lines[i];
     if (/^\s*```/.test(l)) { inFence = !inFence; seenContent = true; continue; }
@@ -233,8 +243,6 @@ export function diffHeadings(sot, live) {
  * 原稿側は check-bold-rendering が止めるが、公開済みの本文は再公開までライブに残る。
  */
 export function findLiteralStars(html) {
-  const text = decodeEntities((html || '')
-    .replace(/<(pre|code)\b[\s\S]*?<\/\1>/g, '')
-    .replace(/<[^>]+>/g, ''));
+  const text = decodeEntities(stripTags(removeUntilStable(html || '', /<(pre|code)\b[\s\S]*?<\/\1>/g)));
   return [...text.matchAll(/.{0,12}\*\*.{0,12}/g)].map((m) => m[0].replace(/\s+/g, ' '));
 }

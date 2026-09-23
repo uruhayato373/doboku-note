@@ -28,7 +28,7 @@
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { fetchNoteBody, findUrlHeadings, countEmptyBlockquotes, countImgs, sotH2s, liveH2s, diffHeadings, findLiteralStars } from './lib/note-live-check.mjs';
+import { fetchNoteBody, findUrlHeadings, countEmptyBlockquotes, countImgs, sotH2s, liveH2s, diffHeadings, findLiteralStars, stripHtmlComments } from './lib/note-live-check.mjs';
 import { bodyHash, loadState } from './lib/note-republish-hash.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -72,7 +72,7 @@ function headingLimitOf(raw) {
   if (!/notePricing:\s*"?paid"?/.test(fm)) return { md, limit: Infinity };
   const boundary = (fm.match(/paidBoundary:\s*"?(.+?)"?\s*$/m) || [])[1] || '試験問題|予想問題';
   const bre = new RegExp('^##\\s+(' + boundary + ')');
-  const idx = md.replace(/<!--[\s\S]*?-->/g, '').split('\n').findIndex((l) => bre.test(l.trim()));
+  const idx = stripHtmlComments(md).split('\n').findIndex((l) => bre.test(l.trim()));
   return { md, limit: idx < 0 ? null : idx };
 }
 

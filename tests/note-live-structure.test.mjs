@@ -73,3 +73,9 @@ test('太字記号: 本文テキストに残った ** を拾い、コード内�
   assert.equal(findLiteralStars('<p><strong>「管理行為」</strong>で書きます。</p>').length, 0);
   assert.equal(findLiteralStars('<pre><code>a ** b</code></pre><p>x</p>').length, 0);
 });
+
+test('タグ・コメントの除去は 1 回で終わらせず、除去後に現れたものも落とす', async () => {
+  const { stripTags, stripHtmlComments } = await import('../scripts/lib/note-live-check.mjs');
+  assert.doesNotMatch(stripTags('<scr<b>ipt>見出し</b><<i>i>'), /<[a-z/!]/i);
+  assert.equal(stripHtmlComments('a<!-<!-- x -->- y -->b'), 'ab');
+});
