@@ -167,6 +167,7 @@ const CHECKS = [
   { id: 'kindle-format', npm: 'check-kindle-format', timeout: 300_000, ci: true, skip: unzipMissing, note: '配布 EPUB の書式インバリアント（本文可読性・章の改ページ・解答のネタバレ改ページ）。ローカルは EDR のファイル走査律速で数分かかるが CI では速い。0 冊なら exit 2（検査不成立）' },
   { id: 'kindle-epub-leak', npm: 'check-kindle-epub-leak', timeout: 180_000, ci: true, skip: unzipMissing, note: '配布 EPUB に章タイトル article.mdx / YAML frontmatter が印字される事故（2026-08-12・e-02 は審査中だった）。真因はソース MDX の BOM で frontmatter の ^--- が外れること。EPUB 実展開＋ソース BOM の二段で検査する' },
   { id: 'kdp-category-coverage', npm: 'check-kdp-category-coverage', timeout: 30_000, ci: true, note: '新刊(buildSpec持ち)の id 接頭辞が categoryAssign に明示登録されているか（2026-08-28・g-01実測: 未登録は警告なく既定「技術士」へ入稿される）' },
+  { id: 'kindle-prices', npm: 'check-kindle-prices', timeout: 30_000, ci: true, note: 'spec.price と catalog.priceJpy の一致・royalty 0.7 の本が 70% 帯（¥250〜¥1,650）内か（2026-09-23: 価格改定で片側だけ直すと --set-price が旧値へ戻す／台帳が実売と食い違う）' },
   { id: 'figure-crop-integrity', npm: 'check-figure-crop:ci', timeout: 180_000, ci: true, note: '図クロップの写り込み（STRAY_SLIVER）を baseline 比の新規のみ gate。figure-crop-report.json を上書き' },
   { id: 'guide-length', npm: 'check-guide-length', timeout: 90_000, ci: true },
   { id: 'lcp-image-hints', npm: 'check-lcp-image-hints', timeout: 60_000, ci: true, note: '本文フォールド内1枚目の図版は eager+fetchpriority=high（lazy だと低速回線で LCP が数秒伸びる・EXP-005）' },

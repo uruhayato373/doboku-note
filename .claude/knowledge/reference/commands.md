@@ -105,6 +105,7 @@ npm run check-membership-drip # 会員配信ドリップの遅れ・実体欠落
 npm run check-rccm-essay  # RCCM 問題III 模範論文の出題条件（模範論文 1,200〜1,600 字・指定用語「」4 語以上・①②見出し・問題再現節なし・paidBoundary 実在）。対象は content/note/RCCM/** の rccmKeywords 付き article.md。--staged は pre-commit、--strict は推奨帯外も違反（writer/qa の返却前ゲート）。対象 0 件は exit 2＝検査不成立（quality:audit に同梱）
 npm run check-kindle-epub-leak # 配布EPUBに章名 article.mdx / YAML frontmatter が印字されていないか＋ソースMDXのBOM検査（BOMで frontmatter の ^--- が外れるのが真因。pre-commit は --bom-only・quality:audit に同梱）
 npm run check-kdp-category-coverage # 新刊(buildSpec持ち)のid接頭辞がKDPカテゴリー(.claude/config/kdp-memo.json categoryAssign)へ明示登録されているか（未登録は警告なく既定「技術士」へ入稿される。2026-08-28 g-01実測の再発防止・quality:audit に同梱）
+npm run check-kindle-prices   # Kindle の spec.price と catalog.priceJpy の一致・70%帯(¥250〜¥1,650)内か。改定は spec を直して `node scripts/kdp-publish.mjs --id <id> --set-price --commit`（成功時に catalog を書き戻す・AI申告が未回答なら先に埋める・日本の実効レートが catalog.royalty と違えば止まる。KDP 上の実価格との突合は `--sync-status`）
 ```
 
 ## CI 書き込み操作・予約投稿（ops-write・2026-09-21）

@@ -4,7 +4,7 @@
 // gen-kdp-memo.mjs（コピペ用メモ生成）と kdp-publish.mjs（Playwright 入稿・出版）の共通基盤。
 // 共通定数を両スクリプトで二重定義しないための単一ソース（真実源は config の defaults）。
 // ---------------------------------------------------------------------------
-import { readFileSync, existsSync } from 'node:fs'
+import { readFileSync, existsSync, readdirSync } from 'node:fs'
 import { resolve, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -112,6 +112,44 @@ export const AI_AMOUNT_LABELS = {
   PARTIAL_AND_EXTENSIVE: '一部のセクション (広範な編集あり)',
   ENTIRE_AND_MINIMAL: '作品全体 (最小限の編集あり、または編集なし)',
   ENTIRE_AND_EXTENSIVE: '作品全体 (広範な編集あり)',
+}
+
+// KDP 日本の 70% ロイヤリティ帯（税込）。帯外は 35% に落ちる。
+// 2026-09-23 に KDP 価格ページの告知で上限が ¥1,250 → ¥1,650 に拡大されたのを実機確認。
+// 日本・インド・ブラジル・メキシコの 70% は KDP セレクト登録が条件（未登録の本は帯内でも 35%）。
+export const ROYALTY70_BAND = { min: 250, max: 1650 }
+
+// 価格の二重管理（spec.price ＝ 提出・改定の目標値／catalog.priceJpy ＝ 台帳）の整合と
+// 70% 帯の逸脱を返す。specPrices は { id: price }（spec の無い本はキー無し）。
+// 2026-09-23: spec と catalog を片側だけ直すと --set-price が旧値へ戻す／台帳が嘘になるため機械で止める。
+export function kindlePriceIssues(catalogBooks, specPrices) {
+  const issues = []
+  for (const b of catalogBooks) {
+    if (!['live', 'ready'].includes(b.status)) continue
+    if (typeof b.priceJpy !== 'number') { issues.push({ id: b.id, kind: 'missing', msg: 'catalog.priceJpy が数値でない' }); continue }
+    if (b.id in specPrices && specPrices[b.id] !== b.priceJpy) {
+      issues.push({ id: b.id, kind: 'mismatch', msg: `spec.price=${specPrices[b.id]} ≠ catalog.priceJpy=${b.priceJpy}` })
+    }
+    if (b.royalty === 0.7 && (b.priceJpy < ROYALTY70_BAND.min || b.priceJpy > ROYALTY70_BAND.max)) {
+      issues.push({ id: b.id, kind: 'band', msg: `¥${b.priceJpy} は 70% 帯（¥${ROYALTY70_BAND.min}〜¥${ROYALTY70_BAND.max}）外` })
+    }
+  }
+  return issues
+}
+
+// scripts/kindle-specs/*.json の price を { id: price } で返す。
+export function loadSpecPrices() {
+  const out = {}
+  for (const f of readdirSync(SPEC_DIR)) {
+    if (!f.endsWith('.json')) continue
+    const spec = JSON.parse(readFileSync(resolve(SPEC_DIR, f), 'utf8'))
+    if (typeof spec.price === 'number') out[f.replace(/\.json$/, '')] = spec.price
+  }
+  return out
+}
+
+export function hasSpec(id) {
+  return existsSync(resolve(SPEC_DIR, `${id}.json`))
 }
 
 // メタデータ検証。問題があれば配列で返す（空なら合格）。

@@ -151,14 +151,17 @@ node scripts/kdp-publish.mjs --sync-status   # .tmp/kdp-sync-status.json
 
 ### 既刊の価格改定
 ```
-node scripts/kdp-publish.mjs --id <id> --set-price            # dry-run（現在価格と目標を表示）
+node scripts/kdp-publish.mjs --id <id> --set-price            # dry-run（AI申告の要否・現在価格・目標価格で入れた場合の日本の実効レートを表示。保存しない）
 node scripts/kdp-publish.mjs --id <id> --set-price --commit   # 保存（公開価格が変わる）
 ```
-価格の真実源は `scripts/kindle-specs/<id>.json` の `price`。**catalog の `priceJpy` と両方を更新**してから実行する（resolveBook が読むのは spec 側）。
+価格の真実源は `scripts/kindle-specs/<id>.json` の `price`（spec の無い A 系は catalog の `priceJpy`）。**spec だけ直して実行**すれば、成功時に catalog の `priceJpy` と `priceHistory` をスクリプトが書き戻す。片側だけ直った状態は `npm run check-kindle-prices`（CI ゲート）が止める。宛先は catalog の `draftAsin`（title-setup の内部ID）で、欠けていれば `--sync-status` が本棚から補完する。
 
-70% 印税帯は **¥250〜¥1,250**。これを超えると 35% に落ちて実収益が下がる（¥1,490×35%≒¥522 < ¥1,250×70%≒¥875）ので、値上げの上限は ¥1,250。
+- **AI 申告**: KDP が必須化した。未回答の既刊（2026-07 提出分など）は出版が「この項目は必須です」で弾かれるため、`--commit` 時にコンテンツページで config の `aiDeclaration` を入れて下書き保存してから価格へ進む。回答済みの本は書き換えない。
+- **印税率**: 70% 帯は **¥250〜¥1,650**（2026-09-23 に KDP 価格ページの告知で ¥1,250 から拡大を確認）。日本・インド・ブラジル・メキシコの 70% は KDP セレクト登録が条件で、未登録だとプランのラジオが 70% のままでも日本は 35% になる。`catalog.royalty` は**日本の実効レート**を表し、価格入力後の日本の行のレートが一致しないと保存せずに止まる（2026-09-23 d-00/d-03 で実測）。
+- **成功判定**: 出版ボタン押下後に価格ページを離れ（本棚 `?publishedId=` へ遷移）、エラー表示が無いこと。本文の文言では判定しない（旧判定は「下書きとして保存」の「保存」に一致して失敗を成功と誤報した）。失敗時はエラー文・該当欄・全体スクショ（`.tmp/kdp-<id>-price-fail-full.png`）を出して exit 4。
+- **一緒に公開されるもの**: 保存済みで未出版の変更（原稿差し替えの下書き等）も同時に出版される。`--sync-status` が「未出版の変更あり」を一覧にするので、中身を把握してから実行する。
 
-保存直後の本は「変更事項のレビュー中」になり **pricing ページが本棚へリダイレクトされる**。同じ `--set-price` で読み直しても検証できないので、**本棚の表示価格**で突合する（2026-07-31 に 19 冊を改定して 19/19 一致を確認した方法）。反映は最大 72h。
+保存直後の本は「変更事項のレビュー中」になり **pricing ページが本棚へリダイレクトされる**。同じ `--set-price` で読み直しても検証できないので、**本棚の表示価格**（`--sync-status` の価格突合）で確かめる。反映は最大 72h。
 
 ### ドラフト削除（テスト残骸）
 ```

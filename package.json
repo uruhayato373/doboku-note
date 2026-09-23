@@ -147,6 +147,7 @@
     "check-kindle-epub-leak": "node scripts/check-kindle-epub-leak.mjs",
     "check-kindle-format": "node scripts/check-kindle-format.mjs",
     "check-kdp-category-coverage": "node scripts/check-kdp-category-coverage.mjs",
+    "check-kindle-prices": "node scripts/check-kindle-prices.mjs",
     "asset-offload": "node scripts/asset-offload.mjs",
     "asset-hydrate": "node scripts/asset-hydrate.mjs",
     "asset-inbox-push": "node scripts/asset-inbox-push.mjs",
