@@ -36,7 +36,7 @@ PC ごとに独立保持し、Windows と Mac の間でコピー・Git・OneDriv
 | `kdp` | `playwright-kdp-profile` | profile | KDP 本棚の実体 | encrypted-state / read+write |
 | `x` | `playwright-x-profile` | profile | `.claude/config/x-account.json` | encrypted-state / read+write |
 | `instagram` | `playwright-ig-bs-profile` | profile | `.claude/config/ig-account.json` | encrypted-state / read+write（Meta 利用制限で Graph API 不可＝Playwright 照合・予約投稿） |
-| `google` | `playwright-google-profile` | profile | GSC/GA4 の対象プロパティ | encrypted-state / read |
+| `google` | `playwright-google-profile` | profile | GSC/GA4 の対象プロパティ | encrypted-state / read+write（write＝GSC 登録リクエスト。hosted runner で失効するため self-hosted 限定・`enabled:false` のまま） |
 | `a8` | `playwright-a8-profile` | profile-plus-state | メディア ID `a25050375786` | encrypted-state / read+write |
 | `moshimo` | `playwright-moshimo-profile` | profile-plus-state | `.claude/config/affiliate-asp.json` | none / read |
 | `afb` | `playwright-afb-profile` | same-process | ASP site guard | encrypted-state / read |
@@ -219,6 +219,9 @@ Secrets が渡らないため復号できない。
 **allowlist**: `readOnlyScripts` は常時許可。`writeScripts` は `DOBOKU_CI_WRITE_PLAN_SHA256`
 （ops-write の plan hash）が無いと resolver が拒否する。それ以外の script は
 `AUTH_CI_SCRIPT_NOT_ALLOWLISTED` で常に拒否する。
+カタログで `scheduled`（risk low・固定引数）を持つ操作だけは、人の hash なしに `ops-write.mjs exec --scheduled`
+が CI 自身で plan を作って実行する（承認＝PR レビュー済みのカタログ定義）。`requiresSelfHostedRunner` の操作は
+`RUNNER_ENVIRONMENT=self-hosted` 以外では実行せず、`ops-write.yml` は復元の前で止める（2026-09-24・GSC 登録リクエスト）。
 
 **人が残る操作**: 初回ログイン、2FA、CAPTCHA、`auth:export`（authenticated なローカル profile から
 暗号化 state を書き出す操作そのものは人がローカルで実行する）。

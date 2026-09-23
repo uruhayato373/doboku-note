@@ -231,13 +231,14 @@
       "accountConfigPath": ".claude/config/google-console-automation.json",
       "sessionMode": "profile",
       "interactiveLoginRequired": true,
-      "notes": "共通 DOBOKU_AUTH_ROOT を使用。旧 DOBOKU_PROFILE_ROOT（repository root の意味）は Phase 05 完了まで config の legacy path と組み合わせる明示 fallback のみ。 2026-09-21 実測: CI 復元は authenticated になるが、その直後に Google がセッションを全面失効（Mac 側も CI 書き戻し state も expired）。datacenter IP＝端末結びつきの検知。hosted CI 不可のため enabled:false。定期取得は residential IP の self-hosted runner かローカル儀式。",
+      "notes": "共通 DOBOKU_AUTH_ROOT を使用。旧 DOBOKU_PROFILE_ROOT（repository root の意味）は Phase 05 完了まで config の legacy path と組み合わせる明示 fallback のみ。 2026-09-21 実測: CI 復元は authenticated になるが、その直後に Google がセッションを全面失効（Mac 側も CI 書き戻し state も expired）。datacenter IP＝端末結びつきの検知。hosted CI 不可のため enabled:false。定期取得は residential IP の self-hosted runner かローカル儀式。 2026-09-24: 登録リクエスト（scripts/gsc-request-indexing.mjs）を writeScripts に追加。ただし実行は gsc-request-indexing.yml が self-hosted runner（Mac・vars.GOOGLE_SELF_HOSTED_RUNNER）でだけ行い、enabled は false のまま（true にすると hosted の login-collectors.yml が Google を復元して全面失効させる）。",
       "ci": {
         "mode": "encrypted-state",
         "enabled": false,
         "canary": false,
         "operations": [
-          "read"
+          "read",
+          "write"
         ],
         "cron": "20 21 2 * *",
         "stateDomains": [
@@ -248,7 +249,9 @@
           "scripts/fetch-gsc-ui-csv.mjs",
           "scripts/fetch-ga4-ui-csv.mjs"
         ],
-        "writeScripts": []
+        "writeScripts": [
+          "scripts/gsc-request-indexing.mjs"
+        ]
       }
     },
     "a8": {
