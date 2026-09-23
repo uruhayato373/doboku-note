@@ -64,6 +64,10 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 | `coconala-1kyu-premium` | C12 1級 二次 **プレミアム**（教材フルパック18冊 ＋ 経験記述添削2テーマ・書き直し1回・¥15,000）。純教材の天井 ¥10,000 を超える唯一の手段＝労働を足す。**weeklyCapacity=1**（添削は本番納品が未経験のため工数実測まで絞る）。決定ログ→展開キット §2 追補2 |
 | `coconala-civil-keiken-kit` | K1 制作物（DLキット）テスト出品。1級・2級 施工経験記述の**自作 AI 設計キット**（Claude Code＋Node.js 前提・provision_format=2）。`status:'draft'`。公開前ゲート=(1) 納品ZIPは外部URL(note/サイト)除去版へ差替（安全弁#2）、(2) `/coconala-publish --commit`。客層が限定される test 出品 |
 | `coconala-sokan-bunseki-pdf` | K2 単発PDF（テスト出品）。**総監** 記述式I-2 出題テーマ分析（provision_format=3・PDF は write_pdf 生成＝外部URL0件・`assets/pdf/coconala-sokan-bunseki.pdf`）。有料note施策バンク本文は非転載（分析/読み方に限定＝非カニバリ）。`status:'draft'`。総監はココナラ客層が薄い前提の test |
+| `coconala-rccm-mondai3-pdf` | R1 RCCM 問題III 模範論文 PDF（序章＋公開6テーマ＝7冊）。納品物は `build-coconala-content-pdf.mjs --product R1` で生成（2026-09-23 に初めて作成。それまで出品中なのに納品物が無かった） |
+| `coconala-rccm-takuitsu-pdf` | R2 RCCM 択一 PDF 2冊（予想50問＋一問一答159問・¥2,500）。`--product R2`。試験 CBT 期間（〜10/31）向けの季節商品。判断→[09 §D7](../../../docs/strategy/09_販売チャネル競合分析.md) |
+| `coconala-pe-oral-pdf` | O1 技術士 口頭試験 想定問答 PDF（総監版／建設部門版から購入者の部門に合う1冊・¥3,000）。`--product O1`。購入時メッセージで部門を確認してから送る |
+| `coconala-pe-oral-qa` | 技術士 口頭試験 想定質問作成（業務内容の詳細720字＋経歴 → 想定質問20問＋回答の骨子・テキスト完結・¥5,000・週2枠）。捏造禁止＝事実が足りない箇所は確認事項で返す。ヒアリングシートと納品の型→ `content/coconala/products/coconala-pe-oral-qa/運用テンプレ.md` |
 
 **サイト内動線（記事内 CTA）**: `/links` ハブに加え、二次系の高適合記事の末尾にサービスを文脈 CTA として出す。配線 SoT は `src/lib/offsite-cta.ts`（slug→listed サービス・note の magazine-placement.ts と直交）、描画は `OffsiteCta` コンポーネント。listed のみ発火・外部 URL に UTM 非付与・クリックは `data-cta="coconala"`（AnalyticsProvider）・1ページ最大3枚・1級/2級は slug prefix で PDF を出し分け。対応表:
 

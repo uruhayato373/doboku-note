@@ -230,6 +230,9 @@ productId は `coconala:<serviceId>` 形式（接頭辞でチャネル判別＝`
 | `1級 二次 プレミアム（教材＋添削）` / `coconala-1kyu-premium`（**¥15,000**・同上・週1枠） | `coconala:coconala-1kyu-premium` |
 | `経験記述 AI設計キット（DL）` / `coconala-civil-keiken-kit`（¥8,000） | `coconala:coconala-civil-keiken-kit` |
 | `総監 出題テーマ分析 PDF` / `coconala-sokan-bunseki-pdf`（¥2,500） | `coconala:coconala-sokan-bunseki-pdf` |
+| `RCCM 択一 予想50問＋一問一答 PDF` / `coconala-rccm-takuitsu-pdf`（¥2,500・2026-09-23 新設） | `coconala:coconala-rccm-takuitsu-pdf` |
+| `技術士 口頭試験 想定問答 PDF` / `coconala-pe-oral-pdf`（¥3,000・同上） | `coconala:coconala-pe-oral-pdf` |
+| `技術士 口頭試験 想定質問作成` / `coconala-pe-oral-qa`（¥5,000・同上・週2枠） | `coconala:coconala-pe-oral-qa` |
 
 > **アーカイブ済み（2026-08-05 の統廃合で恒久廃止・新規売上は発生しない）**:
 > `coconala-bunseki-pdf`（出題分析）／`coconala-1kyu-kakomon-pdf`・`coconala-2kyu-kakomon-pdf`（過去問模範答案）／

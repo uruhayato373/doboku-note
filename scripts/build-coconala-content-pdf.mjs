@@ -10,7 +10,8 @@
  *   5. 生成 PDF を pdftotext で検証し note.com/doboku-note/URL が **0件** でなければ FAIL
  *
  * マッピングは PRODUCTS 定数（＝coconala-listings.json の商品と対応）。
- * 使い方: CHROME_PATH=... node scripts/build-coconala-content-pdf.mjs [--product C1|C2]
+ * 土木以外（RCCM・技術士）は noteRelative で content/note/ からの相対パスで源を引く。
+ * 使い方: CHROME_PATH=... node scripts/build-coconala-content-pdf.mjs [--product C1|C2|R1|R2|O1]
  * ---------------------------------------------------------------------------
  */
 import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync } from 'node:fs';
@@ -20,14 +21,30 @@ import { execFileSync } from 'node:child_process';
 import { stripNoteFunnel, assertNoFunnel } from './lib/strip-note-funnel.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const NOTE_BASE = join(ROOT, 'content/note/1級・2級土木');
+const NOTE_ROOT = join(ROOT, 'content/note');
+const NOTE_BASE = join(NOTE_ROOT, '1級・2級土木');
 // 生成物（模擬試験など note 記事を源としない商品）の markdown 置き場（＝PDF の SoT）。
 const MOSHI_BASE = join(ROOT, '.claude/config/coconala/assets/moshi-src');
 // src（例 "2級土木-施工経験記述-完成答案集/品質管理/article.md"）はマガジン名の接頭辞で
 // grade dir（1級土木/2級土木）を解決する。generated=true は MOSHI_BASE 直下から解決。
-const resolveSrc = (src, generated) => generated
+// noteRelative=true の商品（土木以外の資格）は src を content/note/ からの相対パスで書く。
+const resolveSrc = (src, prod) => prod.generated
   ? join(MOSHI_BASE, src)
-  : join(NOTE_BASE, src.startsWith('2級') ? '2級土木' : '1級土木', 'magazines', src);
+  : prod.noteRelative
+    ? join(NOTE_ROOT, src)
+    : join(NOTE_BASE, src.startsWith('2級') ? '2級土木' : '1級土木', 'magazines', src);
+// 公的出典のリンク（国交省・日本技術士会・e-Gov 等）は外部誘導ではないが、納品 PDF は URL 0件を
+// 不変条件にしている。strip 後に、リンクは表示テキスト（出典名）だけ残し、HTML コメントは落とす。
+// strip は `<!-- cta:... -->` を目印に CTA ブロックを探すので、必ず strip の後に掛ける。
+const delinkUrls = (md) => md
+  .replace(/<!--[\s\S]*?-->/g, '')
+  .replace(/\[([^\]]+)\]\(https?:\/\/[^)\s]+\)/g, '$1');
+// 納品物は「記事」ではないので呼び方を資料へ寄せる。記事固有の一文（note の無料範囲・他記事への案内）は
+// 商品定義の replace（[検索文字列, 置換後] の配列）で個別に直す。
+const toDeliverable = (md, replace = []) => replace
+  .reduce((s, [from, to]) => s.split(from).join(to), md)
+  .replace(/本記事/g, '本資料')
+  .replace(/この記事/g, 'この資料');
 const STAGE = join(ROOT, '.tmp/coconala-pdf-src');
 const OUT_PDF = join(ROOT, '.claude/config/coconala/assets/pdf');
 const SPEC_DIR = join(ROOT, '.tmp/coconala-specs');
@@ -125,6 +142,37 @@ const PRODUCTS = {
       { src: 'C9-2級模試/第3回解答解説.md', out: 'coconala-C9-2級二次予想模試-第3回-解答解説', title: '2級土木 第2次検定 予想模擬試験 第3回 解答・解説', includeFrom: '^## ' },
     ],
   },
+  // R1: RCCM 問題III 模範論文集（序章＋公開6テーマ）。源=note「RCCM問題III-2026模範論文集」。
+  R1: {
+    label: 'coconala-rccm-mondai3-pdf',
+    noteRelative: true,
+    articles: [
+      { src: 'RCCM/magazines/RCCM問題III-2026模範論文集/00-序章/article.md', out: 'coconala-R1-RCCM問題III-00-序章', title: 'RCCM 問題III 管理技術力 2026年度 公開6テーマの読み方と答案の骨子', includeFrom: '^## 問題III「管理技術力」で問われていること', includeTo: '^## マガジンの使い方', replace: [['模範論文集（序章・無料）', '模範論文集（序章）'], ['収録記事：', '収録PDF：']] },
+      ...['01-インフラ老朽化', '02-安全安心国土', '03-SDGs', '04-AI品質', '05-国際競争力', '06-BIM-CIM'].map((t) => ({
+        src: `RCCM/magazines/RCCM問題III-2026模範論文集/${t}/article.md`,
+        out: `coconala-R1-RCCM問題III-${t}`,
+        includeFrom: '^## テーマの読み解き',
+      })),
+    ],
+  },
+  // R2: RCCM 択一（問題II・IV-1 予想50問＋一問一答159問）。源=note の論点集と直前暗記ノート。
+  R2: {
+    label: 'coconala-rccm-takuitsu-pdf',
+    noteRelative: true,
+    articles: [
+      { src: 'RCCM/magazines/RCCM問題II-IV-論点集予想50問/article.md', out: 'coconala-R2-RCCM択一-予想50問', includeFrom: '^## 問題IIの出題範囲マップ', replace: [['問1〜10は無料です。\n', '']] },
+      { src: 'RCCM/magazines/RCCM問題II-IV-直前暗記ノート/article.md', out: 'coconala-R2-RCCM択一-一問一答159問', includeFrom: '^## この暗記ノートの使い方', replace: [['当サイトの「', '同梱の「']] },
+    ],
+  },
+  // O1: 技術士 口頭試験 想定問答（総監版・建設部門版）。購入者の部門に合う1冊を送る。
+  O1: {
+    label: 'coconala-pe-oral-pdf',
+    noteRelative: true,
+    articles: [
+      { src: '技術士総監/口頭試験対策-完全版/article.md', out: 'coconala-O1-口頭試験-総監版', title: '技術士 口頭試験 想定問答と準備ロードマップ【総合技術監理部門】', includeFrom: '^## 2\\. 口頭試験の全体像', replace: [['既存記事『業務経歴の語り方』で身につけた型を土台に、', '業務経歴を説明する型を土台に、']] },
+      { src: '技術士建設部門/magazines/建設部門-口頭試験対策/article.md', out: 'coconala-O1-口頭試験-建設部門版', title: '技術士 口頭試験 想定問答と準備ロードマップ【建設部門】', includeFrom: '^## 1\\. 口頭試験の全体像', replace: [['申込書の作り込みから振り返りたい方は、無料記事の業務経歴票の書き方もあわせてご覧ください。', '']] },
+    ],
+  },
 };
 
 const CHROME = process.env.CHROME_PATH || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
@@ -140,23 +188,28 @@ for (const [key, prod] of Object.entries(PRODUCTS)) {
   console.log(`\n=== ${key} (${prod.label}) ===`);
   const specArticles = [];
   for (const a of prod.articles) {
-    const raw = readFileSync(resolveSrc(a.src, prod.generated), 'utf8');
+    const raw = readFileSync(resolveSrc(a.src, prod), 'utf8');
     // 生成物は note 導線を含まない前提だが、strip は冪等なので generated でも通して二重に担保する。
-    const { clean, removed } = stripNoteFunnel(raw);
+    const { clean: stripped, removed } = stripNoteFunnel(raw);
+    const delinked = delinkUrls(stripped);
+    // 源が改稿されて replace が空振りすると、note 固有の一文が黙って PDF に残る。対象の実在を先に確かめる。
+    const stale = (a.replace || []).filter(([from]) => !delinked.includes(from));
+    if (stale.length) { console.error(`  ✗ ${a.out}: replace の対象が源に無い（源が改稿された）${JSON.stringify(stale.map(([f]) => f))}`); fail++; continue; }
+    const clean = toDeliverable(delinked, a.replace);
     const chk = assertNoFunnel(clean);
     if (!chk.ok) { console.error(`  ✗ ${a.out}: strip 後も funnel 残存 ${JSON.stringify(chk.hits)}`); fail++; continue; }
     const stageDir = join(STAGE, a.out);
     mkdirSync(stageDir, { recursive: true });
     writeFileSync(join(stageDir, 'article.md'), clean);
     console.log(`  strip ${a.src} → 除去${removed.length}件 (${[...clean].length}字)`);
-    specArticles.push({ srcDir: `.tmp/coconala-pdf-src/${a.out}`, src: 'article.md', out: a.out, title: a.title, includeFrom: a.includeFrom });
+    specArticles.push({ srcDir: `.tmp/coconala-pdf-src/${a.out}`, src: 'article.md', out: a.out, title: a.title, includeFrom: a.includeFrom, includeTo: a.includeTo ?? null });
   }
   // article ごとに 1 spec（srcDir が異なるため）
   for (const sa of specArticles) {
     const spec = {
       srcDir: sa.srcDir,
       outDir: '.claude/config/coconala/assets/pdf',
-      articles: [{ src: sa.src, out: sa.out, ...(sa.title ? { title: sa.title } : {}), include: [{ from: sa.includeFrom, to: null }] }],
+      articles: [{ src: sa.src, out: sa.out, ...(sa.title ? { title: sa.title } : {}), include: [{ from: sa.includeFrom, to: sa.includeTo }] }],
     };
     const specPath = join(SPEC_DIR, `${sa.out}.json`);
     writeFileSync(specPath, JSON.stringify(spec, null, 2));

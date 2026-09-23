@@ -513,6 +513,51 @@ const SERVICES_RAW = {
     weeklyCapacity: 20,
     listedAt: '2026-09-16',
   },
+  // R2（2026-09-23・09 §D7）: 択一は 303geos（¥2,500×49）だけが埋める白地。源は note の予想50問＋直前暗記ノート
+  // （note 定価の合計 ¥2,460 を下回らない）。build-coconala-content-pdf.mjs --product R2 で PDF 2冊。
+  'coconala-rccm-takuitsu-pdf': {
+    id: 'coconala-rccm-takuitsu-pdf',
+    status: 'draft',
+    serviceUrl: '',
+    title: 'RCCM択一 予想50問と一問一答を送ります',
+    shortTitle: 'RCCM 択一 PDF',
+    description:
+      'RCCM資格試験の択一（試験A 問題II・試験B 問題IV-1）対策PDF2冊。オリジナル予想50問（全選択肢の正誤理由・計算は途中式付き）と、登録規程から土木基礎までの一問一答159問。過去問題は非公開のため、公開の一次出典から作成した自作問題で、実際の試験問題の再現ではない。購入後トークルームでお送りする。出題や合格を保証するものではない。',
+    price: '¥2,500（PDF2冊）',
+    priceYen: 2500,
+    examScope: ['rccm'],
+    weeklyCapacity: 20,
+  },
+
+  // ---- 技術士 口頭試験（2026-09-23・09 §D7）----
+  // 土木二次の需要が消える11〜1月に立つ季節商品。出品31件・レビュー108件と小さい市場。運営者は技術士
+  // （建設部門・総合技術監理部門）。ビデオ面接は日時調整の負担が大きいので出さず、PDF とテキスト完結型に限る。
+  'coconala-pe-oral-pdf': {
+    id: 'coconala-pe-oral-pdf',
+    status: 'draft',
+    serviceUrl: '',
+    title: '技術士口頭試験の想定問答PDFを送ります',
+    shortTitle: '技術士 口頭試験 想定問答 PDF',
+    description:
+      '技術士第二次試験の口頭試験に向けた想定問答と準備ロードマップのPDF。総合技術監理部門版（想定25問・立場別の回答例）と建設部門版（改訂コンピテンシー対応の想定問答バンク）から、受験部門に合う1冊をお送りする。回答例は架空の業務に基づく例示で、実際の試問の再現ではない。合格を保証するものではない。',
+    price: '¥3,000（PDF1冊）',
+    priceYen: 3000,
+    examScope: ['pe-comprehensive-management', 'pe-construction'],
+    weeklyCapacity: 20,
+  },
+  'coconala-pe-oral-qa': {
+    id: 'coconala-pe-oral-qa',
+    status: 'draft',
+    serviceUrl: '',
+    title: '技術士口頭試験の想定質問を経歴から作ります',
+    shortTitle: '技術士 口頭試験 想定質問作成',
+    description:
+      '受験申込書の「業務内容の詳細」（720字以内）と業務経歴をもとに、口頭試験で聞かれやすい想定質問20問と、ご本人の事実から組み立てた回答の骨子を返すテキスト完結のサービス。ビデオ面接ではない。経験していない業務の創作はせず、事実が足りない箇所は確認事項として返す。建設部門・総合技術監理部門に対応。合格を保証するものではない。',
+    price: '¥5,000（想定質問20問＋回答骨子）',
+    priceYen: 5000,
+    examScope: ['pe-comprehensive-management', 'pe-construction'],
+    weeklyCapacity: 2,
+  },
 } as const satisfies Record<string, CoconalaService>;
 
 export type CoconalaServiceId = keyof typeof SERVICES_RAW;
