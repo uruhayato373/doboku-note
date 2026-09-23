@@ -99,13 +99,13 @@ cover:
 
 気候変動という共通の外力に対し、技術と制度の両輪で答える構成を意識してください。
 
-河川・砂防・海岸の出題テーマを年度別に確認したい場合は、[出題テーマ分析（R01〜R07）](https://doboku-note.com/docs/pe-construction-river-coast-exam-themes?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-river-coast-keyword&utm_content=exam-themes)を、令和8年度の改訂点は[令和8年度の改訂点まとめ](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-river-coast-keyword&utm_content=competency-revision-r8)にまとめています。
+河川・砂防・海岸の出題テーマを年度別に確認したい場合は、[出題テーマ分析（R01〜R07）](https://doboku-note.com/exam/pe-construction/keywords/river-coast-exam-themes?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-river-coast-keyword&utm_content=exam-themes)を、令和8年度の改訂点は[令和8年度の改訂点まとめ](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-river-coast-keyword&utm_content=competency-revision-r8)にまとめています。
 
 ## 論文化の最初の一手
 
 頻出キーワードを把握したら、次は「どの年度に、どのキーワードが、どの設問種別で問われたか」を確認し、過去問で骨子を起こす段階に進みます。
 
-記述式そのものの組み立て方は[記述式の書き方ガイド](https://doboku-note.com/docs/pe-construction-pe-secondary-essay-guide?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-river-coast-keyword&utm_content=essay-guide)で詳述しています。
+記述式そのものの組み立て方は[記述式の書き方ガイド](https://doboku-note.com/exam/pe-construction/guide/pe-secondary-essay-guide?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-river-coast-keyword&utm_content=essay-guide)で詳述しています。
 
 ここまでで、河川・砂防・海岸の論文の幹となるキーワードと、発注者視点の厚みづけまでの全体像はつかめたはずです。あとは、この幹に過去問の具体を肉付けして、答案として完成させる段階に進みます。
 

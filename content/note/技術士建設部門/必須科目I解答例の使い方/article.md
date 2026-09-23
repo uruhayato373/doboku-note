@@ -77,7 +77,7 @@ cover:
 
 古い解答例を読むときは、これらの新しい観点が骨子に組み込まれているかを自分で補う視点が要ります。
 
-改訂の詳細は[令和8年度コンピテンシー改訂の解説記事](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-hissu-kaitourei)にまとめています。
+改訂の詳細は[令和8年度コンピテンシー改訂の解説記事](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-hissu-kaitourei)にまとめています。
 
 骨子を箇条書きにしたら、各論点の横に対応するコンピテンシーを書き添えてみてください。「評価」や「技術者倫理」に対応する論点が薄ければ、それが本番で失点しやすい弱点です。
 
@@ -105,11 +105,11 @@ cover:
 
 最後の**置換**が本番力に直結します。模範解答の論点をそのまま借りるのではなく、自分が説明できる事例・数値・制度に置き換えて初めて、口頭試験でも崩れない答案になります。
 
-出題テーマの全体像は[必須科目I 出題テーマ分析（R01〜R07）](https://doboku-note.com/docs/pe-construction-required-exam-themes?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-hissu-kaitourei)で先につかんでおくと、置換のネタ集めが効率化します。
+出題テーマの全体像は[必須科目I 出題テーマ分析（R01〜R07）](https://doboku-note.com/exam/pe-construction/keywords/required-exam-themes?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-hissu-kaitourei)で先につかんでおくと、置換のネタ集めが効率化します。
 
 過去問の問題文そのものは当サイトで令和元年度〜令和7年度まで無料公開しています。まず問題文で設問の問われ方を確認し、その上で完成答案を骨子層に分解する、という順序が効率的です。
 
-書き方そのものは[記述式答案の書き方ガイド](https://doboku-note.com/docs/pe-construction-pe-secondary-essay-guide?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-hissu-kaitourei)で設問対応・論点の絞り込み・読みやすい文章の作法を体系化しています。
+書き方そのものは[記述式答案の書き方ガイド](https://doboku-note.com/exam/pe-construction/guide/pe-secondary-essay-guide?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-hissu-kaitourei)で設問対応・論点の絞り込み・読みやすい文章の作法を体系化しています。
 
 ## さらに深く学ぶには
 

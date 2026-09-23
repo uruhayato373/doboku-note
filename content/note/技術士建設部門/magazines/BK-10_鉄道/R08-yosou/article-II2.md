@@ -32,7 +32,7 @@ cover:
 
 反映ポイント：被災調査データ・計測データの活用（データ活用）・鉄道事業者内の運転部門・沿線自治体・住民との合意形成（ステークホルダー）・安全・経済・環境の三側面。
 
-改訂の詳細は [技術士 コンピテンシー改訂 令和8年度｜新旧対照と二次試験への影響](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary) をご参照ください。
+改訂の詳細は [技術士 コンピテンシー改訂 令和8年度｜新旧対照と二次試験への影響](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary) をご参照ください。
 
 **こんな人のための記事です**
 

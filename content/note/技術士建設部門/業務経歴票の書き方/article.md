@@ -86,7 +86,7 @@ cover:
 
 古い業務であっても、関係者との合意形成の過程や、経済・環境・社会の面から成果の持続性に触れられる余地がないかを見直すと、改訂後の評価軸に沿った詳細に仕上がります。
 
-この改訂の中身は別記事の[令和8年度 コンピテンシー改訂のポイント](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-gyoumu-keireki-hyou)で詳しく整理しています。
+この改訂の中身は別記事の[令和8年度 コンピテンシー改訂のポイント](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-gyoumu-keireki-hyou)で詳しく整理しています。
 
 ## 発注者（自治体土木職）の業務も技術士の経歴になる
 
@@ -109,7 +109,7 @@ cover:
 
 逆に、立場・課題・工夫・成果が一貫した720字は、そのまま想定問答の骨格になります。申込書づくりは、半年先の口頭試験対策の第一歩だと捉えてください。
 
-筆記そのものの組み立て方は、[建設部門 記述式答案の書き方ガイド](https://doboku-note.com/docs/pe-construction-pe-secondary-essay-guide?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-gyoumu-keireki-hyou)にまとめています。
+筆記そのものの組み立て方は、[建設部門 記述式答案の書き方ガイド](https://doboku-note.com/exam/pe-construction/guide/pe-secondary-essay-guide?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-gyoumu-keireki-hyou)にまとめています。
 
 あわせて読むと、申込から筆記・口頭までの流れがつながります。
 
