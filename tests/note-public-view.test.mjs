@@ -39,6 +39,10 @@ test('画面: 壊れた画像・描画されないカード・はみ出しは BA
   assert.match(evaluateRendered({ ...ok, cardHeights: [139, MIN_CARD_HEIGHT - 1] }).bad[0], /リンクカード/);
   assert.match(evaluateRendered({ ...ok, overflow: ['table'] }).bad[0], /はみ出す/);
   assert.match(evaluateRendered({ ...ok, imgPending: 1 }).warn[0], /読み込みが終わらない/);
+  // コードブロックの中の長い行はページを崩さない: BAD ではなく WARN（2026-09-23 の R8予想問題）
+  const scroll = evaluateRendered({ ...ok, scrollBlocks: 1 });
+  assert.deepEqual(scroll.bad, []);
+  assert.match(scroll.warn[0], /横スクロール/);
 });
 
 test('画面: 会員限定は本文要素が無くても BAD にしない（2026-09-23 の誤検出）。公開記事で無ければ BAD', () => {
@@ -48,13 +52,32 @@ test('画面: 会員限定は本文要素が無くても BAD にしない（2026
   assert.match(evaluateRendered({ ...base, status: 404, locked: false }).bad[0], /HTTP 404/);
 });
 
-test('目視確認の抽出: 等間隔に n 本、週ごとに開始位置がずれ、step 週で全体を一巡する', async () => {
-  const { pickReview } = await import('../scripts/lib/note-public-view.mjs');
-  const list = Array.from({ length: 100 }, (_, i) => i);
-  assert.deepEqual(pickReview(list, 4, 0), [0, 25, 50, 75]);
-  assert.deepEqual(pickReview(list, 4, 1), [1, 26, 51, 76]);
-  const seen = new Set();
-  for (let w = 0; w < 25; w++) pickReview(list, 4, w).forEach((i) => seen.add(i));
-  assert.equal(seen.size, 100);
-  assert.deepEqual(pickReview(list, 0, 3), []);
+test('代表ページのグループ: 資格 × 種類（もくじ・マガジン入口・会員限定・有料PDF付き・有料・無料）', async () => {
+  const { noteGroup } = await import('../scripts/lib/note-public-view.mjs');
+  assert.equal(noteGroup({ rel: '技術士総監/総監もくじ/article.md', pricing: 'free', pdfs: 0 }), '技術士総監｜もくじ');
+  assert.equal(noteGroup({ rel: '1級・2級土木/1級土木/magazines/1級土木-二次まるごとパック/article.md', pricing: 'free', pdfs: 0 }), '1級・2級土木｜マガジン入口');
+  assert.equal(noteGroup({ rel: '技術士建設部門/magazines/BK-01_道路/R03/article-III.md', pricing: 'paid', pdfs: 1 }), '技術士建設部門｜有料PDF付き');
+  assert.equal(noteGroup({ rel: '1級・2級土木/メンバーシップ/学科記述予想/01_土工/article.md', pricing: 'membership', pdfs: 0 }), '1級・2級土木｜会員限定');
+  assert.equal(noteGroup({ rel: '共通/AIで土木資格を攻略/article.md', pricing: 'free', pdfs: 0 }), '共通｜無料');
+});
+
+test('代表ページ: グループごとに公開・更新がいちばん新しい 1 本（同日はパス順）', async () => {
+  const { pickRepresentatives } = await import('../scripts/lib/note-public-view.mjs');
+  const reps = pickRepresentatives([
+    { group: 'A', date: '2026-08-01', path: 'a1' },
+    { group: 'A', date: '2026-09-01', path: 'a2' },
+    { group: 'B', date: '2026-09-01', path: 'b2' },
+    { group: 'B', date: '2026-09-01', path: 'b1' },
+    { group: 'C', date: '', path: 'c1' },
+  ]);
+  assert.deepEqual(reps.map((r) => r.path), ['a2', 'b1', 'c1']);
+});
+
+test('本文の画像 URL の抽出と、配信サーバーの応答の分類', async () => {
+  const { extractImageUrls, classifyImageStatus } = await import('../scripts/lib/note-public-view.mjs');
+  const html = '<figure><img src="https://assets.st-note.com/img/a.png" alt=""></figure><img src="https://assets.st-note.com/img/a.png"><img src="data:x"><p>x</p>';
+  assert.deepEqual(extractImageUrls(html), ['https://assets.st-note.com/img/a.png']);
+  assert.equal(classifyImageStatus(200), 'ok');
+  for (const s of [403, 404, 410]) assert.equal(classifyImageStatus(s), 'broken');
+  for (const s of [0, 429, 500]) assert.equal(classifyImageStatus(s), 'unknown');
 });

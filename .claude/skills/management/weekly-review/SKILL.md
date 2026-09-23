@@ -63,7 +63,7 @@ description: >
   ドリフト（ライブ=published / frontmatter=draft）があれば `-- --fix` で是正してコミット。
   ※予約投稿は go-live がサーバ側後刻で writeback できず draft 取り残しが起きるため週次で自己修復する
 - IG 公開状態ドリフト: 照合は CI 週次 `login-collectors.yml`（encrypted-state・`verify-ig-status --no-planner`・PR #549） が `.claude/state/ig-reconcile/snapshot.json` を
-  `source:"playwright"` で書く（Graph API 版は Meta 利用制限で待機）。週次レビューはこの snapshot を読む（実行しない）。★ドリフトが出たら次セッションで
+  `source:"playwright"` で書く（Graph API は使わない＝2026-09-23 ユーザー決定）。週次レビューはこの snapshot を読む（実行しない）。★ドリフトが出たら次セッションで
   `/ig-reconcile` を実行して posted.json backfill / 未公開を予約（真実源 `.claude/knowledge/reference/ig-publish-reconcile.md`）。
   Playwright 版 `npm run verify-ig-status` はプランナー実体確認が要るときのフォールバック（ローカル実行限定）
 - note 競合再スキャン期限: `npm run check-competitor-scan-due -- --json` を実行（四半期＝90日。creds不要・ローカルhistory参照）。
@@ -116,9 +116,9 @@ description: >
 - note 構成監査（月次寄り・network依存）: `node scripts/check-note-structure.mjs`（公開API無料本文とソース paidBoundary を突合し FULL_LOCK/PAYWALL_LEAK/BOUNDARY_SHIFT/IMG_MISSING/PRICE_MISMATCH を検出・creds不要）。CRITICAL があれば該当記事の境界を `note-update-body --commit` で再設定するようサーフェスのみ（audit-note-funnel --live と同じ live 隔離枠）。
   **出力の「実検査 N本（対象M・取得失敗K）」を必ず読む**。live 系の検査は取得できていなければ「異常なし」ではなく「検査できていない」＝ N が対象数から大きく欠けていたら結果を信用しない（取得失敗率 >20% ならスクリプト側が exit 1 で落とす）。2026-07-28 まで 675/675 が取得失敗でも緑を返していた実績がある。同種の live 検査 `check-note-live-headings` も同じ観点で見る。
 
-- **note 公開ページの目視確認（エージェント・2026-09-23〜）**: 週次 CI `note-public-view.yml` は数値で判定し（添付 PDF・価格・全文会員限定・画像・カード・はみ出し）、加えて毎週ずらしながら 24 ページの「最初の画面」と「有料エリア直前」を撮って成果物に残す。数値で決められない見た目の崩れはここで見る。
-  1. `node scripts/fetch-note-public-view-shots.mjs --json` で最新の定期 run の画像を `.tmp/note-public-view-review/<runId>/` へ取る。exit 2 は「未確認」と書く（画像 0 枚を「異常なし」と呼ばない）。
-  2. sonnet のサブエージェント（`general-purpose`・1 体）に `review/index.json` と画像の場所を渡し、各ページの 2 枚を Read で見て次を報告させる（判定の根拠は画像に写っているものだけ・推測で埋めない）: 記号がそのまま出ている（`**`・バッククォート・`\*`）／カバーの文字が切れる・重なる／本文の図が記事の題材と合わない・別記事の図／レイアウト崩れ・空の枠／画面の価格表示と `index.json` の原稿価格（pricing・price）の食い違い／**有料エリアの直前までで何が手に入るか分からない**（購入判断に要る情報が無い）。返り値はページごとに `noteId・URL・何が・どちらの画像か・重さ（直す/様子見）` の表。
+- **公開ページの目視確認（note・YouTube／エージェント・2026-09-23〜）**: 週次 CI `note-public-view.yml` は数値で判定し（note 全件＝公開 API で添付 PDF・価格・全文会員限定・本文の画像の欠け、代表ページ＝ブラウザでカード・はみ出し／YouTube 全件＝oEmbed で削除・非公開）、加えて**代表ページ**（note は資格×記事の種類ごと 1 本＝約 30 本、YouTube は Shorts・通常動画ごと 1 本）を**各サービスのブレイクポイントで区切った帯ごとの画面幅**（`.claude/config/public-view-breakpoints.json`・note 5 幅／YouTube 11 幅）で撮って成果物に残す。数値で決められない見た目の崩れはここで見る。
+  1. `node scripts/fetch-note-public-view-shots.mjs --json` で最新 run の画像を `.tmp/note-public-view-review/<runId>/` へ取る。exit 2 は「未確認」と書く（画像 0 枚を「異常なし」と呼ばない）。`breakpointDrift` に増減があれば、サービス側が画面幅の切り替えを変えたので設定を見直す（次セッションで）。
+  2. sonnet のサブエージェント（`general-purpose`・1 体。note と YouTube で分けてもよい）に各 `review/index.json` と画像の場所を渡し、ページごとに**画面幅を並べて**見て次を報告させる（判定の根拠は画像に写っているものだけ・推測で埋めない）: 特定の画面幅でだけ崩れる（重なり・はみ出し・切れ・空の枠・カードや図の欠け）／記号がそのまま出ている（`**`・バッククォート・`\*`）／カバー・サムネイルの文字が切れる／本文の図が題材と合わない／画面の価格表示と `index.json` の原稿価格の食い違い／**有料エリアの直前までで何が手に入るか分からない**（購入判断に要る情報が無い）。返り値はページごとに `ID・URL・画面幅・何が・どの画像か・重さ（直す/様子見）` の表。
   3. 「直す」は親が画像を見て確かめてから backlog へ DN を起票する（原因が原稿なら原稿を直して再公開、共通の型なら検査側で機械化できないかも書く）。
 
 出力形式:
@@ -127,7 +127,7 @@ description: >
 - 「note 公開状態ドリフト是正（N 本）」（あれば）
 - 「note 再公開ドリフト（本文 N 本 / タグ N 本）」（`check-note-republish` が drift のときのみ）
 - 「note 構成監査 CRITICAL（境界破損 N 本）」（`check-note-structure` が CRITICAL のときのみ）
-- 「note 公開ページの目視確認（run・N ページ／M 枚・指摘 K 件）」（画像を取れなかった週は「未確認」と理由）
+- 「公開ページの目視確認（run・note N ページ／YouTube M 本・画像 K 枚・指摘 L 件）」（画像を取れなかった週は「未確認」と理由）
 - 「競合再スキャン DUE」（`check-competitor-scan-due` が due のときのみ）
 - 「GSC/GA4 UI 取得 DUE（月次）」（`check-gsc-ui-due` の `anyDue` が true のときのみ・理由つき・→ 次セッションで `/google-search-growth`）
 - 「GA4 設定ドリフト」（`check-ga4-dimensions` が blockingMissing を返したときのみ・→ 次セッションで `npm run ga4-admin:apply`）

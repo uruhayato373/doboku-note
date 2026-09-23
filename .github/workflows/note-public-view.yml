@@ -1,11 +1,14 @@
-name: Audit note public view
+name: Audit public view (note / YouTube)
 
 # note 公開記事を「未ログインの読者にどう見えるか」で週次検査する（scripts/check-note-public-view.mjs）。
 # API 層（添付 PDF の本数・価格・カバー・無料記事の全文会員限定）とブラウザ層（スマホ幅で画像・リンクカード・
 # はみ出し）。公開 API と公開ページだけを使うのでログイン情報は要らない。
 # note-live-audit（本文の構造）とは別 workflow にする: ブラウザ層は 20 分ほどかかり、落ちても本文の構造検査の
 # 結果を巻き込まないため。
-# pull_request は検査スクリプト自体を変えたときだけ、抽出 40 本で CI から note を開けるかを確かめる。
+# 代表ページ（note は資格×種類ごと 1 本、YouTube は Shorts・通常動画ごと 1 本）は、各サービスのブレイクポイントで
+# 区切った帯ごとの画面幅で撮り、週次レビューでエージェントが見る（.claude/config/public-view-breakpoints.json）。
+# YouTube の視聴ページ検査も同じ週に回す（公開状態の API 照合は verify-yt-status.yml）。
+# PR では起動しない（2026-09-23 ユーザー判断: 週次でまとめて見る）。
 
 on:
   schedule:
@@ -16,12 +19,6 @@ on:
         description: "ブラウザ層を等間隔に N 本だけ（空なら全件）"
         required: false
         default: ""
-  pull_request:
-    paths:
-      - scripts/check-note-public-view.mjs
-      - scripts/lib/note-public-view.mjs
-      - .claude/config/note-public-view.json
-      - .github/workflows/note-public-view.yml
 
 permissions:
   contents: read
@@ -34,14 +31,13 @@ concurrency:
 jobs:
   audit:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 90
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          # 定期・手動は develop を検査する（既定ブランチの main は古いことがある）。PR は PR の内容。
-          # 空文字は式で偽になるので `cond && '' || 'develop'` と書くと PR でも develop になる（2026-09-23 に実際に踏んだ）
-          ref: ${{ github.event_name != 'pull_request' && 'develop' || github.ref }}
+          # develop を検査する（既定ブランチの main は古いことがある）。手動起動で ref を指定したときはそれを使う
+          ref: ${{ github.event_name == 'workflow_dispatch' && github.ref || 'develop' }}
 
       - name: Setup Node
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
@@ -58,16 +54,22 @@ jobs:
       - name: Audit note public view
         id: audit
         env:
-          SAMPLE: ${{ github.event_name == 'pull_request' && '40' || inputs.sample }}
-          REVIEW_SHOTS: ${{ github.event_name == 'pull_request' && '4' || '24' }}
+          SAMPLE: ${{ inputs.sample }}
         run: |
           set -o pipefail
           mkdir -p .tmp/note-public-view
-          # --review-shots: 週次レビューでエージェントが画像で見るための撮影（判定には使わない）。
-          # PR は撮影の経路だけ確かめる（4 本）
-          args=(--out .tmp/note-public-view/report.json --review-shots "${REVIEW_SHOTS}")
+          # --review: 代表ページを全ブレイクポイントの画面幅で検査・撮影（画像は週次レビューでエージェントが見る）
+          args=(--out .tmp/note-public-view/report.json --review)
           if [ -n "${SAMPLE}" ]; then args+=(--sample "${SAMPLE}"); fi
           node scripts/check-note-public-view.mjs "${args[@]}" 2>&1 | tee .tmp/note-public-view.log
+
+      - name: Audit YouTube public view
+        id: youtube
+        if: always()
+        run: |
+          set -o pipefail
+          mkdir -p .tmp/youtube-public-view
+          node scripts/check-youtube-public-view.mjs --review --out .tmp/youtube-public-view/report.json 2>&1 | tee .tmp/youtube-public-view.log
 
       - name: Upload report and screenshots
         if: always()
@@ -77,21 +79,23 @@ jobs:
           path: |
             .tmp/note-public-view.log
             .tmp/note-public-view/
+            .tmp/youtube-public-view.log
+            .tmp/youtube-public-view/
           if-no-files-found: ignore
           include-hidden-files: true # .tmp/ 配下（既定では . 始まりのパスを落とす）
           retention-days: 21 # 週次レビュー（土曜・ローカル）が取りに行く。2 回逃しても残る長さ
 
       - name: Report failure
-        if: failure() && github.event_name != 'pull_request'
+        if: failure()
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           {
-            echo "note 公開ページの見え方に不整合（または検査不成立）。"
+            echo "note / YouTube の公開ページの見え方に不整合（または検査不成立）。"
             echo ""
             echo '```'
-            grep -E 'BAD|✗|検査不成立' .tmp/note-public-view.log | head -60 || true
+            grep -hE 'BAD|✗|検査不成立' .tmp/note-public-view.log .tmp/youtube-public-view.log 2>/dev/null | head -60 || true
             echo '```'
             echo ""
             echo "- スクリーンショットと結果 JSON: run の成果物 note-public-view"
@@ -104,7 +108,7 @@ jobs:
             --body-file /tmp/npv-body.md
 
       - name: Resolve failure channel
-        if: success() && github.event_name != 'pull_request'
+        if: success()
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -51,7 +51,7 @@ export function evaluateApi(src, live) {
 
 /**
  * ブラウザで計測した DOM の値から不整合を返す。
- * @param {{ status: number, bodyFound: boolean, locked: boolean, imgs: number, imgBroken: number, imgPending: number, cardHeights: number[], overflow: string[] }} m
+ * @param {{ status: number, bodyFound: boolean, locked: boolean, imgs: number, imgBroken: number, imgPending: number, cardHeights: number[], overflow: string[], scrollBlocks?: number }} m
  */
 export function evaluateRendered(m) {
   const bad = [];
@@ -64,18 +64,48 @@ export function evaluateRendered(m) {
   const small = (m.cardHeights || []).filter((h) => h < MIN_CARD_HEIGHT);
   if (small.length) bad.push(`リンクカードが描画されていない ${small.length} 件（高さ ${small.join('/')}px）`);
   if ((m.overflow || []).length) bad.push(`スマホ幅で横にはみ出す（${m.overflow.slice(0, 2).join(', ')}）`);
+  // コードブロック等の横スクロール枠の中が画面より長い: ページは崩れないが、横に動かさないと読めない
+  if (m.scrollBlocks > 0) warn.push(`横スクロールしないと読めない枠 ${m.scrollBlocks} 個（コードブロック等）`);
   return { bad, warn };
 }
 
 /**
- * 目視確認に回すページを選ぶ。等間隔に n 本、開始位置を週番号でずらす（毎週違うページ・続けると全体を一巡）。
- * @param {Array} list 対象
- * @param {number} n 撮るページ数
- * @param {number} week 週番号（呼び出し側が Date から出す。テストで固定できるよう引数にする）
+ * 代表ページのグループ（資格 × 記事の種類）。撮影と画面幅ごとの検査はグループごとに 1 本だけ行う。
+ * @param {{ rel: string, pricing: string|null, pdfs: number }} a rel は content/note/ からの相対パス
  */
-export function pickReview(list, n, week) {
-  if (!n || !list.length) return [];
-  const step = Math.max(1, Math.floor(list.length / n));
-  const offset = ((week % step) + step) % step;
-  return list.filter((_, i) => i >= offset && (i - offset) % step === 0).slice(0, n);
+export function noteGroup({ rel, pricing, pdfs }) {
+  const parts = rel.split('/');
+  const qual = parts[0];
+  let kind;
+  if (/もくじ/.test(rel)) kind = 'もくじ';
+  else if (parts[parts.length - 3] === 'magazines') kind = 'マガジン入口';
+  else if (pricing === 'membership') kind = '会員限定';
+  else if (pricing === 'paid') kind = pdfs > 0 ? '有料PDF付き' : '有料';
+  else kind = '無料';
+  return `${qual}｜${kind}`;
+}
+
+/**
+ * グループごとに、公開・更新がいちばん新しい記事を代表にする（直近の変更が目に入る）。同日はパス順。
+ * @param {{ group: string, date: string, path: string }[]} list date は YYYY-MM-DD（無ければ空）
+ */
+export function pickRepresentatives(list) {
+  const best = new Map();
+  for (const t of list) {
+    const cur = best.get(t.group);
+    if (!cur || t.date > cur.date || (t.date === cur.date && t.path < cur.path)) best.set(t.group, t);
+  }
+  return [...best.values()].sort((a, b) => a.group.localeCompare(b.group, 'ja'));
+}
+
+/** 公開 API の本文 HTML から画像の URL を取り出す（重複は除く）。 */
+export function extractImageUrls(bodyHtml) {
+  return [...new Set([...(bodyHtml || '').matchAll(/<img\b[^>]*\bsrc="([^"]+)"/g)].map((m) => m[1]).filter((u) => /^https?:\/\//.test(u)))];
+}
+
+/** 画像 URL への HEAD の結果を分類する。404・403・410 は欠け（読者に表示されない）、それ以外の失敗は判定できない。 */
+export function classifyImageStatus(status) {
+  if (status >= 200 && status < 400) return 'ok';
+  if ([403, 404, 410].includes(status)) return 'broken';
+  return 'unknown';
 }

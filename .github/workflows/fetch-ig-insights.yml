@@ -7,8 +7,9 @@ name: 📸 Fetch Instagram insights (weekly)
 # 前提 Secrets: IG_GRAPH_ACCESS_TOKEN / IG_BUSINESS_ACCOUNT_ID
 # 実装: scripts/fetch-ig-insights.mjs（lib: scripts/lib/ig-graph.mjs, scripts/lib/ig-reconcile-core.mjs）
 
-# 2026-09-21: Meta の利用制限で Graph API トークンを発行できないため cron を外し dispatch 専用にする。
-# 公開状態の照合は login-collectors.yml（encrypted-state・verify-ig-status）が担う。制限が解けたら cron を戻す。
+# 2026-09-21: Meta の利用制限で Graph API トークンを発行できないため cron を外し dispatch 専用にした。
+# 2026-09-23: Instagram は Graph API を使わない（ユーザー決定）。制限が解けても cron は戻さない。
+# 公開状態の照合は login-collectors.yml（encrypted-state・verify-ig-status）が担う。
 on:
   workflow_dispatch:
 
