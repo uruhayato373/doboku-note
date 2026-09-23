@@ -31,6 +31,9 @@ export function planTagSync({ live, desired, prune = false, cap = NOTE_TAG_CAP }
   };
 }
 
+// ライブが原稿と完全に同じ集合か（不足も余分も無い）。変更が要らない記事のタグハッシュを記録してよい条件。
+export const isExactSync = (plan) => plan.missing.length === 0 && plan.extraCount === 0;
+
 // 保存後のライブを計画どおりか判定する。prune では「消すはずのタグが残っていない」も見る。
 // rejected は入力欄が受け付けなかったタグ（i-Construction など・2026-09-23 実測）。保存の失敗ではないので
 // notAdded から外し、別枠で返す（原稿側で直すもの）。

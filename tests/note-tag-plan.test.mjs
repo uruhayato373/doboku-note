@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { isEnterableTag, planTagSync, tagChipPattern, verifyTagSync } from '../scripts/lib/note-tag-plan.mjs';
+import { isEnterableTag, isExactSync, planTagSync, tagChipPattern, verifyTagSync } from '../scripts/lib/note-tag-plan.mjs';
 
 const range = (p, n) => Array.from({ length: n }, (_, i) => `${p}${i}`);
 
@@ -90,4 +90,10 @@ test('入力欄が受け付けなかったタグは失敗にせず別枠で返�
 test('note のタグ欄が受け付けない文字（- . /）を判定する', () => {
   for (const t of ['i-Construction', 'Park-PFI', '地方創生2.0', 'BIM/CIM', 'ETC2.0データ']) assert.equal(isEnterableTag(t), false, t);
   for (const t of ['i_Construction', 'Society5_0', 'BIM_CIM', 'TECFORCE', '施工管理']) assert.equal(isEnterableTag(t), true, t);
+});
+
+test('完全一致（不足も余分も無い）だけを記録してよい', () => {
+  assert.equal(isExactSync(planTagSync({ live: ['a', 'B'], desired: ['A', 'b'] })), true);
+  assert.equal(isExactSync(planTagSync({ live: ['a', 'b', 'c'], desired: ['a', 'b'] })), false);
+  assert.equal(isExactSync(planTagSync({ live: ['a'], desired: ['a', 'b'] })), false);
 });
