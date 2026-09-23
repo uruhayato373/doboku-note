@@ -26,7 +26,7 @@ import { spawnSync } from 'node:child_process';
 import { join, dirname, relative } from 'node:path';
 import { chromium } from 'playwright';
 import { recordPublishedTagHash } from './lib/note-republish-hash.mjs';
-import { NOTE_TAG_CAP, planTagSync, tagChipPattern, verifyTagSync } from './lib/note-tag-plan.mjs';
+import { NOTE_TAG_CAP, isExactSync, planTagSync, tagChipPattern, verifyTagSync } from './lib/note-tag-plan.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { isUnmeasurable } from './lib/note-live-check.mjs';
 
@@ -114,6 +114,10 @@ async function liveTags(noteId, retries = 3) {
 // ---- dry-run: 差分だけ表示 ----
 const plans = [];
 const deferred = []; // 会員限定など、未ログインではタグを読めない記事（--commit でログインして読む）
+// --commit で、ライブが既に原稿と完全一致している記事はタグハッシュだけ記録する。記録しないと
+// check-note-republish に「記録だけのずれ」が残り続ける（2026-09-23: 一括同期後も10本残った）。
+let recorded = 0;
+const recordInSync = (tagsFile) => { if (COMMIT && recordPublishedTagHash(relative(ROOT, tagsFile))) recorded++; };
 let fetchFail = 0;
 let considered = 0;
 for (const a of articles) {
@@ -137,6 +141,7 @@ for (const a of articles) {
   const extraNote = PRUNE ? ` 削除${plan.extra.length}` : (plan.extraCount ? ` 余分=${plan.extraCount}（--prune で削除）` : '');
   console.log(`[plan] ${noteId} live=${live.length} desired=${desired.length} 不足=${plan.missing.length}${extraNote} → 追加${plan.addable.length}で live=${plan.willBe}${plan.willBe < GOAL ? ' ⚠<90' : ''}${note}  ${a.replace(/^content\/note\//, '')}`);
   if (plan.changed) plans.push({ a, noteId, tagsFile, desired, plan, missing: plan.addable, extra: plan.extra, liveCount: live.length });
+  else if (isExactSync(plan)) recordInSync(tagsFile);
 }
 
 // 取得できていないなら「in-sync」ではなく「判定できていない」。緑を返さない（偽 PASS の封じ）。
@@ -147,7 +152,7 @@ if (considered > 0 && fetchFail / considered > 0.2) {
 }
 
 if (!COMMIT) { console.log(`\n[dry-run] ${PRUNE ? '変更' : '追加'}対象 ${plans.length} 記事・ログイン後に判定 ${deferred.length} 記事（--commit で実適用）。`); process.exit(0); }
-if (!plans.length && !deferred.length) { console.log(`${PRUNE ? '変更' : '追加'}すべきタグなし（${considered - fetchFail} 本を実検査・全て in-sync）。`); process.exit(0); }
+if (!plans.length && !deferred.length) { console.log(`${PRUNE ? '変更' : '追加'}すべきタグなし（${considered - fetchFail} 本を実検査・全て in-sync・一致の記録 ${recorded} 本）。`); process.exit(0); }
 
 // ---- commit: ブラウザで不足タグを追加 ----
 const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
@@ -179,6 +184,7 @@ try {
     const plan = planTagSync({ live: got.tags, desired: x.desired, prune: PRUNE });
     console.log(`[plan*] ${x.noteId} live=${got.tags.length} desired=${x.desired.length} 不足=${plan.missing.length}${PRUNE ? ` 削除${plan.extra.length}` : ''} → 追加${plan.addable.length}で live=${plan.willBe}（ログインで取得）`);
     if (plan.changed) plans.push({ ...x, plan, missing: plan.addable, extra: plan.extra, liveCount: got.tags.length, viaLogin: true });
+    else if (isExactSync(plan)) recordInSync(x.tagsFile);
   }
 
   for (const p of plans) {
@@ -322,5 +328,5 @@ try {
   await ctx.close();
 }
 if (rejectedAll.size) console.log(`\n[rejected] 入力欄が受け付けなかったタグ: ${[...rejectedAll].map(([t, n]) => `${t}(${n})`).join(' ')}`);
-console.log(`\n[done] ok=${ok} fail=${fail} partial=${partial} / ${plans.length}`);
+console.log(`\n[done] ok=${ok} fail=${fail} partial=${partial} / ${plans.length}（変更不要で一致を記録 ${recorded} 本）`);
 process.exit(fail ? 1 : 0);
