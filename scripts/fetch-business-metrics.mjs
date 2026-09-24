@@ -5,7 +5,7 @@ import { google } from 'googleapis';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import dotenv from 'dotenv';
-import { direction, reviewPeriod, records, currentRecords, samePeriod, saveRecord, addDays, jst } from './lib/business-direction.mjs';
+import { direction, duePeriods, records, currentRecords, samePeriod, saveRecord } from './lib/business-direction.mjs';
 const root = process.cwd(), args = process.argv.slice(2);
 dotenv.config({ path: '.env.local', quiet: true });
 const field = (fieldName, value, matchType = 'EXACT') => ({ filter: { fieldName, stringFilter: { matchType, value } } });
@@ -17,11 +17,16 @@ async function run() {
   const ga = new BetaAnalyticsDataClient({ credentials });
   const auth = new google.auth.GoogleAuth({ credentials, scopes: ['https://www.googleapis.com/auth/webmasters.readonly'] });
   const gsc = google.searchconsole({ version: 'v1', auth });
-  const periods = args.includes('--monthly') ? [reviewPeriod('monthly')] : [reviewPeriod('weekly'), reviewPeriod('monthly')];
+  const monthlyOnly = args.includes('--monthly');
+  // GSC final data can lag. Skip only the unfinished period; the finished one is still fetched.
+  const { due, skipped } = duePeriods(monthlyOnly ? ['monthly'] : ['weekly', 'monthly']);
+  for (const s of skipped) console.log(`[business-metrics] ${s.cadence} ${s.period.startDate}〜${s.period.endDate} はGSC確定前（終了日から4日未満）のため取得しない`);
+  if (!due.length) {
+    if (monthlyOnly) throw new Error('gsc-final-data-not-yet-due');
+    console.log('[business-metrics] 取得対象0件（全期間がGSC確定前）。記録なし'); return;
+  }
   const pending = [];
-  for (const period of periods) {
-    // GSC final data can lag. Do not store an unfinished week as complete.
-    if (period.endDate > addDays(jst(), -4)) throw new Error('gsc-final-data-not-yet-due');
+  for (const { period } of due) {
     for (const qualification of ['all', ...c.qualifications.map(q => q.id)]) {
       const expressions = [field('country', 'Japan'), field('sessionDefaultChannelGroup', 'Organic Search')];
       if (qualification !== 'all') expressions.push(field('pagePath', `/exam/${qualification}/`, 'BEGINS_WITH'));
@@ -49,4 +54,5 @@ async function run() {
   }
   console.log(`[business-metrics] ${pending.length}集計検査、${count}記録追記。個人情報なし`);
 }
-run().catch((e) => { const reason = ['credentials-unavailable', 'property-mismatch', 'gsc-final-data-not-yet-due'].includes(e.message) ? e.message : 'api-or-network-failed'; console.error(`[business-metrics] 取得不成立 (${reason})。未取得値は記録しません。`); process.exitCode = 1; });
+// exit 1 = 取得失敗、exit 2 = 明示の --monthly が確定前で取得対象外（検査不成立）。
+run().catch((e) => { const reason = ['credentials-unavailable', 'property-mismatch', 'gsc-final-data-not-yet-due'].includes(e.message) ? e.message : 'api-or-network-failed'; console.error(`[business-metrics] 取得不成立 (${reason})。未取得値は記録しません。`); process.exitCode = reason === 'gsc-final-data-not-yet-due' ? 2 : 1; });

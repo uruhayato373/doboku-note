@@ -90,3 +90,24 @@ export function pickByLabelSnapshot(dir) {
   }
   return monthly.length ? monthly[monthly.length - 1] : join(dir, files[files.length - 1]);
 }
+
+/**
+ * GA4×GSC crosswalk 用の GSC ページ別スナップショットを選ぶ。
+ *
+ * `gsc-page-` の前方一致だけで選ぶと `gsc-page-query-*`（page×query・名前順で末尾）を拾い、
+ * 1 ページ 1 クエリ行の値で突合して機会表が毎週空になっていた（2026-09 発覚）。
+ * 日付が直後に続くページ別ファイルのうち、`meta.truncated` でない最新を返す
+ * （水曜の index-coverage.yml が書く 1000 行打ち切り版を拾わない）。
+ *
+ * @param {string[]} names ディレクトリ内のファイル名
+ * @param {(name: string) => object|null} readMeta ファイル名 → meta（読めなければ null）
+ * @returns {string|null} 選ばれたファイル名
+ */
+export function pickGscPage(names, readMeta) {
+  const candidates = names.filter((f) => /^gsc-page-\d{4}-/.test(f) && f.endsWith(".json")).sort().reverse();
+  for (const name of candidates) {
+    const meta = readMeta(name);
+    if (meta && meta.truncated !== true) return name;
+  }
+  return null;
+}

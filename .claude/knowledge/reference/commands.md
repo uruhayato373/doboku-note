@@ -195,6 +195,6 @@ npm run check-project-task-refs # docs/ の恒久文書の廃止参照(task-queu
 npm run check-information-architecture # 4 領域（docs/content/.claude/実装）への逆戻り検知（廃止した置き場への新規ファイル・docs への制作物混入・content への台帳混入・二重 SSOT。pre-commit --staged ＋ quality:audit）
 npm run check-relative-links   # Markdown の相対リンク `](../x)` の実在（check-doc-refs はリンク**テキスト**しか見ないので、置き場を変えると href だけ黙って壊れる。pre-commit --staged ＋ quality:audit）
 npm run business-review       # 資格別KPI・週次/月次レビュー期日の確認（-- report --monthly で前月）
-npm run fetch-business-metrics # GSC/GA4の資格別・完了週/月の集計取得（--commitで追記）
+npm run fetch-business-metrics # GSC/GA4の資格別・完了週/月の集計取得（--commitで追記）。GSC確定前（終了日から4日未満）の期間だけskipし確定済みは取得、明示 --monthly が未確定なら exit 2
 npm run check-business-direction # 事業方針・指標・履歴・追記専用の検査
 ```

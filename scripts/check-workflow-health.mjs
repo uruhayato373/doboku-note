@@ -28,6 +28,8 @@
  * Usage:
  *   node scripts/check-workflow-health.mjs
  *   node scripts/check-workflow-health.mjs --json
+ *   node scripts/check-workflow-health.mjs --only weekly-review-guard.yml
+ *     （config の 1 本だけを見る。月曜の weekly-review-guard 自身が止まった沈黙を、日次の ops-audit から拾う）
  *
  * exit: 0 健全 / 1 違反あり / 2 検査不成立（gh 不在・設定破損・run 取得ゼロ）
  * 緊急回避: SKIP_WORKFLOW_HEALTH=1
@@ -169,8 +171,10 @@ function main() {
 
   let config;
   try { config = JSON.parse(readFileSync(CONFIG_PATH, 'utf8')); } catch (e) { fail(`config を読めない: ${e.message}`); }
-  const targets = (config.workflows ?? []).filter((w) => w.workflow);
-  if (targets.length === 0) fail('config の workflows が空');
+  const onlyIdx = process.argv.indexOf('--only');
+  const only = onlyIdx >= 0 ? process.argv[onlyIdx + 1] : null;
+  const targets = (config.workflows ?? []).filter((w) => w.workflow && (!only || w.workflow === only));
+  if (targets.length === 0) fail(only ? `config に ${only} が無い` : 'config の workflows が空');
 
   const defaults = { maxAgeDays: 10, maxConsecutiveFailures: 3, ...(config.defaults ?? {}) };
   const now = Date.now();

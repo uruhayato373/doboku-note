@@ -95,6 +95,19 @@
       "_note": "30 分刻み。承認済みキュー（status.json scheduled/queued）が空の間は plan-x が 0 件で緑。x の cron 投稿は頻度ゲート 12 規則を全通過したときだけ"
     },
     {
+      "workflow": "gsc-auto-review.yml",
+      "maxAgeDays": 10,
+      "maxConsecutiveFailures": 2,
+      "_note": "週次（金 12:00 JST）。GSC 観測ログの記録層。記録の沈黙は check-gsc-auto-review も見るが、workflow 自体の連続失敗はここで拾う"
+    },
+    {
+      "workflow": "weekly-review-guard.yml",
+      "branch": "main",
+      "maxAgeDays": 9,
+      "maxConsecutiveFailures": 2,
+      "_note": "週次（月 11:17 JST）。この watchdog を動かしている guard 自身なので、月曜の実行では自分の沈黙を拾えない。日次の ops-audit.yml が --only で本行だけを見る（相互監視）"
+    },
+    {
       "workflow": "note-public-view.yml",
       "maxAgeDays": 10,
       "maxConsecutiveFailures": 2,

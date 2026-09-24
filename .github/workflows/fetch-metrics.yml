@@ -13,11 +13,13 @@ concurrency:
 
 permissions:
   contents: write
+  # 計測アラート（整合性・日次異常・事業計測の取得失敗）を automation-failure Issue に記録する
+  issues: write
 
 jobs:
   fetch:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - name: Checkout develop
         # schedule はデフォルトブランチ（main）を checkout するため、ref を明示しないと
@@ -54,7 +56,11 @@ jobs:
           printf '%s' "$GOOGLE_SERVICE_ACCOUNT_KEY_JSON" > credentials/gsc-service-account.json
           chmod 600 credentials/gsc-service-account.json
 
+      # 失敗しても GA4/GSC の取得と publish を止めない（月初の金曜に月次の未確定で落ち、
+      # その週の計測がすべて失われた欠陥の是正）。結果は末尾の Report step が Issue にする。
       - name: Fetch qualification business metrics (completed week/month)
+        id: business
+        continue-on-error: true
         env:
           GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
           GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
@@ -148,7 +154,8 @@ jobs:
         env:
           GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
           GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
-        run: npm run fetch-ga4-data -- --dimension page --limit 100
+        # 上位 100 件で切ると crosswalk の結合が 29 ページに留まった。全ページを取る（meta.truncated で確認可能）
+        run: npm run fetch-ga4-data -- --dimension page --limit 10000
 
       # 収益カバレッジ ダッシュボード用: note/アフィリ CTA クリック（eventName × pagePath）。
       # 本番クリックが蓄積するまで 0 件が正常（計装は AnalyticsProvider のデリゲートリスナー）。
@@ -258,21 +265,23 @@ jobs:
         continue-on-error: true
         run: npm run report-ga4-gsc-crosswalk
 
+      # 既定シェルは bash -e。`node …; echo "exit_code=$?"` だと非 0 で step が先に終わり exit_code が
+      # 立たず、下の判定が一度も発火しなかった（2026-09 発覚）。set +e で rc を必ず取る。
       - name: Check data integrity
         id: integrity
-        continue-on-error: true
         run: |
           mkdir -p /tmp/metrics-report
+          set +e
           node .claude/scripts/check-data-integrity.mjs --report /tmp/metrics-report/integrity.md
-          echo "exit_code=$?" >> $GITHUB_OUTPUT
+          echo "exit_code=$?" >> "$GITHUB_OUTPUT"
 
       - name: Check daily anomaly
         id: anomaly
-        continue-on-error: true
         run: |
           mkdir -p /tmp/metrics-report
+          set +e
           node .claude/scripts/check-daily-anomaly.mjs --report /tmp/metrics-report/anomaly.md
-          echo "exit_code=$?" >> $GITHUB_OUTPUT
+          echo "exit_code=$?" >> "$GITHUB_OUTPUT"
 
       - name: Stage outputs
         run: |
@@ -324,19 +333,55 @@ jobs:
           git commit -m "chore(metrics): gsc+ga4 weekly fetch $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
           git push origin develop
 
-      # タスク自動化(task-queue.json/build-todo)は廃止(2026-06-11、.claude/todo/ 手動運用へ一本化)。
-      # 違反は CI 失敗として通知し、人が .claude/todo/ に手動起票する。計測データは前ステップで commit 済み。
-      - name: Fail on data-integrity violation (アラート)
-        if: steps.integrity.outputs.exit_code == '1'
+      # 計測データは前ステップで commit 済み。異常は automation-failure Issue に記録し、復旧時に自動クローズする。
+      # rc=1（計測異常・事業計測の取得失敗）と rc=2（検査不成立＝入力ファイルなし）は channel を分ける。
+      - name: Report measurement alerts
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          INTEGRITY_RC: ${{ steps.integrity.outputs.exit_code }}
+          ANOMALY_RC: ${{ steps.anomaly.outputs.exit_code }}
+          BUSINESS_OUTCOME: ${{ steps.business.outcome }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
-          echo "::error::GA4 データ整合性違反を検出（check-data-integrity.mjs）。.claude/todo/ に手動で起票してください。"
-          exit 1
-
-      - name: Fail on daily-anomaly violation (アラート)
-        if: steps.anomaly.outputs.exit_code == '1'
-        run: |
-          echo "::error::GA4 日次異常を検出（check-daily-anomaly.mjs）。.claude/todo/ に手動で起票してください。"
-          exit 1
+          anomalies=() invalid=()
+          [ "$INTEGRITY_RC" = "1" ] && anomalies+=("GA4 データ整合性違反（check-data-integrity.mjs）")
+          [ "$ANOMALY_RC" = "1" ] && anomalies+=("GA4 日次異常（check-daily-anomaly.mjs）")
+          [ "$BUSINESS_OUTCOME" = "failure" ] && anomalies+=("資格別事業計測の取得失敗（fetch-business-metrics / business-review snapshot）")
+          [ "$INTEGRITY_RC" = "2" ] && invalid+=("check-data-integrity: ga4-date が無く検査不成立")
+          [ "$ANOMALY_RC" = "2" ] && invalid+=("check-daily-anomaly: ga4-date が無く検査不成立")
+          # 検査 step まで到達しなかった（前段で落ちた）場合も検査不成立として扱う
+          [ -z "$INTEGRITY_RC" ] && invalid+=("check-data-integrity が実行されていない（前段の失敗）")
+          [ -z "$ANOMALY_RC" ] && invalid+=("check-daily-anomaly が実行されていない（前段の失敗）")
+          report() {
+            {
+              echo "## 検出"
+              for x in "$@"; do echo "- $x"; done
+              echo
+              for f in /tmp/metrics-report/integrity.md /tmp/metrics-report/anomaly.md; do
+                if [ -f "$f" ]; then echo; cat "$f"; fi
+              done
+              echo
+              echo "- run: $RUN_URL"
+              echo "- 異常の読み方: \`.claude/knowledge/reference/measurement-incidents.md\`"
+            } > /tmp/metrics-alert.md
+          }
+          status=0
+          if [ ${#anomalies[@]} -gt 0 ]; then
+            report "${anomalies[@]}"
+            node scripts/report-automation-failure.mjs --channel fetch-metrics --title "計測アラート（${#anomalies[@]} 件）" --body-file /tmp/metrics-alert.md
+            status=1
+          else
+            node scripts/report-automation-failure.mjs --resolve --channel fetch-metrics --body "復旧 run: $RUN_URL" || true
+          fi
+          if [ ${#invalid[@]} -gt 0 ]; then
+            report "${invalid[@]}"
+            node scripts/report-automation-failure.mjs --channel fetch-metrics-check-invalid --title "計測検査が不成立（${#invalid[@]} 件）" --body-file /tmp/metrics-alert.md
+            status=1
+          else
+            node scripts/report-automation-failure.mjs --resolve --channel fetch-metrics-check-invalid --body "復旧 run: $RUN_URL" || true
+          fi
+          exit $status
 
       - name: Cleanup credentials
         if: always()

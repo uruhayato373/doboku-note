@@ -59,6 +59,8 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
           set -o pipefail
+          # bash -e のままだと非 0 で step が終わり exit_code が出力されない（2026-09 発覚）
+          set +e
           node scripts/fetch-cloudflare-analytics.mjs 2>&1 | tee "$RUNNER_TEMP/cf.log"
           echo "exit_code=$?" >> "$GITHUB_OUTPUT"
 

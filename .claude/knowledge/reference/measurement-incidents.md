@@ -8,6 +8,20 @@ title: 計測・検証事故の記録
 
 個別事例は時系列の逆順（新しい順）で追記する。各事例は「現象 / 根本原因 / 気づきの遅延理由（or 検出経緯）/ 適用した対策 / 教訓」を明記する。
 
+## 2026-09-24: 週次計測の 4 か所が沈黙していた（アラート不発・突合の空表・月初の全停止・行数の打ち切り）
+
+GA4 起点の改善サイクル設計のため `fetch-metrics.yml` と周辺スクリプトを通読して見つかった。4 件とも赤も警告も出ず、出力は「正常そうに」見えていた。
+
+- **アラートが一度も鳴らない**: `fetch-metrics.yml` の整合性・日次異常の検査が `node …; echo "exit_code=$?"` だった。既定シェルは `bash -e` なので非 0 で step が先に終わり、`exit_code` が出力されない。後続の `if: …exit_code == '1'` は一度も真にならず、W16 事故（GA4 6 日欠損）の再発防止ゲートが導入以来無効だった。同型が `cloudflare-config-audit` / `cloudflare-metrics` / `fetch-ig-insights` / `verify-yt-status`（2 か所）にもあった（cloudflare-metrics は空値の `!= '0'` で偶然 Issue だけは立っていた）。
+  - 対策: 全箇所に `set +e`。fetch-metrics は publish 後に rc=1 を channel `fetch-metrics`、rc=2（検査不成立）を `fetch-metrics-check-invalid` へ起票し、復旧で自動クローズする。`check-workflow-hygiene` にルール 8（errexit 下の `$?`）を追加し回帰テストで固定した
+- **突合の機会表が毎週空**: `report-ga4-gsc-crosswalk.mjs` が `gsc-page-` の前方一致で最新を選び、名前順で末尾に来る `gsc-page-query-*` を拾っていた。1 ページ 1 クエリ行の値で突合するため、`crosswalk-latest.md` の title/順位機会は毎週「該当なし」だった（修正後の同じ入力で各 11 件）。水曜の `index-coverage.yml` が書く 1000 行打ち切り版（`meta.truncated:true`）も同じ接頭辞で、単純な日付一致に直すだけでは次にそれを拾う。
+  - 対策: `pickGscPage`（`.claude/scripts/lib/ga4-snapshot.mjs`）で日付直後かつ非打ち切りの最新を選ぶ。`report-monetization-coverage.mts` は同じ罠を 2026-08 に塞いでいたが、横展開されていなかった
+- **月初の金曜に週次計測が丸ごと落ちる**: `fetch-business-metrics.mjs` は週次・月次の両期間を取り、どちらかが GSC 確定前（終了日から 4 日未満）なら throw していた。金曜が 1〜3 日だと月次が未確定で throw し、`continue-on-error` の無い step がジョブを落とす。以降の GA4/GSC 取得と publish も走らず、その週の計測がすべて失われる（次回は 2026-10-02）。
+  - 対策: `duePeriods`（`scripts/lib/business-direction.mjs`）で未確定の期間だけ skip し、確定済みの週次は取得する。workflow 側も business step を `continue-on-error` にし、失敗は Issue へ回す
+- **行数の無言の打ち切り**: GA4 ページ別は `--limit 100`（サイトは 1,500 URL 超。crosswalk の結合は 29 ページ）、CTA クリックは `limit: 1000` 固定でページングが無かった（最新ファイルはちょうど 1000 行＝打ち切り）。
+  - 対策: `runReportAll`（`.claude/scripts/lib/ga4-client.mjs`）で `rowCount` まで offset ページングし、`meta.rowCount`・`meta.truncated` を残す。ページ別は `--limit 10000`
+- 教訓: 「赤くならない」は「正しい」ではない。**出力の中身（表が空・行数がちょうど上限・判定 step が一度も真にならない）を見る**。前方一致で最新ファイルを選ぶ箇所は、派生ファイル名と打ち切り版の両方を疑う。workflow の終了コード分岐は、分岐先が一度でも実行された履歴があるかで生死を確かめる。
+
 ## 2026-09-21: 暗号化 storageState を hosted CI で使うと Google / Meta / Amazon はセッションを全面失効させる
 
 - 現象: `login-collectors.yml`（GitHub hosted runner・ubuntu・headless Chrome）で Mac から export した storageState を復元したところ、
@@ -412,8 +426,8 @@ curl https://<account>.r2.cloudflarestorage.com/
 | `psi-audit.yml` | `0 17 * * *` | **develop**（明示） | develop | PSI / Core Web Vitals |
 | `fetch-metrics.yml` | `0 21 * * 4` | **develop**（明示） | develop | GA4 / GSC 週次 |
 | `gsc-auto-review.yml` | `0 3 * * 5` | **develop**（明示） | develop | GSC 週次・月次の記録層 |
-| `index-coverage.yml` | `0 2 1 * *` | **develop**（明示） | develop | GSC index coverage |
-| `weekly-review-guard.yml` | `17 2 * * 1` | **main**（ref 無し） | なし | 週次レビュー実施の督促 |
+| `index-coverage.yml` | `0 2 * * 3` | **develop**（明示） | develop | GSC index coverage（2026-09-17 に週次へ） |
+| `weekly-review-guard.yml` | `17 2 * * 1` | **develop**（明示） | なし（Issue のみ） | 週次レビュー実施の督促・watchdog |
 | `r2-audit.yml` | `0 22 * * 0` | **main**（明示） | なし | R2 / OGP / 品質ゲート |
 | `post-youtube-scheduled.yml` | `17 8 * * *` | **develop**（明示） | develop | YouTube 通常動画・Shorts 予約投稿 |
 | `link-audit.yml` | `0 22 * * 4` | **develop**（明示） | develop | リンク切れ |

@@ -36,7 +36,7 @@ GSC/GA4 の JSON データを読み込み、**改善候補のパターン検出*
 | ファイル | 取得元スキル |
 |---|---|
 | `.claude/state/metrics/gsc/gsc-query-*.json`（最新） | `/fetch-gsc-data` |
-| `.claude/state/metrics/gsc/gsc-page-*.json`（最新） | `/fetch-gsc-data --dimension page` |
+| `.claude/state/metrics/gsc/gsc-page-<日付>*.json`（最新・`gsc-page-query-*` と `truncated:true` の水曜打ち切り版は除く） | `/fetch-gsc-data --dimension page` |
 | `.claude/state/metrics/gsc/gsc-page-query-*.json`（最新・前週があれば 2 件） | `/fetch-gsc-data --dimensions page,query --all`（Pattern 7/8 用・週次 CI 生成） |
 
 > `gsc-query-*` / `gsc-page-*` が `truncated:true` または0行なら、候補件数の前週比較やサイト全体の増減を断定しない。完全な `gsc-date-*` の合計と `gsc-page-query-*` は、各データの対象範囲を明示して別に利用できる。

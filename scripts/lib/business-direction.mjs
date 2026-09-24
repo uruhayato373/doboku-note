@@ -30,6 +30,21 @@ export function reviewPeriod(cadence, today = jst()) {
   const endDate = addDays(today, -((weekday + 6) % 7) - 1);
   return { startDate: addDays(endDate, -6), endDate };
 }
+/**
+ * GSC の確定データは終了日から4日未満だと揃わない。取得対象の期間はここだけで決める。
+ * 未確定の期間は skip として返し、確定済みの期間の取得を巻き込んで止めない
+ * （月初1〜4日の金曜に月次の throw で週次も含む fetch-metrics 全体が落ちた欠陥の是正）。
+ */
+export const GSC_FINAL_LAG_DAYS = 4;
+export function duePeriods(cadences, today = jst()) {
+  const due = [], skipped = [];
+  for (const cadence of cadences) {
+    const period = reviewPeriod(cadence, today);
+    if (period.endDate > addDays(today, -GSC_FINAL_LAG_DAYS)) skipped.push({ cadence, period, reason: 'gsc-final-data-not-yet-due' });
+    else due.push({ cadence, period });
+  }
+  return { due, skipped };
+}
 export const samePeriod = (a, b) => a?.startDate === b?.startDate && a?.endDate === b?.endDate;
 export function records(root) {
   const dir = join(root, RECORDS);
