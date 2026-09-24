@@ -25,6 +25,7 @@ import { leanContextOptions } from './lib/playwright-launch.mjs';
  * npm run note-update-partial -- --spec .tmp/note-partial/example.json
  * npm run note-update-partial -- --spec .tmp/note-partial/example.json --commit
  * npm run note-update-partial -- --list .tmp/note-partial/specs.list.txt --commit
+ * npm run note-update-partial -- --spec <spec> --commit --paid-line-bottom   # 有料記事の境界 line を末尾の直前へ置き直して公開（末尾だけ有料の記事用）
  */
 
 const ROOT = process.cwd();
@@ -817,8 +818,11 @@ async function runSpec(page, specArg) {
   if (after.chars < Math.min(300, before.chars * 0.8)) throw new Error('本文文字数が安全閾値を下回った');
   await page.screenshot({ path: shot('edited', noteId) });
 
-  const published = await publishLive(page, noteId, article.paidBoundary || '試験問題|予想問題', article.isPaid, {
+  // --paid-line-bottom: ライブは有料（末尾だけ有料）だが原稿が無料扱いの記事を、有料として境界 line を末尾へ置いて更新する（DN-0271）
+  const PAID_LINE_BOTTOM = process.argv.includes('--paid-line-bottom');
+  const published = await publishLive(page, noteId, article.paidBoundary || '試験問題|予想問題', article.isPaid || PAID_LINE_BOTTOM, {
     keepBoundary: true,
+    paidLineBottom: PAID_LINE_BOTTOM,
     // 無料記事がメンバーシップ特典マガジンに入っていると、ラインなしの更新で全文が会員限定になる。
     // 意図して全文ロックしている記事だけ --keep-member-lock で通す（無ければ publishLive が中断する）
     membershipLock: article.notePricing === 'membership' || process.argv.includes('--keep-member-lock'),
