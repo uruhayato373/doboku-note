@@ -250,6 +250,11 @@ async function preflight(page, op) {
       const already = fromIndex + operation.blocks === toIndex;
       return { count: already || hasAttachment ? 0 : 1, already, reason: hasAttachment ? 'attachment-in-block-group' : undefined };
     }
+    if (operation.type === 'insertBeforeBlockHtml') {
+      const already = (ed.innerText || '').includes(operation.probe) || (ed.innerHTML || '').includes(operation.probe);
+      const blocks = [...ed.children].filter((child) => (child.innerText || '').includes(operation.beforeNeedle));
+      return { count: already ? 0 : blocks.length, already, reason: blocks.length === 1 ? undefined : `block-count:${blocks.length}` };
+    }
     if (operation.type === 'insertBeforeHeadingHtml') {
       const already = (ed.innerText || '').includes(operation.probe) || (ed.innerHTML || '').includes(operation.probe);
       const headings = [...ed.querySelectorAll('h2')]
@@ -534,6 +539,24 @@ async function applyOperation(page, op) {
       return true;
     }, op);
   }
+  if (op.type === 'insertBeforeBlockHtml') {
+    return page.evaluate((operation) => {
+      const ed = document.querySelector('[contenteditable=true]');
+      const blocks = [...ed.children].filter((child) => (child.innerText || '').includes(operation.beforeNeedle));
+      if (blocks.length !== 1) return false;
+      const template = document.createElement('template'); template.innerHTML = operation.html;
+      const allowed = new Set(['H2', 'H3', 'P', 'UL', 'OL', 'LI', 'A', 'STRONG', 'EM', 'BR', 'BLOCKQUOTE', 'HR']);
+      for (const element of template.content.querySelectorAll('*')) {
+        if (!allowed.has(element.tagName)) return false;
+        for (const attribute of [...element.attributes]) {
+          if (!(element.tagName === 'A' && ['href', 'target', 'rel'].includes(attribute.name))) return false;
+        }
+      }
+      blocks[0].insertAdjacentHTML('beforebegin', operation.html);
+      ed.dispatchEvent(new InputEvent('input', { bubbles: true, inputType: 'insertText' }));
+      return true;
+    }, op);
+  }
   if (op.type === 'insertBeforeHeadingHtml') {
     return page.evaluate((operation) => {
       const ed = document.querySelector('[contenteditable=true]');
@@ -716,6 +739,9 @@ async function verifyOperations(page, spec) {
         const to = children.findIndex((element) => (!op.beforeSelector || element.matches(op.beforeSelector))
           && (element.innerText || '').includes(op.beforeNeedle));
         if (from < 0 || to < 0 || from + op.blocks !== to) failures.push(`${index}:moveBlockGroupBefore`);
+      }
+      if (op.type === 'insertBeforeBlockHtml' && !text.includes(op.probe) && !html.includes(op.probe)) {
+        failures.push(`${index}:insertBeforeBlockHtml`);
       }
       if (op.type === 'insertBeforeHeadingHtml' && !text.includes(op.probe) && !html.includes(op.probe)) {
         failures.push(`${index}:insertBeforeHeadingHtml`);
