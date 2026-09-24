@@ -278,6 +278,49 @@
       },
       "slugs": [],
       "acceptedSlugs": []
+    },
+    {
+      "runId": "2026-09-24T20-30-13Z",
+      "collectedAt": "2026-09-24T20:30:13.043Z",
+      "mode": "commit",
+      "status": "ok",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 15,
+      "accepted": 10,
+      "alreadyIndexed": 3,
+      "unreadable": 0,
+      "slugs": [
+        "/exam/pe-comprehensive-management/keywords/cost-benefit-analysis",
+        "/exam/civil-construction-1/textbook/pavement-repair-quality",
+        "/exam/pe-construction/past-exams/r05-urban-planning",
+        "/exam/civil-construction-2/guide/schedule-management",
+        "/exam/pe-construction/past-exams/r07-urban-planning",
+        "/exam/civil-construction-1/guide/construction-plan",
+        "/exam/pe-construction/past-exams/r06-road",
+        "/exam/concrete-diagnostician/primary/exercise-05",
+        "/exam/pe-construction/past-exams/r06-urban-planning",
+        "/exam/civil-construction-1/guide/surveying",
+        "/exam/pe-first-stage/primary/r07-aptitude",
+        "/exam/pe-comprehensive-management/keywords/four-e-countermeasures",
+        "/exam/pe-comprehensive-management/keywords/key-performance-indicators",
+        "/exam/civil-construction-2/guide/law-key-points",
+        "/exam/pe-construction/guide/competency-revision-r8"
+      ],
+      "acceptedSlugs": [
+        "/exam/pe-construction/past-exams/r05-urban-planning",
+        "/exam/pe-construction/past-exams/r07-urban-planning",
+        "/exam/civil-construction-1/guide/construction-plan",
+        "/exam/pe-construction/past-exams/r06-road",
+        "/exam/concrete-diagnostician/primary/exercise-05",
+        "/exam/pe-construction/past-exams/r06-urban-planning",
+        "/exam/pe-first-stage/primary/r07-aptitude",
+        "/exam/pe-comprehensive-management/keywords/four-e-countermeasures",
+        "/exam/pe-comprehensive-management/keywords/key-performance-indicators",
+        "/exam/pe-construction/guide/competency-revision-r8"
+      ]
     }
   ]
 }
