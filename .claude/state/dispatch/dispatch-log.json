@@ -1135,6 +1135,18 @@
       "commit": "86f1f1e2cdcd",
       "verification": "check-note-republish --json: DN-0274 対象 40 本の drift 残存 0 / note-update-body 40 本 [OK]・[4.6] 添付復元 OK（1 件）40・[5e] API 実体検証 OK 40",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0299",
+      "at": "2026-09-24",
+      "task": "note の PDF なし 27 本の本文を再公開し、表示崩れ（太字の記号・重複バナー）と 404 リンク 2 本を note 上から消す",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "f87d43db5cad",
+      "verification": "27 本すべて note-update-body [5e] OK（CDN 待ち中断 4 本は --force-retry で再実行）/ check-note-republish: 27 本の drift 残存 0 / check-note-live-headings exit 0（884 件）/ check-note-structure --ci exit 0 / 公開 API でリンクカード・目次・太字記号を照合",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }

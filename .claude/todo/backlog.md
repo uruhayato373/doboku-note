@@ -82,7 +82,7 @@
 
 **やること**: 手順は DN-0274 と同じ（PDF は `drive-vault-sync --pull` で取り込み、`note-update-body --list <15本> --reattach-pdf --commit` を 1 つずつ。日次のアップロード上限と 3 本連続失敗で止め、CDN 待ちの中断は単発で `--force-retry`）。PDF 無しは `--reattach-pdf` 不要で、1 日の上限を使わない。加えて:
 1. PR #588 のマージ後に流す。無料設定のままメンバーシップ特典マガジンに入っている記事は、`--trial-line-bottom`（ほぼ全文を誰でも読める）か `--keep-member-lock`（全文ロックを保つ）を付けないと中断するようになる。
-2. 無料設定のまま会員限定の記事（2026-09-23 実測）: 全文ロックは 1級・2級の想定工事索引、合格ラボ「はじめに」、RCCM 問題III 序章、1級・2級・コンクリートの**まるごとパック入口 LP**。**入口 LP が全文ロック（未ログインで本文 0 字）なのは要判断**。`note-api-verification.md` は「入口 LP は `--trial-line-bottom` で無料プレビューを出す」扱いで、以前の更新（ラインを引かない既定）で閉じた可能性がある。ユーザーに開けるか確認してからフラグを決める。ペルソナ選択ガイドは 9/23 に `--trial-line-bottom` で本文 3,825 字を公開済み。
+2. 無料設定のまま会員限定の記事で残っているもの: 2級の想定工事索引、合格ラボ「はじめに」、RCCM 問題III 序章、1級・2級の**まるごとパック入口 LP**。2026-09-24 にユーザーが 1級の想定工事索引とコンクリートの入口 LP を「開く」と判断し、`--trial-line-bottom` で公開した（未ログインで 3,421 字・2,514 字）。同じ種類の 2級索引と 1級・2級入口 LP も `--trial-line-bottom` が既定。合格ラボ「はじめに」と RCCM 序章は会員向けの導入なので、開けるかをユーザーに確認してからフラグを決める。
 3. `notePricing: membership` の 6 本（予想問題マガジン・学科記述予想）は従来どおりラインなしで全文ロックを保つ（フラグ不要）。
 
 **完了条件**: `node scripts/check-note-republish.mjs --json` の `driftFiles` に `ba31a4f64` で変えた 86 本が無い。週次の `check-note-live-headings` で太字記号が 0。
@@ -145,14 +145,6 @@
 
 **完了条件**: launchd の実行が受理を `gsc-indexing/history.json` に記録して develop へ push し、`npm run check-gsc-indexing-due` と `npm run check-gsc-sitemaps` がともに OK。
 
-### [DN-0299] note の PDF なし 27 本の本文を再公開し、表示崩れ（太字の記号・重複バナー）と 404 リンク 2 本を note 上から消す
-タグ: [SNS・マーケ] [種類:改善] [起票:2026-09-24] [期日:2026-09-25] [進行中]
-
-**起点**: `check-note-republish`（DN-0297 で 301 等価な張り替えを除外）の要再公開 128 本のうち、PDF なし・noteId ありが 27 本（本文画像 42 枚）。中身は 9/23 18:47 `ba31a4f64` の修正（太字が `**` のまま出る・重複した著者バナー）と、`配合計算-実戦演習` の 404 リンク 2 本の修正で、いずれも note 上は未反映（公開 API で `**` の表示を確認済み）。2026-09-24 にこの 27 本を同日夜に流すと決めた。
-
-**やること**: 9/24 夜は Mac セッションが DN-0274 の後に流す（リストは `.tmp/dn0299-first3.txt` → 確認 → `.tmp/dn0299-rest.txt`。Windows では流さない）。`DOBOKU_PW_MIN_FREE_MB=1200 node scripts/note-update-body.mjs --list <list> --commit`。リストは `node scripts/note-republish-plan.mjs` の ready と hasImage のうち noteId があり、本文が PDF 配布に触れず PDF 実体も添付記録も無い記事で、`配合計算-実戦演習` を先頭に PV 順（`.claude/state/metrics/note/articles-pv-2026-08.json`・`-09.json`）。太字記号・画像の欠落と過多・存在しないサイトリンク・見出しの URL・無料プレビュー長は 1 本ごとに公開直後の検査（[5e]）が止めるので、最初の数本では自動検査の対象外のリンクカードと目次を note 上で確かめてから残りを流す。会社 PC は `DOBOKU_PW_MIN_FREE_MB=500` と、画像の確定待ちで止まるなら `NOTE_IMG_SETTLE_MIN_MS`・`NOTE_IMG_SETTLE_PER_IMG_MS`（既定 90 秒）を延ばす。
-
-**完了条件**: 27 本すべてで `note-update-body` の公開直後の検査 [5e] が OK、`node scripts/check-note-republish.mjs` の要再公開から 27 本が消え、`npm run check-note-live-headings` と `node scripts/check-note-structure.mjs --ci`（有料境界の漏洩・全ロック）がともに exit 0。
 
 ### [DN-0300] note の要再公開の残り 101 本（PDF 付き 89 本・会員限定 6 本ほか）を反映する
 タグ: [SNS・マーケ] [種類:改善] [起票:2026-09-24]
