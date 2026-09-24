@@ -26,7 +26,7 @@
 
 **起点**: 2026-09-24 に出すと決めた（¥12,000・週1名・納期7日。決定ログは `ココナラ展開キット.md` §2）。同日朝の出品は、新規出品の日次上限（前日に4件以上を新規出品）で内容入力ページへ進めず止まった。カタログは `status:'draft'`・`serviceUrl:''` のまま、本文・商品画像（Drive vault 登録済み）はそろっている。
 
-**やること**: 9/25 0:05 以降に1回だけ `DOBOKU_PW_MIN_FREE_MB=1200 node scripts/coconala-publish.mjs --service coconala-tensaku-4theme --image thumb-tensaku-4theme.png --commit` を実行する（空きメモリが 2GB 未満のときだけ環境変数を付ける）。Mac のセッションが `.tmp/run-coconala.sh` で 0:05 に自動実行する予定なので、**9/25 朝にカタログが `draft` のままなら（Mac が寝ていた・セッションが終わっていた）手で1回流す**。二重出品は listed なら冪等に止まる。成功するとカタログへ `listed`・URL・出品日が書き戻る。止まったら再試行を重ねず翌日に回す。
+**やること**: 2026-09-25 0:05 と 1:29 に再実行して 2 回とも `ABORT: 内容入力ページに遷移していない`。1 回目は種別ラジオが未選択（スクリプトの不具合・PR #627 で修正）、2 回目は種別を選んでボタンが有効（`checked:true・disabled:false`）になったのに、押すとエラー表示なしで `/services/add` の初期状態へ戻った。9/23 に 4 件出品した直後から同じ症状なので、新規出品数か下書き数に**ココナラ側の上限**がある可能性が高い（未確認）。**ユーザーがブラウザで `/services/add` から手動で 1 件進めてみて、表示される文言（上限・審査・本人確認など）を確かめる**。原因がわかったら `DOBOKU_PW_MIN_FREE_MB=1200 node scripts/coconala-publish.mjs --service coconala-tensaku-4theme --image thumb-tensaku-4theme.png --commit` を 1 回。止まったら再試行を重ねない。
 
 **完了条件**: `npm run check-coconala-live` で listed 全件が一致し、書き戻したカタログを develop へ入れる。2級二次（10/25）の前に出品できなければ、来季へ回すかを決め直す。
 
@@ -95,7 +95,7 @@
 
 **起点**: 2026-09-23 に出品文・サムネ・納品PDF（K1 5冊・K2 3冊、Drive vault 保管済み）を用意したが、同日5件目以降の新規出品が「内容の入力に進む」の後で止まり、draft のまま残った（原因未確認・coconala-operations.md §8 の注記）。本試験は 2026-11-29。主任技士の受験者が小論文と択一を直前に固める教材で、HARMはA。需要の証拠は無い試験出品で、継続判断は DN-0265。
 
-**やること**: 9/24 は日次上限（9/23 に4件以上出品）で出品不可。9/25 は DN-0282 の後に `DOBOKU_PW_MIN_FREE_MB=1200 node scripts/coconala-publish.mjs --service coconala-cce-essay-pdf --image thumb-cce-essay-pdf.png --commit`（Mac セッションの `.tmp/run-coconala.sh` が DN-0282 成功時だけ 3 分後に続けて流す。朝にカタログが `draft` のままなら手で1回）。9/26 以降に `coconala-cce-takuitsu-pdf`（`thumb-cce-takuitsu-pdf.png`）を同様に出品する。止まったら再試行を重ねず翌日に回す。カタログへの書き戻し（listed・serviceUrl・listedAt）を commit する。
+**やること**: DN-0282 と同じ原因で新規出品が止まっている（9/25 未明・種別ラジオの不具合は #627 で修正済み、その先で `/services/add` に戻される）。DN-0282 の原因が分かって出品できたら、同じ日に `DOBOKU_PW_MIN_FREE_MB=1200 node scripts/coconala-publish.mjs --service coconala-cce-essay-pdf --image thumb-cce-essay-pdf.png --commit`、翌日以降に `coconala-cce-takuitsu-pdf`（`thumb-cce-takuitsu-pdf.png`）。止まったら再試行を重ねず翌日に回す。カタログへの書き戻し（listed・serviceUrl・listedAt）を commit する。
 
 **完了条件**: 2件の公開ページがログアウト状態で HTTP 200、価格がカタログ（¥3,000・¥3,500）と一致し、`npm run check-coconala-wiring` が通る。
 
