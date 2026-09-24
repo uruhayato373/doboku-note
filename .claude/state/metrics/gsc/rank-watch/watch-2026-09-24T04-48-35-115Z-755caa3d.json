@@ -1,0 +1,261 @@
+{
+  "version": 1,
+  "type": "measurement",
+  "watchId": "cem-essay-writing",
+  "scope": {
+    "id": "cem-essay-writing",
+    "keyword": "技術士 総監 論文 書き方",
+    "qualification": "pe-comprehensive-management",
+    "targetPath": "/exam/pe-comprehensive-management/guide/essay-exam-strategy",
+    "contentPath": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx",
+    "intent": "exam-task",
+    "mode": "improve",
+    "priority": 2,
+    "audience": "総監記述式の答案構成や5管理の使い方を学ぶ受験者。",
+    "need": "設問に沿って課題と対応策を組み立てる手順を知りたい。",
+    "rationale": "答案作成という課題への適合を仮説登録する。検索需要と上位ページの確認前に不足を断定しない。",
+    "nextStep": {
+      "label": "5管理のキーワードを調べる",
+      "path": "/exam/pe-comprehensive-management/guide/keyword-2026"
+    },
+    "evidence": {
+      "kind": "hypothesis",
+      "source": "資格受験者の具体的課題を優先するユーザー方針（2026-09-13）。需要は未確認。"
+    },
+    "examEvent": "written",
+    "country": "jpn",
+    "device": null,
+    "enabled": true
+  },
+  "scopeKey": "f583859edfe2862c96c6693ef81f1deae1a1242cc42397947f8fd6dee7db4dda",
+  "fetchedAt": "2026-09-24T04:48:35.115Z",
+  "before": {
+    "window": {
+      "startDate": "2026-09-07",
+      "endDate": "2026-09-13"
+    },
+    "metrics": {
+      "rank": null,
+      "impressions": 0,
+      "clicks": 0,
+      "ctr": null,
+      "activeDays": 0
+    },
+    "raw": {
+      "meta": {
+        "siteUrl": "sc-domain:doboku-note.com",
+        "dataState": "final",
+        "type": "web",
+        "timeZone": "America/Los_Angeles",
+        "filters": [
+          {
+            "dimension": "query",
+            "operator": "equals",
+            "expression": "技術士 総監 論文 書き方"
+          },
+          {
+            "dimension": "page",
+            "operator": "equals",
+            "expression": "https://doboku-note.com/exam/pe-comprehensive-management/guide/essay-exam-strategy"
+          },
+          {
+            "dimension": "country",
+            "operator": "equals",
+            "expression": "jpn"
+          }
+        ],
+        "startDate": "2026-09-07",
+        "endDate": "2026-09-13",
+        "dimensions": [
+          "date"
+        ],
+        "dimension": "date",
+        "limit": null,
+        "pages_fetched": 1,
+        "row_count": 7,
+        "truncated": false,
+        "api_note": "Search Analytics API は全行の返却を保証しない（sampling / privacy filtering で低ボリューム行が欠落し得る）。row_count は startRow ページングの合算実測値であり、母集合全体とは限らない。"
+      },
+      "rows": [
+        {
+          "keys": [
+            "2026-09-07"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        },
+        {
+          "keys": [
+            "2026-09-08"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        },
+        {
+          "keys": [
+            "2026-09-09"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        },
+        {
+          "keys": [
+            "2026-09-10"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        },
+        {
+          "keys": [
+            "2026-09-11"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        },
+        {
+          "keys": [
+            "2026-09-12"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        },
+        {
+          "keys": [
+            "2026-09-13"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        }
+      ]
+    }
+  },
+  "after": {
+    "window": {
+      "startDate": "2026-09-14",
+      "endDate": "2026-09-20"
+    },
+    "metrics": {
+      "rank": null,
+      "impressions": 0,
+      "clicks": 0,
+      "ctr": null,
+      "activeDays": 0
+    },
+    "raw": {
+      "meta": {
+        "siteUrl": "sc-domain:doboku-note.com",
+        "dataState": "final",
+        "type": "web",
+        "timeZone": "America/Los_Angeles",
+        "filters": [
+          {
+            "dimension": "query",
+            "operator": "equals",
+            "expression": "技術士 総監 論文 書き方"
+          },
+          {
+            "dimension": "page",
+            "operator": "equals",
+            "expression": "https://doboku-note.com/exam/pe-comprehensive-management/guide/essay-exam-strategy"
+          },
+          {
+            "dimension": "country",
+            "operator": "equals",
+            "expression": "jpn"
+          }
+        ],
+        "startDate": "2026-09-14",
+        "endDate": "2026-09-20",
+        "dimensions": [
+          "date"
+        ],
+        "dimension": "date",
+        "limit": null,
+        "pages_fetched": 1,
+        "row_count": 7,
+        "truncated": false,
+        "api_note": "Search Analytics API は全行の返却を保証しない（sampling / privacy filtering で低ボリューム行が欠落し得る）。row_count は startRow ページングの合算実測値であり、母集合全体とは限らない。"
+      },
+      "rows": [
+        {
+          "keys": [
+            "2026-09-14"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        },
+        {
+          "keys": [
+            "2026-09-15"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        },
+        {
+          "keys": [
+            "2026-09-16"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        },
+        {
+          "keys": [
+            "2026-09-17"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        },
+        {
+          "keys": [
+            "2026-09-18"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        },
+        {
+          "keys": [
+            "2026-09-19"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        },
+        {
+          "keys": [
+            "2026-09-20"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        }
+      ]
+    }
+  },
+  "contentHash": "e7ac215ead9fac037c8ea650b140d12fd9de04456b9d1c9a8d79d1377077a5d6"
+}
