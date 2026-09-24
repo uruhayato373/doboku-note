@@ -170,6 +170,8 @@ npm run check-ga4-dimensions   # GA4 カスタムディメンション（event_l
 npm run gsc-indexing:check     # 未登録URLをGSC URL検査で診断（dry-run／:request で登録リクエスト・上限10件/回。`-- --urls /exam/a,/standards/b` か `-- --file list.txt` で正規パス指定。旧 /docs/slug は _redirects の 301 先へ自動変換）
 npm run gsc-indexing:priority  # 最新 URL 検査 batch × GSC page 実績から登録リクエストの順位表を作る（CI が週次で commit。人間は priority-latest.txt を :request に渡すだけ）
 npm run check-gsc-indexing-due # 表示実績のある未登録が残っているのに 7 日以上リクエスト無しなら DUE（weekly-review-guard が surface・常に exit 0）
+npm run gsc-sitemaps          # 本番 robots.txt の Sitemap 行（sitemap.xml・期限内の sitemap-legacy.xml）を Search Console API で送信（`-- --submit`・要サービスアカウントの「フル」権限）し、読み込み状況を gsc/sitemaps-latest.json へ（fetch-metrics.yml が週次で実行・ログイン不要）
+npm run check-gsc-sitemaps    # sitemaps-latest.json を見て、記録が古い・GSC 未登録・送信失敗・エラー・14 日以上未読み込みなら DUE（weekly-review-guard が surface・常に exit 0）
 npm run indexnow:submit        # sitemap の lastmod が直近 7 日の URL を IndexNow（Bing 等・Google 非対応）へ通知。CI は deploy 成功後に自動（indexnow-submit.yml）。`-- --dry-run` で対象だけ。会社 PC は Node fetch がプロキシを通らず exit 2
 npm run check-experiment-due   # 実験台帳の再計測/close/decide 期限と要人手（pending_user_actions）を surface（計測→記録→改善→再計測の最後の輪。2026-09-19 に旧 check-experiments-due を統合＝判定は scripts/lib/experiment-due.mjs が唯一。`-- --json` で issues も出す）
 npm run check-jst-date    # 運用記録の日付が UTC で前日付になっていないか（JST 09:00 前の実行事故・pre-commit 同梱）

@@ -317,6 +317,8 @@
     "gsc-indexing:check": "node scripts/gsc-request-indexing.mjs",
     "gsc-indexing:request": "node scripts/gsc-request-indexing.mjs --commit",
     "gsc-indexing:priority": "node scripts/build-gsc-indexing-priority.mjs",
+    "check-gsc-sitemaps": "node scripts/check-gsc-sitemaps.mjs",
+    "gsc-sitemaps": "node scripts/gsc-sitemaps.mjs",
     "check-gsc-indexing-due": "node scripts/check-gsc-indexing-due.mjs",
     "indexnow:submit": "node scripts/indexnow-submit.mjs",
     "gsc-ui:fetch": "node scripts/fetch-gsc-ui-csv.mjs",

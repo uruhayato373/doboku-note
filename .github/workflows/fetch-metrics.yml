@@ -130,6 +130,16 @@ jobs:
           GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
         run: npm run fetch-gsc-data -- --dimensions page,query --days 28 --all
 
+      # sitemap の送信と Google の読み込み状況（Search Console API・ブラウザのログインは使わない）。
+      # 送る対象は本番 robots.txt の Sitemap 行（sitemap.xml と期限内の sitemap-legacy.xml）。
+      # 送信にはサービスアカウントの「フル」権限が要る。失敗は sitemaps-latest.json に残り、
+      # 月曜の weekly-review-guard が check-gsc-sitemaps で拾うので、ここでは計測の publish を止めない。
+      - name: GSC sitemaps (submit + status)
+        continue-on-error: true
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+        run: node scripts/gsc-sitemaps.mjs --submit
+
       # 登録クエリの計測・効果判定・改善は日次 seo-rank-watch.yml が担当する。
 
       # 収益カバレッジ ダッシュボード用: ページ別流入（report-monetization-coverage.mts が
