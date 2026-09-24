@@ -1,24 +1,24 @@
 {
   "version": 1,
-  "generated_at": "2026-09-17T20:09:22.295Z",
+  "generated_at": "2026-09-24T20:20:56.070Z",
   "results": [
     {
       "url": "https://doboku-note.com/",
       "strategy": "desktop",
-      "fetched_at": "2026-09-17T20:05:06.264Z",
+      "fetched_at": "2026-09-24T20:17:51.867Z",
       "scores": {
-        "performance": 88,
+        "performance": 99,
         "accessibility": 100,
         "best_practices": 96,
         "seo": 100
       },
       "lab_data": {
-        "LCP_ms": 937.6189519284059,
-        "TBT_ms": 280.4874787443782,
+        "LCP_ms": 948.67457299086,
+        "TBT_ms": 14,
         "CLS": 0,
-        "FCP_ms": 465.810450472684,
-        "TTI_ms": 1914.8637154172536,
-        "SI_ms": 916.0350165670548
+        "FCP_ms": 486.34212364455453,
+        "TTI_ms": 1554.0888767348758,
+        "SI_ms": 508.61851317123404
       },
       "field_data": {
         "LCP": null,
@@ -35,13 +35,13 @@
         "origin_overall_category": null
       },
       "lcp_element": null,
-      "analysis_utc": "2026-09-17T20:04:47.997Z",
+      "analysis_utc": "2026-09-24T20:17:39.804Z",
       "final_url": "https://doboku-note.com/"
     },
     {
       "url": "https://doboku-note.com/search",
       "strategy": "desktop",
-      "fetched_at": "2026-09-17T20:02:58.392Z",
+      "fetched_at": "2026-09-24T20:17:52.163Z",
       "scores": {
         "performance": 73,
         "accessibility": 100,
@@ -49,12 +49,12 @@
         "seo": 66
       },
       "lab_data": {
-        "LCP_ms": 1341.364755944812,
-        "TBT_ms": 18.5,
-        "CLS": 0.714639668435609,
-        "FCP_ms": 447.80209522507806,
-        "TTI_ms": 1359.3699667440237,
-        "SI_ms": 447.80209522507806
+        "LCP_ms": 1384.55983729513,
+        "TBT_ms": 40,
+        "CLS": 0.7298733394501914,
+        "FCP_ms": 460.32294265502577,
+        "TTI_ms": 1402.2419277591407,
+        "SI_ms": 460.32294265502577
       },
       "field_data": {
         "LCP": null,
@@ -71,26 +71,26 @@
         "origin_overall_category": null
       },
       "lcp_element": null,
-      "analysis_utc": "2026-09-17T20:02:48.933Z",
+      "analysis_utc": "2026-09-24T20:17:39.986Z",
       "final_url": "https://doboku-note.com/search"
     },
     {
       "url": "https://doboku-note.com/exam",
       "strategy": "desktop",
-      "fetched_at": "2026-09-17T20:06:37.690Z",
+      "fetched_at": "2026-09-24T20:17:52.413Z",
       "scores": {
-        "performance": 96,
+        "performance": 99,
         "accessibility": 100,
         "best_practices": 96,
         "seo": 100
       },
       "lab_data": {
-        "LCP_ms": 894.7407001300458,
-        "TBT_ms": 149.9999999999999,
+        "LCP_ms": 940.0183399093588,
+        "TBT_ms": 32,
         "CLS": 0,
-        "FCP_ms": 424.183396062422,
-        "TTI_ms": 1565.9653739443615,
-        "SI_ms": 500.1933633824366
+        "FCP_ms": 422.46103861201175,
+        "TTI_ms": 1543.9514593800661,
+        "SI_ms": 456.2676411534166
       },
       "field_data": {
         "LCP": null,
@@ -107,26 +107,26 @@
         "origin_overall_category": null
       },
       "lcp_element": null,
-      "analysis_utc": "2026-09-17T20:06:22.452Z",
+      "analysis_utc": "2026-09-24T20:17:40.159Z",
       "final_url": "https://doboku-note.com/exam"
     },
     {
       "url": "https://doboku-note.com/exam/civil-construction-1/guide/strategy",
       "strategy": "desktop",
-      "fetched_at": "2026-09-17T20:03:11.749Z",
+      "fetched_at": "2026-09-24T20:17:56.218Z",
       "scores": {
-        "performance": 83,
+        "performance": 100,
         "accessibility": 100,
         "best_practices": 100,
         "seo": 100
       },
       "lab_data": {
-        "LCP_ms": 670.526025150526,
-        "TBT_ms": 178.50000000000034,
-        "CLS": 0.23399457873672103,
-        "FCP_ms": 465.3812527429355,
-        "TTI_ms": 1587.7465325958342,
-        "SI_ms": 665.306044476831
+        "LCP_ms": 628.0272801365168,
+        "TBT_ms": 56.5,
+        "CLS": 0.004090898340165529,
+        "FCP_ms": 463.1243206152941,
+        "TTI_ms": 1513.3680817320028,
+        "SI_ms": 463.1243206152941
       },
       "field_data": {
         "LCP": null,
@@ -143,26 +143,26 @@
         "origin_overall_category": null
       },
       "lcp_element": null,
-      "analysis_utc": "2026-09-17T20:02:49.517Z",
+      "analysis_utc": "2026-09-24T20:17:40.094Z",
       "final_url": "https://doboku-note.com/exam/civil-construction-1/guide/strategy"
     },
     {
       "url": "https://doboku-note.com/exam/civil-construction-1/guide/four-management",
       "strategy": "desktop",
-      "fetched_at": "2026-09-17T20:03:21.060Z",
+      "fetched_at": "2026-09-24T20:18:16.725Z",
       "scores": {
-        "performance": 97,
+        "performance": 99,
         "accessibility": 96,
         "best_practices": 100,
         "seo": 100
       },
       "lab_data": {
-        "LCP_ms": 781.0222448456962,
-        "TBT_ms": 137.50000000000023,
-        "CLS": 0.004090898340165529,
-        "FCP_ms": 466.30013948509765,
-        "TTI_ms": 1505.2816512375905,
-        "SI_ms": 551.7260062692787
+        "LCP_ms": 781.533536851713,
+        "TBT_ms": 103.50000000000011,
+        "CLS": 0.008269721518409504,
+        "FCP_ms": 509.5795110172256,
+        "TTI_ms": 1549.9011650301895,
+        "SI_ms": 642.3026314294118
       },
       "field_data": {
         "LCP": null,
@@ -179,26 +179,26 @@
         "origin_overall_category": null
       },
       "lcp_element": null,
-      "analysis_utc": "2026-09-17T20:03:01.191Z",
+      "analysis_utc": "2026-09-24T20:17:54.621Z",
       "final_url": "https://doboku-note.com/exam/civil-construction-1/guide/four-management"
     },
     {
       "url": "https://doboku-note.com/exam/civil-construction-1/primary/r07-a",
       "strategy": "desktop",
-      "fetched_at": "2026-09-17T20:03:33.909Z",
+      "fetched_at": "2026-09-24T20:19:16.081Z",
       "scores": {
-        "performance": 88,
+        "performance": 87,
         "accessibility": 96,
         "best_practices": 100,
         "seo": 100
       },
       "lab_data": {
-        "LCP_ms": 816.5056691675447,
-        "TBT_ms": 28.500000000000114,
+        "LCP_ms": 899.0116805671494,
+        "TBT_ms": 42.5,
         "CLS": 0.22998623986783773,
-        "FCP_ms": 506.340063821749,
-        "TTI_ms": 1601.4615812994125,
-        "SI_ms": 646.6598953989019
+        "FCP_ms": 569.028258647878,
+        "TTI_ms": 1669.5677418344271,
+        "SI_ms": 781.823911407386
       },
       "field_data": {
         "LCP": null,
@@ -215,26 +215,26 @@
         "origin_overall_category": null
       },
       "lcp_element": null,
-      "analysis_utc": "2026-09-17T20:03:13.965Z",
+      "analysis_utc": "2026-09-24T20:18:54.898Z",
       "final_url": "https://doboku-note.com/exam/civil-construction-1/primary/r07-a"
     },
     {
       "url": "https://doboku-note.com/exam/civil-construction-1/primary/h26-a",
       "strategy": "desktop",
-      "fetched_at": "2026-09-17T20:04:20.322Z",
+      "fetched_at": "2026-09-24T20:19:24.311Z",
       "scores": {
-        "performance": 98,
+        "performance": 86,
         "accessibility": 98,
         "best_practices": 100,
         "seo": 100
       },
       "lab_data": {
-        "LCP_ms": 841.0069904669806,
-        "TBT_ms": 33.499999999999886,
-        "CLS": 0.004090898340165529,
-        "FCP_ms": 503.75031260626247,
-        "TTI_ms": 1640.9105408883681,
-        "SI_ms": 1360.9167653147244
+        "LCP_ms": 902.3593848327166,
+        "TBT_ms": 197.49999999999966,
+        "CLS": 0.1582340340707366,
+        "FCP_ms": 516.7829105898987,
+        "TTI_ms": 1726.4928540994506,
+        "SI_ms": 753.0538336846323
       },
       "field_data": {
         "LCP": null,
@@ -251,13 +251,13 @@
         "origin_overall_category": null
       },
       "lcp_element": null,
-      "analysis_utc": "2026-09-17T20:03:23.229Z",
+      "analysis_utc": "2026-09-24T20:18:55.312Z",
       "final_url": "https://doboku-note.com/exam/civil-construction-1/primary/h26-a"
     },
     {
       "url": "https://doboku-note.com/exam/civil-construction-1/secondary/r07",
       "strategy": "desktop",
-      "fetched_at": "2026-09-17T20:03:55.534Z",
+      "fetched_at": "2026-09-24T20:18:20.961Z",
       "scores": {
         "performance": 100,
         "accessibility": 96,
@@ -265,12 +265,12 @@
         "seo": 100
       },
       "lab_data": {
-        "LCP_ms": 814.0185457648008,
-        "TBT_ms": 51,
+        "LCP_ms": 628.5106617784616,
+        "TBT_ms": 55.5,
         "CLS": 0.004090898340165529,
-        "FCP_ms": 467.81757150485936,
-        "TTI_ms": 1435.7257505009732,
-        "SI_ms": 484.21258498273585
+        "FCP_ms": 466.7348924895576,
+        "TTI_ms": 1444.1233627484594,
+        "SI_ms": 549.128567576394
       },
       "field_data": {
         "LCP": null,
@@ -287,26 +287,26 @@
         "origin_overall_category": null
       },
       "lcp_element": null,
-      "analysis_utc": "2026-09-17T20:03:36.427Z",
+      "analysis_utc": "2026-09-24T20:17:59.077Z",
       "final_url": "https://doboku-note.com/exam/civil-construction-1/secondary/r07"
     },
     {
       "url": "https://doboku-note.com/exam/civil-construction-1/secondary/concrete-basics",
       "strategy": "desktop",
-      "fetched_at": "2026-09-17T20:09:22.295Z",
+      "fetched_at": "2026-09-24T20:19:51.571Z",
       "scores": {
-        "performance": 100,
+        "performance": 78,
         "accessibility": 96,
         "best_practices": 100,
         "seo": 100
       },
       "lab_data": {
-        "LCP_ms": 681.0043116856654,
-        "TBT_ms": 0.5,
-        "CLS": 0.004090898340165529,
-        "FCP_ms": 501.1212062862394,
-        "TTI_ms": 1171.9549633921256,
-        "SI_ms": 592.0691478395527
+        "LCP_ms": 595.9604468473129,
+        "TBT_ms": 413.9999999999998,
+        "CLS": 0.11062363630583633,
+        "FCP_ms": 512.9166176841859,
+        "TTI_ms": 1836.362069978694,
+        "SI_ms": 952.9815538816181
       },
       "field_data": {
         "LCP": null,
@@ -323,26 +323,26 @@
         "origin_overall_category": null
       },
       "lcp_element": null,
-      "analysis_utc": "2026-09-17T20:09:03.445Z",
+      "analysis_utc": "2026-09-24T20:19:19.551Z",
       "final_url": "https://doboku-note.com/exam/civil-construction-1/secondary/concrete-basics"
     },
     {
       "url": "https://doboku-note.com/exam/civil-construction-1/secondary/experience-writing-guide",
       "strategy": "desktop",
-      "fetched_at": "2026-09-17T20:05:48.455Z",
+      "fetched_at": "2026-09-24T20:19:03.568Z",
       "scores": {
-        "performance": 95,
+        "performance": 69,
         "accessibility": 96,
         "best_practices": 100,
         "seo": 100
       },
       "lab_data": {
-        "LCP_ms": 782.5039559261058,
-        "TBT_ms": 98.5,
+        "LCP_ms": 964.0176817492438,
+        "TBT_ms": 642.4999999999998,
         "CLS": 0.11936358163230973,
-        "FCP_ms": 509.8992340880064,
-        "TTI_ms": 1641.357774899217,
-        "SI_ms": 841.0566992493589
+        "FCP_ms": 688.0058939164146,
+        "TTI_ms": 2304.9764636847017,
+        "SI_ms": 1229.689195883407
       },
       "field_data": {
         "LCP": null,
@@ -359,26 +359,26 @@
         "origin_overall_category": null
       },
       "lcp_element": null,
-      "analysis_utc": "2026-09-17T20:05:23.367Z",
+      "analysis_utc": "2026-09-24T20:18:25.202Z",
       "final_url": "https://doboku-note.com/exam/civil-construction-1/secondary/experience-writing-guide"
     },
     {
       "url": "https://doboku-note.com/exam/civil-construction-1/textbook/quality-overview",
       "strategy": "desktop",
-      "fetched_at": "2026-09-17T20:05:43.758Z",
+      "fetched_at": "2026-09-24T20:19:23.116Z",
       "scores": {
-        "performance": 87,
+        "performance": 100,
         "accessibility": 100,
         "best_practices": 100,
         "seo": 100
       },
       "lab_data": {
-        "LCP_ms": 814.5125761269799,
-        "TBT_ms": 90.50000000000011,
-        "CLS": 0.23205334914650552,
-        "FCP_ms": 509.3000227527392,
-        "TTI_ms": 1632.7215001071227,
-        "SI_ms": 737.5080388353839
+        "LCP_ms": 821.0058481403925,
+        "TBT_ms": 15,
+        "CLS": 0.004090898340165529,
+        "FCP_ms": 503.2964408839207,
+        "TTI_ms": 1576.0114117766577,
+        "SI_ms": 568.7059860649915
       },
       "field_data": {
         "LCP": null,
@@ -395,13 +395,13 @@
         "origin_overall_category": null
       },
       "lcp_element": null,
-      "analysis_utc": "2026-09-17T20:05:18.831Z",
+      "analysis_utc": "2026-09-24T20:19:05.759Z",
       "final_url": "https://doboku-note.com/exam/civil-construction-1/textbook/quality-overview"
     },
     {
       "url": "https://doboku-note.com/exam/civil-construction-1/textbook/schedule-overview",
       "strategy": "desktop",
-      "fetched_at": "2026-09-17T20:06:45.038Z",
+      "fetched_at": "2026-09-24T20:19:33.908Z",
       "scores": {
         "performance": 100,
         "accessibility": 100,
@@ -409,12 +409,12 @@
         "seo": 100
       },
       "lab_data": {
-        "LCP_ms": 781.019105536654,
-        "TBT_ms": 45.000000000000114,
-        "CLS": 0.006935020544789086,
-        "FCP_ms": 467.6838210188502,
-        "TTI_ms": 1525.6799214783186,
-        "SI_ms": 629.8219135961644
+        "LCP_ms": 805.1675226376835,
+        "TBT_ms": 18.000000000000114,
+        "CLS": 0.004090898340165529,
+        "FCP_ms": 459.15626275986244,
+        "TTI_ms": 1163.9850422906036,
+        "SI_ms": 459.15626275986244
       },
       "field_data": {
         "LCP": null,
@@ -431,26 +431,26 @@
         "origin_overall_category": null
       },
       "lcp_element": null,
-      "analysis_utc": "2026-09-17T20:06:26.288Z",
+      "analysis_utc": "2026-09-24T20:19:18.310Z",
       "final_url": "https://doboku-note.com/exam/civil-construction-1/textbook/schedule-overview"
     },
     {
       "url": "https://doboku-note.com/exam/pe-comprehensive-management/guide/exam-index",
       "strategy": "desktop",
-      "fetched_at": "2026-09-17T20:06:42.466Z",
+      "fetched_at": "2026-09-24T20:19:53.086Z",
       "scores": {
-        "performance": 98,
+        "performance": 99,
         "accessibility": 96,
         "best_practices": 100,
         "seo": 100
       },
       "lab_data": {
-        "LCP_ms": 619.5055184558289,
-        "TBT_ms": 107.00000000000023,
-        "CLS": 0.05864561270188774,
-        "FCP_ms": 464.2511235740579,
-        "TTI_ms": 1555.9102490355956,
-        "SI_ms": 741.112986513444
+        "LCP_ms": 621.0269805226793,
+        "TBT_ms": 81,
+        "CLS": 0.004090898340165529,
+        "FCP_ms": 464.70642434083743,
+        "TTI_ms": 1620.8569738243052,
+        "SI_ms": 624.3880823083515
       },
       "field_data": {
         "LCP": null,
@@ -467,26 +467,26 @@
         "origin_overall_category": null
       },
       "lcp_element": null,
-      "analysis_utc": "2026-09-17T20:06:19.907Z",
+      "analysis_utc": "2026-09-24T20:19:27.259Z",
       "final_url": "https://doboku-note.com/exam/pe-comprehensive-management/guide/exam-index"
     },
     {
       "url": "https://doboku-note.com/exam/pe-comprehensive-management/guide/exam-passing-strategy",
       "strategy": "desktop",
-      "fetched_at": "2026-09-17T20:07:55.366Z",
+      "fetched_at": "2026-09-24T20:20:56.069Z",
       "scores": {
         "performance": 100,
         "accessibility": 100,
-        "best_practices": 100,
+        "best_practices": 96,
         "seo": 100
       },
       "lab_data": {
-        "LCP_ms": 601.0129685765362,
-        "TBT_ms": 4,
+        "LCP_ms": 666.0389575955979,
+        "TBT_ms": 61,
         "CLS": 0.004090898340165529,
-        "FCP_ms": 458.3564844616295,
-        "TTI_ms": 1198.7180552803056,
-        "SI_ms": 516.3541448701649
+        "FCP_ms": 464.1946761584808,
+        "TTI_ms": 1490.8566905630905,
+        "SI_ms": 589.9486576024354
       },
       "field_data": {
         "LCP": null,
@@ -503,26 +503,26 @@
         "origin_overall_category": null
       },
       "lcp_element": null,
-      "analysis_utc": "2026-09-17T20:07:39.895Z",
+      "analysis_utc": "2026-09-24T20:20:26.781Z",
       "final_url": "https://doboku-note.com/exam/pe-comprehensive-management/guide/exam-passing-strategy"
     },
     {
       "url": "https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r07-primary",
       "strategy": "desktop",
-      "fetched_at": "2026-09-17T20:07:24.695Z",
+      "fetched_at": "2026-09-24T20:20:15.540Z",
       "scores": {
-        "performance": 96,
+        "performance": 72,
         "accessibility": 100,
         "best_practices": 100,
         "seo": 100
       },
       "lab_data": {
-        "LCP_ms": 652.0052443721972,
-        "TBT_ms": 15.5,
+        "LCP_ms": 773.0031023145523,
+        "TBT_ms": 551.6196436221612,
         "CLS": 0.11978900502080993,
-        "FCP_ms": 506.7007770736711,
-        "TTI_ms": 1130.7060108573644,
-        "SI_ms": 591.3402490408749
+        "FCP_ms": 553.3827427736483,
+        "TTI_ms": 2246.5619797069635,
+        "SI_ms": 927.997543114989
       },
       "field_data": {
         "LCP": null,
@@ -539,85 +539,13 @@
         "origin_overall_category": null
       },
       "lcp_element": null,
-      "analysis_utc": "2026-09-17T20:07:08.556Z",
+      "analysis_utc": "2026-09-24T20:19:37.555Z",
       "final_url": "https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r07-primary"
     },
     {
       "url": "https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r05-primary",
       "strategy": "desktop",
-      "fetched_at": "2026-09-17T20:07:04.845Z",
-      "scores": {
-        "performance": 100,
-        "accessibility": 100,
-        "best_practices": 100,
-        "seo": 100
-      },
-      "lab_data": {
-        "LCP_ms": 571.3545637045947,
-        "TBT_ms": 23,
-        "CLS": 0.018703878830176858,
-        "FCP_ms": 501.70124524286075,
-        "TTI_ms": 1083.6107455568647,
-        "SI_ms": 562.2474735691351
-      },
-      "field_data": {
-        "LCP": null,
-        "INP": null,
-        "CLS": null,
-        "FCP": null,
-        "TTFB": null
-      },
-      "field_availability": {
-        "url_level": false,
-        "origin_level": false,
-        "origin_fallback": false,
-        "url_overall_category": null,
-        "origin_overall_category": null
-      },
-      "lcp_element": null,
-      "analysis_utc": "2026-09-17T20:06:47.132Z",
-      "final_url": "https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r05-primary"
-    },
-    {
-      "url": "https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r07-secondary",
-      "strategy": "desktop",
-      "fetched_at": "2026-09-17T20:08:02.644Z",
-      "scores": {
-        "performance": 90,
-        "accessibility": 96,
-        "best_practices": 100,
-        "seo": 100
-      },
-      "lab_data": {
-        "LCP_ms": 590.044999056343,
-        "TBT_ms": 263.03121831366343,
-        "CLS": 0.004090898340165529,
-        "FCP_ms": 481.6733490286873,
-        "TTI_ms": 2061.951431606998,
-        "SI_ms": 780.5846099173019
-      },
-      "field_data": {
-        "LCP": null,
-        "INP": null,
-        "CLS": null,
-        "FCP": null,
-        "TTFB": null
-      },
-      "field_availability": {
-        "url_level": false,
-        "origin_level": false,
-        "origin_fallback": false,
-        "url_overall_category": null,
-        "origin_overall_category": null
-      },
-      "lcp_element": null,
-      "analysis_utc": "2026-09-17T20:07:34.752Z",
-      "final_url": "https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r07-secondary"
-    },
-    {
-      "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/followership",
-      "strategy": "desktop",
-      "fetched_at": "2026-09-17T20:07:43.596Z",
+      "fetched_at": "2026-09-24T20:20:16.028Z",
       "scores": {
         "performance": 99,
         "accessibility": 100,
@@ -625,12 +553,12 @@
         "seo": 100
       },
       "lab_data": {
-        "LCP_ms": 743.0283380244118,
-        "TBT_ms": 95.99696378309875,
-        "CLS": 0.004090898340165529,
-        "FCP_ms": 465.34121358890286,
-        "TTI_ms": 1481.6140641766167,
-        "SI_ms": 487.03734448394493
+        "LCP_ms": 555.0418021414391,
+        "TBT_ms": 95.49999999999977,
+        "CLS": 0.018703878830176858,
+        "FCP_ms": 508.07100850687755,
+        "TTI_ms": 1535.2750946614167,
+        "SI_ms": 679.7796033403185
       },
       "field_data": {
         "LCP": null,
@@ -647,26 +575,62 @@
         "origin_overall_category": null
       },
       "lcp_element": null,
-      "analysis_utc": "2026-09-17T20:07:27.746Z",
-      "final_url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/followership"
+      "analysis_utc": "2026-09-24T20:19:54.060Z",
+      "final_url": "https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r05-primary"
     },
     {
-      "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/agile",
+      "url": "https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r07-secondary",
       "strategy": "desktop",
-      "fetched_at": "2026-09-17T20:08:13.237Z",
+      "fetched_at": "2026-09-24T20:20:10.200Z",
       "scores": {
         "performance": 100,
+        "accessibility": 96,
+        "best_practices": 100,
+        "seo": 100
+      },
+      "lab_data": {
+        "LCP_ms": 511.1368357585508,
+        "TBT_ms": 36,
+        "CLS": 0.004090898340165529,
+        "FCP_ms": 460.2266867643983,
+        "TTI_ms": 1656.1446738843656,
+        "SI_ms": 460.2266867643983
+      },
+      "field_data": {
+        "LCP": null,
+        "INP": null,
+        "CLS": null,
+        "FCP": null,
+        "TTFB": null
+      },
+      "field_availability": {
+        "url_level": false,
+        "origin_level": false,
+        "origin_fallback": false,
+        "url_overall_category": null,
+        "origin_overall_category": null
+      },
+      "lcp_element": null,
+      "analysis_utc": "2026-09-24T20:19:55.428Z",
+      "final_url": "https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r07-secondary"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/followership",
+      "strategy": "desktop",
+      "fetched_at": "2026-09-24T20:20:43.660Z",
+      "scores": {
+        "performance": 95,
         "accessibility": 100,
         "best_practices": 100,
         "seo": 100
       },
       "lab_data": {
-        "LCP_ms": 623.5199349820448,
-        "TBT_ms": 39,
-        "CLS": 0.01812061868804352,
-        "FCP_ms": 487.88372235167435,
-        "TTI_ms": 1138.173085898226,
-        "SI_ms": 487.88372235167435
+        "LCP_ms": 846.044981744653,
+        "TBT_ms": 170.0000000000001,
+        "CLS": 0.004090898340165529,
+        "FCP_ms": 470.4169168723271,
+        "TTI_ms": 1704.1255148076907,
+        "SI_ms": 736.5782170459481
       },
       "field_data": {
         "LCP": null,
@@ -683,13 +647,49 @@
         "origin_overall_category": null
       },
       "lcp_element": null,
-      "analysis_utc": "2026-09-17T20:08:00.490Z",
+      "analysis_utc": "2026-09-24T20:20:20.162Z",
+      "final_url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/followership"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/agile",
+      "strategy": "desktop",
+      "fetched_at": "2026-09-24T20:20:36.347Z",
+      "scores": {
+        "performance": 99,
+        "accessibility": 100,
+        "best_practices": 100,
+        "seo": 100
+      },
+      "lab_data": {
+        "LCP_ms": 686.2865928469862,
+        "TBT_ms": 87,
+        "CLS": 0.01812061868804352,
+        "FCP_ms": 474.16428516465703,
+        "TTI_ms": 1499.6284209433913,
+        "SI_ms": 567.8651694352695
+      },
+      "field_data": {
+        "LCP": null,
+        "INP": null,
+        "CLS": null,
+        "FCP": null,
+        "TTFB": null
+      },
+      "field_availability": {
+        "url_level": false,
+        "origin_level": false,
+        "origin_fallback": false,
+        "url_overall_category": null,
+        "origin_overall_category": null
+      },
+      "lcp_element": null,
+      "analysis_utc": "2026-09-24T20:20:18.282Z",
       "final_url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/agile"
     },
     {
       "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/activity-abc",
       "strategy": "desktop",
-      "fetched_at": "2026-09-17T20:08:41.854Z",
+      "fetched_at": "2026-09-24T20:20:33.112Z",
       "scores": {
         "performance": 100,
         "accessibility": 98,
@@ -697,12 +697,12 @@
         "seo": 100
       },
       "lab_data": {
-        "LCP_ms": 710.0183159186547,
-        "TBT_ms": 57.5,
+        "LCP_ms": 713.5536856486221,
+        "TBT_ms": 39,
         "CLS": 0.004090898340165529,
-        "FCP_ms": 462.1652791649804,
-        "TTI_ms": 1508.883834037857,
-        "SI_ms": 537.8087328020998
+        "FCP_ms": 457.8926951722796,
+        "TTI_ms": 1536.1236559439935,
+        "SI_ms": 483.88748852210097
       },
       "field_data": {
         "LCP": null,
@@ -719,26 +719,26 @@
         "origin_overall_category": null
       },
       "lcp_element": null,
-      "analysis_utc": "2026-09-17T20:08:24.795Z",
+      "analysis_utc": "2026-09-24T20:20:18.404Z",
       "final_url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/activity-abc"
     },
     {
       "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/agenda-21",
       "strategy": "desktop",
-      "fetched_at": "2026-09-17T20:08:23.009Z",
+      "fetched_at": "2026-09-24T20:20:53.666Z",
       "scores": {
-        "performance": 100,
+        "performance": 98,
         "accessibility": 98,
         "best_practices": 100,
         "seo": 100
       },
       "lab_data": {
-        "LCP_ms": 643.021628974425,
-        "TBT_ms": 46.5,
+        "LCP_ms": 724.0250040188229,
+        "TBT_ms": 113.5,
         "CLS": 0.004090898340165529,
-        "FCP_ms": 464.3488506876997,
-        "TTI_ms": 1535.4958714499264,
-        "SI_ms": 587.9472840620169
+        "FCP_ms": 496.5049029958767,
+        "TTI_ms": 1520.733666125344,
+        "SI_ms": 641.7167992495542
       },
       "field_data": {
         "LCP": null,
@@ -755,26 +755,26 @@
         "origin_overall_category": null
       },
       "lcp_element": null,
-      "analysis_utc": "2026-09-17T20:08:04.637Z",
+      "analysis_utc": "2026-09-24T20:20:36.065Z",
       "final_url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/agenda-21"
     },
     {
       "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/alarp-principle",
       "strategy": "desktop",
-      "fetched_at": "2026-09-17T20:08:28.995Z",
+      "fetched_at": "2026-09-24T20:20:55.571Z",
       "scores": {
-        "performance": 96,
+        "performance": 99,
         "accessibility": 98,
         "best_practices": 100,
         "seo": 100
       },
       "lab_data": {
-        "LCP_ms": 621.0209765977754,
-        "TBT_ms": 161.00000000000023,
+        "LCP_ms": 724.0591277084598,
+        "TBT_ms": 88,
         "CLS": 0.004090898340165529,
-        "FCP_ms": 464.12313437265595,
-        "TTI_ms": 1604.2796376303318,
-        "SI_ms": 556.7757974182932
+        "FCP_ms": 465.03661363218725,
+        "TTI_ms": 1510.3490408139846,
+        "SI_ms": 487.61253651231993
       },
       "field_data": {
         "LCP": null,
@@ -791,7 +791,7 @@
         "origin_overall_category": null
       },
       "lcp_element": null,
-      "analysis_utc": "2026-09-17T20:08:15.265Z",
+      "analysis_utc": "2026-09-24T20:20:39.159Z",
       "final_url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/alarp-principle"
     }
   ]
