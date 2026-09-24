@@ -6,15 +6,16 @@
  * next build（output: export）が生成した out/ を対象に、sitemap 掲載 URL の母集合を正として:
  *   - sitemap 掲載 URL の HTML 欠落 / noindex 混入 / redirect 混入 / 404 混入
  *   - 各 indexable ページの title / description / self canonical / self og:url / robots /
- *     JSON-LD parse・可視整合 / SSR（main・H1・本文）
+ *     JSON-LD parse・可視整合・@type 別必須/推奨キー / SSR（main・H1・本文）
  *   - 内部リンク切れ / noncanonical link / orphan / 到達不能（home からの BFS）
  * を検査する。
  *
  * ゲート（error → exit 1・baseline で隠さない）:
  *   sitemap HTML 欠落・noindex/redirect/404 混入・canonical/og:url 不一致・
- *   title/description 欠落・JSON-LD parse error・SSR 破壊・broken internal link・
+ *   title/description 欠落・JSON-LD parse error・JSON-LD 必須キー欠落（Google の必須欄。
+ *   表は scripts/lib/jsonld-required-props.mjs）・SSR 破壊・broken internal link・
  *   検査 URL 数が sitemap 母集合の 90% 未満（母集合不足を成功扱いにしない）。
- * 参考（warn・非ゲート）: description 160 字超・JSON-LD 欠落/見出し乖離・
+ * 参考（warn・非ゲート）: description 160 字超・JSON-LD 欠落/見出し乖離/推奨キー欠落・
  *   noncanonical link・orphan・到達不能。
  *
  * Usage: node scripts/check-seo-build.mjs [--json] [--ci] [--out <dir>]
@@ -29,6 +30,7 @@ import {
   normalizeUrlForCompare,
   selfUrl,
 } from './lib/seo-checks.mjs';
+import { validateJsonLd, JSONLD_RULE_TYPES } from './lib/jsonld-required-props.mjs';
 
 const ROOT = process.cwd();
 const argv = process.argv.slice(2);
@@ -203,6 +205,40 @@ const sitemapOptional = (r) => SITEMAP_OPTIONAL.has(r) || SITEMAP_OPTIONAL_PATTE
   console.log(`[landmark] HTML ルート ${landmarkChecked} 件の <main> を検査 → 不正 ${landmarkBad} 件`);
 }
 
+// ---- JSON-LD の @type 別 必須/推奨キー（DN-0241） ----
+// parse 失敗は runIndexablePageChecks の jsonld_parse_error が報告するのでここでは数えるだけ。
+const jsonLdStats = {
+  blocks: 0,
+  parseFailed: 0,
+  nodes: 0,
+  validated: 0,
+  byType: {}, // 検査した @type -> ノード数
+  outOfScope: {}, // 表に無い @type -> ノード数
+};
+function checkJsonLdRequiredProps(seo, urlPath) {
+  for (const raw of seo.jsonLd || []) {
+    jsonLdStats.blocks += 1;
+    let parsed;
+    try {
+      parsed = JSON.parse(raw);
+    } catch {
+      jsonLdStats.parseFailed += 1;
+      continue;
+    }
+    const r = validateJsonLd(parsed);
+    jsonLdStats.nodes += r.nodes;
+    jsonLdStats.validated += r.validated;
+    for (const t of r.validatedTypes) jsonLdStats.byType[t] = (jsonLdStats.byType[t] || 0) + 1;
+    for (const t of r.outOfScopeTypes) jsonLdStats.outOfScope[t] = (jsonLdStats.outOfScope[t] || 0) + 1;
+    for (const e of r.errors) {
+      add('error', 'jsonld_required_missing', urlPath, `${e.type}: 必須キー欠落 ${e.missing.join(', ')}`);
+    }
+    for (const w of r.warnings) {
+      add('warn', 'jsonld_recommended_missing', urlPath, `${w.type}: 推奨キー欠落 ${w.missing.join(', ')}`);
+    }
+  }
+}
+
 // ---- 全 sitemap ページを解析（link graph でも再利用） ----
 const pages = new Map(); // urlPath -> seo
 let checked = 0;
@@ -237,6 +273,21 @@ for (const urlPath of sitemapPaths) {
   for (const f of runIndexablePageChecks(seo, urlPath, { expectIndexable: true })) {
     add(f.level, f.code, urlPath, f.message);
   }
+  checkJsonLdRequiredProps(seo, urlPath);
+}
+
+// §9: 検査ゼロを PASS と呼ばない。全ページ共通の WebSite（layout.tsx）が必ず表に一致するので、
+// ページを検査したのに 1 ノードも判定できていなければ抽出か表が壊れている。
+if (checked > 0 && jsonLdStats.validated === 0) {
+  add('error', 'jsonld_required_not_inspected', null, `JSON-LD ${jsonLdStats.blocks} ブロックのうち判定対象 @type（${JSONLD_RULE_TYPES.join('/')}）が 0 ノード`);
+}
+{
+  const fmt = (o) => Object.entries(o).sort((a, b) => b[1] - a[1]).map(([k, v]) => `${k} ${v}`).join(', ') || 'なし';
+  console.log(
+    `[JSON-LD 必須キー] ${checked} ページ・${jsonLdStats.blocks} ブロック（parse 失敗 ${jsonLdStats.parseFailed}）・${jsonLdStats.nodes} ノード → 判定 ${jsonLdStats.validated} ノード（${fmt(jsonLdStats.byType)}）`
+      + ` / 対象外 ${jsonLdStats.nodes - jsonLdStats.validated} ノード（${fmt(jsonLdStats.outOfScope)}）`
+      + ` → 必須欠落 ${findings.filter((f) => f.code === 'jsonld_required_missing').length} 件`,
+  );
 }
 
 // ---- 母集合ガード ----
@@ -339,6 +390,13 @@ const summary = {
   errors: errors.length,
   warnings: warns.length,
   by_code: byCode,
+  jsonld: {
+    blocks: jsonLdStats.blocks,
+    nodes: jsonLdStats.nodes,
+    validated: jsonLdStats.validated,
+    by_type: jsonLdStats.byType,
+    out_of_scope: jsonLdStats.outOfScope,
+  },
 };
 
 if (jsonOut) {

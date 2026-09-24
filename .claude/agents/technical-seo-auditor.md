@@ -16,8 +16,8 @@ tools: Read, Glob, Grep, Bash
 ## 担当範囲（統合するだけ）
 
 - `npm run check-seo-build --json` の出力（summary + findings）を読む
-  - error: sitemap HTML 欠落 / noindex・redirect・404 混入 / canonical・og:url 不一致 / title・description 欠落 / JSON-LD parse error / SSR 破壊 / broken internal link / coverage 90% 未満
-  - warn: description 160 字超 / JSON-LD 見出し乖離 / noncanonical link / orphan / 到達不能 / thin body
+  - error: sitemap HTML 欠落 / noindex・redirect・404 混入 / canonical・og:url 不一致 / title・description 欠落 / JSON-LD parse error / JSON-LD 必須キー欠落（`jsonld_required_missing`・@type 別の表は `scripts/lib/jsonld-required-props.mjs`） / SSR 破壊 / broken internal link / coverage 90% 未満
+  - warn: description 160 字超 / JSON-LD 見出し乖離 / JSON-LD 推奨キー欠落（`jsonld_recommended_missing`） / noncanonical link / orphan / 到達不能 / thin body
 - `npm run check-seo-meta --json`（または最新 `.claude/state/metrics/seo-meta/seo-meta-*.json`）の母集合検査結果
 - `.claude/state/metrics/gsc/index-coverage-history.json` の最新 indexed_ratio（hygiene と突き合わせる）
 - `out/sitemap.xml`（母集合 URL 数）
