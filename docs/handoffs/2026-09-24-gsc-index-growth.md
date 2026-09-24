@@ -1,8 +1,8 @@
 # 引き継ぎ：GSC の登録済みページを増やす作業（ローカルで再開）
 
 > [!note]
-> **2026-09-24 時点**：PR #597〜#600 と #602（launchd `gsc-local`・sitemap の API 送信・#599 の取り下げ）は develop にマージ済み・**main（本番）には未反映**。Search Console のサービスアカウント 2 つは「フル」権限を確認済み。
-> 残りのタスクは backlog の DN-0287 / DN-0292 / DN-0293 にある。この文書は再開手順と順番だけで、
+> **2026-09-24 時点**：PR #597〜#600 と #602（launchd `gsc-local`・sitemap の API 送信・#599 の取り下げ）は 2026-09-24 に main（本番）へ反映済み（DN-0287 は閉じた）。Search Console のサービスアカウント 2 つは「フル」権限を確認済み。
+> 残りのタスクは backlog の DN-0292 / DN-0293 にある。この文書は再開手順と順番だけで、
 > 手順を終えたら削除する（記録は git 履歴と `gsc-management.md` の 2026-09-24 エントリ）。
 
 ## ローカルで再開する
@@ -19,12 +19,7 @@ npm run check-gsc-sitemaps                     # sitemap の送信・読み込�
 
 ## 次にやる順番
 
-1. **`/deploy`（develop → main）**。本番に出るもの：
-   - `/standards/` の逐語分冊 part-N を sitemap に復帰（sitemap 約 1,435 → 1,568 件）
-   - `sitemap-legacy.xml`（旧 `/docs` 1,312 件・robots.txt に掲載・2026-11-30 で自動終了）
-   - `fetch-metrics.yml` の sitemap 送信（`gsc-sitemaps`）と `weekly-review-guard.yml` の `check-gsc-sitemaps`（workflow 定義は main 版で動く）
-
-   deploy 後に `npm run check-production-ssr` が exit 0、`https://doboku-note.com/robots.txt` の末尾に `sitemap-legacy.xml` の行があること、本番 sitemap の `<loc>` が約 1,568 件であることを見て **DN-0287** を閉じる。
+1. ~~`/deploy`（develop → main）~~ 2026-09-24 済み（本番 sitemap 1,568 件・part-N 133 件・robots.txt に sitemap-legacy.xml・check-production-ssr exit 0）。
 2. **DN-0292**：note 674 本の本文を再公開（`ops-write.yml` の `note.update-body`）。外向きの大量更新なので本数・間隔・順番を決めてから。`配合計算-実戦演習` は本番で 404 のリンクが 2 本あるので先に。
 3. **DN-0293**：Mac に `npm run gsc-local:install`（launchd・毎日 10:30）を入れ、`-- --run-now` で登録リクエストと develop への push を確かめる。self-hosted runner はこのリポジトリが公開のため使わない。
 

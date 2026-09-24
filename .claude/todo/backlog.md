@@ -171,18 +171,9 @@
 **やること**:
 1. Mac で `git pull origin develop`
 2. Mac: 未ログインなら `npm run google-console:login` → `npm run gsc-local:install` → `npm run gsc-local:install -- --run-now`。`~/Library/Logs/doboku-note/gsc-local.log` で受理件数と develop への push を確かめる（Chrome が数分開く）
-3. `/deploy` の後（workflow 定義は main 版で動く）、金曜の fetch-metrics と月曜の weekly-review-guard の job summary で `check-gsc-sitemaps`・`check-gsc-indexing-due`・`check-gsc-ui-due` が OK か見る。registry の google は `enabled:false` のまま
+3. 金曜の fetch-metrics と月曜の weekly-review-guard の job summary で `check-gsc-sitemaps`・`check-gsc-indexing-due`・`check-gsc-ui-due` が OK か見る。registry の google は `enabled:false` のまま
 
 **完了条件**: launchd の実行が受理を `gsc-indexing/history.json` に記録して develop へ push し、`npm run check-gsc-indexing-due` と `npm run check-gsc-sitemaps` がともに OK。
-
-### [DN-0287] `/standards/` の逐語分冊 part-N を sitemap に戻す（復帰条件を 9/23 に満たした）
-タグ: [インフラ・計測] [種類:改善] [起票:2026-09-24] [期日:2026-10-01]
-
-**起点**: 2026-09-17 に part-N 133 件を sitemap から一時的に外し、戻す条件を「`/exam/` の索引率 70%」とした。9/23 の週次 batch で `/exam/` は 1,015 / 1,207＝84.1%。除外を外す変更（PR #597・CI のビルドで sitemap 1,568 件・check-seo-build の error 0）は develop にある。
-
-**やること**: develop → main の次の deploy（`/deploy`）に含め、deploy 後に本番の sitemap 件数を確かめる。
-
-**完了条件**: 本番 sitemap に `/standards/*/*/part-N` が載り、次の週次 batch の `sitemap_urls` が約 1,568 になっている。
 
 ### [DN-0237] RCCM 問題I 業務経験論文テンプレ・択一論点集 50 問・ココナラ 3 出品を CBT 期間内（〜10/31）に出す
 タグ: [収益化] [種類:制作] [起票:2026-09-16] [期日:2026-10-10]
