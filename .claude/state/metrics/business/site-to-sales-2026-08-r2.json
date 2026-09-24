@@ -1,0 +1,1871 @@
+{
+  "schemaVersion": 1,
+  "month": "2026-08",
+  "period": {
+    "startDate": "2026-08-01",
+    "endDate": "2026-08-31"
+  },
+  "joinKey": "note 商品ID（カタログ商品は src/lib/note-magazines.ts の id、カタログ外の単品は sales-log の article:<slug>）",
+  "clicks": {
+    "status": "exact",
+    "file": ".claude/state/metrics/ga4/ga4-cta-clicks-by-label-2026-09-24T22-01-30.json",
+    "window": {
+      "startDate": "2026-08-01",
+      "endDate": "2026-08-31"
+    },
+    "overlapDays": 31,
+    "outsideDays": 0,
+    "labelRows": 76,
+    "total": 221,
+    "resolved": 70,
+    "unresolved": [
+      {
+        "label": "secondary-r07-q1",
+        "clicks": 29,
+        "reason": "面だけの label（商品IDを含まない。2026-08-22 より前の形式か、商品を持たない導線）"
+      },
+      {
+        "label": "secondary-experience-examples",
+        "clicks": 15,
+        "reason": "面だけの label（商品IDを含まない。2026-08-22 より前の形式か、商品を持たない導線）"
+      },
+      {
+        "label": "secondary-experience-guide",
+        "clicks": 15,
+        "reason": "面だけの label（商品IDを含まない。2026-08-22 より前の形式か、商品を持たない導線）"
+      },
+      {
+        "label": "category-pe-comprehensive-management-hub-mokuji-footer",
+        "clicks": 10,
+        "reason": "無料もくじ記事への送客（商品を特定しない）"
+      },
+      {
+        "label": "category-civil-construction-2-hub-mokuji-docs-sb",
+        "clicks": 5,
+        "reason": "無料もくじ記事への送客（商品を特定しない）"
+      },
+      {
+        "label": "category-pe-comprehensive-management-hub-mokuji-docs-sb",
+        "clicks": 5,
+        "reason": "無料もくじ記事への送客（商品を特定しない）"
+      },
+      {
+        "label": "persona-guide-general-contractor",
+        "clicks": 5,
+        "reason": "面だけの label（商品IDを含まない。2026-08-22 より前の形式か、商品を持たない導線）"
+      },
+      {
+        "label": "category-civil-construction-2-hub-mokuji-footer",
+        "clicks": 4,
+        "reason": "無料もくじ記事への送客（商品を特定しない）"
+      },
+      {
+        "label": "category-pe-comprehensive-management-hub-mokuji-sb",
+        "clicks": 4,
+        "reason": "無料もくじ記事への送客（商品を特定しない）"
+      },
+      {
+        "label": "home-note-hero",
+        "clicks": 4,
+        "reason": "面だけの label（商品IDを含まない。2026-08-22 より前の形式か、商品を持たない導線）"
+      },
+      {
+        "label": "c2-secondary-start",
+        "clicks": 3,
+        "reason": "面だけの label（商品IDを含まない。2026-08-22 より前の形式か、商品を持たない導線）"
+      },
+      {
+        "label": "category-civil-construction-1-hub-mokuji-footer",
+        "clicks": 3,
+        "reason": "無料もくじ記事への送客（商品を特定しない）"
+      },
+      {
+        "label": "management-tradeoffs-economy-safety",
+        "clicks": 3,
+        "reason": "面だけの label（商品IDを含まない。2026-08-22 より前の形式か、商品を持たない導線）"
+      },
+      {
+        "label": "secondary-experience-writing-guide-inline-1-mid",
+        "clicks": 3,
+        "reason": "面だけの label（商品IDを含まない。2026-08-22 より前の形式か、商品を持たない導線）"
+      },
+      {
+        "label": "bosai-kokudo-kyoujinka-tail",
+        "clicks": 2,
+        "reason": "面だけの label（商品IDを含まない。2026-08-22 より前の形式か、商品を持たない導線）"
+      },
+      {
+        "label": "c1-exam-overview",
+        "clicks": 2,
+        "reason": "面だけの label（商品IDを含まない。2026-08-22 より前の形式か、商品を持たない導線）"
+      },
+      {
+        "label": "category-pe-construction-hub-mokuji-footer",
+        "clicks": 2,
+        "reason": "無料もくじ記事への送客（商品を特定しない）"
+      },
+      {
+        "label": "category-pe-construction-hub-mokuji-sb",
+        "clicks": 2,
+        "reason": "無料もくじ記事への送客（商品を特定しない）"
+      },
+      {
+        "label": "construction-planning-exam-themes",
+        "clicks": 2,
+        "reason": "面だけの label（商品IDを含まない。2026-08-22 より前の形式か、商品を持たない導線）"
+      },
+      {
+        "label": "economic-management-pillar-inline-1-mid",
+        "clicks": 2,
+        "reason": "面だけの label（商品IDを含まない。2026-08-22 より前の形式か、商品を持たない導線）"
+      },
+      {
+        "label": "persona-guide-complete-pack",
+        "clicks": 2,
+        "reason": "面だけの label（商品IDを含まない。2026-08-22 より前の形式か、商品を持たない導線）"
+      },
+      {
+        "label": "persona-guide-road-consultant",
+        "clicks": 2,
+        "reason": "面だけの label（商品IDを含まない。2026-08-22 より前の形式か、商品を持たない導線）"
+      },
+      {
+        "label": "port-airport-exam-themes",
+        "clicks": 2,
+        "reason": "面だけの label（商品IDを含まない。2026-08-22 より前の形式か、商品を持たない導線）"
+      },
+      {
+        "label": "r08-primary-top",
+        "clicks": 2,
+        "reason": "面だけの label（商品IDを含まない。2026-08-22 より前の形式か、商品を持たない導線）"
+      },
+      {
+        "label": "secondary-experience-writing-examples-top",
+        "clicks": 2,
+        "reason": "面だけの label（商品IDを含まない。2026-08-22 より前の形式か、商品を持たない導線）"
+      },
+      {
+        "label": "secondary-experience-writing-guide-top",
+        "clicks": 2,
+        "reason": "面だけの label（商品IDを含まない。2026-08-22 より前の形式か、商品を持たない導線）"
+      },
+      {
+        "label": "bosai-kokudo-kyoujinka-mid",
+        "clicks": 1,
+        "reason": "面だけの label（商品IDを含まない。2026-08-22 より前の形式か、商品を持たない導線）"
+      },
+      {
+        "label": "c2-gakka-kijutsu",
+        "clicks": 1,
+        "reason": "面だけの label（商品IDを含まない。2026-08-22 より前の形式か、商品を持たない導線）"
+      },
+      {
+        "label": "category-civil-construction-1-hub-mokuji-docs-sb",
+        "clicks": 1,
+        "reason": "無料もくじ記事への送客（商品を特定しない）"
+      },
+      {
+        "label": "category-pe-comprehensive-management-hub-mokuji-mob",
+        "clicks": 1,
+        "reason": "無料もくじ記事への送客（商品を特定しない）"
+      },
+      {
+        "label": "essay-exam-strategy-inline-1-mid",
+        "clicks": 1,
+        "reason": "面だけの label（商品IDを含まない。2026-08-22 より前の形式か、商品を持たない導線）"
+      },
+      {
+        "label": "guide-construction-plan-inline-1-mid",
+        "clicks": 1,
+        "reason": "面だけの label（商品IDを含まない。2026-08-22 より前の形式か、商品を持たない導線）"
+      },
+      {
+        "label": "human-resource-management-pillar-inline-1-mid",
+        "clicks": 1,
+        "reason": "面だけの label（商品IDを含まない。2026-08-22 より前の形式か、商品を持たない導線）"
+      },
+      {
+        "label": "management-tradeoffs-economy-social",
+        "clicks": 1,
+        "reason": "面だけの label（商品IDを含まない。2026-08-22 より前の形式か、商品を持たない導線）"
+      },
+      {
+        "label": "persona-guide-road-municipality",
+        "clicks": 1,
+        "reason": "面だけの label（商品IDを含まない。2026-08-22 より前の形式か、商品を持たない導線）"
+      },
+      {
+        "label": "power-civil-exam-themes",
+        "clicks": 1,
+        "reason": "面だけの label（商品IDを含まない。2026-08-22 より前の形式か、商品を持たない導線）"
+      },
+      {
+        "label": "secondary-getting-started-top",
+        "clicks": 1,
+        "reason": "面だけの label（商品IDを含まない。2026-08-22 より前の形式か、商品を持たない導線）"
+      },
+      {
+        "label": "secondary-r03-q1",
+        "clicks": 1,
+        "reason": "面だけの label（商品IDを含まない。2026-08-22 より前の形式か、商品を持たない導線）"
+      },
+      {
+        "label": "secondary-r04-inline-1-mid",
+        "clicks": 1,
+        "reason": "面だけの label（商品IDを含まない。2026-08-22 より前の形式か、商品を持たない導線）"
+      },
+      {
+        "label": "secondary-r04-q1",
+        "clicks": 1,
+        "reason": "面だけの label（商品IDを含まない。2026-08-22 より前の形式か、商品を持たない導線）"
+      },
+      {
+        "label": "secondary-r06-q1",
+        "clicks": 1,
+        "reason": "面だけの label（商品IDを含まない。2026-08-22 より前の形式か、商品を持たない導線）"
+      },
+      {
+        "label": "steel-concrete-exam-themes",
+        "clicks": 1,
+        "reason": "面だけの label（商品IDを含まない。2026-08-22 より前の形式か、商品を持たない導線）"
+      },
+      {
+        "label": "tankan-frequent-reiwa",
+        "clicks": 1,
+        "reason": "面だけの label（商品IDを含まない。2026-08-22 より前の形式か、商品を持たない導線）"
+      },
+      {
+        "label": "tankan-h21-primary",
+        "clicks": 1,
+        "reason": "面だけの label（商品IDを含まない。2026-08-22 より前の形式か、商品を持たない導線）"
+      },
+      {
+        "label": "urban-planning-exam-themes",
+        "clicks": 1,
+        "reason": "面だけの label（商品IDを含まない。2026-08-22 より前の形式か、商品を持たない導線）"
+      }
+    ]
+  },
+  "noteReferral": {
+    "status": "not-measurable",
+    "file": ".claude/state/metrics/note/referrers-2026-08.json",
+    "fetchedAt": "2026-09-23T23:56:57.997Z",
+    "siteReferredViews": null,
+    "totalViews": 7455,
+    "noReferrerViews": 4524,
+    "note": "サイト→note リンクが rel=noreferrer だったため、サイト経由は no referrer に含まれ分離できない",
+    "dashboardSales": {
+      "yen": 71640,
+      "file": ".claude/state/metrics/note/referrers-2026-08.json",
+      "fetchedAt": "2026-09-23T23:56:57.997Z"
+    },
+    "perProduct": "unresolvable",
+    "perProductReason": "note の流入元はアカウント全体の月次値のみで、記事・マガジン別に出ない"
+  },
+  "sales": {
+    "count": 26,
+    "revenue": 71640,
+    "resolved": 26,
+    "unresolved": [],
+    "reconciliation": {
+      "dashboardYen": 71640,
+      "logYen": 71640,
+      "status": "match",
+      "source": ".claude/state/metrics/note/referrers-2026-08.json",
+      "fetchedAt": "2026-09-23T23:56:57.997Z"
+    }
+  },
+  "products": [
+    {
+      "productId": "civil-1-niji-marugoto-pack",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 0,
+      "impressions": 80,
+      "sales": 1,
+      "revenue": 11800,
+      "containedIn": [],
+      "containedArticleSales": 4,
+      "containedArticleRevenue": 7920,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "pe-construction-road-pack",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 0,
+      "impressions": 3,
+      "sales": 2,
+      "revenue": 9960,
+      "containedIn": [],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "civil-1-keiken-complete-pack",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 1,
+      "impressions": 247,
+      "sales": 1,
+      "revenue": 9800,
+      "containedIn": [],
+      "containedArticleSales": 7,
+      "containedArticleRevenue": 13860,
+      "topPlacements": [
+        {
+          "placement": "secondary-experience-writing-guide-top",
+          "clicks": 1
+        }
+      ],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "pe-construction-required-magazine",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 3,
+      "impressions": 62,
+      "sales": 2,
+      "revenue": 6960,
+      "containedIn": [],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [
+        {
+          "placement": "secondary-study-method-end",
+          "clicks": 1
+        },
+        {
+          "placement": "soil-foundation-ronbun-keyword-mid",
+          "clicks": 1
+        },
+        {
+          "placement": "toan-kousei-template-mid",
+          "clicks": 1
+        }
+      ],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "civil-2-koji-bank",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 7,
+      "impressions": 689,
+      "sales": 1,
+      "revenue": 5480,
+      "containedIn": [],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [
+        {
+          "placement": "secondary-experience-writing-guide-top",
+          "clicks": 3
+        },
+        {
+          "placement": "secondary-r04-top",
+          "clicks": 2
+        },
+        {
+          "placement": "secondary-r07-top",
+          "clicks": 2
+        }
+      ],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "pe-construction-railway-magazine",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 0,
+      "impressions": 0,
+      "sales": 1,
+      "revenue": 2980,
+      "containedIn": [],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "article:civil-1-keiken-pack-102",
+      "kind": "article",
+      "inCatalog": false,
+      "clicks": 0,
+      "impressions": 0,
+      "sales": 1,
+      "revenue": 1980,
+      "containedIn": [
+        "civil-1-keiken-bridge-maintenance-pack",
+        "civil-1-keiken-complete-pack"
+      ],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "article:civil-1-keiken-pack-108",
+      "kind": "article",
+      "inCatalog": false,
+      "clicks": 0,
+      "impressions": 0,
+      "sales": 1,
+      "revenue": 1980,
+      "containedIn": [
+        "civil-1-keiken-bridge-maintenance-pack",
+        "civil-1-keiken-complete-pack"
+      ],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "article:civil-1-keiken-pack-24",
+      "kind": "article",
+      "inCatalog": false,
+      "clicks": 0,
+      "impressions": 0,
+      "sales": 1,
+      "revenue": 1980,
+      "containedIn": [
+        "civil-1-keiken-complete-pack",
+        "civil-1-niji-marugoto-pack"
+      ],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "article:civil-1-keiken-pack-51",
+      "kind": "article",
+      "inCatalog": false,
+      "clicks": 0,
+      "impressions": 0,
+      "sales": 1,
+      "revenue": 1980,
+      "containedIn": [
+        "civil-1-keiken-complete-pack",
+        "civil-1-niji-marugoto-pack"
+      ],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "article:civil-1-keiken-pack-72",
+      "kind": "article",
+      "inCatalog": false,
+      "clicks": 0,
+      "impressions": 0,
+      "sales": 1,
+      "revenue": 1980,
+      "containedIn": [
+        "civil-1-keiken-complete-pack",
+        "civil-1-niji-marugoto-pack"
+      ],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "article:civil-1-keiken-pack-76",
+      "kind": "article",
+      "inCatalog": false,
+      "clicks": 0,
+      "impressions": 0,
+      "sales": 1,
+      "revenue": 1980,
+      "containedIn": [
+        "civil-1-keiken-complete-pack",
+        "civil-1-niji-marugoto-pack"
+      ],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "article:civil-1-keiken-pack-tunnel",
+      "kind": "article",
+      "inCatalog": false,
+      "clicks": 0,
+      "impressions": 0,
+      "sales": 1,
+      "revenue": 1980,
+      "containedIn": [
+        "civil-1-keiken-complete-pack"
+      ],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "tankan-reading-guide",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 0,
+      "impressions": 10,
+      "sales": 1,
+      "revenue": 1980,
+      "containedIn": [],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "article:civil-2-pastexam-essay-r06",
+      "kind": "article",
+      "inCatalog": false,
+      "clicks": 0,
+      "impressions": 0,
+      "sales": 2,
+      "revenue": 1960,
+      "containedIn": [
+        "civil-2-niji-marugoto-pack",
+        "civil-2-pastexam-essay"
+      ],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "civil-membership-lab",
+      "kind": "membership",
+      "inCatalog": true,
+      "clicks": 0,
+      "impressions": 444,
+      "sales": 1,
+      "revenue": 1480,
+      "containedIn": [],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "article:civil-1-pastexam-essay-r07",
+      "kind": "article",
+      "inCatalog": false,
+      "clicks": 0,
+      "impressions": 0,
+      "sales": 1,
+      "revenue": 980,
+      "containedIn": [
+        "civil-1-pastexam-essay"
+      ],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "article:tradeoff-economic",
+      "kind": "article",
+      "inCatalog": false,
+      "clicks": 0,
+      "impressions": 0,
+      "sales": 1,
+      "revenue": 780,
+      "containedIn": [
+        "essay-complete-pack",
+        "essay-core-pack",
+        "tradeoff-5kanri"
+      ],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "article:tradeoff-human-resource",
+      "kind": "article",
+      "inCatalog": false,
+      "clicks": 0,
+      "impressions": 0,
+      "sales": 1,
+      "revenue": 780,
+      "containedIn": [
+        "essay-complete-pack",
+        "essay-core-pack",
+        "tradeoff-5kanri"
+      ],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "article:tradeoff-information-management",
+      "kind": "article",
+      "inCatalog": false,
+      "clicks": 0,
+      "impressions": 0,
+      "sales": 1,
+      "revenue": 780,
+      "containedIn": [
+        "essay-complete-pack",
+        "essay-core-pack",
+        "tradeoff-5kanri"
+      ],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "article:tradeoff-safety",
+      "kind": "article",
+      "inCatalog": false,
+      "clicks": 0,
+      "impressions": 0,
+      "sales": 1,
+      "revenue": 780,
+      "containedIn": [
+        "essay-complete-pack",
+        "essay-core-pack",
+        "tradeoff-5kanri"
+      ],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "article:tradeoff-social-environment",
+      "kind": "article",
+      "inCatalog": false,
+      "clicks": 0,
+      "impressions": 0,
+      "sales": 1,
+      "revenue": 780,
+      "containedIn": [
+        "essay-complete-pack",
+        "essay-core-pack",
+        "tradeoff-5kanri"
+      ],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "article:tankan-oral-exam",
+      "kind": "article",
+      "inCatalog": false,
+      "clicks": 0,
+      "impressions": 0,
+      "sales": 1,
+      "revenue": 500,
+      "containedIn": [],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "civil-2-pastexam-essay",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 15,
+      "impressions": 228,
+      "sales": 0,
+      "revenue": 0,
+      "containedIn": [],
+      "containedArticleSales": 2,
+      "containedArticleRevenue": 1960,
+      "topPlacements": [
+        {
+          "placement": "secondary-r07-q1",
+          "clicks": 9
+        },
+        {
+          "placement": "secondary-r04-q1",
+          "clicks": 2
+        },
+        {
+          "placement": "secondary-r05-q1",
+          "clicks": 2
+        }
+      ],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "civil-2-experience-essay",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 15,
+      "impressions": 157,
+      "sales": 0,
+      "revenue": 0,
+      "containedIn": [],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [
+        {
+          "placement": "secondary-experience-examples",
+          "clicks": 11
+        },
+        {
+          "placement": "secondary-experience-guide",
+          "clicks": 4
+        }
+      ],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "civil-1-pastexam-essay",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 4,
+      "impressions": 20,
+      "sales": 0,
+      "revenue": 0,
+      "containedIn": [],
+      "containedArticleSales": 1,
+      "containedArticleRevenue": 980,
+      "topPlacements": [
+        {
+          "placement": "secondary-r07-q1",
+          "clicks": 3
+        },
+        {
+          "placement": "secondary-r06-q1",
+          "clicks": 1
+        }
+      ],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "civil-1-experience-essay",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 4,
+      "impressions": 126,
+      "sales": 0,
+      "revenue": 0,
+      "containedIn": [],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [
+        {
+          "placement": "secondary-experience-writing-guide-inline-1-mid",
+          "clicks": 3
+        },
+        {
+          "placement": "secondary-experience-examples",
+          "clicks": 1
+        }
+      ],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "tankan-takuitsu-reiwa-pdf",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 4,
+      "impressions": 80,
+      "sales": 0,
+      "revenue": 0,
+      "containedIn": [],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [
+        {
+          "placement": "r08-primary-top",
+          "clicks": 3
+        },
+        {
+          "placement": "r06-primary-top",
+          "clicks": 1
+        }
+      ],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "civil-1-combo-essay",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 3,
+      "impressions": 39,
+      "sales": 0,
+      "revenue": 0,
+      "containedIn": [],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [
+        {
+          "placement": "secondary-experience-guide-combo",
+          "clicks": 3
+        }
+      ],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "note:ndf7ddb3f0a97",
+      "kind": "article",
+      "inCatalog": false,
+      "clicks": 3,
+      "impressions": 1,
+      "sales": 0,
+      "revenue": 0,
+      "containedIn": [
+        "essay-complete-pack",
+        "tankan-reading-guide"
+      ],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [
+        {
+          "placement": "(none)",
+          "clicks": 3
+        }
+      ],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "cce-essay-persona-pack",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 2,
+      "impressions": 5,
+      "sales": 0,
+      "revenue": 0,
+      "containedIn": [],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [
+        {
+          "placement": "guide-essay-themes",
+          "clicks": 2
+        }
+      ],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "civil-1-ichiji-ronten",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 2,
+      "impressions": 72,
+      "sales": 0,
+      "revenue": 0,
+      "containedIn": [],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [
+        {
+          "placement": "c1-exam-overview",
+          "clicks": 2
+        }
+      ],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "essay-complete-pack",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 1,
+      "impressions": 16,
+      "sales": 0,
+      "revenue": 0,
+      "containedIn": [],
+      "containedArticleSales": 5,
+      "containedArticleRevenue": 3900,
+      "topPlacements": [
+        {
+          "placement": "keyword-2026-inline-1-mid",
+          "clicks": 1
+        }
+      ],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "essay-core-pack",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 1,
+      "impressions": 2,
+      "sales": 0,
+      "revenue": 0,
+      "containedIn": [],
+      "containedArticleSales": 5,
+      "containedArticleRevenue": 3900,
+      "topPlacements": [
+        {
+          "placement": "essay-strategy-kyotsu",
+          "clicks": 1
+        }
+      ],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "civil-2-anki-note",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 1,
+      "impressions": 15,
+      "sales": 0,
+      "revenue": 0,
+      "containedIn": [],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [
+        {
+          "placement": "c2-secondary-start",
+          "clicks": 1
+        }
+      ],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "essay-sewage-municipality-magazine",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 1,
+      "impressions": 2,
+      "sales": 0,
+      "revenue": 0,
+      "containedIn": [],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [
+        {
+          "placement": "persona-guide-sewage-municipality",
+          "clicks": 1
+        }
+      ],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "pe-construction-environment-magazine",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 1,
+      "impressions": 2,
+      "sales": 0,
+      "revenue": 0,
+      "containedIn": [],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [
+        {
+          "placement": "environment-exam-themes",
+          "clicks": 1
+        }
+      ],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "pe-construction-road-magazine",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 1,
+      "impressions": 5,
+      "sales": 0,
+      "revenue": 0,
+      "containedIn": [],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [
+        {
+          "placement": "road-exam-themes",
+          "clicks": 1
+        }
+      ],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "pe-construction-steel-concrete-magazine",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 1,
+      "impressions": 4,
+      "sales": 0,
+      "revenue": 0,
+      "containedIn": [],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [
+        {
+          "placement": "steel-concrete-exam-themes",
+          "clicks": 1
+        }
+      ],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "civil-1-keiken-bridge-maintenance-pack",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 0,
+      "impressions": 0,
+      "sales": 0,
+      "revenue": 0,
+      "containedIn": [],
+      "containedArticleSales": 2,
+      "containedArticleRevenue": 3960,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "tradeoff-5kanri",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 0,
+      "impressions": 2,
+      "sales": 0,
+      "revenue": 0,
+      "containedIn": [],
+      "containedArticleSales": 5,
+      "containedArticleRevenue": 3900,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "civil-2-niji-marugoto-pack",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 0,
+      "impressions": 0,
+      "sales": 0,
+      "revenue": 0,
+      "containedIn": [],
+      "containedArticleSales": 2,
+      "containedArticleRevenue": 1960,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "cce-essay-magazine",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 0,
+      "impressions": 38,
+      "sales": 0,
+      "revenue": 0,
+      "containedIn": [],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "cce-mix-calculation-practice",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 0,
+      "impressions": 1,
+      "sales": 0,
+      "revenue": 0,
+      "containedIn": [],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "cd-essay-magazine",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 0,
+      "impressions": 13,
+      "sales": 0,
+      "revenue": 0,
+      "containedIn": [],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "civil-1-anki-note",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 0,
+      "impressions": 587,
+      "sales": 0,
+      "revenue": 0,
+      "containedIn": [],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "civil-1-gakka-kijutsu",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 0,
+      "impressions": 42,
+      "sales": 0,
+      "revenue": 0,
+      "containedIn": [],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "civil-1-r8-bunseki",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 0,
+      "impressions": 1,
+      "sales": 0,
+      "revenue": 0,
+      "containedIn": [],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "civil-2-gakka-kijutsu",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 0,
+      "impressions": 77,
+      "sales": 0,
+      "revenue": 0,
+      "containedIn": [],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "civil-2-takuitsu-pdf",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 0,
+      "impressions": 19,
+      "sales": 0,
+      "revenue": 0,
+      "containedIn": [],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "essay-general-contractor-magazine",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 0,
+      "impressions": 3,
+      "sales": 0,
+      "revenue": 0,
+      "containedIn": [],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "essay-park-municipality-magazine",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 0,
+      "impressions": 2,
+      "sales": 0,
+      "revenue": 0,
+      "containedIn": [],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "essay-port-municipality-magazine",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 0,
+      "impressions": 2,
+      "sales": 0,
+      "revenue": 0,
+      "containedIn": [],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "essay-procurement-municipality-magazine",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 0,
+      "impressions": 2,
+      "sales": 0,
+      "revenue": 0,
+      "containedIn": [],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "essay-river-consultant-magazine",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 0,
+      "impressions": 3,
+      "sales": 0,
+      "revenue": 0,
+      "containedIn": [],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "essay-river-municipality-magazine",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 0,
+      "impressions": 2,
+      "sales": 0,
+      "revenue": 0,
+      "containedIn": [],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "essay-road-consultant-magazine",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 0,
+      "impressions": 3,
+      "sales": 0,
+      "revenue": 0,
+      "containedIn": [],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "essay-road-municipality-magazine",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 0,
+      "impressions": 7,
+      "sales": 0,
+      "revenue": 0,
+      "containedIn": [],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "essay-sabo-municipality-magazine",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 0,
+      "impressions": 2,
+      "sales": 0,
+      "revenue": 0,
+      "containedIn": [],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "essay-standards-municipality-magazine",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 0,
+      "impressions": 2,
+      "sales": 0,
+      "revenue": 0,
+      "containedIn": [],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "essay-urban-consultant-magazine",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 0,
+      "impressions": 3,
+      "sales": 0,
+      "revenue": 0,
+      "containedIn": [],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "essay-urban-municipality-magazine",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 0,
+      "impressions": 2,
+      "sales": 0,
+      "revenue": 0,
+      "containedIn": [],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "essay-water-municipality-magazine",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 0,
+      "impressions": 2,
+      "sales": 0,
+      "revenue": 0,
+      "containedIn": [],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "note:n4424bc5ce1c9",
+      "kind": "article",
+      "inCatalog": false,
+      "clicks": 0,
+      "impressions": 2,
+      "sales": 0,
+      "revenue": 0,
+      "containedIn": [
+        "essay-complete-pack",
+        "tankan-reading-guide"
+      ],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "pe-construction-geotechnical-magazine",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 0,
+      "impressions": 2,
+      "sales": 0,
+      "revenue": 0,
+      "containedIn": [],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "pe-construction-port-airport-magazine",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 0,
+      "impressions": 1,
+      "sales": 0,
+      "revenue": 0,
+      "containedIn": [],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "pe-construction-river-coast-magazine",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 0,
+      "impressions": 3,
+      "sales": 0,
+      "revenue": 0,
+      "containedIn": [],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "pe-construction-tunnel-magazine",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 0,
+      "impressions": 1,
+      "sales": 0,
+      "revenue": 0,
+      "containedIn": [],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "pe-construction-urban-planning-magazine",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 0,
+      "impressions": 1,
+      "sales": 0,
+      "revenue": 0,
+      "containedIn": [],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "pe1-takuitsu-pdf",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 0,
+      "impressions": 46,
+      "sales": 0,
+      "revenue": 0,
+      "containedIn": [],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "r8-essay-forecast",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 0,
+      "impressions": 2,
+      "sales": 0,
+      "revenue": 0,
+      "containedIn": [],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "setsumon3-policy-bank",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 0,
+      "impressions": 2,
+      "sales": 0,
+      "revenue": 0,
+      "containedIn": [],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    },
+    {
+      "productId": "tankan-takuitsu-heisei-pdf",
+      "kind": "catalog",
+      "inCatalog": true,
+      "clicks": 0,
+      "impressions": 13,
+      "sales": 0,
+      "revenue": 0,
+      "containedIn": [],
+      "containedArticleSales": 0,
+      "containedArticleRevenue": 0,
+      "topPlacements": [],
+      "siteReferredViews": null,
+      "status": {
+        "clicks": "exact",
+        "sales": "reconciled",
+        "siteReferredViews": "unresolvable"
+      }
+    }
+  ],
+  "summary": {
+    "products": 73,
+    "productsWithClicks": 19,
+    "productsWithSales": 23,
+    "productsWithClicksAndSales": 7
+  },
+  "limitations": [
+    "クリックと購入者を結合していない（note の販売履歴に流入識別子が無い）。同月に並べた診断値で、因果 attribution ではない。",
+    "containedArticleSales は収録単品の売上を各収録マガジンへ重複して載せた非加算値。"
+  ],
+  "inputs": {
+    "ga4": ".claude/state/metrics/ga4/ga4-cta-clicks-by-label-2026-09-24T22-01-30.json",
+    "noteReferrers": ".claude/state/metrics/note/referrers-2026-08.json",
+    "sales": ".claude/state/sales/sales-log.json",
+    "salesLogUpdatedAt": "2026-09-20",
+    "catalog": "src/lib/note-magazines.ts（133 商品）",
+    "magazineSnapshot": ".claude/state/note/magazines-snapshot.json（2026-09-24T12:53:13.590Z）"
+  }
+}
