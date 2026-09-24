@@ -18,7 +18,11 @@
  *   error  台帳にあるのに PNG が無い（削除もれ）
  *   warn   droppedLines > 0（本文が maxLines で切れている）
  *
- * **検査ゼロを PASS と呼ばない**: 対象数と実検査数を必ず出し、対象 0 件は exit 1。
+ * 対象は Git が管理しうる PNG（追跡済み＋未追跡・非 ignore）だけ。.gitignore 済みの PNG
+ * （`*-diagrams/img/tweet-*.png` 等）は対象外で、台帳上も「PNG 無し」として扱う。ディスクを歩くと
+ * ignore 済み PNG のあるローカルだけ赤・CI は緑に割れていた（DN-0259）。範囲は lib/x-card-render-scope.mjs。
+ *
+ * **検査ゼロを PASS と呼ばない**: 対象数と実検査数を必ず出し、対象 0 件・git 列挙失敗は exit 1。
  *
  * Usage:
  *   node scripts/check-x-card-render.mjs
@@ -30,6 +34,7 @@ import { join, dirname, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { examColor } from '../.claude/scripts/sns/lib/exam-palette.mjs';
 import { cardSpecHash, validateCharacterCard } from './lib/x-character-spec.mjs';
+import { isXCardPng, listScopedXCardPngs } from './lib/x-card-render-scope.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const LEDGER = join(ROOT, '.claude/state/sns/x-card-render.json');
@@ -39,20 +44,26 @@ const NAME = 'check-x-card-render';
 
 const toPosix = (p) => p.split(sep).join('/');
 
+// ディスク上の PNG は「ignore 済みで対象外になった枚数」を出すためだけに数える。
 function walkPngs(dir, out = []) {
   if (!existsSync(dir)) return out;
   for (const e of readdirSync(dir, { withFileTypes: true })) {
-    // `_archive*` は旧アカウント時代の保管物。今後出す画像ではないので検査しない
-    // （2026-08-25 実測: `_archive-old-account` の 78 枚が「台帳に無い」で全部 error になっていた）。
-    if (e.isDirectory() && e.name.startsWith('_archive')) continue;
     const p = join(dir, e.name);
     if (e.isDirectory()) walkPngs(p, out);
-    else if (e.isFile() && e.name.endsWith('.png') && toPosix(p).includes('/img/')) out.push(p);
+    else if (e.isFile() && e.name.endsWith('.png')) out.push(toPosix(p.slice(ROOT.length + 1)));
   }
   return out;
 }
 
-const pngs = walkPngs(X_DIR).map((p) => toPosix(p.slice(ROOT.length + 1)));
+const scoped = listScopedXCardPngs(ROOT);
+if (!scoped.ok) {
+  console.error(`[${NAME}] ✗ 検査不成立: ${scoped.error}。検査対象を決められないので合否を出さない。`);
+  process.exit(1);
+}
+// index にあっても作業ツリーで消したものは「無い」扱い（削除もれを台帳側で拾う）。
+const pngs = scoped.pngs.filter((rel) => existsSync(join(ROOT, rel)));
+const inScope = new Set(pngs);
+const ignoredOnDisk = walkPngs(X_DIR).filter((rel) => isXCardPng(rel) && !inScope.has(rel)).length;
 const ledger = existsSync(LEDGER) ? JSON.parse(readFileSync(LEDGER, 'utf8')) : { entries: {} };
 const entries = ledger.entries || {};
 
@@ -90,7 +101,8 @@ for (const rel of pngs) {
   }
 }
 
-const stalePng = Object.keys(entries).filter((k) => !existsSync(join(ROOT, k)));
+// 「PNG が無い」は対象範囲で判定する（ignore 済み PNG がローカルにあっても CI と同じく無い扱い）。
+const stalePng = Object.keys(entries).filter((k) => !inScope.has(k));
 for (const k of stalePng) {
   const entry=entries[k];
   if(entry.template==='x-teacher-v1') {
@@ -107,16 +119,16 @@ for (const k of stalePng) {
   errors.push({ rule: 'ledger-orphan', at: k, msg: '台帳にあるが PNG が無い（削除もれ）' });
 }
 
-const summary = `[${NAME}] X カード PNG ${pngs.length} 枚 / 台帳 ${Object.keys(entries).length} 件 → 実検査 ${inspected} 枚`
+const summary = `[${NAME}] Git 管理下の X カード PNG ${pngs.length} 枚（.gitignore 済み ${ignoredOnDisk} 枚は対象外） / 台帳 ${Object.keys(entries).length} 件 → 実検査 ${inspected} 枚`
   + ` / error ${errors.length} / warn ${warnings.length}`;
 
 if (JSON_OUT) {
-  writeSync(1, `${JSON.stringify({ pngs: pngs.length, ledger: Object.keys(entries).length, inspected, errors, warnings }, null, 2)}\n`);
+  writeSync(1, `${JSON.stringify({ pngs: pngs.length, ignoredOnDisk, ledger: Object.keys(entries).length, inspected, errors, warnings }, null, 2)}\n`);
   process.exit(errors.length ? 1 : 0);
 }
 
 console.log(summary);
-if(reproducible)console.log(`[${NAME}] 先生カード ${reproducible} 件は原稿hashのみ検査。端末に画像なし・画像実体は未検査（gen-x-card --draft で再生成）。`);
+if(reproducible)console.log(`[${NAME}] 先生カード ${reproducible} 件は原稿hashのみ検査。Git 管理下に画像なし・画像実体は未検査（gen-x-card --draft で再生成）。`);
 if (pngs.length === 0) {
   console.error(`[${NAME}] ✗ 検査不成立: 対象の PNG が 1 枚も無い。0 件を「異常なし」と読まない。`);
   process.exit(1);
