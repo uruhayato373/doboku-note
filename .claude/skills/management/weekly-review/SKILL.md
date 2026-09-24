@@ -115,7 +115,7 @@ description: >
   併せて `issues[]` も surface する＝`unmapped`（掲載中の広告が集計されていない）と `crossCheckExceeded`（stats47 混入の疑い）は
   期限に関係なく要対応。※Playwright + A8 ログイン必須。CI は `login-collectors.yml`（encrypted-state・canary卒業後）。ローカル実行はフォールバック。A8 は公開 API 無し
   （真実源 `.claude/knowledge/reference/a8-affiliate-pipeline.md`）
-- note 再公開ドリフト: `npm run check-note-republish` を実行（公開記事のソース**本文＋ハッシュタグ**が公開時から変更＝要再公開を surface・creds不要・ローカルhash突合）。
+- note 再公開ドリフト: `npm run check-note-republish` を実行（公開記事のソース**本文＋ハッシュタグ**が公開時から変更＝要再公開を surface・creds不要・ローカルhash突合。旧 `/docs` → 新 URL の張り替えだけの「301 等価」は要再公開に含めず別に数える）。
   「要再公開(本文drift)」は `note-update-body --commit`、「要再公開(タグdrift)」は `note-sync-tags --commit`（公開済み記事へのタグ差分追加。dry-run に「余分=N」が出る記事は `--prune --commit`）で次セッションに live 反映をサーフェスのみ（実反映はローカル実機＝クラウド週次では不可）。verify-note-status(公開状態) とは直交。
 - note 構成監査（月次寄り・network依存）: `node scripts/check-note-structure.mjs`（公開API無料本文とソース paidBoundary を突合し FULL_LOCK/PAYWALL_LEAK/BOUNDARY_SHIFT/IMG_MISSING/PRICE_MISMATCH を検出・creds不要）。CRITICAL があれば該当記事の境界を `note-update-body --commit` で再設定するようサーフェスのみ（audit-note-funnel --live と同じ live 隔離枠）。
   **出力の「実検査 N本（対象M・取得失敗K）」を必ず読む**。live 系の検査は取得できていなければ「異常なし」ではなく「検査できていない」＝ N が対象数から大きく欠けていたら結果を信用しない（取得失敗率 >20% ならスクリプト側が exit 1 で落とす）。2026-07-28 まで 675/675 が取得失敗でも緑を返していた実績がある。同種の live 検査 `check-note-live-headings` も同じ観点で見る。
