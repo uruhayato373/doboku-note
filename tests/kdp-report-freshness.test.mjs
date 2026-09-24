@@ -44,3 +44,16 @@ test('対象0件や壊れたスキーマを成功扱いしない', () => {
   assert.equal(assessKdpReport(null, new Date('2026-09-20T00:00:00Z'), ['A-01']).status, 'FAIL');
   assert.equal(assessKdpReport({ months: {} }, new Date('2026-09-20T00:00:00Z'), ['A-01']).status, 'FAIL');
 });
+
+test('catalog books published after the month are not required for that month', () => {
+  const books = [
+    { id: 'A-01', status: 'live', publishedDate: '2026-07-01' },
+    { id: 'h-01', status: 'live', publishedDate: '2026-09-24' },
+    { id: 'z-01', status: 'draft' },
+  ];
+  const r = assessKdpReport({ months: { '2026-08': entry('2026-08') } }, new Date('2026-09-25T00:00:00Z'), books);
+  assert.equal(r.status, 'OK');
+  const late = assessKdpReport({ months: { '2026-08': entry('2026-08') } }, new Date('2026-09-25T00:00:00Z'), [...books, { id: 'f-09', status: 'live', publishedDate: '2026-08-31' }]);
+  assert.equal(late.status, 'FAIL');
+  assert.match(late.reason, /f-09/);
+});

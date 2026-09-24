@@ -27,11 +27,11 @@ GA4人数は期間全体に対するAPI集計。資格別は正規URL配下の�
 
 自動集計対象外の値は、各管理画面で期間・対象・定義を確認し `/metrics/business` のフォーム、またはJSONから記録する。`source` に取得面・確認範囲を記す。新PVと旧全体ビューは接続しない。ココナラの閲覧数は `/coconala-analytics` の30日窓を使い、暦月へ換算しない。KDPは月次台帳の書籍別行からcatalog対象だけを集計し、共有口座総額やサイト帰属できないKENPを事業実績へ入れない。認証・ログイン・UI変更で取得できなければ、値を作らず次回の取得対象へ残す。
 
-note の `notePv` / `noteImpressions` は `npm run note-traffic-fetch -- --month YYYY-MM --commit` が書く `.claude/state/metrics/note/referrers-YYYY-MM.json` の `summary` を全体値の出典にする（自己閲覧を含む・`coverage: complete`）。資格別は `articles-pv-YYYY-MM.json` の記事タイトルを公開台帳と資格名へ照合する。未帰属記事を残すため資格別はpartialとし、全体値と一致するよう按分しない。流入元の内訳（`targetMonth.sources`）は指標にせず findings に書く。
+note の `notePv` / `noteImpressions` は `npm run note-traffic-fetch -- --month YYYY-MM --commit` が書く `.claude/state/metrics/note/referrers-YYYY-MM.json` の `summary` を全体値の出典にする（自己閲覧を含む・`coverage: complete`）。資格別は `articles-pv-YYYY-MM.json` の記事タイトルを公開台帳と資格名へ照合する。未帰属記事を残すため資格別はpartialとし、全体値と一致するよう按分しない。流入元の内訳（`targetMonth.sources`）は指標にせず findings に書く。月の途中に取得したファイル（`fetchedAt` が対象月末以前）は取得日までの期間・partial として扱い、月全体の値にしない。週次レビューには按分せず、月の値は `/metrics/business` の「別期間の既存計測」に出す（実装 `noteMonthFacts`）。
 
-ココナラの暦月販売件数・販売額は、全タブ取得済みの `orders-snapshot.json` を `orders-log.json` のtalkroomIdへ突合して集計する。分析画面の閲覧数は30日ローリングのまま別期間として表示し、暦月へ換算しない。購入前相談はDMスレッドの最新日しか取れず月内メッセージ数を復元できないため、専用記録がない月は欠測とする。
+ココナラの暦月販売件数・販売額は、全タブ取得済みの `orders-snapshot.json` を `orders-log.json` のtalkroomIdへ突合して集計する。分析画面の閲覧数は30日ローリングのまま別期間として表示し、暦月へ換算しない。資格別の閲覧数は1級専用・RCCM出品だけを合算し、1・2級共通の出品は全体のみに含める（`coconalaViewFacts`）。購入前相談はDMスレッドの最新日しか取れず件数を復元できないため、専用記録がない期間は欠測とする。例外として、期間終了後に取得した `orders-snapshot.json` のDM一覧（運営通知を除く）の最新日がすべて期間開始より前なら、期間中の相談は0件と確定する（`coconalaInquiryFacts`）。
 
-`measurement` の必須項目: `kind`, `qualification`（allまたは重点資格ID）, `period.startDate/endDate`, `channel`（GA4/GSC/note/KDP/coconala/operations）, `subject`, `source`, `coverage`（complete/partial/not-applicable）, `values`（指標ID→非負整数またはnull）。`not-applicable` は指標の `appliesTo` 外だけに使う。資格全体の集計は `subject: aggregate`。特定記事・商品はそのIDを用い、合計欄へ自動加算しない。全体には重点資格外・資格未帰属を含む。指標の `appliesTo` 外は対象外として欠測の母数へ入れない。note売上の既存台帳集計は登録分であり、月次表示との一致を確認するまでは部分集計と表示する。KDPは確定月かつcatalogのLIVE全冊を照合できた期間だけcompleteとする。
+`measurement` の必須項目: `kind`, `qualification`（allまたは重点資格ID）, `period.startDate/endDate`, `channel`（GA4/GSC/note/KDP/coconala/operations）, `subject`, `source`, `coverage`（complete/partial/not-applicable）, `values`（指標ID→非負整数またはnull）。`not-applicable` は指標の `appliesTo` 外だけに使う。資格全体の集計は `subject: aggregate`。特定記事・商品はそのIDを用い、合計欄へ自動加算しない。全体には重点資格外・資格未帰属を含む。指標の `appliesTo` 外は対象外として欠測の母数へ入れない。note売上の既存台帳集計は登録分であり、月次表示との一致を確認するまでは部分集計と表示する。KDPは確定月かつcatalogのLIVE全冊（対象月末までに出版した本。`kdpLiveBookIdsAsOf`）を照合できた期間だけcompleteとする。週次レビューへは按分しない。
 
 顧客名・メール・相談本文・認証情報を含めない。`null`は欠測。0は対象を確認した実測。費用・受取・時間が揃わない状態で利益や時給を推計しない。
 

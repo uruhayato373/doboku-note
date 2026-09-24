@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { mkdtempSync, mkdirSync, readFileSync, writeFileSync, rmSync } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
-import { reviewPeriod, duePeriods, direction, saveRecord, records, buildReport, snapshot, assertLocalWrite, strategyForRecord, noteArticleQualification, validateRecord, latestAll, unionDaily } from '../scripts/lib/business-direction.mjs';
+import { reviewPeriod, duePeriods, direction, saveRecord, records, buildReport, snapshot, assertLocalWrite, strategyForRecord, noteArticleQualification, validateRecord, latestAll, unionDaily, noteMonthFacts, kdpMonthFacts, coconalaDmDate, coconalaInquiryFacts, coconalaViewFacts } from '../scripts/lib/business-direction.mjs';
 const now = new Date('2026-09-13T01:00:00Z'), period = { startDate: '2026-08-01', endDate: '2026-08-31' };
 function fixture(t) {
  const root=mkdtempSync(join(tmpdir(),'business-'));t.after(()=>rmSync(root,{recursive:true,force:true}));
@@ -178,4 +178,73 @@ test('past reviews are validated against the strategy frozen in their snapshot, 
  assert.equal(strategyForRecord(rows[1],rows,current),frozen);
  assert.equal(strategyForRecord(rows[2],rows,current),current);
  assert.equal(strategyForRecord({kind:'review',file:'r2',snapshot:'missing'},rows,current),current);
+});
+
+// ── 手元の月次・30日窓・DM一覧の取り込み（週へ按分しない／欠測を0にしない） ──
+const week = { startDate: '2026-09-14', endDate: '2026-09-20' };
+test('note monthly facts keep the month period, and a mid-month fetch is cut at the fetch date as partial',()=>{
+ const traffic=m=>({period:{from:`${m}-01`,to:`${m}-30`},summary:{pageViews:100,impressions:1000}});
+ const full=noteMonthFacts({traffic:{...traffic('2026-09'),fetchedAt:'2026-10-01T00:00:00Z'},trafficPath:'t'});
+ assert.deepEqual(full.find(f=>f.metric==='notePv'),{metric:'notePv',value:100,period:{startDate:'2026-09-01',endDate:'2026-09-30'},source:'t',qualification:'all',coverage:'complete',note:'noteアクセス状況の対象月全記事。自己閲覧を含む。'});
+ // 2026-09-15T21:13Z = JST 09-16。月途中値を9月全体として月次セルへ入れない。
+ const mid=noteMonthFacts({traffic:{...traffic('2026-09'),fetchedAt:'2026-09-15T21:13:53Z'},articles:{rows:[{title:'RCCM 問題III',pageViews:7,impressions:70}]},qualifications:['rccm','pe-construction'],trafficPath:'t',articlesPath:'a'});
+ assert.deepEqual(mid.find(f=>f.metric==='notePv'&&f.qualification==='all').period,{startDate:'2026-09-01',endDate:'2026-09-16'});
+ assert.ok(mid.every(f=>f.coverage==='partial'&&/月途中値/.test(f.note)));
+ assert.equal(mid.find(f=>f.metric==='notePv'&&f.qualification==='rccm').value,7);
+ assert.equal(mid.find(f=>f.metric==='notePv'&&f.qualification==='pe-construction').value,0);
+ assert.deepEqual(noteMonthFacts({traffic:{summary:{pageViews:1}},trafficPath:'t'}),[]);
+});
+test('a weekly review does not apportion monthly note data and explains where the month value is',t=>{
+ const root=fixture(t);
+ writeFileSync(join(root,'.claude/state/metrics/note/referrers-2026-09.json'),JSON.stringify({fetchedAt:'2026-10-01T00:00:00Z',period:{from:'2026-09-01',to:'2026-09-30'},summary:{pageViews:100,impressions:1000}}));
+ const r=buildReport(root,week,new Date('2026-10-02T00:00:00Z'));
+ const cell=r.cells.find(c=>c.qualification==='all'&&c.metric==='notePv');
+ assert.equal(cell.value,null);assert.equal(cell.coverage,'missing');assert.match(cell.note,/2026-09-01〜2026-09-30 の値は別期間/);
+ assert.equal(r.sources.find(s=>s.metric==='notePv'&&s.qualification==='all').value,100);
+ const month=buildReport(root,{startDate:'2026-09-01',endDate:'2026-09-30'},new Date('2026-10-02T00:00:00Z'));
+ assert.equal(month.cells.find(c=>c.qualification==='all'&&c.metric==='notePv').value,100);
+});
+test('KDP completeness counts only books live by the end of the month',()=>{
+ const entry={range:{start:'2026-08-01',end:'2026-08-31'},estimated:false,books:[{bookId:'A-01',royalty:700},{bookId:'h-02',royalty:50},{bookId:null,royalty:999}]};
+ const catalogBooks=[{id:'A-01',status:'live',publishedDate:'2026-07-01'},{id:'h-02',status:'live',publishedDate:'2026-08-20'},{id:'h-01',status:'live',publishedDate:'2026-09-24'},{id:'x-01',status:'draft'}];
+ const attribution=[{prefixes:['A-'],qualification:'civil-construction-1'},{prefixes:['h-'],qualification:'rccm'}];
+ const facts=kdpMonthFacts({entry,catalogBooks,attribution,qualifications:['civil-construction-1','rccm','pe-construction'],path:'k'});
+ const all=facts.find(f=>f.qualification==='all');
+ assert.equal(all.value,750);assert.equal(all.coverage,'complete');assert.match(all.note,/2\/2 冊/);
+ assert.equal(facts.find(f=>f.qualification==='rccm').value,50);
+ assert.equal(facts.find(f=>f.qualification==='pe-construction').value,0);
+ // 月内に LIVE だった本が欠ければ partial のまま。推計値も partial。
+ assert.equal(kdpMonthFacts({entry:{...entry,books:[entry.books[0]]},catalogBooks,path:'k'})[0].coverage,'partial');
+ assert.equal(kdpMonthFacts({entry:{...entry,estimated:true},catalogBooks,path:'k'})[0].coverage,'partial');
+});
+test('coconala DM dates resolve the year from the fetch date and refuse relative or time-only labels',()=>{
+ assert.equal(coconalaDmDate('9月1日','2026-09-23'),'2026-09-01');
+ assert.equal(coconalaDmDate('12月30日','2026-01-05'),'2025-12-30');
+ assert.equal(coconalaDmDate('2025年3月2日','2026-09-23'),'2025-03-02');
+ assert.equal(coconalaDmDate('12:30','2026-09-23'),null);
+ assert.equal(coconalaDmDate('昨日','2026-09-23'),null);
+ assert.equal(coconalaDmDate('2月30日','2026-09-23'),null);
+});
+test('coconala inquiries are 0 only when every customer thread went quiet before the period, otherwise null with a reason',()=>{
+ const snap=(inquiries,over={})=>({status:'ok',fetchedAt:'2026-09-22T23:41:36Z',scan:{tabs:[{key:'inquiries',ok:true}]},inquiries,...over});
+ const quiet=[{dateText:'9月1日'},{dateText:'9月18日',fromStaff:true,oneWay:true}];
+ const zero=coconalaInquiryFacts({snapshot:snap(quiet),period:week,qualifications:['civil-construction-1','rccm'],path:'o'});
+ assert.deepEqual(zero.map(f=>[f.qualification,f.value,f.coverage]),[['all',0,'complete'],['civil-construction-1',0,'complete'],['rccm',0,'complete']]);
+ const cases=[
+  [snap([{dateText:'9月15日'}]),/動きのあるDMスレッドが 1 件/],
+  [snap([{dateText:'9月21日'}]),/動きのあるDMスレッドが 1 件/],
+  [snap([{dateText:'10:15'}]),/日付を確定できない/],
+  [snap(quiet,{fetchedAt:'2026-09-20T01:00:00Z'}),/期間終了前/],
+  [snap(quiet,{scan:{tabs:[{key:'inquiries',ok:false}]}}),/全件取得できていない/],
+  [snap(quiet,{status:'partial'}),/全件取得できていない/],
+ ];
+ for(const [snapshot,reason] of cases){const f=coconalaInquiryFacts({snapshot,period:week,qualifications:['rccm'],path:'o'});assert.ok(f.every(x=>x.value===null&&x.coverage==='missing'));assert.match(f[0].note,reason);}
+});
+test('coconala views stay in the 30-day window and attribute only single-qualification listings',()=>{
+ const facts=coconalaViewFacts({path:'s',snapshot:{period:{services:{from:'2026-08-24',to:'2026-09-22'}},totals:{views:30},services:[
+  {serviceId:'coconala-rccm-mondai3-pdf',views:5},{serviceId:'coconala-1kyu-moshi-pdf',views:7},{serviceId:'coconala-2kyu-moshi-pdf',views:9},{serviceId:'coconala-shindan',views:9}]}});
+ assert.deepEqual(facts.map(f=>[f.qualification,f.value,f.coverage]),[['all',30,'partial'],['rccm',5,'partial'],['civil-construction-1',7,'partial']]);
+ assert.ok(facts.every(f=>f.period.startDate==='2026-08-24'&&f.period.endDate==='2026-09-22'));
+ const masked=coconalaViewFacts({path:'s',snapshot:{period:{services:{from:'2026-08-24',to:'2026-09-22'}},totals:{views:null},services:[{serviceId:'coconala-rccm-x',views:null}]}});
+ assert.equal(masked.find(f=>f.qualification==='rccm').value,null);
 });
