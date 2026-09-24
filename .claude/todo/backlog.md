@@ -109,17 +109,6 @@
 **完了条件**: 3本の blogUrl が frontmatter に書き戻され、公開スクリプトのライブ実査（ログアウト状態・外部リンク0件）が通る。公開から30日後に、記事と2級出品の閲覧を kpi-log で読む（欠測は0と扱わない）。
 
 
-### [DN-0293] Mac に gsc-local（launchd）を入れ、GSC 登録リクエストと sitemap 送信の自動化を確かめる
-タグ: [インフラ・計測] [種類:改善] [起票:2026-09-24]
-
-**起点**: 登録リクエストと理由別 UI CSV は API が無く、ログインしたブラウザが要る。GitHub hosted runner は Google がセッションを Mac 側まで失効させ（2026-09-21 実測）、self-hosted runner はこのリポジトリが公開のため fork の PR に Mac 上でコードを実行されうる。そこで Mac の launchd `gsc-local`（毎日 10:30・寝ていた日は起床時）で回し、API で済む sitemap の送信と読み込み状況は `fetch-metrics.yml` が取る形にした（ユーザー判断・2026-09-24）。
-
-**やること**: launchd は 2026-09-24 に登録済み（`~/Library/LaunchAgents/com.doboku-note.gsc-local.plist`）。8GB Mac でメモリガードに止まる件は PR #614 で `DOBOKU_PW_MIN_FREE_MB=1200` にした。残りは Google へのログインだけ（run-now は `status=not-signed-in` で停止）。
-1. **ユーザーが** `npm run google-console:login` でログインする（パスワード入力は人の作業）
-2. `npm run gsc-local:install -- --run-now` を 1 回流し、`~/Library/Logs/doboku-note/gsc-local.log` で受理件数と develop への push を確かめる（Chrome が数分開く）
-3. 金曜の fetch-metrics と月曜の weekly-review-guard の job summary で `check-gsc-sitemaps`・`check-gsc-indexing-due`・`check-gsc-ui-due` が OK か見る。registry の google は `enabled:false` のまま
-
-**完了条件**: launchd の実行が受理を `gsc-indexing/history.json` に記録して develop へ push し、`npm run check-gsc-indexing-due` と `npm run check-gsc-sitemaps` がともに OK。
 
 
 
@@ -302,6 +291,8 @@ CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認し
 
 
 | 20 | 既存の動画退避物3件のハッシュ不一致 | `check-drive-vault` で `.tmp/video-render/career-komuin-minkan/wav/01-premise.wav`、`gakka-2kyu-hoki/shorts/point-overview-1/thumbnail.png`、`kikinagashi-shunin-suchi/shorts/point-tanni-saikotsu-kuuki-2/meta.json` のvault実体と台帳が不一致。今回制作した137ファイルはクラウドまで全件一致 | 各制作パックの現在の原稿/公開版と照合し、正しい版を確定してから退避し直す。台帳のSHAだけを書き換えない |
+| 21 | Bing Webmaster の API キー未登録 | develop の `fetch-metrics.yml`（2026-09-24 追加の Bing 取得）が `BING_WEBMASTER_API_KEY が未設定` で検査不成立（run 36056783734・automation-failure Issue #630） | Bing Webmaster Tools → 設定 → API アクセスでキーを発行し、GitHub Secret `BING_WEBMASTER_API_KEY` に登録する。次の fetch-metrics 成功で #630 は自動クローズ |
+| 22 | GA4 Admin API が無効 | 同 run で `[ga4-admin-api] 検査不成立（api-disabled）` | GCP コンソールでサービスアカウントのプロジェクトに「Google Analytics Admin API」を有効化する |
 
 **完了条件**: 各行の実体が解消したら行ごと消し、全行が消えたらカードを削除する。
 

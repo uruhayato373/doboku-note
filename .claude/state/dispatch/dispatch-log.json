@@ -1339,6 +1339,18 @@
       "commit": "b7db147fcb39",
       "verification": "ba31a4f64 で変えた 89 本のうち drift 残は序章 1 本のみ（DN-0271 に移管）。check-note-live-headings 894 件検査・太字記号含む不整合なし。会員限定の無料入口 7 本はユーザー判断で --trial-line-bottom で公開",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0293",
+      "at": "2026-09-25",
+      "task": "Mac に gsc-local（launchd）を入れ、GSC 登録リクエストと sitemap 送信の自動化を確かめる",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "7ab6a91c4382",
+      "verification": "9/25 05:30 の launchd gsc-local（run-now）で登録リクエスト受理 10 件・history.json 記録・develop へ push。check-gsc-indexing-due exit 0、check-gsc-sitemaps OK（sitemap 2 件正常）。UI CSV 11 ユニット complete。ログイン維持は PR #628/#629",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }
