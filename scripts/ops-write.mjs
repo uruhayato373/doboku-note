@@ -17,6 +17,11 @@
  * Usage:
  *   node scripts/ops-write.mjs plan --operation <id> --args '<json>' [--json]
  *   node scripts/ops-write.mjs exec --operation <id> --args '<json>' --plan-sha256 <hash> [--commit]
+ *   node scripts/ops-write.mjs exec --operation <id> --scheduled --commit   # カタログの scheduled.args で実行
+ *
+ * --scheduled: カタログで `scheduled` を持つ risk=low の操作だけ。引数はカタログの固定値で、--args と
+ *   --plan-sha256 は受け付けない（渡されたら前提不成立）。CI が自分で計算した hash を gate env に載せる。
+ *   承認の対象は PR レビュー済みのカタログ定義（ci-write-gate.mjs の方針 5）。
  *
  * exit（exec）: 0 成功 / 1 実行または verify 失敗 / 2 hash 不一致・前提不成立
  * exit（plan）: 0 成功 / 2 カタログ・引数エラー
@@ -34,6 +39,8 @@ import {
   buildCommitCommand,
   decideExecution,
   gateEnvFor,
+  scheduledArgsFor,
+  assertRunnerAllowed,
 } from './lib/ci-write-gate.mjs';
 import { detectCI, loadAuthRegistry } from './lib/playwright-auth-profile.mjs';
 
@@ -57,6 +64,7 @@ export function parseArgs(argv) {
     const a = argv[i];
     if (a === '--commit') { out.commit = true; continue; }
     if (a === '--json') { out.json = true; continue; }
+    if (a === '--scheduled') { out.scheduled = true; continue; }
     if (a.startsWith('--')) {
       const key = a.slice(2);
       out[key] = argv[i + 1];
@@ -120,12 +128,19 @@ function cmdExec(parsed, deps) {
   }
   if (!parsed.operation) { stderr(`${TAG} ::error:: --operation is required`); return 2; }
 
+  if (parsed.scheduled && (parsed.args !== undefined || parsed['plan-sha256'] !== undefined)) {
+    stderr(`${TAG} ::error:: --scheduled は --args / --plan-sha256 と併用できない（引数はカタログの scheduled.args で固定）。前提不成立。`);
+    return 2;
+  }
+
   let op;
   let plan;
   let hash;
   try {
     op = resolveOperation(root, parsed.operation);
-    ({ plan, hash } = buildPlan(root, op, parsed.args));
+    assertRunnerAllowed(op, env);
+    const args = parsed.scheduled ? scheduledArgsFor(op) : parsed.args;
+    ({ plan, hash } = buildPlan(root, op, args));
   } catch (e) {
     stderr(`${TAG} ::error:: ${e.message}`);
     return 2;
@@ -133,9 +148,11 @@ function cmdExec(parsed, deps) {
 
   const decision = decideExecution({
     commit: Boolean(parsed.commit),
-    expectedHash: parsed['plan-sha256'],
+    // scheduled は人の hash を持たない。照合相手は CI 自身が計算した hash（固定引数・PR レビュー済みの定義）。
+    expectedHash: parsed.scheduled ? hash : parsed['plan-sha256'],
     actualHash: hash,
   });
+  if (parsed.scheduled) stdout(`${TAG} scheduled: カタログの固定引数 ${JSON.stringify(plan.args)} で実行する（人の plan hash なし）`);
 
   if (decision.reason === 'plan-only') {
     stdout(formatPlan({ plan, hash }, 'plan-only（commit=false）'));

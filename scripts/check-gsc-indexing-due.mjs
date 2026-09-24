@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 /**
- * check-gsc-indexing-due.mjs — 登録リクエスト（人間・1 日 10 件）の放置検知 surfacer
+ * check-gsc-indexing-due.mjs — 登録リクエスト（1 日 10 件）の放置検知 surfacer
  * ---------------------------------------------------------------------------
  * CI が作る順位表（priority-latest.json）に「表示実績のある未登録 URL」が残っているのに、
  * 直近 7 日に受理された登録リクエストが無ければ DUE。weekly-review-guard が毎週 job summary に出す。
- * 送信そのものは Google がAPIを提供しないため CI 化できない（gsc-management.md「CI 例外」）。
+ * 送信は gsc-request-indexing.yml（self-hosted runner の Mac・画面操作）が行う。hosted runner では Google が
+ * セッションを失効させるので使えない。runner を設定するまでは人がローカルで送る（DN-0291）。
  *
  * 使い方:
  *   npm run check-gsc-indexing-due            # 人向け
@@ -28,7 +29,7 @@ const priority = existsSync(pPath) ? JSON.parse(readFileSync(pPath, "utf8")) : n
 const requestRuns = existsSync(hPath) ? JSON.parse(readFileSync(hPath, "utf8")).runs ?? [] : [];
 
 const verdict = evaluateIndexingDue({ priority, requestRuns, thresholdDays });
-const command = "npm run gsc-indexing:request -- --file .claude/state/metrics/gsc-indexing/priority-latest.txt（ローカル・Google ログイン必須・10 件/回）";
+const command = "gh workflow run gsc-request-indexing.yml（self-hosted runner 設定済みなら）／未設定なら npm run gsc-indexing:request -- --file .claude/state/metrics/gsc-indexing/priority-latest.txt --stop-at-limit（ローカル・Google ログイン必須・10 件/回）";
 const result = { channel: "gsc-indexing", label: "GSC 登録リクエスト", generatedAt: priority?.generatedAt ?? null, thresholdDays, ...verdict, command };
 
 if (JSON_OUT) {

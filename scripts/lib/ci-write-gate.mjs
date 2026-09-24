@@ -17,6 +17,13 @@
  *      この env が無いと profile を返さないので、カタログ外・hash 無しの書き込みは起動できない。
  *   4. plan 段階に profile は要らない（dry-run で下書きを作る＝それ自体が書き込み、という既存 CLI の
  *      性質に依存しない）。
+ *   5. **定期実行（scheduled）**: カタログで `scheduled.args` を持つ risk=low の操作だけ、人の hash なしに
+ *      CI が固定引数で plan を作って実行してよい（2026-09-24・GSC の登録リクエスト＝DN-0291）。承認の対象は
+ *      「引数を固定したカタログ定義」そのもので、PR レビューを経てカタログに入った時点で承認済みとみなす。
+ *      引数は dispatch から変えられない。hash 照合と resolver 側の許可条件（env の plan hash）は通常と同じ。
+ *   6. **self-hosted 限定（requiresSelfHostedRunner）**: Google は GitHub hosted runner（datacenter IP）で
+ *      セッションを復元すると、その場で Mac 側まで含めて全面失効させる（2026-09-21 実測・measurement-incidents.md）。
+ *      この印の操作は RUNNER_ENVIRONMENT=self-hosted 以外では実行しない（workflow 側は復元の前で止める）。
  *
  * このモジュールは child_process を触らない。fs はカタログ読込と inputs のハッシュ計算だけ（注入可）。
  * ---------------------------------------------------------------------------
@@ -69,6 +76,18 @@ export function validateCatalog(raw, deps = {}) {
     if (op.commitArgs.length === 0) fail(`${id}: commitArgs must not be empty (e.g. --commit)`);
     if (op.inputs.some((p) => isAbsolute(p) || p.includes('..') || p.includes('\\'))) fail(`${id}: inputs must be repo-relative posix paths`);
     if (op.argsSchema && typeof op.argsSchema !== 'object') fail(`${id}: argsSchema must be an object`);
+    if (op.requiresSelfHostedRunner !== undefined && typeof op.requiresSelfHostedRunner !== 'boolean') fail(`${id}: requiresSelfHostedRunner must be boolean`);
+    if (op.selfHostedRunsOn !== undefined && op.selfHostedRunsOn !== null) {
+      const labels = op.selfHostedRunsOn;
+      if (!Array.isArray(labels) || labels.length === 0 || labels.some((l) => typeof l !== 'string' || !/^[A-Za-z0-9._-]+$/.test(l))) fail(`${id}: selfHostedRunsOn must be null or a non-empty label array`);
+      if (!labels.includes('self-hosted')) fail(`${id}: selfHostedRunsOn must include "self-hosted" (hosted runner は Google のセッションを失効させる)`);
+      if (op.requiresSelfHostedRunner !== true) fail(`${id}: selfHostedRunsOn requires requiresSelfHostedRunner: true`);
+    }
+    if (op.scheduled !== undefined) {
+      if (!op.scheduled || typeof op.scheduled !== 'object' || Array.isArray(op.scheduled)) fail(`${id}: scheduled must be an object`);
+      if (op.risk !== 'low') fail(`${id}: scheduled is allowed only for risk=low`);
+      try { validateArgs(op, op.scheduled.args ?? {}); } catch (e) { fail(`${id}: scheduled.args invalid (${e.message})`); }
+    }
     for (const [arg, type] of Object.entries(op.argsSchema ?? {})) {
       const base = String(type).replace(/\?$/, '');
       if (!ARG_TYPES.includes(base)) fail(`${id}: argsSchema.${arg} type "${type}" unsupported`);
@@ -140,6 +159,26 @@ export function validateArgs(op, argsInput) {
     out[key] = value;
   }
   return out;
+}
+
+/**
+ * 定期実行用の固定引数を返す。カタログに `scheduled` が無い操作は拒否する（人の hash が要る操作を
+ * 定期実行の経路で動かさない）。
+ */
+export function scheduledArgsFor(op) {
+  if (!op?.scheduled) throw new Error(`CI_WRITE_NOT_SCHEDULABLE: "${op?.id}" has no scheduled definition in ${CATALOG_PATH}`);
+  if (op.risk !== 'low') throw new Error(`CI_WRITE_NOT_SCHEDULABLE: "${op.id}" is risk=${op.risk} (scheduled requires low)`);
+  return validateArgs(op, op.scheduled.args ?? {});
+}
+
+/**
+ * self-hosted 限定の操作を GitHub hosted runner で動かさない（RUNNER_ENVIRONMENT は Actions が設定する）。
+ * 判定できない（env 未設定）ときも拒否する＝安全側。
+ */
+export function assertRunnerAllowed(op, env = {}) {
+  if (op?.requiresSelfHostedRunner !== true) return true;
+  if (env.RUNNER_ENVIRONMENT === 'self-hosted') return true;
+  throw new Error(`CI_WRITE_HOSTED_RUNNER_FORBIDDEN: "${op.id}" は self-hosted runner 限定（RUNNER_ENVIRONMENT=${env.RUNNER_ENVIRONMENT ?? '(unset)'}）。hosted runner で復元すると Google がセッションを失効させる`);
 }
 
 /** 正規化済み args を CLI フラグに変換する（--key value / boolean は --key のみ）。順序はキー名順で安定。 */
