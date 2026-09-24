@@ -64,7 +64,7 @@ import { join, dirname, resolve, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { recordPublishedHash, recordPublishedMetaHash } from './lib/note-republish-hash.mjs';
 import { cardifyBareUrls, repairUrlHeadings, listUrlHeadingsInEditor } from './lib/note-cardify.mjs';
-import { extractBodyImages, insertImagesAtPlaceholders, insertImagesAfterAnchors, countEditorImages } from './lib/note-images.mjs';
+import { extractBodyImages, insertImagesAtPlaceholders, insertImagesAfterAnchors, countEditorImages, settleAbortReason } from './lib/note-images.mjs';
 import { assertLiveBody, expectedFreePreviewMin, formatLiveIssues } from './lib/note-live-check.mjs';
 import { publishLive } from './lib/note-live-publish.mjs';
 import { attachFileInEditor, listAttachedFiles, resolveLocalFiles } from './lib/note-attach.mjs';
@@ -414,7 +414,7 @@ async function updateArticle(page, { abs, noteId, title, bodyH1, body, images, i
     if (!COMMIT) { console.log('[img-only] dry-run（--commit で実挿入）'); return true; }
     const r = await insertImagesAfterAnchors(page, images, { tag: '[4.4]' });
     if (r.failed.length && !IMG_LENIENT) { console.error(`[4.4] ABORT: 画像挿入に失敗（${r.failed.length}件）→ 保存しない（--img-lenient で続行可）`); await page.screenshot({ path: join(ROOT, `.tmp/nu-imgfail-${noteId}.png`) }); return false; }
-    if (!r.settled && !IMG_LENIENT) { abortReason = 'img-settle'; console.error('[4.4] ABORT: 画像が CDN 確定せず（保存すると live で欠落）→ 再実行'); await page.screenshot({ path: join(ROOT, `.tmp/nu-imgsettle-${noteId}.png`) }); return false; }
+    if (!r.settled && !IMG_LENIENT) { abortReason = settleAbortReason(r.settle); console.error(`[4.4] ABORT: 画像が CDN 確定せず（${abortReason}・保存すると live で欠落）→ 再実行`); await page.screenshot({ path: join(ROOT, `.tmp/nu-imgsettle-${noteId}.png`) }); return false; }
     const live = await publishLive(page, noteId, boundary, isPaid, {
       keepBoundary: KEEP_BOUNDARY,
       trialLineBottom: TRIAL_LINE_BOTTOM,
@@ -542,7 +542,14 @@ async function updateArticle(page, { abs, noteId, title, bodyH1, body, images, i
     const r = await insertImagesAtPlaceholders(page, images, { tag: '[4.4]' });
     if (r.leftover.length) { console.error(`[4.4] ABORT: 画像トークン残存（${r.leftover.join(' ')}）→ 保存しない`); await page.screenshot({ path: join(ROOT, `.tmp/nu-imgleft-${noteId}.png`) }); return false; }
     if (r.failed.length && !IMG_LENIENT) { console.error(`[4.4] ABORT: 画像挿入に失敗（${r.failed.length}件）→ 保存しない（--img-lenient で続行可）`); await page.screenshot({ path: join(ROOT, `.tmp/nu-imgfail-${noteId}.png`) }); return false; }
-    if (!r.settled && !IMG_LENIENT) { abortReason = 'img-settle'; console.error('[4.4] ABORT: 画像が CDN 確定せず（保存すると live で欠落）→ 再実行'); await page.screenshot({ path: join(ROOT, `.tmp/nu-imgsettle-${noteId}.png`) }); return false; }
+    if (!r.settled && !IMG_LENIENT) {
+      // blob のまま（待てば通る）と、エディタから消えた（待っても直らない）を別の中断理由で残す（DN-0273）。
+      abortReason = settleAbortReason(r.settle);
+      if (abortReason === 'img-lost') console.error(`[4.4] ABORT: 挿入した画像がエディタに無い（${r.settle.missing} 枚消失・保存すると live で欠落）→ 待ちを伸ばさず単発で再実行`);
+      else console.error('[4.4] ABORT: 画像が CDN 確定せず（保存すると live で欠落）→ 再実行');
+      await page.screenshot({ path: join(ROOT, `.tmp/nu-${abortReason === 'img-lost' ? 'imglost' : 'imgsettle'}-${noteId}.png`) });
+      return false;
+    }
   }
 
   // 4.5 目次ブロック（H2>=3・最初のh2直前・--no-toc で抑止）。全文置換で消えるため再挿入。
@@ -718,8 +725,9 @@ try {
       const prevAbort = abortedEntry(parsed.noteId);
       // 保存前に止まる中断＝エディタに汚れを残さないので自動再試行してよい。
       //   img-settle  … insertImages で CDN 確定待ちに失敗（本文差替後・保存前）
+      //   img-lost    … 同じ確定待ちの段階で、挿入した画像がエディタから消えていた（保存前・DN-0273）
       //   pdf-missing … --reattach-pdf の実体確認で失敗（**本文差替の前**・editor loaded 直後）
-      const SAFE_ABORTS = new Set(['img-settle', 'pdf-missing']);
+      const SAFE_ABORTS = new Set(['img-settle', 'img-lost', 'pdf-missing']);
       const prevWasSafe = SAFE_ABORTS.has(prevAbort?.reason);
       if (prevWasSafe) {
         console.log(`[retry] ${parsed.noteId} は前回 ${prevAbort.reason} で中断（${prevAbort.at}）。保存前に止まっているので自動再試行する`);
