@@ -1,7 +1,7 @@
 {
   "meta": {
-    "startDate": "2026-06-18",
-    "endDate": "2026-06-24",
+    "startDate": "2026-09-17",
+    "endDate": "2026-09-23",
     "dimension": "channel",
     "dimensionApiName": "sessionDefaultChannelGroup",
     "metrics": [
@@ -14,20 +14,24 @@
     ],
     "limit": 100,
     "organicOnly": true,
+    "snsOnly": false,
+    "snsSources": [],
     "japanOnly": true,
     "excludeSpam": true,
     "spamSourcesExcluded": [],
-    "propertyId": "properties/419382901"
+    "propertyId": "properties/419382901",
+    "rowCount": 1,
+    "truncated": false
   },
   "rows": [
     {
       "channel": "Organic Search",
-      "activeUsers": 812,
-      "sessions": 1282,
-      "screenPageViewsPerSession": 2.3525741029641187,
-      "averageSessionDuration": 395.7093394110764,
-      "engagementRate": 0.6271450858034321,
-      "bounceRate": 0.37285491419656785
+      "activeUsers": 1328,
+      "sessions": 1911,
+      "screenPageViewsPerSession": 1.5353218210361068,
+      "averageSessionDuration": 374.47962471637885,
+      "engagementRate": 0.696493982208268,
+      "bounceRate": 0.3035060177917321
     }
   ]
 }
