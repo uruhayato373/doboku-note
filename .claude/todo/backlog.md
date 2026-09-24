@@ -180,9 +180,9 @@
 
 **起点**: `check-note-republish`（DN-0297 で 301 等価な張り替えを除外）の要再公開 128 本のうち、PDF なし・noteId ありが 27 本（本文画像 42 枚）。中身は 9/23 18:47 `ba31a4f64` の修正（太字が `**` のまま出る・重複した著者バナー）と、`配合計算-実戦演習` の 404 リンク 2 本の修正で、いずれも note 上は未反映（公開 API で `**` の表示を確認済み）。2026-09-24 にこの 27 本を同日夜に流すと決めた。
 
-**やること**: Windows PC から `node scripts/note-update-body.mjs --list <list> --commit`。リストは `node scripts/note-republish-plan.mjs` の ready と hasImage のうち noteId があり、本文が PDF 配布に触れず PDF 実体も添付記録も無い記事で、`配合計算-実戦演習` を先頭に PV 順（`.claude/state/metrics/note/articles-pv-2026-08.json`・`-09.json`）。最初の数本で有料エリア・画像・リンクカード・目次を note 上で確かめてから残りを流す。会社 PC は `DOBOKU_PW_MIN_FREE_MB=500` と、画像の確定待ちで止まるなら `NOTE_IMG_SETTLE_MIN_MS`・`NOTE_IMG_SETTLE_PER_IMG_MS`（既定 90 秒）を延ばす。
+**やること**: Windows PC から `node scripts/note-update-body.mjs --list <list> --commit`。リストは `node scripts/note-republish-plan.mjs` の ready と hasImage のうち noteId があり、本文が PDF 配布に触れず PDF 実体も添付記録も無い記事で、`配合計算-実戦演習` を先頭に PV 順（`.claude/state/metrics/note/articles-pv-2026-08.json`・`-09.json`）。太字記号・画像の欠落と過多・存在しないサイトリンク・見出しの URL・無料プレビュー長は 1 本ごとに公開直後の検査（[5e]）が止めるので、最初の数本では自動検査の対象外のリンクカードと目次を note 上で確かめてから残りを流す。会社 PC は `DOBOKU_PW_MIN_FREE_MB=500` と、画像の確定待ちで止まるなら `NOTE_IMG_SETTLE_MIN_MS`・`NOTE_IMG_SETTLE_PER_IMG_MS`（既定 90 秒）を延ばす。
 
-**完了条件**: `node scripts/check-note-republish.mjs` の要再公開から 27 本が消え、`node scripts/check-note-structure.mjs --ci` が exit 0（有料境界の漏洩・全ロックなし）。`配合計算-実戦演習` の note 上に 404 の 2 本が無く、太字を直した記事 3 本で note 上に `**` が残っていないことを公開 API で確認済み。
+**完了条件**: 27 本すべてで `note-update-body` の公開直後の検査 [5e] が OK、`node scripts/check-note-republish.mjs` の要再公開から 27 本が消え、`npm run check-note-live-headings` と `node scripts/check-note-structure.mjs --ci`（有料境界の漏洩・全ロック）がともに exit 0。
 
 ### [DN-0300] note の要再公開の残り 101 本（PDF 付き 89 本・会員限定 6 本ほか）を反映する
 タグ: [SNS・マーケ] [種類:改善] [起票:2026-09-24]
