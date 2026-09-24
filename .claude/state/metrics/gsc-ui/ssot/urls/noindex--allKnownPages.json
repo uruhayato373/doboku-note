@@ -5,16 +5,573 @@
   "property": "sc-domain:doboku-note.com",
   "issue": "noindex",
   "scope": "allKnownPages",
-  "runId": "2026-08-22T07-46-59Z",
-  "collectedAt": "2026-08-22T07:46:59.533Z",
-  "uiTotal": 2,
-  "exportedRows": 2,
+  "runId": "2026-09-24T20-20-02Z",
+  "collectedAt": "2026-09-24T20:20:02.173Z",
+  "uiTotal": 112,
+  "exportedRows": 112,
   "truncated": false,
   "rejectCount": 0,
   "rejects": [],
-  "previous": null,
-  "delta": null,
+  "previous": {
+    "runId": "2026-08-22T07-46-59Z",
+    "collectedAt": "2026-08-22T07:46:59.533Z",
+    "exportedRows": 2
+  },
+  "delta": {
+    "added": 110,
+    "removed": 0
+  },
   "rows": [
+    {
+      "url": "https://doboku-note.com/search?q=%E5%83%8D%E3%81%8D%E6%96%B9%E6%94%B9%E9%9D%A9",
+      "comparisonKey": "/search?q=%E5%83%8D%E3%81%8D%E6%96%B9%E6%94%B9%E9%9D%A9",
+      "lastCrawled": "2026-09-23"
+    },
+    {
+      "url": "https://doboku-note.com/standards/hokkaido/common/part-02",
+      "comparisonKey": "/standards/hokkaido/common/part-02",
+      "lastCrawled": "2026-09-22"
+    },
+    {
+      "url": "https://doboku-note.com/standards/hokuriku/common/part-01",
+      "comparisonKey": "/standards/hokuriku/common/part-01",
+      "lastCrawled": "2026-09-22"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=%E4%BB%A4%E5%92%8C%E5%85%83%E5%B9%B4%E5%BA%A6",
+      "comparisonKey": "/search?q=%E4%BB%A4%E5%92%8C%E5%85%83%E5%B9%B4%E5%BA%A6",
+      "lastCrawled": "2026-09-22"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=pillar",
+      "comparisonKey": "/search?q=pillar",
+      "lastCrawled": "2026-09-22"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=%E8%A8%98%E8%BF%B0%E5%BC%8F%E8%A9%A6%E9%A8%93",
+      "comparisonKey": "/search?q=%E8%A8%98%E8%BF%B0%E5%BC%8F%E8%A9%A6%E9%A8%93",
+      "lastCrawled": "2026-09-22"
+    },
+    {
+      "url": "https://doboku-note.com/standards/hokkaido/common/part-10",
+      "comparisonKey": "/standards/hokkaido/common/part-10",
+      "lastCrawled": "2026-09-22"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kinki/common/part-12",
+      "comparisonKey": "/standards/kinki/common/part-12",
+      "lastCrawled": "2026-09-22"
+    },
+    {
+      "url": "https://doboku-note.com/standards/chugoku/common/chapters/7-3",
+      "comparisonKey": "/standards/chugoku/common/chapters/7-3",
+      "lastCrawled": "2026-09-21"
+    },
+    {
+      "url": "https://doboku-note.com/standards/okinawa/common/part-11",
+      "comparisonKey": "/standards/okinawa/common/part-11",
+      "lastCrawled": "2026-09-21"
+    },
+    {
+      "url": "https://doboku-note.com/standards/chugoku/common/chapters/7-2",
+      "comparisonKey": "/standards/chugoku/common/chapters/7-2",
+      "lastCrawled": "2026-09-20"
+    },
+    {
+      "url": "https://doboku-note.com/standards/chugoku/common/chapters/7-1",
+      "comparisonKey": "/standards/chugoku/common/chapters/7-1",
+      "lastCrawled": "2026-09-20"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=%E6%8A%80%E8%A1%93%E5%A3%AB%E7%AC%AC%E4%BA%8C%E6%AC%A1%E8%A9%A6%E9%A8%93",
+      "comparisonKey": "/search?q=%E6%8A%80%E8%A1%93%E5%A3%AB%E7%AC%AC%E4%BA%8C%E6%AC%A1%E8%A9%A6%E9%A8%93",
+      "lastCrawled": "2026-09-20"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=%E7%AD%94%E6%A1%88%E3%81%AE%E6%9B%B8%E3%81%8D%E6%96%B9",
+      "comparisonKey": "/search?q=%E7%AD%94%E6%A1%88%E3%81%AE%E6%9B%B8%E3%81%8D%E6%96%B9",
+      "lastCrawled": "2026-09-20"
+    },
+    {
+      "url": "https://doboku-note.com/standards/chugoku/common/chapters/10-16",
+      "comparisonKey": "/standards/chugoku/common/chapters/10-16",
+      "lastCrawled": "2026-09-20"
+    },
+    {
+      "url": "https://doboku-note.com/standards/okinawa/common/part-08",
+      "comparisonKey": "/standards/okinawa/common/part-08",
+      "lastCrawled": "2026-09-19"
+    },
+    {
+      "url": "https://doboku-note.com/standards/okinawa/common/part-09",
+      "comparisonKey": "/standards/okinawa/common/part-09",
+      "lastCrawled": "2026-09-19"
+    },
+    {
+      "url": "https://doboku-note.com/standards/chugoku/common/part-14",
+      "comparisonKey": "/standards/chugoku/common/part-14",
+      "lastCrawled": "2026-09-19"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=reference",
+      "comparisonKey": "/search?q=reference",
+      "lastCrawled": "2026-09-19"
+    },
+    {
+      "url": "https://doboku-note.com/standards/okinawa/common/part-07",
+      "comparisonKey": "/standards/okinawa/common/part-07",
+      "lastCrawled": "2026-09-18"
+    },
+    {
+      "url": "https://doboku-note.com/standards/okinawa/common/part-12",
+      "comparisonKey": "/standards/okinawa/common/part-12",
+      "lastCrawled": "2026-09-18"
+    },
+    {
+      "url": "https://doboku-note.com/standards/okinawa/common/part-05",
+      "comparisonKey": "/standards/okinawa/common/part-05",
+      "lastCrawled": "2026-09-18"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=%E9%83%BD%E5%B8%82%E5%8F%8A%E3%81%B3%E5%9C%B0%E6%96%B9%E8%A8%88%E7%94%BB",
+      "comparisonKey": "/search?q=%E9%83%BD%E5%B8%82%E5%8F%8A%E3%81%B3%E5%9C%B0%E6%96%B9%E8%A8%88%E7%94%BB",
+      "lastCrawled": "2026-09-18"
+    },
+    {
+      "url": "https://doboku-note.com/standards/chugoku/common/chapters/1-1",
+      "comparisonKey": "/standards/chugoku/common/chapters/1-1",
+      "lastCrawled": "2026-09-17"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=%E5%BB%BA%E8%A8%AD%E3%82%B3%E3%83%B3%E3%82%B5%E3%83%AB",
+      "comparisonKey": "/search?q=%E5%BB%BA%E8%A8%AD%E3%82%B3%E3%83%B3%E3%82%B5%E3%83%AB",
+      "lastCrawled": "2026-09-17"
+    },
+    {
+      "url": "https://doboku-note.com/standards/chugoku/common/chapters/10-10",
+      "comparisonKey": "/standards/chugoku/common/chapters/10-10",
+      "lastCrawled": "2026-09-17"
+    },
+    {
+      "url": "https://doboku-note.com/standards/chugoku/common/chapters/6-7",
+      "comparisonKey": "/standards/chugoku/common/chapters/6-7",
+      "lastCrawled": "2026-09-16"
+    },
+    {
+      "url": "https://doboku-note.com/standards/chugoku/common/chapters/10-15",
+      "comparisonKey": "/standards/chugoku/common/chapters/10-15",
+      "lastCrawled": "2026-09-16"
+    },
+    {
+      "url": "https://doboku-note.com/standards/chugoku/common/chapters/9-2",
+      "comparisonKey": "/standards/chugoku/common/chapters/9-2",
+      "lastCrawled": "2026-09-16"
+    },
+    {
+      "url": "https://doboku-note.com/standards/chugoku/common/chapters/8-1",
+      "comparisonKey": "/standards/chugoku/common/chapters/8-1",
+      "lastCrawled": "2026-09-16"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=%E7%B5%8C%E6%B8%88%E6%80%A7%E7%AE%A1%E7%90%86",
+      "comparisonKey": "/search?q=%E7%B5%8C%E6%B8%88%E6%80%A7%E7%AE%A1%E7%90%86",
+      "lastCrawled": "2026-09-16"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=kinki-design-manual",
+      "comparisonKey": "/search?q=kinki-design-manual",
+      "lastCrawled": "2026-09-15"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=%E9%81%B8%E6%8A%9E%E7%A7%91%E7%9B%AE",
+      "comparisonKey": "/search?q=%E9%81%B8%E6%8A%9E%E7%A7%91%E7%9B%AE",
+      "lastCrawled": "2026-09-15"
+    },
+    {
+      "url": "https://doboku-note.com/standards/chugoku/common/chapters/9-3",
+      "comparisonKey": "/standards/chugoku/common/chapters/9-3",
+      "lastCrawled": "2026-09-15"
+    },
+    {
+      "url": "https://doboku-note.com/standards/chugoku/common/part-02",
+      "comparisonKey": "/standards/chugoku/common/part-02",
+      "lastCrawled": "2026-09-15"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=%E5%B0%82%E9%96%80%E5%9C%9F%E6%9C%A8",
+      "comparisonKey": "/search?q=%E5%B0%82%E9%96%80%E5%9C%9F%E6%9C%A8",
+      "lastCrawled": "2026-09-14"
+    },
+    {
+      "url": "https://doboku-note.com/standards/chugoku/common/part-09",
+      "comparisonKey": "/standards/chugoku/common/part-09",
+      "lastCrawled": "2026-09-14"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=%E5%BF%85%E9%A0%88%E7%A7%91%E7%9B%AEI",
+      "comparisonKey": "/search?q=%E5%BF%85%E9%A0%88%E7%A7%91%E7%9B%AEI",
+      "lastCrawled": "2026-09-13"
+    },
+    {
+      "url": "https://doboku-note.com/standards/chugoku/common/chapters/6-9",
+      "comparisonKey": "/standards/chugoku/common/chapters/6-9",
+      "lastCrawled": "2026-09-13"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=study-method",
+      "comparisonKey": "/search?q=study-method",
+      "lastCrawled": "2026-09-13"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=%E5%B9%B3%E6%88%9029%E5%B9%B4%E5%BA%A6",
+      "comparisonKey": "/search?q=%E5%B9%B3%E6%88%9029%E5%B9%B4%E5%BA%A6",
+      "lastCrawled": "2026-09-09"
+    },
+    {
+      "url": "https://doboku-note.com/standards/chugoku/common/chapters/10-1",
+      "comparisonKey": "/standards/chugoku/common/chapters/10-1",
+      "lastCrawled": "2026-09-09"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=AI \n%E3%82%AC%E3%83%90%E3%83%8A%E3%83%B3%E3%82%B9",
+      "comparisonKey": "/search?q=AI \n%E3%82%AC%E3%83%90%E3%83%8A%E3%83%B3%E3%82%B9",
+      "lastCrawled": "2026-09-08"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=demolition",
+      "comparisonKey": "/search?q=demolition",
+      "lastCrawled": "2026-09-08"
+    },
+    {
+      "url": "https://doboku-note.com/standards/chugoku/common/chapters/10-11",
+      "comparisonKey": "/standards/chugoku/common/chapters/10-11",
+      "lastCrawled": "2026-09-08"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=%E9%81%A9%E6%80%A7%E7%A7%91%E7%9B%AE",
+      "comparisonKey": "/search?q=%E9%81%A9%E6%80%A7%E7%A7%91%E7%9B%AE",
+      "lastCrawled": "2026-09-07"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=%E5%8B%89%E5%BC%B7%E6%99%82%E9%96%93",
+      "comparisonKey": "/search?q=%E5%8B%89%E5%BC%B7%E6%99%82%E9%96%93",
+      "lastCrawled": "2026-09-05"
+    },
+    {
+      "url": "https://doboku-note.com/standards/chugoku/common/part-13",
+      "comparisonKey": "/standards/chugoku/common/part-13",
+      "lastCrawled": "2026-09-04"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=foundation",
+      "comparisonKey": "/search?q=foundation",
+      "lastCrawled": "2026-09-04"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=%E5%AD%A6%E7%BF%92%E8%A8%88%E7%94%BB",
+      "comparisonKey": "/search?q=%E5%AD%A6%E7%BF%92%E8%A8%88%E7%94%BB",
+      "lastCrawled": "2026-09-03"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=%E5%B0%82%E9%96%80%E7%A7%91%E7%9B%AE%EF%BC%88%E5%BB%BA%E8%A8%AD%E9%83%A8%E9%96%80%EF%BC%89",
+      "comparisonKey": "/search?q=%E5%B0%82%E9%96%80%E7%A7%91%E7%9B%AE%EF%BC%88%E5%BB%BA%E8%A8%AD%E9%83%A8%E9%96%80%EF%BC%89",
+      "lastCrawled": "2026-09-02"
+    },
+    {
+      "url": "https://doboku-note.com/standards/chugoku/common/part-08",
+      "comparisonKey": "/standards/chugoku/common/part-08",
+      "lastCrawled": "2026-09-02"
+    },
+    {
+      "url": "https://doboku-note.com/standards/chugoku/common/chapters/10-14",
+      "comparisonKey": "/standards/chugoku/common/chapters/10-14",
+      "lastCrawled": "2026-09-02"
+    },
+    {
+      "url": "https://doboku-note.com/standards/chugoku/common/part-12",
+      "comparisonKey": "/standards/chugoku/common/part-12",
+      "lastCrawled": "2026-09-02"
+    },
+    {
+      "url": "https://doboku-note.com/standards/chugoku/common/chapters/6-5",
+      "comparisonKey": "/standards/chugoku/common/chapters/6-5",
+      "lastCrawled": "2026-09-02"
+    },
+    {
+      "url": "https://doboku-note.com/standards/chugoku/common/chapters/9-1",
+      "comparisonKey": "/standards/chugoku/common/chapters/9-1",
+      "lastCrawled": "2026-09-02"
+    },
+    {
+      "url": "https://doboku-note.com/standards/chugoku/common/part-11",
+      "comparisonKey": "/standards/chugoku/common/part-11",
+      "lastCrawled": "2026-08-31"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=PPP/PFI",
+      "comparisonKey": "/search?q=PPP/PFI",
+      "lastCrawled": "2026-08-31"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=%E7%A4%BE%E4%BC%9A%E8%B3%87%E6%9C%AC%E6%95%B4%E5%82%99%E9%87%8D%E7%82%B9%E8%A8%88%E7%94%BB",
+      "comparisonKey": "/search?q=%E7%A4%BE%E4%BC%9A%E8%B3%87%E6%9C%AC%E6%95%B4%E5%82%99%E9%87%8D%E7%82%B9%E8%A8%88%E7%94%BB",
+      "lastCrawled": "2026-08-31"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=%E6%8A%80%E8%A1%93%E5%A3%AB%EF%BC%88%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%A9%A6%E9%A8%93%EF%BC%89",
+      "comparisonKey": "/search?q=%E6%8A%80%E8%A1%93%E5%A3%AB%EF%BC%88%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%A9%A6%E9%A8%93%EF%BC%89",
+      "lastCrawled": "2026-08-31"
+    },
+    {
+      "url": "https://doboku-note.com/standards/chugoku/common/chapters/7-4",
+      "comparisonKey": "/standards/chugoku/common/chapters/7-4",
+      "lastCrawled": "2026-08-31"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=%E7%A4%BE%E4%BC%9A%E8%B3%87%E6%9C%AC%E6%95%B4%E5%82%99",
+      "comparisonKey": "/search?q=%E7%A4%BE%E4%BC%9A%E8%B3%87%E6%9C%AC%E6%95%B4%E5%82%99",
+      "lastCrawled": "2026-08-31"
+    },
+    {
+      "url": "https://doboku-note.com/standards/chugoku/common/part-10",
+      "comparisonKey": "/standards/chugoku/common/part-10",
+      "lastCrawled": "2026-08-31"
+    },
+    {
+      "url": "https://doboku-note.com/standards/chugoku/common/chapters/10-2",
+      "comparisonKey": "/standards/chugoku/common/chapters/10-2",
+      "lastCrawled": "2026-08-31"
+    },
+    {
+      "url": "https://doboku-note.com/standards/chugoku/common/part-04",
+      "comparisonKey": "/standards/chugoku/common/part-04",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/standards/chugoku/common/part-06",
+      "comparisonKey": "/standards/chugoku/common/part-06",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=%E5%8F%82%E8%80%83%E8%B3%87%E6%96%99",
+      "comparisonKey": "/search?q=%E5%8F%82%E8%80%83%E8%B3%87%E6%96%99",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/standards/chugoku/common/chapters/10-8",
+      "comparisonKey": "/standards/chugoku/common/chapters/10-8",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=%E4%BB%A4%E5%92%8C7%E5%B9%B4%E5%BA%A6",
+      "comparisonKey": "/search?q=%E4%BB%A4%E5%92%8C7%E5%B9%B4%E5%BA%A6",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/standards/chugoku/common/chapters/8-3",
+      "comparisonKey": "/standards/chugoku/common/chapters/8-3",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/standards/chugoku/common/chapters/10-7",
+      "comparisonKey": "/standards/chugoku/common/chapters/10-7",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/standards/chugoku/common/chapters/6-8",
+      "comparisonKey": "/standards/chugoku/common/chapters/6-8",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/standards/chugoku/common/chapters/2-2",
+      "comparisonKey": "/standards/chugoku/common/chapters/2-2",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/standards/chugoku/common/chapters/1-2",
+      "comparisonKey": "/standards/chugoku/common/chapters/1-2",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/standards/chugoku/common/chapters/7-5",
+      "comparisonKey": "/standards/chugoku/common/chapters/7-5",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/standards/chugoku/common/chapters/6-6",
+      "comparisonKey": "/standards/chugoku/common/chapters/6-6",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/standards/chugoku/common/chapters/10-5",
+      "comparisonKey": "/standards/chugoku/common/chapters/10-5",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/standards/chugoku/common/chapters/10-4",
+      "comparisonKey": "/standards/chugoku/common/chapters/10-4",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/standards/chugoku/common/chapters/8-2",
+      "comparisonKey": "/standards/chugoku/common/chapters/8-2",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/standards/chugoku/common/chapters/6-4",
+      "comparisonKey": "/standards/chugoku/common/chapters/6-4",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=%E3%82%AD%E3%83%BC%E3%83%AF%E3%83%BC%E3%83%89",
+      "comparisonKey": "/search?q=%E3%82%AD%E3%83%BC%E3%83%AF%E3%83%BC%E3%83%89",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=%E4%BB%A4%E5%92%8C8%E5%B9%B4%E5%BA%A6",
+      "comparisonKey": "/search?q=%E4%BB%A4%E5%92%8C8%E5%B9%B4%E5%BA%A6",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/standards/chugoku/common/chapters/10-6",
+      "comparisonKey": "/standards/chugoku/common/chapters/10-6",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/standards/okinawa/hikkei-11/part-01",
+      "comparisonKey": "/standards/okinawa/hikkei-11/part-01",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=%E6%96%BD%E5%B7%A5%E8%A8%88%E7%94%BB",
+      "comparisonKey": "/search?q=%E6%96%BD%E5%B7%A5%E8%A8%88%E7%94%BB",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kinki/common/part-02",
+      "comparisonKey": "/standards/kinki/common/part-02",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/standards/chugoku/common/part-03",
+      "comparisonKey": "/standards/chugoku/common/part-03",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/standards/chugoku/common/part-05",
+      "comparisonKey": "/standards/chugoku/common/part-05",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/standards/chugoku/common/part-07",
+      "comparisonKey": "/standards/chugoku/common/part-07",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=port",
+      "comparisonKey": "/search?q=port",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=inverted-siphon",
+      "comparisonKey": "/search?q=inverted-siphon",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=%E6%B8%AF%E6%B9%BE%E5%8F%8A%E3%81%B3%E7%A9%BA%E6%B8%AF",
+      "comparisonKey": "/search?q=%E6%B8%AF%E6%B9%BE%E5%8F%8A%E3%81%B3%E7%A9%BA%E6%B8%AF",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=floodgate",
+      "comparisonKey": "/search?q=floodgate",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=%E9%89%84%E9%81%93",
+      "comparisonKey": "/search?q=%E9%89%84%E9%81%93",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=materials",
+      "comparisonKey": "/search?q=materials",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=%E4%BB%A4%E5%92%8C2%E5%B9%B4%E5%BA%A6",
+      "comparisonKey": "/search?q=%E4%BB%A4%E5%92%8C2%E5%B9%B4%E5%BA%A6",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=%E5%BB%BA%E8%A8%AD%E9%83%A8%E9%96%80",
+      "comparisonKey": "/search?q=%E5%BB%BA%E8%A8%AD%E9%83%A8%E9%96%80",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=experience-writing",
+      "comparisonKey": "/search?q=experience-writing",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=%E8%A8%98%E8%BF%B0%E5%BC%8F%E5%AF%BE%E7%AD%96",
+      "comparisonKey": "/search?q=%E8%A8%98%E8%BF%B0%E5%BC%8F%E5%AF%BE%E7%AD%96",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=5%E7%AE%A1%E7%90%86",
+      "comparisonKey": "/search?q=5%E7%AE%A1%E7%90%86",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=concrete-diagnostician",
+      "comparisonKey": "/search?q=concrete-diagnostician",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=%E6%8A%80%E8%A1%93%E5%A3%AB%EF%BC%88%E7%AC%AC%E4%BA%8C%E6%AC%A1%E8%A9%A6%E9%A8%93%EF%BC%89",
+      "comparisonKey": "/search?q=%E6%8A%80%E8%A1%93%E5%A3%AB%EF%BC%88%E7%AC%AC%E4%BA%8C%E6%AC%A1%E8%A9%A6%E9%A8%93%EF%BC%89",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=%E8%A9%A6%E9%A8%93%E3%82%AC%E3%82%A4%E3%83%89",
+      "comparisonKey": "/search?q=%E8%A9%A6%E9%A8%93%E3%82%AC%E3%82%A4%E3%83%89",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=%E7%B7%8F%E5%90%88%E6%8A%80%E8%A1%93%E7%9B%A3%E7%90%86",
+      "comparisonKey": "/search?q=%E7%B7%8F%E5%90%88%E6%8A%80%E8%A1%93%E7%9B%A3%E7%90%86",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=%E9%A0%BB%E5%87%BA%E3%83%86%E3%83%BC%E3%83%9E",
+      "comparisonKey": "/search?q=%E9%A0%BB%E5%87%BA%E3%83%86%E3%83%BC%E3%83%9E",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=%E4%BB%A4%E5%92%8C3%E5%B9%B4%E5%BA%A6",
+      "comparisonKey": "/search?q=%E4%BB%A4%E5%92%8C3%E5%B9%B4%E5%BA%A6",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=%E3%82%AD%E3%83%BC%E3%83%AF%E3%83%BC%E3%83%89%E9%9B%86",
+      "comparisonKey": "/search?q=%E3%82%AD%E3%83%BC%E3%83%AF%E3%83%BC%E3%83%89%E9%9B%86",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=2026%E5%B9%B4%E7%89%88",
+      "comparisonKey": "/search?q=2026%E5%B9%B4%E7%89%88",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=%E6%8A%80%E8%A1%93%E5%A3%AB%EF%BC%88%E7%B7%8F%E5%90%88%E6%8A%80%E8%A1%93%E7%9B%A3%E7%90%86%E9%83%A8%E9%96%80%EF%BC%89",
+      "comparisonKey": "/search?q=%E6%8A%80%E8%A1%93%E5%A3%AB%EF%BC%88%E7%B7%8F%E5%90%88%E6%8A%80%E8%A1%93%E7%9B%A3%E7%90%86%E9%83%A8%E9%96%80%EF%BC%89",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/category/reference-materials?tag=kinki-design-manual",
+      "comparisonKey": "/category/reference-materials?tag=kinki-design-manual",
+      "lastCrawled": "2026-08-29"
+    },
     {
       "url": "https://doboku-note.com/search?q=%7Bsearch_term_string%7D",
       "comparisonKey": "/search?q=%7Bsearch_term_string%7D",

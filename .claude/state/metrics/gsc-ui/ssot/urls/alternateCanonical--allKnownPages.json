@@ -5,86 +5,216 @@
   "property": "sc-domain:doboku-note.com",
   "issue": "alternateCanonical",
   "scope": "allKnownPages",
-  "runId": "2026-08-22T07-46-59Z",
-  "collectedAt": "2026-08-22T07:46:59.533Z",
-  "uiTotal": 160,
-  "exportedRows": 160,
+  "runId": "2026-09-24T20-20-02Z",
+  "collectedAt": "2026-09-24T20:20:02.173Z",
+  "uiTotal": 172,
+  "exportedRows": 172,
   "truncated": false,
   "rejectCount": 0,
   "rejects": [],
   "previous": {
-    "runId": "2026-07-30T05-51-00Z",
-    "collectedAt": "2026-07-30T05:51:00.731Z",
-    "exportedRows": 157
+    "runId": "2026-08-22T07-46-59Z",
+    "collectedAt": "2026-08-22T07:46:59.533Z",
+    "exportedRows": 160
   },
   "delta": {
-    "added": 11,
-    "removed": 8
+    "added": 28,
+    "removed": 16
   },
   "rows": [
+    {
+      "url": "https://doboku-note.com/exam/pe-construction?tag=GX",
+      "comparisonKey": "/exam/pe-construction?tag=GX",
+      "lastCrawled": "2026-09-22"
+    },
+    {
+      "url": "https://doboku-note.com/exam/concrete-chief-engineer?tag=essay",
+      "comparisonKey": "/exam/concrete-chief-engineer?tag=essay",
+      "lastCrawled": "2026-09-22"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-comprehensive-management?tag=%E7%B5%8C%E6%B8%88%E6%80%A7%E7%AE%A1%E7%90%86",
+      "comparisonKey": "/exam/pe-comprehensive-management?tag=%E7%B5%8C%E6%B8%88%E6%80%A7%E7%AE%A1%E7%90%86",
+      "lastCrawled": "2026-09-22"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-first-stage?tag=%E4%BB%A4%E5%92%8C2%E5%B9%B4%E5%BA%A6",
+      "comparisonKey": "/exam/pe-first-stage?tag=%E4%BB%A4%E5%92%8C2%E5%B9%B4%E5%BA%A6",
+      "lastCrawled": "2026-09-21"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-2?tag=experience-writing",
+      "comparisonKey": "/exam/civil-construction-2?tag=experience-writing",
+      "lastCrawled": "2026-09-21"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-comprehensive-management?tag=%E3%82%AD%E3%83%BC%E3%83%AF%E3%83%BC%E3%83%89",
+      "comparisonKey": "/exam/pe-comprehensive-management?tag=%E3%82%AD%E3%83%BC%E3%83%AF%E3%83%BC%E3%83%89",
+      "lastCrawled": "2026-09-21"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-1?tag=quality",
+      "comparisonKey": "/exam/civil-construction-1?tag=quality",
+      "lastCrawled": "2026-09-19"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-first-stage?tag=%E9%81%A9%E6%80%A7%E7%A7%91%E7%9B%AE",
+      "comparisonKey": "/exam/pe-first-stage?tag=%E9%81%A9%E6%80%A7%E7%A7%91%E7%9B%AE",
+      "lastCrawled": "2026-09-18"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction?tag=III",
+      "comparisonKey": "/exam/pe-construction?tag=III",
+      "lastCrawled": "2026-09-16"
+    },
+    {
+      "url": "https://doboku-note.com/exam/concrete-diagnostician?tag=essay",
+      "comparisonKey": "/exam/concrete-diagnostician?tag=essay",
+      "lastCrawled": "2026-09-12"
+    },
+    {
+      "url": "https://doboku-note.com/standards?tag=materials",
+      "comparisonKey": "/standards?tag=materials",
+      "lastCrawled": "2026-09-09"
+    },
+    {
+      "url": "https://doboku-note.com/standards?tag=hyogo-common-specs",
+      "comparisonKey": "/standards?tag=hyogo-common-specs",
+      "lastCrawled": "2026-09-09"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-comprehensive-management?tag=%E7%B7%8F%E5%90%88%E6%8A%80%E8%A1%93%E7%9B%A3%E7%90%86",
+      "comparisonKey": "/exam/pe-comprehensive-management?tag=%E7%B7%8F%E5%90%88%E6%8A%80%E8%A1%93%E7%9B%A3%E7%90%86",
+      "lastCrawled": "2026-09-09"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-2/guide/resume?utm_source=note&utm_medium=referral&utm_campaign=civil-career-young-next-role&utm_content=resume-guide",
+      "comparisonKey": "/exam/civil-construction-2/guide/resume?utm_source=note&utm_medium=referral&utm_campaign=civil-career-young-next-role&utm_content=resume-guide",
+      "lastCrawled": "2026-09-09"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-1?tag=construction-plan",
+      "comparisonKey": "/exam/civil-construction-1?tag=construction-plan",
+      "lastCrawled": "2026-09-09"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-1?tag=demolition",
+      "comparisonKey": "/exam/civil-construction-1?tag=demolition",
+      "lastCrawled": "2026-09-08"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-first-stage?tag=%E5%B0%82%E9%96%80%E7%A7%91%E7%9B%AE%EF%BC%88%E5%BB%BA%E8%A8%AD%E9%83%A8%E9%96%80%EF%BC%89",
+      "comparisonKey": "/exam/pe-first-stage?tag=%E5%B0%82%E9%96%80%E7%A7%91%E7%9B%AE%EF%BC%88%E5%BB%BA%E8%A8%AD%E9%83%A8%E9%96%80%EF%BC%89",
+      "lastCrawled": "2026-09-05"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-1?tag=concrete",
+      "comparisonKey": "/exam/civil-construction-1?tag=concrete",
+      "lastCrawled": "2026-09-05"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-first-stage?tag=%E4%BB%A4%E5%92%8C3%E5%B9%B4%E5%BA%A6",
+      "comparisonKey": "/exam/pe-first-stage?tag=%E4%BB%A4%E5%92%8C3%E5%B9%B4%E5%BA%A6",
+      "lastCrawled": "2026-09-04"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-2?tag=exam-preparation",
+      "comparisonKey": "/exam/civil-construction-2?tag=exam-preparation",
+      "lastCrawled": "2026-09-02"
+    },
+    {
+      "url": "https://doboku-note.com/exam/concrete-diagnostician?tag=concrete-diagnostician",
+      "comparisonKey": "/exam/concrete-diagnostician?tag=concrete-diagnostician",
+      "lastCrawled": "2026-09-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction?tag=II-2",
+      "comparisonKey": "/exam/pe-construction?tag=II-2",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/exam/concrete-diagnostician?tag=exam-preparation",
+      "comparisonKey": "/exam/concrete-diagnostician?tag=exam-preparation",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/category/concrete-diagnostician?tag=exam-trends",
+      "comparisonKey": "/category/concrete-diagnostician?tag=exam-trends",
+      "lastCrawled": "2026-08-29"
+    },
+    {
+      "url": "https://doboku-note.com/category/pe-comprehensive-management?tag=%E5%87%BA%E9%A1%98",
+      "comparisonKey": "/category/pe-comprehensive-management?tag=%E5%87%BA%E9%A1%98",
+      "lastCrawled": "2026-08-29"
+    },
+    {
+      "url": "https://doboku-note.com/category/pe-comprehensive-management?tag=exam-preparation",
+      "comparisonKey": "/category/pe-comprehensive-management?tag=exam-preparation",
+      "lastCrawled": "2026-08-29"
+    },
+    {
+      "url": "https://doboku-note.com/category/civil-construction-1?tag=earthwork",
+      "comparisonKey": "/category/civil-construction-1?tag=earthwork",
+      "lastCrawled": "2026-08-29"
+    },
+    {
+      "url": "https://doboku-note.com/category/civil-construction-1?tag=quality-management",
+      "comparisonKey": "/category/civil-construction-1?tag=quality-management",
+      "lastCrawled": "2026-08-29"
+    },
+    {
+      "url": "https://doboku-note.com/category/pe-comprehensive-management?tag=5%E7%AE%A1%E7%90%86",
+      "comparisonKey": "/category/pe-comprehensive-management?tag=5%E7%AE%A1%E7%90%86",
+      "lastCrawled": "2026-08-29"
+    },
+    {
+      "url": "https://doboku-note.com/category/concrete-diagnostician?tag=study-method",
+      "comparisonKey": "/category/concrete-diagnostician?tag=study-method",
+      "lastCrawled": "2026-08-25"
+    },
+    {
+      "url": "https://doboku-note.com/category/pe-first-stage?tag=%E4%BB%A4%E5%92%8C7%E5%B9%B4%E5%BA%A6",
+      "comparisonKey": "/category/pe-first-stage?tag=%E4%BB%A4%E5%92%8C7%E5%B9%B4%E5%BA%A6",
+      "lastCrawled": "2026-08-24"
+    },
+    {
+      "url": "https://doboku-note.com/category/civil-construction-1?tag=safety-management",
+      "comparisonKey": "/category/civil-construction-1?tag=safety-management",
+      "lastCrawled": "2026-08-22"
+    },
+    {
+      "url": "https://doboku-note.com/category/pe-first-stage?tag=%E4%BB%A4%E5%92%8C5%E5%B9%B4%E5%BA%A6",
+      "comparisonKey": "/category/pe-first-stage?tag=%E4%BB%A4%E5%92%8C5%E5%B9%B4%E5%BA%A6",
+      "lastCrawled": "2026-08-22"
+    },
+    {
+      "url": "https://doboku-note.com/category/pe-first-stage?tag=%E6%8A%80%E8%A1%93%E5%A3%AB%EF%BC%88%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%A9%A6%E9%A8%93%EF%BC%89",
+      "comparisonKey": "/category/pe-first-stage?tag=%E6%8A%80%E8%A1%93%E5%A3%AB%EF%BC%88%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%A9%A6%E9%A8%93%EF%BC%89",
+      "lastCrawled": "2026-08-22"
+    },
+    {
+      "url": "https://doboku-note.com/category/pe-first-stage?tag=%E5%9F%BA%E7%A4%8E%E7%A7%91%E7%9B%AE",
+      "comparisonKey": "/category/pe-first-stage?tag=%E5%9F%BA%E7%A4%8E%E7%A7%91%E7%9B%AE",
+      "lastCrawled": "2026-08-21"
+    },
     {
       "url": "https://doboku-note.com/category/civil-construction-2?tag=exam-questions",
       "comparisonKey": "/category/civil-construction-2?tag=exam-questions",
       "lastCrawled": "2026-08-18"
     },
     {
-      "url": "https://doboku-note.com/category/pe-construction?tag=GX",
-      "comparisonKey": "/category/pe-construction?tag=GX",
+      "url": "https://doboku-note.com/category/pe-comprehensive-management?tag=%E6%83%85%E5%A0%B1%E7%AE%A1%E7%90%86",
+      "comparisonKey": "/category/pe-comprehensive-management?tag=%E6%83%85%E5%A0%B1%E7%AE%A1%E7%90%86",
       "lastCrawled": "2026-08-18"
     },
     {
-      "url": "https://doboku-note.com/category/pe-construction?tag=II-2",
-      "comparisonKey": "/category/pe-construction?tag=II-2",
-      "lastCrawled": "2026-08-18"
-    },
-    {
-      "url": "https://doboku-note.com/category/pe-construction?tag=III",
-      "comparisonKey": "/category/pe-construction?tag=III",
-      "lastCrawled": "2026-08-17"
-    },
-    {
-      "url": "https://doboku-note.com/category/pe-comprehensive-management?tag=exam-preparation",
-      "comparisonKey": "/category/pe-comprehensive-management?tag=exam-preparation",
-      "lastCrawled": "2026-08-17"
-    },
-    {
-      "url": "https://doboku-note.com/category/pe-comprehensive-management?tag=%E5%87%BA%E9%A1%98",
-      "comparisonKey": "/category/pe-comprehensive-management?tag=%E5%87%BA%E9%A1%98",
-      "lastCrawled": "2026-08-17"
-    },
-    {
-      "url": "https://doboku-note.com/category/pe-comprehensive-management?tag=5%E7%AE%A1%E7%90%86",
-      "comparisonKey": "/category/pe-comprehensive-management?tag=5%E7%AE%A1%E7%90%86",
-      "lastCrawled": "2026-08-17"
-    },
-    {
-      "url": "https://doboku-note.com/category/pe-first-stage?tag=%E4%BB%A4%E5%92%8C7%E5%B9%B4%E5%BA%A6",
-      "comparisonKey": "/category/pe-first-stage?tag=%E4%BB%A4%E5%92%8C7%E5%B9%B4%E5%BA%A6",
-      "lastCrawled": "2026-08-17"
-    },
-    {
-      "url": "https://doboku-note.com/category/civil-construction-1?tag=earthwork",
-      "comparisonKey": "/category/civil-construction-1?tag=earthwork",
-      "lastCrawled": "2026-08-17"
-    },
-    {
-      "url": "https://doboku-note.com/category/civil-construction-2?tag=exam-preparation",
-      "comparisonKey": "/category/civil-construction-2?tag=exam-preparation",
-      "lastCrawled": "2026-08-17"
+      "url": "https://doboku-note.com/category/pe-construction?tag=II-1",
+      "comparisonKey": "/category/pe-construction?tag=II-1",
+      "lastCrawled": "2026-08-16"
     },
     {
       "url": "https://doboku-note.com/category/pe-first-stage?tag=%E4%BB%A4%E5%92%8C%E5%85%83%E5%B9%B4%E5%BA%A6",
       "comparisonKey": "/category/pe-first-stage?tag=%E4%BB%A4%E5%92%8C%E5%85%83%E5%B9%B4%E5%BA%A6",
-      "lastCrawled": "2026-08-16"
-    },
-    {
-      "url": "https://doboku-note.com/category/civil-construction-2?tag=experience-writing",
-      "comparisonKey": "/category/civil-construction-2?tag=experience-writing",
-      "lastCrawled": "2026-08-16"
-    },
-    {
-      "url": "https://doboku-note.com/category/civil-construction-1?tag=safety-management",
-      "comparisonKey": "/category/civil-construction-1?tag=safety-management",
       "lastCrawled": "2026-08-16"
     },
     {
@@ -93,18 +223,8 @@
       "lastCrawled": "2026-08-14"
     },
     {
-      "url": "https://doboku-note.com/category/pe-comprehensive-management?tag=%E7%B7%8F%E5%90%88%E6%8A%80%E8%A1%93%E7%9B%A3%E7%90%86",
-      "comparisonKey": "/category/pe-comprehensive-management?tag=%E7%B7%8F%E5%90%88%E6%8A%80%E8%A1%93%E7%9B%A3%E7%90%86",
-      "lastCrawled": "2026-08-13"
-    },
-    {
       "url": "https://doboku-note.com/category/pe-first-stage?tag=%E4%BB%A4%E5%92%8C6%E5%B9%B4%E5%BA%A6",
       "comparisonKey": "/category/pe-first-stage?tag=%E4%BB%A4%E5%92%8C6%E5%B9%B4%E5%BA%A6",
-      "lastCrawled": "2026-08-12"
-    },
-    {
-      "url": "https://doboku-note.com/category/concrete-diagnostician?tag=concrete-diagnostician",
-      "comparisonKey": "/category/concrete-diagnostician?tag=concrete-diagnostician",
       "lastCrawled": "2026-08-12"
     },
     {
@@ -116,11 +236,6 @@
       "url": "https://doboku-note.com/category/pe-construction?tag=career",
       "comparisonKey": "/category/pe-construction?tag=career",
       "lastCrawled": "2026-08-05"
-    },
-    {
-      "url": "https://doboku-note.com/category/pe-first-stage?tag=%E5%9F%BA%E7%A4%8E%E7%A7%91%E7%9B%AE",
-      "comparisonKey": "/category/pe-first-stage?tag=%E5%9F%BA%E7%A4%8E%E7%A7%91%E7%9B%AE",
-      "lastCrawled": "2026-08-03"
     },
     {
       "url": "https://doboku-note.com/category/civil-construction-1?tag=schedule-management",
@@ -143,23 +258,18 @@
       "lastCrawled": "2026-07-24"
     },
     {
+      "url": "https://doboku-note.com/category/pe-comprehensive-management?tag=pillar",
+      "comparisonKey": "/category/pe-comprehensive-management?tag=pillar",
+      "lastCrawled": "2026-07-22"
+    },
+    {
       "url": "https://doboku-note.com/category/pe-construction?tag=BIM/CIM",
       "comparisonKey": "/category/pe-construction?tag=BIM/CIM",
       "lastCrawled": "2026-07-21"
     },
     {
-      "url": "https://doboku-note.com/category/pe-comprehensive-management?tag=pillar",
-      "comparisonKey": "/category/pe-comprehensive-management?tag=pillar",
-      "lastCrawled": "2026-07-21"
-    },
-    {
       "url": "https://doboku-note.com/category/pe-construction?tag=%E7%A4%BE%E4%BC%9A%E8%B3%87%E6%9C%AC%E6%95%B4%E5%82%99%E9%87%8D%E7%82%B9%E8%A8%88%E7%94%BB",
       "comparisonKey": "/category/pe-construction?tag=%E7%A4%BE%E4%BC%9A%E8%B3%87%E6%9C%AC%E6%95%B4%E5%82%99%E9%87%8D%E7%82%B9%E8%A8%88%E7%94%BB",
-      "lastCrawled": "2026-07-19"
-    },
-    {
-      "url": "https://doboku-note.com/category/civil-construction-1?tag=demolition",
-      "comparisonKey": "/category/civil-construction-1?tag=demolition",
       "lastCrawled": "2026-07-19"
     },
     {
@@ -191,11 +301,6 @@
       "url": "https://doboku-note.com/category/pe-comprehensive-management?tag=%E5%87%BA%E9%A1%8C%E5%82%BE%E5%90%91",
       "comparisonKey": "/category/pe-comprehensive-management?tag=%E5%87%BA%E9%A1%8C%E5%82%BE%E5%90%91",
       "lastCrawled": "2026-07-08"
-    },
-    {
-      "url": "https://doboku-note.com/category/civil-construction-1?tag=quality",
-      "comparisonKey": "/category/civil-construction-1?tag=quality",
-      "lastCrawled": "2026-07-07"
     },
     {
       "url": "https://doboku-note.com/category/pe-construction?tag=%E9%98%B2%E7%81%BD",
@@ -263,49 +368,14 @@
       "lastCrawled": "2026-06-30"
     },
     {
-      "url": "https://doboku-note.com/category/pe-first-stage?tag=%E4%BB%A4%E5%92%8C2%E5%B9%B4%E5%BA%A6",
-      "comparisonKey": "/category/pe-first-stage?tag=%E4%BB%A4%E5%92%8C2%E5%B9%B4%E5%BA%A6",
-      "lastCrawled": "2026-06-30"
-    },
-    {
-      "url": "https://doboku-note.com/category/pe-first-stage?tag=%E5%B0%82%E9%96%80%E7%A7%91%E7%9B%AE%EF%BC%88%E5%BB%BA%E8%A8%AD%E9%83%A8%E9%96%80%EF%BC%89",
-      "comparisonKey": "/category/pe-first-stage?tag=%E5%B0%82%E9%96%80%E7%A7%91%E7%9B%AE%EF%BC%88%E5%BB%BA%E8%A8%AD%E9%83%A8%E9%96%80%EF%BC%89",
-      "lastCrawled": "2026-06-30"
-    },
-    {
-      "url": "https://doboku-note.com/category/pe-first-stage?tag=%E4%BB%A4%E5%92%8C4%E5%B9%B4%E5%BA%A6",
-      "comparisonKey": "/category/pe-first-stage?tag=%E4%BB%A4%E5%92%8C4%E5%B9%B4%E5%BA%A6",
-      "lastCrawled": "2026-06-30"
-    },
-    {
       "url": "https://doboku-note.com/category/pe-construction?tag=%E8%AA%B2%E9%A1%8C%E6%8A%BD%E5%87%BA",
       "comparisonKey": "/category/pe-construction?tag=%E8%AA%B2%E9%A1%8C%E6%8A%BD%E5%87%BA",
-      "lastCrawled": "2026-06-30"
-    },
-    {
-      "url": "https://doboku-note.com/category/pe-first-stage?tag=%E4%BB%A4%E5%92%8C3%E5%B9%B4%E5%BA%A6",
-      "comparisonKey": "/category/pe-first-stage?tag=%E4%BB%A4%E5%92%8C3%E5%B9%B4%E5%BA%A6",
       "lastCrawled": "2026-06-30"
     },
     {
       "url": "https://doboku-note.com/category/pe-construction?tag=%E5%9C%B0%E5%9F%9F%E3%81%A5%E3%81%8F%E3%82%8A",
       "comparisonKey": "/category/pe-construction?tag=%E5%9C%B0%E5%9F%9F%E3%81%A5%E3%81%8F%E3%82%8A",
       "lastCrawled": "2026-06-30"
-    },
-    {
-      "url": "https://doboku-note.com/category/pe-first-stage?tag=%E9%81%A9%E6%80%A7%E7%A7%91%E7%9B%AE",
-      "comparisonKey": "/category/pe-first-stage?tag=%E9%81%A9%E6%80%A7%E7%A7%91%E7%9B%AE",
-      "lastCrawled": "2026-06-27"
-    },
-    {
-      "url": "https://doboku-note.com/category/pe-first-stage?tag=%E4%BB%A4%E5%92%8C5%E5%B9%B4%E5%BA%A6",
-      "comparisonKey": "/category/pe-first-stage?tag=%E4%BB%A4%E5%92%8C5%E5%B9%B4%E5%BA%A6",
-      "lastCrawled": "2026-06-27"
-    },
-    {
-      "url": "https://doboku-note.com/category/pe-first-stage?tag=%E6%8A%80%E8%A1%93%E5%A3%AB%EF%BC%88%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%A9%A6%E9%A8%93%EF%BC%89",
-      "comparisonKey": "/category/pe-first-stage?tag=%E6%8A%80%E8%A1%93%E5%A3%AB%EF%BC%88%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%A9%A6%E9%A8%93%EF%BC%89",
-      "lastCrawled": "2026-06-27"
     },
     {
       "url": "https://doboku-note.com/category/pe-construction?tag=%E5%BB%BA%E8%A8%AD%E9%83%A8%E9%96%80",
@@ -356,11 +426,6 @@
       "url": "https://doboku-note.com/category/pe-construction?tag=%E3%81%BE%E3%81%A1%E3%81%A5%E3%81%8F%E3%82%8A",
       "comparisonKey": "/category/pe-construction?tag=%E3%81%BE%E3%81%A1%E3%81%A5%E3%81%8F%E3%82%8A",
       "lastCrawled": "2026-06-21"
-    },
-    {
-      "url": "https://doboku-note.com/category/concrete-chief-engineer?tag=exam-trends",
-      "comparisonKey": "/category/concrete-chief-engineer?tag=exam-trends",
-      "lastCrawled": "2026-06-20"
     },
     {
       "url": "https://doboku-note.com/category/pe-construction?tag=%E7%AB%8B%E5%9C%B0%E9%81%A9%E6%AD%A3%E5%8C%96",
@@ -811,11 +876,6 @@
       "url": "https://doboku-note.com/category/pe-comprehensive-management?tag=%E3%82%AB%E3%83%BC%E3%83%9C%E3%83%B3%E3%83%8B%E3%83%A5%E3%83%BC%E3%83%88%E3%83%A9%E3%83%AB",
       "comparisonKey": "/category/pe-comprehensive-management?tag=%E3%82%AB%E3%83%BC%E3%83%9C%E3%83%B3%E3%83%8B%E3%83%A5%E3%83%BC%E3%83%88%E3%83%A9%E3%83%AB",
       "lastCrawled": "2026-05-27"
-    },
-    {
-      "url": "https://doboku-note.com/category/pe-comprehensive-management?tag=%E3%82%AD%E3%83%BC%E3%83%AF%E3%83%BC%E3%83%89",
-      "comparisonKey": "/category/pe-comprehensive-management?tag=%E3%82%AD%E3%83%BC%E3%83%AF%E3%83%BC%E3%83%89",
-      "lastCrawled": "2026-05-01"
     },
     {
       "url": "https://doboku-note.com/category/pe-comprehensive-management?tag=%E6%8A%80%E5%A3%AB%EF%BC%88%E7%B7%8F%E5%90%88%E6%8A%80%E8%A1%93%E7%9B%A3%E7%90%86%E9%83%A8%E9%96%80%EF%BC%89",

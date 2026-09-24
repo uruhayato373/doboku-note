@@ -5,23 +5,423 @@
   "property": "sc-domain:doboku-note.com",
   "issue": "crawledNotIndexed",
   "scope": "allKnownPages",
-  "runId": "2026-08-22T07-46-59Z",
-  "collectedAt": "2026-08-22T07:46:59.533Z",
-  "uiTotal": 353,
-  "exportedRows": 353,
+  "runId": "2026-09-24T20-20-02Z",
+  "collectedAt": "2026-09-24T20:20:02.173Z",
+  "uiTotal": 388,
+  "exportedRows": 388,
   "truncated": false,
   "rejectCount": 0,
   "rejects": [],
   "previous": {
-    "runId": "2026-07-30T05-51-00Z",
-    "collectedAt": "2026-07-30T05:51:00.731Z",
-    "exportedRows": 350
+    "runId": "2026-08-22T07-46-59Z",
+    "collectedAt": "2026-08-22T07:46:59.533Z",
+    "exportedRows": 353
   },
   "delta": {
-    "added": 44,
-    "removed": 41
+    "added": 93,
+    "removed": 58
   },
   "rows": [
+    {
+      "url": "https://doboku-note.com/practice/embankment-quality-control",
+      "comparisonKey": "/practice/embankment-quality-control",
+      "lastCrawled": "2026-09-22"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r03-required",
+      "comparisonKey": "/exam/pe-construction/past-exams/r03-required",
+      "lastCrawled": "2026-09-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/civil-practice-pipe-jacking-methods",
+      "comparisonKey": "/docs/civil-practice-pipe-jacking-methods",
+      "lastCrawled": "2026-09-22"
+    },
+    {
+      "url": "https://doboku-note.com/practice/pipe-jacking-methods",
+      "comparisonKey": "/practice/pipe-jacking-methods",
+      "lastCrawled": "2026-09-22"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-control-05",
+      "comparisonKey": "/standards/kyushu/hikkei-control-05",
+      "lastCrawled": "2026-09-22"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/reemployment-system",
+      "comparisonKey": "/exam/pe-comprehensive-management/keywords/reemployment-system",
+      "lastCrawled": "2026-09-22"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/guide/nanido-goukakuritsu",
+      "comparisonKey": "/exam/pe-construction/guide/nanido-goukakuritsu",
+      "lastCrawled": "2026-09-22"
+    },
+    {
+      "url": "https://doboku-note.com/standards/hokuriku/common/chapters/10-13",
+      "comparisonKey": "/standards/hokuriku/common/chapters/10-13",
+      "lastCrawled": "2026-09-22"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-common-10",
+      "comparisonKey": "/standards/kyushu/hikkei-common-10",
+      "lastCrawled": "2026-09-22"
+    },
+    {
+      "url": "https://doboku-note.com/standards/hokuriku/hikkei/part-03",
+      "comparisonKey": "/standards/hokuriku/hikkei/part-03",
+      "lastCrawled": "2026-09-22"
+    },
+    {
+      "url": "https://doboku-note.com/standards-data/kinki/common/chapters/1-1.md",
+      "comparisonKey": "/standards-data/kinki/common/chapters/1-1.md",
+      "lastCrawled": "2026-09-22"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/eco-label",
+      "comparisonKey": "/exam/pe-comprehensive-management/keywords/eco-label",
+      "lastCrawled": "2026-09-22"
+    },
+    {
+      "url": "https://doboku-note.com/practice/formwork-material-inspection",
+      "comparisonKey": "/practice/formwork-material-inspection",
+      "lastCrawled": "2026-09-22"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-control-07",
+      "comparisonKey": "/standards/kyushu/hikkei-control-07",
+      "lastCrawled": "2026-09-22"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-common-16/part-01",
+      "comparisonKey": "/standards/kyushu/hikkei-common-16/part-01",
+      "lastCrawled": "2026-09-22"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-common-17/part-01",
+      "comparisonKey": "/standards/kyushu/hikkei-common-17/part-01",
+      "lastCrawled": "2026-09-22"
+    },
+    {
+      "url": "https://doboku-note.com/standards/hokkaido/local/part-01",
+      "comparisonKey": "/standards/hokkaido/local/part-01",
+      "lastCrawled": "2026-09-22"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r04-urban-planning",
+      "comparisonKey": "/exam/pe-construction/past-exams/r04-urban-planning",
+      "lastCrawled": "2026-09-22"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/6-4",
+      "comparisonKey": "/standards/kinki/common/chapters/6-4",
+      "lastCrawled": "2026-09-22"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r05-road",
+      "comparisonKey": "/exam/pe-construction/past-exams/r05-road",
+      "lastCrawled": "2026-09-22"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-2/guide/salary",
+      "comparisonKey": "/exam/civil-construction-2/guide/salary",
+      "lastCrawled": "2026-09-22"
+    },
+    {
+      "url": "https://doboku-note.com/standards/okinawa/hikkei-06/part-01",
+      "comparisonKey": "/standards/okinawa/hikkei-06/part-01",
+      "lastCrawled": "2026-09-22"
+    },
+    {
+      "url": "https://doboku-note.com/practice/earth-retaining-displacement",
+      "comparisonKey": "/practice/earth-retaining-displacement",
+      "lastCrawled": "2026-09-22"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/8-3",
+      "comparisonKey": "/standards/kinki/common/chapters/8-3",
+      "lastCrawled": "2026-09-22"
+    },
+    {
+      "url": "https://doboku-note.com/practice/concrete-repair-leakage",
+      "comparisonKey": "/practice/concrete-repair-leakage",
+      "lastCrawled": "2026-09-22"
+    },
+    {
+      "url": "https://doboku-note.com/standards/hokuriku/common/chapters/10-8",
+      "comparisonKey": "/standards/hokuriku/common/chapters/10-8",
+      "lastCrawled": "2026-09-22"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=hyogo-common-specs",
+      "comparisonKey": "/search?q=hyogo-common-specs",
+      "lastCrawled": "2026-09-22"
+    },
+    {
+      "url": "https://doboku-note.com/standards/chugoku/common/chapters/2-1",
+      "comparisonKey": "/standards/chugoku/common/chapters/2-1",
+      "lastCrawled": "2026-09-22"
+    },
+    {
+      "url": "https://doboku-note.com/category/civil-practice?tag=earthwork",
+      "comparisonKey": "/category/civil-practice?tag=earthwork",
+      "lastCrawled": "2026-09-21"
+    },
+    {
+      "url": "https://doboku-note.com/downloads/career-preparation.txt",
+      "comparisonKey": "/downloads/career-preparation.txt",
+      "lastCrawled": "2026-09-21"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/r01-retry-aptitude",
+      "comparisonKey": "/exam/pe-first-stage/primary/r01-retry-aptitude",
+      "lastCrawled": "2026-09-21"
+    },
+    {
+      "url": "https://doboku-note.com/search?q=%E8%AB%96%E8%BF%B0%E5%AF%BE%E7%AD%96",
+      "comparisonKey": "/search?q=%E8%AB%96%E8%BF%B0%E5%AF%BE%E7%AD%96",
+      "lastCrawled": "2026-09-21"
+    },
+    {
+      "url": "https://doboku-note.com/standards-data/kinki/common/chapters/10-14.jsonld",
+      "comparisonKey": "/standards-data/kinki/common/chapters/10-14.jsonld",
+      "lastCrawled": "2026-09-20"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/problem-setting-ability",
+      "comparisonKey": "/exam/pe-comprehensive-management/keywords/problem-setting-ability",
+      "lastCrawled": "2026-09-20"
+    },
+    {
+      "url": "https://doboku-note.com/docs/civil-practice-checklist-shoring-buoyancy",
+      "comparisonKey": "/docs/civil-practice-checklist-shoring-buoyancy",
+      "lastCrawled": "2026-09-19"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-environmental-basic-plan",
+      "comparisonKey": "/docs/pe-comprehensive-management-environmental-basic-plan",
+      "lastCrawled": "2026-09-17"
+    },
+    {
+      "url": "https://doboku-note.com/docs/civil-practice-cast-in-place-pile-methods",
+      "comparisonKey": "/docs/civil-practice-cast-in-place-pile-methods",
+      "lastCrawled": "2026-09-17"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/guide/suikou-checklist",
+      "comparisonKey": "/exam/pe-construction/guide/suikou-checklist",
+      "lastCrawled": "2026-09-17"
+    },
+    {
+      "url": "https://doboku-note.com/docs/civil-practice-embankment-quality-control",
+      "comparisonKey": "/docs/civil-practice-embankment-quality-control",
+      "lastCrawled": "2026-09-17"
+    },
+    {
+      "url": "https://doboku-note.com/docs/civil-practice-earth-retaining-displacement",
+      "comparisonKey": "/docs/civil-practice-earth-retaining-displacement",
+      "lastCrawled": "2026-09-16"
+    },
+    {
+      "url": "https://doboku-note.com/docs/civil-practice-excavation-bottom-failure",
+      "comparisonKey": "/docs/civil-practice-excavation-bottom-failure",
+      "lastCrawled": "2026-09-16"
+    },
+    {
+      "url": "https://doboku-note.com/docs/civil-construction-1-guide-career-path",
+      "comparisonKey": "/docs/civil-construction-1-guide-career-path",
+      "lastCrawled": "2026-09-15"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-correlation-analysis",
+      "comparisonKey": "/docs/pe-comprehensive-management-correlation-analysis",
+      "lastCrawled": "2026-09-15"
+    },
+    {
+      "url": "https://doboku-note.com/docs/civil-practice-pile-bearing-verification",
+      "comparisonKey": "/docs/civil-practice-pile-bearing-verification",
+      "lastCrawled": "2026-09-13"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-first-stage-r04-aptitude",
+      "comparisonKey": "/docs/pe-first-stage-r04-aptitude",
+      "lastCrawled": "2026-09-07"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-first-stage-r04-construction",
+      "comparisonKey": "/docs/pe-first-stage-r04-construction",
+      "lastCrawled": "2026-09-07"
+    },
+    {
+      "url": "https://doboku-note.com/docs/civil-construction-1-textbook-work-scheduling",
+      "comparisonKey": "/docs/civil-construction-1-textbook-work-scheduling",
+      "lastCrawled": "2026-09-06"
+    },
+    {
+      "url": "https://doboku-note.com/docs/civil-construction-2-guide-career",
+      "comparisonKey": "/docs/civil-construction-2-guide-career",
+      "lastCrawled": "2026-09-01"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-first-stage-r04-basic",
+      "comparisonKey": "/docs/pe-first-stage-r04-basic",
+      "lastCrawled": "2026-09-01"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-first-stage-r01-construction",
+      "comparisonKey": "/docs/pe-first-stage-r01-construction",
+      "lastCrawled": "2026-09-01"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-machinery-safety-guidelines",
+      "comparisonKey": "/docs/pe-comprehensive-management-machinery-safety-guidelines",
+      "lastCrawled": "2026-08-31"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-first-stage-r06-construction",
+      "comparisonKey": "/docs/pe-first-stage-r06-construction",
+      "lastCrawled": "2026-08-31"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-construction-shakai-shihon-ronbun-keyword",
+      "comparisonKey": "/docs/pe-construction-shakai-shihon-ronbun-keyword",
+      "lastCrawled": "2026-08-31"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-centralization-decentralization",
+      "comparisonKey": "/docs/pe-comprehensive-management-centralization-decentralization",
+      "lastCrawled": "2026-08-31"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-cites",
+      "comparisonKey": "/docs/pe-comprehensive-management-cites",
+      "lastCrawled": "2026-08-31"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-security-software",
+      "comparisonKey": "/docs/pe-comprehensive-management-security-software",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-disaster-prevention",
+      "comparisonKey": "/docs/pe-comprehensive-management-disaster-prevention",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/docs/civil-construction-1-guide-foundation",
+      "comparisonKey": "/docs/civil-construction-1-guide-foundation",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-digital-twin-cps",
+      "comparisonKey": "/docs/pe-comprehensive-management-digital-twin-cps",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-budget-planning",
+      "comparisonKey": "/docs/pe-comprehensive-management-budget-planning",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-required-quality",
+      "comparisonKey": "/docs/pe-comprehensive-management-required-quality",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-general-overview",
+      "comparisonKey": "/docs/pe-comprehensive-management-general-overview",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-worker-dispatch-act",
+      "comparisonKey": "/docs/pe-comprehensive-management-worker-dispatch-act",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-hazop",
+      "comparisonKey": "/docs/pe-comprehensive-management-hazop",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-essay-persona-guide",
+      "comparisonKey": "/docs/pe-comprehensive-management-essay-persona-guide",
+      "lastCrawled": "2026-08-29"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-password-security",
+      "comparisonKey": "/docs/pe-comprehensive-management-password-security",
+      "lastCrawled": "2026-08-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-probabilistic-risk-assessment",
+      "comparisonKey": "/docs/pe-comprehensive-management-probabilistic-risk-assessment",
+      "lastCrawled": "2026-08-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-merit-demerit-system",
+      "comparisonKey": "/docs/pe-comprehensive-management-merit-demerit-system",
+      "lastCrawled": "2026-08-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-employment-insurance",
+      "comparisonKey": "/docs/pe-comprehensive-management-employment-insurance",
+      "lastCrawled": "2026-08-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-construction-geotechnical-exam-themes",
+      "comparisonKey": "/docs/pe-construction-geotechnical-exam-themes",
+      "lastCrawled": "2026-08-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-liquefaction",
+      "comparisonKey": "/docs/pe-comprehensive-management-liquefaction",
+      "lastCrawled": "2026-08-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/civil-construction-1-secondary-earthwork-basics",
+      "comparisonKey": "/docs/civil-construction-1-secondary-earthwork-basics",
+      "lastCrawled": "2026-08-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-utility-model-rights",
+      "comparisonKey": "/docs/pe-comprehensive-management-utility-model-rights",
+      "lastCrawled": "2026-08-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-logistic-regression",
+      "comparisonKey": "/docs/pe-comprehensive-management-logistic-regression",
+      "lastCrawled": "2026-08-25"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-investment-recovery-plan",
+      "comparisonKey": "/docs/pe-comprehensive-management-investment-recovery-plan",
+      "lastCrawled": "2026-08-25"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-ppm-analysis",
+      "comparisonKey": "/docs/pe-comprehensive-management-ppm-analysis",
+      "lastCrawled": "2026-08-25"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-system-availability",
+      "comparisonKey": "/docs/pe-comprehensive-management-system-availability",
+      "lastCrawled": "2026-08-25"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-initial-investment",
+      "comparisonKey": "/docs/pe-comprehensive-management-initial-investment",
+      "lastCrawled": "2026-08-25"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-first-stage-r07-basic",
+      "comparisonKey": "/docs/pe-first-stage-r07-basic",
+      "lastCrawled": "2026-08-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-construction-r01-environment",
+      "comparisonKey": "/docs/pe-construction-r01-environment",
+      "lastCrawled": "2026-08-19"
+    },
     {
       "url": "https://doboku-note.com/docs/pe-construction-r04-urban-planning",
       "comparisonKey": "/docs/pe-construction-r04-urban-planning",
@@ -36,6 +436,11 @@
       "url": "https://doboku-note.com/docs/pe-first-stage-r05-aptitude",
       "comparisonKey": "/docs/pe-first-stage-r05-aptitude",
       "lastCrawled": "2026-08-16"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-encryption-digital-signature",
+      "comparisonKey": "/docs/pe-comprehensive-management-encryption-digital-signature",
+      "lastCrawled": "2026-08-15"
     },
     {
       "url": "https://doboku-note.com/docs/concrete-chief-engineer-primary-products",
@@ -85,11 +490,6 @@
     {
       "url": "https://doboku-note.com/docs/pe-comprehensive-management-edge-computing",
       "comparisonKey": "/docs/pe-comprehensive-management-edge-computing",
-      "lastCrawled": "2026-08-07"
-    },
-    {
-      "url": "https://doboku-note.com/docs/pe-comprehensive-management-public-servant-comprehensive-merit",
-      "comparisonKey": "/docs/pe-comprehensive-management-public-servant-comprehensive-merit",
       "lastCrawled": "2026-08-07"
     },
     {
@@ -173,6 +573,11 @@
       "lastCrawled": "2026-08-02"
     },
     {
+      "url": "https://doboku-note.com/docs/pe-first-stage-r06-basic",
+      "comparisonKey": "/docs/pe-first-stage-r06-basic",
+      "lastCrawled": "2026-08-01"
+    },
+    {
       "url": "https://doboku-note.com/docs/pe-construction-bousai-genseigai-ronbun-keyword",
       "comparisonKey": "/docs/pe-construction-bousai-genseigai-ronbun-keyword",
       "lastCrawled": "2026-07-29"
@@ -218,11 +623,6 @@
       "lastCrawled": "2026-07-23"
     },
     {
-      "url": "https://doboku-note.com/docs/civil-construction-1-guide-quality-management",
-      "comparisonKey": "/docs/civil-construction-1-guide-quality-management",
-      "lastCrawled": "2026-07-23"
-    },
-    {
       "url": "https://doboku-note.com/docs/pe-first-stage-r05-construction",
       "comparisonKey": "/docs/pe-first-stage-r05-construction",
       "lastCrawled": "2026-07-23"
@@ -235,6 +635,11 @@
     {
       "url": "https://doboku-note.com/docs/pe-comprehensive-management-ojt-off-jt",
       "comparisonKey": "/docs/pe-comprehensive-management-ojt-off-jt",
+      "lastCrawled": "2026-07-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-construction-guide-required-essay",
+      "comparisonKey": "/docs/pe-construction-guide-required-essay",
       "lastCrawled": "2026-07-22"
     },
     {
@@ -288,6 +693,11 @@
       "lastCrawled": "2026-07-19"
     },
     {
+      "url": "https://doboku-note.com/docs/pe-first-stage-r01-basic",
+      "comparisonKey": "/docs/pe-first-stage-r01-basic",
+      "lastCrawled": "2026-07-19"
+    },
+    {
       "url": "https://doboku-note.com/docs/pe-first-stage-r07-construction",
       "comparisonKey": "/docs/pe-first-stage-r07-construction",
       "lastCrawled": "2026-07-19"
@@ -315,6 +725,11 @@
     {
       "url": "https://doboku-note.com/docs/civil-construction-2-primary-r04-zenki",
       "comparisonKey": "/docs/civil-construction-2-primary-r04-zenki",
+      "lastCrawled": "2026-07-16"
+    },
+    {
+      "url": "https://doboku-note.com/docs/civil-construction-1-secondary-r07",
+      "comparisonKey": "/docs/civil-construction-1-secondary-r07",
       "lastCrawled": "2026-07-16"
     },
     {
@@ -350,11 +765,6 @@
     {
       "url": "https://doboku-note.com/docs/pe-first-stage-r03-basic",
       "comparisonKey": "/docs/pe-first-stage-r03-basic",
-      "lastCrawled": "2026-07-15"
-    },
-    {
-      "url": "https://doboku-note.com/docs/pe-construction-r06-construction-planning",
-      "comparisonKey": "/docs/pe-construction-r06-construction-planning",
       "lastCrawled": "2026-07-15"
     },
     {
@@ -448,11 +858,6 @@
       "lastCrawled": "2026-07-07"
     },
     {
-      "url": "https://doboku-note.com/docs/civil-construction-1-primary-r05-a",
-      "comparisonKey": "/docs/civil-construction-1-primary-r05-a",
-      "lastCrawled": "2026-07-07"
-    },
-    {
       "url": "https://doboku-note.com/docs/pe-comprehensive-management-nature-positive",
       "comparisonKey": "/docs/pe-comprehensive-management-nature-positive",
       "lastCrawled": "2026-07-07"
@@ -498,11 +903,6 @@
       "lastCrawled": "2026-07-06"
     },
     {
-      "url": "https://doboku-note.com/docs/pe-comprehensive-management-green-infrastructure",
-      "comparisonKey": "/docs/pe-comprehensive-management-green-infrastructure",
-      "lastCrawled": "2026-07-06"
-    },
-    {
       "url": "https://doboku-note.com/docs/pe-comprehensive-management-task-based-training",
       "comparisonKey": "/docs/pe-comprehensive-management-task-based-training",
       "lastCrawled": "2026-07-05"
@@ -510,6 +910,11 @@
     {
       "url": "https://doboku-note.com/docs/pe-comprehensive-management-game-theory",
       "comparisonKey": "/docs/pe-comprehensive-management-game-theory",
+      "lastCrawled": "2026-07-05"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-npv-net-present-value",
+      "comparisonKey": "/docs/pe-comprehensive-management-npv-net-present-value",
       "lastCrawled": "2026-07-05"
     },
     {
@@ -633,11 +1038,6 @@
       "lastCrawled": "2026-07-03"
     },
     {
-      "url": "https://doboku-note.com/docs/pe-comprehensive-management-improvement-maintenance",
-      "comparisonKey": "/docs/pe-comprehensive-management-improvement-maintenance",
-      "lastCrawled": "2026-07-03"
-    },
-    {
       "url": "https://doboku-note.com/docs/pe-comprehensive-management-ip-creation",
       "comparisonKey": "/docs/pe-comprehensive-management-ip-creation",
       "lastCrawled": "2026-07-03"
@@ -648,18 +1048,8 @@
       "lastCrawled": "2026-07-03"
     },
     {
-      "url": "https://doboku-note.com/docs/pe-comprehensive-management-four-p-analysis",
-      "comparisonKey": "/docs/pe-comprehensive-management-four-p-analysis",
-      "lastCrawled": "2026-07-03"
-    },
-    {
       "url": "https://doboku-note.com/docs/pe-comprehensive-management-r04-primary",
       "comparisonKey": "/docs/pe-comprehensive-management-r04-primary",
-      "lastCrawled": "2026-07-03"
-    },
-    {
-      "url": "https://doboku-note.com/docs/pe-comprehensive-management-lopa",
-      "comparisonKey": "/docs/pe-comprehensive-management-lopa",
       "lastCrawled": "2026-07-03"
     },
     {
@@ -710,11 +1100,6 @@
     {
       "url": "https://doboku-note.com/docs/pe-comprehensive-management-attitude-appraisal",
       "comparisonKey": "/docs/pe-comprehensive-management-attitude-appraisal",
-      "lastCrawled": "2026-07-02"
-    },
-    {
-      "url": "https://doboku-note.com/docs/pe-comprehensive-management-personnel-management",
-      "comparisonKey": "/docs/pe-comprehensive-management-personnel-management",
       "lastCrawled": "2026-07-02"
     },
     {
@@ -808,18 +1193,8 @@
       "lastCrawled": "2026-06-27"
     },
     {
-      "url": "https://doboku-note.com/docs/pe-comprehensive-management-safety-education",
-      "comparisonKey": "/docs/pe-comprehensive-management-safety-education",
-      "lastCrawled": "2026-06-27"
-    },
-    {
       "url": "https://doboku-note.com/docs/pe-comprehensive-management-job-type-employment",
       "comparisonKey": "/docs/pe-comprehensive-management-job-type-employment",
-      "lastCrawled": "2026-06-27"
-    },
-    {
-      "url": "https://doboku-note.com/docs/pe-comprehensive-management-disability-discrimination-act",
-      "comparisonKey": "/docs/pe-comprehensive-management-disability-discrimination-act",
       "lastCrawled": "2026-06-27"
     },
     {
@@ -928,11 +1303,6 @@
       "lastCrawled": "2026-06-22"
     },
     {
-      "url": "https://doboku-note.com/docs/pe-comprehensive-management-telework",
-      "comparisonKey": "/docs/pe-comprehensive-management-telework",
-      "lastCrawled": "2026-06-22"
-    },
-    {
       "url": "https://doboku-note.com/docs/civil-construction-2-primary-r05-kouki",
       "comparisonKey": "/docs/civil-construction-2-primary-r05-kouki",
       "lastCrawled": "2026-06-22"
@@ -968,11 +1338,6 @@
       "lastCrawled": "2026-06-21"
     },
     {
-      "url": "https://doboku-note.com/docs/pe-comprehensive-management-value-chain-analysis",
-      "comparisonKey": "/docs/pe-comprehensive-management-value-chain-analysis",
-      "lastCrawled": "2026-06-21"
-    },
-    {
       "url": "https://doboku-note.com/docs/pe-comprehensive-management-unauthorized-access",
       "comparisonKey": "/docs/pe-comprehensive-management-unauthorized-access",
       "lastCrawled": "2026-06-21"
@@ -998,16 +1363,6 @@
       "lastCrawled": "2026-06-21"
     },
     {
-      "url": "https://doboku-note.com/docs/pe-comprehensive-management-satoyama-initiative",
-      "comparisonKey": "/docs/pe-comprehensive-management-satoyama-initiative",
-      "lastCrawled": "2026-06-21"
-    },
-    {
-      "url": "https://doboku-note.com/docs/pe-comprehensive-management-air-pollution-control-act",
-      "comparisonKey": "/docs/pe-comprehensive-management-air-pollution-control-act",
-      "lastCrawled": "2026-06-21"
-    },
-    {
       "url": "https://doboku-note.com/docs/pe-comprehensive-management-system-integrity",
       "comparisonKey": "/docs/pe-comprehensive-management-system-integrity",
       "lastCrawled": "2026-06-20"
@@ -1015,11 +1370,6 @@
     {
       "url": "https://doboku-note.com/docs/pe-comprehensive-management-safety-culture",
       "comparisonKey": "/docs/pe-comprehensive-management-safety-culture",
-      "lastCrawled": "2026-06-20"
-    },
-    {
-      "url": "https://doboku-note.com/docs/civil-construction-1-primary-r07-a",
-      "comparisonKey": "/docs/civil-construction-1-primary-r07-a",
       "lastCrawled": "2026-06-20"
     },
     {
@@ -1043,11 +1393,6 @@
       "lastCrawled": "2026-06-13"
     },
     {
-      "url": "https://doboku-note.com/docs/pe-comprehensive-management-human-resource-management-pillar",
-      "comparisonKey": "/docs/pe-comprehensive-management-human-resource-management-pillar",
-      "lastCrawled": "2026-06-13"
-    },
-    {
       "url": "https://doboku-note.com/docs/pe-comprehensive-management-labor-union-act",
       "comparisonKey": "/docs/pe-comprehensive-management-labor-union-act",
       "lastCrawled": "2026-06-13"
@@ -1055,11 +1400,6 @@
     {
       "url": "https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-examples",
       "comparisonKey": "/docs/civil-construction-1-secondary-experience-writing-examples",
-      "lastCrawled": "2026-06-13"
-    },
-    {
-      "url": "https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-guide",
-      "comparisonKey": "/docs/civil-construction-1-secondary-experience-writing-guide",
       "lastCrawled": "2026-06-13"
     },
     {
@@ -1133,11 +1473,6 @@
       "lastCrawled": "2026-06-06"
     },
     {
-      "url": "https://doboku-note.com/docs/pe-comprehensive-management-circular-society-basic-act",
-      "comparisonKey": "/docs/pe-comprehensive-management-circular-society-basic-act",
-      "lastCrawled": "2026-06-06"
-    },
-    {
       "url": "https://doboku-note.com/docs/pe-comprehensive-management-pqcdsme",
       "comparisonKey": "/docs/pe-comprehensive-management-pqcdsme",
       "lastCrawled": "2026-06-05"
@@ -1148,11 +1483,6 @@
       "lastCrawled": "2026-06-05"
     },
     {
-      "url": "https://doboku-note.com/docs/pe-comprehensive-management-flextime-system",
-      "comparisonKey": "/docs/pe-comprehensive-management-flextime-system",
-      "lastCrawled": "2026-06-03"
-    },
-    {
       "url": "https://doboku-note.com/docs/pe-comprehensive-management-evaluation-bias",
       "comparisonKey": "/docs/pe-comprehensive-management-evaluation-bias",
       "lastCrawled": "2026-06-03"
@@ -1161,11 +1491,6 @@
       "url": "https://doboku-note.com/docs/civil-construction-1-textbook-transport-machinery",
       "comparisonKey": "/docs/civil-construction-1-textbook-transport-machinery",
       "lastCrawled": "2026-06-02"
-    },
-    {
-      "url": "https://doboku-note.com/docs/pe-comprehensive-management-chemical-substances-review-act",
-      "comparisonKey": "/docs/pe-comprehensive-management-chemical-substances-review-act",
-      "lastCrawled": "2026-05-31"
     },
     {
       "url": "https://doboku-note.com/docs/civil-construction-1-primary-r01-b",
@@ -1188,11 +1513,6 @@
       "lastCrawled": "2026-05-29"
     },
     {
-      "url": "https://doboku-note.com/docs/pe-comprehensive-management-annual-salary-system",
-      "comparisonKey": "/docs/pe-comprehensive-management-annual-salary-system",
-      "lastCrawled": "2026-05-29"
-    },
-    {
       "url": "https://doboku-note.com/docs/pe-comprehensive-management-wellbeing-org",
       "comparisonKey": "/docs/pe-comprehensive-management-wellbeing-org",
       "lastCrawled": "2026-05-29"
@@ -1203,23 +1523,8 @@
       "lastCrawled": "2026-05-29"
     },
     {
-      "url": "https://doboku-note.com/docs/pe-comprehensive-management-rohs-weee",
-      "comparisonKey": "/docs/pe-comprehensive-management-rohs-weee",
-      "lastCrawled": "2026-05-28"
-    },
-    {
-      "url": "https://doboku-note.com/docs/pe-comprehensive-management-vulnerability",
-      "comparisonKey": "/docs/pe-comprehensive-management-vulnerability",
-      "lastCrawled": "2026-05-28"
-    },
-    {
-      "url": "https://doboku-note.com/docs/pe-comprehensive-management-process-costing",
-      "comparisonKey": "/docs/pe-comprehensive-management-process-costing",
-      "lastCrawled": "2026-05-28"
-    },
-    {
-      "url": "https://doboku-note.com/docs/pe-comprehensive-management-backcasting",
-      "comparisonKey": "/docs/pe-comprehensive-management-backcasting",
+      "url": "https://doboku-note.com/docs/civil-construction-1-primary-r06-a",
+      "comparisonKey": "/docs/civil-construction-1-primary-r06-a",
       "lastCrawled": "2026-05-28"
     },
     {
@@ -1238,19 +1543,24 @@
       "lastCrawled": "2026-05-25"
     },
     {
-      "url": "https://doboku-note.com/docs/pe-comprehensive-management-payback-period-method",
-      "comparisonKey": "/docs/pe-comprehensive-management-payback-period-method",
-      "lastCrawled": "2026-05-23"
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-green-bond",
+      "comparisonKey": "/docs/pe-comprehensive-management-green-bond",
+      "lastCrawled": "2026-05-14"
     },
     {
-      "url": "https://doboku-note.com/docs/pe-comprehensive-management-occupational-disease",
-      "comparisonKey": "/docs/pe-comprehensive-management-occupational-disease",
-      "lastCrawled": "2026-05-21"
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-wced",
+      "comparisonKey": "/docs/pe-comprehensive-management-wced",
+      "lastCrawled": "2026-05-13"
     },
     {
       "url": "https://doboku-note.com/docs/pe-comprehensive-management-minimum-wage-act",
       "comparisonKey": "/docs/pe-comprehensive-management-minimum-wage-act",
       "lastCrawled": "2026-05-12"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-recommendation-systems",
+      "comparisonKey": "/docs/pe-comprehensive-management-recommendation-systems",
+      "lastCrawled": "2026-05-11"
     },
     {
       "url": "https://doboku-note.com/docs/pe-comprehensive-management-targeted-attack",
@@ -1283,11 +1593,6 @@
       "lastCrawled": "2026-05-10"
     },
     {
-      "url": "https://doboku-note.com/docs/pe-comprehensive-management-civil-protection-act",
-      "comparisonKey": "/docs/pe-comprehensive-management-civil-protection-act",
-      "lastCrawled": "2026-05-10"
-    },
-    {
       "url": "https://doboku-note.com/docs/pe-comprehensive-management-nature-restoration-act",
       "comparisonKey": "/docs/pe-comprehensive-management-nature-restoration-act",
       "lastCrawled": "2026-05-10"
@@ -1300,6 +1605,11 @@
     {
       "url": "https://doboku-note.com/docs/pe-comprehensive-management-defense-in-depth",
       "comparisonKey": "/docs/pe-comprehensive-management-defense-in-depth",
+      "lastCrawled": "2026-05-10"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-system-safety",
+      "comparisonKey": "/docs/pe-comprehensive-management-system-safety",
       "lastCrawled": "2026-05-10"
     },
     {
@@ -1338,31 +1648,6 @@
       "lastCrawled": "2026-05-08"
     },
     {
-      "url": "https://doboku-note.com/docs/pe-comprehensive-management-load-capacity",
-      "comparisonKey": "/docs/pe-comprehensive-management-load-capacity",
-      "lastCrawled": "2026-05-08"
-    },
-    {
-      "url": "https://doboku-note.com/docs/pe-comprehensive-management-environmental-impact-assessment",
-      "comparisonKey": "/docs/pe-comprehensive-management-environmental-impact-assessment",
-      "lastCrawled": "2026-05-07"
-    },
-    {
-      "url": "https://doboku-note.com/docs/pe-comprehensive-management-mbo",
-      "comparisonKey": "/docs/pe-comprehensive-management-mbo",
-      "lastCrawled": "2026-05-07"
-    },
-    {
-      "url": "https://doboku-note.com/docs/pe-comprehensive-management-risk-management-policy",
-      "comparisonKey": "/docs/pe-comprehensive-management-risk-management-policy",
-      "lastCrawled": "2026-05-07"
-    },
-    {
-      "url": "https://doboku-note.com/docs/pe-comprehensive-management-agenda-21",
-      "comparisonKey": "/docs/pe-comprehensive-management-agenda-21",
-      "lastCrawled": "2026-05-07"
-    },
-    {
       "url": "https://doboku-note.com/docs/pe-comprehensive-management-ip-protection",
       "comparisonKey": "/docs/pe-comprehensive-management-ip-protection",
       "lastCrawled": "2026-05-06"
@@ -1378,19 +1663,9 @@
       "lastCrawled": "2026-05-05"
     },
     {
-      "url": "https://doboku-note.com/docs/pe-comprehensive-management-risk-assessment",
-      "comparisonKey": "/docs/pe-comprehensive-management-risk-assessment",
-      "lastCrawled": "2026-05-05"
-    },
-    {
       "url": "https://doboku-note.com/_next/static/media/051742360c26797e-s.p.0f97p8c3305p~.woff2",
       "comparisonKey": "/_next/static/media/051742360c26797e-s.p.0f97p8c3305p~.woff2",
       "lastCrawled": "2026-04-30"
-    },
-    {
-      "url": "https://doboku-note.com/docs/pe-comprehensive-management-pdca-cycle",
-      "comparisonKey": "/docs/pe-comprehensive-management-pdca-cycle",
-      "lastCrawled": "2026-04-29"
     },
     {
       "url": "https://doboku-note.com/docs/pe-comprehensive-management-balance-sheet",
@@ -1398,28 +1673,13 @@
       "lastCrawled": "2026-04-29"
     },
     {
-      "url": "https://doboku-note.com/docs/pe-comprehensive-management-extended-producer-responsibility",
-      "comparisonKey": "/docs/pe-comprehensive-management-extended-producer-responsibility",
-      "lastCrawled": "2026-04-28"
-    },
-    {
       "url": "https://doboku-note.com/docs/pe-comprehensive-management-h26-primary",
       "comparisonKey": "/docs/pe-comprehensive-management-h26-primary",
       "lastCrawled": "2026-04-28"
     },
     {
-      "url": "https://doboku-note.com/docs/pe-comprehensive-management-iot",
-      "comparisonKey": "/docs/pe-comprehensive-management-iot",
-      "lastCrawled": "2026-04-28"
-    },
-    {
-      "url": "https://doboku-note.com/docs/civil-construction-1-textbook-schedule-overview",
-      "comparisonKey": "/docs/civil-construction-1-textbook-schedule-overview",
-      "lastCrawled": "2026-04-28"
-    },
-    {
-      "url": "https://doboku-note.com/docs/pe-comprehensive-management-health-management",
-      "comparisonKey": "/docs/pe-comprehensive-management-health-management",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-public-acceptance-comm",
+      "comparisonKey": "/docs/pe-comprehensive-management-public-acceptance-comm",
       "lastCrawled": "2026-04-28"
     },
     {
@@ -1428,28 +1688,8 @@
       "lastCrawled": "2026-04-28"
     },
     {
-      "url": "https://doboku-note.com/docs/pe-comprehensive-management-delphi-method",
-      "comparisonKey": "/docs/pe-comprehensive-management-delphi-method",
-      "lastCrawled": "2026-04-28"
-    },
-    {
-      "url": "https://doboku-note.com/docs/civil-construction-1-textbook-labor-standards",
-      "comparisonKey": "/docs/civil-construction-1-textbook-labor-standards",
-      "lastCrawled": "2026-04-28"
-    },
-    {
       "url": "https://doboku-note.com/docs/civil-construction-1-primary-h28-a",
       "comparisonKey": "/docs/civil-construction-1-primary-h28-a",
-      "lastCrawled": "2026-04-28"
-    },
-    {
-      "url": "https://doboku-note.com/docs/civil-construction-1-textbook-shovel-excavator",
-      "comparisonKey": "/docs/civil-construction-1-textbook-shovel-excavator",
-      "lastCrawled": "2026-04-28"
-    },
-    {
-      "url": "https://doboku-note.com/docs/civil-construction-1-textbook-work-scheduling",
-      "comparisonKey": "/docs/civil-construction-1-textbook-work-scheduling",
       "lastCrawled": "2026-04-28"
     },
     {
@@ -1458,28 +1698,8 @@
       "lastCrawled": "2026-04-28"
     },
     {
-      "url": "https://doboku-note.com/docs/civil-construction-1-textbook-river-act",
-      "comparisonKey": "/docs/civil-construction-1-textbook-river-act",
-      "lastCrawled": "2026-04-27"
-    },
-    {
       "url": "https://doboku-note.com/docs/civil-construction-1-primary-h30-b",
       "comparisonKey": "/docs/civil-construction-1-primary-h30-b",
-      "lastCrawled": "2026-04-27"
-    },
-    {
-      "url": "https://doboku-note.com/docs/civil-construction-1-textbook-distance-angle",
-      "comparisonKey": "/docs/civil-construction-1-textbook-distance-angle",
-      "lastCrawled": "2026-04-27"
-    },
-    {
-      "url": "https://doboku-note.com/docs/civil-construction-1-textbook-building-standards",
-      "comparisonKey": "/docs/civil-construction-1-textbook-building-standards",
-      "lastCrawled": "2026-04-27"
-    },
-    {
-      "url": "https://doboku-note.com/docs/civil-construction-1-textbook-surveying-basics",
-      "comparisonKey": "/docs/civil-construction-1-textbook-surveying-basics",
       "lastCrawled": "2026-04-27"
     },
     {
@@ -1523,11 +1743,6 @@
       "lastCrawled": "2026-04-26"
     },
     {
-      "url": "https://doboku-note.com/docs/pe-comprehensive-management-ismap",
-      "comparisonKey": "/docs/pe-comprehensive-management-ismap",
-      "lastCrawled": "2026-04-26"
-    },
-    {
       "url": "https://doboku-note.com/atom.xml",
       "comparisonKey": "/atom.xml",
       "lastCrawled": "2026-04-25"
@@ -1543,44 +1758,14 @@
       "lastCrawled": "2026-04-25"
     },
     {
-      "url": "https://doboku-note.com/docs/pe-comprehensive-management-self-development",
-      "comparisonKey": "/docs/pe-comprehensive-management-self-development",
-      "lastCrawled": "2026-04-25"
-    },
-    {
-      "url": "https://doboku-note.com/docs/pe-comprehensive-management-subsidiarity-principle",
-      "comparisonKey": "/docs/pe-comprehensive-management-subsidiarity-principle",
-      "lastCrawled": "2026-04-25"
-    },
-    {
-      "url": "https://doboku-note.com/docs/pe-comprehensive-management-tripod-theory",
-      "comparisonKey": "/docs/pe-comprehensive-management-tripod-theory",
-      "lastCrawled": "2026-04-25"
-    },
-    {
-      "url": "https://doboku-note.com/docs/pe-comprehensive-management-personal-info-utilization",
-      "comparisonKey": "/docs/pe-comprehensive-management-personal-info-utilization",
-      "lastCrawled": "2026-04-25"
-    },
-    {
-      "url": "https://doboku-note.com/docs/pe-comprehensive-management-copyright",
-      "comparisonKey": "/docs/pe-comprehensive-management-copyright",
-      "lastCrawled": "2026-04-25"
-    },
-    {
-      "url": "https://doboku-note.com/docs/pe-comprehensive-management-standard-costing",
-      "comparisonKey": "/docs/pe-comprehensive-management-standard-costing",
-      "lastCrawled": "2026-04-24"
-    },
-    {
-      "url": "https://doboku-note.com/docs/pe-comprehensive-management-h27-primary",
-      "comparisonKey": "/docs/pe-comprehensive-management-h27-primary",
-      "lastCrawled": "2026-04-24"
-    },
-    {
-      "url": "https://doboku-note.com/docs/pe-comprehensive-management-h29-primary",
-      "comparisonKey": "/docs/pe-comprehensive-management-h29-primary",
+      "url": "https://doboku-note.com/docs/civil-construction-1-textbook-surveying",
+      "comparisonKey": "/docs/civil-construction-1-textbook-surveying",
       "lastCrawled": "2026-04-23"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-blockchain-crypto",
+      "comparisonKey": "/docs/pe-comprehensive-management-blockchain-crypto",
+      "lastCrawled": "2026-04-22"
     },
     {
       "url": "https://doboku-note.com/docs/pe-comprehensive-management-h25-primary",
@@ -1776,16 +1961,6 @@
       "url": "https://doboku-note.com/docs/general/common-specs/02-materials",
       "comparisonKey": "/docs/general/common-specs/02-materials",
       "lastCrawled": "2026-04-12"
-    },
-    {
-      "url": "https://doboku-note.com/docs/general/construction-management/construction-plan/safety-management-plan",
-      "comparisonKey": "/docs/general/construction-management/construction-plan/safety-management-plan",
-      "lastCrawled": "2026-03-25"
-    },
-    {
-      "url": "https://doboku-note.com/docs/general/construction-management/construction-plan/schedule-planning",
-      "comparisonKey": "/docs/general/construction-management/construction-plan/schedule-planning",
-      "lastCrawled": "2026-03-25"
     }
   ]
 }

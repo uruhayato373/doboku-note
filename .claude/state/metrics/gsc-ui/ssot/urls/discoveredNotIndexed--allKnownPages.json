@@ -5,29 +5,1426 @@
   "property": "sc-domain:doboku-note.com",
   "issue": "discoveredNotIndexed",
   "scope": "allKnownPages",
-  "runId": "2026-08-22T07-46-59Z",
-  "collectedAt": "2026-08-22T07:46:59.533Z",
-  "uiTotal": 3,
-  "exportedRows": 3,
+  "runId": "2026-09-24T20-20-02Z",
+  "collectedAt": "2026-09-24T20:20:02.173Z",
+  "uiTotal": 281,
+  "exportedRows": 281,
   "truncated": false,
   "rejectCount": 0,
   "rejects": [],
-  "previous": null,
-  "delta": null,
+  "previous": {
+    "runId": "2026-08-22T07-46-59Z",
+    "collectedAt": "2026-08-22T07:46:59.533Z",
+    "exportedRows": 3
+  },
+  "delta": {
+    "added": 281,
+    "removed": 3
+  },
   "rows": [
     {
-      "url": "https://doboku-note.com/docs/pe-comprehensive-management-cost-benefit-analysis",
-      "comparisonKey": "/docs/pe-comprehensive-management-cost-benefit-analysis",
+      "url": "https://doboku-note.com/exam/civil-construction-1/guide/career-agents",
+      "comparisonKey": "/exam/civil-construction-1/guide/career-agents",
       "lastCrawled": "1970-01-01"
     },
     {
-      "url": "https://doboku-note.com/docs/pe-comprehensive-management-international-filing-system",
-      "comparisonKey": "/docs/pe-comprehensive-management-international-filing-system",
+      "url": "https://doboku-note.com/exam/civil-construction-1/guide/career-cases",
+      "comparisonKey": "/exam/civil-construction-1/guide/career-cases",
       "lastCrawled": "1970-01-01"
     },
     {
-      "url": "https://doboku-note.com/docs/pe-comprehensive-management-ocean-plastic",
-      "comparisonKey": "/docs/pe-comprehensive-management-ocean-plastic",
+      "url": "https://doboku-note.com/exam/civil-construction-1/guide/construction-plan",
+      "comparisonKey": "/exam/civil-construction-1/guide/construction-plan",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-1/guide/dx-jobs",
+      "comparisonKey": "/exam/civil-construction-1/guide/dx-jobs",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-1/guide/environment-management",
+      "comparisonKey": "/exam/civil-construction-1/guide/environment-management",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-1/guide/exam-overview",
+      "comparisonKey": "/exam/civil-construction-1/guide/exam-overview",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-1/guide/market-value",
+      "comparisonKey": "/exam/civil-construction-1/guide/market-value",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-1/guide/public-servant",
+      "comparisonKey": "/exam/civil-construction-1/guide/public-servant",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-1/guide/quit-or-stay",
+      "comparisonKey": "/exam/civil-construction-1/guide/quit-or-stay",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-1/guide/safety-management",
+      "comparisonKey": "/exam/civil-construction-1/guide/safety-management",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-1/guide/salary-by-role",
+      "comparisonKey": "/exam/civil-construction-1/guide/salary-by-role",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-1/guide/salary-up",
+      "comparisonKey": "/exam/civil-construction-1/guide/salary-up",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-1/guide/study-plan",
+      "comparisonKey": "/exam/civil-construction-1/guide/study-plan",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-1/guide/vs-pe",
+      "comparisonKey": "/exam/civil-construction-1/guide/vs-pe",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-1/guide/women",
+      "comparisonKey": "/exam/civil-construction-1/guide/women",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-1/textbook/coast-port",
+      "comparisonKey": "/exam/civil-construction-1/textbook/coast-port",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-1/textbook/dam-construction",
+      "comparisonKey": "/exam/civil-construction-1/textbook/dam-construction",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-1/textbook/railway-underground",
+      "comparisonKey": "/exam/civil-construction-1/textbook/railway-underground",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-1/textbook/sabo-landslide",
+      "comparisonKey": "/exam/civil-construction-1/textbook/sabo-landslide",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-1/textbook/steel-structures",
+      "comparisonKey": "/exam/civil-construction-1/textbook/steel-structures",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-1/textbook/tunnel-natm",
+      "comparisonKey": "/exam/civil-construction-1/textbook/tunnel-natm",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-1/textbook/water-sewer",
+      "comparisonKey": "/exam/civil-construction-1/textbook/water-sewer",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-2/guide/career-change",
+      "comparisonKey": "/exam/civil-construction-2/guide/career-change",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-2/guide/concrete-key-points",
+      "comparisonKey": "/exam/civil-construction-2/guide/concrete-key-points",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-2/guide/exam-overview",
+      "comparisonKey": "/exam/civil-construction-2/guide/exam-overview",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-2/guide/haken-seishain",
+      "comparisonKey": "/exam/civil-construction-2/guide/haken-seishain",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-2/guide/job-reality",
+      "comparisonKey": "/exam/civil-construction-2/guide/job-reality",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-2/guide/law-key-points",
+      "comparisonKey": "/exam/civil-construction-2/guide/law-key-points",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-2/guide/overview",
+      "comparisonKey": "/exam/civil-construction-2/guide/overview",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-2/guide/quality-management",
+      "comparisonKey": "/exam/civil-construction-2/guide/quality-management",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-2/guide/quit-or-stay",
+      "comparisonKey": "/exam/civil-construction-2/guide/quit-or-stay",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-2/guide/resume",
+      "comparisonKey": "/exam/civil-construction-2/guide/resume",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-2/guide/schedule-management",
+      "comparisonKey": "/exam/civil-construction-2/guide/schedule-management",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-2/guide/secondary-grading-and-partial-credit",
+      "comparisonKey": "/exam/civil-construction-2/guide/secondary-grading-and-partial-credit",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-2/guide/secondary-last-two-weeks-plan",
+      "comparisonKey": "/exam/civil-construction-2/guide/secondary-last-two-weeks-plan",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-2/guide/secondary-written-questions-guide",
+      "comparisonKey": "/exam/civil-construction-2/guide/secondary-written-questions-guide",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-2/guide/study-method",
+      "comparisonKey": "/exam/civil-construction-2/guide/study-method",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-2/guide/study-plan",
+      "comparisonKey": "/exam/civil-construction-2/guide/study-plan",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-2/guide/textbooks",
+      "comparisonKey": "/exam/civil-construction-2/guide/textbooks",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-2/primary/r03-zenki",
+      "comparisonKey": "/exam/civil-construction-2/primary/r03-zenki",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-2/primary/r04-kouki",
+      "comparisonKey": "/exam/civil-construction-2/primary/r04-kouki",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-2/primary/r04-zenki",
+      "comparisonKey": "/exam/civil-construction-2/primary/r04-zenki",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-2/primary/r05-kouki",
+      "comparisonKey": "/exam/civil-construction-2/primary/r05-kouki",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-2/primary/r05-zenki",
+      "comparisonKey": "/exam/civil-construction-2/primary/r05-zenki",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-2/primary/r06-kouki",
+      "comparisonKey": "/exam/civil-construction-2/primary/r06-kouki",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-2/primary/r06-zenki",
+      "comparisonKey": "/exam/civil-construction-2/primary/r06-zenki",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-2/primary/r07-kouki",
+      "comparisonKey": "/exam/civil-construction-2/primary/r07-kouki",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-2/primary/r07-zenki",
+      "comparisonKey": "/exam/civil-construction-2/primary/r07-zenki",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-2/secondary/experience-writing-by-theme",
+      "comparisonKey": "/exam/civil-construction-2/secondary/experience-writing-by-theme",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-2/secondary/r04",
+      "comparisonKey": "/exam/civil-construction-2/secondary/r04",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-2/secondary/r06",
+      "comparisonKey": "/exam/civil-construction-2/secondary/r06",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/concrete-diagnostician/primary/exercise-06",
+      "comparisonKey": "/exam/concrete-diagnostician/primary/exercise-06",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/concrete-engineer/guide/difference-chief",
+      "comparisonKey": "/exam/concrete-engineer/guide/difference-chief",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/concrete-engineer/guide/eligibility-2026",
+      "comparisonKey": "/exam/concrete-engineer/guide/eligibility-2026",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/concrete-engineer/guide/overview",
+      "comparisonKey": "/exam/concrete-engineer/guide/overview",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/concrete-engineer/guide/study-plan",
+      "comparisonKey": "/exam/concrete-engineer/guide/study-plan",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/concrete-engineer/primary/construction",
+      "comparisonKey": "/exam/concrete-engineer/primary/construction",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/concrete-engineer/primary/environment",
+      "comparisonKey": "/exam/concrete-engineer/primary/environment",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/concrete-engineer/primary/mix-design",
+      "comparisonKey": "/exam/concrete-engineer/primary/mix-design",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/concrete-engineer/primary/production-qc",
+      "comparisonKey": "/exam/concrete-engineer/primary/production-qc",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/concrete-engineer/primary/properties-testing",
+      "comparisonKey": "/exam/concrete-engineer/primary/properties-testing",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/concrete-engineer/textbook/construction",
+      "comparisonKey": "/exam/concrete-engineer/textbook/construction",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/concrete-engineer/textbook/environment",
+      "comparisonKey": "/exam/concrete-engineer/textbook/environment",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/concrete-engineer/textbook/materials",
+      "comparisonKey": "/exam/concrete-engineer/textbook/materials",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/concrete-engineer/textbook/mix-design",
+      "comparisonKey": "/exam/concrete-engineer/textbook/mix-design",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/concrete-engineer/textbook/production-qc",
+      "comparisonKey": "/exam/concrete-engineer/textbook/production-qc",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/concrete-engineer/textbook/properties-testing",
+      "comparisonKey": "/exam/concrete-engineer/textbook/properties-testing",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-comprehensive-management/guide/essay-pattern-cross-year-application",
+      "comparisonKey": "/exam/pe-comprehensive-management/guide/essay-pattern-cross-year-application",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-comprehensive-management/guide/pattern-essay-general-contractor",
+      "comparisonKey": "/exam/pe-comprehensive-management/guide/pattern-essay-general-contractor",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/eco-action-21",
+      "comparisonKey": "/exam/pe-comprehensive-management/keywords/eco-action-21",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/hierarchical-training",
+      "comparisonKey": "/exam/pe-comprehensive-management/keywords/hierarchical-training",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/human-capital-disclosure",
+      "comparisonKey": "/exam/pe-comprehensive-management/keywords/human-capital-disclosure",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/jit-production",
+      "comparisonKey": "/exam/pe-comprehensive-management/keywords/jit-production",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/job-analysis",
+      "comparisonKey": "/exam/pe-comprehensive-management/keywords/job-analysis",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/job-execution-ability",
+      "comparisonKey": "/exam/pe-comprehensive-management/keywords/job-execution-ability",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/probabilistic-risk-assessment",
+      "comparisonKey": "/exam/pe-comprehensive-management/keywords/probabilistic-risk-assessment",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/guide/aimai-hyougen-sahou",
+      "comparisonKey": "/exam/pe-construction/guide/aimai-hyougen-sahou",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8",
+      "comparisonKey": "/exam/pe-construction/guide/competency-revision-r8",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/guide/hissu-kamoku-kaitourei",
+      "comparisonKey": "/exam/pe-construction/guide/hissu-kamoku-kaitourei",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/guide/keyword-note-tsukurikata",
+      "comparisonKey": "/exam/pe-construction/guide/keyword-note-tsukurikata",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/guide/secondary-study-method",
+      "comparisonKey": "/exam/pe-construction/guide/secondary-study-method",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/guide/setsumon-bunkai",
+      "comparisonKey": "/exam/pe-construction/guide/setsumon-bunkai",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/guide/shiken-toujitsu-tejun",
+      "comparisonKey": "/exam/pe-construction/guide/shiken-toujitsu-tejun",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/guide/toan-kousei-template",
+      "comparisonKey": "/exam/pe-construction/guide/toan-kousei-template",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/keywords/bosai-kokudo-kyoujinka",
+      "comparisonKey": "/exam/pe-construction/keywords/bosai-kokudo-kyoujinka",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/keywords/bousai-genseigai-ronbun-keyword",
+      "comparisonKey": "/exam/pe-construction/keywords/bousai-genseigai-ronbun-keyword",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/keywords/chiiki-dukuri-ronbun-keyword",
+      "comparisonKey": "/exam/pe-construction/keywords/chiiki-dukuri-ronbun-keyword",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/keywords/datsutanso-kankyo-ronbun-keyword",
+      "comparisonKey": "/exam/pe-construction/keywords/datsutanso-kankyo-ronbun-keyword",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/keywords/environment-exam-themes",
+      "comparisonKey": "/exam/pe-construction/keywords/environment-exam-themes",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/keywords/iji-kanri-ronbun-keyword",
+      "comparisonKey": "/exam/pe-construction/keywords/iji-kanri-ronbun-keyword",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/keywords/infra-roukyuuka-iji",
+      "comparisonKey": "/exam/pe-construction/keywords/infra-roukyuuka-iji",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/keywords/kokudo-keisei-chiiki",
+      "comparisonKey": "/exam/pe-construction/keywords/kokudo-keisei-chiiki",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/keywords/ninaite-dx-ronbun-keyword",
+      "comparisonKey": "/exam/pe-construction/keywords/ninaite-dx-ronbun-keyword",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/keywords/power-civil-exam-themes",
+      "comparisonKey": "/exam/pe-construction/keywords/power-civil-exam-themes",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/keywords/required-exam-themes",
+      "comparisonKey": "/exam/pe-construction/keywords/required-exam-themes",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/keywords/shakai-shihon-ronbun-keyword",
+      "comparisonKey": "/exam/pe-construction/keywords/shakai-shihon-ronbun-keyword",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/keywords/steel-concrete-exam-themes",
+      "comparisonKey": "/exam/pe-construction/keywords/steel-concrete-exam-themes",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/keywords/steel-concrete-ronbun-keyword",
+      "comparisonKey": "/exam/pe-construction/keywords/steel-concrete-ronbun-keyword",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/keywords/urban-planning-exam-themes",
+      "comparisonKey": "/exam/pe-construction/keywords/urban-planning-exam-themes",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/keywords/urban-planning-ronbun-keyword",
+      "comparisonKey": "/exam/pe-construction/keywords/urban-planning-ronbun-keyword",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r01-environment",
+      "comparisonKey": "/exam/pe-construction/past-exams/r01-environment",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r01-power-civil",
+      "comparisonKey": "/exam/pe-construction/past-exams/r01-power-civil",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r01-required",
+      "comparisonKey": "/exam/pe-construction/past-exams/r01-required",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r01-river-coast",
+      "comparisonKey": "/exam/pe-construction/past-exams/r01-river-coast",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r01-steel-concrete",
+      "comparisonKey": "/exam/pe-construction/past-exams/r01-steel-concrete",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r02-required",
+      "comparisonKey": "/exam/pe-construction/past-exams/r02-required",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r02-steel-concrete",
+      "comparisonKey": "/exam/pe-construction/past-exams/r02-steel-concrete",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r03-river-coast",
+      "comparisonKey": "/exam/pe-construction/past-exams/r03-river-coast",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r03-road",
+      "comparisonKey": "/exam/pe-construction/past-exams/r03-road",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r04-power-civil",
+      "comparisonKey": "/exam/pe-construction/past-exams/r04-power-civil",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r04-required",
+      "comparisonKey": "/exam/pe-construction/past-exams/r04-required",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r04-river-coast",
+      "comparisonKey": "/exam/pe-construction/past-exams/r04-river-coast",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r04-road",
+      "comparisonKey": "/exam/pe-construction/past-exams/r04-road",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r05-port-airport",
+      "comparisonKey": "/exam/pe-construction/past-exams/r05-port-airport",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r05-power-civil",
+      "comparisonKey": "/exam/pe-construction/past-exams/r05-power-civil",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r05-urban-planning",
+      "comparisonKey": "/exam/pe-construction/past-exams/r05-urban-planning",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r06-geotechnical",
+      "comparisonKey": "/exam/pe-construction/past-exams/r06-geotechnical",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r06-port-airport",
+      "comparisonKey": "/exam/pe-construction/past-exams/r06-port-airport",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r06-power-civil",
+      "comparisonKey": "/exam/pe-construction/past-exams/r06-power-civil",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r06-river-coast",
+      "comparisonKey": "/exam/pe-construction/past-exams/r06-river-coast",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r06-road",
+      "comparisonKey": "/exam/pe-construction/past-exams/r06-road",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r06-urban-planning",
+      "comparisonKey": "/exam/pe-construction/past-exams/r06-urban-planning",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r07-required",
+      "comparisonKey": "/exam/pe-construction/past-exams/r07-required",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r07-urban-planning",
+      "comparisonKey": "/exam/pe-construction/past-exams/r07-urban-planning",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r08-construction-planning",
+      "comparisonKey": "/exam/pe-construction/past-exams/r08-construction-planning",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r08-environment",
+      "comparisonKey": "/exam/pe-construction/past-exams/r08-environment",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r08-geotechnical",
+      "comparisonKey": "/exam/pe-construction/past-exams/r08-geotechnical",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r08-port-airport",
+      "comparisonKey": "/exam/pe-construction/past-exams/r08-port-airport",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r08-power-civil",
+      "comparisonKey": "/exam/pe-construction/past-exams/r08-power-civil",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r08-railway",
+      "comparisonKey": "/exam/pe-construction/past-exams/r08-railway",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r08-required",
+      "comparisonKey": "/exam/pe-construction/past-exams/r08-required",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r08-river-coast",
+      "comparisonKey": "/exam/pe-construction/past-exams/r08-river-coast",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r08-road",
+      "comparisonKey": "/exam/pe-construction/past-exams/r08-road",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r08-steel-concrete",
+      "comparisonKey": "/exam/pe-construction/past-exams/r08-steel-concrete",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-first-stage/guide/calculus-numerical-calculation",
+      "comparisonKey": "/exam/pe-first-stage/guide/calculus-numerical-calculation",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-first-stage/guide/overview",
+      "comparisonKey": "/exam/pe-first-stage/guide/overview",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-first-stage/guide/resistance-circuit-calculation",
+      "comparisonKey": "/exam/pe-first-stage/guide/resistance-circuit-calculation",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-first-stage/guide/study-plan",
+      "comparisonKey": "/exam/pe-first-stage/guide/study-plan",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/h25-aptitude",
+      "comparisonKey": "/exam/pe-first-stage/primary/h25-aptitude",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/h25-basic",
+      "comparisonKey": "/exam/pe-first-stage/primary/h25-basic",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/h25-construction",
+      "comparisonKey": "/exam/pe-first-stage/primary/h25-construction",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/h26-aptitude",
+      "comparisonKey": "/exam/pe-first-stage/primary/h26-aptitude",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/h26-basic",
+      "comparisonKey": "/exam/pe-first-stage/primary/h26-basic",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/h26-construction",
+      "comparisonKey": "/exam/pe-first-stage/primary/h26-construction",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/h27-aptitude",
+      "comparisonKey": "/exam/pe-first-stage/primary/h27-aptitude",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/h27-basic",
+      "comparisonKey": "/exam/pe-first-stage/primary/h27-basic",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/h27-construction",
+      "comparisonKey": "/exam/pe-first-stage/primary/h27-construction",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/h28-aptitude",
+      "comparisonKey": "/exam/pe-first-stage/primary/h28-aptitude",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/h28-basic",
+      "comparisonKey": "/exam/pe-first-stage/primary/h28-basic",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/h28-construction",
+      "comparisonKey": "/exam/pe-first-stage/primary/h28-construction",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/h29-aptitude",
+      "comparisonKey": "/exam/pe-first-stage/primary/h29-aptitude",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/h29-basic",
+      "comparisonKey": "/exam/pe-first-stage/primary/h29-basic",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/h30-aptitude",
+      "comparisonKey": "/exam/pe-first-stage/primary/h30-aptitude",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/h30-basic",
+      "comparisonKey": "/exam/pe-first-stage/primary/h30-basic",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/h30-construction",
+      "comparisonKey": "/exam/pe-first-stage/primary/h30-construction",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/r01-aptitude",
+      "comparisonKey": "/exam/pe-first-stage/primary/r01-aptitude",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/r01-basic",
+      "comparisonKey": "/exam/pe-first-stage/primary/r01-basic",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/r01-retry-basic",
+      "comparisonKey": "/exam/pe-first-stage/primary/r01-retry-basic",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/r02-basic",
+      "comparisonKey": "/exam/pe-first-stage/primary/r02-basic",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/r03-basic",
+      "comparisonKey": "/exam/pe-first-stage/primary/r03-basic",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/r05-aptitude",
+      "comparisonKey": "/exam/pe-first-stage/primary/r05-aptitude",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/r05-basic",
+      "comparisonKey": "/exam/pe-first-stage/primary/r05-basic",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/r06-aptitude",
+      "comparisonKey": "/exam/pe-first-stage/primary/r06-aptitude",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/r06-basic",
+      "comparisonKey": "/exam/pe-first-stage/primary/r06-basic",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/r07-aptitude",
+      "comparisonKey": "/exam/pe-first-stage/primary/r07-aptitude",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/r07-basic",
+      "comparisonKey": "/exam/pe-first-stage/primary/r07-basic",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/rccm/guide/difference-pe",
+      "comparisonKey": "/exam/rccm/guide/difference-pe",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/rccm/guide/eligibility-application",
+      "comparisonKey": "/exam/rccm/guide/eligibility-application",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/rccm/guide/mondai1-keiken-ronbun",
+      "comparisonKey": "/exam/rccm/guide/mondai1-keiken-ronbun",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/rccm/guide/mondai2-4-takuitsu",
+      "comparisonKey": "/exam/rccm/guide/mondai2-4-takuitsu",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/rccm/guide/mondai3-themes-2026",
+      "comparisonKey": "/exam/rccm/guide/mondai3-themes-2026",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/rccm/guide/overview",
+      "comparisonKey": "/exam/rccm/guide/overview",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/exam/rccm/guide/study-plan",
+      "comparisonKey": "/exam/rccm/guide/study-plan",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/practice/ai-document-verification",
+      "comparisonKey": "/practice/ai-document-verification",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/practice/bim-cim-site-practice",
+      "comparisonKey": "/practice/bim-cim-site-practice",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/practice/cast-in-place-pile-methods",
+      "comparisonKey": "/practice/cast-in-place-pile-methods",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/practice/concrete-placement-order",
+      "comparisonKey": "/practice/concrete-placement-order",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/practice/concrete-pump-capacity",
+      "comparisonKey": "/practice/concrete-pump-capacity",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/practice/earthquake-tsunami-site-response",
+      "comparisonKey": "/practice/earthquake-tsunami-site-response",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/practice/excavation-bottom-failure",
+      "comparisonKey": "/practice/excavation-bottom-failure",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/practice/excavation-pre-survey",
+      "comparisonKey": "/practice/excavation-pre-survey",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/practice/flood-season-river-work",
+      "comparisonKey": "/practice/flood-season-river-work",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/practice/formwork-removal-timing",
+      "comparisonKey": "/practice/formwork-removal-timing",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/practice/formwork-waterstop-details",
+      "comparisonKey": "/practice/formwork-waterstop-details",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/practice/gis-layer-validation",
+      "comparisonKey": "/practice/gis-layer-validation",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/practice/ict-construction-workflow",
+      "comparisonKey": "/practice/ict-construction-workflow",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/practice/lifting-equipment-selection",
+      "comparisonKey": "/practice/lifting-equipment-selection",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/practice/numerical-model-review",
+      "comparisonKey": "/practice/numerical-model-review",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/practice/pile-bearing-verification",
+      "comparisonKey": "/practice/pile-bearing-verification",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/practice/pile-concrete-head-treatment",
+      "comparisonKey": "/practice/pile-concrete-head-treatment",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/practice/rainfall-work-suspension",
+      "comparisonKey": "/practice/rainfall-work-suspension",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/practice/rebar-corrosion-handling",
+      "comparisonKey": "/practice/rebar-corrosion-handling",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/practice/rebar-cover-placement",
+      "comparisonKey": "/practice/rebar-cover-placement",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/practice/river-park-erosion-control",
+      "comparisonKey": "/practice/river-park-erosion-control",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/practice/schedule-and-road-permit",
+      "comparisonKey": "/practice/schedule-and-road-permit",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/practice/service-commencement",
+      "comparisonKey": "/practice/service-commencement",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/practice/slope-drainage-monitoring",
+      "comparisonKey": "/practice/slope-drainage-monitoring",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/practice/slope-protection-selection",
+      "comparisonKey": "/practice/slope-protection-selection",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/practice/soil-improvement-sandbag",
+      "comparisonKey": "/practice/soil-improvement-sandbag",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/practice/volcanic-hazard-site-planning",
+      "comparisonKey": "/practice/volcanic-hazard-site-planning",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/chubu",
+      "comparisonKey": "/standards/chubu",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/compare",
+      "comparisonKey": "/standards/compare",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/hokkaido/local",
+      "comparisonKey": "/standards/hokkaido/local",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kanto/common",
+      "comparisonKey": "/standards/kanto/common",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kanto/manual",
+      "comparisonKey": "/standards/kanto/manual",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/1-1",
+      "comparisonKey": "/standards/kinki/common/chapters/1-1",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/1-2",
+      "comparisonKey": "/standards/kinki/common/chapters/1-2",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/10-1",
+      "comparisonKey": "/standards/kinki/common/chapters/10-1",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/10-10",
+      "comparisonKey": "/standards/kinki/common/chapters/10-10",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/10-11",
+      "comparisonKey": "/standards/kinki/common/chapters/10-11",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/10-12",
+      "comparisonKey": "/standards/kinki/common/chapters/10-12",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/10-13",
+      "comparisonKey": "/standards/kinki/common/chapters/10-13",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/10-15",
+      "comparisonKey": "/standards/kinki/common/chapters/10-15",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/10-16",
+      "comparisonKey": "/standards/kinki/common/chapters/10-16",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/10-2",
+      "comparisonKey": "/standards/kinki/common/chapters/10-2",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/10-3",
+      "comparisonKey": "/standards/kinki/common/chapters/10-3",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/10-4",
+      "comparisonKey": "/standards/kinki/common/chapters/10-4",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/10-5",
+      "comparisonKey": "/standards/kinki/common/chapters/10-5",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/10-6",
+      "comparisonKey": "/standards/kinki/common/chapters/10-6",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/10-9",
+      "comparisonKey": "/standards/kinki/common/chapters/10-9",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/2-1",
+      "comparisonKey": "/standards/kinki/common/chapters/2-1",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/2-2",
+      "comparisonKey": "/standards/kinki/common/chapters/2-2",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/3-1",
+      "comparisonKey": "/standards/kinki/common/chapters/3-1",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/3-2",
+      "comparisonKey": "/standards/kinki/common/chapters/3-2",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/6-1",
+      "comparisonKey": "/standards/kinki/common/chapters/6-1",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/6-2",
+      "comparisonKey": "/standards/kinki/common/chapters/6-2",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/6-3",
+      "comparisonKey": "/standards/kinki/common/chapters/6-3",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/6-5",
+      "comparisonKey": "/standards/kinki/common/chapters/6-5",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/6-6",
+      "comparisonKey": "/standards/kinki/common/chapters/6-6",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/6-9",
+      "comparisonKey": "/standards/kinki/common/chapters/6-9",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/7-1",
+      "comparisonKey": "/standards/kinki/common/chapters/7-1",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/7-2",
+      "comparisonKey": "/standards/kinki/common/chapters/7-2",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/7-4",
+      "comparisonKey": "/standards/kinki/common/chapters/7-4",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/7-5",
+      "comparisonKey": "/standards/kinki/common/chapters/7-5",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/8-1",
+      "comparisonKey": "/standards/kinki/common/chapters/8-1",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/8-2",
+      "comparisonKey": "/standards/kinki/common/chapters/8-2",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/9-1",
+      "comparisonKey": "/standards/kinki/common/chapters/9-1",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kyushu/common",
+      "comparisonKey": "/standards/kyushu/common",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-common-01",
+      "comparisonKey": "/standards/kyushu/hikkei-common-01",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-common-03",
+      "comparisonKey": "/standards/kyushu/hikkei-common-03",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-common-04",
+      "comparisonKey": "/standards/kyushu/hikkei-common-04",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-common-05",
+      "comparisonKey": "/standards/kyushu/hikkei-common-05",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-common-06",
+      "comparisonKey": "/standards/kyushu/hikkei-common-06",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-common-07",
+      "comparisonKey": "/standards/kyushu/hikkei-common-07",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-common-08",
+      "comparisonKey": "/standards/kyushu/hikkei-common-08",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-common-09",
+      "comparisonKey": "/standards/kyushu/hikkei-common-09",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-common-11",
+      "comparisonKey": "/standards/kyushu/hikkei-common-11",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-common-12",
+      "comparisonKey": "/standards/kyushu/hikkei-common-12",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-common-13",
+      "comparisonKey": "/standards/kyushu/hikkei-common-13",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-common-14",
+      "comparisonKey": "/standards/kyushu/hikkei-common-14",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-common-15",
+      "comparisonKey": "/standards/kyushu/hikkei-common-15",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-common-16",
+      "comparisonKey": "/standards/kyushu/hikkei-common-16",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-common-17",
+      "comparisonKey": "/standards/kyushu/hikkei-common-17",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-control-01",
+      "comparisonKey": "/standards/kyushu/hikkei-control-01",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-control-02",
+      "comparisonKey": "/standards/kyushu/hikkei-control-02",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-control-03",
+      "comparisonKey": "/standards/kyushu/hikkei-control-03",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-control-04",
+      "comparisonKey": "/standards/kyushu/hikkei-control-04",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-control-06",
+      "comparisonKey": "/standards/kyushu/hikkei-control-06",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-control-08",
+      "comparisonKey": "/standards/kyushu/hikkei-control-08",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-control-09",
+      "comparisonKey": "/standards/kyushu/hikkei-control-09",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-control-11",
+      "comparisonKey": "/standards/kyushu/hikkei-control-11",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-control-12",
+      "comparisonKey": "/standards/kyushu/hikkei-control-12",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-control-13",
+      "comparisonKey": "/standards/kyushu/hikkei-control-13",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-control-14",
+      "comparisonKey": "/standards/kyushu/hikkei-control-14",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-control-15",
+      "comparisonKey": "/standards/kyushu/hikkei-control-15",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-control-16",
+      "comparisonKey": "/standards/kyushu/hikkei-control-16",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/kyushu/management-manual",
+      "comparisonKey": "/standards/kyushu/management-manual",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/tohoku/common",
+      "comparisonKey": "/standards/tohoku/common",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/tohoku/reference",
+      "comparisonKey": "/standards/tohoku/reference",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/standards/tohoku/special",
+      "comparisonKey": "/standards/tohoku/special",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/tools/concrete-maturity",
+      "comparisonKey": "/tools/concrete-maturity",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/tools/concrete-pump-plan",
+      "comparisonKey": "/tools/concrete-pump-plan",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/tools/concrete-time-check",
+      "comparisonKey": "/tools/concrete-time-check",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/tools/cost-structure",
+      "comparisonKey": "/tools/cost-structure",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/tools/kakomon-quiz/pe-first-stage",
+      "comparisonKey": "/tools/kakomon-quiz/pe-first-stage",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/tools/rebar-splice-check",
+      "comparisonKey": "/tools/rebar-splice-check",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/tools/sling-tension",
+      "comparisonKey": "/tools/sling-tension",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/tools/trench-legal-check",
+      "comparisonKey": "/tools/trench-legal-check",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/topics/economic-management",
+      "comparisonKey": "/topics/economic-management",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/topics/human-resource-management",
+      "comparisonKey": "/topics/human-resource-management",
+      "lastCrawled": "1970-01-01"
+    },
+    {
+      "url": "https://doboku-note.com/topics/safety-management-cem",
+      "comparisonKey": "/topics/safety-management-cem",
       "lastCrawled": "1970-01-01"
     }
   ]

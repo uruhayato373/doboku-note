@@ -5,23 +5,148 @@
   "property": "sc-domain:doboku-note.com",
   "issue": "notFound",
   "scope": "allKnownPages",
-  "runId": "2026-08-22T07-46-59Z",
-  "collectedAt": "2026-08-22T07:46:59.533Z",
-  "uiTotal": 297,
-  "exportedRows": 297,
+  "runId": "2026-09-24T20-20-02Z",
+  "collectedAt": "2026-09-24T20:20:02.173Z",
+  "uiTotal": 322,
+  "exportedRows": 322,
   "truncated": false,
   "rejectCount": 0,
   "rejects": [],
   "previous": {
-    "runId": "2026-07-30T05-51-00Z",
-    "collectedAt": "2026-07-30T05:51:00.731Z",
+    "runId": "2026-08-22T07-46-59Z",
+    "collectedAt": "2026-08-22T07:46:59.533Z",
     "exportedRows": 297
   },
   "delta": {
-    "added": 5,
-    "removed": 5
+    "added": 25,
+    "removed": 0
   },
   "rows": [
+    {
+      "url": "https://doboku-note.com/standards/guides/hyogo-port-materials",
+      "comparisonKey": "/standards/guides/hyogo-port-materials",
+      "lastCrawled": "2026-09-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/reference-materials-hyogo-port-materials",
+      "comparisonKey": "/docs/reference-materials-hyogo-port-materials",
+      "lastCrawled": "2026-09-22"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-1/secondary/concrete-basics-6",
+      "comparisonKey": "/exam/civil-construction-1/secondary/concrete-basics-6",
+      "lastCrawled": "2026-09-21"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-1/guide/strategy-9",
+      "comparisonKey": "/exam/civil-construction-1/guide/strategy-9",
+      "lastCrawled": "2026-09-21"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-1/secondary/concrete-past-problems-6",
+      "comparisonKey": "/exam/civil-construction-1/secondary/concrete-past-problems-6",
+      "lastCrawled": "2026-09-21"
+    },
+    {
+      "url": "https://doboku-note.com/standards/guides/river-abandonment",
+      "comparisonKey": "/standards/guides/river-abandonment",
+      "lastCrawled": "2026-09-21"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-1/secondary/concrete-past-problems-4",
+      "comparisonKey": "/exam/civil-construction-1/secondary/concrete-past-problems-4",
+      "lastCrawled": "2026-09-21"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-1/secondary/construction-plan-basics-6",
+      "comparisonKey": "/exam/civil-construction-1/secondary/construction-plan-basics-6",
+      "lastCrawled": "2026-09-21"
+    },
+    {
+      "url": "https://doboku-note.com/docs/civil-construction-1-guide-resume-9",
+      "comparisonKey": "/docs/civil-construction-1-guide-resume-9",
+      "lastCrawled": "2026-09-17"
+    },
+    {
+      "url": "https://doboku-note.com/docs/civil-construction-1-guide-strategy-5",
+      "comparisonKey": "/docs/civil-construction-1-guide-strategy-5",
+      "lastCrawled": "2026-09-17"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-1/secondary/construction-plan-past-problems-4",
+      "comparisonKey": "/exam/civil-construction-1/secondary/construction-plan-past-problems-4",
+      "lastCrawled": "2026-09-15"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-1/guide/strategy-8",
+      "comparisonKey": "/exam/civil-construction-1/guide/strategy-8",
+      "lastCrawled": "2026-09-15"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-1/secondary/quality-management-past-problems-5",
+      "comparisonKey": "/exam/civil-construction-1/secondary/quality-management-past-problems-5",
+      "lastCrawled": "2026-09-15"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-1/secondary/earthwork-basics-7",
+      "comparisonKey": "/exam/civil-construction-1/secondary/earthwork-basics-7",
+      "lastCrawled": "2026-09-14"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-1/secondary/concrete-basics-7",
+      "comparisonKey": "/exam/civil-construction-1/secondary/concrete-basics-7",
+      "lastCrawled": "2026-09-14"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-1/secondary/experience-writing-guide-8",
+      "comparisonKey": "/exam/civil-construction-1/secondary/experience-writing-guide-8",
+      "lastCrawled": "2026-09-12"
+    },
+    {
+      "url": "https://doboku-note.com/docs/civil-construction-1-guide-four-management-6",
+      "comparisonKey": "/docs/civil-construction-1-guide-four-management-6",
+      "lastCrawled": "2026-09-12"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-1/guide/four-management-10",
+      "comparisonKey": "/exam/civil-construction-1/guide/four-management-10",
+      "lastCrawled": "2026-09-12"
+    },
+    {
+      "url": "https://doboku-note.com/docs/civil-construction-1-secondary-concrete-basics-7",
+      "comparisonKey": "/docs/civil-construction-1-secondary-concrete-basics-7",
+      "lastCrawled": "2026-09-07"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-1/secondary/quality-management-basics-5",
+      "comparisonKey": "/exam/civil-construction-1/secondary/quality-management-basics-5",
+      "lastCrawled": "2026-09-05"
+    },
+    {
+      "url": "https://doboku-note.com/docs/civil-construction-1-secondary-earthwork-basics-8",
+      "comparisonKey": "/docs/civil-construction-1-secondary-earthwork-basics-8",
+      "lastCrawled": "2026-08-31"
+    },
+    {
+      "url": "https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-examples-4",
+      "comparisonKey": "/docs/civil-construction-1-secondary-experience-writing-examples-4",
+      "lastCrawled": "2026-08-31"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-1/secondary/earthwork-basics-8",
+      "comparisonKey": "/exam/civil-construction-1/secondary/earthwork-basics-8",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://doboku-note.com/exam/civil-construction-1/secondary/experience-writing-examples-4",
+      "comparisonKey": "/exam/civil-construction-1/secondary/experience-writing-examples-4",
+      "lastCrawled": "2026-08-30"
+    },
+    {
+      "url": "https://storage.doboku-note.com/posts/",
+      "comparisonKey": "/posts/",
+      "lastCrawled": "2026-08-23"
+    },
     {
       "url": "https://doboku-note.com/docs/civil-construction-1-guide-four-management-5",
       "comparisonKey": "/docs/civil-construction-1-guide-four-management-5",

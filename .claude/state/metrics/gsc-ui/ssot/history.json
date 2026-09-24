@@ -249,6 +249,80 @@
           "removed": 0
         }
       ]
+    },
+    {
+      "runId": "2026-09-24T20-20-02Z",
+      "collectedAt": "2026-09-24T20:20:02.173Z",
+      "property": "sc-domain:doboku-note.com",
+      "status": "ok",
+      "complete": true,
+      "manifestUnits": 16,
+      "downloadedUnits": 10,
+      "normalizedUnits": 10,
+      "skippedUnits": 0,
+      "totalRows": 2582,
+      "units": [
+        {
+          "unit": "crawledNotIndexed--allKnownPages",
+          "rows": 388,
+          "added": 93,
+          "removed": 58
+        },
+        {
+          "unit": "redirect--allKnownPages",
+          "rows": 1000,
+          "added": 383,
+          "removed": 240
+        },
+        {
+          "unit": "notFound--allKnownPages",
+          "rows": 322,
+          "added": 25,
+          "removed": 0
+        },
+        {
+          "unit": "alternateCanonical--allKnownPages",
+          "rows": 172,
+          "added": 28,
+          "removed": 16
+        },
+        {
+          "unit": "forbidden--allKnownPages",
+          "rows": 5,
+          "added": 0,
+          "removed": 0
+        },
+        {
+          "unit": "discoveredNotIndexed--allKnownPages",
+          "rows": 281,
+          "added": 281,
+          "removed": 3
+        },
+        {
+          "unit": "noindex--allKnownPages",
+          "rows": 112,
+          "added": 110,
+          "removed": 0
+        },
+        {
+          "unit": "crawledNotIndexed--allSubmittedPages",
+          "rows": 21,
+          "added": 20,
+          "removed": 301
+        },
+        {
+          "unit": "alternateCanonical--allSubmittedPages",
+          "rows": 0,
+          "added": 0,
+          "removed": 0
+        },
+        {
+          "unit": "discoveredNotIndexed--allSubmittedPages",
+          "rows": 281,
+          "added": 281,
+          "removed": 3
+        }
+      ]
     }
   ]
 }
