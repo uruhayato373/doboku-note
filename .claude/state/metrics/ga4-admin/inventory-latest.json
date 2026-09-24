@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "runId": "2026-09-24T21-12-29Z",
-  "collectedAt": "2026-09-24T21:12:29.302Z",
+  "runId": "2026-09-24T21-14-45Z",
+  "collectedAt": "2026-09-24T21:14:45.373Z",
   "propertyId": "419382901",
   "mode": "api-check",
   "source": "admin-api",
@@ -54,18 +54,37 @@
         "eventName": "note_cta_click",
         "countingMethod": "ONCE_PER_EVENT",
         "createTime": "2026-07-03T03:55:04.764248Z"
+      },
+      {
+        "eventName": "brain_cta_click",
+        "countingMethod": "ONCE_PER_EVENT",
+        "createTime": "2026-09-24T21:14:36.172614Z"
+      },
+      {
+        "eventName": "standards_data_download",
+        "countingMethod": "ONCE_PER_EVENT",
+        "createTime": "2026-09-24T21:14:40.783152Z"
+      },
+      {
+        "eventName": "quiz_complete",
+        "countingMethod": "ONCE_PER_EVENT",
+        "createTime": "2026-09-24T21:14:38.713304Z"
+      },
+      {
+        "eventName": "coconala_cta_click",
+        "countingMethod": "ONCE_PER_EVENT",
+        "createTime": "2026-09-24T21:14:34.036529Z"
       }
     ],
     "present": [
       "note_cta_click",
-      "affiliate_cta_click"
-    ],
-    "missing": [
+      "affiliate_cta_click",
       "coconala_cta_click",
       "brain_cta_click",
       "quiz_complete",
       "standards_data_download"
     ],
+    "missing": [],
     "created": [],
     "createFailures": []
   },
