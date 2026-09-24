@@ -26,7 +26,7 @@
 
 **起点**: 2026-09-24 に出すと決めた（¥12,000・週1名・納期7日。決定ログは `ココナラ展開キット.md` §2）。同日朝の出品は、新規出品の日次上限（前日に4件以上を新規出品）で内容入力ページへ進めず止まった。カタログは `status:'draft'`・`serviceUrl:''` のまま、本文・商品画像（Drive vault 登録済み）はそろっている。
 
-**やること**: 9/25 0:05 以降に1回だけ `DOBOKU_PW_MIN_FREE_MB=1200 node scripts/coconala-publish.mjs --service coconala-tensaku-4theme --image thumb-tensaku-4theme.png --commit` を実行する（空きメモリが 2GB 未満のときだけ環境変数を付ける）。Mac のセッションが `.tmp/run-coconala.sh` で 0:05 に自動実行する予定なので、**9/25 朝にカタログが `draft` のままなら（Mac が寝ていた・セッションが終わっていた）手で1回流す**。二重出品は listed なら冪等に止まる。成功するとカタログへ `listed`・URL・出品日が書き戻る。止まったら再試行を重ねず翌日に回す。
+**やること**: 2026-09-25 0:05 と 1:29 に再実行して 2 回とも `ABORT: 内容入力ページに遷移していない`。1 回目は種別ラジオが未選択（スクリプトの不具合・PR #627 で修正）、2 回目は種別を選んでボタンが有効（`checked:true・disabled:false`）になったのに、押すとエラー表示なしで `/services/add` の初期状態へ戻った。9/23 に 4 件出品した直後から同じ症状なので、新規出品数か下書き数に**ココナラ側の上限**がある可能性が高い（未確認）。**ユーザーがブラウザで `/services/add` から手動で 1 件進めてみて、表示される文言（上限・審査・本人確認など）を確かめる**。原因がわかったら `DOBOKU_PW_MIN_FREE_MB=1200 node scripts/coconala-publish.mjs --service coconala-tensaku-4theme --image thumb-tensaku-4theme.png --commit` を 1 回。止まったら再試行を重ねない。
 
 **完了条件**: `npm run check-coconala-live` で listed 全件が一致し、書き戻したカタログを develop へ入れる。2級二次（10/25）の前に出品できなければ、来季へ回すかを決め直す。
 
@@ -58,43 +58,17 @@
 
 **完了条件**: ポリシーへの追記と、10月キャンペーンの該当投稿が `check-x-campaign-plan` を通る。
 
-### [DN-0283] サイトのココナラ出品リンクを A8 の商品リンクに切り替える（会員登録 ¥100・PR 表記つき）
-タグ: [収益化] [種類:改善] [検証:check-affiliate-mats] [起票:2026-09-24]
-
-**起点**: 2026-09-24 のユーザー決定で、ちゃんさとと同じくココナラ登録のアフィリエイトを始める（「アフィリは転職一本」の例外。自社出品への送客なので note とカニバらない）。同日に実装を始めたが、Claude Code の自動モードの安全判定（traffic redirection）で止まった。**ユーザーが許可してから実装する**。
-
-**A8 実機で確認した事実（2026-09-24）**:
-
-- 提携済みプログラム `s00000012624009`（株式会社ココナラ・「発注者 募集」）。成果は「ココナラを初めて使う人の会員登録 ¥100」。購入 ¥2,500 は Web・デザイン・動画・IT などのカテゴリだけで、当サイトの出品（学習指導・資格）の購入は対象外。特典を付けた誘導は否認条件。再訪問期間90日。
-- 掲載サイトは `doboku-note`（`websiteId=002`）を選ぶ（既定は stats47）。商品リンク作成で「カテゴリ・出品者プロフィール・サービスページ」を飛び先にできる。
-- 生成結果は全サービスで同じ形: `https://px.a8.net/svt/ejp?a8mat=4B3RUY+AINQAI+2PEO+1NIX2A&a8ejpredirect=<サービスURLを encodeURIComponent>`、計測ピクセル `https://www15.a8.net/0.gif?a8mat=4B3RUY+AINQAI+2PEO+1NIX2A`（listed 20件で照合済み）。A8 は生成リンクの改変を禁じている。
-- テキスト素材「無料登録はこちら」は `4B3RUY+AINQAI+2PEO+1HMAQQ`（YouTube 等で単独リンクにする場合）。
-
-**やること**: (1) `src/config/affiliate-creatives.ts` に mat・ピクセル・`coconalaAffiliateHref(serviceUrl)` を置く。(2) `src/lib/offsite-cta.ts` と `src/components/ui/OffsiteCta/OffsiteCta.tsx`、`src/app/links/page.tsx` のココナラ導線をこの href に替え、`AffiliatePrBadge`・`AFFILIATE_LINK_REL`・1ページ1ピクセル（`TrackingPixel`）を付ける（OffsiteCta の「アフィリではないので PR 表記不要」のコメントも直す）。(3) `src/config/affiliate-mats.json` に mat を登録。(4) A8 の実出力と照合するテストを足す。(5) `affiliate-operations.md` §1 に例外を書く。
-
-**完了条件**: `check-affiliate-mats`・型検査・テストが通り、build 後の経験記述ページで PR 表記と A8 の href を確認できる。
 
 
-### [DN-0275] 太字記号・画像重複の原稿修正 86 本を note へ再公開する（建設部門 PDF 付き 47 本を含む）
-タグ: [収益化] [種類:改善] [起票:2026-09-23] [期日:2026-10-05]
 
-**起点**: 2026-09-23 に、太字が記号のまま出る 149 か所（63 本）と同じ画像の重複（26 本）を原稿側で直した（develop `ba31a4f64`）。ライブに反映されるのは再公開してから。`check-note-republish` の要再公開のうち 86 本がこの修正によるもので、内訳は建設部門 47（全部 PDF 付き）・1級2級土木 24（メンバーシップ限定 6 を含む）・総監 12・コンクリート主任技士 2・共通 1。DN-0274（総監 模範論文マガジン 40 本）と DN-0271（序章）は別カード。
-
-**やること**: 手順は DN-0274 と同じ（PDF は `drive-vault-sync --pull` で取り込み、`note-update-body --list <15本> --reattach-pdf --commit` を 1 つずつ。日次のアップロード上限と 3 本連続失敗で止め、CDN 待ちの中断は単発で `--force-retry`）。PDF 無しは `--reattach-pdf` 不要で、1 日の上限を使わない。加えて:
-1. PR #588 のマージ後に流す。無料設定のままメンバーシップ特典マガジンに入っている記事は、`--trial-line-bottom`（ほぼ全文を誰でも読める）か `--keep-member-lock`（全文ロックを保つ）を付けないと中断するようになる。
-2. 無料設定のまま会員限定の記事で残っているもの: 2級の想定工事索引、合格ラボ「はじめに」、RCCM 問題III 序章、1級・2級の**まるごとパック入口 LP**。2026-09-24 にユーザーが 1級の想定工事索引とコンクリートの入口 LP を「開く」と判断し、`--trial-line-bottom` で公開した（未ログインで 3,421 字・2,514 字）。同じ種類の 2級索引と 1級・2級入口 LP も `--trial-line-bottom` が既定。合格ラボ「はじめに」と RCCM 序章は会員向けの導入なので、開けるかをユーザーに確認してからフラグを決める。
-3. `notePricing: membership` の 6 本（予想問題マガジン・学科記述予想）は従来どおりラインなしで全文ロックを保つ（フラグ不要）。
-
-**完了条件**: `node scripts/check-note-republish.mjs --json` の `driftFiles` に `ba31a4f64` で変えた 86 本が無い。週次の `check-note-live-headings` で太字記号が 0。
-
-### [DN-0277] note 本文のバッククォート（`〇〇` など）が記号のまま表示される 256 本を直して再公開する
+### [DN-0277] 本文のバッククォートを【〇〇】へ直した note 257 本を再公開する
 タグ: [収益化] [種類:不具合] [起票:2026-09-23]
 
 **起点**: 2026-09-23、note 公開ページの目視確認用スクリーンショット（PR #591）の最初の 1 組で、有料記事の本文に「施工量：押え盛土\`〇〇\`m³」とバッククォートがそのまま出ているのを見つけた。原稿の「自分の数値に置き換える箇所」の目印 `〇〇` を、note はコード表記として描画せず記号のまま出す。公開 API で見える範囲だけで**公開 906 本中 248 本**が該当し、原稿では **256 本・約 3,300 行**（`〇〇` 4,762・`〇` 1,682・`〇〇〇` 334 ほか、`L`・`18` など数値も少数）。有料部分は未ログインで見えないので、読者が買った後に見る本文にも多く出ていると考えられる。
 
-**やること**: (1) 原稿のバッククォートを外す（`` `〇〇` `` → 〇〇）。目印として強調が要るなら【〇〇】などに置き換える方針を先に決める（全置換なので書き方をそろえる）。書き込みは `writeMdxFile`、改行コードは元のまま。(2) 再発防止として note-lint に「note 記事でバッククォートを使わない」規則を足し、全件検査も CI ゲートにする（(1) の後でないと既存記事で赤になる）。(3) 256 本を再公開する。PDF 付きが多く日次のアップロード上限（90 件）に当たるので、DN-0274・DN-0275 と同じ手順で数日に分ける。DN-0275（太字記号・画像重複 86 本）と対象が重なる記事は一緒に流す。
+**やること**: 原稿は 2026-09-24 に 257 本・7,067 か所を【〇〇】へ置換済み（70820c21f・ユーザー判断で目印は【〇〇】）、再発防止は note-lint 規則 11 と `check-note-inline-code`（CI ゲート・PR #615）で済み。残りは**再公開**だけ。対象は `node scripts/note-republish-plan.mjs` の要再公開（置換した 257 本のうち 9/25 未明の DN-0300 の流しで反映しなかったもの）。PDF 付きが多く日次のアップロード上限（90 件）に当たるので、DN-0274 と同じ手順（`drive-vault-sync --pull` → 15 本ずつ `note-update-body --list <list> --reattach-pdf --commit`・CDN 待ちの中断は単発 `--force-retry`）で数日に分ける。会員特典マガジンの無料記事は `--trial-line-bottom`、`notePricing: membership` はフラグ不要。
 
-**完了条件**: ``git grep -cE '`[^`]+`' -- 'content/note/**/article*.md'`` が 0 件、note-lint の新規則が CI で緑、`node scripts/check-note-republish.mjs --json` の要再公開に対象の記事が無い。
+**完了条件**: `node scripts/check-note-republish.mjs --json` の要再公開に置換した記事が無く、`npm run check-note-inline-code` が緑。
 
 ### [DN-0270] ココナラの出品画像を、一覧で読める型へ作り直す（人が見るサービスにキャラクター・画像に価格を入れない）
 タグ: [収益化] [種類:制作] [起票:2026-09-23] [期日:2026-10-20]
@@ -110,7 +84,7 @@
 
 **起点**: 2026-09-23 に出品文・サムネ・納品PDF（K1 5冊・K2 3冊、Drive vault 保管済み）を用意したが、同日5件目以降の新規出品が「内容の入力に進む」の後で止まり、draft のまま残った（原因未確認・coconala-operations.md §8 の注記）。本試験は 2026-11-29。主任技士の受験者が小論文と択一を直前に固める教材で、HARMはA。需要の証拠は無い試験出品で、継続判断は DN-0265。
 
-**やること**: 9/24 は日次上限（9/23 に4件以上出品）で出品不可。9/25 は DN-0282 の後に `DOBOKU_PW_MIN_FREE_MB=1200 node scripts/coconala-publish.mjs --service coconala-cce-essay-pdf --image thumb-cce-essay-pdf.png --commit`（Mac セッションの `.tmp/run-coconala.sh` が DN-0282 成功時だけ 3 分後に続けて流す。朝にカタログが `draft` のままなら手で1回）。9/26 以降に `coconala-cce-takuitsu-pdf`（`thumb-cce-takuitsu-pdf.png`）を同様に出品する。止まったら再試行を重ねず翌日に回す。カタログへの書き戻し（listed・serviceUrl・listedAt）を commit する。
+**やること**: DN-0282 と同じ原因で新規出品が止まっている（9/25 未明・種別ラジオの不具合は #627 で修正済み、その先で `/services/add` に戻される）。DN-0282 の原因が分かって出品できたら、同じ日に `DOBOKU_PW_MIN_FREE_MB=1200 node scripts/coconala-publish.mjs --service coconala-cce-essay-pdf --image thumb-cce-essay-pdf.png --commit`、翌日以降に `coconala-cce-takuitsu-pdf`（`thumb-cce-takuitsu-pdf.png`）。止まったら再試行を重ねず翌日に回す。カタログへの書き戻し（listed・serviceUrl・listedAt）を commit する。
 
 **完了条件**: 2件の公開ページがログアウト状態で HTTP 200、価格がカタログ（¥3,000・¥3,500）と一致し、`npm run check-coconala-wiring` が通る。
 
@@ -140,26 +114,14 @@
 
 **起点**: 登録リクエストと理由別 UI CSV は API が無く、ログインしたブラウザが要る。GitHub hosted runner は Google がセッションを Mac 側まで失効させ（2026-09-21 実測）、self-hosted runner はこのリポジトリが公開のため fork の PR に Mac 上でコードを実行されうる。そこで Mac の launchd `gsc-local`（毎日 10:30・寝ていた日は起床時）で回し、API で済む sitemap の送信と読み込み状況は `fetch-metrics.yml` が取る形にした（ユーザー判断・2026-09-24）。
 
-**やること**:
-1. Mac で `git pull origin develop`
-2. Mac: 未ログインなら `npm run google-console:login` → `npm run gsc-local:install` → `npm run gsc-local:install -- --run-now`。`~/Library/Logs/doboku-note/gsc-local.log` で受理件数と develop への push を確かめる（Chrome が数分開く）
+**やること**: launchd は 2026-09-24 に登録済み（`~/Library/LaunchAgents/com.doboku-note.gsc-local.plist`）。8GB Mac でメモリガードに止まる件は PR #614 で `DOBOKU_PW_MIN_FREE_MB=1200` にした。残りは Google へのログインだけ（run-now は `status=not-signed-in` で停止）。
+1. **ユーザーが** `npm run google-console:login` でログインする（パスワード入力は人の作業）
+2. `npm run gsc-local:install -- --run-now` を 1 回流し、`~/Library/Logs/doboku-note/gsc-local.log` で受理件数と develop への push を確かめる（Chrome が数分開く）
 3. 金曜の fetch-metrics と月曜の weekly-review-guard の job summary で `check-gsc-sitemaps`・`check-gsc-indexing-due`・`check-gsc-ui-due` が OK か見る。registry の google は `enabled:false` のまま
 
 **完了条件**: launchd の実行が受理を `gsc-indexing/history.json` に記録して develop へ push し、`npm run check-gsc-indexing-due` と `npm run check-gsc-sitemaps` がともに OK。
 
 
-### [DN-0300] note の要再公開の残り 101 本（PDF 付き 89 本・会員限定 6 本ほか）を反映する
-タグ: [SNS・マーケ] [種類:改善] [起票:2026-09-24]
-
-**起点**: 要再公開 128 本のうち DN-0299 の 27 本を除いた残り。内訳は PDF 付き 89 本（本文が PDF 配布に触れる画像付き 2 本を含む。うち 40 本は総監模範論文で、記録時の版が 8/22 の履歴切り詰めより前にあり live の状態が分からない）、会員限定 6 本、noteId の無い 5 本（総監テキスト精読ガイド 5管理）、中断記録のある 1 本（総監 設問3 序章）。多くは DN-0299 と同じ 9/23 の表示崩れ修正を含み、有料記事の購入者にも崩れた表示が出ている。
-
-**やること**:
-1. PDF 付き: PDF 実体は Windows PC に 1 本分しか無いので `npm run drive-vault-sync -- --pull` で戻し、`note-update-body --list <list> --reattach-pdf --commit`。note のアップロードは 1 日 90 件まで（PDF と画像の合計）なので日を分ける。総監模範論文 40 本は `npm run check-note-attachments:live` で live の添付を確かめてから
-2. 会員限定 6 本は記事ごとに `--keep-member-lock` か `--trial-line-bottom`
-3. 中断記録の 1 本は live を確かめてから単独で `--force-retry`
-4. noteId の無い 5 本は公開済みか確かめ、noteId を frontmatter に書き戻してから対象に入れる
-
-**完了条件**: `node scripts/check-note-republish.mjs` の要再公開（判定できずを含む）が 0 本になり、PDF 付きは `npm run check-note-attachments:live` で添付が全件そろっている。
 
 ### [DN-0237] RCCM 問題I 業務経験論文テンプレ・択一論点集 50 問・ココナラ 3 出品を CBT 期間内（〜10/31）に出す
 タグ: [収益化] [種類:制作] [起票:2026-09-16] [期日:2026-10-10]
@@ -229,23 +191,7 @@
 **やること**: 残りは W11 `n64f9653dc30c`（9/28 公開）だけ。公開後に `DOBOKU_PW_MIN_FREE_MB=1200 node scripts/note-magazine-add-articles.mjs --target mbe07bd5cecda --notes n64f9653dc30c --commit`（W8〜W10 は収録済み・現収録 10 件）。学科09/10・添削01 は単独記事なので収録不要。
 
 **完了条件**: 特典マガジンの収録が 10→11 件（API 実体確認）・`npm run check-membership-drip` 緑。
-### [DN-0235] develop への push で赤くなる CI（quality audit + build）に読み手を付ける
-タグ: [エージェント・SSOT] [種類:不具合] [起票:2026-09-14]
 
-**起点**: 2026-09-13T21:53 のマージ `0cf7faeb`（feat/claude-md-slim → develop）で CLAUDE.md が 147 行から 323 行へ戻り、`check-claude-md-size`（quality-audit `ci:true`）が develop の push ごとに落ちている。09-14 までに **6 run 連続で failure** だが、develop 直 push は PR の赤と違って誰の画面にも出ないため、1 日以上誰も気づかなかった（CLAUDE.md §9「赤いのに誰も見ていない検査は無いのと同じ」）。
-
-**やること**: develop の直近 `Pre-merge check` の conclusion を機械で surface する。候補は (a) SessionStart の `scripts/check-git-sync.mjs` に `gh run list --branch develop --limit 1` の failure を 1 行足す（`gh` が使える端末のみ・プロキシで取れないときは「未取得」と出す）、(b) `/weekly-review` の automation-failure 節に develop の失敗 run を列挙する。少なくとも (a) を入れ、`gh` 不可のときに緑と混同しない出力にする。
-
-**完了条件**: develop の最新 run が failure のとき、次のセッション開始時に赤い 1 行が出ること。CLAUDE.md の復元そのものは別作業（設定一本化の PR）で行う。
-
-### [DN-0226] knip ratchet の赤（Unlisted binaries `ps` / `powershell.exe`）を解消し baseline を締め直す
-タグ: [エージェント・SSOT] [種類:不具合] [Codex候補] [検証:check-knip-ratchet] [起票:2026-09-14]
-
-2026-09-13 の返済・締め直し（DN-0205 #6）の直後に、`scripts/lib/local-resources.mjs` が呼ぶ `ps` と `powershell.exe` が Unlisted binaries 0 → 2 として赤になった（`npx knip --include binaries` で実測）。システムバイナリなので 09-13 と同じく `knip.json` の `ignoreBinaries` へ入れる。併せて knip の Configuration hints（`hast-util-sanitize` を ignoreDependencies から、`du` を ignoreBinaries から外せる）も処理する。返済分（Unlisted dependencies 13→9・Unused dependencies 2→1）は `--update-baseline` で締め直す。
-
-DN-0205（09-13 に完了・削除済み）は codex branch のマージ e019b1b1 で台帳に復活していたため、本カード起票時に再削除した。完了→削除の後は develop 先端から branch を切る（マージで戻る）。
-
-**完了条件**: `npm run check-knip-ratchet` が緑（増加 0）で、baseline が実測と一致していること。
 
 ### [DN-0224] 教材の原典待ち17論点を復旧し記事・図解・SNSとの対応を再照合する
 タグ: [コンテンツ品質] [種類:改善] [起票:2026-09-14] [検証:check-content-expansion]
@@ -414,14 +360,14 @@ CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認し
 
 **完了条件**: build 後の該当ページの HTML に `data-cta="coconala"` のカードがある（curl で確認）。GA4 の取得でイベント件数が出て、0件と未取得を区別して表示できる。
 
-### [DN-0256] V5 カバー未反映の保留 12 記事を公開後に差し替える（予約 7・下書き 3・noteId 無し 2）
+### [DN-0256] V5 カバー未反映の保留記事（W9・W10・学科10 以外の 9 本）を公開後に差し替える
 タグ: [コンテンツ品質] [種類:定期] [起票:2026-09-19] [期日:2026-10-05]
 
 **起点**: V5 カバー全量差し替え（記録 `.claude/state/note/cover-rollout/2026-09-17.json`・09-19 完走）は公開済み 856/858 に反映したが、計画時に予約公開中・下書き・noteId 無しだった 12 本（`live.articles.held`）は対象外のまま。予約分（会員 W8〜W11・学科10・添削01 等）は予約時の旧デザインのカバーで go-live する（W8 は 09-19 に公開済み）。マガジン側の保留 2（`civil-1-anki` / `civil-2-anki` の `_cover.png`）は単発記事の名残で対象外。
 
-**やること**: 各記事の公開後に `DOBOKU_PW_MIN_FREE_MB=1024 node scripts/note-update-cover.mjs --article <path> --commit`（8GB Mac は環境変数必須・ログイン済みプロファイル）。まとめて回すなら `npm run note-cover-rollout -- plan` → `run` で held が解消した分だけ拾える。マガジン内 ¥100 記事は「更新する」未検出で CLI は fail になるが editor がカバーを先に live へ書くため API で eyecatch 変化を確認すれば完了扱い（09-19 実測 2 本）。
+**やること**: 会員 W9・W10・学科10 は 2026-09-25 に V5 へ差し替え済み（ライブの eyecatch をキャラクター入り V5 で目視確認）。残りの held（W8・W11・添削01・下書き 3・noteId 無し 2 など）は各記事の公開後に、`node scripts/generate-note-covers.mjs <dir名>` で V5 の `img/cover.png` を作ってから `DOBOKU_PW_MIN_FREE_MB=1024 node scripts/note-update-cover.mjs --article <path> --commit`（8GB Mac は環境変数必須・ログイン済みプロファイル）。記事フォルダの `img/cover.png` は旧デザインのまま残っていることがあるので、生成し直さずに差し替えると旧カバーを貼り直すだけになる。`npm run note-cover-rollout -- plan` は作業場 `.tmp/note-cover-rollout/generated/manifest.json` が無いと動かない（9/24 に ENOENT）。マガジン内 ¥100 記事は「更新する」未検出で CLI は fail になるが editor がカバーを先に live へ書くため API で eyecatch 変化を確認すれば完了扱い（09-19 実測 2 本）。
 
-**完了条件**: 12 本の live eyecatch が V5（`generated/manifest.json` の hash）と一致し、記録 JSON の held が 0。
+**完了条件**: 保留していた 12 本すべての live eyecatch が V5 になり、記録 JSON の held が 0。
 
 ### [DN-0251] dark モードの色コントラスト不足 29 箇所を直し、a11y ベースラインをゼロへ締める
 タグ: [コンテンツ品質] [種類:不具合] [検証:test:e2e:a11y] [起票:2026-09-17]
@@ -466,14 +412,6 @@ CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認し
 
 **完了条件**: PR で lhci が走り、a11y/SEO/BP のしきい値割れが赤になる。performance は warn のみで、揺れによる赤が 2 週間で 0。
 
-### [DN-0241] JSON-LD の @type 別必須プロパティを check-seo-build で検証する
-タグ: [インフラ・計測] [種類:改善] [検証:check-seo-build] [起票:2026-09-17]
-
-**起点**: check-seo-build は JSON-LD の parse エラーは見るが、`FAQPage` / `Article` / `BreadcrumbList` / `HowTo` の必須キー欠落（リッチリザルト落ち）は見ていない。
-
-**やること**: `scripts/check-seo-build.mjs` に `@type` → 必須キー表（Article: headline/datePublished/author、FAQPage: mainEntity[].name/acceptedAnswer.text、BreadcrumbList: itemListElement[].position/name/item 等）を足し、欠落を error、推奨キー欠落を warn にする。表は Google の構造化データ ガイドの必須欄を根拠にコメントで URL を残す。
-
-**完了条件**: `npm run check-seo-build:ci` が必須キー欠落を 1 件も残さず緑。意図的に headline を消したフィクスチャで赤になる回帰テスト付き。
 
 
 ### [DN-0231] Mac のGit保守を導入し、次回clone時にpartial cloneを使う（履歴は書き換えない）
@@ -514,22 +452,7 @@ Mac で行う（各 1 回・順に）: (1) `git pull` で Windows 対応・設�
 
 **完了条件**: 週次レビューが機械出力から field 件数を転記でき、field 無し期間の判定規則が psi-config と measurement-incidents.md で一致していること。
 
-### [DN-0230] 週次レビューの申し送りが台帳へ届かない構造を塞ぐ（振り分けの必須化＋削除時の抽出ゲート）
-タグ: [エージェント・SSOT] [種類:改善] [Codex候補] [起票:2026-09-14]
 
-`/weekly-review` の出口は `docs/reviews/weekly/*-review.md` の「来週への申し送り」と `/weekly-plan` の Must/Should/Could までで、`.claude/todo/weekly.md` を書く `/plan-weekly` はそれを読まない。旧レビューの削除も `check-handoff-extraction` の対象外（`docs/handoffs/` だけ）なので、前送りの漏れを機械が止めない。2026-09-14 の W37 レビューで、申し送り 5 件に台帳上の居場所が無いことを実測。
-
-1. weekly-review SKILL の Phase 4 に「申し送りの各行を backlog 起票／weekly 定常運用／既存 ID・Issue・実験への接続 のいずれかへ振り分け、振り分け先をレビューに書く」を必須化する（skills-guide の更新は doc-coupling が要求）
-2. `scripts/check-handoff-extraction.mjs` の抽出ゲートを `docs/reviews/weekly/*.md` の削除にも適用する（削除される本文の申し送り行と DN-ID が backlog か最新レビューに残っているかを検査）。回帰テストを `tests/` に置く
-
-**完了条件**: 1・2 に回帰テストがあり、旧週レビューを抽出せずに削除するコミットが pre-commit で止まること。
-
-### [DN-0225] `check-external-write-orphans` が取得失敗を数えずに「✓ 痕跡なし」を返す偽 PASS を直す
-タグ: [エージェント・SSOT] [種類:不具合] [Codex候補] [起票:2026-09-14]
-
-2026-09-14 の週次レビューで、直近 30 日の失敗 run 9 本のうち 5 本の取得が `Proxy Authentication Required` で失敗したまま「外部成功 × 記録失敗 の痕跡なし」を exit 0 で返した。取得失敗は warning に流れるだけで検査数に反映されず、社内プロキシ配下では常に部分不成立の緑になる（CLAUDE.md §9「検査ゼロを PASS と呼ばない」の型）。
-
-**完了条件**: 対象 run 数・実検査数・取得失敗数を必ず出力し、取得失敗が 1 本でもあれば「検査不成立（N/M 取得失敗）」を明示して exit 2 にする（全件失敗と 0 件対象も区別する）。取得失敗を再現する回帰テストを付ける。
 
 ### [DN-0207] 技術士一次・基礎科目の解析を途中式から学ぶ計算ガイド3本を作る
 タグ: [コンテンツ品質] [種類:制作] [Codex候補] [起票:2026-09-13]
@@ -672,9 +595,13 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 
 価格は ¥100 のまま維持する（2026-09-23 ユーザー判断）。
 
-**やること**: (1) `note-update-partial` に、指定ブロックの直前へ許可タグの HTML を差し込む操作（例: `insertBeforeBlockHtml`・`beforeNeedle` で一意に特定）を足す。(2) `check-note-boundary` に「有料境界が末尾」の表現を足す（例: `paidBoundary` の予約値）。未定義のまま原稿を有料にすると CI で落ちる。(3) 序章の原稿を `notePricing: paid`・`price: 100`・末尾境界へ直し、(1) で冒頭へ差し込む。反映後に公開 API で冒頭の追加文があり、価格が ¥100 のままであることを確かめてから再公開台帳へ記録する。同じ構成の序章（RCCM 問題III 2026 模範論文集・総監記述式 完全パックの「はじめに」など）があれば同じ扱いにそろえる。
+**2026-09-24 夜にわかったこと**（ツールは PR #613・#616・#619 で追加済み: `insertBeforeBlockHtml`・`--paid-line-bottom`）:
+- エディタには 9/23 に中断した全文更新の下書きが残っていた。「この記事でわかること」は入っていたが、有料ラインが**冒頭（その直後）にずれていた**。`--keep-boundary` で公開していたら、本文のほぼ全部が ¥100 の有料側に入るところだった。下書きの `**` の段落は直し、ラインを本文の最後へ置いた状態で下書き保存までは済んでいる（ライブは元のまま無事）。
+- ラインを本文の一番最後に置くと、note は「更新する」を押しても `draft_save` しか走らず、公開されない（エラー表示なし・2 回再現）。
 
-**完了条件**: `node scripts/check-note-republish.mjs --json` の drift に n3eb135ebdff7 が無く、ライブの価格が ¥100・本文冒頭に「この記事でわかること」がある。`check-note-boundary` が緑。
+**やること**: ラインを最後の箇条書き（「前提と注意」の 3 項目）の直前に置けば更新できるかを確かめる。そうするとその 3 項目が有料側に入り、無料で読める範囲が今より減るので、**ユーザーに可否を確認してから**流す（`publishLive` の `paidLineBottom` は今は最後のボタンを押す。置き場所を 1 つ前にする変更が要る）。公開できたら、公開 API で冒頭の追加文・価格 ¥100・`**` 無しを確かめ、`recordPublishedHash` で再公開台帳へ記録する。原稿を `notePricing: paid`・`price: 100` にそろえる改修（`check-note-boundary` に末尾境界の表現を足す）は、全文更新をこの記事に使うときまで不要。
+
+**完了条件**: `node scripts/check-note-republish.mjs --json` の drift に n3eb135ebdff7 が無く、ライブの価格が ¥100・本文冒頭に「この記事でわかること」がある。
 
 ### [DN-0272] 部分更新の `replaceTopCta`／`insertTopCta` が冒頭 CTA を見出しにし、直後の見出しをカードで割る
 タグ: [収益化] [種類:不具合] [起票:2026-09-23]
@@ -685,49 +612,9 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 
 **完了条件**: 冒頭 CTA を差し替える部分更新を 1 本で実行し、ライブ API で CTA が引用ブロック、直後の見出しが `h2` のまま、60 字超の見出しが 0 であることを確認できる。
 
-### [DN-0273] 全文更新の「CDN確定待ちタイムアウト」が、挿入した画像がエディタから消えた場合も同じ表示になる
-タグ: [収益化] [種類:改善] [起票:2026-09-23]
 
-**起点**: 2026-09-23、`note-update-body` の全文更新で 3 本（R8予想問題・一般部門との違い・総監択一式17年分分析）が確定待ちを 480〜720 秒に伸ばしても毎回「確定=2/3」「1/2」で中断した。一時的にタイムアウト時のエディタ内 `img` を出力したところ、一般部門との違いでは 3 枚挿入したはずが **エディタに 1 枚しか残っていなかった**（blob のまま待っていたのではない）。同じ記事を待ち時間を戻して再実行すると 3/3 で通った。待ち時間を伸ばしても直らない失敗を、待てば通る失敗と同じ文言で出しているため、延長を繰り返す無駄が出た。
 
-**やること**: `scripts/lib/note-images.mjs` の `settleUploads` で、タイムアウト時に「blob のまま」と「エディタに無い」を分けて数えて出力する。無い場合は待ちを伸ばす案内ではなく再実行を案内し、`insertImagesAtPlaceholders` の中断理由も分ける（`img-settle` と `img-lost`）。消える原因（前の画像が選択されたまま次のアップロードで置き換わる等）は、枚数を記録してから切り分ける。
 
-**完了条件**: 画像が消えたときの出力に「エディタに無い n 枚」が出て、中断理由が `img-settle` と区別されて `.claude/state/note-update-aborted.json` に残る。単体テストで 2 つの分類を確かめる。
-
-### [DN-0302] note のリンクカード化が、カードにならない URL 1 本で止まり、後ろの URL が全部素のリンクで公開される
-タグ: [収益化] [種類:不具合] [起票:2026-09-24] [進行中]
-
-**起点**: 2026-09-24、DN-0299 で `経験記述-AI設計-無料`（n0171b3105e2d）を全文更新したら `[4] cardify: processed=40 cards=0` になり、Brain の URL とその後ろの note 記事 URL がどちらも素のリンクのまま公開された。`scripts/lib/note-cardify.mjs` の `cardifyBareUrls` は毎回「最初の bare URL 段落」を探し直すため、埋め込みにならない URL（brain-market.com）が先頭に残り続け、同じ行を上限 40 回（各 10 秒待ち＝約 7 分）打ち直して終わる。公開直後の検査 [5e] はカードの有無を見ないので通ってしまう。
-
-**やること**: カード数が増えなかった段落に目印を付けて次の探索から外し、後ろの URL へ進むようにする。カード化できなかった URL を件数と一緒に出力し、`note-update-body` と `note-publish` の公開後検査で「URL 単独行なのにカードでない」を WARN に出す。直したら n0171b3105e2d を 1 本だけ再更新する。
-
-**完了条件**: 埋め込めない URL を先頭に置いた単体テストで、後ろの URL がカード化される。n0171b3105e2d の公開 API に note 記事 URL（n4fde0f62dc20）のカードがある。
-
-### [DN-0258] macOS ローカルで `npm test` が 2 件だけ赤になる（CI は緑）— realpath と pipe 8192 バイト
-タグ: [インフラ・計測] [種類:不具合] [検証:test] [起票:2026-09-20]
-
-**起点**: 2026-09-19 の `quality:audit --ci` ローカル全量で unit-tests が赤。`tests/prune-state-snapshots.test.mjs`「CLI: 一時 repo で --commit が計画どおり unlink し…」は子プロセスの JSON 出力が 8192 バイトで切れて parse 失敗（pipe の既定バッファ）、「defaultMemoryTarget: worktree でもメイン作業ツリーの .claude/memory を指す」は `/var/folders/...` と `/private/var/folders/...`（macOS の symlink）の比較で不一致。Linux の CI では両方通るため、ローカルの赤が「自分の変更のせいか」を毎回切り分ける手間になる。
-
-**やること**: (1) 子プロセス出力は `maxBuffer` 明示＋ファイル経由か `spawnSync` の `stdout` 全読みにする。(2) パス比較は両辺を `fs.realpathSync` してから比べる（テスト側・本体側のどちらに置くかは他テストの流儀に合わせる）。
-
-**完了条件**: macOS で `npm test` が 0 fail、CI も緑。
-
-### [DN-0259] `*-diagrams` X カード PNG（098/099・35 枚）が `.gitignore` 下で描画台帳に載らず、ローカルの `check-x-card-render` が恒常赤
-タグ: [SNS・マーケ] [種類:改善] [検証:check-x-card-render] [起票:2026-09-20]
-
-**起点**: `.gitignore:417` の `content/sns/x/draft/*-diagrams/img/tweet-*.png` で 098-cem-textbook-diagrams / 099-pe-construction-textbook-diagrams の X カード 35 枚は追跡外。`check-x-card-render`（ci:true）は台帳 `.claude/state/sns/x-card-render.json` と実 PNG を突合するので、CI（PNG 無し）は緑・ローカル（PNG あり・台帳無し）は赤になり、ローカルの `quality:audit --ci` が毎回この 35 件で落ちる（2026-09-19 実測）。`gen-x-card --all --force` で台帳へ載せると今度は CI 側が「台帳にあるのに PNG が無い」になる恐れがある。
-
-**やること**: 検査の対象を「git 追跡下の PNG」に限定する（`git rm --cached` 後の on-disk 件数と同じ「ローカルだけ緑/赤」の型・`git ls-files -z` で列挙）か、`*-diagrams` の ignore をやめて追跡するかを決めて 1 つにする。決めたら `check-x-card-render` の走査元を合わせ、ローカルと CI の結果を一致させる。
-
-**完了条件**: ローカルと CI の `check-x-card-render` が同じ結果（緑）になり、098/099 の 35 枚の扱いが台帳か ignore のどちらかに一本化されている。
-### [DN-0242] npm audit を CI の job summary に出す（CodeQL は GitHub 既定セットアップで稼働済み）
-タグ: [インフラ・計測] [種類:改善] [起票:2026-09-17]
-
-**起点**: 2026-09-17 の PR checks を見ると CodeQL（Analyze javascript-typescript / python）と Socket Security は **GitHub 側の既定セットアップで既に走っている**（リポジトリに workflow は無い）。残るのは npm 依存の既知脆弱性の棚卸しだけ。静的サイトなので価値は中程度、工数は極小。
-
-**やること**: ci.yml に `npm audit --audit-level=high` を warn（`|| true` で job summary に出し、red にはしない。ERESOLVE 環境で audit fix を自動適用しない）。CodeQL の workflow は作らない（既定セットアップと二重になる）。
-
-**完了条件**: audit の high 以上が PR の job summary に列挙される。
 
 ### [DN-0243] 年度表現の陳腐化（「2026 年度」「令和 8 年」）を年替わりで検知する
 タグ: [コンテンツ品質] [種類:改善] [検証:check-exam-calendar] [起票:2026-09-17]
@@ -749,14 +636,6 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 
 **完了条件**: `archived_sessions` が 300 MB 未満、手順が doc にあること。
 
-### [DN-0236] SessionStart の 6 スクリプトから `run()` を export し、1 プロセス内で順次実行する
-タグ: [エージェント・SSOT] [種類:改善] [Codex候補] [起票:2026-09-14]
-
-**起点**: SessionStart hook は `x-sync-status --dry` / `check-plan-staleness` / `check-backlog-health --due` / `check-git-sync` / `local-resource-audit --quick` / `check-disk-hygiene --quick` の node を 6 本同時に起動する。09-14 の設計で `scripts/session-start.mjs` が `execFileSync` で順次呼ぶ形にしたが、各 script が `main()` をモジュール内に閉じているため子プロセスは残る。
-
-**やること**: 6 本それぞれに `export async function run({ quiet })` を足し（既存の CLI 経路は維持）、`session-start.mjs` を import 呼び出しに切り替える。`check-git-sync` の `git fetch` はそのまま。
-
-**完了条件**: `node scripts/session-start.mjs` の実行中に node プロセスが 1 本、出力は現状と同じ、`node --test tests/session-start.test.mjs` 緑。
 
 ### [DN-0180] Drive共通仕様書文字起こし350本とstandards-libraryの関係を整理する
 タグ: [エージェント・SSOT] [種類:改善] [Codex候補] [起票:2026-09-06]

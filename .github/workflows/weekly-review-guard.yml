@@ -217,7 +217,7 @@ jobs:
             --body-file /tmp/report-digest-body.md
 
       # 計測→改善サイクルの反映ゲート: 最新の機会ダイジェストの表示対象が週次レビューで全件処分され、
-      # レビュー本文にダイジェストが埋め込まれ、申し送りの各行に DN/EXP/OPP の ID があるか。
+      # レビュー本文にダイジェストが埋め込まれているか（申し送りの振り分けは pre-commit の check-handoff-extraction）。
       # rc=1（未処分・未反映）は channel growth-triage、rc=2（ダイジェスト/レビューが無い・古い）は
       # growth-triage-check-invalid。赤落ちはさせず Issue を能動チャネルにする（復旧で自動クローズ）。
       - name: Report - growth triage (計測ダイジェストの全件処分)

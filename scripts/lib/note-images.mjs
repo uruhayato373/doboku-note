@@ -164,18 +164,48 @@ const SETTLE_MIN_MS = Number(process.env.NOTE_IMG_SETTLE_MIN_MS || 90_000);
 // ので、速い記事は従来どおり速い＝既定を伸ばしても高速ケースの所要時間は増えない。
 const SETTLE_PER_IMG_MS = Number(process.env.NOTE_IMG_SETTLE_PER_IMG_MS || 90_000);
 
+/**
+ * タイムアウト時の内訳を 2 種に分ける純関数（DN-0273・2026-09-24）。
+ *
+ * 「確定=1/3」の不足分には、(a) blob: プレビューのまま CDN 確定を待っている画像と、
+ * (b) そもそもエディタから消えた画像（挿入したのに img 要素が無い）が混ざっていた。
+ * (a) は待てば通るが (b) は待ちを伸ばしても直らない（2026-09-23 に 480〜720 秒へ伸ばしても
+ * 毎回中断し、タイムアウト時の img を出すと 3 枚中 1 枚しか残っていなかった。同じ記事を
+ * 待ちを戻して再実行すると 3/3 で通った）。同じ文言で出すと延長を繰り返す無駄が出るので分ける。
+ * 判定は従来の `img:not([src^="blob:"])` と同じ（src 属性の無い img は確定側に数える）。
+ * @param {Array<string|null>} srcs  エディタ内 img の src 属性（getAttribute('src')）の一覧
+ * @param {number} target  確定を待つ枚数（挿入前から有った img を含む）
+ * @returns {{settled:number, blob:number, missing:number}}
+ */
+export function classifyEditorImages(srcs, target) {
+  const blob = srcs.filter((src) => typeof src === 'string' && src.startsWith('blob:')).length;
+  return { settled: srcs.length - blob, blob, missing: Math.max(0, target - srcs.length) };
+}
+
+/**
+ * 確定待ちで止まったときの中断理由。消えた画像が 1 枚でもあれば待ちでは直らないので img-lost。
+ * @param {{missing?:number}|undefined} settle  settleUploads の戻り値（または insertImagesAtPlaceholders の r.settle）
+ */
+export function settleAbortReason(settle) {
+  return settle?.missing > 0 ? 'img-lost' : 'img-settle';
+}
+
 export async function settleUploads(page, target, timeoutMs, tag = '[img]') {
   const t0 = Date.now();
-  let confirmed = 0;
+  let c = { settled: 0, blob: 0, missing: 0 };
   while (Date.now() - t0 < timeoutMs) {
-    const c = await page.evaluate(() => document.querySelectorAll('[contenteditable=true] img:not([src^="blob:"])').length);
-    confirmed = c;
-    if (c >= target) return { ok: true, confirmed: c };
+    const srcs = await page.evaluate(() => Array.from(document.querySelectorAll('[contenteditable=true] img'), (img) => img.getAttribute('src')));
+    c = classifyEditorImages(srcs, target);
+    if (c.settled >= target) return { ok: true, confirmed: c.settled, blob: c.blob, missing: c.missing };
     await sleep(1500);
   }
-  console.log(`${tag} ⚠ CDN確定待ちタイムアウト（確定=${confirmed}/${target}・上限 ${Math.round(timeoutMs / 1000)}s）`);
-  console.log(`${tag}   待てば通る場合は NOTE_IMG_SETTLE_MIN_MS / NOTE_IMG_SETTLE_PER_IMG_MS で上限を伸ばす`);
-  return { ok: false, confirmed };
+  console.log(`${tag} ⚠ CDN確定待ちタイムアウト（確定=${c.settled}/${target}・blob のまま ${c.blob} 枚・エディタに無い ${c.missing} 枚・上限 ${Math.round(timeoutMs / 1000)}s）`);
+  if (c.missing > 0) {
+    console.log(`${tag}   エディタに無い ${c.missing} 枚（挿入した画像が消えた）。待ちを伸ばしても直らないので、同じ記事を単発で再実行する（note-update-body は --force-retry）`);
+  } else {
+    console.log(`${tag}   待てば通る場合は NOTE_IMG_SETTLE_MIN_MS / NOTE_IMG_SETTLE_PER_IMG_MS で上限を伸ばす`);
+  }
+  return { ok: false, confirmed: c.settled, blob: c.blob, missing: c.missing };
 }
 
 /** 直近挿入 figure のキャプションへ alt を best-effort 入力（失敗は無害）。 */
@@ -202,7 +232,7 @@ async function captionLast(page, alt) {
 /**
  * paste 済み本文の各トークン段落を、実画像アップロードに置き換える。
  * 逐次処理（最大 images.length 枚）。1 枚失敗しても続行し failed に記録する。
- * @returns {Promise<{inserted:number, failed:Array<{token:string,reason:string}>, leftover:string[]}>}
+ * @returns {Promise<{inserted:number, failed:Array<{token:string,reason:string}>, leftover:string[], settled:boolean, settle:{target:number, confirmed:number, blob:number, missing:number}}>}
  */
 export async function insertImagesAtPlaceholders(page, images, { tag = '[img]', captionize = true, uploadMs = 40000 } = {}) {
   let inserted = 0;
@@ -248,12 +278,14 @@ export async function insertImagesAtPlaceholders(page, images, { tag = '[img]', 
   // (f) settle: 挿入した全画像が CDN 確定（src が blob: でない）になるまで待つ。
   //     保存前に確定していないと live に載らず img 欠落になる（枚数比例の待ち・最低90s）。
   //     全確定で早期 return するため、遅い記事のみ長く待つ（速い記事のコストは不変）。
-  const settled = await settleUploads(page, startImgs + inserted, Math.max(SETTLE_MIN_MS, inserted * SETTLE_PER_IMG_MS), tag);
+  const target = startImgs + inserted;
+  const settled = await settleUploads(page, target, Math.max(SETTLE_MIN_MS, inserted * SETTLE_PER_IMG_MS), tag);
 
   const leftover = await listLeftoverTokens(page);
-  console.log(`${tag} 画像挿入: inserted=${inserted}/${images.length} failed=${failed.length} leftover=${leftover.length} 確定=${settled.confirmed}/${startImgs + inserted}`);
+  console.log(`${tag} 画像挿入: inserted=${inserted}/${images.length} failed=${failed.length} leftover=${leftover.length} 確定=${settled.confirmed}/${target}${settled.ok ? '' : ` blob=${settled.blob} 消失=${settled.missing}`}`);
   if (failed.length) console.log(`${tag} 失敗: ${failed.map((f) => f.reason).join(' / ')}`);
-  return { inserted, failed, leftover, settled: settled.ok };
+  // settled(boolean) は従来どおり。内訳は settle に足す（中断理由は settleAbortReason(r.settle)）。
+  return { inserted, failed, leftover, settled: settled.ok, settle: { target, confirmed: settled.confirmed, blob: settled.blob, missing: settled.missing } };
 }
 
 /**
@@ -296,7 +328,8 @@ export async function insertImagesAfterAnchors(page, images, { tag = '[img-only]
   const settled = await settleUploads(page, startImgs + inserted, Math.max(SETTLE_MIN_MS / 3, inserted * SETTLE_PER_IMG_MS / 2.5), tag);
   console.log(`${tag} 画像挿入(anchor): inserted=${inserted}/${images.length} failed=${failed.length} 確定=${settled.confirmed}/${startImgs + inserted}`);
   if (failed.length) console.log(`${tag} 失敗: ${failed.map((f) => f.reason).join(' / ')}`);
-  return { inserted, failed };
+  // settled を返さないと --images-only の呼び出し側（!r.settled）が常に中断していた（2026-09-24 発見）
+  return { inserted, failed, settled: settled.ok, settle: settled };
 }
 
 export { TOKEN_RE };

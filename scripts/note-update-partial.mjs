@@ -25,6 +25,7 @@ import { leanContextOptions } from './lib/playwright-launch.mjs';
  * npm run note-update-partial -- --spec .tmp/note-partial/example.json
  * npm run note-update-partial -- --spec .tmp/note-partial/example.json --commit
  * npm run note-update-partial -- --list .tmp/note-partial/specs.list.txt --commit
+ * npm run note-update-partial -- --spec <spec> --commit --paid-line-bottom   # 有料記事の境界 line を末尾の直前へ置き直して公開（末尾だけ有料の記事用）
  */
 
 const ROOT = process.cwd();
@@ -249,6 +250,11 @@ async function preflight(page, op) {
       const hasAttachment = nodes.some((element) => element.querySelector?.('a[href*="api/v2/attachments/download"]'));
       const already = fromIndex + operation.blocks === toIndex;
       return { count: already || hasAttachment ? 0 : 1, already, reason: hasAttachment ? 'attachment-in-block-group' : undefined };
+    }
+    if (operation.type === 'insertBeforeBlockHtml') {
+      const already = (ed.innerText || '').includes(operation.probe) || (ed.innerHTML || '').includes(operation.probe);
+      const blocks = [...ed.children].filter((child) => (child.innerText || '').includes(operation.beforeNeedle));
+      return { count: already ? 0 : blocks.length, already, reason: blocks.length === 1 ? undefined : `block-count:${blocks.length}` };
     }
     if (operation.type === 'insertBeforeHeadingHtml') {
       const already = (ed.innerText || '').includes(operation.probe) || (ed.innerHTML || '').includes(operation.probe);
@@ -534,6 +540,24 @@ async function applyOperation(page, op) {
       return true;
     }, op);
   }
+  if (op.type === 'insertBeforeBlockHtml') {
+    return page.evaluate((operation) => {
+      const ed = document.querySelector('[contenteditable=true]');
+      const blocks = [...ed.children].filter((child) => (child.innerText || '').includes(operation.beforeNeedle));
+      if (blocks.length !== 1) return false;
+      const template = document.createElement('template'); template.innerHTML = operation.html;
+      const allowed = new Set(['H2', 'H3', 'P', 'UL', 'OL', 'LI', 'A', 'STRONG', 'EM', 'BR', 'BLOCKQUOTE', 'HR']);
+      for (const element of template.content.querySelectorAll('*')) {
+        if (!allowed.has(element.tagName)) return false;
+        for (const attribute of [...element.attributes]) {
+          if (!(element.tagName === 'A' && ['href', 'target', 'rel'].includes(attribute.name))) return false;
+        }
+      }
+      blocks[0].insertAdjacentHTML('beforebegin', operation.html);
+      ed.dispatchEvent(new InputEvent('input', { bubbles: true, inputType: 'insertText' }));
+      return true;
+    }, op);
+  }
   if (op.type === 'insertBeforeHeadingHtml') {
     return page.evaluate((operation) => {
       const ed = document.querySelector('[contenteditable=true]');
@@ -717,6 +741,9 @@ async function verifyOperations(page, spec) {
           && (element.innerText || '').includes(op.beforeNeedle));
         if (from < 0 || to < 0 || from + op.blocks !== to) failures.push(`${index}:moveBlockGroupBefore`);
       }
+      if (op.type === 'insertBeforeBlockHtml' && !text.includes(op.probe) && !html.includes(op.probe)) {
+        failures.push(`${index}:insertBeforeBlockHtml`);
+      }
       if (op.type === 'insertBeforeHeadingHtml' && !text.includes(op.probe) && !html.includes(op.probe)) {
         failures.push(`${index}:insertBeforeHeadingHtml`);
       }
@@ -791,8 +818,11 @@ async function runSpec(page, specArg) {
   if (after.chars < Math.min(300, before.chars * 0.8)) throw new Error('本文文字数が安全閾値を下回った');
   await page.screenshot({ path: shot('edited', noteId) });
 
-  const published = await publishLive(page, noteId, article.paidBoundary || '試験問題|予想問題', article.isPaid, {
+  // --paid-line-bottom: ライブは有料（末尾だけ有料）だが原稿が無料扱いの記事を、有料として境界 line を末尾へ置いて更新する（DN-0271）
+  const PAID_LINE_BOTTOM = process.argv.includes('--paid-line-bottom');
+  const published = await publishLive(page, noteId, article.paidBoundary || '試験問題|予想問題', article.isPaid || PAID_LINE_BOTTOM, {
     keepBoundary: true,
+    paidLineBottom: PAID_LINE_BOTTOM,
     // 無料記事がメンバーシップ特典マガジンに入っていると、ラインなしの更新で全文が会員限定になる。
     // 意図して全文ロックしている記事だけ --keep-member-lock で通す（無ければ publishLive が中断する）
     membershipLock: article.notePricing === 'membership' || process.argv.includes('--keep-member-lock'),

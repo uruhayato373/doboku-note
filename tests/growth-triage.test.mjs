@@ -86,18 +86,17 @@ test('pendingItems counts only decisions made for this digest week', () => {
   assert.deepEqual(pendingItems(digest, { entries: [{ id: seo.id, week: '2026-W38' }] }).map((i) => i.id), [rev.id]);
 });
 
-import { checkTriage, handoverWithoutIds } from '../scripts/check-growth-triage.mjs';
+import { checkTriage } from '../scripts/check-growth-triage.mjs';
 
-test('check-growth-triage requires full disposition, the digest marker and IDs on every handover line', () => {
+test('check-growth-triage requires full disposition of the digest and the marker in the review', () => {
   const digest = { week: '2026-W38', generatedAt: '2026-09-25T21:10:00Z', surfaced: [seo, rev] };
   const now = Date.parse('2026-09-28T02:17:00Z');
-  const good = '# 週次レビュー\n<!-- growth-digest:2026-W38 -->\n## 来週への申し送り\n- DN-0301 サイドバー CTA\n- EXP-012 を 10/10 に計測\n## 運用ルール\n- 本文';
+  const good = '# 週次レビュー\n<!-- growth-digest:2026-W38 -->\n## 来週への申し送り\n- drift 消化 → 振り分け: 定常\n';
   const ok = checkTriage({ digest, log: { entries: [{ id: seo.id, week: '2026-W38' }, { id: rev.id, week: '2026-W38' }] }, review: good, reviewName: 'r.md', now });
   assert.deepEqual(ok.violations, []);
-  assert.equal(ok.handoverBullets, 2);
-  const bad = checkTriage({ digest, log: { entries: [{ id: seo.id, week: '2026-W38' }] }, review: '## 来週への申し送り\n- index coverage を最優先\n', reviewName: 'r.md', now });
-  assert.equal(bad.violations.length, 3);
-  assert.match(bad.violations.join('\n'), /未処分: OPP-bbbbbbbbbb[\s\S]*埋め込まれていない[\s\S]*ID が無い/);
+  assert.equal(ok.triaged, 2);
+  const bad = checkTriage({ digest, log: { entries: [{ id: seo.id, week: '2026-W38' }] }, review: '## 来週への申し送り\n- x\n', reviewName: 'r.md', now });
+  assert.equal(bad.violations.length, 2);
+  assert.match(bad.violations.join('\n'), /未処分: OPP-bbbbbbbbbb[\s\S]*埋め込まれていない/);
   assert.match(checkTriage({ digest: { ...digest, generatedAt: '2026-09-01T00:00:00Z' }, log: {}, review: '', reviewName: 'r', now }).invalid, /日前/);
-  assert.deepEqual(handoverWithoutIds('no section'), { found: false, bullets: 0, missing: [] });
 });

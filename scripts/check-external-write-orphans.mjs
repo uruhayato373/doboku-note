@@ -32,13 +32,17 @@
  *   node scripts/check-external-write-orphans.mjs --days 60
  *   node scripts/check-external-write-orphans.mjs --json
  *
- * exit: 0 健全 / 1 orphan または silent-stop あり / 2 検査不成立（gh 不通）
+ * exit（判定は judgeScan() に集約・tests/check-external-write-orphans.test.mjs が固定）:
+ *   1 orphan または silent-stop あり（取得失敗が混じっていても検出を優先して 1）
+ *   2 検査不成立 = gh 不通・run 一覧取得不能・失敗 run のログ取得が 1 本でも失敗（DN-0225:
+ *     社内プロキシ配下で 9 本中 5 本が Proxy Authentication Required のまま「✓ 痕跡なし」を返していた）
+ *   0 全対象 run のログを取得して痕跡なし／対象 0 件（異常なしではなく「未検査」と明示して 0）
  * ---------------------------------------------------------------------------
  */
 import { execFileSync } from 'node:child_process';
 import { readFileSync, existsSync, writeSync } from 'node:fs';
 import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const JSON_OUT = process.argv.includes('--json');
@@ -67,22 +71,64 @@ const JOBS = [
   },
 ];
 
+/**
+ * 検査結果から exit code と判定種別を決める純関数（DN-0225）。
+ * @param {{ targetRuns: number, scanned: number, fetchFailed: number, findings: number }} c
+ *   targetRuns = 対象（直近 N 日の失敗 run）数 / scanned = ログを取得して実検査できた数 /
+ *   fetchFailed = ログ取得に失敗した数 / findings = orphan + silent-stop の検出数
+ * @returns {{ exitCode: 0|1|2, verdict: 'findings'|'inconclusive-all'|'inconclusive-partial'|'no-targets'|'clean', message: string }}
+ */
+export function judgeScan({ targetRuns, scanned, fetchFailed, findings }) {
+  const counts = `対象 run ${targetRuns} 本 / 実検査 ${scanned} 本 / 取得失敗 ${fetchFailed} 本`;
+  if (findings > 0) {
+    const partial = fetchFailed > 0 ? `（ただし ${fetchFailed}/${targetRuns} 本は取得失敗で未検査）` : '';
+    return { exitCode: 1, verdict: 'findings', message: `✗ 検出 ${findings} 件${partial}（${counts}）` };
+  }
+  if (fetchFailed > 0) {
+    const all = fetchFailed >= targetRuns;
+    return {
+      exitCode: 2,
+      verdict: all ? 'inconclusive-all' : 'inconclusive-partial',
+      message:
+        `✗ 検査不成立（${fetchFailed}/${targetRuns} 取得失敗${all ? '＝全件' : ''}）: ` +
+        `未検査の run に痕跡が無いとは言えない（${counts}）`,
+    };
+  }
+  if (targetRuns === 0) {
+    return {
+      exitCode: 0,
+      verdict: 'no-targets',
+      message: `対象 0 件（異常なしではなく未検査＝直近の失敗 run が無い）（${counts}）`,
+    };
+  }
+  return { exitCode: 0, verdict: 'clean', message: `✓ 外部成功 × 記録失敗 の痕跡なし（${counts}）` };
+}
+
+/** gh を呼ぶ。失敗（非 0 終了・起動不能）は ok:false と理由 1 行で返す（stdout の断片を成功扱いしない） */
 const gh = (args) => {
   try {
-    return execFileSync('gh', args, { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
+    const out = execFileSync('gh', args, {
+      encoding: 'utf8',
+      maxBuffer: 64 * 1024 * 1024,
+      stdio: ['ignore', 'pipe', 'pipe'],
+    });
+    return { ok: true, out };
   } catch (e) {
-    return e.stdout ?? null;
+    const lines = String(e.stderr || e.message || '').trim().split('\n').filter(Boolean);
+    return { ok: false, out: null, reason: lines.pop() ?? 'unknown' };
   }
 };
 
 function main() {
-  if (!gh(['--version'])) {
+  if (!gh(['--version']).ok) {
     console.error('✗ 検査不成立: gh が使えない（認証・PATH を確認）');
     process.exit(2);
   }
 
   const since = new Date(Date.now() - DAYS * 86400_000).toISOString().slice(0, 10);
   const findings = [];
+  const fetchFailures = [];
+  let targetRuns = 0;
   let runsScanned = 0;
 
   for (const job of JOBS) {
@@ -91,13 +137,13 @@ function main() {
       'run', 'list', '--workflow', job.workflow, '--limit', '60',
       '--json', 'databaseId,conclusion,createdAt,url',
     ]);
-    if (listRaw == null) {
-      console.error(`✗ 検査不成立: ${job.workflow} の run 一覧を取得できない`);
+    if (!listRaw.ok) {
+      console.error(`✗ 検査不成立: ${job.workflow} の run 一覧を取得できない（${listRaw.reason}）`);
       process.exit(2);
     }
     let runs = [];
     try {
-      runs = JSON.parse(listRaw);
+      runs = JSON.parse(listRaw.out);
     } catch {
       console.error(`✗ 検査不成立: ${job.workflow} の run 一覧が JSON として読めない`);
       process.exit(2);
@@ -105,11 +151,17 @@ function main() {
     const failed = runs.filter(
       (r) => r.conclusion === 'failure' && String(r.createdAt).slice(0, 10) >= since,
     );
-    runsScanned += failed.length;
+    targetRuns += failed.length;
 
     for (const r of failed) {
-      const log = gh(['run', 'view', String(r.databaseId), '--log']);
-      if (!log) continue;
+      const res = gh(['run', 'view', String(r.databaseId), '--log']);
+      // 取得失敗（プロキシ 407 等）や空ログは「痕跡なし」ではなく未検査。数えて判定に渡す
+      if (!res.ok || !res.out) {
+        fetchFailures.push({ job: job.id, runId: r.databaseId, reason: res.ok ? 'ログが空' : res.reason });
+        continue;
+      }
+      runsScanned += 1;
+      const log = res.out;
       if (job.externalOk.test(log)) {
         const hits = [...log.matchAll(new RegExp(job.externalOk.source, 'g'))].length;
         findings.push({
@@ -149,20 +201,41 @@ function main() {
     }
   }
 
+  const verdict = judgeScan({
+    targetRuns,
+    scanned: runsScanned,
+    fetchFailed: fetchFailures.length,
+    findings: findings.length,
+  });
   const summary =
-    `[check-external-write-orphans] ジョブ ${JOBS.length} 件 / 直近 ${DAYS} 日の失敗 run ${runsScanned} 本を実検査` +
-    ` / 検出 ${findings.length} 件`;
+    `[check-external-write-orphans] ジョブ ${JOBS.length} 件 / 直近 ${DAYS} 日の失敗 run: ` +
+    `対象 ${targetRuns} 本・実検査 ${runsScanned} 本・取得失敗 ${fetchFailures.length} 本 / 検出 ${findings.length} 件`;
 
   if (JSON_OUT) {
-    writeSync(1, JSON.stringify({ days: DAYS, jobs: JOBS.length, runsScanned, findings }, null, 2) + '\n');
-    process.exit(findings.length ? 1 : 0);
+    const payload = {
+      days: DAYS,
+      jobs: JOBS.length,
+      targetRuns,
+      runsScanned,
+      fetchFailed: fetchFailures.length,
+      verdict: verdict.verdict,
+      exitCode: verdict.exitCode,
+      fetchFailures,
+      findings,
+    };
+    writeSync(1, JSON.stringify(payload, null, 2) + '\n');
+    process.exit(verdict.exitCode);
   }
 
-  console.log(summary);
-  if (!findings.length) {
-    console.log('[check-external-write-orphans] ✓ 外部成功 × 記録失敗 の痕跡なし');
-    process.exit(0);
+  writeSync(1, summary + '\n');
+  for (const f of fetchFailures) {
+    writeSync(2, `  [fetch-failed] ${f.job} run ${f.runId}: ${f.reason}\n`);
   }
+  if (verdict.exitCode !== 1) {
+    writeSync(verdict.exitCode === 0 ? 1 : 2, `[check-external-write-orphans] ${verdict.message}\n`);
+    process.exit(verdict.exitCode);
+  }
+  writeSync(2, `[check-external-write-orphans] ${verdict.message}\n`);
   for (const f of findings) {
     console.error(`  [${f.kind}] ${f.job} ${f.at ?? ''}  ${f.detail}`);
     if (f.url) console.error(`      ${f.url}`);
@@ -175,4 +248,5 @@ function main() {
   process.exit(1);
 }
 
-main();
+const isMain = process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href;
+if (isMain) main();

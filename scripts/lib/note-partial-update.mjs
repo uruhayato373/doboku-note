@@ -16,6 +16,7 @@ const SUPPORTED = new Set([
   'replaceElementHtml',
   'moveBlockGroupBefore',
   'insertBeforeHeadingHtml',
+  'insertBeforeBlockHtml',
   'replaceImage',
 ]);
 
@@ -93,6 +94,12 @@ export function validatePartialSpec(spec) {
       if (op.beforeSelector && !['p', 'figure', 'div', 'ul', 'ol', 'blockquote'].includes(op.beforeSelector)) throw new Error(`${at}: beforeSelector が未対応`);
     } else if (op.type === 'insertBeforeHeadingHtml') {
       if (!op.beforeHeading || !op.html || !op.probe) throw new Error(`${at}: beforeHeading/html/probe が必要`);
+      if (/<\/?(?:script|style|iframe)|\son\w+\s*=|api\/v2\/attachments\/download/i.test(op.html)) {
+        throw new Error(`${at}: 許可されない HTML`);
+      }
+    } else if (op.type === 'insertBeforeBlockHtml') {
+      // 本文の先頭など見出しの無い位置へ差し込む（2026-09-24 DN-0271: 序章冒頭の「この記事でわかること」）
+      if (!op.beforeNeedle || !op.html || !op.probe) throw new Error(`${at}: beforeNeedle/html/probe が必要`);
       if (/<\/?(?:script|style|iframe)|\son\w+\s*=|api\/v2\/attachments\/download/i.test(op.html)) {
         throw new Error(`${at}: 許可されない HTML`);
       }

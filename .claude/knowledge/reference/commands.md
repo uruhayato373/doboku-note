@@ -33,6 +33,7 @@ npm run schedule-view     # 予約・計画・期日の横断ビュー（読み�
 npm run check-mdx-dates      # 記事の created/dateModified が frontmatter に揃っているか（sitemap lastmod と JSON-LD datePublished の真実源。欠けるとビルドが git 履歴へフォールバックし、公開 SEO 信号がリネームや履歴書換えで動く状態へ逆戻りする。書き込みは pre-commit の backfill-mdx-dates --staged）
 npm run check-bold-rendering # 太字が実際に描画されるか（remark で実パースし text に ** が残る＝崩壊を検出・サイト MDX と note 記事が対象・quality:audit に同梱）
 npm run check-note-duplicate-images # note 記事で同じ画像を 2 回使っていないか（2 枚目は CDN 確定せず全文更新が中断する・pre-commit の note-lint 規則 10 と同じ判定・quality:audit ci）
+npm run check-note-inline-code      # note 記事の本文にインラインのバッククォートが無いか（note は `〇〇` を記号のまま出す・目印は【〇〇】・pre-commit の note-lint 規則 11 と同じ判定・quality:audit ci）
 npm run fix-bold-rendering   # 上の崩壊のうち機械的に安全な形だけ修正（dry-run 既定・--commit で適用）
 npm run check-table-rendering # GFM テーブルが実際に table になるか（remark 実パースでデリミタ行が text に残る＝生パイプ表示を検出。原因〔改行 \r\r\n 破損／ヘッダとデリミタのセル数不一致〕を問わず症状で拾う・pre-commit --staged ＋ quality:audit）
 npm run check-table-references # 本文が指す「表N.M」のキャプションが実在するか（転記由来の宙に浮いた参照）
@@ -190,7 +191,7 @@ npm run sync-codex-compat    # 正典から AGENTS.md / .agents/skills / .codex/
 npm run setup-memory-link    # Claude Code の auto-memory（~/.claude/projects/<key>/memory）を repo の .claude/memory へ junction/symlink（初回は `-- --migrate` で既存 memory を移す・`--settings <dotfiles の json>` で settings.local.json も張る・既存の実ディレクトリは消さず .bak へ退避。両 PC で同じ memory を読ませる）
 npm run check-claude-md-size   # CLAUDE.md（毎ターン再送される核）が 150 行 / 20KB 以下か・12 原則の見出し・.claude/rules の paths: 必須（pre-commit で CLAUDE.md / rules を stage したとき ＋ quality:audit）
 npm run check-agent-descriptions # .claude/agents/*.md の description が 300 code points を超えて増えないか（81 件すべてが毎セッションの system prompt に載る。全件を上限内へ短縮済み・baseline 超過 0 件・pre-commit --staged ＋ quality:audit・`--update-baseline` で締める）
-npm run session-start        # SessionStart の 6 検査（git-sync / plan-staleness / backlog-due / resources / disk-hygiene / x-sync）を 1 プロセスから順次実行し、出力が非空の検査だけ表示（.claude/settings.json の SessionStart はこれ 1 本。node を 6 本同時起動しない）
+npm run session-start        # SessionStart の 8 検査（git-sync / shared-policy / plan-staleness / backlog-due / weekly-review-due / resources / disk-hygiene / x-sync）を 1 プロセス内で順次実行し、出力が非空の検査だけ表示（.claude/settings.json の SessionStart はこれ 1 本。各 script が export する run() を import して呼ぶので子の node は立たない・DN-0236。検査を足すときは run({ argv, quiet }) を export し scripts/lib/cli-run.mjs の sink へ書く）
 npm run check-project-task-refs # docs/ の恒久文書の廃止参照(task-queue.json)と backlog ID 参照切れ（quality:audit に同梱）
 npm run check-information-architecture # 4 領域（docs/content/.claude/実装）への逆戻り検知（廃止した置き場への新規ファイル・docs への制作物混入・content への台帳混入・二重 SSOT。pre-commit --staged ＋ quality:audit）
 npm run check-relative-links   # Markdown の相対リンク `](../x)` の実在（check-doc-refs はリンク**テキスト**しか見ないので、置き場を変えると href だけ黙って壊れる。pre-commit --staged ＋ quality:audit）
@@ -203,6 +204,6 @@ npm run ga4-admin-api:apply    # desired state の不足キーイベントを作
 npm run growth-digest          # 機会ダイジェスト: 成長パック×収益カバレッジ×Bing×実験台帳×triage-log から週次トリアージ対象を安定ID付きで抽出 → growth/digest-YYYY-Www.json。--print で週次レビュー埋め込み用 Markdown（書かない）、--week で指定週、--check は書かずに完走確認。罠: パックが無ければ exit 2
 npm run measure-experiments    # measure 仕様を持つ running/measuring 実験を前後の窓で自動計測（GA4/GSC/売上台帳）。既定 dry-run・--commit で measurements[] へ追記（冪等）。CI は fetch-metrics の publish 内で実行。罠: 売上は台帳の最終日が事後窓に届くまで確定扱いにしない
 npm run growth-triage          # 週次レビュー（ローカル）で機会ダイジェストを全件処分: list [--json] → apply --decisions .tmp/growth-triage-YYYY-Www.json [--commit]（backlog/実験/watchword/裁定/束ね/却下/保留を採番・起票・triage-log 記録）。罠: DN 採番に git 全履歴が要る（shallow clone は exit 2）・全件を先に検証し 1 件でも不正なら何も書かない
-npm run check-growth-triage    # 月曜 guard: 最新ダイジェストの未処分 0・レビューにマーカー・申し送りに ID。exit 1 未反映 / 2 ダイジェスト/レビュー無しか古い
+npm run check-growth-triage    # 月曜 guard: 最新ダイジェストの未処分 0・レビューにマーカー（申し送りの振り分けは check-handoff-extraction）。exit 1 未反映 / 2 ダイジェスト/レビュー無しか古い
 npm run check-business-direction # 事業方針・指標・履歴・追記専用の検査
 ```

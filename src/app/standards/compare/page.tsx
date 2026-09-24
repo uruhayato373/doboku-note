@@ -30,7 +30,9 @@ export default function StandardsComparePage() {
     '@context': 'https://schema.org',
     '@type': 'Dataset',
     name: '地方整備局別 土木工事共通仕様書の差分比較',
-    description: '近畿地方整備局版を基準とした、各地方整備局の土木工事共通仕様書の章・行単位比較結果',
+    // Google の Dataset は description 50〜5000 字が必須（check-seo-build が検査・DN-0241）。
+    description:
+      '近畿地方整備局版を基準に、各地方整備局の土木工事共通仕様書を章・行単位で比較し、本文一致・地域差分・原本重複に分類した結果と、地域固有の追加・削除・変更行を収録したデータセットです。',
     url: 'https://doboku-note.com/standards/compare',
     creator: { '@type': 'Organization', name: 'doboku-note', url: 'https://doboku-note.com' },
     dateModified: comparison.asOf,

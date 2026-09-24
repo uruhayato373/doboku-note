@@ -9,9 +9,12 @@
  *   （listed 以外は自動非表示＝出品前の wire-ahead）。ここでは「どのページに何を出すか」だけを定義する。
  * - 外部 URL に UTM は付けない（計測が外部で完結しパラメータが無駄に露出するため。links-hub.md と同方針）。
  *   クリック計測は data-cta="coconala"|"brain" で AnalyticsProvider が拾う。
+ * - ココナラは A8 の商品リンク（coconalaAffiliateHref・会員登録 ¥100）経由で出す（2026-09-24〜）。
+ *   affiliate=true の項目は描画側で PR 表記・rel=sponsored・計測ピクセル（1 ページ 1 発）を付ける。
  */
 import { listedCoconalaServices } from './coconala-services';
 import { listedBrainProducts } from './brain-products';
+import { coconalaAffiliateHref } from '@/config/affiliate-creatives';
 
 export type OffsiteChannel = 'coconala' | 'brain';
 
@@ -24,6 +27,8 @@ export interface OffsiteCtaItem {
   readonly catch: string;
   /** GA4 の data-cta-label */
   readonly trackLabel: string;
+  /** A8 経由のアフィリリンクか（PR 表記・rel=sponsored・計測ピクセルの対象） */
+  readonly affiliate: boolean;
 }
 
 interface OffsiteRule {
@@ -103,11 +108,12 @@ export function resolveOffsiteCta(slug: string): OffsiteCtaItem[] {
       if (!svc) continue;
       items.push({
         channel: 'coconala',
-        href: svc.serviceUrl,
+        href: coconalaAffiliateHref(svc.serviceUrl),
         shortTitle: svc.shortTitle,
         price: svc.price,
         catch: rule.coconalaCatch ?? '',
         trackLabel: `offsite-${id}`,
+        affiliate: true,
       });
     }
   }
@@ -124,6 +130,7 @@ export function resolveOffsiteCta(slug: string): OffsiteCtaItem[] {
         price: p.price,
         catch: rule.brainCatch ?? '',
         trackLabel: `offsite-${id}`,
+        affiliate: false,
       });
     }
   }

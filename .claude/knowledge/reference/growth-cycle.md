@@ -18,7 +18,7 @@ title: 成長サイクル（GA4 起点の計測→記録→改善）
 | 異常 | `fetch-metrics.yml` の Report step | 取得失敗・整合性違反は Issue `fetch-metrics`、検査不成立（キー未設定・権限不足）は `fetch-metrics-check-invalid`。復旧で自動クローズ |
 | 処分 | ローカル土曜の `/weekly-review`（Agent G・Phase 2.5） | `growth-digest --print` をレビューへ埋め込み、`growth-triage apply` で全件を backlog / 実験 / watchword / 裁定 / 束ね / 却下 / 保留に振り分け → `metrics/growth/triage-log.json` |
 | 実行 | 既存の実行経路 | SEO＝日次 `seo-rank-watch`（watchword を 1 件ずつ自動改善・効果判定）／収益導線・計測修理＝`/backlog-sweep`／実験＝`/nsm-experiment start` → 翌週 CI が自動計測 |
-| 反映ゲート | 月曜 `weekly-review-guard.yml` の `check-growth-triage` | 未処分 0・レビューにマーカー・申し送りに ID。違反は Issue `growth-triage`、検査不成立は `growth-triage-check-invalid`（復旧で自動クローズ） |
+| 反映ゲート | 月曜 `weekly-review-guard.yml` の `check-growth-triage` | 未処分 0・レビューにマーカー（申し送りの振り分けは pre-commit の `check-handoff-extraction` が別に検査）。違反は Issue `growth-triage`、検査不成立は `growth-triage-check-invalid`（復旧で自動クローズ） |
 
 週の対応: **土曜 W のレビューは digest W−1**（`reviewPeriod('weekly')`＝事業レビューと同じ窓）。GSC の日付は太平洋時間、レビューは JST。
 
@@ -41,7 +41,7 @@ title: 成長サイクル（GA4 起点の計測→記録→改善）
 ## 処分の規則
 
 - **全件処分**。表示対象（計測・実験は全件、SEO 5・収益 3）を 1 件残らず処分する。迷ったら確かめる作業を backlog にする（保留の山を作らない）
-- 申し送り（「## 来週への申し送り」）も `id: null` の backlog で起票し、行頭に DN を書く
+- 申し送りのうち単発作業は `id: null` の backlog で起票でき、末尾に `→ 振り分け: DN-####` を書く（書式と検査は weekly-review Phase 4・`check-handoff-extraction`）
 - 抑止: 起票・束ね・裁定は 8 週、却下は 12 週、保留は until まで再表示しない（`suppressWeeks`）。同じ週の処分では抑止しないので、トリアージ後に CI を再実行しても表示対象は入れ替わらない
 - 状態は「CI が書く digest」と「ローカルが追記する triage-log」の結合で決まる。両者は同じファイルを編集しない（fetch-metrics は triage-log を job 開始時の版で上書きしない）
 - 実験の自動計測は目安（verdictHint）までで、裁定は人。売上は台帳の最終日が事後窓に届くまで確定扱いにしない

@@ -16,7 +16,10 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
  * @param {string} noteId
  * @param {string} boundary 有料境界に使う H2 の先頭一致正規表現
  * @param {boolean} isPaid notePricing: paid のとき true
- * @param {{keepBoundary?: boolean, trialLineBottom?: boolean, membershipLock?: boolean, screenshotPrefix?: string}} options
+ * @param {{keepBoundary?: boolean, trialLineBottom?: boolean, membershipLock?: boolean, paidLineBottom?: boolean, screenshotPrefix?: string}} options
+ *   paidLineBottom: 有料記事の境界 line を本文の末尾へ置き直す（本文はほぼ全部無料・末尾だけ有料の記事用。2026-09-24 DN-0271）。
+ *     下書きの line 位置は全文貼り替えで冒頭側へずれていることがある（序章 n3eb135ebdff7 で実測）ので、動かした後に
+ *     line の前後のブロック数（前 ≥10・後 ≤1）で末尾に置けたと確かめられなければ保存しない。
  *   membershipLock: 会員限定で公開してよい記事（notePricing: membership）のとき true
  * @returns {Promise<boolean>}
  */
@@ -38,7 +41,7 @@ export async function publishLive(
   noteId,
   boundary = '試験問題|予想問題',
   isPaid = true,
-  { keepBoundary = false, trialLineBottom = false, membershipLock = false, screenshotPrefix = 'nu' } = {},
+  { keepBoundary = false, trialLineBottom = false, membershipLock = false, paidLineBottom = false, screenshotPrefix = 'nu' } = {},
 ) {
   const shot = (name) => join(ROOT, `.tmp/${screenshotPrefix}-${name}-${noteId}.png`);
 
@@ -70,7 +73,42 @@ export async function publishLive(
   // 無料記事では note 側にボタンが見えても有料境界へ入らない。
   const area = isPaid ? page.getByRole('button', { name: '有料エリア設定' }) : { count: async () => 0 };
   if (!isPaid) console.log('[5b] 無料記事 → 有料境界の設定・検証をスキップ');
-  if (await area.count() && keepBoundary) {
+  if (await area.count() && paidLineBottom) {
+    console.log('[5b] 有料記事フロー（境界 line を本文の末尾へ置く）');
+    await area.first().click(); await sleep(3500);
+    const set = await page.evaluate(() => {
+      const buttons = [...document.querySelectorAll('button,[role=button]')].filter((b) => /ラインをこの場所に変更/.test(b.innerText || b.getAttribute('aria-label') || ''));
+      if (buttons.length < 2) return { ok: false, count: buttons.length };
+      // 最後のボタン＝本文の一番最後（ライブの序章は末尾まで全部無料で読める位置に line がある）
+      const selected = buttons[buttons.length - 1];
+      selected.scrollIntoView({ block: 'center' });
+      selected.click();
+      return { ok: true, count: buttons.length };
+    });
+    await sleep(3000);
+    const verify = await page.evaluate(() => {
+      // 同じ文言の非表示要素がページ上部にあるので、表示中で文言が完全一致する要素だけを line とみなす
+      const line = [...document.querySelectorAll('body *')].find((el) => (el.innerText || '').trim() === 'このラインより先を有料にする'
+        && el.offsetParent !== null && el.getBoundingClientRect().height > 0);
+      if (!line) return { found: false };
+      // ブロックは見出し・段落・リスト単位で数える（li を 1 つずつ数えない）
+      const blocks = [...document.querySelectorAll('h2, h3, p, figure, ul, ol, blockquote')].filter((b) => !b.parentElement?.closest('ul, ol, blockquote')
+        && (b.innerText || '').trim() && !/ラインをこの場所に変更|このラインより先/.test(b.innerText || ''));
+      let before = 0; let after = 0;
+      for (const b of blocks) {
+        const pos = line.compareDocumentPosition(b);
+        if (pos & Node.DOCUMENT_POSITION_PRECEDING) before++;
+        else if (pos & Node.DOCUMENT_POSITION_FOLLOWING) after++;
+      }
+      return { found: true, before, after };
+    });
+    console.log(`[5b] 有料 line 設置(末尾): buttons=${set.count} ${JSON.stringify(verify)}`);
+    await page.screenshot({ path: shot('paidlinebottom') });
+    if (!set.ok || !verify.found || verify.after > 1 || verify.before < 10) {
+      console.error('[5b] ABORT: 有料境界 line を末尾に置けたと確認できず。保存せず中断（paywall 保護）。');
+      return false;
+    }
+  } else if (await area.count() && keepBoundary) {
     console.log('[5b] 有料記事フロー（既存境界を保持・動かさない）');
     await area.first().click();
     let hasLine = false;

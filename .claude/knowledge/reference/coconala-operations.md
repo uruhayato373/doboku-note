@@ -453,6 +453,8 @@ exit 2（snapshot 欠落・陳腐化）で commit を止めると、無関係な
 
 `src/app/links/page.tsx` の `CoconalaSection` が `listedCoconalaServices()` を参照し、**listed が0件なら描画しない**（wire-ahead＝出品前に配線だけ済ませておける）。ココナラ側 URL に UTM は付けない（計測がココナラ内で完結せずパラメータが露出するだけのため）。
 
+2026-09-24〜 サイトのココナラ導線（/links のココナラ行・記事末 `OffsiteCta`）は、カタログの `serviceUrl` を `coconalaAffiliateHref()`（`src/config/affiliate-creatives.ts`）で A8 の商品リンクに変換して出す（会員登録 ¥100・PR 表記・rel=sponsored・ピクセル 1 ページ 1 発）。カタログの `serviceUrl` は素の URL のまま保つ。方針と例外の理由は [affiliate-operations.md](affiliate-operations.md) §1。
+
 ## 8. 出品・修正の自動化（`/coconala-publish`・2026-07-18 新設）
 
 note-publish 流儀の決定的 Playwright。ログイン済みプロファイル `.local/playwright-coconala-profile`（初回のみ headed で手動ログイン）。
@@ -475,8 +477,8 @@ note-publish 流儀の決定的 Playwright。ログイン済みプロファイ�
 | `scripts/coconala-profile.mjs [--commit]` | プロフィール（職業/アピール/自己紹介）を `coconala-account.json` の値へ反映。**プロフィール編集（/mypage/user）はインライン編集型**（フィールドは初期描画に無く、セクション見出し近傍の鉛筆 `.d-profileItemControlButton` クリックで展開・2026-07-20 UI 変更対応済み）。ナビ誤爆は URL 不変 assert で検知 |
 | 共有 `scripts/lib/coconala-{session,form}.mjs` | プロファイル起動・login 待ち・account assert・カタログ/listings 解析・フォーム充填 |
 
-> [!warning] 同じ日に新規出品を重ねると「内容の入力に進む」の後で止まる（2026-09-23 観測・原因は未確認）
-> 1日に4件を新規出品した後、5件目以降は種別の選択までは正常なのに、`/services/add` から下書きページへ進まず `ABORT: 内容入力ページに遷移していない` で止まった（3回。下書きは作られず、孤児も残らない）。1日あたりの新規作成に上限がある可能性がある。再試行を重ねず、翌日に1件ずつ出品する。既存商品の編集（`coconala-edit`）は同じ日でも通った。
+> [!warning] 「内容の入力に進む」の後で止まる → 原因は種別ラジオの未選択だった（2026-09-25 特定）
+> 1日に4件を新規出品した後、5件目以降は種別の選択までは正常なのに、`/services/add` から下書きページへ進まず `ABORT: 内容入力ページに遷移していない` で止まった（3回。下書きは作られず、孤児も残らない）。当初は1日あたりの新規作成の上限と見ていたが、2026-09-25 0:05 の再実行（前日の新規出品 0 件）でも同じ停止が再現し、スクリーンショットで種別ラジオが未選択（「内容の入力に進む」が disabled）と判明した。ラベル文字のクリックでは選択されない。`coconala-publish.mjs` は `input[name="service-type"][value="0"]` を直接 check し、ボタンが有効になったことを確かめてから進む（選べなければ `ABORT: サービス種別…を選べず` で止まる）。
 
 > [!warning] 出品文面の掃除は listings の grep だけでは終わらない
 > **プロフィール bio は全サービスページに描画される**ため、listings と カタログを直しても

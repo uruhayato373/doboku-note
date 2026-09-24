@@ -487,7 +487,7 @@ node -e "const d=require('./.claude/state/dispatch/dispatch-log.json');const w=d
 - **台帳の健全性**: `check-backlog-health` の S2（🟢/🟣 に沈んだ不具合）・S4（`種類:定期`＝backlog の役割違反）・S9（`.claude/todo` の 4 層以外）。**この 3 つが 0 でない週は放置しない**（S2 は選定順で先頭に出るのに tier が嘘をついている状態、S4/S9 は置き場違い）。しきい値を超えたら次セッションで `/backlog-sweep --audit`
 
 - **完了の疑い**: `check-backlog-verify` が `赤→緑` を出した週は、そのカードを次の `/backlog-sweep` で**実査**する（緑は完了の証明ではない——2026-08-18 に check-note-attachments の正規表現が案内済み 77 本を誤検出した実例がある）。`常時緑` が出たら、そのカードの `[検証:]` が surfacer を指していて**完了判定に使えない**ということなので、検証コマンドを差し替えるか外す。
-- **外部書き込みの孤児**: `check-external-write-orphans` が `orphan` を出した週は**最優先**。「外部には出たのに台帳に記録が無い」状態で、台帳を信じて再開すると同じものを二重に外部へ出す。run ログから外部側の実体（videoId 等）を回収して台帳へ反映してから再開する。`silent-stop` は「未処理が残っているのに誰も回していない」通知（手動投入ジョブでは異常ではない）。2026-06-17 の YouTube run が実例＝6 本アップ済みなのに台帳 pending のまま 2 か月放置された。
+- **外部書き込みの孤児**: `check-external-write-orphans` が `orphan` を出した週は**最優先**。「外部には出たのに台帳に記録が無い」状態で、台帳を信じて再開すると同じものを二重に外部へ出す。run ログから外部側の実体（videoId 等）を回収して台帳へ反映してから再開する。`silent-stop` は「未処理が残っているのに誰も回していない」通知（手動投入ジョブでは異常ではない）。**exit 2（検査不成立 N/M 取得失敗）は「痕跡なし」ではない**＝社内プロキシ配下などで run ログが取れていない。取れる環境で再実行してから結論する（DN-0225）。2026-06-17 の YouTube run が実例＝6 本アップ済みなのに台帳 pending のまま 2 か月放置された。
 - **品質censusのdelta**: `npm run quality-census` の `delta` 節（薄層への逆戻り・スコア低下記事）を1行確認する。前回比で悪化が出た週は該当記事を backlog へ。
 - **収益カバレッジ**: `npm run report-monetization-coverage` の配置別 CTA CTR・note label × 売上突合（ID付き比率）を1行確認する。
 
@@ -519,8 +519,8 @@ gh issue list --label automation-failure --state open --json number,title,create
 
 ### Phase 2.5: 全件トリアージ（必須・計測→改善の起票）
 
-ダイジェストの表示対象と、このレビューで出た申し送りを**1 件残らず**処分して台帳へ起票する。散文のまま翌週へ
-持ち越さない（月曜の `weekly-review-guard` が `check-growth-triage` で未処分・未反映を Issue にする）。
+ダイジェストの表示対象を**1 件残らず**処分して台帳へ起票する。散文のまま翌週へ持ち越さない
+（月曜の `weekly-review-guard` が `check-growth-triage` で未処分・未反映を Issue にする）。
 
 1. `npm run growth-triage -- list --json` で未処分を得る
 2. 各 `OPP-…` の処分を決め、判断ファイル `.tmp/growth-triage-YYYY-Www.json` を書く（`{ "digestWeek": "YYYY-Www", "decisions": [...] }`）
@@ -535,7 +535,8 @@ gh issue list --label automation-failure --state open --json number,title,create
    | `reject` | 対応しない | reason（10 字以上） | 12 週は再表示しない |
    | `defer` | 今は判断できない | until / reason | until まで再表示しない |
 
-   申し送り（「## 来週への申し送り」に書く行）は `"id": null` の `backlog` で起票する。**起票後の DN を行頭に書く**
+   申し送りのうち backlog へ送る単発作業は `"id": null` の `backlog` で起票できる。起票後の DN を Phase 4 の書式
+   （`→ 振り分け: DN-####`）で末尾に書く（振り分けの検査は `check-handoff-extraction` が持つ）
 3. `npm run growth-triage -- apply --decisions .tmp/growth-triage-YYYY-Www.json` で検証（dry-run）→ 問題なければ `--commit`
    （全件を先に検証し 1 件でも不正なら何も書かない。DN の採番に git の全履歴が要るのでローカルで実行する）
 4. 出力された変更ファイルを**明示指定で** `git add` してコミット・push（`git add -A` 禁止）
@@ -567,9 +568,20 @@ gh issue list --label automation-failure --state open --json number,title,create
 - 前週レビューへの相対リンク `[YYYY-W(N-1)-review.md](./YYYY-W(N-1)-review.md)` を冒頭に入れると追跡しやすい
 - GitHub Issue は作成しない（CLAUDE.md §8 準拠）
 
-### Phase 4: 週次計画の自動生成
+### Phase 4: 申し送りの振り分け → 週次計画の自動生成
 
-レビュー完了後、**自動的に `/weekly-plan` を実行**して翌週の計画を `docs/reviews/weekly/YYYY-Www.md` に保存する（review 本体とは別ファイル。`weekly-plan` 側の出力先に従う）。レビューの「来週への申し送り」が計画の入力になる。
+**1. 申し送りの振り分け（必須）**: `.claude/todo/weekly.md` を書く `/plan-weekly` はレビューを読まないので、申し送りはレビューに書いただけでは台帳へ届かない（W37 で 5 件が行き場を失った・DN-0230）。「来週への申し送り」の**各項目の末尾に振り分け先を書く**。先は次の 4 つのどれか。
+
+| 振り分け先 | 書式 | 使うとき |
+|---|---|---|
+| backlog 起票 | `→ 振り分け: DN-0301` | 単発で完了がある作業。**先に backlog へ起票してから ID を書く**（既存カードならその ID） |
+| weekly 定常運用 | `→ 振り分け: 定常` | 反復する運用（drift 消化・転記など）。backlog には置かない（todo-standards §1-2） |
+| Issue | `→ 振り分け: #485` | open の `automation-failure` Issue で追う障害 |
+| 実験 | `→ 振り分け: EXP-007` | experiments.json の実験の裁定・再計測 |
+
+pre-commit の `scripts/check-handoff-extraction.mjs` が 2026-W39 以降のレビューで次を検査する。各項目に振り分け先があるか。DN-ID が backlog（または dispatch-log の完了記録）にあるか。EXP-ID が experiments.json にあるか。旧週のレビューと計画を削除するときも、削除される申し送りの各項目に上記の居場所があるか、新しい週次ファイルへ同じ文面で転記されているかを見る。無ければ commit を止める。
+
+**2. 週次計画**: 振り分け後、**自動的に `/weekly-plan` を実行**して翌週の計画を `docs/reviews/weekly/YYYY-Www.md` に保存する（review 本体とは別ファイル。`weekly-plan` 側の出力先に従う）。レビューの「来週への申し送り」が計画の入力になる。
 
 ## 出力フォーマット（md 本文）
 
@@ -712,7 +724,7 @@ gh issue list --label automation-failure --state open --json number,title,create
 - ...
 
 ## 来週への申し送り
-- DN-#### ...（各行に DN / EXP / OPP の ID を必ず書く。無ければ Phase 2.5 で `id: null` の backlog として起票してから書く）
+- ... → 振り分け: DN-#### ／ 定常 ／ #Issue ／ EXP-###（Phase 4。1 項目 1 行）
 ```
 
 ## 運用ルール
@@ -720,8 +732,9 @@ gh issue list --label automation-failure --state open --json number,title,create
 - **毎週土曜にローカルで実行**（金曜 06:00 JST の fetch-metrics が成長パック・機会ダイジェスト・実験の自動計測を push し、12:00 の gsc-auto-review が意味の判断を足した後）
 - レビューは `docs/reviews/weekly/YYYY-Www-review.md` に保存（GitHub Issue は使わない）
 - レビュー完了後に `/weekly-plan` が自動実行され、翌週の計画を `docs/reviews/weekly/YYYY-Www.md` に保存する
-- 未完了アクションは「来週への申し送り」→ 次週計画へ引き継ぐ。**申し送りは必ず ID 付き**（DN / EXP / OPP）。ID の無い申し送りと未処分の OPP は月曜の `check-growth-triage` が Issue にする
-- 最新レビュー＋次週計画だけを `docs/reviews/weekly/` に保持する。旧週は未完タスク・恒久知見を抽出後に削除し、履歴はgitで参照する
+- 未完了アクションは「来週への申し送り」に振り分け先付きで書き（Phase 4）、次週計画へ引き継ぐ
+- 計測ダイジェストの表示対象（`OPP-…`）は Phase 2.5 で全件処分する。未処分とレビューへの未反映は月曜の `check-growth-triage` が Issue にする
+- 最新レビュー＋次週計画だけを `docs/reviews/weekly/` に保持する。旧週は未完タスク・恒久知見を抽出後に削除し、履歴はgitで参照する（抽出もれは `check-handoff-extraction` が pre-commit で止める）
 
 ## 参照
 

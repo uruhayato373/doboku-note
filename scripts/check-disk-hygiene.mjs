@@ -25,67 +25,73 @@
  */
 import { collect, loadConfig } from './disk-hygiene.mjs';
 import { bytesHuman, formatTable, summarize } from './lib/disk-hygiene.mjs';
+import { createOutput, isCliEntry, runAsCli } from './lib/cli-run.mjs';
 
-const argv = process.argv.slice(2);
-const QUICK = argv.includes('--quick');
-const STOP = argv.includes('--stop');
-const JSON_OUT = argv.includes('--json');
+// session-start.mjs は import して run({ argv: ['--quick'], quiet: true }) を呼ぶ（DN-0236・子の node を立てない）
+export async function run({ argv = [], quiet = false } = {}) {
+  const out = createOutput({ quiet });
+  const QUICK = argv.includes('--quick');
+  const STOP = argv.includes('--stop');
+  const JSON_OUT = argv.includes('--json');
 
-let config;
-try {
-  config = loadConfig();
-} catch (e) {
-  console.error(`[check-disk-hygiene] ✗ 設定を読めない（.claude/config/disk-hygiene.json）: ${e.message}`);
-  console.error('[check-disk-hygiene] 検査不成立（検査 0 件）。緑にしない。');
-  process.exit(2);
-}
-
-const items = collect({ quick: QUICK, config });
-const summary = summarize(items, { mode: QUICK ? 'quick' : 'full' });
-
-if (JSON_OUT) {
-  console.log(JSON.stringify({ items, summary }, null, 2));
-  process.exit(summary.exitCode);
-}
-
-if (QUICK) {
-  // check-git-sync と同じ流儀: 言うことが無ければ黙る。1 行に「何が」と「推奨コマンド」を出す。
-  const byId = Object.fromEntries(items.map((i) => [i.id, i]));
-  const say = (msg) => console.log(`[disk-hygiene] ⚠ ${msg}`);
-
-  const free = byId['free-space'];
-  if (free && free.status === 'fail') {
-    say(`空きが ${bytesHuman(free.bytes)} しかない。 推奨: npm run disk-hygiene:fix`);
-  } else if (!STOP && free && free.status === 'warn') {
-    say(`空きが ${bytesHuman(free.bytes)}。 推奨: npm run check-disk-hygiene`);
+  let config;
+  try {
+    config = loadConfig();
+  } catch (e) {
+    out.error(`[check-disk-hygiene] ✗ 設定を読めない（.claude/config/disk-hygiene.json）: ${e.message}`);
+    out.error('[check-disk-hygiene] 検査不成立（検査 0 件）。緑にしない。');
+    return out.result(2);
   }
 
-  const wt = byId.worktrees;
-  if (wt && wt.actions.length > 0) {
-    const list = wt.actions.map((a) => a.path.split(/[\\/]/).pop()).join(', ');
-    say(`マージ済みで残っている worktree ${wt.actions.length} 本（${list}）。 推奨: git worktree remove <path>`);
+  const items = collect({ quick: QUICK, config });
+  const summary = summarize(items, { mode: QUICK ? 'quick' : 'full' });
+
+  if (JSON_OUT) {
+    out.log(JSON.stringify({ items, summary }, null, 2));
+    return out.result(summary.exitCode);
   }
 
-  if (!STOP) {
-    const place = byId['worktree-placement'];
-    if (place && place.status === 'fail') say(`worktree の置き場違反。 ${place.detail}`);
-    const auto = byId.automation;
-    if (auto && auto.status === 'fail') say(auto.detail);
-    const settings = byId['claude-settings'];
-    if (settings && settings.status === 'fail') say(`${settings.detail}`);
+  if (QUICK) {
+    // check-git-sync と同じ流儀: 言うことが無ければ黙る。1 行に「何が」と「推奨コマンド」を出す。
+    const byId = Object.fromEntries(items.map((i) => [i.id, i]));
+    const say = (msg) => out.log(`[disk-hygiene] ⚠ ${msg}`);
+
+    const free = byId['free-space'];
+    if (free && free.status === 'fail') {
+      say(`空きが ${bytesHuman(free.bytes)} しかない。 推奨: npm run disk-hygiene:fix`);
+    } else if (!STOP && free && free.status === 'warn') {
+      say(`空きが ${bytesHuman(free.bytes)}。 推奨: npm run check-disk-hygiene`);
+    }
+
+    const wt = byId.worktrees;
+    if (wt && wt.actions.length > 0) {
+      const list = wt.actions.map((a) => a.path.split(/[\\/]/).pop()).join(', ');
+      say(`マージ済みで残っている worktree ${wt.actions.length} 本（${list}）。 推奨: git worktree remove <path>`);
+    }
+
+    if (!STOP) {
+      const place = byId['worktree-placement'];
+      if (place && place.status === 'fail') say(`worktree の置き場違反。 ${place.detail}`);
+      const auto = byId.automation;
+      if (auto && auto.status === 'fail') say(auto.detail);
+      const settings = byId['claude-settings'];
+      if (settings && settings.status === 'fail') say(`${settings.detail}`);
+    }
+    return out.result(0);
   }
-  process.exit(0);
+
+  out.log(formatTable(items, summary));
+  if (summary.unsupported > 0) {
+    out.log(
+      `[check-disk-hygiene] 検査不成立: ${summary.unsupported} 項目を検査できなかった（この OS の置き場が設定に無い等）。緑にしない。`,
+    );
+  }
+  if (summary.fail > 0) {
+    out.log('[check-disk-hygiene] ✗ FAIL あり。上の詳細に推奨コマンドがある。');
+  } else if (summary.exitCode === 0) {
+    out.log(`[check-disk-hygiene] ✓ 問題なし。掃除は ${process.platform === 'win32' ? 'タスクスケジューラ' : 'launchd'} が日次で回している。`);
+  }
+  return out.result(summary.exitCode);
 }
 
-console.log(formatTable(items, summary));
-if (summary.unsupported > 0) {
-  console.log(
-    `[check-disk-hygiene] 検査不成立: ${summary.unsupported} 項目を検査できなかった（この OS の置き場が設定に無い等）。緑にしない。`,
-  );
-}
-if (summary.fail > 0) {
-  console.log('[check-disk-hygiene] ✗ FAIL あり。上の詳細に推奨コマンドがある。');
-} else if (summary.exitCode === 0) {
-  console.log(`[check-disk-hygiene] ✓ 問題なし。掃除は ${process.platform === 'win32' ? 'タスクスケジューラ' : 'launchd'} が日次で回している。`);
-}
-process.exit(summary.exitCode);
+if (isCliEntry(import.meta.url)) runAsCli(run);

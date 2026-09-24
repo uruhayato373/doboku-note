@@ -13,6 +13,8 @@ import { pickCoconalaFor, pickBrainFor } from "@/lib/exam-key-bridge";
 import { mokujiFor } from "@/lib/note-mokuji";
 import ServiceIcon, { type ServiceChannel } from "@/components/icons/ServiceIcon";
 import { externalLinkRel } from "@/lib/external-link-rel";
+import { AFFILIATE_LINK_REL, AffiliatePrBadge, TrackingPixel } from "@/components/ui/AffiliateParts";
+import { COCONALA_A8_PIXEL, coconalaAffiliateHref } from "@/config/affiliate-creatives";
 
 export const metadata: Metadata = {
   // title テンプレート "%s | doboku-note" がサイト名を付与するため、ここでは重ねない
@@ -217,7 +219,10 @@ const VALUE_PILLARS: {
   },
 ];
 
-/** カード内の 1 行（アイコン + リンク名 + チャネル小ラベル + 特徴 1 行）。 */
+/**
+ * カード内の 1 行（アイコン + リンク名 + チャネル小ラベル + 特徴 1 行）。
+ * affiliate=true（A8 経由のココナラ）は PR 表記と rel=sponsored を付ける。計測ピクセルは LinksPage で 1 発。
+ */
 function CardRow({
   channel,
   label,
@@ -225,6 +230,7 @@ function CardRow({
   href,
   external,
   channelLabel,
+  affiliate,
 }: {
   channel: ServiceChannel;
   label: string;
@@ -232,6 +238,7 @@ function CardRow({
   href: string;
   external?: boolean;
   channelLabel?: string;
+  affiliate?: boolean;
 }) {
   const inner = (
     <>
@@ -242,6 +249,7 @@ function CardRow({
           {channelLabel && (
             <span className="ml-1.5 text-xs text-[var(--ink-muted)]">{channelLabel}</span>
           )}
+          {affiliate && <AffiliatePrBadge className="ml-1.5 align-middle" />}
         </span>
         {/* 商品カタログの description は 170〜210 字あり、そのまま出すと 1 行だけ極端に高くなる
             （実測 220px）。一覧は走査が目的なので 2 行で打ち切り、全カードの行高を揃える。 */}
@@ -257,7 +265,7 @@ function CardRow({
   const cls =
     'focus-ring group flex gap-2.5 border-b border-[var(--rule-soft)] py-2.5 last:border-b-0';
   return external ? (
-    <a href={href} target="_blank" rel={externalLinkRel(href)} className={cls}>
+    <a href={href} target="_blank" rel={affiliate ? AFFILIATE_LINK_REL : externalLinkRel(href)} className={cls}>
       {inner}
     </a>
   ) : (
@@ -323,8 +331,9 @@ function ExamCardView({ card }: { card: ExamCard }) {
             channelLabel="ココナラ"
             label={coconala.shortTitle ?? coconala.title}
             sub={coconala.description}
-            href={coconala.serviceUrl}
+            href={coconalaAffiliateHref(coconala.serviceUrl)}
             external
+            affiliate
           />
         )}
         {!coconala && brain && (
@@ -375,6 +384,9 @@ function ExamSections() {
   );
 }
 
+
+// いずれかの資格カードにココナラ行（A8 経由）が出るか。出るときだけ計測ピクセルを 1 発置く。
+const HAS_COCONALA_ROW = EXAM_CARDS.some((card) => pickCoconalaFor(card.key) !== null);
 
 // ヒーロー帯は資格を個別列挙せず、4 分野へジャンプさせて一覧性を保つ。
 const HERO_CHIPS = EXAM_GROUPS.map((group) => ({ label: group.title, id: group.id }));
@@ -456,6 +468,8 @@ export default function LinksPage() {
             </p>
 
             <ExamSections />
+            {/* A8 ココナラの計測ピクセル。カードごとに出すと同じ mat が複数回発火するため、ページで 1 発に限る。 */}
+            <TrackingPixel src={HAS_COCONALA_ROW ? COCONALA_A8_PIXEL : undefined} />
           </section>
 
           {/* 価値提案 — なぜここで合格できるのか（中身）。
