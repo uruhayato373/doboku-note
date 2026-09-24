@@ -154,3 +154,21 @@ test('browsersUsingProfilesUnder: --user-data-dir がルート配下のものだ
   assert.equal(browsersUsingProfilesUnder(mac, '/Users/me/Library/Application Support/doboku-note/playwright-auth/profiles', { platform: 'darwin' }).length, 1);
   assert.equal(browsersUsingProfilesUnder(mac, '/users/me/library/application support/doboku-note/playwright-auth/profiles', { platform: 'darwin' }).length, 0);
 });
+
+// 搭載メモリで既定の閾値を変える（8GB Mac で 2048MB は日中ほぼ常に止まる・2026-09-25）
+import { defaultMinFreeBytes, guardBrowserLaunch as guardForRam } from '../scripts/lib/playwright-launch.mjs';
+
+test('defaultMinFreeBytes: 8GB 以下は 1200MB、それ以上と不明は 2048MB', () => {
+  const GB = 1024 ** 3; const MiB = 1024 ** 2;
+  assert.equal(defaultMinFreeBytes(8 * GB), 1200 * MiB);
+  assert.equal(defaultMinFreeBytes(16 * GB), 2048 * MiB);
+  assert.equal(defaultMinFreeBytes(undefined), 2048 * MiB);
+});
+
+test('guardBrowserLaunch: 8GB 端末は空き 1741MB で通り、環境変数の指定が優先される', () => {
+  const GB = 1024 ** 3; const MiB = 1024 ** 2;
+  const base = { platform: 'darwin', processRows: [], authRoot: null, freeMemBytes: 1741 * MiB };
+  assert.equal(guardForRam({ ...base, env: {}, totalMemBytes: 8 * GB }).ok, true);
+  assert.throws(() => guardForRam({ ...base, env: {}, totalMemBytes: 16 * GB }));
+  assert.throws(() => guardForRam({ ...base, env: { DOBOKU_PW_MIN_FREE_MB: '2048' }, totalMemBytes: 8 * GB }));
+});

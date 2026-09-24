@@ -18,7 +18,7 @@
  * env:
  *   DOBOKU_PW_SKIP_GUARD=1      ガードを両方とも外す
  *   DOBOKU_PW_ALLOW_PARALLEL=1  別プロファイルの Chrome 稼働中でも起動を許す
- *   DOBOKU_PW_MIN_FREE_MB=NNNN  空きメモリ閾値（既定 2048）
+ *   DOBOKU_PW_MIN_FREE_MB=NNNN  空きメモリ閾値（既定は搭載メモリで決まる: 8GB 以下 1200・それ以上 2048）
  *   DOBOKU_PW_ALLOW_SW=1        Service Worker を許可（サイト側で必要になったとき）
  *
  * CI 用 env 上書き（login-collectors.yml の composite action が設定する。人が headed で使うときは触らない）:
@@ -32,7 +32,7 @@
  * ---------------------------------------------------------------------------
  */
 import { spawnSync } from 'node:child_process';
-import { freemem } from 'node:os';
+import { freemem, totalmem } from 'node:os';
 import { posix, win32 } from 'node:path';
 
 import { resolveAuthRoot } from './playwright-auth-profile.mjs';
@@ -49,6 +49,16 @@ export const LEAN_CHROMIUM_ARGS = Object.freeze([
 export const CI_HEADLESS_CHROMIUM_ARGS = Object.freeze(['--headless=new', '--no-first-run', '--no-default-browser-check']);
 
 export const DEFAULT_MIN_FREE_BYTES = 2 * 1024 ** 3;
+/** 搭載 8GB 以下の端末の既定。Claude Desktop を開いた日中は空きが 2GB を切り、2048MB では毎回止まっていた
+ * （2026-09-24〜25 に note・ココナラ・gsc-local・google-console:login の全経路で DOBOKU_PW_MIN_FREE_MB=1200 を付けて回避）。 */
+export const SMALL_RAM_MIN_FREE_BYTES = 1200 * 1024 ** 2;
+
+/** 環境変数の指定が無いときの閾値。搭載メモリ 8GB 以下（OS の報告誤差を見て 8.5GiB 未満）なら 1200MB。 */
+export function defaultMinFreeBytes(totalMemBytes) {
+  return Number.isFinite(totalMemBytes) && totalMemBytes > 0 && totalMemBytes < 8.5 * 1024 ** 3
+    ? SMALL_RAM_MIN_FREE_BYTES
+    : DEFAULT_MIN_FREE_BYTES;
+}
 
 export class LaunchGuardError extends Error {
   constructor(message, { code, reasons = [] } = {}) {
@@ -155,7 +165,7 @@ function safeAuthRoot() {
 
 /**
  * 起動前ガード（副作用: プロセス一覧の取得のみ）。通らなければ LaunchGuardError を投げる。
- * @param {{ env?: object, platform?: NodeJS.Platform, freeMemBytes?: number|null, processRows?: object[]|null, authRoot?: string|null }} [options]
+ * @param {{ env?: object, platform?: NodeJS.Platform, freeMemBytes?: number|null, totalMemBytes?: number, processRows?: object[]|null, authRoot?: string|null }} [options]
  */
 export function guardBrowserLaunch(options = {}) {
   const env = options.env ?? process.env;
@@ -163,7 +173,8 @@ export function guardBrowserLaunch(options = {}) {
   if (env.DOBOKU_PW_SKIP_GUARD === '1') return { ok: true, reasons: [], skipped: true };
 
   const minFreeMb = Number(env.DOBOKU_PW_MIN_FREE_MB);
-  const minFreeBytes = Number.isFinite(minFreeMb) && minFreeMb > 0 ? minFreeMb * 1024 * 1024 : DEFAULT_MIN_FREE_BYTES;
+  const totalMemBytes = options.totalMemBytes !== undefined ? options.totalMemBytes : totalmem();
+  const minFreeBytes = Number.isFinite(minFreeMb) && minFreeMb > 0 ? minFreeMb * 1024 * 1024 : defaultMinFreeBytes(totalMemBytes);
   const freeMemBytes = options.freeMemBytes !== undefined ? options.freeMemBytes : availableMemoryBytes({ platform });
 
   const authRoot = options.authRoot !== undefined ? options.authRoot : safeAuthRoot();
