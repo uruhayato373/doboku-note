@@ -1,7 +1,7 @@
 # 引き継ぎ：GSC の登録済みページを増やす作業（ローカルで再開）
 
 > [!note]
-> **2026-09-24 時点**：PR #597〜#600 は develop にマージ済み・**main（本番）には未反映**。launchd（`gsc-local`）と sitemap の API 送信は別 PR（`feature/gsc-local-routine`）。
+> **2026-09-24 時点**：PR #597〜#600 と #602（launchd `gsc-local`・sitemap の API 送信・#599 の取り下げ）は develop にマージ済み・**main（本番）には未反映**。Search Console のサービスアカウント 2 つは「フル」権限を確認済み。
 > 残りのタスクは backlog の DN-0287 / DN-0292 / DN-0293 にある。この文書は再開手順と順番だけで、
 > 手順を終えたら削除する（記録は git 履歴と `gsc-management.md` の 2026-09-24 エントリ）。
 

@@ -169,10 +169,9 @@
 **起点**: 登録リクエストと理由別 UI CSV は API が無く、ログインしたブラウザが要る。GitHub hosted runner は Google がセッションを Mac 側まで失効させ（2026-09-21 実測）、self-hosted runner はこのリポジトリが公開のため fork の PR に Mac 上でコードを実行されうる。そこで Mac の launchd `gsc-local`（毎日 10:30・寝ていた日は起床時）で回し、API で済む sitemap の送信と読み込み状況は `fetch-metrics.yml` が取る形にした（ユーザー判断・2026-09-24）。
 
 **やること**:
-1. 実装 PR（feature/gsc-local-routine）をマージし、Mac で `git pull origin develop`
+1. Mac で `git pull origin develop`
 2. Mac: 未ログインなら `npm run google-console:login` → `npm run gsc-local:install` → `npm run gsc-local:install -- --run-now`。`~/Library/Logs/doboku-note/gsc-local.log` で受理件数と develop への push を確かめる（Chrome が数分開く）
-3. Search Console の「設定 → ユーザーと権限」でサービスアカウントを「フル」にする（sitemap の送信に要る）
-4. `/deploy` の後（workflow 定義は main 版で動く）、金曜の fetch-metrics と月曜の weekly-review-guard の job summary で `check-gsc-sitemaps`・`check-gsc-indexing-due`・`check-gsc-ui-due` が OK か見る。registry の google は `enabled:false` のまま
+3. `/deploy` の後（workflow 定義は main 版で動く）、金曜の fetch-metrics と月曜の weekly-review-guard の job summary で `check-gsc-sitemaps`・`check-gsc-indexing-due`・`check-gsc-ui-due` が OK か見る。registry の google は `enabled:false` のまま
 
 **完了条件**: launchd の実行が受理を `gsc-indexing/history.json` に記録して develop へ push し、`npm run check-gsc-indexing-due` と `npm run check-gsc-sitemaps` がともに OK。
 
