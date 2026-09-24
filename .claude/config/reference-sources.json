@@ -3554,6 +3554,67 @@
         "kind": "external",
         "url": "https://www.mext.go.jp/b_menu/shingi/gijyutu/gijyutu7/toushin/1412635_00009.htm"
       }
+    },
+    {
+      "id": "board-of-audit-act",
+      "title": "会計検査院法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "会計検査院法第20条": "board-of-audit-act#第20条",
+        "会計検査院法第23条": "board-of-audit-act#第23条",
+        "会計検査院法第25条": "board-of-audit-act#第25条",
+        "会計検査院法第26条": "board-of-audit-act#第26条",
+        "会計検査院法第29条": "board-of-audit-act#第29条",
+        "会計検査院法第34条": "board-of-audit-act#第34条"
+      }
+    },
+    {
+      "id": "board-of-audit-operation-flow",
+      "title": "会計検査院 検査の流れ（業務の紹介）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.jbaudit.go.jp/effort/operation/index.html"
+      }
+    },
+    {
+      "id": "board-of-audit-viewpoint",
+      "title": "会計検査院 検査の観点（業務の紹介）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.jbaudit.go.jp/effort/operation/viewpoint.html"
+      }
+    },
+    {
+      "id": "board-of-audit-report-r06",
+      "title": "令和6年度決算検査報告（会計検査院、令和7年11月5日内閣送付）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.jbaudit.go.jp/report/new/index.html"
+      }
+    },
+    {
+      "id": "board-of-audit-report-r04-temporary-work",
+      "title": "令和4年度決算検査報告 山林施設災害関連事業（仮設工の設計変更未実施）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://report.jbaudit.go.jp/org/r04/2022-r04-0276-0.htm"
+      }
+    },
+    {
+      "id": "board-of-audit-report-r04-riverbed-work",
+      "title": "令和4年度決算検査報告 河川等災害復旧事業（根固工の設計不適切・8府県）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://report.jbaudit.go.jp/org/r04/2022-r04-0349-0.htm"
+      }
     }
   ]
 }
