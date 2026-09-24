@@ -16,8 +16,6 @@
  *   node scripts/gsc-request-indexing.mjs --file .tmp/urls.txt              # 1 行 1 URL（# 行は無視）
  *   node scripts/gsc-request-indexing.mjs --from-ssot ... --commit          # 実際にリクエスト
  *   node scripts/gsc-request-indexing.mjs --from-ssot ... --limit 10        # 日次クォータ対策
- *   node scripts/gsc-request-indexing.mjs --file <順位表> --commit --stop-at-limit
- *       # 送信が上限に達したら残りを検査しない（CI 用。順位表 280 件を 1 件 5〜25 秒で全件検査すると 1 時間超）
  *
  * URL の正規化: 旧 `/docs/<slug>`（または裸の slug）を渡されたら `public/_redirects` の 301 先
  * （2026-08-22 の情報設計移行後の正規パス）へ置き換えてから検査する。旧 URL のまま検査すると
@@ -60,11 +58,10 @@ const SITE = "https://doboku-note.com";
 
 function parseArgs() {
   const a = process.argv.slice(2);
-  const o = { commit: false, headed: false, fromSsot: false, urls: null, file: null, group: null, category: null, limit: 10, stopAtLimit: false };
+  const o = { commit: false, headed: false, fromSsot: false, urls: null, file: null, group: null, category: null, limit: 10 };
   for (let i = 0; i < a.length; i++) {
     if (a[i] === "--commit") o.commit = true;
     else if (a[i] === "--headed") o.headed = true;
-    else if (a[i] === "--stop-at-limit") o.stopAtLimit = true;
     else if (a[i] === "--from-ssot") o.fromSsot = true;
     else if (a[i] === "--urls") o.urls = a[++i];
     else if (a[i] === "--file") o.file = a[++i];
@@ -325,10 +322,6 @@ async function main() {
         }
       }
       result.items.push(item);
-      if (opts.commit && opts.stopAtLimit && sent >= opts.limit) {
-        console.log(`  送信上限 ${opts.limit} 件に到達（--stop-at-limit）。残り ${slugs.length - result.items.length} 件は検査せず次回へ回します。`);
-        break;
-      }
     }
 
     const accepted = result.items.filter((i) => i.request?.requested).length;

@@ -39,7 +39,7 @@ Google Search Console の継続管理（インデックス被覆・検索パフ�
 | `check-ga4-dimensions` | Script（ゲート・オフライン） | desired state と最後の実機観測を突合。blocking なカスタムディメンション（`event_label`/`cta_placement`）が未登録なら exit 1 | inventory-latest → exit 0/1 |
 | `check-internal-links-vs-gsc` | Script（ゲート・オフライン） | **公開ページ**が GSC の 404/リダイレクト URL を指していないか（SSOT と全 MDX/src を突合）。旧 URL 件数を能動的に減らせる唯一のレバー | `gsc-ui/ssot` + MDX → exit 0/1 |
 | `check-gsc-indexing-due` | Script（surfacer・オフライン） | 順位表に表示実績のある未登録が残っているのに、受理された登録リクエストが 7 日以上無ければ DUE。順位表が無いときは検査不能として DUE。weekly-review-guard が毎週 job summary へ | `gsc-indexing/{priority-latest,history}.json` → DUE |
-| `gsc-request-indexing` | Script（Playwright・ローカル手動／`gsc-request-indexing.yml` が self-hosted runner で週次・DN-0291） | 未登録 URL を URL 検査で診断し、**インデックス登録をリクエスト**（既定 dry-run・`--commit` gate・上限 10 件/回・`--stop-at-limit` で上限到達後の検査を省く）。CI は `ci-write-operations.json` の `google.request-indexing`（scheduled・self-hosted 限定）で固定引数のまま送る。hosted runner では Google がセッションを失効させるので使わない。crawled-not-indexed への直接レバー。**discovered-not-indexed（未クロール）には強制クロールとしてより直接に効く**。入力は `--from-ssot` / `--urls` / `--file`（正規パス。旧 `/docs/slug` は `_redirects` の 301 先へ自動変換） | SSOT または URL 一覧 → `gsc-indexing/{requests-latest,history}.json` |
+| `gsc-request-indexing` | Script（ローカル手動・Playwright） | 未登録 URL を URL 検査で診断し、**インデックス登録をリクエスト**（既定 dry-run・`--commit` gate・上限 10 件/回）。crawled-not-indexed への直接レバー。**discovered-not-indexed（未クロール）には強制クロールとしてより直接に効く**。入力は `--from-ssot` / `--urls` / `--file`（正規パス。旧 `/docs/slug` は `_redirects` の 301 先へ自動変換） | SSOT または URL 一覧 → `gsc-indexing/{requests-latest,history}.json` |
 | `seo-rank-watch` | Script（週次CIでcollect、セッションでreview/1件改善） | 固定クエリの確定7日比較・本番反映起点の観察。入口 `/weekly-improve --rank-watch`、詳細 [運用手順](seo-rank-watch.md) | `metrics/gsc/rank-watch/`（追記）＋既存 `experiments.json` |
 | `check-experiment-due` | Script（surfacer） | 実験台帳の再計測/close 期限（サイクルの最後の輪）。weekly-review が列挙 | `experiments.json` → DUE 一覧 |
 | `search-growth:cem-plan` | Script（月次・ローカル手動） | 総監 crawled-not-indexed の 5 分類再分類（下記「総監 CNI 5分類の運用ルール」） | URL Inspection 履歴 → `improvements/cem-index-consolidation-*.{json,md}` |
@@ -83,10 +83,8 @@ Google の「Move a site with URL changes」（2026-08-20 更新）の手順ど�
   `/gsc-review`・`/weekly-improve` は応急・深掘り・上書き用として存続
 - **週次（CI・自動・coverage）**: `index-coverage.yml`（水 JST 11:00）→ `check-coverage-thresholds` が無条件異常を赤落ち → 順位表 `priority-latest.*` を commit →
   金曜の `gsc-auto-review.yml` が観測ログへ coverage エントリを記録（手動で先回りするなら `/gsc-review`）。
-  **登録リクエスト**: `gsc-request-indexing.yml`（水 JST 14:00）が順位表の先頭から 10 件送る。ただし self-hosted runner
-  （Mac）を `google.request-indexing` の `selfHostedRunsOn` に設定するまでは何もしない（DN-0291）。それまでは
-  月曜の weekly-review-guard が `check-gsc-indexing-due` で DUE を出したら
-  `npm run gsc-indexing:request -- --file .claude/state/metrics/gsc-indexing/priority-latest.txt --stop-at-limit`（10 件/回・要ログイン）
+  **人間に残る作業は 1 つ**: 月曜の weekly-review-guard が `check-gsc-indexing-due` で DUE を出したら
+  `npm run gsc-indexing:request -- --file .claude/state/metrics/gsc-indexing/priority-latest.txt`（10 件/回・要ログイン）
 - **月次（ローカル・手動）**: `/google-search-growth` で理由別 UI CSV を取得 → 突合 → 修正計画 → 観測ログ追記。**放置防止**は `check-gsc-ui-due`（30日）を weekly-review が surface（DUE なら次セッションで実行）。`/gsc-review`（coverage 全体）の深掘り＝理由ごとの例 URL を足す層。
 - **週次**: `fetch-metrics.yml`（CI・金 JST 6:00）→ `/weekly-improve`（performance 側）
 

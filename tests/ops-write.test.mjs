@@ -1,7 +1,7 @@
 // ops-write.test.mjs — ops-write.mjs（plan/exec CLI）の回帰テスト。fake spawn で子プロセスを起動しない。
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtempSync, mkdirSync, writeFileSync, rmSync, readFileSync } from 'node:fs';
+import { mkdtempSync, mkdirSync, writeFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
@@ -171,58 +171,5 @@ test('exec: verify 失敗で exit 1（本体は成功していても）', () => 
     assert.deepEqual(calls[1].args, ['scripts/verify-note.mjs']);
     const result = JSON.parse(io.out.find((l) => l.startsWith('{')));
     assert.deepEqual(result.verify, [{ script: 'scripts/verify-note.mjs', rc: 1 }]);
-  } finally { rmSync(root, { recursive: true, force: true }); }
-});
-
-/** makeRepo に定期実行できる low 操作（固定引数）を足す。 */
-function makeScheduledRepo() {
-  const root = makeRepo();
-  const path = join(root, '.claude/config/ci-write-operations.json');
-  const catalog = JSON.parse(readFileSync(path, 'utf8'));
-  catalog.operations['note.daily-sync'] = {
-    service: 'note',
-    script: 'scripts/note-publish.mjs',
-    risk: 'low',
-    argsSchema: { article: 'string', limit: 'number' },
-    inputs: ['{article}'],
-    commitArgs: ['--commit'],
-    verify: [],
-    ledger: [],
-    scheduled: { args: { article: 'content/note/a/article.md', limit: 10 } },
-  };
-  writeFileSync(path, JSON.stringify(catalog));
-  return root;
-}
-
-test('exec --scheduled: カタログの固定引数で、CI 自身が計算した hash を env に載せて1回実行する', () => {
-  const root = makeScheduledRepo();
-  try {
-    const io = collector();
-    const calls = [];
-    const code = run(['exec', '--operation', 'note.daily-sync', '--scheduled', '--commit'], { root, env: { GITHUB_ACTIONS: 'true' }, spawn: fakeSpawn(calls), ...io });
-    assert.equal(code, 0);
-    assert.equal(calls.length, 1);
-    assert.deepEqual(calls[0].args, ['scripts/note-publish.mjs', '--commit', '--article', 'content/note/a/article.md', '--limit', '10']);
-    const catalog = loadCatalog(root, { registry: { services: { note: { ci: { mode: 'encrypted-state', operations: ['read', 'write'], readOnlyScripts: [], writeScripts: ['scripts/note-publish.mjs'] } } } } });
-    const { hash } = buildPlan(root, operationFromCatalog(catalog, 'note.daily-sync'), { article: 'content/note/a/article.md', limit: 10 });
-    assert.equal(calls[0].opts.env[WRITE_PLAN_HASH_ENV], hash);
-  } finally { rmSync(root, { recursive: true, force: true }); }
-});
-
-test('exec --scheduled: scheduled を持たない操作・--args / --plan-sha256 併用・非 CI は exit 2 で spawn しない', () => {
-  const root = makeScheduledRepo();
-  try {
-    const cases = [
-      [['exec', '--operation', 'note.publish', '--scheduled', '--commit'], { GITHUB_ACTIONS: 'true' }],
-      [['exec', '--operation', 'note.daily-sync', '--scheduled', '--commit', '--args', '{"article":"content/note/a/article.md","limit":10}'], { GITHUB_ACTIONS: 'true' }],
-      [['exec', '--operation', 'note.daily-sync', '--scheduled', '--commit', '--plan-sha256', 'a'.repeat(64)], { GITHUB_ACTIONS: 'true' }],
-      [['exec', '--operation', 'note.daily-sync', '--scheduled', '--commit'], {}],
-    ];
-    for (const [argv, env] of cases) {
-      const io = collector();
-      const calls = [];
-      assert.equal(run(argv, { root, env, spawn: fakeSpawn(calls), ...io }), 2, argv.join(' '));
-      assert.equal(calls.length, 0, argv.join(' '));
-    }
   } finally { rmSync(root, { recursive: true, force: true }); }
 });
