@@ -5,6 +5,8 @@
  *   (1) URL 見出し   — <h1-6> 内に http(s) URL（cardify グリッチ・note ネイティブ目次に URL 露出）
  *   (2) 空引用       — <blockquote> が中身空（複数行 blockquote が paste で脱落した痕跡）
  *   (3) 画像欠落     — 本文 <img> 数 < SoT 期待枚数（本文画像が除去されて live に載らない）
+ * assertLiveBody（公開直後の 1 本ごとの検査）はさらに、画像過多（重複）・太字記号の残り・
+ * 存在しないサイト内リンクも見る（2026-09-24 追加）。
  *
  * 各スクリプトの公開後 assert（note-update-body [5e] / note-publish [13]）と横断スイープ
  * （check-note-live-headings.mjs）の双方から使う。ネットワーク失敗は fetchError で区別し
@@ -18,6 +20,7 @@
  *   横断スイープ側は取得失敗が支配的なら落とすこと＝検査ゼロを PASS と呼ばないため。
  */
 import { spawnSync } from 'node:child_process';
+import { classifySitePath, loadSiteRoutes, siteLinkRegex } from './site-links.mjs';
 
 // Windows でも動く同期 sleep（Unix の `sleep` バイナリに依存しない）。
 const sleepSync = (ms) => spawnSync(process.execPath, ['-e', `setTimeout(()=>{},${ms})`]);
@@ -156,12 +159,14 @@ export function textLen(html) {
 }
 
 /**
- * 公開後の実体検証。expectedImgs を渡すと画像欠落も判定する（null/undefined なら画像検査 skip）。
+ * 公開後の実体検証。expectedImgs を渡すと画像の欠落と過多（重複）も判定する（null/undefined なら画像検査 skip）。
  * paid=true を渡すと **無料プレビューの崩壊**（有料境界が冒頭へ動く事故）も検査する。
- * @returns {Promise<{ok:boolean, urlHeadings:string[], emptyBq:number, imgLive:number, imgShort:boolean, freeChars:number, freeShort:boolean, fetchError:string|null}>}
+ * 太字記号の残り（`**`）と存在しないサイト内リンクは常に見る（2026-09-24: 週次スイープだけが見ていて、
+ * 公開直後の 1 本ごとの検査では素通りだった）。
+ * @returns {Promise<{ok:boolean, urlHeadings:string[], emptyBq:number, imgLive:number, imgShort:boolean, imgExcess:boolean, literalStars:string[], brokenLinks:string[], freeChars:number, freeShort:boolean, fetchError:string|null}>}
  */
 export async function assertLiveBody(noteId, { expectedImgs = null, paid = false, minFreeChars = MIN_FREE_PREVIEW_CHARS } = {}) {
-  const base = { urlHeadings: [], emptyBq: 0, imgLive: 0, imgShort: false, freeChars: 0, freeShort: false };
+  const base = { urlHeadings: [], emptyBq: 0, imgLive: 0, imgShort: false, imgExcess: false, literalStars: [], brokenLinks: [], freeChars: 0, freeShort: false };
   const { body, error, unmeasurable, isLimited } = await fetchNoteBody(noteId);
   if (error) return { ok: false, ...base, unmeasurable: false, isLimited: null, fetchError: error };
   // 未ログインで中身が返らない記事は「破損なし」でも「破損あり」でもなく計測不能。
@@ -171,11 +176,30 @@ export async function assertLiveBody(noteId, { expectedImgs = null, paid = false
   const emptyBq = countEmptyBlockquotes(body);
   const imgLive = countImgs(body);
   const imgShort = expectedImgs != null && imgLive < expectedImgs;
+  // 同じ画像行の重複は 2 枚目が live に残る（2026-09-23 に重複 26 本を原稿側で直した）
+  const imgExcess = expectedImgs != null && imgLive > expectedImgs;
+  const literalStars = findLiteralStars(body);
+  const brokenLinks = findBrokenSiteLinks(body);
   const freeChars = textLen(body);
   // 有料記事のときだけ見る。無料記事は body 全文が返るので短くても事故ではない。
   const freeShort = paid && freeChars < minFreeChars;
-  const ok = urlHeadings.length === 0 && emptyBq === 0 && !imgShort && !freeShort;
-  return { ok, urlHeadings, emptyBq, imgLive, imgShort, freeChars, freeShort, unmeasurable: false, isLimited, fetchError: null };
+  const ok = urlHeadings.length === 0 && emptyBq === 0 && !imgShort && !imgExcess
+    && literalStars.length === 0 && brokenLinks.length === 0 && !freeShort;
+  return { ok, urlHeadings, emptyBq, imgLive, imgShort, imgExcess, literalStars, brokenLinks, freeChars, freeShort, unmeasurable: false, isLimited, fetchError: null };
+}
+
+/** assertLiveBody の不整合を 1 行に整形する（note-update-body [5e]・note-publish [13] が共用）。 */
+export function formatLiveIssues(chk, expectedImgs = null) {
+  const exp = expectedImgs == null ? '' : `/期待=${expectedImgs}`;
+  const parts = [];
+  if (chk.urlHeadings.length) parts.push(`URL見出し[${chk.urlHeadings.join(' / ')}]`);
+  if (chk.emptyBq) parts.push(`空引用${chk.emptyBq}件`);
+  if (chk.imgShort) parts.push(`画像欠落(live=${chk.imgLive}${exp})`);
+  if (chk.imgExcess) parts.push(`画像過多(live=${chk.imgLive}${exp}＝重複の疑い)`);
+  if (chk.literalStars?.length) parts.push(`太字記号${chk.literalStars.length}件[${chk.literalStars.slice(0, 2).join(' / ')}]`);
+  if (chk.brokenLinks?.length) parts.push(`存在しないサイトリンク[${chk.brokenLinks.join(' / ')}]`);
+  if (chk.freeShort) parts.push(`無料プレビュー崩壊(${chk.freeChars}字＝有料境界が冒頭へ動いた疑い)`);
+  return parts.join(' / ') || 'なし';
 }
 
 // ---- 見出し構造の食い違い（2026-09-23 追加） ----
@@ -257,4 +281,21 @@ export function diffHeadings(sot, live) {
 export function findLiteralStars(html) {
   const text = decodeEntities(stripTags(removeUntilStable(html || '', /<(pre|code)\b[\s\S]*?<\/\1>/g)));
   return [...text.matchAll(/.{0,12}\*\*.{0,12}/g)].map((m) => m[0].replace(/\s+/g, ' '));
+}
+
+/**
+ * ライブ本文のサイト内リンクのうち、存在しないページを指すもの（404 の疑い）のパス一覧。
+ * 旧 /docs は転送先があれば 301 で届くので問題にしない。/standards・/topics の独自ページは
+ * _redirects に載らずここでは判定できないので除く。_redirects を読めないときは判定しない
+ * （転送先の集合が空だと全リンクを 404 扱いにしてしまう）。原稿側は check-sns-urls が止める。
+ * 2026-09-24: 配合計算-実戦演習の打ち間違い 2 本が note 上で 404 のまま残っていた。
+ */
+export function findBrokenSiteLinks(html, routes = loadSiteRoutes()) {
+  if (!routes.loaded) return [];
+  const bad = new Set();
+  for (const m of decodeEntities(html || '').matchAll(siteLinkRegex())) {
+    const c = classifySitePath(m[1], routes);
+    if (c.kind === 'unknown' || (c.kind === 'legacy' && !c.to)) bad.add(c.path);
+  }
+  return [...bad];
 }

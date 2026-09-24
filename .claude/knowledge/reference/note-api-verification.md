@@ -392,7 +392,7 @@ live 層を CI に載せないのは、**有料エリア内の添付カードが
 ### PDF 生成の環境依存（2026-07-04 訂正）
 - **Mac でハングするのは `magazine-to-pdf.mjs` の Chrome `--print-to-pdf` 経路だけ**。**Playwright `chromium.launch({headless:true})` → `page.pdf()` は Mac で正常動作**する（実例 `scripts/generate-anki-pdf.mjs`＝A5赤シートPDF・`--sample` で見本PNG）。カスタムHTML→PDF は magazine-to-pdf でなく `page.pdf()` を使う。
 
-## live 本文整合性検査: check-note-live-headings（URL見出し/空引用/画像欠落/見出し食い違い/太字記号の検知網）
+## live 本文整合性検査: check-note-live-headings（URL見出し/空引用/画像欠落・過多/見出し食い違い/太字記号/リンク切れの検知網）
 
 note-publish / note-update-body には、SoT どおりに live が反映されない 3 系統の破損があった:
 
@@ -404,12 +404,12 @@ note-publish / note-update-body には、SoT どおりに live が反映され�
 
 3 層の防衛網:
 
-1. **書き込みスクリプト内蔵ゲート**: `note-publish.mjs` / `note-update-body.mjs` はカード化後に URL 見出しを修復（`repairUrlHeadings`）・本文画像をアップロード（`insertImagesAtPlaceholders`）し、残存/失敗すれば**保存/公開せず中断**。公開/更新後は public API で本文を自動検証（`assertLiveBody`＝URL見出し/空引用/画像欠落の 3 検査）。ネットワーク未達は WARN（手動確認コマンド表示）。共有実装は `scripts/lib/note-live-check.mjs`。
-2. **横断スイープ**: `npm run check-note-live-headings` — 公開判定（noteUrl 非空 OR noteStatus=published）の全記事を live API から並列 8 で取得し、5 検査（URL見出し/空引用/画像欠落/見出し食い違い/太字記号）で不整合を列挙。見出し食い違い（原稿の `#`・`##` のうち先頭のタイトル行を除いたものと live の `h2` を多重集合で比較）と太字記号は、**再公開台帳と本文ハッシュが一致する記事だけ**を見る（原稿を直して未再公開の記事は live が古いのが正常で、同じ週次ジョブの `check-note-republish` が要再公開として出す。除外件数は出力する）。BAD≥1 で exit 1。`note-live-audit.yml` が週次実行する。有料記事は API 本文が paywall で切断されるため画像期待値は「有料境界より前の枚数」、境界が SoT に無い有料は画像検査 skip（PARTIAL）。`--paths` で BAD の article.md パスのみ出力（修復 list 生成用）。
+1. **書き込みスクリプト内蔵ゲート**: `note-publish.mjs` / `note-update-body.mjs` はカード化後に URL 見出しを修復（`repairUrlHeadings`）・本文画像をアップロード（`insertImagesAtPlaceholders`）し、残存/失敗すれば**保存/公開せず中断**。公開/更新後は public API で本文を自動検証（`assertLiveBody`＝URL見出し/空引用/画像の欠落と過多（重複）/太字記号の残り/存在しないサイト内リンク。2026-09-24 に後ろの 3 つを追加し、週次スイープだけでなく 1 本ごとの公開直後にも止める）。ネットワーク未達は WARN（手動確認コマンド表示）。共有実装は `scripts/lib/note-live-check.mjs`。
+2. **横断スイープ**: `npm run check-note-live-headings` — 公開判定（noteUrl 非空 OR noteStatus=published）の全記事を live API から並列 8 で取得し、7 検査（URL見出し/空引用/画像欠落/見出し食い違い/太字記号/画像過多/リンク切れ）で不整合を列挙。見出し食い違い（原稿の `#`・`##` のうち先頭のタイトル行を除いたものと live の `h2` を多重集合で比較）・太字記号・画像過多・リンク切れは、**再公開台帳と本文ハッシュが一致する記事（301 等価＝旧 `/docs` → 新 URL の張り替えだけの記事を含む）だけ**を見る（原稿を直して未再公開の記事は live が古いのが正常で、同じ週次ジョブの `check-note-republish` が要再公開として出す。除外件数は出力する）。BAD≥1 で exit 1。`note-live-audit.yml` が週次実行する。有料記事は API 本文が paywall で切断されるため画像期待値は「有料境界より前の枚数」、境界が SoT に無い有料は画像検査 skip（PARTIAL）。`--paths` で BAD の article.md パスのみ出力（修復 list 生成用）。
 3. **lint 予防**（note-lint）: ルール 8＝無料記事の地の文 200 字以上段落（`SKIP_NOTE_PARA=1`）、ルール 9＝複数行 blockquote（`SKIP_NOTE_BQ=1`）、ルール 10＝同じ画像の重複（2 枚目が CDN 確定せず全文更新が中断する。全件は `check-note-duplicate-images` が CI で同じ判定を当てる）。既存違反はバーンダウン（触った記事から漸次是正）。
 
 ```bash
-npm run check-note-live-headings                          # 全 published を 5 検査でスイープ（見出し/太字記号は要再公開を除く）
+npm run check-note-live-headings                          # 全 published を 7 検査でスイープ（見出し/太字記号/画像過多/リンク切れは要再公開を除く）
 node scripts/check-note-live-headings.mjs content/note/共通  # パス絞り込み
 node scripts/check-note-live-headings.mjs --paths         # BAD パスのみ（list 生成）
 ```
