@@ -46,7 +46,7 @@ import { fileURLToPath } from 'node:url';
 import { recordPublishedHash, recordPublishedTagHash, recordPublishedMetaHash, recordPublishedAssetHash } from './lib/note-republish-hash.mjs';
 import { cardifyBareUrls, repairUrlHeadings, listUrlHeadingsInEditor } from './lib/note-cardify.mjs';
 import { extractBodyImages, insertImagesAtPlaceholders } from './lib/note-images.mjs';
-import { assertLiveBody, expectedFreePreviewMin } from './lib/note-live-check.mjs';
+import { assertLiveBody, expectedFreePreviewMin, formatLiveIssues } from './lib/note-live-check.mjs';
 import { todayJst } from './lib/jst-date.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 
@@ -625,19 +625,14 @@ try {
       publishedUrl = page.url();
       console.log('[12] 投稿する clicked → published:', publishedUrl);
       writeBack(publishedUrl, todayJst());
-      // [13] 公開後 API 実体検証（3検査）: URL見出し / 空引用 / 画像欠落（偽成功ガードの一部）
+      // [13] 公開後 API 実体検証: URL見出し / 空引用 / 画像の欠落・過多 / 太字記号 / 存在しないサイトリンク（偽成功ガードの一部）
       const pubId = (publishedUrl.match(/n[0-9a-f]{12}/) || [])[0];
       if (pubId) {
         const chk = await assertLiveBody(pubId, { expectedImgs, paid: isPaid, minFreeChars });
         if (chk.fetchError) console.log(`[13] WARN: API検証未達（${chk.fetchError}）→ 手動確認: curl --ssl-no-revoke https://note.com/api/v3/notes/${pubId}`);
         else if (!chk.ok) {
-          const parts = [];
-          if (chk.urlHeadings.length) parts.push(`URL見出し[${chk.urlHeadings.join(' / ')}]`);
-          if (chk.emptyBq) parts.push(`空引用${chk.emptyBq}件`);
-          if (chk.freeShort) parts.push(`無料プレビュー崩壊(${chk.freeChars}字＝有料境界が冒頭へ動いた疑い)`);
-          if (chk.imgShort) parts.push(`画像欠落(live=${chk.imgLive}/期待=${expectedImgs})`);
-          console.error(`[13] FAIL: 公開本文に不整合: ${parts.join(' / ')} → note-update-body --commit で修復`); process.exitCode = 2;
-        } else console.log(`[13] API 実体検証 OK（URL見出し0 空引用0 img=${chk.imgLive}）`);
+          console.error(`[13] FAIL: 公開本文に不整合: ${formatLiveIssues(chk, expectedImgs)} → note-update-body --commit で修復`); process.exitCode = 2;
+        } else console.log(`[13] API 実体検証 OK（URL見出し0 空引用0 太字記号0 リンク切れ0 img=${chk.imgLive}）`);
         // [13m] メンバーシップ限定の実体検証: 未ログインの public API で本文が読めないこと。
         // note のメンバーシップ記事は body='' + hashtag_notes=[] を返す（= isUnmeasurable）。
         // 本文が読めてしまうなら公開範囲の選択が効いておらず **全員に無料公開**されている。

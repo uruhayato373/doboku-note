@@ -10,7 +10,10 @@
  *   (4) 見出し食い違い — 原稿の見出し（note で h2 になる # / ##）とライブの h2 が一致しない
  *                       （冒頭 CTA の部分更新で CTA 文が見出しになり、直後の見出しが割れた。2026-09-23 発覚）
  *   (5) 太字記号     — ライブ本文に ** が記号のまま残る（太字にならなかった強調。2026-09-23 発覚）
- *   (4)(5) は再公開台帳と本文ハッシュが一致する記事だけを見る。原稿を直して未再公開の記事は
+ *   (6) 画像過多     — live <img> 数 > SoT 期待枚数（同じ画像行の重複が live に残る。2026-09-24 追加）
+ *   (7) リンク切れ   — ライブ本文のサイト内リンクが存在しないページを指す（404。2026-09-24 追加）
+ *   (4)〜(7) は再公開台帳と本文ハッシュが一致する記事（301 等価＝旧 /docs → 新 URL の張り替えだけの記事を含む）
+ *   だけを見る。原稿を直して未再公開の記事は
  *   ライブが古いのが正常で、そちらは check-note-republish（同じ週次ジョブ）が要再公開として出す。
  *
  * SoT 期待画像数 = 本文の `![](...)` 行数（frontmatter/コメント除く）。有料記事は API 本文が
@@ -28,8 +31,8 @@
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { fetchNoteBody, findUrlHeadings, countEmptyBlockquotes, countImgs, sotH2s, liveH2s, diffHeadings, findLiteralStars, stripHtmlComments } from './lib/note-live-check.mjs';
-import { bodyHash, loadState } from './lib/note-republish-hash.mjs';
+import { fetchNoteBody, findUrlHeadings, countEmptyBlockquotes, countImgs, sotH2s, liveH2s, diffHeadings, findLiteralStars, findBrokenSiteLinks, stripHtmlComments } from './lib/note-live-check.mjs';
+import { bodyHash, canonBodyHash, loadState } from './lib/note-republish-hash.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const rawArgs = process.argv.slice(2);
@@ -76,7 +79,9 @@ function headingLimitOf(raw) {
   return { md, limit: idx < 0 ? null : idx };
 }
 
-const republished = loadState().hashes || {};
+const ledger = loadState();
+const republished = ledger.hashes || {};
+const canonLedger = ledger.canonHashes || {};
 const targets = [];
 let reserved = 0;
 let driftSkipped = 0;
@@ -97,14 +102,18 @@ for (const f of walk(join(ROOT, 'content/note'), [])) {
   const m = fm.match(/noteId:\s*"?(n[0-9a-f]{12})"?/);
   if (!m) continue;
   const path = f.slice(ROOT.length + 1).replaceAll('\\', '/');
-  const inSync = republished[path] === bodyHash(raw);
+  // 301 等価（記録時の版との差分が旧 /docs → 新 URL の張り替えだけ）の記事も、live は記録時の本文のまま。
+  // ここで外すと再公開しない限り永久に (4)〜(7) の対象外になる（2026-09-24 の 546 本）
+  const rec = republished[path];
+  const canon = canonLedger[path];
+  const inSync = rec === bodyHash(raw) || (!!canon && canon.of === rec && canon.canon === canonBodyHash(raw));
   if (!inSync) driftSkipped++;
   const { md, limit } = headingLimitOf(raw);
   targets.push({ noteId: m[1], path, expectedImgs: expectedImagesOf(raw), sotHeadings: inSync && limit != null ? sotH2s(md, limit) : null, inSync });
 }
 if (!PATHS_ONLY) {
   console.log(`[check-note-live-headings] published ${targets.length} 件を検査（予約中 ${reserved} 件は go-live 前のため対象外）`);
-  console.log(`  見出し・太字記号の検査は再公開台帳と一致する ${targets.length - driftSkipped} 件（要再公開 ${driftSkipped} 件はライブが古いのが正常なので除外）`);
+  console.log(`  見出し・太字記号・画像過多・リンク切れの検査は再公開台帳と一致する ${targets.length - driftSkipped} 件（301 等価を含む・要再公開 ${driftSkipped} 件はライブが古いのが正常なので除外）`);
 }
 
 async function check({ noteId, path, expectedImgs, sotHeadings, inSync }) {
@@ -135,6 +144,12 @@ async function check({ noteId, path, expectedImgs, sotHeadings, inSync }) {
     if (stars.length) {
       labels.push(`[太字記号 ${stars.length}]`);
       details.push(...stars.slice(0, 3).map((x) => `記号: ${x}`));
+    }
+    if (!partial && imgLive > expectedImgs) labels.push(`[画像過多 live=${imgLive}/sot=${expectedImgs}]`);
+    const broken = findBrokenSiteLinks(body);
+    if (broken.length) {
+      labels.push(`[リンク切れ ${broken.length}]`);
+      details.push(...broken.slice(0, 3).map((x) => `404: ${x}`));
     }
   }
   return { noteId, path, status: labels.length ? 'BAD' : (partial && expectedImgs !== 0 ? 'PARTIAL' : 'OK'), labels, urlH: details };
@@ -167,7 +182,7 @@ if (unmeas.length) {
 if (errs.length) console.log(`  WARN: FETCH_ERR ${errs.length} 件（ネットワーク未達・再実行かプロキシ外で確認）: ${errs.slice(0, 3).map((r) => r.noteId).join(', ')}${errs.length > 3 ? '…' : ''}`);
 
 if (bad.length) {
-  console.error(`[check-note-live-headings] ✗ live 本文に不整合 ${bad.length} 件（URL見出し/空引用/画像欠落/見出し食い違い/太字記号）。修復: node scripts/note-update-body.mjs --article <path> --commit`);
+  console.error(`[check-note-live-headings] ✗ live 本文に不整合 ${bad.length} 件（URL見出し/空引用/画像欠落/見出し食い違い/太字記号/画像過多/リンク切れ）。修復: node scripts/note-update-body.mjs --article <path> --commit`);
   process.exit(1);
 }
 
