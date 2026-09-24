@@ -1,6 +1,9 @@
 ---
+publishedAt: "2026-09-24"
+blogId: "814642"
+blogUrl: "https://coconala.com/blogs/6197366/814642"
 title: "2級の経験記述はどこまで書けば通る？1級との基準の違い"
-status: "draft"
+status: "published"
 exam: civil-2
 angle: 反論
 category: 学び

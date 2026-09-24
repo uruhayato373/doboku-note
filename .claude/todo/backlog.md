@@ -124,11 +124,13 @@
 **完了条件**: catalog の i・j 系26冊がすべて ASIN 付き `live` になること。
 
 ### [DN-0266] 2級二次（10/25）前に、ココナラブログの2級・直前向け下書き3本を1日1本で公開する
-タグ: [収益化] [種類:制作] [起票:2026-09-23] [期日:2026-10-15]
+タグ: [収益化] [種類:制作] [起票:2026-09-23] [期日:2026-10-15] [進行中]
 
 **起点**: ココナラブログは公開8本に対し、書き上がった下書きが8本残っている（`2kyu-doko-made-kaku`・`2kyu-moshi-tsukaikata`・`chokuzen-2shukan-roadmap` ほか）。2級受験者が本試験直前に、経験記述の書き込み量と模試の使い方を確かめるための記事で、HARMはA。2026-09-23に見本記事（813777）を公開し、2級の模試とフルパックの本文から見本へリンクした。公開済み記事の閲覧は30日で各6〜16と小さい。記事公開で出品の閲覧が増えるかは未検証。
 
-**やること**: 3本を `coconala-blog-qa` で採点し、合格した記事から `node scripts/coconala-blog-publish.mjs --post <slug> --commit` で1日1本公開する（coconala-blog-policy.md §6）。funnel 先が listed であることを `npm run check-coconala-blog` で確かめる。
+**やること**: 残り2本を `DOBOKU_PW_MIN_FREE_MB=1200 node scripts/coconala-blog-publish.mjs --post <slug> --commit` で1日1本公開する（coconala-blog-policy.md §6）。9/24 に `coconala-blog-qa` で採点済み（`2kyu-doko-made-kaku` は同日公開済み・814642）。
+1. 9/25: `chokuzen-2shukan-roadmap`（PASS 3.0）。1級向け（funnel `coconala-1kyu-full-pdf`）で、1級二次 10/4 の直前訴求なので先に出す
+2. 9/26 以降: `2kyu-moshi-tsukaikata`（CTA を実商品「3回分・6冊＋特典」に直して `check-coconala-blog` violations 0。導線整合以外は 3 点）
 
 **完了条件**: 3本の blogUrl が frontmatter に書き戻され、公開スクリプトのライブ実査（ログアウト状態・外部リンク0件）が通る。公開から30日後に、記事と2級出品の閲覧を kpi-log で読む（欠測は0と扱わない）。
 
@@ -360,7 +362,7 @@ CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認し
 ## 🟡 中 — 2〜3ヶ月以内
 
 ### [DN-0301] `/links` の OG 画像（og-links.png）の資格数を 9 に作り直す
-タグ: [SNS・マーケ] [種類:改善] [起票:2026-09-24]
+タグ: [SNS・マーケ] [種類:改善] [起票:2026-09-24] [進行中]
 
 **起点**: `public/images/og-links.png` は「土木・建設系7資格」、`src/app/links/page.tsx` の openGraph の画像 alt は「8資格」だが、ページの資格カードは RCCM を含む 9 資格。2026-09-24 に本文とメタデータの説明文だけ 9 資格に直した。SNS で `/links` を共有するとリンクカードに古い数が出る。
 
@@ -377,14 +379,6 @@ CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認し
 
 **完了条件**: 上の比較を 1 回行い、18 本を再公開した（`check-note-republish` の drift から消えた）か、再公開しないと決めて本カードを削除した。
 
-### [DN-0284] ココナラ出品の文面変更と4テーマ添削の追加（PR #595・#596）について /doc-sync を1回回す
-タグ: [エージェント・SSOT] [種類:改善] [検証:check-doc-refs] [起票:2026-09-24]
-
-**起点**: 2026-09-24 に `src/lib/coconala-services.ts`（タイトル変更・`coconala-tensaku-4theme` 追加）と `scripts/coconala-thumb.mjs` を変えた。規約（code ルール「ドキュメント同期プロトコル」）ではコミット前に `/doc-sync` を回すが、そのセッションでは skill を呼べなかったため、運用表（coconala-operations.md）・売上記録の対応表・展開キットは手で直した。
-
-**やること**: `/doc-sync` を2つのマージコミット（`56749ec1f`・`bc9759e50`）の差分に対して1回回し、旧タイトル（「1・2級土木の経験記述を元発注者が診断します」「新形式対応 土木経験記述を元発注者が添削します」）やココナラの出品数・価格表の陳腐化を直す。`.claude/state/coconala/` の実測スナップショットは当時の記録なので直さない。
-
-**完了条件**: doc-sync-auditor の指摘が0件になるか、指摘を適用して `check-doc-refs` が通る。
 
 ### [DN-0279] 無料模試とサービス紹介の動画パックを作る（同じ形式の無料版→有料版、申し込み方の実演）
 タグ: [SNS・マーケ] [種類:制作] [検証:check-video-content] [起票:2026-09-23]
@@ -709,7 +703,7 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 **完了条件**: 画像が消えたときの出力に「エディタに無い n 枚」が出て、中断理由が `img-settle` と区別されて `.claude/state/note-update-aborted.json` に残る。単体テストで 2 つの分類を確かめる。
 
 ### [DN-0302] note のリンクカード化が、カードにならない URL 1 本で止まり、後ろの URL が全部素のリンクで公開される
-タグ: [収益化] [種類:不具合] [起票:2026-09-24]
+タグ: [収益化] [種類:不具合] [起票:2026-09-24] [進行中]
 
 **起点**: 2026-09-24、DN-0299 で `経験記述-AI設計-無料`（n0171b3105e2d）を全文更新したら `[4] cardify: processed=40 cards=0` になり、Brain の URL とその後ろの note 記事 URL がどちらも素のリンクのまま公開された。`scripts/lib/note-cardify.mjs` の `cardifyBareUrls` は毎回「最初の bare URL 段落」を探し直すため、埋め込みにならない URL（brain-market.com）が先頭に残り続け、同じ行を上限 40 回（各 10 秒待ち＝約 7 分）打ち直して終わる。公開直後の検査 [5e] はカードの有無を見ないので通ってしまう。
 
