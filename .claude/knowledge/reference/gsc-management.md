@@ -58,6 +58,14 @@ key は `.claude/config/indexnow.json` と `public/<key>.txt` の一致が前提
 失敗（非 2xx・sitemap/key が読めない）は `automation-failure` Issue。Google の index には無関係＝本 doc の
 coverage 指標は動かない。効果は GA4 の `Organic Search` のうち Bing セッションで見る（GSC には出ない）。
 
+## 旧 URL の一時 sitemap（2026-09-24〜2026-11-30・DN-0290）
+
+2026-08-22 の URL 移行後も旧 `/docs` が表示の 32%（28 日で 4,487 / 14,183）を取り、新 URL 18 件が「Google が旧 URL を正規に選択」の重複だった（2026-09-23）。
+Google の「Move a site with URL changes」（2026-08-20 更新）の手順どおり、旧 URL だけを載せた `sitemap-legacy.xml` を
+`scripts/generate-sitemap.mjs` が出し、`robots.txt` の `Sitemap:` 行で知らせる（転送先が今の sitemap に載っている旧 URL だけ・lastmod は 301 にした 2026-08-22）。
+`sitemap.xml`（index-coverage・IndexNow・check-seo-build の母集合）には混ぜない。GSC の旧 sitemap に出る「リダイレクト」警告は Google の手順上ふつうなので無視する。
+期限 `LEGACY_SITEMAP_UNTIL`（`scripts/lib/legacy-sitemap.mjs`）を過ぎたビルドでは自動で出さなくなる。延長・前倒しは旧 URL の表示比率（`gsc-page` の `/docs/` 行）で判断する。
+
 ## 閾値
 
 | 指標 | 警戒 | 目標 |

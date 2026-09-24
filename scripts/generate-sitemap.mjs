@@ -4,6 +4,7 @@ import matter from 'gray-matter';
 import { loadGitDates, lookupGitDates } from '../.claude/scripts/lib/git-dates.mjs';
 import { SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 import { renderSitemapEntry, resolveStaticLastmod } from './lib/sitemap-lastmod.mjs';
+import { buildLegacySitemapUrls, renderLegacySitemap, LEGACY_SITEMAP_FILE, LEGACY_SITEMAP_UNTIL } from './lib/legacy-sitemap.mjs';
 
 const SITE_URL = 'https://doboku-note.com';
 const OUT_DIR = 'out';
@@ -259,6 +260,18 @@ ${unique.map(renderSitemapEntry).join('\n')}
 
 writeFileSync(join(OUT_DIR, 'sitemap.xml'), sitemap);
 
+// 旧 /docs URL の一時 sitemap（DN-0290・scripts/lib/legacy-sitemap.mjs）。Google のサイト移転手順に沿って、
+// 旧 URL を再クロールさせ 301 を早く処理させる。sitemap.xml には混ぜず robots.txt の Sitemap 行だけで知らせる。
+// 期限を過ぎたビルドでは出さない（外し忘れ防止）。
+const legacySitemap = buildLegacySitemapUrls({
+  docRoutes,
+  sitemapLocs: new Set(unique.map((u) => u.loc)),
+  siteUrl: SITE_URL,
+});
+if (legacySitemap.active) {
+  writeFileSync(join(OUT_DIR, LEGACY_SITEMAP_FILE), renderLegacySitemap(legacySitemap.urls));
+}
+
 // AI 学習データ収集クローラー（LLM 用）を全面 disallow。
 // 公益的な GoogleBot / Bingbot 等は許可（検索インデックスの正常稼働を維持）。
 // 背景: 2026-05 の GA4 で Bing 経由 1,293 users (40%) が engage 21%/bounce 79% の
@@ -332,7 +345,7 @@ User-agent: MJ12bot
 Disallow: /
 
 Sitemap: ${SITE_URL}/sitemap.xml
-`;
+${legacySitemap.active ? `Sitemap: ${SITE_URL}/${LEGACY_SITEMAP_FILE}\n` : ''}`;
 writeFileSync(join(OUT_DIR, 'robots.txt'), robots);
 
 // サマリ出力
@@ -343,3 +356,6 @@ const summary = Object.entries(pCount).sort().map(([p, n]) => `${p}: ${n}件`).j
 console.log(`✅ Generated sitemap.xml with ${unique.length} URLs`);
 console.log(`   priority: ${summary}`);
 console.log(`   canonicalized legacy docs: ${docRoutes.size}件 / redirect sources: ${redirectSources.size}件`);
+console.log(legacySitemap.active
+  ? `   ${LEGACY_SITEMAP_FILE}: 旧 /docs URL ${legacySitemap.urls.length}件（${LEGACY_SITEMAP_UNTIL} まで・robots.txt に掲載）`
+  : `   ${LEGACY_SITEMAP_FILE}: 期限（${LEGACY_SITEMAP_UNTIL}）を過ぎたため出さない`);
