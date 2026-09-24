@@ -569,3 +569,9 @@ EXP-006 の本判定は予定どおり next_check 2026-08-27 に、カバレッ�
 - 判断: 2026-09-17 に外した `/standards/` の逐語分冊 part-N（当時 133 件）を sitemap へ戻す。復帰条件「`/exam/` の索引率 70%」は 9/23 の batch で `/exam/` 1,015 / 1,207＝84.1% になり満たした（サイト全体 79.9%・#485 は同日自動クローズ）
 - 変更: `scripts/generate-sitemap.mjs` の除外と `scripts/check-seo-build.mjs` の `SITEMAP_OPTIONAL_PATTERNS` を同時に外す（片方だけだと逆方向ゲートが偽赤になる）。sitemap は約 1,435 → 1,568 URL（URL Inspection の上限 1,900 以内）
 - 読み方の注意: 戻した翌週の batch では part-N（9/7 時点で登録済み 25 / 133）の分だけ検出-未登録が増え、indexed_ratio が数 pt 下がる見込み。**part-N を除いた `/exam/` の索引率で比較する**。自動レビューはこの増加を異常と扱わない
+
+### 2026-09-24（旧 URL 一時 sitemap の採用）
+
+- 判断: 旧 `/docs` URL だけを載せた `sitemap-legacy.xml`（1,312 件・robots.txt に掲載・2026-11-30 を過ぎたビルドで自動終了）を採用（PR #600 をユーザーがマージ）。本番に出るのは次の deploy から
+- 根拠: 旧 `/docs` が 28 日の表示の 32%（4,487 / 14,183）を取り、新 URL 18 件が「Google が旧 URL を正規に選択」の重複。Google の「Move a site with URL changes」（2026-08-20 更新）が旧 URL の sitemap も送る手順を示している
+- 読み方: 効果は `gsc-page` の `/docs/` 行の表示比率と、URL Inspection の重複件数で見る。GSC の旧 sitemap に出る「リダイレクト」警告は想定どおり。11/30 より前に止める・延ばすときは `scripts/lib/legacy-sitemap.mjs` の `LEGACY_SITEMAP_UNTIL` を変える
