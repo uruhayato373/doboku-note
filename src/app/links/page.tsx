@@ -270,7 +270,7 @@ function CardRow({
 /**
  * 資格カード 1 枚。頭に資格ブランドの帯（cta-bg イラスト or テーマ色）を敷き、
  * 中身は役割固定の 3 行。③ 個別サービスは資格に紐づく listed が無ければ行ごと省略する
- * （建設部門はココナラ・Brain とも 0 件）。
+ * （2026-09-24 時点でコンクリート 3 資格は 2 行、技術士第一次はサイトの 1 行だけ）。
  */
 function ExamCardView({ card }: { card: ExamCard }) {
   const brand = EXAM_BRAND[card.key];
