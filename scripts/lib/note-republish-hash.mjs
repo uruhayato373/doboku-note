@@ -4,18 +4,53 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync } from 
 import { dirname } from 'node:path';
 import { createHash } from 'node:crypto';
 import { todayJst } from './jst-date.mjs';
+import { loadSiteRoutes, rewriteLegacySiteLinks } from './site-links.mjs';
 
 export const STATE = '.claude/state/note-republish-hashes.json';
 
-// 公開実体に対応する本文ハッシュ。frontmatter を除いた本文を正規化して sha256(先頭16桁)。
+const hash16 = (s) => createHash('sha256').update(s, 'utf8').digest('hex').slice(0, 16);
+
+// 公開実体に対応する本文。frontmatter を除き、改行・行末空白・連続空行を正規化する。
 // CTA マーカーは含めたまま（本文/CTA いずれの変更も要再公開として捕捉する）。
-export function bodyHash(raw) {
+export function normalizeBody(raw) {
   let s = raw.replace(/^﻿/, '');
   s = s.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n/, '');
   s = s.replace(/\r\n/g, '\n');
   s = s.split('\n').map((l) => l.replace(/\s+$/, '')).join('\n');
-  s = s.replace(/\n{3,}/g, '\n\n').trim();
-  return createHash('sha256').update(s, 'utf8').digest('hex').slice(0, 16);
+  return s.replace(/\n{3,}/g, '\n\n').trim();
+}
+
+// 本文ハッシュ（sha256 先頭16桁）。台帳 hashes の値。
+export function bodyHash(raw) {
+  return hash16(normalizeBody(raw));
+}
+
+// 旧 /docs リンクを public/_redirects の転送先へ置き換えてから取る本文ハッシュ。
+// 本番は旧 /docs を新 URL へ 301 で転送しクエリ（UTM）も保つので、live に残る旧リンクと原稿の新リンクは
+// 読者から見て同じ行き先になる。記録時の版とこの値が一致すれば、差分は「301 で等価な張り替えだけ」で、
+// 再公開しなくても live は壊れていない（2026-09-24: PR #598 の張り替えで要再公開が 674 本になり、
+// 本当に要る 404 修正の 1 本が埋もれた・DN-0297）。
+export function canonBodyHash(raw, routes = loadSiteRoutes()) {
+  return hash16(rewriteLegacySiteLinks(normalizeBody(raw), routes).text);
+}
+
+/**
+ * 本文 drift を分類する。recCanon は記録時の版の canonBodyHash（台帳 canonHashes か git 履歴から復元）。
+ *   synced     … 記録時と同じ本文
+ *   equivalent … 差分は 301 で等価な旧 /docs → 新 URL の張り替えだけ
+ *   drift      … それ以外の変更（要再公開）
+ *   unjudged   … recCanon が分からず等価か判定できない（呼び出し側は要再公開として扱う）
+ */
+export function classifyBodyDrift({ rec, cur, recCanon, curCanon }) {
+  if (rec === cur) return 'synced';
+  if (!recCanon) return 'unjudged';
+  return recCanon === curCanon ? 'equivalent' : 'drift';
+}
+
+// 台帳 canonHashes[path] の値。of（元にした本文ハッシュ）が hashes[path] と一致するときだけ有効で、
+// 本文ハッシュだけ更新された古い値を等価判定に使わない。_redirects を読めないときは null（記録しない）。
+export function canonEntry(raw, routes = loadSiteRoutes()) {
+  return routes.loaded ? { of: bodyHash(raw), canon: canonBodyHash(raw, routes) } : null;
 }
 
 export function loadState() {
@@ -36,6 +71,9 @@ export function recordPublishedHash(filePath) {
     const raw = readFileSync(key, 'utf8');
     const st = loadState();
     st.hashes[key] = bodyHash(raw);
+    // 浅い clone の CI でも等価判定できるよう、記録時の版の canon も残す（git 履歴を引かずに済む）
+    const canon = canonEntry(raw);
+    if (canon) (st.canonHashes ||= {})[key] = canon; else if (st.canonHashes) delete st.canonHashes[key];
     st.updatedAt = todayJst();
     saveState(st);
     return true;
