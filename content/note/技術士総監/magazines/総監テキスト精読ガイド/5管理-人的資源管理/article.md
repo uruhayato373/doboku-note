@@ -95,7 +95,7 @@ https://note.com/dobokunote/n/n3ed4c77ceed6
 
 外部報酬（給与・表彰）に依存する管理を **[外発的動機付け](https://doboku-note.com/exam/pe-comprehensive-management/keywords/extrinsic-motivation?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)**、仕事そのものへの関心や達成感から生まれる動機を **[内発的動機付け](https://doboku-note.com/exam/pe-comprehensive-management/keywords/intrinsic-motivation?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** といいます。この二項対立はハーズバーグの二要因理論やマグレガーのY理論と深くつながっており、択一でセットで問われます。
 
-![図1：5インセンティブと3行動パターン](/posts/note/5管理-人的資源管理/img/figure-1-incentives.webp)
+![図1：5インセンティブと3行動パターン](img/figure-1-incentives.png)
 
 ### 組織コミットメント
 
@@ -121,7 +121,7 @@ https://note.com/dobokunote/n/n3ed4c77ceed6
 - **[ティール組織](https://doboku-note.com/exam/pe-comprehensive-management/keywords/teal-organization?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** — 指示系統なし・メンバー自律的意思決定。F.ラルーの著書が出典
 - **[達成型組織](https://doboku-note.com/exam/pe-comprehensive-management/keywords/achievement-organization?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** — メンバーが機械のパーツのように働く。革新的アイデアが出やすい反面、メンバー疲弊リスク
 
-![図2：7組織形態の特徴と弱点比較](/posts/note/5管理-人的資源管理/img/figure-2-organizations.webp)
+![図2：7組織形態の特徴と弱点比較](img/figure-2-organizations.png)
 
 > **【出題例: [R3年度 Ⅰ-1-16](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r03-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-16)】** 職能別組織と事業部制組織の優位性を4項目（専門知識蓄積／規模の経済／環境変化対応／次世代経営者育成）で比較する組合せ問題。 → **正答1：ア＝職能別、イ＝職能別、ウ＝事業部制、エ＝事業部制。**
 
@@ -142,7 +142,7 @@ https://note.com/dobokunote/n/n3ed4c77ceed6
 
 生理的 → 安全・安定 → 社会的（連帯）→ 尊厳（自我）→ 自己実現 の5段階。下位欲求が満たされると次の欲求が生じるという階層理論です。X理論は低次欲求段階への対応、Y理論は高次欲求段階への対応として位置づけられます。
 
-![図3：マズローの欲求5段階説](/posts/note/5管理-人的資源管理/img/figure-3-maslow.webp)
+![図3：マズローの欲求5段階説](img/figure-3-maslow.png)
 
 **[ハーズバーグの二要因理論](https://doboku-note.com/exam/pe-comprehensive-management/keywords/herzberg-two-factor-theory?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** （基礎論的）
 
@@ -151,7 +151,7 @@ https://note.com/dobokunote/n/n3ed4c77ceed6
 
 頻出の引っかけは「**衛生要因を充足すれば満足度が上がる**」という記述。衛生要因は不満防止のみで満足度向上には動機付け要因が必要、という二分法を押さえてください。
 
-![図4：動機づけ理論3本柱の対比](/posts/note/5管理-人的資源管理/img/figure-4-motivation-theories.webp)
+![図4：動機づけ理論3本柱の対比](img/figure-4-motivation-theories.png)
 
 > **【出題例: [R6年度 Ⅰ-1-16](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r06-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-16)】** 従業員モチベーション施策（A〜D）と行動モデル用語（マズロー／マグレガー／ハーズバーグ／テイラー）の組合せ問題。 → **正答5：A＝マズロー、B＝マグレガー、C＝ハーズバーグ、D＝テイラー。**
 
@@ -164,7 +164,7 @@ https://note.com/dobokunote/n/n3ed4c77ceed6
 - **pM型** — 成果を上げる力は低いが、人望があってまとめる力がある
 - **pm型** — 成果もまとめる力も低い
 
-![図5：PM理論の4象限](/posts/note/5管理-人的資源管理/img/figure-5-pm-theory.webp)
+![図5：PM理論の4象限](img/figure-5-pm-theory.png)
 
 **[SL理論](https://doboku-note.com/exam/pe-comprehensive-management/keywords/sl-theory?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** （ハーシー・ブランチャード／状況対応型リーダーシップ）— 部下の成熟度に応じて、**指示的行動** （指示の度合い）と **協労的行動** （一緒にやる度合い）の組み合わせを変える考え方です。①→②→③→④と移行します。
 
@@ -173,7 +173,7 @@ https://note.com/dobokunote/n/n3ed4c77ceed6
 3. **高協労・低指示** — 指示は最低限、自分で意思決定する環境を整える
 4. **低協労・低指示** — 権限委譲・監督も穏やかに
 
-![図6：SL理論の4段階移行](/posts/note/5管理-人的資源管理/img/figure-6-sl-theory.webp)
+![図6：SL理論の4段階移行](img/figure-6-sl-theory.png)
 
 **[サーバントリーダーシップ](https://doboku-note.com/exam/pe-comprehensive-management/keywords/servant-leadership?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** — 「まず相手に奉仕し、その後相手を導く」というリーダーシップ哲学。近年出題が増えています。
 
@@ -329,7 +329,7 @@ https://note.com/dobokunote/n/n3ed4c77ceed6
 
 **メンバーシップ型雇用** — 「人」を中心に管理する日本型。職務・勤務地・労働時間が限定されない契約で、**OJT教育** が育成の中心。
 
-![図7：ジョブ型 vs メンバーシップ型 比較](/posts/note/5管理-人的資源管理/img/figure-7-job-vs-membership.webp)
+![図7：ジョブ型 vs メンバーシップ型 比較](img/figure-7-job-vs-membership.png)
 
 組織運営では **総合職** と **一般職** を分ける **[複線型人事制度](https://doboku-note.com/exam/pe-comprehensive-management/keywords/multi-track-hr-system?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)**、ある時期まで同基準で昇進し以降は管理職／専門職／専任職を分ける **[専門職制度](https://doboku-note.com/exam/pe-comprehensive-management/keywords/specialist-system?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** が活用されます。**勤務地限定社員制度** （一定地域内の配属・異動）も増加傾向にあります。
 
@@ -390,7 +390,7 @@ https://note.com/dobokunote/n/n3ed4c77ceed6
 
 詳細は **[評価誤差ページ](https://doboku-note.com/exam/pe-comprehensive-management/keywords/halo-effect-errors?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** で確認できます。**[アンコンシャス・バイアス](https://doboku-note.com/exam/pe-comprehensive-management/keywords/unconscious-bias?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** （無意識の偏見）も近年の頻出論点です。
 
-![図8：6評価バイアス一覧](/posts/note/5管理-人的資源管理/img/figure-8-evaluation-biases.webp)
+![図8：6評価バイアス一覧](img/figure-8-evaluation-biases.png)
 
 > **【出題例: [R7年度 Ⅰ-1-16](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-16)】** 人事考課管理に関する記述として最も不適切なものを選ぶ問題。 → **正答5：人事評価の基準・手続・結果の公開による透明性が納得性を高めるとする記述は適切だが、ある選択肢は加点主義や成果主義の運用条件を誤っており不適切。**
 
