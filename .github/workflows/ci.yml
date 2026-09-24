@@ -29,6 +29,18 @@ jobs:
       - name: Install Dependencies
         run: npm ci --legacy-peer-deps
 
+      # 依存の既知脆弱性（high 以上）を job summary に出すだけで、red にはしない（DN-0242）。
+      # CodeQL と Socket は GitHub 側の既定セットアップで別に走っている。audit fix は自動適用しない
+      # （ERESOLVE 環境で依存が勝手に動くため）。
+      - name: npm audit (report only)
+        run: |
+          {
+            echo "### npm audit（high 以上・report only）"
+            echo '```'
+            npm audit --audit-level=high 2>&1 | tail -n 40 || true
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
       # doc-meta-index.json は git 追跡から外した生成物（2026-08-29・履歴肥大の再発防止）。
       # ビルド時に自動生成されるが、それより前に走る quality:audit:ci の各検査が
       # src/config/doc-meta-index.json を直接読むため、ここで明示的に生成しておく。
