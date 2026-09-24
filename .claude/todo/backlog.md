@@ -443,14 +443,6 @@ CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認し
 
 **完了条件**: PR で lhci が走り、a11y/SEO/BP のしきい値割れが赤になる。performance は warn のみで、揺れによる赤が 2 週間で 0。
 
-### [DN-0241] JSON-LD の @type 別必須プロパティを check-seo-build で検証する
-タグ: [インフラ・計測] [種類:改善] [検証:check-seo-build] [起票:2026-09-17]
-
-**起点**: check-seo-build は JSON-LD の parse エラーは見るが、`FAQPage` / `Article` / `BreadcrumbList` / `HowTo` の必須キー欠落（リッチリザルト落ち）は見ていない。
-
-**やること**: `scripts/check-seo-build.mjs` に `@type` → 必須キー表（Article: headline/datePublished/author、FAQPage: mainEntity[].name/acceptedAnswer.text、BreadcrumbList: itemListElement[].position/name/item 等）を足し、欠落を error、推奨キー欠落を warn にする。表は Google の構造化データ ガイドの必須欄を根拠にコメントで URL を残す。
-
-**完了条件**: `npm run check-seo-build:ci` が必須キー欠落を 1 件も残さず緑。意図的に headline を消したフィクスチャで赤になる回帰テスト付き。
 
 
 ### [DN-0231] Mac のGit保守を導入し、次回clone時にpartial cloneを使う（履歴は書き換えない）
@@ -700,14 +692,6 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 
 **完了条件**: `archived_sessions` が 300 MB 未満、手順が doc にあること。
 
-### [DN-0236] SessionStart の 6 スクリプトから `run()` を export し、1 プロセス内で順次実行する
-タグ: [エージェント・SSOT] [種類:改善] [Codex候補] [起票:2026-09-14]
-
-**起点**: SessionStart hook は `x-sync-status --dry` / `check-plan-staleness` / `check-backlog-health --due` / `check-git-sync` / `local-resource-audit --quick` / `check-disk-hygiene --quick` の node を 6 本同時に起動する。09-14 の設計で `scripts/session-start.mjs` が `execFileSync` で順次呼ぶ形にしたが、各 script が `main()` をモジュール内に閉じているため子プロセスは残る。
-
-**やること**: 6 本それぞれに `export async function run({ quiet })` を足し（既存の CLI 経路は維持）、`session-start.mjs` を import 呼び出しに切り替える。`check-git-sync` の `git fetch` はそのまま。
-
-**完了条件**: `node scripts/session-start.mjs` の実行中に node プロセスが 1 本、出力は現状と同じ、`node --test tests/session-start.test.mjs` 緑。
 
 ### [DN-0180] Drive共通仕様書文字起こし350本とstandards-libraryの関係を整理する
 タグ: [エージェント・SSOT] [種類:改善] [Codex候補] [起票:2026-09-06]
