@@ -453,6 +453,8 @@
     "ga4-admin-api:apply": "node scripts/ga4-admin-api.mjs apply",
     "growth-digest": "node scripts/build-growth-digest.mjs",
     "measure-experiments": "node scripts/measure-experiments.mjs",
+    "growth-triage": "node scripts/growth-triage.mjs",
+    "check-growth-triage": "node scripts/check-growth-triage.mjs",
     "check-business-direction": "node scripts/check-business-direction.mjs",
     "check-content-expansion": "node scripts/check-content-expansion.mjs"
   },

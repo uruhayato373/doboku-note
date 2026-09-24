@@ -202,5 +202,7 @@ npm run ga4-admin-api:check    # GA4 Admin API でカスタムディメンショ
 npm run ga4-admin-api:apply    # desired state の不足キーイベントを作成（既定 dry-run・--commit で作成）。要: サービスアカウントを GA4 編集者に
 npm run growth-digest          # 機会ダイジェスト: 成長パック×収益カバレッジ×Bing×実験台帳×triage-log から週次トリアージ対象を安定ID付きで抽出 → growth/digest-YYYY-Www.json。--print で週次レビュー埋め込み用 Markdown（書かない）、--week で指定週、--check は書かずに完走確認。罠: パックが無ければ exit 2
 npm run measure-experiments    # measure 仕様を持つ running/measuring 実験を前後の窓で自動計測（GA4/GSC/売上台帳）。既定 dry-run・--commit で measurements[] へ追記（冪等）。CI は fetch-metrics の publish 内で実行。罠: 売上は台帳の最終日が事後窓に届くまで確定扱いにしない
+npm run growth-triage          # 週次レビュー（ローカル）で機会ダイジェストを全件処分: list [--json] → apply --decisions .tmp/growth-triage-YYYY-Www.json [--commit]（backlog/実験/watchword/裁定/束ね/却下/保留を採番・起票・triage-log 記録）。罠: DN 採番に git 全履歴が要る（shallow clone は exit 2）・全件を先に検証し 1 件でも不正なら何も書かない
+npm run check-growth-triage    # 月曜 guard: 最新ダイジェストの未処分 0・レビューにマーカー・申し送りに ID。exit 1 未反映 / 2 ダイジェスト/レビュー無しか古い
 npm run check-business-direction # 事業方針・指標・履歴・追記専用の検査
 ```

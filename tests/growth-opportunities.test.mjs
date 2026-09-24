@@ -119,6 +119,10 @@ test('triage decisions suppress re-surfacing for a while (defer until date, reje
   assert.equal(isSuppressed('D', log, opt), true);
   assert.equal(isSuppressed('D', log, { ...opt, today: '2026-10-01' }), false);
   assert.equal(isSuppressed('X', log, opt), false);
+  // 同じ週の処分では抑止しない（トリアージ後の再実行で表示対象が入れ替わらない）
+  const same = { entries: [{ id: 'S', action: 'backlog', week: '2026-W38', weekStart: '2026-09-14' }] };
+  assert.equal(isSuppressed('S', same, { ...opt, week: '2026-W38' }), false);
+  assert.equal(isSuppressed('S', same, { ...opt, weekStart: '2026-09-21', week: '2026-W39' }), true);
 });
 
 test('selectSurfaced caps SEO/revenue, keeps one SEO item per page and surfaces all measurement/experiment items', () => {

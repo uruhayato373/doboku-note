@@ -118,7 +118,7 @@ export function buildDigest({ week, root = ROOT, today = jst() } = {}) {
     ...detectRevenue(pack, ctx),
   ];
   const log = readJson(`${GROWTH}/triage-log.json`, { entries: [] });
-  const sel = selectSurfaced(items, { log, weekStart: pack.period.startDate, today, config: cfg.digest });
+  const sel = selectSurfaced(items, { log, weekStart: pack.period.startDate, today, config: cfg.digest, week: pack.week });
   return {
     schemaVersion: 1,
     week: pack.week,

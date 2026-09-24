@@ -272,9 +272,10 @@ const weeksBetween = (fromWeekStart, toWeekStart) => Math.round((Date.parse(toWe
 /**
  * triage-log の最新処分でこの週に表示すべきでないか。
  * defer は until まで、reject は suppressWeeks.reject 週、その他（起票・束ね・裁定）は suppressWeeks.adopted 週。
+ * 同じ週（week）の処分では抑止しない＝トリアージ後に fetch-metrics を再実行しても表示対象が入れ替わらない。
  */
-export function isSuppressed(id, log, { weekStart, today, suppressWeeks }) {
-  const last = (log?.entries ?? []).filter((e) => e.id === id).at(-1);
+export function isSuppressed(id, log, { weekStart, today, suppressWeeks, week = null }) {
+  const last = (log?.entries ?? []).filter((e) => e.id === id && (week == null || e.week !== week)).at(-1);
   if (!last) return false;
   if (last.action === 'defer') return Boolean(last.until && today < last.until);
   const since = weeksBetween(last.weekStart ?? weekStart, weekStart);
@@ -285,8 +286,8 @@ export function isSuppressed(id, log, { weekStart, today, suppressWeeks }) {
  * カテゴリ内で期待効果の大きい順に並べ、SEO は 1 ページ 1 件に絞って表示件数を上限で切る。
  * measurement / experiment は全件。
  */
-export function selectSurfaced(items, { log, weekStart, today, config }) {
-  const live = items.filter((i) => !isSuppressed(i.id, log, { weekStart, today, suppressWeeks: config.suppressWeeks }));
+export function selectSurfaced(items, { log, weekStart, today, config, week = null }) {
+  const live = items.filter((i) => !isSuppressed(i.id, log, { weekStart, today, suppressWeeks: config.suppressWeeks, week }));
   const suppressed = items.length - live.length;
   const byGain = (a, b) => (b.expectedWeeklyGain?.value ?? 0) - (a.expectedWeeklyGain?.value ?? 0) || a.id.localeCompare(b.id);
   const pick = (category, cap, onePerPage) => {

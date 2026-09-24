@@ -442,6 +442,22 @@ sales-log が 34 日止まっていたことに誰も気づかず、下流のガ
 - 「✅ 投入待ちなし」なら本節は 1 行で記録して次へ。
 ```
 
+#### Agent G: 計測ダイジェスト（GA4 × GSC × 収益導線・親が直接実行）
+
+CI（金曜の `fetch-metrics.yml`）が前の完了週（月〜日・JST）と直前 28 日の基線で取った成長パックから、改善機会を
+安定 ID（`OPP-…`）付きで抽出した**機会ダイジェスト**を読む。**土曜 W のレビューは digest W−1**（事業レビューと同じ窓）。
+
+```bash
+git pull --ff-only                        # CI が金曜に push した digest / pack / 自動計測を取り込む
+npm run growth-digest -- --print          # レビュー本文へそのまま貼る（先頭の <!-- growth-digest:YYYY-Www --> を消さない）
+npm run growth-triage -- list             # この週の未処分（Phase 2.5 で全件処分する）
+```
+
+- 出力をそのまま「## 計測ダイジェスト」節へ貼る。**要約・転記し直さない**（マーカーが月曜の guard の証跡）
+- 入力が「欠測」と出た項目は 0 と読まない。計測の機会（measurement）として Phase 2.5 で処分する
+- ダイジェストが無い・古い（CI 停止）なら「## 課題・ブロッカー」に書き、fetch-metrics の Issue を確認する
+- 区分・閾値・表示上限の真実源: [growth-cycle.md](../../../knowledge/reference/growth-cycle.md)
+
 ### Phase 2: 分析・統合
 
 1. **達成率**: 計画タスクの完了率
@@ -500,6 +516,33 @@ gh issue list --label automation-failure --state open --json number,title,create
   report 区分 FAIL）・`index-coverage.yml`・`gsc-auto-review.yml`・`seo-rank-watch.yml`・`ops-audit.yml`（投稿・配信・
   転記の遅れ＝quality-audit の ops 区分）
 
+
+### Phase 2.5: 全件トリアージ（必須・計測→改善の起票）
+
+ダイジェストの表示対象と、このレビューで出た申し送りを**1 件残らず**処分して台帳へ起票する。散文のまま翌週へ
+持ち越さない（月曜の `weekly-review-guard` が `check-growth-triage` で未処分・未反映を Issue にする）。
+
+1. `npm run growth-triage -- list --json` で未処分を得る
+2. 各 `OPP-…` の処分を決め、判断ファイル `.tmp/growth-triage-YYYY-Www.json` を書く（`{ "digestWeek": "YYYY-Www", "decisions": [...] }`）
+
+   | action | いつ | 必須項目 | 行き先と実行者 |
+   |---|---|---|---|
+   | `backlog` | 単発の実装（CTA 配置・文言、title/description、計測の修理、導線ゼロの解消） | title / tier（high・mid・low・hold）/ category / kind / doing / done（任意 verify） | `.claude/todo/backlog.md` の DN → `/backlog-sweep` |
+   | `experiment` | 効果を前後で測るべき変更（配置・文言の試行など） | title / hypothesis / targetMetric / targetDelta（任意 measure） | `experiments.json`（proposed）→ `/nsm-experiment start`。measure を付ければ CI が自動計測 |
+   | `watchword` | 受験意図の SEO 機会（watchword 下書きがあるものだけ） | watch（id / priority / audience / need / rationale / nextStep ほか） | `seo-watchwords.json`（improve）→ 日次 `seo-rank-watch` が自動改善・効果判定 |
+   | `verdict` | 期限の来た実験（VERDICT_DUE 等） | result（success・partial・no-effect・negative）/ learnings | 実験を close |
+   | `bundle` | 既存カード・実験や同じバッチの起票で足りる | into（DN / EXP / OPP） | 起票しない |
+   | `reject` | 対応しない | reason（10 字以上） | 12 週は再表示しない |
+   | `defer` | 今は判断できない | until / reason | until まで再表示しない |
+
+   申し送り（「## 来週への申し送り」に書く行）は `"id": null` の `backlog` で起票する。**起票後の DN を行頭に書く**
+3. `npm run growth-triage -- apply --decisions .tmp/growth-triage-YYYY-Www.json` で検証（dry-run）→ 問題なければ `--commit`
+   （全件を先に検証し 1 件でも不正なら何も書かない。DN の採番に git の全履歴が要るのでローカルで実行する）
+4. 出力された変更ファイルを**明示指定で** `git add` してコミット・push（`git add -A` 禁止）
+5. 「## 計測→改善トリアージ」節に `OPP → 処分 → DN/EXP/watchword/理由` の表を書く
+
+処分の目安: 期待効果/週が大きいものから。計測（measurement）は他の判断の前提なので先に直す。1 件の判断に
+迷ったら `defer` ではなく、確かめる作業自体を `backlog` にする（保留の山を作らない）。
 
 ### Phase 3: 出力（md ファイル保存）
 
@@ -569,6 +612,14 @@ gh issue list --label automation-failure --state open --json number,title,create
 ### NSM トレンドの洞察
 - Organic Search users の増減: ...（コンテンツ追加・SEO 改善・試験シーズン影響などの要因）
 - 注目クエリ: 順位上位だが CTR が低い → title/description 改善候補
+
+## 計測ダイジェスト
+
+<!-- Agent G の `npm run growth-digest -- --print` の出力をそのまま貼る（先頭のマーカーを残す）。 -->
+
+## 計測→改善トリアージ
+
+<!-- Phase 2.5 の結果。| OPP | 区分 | 処分 | 行き先（DN/EXP/watchword）・理由 | の表。未処分 0 件で終える。 -->
 
 ## 実験の進捗
 
@@ -661,15 +712,15 @@ gh issue list --label automation-failure --state open --json number,title,create
 - ...
 
 ## 来週への申し送り
-- ...
+- DN-#### ...（各行に DN / EXP / OPP の ID を必ず書く。無ければ Phase 2.5 で `id: null` の backlog として起票してから書く）
 ```
 
 ## 運用ルール
 
-- **毎週金曜 PM に実行**（同日 06:00 JST の fetch-metrics 完了後）
+- **毎週土曜にローカルで実行**（金曜 06:00 JST の fetch-metrics が成長パック・機会ダイジェスト・実験の自動計測を push し、12:00 の gsc-auto-review が意味の判断を足した後）
 - レビューは `docs/reviews/weekly/YYYY-Www-review.md` に保存（GitHub Issue は使わない）
 - レビュー完了後に `/weekly-plan` が自動実行され、翌週の計画を `docs/reviews/weekly/YYYY-Www.md` に保存する
-- 未完了アクションは「来週への申し送り」→ 次週計画へ引き継ぐ
+- 未完了アクションは「来週への申し送り」→ 次週計画へ引き継ぐ。**申し送りは必ず ID 付き**（DN / EXP / OPP）。ID の無い申し送りと未処分の OPP は月曜の `check-growth-triage` が Issue にする
 - 最新レビュー＋次週計画だけを `docs/reviews/weekly/` に保持する。旧週は未完タスク・恒久知見を抽出後に削除し、履歴はgitで参照する
 
 ## 参照
@@ -681,6 +732,7 @@ gh issue list --label automation-failure --state open --json number,title,create
 - `.claude/skills/analytics/fetch-gsc-data/scripts/fetch-gsc-data.mjs` — GSC 個別取得（ページ別・フィルタ付き）
 - `.claude/scripts/fetch-ga4-data.mjs` — GA4 個別取得（ディメンション・メトリクス指定）
 - `scripts/check-experiment-due.mjs` — 実験の再計測/close 期限 surfacer（`npm run check-experiment-due`）
+- `scripts/build-growth-digest.mjs` / `scripts/growth-triage.mjs` / `scripts/check-growth-triage.mjs` — 計測ダイジェスト・全件トリアージ・月曜の反映ゲート（本スキル Agent G と Phase 2.5 の中核。真実源 [growth-cycle.md](../../../knowledge/reference/growth-cycle.md)）
 - `scripts/check-note-delivery-due.mjs` — **note の商品が購入者に届いているか**の surfacer（`npm run check-note-delivery-due -- --json`）
 - `scripts/check-coconala-orders.mjs` — ココナラ取引の突合＋**評価未送信/期限切迫** surfacer（`npm run check-coconala-orders -- --json`）
 - `scripts/check-coconala-blog.mjs` — ココナラブログのハードゲート＋**送客先ドリフト** surfacer（`npm run check-coconala-blog -- --json`）

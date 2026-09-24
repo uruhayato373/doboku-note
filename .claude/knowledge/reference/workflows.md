@@ -14,13 +14,16 @@ title: 推奨ワークフロー
 
 ```
 金曜:
-1. 06:00 JST  fetch-metrics.yml（自動）<- GSC + GA4 取得
+1. 06:00 JST  fetch-metrics.yml（自動）<- GSC + GA4 取得・成長パック・Bing・実験の自動計測・機会ダイジェスト
+   12:00 JST  gsc-auto-review.yml（自動）<- ダイジェストの OPP に意味の判断を足す
 土曜:
-2. 09:00 JST  /weekly-review          <- 実績を振り返る（進捗・コンテンツ品質・PSI 推移）
+2. 09:00 JST  /weekly-review          <- 実績を振り返る（計測ダイジェストを埋め込み、全件トリアージで backlog/実験/watchword へ起票）
 3. 09:00 JST  /weekly-plan            <- 来週の計画を立てる（前週の申し送り・backlog から選定）
 月曜:
-4. 11:17 JST  weekly-review-guard.yml（自動）<- 先週分の *-review.md 欠落を赤落ちで検知
+4. 11:17 JST  weekly-review-guard.yml（自動）<- 先週分の *-review.md 欠落を赤落ち・計測ダイジェストの未処分/未反映を Issue で検知
 ```
+
+計測→記録→改善サイクルの分業・閾値・処分の規則は [growth-cycle.md](growth-cycle.md)。
 
 詳細は `.claude/skills/management/weekly-review/SKILL.md` と `.claude/skills/management/weekly-plan/SKILL.md` を参照。
 

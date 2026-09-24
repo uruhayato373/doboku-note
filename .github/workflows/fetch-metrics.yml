@@ -354,7 +354,9 @@ jobs:
           cp -r /tmp/metrics-publish/monetization/* .claude/state/metrics/monetization/ 2>/dev/null || true
           cp -r /tmp/metrics-publish/crosswalk/* .claude/state/metrics/crosswalk/ 2>/dev/null || true
           cp -r /tmp/metrics-publish/affiliate/* .claude/state/metrics/affiliate/ 2>/dev/null || true
-          cp -r /tmp/metrics-publish/growth/* .claude/state/metrics/growth/ 2>/dev/null || true
+          # growth は pack だけを戻す（triage-log.json は土曜の週次レビューが develop へ push する処分記録で、
+          # job 開始時点の古い版で上書きしない。digest は下で reset 後の最新から生成する）
+          cp /tmp/metrics-publish/growth/pack-*.json .claude/state/metrics/growth/ 2>/dev/null || true
           cp -r /tmp/metrics-publish/bing/* .claude/state/metrics/bing/ 2>/dev/null || true
           cp -r /tmp/metrics-publish/ga4-admin/* .claude/state/metrics/ga4-admin/ 2>/dev/null || true
 
