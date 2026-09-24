@@ -98,15 +98,17 @@ try {
   await page.goto('https://coconala.com/services/add', { waitUntil: 'domcontentloaded', timeout: 60000 });
   await sleep(3000);
   await dismissModal(page);
-  const label = page.getByText('テキストチャット・', { exact: false });
-  if (await label.count()) await label.first().click();
-  else {
-    await page.evaluate(() => {
-      const r = document.querySelector('input[name="service-type"]');
-      const lbl = r?.closest('label'); (lbl || r)?.click();
-    });
-  }
+  // 種別ラジオ（テキストチャット・データ納品＝value 0）を input で直接 check する。ラベル文字のクリックでは
+  // 選択されず「内容の入力に進む」が disabled のまま遷移しなかった（2026-09-24 朝・9/25 0:05 に実測。
+  // 当初は新規出品の日次上限と誤読していた）。check 後にボタンが有効になったことを確かめてから進む。
+  await page.locator('input[name="service-type"][value="0"]').check({ force: true }).catch(() => {});
   await sleep(1500);
+  const typeState = await page.evaluate(() => ({
+    checked: document.querySelector('input[name="service-type"][value="0"]')?.checked ?? null,
+    disabled: [...document.querySelectorAll('button')].filter((b) => /内容の入力に進む/.test(b.innerText)).map((b) => b.disabled),
+  }));
+  console.log('[2] 種別選択:', JSON.stringify(typeState));
+  if (typeState.checked !== true || !typeState.disabled.includes(false)) { console.error('ABORT: サービス種別（テキストチャット・データ納品）を選べず「内容の入力に進む」が有効にならない'); await page.screenshot({ path: shot('publish-type.png') }); await ctx.close(); process.exit(3); }
   const proceed = page.getByRole('button', { name: '内容の入力に進む' });
   if (!(await proceed.count())) { console.error('ABORT: 「内容の入力に進む」未検出'); await page.screenshot({ path: shot('publish-add.png') }); await ctx.close(); process.exit(3); }
   try { await proceed.first().click({ timeout: 10000 }); }
