@@ -125,6 +125,17 @@ npm run report-note-funnel-efficiency
 
 これは購入者をクリックへ結合したCVRではない。note販売履歴に流入識別子が無いため、売上÷クリックは同期間の診断指標に限り、因果attributionと表現しない。単品記事売上と商品IDを持たないハブ導線は対象外。
 
+### 5. 月次のサイト送客→売上の突合
+
+```bash
+npm run report-site-to-sales                    # 直近の完了月
+npm run report-site-to-sales -- --month 2026-08
+```
+
+暦月×note商品で、GA4 `note_cta_click`（by-label）・note流入元の `doboku-note.com`・sales-log の販売を並べる。出力は `.claude/state/metrics/business/site-to-sales-YYYY-MM.json`（追記専用。内容が変われば `-rN`）。結合キーはカタログ商品＝`note-magazines.ts` の id、カタログ外の単品＝`article:<slug>`。単品の収録マガジンは `magazines-snapshot.json` の題名一致で求め、マガジン側には非加算の「収録単品の販売」として載せる。
+
+各値の状態を読む: GA4 は月一致の窓が無ければ `window-mismatch`（窓と月内日数を併記）。月一致にするには `fetch-ga4-cta-clicks -- --month YYYY-MM --by-label`。note流入元は記事別に出ないため商品別は常に `unresolvable`、2026-08 以前は rel=noreferrer で `not-measurable`。売上は note の月次売上表示と一致して `reconciled`。面だけのlabel（2026-08-22 より前）と無料もくじ導線は未解決クリックとして理由別に件数を出す。
+
 ---
 
 ## productId 命名規則
@@ -283,6 +294,7 @@ KENP既読ページは共有口座全体値でサイト帰属できないため�
 | `scripts/sales-summary.mjs` | 集計スクリプト（月フィルタは位置引数。`-- 2026-06`） |
 | `scripts/note-sales-fetch.mjs` | note ダッシュボードからの read-only 自動取得＋検算＋差し替え（`npm run note-sales-fetch`） |
 | `scripts/lib/sales-normalize.mjs` | productId 解決・表記ゆれ正規化・検算の純関数（`tests/sales-normalize.test.mjs`） |
+| `scripts/report-site-to-sales.mjs` | 月次のサイト送客→note 売上の突合（純関数 `scripts/lib/site-to-sales.mjs`・`tests/site-to-sales.test.mjs`） |
 | `scripts/check-sales-mapping.mjs` | productId が mapping に文書化されているか検証する pre-commit ガード |
 | `scripts/kdp-report.mjs` | KDP 月次ロイヤリティ取得（`npm run kdp-report`・読み取り専用） |
 | `.claude/state/sales/kdp-royalties.json` | Kindle 月次ロイヤリティ（note とは別スキーマ） |
