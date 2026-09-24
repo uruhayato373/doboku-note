@@ -4,6 +4,7 @@ paidBoundary: "地球的規模の環境問題（優先度: 最高）"
 noteSeries: 総監テキスト精読ガイド
 utmCampaign: 99-social-environment-management
 noteUrl: https://note.com/dobokunote/n/n4424bc5ce1c9
+noteId: "n4424bc5ce1c9"
 noteMagazine: 総監テキスト精読ガイド
 cover:
   variant: crop-safe-v4
