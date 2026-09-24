@@ -31,6 +31,7 @@ export default function OffsiteCta({ items }: { readonly items: readonly Offsite
               rel={it.affiliate ? AFFILIATE_LINK_REL : 'noopener nofollow'}
               data-cta={it.channel}
               data-cta-label={it.trackLabel}
+              data-cta-placement="article-end-offsite"
               className="group flex h-full flex-col rounded-card-content border border-[var(--rule-soft)] bg-[var(--accent-fill)] px-4 py-3.5 transition-colors hover:border-[var(--accent)]"
             >
               <span className="mb-1.5 flex items-center gap-1.5">
