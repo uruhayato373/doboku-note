@@ -16,6 +16,7 @@
     "affiliate_cta_click",
     "affiliate_cta_impression",
     "coconala_cta_click",
+    "coconala_cta_impression",
     "brain_cta_click",
     "standards_data_download",
     "note_article_click",
@@ -72,7 +73,8 @@
       ],
       "ctaImpressionEvents": [
         "note_cta_impression",
-        "affiliate_cta_impression"
+        "affiliate_cta_impression",
+        "coconala_cta_impression"
       ],
       "minPlacementImpressions28d": 500,
       "lowPlacementCtrRatio": 0.5,

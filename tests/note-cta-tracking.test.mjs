@@ -10,6 +10,9 @@ test('note CTA は表示インプレッションと配置を計測する', () =>
   const provider = read('src/components/providers/AnalyticsProvider.tsx');
   assert.match(provider, /note_cta_impression/);
   assert.match(provider, /\[data-cta="note"\], \[data-cta="affiliate"\]/);
+  // ココナラ CTA も表示回数を送る（クリック率の分母）
+  assert.match(provider, /coconala_cta_impression/);
+  assert.match(provider, /\[data-cta="affiliate"\], \[data-cta="coconala"\]/);
 
   const hero = read('src/components/ui/MagazineHeroCta/MagazineHeroCta.tsx');
   const inline = read('src/components/ui/MagazineInlineCard/MagazineInlineCard.tsx');

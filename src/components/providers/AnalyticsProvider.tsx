@@ -85,7 +85,7 @@ export default function AnalyticsProvider() {
     return () => document.removeEventListener("click", onClick, { capture: true });
   }, []);
 
-  // note / アフィリエイト CTA が「DOM に存在した」だけでなく、50%以上が画面内に入った時点を
+  // note / アフィリエイト / ココナラ CTA が「DOM に存在した」だけでなく、50%以上が画面内に入った時点を
   // visible impression として送る。配置ごとのクリック数をページ訪問数で割るのではなく、
   // 実際に見えた回数を分母にして CTR を比較する。同じ要素はページ滞在中 1 回だけ。
   // A8 の 1px ピクセル（ページ読込ベース）とは役割を分ける。
@@ -95,6 +95,8 @@ export default function AnalyticsProvider() {
     const IMPRESSION: Record<string, { action: string; category: string }> = {
       note: { action: "note_cta_impression", category: "note-magazine" },
       affiliate: { action: "affiliate_cta_impression", category: "affiliate" },
+      // ココナラ（A8 経由の自社出品）もクリック率の分母を配置別に取る（2026-09-25〜）。
+      coconala: { action: "coconala_cta_impression", category: "coconala" },
     };
 
     const observed = new WeakSet<Element>();
@@ -124,7 +126,7 @@ export default function AnalyticsProvider() {
     );
 
     const observeRevenueCtas = () => {
-      document.querySelectorAll('[data-cta="note"], [data-cta="affiliate"]').forEach((el) => {
+      document.querySelectorAll('[data-cta="note"], [data-cta="affiliate"], [data-cta="coconala"]').forEach((el) => {
         if (observed.has(el)) return;
         observed.add(el);
         observer.observe(el);

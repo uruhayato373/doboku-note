@@ -219,6 +219,16 @@ const VALUE_PILLARS: {
   },
 ];
 
+// SNS プロフィールから来た人の送客を AnalyticsProvider で計測する配置名（全リンク共通）。
+const PLACEMENT = "links-hub";
+
+/**
+ * AnalyticsProvider の data-cta 種別。note もくじ（L1/L2）は HubCtaBanner の mokuji モードと同じく
+ * 有料教材への導線として "note"（note_cta_click）に数える。無料の解説記事は置いていないので
+ * "note-article" は使わない。サイト内の資格ハブ・運営者ページは内部回遊 "nav"。
+ */
+type CtaKind = "note" | "coconala" | "brain" | "nav";
+
 /**
  * カード内の 1 行（アイコン + リンク名 + チャネル小ラベル + 特徴 1 行）。
  * affiliate=true（A8 経由のココナラ）は PR 表記と rel=sponsored を付ける。計測ピクセルは LinksPage で 1 発。
@@ -231,6 +241,8 @@ function CardRow({
   external,
   channelLabel,
   affiliate,
+  cta,
+  ctaLabel,
 }: {
   channel: ServiceChannel;
   label: string;
@@ -239,6 +251,8 @@ function CardRow({
   external?: boolean;
   channelLabel?: string;
   affiliate?: boolean;
+  cta: CtaKind;
+  ctaLabel: string;
 }) {
   const inner = (
     <>
@@ -265,11 +279,19 @@ function CardRow({
   const cls =
     'focus-ring group flex gap-2.5 border-b border-[var(--rule-soft)] py-2.5 last:border-b-0';
   return external ? (
-    <a href={href} target="_blank" rel={affiliate ? AFFILIATE_LINK_REL : externalLinkRel(href)} className={cls}>
+    <a
+      href={href}
+      target="_blank"
+      rel={affiliate ? AFFILIATE_LINK_REL : externalLinkRel(href)}
+      data-cta={cta}
+      data-cta-label={ctaLabel}
+      data-cta-placement={PLACEMENT}
+      className={cls}
+    >
       {inner}
     </a>
   ) : (
-    <Link href={href} className={cls}>
+    <Link href={href} data-cta={cta} data-cta-label={ctaLabel} data-cta-placement={PLACEMENT} className={cls}>
       {inner}
     </Link>
   );
@@ -314,7 +336,14 @@ function ExamCardView({ card }: { card: ExamCard }) {
         <div className="mt-0.5 text-xs leading-snug text-[var(--ink-muted)]">{card.tagline}</div>
       </div>
       <div className="px-3 py-1">
-        <CardRow channel="site" label={card.site.label} sub={card.site.sub} href={card.site.href} />
+        <CardRow
+          channel="site"
+          label={card.site.label}
+          sub={card.site.sub}
+          href={card.site.href}
+          cta="nav"
+          ctaLabel={`site-${card.key}`}
+        />
         {mokuji && (
           <CardRow
             channel="note"
@@ -323,6 +352,8 @@ function ExamCardView({ card }: { card: ExamCard }) {
             sub="有料教材の一覧。どれから読むかがわかる"
             href={withUtm(mokuji.noteUrl, `mokuji-${card.key}`)}
             external
+            cta="note"
+            ctaLabel={`mokuji-${card.key}`}
           />
         )}
         {coconala && (
@@ -334,6 +365,8 @@ function ExamCardView({ card }: { card: ExamCard }) {
             href={coconalaAffiliateHref(coconala.serviceUrl)}
             external
             affiliate
+            cta="coconala"
+            ctaLabel={coconala.id}
           />
         )}
         {!coconala && brain && (
@@ -344,6 +377,8 @@ function ExamCardView({ card }: { card: ExamCard }) {
             sub={brain.description}
             href={brain.productUrl}
             external
+            cta="brain"
+            ctaLabel={brain.id}
           />
         )}
       </div>
@@ -445,10 +480,24 @@ export default function LinksPage() {
               <a href={AUTHOR.twitterUrl} target="_blank" rel={externalLinkRel(AUTHOR.twitterUrl)} className="focus-ring text-brand hover:underline">
                 X @{AUTHOR.twitterUrl.split("/").pop()}
               </a>
-              <a href={NOTE_TOP_URL} target="_blank" rel={externalLinkRel(NOTE_TOP_URL)} className="focus-ring text-brand hover:underline">
+              <a
+                href={NOTE_TOP_URL}
+                target="_blank"
+                rel={externalLinkRel(NOTE_TOP_URL)}
+                data-cta="note"
+                data-cta-label="note-top"
+                data-cta-placement={PLACEMENT}
+                className="focus-ring text-brand hover:underline"
+              >
                 note もくじ
               </a>
-              <Link href="/about" className="focus-ring text-brand hover:underline">
+              <Link
+                href="/about"
+                data-cta="nav"
+                data-cta-label="about"
+                data-cta-placement={PLACEMENT}
+                className="focus-ring text-brand hover:underline"
+              >
                 運営者について
               </Link>
             </div>

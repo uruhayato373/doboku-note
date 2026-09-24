@@ -215,6 +215,16 @@ jobs:
           GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
         run: npm run fetch-ga4-cta-clicks -- --by-placement
 
+      # 送客の成果をページ単位で比べる: pagePath × sessions / keyEvents / sessionKeyEventRate（標準指標・過去 28 日）。
+      # キーイベントの定義は GA4 側（ga4-admin-desired-state.json）。0 行は全ページ 0 セッションの異常として exit 1。
+      # ga4-key-events-by-page-*.json。週次レビューが読む。
+      - name: Fetch GA4 (key events by page, for page-level key event rate)
+        continue-on-error: true
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+        run: npm run fetch-ga4-cta-clicks -- --key-events
+
       # afb（アフィリエイトB）成果を公式 API で取得する。Playwright 提携状態スキャンとは別系統
       # （読み取り専用の conversion API・doboku-note の partner_site_id=984453 を行ごとに検査して
       # 他サイト混入を防ぐ）。取得失敗はワークフロー全体を落とさず、鮮度は quality-audit の ops 区分

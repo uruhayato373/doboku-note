@@ -6,6 +6,7 @@
  *   - note_cta_impression  (event_category: note-magazine)
  *   - affiliate_cta_click  (event_category: affiliate)
  *   - affiliate_cta_impression (event_category: affiliate)
+ *   - coconala_cta_impression  (event_category: coconala)
  *
  * GA4 はイベントに pagePath を自動付与するため、カスタムディメンション登録なしで
  * 「eventName × pagePath」の 2 ディメンションレポートが取れる。これが
@@ -20,6 +21,9 @@
  *                                                #   → ga4-cta-clicks-by-label-*.json。要 GA4 カスタムディメンション
  *                                                #     （イベントスコープ・パラメータ event_label）を先に管理画面で登録。
  *                                                #     未登録なら API がエラー→登録手順を表示して exit 0（CI 非破壊）。
+ *   npm run fetch-ga4-cta-clicks -- --key-events # pagePath × sessions / keyEvents / sessionKeyEventRate（標準指標）
+ *                                                #   → ga4-key-events-by-page-*.json。イベント名では絞らない（キーイベント定義は
+ *                                                #     GA4 側＝ga4-admin-desired-state.json）。0 行はサイト全体 0 セッションで異常のため exit 1。
  *
  * 認証は fetch-ga4-data.mjs と同じサービスアカウント鍵（.env.local）。
  * 計測は本番（NODE_ENV=production）でのみ発火するため、デプロイ後に
@@ -29,7 +33,12 @@ import { writeFileSync, mkdirSync, existsSync } from "fs";
 import { join } from "path";
 import dotenv from "dotenv";
 import { resolveWindow } from "./lib/ga4-snapshot.mjs";
-import { ga4FromEnv, japanFilter, runReportAll } from "./lib/ga4-client.mjs";
+import { ga4FromEnv, japanFilter, runReportAll, isLimited } from "./lib/ga4-client.mjs";
+import {
+  buildKeyEventsByPageRequest,
+  parseKeyEventsByPageRows,
+  summarizeKeyEvents,
+} from "./lib/ga4-key-events.mjs";
 
 dotenv.config({ path: ".env.local" });
 
@@ -55,6 +64,10 @@ const EVENT_NAMES = [
   "coconala_cta_click",
   "brain_cta_click",
   "standards_data_download",
+  // ココナラ CTA の可視 impression（クリック率の分母・2026-09-25 新設）。
+  "coconala_cta_impression",
+  // 過去問演習の完了（キーイベント）。AnalyticsProvider 外（演習クライアント）から送られる。
+  "quiz_complete",
 ];
 
 function parseArgs() {
@@ -65,6 +78,7 @@ function parseArgs() {
     byDevice: false,
     byLabel: false,
     byPlacement: false,
+    keyEvents: false,
     // 月次窓（--month YYYY-MM）または任意の絶対日付（--start/--end）。
     // 既定の --days は「前日を終端とする N 日」で月境界と揃わないため、EPC の分子
     // （A8 は月次でしか出ない）と分母を同じ窓で取れない。DN-0062。
@@ -106,6 +120,10 @@ function parseArgs() {
         // アフィリエイトの可視 impression / click を配置別に取得する。
         // GA4 にイベントスコープの cta_placement カスタムディメンション登録が必要。
         opts.byPlacement = true;
+        break;
+      case "--key-events":
+        // イベント別でなく、ページ別のキーイベント率（sessions / keyEvents / sessionKeyEventRate）を取る。
+        opts.keyEvents = true;
         break;
     }
   }
@@ -177,13 +195,71 @@ async function fetchCtaClicks(client, propertyId, opts) {
   };
 }
 
+async function fetchKeyEventsByPage(client, propertyId, opts) {
+  const { startDate, endDate, windowKind } = resolveWindow(opts);
+  const request = buildKeyEventsByPageRequest({
+    propertyId,
+    startDate,
+    endDate,
+    japanOnly: opts.japanOnly,
+  });
+  const report = await runReportAll(client, request);
+  const rows = parseKeyEventsByPageRows(report.rows, report.metricHeaders);
+  return {
+    meta: {
+      startDate,
+      endDate,
+      windowKind,
+      mode: "key-events-by-page",
+      metrics: request.metrics.map((m) => m.name),
+      japanOnly: opts.japanOnly,
+      spamExcluded: true,
+      propertyId,
+      rowCount: report.rowCount,
+      truncated: report.truncated,
+      limited: isLimited(report.metadata),
+    },
+    rows,
+  };
+}
+
+async function mainKeyEvents(client, propertyId, opts, stamp) {
+  const data = await fetchKeyEventsByPage(client, propertyId, opts);
+  console.log(`\n期間: ${data.meta.startDate} 〜 ${data.meta.endDate}`);
+  console.log(`指標: ${data.meta.metrics.join(", ")}（pagePath 別）`);
+  if (data.rows.length === 0) {
+    // 取得は成功したのに 1 ページも返らない＝サイト全体 0 セッション。流入がある以上あり得ないので
+    // 「計測 0」と扱わず、プロパティ ID・フィルタの異常として検査不成立にする（ファイルは書かない）。
+    console.error(
+      "[fetch-ga4-cta-clicks] key-events: 取得は成功したが 0 行（全ページ 0 セッション）。プロパティ ID・フィルタを確認。出力しない。",
+    );
+    process.exitCode = 1;
+    return;
+  }
+  const outPath = join(OUTPUT_DIR, `ga4-key-events-by-page-${stamp}.json`);
+  writeFileSync(outPath, JSON.stringify(data, null, 2));
+  const sum = summarizeKeyEvents(data.rows);
+  console.log(
+    `件数: ${data.rows.length} / 全 ${data.meta.rowCount}${data.meta.truncated ? "（上限で打ち切り）" : ""}` +
+      `${data.meta.limited ? "（しきい値/サンプリングあり）" : ""}`,
+  );
+  console.log(
+    `キーイベントありのページ: ${sum.pagesWithKeyEvents} / ${sum.pages}・keyEvents 合計 ${sum.keyEvents}・sessions 延べ ${sum.sessions}`,
+  );
+  console.log(`出力: ${outPath}`);
+}
+
 async function main() {
   const opts = parseArgs();
   const { client, property: propertyId } = ga4FromEnv();
-  const data = await fetchCtaClicks(client, propertyId, opts);
-
   if (!existsSync(OUTPUT_DIR)) mkdirSync(OUTPUT_DIR, { recursive: true });
   const stamp = new Date().toISOString().replace(/[:.]/g, "-").slice(0, 19);
+  if (opts.keyEvents) {
+    await mainKeyEvents(client, propertyId, opts, stamp);
+    return;
+  }
+  const data = await fetchCtaClicks(client, propertyId, opts);
+
   const variant = opts.byPlacement
     ? "-by-placement"
     : opts.byLabel
@@ -212,8 +288,11 @@ async function main() {
     const affiliateImpressions = data.rows
       .filter((r) => r.eventName === "affiliate_cta_impression")
       .reduce((s, r) => s + r.eventCount, 0);
+    const coconalaImpressions = data.rows
+      .filter((r) => r.eventName === "coconala_cta_impression")
+      .reduce((s, r) => s + r.eventCount, 0);
     console.log(
-      `合計イベント: ${total}（note click ${note} / note impression ${noteImpressions} / affiliate impression ${affiliateImpressions}）`,
+      `合計イベント: ${total}（note click ${note} / note impression ${noteImpressions} / affiliate impression ${affiliateImpressions} / coconala impression ${coconalaImpressions}）`,
     );
   }
   console.log(`出力: ${outPath}`);
@@ -223,7 +302,8 @@ main().catch((e) => {
   // --by-label はカスタムディメンション未登録だと GA4 が「customEvent:event_label」不明で失敗する。
   // その場合は登録手順を示して exit 0（CI の他 step を止めない・continue-on-error 前提だが明示）。
   const msg = String(e?.message || e);
-  if (/customEvent:(event_label|cta_placement)|not.*valid.*dimension|did not match/i.test(msg)) {
+  // カスタムディメンション未登録の救済は by-label / by-placement だけ。標準指標の --key-events の失敗は exit 1。
+  if (!process.argv.includes("--key-events") && /customEvent:(event_label|cta_placement)|not.*valid.*dimension|did not match/i.test(msg)) {
     const parameter = process.argv.includes("--by-placement") ? "cta_placement" : "event_label";
     console.warn(
       `[fetch-ga4-cta-clicks] ${parameter} は GA4 カスタムディメンション未登録のためスキップ。\n` +
