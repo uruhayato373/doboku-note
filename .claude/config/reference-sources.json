@@ -3556,6 +3556,17 @@
       }
     },
     {
+      "id": "japan-constitution",
+      "title": "日本国憲法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "日本国憲法第90条": "japan-constitution#第90条"
+      }
+    },
+    {
       "id": "board-of-audit-act",
       "title": "会計検査院法",
       "class": "external-primary",
