@@ -110,6 +110,25 @@ const BUILDJOB_BANNER_120 = {
   height: 60,
 } as const;
 
+/**
+ * ココナラ（A8.net・プログラム s00000012624009）。自社のココナラ出品ページへの商品リンク。
+ * 「アフィリは転職一本」の例外（2026-09-24 ユーザー決定）: 送客先は自社出品なので note とカニバらない。
+ * 成果は「ココナラを初めて使う人の会員登録 ¥100」。当サイトの出品（学習指導・資格）の購入は成果対象外。
+ * 特典を付けた誘導は否認条件なので、コピーで登録特典を謳わない。
+ *
+ * A8 の商品リンクは全サービスで同じ mat を使い、a8ejpredirect に飛び先 URL を encodeURIComponent して
+ * 載せる形（2026-09-24 A8 実機・doboku-note websiteId=002 で listed 20 件の生成結果と照合済み）。
+ * A8 は生成リンクの改変を禁じているので、この形を変えない（tests/coconala-affiliate-href.test.mjs が固定）。
+ * 計測ピクセルは 1 ページ 1 発（同じ mat を 2 回発火させない）。
+ */
+const COCONALA_A8_LINK_BASE = "https://px.a8.net/svt/ejp?a8mat=4B3RUY+AINQAI+2PEO+1NIX2A";
+export const COCONALA_A8_PIXEL = "https://www15.a8.net/0.gif?a8mat=4B3RUY+AINQAI+2PEO+1NIX2A";
+
+/** ココナラのサービス / 出品者 / カテゴリ URL を A8 経由の商品リンクに変換する。 */
+export function coconalaAffiliateHref(serviceUrl: string): string {
+  return `${COCONALA_A8_LINK_BASE}&a8ejpredirect=${encodeURIComponent(serviceUrl)}`;
+}
+
 /** FNV-1a 32bit ハッシュ。slug 単位で決定論的に A/B を振り分ける（同じページは常に同じ arm＝SSG 安定）。 */
 function fnv1a(s: string): number {
   let h = 0x811c9dc5;
