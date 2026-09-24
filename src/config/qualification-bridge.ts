@@ -20,7 +20,7 @@
 import { getPublicDocPath } from '@/lib/content-routes';
 
 /** 立場の分岐。GA4 の click label にそのまま使う（値を変えると過去データと連続しない）。 */
-export type QualificationBridgeKey = 'orderer' | 'contractor' | 'qualification-map';
+type QualificationBridgeKey = 'orderer' | 'contractor' | 'qualification-map';
 
 /** 表示面。GA4 の cta_placement に使う。 */
 export type QualificationBridgeSurface = 'practice-footer' | 'standards-chapter-footer';
@@ -32,7 +32,7 @@ export interface QualificationBridgeOption {
   readonly slug: string;
 }
 
-export const QUALIFICATION_BRIDGE_OPTIONS: readonly QualificationBridgeOption[] = [
+const QUALIFICATION_BRIDGE_OPTIONS: readonly QualificationBridgeOption[] = [
   {
     key: 'orderer',
     title: '発注者として工事監督・検査をしている',
