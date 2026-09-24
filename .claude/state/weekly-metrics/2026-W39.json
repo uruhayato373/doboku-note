@@ -2,7 +2,7 @@
   "week_id": "2026-W39",
   "year": 2026,
   "week": 39,
-  "generated_at": "2026-09-24T20:47:50.749Z",
+  "generated_at": "2026-09-24T21:12:21.975Z",
   "ranges": {
     "ga4": {
       "this": {
@@ -257,17 +257,17 @@
     "url": "https://doboku-note.com/",
     "strategy": "mobile",
     "scores": {
-      "performance": 89,
+      "performance": 64,
       "accessibility": 100,
-      "best_practices": 96,
+      "best_practices": 100,
       "seo": 100
     },
     "lab_data": {
-      "LCP_ms": 3526.2087949135675,
-      "TBT_ms": 106.5,
+      "LCP_ms": 6526.633169551634,
+      "TBT_ms": 209,
       "CLS": 0,
-      "FCP_ms": 1671.7368645598465,
-      "TTI_ms": 7558.614690075081
+      "FCP_ms": 3394.061028390519,
+      "TTI_ms": 7523.971660717888
     }
   },
   "gsc": {

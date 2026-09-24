@@ -1,61 +1,35 @@
 {
   "schemaVersion": 1,
-  "runId": "2026-09-04T11-11-01Z",
-  "collectedAt": "2026-09-04T11:11:01.307Z",
+  "runId": "2026-09-24T21-12-29Z",
+  "collectedAt": "2026-09-24T21:12:29.302Z",
   "propertyId": "419382901",
-  "mode": "dry-run",
-  "scriptVersion": "c028086a9",
+  "mode": "api-check",
+  "source": "admin-api",
   "status": "ok",
   "desiredCount": 2,
   "inventory": {
-    "tableVisible": true,
     "dimensions": [
       {
         "displayName": "affiliate_cta_click",
         "parameterName": "affiliate",
-        "scopeLabel": "イベント",
-        "rawCells": [
-          "affiliate_cta_click",
-          "イベント",
-          "affiliate",
-          "2026年7月7日"
-        ]
+        "scopeLabel": "EVENT"
       },
       {
         "displayName": "CTA label",
         "parameterName": "event_label",
-        "scopeLabel": "イベント",
-        "rawCells": [
-          "CTA label",
-          "イベント",
-          "event_label",
-          "2026年7月7日"
-        ]
-      },
-      {
-        "displayName": "cta_placement",
-        "parameterName": "cta_placement",
-        "scopeLabel": "イベント",
-        "rawCells": [
-          "cta_placement",
-          "イベント",
-          "cta_placement",
-          "2026年7月25日"
-        ]
+        "scopeLabel": "EVENT"
       },
       {
         "displayName": "CTA種別",
         "parameterName": "event_category",
-        "scopeLabel": "イベント",
-        "rawCells": [
-          "CTA種別",
-          "イベント",
-          "event_category",
-          "2026年7月7日"
-        ]
+        "scopeLabel": "EVENT"
+      },
+      {
+        "displayName": "cta_placement",
+        "parameterName": "cta_placement",
+        "scopeLabel": "EVENT"
       }
-    ],
-    "rawRowCount": 5
+    ]
   },
   "missing": [],
   "present": [
@@ -64,6 +38,37 @@
   ],
   "created": [],
   "createFailures": [],
+  "keyEvents": {
+    "observed": [
+      {
+        "eventName": "purchase",
+        "countingMethod": "ONCE_PER_EVENT",
+        "createTime": "2023-12-10T10:55:35.563288Z"
+      },
+      {
+        "eventName": "affiliate_cta_click",
+        "countingMethod": "ONCE_PER_EVENT",
+        "createTime": "2026-07-03T03:54:57.581819Z"
+      },
+      {
+        "eventName": "note_cta_click",
+        "countingMethod": "ONCE_PER_EVENT",
+        "createTime": "2026-07-03T03:55:04.764248Z"
+      }
+    ],
+    "present": [
+      "note_cta_click",
+      "affiliate_cta_click"
+    ],
+    "missing": [
+      "coconala_cta_click",
+      "brain_cta_click",
+      "quiz_complete",
+      "standards_data_download"
+    ],
+    "created": [],
+    "createFailures": []
+  },
   "dataRetention": {
     "desired": {
       "$note": "GA4 の既定は 2 か月。イベントデータ保持を 14 か月にしないと、週次で取った履歴を後から掘り直せない。自動変更はしない（アカウント設定）＝差分を報告して人が直す。",
@@ -74,15 +79,12 @@
     },
     "observed": {
       "reached": true,
-      "via": "ui-click",
+      "via": "admin-api",
       "months": 14,
-      "resetOnNewActivityDetected": false,
+      "resetOnNewActivity": true,
       "unverified": false
     },
     "drift": null
   },
-  "note": "GA4 管理画面の観測＋不足カスタムディメンションの作成。既定は dry-run（--commit で作成）。編集/アーカイブ/削除はしない。",
-  "routePrefix": "a121193537p419382901",
-  "navigation": "url",
-  "reachedCustomDefinitions": true
+  "note": "GA4 Admin API（v1beta）による観測。キーイベントは不足分の作成のみ（apply --commit）。カスタムディメンションの作成は ga4-admin-setup.mjs。"
 }
