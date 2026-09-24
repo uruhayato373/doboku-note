@@ -3,7 +3,7 @@ name: Index coverage audit (URL Inspection)
 # サイト全 sitemap URL の Google index 状態（送信して登録 / 検出-未登録 等）を
 # URL Inspection API で週次取得し、.claude/state/metrics/url-inspection/ と
 # index-coverage-history.json（時系列）に commit する。あわせて登録リクエストの順位表
-# （gsc-indexing/priority-latest.*）を作る。送信は gsc-request-indexing.yml（self-hosted runner・水 14:00 JST）が行う。
+# （gsc-indexing/priority-latest.*）を作る＝人間が残す作業は「順位表の先頭から 10 件送る」だけ。
 # ローカルは creds 未設定で叩けない（計測は CI/CD 供給が正・measurement-incidents.md 2026-06-05）ため CI で実行。
 # 設計の真実源: .claude/knowledge/reference/gsc-management.md / 分業: gsc-index-auditor + /gsc-review。
 # URL Inspection は 2,000 URL/日/property が上限。sitemap ~1,420 URL で 1 回 ~35 分（2026-09-07 実測）。

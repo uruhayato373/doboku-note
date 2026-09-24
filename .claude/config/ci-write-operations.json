@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "_doc": "ops-write.yml が実行してよい外部書き込み操作のカタログ（SSOT）。ここに無い operation は CI で実行できない。plan hash は「operation + args + inputs（repo 内ファイルの sha256）」の安定化 JSON から決まり（scripts/lib/ci-write-gate.mjs）、人が `npm run ops-write:plan` で得た hash を dispatch の plan_sha256 に渡す。CI は checkout 後に同じ plan を再計算し、一致したときだけ DOBOKU_CI_WRITE_PLAN_SHA256 を付けて commitArgs で script を実行する。script は当該 service の playwright-auth-profiles.json ci.writeScripts に入っていなければカタログ検証で拒否される（check-playwright-auth-wiring）。inputs の {name} は argsSchema の必須 string 引数で展開する。verify は実行後に走る live 検査、ledger は commit する台帳パス。risk は canary 順序の目安（low → highest）。 scheduled（risk low のみ）は引数をカタログで固定し、人の hash なしに `ops-write.mjs exec --scheduled` で定期実行してよい操作（承認＝PR レビュー済みの定義）。requiresSelfHostedRunner は RUNNER_ENVIRONMENT=self-hosted 以外で実行しない操作、selfHostedRunsOn はその runs-on ラベル（null＝未設定で workflow は何もしない）。",
+  "_doc": "ops-write.yml が実行してよい外部書き込み操作のカタログ（SSOT）。ここに無い operation は CI で実行できない。plan hash は「operation + args + inputs（repo 内ファイルの sha256）」の安定化 JSON から決まり（scripts/lib/ci-write-gate.mjs）、人が `npm run ops-write:plan` で得た hash を dispatch の plan_sha256 に渡す。CI は checkout 後に同じ plan を再計算し、一致したときだけ DOBOKU_CI_WRITE_PLAN_SHA256 を付けて commitArgs で script を実行する。script は当該 service の playwright-auth-profiles.json ci.writeScripts に入っていなければカタログ検証で拒否される（check-playwright-auth-wiring）。inputs の {name} は argsSchema の必須 string 引数で展開する。verify は実行後に走る live 検査、ledger は commit する台帳パス。risk は canary 順序の目安（low → highest）。",
   "operations": {
     "note.sync-tags": {
       "service": "note",
@@ -348,36 +348,6 @@
       "ledger": [
         "content/sns/instagram"
       ]
-    },
-    "google.request-indexing": {
-      "service": "google",
-      "script": "scripts/gsc-request-indexing.mjs",
-      "risk": "low",
-      "requiresSelfHostedRunner": true,
-      "selfHostedRunsOn": null,
-      "argsSchema": {
-        "file": "string",
-        "limit": "number"
-      },
-      "inputs": [
-        "{file}"
-      ],
-      "commitArgs": [
-        "--commit",
-        "--stop-at-limit"
-      ],
-      "verify": [],
-      "ledger": [
-        ".claude/state/metrics/gsc-indexing/requests-latest.json",
-        ".claude/state/metrics/gsc-indexing/history.json"
-      ],
-      "scheduled": {
-        "args": {
-          "file": ".claude/state/metrics/gsc-indexing/priority-latest.txt",
-          "limit": 10
-        }
-      },
-      "_note": "GSC の URL 検査で順位表の先頭から未登録 URL に登録リクエストを送る（DN-0291）。Google は登録リクエストの API を出していないので画面操作。1 日 10 件前後が上限。送るのはクロール要求だけでページ内容は変えない＝risk low・scheduled（人の hash 不要）。hosted runner では Google がセッションを失効させるため self-hosted 限定（gsc-request-indexing.yml）。selfHostedRunsOn は runs-on に渡すラベル配列（例 [\"self-hosted\",\"macOS\",\"doboku-mac\"]）で、null の間は workflow が何もしない（DN-0291 で Mac を runner 登録してから設定する）。"
     }
   }
 }

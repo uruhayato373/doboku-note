@@ -43,7 +43,6 @@ on:
           - x.article-publish
           - x.thread-replies
           - instagram.publish-bs
-          - google.request-indexing
       args:
         description: "operation の引数（JSON 文字列。例: {\"article\":\"content/note/foo/article.md\"}）"
         required: false
@@ -72,7 +71,6 @@ jobs:
     outputs:
       service: ${{ steps.resolve.outputs.service }}
       playwright: ${{ steps.resolve.outputs.playwright }}
-      self_hosted_only: ${{ steps.resolve.outputs.self_hosted_only }}
     steps:
       - name: Checkout develop
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -102,22 +100,10 @@ jobs:
             const op = catalog.operations[process.env.OPERATION];
             if (!op) { console.error('unknown operation: ' + process.env.OPERATION); process.exit(1); }
             const playwright = op.playwright === false ? 'false' : 'true';
-            const selfHostedOnly = op.requiresSelfHostedRunner === true ? 'true' : 'false';
             fs.appendFileSync(process.env.GITHUB_OUTPUT, 'service=' + op.service + '\n');
             fs.appendFileSync(process.env.GITHUB_OUTPUT, 'playwright=' + playwright + '\n');
-            fs.appendFileSync(process.env.GITHUB_OUTPUT, 'self_hosted_only=' + selfHostedOnly + '\n');
-            console.log('service=' + op.service + ' playwright=' + playwright + ' self_hosted_only=' + selfHostedOnly);
+            console.log('service=' + op.service + ' playwright=' + playwright);
           "
-
-      # self-hosted 限定の操作（google.request-indexing）は、この hosted runner で認証を復元した瞬間に
-      # Google がセッションを Mac 側まで全面失効させる（2026-09-21 実測）。write job に進む前に止める。
-      - name: Refuse self-hosted-only operation on hosted runner
-        if: steps.resolve.outputs.self_hosted_only == 'true'
-        env:
-          OPERATION: ${{ inputs.operation }}
-        run: |
-          echo "::error::${OPERATION} は self-hosted runner 限定（hosted で Google を復元するとセッションが失効する）。gsc-request-indexing.yml を使う。"
-          exit 1
 
   write:
     needs: resolve

@@ -70,6 +70,10 @@ jobs:
             echo '```'
             node scripts/check-gsc-indexing-due.mjs || true
             echo '```'
+            echo '### GSC sitemap の送信と読み込み（check-gsc-sitemaps）'
+            echo '```'
+            node scripts/check-gsc-sitemaps.mjs || true
+            echo '```'
             echo '### GSC 自動レビューの発火監視（check-gsc-auto-review）'
             echo '```'
             node scripts/check-gsc-auto-review.mjs || true

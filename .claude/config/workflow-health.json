@@ -64,12 +64,6 @@
       "_note": "週次（水曜・2026-09-17 に月次から変更）。10 日＝1 回の取りこぼしまで許容"
     },
     {
-      "workflow": "gsc-request-indexing.yml",
-      "maxAgeDays": 10,
-      "maxConsecutiveFailures": 2,
-      "_note": "週次（水 14:00 JST・DN-0291）。self-hosted runner 未設定の間も gate job は緑で終わる。runner を設定した後の赤は Google 側の失効か Mac の停止＝2 回続いたら見る"
-    },
-    {
       "workflow": "login-collectors.yml",
       "branch": "develop",
       "maxAgeDays": 10,

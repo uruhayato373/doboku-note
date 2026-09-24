@@ -70,7 +70,11 @@ description: >
   `due:true` なら「次セッションで `/competitor-review`（scout→competitor-analyst→09反映）」をサーフェスのみ（実取得はしない）。
 - GSC/GA4 UI 取得期限（月次）: `npm run check-gsc-ui-due -- --json` を実行（30日。committed `{gsc-ui,ga4-ui}/last-run.json` 参照・creds不要）。
   **日数だけでなく完全性も見る**＝`channels[].due` は「最後の完全取得から30日」または「直近実行が不完全（部分成功・未ログイン等）」で true。
-  `anyDue` が true なら理由（`reasons`）をそのまま列挙する。
+  `anyDue` が true なら理由（`reasons`）をそのまま列挙する。取得と正規化は Mac の launchd `gsc-local` が DUE で自動実行するので、
+  DUE が続く＝Mac の定期実行が止まっている（電源断・Google の再ログイン待ち）。
+- GSC 登録リクエストと sitemap: `npm run check-gsc-indexing-due -- --json` と `npm run check-gsc-sitemaps -- --json` を実行（オフライン・creds不要）。
+  登録リクエストは Mac の launchd `gsc-local`（毎日）、sitemap の送信と読み込み状況は `fetch-metrics.yml`（金曜・API）が担う。
+  `due:true` なら理由をそのまま列挙する（未ログインなら `npm run google-console:login`、sitemap の送信が permission-denied ならサービスアカウントを Search Console の「フル」に）。
 - GA4 管理画面 設定ドリフト: `npm run check-ga4-dimensions -- --json` を実行（オフライン。desired state ↔ 最後の実機観測の突合・creds不要）。
   `blockingMissing` が非空なら、そのあいだ **プログラム別 EPC / 配置別 CTR が CI で黙って欠測している**ので必ず surface する。
 - **note の商品が購入者に届いているか（最重要）**: `npm run check-note-delivery-due -- --json`
@@ -129,7 +133,8 @@ description: >
 - 「note 構成監査 CRITICAL（境界破損 N 本）」（`check-note-structure` が CRITICAL のときのみ）
 - 「公開ページの目視確認（run・note N ページ／YouTube M 本・画像 K 枚・指摘 L 件）」（画像を取れなかった週は「未確認」と理由）
 - 「競合再スキャン DUE」（`check-competitor-scan-due` が due のときのみ）
-- 「GSC/GA4 UI 取得 DUE（月次）」（`check-gsc-ui-due` の `anyDue` が true のときのみ・理由つき・→ 次セッションで `/google-search-growth`）
+- 「GSC/GA4 UI 取得 DUE（月次）」（`check-gsc-ui-due` の `anyDue` が true のときのみ・理由つき・→ Mac で `npm run gsc-local:install -- --status` とログ `~/Library/Logs/doboku-note/gsc-local.log` を確認、急ぐなら `-- --run-now`）
+- 「GSC 自動化 DUE」（`check-gsc-indexing-due` か `check-gsc-sitemaps` が due のときのみ・理由つき・→ 同上の Mac 確認／sitemap は権限と fetch-metrics の run）
 - 「GA4 設定ドリフト」（`check-ga4-dimensions` が blockingMissing を返したときのみ・→ 次セッションで `npm run ga4-admin:apply`）
 - 「**note 未着 N 本（購入者が受け取れない）**」（`check-note-delivery-due` の `missingPromised` > 0 のときのみ・**レポート最上段に置く**・→ `npm run check-note-attachments:live` で再実査し `note-attach-file` で添付）
 - 「note 添付実査 DUE」（`check-note-delivery-due` の `ageDays` > 14 のときのみ）

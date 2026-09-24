@@ -17,7 +17,8 @@
  *   node scripts/gsc-request-indexing.mjs --from-ssot ... --commit          # 実際にリクエスト
  *   node scripts/gsc-request-indexing.mjs --from-ssot ... --limit 10        # 日次クォータ対策
  *   node scripts/gsc-request-indexing.mjs --file <順位表> --commit --stop-at-limit
- *       # 送信が上限に達したら残りを検査しない（CI 用。順位表 280 件を 1 件 5〜25 秒で全件検査すると 1 時間超）
+ *       # 送信が上限に達したら残りを検査しない（launchd 用。順位表 280 件を 1 件 5〜25 秒で全件検査すると 1 時間超）。
+ *       # --commit なし（dry-run）では検査件数が上限に達した時点で止める
  *
  * URL の正規化: 旧 `/docs/<slug>`（または裸の slug）を渡されたら `public/_redirects` の 301 先
  * （2026-08-22 の情報設計移行後の正規パス）へ置き換えてから検査する。旧 URL のまま検査すると
@@ -325,8 +326,8 @@ async function main() {
         }
       }
       result.items.push(item);
-      if (opts.commit && opts.stopAtLimit && sent >= opts.limit) {
-        console.log(`  送信上限 ${opts.limit} 件に到達（--stop-at-limit）。残り ${slugs.length - result.items.length} 件は検査せず次回へ回します。`);
+      if (opts.stopAtLimit && (opts.commit ? sent : result.items.length) >= opts.limit) {
+        console.log(`  ${opts.commit ? "送信" : "検査"}上限 ${opts.limit} 件に到達（--stop-at-limit）。残り ${slugs.length - result.items.length} 件は検査せず次回へ回します。`);
         break;
       }
     }

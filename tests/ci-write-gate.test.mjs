@@ -7,7 +7,7 @@ import { join } from 'node:path';
 
 import {
   stableStringify, validateCatalog, operationFromCatalog, validateArgs, argsToFlags, resolveInputs, hashInputs,
-  buildPlan, buildCommitCommand, decideExecution, gateEnvFor, WRITE_PLAN_HASH_ENV, scheduledArgsFor, assertRunnerAllowed,
+  buildPlan, buildCommitCommand, decideExecution, gateEnvFor, WRITE_PLAN_HASH_ENV,
 } from '../scripts/lib/ci-write-gate.mjs';
 
 const registry = {
@@ -90,43 +90,4 @@ test('decideExecution: plan-only / hash-mismatch / execute、gateEnvFor は本�
   assert.deepEqual(decideExecution({ commit: true, expectedHash: h.toUpperCase(), actualHash: h }), { execute: true, reason: 'execute', hash: h });
   assert.deepEqual(gateEnvFor(h), { [WRITE_PLAN_HASH_ENV]: h });
   assert.throws(() => gateEnvFor('abc'), /real plan hash/);
-});
-
-test('scheduled: risk=low かつ scheduled.args が argsSchema に合うときだけ通し、scheduledArgsFor は固定引数を返す', () => {
-  const sched = op({
-    id: 'note.sync-tags', script: 'scripts/note-sync-tags.mjs', risk: 'low',
-    argsSchema: { article: 'string', limit: 'number?' }, inputs: ['{article}'],
-    scheduled: { args: { article: 'content/note/a/article.md', limit: 10 } },
-  });
-  const ok = (o) => validateCatalog(catalog({ 'note.sync-tags': o }), { registry, fileExists: allExist });
-  assert.equal(ok(sched), true);
-  assert.deepEqual(scheduledArgsFor(sched), { article: 'content/note/a/article.md', limit: 10 });
-  // 人の確認が要る risk の操作を定期実行の経路に載せない
-  assert.throws(() => ok({ ...sched, risk: 'medium' }), /only for risk=low/);
-  // 固定引数も通常と同じ検証（トラバーサル・必須欠落・未知キー）を通る
-  assert.throws(() => ok({ ...sched, scheduled: { args: { article: '../etc/passwd' } } }), /scheduled\.args invalid/);
-  assert.throws(() => ok({ ...sched, scheduled: { args: {} } }), /scheduled\.args invalid/);
-  assert.throws(() => ok({ ...sched, scheduled: { args: { article: 'a.md', extra: 'x' } } }), /scheduled\.args invalid/);
-  assert.throws(() => ok({ ...sched, scheduled: [] }), /scheduled must be an object/);
-  // scheduled を持たない操作は定期実行できない
-  assert.throws(() => scheduledArgsFor(op()), /CI_WRITE_NOT_SCHEDULABLE/);
-});
-
-test('assertRunnerAllowed: self-hosted 限定の操作は RUNNER_ENVIRONMENT=self-hosted 以外（未設定含む）で拒否', () => {
-  const gated = op({ requiresSelfHostedRunner: true });
-  assert.equal(assertRunnerAllowed(gated, { RUNNER_ENVIRONMENT: 'self-hosted' }), true);
-  assert.throws(() => assertRunnerAllowed(gated, { RUNNER_ENVIRONMENT: 'github-hosted' }), /HOSTED_RUNNER_FORBIDDEN/);
-  assert.throws(() => assertRunnerAllowed(gated, {}), /HOSTED_RUNNER_FORBIDDEN/);
-  assert.equal(assertRunnerAllowed(op(), { RUNNER_ENVIRONMENT: 'github-hosted' }), true);
-  assert.throws(() => validateCatalog(catalog({ 'note.publish': op({ requiresSelfHostedRunner: 'yes' }) }), { registry, fileExists: allExist }), /must be boolean/);
-});
-
-test('selfHostedRunsOn: null か "self-hosted" を含むラベル配列だけ通す（hosted のラベルを誤って書かせない）', () => {
-  const v = (patch) => validateCatalog(catalog({ 'note.publish': op({ requiresSelfHostedRunner: true, ...patch }) }), { registry, fileExists: allExist });
-  assert.equal(v({ selfHostedRunsOn: null }), true);
-  assert.equal(v({ selfHostedRunsOn: ['self-hosted', 'macOS', 'doboku-mac'] }), true);
-  assert.throws(() => v({ selfHostedRunsOn: ['ubuntu-latest'] }), /must include "self-hosted"/);
-  assert.throws(() => v({ selfHostedRunsOn: [] }), /non-empty label array/);
-  assert.throws(() => v({ selfHostedRunsOn: ['self-hosted', 'a b'] }), /non-empty label array/);
-  assert.throws(() => validateCatalog(catalog({ 'note.publish': op({ selfHostedRunsOn: ['self-hosted'] }) }), { registry, fileExists: allExist }), /requires requiresSelfHostedRunner/);
 });

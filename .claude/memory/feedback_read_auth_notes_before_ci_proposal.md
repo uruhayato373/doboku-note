@@ -14,8 +14,8 @@ metadata:
 2026-09-21 に hosted runner（datacenter IP）で復元した直後、Google が Mac 側を含めてセッションを全面失効させた実測があり、registry の
 notes に「hosted CI 不可・self-hosted runner かローカル儀式」と書かれていた。起票どおり進めると Mac のログインまで壊す手順だった。
 同じセッション内で DN-0286 の実装中に notes を読んで気づき、self-hosted runner 限定の設計（gsc-request-indexing.yml・
-requiresSelfHostedRunner）に直して DN-0285 を作り直した。
+requiresSelfHostedRunner）に直して DN-0285 を作り直した。さらにリポジトリが公開で self-hosted runner も危険と分かり、最終的に Mac の launchd（gsc-local）にした。
 
 **How to apply:** 「CI に置きたい」と言われたら、まず registry の `ci.enabled` と `notes`、measurement-incidents の実測を確認し、
-hosted 不可のサービスは self-hosted runner（Mac・自宅回線）かローカルの二択として提示する。hosted の canary を勧めない。
+hosted 不可のサービスは Mac のローカル定期実行（launchd）として提示する。self-hosted runner はリポジトリが公開だと fork の PR に Mac 上でコードを実行されうるので、公開・非公開を確かめてから出す（2026-09-24 に見落として一度勧めた）。hosted の canary を勧めない。
 関連: [[feedback_spec_from_measurement_not_catalog]]。
