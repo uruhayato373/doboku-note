@@ -1,8 +1,8 @@
 ## 収益カバレッジ ダッシュボード
 
-> 流入: `2026-08-27〜2026-09-23`（ga4-page-2026-09-24T20-43-04.json） / クリック: `2026-08-27〜2026-09-23`
+> 流入: `2026-08-27〜2026-09-23`（ga4-page-2026-09-24T20-47-29.json） / クリック: `2026-08-27〜2026-09-23`
 
-- 流入のあるページ: **9**　/　高流入(≥15users)で**収益導線ゼロ**: **0**　/　**note 導線ゼロ**（アフィリのみ）: **0**
+- 流入のあるページ: **359**　/　高流入(≥15users)で**収益導線ゼロ**: **0**　/　**note 導線ゼロ**（アフィリのみ）: **0**
 
 ### 要対応ギャップ（高流入 × 無導線）
 
@@ -21,12 +21,28 @@
 | 7 | `civil-construction-1-secondary-r07` | 25 | civil-1-niji-marugoto-pack+civil-membership-lab+civil-1-chokuzen-pack+civil-1-r8-bunseki+civil-1-keiken-complete-pack+civil-1-gakka-kijutsu+civil-1-pastexam-essay+civil-1-experience-essay+civil-1-combo-essay+category-civil-construction-1-hub-seasonal | BuildJob | 8.0% | 0.0% |
 | 8 | `civil-construction-1-secondary-experience-writing-examples` | 24 | civil-1-keiken-complete-pack+civil-membership-lab+civil-1-niji-marugoto-pack+civil-1-experience-essay+civil-1-pastexam-essay+civil-1-combo-essay+civil-1-keiken-bridge-maintenance-pack+civil-1-keiken-road-tunnel-pack+civil-1-keiken-river-disaster-pack+civil-1-keiken-water-treatment-pack+category-civil-construction-1-hub-seasonal | BuildJob | 0.0% | 0.0% |
 | 9 | `pe-comprehensive-management-safety-management-pillar` | 19 | tankan-reading-guide+category-pe-comprehensive-management-hub-mokuji | DXConsulting | 0.0% | 0.0% |
+| 10 | `civil-construction-1-secondary-getting-started` | 17 | civil-membership-lab+civil-1-keiken-complete-pack+civil-1-gakka-kijutsu+civil-1-anki-note+category-civil-construction-1-hub-seasonal | BuildJob | 0.0% | 0.0% |
+| 11 | `civil-construction-1-textbook-leveling` | 17 | civil-1-reading-guide+civil-membership-lab+civil-1-experience-essay+category-civil-construction-1-hub-seasonal | BuildJob | 0.0% | 0.0% |
+| 12 | `civil-construction-2-secondary-r04` | 14 | civil-2-niji-marugoto-pack+civil-membership-lab+civil-2-r8-bunseki+civil-2-koji-bank+civil-2-gakka-kijutsu+civil-2-anki-note+civil-2-pastexam-essay+civil-2-experience-essay+category-civil-construction-2-hub-seasonal | BuildJob | 21.4% | 0.0% |
+| 13 | `civil-practice-formwork-removal-timing` | 13 | — | BuildJob | 0.0% | 0.0% |
+| 14 | `civil-construction-1-textbook-cut-slope-protection` | 12 | civil-1-reading-guide+civil-membership-lab+civil-1-experience-essay+category-civil-construction-1-hub-seasonal | BuildJob | 0.0% | 0.0% |
+| 15 | `civil-construction-2-secondary-experience-writing-examples` | 12 | civil-2-niji-marugoto-pack+civil-membership-lab+civil-2-koji-bank+civil-2-experience-essay+civil-2-pastexam-essay+civil-2-keiken-local-road-pack+civil-2-keiken-water-drainage-pack+civil-2-keiken-river-rural-park-pack+civil-2-small-infra-4+category-civil-construction-2-hub-seasonal | BuildJob | 25.0% | 0.0% |
+| 16 | `civil-practice-subbase-subgrade-control` | 12 | — | BuildJob | 0.0% | 0.0% |
+| 17 | `pe-first-stage-r07-basic` | 10 | pe1-takuitsu-pdf | BuildJob | 0.0% | 0.0% |
+| 18 | `civil-construction-1-textbook-construction-plan-overview` | 9 | civil-1-reading-guide+civil-membership-lab+civil-1-experience-essay+category-civil-construction-1-hub-seasonal | BuildJob | 0.0% | 0.0% |
+| 19 | `civil-construction-1-textbook-safety-scaffolding` | 9 | civil-1-reading-guide+civil-membership-lab+civil-1-experience-essay+category-civil-construction-1-hub-seasonal | BuildJob | 0.0% | 0.0% |
+| 20 | `pe-comprehensive-management-keyword-2026` | 9 | tankan-reading-guide+essay-complete-pack+r8-essay-forecast+category-pe-comprehensive-management-hub-mokuji | DXConsulting | 0.0% | 0.0% |
+| 21 | `pe-comprehensive-management-r08-primary` | 9 | tankan-takuitsu-reiwa-pdf+category-pe-comprehensive-management-hub-mokuji | DXConsulting | 11.1% | 0.0% |
+| 22 | `civil-construction-1-textbook-schedule-charts` | 8 | civil-1-reading-guide+civil-membership-lab+civil-1-experience-essay+category-civil-construction-1-hub-seasonal | BuildJob | 0.0% | 0.0% |
+| 23 | `/category/pe-comprehensive-management` | 8 | category-pe-comprehensive-management-hub-mokuji | DXConsulting | 0.0% | 0.0% |
+| 24 | `civil-construction-1-textbook-embankment` | 7 | civil-1-reading-guide+civil-membership-lab+civil-1-experience-essay+category-civil-construction-1-hub-seasonal | BuildJob | 0.0% | 0.0% |
+| 25 | `civil-construction-1-textbook-river-act` | 7 | civil-1-reading-guide+civil-membership-lab+civil-1-experience-essay+category-civil-construction-1-hub-seasonal | BuildJob | 0.0% | 0.0% |
 
 > note CTA: 配置済み live マガジン id（`(/links)`=教材ハブ送り）。アフィリ: サイドバー枠の導出（SoT=page.tsx）。CTR は users 比、`n.d.`=クリック未取得。
 
 ### 配置別 CTA CTR
 
-> 期間: `2026-08-27〜2026-09-23`（ga4-cta-clicks-by-placement-2026-09-24T20-43-11.json）。impression/click は note・アフィリ両 CTA の合算。
+> 期間: `2026-08-27〜2026-09-23`（ga4-cta-clicks-by-placement-2026-09-24T20-47-34.json）。impression/click は note・アフィリ両 CTA の合算。
 
 | placement | impressions | clicks | CTR% |
 |---|--:|--:|--:|

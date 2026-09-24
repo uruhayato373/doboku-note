@@ -1,24 +1,24 @@
 # GA4 × GSC crosswalk（page 突合）
 
-- GA4: `ga4-page-2026-09-24T20-43-04.json`（2026-08-27〜2026-09-23）
-- GSC: `gsc-page-2026-09-24T20-42-59.json`（2026-08-25〜2026-09-21）
-- join 済ページ: 70（GSCのみ 1133 / GA4のみ 30）
+- GA4: `ga4-page-2026-09-24T20-47-29.json`（2026-08-27〜2026-09-23）
+- GSC: `gsc-page-2026-09-24T20-47-22.json`（2026-08-25〜2026-09-21）
+- join 済ページ: 817（GSCのみ 386 / GA4のみ 749）
 
 ## title/meta 改善機会（上位表示 pos≤15 なのに CTR<1.0%＝クリックされない）
 
 | page | impr | clicks | ctr | pos | GA4 users | engage |
 |---|--:|--:|--:|--:|--:|--:|
-| /docs/civil-construction-1-textbook-network-schedule | 1506 | 8 | 0.5% | 8.3 | — | — |
-| /exam/civil-construction-1/textbook/pile-foundation-precast | 119 | 0 | 0.0% | 5.8 | — | — |
-| /standards/chugoku/local/part-01 | 99 | 0 | 0.0% | 8.6 | — | — |
+| /docs/civil-construction-1-textbook-network-schedule | 1506 | 8 | 0.5% | 8.3 | 5 | 100.0% |
+| /exam/civil-construction-1/textbook/pile-foundation-precast | 119 | 0 | 0.0% | 5.8 | 16 | 72.2% |
+| /standards/chugoku/local/part-01 | 99 | 0 | 0.0% | 8.6 | 2 | 50.0% |
 | /exam/civil-construction-1/textbook/river-act | 97 | 0 | 0.0% | 6.9 | 22 | 76.0% |
-| /exam/concrete-chief-engineer/primary/materials | 92 | 0 | 0.0% | 6.2 | — | — |
-| /standards/hokuriku | 88 | 0 | 0.0% | 10.0 | — | — |
-| /exam/civil-construction-1/textbook/soil-investigation-methods | 82 | 0 | 0.0% | 8.5 | — | — |
-| /exam/civil-construction-1/textbook/concrete-materials | 73 | 0 | 0.0% | 8.6 | — | — |
-| /exam/civil-construction-1/textbook/noise-vibration-regulation | 65 | 0 | 0.0% | 6.2 | — | — |
+| /exam/concrete-chief-engineer/primary/materials | 92 | 0 | 0.0% | 6.2 | 3 | 50.0% |
+| /standards/hokuriku | 88 | 0 | 0.0% | 10.0 | 13 | 92.3% |
+| /exam/civil-construction-1/textbook/soil-investigation-methods | 82 | 0 | 0.0% | 8.5 | 4 | 50.0% |
+| /exam/civil-construction-1/textbook/concrete-materials | 73 | 0 | 0.0% | 8.6 | 1 | 100.0% |
+| /exam/civil-construction-1/textbook/noise-vibration-regulation | 65 | 0 | 0.0% | 6.2 | 10 | 72.7% |
 | /exam/civil-construction-1/textbook/shovel-excavator | 53 | 0 | 0.0% | 8.6 | 33 | 81.8% |
-| /exam/concrete-chief-engineer/primary/mix-design | 51 | 0 | 0.0% | 6.3 | — | — |
+| /exam/concrete-chief-engineer/primary/mix-design | 51 | 0 | 0.0% | 6.3 | 8 | 70.0% |
 
 ## ランキング改善機会（表示は多いが pos>15＝内容/被リンクで順位を上げる余地・上位20）
 
@@ -43,8 +43,4 @@
 
 | page | clicks | pos | GA4 users | engage | bounce |
 |---|--:|--:|--:|--:|--:|
-
-## GSC クリックあり・GA4 未計上（計測差 or 直帰・3件）
-- /docs/civil-construction-1-textbook-network-schedule（clicks 8）
-- /standards/guides/inverted-siphon（clicks 6）
-- /docs/civil-construction-1-secondary-r06（clicks 5）
+| /standards/guides/inverted-siphon | 6 | 7.1 | 12 | 33.3% | 66.7% |

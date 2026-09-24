@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "fetchedAt": "2026-09-24T20:43:02.945Z",
+  "fetchedAt": "2026-09-24T20:47:25.714Z",
   "property": "sc-domain:doboku-note.com",
   "robotsSitemaps": [
     "https://doboku-note.com/sitemap.xml",
@@ -19,28 +19,33 @@
   "sitemaps": [
     {
       "path": "https://doboku-note.com/sitemap-legacy.xml",
-      "type": null,
+      "type": "sitemap",
       "isSitemapsIndex": false,
       "isPending": true,
-      "lastSubmitted": "2026-09-24T20:43:02.498Z",
-      "lastDownloaded": null,
+      "lastSubmitted": "2026-09-24T20:47:25.251Z",
+      "lastDownloaded": "2026-09-24T20:43:05.370Z",
       "warnings": 0,
       "errors": 0,
-      "contents": []
+      "contents": [
+        {
+          "type": "web",
+          "submitted": 1312
+        }
+      ]
     },
     {
       "path": "https://doboku-note.com/sitemap.xml",
       "type": "sitemap",
       "isSitemapsIndex": false,
       "isPending": true,
-      "lastSubmitted": "2026-09-24T20:43:02.034Z",
-      "lastDownloaded": "2026-09-23T08:55:58.948Z",
+      "lastSubmitted": "2026-09-24T20:47:25.055Z",
+      "lastDownloaded": "2026-09-24T20:43:03.045Z",
       "warnings": 0,
       "errors": 0,
       "contents": [
         {
           "type": "web",
-          "submitted": 1435
+          "submitted": 1568
         }
       ]
     }
