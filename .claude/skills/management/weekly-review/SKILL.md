@@ -524,9 +524,20 @@ gh issue list --label automation-failure --state open --json number,title,create
 - 前週レビューへの相対リンク `[YYYY-W(N-1)-review.md](./YYYY-W(N-1)-review.md)` を冒頭に入れると追跡しやすい
 - GitHub Issue は作成しない（CLAUDE.md §8 準拠）
 
-### Phase 4: 週次計画の自動生成
+### Phase 4: 申し送りの振り分け → 週次計画の自動生成
 
-レビュー完了後、**自動的に `/weekly-plan` を実行**して翌週の計画を `docs/reviews/weekly/YYYY-Www.md` に保存する（review 本体とは別ファイル。`weekly-plan` 側の出力先に従う）。レビューの「来週への申し送り」が計画の入力になる。
+**1. 申し送りの振り分け（必須）**: `.claude/todo/weekly.md` を書く `/plan-weekly` はレビューを読まないので、申し送りはレビューに書いただけでは台帳へ届かない（W37 で 5 件が行き場を失った・DN-0230）。「来週への申し送り」の**各項目の末尾に振り分け先を書く**。先は次の 4 つのどれか。
+
+| 振り分け先 | 書式 | 使うとき |
+|---|---|---|
+| backlog 起票 | `→ 振り分け: DN-0301` | 単発で完了がある作業。**先に backlog へ起票してから ID を書く**（既存カードならその ID） |
+| weekly 定常運用 | `→ 振り分け: 定常` | 反復する運用（drift 消化・転記など）。backlog には置かない（todo-standards §1-2） |
+| Issue | `→ 振り分け: #485` | open の `automation-failure` Issue で追う障害 |
+| 実験 | `→ 振り分け: EXP-007` | experiments.json の実験の裁定・再計測 |
+
+pre-commit の `scripts/check-handoff-extraction.mjs` が 2026-W39 以降のレビューで次を検査する。各項目に振り分け先があるか。DN-ID が backlog（または dispatch-log の完了記録）にあるか。EXP-ID が experiments.json にあるか。旧週のレビューと計画を削除するときも、削除される申し送りの各項目に上記の居場所があるか、新しい週次ファイルへ同じ文面で転記されているかを見る。無ければ commit を止める。
+
+**2. 週次計画**: 振り分け後、**自動的に `/weekly-plan` を実行**して翌週の計画を `docs/reviews/weekly/YYYY-Www.md` に保存する（review 本体とは別ファイル。`weekly-plan` 側の出力先に従う）。レビューの「来週への申し送り」が計画の入力になる。
 
 ## 出力フォーマット（md 本文）
 
@@ -661,7 +672,7 @@ gh issue list --label automation-failure --state open --json number,title,create
 - ...
 
 ## 来週への申し送り
-- ...
+- ... → 振り分け: DN-#### ／ 定常 ／ #Issue ／ EXP-###（Phase 4。1 項目 1 行）
 ```
 
 ## 運用ルール
@@ -669,8 +680,8 @@ gh issue list --label automation-failure --state open --json number,title,create
 - **毎週金曜 PM に実行**（同日 06:00 JST の fetch-metrics 完了後）
 - レビューは `docs/reviews/weekly/YYYY-Www-review.md` に保存（GitHub Issue は使わない）
 - レビュー完了後に `/weekly-plan` が自動実行され、翌週の計画を `docs/reviews/weekly/YYYY-Www.md` に保存する
-- 未完了アクションは「来週への申し送り」→ 次週計画へ引き継ぐ
-- 最新レビュー＋次週計画だけを `docs/reviews/weekly/` に保持する。旧週は未完タスク・恒久知見を抽出後に削除し、履歴はgitで参照する
+- 未完了アクションは「来週への申し送り」に振り分け先付きで書き（Phase 4）、次週計画へ引き継ぐ
+- 最新レビュー＋次週計画だけを `docs/reviews/weekly/` に保持する。旧週は未完タスク・恒久知見を抽出後に削除し、履歴はgitで参照する（抽出もれは `check-handoff-extraction` が pre-commit で止める）
 
 ## 参照
 

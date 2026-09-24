@@ -141,7 +141,7 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 | `/seo-growth-review` | SEO 4面（技術/coverage/performance/意図）の Evaluator を束ねる（機械検出→意味評価→統合・修正なし） | `SEO総合レビュー`, `技術SEO監査`, `SEOグロース`, `/seo-growth-review` |
 | `/google-search-growth` | GSC/GA4 の Playwright UI CSV 取得→既存 API と URL 突合→修正候補分類（approval gate で停止・ローカル専用） | `検索流入改善`, `GSC CSV 取得`, `GSC/GA4 統合診断`, `/google-search-growth` |
 | `/monthly-review` | 前月の資格別KPI・販売・運営負担から重点と目標、次の改善を記録 | `月次レビュー`, `前月の振り返り`, `/monthly-review` |
-| `/weekly-review` | 資格別KPI・判断を週次履歴へ記録し、次の改善へ接続。Xは投入済みの最終予約記録と未投入計画を区別する | `週次レビュー`, `今週の振り返り`, `/weekly-review` |
+| `/weekly-review` | 資格別KPI・判断を週次履歴へ記録し、次の改善へ接続。Xは投入済みの最終予約記録と未投入計画を区別する。申し送りは各項目を backlog 起票／定常／Issue／実験へ振り分ける（旧週削除時の抽出もれは pre-commit が止める） | `週次レビュー`, `今週の振り返り`, `/weekly-review` |
 | `/weekly-plan` | 週次計画を生成（NSM・メトリクス連動・重め。`/weekly-review` 完了後に自動起動） | `戦略的週次計画`, `NSM込みの計画`, `/weekly-plan` |
 | `/nsm-experiment` | NSM 改善の実験ライフサイクル管理 | `実験登録`, `NSM実験`, `/nsm-experiment` |
 | `/north-star-metric` | 学習価値・集客・販売・運営負担のKPI定義と実測に基づく目標を共通SSOTへ記録 | `NSM定義`, `北極星指標`, `/north-star-metric` |
