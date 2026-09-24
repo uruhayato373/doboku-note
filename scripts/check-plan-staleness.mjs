@@ -1,11 +1,13 @@
 #!/usr/bin/env node
 // SessionStart hook: weekly.md / monthly.md の鮮度チェック
 // 古ければセッション開始時に1行警告を出す（ブロックしない）
+// session-start.mjs は import して run({ quiet: true }) を呼ぶ（DN-0236・子の node を立てない）
 
 import fs from 'fs';
 import path from 'path';
 import { execFileSync } from 'child_process';
 import { fileURLToPath } from 'url';
+import { createOutput, isCliEntry, runAsCli } from './lib/cli-run.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -22,41 +24,6 @@ function currentISOWeek() {
 function currentYearMonth() {
   const now = new Date();
   return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
-}
-
-const warnings = [];
-
-// weekly.md チェック
-try {
-  const content = fs.readFileSync(path.join(ROOT, '.claude/todo/weekly.md'), 'utf-8');
-  const match = content.match(/^# 週間計画 — (\d{4}-W\d{2})/m);
-  const cur = currentISOWeek();
-  if (!match) {
-    warnings.push(`weekly.md: 週番号が見つかりません`);
-  } else if (match[1] !== cur) {
-    warnings.push(`weekly.md が ${match[1]} のまま（今週: ${cur}）→ .claude/todo/weekly.md を更新してください`);
-  }
-} catch { /* ファイルなし等はスキップ */ }
-
-// monthly.md チェック
-try {
-  const content = fs.readFileSync(path.join(ROOT, '.claude/todo/monthly.md'), 'utf-8');
-  const match = content.match(/^# 月間計画 — (\d{4})年(\d{1,2})月/m);
-  const [cy, cm] = currentYearMonth().split('-');
-  if (match) {
-    const fileMon = `${match[1]}-${String(match[2]).padStart(2, '0')}`;
-    if (fileMon !== `${cy}-${cm}`) {
-      warnings.push(`monthly.md が ${match[1]}年${match[2]}月のまま（今月: ${cy}年${Number(cm)}月）→ .claude/todo/monthly.md を更新してください`);
-    }
-  }
-} catch { /* スキップ */ }
-
-if (warnings.length > 0) {
-  console.log('');
-  console.log('─── 計画ファイル更新リマインダー ───────────────');
-  warnings.forEach(w => console.log(`  ${w}`));
-  console.log('────────────────────────────────────────────────');
-  console.log('');
 }
 
 // ── deploy ドリフト検知 ─────────────────────────────
@@ -98,34 +65,76 @@ function isDeployPending(line) {
   );
 }
 
-const deployWarnings = [];
-const merged = mergedPrSet();
-if (merged && merged.size) {
-  let todoFiles = [];
+export async function run({ quiet = false } = {}) {
+  const out = createOutput({ quiet });
+
+  const warnings = [];
+
+  // weekly.md チェック
   try {
-    todoFiles = fs.readdirSync(path.join(ROOT, '.claude/todo'))
-      .filter((f) => f.endsWith('.md'))
-      .map((f) => path.join('.claude/todo', f));
-  } catch { /* dir なし */ }
+    const content = fs.readFileSync(path.join(ROOT, '.claude/todo/weekly.md'), 'utf-8');
+    const match = content.match(/^# 週間計画 — (\d{4}-W\d{2})/m);
+    const cur = currentISOWeek();
+    if (!match) {
+      warnings.push(`weekly.md: 週番号が見つかりません`);
+    } else if (match[1] !== cur) {
+      warnings.push(`weekly.md が ${match[1]} のまま（今週: ${cur}）→ .claude/todo/weekly.md を更新してください`);
+    }
+  } catch { /* ファイルなし等はスキップ */ }
 
-  for (const rel of todoFiles) {
-    let lines;
-    try { lines = fs.readFileSync(path.join(ROOT, rel), 'utf-8').split(/\r?\n/); }
-    catch { continue; }
-    lines.forEach((line, i) => {
-      if (!isDeployPending(line)) return;
-      const prs = [...line.matchAll(/#(\d+)/g)].map((m) => m[1]).filter((n) => merged.has(n));
-      if (prs.length) {
-        deployWarnings.push(`${rel}:${i + 1} 「残:/deploy」だが PR ${prs.map((n) => `#${n}`).join('/')} は origin/main 入り済＝deploy 済のはず → 注記を「本番反映済」に更新`);
+  // monthly.md チェック
+  try {
+    const content = fs.readFileSync(path.join(ROOT, '.claude/todo/monthly.md'), 'utf-8');
+    const match = content.match(/^# 月間計画 — (\d{4})年(\d{1,2})月/m);
+    const [cy, cm] = currentYearMonth().split('-');
+    if (match) {
+      const fileMon = `${match[1]}-${String(match[2]).padStart(2, '0')}`;
+      if (fileMon !== `${cy}-${cm}`) {
+        warnings.push(`monthly.md が ${match[1]}年${match[2]}月のまま（今月: ${cy}年${Number(cm)}月）→ .claude/todo/monthly.md を更新してください`);
       }
-    });
+    }
+  } catch { /* スキップ */ }
+
+  if (warnings.length > 0) {
+    out.log('');
+    out.log('─── 計画ファイル更新リマインダー ───────────────');
+    warnings.forEach(w => out.log(`  ${w}`));
+    out.log('────────────────────────────────────────────────');
+    out.log('');
   }
+
+  const deployWarnings = [];
+  const merged = mergedPrSet();
+  if (merged && merged.size) {
+    let todoFiles = [];
+    try {
+      todoFiles = fs.readdirSync(path.join(ROOT, '.claude/todo'))
+        .filter((f) => f.endsWith('.md'))
+        .map((f) => path.join('.claude/todo', f));
+    } catch { /* dir なし */ }
+
+    for (const rel of todoFiles) {
+      let lines;
+      try { lines = fs.readFileSync(path.join(ROOT, rel), 'utf-8').split(/\r?\n/); }
+      catch { continue; }
+      lines.forEach((line, i) => {
+        if (!isDeployPending(line)) return;
+        const prs = [...line.matchAll(/#(\d+)/g)].map((m) => m[1]).filter((n) => merged.has(n));
+        if (prs.length) {
+          deployWarnings.push(`${rel}:${i + 1} 「残:/deploy」だが PR ${prs.map((n) => `#${n}`).join('/')} は origin/main 入り済＝deploy 済のはず → 注記を「本番反映済」に更新`);
+        }
+      });
+    }
+  }
+
+  if (deployWarnings.length > 0) {
+    out.log('');
+    out.log('─── todo deploy ドリフト検知 ───────────────────');
+    deployWarnings.forEach((w) => out.log(`  ${w}`));
+    out.log('────────────────────────────────────────────────');
+    out.log('');
+  }
+  return out.result(0);
 }
 
-if (deployWarnings.length > 0) {
-  console.log('');
-  console.log('─── todo deploy ドリフト検知 ───────────────────');
-  deployWarnings.forEach((w) => console.log(`  ${w}`));
-  console.log('────────────────────────────────────────────────');
-  console.log('');
-}
+if (isCliEntry(import.meta.url)) runAsCli(run);

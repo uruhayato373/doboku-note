@@ -19,6 +19,7 @@
 import { existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { createOutput, runAsCli } from './lib/cli-run.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const DUE_DOW = 6;      // 土曜
@@ -52,14 +53,16 @@ export function dueWeek(nowMs, exists) {
   return null; // 土曜 09:00 前
 }
 
-function main() {
-  const json = process.argv.includes('--json');
+/** session-start.mjs は import して run({ quiet: true }) を呼ぶ（DN-0236・子の node を立てない） */
+export async function run({ argv = [], quiet = false } = {}) {
+  const out = createOutput({ quiet });
+  const json = argv.includes('--json');
   const exists = (w) => existsSync(join(ROOT, 'docs', 'reviews', 'weekly', `${w}-review.md`));
   const due = dueWeek(Date.now(), exists);
-  if (json) { console.log(JSON.stringify({ due, checkedAt: new Date().toISOString() })); }
-  else if (due) { console.log(`[weekly-review-due] ${due} の週次レビューが未作成（土曜 09:00 JST 以降）。対話セッションで /weekly-review を実行する（完了後 /weekly-plan が続く）`); }
-  process.exit(due ? 1 : 0);
+  if (json) { out.log(JSON.stringify({ due, checkedAt: new Date().toISOString() })); }
+  else if (due) { out.log(`[weekly-review-due] ${due} の週次レビューが未作成（土曜 09:00 JST 以降）。対話セッションで /weekly-review を実行する（完了後 /weekly-plan が続く）`); }
+  return out.result(due ? 1 : 0);
 }
 
 const isMain = process.argv[1] && pathToFileURL(process.argv[1]).href === import.meta.url;
-if (isMain) main();
+if (isMain) runAsCli(run);
