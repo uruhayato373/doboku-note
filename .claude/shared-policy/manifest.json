@@ -21,16 +21,16 @@
     },
     "STRUCTURE.md": {
       "sourcePath": "memos/note記事構成SSOT.md",
-      "version": "1.1.0",
-      "updated": "2026-09-15",
+      "version": "1.3.0",
+      "updated": "2026-09-24",
       "title": "note 記事の構成（売れる 9 型）",
-      "summary": "5 ステップ骨格・売れる 9 型・タイトル 6 型・強化 6 部品・制約。記事タイプ別の使い分け・章立て・回遊は各プロジェクト側。"
+      "summary": "5 ステップ骨格・売れる 9 型・タイトル 5 型・短い段落・リンクの使い分け・強化 6 部品・制約。"
     }
   },
   "files": {
     ".claude/shared-policy/POLICY.md": "b1a94053ac28f339fb4a5601298286b348018129e7f29f080a46221cf34a1da5",
     ".claude/shared-policy/REPURPOSE.md": "f09b8b7b28f17fdd85ae1c0ea1c38cdb2b3e01f6c2e139087e5e69cee123107e",
-    ".claude/shared-policy/STRUCTURE.md": "fc8e820ebcaf70985db1dd9c9b18b30f0a994041a6da3711ec2ef2912ad092e6",
+    ".claude/shared-policy/STRUCTURE.md": "90f14745508396e52aa8bdc008acf432768919b056e85224908b1dd3d7d550dd",
     ".claude/shared-policy/sync.mjs": "6dc6b0de42d667f6afe3789bb852ca8c7e63f694866ea7edc6e0d621b9a709d0"
   }
 }
