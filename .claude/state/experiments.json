@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-09-24T20:48:00.028Z",
+  "updated_at": "2026-09-25T00:00:00.000Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -1347,6 +1347,62 @@
         "minVolume": 1,
         "note": "target_delta の「2026-11-30 までに新 SKU 合計 ¥60,000 以上」を自動計測（事後窓 09-17〜11-30）。建設部門は起票時の 7 科目から 2026-09-23 に 11 科目へ拡大し、全 pack が新 SKU（基線 ¥0）のため全て含める。1級・2級土木の 9〜10 月売上 2 倍条件は月次レビューで別に確認する"
       }
+    },
+    {
+      "id": "EXP-012",
+      "title": "実務記事・共通仕様書の記事末に「業務経験 → 資格」カードを置き、資格を意識していない土木公務員・現場技術者を資格の入口へ送る",
+      "hypothesis": "/practice/（28日 1,113 セッション）と共通仕様書の章記事（同 283 セッション）の読者は業務の悩みで来ており、資格への橋が無かった。記事末に立場 3 択（発注者＝監督経験は1級土木の実務経験の対象／施工会社＝第一次は19歳以上なら経験不要／迷っている＝資格ハブ）のカードを置けば、非受験層の一部が資格ページへ進む。発注者実務の入口記事（会計検査・工事検査）の新設で分母も広げる。",
+      "target_metric": "qualification_bridge_click（GA4・事後窓の合計）と、qualification_bridge_impression に対するクリック率",
+      "target_delta": "事後窓（反映+7日から56日）でクリック 20 件以上かつクリック率 1.5% 以上なら継続・入口記事を追加。0.5〜1.5% は文言か位置を1つ変えて再計測。0.5% 未満または表示 200 件未満なら入口記事の追加を止める",
+      "baseline": {
+        "measured_at": "2026-09-25",
+        "note": "カード・イベントは新設のため基線は 0。分母の目安は GA4 2026-08-27〜09-23（日本）で /practice/ 55 ページ 1,113 セッション、/standards/*/chapters/ 33 ページ 283 セッション（ga4-page-2026-09-24T22-01-23.json）",
+        "source": ".claude/state/metrics/ga4/ga4-page-2026-09-24T22-01-23.json",
+        "strategy_doc": "docs/strategy/13_土木公務員SEO戦略2026-08.md"
+      },
+      "businessContext": {
+        "qualification": "civil-construction-1",
+        "readerNeed": "資格を意識していない土木公務員・現場技術者が、いまの業務経験が受検や学習に使えると知り、自分の立場に合う資格の入口へ進む",
+        "verifiedGap": "実務記事は本文に試験文脈を入れない規約で、/exam/ へのリンクは 61 本中 10 本（教材参照のみ）。共通仕様書の章記事には資格への導線が無い。会計検査を扱う記事は 0 本（2026-09-25 実査）",
+        "metricId": "organicUsers",
+        "reviewRecord": ".claude/state/metrics/business/review-2026-09-20T09-59-53-862Z-f5958db2-443f-4c59-96f1-dbd167d638a4.json"
+      },
+      "measure": {
+        "specVersion": 1,
+        "metric": "ga4.event:qualification_bridge_click",
+        "scope": {
+          "pagePrefix": "/"
+        },
+        "anchor": "2026-09-25",
+        "preDays": 28,
+        "postDays": 56,
+        "lagDays": 7,
+        "direction": "increase",
+        "target": 20,
+        "minVolume": 1,
+        "note": "カード由来のイベントなので全ページを対象にする。事前窓は 0 が正常。クリック率（impression 比）と立場別の内訳は fetch-ga4-cta-clicks --by-label / --by-placement で週次レビューが見る。anchor は起票日で、本番反映が遅れたら反映日に直す"
+      },
+      "status": "running",
+      "created_at": "2026-09-25T00:00:00.000Z",
+      "started_at": "2026-09-25T00:00:00.000Z",
+      "paused_at": null,
+      "paused_reason": null,
+      "result": null,
+      "learnings": null,
+      "closed_at": null,
+      "actions": [
+        "2026-09-25: QualificationBridge（src/config/qualification-bridge.ts）を /practice/ 全記事の記事末と共通仕様書の章末に配置。GA4 qualification_bridge_click / qualification_bridge_impression を AnalyticsProvider・growth-cycle・fetch-ga4-cta-clicks に登録。入口記事（会計検査・工事検査）を新設。deploy 待ち（backlog DN-0304）"
+      ],
+      "next_check_date": "2026-10-23",
+      "resume_criteria": null,
+      "measurements": [],
+      "history": [
+        {
+          "at": "2026-09-25T00:00:00.000Z",
+          "event": "propose→start",
+          "note": "本番反映後 4 週（2026-10-23）で途中経過、事後窓終了（2026-11-26）で判定"
+        }
+      ]
     }
   ]
 }
