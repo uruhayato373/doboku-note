@@ -34,7 +34,7 @@ export const metadata: Metadata = {
         url: "https://doboku-note.com/images/og-links.png",
         width: 1200,
         height: 630,
-        alt: "doboku-note 土木・建設系8資格の試験対策コンテンツ一覧",
+        alt: "doboku-note 土木・建設系9資格の試験対策コンテンツ一覧",
       },
     ],
   },
