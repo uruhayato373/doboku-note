@@ -414,7 +414,7 @@ async function updateArticle(page, { abs, noteId, title, bodyH1, body, images, i
     if (!COMMIT) { console.log('[img-only] dry-run（--commit で実挿入）'); return true; }
     const r = await insertImagesAfterAnchors(page, images, { tag: '[4.4]' });
     if (r.failed.length && !IMG_LENIENT) { console.error(`[4.4] ABORT: 画像挿入に失敗（${r.failed.length}件）→ 保存しない（--img-lenient で続行可）`); await page.screenshot({ path: join(ROOT, `.tmp/nu-imgfail-${noteId}.png`) }); return false; }
-    if (!r.settled && !IMG_LENIENT) { abortReason = 'img-settle'; console.error('[4.4] ABORT: 画像が CDN 確定せず（保存すると live で欠落）→ 再実行'); await page.screenshot({ path: join(ROOT, `.tmp/nu-imgsettle-${noteId}.png`) }); return false; }
+    if (!r.settled && !IMG_LENIENT) { abortReason = settleAbortReason(r.settle); console.error(`[4.4] ABORT: 画像が CDN 確定せず（${abortReason}・保存すると live で欠落）→ 再実行`); await page.screenshot({ path: join(ROOT, `.tmp/nu-imgsettle-${noteId}.png`) }); return false; }
     const live = await publishLive(page, noteId, boundary, isPaid, {
       keepBoundary: KEEP_BOUNDARY,
       trialLineBottom: TRIAL_LINE_BOTTOM,

@@ -328,7 +328,8 @@ export async function insertImagesAfterAnchors(page, images, { tag = '[img-only]
   const settled = await settleUploads(page, startImgs + inserted, Math.max(SETTLE_MIN_MS / 3, inserted * SETTLE_PER_IMG_MS / 2.5), tag);
   console.log(`${tag} 画像挿入(anchor): inserted=${inserted}/${images.length} failed=${failed.length} 確定=${settled.confirmed}/${startImgs + inserted}`);
   if (failed.length) console.log(`${tag} 失敗: ${failed.map((f) => f.reason).join(' / ')}`);
-  return { inserted, failed };
+  // settled を返さないと --images-only の呼び出し側（!r.settled）が常に中断していた（2026-09-24 発見）
+  return { inserted, failed, settled: settled.ok, settle: settled };
 }
 
 export { TOKEN_RE };
