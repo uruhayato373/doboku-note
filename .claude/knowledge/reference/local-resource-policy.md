@@ -31,7 +31,7 @@
 同一マシンで複数セッションが並行しても、常駐プロセスは**セッション数に比例させない**。
 
 - `next dev`（3020）と `npm run admin`（3021）は**1 マシン 1 本ずつ**。Next 16 は同一ディレクトリで 2 本目の dev server を起動できず、`npm run admin` の `kill-port` は他セッションの admin を殺す。2 本目のセッションは既存のサーバーへブラウザを向ける（`preview_start({url})`）。
-- Claude Code の SessionStart は `npm run session-start` 1 本（6 検査を順次）。node を 6 本同時に起動しない。
+- Claude Code の SessionStart は `npm run session-start` 1 本（8 検査を 1 プロセス内で順次・子の node を立てない）。node を検査の数だけ同時に起動しない。
 - user-scope の MCP `github` / `filesystem` は置かない（`claude mcp remove -s user github filesystem`）。両方とも起動ごとに 30 秒 timeout し、この repo では `gh` CLI と組み込みファイルツールで足りる。Codex は `.codex/config.toml` で無効化済み。
 - 空きメモリ 3 GiB 未満は `resources:check` が WARN を出す。重い処理（build・レンダー）はその状態で始めない（下の排他）。
 

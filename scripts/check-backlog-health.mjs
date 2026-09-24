@@ -37,6 +37,7 @@ import { readFileSync, writeFileSync, existsSync, readdirSync, mkdirSync, writeS
 import { join, dirname } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { createOutput, runAsCli } from './lib/cli-run.mjs';
 import {
   parseBacklog,
   KINDS,
@@ -47,16 +48,13 @@ import {
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const TODO_LAYERS = new Set(TODO_LAYER_FILES);
 
-const argv = process.argv.slice(2);
-const JSON_OUT = argv.includes('--json');
-const DUE = argv.includes('--due');
-const RECORD = argv.includes('--record-audit');
 const AUDIT_LOG = '.claude/state/backlog/audit-log.json';
-const DAYS = (() => {
+/** --days の値（既定 90）。run() が argv から読む（session-start.mjs は in-process で呼ぶ・DN-0236） */
+const daysOption = (argv) => {
   const i = argv.indexOf('--days');
   const n = i >= 0 ? Number(argv[i + 1]) : NaN;
   return Number.isFinite(n) ? n : 90;
-})();
+};
 
 /**
  * リポジトリのどこにでも出てくる置き場の入口。**2 セグメントで終わるならカードの固有性を
@@ -110,8 +108,8 @@ const daysSince = (iso) => {
   return Number.isFinite(ms) ? Math.floor((Date.now() - ms) / 86400000) : null;
 };
 
-// import 時に CLI を走らせない（テストから signatureTokens / duplicateCandidates を使うため）。
-// ガードが無いと、この下の process.exit がテスト実行そのものを殺す。
+// import 時に CLI を走らせない（テストから signatureTokens / duplicateCandidates を使うため、
+// session-start.mjs から run() を呼ぶため）。
 const isMain = process.argv[1] && process.argv[1].endsWith('check-backlog-health.mjs');
 // 呼び出しはファイル末尾（この下の const 群が TDZ で未初期化のため、ここで呼ぶと落ちる）。
 
@@ -120,7 +118,7 @@ const isMain = process.argv[1] && process.argv[1].endsWith('check-backlog-health
  * そのままコードにしたもの（**散文のままでは誰も判定しない**＝人の記憶に依存する）。
  * しきい値を変えるときは SKILL の「起動条件」節と同時に直す。
  */
-const DUE_RULES = [
+const DUE_RULES = (DAYS) => [
   { id: 'S2', why: '🟢/🟣 に沈んだ不具合', hit: (r) => r.sunkDefects.length >= 1 },
   { id: 'S4', why: '定期（backlog の役割違反）', hit: (r) => r.recurring.length >= 1 },
   { id: 'S5', why: `起票から ${DAYS} 日超が 15 件以上`, hit: (r) => r.stale.length >= 15 },
@@ -155,14 +153,14 @@ function monthlyDue(log, today) {
   return !log.runs.some((r) => String(r.date).slice(0, 7) === today.slice(0, 7));
 }
 
-function recordAudit(cards) {
+function recordAudit(cards, print = console.log) {
   const p = join(ROOT, AUDIT_LOG);
   mkdirSync(dirname(p), { recursive: true });
   const log = readAuditLog();
   const date = jstToday();
   log.runs = [...log.runs.filter((r) => r.date !== date), { date, cards }].slice(-24);
   writeFileSync(p, JSON.stringify(log, null, 2) + '\n');
-  console.log(`[check-backlog-health] 棚卸しを記録: ${date}（カード ${cards} 件）→ ${AUDIT_LOG}`);
+  print(`[check-backlog-health] 棚卸しを記録: ${date}（カード ${cards} 件）→ ${AUDIT_LOG}`);
 }
 
 /**
@@ -312,16 +310,21 @@ export function computeOverdueDue(cards, todayYmd) {
     .sort((a, b) => a.due.localeCompare(b.due));
 }
 
-function main() {
+export async function run({ argv = [], quiet = false } = {}) {
+const out = createOutput({ quiet });
+const JSON_OUT = argv.includes('--json');
+const DUE = argv.includes('--due');
+const RECORD = argv.includes('--record-audit');
+const DAYS = daysOption(argv);
 const backlogPath = join(ROOT, '.claude/todo/backlog.md');
 if (!existsSync(backlogPath)) {
-  console.error('✗ 検査不成立: .claude/todo/backlog.md が無い');
-  process.exit(2);
+  out.error('✗ 検査不成立: .claude/todo/backlog.md が無い');
+  return out.result(2);
 }
 const cards = parseBacklog(readFileSync(backlogPath, 'utf8'));
 if (!cards.length) {
-  console.error('✗ 検査不成立: カードを 1 件も抽出できなかった（パース契約の破損を疑う）');
-  process.exit(2);
+  out.error('✗ 検査不成立: カードを 1 件も抽出できなかった（パース契約の破損を疑う）');
+  return out.result(2);
 }
 
 const kindCount = cards.reduce((a, c) => ((a[c.kind ?? '未分類'] = (a[c.kind ?? '未分類'] ?? 0) + 1), a), {});
@@ -486,52 +489,54 @@ const report = {
 };
 
 if (RECORD) {
-  recordAudit(cards.length);
-  process.exit(0);
+  recordAudit(cards.length, out.log);
+  return out.result(0);
 }
 
 if (DUE) {
   // SessionStart フックから呼ばれる。**回すべきときだけ喋る**（毎回出すと読まれなくなる）。
   const log = readAuditLog();
   const today = jstToday();
-  const hits = DUE_RULES.filter((r) => r.hit(report));
+  const hits = DUE_RULES(DAYS).filter((r) => r.hit(report));
   const monthly = monthlyDue(log, today);
-  if (!hits.length && !monthly) process.exit(0);
+  if (!hits.length && !monthly) return out.result(0);
 
   const last = log.runs.at(-1);
-  console.log('');
-  console.log('─── backlog 棚卸しの期限 ───────────────────────');
-  if (monthly) console.log(`  月初の棚卸しが未実施（前回: ${last ? last.date : '記録なし'}）`);
-  for (const h of hits) console.log(`  ${h.id} ${h.why}`);
+  out.log('');
+  out.log('─── backlog 棚卸しの期限 ───────────────────────');
+  if (monthly) out.log(`  月初の棚卸しが未実施（前回: ${last ? last.date : '記録なし'}）`);
+  for (const h of hits) out.log(`  ${h.id} ${h.why}`);
   // S14 は「どのカードがいつ切れたか」が分からないと動けないので明細を出す。
-  for (const c of report.overdueDue ?? []) console.log(`    期日超過 ${c.id ?? '(ID無し)'} ${c.due} ${c.title}`);
-  console.log(`  → /backlog-sweep --audit（カード ${cards.length} 件・詳細は npm run check-backlog-health）`);
-  console.log('────────────────────────────────────────────────');
-  console.log('');
-  process.exit(0);
+  for (const c of report.overdueDue ?? []) out.log(`    期日超過 ${c.id ?? '(ID無し)'} ${c.due} ${c.title}`);
+  out.log(`  → /backlog-sweep --audit（カード ${cards.length} 件・詳細は npm run check-backlog-health）`);
+  out.log('────────────────────────────────────────────────');
+  out.log('');
+  return out.result(0);
 }
 
 if (JSON_OUT) {
-  writeSync(1, JSON.stringify(report, null, 2) + '\n');
-  process.exit(0);
+  // CLI は従来どおり writeSync でパイプへ書き切る（--json の途中切れ防止）
+  if (quiet) out.log(JSON.stringify(report, null, 2));
+  else writeSync(1, JSON.stringify(report, null, 2) + '\n');
+  return out.result(0);
 }
 
-const line = (label, n, extra = '') => console.log(`  ${label}: ${n}${extra}`);
-console.log(`[check-backlog-health] カード ${cards.length} 件を実検査（判定はしない・候補の列挙のみ）`);
+const line = (label, n, extra = '') => out.log(`  ${label}: ${n}${extra}`);
+out.log(`[check-backlog-health] カード ${cards.length} 件を実検査（判定はしない・候補の列挙のみ）`);
 line('S1 種類の内訳', Object.entries(kindCount).map(([k, v]) => `${k}:${v}`).join(' '));
-if (report.kindMissing) console.log(`      種類 未付与 ${report.kindMissing} 件`);
+if (report.kindMissing) out.log(`      種類 未付与 ${report.kindMissing} 件`);
 line('S2 🟢/🟣 に沈んだ不具合', `${sunkDefects.length} / 不具合 ${defects.length}`);
-for (const c of sunkDefects) console.log(`      L${c.line} [${c.tier}] ${c.title}`);
+for (const c of sunkDefects) out.log(`      L${c.line} [${c.tier}] ${c.title}`);
 line('S3 意思決定なのに tier≠🟣', decisionMisplaced.length);
-for (const c of decisionMisplaced.slice(0, 8)) console.log(`      L${c.line} [${c.tier}] ${c.title}`);
+for (const c of decisionMisplaced.slice(0, 8)) out.log(`      L${c.line} [${c.tier}] ${c.title}`);
 if (holdWithoutDecision.length) line('   🟣 なのに意思決定でない', holdWithoutDecision.length);
 line('S4 定期（backlog の役割違反）', recurring.length);
-for (const c of recurring) console.log(`      L${c.line} ${c.title}`);
+for (const c of recurring) out.log(`      L${c.line} ${c.title}`);
 line(`S5 起票から ${DAYS} 日超`, `${stale.length}（[起票:] 欠落 ${noFiled.length}${blameAge.degraded ? '・blame 補完なし' : ''}）`);
-if (blameAge.degraded) console.log(HISTORY_TRUNCATED
+if (blameAge.degraded) out.log(HISTORY_TRUNCATED
   ? `      ※ git 履歴が切り詰められているため blame で鮮度を補完できない（[起票:] のある ${cards.length - noFiled.length} 枚だけで判定）`
   : `      ※ git blame が 30 秒で完了せず鮮度を補完できていない（[起票:] のある ${cards.length - noFiled.length} 枚だけで判定）`);
-for (const c of stale.slice(0, 8)) console.log(`      L${c.line} ${c.age}日 ${c.title}`);
+for (const c of stale.slice(0, 8)) out.log(`      L${c.line} ${c.age}日 ${c.title}`);
 line('S6 語彙外カテゴリの残', aliasCats.length);
 // **0 にする対象ではない**（backlog.md「[検証:] を付けない判断」）。付けられる script が
 // 実在するカードだけを名指しして、探す手間を省くための数として出す。
@@ -539,25 +544,25 @@ line('S7 検証ゲート欠落', `${noVerify.length} / ${cards.length}`
   + `（不具合/改善 ${noVerifyGateable.length}〔gate が実在するなら付ける〕`
   + ` ＋ 制作/意思決定 ${noVerifyInherent.length}〔原則付かない〕）`);
 for (const c of noVerifyGateable.slice(0, 8)) {
-  console.log(`      候補: L${c.line} ${c.kind} ${c.title.slice(0, 52)}`);
+  out.log(`      候補: L${c.line} ${c.kind} ${c.title.slice(0, 52)}`);
 }
-if (noVerifyGateable.length > 8) console.log(`      …ほか ${noVerifyGateable.length - 8} 件`);
+if (noVerifyGateable.length > 8) out.log(`      …ほか ${noVerifyGateable.length - 8} 件`);
 line('S8 重複候補ペア', dups.length);
-for (const p of dups.slice(0, 5)) console.log(`      L${p.a.line} ↔ L${p.b.line}  共有: ${p.shared.slice(0, 4).join(' ')}`);
+for (const p of dups.slice(0, 5)) out.log(`      L${p.a.line} ↔ L${p.b.line}  共有: ${p.shared.slice(0, 4).join(' ')}`);
 line('S9 .claude/todo の 4 層以外', strayTodo.length ? strayTodo.join(' ') : '0');
 line('S10 ID の再利用（現役カード）', reuse.degraded ? (HISTORY_TRUNCATED ? '判定不能（git 履歴が切り詰められている）' : '判定不能（git 履歴を読めない）') : reusedLive.length);
 for (const r of reusedLive.slice(0, 8)) {
-  console.log(`      ${r.id}  削除 ${r.removedAt.slice(0, 9)} → 別タスクとして再登場 ${r.readdedAt.slice(0, 9)}`);
+  out.log(`      ${r.id}  削除 ${r.removedAt.slice(0, 9)} → 別タスクとして再登場 ${r.readdedAt.slice(0, 9)}`);
 }
 line('S11 実績コミット後に本文未更新', s11Degraded ? (HISTORY_TRUNCATED ? '判定不能（git 履歴が切り詰められている）' : '判定不能（blame/log を読めない）') : staleAfterCommit.length);
-for (const c of staleAfterCommit.slice(0, 8)) console.log(`      L${c.line} ${c.id} ${Math.round(c.hoursBehind / 24 * 10) / 10}日遅れ ${c.title}`);
+for (const c of staleAfterCommit.slice(0, 8)) out.log(`      L${c.line} ${c.id} ${Math.round(c.hoursBehind / 24 * 10) / 10}日遅れ ${c.title}`);
 line('S12 完了 prose 蓄積（TRIM 候補・本文 5 件以上）', proseHeavy.length);
-for (const c of proseHeavy.slice(0, 8)) console.log(`      L${c.line} ${c.count}件 ${c.title}`);
+for (const c of proseHeavy.slice(0, 8)) out.log(`      L${c.line} ${c.count}件 ${c.title}`);
 line('S13 チャネル状態複製の疑い（SSOT が真実源・カードから剥がす候補）', ssotSuspects.length);
-for (const c of ssotSuspects.slice(0, 8)) console.log(`      L${c.line} ${c.count}件 ${c.title}`);
-console.log('\n判定と適用は /backlog-sweep --audit（backlog-curator）が行う。ここは候補の列挙のみ。');
-process.exit(0);
+for (const c of ssotSuspects.slice(0, 8)) out.log(`      L${c.line} ${c.count}件 ${c.title}`);
+out.log('\n判定と適用は /backlog-sweep --audit（backlog-curator）が行う。ここは候補の列挙のみ。');
+return out.result(0);
 }
 
 // import 時は純関数だけを提供し、CLI 実行のときだけ走らせる。
-if (isMain) main();
+if (isMain) runAsCli(run);
