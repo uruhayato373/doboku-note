@@ -295,16 +295,6 @@ jobs:
           node scripts/ga4-admin-api.mjs check --commit
           echo "rc=$?" >> "$GITHUB_OUTPUT"
 
-      # 機会ダイジェスト（オフライン・決定的）: 成長パック × 収益カバレッジ × Bing × 実験台帳 × triage-log から
-      # 週次レビューでトリアージする機会を安定 ID 付きで抽出し growth/digest-YYYY-Www.json へ。
-      # 土曜のローカル /weekly-review が `npm run growth-digest -- --print` を埋め込み、全件を処分する。
-      - name: Build growth digest (opportunities for weekly triage)
-        id: digest
-        run: |
-          set +e
-          node scripts/build-growth-digest.mjs
-          echo "rc=$?" >> "$GITHUB_OUTPUT"
-
       - name: Generate GA4xGSC crosswalk report
         continue-on-error: true
         run: npm run report-ga4-gsc-crosswalk
@@ -337,6 +327,10 @@ jobs:
           ls -la /tmp/metrics-publish
 
       - name: Publish to develop branch (.claude/state/metrics/{ga4,gsc}/)
+        id: publish
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -363,6 +357,16 @@ jobs:
           cp -r /tmp/metrics-publish/growth/* .claude/state/metrics/growth/ 2>/dev/null || true
           cp -r /tmp/metrics-publish/bing/* .claude/state/metrics/bing/ 2>/dev/null || true
           cp -r /tmp/metrics-publish/ga4-admin/* .claude/state/metrics/ga4-admin/ 2>/dev/null || true
+
+          # 実験の自動計測と機会ダイジェストは develop 最新（reset 後）の experiments.json と triage-log
+          # （土曜の週次レビューが push する処分記録）を読む必要があるので、ここで実行して同じ commit に載せる。
+          # 自動計測を先に行い、ダイジェストが VERDICT_DUE を拾えるようにする。
+          set +e
+          node scripts/measure-experiments.mjs --commit
+          echo "measure_rc=$?" >> "$GITHUB_OUTPUT"
+          node scripts/build-growth-digest.mjs
+          echo "digest_rc=$?" >> "$GITHUB_OUTPUT"
+          set -e
           cp -r /tmp/weekly-metrics-publish/* .claude/state/weekly-metrics/ 2>/dev/null || true
 
           # 寿命表（scripts/lib/prune-state-snapshots.mjs）に従って古い snapshot を消す（business は除外 dir・触らない）。
@@ -371,7 +375,7 @@ jobs:
           # 書き手と同じ commit で消すのが唯一安全（別 commit は上の reset --hard + copy-back に戻される）。
           node scripts/prune-state-snapshots.mjs --commit --family ga4,gsc,monetization,crosswalk,weekly-metrics,growth,bing
 
-          git add .claude/state/metrics/business .claude/state/metrics/ga4 .claude/state/metrics/gsc .claude/state/metrics/monetization .claude/state/metrics/crosswalk .claude/state/metrics/affiliate .claude/state/metrics/growth .claude/state/metrics/bing .claude/state/metrics/ga4-admin .claude/state/weekly-metrics
+          git add .claude/state/metrics/business .claude/state/metrics/ga4 .claude/state/metrics/gsc .claude/state/metrics/monetization .claude/state/metrics/crosswalk .claude/state/metrics/affiliate .claude/state/metrics/growth .claude/state/metrics/bing .claude/state/metrics/ga4-admin .claude/state/weekly-metrics .claude/state/experiments.json
           if git diff --cached --quiet; then
             echo "No changes to publish"
             exit 0
@@ -392,7 +396,9 @@ jobs:
           GROWTH_RC: ${{ steps.growth.outputs.rc }}
           BING_RC: ${{ steps.bing.outputs.rc }}
           GA4ADMIN_RC: ${{ steps.ga4admin.outputs.rc }}
-          DIGEST_RC: ${{ steps.digest.outputs.rc }}
+          DIGEST_RC: ${{ steps.publish.outputs.digest_rc }}
+          MEASURE_RC: ${{ steps.publish.outputs.measure_rc }}
+          PUBLISH_OUTCOME: ${{ steps.publish.outcome }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
           anomalies=() invalid=()
@@ -402,6 +408,9 @@ jobs:
           [ "$GROWTH_RC" = "1" ] && anomalies+=("成長パック（fetch-growth-pack）の取得失敗（区画ごとの error は pack の sections を参照）")
           [ "$BING_RC" = "1" ] && anomalies+=("Bing Webmaster の取得失敗")
           [ "$GA4ADMIN_RC" = "1" ] && anomalies+=("GA4 Admin API の観測失敗")
+          [ "$PUBLISH_OUTCOME" = "failure" ] && anomalies+=("develop への publish 失敗（計測・自動計測・ダイジェストが記録されていない）")
+          [ "$MEASURE_RC" = "1" ] && anomalies+=("実験の自動計測（measure-experiments）の取得失敗")
+          [ "$MEASURE_RC" = "2" ] && invalid+=("実験の自動計測: measure 仕様が不正、または認証なし")
           [ "$DIGEST_RC" = "1" ] && anomalies+=("機会ダイジェスト（build-growth-digest）の生成失敗")
           [ "$DIGEST_RC" = "2" ] && invalid+=("機会ダイジェスト: 成長パックが無く生成できない（今週の週次トリアージ対象が作られていない）")
           [ "$GROWTH_RC" = "2" ] && invalid+=("成長パック: 認証なし、または週が GSC 確定前で取得せず")

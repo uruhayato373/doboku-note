@@ -201,5 +201,6 @@ npm run fetch-bing-webmaster   # Bing Webmaster API（query/page/日次traffic�
 npm run ga4-admin-api:check    # GA4 Admin API でカスタムディメンション・キーイベント・データ保持を観測（--commit で ga4-admin/inventory-latest.json）。閲覧者で可。API未有効化/権限不足は exit 2
 npm run ga4-admin-api:apply    # desired state の不足キーイベントを作成（既定 dry-run・--commit で作成）。要: サービスアカウントを GA4 編集者に
 npm run growth-digest          # 機会ダイジェスト: 成長パック×収益カバレッジ×Bing×実験台帳×triage-log から週次トリアージ対象を安定ID付きで抽出 → growth/digest-YYYY-Www.json。--print で週次レビュー埋め込み用 Markdown（書かない）、--week で指定週、--check は書かずに完走確認。罠: パックが無ければ exit 2
+npm run measure-experiments    # measure 仕様を持つ running/measuring 実験を前後の窓で自動計測（GA4/GSC/売上台帳）。既定 dry-run・--commit で measurements[] へ追記（冪等）。CI は fetch-metrics の publish 内で実行。罠: 売上は台帳の最終日が事後窓に届くまで確定扱いにしない
 npm run check-business-direction # 事業方針・指標・履歴・追記専用の検査
 ```

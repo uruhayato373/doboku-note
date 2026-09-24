@@ -201,6 +201,22 @@ abandoned  abandoned  running (re-measure)
 6. 効果サマリを表示（改善/悪化/変わらず）
 7. statusをmeasuringへ変更して履歴へ記録（既に measuring なら再計測）
 
+### measure 仕様（CI の自動計測・2026-09-24〜）
+
+propose / start のときに、前後比較できる実験には `measure` を付ける。付けた実験は毎週 CI（`fetch-metrics.yml` の publish 内 `scripts/measure-experiments.mjs`）が前後の窓で測り、`measurements[]` に `source: "auto"` で追記する（history は触らない）。事後窓が完了すると `check-experiment-due` が **VERDICT_DUE** を出し、週次レビューのトリアージで裁定（close）する。
+
+```json
+"measure": { "specVersion": 1, "metric": "gsc.clicks", "scope": { "pagePrefix": "/exam/rccm/" },
+  "anchor": "2026-09-16", "preDays": 28, "postDays": 28, "lagDays": 3,
+  "direction": "increase", "minEffect": 0.1, "minVolume": 20 }
+```
+
+- metric: `gsc.clicks` / `gsc.impressions` / `gsc.position` / `ga4.sessions`（scope.source=`google` で自然検索 google のみ）/ `ga4.event:<イベント名>` / `sales.revenue` / `sales.count`（scope.productPrefix か productIds）
+- 新商品の売上など前後比が意味を持たない実験は `target`（事後窓の絶対目標）を付ける → 目安は `target-met` / `target-missed`
+- 目安（`verdictHint`）は improved / no-effect / worse / insufficient-data / in-progress。**裁定ではない**（季節性・同時施策は人が見る）
+- 売上は台帳（sales-log）の最終日が事後窓の終わりに届くまで確定扱いにしない
+- 仕様と判定の実装: `scripts/lib/experiment-measure.mjs`。表現できない指標（note ダッシュボード・複合ファネル）は付けず、従来どおり手で measure する
+
 ### close: 学び記録
 
 1. experiments.jsonから指定IDを取得

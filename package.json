@@ -452,6 +452,7 @@
     "ga4-admin-api:check": "node scripts/ga4-admin-api.mjs check",
     "ga4-admin-api:apply": "node scripts/ga4-admin-api.mjs apply",
     "growth-digest": "node scripts/build-growth-digest.mjs",
+    "measure-experiments": "node scripts/measure-experiments.mjs",
     "check-business-direction": "node scripts/check-business-direction.mjs",
     "check-content-expansion": "node scripts/check-content-expansion.mjs"
   },
