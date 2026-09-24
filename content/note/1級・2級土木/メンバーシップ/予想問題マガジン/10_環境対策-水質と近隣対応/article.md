@@ -1,6 +1,6 @@
 ---
 notePricing: membership
-noteStatus: reserved
+noteStatus: published
 noteSeries: 経験記述-週次お題ラボ
 noteMagazine: 経験記述-週次お題ラボ
 notePublishedAt: "2026-09-24"
