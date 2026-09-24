@@ -693,14 +693,6 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 **やること**: 検査の対象を「git 追跡下の PNG」に限定する（`git rm --cached` 後の on-disk 件数と同じ「ローカルだけ緑/赤」の型・`git ls-files -z` で列挙）か、`*-diagrams` の ignore をやめて追跡するかを決めて 1 つにする。決めたら `check-x-card-render` の走査元を合わせ、ローカルと CI の結果を一致させる。
 
 **完了条件**: ローカルと CI の `check-x-card-render` が同じ結果（緑）になり、098/099 の 35 枚の扱いが台帳か ignore のどちらかに一本化されている。
-### [DN-0242] npm audit を CI の job summary に出す（CodeQL は GitHub 既定セットアップで稼働済み）
-タグ: [インフラ・計測] [種類:改善] [起票:2026-09-17]
-
-**起点**: 2026-09-17 の PR checks を見ると CodeQL（Analyze javascript-typescript / python）と Socket Security は **GitHub 側の既定セットアップで既に走っている**（リポジトリに workflow は無い）。残るのは npm 依存の既知脆弱性の棚卸しだけ。静的サイトなので価値は中程度、工数は極小。
-
-**やること**: ci.yml に `npm audit --audit-level=high` を warn（`|| true` で job summary に出し、red にはしない。ERESOLVE 環境で audit fix を自動適用しない）。CodeQL の workflow は作らない（既定セットアップと二重になる）。
-
-**完了条件**: audit の high 以上が PR の job summary に列挙される。
 
 ### [DN-0243] 年度表現の陳腐化（「2026 年度」「令和 8 年」）を年替わりで検知する
 タグ: [コンテンツ品質] [種類:改善] [検証:check-exam-calendar] [起票:2026-09-17]

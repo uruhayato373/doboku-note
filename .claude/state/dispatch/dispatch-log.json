@@ -1207,6 +1207,18 @@
       "commit": "d4a7e69942f3",
       "verification": "2026-09-24 check-knip-ratchet: 6 カテゴリすべて baseline と一致（増加 0）・Unlisted binaries は検出されず",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0242",
+      "at": "2026-09-24",
+      "task": "npm audit を CI の job summary に出す（CodeQL は GitHub 既定セットアップで稼働済み）",
+      "tier": "low",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "815357515299",
+      "verification": "PR #620 マージ: Pre-merge check に npm audit (report only) ステップを追加。PR の CI で success・job summary に audit 出力（ローカル実測 moderate 2・high 以上 0）。check-workflow-hygiene 違反なし",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }
