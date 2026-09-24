@@ -258,7 +258,7 @@ npm run check-kdp-report-freshness # 取得期限・全書籍行・catalog紐付
 
 **運用**: 毎月28日以降に当月を 1 回、翌月16日以降に前月を再取得して上書きする（KENP は翌月15日頃に確定）。
 当月分は `estimated: true`、確定再取得は `estimated: false` で記録する。取得できなかった項目は 0 埋めせず `null` で残す。
-`check-kdp-report-freshness` はこの2期限に加え、共有KDP口座のうちdoboku-note catalogでLIVEの書籍が全冊取得・紐付けできることを確認する。
+`check-kdp-report-freshness` はこの2期限に加え、共有KDP口座のうちdoboku-note catalogでLIVEの書籍（対象月末までに出版した本）が全冊取得・紐付けできることを確認する。
 他サイトの書籍行は `externalRows` として数えるが、doboku-noteの取得完全性の母数には入れない。
 `quality:audit --ops` と日次 `ops-audit.yml` が停止を通知し、復旧時に通知を閉じる。月次事業レビューは同じ台帳の
 書籍別行からdoboku-note分の `kdpRoyalty` だけを合算し、推計はpartial、確定かつ全冊紐付け済みのみcompleteとして扱う。

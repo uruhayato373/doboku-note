@@ -1,6 +1,7 @@
 import { readFileSync, readdirSync, existsSync, mkdirSync, writeFileSync, unlinkSync, openSync, closeSync } from 'node:fs';
 import { join } from 'node:path';
 import { createHash, randomUUID } from 'node:crypto';
+import { kdpLiveBookIdsAsOf } from './kindle-catalog.mjs';
 
 export const DIRECTION = '.claude/config/business-direction.json';
 export const RECORDS = '.claude/state/metrics/business';
@@ -204,6 +205,105 @@ export function noteArticleQualification(title, publishedItems = []) {
   if (/1級土木|1級・2級土木|1・2級土木/.test(title)) return 'civil-construction-1';
   return null;
 }
+const sourceFact = (metric, value, period, source, qualification = 'all', coverage = 'complete', note = '') => ({ metric, value, period, source, qualification, coverage, note });
+const monthsOf = (period) => [...new Set([period.startDate.slice(0, 7), period.endDate.slice(0, 7)])];
+/**
+ * note ダッシュボードの月次取得物（referrers-YYYY-MM / articles-pv-YYYY-MM）→ 事実。期間は取得物の月のまま返し、
+ * 週へ按分しない（週次レビューでは「別期間の既存計測」に出る）。月の途中に取得したファイル（「今月」表示）は
+ * 取得日までの値なので、期間を取得日で切って partial にする（月全体の値として月次セルへ入れない）。
+ */
+export function noteMonthFacts({ traffic, articles = null, publishedItems = [], qualifications = [], trafficPath, articlesPath }) {
+  const month = { startDate: traffic?.period?.from, endDate: traffic?.period?.to };
+  if (!validDay(month.startDate) || !validDay(month.endDate)) return [];
+  const fetchedDay = traffic.fetchedAt ? jst(traffic.fetchedAt) : null;
+  const midMonth = fetchedDay !== null && fetchedDay <= month.endDate;
+  const period = midMonth ? { startDate: month.startDate, endDate: fetchedDay < month.startDate ? month.startDate : fetchedDay } : month;
+  const partialNote = midMonth ? `${fetchedDay} 取得の月途中値（取得日当日は途中まで）。対象月の全期間ではない。` : '';
+  const coverage = midMonth ? 'partial' : 'complete';
+  const facts = [
+    sourceFact('notePv', traffic.summary?.pageViews ?? null, period, trafficPath, 'all', coverage, `noteアクセス状況の対象月全記事。自己閲覧を含む。${partialNote}`),
+    sourceFact('noteImpressions', traffic.summary?.impressions ?? null, period, trafficPath, 'all', coverage, `noteアクセス状況の対象月全記事。PVとは別指標。${partialNote}`),
+  ];
+  if (!articles) return facts;
+  const rows = Array.isArray(articles.rows) ? articles.rows : [];
+  const classified = rows.map(row => ({ row, qualification: noteArticleQualification(row.title, publishedItems) }));
+  for (const qualification of qualifications) {
+    const selected = classified.filter(x => x.qualification === qualification).map(x => x.row);
+    const note = `記事別 ${selected.length}/${rows.length} 行を公開台帳とタイトル規則で資格帰属。未帰属記事があるため資格別は部分集計。${partialNote}`;
+    facts.push(sourceFact('notePv', selected.reduce((sum, row) => sum + (Number(row.pageViews) || 0), 0), period, articlesPath, qualification, 'partial', note));
+    facts.push(sourceFact('noteImpressions', selected.reduce((sum, row) => sum + (Number(row.impressions) || 0), 0), period, articlesPath, qualification, 'partial', note));
+  }
+  return facts;
+}
+/**
+ * KDP 月次台帳の1か月分 → 事実。母数は catalog のうち対象月末までに LIVE だった本（kdpLiveBookIdsAsOf）。
+ * 共有口座の他サイト書籍は書籍別行の bookId で除外し、口座合計は使わない。
+ */
+export function kdpMonthFacts({ entry, catalogBooks = [], attribution = [], qualifications = [], path }) {
+  const period = { startDate: entry?.range?.start, endDate: entry?.range?.end };
+  if (!validDay(period.startDate) || !validDay(period.endDate)) return [];
+  const expectedBookIds = kdpLiveBookIdsAsOf(catalogBooks, period.endDate);
+  const expected = new Set(expectedBookIds);
+  const books = Array.isArray(entry.books) ? entry.books : [];
+  const found = new Set(books.map(book => book.bookId).filter(Boolean));
+  const matched = expectedBookIds.filter(id => found.has(id)).length;
+  const coverage = entry.estimated === false && expectedBookIds.length > 0 && matched === expectedBookIds.length ? 'complete' : 'partial';
+  const note = `${entry.estimated ? '推計値' : '確定値'}。doboku-note書籍 ${matched}/${expectedBookIds.length} 冊（対象月末までにLIVE）をcatalogへ紐付け（共有KDP口座の他サイト書籍は除外）。販売額・入金額ではない。`;
+  const sum = list => list.reduce((total, book) => total + (Number(book.royalty) || 0), 0);
+  const facts = [sourceFact('kdpRoyalty', sum(books.filter(book => expected.has(book.bookId))), period, path, 'all', coverage, `${note} 共有口座全体の合計は使わず、書籍別行を合算。`)];
+  for (const qualification of qualifications) {
+    const selected = books.filter(book => attribution.find(rule => rule.ids?.includes(book.bookId) || rule.prefixes?.some(prefix => book.bookId?.startsWith(prefix)))?.qualification === qualification);
+    facts.push(sourceFact('kdpRoyalty', sum(selected), period, path, qualification, coverage, `${note} 書籍IDの資格帰属で集計。`));
+  }
+  return facts;
+}
+/** 'M月D日'（年なし）/'YYYY年M月D日' → YYYY-MM-DD。年なしは取得日から遡る直近の日付。時刻表示・相対表示は null（日付を確定できない）。 */
+export function coconalaDmDate(dateText, fetchedDay) {
+  const text = String(dateText ?? '').trim();
+  const full = /^(\d{4})年(\d{1,2})月(\d{1,2})日$/.exec(text);
+  const short = /^(\d{1,2})月(\d{1,2})日$/.exec(text);
+  if (!full && !short) return null;
+  const [y, m, d] = full ? [Number(full[1]), Number(full[2]), Number(full[3])] : [Number(fetchedDay.slice(0, 4)), Number(short[1]), Number(short[2])];
+  const pad = n => String(n).padStart(2, '0');
+  let day = `${y}-${pad(m)}-${pad(d)}`;
+  if (!validDay(day)) return null;
+  if (!full && day > fetchedDay) day = `${y - 1}-${pad(m)}-${pad(d)}`;
+  return validDay(day) ? day : null;
+}
+/**
+ * ココナラ購入前相談（DM）。DM 一覧はスレッドの最新日しか持たないので件数は復元できない。確定できるのは
+ * 「期間終了後に一覧を全件取得し、運営通知を除く全スレッドの最新日が期間開始より前＝期間中に DM が1通も無い」
+ * ときの 0 件だけ。それ以外は null（欠測）と理由を返し、0 にしない。資格別は全体が 0 件のときだけ 0 件。
+ */
+export function coconalaInquiryFacts({ snapshot, period, qualifications = [], path }) {
+  const put = (value, coverage, note) => ['all', ...qualifications].map(q => sourceFact('coconalaInquiries', value, period, path, q, coverage, note));
+  const tabOk = snapshot?.status === 'ok' && snapshot.scan?.tabs?.some(t => t.key === 'inquiries' && t.ok);
+  const fetchedDay = snapshot?.fetchedAt ? jst(snapshot.fetchedAt) : null;
+  if (!tabOk || !fetchedDay) return put(null, 'missing', '問い合わせ(DM)一覧を全件取得できていないため確認できない。');
+  if (fetchedDay <= period.endDate) return put(null, 'missing', `DM一覧の取得（${fetchedDay}）が期間終了前のため、期間全体を確認できない。`);
+  const threads = (Array.isArray(snapshot.inquiries) ? snapshot.inquiries : []).filter(t => !t.fromStaff && !t.oneWay);
+  const dated = threads.map(t => coconalaDmDate(t.dateText, fetchedDay));
+  if (dated.some(day => day === null)) return put(null, 'missing', 'DM一覧に日付を確定できない行があるため件数を確定できない。');
+  const active = dated.filter(day => day >= period.startDate).length;
+  if (active > 0) return put(null, 'missing', `期間開始以降に動きのあるDMスレッドが ${active} 件あり、一覧は最新日しか持たないため期間内の相談件数を確定できない。`);
+  return put(0, 'complete', `${fetchedDay} 取得のDM一覧 ${threads.length} スレッド（運営通知除く）の最新日がすべて期間開始より前。期間中の購入前相談は0件。見積り依頼の取り下げ分は含まない。`);
+}
+/** ココナラ サービス分析（30日ローリング）→ 事実。期間は分析画面の窓のまま返し、週・暦月へ換算しない。 */
+export function coconalaViewFacts({ snapshot, path }) {
+  const p = snapshot?.period?.services;
+  if (!p) return [];
+  const period = { startDate: p.startDate ?? p.from, endDate: p.endDate ?? p.to };
+  const services = Array.isArray(snapshot.services) ? snapshot.services.filter(s => s.ok !== false) : [];
+  const sum = list => list.some(s => !Number.isInteger(s.views)) ? null : list.reduce((total, s) => total + s.views, 0);
+  const rolling = 'サービス分析の30日ローリング。週・暦月へ換算しない。';
+  const rccm = services.filter(s => s.serviceId?.startsWith('coconala-rccm-'));
+  const civil1 = services.filter(s => /(^|-)1kyu(-|$)/.test(s.serviceId ?? ''));
+  return [
+    sourceFact('coconalaViews', snapshot.totals?.views ?? null, period, path, 'all', 'partial', `サービス分析の全体値。${rolling}`),
+    sourceFact('coconalaViews', sum(rccm), period, path, 'rccm', 'partial', `RCCM出品 ${rccm.length} 件の合計。${rolling}`),
+    sourceFact('coconalaViews', sum(civil1), period, path, 'civil-construction-1', 'partial', `1級専用出品 ${civil1.length} 件の合計。1・2級共通の出品は資格へ帰属できないため含まない。${rolling}`),
+  ];
+}
 /** Existing source ledgers remain authoritative. No customer details enter the report. */
 export function sourceFacts(root, c, period) {
   const facts = [];
@@ -221,26 +321,15 @@ export function sourceFacts(root, c, period) {
   const noteMonth = period.startDate.slice(0, 7);
   const noteTrafficPath = `.claude/state/metrics/note/referrers-${noteMonth}.json`;
   const noteArticlesPath = `.claude/state/metrics/note/articles-pv-${noteMonth}.json`;
-  if (existsSync(join(root, noteTrafficPath))) {
-    const traffic = readJson(root, noteTrafficPath);
-    const sourcePeriod = { startDate: traffic.period?.from, endDate: traffic.period?.to };
-    if (samePeriod(sourcePeriod, period)) {
-      put('notePv', traffic.summary?.pageViews ?? null, sourcePeriod, noteTrafficPath, 'all', 'complete', 'noteアクセス状況の対象月全記事。自己閲覧を含む。');
-      put('noteImpressions', traffic.summary?.impressions ?? null, sourcePeriod, noteTrafficPath, 'all', 'complete', 'noteアクセス状況の対象月全記事。PVとは別指標。');
-      if (existsSync(join(root, noteArticlesPath))) {
-        const articleData = readJson(root, noteArticlesPath);
-        const publishedPath = '.claude/state/note-published.json';
-        const publishedItems = existsSync(join(root, publishedPath)) ? readJson(root, publishedPath).items ?? [] : [];
-        const rows = Array.isArray(articleData.rows) ? articleData.rows : [];
-        const classified = rows.map(row => ({ row, qualification: noteArticleQualification(row.title, publishedItems) }));
-        for (const qualification of c.qualifications.map(q => q.id)) {
-          const selected = classified.filter(x => x.qualification === qualification).map(x => x.row);
-          const note = `記事別 ${selected.length}/${rows.length} 行を公開台帳とタイトル規則で資格帰属。未帰属記事があるため資格別は部分集計。`;
-          put('notePv', selected.reduce((sum, row) => sum + (Number(row.pageViews) || 0), 0), sourcePeriod, noteArticlesPath, qualification, 'partial', note);
-          put('noteImpressions', selected.reduce((sum, row) => sum + (Number(row.impressions) || 0), 0), sourcePeriod, noteArticlesPath, qualification, 'partial', note);
-        }
-      }
-    }
+  const publishedPath = '.claude/state/note-published.json';
+  const publishedItems = existsSync(join(root, publishedPath)) ? readJson(root, publishedPath).items ?? [] : [];
+  const qualificationIds = c.qualifications.map(q => q.id);
+  // 月次の取得物は月の期間のまま載せる。期間が一致するレビュー（月次）だけがセルに使い、週次は別期間として表示する。
+  for (const month of monthsOf(period)) {
+    const trafficPath = `.claude/state/metrics/note/referrers-${month}.json`, articlesPath = `.claude/state/metrics/note/articles-pv-${month}.json`;
+    if (!existsSync(join(root, trafficPath))) continue;
+    const articles = existsSync(join(root, articlesPath)) ? readJson(root, articlesPath) : null;
+    facts.push(...noteMonthFacts({ traffic: readJson(root, trafficPath), articles, publishedItems, qualifications: qualificationIds, trafficPath, articlesPath }));
   }
   const salesPath = '.claude/state/sales/sales-log.json';
   if (existsSync(join(root, salesPath))) {
@@ -266,26 +355,10 @@ export function sourceFacts(root, c, period) {
   if (existsSync(join(root, kdpPath))) {
     const ledger = readJson(root, kdpPath);
     const catalogPath = 'scripts/kindle-published/catalog.json';
-    const expectedBookIds = existsSync(join(root, catalogPath))
-      ? readJson(root, catalogPath).books.filter(book => book.status === 'live').map(book => book.id)
-      : [];
-    const entry = Object.values(ledger.months ?? {}).find(row => row?.range?.start === period.startDate && row?.range?.end === period.endDate);
-    if (entry) {
-      const sourcePeriod = { startDate: entry.range.start, endDate: entry.range.end };
-      const books = Array.isArray(entry.books) ? entry.books : [];
-      const foundBookIds = new Set(books.map(book => book.bookId).filter(Boolean));
-      const expectedBookIdSet = new Set(expectedBookIds);
-      const complete = entry.estimated === false
-        && expectedBookIds.length > 0
-        && expectedBookIds.every(id => foundBookIds.has(id));
-      const coverage = complete ? 'complete' : 'partial';
-      const note = `${entry.estimated ? '推計値' : '確定値'}。doboku-note書籍 ${expectedBookIds.filter(id => foundBookIds.has(id)).length}/${expectedBookIds.length} 冊をcatalogへ紐付け（共有KDP口座の他サイト書籍は除外）。販売額・入金額ではない。`;
-      const scopedBooks = books.filter(book => expectedBookIdSet.has(book.bookId));
-      put('kdpRoyalty', scopedBooks.reduce((sum, book) => sum + (Number(book.royalty) || 0), 0), sourcePeriod, kdpPath, 'all', coverage, `${note} 共有口座全体の合計は使わず、書籍別行を合算。`);
-      for (const qualification of c.qualifications.map(q => q.id)) {
-        const selected = books.filter(book => c.kindleAttribution?.rules?.find(rule => rule.ids?.includes(book.bookId) || rule.prefixes?.some(prefix => book.bookId?.startsWith(prefix)))?.qualification === qualification);
-        put('kdpRoyalty', selected.reduce((sum, book) => sum + (Number(book.royalty) || 0), 0), sourcePeriod, kdpPath, qualification, coverage, `${note} 書籍IDの資格帰属で集計。`);
-      }
+    const catalogBooks = existsSync(join(root, catalogPath)) ? readJson(root, catalogPath).books ?? [] : [];
+    const months = monthsOf(period);
+    for (const entry of Object.values(ledger.months ?? {}).filter(row => months.includes(String(row?.range?.start ?? '').slice(0, 7)))) {
+      facts.push(...kdpMonthFacts({ entry, catalogBooks, attribution: c.kindleAttribution?.rules ?? [], qualifications: qualificationIds, path: kdpPath }));
     }
   }
   const cocoOrdersPath = '.claude/state/coconala/orders-snapshot.json';
@@ -333,10 +406,8 @@ export function sourceFacts(root, c, period) {
     put('cfRequestsOther', cfDaily.reduce((sum, row) => sum + (Number(row.other?.requests) || 0), 0), period, cfFile, 'all', cfCoverage, cfNote);
   }
   const cocoPath = '.claude/state/coconala/analytics-snapshot.json';
-  if (existsSync(join(root, cocoPath))) {
-    const coco = readJson(root, cocoPath), p = coco.period?.services;
-    if (p) put('coconalaViews', coco.totals?.views ?? null, { startDate: p.startDate ?? p.from, endDate: p.endDate ?? p.to }, cocoPath, 'all', 'partial', 'サービス分析の全体値。30日ローリングであり、暦月へ換算しない。');
-  }
+  if (existsSync(join(root, cocoPath))) facts.push(...coconalaViewFacts({ snapshot: readJson(root, cocoPath), path: cocoPath }));
+  if (existsSync(join(root, cocoOrdersPath))) facts.push(...coconalaInquiryFacts({ snapshot: readJson(root, cocoOrdersPath), period, qualifications: qualificationIds, path: cocoOrdersPath }));
   return facts;
 }
 export function buildReport(root, period = reviewPeriod('weekly'), now = new Date()) {
@@ -351,7 +422,9 @@ export function buildReport(root, period = reviewPeriod('weekly'), now = new Dat
     const auto = sources.find(r => r.qualification === qualification && r.metric === metric.id && samePeriod(r.period, period));
     const fact = measured ? { value: measured.values[metric.id], source: measured.file, coverage: measured.coverage, note: measured.source } : auto;
     const target = currentRecords(history, 'target').find(t => t.qualification === qualification && t.metric === metric.id && t.effectiveDate <= period.startDate);
-    return { qualification, metric: metric.id, value: fact?.value ?? null, coverage: fact?.coverage ?? 'missing', source: fact?.source ?? null, note: fact?.note ?? 'この資格・指標・期間の集計は未取得です。', target: target ?? null, applicable: true };
+    const elsewhere = [...new Set(sources.filter(r => r.qualification === qualification && r.metric === metric.id && r.value != null && !samePeriod(r.period, period)).map(r => `${r.period.startDate}〜${r.period.endDate}`))];
+    const missingNote = elsewhere.length ? `この期間の集計はありません。${elsewhere.join('・')} の値は別期間の既存計測に表示し、この期間へ按分・換算しません。` : 'この資格・指標・期間の集計は未取得です。';
+    return { qualification, metric: metric.id, value: fact?.value ?? null, coverage: fact?.coverage ?? 'missing', source: fact?.source ?? null, note: fact?.note ?? missingNote, target: target ?? null, applicable: true };
   }));
   const reviews = currentRecords(history, 'review');
   const due = ['weekly', 'monthly'].map(cadence => {

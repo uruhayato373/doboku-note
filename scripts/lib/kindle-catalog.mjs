@@ -1,8 +1,8 @@
 /**
  * kindle-catalog.mjs — Kindle 出版データ（catalog.json）の SoT を集約・検証する pure module。
  *
- * admin `/content/kindle`（表示専用）だけがこれを使う。CLI ゲートは今のところ無い
- * （brain-inventory.mjs のように check-*.mjs と共有する対になる相手が無いため）。
+ * 主な利用者は admin `/content/kindle`（表示専用）。KDP 台帳の母数判定 `kdpLiveBookIdsAsOf` だけは
+ * check-kdp-report-freshness と business-direction も共有する。
  * 判定ロジックはここに 1 本化し、admin 側で重複実装しない。
  *
  * 副作用は fs の read-only アクセスと git log（read-only）のみ。ネットワーク・書き込みは
@@ -165,6 +165,18 @@ export function estimateFreshness(books, pathDateMap, readSpec) {
     perBook[book.id] = { freshness, epubDate: epubDate ?? null, latestInputDate: latestInputDate ?? null }
   }
   return { staleIds, unknownIds, perBook }
+}
+
+/**
+ * 純粋: 対象期間の末日（YYYY-MM-DD）までに LIVE だった doboku-note 書籍 ID。KDP 月次台帳の「全冊取得」判定の母数。
+ * 期間後に出版された本を母数へ入れると、取得済みの月が永久に不足扱いになる（2026-09-24 出版の h-01 で
+ * 8 月分が 45/46 冊と偽 FAIL した）。publishedDate が無い LIVE 本は出版日を確認できないので母数に残す。
+ * 利用: check-kdp-report-freshness（取得停止の監視）と business-direction（事業 KPI の完全性）。
+ */
+export function kdpLiveBookIdsAsOf(books, endDate) {
+  return (books ?? [])
+    .filter((book) => book?.status === 'live' && (!book.publishedDate || book.publishedDate <= endDate))
+    .map((book) => book.id)
 }
 
 /**

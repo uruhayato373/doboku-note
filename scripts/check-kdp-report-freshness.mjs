@@ -4,12 +4,13 @@
  *
  * - 毎月16日以降: 前月の確定値（estimated:false）が必要
  * - 毎月28日以降: 当月の推計値も必要
- * - 共有KDP口座のうち、doboku-note catalog のLIVE書籍が全冊取得できること
+ * - 共有KDP口座のうち、doboku-note catalog のLIVE書籍（対象月末までに出版した本）が全冊取得できること
  *
  * 取得自体はログインが必要な `npm run kdp-report` が担う。この検査はコミット済み台帳だけを読み、
  * 他サイトの書籍は母数に入れず、日次 ops-audit から「取得が止まった」ことを通知する。
  */
 import { existsSync, readFileSync, writeSync } from 'node:fs';
+import { kdpLiveBookIdsAsOf } from './lib/kindle-catalog.mjs';
 
 const STATE = '.claude/state/sales/kdp-royalties.json';
 const CATALOG = 'scripts/kindle-published/catalog.json';
@@ -50,7 +51,17 @@ function validateMonth(month, entry, { requireFinal = false, expectedBookIds = [
   return issues;
 }
 
-export function assessKdpReport(state, now = new Date(), expectedBookIds = []) {
+function monthEnd(month) {
+  const [y, m] = month.split('-').map(Number);
+  return `${month}-${String(new Date(Date.UTC(y, m, 0)).getUTCDate()).padStart(2, '0')}`;
+}
+
+/**
+ * expected は書籍 ID の配列、または catalog の books（{ id, status, publishedDate }）。
+ * books を渡すと月ごとに「その月末までに LIVE だった本」だけを母数にする（月の後に出版した本で偽 FAIL しない）。
+ */
+export function assessKdpReport(state, now = new Date(), expected = []) {
+  const expectedFor = (month) => (expected.every((x) => typeof x === 'string') ? expected : kdpLiveBookIdsAsOf(expected, monthEnd(month)));
   const { year, month, day } = jstParts(now);
   const currentMonth = shiftMonth(year, month, 0);
   const finalMonth = shiftMonth(year, month, day >= FINAL_DUE_DAY ? -1 : -2);
@@ -65,7 +76,7 @@ export function assessKdpReport(state, now = new Date(), expectedBookIds = []) {
   for (const target of due) {
     const entry = months[target.month];
     checkedBooks += Array.isArray(entry?.books) ? entry.books.length : 0;
-    issues.push(...validateMonth(target.month, entry, { requireFinal: target.kind === 'final', expectedBookIds }));
+    issues.push(...validateMonth(target.month, entry, { requireFinal: target.kind === 'final', expectedBookIds: expectedFor(target.month) }));
   }
   return {
     status: issues.length ? 'FAIL' : 'OK',
@@ -95,8 +106,9 @@ if (isMain) {
     console.error(`${TAG} FAIL: ${CATALOG} を読めない — ${error.message}`);
     process.exit(1);
   }
-  const expectedBookIds = (catalog.books ?? []).filter((book) => book.status === 'live').map((book) => book.id);
-  const result = assessKdpReport(state, new Date(), expectedBookIds);
+  const catalogBooks = catalog.books ?? [];
+  const expectedBookIds = kdpLiveBookIdsAsOf(catalogBooks, '9999-12-31');
+  const result = assessKdpReport(state, new Date(), catalogBooks);
   if (JSON_OUT) {
     writeSync(1, `${JSON.stringify({ check: 'kdp-report-freshness', finalDueDay: FINAL_DUE_DAY, estimateDueDay: ESTIMATE_DUE_DAY, ...result }, null, 2)}\n`);
   } else {
