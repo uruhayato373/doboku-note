@@ -9,7 +9,8 @@
  *
  * 入力（最新スナップショットを自動選択・オフライン）:
  *   - .claude/state/metrics/ga4/ga4-page-*.json   （page, activeUsers, sessions, engagementRate, bounceRate …）
- *   - .claude/state/metrics/gsc/gsc-page-*.json    （keys:[URL], clicks, impressions, ctr, position）
+ *   - .claude/state/metrics/gsc/gsc-page-<日付>*.json（keys:[URL], clicks, impressions, ctr, position・
+ *     page×query と打ち切り版は除外＝lib/ga4-snapshot.mjs の pickGscPage）
  *
  * 出力:
  *   - .claude/state/metrics/crosswalk/crosswalk-<ISO>.json  （全 join 行）
@@ -20,6 +21,7 @@
  */
 import { readdirSync, readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { join } from "node:path";
+import { pickGscPage } from "./lib/ga4-snapshot.mjs";
 
 const GA4_DIR = ".claude/state/metrics/ga4";
 const GSC_DIR = ".claude/state/metrics/gsc";
@@ -34,8 +36,22 @@ const LOW_CTR = parseFloat(arg("--low-ctr", "0.01"));
 
 function latest(dir, prefix) {
   if (!existsSync(dir)) return null;
-  const files = readdirSync(dir).filter((f) => f.startsWith(prefix) && f.endsWith(".json")).sort();
+  // prefix の直後が日付のものだけ（`ga4-page-` 等で別スキーマの派生ファイルを拾わない）
+  const files = readdirSync(dir).filter((f) => f.startsWith(prefix) && /^\d/.test(f.slice(prefix.length)) && f.endsWith(".json")).sort();
   return files.length ? join(dir, files[files.length - 1]) : null;
+}
+
+function latestGscPage() {
+  if (!existsSync(GSC_DIR)) return null;
+  const readMeta = (name) => {
+    try {
+      return JSON.parse(readFileSync(join(GSC_DIR, name), "utf-8")).meta ?? {};
+    } catch {
+      return null;
+    }
+  };
+  const name = pickGscPage(readdirSync(GSC_DIR), readMeta);
+  return name ? join(GSC_DIR, name) : null;
 }
 
 // URL / path を join キーへ正規化（ドメイン除去・クエリ/ハッシュ除去・末尾スラッシュ除去）
@@ -48,7 +64,7 @@ function normPath(u) {
 }
 
 const ga4File = latest(GA4_DIR, "ga4-page-");
-const gscFile = latest(GSC_DIR, "gsc-page-");
+const gscFile = latestGscPage();
 if (!ga4File || !gscFile) {
   console.error(`[crosswalk] 入力不足: ga4-page=${!!ga4File} gsc-page=${!!gscFile}。スキップ。`);
   process.exit(0);

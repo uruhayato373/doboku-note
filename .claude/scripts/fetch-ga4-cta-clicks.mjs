@@ -25,11 +25,11 @@
  * 計測は本番（NODE_ENV=production）でのみ発火するため、デプロイ後に
  * ユーザークリックが蓄積してから値が入る（導入直後は 0 件が正常）。
  */
-import { BetaAnalyticsDataClient } from "@google-analytics/data";
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
+import { writeFileSync, mkdirSync, existsSync } from "fs";
 import { join } from "path";
 import dotenv from "dotenv";
 import { resolveWindow } from "./lib/ga4-snapshot.mjs";
+import { ga4FromEnv, japanFilter, runReportAll } from "./lib/ga4-client.mjs";
 
 dotenv.config({ path: ".env.local" });
 
@@ -50,6 +50,11 @@ const EVENT_NAMES = [
   "career_tool_result",
   "career_checklist_copy",
   "career_checklist_download",
+  // ココナラ・Brain への送客と、共通仕様書データのダウンロード（加工受託の入口）。
+  // AnalyticsProvider が発火しているのに取得しておらず、週次レビューが 0 件と未取得を区別できなかった。
+  "coconala_cta_click",
+  "brain_cta_click",
+  "standards_data_download",
 ];
 
 function parseArgs() {
@@ -107,26 +112,6 @@ function parseArgs() {
   return opts;
 }
 
-function getClient() {
-  const keyPath = process.env.GOOGLE_SERVICE_ACCOUNT_KEY_PATH;
-  const propertyId = process.env.GA4_PROPERTY_ID;
-  if (!keyPath || !propertyId) {
-    console.error(
-      "Error: GOOGLE_SERVICE_ACCOUNT_KEY_PATH / GA4_PROPERTY_ID が .env.local に未設定です。",
-    );
-    process.exit(1);
-  }
-  if (!existsSync(keyPath)) {
-    console.error(`Error: 鍵ファイルが見つかりません: ${keyPath}`);
-    process.exit(1);
-  }
-  const credentials = JSON.parse(readFileSync(keyPath, "utf-8"));
-  return {
-    client: new BetaAnalyticsDataClient({ credentials }),
-    propertyId: `properties/${propertyId}`,
-  };
-}
-
 async function fetchCtaClicks(client, propertyId, opts) {
   const { startDate, endDate, windowKind } = resolveWindow(opts);
 
@@ -138,14 +123,7 @@ async function fetchCtaClicks(client, propertyId, opts) {
       },
     },
   ];
-  if (opts.japanOnly) {
-    andFilters.push({
-      filter: {
-        fieldName: "country",
-        stringFilter: { matchType: "EXACT", value: "Japan" },
-      },
-    });
-  }
+  if (opts.japanOnly) andFilters.push(japanFilter());
 
   // event_label は GA4 のイベントスコープ カスタムディメンション（パラメータ event_label）として
   // 管理画面で登録済みの場合のみ customEvent:event_label で取得できる（未登録なら API がエラー）。
@@ -170,11 +148,11 @@ async function fetchCtaClicks(client, propertyId, opts) {
     metrics: [{ name: "eventCount" }],
     dimensionFilter: { andGroup: { expressions: andFilters } },
     orderBys: [{ metric: { metricName: "eventCount" }, desc: true }],
-    limit: 1000,
   };
 
-  const [response] = await client.runReport(request);
-  const rows = (response.rows || []).map((row) => ({
+  // 全件ページング（旧 limit: 1000 固定は無言で打ち切っていた）
+  const report = await runReportAll(client, request);
+  const rows = report.rows.map((row) => ({
     [rowKey]: row.dimensionValues?.[0]?.value || "",
     eventName: row.dimensionValues?.[1]?.value || "",
     eventCount: parseInt(row.metricValues?.[0]?.value || "0", 10),
@@ -192,6 +170,8 @@ async function fetchCtaClicks(client, propertyId, opts) {
       byLabel: opts.byLabel,
       byPlacement: opts.byPlacement,
       propertyId,
+      rowCount: report.rowCount,
+      truncated: report.truncated,
     },
     rows,
   };
@@ -199,7 +179,7 @@ async function fetchCtaClicks(client, propertyId, opts) {
 
 async function main() {
   const opts = parseArgs();
-  const { client, propertyId } = getClient();
+  const { client, property: propertyId } = ga4FromEnv();
   const data = await fetchCtaClicks(client, propertyId, opts);
 
   if (!existsSync(OUTPUT_DIR)) mkdirSync(OUTPUT_DIR, { recursive: true });
@@ -216,7 +196,7 @@ async function main() {
 
   console.log(`\n期間: ${data.meta.startDate} 〜 ${data.meta.endDate}`);
   console.log(`イベント: ${EVENT_NAMES.join(", ")}`);
-  console.log(`件数: ${data.rows.length}`);
+  console.log(`件数: ${data.rows.length} / 全 ${data.meta.rowCount}${data.meta.truncated ? "（上限で打ち切り）" : ""}`);
   if (data.rows.length === 0) {
     console.log(
       "（0 件。導入直後・未デプロイ・本番クリック未蓄積のいずれかなら正常）",

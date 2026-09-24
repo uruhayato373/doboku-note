@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { mkdtempSync, mkdirSync, readFileSync, writeFileSync, rmSync } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
-import { reviewPeriod, direction, saveRecord, records, buildReport, snapshot, assertLocalWrite, strategyForRecord, noteArticleQualification, validateRecord, latestAll, unionDaily } from '../scripts/lib/business-direction.mjs';
+import { reviewPeriod, duePeriods, direction, saveRecord, records, buildReport, snapshot, assertLocalWrite, strategyForRecord, noteArticleQualification, validateRecord, latestAll, unionDaily } from '../scripts/lib/business-direction.mjs';
 const now = new Date('2026-09-13T01:00:00Z'), period = { startDate: '2026-08-01', endDate: '2026-08-31' };
 function fixture(t) {
  const root=mkdtempSync(join(tmpdir(),'business-'));t.after(()=>rmSync(root,{recursive:true,force:true}));
@@ -17,6 +17,16 @@ test('calendar periods are completed JST weeks and months',()=>{
  assert.deepEqual(reviewPeriod('weekly','2026-09-13'),{startDate:'2026-08-31',endDate:'2026-09-06'});
  assert.deepEqual(reviewPeriod('weekly','2026-09-14'),{startDate:'2026-09-07',endDate:'2026-09-13'});
  assert.deepEqual(reviewPeriod('monthly','2026-03-01'),{startDate:'2026-02-01',endDate:'2026-02-28'});
+});
+test('an unfinished monthly period is skipped without blocking the finished weekly one',()=>{
+ const ids=r=>({due:r.due.map(d=>d.cadence),skipped:r.skipped.map(d=>d.cadence)});
+ // 2026-10-02 は月初の金曜。9月は終了日から4日未満なので月次だけ skip し、週次は取得する。
+ assert.deepEqual(ids(duePeriods(['weekly','monthly'],'2026-10-02')),{due:['weekly'],skipped:['monthly']});
+ assert.deepEqual(duePeriods(['weekly','monthly'],'2026-10-02').due[0].period,{startDate:'2026-09-21',endDate:'2026-09-27'});
+ assert.deepEqual(ids(duePeriods(['weekly','monthly'],'2026-09-25')),{due:['weekly','monthly'],skipped:[]});
+ assert.deepEqual(ids(duePeriods(['weekly','monthly'],'2026-10-09')),{due:['weekly','monthly'],skipped:[]});
+ assert.deepEqual(ids(duePeriods(['monthly'],'2026-10-03')),{due:[],skipped:['monthly']});
+ assert.deepEqual(ids(duePeriods(['monthly'],'2026-10-04')),{due:['monthly'],skipped:[]});
 });
 test('missing is null, sales coverage partial, no invented earnings',t=>{
  const root=fixture(t);writeFileSync(join(root,'.claude/state/sales/sales-log.json'),JSON.stringify({sales:[{date:'2026-08-10',price:1000}]}));

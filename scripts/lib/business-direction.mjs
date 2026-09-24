@@ -30,6 +30,39 @@ export function reviewPeriod(cadence, today = jst()) {
   const endDate = addDays(today, -((weekday + 6) % 7) - 1);
   return { startDate: addDays(endDate, -6), endDate };
 }
+/**
+ * GSC の確定データは終了日から4日未満だと揃わない。取得対象の期間はここだけで決める。
+ * 未確定の期間は skip として返し、確定済みの期間の取得を巻き込んで止めない
+ * （月初1〜4日の金曜に月次の throw で週次も含む fetch-metrics 全体が落ちた欠陥の是正）。
+ */
+export const GSC_FINAL_LAG_DAYS = 4;
+export function duePeriods(cadences, today = jst()) {
+  const due = [], skipped = [];
+  for (const cadence of cadences) {
+    const period = reviewPeriod(cadence, today);
+    if (period.endDate > addDays(today, -GSC_FINAL_LAG_DAYS)) skipped.push({ cadence, period, reason: 'gsc-final-data-not-yet-due' });
+    else due.push({ cadence, period });
+  }
+  return { due, skipped };
+}
+/** ISO 8601 の週キー（'2026-09-14' → '2026-W38'）。週次の期間（月〜日）と成長ダイジェストのファイル名が使う。 */
+export function isoWeekKey(day) {
+  required(validDay(day), '日付が不正です');
+  const t = new Date(`${day}T00:00:00Z`);
+  t.setUTCDate(t.getUTCDate() + 4 - (t.getUTCDay() || 7));
+  const y = t.getUTCFullYear();
+  const w = Math.ceil(((t - Date.UTC(y, 0, 1)) / 86400000 + 1) / 7);
+  return `${y}-W${String(w).padStart(2, '0')}`;
+}
+/** 週キーの月〜日（'2026-W38' → { startDate: '2026-09-14', endDate: '2026-09-20' }）。 */
+export function weekPeriod(key) {
+  const m = /^(\d{4})-W(\d{2})$/.exec(String(key));
+  required(m, '週キーが不正です（YYYY-Www）');
+  const jan4 = new Date(Date.UTC(+m[1], 0, 4));
+  const monday = new Date(jan4.getTime() - ((jan4.getUTCDay() || 7) - 1) * 86400000 + (+m[2] - 1) * 7 * 86400000);
+  const startDate = monday.toISOString().slice(0, 10);
+  return { startDate, endDate: addDays(startDate, 6) };
+}
 export const samePeriod = (a, b) => a?.startDate === b?.startDate && a?.endDate === b?.endDate;
 export function records(root) {
   const dir = join(root, RECORDS);

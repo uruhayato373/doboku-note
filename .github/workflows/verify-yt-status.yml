@@ -57,6 +57,8 @@ jobs:
           YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
         run: |
           set -o pipefail
+          # bash -e のままだと非 0 で step が終わり exit_code が出力されない（2026-09 発覚）
+          set +e
           node .claude/scripts/youtube/verify-yt-status.mjs 2>&1 | tee /tmp/yt-verify.log
           echo "exit_code=$?" >> "$GITHUB_OUTPUT"
 
@@ -72,6 +74,8 @@ jobs:
           YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
         run: |
           set -o pipefail
+          # bash -e のままだと非 0 で step が終わり exit_code が出力されない（2026-09 発覚）
+          set +e
           node scripts/verify-video-publication.mjs 2>&1 | tee /tmp/video-verify.log
           echo "exit_code=$?" >> "$GITHUB_OUTPUT"
 

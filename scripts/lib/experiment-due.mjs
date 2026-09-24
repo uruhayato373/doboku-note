@@ -11,6 +11,7 @@
  *   DECIDE_DUE  … status=proposed のまま最終更新から proposeDays 超過（start か abandon の判断待ち）
  *   PENDING     … pending_user_actions が残っている（done/abandoned 以外）
  *   NO_BASELINE … running なのに baseline が無い＝前後比較が原理的にできない（§9 の同型）
+ *   VERDICT_DUE … measure 仕様の自動計測（measure-experiments・CI）の事後窓が完了した＝裁定して close する番
  */
 export const DEFAULT_THRESHOLDS = { runningDays: 28, closeDays: 14, proposeDays: 14 };
 
@@ -44,13 +45,18 @@ export function judgeExperiment(e, nowMs = Date.now(), t = DEFAULT_THRESHOLDS) {
   if (st === 'proposed' && sinceTouch != null && sinceTouch >= t.proposeDays) {
     reasons.push({ kind: 'DECIDE_DUE', detail: `proposed のまま ${sinceTouch}日（start か abandon の判断待ち）` });
   }
+  const finalAuto = (e.measurements ?? []).filter((m) => m?.source === 'auto' && m.complete);
+  if ((st === 'running' || st === 'measuring') && finalAuto.length) {
+    const m = finalAuto.at(-1);
+    reasons.push({ kind: 'VERDICT_DUE', detail: `自動計測の事後窓が完了（${m.metric} ${m.pre?.value ?? '—'}→${m.post?.value ?? '—'}・目安 ${m.verdictHint}）。裁定して close する` });
+  }
   const pending = Array.isArray(e.pending_user_actions) ? e.pending_user_actions : [];
   if (pending.length > 0 && st !== 'done' && st !== 'abandoned') {
     reasons.push({ kind: 'PENDING', detail: `要人手 ${pending.length} 件: ${pending.map((p) => p.action).join(' / ')}` });
   }
   const review = e.kind === 'seo-rank-watch'
     ? `npm run seo-rank-watch -- review --id ${e.watchId} --no-fetch`
-    : `/nsm-experiment ${st === 'measuring' ? 'close' : 'measure'} ${e.id}`;
+    : `/nsm-experiment ${st === 'measuring' || reasons.some((r) => r.kind === 'VERDICT_DUE') ? 'close' : 'measure'} ${e.id}`;
   return {
     id: e.id, review, title: e.title, status: st, targetMetric: e.target_metric ?? null,
     nextCheckDate: e.next_check_date ?? null, daysSinceStart: sinceStart, daysSinceTouch: sinceTouch,

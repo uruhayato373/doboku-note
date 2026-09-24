@@ -11,6 +11,7 @@
  *   3. timeout-minutes の未宣言（暴走 job が runner を専有し続ける）
  *   4. 3rd party action がタグ（@v5 等）のまま＝ tag は force-push で差し替え可能
  *      （サプライチェーン攻撃で CI が汚染される。commit SHA 固定が対策）
+ *   （5〜8 は本文の各ルール: doc-meta-index / 行継続の潰れ / GH_TOKEN / errexit 下の $?）
  *
  * actionlint は Go 実装だが npm パッケージ（WASM ビルド・`actionlint`）で完結する
  * （バイナリの別途インストール不要・CI/ローカル共通）。
@@ -90,6 +91,27 @@ export function findCollapsedContinuations(runScript) {
   lines.forEach((line, i) => {
     if (re.test(line)) hits.push({ line: i + 1, text: line.trim().slice(0, 80) });
     re.lastIndex = 0;
+  });
+  return hits;
+}
+
+/**
+ * 8. errexit 下の終了コード取りこぼし。Actions の既定シェルは `bash -e` なので、
+ *    `node x; echo "exit_code=$?"` は x が非 0 の時点で step が終わり `$?` の行に届かない。
+ *    後続の `if: steps.x.outputs.exit_code == '1'` が一度も発火せず、fetch-metrics の GA4 整合性・
+ *    日次異常アラートを含む 5 本が 2026-09 まで沈黙していた。`$?` を読む行は、先行する `set +e`
+ *    （後で `set -e` に戻していない）か、同じ行の `cmd || rc=$?` 形のときだけ許す。
+ */
+export function findUnguardedExitCaptures(runScript) {
+  const hits = [];
+  let errexitOff = false;
+  String(runScript ?? '').split('\n').forEach((raw, i) => {
+    const line = raw.replace(/(^|\s)#.*$/, '');
+    if (/\bset\s+\+[a-zA-Z]*e/.test(line) || /\bset\s+\+o\s+errexit\b/.test(line)) errexitOff = true;
+    if (/\bset\s+-[a-zA-Z]*e/.test(line) || /\bset\s+-o\s+errexit\b/.test(line)) errexitOff = false;
+    if (!line.includes('$?') || errexitOff) return;
+    if (/\|\|\s*[A-Za-z_][A-Za-z0-9_]*=\$\?/.test(line)) return;
+    hits.push({ line: i + 1, text: raw.trim().slice(0, 80) });
   });
   return hits;
 }
@@ -210,6 +232,17 @@ async function main() {
       }
     }
 
+    // 8. errexit 下の終了コード取りこぼし（findUnguardedExitCaptures 参照）
+    for (const script of runScripts) {
+      for (const h of findUnguardedExitCaptures(script)) {
+        violations.push({
+          file, kind: 'errexit-exit-code', line: 0,
+          message: `bash -e のまま $? を読んでいる（非 0 で step が先に終わり届かない）: ${h.text}`
+            + ' → 直前に `set +e` を置くか `cmd || rc=$?` にする（fetch-metrics.yml の Check data integrity が見本）',
+        });
+      }
+    }
+
     // 6. 行継続の潰れ（findCollapsedContinuations 参照）
     for (const script of runScripts) {
       for (const h of findCollapsedContinuations(script)) {
@@ -233,7 +266,7 @@ async function main() {
     + `（うち フック有効で commit する ${hookCommitScanned} 本の doc-meta-index、`
     + `gh 通知ステップ ${ghStepsScanned} 件の GH_TOKEN も確認）`);
   if (violations.length === 0) {
-    console.log(`${TAG} ✓ actionlint / permissions / timeout-minutes / SHA固定 / doc-meta-index / 行継続 / GH_TOKEN いずれも違反なし`);
+    console.log(`${TAG} ✓ actionlint / permissions / timeout-minutes / SHA固定 / doc-meta-index / 行継続 / GH_TOKEN / errexit 下の $? いずれも違反なし`);
     process.exit(0);
   }
   for (const v of violations) {

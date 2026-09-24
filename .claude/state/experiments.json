@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-09-24T04:48:35.955Z",
+  "updated_at": "2026-09-24T09:00:00.000Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -1167,7 +1167,22 @@
           "event": "propose→start",
           "note": "10/1 に note-sales-fetch --month 2026-09 で初回計測、11/1 に最終判定"
         }
-      ]
+      ],
+      "measure": {
+        "specVersion": 1,
+        "metric": "sales.revenue",
+        "scope": {
+          "productPrefix": "rccm-"
+        },
+        "anchor": "2026-09-16",
+        "preDays": 28,
+        "postDays": 46,
+        "lagDays": 0,
+        "direction": "increase",
+        "target": 30000,
+        "minVolume": 1,
+        "note": "target_delta の「2026-10-31 までに rccm-* 売上 ¥30,000 以上」を自動計測。事後窓 09-16〜10-31。¥10,000 未満の停止条件は裁定時に post.value で判断する"
+      }
     },
     {
       "id": "EXP-010",
@@ -1246,7 +1261,46 @@
           "event": "propose→start",
           "note": "10/1・11/1・12/1 に note-sales-fetch --month で計測。12/1 に最終判定"
         }
-      ]
+      ],
+      "measure": {
+        "specVersion": 1,
+        "metric": "sales.revenue",
+        "scope": {
+          "productIds": [
+            "civil-1-chokuzen-pack",
+            "civil-2-niji-marugoto-pack",
+            "civil-2-chokuzen-pack",
+            "civil-2-r8-bunseki",
+            "rccm-marugoto-pack",
+            "rccm-anki-note",
+            "cce-anki-note",
+            "cce-takuitsu-chokuzen-pack",
+            "pe1-anki-note",
+            "pe1-chokuzen-pack",
+            "ce-anki-note",
+            "ce-chokuzen-pack",
+            "pe-construction-construction-planning-pack",
+            "pe-construction-environment-pack",
+            "pe-construction-geotechnical-pack",
+            "pe-construction-port-airport-pack",
+            "pe-construction-power-civil-pack",
+            "pe-construction-railway-pack",
+            "pe-construction-river-coast-pack",
+            "pe-construction-road-pack",
+            "pe-construction-steel-concrete-pack",
+            "pe-construction-tunnel-pack",
+            "pe-construction-urban-planning-pack"
+          ]
+        },
+        "anchor": "2026-09-17",
+        "preDays": 28,
+        "postDays": 75,
+        "lagDays": 0,
+        "direction": "increase",
+        "target": 60000,
+        "minVolume": 1,
+        "note": "target_delta の「2026-11-30 までに新 SKU 合計 ¥60,000 以上」を自動計測（事後窓 09-17〜11-30）。建設部門は起票時の 7 科目から 2026-09-23 に 11 科目へ拡大し、全 pack が新 SKU（基線 ¥0）のため全て含める。1級・2級土木の 9〜10 月売上 2 倍条件は月次レビューで別に確認する"
+      }
     }
   ]
 }

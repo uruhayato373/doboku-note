@@ -196,6 +196,14 @@ npm run check-project-task-refs # docs/ の恒久文書の廃止参照(task-queu
 npm run check-information-architecture # 4 領域（docs/content/.claude/実装）への逆戻り検知（廃止した置き場への新規ファイル・docs への制作物混入・content への台帳混入・二重 SSOT。pre-commit --staged ＋ quality:audit）
 npm run check-relative-links   # Markdown の相対リンク `](../x)` の実在（check-doc-refs はリンク**テキスト**しか見ないので、置き場を変えると href だけ黙って壊れる。pre-commit --staged ＋ quality:audit）
 npm run business-review       # 資格別KPI・週次/月次レビュー期日の確認（-- report --monthly で前月）
-npm run fetch-business-metrics # GSC/GA4の資格別・完了週/月の集計取得（--commitで追記）
+npm run fetch-business-metrics # GSC/GA4の資格別・完了週/月の集計取得（--commitで追記）。GSC確定前（終了日から4日未満）の期間だけskipし確定済みは取得、明示 --monthly が未確定なら exit 2
+npm run fetch-growth-pack      # 成長パック: 前の完了週（月〜日・JST）＋直前28日基線で GA4（landing×流入元・page×イベント）と GSC（page・page×query）を全件取得 → metrics/growth/pack-YYYY-Www.json。--week で過去週。罠: GSC確定前の週は exit 2（取得しない）
+npm run fetch-bing-webmaster   # Bing Webmaster API（query/page/日次traffic・直近12週）→ metrics/bing/。要 BING_WEBMASTER_API_KEY（無ければ exit 2・0と記録しない）
+npm run ga4-admin-api:check    # GA4 Admin API でカスタムディメンション・キーイベント・データ保持を観測（--commit で ga4-admin/inventory-latest.json）。閲覧者で可。API未有効化/権限不足は exit 2
+npm run ga4-admin-api:apply    # desired state の不足キーイベントを作成（既定 dry-run・--commit で作成）。要: サービスアカウントを GA4 編集者に
+npm run growth-digest          # 機会ダイジェスト: 成長パック×収益カバレッジ×Bing×実験台帳×triage-log から週次トリアージ対象を安定ID付きで抽出 → growth/digest-YYYY-Www.json。--print で週次レビュー埋め込み用 Markdown（書かない）、--week で指定週、--check は書かずに完走確認。罠: パックが無ければ exit 2
+npm run measure-experiments    # measure 仕様を持つ running/measuring 実験を前後の窓で自動計測（GA4/GSC/売上台帳）。既定 dry-run・--commit で measurements[] へ追記（冪等）。CI は fetch-metrics の publish 内で実行。罠: 売上は台帳の最終日が事後窓に届くまで確定扱いにしない
+npm run growth-triage          # 週次レビュー（ローカル）で機会ダイジェストを全件処分: list [--json] → apply --decisions .tmp/growth-triage-YYYY-Www.json [--commit]（backlog/実験/watchword/裁定/束ね/却下/保留を採番・起票・triage-log 記録）。罠: DN 採番に git 全履歴が要る（shallow clone は exit 2）・全件を先に検証し 1 件でも不正なら何も書かない
+npm run check-growth-triage    # 月曜 guard: 最新ダイジェストの未処分 0・レビューにマーカー（申し送りの振り分けは check-handoff-extraction）。exit 1 未反映 / 2 ダイジェスト/レビュー無しか古い
 npm run check-business-direction # 事業方針・指標・履歴・追記専用の検査
 ```

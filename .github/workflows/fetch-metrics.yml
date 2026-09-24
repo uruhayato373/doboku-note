@@ -13,11 +13,13 @@ concurrency:
 
 permissions:
   contents: write
+  # 計測アラート（整合性・日次異常・事業計測の取得失敗）を automation-failure Issue に記録する
+  issues: write
 
 jobs:
   fetch:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - name: Checkout develop
         # schedule はデフォルトブランチ（main）を checkout するため、ref を明示しないと
@@ -54,7 +56,11 @@ jobs:
           printf '%s' "$GOOGLE_SERVICE_ACCOUNT_KEY_JSON" > credentials/gsc-service-account.json
           chmod 600 credentials/gsc-service-account.json
 
+      # 失敗しても GA4/GSC の取得と publish を止めない（月初の金曜に月次の未確定で落ち、
+      # その週の計測がすべて失われた欠陥の是正）。結果は末尾の Report step が Issue にする。
       - name: Fetch qualification business metrics (completed week/month)
+        id: business
+        continue-on-error: true
         env:
           GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
           GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
@@ -148,7 +154,8 @@ jobs:
         env:
           GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
           GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
-        run: npm run fetch-ga4-data -- --dimension page --limit 100
+        # 上位 100 件で切ると crosswalk の結合が 29 ページに留まった。全ページを取る（meta.truncated で確認可能）
+        run: npm run fetch-ga4-data -- --dimension page --limit 10000
 
       # 収益カバレッジ ダッシュボード用: note/アフィリ CTA クリック（eventName × pagePath）。
       # 本番クリックが蓄積するまで 0 件が正常（計装は AnalyticsProvider のデリゲートリスナー）。
@@ -254,25 +261,61 @@ jobs:
 
       # GA4×GSC crosswalk 生成: 上で取得した ga4-page × gsc-page を URL で突合し、
       # title/meta 機会（上位表示低CTR）と ランキング機会（表示多い低順位）を surface（オフライン）。
+      # 成長パック: 事業レビューと同じ前の完了週（月〜日・JST）＋直前 28 日の基線で GA4 × GSC を全件取得する。
+      # 機会ダイジェスト（build-growth-digest）の唯一の入力。rc=1 取得失敗 / rc=2 検査不成立（認証・GSC 確定前）。
+      - name: Fetch growth pack (GA4 x GSC, fixed Mon-Sun week)
+        id: growth
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+        run: |
+          set +e
+          node scripts/fetch-growth-pack.mjs
+          echo "rc=$?" >> "$GITHUB_OUTPUT"
+
+      # Bing Webmaster（GA4 Organic の bing と照合する実クリック・表示）。キー未設定は rc=2 で検査不成立 Issue へ。
+      - name: Fetch Bing Webmaster (query / page / traffic)
+        id: bing
+        env:
+          BING_WEBMASTER_API_KEY: ${{ secrets.BING_WEBMASTER_API_KEY }}
+        run: |
+          set +e
+          node scripts/fetch-bing-webmaster.mjs
+          echo "rc=$?" >> "$GITHUB_OUTPUT"
+
+      # GA4 管理設定（カスタムディメンション・キーイベント・データ保持）を Admin API で観測し inventory を更新する。
+      # 閲覧者権限で足りる。check-ga4-dimensions（weekly-review-guard）がこの観測を読む。
+      - name: Observe GA4 admin settings (Admin API)
+        id: ga4admin
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+        run: |
+          set +e
+          node scripts/ga4-admin-api.mjs check --commit
+          echo "rc=$?" >> "$GITHUB_OUTPUT"
+
       - name: Generate GA4xGSC crosswalk report
         continue-on-error: true
         run: npm run report-ga4-gsc-crosswalk
 
+      # 既定シェルは bash -e。`node …; echo "exit_code=$?"` だと非 0 で step が先に終わり exit_code が
+      # 立たず、下の判定が一度も発火しなかった（2026-09 発覚）。set +e で rc を必ず取る。
       - name: Check data integrity
         id: integrity
-        continue-on-error: true
         run: |
           mkdir -p /tmp/metrics-report
+          set +e
           node .claude/scripts/check-data-integrity.mjs --report /tmp/metrics-report/integrity.md
-          echo "exit_code=$?" >> $GITHUB_OUTPUT
+          echo "exit_code=$?" >> "$GITHUB_OUTPUT"
 
       - name: Check daily anomaly
         id: anomaly
-        continue-on-error: true
         run: |
           mkdir -p /tmp/metrics-report
+          set +e
           node .claude/scripts/check-daily-anomaly.mjs --report /tmp/metrics-report/anomaly.md
-          echo "exit_code=$?" >> $GITHUB_OUTPUT
+          echo "exit_code=$?" >> "$GITHUB_OUTPUT"
 
       - name: Stage outputs
         run: |
@@ -284,6 +327,10 @@ jobs:
           ls -la /tmp/metrics-publish
 
       - name: Publish to develop branch (.claude/state/metrics/{ga4,gsc}/)
+        id: publish
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -301,21 +348,36 @@ jobs:
           # 残す（drift guard に拒否されると bot commit が丸ごと落ちるため）。
           npm run pre-commit:install
 
-          mkdir -p .claude/state/metrics/ga4 .claude/state/metrics/gsc .claude/state/metrics/monetization .claude/state/metrics/crosswalk .claude/state/metrics/affiliate .claude/state/weekly-metrics
+          mkdir -p .claude/state/metrics/ga4 .claude/state/metrics/gsc .claude/state/metrics/monetization .claude/state/metrics/crosswalk .claude/state/metrics/affiliate .claude/state/metrics/growth .claude/state/metrics/bing .claude/state/metrics/ga4-admin .claude/state/weekly-metrics
           cp -r /tmp/metrics-publish/ga4/* .claude/state/metrics/ga4/ 2>/dev/null || true
           cp -r /tmp/metrics-publish/gsc/* .claude/state/metrics/gsc/ 2>/dev/null || true
           cp -r /tmp/metrics-publish/monetization/* .claude/state/metrics/monetization/ 2>/dev/null || true
           cp -r /tmp/metrics-publish/crosswalk/* .claude/state/metrics/crosswalk/ 2>/dev/null || true
           cp -r /tmp/metrics-publish/affiliate/* .claude/state/metrics/affiliate/ 2>/dev/null || true
+          # growth は pack だけを戻す（triage-log.json は土曜の週次レビューが develop へ push する処分記録で、
+          # job 開始時点の古い版で上書きしない。digest は下で reset 後の最新から生成する）
+          cp /tmp/metrics-publish/growth/pack-*.json .claude/state/metrics/growth/ 2>/dev/null || true
+          cp -r /tmp/metrics-publish/bing/* .claude/state/metrics/bing/ 2>/dev/null || true
+          cp -r /tmp/metrics-publish/ga4-admin/* .claude/state/metrics/ga4-admin/ 2>/dev/null || true
+
+          # 実験の自動計測と機会ダイジェストは develop 最新（reset 後）の experiments.json と triage-log
+          # （土曜の週次レビューが push する処分記録）を読む必要があるので、ここで実行して同じ commit に載せる。
+          # 自動計測を先に行い、ダイジェストが VERDICT_DUE を拾えるようにする。
+          set +e
+          node scripts/measure-experiments.mjs --commit
+          echo "measure_rc=$?" >> "$GITHUB_OUTPUT"
+          node scripts/build-growth-digest.mjs
+          echo "digest_rc=$?" >> "$GITHUB_OUTPUT"
+          set -e
           cp -r /tmp/weekly-metrics-publish/* .claude/state/weekly-metrics/ 2>/dev/null || true
 
           # 寿命表（scripts/lib/prune-state-snapshots.mjs）に従って古い snapshot を消す（business は除外 dir・触らない）。
           # affiliate family は keep-all（`-YYYY-MM-DD.json` は消さない台帳）なので prune 対象に含めても実害は無いが、
           # 台帳性格が他 family と違うため対象には入れない（誤って keep-all の前提が壊れたときに気づけるようにする）。
           # 書き手と同じ commit で消すのが唯一安全（別 commit は上の reset --hard + copy-back に戻される）。
-          node scripts/prune-state-snapshots.mjs --commit --family ga4,gsc,monetization,crosswalk,weekly-metrics
+          node scripts/prune-state-snapshots.mjs --commit --family ga4,gsc,monetization,crosswalk,weekly-metrics,growth,bing
 
-          git add .claude/state/metrics/business .claude/state/metrics/ga4 .claude/state/metrics/gsc .claude/state/metrics/monetization .claude/state/metrics/crosswalk .claude/state/metrics/affiliate .claude/state/weekly-metrics
+          git add .claude/state/metrics/business .claude/state/metrics/ga4 .claude/state/metrics/gsc .claude/state/metrics/monetization .claude/state/metrics/crosswalk .claude/state/metrics/affiliate .claude/state/metrics/growth .claude/state/metrics/bing .claude/state/metrics/ga4-admin .claude/state/weekly-metrics .claude/state/experiments.json
           if git diff --cached --quiet; then
             echo "No changes to publish"
             exit 0
@@ -324,19 +386,72 @@ jobs:
           git commit -m "chore(metrics): gsc+ga4 weekly fetch $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
           git push origin develop
 
-      # タスク自動化(task-queue.json/build-todo)は廃止(2026-06-11、.claude/todo/ 手動運用へ一本化)。
-      # 違反は CI 失敗として通知し、人が .claude/todo/ に手動起票する。計測データは前ステップで commit 済み。
-      - name: Fail on data-integrity violation (アラート)
-        if: steps.integrity.outputs.exit_code == '1'
+      # 計測データは前ステップで commit 済み。異常は automation-failure Issue に記録し、復旧時に自動クローズする。
+      # rc=1（計測異常・事業計測の取得失敗）と rc=2（検査不成立＝入力ファイルなし）は channel を分ける。
+      - name: Report measurement alerts
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          INTEGRITY_RC: ${{ steps.integrity.outputs.exit_code }}
+          ANOMALY_RC: ${{ steps.anomaly.outputs.exit_code }}
+          BUSINESS_OUTCOME: ${{ steps.business.outcome }}
+          GROWTH_RC: ${{ steps.growth.outputs.rc }}
+          BING_RC: ${{ steps.bing.outputs.rc }}
+          GA4ADMIN_RC: ${{ steps.ga4admin.outputs.rc }}
+          DIGEST_RC: ${{ steps.publish.outputs.digest_rc }}
+          MEASURE_RC: ${{ steps.publish.outputs.measure_rc }}
+          PUBLISH_OUTCOME: ${{ steps.publish.outcome }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
-          echo "::error::GA4 データ整合性違反を検出（check-data-integrity.mjs）。.claude/todo/ に手動で起票してください。"
-          exit 1
-
-      - name: Fail on daily-anomaly violation (アラート)
-        if: steps.anomaly.outputs.exit_code == '1'
-        run: |
-          echo "::error::GA4 日次異常を検出（check-daily-anomaly.mjs）。.claude/todo/ に手動で起票してください。"
-          exit 1
+          anomalies=() invalid=()
+          [ "$INTEGRITY_RC" = "1" ] && anomalies+=("GA4 データ整合性違反（check-data-integrity.mjs）")
+          [ "$ANOMALY_RC" = "1" ] && anomalies+=("GA4 日次異常（check-daily-anomaly.mjs）")
+          [ "$BUSINESS_OUTCOME" = "failure" ] && anomalies+=("資格別事業計測の取得失敗（fetch-business-metrics / business-review snapshot）")
+          [ "$GROWTH_RC" = "1" ] && anomalies+=("成長パック（fetch-growth-pack）の取得失敗（区画ごとの error は pack の sections を参照）")
+          [ "$BING_RC" = "1" ] && anomalies+=("Bing Webmaster の取得失敗")
+          [ "$GA4ADMIN_RC" = "1" ] && anomalies+=("GA4 Admin API の観測失敗")
+          [ "$PUBLISH_OUTCOME" = "failure" ] && anomalies+=("develop への publish 失敗（計測・自動計測・ダイジェストが記録されていない）")
+          [ "$MEASURE_RC" = "1" ] && anomalies+=("実験の自動計測（measure-experiments）の取得失敗")
+          [ "$MEASURE_RC" = "2" ] && invalid+=("実験の自動計測: measure 仕様が不正、または認証なし")
+          [ "$DIGEST_RC" = "1" ] && anomalies+=("機会ダイジェスト（build-growth-digest）の生成失敗")
+          [ "$DIGEST_RC" = "2" ] && invalid+=("機会ダイジェスト: 成長パックが無く生成できない（今週の週次トリアージ対象が作られていない）")
+          [ "$GROWTH_RC" = "2" ] && invalid+=("成長パック: 認証なし、または週が GSC 確定前で取得せず")
+          [ "$BING_RC" = "2" ] && invalid+=("Bing Webmaster: BING_WEBMASTER_API_KEY 未設定（Bing Webmaster Tools → 設定 → API アクセスで発行し Secret へ）")
+          [ "$GA4ADMIN_RC" = "2" ] && invalid+=("GA4 Admin API: 権限不足または API 未有効化（ログの hint を参照）")
+          [ "$INTEGRITY_RC" = "2" ] && invalid+=("check-data-integrity: ga4-date が無く検査不成立")
+          [ "$ANOMALY_RC" = "2" ] && invalid+=("check-daily-anomaly: ga4-date が無く検査不成立")
+          # 検査 step まで到達しなかった（前段で落ちた）場合も検査不成立として扱う
+          [ -z "$INTEGRITY_RC" ] && invalid+=("check-data-integrity が実行されていない（前段の失敗）")
+          [ -z "$ANOMALY_RC" ] && invalid+=("check-daily-anomaly が実行されていない（前段の失敗）")
+          report() {
+            {
+              echo "## 検出"
+              for x in "$@"; do echo "- $x"; done
+              echo
+              for f in /tmp/metrics-report/integrity.md /tmp/metrics-report/anomaly.md; do
+                if [ -f "$f" ]; then echo; cat "$f"; fi
+              done
+              echo
+              echo "- run: $RUN_URL"
+              echo "- 異常の読み方: \`.claude/knowledge/reference/measurement-incidents.md\`"
+            } > /tmp/metrics-alert.md
+          }
+          status=0
+          if [ ${#anomalies[@]} -gt 0 ]; then
+            report "${anomalies[@]}"
+            node scripts/report-automation-failure.mjs --channel fetch-metrics --title "計測アラート（${#anomalies[@]} 件）" --body-file /tmp/metrics-alert.md
+            status=1
+          else
+            node scripts/report-automation-failure.mjs --resolve --channel fetch-metrics --body "復旧 run: $RUN_URL" || true
+          fi
+          if [ ${#invalid[@]} -gt 0 ]; then
+            report "${invalid[@]}"
+            node scripts/report-automation-failure.mjs --channel fetch-metrics-check-invalid --title "計測検査が不成立（${#invalid[@]} 件）" --body-file /tmp/metrics-alert.md
+            status=1
+          else
+            node scripts/report-automation-failure.mjs --resolve --channel fetch-metrics-check-invalid --body "復旧 run: $RUN_URL" || true
+          fi
+          exit $status
 
       - name: Cleanup credentials
         if: always()

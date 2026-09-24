@@ -216,6 +216,50 @@ jobs:
             --title "quality-audit の report 区分に FAIL があります" \
             --body-file /tmp/report-digest-body.md
 
+      # 計測→改善サイクルの反映ゲート: 最新の機会ダイジェストの表示対象が週次レビューで全件処分され、
+      # レビュー本文にダイジェストが埋め込まれているか（申し送りの振り分けは pre-commit の check-handoff-extraction）。
+      # rc=1（未処分・未反映）は channel growth-triage、rc=2（ダイジェスト/レビューが無い・古い）は
+      # growth-triage-check-invalid。赤落ちはさせず Issue を能動チャネルにする（復旧で自動クローズ）。
+      - name: Report - growth triage (計測ダイジェストの全件処分)
+        if: always()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set +e
+          node scripts/check-growth-triage.mjs > /tmp/growth-triage.txt 2>&1
+          rc=$?
+          set -e
+          cat /tmp/growth-triage.txt
+          {
+            echo "## growth-triage（rc=$rc）"
+            echo '```'
+            cat /tmp/growth-triage.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          {
+            echo '```'
+            cat /tmp/growth-triage.txt
+            echo '```'
+            echo ""
+            echo "- 手順: ローカルで \`npm run growth-triage -- list\` → 判断ファイルを \`.tmp/\` に書き \`npm run growth-triage -- apply --decisions <file> --commit\`"
+            echo "- レビュー本文には \`npm run growth-digest -- --print\` の出力（マーカー付き）を貼る。真実源: \`.claude/knowledge/reference/growth-cycle.md\`"
+            echo "- run: $RUN_URL"
+          } > /tmp/growth-triage-body.md
+          if [ "$rc" = "0" ]; then
+            node scripts/report-automation-failure.mjs --resolve --channel growth-triage --body "復旧 run: $RUN_URL" || true
+            node scripts/report-automation-failure.mjs --resolve --channel growth-triage-check-invalid --body "復旧 run: $RUN_URL" || true
+          elif [ "$rc" = "1" ]; then
+            node scripts/report-automation-failure.mjs --channel growth-triage \
+              --title "計測ダイジェストが週次レビューで処分・反映されていません" \
+              --body-file /tmp/growth-triage-body.md
+          else
+            node scripts/report-automation-failure.mjs --channel growth-triage-check-invalid \
+              --title "計測ダイジェストの反映検査が不成立（ダイジェスト/レビューが無いか古い）" \
+              --body-file /tmp/growth-triage-body.md
+          fi
+
       # 先週分の docs/reviews/weekly/YYYY-Www-review.md が無ければ exit 1（赤落ち）。
       # 依存パッケージ不要（fs のみ）なので npm ci はスキップ。
       # surfacer より後に置く＝レビュー欠落で赤くても上のサマリは必ず残る。

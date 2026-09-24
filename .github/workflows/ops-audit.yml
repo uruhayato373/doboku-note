@@ -92,6 +92,37 @@ jobs:
           node scripts/report-automation-failure.mjs --resolve --channel ops \
             --body "復旧 run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
+      # 月曜の weekly-review-guard が全 workflow の watchdog を回すが、guard 自身が止まると誰も拾わない。
+      # 日次のここから guard 1 本だけを見る（ops 判定とは独立・この step は job を赤にしない）。
+      - name: Watchdog - weekly-review-guard 自身の沈黙
+        if: always()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set +e
+          node scripts/check-workflow-health.mjs --only weekly-review-guard.yml > "$RUNNER_TEMP/guard-health.txt" 2>&1
+          rc=$?
+          set -e
+          cat "$RUNNER_TEMP/guard-health.txt"
+          if [ "$rc" = "0" ]; then
+            node scripts/report-automation-failure.mjs --resolve --channel workflow-health-guard \
+              --body "復旧 run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" || true
+            exit 0
+          fi
+          {
+            echo "月曜の weekly-review-guard.yml が動いていないか赤が続いています（rc=$rc）。"
+            echo "この guard が止まると、全 workflow の watchdog・週次レビュー実在・計測トリアージの検査がすべて止まります。"
+            echo ""
+            echo '```'
+            cat "$RUNNER_TEMP/guard-health.txt"
+            echo '```'
+          } > "$RUNNER_TEMP/guard-health-body.md"
+          node scripts/report-automation-failure.mjs \
+            --channel workflow-health-guard \
+            --title "weekly-review-guard が止まっています" \
+            --body-file "$RUNNER_TEMP/guard-health-body.md"
+
       # rc≠0 は job も赤にする（Issue が主経路・赤は workflow-health の連続失敗カウント用）。
       # rc=2 は検査不成立（ops:true が 0 件 or フラグ構成の破損）＝「遅れなし」ではないので緑にしない。
       - name: Fail on ops alerts / 検査不成立

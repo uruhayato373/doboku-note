@@ -30,6 +30,7 @@ import { BetaAnalyticsDataClient } from "@google-analytics/data";
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
 import { join } from "path";
 import dotenv from "dotenv";
+import { SPAM_REFERRAL_SOURCES } from "./lib/ga4-client.mjs";
 
 dotenv.config({ path: ".env.local" });
 
@@ -85,16 +86,8 @@ const DEFAULT_METRICS = [
   "bounceRate",
 ];
 
-// bot/スパム参照元の既定ブロックリスト
-// 出典: 2026-04-26 GA4 direct US bot インシデント、2026-05-17 source 監査
-// 追加判明したら本配列に追記する（GA4 プロパティ側の参照除外と二重防御）
-const SPAM_REFERRAL_SOURCES = [
-  "(not set)",
-  "ntp.msn.com",
-  "statics.teams.cdn.office.net",
-  "hustler.zenhp.co.jp",
-  "mobilesecurity.trendmicro.com",
-];
+// bot/スパム参照元の既定ブロックリストは lib/ga4-client.mjs の SPAM_REFERRAL_SOURCES が真実源
+// （追加判明したらそちらへ追記する）
 
 // ── CLI args ──
 
@@ -300,6 +293,9 @@ async function fetchGa4(client, propertyId, opts) {
       spamSourcesExcluded:
         opts.excludeSpam && SOURCE_LIKE_DIMENSIONS.includes(dimensionName) ? SPAM_REFERRAL_SOURCES : [],
       propertyId,
+      // limit で切った場合に消費側が気づけるよう、API が返す総行数を残す
+      rowCount: Number(response.rowCount ?? rows.length),
+      truncated: rows.length < Number(response.rowCount ?? rows.length),
     },
     rows,
   };
