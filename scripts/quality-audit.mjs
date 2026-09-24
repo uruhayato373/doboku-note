@@ -324,6 +324,12 @@ const CHECKS = [
     timeout: 60_000, ci: true,
     note: 'キャリアファネル集計（流入→回遊→CTA→成果）が実行可能か（成果物は書かない・月次レビューと EXP-008 が読む）',
   },
+  {
+    id: 'site-to-sales-report',
+    cmd: ['node', 'scripts/report-site-to-sales.mjs', '--check'],
+    timeout: 60_000, ci: true,
+    note: 'サイト送客クリック×note流入元×商品別売上の月次突合が実行可能か（成果物は書かない・月次レビューが読む。入力はコミット済み GA4/note/sales-log）',
+  },
   // 公開 SEO ページ（frequent-topics）を生成するスクリプトが実行できることを毎回確かめる。
   // Windows で `new URL("..", import.meta.url).pathname` が `/C:/Users/…` を返し
   // `C:\C:\Users\…` になって ENOENT で落ちる状態のまま、何週間も気づかれなかった
