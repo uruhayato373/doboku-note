@@ -82,7 +82,7 @@
 
 **やること**: 手順は DN-0274 と同じ（PDF は `drive-vault-sync --pull` で取り込み、`note-update-body --list <15本> --reattach-pdf --commit` を 1 つずつ。日次のアップロード上限と 3 本連続失敗で止め、CDN 待ちの中断は単発で `--force-retry`）。PDF 無しは `--reattach-pdf` 不要で、1 日の上限を使わない。加えて:
 1. PR #588 のマージ後に流す。無料設定のままメンバーシップ特典マガジンに入っている記事は、`--trial-line-bottom`（ほぼ全文を誰でも読める）か `--keep-member-lock`（全文ロックを保つ）を付けないと中断するようになる。
-2. 無料設定のまま会員限定の記事（2026-09-23 実測）: 全文ロックは 1級・2級の想定工事索引、合格ラボ「はじめに」、RCCM 問題III 序章、1級・2級・コンクリートの**まるごとパック入口 LP**。**入口 LP が全文ロック（未ログインで本文 0 字）なのは要判断**。`note-api-verification.md` は「入口 LP は `--trial-line-bottom` で無料プレビューを出す」扱いで、以前の更新（ラインを引かない既定）で閉じた可能性がある。ユーザーに開けるか確認してからフラグを決める。ペルソナ選択ガイドは 9/23 に `--trial-line-bottom` で本文 3,825 字を公開済み。
+2. 無料設定のまま会員限定の記事で残っているもの: 2級の想定工事索引、合格ラボ「はじめに」、RCCM 問題III 序章、1級・2級の**まるごとパック入口 LP**。2026-09-24 にユーザーが 1級の想定工事索引とコンクリートの入口 LP を「開く」と判断し、`--trial-line-bottom` で公開した（未ログインで 3,421 字・2,514 字）。同じ種類の 2級索引と 1級・2級入口 LP も `--trial-line-bottom` が既定。合格ラボ「はじめに」と RCCM 序章は会員向けの導入なので、開けるかをユーザーに確認してからフラグを決める。
 3. `notePricing: membership` の 6 本（予想問題マガジン・学科記述予想）は従来どおりラインなしで全文ロックを保つ（フラグ不要）。
 
 **完了条件**: `node scripts/check-note-republish.mjs --json` の `driftFiles` に `ba31a4f64` で変えた 86 本が無い。週次の `check-note-live-headings` で太字記号が 0。
@@ -124,11 +124,13 @@
 **完了条件**: catalog の i・j 系26冊がすべて ASIN 付き `live` になること。
 
 ### [DN-0266] 2級二次（10/25）前に、ココナラブログの2級・直前向け下書き3本を1日1本で公開する
-タグ: [収益化] [種類:制作] [起票:2026-09-23] [期日:2026-10-15]
+タグ: [収益化] [種類:制作] [起票:2026-09-23] [期日:2026-10-15] [進行中]
 
 **起点**: ココナラブログは公開8本に対し、書き上がった下書きが8本残っている（`2kyu-doko-made-kaku`・`2kyu-moshi-tsukaikata`・`chokuzen-2shukan-roadmap` ほか）。2級受験者が本試験直前に、経験記述の書き込み量と模試の使い方を確かめるための記事で、HARMはA。2026-09-23に見本記事（813777）を公開し、2級の模試とフルパックの本文から見本へリンクした。公開済み記事の閲覧は30日で各6〜16と小さい。記事公開で出品の閲覧が増えるかは未検証。
 
-**やること**: 3本を `coconala-blog-qa` で採点し、合格した記事から `node scripts/coconala-blog-publish.mjs --post <slug> --commit` で1日1本公開する（coconala-blog-policy.md §6）。funnel 先が listed であることを `npm run check-coconala-blog` で確かめる。
+**やること**: 残り2本を `DOBOKU_PW_MIN_FREE_MB=1200 node scripts/coconala-blog-publish.mjs --post <slug> --commit` で1日1本公開する（coconala-blog-policy.md §6）。9/24 に `coconala-blog-qa` で採点済み（`2kyu-doko-made-kaku` は同日公開済み・814642）。
+1. 9/25: `chokuzen-2shukan-roadmap`（PASS 3.0）。1級向け（funnel `coconala-1kyu-full-pdf`）で、1級二次 10/4 の直前訴求なので先に出す
+2. 9/26 以降: `2kyu-moshi-tsukaikata`（CTA を実商品「3回分・6冊＋特典」に直して `check-coconala-blog` violations 0。導線整合以外は 3 点）
 
 **完了条件**: 3本の blogUrl が frontmatter に書き戻され、公開スクリプトのライブ実査（ログアウト状態・外部リンク0件）が通る。公開から30日後に、記事と2級出品の閲覧を kpi-log で読む（欠測は0と扱わない）。
 
@@ -145,14 +147,6 @@
 
 **完了条件**: launchd の実行が受理を `gsc-indexing/history.json` に記録して develop へ push し、`npm run check-gsc-indexing-due` と `npm run check-gsc-sitemaps` がともに OK。
 
-### [DN-0299] note の PDF なし 27 本の本文を再公開し、表示崩れ（太字の記号・重複バナー）と 404 リンク 2 本を note 上から消す
-タグ: [SNS・マーケ] [種類:改善] [起票:2026-09-24] [期日:2026-09-25] [進行中]
-
-**起点**: `check-note-republish`（DN-0297 で 301 等価な張り替えを除外）の要再公開 128 本のうち、PDF なし・noteId ありが 27 本（本文画像 42 枚）。中身は 9/23 18:47 `ba31a4f64` の修正（太字が `**` のまま出る・重複した著者バナー）と、`配合計算-実戦演習` の 404 リンク 2 本の修正で、いずれも note 上は未反映（公開 API で `**` の表示を確認済み）。2026-09-24 にこの 27 本を同日夜に流すと決めた。
-
-**やること**: 9/24 夜は Mac セッションが DN-0274 の後に流す（リストは `.tmp/dn0299-first3.txt` → 確認 → `.tmp/dn0299-rest.txt`。Windows では流さない）。`DOBOKU_PW_MIN_FREE_MB=1200 node scripts/note-update-body.mjs --list <list> --commit`。リストは `node scripts/note-republish-plan.mjs` の ready と hasImage のうち noteId があり、本文が PDF 配布に触れず PDF 実体も添付記録も無い記事で、`配合計算-実戦演習` を先頭に PV 順（`.claude/state/metrics/note/articles-pv-2026-08.json`・`-09.json`）。太字記号・画像の欠落と過多・存在しないサイトリンク・見出しの URL・無料プレビュー長は 1 本ごとに公開直後の検査（[5e]）が止めるので、最初の数本では自動検査の対象外のリンクカードと目次を note 上で確かめてから残りを流す。会社 PC は `DOBOKU_PW_MIN_FREE_MB=500` と、画像の確定待ちで止まるなら `NOTE_IMG_SETTLE_MIN_MS`・`NOTE_IMG_SETTLE_PER_IMG_MS`（既定 90 秒）を延ばす。
-
-**完了条件**: 27 本すべてで `note-update-body` の公開直後の検査 [5e] が OK、`node scripts/check-note-republish.mjs` の要再公開から 27 本が消え、`npm run check-note-live-headings` と `node scripts/check-note-structure.mjs --ci`（有料境界の漏洩・全ロック）がともに exit 0。
 
 ### [DN-0300] note の要再公開の残り 101 本（PDF 付き 89 本・会員限定 6 本ほか）を反映する
 タグ: [SNS・マーケ] [種類:改善] [起票:2026-09-24]
@@ -367,14 +361,6 @@ CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認し
 
 ## 🟡 中 — 2〜3ヶ月以内
 
-### [DN-0301] `/links` の OG 画像（og-links.png）の資格数を 9 に作り直す
-タグ: [SNS・マーケ] [種類:改善] [起票:2026-09-24]
-
-**起点**: `public/images/og-links.png` は「土木・建設系7資格」、`src/app/links/page.tsx` の openGraph の画像 alt は「8資格」だが、ページの資格カードは RCCM を含む 9 資格。2026-09-24 に本文とメタデータの説明文だけ 9 資格に直した。SNS で `/links` を共有するとリンクカードに古い数が出る。
-
-**やること**: `ogp-prompts.md` の手順（`/ogp-create`）で og-links.png を「9資格」「技術士・施工管理・コンクリート・RCCM」に作り直し、alt も合わせる。
-
-**完了条件**: og-links.png の表記と alt がともに 9 資格になり、`npm run ogp-gallery` で崩れが無い。
 
 ### [DN-0298] Google が旧 `/docs/` を正規に選んだ 17 URL を追い、note から張られた分だけ残るならその note 18 本を再公開する
 タグ: [インフラ・計測] [種類:改善] [起票:2026-09-24]
@@ -385,14 +371,6 @@ CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認し
 
 **完了条件**: 上の比較を 1 回行い、18 本を再公開した（`check-note-republish` の drift から消えた）か、再公開しないと決めて本カードを削除した。
 
-### [DN-0284] ココナラ出品の文面変更と4テーマ添削の追加（PR #595・#596）について /doc-sync を1回回す
-タグ: [エージェント・SSOT] [種類:改善] [検証:check-doc-refs] [起票:2026-09-24]
-
-**起点**: 2026-09-24 に `src/lib/coconala-services.ts`（タイトル変更・`coconala-tensaku-4theme` 追加）と `scripts/coconala-thumb.mjs` を変えた。規約（code ルール「ドキュメント同期プロトコル」）ではコミット前に `/doc-sync` を回すが、そのセッションでは skill を呼べなかったため、運用表（coconala-operations.md）・売上記録の対応表・展開キットは手で直した。
-
-**やること**: `/doc-sync` を2つのマージコミット（`56749ec1f`・`bc9759e50`）の差分に対して1回回し、旧タイトル（「1・2級土木の経験記述を元発注者が診断します」「新形式対応 土木経験記述を元発注者が添削します」）やココナラの出品数・価格表の陳腐化を直す。`.claude/state/coconala/` の実測スナップショットは当時の記録なので直さない。
-
-**完了条件**: doc-sync-auditor の指摘が0件になるか、指摘を適用して `check-doc-refs` が通る。
 
 ### [DN-0279] 無料模試とサービス紹介の動画パックを作る（同じ形式の無料版→有料版、申し込み方の実演）
 タグ: [SNS・マーケ] [種類:制作] [検証:check-video-content] [起票:2026-09-23]
@@ -717,7 +695,7 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 **完了条件**: 画像が消えたときの出力に「エディタに無い n 枚」が出て、中断理由が `img-settle` と区別されて `.claude/state/note-update-aborted.json` に残る。単体テストで 2 つの分類を確かめる。
 
 ### [DN-0302] note のリンクカード化が、カードにならない URL 1 本で止まり、後ろの URL が全部素のリンクで公開される
-タグ: [収益化] [種類:不具合] [起票:2026-09-24]
+タグ: [収益化] [種類:不具合] [起票:2026-09-24] [進行中]
 
 **起点**: 2026-09-24、DN-0299 で `経験記述-AI設計-無料`（n0171b3105e2d）を全文更新したら `[4] cardify: processed=40 cards=0` になり、Brain の URL とその後ろの note 記事 URL がどちらも素のリンクのまま公開された。`scripts/lib/note-cardify.mjs` の `cardifyBareUrls` は毎回「最初の bare URL 段落」を探し直すため、埋め込みにならない URL（brain-market.com）が先頭に残り続け、同じ行を上限 40 回（各 10 秒待ち＝約 7 分）打ち直して終わる。公開直後の検査 [5e] はカードの有無を見ないので通ってしまう。
 

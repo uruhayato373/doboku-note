@@ -106,3 +106,16 @@ test('実 docs/ は error 0（廃止参照・参照切れなし）', () => {
   });
   assert.deepEqual(errors, [], `error: ${JSON.stringify(errors.slice(0, 5), null, 2)}`);
 });
+
+// todo-complete が削除前に呼ぶ: 閉じる ID を指す live 文書を列挙する（2026-09-24 DN-0299 の参照切れ）
+import { liveDocsReferencing } from '../scripts/check-project-task-refs.mjs';
+
+test('liveDocsReferencing: 閉じる ID を指す live 文書だけを返す', () => {
+  const docs = [
+    { rel: 'docs/handoffs/2026-09-24-x.md', content: '残りは DN-0299 / DN-0300' },
+    { rel: 'docs/reviews/weekly/2026-W39.md', content: 'DN-0299 完了' },
+    { rel: 'docs/strategy/a.md', content: 'DN-0300 のみ' },
+  ];
+  assert.deepEqual(liveDocsReferencing(docs, 'DN-0299'), ['docs/handoffs/2026-09-24-x.md']);
+  assert.deepEqual(liveDocsReferencing(docs, 'DN-0301'), []);
+});
