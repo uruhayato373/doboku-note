@@ -1,6 +1,6 @@
 ## 収益カバレッジ ダッシュボード
 
-> 流入: `2026-08-27〜2026-09-23`（ga4-page-2026-09-24T21-16-40.json） / クリック: `2026-08-27〜2026-09-23`
+> 流入: `2026-08-27〜2026-09-23`（ga4-page-2026-09-24T22-01-23.json） / クリック: `2026-08-27〜2026-09-23`
 
 - 流入のあるページ: **359**　/　高流入(≥15users)で**収益導線ゼロ**: **0**　/　**note 導線ゼロ**（アフィリのみ）: **0**
 
@@ -42,7 +42,7 @@
 
 ### 配置別 CTA CTR
 
-> 期間: `2026-08-27〜2026-09-23`（ga4-cta-clicks-by-placement-2026-09-24T21-16-47.json）。impression/click は note・アフィリ両 CTA の合算。
+> 期間: `2026-08-27〜2026-09-23`（ga4-cta-clicks-by-placement-2026-09-24T22-01-28.json）。impression/click は note・アフィリ両 CTA の合算。
 
 | placement | impressions | clicks | CTR% |
 |---|--:|--:|--:|
@@ -60,81 +60,38 @@
 
 ### note CTA label × 売上 突合（ID付きのみ）
 
-> ID付きクリック / 全クリック: **275 / 307**（89.6%）。残りは utmContent 単体で magazineId 未解決のため売上突合の対象外。
+> ID付きクリック / 全クリック: **67 / 221**（30.3%）。残りは utmContent 単体で magazineId 未解決のため売上突合の対象外。
 
 | magazineId | utmContent | clicks | 売上件数 | 売上額(円) |
 |---|---|--:|--:|--:|
-| civil-2-pastexam-essay | secondary-r07-q1 | 40 | 1 | 2,480 |
-| civil-1-pastexam-essay | secondary-r07-q1 | 38 | 0 | 0 |
-| civil-2-experience-essay | secondary-experience-examples | 29 | 1 | 1,980 |
-| civil-2-experience-essay | secondary-experience-guide | 23 | 1 | 1,980 |
-| civil-1-experience-essay | secondary-experience-writing-guide-inline-1-mid | 17 | 1 | 2,480 |
-| civil-2-r8-mock3-pdf | c2-secondary-start-mock3 | 12 | 0 | 0 |
-| civil-1-combo-essay | secondary-experience-guide-combo | 8 | 0 | 0 |
-| tankan-takuitsu-reiwa-pdf | r08-primary-top | 8 | 0 | 0 |
-| civil-2-pastexam-essay | secondary-r06-q1 | 6 | 1 | 2,480 |
-| civil-1-pastexam-essay | secondary-r06-q1 | 5 | 0 | 0 |
-| civil-1-ichiji-ronten | c1-exam-overview | 4 | 0 | 0 |
-| civil-2-anki-note | c2-secondary-start | 4 | 0 | 0 |
-| civil-membership-lab | secondary-experience-writing-guide-inline-1-mid | 4 | 0 | 0 |
-| cce-essay-magazine | concrete-chief-engineer-guide-essay-top | 3 | 0 | 0 |
-| civil-2-pastexam-essay | secondary-experience-examples | 3 | 1 | 2,480 |
-| civil-2-pastexam-essay | secondary-r04-q1 | 3 | 1 | 2,480 |
-| civil-1-experience-essay | secondary-experience-examples | 2 | 1 | 2,480 |
-| civil-1-keiken-complete-pack | secondary-experience-writing-guide-top | 2 | 2 | 19,600 |
-| civil-1-niji-marugoto-pack | secondary-r07-top | 2 | 2 | 23,600 |
-| civil-1-r8-bunseki | c1-last-minute | 2 | 0 | 0 |
-| civil-2-experience-essay | c2-secondary-by-theme | 2 | 1 | 1,980 |
-| civil-2-koji-bank | secondary-experience-writing-examples-top | 2 | 2 | 10,960 |
-| civil-2-koji-bank | secondary-experience-writing-guide-top | 2 | 2 | 10,960 |
+| civil-2-experience-essay | secondary-experience-examples | 11 | 1 | 1,980 |
+| civil-2-pastexam-essay | secondary-r07-q1 | 9 | 1 | 2,480 |
+| civil-2-experience-essay | secondary-experience-guide | 4 | 1 | 1,980 |
+| civil-1-combo-essay | secondary-experience-guide-combo | 3 | 0 | 0 |
+| civil-1-experience-essay | secondary-experience-writing-guide-inline-1-mid | 3 | 1 | 2,480 |
+| civil-1-pastexam-essay | secondary-r07-q1 | 3 | 0 | 0 |
+| civil-2-koji-bank | secondary-experience-writing-guide-top | 3 | 2 | 10,960 |
+| tankan-takuitsu-reiwa-pdf | r08-primary-top | 3 | 0 | 0 |
+| cce-essay-persona-pack | guide-essay-themes | 2 | 0 | 0 |
+| civil-1-ichiji-ronten | c1-exam-overview | 2 | 0 | 0 |
+| civil-2-koji-bank | secondary-r04-top | 2 | 2 | 10,960 |
+| civil-2-koji-bank | secondary-r07-top | 2 | 2 | 10,960 |
+| civil-2-pastexam-essay | secondary-r04-q1 | 2 | 1 | 2,480 |
 | civil-2-pastexam-essay | secondary-r05-q1 | 2 | 1 | 2,480 |
-| civil-membership-lab | secondary-r07-inline-1-mid | 2 | 0 | 0 |
-| pe1-takuitsu-pdf | guide-overview | 2 | 0 | 0 |
-| pe1-takuitsu-pdf | pe-first-stage-r07-basic-top | 2 | 0 | 0 |
-| cce-essay-persona-pack | guide-essay-themes | 1 | 0 | 0 |
-| cce-mix-calculation-practice | concrete-chief-engineer-textbook-mix-design-top | 1 | 0 | 0 |
-| cce-persona-civil-contractor-pack | persona-expansion-guide | 1 | 0 | 0 |
-| cce-r8-mc-50 | concrete-chief-engineer-primary-production-qc-top | 1 | 0 | 0 |
-| cce-r8-mc-50 | concrete-chief-engineer-primary-products-top | 1 | 0 | 0 |
-| cce-r8-mc-50 | concrete-chief-engineer-primary-properties-top | 1 | 0 | 0 |
-| cce-takuitsu-chokuzen-pack | concrete-chief-engineer-guide-overview-top | 1 | 0 | 0 |
-| cd-essay-magazine | concrete-diagnostician-guide-essay-top | 1 | 0 | 0 |
-| civil-1-keiken-complete-pack | secondary-experience-writing-examples-top | 1 | 2 | 19,600 |
-| civil-1-keiken-river-disaster-pack | keiken-field-pack | 1 | 0 | 0 |
-| civil-1-niji-marugoto-pack | secondary-r03-top | 1 | 2 | 23,600 |
-| civil-1-r8-mock3-pdf | c1-last-minute-mock3 | 1 | 0 | 0 |
-| civil-2-koji-bank | secondary-r07-top | 1 | 2 | 10,960 |
-| civil-2-niji-marugoto-pack | secondary-experience-writing-examples-top | 1 | 0 | 0 |
-| civil-2-pastexam-essay | secondary-experience-guide | 1 | 1 | 2,480 |
-| civil-2-reading-guide | guide-exam-overview-top | 1 | 0 | 0 |
-| civil-2-takuitsu-pdf | c2-exam-overview | 1 | 0 | 0 |
-| civil-membership-lab | secondary-concrete-past-problems-inline-1-mid | 1 | 0 | 0 |
-| civil-membership-lab | secondary-r06-inline-1-mid | 1 | 0 | 0 |
-| essay-complete-pack | essay-exam-strategy-inline-1-mid | 1 | 9 | 77,280 |
-| essay-complete-pack | exam-index-inline-1-mid | 1 | 9 | 77,280 |
+| civil-1-experience-essay | secondary-experience-examples | 1 | 1 | 2,480 |
+| civil-1-keiken-complete-pack | secondary-experience-writing-guide-top | 1 | 2 | 19,600 |
+| civil-1-pastexam-essay | secondary-r06-q1 | 1 | 0 | 0 |
+| civil-2-anki-note | c2-secondary-start | 1 | 0 | 0 |
+| civil-2-pastexam-essay | secondary-experience-examples | 1 | 1 | 2,480 |
+| civil-2-pastexam-essay | secondary-r06-q1 | 1 | 1 | 2,480 |
+| essay-complete-pack | keyword-2026-inline-1-mid | 1 | 9 | 77,280 |
 | essay-core-pack | essay-strategy-kyotsu | 1 | 5 | 27,400 |
-| essay-general-contractor-magazine | pattern-essay-general-contractor-body | 1 | 3 | 7,440 |
-| essay-road-municipality-magazine | management-tradeoffs-economy-social | 1 | 3 | 7,440 |
-| essay-road-municipality-magazine | pattern-essay-road-municipality-inline-1-mid | 1 | 3 | 7,440 |
-| essay-standards-municipality-magazine | persona-guide-standards-municipality | 1 | 0 | 0 |
-| essay-water-municipality-magazine | persona-guide-water-municipality | 1 | 1 | 2,480 |
-| pe-construction-environment-pack | pec-environment-themes | 1 | 0 | 0 |
-| pe-construction-required-magazine | construction-planning-ronbun-keyword-mid | 1 | 2 | 6,960 |
-| pe-construction-required-magazine | gakushuu-jikan-schedule-foot | 1 | 2 | 6,960 |
-| pe-construction-required-magazine | gakushuu-jikan-schedule-mid | 1 | 2 | 6,960 |
-| pe-construction-required-magazine | hissu-kamoku-kaitourei-foot | 1 | 2 | 6,960 |
+| essay-sewage-municipality-magazine | persona-guide-sewage-municipality | 1 | 0 | 0 |
+| pe-construction-environment-magazine | environment-exam-themes | 1 | 0 | 0 |
 | pe-construction-required-magazine | secondary-study-method-end | 1 | 2 | 6,960 |
 | pe-construction-required-magazine | soil-foundation-ronbun-keyword-mid | 1 | 2 | 6,960 |
 | pe-construction-required-magazine | toan-kousei-template-mid | 1 | 2 | 6,960 |
-| pe-construction-river-coast-magazine | river-coast-exam-themes | 1 | 0 | 0 |
-| pe-construction-urban-planning-magazine | urban-planning-exam-themes | 1 | 0 | 0 |
-| pe1-takuitsu-pdf | guide-basic-subject | 1 | 0 | 0 |
-| pe1-takuitsu-pdf | guide-construction-subject | 1 | 0 | 0 |
-| pe1-takuitsu-pdf | guide-study-plan | 1 | 0 | 0 |
-| pe1-takuitsu-pdf | pe-first-stage-r04-construction-top | 1 | 0 | 0 |
-| r8-essay-forecast | essay-strategy-kyotsu | 1 | 19 | 58,120 |
-| rccm-mondai1-steel-concrete | persona-expansion-guide | 1 | 0 | 0 |
-| tankan-reading-guide | keyword-2026-inline-1-mid | 1 | 10 | 19,800 |
-| tankan-takuitsu-heisei-pdf | tankan-h21-primary | 1 | 0 | 0 |
-| tankan-takuitsu-reiwa-pdf | r04-primary-top | 1 | 0 | 0 |
+| pe-construction-road-magazine | road-exam-themes | 1 | 0 | 0 |
+| pe-construction-steel-concrete-magazine | steel-concrete-exam-themes | 1 | 0 | 0 |
+| tankan-takuitsu-reiwa-pdf | r06-primary-top | 1 | 0 | 0 |
 

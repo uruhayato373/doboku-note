@@ -10,7 +10,7 @@
     "endDate": "2026-09-13",
     "days": 28
   },
-  "generatedAt": "2026-09-24T21:17:02.456Z",
+  "generatedAt": "2026-09-24T22:03:08.920Z",
   "pack": ".claude/state/metrics/growth/pack-2026-W38.json",
   "inputs": [
     {
@@ -21,7 +21,7 @@
     },
     {
       "name": "monetization-coverage",
-      "file": ".claude/state/metrics/monetization/coverage-2026-09-24T21-16-50.json",
+      "file": ".claude/state/metrics/monetization/coverage-2026-09-24T22-02-58.json",
       "coverage": "complete",
       "note": null
     },
@@ -158,6 +158,11 @@
         "week": 6423,
         "baseWeekly": 5337.8,
         "deltaPct": 20.3
+      },
+      "coconala_cta_impression": {
+        "week": 0,
+        "baseWeekly": 0,
+        "deltaPct": null
       },
       "quiz_start": {
         "week": 2,
