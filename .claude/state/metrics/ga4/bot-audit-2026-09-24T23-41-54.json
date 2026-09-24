@@ -1,0 +1,114 @@
+{
+  "meta": {
+    "startDate": "2026-09-10",
+    "endDate": "2026-09-23",
+    "minUsers": 5,
+    "threshold": 0.8
+  },
+  "totals": {
+    "allUsers": 5641,
+    "jpUsers": 3586,
+    "foreignUsers": 2059
+  },
+  "rows": [
+    {
+      "source": "bing",
+      "totalUsers": 3025,
+      "jpUsers": 3008,
+      "foreignUsers": 19,
+      "foreignRatio": 0.00628099173553719,
+      "engagementRate": 0.696578291411738,
+      "flagged": false
+    },
+    {
+      "source": "(direct)",
+      "totalUsers": 1842,
+      "jpUsers": 137,
+      "foreignUsers": 1706,
+      "foreignRatio": 0.9261672095548317,
+      "engagementRate": 0.07563901930099114,
+      "flagged": true
+    },
+    {
+      "source": "note",
+      "totalUsers": 346,
+      "jpUsers": 36,
+      "foreignUsers": 310,
+      "foreignRatio": 0.8959537572254336,
+      "engagementRate": 0.16414141414141414,
+      "flagged": true
+    },
+    {
+      "source": "google",
+      "totalUsers": 235,
+      "jpUsers": 222,
+      "foreignUsers": 13,
+      "foreignRatio": 0.05531914893617021,
+      "engagementRate": 0.6229050279329609,
+      "flagged": false
+    },
+    {
+      "source": "yahoo",
+      "totalUsers": 96,
+      "jpUsers": 96,
+      "foreignUsers": 1,
+      "foreignRatio": 0.010416666666666666,
+      "engagementRate": 0.7288135593220338,
+      "flagged": false
+    },
+    {
+      "source": "copilot.com",
+      "totalUsers": 31,
+      "jpUsers": 31,
+      "foreignUsers": 0,
+      "foreignRatio": 0,
+      "engagementRate": 0.6470588235294118,
+      "flagged": false
+    },
+    {
+      "source": "x",
+      "totalUsers": 14,
+      "jpUsers": 14,
+      "foreignUsers": 0,
+      "foreignRatio": 0,
+      "engagementRate": 0.5,
+      "flagged": false
+    },
+    {
+      "source": "chatgpt.com",
+      "totalUsers": 8,
+      "jpUsers": 8,
+      "foreignUsers": 0,
+      "foreignRatio": 0,
+      "engagementRate": 0.5454545454545454,
+      "flagged": false
+    },
+    {
+      "source": "youtube",
+      "totalUsers": 8,
+      "jpUsers": 8,
+      "foreignUsers": 0,
+      "foreignRatio": 0,
+      "engagementRate": 0,
+      "flagged": false
+    },
+    {
+      "source": "note.com",
+      "totalUsers": 7,
+      "jpUsers": 7,
+      "foreignUsers": 0,
+      "foreignRatio": 0,
+      "engagementRate": 0.6071428571428571,
+      "flagged": false
+    },
+    {
+      "source": "(not set)",
+      "totalUsers": 5,
+      "jpUsers": 4,
+      "foreignUsers": 1,
+      "foreignRatio": 0.2,
+      "engagementRate": 0,
+      "flagged": false
+    }
+  ]
+}
