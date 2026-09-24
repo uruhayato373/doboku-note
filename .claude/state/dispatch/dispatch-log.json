@@ -1315,6 +1315,30 @@
       "commit": "32db7e665f62",
       "verification": "PR #618: 9/25 00:5x の実行で 5管理-経済性管理が「挿入した画像がエディタに無い（1 枚消失）」を出し、note-update-aborted.json に reason=img-lost で記録（img-settle と区別）。tests/note-images-settle-classify.test.mjs 6 pass",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0300",
+      "at": "2026-09-25",
+      "task": "note の要再公開の残り 101 本（PDF 付き 89 本・会員限定 6 本ほか）を反映する",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "b7db147fcb39",
+      "verification": "9/24〜25 に要再公開の 101 本を反映: 総監模範論文 40（DN-0274）・建設部門 PDF 付き 47（全件 [4.6] 添付復元 OK・[5e] OK）・会員限定 6・精読ガイド 5（noteId 書き戻し＋人的資源管理の画像パス修正）・画像付き 2・入口 LP。残る drift は DN-0277（バッククォート置換 257 本）と序章 1 本（DN-0271 に移管）。check-note-live-headings 894 件不整合なし・check-note-structure --ci CRITICAL 0",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0275",
+      "at": "2026-09-25",
+      "task": "太字記号・画像重複の原稿修正 86 本を note へ再公開する（建設部門 PDF 付き 47 本を含む）",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "b7db147fcb39",
+      "verification": "ba31a4f64 で変えた 89 本のうち drift 残は序章 1 本のみ（DN-0271 に移管）。check-note-live-headings 894 件検査・太字記号含む不整合なし。会員限定の無料入口 7 本はユーザー判断で --trial-line-bottom で公開",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }
