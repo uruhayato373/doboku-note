@@ -182,7 +182,7 @@
 
 **やること**: Windows PC から `node scripts/note-update-body.mjs --list <list> --commit`。リストは `node scripts/note-republish-plan.mjs` の ready と hasImage のうち noteId があり、本文が PDF 配布に触れず PDF 実体も添付記録も無い記事で、`配合計算-実戦演習` を先頭に PV 順（`.claude/state/metrics/note/articles-pv-2026-08.json`・`-09.json`）。最初の数本で有料エリア・画像・リンクカード・目次を note 上で確かめてから残りを流す。会社 PC は `DOBOKU_PW_MIN_FREE_MB=500` と、画像の確定待ちで止まるなら `NOTE_IMG_SETTLE_MIN_MS`・`NOTE_IMG_SETTLE_PER_IMG_MS`（既定 90 秒）を延ばす。
 
-**完了条件**: `node scripts/check-note-republish.mjs` の要再公開から 27 本が消え、`npm run verify-note-status` で有料境界が保たれている。`配合計算-実戦演習` の note 上に 404 の 2 本が無く、太字を直した記事 3 本で note 上に `**` が残っていないことを公開 API で確認済み。
+**完了条件**: `node scripts/check-note-republish.mjs` の要再公開から 27 本が消え、`node scripts/check-note-structure.mjs --ci` が exit 0（有料境界の漏洩・全ロックなし）。`配合計算-実戦演習` の note 上に 404 の 2 本が無く、太字を直した記事 3 本で note 上に `**` が残っていないことを公開 API で確認済み。
 
 ### [DN-0300] note の要再公開の残り 101 本（PDF 付き 89 本・会員限定 6 本ほか）を反映する
 タグ: [SNS・マーケ] [種類:改善] [起票:2026-09-24]
