@@ -11,11 +11,12 @@
 - [feedback_read_auth_notes_before_ci_proposal.md](feedback_read_auth_notes_before_ci_proposal.md)
 - [feedback_out_of_expertise_needs_independent_qa.md](feedback_out_of_expertise_needs_independent_qa.md)
 - [feedback_platform_only_artifacts_destroyed_by_bulk_ops.md](feedback_platform_only_artifacts_destroyed_by_bulk_ops.md)
+- [feedback_bulk_outward_op_necessity_first.md](feedback_bulk_outward_op_necessity_first.md) — 外向き一括操作はsurfacer件数を作業量にせず「やらないと何が壊れるか」を実測→必須/任意を分ける。元PRの理由はデータで裏取り(2026-09-24 note674本→1本)
 - [feedback_handoff_extract_before_delete.md](feedback_handoff_extract_before_delete.md)
 - [feedback_deploy_discipline.md](feedback_deploy_discipline.md)
 - [feedback_deploy_cadence.md](feedback_deploy_cadence.md)
 - [feedback_deploy_mechanics_parallel_safe.md](feedback_deploy_mechanics_parallel_safe.md)
-- [feedback_multi_session_concurrent_git.md](feedback_multi_session_concurrent_git.md)
+- [feedback_multi_session_concurrent_git.md](feedback_multi_session_concurrent_git.md) — 複数セッション並行が常態。push前にorigin/develop..HEAD巻き込み確認、pathspec厳守。feature ブランチは共有ツリーでcheckout -bせずworktree（並行セッションのcommitが載る・2026-09-24）
 - [feedback_shared_index_commit_safety.md](feedback_shared_index_commit_safety.md)
 - [feedback_pr_squash_bundles_unpushed_commits.md](feedback_pr_squash_bundles_unpushed_commits.md)
 - [feedback_parallel_agent_git.md](feedback_parallel_agent_git.md)
@@ -106,6 +107,7 @@
 - [reference_admin_worktree_turbopack.md](reference_admin_worktree_turbopack.md)
 - [reference_next_dev_single_instance_per_dir.md](reference_next_dev_single_instance_per_dir.md)
 - [reference_bash_heredoc_crlf_broken.md](reference_bash_heredoc_crlf_broken.md)
+- [reference_npm_ci_legacy_peer_deps.md](reference_npm_ci_legacy_peer_deps.md) — npm ciのERESOLVEは.npmrc(PR#601)で解消済み。同期後はrefresh-indexesしないとpre-commitが落ちる
 - [reference_worktree_node_modules_and_crlf_tests.md](reference_worktree_node_modules_and_crlf_tests.md)
 - [project_ig_api_posting_setup.md](project_ig_api_posting_setup.md)
 - [feedback_pdf_on_demand_only.md](feedback_pdf_on_demand_only.md)
