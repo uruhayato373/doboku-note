@@ -1291,6 +1291,30 @@
       "commit": "1cf6d889018c",
       "verification": "PR #626 マージ: check-git-sync が develop の最新 Pre-merge check を読み、failure なら ✗ の 1 行、gh 不可は「未取得」。テスト 10 pass",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0302",
+      "at": "2026-09-25",
+      "task": "note のリンクカード化が、カードにならない URL 1 本で止まり、後ろの URL が全部素のリンクで公開される",
+      "tier": "low",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "32db7e665f62",
+      "verification": "PR #608: tests/note-cardify-skip.test.mjs で埋め込み不可 URL を先頭に置いても後ろがカード化。9/25 01:1x に n0171b3105e2d を再更新し cardify processed=2 cards=1 failed=1（brain-market のみ⚠）、公開 API に n4fde0f62dc20 のカードを確認",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0273",
+      "at": "2026-09-25",
+      "task": "全文更新の「CDN確定待ちタイムアウト」が、挿入した画像がエディタから消えた場合も同じ表示になる",
+      "tier": "low",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "32db7e665f62",
+      "verification": "PR #618: 9/25 00:5x の実行で 5管理-経済性管理が「挿入した画像がエディタに無い（1 枚消失）」を出し、note-update-aborted.json に reason=img-lost で記録（img-settle と区別）。tests/note-images-settle-classify.test.mjs 6 pass",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }
