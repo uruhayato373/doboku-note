@@ -33,6 +33,7 @@ import { checkCompleteReadiness, readClaimsStore, CLAIMS_PATH } from './lib/todo
 import { deleteCard } from './backlog-edit.mjs';
 import { todayJst } from './lib/jst-date.mjs';
 import { listPlanUnits } from './lib/plan-units.mjs';
+import { liveDocsReferencing, readProjectDocs } from './check-project-task-refs.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const BACKLOG = '.claude/todo/backlog.md';
@@ -63,8 +64,12 @@ for (const c of readiness.checks) {
   const mark = c.pass === true ? '✓' : c.pass === false ? '✗' : '?';
   console.log(`  [${mark}] ${c.label}: ${c.detail}`);
 }
+// 閉じるとカードが消えるので、live 文書（docs/・週次スナップショット除く）が指したままだと
+// check-project-task-refs の dangling-id で CI が赤くなる。消す前に参照を書き換えさせる。
+const docRefs = liveDocsReferencing(readProjectDocs(ROOT), id);
+console.log(`  [${docRefs.length ? '✗' : '✓'}] doc-refs: ${docRefs.length ? `docs/ の ${docRefs.length} 件が ${id} を参照している（完了扱いへ書き換えてから閉じる）: ${docRefs.join(', ')}` : `docs/ に ${id} を参照する live 文書なし`}`);
 
-if (!readiness.ok) {
+if (!readiness.ok || docRefs.length) {
   console.error(`\nFAIL: ${id} は機械チェックで不合格（上の✗を解消すること）`);
   process.exit(1);
 }

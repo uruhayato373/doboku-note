@@ -116,6 +116,23 @@ export function auditProjectDoc(rel, content, knownIds) {
   return { errors, warnings };
 }
 
+/**
+ * カードを閉じる前に、その ID を指す live 文書を列挙する（todo-complete が削除前に呼ぶ）。
+ * 閉じた後に dangling-id として CI で赤くなるのを、削除する前に止めるため（2026-09-24 に
+ * DN-0299 を閉じて handoff の参照が切れ、PR #608・#609 の build が赤くなった）。
+ * 週次スナップショットは参照が残るのが正常なので除く。
+ * @param {{rel:string, content:string}[]} docs
+ * @returns {string[]} 参照している文書の rel
+ */
+export function liveDocsReferencing(docs, id) {
+  return docs.filter((d) => !isDatedSnapshot(d.rel) && (d.content.match(ID_RE) ?? []).includes(id)).map((d) => d.rel);
+}
+
+/** docs/ 配下の .md を {rel, content} で読む */
+export function readProjectDocs(root = ROOT) {
+  return walk(join(root, 'docs')).map((p) => ({ rel: toPosix(relative(root, p)), content: readFileSync(p, 'utf8') }));
+}
+
 function main() {
   if (process.env.SKIP_PROJECT_TASK_REFS === '1') {
     console.log('[check-project-task-refs] SKIP_PROJECT_TASK_REFS=1 のためスキップ');
