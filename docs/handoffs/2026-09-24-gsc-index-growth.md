@@ -2,7 +2,7 @@
 
 > [!note]
 > **2026-09-24 時点**：PR #597〜#600 と #602（launchd `gsc-local`・sitemap の API 送信・#599 の取り下げ）は 2026-09-24 に main（本番）へ反映済み（part-N の sitemap 復帰も完了）。Search Console のサービスアカウント 2 つは「フル」権限を確認済み。
-> 残りのタスクは backlog の DN-0293 / DN-0296 / DN-0297 / DN-0298 にある。この文書は再開手順と順番だけで、
+> 残りのタスクは backlog の DN-0293 / DN-0298 / DN-0299 / DN-0300 にある。この文書は再開手順と順番だけで、
 > 手順を終えたら削除する（記録は git 履歴と `gsc-management.md` の 2026-09-24 エントリ）。
 
 ## ローカルで再開する
@@ -20,7 +20,7 @@ npm run check-gsc-sitemaps                     # sitemap の送信・読み込�
 ## 次にやる順番
 
 1. ~~`/deploy`（develop → main）~~ 2026-09-24 済み（本番 sitemap 1,568 件・part-N 133 件・robots.txt に sitemap-legacy.xml・check-production-ssr exit 0）。
-2. **DN-0296**：note は 404 を直した `配合計算-実戦演習` 1 本だけ再公開する（2026-09-24 夜・Windows）。ほかの張り替えは 301・UTM 保持で等価なので各記事の次の改稿時に反映。drift の等価判定は **DN-0297**、旧 URL が正規に選ばれた 17 URL の追跡は **DN-0298**。
+2. **DN-0299**：note の PDF なし 27 本を再公開（2026-09-24 夜・Windows）。9/23 の表示崩れ修正（太字の記号・重複バナー）と `配合計算-実戦演習` の 404 を反映する。張り替えだけの 546 本は 301 等価で再公開不要（check-note-republish の 301 等価判定・PR #604）。PDF 付きほか残り 101 本は **DN-0300**、旧 URL が正規に選ばれた 17 URL の追跡は **DN-0298**。
 3. **DN-0293**：Mac に `npm run gsc-local:install`（launchd・毎日 10:30）を入れ、`-- --run-now` で登録リクエストと develop への push を確かめる。self-hosted runner はこのリポジトリが公開のため使わない。
 
 ## 注意

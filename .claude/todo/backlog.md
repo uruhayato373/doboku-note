@@ -175,14 +175,27 @@
 
 **完了条件**: launchd の実行が受理を `gsc-indexing/history.json` に記録して develop へ push し、`npm run check-gsc-indexing-due` と `npm run check-gsc-sitemaps` がともに OK。
 
-### [DN-0296] note「配合計算-実戦演習」の本文を再公開し、404 リンク 2 本を note 上から消す
+### [DN-0299] note の PDF なし 27 本の本文を再公開し、表示崩れ（太字の記号・重複バナー）と 404 リンク 2 本を note 上から消す
 タグ: [SNS・マーケ] [種類:改善] [起票:2026-09-24] [期日:2026-09-25]
 
-**起点**: PR #598 で `content/note/コンクリート主任技士/配合計算-実戦演習/article.md`（n5a55ae6dc16b・有料・PDF なし・画像 1 枚）の 404 リンク 2 本（`textbook-mix-design`・`primary-mix-design` の打ち間違い）を直したが、note.com 上は再公開するまで 404 のまま。#598 のほかの張り替え（旧 `/docs/` → 新 URL）は本番で 301・UTM 保持のまま転送されるため、2026-09-24 にこの 1 本だけを再公開し、残りは各記事の次の改稿時に反映すると決めた。
+**起点**: `check-note-republish`（DN-0297 で 301 等価な張り替えを除外）の要再公開 128 本のうち、PDF なし・noteId ありが 27 本（本文画像 42 枚）。中身は 9/23 18:47 `ba31a4f64` の修正（太字が `**` のまま出る・重複した著者バナー）と、`配合計算-実戦演習` の 404 リンク 2 本の修正で、いずれも note 上は未反映（公開 API で `**` の表示を確認済み）。2026-09-24 にこの 27 本を同日夜に流すと決めた。
 
-**やること**: 2026-09-24 夜に Windows PC から `node scripts/note-update-body.mjs --article <上記パス>` で dry-run → `--commit`。会社 PC は `DOBOKU_PW_MIN_FREE_MB=500`、画像の CDN 待ちで止まるなら `NOTE_IMG_SETTLE_*` を延ばす。
+**やること**: Windows PC から `node scripts/note-update-body.mjs --list <list> --commit`。リストは `node scripts/note-republish-plan.mjs` の ready と hasImage のうち noteId があり、本文が PDF 配布に触れず PDF 実体も添付記録も無い記事で、`配合計算-実戦演習` を先頭に PV 順（`.claude/state/metrics/note/articles-pv-2026-08.json`・`-09.json`）。最初の数本で有料エリア・画像・リンクカード・目次を note 上で確かめてから残りを流す。会社 PC は `DOBOKU_PW_MIN_FREE_MB=500` と、画像の確定待ちで止まるなら `NOTE_IMG_SETTLE_MIN_MS`・`NOTE_IMG_SETTLE_PER_IMG_MS`（既定 90 秒）を延ばす。
 
-**完了条件**: note 上の本文に 404 の 2 本が無く、`npm run verify-note-status` で有料境界が保たれ、`node scripts/check-note-republish.mjs` の本文 drift からこの記事が消えている。
+**完了条件**: `node scripts/check-note-republish.mjs` の要再公開から 27 本が消え、`npm run verify-note-status` で有料境界が保たれている。`配合計算-実戦演習` の note 上に 404 の 2 本が無く、太字を直した記事 3 本で note 上に `**` が残っていないことを公開 API で確認済み。
+
+### [DN-0300] note の要再公開の残り 101 本（PDF 付き 89 本・会員限定 6 本ほか）を反映する
+タグ: [SNS・マーケ] [種類:改善] [起票:2026-09-24]
+
+**起点**: 要再公開 128 本のうち DN-0299 の 27 本を除いた残り。内訳は PDF 付き 89 本（本文が PDF 配布に触れる画像付き 2 本を含む。うち 40 本は総監模範論文で、記録時の版が 8/22 の履歴切り詰めより前にあり live の状態が分からない）、会員限定 6 本、noteId の無い 5 本（総監テキスト精読ガイド 5管理）、中断記録のある 1 本（総監 設問3 序章）。多くは DN-0299 と同じ 9/23 の表示崩れ修正を含み、有料記事の購入者にも崩れた表示が出ている。
+
+**やること**:
+1. PDF 付き: PDF 実体は Windows PC に 1 本分しか無いので `npm run drive-vault-sync -- --pull` で戻し、`note-update-body --list <list> --reattach-pdf --commit`。note のアップロードは 1 日 90 件まで（PDF と画像の合計）なので日を分ける。総監模範論文 40 本は `npm run check-note-attachments:live` で live の添付を確かめてから
+2. 会員限定 6 本は記事ごとに `--keep-member-lock` か `--trial-line-bottom`
+3. 中断記録の 1 本は live を確かめてから単独で `--force-retry`
+4. noteId の無い 5 本は公開済みか確かめ、noteId を frontmatter に書き戻してから対象に入れる
+
+**完了条件**: `node scripts/check-note-republish.mjs` の要再公開（判定できずを含む）が 0 本になり、PDF 付きは `npm run check-note-attachments:live` で添付が全件そろっている。
 
 ### [DN-0237] RCCM 問題I 業務経験論文テンプレ・択一論点集 50 問・ココナラ 3 出品を CBT 期間内（〜10/31）に出す
 タグ: [収益化] [種類:制作] [起票:2026-09-16] [期日:2026-10-10]
@@ -383,15 +396,6 @@ CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認し
 **完了条件**: 各行の実体が解消したら行ごと消し、全行が消えたらカードを削除する。
 
 ## 🟡 中 — 2〜3ヶ月以内
-
-### [DN-0297] `check-note-republish` で「301 で等価なリンク張り替えだけ」の drift を分け、要再公開を埋もれさせない
-タグ: [インフラ・計測] [種類:改善] [起票:2026-09-24]
-
-**起点**: 2026-09-24 に PR #598 が note 原稿 675 本の旧 `/docs/` リンクを新 URL に張り替え、本文 drift が 674 本になった。本当に再公開が要るのは 404 を直した 1 本だけで、残りは本番で 301・UTM 保持のまま転送される等価な差分だった。今の surfacer は両者を区別しないため、要再公開の 1 本が 674 本に埋もれ、全件の全文置換（有料境界・画像・PDF を壊しうる）を提案しかけた。
-
-**やること**: drift の記事ごとに、台帳の hash と一致する過去の版を git 履歴から探す。現在の原稿との差分が `public/_redirects` の対応（旧 → 新 URL・クエリ保持）による置き換えだけなら「等価（301）」として別枠に数え、それ以外（404 の修正を含む）は従来どおり「要再公開」とする。`--json` にも両方を出す。
-
-**完了条件**: 回帰テスト（等価な張り替えだけの記事は「等価」、404 の修正を含む記事は「要再公開」）が通り、実データで #598 の張り替えだけの記事が「等価」、会員限定 6 本と総監 設問3 序章が「要再公開」に分類される。
 
 ### [DN-0298] Google が旧 `/docs/` を正規に選んだ 17 URL を追い、note から張られた分だけ残るならその note 18 本を再公開する
 タグ: [インフラ・計測] [種類:改善] [起票:2026-09-24]
