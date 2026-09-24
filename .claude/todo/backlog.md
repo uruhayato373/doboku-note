@@ -124,11 +124,13 @@
 **完了条件**: catalog の i・j 系26冊がすべて ASIN 付き `live` になること。
 
 ### [DN-0266] 2級二次（10/25）前に、ココナラブログの2級・直前向け下書き3本を1日1本で公開する
-タグ: [収益化] [種類:制作] [起票:2026-09-23] [期日:2026-10-15]
+タグ: [収益化] [種類:制作] [起票:2026-09-23] [期日:2026-10-15] [進行中]
 
 **起点**: ココナラブログは公開8本に対し、書き上がった下書きが8本残っている（`2kyu-doko-made-kaku`・`2kyu-moshi-tsukaikata`・`chokuzen-2shukan-roadmap` ほか）。2級受験者が本試験直前に、経験記述の書き込み量と模試の使い方を確かめるための記事で、HARMはA。2026-09-23に見本記事（813777）を公開し、2級の模試とフルパックの本文から見本へリンクした。公開済み記事の閲覧は30日で各6〜16と小さい。記事公開で出品の閲覧が増えるかは未検証。
 
-**やること**: 3本を `coconala-blog-qa` で採点し、合格した記事から `node scripts/coconala-blog-publish.mjs --post <slug> --commit` で1日1本公開する（coconala-blog-policy.md §6）。funnel 先が listed であることを `npm run check-coconala-blog` で確かめる。
+**やること**: 残り2本を `DOBOKU_PW_MIN_FREE_MB=1200 node scripts/coconala-blog-publish.mjs --post <slug> --commit` で1日1本公開する（coconala-blog-policy.md §6）。9/24 に `coconala-blog-qa` で採点済み（`2kyu-doko-made-kaku` は同日公開済み・814642）。
+1. 9/25: `chokuzen-2shukan-roadmap`（PASS 3.0）。1級向け（funnel `coconala-1kyu-full-pdf`）で、1級二次 10/4 の直前訴求なので先に出す
+2. 9/26 以降: `2kyu-moshi-tsukaikata`（CTA を実商品「3回分・6冊＋特典」に直して `check-coconala-blog` violations 0。導線整合以外は 3 点）
 
 **完了条件**: 3本の blogUrl が frontmatter に書き戻され、公開スクリプトのライブ実査（ログアウト状態・外部リンク0件）が通る。公開から30日後に、記事と2級出品の閲覧を kpi-log で読む（欠測は0と扱わない）。
 
@@ -360,7 +362,7 @@ CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認し
 ## 🟡 中 — 2〜3ヶ月以内
 
 ### [DN-0301] `/links` の OG 画像（og-links.png）の資格数を 9 に作り直す
-タグ: [SNS・マーケ] [種類:改善] [起票:2026-09-24]
+タグ: [SNS・マーケ] [種類:改善] [起票:2026-09-24] [進行中]
 
 **起点**: `public/images/og-links.png` は「土木・建設系7資格」、`src/app/links/page.tsx` の openGraph の画像 alt は「8資格」だが、ページの資格カードは RCCM を含む 9 資格。2026-09-24 に本文とメタデータの説明文だけ 9 資格に直した。SNS で `/links` を共有するとリンクカードに古い数が出る。
 

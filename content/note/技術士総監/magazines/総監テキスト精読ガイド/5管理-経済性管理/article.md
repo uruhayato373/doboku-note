@@ -4,6 +4,7 @@ paidBoundary: "事業企画（優先度: 高）"
 noteSeries: 総監テキスト精読ガイド
 utmCampaign: 99-economic-management
 noteUrl: https://note.com/dobokunote/n/ndf7ddb3f0a97
+noteId: "ndf7ddb3f0a97"
 noteMagazine: 総監テキスト精読ガイド
 cover:
   variant: crop-safe-v4
