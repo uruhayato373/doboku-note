@@ -291,8 +291,7 @@ CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認し
 
 
 | 20 | 既存の動画退避物3件のハッシュ不一致 | `check-drive-vault` で `.tmp/video-render/career-komuin-minkan/wav/01-premise.wav`、`gakka-2kyu-hoki/shorts/point-overview-1/thumbnail.png`、`kikinagashi-shunin-suchi/shorts/point-tanni-saikotsu-kuuki-2/meta.json` のvault実体と台帳が不一致。今回制作した137ファイルはクラウドまで全件一致 | 各制作パックの現在の原稿/公開版と照合し、正しい版を確定してから退避し直す。台帳のSHAだけを書き換えない |
-| 21 | Bing Webmaster の API キー未登録 | develop の `fetch-metrics.yml`（2026-09-24 追加の Bing 取得）が `BING_WEBMASTER_API_KEY が未設定` で検査不成立（run 36056783734・automation-failure Issue #630） | Bing Webmaster Tools → 設定 → API アクセスでキーを発行し、GitHub Secret `BING_WEBMASTER_API_KEY` に登録する。次の fetch-metrics 成功で #630 は自動クローズ |
-| 22 | GA4 Admin API が無効 | 同 run で `[ga4-admin-api] 検査不成立（api-disabled）` | GCP コンソールでサービスアカウントのプロジェクトに「Google Analytics Admin API」を有効化する |
+| 21 | Bing Webmaster の API キー未登録 | develop の `fetch-metrics.yml`（2026-09-24 追加の Bing 取得）が `BING_WEBMASTER_API_KEY が未設定` で検査不成立（run 36056783734・36059715285・automation-failure Issue #630。GA4 Admin API は 2026-09-25 に有効化済み・GA4ADMIN_RC 0） | Bing Webmaster Tools → 設定 → API アクセスでキーを発行し、GitHub Secret `BING_WEBMASTER_API_KEY` に登録する。次の fetch-metrics 成功で #630 は自動クローズ |
 
 **完了条件**: 各行の実体が解消したら行ごと消し、全行が消えたらカードを削除する。
 
