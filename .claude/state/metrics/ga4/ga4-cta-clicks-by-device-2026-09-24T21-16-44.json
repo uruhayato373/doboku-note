@@ -1,0 +1,121 @@
+{
+  "meta": {
+    "startDate": "2026-08-27",
+    "endDate": "2026-09-23",
+    "windowKind": "days",
+    "eventNames": [
+      "note_cta_click",
+      "note_cta_impression",
+      "affiliate_cta_click",
+      "affiliate_cta_impression",
+      "note_article_click",
+      "internal_nav_click",
+      "career_need_select",
+      "career_tool_result",
+      "career_checklist_copy",
+      "career_checklist_download",
+      "coconala_cta_click",
+      "brain_cta_click",
+      "standards_data_download"
+    ],
+    "japanOnly": true,
+    "byDevice": true,
+    "byLabel": false,
+    "byPlacement": false,
+    "propertyId": "properties/419382901",
+    "rowCount": 18,
+    "truncated": false
+  },
+  "rows": [
+    {
+      "device": "desktop",
+      "eventName": "note_cta_impression",
+      "eventCount": 26228
+    },
+    {
+      "device": "desktop",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 22983
+    },
+    {
+      "device": "desktop",
+      "eventName": "internal_nav_click",
+      "eventCount": 2006
+    },
+    {
+      "device": "mobile",
+      "eventName": "note_cta_impression",
+      "eventCount": 555
+    },
+    {
+      "device": "mobile",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 345
+    },
+    {
+      "device": "desktop",
+      "eventName": "note_cta_click",
+      "eventCount": 282
+    },
+    {
+      "device": "tablet",
+      "eventName": "note_cta_impression",
+      "eventCount": 98
+    },
+    {
+      "device": "tablet",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 88
+    },
+    {
+      "device": "mobile",
+      "eventName": "internal_nav_click",
+      "eventCount": 55
+    },
+    {
+      "device": "mobile",
+      "eventName": "note_cta_click",
+      "eventCount": 22
+    },
+    {
+      "device": "desktop",
+      "eventName": "affiliate_cta_click",
+      "eventCount": 13
+    },
+    {
+      "device": "desktop",
+      "eventName": "note_article_click",
+      "eventCount": 11
+    },
+    {
+      "device": "desktop",
+      "eventName": "coconala_cta_click",
+      "eventCount": 7
+    },
+    {
+      "device": "tablet",
+      "eventName": "note_cta_click",
+      "eventCount": 3
+    },
+    {
+      "device": "tablet",
+      "eventName": "internal_nav_click",
+      "eventCount": 2
+    },
+    {
+      "device": "desktop",
+      "eventName": "career_need_select",
+      "eventCount": 1
+    },
+    {
+      "device": "desktop",
+      "eventName": "standards_data_download",
+      "eventCount": 1
+    },
+    {
+      "device": "tablet",
+      "eventName": "note_article_click",
+      "eventCount": 1
+    }
+  ]
+}

@@ -114,4 +114,4 @@
 
 除外: 商品IDを持たないGA4行 54、単品記事売上 9。
 
-入力: GA4=.claude/state/metrics/ga4/ga4-cta-clicks-by-label-2026-09-24T21-11-32.json / sales=.claude/state/sales/sales-log.json
+入力: GA4=.claude/state/metrics/ga4/ga4-cta-clicks-by-label-2026-09-24T21-16-45.json / sales=.claude/state/sales/sales-log.json

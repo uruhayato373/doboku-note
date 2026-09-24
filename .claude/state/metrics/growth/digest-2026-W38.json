@@ -10,7 +10,7 @@
     "endDate": "2026-09-13",
     "days": 28
   },
-  "generatedAt": "2026-09-24T21:12:31.635Z",
+  "generatedAt": "2026-09-24T21:17:02.456Z",
   "pack": ".claude/state/metrics/growth/pack-2026-W38.json",
   "inputs": [
     {
@@ -21,15 +21,15 @@
     },
     {
       "name": "monetization-coverage",
-      "file": ".claude/state/metrics/monetization/coverage-2026-09-24T21-12-22.json",
+      "file": ".claude/state/metrics/monetization/coverage-2026-09-24T21-16-50.json",
       "coverage": "complete",
       "note": null
     },
     {
       "name": "bing-webmaster",
-      "file": null,
-      "coverage": "missing",
-      "note": "未取得"
+      "file": ".claude/state/metrics/bing/bing-2026-09-25.json",
+      "coverage": "complete",
+      "note": null
     }
   ],
   "kpis": {
@@ -178,9 +178,10 @@
   },
   "bingReconciliation": {
     "ga4Sessions": 2804,
-    "wmtClicks": null,
-    "ratio": null,
-    "note": "Bing Webmaster 未取得（欠測）"
+    "wmtClicks": 2407,
+    "days": 7,
+    "ratio": 1.2,
+    "note": null
   },
   "topMovers": {
     "gainers": [
@@ -236,28 +237,13 @@
       }
     ]
   },
-  "candidates": 37,
+  "candidates": 36,
   "suppressed": 0,
   "notSurfaced": {
     "seo": 0,
     "revenue": 27
   },
   "surfaced": [
-    {
-      "id": "OPP-7f01d8d56a",
-      "category": "measurement",
-      "type": "measurement-input-missing",
-      "key": {
-        "subject": "bing-webmaster"
-      },
-      "title": "入力 bing-webmaster が無いか古い（未取得）",
-      "metrics": {},
-      "expectedWeeklyGain": null,
-      "suggest": [
-        "backlog"
-      ],
-      "watchwordDraft": null
-    },
     {
       "id": "OPP-797f94e448",
       "category": "experiment",

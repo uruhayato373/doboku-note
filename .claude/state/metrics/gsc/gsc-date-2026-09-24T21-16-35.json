@@ -1,0 +1,85 @@
+{
+  "meta": {
+    "siteUrl": "sc-domain:doboku-note.com",
+    "dataState": "final",
+    "type": "web",
+    "timeZone": "America/Los_Angeles",
+    "filters": [],
+    "startDate": "2026-09-15",
+    "endDate": "2026-09-21",
+    "dimensions": [
+      "date"
+    ],
+    "dimension": "date",
+    "limit": 100,
+    "pages_fetched": 1,
+    "row_count": 7,
+    "truncated": false,
+    "api_note": "Search Analytics API は全行の返却を保証しない（sampling / privacy filtering で低ボリューム行が欠落し得る）。row_count は startRow ページングの合算実測値であり、母集合全体とは限らない。"
+  },
+  "rows": [
+    {
+      "keys": [
+        "2026-09-15"
+      ],
+      "clicks": 31,
+      "impressions": 629,
+      "ctr": 0.0492845786963434,
+      "position": 18.926868044515103
+    },
+    {
+      "keys": [
+        "2026-09-16"
+      ],
+      "clicks": 17,
+      "impressions": 631,
+      "ctr": 0.02694136291600634,
+      "position": 17.142630744849445
+    },
+    {
+      "keys": [
+        "2026-09-17"
+      ],
+      "clicks": 21,
+      "impressions": 610,
+      "ctr": 0.03442622950819672,
+      "position": 15.340983606557376
+    },
+    {
+      "keys": [
+        "2026-09-18"
+      ],
+      "clicks": 10,
+      "impressions": 351,
+      "ctr": 0.02849002849002849,
+      "position": 17.997150997150996
+    },
+    {
+      "keys": [
+        "2026-09-19"
+      ],
+      "clicks": 9,
+      "impressions": 386,
+      "ctr": 0.023316062176165803,
+      "position": 17.16321243523316
+    },
+    {
+      "keys": [
+        "2026-09-20"
+      ],
+      "clicks": 21,
+      "impressions": 465,
+      "ctr": 0.04516129032258064,
+      "position": 14.612903225806452
+    },
+    {
+      "keys": [
+        "2026-09-21"
+      ],
+      "clicks": 17,
+      "impressions": 469,
+      "ctr": 0.03624733475479744,
+      "position": 15.164179104477611
+    }
+  ]
+}

@@ -1,0 +1,550 @@
+{
+  "meta": {
+    "startDate": "2026-08-27",
+    "endDate": "2026-09-23",
+    "dimension": "campaign",
+    "dimensionApiName": "sessionCampaignName",
+    "metrics": [
+      "activeUsers",
+      "sessions",
+      "screenPageViewsPerSession",
+      "averageSessionDuration",
+      "engagementRate",
+      "bounceRate"
+    ],
+    "limit": 200,
+    "organicOnly": false,
+    "snsOnly": false,
+    "snsSources": [],
+    "japanOnly": true,
+    "excludeSpam": true,
+    "spamSourcesExcluded": [],
+    "propertyId": "properties/419382901",
+    "rowCount": 58,
+    "truncated": false
+  },
+  "rows": [
+    {
+      "campaign": "(organic)",
+      "activeUsers": 6768,
+      "sessions": 10408,
+      "screenPageViewsPerSession": 1.5426594926979247,
+      "averageSessionDuration": 359.46411237701767,
+      "engagementRate": 0.6894696387394312,
+      "bounceRate": 0.31053036126056877
+    },
+    {
+      "campaign": "(direct)",
+      "activeUsers": 1200,
+      "sessions": 1403,
+      "screenPageViewsPerSession": 1.6557377049180328,
+      "averageSessionDuration": 161.4097493977192,
+      "engagementRate": 0.248039914468995,
+      "bounceRate": 0.751960085531005
+    },
+    {
+      "campaign": "(ai-assistant)",
+      "activeUsers": 64,
+      "sessions": 83,
+      "screenPageViewsPerSession": 1.216867469879518,
+      "averageSessionDuration": 158.48773673493974,
+      "engagementRate": 0.5903614457831325,
+      "bounceRate": 0.40963855421686746
+    },
+    {
+      "campaign": "civil-secondary-2026",
+      "activeUsers": 41,
+      "sessions": 44,
+      "screenPageViewsPerSession": 1.2045454545454546,
+      "averageSessionDuration": 91.51876220454545,
+      "engagementRate": 0.36363636363636365,
+      "bounceRate": 0.6363636363636364
+    },
+    {
+      "campaign": "(referral)",
+      "activeUsers": 37,
+      "sessions": 231,
+      "screenPageViewsPerSession": 1.9523809523809523,
+      "averageSessionDuration": 506.15748477489177,
+      "engagementRate": 0.5454545454545454,
+      "bounceRate": 0.45454545454545453
+    },
+    {
+      "campaign": "(not set)",
+      "activeUsers": 26,
+      "sessions": 38,
+      "screenPageViewsPerSession": 1.605263157894737,
+      "averageSessionDuration": 265.6838260263158,
+      "engagementRate": 0.47368421052631576,
+      "bounceRate": 0.5263157894736842
+    },
+    {
+      "campaign": "r8-sokuho",
+      "activeUsers": 9,
+      "sessions": 29,
+      "screenPageViewsPerSession": 1.5862068965517242,
+      "averageSessionDuration": 287.18971096551724,
+      "engagementRate": 0.4482758620689655,
+      "bounceRate": 0.5517241379310345
+    },
+    {
+      "campaign": "99-keyword-2026-changes",
+      "activeUsers": 8,
+      "sessions": 15,
+      "screenPageViewsPerSession": 6.333333333333333,
+      "averageSessionDuration": 1403.7696460666666,
+      "engagementRate": 0.6,
+      "bounceRate": 0.4
+    },
+    {
+      "campaign": "103-concrete-index",
+      "activeUsers": 4,
+      "sessions": 9,
+      "screenPageViewsPerSession": 2.2222222222222223,
+      "averageSessionDuration": 215.5761562222222,
+      "engagementRate": 0.7777777777777778,
+      "bounceRate": 0.2222222222222222
+    },
+    {
+      "campaign": "civil1-keiken-pack-koji63",
+      "activeUsers": 4,
+      "sessions": 5,
+      "screenPageViewsPerSession": 1.6,
+      "averageSessionDuration": 231.1955464,
+      "engagementRate": 0.8,
+      "bounceRate": 0.2
+    },
+    {
+      "campaign": "civil1-keiken-pack-koji68",
+      "activeUsers": 4,
+      "sessions": 5,
+      "screenPageViewsPerSession": 0.8,
+      "averageSessionDuration": 101.5782248,
+      "engagementRate": 0.6,
+      "bounceRate": 0.4
+    },
+    {
+      "campaign": "civil1-keiken-pack-koji03",
+      "activeUsers": 3,
+      "sessions": 3,
+      "screenPageViewsPerSession": 1.6666666666666667,
+      "averageSessionDuration": 775.7679553333334,
+      "engagementRate": 0.3333333333333333,
+      "bounceRate": 0.6666666666666666
+    },
+    {
+      "campaign": "profile-qualification-tree",
+      "activeUsers": 3,
+      "sessions": 3,
+      "screenPageViewsPerSession": 7,
+      "averageSessionDuration": 184.71636666666666,
+      "engagementRate": 1,
+      "bounceRate": 0
+    },
+    {
+      "campaign": "2c-vs-1c-order",
+      "activeUsers": 2,
+      "sessions": 2,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 22.2886055,
+      "engagementRate": 1,
+      "bounceRate": 0
+    },
+    {
+      "campaign": "90-soukan-analysis",
+      "activeUsers": 2,
+      "sessions": 12,
+      "screenPageViewsPerSession": 3.4166666666666665,
+      "averageSessionDuration": 1841.5653855833332,
+      "engagementRate": 0.8333333333333334,
+      "bounceRate": 0.16666666666666666
+    },
+    {
+      "campaign": "99-tradeoff-thinking",
+      "activeUsers": 2,
+      "sessions": 39,
+      "screenPageViewsPerSession": 34.15384615384615,
+      "averageSessionDuration": 2234.437348974359,
+      "engagementRate": 0.9743589743589743,
+      "bounceRate": 0.02564102564102564
+    },
+    {
+      "campaign": "calc-problems-6patterns",
+      "activeUsers": 2,
+      "sessions": 3,
+      "screenPageViewsPerSession": 5.333333333333333,
+      "averageSessionDuration": 932.2430410000001,
+      "engagementRate": 1,
+      "bounceRate": 0
+    },
+    {
+      "campaign": "civil-keiken-leadmagnet",
+      "activeUsers": 2,
+      "sessions": 2,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 599.1738675,
+      "engagementRate": 1,
+      "bounceRate": 0
+    },
+    {
+      "campaign": "civil-mokuji",
+      "activeUsers": 2,
+      "sessions": 2,
+      "screenPageViewsPerSession": 4,
+      "averageSessionDuration": 24.0817155,
+      "engagementRate": 1,
+      "bounceRate": 0
+    },
+    {
+      "campaign": "civil1-keiken-pack-koji19",
+      "activeUsers": 2,
+      "sessions": 3,
+      "screenPageViewsPerSession": 1.3333333333333333,
+      "averageSessionDuration": 67.18301933333333,
+      "engagementRate": 1,
+      "bounceRate": 0
+    },
+    {
+      "campaign": "civil1-keiken-pack-koji23",
+      "activeUsers": 2,
+      "sessions": 2,
+      "screenPageViewsPerSession": 2,
+      "averageSessionDuration": 674.077497,
+      "engagementRate": 1,
+      "bounceRate": 0
+    },
+    {
+      "campaign": "civil1-keiken-pack-koji74",
+      "activeUsers": 2,
+      "sessions": 2,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 35.2958835,
+      "engagementRate": 1,
+      "bounceRate": 0
+    },
+    {
+      "campaign": "civil1-keiken-pack-koji99",
+      "activeUsers": 2,
+      "sessions": 3,
+      "screenPageViewsPerSession": 0.6666666666666666,
+      "averageSessionDuration": 72.12558266666666,
+      "engagementRate": 0.6666666666666666,
+      "bounceRate": 0.3333333333333333
+    },
+    {
+      "campaign": "r8-i2-model-answer",
+      "activeUsers": 2,
+      "sessions": 25,
+      "screenPageViewsPerSession": 2.8,
+      "averageSessionDuration": 131.78459488000001,
+      "engagementRate": 0.56,
+      "bounceRate": 0.44
+    },
+    {
+      "campaign": "roadmap-1kyu-vs-2kyu",
+      "activeUsers": 2,
+      "sessions": 2,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 0,
+      "engagementRate": 0,
+      "bounceRate": 1
+    },
+    {
+      "campaign": "roadmap-juken-shikaku",
+      "activeUsers": 2,
+      "sessions": 2,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 0,
+      "engagementRate": 0,
+      "bounceRate": 1
+    },
+    {
+      "campaign": "roadmap-nanido-goukakuritsu",
+      "activeUsers": 2,
+      "sessions": 2,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 0,
+      "engagementRate": 0,
+      "bounceRate": 1
+    },
+    {
+      "campaign": "study-plan-1kyu",
+      "activeUsers": 2,
+      "sessions": 2,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 0,
+      "engagementRate": 0,
+      "bounceRate": 1
+    },
+    {
+      "campaign": "x-longform-career-2026",
+      "activeUsers": 2,
+      "sessions": 2,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 225.0888845,
+      "engagementRate": 1,
+      "bounceRate": 0
+    },
+    {
+      "campaign": "12-general-vs-comprehensive",
+      "activeUsers": 1,
+      "sessions": 2,
+      "screenPageViewsPerSession": 10.5,
+      "averageSessionDuration": 1954.671223,
+      "engagementRate": 0.5,
+      "bounceRate": 0.5
+    },
+    {
+      "campaign": "94-private-engineer-money",
+      "activeUsers": 1,
+      "sessions": 1,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 1583.908089,
+      "engagementRate": 1,
+      "bounceRate": 0
+    },
+    {
+      "campaign": "99-economic-management",
+      "activeUsers": 1,
+      "sessions": 1,
+      "screenPageViewsPerSession": 2,
+      "averageSessionDuration": 37.246005,
+      "engagementRate": 1,
+      "bounceRate": 0
+    },
+    {
+      "campaign": "99-social-environment-management",
+      "activeUsers": 1,
+      "sessions": 1,
+      "screenPageViewsPerSession": 3,
+      "averageSessionDuration": 419.131074,
+      "engagementRate": 1,
+      "bounceRate": 0
+    },
+    {
+      "campaign": "cce-mix-calculation-practice",
+      "activeUsers": 1,
+      "sessions": 2,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 595.942943,
+      "engagementRate": 1,
+      "bounceRate": 0
+    },
+    {
+      "campaign": "cce-r8-mc-50",
+      "activeUsers": 1,
+      "sessions": 1,
+      "screenPageViewsPerSession": 8,
+      "averageSessionDuration": 324.087089,
+      "engagementRate": 1,
+      "bounceRate": 0
+    },
+    {
+      "campaign": "civil-career-pe-experience",
+      "activeUsers": 1,
+      "sessions": 1,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 56.045873,
+      "engagementRate": 1,
+      "bounceRate": 0
+    },
+    {
+      "campaign": "civil-career-public-vs-private",
+      "activeUsers": 1,
+      "sessions": 1,
+      "screenPageViewsPerSession": 2,
+      "averageSessionDuration": 238.000571,
+      "engagementRate": 1,
+      "bounceRate": 0
+    },
+    {
+      "campaign": "civil1-gakka-anki",
+      "activeUsers": 1,
+      "sessions": 1,
+      "screenPageViewsPerSession": 2,
+      "averageSessionDuration": 207.51957,
+      "engagementRate": 1,
+      "bounceRate": 0
+    },
+    {
+      "campaign": "civil1-ichiji-ronten",
+      "activeUsers": 1,
+      "sessions": 2,
+      "screenPageViewsPerSession": 3,
+      "averageSessionDuration": 1111.1220675,
+      "engagementRate": 1,
+      "bounceRate": 0
+    },
+    {
+      "campaign": "civil1-keiken-pack-koji07",
+      "activeUsers": 1,
+      "sessions": 1,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 15.767771,
+      "engagementRate": 1,
+      "bounceRate": 0
+    },
+    {
+      "campaign": "civil1-keiken-pack-koji09",
+      "activeUsers": 1,
+      "sessions": 2,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 42.8097045,
+      "engagementRate": 0.5,
+      "bounceRate": 0.5
+    },
+    {
+      "campaign": "civil1-keiken-pack-koji13",
+      "activeUsers": 1,
+      "sessions": 1,
+      "screenPageViewsPerSession": 2,
+      "averageSessionDuration": 467.616604,
+      "engagementRate": 1,
+      "bounceRate": 0
+    },
+    {
+      "campaign": "civil1-keiken-pack-koji27",
+      "activeUsers": 1,
+      "sessions": 1,
+      "screenPageViewsPerSession": 2,
+      "averageSessionDuration": 64.942229,
+      "engagementRate": 1,
+      "bounceRate": 0
+    },
+    {
+      "campaign": "civil1-keiken-pack-koji28",
+      "activeUsers": 1,
+      "sessions": 1,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 4.964448,
+      "engagementRate": 0,
+      "bounceRate": 1
+    },
+    {
+      "campaign": "civil1-keiken-pack-koji33",
+      "activeUsers": 1,
+      "sessions": 1,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 4.946155,
+      "engagementRate": 0,
+      "bounceRate": 1
+    },
+    {
+      "campaign": "civil1-keiken-pack-koji51",
+      "activeUsers": 1,
+      "sessions": 1,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 65.593425,
+      "engagementRate": 1,
+      "bounceRate": 0
+    },
+    {
+      "campaign": "civil1-keiken-pack-koji54",
+      "activeUsers": 1,
+      "sessions": 2,
+      "screenPageViewsPerSession": 0.5,
+      "averageSessionDuration": 794.770808,
+      "engagementRate": 0.5,
+      "bounceRate": 0.5
+    },
+    {
+      "campaign": "civil1-keiken-pack-koji55",
+      "activeUsers": 1,
+      "sessions": 1,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 4.813046,
+      "engagementRate": 0,
+      "bounceRate": 1
+    },
+    {
+      "campaign": "civil1-r8-bunseki",
+      "activeUsers": 1,
+      "sessions": 1,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 24.625423,
+      "engagementRate": 1,
+      "bounceRate": 0
+    },
+    {
+      "campaign": "civil2-gakka-anki",
+      "activeUsers": 1,
+      "sessions": 1,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 5.018131,
+      "engagementRate": 0,
+      "bounceRate": 1
+    },
+    {
+      "campaign": "civil2-koji-bank-koji13",
+      "activeUsers": 1,
+      "sessions": 1,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 54.890079,
+      "engagementRate": 1,
+      "bounceRate": 0
+    },
+    {
+      "campaign": "civil2-r8-bunseki",
+      "activeUsers": 1,
+      "sessions": 1,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 25.721434,
+      "engagementRate": 1,
+      "bounceRate": 0
+    },
+    {
+      "campaign": "essay-river-r07",
+      "activeUsers": 1,
+      "sessions": 1,
+      "screenPageViewsPerSession": 0,
+      "averageSessionDuration": 0.045069,
+      "engagementRate": 0,
+      "bounceRate": 1
+    },
+    {
+      "campaign": "pe-construction-gyoumu-keireki-hyou",
+      "activeUsers": 1,
+      "sessions": 1,
+      "screenPageViewsPerSession": 6,
+      "averageSessionDuration": 1114.768924,
+      "engagementRate": 1,
+      "bounceRate": 0
+    },
+    {
+      "campaign": "pe-construction-secondary",
+      "activeUsers": 1,
+      "sessions": 1,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 131.019131,
+      "engagementRate": 1,
+      "bounceRate": 0
+    },
+    {
+      "campaign": "pe-construction-secondary-study-method",
+      "activeUsers": 1,
+      "sessions": 14,
+      "screenPageViewsPerSession": 2.2142857142857144,
+      "averageSessionDuration": 1148.8117218571429,
+      "engagementRate": 0.7857142857142857,
+      "bounceRate": 0.21428571428571427
+    },
+    {
+      "campaign": "r08-sokuhou",
+      "activeUsers": 1,
+      "sessions": 1,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 5.438777,
+      "engagementRate": 0,
+      "bounceRate": 1
+    },
+    {
+      "campaign": "r8-essay-forecast-intro",
+      "activeUsers": 1,
+      "sessions": 3,
+      "screenPageViewsPerSession": 28.666666666666668,
+      "averageSessionDuration": 1737.2390876666666,
+      "engagementRate": 0.6666666666666666,
+      "bounceRate": 0.3333333333333333
+    }
+  ]
+}
