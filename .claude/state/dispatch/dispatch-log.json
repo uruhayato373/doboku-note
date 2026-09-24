@@ -1183,6 +1183,30 @@
       "commit": "783069412fb4",
       "verification": "PR #617 マージ: check-affiliate-mats OK・type-check 0・npm test 1959 fail 0・CI build/e2e pass（a11y dark の PR バッジのコントラストを --paper で修正）・SSR 描画で経験記述ページに A8 href 2/PR 2/sponsored 2/ピクセル 1、/links に A8 5/直リンク 0/PR 5/ピクセル 1。本番反映は次の deploy",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0258",
+      "at": "2026-09-24",
+      "task": "macOS ローカルで `npm test` が 2 件だけ赤になる（CI は緑）— realpath と pipe 8192 バイト",
+      "tier": "low",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "d4a7e69942f3",
+      "verification": "2026-09-24 macOS で npm test: tests 1968 / pass 1962 / fail 0 / skipped 6。CI も緑（PR #608〜#619 の unit-tests pass）",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0226",
+      "at": "2026-09-24",
+      "task": "knip ratchet の赤（Unlisted binaries `ps` / `powershell.exe`）を解消し baseline を締め直す",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "d4a7e69942f3",
+      "verification": "2026-09-24 check-knip-ratchet: 6 カテゴリすべて baseline と一致（増加 0）・Unlisted binaries は検出されず",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }

@@ -15,7 +15,6 @@
 | DN-0185 | GSC の索引状況と GA4 `standards_data_download` の発火を記録する（2週連続未達を解消） | 当方 |
 | DN-0026 | 28日窓（09-14成立）の GSC URL 検査を実施し、次記事着手可否を判断する | 当方 |
 | DN-0220 | develop 統合済みの図解を既存 deploy 手順で本番反映し、SNS 公開/予約 SSOT へ接続する | 当方 |
-| DN-0226 | knip ratchet の新規赤（`ps`/`powershell.exe`）を `ignoreBinaries` へ追加し baseline を締め直す | 当方 |
 
 ## 定常運用（surfacer から pull・backlog ID なし）
 

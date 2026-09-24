@@ -223,14 +223,6 @@
 
 **完了条件**: develop の最新 run が failure のとき、次のセッション開始時に赤い 1 行が出ること。CLAUDE.md の復元そのものは別作業（設定一本化の PR）で行う。
 
-### [DN-0226] knip ratchet の赤（Unlisted binaries `ps` / `powershell.exe`）を解消し baseline を締め直す
-タグ: [エージェント・SSOT] [種類:不具合] [Codex候補] [検証:check-knip-ratchet] [起票:2026-09-14]
-
-2026-09-13 の返済・締め直し（DN-0205 #6）の直後に、`scripts/lib/local-resources.mjs` が呼ぶ `ps` と `powershell.exe` が Unlisted binaries 0 → 2 として赤になった（`npx knip --include binaries` で実測）。システムバイナリなので 09-13 と同じく `knip.json` の `ignoreBinaries` へ入れる。併せて knip の Configuration hints（`hast-util-sanitize` を ignoreDependencies から、`du` を ignoreBinaries から外せる）も処理する。返済分（Unlisted dependencies 13→9・Unused dependencies 2→1）は `--update-baseline` で締め直す。
-
-DN-0205（09-13 に完了・削除済み）は codex branch のマージ e019b1b1 で台帳に復活していたため、本カード起票時に再削除した。完了→削除の後は develop 先端から branch を切る（マージで戻る）。
-
-**完了条件**: `npm run check-knip-ratchet` が緑（増加 0）で、baseline が実測と一致していること。
 
 ### [DN-0224] 教材の原典待ち17論点を復旧し記事・図解・SNSとの対応を再照合する
 タグ: [コンテンツ品質] [種類:改善] [起票:2026-09-14] [検証:check-content-expansion]
@@ -692,14 +684,6 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 
 **完了条件**: 埋め込めない URL を先頭に置いた単体テストで、後ろの URL がカード化される。n0171b3105e2d の公開 API に note 記事 URL（n4fde0f62dc20）のカードがある。
 
-### [DN-0258] macOS ローカルで `npm test` が 2 件だけ赤になる（CI は緑）— realpath と pipe 8192 バイト
-タグ: [インフラ・計測] [種類:不具合] [検証:test] [起票:2026-09-20]
-
-**起点**: 2026-09-19 の `quality:audit --ci` ローカル全量で unit-tests が赤。`tests/prune-state-snapshots.test.mjs`「CLI: 一時 repo で --commit が計画どおり unlink し…」は子プロセスの JSON 出力が 8192 バイトで切れて parse 失敗（pipe の既定バッファ）、「defaultMemoryTarget: worktree でもメイン作業ツリーの .claude/memory を指す」は `/var/folders/...` と `/private/var/folders/...`（macOS の symlink）の比較で不一致。Linux の CI では両方通るため、ローカルの赤が「自分の変更のせいか」を毎回切り分ける手間になる。
-
-**やること**: (1) 子プロセス出力は `maxBuffer` 明示＋ファイル経由か `spawnSync` の `stdout` 全読みにする。(2) パス比較は両辺を `fs.realpathSync` してから比べる（テスト側・本体側のどちらに置くかは他テストの流儀に合わせる）。
-
-**完了条件**: macOS で `npm test` が 0 fail、CI も緑。
 
 ### [DN-0259] `*-diagrams` X カード PNG（098/099・35 枚）が `.gitignore` 下で描画台帳に載らず、ローカルの `check-x-card-render` が恒常赤
 タグ: [SNS・マーケ] [種類:改善] [検証:check-x-card-render] [起票:2026-09-20]
