@@ -137,7 +137,7 @@ const CHECKS = [
   // 「published なのに一度も照合していない / 記録が古い / 記録が実査のドリフトを報告している」を赤にする。
   { id: 'video-publication', npm: 'check-video-publication', timeout: 30_000, ci: true, note: '公開済み派生物の実体照合が回っているか（未照合・鮮度切れ・記録の孤児・実査ドリフト）。対象0件は明示して PASS' },
   { id: 'codex-compat', npm: 'check-codex-compat', timeout: 60_000, ci: true, note: 'AGENTS.md / .agents/skills が CLAUDE.md / .claude/skills（正典）から生成された状態と一致するか（第2SSOTドリフトの再発防止・DN-0098）' },
-  { id: 'external-write-orphans', npm: 'check-external-write-orphans', timeout: 300_000, ci: false, note: '「外部へは成功・台帳の書き戻しは失敗」の検出（2026-06-17 の YouTube 事故＝6本アップ済みなのに台帳 pending が実例）。gh 経由で run ログを読むためネットワークが要る＝ci:false。**読み手は /weekly-review の backlog 消化サマリ節**（同節へコマンドを配線済み）' },
+  { id: 'external-write-orphans', npm: 'check-external-write-orphans', timeout: 300_000, ci: false, note: '「外部へは成功・台帳の書き戻しは失敗」の検出（2026-06-17 の YouTube 事故＝6本アップ済みなのに台帳 pending が実例）。gh 経由で run ログを読むためネットワークが要る＝ci:false。run ログの取得失敗が 1 本でもあれば exit 2（検査不成立・DN-0225）。**読み手は /weekly-review の backlog 消化サマリ節**（同節へコマンドを配線済み）' },
   { id: 'ogp-line-count', npm: 'check-ogp-line-count', timeout: 180_000, ci: false, note: 'OGP タイトルの折返し行数を実測する surfacer（判定はしない）。読み手＝DN-0057 の着手時。check-ogp-title-fit はフォントサイズしか見ていないので、行数はここでしか分からない' },
   { id: 'relative-links', npm: 'check-relative-links', timeout: 60_000, ci: true, note: 'Markdown の相対リンク `](../x)` の実在。check-doc-refs はリンクテキストしか見ないので、置き場を変えると href だけが黙って壊る' },
   { id: 'workflow-clone-depth', npm: 'check-workflow-clone-depth', timeout: 30_000, ci: true, note: 'workflow の full clone 禁止。remote 11 GB でランナーの空きを超え、fetch-depth: 0 は No space left on device でランナーごと落ちる（2026-08-21 実発生）' },

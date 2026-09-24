@@ -471,7 +471,7 @@ node -e "const d=require('./.claude/state/dispatch/dispatch-log.json');const w=d
 - **台帳の健全性**: `check-backlog-health` の S2（🟢/🟣 に沈んだ不具合）・S4（`種類:定期`＝backlog の役割違反）・S9（`.claude/todo` の 4 層以外）。**この 3 つが 0 でない週は放置しない**（S2 は選定順で先頭に出るのに tier が嘘をついている状態、S4/S9 は置き場違い）。しきい値を超えたら次セッションで `/backlog-sweep --audit`
 
 - **完了の疑い**: `check-backlog-verify` が `赤→緑` を出した週は、そのカードを次の `/backlog-sweep` で**実査**する（緑は完了の証明ではない——2026-08-18 に check-note-attachments の正規表現が案内済み 77 本を誤検出した実例がある）。`常時緑` が出たら、そのカードの `[検証:]` が surfacer を指していて**完了判定に使えない**ということなので、検証コマンドを差し替えるか外す。
-- **外部書き込みの孤児**: `check-external-write-orphans` が `orphan` を出した週は**最優先**。「外部には出たのに台帳に記録が無い」状態で、台帳を信じて再開すると同じものを二重に外部へ出す。run ログから外部側の実体（videoId 等）を回収して台帳へ反映してから再開する。`silent-stop` は「未処理が残っているのに誰も回していない」通知（手動投入ジョブでは異常ではない）。2026-06-17 の YouTube run が実例＝6 本アップ済みなのに台帳 pending のまま 2 か月放置された。
+- **外部書き込みの孤児**: `check-external-write-orphans` が `orphan` を出した週は**最優先**。「外部には出たのに台帳に記録が無い」状態で、台帳を信じて再開すると同じものを二重に外部へ出す。run ログから外部側の実体（videoId 等）を回収して台帳へ反映してから再開する。`silent-stop` は「未処理が残っているのに誰も回していない」通知（手動投入ジョブでは異常ではない）。**exit 2（検査不成立 N/M 取得失敗）は「痕跡なし」ではない**＝社内プロキシ配下などで run ログが取れていない。取れる環境で再実行してから結論する（DN-0225）。2026-06-17 の YouTube run が実例＝6 本アップ済みなのに台帳 pending のまま 2 か月放置された。
 - **品質censusのdelta**: `npm run quality-census` の `delta` 節（薄層への逆戻り・スコア低下記事）を1行確認する。前回比で悪化が出た週は該当記事を backlog へ。
 - **収益カバレッジ**: `npm run report-monetization-coverage` の配置別 CTA CTR・note label × 売上突合（ID付き比率）を1行確認する。
 
