@@ -383,14 +383,14 @@ CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認し
 
 **完了条件**: build 後の該当ページの HTML に `data-cta="coconala"` のカードがある（curl で確認）。GA4 の取得でイベント件数が出て、0件と未取得を区別して表示できる。
 
-### [DN-0256] V5 カバー未反映の保留 12 記事を公開後に差し替える（予約 7・下書き 3・noteId 無し 2）
+### [DN-0256] V5 カバー未反映の保留記事（W9・W10・学科10 以外の 9 本）を公開後に差し替える
 タグ: [コンテンツ品質] [種類:定期] [起票:2026-09-19] [期日:2026-10-05]
 
 **起点**: V5 カバー全量差し替え（記録 `.claude/state/note/cover-rollout/2026-09-17.json`・09-19 完走）は公開済み 856/858 に反映したが、計画時に予約公開中・下書き・noteId 無しだった 12 本（`live.articles.held`）は対象外のまま。予約分（会員 W8〜W11・学科10・添削01 等）は予約時の旧デザインのカバーで go-live する（W8 は 09-19 に公開済み）。マガジン側の保留 2（`civil-1-anki` / `civil-2-anki` の `_cover.png`）は単発記事の名残で対象外。
 
-**やること**: 各記事の公開後に `DOBOKU_PW_MIN_FREE_MB=1024 node scripts/note-update-cover.mjs --article <path> --commit`（8GB Mac は環境変数必須・ログイン済みプロファイル）。まとめて回すなら `npm run note-cover-rollout -- plan` → `run` で held が解消した分だけ拾える。マガジン内 ¥100 記事は「更新する」未検出で CLI は fail になるが editor がカバーを先に live へ書くため API で eyecatch 変化を確認すれば完了扱い（09-19 実測 2 本）。
+**やること**: 会員 W9・W10・学科10 は 2026-09-25 に V5 へ差し替え済み（ライブの eyecatch をキャラクター入り V5 で目視確認）。残りの held（W8・W11・添削01・下書き 3・noteId 無し 2 など）は各記事の公開後に、`node scripts/generate-note-covers.mjs <dir名>` で V5 の `img/cover.png` を作ってから `DOBOKU_PW_MIN_FREE_MB=1024 node scripts/note-update-cover.mjs --article <path> --commit`（8GB Mac は環境変数必須・ログイン済みプロファイル）。記事フォルダの `img/cover.png` は旧デザインのまま残っていることがあるので、生成し直さずに差し替えると旧カバーを貼り直すだけになる。`npm run note-cover-rollout -- plan` は作業場 `.tmp/note-cover-rollout/generated/manifest.json` が無いと動かない（9/24 に ENOENT）。マガジン内 ¥100 記事は「更新する」未検出で CLI は fail になるが editor がカバーを先に live へ書くため API で eyecatch 変化を確認すれば完了扱い（09-19 実測 2 本）。
 
-**完了条件**: 12 本の live eyecatch が V5（`generated/manifest.json` の hash）と一致し、記録 JSON の held が 0。
+**完了条件**: 保留していた 12 本すべての live eyecatch が V5 になり、記録 JSON の held が 0。
 
 ### [DN-0251] dark モードの色コントラスト不足 29 箇所を直し、a11y ベースラインをゼロへ締める
 タグ: [コンテンツ品質] [種類:不具合] [検証:test:e2e:a11y] [起票:2026-09-17]
