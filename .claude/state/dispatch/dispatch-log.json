@@ -1159,6 +1159,18 @@
       "commit": "dea42a996de1",
       "verification": "doc-sync-auditor: 候補 5 件＋追加 2 件を読んで should-fix 1 件（sales-tracking.md の人が動くサービス列挙に coconala-tensaku-4theme 欠落）→ 適用。旧タイトルは日付付き変更ログのみで現行記述なし / check-doc-refs OK",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0301",
+      "at": "2026-09-24",
+      "task": "`/links` の OG 画像（og-links.png）の資格数を 9 に作り直す",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "ec0921fda64f",
+      "verification": "PR #609 マージ（develop ec0921fda）: og-links.png を mono-tag で「9資格」「技術士・施工管理・コンクリート・RCCM」に再描画し目視確認、alt を 9資格に。ogp-gallery は content 由来の ogp.png 17 枚のみで public/images/og-links.png を含まないため直接目視で代替。本番反映は次の deploy",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }

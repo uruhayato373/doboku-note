@@ -361,14 +361,6 @@ CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認し
 
 ## 🟡 中 — 2〜3ヶ月以内
 
-### [DN-0301] `/links` の OG 画像（og-links.png）の資格数を 9 に作り直す
-タグ: [SNS・マーケ] [種類:改善] [起票:2026-09-24] [進行中]
-
-**起点**: `public/images/og-links.png` は「土木・建設系7資格」、`src/app/links/page.tsx` の openGraph の画像 alt は「8資格」だが、ページの資格カードは RCCM を含む 9 資格。2026-09-24 に本文とメタデータの説明文だけ 9 資格に直した。SNS で `/links` を共有するとリンクカードに古い数が出る。
-
-**やること**: `ogp-prompts.md` の手順（`/ogp-create`）で og-links.png を「9資格」「技術士・施工管理・コンクリート・RCCM」に作り直し、alt も合わせる。
-
-**完了条件**: og-links.png の表記と alt がともに 9 資格になり、`npm run ogp-gallery` で崩れが無い。
 
 ### [DN-0298] Google が旧 `/docs/` を正規に選んだ 17 URL を追い、note から張られた分だけ残るならその note 18 本を再公開する
 タグ: [インフラ・計測] [種類:改善] [起票:2026-09-24]
