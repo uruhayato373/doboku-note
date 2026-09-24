@@ -41,4 +41,4 @@ paths:
 - `notebooklm` CLI のクセ → [notebooklm-cli-gotchas.md](../knowledge/reference/notebooklm-cli-gotchas.md)。Playwright 認証プロファイル → [playwright-auth-profiles.md](../knowledge/reference/playwright-auth-profiles.md)
 - CI/CD の Secrets・破壊操作の権限設計 → [ci-cd-security-hardening.md](../knowledge/reference/ci-cd-security-hardening.md)。workflow は full clone 禁止（`npm run check-workflow-clone-depth`）・actionlint/permissions/timeout/SHA 固定（`npm run check-workflow-hygiene`）。自動化の失敗・沈黙は `scripts/report-automation-failure.mjs` で `automation-failure` Issue に記録（GitHub Issue の唯一の例外）
 - 計測は CI/CD 供給が正・ローカル creds 不要（会社 PC はプロキシで外部 API 遮断）。PSI は field(CrUX) で実害判定・lab 単発で CRITICAL を立てない → measurement-incidents.md
-- `npm ci` は ERESOLVE で失敗する。復元は `npm install --legacy-peer-deps`（node_modules 不在だと pre-commit も落ちる）
+- 依存の復元は `npm ci`（`.npmrc` の `legacy-peer-deps=true` で eslint 10 と eslint-plugin-react の peer 衝突を回避。node_modules 不在だと pre-commit も落ちる）
