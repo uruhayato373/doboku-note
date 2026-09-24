@@ -68,6 +68,10 @@ const EVENT_NAMES = [
   "coconala_cta_impression",
   // 過去問演習の完了（キーイベント）。AnalyticsProvider 外（演習クライアント）から送られる。
   "quiz_complete",
+  // 実務記事・共通仕様書の章末「業務経験 → 資格」カード（2026-09-25 新設・EXP-012）。
+  // --by-label で立場別（orderer / contractor / qualification-map）、--by-placement で面別に分かれる。
+  "qualification_bridge_impression",
+  "qualification_bridge_click",
 ];
 
 function parseArgs() {

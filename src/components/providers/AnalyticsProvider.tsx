@@ -49,6 +49,9 @@ export default function AnalyticsProvider() {
       // キャリア hub / 診断ツールで読者が悩みを選んだ遷移（2026-08-21 新設）。
       // label は need キーのみを送る（氏名・会社名・年収などは送らない）。
       "career-need": "career_need_select",
+      // 実務記事・共通仕様書の章末「業務経験 → 資格」カード（2026-09-25 新設・EXP-012）。
+      // label はリンク側の data-cta-label（立場: orderer / contractor / qualification-map）。
+      "qualification-bridge": "qualification_bridge_click",
     };
     const CATEGORY: Record<string, string> = {
       note: "note-magazine",
@@ -59,6 +62,7 @@ export default function AnalyticsProvider() {
       brain: "brain",
       "standards-data": "standards-data",
       "career-need": "career-need",
+      "qualification-bridge": "qualification-bridge",
     };
     const onClick = (e: MouseEvent) => {
       const start = e.target as Element | null;
@@ -74,7 +78,9 @@ export default function AnalyticsProvider() {
       gtag.event({
         action,
         category,
-        label: el.dataset.ctaLabel || anchor.getAttribute("href") || "(unknown)",
+        // リンク自身の data-cta-label を優先（root に面全体のラベル、各リンクに分岐のラベルを持つ
+        // qualification-bridge 用。リンクにラベルが無い既存の面は従来どおり root → href）。
+        label: anchor.dataset.ctaLabel || el.dataset.ctaLabel || anchor.getAttribute("href") || "(unknown)",
         params: {
           cta_placement: el.dataset.ctaPlacement || "(unknown)",
         },
@@ -97,6 +103,8 @@ export default function AnalyticsProvider() {
       affiliate: { action: "affiliate_cta_impression", category: "affiliate" },
       // ココナラ（A8 経由の自社出品）もクリック率の分母を配置別に取る（2026-09-25〜）。
       coconala: { action: "coconala_cta_impression", category: "coconala" },
+      // 業務経験 → 資格カード。クリック率の分母（表示回数）を面別に取る（EXP-012）。
+      "qualification-bridge": { action: "qualification_bridge_impression", category: "qualification-bridge" },
     };
 
     const observed = new WeakSet<Element>();
@@ -126,7 +134,7 @@ export default function AnalyticsProvider() {
     );
 
     const observeRevenueCtas = () => {
-      document.querySelectorAll('[data-cta="note"], [data-cta="affiliate"], [data-cta="coconala"]').forEach((el) => {
+      document.querySelectorAll('[data-cta="note"], [data-cta="affiliate"], [data-cta="coconala"], [data-cta="qualification-bridge"]').forEach((el) => {
         if (observed.has(el)) return;
         observed.add(el);
         observer.observe(el);
