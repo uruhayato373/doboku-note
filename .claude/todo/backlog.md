@@ -166,15 +166,14 @@
 ### [DN-0291] Mac を self-hosted runner に登録し、GSC 登録リクエストの定期送信を動かす
 タグ: [インフラ・計測] [種類:改善] [検証:check-playwright-auth-wiring:strict] [起票:2026-09-24]
 
-**起点**: 登録リクエストの送信は Mac で手動しかなく、受理は計 30 件（`gsc-indexing/history.json`）。9/23 の未登録は 288 件で、送る順の表 `priority-latest.txt` は毎週 CI が作っている。Google は GitHub hosted runner（datacenter IP）で認証を復元すると Mac 側まで全面失効させる（2026-09-21 実測・measurement-incidents.md・registry の google notes）ので、自宅回線の Mac を self-hosted runner にしたときだけ動く `gsc-request-indexing.yml` を PR #599 で用意した（未設定の間は警告して何もしない）。
+**起点**: 登録リクエストの送信は Mac で手動しかなく、受理は計 30 件（`gsc-indexing/history.json`）。9/23 の未登録は 288 件で、送る順の表 `priority-latest.txt` は毎週 CI が作っている。Google は GitHub hosted runner（datacenter IP）で認証を復元すると Mac 側まで全面失効させる（2026-09-21 実測・measurement-incidents.md・registry の google notes）ので、自宅回線の Mac を self-hosted runner にしたときだけ動く `gsc-request-indexing.yml` は develop にある（PR #599・未設定の間は警告して何もしない）。
 
 **やること**:
-1. PR #599 をマージする
-2. どの Google アカウントで CI にログインさせるか決める。暗号化 state はアカウントのセッションそのもので、repo の write 権限者は workflow 経由で復号できる。GSC / GA4 の権限だけを持つ専用アカウントが安全（登録リクエストに要る GSC 権限＝オーナーかフルかを先に確認）
-3. Mac を self-hosted runner として登録する（GitHub の Settings → Actions → Runners・ラベル例 `doboku-mac`・常駐させる）。`.claude/config/ci-write-operations.json` の `google.request-indexing.selfHostedRunsOn` に `["self-hosted","macOS","doboku-mac"]` を入れて PR
-4. Mac で `npm run auth:status -- --service google` → expired なら `auth:login` → `npm run auth:export -- --service google`
-5. `gh workflow run gsc-request-indexing.yml` を別日に 2 回。毎回、受理件数（`requests-latest.json`）と Mac の `auth:status` が `authenticated` のままかを見る。Mac 側が切れたら `selfHostedRunsOn` を null に戻して止め、ローカル送信に戻す
-6. 2 回とも問題なければ cron を毎日（`0 5 * * *`）にする。registry の google は `enabled:false` のまま（true にすると hosted の login-collectors.yml が Google を復元してしまう）
+1. どの Google アカウントで CI にログインさせるか決める。暗号化 state はアカウントのセッションそのもので、repo の write 権限者は workflow 経由で復号できる。GSC / GA4 の権限だけを持つ専用アカウントが安全（登録リクエストに要る GSC 権限＝オーナーかフルかを先に確認）
+2. Mac を self-hosted runner として登録する（GitHub の Settings → Actions → Runners・ラベル例 `doboku-mac`・常駐させる）。`.claude/config/ci-write-operations.json` の `google.request-indexing.selfHostedRunsOn` に `["self-hosted","macOS","doboku-mac"]` を入れて PR
+3. Mac で `npm run auth:status -- --service google` → expired なら `auth:login` → `npm run auth:export -- --service google`
+4. `gh workflow run gsc-request-indexing.yml` を別日に 2 回（main へ deploy 済みであること。workflow_dispatch はデフォルトブランチ版で動く）。毎回、受理件数（`requests-latest.json`）と Mac の `auth:status` が `authenticated` のままかを見る。Mac 側が切れたら `selfHostedRunsOn` を null に戻して止め、ローカル送信に戻す
+5. 2 回とも問題なければ cron を毎日（`0 5 * * *`）にする。registry の google は `enabled:false` のまま（true にすると hosted の login-collectors.yml が Google を復元してしまう）
 
 **完了条件**: scheduled run が画面文言で確認した受理を `history.json` に記録し、`node scripts/check-gsc-indexing-due.mjs` が OK、その後も Mac の `auth:status` が `authenticated`。
 
@@ -390,11 +389,9 @@ CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認し
 ### [DN-0292] note 674 本の本文を再公開し、旧 `/docs/` リンクと 404 リンク 2 本を note 上から消す
 タグ: [SNS・マーケ] [種類:改善] [起票:2026-09-24]
 
-**起点**: PR #598 で note 原稿 675 本・1,990 本の旧 `/docs/` リンクを新 URL に張り替え、`配合計算-実戦演習` の 404 リンク 2 本（資格以降をハイフンでつないだ打ち間違い）も直した。リンクの生成・検査も新 URL 基準にした（旧 `/docs/` は check-note-site-utm が止める）。ただし note.com 上の本文は再公開するまで旧 URL のままで、`check-note-republish` の要再公開が 674 本ある。
+**起点**: PR #598（develop にマージ済み）で note 原稿 675 本・1,990 本の旧 `/docs/` リンクを新 URL に張り替え、`配合計算-実戦演習` の 404 リンク 2 本（資格以降をハイフンでつないだ打ち間違い）も直した。リンクの生成・検査も新 URL 基準にした（旧 `/docs/` は check-note-site-utm が止める）。ただし note.com 上の本文は再公開するまで旧 URL のままで、`check-note-republish` の要再公開が 674 本ある。
 
-**やること**:
-1. PR #598 をマージする
-2. 再公開は `ops-write.yml` の `note.update-body` をバッチで回す。外向きの大量更新なので、本数・間隔・順番（表示の多い記事と `配合計算-実戦演習` を先に）をユーザーに確認してから始める。最初の数本で有料エリアと添付が壊れないことを note 上で確かめる
+**やること**: 再公開は `ops-write.yml` の `note.update-body` をバッチで回す。外向きの大量更新なので、本数・間隔・順番（表示の多い記事と `配合計算-実戦演習` を先に）をユーザーに確認してから始める。最初の数本で有料エリアと添付が壊れないことを note 上で確かめる
 
 **完了条件**: `node scripts/check-note-republish.mjs` の本文 drift から、この張り替え分が消えている（再公開した本文を 20 本抜き出し、note 上に旧 URL が無いことも確認済み）。
 
