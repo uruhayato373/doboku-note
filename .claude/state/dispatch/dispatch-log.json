@@ -1147,6 +1147,18 @@
       "commit": "f87d43db5cad",
       "verification": "27 本すべて note-update-body [5e] OK（CDN 待ち中断 4 本は --force-retry で再実行）/ check-note-republish: 27 本の drift 残存 0 / check-note-live-headings exit 0（884 件）/ check-note-structure --ci exit 0 / 公開 API でリンクカード・目次・太字記号を照合",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0284",
+      "at": "2026-09-24",
+      "task": "ココナラ出品の文面変更と4テーマ添削の追加（PR #595・#596）について /doc-sync を1回回す",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "dea42a996de1",
+      "verification": "doc-sync-auditor: 候補 5 件＋追加 2 件を読んで should-fix 1 件（sales-tracking.md の人が動くサービス列挙に coconala-tensaku-4theme 欠落）→ 適用。旧タイトルは日付付き変更ログのみで現行記述なし / check-doc-refs OK",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }
