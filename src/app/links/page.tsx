@@ -12,7 +12,6 @@ import { EXAM_BRAND, type ExamKey } from "@/lib/exam-brand";
 import { pickCoconalaFor, pickBrainFor } from "@/lib/exam-key-bridge";
 import { mokujiFor } from "@/lib/note-mokuji";
 import ServiceIcon, { type ServiceChannel } from "@/components/icons/ServiceIcon";
-import AuthorProfile from "@/components/ui/AuthorProfile/AuthorProfile";
 import { externalLinkRel } from "@/lib/external-link-rel";
 
 export const metadata: Metadata = {
@@ -20,7 +19,7 @@ export const metadata: Metadata = {
   // （旧: "Links — doboku-note の入口" + テンプレ = サイト名二重だった）。
   title: "Links — SNS・note・サイトの入口",
   description:
-    "発注者視点で土木・建設系8資格の合格を支援。技術士第一次・建設部門・総合技術監理部門、1級／2級土木施工管理技士、コンクリート技士・主任技士・診断士の無料解説と教材への入口まとめ。",
+    "発注者視点で土木・建設系9資格の合格を支援。技術士第一次・建設部門・総合技術監理部門、1級／2級土木施工管理技士、コンクリート技士・主任技士・診断士、RCCMの無料解説と教材への入口まとめ。",
   alternates: {
     canonical: "https://doboku-note.com/links",
   },
@@ -28,7 +27,7 @@ export const metadata: Metadata = {
     type: "website",
     title: "Links — doboku-note の入口",
     description:
-      "技術士・土木施工管理・コンクリート系の8資格を、無料サイト解説から教材まで分野別に案内します。",
+      "技術士・土木施工管理・コンクリート系・RCCMの9資格を、無料サイト解説から教材まで分野別に案内します。",
     url: "https://doboku-note.com/links",
     images: [
       {
@@ -284,14 +283,16 @@ function ExamCardView({ card }: { card: ExamCard }) {
       {/* cta-bg は明色イラストのため、写真の上に白文字を載せる方式（スクリムでもフロストパネルでも）
           は濃い覆いが要り、帯が重く濁って見えた。写真は装飾の帯に徹し、資格名はカード面に
           通常の本文色で置く（可読性の議論が発生しない）。上端のテーマ色ラインで資格を識別する。 */}
-      <div className="relative h-[72px]" style={{ backgroundColor: `var(${brand.themeVar})` }}>
+      {/* スマホは 1 列で 9 枚が縦に並ぶので、情報の無い帯はテーマ色の線だけにし、イラストは sm 以上で出す
+          （2026-09-24: SNS のアプリ内ブラウザの 1 画面目＝約 664px に最初の資格リンクを入れるため） */}
+      <div className="relative h-1.5 sm:h-[72px]" style={{ backgroundColor: `var(${brand.themeVar})` }}>
         {brand.ctaBg && (
           <Image
             src={brand.ctaBg}
             alt=""
             fill
-            sizes="(min-width: 640px) 360px, 100vw"
-            className="object-cover object-[center_30%]"
+            sizes="360px"
+            className="hidden object-cover object-[center_30%] sm:block"
           />
         )}
         <span
@@ -341,30 +342,6 @@ function ExamCardView({ card }: { card: ExamCard }) {
   );
 }
 
-/** チャネルが何をくれるかの凡例。ページ内に 1 度だけ置く。 */
-const CHANNEL_LEGEND: { channel: ServiceChannel; name: string; what: string }[] = [
-  { channel: 'site', name: 'サイト', what: '無料。まず読む' },
-  { channel: 'note', name: 'note', what: '答案・予想問題を読む' },
-  { channel: 'coconala', name: 'ココナラ', what: '自分の答案を見てもらう' },
-  { channel: 'brain', name: 'Brain', what: '作業キットを手に入れる' },
-];
-
-function ChannelLegend() {
-  return (
-    <div className="card-surface-content px-4 py-3">
-      {CHANNEL_LEGEND.map((c) => (
-        <div key={c.channel} className="flex items-center gap-2.5 py-1">
-          <ServiceIcon channel={c.channel} />
-          <span className="text-xs">
-            <span className="text-[var(--ink)]">{c.name}</span>
-            <span className="text-[var(--ink-muted)]"> — {c.what}</span>
-          </span>
-        </div>
-      ))}
-    </div>
-  );
-}
-
 function ExamSections() {
   return (
     <div className="space-y-10">
@@ -375,9 +352,10 @@ function ExamSections() {
 
         return (
           <section key={group.id} id={`group-${group.id}`} className="scroll-mt-24">
-            <div className="mb-4 border-b border-[var(--rule-soft)] pb-3">
+            <div className="mb-3 border-b border-[var(--rule-soft)] pb-2 sm:mb-4 sm:pb-3">
               <h3 className="font-serif text-lg font-bold text-[var(--ink)]">{group.title}</h3>
-              <p className="mt-1 text-xs leading-relaxed text-[var(--ink-muted)]">
+              {/* スマホでは省く（各カードの見出し下に誰向けかの 1 行があり、1 画面目を資格リンクに使う） */}
+              <p className="mt-1 hidden text-xs leading-relaxed text-[var(--ink-muted)] sm:block">
                 {group.description}
               </p>
             </div>
@@ -398,79 +376,95 @@ function ExamSections() {
 }
 
 
-// ヒーロー帯は7資格を個別列挙せず、3分野へジャンプさせて一覧性を保つ。
+// ヒーロー帯は資格を個別列挙せず、4 分野へジャンプさせて一覧性を保つ。
 const HERO_CHIPS = EXAM_GROUPS.map((group) => ({ label: group.title, id: group.id }));
+
+// 運営者の SNS・note・プロフィールへの導線。旧実装はページ末尾の AuthorProfile（375px で 1,098px）に
+// しか無く、SNS から来た人が最後までスクロールしないと X に戻れなかった（2026-09-24 にヒーローへ 1 行で集約）。
+const NOTE_TOP_URL = withUtm(AUTHOR.noteCta.url.replace(/\?.*$/, ""), "note-top");
 
 export default function LinksPage() {
   // チップはカード定義から導出する（旧: マガジン件数で出し分け。カード化で常に中身があるため不要）。
   const chips = HERO_CHIPS;
 
   return (
-    <PageShell variant="default" className="py-10 sm:py-14">
+    <PageShell variant="default" className="py-6 sm:py-14">
         <div className="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-10">
-          {/* Hero band: アバター + 名乗り + キャッチ + 試験チップ（ジャンプ） */}
-          <section className="card-surface-section mb-8 p-6 shadow-none sm:p-8">
-            <div className="flex flex-col sm:flex-row items-center gap-5 sm:gap-7">
+          {/* Hero band: アバター + 名乗り + キャッチ + 試験チップ（ジャンプ）+ 運営者の導線。
+              SNS bio から来た人がスマホの 1 画面目で資格カードまで届くよう、スマホでも横並びの小さい版にする
+              （旧: 縦積み 455px ＋ 紹介文 648px で、最初の資格リンクが 2.3 画面目だった・2026-09-24）。 */}
+          <section className="card-surface-section mb-6 p-4 shadow-none sm:mb-8 sm:p-8">
+            <div className="flex items-start gap-4 sm:items-center sm:gap-7">
               <img
                 src={AUTHOR.imageUrl}
                 alt={`${AUTHOR.name}のプロフィール画像`}
                 width={112}
                 height={112}
-                className="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-2 border-[var(--rule-soft)] shrink-0"
+                className="w-16 h-16 sm:w-28 sm:h-28 rounded-full border-2 border-[var(--rule-soft)] shrink-0"
               />
-              <div className="text-center sm:text-left min-w-0">
-                <h1 className="font-serif text-2xl sm:text-3xl font-black text-[var(--ink)] mb-1.5">
+              <div className="min-w-0">
+                <h1 className="font-serif text-xl sm:text-3xl font-black text-[var(--ink)] mb-1">
                   doboku-note
                 </h1>
-                <p className="font-serif text-base sm:text-lg font-bold text-[var(--accent)] mb-1.5 leading-snug">
+                <p className="font-serif text-sm sm:text-lg font-bold text-[var(--accent)] mb-1 leading-snug">
                   発注者の視点で、土木・建設系資格の「合格」へ最短ルートを。
                 </p>
-                <p className="text-sm text-[var(--ink-body)] leading-relaxed mb-4">
-                  技術士・土木施工管理・コンクリート系、7資格の試験対策ハブ
-                  <br />
-                  元・地方自治体 土木職（発注者）｜技術士2部門ほか多数の資格を保有する運営者
+                <p className="text-xs sm:text-sm text-[var(--ink-body)] leading-relaxed">
+                  {EXAM_CARDS.length}資格の試験対策｜運営：{AUTHOR.name}・元自治体の土木職（発注者）
+                  {/* 保有資格はスマホでは「運営者について」に任せ、1 画面目を資格リンクに使う */}
+                  <span className="hidden sm:inline">、技術士2部門ほか多数の資格を保有</span>
                 </p>
-                {chips.length > 0 && (
-                  <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
-                    {chips.map((chip) => (
-                      <a
-                        key={chip.id}
-                        href={`#group-${chip.id}`}
-                        className="inline-flex items-center rounded-full border border-[var(--rule-soft)] px-3 py-1 text-xs font-bold text-[var(--ink-body)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors"
-                      >
-                        {chip.label}
-                      </a>
-                    ))}
-                  </div>
-                )}
               </div>
+            </div>
+            {chips.length > 0 && (
+              <div className="mt-3 flex flex-wrap gap-2 sm:mt-4 sm:pl-[140px]">
+                {chips.map((chip) => (
+                  <a
+                    key={chip.id}
+                    href={`#group-${chip.id}`}
+                    className="inline-flex items-center rounded-full border border-[var(--rule-soft)] px-3 py-1 text-xs font-bold text-[var(--ink-body)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors"
+                  >
+                    {chip.label}
+                  </a>
+                ))}
+              </div>
+            )}
+            <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs sm:pl-[140px]">
+              <a href={AUTHOR.twitterUrl} target="_blank" rel={externalLinkRel(AUTHOR.twitterUrl)} className="focus-ring text-brand hover:underline">
+                X @{AUTHOR.twitterUrl.split("/").pop()}
+              </a>
+              <a href={NOTE_TOP_URL} target="_blank" rel={externalLinkRel(NOTE_TOP_URL)} className="focus-ring text-brand hover:underline">
+                note もくじ
+              </a>
+              <Link href="/about" className="focus-ring text-brand hover:underline">
+                運営者について
+              </Link>
             </div>
           </section>
 
-          {/* 価値提案 — なぜここで合格できるのか（中身） */}
+          {/* 試験別: 無料入口 → 有料教材（試験ファースト funnel） */}
           <section className="mb-12">
-            {/* 幅は他セクション（ヒーロー・資格カード・凡例）と揃える。
-                旧 max-w-3xl(768px) だとここだけ内側に寄って段が崩れていた（2026-07-28 是正）。 */}
-            <div className="card-surface-section mb-5 p-5 shadow-none">
-              <p className="text-sm text-[var(--ink-body)] leading-relaxed mb-3">
-                市販のテキストや過去問演習だけでは、記述式・経験記述の
-                <strong className="text-[var(--ink)]">「合格答案の型」</strong>
-                までは埋まりません。doboku-note
-                は、発注者として計画・発注・監督・審査に携わり、
-                <strong className="text-[var(--ink)]">
-                  技術士2部門を含む資格を実際に取得した運営者
-                </strong>
-                が、出題者・採点者の評価軸から逆算して教材を作っています。
-              </p>
-              <p className="text-sm text-[var(--ink-body)] leading-relaxed">
-                進め方はシンプル。まず
-                <strong className="text-[var(--accent)]">無料のサイト解説</strong>
-                で土台を固め、仕上げに
-                <strong className="text-[var(--ink)]">note のフル教材</strong>
-                で得点を取りに行く。下の「試験別コンテンツ」から、受験する試験を選んでください。
-              </p>
-            </div>
+            <h2 className="font-serif text-lg sm:text-xl font-bold text-[var(--ink)] mb-1 sm:text-center">
+              資格別コンテンツ
+            </h2>
+            {/* 旧「それぞれで得られるもの」凡例（ページ末尾・210px）の意味づけをここへ吸収した。
+                カード内の各行には「note」「ココナラ」などのチャネル小ラベルが付いている。 */}
+            <p className="text-xs text-[var(--ink-muted)] mb-4 sm:mb-8 sm:text-center leading-relaxed">
+              カード内は
+              <span className="text-[var(--accent)] font-bold">無料で読む</span>
+              → note 教材 → 添削・キット の順
+            </p>
 
+            <ExamSections />
+          </section>
+
+          {/* 価値提案 — なぜここで合格できるのか（中身）。
+              リンクより先に置くとスマホで資格カードが 2 画面目以降に押し出されたため、カードの後ろへ移した
+              （旧冒頭の紹介文はヒーローと資格別コンテンツの説明に内容が重なるので廃止・2026-09-24）。 */}
+          <section>
+            <h2 className="font-serif text-base font-bold text-[var(--ink)] mb-3">
+              doboku-note の教材の特徴
+            </h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               {VALUE_PILLARS.map((p) => {
                 const Icon = p.icon;
@@ -497,40 +491,6 @@ export default function LinksPage() {
                 );
               })}
             </div>
-          </section>
-
-          {/* 試験別: 無料入口 → 有料教材（試験ファースト funnel） */}
-          <section className="mb-12">
-            <h2 className="font-serif text-xl font-bold text-[var(--ink)] mb-1 text-center">
-              資格別コンテンツ
-            </h2>
-            <p className="text-xs text-[var(--ink-muted)] mb-8 text-center leading-relaxed">
-              まず分野を選び、次に受験する資格を選択。
-              <span className="text-[var(--accent)] font-bold">色付きの無料ガイド</span>
-              で全体像をつかみ、必要に応じて note 教材で記述・経験記述を仕上げる流れがおすすめです
-            </p>
-
-            <ExamSections />
-          </section>
-
-          {/* チャネル凡例: 各サービスが何をくれるかを 1 度だけ示す。
-              カード内はアイコン＋小ラベルだけなので、意味づけはここで担保する。 */}
-          <section className="mb-12">
-            <h2 className="font-serif text-base font-bold text-[var(--ink)] mb-1">
-              それぞれで得られるもの
-            </h2>
-            <p className="text-xs text-[var(--ink-muted)] mb-3">
-              カード内のリンクは、上から「読む → 揃える → 見てもらう」の順に並んでいます
-            </p>
-            <ChannelLegend />
-          </section>
-
-          {/* 運営者: トップ（AboutSection）と同じ AuthorProfile variant="wide" を再利用する。
-              旧実装は「運営者カード + X カード」を独自マークアップで 2 カラムに置いていたが、
-              経歴・保有資格・X リンクはすべて AuthorProfile が SSOT として持っており重複していた
-              （2026-07-28 に統合）。note CTA は上の資格カードと重複するため出さない。 */}
-          <section>
-            <AuthorProfile variant="wide" showNoteCta={false} />
           </section>
         </div>
     </PageShell>
