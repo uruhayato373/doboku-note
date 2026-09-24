@@ -117,7 +117,7 @@ https://note.com/dobokunote/n/n6b66793ca20c
 
 経験記述の答案は改変前提のテンプレートで、そのまま書き写すためのものではありません。予想模試も出題を保証せず、数値・基準は受験年度の最新条件に合わせてください。本パックは合格を保証するものではありません。
 
-購入前に出題傾向だけ確認したい方は、[施工経験記述 出題傾向と対策](https://doboku-note.com/docs/civil-construction-2-secondary-experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil2-niji-marugoto&utm_content=experience-writing-guide)を無料で公開しています。
+購入前に出題傾向だけ確認したい方は、[施工経験記述 出題傾向と対策](https://doboku-note.com/exam/civil-construction-2/secondary/experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil2-niji-marugoto&utm_content=experience-writing-guide)を無料で公開しています。
 
 ---
 

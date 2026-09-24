@@ -32,7 +32,7 @@ cover:
 **こんな人のための記事です**
 
 - 過去問を一周し、見たことのない選択肢で総仕上げをしたい
-- 材料、耐久性、配合、[品質管理](https://doboku-note.com/docs/pe-comprehensive-management-quality-control?utm_source=note&utm_medium=referral&utm_campaign=cce-r8-mc-50&utm_content=kw-quality-control)、施工、製品、構造を横断して弱点を見つけたい
+- 材料、耐久性、配合、[品質管理](https://doboku-note.com/exam/pe-comprehensive-management/keywords/quality-control?utm_source=note&utm_medium=referral&utm_campaign=cce-r8-mc-50&utm_content=kw-quality-control)、施工、製品、構造を横断して弱点を見つけたい
 - 正答番号だけでなく、誤っている語句と修正理由まで確認したい
 - 小論文だけでなく、四肢択一の得点を安定させたい
 
@@ -52,7 +52,7 @@ cover:
 次の三層を重ねて出題範囲を組みました。
 
 1. 主任技士で継続して問われる材料、性質、耐久性、配合、製造、施工、製品、構造の基礎
-2. 配合計算、統計的[品質管理](https://doboku-note.com/docs/pe-comprehensive-management-quality-control?utm_source=note&utm_medium=referral&utm_campaign=cce-r8-mc-50&utm_content=kw-quality-control)、特殊コンクリートなど、複数条件を整理する主任技士レベルの判断
+2. 配合計算、統計的[品質管理](https://doboku-note.com/exam/pe-comprehensive-management/keywords/quality-control?utm_source=note&utm_medium=referral&utm_campaign=cce-r8-mc-50&utm_content=kw-quality-control)、特殊コンクリートなど、複数条件を整理する主任技士レベルの判断
 3. 低炭素材料、複合劣化、トレーサビリティー、長寿命化など、近年の実務で重要性が高い横断論点
 
 「予想」は出題の的中を保証する意味ではありません。未知の問題に対応するため、既知の原理を違う条件で使う練習として設計しています。
@@ -63,7 +63,7 @@ cover:
 - コンクリートの性質：6問
 - 耐久性：6問
 - 配合設計：6問
-- 製造・[品質管理](https://doboku-note.com/docs/pe-comprehensive-management-quality-control?utm_source=note&utm_medium=referral&utm_campaign=cce-r8-mc-50&utm_content=kw-quality-control)：6問
+- 製造・[品質管理](https://doboku-note.com/exam/pe-comprehensive-management/keywords/quality-control?utm_source=note&utm_medium=referral&utm_campaign=cce-r8-mc-50&utm_content=kw-quality-control)：6問
 - 施工：8問
 - コンクリート製品：6問
 - 構造設計：6問
@@ -142,7 +142,7 @@ https://note.com/dobokunote/n/nd59f471c9214
 
 ## 予想問題5｜練混ぜ水
 
-練混ぜ水の[品質管理](https://doboku-note.com/docs/pe-comprehensive-management-quality-control?utm_source=note&utm_medium=referral&utm_campaign=cce-r8-mc-50&utm_content=kw-quality-control)として、不適当なものはどれか。
+練混ぜ水の[品質管理](https://doboku-note.com/exam/pe-comprehensive-management/keywords/quality-control?utm_source=note&utm_medium=referral&utm_campaign=cce-r8-mc-50&utm_content=kw-quality-control)として、不適当なものはどれか。
 
 1. 油、酸、塩類、有機物などが凝結・強度・耐久性へ及ぼす影響を確認する。
 2. 回収水は種類・濃度・使用量を管理する。
@@ -294,7 +294,7 @@ ASRの成立条件の組合せとして、適当なものはどれか。
 
 ### 正答・解説
 
-**正答：1**。連行空気は凍結膨張圧の逃げ場となります。2は強度低下、3は透水性・飽水[リスク](https://doboku-note.com/docs/pe-comprehensive-management-risk?utm_source=note&utm_medium=referral&utm_campaign=cce-r8-mc-50&utm_content=kw-risk)、4は初期凍害を招くため誤りです。
+**正答：1**。連行空気は凍結膨張圧の逃げ場となります。2は強度低下、3は透水性・飽水[リスク](https://doboku-note.com/exam/pe-comprehensive-management/keywords/risk?utm_source=note&utm_medium=referral&utm_campaign=cce-r8-mc-50&utm_content=kw-risk)、4は初期凍害を招くため誤りです。
 
 ## 予想問題17｜化学的侵食
 
@@ -320,7 +320,7 @@ ASRの成立条件の組合せとして、適当なものはどれか。
 
 ### 正答・解説
 
-**正答：2**。複数作用は損傷と物質移動を相互に促進する場合があります。1、3、4は原因推定と[予防保全](https://doboku-note.com/docs/pe-comprehensive-management-preventive-maintenance?utm_source=note&utm_medium=referral&utm_campaign=cce-r8-mc-50&utm_content=kw-preventive-maintenance)を不十分にします。
+**正答：2**。複数作用は損傷と物質移動を相互に促進する場合があります。1、3、4は原因推定と[予防保全](https://doboku-note.com/exam/pe-comprehensive-management/keywords/preventive-maintenance?utm_source=note&utm_medium=referral&utm_campaign=cce-r8-mc-50&utm_content=kw-preventive-maintenance)を不十分にします。
 
 ## 予想問題19｜配合強度の割増し
 
@@ -402,7 +402,7 @@ ASRの成立条件の組合せとして、適当なものはどれか。
 
 ## 予想問題25｜平均とばらつきの比較
 
-圧縮強度が正規分布に従うと仮定する。工場Aは平均48N/mm²・[標準偏差](https://doboku-note.com/docs/pe-comprehensive-management-descriptive-statistics?utm_source=note&utm_medium=referral&utm_campaign=cce-r8-mc-50&utm_content=kw-descriptive-statistics)3N/mm²、工場Bは平均50N/mm²・標準偏差5N/mm²である。「平均−1.64×標準偏差」で比較した判断として、適当なものはどれか。
+圧縮強度が正規分布に従うと仮定する。工場Aは平均48N/mm²・[標準偏差](https://doboku-note.com/exam/pe-comprehensive-management/keywords/descriptive-statistics?utm_source=note&utm_medium=referral&utm_campaign=cce-r8-mc-50&utm_content=kw-descriptive-statistics)3N/mm²、工場Bは平均50N/mm²・標準偏差5N/mm²である。「平均−1.64×標準偏差」で比較した判断として、適当なものはどれか。
 
 1. 平均が高いBは、ばらつきにかかわらず必ず有利である。
 2. Aは43.1N/mm²、Bは45.1N/mm²なのでBが有利である。
@@ -415,7 +415,7 @@ ASRの成立条件の組合せとして、適当なものはどれか。
 
 ## 予想問題26｜強度下限を下回る確率
 
-圧縮強度が平均42N/mm²、[標準偏差](https://doboku-note.com/docs/pe-comprehensive-management-descriptive-statistics?utm_source=note&utm_medium=referral&utm_campaign=cce-r8-mc-50&utm_content=kw-descriptive-statistics)3N/mm²の正規分布に従うと仮定する。36N/mm²を下回る確率として、最も近いものはどれか。標準正規分布で`z=-2.0`の下側確率を2.3%とする。
+圧縮強度が平均42N/mm²、[標準偏差](https://doboku-note.com/exam/pe-comprehensive-management/keywords/descriptive-statistics?utm_source=note&utm_medium=referral&utm_campaign=cce-r8-mc-50&utm_content=kw-descriptive-statistics)3N/mm²の正規分布に従うと仮定する。36N/mm²を下回る確率として、最も近いものはどれか。標準正規分布で`z=-2.0`の下側確率を2.3%とする。
 
 1. 2.3%
 2. 16.0%
@@ -433,11 +433,11 @@ ASRの成立条件の組合せとして、適当なものはどれか。
 1. データを削除して通常状態に見せる。
 2. 材料ロット、含水率、計量器、設備、担当手順などの特殊原因を調べる。
 3. 規格値内なら傾向変化を一切見ない。
-4. [管理限界](https://doboku-note.com/docs/pe-comprehensive-management-control-limits?utm_source=note&utm_medium=referral&utm_campaign=cce-r8-mc-50&utm_content=kw-control-limits)を検査規格値と完全に同一視する。
+4. [管理限界](https://doboku-note.com/exam/pe-comprehensive-management/keywords/control-limits?utm_source=note&utm_medium=referral&utm_campaign=cce-r8-mc-50&utm_content=kw-control-limits)を検査規格値と完全に同一視する。
 
 ### 正答・解説
 
-**正答：2**。管理図は工程の安定性と異常原因を探る道具です。1は記録改ざん、3は予防管理を否定、4は工程[管理限界](https://doboku-note.com/docs/pe-comprehensive-management-control-limits?utm_source=note&utm_medium=referral&utm_campaign=cce-r8-mc-50&utm_content=kw-control-limits)と製品規格の役割を混同しています。
+**正答：2**。管理図は工程の安定性と異常原因を探る道具です。1は記録改ざん、3は予防管理を否定、4は工程[管理限界](https://doboku-note.com/exam/pe-comprehensive-management/keywords/control-limits?utm_source=note&utm_medium=referral&utm_campaign=cce-r8-mc-50&utm_content=kw-control-limits)と製品規格の役割を混同しています。
 
 ## 予想問題28｜計量器管理
 
@@ -454,7 +454,7 @@ ASRの成立条件の組合せとして、適当なものはどれか。
 
 ## 予想問題29｜管理限界内の連続上昇
 
-圧縮強度の管理図で、すべての点は[管理限界](https://doboku-note.com/docs/pe-comprehensive-management-control-limits?utm_source=note&utm_medium=referral&utm_campaign=cce-r8-mc-50&utm_content=kw-control-limits)内にあるが、7点連続で上昇していた。工程担当者の判断として、最も適当なものはどれか。
+圧縮強度の管理図で、すべての点は[管理限界](https://doboku-note.com/exam/pe-comprehensive-management/keywords/control-limits?utm_source=note&utm_medium=referral&utm_campaign=cce-r8-mc-50&utm_content=kw-control-limits)内にあるが、7点連続で上昇していた。工程担当者の判断として、最も適当なものはどれか。
 
 1. 規格下限を上回っているため、傾向は記録せず放置する。
 2. 7点を外れ値として削除し、管理図を描き直す。
@@ -554,7 +554,7 @@ ASRの成立条件の組合せとして、適当なものはどれか。
 
 ### 正答・解説
 
-**正答：1**。温度上昇と拘束による引張応力を統合して評価します。2、3、4は温度差・ひび割れ[リスク](https://doboku-note.com/docs/pe-comprehensive-management-risk?utm_source=note&utm_medium=referral&utm_campaign=cce-r8-mc-50&utm_content=kw-risk)を増やします。
+**正答：1**。温度上昇と拘束による引張応力を統合して評価します。2、3、4は温度差・ひび割れ[リスク](https://doboku-note.com/exam/pe-comprehensive-management/keywords/risk?utm_source=note&utm_medium=referral&utm_campaign=cce-r8-mc-50&utm_content=kw-risk)を増やします。
 
 ## 予想問題37｜水中コンクリート
 
@@ -649,7 +649,7 @@ ASRの成立条件の組合せとして、適当なものはどれか。
 
 ## 予想問題44｜製品の品質保証
 
-コンクリート製品の[品質保証](https://doboku-note.com/docs/pe-comprehensive-management-quality-assurance?utm_source=note&utm_medium=referral&utm_campaign=cce-r8-mc-50&utm_content=kw-quality-assurance)として、不適当なものはどれか。
+コンクリート製品の[品質保証](https://doboku-note.com/exam/pe-comprehensive-management/keywords/quality-assurance?utm_source=note&utm_medium=referral&utm_campaign=cce-r8-mc-50&utm_content=kw-quality-assurance)として、不適当なものはどれか。
 
 1. 材料、配合、製造、養生、寸法、外観、強度を工程で管理する。
 2. 製品識別と製造記録を結び付ける。
@@ -744,7 +744,7 @@ RC部材のせん断耐力を検討する要素として、最も適当なもの
 - 性質（7〜12）：____ / 6
 - 耐久性（13〜18）：____ / 6
 - 配合（19〜24）：____ / 6
-- 製造・[品質管理](https://doboku-note.com/docs/pe-comprehensive-management-quality-control?utm_source=note&utm_medium=referral&utm_campaign=cce-r8-mc-50&utm_content=kw-quality-control)（25〜30）：____ / 6
+- 製造・[品質管理](https://doboku-note.com/exam/pe-comprehensive-management/keywords/quality-control?utm_source=note&utm_medium=referral&utm_campaign=cce-r8-mc-50&utm_content=kw-quality-control)（25〜30）：____ / 6
 - 施工（31〜38）：____ / 8
 - 製品（39〜44）：____ / 6
 - 構造（45〜50）：____ / 6
@@ -756,7 +756,7 @@ RC部材のせん断耐力を検討する要素として、最も適当なもの
 - 性質：[テキスト](https://doboku-note.com/exam/concrete-chief-engineer/textbook/properties?utm_source=note&utm_medium=referral&utm_campaign=cce-r8-mc-50&utm_content=properties)
 - 耐久性：[テキスト](https://doboku-note.com/exam/concrete-chief-engineer/textbook/durability?utm_source=note&utm_medium=referral&utm_campaign=cce-r8-mc-50&utm_content=durability)
 - 配合：[テキスト](https://doboku-note.com/exam/concrete-chief-engineer/textbook/mix-design?utm_source=note&utm_medium=referral&utm_campaign=cce-r8-mc-50&utm_content=mix)
-- 製造・[品質管理](https://doboku-note.com/docs/pe-comprehensive-management-quality-control?utm_source=note&utm_medium=referral&utm_campaign=cce-r8-mc-50&utm_content=kw-quality-control)：[テキスト](https://doboku-note.com/exam/concrete-chief-engineer/textbook/production-qc?utm_source=note&utm_medium=referral&utm_campaign=cce-r8-mc-50&utm_content=qc)
+- 製造・[品質管理](https://doboku-note.com/exam/pe-comprehensive-management/keywords/quality-control?utm_source=note&utm_medium=referral&utm_campaign=cce-r8-mc-50&utm_content=kw-quality-control)：[テキスト](https://doboku-note.com/exam/concrete-chief-engineer/textbook/production-qc?utm_source=note&utm_medium=referral&utm_campaign=cce-r8-mc-50&utm_content=qc)
 - 施工：[テキスト](https://doboku-note.com/exam/concrete-chief-engineer/textbook/construction?utm_source=note&utm_medium=referral&utm_campaign=cce-r8-mc-50&utm_content=construction)
 - 製品：[テキスト](https://doboku-note.com/exam/concrete-chief-engineer/textbook/products?utm_source=note&utm_medium=referral&utm_campaign=cce-r8-mc-50&utm_content=products)
 - 構造：[テキスト](https://doboku-note.com/exam/concrete-chief-engineer/textbook/structural-design?utm_source=note&utm_medium=referral&utm_campaign=cce-r8-mc-50&utm_content=structure)

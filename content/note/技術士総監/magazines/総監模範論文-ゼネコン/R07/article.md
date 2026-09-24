@@ -66,7 +66,7 @@ https://note.com/dobokunote/n/n3ed4c77ceed6
 
 ## 試験問題（令和7年度 必須科目 I-2）
 
-本記事が解答するのは、技術士総合技術監理部門 令和7年度 必須科目（記述式）I-2「少子高齢化」です。前文（少子高齢化の現状など出題の背景）の全文は [令和7年度 総監記述式 過去問解説](https://doboku-note.com/docs/pe-comprehensive-management-r07-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-gc-r07) に掲載しています。ここでは解答すべき設問を再掲します。
+本記事が解答するのは、技術士総合技術監理部門 令和7年度 必須科目（記述式）I-2「少子高齢化」です。前文（少子高齢化の現状など出題の背景）の全文は [令和7年度 総監記述式 過去問解説](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r07-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-gc-r07) に掲載しています。ここでは解答すべき設問を再掲します。
 
 あなたがこれまでに経験した、若しくはよく知っている事業や組織を1つ取り上げ、その目的や創出している成果物等を踏まえ、少子高齢化に伴う課題と施策について総合技術監理の視点から以下の（1）〜（2）の問いに答えよ。さらに、取り上げた事業や組織の枠を超え、少子高齢化に伴う諸課題に対して我が国において取るべき施策について（3）の問いに答えよ。
 
@@ -104,7 +104,7 @@ https://note.com/dobokunote/n/n3ed4c77ceed6
 - **立場**: 工事部長（複数現場の総括、安全衛生管理、原価管理、技術調整）
 - **前提条件**: 2024 年問題（時間外労働規制）への対応中、若手離職が継続、外国人技能実習生・特定技能の活用拡大、自動化建機は部分導入段階
 
-ゼネコンペルソナの他の組織パターンへの置き換えは [ゼネコン向け 模範論文ハブ](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-general-contractor?utm_source=note&utm_medium=referral&utm_campaign=essay-gc-r07) を参照してください。
+ゼネコンペルソナの他の組織パターンへの置き換えは [ゼネコン向け 模範論文ハブ](https://doboku-note.com/exam/pe-comprehensive-management/guide/pattern-essay-general-contractor?utm_source=note&utm_medium=referral&utm_campaign=essay-gc-r07) を参照してください。
 
 ## A 案 設問（１）事業や組織の内容と少子高齢化への対応状況
 
@@ -237,8 +237,8 @@ R7 ゼネコン版は「2024 年問題 × 担い手不足 × 自動化」の三�
 
 **doboku-note の関連ガイド**
 
-- [令和7年度 総監記述式 過去問解説](https://doboku-note.com/docs/pe-comprehensive-management-r07-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-gc-r07) — 必須科目の問題文全文と他ペルソナの解き方
-- [5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-gc-r07) — 段階的実施・合意形成・LCA などフレーム集
+- [令和7年度 総監記述式 過去問解説](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r07-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-gc-r07) — 必須科目の問題文全文と他ペルソナの解き方
+- [5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/exam/pe-comprehensive-management/guide/management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-gc-r07) — 段階的実施・合意形成・LCA などフレーム集
 
 ---
 

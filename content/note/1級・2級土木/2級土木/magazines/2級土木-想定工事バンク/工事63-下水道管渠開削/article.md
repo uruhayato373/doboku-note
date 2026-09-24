@@ -286,8 +286,8 @@ https://note.com/dobokunote/n/n4fde0f62dc20
 
 **関連リンク**
 
-- [出題傾向と書き方（無料・doboku-note）](https://doboku-note.com/docs/civil-construction-2-secondary-experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil2-koji-bank-koji63&utm_content=guide)
-- [工種別 記入例（無料・doboku-note）](https://doboku-note.com/docs/civil-construction-2-secondary-experience-writing-examples?utm_source=note&utm_medium=referral&utm_campaign=civil2-koji-bank-koji63&utm_content=examples)
+- [出題傾向と書き方（無料・doboku-note）](https://doboku-note.com/exam/civil-construction-2/secondary/experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil2-koji-bank-koji63&utm_content=guide)
+- [工種別 記入例（無料・doboku-note）](https://doboku-note.com/exam/civil-construction-2/secondary/experience-writing-examples?utm_source=note&utm_medium=referral&utm_campaign=civil2-koji-bank-koji63&utm_content=examples)
 
 ---
 

@@ -116,7 +116,7 @@ https://note.com/dobokunote/m/m6e7de5e4ea3d
 
 ## 受けてみようと思ったら
 
-まずは試験の中身を眺めるところからで十分です。doboku-note では総監の択一式過去問17年分とキーワード集2026の全項目を無料で公開しています。学習の進め方は[総合技術監理部門 合格戦略](https://doboku-note.com/docs/pe-comprehensive-management-exam-passing-strategy?utm_source=note&utm_medium=referral&utm_campaign=94-civil-servant-retirement)にまとめています。
+まずは試験の中身を眺めるところからで十分です。doboku-note では総監の択一式過去問17年分とキーワード集2026の全項目を無料で公開しています。学習の進め方は[総合技術監理部門 合格戦略](https://doboku-note.com/exam/pe-comprehensive-management/guide/exam-passing-strategy?utm_source=note&utm_medium=referral&utm_campaign=94-civil-servant-retirement)にまとめています。
 
 https://doboku-note.com
 

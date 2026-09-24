@@ -16,6 +16,7 @@ import {
   classifyCemIndexCandidate,
 } from "./lib/cem-index-classifier.mjs";
 import { toJoinKey } from "./lib/url-normalization.mjs";
+import { loadSiteRoutes, siteUrlForSlug } from "./lib/site-links.mjs";
 
 const ROOT = process.cwd();
 const METRICS = join(ROOT, ".claude/state/metrics");
@@ -131,12 +132,22 @@ function loadInbound(relations) {
 function contentStats(bareSlug) {
   const path = join(ROOT, "content/site/pe-comprehensive-management", bareSlug, "article.mdx");
   if (!existsSync(path)) return { path: null, contentChars: 0 };
-  const raw = readFileSync(path, "utf8")
-    .replace(/^---[\s\S]*?---/m, "")
-    .replace(/<[^>]+>/g, "")
+  const raw = stripTags(readFileSync(path, "utf8").replace(/^---[\s\S]*?---/m, ""))
     .replace(/[#*_`>|\[\](){}-]/g, "")
     .replace(/\s/g, "");
   return { path, contentChars: raw.length };
+}
+
+// 文字数を数えるためのタグ除去。1 回の置換だと `<<b>script>` のような入れ子で `<script` が残る
+// （CodeQL js/incomplete-multi-character-sanitization）ので、変化が無くなるまで繰り返す。
+function stripTags(text) {
+  let prev;
+  let out = text;
+  do {
+    prev = out;
+    out = out.replace(/<[^>]+>/g, "");
+  } while (out !== prev);
+  return out;
 }
 
 function daysSince(value) {
@@ -255,7 +266,7 @@ function main() {
       ga4ObservedSnapshots: usage.observedSnapshots || 0,
       inspectionStates,
       relatedCandidate: target?.fullSlug || null,
-      relatedCandidateUrl: target ? `https://doboku-note.com/docs/${target.fullSlug}` : null,
+      relatedCandidateUrl: target ? siteUrlForSlug(target.fullSlug, loadSiteRoutes()) : null,
       relatedCandidateLabel: target?.label || null,
       relatedCandidateScore: target?.score || 0,
       action: classified.action,

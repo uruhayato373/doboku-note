@@ -293,7 +293,7 @@ utmCampaign: pe-construction-secondary
 
 ## 必須科目I の対策も同じシリーズで
 
-{**末尾CTA（2026-06-10 方針）**: 選択科目（II-1/II-2/III）の記事末尾は、サイト無料ページ（doboku-note.com/docs）への導線ではなく、**必須科目I マガジンへのクロスセル CTA** にする（有料ファネル維持）。リード文＋URL 単独行のリンクカード形式。URL は note-magazines.ts の `pe-construction-required-magazine`＝公開済 `https://note.com/dobokunote/m/m0f3bc3933454`。「合格者からのコメント／元公務員からのコメント」セクションは置かない（2026-06-10 廃止）}
+{**末尾CTA（2026-06-10 方針）**: 選択科目（II-1/II-2/III）の記事末尾は、サイト無料ページ（doboku-note.com）への導線ではなく、**必須科目I マガジンへのクロスセル CTA** にする（有料ファネル維持）。リード文＋URL 単独行のリンクカード形式。URL は note-magazines.ts の `pe-construction-required-magazine`＝公開済 `https://note.com/dobokunote/m/m0f3bc3933454`。「合格者からのコメント／元公務員からのコメント」セクションは置かない（2026-06-10 廃止）}
 
 技術士第二次試験 建設部門の合格には、選択科目に加えて必須科目I（答案用紙3枚の論文）の対策が欠かせません。同じ元公務員（発注者）視点で全年度（R03〜R07）をそろえた必須科目I のフル模範解答集はこちらです。
 
@@ -304,7 +304,7 @@ https://note.com/dobokunote/m/m0f3bc3933454
 > - **選択科目（II-1/II-2/III）**: 「選択科目に加えて必須科目I の対策が欠かせません…必須科目I のフル模範解答集はこちら」のクロスセル
 > - **必須科目I（exam_type=I）**: 「本記事は年度別。全年度（R03〜R07）をそろえた必須科目I 模範解答集（セット）はこちら」の単品→セット アップセル
 >
-> いずれもサイト無料ページ（doboku-note.com/docs）を末尾CTAに使わない（有料ファネル維持）。
+> いずれもサイト無料ページ（doboku-note.com）を末尾CTAに使わない（有料ファネル維持）。
 
 ### Step 5: 機械検証
 

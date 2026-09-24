@@ -99,7 +99,7 @@ https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=2c-eli
 
 https://note.com/dobokunote/n/n4963f45bd6f8
 
-[施工経験記述 出題傾向と対策（無料・doboku-note）](https://doboku-note.com/docs/civil-construction-2-secondary-experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=2c-eligibility&utm_content=secondary-writing-guide)
+[施工経験記述 出題傾向と対策（無料・doboku-note）](https://doboku-note.com/exam/civil-construction-2/secondary/experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=2c-eligibility&utm_content=secondary-writing-guide)
 
 **2級土木 施工経験記述 完成答案集**（二次の経験記述フル答案）
 
@@ -107,9 +107,9 @@ https://note.com/dobokunote/m/m1881a9578027
 
 ## 資格を取ったら市場価値はどう変わる？
 
-受験資格の次に多いのが「取ったら何が変わるのか」という疑問です。2級土木を取得すると主任技術者として配置できる立場になり、年収・役職・1級へのステップに直結します。詳しくは[2級土木を取ると何ができる？（年収・転職・1級への道）](https://doboku-note.com/docs/civil-construction-2-guide-career?utm_source=note&utm_medium=referral&utm_campaign=2c-eligibility&utm_content=career)にまとめました。
+受験資格の次に多いのが「取ったら何が変わるのか」という疑問です。2級土木を取得すると主任技術者として配置できる立場になり、年収・役職・1級へのステップに直結します。詳しくは[2級土木を取ると何ができる？（年収・転職・1級への道）](https://doboku-note.com/exam/civil-construction-2/guide/career?utm_source=note&utm_medium=referral&utm_campaign=2c-eligibility&utm_content=career)にまとめました。
 
-経験が浅いうちからキャリアの選択肢を知っておきたい人は、建設特化の転職エージェントの向き不向きを整理した[経験浅めでビルドジョブは使えるか](https://doboku-note.com/docs/civil-construction-2-guide-buildjob-review?utm_source=note&utm_medium=referral&utm_campaign=2c-eligibility&utm_content=buildjob-review)も参考になります。
+経験が浅いうちからキャリアの選択肢を知っておきたい人は、建設特化の転職エージェントの向き不向きを整理した[経験浅めでビルドジョブは使えるか](https://doboku-note.com/exam/civil-construction-2/guide/buildjob-review?utm_source=note&utm_medium=referral&utm_campaign=2c-eligibility&utm_content=buildjob-review)も参考になります。
 
 **PR**：以下はアフィリエイト広告を含みます。
 

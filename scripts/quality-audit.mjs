@@ -209,10 +209,10 @@ const CHECKS = [
   // ファイル名判定の Windows `\` バグのように **全量だと 0 件検査になる回帰**を誰も拾えない
   // （feedback: gate-zero-coverage-false-pass）。いずれもオフライン（doc-meta-index と repo のみ）・
   // 1 秒未満・diff で結果が決まるので ci:true の条件を満たす。
-  { id: 'note-site-utm', npm: 'check-note-site-utm', timeout: 60_000, ci: true, note: 'note 本文から /docs/ への送客リンクの UTM 規約（全量 backstop・pre-commit は staged のみ）' },
+  { id: 'note-site-utm', npm: 'check-note-site-utm', timeout: 60_000, ci: true, note: 'note 本文からサイト記事（/exam 等）への送客リンクの UTM 規約と旧 /docs URL の禁止（全量 backstop・pre-commit は staged のみ）' },
   { id: 'x-length', cmd: ['node', 'scripts/check-x-length.mjs', '--pending-only', '--over'], timeout: 60_000, ci: true, note: '未投稿の X 投稿が 280 字（重み付き）を超えていないか。投稿済み（posted/replaced）は X 上で確定済みなので対象外。2026-09-23 まで CI に無く、投稿済み 1 件が 290 字だった' },
   { id: 'x-utm', npm: 'check-x-utm', timeout: 60_000, ci: true, note: 'X 投稿の送客リンクの UTM 規約（全量 backstop・pre-commit は staged のみ）' },
-  { id: 'sns-urls', cmd: ['node', 'scripts/check-sns-urls.mjs'], timeout: 60_000, ci: true, note: 'SNS 投稿の /docs/ リンクが doc-meta-index に実在するか（全量 backstop・pre-commit は staged のみ）' },
+  { id: 'sns-urls', cmd: ['node', 'scripts/check-sns-urls.mjs'], timeout: 60_000, ci: true, note: 'SNS 投稿の /docs/ リンクが doc-meta-index に、新 URL が _redirects の転送先に実在するか（全量 backstop・pre-commit は staged のみ）' },
   { id: 'sns-urls-mdx', cmd: ['node', 'scripts/check-sns-urls.mjs', '--mdx'], timeout: 60_000, ci: true, note: '同上の MDX 本文コーパス（全量のみ・pre-commit では走らない）' },
   { id: 'sns-urls-note', cmd: ['node', 'scripts/check-sns-urls.mjs', '--note'], timeout: 60_000, ci: true, note: '同上の note 本文コーパス（content/note/**/*.md・全量のみ・pre-commit では走らない）' },
   // ── ops（運用アラート）── 壁時計依存。PR の diff では直せないので ci:true に置かない（ヘッダ「設計」参照）。

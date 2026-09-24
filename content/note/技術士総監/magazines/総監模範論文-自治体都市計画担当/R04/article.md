@@ -74,7 +74,7 @@ https://note.com/dobokunote/n/n3ed4c77ceed6
 
 ## 試験問題（令和4年度 必須科目 I-2）
 
-本記事が解答するのは、技術士総合技術監理部門 令和4年度 必須科目（記述式）I-2「DX推進」です。前文（DXとデジタル技術の利用の区別など出題の背景）の全文は [令和4年度 総監記述式 過去問解説](https://doboku-note.com/docs/pe-comprehensive-management-r04-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-urban-muni-r04) に掲載しています。ここでは解答すべき設問を再掲します。
+本記事が解答するのは、技術士総合技術監理部門 令和4年度 必須科目（記述式）I-2「DX推進」です。前文（DXとデジタル技術の利用の区別など出題の背景）の全文は [令和4年度 総監記述式 過去問解説](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r04-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-urban-muni-r04) に掲載しています。ここでは解答すべき設問を再掲します。
 
 あなたがこれまでに経験した、若しくはよく知っている事業や組織に関するデジタル技術の利用の変遷を振り返り、今後のDX推進に向けた現実的な計画について、総合技術監理の視点から以下の（1）〜（3）の問いに答えよ。なお、過去の変遷は「デジタル技術の利用」、最近・未来のビジネスやプロセスの変革は「DX」として区別する。
 
@@ -281,8 +281,8 @@ DXを単なるデジタル技術の利用ではなくデジタル技術を活用
 
 **doboku-note の関連ガイド**
 
-- [令和4年度 総監記述式 過去問解説](https://doboku-note.com/docs/pe-comprehensive-management-r04-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-urban-muni-r04) — 必須科目の問題文全文と他ペルソナの解き方
-- [5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-urban-muni-r04) — 段階的実施・合意形成・LCA などフレーム集
+- [令和4年度 総監記述式 過去問解説](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r04-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-urban-muni-r04) — 必須科目の問題文全文と他ペルソナの解き方
+- [5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/exam/pe-comprehensive-management/guide/management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-urban-muni-r04) — 段階的実施・合意形成・LCA などフレーム集
 
 ---
 

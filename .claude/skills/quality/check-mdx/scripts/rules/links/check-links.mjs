@@ -25,6 +25,7 @@ import path from 'path';
 import { generateHeadingId, extractHeadings } from '#lib/heading-id.mjs';
 import { buildKeywordHref } from '#src/lib/keyword-href.mjs';
 import { SITE_CONTENT_ROOT } from '../../../../../../../scripts/lib/repository-paths.mjs';
+import { slugFromKey } from '../../../../../../../scripts/lib/url-normalization.mjs';
 
 const ROOT = process.cwd();
 const SITE_DIR = SITE_CONTENT_ROOT;
@@ -118,6 +119,12 @@ function normalizeHref(href) {
   if (h.startsWith('/docs/')) return { kind: 'docs', href: h };
   if (h.startsWith('/category/')) return { kind: 'category', href: h };
   const base = h.split('#')[0];
+  // 2026-08-22 移行後の新 URL（note 原稿は DN-0289 で張り替え済み）は旧 slug へ戻して同じ検査にかける。
+  // 戻せないもの（/standards・/topics の独自ページ等）は従来どおり対象外。
+  if (/^\/(exam|practice|standards|topics)\//.test(base)) {
+    const slug = slugFromKey(base);
+    if (slug) return { kind: 'docs', href: `/docs/${slug}${h.slice(base.length)}` };
+  }
   if (base === '/' || STATIC_PREFIX_RE.test(base)) return { kind: 'static', href: h };
   return null; // その他の内部パスは対象外（元スクリプトの挙動を踏襲）
 }

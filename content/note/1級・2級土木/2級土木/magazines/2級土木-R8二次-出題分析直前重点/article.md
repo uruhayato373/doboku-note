@@ -90,8 +90,8 @@ cover:
 
 学科記述の全体像に入る前に、第2次検定そのものの進め方や直前期の使い方をまだ押さえていない方は、こちらの無料記事もあわせてご覧ください。
 
-- [第2次検定のはじめ方（無料）](https://doboku-note.com/docs/civil-construction-2-secondary-getting-started?utm_source=note&utm_medium=referral&utm_campaign=civil2-r8-bunseki&utm_content=secondary-start)
-- [直前2週間の学習計画（無料）](https://doboku-note.com/docs/civil-construction-2-secondary-last-two-weeks-plan?utm_source=note&utm_medium=referral&utm_campaign=civil2-r8-bunseki&utm_content=last-two-weeks-plan)
+- [第2次検定のはじめ方（無料）](https://doboku-note.com/exam/civil-construction-2/secondary/getting-started?utm_source=note&utm_medium=referral&utm_campaign=civil2-r8-bunseki&utm_content=secondary-start)
+- [直前2週間の学習計画（無料）](https://doboku-note.com/exam/civil-construction-2/guide/secondary-last-two-weeks-plan?utm_source=note&utm_medium=referral&utm_campaign=civil2-r8-bunseki&utm_content=last-two-weeks-plan)
 
 無料記事が「何をどう進めるか」という手順を示すのに対し、本記事は「どの順番で・どれだけの比重で」という優先順位を過去の実績データで裏付ける役割です。両方を組み合わせて使うことで、直前期の計画に根拠を持たせられます。
 

@@ -331,7 +331,7 @@
 
 サイト無料の「候補俯瞰・参考資料」と note 有料の「予想問題本文・模範解答骨子」を完全分業し、Google が note を正答視するリスク（Red Line #5）を回避しつつ M3 マガジン購買動機を維持する設計。
 
-- **[r8-essay-keyword-forecast](https://doboku-note.com/docs/pe-comprehensive-management-r8-essay-keyword-forecast)** (guide_order: 7) — **R8 候補テーマ 6 本のテーマ駆動俯瞰ハブ**（2026-05-18 v2 構造改修）
+- **[r8-essay-keyword-forecast](https://doboku-note.com/exam/pe-comprehensive-management/guide/r8-essay-keyword-forecast)** (guide_order: 7) — **R8 候補テーマ 6 本のテーマ駆動俯瞰ハブ**（2026-05-18 v2 構造改修）
   - 主役 3 本（A: 気候変動適応 × グリーンインフラ / B: 資源循環 × サプライチェーン強靭化 / C: 少子高齢化深化 × 外国人材 × 組織変革）+ リンク中心 3 本（D: 老朽化群マネ / E: GX / F: i-Con2.0 × 生成 AI）
   - 各テーマブロックに「主軸 5 管理ペア／副 5 管理／関連 KW／適用パターン／サイト深掘り先／関連白書／note 予想問題」を集約。総監の本質「テーマ × 5 管理対立 × 統合解決」を体現
   - 旧 5 管理縦割りカタログは「5 管理視点での逆引き」として 60 行 → 25 行に圧縮（SEO 受け皿、KW 一覧 + テーマ ID）
@@ -339,13 +339,13 @@
   - **note 無料記事との連携**: note 無料記事『R8予想問題』（M3 への誘導記事）と相互リンク。サイト側ハブから note 無料記事へ、note 無料記事側からも r8-essay-keyword-forecast へ俯瞰リンク
   - 末尾 CTA で **M3** マガジン（¥2,480）+ note 無料記事『R8予想問題』へ集約送客（テーマ単位分散しない）
   - サイト側は数値スコア（X.X/10）・M3 マガジン「5 大トレードオフ型」固有名・予想問題本文・模範解答骨子を**書かない**（M3 差別化要素を温存）
-- **[whitepaper-study-map](https://doboku-note.com/docs/pe-comprehensive-management-whitepaper-study-map)** (guide_order: 6) — 5管理 × 28 白書の公式リンク集
+- **[whitepaper-study-map](https://doboku-note.com/exam/pe-comprehensive-management/guide/whitepaper-study-map)** (guide_order: 6) — 5管理 × 28 白書の公式リンク集
   - **M2** 白書 R7 完全対応集（無料リード磁石、2026-05-25 転換）の前段リファレンスとして機能
   - 白書 × トレードオフ論文骨子は management-tradeoffs（思考フレーム）と M2 note 無料記事（白書数字 × ペルソナ展開）へ送客
-- **[management-tradeoffs](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs)** (guide_order: 10) — 5 管理間トレードオフの思考フレーム本体
+- **[management-tradeoffs](https://doboku-note.com/exam/pe-comprehensive-management/guide/management-tradeoffs)** (guide_order: 10) — 5 管理間トレードオフの思考フレーム本体
   - **M2** 白書 R7 完全対応集（無料リード磁石）の前段リファレンスとして機能（Red Line #7「サイト = 思考フレーム / note 無料 = SNS 集客 + 後続商品送客 / note 有料 = ペルソナ別フル模範論文・テンプレ」の実装事例）
   - ALARP / リスクベース判断 / LCA / ミティゲーション階層等の汎用フレームと頻出 6 ペア深掘りを扱い、白書 R7 の具体数字や 3 ペルソナアレンジは M2 note 無料記事へ集約
-- **[essay-exam-strategy](https://doboku-note.com/docs/pe-comprehensive-management-essay-exam-strategy)** — 過去 17 年テーマ表に「背景」列を追加（2026-05-18、年代区分別箇条書き、自前白書要約・書籍 OCR 不使用）
+- **[essay-exam-strategy](https://doboku-note.com/exam/pe-comprehensive-management/guide/essay-exam-strategy)** — 過去 17 年テーマ表に「背景」列を追加（2026-05-18、年代区分別箇条書き、自前白書要約・書籍 OCR 不使用）
 - **essay-data-2026 はサイト削除**（2026-05-18）— Red Line #6（未合格者は独自データ分析を有料販売しない）に基づき、M1「データ駆動戦略」撤回と同時にサイトから完全削除。自前模範論文 18 編を分析対象とする循環論証問題のため、無料公開も含めて取り下げ
 - **mlit-whitepaper-2025 はサイト削除**（2026-05-18）— Red Line #7 に基づき撤去。サイトに白書 R7 × 16 ペアの具体的深掘りを置くと M2 マガジン購買動機が弱まるため、思考フレームは management-tradeoffs に集約、白書数字 × ペルソナ展開は M2 マガジン独占に移行
 - **M2 を完全無料リード磁石へ転換**（2026-05-25）— note フォロワー 25 名・月間販売 6 件の現状では ¥2,480 の商業性が成立しないと判断。33,925 字 × 70 ワークシートを無料投下し、SNS 集客 + 後続商品（M3/M4/M9/M5-8）への送客装置として再配置。Red Line #7 を「サイト = 思考フレーム / note 無料 = 集客装置 / note 有料 = ペルソナ別フル模範論文・テンプレ」と三層に再定義

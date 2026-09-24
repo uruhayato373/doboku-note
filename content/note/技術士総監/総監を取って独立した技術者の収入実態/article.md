@@ -285,7 +285,7 @@ https://doboku-note.com
 
 **サイトの深掘り解説**（無料・doboku-note）
 
-[民間建設技術者が総監を取るメリット（経審・受注・キャリア）](https://doboku-note.com/docs/pe-comprehensive-management-private-engineer-comprehensive-merit?utm_source=note&utm_medium=referral&utm_campaign=96-independence-income&utm_content=private-engineer-merit)
+[民間建設技術者が総監を取るメリット（経審・受注・キャリア）](https://doboku-note.com/exam/pe-comprehensive-management/guide/private-engineer-comprehensive-merit?utm_source=note&utm_medium=referral&utm_campaign=96-independence-income&utm_content=private-engineer-merit)
 
 **note のおすすめ記事**
 

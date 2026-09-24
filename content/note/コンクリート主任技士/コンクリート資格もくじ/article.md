@@ -45,7 +45,7 @@ cover:
 次の3つから、現在の仕事と目標に最も近いものを選びます。
 
 - **コンクリート技士**：材料・配合・試験・製造・施工の基礎を体系化し、四肢択一に集中したい
-- **コンクリート主任技士**：特殊条件も含む計画・[品質管理](https://doboku-note.com/docs/pe-comprehensive-management-quality-control?utm_source=note&utm_medium=referral&utm_campaign=103-concrete-index&utm_content=kw-quality-control)・指導を担い、択一と小論文の両方を仕上げたい
+- **コンクリート主任技士**：特殊条件も含む計画・[品質管理](https://doboku-note.com/exam/pe-comprehensive-management/keywords/quality-control?utm_source=note&utm_medium=referral&utm_campaign=103-concrete-index&utm_content=kw-quality-control)・指導を担い、択一と小論文の両方を仕上げたい
 - **コンクリート診断士**：既設構造物の変状から劣化機構を推定し、調査・評価・補修を記述できるようにしたい
 
 技士に合格していなければ主任技士を受験できない、という段階制ではありません。主任技士の受験資格を満たしていれば直接受験できます。
@@ -67,7 +67,7 @@ cover:
 3. [12週間の勉強法・学習スケジュール](https://doboku-note.com/exam/concrete-engineer/guide/study-plan?utm_source=note&utm_medium=referral&utm_campaign=103-concrete-index)
 4. [2026年版テキスト・問題集の選び方](https://doboku-note.com/exam/concrete-engineer/guide/books?utm_source=note&utm_medium=referral&utm_campaign=103-concrete-index)
 
-分野別の無料テキストは、セメント・骨材・混和材料、コンクリートの性質と試験、配合設計、製造・[品質管理](https://doboku-note.com/docs/pe-comprehensive-management-quality-control?utm_source=note&utm_medium=referral&utm_campaign=103-concrete-index&utm_content=kw-quality-control)、施工、環境・資源循環の6章です。
+分野別の無料テキストは、セメント・骨材・混和材料、コンクリートの性質と試験、配合設計、製造・[品質管理](https://doboku-note.com/exam/pe-comprehensive-management/keywords/quality-control?utm_source=note&utm_medium=referral&utm_campaign=103-concrete-index&utm_content=kw-quality-control)、施工、環境・資源循環の6章です。
 
 [コンクリート技士の無料テキスト一覧](https://doboku-note.com/exam/concrete-engineer?utm_source=note&utm_medium=referral&utm_campaign=103-concrete-index)
 
@@ -127,7 +127,7 @@ https://note.com/dobokunote/m/mfdf781d7222b
 
 ### 小論文の型と4テーマを一度に固めたい
 
-解法ガイドと、[品質管理](https://doboku-note.com/docs/pe-comprehensive-management-quality-control?utm_source=note&utm_medium=referral&utm_campaign=103-concrete-index&utm_content=kw-quality-control)・耐久性・環境配慮・施工トラブルのフル模範小論文を収録した基本セットです。まず小論文教材を1つ選ぶなら、ここから始められます。
+解法ガイドと、[品質管理](https://doboku-note.com/exam/pe-comprehensive-management/keywords/quality-control?utm_source=note&utm_medium=referral&utm_campaign=103-concrete-index&utm_content=kw-quality-control)・耐久性・環境配慮・施工トラブルのフル模範小論文を収録した基本セットです。まず小論文教材を1つ選ぶなら、ここから始められます。
 
 https://note.com/dobokunote/m/m758aba129301
 

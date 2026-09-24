@@ -97,17 +97,17 @@ https://note.com/dobokunote/m/m1881a9578027
 
 **施工経験記述 出題傾向と対策**（無料・doboku-note）
 
-https://doboku-note.com/docs/civil-construction-2-secondary-experience-writing-guide
+https://doboku-note.com/exam/civil-construction-2/secondary/experience-writing-guide
 
 **施工経験記述 改善例**（無料・doboku-note｜工種×テーマ別の記入例）
 
-https://doboku-note.com/docs/civil-construction-2-secondary-experience-writing-examples
+https://doboku-note.com/exam/civil-construction-2/secondary/experience-writing-examples
 
 **2級土木 施工経験記述 完成答案集**（管理項目別・工種別のフル答案）
 
 https://note.com/dobokunote/m/m1881a9578027
 
-テーマ選びの前に試験全体の構成を確認したい方は[2級土木施工管理技士の全体像](https://doboku-note.com/docs/civil-construction-2-guide-overview?utm_source=note&utm_medium=referral&utm_campaign=2c-essay-theme&utm_content=civil2-overview)をご覧ください。
+テーマ選びの前に試験全体の構成を確認したい方は[2級土木施工管理技士の全体像](https://doboku-note.com/exam/civil-construction-2/guide/overview?utm_source=note&utm_medium=referral&utm_campaign=2c-essay-theme&utm_content=civil2-overview)をご覧ください。
 
 ---
 

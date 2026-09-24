@@ -6,6 +6,8 @@
 //   - X の送客リンクには utm_source=x を必ず付ける。
 //   - utm_medium=social を必ず付ける（GA4 標準 medium。organic/inline 等の非標準値は Unassigned 化）。
 //   - note と違い bare-URL 禁止ルールは不要（X はカード化しても UTM が落ちない）。
+//   - 旧 /docs URL（2026-08-22 の移行で 301）は**警告だけ**で落とさない。予約済みの投稿は status.json に
+//     承認 hash を持ち、本文を変えると予約が止まるため。新しい原稿は新 URL（/exam/...）で書く（DN-0288）。
 //
 // スコープ:
 //   - content/sns/x/{draft,published}/*/tweets.md のみ。
@@ -23,6 +25,7 @@ import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { blankTweetMemos } from './lib/x-tweets-md.mjs';
+import { classifySitePath, loadSiteRoutes, SITE_ORIGIN } from './lib/site-links.mjs';
 
 if (process.env.SKIP_X_UTM === '1') {
   console.log('[check-x-utm] SKIP_X_UTM=1 のためスキップ');
@@ -61,6 +64,8 @@ if (STAGED) {
 const RE = /(`)?(https?:\/\/doboku-note\.com[^\s)`">]*)/g;
 
 const problems = [];
+const legacy = [];
+const routes = loadSiteRoutes();
 for (const f of files) {
   // 制作メモ（HTML コメント）内の URL は投稿されないので検査しない。行番号を報告するため
   // 除去ではなく空白化する（blankTweetMemos は行数を保つ）。
@@ -71,6 +76,8 @@ for (const f of files) {
     while ((m = RE.exec(line)) !== null) {
       if (m[1]) continue; // インラインコードのプロ―ズ例はスキップ
       const url = m[2];
+      const site = classifySitePath(url.replace(/^https?:\/\/[^/]+/, '').replace(/[?#].*$/, ''), routes);
+      if (site.kind === 'legacy') legacy.push(`${f}:${i + 1} ${url}${site.to ? ` → ${SITE_ORIGIN}${site.to}` : ''}`);
       if (!url.includes('utm_source=x')) {
         problems.push(`${f}:${i + 1} [utm-source] ${url}（utm_source=x が必要）`);
       } else if (!url.includes('utm_medium=social')) {
@@ -83,10 +90,15 @@ for (const f of files) {
 if (problems.length) {
   console.error(`[check-x-utm] ✗ UTM 規約違反の X 送客リンク ${problems.length} 件:`);
   for (const p of problems) console.error('  ' + p);
-  console.error('\n対処: X の送客リンクは https://doboku-note.com/docs/{slug}?utm_source=x&utm_medium=social&utm_campaign={施策}&utm_content={post|pinned} にする。');
+  console.error('\n対処: X の送客リンクは https://doboku-note.com/exam/{資格}/{種別}/{slug}?utm_source=x&utm_medium=social&utm_campaign={施策}&utm_content={post|pinned} にする。');
   console.error('真実源: .claude/config/utm-templates.json（x.post）／.claude/knowledge/reference/x-post-policy.md §6。');
   console.error('（既存違反のバーンダウン中は SKIP_X_UTM=1 で一時回避可）');
   process.exit(1);
 }
 
 console.log(`[check-x-utm] ✓ ${files.length} ファイルの X 送客リンクは UTM 規約に適合`);
+if (legacy.length) {
+  // 予約済みの承認 hash を壊さないため落とさない。staged（書いている最中の原稿）だけ行を出す。
+  console.log(`[check-x-utm] 注意: 旧 /docs URL ${legacy.length} 件（301 で届く・新しい原稿は新 URL で書く）`);
+  if (STAGED) for (const l of legacy) console.log('  [legacy-url] ' + l);
+}

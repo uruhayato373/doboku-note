@@ -89,17 +89,17 @@ https://note.com/dobokunote/m/m150c9db08902
 
 **施工経験記述 出題傾向と対策**（無料・doboku-note）
 
-https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-guide
+https://doboku-note.com/exam/civil-construction-1/secondary/experience-writing-guide
 
 **施工経験記述 改善例**（無料・doboku-note）
 
-https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-examples
+https://doboku-note.com/exam/civil-construction-1/secondary/experience-writing-examples
 
 **1級土木 施工経験記述 完成答案集**（5管理／概要〜本文まで一貫したフル答案）
 
 https://note.com/dobokunote/m/m150c9db08902
 
-工事概要が固まったら、次は答案全体の進め方です。[第2次検定のはじめ方](https://doboku-note.com/docs/civil-construction-1-secondary-getting-started?utm_source=note&utm_medium=referral&utm_campaign=c1-essay-outline&utm_content=secondary-getting-started)に学習順をまとめています。
+工事概要が固まったら、次は答案全体の進め方です。[第2次検定のはじめ方](https://doboku-note.com/exam/civil-construction-1/secondary/getting-started?utm_source=note&utm_medium=referral&utm_campaign=c1-essay-outline&utm_content=secondary-getting-started)に学習順をまとめています。
 
 ---
 

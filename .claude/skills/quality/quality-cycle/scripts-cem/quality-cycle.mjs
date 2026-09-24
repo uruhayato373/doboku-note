@@ -33,6 +33,7 @@ import { readdirSync, readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { execSync } from 'node:child_process';
 import matter from 'gray-matter';
+import { loadSiteRoutes, siteUrlForSlug } from '../../../../../scripts/lib/site-links.mjs';
 import {
   readScreen,
   writeScreen,
@@ -512,7 +513,7 @@ function runReview() {
     md += `- **質的コメント**: ${scoreEntry.qualitative_comment ?? '(なし)'}\n`;
     md += `- **ファイル**: \`content/site/pe-comprehensive-management/${slug}/article.mdx\`\n`;
     md += `- **確認URL**: <http://localhost:3020/docs/pe-comprehensive-management-${slug}>\n`;
-    md += `- **本番URL**: <https://doboku-note.com/docs/pe-comprehensive-management-${slug}>\n`;
+    md += `- **本番URL**: <${siteUrlForSlug(`pe-comprehensive-management-${slug}`, loadSiteRoutes())}>\n`;
     md += `- **最終アクション**: ${lastHistory.action || 'N/A'} (${lastHistory.date || 'N/A'})\n\n`;
   });
 

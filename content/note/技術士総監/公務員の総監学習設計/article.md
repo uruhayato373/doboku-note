@@ -120,7 +120,7 @@ https://note.com/dobokunote/m/m52186ffd12ca
 
 ## まず何から始めるか
 
-学習設計の第一歩は、試験の中身を知ることです。doboku-note では総監の択一式過去問17年分とキーワード集2026の全項目を無料で公開しています。まず過去問を1年分解いて、自分の現在地と弱点分野を確かめてください。学習の進め方の全体像は[総合技術監理部門 合格戦略](https://doboku-note.com/docs/pe-comprehensive-management-exam-passing-strategy?utm_source=note&utm_medium=referral&utm_campaign=96-civil-servant-study-design)にまとめています。
+学習設計の第一歩は、試験の中身を知ることです。doboku-note では総監の択一式過去問17年分とキーワード集2026の全項目を無料で公開しています。まず過去問を1年分解いて、自分の現在地と弱点分野を確かめてください。学習の進め方の全体像は[総合技術監理部門 合格戦略](https://doboku-note.com/exam/pe-comprehensive-management/guide/exam-passing-strategy?utm_source=note&utm_medium=referral&utm_campaign=96-civil-servant-study-design)にまとめています。
 
 https://doboku-note.com
 

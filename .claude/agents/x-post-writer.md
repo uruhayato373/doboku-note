@@ -87,11 +87,11 @@ X 投稿の下書き（`content/sns/x/draft/<NNN>-<exam>-<topic>/tweets.md`）�
    - **スレッド（2連投）型は `[thread]` マーカー**（policy §5.2.1）：`## Tweet NN: タイトル [thread]` ＋ 本文内を `--- リプライ ---` 行で区切る（1部目＝ヘッド／2部目以降＝リプライ）。各部が独立に 280 weighted 判定される。予約はヘッドのみ・リプライは配信後に `npm run x-thread-replies -- --run` でぶら下げる（X ネイティブ予約はスレッド非対応）。競合 Yuri 型の「工事概要→課題→検討→対応→結果」構造分解に有効。
    - **試験別ベースタグ**（policy §4）＋論点タグ 1 個まで。計 **1〜3 個**。
    - URL は 1 本・UTM `utm_source=x`。
-   - **`/docs/` リンクは本番フラット slug ＝「カテゴリ-ディレクトリ」を必ず使う（404 防止・最重要）**。ネタ源のローカルパス `content/site/{category}/{dir}/` の `{dir}` をそのまま使うと 404（誤 `/docs/primary-r03-kouki` → 正 `/docs/civil-construction-2-primary-r03-kouki`）。正しい slug は `src/config/doc-meta-index.json` の `docs` キーに存在するものに限る。曖昧な共通 dir 名（`keyword-2026` 等）は試験文脈で接頭辞を確定する。詳細は policy §6。
+   - **サイトへのリンクは新 URL（`https://doboku-note.com/exam/{資格}/{種別}/{slug}` 等）で書く（404 防止・最重要）**。旧 `/docs/{slug}` は 2026-08-22 の移行で 301（新規ドラフトでは使わない・DN-0288）。例: `content/site/civil-construction-2/primary-r03-kouki/` → `/exam/civil-construction-2/primary/r03-kouki`。対応の真実源は `public/_redirects`。曖昧な共通 dir 名（`keyword-2026` 等）は試験文脈で資格を確定する。詳細は policy §6。
    - 誇張・捏造をしない。固有名詞・数値・法則名はソースに忠実。
 4. 執筆後の検証：
    - `node scripts/check-x-length.mjs --draft <NNN>` で文字数 **違反 0**（weighted を目視でも確認）。
-   - `node scripts/check-sns-urls.mjs` で **`/docs/` リンクが全て本番に実在**することを確認（broken があれば提案された正 slug に修正）。pre-commit でも `--staged` で検証されるが、執筆段階で先に潰す。
+   - `node scripts/check-sns-urls.mjs` で **サイトへのリンクが全て本番に実在**することを確認（broken があれば提案された正しい URL に修正）。旧 `/docs/` を書いていたら新 URL に替える。pre-commit でも `--staged` で検証されるが、執筆段階で先に潰す。
    - `npm run check-exam-calendar` で試験日SSOTと誤日付の混入がないことを確認する。
    - **凍結回避の自己点検（policy §11）**: ドラフト内の各ツイートが near-duplicate テンプレになっていないか（フック・語順・CTA が使い回しでないか）／同一 URL を多数のツイートに貼っていないか／ハッシュタグが毎回まったく同じ固定になっていないかを確認。連投系（1問1答・過去問・angle-slice）は特に骨格の反復に注意し、URL は一部のツイートだけに付ける。
 5. ネタ源 MDX で気づいた doboku-note 側の問題は**直接編集せず** `content/sns/instagram/_keyword-findings.md` 等の findings に追記。

@@ -192,8 +192,8 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 体系的な過去問演習・キーワード解説は、doboku-noteでカバーしています。
 
-- [総監 試験インデックス](https://doboku-note.com/docs/pe-comprehensive-management-exam-index?utm_source=note&utm_medium=referral&utm_campaign=shuji-review-template&utm_content=exam-index) --- 試験日程・出題構成・学習ロードマップの全体像
-- [合格戦略ページ](https://doboku-note.com/docs/pe-comprehensive-management-exam-passing-strategy?utm_source=note&utm_medium=referral&utm_campaign=shuji-review-template&utm_content=exam-passing-strategy) --- 合格率から逆算した得点目標
+- [総監 試験インデックス](https://doboku-note.com/exam/pe-comprehensive-management/guide/exam-index?utm_source=note&utm_medium=referral&utm_campaign=shuji-review-template&utm_content=exam-index) --- 試験日程・出題構成・学習ロードマップの全体像
+- [合格戦略ページ](https://doboku-note.com/exam/pe-comprehensive-management/guide/exam-passing-strategy?utm_source=note&utm_medium=referral&utm_campaign=shuji-review-template&utm_content=exam-passing-strategy) --- 合格率から逆算した得点目標
 
 ---
 

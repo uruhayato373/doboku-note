@@ -87,7 +87,7 @@ cover:
 
 **2級土木施工管理技士の過去問解説・テキスト**（無料・doboku-note）
 
-[過去問解説・テキストの一覧を見る](https://doboku-note.com/docs/civil-construction-2-guide-exam-overview?utm_source=note&utm_medium=referral&utm_campaign=2c-vs-1c-order&utm_content=exam-overview)
+[過去問解説・テキストの一覧を見る](https://doboku-note.com/exam/civil-construction-2/guide/exam-overview?utm_source=note&utm_medium=referral&utm_campaign=2c-vs-1c-order&utm_content=exam-overview)
 
 **2級土木 受験資格の全体像**（実務経験・経過措置）
 
@@ -95,7 +95,7 @@ https://note.com/dobokunote/n/n6e6db14f4dfc
 
 ## 資格を取ったら市場価値はどう変わる？
 
-級の順番と並んで気になるのが「取った後どう効くか」です。2級を取ると主任技術者として配置でき、1級（監理技術者）まで進むと扱える工事の規模と待遇の上限が大きく変わります。1級取得後の市場価値は[1級土木施工管理技士の市場価値（転職・年収・独立）](https://doboku-note.com/docs/civil-construction-1-guide-market-value?utm_source=note&utm_medium=referral&utm_campaign=2c-vs-1c-order&utm_content=market-value)に、2級取得でできることは[2級土木を取ると何ができる？（年収・転職・1級への道）](https://doboku-note.com/docs/civil-construction-2-guide-career?utm_source=note&utm_medium=referral&utm_campaign=2c-vs-1c-order&utm_content=career)にまとめました。
+級の順番と並んで気になるのが「取った後どう効くか」です。2級を取ると主任技術者として配置でき、1級（監理技術者）まで進むと扱える工事の規模と待遇の上限が大きく変わります。1級取得後の市場価値は[1級土木施工管理技士の市場価値（転職・年収・独立）](https://doboku-note.com/exam/civil-construction-1/guide/market-value?utm_source=note&utm_medium=referral&utm_campaign=2c-vs-1c-order&utm_content=market-value)に、2級取得でできることは[2級土木を取ると何ができる？（年収・転職・1級への道）](https://doboku-note.com/exam/civil-construction-2/guide/career?utm_source=note&utm_medium=referral&utm_campaign=2c-vs-1c-order&utm_content=career)にまとめました。
 
 **PR**：以下はアフィリエイト広告を含みます。
 

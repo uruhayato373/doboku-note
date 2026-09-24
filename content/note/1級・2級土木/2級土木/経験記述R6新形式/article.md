@@ -97,17 +97,17 @@ https://note.com/dobokunote/m/m1881a9578027
 
 **施工経験記述 出題傾向と対策**（無料・doboku-note｜令和6年 形式見直しの仕様）
 
-https://doboku-note.com/docs/civil-construction-2-secondary-experience-writing-guide
+https://doboku-note.com/exam/civil-construction-2/secondary/experience-writing-guide
 
 **施工経験記述 改善例**（無料・doboku-note）
 
-https://doboku-note.com/docs/civil-construction-2-secondary-experience-writing-examples
+https://doboku-note.com/exam/civil-construction-2/secondary/experience-writing-examples
 
 **2級土木 施工経験記述 完成答案集**（3管理別フル答案・新旧形式対応）
 
 https://note.com/dobokunote/m/m1881a9578027
 
-新形式に合わせて学習順を組み直すなら[2級 第2次検定のはじめ方](https://doboku-note.com/docs/civil-construction-2-secondary-getting-started?utm_source=note&utm_medium=referral&utm_campaign=2c-essay-r6&utm_content=secondary-getting-started)が起点になります。
+新形式に合わせて学習順を組み直すなら[2級 第2次検定のはじめ方](https://doboku-note.com/exam/civil-construction-2/secondary/getting-started?utm_source=note&utm_medium=referral&utm_campaign=2c-essay-r6&utm_content=secondary-getting-started)が起点になります。
 
 ---
 

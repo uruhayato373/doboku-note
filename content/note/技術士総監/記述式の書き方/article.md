@@ -89,7 +89,7 @@ https://note.com/dobokunote/n/n3ed4c77ceed6
 
 5管理で分析すると、必ず管理間の対立が見えてきます。たとえば、人的資源管理として高齢者の活用を推進すれば、安全管理上のリスクが増大します。経済性管理としてICT投資を行えば、情報管理上のセキュリティ課題が生じます。
 
-このトレードオフの特定が、合格答案と不合格答案を分ける最大のポイントです。管理間の10ペアそれぞれに典型的な対立パターンと解決フレームがあります。全パターンの整理は doboku-note の「[5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=tankan-kijutsu-kakikata&utm_content=management-tradeoffs)」を参照してください。
+このトレードオフの特定が、合格答案と不合格答案を分ける最大のポイントです。管理間の10ペアそれぞれに典型的な対立パターンと解決フレームがあります。全パターンの整理は doboku-note の「[5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/exam/pe-comprehensive-management/guide/management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=tankan-kijutsu-kakikata&utm_content=management-tradeoffs)」を参照してください。
 
 **第4層: 統合的な解決策を提示する**
 
@@ -97,7 +97,7 @@ https://note.com/dobokunote/n/n3ed4c77ceed6
 
 この「ある管理間の対立を別の管理で解決する」構造こそが、総監の記述式が求める **統合的な視点** です。
 
-より詳しい解答工程の解説は、doboku-noteの「[記述式試験の解答戦略](https://doboku-note.com/docs/pe-comprehensive-management-essay-exam-strategy?utm_source=note&utm_medium=referral&utm_campaign=tankan-kijutsu-kakikata&utm_content=essay-exam-strategy)」で 5 ステップに分解して整理しています。
+より詳しい解答工程の解説は、doboku-noteの「[記述式試験の解答戦略](https://doboku-note.com/exam/pe-comprehensive-management/guide/essay-exam-strategy?utm_source=note&utm_medium=referral&utm_campaign=tankan-kijutsu-kakikata&utm_content=essay-exam-strategy)」で 5 ステップに分解して整理しています。
 
 ---
 
@@ -114,7 +114,7 @@ https://note.com/dobokunote/n/n3ed4c77ceed6
 
 設問は、(1)自分の事業での少子高齢化への対応状況、(2)近い将来に想定される課題と施策2つ、(3)我が国として取るべき施策2つ、という構成です。
 
-この問題で合格水準の答案を構成するための思考プロセスを示します。問題全文と採点基準の詳細は doboku-note の「[令和7年度 記述式過去問](https://doboku-note.com/docs/pe-comprehensive-management-r07-secondary?utm_source=note&utm_medium=referral&utm_campaign=tankan-kijutsu-kakikata&utm_content=r07-secondary)」で確認できます。
+この問題で合格水準の答案を構成するための思考プロセスを示します。問題全文と採点基準の詳細は doboku-note の「[令和7年度 記述式過去問](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r07-secondary?utm_source=note&utm_medium=referral&utm_campaign=tankan-kijutsu-kakikata&utm_content=r07-secondary)」で確認できます。
 
 ![「少子高齢化」× 5 管理 論点マッピング（R07 記述式テーマ）](./img/figure-2-management-mapping.png)
 
@@ -134,7 +134,7 @@ https://note.com/dobokunote/n/n3ed4c77ceed6
 - 情報管理の視点: 暗黙知のデジタル化により技術情報の体系的な蓄積が可能になる一方、情報漏洩リスクも増大する
 - 人的資源管理の視点: ベテランの知識をシステムに移行することで、若手の学習効率が向上する一方、OJTの機会が減少し実践的な判断力の育成が遅れる懸念がある
 
-克服策: 情報管理上のセキュリティ対策（アクセス権限管理、暗号化）を前提としたうえで、システム学習とOJTのハイブリッド型育成プログラムを設計します。これにより、人的資源管理と情報管理のトレードオフを経済性管理の視点（投資対効果の最適化）から統合的に管理します。人的資源管理の論点（技術継承・多様な人材確保・高齢者活用の施策体系）の詳細は doboku-note の「[人的資源管理 ピラーページ](https://doboku-note.com/docs/pe-comprehensive-management-human-resource-management-pillar?utm_source=note&utm_medium=referral&utm_campaign=tankan-kijutsu-kakikata&utm_content=human-resource-management-pillar)」を参照してください。
+克服策: 情報管理上のセキュリティ対策（アクセス権限管理、暗号化）を前提としたうえで、システム学習とOJTのハイブリッド型育成プログラムを設計します。これにより、人的資源管理と情報管理のトレードオフを経済性管理の視点（投資対効果の最適化）から統合的に管理します。人的資源管理の論点（技術継承・多様な人材確保・高齢者活用の施策体系）の詳細は doboku-note の「[人的資源管理 ピラーページ](https://doboku-note.com/exam/pe-comprehensive-management/pillar/human-resource-management-pillar?utm_source=note&utm_medium=referral&utm_campaign=tankan-kijutsu-kakikata&utm_content=human-resource-management-pillar)」を参照してください。
 
 このように、施策の「良い面」だけでなく「別の管理への負の影響」を書き、さらに「その対立をどう解消するか」まで踏み込むことが、合格答案の要件です。
 
@@ -151,7 +151,7 @@ https://note.com/dobokunote/n/n3ed4c77ceed6
 
 総監の記述式は「書く力」の試験ではありません。「工程管理の力」の試験です。限られた時間の中で、分析・構成・確認・執筆の各工程を適切に管理できるかどうかが問われています。
 
-過去問の前文分析や骨子構成の詳細は、doboku-noteの「[記述式試験の解答戦略](https://doboku-note.com/docs/pe-comprehensive-management-essay-exam-strategy?utm_source=note&utm_medium=referral&utm_campaign=tankan-kijutsu-kakikata&utm_content=essay-exam-strategy)」にまとめています。平成30年度「働き方改革」の分析サンプルも掲載しているので、演習の参考にしてみてください。
+過去問の前文分析や骨子構成の詳細は、doboku-noteの「[記述式試験の解答戦略](https://doboku-note.com/exam/pe-comprehensive-management/guide/essay-exam-strategy?utm_source=note&utm_medium=referral&utm_campaign=tankan-kijutsu-kakikata&utm_content=essay-exam-strategy)」にまとめています。平成30年度「働き方改革」の分析サンプルも掲載しているので、演習の参考にしてみてください。
 
 ---
 

@@ -67,7 +67,7 @@ https://note.com/dobokunote/n/n3ed4c77ceed6
 
 ## 試験問題（令和6年度 必須科目 I-2）
 
-本記事が解答するのは、技術士総合技術監理部門 令和6年度 必須科目（記述式）I-2「カーボンニュートラル（CN）」です。前文（CN の定義・2050 年長期戦略など出題の背景）の全文は [令和6年度 総監記述式 過去問解説](https://doboku-note.com/docs/pe-comprehensive-management-r06-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-gc-r06) に掲載しています。ここでは解答すべき設問を再掲します（解答中、カーボンニュートラルは CN と略す）。
+本記事が解答するのは、技術士総合技術監理部門 令和6年度 必須科目（記述式）I-2「カーボンニュートラル（CN）」です。前文（CN の定義・2050 年長期戦略など出題の背景）の全文は [令和6年度 総監記述式 過去問解説](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r06-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-gc-r06) に掲載しています。ここでは解答すべき設問を再掲します（解答中、カーボンニュートラルは CN と略す）。
 
 あなたがこれまでに経験した、若しくはよく知っている事業や組織を1つ取り上げ、その目的や創出している成果物等を踏まえ、CN 実現に向けた施策について総合技術監理の視点から以下の（1）〜（2）の問いに答えよ。さらに、取り上げた事業や組織の枠を超え、2050 年 CN 達成に向け我が国が取るべき施策について（3）の問いに答えよ。
 
@@ -111,7 +111,7 @@ https://note.com/dobokunote/n/n3ed4c77ceed6
 - **立場**: 工事部長（複数現場の総括、安全衛生管理、原価管理、技術調整）
 - **前提条件**: 全社 CN 中期計画策定済み、施工現場での CO2 計測は試行段階、低炭素コンクリート・電動建機は技術検証中、建設副産物の再利用は標準化済み
 
-ゼネコンペルソナの他の組織パターンへの置き換えは [ゼネコン向け 模範論文ハブ](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-general-contractor?utm_source=note&utm_medium=referral&utm_campaign=essay-gc-r06) を参照してください。
+ゼネコンペルソナの他の組織パターンへの置き換えは [ゼネコン向け 模範論文ハブ](https://doboku-note.com/exam/pe-comprehensive-management/guide/pattern-essay-general-contractor?utm_source=note&utm_medium=referral&utm_campaign=essay-gc-r06) を参照してください。
 
 ## A 案 設問（１）事業や組織の内容と CN に関連する取組状況
 
@@ -240,8 +240,8 @@ R6 ゼネコン版は「Scope 1+2 の限界 → Scope 3 への展開 → 国家�
 
 **doboku-note の関連ガイド**
 
-- [令和6年度 総監記述式 過去問解説](https://doboku-note.com/docs/pe-comprehensive-management-r06-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-gc-r06) — 必須科目の問題文全文と他ペルソナの解き方
-- [5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-gc-r06) — 段階的実施・合意形成・LCA などフレーム集
+- [令和6年度 総監記述式 過去問解説](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r06-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-gc-r06) — 必須科目の問題文全文と他ペルソナの解き方
+- [5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/exam/pe-comprehensive-management/guide/management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-gc-r06) — 段階的実施・合意形成・LCA などフレーム集
 
 ---
 

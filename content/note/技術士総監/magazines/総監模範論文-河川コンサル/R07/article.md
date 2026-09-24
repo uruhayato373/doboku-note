@@ -68,7 +68,7 @@ https://note.com/dobokunote/n/n3ed4c77ceed6
 
 ## 試験問題（令和7年度 必須科目 I-2）
 
-本記事が解答するのは、技術士総合技術監理部門 令和7年度 必須科目（記述式）I-2「少子高齢化」です。前文（少子高齢化の現状など出題の背景）の全文は [令和7年度 総監記述式 過去問解説](https://doboku-note.com/docs/pe-comprehensive-management-r07-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-river-r07) に掲載しています。ここでは解答すべき設問を再掲します。
+本記事が解答するのは、技術士総合技術監理部門 令和7年度 必須科目（記述式）I-2「少子高齢化」です。前文（少子高齢化の現状など出題の背景）の全文は [令和7年度 総監記述式 過去問解説](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r07-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-river-r07) に掲載しています。ここでは解答すべき設問を再掲します。
 
 あなたがこれまでに経験した、若しくはよく知っている事業や組織を1つ取り上げ、その目的や創出している成果物等を踏まえ、少子高齢化に伴う課題と施策について総合技術監理の視点から以下の（1）〜（2）の問いに答えよ。さらに、取り上げた事業や組織の枠を超え、少子高齢化に伴う諸課題に対して我が国において取るべき施策について（3）の問いに答えよ。
 
@@ -237,8 +237,8 @@ R7 河川コンサル版は「住民・自治体・コンサル」の三者す�
 
 **doboku-note の関連ガイド**
 
-- [令和7年度 総監記述式 過去問解説](https://doboku-note.com/docs/pe-comprehensive-management-r07-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-river-r07) — 必須科目の問題文全文と他ペルソナの解き方
-- [5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-river-r07) — 合意形成・段階的実施などのフレーム集
+- [令和7年度 総監記述式 過去問解説](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r07-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-river-r07) — 必須科目の問題文全文と他ペルソナの解き方
+- [5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/exam/pe-comprehensive-management/guide/management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-river-r07) — 合意形成・段階的実施などのフレーム集
 
 ---
 

@@ -395,7 +395,7 @@ https://note.com/dobokunote/n/n3ed4c77ceed6
 
 
 <!-- cta:site-application-guide -->
-経歴票の書き方そのものを見直したい方は、doboku-note の [出願の留意点（業務経歴票の書き方）](https://doboku-note.com/docs/pe-comprehensive-management-exam-application-guide?utm_source=note&utm_medium=referral&utm_campaign=koutou-taisaku-kanzen&utm_content=exam-application-guide) も合わせて参照してください。
+経歴票の書き方そのものを見直したい方は、doboku-note の [出願の留意点（業務経歴票の書き方）](https://doboku-note.com/exam/pe-comprehensive-management/guide/exam-application-guide?utm_source=note&utm_medium=referral&utm_campaign=koutou-taisaku-kanzen&utm_content=exam-application-guide) も合わせて参照してください。
 
 
 ## 制度と法令の確認先

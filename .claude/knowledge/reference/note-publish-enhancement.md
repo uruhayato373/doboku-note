@@ -135,7 +135,7 @@ extractTitle 後の表示：「安全管理」（カバーで大きく表示、n
 ### 引用ブロックのテンプレ
 
 ```markdown
-> **【出題例: [R{NN}年度 Ⅰ-1-{NN}](https://doboku-note.com/docs/pe-comprehensive-management-r{NN}-primary?utm_source=note&utm_medium=referral&utm_campaign=99-{slug}#1-{NN})】** {問題冒頭の文}。{選択肢{X}}.「{誤答内容}」→ **正答{X}：{正解の説明}。**
+> **【出題例: [R{NN}年度 Ⅰ-1-{NN}](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r{NN}-primary?utm_source=note&utm_medium=referral&utm_campaign=99-{slug}#1-{NN})】** {問題冒頭の文}。{選択肢{X}}.「{誤答内容}」→ **正答{X}：{正解の説明}。**
 ```
 
 ### 過去問アンカーの仕組み
@@ -416,7 +416,7 @@ ls content/note/magazines/総監テキスト精読ガイド/5管理-{管理名}/
 npm run check-links -- --scope note
 # → content/note/** 全体を走査。BROKEN_SLUG / BROKEN_ANCHOR が 0 であること。
 #   PLACEHOLDER（未発売マガジン）は INFO 表示でブロック対象外。
-#   絶対 URL（https://doboku-note.com/docs/...）・裸 URL のリンクカードも対象。
+#   絶対 URL（新 URL https://doboku-note.com/exam/... 等は旧 slug へ戻して検査・旧 https://doboku-note.com/docs/... も）・裸 URL のリンクカードも対象。
 
 # 5. e-gov リンク確認
 grep -oE 'laws\.e-gov\.go\.jp/law/[A-Z0-9]+' content/note/magazines/総監テキスト精読ガイド/5管理-{管理名}/article.md | sort -u

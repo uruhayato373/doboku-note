@@ -349,7 +349,7 @@ AEコンクリートをポンプ圧送したところ、筒先で空気量が荷
 
 3周目は、誤りの選択肢を一文だけ直して正しい記述へ変えます。「水を増やす」を「水を減らす」へ変えるだけでなく、なぜその方向になるかまで声に出すと、似た新問にも対応できます。
 
-無料の[コンクリート技士 オリジナル演習48問](https://doboku-note.com/exam/concrete-engineer?utm_source=note&utm_medium=referral&utm_campaign=ce-mix-jis-practice&utm_content=free-practice)と組み合わせ、材料→性質→配合→[品質管理](https://doboku-note.com/docs/pe-comprehensive-management-quality-control?utm_source=note&utm_medium=referral&utm_campaign=ce-mix-jis-practice&utm_content=kw-quality-control)→施工→環境の順で弱点分野へ戻ってください。
+無料の[コンクリート技士 オリジナル演習48問](https://doboku-note.com/exam/concrete-engineer?utm_source=note&utm_medium=referral&utm_campaign=ce-mix-jis-practice&utm_content=free-practice)と組み合わせ、材料→性質→配合→[品質管理](https://doboku-note.com/exam/pe-comprehensive-management/keywords/quality-control?utm_source=note&utm_medium=referral&utm_campaign=ce-mix-jis-practice&utm_content=kw-quality-control)→施工→環境の順で弱点分野へ戻ってください。
 
 ## 免責と参照先
 

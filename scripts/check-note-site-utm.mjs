@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // note 公開対象（content/note/**/article.md のみ・内部の企画/設計/READMEは対象外）内の
-// 「doboku-note.com/docs/ サイト送客リンク」が UTM 規約に従っているかを検証する。
+// 「doboku-note.com サイト送客リンク」（/exam・/practice・/standards・/topics と旧 /docs）が
+// UTM 規約に従っているか、旧 /docs URL を使っていないかを検証する。
 //
 // 規約（真実源: docs/marketing/02_チャネル動線設計.md／2026-07-22 改訂＝戦略的併用）:
 //   - 主要ファネルCTA（本文の地の文）は「アンカー文言付きインライン」 [テキスト](url?utm…) で張り、
@@ -10,10 +11,13 @@
 //   - それ以外の場所の生 URL は /note-publish がカード化し UTM が落ちるため不可。
 //
 // 検出する違反:
-//   [bare-url]  </? https://doboku-note.com/docs/...> もしくは裸の URL（](… でない） … カード化で UTM 消失
-//   [utm-missing] [テキスト](https://doboku-note.com/docs/...) だが utm_source=note が無い
+//   [bare-url]  </? https://doboku-note.com/exam/...> もしくは裸の URL（](… でない） … カード化で UTM 消失
+//   [utm-missing] [テキスト](https://doboku-note.com/exam/...) だが utm_source=note が無い
+//   [legacy-url] 旧 https://doboku-note.com/docs/... … 2026-08-22 の URL 移行で 301 になった。読者は毎回 301 を
+//                挟み、Google は被リンク先の旧 URL を正規に選び続ける（DN-0288）。張り替えは
+//                `npm run fix-legacy-site-links -- --write`（対応表は public/_redirects）
 //
-// note.com/ のマガジン CTA（note 内部リンク）は対象外（UTM 不要）。doboku-note.com/docs/ のみ対象。
+// note.com/ のマガジン CTA（note 内部リンク）は対象外（UTM 不要）。root・/category/・/tools/ 宛も対象外。
 //
 // 使い方:
 //   node scripts/check-note-site-utm.mjs            # content/note 全体を監査（--all 相当）
@@ -24,6 +28,7 @@
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
+import { classifySitePath, loadSiteRoutes, SITE_ORIGIN } from './lib/site-links.mjs';
 
 if (process.env.SKIP_NOTE_UTM === '1') {
   console.log('[check-note-site-utm] SKIP_NOTE_UTM=1 のためスキップ');
@@ -65,12 +70,13 @@ if (STAGED) {
 
 // `](url)` のインライン / それ以外（裸 or <url>）を 1 パスで分類する。
 // group1 = "](" があればインライン、無ければ裸URL（<url> 含む）。
-const RE = /(\]\()?<?(https?:\/\/doboku-note\.com\/docs\/[^\s)>]+)/g;
+const RE = /(\]\()?<?(https?:\/\/(?:www\.)?doboku-note\.com\/(?:docs|exam|practice|standards|topics)\/[^\s)>]+)/g;
+const routes = loadSiteRoutes();
 
-// note 記事内でサイトへ送客するリンクは**絶対URLでなければ届かない**。相対パス `](/docs/slug)`
+// note 記事内でサイトへ送客するリンクは**絶対URLでなければ届かない**。相対パス `](/exam/...)` `](/docs/slug)`
 // や裸 slug `](slug)` は note.com 上で解決されリンク切れになる（2026-07-28、建設部門で
 // 相対41件・裸slug23件を実測）。UTM 以前の到達性の問題なのでこのゲートで一緒に止める。
-const BROKEN_RE = /\]\((\/docs\/[^\s)]+|(?!https?:|mailto:|tel:|#|\/|\.)[a-z][a-z0-9]*(?:-[a-z0-9]+){2,})\)/g;
+const BROKEN_RE = /\]\((\/(?:docs|exam|practice|standards|topics)\/[^\s)]+|(?!https?:|mailto:|tel:|#|\/|\.)[a-z][a-z0-9]*(?:-[a-z0-9]+){2,})\)/g;
 
 const problems = [];
 let linkCount = 0;   // 実検査したリンク数（「検査ゼロの緑」を読み分けるため出力する）
@@ -89,7 +95,7 @@ for (const f of files) {
     let b;
     BROKEN_RE.lastIndex = 0;
     while ((b = BROKEN_RE.exec(line)) !== null) {
-      problems.push(`${f}:${i + 1} [broken-link] ](${b[1]}) は note 上で解決できない（絶対URL https://doboku-note.com/docs/... にする）`);
+      problems.push(`${f}:${i + 1} [broken-link] ](${b[1]}) は note 上で解決できない（絶対URL https://doboku-note.com/exam/... にする）`);
     }
     let m;
     RE.lastIndex = 0;
@@ -97,6 +103,12 @@ for (const f of files) {
       linkCount++;
       const inline = Boolean(m[1]);
       const url = m[2];
+      const path = url.replace(/^https?:\/\/[^/]+/, '').replace(/[?#].*$/, '');
+      const site = classifySitePath(path, routes);
+      if (site.kind === 'legacy') {
+        const to = site.to ? `${SITE_ORIGIN}${site.to}` : '（_redirects に転送先なし・要確認）';
+        problems.push(`${f}:${i + 1} [legacy-url] ${url} → ${to}`);
+      }
       if (inline) {
         if (!url.includes('utm_source=note')) {
           problems.push(`${f}:${i + 1} [utm-missing] ${url}`);
@@ -115,9 +127,10 @@ for (const f of files) {
 }
 
 if (problems.length) {
-  console.error(`[check-note-site-utm] ✗ UTM 規約違反のサイト送客リンク ${problems.length} 件:`);
+  console.error(`[check-note-site-utm] ✗ 規約違反のサイト送客リンク ${problems.length} 件（UTM・旧 URL）:`);
   for (const p of problems) console.error('  ' + p);
-  console.error('\n対処: サイト送客リンクは [テキスト](https://doboku-note.com/docs/{slug}?utm_source=note&utm_medium=referral&utm_campaign={記事slug}&utm_content={送客先}) のインライン形式にする。');
+  console.error('\n対処: サイト送客リンクは [テキスト](https://doboku-note.com/exam/{資格}/{種別}/{slug}?utm_source=note&utm_medium=referral&utm_campaign={記事slug}&utm_content={送客先}) のインライン形式にする。');
+  console.error('旧 /docs/ URL は npm run fix-legacy-site-links -- --write で新 URL へ張り替える（UTM は保持される）。');
   console.error('生 URL 単独行は /note-publish がカード化し UTM が落ちる。真実源: docs/marketing/02_チャネル動線設計.md');
   console.error('（既存違反のバーンダウン中は SKIP_NOTE_UTM=1 で一時回避可）');
   process.exit(1);
@@ -126,7 +139,7 @@ if (problems.length) {
 console.log(
   `[check-note-site-utm] ✓ ${files.length} ファイル / 送客リンク ${linkCount} 件を実検査 — UTM 規約違反 0`,
 );
-// 検査の射程を出力に書く: この検査は /docs/ 宛だけを見る。root・/category/・/tools/ 宛の
+// 検査の射程を出力に書く: この検査は記事系（/exam・/practice・/standards・/topics と旧 /docs）宛だけを見る。root・/category/・/tools/ 宛の
 // 裸 URL カード（2026-08-20 実測 9 件）は対象外なので、緑を「全送客リンクが規約適合」と
 // 読んではいけない（CLAUDE.md §9）。
-console.log('[check-note-site-utm]   対象は /docs/ への送客リンクのみ（root・/category/・/tools/ 宛は射程外）');
+console.log('[check-note-site-utm]   対象は記事系（/exam・/practice・/standards・/topics・旧 /docs）への送客リンクのみ（root・/category/・/tools/ 宛は射程外）');

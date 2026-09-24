@@ -48,7 +48,7 @@ https://note.com/dobokunote/m/m607bf095b02a
 - **12 月〜翌 1 月**：口頭試験（筆記合格者のみ）
 - **翌 3 月**：最終合格発表（技術士登録可）
 
-詳細は [試験インデックス（doboku-note）](https://doboku-note.com/docs/pe-comprehensive-management-exam-index?utm_source=note&utm_medium=referral&utm_campaign=4-phase-learning-strategy) を参照してください。
+詳細は [試験インデックス（doboku-note）](https://doboku-note.com/exam/pe-comprehensive-management/guide/exam-index?utm_source=note&utm_medium=referral&utm_campaign=4-phase-learning-strategy) を参照してください。
 
 ![1年間スケジュール — 4フェーズ ガントチャート](./img/figure-1-gantt.png)
 
@@ -95,7 +95,7 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 7 割の理解で次に進むのが鉄則です。キーワード集を完全理解してからフェーズ 2 に進もうとすると、本格学習の時間が削られます。**理解の深化はフェーズ 2 以降で行う**前提で、まずは全体地図を頭に入れます。
 
-> キーワード集 2026 の 650 以上の全項目は [doboku-note のキーワード集ページ](https://doboku-note.com/docs/pe-comprehensive-management-keyword-2026?utm_source=note&utm_medium=referral&utm_campaign=4-phase-learning-strategy) でスマホからも確認できます。通勤時間の通読に最適です。
+> キーワード集 2026 の 650 以上の全項目は [doboku-note のキーワード集ページ](https://doboku-note.com/exam/pe-comprehensive-management/guide/keyword-2026?utm_source=note&utm_medium=referral&utm_campaign=4-phase-learning-strategy) でスマホからも確認できます。通勤時間の通読に最適です。
 
 ![Phase 1（前年12月〜2月）タスク詳細](./img/figure-5-phase1-tasks.png)
 
@@ -256,10 +256,10 @@ https://note.com/dobokunote/n/nc360aaa381b0
 
 体系的な解説・過去問演習は doboku-note でカバーしています。
 
-- [総監 試験インデックス](https://doboku-note.com/docs/pe-comprehensive-management-exam-index?utm_source=note&utm_medium=referral&utm_campaign=4-phase-learning-strategy) — 試験日程・出題構成・学習ロードマップの全体像
-- [キーワード集 2026](https://doboku-note.com/docs/pe-comprehensive-management-keyword-2026?utm_source=note&utm_medium=referral&utm_campaign=4-phase-learning-strategy) — 650 以上のキーワード解説（フェーズ 1 通読用）
-- [記述式試験 戦略ガイド](https://doboku-note.com/docs/pe-comprehensive-management-essay-exam-strategy?utm_source=note&utm_medium=referral&utm_campaign=4-phase-learning-strategy) — 三層構造・600 字×5 枚の時間配分（フェーズ 3 直前用）
-- [合格戦略ページ](https://doboku-note.com/docs/pe-comprehensive-management-exam-passing-strategy?utm_source=note&utm_medium=referral&utm_campaign=4-phase-learning-strategy) — 合格率から逆算した得点目標
+- [総監 試験インデックス](https://doboku-note.com/exam/pe-comprehensive-management/guide/exam-index?utm_source=note&utm_medium=referral&utm_campaign=4-phase-learning-strategy) — 試験日程・出題構成・学習ロードマップの全体像
+- [キーワード集 2026](https://doboku-note.com/exam/pe-comprehensive-management/guide/keyword-2026?utm_source=note&utm_medium=referral&utm_campaign=4-phase-learning-strategy) — 650 以上のキーワード解説（フェーズ 1 通読用）
+- [記述式試験 戦略ガイド](https://doboku-note.com/exam/pe-comprehensive-management/guide/essay-exam-strategy?utm_source=note&utm_medium=referral&utm_campaign=4-phase-learning-strategy) — 三層構造・600 字×5 枚の時間配分（フェーズ 3 直前用）
+- [合格戦略ページ](https://doboku-note.com/exam/pe-comprehensive-management/guide/exam-passing-strategy?utm_source=note&utm_medium=referral&utm_campaign=4-phase-learning-strategy) — 合格率から逆算した得点目標
 
 ## フェーズ別のおすすめ note 記事
 

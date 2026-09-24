@@ -66,7 +66,7 @@ https://note.com/dobokunote/n/n3ed4c77ceed6
 
 ## 試験問題（令和4年度 必須科目 I-2）
 
-本記事が解答するのは、技術士総合技術監理部門 令和4年度 必須科目（記述式）I-2「DX推進」です。前文（DXとデジタル技術の利用の区別など出題の背景）の全文は [令和4年度 総監記述式 過去問解説](https://doboku-note.com/docs/pe-comprehensive-management-r04-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-gc-r04) に掲載しています。ここでは解答すべき設問を再掲します。
+本記事が解答するのは、技術士総合技術監理部門 令和4年度 必須科目（記述式）I-2「DX推進」です。前文（DXとデジタル技術の利用の区別など出題の背景）の全文は [令和4年度 総監記述式 過去問解説](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r04-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-gc-r04) に掲載しています。ここでは解答すべき設問を再掲します。
 
 あなたがこれまでに経験した、若しくはよく知っている事業や組織に関するデジタル技術の利用の変遷を振り返り、今後のDX推進に向けた現実的な計画について、総合技術監理の視点から以下の（1）〜（3）の問いに答えよ。なお、過去の変遷は「デジタル技術の利用」、最近・未来のビジネスやプロセスの変革は「DX」として区別する。
 
@@ -104,7 +104,7 @@ DXを単なるデジタル技術の利用ではなくデジタル技術を活用
 - **立場**: 工事部長（複数現場の総括、安全衛生管理、原価管理、技術調整）。本論文では DX 推進タスクフォースのリーダーを兼務
 - **前提条件**: i-Construction による ICT 施工は標準化済み、BIM/CIM は大型案件で部分導入、自動化建機・遠隔施工は試行段階、来年度から 5 か年の DX 推進計画を策定するタスクフォースが立ち上がる
 
-ゼネコンペルソナの他の管理対象パターンへの置き換えは [ゼネコン向け 模範論文ハブ](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-general-contractor?utm_source=note&utm_medium=referral&utm_campaign=essay-gc-r04) を参照してください。
+ゼネコンペルソナの他の管理対象パターンへの置き換えは [ゼネコン向け 模範論文ハブ](https://doboku-note.com/exam/pe-comprehensive-management/guide/pattern-essay-general-contractor?utm_source=note&utm_medium=referral&utm_campaign=essay-gc-r04) を参照してください。
 
 ## A 案 設問（１）事業や組織の内容とデジタル技術の利用の変遷
 
@@ -285,8 +285,8 @@ R4 ゼネコン版は「i-Construction の延長 → 自動運転による業態
 
 **doboku-note の関連ガイド**
 
-- [令和4年度 総監記述式 過去問解説](https://doboku-note.com/docs/pe-comprehensive-management-r04-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-gc-r04) — 必須科目の問題文全文と他ペルソナの模範論文例
-- [5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-gc-r04) — 段階的実施・KPI 連動などのフレーム集
+- [令和4年度 総監記述式 過去問解説](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r04-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-gc-r04) — 必須科目の問題文全文と他ペルソナの模範論文例
+- [5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/exam/pe-comprehensive-management/guide/management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-gc-r04) — 段階的実施・KPI 連動などのフレーム集
 
 ---
 

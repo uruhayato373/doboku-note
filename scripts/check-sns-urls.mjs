@@ -1,6 +1,9 @@
 #!/usr/bin/env node
 // SNS 投稿（content/sns/**）内の doboku-note.com/docs/{slug} リンクが
 // 本番の正規 slug（src/config/doc-meta-index.json）に実在するかを検証する。
+// 2026-08-22 の URL 移行後の新 URL（https://doboku-note.com/exam/... 等）は、public/_redirects の
+// 転送先（＝記事の正規パス）と資格ハブに実在するかを見る（判定は scripts/lib/site-links.mjs）。
+// /standards・/topics の独自ページは _redirects に載らないので件数だけ出して判定しない。
 //
 // 背景: SNS 投稿の URL を「ページのディレクトリ名」（例 primary-r03-kouki）だけで
 // 組むと、本番ルートは「カテゴリ-ディレクトリ」のフラット slug
@@ -30,6 +33,7 @@ import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { readDocMetaIndex } from './lib/doc-meta-index.mjs';
+import { classifySitePath, loadSiteRoutes, siteLinkRegex } from './lib/site-links.mjs';
 
 const STAGED = process.argv.includes('--staged');
 const MDX = process.argv.includes('--mdx');
@@ -79,6 +83,10 @@ const reListFor = (f) => {
   return [RE_SNS];
 };
 const problems = [];
+const routes = loadSiteRoutes();
+const modern = { checked: 0, unverified: 0 };
+// 新 URL（絶対 URL）を見るのは note・SNS だけ。MDX 本文は相対 /docs を描画時に張り替える。
+const checksModern = (f) => !(MDX || f.startsWith('content/site/'));
 
 for (const f of files) {
   const raw = readFileSync(f, 'utf8');
@@ -98,14 +106,31 @@ for (const f of files) {
         problems.push(`${f}:${i + 1}  /docs/${slug}  ${hint}`);
       }
     }
+    if (!checksModern(f)) return;
+    const siteRe = siteLinkRegex();
+    let s;
+    while ((s = siteRe.exec(line)) !== null) {
+      const c = classifySitePath(s[1], routes);
+      if (c.kind === 'legacy') continue; // 旧 /docs の実在は上の slug 検査が見る
+      if (c.kind === 'unverified') { modern.unverified++; continue; }
+      modern.checked++;
+      if (c.kind === 'unknown') {
+        const hint = c.suggestion ? `→ ${c.suggestion}` : '→ 該当 URL なし（打ち間違い・リンク切れの疑い）';
+        problems.push(`${f}:${i + 1}  ${c.path}  ${hint}`);
+      }
+    }
   });
+}
+if (!routes.loaded && modern.checked > 0) {
+  console.error('[check-sns-urls] ✗ 検査不成立: public/_redirects を読めず新 URL の実在を判定できない');
+  process.exit(2);
 }
 
 if (problems.length) {
-  console.error(`[check-sns-urls] ✗ 本番に存在しない /docs/ リンク ${problems.length} 件:`);
+  console.error(`[check-sns-urls] ✗ 本番に存在しないサイトリンク ${problems.length} 件:`);
   for (const p of problems) console.error('  ' + p);
-  console.error('\n対処: /docs/ リンクは「カテゴリ-ディレクトリ」のフラット slug を使う');
-  console.error('（例: r07-required ではなく pe-construction-r07-required、SNS/MDX本文とも同じ）');
+  console.error('\n対処: note・SNS のリンクは新 URL（https://doboku-note.com/exam/{資格}/{種別}/{slug}）で書く。');
+  console.error('旧 /docs/ は「カテゴリ-ディレクトリ」のフラット slug（例: pe-construction-r07-required）。MDX 本文は /docs/{slug} のまま');
   process.exit(1);
 }
-console.log(`[check-sns-urls] ✓ ${files.length} ファイルの /docs/ リンクは全て本番に実在`);
+console.log(`[check-sns-urls] ✓ ${files.length} ファイルの /docs/ リンクと新 URL ${modern.checked} 件は全て本番に実在（/standards・/topics の独自ページ ${modern.unverified} 件は未判定）`);

@@ -51,7 +51,7 @@ cover:
 - **軟弱地盤対策**（各工法の原理と適用）— 毎年出題 — 優先度 ★★★
 - **のり面保護工**（植生工・構造物保護工の種類と選定）— 隔年出題 — 優先度 ★★☆
 
-→ [土工の重要ポイント（無料）](https://doboku-note.com/docs/civil-construction-1-guide-earthwork-key-points?utm_source=note&utm_medium=referral&utm_campaign=civil1-reading-guide&utm_content=earthwork-key-points)
+→ [土工の重要ポイント（無料）](https://doboku-note.com/exam/civil-construction-1/guide/earthwork-key-points?utm_source=note&utm_medium=referral&utm_campaign=civil1-reading-guide&utm_content=earthwork-key-points)
 
 ## 建設機械（土工・専門土木に組み込まれる形で頻出）
 
@@ -65,7 +65,7 @@ cover:
 - **モータグレーダの分類・構造** — 隔年出題 — 優先度 ★★☆
 - **情報化施工・i-Constructionとの関連** — 隔年出題 — 優先度 ★★☆
 
-→ [建設機械の重要ポイント（無料）](https://doboku-note.com/docs/civil-construction-1-guide-machinery?utm_source=note&utm_medium=referral&utm_campaign=civil1-reading-guide&utm_content=machinery)
+→ [建設機械の重要ポイント（無料）](https://doboku-note.com/exam/civil-construction-1/guide/machinery?utm_source=note&utm_medium=referral&utm_campaign=civil1-reading-guide&utm_content=machinery)
 
 ## コンクリート工（5〜8問・最重要テーマ）
 
@@ -80,10 +80,10 @@ cover:
 - **型枠・支保工**（型枠の存置期間、支保工の取外し条件）— 隔年出題 — 優先度 ★★☆
 - **配合設計**（水セメント比、単位水量、スランプ）— 隔年出題 — 優先度 ★★☆
 
-→ [コンクリートの重要ポイント（無料）](https://doboku-note.com/docs/civil-construction-1-guide-concrete-key-points?utm_source=note&utm_medium=referral&utm_campaign=civil1-reading-guide&utm_content=concrete-key-points)
+→ [コンクリートの重要ポイント（無料）](https://doboku-note.com/exam/civil-construction-1/guide/concrete-key-points?utm_source=note&utm_medium=referral&utm_campaign=civil1-reading-guide&utm_content=concrete-key-points)
 
 供用後の維持管理（劣化機構・点検・非破壊検査・補修補強）まで踏み込みたい方は、
-[コンクリート構造物の維持管理の要点（無料）](https://doboku-note.com/docs/civil-construction-1-guide-concrete-maintenance?utm_source=note&utm_medium=referral&utm_campaign=civil1-reading-guide&utm_content=concrete-maintenance)もあわせてご覧ください。
+[コンクリート構造物の維持管理の要点（無料）](https://doboku-note.com/exam/civil-construction-1/guide/concrete-maintenance?utm_source=note&utm_medium=referral&utm_campaign=civil1-reading-guide&utm_content=concrete-maintenance)もあわせてご覧ください。
 
 ## 基礎工（専門土木の定番分野）
 
@@ -96,7 +96,7 @@ cover:
 - **既製杭工法**（打込み杭・埋込み杭）の施工管理 — 隔年出題 — 優先度 ★★☆
 - **杭基礎の支持機構**（支持杭・摩擦杭）— 隔年出題 — 優先度 ★★☆
 
-→ [基礎工の重要ポイント（無料）](https://doboku-note.com/docs/civil-construction-1-guide-foundation?utm_source=note&utm_medium=referral&utm_campaign=civil1-reading-guide&utm_content=foundation)
+→ [基礎工の重要ポイント（無料）](https://doboku-note.com/exam/civil-construction-1/guide/foundation?utm_source=note&utm_medium=referral&utm_campaign=civil1-reading-guide&utm_content=foundation)
 
 ## 測量（取りこぼしを防ぐタイプの分野）
 
@@ -110,7 +110,7 @@ cover:
 - **セオドライトの4軸条件と器械誤差** — 隔年程度 — 優先度 ★★☆
 - **地形測量・写真測量**（UAV等の新しい測量技術）— 近年増加傾向 — 優先度 ★☆☆
 
-→ [測量の重要ポイント（無料）](https://doboku-note.com/docs/civil-construction-1-guide-surveying?utm_source=note&utm_medium=referral&utm_campaign=civil1-reading-guide&utm_content=surveying)
+→ [測量の重要ポイント（無料）](https://doboku-note.com/exam/civil-construction-1/guide/surveying?utm_source=note&utm_medium=referral&utm_campaign=civil1-reading-guide&utm_content=surveying)
 
 ## 解体工事（暗記の精度が得点に直結）
 
@@ -122,10 +122,10 @@ cover:
 - **解体工事の施工の流れ**（事前調査・施工計画・事前措置・解体作業）— 隔年出題 — 優先度 ★★☆
 - **構造物解体作業における安全確認事項** — 隔年出題 — 優先度 ★★☆
 
-→ [解体工事の重要ポイント（無料）](https://doboku-note.com/docs/civil-construction-1-guide-demolition?utm_source=note&utm_medium=referral&utm_campaign=civil1-reading-guide&utm_content=demolition)
+→ [解体工事の重要ポイント（無料）](https://doboku-note.com/exam/civil-construction-1/guide/demolition?utm_source=note&utm_medium=referral&utm_campaign=civil1-reading-guide&utm_content=demolition)
 
 ## 次に読むもの
 
 土木一般・共通工学編（本記事）の6分野を一通り押さえたら、施工管理・法規編（施工計画・工程管理・品質管理・安全管理・環境保全・法規）とあわせて第1次検定の全範囲をカバーできます。
 
-経験記述の準備を始めたい方は、[施工経験記述 出題傾向と書き方（無料）](https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil1-reading-guide&utm_content=experience-writing-guide)もあわせてご覧ください。
+経験記述の準備を始めたい方は、[施工経験記述 出題傾向と書き方（無料）](https://doboku-note.com/exam/civil-construction-1/secondary/experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil1-reading-guide&utm_content=experience-writing-guide)もあわせてご覧ください。

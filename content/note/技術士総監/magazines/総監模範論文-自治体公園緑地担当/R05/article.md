@@ -62,7 +62,7 @@ https://note.com/dobokunote/n/n3ed4c77ceed6
 
 ## 試験問題（令和5年度 必須科目 I-2）
 
-本記事が解答するのは、技術士総合技術監理部門 令和5年度 必須科目（記述式）I-2「SWOT 分析と戦略立案」です。前文（SWOT 分析の手法・図1図2 の説明）の全文は [令和5年度 総監記述式 過去問解説](https://doboku-note.com/docs/pe-comprehensive-management-r05-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-park-muni-r05) に掲載しています。ここでは解答すべき設問と、設問が前提とする SWOT の枠組みを再掲します。
+本記事が解答するのは、技術士総合技術監理部門 令和5年度 必須科目（記述式）I-2「SWOT 分析と戦略立案」です。前文（SWOT 分析の手法・図1図2 の説明）の全文は [令和5年度 総監記述式 過去問解説](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r05-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-park-muni-r05) に掲載しています。ここでは解答すべき設問と、設問が前提とする SWOT の枠組みを再掲します。
 
 SWOT 分析では、内部環境としての「強み（S）」「弱み（W）」、外部環境としての「機会（O）」「脅威（T）」の4要因に着目する。内部環境（S・W）は組織の活動や努力によって変えうるもの（人材・設備・技術・ノウハウ等の経営資源、組織文化等の無形資源）、外部環境（O・T）は組織の活動や努力とは無関係又は変更が困難なもの（技術的要因・経済的要因・政治的要因・社会的要因、顧客や市場の変化、競合の動向等）とする。各要因の項目を掛け合わせるクロス分析には次の4パターンがある。
 
@@ -252,8 +252,8 @@ R5 の SWOT 分析は「組織として継続的にアウトプットを出す�
 
 **doboku-note の関連ガイド**
 
-- [令和5年度 総監記述式 過去問解説](https://doboku-note.com/docs/pe-comprehensive-management-r05-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-park-muni-r05) — 必須科目の問題文全文と他ペルソナの解き方
-- [5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-park-muni-r05) — 段階的実施・合意形成・リスクベース判断フレームの定義と他ペアでの応用例
+- [令和5年度 総監記述式 過去問解説](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r05-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-park-muni-r05) — 必須科目の問題文全文と他ペルソナの解き方
+- [5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/exam/pe-comprehensive-management/guide/management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-park-muni-r05) — 段階的実施・合意形成・リスクベース判断フレームの定義と他ペアでの応用例
 
 ---
 

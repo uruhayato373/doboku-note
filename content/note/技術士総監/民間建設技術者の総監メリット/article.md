@@ -160,9 +160,9 @@ JAC リクルートメントの調査（2024〜2025年版）によれば、建�
 
 受験するかどうかを迷っている民間技術者には、一つ具体的なアクションをすすめます。**自分が勤める会社の経審 Z 点での技術士の扱いを、人事または管理部門に聞いてみてください**。会社にとって自分が「何点の人材」になるかがわかると、手当の水準や交渉の余地が見えてきます。
 
-doboku-note では総監択一過去問17年分とキーワード集2026全項目を無料公開しています。試験の中身を肌で確かめてから受験を判断したい方は、まず過去問1年分を眺めてみてください。[総合技術監理部門 合格戦略](https://doboku-note.com/docs/pe-comprehensive-management-exam-passing-strategy?utm_source=note&utm_medium=referral&utm_campaign=94-private-engineer-money)に試験の全体像と学習の進め方をまとめています。
+doboku-note では総監択一過去問17年分とキーワード集2026全項目を無料公開しています。試験の中身を肌で確かめてから受験を判断したい方は、まず過去問1年分を眺めてみてください。[総合技術監理部門 合格戦略](https://doboku-note.com/exam/pe-comprehensive-management/guide/exam-passing-strategy?utm_source=note&utm_medium=referral&utm_campaign=94-private-engineer-money)に試験の全体像と学習の進め方をまとめています。
 
-また、[5管理のトレードオフ](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=94-private-engineer-money)の概念を先に知っておくと、択一問題の見え方が大きく変わります。
+また、[5管理のトレードオフ](https://doboku-note.com/exam/pe-comprehensive-management/guide/management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=94-private-engineer-money)の概念を先に知っておくと、択一問題の見え方が大きく変わります。
 
 17年分の過去問とキーワード集2026全項目を無料公開しています。試験範囲の感触を肌で確かめてください。
 
@@ -196,7 +196,7 @@ https://doboku-note.com
 
 **サイトの深掘り解説**（無料・doboku-note）
 
-[民間建設技術者が総監を取るメリット（経審・受注・キャリア）](https://doboku-note.com/docs/pe-comprehensive-management-private-engineer-comprehensive-merit?utm_source=note&utm_medium=referral&utm_campaign=94-private-engineer-money&utm_content=private-engineer-merit)
+[民間建設技術者が総監を取るメリット（経審・受注・キャリア）](https://doboku-note.com/exam/pe-comprehensive-management/guide/private-engineer-comprehensive-merit?utm_source=note&utm_medium=referral&utm_campaign=94-private-engineer-money&utm_content=private-engineer-merit)
 
 **note のおすすめ記事**
 

@@ -71,7 +71,7 @@ cover:
 
 端数処理は、特記がなければ最終結果で行います。実務の配合設計や本試験では、問題文や適用規格に指定された丸め方を優先してください。
 
-無料で基礎を確認したい場合は、先に[配合設計の要点解説](https://doboku-note.com/exam/concrete-chief-engineer/textbook-mix-design?utm_source=note&utm_medium=referral&utm_campaign=cce-mix-calculation-practice&utm_content=textbook)と[配合設計の過去問解説](https://doboku-note.com/exam/concrete-chief-engineer/primary-mix-design?utm_source=note&utm_medium=referral&utm_campaign=cce-mix-calculation-practice&utm_content=primary)を一周すると、演習効果が上がります。
+無料で基礎を確認したい場合は、先に[配合設計の要点解説](https://doboku-note.com/exam/concrete-chief-engineer/textbook/mix-design?utm_source=note&utm_medium=referral&utm_campaign=cce-mix-calculation-practice&utm_content=textbook)と[配合設計の過去問解説](https://doboku-note.com/exam/concrete-chief-engineer/primary/mix-design?utm_source=note&utm_medium=referral&utm_campaign=cce-mix-calculation-practice&utm_content=primary)を一周すると、演習効果が上がります。
 
 ---
 

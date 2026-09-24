@@ -285,8 +285,8 @@ doboku-note.com の `.well-known/apple-app-site-association` に配置：
 
 | URL | iOS 画面 | フォールバック（未インストール時） |
 |---|---|---|
-| `/app/keyword/{slug}` | キーワード詳細画面 | doboku-note.com/docs/{category}-{slug} |
-| `/app/question/{year}-{session}-{number}` | 問題演習画面（該当問題） | doboku-note.com/docs/{exam-page}#{anchor} |
+| `/app/keyword/{slug}` | キーワード詳細画面 | doboku-note.com/exam/{category}/keywords/{slug} |
+| `/app/question/{year}-{session}-{number}` | 問題演習画面（該当問題） | doboku-note.com/exam/{category}/{種別}/{exam-page}#{anchor}（種別＝past-exams / primary 等・対応は `public/_redirects`） |
 | `/app/practice` | 演習ホーム | App Store + Marketing ページ |
 | `/app/premium` | Premium 購入画面 | App Store |
 
@@ -354,7 +354,7 @@ func appendUTM(to url: URL, medium: String, campaign: String, content: String? =
 | 4. 問題演習画面 | なし | — | 学習集中阻害回避 |
 | 5. 解説画面 | 「サイトで原典 PDF を見る」（フッター） | 全ユーザー | doboku-note.com 過去問ページ |
 | 6. 結果サマリー | なし | — | — |
-| 7. キーワード詳細 (Free) | 「doboku-note.com で関連情報」（下部 secondary） | Free のみ | doboku-note.com/docs/{slug} |
+| 7. キーワード詳細 (Free) | 「doboku-note.com で関連情報」（下部 secondary） | Free のみ | doboku-note.com/exam/{category}/keywords/{slug} |
 | 7. キーワード詳細 (Premium) | なし | — | カニバリ回避 |
 | 8. 進捗ダッシュ | なし | — | 離脱誘因無し |
 | 9. 設定タブ | 「doboku-note.com →」「クーポン管理」「note プロフィール →」 | 全ユーザー（クーポンは Premium のみ） | 各 URL |
