@@ -21,6 +21,8 @@ title: 計測・検証事故の記録
 - 対策: registry で google / instagram / kdp / afb / x を `ci.enabled:false`（hosted CI 不可）とし、coconala / a8 / note だけ cron。
   Mac 側の失効は各サービスで `npm run auth:login` を再実行して回復する（人の操作）。**5 サービスを CI に載せるには residential IP かつ
   同一端末指紋＝Mac 自身を self-hosted runner にする以外に経路が無い**（当初の設計判断で見送った選択肢）。
+  2026-09-24 追記: このリポジトリは公開（fork 可）で、self-hosted runner は fork の PR に Mac 上でコードを実行されうる。
+  GSC のブラウザ作業は runner ではなく Mac の launchd（`gsc-local`）で回し、API で済む sitemap 送信は CI に置いた。
 - 追記（同日・成立側の限界）: note は traffic・添付 live 検査（615 本・67 分）・会員限定検査が CI で成立し Mac も健在だが、
   **`note-sales-fetch`（購入者一覧）は「パスワード再確認画面」で ABORT**（機微ページの端末別再認証・人が通す以外に無い）。
   a8 は 3 レポートが成立、`period-daily` だけ headless で期間入力欄が見つからない。いずれも CI の対象から外し、ローカル儀式に残す。

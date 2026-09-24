@@ -163,19 +163,18 @@
 
 **進捗（2026-09-23）**: ユーザー指示で ¥2,980（日本 35%）に改定し出版申請済み＝catalog `in_review`。残＝`--sync-status` で LIVE と ASIN を確認し catalog・Kindle 戦略へ反映。
 
-### [DN-0291] Mac を self-hosted runner に登録し、GSC 登録リクエストの定期送信を動かす
-タグ: [インフラ・計測] [種類:改善] [検証:check-playwright-auth-wiring:strict] [起票:2026-09-24]
+### [DN-0293] Mac に gsc-local（launchd）を入れ、GSC 登録リクエストと sitemap 送信の自動化を確かめる
+タグ: [インフラ・計測] [種類:改善] [起票:2026-09-24]
 
-**起点**: 登録リクエストの送信は Mac で手動しかなく、受理は計 30 件（`gsc-indexing/history.json`）。9/23 の未登録は 288 件で、送る順の表 `priority-latest.txt` は毎週 CI が作っている。Google は GitHub hosted runner（datacenter IP）で認証を復元すると Mac 側まで全面失効させる（2026-09-21 実測・measurement-incidents.md・registry の google notes）ので、自宅回線の Mac を self-hosted runner にしたときだけ動く `gsc-request-indexing.yml` は develop にある（PR #599・未設定の間は警告して何もしない）。
+**起点**: 登録リクエストと理由別 UI CSV は API が無く、ログインしたブラウザが要る。GitHub hosted runner は Google がセッションを Mac 側まで失効させ（2026-09-21 実測）、self-hosted runner はこのリポジトリが公開のため fork の PR に Mac 上でコードを実行されうる。そこで Mac の launchd `gsc-local`（毎日 10:30・寝ていた日は起床時）で回し、API で済む sitemap の送信と読み込み状況は `fetch-metrics.yml` が取る形にした（ユーザー判断・2026-09-24）。
 
 **やること**:
-1. どの Google アカウントで CI にログインさせるか決める。暗号化 state はアカウントのセッションそのもので、repo の write 権限者は workflow 経由で復号できる。GSC / GA4 の権限だけを持つ専用アカウントが安全（登録リクエストに要る GSC 権限＝オーナーかフルかを先に確認）
-2. Mac を self-hosted runner として登録する（GitHub の Settings → Actions → Runners・ラベル例 `doboku-mac`・常駐させる）。`.claude/config/ci-write-operations.json` の `google.request-indexing.selfHostedRunsOn` に `["self-hosted","macOS","doboku-mac"]` を入れて PR
-3. Mac で `npm run auth:status -- --service google` → expired なら `auth:login` → `npm run auth:export -- --service google`
-4. `gh workflow run gsc-request-indexing.yml` を別日に 2 回（main へ deploy 済みであること。workflow_dispatch はデフォルトブランチ版で動く）。毎回、受理件数（`requests-latest.json`）と Mac の `auth:status` が `authenticated` のままかを見る。Mac 側が切れたら `selfHostedRunsOn` を null に戻して止め、ローカル送信に戻す
-5. 2 回とも問題なければ cron を毎日（`0 5 * * *`）にする。registry の google は `enabled:false` のまま（true にすると hosted の login-collectors.yml が Google を復元してしまう）
+1. 実装 PR（feature/gsc-local-routine）をマージし、Mac で `git pull origin develop`
+2. Mac: 未ログインなら `npm run google-console:login` → `npm run gsc-local:install` → `npm run gsc-local:install -- --run-now`。`~/Library/Logs/doboku-note/gsc-local.log` で受理件数と develop への push を確かめる（Chrome が数分開く）
+3. Search Console の「設定 → ユーザーと権限」でサービスアカウントを「フル」にする（sitemap の送信に要る）
+4. `/deploy` の後（workflow 定義は main 版で動く）、金曜の fetch-metrics と月曜の weekly-review-guard の job summary で `check-gsc-sitemaps`・`check-gsc-indexing-due`・`check-gsc-ui-due` が OK か見る。registry の google は `enabled:false` のまま
 
-**完了条件**: scheduled run が画面文言で確認した受理を `history.json` に記録し、`node scripts/check-gsc-indexing-due.mjs` が OK、その後も Mac の `auth:status` が `authenticated`。
+**完了条件**: launchd の実行が受理を `gsc-indexing/history.json` に記録して develop へ push し、`npm run check-gsc-indexing-due` と `npm run check-gsc-sitemaps` がともに OK。
 
 ### [DN-0287] `/standards/` の逐語分冊 part-N を sitemap に戻す（復帰条件を 9/23 に満たした）
 タグ: [インフラ・計測] [種類:改善] [起票:2026-09-24] [期日:2026-10-01]
