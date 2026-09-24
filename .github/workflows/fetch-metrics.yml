@@ -295,6 +295,16 @@ jobs:
           node scripts/ga4-admin-api.mjs check --commit
           echo "rc=$?" >> "$GITHUB_OUTPUT"
 
+      # 機会ダイジェスト（オフライン・決定的）: 成長パック × 収益カバレッジ × Bing × 実験台帳 × triage-log から
+      # 週次レビューでトリアージする機会を安定 ID 付きで抽出し growth/digest-YYYY-Www.json へ。
+      # 土曜のローカル /weekly-review が `npm run growth-digest -- --print` を埋め込み、全件を処分する。
+      - name: Build growth digest (opportunities for weekly triage)
+        id: digest
+        run: |
+          set +e
+          node scripts/build-growth-digest.mjs
+          echo "rc=$?" >> "$GITHUB_OUTPUT"
+
       - name: Generate GA4xGSC crosswalk report
         continue-on-error: true
         run: npm run report-ga4-gsc-crosswalk
@@ -382,6 +392,7 @@ jobs:
           GROWTH_RC: ${{ steps.growth.outputs.rc }}
           BING_RC: ${{ steps.bing.outputs.rc }}
           GA4ADMIN_RC: ${{ steps.ga4admin.outputs.rc }}
+          DIGEST_RC: ${{ steps.digest.outputs.rc }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
           anomalies=() invalid=()
@@ -391,6 +402,8 @@ jobs:
           [ "$GROWTH_RC" = "1" ] && anomalies+=("成長パック（fetch-growth-pack）の取得失敗（区画ごとの error は pack の sections を参照）")
           [ "$BING_RC" = "1" ] && anomalies+=("Bing Webmaster の取得失敗")
           [ "$GA4ADMIN_RC" = "1" ] && anomalies+=("GA4 Admin API の観測失敗")
+          [ "$DIGEST_RC" = "1" ] && anomalies+=("機会ダイジェスト（build-growth-digest）の生成失敗")
+          [ "$DIGEST_RC" = "2" ] && invalid+=("機会ダイジェスト: 成長パックが無く生成できない（今週の週次トリアージ対象が作られていない）")
           [ "$GROWTH_RC" = "2" ] && invalid+=("成長パック: 認証なし、または週が GSC 確定前で取得せず")
           [ "$BING_RC" = "2" ] && invalid+=("Bing Webmaster: BING_WEBMASTER_API_KEY 未設定（Bing Webmaster Tools → 設定 → API アクセスで発行し Secret へ）")
           [ "$GA4ADMIN_RC" = "2" ] && invalid+=("GA4 Admin API: 権限不足または API 未有効化（ログの hint を参照）")

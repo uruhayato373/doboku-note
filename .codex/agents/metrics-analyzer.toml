@@ -45,6 +45,22 @@ GSC/GA4 の JSON データを読み込み、**改善候補のパターン検出*
 オプション（前週比較用）:
 - 上記の前週スナップショット（`snapshot-weekly-metrics` の出力）があれば使用。無ければトレンドは単一週のみで判定。
 
+## 決定的な検出は機会ダイジェストが持つ（2026-09-24〜）
+
+閾値で決まる検出はコードへ移した（CLAUDE.md §5）。**最初に最新の `.claude/state/metrics/growth/digest-*.json` を読み**（CI の fetch-metrics が毎週生成。Markdown で見るなら `node scripts/build-growth-digest.mjs --print`）、次の対応を前提にする:
+
+| 本エージェントの Pattern | ダイジェストの type（安定 ID `OPP-…`） |
+|---|---|
+| 1 High-Impr-Low-CTR | `seo-high-impr-low-ctr` |
+| 2 Rank-Stuck | `seo-striking-distance` |
+| 3 Traffic-Drop | `seo-traffic-drop`（旧 `/docs/` URL は正規 URL へ寄せ済み＝移行は急落にしない） |
+| 7 Cannibalization | `seo-cannibalization` |
+| 8 Content-Decay | `seo-decay`（過去の成長パックで週次クリックの連続減少） |
+
+これらは**再抽出しない**。出力では該当する `OPP-…` を引用し、なぜ起きたか・何を確かめるべきかの**意味の判断だけ**を足す。
+本エージェントが自分で抽出するのは判断を要する Pattern 4（Hidden-Winner）・5（Orphan-Query）・6（SNS-Source-Shift）。
+処分（backlog / 実験 / watchword / 却下）は週次レビューのトリアージが決める（本エージェントは決めない）。
+
 ## 6つの抽出パターン
 
 ### Pattern 1: High-Impr-Low-CTR（タイトル改善候補）
@@ -182,7 +198,7 @@ total_candidates: N
 
 1. **入力ファイル特定**: `.claude/state/metrics/gsc/` と `.claude/state/metrics/ga4/` を `Glob` で探索し、各 dimension ごとに最新ファイルを選ぶ
 2. **読み込み**: JSON を Read で取得（容量が大きければ `rows` の上位 N 件に絞る）
-3. **パターン抽出**: 8 つの条件式で該当行を抽出（Pattern 6 は SNS 流入・要 `ga4-sourceMedium-sns-*.json`／Pattern 7/8 は `gsc-page-query-*.json`・前週スナップショット）
+3. **パターン抽出**: Pattern 1/2/3/7/8 はダイジェストの `OPP-…` を引用する（再抽出しない）。自分で抽出するのは Pattern 4/5/6（Pattern 6 は要 `ga4-sourceMedium-sns-*.json`）
 4. **存在判定（Pattern 5 のみ）**: `content/site/` に対して Grep で slug 主要語検索
 5. **出力書き出し**: `.claude/state/improvements/{YYYY-MM-DD}.md` を Write
 6. **サマリーを標準出力に返す**: 件数のみ。詳細はファイル経由で呼び出し元が Read する

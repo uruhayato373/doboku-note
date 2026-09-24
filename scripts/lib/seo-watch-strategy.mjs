@@ -36,6 +36,11 @@ export function compareCandidates(a, b) {
   return a.id.localeCompare(b.id);
 }
 
+/** クエリ文字列から受験意図を推定する（discover と成長ダイジェストの watchword 下書きが共用する唯一の実装）。 */
+export function inferIntent(keyword) {
+  return /解答|論文|経験記述|過去問|文字数|答案|添削/.test(keyword) ? 'exam-task' : /キーワード|計算|択一|記述/.test(keyword) ? 'exam-topic' : 'qualification-guide';
+}
+
 /** Hints only. Page/query evidence never authorizes an automatic registration or edit. */
 export function discoverCandidates(data, config, redirects = new Map()) {
   const rows = data.rows.flatMap((r) => {
@@ -43,7 +48,7 @@ export function discoverCandidates(data, config, redirects = new Map()) {
     const originalPath = new URL(r.keys[0]).pathname, targetPath = redirects.get(originalPath) ?? originalPath;
     const qualification = config.strategy.focusQualifications.find((id) => targetPath.startsWith(`/exam/${id}/`));
     if (!qualification || config.watchwords.some((w) => w.keyword === r.keys[1] && w.targetPath === targetPath)) return [];
-    const intent = /解答|論文|経験記述|過去問|文字数|答案|添削/.test(r.keys[1]) ? 'exam-task' : /キーワード|計算|択一|記述/.test(r.keys[1]) ? 'exam-topic' : 'qualification-guide';
+    const intent = inferIntent(r.keys[1]);
     return [{ keyword: r.keys[1], qualification, intentHint: INTENTS[intent], intent, targetPath, sourcePage: r.keys[0],
       rank: r.position, impressions: r.impressions, clicks: r.clicks, measurementRequired: true,
       note: originalPath !== targetPath ? '旧URLでの計測。正規URLの順位として扱わず再計測する。' : '受験意図・記事・学習導線を確認してから登録する。' }];

@@ -1,10 +1,14 @@
 {
-  "_doc": ".claude/knowledge/reference/business-review.md",
+  "_doc": ".claude/knowledge/reference/growth-cycle.md",
   "_why": "GA4 起点の計測→記録→改善サイクルの機械設定。週次の取得（scripts/fetch-growth-pack.mjs）が読む。週の定義は business-direction の reviewPeriod('weekly')（前の完了した月〜日・JST）を唯一の真実源とし、ここには複製しない。",
   "schemaVersion": 1,
   "baselineDays": 28,
   "gscCountry": "jpn",
-  "organicSources": ["google", "bing", "yahoo"],
+  "organicSources": [
+    "google",
+    "bing",
+    "yahoo"
+  ],
   "events": [
     "page_view",
     "note_cta_click",
@@ -21,5 +25,66 @@
     "quiz_cta_click",
     "career_need_select",
     "career_tool_result"
-  ]
+  ],
+  "digest": {
+    "_why": "機会検出（scripts/lib/growth-opportunities.mjs）の閾値。表示件数は週次レビューで全件トリアージできる量に抑える（measurement・experiment は全件）。",
+    "surface": {
+      "seo": 5,
+      "revenue": 3
+    },
+    "suppressWeeks": {
+      "adopted": 8,
+      "reject": 12
+    },
+    "seo": {
+      "minImpressions": 50,
+      "expectedCtrByPosition": [
+        0.28,
+        0.15,
+        0.1,
+        0.07,
+        0.05,
+        0.04,
+        0.03,
+        0.03,
+        0.025,
+        0.02
+      ],
+      "expectedCtrBeyond10": 0.01,
+      "lowCtrRatio": 0.5,
+      "strikingPositionMin": 8,
+      "strikingPositionMax": 20,
+      "strikingTargetPosition": 5,
+      "dropMinBaseWeeklyClicks": 5,
+      "dropRatio": 0.4,
+      "cannibalMinImpressionsPerPage": 20,
+      "cannibalMaxPosition": 30,
+      "decayWeeks": 3,
+      "decayMinWeeklyClicks": 5
+    },
+    "revenue": {
+      "ctaClickEvents": [
+        "note_cta_click",
+        "affiliate_cta_click",
+        "coconala_cta_click",
+        "brain_cta_click",
+        "quiz_cta_click"
+      ],
+      "ctaImpressionEvents": [
+        "note_cta_impression",
+        "affiliate_cta_impression"
+      ],
+      "minPlacementImpressions28d": 500,
+      "lowPlacementCtrRatio": 0.5,
+      "minCtaImpressions": 100,
+      "lowPageCtrRatio": 0.5,
+      "quizMinStarts": 30,
+      "quizDropRatio": 0.3
+    },
+    "measurement": {
+      "vanishMinBaseWeekly": 10,
+      "bingSessionsPerClickMax": 3,
+      "maxInputAgeDays": 10
+    }
+  }
 }
