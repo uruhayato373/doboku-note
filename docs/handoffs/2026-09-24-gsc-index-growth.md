@@ -1,8 +1,8 @@
 # 引き継ぎ：GSC の登録済みページを増やす作業（ローカルで再開）
 
 > [!note]
-> **2026-09-24 時点**：PR #597〜#600 と #602（launchd `gsc-local`・sitemap の API 送信・#599 の取り下げ）は 2026-09-24 に main（本番）へ反映済み（DN-0287 は閉じた）。Search Console のサービスアカウント 2 つは「フル」権限を確認済み。
-> 残りのタスクは backlog の DN-0292 / DN-0293 にある。この文書は再開手順と順番だけで、
+> **2026-09-24 時点**：PR #597〜#600 と #602（launchd `gsc-local`・sitemap の API 送信・#599 の取り下げ）は 2026-09-24 に main（本番）へ反映済み（part-N の sitemap 復帰も完了）。Search Console のサービスアカウント 2 つは「フル」権限を確認済み。
+> 残りのタスクは backlog の DN-0293 / DN-0294 / DN-0295 にある。この文書は再開手順と順番だけで、
 > 手順を終えたら削除する（記録は git 履歴と `gsc-management.md` の 2026-09-24 エントリ）。
 
 ## ローカルで再開する
@@ -20,7 +20,7 @@ npm run check-gsc-sitemaps                     # sitemap の送信・読み込�
 ## 次にやる順番
 
 1. ~~`/deploy`（develop → main）~~ 2026-09-24 済み（本番 sitemap 1,568 件・part-N 133 件・robots.txt に sitemap-legacy.xml・check-production-ssr exit 0）。
-2. **DN-0292**：note 674 本の本文を再公開（`ops-write.yml` の `note.update-body`）。外向きの大量更新なので本数・間隔・順番を決めてから。`配合計算-実戦演習` は本番で 404 のリンクが 2 本あるので先に。
+2. **DN-0294**：note の PDF なし記事 169 本の本文を再公開（2026-09-24 夜に第 0〜2 段＝`配合計算-実戦演習`→試し 5 本→PV 5 以上 81 本・Windows からローカル実行）。PDF 付きほか 505 本の扱いは **DN-0295**（判断待ち）。
 3. **DN-0293**：Mac に `npm run gsc-local:install`（launchd・毎日 10:30）を入れ、`-- --run-now` で登録リクエストと develop への push を確かめる。self-hosted runner はこのリポジトリが公開のため使わない。
 
 ## 注意
