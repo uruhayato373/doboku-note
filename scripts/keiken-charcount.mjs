@@ -124,6 +124,7 @@ function countChars(s) {
   const clean = s
     .replace(/<[^>]+>/g, '') // <sup> 等タグ
     .replace(/`/g, '')
+    .replace(/【([〇○]+)】/g, '$1') // 目印【〇〇】の括弧は答案に書かないので数えない（DN-0277）
     .replace(/\*/g, '')
     .replace(/\s/g, '');
   return [...clean].length;
