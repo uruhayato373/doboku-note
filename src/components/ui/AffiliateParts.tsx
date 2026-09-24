@@ -6,7 +6,7 @@ export const AFFILIATE_LINK_REL = "nofollow sponsored noopener";
 export function AffiliatePrBadge({ className = "" }: { readonly className?: string }) {
   return (
     <span
-      className={`inline-flex items-center rounded px-1.5 py-0.5 text-[10px] font-bold tracking-wider text-white ${className}`}
+      className={`inline-flex items-center rounded px-1.5 py-0.5 text-[10px] font-bold tracking-wider text-[var(--paper)] ${className}`}
       style={{ background: "var(--ink-muted)" }}
       aria-label="広告"
     >

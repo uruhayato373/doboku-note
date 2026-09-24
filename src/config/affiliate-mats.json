@@ -1,5 +1,5 @@
 {
-  "_comment": "アフィリエイト A8 mat の SSOT 許可リスト。scripts/check-affiliate-mats.mjs が src/** と content/site/** に出現する a8mat= 値を本リストと突合し、未登録 mat（タイポ/新規未申告）を fail させる。expiresAt が過去日で、かつ src/MDX に出現する mat は WARN（失効 creative の配置放置を検知）。creative の URL 実体は src/config/affiliate-creatives.ts・各コンポーネント・.claude/knowledge/reference/affiliate-operations.md を参照。mat を追加/変更したら本ファイルも更新する。2026-06-25: 講座/教材/添削（SAT・独学サポート）と書籍アフィリを完全廃止（note 有料商品とのカニバリ回避）。残すアフィリは転職のみ。",
+  "_comment": "アフィリエイト A8 mat の SSOT 許可リスト。scripts/check-affiliate-mats.mjs が src/** と content/site/** に出現する a8mat= 値を本リストと突合し、未登録 mat（タイポ/新規未申告）を fail させる。expiresAt が過去日で、かつ src/MDX に出現する mat は WARN（失効 creative の配置放置を検知）。creative の URL 実体は src/config/affiliate-creatives.ts・各コンポーネント・.claude/knowledge/reference/affiliate-operations.md を参照。mat を追加/変更したら本ファイルも更新する。2026-06-25: 講座/教材/添削（SAT・独学サポート）と書籍アフィリを完全廃止（note 有料商品とのカニバリ回避）。残すアフィリは転職のみ。例外: 2026-09-24 ユーザー決定で自社ココナラ出品への A8 商品リンク（会員登録 ¥100・program=coconala）を置く（自社出品への送客で note とカニバらないため）。",
   "mats": [
     {
       "mat": "4B3VR8+F0LMU2+4R40+TSBE9",
@@ -93,6 +93,27 @@
       "definedIn": "src/config/affiliate-creatives.ts (KENSETSU_JOBS_CAREER_AD)",
       "expiresAt": null,
       "note": "2026-09-08 A8実機: 新規登録4,500円。承認にはWEB登録後30日以内の電話本人確認、20〜30代、建設業界経験が必要。無料登録＝閲覧のみ/低摩擦という仮定を撤回し、9/8以降は一般配置を停止。公開EPC・確定率は自サイト実績ではない。"
+    },
+    {
+      "mat": "4B3RUY+AINQAI+2PEO+1NIX2A",
+      "program": "coconala",
+      "label": "ココナラ（自社出品への商品リンク・会員登録 ¥100）",
+      "surfaces": [
+        "article-end",
+        "links"
+      ],
+      "definedIn": "src/config/affiliate-creatives.ts (coconalaAffiliateHref / COCONALA_A8_PIXEL)",
+      "expiresAt": null,
+      "note": "2026-09-24 A8実機: プログラム s00000012624009（株式会社ココナラ）、doboku-note（websiteId=002）で生成。全サービス共通の商品リンク https://px.a8.net/svt/ejp?a8mat=<mat>&a8ejpredirect=<encodeURIComponent(サービスURL)>（改変禁止）。成果はココナラ初利用者の会員登録 ¥100、当サイト出品（学習指導・資格）の購入は対象外、特典付き誘導は否認。offsite-cta（記事末 OffsiteCta）と /links のココナラ行で使い、計測ピクセルは各ページ 1 発。「アフィリは転職一本」の例外（ユーザー決定）。"
+    },
+    {
+      "mat": "4B3RUY+AINQAI+2PEO+1HMAQQ",
+      "program": "coconala",
+      "label": "ココナラ／テキスト素材「無料登録はこちら」（未配線）",
+      "surfaces": [],
+      "definedIn": "未配線（YouTube 概要欄などで単独リンクにする場合の予備。YouTube は A8 掲載サイト未登録）",
+      "expiresAt": null,
+      "note": "2026-09-24 A8実機で確認。同じプログラム s00000012624009 のテキスト素材。サイトでは商品リンク（1NIX2A）を使う。"
     }
   ]
 }

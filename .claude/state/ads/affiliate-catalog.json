@@ -290,6 +290,28 @@
           "status": "unknown"
         }
       }
+    },
+    "coconala": {
+      "label": "ココナラ（自社出品への送客・会員登録）",
+      "vertical": null,
+      "placement": "active",
+      "decision": "2026-09-24 ユーザー決定で配置。「アフィリは転職一本」の例外: 送客先は自社のココナラ出品で note 有料商品とカニバらない。成果はココナラ初利用者の会員登録 ¥100 のみ（当サイト出品の購入は対象外）。特典を付けた誘導は否認条件。A8 は口座横断のため、他サイト（stats47 等）が同プログラムを使うと program-detail の値に混入する＝doboku 単独の実績は site-summary を真実源にする。",
+      "asps": {
+        "a8": {
+          "programId": "s00000012624009",
+          "status": "approved",
+          "rewardYen": 100,
+          "verifiedAt": "2026-09-24",
+          "verificationScope": "A8 実機の商品リンク作成（doboku-note websiteId=002）で listed 20 件の生成結果を照合",
+          "approvalConditions": "ココナラを初めて使う人の会員登録。購入 ¥2,500 は Web・デザイン・動画・IT 等のカテゴリのみで学習指導・資格は対象外。特典を付けた誘導は否認。再訪問期間 90 日。"
+        },
+        "moshimo": {
+          "status": "unknown"
+        },
+        "afb": {
+          "status": "unknown"
+        }
+      }
     }
   },
   "_openQuestions": [
