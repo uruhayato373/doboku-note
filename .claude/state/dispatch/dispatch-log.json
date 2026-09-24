@@ -1123,6 +1123,18 @@
       "commit": "4d34f4f8ddf9",
       "verification": "kdp-publish --sync-status: h-01 販売中 ASIN B0HKR9711J ¥2,980 / Amazon dp ページ HTTP 200 タイトル一致",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0274",
+      "at": "2026-09-24",
+      "task": "総監 模範論文マガジン 40 本（PDF 付き）の全文更新をライブへ反映する（9/23 の要再公開一括処理の残り）",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "86f1f1e2cdcd",
+      "verification": "check-note-republish --json: DN-0274 対象 40 本の drift 残存 0 / note-update-body 40 本 [OK]・[4.6] 添付復元 OK（1 件）40・[5e] API 実体検証 OK 40",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }
