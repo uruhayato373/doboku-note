@@ -1171,6 +1171,18 @@
       "commit": "ec0921fda64f",
       "verification": "PR #609 マージ（develop ec0921fda）: og-links.png を mono-tag で「9資格」「技術士・施工管理・コンクリート・RCCM」に再描画し目視確認、alt を 9資格に。ogp-gallery は content 由来の ogp.png 17 枚のみで public/images/og-links.png を含まないため直接目視で代替。本番反映は次の deploy",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0283",
+      "at": "2026-09-24",
+      "task": "サイトのココナラ出品リンクを A8 の商品リンクに切り替える（会員登録 ¥100・PR 表記つき）",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "783069412fb4",
+      "verification": "PR #617 マージ: check-affiliate-mats OK・type-check 0・npm test 1959 fail 0・CI build/e2e pass（a11y dark の PR バッジのコントラストを --paper で修正）・SSR 描画で経験記述ページに A8 href 2/PR 2/sponsored 2/ピクセル 1、/links に A8 5/直リンク 0/PR 5/ピクセル 1。本番反映は次の deploy",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }

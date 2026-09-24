@@ -58,21 +58,6 @@
 
 **完了条件**: ポリシーへの追記と、10月キャンペーンの該当投稿が `check-x-campaign-plan` を通る。
 
-### [DN-0283] サイトのココナラ出品リンクを A8 の商品リンクに切り替える（会員登録 ¥100・PR 表記つき）
-タグ: [収益化] [種類:改善] [検証:check-affiliate-mats] [起票:2026-09-24]
-
-**起点**: 2026-09-24 のユーザー決定で、ちゃんさとと同じくココナラ登録のアフィリエイトを始める（「アフィリは転職一本」の例外。自社出品への送客なので note とカニバらない）。同日に実装を始めたが、Claude Code の自動モードの安全判定（traffic redirection）で止まった。**ユーザーが許可してから実装する**。
-
-**A8 実機で確認した事実（2026-09-24）**:
-
-- 提携済みプログラム `s00000012624009`（株式会社ココナラ・「発注者 募集」）。成果は「ココナラを初めて使う人の会員登録 ¥100」。購入 ¥2,500 は Web・デザイン・動画・IT などのカテゴリだけで、当サイトの出品（学習指導・資格）の購入は対象外。特典を付けた誘導は否認条件。再訪問期間90日。
-- 掲載サイトは `doboku-note`（`websiteId=002`）を選ぶ（既定は stats47）。商品リンク作成で「カテゴリ・出品者プロフィール・サービスページ」を飛び先にできる。
-- 生成結果は全サービスで同じ形: `https://px.a8.net/svt/ejp?a8mat=4B3RUY+AINQAI+2PEO+1NIX2A&a8ejpredirect=<サービスURLを encodeURIComponent>`、計測ピクセル `https://www15.a8.net/0.gif?a8mat=4B3RUY+AINQAI+2PEO+1NIX2A`（listed 20件で照合済み）。A8 は生成リンクの改変を禁じている。
-- テキスト素材「無料登録はこちら」は `4B3RUY+AINQAI+2PEO+1HMAQQ`（YouTube 等で単独リンクにする場合）。
-
-**やること**: (1) `src/config/affiliate-creatives.ts` に mat・ピクセル・`coconalaAffiliateHref(serviceUrl)` を置く。(2) `src/lib/offsite-cta.ts` と `src/components/ui/OffsiteCta/OffsiteCta.tsx`、`src/app/links/page.tsx` のココナラ導線をこの href に替え、`AffiliatePrBadge`・`AFFILIATE_LINK_REL`・1ページ1ピクセル（`TrackingPixel`）を付ける（OffsiteCta の「アフィリではないので PR 表記不要」のコメントも直す）。(3) `src/config/affiliate-mats.json` に mat を登録。(4) A8 の実出力と照合するテストを足す。(5) `affiliate-operations.md` §1 に例外を書く。
-
-**完了条件**: `check-affiliate-mats`・型検査・テストが通り、build 後の経験記述ページで PR 表記と A8 の href を確認できる。
 
 
 ### [DN-0275] 太字記号・画像重複の原稿修正 86 本を note へ再公開する（建設部門 PDF 付き 47 本を含む）
