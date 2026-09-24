@@ -15,6 +15,8 @@ export function lastCommitRunAt(runs = []) {
   let latest = null;
   for (const r of runs) {
     if (r?.mode !== "commit") continue;
+    // 未ログインで 1 件も送れなかった回は「送信」ではない。数えると再ログイン後も 20 時間送らない（2026-09-25 実測）
+    if (r?.status === "not-signed-in") continue;
     const t = Date.parse(r.collectedAt ?? "");
     if (Number.isFinite(t) && (latest === null || t > latest)) latest = t;
   }
