@@ -22,11 +22,11 @@
 ## 🔴 高 — 来月中に着手
 
 ### [DN-0282] ココナラに4テーマ分の経験記述添削（`coconala-tensaku-4theme`）を出品する
-タグ: [収益化] [種類:改善] [検証:check-coconala-live] [起票:2026-09-24] [期日:2026-09-26]
+タグ: [収益化] [種類:改善] [検証:check-coconala-live] [起票:2026-09-24] [期日:2026-09-26] [進行中]
 
 **起点**: 2026-09-24 に出すと決めた（¥12,000・週1名・納期7日。決定ログは `ココナラ展開キット.md` §2）。同日朝の出品は、新規出品の日次上限（前日に4件以上を新規出品）で内容入力ページへ進めず止まった。カタログは `status:'draft'`・`serviceUrl:''` のまま、本文・商品画像（Drive vault 登録済み）はそろっている。
 
-**やること**: 日付が変わってから1回だけ `DOBOKU_PW_MIN_FREE_MB=1200 node scripts/coconala-publish.mjs --service coconala-tensaku-4theme --image thumb-tensaku-4theme.png --commit` を実行する（空きメモリが 2GB 未満のときだけ環境変数を付ける）。成功するとカタログへ `listed`・URL・出品日が書き戻る。止まったら再試行を重ねず翌日に回す。
+**やること**: 9/25 0:05 以降に1回だけ `DOBOKU_PW_MIN_FREE_MB=1200 node scripts/coconala-publish.mjs --service coconala-tensaku-4theme --image thumb-tensaku-4theme.png --commit` を実行する（空きメモリが 2GB 未満のときだけ環境変数を付ける）。Mac のセッションが `.tmp/run-coconala.sh` で 0:05 に自動実行する予定なので、**9/25 朝にカタログが `draft` のままなら（Mac が寝ていた・セッションが終わっていた）手で1回流す**。二重出品は listed なら冪等に止まる。成功するとカタログへ `listed`・URL・出品日が書き戻る。止まったら再試行を重ねず翌日に回す。
 
 **完了条件**: `npm run check-coconala-live` で listed 全件が一致し、書き戻したカタログを develop へ入れる。2級二次（10/25）の前に出品できなければ、来季へ回すかを決め直す。
 
@@ -82,13 +82,11 @@
 - `content/note/技術士総監/magazines/総監模範論文-自治体河川担当/` の R05・R06・R07・R08-yosou-1・R08-yosou-2（5 本）
 - 同 `総監模範論文-自治体港湾担当/`・`総監模範論文-自治体砂防担当/`・`総監模範論文-自治体都市計画担当/`・`総監模範論文-道路橋梁コンサル/`・`総監模範論文-都市計画コンサル/` の R03〜R07・R08-yosou-1・R08-yosou-2（各 7 本・計 35 本）
 
-2026-09-23 のセッションが、9/24 16:09 から自動で流す予約を入れている（前日最後のアップロードから 24 時間 15 分後）。ただしこの予約はそのセッションのバックグラウンド処理なので、**PC を閉じる・スリープする・セッションが終わると実行されない**。実行されたかどうかは完了条件のコマンドで確かめる。
-
-この予約は worktree `.claude/worktrees/fix-funnel-exclude`（detached HEAD・`day2.sh`）で動いている。2026-09-24 朝の時点で、この worktree には develop に無いコミットが2件ある（`bdc2704b5`・`18c71857c`。後者の本文は「develop へは 90fecb1d3 で反映済み」とあるが、`note-republish-hashes.json` は develop と156行違う）。流し終わったら台帳の差分と未反映分を develop へ入れ、worktree を `git worktree remove` する。予約の実行中は消さない。
+9/24 16:09 の予約は動かなかった。9/24 19:39 から Mac セッションが `.tmp/run-day2.sh`（15・15・10 本の 3 バッチ）で流している。
 
 **やること**: 完了条件のコマンドで、上の 40 本がまだ drift に残っているかを確かめる。残っていれば、次の順で流す。
 1. `git fetch` 後、develop の最新で作業する。PDF は Git 管理外なので、各記事フォルダへ `node scripts/drive-vault-sync.mjs --pull --path <記事フォルダ>/` で取り込む（`*.pdf` がフォルダにあることを確認）。
-2. 残っている記事のパスを 1 行 1 本で `.tmp/day2.txt` に書き、15 本ずつに分けて `DOBOKU_PW_MIN_FREE_MB=1536 node scripts/note-update-body.mjs --list <15本のファイル> --reattach-pdf --commit` を 1 つずつ実行する（ブラウザは同時に 1 つだけ。各回の間を 2 分空ける）。
+2. 残っている記事のパスを 1 行 1 本で `.tmp/day2.txt` に書き、15 本ずつに分けて `DOBOKU_PW_MIN_FREE_MB=1200 node scripts/note-update-body.mjs --list <15本のファイル> --reattach-pdf --commit` を 1 つずつ実行する（ブラウザは同時に 1 つだけ。各回の間を 2 分空ける）。
 3. 出力に「本日の添付アップロードが上限」が出たら止め、翌日に続きを流す。`[ABORT]` が 3 本連続したら止めて原因を見る。
 4. 「CDN確定待ちタイムアウト」で中断した記事は、待ち時間を伸ばさず 1 本ずつ `--force-retry` を付けて再実行する（2026-09-23 は、待ちを伸ばしても通らなかった 3 本が単発再実行で通った。挿入した画像がエディタから消えていたため・DN-0273）。
 5. 成功すると再公開台帳（`.claude/state/note-republish-hashes.json`）と添付の記録（`.claude/state/note-attach-done.json`）が自動で書き換わるので、その 2 つ（と中断した場合は `note-update-aborted.json`）だけを明示して commit・push する。
@@ -126,11 +124,11 @@
 **完了条件**: 差し替えた商品の公開ページで画像枚数が変わらず（ギャラリーを保持）、`npm run check-coconala-live` が全件一致。出品画像の文言に「採点者」を自称する表現が0件。差し替えから30日後に、差し替えた商品と差し替えていない商品の閲覧数を kpi-log で読む。表示回数が非公開（セラーサクセス未加入）でクリック率は取れず、試験日の季節変動も混ざるので、効果は断定しない。
 
 ### [DN-0267] コンクリート主任技士のココナラ2件（小論文 PDF・択一直前パック PDF）を1日1件ずつ出品する
-タグ: [収益化] [種類:制作] [起票:2026-09-23] [期日:2026-09-26]
+タグ: [収益化] [種類:制作] [起票:2026-09-23] [期日:2026-09-26] [進行中]
 
 **起点**: 2026-09-23 に出品文・サムネ・納品PDF（K1 5冊・K2 3冊、Drive vault 保管済み）を用意したが、同日5件目以降の新規出品が「内容の入力に進む」の後で止まり、draft のまま残った（原因未確認・coconala-operations.md §8 の注記）。本試験は 2026-11-29。主任技士の受験者が小論文と択一を直前に固める教材で、HARMはA。需要の証拠は無い試験出品で、継続判断は DN-0265。
 
-**やること**: develop で `node scripts/coconala-publish.mjs --service coconala-cce-essay-pdf --image thumb-cce-essay-pdf.png --commit` を実行し、翌日以降に `coconala-cce-takuitsu-pdf`（`thumb-cce-takuitsu-pdf.png`）を同様に出品する。止まったら再試行を重ねず翌日に回す。カタログへの書き戻し（listed・serviceUrl・listedAt）を commit する。
+**やること**: 9/24 は日次上限（9/23 に4件以上出品）で出品不可。9/25 は DN-0282 の後に `DOBOKU_PW_MIN_FREE_MB=1200 node scripts/coconala-publish.mjs --service coconala-cce-essay-pdf --image thumb-cce-essay-pdf.png --commit`（Mac セッションの `.tmp/run-coconala.sh` が DN-0282 成功時だけ 3 分後に続けて流す。朝にカタログが `draft` のままなら手で1回）。9/26 以降に `coconala-cce-takuitsu-pdf`（`thumb-cce-takuitsu-pdf.png`）を同様に出品する。止まったら再試行を重ねず翌日に回す。カタログへの書き戻し（listed・serviceUrl・listedAt）を commit する。
 
 **完了条件**: 2件の公開ページがログアウト状態で HTTP 200、価格がカタログ（¥3,000・¥3,500）と一致し、`npm run check-coconala-wiring` が通る。
 
@@ -170,7 +168,7 @@
 
 **起点**: `check-note-republish`（DN-0297 で 301 等価な張り替えを除外）の要再公開 128 本のうち、PDF なし・noteId ありが 27 本（本文画像 42 枚）。中身は 9/23 18:47 `ba31a4f64` の修正（太字が `**` のまま出る・重複した著者バナー）と、`配合計算-実戦演習` の 404 リンク 2 本の修正で、いずれも note 上は未反映（公開 API で `**` の表示を確認済み）。2026-09-24 にこの 27 本を同日夜に流すと決めた。
 
-**やること**: Windows PC から `node scripts/note-update-body.mjs --list <list> --commit`。リストは `node scripts/note-republish-plan.mjs` の ready と hasImage のうち noteId があり、本文が PDF 配布に触れず PDF 実体も添付記録も無い記事で、`配合計算-実戦演習` を先頭に PV 順（`.claude/state/metrics/note/articles-pv-2026-08.json`・`-09.json`）。太字記号・画像の欠落と過多・存在しないサイトリンク・見出しの URL・無料プレビュー長は 1 本ごとに公開直後の検査（[5e]）が止めるので、最初の数本では自動検査の対象外のリンクカードと目次を note 上で確かめてから残りを流す。会社 PC は `DOBOKU_PW_MIN_FREE_MB=500` と、画像の確定待ちで止まるなら `NOTE_IMG_SETTLE_MIN_MS`・`NOTE_IMG_SETTLE_PER_IMG_MS`（既定 90 秒）を延ばす。
+**やること**: 9/24 夜は Mac セッションが DN-0274 の後に流す（リストは `.tmp/dn0299-first3.txt` → 確認 → `.tmp/dn0299-rest.txt`。Windows では流さない）。`DOBOKU_PW_MIN_FREE_MB=1200 node scripts/note-update-body.mjs --list <list> --commit`。リストは `node scripts/note-republish-plan.mjs` の ready と hasImage のうち noteId があり、本文が PDF 配布に触れず PDF 実体も添付記録も無い記事で、`配合計算-実戦演習` を先頭に PV 順（`.claude/state/metrics/note/articles-pv-2026-08.json`・`-09.json`）。太字記号・画像の欠落と過多・存在しないサイトリンク・見出しの URL・無料プレビュー長は 1 本ごとに公開直後の検査（[5e]）が止めるので、最初の数本では自動検査の対象外のリンクカードと目次を note 上で確かめてから残りを流す。会社 PC は `DOBOKU_PW_MIN_FREE_MB=500` と、画像の確定待ちで止まるなら `NOTE_IMG_SETTLE_MIN_MS`・`NOTE_IMG_SETTLE_PER_IMG_MS`（既定 90 秒）を延ばす。
 
 **完了条件**: 27 本すべてで `note-update-body` の公開直後の検査 [5e] が OK、`node scripts/check-note-republish.mjs` の要再公開から 27 本が消え、`npm run check-note-live-headings` と `node scripts/check-note-structure.mjs --ci`（有料境界の漏洩・全ロック）がともに exit 0。
 
