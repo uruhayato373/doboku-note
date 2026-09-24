@@ -684,7 +684,7 @@ QCサークル活動のほか、**ZD 運動** （Zero Defects、従業員の創�
 - **MTBF**（Mean Time Between Failures） — ある故障から次の故障までの平均間隔（平均故障間隔）。故障率 f ＝ 1 ÷ MTBF
 - **[アベイラビリティ](https://doboku-note.com/exam/pe-comprehensive-management/keywords/system-availability?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)** （A）— A ＝ MTBF ÷ (MTBF + MTTR)
 
-**複合システム**（直列＋並列）**の計算手順** — まず並列部の信頼度を `1−(1−R₁)(1−R₂)` で求め、次に直列部を `R₁×R₂` で結合します。[信頼性ブロック図](https://doboku-note.com/exam/pe-comprehensive-management/keywords/reliability-block-diagram?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)の構造（どのユニットが並列でどこから直列か）を正確に読み取ることが計算の前提です。
+**複合システム**（直列＋並列）**の計算手順** — まず並列部の信頼度を 1−(1−R₁)(1−R₂) で求め、次に直列部を R₁×R₂ で結合します。[信頼性ブロック図](https://doboku-note.com/exam/pe-comprehensive-management/keywords/reliability-block-diagram?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)の構造（どのユニットが並列でどこから直列か）を正確に読み取ることが計算の前提です。
 
 ![信頼性ブロック図 — 直列・並列・複合](img/figure-5-reliability-block-diagram.png)
 
@@ -705,14 +705,14 @@ QCサークル活動のほか、**ZD 運動** （Zero Defects、従業員の創�
 
 **FTAの確率計算ルール**
 
-- **OR**（和事象） — `P = 1−(1−P₁)(1−P₂)`。事象が独立な場合の和事象の発生確率（どちらか1つでも起きる確率）
-- **AND**（積事象） — `P = P₁ × P₂`。すべての事象が同時に起きる確率（冗長系・並列系の故障計算に対応）
+- **OR**（和事象） — P = 1−(1−P₁)(1−P₂)。事象が独立な場合の和事象の発生確率（どちらか1つでも起きる確率）
+- **AND**（積事象） — P = P₁ × P₂。すべての事象が同時に起きる確率（冗長系・並列系の故障計算に対応）
 
 **計算例**
 
-- 系統電源喪失 0.05 と自社遮断 0.10 の OR ＝ `1−(1−0.05)(1−0.10) = 0.145`
-- 自家用発電機 2 台の起動失敗 AND ＝ `0.05² = 0.0025`
-- 停電確率 ＝ `0.145 × 0.0025 ≒ 3.6×10⁻⁴`
+- 系統電源喪失 0.05 と自社遮断 0.10 の OR ＝ 1−(1−0.05)(1−0.10) = 0.145
+- 自家用発電機 2 台の起動失敗 AND ＝ 0.05² = 0.0025
+- 停電確率 ＝ 0.145 × 0.0025 ≒ 3.6×10⁻⁴
 
 > **【出題例: [R5年度 Ⅰ-1-32](https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r05-primary?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management#1-32)】** 電源システムの停電確率をフォールトツリー分析により計算する。系統電源喪失0.05、自社による系統遮断0.10、予備自家用発電機2台のデマンド故障率各0.05のとき、1年間の停電確率に最も近い値はどれか。→ **正答3：3.6×10⁻⁴。電源喪失OR遮断＝0.145、発電機2台AND故障＝0.0025、両者AND＝3.6×10⁻⁴。**
 
