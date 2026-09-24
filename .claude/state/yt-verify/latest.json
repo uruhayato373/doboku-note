@@ -1,52 +1,15 @@
 {
-  "generatedAt": "2026-09-17T22:29:41.829Z",
+  "generatedAt": "2026-09-24T22:46:18.905Z",
   "counts": {
     "total": 200,
-    "withVideoId": 13,
+    "withVideoId": 7,
     "ok": 7,
-    "recorded_but_gone": 6,
+    "recorded_but_gone": 0,
     "not_public_after_publishAt": 0,
     "pending_overdue": 0
   },
   "items": {
-    "recorded_but_gone": [
-      {
-        "key": "r03-pack-01-q1",
-        "videoId": "pJE0G113lWE",
-        "publishAt": "2026-06-09T07:30:00+09:00",
-        "title": "技術士総監 令和3年度 択一｜回収期間法の限界と評価手法 #Shorts"
-      },
-      {
-        "key": "r03-pack-03-q1",
-        "videoId": "v78PwwNo_fQ",
-        "publishAt": "2026-06-11T20:00:00+09:00",
-        "title": "技術士総監 令和3年度 択一｜労使関係と団体交渉事項 #Shorts"
-      },
-      {
-        "key": "r03-pack-03-q2",
-        "videoId": "l-aSQXfwOq8",
-        "publishAt": "2026-06-12T07:30:00+09:00",
-        "title": "技術士総監 令和3年度 択一｜対価型・環境型セクハラの定義 #Shorts"
-      },
-      {
-        "key": "r03-pack-03-q3",
-        "videoId": "AxGWdocgSZ0",
-        "publishAt": "2026-06-12T12:30:00+09:00",
-        "title": "技術士総監 令和3年度 択一｜シャインの組織文化3層モデル #Shorts"
-      },
-      {
-        "key": "r03-pack-03-q4",
-        "videoId": "GZzG6IqyXyI",
-        "publishAt": "2026-06-12T20:00:00+09:00",
-        "title": "技術士総監 令和3年度 択一｜メンター制度導入の適切な運用 #Shorts"
-      },
-      {
-        "key": "r03-pack-04-q1",
-        "videoId": "V9iQe4iQcI0",
-        "publishAt": "2026-06-13T07:30:00+09:00",
-        "title": "技術士総監 令和3年度 択一｜職能別と事業部制の優位比較 #Shorts"
-      }
-    ],
+    "recorded_but_gone": [],
     "not_public_after_publishAt": [],
     "pending_overdue": []
   }
