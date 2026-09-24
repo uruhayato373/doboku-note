@@ -5,5 +5,18 @@
     "startedAt": "ISO8601",
     "branch": "string"
   },
-  "claims": []
+  "claims": [
+    {
+      "id": "DN-0274",
+      "owner": "claude-mac",
+      "startedAt": "2026-09-24T10:40:31.449Z",
+      "branch": null
+    },
+    {
+      "id": "DN-0299",
+      "owner": "claude-mac",
+      "startedAt": "2026-09-24T10:40:31.557Z",
+      "branch": null
+    }
+  ]
 }

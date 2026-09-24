@@ -1111,6 +1111,18 @@
       "commit": "de4b1e15c76b",
       "verification": "fetch-ig-insights.yml + ci-cd-security-hardening.md に Secrets 記録",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0260",
+      "at": "2026-09-24",
+      "task": "RCCM 問題III Kindle版 h-01 をKDPで出版し、LIVE実体を台帳へ反映する",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "4d34f4f8ddf9",
+      "verification": "kdp-publish --sync-status: h-01 販売中 ASIN B0HKR9711J ¥2,980 / Amazon dp ページ HTTP 200 タイトル一致",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }

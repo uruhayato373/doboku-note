@@ -75,7 +75,7 @@
 **完了条件**: `check-affiliate-mats`・型検査・テストが通り、build 後の経験記述ページで PR 表記と A8 の href を確認できる。
 
 ### [DN-0274] 総監 模範論文マガジン 40 本（PDF 付き）の全文更新をライブへ反映する（9/23 の要再公開一括処理の残り）
-タグ: [収益化] [種類:改善] [起票:2026-09-23] [期日:2026-09-25]
+タグ: [収益化] [種類:改善] [起票:2026-09-23] [期日:2026-09-25] [進行中]
 
 **起点**: 2026-09-23 に note の要再公開（本文を直したのにライブが古い記事）を一括処理した。PDF 付きの全文更新は 1 日 60 本で打ち切った（note のファイルアップロードは 1 日 100 件が上限で、スクリプトは 90 件で止まる。PDF 付きは 1 本で 1 件使う）。残る 40 本は次の 6 マガジンで、どれも原稿修正済み・ライブ未反映。
 
@@ -152,16 +152,6 @@
 
 **完了条件**: 3本の blogUrl が frontmatter に書き戻され、公開スクリプトのライブ実査（ログアウト状態・外部リンク0件）が通る。公開から30日後に、記事と2級出品の閲覧を kpi-log で読む（欠測は0と扱わない）。
 
-### [DN-0260] RCCM 問題III Kindle版 h-01 をKDPで出版し、LIVE実体を台帳へ反映する
-タグ: [収益化] [種類:制作] [起票:2026-09-20] [期日:2026-09-27]
-
-**起点**: Kindle の公開状態は `scripts/kindle-published/catalog.json` を真実源とする。同台帳で未公開の完成書籍を週次計画へ配線するよう、2026-09-20にユーザーが指示した。RCCM受験者が問題IIIの公開6テーマをAmazonでも通読できる商品で、資格合格・論文作成を支えるためHARMはA。note版の販売実体はあるがKindle需要は未検証なので、公開後の販売・KENPと運営時間を確認する。
-
-**やること**: `h-01` のEPUB・表紙・入力メモとKDP下書きを照合し、価格・KDP Select OFF・AI申告・アクセシビリティ・カテゴリーがSSOTと一致する具体的な出版画面まで準備する。レビュー可能な状態でユーザーの最終承認を得た後、`node scripts/kdp-publish.mjs --id h-01 --publish-only --commit-publish` を実行する。提出後は `node scripts/kdp-publish.mjs --sync-status` で審査状態を追い、LIVE化したらASIN・公開日・状態をcatalogとKindle戦略へ反映する。価格不一致、Select ON、別タイトル、CAPTCHA/2FAでは出版せず停止する。
-
-**完了条件**: catalogの`h-01`がASIN付きLIVEとなり、Amazon商品ページのタイトル一致を実査できること。公開後の販売・KENPは次回の既存KDPレポートで未計測のまま0扱いせず確認する。
-
-**進捗（2026-09-23）**: ユーザー指示で ¥2,980（日本 35%）に改定し出版申請済み＝catalog `in_review`。残＝`--sync-status` で LIVE と ASIN を確認し catalog・Kindle 戦略へ反映。
 
 ### [DN-0293] Mac に gsc-local（launchd）を入れ、GSC 登録リクエストと sitemap 送信の自動化を確かめる
 タグ: [インフラ・計測] [種類:改善] [起票:2026-09-24]
@@ -176,7 +166,7 @@
 **完了条件**: launchd の実行が受理を `gsc-indexing/history.json` に記録して develop へ push し、`npm run check-gsc-indexing-due` と `npm run check-gsc-sitemaps` がともに OK。
 
 ### [DN-0299] note の PDF なし 27 本の本文を再公開し、表示崩れ（太字の記号・重複バナー）と 404 リンク 2 本を note 上から消す
-タグ: [SNS・マーケ] [種類:改善] [起票:2026-09-24] [期日:2026-09-25]
+タグ: [SNS・マーケ] [種類:改善] [起票:2026-09-24] [期日:2026-09-25] [進行中]
 
 **起点**: `check-note-republish`（DN-0297 で 301 等価な張り替えを除外）の要再公開 128 本のうち、PDF なし・noteId ありが 27 本（本文画像 42 枚）。中身は 9/23 18:47 `ba31a4f64` の修正（太字が `**` のまま出る・重複した著者バナー）と、`配合計算-実戦演習` の 404 リンク 2 本の修正で、いずれも note 上は未反映（公開 API で `**` の表示を確認済み）。2026-09-24 にこの 27 本を同日夜に流すと決めた。
 
@@ -262,9 +252,9 @@
 
 **起点**: 2026-09-17 に W8〜W11 を `note-publish --schedule` で予約投稿した（README 配信表・`noteStatus: reserved`）。予約中の記事は `note-magazine-add-articles` で収録できない（exit 7・実測）ため、公開後に手動で収録する必要がある。
 
-**やること**: 各公開日の後に `node scripts/note-magazine-add-articles.mjs --target mbe07bd5cecda --notes <key> --commit`。W8 `n8acfea17f953`（9/19）／W9 `ne3cf6dac882f`（9/22）／W10 `n1911131aa726`（9/24）／W11 `n64f9653dc30c`（9/28）。学科09/10・添削01 は単独記事なので収録不要。
+**やること**: 残りは W11 `n64f9653dc30c`（9/28 公開）だけ。公開後に `DOBOKU_PW_MIN_FREE_MB=1200 node scripts/note-magazine-add-articles.mjs --target mbe07bd5cecda --notes n64f9653dc30c --commit`（W8〜W10 は収録済み・現収録 10 件）。学科09/10・添削01 は単独記事なので収録不要。
 
-**完了条件**: 特典マガジンの収録が 7→11 件（API 実体確認）・`npm run check-membership-drip` 緑。
+**完了条件**: 特典マガジンの収録が 10→11 件（API 実体確認）・`npm run check-membership-drip` 緑。
 ### [DN-0235] develop への push で赤くなる CI（quality audit + build）に読み手を付ける
 タグ: [エージェント・SSOT] [種類:不具合] [起票:2026-09-14]
 

@@ -70,7 +70,8 @@
           "change": "尻切れ解説の恒久補完後の更新版 EPUB を再アップ"
         }
       ],
-      "dist": "kindle-published/kindle-A-01-anzen-updated.epub"
+      "dist": "kindle-published/kindle-A-01-anzen-updated.epub",
+      "draftAsin": "AT465EYYW4VCN"
     },
     {
       "id": "A-02",
@@ -97,7 +98,8 @@
           "change": "初版公開"
         }
       ],
-      "dist": "kindle-published/kindle-A-02-hoki.epub"
+      "dist": "kindle-published/kindle-A-02-hoki.epub",
+      "draftAsin": "A5YT5D5ZGEA59"
     },
     {
       "id": "A-03",
@@ -124,7 +126,8 @@
           "change": "初版公開"
         }
       ],
-      "dist": "kindle-published/kindle-A-03-sekokeikaku.epub"
+      "dist": "kindle-published/kindle-A-03-sekokeikaku.epub",
+      "draftAsin": "A3TMN4ARVI63H6"
     },
     {
       "id": "A-04",
@@ -151,7 +154,8 @@
           "change": "初版公開"
         }
       ],
-      "dist": "kindle-published/kindle-A-04-kankyo.epub"
+      "dist": "kindle-published/kindle-A-04-kankyo.epub",
+      "draftAsin": "A2LJM7G3D1YA9V"
     },
     {
       "id": "A-05",
@@ -178,7 +182,8 @@
           "change": "初版公開"
         }
       ],
-      "dist": "kindle-published/kindle-A-05-hinshitsu.epub"
+      "dist": "kindle-published/kindle-A-05-hinshitsu.epub",
+      "draftAsin": "A1Q5I6TCI7EHV5"
     },
     {
       "id": "A-06",
@@ -206,7 +211,8 @@
           "change": "初版公開"
         }
       ],
-      "dist": "kindle-published/kindle-A-06-koutei.epub"
+      "dist": "kindle-published/kindle-A-06-koutei.epub",
+      "draftAsin": "ACL3CWR633GU0"
     },
     {
       "id": "e-01",
@@ -238,7 +244,8 @@
           "date": "2026-07-15",
           "change": "KDP 公開（LIVE・販売中 ¥990）・ASIN=B0H8ZZMM7R。重複下書き B0H8KH1N6G は削除対象。"
         }
-      ]
+      ],
+      "draftAsin": "A16UCVNFVPDF8U"
     },
     {
       "id": "e-02",
@@ -368,7 +375,8 @@
           "date": "2026-07-15",
           "change": "KDP 本棚突合で LIVE 確認・ASIN=B0H8JHYGH9"
         }
-      ]
+      ],
+      "draftAsin": "ADZQN2E5RIR1"
     },
     {
       "id": "d-02",
@@ -1461,13 +1469,13 @@
     },
     {
       "id": "h-01",
-      "asin": null,
+      "asin": "B0HKR9711J",
       "title": "RCCM 問題III 管理技術力 模範論文集 2026年度版",
       "subtitle": "公開6テーマ 全部の模範論文（1,200〜1,600字・指定用語「」4語以上）",
       "series": "H RCCM資格試験",
       "priceJpy": 2980,
       "royalty": 0.35,
-      "status": "in_review",
+      "status": "live",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/h-01.json",
       "epub": "kindle-dist/h-01.epub",
@@ -1489,10 +1497,15 @@
           "version": "1.0",
           "date": "2026-09-23",
           "change": "¥980→¥2,980 へ改定して出版申請（レビュー中）。KDP Select OFF＝note 併売のため日本は 35%（¥2,980 で手取り約 ¥948）。競合はココナラの問題III 解答例24件 ¥3,500（販売130件）、note 版は ¥3,480"
+        },
+        {
+          "version": "1.0",
+          "date": "2026-09-24",
+          "change": "KDP本棚実査でLIVE化(販売中・¥2,980)を確認・ASIN=B0HKR9711J・Amazon商品ページでタイトル一致を確認・catalogへ反映（9/23提出。正確な公開日は本棚に記録が無く、確認日を記録）"
         }
       ],
       "draftAsin": "A14KZQN4AVIH1Q",
-      "publishedDate": null,
+      "publishedDate": "2026-09-24",
       "priceHistory": [
         {
           "date": "2026-09-23",
