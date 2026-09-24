@@ -13,6 +13,9 @@ set -euo pipefail
 export PATH="/opt/homebrew/opt/node@20/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export LANG="ja_JP.UTF-8"
 export LC_ALL="ja_JP.UTF-8"
+# 8GB の Mac は Claude Desktop を開いた日中だと空きが 2GB を切り、既定しきい値（2048MB）で Chrome を起動せず
+# 毎回失敗する（2026-09-24 初回 run-now で空き 1879MB）。手動運用と同じ 1200MB にそろえる。
+export DOBOKU_PW_MIN_FREE_MB="${DOBOKU_PW_MIN_FREE_MB:-1200}"
 
 REPO="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 WT="$REPO/.claude/worktrees/gsc-local"
