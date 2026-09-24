@@ -394,10 +394,11 @@ live 層を CI に載せないのは、**有料エリア内の添付カードが
 
 ## live 本文整合性検査: check-note-live-headings（URL見出し/空引用/画像欠落・過多/見出し食い違い/太字記号/リンク切れの検知網）
 
-note-publish / note-update-body には、SoT どおりに live が反映されない 3 系統の破損があった:
+note-publish / note-update-body には、SoT どおりに live が反映されない 4 系統の破損があった:
 
 - **URL 見出し化**（2026-07-14・291 本中 7 本）— 旧リンクカード化で URL 単独行が h2 見出しに化けて note ネイティブ目次に URL 露出。原因は (1) Enter 後の embed 変換が非同期なのに盲目 4500ms 待ちのレース、(2) `Set` dedup による重複 URL 未処理、(3) 選択先ブロック種の無検査。共有実装 `scripts/lib/note-cardify.mjs` で根治（毎回 DOM 再クエリ・段落限定選択・カード生成の実測待ち）。
 - **空引用**（2026-07-15・5 本）— 複数行 blockquote が paste で中身脱落し「空の引用」だけ残る。note-lint ルール 9（`>` 連続 2 行以上をブロック・`SKIP_NOTE_BQ=1` で回避）で予防し、修復は SoT を単一行 blockquote／平文へ書き換えて再貼付。
+- **カード化の打ち切り**（2026-09-24・1 本）— 埋め込みにならない URL（brain-market.com）が先頭の bare URL 段落として残り続け、`cardifyBareUrls` が同じ行を上限 40 回打ち直して終了、後ろの note 記事 URL も素のリンクのまま公開された（`processed=40 cards=0`）。[5e] はカードの有無を見ないので通る。`pickBareUrlIndex` で失敗した出現を飛ばし、カード化されなかった URL を `⚠ カード化されず` として出力するよう修正（DN-0302・`tests/note-cardify-skip.test.mjs`）。
 - **見出しの破壊**（2026-09-23・3 本）— 冒頭 CTA の部分更新（`replaceTopCta`）で CTA 文が `h2` になり、直後の見出しが「R」＋カード＋残りの段落に割れた。見出しに URL が無いので URL 見出し検査では拾えなかった（DN-0272）。
 - **太字記号の残り**（2026-09-23・9 本）— 閉じ `**` の直前が約物・直後が文字だと太字にならず `**` がそのまま出る。原稿側は `check-bold-rendering` が note 記事も検査する（下記 content-principles）。
 - **本文画像欠落**（2026-07-15・33 本）— paste 前処理が `![](img/xxx.png)` を除去していたため図が live に載らなかった。`scripts/lib/note-images.mjs` で、画像行を一意トークン `〔〔IMG:n〕〕` へ置換して paste→「＋」メニューで実画像アップロード（キャプション=alt）する方式に変更。トークン残存/挿入失敗は保存/公開せず中断。

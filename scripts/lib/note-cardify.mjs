@@ -17,33 +17,40 @@
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 /**
+ * 次にカード化する bare URL 段落の位置を決める（純関数・単体テスト対象）。
+ * カード化できなかった段落は bare のまま同じ位置に残るので、URL ごとに失敗回数ぶん
+ * 先頭側の出現を飛ばす。飛ばさないと埋め込み不可の URL（brain-market 等）を先頭で
+ * 打ち直し続け、後ろの URL が 1 本もカード化されない（2026-09-24 DN-0302）。
+ * @param {string[]} urls エディタ内の bare URL 段落のテキスト（文書順）
+ * @param {Map<string, number>} failed URL → カード化に失敗した回数
+ * @returns {number} 対象の添字。無ければ -1
+ */
+export function pickBareUrlIndex(urls, failed) {
+  const seen = new Map();
+  for (let i = 0; i < urls.length; i++) {
+    const n = (seen.get(urls[i]) || 0) + 1;
+    seen.set(urls[i], n);
+    if (n > (failed.get(urls[i]) || 0)) return i;
+  }
+  return -1;
+}
+
+/**
  * URL 単独行の段落を 1 つずつカード化する。
  * 毎イテレーションで「カード/見出し外にある bare URL 段落」を再探索するため、
  * 重複 URL・変換による DOM 再構築に対して安全。カード生成は実測で待つ（最大 waitMs）。
- * @returns {Promise<{processed:number, cards:number}>}
+ * カードにならなかった URL は飛ばして後ろへ進み、failed として返す。
+ * @returns {Promise<{processed:number, cards:number, failed:string[]}>}
  */
 export async function cardifyBareUrls(page, { tag = '[cardify]', waitMs = 10000, guard = 40 } = {}) {
   let processed = 0;
+  const failed = new Map();
   for (let i = 0; i < guard; i++) {
     // 次の bare URL 段落を選択（カード内・見出しは除外）。見つからなければ終了。
-    const u = await page.evaluate(() => {
-      const ed = document.querySelector('[contenteditable=true]');
-      if (!ed) return null;
-      for (const b of ed.querySelectorAll('p, div')) {
-        if (b.closest('figure, [embedded-service], h1, h2, h3, h4, h5, h6')) continue;
-        if (b.querySelector('p, h1, h2, h3, h4, h5, h6, figure')) continue; // ラッパー div を除外
-        const t = (b.innerText || '').trim();
-        if (!/^https?:\/\/\S+$/.test(t)) continue;
-        b.scrollIntoView({ block: 'center' });
-        const r = document.createRange();
-        r.selectNodeContents(b);
-        const s = window.getSelection();
-        s.removeAllRanges();
-        s.addRange(r);
-        return t;
-      }
-      return null;
-    });
+    const urls = await page.evaluate(listBareUrlBlocks);
+    const idx = pickBareUrlIndex(urls, failed);
+    if (idx < 0) break;
+    const u = await page.evaluate(selectBareUrlBlock, idx);
     if (!u) break;
     const before = await countCards(page);
     await page.keyboard.press('Delete');
@@ -51,17 +58,56 @@ export async function cardifyBareUrls(page, { tag = '[cardify]', waitMs = 10000,
     await page.keyboard.type(u, { delay: 10 });
     await sleep(400);
     await page.keyboard.press('Enter');
-    // 変換完了を実測で待つ（カード数の増加）。増えないURL（埋め込み不可）もタイムアウトで先へ。
+    // 変換完了を実測で待つ（カード数の増加）。増えないURL（埋め込み不可）はタイムアウトで失敗扱いにして飛ばす。
+    let ok = false;
     const t0 = Date.now();
     while (Date.now() - t0 < waitMs) {
       await sleep(500);
-      if ((await countCards(page)) > before) break;
+      if ((await countCards(page)) > before) { ok = true; break; }
     }
+    if (!ok) failed.set(u, (failed.get(u) || 0) + 1);
     processed++;
   }
   const cards = await countCards(page);
-  console.log(`${tag} cardify: processed=${processed} cards=${cards}`);
-  return { processed, cards };
+  const failedList = [...failed.keys()];
+  console.log(`${tag} cardify: processed=${processed} cards=${cards}${failedList.length ? ` failed=${failedList.length}` : ''}`);
+  for (const f of failedList) console.log(`${tag} ⚠ カード化されず素のリンクのまま: ${f}`);
+  return { processed, cards, failed: failedList };
+}
+
+// page.evaluate に渡す関数（ブラウザ側で実行。外側のスコープを参照しない）
+export function listBareUrlBlocks() {
+  const ed = document.querySelector('[contenteditable=true]');
+  if (!ed) return [];
+  const out = [];
+  for (const b of ed.querySelectorAll('p, div')) {
+    if (b.closest('figure, [embedded-service], h1, h2, h3, h4, h5, h6')) continue;
+    if (b.querySelector('p, h1, h2, h3, h4, h5, h6, figure')) continue; // ラッパー div を除外
+    const t = (b.innerText || '').trim();
+    if (/^https?:\/\/\S+$/.test(t)) out.push(t);
+  }
+  return out;
+}
+
+export function selectBareUrlBlock(idx) {
+  const ed = document.querySelector('[contenteditable=true]');
+  if (!ed) return null;
+  let n = 0;
+  for (const b of ed.querySelectorAll('p, div')) {
+    if (b.closest('figure, [embedded-service], h1, h2, h3, h4, h5, h6')) continue;
+    if (b.querySelector('p, h1, h2, h3, h4, h5, h6, figure')) continue;
+    const t = (b.innerText || '').trim();
+    if (!/^https?:\/\/\S+$/.test(t)) continue;
+    if (n++ !== idx) continue;
+    b.scrollIntoView({ block: 'center' });
+    const r = document.createRange();
+    r.selectNodeContents(b);
+    const s = window.getSelection();
+    s.removeAllRanges();
+    s.addRange(r);
+    return t;
+  }
+  return null;
 }
 
 /**
@@ -155,7 +201,9 @@ export async function assertNoUrlHeadings(noteId, { retries = 2, delayMs = 3000 
 }
 
 async function countCards(page) {
-  return page.evaluate(
-    () => document.querySelectorAll('[contenteditable=true] figure, [contenteditable=true] [embedded-service]').length,
-  );
+  return page.evaluate(countEditorCards);
+}
+
+export function countEditorCards() {
+  return document.querySelectorAll('[contenteditable=true] figure, [contenteditable=true] [embedded-service]').length;
 }
