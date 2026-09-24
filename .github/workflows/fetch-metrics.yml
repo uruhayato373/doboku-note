@@ -261,6 +261,40 @@ jobs:
 
       # GA4×GSC crosswalk 生成: 上で取得した ga4-page × gsc-page を URL で突合し、
       # title/meta 機会（上位表示低CTR）と ランキング機会（表示多い低順位）を surface（オフライン）。
+      # 成長パック: 事業レビューと同じ前の完了週（月〜日・JST）＋直前 28 日の基線で GA4 × GSC を全件取得する。
+      # 機会ダイジェスト（build-growth-digest）の唯一の入力。rc=1 取得失敗 / rc=2 検査不成立（認証・GSC 確定前）。
+      - name: Fetch growth pack (GA4 x GSC, fixed Mon-Sun week)
+        id: growth
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+        run: |
+          set +e
+          node scripts/fetch-growth-pack.mjs
+          echo "rc=$?" >> "$GITHUB_OUTPUT"
+
+      # Bing Webmaster（GA4 Organic の bing と照合する実クリック・表示）。キー未設定は rc=2 で検査不成立 Issue へ。
+      - name: Fetch Bing Webmaster (query / page / traffic)
+        id: bing
+        env:
+          BING_WEBMASTER_API_KEY: ${{ secrets.BING_WEBMASTER_API_KEY }}
+        run: |
+          set +e
+          node scripts/fetch-bing-webmaster.mjs
+          echo "rc=$?" >> "$GITHUB_OUTPUT"
+
+      # GA4 管理設定（カスタムディメンション・キーイベント・データ保持）を Admin API で観測し inventory を更新する。
+      # 閲覧者権限で足りる。check-ga4-dimensions（weekly-review-guard）がこの観測を読む。
+      - name: Observe GA4 admin settings (Admin API)
+        id: ga4admin
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+        run: |
+          set +e
+          node scripts/ga4-admin-api.mjs check --commit
+          echo "rc=$?" >> "$GITHUB_OUTPUT"
+
       - name: Generate GA4xGSC crosswalk report
         continue-on-error: true
         run: npm run report-ga4-gsc-crosswalk
@@ -310,21 +344,24 @@ jobs:
           # 残す（drift guard に拒否されると bot commit が丸ごと落ちるため）。
           npm run pre-commit:install
 
-          mkdir -p .claude/state/metrics/ga4 .claude/state/metrics/gsc .claude/state/metrics/monetization .claude/state/metrics/crosswalk .claude/state/metrics/affiliate .claude/state/weekly-metrics
+          mkdir -p .claude/state/metrics/ga4 .claude/state/metrics/gsc .claude/state/metrics/monetization .claude/state/metrics/crosswalk .claude/state/metrics/affiliate .claude/state/metrics/growth .claude/state/metrics/bing .claude/state/metrics/ga4-admin .claude/state/weekly-metrics
           cp -r /tmp/metrics-publish/ga4/* .claude/state/metrics/ga4/ 2>/dev/null || true
           cp -r /tmp/metrics-publish/gsc/* .claude/state/metrics/gsc/ 2>/dev/null || true
           cp -r /tmp/metrics-publish/monetization/* .claude/state/metrics/monetization/ 2>/dev/null || true
           cp -r /tmp/metrics-publish/crosswalk/* .claude/state/metrics/crosswalk/ 2>/dev/null || true
           cp -r /tmp/metrics-publish/affiliate/* .claude/state/metrics/affiliate/ 2>/dev/null || true
+          cp -r /tmp/metrics-publish/growth/* .claude/state/metrics/growth/ 2>/dev/null || true
+          cp -r /tmp/metrics-publish/bing/* .claude/state/metrics/bing/ 2>/dev/null || true
+          cp -r /tmp/metrics-publish/ga4-admin/* .claude/state/metrics/ga4-admin/ 2>/dev/null || true
           cp -r /tmp/weekly-metrics-publish/* .claude/state/weekly-metrics/ 2>/dev/null || true
 
           # 寿命表（scripts/lib/prune-state-snapshots.mjs）に従って古い snapshot を消す（business は除外 dir・触らない）。
           # affiliate family は keep-all（`-YYYY-MM-DD.json` は消さない台帳）なので prune 対象に含めても実害は無いが、
           # 台帳性格が他 family と違うため対象には入れない（誤って keep-all の前提が壊れたときに気づけるようにする）。
           # 書き手と同じ commit で消すのが唯一安全（別 commit は上の reset --hard + copy-back に戻される）。
-          node scripts/prune-state-snapshots.mjs --commit --family ga4,gsc,monetization,crosswalk,weekly-metrics
+          node scripts/prune-state-snapshots.mjs --commit --family ga4,gsc,monetization,crosswalk,weekly-metrics,growth,bing
 
-          git add .claude/state/metrics/business .claude/state/metrics/ga4 .claude/state/metrics/gsc .claude/state/metrics/monetization .claude/state/metrics/crosswalk .claude/state/metrics/affiliate .claude/state/weekly-metrics
+          git add .claude/state/metrics/business .claude/state/metrics/ga4 .claude/state/metrics/gsc .claude/state/metrics/monetization .claude/state/metrics/crosswalk .claude/state/metrics/affiliate .claude/state/metrics/growth .claude/state/metrics/bing .claude/state/metrics/ga4-admin .claude/state/weekly-metrics
           if git diff --cached --quiet; then
             echo "No changes to publish"
             exit 0
@@ -342,12 +379,21 @@ jobs:
           INTEGRITY_RC: ${{ steps.integrity.outputs.exit_code }}
           ANOMALY_RC: ${{ steps.anomaly.outputs.exit_code }}
           BUSINESS_OUTCOME: ${{ steps.business.outcome }}
+          GROWTH_RC: ${{ steps.growth.outputs.rc }}
+          BING_RC: ${{ steps.bing.outputs.rc }}
+          GA4ADMIN_RC: ${{ steps.ga4admin.outputs.rc }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
           anomalies=() invalid=()
           [ "$INTEGRITY_RC" = "1" ] && anomalies+=("GA4 データ整合性違反（check-data-integrity.mjs）")
           [ "$ANOMALY_RC" = "1" ] && anomalies+=("GA4 日次異常（check-daily-anomaly.mjs）")
           [ "$BUSINESS_OUTCOME" = "failure" ] && anomalies+=("資格別事業計測の取得失敗（fetch-business-metrics / business-review snapshot）")
+          [ "$GROWTH_RC" = "1" ] && anomalies+=("成長パック（fetch-growth-pack）の取得失敗（区画ごとの error は pack の sections を参照）")
+          [ "$BING_RC" = "1" ] && anomalies+=("Bing Webmaster の取得失敗")
+          [ "$GA4ADMIN_RC" = "1" ] && anomalies+=("GA4 Admin API の観測失敗")
+          [ "$GROWTH_RC" = "2" ] && invalid+=("成長パック: 認証なし、または週が GSC 確定前で取得せず")
+          [ "$BING_RC" = "2" ] && invalid+=("Bing Webmaster: BING_WEBMASTER_API_KEY 未設定（Bing Webmaster Tools → 設定 → API アクセスで発行し Secret へ）")
+          [ "$GA4ADMIN_RC" = "2" ] && invalid+=("GA4 Admin API: 権限不足または API 未有効化（ログの hint を参照）")
           [ "$INTEGRITY_RC" = "2" ] && invalid+=("check-data-integrity: ga4-date が無く検査不成立")
           [ "$ANOMALY_RC" = "2" ] && invalid+=("check-daily-anomaly: ga4-date が無く検査不成立")
           # 検査 step まで到達しなかった（前段で落ちた）場合も検査不成立として扱う

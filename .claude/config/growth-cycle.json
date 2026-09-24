@@ -1,0 +1,25 @@
+{
+  "_doc": ".claude/knowledge/reference/business-review.md",
+  "_why": "GA4 起点の計測→記録→改善サイクルの機械設定。週次の取得（scripts/fetch-growth-pack.mjs）が読む。週の定義は business-direction の reviewPeriod('weekly')（前の完了した月〜日・JST）を唯一の真実源とし、ここには複製しない。",
+  "schemaVersion": 1,
+  "baselineDays": 28,
+  "gscCountry": "jpn",
+  "organicSources": ["google", "bing", "yahoo"],
+  "events": [
+    "page_view",
+    "note_cta_click",
+    "note_cta_impression",
+    "affiliate_cta_click",
+    "affiliate_cta_impression",
+    "coconala_cta_click",
+    "brain_cta_click",
+    "standards_data_download",
+    "note_article_click",
+    "internal_nav_click",
+    "quiz_start",
+    "quiz_complete",
+    "quiz_cta_click",
+    "career_need_select",
+    "career_tool_result"
+  ]
+}

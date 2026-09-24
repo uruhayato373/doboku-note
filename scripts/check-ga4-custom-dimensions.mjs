@@ -111,6 +111,15 @@ if (!inventory) {
   for (const p of result.missing.filter((x) => !result.blockingMissing.includes(x))) {
     warnings.push(`カスタムディメンション未登録（optional）: ${p}`);
   }
+  // キーイベント（非 blocking）。Admin API の観測（source: admin-api）にだけ載る。Playwright 観測では未確認扱い。
+  const wantKeys = (desired.keyEvents ?? []).map((k) => k.eventName).filter(Boolean);
+  if (wantKeys.length) {
+    if (!inventory.keyEvents) {
+      warnings.push(`キーイベントは未観測（${wantKeys.length} 件期待）。\`npm run ga4-admin-api:check -- --commit\` で観測する（CI の fetch-metrics が毎週実行）`);
+    } else if ((inventory.keyEvents.missing ?? []).length) {
+      warnings.push(`キーイベント未登録: ${inventory.keyEvents.missing.join(", ")} → \`npm run ga4-admin-api:apply -- --commit\`（要: サービスアカウントを GA4 編集者に）`);
+    }
+  }
   if (result.dataRetentionDrift) {
     warnings.push(`データ保持のドリフト: ${result.dataRetentionDrift}（管理画面で人が変更・自動変更はしない）`);
   } else if (inventory.dataRetention?.unverified) {

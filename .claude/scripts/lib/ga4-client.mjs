@@ -51,22 +51,32 @@ export function ga4FromEnv(env = process.env) {
  * `limit: 1000` 固定で CTA クリックが無言で打ち切られていた欠陥（2026-09 発覚）の是正。
  * maxRows に達したら打ち切り、`truncated: true` を返して呼び出し側が meta に残す。
  *
- * @returns {Promise<{rows: object[], rowCount: number, truncated: boolean, metadata: object|null}>}
+ * dimensionHeaders は複数 dateRanges のとき API が末尾に足す `dateRange` 列の位置を名前で引くために返す。
+ *
+ * @returns {Promise<{rows: object[], rowCount: number, truncated: boolean, metadata: object|null, dimensionHeaders: string[], metricHeaders: string[]}>}
  */
 export async function runReportAll(client, request, { pageSize = 10000, maxRows = 100000 } = {}) {
   const rows = [];
   let rowCount = null;
   let metadata = null;
+  let dimensionHeaders = [];
+  let metricHeaders = [];
   for (let offset = 0; ; ) {
     const [res] = await client.runReport({ ...request, limit: pageSize, offset });
     const page = res.rows || [];
     if (rowCount === null) {
       rowCount = Number(res.rowCount ?? page.length);
       metadata = res.metadata ?? null;
+      dimensionHeaders = (res.dimensionHeaders ?? []).map((h) => h.name);
+      metricHeaders = (res.metricHeaders ?? []).map((h) => h.name);
     }
     rows.push(...page);
     offset += page.length;
     if (page.length === 0 || offset >= rowCount || rows.length >= maxRows) break;
   }
-  return { rows, rowCount, truncated: rows.length < rowCount, metadata };
+  return { rows, rowCount, truncated: rows.length < rowCount, metadata, dimensionHeaders, metricHeaders };
 }
+
+/** thresholding / sampling が掛かった集計か（掛かっていれば coverage は partial として扱う）。 */
+export const isLimited = (metadata) =>
+  Boolean(metadata?.subjectToThresholding || metadata?.samplingMetadatas?.length || metadata?.dataLossFromOtherRow);

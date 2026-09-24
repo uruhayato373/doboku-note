@@ -62,6 +62,10 @@ export const POLICIES = [
   { family: 'notes', dir: `${METRICS_ROOT}/notes`, match: /-\d{4}-\d{2}-\d{2}\.md$/, rule: 'keep-all' },
   { family: 'instagram', dir: `${METRICS_ROOT}/instagram`, match: /^ig-insights-\d{4}-\d{2}-\d{2}\.json$/, rule: { maxAgeDays: 180, keepNewestPerPrefix: 1 } },
   { family: 'cloudflare', dir: `${METRICS_ROOT}/cloudflare`, match: /^cf-zone-\d{4}-\d{2}-\d{2}\.json$/, rule: { maxAgeDays: 120, keepNewestPerPrefix: 1 } },
+  // 成長サイクル: pack は digest の入力（再計算用に 12 週）、digest は週次トリアージの対象（半年）
+  { family: 'growth', dir: `${METRICS_ROOT}/growth`, match: /^pack-\d{4}-W\d{2}\.json$/, rule: { keepNewest: 12 } },
+  { family: 'growth', dir: `${METRICS_ROOT}/growth`, match: /^digest-\d{4}-W\d{2}\.json$/, rule: { keepNewest: 26 } },
+  { family: 'bing', dir: `${METRICS_ROOT}/bing`, match: /^bing-\d{4}-\d{2}-\d{2}\.json$/, rule: { maxAgeDays: 120, keepNewestPerPrefix: 1 } },
 ];
 
 export const FAMILIES = [...new Set(POLICIES.map((p) => p.family))];

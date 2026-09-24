@@ -1,6 +1,6 @@
 {
   "$schema": "internal://ga4-admin-desired-state/v1",
-  "$note": "GA4 管理画面の **望ましい状態（desired state）** の SSOT。scripts/ga4-admin-setup.mjs が実機（Playwright）と突合し、customDimensions の欠落だけを --commit で作成する。dataRetention / unwantedReferrals は観測して差分を報告するだけ（アカウント設定の自動変更はしない）。運用手順 → .claude/knowledge/reference/gsc-management.md 照合キーは parameterName（displayName は表示のみ・実機に合わせて記録）。",
+  "$note": "GA4 管理画面の **望ましい状態（desired state）** の SSOT。scripts/ga4-admin-setup.mjs が実機（Playwright）と突合し、customDimensions の欠落だけを --commit で作成する。keyEvents は scripts/ga4-admin-api.mjs（Admin API・サービスアカウント）が観測し、apply --commit で不足分だけ作成する（要: プロパティの編集者）。dataRetention / unwantedReferrals は観測して差分を報告するだけ（アカウント設定の自動変更はしない）。運用手順 → .claude/knowledge/reference/gsc-management.md 照合キーは parameterName（displayName は表示のみ・実機に合わせて記録）。",
   "schemaVersion": 1,
   "propertyId": "419382901",
   "customDimensions": [
@@ -27,6 +27,32 @@
       ],
       "blocking": true,
       "$observed": "2026-07-30 実機: 表示名「cta_placement」/ スコープ イベント / パラメータ cta_placement / 作成 2026-07-25"
+    }
+  ],
+  "keyEvents": [
+    {
+      "eventName": "note_cta_click",
+      "why": "note 教材への送客。ページ別の送客率（sessionKeyEventRate）を GA4 標準指標で見る"
+    },
+    {
+      "eventName": "affiliate_cta_click",
+      "why": "転職アフィリエイトへの送客"
+    },
+    {
+      "eventName": "coconala_cta_click",
+      "why": "ココナラ（診断・添削・答案作成）への送客"
+    },
+    {
+      "eventName": "brain_cta_click",
+      "why": "Brain 商品への送客"
+    },
+    {
+      "eventName": "quiz_complete",
+      "why": "演習完了＝学習行動の到達点（business-direction の quizCompletions）"
+    },
+    {
+      "eventName": "standards_data_download",
+      "why": "共通仕様書データのダウンロード＝加工受託の入口"
     }
   ],
   "dataRetention": {

@@ -447,6 +447,10 @@
     "check-ogp-thumbnails": "node scripts/build-ogp-thumbnails.mjs --check",
     "business-review": "node scripts/business-review.mjs",
     "fetch-business-metrics": "node scripts/fetch-business-metrics.mjs",
+    "fetch-growth-pack": "node scripts/fetch-growth-pack.mjs",
+    "fetch-bing-webmaster": "node scripts/fetch-bing-webmaster.mjs",
+    "ga4-admin-api:check": "node scripts/ga4-admin-api.mjs check",
+    "ga4-admin-api:apply": "node scripts/ga4-admin-api.mjs apply",
     "check-business-direction": "node scripts/check-business-direction.mjs",
     "check-content-expansion": "node scripts/check-content-expansion.mjs"
   },
