@@ -214,14 +214,6 @@
 **やること**: 残りは W11 `n64f9653dc30c`（9/28 公開）だけ。公開後に `DOBOKU_PW_MIN_FREE_MB=1200 node scripts/note-magazine-add-articles.mjs --target mbe07bd5cecda --notes n64f9653dc30c --commit`（W8〜W10 は収録済み・現収録 10 件）。学科09/10・添削01 は単独記事なので収録不要。
 
 **完了条件**: 特典マガジンの収録が 10→11 件（API 実体確認）・`npm run check-membership-drip` 緑。
-### [DN-0235] develop への push で赤くなる CI（quality audit + build）に読み手を付ける
-タグ: [エージェント・SSOT] [種類:不具合] [起票:2026-09-14]
-
-**起点**: 2026-09-13T21:53 のマージ `0cf7faeb`（feat/claude-md-slim → develop）で CLAUDE.md が 147 行から 323 行へ戻り、`check-claude-md-size`（quality-audit `ci:true`）が develop の push ごとに落ちている。09-14 までに **6 run 連続で failure** だが、develop 直 push は PR の赤と違って誰の画面にも出ないため、1 日以上誰も気づかなかった（CLAUDE.md §9「赤いのに誰も見ていない検査は無いのと同じ」）。
-
-**やること**: develop の直近 `Pre-merge check` の conclusion を機械で surface する。候補は (a) SessionStart の `scripts/check-git-sync.mjs` に `gh run list --branch develop --limit 1` の failure を 1 行足す（`gh` が使える端末のみ・プロキシで取れないときは「未取得」と出す）、(b) `/weekly-review` の automation-failure 節に develop の失敗 run を列挙する。少なくとも (a) を入れ、`gh` 不可のときに緑と混同しない出力にする。
-
-**完了条件**: develop の最新 run が failure のとき、次のセッション開始時に赤い 1 行が出ること。CLAUDE.md の復元そのものは別作業（設定一本化の PR）で行う。
 
 
 ### [DN-0224] 教材の原典待ち17論点を復旧し記事・図解・SNSとの対応を再照合する
@@ -483,15 +475,6 @@ Mac で行う（各 1 回・順に）: (1) `git pull` で Windows 対応・設�
 
 **完了条件**: 週次レビューが機械出力から field 件数を転記でき、field 無し期間の判定規則が psi-config と measurement-incidents.md で一致していること。
 
-### [DN-0230] 週次レビューの申し送りが台帳へ届かない構造を塞ぐ（振り分けの必須化＋削除時の抽出ゲート）
-タグ: [エージェント・SSOT] [種類:改善] [Codex候補] [起票:2026-09-14]
-
-`/weekly-review` の出口は `docs/reviews/weekly/*-review.md` の「来週への申し送り」と `/weekly-plan` の Must/Should/Could までで、`.claude/todo/weekly.md` を書く `/plan-weekly` はそれを読まない。旧レビューの削除も `check-handoff-extraction` の対象外（`docs/handoffs/` だけ）なので、前送りの漏れを機械が止めない。2026-09-14 の W37 レビューで、申し送り 5 件に台帳上の居場所が無いことを実測。
-
-1. weekly-review SKILL の Phase 4 に「申し送りの各行を backlog 起票／weekly 定常運用／既存 ID・Issue・実験への接続 のいずれかへ振り分け、振り分け先をレビューに書く」を必須化する（skills-guide の更新は doc-coupling が要求）
-2. `scripts/check-handoff-extraction.mjs` の抽出ゲートを `docs/reviews/weekly/*.md` の削除にも適用する（削除される本文の申し送り行と DN-ID が backlog か最新レビューに残っているかを検査）。回帰テストを `tests/` に置く
-
-**完了条件**: 1・2 に回帰テストがあり、旧週レビューを抽出せずに削除するコミットが pre-commit で止まること。
 
 
 ### [DN-0207] 技術士一次・基礎科目の解析を途中式から学ぶ計算ガイド3本を作る

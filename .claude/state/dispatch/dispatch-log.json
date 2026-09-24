@@ -1267,6 +1267,30 @@
       "commit": "816297fba017",
       "verification": "PR #624 マージ: 8 検査に run() を export し session-start.mjs を import 実行に。実行中 node 最大 1 本（前 2 本）、出力差は空きメモリ値と時刻のみ、tests/session-start.test.mjs ほか 117 pass",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0230",
+      "at": "2026-09-24",
+      "task": "週次レビューの申し送りが台帳へ届かない構造を塞ぐ（振り分けの必須化＋削除時の抽出ゲート）",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "1cf6d889018c",
+      "verification": "PR #625 マージ: weekly-review Phase 4 に振り分け必須化（規則 4・W39〜）と、週次レビュー削除時の抽出ゲート（規則 3）。tests/handoff-extraction.test.mjs 11 pass、実フックで W38-review を抽出せず削除するコミットが exit 1 で止まることを確認",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0235",
+      "at": "2026-09-24",
+      "task": "develop への push で赤くなる CI（quality audit + build）に読み手を付ける",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "1cf6d889018c",
+      "verification": "PR #626 マージ: check-git-sync が develop の最新 Pre-merge check を読み、failure なら ✗ の 1 行、gh 不可は「未取得」。テスト 10 pass",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }
