@@ -162,6 +162,7 @@ const CHECKS = [
   { id: 'figure-embed-dims', npm: 'check-figure-embed-dims', timeout: 90_000, ci: true, note: 'ArticleImage の width/height と SVG の実 viewBox の突合。従来は r2-audit（週次 cron）と pre-commit(staged) だけで、push 経路に backstop が無かった' },
   { id: 'bold-rendering', npm: 'check-bold-rendering', timeout: 120_000, ci: true, note: '閉じ/開き ** が flanking を満たさず太字にならずアスタリスクが本文に出る事故。remark で実パースして text ノードに ** が残るかで判定する（規則の再実装ではない）。2026-09-23 から note 記事（content/note の article*.md）も対象' },
   { id: 'note-duplicate-images', npm: 'check-note-duplicate-images', timeout: 60_000, ci: true, note: 'note 記事の本文で同じ画像を 2 回使うと 2 枚目が CDN 確定に至らず全文更新が中断し、その記事を再公開できなくなる（2026-09-23 実測・著者バナー重複 29 本）。pre-commit の note-lint 規則 10 と同じ判定を全件に当てる' },
+  { id: 'note-inline-code', npm: 'check-note-inline-code', timeout: 60_000, ci: true, note: 'note 記事の本文にインラインのバッククォートがあると、note は描画せず記号のまま出す（2026-09-23 に公開 906 本中 248 本で確認・DN-0277）。pre-commit の note-lint 規則 11 と同じ判定を全件に当てる' },
   { id: 'table-rendering', npm: 'check-table-rendering', timeout: 120_000, ci: true, note: 'GFM テーブルが table にならず生のパイプ区切りテキストで表示される事故（2026-08-28: 改行の \\r\\r\\n 破損で過去問18本／ヘッダとデリミタのセル数不一致で r02-primary）。原因ごとにルールを足さず、remark 実パースで「デリミタ行が text ノードに残る」症状そのものを見るので未知の原因も同じ網で拾う' },
   { id: 'orphan-ogp', npm: 'check-orphan-ogp', timeout: 90_000, ci: true },
   // 2026-08-18: 実質オーファンだった（package.json にはあるがどの経路にも配線なし）。EPUB の書式インバリアントは epubcheck が見ない領域で、ビルダー 2 本に CSS/構造がコピー実装されている。
