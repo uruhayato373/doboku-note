@@ -1219,6 +1219,30 @@
       "commit": "815357515299",
       "verification": "PR #620 マージ: Pre-merge check に npm audit (report only) ステップを追加。PR の CI で success・job summary に audit 出力（ローカル実測 moderate 2・high 以上 0）。check-workflow-hygiene 違反なし",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0225",
+      "at": "2026-09-24",
+      "task": "`check-external-write-orphans` が取得失敗を数えずに「✓ 痕跡なし」を返す偽 PASS を直す",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "88fca89a3138",
+      "verification": "PR #621 マージ: 対象 run 数・実検査数・取得失敗数を毎回出力、取得失敗 1 本以上で exit 2「検査不成立（N/M 取得失敗）」、全件失敗・0 件対象を区別。偽 gh で Proxy 失敗を再現する CLI テストを含む 6 pass。実データで対象 10・実検査 10・失敗 0",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0259",
+      "at": "2026-09-24",
+      "task": "`*-diagrams` X カード PNG（098/099・35 枚）が `.gitignore` 下で描画台帳に載らず、ローカルの `check-x-card-render` が恒常赤",
+      "tier": "low",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "88fca89a3138",
+      "verification": "PR #622 マージ: 対象を .gitignore 済み以外（git ls-files --cached --others --exclude-standard）に一本化。ローカル（ignore 済み PNG あり）でも 56 枚検査 error 0 で CI と同じ緑。098〜103 の 53 枚は ignore 側に一本化",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }

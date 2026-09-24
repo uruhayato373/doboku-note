@@ -501,12 +501,6 @@ Mac で行う（各 1 回・順に）: (1) `git pull` で Windows 対応・設�
 
 **完了条件**: 1・2 に回帰テストがあり、旧週レビューを抽出せずに削除するコミットが pre-commit で止まること。
 
-### [DN-0225] `check-external-write-orphans` が取得失敗を数えずに「✓ 痕跡なし」を返す偽 PASS を直す
-タグ: [エージェント・SSOT] [種類:不具合] [Codex候補] [起票:2026-09-14]
-
-2026-09-14 の週次レビューで、直近 30 日の失敗 run 9 本のうち 5 本の取得が `Proxy Authentication Required` で失敗したまま「外部成功 × 記録失敗 の痕跡なし」を exit 0 で返した。取得失敗は warning に流れるだけで検査数に反映されず、社内プロキシ配下では常に部分不成立の緑になる（CLAUDE.md §9「検査ゼロを PASS と呼ばない」の型）。
-
-**完了条件**: 対象 run 数・実検査数・取得失敗数を必ず出力し、取得失敗が 1 本でもあれば「検査不成立（N/M 取得失敗）」を明示して exit 2 にする（全件失敗と 0 件対象も区別する）。取得失敗を再現する回帰テストを付ける。
 
 ### [DN-0207] 技術士一次・基礎科目の解析を途中式から学ぶ計算ガイド3本を作る
 タグ: [コンテンツ品質] [種類:制作] [Codex候補] [起票:2026-09-13]
@@ -685,14 +679,6 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 **完了条件**: 埋め込めない URL を先頭に置いた単体テストで、後ろの URL がカード化される。n0171b3105e2d の公開 API に note 記事 URL（n4fde0f62dc20）のカードがある。
 
 
-### [DN-0259] `*-diagrams` X カード PNG（098/099・35 枚）が `.gitignore` 下で描画台帳に載らず、ローカルの `check-x-card-render` が恒常赤
-タグ: [SNS・マーケ] [種類:改善] [検証:check-x-card-render] [起票:2026-09-20]
-
-**起点**: `.gitignore:417` の `content/sns/x/draft/*-diagrams/img/tweet-*.png` で 098-cem-textbook-diagrams / 099-pe-construction-textbook-diagrams の X カード 35 枚は追跡外。`check-x-card-render`（ci:true）は台帳 `.claude/state/sns/x-card-render.json` と実 PNG を突合するので、CI（PNG 無し）は緑・ローカル（PNG あり・台帳無し）は赤になり、ローカルの `quality:audit --ci` が毎回この 35 件で落ちる（2026-09-19 実測）。`gen-x-card --all --force` で台帳へ載せると今度は CI 側が「台帳にあるのに PNG が無い」になる恐れがある。
-
-**やること**: 検査の対象を「git 追跡下の PNG」に限定する（`git rm --cached` 後の on-disk 件数と同じ「ローカルだけ緑/赤」の型・`git ls-files -z` で列挙）か、`*-diagrams` の ignore をやめて追跡するかを決めて 1 つにする。決めたら `check-x-card-render` の走査元を合わせ、ローカルと CI の結果を一致させる。
-
-**完了条件**: ローカルと CI の `check-x-card-render` が同じ結果（緑）になり、098/099 の 35 枚の扱いが台帳か ignore のどちらかに一本化されている。
 
 ### [DN-0243] 年度表現の陳腐化（「2026 年度」「令和 8 年」）を年替わりで検知する
 タグ: [コンテンツ品質] [種類:改善] [検証:check-exam-calendar] [起票:2026-09-17]
