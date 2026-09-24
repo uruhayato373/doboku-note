@@ -36,6 +36,14 @@ test('部分更新 spec は article と限定 operation を必須にする', () 
   }));
   assert.doesNotThrow(() => validatePartialSpec({
     article: 'content/note/x/article.md',
+    operations: [{ type: 'insertBeforeBlockHtml', beforeNeedle: '最初の段落', html: '<p><strong>この記事でわかること</strong></p><ul><li>項目</li></ul>', probe: 'この記事でわかること' }],
+  }));
+  assert.throws(() => validatePartialSpec({
+    article: 'content/note/x/article.md',
+    operations: [{ type: 'insertBeforeBlockHtml', beforeNeedle: '最初の段落', html: '<p onclick="x">a</p>', probe: 'a' }],
+  }), /許可されない/);
+  assert.doesNotThrow(() => validatePartialSpec({
+    article: 'content/note/x/article.md',
     operations: [{ type: 'replaceImage', imageIndex: 0, expectedImages: 1, oldSrcKey: 'old.png', file: 'content/note/x/img/new.png', followingProbe: '図の見方' }],
   }));
   assert.throws(() => validatePartialSpec({

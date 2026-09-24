@@ -71,6 +71,7 @@ function countSquares(text) {
     .replace(/\*\*/g, '')
     .replace(/\*/g, '')
     .replace(/`/g, '')
+    .replace(/【([〇○]+)】/g, '$1') // 目印【〇〇】の括弧は答案に書かないので数えない（DN-0277）
     .replace(/^\s*[-*]\s+/gm, '') // 箇条書きマーカー
     .replace(/^\s*>\s?/gm, '') // 引用
     .replace(/\|/g, '') // 表罫線
