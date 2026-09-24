@@ -225,6 +225,22 @@ jobs:
           GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
         run: npm run fetch-ga4-cta-clicks -- --key-events
 
+      # 月次の突き合わせ（report-site-to-sales）は暦月ちょうどの by-label を要る。週次の 28 日窓は月とずれるので、
+      # 月初 7 日以内の金曜だけ前月 1 日〜末日の by-label を取る（年 12 回・同じ月を何度も取らない）。
+      - name: Fetch GA4 (CTA clicks by label, previous calendar month)
+        continue-on-error: true
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+        run: |
+          day=$(TZ=Asia/Tokyo date +%d)
+          if [ "$day" -le 7 ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            prev=$(TZ=Asia/Tokyo date -d "$(TZ=Asia/Tokyo date +%Y-%m-01) -1 day" +%Y-%m)
+            npm run fetch-ga4-cta-clicks -- --month "$prev" --by-label
+          else
+            echo "月初 7 日以外なのでスキップ（day=$day）"
+          fi
+
       # afb（アフィリエイトB）成果を公式 API で取得する。Playwright 提携状態スキャンとは別系統
       # （読み取り専用の conversion API・doboku-note の partner_site_id=984453 を行ごとに検査して
       # 他サイト混入を防ぐ）。取得失敗はワークフロー全体を落とさず、鮮度は quality-audit の ops 区分
