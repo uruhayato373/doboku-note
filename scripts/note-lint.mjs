@@ -22,6 +22,7 @@
  *   8. 段落長（無料記事のみ）— 地の文 200 字以上（回避: SKIP_NOTE_PARA=1）
  *   9. 複数行 blockquote — `>` 連続2行以上は note paste で中身脱落（回避: SKIP_NOTE_BQ=1）
  *  10. 同じ画像の重複 — 2 枚目が note の CDN 確定に至らず全文更新が中断する（lib/note-duplicate-images.mjs）
+ *  11. インラインのバッククォート — note は `〇〇` を記号のまま出す。目印は【〇〇】（lib/note-inline-code.mjs）
  *   8. 段落長（無料記事のみ） — notePricing: free の地の文段落が表示 200 字以上でブロック
  *      （B5 基準 = 1段落2-3文。模範論文など有料は散文答案が仕様のため対象外。SKIP_NOTE_PARA=1 で回避）
  *
@@ -37,6 +38,7 @@ import { fileURLToPath } from 'node:url';
 import { checkLineEndings } from './lib/line-endings.mjs';
 import { findAnswerStartLine, isAnswerPart } from './lib/note-answer-zone.mjs';
 import { findDuplicateImages } from './lib/note-duplicate-images.mjs';
+import { findInlineCode } from './lib/note-inline-code.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const BOLD_CHECKER = join(ROOT, '.claude', 'scripts', 'check-note-bold-paren.mjs');
@@ -281,6 +283,13 @@ function checkDuplicateImages(content) {
     msg: `同じ画像を重複使用（初出 ${d.firstLine} 行目）: ${d.path}。2 枚目は note の CDN 確定に至らず全文更新が中断する。この行を削除`,
   }));
 }
+// 11. インラインのバッククォート。全件検査は check-note-inline-code（CI）が同じ判定で行う。
+function checkInlineCode(content) {
+  return findInlineCode(content).map((h) => ({
+    line: h.line,
+    msg: `インラインのバッククォート ${h.text} は note で記号のまま表示される。目印は【〇〇】、数値・式はバッククォートを外す（DN-0277）`,
+  }));
+}
 // ツール呼び出しXMLの残骸（生成時にエージェントの function-call 断片が本文へ混入）。
 // note 試験対策記事にこれらのタグが正当に出ることはまずない＝100% 削除対象（契約調達R07事故、2026-06-11）。
 function checkToolArtifact(content) {
@@ -312,7 +321,7 @@ const partialState = buildPartialInjectionState(files);
 let violations = 0;
 for (const f of files) {
   const content = readFileSync(f, 'utf8');
-  const issues = [...checkPipeTable(content), ...checkMojibake(content), ...checkLineEndingIssue(content), ...checkMagazineLinkCard(content), ...checkMagazineCta(f), ...checkNote3set(f), ...checkBoldParen(f), ...checkPartialInjection(f, partialState), ...checkDeprecatedSection(content), ...checkToolArtifact(content), ...checkParagraphLength(f, content), ...checkMultilineBlockquote(content), ...checkDuplicateImages(content)];
+  const issues = [...checkPipeTable(content), ...checkMojibake(content), ...checkLineEndingIssue(content), ...checkMagazineLinkCard(content), ...checkMagazineCta(f), ...checkNote3set(f), ...checkBoldParen(f), ...checkPartialInjection(f, partialState), ...checkDeprecatedSection(content), ...checkToolArtifact(content), ...checkParagraphLength(f, content), ...checkMultilineBlockquote(content), ...checkDuplicateImages(content), ...checkInlineCode(content)];
   if (issues.length) {
     violations += issues.length;
     const rel = f.replace(ROOT + '\\', '').replace(ROOT + '/', '').replace(/\\/g, '/');
