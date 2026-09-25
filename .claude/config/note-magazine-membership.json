@@ -67,20 +67,21 @@
         "1級土木-二次まるごとパック"
       ],
       "fromMagazines": {
-        "civil-1-keiken-complete-pack": 101,
-        "civil-1-gakka-kijutsu": 5
+        "civil-1-keiken-complete-pack": "all",
+        "civil-1-gakka-kijutsu": "all"
       },
-      "reason": "1級土木 二次検定まるごとパック。実測（2026-08-24）のライブ 108 本＝完全攻略パックから 101 本＋テーマ別出る順 5 本＋固有 2 本（パック案内 ¥0 がラベル付き 1 本、直前暗記ノート ¥980 が extras 1 本）。**一部同梱**なので構成元をまるごと足さない"
+      "reason": "1級土木 二次検定まるごとパック（¥11,800）。完全攻略パックと二次学科記述テーマ別出る順を**丸ごと**同梱し、パック案内 ¥0 がラベル付き 1 本、単体記事 3 本（直前暗記ノート・R8予想模試3回・出題分析）は extras。",
+      "_history": "2026-08-24 に「完全攻略パック 151 本のうち 101 本の一部同梱」と実測して本数 101 を書いたが、実際は 8/20 に完全攻略パックへ足した工事101〜150 などの収録漏れだった（説明文は「完全攻略パックの全模範答案」を約束）。本数で書いたため欠けたまま緑になり、2026-09-25 に購入者の指摘で発覚。68 本を追加して 110→178 本にし、\"all\"（記事 key の包含照合）へ切り替えた。"
     },
     "civil-2-niji-marugoto-pack": {
       "labels": [
         "2級土木-二次まるごとパック"
       ],
       "fromMagazines": {
-        "civil-2-koji-bank": 61,
-        "civil-2-pastexam-essay": 5,
-        "civil-2-experience-essay": 3,
-        "civil-2-gakka-kijutsu": 5
+        "civil-2-koji-bank": "all",
+        "civil-2-pastexam-essay": "all",
+        "civil-2-experience-essay": "all",
+        "civil-2-gakka-kijutsu": "all"
       },
       "reason": "2級土木 二次検定まるごとパック（¥8,800・2026-09-17 新設）。想定工事バンク 61（索引含む）＋過去問模範答案集 5＋完成答案集 3＋学科記述出る順 5 を**まるごと**同梱し、パック案内 ¥0 がラベル付き 1 本。単体記事4本（直前暗記ノート・R8予想模試3回・出題分析・小規模地域インフラ4工事）は extras。API 実測79本。"
     },
@@ -89,8 +90,8 @@
         "コンクリート主任技士-まるごとパック"
       ],
       "fromMagazines": {
-        "cce-essay-magazine": 5,
-        "cce-essay-persona-pack": 33
+        "cce-essay-magazine": "all",
+        "cce-essay-persona-pack": "all"
       },
       "reason": "コンクリート主任技士 まるごとパック（¥9,800・2026-09-04 新設）。小論文 模範答案集 5 本＋実務立場別小論文集 33 本を**まるごと**同梱し、パック案内 ¥0 がラベル付き 1 本、単体記事 2 本（四肢択一 R8予想50問・配合計算 実戦演習12問）は extras。構成元マガジンは据え置きで単品購入も継続する"
     },
@@ -134,7 +135,8 @@
         "cd-essay-magazine": 5,
         "cd-structure-case-bank": 4
       },
-      "reason": "解法ガイドと道路・橋梁系8ケースを選抜収録。既存記述式から5記事、構造物別から4記事の全9記事。"
+      "reason": "解法ガイドと道路・橋梁系8ケースを選抜収録。既存記述式から5記事、構造物別から4記事の全9記事。",
+      "partialReason": "道路・橋梁系の構造物だけを選ぶ分野別パック。構造物別8ケースのうち道路・橋梁系4ケースと、記述式のうち解法ガイド・該当ケースに絞る"
     },
     "cd-water-underground-pack": {
       "labels": [],
@@ -142,7 +144,8 @@
         "cd-essay-magazine": 2,
         "cd-structure-case-bank": 4
       },
-      "reason": "解法ガイドと水・地下系5ケースを選抜収録。既存記述式から2記事、構造物別から4記事の全6記事。"
+      "reason": "解法ガイドと水・地下系5ケースを選抜収録。既存記述式から2記事、構造物別から4記事の全6記事。",
+      "partialReason": "水・地下系の構造物だけを選ぶ分野別パック。構造物別8ケースのうち水・地下系4ケースと、記述式の解法ガイド・該当ケースに絞る"
     },
     "cd-building-facility-pack": {
       "labels": [],
@@ -150,22 +153,25 @@
         "cd-essay-magazine": 3,
         "cd-structure-case-bank": 2
       },
-      "reason": "解法ガイドと建築・施設系4ケースを選抜収録。既存記述式から3記事、構造物別から2記事の全5記事。"
+      "reason": "解法ガイドと建築・施設系4ケースを選抜収録。既存記述式から3記事、構造物別から2記事の全5記事。",
+      "partialReason": "建築・施設系の構造物だけを選ぶ分野別パック。構造物別8ケースのうち建築・施設系2ケースと、記述式の解法ガイド・該当ケースに絞る"
     },
     "cd-problem-a-pack": {
       "labels": [],
       "fromMagazines": {
         "cd-essay-magazine": 3
       },
-      "reason": "既存記述式から解法ガイドと問題A模範答案2本を選抜した全3記事。"
+      "reason": "既存記述式から解法ガイドと問題A模範答案2本を選抜した全3記事。",
+      "partialReason": "問題A だけの対策パック。記述式模範答案集のうち解法ガイドと問題A 模範答案2本に絞り、問題B は含めない"
     },
     "cd-problem-b-pack": {
       "labels": [],
       "fromMagazines": {
         "cd-essay-magazine": 6,
-        "cd-structure-case-bank": 8
+        "cd-structure-case-bank": "all"
       },
-      "reason": "解法ガイド、既存の問題B 5ケース、構造物別8ケースを収録した全14記事。"
+      "reason": "解法ガイド、既存の問題B 5ケース、構造物別8ケースを収録した全14記事。",
+      "partialReason": "問題B だけの対策パック。記述式模範答案集から問題A の2本を除き、構造物別8ケースは全収録する"
     },
     "cd-essay-complete-pack": {
       "labels": [
@@ -177,7 +183,7 @@
     "cd-marugoto-pack": {
       "labels": [],
       "fromMagazines": {
-        "cd-essay-complete-pack": 16
+        "cd-essay-complete-pack": "all"
       },
       "reason": "記述式完全パックの16記事と四肢択一98問PDFの単体記事1本を収録した全17記事。"
     }
