@@ -132,6 +132,7 @@ npm run coconala-orders   # ココナラ受注＋購入前DMの実体を read-on
 npm run coconala-talkroom -- <talkroomId> # トークルーム1件のメッセージと添付（原寸・docx は本文 .txt も）を .tmp/coconala/talkrooms/{id}/ へ取得（Playwright・送信なし・開くと既読になる）。添付はホバーで出るボタンの download イベントから署名URLを受けて取得＝saveAs を使わない。exit 2=添付の取りこぼし
 npm run check-coconala-orders # 上記 snapshot ↔ orders-log をオフライン突合（記録漏れ・金額ズレ・返信期限〔48h自動キャンセル〕・DM要対応）
 npm run check-tensaku-reply -- <返信文> --source <提出原稿> --grade 1 # 添削・診断・作成の顧客返信文を送信前に検査（3000字・外部誘導・合格保証・下書き注記・書き換え例の（N字）表記と解答欄・原稿に無い工事の数値）。--source なしは exit 2（未検査を緑にしない）。意味の評価は civil-keiken-tensaku-qa
+npm run check-kosshi-sheet -- <骨子シート> --source <ヒアリングシート> # S3 指導の骨子シートを送信前に検査（「」引用と数値がヒアリングシートに実在・引用の外の地の文は1行60字以内で句点なし＝答案の文章を書かない・各テーマに（1）（2）の区画・1引用30字以内・外部誘導/合格保証/下書き注記）。exit 0/1/2（2=--source なし）。civil-keiken-tensaku-qa が mode=kosshi で実行
 npm run coconala-analytics # ココナラ分析画面（全体/サービス別/ブログ別）を read-only 収集→analytics-snapshot.json（--append-kpi で kpi-log へ週次 upsert・定期取得は login-collectors.yml・Playwright・書き込みなし）
 npm run check-coconala-analytics # 上記の鮮度・欠測・マスク値（0000は0でない）・kpi-log 整合をオフライン検査
 npm run check-coconala-wiring # カタログ↔listings↔商品画像↔受注/KPI/売上の整合と、PDF の価格ルール（note 基準×1.1 以上）を検査（pre-commit --staged＋CI）

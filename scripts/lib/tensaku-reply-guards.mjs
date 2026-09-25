@@ -14,6 +14,7 @@
  *   R4 下書き残り — AI 下書き注記・運営者向けメモの消し忘れ
  *   R5 書き換え例 — 見出し末尾の（N字）表記と実字数の一致・解答欄上限以内・8割以上
  *   R6 数値の出典 — 工事の事実を表す数値（箇所・分・班・km・m² 等）が提出原稿に実在する
+ *                    （「受け取りから48時間以内」のような返却期限＝サービス条件は対象外）
  * ---------------------------------------------------------------------------
  */
 import { assertNoExternalLinks, assertNoContactInfo, BlogGuardError } from './coconala-blog-guards.mjs';
@@ -46,10 +47,16 @@ export function normalizeDigits(s) {
 /** 字数の数え方は keiken-charcount と同じ（空白・改行を除いた実文字数） */
 export const countChars = (s) => String(s ?? '').replace(/\s/g, '').length;
 
-function factTokens(text) {
+// 「受け取りから48時間以内」「受領後24時間」等の返却期限は工事の事実ではない
+const SERVICE_TERM_BEFORE_RE = /(?:受け取り|受領|ご購入|購入)(?:から|後)\s*$/;
+
+export function factTokens(text) {
   const t = normalizeDigits(text);
   const out = [];
-  for (const m of t.matchAll(FACT_RE)) out.push({ raw: m[0], value: m[1].replace(/,/g, ''), unit: m[2] });
+  for (const m of t.matchAll(FACT_RE)) {
+    if (SERVICE_TERM_BEFORE_RE.test(t.slice(Math.max(0, m.index - 8), m.index))) continue;
+    out.push({ raw: m[0], value: m[1].replace(/,/g, ''), unit: m[2] });
+  }
   for (const m of t.matchAll(YEAR_RE)) out.push({ raw: m[0], value: m[1], unit: '年' });
   return out;
 }

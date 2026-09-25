@@ -121,7 +121,7 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 | `talkroomId` | **必須**。ココナラのトークルーム ID（`https://coconala.com/talkrooms/{id}`）＝取引の一意キー・突合キー。これが無いと後からどの取引か辿れない |
 | `priceYen` | 販売額（手数料差引前）。カタログと不一致なら要説明（価格改定時は memo に改定日）。見積り受注は `quote.amountYen` と一致必須 |
 | `grade` | 1 or 2（級）。級の無い商品は null |
-| `status` | `received` → `delivered` → `revised`（書き直し対応）→ `closed`（**購入者評価まで送信済み**） |
+| `status` | `received` → `delivered` → `revised`（書き直し対応）→ `closed`（**購入者評価まで送信済み**）。S3 指導は `received` → `kosshi-sent`（骨子シート送付済み・本人の答案待ち。`received` の滞留警告の対象外）→ `delivered`（添削の返却＝正式納品）→ … |
 | `replyDueAt` | 返信期限（**無連絡で自動キャンセル**になる時刻）。snapshot が拾えたら転記 |
 | `deliveredAt` | 納品した日時（ISO）。未納品は null |
 | `artifacts` | 納品した成果物 `[{ file, sha256, builtAt }]`。**どの版を送ったかを特定するため** |
@@ -288,10 +288,11 @@ DM 一覧 = `/message?fromMyPage=true`、行 = `a.c-messageItemWrap[href="/mypag
       ├ serviceId でタイプ分岐:
       │   S1 診断  → /keiken-tensaku --mode shindan → 診断下書き.md（A/B/C＋ワースト3・書き換え文なし）
       │   S2 添削  → /keiken-tensaku            → 添削下書き.md（NG→OK 2点）
-      │   S3 作成  → 宣誓/素材検査→/keiken-tensaku --mode sakusei → 答案ドラフト.md（事実確認チェックリスト）
+      │   S3 指導  → 宣誓検査→/keiken-tensaku --mode kosshi → 骨子シート.md（check-kosshi-sheet）→ 送付（途中経過）
+      │              → 本人の答案を受領→/keiken-tensaku（添削）→ 添削下書き.md → 正式納品
       │   C系 PDF → ヒアリング不要・キット §4c「C系 PDF 送付」文＋該当PDF特定
       ├ 納品文面ドラフト生成（S1/S2/S3 は 返信文.txt にまとめる）
-      ├ 返信文を civil-keiken-tensaku-qa（機械ゲート check-tensaku-reply を含む）で PASS まで検証（S1/S2/S3・FAIL のまま運営者へ渡さない）
+      ├ 返信文を civil-keiken-tensaku-qa（機械ゲート check-tensaku-reply を含む・S3 の骨子は check-kosshi-sheet も）で PASS まで検証（S1/S2/S3・FAIL のまま運営者へ渡さない）
       └ orders-log へ append（status: received・**talkroomId 必須**・replyDueAt を転記）
   → npm run check-coconala-orders（記録漏れ・金額ズレ・返信期限を機械で確認）
   → ★運営者: 最終赤入れ/事実確認（10〜30分・C系は送付のみ）→ トークルームへ送信
@@ -386,7 +387,7 @@ npm run coconala-rate-buyer -- <talkroomId> <コメントtxt> --submit   # 送�
 
 ## 5. 安全弁
 
-1. **捏造禁止（Red Line #2・2026-07-18 再定義）** — 経験していない工事・事実・数値を創作しない。答案作成（S3）は**本人の実工事のヒアリング事実のみ**から構成（宣誓＋本人の事実確認を必須・欠落数値は `〇〇` プレースホルダ）。旧「代筆禁止＝作成代行は出品しない」を改訂（真実源 → noteコンテンツ計画 §Red Line #2）
+1. **捏造禁止（Red Line #2・2026-07-18 再定義）** — 経験していない工事・事実・数値を創作しない。答案作成（S3）は**本人の実工事のヒアリング事実のみ**から構成（宣誓＋本人の事実確認を必須・欠落数値は `〇〇` プレースホルダ）。旧「代筆禁止＝作成代行は出品しない」を改訂（真実源 → noteコンテンツ計画 §Red Line #2）。**2026-09-25 追記**: 作成（答案ドラフトの納品）はココナラ運営に「学校の課題の代行」として取り下げられた（事実のみ・捏造なしの建て付けでも通らない）。S3 は代筆しない**指導**（骨子シート→本人が書いた答案の添削）に作り替え、骨子シートに答案の文章を入れないことを `check-kosshi-sheet` で止める
 2. **外部誘導禁止（ココナラ規約）** — ココナラ向け文面に note・doboku-note.com の URL を書かない。導線は逆向き（サイト/note → ココナラ）のみ。**出品文面・トークルーム・納品PDF だけでなく「ブログ」にも及ぶ**（ブログ投稿エディタが「外部サービスのリンクを記載する行為」を禁止と明示・§9.1）＝ブログを自サイト集客に使う設計は成立しない
 3. **出品・修正は自動化・返信送信は運営者** — 出品・内容修正・価格反映は `/coconala-publish`（account assert＋draft-first＋`--commit` gate）で行う。一方**トークルームの返信送信・購入者対応は運営者（人間）**。「（購入者へ）送信した」と報告しない。バリデーションエラー時は「公開した」と言わない
 4. **価格の直書き禁止** — 真実源はカタログ。文面に価格を出すならカタログから転記し、改定はカタログ→キットの順で同一 commit
