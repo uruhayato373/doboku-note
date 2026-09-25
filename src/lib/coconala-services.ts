@@ -233,7 +233,7 @@ const SERVICES_RAW = {
   //   check-coconala-wiring は serviceUrl の"形式"しか見ておらず実在を検査していなかった。
   //   2026-09-25 ユーザー決定（級別化＋4テーマ廃止）: 1級は5管理（品質・安全・工程・施工計画・環境対策）が
   //   全出題を読めない以上の完成形のため「4テーマ」を「5管理フル」へ作り替え、1級専用に改題。
-  //   2級版は新設の coconala-2kyu-sakusei-3theme（¥10,500）。¥16,000→¥20,000（5/4倍・¥15,000超の
+  //   2級版は新設の coconala-2kyu-sakusei-3theme（¥10,000。単価比例の ¥10,500 はココナラの価格刻み〔¥10,000超は1,000円刻み〕に合わないため）。¥16,000→¥20,000（5/4倍・¥15,000超の
   //   1,000円刻み）。受け取りから72時間以内に短縮（既存7日から）。id・serviceUrl は不変。
   'coconala-sakusei-4theme': {
     id: 'coconala-sakusei-4theme',
@@ -257,8 +257,8 @@ const SERVICES_RAW = {
   // 3管理フルで全出題をカバーする設計（1級の5管理とは価格・スコープが非対称）。
   'coconala-2kyu-tensaku': {
     id: 'coconala-2kyu-tensaku',
-    status: 'draft',
-    serviceUrl: '',
+    status: 'listed',
+    serviceUrl: 'https://coconala.com/services/4418775',
     title: '2級土木経験記述を24時間で添削します',
     shortTitle: '2級 経験記述 添削（2テーマ・24時間）',
     description:
@@ -267,11 +267,12 @@ const SERVICES_RAW = {
     priceYen: 5000,
     examScope: ['civil-2'],
     weeklyCapacity: 2,
+    listedAt: '2026-09-25',
   },
   'coconala-2kyu-tensaku-3theme': {
     id: 'coconala-2kyu-tensaku-3theme',
-    status: 'draft',
-    serviceUrl: '',
+    status: 'listed',
+    serviceUrl: 'https://coconala.com/services/4418778',
     title: '2級土木経験記述3管理を添削します',
     shortTitle: '2級 経験記述 添削（3管理フル）',
     description:
@@ -280,11 +281,12 @@ const SERVICES_RAW = {
     priceYen: 7500,
     examScope: ['civil-2'],
     weeklyCapacity: 1,
+    listedAt: '2026-09-25',
   },
   'coconala-2kyu-sakusei': {
     id: 'coconala-2kyu-sakusei',
-    status: 'draft',
-    serviceUrl: '',
+    status: 'listed',
+    serviceUrl: 'https://coconala.com/services/4418781',
     title: '2級土木経験記述を作成します',
     shortTitle: '2級 経験記述 作成（2テーマ）',
     description:
@@ -293,19 +295,21 @@ const SERVICES_RAW = {
     priceYen: 7000,
     examScope: ['civil-2'],
     weeklyCapacity: 2,
+    listedAt: '2026-09-25',
   },
   'coconala-2kyu-sakusei-3theme': {
     id: 'coconala-2kyu-sakusei-3theme',
-    status: 'draft',
-    serviceUrl: '',
+    status: 'listed',
+    serviceUrl: 'https://coconala.com/services/4418785',
     title: '2級土木経験記述3管理を作成します',
     shortTitle: '2級 経験記述 作成（3管理フル）',
     description:
       '2級土木施工管理技士 第2次検定の施工経験記述（問題1）を、ヒアリングへのご回答をもとに3管理（品質管理・安全管理・工程管理）すべての記述ドラフトに構成する上位版。当日どの2テーマが指定されても対応できるよう備え、受け取りから72時間以内にお返しします。学校の課題の代行ではなく、国家資格の第2次検定で問われる本人の実務経験が対象です（経験していない工事の記述＝捏造はお受けしません）。事実・数値はすべてご回答から構成し、納品は本人の事実確認を前提とした「ドラフト」＋書き直し1回。合格を保証するものではありません。',
-    price: '¥10,500（2級・3管理フルセット・書き直し1回込み）',
-    priceYen: 10500,
+    price: '¥10,000（2級・3管理フルセット・書き直し1回込み）',
+    priceYen: 10000,
     examScope: ['civil-2'],
     weeklyCapacity: 1,
+    listedAt: '2026-09-25',
   },
 
   // C1: 出題分析 PDF。2026-08-05 統廃合で出品停止（paused）＝フルパック（C10）専用コンテンツ化。

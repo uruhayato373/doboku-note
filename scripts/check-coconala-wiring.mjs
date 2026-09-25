@@ -34,7 +34,7 @@ import { checkPauseReasons, findOverdueResume } from './lib/coconala-guards.mjs'
 import { todayJst } from './lib/jst-date.mjs';
 import { loadManifest as loadAssetManifest } from './lib/asset-storage.mjs';
 import { loadDriveManifest } from './lib/drive-vault.mjs';
-import { parseNotePrices, checkPriceParity } from './lib/coconala-price-parity.mjs';
+import { parseNotePrices, checkPriceParity, isCoconalaPriceStep } from './lib/coconala-price-parity.mjs';
 
 const ROOT = process.cwd();
 const CATALOG_PATH = join(ROOT, 'src/lib/coconala-services.ts');
@@ -148,6 +148,12 @@ for (const s of listed) {
 //    2つの意味に多重化する。区別が無いと一括復帰で**恒久廃止した商品まで復活**する
 //    （2026-08-05、17件全休止のときに実際に取り違えかけた）。判定は coconala-guards（テスト済み）。
 violations.push(...checkPauseReasons(catalog));
+
+// 8b. 価格がココナラで設定できる刻みか（¥10,000 以下=500円・超=1,000円）。出品前（draft）から止める。
+for (const s of catalog) {
+  if (s.status === 'paused' || s.priceYen == null) continue;
+  if (!isCoconalaPriceStep(s.priceYen)) violations.push(`[${s.id}] priceYen ${s.priceYen} はココナラの価格刻みに合いません（¥10,000以下=500円刻み／超=1,000円刻み）`);
+}
 
 // 9. 復帰忘れの検知（長期不在プロトコルの最後の輪）。
 //    pauseReason:'absence' で resumeOn を過ぎているのに休止のままなら、売上ゼロのまま
