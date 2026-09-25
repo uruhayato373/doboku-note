@@ -17,7 +17,7 @@ export default function StandardTopicLinks({ topics }: { topics: Topic[] }) {
           <Link
             key={topic.slug}
             href={`/topics/${topic.slug}`}
-            className="focus-ring rounded-full bg-[var(--accent-fill)] px-3 py-1.5 font-mono text-[11px] text-[var(--accent)] transition-colors hover:bg-[var(--accent)] hover:text-white"
+            className="focus-ring rounded-full bg-[var(--accent-fill)] px-3 py-1.5 font-mono text-[11px] text-[var(--accent)] transition-colors hover:bg-[var(--accent)] hover:text-[var(--paper)]"
           >
             {topic.label}
           </Link>

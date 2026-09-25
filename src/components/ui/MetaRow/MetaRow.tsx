@@ -57,7 +57,7 @@ export default function MetaRow({
             <Link
               key={tag}
               href={getTopicPathForTag(tag) ?? `/search?q=${encodeURIComponent(tag)}`}
-              className="font-mono text-[11px] text-[var(--accent)] bg-[var(--accent-fill)] hover:bg-[var(--accent)] hover:text-white px-2.5 py-0.5 rounded-full transition-colors"
+              className="font-mono text-[11px] text-[var(--accent)] bg-[var(--accent-fill)] hover:bg-[var(--accent)] hover:text-[var(--paper)] px-2.5 py-0.5 rounded-full transition-colors"
             >
               #{tag}
             </Link>

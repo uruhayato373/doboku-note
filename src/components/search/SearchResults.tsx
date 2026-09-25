@@ -36,7 +36,7 @@ export function SearchResults({
         </p>
         <button
           onClick={() => window.location.reload()}
-          className="focus-ring rounded-card-content bg-[var(--accent)] px-4 py-2 text-white transition-opacity hover:opacity-90"
+          className="focus-ring rounded-card-content bg-[var(--accent)] px-4 py-2 text-[var(--paper)] transition-opacity hover:opacity-90"
         >
           再試行
         </button>
