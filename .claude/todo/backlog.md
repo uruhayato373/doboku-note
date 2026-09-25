@@ -30,12 +30,12 @@
 
 **完了条件**: GA4 の画面か Data API で 2 イベントの受信を確認したら、このカードを削除する。
 
-### [DN-0306] ココナラ商品画像9枚を Drive vault に登録し、PR #638 をマージする
+### [DN-0306] ココナラ商品画像11枚を Drive vault に登録し、PR #638 をマージする
 タグ: [収益化] [種類:改善] [検証:check-coconala-wiring] [起票:2026-09-25] [期日:2026-09-28] [進行中]
 
-**起点**: 2026-09-25 に経験記述サービスを1級・2級に分けて8件をライブ反映した（PR #638・`check-coconala-live` 18/18 一致。旧 DN-0282 の全5テーマ版 `coconala-tensaku-4theme` も 4418735 で出品済み）。PR #638 の CI `build` が `coconala-wiring` で落ちている。2級4件（`thumb-2kyu-tensaku` / `-3theme` / `thumb-2kyu-sakusei` / `-3theme`）の商品画像が Drive vault の台帳に無いため。画像は gitignore 対象で、実体は会社 PC の `.claude/config/coconala/assets/` にしか無い（全5テーマ版・1級作成・プレミアムの差し替え画像を含め 9 枚）。会社 PC は Google ドライブ未マウント・rclone の Drive リモート無しで、vault へ書けなかった。
+**起点**: 2026-09-25 に経験記述サービスを1級・2級に分けて8件をライブ反映した（PR #638・`check-coconala-live` 18/18 一致。旧 DN-0282 の全5テーマ版 `coconala-tensaku-4theme` も 4418735 で出品済み）。PR #638 の CI `build` が `coconala-wiring` で落ちている。2級4件（`thumb-2kyu-tensaku` / `-3theme` / `thumb-2kyu-sakusei` / `-3theme`）の商品画像が Drive vault の台帳に無いため。画像は gitignore 対象で、実体は会社 PC の `.claude/config/coconala/assets/` にしか無い（全5テーマ版・1級作成・プレミアムの差し替え画像と、同日出品のコンクリート主任技士2件 `thumb-cce-essay-pdf` / `thumb-cce-takuitsu-pdf` を含め 11 枚。コンクリート2件は台帳に既存の旧版があるので上書きになる）。会社 PC は Google ドライブ未マウント・rclone の Drive リモート無しで、vault へ書けなかった。
 
-**やること**: 会社 PC で Google ドライブ（Drive File Stream）を起動して G: を見える状態にし、`node scripts/drive-vault-sync.mjs --group coconala-asset` で対象 9 件を確認してから `--commit`。更新された `.claude/state/assets/drive-manifest.json` を PR #638 のブランチ（`feature/coconala-grade-split`・worktree `.claude/worktrees/coconala-grade`）へコミットして push し、CI が通ったら `gh pr merge 638 --merge`。マージ後に worktree `coconala-grade` と `tensaku-qa` を `git worktree remove`。Mac で進める場合は画像が無いので、`node scripts/coconala-thumb.mjs --service <id>` で生成し直してから登録する。
+**やること**: 会社 PC で Google ドライブ（Drive File Stream）を起動して G: を見える状態にし、`node scripts/drive-vault-sync.mjs --group coconala-asset` で対象 11 件を確認してから `--commit`。更新された `.claude/state/assets/drive-manifest.json` を PR #638 のブランチ（`feature/coconala-grade-split`・worktree `.claude/worktrees/coconala-grade`）へコミットして push し、CI が通ったら `gh pr merge 638 --merge`。マージ後に worktree `coconala-grade` と `tensaku-qa` を `git worktree remove`。Mac で進める場合は画像が無いので、`node scripts/coconala-thumb.mjs --service <id>` で生成し直してから登録する。
 
 **完了条件**: `npm run check-coconala-wiring` が PASS し、PR #638 が develop にマージされたら、このカードを削除する。
 ### [DN-0310] 1級二次（10/4）の後に、1級の経験記述サービスの受付を止めるか来季向けの文面へ替える
@@ -76,8 +76,6 @@
 **完了条件**: ポリシーへの追記と、10月キャンペーンの該当投稿が `check-x-campaign-plan` を通る。
 
 
-
-
 ### [DN-0277] 本文のバッククォートを【〇〇】へ直した note 257 本を再公開する
 タグ: [収益化] [種類:不具合] [起票:2026-09-23]
 
@@ -96,15 +94,6 @@
 
 **完了条件**: 差し替えた商品の公開ページで画像枚数が変わらず（ギャラリーを保持）、`npm run check-coconala-live` が全件一致。出品画像の文言に「採点者」を自称する表現が0件。差し替えから30日後に、差し替えた商品と差し替えていない商品の閲覧数を kpi-log で読む。表示回数が非公開（セラーサクセス未加入）でクリック率は取れず、試験日の季節変動も混ざるので、効果は断定しない。
 
-### [DN-0267] コンクリート主任技士のココナラ2件（小論文 PDF・択一直前パック PDF）を1日1件ずつ出品する
-タグ: [収益化] [種類:制作] [起票:2026-09-23] [期日:2026-09-26] [進行中]
-
-**起点**: 2026-09-23 に出品文・サムネ・納品PDF（K1 5冊・K2 3冊、Drive vault 保管済み）を用意したが、同日5件目以降の新規出品が「内容の入力に進む」の後で止まり、draft のまま残った（原因未確認・coconala-operations.md §8 の注記）。本試験は 2026-11-29。主任技士の受験者が小論文と択一を直前に固める教材で、HARMはA。需要の証拠は無い試験出品で、継続判断は DN-0265。
-
-**やること**: 新規出品が `/services/add` に戻されていた原因は、通常サービスの出品数上限（20件・アーカイブ分は数えない）だった（2026-09-25 に判明。RCCM・総監・診断などのアーカイブで 18/20 にして解消）。空き 2 枠をこの 2 件に使うなら、同じ日に `DOBOKU_PW_MIN_FREE_MB=1200 node scripts/coconala-publish.mjs --service coconala-cce-essay-pdf --image thumb-cce-essay-pdf.png --commit`、翌日以降に `coconala-cce-takuitsu-pdf`（`thumb-cce-takuitsu-pdf.png`）。止まったら再試行を重ねず翌日に回す。カタログへの書き戻し（listed・serviceUrl・listedAt）を commit する。
-
-**完了条件**: 2件の公開ページがログアウト状態で HTTP 200、価格がカタログ（¥3,000・¥3,500）と一致し、`npm run check-coconala-wiring` が通る。
-
 ### [DN-0262] 1級・2級土木 第2次検定 記述 Kindle（I・J系）26冊を KDP へ3回に分けて提出する
 タグ: [収益化] [種類:制作] [起票:2026-09-23] [期日:2026-10-17]
 
@@ -113,21 +102,6 @@
 **やること**: 9/30 に `node scripts/kdp-batch.mjs j-03` を1冊だけ流して回復を確かめ、通れば続けて `node scripts/kdp-batch.mjs j-01 j-02 j-11 j-12 j-13 j-14 j-15 i-04 i-01`。第2弾は 10/7 以降に `node scripts/kdp-batch.mjs i-02 i-03 i-11 i-12 i-14 i-15 i-17 i-16 i-13 i-18`、第3弾は 10/14 以降に `node scripts/kdp-batch.mjs i-19 i-20 i-21 i-22 i-23 i-24`。note 用ブラウザが別セッションで動いているときは `DOBOKU_PW_ALLOW_PARALLEL=1` を付ける。作成数制限で止まったら（exit 2）翌日以降に1冊で再確認する。提出週に既刊の価格改定（再出版）を重ねない。LIVE 化は `node scripts/kdp-publish.mjs --sync-status` で確かめ、ASIN と公開日を catalog と戦略へ記録する。
 
 **完了条件**: catalog の i・j 系26冊がすべて ASIN 付き `live` になること。
-
-### [DN-0266] 2級二次（10/25）前に、ココナラブログの2級・直前向け下書き3本を1日1本で公開する
-タグ: [収益化] [種類:制作] [起票:2026-09-23] [期日:2026-10-15] [進行中]
-
-**起点**: ココナラブログは公開8本に対し、書き上がった下書きが8本残っている（`2kyu-doko-made-kaku`・`2kyu-moshi-tsukaikata`・`chokuzen-2shukan-roadmap` ほか）。2級受験者が本試験直前に、経験記述の書き込み量と模試の使い方を確かめるための記事で、HARMはA。2026-09-23に見本記事（813777）を公開し、2級の模試とフルパックの本文から見本へリンクした。公開済み記事の閲覧は30日で各6〜16と小さい。記事公開で出品の閲覧が増えるかは未検証。
-
-**やること**: 残り2本を `DOBOKU_PW_MIN_FREE_MB=1200 node scripts/coconala-blog-publish.mjs --post <slug> --commit` で1日1本公開する（coconala-blog-policy.md §6）。9/24 に `coconala-blog-qa` で採点済み（`2kyu-doko-made-kaku` は同日公開済み・814642）。
-1. 9/26: `chokuzen-2shukan-roadmap`（PASS 3.0）。1級向け（funnel `coconala-1kyu-full-pdf`）で、1級二次 10/4 の直前訴求なので先に出す（9/25 は誤って削除された3記事の再公開に使った）
-2. 9/27 以降: `2kyu-moshi-tsukaikata`（CTA を実商品「3回分・6冊＋特典」に直して `check-coconala-blog` violations 0。導線整合以外は 3 点）
-
-**完了条件**: 3本の blogUrl が frontmatter に書き戻され、公開スクリプトのライブ実査（ログアウト状態・外部リンク0件）が通る。公開から30日後に、記事と2級出品の閲覧を kpi-log で読む（欠測は0と扱わない）。
-
-
-
-
 
 ### [DN-0308] RCCM 問題I 業務経験論文テンプレと択一論点集 50 問を note で CBT 期間内（〜10/31）に出す
 タグ: [収益化] [種類:制作] [起票:2026-09-25] [期日:2026-10-10]
@@ -177,15 +151,6 @@
 **期日の置き方**: `[期日:]` は**最初の行動日**に合わせる（1級の判断＝10/05）。1級を反映したら 2級の期日 `2026-10-26` へ引き直す。2026-09-22 に 10-26→10-05 へ修正（10/4 の 1級判断を 3 週間過ぎてから surface する状態だったため。`check-backlog-health --due` の S14 が期日超過を SessionStart で出す）。
 
 **完了条件**: 切替と復帰がそれぞれ `audit-note-funnel` 緑でライブ反映され、無料 2 本が公開。
-
-
-
-
-
-
-
-
-
 
 
 ### [DN-0246] 会員 経験記述 W8〜W11 を公開日後に特典マガジン mbe07bd5cecda へ収録する
@@ -431,7 +396,6 @@ CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認し
 **完了条件**: PR で lhci が走り、a11y/SEO/BP のしきい値割れが赤になる。performance は warn のみで、揺れによる赤が 2 週間で 0。
 
 
-
 ### [DN-0231] Mac のGit保守を導入し、次回clone時にpartial cloneを使う（履歴は書き換えない）
 タグ: [インフラ・計測] [種類:改善] [起票:2026-09-14]
 
@@ -469,7 +433,6 @@ Mac で行う（各 1 回・順に）: (1) `git pull` で Windows 対応・設�
 3. origin レベルも無い＝CrUX の母数不足の可能性が高いので、対象 22 URL の見直しか、母数のあるトップ・ハブに絞るかを判断して記録する
 
 **完了条件**: 週次レビューが機械出力から field 件数を転記でき、field 無し期間の判定規則が psi-config と measurement-incidents.md で一致していること。
-
 
 
 ### [DN-0207] 技術士一次・基礎科目の解析を途中式から学ぶ計算ガイド3本を作る
@@ -631,9 +594,6 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 **完了条件**: 冒頭 CTA を差し替える部分更新を 1 本で実行し、ライブ API で CTA が引用ブロック、直後の見出しが `h2` のまま、60 字超の見出しが 0 であることを確認できる。
 
 
-
-
-
 ### [DN-0243] 年度表現の陳腐化（「2026 年度」「令和 8 年」）を年替わりで検知する
 タグ: [コンテンツ品質] [種類:改善] [検証:check-exam-calendar] [起票:2026-09-17]
 
@@ -642,7 +602,6 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 **やること**: `business-direction.json`（または exam-calendar）の当年度を真実源に、`content/site/**` の title/seoTitle/description/本文で **前年度以前の年度表現**（「2025 年度」「令和 7 年度」）を warn で列挙する report を作り、年度切替（毎年 1 月）に `ci:true` へ上げる運用を書く。過去問記事の年度（R7 問題）は対象外にするパターンを用意する。
 
 **完了条件**: 年度切替後の最初の週次で、旧年度表現の一覧が出て 2 週間以内に 0 になる。
-
 
 
 ### [DN-0234] Codex の archived_sessions 1.25 GB を棚卸しして 30 日超を消す
