@@ -35,10 +35,6 @@ export default async function LineupPage({ searchParams }: { searchParams: Promi
     items
       .filter((i) => showRetired || i.stage !== 'retired')
       .sort((a, b) => STAGE_ORDER.indexOf(a.stage) - STAGE_ORDER.indexOf(b.stage));
-  const emptyCells = rows.reduce(
-    (n, r) => n + channels.filter((c) => !r.byChannel[c.id]!.some((i) => i.stage === 'published')).length,
-    0,
-  );
 
   return (
     <>
@@ -51,8 +47,6 @@ export default async function LineupPage({ searchParams }: { searchParams: Promi
         {channels.map((c) => (
           <Kpi key={c.id} label={`${c.label} 販売中`} value={`${totals[c.id]?.published ?? 0} / ${totals[c.id]?.all ?? 0}`} />
         ))}
-        <Kpi label="販売中0のマス" value={`${emptyCells} / ${rows.length * channels.length}`} />
-        <Kpi label="未分類" value={unclassified.length} />
       </div>
 
       {(configErrors.length > 0 || sourceErrors.length > 0) && (
