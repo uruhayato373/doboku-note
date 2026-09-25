@@ -1,6 +1,7 @@
 import { strict as assert } from 'node:assert';
 import { readFileSync } from 'node:fs';
 import test from 'node:test';
+import { collectPublishedDocs } from '../scripts/lib/published-docs.mjs';
 
 function loadManagedRedirects() {
   const redirects = new Map();
@@ -19,13 +20,16 @@ function loadManagedRedirects() {
   return redirects;
 }
 
+// 公開記事の集合は MDX から直接数える。src/config/doc-meta-index.json は git 管理外の生成物で、
+// ローカルの写しが古いと git 上は正しい _redirects に対して偽の赤を出す（2026-09-25）。
 test('全MDXの旧 /docs URLが正規公開URLへ301接続されている', () => {
-  const index = JSON.parse(readFileSync('src/config/doc-meta-index.json', 'utf8'));
-  const slugs = Object.keys(index.docs ?? {});
+  const slugs = collectPublishedDocs().docs.map((doc) => doc.slug);
   const redirects = loadManagedRedirects();
 
   assert.ok(slugs.length >= 1_000, `検査対象が少なすぎる: ${slugs.length}`);
-  assert.equal(redirects.size, slugs.length, `redirect=${redirects.size} / docs=${slugs.length}`);
+  const published = new Set(slugs);
+  const orphaned = [...redirects.keys()].filter((slug) => !published.has(slug));
+  assert.deepEqual(orphaned, [], `公開 MDX が無い /docs 転送がある（npm run refresh-indexes で再生成）: ${orphaned.join(', ')}`);
   for (const slug of slugs) {
     const target = redirects.get(slug);
     assert.ok(target, `/docs/${slug} の301が無い`);
