@@ -359,61 +359,40 @@ YouTube からは note 商品ページへ概要欄でリンクするだけ。受
 
 ## 4. 四半期別ロードマップ（v7）
 
-> **季節 × チャネル施策マトリクス**は [02_チャネル動線設計.md §6](./02_チャネル動線設計.md) を真実源とする。本セクションは Phase ごとの主要マイルストーンのみを扱う。詳細な実装ロードマップ（UTM 統一・bio link 着地点・Red Line スキル等の Phase 別タスク）は [02_チャネル動線設計.md §8](./02_チャネル動線設計.md) を参照。
+> **季節 × チャネル施策マトリクス**は [02_チャネル動線設計.md §6](./02_チャネル動線設計.md) を真実源とする。本セクションは Phase ごとの主要マイルストーンのみを扱う。未着手の打ち手（bio link 着地点・Red Line 検査等）は [02_チャネル動線設計.md §8](./02_チャネル動線設計.md) を参照。
 
 ### Q2（2026年4-6月）: 共通基盤整備【完了・履歴】
 
-<!-- audit:2026-08-18 -->
-> [!note] 未チェック記法の位置づけ（2026-08-18 実査）
-> 本節は履歴。外部実体で完了を確認したものだけ `[x]` にした
-> （sns-common 13 ファイル実在／`utm-templates.json` 実在／`post-youtube-scheduled.yml` 実在／YT Shorts・IG に実投稿あり）。
-> **`check-content-redline` と `utm-builder` は実装が見当たらず未達**のまま残す。
-> X 関連（固定ポスト・日次投稿・30日計測・GA4 分析・bio link）は 6/12 凍結で縮退した当初計画で、
-> 現行の X 運用は `x-post-policy.md` §11 が真実源。ここでは履歴として残し backlog へ起票しない。
-
-> Q2 は完了済み。X は当初「主力」想定だったが 6/12 凍結で縮退（§凍結）。アカウントは実際には X `@doboku373`（旧 @dobokunotecom 凍結）・IG `@dobokunotecom` で確定（§3）。以下は当時の計画チェックリスト（歴史記録）。
-
-- [x] X アカウント作成（当初計画は `@doboku_note` 統一 → 実際は上記に分岐）
-- [ ] 固定ポスト・ヘッダー画像の設定
-- [ ] `/social-post x` スキルで日次投稿の下書き生成フロー確立
-- [ ] 1日1〜2投稿を30日継続してエンゲージメント計測
-- [ ] GA4 で X 流入を分析
-- [ ] **bio link 着地点を確定**（Phase 1 = サイト直、Phase 2 = Linktree）→ [27 §7 弱点 2](./02_チャネル動線設計.md)
-- [x] **UTM 統一テンプレート策定**（`.claude/config/utm-templates.json` + `lib/utm-builder.mjs`）→ [27 §4](./02_チャネル動線設計.md)
-- [ ] **note ↔ サイト Red Line スキル化**（`/check-content-redline`）→ [27 §7 弱点 3](./02_チャネル動線設計.md)
-- [x] **SNS-prereq**: YouTube ブランドアカウント開設、OAuth トークン取得、VOICEVOX キャラ採用決定
-- [x] **SNS-0**: 共通基盤 `.claude/scripts/lib/sns-common/` 整備（6 ファイル）
-- [x] **SNS-2**: YouTube Shorts MVP（テストチャンネルで品質確認）
-- [x] **SNS-3**: GitHub Actions スケジューラ統合 → `.claude/todo/backlog.md` の該当カード
-
-**Q2 で本番投稿はしない**: テストチャンネル or 非公開設定で品質確認のみ。
+YouTube・Instagram のアカウントと OAuth、SNS 共通基盤（`.claude/scripts/lib/sns-common/`）、UTM テンプレート（`.claude/config/utm-templates.json`）、YouTube Shorts MVP、GitHub Actions のスケジューラを整えた。本番投稿はせず、品質確認だけを行った。X は当初「主力」想定だったが 6/12 凍結で縮退し（§凍結）、現行の X 運用は `x-post-policy.md` §11 が真実源。アカウントは X `@doboku373`（旧 @dobokunotecom 凍結）・IG `@dobokunotecom` で確定（§3）。当初計画の Red Line 検査（`check-content-redline`）は実装していない。
 
 ### Q3（2026年7-9月）: ★Instagram 一次制作 + YouTube 派生稼働（v7）
 
-- [ ] 7 月初: **Instagram 本番運用開始**（Carousel 週 2 火金 07:00 + Reels 週 3 月水金 19:30、`slide-data.json` 一次制作）
-- [ ] 7 月初: **YouTube Shorts 派生稼働開始**（IG Reels mp4 を 30-60 秒に短縮、週 1〜2 本、JST 月木 07:00）
-- [ ] **7 月中旬（Carousel 4-5 本投稿後）: ハイライト 6 種整備**（まず読む / カルーセル目次 / Reels まとめ / FAQ / お知らせ / **教材**）— フォロワー獲得開始前の必須整備、所要 1-2 時間。6 種すべて `content/sns/instagram/highlights/{01_intro, 02_carousel-index, 03_reels-roundup, 04_faq, 05_announcement, 06_materials}/` に slide-data + PNG が雛形済み（数値プレフィックスは投稿順）。6 種目「教材」は二段ロケット設計（policy: `.claude/knowledge/reference/ig-stories-policy.md` §5）
-- [x] 運営者は技術士総監 2 次筆記試験に合格済み（合格者ポジションで送客フックを強化）
-- [ ] 7 月下旬: note E-1 を販売開始、YouTube 概要欄 + IG bio から送客
-- [ ] 7 月下旬: **note 売上トラッキング開始**（`.claude/state/note-sales/`）→ [27 §7 弱点 4](./02_チャネル動線設計.md)
-- [ ] 8-9 月: 投稿継続、note E-2/E-3 を YouTube/IG から送客
-- [ ] 8 月中旬: **bio link を Linktree 化**（E-1〜E-3 並列のため）→ [27 §7 弱点 2](./02_チャネル動線設計.md)
-- [ ] X でも試験直後の所感をリアルタイム発信 → YouTube/IG/note への送客
-- [ ] **6 週運用後（8 月中旬）に IG KPI トリガー判定**（Reels 比率引き上げ/縮小/現状維持）→ [27 §6 / §7 弱点 5](./02_チャネル動線設計.md)
-- [ ] 3 ヶ月で月間再生 5,000 達成 → 投稿頻度据え置き、未達成でも投稿は止めない（共通基盤に依存しているため停止コストの方が高い）
+> 以下は計画時点のマイルストーン。実行と進捗は `.claude/todo/backlog.md` が持つ。
+
+- 7 月初: **Instagram 本番運用開始**（Carousel 週 2 火金 07:00 + Reels 週 3 月水金 19:30、`slide-data.json` 一次制作）
+- 7 月初: **YouTube Shorts 派生稼働開始**（IG Reels mp4 を 30-60 秒に短縮、週 1〜2 本、JST 月木 07:00）
+- **7 月中旬（Carousel 4-5 本投稿後）: ハイライト 6 種整備**（まず読む / カルーセル目次 / Reels まとめ / FAQ / お知らせ / **教材**）— フォロワー獲得開始前の必須整備、所要 1-2 時間。6 種すべて `content/sns/instagram/highlights/{01_intro, 02_carousel-index, 03_reels-roundup, 04_faq, 05_announcement, 06_materials}/` に slide-data + PNG が雛形済み（数値プレフィックスは投稿順）。6 種目「教材」は二段ロケット設計（policy: `.claude/knowledge/reference/ig-stories-policy.md` §5）
+- 運営者は技術士総監 2 次筆記試験に合格済み（合格者ポジションで送客フックを強化）
+- 7 月下旬: note E-1 を販売開始、YouTube 概要欄 + IG bio から送客
+- 7 月下旬: **note 売上トラッキング開始**（`.claude/state/note-sales/`）→ [27 §7 弱点 4](./02_チャネル動線設計.md)
+- 8-9 月: 投稿継続、note E-2/E-3 を YouTube/IG から送客
+- 8 月中旬: **bio link を Linktree 化**（E-1〜E-3 並列のため）→ [27 §7 弱点 2](./02_チャネル動線設計.md)
+- X でも試験直後の所感をリアルタイム発信 → YouTube/IG/note への送客
+- **6 週運用後（8 月中旬）に IG KPI トリガー判定**（Reels 比率引き上げ/縮小/現状維持）→ [27 §6 / §7 弱点 5](./02_チャネル動線設計.md)
+- 3 ヶ月で月間再生 5,000 達成 → 投稿頻度据え置き、未達成でも投稿は止めない（共通基盤に依存しているため停止コストの方が高い）
 
 ### Q4（2026年10-12月）: 拡充フェーズ
 
-- [ ] **SNS-4**: 型拡充（5 管理別解説、トレードオフ動画、IG クロス投稿）→ `.claude/todo/backlog.md` の該当カード
-- [ ] 10 月末: 筆記合格発表対応（合格時のみ「合格しました」動画 1 本投稿、それ以降は通常運用）
-- [ ] 10 月末: **iOS 着手判断ダッシュボード**（`/check-ios-readiness`）で Web 月収 ≥ ¥15k + 筆記合格を判定 → [27 §7 弱点 4](./02_チャネル動線設計.md)
-- [ ] 11 月〜: 1 級土木 2 次・技術士 1 次の季節スポット動画（共通基盤で 1 級土木 MDX も対応可）
+- **SNS-4**: 型拡充（5 管理別解説、トレードオフ動画、IG クロス投稿）→ `.claude/todo/backlog.md` の該当カード
+- 10 月末: 筆記合格発表対応（合格時のみ「合格しました」動画 1 本投稿、それ以降は通常運用）
+- 10 月末: **iOS 着手判断ダッシュボード**（`/check-ios-readiness`）で Web 月収 ≥ ¥15k + 筆記合格を判定 → [27 §7 弱点 4](./02_チャネル動線設計.md)
+- 11 月〜: 1 級土木 2 次・技術士 1 次の季節スポット動画（共通基盤で 1 級土木 MDX も対応可）
 
 ### 2027年Q1以降: 動画拡張 + 最終合格ブランディング
 
-- [ ] 最終合格発表（3月）後: 全 SNS プロフィールを「技術士総監 保有」に更新
-- [ ] YouTube Shorts への横展開
-- [ ] TikTok 参入検討
+- 最終合格発表（3月）後: 全 SNS プロフィールを「技術士総監 保有」に更新
+- YouTube Shorts への横展開
+- TikTok 参入検討
 
 ## 5. 計測と意思決定
 
@@ -436,10 +415,10 @@ X は手動運用前提。資格試験は年サイクル（1次6月・2次10月�
 
 ### Month 0: 立ち上げ準備（1週間）
 
-- [x] アカウント作成（実際は X `@doboku373`／IG `@dobokunotecom`・§3）、プロフィール・ヘッダー画像設定
-- [ ] **30投稿分の下書きを `/social-post x` で一括生成**して予約投稿（空アカウントに見せない）
-- [ ] フォロー対象100件リストアップ: 1級土木受験生、技術士受験生、建設会社勤務、資格系インフルエンサー、建設系YouTuber
-- [ ] 固定ポスト設定: 「無料過去問○○問を解説しています」+ サイトリンク
+- アカウント作成（実際は X `@doboku373`／IG `@dobokunotecom`・§3）、プロフィール・ヘッダー画像設定
+- **30投稿分の下書きを `/social-post x` で一括生成**して予約投稿（空アカウントに見せない）
+- フォロー対象100件リストアップ: 1級土木受験生、技術士受験生、建設会社勤務、資格系インフルエンサー、建設系YouTuber
+- 固定ポスト設定: 「無料過去問○○問を解説しています」+ サイトリンク
 
 ### Month 1-3: 基礎固め（目標100フォロワー）
 
@@ -499,19 +478,9 @@ X は手動運用前提。資格試験は年サイクル（1次6月・2次10月�
 | OAuth トークン失効 | 中 | 共通基盤 `media-uploader.mjs` で自動リフレッシュ + 失敗時は `scripts/report-automation-failure.mjs`（`automation-failure` ラベル）で記録 |
 | Reels CTA とカルーセル CTA の混入バグ | 中 | Reels モード分岐をテンプレレンダラ（`.claude/scripts/sns/templates/quiz-ig.mjs`）で持ち、`ig-reels-qa` の軸 4（音声 ↔ 画面整合）で検証 |
 
-## 9. 次のアクション（優先順位付き・v7）
+## 9. 次のアクション
 
-> 進捗の真実源は `.claude/todo/backlog.md`。SNS-prereq/SNS-0/SNS-1/SNS-2 は SNS 共通基盤整備として完了済み。
-
-1. **SNS-prereq**（完了）: YouTube + Instagram ブランドアカウント開設・OAuth トークン取得
-2. **SNS-0**（完了）: 共通基盤 6 ファイルの実装（PR #169）
-3. **SNS-1**（完了）: Instagram Carousel MVP（type1 + type3）
-4. **SNS-2**（完了）: YouTube Shorts MVP（PR #170）※ v7 で MDX 直結モードは廃止、IG Reels 派生に再設計予定
-5. **T-005a Reels Generator/Evaluator 整備**: `ig-reels-writer` + `ig-reels-qa` 追加、`quiz-ig.mjs` に Reels モード分岐、CTA 差替（v7 Phase B）
-6. **T-005b Stories Generator/Evaluator 整備**: `ig-stories-writer` + `ig-stories-qa` 追加（v7 Phase C）
-7. **T-005c YT 派生スクリプト + Evaluator**: `yt-shorts-create.mjs` を `--from-reels` 一本化、`yt-shorts-publisher-qa` 追加、MDX 直結モード削除（v7 Phase D）
-8. **T-004 SNS-3**: スケジューラ統合（queue.json で Carousel + Reels + YT 派生を管理）
-9. （X 単独）`/social-post x` での日次運用継続
+実行タスクと進捗は `.claude/todo/backlog.md` が持つ。v7 の基盤（SNS 共通基盤・Instagram Carousel/Reels/Stories の Generator/Evaluator・Reels 派生の YouTube Shorts）は整備済みで、エージェントの一覧は `agents-registry.md`。
 
 ## 関連ドキュメント
 
