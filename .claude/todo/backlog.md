@@ -400,14 +400,12 @@ CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認し
 
 **完了条件**: PR の E2E で意図しないレイアウト差分が赤になる。基準更新の手順（CI の artifact から取り込む）が docs にあり、1 回の意図的な UI 変更で更新を実演済み。
 
-### [DN-0239] 日本語校正（textlint + prh）を変更ファイルだけのラチェットで導入する
+### [DN-0239] 日本語校正（textlint + prh）の偽陽性ゼロを2週間観察する
 タグ: [コンテンツ品質] [種類:改善] [起票:2026-09-17]
 
-**起点**: 1,267 記事の表記ゆれ（施工/施行、〜ヶ所/〜か所、全角英数、機種依存文字）と冗長表現を人手では追えない。既存の check-mdx は構造（Callout・表・リンク）を見るが日本語そのものは見ていない。
+**実装済み**（PR [#650](https://github.com/uruhayato373/doboku-note/pull/650)・develop へ未マージ）: `textlint` + `textlint-rule-preset-ja-technical-writing` + `textlint-rule-prh`。`npm run lint:ja`（staged の `content/site/**/*.mdx` のみ・pre-commit + quality-audit `ci:true`）と `npm run lint:ja:all`（全件 report・ゲートしない）。辞書は `prh.yml`（実測で表記ゆれ確認済みの19語）。全件実測で `ja-no-redundant-expression`・`ja-no-successive-word`・`no-unmatched-pair`・`no-double-negative-ja` 等スタイル判断寄りの規則は誤検知が支配的と判明し無効化（過去問の空欄記法・記号連続・原文の二重否定表現を誤検知するため）。有効なのは文字衛生系（no-hankaku-kana 等）+ prh + jtf-style 2.1.8/2.1.9（全角英数）+ ja-no-abusage。ベースライン: 全 1,280 ファイル中 537 ファイルで検知 2,067 件。
 
-**やること**: `textlint` + `textlint-rule-preset-ja-technical-writing` + `textlint-rule-prh`（自前辞書 `.textlintrc` / `prh.yml`。土木用語の正表記を最初は 30 語程度）。全件は初回ノイズが多いので、**pre-commit と CI では staged / PR diff の MDX だけ**に掛ける。全件は `report` として週次で件数を出し、辞書を育てながら漸減させる。数式・コード・frontmatter は除外設定。
-
-**完了条件**: `npm run lint:ja`（変更ファイル）が quality-audit `ci:true`、`lint:ja:all` が report で件数を出す。誤検知を潰した辞書と除外が commit され、直近 2 週間で偽陽性による差し戻しが 0。
+**残作業**: PR #650 のマージ後、日常のコミットで `lint:ja`（pre-commit）が誤検知で差し戻される事例が無いかを 2 週間観察する（目安 2026-10-10 まで）。差し戻しがあれば prh.yml/.textlintrc.json を調整、無ければこのカードを削除して完了とする。
 
 ### [DN-0240] Lighthouse CI を PR に入れ、a11y / SEO / best-practices をゲートにする
 タグ: [インフラ・計測] [種類:改善] [起票:2026-09-17]
