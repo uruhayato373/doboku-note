@@ -1351,6 +1351,18 @@
       "commit": "7ab6a91c4382",
       "verification": "9/25 05:30 の launchd gsc-local（run-now）で登録リクエスト受理 10 件・history.json 記録・develop へ push。check-gsc-indexing-due exit 0、check-gsc-sitemaps OK（sitemap 2 件正常）。UI CSV 11 ユニット complete。ログイン維持は PR #628/#629",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0306",
+      "at": "2026-09-25",
+      "task": "ココナラ商品画像11枚を Drive vault に登録し、PR #638 をマージする",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "90fe8e903fe7",
+      "verification": "npm run check-coconala-wiring PASS（develop CI run 36139961973・台帳32件）/ PR #638 merged / 残件は DN-0314",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }
