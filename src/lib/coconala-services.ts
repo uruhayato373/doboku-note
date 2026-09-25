@@ -582,9 +582,11 @@ const SERVICES_RAW = {
   // 出題傾向の読み方＋R8地方創生の正直な検証に限定（非カニバリ）。PDF は外部URL0件で生成済
   // （.claude/config/coconala/assets/pdf/coconala-sokan-bunseki.pdf）。status:'draft'。
   // 公開前ゲート: /coconala-publish --commit。総監はココナラ客層が薄い前提の test。
+  // 2026-09-25 アーカイブ（ユーザー決定）: ココナラでは RCCM と総監から撤退し、出品上限20件の枠を
+  //   1級・2級土木（級別の添削・作成）とコンクリート主任技士へ回す。note 側の商品は残す。
   'coconala-sokan-bunseki-pdf': {
     id: 'coconala-sokan-bunseki-pdf',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4322661',
     title: '技術士総監 記述式の出題テーマ分析を送ります',
     shortTitle: '総監 出題テーマ分析 PDF',
@@ -595,6 +597,7 @@ const SERVICES_RAW = {
     notePriceExempt: '出題テーマ分析は note に同じ中身の商品が無い（note の施策バンク本文は転載しない設計）',
     examScope: ['pe-comprehensive-management'],
     weeklyCapacity: 20,
+    pauseReason: 'retired',
     listedAt: '2026-07-22',
   },
 
@@ -602,9 +605,11 @@ const SERVICES_RAW = {
   // 競合実測（.claude/state/coconala/market-research.json）: 経験論文添削 ¥6,500〜13,000、
   // 択一予想 ¥2,500（★4.9・48件）。運営者の座は「発注者としてコンサル業務を発注・検査した技術士（建設・総監）」。
   // RCCM 合格・コンサル在籍は名乗らない。出品は /coconala-publish --commit（status:'draft' → 'listed' と serviceUrl を同時に埋める）。
+  // 2026-09-25 アーカイブ（ユーザー決定）: ココナラでは RCCM と総監から撤退し、出品上限20件の枠を
+  //   1級・2級土木（級別の添削・作成）とコンクリート主任技士へ回す。note 側の商品は残す。
   'coconala-rccm-mondai3-tensaku': {
     id: 'coconala-rccm-mondai3-tensaku',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4403575',
     title: 'RCCM問題III 管理技術力の論文を添削します',
     shortTitle: 'RCCM 問題III 添削',
@@ -614,11 +619,14 @@ const SERVICES_RAW = {
     priceYen: 6000,
     examScope: ['rccm'],
     weeklyCapacity: 2,
+    pauseReason: 'retired',
     listedAt: '2026-09-16',
   },
+  // 2026-09-25 アーカイブ（ユーザー決定）: ココナラでは RCCM と総監から撤退し、出品上限20件の枠を
+  //   1級・2級土木（級別の添削・作成）とコンクリート主任技士へ回す。note 側の商品は残す。
   'coconala-rccm-mondai1-shindan': {
     id: 'coconala-rccm-mondai1-shindan',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4403577',
     title: 'RCCM業務経験論文の減点箇所を診断します',
     shortTitle: 'RCCM 問題I 診断',
@@ -628,11 +636,14 @@ const SERVICES_RAW = {
     priceYen: 2000,
     examScope: ['rccm'],
     weeklyCapacity: 3,
+    pauseReason: 'retired',
     listedAt: '2026-09-16',
   },
+  // 2026-09-25 アーカイブ（ユーザー決定）: ココナラでは RCCM と総監から撤退し、出品上限20件の枠を
+  //   1級・2級土木（級別の添削・作成）とコンクリート主任技士へ回す。note 側の商品は残す。
   'coconala-rccm-mondai3-pdf': {
     id: 'coconala-rccm-mondai3-pdf',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4403588',
     title: 'RCCM問題III 模範論文6本のPDFを送ります',
     shortTitle: 'RCCM 問題III 模範論文 PDF',
@@ -644,13 +655,16 @@ const SERVICES_RAW = {
     notePriceBasis: 'rccm-mondai3-magazine',
     examScope: ['rccm'],
     weeklyCapacity: 20,
+    pauseReason: 'retired',
     listedAt: '2026-09-16',
   },
   // R2（2026-09-23・09 §D7）: 択一は 303geos（¥2,500×49）だけが埋める白地。源は note の予想50問＋直前暗記ノート
   // （note 定価の合計 ¥2,460 を下回らない）。build-coconala-content-pdf.mjs --product R2 で PDF 2冊。
+  // 2026-09-25 アーカイブ（ユーザー決定）: ココナラでは RCCM と総監から撤退し、出品上限20件の枠を
+  //   1級・2級土木（級別の添削・作成）とコンクリート主任技士へ回す。note 側の商品は残す。
   'coconala-rccm-takuitsu-pdf': {
     id: 'coconala-rccm-takuitsu-pdf',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4415185',
     title: 'RCCM択一 予想50問と一問一答を送ります',
     shortTitle: 'RCCM 択一 PDF',
@@ -662,14 +676,17 @@ const SERVICES_RAW = {
     notePriceBasis: 'rccm-takuitsu-yosou-50 + rccm-anki-note',
     examScope: ['rccm'],
     weeklyCapacity: 20,
+    pauseReason: 'retired',
     listedAt: '2026-09-23',
   },
 
   // R3（2026-09-23）: 問題I の PDF。診断（人の作業）はあったが PDF が無かった。303geos が 9月に同型を新設。
   // 源は note のテンプレ（¥1,980）＋部門別記入例（各¥1,980）。購入者の受験部門の1本を送る＝note 定価の合計 ¥3,960 を下回らない。
+  // 2026-09-25 アーカイブ（ユーザー決定）: ココナラでは RCCM と総監から撤退し、出品上限20件の枠を
+  //   1級・2級土木（級別の添削・作成）とコンクリート主任技士へ回す。note 側の商品は残す。
   'coconala-rccm-mondai1-pdf': {
     id: 'coconala-rccm-mondai1-pdf',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4415242',
     title: 'RCCM業務経験論文のテンプレと記入例を送ります',
     shortTitle: 'RCCM 問題I テンプレ＋記入例 PDF',
@@ -681,6 +698,7 @@ const SERVICES_RAW = {
     notePriceBasis: 'each: rccm-mondai1-template + rccm-mondai1-water | rccm-mondai1-template + rccm-mondai1-sewer | rccm-mondai1-template + rccm-mondai1-geotechnical | rccm-mondai1-template + rccm-mondai1-road | rccm-mondai1-template + rccm-mondai1-river-coast | rccm-mondai1-template + rccm-mondai1-steel-concrete',
     examScope: ['rccm'],
     weeklyCapacity: 20,
+    pauseReason: 'retired',
     listedAt: '2026-09-23',
   },
 
