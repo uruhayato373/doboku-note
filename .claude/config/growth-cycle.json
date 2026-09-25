@@ -25,7 +25,9 @@
     "quiz_complete",
     "quiz_cta_click",
     "career_need_select",
-    "career_tool_result"
+    "career_tool_result",
+    "qualification_bridge_impression",
+    "qualification_bridge_click"
   ],
   "digest": {
     "_why": "機会検出（scripts/lib/growth-opportunities.mjs）の閾値。表示件数は週次レビューで全件トリアージできる量に抑える（measurement・experiment は全件）。",

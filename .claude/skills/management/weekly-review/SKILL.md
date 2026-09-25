@@ -281,7 +281,7 @@ sales-log が 34 日止まっていたことに誰も気づかず、下流のガ
   - 入力: 最新 `.claude/state/metrics/ga4/ga4-page-*.json`（流入）+ `ga4-cta-clicks-*.json`（クリック, あれば）
   - 配置の真実源: `src/lib/magazine-placement.ts`（note）/ `src/app/docs/[...slug]/page.tsx`（アフィリ）
   - 出力: `.claude/state/metrics/monetization/coverage-latest.md`（+ coverage-*.json）
-- 併せて最新 `ga4-key-events-by-page-*.json`（pagePath × sessions / keyEvents / sessionKeyEventRate・28 日）でキーイベント率の上位・高流入なのに 0 のページを、`ga4-cta-clicks-*.json` の `coconala_cta_impression` / `coconala_cta_click` でココナラ CTA の表示→クリック率を 1 行ずつ載せる（ファイルが無い・0 件は「未取得」と書き、0 と混ぜない）。
+- 併せて最新 `ga4-key-events-by-page-*.json`（pagePath × sessions / keyEvents / sessionKeyEventRate・28 日）でキーイベント率の上位・高流入なのに 0 のページを、`ga4-cta-clicks-*.json` の `coconala_cta_impression` / `coconala_cta_click` でココナラ CTA の表示→クリック率を、`qualification_bridge_impression` / `qualification_bridge_click` で実務記事・共通仕様書の「業務経験 → 資格」カード（EXP-012）の表示→クリック率を 1 行ずつ載せる（立場別は `ga4-cta-clicks-by-label-*.json`。ファイルが無い・0 件は「未取得」と書き、0 と混ぜない）。
 - いずれも CI（`fetch-metrics.yml`）が page 次元と CTA クリックを毎週 commit するため、
   ライブ fetch は不要。creds 未設定でも成立する。
 

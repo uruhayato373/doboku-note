@@ -21,6 +21,8 @@ import RelatedArticles from '@/components/ui/RelatedArticles';
 import NextStepNav from '@/components/ui/NextStepNav/NextStepNav';
 import AuthorCard from '@/components/ui/AuthorCard/AuthorCard';
 import RelatedTools from '@/components/ui/RelatedTools';
+import QualificationBridge from '@/components/ui/QualificationBridge/QualificationBridge';
+import { shouldShowQualificationBridge } from '@/config/qualification-bridge';
 import { DISCOVERY_CATEGORIES } from '@/lib/sidebar-discovery';
 
 interface ArticleFooterProps {
@@ -114,6 +116,13 @@ export default function ArticleFooter({
       {references.length > 0 && (
         <div className="mt-8">
           <ExternalReferences references={references} />
+        </div>
+      )}
+
+      {/* 実務記事: 業務経験 → 資格の橋渡し（非受験層の入口・本文には試験文脈を入れない）。 */}
+      {shouldShowQualificationBridge(category, slugStr) && (
+        <div className="mt-8">
+          <QualificationBridge placement="practice-footer" />
         </div>
       )}
 

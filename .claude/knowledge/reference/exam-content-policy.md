@@ -218,6 +218,12 @@ figure-canvas 標準で別途作図する。構成を独自編集へ転換した
 第2次検定と重なるため末尾で資格記事へ送客している記事もある。検証コマンド:
 `node scripts/check-civil-practice-coverage.mjs`（未着手スロット・未カバー項目を列挙）。
 
+**資格への橋渡し（2026-09-25〜・EXP-012）**: 本文に試験文脈を入れない規約は維持したまま、記事末に
+`QualificationBridge`（立場 3 択: 発注者／施工会社／迷っている）を `ArticleFooter` が自動で出す。
+共通仕様書の章記事にも同じカードを置く。本文へ同じ訴求を書き足さない。対象・文言・遷移先の真実源は
+`src/config/qualification-bridge.ts`、方針と判定基準は
+[13_土木公務員SEO戦略2026-08.md](../../../docs/strategy/13_土木公務員SEO戦略2026-08.md)「非受験層を受験者へ育てる導線」。
+
 **公開配線（2026-08-27 完了分）**: `visible:true` 化に伴い `SearchFilters.tsx` の `CATEGORIES` に追加、
 `StructuredData.tsx` の `getExamName` に `civil-practice` の case を追加。ヘッダー/フッターの
 カテゴリ列挙は `categories.json` の `visible` 連動で自動追随（区切り「資格を問わない実務」を

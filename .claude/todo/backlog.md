@@ -21,6 +21,17 @@
 
 ## 🔴 高 — 来月中に着手
 
+### [DN-0304] 実務記事・共通仕様書の「業務経験 → 資格」カードを本番反映し、計測が届いていることを確かめる
+タグ: [インフラ・計測] [種類:改善] [検証:check-production-ssr] [起票:2026-09-25] [期日:2026-10-09]
+
+**起点**: 資格を意識していない土木公務員・現場技術者を資格の入口へ送るため、`/practice/` 全記事の記事末と共通仕様書の章末に `QualificationBridge`（立場 3 択）を置き、発注者実務の入口記事（会計検査・工事検査）を新設した（2026-09-25・実験 EXP-012）。方針と判定基準は [13_土木公務員SEO戦略2026-08.md](../../docs/strategy/13_土木公務員SEO戦略2026-08.md)「非受験層を受験者へ育てる導線」。
+
+**引き継ぎ（2026-09-25・クラウドセッション → ローカル）**: 実装・文書・入口記事 2 本（`civil-practice/board-of-audit-inspection`・`construction-inspection-types`）は PR #635（`claude/civil-service-engineering-education-rhmbye` → develop・ドラフト）に全てコミット済み。入口記事は guide-fact-checker で誤り 0 件（会計検査の根固工事例は検査報告 (229)〜(239) の事業主体欄で「7府県及び3市村」と再確認済み。見出しの「8府県」は部局等の数）。ローカルでの続きは、`git fetch origin` → PR #635 の CI が緑なら ready にして develop へマージ → `git pull origin develop` から始める（ブランチのまま続ける場合は `git switch claude/civil-service-engineering-education-rhmbye`）。マージ前に `npm run build` → `npm run serve` で `/practice/board-of-audit-inspection` と `/practice/construction-inspection-types` の記事末にカードが出ることを目視してよい。
+
+**やること**: (0) PR #635 を develop へマージする。(1) develop → main を `/deploy` で反映し、`npm run check-production-ssr` を実行する。(2) 本番の `/practice/cost-and-design-change` と共通仕様書の章記事 1 本を curl し、`data-cta="qualification-bridge"` とリンク 3 本（orderer / contractor / qualification-map）があることを確かめる。(3) GA4 の DebugView かリアルタイムで `qualification_bridge_impression` と `qualification_bridge_click`（`event_label`＝立場・`cta_placement`＝面）が届くことを確かめる。(4) 反映日が 2026-09-25 から 3 日以上ずれたら、`experiments.json` の EXP-012 `measure.anchor` を反映日に直す。
+
+**完了条件**: (0)〜(3) がそろい、EXP-012 の `actions` に反映日を追記している。
+
 ### [DN-0282] ココナラに4テーマ分の経験記述添削（`coconala-tensaku-4theme`）を出品する
 タグ: [収益化] [種類:改善] [検証:check-coconala-live] [起票:2026-09-24] [期日:2026-09-26] [進行中]
 
@@ -718,6 +729,15 @@ Drive台帳・vault・Drive APIの照合前にローカル実体を削除しな�
 
 
 ## 🟣 判断待ち — ユーザーの意思決定が必要
+
+### [DN-0305] 「業務経験 → 資格」カード（EXP-012）の反応を見て、入口記事を増やすか・文言や位置を変えるかを決める
+タグ: [コンテンツ品質] [種類:意思決定] [起票:2026-09-25] [期日:2026-11-30]
+
+**起点**: EXP-012 は非受験層（業務の悩みで来る実務記事・共通仕様書の読者）を資格ページへ送る実験。判定基準は 13_土木公務員SEO戦略2026-08.md「計測と判定」の表にある（クリック 20 件以上かつクリック率 1.5% 以上で継続・拡張）。
+
+**やること**: (1) 2026-10-23 前後に途中経過として `npm run fetch-ga4-cta-clicks -- --by-label` と `-- --by-placement` の `qualification_bridge_*` を読み、立場別・面別の表示とクリックを EXP-012 の `measurements` に記録する（欠測は 0 と扱わない）。(2) 事後窓の終わり（2026-11-26）の後、`npm run measure-experiments` の自動計測とクリック率で判定する。(3) 継続なら、クリックが多い立場の遷移先を強化し、入口記事（臨時協議・ワンデーレスポンス等）を 1 本ずつ追加する。0.5〜1.5% なら文言か位置（記事末 → 本文中間の区切り）を 1 つだけ変えて再計測する。0.5% 未満か表示 200 件未満なら入口記事の追加を止める。
+
+**完了条件**: 判定と根拠（表示・クリック・立場別内訳の実数）を EXP-012 の `result`・`learnings` に記録し、続ける場合は作業カードを別に起票している。
 
 ### [DN-0265] コンクリート主任技士のココナラ試験出品（PDF 2件）を本試験後に継続か休止か判定する
 タグ: [収益化] [種類:意思決定] [起票:2026-09-23] [期日:2026-12-15]

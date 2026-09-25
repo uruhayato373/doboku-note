@@ -12,6 +12,7 @@ import StandardDataLinks from '@/components/standards/StandardDataLinks';
 import StandardsNavigation from '@/components/standards/StandardsNavigation';
 import StandardTopicLinks from '@/components/standards/StandardTopicLinks';
 import SourceRef from '@/components/standards/SourceRef';
+import QualificationBridge from '@/components/ui/QualificationBridge/QualificationBridge';
 import rehypeHeadingIds from '@/lib/rehype-heading-ids';
 import rehypeScrollableFocus from '@/lib/rehype-scrollable-focus';
 import { buildPageMetadata } from '@/lib/metadata';
@@ -178,6 +179,10 @@ export default async function StandardChapterPage({ params }: { params: Promise<
           </section>
 
           <StandardTopicLinks topics={relatedTopics} />
+          {/* 共通仕様書の読者（発注者・施工会社）を資格の入口へ。本文の外に 1 枚だけ置く。 */}
+          <div className="mt-10">
+            <QualificationBridge placement="standards-chapter-footer" />
+          </div>
           <StandardsAttribution document={entry} />
         </SectionCard>
       </TwoColumnShell>
