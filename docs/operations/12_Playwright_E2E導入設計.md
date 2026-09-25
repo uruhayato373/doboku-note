@@ -225,20 +225,12 @@ CI時間を抑えるため、E2E workflow内で全量の`npm run build`や既存
 - console errorの許容一覧は文字列を無制限に広げず、理由と期限を書く
 - retryで通ったテストもflakeとして追跡する
 
-## 10. 完了条件
+## 10. 守る条件
 
-- [x] `playwright.config.ts`が追加されている
-- [x] `e2e/`にsmoke、navigation、cta、mobileのテストがある
-- [x] Chromium desktop／mobileがローカルで通る（28成功、4対象外スキップ）
-- [x] `npm test`が従来どおり通る（204成功、3スキップ）
-- [x] `npm run type-check`が通る
-- [x] `npm run lint`が通る
-- [x] `npm run build`が通る
-- [x] CI workflowが追加され、失敗artifactを取得できる
-- [x] noteへのログイン・購入・公開を行わない
-- [x] 不要な`data-testid`や製品コード変更がない
-- [x] `git diff --check`が通る
-- [x] 実装状態を本SSOTへ反映し、完了済みTODOと一時指示書を削除する
+導入は完了し、CI（`.github/workflows/e2e.yml`）で稼働している。今後の変更でも次を守る。
+
+- note へのログイン・購入・公開を E2E で行わない
+- テストのためだけの `data-testid` や製品コードの変更を足さない
 
 ## 11. 導入後の拡張条件
 

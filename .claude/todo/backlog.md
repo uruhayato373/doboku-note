@@ -757,7 +757,36 @@ Drive台帳・vault・Drive APIの照合前にローカル実体を削除しな�
 
 **完了条件**: 結論と理由をレジストリの google 行（`ci.enabled` の方針）に書いたら、このカードを削除する。
 
+### [DN-0319] 残るカード系コンポーネント12個をカード primitive（`rounded-card-*` / `shadow-card-*`）へ揃える
+タグ: [コンテンツ品質] [種類:改善] [起票:2026-09-25]
+
+**起点**: 2026-07 の品質改善スプリント（`docs/operations/10_品質改善スプリント_Turbopack_KaTeX_UI.md`・削除済み、`git show 1afb73f97:<path>` で読める）で UI 監査 UI-005 のカード統一は検索・トップ最新記事・about・links・tools まで進み、次の12個が残候補だった。その後に揃えたかは未確認。
+- `CareerAffiliate` / `NoteLink` / `MagazineInlineCard` / `LinkCardClient` / `RelatedArticleCard` / `HubCtaBanner` / `LinksHubTile` / `MagazineTopBanner` / `SidebarAdBanner` / `AuthorProfile` / `PdcaCycle` / `PersonaSelector`
+
+**やること**: 12個の現状を `node scripts/lint-ui.mjs` と目視で確かめ、揃っていないものを既存の CSS primitive で置き換える（一括抽象化はしない）。合否は `/design-review`。
+
+**完了条件**: 12個がカード primitive に揃うか、揃えない理由を design-system.md に書いたら、このカードを削除する。
+
+### [DN-0321] 総監の品質サイクル進捗表を docs/ から外し、admin が JSON から表示する形へ移す
+タグ: [インフラ・計測] [種類:改善] [起票:2026-09-25]
+
+**起点**: `docs/editorial/05_品質サイクル進捗.md` は 739 行の大半が `build-progress-md.mjs` の生成テーブル（`record-verify.mjs` が採点のたびに書き換える・最終更新 2026-05-15）。docs/ は「人が読む恒久判断」の置き場で、機械データは `.claude/state/` の JSON（`quality-scores.json` / `quality-cycle-state.json`）が正。`.claude/state/*.md` の新規作成は禁止なので、md をそのまま state へ移すことはできない。同ファイルの B節「サブ論点 決定ログ」5件（Impact スコアの重み・強制セット・Diff 計測単位・失敗時の挙動・commit 粒度）は 2026-05 から全件「決定: 未」。
+
+**やること**: admin の品質画面が `quality-scores.json` から同じ表を出せるか確かめ、出せれば `build-progress-md.mjs` と `record-verify.mjs` の md 書き込みを外して md を削除する（コード変更なので feature ブランチ＋PR）。B節の5論点は品質サイクルの自動化を再開するときに決めるので、残すなら `03_リライト方法論方針.md` の議論節へ移す。
+
+**完了条件**: 進捗表が admin で見え、`docs/editorial/05_品質サイクル進捗.md` を削除して `npm run check-doc-refs` が緑になったら、このカードを削除する。
+
 ## 🟣 判断待ち — ユーザーの意思決定が必要
+
+### [DN-0320] SEO の本番監査（production smoke）を作るかと、保留中の SEO 判断3件を決める
+タグ: [インフラ・計測] [種類:意思決定] [起票:2026-09-25]
+
+**起点**: SEO 品質ゲートの実装計画（`docs/operations/11_SEO品質ゲートとClaude分業実装計画.md`・削除済み）は Phase 1〜3・6・7 を実装済み（Phase 4 の `check-seo-meta` 再設計は未確認。`check-seo-build`・`fetch-gsc-data --dimensions page,query`・SEO 系エージェント5体）。Phase 5 の本番監査（`scripts/check-seo-production.mjs` + `seo-production-audit.yml`＝sitemap から重要 route を走査し 429/403/5xx をサイト不具合と bot protection に分類）は未実装。deploy 後の SSR 検査は `check-production-ssr` が既にある。同計画で「Claude が独断で変えない」とした判断のうち、AI クローラーの扱いは `docs/operations/robots-ai-crawler-decision.md` で決着済み。
+
+**やること**: 次の4点をユーザーが決める。(1) Phase 5 の本番監査を作るか（`check-production-ssr` で足りるか）、(2) category hub に CollectionPage / ItemList を付けるか、(3) index 未登録ページを統合／noindex する基準、(4) GSC 実験の対象 URL と成功指標。
+
+**完了条件**: 4点の結論を該当 SSOT（gsc-management.md ほか）に書いたら、このカードを削除する。
+
 
 ### [DN-0314] Drive vault にあるココナラ商品画像の旧版5枚を、現行の生成画像で上書きするか決める
 タグ: [収益化] [種類:意思決定] [起票:2026-09-25] [期日:2026-10-09]
