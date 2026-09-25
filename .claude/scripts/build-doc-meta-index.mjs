@@ -13,50 +13,25 @@
  *   node .claude/scripts/build-doc-meta-index.mjs --ci   # git 日付フォールバックが1件でも
  *                                                          # 発生したら案内を出して exit 1
  */
-import { readdirSync, readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
-import { join, relative, dirname, extname } from 'node:path';
-import matter from 'gray-matter';
+import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { join, relative, dirname } from 'node:path';
 import { loadGitDates, lookupGitDates } from './lib/git-dates.mjs';
 import { buildAliasMap, normalizeTags } from '../../scripts/lib/content-taxonomy.mjs';
+import { collectPublishedDocs } from '../../scripts/lib/published-docs.mjs';
 
 const ROOT = process.cwd();
 const TAG_ALIASES = buildAliasMap(JSON.parse(readFileSync(join(ROOT, 'src/config/tags.json'), 'utf8')));
-const POSTS_ROOT = join(ROOT, 'content/site');
 const OUT_PATH = join(ROOT, 'src/config/doc-meta-index.json');
 const CI_MODE = process.argv.includes('--ci');
 
-// ── MDX 列挙 ────────────────────────────────────────────────────
-
-function walkMdx(dir) {
-  const out = [];
-  if (!existsSync(dir)) return out;
-  for (const entry of readdirSync(dir, { withFileTypes: true })) {
-    const p = join(dir, entry.name);
-    if (entry.isDirectory()) {
-      out.push(...walkMdx(p));
-    } else if (entry.isFile() && extname(entry.name).toLowerCase() === '.mdx') {
-      out.push(p);
-    }
-  }
-  return out;
-}
-
-// ── slug 生成 ──────────────────────────────────────────────────
-// Convention A: `content/site/<cat>/dir/file.mdx` → `<cat>-dir-file`
-// Convention B: `content/site/<cat>/dir/article.mdx` → `<cat>-dir`
-
-function toSlug(filePath) {
-  const rel = relative(POSTS_ROOT, filePath);
-  const withoutExt = rel.replace(/\.mdx$/i, '');
-  const parts = withoutExt.split(/[\\/]/).filter((s) => s && s !== 'article');
-  return parts.join('-');
-}
+// MDX の列挙・slug 規則（Convention A/B）・published: false の除外は
+// scripts/lib/published-docs.mjs が唯一の実装（テストも同じ関数で MDX を直接読む）。
 
 // ── メイン処理 ─────────────────────────────────────────────────
 
 function main() {
-  const files = walkMdx(POSTS_ROOT);
-  console.log(`[doc-meta] ${files.length} MDX を走査`);
+  const { total, unpublished, docs: publishedDocs } = collectPublishedDocs(ROOT);
+  console.log(`[doc-meta] ${total} MDX を走査`);
 
   // git log 全体走査で created / dateModified を上書き（frontmatter の値より優先）
   // git は frontmatter が欠けたときだけの保険。呼ばれなければ履歴に触れない。
@@ -73,28 +48,8 @@ function main() {
 
   const docs = {};
   const byCategory = {};
-  let unpublished = 0;
 
-  for (const filePath of files) {
-    let parsed;
-    try {
-      const raw = readFileSync(filePath, 'utf8');
-      parsed = matter(raw);
-    } catch (e) {
-      console.error(`[doc-meta] skip (parse error): ${filePath} ${e.message}`);
-      continue;
-    }
-
-    const data = parsed.data || {};
-
-    // published: false は除外
-    if (data.published === false) {
-      unpublished++;
-      continue;
-    }
-
-    const slug = toSlug(filePath);
-
+  for (const { slug, filePath, data } of publishedDocs) {
     // frontmatter を正規化して格納（slug はキーなので含めない）
     const meta = {
       title: data.title || '',
@@ -189,7 +144,7 @@ function main() {
     version: 1,
     generated_at: new Date().toISOString(),
     summary: {
-      total: files.length,
+      total,
       published,
       unpublished,
       by_category: byCategory,
