@@ -159,9 +159,9 @@ const THUMB_COPY = {
   },
   'coconala-tensaku-4theme': {
     eyebrow: '1級土木施工管理技士 ／ 第2次検定 経験記述',
-    title: ['経験記述 添削', '5管理フル'],
-    hook: 'どの2テーマが出ても書けるように\n5管理分を技術士・元発注者が赤入れ',
-    priceLabel: '5管理・書き直し1回込み',
+    title: ['経験記述 添削', '全5テーマ'],
+    hook: 'どの2テーマが出ても書けるように\n全5テーマ分を技術士・元発注者が赤入れ',
+    priceLabel: '5テーマ・書き直し1回込み',
   },
   'coconala-sakusei': {
     eyebrow: '1級土木施工管理技士 ／ 第2次検定 経験記述',
@@ -171,9 +171,9 @@ const THUMB_COPY = {
   },
   'coconala-sakusei-4theme': {
     eyebrow: '1級土木施工管理技士 ／ 第2次検定 経験記述',
-    title: ['経験記述 作成', '5管理フル'],
-    hook: '当日どの2テーマが出ても大丈夫。\n実工事を5管理分そろえて備える',
-    priceLabel: '5管理・書き直し1回込み／週1名',
+    title: ['経験記述 作成', '全5テーマ'],
+    hook: '当日どの2テーマが出ても大丈夫。\n実工事を全5テーマ分そろえて備える',
+    priceLabel: '5テーマ・書き直し1回込み',
   },
   'coconala-2kyu-tensaku': {
     eyebrow: '2級土木施工管理技士 ／ 第2次検定 経験記述',
@@ -183,9 +183,9 @@ const THUMB_COPY = {
   },
   'coconala-2kyu-tensaku-3theme': {
     eyebrow: '2級土木施工管理技士 ／ 第2次検定 経験記述',
-    title: ['経験記述 添削', '3管理フル'],
-    hook: 'R6・R7の出題は品質・安全・工程。\n3管理そろえて技術士・元発注者が赤入れ',
-    priceLabel: '3管理・書き直し1回込み',
+    title: ['経験記述 添削', '全3テーマ'],
+    hook: 'R6・R7の出題は品質・安全・工程。\n全3テーマを元発注者が赤入れ',
+    priceLabel: '3テーマ・書き直し1回込み',
   },
   'coconala-2kyu-sakusei': {
     eyebrow: '2級土木施工管理技士 ／ 第2次検定 経験記述',
@@ -195,9 +195,9 @@ const THUMB_COPY = {
   },
   'coconala-2kyu-sakusei-3theme': {
     eyebrow: '2級土木施工管理技士 ／ 第2次検定 経験記述',
-    title: ['経験記述 作成', '3管理フル'],
-    hook: 'R6・R7の出題は品質・安全・工程。\n実工事を3管理分そろえて備える',
-    priceLabel: '3管理・書き直し1回込み',
+    title: ['経験記述 作成', '全3テーマ'],
+    hook: 'R6・R7の出題は品質・安全・工程。\n実工事を全3テーマ分そろえて備える',
+    priceLabel: '3テーマ・書き直し1回込み',
   },
   'coconala-1kyu-premium': {
     eyebrow: '1級土木施工管理技士 ／ 第2次検定 教材＋添削',
