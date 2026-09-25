@@ -325,6 +325,12 @@ const CHECKS = [
     note: 'キャリアファネル集計（流入→回遊→CTA→成果）が実行可能か（成果物は書かない・月次レビューと EXP-008 が読む）',
   },
   {
+    id: 'exam-ssot-status',
+    cmd: ['node', 'scripts/report-exam-ssot.mjs', '--check'],
+    timeout: 30_000, ci: true,
+    note: '資格の正本（qualification-registry・exam-calendar・exam-stats）の照合状態レポートが実行可能か（成果物は書かない。要対応の中身は壁時計依存なので CI では見ない。読み手＝月次レビュー /monthly-review 手順）',
+  },
+  {
     id: 'site-to-sales-report',
     cmd: ['node', 'scripts/report-site-to-sales.mjs', '--check'],
     timeout: 60_000, ci: true,

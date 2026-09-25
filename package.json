@@ -121,6 +121,7 @@
     "todo:release": "node scripts/todo-release.mjs",
     "todo:complete": "node scripts/todo-complete.mjs",
     "check-exam-calendar": "node scripts/check-exam-calendar.mjs",
+    "exam-ssot-status": "node scripts/report-exam-ssot.mjs",
     "seo-rank-watch": "node scripts/seo-rank-watch.mjs",
     "check-seo-rank-watch": "node scripts/check-seo-rank-watch.mjs",
     "check-experiment-due": "node scripts/check-experiment-due.mjs",

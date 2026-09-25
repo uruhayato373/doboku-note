@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 
-import { validateQualificationRegistry } from '../../../../scripts/lib/qualification-registry.mjs';
+import { summarizeSsotStatus, validateQualificationRegistry } from '../../../../scripts/lib/qualification-registry.mjs';
 import { repoPath } from './repo-root';
 
 /**
@@ -41,6 +41,14 @@ export interface QualificationView {
   statsUnverified: boolean;
   scheduleSource: string | null;
   statsSource: string | null;
+  /** 照合状態（summarizeSsotStatus・月次レビューの exam-ssot-status と同じ判定） */
+  verification: {
+    calendarCheckedAt: string | null;
+    statsCheckedAt: string | null;
+    selfChecked: boolean;
+    actions: string[];
+    records: string[];
+  };
 }
 
 export interface QualificationsView {
@@ -74,6 +82,10 @@ export function loadQualificationsView(): QualificationsView {
   const lineupConfig = readConfig<unknown>('product-lineup.json');
   const errors = validateQualificationRegistry({ registry, calendar, examStats, lineupConfig }) as string[];
   const today = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Asia/Tokyo' }).format(new Date());
+  type Part = { checkedAt: string; checkedBy: string; pending: string[]; notPublished: string[] } | null;
+  const status = new Map(
+    (summarizeSsotStatus({ registry, calendar, examStats, today }) as { rows: { id: string; calendar: Part; stats: Part; actions: string[] }[] }).rows.map((r) => [r.id, r]),
+  );
 
   const rows = registry.qualifications.map((q): QualificationView => {
     const cal = calendar.exams[q.id];
@@ -103,6 +115,21 @@ export function loadQualificationsView(): QualificationsView {
       statsUnverified: !latest,
       scheduleSource: cal?.source ?? null,
       statsSource: st?.source ?? null,
+      verification: (() => {
+        const v = status.get(q.id);
+        return {
+          calendarCheckedAt: v?.calendar?.checkedAt ?? null,
+          statsCheckedAt: v?.stats?.checkedAt ?? null,
+          selfChecked: v?.calendar?.checkedBy === 'self' && v?.stats?.checkedBy === 'self',
+          actions: v?.actions ?? [],
+          records: [
+            ...(v?.calendar?.pending ?? []).map((x) => `日程 発表待ち: ${x}`),
+            ...(v?.stats?.pending ?? []).map((x) => `統計 発表待ち: ${x}`),
+            ...(v?.calendar?.notPublished ?? []).map((x) => `日程 非公表: ${x}`),
+            ...(v?.stats?.notPublished ?? []).map((x) => `統計 非公表: ${x}`),
+          ],
+        };
+      })(),
     };
   });
   return { families: registry.families, statuses: registry.portfolioStatuses, eventKinds: calendar.eventKinds, rows, errors, today };

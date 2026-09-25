@@ -22,6 +22,8 @@ test('実データ: registry・exam-calendar・exam-stats・product-lineup が�
   assert.deepEqual(errors, []);
 });
 
+const V = (checkedBy = 'self') => ({ checkedAt: '2026-09-26', checkedBy, unresolved: [], pending: [], notPublished: [] });
+
 const base = () => ({
   registry: {
     portfolioStatuses: { active: '', candidate: '', declined: '' },
@@ -33,9 +35,17 @@ const base = () => ({
   },
   calendar: {
     eventKinds: { application: '', exam: '', result: '' },
-    exams: { a: { events: { exam: { label: '試験', date: '2026-11-22', kind: 'exam' } } }, c: { note: '未確認' } },
+    exams: {
+      a: { events: { exam: { label: '試験', date: '2026-11-22', kind: 'exam' } }, verification: V() },
+      c: { note: '未確認', verification: V('agent') },
+    },
   },
-  examStats: { exams: { a: { latest: { examinees: 10, passRate: 5 } }, c: { latest: null, note: '未確認' } } },
+  examStats: {
+    exams: {
+      a: { latest: { examinees: 10, passRate: 5 }, verification: V() },
+      c: { latest: null, note: '未確認', verification: V('agent') },
+    },
+  },
   lineupConfig: { qualifications: [{ id: 'a' }] },
 });
 
@@ -80,4 +90,49 @@ test('日程・統計の形と、ラインナップの行と active の一致を
   ]) {
     assert.ok(errors.some((e) => e.includes(needle)), needle);
   }
+});
+
+test('照合記録: 形の欠け・展開中の資格の未照合（agent）を検出する', () => {
+  const d = base();
+  d.calendar.exams.a.verification = V('agent');
+  d.examStats.exams.a.verification = { checkedAt: '9/26', checkedBy: 'me', unresolved: 'x' };
+  delete d.examStats.exams.c.verification;
+  const errors = validateQualificationRegistry(d);
+  for (const needle of [
+    'exam-calendar.a: 展開中の資格は主担当の原文照合',
+    'exam-stats.a.verification.checkedAt',
+    'exam-stats.a.verification.checkedBy',
+    'exam-stats.a.verification.unresolved',
+    'exam-stats.c: verification（照合記録）が必要',
+  ]) {
+    assert.ok(errors.some((e) => e.includes(needle)), needle);
+  }
+  // 候補（candidate）は agent のままでも可
+  assert.ok(!errors.some((e) => e.includes('exam-calendar.c: 展開中')));
+});
+
+test('合格率: 倍率の混入と合格者÷受験者との不一致を検出する（2026-09-26 の実例）', () => {
+  const d = base();
+  d.examStats.exams.a.latest = { stages: { final: { examinees: 241, passers: 231, passRate: 2.5 } } };
+  d.examStats.exams.c.latest = { examinees: 100, passers: 40, passRate: 140 };
+  d.examStats.exams.c.note = 'x';
+  const errors = validateQualificationRegistry(d);
+  assert.ok(errors.some((e) => e.includes('stages.final.passRate 2.5 が合格者÷受験者 95.9')), errors.join('\n'));
+  assert.ok(errors.some((e) => e.includes('passRate 140 は 0〜100')));
+  const ok = base();
+  ok.examStats.exams.a.latest = { examinees: 14030, passers: 7274, passRate: 51.8 };
+  assert.deepEqual(validateQualificationRegistry(ok), []);
+});
+
+test('部門別表の参照と日程の名前×種類の矛盾を検出する', () => {
+  const d = base();
+  d.examStats.divisions = { R7: { stage: 'final', divisions: { 建設: { applicants: 10, examinees: 8, passers: 2, passRate: 25 } } } };
+  d.examStats.exams.a.divisionRef = 'divisions.建設';
+  d.examStats.exams.a.latest = { year: 'R7', stage: 'final', applicants: 10, examinees: 8, passers: 1, passRate: 12.5 };
+  d.calendar.exams.a.events.result = { label: '第二次検定 合格発表', date: '2027-01-08', kind: 'exam' };
+  d.calendar.exams.a.events.open = { label: '受検申込受付 開始', date: '2026-03-23', kind: 'exam' };
+  const errors = validateQualificationRegistry(d);
+  assert.ok(errors.some((e) => e.includes('latest.passers 1 が部門別表 2')), errors.join('\n'));
+  assert.ok(errors.some((e) => e.includes('「第二次検定 合格発表」の kind は result')));
+  assert.ok(errors.some((e) => e.includes('「受検申込受付 開始」の kind は application')));
 });

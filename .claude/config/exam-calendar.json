@@ -45,6 +45,13 @@
           "date": "2026-04-06",
           "kind": "application"
         }
+      },
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "self",
+        "unresolved": [],
+        "pending": [],
+        "notPublished": []
       }
     },
     "civil-construction-2": {
@@ -102,6 +109,13 @@
           "date": "2026-07-22",
           "kind": "application"
         }
+      },
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "self",
+        "unresolved": [],
+        "pending": [],
+        "notPublished": []
       }
     },
     "pe-comprehensive-management": {
@@ -151,6 +165,15 @@
           "label": "口頭試験",
           "window": "2026年12月上旬〜2027年1月中旬の受験者に別途通知する日"
         }
+      },
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "self",
+        "unresolved": [],
+        "pending": [
+          "口頭試験の日時（受験者ごとに個別通知）"
+        ],
+        "notPublished": []
       }
     },
     "pe-construction": {
@@ -195,6 +218,15 @@
           "label": "口頭試験",
           "window": "2026年12月上旬〜2027年1月中旬の受験者に別途通知する日"
         }
+      },
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "self",
+        "unresolved": [],
+        "pending": [
+          "口頭試験の日時（受験者ごとに個別通知）"
+        ],
+        "notPublished": []
       }
     },
     "pe-first-stage": {
@@ -229,6 +261,15 @@
           "label": "合格者 官報公告",
           "window": "2027年2月（日付未発表）"
         }
+      },
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "self",
+        "unresolved": [],
+        "pending": [
+          "合格者の官報公告日（2027年2月・日付未発表）"
+        ],
+        "notPublished": []
       }
     },
     "concrete-engineer": {
@@ -257,7 +298,14 @@
           "kind": "result"
         }
       },
-      "note": "2026年度から受験資格の実務経験要件が改定された。試験日程はコンクリート主任技士と共通。"
+      "note": "2026年度から受験資格の実務経験要件が改定された。試験日程はコンクリート主任技士と共通。",
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "self",
+        "unresolved": [],
+        "pending": [],
+        "notPublished": []
+      }
     },
     "concrete-chief-engineer": {
       "label": "コンクリート主任技士",
@@ -285,7 +333,14 @@
           "kind": "result"
         }
       },
-      "note": "正式名称は「コンクリート主任技士」（技師ではない）。コンクリート技士も同日実施。"
+      "note": "正式名称は「コンクリート主任技士」（技師ではない）。コンクリート技士も同日実施。",
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "self",
+        "unresolved": [],
+        "pending": [],
+        "notPublished": []
+      }
     },
     "concrete-diagnostician": {
       "label": "コンクリート診断士",
@@ -314,6 +369,15 @@
           "label": "合否通知",
           "window": "2026年9月末日（予定）"
         }
+      },
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "self",
+        "unresolved": [],
+        "pending": [
+          "合否通知の確定日（9月末日予定）"
+        ],
+        "notPublished": []
       }
     },
     "rccm": {
@@ -342,7 +406,14 @@
           "kind": "result"
         }
       },
-      "note": "運営は一般社団法人 建設コンサルタンツ協会 RCCM資格制度事務局。2026年度は申込 5/11〜6/10、試験予約 7/4〜10/27（プロメトリック CBT）、試験期間 9/1〜10/31。試験A（問題I 業務経験論文・問題II 択一）と試験B（問題III 管理技術力・問題IV 択一）各130分。問題III は事前公開6テーマから1題。2027年度の申込期間は公式発表待ち（例年5月中旬〜6月上旬）。過去問題は事務局非公開（2026-09-15 確認）。"
+      "note": "運営は一般社団法人 建設コンサルタンツ協会 RCCM資格制度事務局。2026年度は申込 5/11〜6/10、試験予約 7/4〜10/27（プロメトリック CBT）、試験期間 9/1〜10/31。試験A（問題I 業務経験論文・問題II 択一）と試験B（問題III 管理技術力・問題IV 択一）各130分。問題III は事前公開6テーマから1題。2027年度の申込期間は公式発表待ち（例年5月中旬〜6月上旬）。過去問題は事務局非公開（2026-09-15 確認）。",
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "self",
+        "unresolved": [],
+        "pending": [],
+        "notPublished": []
+      }
     },
     "pe-information": {
       "label": "技術士第二次試験 情報工学部門",
@@ -386,7 +457,16 @@
           "window": "2026年12月上旬〜2027年1月中旬の受験者に別途通知する日"
         }
       },
-      "note": "日程は技術士第二次試験（総監以外の全技術部門）と共通。日程の出典は令和8年度 受験申込案内（attach_11631_2.pdf）と実施案内（011422.html）。発表日は案内に「予定」と明記。2026-09-26 に原文照合。"
+      "note": "日程は技術士第二次試験（総監以外の全技術部門）と共通。日程の出典は令和8年度 受験申込案内（attach_11631_2.pdf）と実施案内（011422.html）。発表日は案内に「予定」と明記。2026-09-26 に原文照合。",
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "self",
+        "unresolved": [],
+        "pending": [
+          "口頭試験の日時（受験者ごとに個別通知）"
+        ],
+        "notPublished": []
+      }
     },
     "pe-water-supply": {
       "label": "技術士第二次試験 上下水道部門",
@@ -430,7 +510,16 @@
           "window": "2026年12月上旬〜2027年1月中旬の受験者に別途通知する日"
         }
       },
-      "note": "日程は技術士第二次試験（総監以外の全技術部門）と共通。日程の出典は令和8年度 受験申込案内（attach_11631_2.pdf）と実施案内（011422.html）。発表日は案内に「予定」と明記。2026-09-26 に原文照合。"
+      "note": "日程は技術士第二次試験（総監以外の全技術部門）と共通。日程の出典は令和8年度 受験申込案内（attach_11631_2.pdf）と実施案内（011422.html）。発表日は案内に「予定」と明記。2026-09-26 に原文照合。",
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "self",
+        "unresolved": [],
+        "pending": [
+          "口頭試験の日時（受験者ごとに個別通知）"
+        ],
+        "notPublished": []
+      }
     },
     "pe-agriculture": {
       "label": "技術士第二次試験 農業部門",
@@ -474,7 +563,16 @@
           "window": "2026年12月上旬〜2027年1月中旬の受験者に別途通知する日"
         }
       },
-      "note": "日程は技術士第二次試験（総監以外の全技術部門）と共通。日程の出典は令和8年度 受験申込案内（attach_11631_2.pdf）と実施案内（011422.html）。発表日は案内に「予定」と明記。2026-09-26 に原文照合。"
+      "note": "日程は技術士第二次試験（総監以外の全技術部門）と共通。日程の出典は令和8年度 受験申込案内（attach_11631_2.pdf）と実施案内（011422.html）。発表日は案内に「予定」と明記。2026-09-26 に原文照合。",
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "self",
+        "unresolved": [],
+        "pending": [
+          "口頭試験の日時（受験者ごとに個別通知）"
+        ],
+        "notPublished": []
+      }
     },
     "pe-forestry": {
       "label": "技術士第二次試験 森林部門",
@@ -518,7 +616,16 @@
           "window": "2026年12月上旬〜2027年1月中旬の受験者に別途通知する日"
         }
       },
-      "note": "日程は技術士第二次試験（総監以外の全技術部門）と共通。日程の出典は令和8年度 受験申込案内（attach_11631_2.pdf）と実施案内（011422.html）。発表日は案内に「予定」と明記。2026-09-26 に原文照合。"
+      "note": "日程は技術士第二次試験（総監以外の全技術部門）と共通。日程の出典は令和8年度 受験申込案内（attach_11631_2.pdf）と実施案内（011422.html）。発表日は案内に「予定」と明記。2026-09-26 に原文照合。",
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "self",
+        "unresolved": [],
+        "pending": [
+          "口頭試験の日時（受験者ごとに個別通知）"
+        ],
+        "notPublished": []
+      }
     },
     "pe-fisheries": {
       "label": "技術士第二次試験 水産部門",
@@ -562,7 +669,16 @@
           "window": "2026年12月上旬〜2027年1月中旬の受験者に別途通知する日"
         }
       },
-      "note": "日程は技術士第二次試験（総監以外の全技術部門）と共通。日程の出典は令和8年度 受験申込案内（attach_11631_2.pdf）と実施案内（011422.html）。発表日は案内に「予定」と明記。2026-09-26 に原文照合。"
+      "note": "日程は技術士第二次試験（総監以外の全技術部門）と共通。日程の出典は令和8年度 受験申込案内（attach_11631_2.pdf）と実施案内（011422.html）。発表日は案内に「予定」と明記。2026-09-26 に原文照合。",
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "self",
+        "unresolved": [],
+        "pending": [
+          "口頭試験の日時（受験者ごとに個別通知）"
+        ],
+        "notPublished": []
+      }
     },
     "pe-environment": {
       "label": "技術士第二次試験 環境部門",
@@ -606,7 +722,16 @@
           "window": "2026年12月上旬〜2027年1月中旬の受験者に別途通知する日"
         }
       },
-      "note": "日程は技術士第二次試験（総監以外の全技術部門）と共通。日程の出典は令和8年度 受験申込案内（attach_11631_2.pdf）と実施案内（011422.html）。発表日は案内に「予定」と明記。2026-09-26 に原文照合。"
+      "note": "日程は技術士第二次試験（総監以外の全技術部門）と共通。日程の出典は令和8年度 受験申込案内（attach_11631_2.pdf）と実施案内（011422.html）。発表日は案内に「予定」と明記。2026-09-26 に原文照合。",
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "self",
+        "unresolved": [],
+        "pending": [
+          "口頭試験の日時（受験者ごとに個別通知）"
+        ],
+        "notPublished": []
+      }
     },
     "pe-applied-science": {
       "label": "技術士第二次試験 応用理学部門",
@@ -650,7 +775,16 @@
           "window": "2026年12月上旬〜2027年1月中旬の受験者に別途通知する日"
         }
       },
-      "note": "日程は技術士第二次試験（総監以外の全技術部門）と共通。日程の出典は令和8年度 受験申込案内（attach_11631_2.pdf）と実施案内（011422.html）。発表日は案内に「予定」と明記。2026-09-26 に原文照合。"
+      "note": "日程は技術士第二次試験（総監以外の全技術部門）と共通。日程の出典は令和8年度 受験申込案内（attach_11631_2.pdf）と実施案内（011422.html）。発表日は案内に「予定」と明記。2026-09-26 に原文照合。",
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "self",
+        "unresolved": [],
+        "pending": [
+          "口頭試験の日時（受験者ごとに個別通知）"
+        ],
+        "notPublished": []
+      }
     },
     "pe-sanitary": {
       "label": "技術士第二次試験 衛生工学部門",
@@ -694,7 +828,16 @@
           "window": "2026年12月上旬〜2027年1月中旬の受験者に別途通知する日"
         }
       },
-      "note": "日程は技術士第二次試験（総監以外の全技術部門）と共通。日程の出典は令和8年度 受験申込案内（attach_11631_2.pdf）と実施案内（011422.html）。発表日は案内に「予定」と明記。2026-09-26 に原文照合。"
+      "note": "日程は技術士第二次試験（総監以外の全技術部門）と共通。日程の出典は令和8年度 受験申込案内（attach_11631_2.pdf）と実施案内（011422.html）。発表日は案内に「予定」と明記。2026-09-26 に原文照合。",
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "self",
+        "unresolved": [],
+        "pending": [
+          "口頭試験の日時（受験者ごとに個別通知）"
+        ],
+        "notPublished": []
+      }
     },
     "pipe-work-1": {
       "label": "1級管工事施工管理技術検定",
@@ -732,7 +875,14 @@
           "kind": "result"
         }
       },
-      "note": "旧受検資格は書面申込（申込書販売 4/22〜）。2026-09-26 に JCTC 公式ページで照合。"
+      "note": "旧受検資格は書面申込（申込書販売 4/22〜）。2026-09-26 に JCTC 公式ページで照合。",
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "self",
+        "unresolved": [],
+        "pending": [],
+        "notPublished": []
+      }
     },
     "landscape-1": {
       "label": "1級造園施工管理技術検定",
@@ -770,7 +920,14 @@
           "kind": "result"
         }
       },
-      "note": "旧受検資格は書面申込（申込書販売 4/22〜）。2026-09-26 に JCTC 公式ページで照合。"
+      "note": "旧受検資格は書面申込（申込書販売 4/22〜）。2026-09-26 に JCTC 公式ページで照合。",
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "self",
+        "unresolved": [],
+        "pending": [],
+        "notPublished": []
+      }
     },
     "pipe-work-2": {
       "label": "2級管工事施工管理技術検定",
@@ -828,7 +985,14 @@
           "kind": "result"
         }
       },
-      "note": "2026-09-26 に JCTC 公式ページで照合。"
+      "note": "2026-09-26 に JCTC 公式ページで照合。",
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "self",
+        "unresolved": [],
+        "pending": [],
+        "notPublished": []
+      }
     },
     "landscape-2": {
       "label": "2級造園施工管理技術検定",
@@ -886,7 +1050,14 @@
           "kind": "result"
         }
       },
-      "note": "2026-09-26 に JCTC 公式ページで照合。"
+      "note": "2026-09-26 に JCTC 公式ページで照合。",
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "self",
+        "unresolved": [],
+        "pending": [],
+        "notPublished": []
+      }
     },
     "building-construction-1": {
       "label": "1級建築施工管理技術検定",
@@ -929,7 +1100,14 @@
           "kind": "result"
         }
       },
-      "note": "建設業振興基金「令和8年度 建築及び電気工事施工管理技術検定実施日程」で 2026-09-26 に照合。1級は建築と電気工事で第一次検定日だけが異なる。"
+      "note": "建設業振興基金「令和8年度 建築及び電気工事施工管理技術検定実施日程」で 2026-09-26 に照合。1級は建築と電気工事で第一次検定日だけが異なる。",
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "self",
+        "unresolved": [],
+        "pending": [],
+        "notPublished": []
+      }
     },
     "electrical-work-1": {
       "label": "1級電気工事施工管理技術検定",
@@ -972,7 +1150,14 @@
           "kind": "result"
         }
       },
-      "note": "建設業振興基金「令和8年度 建築及び電気工事施工管理技術検定実施日程」で 2026-09-26 に照合。1級は建築と電気工事で第一次検定日だけが異なる。"
+      "note": "建設業振興基金「令和8年度 建築及び電気工事施工管理技術検定実施日程」で 2026-09-26 に照合。1級は建築と電気工事で第一次検定日だけが異なる。",
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "self",
+        "unresolved": [],
+        "pending": [],
+        "notPublished": []
+      }
     },
     "building-construction-2": {
       "label": "2級建築施工管理技術検定",
@@ -1030,7 +1215,14 @@
           "kind": "result"
         }
       },
-      "note": "建設業振興基金「令和8年度 建築及び電気工事施工管理技術検定実施日程」で 2026-09-26 に照合。一次・二次の書面申請は 7/13 開始。"
+      "note": "建設業振興基金「令和8年度 建築及び電気工事施工管理技術検定実施日程」で 2026-09-26 に照合。一次・二次の書面申請は 7/13 開始。",
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "self",
+        "unresolved": [],
+        "pending": [],
+        "notPublished": []
+      }
     },
     "electrical-work-2": {
       "label": "2級電気工事施工管理技術検定",
@@ -1088,7 +1280,14 @@
           "kind": "result"
         }
       },
-      "note": "建設業振興基金「令和8年度 建築及び電気工事施工管理技術検定実施日程」で 2026-09-26 に照合。一次・二次の書面申請は 7/13 開始。"
+      "note": "建設業振興基金「令和8年度 建築及び電気工事施工管理技術検定実施日程」で 2026-09-26 に照合。一次・二次の書面申請は 7/13 開始。",
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "self",
+        "unresolved": [],
+        "pending": [],
+        "notPublished": []
+      }
     },
     "construction-machinery-1": {
       "label": "1級建設機械施工管理技術検定",
@@ -1127,7 +1326,16 @@
           "window": "8月下旬〜9月中旬"
         }
       },
-      "note": "日本建設機械施工協会の令和8年度日程表（画像）で 2026-09-26 に照合。"
+      "note": "日本建設機械施工協会の令和8年度日程表（画像）で 2026-09-26 に照合。",
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "self",
+        "unresolved": [],
+        "pending": [
+          "第二次検定（実技）の個別日程（8月下旬〜9月中旬）"
+        ],
+        "notPublished": []
+      }
     },
     "construction-machinery-2": {
       "label": "2級建設機械施工管理技術検定",
@@ -1166,7 +1374,16 @@
           "window": "8月下旬〜9月中旬"
         }
       },
-      "note": "日本建設機械施工協会の令和8年度日程表（画像）で 2026-09-26 に照合。"
+      "note": "日本建設機械施工協会の令和8年度日程表（画像）で 2026-09-26 に照合。",
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "self",
+        "unresolved": [],
+        "pending": [
+          "第二次検定（実技）の個別日程（8月下旬〜9月中旬）"
+        ],
+        "notPublished": []
+      }
     },
     "pavement-1": {
       "label": "1級舗装施工管理技術者資格試験",
@@ -1194,7 +1411,14 @@
           "kind": "result"
         }
       },
-      "note": "日本道路建設業協会の令和8年度 受験の手引きで 2026-09-26 に照合。"
+      "note": "日本道路建設業協会の令和8年度 受験の手引きで 2026-09-26 に照合。",
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "self",
+        "unresolved": [],
+        "pending": [],
+        "notPublished": []
+      }
     },
     "pavement-2": {
       "label": "2級舗装施工管理技術者資格試験",
@@ -1222,7 +1446,14 @@
           "kind": "result"
         }
       },
-      "note": "日本道路建設業協会の令和8年度 受験の手引きで 2026-09-26 に照合。"
+      "note": "日本道路建設業協会の令和8年度 受験の手引きで 2026-09-26 に照合。",
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "self",
+        "unresolved": [],
+        "pending": [],
+        "notPublished": []
+      }
     },
     "civil-service-national-general-civil": {
       "label": "国家公務員採用一般職試験（大卒程度）土木",
@@ -1261,7 +1492,16 @@
           "window": "7月8日〜7月24日のうち第1次試験合格通知書で指定する日時"
         }
       },
-      "note": "人事院の受験案内ページで 2026-09-26 に照合。"
+      "note": "人事院の受験案内ページで 2026-09-26 に照合。",
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "self",
+        "unresolved": [],
+        "pending": [
+          "第2次試験の個別日時（第1次合格通知書で指定）"
+        ],
+        "notPublished": []
+      }
     },
     "civil-service-tokyo-1b-civil": {
       "label": "東京都職員採用試験 I類B（一般方式）土木",
@@ -1300,7 +1540,16 @@
           "window": "6月17日〜6月29日のうち都が指定する1日"
         }
       },
-      "note": "東京都人事委員会の採用試験ページで 2026-09-26 に照合。新方式（春・秋）は別日程で本エントリの対象外。"
+      "note": "東京都人事委員会の採用試験ページで 2026-09-26 に照合。新方式（春・秋）は別日程で本エントリの対象外。",
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "self",
+        "unresolved": [],
+        "pending": [
+          "第2次試験の個別日（都が指定）"
+        ],
+        "notPublished": []
+      }
     },
     "civil-service-tokubetsuku-1-civil": {
       "label": "特別区職員採用試験 I類【秋試験】土木造園（土木）",
@@ -1338,7 +1587,14 @@
           "kind": "result"
         }
       },
-      "note": "特別区人事委員会の令和8年度 I類【秋試験】試験案内で 2026-09-26 に照合。"
+      "note": "特別区人事委員会の令和8年度 I類【秋試験】試験案内で 2026-09-26 に照合。",
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "self",
+        "unresolved": [],
+        "pending": [],
+        "notPublished": []
+      }
     },
     "surveyor": {
       "label": "測量士試験",
@@ -1366,7 +1622,14 @@
           "kind": "result"
         }
       },
-      "note": "国土地理院の令和8年 受験案内で 2026-09-26 に照合。"
+      "note": "国土地理院の令和8年 受験案内で 2026-09-26 に照合。",
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "self",
+        "unresolved": [],
+        "pending": [],
+        "notPublished": []
+      }
     },
     "assistant-surveyor": {
       "label": "測量士補試験",
@@ -1394,7 +1657,14 @@
           "kind": "result"
         }
       },
-      "note": "国土地理院の令和8年 受験案内で 2026-09-26 に照合。"
+      "note": "国土地理院の令和8年 受験案内で 2026-09-26 に照合。",
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "self",
+        "unresolved": [],
+        "pending": [],
+        "notPublished": []
+      }
     },
     "geological-survey-engineer": {
       "label": "地質調査技士資格検定試験",
@@ -1422,7 +1692,14 @@
           "kind": "result"
         }
       },
-      "note": "全国地質調査業協会連合会の2026年 受験手引きで 2026-09-26 に照合。"
+      "note": "全国地質調査業協会連合会の2026年 受験手引きで 2026-09-26 に照合。",
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "self",
+        "unresolved": [],
+        "pending": [],
+        "notPublished": []
+      }
     },
     "road-bridge-inspector": {
       "label": "道路橋点検士（技術研修会）",
@@ -1440,14 +1717,33 @@
           "kind": "exam"
         }
       },
-      "note": "試験ではなく技術研修会（修了試験を含む）の受講で取得する制度で、研修会は年に複数回ある。確認できたのは第70回のみ（2026-09-26 に橋梁調査会の案内ページで照合）。道路橋点検士補の検定試験は公開中の回なし。"
+      "note": "試験ではなく技術研修会（修了試験を含む）の受講で取得する制度で、研修会は年に複数回ある。確認できたのは第70回のみ（2026-09-26 に橋梁調査会の案内ページで照合）。道路橋点検士補の検定試験は公開中の回なし。",
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "self",
+        "unresolved": [
+          "第70回以外の令和8年度 技術研修会の日程（一覧ページ未確認）",
+          "道路橋点検士補 検定試験の日程（公開中の回なし）"
+        ],
+        "pending": [],
+        "notPublished": []
+      }
     },
     "steel-structure-diagnostician": {
       "label": "土木鋼構造診断士・土木鋼構造診断士補",
       "year": 2026,
       "source": "http://www.jssc.or.jp/diagnosis/index.html",
       "events": {},
-      "note": "未確認。2026-09-26 時点で日本鋼構造協会の公式ページから令和8年度の日程を取得できなかった（推測で埋めない）。"
+      "note": "未確認。2026-09-26 時点で日本鋼構造協会の公式ページから令和8年度の日程を取得できなかった（推測で埋めない）。",
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "agent",
+        "unresolved": [
+          "令和8年度の試験・講習の日程（公式ページを取得できず。主担当の原文照合も未了）"
+        ],
+        "pending": [],
+        "notPublished": []
+      }
     }
   }
 }

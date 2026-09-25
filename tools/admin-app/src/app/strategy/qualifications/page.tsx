@@ -23,6 +23,7 @@ export default async function QualificationsPage({ searchParams }: { searchParam
   const rows = filter ? view.rows.filter((r) => r.portfolio === filter) : view.rows;
   const count = (s: string) => view.rows.filter((r) => r.portfolio === s).length;
   const unverified = view.rows.filter((r) => r.statsUnverified || (!r.hasEvents && r.periods.length === 0)).length;
+  const actionRows = view.rows.filter((r) => r.verification.actions.length > 0).length;
 
   return (
     <>
@@ -36,6 +37,7 @@ export default async function QualificationsPage({ searchParams }: { searchParam
         <Kpi label="展開中" value={count('active')} />
         <Kpi label="候補" value={count('candidate')} />
         <Kpi label="見送り" value={count('declined')} />
+        <Kpi label="要対応の資格" value={actionRows} />
       </div>
 
       {view.errors.length > 0 && (
@@ -66,7 +68,7 @@ export default async function QualificationsPage({ searchParams }: { searchParam
         </h2>
         <p className="small muted">
           次の日程は今日（{view.today}・JST）以降で最も近い申込・試験・発表。日付未発表の日程は期間の文言で出す。
-          日程または受験者数が公式で確認できていない資格 {unverified} 件は、数値を埋めずに理由を出している。
+          日程または受験者数が公式で確認できていない資格 {unverified} 件は、数値を埋めずに理由を出している。照合列の判定は月次レビューの <code>npm run exam-ssot-status</code> と同じ。
         </p>
         {Object.entries(view.families).map(([family, familyLabel]) => {
           const group = rows.filter((r) => r.family === family);
@@ -82,6 +84,7 @@ export default async function QualificationsPage({ searchParams }: { searchParam
                       <th>状態</th>
                       <th>次の日程</th>
                       <th>最新の受験者数</th>
+                      <th>照合</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -154,6 +157,18 @@ function Row({ row: r }: { row: QualificationView }) {
             <a href={r.statsSource} target="_blank" rel="noreferrer">統計の出典</a>
           </div>
         )}
+      </td>
+      <td className="small" style={{ minWidth: 200, whiteSpace: 'normal', maxWidth: 300 }}>
+        <div>
+          {r.verification.calendarCheckedAt ?? '—'}{' '}
+          {r.verification.selfChecked ? <Badge variant="success">原文照合</Badge> : <Badge variant="warning">調査担当のみ</Badge>}
+        </div>
+        {r.verification.actions.map((a) => (
+          <div key={a} className="project-warning-text" style={{ fontSize: 11 }}>{a}</div>
+        ))}
+        {r.verification.records.map((x) => (
+          <div key={x} className="muted" style={{ fontSize: 11 }}>{x}</div>
+        ))}
       </td>
     </tr>
   );
