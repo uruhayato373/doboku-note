@@ -31,6 +31,8 @@
 - 自社 note は累計 ¥638,840 の約8割が技術士（建設 ¥297k・総監 ¥223k）で、売れ筋上位はパックとマガジン（総監 記述式完全パック ¥77k など）。土木は約 ¥95k。KDP は2か月 ¥7,755 で技術士の模範解答集と一次過去問が中心
 - 自社ココナラは受注4件（模試2・フルパック1・添削1）のみで、自社データからは結論が出ない
 
+同日に `coconala-research.mjs` で追加キーワード12個の検索を始め、8個（経験記述 添削／経験記述 作成／施工経験記述／1級土木 二次／施工管理技士 添削／土木 論文 添削／技術士 論文 添削／技術士 二次試験）が完了、「技術士 建設部門」は途中（2/5ページ）で止めた。新しく見つかった関連サービスは45件で、最多でも評価12件（技術士の上下水道・機械・建設の個人添削）。**上位の顔ぶれ（ちゃんさと技師・ひげごろー・303geos・梅村）は変わらない**。残り4キーワードは中断再開できる: `DOBOKU_PW_MIN_FREE_MB=500 node scripts/coconala-research.mjs --query "技術士 建設部門" --query "技術士 総監" --query "土木 模擬試験" --query "コンクリート技士" --max-pages 5 --details 15` → `npm run coconala-research -- --summary-only`。ココナラの外では、土木は独学サポート事務局（作成代行＋添削セット ¥18,900）、技術士は通信講座 ¥69,300〜178,100（スタディング・新技術開発センター・アガルート・SAT・JES）とマッチングサイト（技術士システム）・個人技術士の添削サイトが競合（WebSearch・未精査）。
+
 限界: 競合の販売実績は累計で時期が分からない。技術士の件数は評価件数で代用。YouTube 集客型は例外。季節性（技術士=6〜7月、土木=9〜10月）が混ざる。
 
 **やること**: ユーザーの判断を待つ。案は次の3つ。
@@ -55,7 +57,7 @@
 
 **起点**: 2026-09-25 に経験記述サービスを1級・2級に分けて8件をライブ反映した（PR #638・`check-coconala-live` 18/18 一致。旧 DN-0282 の全5テーマ版 `coconala-tensaku-4theme` も 4418735 で出品済み）。PR #638 の CI `build` が `coconala-wiring` で落ちている。2級4件（`thumb-2kyu-tensaku` / `-3theme` / `thumb-2kyu-sakusei` / `-3theme`）の商品画像が Drive vault の台帳に無いため。画像は gitignore 対象で、実体は会社 PC の `.claude/config/coconala/assets/` にしか無い（全5テーマ版・1級作成・プレミアムの差し替え画像と、同日出品のコンクリート主任技士2件 `thumb-cce-essay-pdf` / `thumb-cce-takuitsu-pdf` を含め 11 枚。コンクリート2件は台帳に既存の旧版があるので上書きになる）。会社 PC は Google ドライブ未マウント・rclone の Drive リモート無しで、vault へ書けなかった。
 
-**やること**: 会社 PC で Google ドライブ（Drive File Stream）を起動して G: を見える状態にし、`node scripts/drive-vault-sync.mjs --group coconala-asset` で対象 11 件を確認してから `--commit`。更新された `.claude/state/assets/drive-manifest.json` を PR #638 のブランチ（`feature/coconala-grade-split`・worktree `.claude/worktrees/coconala-grade`）へコミットして push し、CI が通ったら `gh pr merge 638 --merge`。マージ後に worktree `coconala-grade` と `tensaku-qa` を `git worktree remove`。Mac で進める場合は画像が無いので、`node scripts/coconala-thumb.mjs --service <id>` で生成し直してから登録する。
+**やること**: 会社 PC で Google ドライブ（Drive File Stream）を起動して G: を見える状態にし、`node scripts/drive-vault-sync.mjs --group coconala-asset` で対象 11 件を確認してから `--commit`。更新された `.claude/state/assets/drive-manifest.json` を PR #638 のブランチ（`feature/coconala-grade-split`・worktree `.claude/worktrees/coconala-grade`）へコミットして push し、CI が通ったら `gh pr merge 638 --merge`。マージ後に worktree `coconala-grade` と `tensaku-qa` を `git worktree remove`。**画像の実体は会社 PC の本体 `.claude/config/coconala/assets/` にしか無い**（gitignore）。別の PC で進める場合は `node scripts/coconala-thumb.mjs --service <id>` で11枚を作り直してから登録する。1級・2級系（`tensaku-set`・`tensaku-4theme`・`sakusei`・`sakusei-4theme`・`2kyu-*` 4件・`1kyu-premium`）の背景は git 追跡の `.claude/config/ogp/backgrounds/civil-1.png`/`civil-2.png`、コンクリート2件（`cce-essay-pdf`・`cce-takuitsu-pdf`）の背景 `bg-civil.png` は vault 登録済みなので先に `node scripts/drive-vault-sync.mjs --pull --path .claude/config/coconala/assets/` で取り戻す。作り直した画像は公開中の出品画像と同じ生成手順だが、差し替え（`coconala-edit --replace-image`）はしなくてよい。
 
 **完了条件**: `npm run check-coconala-wiring` が PASS し、PR #638 が develop にマージされたら、このカードを削除する。
 ### [DN-0310] 1級二次（10/4）の後に、1級の経験記述サービスの受付を止めるか来季向けの文面へ替える
@@ -66,6 +68,15 @@
 **やること**: 10/3 に、1級の5件を `coconala-pause` で受付停止にするか、来季（令和9年度）向けの文面へ替えるかを決める。受付停止ならカタログの status と pauseReason を更新し、替えるなら `coconala-listings.json` を直して `coconala-edit --service <id> --commit`（出品中の編集は下書き保存を使わない）。1級の PDF 教材（模試・完成答案・フルパック）の扱いも同時に決める。
 
 **完了条件**: 10/3 中に5件が受付停止か新しい文面になり、`npm run check-coconala-live` が全件一致したら、このカードを削除する。
+
+### [DN-0312] ココナラ room 18351970（1級添削）の承諾・評価を確かめ、残り3テーマの差額見積りに対応する
+タグ: [収益化] [種類:改善] [検証:check-coconala-orders] [起票:2026-09-25] [期日:2026-10-02]
+
+**起点**: 2026-09-25 17:15 に正式な納品をした（返信文＋判定表と修正案の Word 添付・経緯は `orders-log.json` の memo）。購入者は残り3テーマ（品質管理・環境対策・施工計画）を自分で書けたら差額を払う意向。返信では「ご自身で十分書ける」と伝え、希望時のみ全5テーマ版との差額 ¥9,000 で見積ると案内した（9/30ごろまでが目安・受付は 10/2 まで）。顧客原稿と返信文は会社 PC の `.tmp/coconala/talkrooms/18351970/` とセッションの scratchpad にしかない（リポジトリ外）。
+
+**やること**: `npm run coconala-orders` で承諾・評価と新着メッセージを見る。原稿が届いたら `node scripts/coconala-talkroom.mjs 18351970` で本文と添付を取り直し（別 PC でも再取得できる）、差額 ¥9,000 の見積りを送る（基準商品 `coconala-tensaku-4theme`・orders-log には `quote` 付きで新規行）。添削は `/keiken-tensaku` → `civil-keiken-tensaku-qa` → `check-tensaku-reply` の順で、受け取りから48時間以内に返す。評価が付いたら status を closed にし、購入者評価を返す。
+
+**完了条件**: room 18351970 が closed になり、見積りの有無（受注したなら新しい行）が orders-log に記録されたら、このカードを削除する。
 
 ### [DN-0278] YouTube 概要欄の冒頭に季節の主商品リンクと保有資格を置き、予約済み・公開済みへ同期する
 タグ: [SNS・マーケ] [種類:改善] [検証:check-video-publication] [起票:2026-09-23]
