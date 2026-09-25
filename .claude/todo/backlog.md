@@ -152,18 +152,6 @@
 
 **完了条件**: 無料2本がライブ、有料教材へのリンクが公開URLと一致、`audit-note-funnel` ドリフト0、X11月計画が `check-x-campaign-plan` 緑。
 
-### [DN-0249] note 流入元・記事別 PV を月次で機械取得する `note-traffic-fetch` を新設し週次レビューへ配線する
-タグ: [インフラ・計測] [種類:改善] [起票:2026-09-16] [期日:2026-10-05]
-
-**起点**: 2026-09-15 の手動 Playwright 実測で「収益は note 内回遊＋検索直で 73〜80%、X 0.2%、サイト経由は noreferrer で不可視」が判明（memory `note-traffic-sources-2026-09`）。business-direction の notePv は欠測のまま。EXP-010 の判定にも要る。
-
-**やること**: `scripts/note-traffic-fetch.mjs`（`note-sales-fetch.mjs` を型に read-only: `/dashboard` → 期間 → 「時系列」→ データテーブル innerText）＋ `scripts/lib/note-traffic-normalize.mjs`（純関数・test）→ `.claude/state/metrics/note/referrers-YYYY-MM.json`・`articles-pv-YYYY-MM.json`。`package.json`・commands.md・`quality-audit.mjs`（`--check` モード）・`weekly-review/SKILL.md`・`business-review.md`（notePv の出典）に配線。
-
-**完了条件**: `npm run note-traffic-fetch -- --month 2026-09 --commit` で 2 ファイルが書かれ、検査対象数/実検査数を出力、test 緑、週次レビューが参照。
-
-**2026-09-21 追記**: 取得本体（note ダッシュボード）は暗号化 storageState 方式で CI 化する（別 PR・login-collectors.yml）。本カードの残件は business-direction の出典記述と週次配線のみ。
-
-
 ### [DN-0250] 1級・2級 二次直前の note CTA 切替（〜10/4・〜10/25）と試験後の無料フォロー記事
 タグ: [収益化] [種類:改善] [起票:2026-09-16] [期日:2026-10-05]
 
@@ -646,14 +634,12 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 **完了条件**: 冒頭 CTA を差し替える部分更新を 1 本で実行し、ライブ API で CTA が引用ブロック、直後の見出しが `h2` のまま、60 字超の見出しが 0 であることを確認できる。
 
 
-### [DN-0243] 年度表現の陳腐化（「2026 年度」「令和 8 年」）を年替わりで検知する
-タグ: [コンテンツ品質] [種類:改善] [検証:check-exam-calendar] [起票:2026-09-17]
+### [DN-0243] 年度切替後、年度表現の陳腐化検査を ci:true へ上げて 0 件まで追う
+タグ: [コンテンツ品質] [種類:改善] [検証:check-year-staleness] [起票:2026-09-17] [期日:2027-01-31]
 
-**起点**: ガイド・KW 記事に当年度の表現が本文・title・description に多数ある。年明けに一斉に古くなるが、現状は exam-calendar 検査が試験日程の JSON だけを見ている。
+**やった**: `scripts/check-year-staleness.mjs`（+ `scripts/lib/year-staleness.mjs`・test 9件）を新設。当年度は `exam-calendar.json` の `exams[*].year` 最大値、対象は `content/site/**` の frontmatter title/seoTitle/description（本文は過去問・白書の年度引用が桁違いに多くregexでは陳腐化と正しい年度引用を区別できないため対象外）。group（past-exam/primary/secondary）と、ディレクトリ名が特定年度を表す記事（`r05-essay-*`・`primary-r07-a` 等＝その年度自体が主題）は除外。現状 5 件 warn（すべて「令和X年度からY年度まで」型の歴史的レンジ引用で、机上では偽陽性）。`package.json`・commands.md・quality-audit.mjs（`ci:false`・report）に配線済み。
 
-**やること**: `business-direction.json`（または exam-calendar）の当年度を真実源に、`content/site/**` の title/seoTitle/description/本文で **前年度以前の年度表現**（「2025 年度」「令和 7 年度」）を warn で列挙する report を作り、年度切替（毎年 1 月）に `ci:true` へ上げる運用を書く。過去問記事の年度（R7 問題）は対象外にするパターンを用意する。
-
-**完了条件**: 年度切替後の最初の週次で、旧年度表現の一覧が出て 2 週間以内に 0 になる。
+**残り**: 次の年度切替（2027年1月）の直後に quality-audit.mjs の `year-staleness` エントリを `ci:true` へ上げ、週次レビューで一覧を見ながら 2 週間以内に 0 件（または全件を年度スラッグ除外に追加）へ収束させたら `ci:false` へ戻し、このカードを削除する。
 
 
 ### [DN-0234] Codex の archived_sessions 1.25 GB を棚卸しして 30 日超を消す
