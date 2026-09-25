@@ -74,6 +74,12 @@ const MAIN_EXAM_KEYS = ['exam', 'written', 'cbtStart', 'training'];
 const PE_SEPARATE = new Set(['pe-first-stage', 'pe-comprehensive-management']);
 const isPeDivision = (q: RegistryEntry) => q.family === 'professional-engineer' && !PE_SEPARATE.has(q.id);
 
+/** 期間の文言を画面用に短くする（例: 2027年2月（日付未発表）→ 2月予定、2026年9月末日（予定）→ 9月末日予定）。 */
+function shortWindow(w: string): string {
+  const m = w.match(/^\d{4}年(\d{1,2}月[^（(]*)[（(](?:日付未発表|予定)[）)]$/);
+  return m ? `${m[1]}予定` : w;
+}
+
 const readConfig = <T,>(name: string): T => JSON.parse(readFileSync(repoPath('.claude', 'config', name), 'utf8')) as T;
 
 const fmtCount = (r: StatRow | null | undefined) => (r?.examinees != null ? `${r.examinees.toLocaleString('ja-JP')}人` : '—');
@@ -92,7 +98,7 @@ function stageLines(cal: CalExam | undefined, latest: Latest | null, today: stri
     return staged.map(([k, name]) => ({
       stage: name,
       exam: at(events[k]),
-      examWindow: events[k] ? undefined : periodFor(k)?.window,
+      examWindow: events[k] ? undefined : (w => w && shortWindow(w))(periodFor(k)?.window),
       result: at(events[`${k}Result`]),
       examinees: fmtCount(statFor(k)),
       rate: fmtRate(statFor(k)),
@@ -107,7 +113,7 @@ function stageLines(cal: CalExam | undefined, latest: Latest | null, today: stri
     {
       stage: '',
       exam: at(examKey ? events[examKey] : undefined),
-      result: nextResult ? at(nextResult) : period ? { date: null, window: period.window, past: false } : at(results.at(-1)),
+      result: nextResult ? at(nextResult) : period ? { date: null, window: shortWindow(period.window), past: false } : at(results.at(-1)),
       examinees: fmtCount(latest),
       rate: fmtRate(latest),
     },
