@@ -1,6 +1,9 @@
 ---
+publishedAt: "2026-09-25"
+blogId: "815110"
+blogUrl: "https://coconala.com/blogs/6197366/815110"
 title: "1級土木二次 直前2週間の過ごし方｜経験記述と学科記述"
-status: "draft"
+status: "published"
 exam: civil-1
 angle: ハウツー
 category: 学び

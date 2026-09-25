@@ -1,6 +1,9 @@
 ---
+publishedAt: "2026-09-25"
+blogId: "815126"
+blogUrl: "https://coconala.com/blogs/6197366/815126"
 title: "経験記述は自分で書くか、作ってもらうか｜迷ったときの一線"
-status: "draft"
+status: "published"
 exam: civil
 angle: 反論
 category: 学び

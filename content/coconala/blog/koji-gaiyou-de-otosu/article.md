@@ -1,6 +1,9 @@
 ---
+publishedAt: "2026-09-25"
+blogId: "815121"
+blogUrl: "https://coconala.com/blogs/6197366/815121"
 title: "経験記述は工事概要で落ちる｜対象工事・数量・立場の書き方"
-status: "draft"
+status: "published"
 exam: civil
 angle: 結論
 category: 学び

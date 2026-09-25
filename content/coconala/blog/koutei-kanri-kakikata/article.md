@@ -1,6 +1,9 @@
 ---
+publishedAt: "2026-09-25"
+blogId: "815116"
+blogUrl: "https://coconala.com/blogs/6197366/815116"
 title: "経験記述の工程管理、遅延要因から評価まで書く手順"
-status: draft
+status: "published"
 exam: civil
 angle: ハウツー
 category: 学び

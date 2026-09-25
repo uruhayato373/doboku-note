@@ -1,6 +1,9 @@
 ---
+publishedAt: "2026-09-25"
+blogId: "815124"
+blogUrl: "https://coconala.com/blogs/6197366/815124"
 title: "経験記述の数値、どこに何を入れるか｜5箇所と整合チェック"
-status: "draft"
+status: "published"
 exam: civil
 angle: 数字
 category: 学び

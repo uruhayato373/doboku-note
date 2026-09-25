@@ -1,6 +1,9 @@
 ---
+publishedAt: "2026-09-25"
+blogId: "815118"
+blogUrl: "https://coconala.com/blogs/6197366/815118"
 title: "経験記述の技術的課題「珍しい工事」でなくていい理由"
-status: "draft"
+status: "published"
 exam: civil
 angle: 反論
 category: 学び
