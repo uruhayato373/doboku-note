@@ -5,7 +5,7 @@ import { repoPath } from '@/lib/repo-root';
 import { NOTE_CONTENT_ROOT, SITE_CONTENT_ROOT, SNS_CONTENT_ROOT } from '../../../../../../../scripts/lib/repository-paths.mjs';
 
 /**
- * /media/{posts|sns|note|kindle|kindlepub}/... → リポジトリ内ルートへの static serve。
+ * /media/{posts|sns|note|kindle|kindlepub|brain}/... → リポジトリ内ルートへの static serve。
  * tools/admin/lib/media.mjs の traversal ガード + MIME allowlist を移植。
  * ローカル専用だが drive-by 読み出しを想定し許可ルート外は 403。
  */
@@ -19,6 +19,8 @@ const MEDIA_ROOTS: Record<string, string> = {
   // Kindle 表紙（B-G系は kindle-dist、A系は kindle-published 直下）。/content/kindle の表紙サムネ用。
   kindle: resolve(repoPath('scripts', 'kindle-dist')),
   kindlepub: resolve(repoPath('scripts', 'kindle-published')),
+  // Brain 商品サムネ（content/brain/assets）。/content/lineup の表紙サムネ用。
+  brain: resolve(repoPath('content', 'brain', 'assets')),
 };
 
 const MIME: Record<string, string> = {

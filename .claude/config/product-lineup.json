@@ -1,0 +1,143 @@
+{
+  "_doc": "商品ラインナップ表（admin /content/lineup）の分類 SSOT。各チャネルの商品台帳（note-magazines.ts / coconala-services.ts / kindle-published/catalog.json / brain-products.ts）は書き換えず、商品 id を「資格 × 試験区分」のマスへ写すルールだけをここに置く。ルールは上から順に評価し最初の一致を採る。どのルールにも当たらない商品は画面で「未分類」として赤表示する（黙って落とさない）。判定は scripts/lib/product-lineup.mjs が唯一の実装。",
+  "_apps": "apps は他に台帳を持たないアプリ・PWA（公開済み・計画中・構想）の手動台帳。status は planned / draft / review / published / retired（content-lifecycle.mjs の STAGES）。構想段階の iOS アプリも planned で載せ、備考に判断の状態を書く。",
+  "qualifications": [
+    {
+      "id": "civil-construction-1",
+      "label": "1級土木施工管理技士",
+      "stages": [
+        { "id": "first", "label": "第一次検定" },
+        { "id": "second", "label": "第二次検定" }
+      ]
+    },
+    {
+      "id": "civil-construction-2",
+      "label": "2級土木施工管理技士",
+      "stages": [
+        { "id": "first", "label": "第一次検定" },
+        { "id": "second", "label": "第二次検定" }
+      ]
+    },
+    {
+      "id": "pe-first-stage",
+      "label": "技術士 第一次試験",
+      "stages": [{ "id": "first", "label": "第一次試験" }]
+    },
+    {
+      "id": "pe-construction",
+      "label": "技術士 建設部門",
+      "stages": [
+        { "id": "written", "label": "第二次 筆記" },
+        { "id": "oral", "label": "第二次 口頭" }
+      ]
+    },
+    {
+      "id": "pe-comprehensive-management",
+      "label": "技術士 総合技術監理部門",
+      "stages": [
+        { "id": "written", "label": "第二次 筆記" },
+        { "id": "oral", "label": "第二次 口頭" }
+      ]
+    },
+    {
+      "id": "rccm",
+      "label": "RCCM",
+      "stages": [{ "id": "written", "label": "筆記" }]
+    },
+    {
+      "id": "concrete-chief-engineer",
+      "label": "コンクリート主任技士",
+      "stages": [{ "id": "written", "label": "筆記" }]
+    },
+    {
+      "id": "concrete-engineer",
+      "label": "コンクリート技士",
+      "stages": [{ "id": "written", "label": "筆記" }]
+    },
+    {
+      "id": "concrete-diagnostician",
+      "label": "コンクリート診断士",
+      "stages": [{ "id": "written", "label": "筆記" }]
+    }
+  ],
+  "channels": [
+    { "id": "note", "label": "note" },
+    { "id": "coconala", "label": "ココナラ" },
+    { "id": "kindle", "label": "Kindle" },
+    { "id": "brain", "label": "Brain" },
+    { "id": "app", "label": "アプリ・PWA" }
+  ],
+  "rules": {
+    "note": [
+      { "match": "^civil-membership-", "cells": ["civil-construction-1:second", "civil-construction-2:second"] },
+      { "match": "^civil-1-(ichiji-ronten|takuitsu-pdf|reading-guide)$", "cells": ["civil-construction-1:first"] },
+      { "match": "^civil-2-(takuitsu-pdf|reading-guide)$", "cells": ["civil-construction-2:first"] },
+      { "match": "^civil-1-", "cells": ["civil-construction-1:second"] },
+      { "match": "^civil-2-", "cells": ["civil-construction-2:second"] },
+      { "match": "^pe1-", "cells": ["pe-first-stage:first"] },
+      { "match": "^tankan-oral-", "cells": ["pe-comprehensive-management:oral"] },
+      { "match": "^pe-construction-oral-", "cells": ["pe-construction:oral"] },
+      { "match": "^(tankan-|essay-|r8-essay-|setsumon3-|tradeoff-)", "cells": ["pe-comprehensive-management:written"] },
+      { "match": "^pe-construction-", "cells": ["pe-construction:written"] },
+      { "match": "^rccm-", "cells": ["rccm:written"] },
+      { "match": "^cce-", "cells": ["concrete-chief-engineer:written"] },
+      { "match": "^ce-", "cells": ["concrete-engineer:written"] },
+      { "match": "^cd-", "cells": ["concrete-diagnostician:written"] }
+    ],
+    "coconala": [
+      { "match": "^coconala-pe-oral-", "cells": ["pe-comprehensive-management:oral", "pe-construction:oral"] },
+      { "match": "^coconala-sokan-", "cells": ["pe-comprehensive-management:written"] },
+      { "match": "^coconala-rccm-", "cells": ["rccm:written"] },
+      { "match": "^coconala-cce-", "cells": ["concrete-chief-engineer:written"] },
+      { "match": "^coconala-2kyu-", "cells": ["civil-construction-2:second"] },
+      { "match": "^coconala-(shindan|bunseki-pdf|civil-keiken-kit)$", "cells": ["civil-construction-1:second", "civil-construction-2:second"] },
+      { "match": "^coconala-(tensaku|sakusei|kanseitoan|1kyu-)", "cells": ["civil-construction-1:second"] }
+    ],
+    "kindle": [
+      { "match": "^A-", "cells": ["civil-construction-1:first"] },
+      { "match": "^e-01$", "cells": ["civil-construction-2:first"] },
+      { "match": "^e-02$", "cells": ["civil-construction-1:first"] },
+      { "match": "^[bf]-", "cells": ["pe-comprehensive-management:written"] },
+      { "match": "^d-", "cells": ["pe-first-stage:first"] },
+      { "match": "^c-", "cells": ["pe-construction:written"] },
+      { "match": "^g-01$", "cells": ["concrete-diagnostician:written"] },
+      { "match": "^g-02$", "cells": ["concrete-chief-engineer:written"] },
+      { "match": "^h-", "cells": ["rccm:written"] },
+      { "match": "^i-", "cells": ["civil-construction-1:second"] },
+      { "match": "^j-", "cells": ["civil-construction-2:second"] }
+    ],
+    "brain": [
+      { "match": "^brain-civil-", "cells": ["civil-construction-1:second", "civil-construction-2:second"] },
+      { "match": "^brain-sokan-", "cells": ["pe-comprehensive-management:written"] }
+    ]
+  },
+  "apps": [
+    {
+      "id": "pwa-civil-1-kakomon",
+      "title": "1級土木 過去問演習",
+      "platform": "PWA",
+      "status": "published",
+      "price": "無料",
+      "url": "https://doboku-note.com/tools/kakomon-quiz",
+      "cells": ["civil-construction-1:first"]
+    },
+    {
+      "id": "pwa-pe-first-stage-kakomon",
+      "title": "技術士一次 過去問演習",
+      "platform": "PWA",
+      "status": "published",
+      "price": "無料",
+      "url": "https://doboku-note.com/tools/kakomon-quiz/pe-first-stage",
+      "cells": ["pe-first-stage:first"]
+    },
+    {
+      "id": "ios-pe-cm-takuitsu",
+      "title": "総監 択一アプリ",
+      "platform": "iOS",
+      "status": "planned",
+      "price": "未定",
+      "note": "構想（未決定）。2026-09-26 の Web 検索では総監専用の択一アプリを確認できず、App Store 内の直接確認は未実施。着手条件は docs/products/06_PWA過去問アプリ設計方針.md を参照。",
+      "cells": ["pe-comprehensive-management:written"]
+    }
+  ]
+}
