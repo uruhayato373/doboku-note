@@ -1,6 +1,8 @@
+import Link from 'next/link';
 import { PageHead } from '@/components/ui';
 import LineChart from '@/components/charts/LineChart';
 import { qualitySummary, qualityCensus, type Severity } from '@/lib/quality';
+import { cemQualitySummary } from '@/lib/quality-cem';
 
 export const dynamic = 'force-dynamic';
 
@@ -9,6 +11,7 @@ const sevClass = (s: Severity | string) => (s === 'HIGH' ? 'bad' : s === 'LOW' ?
 export default function QualityPage() {
   const data = qualitySummary();
   const census = qualityCensus();
+  const cem = cemQualitySummary();
   const { totals, articleCount, byRule, history, window: win } = data;
 
   const burndown = (() => {
@@ -27,6 +30,21 @@ export default function QualityPage() {
         title="品質概観"
         sub={`違反のある記事 ${articleCount} 件 · 全体傾向とルール別内訳（人気集計期間 ${winStr}）· 記事別品質は「サイト記事」に統合`}
       />
+
+      {/* 総監（cem）進捗 */}
+      <div className="card">
+        <h2>
+          品質サイクル進捗（cem）<span className="sub">技術士総監キーワードページ</span>
+        </h2>
+        {!cem.present ? (
+          <div className="small muted">未生成。cem プロファイルの採点データがまだありません。</div>
+        ) : (
+          <p className="small muted">
+            全 {cem.total} 件 / weighted &lt; 2.0: {cem.lt20} 件 / weighted &lt; 2.5: {cem.lt25} 件 ·{' '}
+            <Link href="/quality/cem">進捗テーブルを見る →</Link>
+          </p>
+        )}
+      </div>
 
       {/* 採点カバレッジ census */}
       <div className="card">
