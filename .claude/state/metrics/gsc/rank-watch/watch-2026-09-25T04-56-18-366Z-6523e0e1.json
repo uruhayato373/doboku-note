@@ -1,0 +1,261 @@
+{
+  "version": 1,
+  "type": "measurement",
+  "watchId": "rccm-mondai3-themes-2026",
+  "scope": {
+    "id": "rccm-mondai3-themes-2026",
+    "keyword": "RCCM 問題III 管理技術力 公開テーマ 2026",
+    "targetPath": "/exam/rccm/guide/mondai3-themes-2026",
+    "contentPath": "content/site/rccm/guide-mondai3-themes-2026/article.mdx",
+    "priority": 3,
+    "country": "jpn",
+    "device": null,
+    "enabled": true,
+    "qualification": "rccm",
+    "intent": "exam-task",
+    "mode": "improve",
+    "examEvent": "cbtEnd",
+    "audience": "RCCM 試験B 問題III（管理技術力）を受ける建設コンサルタントの技術者。",
+    "need": "公開6テーマの読み解きと指定用語の使い方を知り、1,200〜1,600字の答案の骨子を作りたい。",
+    "rationale": "問題IIIは事前公開テーマ制で検索意図が明確。note の模範論文集（rccm-mondai3-magazine）へ直結する受験課題を優先する。",
+    "nextStep": {
+      "label": "公開6テーマの模範論文で骨子を確認する",
+      "path": "/exam/rccm/guide/mondai3-themes-2026"
+    },
+    "evidence": {
+      "kind": "hypothesis",
+      "source": "2026-09-15 note 流入元実測（memory note-traffic-sources-2026-09）と協会の 2026 年度出題テーマ PDF。GSC 実績は未取得（新カテゴリ）"
+    }
+  },
+  "scopeKey": "fb683038178a5b899ad68df05e5828837956f38b4fdce269dfe442f5bfaa3bcf",
+  "fetchedAt": "2026-09-25T04:56:18.366Z",
+  "before": {
+    "window": {
+      "startDate": "2026-09-08",
+      "endDate": "2026-09-14"
+    },
+    "metrics": {
+      "rank": null,
+      "impressions": 0,
+      "clicks": 0,
+      "ctr": null,
+      "activeDays": 0
+    },
+    "raw": {
+      "meta": {
+        "siteUrl": "sc-domain:doboku-note.com",
+        "dataState": "final",
+        "type": "web",
+        "timeZone": "America/Los_Angeles",
+        "filters": [
+          {
+            "dimension": "query",
+            "operator": "equals",
+            "expression": "RCCM 問題III 管理技術力 公開テーマ 2026"
+          },
+          {
+            "dimension": "page",
+            "operator": "equals",
+            "expression": "https://doboku-note.com/exam/rccm/guide/mondai3-themes-2026"
+          },
+          {
+            "dimension": "country",
+            "operator": "equals",
+            "expression": "jpn"
+          }
+        ],
+        "startDate": "2026-09-08",
+        "endDate": "2026-09-14",
+        "dimensions": [
+          "date"
+        ],
+        "dimension": "date",
+        "limit": null,
+        "pages_fetched": 1,
+        "row_count": 7,
+        "truncated": false,
+        "api_note": "Search Analytics API は全行の返却を保証しない（sampling / privacy filtering で低ボリューム行が欠落し得る）。row_count は startRow ページングの合算実測値であり、母集合全体とは限らない。"
+      },
+      "rows": [
+        {
+          "keys": [
+            "2026-09-08"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        },
+        {
+          "keys": [
+            "2026-09-09"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        },
+        {
+          "keys": [
+            "2026-09-10"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        },
+        {
+          "keys": [
+            "2026-09-11"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        },
+        {
+          "keys": [
+            "2026-09-12"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        },
+        {
+          "keys": [
+            "2026-09-13"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        },
+        {
+          "keys": [
+            "2026-09-14"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        }
+      ]
+    }
+  },
+  "after": {
+    "window": {
+      "startDate": "2026-09-15",
+      "endDate": "2026-09-21"
+    },
+    "metrics": {
+      "rank": null,
+      "impressions": 0,
+      "clicks": 0,
+      "ctr": null,
+      "activeDays": 0
+    },
+    "raw": {
+      "meta": {
+        "siteUrl": "sc-domain:doboku-note.com",
+        "dataState": "final",
+        "type": "web",
+        "timeZone": "America/Los_Angeles",
+        "filters": [
+          {
+            "dimension": "query",
+            "operator": "equals",
+            "expression": "RCCM 問題III 管理技術力 公開テーマ 2026"
+          },
+          {
+            "dimension": "page",
+            "operator": "equals",
+            "expression": "https://doboku-note.com/exam/rccm/guide/mondai3-themes-2026"
+          },
+          {
+            "dimension": "country",
+            "operator": "equals",
+            "expression": "jpn"
+          }
+        ],
+        "startDate": "2026-09-15",
+        "endDate": "2026-09-21",
+        "dimensions": [
+          "date"
+        ],
+        "dimension": "date",
+        "limit": null,
+        "pages_fetched": 1,
+        "row_count": 7,
+        "truncated": false,
+        "api_note": "Search Analytics API は全行の返却を保証しない（sampling / privacy filtering で低ボリューム行が欠落し得る）。row_count は startRow ページングの合算実測値であり、母集合全体とは限らない。"
+      },
+      "rows": [
+        {
+          "keys": [
+            "2026-09-15"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        },
+        {
+          "keys": [
+            "2026-09-16"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        },
+        {
+          "keys": [
+            "2026-09-17"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        },
+        {
+          "keys": [
+            "2026-09-18"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        },
+        {
+          "keys": [
+            "2026-09-19"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        },
+        {
+          "keys": [
+            "2026-09-20"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        },
+        {
+          "keys": [
+            "2026-09-21"
+          ],
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        }
+      ]
+    }
+  },
+  "contentHash": "0639b999ba49787401f36ab3a67d2f1594c0151cb228ac86afac245b0523281a"
+}

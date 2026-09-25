@@ -1,7 +1,8 @@
 ---
 name: keiken-tensaku
 description: >
-  1級・2級土木 施工経験記述の顧客対応ドラフトを生成する統括スキル。civil-keiken-tensaku-drafter を起動。
+  1級・2級土木 施工経験記述の顧客対応ドラフトを生成する統括スキル。civil-keiken-tensaku-drafter を起動し、
+  顧客への返信文は civil-keiken-tensaku-qa（＋check-tensaku-reply）で PASS するまで検証してから運営者へ渡す。
   3モード: ①**添削（既定・`--mode tensaku`）**＝顧客の提出原稿から添削下書き（字数判定＋6軸＋NG→OK＋採点者視点）。
   ②**作成（`--mode sakusei`・ココナラ S3）**＝下書き無しで作成用ヒアリングシートの回答から答案ドラフト
   （2テーマ×設問1/2）を構成。③**診断（`--mode shindan`・ココナラ S1）**＝下書き→A/B/C判定＋減点ワースト3＋字数
@@ -32,7 +33,9 @@ user-invocable: true
 1. **入力検証**: 提出原稿の実在を確認。工事概要＋設問構造が読み取れない場合は不足項目を報告して停止（ヒアリングシートの再送を依頼する運用）。
 2. **Generator 起動**: `civil-keiken-tensaku-drafter` に path / grade / theme / mode を渡す。
 3. **出力**: 入力と同じディレクトリに `添削下書き.md`（添削）／`答案ドラフト.md`（作成）／`診断下書き.md`（診断）。
-4. **運営者への引き継ぎ表示**: 以下のチェックリストを表示して終了。
+4. **返信文を作る**: 下書きから顧客へ送る文面を同じディレクトリに `返信文.txt` として作る（採用する指摘は最重要の1〜2点、書き換え例の見出し末尾に `（N字）` を付ける）。
+5. **返信文の検証（Generator/Evaluator 分離）**: `civil-keiken-tensaku-qa` に reply / source / draft / grade / mode を渡す。機械ゲート `node scripts/check-tensaku-reply.mjs <返信文> --source <原稿> [--grade N]` はこのエージェントが実行する。**PASS になるまで親が返信文を直して再検証する**（FAIL・BLOCKED のまま運営者へ渡さない）。
+6. **運営者への引き継ぎ表示**: QA の判定と「未確認のまま残る点」を添えて、以下のチェックリストを表示して終了。
    - [ ] ストップウォッチ開始（実測ゲート中は所要時間を [添削実測/README.md](../../../../content/note/1級・2級土木/メンバーシップ/添削実測/README.md) の実測ログへ記録）
    - [ ] NG→OK は**最重要の1〜2点だけ**採用（全部直さない）
    - [ ] 採点者視点の一言のトーンを自分の言葉に
@@ -52,4 +55,5 @@ user-invocable: true
 ## 完了条件
 
 - 添削下書き.md が返却フォーマット（字数判定表・チェックリスト・NG→OK 2点・一言2案）を満たして出力される。
+- 返信文.txt が `check-tensaku-reply` exit 0（書き換え例・数値の実検査件数を確認）かつ `civil-keiken-tensaku-qa` PASS。
 - 運営者の最終赤入れが30分以内（超過が続く場合は定員10→6 or 隔週化を検討＝計画 §5.1）。
