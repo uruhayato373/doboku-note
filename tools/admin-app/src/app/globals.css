@@ -63,7 +63,9 @@
   --sidebar-2: hsl(222 40% 14%);
   --sidebar-border: hsl(217 33% 20%);
   --sidebar-ink: hsl(210 40% 96%);
-  --sidebar-muted: hsl(215 20% 65%);
+  --sidebar-muted: hsl(215 20% 72%);
+  --sidebar-group-bg: hsl(217 33% 18%);
+  --row-alt: hsl(214 32% 95%);
   --radius: 12px;
   --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
@@ -72,7 +74,7 @@
   color-scheme: dark;
   --background: 222 47% 7%;
   --foreground: 210 40% 96%;
-  --card: 222 38% 10%;
+  --card: 222 36% 12%;
   --card-foreground: 210 40% 96%;
   --popover: 222 38% 10%;
   --popover-foreground: 210 40% 96%;
@@ -80,23 +82,23 @@
   --primary-foreground: 222 47% 8%;
   --secondary: 217 30% 16%;
   --secondary-foreground: 210 40% 96%;
-  --muted-token: 217 30% 14%;
-  --muted-foreground: 215 20% 65%;
+  --muted-token: 217 30% 18%;
+  --muted-foreground: 215 22% 74%;
   --accent-token: 217 48% 18%;
   --accent-foreground: 213 94% 72%;
   --destructive: 0 72% 62%;
   --destructive-foreground: 210 40% 98%;
-  --border-token: 217 28% 19%;
-  --input: 217 28% 19%;
+  --border-token: 217 26% 26%;
+  --input: 217 26% 26%;
   --ring: 217 91% 60%;
 
   --bg: hsl(var(--background));
   --panel: hsl(var(--card));
   --panel-2: hsl(var(--muted-token));
   --border: hsl(var(--border-token));
-  --border-soft: hsl(217 27% 15%);
+  --border-soft: hsl(217 26% 21%);
   --ink: hsl(var(--foreground));
-  --ink-body: hsl(215 25% 78%);
+  --ink-body: hsl(215 25% 84%);
   --ink-muted: hsl(var(--muted-foreground));
   --accent: hsl(var(--primary));
   --accent-fill: hsl(var(--accent-token));
@@ -119,7 +121,9 @@
   --sidebar-2: hsl(222 42% 10%);
   --sidebar-border: hsl(217 28% 17%);
   --sidebar-ink: hsl(210 40% 96%);
-  --sidebar-muted: hsl(215 20% 62%);
+  --sidebar-muted: hsl(215 22% 72%);
+  --sidebar-group-bg: hsl(217 35% 15%);
+  --row-alt: hsl(217 30% 16%);
 }
 
 * {
@@ -251,6 +255,8 @@ a:hover {
   color: var(--sidebar-ink);
   font-size: 12.5px;
   font-weight: 700;
+  background: var(--sidebar-group-bg);
+  border-radius: 6px;
 }
 /* 最初のグループはブランド直下なので区切り線を引かない（線が二重に見える） */
 .app-nav .brand + .group {
@@ -741,7 +747,7 @@ table.data td.wrap {
 }
 /* 1 行おきに薄く塗って行を追いやすくする（偶数行）。hover はその上にもう一段濃く。 */
 table.data tbody tr:nth-child(even) td {
-  background: hsl(var(--muted-token) / 0.45);
+  background: var(--row-alt);
 }
 table.data tbody tr:hover td {
   background: hsl(var(--primary) / 0.09);
