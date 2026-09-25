@@ -203,7 +203,7 @@ const THUMB_COPY = {
     eyebrow: '1級土木施工管理技士 ／ 第2次検定 教材＋添削',
     title: ['教材一式', '＋経験記述添削'],
     hook: 'PDF22冊(145ページ)で書き方を掴み\nあなたの答案を発注者視点で赤入れ',
-    priceLabel: '添削2テーマ・書き直し1回込み／週1名',
+    priceLabel: '添削2テーマ・書き直し1回込み',
   },
   'coconala-1kyu-full-pdf': {
     eyebrow: '1級土木施工管理技士 ／ 第2次検定 対策PDF',
