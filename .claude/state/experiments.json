@@ -1391,7 +1391,8 @@
       "learnings": null,
       "closed_at": null,
       "actions": [
-        "2026-09-25: QualificationBridge（src/config/qualification-bridge.ts）を /practice/ 全記事の記事末と共通仕様書の章末に配置。GA4 qualification_bridge_click / qualification_bridge_impression を AnalyticsProvider・growth-cycle・fetch-ga4-cta-clicks に登録。入口記事（会計検査・工事検査）を新設。deploy 待ち（backlog DN-0304）"
+        "2026-09-25: QualificationBridge（src/config/qualification-bridge.ts）を /practice/ 全記事の記事末と共通仕様書の章末に配置。GA4 qualification_bridge_click / qualification_bridge_impression を AnalyticsProvider・growth-cycle・fetch-ga4-cta-clicks に登録。入口記事（会計検査・工事検査）を新設。deploy 待ち（backlog DN-0304）",
+        "2026-09-25: 本番反映（PR #635 → develop → main・cloudflare-deploy run 36078428661 成功・check-production-ssr exit 0）。起票日と同日のため measure.anchor は 2026-09-25 のまま。本番の /practice/cost-and-design-change と /standards/chubu/common/chapters/1-1 にカードとリンク 3 本（orderer / contractor / qualification-map）を curl で確認。本番で qualification_bridge_impression（label=card）と qualification_bridge_click（label=orderer・contractor・qualification-map）が cta_placement=practice-footer / standards-chapter-footer 付きで GA4 収集エンドポイントへ送られ 204 を返すことを確認（Playwright）"
       ],
       "next_check_date": "2026-10-23",
       "resume_criteria": null,
