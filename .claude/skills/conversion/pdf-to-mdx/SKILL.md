@@ -35,7 +35,7 @@ PDF または画像ファイルから doboku-note 用 MDX を生成する統合�
 
 - **経路C: テキスト層抽出（born-digital）** — 原本に使えるテキスト層があり、視覚OCRを1ページも回さずに全文が取れる本。**視覚OCRに着手する前に必ず判定する**（`scripts/text-layer/classify_text_layer.py`）。`book-manifest.json` の `renderProfile.mode` は**ページ画像の作り方**でテキスト層の有無ではないので、`born-digital` を「OCR不要」の根拠にしない（Kindle 画面取込などテキスト層の無い `born-digital` が多数ある）。構造は `pdftohtml -xml` の行頭/行末 x（版面の幾何）で決め、`-layout` の空白数は使わない。runbook = `scripts/text-layer/README.md`。
 
-**着手前の必須チェック（経路A/B 共通）**: 自炊の手持ち撮影は指が写り込んで本文を隠す。視覚OCRは隠れた文字を文脈から埋め、出来上がった文が自然な日本語になるため**後段の校正では検出できない**。OCR に入る前に `scripts/occlusion/detect_occlusion.py` で候補を挙げ、本文が隠れている版面は撮り直しに回す。読めない箇所は 〔判読不能〕 と書き、埋めない。**候補率は「本文が隠れている率」ではない**（全26冊6,860p を走らせ、候補率の高い本を抜き取り目視した結果、マンガの登場人物の肌・余白でページを押さえる指・Kindle の書影が多数混じっていた）。絞り込みに使い、要否は候補ページの目視で決める。実測の内訳は scripts/occlusion/README.md、スキャン結果は .claude/state/assets/reference-book-occlusion-scan.json。本物の例＝pe-cem-essay-guide は 16版面中9版面が判読不能で、既存の文字起こしに推測で埋めた箇所があった。
+**着手前の必須チェック（経路A/B 共通）**: 自炊の手持ち撮影は指が写り込んで本文を隠す。視覚OCRは隠れた文字を文脈から埋め、出来上がった文が自然な日本語になるため**後段の校正では検出できない**。OCR に入る前に `scripts/occlusion/detect_occlusion.py` で候補を挙げ、本文が隠れている版面は撮り直しに回す。読めない箇所は 〔判読不能〕 と書き、埋めない。**候補率は「本文が隠れている率」ではない**（肌色の絵・余白を押さえる指・書影も候補に挙がる）。絞り込みに使い、要否は候補ページの目視で決める。実測の内訳は scripts/occlusion/README.md、スキャン結果は .claude/state/assets/reference-book-occlusion-scan.json。
 
 - **経路D: 参考文献 bundle の視覚OCR** — `content/sources/books/` の bundle（Drive の `pages/pNNNN.jpg`）を、Sonnet 第1読（6p/体）→ Tesseract 第二読（無料）→ 一致率の低いページだけ Sonnet 第2読 → 48 ページ part へ連結 → `record-reference-book-artifacts` で Drive と台帳へ、の順で起こす。モデルが読むのは全ページ 1 回＋食い違ったページだけもう 1 回。runbook = `scripts/book-ocr/README.md`。マーカーは画像 id `<!-- p0001 -->`（印字ノンブルではない）。
 

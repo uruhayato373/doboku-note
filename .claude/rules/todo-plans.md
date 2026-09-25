@@ -24,7 +24,7 @@ paths:
 
 ## handoff・review（`docs/handoffs/` `docs/reviews/`）
 
-- セッション引き継ぎは `docs/handoffs/YYYY-MM-DD-{context}.md`。**handoff は「タスク→backlog・手順→reference・知見→memory へ抽出→本体は削除（記録は git 履歴）」**（残作業があっても KEEP しない・`handoffs/` は溜めない・`_archive/` は 2026-07-11 廃止）。真実源 → [information-architecture.md](../knowledge/reference/information-architecture.md)「handoff のライフサイクル」
+- セッション引き継ぎは `docs/handoffs/YYYY-MM-DD-{context}.md`。**handoff は「タスク→backlog・手順→reference・知見→memory へ抽出→本体は削除（記録は git 履歴）」**（残作業があっても KEEP しない・`handoffs/` は溜めない）。真実源 → [information-architecture.md](../knowledge/reference/information-architecture.md)「handoff のライフサイクル」
 - **鉄則＝外部実体（PR merged・published:true・deploy・ファイル実在）を検証してから削除、未確認なら削除しない**
 - 棚卸しは `npm run check-doc-lifecycle`（機械 surfacer）→ `/doc-declutter`（`doc-curator` が KEEP/TRIM/DELETE/CONSOLIDATE を判定→削除/trim/参照更新/memory 同期まで適用）。週次 `/weekly-review` の Agent H が候補を列挙する（surface のみ）
 - point-in-time 記録なので `check-doc-refs` の検査対象外（当時のパスを残してよい）。日付は JST で書く（`npm run check-jst-date`）

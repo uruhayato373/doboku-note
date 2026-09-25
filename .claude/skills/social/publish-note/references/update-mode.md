@@ -8,7 +8,7 @@
 > [!danger]
 > **ClipboardEvent paste は既存記事編集画面（`editor.note.com/notes/<id>/edit`）では機能しない（2026-06-16 実証）。**
 > `/new` では 1 回だけ成功する paste が、edit 画面では `result: None` で**無音失敗**する。
-> したがって**「全消去 → 再 paste」方式（旧 Phase U-2 → U-4）は実際には動かない**。
+> したがって**「全消去 → 再 paste」方式は実際には動かない**。
 > 旧版（2026-05-21）は「成功した」と記録していたが、再現せず。**全消去だけ成功して paste が空振りすると、空の本文で更新が確定し公開記事が消える**（2026-06-16 に L1 サイトマップで実際に発生→変更履歴から復旧）。
 >
 > **正しい更新手段（用途別）**:
@@ -122,9 +122,9 @@ browser-use --headed --profile "Profile 5" open "https://editor.note.com/notes/$
 
 編集画面が開いたら、既存のタイトル・本文・画像がすでに入った状態になる。
 
-### ⛔ 旧 Phase U-2（全消去）/ U-4（再 paste）は廃止
+### ⛔ 全消去 → 再 paste はしない
 
-`document.execCommand('delete')` での全消去後に paste で入れ直す旧手順は、
+`document.execCommand('delete')` で全消去して paste で入れ直すと、
 **edit 画面で paste が効かないため空更新事故になる**（冒頭 danger 参照）。**実行しない。**
 全面差し替えが必要なら `/new` で作り直す。
 

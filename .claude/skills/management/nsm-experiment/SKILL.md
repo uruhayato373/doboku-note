@@ -38,11 +38,9 @@ Act        : close で learnings 記録 → roadmap にフィードバック
 
 詳細は `.claude/skills/management/nsm-experiment/references/definition.md` と `.claude/pdfs/guide.pdf`（Chapter 3）を参照。
 
-## GSC インデックス登録リクエストの実行と記録（2026-07-30 改訂）
+## GSC インデックス登録リクエストの実行と記録
 
-本スキルの Use-when に「GSC インデックスリクエスト」が入っているが、実行手段は長らく**手作業**で、
-記録も手書きの `.claude/state/metrics/notes/gsc-indexing-requests-YYYY-MM-DD.md` だった
-（`.claude/state/*.md` 新規作成禁止＝CLAUDE.md §8 に反する旧パターン）。現在は自動化してある:
+送信と記録はスクリプトで行う:
 
 ```bash
 npm run gsc-indexing:check -- --from-ssot --category civil-construction-1 --group textbook   # 診断のみ
@@ -55,7 +53,7 @@ npm run gsc-indexing:request -- --from-ssot --category civil-construction-1 --gr
   上限やクォータで送れなかった分は `limit-reached` / `quota-exceeded` として記録され、次回に回る。
 - 送信後に受理文言を確認し、読めなければ `unconfirmed`＝成功にカウントしない。
 - **記録の SSOT は `.claude/state/metrics/gsc-indexing/{requests-latest,history}.json`**（追跡）。
-  手書きノートは作らない。`notes/gsc-indexing-requests-2026-04-15.md` は 2026-04 当時の履歴として残置。
+  手書きノートは作らない（`.claude/state/*.md` 新規作成禁止）。
 - pending 表示（上の resume 画面）は history.json の `limit-reached` / `quota-exceeded` から組む。
 
 ## サイクルが閉じたことを機械で保証する（2026-07-30 追加）
@@ -84,7 +82,7 @@ EXP-005: pending_user_actions が 4 日以上未消化）。改善を打って�
 ```
 /nsm-experiment                          # 引数なしは pending の alias
 /nsm-experiment pending                  # 継続作業が必要な実験を surface（セッション継続時の第 1 候補）
-/nsm-experiment resume <id>              # 特定実験の残作業を step-by-step で guide
+/nsm-experiment resume <id>              # 特定実験の残作業を guide
 /nsm-experiment propose                  # 現状メトリクスから候補 3-5 件を提案
 /nsm-experiment list [--status <s>]      # 実験一覧（status フィルタ可）
 /nsm-experiment start <id>               # 実行開始（proposed → running）
@@ -148,7 +146,7 @@ abandoned  abandoned  running (re-measure)
 
 ### resume: 特定実験の継続作業を guide
 
-**目的**: 単一実験の残 actions をステップバイステップで完了させる。
+**目的**: 単一実験の残 actions を完了させる。
 
 1. experiments.jsonから指定idの実験を取得
 2. `pending_user_actions` が空 or 未定義なら「継続作業なし」と返す

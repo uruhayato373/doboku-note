@@ -157,7 +157,7 @@ content(civil-r06-a): figure クロップ品質改善（auditor weighted 2.85）
 
 🤖 Generated with [Claude Code](https://claude.com/claude-code)
 
-Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>
+Co-Authored-By: <セッションの system-reminder が指定する帰属行をそのまま使う>
 EOF
 )"
 ```
