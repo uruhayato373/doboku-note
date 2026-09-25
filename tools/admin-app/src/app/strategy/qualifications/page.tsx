@@ -58,7 +58,7 @@ export default async function QualificationsPage({ searchParams }: { searchParam
         </div>
       )}
 
-      <div className="table-wrap" style={{ border: 'none', borderRadius: 0 }}>
+      <div className="table-wrap">
           <table className="data">
             <thead>
               <tr>

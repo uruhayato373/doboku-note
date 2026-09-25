@@ -710,8 +710,6 @@ a:hover {
 .table-wrap {
   max-width: 100%;
   overflow-x: auto;
-  border: 1px solid var(--border-soft);
-  border-radius: 10px;
 }
 table.data {
   width: 100%;
