@@ -739,8 +739,12 @@ table.data td.wrap {
   white-space: normal;
   max-width: 460px;
 }
-table.data tr:hover td {
-  background: hsl(var(--primary) / 0.035);
+/* 1 行おきに薄く塗って行を追いやすくする（偶数行）。hover はその上にもう一段濃く。 */
+table.data tbody tr:nth-child(even) td {
+  background: hsl(var(--muted-token) / 0.45);
+}
+table.data tbody tr:hover td {
+  background: hsl(var(--primary) / 0.09);
 }
 .mono {
   font-family: var(--mono);
