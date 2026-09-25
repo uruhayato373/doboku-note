@@ -77,7 +77,7 @@ export default async function LineupPage({ searchParams }: { searchParams: Promi
           </span>
         </h2>
         <p className="small muted">
-          区分の日付は .claude/config/exam-calendar.json の今年度の試験日（残り日数は JST）。状態バッジが無い商品は販売中。「未展開」は販売中の商品が 0 件のマス。複数区分にまたがる商品（会員・診断など）は各マスに重複して表示する。
+          区分の日程は .claude/config/exam-calendar.json の今年度の試験日（残り日数は JST）と、日付未発表の期間。状態バッジが無い商品は販売中。「未展開」は販売中の商品が 0 件のマス。複数区分にまたがる商品（会員・診断など）は各マスに重複して表示する。
         </p>
         <div className="table-wrap">
           <table className="data">
@@ -194,7 +194,11 @@ function StageSchedule({ schedule }: { schedule: LineupSchedule | null }) {
           )}
         </div>
       ))}
-      {schedule.period && <div className="muted" style={{ whiteSpace: 'normal', maxWidth: 160 }}>{schedule.period}</div>}
+      {schedule.periods.map((p) => (
+        <div key={p.label} className="muted" style={{ whiteSpace: 'normal', maxWidth: 180 }}>
+          {p.label} {p.window}
+        </div>
+      ))}
     </div>
   );
 }

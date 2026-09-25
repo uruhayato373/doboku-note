@@ -45,7 +45,7 @@ export interface LineupItem {
 
 export interface LineupSchedule {
   events: { label: string; date: string; daysLeft: number }[];
-  period: string | null;
+  periods: { label: string; window: string }[];
 }
 
 export interface LineupRow {

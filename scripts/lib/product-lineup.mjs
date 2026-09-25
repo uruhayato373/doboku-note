@@ -58,9 +58,12 @@ export function validateLineupConfig(config, calendar = null) {
         continue;
       }
       for (const st of q.stages) {
-        if (!st.events?.length && !st.period) errors.push(`${q.id}:${st.id}: events も period も無い`);
+        if (!st.events?.length && !st.periods?.length) errors.push(`${q.id}:${st.id}: events も periods も無い`);
         for (const ev of st.events ?? []) {
           if (!exam.events?.[ev]) errors.push(`${q.id}:${st.id}: exam-calendar の ${q.calendarId}.events に ${ev} が無い`);
+        }
+        for (const pd of st.periods ?? []) {
+          if (!exam.periods?.[pd]) errors.push(`${q.id}:${st.id}: exam-calendar の ${q.calendarId}.periods に ${pd} が無い`);
         }
       }
     }
@@ -74,8 +77,9 @@ function daysBetween(from, to) {
 }
 
 /**
- * 区分の試験日程を exam-calendar から引く。today は JST の 'YYYY-MM-DD'。
- * @returns {{ events: Array<{ label: string, date: string, daysLeft: number }>, period: string | null }}
+ * 区分の試験日程を exam-calendar から引く。確定日は events、日付未発表の期間は periods。
+ * today は JST の 'YYYY-MM-DD'。
+ * @returns {{ events: Array<{ label: string, date: string, daysLeft: number }>, periods: Array<{ label: string, window: string }> }}
  */
 export function stageSchedule(calendar, qualification, stage, today) {
   const exam = calendar?.exams?.[qualification.calendarId];
@@ -83,7 +87,11 @@ export function stageSchedule(calendar, qualification, stage, today) {
     .map((id) => exam?.events?.[id])
     .filter(Boolean)
     .map((e) => ({ label: e.label, date: e.date, daysLeft: daysBetween(today, e.date) }));
-  return { events, period: stage.period ?? null };
+  const periods = (stage.periods ?? [])
+    .map((id) => exam?.periods?.[id])
+    .filter(Boolean)
+    .map((p) => ({ label: p.label, window: p.window }));
+  return { events, periods };
 }
 
 /**

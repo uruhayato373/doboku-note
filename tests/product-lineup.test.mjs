@@ -79,18 +79,29 @@ test('validateLineupConfig: 未定義マス・不正な正規表現・未知チ�
 });
 
 test('stageSchedule: exam-calendar の日付と残り日数・未発表の期間', () => {
-  const calendar = { exams: { c1: { events: { second: { label: '第二次検定', date: '2026-10-04' } } } } };
+  const calendar = {
+    exams: {
+      c1: {
+        events: { second: { label: '第二次検定', date: '2026-10-04' } },
+        periods: { oral: { label: '口頭試験', window: '12月〜翌1月' } },
+      },
+    },
+  };
   const q = { calendarId: 'c1' };
   assert.deepEqual(stageSchedule(calendar, q, { events: ['second'] }, '2026-09-26'), {
     events: [{ label: '第二次検定', date: '2026-10-04', daysLeft: 8 }],
-    period: null,
+    periods: [],
   });
   assert.equal(stageSchedule(calendar, q, { events: ['second'] }, '2026-10-05').events[0].daysLeft, -1);
-  assert.deepEqual(stageSchedule(calendar, q, { period: '12月〜翌1月' }, '2026-09-26'), { events: [], period: '12月〜翌1月' });
+  assert.deepEqual(stageSchedule(calendar, q, { periods: ['oral'] }, '2026-09-26'), {
+    events: [],
+    periods: [{ label: '口頭試験', window: '12月〜翌1月' }],
+  });
   const errors = validateLineupConfig(
-    { qualifications: [{ id: 'x', calendarId: 'c1', stages: [{ id: 'a', events: ['nope'] }, { id: 'b' }] }], channels: [], rules: {} },
+    { qualifications: [{ id: 'x', calendarId: 'c1', stages: [{ id: 'a', events: ['nope'] }, { id: 'b' }, { id: 'c', periods: ['gone'] }] }], channels: [], rules: {} },
     calendar,
   );
   assert.ok(errors.some((e) => e.includes('events に nope が無い')));
-  assert.ok(errors.some((e) => e.includes('x:b: events も period も無い')));
+  assert.ok(errors.some((e) => e.includes('x:b: events も periods も無い')));
+  assert.ok(errors.some((e) => e.includes('periods に gone が無い')));
 });
