@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fetchedAt": "2026-09-22T23:41:36.058Z",
+  "fetchedAt": "2026-09-25T01:03:42.164Z",
   "status": "ok",
   "source": "coconala.com /mypage/received_orders/*（Playwright・read-only）",
   "privacyNote": "購入者名・購入者ID・トークルーム本文・DM 本文は保存しない。保存するのは talkroomId / dmId / サービス / 金額 / 日付 / ステータス / 未返信 / 返信期限のみ。DM は subject（引用されたサービス名）だけを採る。送信者名と本文プレビューはブラウザ内で判定にのみ使い、結果のブール値（fromStaff / oneWay / violationRemoved）だけを残す。",
@@ -27,8 +27,8 @@
         "label": "取引中",
         "url": "https://coconala.com/mypage/received_orders/open",
         "ok": true,
-        "rows": 0,
-        "rawRows": 0
+        "rows": 1,
+        "rawRows": 1
       },
       {
         "key": "closed",
@@ -51,7 +51,7 @@
         "label": "未返信",
         "url": "https://coconala.com/mypage/received_orders/open?message_status=2",
         "ok": true,
-        "rows": 0
+        "rows": 1
       },
       {
         "key": "inquiries",
@@ -66,6 +66,21 @@
     "deadlineFailed": 0
   },
   "orders": [
+    {
+      "talkroomId": "18351970",
+      "talkroomUrl": "https://coconala.com/talkrooms/18351970",
+      "tab": "open",
+      "tabLabel": "取引中",
+      "serviceId": "coconala-tensaku-set",
+      "listingText": "土木経験記述を技術士の元発注者が添削します 技術士・元発注者の目で赤入れ＋書き直し1回",
+      "priceYen": 6000,
+      "soldOn": "2026-09-25",
+      "deliveryDueSet": false,
+      "statusLabel": "取引中",
+      "lastMessageAt": "01:53",
+      "unreplied": true,
+      "replyDueAt": "2026-09-27T02:00"
+    },
     {
       "talkroomId": "18194267",
       "talkroomUrl": "https://coconala.com/talkrooms/18194267",
