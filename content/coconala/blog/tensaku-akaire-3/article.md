@@ -1,9 +1,9 @@
 ---
+publishedAt: "2026-09-25"
+blogId: "815068"
+blogUrl: "https://coconala.com/blogs/6197366/815068"
 title: "経験記述の直しは効く順番から｜添削で最初に見る4点"
-status: published
-blogUrl: "https://coconala.com/blogs/6197366/804332"
-blogId: "804332"
-publishedAt: "2026-09-06"
+status: "published"
 exam: civil
 angle: 体験
 category: 学び

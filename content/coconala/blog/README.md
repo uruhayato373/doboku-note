@@ -45,7 +45,7 @@ npm run scout-coconala-blogs                                     # 競合偵察�
 | `yosou-mondai-kaku-renshu` | 第3回 | ハウツー | 1級 予想模試 |
 | `hinshitsu-kanri-kakikata` | 第4回 | ハウツー | 1級 教材フルパック |
 | `anzen-kanri-kakikata` | 第5回 | ハウツー | 1級 模範答案セット |
-| `sokan-shutsudai-theme-bunseki` | 単発 | 数字 | 総監 出題テーマ分析 |
+| ~~`sokan-shutsudai-theme-bunseki`~~ | 単発 | 数字 | 総監 出題テーマ分析（2026-09-25 ココナラの総監撤退に伴い記事を削除・原稿も除去） |
 
 ## 下書き（2026-08-24 作成・未公開）
 

@@ -1,9 +1,9 @@
 ---
+publishedAt: "2026-09-25"
+blogId: "815069"
+blogUrl: "https://coconala.com/blogs/6197366/815069"
 title: "【第4回】経験記述の品質管理、設問1〜評価まで書く手順"
 status: "published"
-blogUrl: "https://coconala.com/blogs/6197366/794258"
-blogId: "794258"
-publishedAt: "2026-08-17"
 exam: civil
 angle: ハウツー
 category: 学び
