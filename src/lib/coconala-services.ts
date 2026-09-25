@@ -748,8 +748,8 @@ const SERVICES_RAW = {
   // 運営者はコンクリート主任技士を保有（src/config/author.ts）。KDP の g-02 は Select OFF で PDF 販売と衝突しない。
   'coconala-cce-essay-pdf': {
     id: 'coconala-cce-essay-pdf',
-    status: 'draft',
-    serviceUrl: '',
+    status: 'listed',
+    serviceUrl: 'https://coconala.com/services/4418972',
     title: 'コンクリート主任技士の小論文模範答案を送ります',
     shortTitle: 'コンクリート主任技士 小論文 PDF',
     description:
@@ -759,11 +759,12 @@ const SERVICES_RAW = {
     notePriceBasis: 'cce-essay-magazine',
     examScope: ['concrete-chief-engineer'],
     weeklyCapacity: 20,
+    listedAt: '2026-09-25',
   },
   'coconala-cce-takuitsu-pdf': {
     id: 'coconala-cce-takuitsu-pdf',
-    status: 'draft',
-    serviceUrl: '',
+    status: 'listed',
+    serviceUrl: 'https://coconala.com/services/4418974',
     title: 'コンクリート主任技士 択一直前パックを送ります',
     shortTitle: 'コンクリート主任技士 択一直前パック PDF',
     description:
@@ -773,6 +774,7 @@ const SERVICES_RAW = {
     notePriceBasis: 'cce-takuitsu-chokuzen-pack | cce-r8-mc-50 + cce-mix-calculation-practice + cce-anki-note',
     examScope: ['concrete-chief-engineer'],
     weeklyCapacity: 20,
+    listedAt: '2026-09-25',
   },
 } as const satisfies Record<string, CoconalaService>;
 
