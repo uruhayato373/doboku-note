@@ -146,6 +146,7 @@ npm run check-video-content    # 動画パック（DN-0110）の整合ゲート�
 npm run render-longform        # 動画パックの 16:9 通常動画レンダラー（storyboard→1920×1080 PNG＋ASS 字幕＋VOICEVOX/ffmpeg mp4。出力は .tmp/video-render/・音声環境無しは --skip-tts で PNG/ASS まで。VOICEVOXとffmpegがあればWindows/Macでmp4生成可・生成用Actionsは未設置）
 npm run check-video-publication # 公開済み派生物の実体照合が回っているか（未照合・鮮度切れ・記録の孤児・実査ドリフト）。実査本体は verify-video-publication＝CI 週次(verify-yt-status.yml)で creds 必須・**対象0件は明示してPASS**・quality:audit に同梱
 npm run x-own-metrics     # 自投稿の反応（いいね/RT）を採取→型×時間帯×導線の表（.claude/state/x-metrics/・**中央値で読む**。impressions/replies は CLI が返さず取得不可）
+npm run check-x-posted-live  # 投稿済み X の生存確認。posted_url を持つものだけログイン不要の oEmbed で照合（DN-0276・週次 link-audit.yml）。404=凍結/削除の疑い、posted_url が無い投稿済みの件数も出す（検査ゼロを PASS にしない）。posted_url は publish-x.ts が投稿直後にベストエフォートで書く
 ```
 
 ## Instagram・Cloudflare（CI 取得・freshness）
