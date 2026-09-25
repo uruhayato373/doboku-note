@@ -56,7 +56,7 @@ npm run scout-coconala-blogs                                     # 競合偵察�
 | `koji-gaiyou-de-otosu` | 悩み直撃 | 結論 | 1級 添削 |
 | `gijutsuteki-kadai-gokai` | 勘違い破壊 | 反論 | 1級 添削 |
 | `tensaku-akaire-3` | ケーススタディ | 体験 | S2 添削セット |
-| `jibun-de-kaku-ka-tsukuru-ka` | 比較 | 反論 | 1級 作成 |
+| `jibun-de-kaku-ka-tsukuru-ka` | 比較 | 反論 | 1級 指導（2026-09-25 に作成から指導へ作り替えたのに合わせて全面改稿。借りてよいのは骨子と赤入れまで） |
 | `suuchi-no-irekata` | チェックリスト | 数字 | AI設計キット |
 | `koutei-kanri-kakikata` | ハウツー | ハウツー | 1級 模範答案セット |
 | `chokuzen-2shukan-roadmap` | ロードマップ | ハウツー | 1級 教材フルパック |
