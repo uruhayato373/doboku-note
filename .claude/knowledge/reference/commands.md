@@ -210,4 +210,6 @@ npm run measure-experiments    # measure 仕様を持つ running/measuring 実�
 npm run growth-triage          # 週次レビュー（ローカル）で機会ダイジェストを全件処分: list [--json] → apply --decisions .tmp/growth-triage-YYYY-Www.json [--commit]（backlog/実験/watchword/裁定/束ね/却下/保留を採番・起票・triage-log 記録）。罠: DN 採番に git 全履歴が要る（shallow clone は exit 2）・全件を先に検証し 1 件でも不正なら何も書かない
 npm run check-growth-triage    # 月曜 guard: 最新ダイジェストの未処分 0・レビューにマーカー（申し送りの振り分けは check-handoff-extraction）。exit 1 未反映 / 2 ダイジェスト/レビュー無しか古い
 npm run check-business-direction # 事業方針・指標・履歴・追記専用の検査
+npm run exam-expansion        # 展開対象試験カタログ（.claude/config/exam-expansion-catalog.json）の優先順位・対応状況を表で出す（--json で JSON）
+npm run check-exam-expansion  # 同カタログの評点・参照整合（exam-stats・プロフィールの保有資格・販売カタログ・content/site の資格ディレクトリ）。quality:audit:ci
 ```

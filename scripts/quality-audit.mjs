@@ -231,6 +231,7 @@ const CHECKS = [
   { id: 'dead-handles', npm: 'check-dead-handles', timeout: 60_000, ci: true, note: '退役ハンドル（404 note旧名・凍結X旧アカ）への参照' },
   { id: 'jst-date', npm: 'check-jst-date', timeout: 30_000, ci: true, note: '運用記録の日付がUTCで前日付になっていないか' },
   { id: 'exam-calendar', npm: 'check-exam-calendar', timeout: 30_000, ci: true, note: '1級・2級土木の公式試験日SSOTと既知誤記を検査' },
+  { id: 'exam-expansion', npm: 'check-exam-expansion', timeout: 60_000, ci: true, note: '展開対象試験カタログの評点・参照整合（exam-stats・プロフィール・販売カタログ）' },
   { id: 'x-campaign-plan', npm: 'check-x-campaign-plan', timeout: 30_000, ci: true, note: 'X月間計画の日付・導線・URL・販売投稿間隔を検査' },
   { id: 'x-review', npm: 'check-x-review', timeout: 30_000, ci: true, note: 'X確認期間の原稿・時刻・公開マガジン導線・先生カードの再生成元を検査' },
   { id: 'x-card-render', npm: 'check-x-card-render', timeout: 30_000, ci: true, note: 'Xカード画像の配色・主題・生URL焼込みを描画台帳で検査（画像は開かない）' },
