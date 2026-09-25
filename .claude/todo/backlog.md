@@ -751,14 +751,6 @@ Drive台帳・vault・Drive APIの照合前にローカル実体を削除しな�
 **完了条件**: 結論と理由をレジストリの google 行（`ci.enabled` の方針）に書いたら、このカードを削除する。
 
 
-### [DN-0321] 総監の品質サイクル進捗表を docs/ から外し、admin が JSON から表示する形へ移す
-タグ: [インフラ・計測] [種類:改善] [起票:2026-09-25]
-
-**起点**: `docs/editorial/05_品質サイクル進捗.md` は 739 行の大半が `build-progress-md.mjs` の生成テーブル（`record-verify.mjs` が採点のたびに書き換える・最終更新 2026-05-15）。docs/ は「人が読む恒久判断」の置き場で、機械データは `.claude/state/` の JSON（`quality-scores.json` / `quality-cycle-state.json`）が正。`.claude/state/*.md` の新規作成は禁止なので、md をそのまま state へ移すことはできない。同ファイルの B節「サブ論点 決定ログ」5件（Impact スコアの重み・強制セット・Diff 計測単位・失敗時の挙動・commit 粒度）は 2026-05 から全件「決定: 未」。
-
-**やること**: admin の品質画面が `quality-scores.json` から同じ表を出せるか確かめ、出せれば `build-progress-md.mjs` と `record-verify.mjs` の md 書き込みを外して md を削除する（コード変更なので feature ブランチ＋PR）。B節の5論点は品質サイクルの自動化を再開するときに決めるので、残すなら `03_リライト方法論方針.md` の議論節へ移す。
-
-**完了条件**: 進捗表が admin で見え、`docs/editorial/05_品質サイクル進捗.md` を削除して `npm run check-doc-refs` が緑になったら、このカードを削除する。
 
 ## 🟣 判断待ち — ユーザーの意思決定が必要
 
