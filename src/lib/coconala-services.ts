@@ -711,7 +711,7 @@ const SERVICES_RAW = {
   // （建設部門・総合技術監理部門）。ビデオ面接は日時調整の負担が大きいので出さず、PDF とテキスト完結型に限る。
   'coconala-pe-oral-pdf': {
     id: 'coconala-pe-oral-pdf',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4415186',
     title: '技術士口頭試験の想定問答PDFを送ります',
     shortTitle: '技術士 口頭試験 想定問答 PDF',
@@ -723,11 +723,12 @@ const SERVICES_RAW = {
     notePriceBasis: 'each: tankan-oral-complete | pe-construction-oral-guide',
     examScope: ['pe-comprehensive-management', 'pe-construction'],
     weeklyCapacity: 20,
+    pauseReason: 'retired',
     listedAt: '2026-09-23',
   },
   'coconala-pe-oral-qa': {
     id: 'coconala-pe-oral-qa',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4415190',
     title: '技術士口頭試験の想定質問を経歴から作ります',
     shortTitle: '技術士 口頭試験 想定質問作成',
@@ -737,6 +738,7 @@ const SERVICES_RAW = {
     priceYen: 5000,
     examScope: ['pe-comprehensive-management', 'pe-construction'],
     weeklyCapacity: 2,
+    pauseReason: 'retired',
     listedAt: '2026-09-23',
   },
 
