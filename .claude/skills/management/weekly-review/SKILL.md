@@ -236,6 +236,7 @@ B. 実験進捗レポート:
 
 ```
 調査項目:
+- `npm run psi-audit:check` を実行し、**stderr の `field(CrUX) coverage: X/Y` と `field 判定不能の内訳` の行をそのまま転記する**（機械が `field_availability.url_level`/`origin_level` を数えた値。生 JSON を目視で読み直さない）
 - .claude/state/metrics/psi/psi-batch-*.json の直近 7 日分（GitHub Actions psi-audit.yml が develop に毎日 [skip ci] で commit）
 - .claude/config/psi-config.json のしきい値
 - （廃止: `gh issue list --label performance,weekly-pdca` は GitHub Issue 廃止〔CLAUDE.md §8〕で無効。違反の追跡は上記 psi-batch JSON の時系列＋しきい値比較のみで行う）
@@ -248,6 +249,14 @@ B. 実験進捗レポート:
 > 機械可読は `.claude/config/psi-config.json` の `judgment`。
 > ※ 2026-07-27（W30）に lab の単発スパイクを CRITICAL と報告し、実際は field p75 822ms=FAST で
 > 実害ゼロだった。1 週間分の優先順位が歪んだ。
+
+> **field の読み方（DN-0158・2026-09-14 の教訓）**: `field_data` はキーが常に存在し、CrUX が
+> 無いときは値だけ null になる。「キーがある＝データがある」と読まない。**非 null の件数**（上の
+> `npm run psi-audit:check` 転記）で読み、0 件なら「field なし・実害判定不能」と書く。
+> **field が無い期間は「復旧」「FAST」を書かない**。復旧を報告するときは、非 null になった
+> バッチ名と URL 数を併記する（「直近 3 バッチ」のような件数だけの記述で終えない）。
+> 真実源: `.claude/knowledge/reference/measurement-incidents.md`「2026-09-14: PSI field_data の
+> キー存在を『field あり』と読んだ（W36 週次レビューの偽復旧）」。
 
 分析項目:
 - **field_data.LCP/INP/CLS の category**（FAST/AVERAGE/SLOW）を先に見る＝実害の有無
@@ -657,8 +666,9 @@ pre-commit の `scripts/check-handoff-extraction.mjs` が 2026-W39 以降のレ�
 
 ## PSI パフォーマンス推移
 
-<!-- Agent C2 が .claude/state/metrics/psi/ と open/closed Issues から自動生成。
-     今週の違反件数、スコア前週比、新規/解消した違反を記録。 -->
+<!-- Agent C2 が .claude/state/metrics/psi/ と npm run psi-audit:check の出力から自動生成
+     （GitHub Issue は廃止済み・追跡は psi-batch JSON の時系列＋しきい値比較のみ）。
+     今週の違反件数、スコア前週比、新規/解消した違反、field(CrUX) coverage を記録。 -->
 
 ### Core Web Vitals 前週比
 
