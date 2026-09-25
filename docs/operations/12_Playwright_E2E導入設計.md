@@ -238,8 +238,24 @@ CI時間を抑えるため、E2E workflow内で全量の`npm run build`や既存
 
 - 実障害がFirefox／Safari固有だった：該当browserを追加
 - 静的exportのみで障害が出た：`test:e2e:export`を追加
-- UI変更でレイアウト崩れが反復した：限定的なvisual snapshotを追加
+- UI変更でレイアウト崩れが反復した：限定的なvisual snapshotを追加（→ §12 で実施済み・DN-0238）
 - 検索回帰が発生した：検索入力→結果→記事の1経路を追加
 - 計測停止が発生した：同意状態を含むGAイベント発火テストを別suiteで検討
 
 テスト数をKPIにしない。過去に実際に壊れた、または壊れると収益・利用者影響が大きい経路を優先する。
+
+## 12. ビジュアルリグレッション（DN-0238）
+
+lint-ui も axe（`e2e/a11y.spec.ts`）も、CSS・Tailwind 変更によるレイアウト崩れは検出しない（Tailwind の transform 変種が本 build で無効だった件はこの種の見落とし）。`e2e/visual.spec.ts` が `e2e/routes.ts` の代表テンプレ（`a11y.spec.ts` と共有）+ `/links` を desktop・mobile（`playwright.config.ts` の 2 project）× light/dark で `toHaveScreenshot` に固定する。`maxDiffPixelRatio` は `playwright.config.ts` の `expect.toHaveScreenshot` に既定 0.01 を設定済み。
+
+### 基準画像の更新
+
+**基準画像は必ず CI（ubuntu-latest）で生成する。ローカル（Mac/Windows）で `--update-snapshots` を実行して commit しない**（フォントレンダリングが CI と異なり、コミットした瞬間から CI 側が常に赤くなる）。
+
+1. 意図した UI 変更を develop（コンテンツ）または feature ブランチ（コード）に反映する。
+2. `.github/workflows/e2e.yml` を `workflow_dispatch` で手動実行する（対象ブランチを指定）。差分のあるルートだけ「基準画像と一致しない」で失敗する（想定内）。
+3. run の artifact `visual-snapshots-<attempt>` をダウンロードし、中身を `e2e/visual.spec.ts-snapshots/` へ丸ごと展開する（Playwright が「新規/不一致の基準」をこのディレクトリへ直接書き出すため、ファイル名の変更は不要）。
+4. 差分が意図した変更だけであることを diff（画像）で確認してから commit する。
+5. 同じブランチで `workflow_dispatch` をもう一度実行し、緑になることを確認する。
+
+新規ルート追加時も同じ手順（該当ルートの基準画像だけが「存在しない」で失敗し、1回目の run で artifact に書き出される）。

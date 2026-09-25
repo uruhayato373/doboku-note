@@ -109,3 +109,16 @@ jobs:
             test-results/
           if-no-files-found: ignore
           retention-days: 14
+
+      # DN-0238: ビジュアルリグレッションの基準画像は CI（ubuntu・同一フォント環境）で生成する。
+      # ローカル（Mac/Windows）で生成した基準を commit すると、フォントレンダリングの違いで
+      # CI 側が常に赤くなる。新規追加・意図的な UI 変更のときは、この artifact を取り込んで
+      # e2e/visual.spec.ts-snapshots/ を更新する（手順: docs/operations/12 「基準画像の更新」）。
+      - name: Upload visual regression snapshots (CI-generated baseline)
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: visual-snapshots-${{ github.run_attempt }}
+          path: e2e/visual.spec.ts-snapshots/
+          if-no-files-found: ignore
+          retention-days: 14
