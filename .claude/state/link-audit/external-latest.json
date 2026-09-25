@@ -1,12 +1,12 @@
 {
-  "checkedAt": "2026-09-17T23:55:38.873Z",
+  "checkedAt": "2026-09-25T00:17:46.008Z",
   "summary": {
-    "files": 1267,
-    "occurrences": 3157,
-    "uniqueUrls": 2265,
-    "ok": 2107,
+    "files": 1280,
+    "occurrences": 3176,
+    "uniqueUrls": 2282,
+    "ok": 2125,
     "broken": 1,
-    "timeout": 1,
+    "timeout": 0,
     "errors": 156
   },
   "broken": [
@@ -873,22 +873,6 @@
       ]
     },
     {
-      "url": "https://tenbou.nies.go.jp/science/description/detail.php?id=59",
-      "status": 0,
-      "ok": false,
-      "error": "fetch failed",
-      "locations": [
-        {
-          "relativePath": "pe-comprehensive-management/design-for-environment/article.mdx",
-          "line": 93
-        },
-        {
-          "relativePath": "pe-comprehensive-management/end-of-pipe/article.mdx",
-          "line": 101
-        }
-      ]
-    },
-    {
       "url": "https://www.jpo.go.jp/system/design/gaiyo/index.html",
       "status": 403,
       "ok": false,
@@ -1483,6 +1467,19 @@
       ]
     },
     {
+      "url": "https://plaza.umin.ac.jp/~health-stat/lecture/chapter15/",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://plaza.umin.ac.jp/~health-stat/lecture/chapter15/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/logistic-regression/article.mdx",
+          "line": 134
+        }
+      ]
+    },
+    {
       "url": "https://www.meti.go.jp/policy/energy_environment/global_warming/ggs/index.html",
       "status": 403,
       "ok": false,
@@ -1523,7 +1520,7 @@
     },
     {
       "url": "https://www.jsme.or.jp/jsme-medwiki/19:1008250",
-      "status": 403,
+      "status": 429,
       "ok": false,
       "redirected": false,
       "finalUrl": "https://www.jsme.or.jp/jsme-medwiki/19:1008250",
@@ -1608,13 +1605,13 @@
       ]
     },
     {
-      "url": "https://tenbou.nies.go.jp/science/description/detail.php?id=83",
+      "url": "https://www.nensoken.or.jp/nenkin-column/01-2",
       "status": 0,
       "ok": false,
       "error": "fetch failed",
       "locations": [
         {
-          "relativePath": "pe-comprehensive-management/pops-convention/article.mdx",
+          "relativePath": "pe-comprehensive-management/pension-system/article.mdx",
           "line": 114
         }
       ]
@@ -2256,18 +2253,5 @@
       ]
     }
   ],
-  "timeout": [
-    {
-      "url": "https://www.stockholmresilience.org/research/planetary-boundaries.html",
-      "status": 0,
-      "ok": false,
-      "error": "TIMEOUT",
-      "locations": [
-        {
-          "relativePath": "pe-comprehensive-management/planetary-boundaries/article.mdx",
-          "line": 89
-        }
-      ]
-    }
-  ]
+  "timeout": []
 }
