@@ -48,11 +48,15 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 
 | id | 役割 |
 |---|---|
-| `coconala-shindan` | S1 合格診断。レビュー獲得フロント。診断のみ・書き換え案は出さない |
-| `coconala-tensaku-set` | S2 添削（2テーマセット）。主力。赤入れ＋書き直し1回 |
-| `coconala-tensaku-4theme` | S2+ 添削 上位版（4テーマ・¥12,000・週1枠・2026-09-24 追加）。当日どの2テーマが指定されても書けるよう4テーマ分を赤入れ＋書き直し1回（4テーマまとめて）。ちゃんさとの4テーマ相当 ¥24,000×155件が根拠 |
-| `coconala-sakusei` | S3 答案作成（ヒアリング→文章化・2テーマ・¥8,000）。質問シートで本人の実工事を吸い上げ答案ドラフト化（捏造禁止・本人確認必須・週2枠） |
-| `coconala-sakusei-4theme` | S3+ 答案作成 上位版（4テーマ・¥16,000・週1枠）。本試験は5管理から2テーマが当日指定されるため、4テーマ備えて出題を外す事故に保険をかける商品。運用はシートを2回分受領し `--mode sakusei` を2テーマずつ2回（コード変更なし）。ちゃんさと（作成代行 2問¥16,000／4問¥32,000）の半額帯・S3 の価格アンカーも兼ねる |
+| `coconala-shindan` | S1 合格診断（1級・2級共通）。レビュー獲得フロント。診断のみ・書き換え案は出さない |
+| `coconala-tensaku-set` | S2【1級】添削（2テーマ・24時間以内・書き直し1回・¥6,000）。主力。2026-09-25 に級別化＋24時間短縮（旧: 1級2級共通・4日） |
+| `coconala-tensaku-4theme` | S2+【1級】添削 上位版（5管理フル・¥15,000・週1枠・48時間以内）。2026-09-25 に「4テーマ」を廃止し1級の5管理（品質・安全・工程・施工計画・環境対策）フルへ作り替え（旧¥12,000）。当日どの2テーマが指定されても書けるよう赤入れ＋書き直し1回（まとめて）。ちゃんさとの4テーマ相当 ¥24,000×155件が根拠。**draft（未出品）** |
+| `coconala-2kyu-tensaku` | S2【2級】添削（2テーマ・24時間以内・書き直し1回・¥5,000）。2026-09-25 新設（1級S2の2級版）。**draft（未出品）** |
+| `coconala-2kyu-tensaku-3theme` | S2+【2級】添削 上位版（3管理フル・¥7,500・週1枠・48時間以内）。2026-09-25 新設。2級は3管理（品質・安全・工程）で全出題をカバー。**draft（未出品）** |
+| `coconala-sakusei` | S3【1級】作成（ヒアリング→文章化・2テーマ・48時間以内・¥8,000）。質問シートで本人の実工事を吸い上げ答案ドラフト化（捏造禁止・本人確認必須・週2枠）。2026-09-25 に級別化＋「構成」→「作成」＋48時間短縮 |
+| `coconala-sakusei-4theme` | S3+【1級】作成 上位版（5管理フル・¥20,000・週1枠・72時間以内）。2026-09-25 に「4テーマ」を廃止し1級の5管理フルへ作り替え（旧¥16,000＝priceHistory 記録済み）。本試験は5管理から2テーマが当日指定されるため、全管理備えて出題を外す事故に保険をかける商品。ちゃんさと（作成代行 2問¥16,000／4問¥32,000）の帯・S3 の価格アンカーも兼ねる |
+| `coconala-2kyu-sakusei` | S3【2級】作成（ヒアリング→文章化・2テーマ・48時間以内・¥7,000）。2026-09-25 新設（1級S3の2級版）。**draft（未出品）** |
+| `coconala-2kyu-sakusei-3theme` | S3+【2級】作成 上位版（3管理フル・¥10,500・週1枠・72時間以内）。2026-09-25 新設。2級は3管理で全出題をカバー。**draft（未出品）** |
 | `coconala-bunseki-pdf` | C1 出題分析 PDF。**paused（2026-08-05 統廃合）**＝C10 フルパック限定収録 |
 | `coconala-kanseitoan-pdf` | C2' 1級 経験記述 **模範答案セット** PDF 10冊（テーマ別5＋年度別5＝旧C2+C4 統合・¥5,500）。納品= C2 5冊+C4 5冊 |
 | `coconala-2kyu-kanseitoan-pdf` | C3' 2級 模範答案セット PDF 8冊（テーマ別3＋年度別5＝旧C3+C5 統合・¥5,000） |
@@ -79,7 +83,8 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 
 | 記事 | 出すサービス |
 |---|---|
-| 経験記述（`secondary-experience-writing-{guide,examples}`・1級2級） | `coconala-shindan`＋`coconala-tensaku-set`（＋Brain 経験キット） |
+| 経験記述（1級 `secondary-experience-writing-{guide,examples}`） | `coconala-shindan`＋`coconala-tensaku-set`（＋Brain 経験キット） |
+| 経験記述（2級 `secondary-experience-writing-{guide,examples}`） | `coconala-shindan`＋`coconala-2kyu-tensaku`（draft のため出品まで非表示・＋Brain 経験キット）。2026-09-25 級別化で分離（旧: 1級2級共通で `coconala-tensaku-set` を出していた） |
 | 二次 年度別過去問（`secondary-r0[3-9]`） | `{1kyu,2kyu}-kanseitoan-pdf`（模範答案セット）＋`{1kyu,2kyu}-full-pdf`（2026-08-05 統廃合で改配線） |
 | 二次 学科分野別（1級 `secondary-(concrete\|construction-plan\|earthwork\|quality-management)-(basics\|past-problems)`） | `coconala-1kyu-full-pdf`（学科単品は paused） |
 | 二次 入門・直前（1級 `secondary-getting-started`／`guide-last-minute-2026`） | `coconala-1kyu-moshi-pdf`＋`coconala-1kyu-full-pdf` |

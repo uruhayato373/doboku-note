@@ -43,9 +43,20 @@ interface OffsiteRule {
 // RULES は上から最初にマッチした1件のみ採用（find）。パターンは相互排他に保つ。
 const RULES: readonly OffsiteRule[] = [
   {
-    // 施工経験記述（1級・2級）: 読者が自分の工事で答案を書く高 intent ページ。人の添削/診断が最も刺さる。
-    test: /^civil-construction-[12]-secondary-experience-writing-(guide|examples)$/,
+    // 施工経験記述（1級）: 読者が自分の工事で答案を書く高 intent ページ。人の添削/診断が最も刺さる。
+    // 2026-09-25: coconala-tensaku-set は級別化で examScope が civil-1 専用になったため、
+    // 1級/2級で別ルールに分割（旧: 単一ルールで両級に同じ1級専用サービスを出していた）。
+    test: /^civil-construction-1-secondary-experience-writing-(guide|examples)$/,
     coconala: ['coconala-shindan', 'coconala-tensaku-set'],
+    brain: ['brain-civil-essay-kit'],
+    coconalaCatch: '自分の答案を1本、プロの視点で見てほしい方へ。',
+    brainCatch: '自分の工事経験から答案を自作したい方へ（Claude Code キット）。',
+  },
+  {
+    // 施工経験記述（2級）: 2級版の添削サービスは新設（coconala-2kyu-tensaku・2026-09-25）が
+    // status:'draft'（未出品）のため、出品するまで listed フィルタで自動的に非表示のまま。
+    test: /^civil-construction-2-secondary-experience-writing-(guide|examples)$/,
+    coconala: ['coconala-shindan', 'coconala-2kyu-tensaku'],
     brain: ['brain-civil-essay-kit'],
     coconalaCatch: '自分の答案を1本、プロの視点で見てほしい方へ。',
     brainCatch: '自分の工事経験から答案を自作したい方へ（Claude Code キット）。',
