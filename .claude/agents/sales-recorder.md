@@ -225,8 +225,10 @@ productId は `coconala:<serviceId>` 形式（接頭辞でチャネル判別＝`
 | `経験記述 合格診断` / `coconala-shindan`（¥1,500） | `coconala:coconala-shindan` |
 | `経験記述 添削（2テーマセット）` / `coconala-tensaku-set`（¥6,000） | `coconala:coconala-tensaku-set` |
 | `経験記述 添削（4テーマセット）` / `coconala-tensaku-4theme`（¥12,000） | `coconala:coconala-tensaku-4theme` |
-| `経験記述 答案作成（ヒアリング）` / `coconala-sakusei`（¥8,000） | `coconala:coconala-sakusei` |
-| `経験記述 答案作成 4テーマ` / `coconala-sakusei-4theme`（¥16,000） | `coconala:coconala-sakusei-4theme` |
+| `1級土木経験記述の書き方を骨子から指導します`（旧 `経験記述 答案作成（ヒアリング）`） / `coconala-sakusei`（¥8,000） | `coconala:coconala-sakusei` |
+| `1級土木経験記述の全5テーマを骨子から指導します`（旧 `経験記述 答案作成 4テーマ`） / `coconala-sakusei-4theme`（**¥20,000**・2026-09-25 改定・旧¥16,000） | `coconala:coconala-sakusei-4theme` |
+| `2級土木経験記述の書き方を骨子から指導します` / `coconala-2kyu-sakusei`（¥7,000） | `coconala:coconala-2kyu-sakusei` |
+| `2級土木経験記述の全3テーマを骨子から指導します` / `coconala-2kyu-sakusei-3theme`（¥10,000） | `coconala:coconala-2kyu-sakusei-3theme` |
 | `1級 経験記述 模範答案セット PDF` / `coconala-kanseitoan-pdf`（**¥5,500**・2026-09-23 改定・旧¥5,000） | `coconala:coconala-kanseitoan-pdf` |
 | `2級 経験記述 模範答案セット PDF` / `coconala-2kyu-kanseitoan-pdf`（**¥5,000**・2026-09-23 改定・旧¥4,000） | `coconala:coconala-2kyu-kanseitoan-pdf` |
 | `1級 二次 予想模擬試験 PDF` / `coconala-1kyu-moshi-pdf`（**¥3,500**・2026-09-23 改定・旧¥2,500） | `coconala:coconala-1kyu-moshi-pdf` |

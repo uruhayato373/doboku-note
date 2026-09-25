@@ -1,9 +1,9 @@
 ---
 name: coconala-order
 description: >
-  ココナラで受注したサービス（1級・2級土木 S1 診断 / S2 添削 / S3 答案作成 / C系・RCCM・コンクリート主任技士・技術士口頭の PDF / 技術士口頭 想定質問作成）
+  ココナラで受注したサービス（1級・2級土木 S1 診断 / S2 添削 / S3 指導 / C系・RCCM・コンクリート主任技士・技術士口頭の PDF / 技術士口頭 想定質問作成）
   1件を、受領から納品文面ドラフトまで通す統括スキル。coconala-operator を起動し、商品タイプ別に分岐して
-  /keiken-tensaku（S1=診断・S2=添削・S3=作成）でドラフト生成、または C系=PDF即送付文を生成 → orders-log 追記。
+  /keiken-tensaku（S1=診断・S2=添削・S3=骨子→添削）でドラフト生成、または C系=PDF即送付文を生成 → orders-log 追記。
   最終赤入れとトークルームへの送信は運営者（人間）。捏造禁止・外部誘導禁止・個人情報非コミット。
   Use when user asks to [ココナラで受注した, ココナラの納品文面を作って, 添削依頼が来た, PDF商品が売れた, /coconala-order].
 user-invocable: true
