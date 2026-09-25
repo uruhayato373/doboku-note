@@ -8,6 +8,10 @@ import { representativeRoutes } from './routes';
  * （Tailwind の transform 変種が本 build で無効だった件はこの種の見落とし）。
  * a11y.spec.ts と同じ代表テンプレ + `/links`（SNS プロフィールからの入口）を
  * desktop・mobile（playwright.config.ts の 2 project）× light/dark で `toHaveScreenshot` に固定する。
+ * ビューポート内（fullPage ではない）のみ撮る。フルページだと `/standards/kinki/...` のような
+ * 長い記事で1枚 7〜8MB になり、.claude/config/git-binary-policy.json の png 上限 1.5MiB を
+ * 14/36 枚が超過した（実機確認・2026-09-25）。レイアウト崩れはヘッダー・ナビ・折返し等
+ * 上部に出ることが多く、下部まで見たい場合は該当ページだけ個別に追加する。
  *
  * 基準画像の更新手順は docs/operations/12_Playwright_E2E導入設計.md「基準画像の更新」を参照。
  * ローカルで `--update-snapshots` を使わない（フォントレンダリングが CI の ubuntu と異なり、
@@ -47,9 +51,7 @@ for (const colorScheme of ['light', 'dark'] as const) {
         }
 
         const slug = route.replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '') || 'home';
-        // 既定の expect.timeout（10s）だと、基準画像が無い1回目のキャプチャ（安定待ちを含む）が
-        // 長い記事（/standards/kinki/... 等）で CI 上超過する（実機確認・2026-09-25）。
-        await expect(page).toHaveScreenshot(`${colorScheme}-${slug}.png`, { fullPage: true, timeout: 30_000 });
+        await expect(page).toHaveScreenshot(`${colorScheme}-${slug}.png`, { timeout: 30_000 });
       });
     }
   });
