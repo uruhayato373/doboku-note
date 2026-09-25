@@ -29,6 +29,7 @@ import {
 } from './lib/coconala-session.mjs';
 import { fillServiceForm, submitForm, dismissModal, uploadImage } from './lib/coconala-form.mjs';
 import { todayJst } from './lib/jst-date.mjs';
+import { isCoconalaPriceStep } from './lib/coconala-price-parity.mjs';
 
 const argv = process.argv.slice(2);
 const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : null; };
@@ -58,7 +59,7 @@ if (svc.status === 'listed' && /^https?:\/\//.test(svc.serviceUrl || '')) {
 // 価格刻みガード（ココナラの価格は ¥10,000 以下=500円刻み / 超=1,000円刻み）
 {
   const y = svc.priceYen;
-  const ok = y > 0 && (y <= 10000 ? y % 500 === 0 : y % 1000 === 0);
+  const ok = isCoconalaPriceStep(y);
   if (!ok) { console.error(`ABORT: priceYen ${y} はココナラの価格刻みに不一致（¥10,000以下=500円刻み/超=1,000円刻み）`); process.exit(1); }
 }
 // カテゴリ未確定ガード

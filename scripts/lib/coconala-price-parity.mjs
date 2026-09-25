@@ -46,6 +46,10 @@ export function evalNoteBasis(expr, prices) {
   return { floor: each ? Math.max(...totals) : Math.min(...totals), each };
 }
 
+/** ココナラで設定できる価格か（¥10,000 以下は ¥500 刻み、超は ¥1,000 刻み）。
+ *  2026-09-25 に ¥10,500 を提案・カタログ化し、公開の直前で publish のガードに止められた。 */
+export const isCoconalaPriceStep = (yen) => Number.isInteger(yen) && yen > 0 && (yen <= 10000 ? yen % 500 === 0 : yen % 1000 === 0);
+
 /** ココナラの価格刻みで切り上げる（¥10,000 以下は ¥500、超は ¥1,000） */
 export function ceilToCoconalaStep(yen) {
   const step = yen <= 10000 ? 500 : 1000;

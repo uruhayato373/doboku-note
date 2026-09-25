@@ -45,7 +45,7 @@ npm run scout-coconala-blogs                                     # 競合偵察�
 | `yosou-mondai-kaku-renshu` | 第3回 | ハウツー | 1級 予想模試 |
 | `hinshitsu-kanri-kakikata` | 第4回 | ハウツー | 1級 教材フルパック |
 | `anzen-kanri-kakikata` | 第5回 | ハウツー | 1級 模範答案セット |
-| `sokan-shutsudai-theme-bunseki` | 単発 | 数字 | 総監 出題テーマ分析 |
+| ~~`sokan-shutsudai-theme-bunseki`~~ | 単発 | 数字 | 総監 出題テーマ分析（2026-09-25 ココナラの総監撤退に伴い記事を削除・原稿も除去） |
 
 ## 下書き（2026-08-24 作成・未公開）
 
@@ -53,10 +53,10 @@ npm run scout-coconala-blogs                                     # 競合偵察�
 
 | slug | 型 | angle | funnel |
 |---|---|---|---|
-| `koji-gaiyou-de-otosu` | 悩み直撃 | 結論 | S1 診断 |
-| `gijutsuteki-kadai-gokai` | 勘違い破壊 | 反論 | S1 診断 |
+| `koji-gaiyou-de-otosu` | 悩み直撃 | 結論 | 1級 添削 |
+| `gijutsuteki-kadai-gokai` | 勘違い破壊 | 反論 | 1級 添削 |
 | `tensaku-akaire-3` | ケーススタディ | 体験 | S2 添削セット |
-| `jibun-de-kaku-ka-tsukuru-ka` | 比較 | 反論 | S3 作成 |
+| `jibun-de-kaku-ka-tsukuru-ka` | 比較 | 反論 | 1級 作成 |
 | `suuchi-no-irekata` | チェックリスト | 数字 | AI設計キット |
 | `koutei-kanri-kakikata` | ハウツー | ハウツー | 1級 模範答案セット |
 | `chokuzen-2shukan-roadmap` | ロードマップ | ハウツー | 1級 教材フルパック |

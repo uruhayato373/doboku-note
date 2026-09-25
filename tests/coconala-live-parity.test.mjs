@@ -15,6 +15,7 @@ import {
   parseNotePrices,
   evalNoteBasis,
   ceilToCoconalaStep,
+  isCoconalaPriceStep,
   minCoconalaPrice,
   checkPriceParity,
 } from '../scripts/lib/coconala-price-parity.mjs';
@@ -110,4 +111,9 @@ test('checkPriceParity: 下限を割る PDF と、基準も対象外理由も無
   assert.ok(r.violations.some((v) => v.includes('coconala-nobasis-pdf')));
   assert.deepEqual(r.exempt, ['coconala-exempt-pdf']);
   assert.equal(r.rows.length, 2);
+});
+
+test('isCoconalaPriceStep: ¥10,000 以下は500円刻み、超は1,000円刻み（¥10,500 は設定不可）', () => {
+  for (const ok of [500, 1500, 9500, 10000, 11000, 20000]) assert.equal(isCoconalaPriceStep(ok), true, String(ok));
+  for (const ng of [0, -500, 1200, 10500, 12500, 7500.5]) assert.equal(isCoconalaPriceStep(ng), false, String(ng));
 });

@@ -115,12 +115,22 @@ export interface CoconalaService {
  *   7. 変更後は /doc-sync を1回回して prose 陳腐化を点検（CLAUDE.md §8）
  */
 const SERVICES_RAW = {
+  // 経験記述 S 系（診断/添削/作成）共通の受付運用（2026-09-25 ユーザー決定）:
+  //   受付は8商品（S2/S2上位/S3/S3上位×1級2級）を合わせて1日2名まで。この上限は個々の
+  //   weeklyCapacity（本フィールドは商品単位の定員宣言＝Red Line #1 の機械的表明）では
+  //   表現できない横断制約のため、運営者が orders-log を見ながら手動で運用する
+  //   （各商品の weeklyCapacity は目安として合計が週14件程度に収まるよう抑えてある）。
+  //   1級は二次検定 10/4 の直前のため、1級対象サービスは「10/2 受付分まで」（購入前メッセージ・
+  //   トークルームで案内。カタログには書かない＝期日は運用側の判断で動くため）。
+  //   決定ログの全文: content/note/1級・2級土木/ココナラ展開キット.md §2。
   // S1: レビュー獲得フロント。1テーマ分の診断のみ（書き換え文は提供しない＝S2 との線引き）。
   //   実測（2026-07-16）: 診断セグメントの競合は1件（道路プロ ¥1,000×1件）のみ＝ほぼ空白。
   //   価格競争が存在しないため ¥1,500 据え置き。
+  // 2026-09-25 アーカイブ（ユーザー決定）: ココナラの通常サービス出品上限（20件）に達し、級別の新商品を出す枠を空けるため。
+  //   受注0件・30日閲覧17回、市場でも土木の診断は販売実績1件（market-research 9/23）で需要が薄い。
   'coconala-shindan': {
     id: 'coconala-shindan',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4317349',
     // 2026-08-12: 「採点者目線」→「発注者目線」。運営者は発注者（審査する側）であって
     // 試験の採点者ではない（author-authority-banner.md の 2026-08-11 訂正と整合）。
@@ -134,6 +144,7 @@ const SERVICES_RAW = {
     priceYen: 1500,
     examScope: ['civil-1', 'civil-2'],
     weeklyCapacity: 5,
+    pauseReason: 'retired',
     listedAt: '2026-07-18',
   },
 
@@ -143,50 +154,62 @@ const SERVICES_RAW = {
   //   → レビュー0の新規参入で ¥8,000（第2集団の上端）は割高と判断し ¥6,000 で開始、
   //     評価20件で ¥9,800（ちゃんさとの下・第2集団の上）へ引き上げる。
   // 価格改定時は priceYen と price の両方＋ココナラ展開キット.md §2 の価格表を同時更新する。
+  // 2026-09-25 ユーザー決定（級別化）: 1級と2級で出題実績が違う（1級はR6=安全管理×施工計画・
+  //   R7=品質管理×環境対策で読めない→5管理全部が完成形、2級はR6=品質×工程・R7=安全×工程で
+  //   設問2が2年連続工程管理→3管理で全出題をカバー）ため、本サービスは1級専用に改題。
+  //   2級版は新設の coconala-2kyu-tensaku（¥5,000）。速さを売りに24時間以内で返却（既存4日から短縮）。
+  //   価格・週次枠は据え置き。id・serviceUrl は不変（過去受注 orders-log との突合キーのため）。
   'coconala-tensaku-set': {
     id: 'coconala-tensaku-set',
     status: 'listed',
     serviceUrl: 'https://coconala.com/services/4317375',
-    title: '土木経験記述を技術士の元発注者が添削します',
-    shortTitle: '経験記述 添削（2テーマセット）',
+    title: '1級土木経験記述を24時間で添削します',
+    shortTitle: '1級 経験記述 添削（2テーマ・24時間）',
     description:
-      '1級・2級土木施工管理技士 第2次検定の施工経験記述（問題1）を令和6年度からの新形式（2テーマ必答）に対応して添削。2テーマ分の赤入れ（NG→OK 書き換え案）＋6観点のチェックリスト判定表＋読み手視点のコメント＋書き直し1回を含む。ゼロからの答案作成は「答案作成」サービスで承ります（経験していない工事の答案作成＝捏造はお受けしません）。',
-    price: '¥6,000（2テーマセット・書き直し1回込み）',
+      '1級土木施工管理技士 第2次検定の施工経験記述（問題1）を、受け取りから24時間以内に添削してお返しします。令和6年度からの新形式は5テーマ（品質管理・安全管理・工程管理・施工計画・環境対策）のうち2テーマが当日指定され、テーマはご自身で選べません。2テーマ分の赤入れ（NG→OK 書き換え案）＋6観点のチェックリスト判定表＋読み手視点のコメント＋書き直し1回を含みます。ゼロからの答案作成は「経験記述を作成します」サービスで承ります（経験していない工事の答案作成＝捏造はお受けしません）。',
+    price: '¥6,000（1級・2テーマセット・24時間以内・書き直し1回込み）',
     priceYen: 6000,
-    examScope: ['civil-1', 'civil-2'],
-    weeklyCapacity: 3,
+    examScope: ['civil-1'],
+    weeklyCapacity: 2,
     listedAt: '2026-07-18',
   },
-  // S2上位: 4テーマ分の添削（2026-09-24 ユーザー決定）。ちゃんさとは質問4つ分（4テーマ相当）の添削 ¥24,000 を
-  //   155件売っている（docs/marketing/07b）。自社は2テーマ ¥6,000 の2倍＝¥12,000（構成 ¥8,000→¥16,000 と同じ刻み）・週1名。
+  // S2上位: 5管理（品質・安全・工程・施工計画・環境対策）分の添削。2026-09-24 ユーザー決定で新設（4テーマ→
+  //   2026-09-25 に「4テーマ」を廃止し1級の5管理フルセットへ作り替え・id/serviceUrl は不変）。
+  //   ちゃんさとは質問4つ分（4テーマ相当）の添削 ¥24,000 を155件売っている（docs/marketing/07b）。
+  //   自社は2テーマ ¥6,000 の2.5倍＝¥15,000（作成の5管理版 ¥20,000 と対の刻み）・週1名・受け取りから48時間。
   'coconala-tensaku-4theme': {
     id: 'coconala-tensaku-4theme',
-    status: 'draft',
-    serviceUrl: '',
-    title: '土木経験記述4テーマ分を技術士が添削します',
-    shortTitle: '経験記述 添削（4テーマセット）',
+    status: 'listed',
+    serviceUrl: 'https://coconala.com/services/4418735',
+    title: '1級土木経験記述の全5テーマを添削します',
+    shortTitle: '1級 経験記述 添削（全5テーマ）',
     description:
-      '1級・2級土木施工管理技士 第2次検定の施工経験記述（問題1）を4テーマ分まとめて添削。当日どの2テーマが指定されても自分の工事で書けるよう、4テーマ分の赤入れ（NG→OK 書き換え案）＋6観点のチェックリスト判定表＋読み手視点のコメント＋書き直し1回（4テーマまとめて）を含む。経験していない工事の答案作成（捏造）はお受けしません。',
-    price: '¥12,000（4テーマセット・書き直し1回込み）',
-    priceYen: 12000,
-    examScope: ['civil-1', 'civil-2'],
+      '1級土木施工管理技士 第2次検定の施工経験記述（問題1）を、5テーマ（品質管理・安全管理・工程管理・施工計画・環境対策）すべて添削。当日どの2テーマが指定されても自分の工事で書けるよう、全5テーマ分の赤入れ（NG→OK 書き換え案）＋6観点のチェックリスト判定表＋読み手視点のコメント＋書き直し1回（まとめて）を、受け取りから48時間以内にお返しします。経験していない工事の答案作成（捏造）はお受けしません。',
+    price: '¥15,000（1級・全5テーマセット・書き直し1回込み）',
+    priceYen: 15000,
+    examScope: ['civil-1'],
     weeklyCapacity: 1,
+    listedAt: '2026-09-25',
   },
 
   // S3: 答案作成（ヒアリング→文章化）。競合実測（2026-07-18）: daiko 実売中央値¥10,000・トップ4社が質問起点
   //   （ちゃんさと¥32,000×132／梅村¥12,000×129／フリーランスK¥10,000×58）。Red Line #2 再定義（捏造禁止）で出品可。
   //   ¥8,000（控えめ・実売帯下端で初速重視）→評価20件で¥12,000〜16,000。作成は添削より重いので週2枠。
+  // 2026-09-25 ユーザー決定（級別化）: 1級専用に改題（理由は S2 の同日コメント参照）。2級版は新設の
+  //   coconala-2kyu-sakusei（¥7,000）。「構成」の呼び方は誤解回避のため題名で「作成」と明示するが、
+  //   2026-08-12 の運営取り下げ（学校の課題代行と判断）を避けるため本文の対象限定・捏造禁止の記述は残す。
+  //   速さを売りに受け取りから48時間以内で返却（既存4日から短縮）。価格・週次枠は据え置き。
   'coconala-sakusei': {
     id: 'coconala-sakusei',
     status: 'listed',
     serviceUrl: 'https://coconala.com/services/4317796',
-    title: '土木経験記述をヒアリングで構成します',
-    shortTitle: '経験記述 記述ドラフト構成（ヒアリング→文章化）',
+    title: '1級土木経験記述を作成します',
+    shortTitle: '1級 経験記述 作成（2テーマ）',
     description:
-      '1級・2級土木施工管理技士 第2次検定の施工経験記述（問題1）を、質問シート（ヒアリング）へのご回答をもとに新形式2テーマ分の記述ドラフトに構成します。「経験はあるのに文章にできない」方向け。学校の課題の代行ではなく、国家資格の第2次検定で問われる本人の実務経験が対象（経験していない工事の記述＝捏造はお受けしません）。事実・数値は全てご回答から構成し、納品は本人の事実確認を前提とした「ドラフト」＋書き直し1回。合格を保証するものではありません。',
-    price: '¥8,000（2テーマ・書き直し1回込み）',
+      '1級土木施工管理技士 第2次検定の施工経験記述（問題1）を、ヒアリングへのご回答をもとに新形式2テーマ分の記述ドラフトに構成し、受け取りから48時間以内にお返しします。学校の課題やレポート等の代行ではなく、国家資格の第2次検定で問われる本人の実務経験が対象です（経験していない工事の記述＝捏造はお受けしません）。事実・数値はすべてご回答から構成し、納品は本人の事実確認を前提とした「ドラフト」＋書き直し1回。合格を保証するものではありません。',
+    price: '¥8,000（1級・2テーマ・書き直し1回込み）',
     priceYen: 8000,
-    examScope: ['civil-1', 'civil-2'],
+    examScope: ['civil-1'],
     weeklyCapacity: 2,
     listedAt: '2026-07-18',
   },
@@ -208,19 +231,85 @@ const SERVICES_RAW = {
   //     shortTitle の「答案作成」→「記述ドラフト構成」へ。**ライブ側の反映は別途必要**（/coconala-publish）。
   //   検出経路: npm run coconala-analytics が「listed なのに分析ページ 404」で surface（08-17）。
   //   check-coconala-wiring は serviceUrl の"形式"しか見ておらず実在を検査していなかった。
+  //   2026-09-25 ユーザー決定（級別化＋4テーマ廃止）: 1級は5管理（品質・安全・工程・施工計画・環境対策）が
+  //   全出題を読めない以上の完成形のため「4テーマ」を「5管理フル」へ作り替え、1級専用に改題。
+  //   2級版は新設の coconala-2kyu-sakusei-3theme（¥10,000。単価比例の ¥10,500 はココナラの価格刻み〔¥10,000超は1,000円刻み〕に合わないため）。¥16,000→¥20,000（5/4倍・¥15,000超の
+  //   1,000円刻み）。受け取りから72時間以内に短縮（既存7日から）。id・serviceUrl は不変。
   'coconala-sakusei-4theme': {
     id: 'coconala-sakusei-4theme',
     status: 'listed',
     serviceUrl: 'https://coconala.com/services/4350199',
-    title: '土木経験記述を4テーマ分構成します',
-    shortTitle: '経験記述 4テーマ分の記述ドラフト構成',
+    title: '1級土木経験記述の全5テーマを作成します',
+    shortTitle: '1級 経験記述 作成（全5テーマ）',
     description:
-      '1級・2級土木施工管理技士 第2次検定の施工経験記述（問題1）を、質問シート（ヒアリング）へのご回答をもとに4テーマ分の記述ドラフトに構成する上位版。本試験は5管理のうち2テーマが当日指定されるため、複数の管理項目の観点から自分の工事を整理しておく。学校の課題の代行ではなく、国家資格の第2次検定で問われる本人の実務経験が対象（経験していない工事の記述＝捏造はお受けしません）。事実・数値は全てご回答から構成し、納品は本人の事実確認を前提とした「ドラフト」＋書き直し1回。合格を保証するものではありません。',
-    price: '¥16,000（4テーマ・書き直し1回込み）',
-    priceYen: 16000,
-    examScope: ['civil-1', 'civil-2'],
+      '1級土木施工管理技士 第2次検定の施工経験記述（問題1）を、ヒアリングへのご回答をもとに5テーマ（品質管理・安全管理・工程管理・施工計画・環境対策）すべての記述ドラフトに構成する上位版。当日どの2テーマが指定されても対応できるよう備え、受け取りから72時間以内にお返しします。学校の課題の代行ではなく、国家資格の第2次検定で問われる本人の実務経験が対象です（経験していない工事の記述＝捏造はお受けしません）。事実・数値はすべてご回答から構成し、納品は本人の事実確認を前提とした「ドラフト」＋書き直し1回。合格を保証するものではありません。',
+    price: '¥20,000（1級・全5テーマセット・書き直し1回込み）',
+    priceYen: 20000,
+    priceHistory: [{ priceYen: 16000, until: '2026-09-25' }],
+    examScope: ['civil-1'],
     weeklyCapacity: 1,
     listedAt: '2026-08-17',
+  },
+
+  // ---- 2級（2026-09-25 新設・級別化）----
+  // 2級は出題実績が「品質・安全・工程」の3管理に収まる（R3=安全/品質選択・R4=品質/工程選択・
+  // R5=安全/工程選択・R6=品質+工程・R7=安全+工程＝設問2は2年連続工程管理）。5管理は不要なので
+  // 3管理フルで全出題をカバーする設計（1級の5管理とは価格・スコープが非対称）。
+  'coconala-2kyu-tensaku': {
+    id: 'coconala-2kyu-tensaku',
+    status: 'listed',
+    serviceUrl: 'https://coconala.com/services/4418775',
+    title: '2級土木経験記述を24時間で添削します',
+    shortTitle: '2級 経験記述 添削（2テーマ・24時間）',
+    description:
+      '2級土木施工管理技士 第2次検定の施工経験記述（問題1）を、受け取りから24時間以内に添削してお返しします。令和6年度からの新形式は3テーマ（品質管理・安全管理・工程管理）のうち2テーマが当日指定され、テーマはご自身で選べません（近年は工程管理が連続で出題）。2テーマ分の赤入れ（NG→OK 書き換え案）＋6観点のチェックリスト判定表＋読み手視点のコメント＋書き直し1回を含みます。ゼロからの答案作成は「経験記述を作成します」サービスで承ります（経験していない工事の答案作成＝捏造はお受けしません）。',
+    price: '¥5,000（2級・2テーマセット・24時間以内・書き直し1回込み）',
+    priceYen: 5000,
+    examScope: ['civil-2'],
+    weeklyCapacity: 2,
+    listedAt: '2026-09-25',
+  },
+  'coconala-2kyu-tensaku-3theme': {
+    id: 'coconala-2kyu-tensaku-3theme',
+    status: 'listed',
+    serviceUrl: 'https://coconala.com/services/4418778',
+    title: '2級土木経験記述の全3テーマを添削します',
+    shortTitle: '2級 経験記述 添削（全3テーマ）',
+    description:
+      '2級土木施工管理技士 第2次検定の施工経験記述（問題1）を、3テーマ（品質管理・安全管理・工程管理）すべて添削。当日どの2テーマが指定されても自分の工事で書けるよう、全3テーマ分の赤入れ（NG→OK 書き換え案）＋6観点のチェックリスト判定表＋読み手視点のコメント＋書き直し1回（まとめて）を、受け取りから48時間以内にお返しします。経験していない工事の答案作成（捏造）はお受けしません。',
+    price: '¥7,500（2級・全3テーマセット・書き直し1回込み）',
+    priceYen: 7500,
+    examScope: ['civil-2'],
+    weeklyCapacity: 1,
+    listedAt: '2026-09-25',
+  },
+  'coconala-2kyu-sakusei': {
+    id: 'coconala-2kyu-sakusei',
+    status: 'listed',
+    serviceUrl: 'https://coconala.com/services/4418781',
+    title: '2級土木経験記述を作成します',
+    shortTitle: '2級 経験記述 作成（2テーマ）',
+    description:
+      '2級土木施工管理技士 第2次検定の施工経験記述（問題1）を、ヒアリングへのご回答をもとに2テーマ分の記述ドラフトに構成し、受け取りから48時間以内にお返しします。学校の課題やレポート等の代行ではなく、国家資格の第2次検定で問われる本人の実務経験が対象です（経験していない工事の記述＝捏造はお受けしません）。事実・数値はすべてご回答から構成し、納品は本人の事実確認を前提とした「ドラフト」＋書き直し1回。合格を保証するものではありません。',
+    price: '¥7,000（2級・2テーマ・書き直し1回込み）',
+    priceYen: 7000,
+    examScope: ['civil-2'],
+    weeklyCapacity: 2,
+    listedAt: '2026-09-25',
+  },
+  'coconala-2kyu-sakusei-3theme': {
+    id: 'coconala-2kyu-sakusei-3theme',
+    status: 'listed',
+    serviceUrl: 'https://coconala.com/services/4418785',
+    title: '2級土木経験記述の全3テーマを作成します',
+    shortTitle: '2級 経験記述 作成（全3テーマ）',
+    description:
+      '2級土木施工管理技士 第2次検定の施工経験記述（問題1）を、ヒアリングへのご回答をもとに3テーマ（品質管理・安全管理・工程管理）すべての記述ドラフトに構成する上位版。当日どの2テーマが指定されても対応できるよう備え、受け取りから72時間以内にお返しします。学校の課題の代行ではなく、国家資格の第2次検定で問われる本人の実務経験が対象です（経験していない工事の記述＝捏造はお受けしません）。事実・数値はすべてご回答から構成し、納品は本人の事実確認を前提とした「ドラフト」＋書き直し1回。合格を保証するものではありません。',
+    price: '¥10,000（2級・全3テーマセット・書き直し1回込み）',
+    priceYen: 10000,
+    examScope: ['civil-2'],
+    weeklyCapacity: 1,
+    listedAt: '2026-09-25',
   },
 
   // C1: 出題分析 PDF。2026-08-05 統廃合で出品停止（paused）＝フルパック（C10）専用コンテンツ化。
@@ -497,9 +586,11 @@ const SERVICES_RAW = {
   // 出題傾向の読み方＋R8地方創生の正直な検証に限定（非カニバリ）。PDF は外部URL0件で生成済
   // （.claude/config/coconala/assets/pdf/coconala-sokan-bunseki.pdf）。status:'draft'。
   // 公開前ゲート: /coconala-publish --commit。総監はココナラ客層が薄い前提の test。
+  // 2026-09-25 アーカイブ（ユーザー決定）: ココナラでは RCCM と総監から撤退し、出品上限20件の枠を
+  //   1級・2級土木（級別の添削・作成）とコンクリート主任技士へ回す。note 側の商品は残す。
   'coconala-sokan-bunseki-pdf': {
     id: 'coconala-sokan-bunseki-pdf',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4322661',
     title: '技術士総監 記述式の出題テーマ分析を送ります',
     shortTitle: '総監 出題テーマ分析 PDF',
@@ -510,6 +601,7 @@ const SERVICES_RAW = {
     notePriceExempt: '出題テーマ分析は note に同じ中身の商品が無い（note の施策バンク本文は転載しない設計）',
     examScope: ['pe-comprehensive-management'],
     weeklyCapacity: 20,
+    pauseReason: 'retired',
     listedAt: '2026-07-22',
   },
 
@@ -517,9 +609,11 @@ const SERVICES_RAW = {
   // 競合実測（.claude/state/coconala/market-research.json）: 経験論文添削 ¥6,500〜13,000、
   // 択一予想 ¥2,500（★4.9・48件）。運営者の座は「発注者としてコンサル業務を発注・検査した技術士（建設・総監）」。
   // RCCM 合格・コンサル在籍は名乗らない。出品は /coconala-publish --commit（status:'draft' → 'listed' と serviceUrl を同時に埋める）。
+  // 2026-09-25 アーカイブ（ユーザー決定）: ココナラでは RCCM と総監から撤退し、出品上限20件の枠を
+  //   1級・2級土木（級別の添削・作成）とコンクリート主任技士へ回す。note 側の商品は残す。
   'coconala-rccm-mondai3-tensaku': {
     id: 'coconala-rccm-mondai3-tensaku',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4403575',
     title: 'RCCM問題III 管理技術力の論文を添削します',
     shortTitle: 'RCCM 問題III 添削',
@@ -529,11 +623,14 @@ const SERVICES_RAW = {
     priceYen: 6000,
     examScope: ['rccm'],
     weeklyCapacity: 2,
+    pauseReason: 'retired',
     listedAt: '2026-09-16',
   },
+  // 2026-09-25 アーカイブ（ユーザー決定）: ココナラでは RCCM と総監から撤退し、出品上限20件の枠を
+  //   1級・2級土木（級別の添削・作成）とコンクリート主任技士へ回す。note 側の商品は残す。
   'coconala-rccm-mondai1-shindan': {
     id: 'coconala-rccm-mondai1-shindan',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4403577',
     title: 'RCCM業務経験論文の減点箇所を診断します',
     shortTitle: 'RCCM 問題I 診断',
@@ -543,11 +640,14 @@ const SERVICES_RAW = {
     priceYen: 2000,
     examScope: ['rccm'],
     weeklyCapacity: 3,
+    pauseReason: 'retired',
     listedAt: '2026-09-16',
   },
+  // 2026-09-25 アーカイブ（ユーザー決定）: ココナラでは RCCM と総監から撤退し、出品上限20件の枠を
+  //   1級・2級土木（級別の添削・作成）とコンクリート主任技士へ回す。note 側の商品は残す。
   'coconala-rccm-mondai3-pdf': {
     id: 'coconala-rccm-mondai3-pdf',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4403588',
     title: 'RCCM問題III 模範論文6本のPDFを送ります',
     shortTitle: 'RCCM 問題III 模範論文 PDF',
@@ -559,13 +659,16 @@ const SERVICES_RAW = {
     notePriceBasis: 'rccm-mondai3-magazine',
     examScope: ['rccm'],
     weeklyCapacity: 20,
+    pauseReason: 'retired',
     listedAt: '2026-09-16',
   },
   // R2（2026-09-23・09 §D7）: 択一は 303geos（¥2,500×49）だけが埋める白地。源は note の予想50問＋直前暗記ノート
   // （note 定価の合計 ¥2,460 を下回らない）。build-coconala-content-pdf.mjs --product R2 で PDF 2冊。
+  // 2026-09-25 アーカイブ（ユーザー決定）: ココナラでは RCCM と総監から撤退し、出品上限20件の枠を
+  //   1級・2級土木（級別の添削・作成）とコンクリート主任技士へ回す。note 側の商品は残す。
   'coconala-rccm-takuitsu-pdf': {
     id: 'coconala-rccm-takuitsu-pdf',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4415185',
     title: 'RCCM択一 予想50問と一問一答を送ります',
     shortTitle: 'RCCM 択一 PDF',
@@ -577,14 +680,17 @@ const SERVICES_RAW = {
     notePriceBasis: 'rccm-takuitsu-yosou-50 + rccm-anki-note',
     examScope: ['rccm'],
     weeklyCapacity: 20,
+    pauseReason: 'retired',
     listedAt: '2026-09-23',
   },
 
   // R3（2026-09-23）: 問題I の PDF。診断（人の作業）はあったが PDF が無かった。303geos が 9月に同型を新設。
   // 源は note のテンプレ（¥1,980）＋部門別記入例（各¥1,980）。購入者の受験部門の1本を送る＝note 定価の合計 ¥3,960 を下回らない。
+  // 2026-09-25 アーカイブ（ユーザー決定）: ココナラでは RCCM と総監から撤退し、出品上限20件の枠を
+  //   1級・2級土木（級別の添削・作成）とコンクリート主任技士へ回す。note 側の商品は残す。
   'coconala-rccm-mondai1-pdf': {
     id: 'coconala-rccm-mondai1-pdf',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4415242',
     title: 'RCCM業務経験論文のテンプレと記入例を送ります',
     shortTitle: 'RCCM 問題I テンプレ＋記入例 PDF',
@@ -596,6 +702,7 @@ const SERVICES_RAW = {
     notePriceBasis: 'each: rccm-mondai1-template + rccm-mondai1-water | rccm-mondai1-template + rccm-mondai1-sewer | rccm-mondai1-template + rccm-mondai1-geotechnical | rccm-mondai1-template + rccm-mondai1-road | rccm-mondai1-template + rccm-mondai1-river-coast | rccm-mondai1-template + rccm-mondai1-steel-concrete',
     examScope: ['rccm'],
     weeklyCapacity: 20,
+    pauseReason: 'retired',
     listedAt: '2026-09-23',
   },
 
@@ -604,7 +711,7 @@ const SERVICES_RAW = {
   // （建設部門・総合技術監理部門）。ビデオ面接は日時調整の負担が大きいので出さず、PDF とテキスト完結型に限る。
   'coconala-pe-oral-pdf': {
     id: 'coconala-pe-oral-pdf',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4415186',
     title: '技術士口頭試験の想定問答PDFを送ります',
     shortTitle: '技術士 口頭試験 想定問答 PDF',
@@ -616,11 +723,12 @@ const SERVICES_RAW = {
     notePriceBasis: 'each: tankan-oral-complete | pe-construction-oral-guide',
     examScope: ['pe-comprehensive-management', 'pe-construction'],
     weeklyCapacity: 20,
+    pauseReason: 'retired',
     listedAt: '2026-09-23',
   },
   'coconala-pe-oral-qa': {
     id: 'coconala-pe-oral-qa',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4415190',
     title: '技術士口頭試験の想定質問を経歴から作ります',
     shortTitle: '技術士 口頭試験 想定質問作成',
@@ -630,6 +738,7 @@ const SERVICES_RAW = {
     priceYen: 5000,
     examScope: ['pe-comprehensive-management', 'pe-construction'],
     weeklyCapacity: 2,
+    pauseReason: 'retired',
     listedAt: '2026-09-23',
   },
 
@@ -639,8 +748,8 @@ const SERVICES_RAW = {
   // 運営者はコンクリート主任技士を保有（src/config/author.ts）。KDP の g-02 は Select OFF で PDF 販売と衝突しない。
   'coconala-cce-essay-pdf': {
     id: 'coconala-cce-essay-pdf',
-    status: 'draft',
-    serviceUrl: '',
+    status: 'listed',
+    serviceUrl: 'https://coconala.com/services/4418972',
     title: 'コンクリート主任技士の小論文模範答案を送ります',
     shortTitle: 'コンクリート主任技士 小論文 PDF',
     description:
@@ -650,11 +759,12 @@ const SERVICES_RAW = {
     notePriceBasis: 'cce-essay-magazine',
     examScope: ['concrete-chief-engineer'],
     weeklyCapacity: 20,
+    listedAt: '2026-09-25',
   },
   'coconala-cce-takuitsu-pdf': {
     id: 'coconala-cce-takuitsu-pdf',
-    status: 'draft',
-    serviceUrl: '',
+    status: 'listed',
+    serviceUrl: 'https://coconala.com/services/4418974',
     title: 'コンクリート主任技士 択一直前パックを送ります',
     shortTitle: 'コンクリート主任技士 択一直前パック PDF',
     description:
@@ -664,6 +774,7 @@ const SERVICES_RAW = {
     notePriceBasis: 'cce-takuitsu-chokuzen-pack | cce-r8-mc-50 + cce-mix-calculation-practice + cce-anki-note',
     examScope: ['concrete-chief-engineer'],
     weeklyCapacity: 20,
+    listedAt: '2026-09-25',
   },
 } as const satisfies Record<string, CoconalaService>;
 
