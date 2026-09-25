@@ -21,17 +21,6 @@
 
 ## 🔴 高 — 来月中に着手
 
-### [DN-0313] 1級 経験記述 完全攻略パック（¥9,800）に、説明文で「統合」と約束した完成答案集・過去問模範答案集・2テーマ組合せ大全の 20 記事を収録する
-タグ: [収益化] [種類:不具合] [検証:check-magazine-membership] [起票:2026-09-25]
-
-**起点**: 2026-09-25 に、二次検定まるごとパック（¥11,800）の購入者から「伸縮装置取替・支承取替が読めない」と問い合わせがあった。完全攻略パックへ 8/20 に追加した工事101〜150 などの 68 本がまるごとパックに入っていなかったため、同日に 68 本を追加した（110→178 本）。あわせて `check-magazine-membership` に軸 D（束ね商品の記事 key の包含）を足し、noteの全マガジンの組み合わせを総当たりした。その結果、別の漏れが 1 件見つかった。完全攻略パックの説明（`src/lib/note-magazines.ts` の `civil-1-keiken-complete-pack`、note上の説明も同じ）と企画書（`content/note/1級・2級土木/noteコンテンツ計画.md:115`「統合（104 本）」）は、完成答案集（`civil-1-experience-essay` 5本）・過去問模範答案集（`civil-1-pastexam-essay` 5本）・2テーマ組合せ大全（`civil-1-combo-essay` 10本）の統合を約束している。しかし 3 マガジンの 20 記事（各 ¥1,480）は、完全攻略パックにもまるごとパックにも収録されていない（9/25 の snapshot で key を照合）。軸 D は、config にある束ねの関係しか照合しないため、この 3 つは config に登録するまで検出されない。
-
-**やること**: ユーザーの判断を待つ。推奨は、約束どおり収録すること（購入者に不利益が無く、説明文の変更も要らない）。
-1. 収録する: `node scripts/note-magazine-add-articles.mjs --target m8290970a7f05 --from <3マガジンの m…> --commit` → 同じコマンドを `--target md29a34906314`（まるごとパック）でも実行する。`.claude/config/note-magazine-membership.json` の `civil-1-keiken-complete-pack` に `"fromMagazines": { "civil-1-experience-essay": "all", "civil-1-pastexam-essay": "all", "civil-1-combo-essay": "all" }` を足し、`npm run verify-note-magazines -- --contents --json` で snapshot を再生成して commit する。
-2. 収録しない: 完全攻略パックとまるごとパックの説明（SoT・`note掲載文.txt`・note上の説明・まるごとパック案内記事の柱①）から「統合」の文言を外す。既存の購入者（2026-08-03 に ¥9,800 で 1 件など）への案内も要る。
-
-**完了条件**: どちらかを実施し、`npm run check-magazine-membership -- --ci` が exit 0 になったら（1 の場合は、軸 D に 3 組が加わって漏れ 0）、このカードを削除する。
-
 ### [DN-0311] ココナラの商品展開を「人の作業が主役・PDF は安い入口」へ組み直し、note・KDP と資格ごとに棲み分ける
 タグ: [収益化] [種類:改善] [起票:2026-09-25]
 
