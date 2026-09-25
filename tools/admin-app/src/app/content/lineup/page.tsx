@@ -38,10 +38,7 @@ export default async function LineupPage({ searchParams }: { searchParams: Promi
 
   return (
     <>
-      <PageHead
-        title="商品ラインナップ"
-        sub="資格 × 試験区分 × チャネルの商品一覧・read-only（分類ルールは .claude/config/product-lineup.json）"
-      />
+      <PageHead title="商品ラインナップ" />
 
       <div className="grid cols-4" style={{ marginBottom: 16 }}>
         {channels.map((c) => (
@@ -76,9 +73,6 @@ export default async function LineupPage({ searchParams }: { searchParams: Promi
             )}
           </span>
         </h2>
-        <p className="small muted">
-          区分の日程は .claude/config/exam-calendar.json（残り日数は JST）、受験者数は .claude/config/exam-stats.json の最新年度。状態バッジが無い商品は販売中。「未展開」は販売中の商品が 0 件のマス。複数区分にまたがる商品（会員・診断など）は各マスに重複して表示する。
-        </p>
         <div className="table-wrap">
           <table className="data">
             <thead>

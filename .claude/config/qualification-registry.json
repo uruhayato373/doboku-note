@@ -6,12 +6,12 @@
     "declined": "参入しないと判断済み（decision.ref に理由）"
   },
   "families": {
-    "civil-construction": "土木施工管理技術検定",
-    "construction-management": "その他の施工管理技術検定",
+    "civil-construction": "土木施工管理",
+    "construction-management": "施工管理（その他）",
     "professional-engineer": "技術士",
-    "concrete": "コンクリート（日本コンクリート工学会）",
+    "concrete": "コンクリート",
     "consultant": "建設コンサルタント",
-    "civil-service": "公務員採用試験（土木）",
+    "civil-service": "公務員（土木）",
     "survey-inspection": "測量・点検・調査"
   },
   "qualifications": [
