@@ -406,8 +406,8 @@ func appendUTM(to url: URL, medium: String, campaign: String, content: String? =
 - [01_iOSアプリ仕様.md](./01_iOSアプリ仕様.md) — 仕様書本体
 - [02_iOS画面設計.md](./02_iOS画面設計.md) — 画面 UI（送客リンクの設置場所）
 - [03_iOSデータパイプライン.md](./03_iOSデータパイプライン.md) — データ取得契約
-- [../03_SNS/02_チャネル動線設計.md](../marketing/02_チャネル動線設計.md) — 5 チャネル全体動線・UTM 統一フォーマット
-- [../01_戦略/04_収益化戦略.md](../strategy/04_収益化戦略.md) §7 — Red Line 役割分担（iOS / note / Web）
+- [../marketing/02_チャネル動線設計.md](../marketing/02_チャネル動線設計.md) — 5 チャネル全体動線・UTM 統一フォーマット
+- [../strategy/04_収益化戦略.md](../strategy/04_収益化戦略.md) §7 — Red Line 役割分担（iOS / note / Web）
 - [../note/技術士総監/noteコンテンツ計画.md](../../content/note/技術士総監/noteコンテンツ計画.md) — note 商品ラインナップ
 
 ## 11. 次のアクション

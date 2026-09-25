@@ -727,7 +727,7 @@
 - [03_iOSデータパイプライン.md](./03_iOSデータパイプライン.md) — JSON 契約・delta fetch (画面の表示データの源泉)
 - [04_iOSエコシステム動線.md](./04_iOSエコシステム動線.md) — 外部リンク設置場所・Apple ガイドライン準拠・クーポン仕様（本書の動線部分の真実源）
 - [05_iOSベンチマーク調査.md](./05_iOSベンチマーク調査.md) — v2 で追加した機能（カウントダウン・dual モード・段階開示・永続保証）の根拠
-- [../01_戦略/04_収益化戦略.md](../strategy/04_収益化戦略.md) §7 — iOS Free/Premium 境界の戦略真実源
+- [../strategy/04_収益化戦略.md](../strategy/04_収益化戦略.md) §7 — iOS Free/Premium 境界の戦略真実源
 - [../../design-system/design-system.md](../../.claude/knowledge/design-system/design-system.md) — doboku-note デザイン単一 SSOT (色トークン・原則)
 
 ---
