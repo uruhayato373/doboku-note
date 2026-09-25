@@ -577,6 +577,35 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 2. **目安 2026-09-14 以降**、公開後 28 日と直前 28 日を比較する。判定の正規表現と基準は [13_土木公務員SEO戦略2026-08.md](../../docs/strategy/13_土木公務員SEO戦略2026-08.md)
 3. 次記事「土木公務員に技術士は必要？」の着手可否は 1・2 の結果を見てから判断する（語順違いの類似ページは作らない）
 
+### [DN-0315] ココナラブログ3本と会員記事5本の、1級・2級の割り振り修正が公開ページに出ているか確かめる
+タグ: [コンテンツ品質] [種類:不具合] [起票:2026-09-25]
+
+**起点**: 2026-08-31 のココナラ C8 予想模試の誤り（1級の設問の割り振りを2級式で説明）を直した handoff（削除済み・`git show 1afb73f97:docs/handoffs/2026-08-31-coconala-c8-moshi-correction.md` で読める）。原稿は commit 56c62e61 で修正済みで、`npm run check-keiken-answer-split` は Brain 配布 ZIP を含めて合格（2026-09-25）。ただしこの検査は原稿しか見ないので、公開中のページが直ったかは未確認。
+- ココナラブログ3本（`content/coconala/blog/{hinshitsu,anzen,koutei}-kanri-kakikata/`・編集画面 794258 / 796664 ほか）は、エディタの一括置換で H2 が複製されるため手作業の指示のまま止まっていた（罠は coconala-operations.md §9.4）
+- note 会員記事5本のライブ本文も「後続で追跡」とされたまま、確認した記録が無い
+
+**やること**: 3本と5本の公開ページを未ログインで開き、1級の説明が「(1)検討項目／(2)対応処置・評価」になっているか見る。古いままならブラウザで該当箇所だけ手で直す（差分は `git show 56c62e61 -- content/coconala/blog/`）。
+
+**完了条件**: 8本すべての公開ページで1級・2級の割り振りが原稿と一致していることを確かめたら、このカードを削除する。
+
+### [DN-0316] 総監2本の冒頭パック CTA 除去を note の公開記事へ反映する
+タグ: [収益化] [種類:不具合] [起票:2026-09-25]
+
+**起点**: PR #510（2026-09-15 merge・`077860ca`）で `article.md` から `<!-- cta:pack-top -->` を除去したが、公開記事への反映は note ログインが要るため未実施のまま handoff（削除済み）に残っていた。反映したかは未確認。
+
+**やること**: `npm run audit-note-funnel -- --live` の D5（ライブ未反映）で2本を確かめ、残っていれば `npm run build-note-funnel-partial-specs -- --base d16a0fbe^ --exam tankan` → 生成 spec が2件だけか確認 → `npm run note-update-partial -- --list .tmp/note-funnel-partial/tankan.list.txt`（dry-run）→ `--commit`。全文置換の `note-update-body` は PDF 添付を消すので使わない（note-funnel-architecture.md）。
+
+**完了条件**: `audit-note-funnel --live` の D5 が0件になったら、このカードを削除する。
+
+### [DN-0317] ログイン必須の計測・書き込みの CI 化を、残りのサービスへ canary で広げる
+タグ: [インフラ・計測] [種類:改善] [起票:2026-09-25]
+
+**起点**: PR #548 / #549 / #550（2026-09-21 merge）で暗号化 storageState による CI 化の基盤は揃い、a8・coconala・note(traffic) は schedule 起動で緑（2026-09-22〜25）。残りのサービスは `ci.enabled:false` のまま。
+
+**やること**: 読み取りは kdp → brain → x → google → afb の順に、レジストリで `canary:true, enabled:true` → `gh workflow run login-collectors.yml --ref develop -f service=<svc> -f mode=probe-only` を2回 → `-f mode=collect` を別日に3回 → Mac で `npm run auth:status -- --service <svc>` が authenticated のまま → `canary:false` で cron。書き込みは `npm run ops-write:plan` → `ops-write.yml`（最初は `commit=false`）で instagram.publish-bs → note.sync-tags → note.update-body → note.publish → coconala → brain → X 投稿 → X Articles → KDP の順。事前のユーザー操作（Secret `DOBOKU_AUTH_AGE_IDENTITY`・`CLOUDFLARE_ANALYTICS_API_TOKEN`・各サービスの `auth:export`・Environment `external-writes`・`brain-account.json` の `salesPage`）が済んでいないサービスはそこで止める。罠は memory の reference_ci_encrypted_state_gotchas。4週安定したら `check-*-due` と ops freshness の `note:` を CI 主経路に書き換える。
+
+**完了条件**: 対象サービスがすべて `canary:false` で cron 稼働するか、サービスごとのカードへ分けたら、このカードを削除する。
+
 ## 🟢 低 — 時期未定
 
 ### [DN-0276] X の投稿済みを毎週 CI で確かめる（投稿時に URL を記録し、ログイン不要の oEmbed で照合する）
@@ -718,6 +747,15 @@ Drive台帳・vault・Drive APIの照合前にローカル実体を削除しな�
 
 ---
 
+
+### [DN-0318] Google 系の取得を GitHub の hosted runner で回せるか再検証する
+タグ: [インフラ・計測] [種類:意思決定] [起票:2026-09-25]
+
+**起点**: 2026-09-22 の handoff（削除済み）で「google の hosted CI 可否は stats47 の GSC 成功を踏まえ別途再検証（未着手）」とされた。doboku-note の google-console UI CSV 取得は CI 1回でセッションが失効した一方、stats47 は google-admin profile の coverage export で CI 取得に成功している（方式の違いが原因の可能性）。
+
+**やること**: stats47 の方式を doboku-note の `login-collectors.yml` の google 行に当てはめられるかを調べ、hosted runner で可か、self-hosted runner かローカル実行を続けるかを決める。
+
+**完了条件**: 結論と理由をレジストリの google 行（`ci.enabled` の方針）に書いたら、このカードを削除する。
 
 ## 🟣 判断待ち — ユーザーの意思決定が必要
 
