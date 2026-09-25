@@ -30,15 +30,14 @@
 
 **完了条件**: GA4 の画面か Data API で 2 イベントの受信を確認したら、このカードを削除する。
 
-### [DN-0282] ココナラに4テーマ分の経験記述添削（`coconala-tensaku-4theme`）を出品する
-タグ: [収益化] [種類:改善] [検証:check-coconala-live] [起票:2026-09-24] [期日:2026-09-26] [進行中]
+### [DN-0306] ココナラ商品画像9枚を Drive vault に登録し、PR #638 をマージする
+タグ: [収益化] [種類:改善] [検証:check-coconala-wiring] [起票:2026-09-25] [期日:2026-09-28] [進行中]
 
-**起点**: 2026-09-24 に出すと決めた（¥12,000・週1名・納期7日。決定ログは `ココナラ展開キット.md` §2）。同日朝の出品は、新規出品の日次上限（前日に4件以上を新規出品）で内容入力ページへ進めず止まった。カタログは `status:'draft'`・`serviceUrl:''` のまま、本文・商品画像（Drive vault 登録済み）はそろっている。
+**起点**: 2026-09-25 に経験記述サービスを1級・2級に分けて8件をライブ反映した（PR #638・`check-coconala-live` 18/18 一致。旧 DN-0282 の全5テーマ版 `coconala-tensaku-4theme` も 4418735 で出品済み）。PR #638 の CI `build` が `coconala-wiring` で落ちている。2級4件（`thumb-2kyu-tensaku` / `-3theme` / `thumb-2kyu-sakusei` / `-3theme`）の商品画像が Drive vault の台帳に無いため。画像は gitignore 対象で、実体は会社 PC の `.claude/config/coconala/assets/` にしか無い（全5テーマ版・1級作成・プレミアムの差し替え画像を含め 9 枚）。会社 PC は Google ドライブ未マウント・rclone の Drive リモート無しで、vault へ書けなかった。
 
-**やること**: 2026-09-25 0:05 と 1:29 に再実行して 2 回とも `ABORT: 内容入力ページに遷移していない`。1 回目は種別ラジオが未選択（スクリプトの不具合・PR #627 で修正）、2 回目は種別を選んでボタンが有効（`checked:true・disabled:false`）になったのに、押すとエラー表示なしで `/services/add` の初期状態へ戻った。9/23 に 4 件出品した直後から同じ症状なので、新規出品数か下書き数に**ココナラ側の上限**がある可能性が高い（未確認）。**ユーザーがブラウザで `/services/add` から手動で 1 件進めてみて、表示される文言（上限・審査・本人確認など）を確かめる**。原因がわかったら `DOBOKU_PW_MIN_FREE_MB=1200 node scripts/coconala-publish.mjs --service coconala-tensaku-4theme --image thumb-tensaku-4theme.png --commit` を 1 回。止まったら再試行を重ねない。
+**やること**: 会社 PC で Google ドライブ（Drive File Stream）を起動して G: を見える状態にし、`node scripts/drive-vault-sync.mjs --group coconala-asset` で対象 9 件を確認してから `--commit`。更新された `.claude/state/assets/drive-manifest.json` を PR #638 のブランチ（`feature/coconala-grade-split`・worktree `.claude/worktrees/coconala-grade`）へコミットして push し、CI が通ったら `gh pr merge 638 --merge`。マージ後に worktree `coconala-grade` と `tensaku-qa` を `git worktree remove`。Mac で進める場合は画像が無いので、`node scripts/coconala-thumb.mjs --service <id>` で生成し直してから登録する。
 
-**完了条件**: `npm run check-coconala-live` で listed 全件が一致し、書き戻したカタログを develop へ入れる。2級二次（10/25）の前に出品できなければ、来季へ回すかを決め直す。
-
+**完了条件**: `npm run check-coconala-wiring` が PASS し、PR #638 が develop にマージされたら、このカードを削除する。
 ### [DN-0278] YouTube 概要欄の冒頭に季節の主商品リンクと保有資格を置き、予約済み・公開済みへ同期する
 タグ: [SNS・マーケ] [種類:改善] [検証:check-video-publication] [起票:2026-09-23]
 
@@ -93,7 +92,7 @@
 
 **起点**: 2026-09-23 に出品文・サムネ・納品PDF（K1 5冊・K2 3冊、Drive vault 保管済み）を用意したが、同日5件目以降の新規出品が「内容の入力に進む」の後で止まり、draft のまま残った（原因未確認・coconala-operations.md §8 の注記）。本試験は 2026-11-29。主任技士の受験者が小論文と択一を直前に固める教材で、HARMはA。需要の証拠は無い試験出品で、継続判断は DN-0265。
 
-**やること**: DN-0282 と同じ原因で新規出品が止まっている（9/25 未明・種別ラジオの不具合は #627 で修正済み、その先で `/services/add` に戻される）。DN-0282 の原因が分かって出品できたら、同じ日に `DOBOKU_PW_MIN_FREE_MB=1200 node scripts/coconala-publish.mjs --service coconala-cce-essay-pdf --image thumb-cce-essay-pdf.png --commit`、翌日以降に `coconala-cce-takuitsu-pdf`（`thumb-cce-takuitsu-pdf.png`）。止まったら再試行を重ねず翌日に回す。カタログへの書き戻し（listed・serviceUrl・listedAt）を commit する。
+**やること**: 新規出品が `/services/add` に戻されていた原因は、通常サービスの出品数上限（20件・アーカイブ分は数えない）だった（2026-09-25 に判明。RCCM・総監・診断などのアーカイブで 18/20 にして解消）。空き 2 枠をこの 2 件に使うなら、同じ日に `DOBOKU_PW_MIN_FREE_MB=1200 node scripts/coconala-publish.mjs --service coconala-cce-essay-pdf --image thumb-cce-essay-pdf.png --commit`、翌日以降に `coconala-cce-takuitsu-pdf`（`thumb-cce-takuitsu-pdf.png`）。止まったら再試行を重ねず翌日に回す。カタログへの書き戻し（listed・serviceUrl・listedAt）を commit する。
 
 **完了条件**: 2件の公開ページがログアウト状態で HTTP 200、価格がカタログ（¥3,000・¥3,500）と一致し、`npm run check-coconala-wiring` が通る。
 
