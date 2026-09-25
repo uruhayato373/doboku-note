@@ -576,7 +576,7 @@
         "year": "R7",
         "fiscalYear": 2025,
         "stages": {
-          "first": { "label": "第一次検定（11月実施分）", "plannedExaminees": 29000, "examinees": 22803, "passers": 8285, "passRate": 36.3 },
+          "firstLate": { "label": "第一次（後期・11月実施分。一次二次同時受検の一次を含む）", "plannedExaminees": 29000, "examinees": 22803, "passers": 8285, "passRate": 36.3 },
           "second": { "label": "第二次検定", "plannedExaminees": 24792, "examinees": 18320, "passers": 5991, "passRate": 32.7 }
         }
       },
@@ -597,7 +597,7 @@
         "year": "R7",
         "fiscalYear": 2025,
         "stages": {
-          "first": { "label": "第一次検定（11月実施分）", "plannedExaminees": 8662, "examinees": 6841, "passers": 3772, "passRate": 55.1 },
+          "firstLate": { "label": "第一次（後期・11月実施分。一次二次同時受検の一次を含む）", "plannedExaminees": 8662, "examinees": 6841, "passers": 3772, "passRate": 55.1 },
           "second": { "label": "第二次検定", "plannedExaminees": 6694, "examinees": 5023, "passers": 2600, "passRate": 51.8 }
         }
       },

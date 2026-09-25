@@ -10,6 +10,8 @@ import { repoPath } from './repo-root';
  * 受験者数は `exam-stats.json` が正本。ここでは三者を id で結び、画面に要る値だけを短く整形する。
  * 出典・照合記録・未確認の理由は正本と `npm run exam-ssot-status` が持つ（画面には出さない）。
  *
+ * 区分（一次・二次など）のキーは exam-calendar の events と exam-stats の stages で共通なので、
+ * 区分ごとに試験日・合格発表・受験者数・合格率を 1 行に揃える。
  * 技術士第二次の総監以外の部門は日程が共通なので、画面では 1 行にまとめる（正本は部門ごとのまま）。
  * 受験者数・合格率は部門別表の 20 部門合計（peSecondaryDivisions.<年度>.totals.excludingCem20）。
  */
@@ -21,13 +23,19 @@ type StatRow = {
   passRate?: number | null;
   competitionRatio?: number;
 };
-type Latest = StatRow & { year?: string; stages?: Record<string, StatRow> };
+type Latest = StatRow & { year?: string; stage?: string; stages?: Record<string, StatRow> };
 type CalEvent = { label: string; date: string; kind: string };
 type CalExam = { events?: Record<string, CalEvent>; periods?: Record<string, { label: string; window: string }> };
 type RegistryEntry = { id: string; label: string; family: string; portfolio: string };
 
-export interface StatLine {
+/** 区分（一次・二次など）ごとの 1 行。試験日・合格発表・受験者数・合格率を横に揃える。 */
+export interface StageLine {
   stage: string;
+  exam: { date: string; past: boolean } | null;
+  /** 試験日が期間でしか発表されていないときの文言 */
+  examWindow?: string;
+  /** date が null のときは window（日付未発表の期間の文言） */
+  result: { date: string | null; window?: string; past: boolean } | null;
   examinees: string;
   rate: string;
 }
@@ -39,10 +47,7 @@ export interface QualificationView {
   portfolio: string;
   /** 状態の補足（まとめた行で一部だけ展開中など） */
   portfolioNote: string | null;
-  exam: { date: string; label: string; past: boolean } | null;
-  result: { date: string | null; label: string; past: boolean } | null;
-  statsYear: string | null;
-  stats: StatLine[];
+  lines: StageLine[];
 }
 
 export interface QualificationsView {
@@ -51,16 +56,17 @@ export interface QualificationsView {
   errors: string[];
 }
 
-/** exam-stats の段階キー → 画面用の短い名前（正本の label は説明込みで長いため）。 */
-const STAGE_SHORT: Record<string, string> = {
-  first: '一次',
-  firstEarly: '一次前期',
-  firstLate: '一次後期',
-  second: '二次',
-  written: '筆記',
-  final: '最終',
-  all: '',
-};
+/** 区分キー（exam-calendar の events と exam-stats の stages で共通）と画面用の短い名前。この順で並べる。 */
+const STAGES: [string, string][] = [
+  ['firstEarly', '一次前期'],
+  ['firstLate', '一次後期'],
+  ['first', '一次'],
+  ['second', '二次'],
+  ['written', '筆記'],
+  ['final', '最終'],
+];
+/** 区分が無い資格で、試験日として採るイベントの優先順。 */
+const MAIN_EXAM_KEYS = ['exam', 'written', 'cbtStart', 'training'];
 
 /** 画面で 1 行にまとめる技術士第二次の部門（総監・第一次を除く）。 */
 const PE_SEPARATE = new Set(['pe-first-stage', 'pe-comprehensive-management']);
@@ -68,24 +74,42 @@ const isPeDivision = (q: RegistryEntry) => q.family === 'professional-engineer' 
 
 const readConfig = <T,>(name: string): T => JSON.parse(readFileSync(repoPath('.claude', 'config', name), 'utf8')) as T;
 
-function statLines(latest: Latest | null): StatLine[] {
-  if (!latest) return [];
-  const rows = latest.stages ? Object.entries(latest.stages).map(([k, r]) => [STAGE_SHORT[k] ?? r.label ?? k, r] as const) : [['', latest] as const];
-  return rows
-    .map(([stage, r]) => ({
-      stage,
-      examinees: r.examinees != null ? `${r.examinees.toLocaleString('ja-JP')}人` : '—',
-      rate: r.passRate != null ? `${r.passRate.toFixed(1)}%` : r.competitionRatio != null ? `倍率 ${r.competitionRatio}` : '—',
-    }))
-    .filter((l) => l.examinees !== '—' || l.rate !== '—');
-}
+const fmtCount = (r: StatRow | null | undefined) => (r?.examinees != null ? `${r.examinees.toLocaleString('ja-JP')}人` : '—');
+const fmtRate = (r: StatRow | null | undefined) =>
+  r?.passRate != null ? `${r.passRate.toFixed(1)}%` : r?.competitionRatio != null ? `倍率 ${r.competitionRatio}` : '—';
 
-/** 次の該当イベント（無ければ今年度で最後のもの）。 */
-function pick(events: CalEvent[], today: string): { date: string; label: string; past: boolean } | null {
-  const sorted = [...events].sort((a, b) => a.date.localeCompare(b.date));
-  const next = sorted.find((e) => e.date >= today);
-  const e = next ?? sorted.at(-1);
-  return e ? { date: e.date, label: e.label, past: !next } : null;
+function stageLines(cal: CalExam | undefined, latest: Latest | null, today: string): StageLine[] {
+  const events = cal?.events ?? {};
+  const at = (e: CalEvent | undefined) => (e ? { date: e.date, past: e.date < today } : null);
+  // 区分の統計: stages があればそのキー、無ければ latest.stage（final・written）が一致する区分に置く
+  const statFor = (k: string) => latest?.stages?.[k] ?? (latest && !latest.stages && latest.stage === k ? latest : undefined);
+  // 日付が期間でしか発表されていない区分（実技・口頭など）は、区分キーで始まる periods の文言を出す
+  const periodFor = (k: string) => Object.entries(cal?.periods ?? {}).find(([pk]) => pk.startsWith(k))?.[1];
+  const staged = STAGES.filter(([k]) => k in events || `${k}Result` in events || statFor(k));
+  if (staged.length > 0) {
+    return staged.map(([k, name]) => ({
+      stage: name,
+      exam: at(events[k]),
+      examWindow: events[k] ? undefined : periodFor(k)?.window,
+      result: at(events[`${k}Result`]),
+      examinees: fmtCount(statFor(k)),
+      rate: fmtRate(statFor(k)),
+    }));
+  }
+  // 区分が無い資格は 1 行。合格発表は次の予定（無ければ今年度で最後）、日付未発表なら期間の文言。
+  const examKey = MAIN_EXAM_KEYS.find((k) => k in events);
+  const results = Object.values(events).filter((e) => e.kind === 'result').sort((a, b) => a.date.localeCompare(b.date));
+  const nextResult = results.find((e) => e.date >= today);
+  const period = Object.entries(cal?.periods ?? {}).find(([k]) => /result/i.test(k))?.[1];
+  return [
+    {
+      stage: '',
+      exam: at(examKey ? events[examKey] : undefined),
+      result: nextResult ? at(nextResult) : period ? { date: null, window: period.window, past: false } : at(results.at(-1)),
+      examinees: fmtCount(latest),
+      rate: fmtRate(latest),
+    },
+  ];
 }
 
 export function loadQualificationsView(): QualificationsView {
@@ -96,23 +120,14 @@ export function loadQualificationsView(): QualificationsView {
   const errors = validateQualificationRegistry({ registry, calendar, examStats, lineupConfig }) as string[];
   const today = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Asia/Tokyo' }).format(new Date());
 
-  const view = (q: RegistryEntry, latest: Latest | null): QualificationView => {
-    const cal = calendar.exams[q.id];
-    const events = Object.values(cal?.events ?? {});
-    const result = pick(events.filter((e) => e.kind === 'result'), today);
-    const resultPeriod = Object.entries(cal?.periods ?? {}).find(([k]) => /result/i.test(k))?.[1];
-    return {
-      id: q.id,
-      label: q.label,
-      family: q.family,
-      portfolio: q.portfolio,
-      portfolioNote: null,
-      exam: pick(events.filter((e) => e.kind === 'exam'), today),
-      result: result && !result.past ? result : resultPeriod ? { date: null, label: `${resultPeriod.label} ${resultPeriod.window}`, past: false } : result,
-      statsYear: latest?.year ?? null,
-      stats: statLines(latest),
-    };
-  };
+  const view = (q: RegistryEntry, latest: Latest | null): QualificationView => ({
+    id: q.id,
+    label: q.label,
+    family: q.family,
+    portfolio: q.portfolio,
+    portfolioNote: null,
+    lines: stageLines(calendar.exams[q.id], latest, today),
+  });
 
   const rows: QualificationView[] = [];
   const divisions = registry.qualifications.filter(isPeDivision);
@@ -121,12 +136,11 @@ export function loadQualificationsView(): QualificationsView {
       if (q !== divisions[0]) continue;
       // 総監以外の部門を 1 行に。日程は代表（展開中の部門、無ければ先頭）から、統計は 20 部門合計。
       const lead = divisions.find((d) => d.portfolio === 'active') ?? divisions[0]!;
-      const leadLatest = examStats.exams[lead.id]?.latest ?? null;
-      const year = leadLatest?.year ?? null;
+      const year = examStats.exams[lead.id]?.latest?.year ?? null;
       const total = year ? examStats.peSecondaryDivisions[year]?.totals?.excludingCem20 ?? null : null;
       const active = divisions.filter((d) => d.portfolio === 'active');
       rows.push({
-        ...view(lead, total ? { ...total, year: year ?? undefined } : null),
+        ...view(lead, total ? { ...total, stage: 'final' } : null),
         id: 'pe-secondary-divisions',
         label: '技術士 第二次（総監以外の20部門）',
         portfolio: active.length ? 'active' : 'candidate',

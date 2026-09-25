@@ -18,7 +18,7 @@ function fmtDate(date: string): string {
  * 正本は .claude/config/qualification-registry.json（一覧と展開状態）・exam-calendar.json（日程）・
  * exam-stats.json（受験者数）。出典・照合記録・未確認の理由は正本と `npm run exam-ssot-status`
  * （月次レビュー）が持つので、この画面には出さない。正本の不整合があるときだけ警告を出す。
- * 試験日・合格発表は次の予定（無ければ今年度で最後のものを薄く）を出す。
+ * 区分（一次・二次など）ごとに試験日・合格発表・受験者数・合格率を横に揃え、過ぎた日付は薄く出す。
  */
 export default async function QualificationsPage() {
   const view = loadQualificationsView();
@@ -69,15 +69,9 @@ export default async function QualificationsPage() {
   );
 }
 
-function When({ at }: { at: { date: string | null; label: string; past: boolean } | null }) {
-  if (!at) return <span className="muted">—</span>;
-  return (
-    <div className={at.past ? 'muted' : undefined}>
-      {at.date && <div>{fmtDate(at.date)}</div>}
-      <div className="muted" style={{ fontSize: 11 }}>{at.label}</div>
-    </div>
-  );
-}
+const Past = ({ past, children }: { past: boolean; children: React.ReactNode }) => (
+  <div className={past ? 'muted' : undefined}>{children}</div>
+);
 
 function Row({ row: r }: { row: QualificationView }) {
   return (
@@ -87,18 +81,26 @@ function Row({ row: r }: { row: QualificationView }) {
         <Badge variant={PORTFOLIO_VARIANT[r.portfolio] ?? 'secondary'}>{PORTFOLIO_LABEL[r.portfolio] ?? r.portfolio}</Badge>
         {r.portfolioNote && <div className="muted" style={{ fontSize: 11 }}>{r.portfolioNote}</div>}
       </td>
-      <td className="small"><When at={r.exam} /></td>
-      <td className="small"><When at={r.result} /></td>
-      <td className="small num" style={{ whiteSpace: 'nowrap' }}>
-        {r.stats.length ? r.stats.map((s) => (
-          <div key={s.stage}>
-            {s.stage && <span className="muted">{s.stage} </span>}
-            {s.examinees}
-          </div>
-        )) : <span className="muted">—</span>}
+      <td className="small" style={{ whiteSpace: 'nowrap' }}>
+        {r.lines.map((l) => (
+          <Past key={l.stage} past={l.exam?.past ?? false}>
+            {l.stage && <span className="muted">{l.stage} </span>}
+            {l.exam ? fmtDate(l.exam.date) : l.examWindow ? <span className="muted">{l.examWindow}</span> : '—'}
+          </Past>
+        ))}
+      </td>
+      <td className="small" style={{ whiteSpace: 'nowrap' }}>
+        {r.lines.map((l) => (
+          <Past key={l.stage} past={l.result?.past ?? false}>
+            {l.result ? (l.result.date ? fmtDate(l.result.date) : <span className="muted">{l.result.window}</span>) : '—'}
+          </Past>
+        ))}
       </td>
       <td className="small num" style={{ whiteSpace: 'nowrap' }}>
-        {r.stats.length ? r.stats.map((s) => <div key={s.stage}>{s.rate}</div>) : <span className="muted">—</span>}
+        {r.lines.map((l) => <div key={l.stage}>{l.examinees}</div>)}
+      </td>
+      <td className="small num" style={{ whiteSpace: 'nowrap' }}>
+        {r.lines.map((l) => <div key={l.stage}>{l.rate}</div>)}
       </td>
     </tr>
   );
