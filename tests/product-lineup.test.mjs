@@ -13,7 +13,9 @@ import {
   classifyProduct,
   buildLineup,
   cellKeys,
+  stageSchedule,
 } from '../scripts/lib/product-lineup.mjs';
+import { readFileSync } from 'node:fs';
 
 const CONFIG = {
   qualifications: [
@@ -31,9 +33,10 @@ const CONFIG = {
   apps: [{ id: 'ios-x', cells: ['pe:written'] }],
 };
 
-test('実 config は自己整合している', () => {
+test('実 config は自己整合している（exam-calendar の参照を含む）', () => {
   const config = loadLineupConfig();
-  assert.deepEqual(validateLineupConfig(config), []);
+  const calendar = JSON.parse(readFileSync(new URL('../.claude/config/exam-calendar.json', import.meta.url), 'utf8'));
+  assert.deepEqual(validateLineupConfig(config, calendar), []);
   assert.ok(cellKeys(config).length > 0);
 });
 
@@ -73,4 +76,21 @@ test('validateLineupConfig: 未定義マス・不正な正規表現・未知チ�
   assert.ok(errors.some((e) => e.includes('未定義のマス civil-1:third')));
   assert.ok(errors.some((e) => e.includes('rules.x')));
   assert.ok(errors.some((e) => e.includes('apps.a: cells が空')));
+});
+
+test('stageSchedule: exam-calendar の日付と残り日数・未発表の期間', () => {
+  const calendar = { exams: { c1: { events: { second: { label: '第二次検定', date: '2026-10-04' } } } } };
+  const q = { calendarId: 'c1' };
+  assert.deepEqual(stageSchedule(calendar, q, { events: ['second'] }, '2026-09-26'), {
+    events: [{ label: '第二次検定', date: '2026-10-04', daysLeft: 8 }],
+    period: null,
+  });
+  assert.equal(stageSchedule(calendar, q, { events: ['second'] }, '2026-10-05').events[0].daysLeft, -1);
+  assert.deepEqual(stageSchedule(calendar, q, { period: '12月〜翌1月' }, '2026-09-26'), { events: [], period: '12月〜翌1月' });
+  const errors = validateLineupConfig(
+    { qualifications: [{ id: 'x', calendarId: 'c1', stages: [{ id: 'a', events: ['nope'] }, { id: 'b' }] }], channels: [], rules: {} },
+    calendar,
+  );
+  assert.ok(errors.some((e) => e.includes('events に nope が無い')));
+  assert.ok(errors.some((e) => e.includes('x:b: events も period も無い')));
 });

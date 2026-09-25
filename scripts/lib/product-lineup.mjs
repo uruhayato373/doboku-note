@@ -23,10 +23,12 @@ export function cellKeys(config) {
 }
 
 /**
- * config の自己整合を検査する。
+ * config の自己整合を検査する。calendar（exam-calendar.json）を渡すと試験日の参照も検査する。
+ * @param {any} config
+ * @param {any} [calendar]
  * @returns {string[]} 違反メッセージ（空なら整合）
  */
-export function validateLineupConfig(config) {
+export function validateLineupConfig(config, calendar = null) {
   const errors = [];
   const keys = cellKeys(config);
   const known = new Set(keys);
@@ -48,7 +50,40 @@ export function validateLineupConfig(config) {
     });
   }
   for (const app of config.apps ?? []) checkCells(`apps.${app.id}`, app.cells);
+  if (calendar) {
+    for (const q of config.qualifications) {
+      const exam = calendar.exams?.[q.calendarId];
+      if (!exam) {
+        errors.push(`qualifications.${q.id}: exam-calendar に ${q.calendarId} が無い`);
+        continue;
+      }
+      for (const st of q.stages) {
+        if (!st.events?.length && !st.period) errors.push(`${q.id}:${st.id}: events も period も無い`);
+        for (const ev of st.events ?? []) {
+          if (!exam.events?.[ev]) errors.push(`${q.id}:${st.id}: exam-calendar の ${q.calendarId}.events に ${ev} が無い`);
+        }
+      }
+    }
+  }
   return errors;
+}
+
+/** 'YYYY-MM-DD' 同士の日数差（to − from）。 */
+function daysBetween(from, to) {
+  return Math.round((Date.parse(`${to}T00:00:00Z`) - Date.parse(`${from}T00:00:00Z`)) / 86_400_000);
+}
+
+/**
+ * 区分の試験日程を exam-calendar から引く。today は JST の 'YYYY-MM-DD'。
+ * @returns {{ events: Array<{ label: string, date: string, daysLeft: number }>, period: string | null }}
+ */
+export function stageSchedule(calendar, qualification, stage, today) {
+  const exam = calendar?.exams?.[qualification.calendarId];
+  const events = (stage.events ?? [])
+    .map((id) => exam?.events?.[id])
+    .filter(Boolean)
+    .map((e) => ({ label: e.label, date: e.date, daysLeft: daysBetween(today, e.date) }));
+  return { events, period: stage.period ?? null };
 }
 
 /**
@@ -65,11 +100,16 @@ export function classifyProduct(rules, id) {
 /**
  * 正規化済み item 群をマトリクスへ組み立てる。
  * item: { channel, id, title, cells?, ... }。cells を持つ item（apps）はルールを通さない。
- * @returns {{ rows: Array<{ key, qualificationId, qualificationLabel, stageId, stageLabel, isFirstStage, stageCount, byChannel: Record<string, object[]> }>, unclassified: object[] }}
+ * calendar と today（JST の 'YYYY-MM-DD'）を渡すと各行に試験日程（schedule）を付ける。
+ * @param {any} config
+ * @param {any[]} items
+ * @param {{ calendar?: any, today?: string | null }} [options]
+ * @returns {{ rows: Array<{ schedule, key, qualificationId, qualificationLabel, stageId, stageLabel, isFirstStage, stageCount, byChannel: Record<string, object[]> }>, unclassified: object[] }}
  */
-export function buildLineup(config, items) {
+export function buildLineup(config, items, { calendar = null, today = null } = {}) {
   const rows = config.qualifications.flatMap((q) =>
     q.stages.map((s, i) => ({
+      schedule: calendar && today ? stageSchedule(calendar, q, s, today) : null,
       key: `${q.id}:${s.id}`,
       qualificationId: q.id,
       qualificationLabel: q.label,

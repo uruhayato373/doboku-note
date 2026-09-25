@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { PageHead, Kpi } from '@/components/ui';
 import { Badge } from '@/components/primitives';
-import { loadLineupView, type LineupItem, type LineupRow } from '@/lib/lineup';
+import { loadLineupView, type LineupItem, type LineupRow, type LineupSchedule } from '@/lib/lineup';
 
 export const dynamic = 'force-dynamic';
 
@@ -77,7 +77,7 @@ export default async function LineupPage({ searchParams }: { searchParams: Promi
           </span>
         </h2>
         <p className="small muted">
-          状態バッジが無い商品は販売中。「未展開」は販売中の商品が 0 件のマス。複数区分にまたがる商品（会員・診断など）は各マスに重複して表示する。
+          区分の日付は .claude/config/exam-calendar.json の今年度の試験日（残り日数は JST）。状態バッジが無い商品は販売中。「未展開」は販売中の商品が 0 件のマス。複数区分にまたがる商品（会員・診断など）は各マスに重複して表示する。
         </p>
         <div className="table-wrap">
           <table className="data">
@@ -134,7 +134,10 @@ function LineupRowView({
           {row.qualificationLabel}
         </th>
       )}
-      <td style={{ whiteSpace: 'nowrap' }}>{row.stageLabel}</td>
+      <td style={{ whiteSpace: 'nowrap' }}>
+        <div>{row.stageLabel}</div>
+        <StageSchedule schedule={row.schedule} />
+      </td>
       {channels.map((c) => {
         const items = visible(row.byChannel[c.id] ?? []);
         const hasPublished = items.some((i) => i.stage === 'published');
@@ -160,6 +163,39 @@ function LineupRowView({
         );
       })}
     </tr>
+  );
+}
+
+const WEEKDAYS = ['日', '月', '火', '水', '木', '金', '土'];
+
+/** 'YYYY-MM-DD' → '2026/10/4（日）'。 */
+function fmtExamDate(date: string): string {
+  const [y, m, d] = date.split('-').map(Number) as [number, number, number];
+  const wd = WEEKDAYS[new Date(Date.UTC(y, m - 1, d)).getUTCDay()];
+  return `${y}/${m}/${d}（${wd}）`;
+}
+
+/** 区分の試験日（exam-calendar.json）と残り日数。未発表の区分は期間の文言だけ出す。 */
+function StageSchedule({ schedule }: { schedule: LineupSchedule | null }) {
+  if (!schedule) return null;
+  const many = schedule.events.length > 1;
+  return (
+    <div className="small" style={{ marginTop: 4, lineHeight: 1.45 }}>
+      {schedule.events.map((e) => (
+        <div key={`${e.label}-${e.date}`} className={e.daysLeft < 0 ? 'muted' : undefined}>
+          {many && <span className="muted">{e.label} </span>}
+          {fmtExamDate(e.date)}{' '}
+          {e.daysLeft > 0 ? (
+            <Badge variant={e.daysLeft <= 30 ? 'warning' : 'outline'}>あと{e.daysLeft}日</Badge>
+          ) : e.daysLeft === 0 ? (
+            <Badge variant="warning">本日</Badge>
+          ) : (
+            '（実施済み）'
+          )}
+        </div>
+      ))}
+      {schedule.period && <div className="muted" style={{ whiteSpace: 'normal', maxWidth: 160 }}>{schedule.period}</div>}
+    </div>
   );
 }
 
