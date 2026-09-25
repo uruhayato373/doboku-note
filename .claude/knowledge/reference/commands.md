@@ -129,6 +129,7 @@ npm run brain-sales-fetch  # Brain 売上を read-only 取得（ログイン要�
 
 ```bash
 npm run coconala-orders   # ココナラ受注＋購入前DMの実体を read-only 収集→orders-snapshot.json（Playwright・書き込みなし・定期取得は login-collectors.yml）
+npm run coconala-talkroom -- <talkroomId> # トークルーム1件のメッセージと添付（原寸・docx は本文 .txt も）を .tmp/coconala/talkrooms/{id}/ へ取得（Playwright・送信なし・開くと既読になる）。添付はホバーで出るボタンの download イベントから署名URLを受けて取得＝saveAs を使わない。exit 2=添付の取りこぼし
 npm run check-coconala-orders # 上記 snapshot ↔ orders-log をオフライン突合（記録漏れ・金額ズレ・返信期限〔48h自動キャンセル〕・DM要対応）
 npm run check-tensaku-reply -- <返信文> --source <提出原稿> --grade 1 # 添削・診断・作成の顧客返信文を送信前に検査（3000字・外部誘導・合格保証・下書き注記・書き換え例の（N字）表記と解答欄・原稿に無い工事の数値）。--source なしは exit 2（未検査を緑にしない）。意味の評価は civil-keiken-tensaku-qa
 npm run coconala-analytics # ココナラ分析画面（全体/サービス別/ブログ別）を read-only 収集→analytics-snapshot.json（--append-kpi で kpi-log へ週次 upsert・定期取得は login-collectors.yml・Playwright・書き込みなし）

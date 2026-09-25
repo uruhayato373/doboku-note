@@ -29,6 +29,7 @@ developer_instructions = """
 | 受注実績（こちらの記録） | `.claude/state/coconala/orders-log.json`（v2・`talkroomId` 必須） |
 | 商品構成の現在地 | カタログの `status`／`pauseReason`（`retired`=恒久廃止・`archivedAt` 済／`absence`=長期不在の一時休止・`resumeOn` に復帰予定日） |
 | 受注の実体（ココナラ側） | `.claude/state/coconala/orders-snapshot.json`（`npm run coconala-orders` が生成） |
+| 購入者のメッセージ・添付（1取引） | `.tmp/coconala/talkrooms/{id}/`（`npm run coconala-talkroom -- <id>` が生成・リポジトリ外・個人情報） |
 | KPI 週次 | `.claude/state/coconala/kpi-log.json` |
 | 運用・スキーマ・ドリフト分類 | `.claude/knowledge/reference/coconala-operations.md` |
 | 戦略・出品文面・ヒアリングシート・撤退ライン | `content/note/1級・2級土木/ココナラ展開キット.md` |
