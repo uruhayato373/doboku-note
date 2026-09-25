@@ -29,7 +29,7 @@ const toNavTabs = (tabs: readonly AdminChannelTab[]): Tab[] => tabs.map((t) => (
 /**
  * サイドバーの情報設計。
  *
- * - コンテンツ: チャネル（サイト/note/X/Instagram/YouTube/ココナラ/Kindle/Brain）を
+ * - コンテンツ: チャネル（サイト/note/X/Instagram/YouTube/ココナラ/Kindle）を
  *   選んでから、記事・画像・配布物へ進む。チャネル定義は channel-registry.ts が唯一の SSOT。
  * - 計画: バックログから年間まで、時間軸で作業を選ぶ
  * - 運用 / 分析 / 収益 / 管理: 媒体をまたぐ共通作業としてまとめる

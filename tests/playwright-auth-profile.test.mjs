@@ -241,12 +241,11 @@ test('resolveProfileDir: service の profileDirName を auth root 配下へ解�
   }
 });
 
-test('Phase 02の4サービスは同じ一時auth rootから別profileへ解決する', () => {
+test('Phase 02の3サービスは同じ一時auth rootから別profileへ解決する', () => {
   const dir = makeTmpDir('doboku-auth-phase02-');
   try {
     for (const [service, profileName] of [
       ['note', 'playwright-note-profile'],
-      ['brain', 'playwright-brain-profile'],
       ['coconala', 'playwright-coconala-profile'],
       ['kdp', 'playwright-kdp-profile'],
     ]) {
@@ -267,7 +266,6 @@ test('Phase 02の4サービスは同じ一時auth rootから別profileへ解決�
 test('Phase 02 runtimeはrepo相対profileを持たず共通resolverを参照する', () => {
   const files = [
     'scripts/lib/note-browser.mjs',
-    'scripts/lib/brain-session.mjs',
     'scripts/lib/coconala-session.mjs',
     'scripts/kdp-batch.mjs',
     'scripts/kdp-publish.mjs',
@@ -287,7 +285,7 @@ test('Phase 02 runtimeはrepo相対profileを持たず共通resolverを参照す
   ];
   for (const file of files) {
     const source = readFileSync(join(REPO_ROOT, file), 'utf8');
-    assert.doesNotMatch(source, /\.local\/playwright-(?:note|brain|coconala|kdp)-profile/, file);
+    assert.doesNotMatch(source, /\.local\/playwright-(?:note|coconala|kdp)-profile/, file);
     assert.match(source, /playwright-auth-profile\.mjs/, file);
   }
 });

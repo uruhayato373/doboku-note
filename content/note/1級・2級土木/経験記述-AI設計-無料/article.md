@@ -85,7 +85,7 @@ AIに「経験記述を書いて」と頼むと、工事名も、工期も、施
 <!-- cta:civil-ai-kit -->
 自分の工事経験を入力し、設問整理・答案案・独立レビュー・字数検査までClaude Codeで回したい方は、「施工経験記述 設計キット」の詳細をご確認ください。
 
-https://brain-market.com/a/b5EDO3UjMgoTZsNWa0JXY
+https://coconala.com/services/4322659
 
 設問ごとの書き方・過去の出題傾向・留意事項のまとめは、[施工経験記述 出題傾向と書き方](https://doboku-note.com/exam/civil-construction-1/secondary/experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil-keiken-ai-kit-note&utm_content=experience-writing-guide)に無料で公開しています。AI に下書きさせる前に、評価される型を先に押さえてください。
 

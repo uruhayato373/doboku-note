@@ -253,7 +253,7 @@ content/sns/x/
 
 - 各日 **時刻は分単位でジッタ**させる（帯の中で日ごとに動かす。同一 HH:MM の固定は §11.2 のとおり禁止）。
 - 同一日の 2 本の間隔は **60 分以上**（`check-x-campaign-plan` v2 が機械で BLOCK）。
-- **販売 funnel（note / coconala / brain）は 1 日 1 本まで、かつスロット C のみ**。朝昼を売り込みで潰さない。
+- **販売 funnel（note / coconala）は 1 日 1 本まで、かつスロット C のみ**。朝昼を売り込みで潰さない。
 
 > **実測（2026-08-13・`npm run x-own-metrics`・直近 100 投稿 / フォロワー 91）**
 >

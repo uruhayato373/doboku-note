@@ -1,22 +1,21 @@
 /**
- * 記事 slug → ココナラ / Brain（外部チャネル）CTA のマッピング (Single Source of Truth)
+ * 記事 slug → ココナラ（外部チャネル）CTA のマッピング (Single Source of Truth)
  *
  * note 有料マガジンの magazine-placement.ts と直交する「外部チャネル導線」の SoT。
  * 設計方針:
  * - **高適合ページに限定**して出す（全記事に撒かない）。対象は土木二次（経験記述／年度別過去問／学科記述／
  *   直前対策）と総監 記述系。1ページ最大 3 枚に抑える（クロップ防止）。1級/2級は slug prefix で PDF を出し分け。
- * - 表示の最終可否は coconala-services.ts / brain-products.ts の status='listed' で決まる
+ * - 表示の最終可否は coconala-services.ts の status='listed' で決まる
  *   （listed 以外は自動非表示＝出品前の wire-ahead）。ここでは「どのページに何を出すか」だけを定義する。
  * - 外部 URL に UTM は付けない（計測が外部で完結しパラメータが無駄に露出するため。links-hub.md と同方針）。
- *   クリック計測は data-cta="coconala"|"brain" で AnalyticsProvider が拾う。
+ *   クリック計測は data-cta="coconala" で AnalyticsProvider が拾う。
  * - ココナラは A8 の商品リンク（coconalaAffiliateHref・会員登録 ¥100）経由で出す（2026-09-24〜）。
  *   affiliate=true の項目は描画側で PR 表記・rel=sponsored・計測ピクセル（1 ページ 1 発）を付ける。
  */
 import { listedCoconalaServices } from './coconala-services';
-import { listedBrainProducts } from './brain-products';
 import { coconalaAffiliateHref } from '@/config/affiliate-creatives';
 
-export type OffsiteChannel = 'coconala' | 'brain';
+export type OffsiteChannel = 'coconala';
 
 export interface OffsiteCtaItem {
   readonly channel: OffsiteChannel;
@@ -34,9 +33,7 @@ export interface OffsiteCtaItem {
 interface OffsiteRule {
   readonly test: RegExp;
   readonly coconala?: readonly string[];
-  readonly brain?: readonly string[];
   readonly coconalaCatch?: string;
-  readonly brainCatch?: string;
 }
 
 // slug は category prefix 付きの完全形（例: civil-construction-1-secondary-experience-writing-guide）。
@@ -48,18 +45,14 @@ const RULES: readonly OffsiteRule[] = [
     // 1級/2級で別ルールに分割（旧: 単一ルールで両級に同じ1級専用サービスを出していた）。
     test: /^civil-construction-1-secondary-experience-writing-(guide|examples)$/,
     coconala: ['coconala-shindan', 'coconala-tensaku-set'],
-    brain: ['brain-civil-essay-kit'],
     coconalaCatch: '自分の答案を1本、プロの視点で見てほしい方へ。',
-    brainCatch: '自分の工事経験から答案を自作したい方へ（Claude Code キット）。',
   },
   {
     // 施工経験記述（2級）: 2級版の添削サービスは新設（coconala-2kyu-tensaku・2026-09-25）が
     // status:'draft'（未出品）のため、出品するまで listed フィルタで自動的に非表示のまま。
     test: /^civil-construction-2-secondary-experience-writing-(guide|examples)$/,
     coconala: ['coconala-shindan', 'coconala-2kyu-tensaku'],
-    brain: ['brain-civil-essay-kit'],
     coconalaCatch: '自分の答案を1本、プロの視点で見てほしい方へ。',
-    brainCatch: '自分の工事経験から答案を自作したい方へ（Claude Code キット）。',
   },
   {
     // 1級 二次 年度別過去問（secondary-r03〜r09）: 経験記述 過去問模範答案＋学科記述攻略が刺さる。
@@ -94,12 +87,10 @@ const RULES: readonly OffsiteRule[] = [
   },
   {
     // 総監 記述系（模範論文解説 essay-* / pattern-essay-* / 二次過去問 h2X・r0X-secondary）:
-    // 設問3の国家施策の備蓄（Brain）＋出題テーマの読み方（ココナラ分析 PDF）。
+    // 出題テーマの読み方（ココナラ分析 PDF）。
     test: /^pe-comprehensive-management-(essay-|pattern-essay-|(?:h\d{2}|r\d{2})-secondary$)/,
     coconala: ['coconala-sokan-bunseki-pdf'],
-    brain: ['brain-sokan-policy-bank'],
     coconalaCatch: '出題テーマの読み方を押さえたい方へ（出題分析 PDF）。',
-    brainCatch: '設問3の国家施策を根拠つきで備蓄したい方へ（Claude Code キット）。',
   },
 ];
 
@@ -125,23 +116,6 @@ export function resolveOffsiteCta(slug: string): OffsiteCtaItem[] {
         catch: rule.coconalaCatch ?? '',
         trackLabel: `offsite-${id}`,
         affiliate: true,
-      });
-    }
-  }
-
-  if (rule.brain?.length) {
-    const listed = listedBrainProducts();
-    for (const id of rule.brain) {
-      const p = listed.find((x) => x.id === id);
-      if (!p) continue;
-      items.push({
-        channel: 'brain',
-        href: p.productUrl,
-        shortTitle: p.shortTitle,
-        price: p.price,
-        catch: rule.brainCatch ?? '',
-        trackLabel: `offsite-${id}`,
-        affiliate: false,
       });
     }
   }

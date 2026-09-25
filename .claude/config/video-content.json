@@ -52,14 +52,12 @@
     "kindEnum": [
       "note-magazine",
       "coconala-service",
-      "brain-product",
       "site-article",
       "links-hub"
     ],
     "catalogs": {
       "note-magazine": "src/lib/note-magazines.ts",
-      "coconala-service": "src/lib/coconala-services.ts",
-      "brain-product": "src/lib/brain-products.ts"
+      "coconala-service": "src/lib/coconala-services.ts"
     },
     "note_": "catalog 系 kind は targetId がカタログ id に解決できること。site-article は targetPath 実在。links-hub は /links 固定で targetId 不要。primaryCta は 1 つだけ（配列不可）。campaign は packId と一致。"
   },

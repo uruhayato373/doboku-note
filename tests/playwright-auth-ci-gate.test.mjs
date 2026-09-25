@@ -192,7 +192,7 @@ test('共有セッション lib は CI 環境でも import だけでは resolver
   // 2026-09-21 PR #549: coconala-session.mjs が import 時に resolveProfileDir を呼び、ブラウザを開かない
   // check-coconala-blog（ci:true）まで AUTH_PROFILE_UNAVAILABLE_IN_CI で落ちた。profile は launch の瞬間に解決する。
   const { spawnSync } = await import('node:child_process');
-  for (const lib of ['scripts/lib/note-browser.mjs', 'scripts/lib/coconala-session.mjs', 'scripts/lib/brain-session.mjs', 'scripts/lib/google-console-browser.mjs', 'scripts/lib/asp-browser.mjs']) {
+  for (const lib of ['scripts/lib/note-browser.mjs', 'scripts/lib/coconala-session.mjs', 'scripts/lib/google-console-browser.mjs', 'scripts/lib/asp-browser.mjs']) {
     const r = spawnSync(process.execPath, ['-e', `import(${JSON.stringify('./' + lib)}).then(() => process.exit(0), (e) => { console.error(e.message); process.exit(1); })`], {
       cwd: REPO_ROOT, encoding: 'utf8', env: { ...process.env, GITHUB_ACTIONS: 'true', CI: 'true', DOBOKU_AUTH_SESSION_MODE: '', DOBOKU_AUTH_ROOT: '' },
     });

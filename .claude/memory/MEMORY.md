@@ -114,8 +114,6 @@
 - [project_obsidian_sync_routines.md](project_obsidian_sync_routines.md)
 
 ## 案件別メモ（完了は退役検討）
-- [project_brain_civil_essay_kit.md](project_brain_civil_essay_kit.md)
-- [project_brain_r8_policy_bank.md](project_brain_r8_policy_bank.md)
 - [project_buildjob_impressions_campaign.md](project_buildjob_impressions_campaign.md)
 - [project_competitor_genba_career.md](project_competitor_genba_career.md)
 - [project_civil1_h29_corpus_drift.md](project_civil1_h29_corpus_drift.md)

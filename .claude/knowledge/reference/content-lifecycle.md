@@ -4,7 +4,7 @@ title: コンテンツ ライフサイクル（全チャネル共通ステージ
 
 # コンテンツ ライフサイクル
 
-全チャネル（サイト・note・SNS・ココナラ・Brain・Kindle・動画）のコンテンツを、**企画 → 下書き → 公開**という 1 つの物差しで横断把握するための共通語彙。制定 2026-08-28。
+全チャネル（サイト・note・SNS・ココナラ・Kindle・動画）のコンテンツを、**企画 → 下書き → 公開**という 1 つの物差しで横断把握するための共通語彙。制定 2026-08-28。
 
 - 機械可読 SSOT: `scripts/lib/content-lifecycle.mjs`（ステージ定数＋写像関数）
 - 横断ビュー: 管理画面 `/content/lifecycle`（read-only・`tools/admin-app/src/lib/lifecycle.ts`）
@@ -38,7 +38,6 @@ title: コンテンツ ライフサイクル（全チャネル共通ステージ
 | X | `content/sns/x/draft/**/status.json` の tweets[].status | queued→draft／scheduled→scheduled／posted→published／replaced・cancelled→retired |
 | YouTube Shorts | `.claude/state/youtube-schedule.json` の items[].status | pending→scheduled／uploaded→published／retired・skipped→retired／failed→draft |
 | ココナラ | `src/lib/coconala-services.ts` の status（＋pauseReason） | draft→draft／listed→published／paused かつ absence→scheduled／paused（retired・理由不明）→retired／archived→retired |
-| Brain | `src/lib/brain-products.ts` の status | draft・rejected→draft／submitted→review／listed→published |
 | Kindle | `scripts/kindle-published/catalog.json` の status | draft→draft／in_review→review／live→published／unpublished→retired |
 
 ## 4. 新しいチャネルを足すとき

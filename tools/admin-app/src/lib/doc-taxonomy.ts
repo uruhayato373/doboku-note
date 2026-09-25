@@ -7,7 +7,7 @@ import type { AdminChannelId } from './channel-registry';
  * frontmatter を SSOT として持たせつつ、frontmatter が無い文書はディレクトリ既定値で推論する。
  *
  * 82 文書へ一括で必須 frontmatter を追加すると差分が大きくなるため、既定推論を先に置き、
- * override が必要な文書（Brain 関連等）だけに明示 frontmatter を足す。
+ * override が必要な文書だけに明示 frontmatter を足す。
  */
 
 export type DocumentType =
@@ -43,7 +43,6 @@ export const DOC_CHANNELS: readonly DocChannel[] = [
   'youtube',
   'coconala',
   'kindle',
-  'brain',
 ];
 
 export type DocRetention = 'durable' | 'temporary';
@@ -142,7 +141,6 @@ export const DOC_CHANNEL_LABELS: Readonly<Record<DocChannel, string>> = {
   youtube: 'YouTube',
   coconala: 'ココナラ',
   kindle: 'Kindle',
-  brain: 'Brain',
 };
 
 export const DOC_RETENTION_LABELS: Readonly<Record<DocRetention, string>> = {

@@ -1,7 +1,7 @@
 ---
 name: competitor-review
 description: >
-  土木・建設系試験対策の競合を全チャネル横断（note / X / Instagram / ココナラ / Brain）で
+  土木・建設系試験対策の競合を全チャネル横断（note / X / Instagram / ココナラ）で
   四半期に再取得し、前回比ドリフト（値上げ/新商品/休眠/新規参入）を機械検出したうえで差別化を
   再評価し、SSOT（09_販売チャネル競合分析.md）への反映パッチまで出すレビュー。scout-*（機械取得＋
   時系列＋drift）→ competitor-analyst（意味評価＋反映パッチ）→ ユーザー承認で doc へ適用、の3段。
@@ -12,9 +12,9 @@ user-invocable: true
 
 ## 用途
 
-競合の**公開データ（価格/品揃え/フォロワー/更新頻度/エンゲージ）を再取得**し、前回スナップショットからの変化を起点に差別化ポジションを再評価する。四半期サイクル。note / Instagram / ココナラの機械取得は `competitor-scan.yml` が自動実行し、本スキルは取得済みデータの意味評価を担う。X / Brain は `npm run check-competitor-scan-due` が DUE を返したとき、または重要な競合の動きを察知したときに手動取得から回す。
+競合の**公開データ（価格/品揃え/フォロワー/更新頻度/エンゲージ）を再取得**し、前回スナップショットからの変化を起点に差別化ポジションを再評価する。四半期サイクル。note / Instagram / ココナラの機械取得は `competitor-scan.yml` が自動実行し、本スキルは取得済みデータの意味評価を担う。X は `npm run check-competitor-scan-due` が DUE を返したとき、または重要な競合の動きを察知したときに手動取得から回す。
 
-`--platform note|x|ig|coconala|brain|all`（既定 all）。真実源: 価格/品揃え軸=[09_販売チャネル競合分析.md](../../../../docs/strategy/09_販売チャネル競合分析.md)、コンテンツ型/エンゲージ軸=[07_競合調査.md](../../../../docs/strategy/07_競合調査.md) の SNS競合節。
+`--platform note|x|ig|coconala|all`（既定 all）。真実源: 価格/品揃え軸=[09_販売チャネル競合分析.md](../../../../docs/strategy/09_販売チャネル競合分析.md)、コンテンツ型/エンゲージ軸=[07_競合調査.md](../../../../docs/strategy/07_競合調査.md) の SNS競合節。
 
 ## 手順
 
@@ -42,7 +42,6 @@ npm run scout-note-competitors                 # note（公開API・curl --ssl-n
 npm run scout-coconala-competitors              # ココナラ（Playwright・公開プロフィールの販売実績 header + market-research由来の価格・低頻度厳守）
 node scripts/scout-x-competitors.mjs            # X（実アカ Playwright・read-only・安全弁必須）
 npm run scout-ig-competitors                    # IG（未ログイン curl・og:description のフォロワー/投稿数・投稿アカ不使用）
-node scripts/scout-brain-competitors.mjs        # Brain（公開ページ read-only）
 ```
 
 - 各 scout の共通 snapshot schema: `{ profile, counts, price(min/median/max/bands), cadence, drift[], platformExtra }`。出力は `.claude/state/{platform}/history/competitors-YYYY-MM-DD.json`（時系列 SSOT）＋ `snapshot.json`（最新ポインタ）
@@ -65,12 +64,12 @@ node scripts/scout-brain-competitors.mjs        # Brain（公開ページ read-o
 
 ## 安全弁（チャネル別）
 
-- **note/Brain**: 公開ページ read-only（認証不要）
+- **note**: 公開ページ read-only（認証不要）
 - **ココナラ**: 公開ページ read-only・**低頻度厳守（数ヶ月に1度・operations.md §2.3）**・外部誘導しない
 - **X**: 実アカ Playwright だが **read-only 専用**（いいね/フォロー/リプライ機能を持たない）・四半期・≤15プロフィール・jitter 遅延・**challenge/captcha/凍結警告で即中断（自動リトライ禁止）**→ `probe-status.json` に記録。投稿スケジュールと実行を重ねない。方針は [x-post-policy.md](../../../../.claude/knowledge/reference/x-post-policy.md) §11
 - **IG**: **未ログイン公開プロフィール（og:description メタ）を curl で read**（2026-07-20 実証・投稿アカ @dobokunotecom の IG セッション不使用＝足跡ゼロ）。取れるのはフォロワー/フォロー/投稿数まで（個別投稿のエンゲージは要ログインで未対応）
 - **有料本文は全チャネルで取得しない/できない**（中身の質は「未読」扱いで断定しない）
-- **定期取得は GitHub Actions に限定**。`competitor-scan.yml` が note / IG / ココナラを四半期取得し、`check-competitor-scan-due` は Actions 停止と X / Brain の手動期限を backstop する。新規クラウドルーティンは作らない
+- **定期取得は GitHub Actions に限定**。`competitor-scan.yml` が note / IG / ココナラを四半期取得し、`check-competitor-scan-due` は Actions 停止と X の手動期限を backstop する。新規クラウドルーティンは作らない
 
 ## 勝ち型の抽出 → 原案化（伸びてる投稿レーダー）
 
@@ -82,7 +81,7 @@ X scout は各競合の**エンゲージ上位10投稿**（`engagementLeaders`�
 
 ## 関連
 
-- 機械: `.github/workflows/competitor-scan.yml`・`scripts/scout-{note,x,ig,brain}-competitors.mjs`・`scout-coconala-competitors.mjs`・`check-competitor-scan-due.mjs`
+- 機械: `.github/workflows/competitor-scan.yml`・`scripts/scout-{note,x,ig}-competitors.mjs`・`scout-coconala-competitors.mjs`・`check-competitor-scan-due.mjs`
 - 勝ち型の原案化: `x-post-writer`（生成・ユニーク性強制）／`x-post-qa`（§11 near-duplicate ゲート）
 - Evaluator: `competitor-analyst`（[agents-registry.md](../../../../.claude/knowledge/reference/agents-registry.md)）
-- config: `.claude/config/{note,x,ig,coconala,brain}-competitors.json`（競合ハンドル SSOT・チャネル別）
+- config: `.claude/config/{note,x,ig,coconala}-competitors.json`（競合ハンドル SSOT・チャネル別）

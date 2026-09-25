@@ -9,7 +9,7 @@ import {
 import type { Metadata } from "next";
 import { AUTHOR } from "@/config/author";
 import { EXAM_BRAND, type ExamKey } from "@/lib/exam-brand";
-import { pickCoconalaFor, pickBrainFor } from "@/lib/exam-key-bridge";
+import { pickCoconalaFor } from "@/lib/exam-key-bridge";
 import { mokujiFor } from "@/lib/note-mokuji";
 import ServiceIcon, { type ServiceChannel } from "@/components/icons/ServiceIcon";
 import { externalLinkRel } from "@/lib/external-link-rel";
@@ -52,7 +52,7 @@ function withUtm(url: string, content: string): string {
 /**
  * 資格カード（2026-07-28 再設計）。
  *
- * 旧構成は「試験別にマガジンを全件列挙 → ページ末尾にココナラ14件・Brain2件を独立セクション」で、
+ * 旧構成は「試験別にマガジンを全件列挙 → ページ末尾にココナラ14件などを独立セクション」で、
  * チャネルが資格から切り離されて混在し、SNS bio から来た人が自分に関係する導線を選べなかった。
  * カードは **最大 3 行**（①サイトで無料学習 ②note もくじ ③個別サービス）に畳む。
  * ②③は実体がある資格だけ表示し、未整備の導線を作らない。
@@ -227,7 +227,7 @@ const PLACEMENT = "links-hub";
  * 有料教材への導線として "note"（note_cta_click）に数える。無料の解説記事は置いていないので
  * "note-article" は使わない。サイト内の資格ハブ・運営者ページは内部回遊 "nav"。
  */
-type CtaKind = "note" | "coconala" | "brain" | "nav";
+type CtaKind = "note" | "coconala" | "nav";
 
 /**
  * カード内の 1 行（アイコン + リンク名 + チャネル小ラベル + 特徴 1 行）。
@@ -306,7 +306,6 @@ function ExamCardView({ card }: { card: ExamCard }) {
   const brand = EXAM_BRAND[card.key];
   const mokuji = mokujiFor(card.key);
   const coconala = pickCoconalaFor(card.key);
-  const brain = pickBrainFor(card.key);
 
   return (
     <div className="card-surface-content overflow-hidden p-0">
@@ -367,18 +366,6 @@ function ExamCardView({ card }: { card: ExamCard }) {
             affiliate
             cta="coconala"
             ctaLabel={coconala.id}
-          />
-        )}
-        {!coconala && brain && (
-          <CardRow
-            channel="brain"
-            channelLabel="Brain"
-            label={brain.shortTitle ?? brain.title}
-            sub={brain.description}
-            href={brain.productUrl}
-            external
-            cta="brain"
-            ctaLabel={brain.id}
           />
         )}
       </div>

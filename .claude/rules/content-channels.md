@@ -4,10 +4,9 @@ paths:
   - "content/sns/**"
   - "content/kindle/**"
   - "content/coconala/**"
-  - "content/brain/**"
 ---
 
-# 販売・集客チャネルの制作物（note / SNS / Kindle / ココナラ / Brain）を扱うときの規約
+# 販売・集客チャネルの制作物（note / SNS / Kindle / ココナラ）を扱うときの規約
 
 サイト記事（`content/site/`）とは別系統。各チャネルの真実源を先に Read してから書く。CLAUDE.md §8「提案の前に現物を確認する」はここで最も効く（既存 CTA・公開状態・価格は必ず実物で裏取り）。
 
@@ -42,8 +41,7 @@ paths:
 - 修正版は既存を差し替える（新規作成しない）。提出後は ASIN を catalog に即記録
 - EPUB の章名/frontmatter 印字と BOM → `npm run check-kindle-epub-leak`。KDP カテゴリ未登録 → `npm run check-kdp-category-coverage`。ロイヤリティ取得 → `npm run kdp-report`、期限監視 → `npm run check-kdp-report-freshness`
 
-## ココナラ（content/coconala/**）・Brain（content/brain/**）
+## ココナラ（content/coconala/**）
 
 - ココナラ運用 SSOT（受注 E2E・KPI の read-only 自動取得・休止/再開/アーカイブ・捏造 NG・外部誘導 NG・**返信送信は運営者**） → [coconala-operations.md](../knowledge/reference/coconala-operations.md)。カタログ `src/lib/coconala-services.ts`。ブログ記事 → [coconala-blog-policy.md](../knowledge/reference/coconala-blog-policy.md)
-- Brain 運用 SSOT（カタログ `src/lib/brain-products.ts`・listings・配布 ZIP→R2・draft-first＋`--commit`・同意モーダルは `--agree` gate） → [brain-operations.md](../knowledge/reference/brain-operations.md)
 - 売れる型は note-selling-structures.md を横断で参照する（誠実証明のガードレール必須）

@@ -37,7 +37,7 @@ interface ArticleFooterProps {
   readonly relatedArticles: DocMeta[];
   /** もくじ（L2 索引）タイル。HUB 資格 & 非 career のとき非 null。全 HUB ページの記事末尾に統一表示。 */
   readonly footerMokuji: ResolvedHubCta | null;
-  /** 外部チャネル（ココナラ/Brain）CTA。高適合ページのみ非空（offsite-cta.ts が解決）。 */
+  /** 外部チャネル（ココナラ）CTA。高適合ページのみ非空（offsite-cta.ts が解決）。 */
   readonly offsiteCta: readonly OffsiteCtaItem[];
   readonly faqs: { q: string; a: string }[];
   readonly hasCategoryNavCard: boolean;
@@ -198,7 +198,7 @@ export default function ArticleFooter({
         </div>
       )}
 
-      {/* 外部チャネル（ココナラ添削／Brain 自作キット）CTA。施工経験記述・総監記述系の高適合ページのみ。
+      {/* 外部チャネル（ココナラ添削）CTA。施工経験記述・総監記述系の高適合ページのみ。
           note もくじ（フル教材）とは別種の「個別添削」「自作キット」導線として並置。listed 商品のみ描画。 */}
       <OffsiteCta items={offsiteCta} />
 

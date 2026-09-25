@@ -8,12 +8,10 @@ import {
 import {
   noteToStage,
   coconalaStatusToStage,
-  brainStatusToStage,
   kindleStatusToStage,
   STAGE_LABELS,
 } from '../../../../scripts/lib/content-lifecycle.mjs';
 import { readCatalog as readCoconalaCatalog } from '../../../../scripts/lib/coconala-catalog.mjs';
-import { loadBrainInventory } from '../../../../scripts/lib/brain-inventory.mjs';
 import { loadKindleCatalog, coverMediaUrl } from '../../../../scripts/lib/kindle-catalog.mjs';
 
 import { magazines } from './content';
@@ -184,26 +182,6 @@ function loadKindleItems(): LineupItem[] {
   });
 }
 
-function loadBrainItems(): LineupItem[] {
-  const inv = loadBrainInventory() as { items: Array<{ id: string; shortTitle: string; title: string; status: string; price: string; productUrl: string; listing: { imagePath: string | null } | null; image: { exists: boolean } }> };
-  return inv.items.map((p) => {
-    const stage = brainStatusToStage(p.status) ?? 'unknown';
-    const img = p.image.exists && p.listing?.imagePath?.startsWith('content/brain/assets/')
-      ? `/media/brain/${encodeURIComponent(p.listing.imagePath.slice('content/brain/assets/'.length))}`
-      : null;
-    return {
-      channel: 'brain',
-      id: p.id,
-      title: p.shortTitle || p.title,
-      price: p.price || null,
-      stage,
-      stageLabel: stageLabel(stage),
-      url: p.productUrl || null,
-      coverUrl: img,
-    };
-  });
-}
-
 export function loadLineupView(): LineupView {
   const config = JSON.parse(readFileSync(repoPath('.claude', 'config', 'product-lineup.json'), 'utf8')) as LineupConfig;
   const configErrors = validateLineupConfig(config) as string[];
@@ -213,7 +191,6 @@ export function loadLineupView(): LineupView {
     ['note', loadNoteItems],
     ['coconala', loadCoconalaItems],
     ['kindle', loadKindleItems],
-    ['brain', loadBrainItems],
   ];
   for (const [channel, load] of loaders) {
     try {

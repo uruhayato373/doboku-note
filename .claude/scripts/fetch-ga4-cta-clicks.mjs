@@ -59,10 +59,9 @@ const EVENT_NAMES = [
   "career_tool_result",
   "career_checklist_copy",
   "career_checklist_download",
-  // ココナラ・Brain への送客と、共通仕様書データのダウンロード（加工受託の入口）。
+  // ココナラへの送客と、共通仕様書データのダウンロード（加工受託の入口）。
   // AnalyticsProvider が発火しているのに取得しておらず、週次レビューが 0 件と未取得を区別できなかった。
   "coconala_cta_click",
-  "brain_cta_click",
   "standards_data_download",
   // ココナラ CTA の可視 impression（クリック率の分母・2026-09-25 新設）。
   "coconala_cta_impression",

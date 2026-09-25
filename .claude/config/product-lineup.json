@@ -1,5 +1,5 @@
 {
-  "_doc": "商品ラインナップ表（admin /content/lineup）の分類 SSOT。各チャネルの商品台帳（note-magazines.ts / coconala-services.ts / kindle-published/catalog.json / brain-products.ts）は書き換えず、商品 id を「資格 × 試験区分」のマスへ写すルールだけをここに置く。ルールは上から順に評価し最初の一致を採る。どのルールにも当たらない商品は画面で「未分類」として赤表示する（黙って落とさない）。判定は scripts/lib/product-lineup.mjs が唯一の実装。",
+  "_doc": "商品ラインナップ表（admin /content/lineup）の分類 SSOT。各チャネルの商品台帳（note-magazines.ts / coconala-services.ts / kindle-published/catalog.json）は書き換えず、商品 id を「資格 × 試験区分」のマスへ写すルールだけをここに置く。ルールは上から順に評価し最初の一致を採る。どのルールにも当たらない商品は画面で「未分類」として赤表示する（黙って落とさない）。判定は scripts/lib/product-lineup.mjs が唯一の実装。",
   "_apps": "apps は他に台帳を持たないアプリ・PWA（公開済み・計画中・構想）の手動台帳。status は planned / draft / review / published / retired（content-lifecycle.mjs の STAGES）。構想段階の iOS アプリも planned で載せ、備考に判断の状態を書く。",
   "qualifications": [
     {
@@ -121,10 +121,6 @@
     {
       "id": "kindle",
       "label": "Kindle"
-    },
-    {
-      "id": "brain",
-      "label": "Brain"
     },
     {
       "id": "app",
@@ -330,21 +326,6 @@
         "match": "^j-",
         "cells": [
           "civil-construction-2:second"
-        ]
-      }
-    ],
-    "brain": [
-      {
-        "match": "^brain-civil-",
-        "cells": [
-          "civil-construction-1:second",
-          "civil-construction-2:second"
-        ]
-      },
-      {
-        "match": "^brain-sokan-",
-        "cells": [
-          "pe-comprehensive-management:written"
         ]
       }
     ]

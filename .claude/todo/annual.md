@@ -149,7 +149,7 @@ exam-calendar に無い情報だけをここに残す。
 |---|---|---|---|
 | 四半期（90日） | **販売チャネル競合レビュー**（note / IG / ココナラ取得＋全チャネルの意味評価） | `competitor-scan.yml`（機械取得）→ `/competitor-review`（意味評価＋09パッチ） | 2026-07-20 |
 
-> note / IG / ココナラの機械取得は GitHub Actions が四半期実行する。`npm run check-competitor-scan-due` は Actions 停止と、CI 化できない Brain（WebSearch 判断）の期限を backstop する。X は encrypted-state で CI 化済み（読み取り: `login-collectors.yml`、投稿: `scheduled-publish.yml`・頻度ゲート付き。真実源 `x-post-policy.md` §11.5.1）。意味評価と戦略文書への反映は自動化しない。
+> note / IG / ココナラの機械取得は GitHub Actions が四半期実行する。`npm run check-competitor-scan-due` は Actions 停止の期限を backstop する。X は encrypted-state で CI 化済み（読み取り: `login-collectors.yml`、投稿: `scheduled-publish.yml`・頻度ゲート付き。真実源 `x-post-policy.md` §11.5.1）。意味評価と戦略文書への反映は自動化しない。
 
 ---
 

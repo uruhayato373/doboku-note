@@ -9,7 +9,7 @@
  * v2 で増えた検査（1日3本にすると壊れやすい所を機械で止める）:
  *   - 同一日の投稿間隔 >= MIN_GAP_MIN 分（バースト連投は凍結の主因。x-post-policy §11.2）
  *   - スロット A/B/C の重複なし（朝・昼・夜を1本ずつ）
- *   - 販売 funnel（note/coconala/brain）は 1日1本まで、かつ**スロット C のみ**
+ *   - 販売 funnel（note/coconala。撤退済み brain は過去計画の履歴としてのみ数える）は 1日1本まで、かつ**スロット C のみ**
  *   - 販売投稿の連続禁止（日をまたぐ隣接も含めて時系列で判定）
  *
  * カタログ整合（v1/v2 共通・2026-08-13 追加）:
@@ -17,7 +17,7 @@
  *   受付終了したココナラ出品や未公開 note へ誘導する計画を、投稿を書く前に止める。
  *     coconala → src/lib/coconala-services.ts の status==='listed'
  *     note     → src/lib/note-magazines.ts の published===true
- *     brain    → src/lib/brain-products.ts の status==='listed'
+ *     brain    → 2026-09-26 に撤退。過去日の投稿は警告、今日以降の投稿はエラー（カタログは削除済み）
  *   パーサは check-coconala-wiring / verify-note-magazines の parseSoT と同型（ファイル規約）。
  *
  * exit: 0=健全 / 1=違反 or 検査不成立
@@ -75,20 +75,9 @@ function parseNote() {
   while ((m = re.exec(ts)) !== null) if (m[3]) out.set(m[3], { id: m[1], published: m[2] === "true" });
   return out;
 }
-function parseBrain() {
-  const p = "src/lib/brain-products.ts";
-  if (!existsSync(p)) return null;
-  const ts = readFileSync(p, "utf8");
-  const re = /id:\s*'([^']+)',[\s\S]{0,400}?status:\s*'([^']+)',[\s\S]{0,400}?productUrl:\s*'([^']*)'/g;
-  const out = new Map();
-  let m;
-  while ((m = re.exec(ts)) !== null) if (m[3]) out.set(m[3], { id: m[1], status: m[2] });
-  return out;
-}
 const coconala = parseCoconala();
 const noteMags = parseNote();
-const brain = parseBrain();
-for (const [name, cat] of [["coconala", coconala], ["note", noteMags], ["brain", brain]]) {
+for (const [name, cat] of [["coconala", coconala], ["note", noteMags]]) {
   if (!cat || cat.size === 0) {
     console.error(`[check-x-campaign-plan] NG: ${name} カタログを 0 件しか読めなかった（検査不成立）`);
     process.exit(1);
@@ -180,14 +169,9 @@ for (const file of files) {
         else if (hit.status !== "listed") (post.date < TODAY ? retainedWarnings : errors).push(`${label}: ココナラ "${hit.id}" は status:${hit.status}（受付終了へ送客${post.date < TODAY ? "・投稿済みのため修正不能" : ""}）`);
       }
     }
-    if (post.funnel === "brain" && post.target) {
-      if (!post.target.startsWith("https://brain-market.com/a/")) {
-        errors.push(`${label}: Brain URLではない`);
-      } else {
-        const hit = brain.get(bare(post.target));
-        if (!hit) errors.push(`${label}: Brain 商品がカタログに無い ${bare(post.target)}`);
-        else if (hit.status !== "listed") (post.date < TODAY ? retainedWarnings : errors).push(`${label}: Brain "${hit.id}" は status:${hit.status}${post.date < TODAY ? "（投稿済みのため修正不能）" : ""}`);
-      }
+    // Brain は 2026-09-26 に撤退。過去の投稿は履歴として残し、今日以降への送客は止める。
+    if (post.funnel === "brain") {
+      (post.date < TODAY ? retainedWarnings : errors).push(`${label}: Brain は撤退済み${post.date < TODAY ? "（投稿済みのため修正不能）" : "（送客先を変える）"}`);
     }
   }
 
@@ -260,5 +244,5 @@ for (const file of files) {
     console.log(`  exam=${JSON.stringify(examCounts)} funnel=${JSON.stringify(funnelCounts)}${v >= 2 ? ` slot=${JSON.stringify(slotCounts)}` : ""}`);
   }
 }
-console.log(`[check-x-campaign-plan] ${files.length} ファイル / 投稿 ${totalPosts} 件を実検査（カタログ: ココナラ${coconala.size} / note${noteMags.size} / Brain${brain.size}）`);
+console.log(`[check-x-campaign-plan] ${files.length} ファイル / 投稿 ${totalPosts} 件を実検査（カタログ: ココナラ${coconala.size} / note${noteMags.size}）`);
 if (anyError) process.exit(1);

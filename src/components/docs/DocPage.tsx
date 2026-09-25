@@ -281,7 +281,7 @@ export async function renderDocPage(slugStr: string) {
   // 全ページ統一の一環で復活し、カテゴリ hub（sidebar -sb + mobile -mob）と同じ二面構成に揃える。
   const sidebarMokuji =
     showMokuji && category ? resolveHubCta(category, { utmSuffix: 'docs-sb' }) : null;
-  // 外部チャネル（ココナラ添削／Brain 自作キット）CTA。施工経験記述・総監記述系の高適合ページのみ非空。
+  // 外部チャネル（ココナラ添削）CTA。施工経験記述・総監記述系の高適合ページのみ非空。
   // 商品の listed 状態は offsite-cta.ts 側で判定（未 listed は自動非表示）。
   const offsiteCta = resolveOffsiteCta(slugStr);
   // 記事冒頭 CTA（二次系高 intent ページのみ placement.top で設定）。getMagazine() ゲートを

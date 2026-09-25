@@ -43,10 +43,6 @@
       "why": "ココナラ（診断・添削・答案作成）への送客"
     },
     {
-      "eventName": "brain_cta_click",
-      "why": "Brain 商品への送客"
-    },
-    {
       "eventName": "quiz_complete",
       "why": "演習完了＝学習行動の到達点（business-direction の quizCompletions）"
     },

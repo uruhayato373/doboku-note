@@ -32,7 +32,6 @@ const WATCHED = [
   { module: '@/config/author', preferred: 'AuthorProfile / AuthorCard' },
   { module: '@/lib/note-magazines', preferred: 'MagazineCard / MagazineHeroCta / hub-cta' },
   { module: '@/lib/coconala-services', preferred: 'exam-key-bridge（pickCoconalaFor）' },
-  { module: '@/lib/brain-products', preferred: 'exam-key-bridge（pickBrainFor）' },
 ];
 
 /**

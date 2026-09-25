@@ -2,7 +2,7 @@ name: Fetch competitor snapshots (quarterly)
 
 # 認証不要で取得できる競合データを四半期ごとに取得し、develop の時系列 state へ保存する。
 # note / Instagram は公開HTTP、ココナラはログイン不要の公開ページを headless Chromium で読む。
-# X は個人アカウントのログイン済みCLI、Brainは検索結果の意味判断が必要なため本workflowの対象外。
+# X は個人アカウントのログイン済みCLIのため本workflowの対象外。
 
 on:
   schedule:

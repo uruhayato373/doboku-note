@@ -1,7 +1,7 @@
 ---
 name: competitor-review
 description: >
-  土木・建設系試験対策の競合を全チャネル横断（note / X / Instagram / ココナラ / Brain）で
+  土木・建設系試験対策の競合を全チャネル横断（note / X / Instagram / ココナラ）で
   四半期に再取得し、前回比ドリフト（値上げ/新商品/休眠/新規参入）を機械検出したうえで差別化を
   再評価し、SSOT（09_販売チャネル競合分析.md）への反映パッチまで出すレビュー。scout-*（機械取得＋
   時系列＋drift）→ competitor-analyst（意味評価＋反映パッチ）→ ユーザー承認で doc へ適用、の3段。

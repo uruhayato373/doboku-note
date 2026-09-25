@@ -569,7 +569,7 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 ### [DN-0315] ココナラブログ3本と会員記事5本の、1級・2級の割り振り修正が公開ページに出ているか確かめる
 タグ: [コンテンツ品質] [種類:不具合] [起票:2026-09-25]
 
-**起点**: 2026-08-31 のココナラ C8 予想模試の誤り（1級の設問の割り振りを2級式で説明）を直した handoff（削除済み・`git show 1afb73f97:docs/handoffs/2026-08-31-coconala-c8-moshi-correction.md` で読める）。原稿は commit 56c62e61 で修正済みで、`npm run check-keiken-answer-split` は Brain 配布 ZIP を含めて合格（2026-09-25）。ただしこの検査は原稿しか見ないので、公開中のページが直ったかは未確認。
+**起点**: 2026-08-31 のココナラ C8 予想模試の誤り（1級の設問の割り振りを2級式で説明）を直した handoff（削除済み・`git show 1afb73f97:docs/handoffs/2026-08-31-coconala-c8-moshi-correction.md` で読める）。原稿は commit 56c62e61 で修正済みで、`npm run check-keiken-answer-split` は合格（2026-09-25）。ただしこの検査は原稿しか見ないので、公開中のページが直ったかは未確認。
 - ココナラブログ3本（`content/coconala/blog/{hinshitsu,anzen,koutei}-kanri-kakikata/`・編集画面 794258 / 796664 ほか）は、エディタの一括置換で H2 が複製されるため手作業の指示のまま止まっていた（罠は coconala-operations.md §9.4）
 - note 会員記事5本のライブ本文も「後続で追跡」とされたまま、確認した記録が無い
 
@@ -591,7 +591,7 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 
 **起点**: PR #548 / #549 / #550（2026-09-21 merge）で暗号化 storageState による CI 化の基盤は揃い、a8・coconala・note(traffic) は schedule 起動で緑（2026-09-22〜25）。残りのサービスは `ci.enabled:false` のまま。
 
-**やること**: 読み取りは kdp → brain → x → google → afb の順に、レジストリで `canary:true, enabled:true` → `gh workflow run login-collectors.yml --ref develop -f service=<svc> -f mode=probe-only` を2回 → `-f mode=collect` を別日に3回 → Mac で `npm run auth:status -- --service <svc>` が authenticated のまま → `canary:false` で cron。書き込みは `npm run ops-write:plan` → `ops-write.yml`（最初は `commit=false`）で instagram.publish-bs → note.sync-tags → note.update-body → note.publish → coconala → brain → X 投稿 → X Articles → KDP の順。事前のユーザー操作（Secret `DOBOKU_AUTH_AGE_IDENTITY`・`CLOUDFLARE_ANALYTICS_API_TOKEN`・各サービスの `auth:export`・Environment `external-writes`・`brain-account.json` の `salesPage`）が済んでいないサービスはそこで止める。罠は memory の reference_ci_encrypted_state_gotchas。4週安定したら `check-*-due` と ops freshness の `note:` を CI 主経路に書き換える。
+**やること**: 読み取りは kdp → x → google → afb の順に、レジストリで `canary:true, enabled:true` → `gh workflow run login-collectors.yml --ref develop -f service=<svc> -f mode=probe-only` を2回 → `-f mode=collect` を別日に3回 → Mac で `npm run auth:status -- --service <svc>` が authenticated のまま → `canary:false` で cron。書き込みは `npm run ops-write:plan` → `ops-write.yml`（最初は `commit=false`）で instagram.publish-bs → note.sync-tags → note.update-body → note.publish → coconala → X 投稿 → X Articles → KDP の順。事前のユーザー操作（Secret `DOBOKU_AUTH_AGE_IDENTITY`・`CLOUDFLARE_ANALYTICS_API_TOKEN`・各サービスの `auth:export`・Environment `external-writes`）が済んでいないサービスはそこで止める。罠は memory の reference_ci_encrypted_state_gotchas。4週安定したら `check-*-due` と ops freshness の `note:` を CI 主経路に書き換える。
 
 **完了条件**: 対象サービスがすべて `canary:false` で cron 稼働するか、サービスごとのカードへ分けたら、このカードを削除する。
 

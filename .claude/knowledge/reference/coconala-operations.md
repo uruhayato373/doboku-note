@@ -83,15 +83,15 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 
 | 記事 | 出すサービス |
 |---|---|
-| 経験記述（1級 `secondary-experience-writing-{guide,examples}`） | `coconala-shindan`＋`coconala-tensaku-set`（＋Brain 経験キット） |
-| 経験記述（2級 `secondary-experience-writing-{guide,examples}`） | `coconala-shindan`＋`coconala-2kyu-tensaku`（draft のため出品まで非表示・＋Brain 経験キット）。2026-09-25 級別化で分離（旧: 1級2級共通で `coconala-tensaku-set` を出していた） |
+| 経験記述（1級 `secondary-experience-writing-{guide,examples}`） | `coconala-shindan`＋`coconala-tensaku-set` |
+| 経験記述（2級 `secondary-experience-writing-{guide,examples}`） | `coconala-shindan`＋`coconala-2kyu-tensaku`（draft のため出品まで非表示）。2026-09-25 級別化で分離（旧: 1級2級共通で `coconala-tensaku-set` を出していた） |
 | 二次 年度別過去問（`secondary-r0[3-9]`） | `{1kyu,2kyu}-kanseitoan-pdf`（模範答案セット）＋`{1kyu,2kyu}-full-pdf`（2026-08-05 統廃合で改配線） |
 | 二次 学科分野別（1級 `secondary-(concrete\|construction-plan\|earthwork\|quality-management)-(basics\|past-problems)`） | `coconala-1kyu-full-pdf`（学科単品は paused） |
 | 二次 入門・直前（1級 `secondary-getting-started`／`guide-last-minute-2026`） | `coconala-1kyu-moshi-pdf`＋`coconala-1kyu-full-pdf` |
 | 二次 入門（2級 `secondary-getting-started`） | `coconala-2kyu-moshi-pdf`＋`coconala-2kyu-full-pdf` |
-| 総監 記述系（`essay-*`／`pattern-essay-*`／`{h2X,r0X}-secondary`） | `coconala-sokan-bunseki-pdf`（＋Brain 施策バンク） |
+| 総監 記述系（`essay-*`／`pattern-essay-*`／`{h2X,r0X}-secondary`） | `coconala-sokan-bunseki-pdf` |
 
-未掲載（`/links` のみ）: `coconala-sakusei`／`coconala-civil-keiken-kit`（経験記述ページは診断+添削+Brain で満杯・クロップ回避のため意図的に載せない）。※模範答案セット（`{1kyu,2kyu}-kanseitoan-pdf`）は 2026-08-05 統廃合で年度別過去問記事の CTA へ配線済み。
+未掲載（`/links` のみ）: `coconala-sakusei`／`coconala-civil-keiken-kit`（経験記述ページは診断+添削で満杯・クロップ回避のため意図的に載せない）。※模範答案セット（`{1kyu,2kyu}-kanseitoan-pdf`）は 2026-08-05 統廃合で年度別過去問記事の CTA へ配線済み。
 
 ### 2.1b 出品投入 SoT: `.claude/config/coconala-listings.json`
 

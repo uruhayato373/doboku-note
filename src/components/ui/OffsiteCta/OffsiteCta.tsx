@@ -3,16 +3,14 @@ import { AFFILIATE_LINK_REL, AffiliatePrBadge, TrackingPixel } from '@/component
 import { COCONALA_A8_PIXEL } from '@/config/affiliate-creatives';
 
 /**
- * OffsiteCta — 記事末尾に出す外部チャネル（ココナラ / Brain）導線カード。
+ * OffsiteCta — 記事末尾に出す外部チャネル（ココナラ）導線カード。
  * 配線・出し分けは offsite-cta.ts（slug → listed 商品）に一任し、ここは描画のみ。
  * ココナラは自社出品だが A8 の商品リンク経由（会員登録 ¥100）なので、affiliate=true の項目に
  * PR 表記と rel=sponsored を付け、A8 計測ピクセルを 1 ページ 1 発だけ置く（2026-09-24〜）。
- * Brain は直リンク（アフィリではない）ので PR 表記なし。外部 URL に UTM は付けない。
- * クリックは data-cta="coconala"|"brain" を AnalyticsProvider が計測する。
+ * クリックは data-cta="coconala" を AnalyticsProvider が計測する。
  */
 const CHANNEL_LABEL: Record<OffsiteChannel, string> = {
   coconala: 'ココナラ',
-  brain: 'Brain',
 };
 
 export default function OffsiteCta({ items }: { readonly items: readonly OffsiteCtaItem[] }) {
