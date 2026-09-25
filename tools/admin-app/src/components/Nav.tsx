@@ -113,8 +113,9 @@ function isActive(
 
   if (!pathMatches) return false;
   if (!tab.query) return true;
+  // 値が空文字のキーは「そのクエリが無いこと」（例: 商品ラインナップの一覧＝q なし）
   return Object.entries(tab.query).every(
-    ([key, value]) => searchParams.get(key) === value,
+    ([key, value]) => (value === '' ? !searchParams.get(key) : searchParams.get(key) === value),
   );
 }
 
@@ -183,9 +184,29 @@ function TodoLinks({
   );
 }
 
-export default function Nav({ todoLayers = [] }: { todoLayers?: TodoLayer[] }) {
+export default function Nav({
+  todoLayers = [],
+  lineupQualifications = [],
+}: {
+  todoLayers?: TodoLayer[];
+  /** 商品ラインナップの下に並べる資格（layout が product-lineup.json から渡す） */
+  lineupQualifications?: { id: string; label: string }[];
+}) {
   const pathname = usePathname() ?? '';
   const searchParams = useSearchParams();
+  // 商品ラインナップは「一覧」と資格ごとの詳細（?q=<資格id>）を持つツリーにする
+  const lineupTree: NavTree = {
+    label: '商品ラインナップ',
+    tabs: [
+      { href: '/content/lineup', label: '一覧', match: '/content/lineup', query: { q: '' } },
+      ...lineupQualifications.map((q) => ({
+        href: `/content/lineup?q=${q.id}`,
+        label: q.label,
+        match: '/content/lineup',
+        query: { q: q.id },
+      })),
+    ],
+  };
 
   return (
     <nav className="app-nav" aria-label="管理画面">
@@ -195,7 +216,7 @@ export default function Nav({ todoLayers = [] }: { todoLayers?: TodoLayer[] }) {
       {GROUPS.map((group) => (
         <Fragment key={group.title}>
           <span className="group">{group.title}</span>
-          {group.entries.map((entry) => {
+          {group.entries.map((e) => (!isTree(e) && e.match === '/content/lineup' ? lineupTree : e)).map((entry) => {
             if (isTree(entry)) {
               return (
                 <SectionTree

@@ -228,3 +228,15 @@ export function loadLineupView(): LineupView {
   }
   return { channels: config.channels, rows, unclassified, configErrors, sourceErrors, totals };
 }
+
+/** サイドバー「商品ラインナップ」の下に並べる資格（ラインナップ設定の順）。設定が読めなければ空。 */
+export function lineupQualifications(): { id: string; label: string }[] {
+  try {
+    const config = JSON.parse(readFileSync(repoPath('.claude', 'config', 'product-lineup.json'), 'utf8')) as {
+      qualifications: { id: string; label: string }[];
+    };
+    return config.qualifications.map((q) => ({ id: q.id, label: q.label }));
+  } catch {
+    return [];
+  }
+}
