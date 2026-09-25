@@ -48,6 +48,8 @@ export interface QualificationView {
   /** 状態の補足（まとめた行で一部だけ展開中など） */
   portfolioNote: string | null;
   lines: StageLine[];
+  /** 並べ替え用の受験者数（区分が複数あれば最も多い区分。同じ人の二重計上を避けるため合計しない） */
+  examineesMax: number | null;
 }
 
 export interface QualificationsView {
@@ -120,14 +122,20 @@ export function loadQualificationsView(): QualificationsView {
   const errors = validateQualificationRegistry({ registry, calendar, examStats, lineupConfig }) as string[];
   const today = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Asia/Tokyo' }).format(new Date());
 
-  const view = (q: RegistryEntry, latest: Latest | null): QualificationView => ({
-    id: q.id,
-    label: q.label,
-    family: q.family,
-    portfolio: q.portfolio,
-    portfolioNote: null,
-    lines: stageLines(calendar.exams[q.id], latest, today),
-  });
+  const view = (q: RegistryEntry, latest: Latest | null): QualificationView => {
+    const counts = (latest?.stages ? Object.values(latest.stages) : latest ? [latest] : [])
+      .map((r) => r.examinees)
+      .filter((n): n is number => typeof n === 'number');
+    return {
+      id: q.id,
+      label: q.label,
+      family: q.family,
+      portfolio: q.portfolio,
+      portfolioNote: null,
+      lines: stageLines(calendar.exams[q.id], latest, today),
+      examineesMax: counts.length ? Math.max(...counts) : null,
+    };
+  };
 
   const rows: QualificationView[] = [];
   const divisions = registry.qualifications.filter(isPeDivision);

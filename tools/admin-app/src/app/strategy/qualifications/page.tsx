@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import Link from 'next/link';
 import { PageHead } from '@/components/ui';
 import { Badge } from '@/components/primitives';
 import { loadQualificationsView, type QualificationView } from '@/lib/qualifications';
@@ -20,9 +20,32 @@ function fmtDate(date: string): string {
  * （月次レビュー）が持つので、この画面には出さない。正本の不整合があるときだけ警告を出す。
  * 区分（一次・二次など）ごとに試験日・合格発表・受験者数・合格率を横に揃え、過ぎた日付は薄く出す。
  */
-export default async function QualificationsPage() {
+type SortKey = 'registry' | 'name' | 'examinees';
+
+export default async function QualificationsPage({ searchParams }: { searchParams: Promise<{ sort?: string; dir?: string }> }) {
+  const { sort: sortParam, dir: dirParam } = await searchParams;
   const view = loadQualificationsView();
-  const families = Object.entries(view.families).filter(([id]) => view.rows.some((r) => r.family === id));
+  const sort: SortKey = sortParam === 'name' || sortParam === 'examinees' ? sortParam : 'registry';
+  const dir = dirParam === 'asc' || dirParam === 'desc' ? dirParam : sort === 'examinees' ? 'desc' : 'asc';
+  const sign = dir === 'asc' ? 1 : -1;
+  const rows = [...view.rows];
+  if (sort === 'name') rows.sort((a, b) => sign * a.label.localeCompare(b.label, 'ja'));
+  // 受験者数が無い資格は向きに関係なく末尾
+  if (sort === 'examinees') rows.sort((a, b) => (a.examineesMax == null ? 1 : b.examineesMax == null ? -1 : sign * (a.examineesMax - b.examineesMax)));
+
+  /** 列見出しのリンク。同じ列をもう一度押すと向きが反転する。 */
+  const SortHead = ({ k, children, className }: { k: SortKey; children: React.ReactNode; className?: string }) => {
+    const active = sort === k;
+    const next = active ? (dir === 'asc' ? 'desc' : 'asc') : k === 'examinees' ? 'desc' : 'asc';
+    return (
+      <th className={className}>
+        <Link href={`/strategy/qualifications?sort=${k}&dir=${next}`}>
+          {children}
+          {active ? (dir === 'asc' ? ' ▲' : ' ▼') : ''}
+        </Link>
+      </th>
+    );
+  };
 
   return (
     <>
@@ -40,26 +63,17 @@ export default async function QualificationsPage() {
           <table className="data">
             <thead>
               <tr>
-                <th>資格</th>
+                <SortHead k="name">資格</SortHead>
                 <th>状態</th>
                 <th>試験日</th>
                 <th>合格発表</th>
-                <th className="num">受験者数</th>
+                <SortHead k="examinees" className="num">受験者数</SortHead>
                 <th className="num">合格率</th>
               </tr>
             </thead>
             <tbody>
-              {families.map(([id, label]) => (
-                <Fragment key={id}>
-                  <tr>
-                    <th colSpan={6} className="small muted" style={{ paddingTop: 14 }}>{label}</th>
-                  </tr>
-                  {view.rows
-                    .filter((r) => r.family === id)
-                    .map((r) => (
-                      <Row key={r.id} row={r} />
-                    ))}
-                </Fragment>
+              {rows.map((r) => (
+                <Row key={r.id} row={r} />
               ))}
             </tbody>
           </table>
