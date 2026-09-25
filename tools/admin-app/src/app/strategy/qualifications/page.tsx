@@ -7,11 +7,9 @@ export const dynamic = 'force-dynamic';
 
 const PORTFOLIO_LABEL: Record<string, string> = { active: '展開中', candidate: '候補', declined: '見送り' };
 const PORTFOLIO_VARIANT: Record<string, 'success' | 'outline' | 'secondary'> = { active: 'success', candidate: 'outline', declined: 'secondary' };
-const WEEKDAYS = ['日', '月', '火', '水', '木', '金', '土'];
-
 function fmtDate(date: string): string {
-  const [y, m, d] = date.split('-').map(Number) as [number, number, number];
-  return `${y}/${m}/${d}（${WEEKDAYS[new Date(Date.UTC(y, m - 1, d)).getUTCDay()]}）`;
+  const [, m, d] = date.split('-').map(Number) as [number, number, number];
+  return `${m}/${d}`;
 }
 
 /**
