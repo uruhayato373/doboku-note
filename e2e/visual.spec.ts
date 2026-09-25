@@ -47,7 +47,9 @@ for (const colorScheme of ['light', 'dark'] as const) {
         }
 
         const slug = route.replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '') || 'home';
-        await expect(page).toHaveScreenshot(`${colorScheme}-${slug}.png`, { fullPage: true });
+        // 既定の expect.timeout（10s）だと、基準画像が無い1回目のキャプチャ（安定待ちを含む）が
+        // 長い記事（/standards/kinki/... 等）で CI 上超過する（実機確認・2026-09-25）。
+        await expect(page).toHaveScreenshot(`${colorScheme}-${slug}.png`, { fullPage: true, timeout: 30_000 });
       });
     }
   });
