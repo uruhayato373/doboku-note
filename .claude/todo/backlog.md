@@ -439,13 +439,6 @@ Mac で行う（各 1 回・順に）: (1) `git pull` で Windows 対応・設�
 
 **完了条件**: Mac で `npm run check-disk-hygiene` が FAIL 0、`claude mcp list` に github/filesystem が無い、memory リンクが symlink で `MEMORY.md` の行数が repo と一致、`npm run check-codex-compat` 緑。
 
-### [DN-0227] YouTube 公開照合の `recorded_but_gone` 6 件を切り分け、台帳を実体に合わせる
-タグ: [SNS・マーケ] [種類:不具合] [起票:2026-09-14]
-
-`verify-yt-status`（CI 週次）が 08-28 以降ずっと同じ 6 件を「記録はあるがライブから消えた」と返している: r03-pack-01-q1（pJE0G113lWE）・r03-pack-03-q1（v78PwwNo_fQ）・q2（l-aSQXfwOq8）・q3（AxGWdocgSZ0）・q4（GZzG6IqyXyI）・r03-pack-04-q1（V9iQe4iQcI0）。09-09〜10 に旧動画の削除・置換フェーズを整備しているので、置換で削除された旧 ID なのか、記録側の誤りなのかを YouTube Studio か Data API で確認し、置換後 ID への更新か削除記録のどちらかを台帳へ書く。
-
-**完了条件**: `.claude/state/yt-verify/latest.json` の `recorded_but_gone` が 0 で、6 件それぞれの処置（置換 ID／削除日）が台帳に残っていること。認証が要るので Mac か CI（verify-yt-status.yml）で行う。
-
 ### [DN-0228] PSI の field(CrUX) が全 URL で null の期間を「判定不能」として機械で示し、判定規則を固定する
 タグ: [インフラ・計測] [種類:改善] [Codex候補] [起票:2026-09-14]
 
