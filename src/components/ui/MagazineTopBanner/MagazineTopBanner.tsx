@@ -59,7 +59,7 @@ export default function MagazineTopBanner({
       <div className="flex min-w-0 flex-1 items-center gap-3 px-4 py-3">
         <div className="min-w-0 flex-1">
           <div className="mb-1 flex flex-wrap items-center gap-1.5">
-            <span className="rounded-card-inline bg-brand px-1.5 py-0.5 text-[10px] font-medium text-white">
+            <span className="rounded-card-inline bg-brand dark:bg-brand-fill px-1.5 py-0.5 text-[10px] font-medium text-white">
               {badge}
             </span>
             <span className="text-[10px] font-bold tracking-wide text-ink-muted">{brand.label}</span>

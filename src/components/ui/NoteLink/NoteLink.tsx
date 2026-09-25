@@ -72,7 +72,7 @@ export default function NoteLink({
             sizes="(max-width: 640px) 100vw, 240px"
           />
           <div
-            className="absolute left-1.5 top-1.5 rounded-card-inline bg-brand px-1.5 py-0.5 text-[10px] font-medium text-white shadow-sm"
+            className="absolute left-1.5 top-1.5 rounded-card-inline bg-brand dark:bg-brand-fill px-1.5 py-0.5 text-[10px] font-medium text-white shadow-sm"
           >
             {isProduct ? "note 有料教材" : "note 解説記事"}
           </div>

@@ -375,19 +375,6 @@ CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認し
 
 **完了条件**: 保留していた 12 本すべての live eyecatch が V5 になり、記録 JSON の held が 0。
 
-### [DN-0251] dark モードの色コントラスト不足 29 箇所を直し、a11y ベースラインをゼロへ締める
-タグ: [コンテンツ品質] [種類:不具合] [検証:test:e2e:a11y] [起票:2026-09-17]
-
-**起点**: axe（WCAG 2.1 AA）を代表 8 ページ×light/dark で回したところ、色コントラスト（serious）が 29 ノード。critical（検索の消去ボタンに名前なし）と scrollable-region-focusable は同 PR で修正済み。コントラストは `e2e/a11y-baseline.json` にラチェットとして固定し、悪化だけ止めている。
-
-**実測**（`.tmp/axe-contrast.mjs`・本番）:
-- dark: `bg-brand` + `text-white`（brand が dark で `#93b8e0` に反転）= 2.06 — 「note 限定」バッジ・note CTA アンカー（r06 ×12・alarp ×3）
-- dark: バッジ `text-white` on `#80858f` = 3.7 — KW 記事右上の管理分類バッジ・textbook の章バッジ（×4）
-- dark: `--color-positive` 系 `#86efac` + `text-white` = 1.4 — keiken-charcount の判定ピル
-- light/dark 共通: `--hero-cta-button #12886f` on white = 4.39（要 4.5）— secondary/r06 の CTA ×6
-- light/dark 共通: `--ink-muted #697080` on `#edf3fa` = 4.44 / dark `#80858f` on `#1d2836` = 4.02 — 章番号・ラベル小文字
-
-**やること**: dark で `text-white` を使うバッジ／CTA は `dark:text-[var(--ink-strong)]` か背景を濃色トークンにする（design-system.md の色選定・page-design-builder → /design-review）。`--hero-cta-button` と `--ink-muted` は数値を 1〜2 段だけ濃くして 4.5 を満たす。直したら `npm run test:e2e:a11y:baseline` で減った件数を commit（増やす更新はしない）。
 
 **完了条件**: `e2e/a11y-baseline.json` の全キーが `{}`（serious 0）で `npm run test:e2e:a11y` が緑。
 
