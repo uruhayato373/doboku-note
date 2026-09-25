@@ -12,12 +12,17 @@ const expected = {
   "civil-construction-1": {
     first: "2026-07-05",
     second: "2026-10-04",
+    firstResult: "2026-08-13",
+    secondResult: "2027-01-08",
     source: "https://www.jctc.jp/exam/doboku-1/",
   },
   "civil-construction-2": {
     firstEarly: "2026-06-07",
     firstLate: "2026-10-25",
     second: "2026-10-25",
+    firstEarlyResult: "2026-07-07",
+    firstLateResult: "2026-12-02",
+    secondResult: "2027-02-03",
     source: "https://www.jctc.jp/exam/doboku-2/",
   },
   "pe-comprehensive-management": {
@@ -87,6 +92,20 @@ for (const [examId, contract] of Object.entries(expected)) {
     }
   }
   inspected.push({ examId, label: exam.label ?? examId, n });
+}
+// periods（日付未発表の期間）は label と window の文言が必須。同じ id が events（確定日）にも
+// あると「発表済みなのに期間のまま」の二重管理になるので落とす（発表されたら events へ移して消す）。
+let periodCount = 0;
+for (const [examId, exam] of Object.entries(calendar.exams ?? {})) {
+  for (const [periodId, period] of Object.entries(exam.periods ?? {})) {
+    periodCount++;
+    if (typeof period?.label !== "string" || typeof period?.window !== "string" || !period.window) {
+      errors.push(`${examId}.periods.${periodId} は label と window（公式の期間の文言）が必要です`);
+    }
+    if (exam.events?.[periodId]) {
+      errors.push(`${examId}.periods.${periodId} は events にも存在します（日付が発表されたら periods から消す）`);
+    }
+  }
 }
 // SSOT にあるのに contract が無い資格は「検査していない」＝素通りするので明示的に落とす
 for (const examId of Object.keys(calendar.exams ?? {})) {
@@ -173,7 +192,7 @@ if (errors.length) {
 const totalEvents = inspected.reduce((a, x) => a + x.n, 0);
 console.log(
   `[check-exam-calendar] OK: ${calendar.verifiedAt}確認済み — ` +
-    `資格 ${inspected.length} 件 / 日付 ${totalEvents} 件を実照合、` +
+    `資格 ${inspected.length} 件 / 日付 ${totalEvents} 件を実照合・未発表の期間 ${periodCount} 件を検査、` +
     `${scannedFiles} ファイルを走査（禁止パターン ${FORBIDDEN.length} 種）`,
 );
 for (const x of inspected) console.log(`  ${x.label}: ${x.n} 件`);

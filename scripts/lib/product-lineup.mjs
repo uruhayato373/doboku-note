@@ -23,12 +23,14 @@ export function cellKeys(config) {
 }
 
 /**
- * config の自己整合を検査する。calendar（exam-calendar.json）を渡すと試験日の参照も検査する。
+ * config の自己整合を検査する。calendar（exam-calendar.json）・examStats（exam-stats.json）を
+ * 渡すと、それぞれへの参照が実在するかも検査する。
  * @param {any} config
  * @param {any} [calendar]
+ * @param {any} [examStats]
  * @returns {string[]} 違反メッセージ（空なら整合）
  */
-export function validateLineupConfig(config, calendar = null) {
+export function validateLineupConfig(config, calendar = null, examStats = null) {
   const errors = [];
   const keys = cellKeys(config);
   const known = new Set(keys);
@@ -65,6 +67,15 @@ export function validateLineupConfig(config, calendar = null) {
         for (const pd of st.periods ?? []) {
           if (!exam.periods?.[pd]) errors.push(`${q.id}:${st.id}: exam-calendar の ${q.calendarId}.periods に ${pd} が無い`);
         }
+        if (examStats) {
+          const stats = examStats.exams?.[q.statsId ?? q.calendarId];
+          if (!stats) errors.push(`${q.id}: exam-stats に ${q.statsId ?? q.calendarId} が無い`);
+          for (const ref of st.stats ?? []) {
+            if (ref !== 'latest' && stats?.latest && !stats.latest.stages?.[ref]) {
+              errors.push(`${q.id}:${st.id}: exam-stats の latest.stages に ${ref} が無い`);
+            }
+          }
+        }
       }
     }
   }
@@ -95,6 +106,30 @@ export function stageSchedule(calendar, qualification, stage, today) {
 }
 
 /**
+ * 区分の受験者統計を exam-stats.json（受験者数の SSOT）から引く。
+ * stage.stats は参照の配列: 'latest' = exams[statsId].latest 本体、それ以外 = latest.stages のキー。
+ * latest が null（公式未確認）の資格は unverified として note を返す（数値を埋めない）。
+ * 人数が公式未掲載で合格率だけある場合は examinees: null のまま合格率を返す。
+ * @returns {Array<{ label: string, year: string | null, examinees: number | null, passRate: number | null, unverified: boolean, note: string | null }>}
+ */
+export function stageStats(examStats, qualification, stage) {
+  const exam = examStats?.exams?.[qualification.statsId ?? qualification.calendarId];
+  return (stage.stats ?? []).map((ref) => {
+    const latest = exam?.latest;
+    if (!latest) return { label: stage.label, year: null, examinees: null, passRate: null, unverified: true, note: exam?.note ?? null };
+    const row = ref === 'latest' ? latest : latest.stages?.[ref];
+    return {
+      label: row?.label ?? stage.label,
+      year: latest.year ?? null,
+      examinees: row?.examinees ?? null,
+      passRate: row?.passRate ?? null,
+      unverified: row?.examinees == null && row?.passRate == null,
+      note: ref === 'latest' && latest.stage ? ({ written: '筆記段階', final: '最終合格' })[latest.stage] ?? null : null,
+    };
+  });
+}
+
+/**
  * 商品 id をマスへ写す。最初に一致したルールの cells を返し、一致しなければ null。
  * @returns {string[] | null}
  */
@@ -108,16 +143,17 @@ export function classifyProduct(rules, id) {
 /**
  * 正規化済み item 群をマトリクスへ組み立てる。
  * item: { channel, id, title, cells?, ... }。cells を持つ item（apps）はルールを通さない。
- * calendar と today（JST の 'YYYY-MM-DD'）を渡すと各行に試験日程（schedule）を付ける。
+ * calendar と today（JST の 'YYYY-MM-DD'）を渡すと各行に試験日程（schedule）、examStats を渡すと受験者統計（stats）を付ける。
  * @param {any} config
  * @param {any[]} items
- * @param {{ calendar?: any, today?: string | null }} [options]
+ * @param {{ calendar?: any, examStats?: any, today?: string | null }} [options]
  * @returns {{ rows: Array<{ schedule, key, qualificationId, qualificationLabel, stageId, stageLabel, isFirstStage, stageCount, byChannel: Record<string, object[]> }>, unclassified: object[] }}
  */
-export function buildLineup(config, items, { calendar = null, today = null } = {}) {
+export function buildLineup(config, items, { calendar = null, examStats = null, today = null } = {}) {
   const rows = config.qualifications.flatMap((q) =>
     q.stages.map((s, i) => ({
       schedule: calendar && today ? stageSchedule(calendar, q, s, today) : null,
+      stats: examStats ? stageStats(examStats, q, s) : [],
       key: `${q.id}:${s.id}`,
       qualificationId: q.id,
       qualificationLabel: q.label,

@@ -98,9 +98,33 @@
     "pe-first-stage": {
       "label": "技術士第一次試験",
       "issuer": "日本技術士会（IPEJ）",
-      "source": "https://www.engineer.or.jp/c_topics/010/010868.html",
-      "latest": null,
-      "note": "未確認。競合調査に『一次を含め年間3万人規模』の記述があるのみで、一次試験単独の受験者数・合格率を一次情報で確認していない。引用する前に公式統計で確認して埋めること（推測で埋めない）。"
+      "source": "https://www.mext.go.jp/content/20260526-mxt_kiban02-000050209_01.pdf",
+      "latest": {
+        "year": "R7",
+        "fiscalYear": 2025,
+        "applicants": 22756,
+        "examinees": 17013,
+        "passers": 5754,
+        "passRate": 33.8,
+        "divisions": {
+          "建設": { "applicants": 11966, "examinees": 8905, "passers": 2950, "passRate": 33.1 }
+        }
+      },
+      "history": [
+        {
+          "year": "R6",
+          "fiscalYear": 2024,
+          "applicants": 22579,
+          "examinees": 16666,
+          "passers": 6233,
+          "passRate": 37.4,
+          "divisions": {
+            "建設": { "applicants": 11734, "examinees": 8681, "passers": 3111, "passRate": 35.8 }
+          },
+          "source": "https://www.mext.go.jp/content/20250616-mxt_kiban02-000042875_04.pdf"
+        }
+      ],
+      "note": "文部科学省 技術士分科会試験部会の合格決定資料（R7: 2026-05-26 公表 PDF、R6: 2025-06-16 公表 PDF）で 2026-09-26 に照合。passRate は対受験者。受験者の過半は建設部門。"
     },
     "concrete-engineer": {
       "label": "コンクリート技士",
@@ -151,14 +175,20 @@
       "label": "RCCM資格試験",
       "issuer": "一般社団法人 建設コンサルタンツ協会（JCCA）RCCM資格制度事務局",
       "source": "https://www.rccm-cpd.com/rccm/rccmtop.html",
-      "latest": null,
+      "latest": {
+        "year": "R7",
+        "fiscalYear": 2025,
+        "examinees": null,
+        "passers": null,
+        "passRate": 34.4,
+        "source": "https://www.jcca-si.jp/rccmresults/2025/results/2025/goukaku_cbt.html"
+      },
       "history": {
         "2021": { "examinees": 5723, "passers": 2698, "passRate": 47.1 },
         "2022": { "examinees": 5451, "passers": 2626, "passRate": 48.2 },
-        "2023": { "examinees": 5515, "passers": 2253, "passRate": 40.9 },
-        "2025": { "examinees": null, "passers": null, "passRate": 34.4 }
+        "2023": { "examinees": 5515, "passers": 2253, "passRate": 40.9 }
       },
-      "note": "latest は公式一次情報（協会の年次報告 PDF）で未照合のため null。history は 2026-09-15 に二次情報（ジョブハウス建設コラム＝協会 PDF 引用・河野測量設計 令和7年度合格率）から転記した暫定値で、記事へ引用する前に協会の年次報告で照合する。合格率は年により 34〜48% と幅がある。"
+      "note": "R7 は公式合格発表ページの合格率 34.4% のみ公式確認済み（2026-09-26）。受験者数・合格者数は公式未掲載のため null（埋めない）。history の 2021〜2023 は 2026-09-15 に二次情報（ジョブハウス建設コラム＝協会 PDF 引用）から転記した暫定値で、記事へ引用する前に協会の年次報告で照合する。合格率は年により 34〜48% と幅がある。"
     }
   },
   "peSecondaryDivisions": {

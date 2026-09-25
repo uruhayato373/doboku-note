@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { PageHead, Kpi } from '@/components/ui';
 import { Badge } from '@/components/primitives';
-import { loadLineupView, type LineupItem, type LineupRow, type LineupSchedule } from '@/lib/lineup';
+import { loadLineupView, type LineupItem, type LineupRow, type LineupSchedule, type LineupStat } from '@/lib/lineup';
 
 export const dynamic = 'force-dynamic';
 
@@ -77,7 +77,7 @@ export default async function LineupPage({ searchParams }: { searchParams: Promi
           </span>
         </h2>
         <p className="small muted">
-          区分の日程は .claude/config/exam-calendar.json の今年度の試験日（残り日数は JST）と、日付未発表の期間。状態バッジが無い商品は販売中。「未展開」は販売中の商品が 0 件のマス。複数区分にまたがる商品（会員・診断など）は各マスに重複して表示する。
+          区分の日程は .claude/config/exam-calendar.json（残り日数は JST）、受験者数は .claude/config/exam-stats.json の最新年度。状態バッジが無い商品は販売中。「未展開」は販売中の商品が 0 件のマス。複数区分にまたがる商品（会員・診断など）は各マスに重複して表示する。
         </p>
         <div className="table-wrap">
           <table className="data">
@@ -137,6 +137,7 @@ function LineupRowView({
       <td style={{ whiteSpace: 'nowrap' }}>
         <div>{row.stageLabel}</div>
         <StageSchedule schedule={row.schedule} />
+        <StageStats stats={row.stats} />
       </td>
       {channels.map((c) => {
         const items = visible(row.byChannel[c.id] ?? []);
@@ -199,6 +200,30 @@ function StageSchedule({ schedule }: { schedule: LineupSchedule | null }) {
           {p.label} {p.window}
         </div>
       ))}
+    </div>
+  );
+}
+
+/** 区分の受験者数（exam-stats.json の最新年度）。公式未確認は数値を出さず「未確認」。 */
+function StageStats({ stats }: { stats: LineupStat[] }) {
+  if (stats.length === 0) return null;
+  const many = stats.length > 1;
+  return (
+    <div className="small muted" style={{ marginTop: 4, lineHeight: 1.45 }}>
+      {stats.map((s) =>
+        s.unverified ? (
+          <div key={s.label} title={s.note ?? undefined}>
+            受験者数 <span className="project-warning-text">未確認</span>
+          </div>
+        ) : (
+          <div key={s.label}>
+            {many ? `${s.label} ` : ''}
+            {s.year} {s.examinees != null ? `受験者 ${s.examinees.toLocaleString('ja-JP')}人` : '受験者数 公式未掲載'}
+            {s.passRate != null ? `・合格率 ${s.passRate}%` : ''}
+            {s.note ? `（${s.note}）` : ''}
+          </div>
+        ),
+      )}
     </div>
   );
 }

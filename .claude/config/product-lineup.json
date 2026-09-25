@@ -1,7 +1,7 @@
 {
   "_doc": "商品ラインナップ表（admin /content/lineup）の分類 SSOT。各チャネルの商品台帳（note-magazines.ts / coconala-services.ts / kindle-published/catalog.json / brain-products.ts）は書き換えず、商品 id を「資格 × 試験区分」のマスへ写すルールだけをここに置く。ルールは上から順に評価し最初の一致を採る。どのルールにも当たらない商品は画面で「未分類」として赤表示する（黙って落とさない）。判定は scripts/lib/product-lineup.mjs が唯一の実装。",
   "_apps": "apps は他に台帳を持たないアプリ・PWA（公開済み・計画中・構想）の手動台帳。status は planned / draft / review / published / retired（content-lifecycle.mjs の STAGES）。構想段階の iOS アプリも planned で載せ、備考に判断の状態を書く。",
-  "_calendar": "区分の日程は .claude/config/exam-calendar.json（試験日の SSOT）から引く。calendarId = exam-calendar の exams キー、stage.events = 確定日の events id、stage.periods = 日付未発表の periods id。ここに日付や期間の文言を書かない。",
+  "_calendar": "区分の日程は .claude/config/exam-calendar.json（試験日の SSOT）から引く。calendarId = exam-calendar の exams キー、stage.events = 確定日の events id、stage.periods = 日付未発表の periods id。ここに日付や期間の文言を書かない。 受験者数は .claude/config/exam-stats.json（受験者数の SSOT）から引く。statsId 省略時は calendarId、stage.stats = 'latest'（latest 本体）か latest.stages のキー。数値をここに書かない。",
   "qualifications": [
     {
       "id": "civil-construction-1",
@@ -12,6 +12,10 @@
           "id": "first",
           "label": "第一次検定",
           "events": [
+            "first",
+            "firstResult"
+          ],
+          "stats": [
             "first"
           ]
         },
@@ -19,6 +23,10 @@
           "id": "second",
           "label": "第二次検定",
           "events": [
+            "second",
+            "secondResult"
+          ],
+          "stats": [
             "second"
           ]
         }
@@ -34,6 +42,12 @@
           "label": "第一次検定",
           "events": [
             "firstEarly",
+            "firstEarlyResult",
+            "firstLate",
+            "firstLateResult"
+          ],
+          "stats": [
+            "firstEarly",
             "firstLate"
           ]
         },
@@ -41,6 +55,10 @@
           "id": "second",
           "label": "第二次検定",
           "events": [
+            "second",
+            "secondResult"
+          ],
+          "stats": [
             "second"
           ]
         }
@@ -56,6 +74,12 @@
           "label": "第一次試験",
           "events": [
             "exam"
+          ],
+          "periods": [
+            "result"
+          ],
+          "stats": [
+            "latest"
           ]
         }
       ]
@@ -70,15 +94,22 @@
           "label": "第二次 筆記",
           "events": [
             "written"
+          ],
+          "periods": [
+            "writtenResult"
+          ],
+          "stats": [
+            "latest"
           ]
         },
         {
           "id": "oral",
           "label": "第二次 口頭",
           "periods": [
-            "writtenResult",
-            "oral"
-          ]
+            "oral",
+            "finalResult"
+          ],
+          "stats": []
         }
       ]
     },
@@ -93,15 +124,22 @@
           "events": [
             "written",
             "writtenSelective"
+          ],
+          "periods": [
+            "writtenResult"
+          ],
+          "stats": [
+            "latest"
           ]
         },
         {
           "id": "oral",
           "label": "第二次 口頭",
           "periods": [
-            "writtenResult",
-            "oral"
-          ]
+            "oral",
+            "finalResult"
+          ],
+          "stats": []
         }
       ]
     },
@@ -115,7 +153,11 @@
           "label": "筆記",
           "events": [
             "cbtStart",
-            "cbtEnd"
+            "cbtEnd",
+            "result"
+          ],
+          "stats": [
+            "latest"
           ]
         }
       ]
@@ -129,7 +171,11 @@
           "id": "written",
           "label": "筆記",
           "events": [
-            "exam"
+            "exam",
+            "result"
+          ],
+          "stats": [
+            "latest"
           ]
         }
       ]
@@ -143,7 +189,11 @@
           "id": "written",
           "label": "筆記",
           "events": [
-            "exam"
+            "exam",
+            "result"
+          ],
+          "stats": [
+            "latest"
           ]
         }
       ]
@@ -158,6 +208,12 @@
           "label": "筆記",
           "events": [
             "exam"
+          ],
+          "periods": [
+            "result"
+          ],
+          "stats": [
+            "latest"
           ]
         }
       ]
