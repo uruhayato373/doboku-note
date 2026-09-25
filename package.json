@@ -444,6 +444,7 @@
     "x-schedule-view": "node scripts/x-schedule-view.mjs",
     "x-sync-status": "node scripts/x-sync-status.mjs",
     "check-x-queue-health": "node scripts/check-x-queue-health.mjs",
+    "check-x-posted-live": "node scripts/check-x-posted-live.mjs",
     "x-thread-replies": "node scripts/x-thread-replies.mjs",
     "x-publish-scheduled": "node scripts/x-publish-scheduled.mjs",
     "note-reanchor-boundary": "node scripts/note-reanchor-boundary.mjs",

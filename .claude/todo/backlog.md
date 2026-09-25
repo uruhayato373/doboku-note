@@ -601,14 +601,15 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 
 ## 🟢 低 — 時期未定
 
-### [DN-0276] X の投稿済みを毎週 CI で確かめる（投稿時に URL を記録し、ログイン不要の oEmbed で照合する）
+### [DN-0276] 次の実投稿で publish-x.ts が posted_url を書くか確認する
 タグ: [SNS・マーケ] [種類:改善] [起票:2026-09-23]
 
-**起点**: 2026-09-23 に note・SNS の品質を週次の CI で見る仕組みを整えた（PR #589）。X は文字数（未投稿分）を CI ゲートにしたが、**投稿済みがライブに存在するか・本文やリンクが原稿どおりか**は見ていない。`content/sns/x/draft/*/status.json` の投稿済み 170 件のうち、投稿の URL（ID）が記録されているのは 19 件だけで、照合の手がかりが無い。ログイン不要の公開 API `https://publish.twitter.com/oembed?url=<投稿URL>` は、存在する投稿なら 200 と本文入りの JSON、存在しなければ 404 を返すことを確かめた（リダイレクト追従が要る）。Instagram は、CI からのログインが 1 回でセッション切れになり、Graph API 版は Meta の利用制限で待機中なので、今回は対象外（YouTube は既存の週次 `verify-yt-status` がある）。
+**やった**: (2)(3) は実装・実データ検証済み。`scripts/check-x-posted-live.mjs`（+ `scripts/lib/x-posted-live.mjs`・test 5件）が `content/sns/x/{draft,published}/*/status.json` の `status:"posted"` を集め、`posted_url` を持つものだけ `https://publish.twitter.com/oembed?url=...`（ログイン不要）で照合する。既存 8 件（旧「19件」から実減）で実行し、live 8 / gone 0 / 取得失敗 0 を確認した。`posted_url` の無い投稿済み（162件）と本文にサイトリンクが無いもの（121件・意図的な linkless 施策を含むため gate しない）は件数のみ報告する。週次 `link-audit.yml`（金曜）に組み込み済み（PR は本カードのブランチで作成）。
+(1) `publish-x.ts` に `findLatestPostedUrl()` を追加し、即時投稿の直後に自分のプロフィールから本文一致で `/status/<ID>` を読み、`status.json` の `posted_url`（既存8件と同じキー名）へ書くようにした。取れなくても投稿は失敗にしない。
 
-**やること**: (1) `.claude/skills/social/publish-x/publish-x.ts`（CI の `scheduled-publish.yml` から 1 日数回動く）で、投稿直後に自分のプロフィールの最新の投稿から `/status/<ID>` を読み、本文の先頭が一致したときだけ `status.json` の該当投稿に `url` を書く。取れなくても投稿は失敗にしない（`url: null` と警告）。(2) 週次の CI で、`url` を持つ投稿済みを oEmbed で照合する検査を足す。404 は削除（凍結・手動削除の疑い）、本文にサイトへのリンクが無いのは UTM 落ちとして報告し、`url` の無い投稿済みの件数も出す（検査ゼロを PASS にしない）。(3) 既存の 19 件で先に (2) を動かして判定を確かめる。
+**残り**: (1) は次に実際に X へ即時投稿したときにだけ検証できる（ドライランでは compose 画面を閉じる前に return するため、この経路を通らない）。次の投稿後に対象記事の `status.json` に `posted_url` が入っているか確認し、入っていれば削除する。
 
-**完了条件**: 新しく投稿した X に `url` が記録され、週次の CI が oEmbed で投稿済みを照合して、対象件数・照合件数・異常件数を出す。
+**完了条件**: 次の実投稿で `status.json` に `posted_url` が記録されたら、このカードを削除する。
 
 ### [DN-0271] 総監 設問3国家施策バンクの序章（¥100・有料境界が末尾）の冒頭に「この記事でわかること」を反映する
 タグ: [収益化] [種類:改善] [起票:2026-09-23]

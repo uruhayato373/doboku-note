@@ -179,6 +179,7 @@ interface TweetStatus {
   scheduled_at?: string | null;
   posted_at?: string | null;
   text?: string; // x-schedule-guard の near-dup 判定用（ビルダー生成分に存在）
+  posted_url?: string | null; // 投稿済みの実 URL（DN-0276・週次 CI の oEmbed 照合に使う。取れなければ null）
   thread?: {
     parts: string[];               // ヘッドにぶら下げるリプライ本文（順番どおり）
     replies_posted_at: string | null; // null = 未投稿（x-thread-replies.mjs の対象）
@@ -194,7 +195,8 @@ function updateStatus(
   draftDir: string,
   tweets: TweetBlock[],
   tweetNum: number,
-  scheduledDate: Date | null
+  scheduledDate: Date | null,
+  postedUrl?: string | null
 ): void {
   const statusPath = path.join(draftDir, "status.json");
 
@@ -222,7 +224,13 @@ function updateStatus(
       ...data.tweets[key], status: "scheduled", scheduled_at: scheduledJst, posted_at: null, text: tb?.text,
     };
   } else {
-    data.tweets[key] = { ...data.tweets[key], status: "posted", posted_at: nowJst, text: tb?.text };
+    data.tweets[key] = {
+      ...data.tweets[key],
+      status: "posted",
+      posted_at: nowJst,
+      text: tb?.text,
+      posted_url: postedUrl ?? null,
+    };
   }
 
   // スレッド記録: 予約＝リプライ未投稿（x-thread-replies.mjs が拾う）/ 即時＝一括投稿済み
@@ -337,6 +345,32 @@ async function ensureLogin(page: Page): Promise<void> {
     );
   }
   console.log(`✅ アカウント照合OK: @${EXPECTED_HANDLE}`);
+}
+
+// 投稿直後、自分のプロフィールの最新投稿から /status/<ID> を読む（DN-0276）。
+// 本文の先頭が一致したときだけ URL を返す（別ツイート・広告等の誤取得を避ける）。
+// 取れなくても投稿自体は失敗にしない（呼び出し側で null を status.json に書く）。
+async function findLatestPostedUrl(page: Page, tweetText: string): Promise<string | null> {
+  try {
+    await page.goto(`https://x.com/${EXPECTED_HANDLE}`, { waitUntil: "domcontentloaded", timeout: 30000 });
+    await page.waitForTimeout(3000);
+    const prefix = tweetText.replace(/\s+/g, "").slice(0, 20);
+    if (!prefix) return null;
+    const href = await page.evaluate((needle: string) => {
+      const articles = Array.from(document.querySelectorAll("article"));
+      for (const art of articles) {
+        const text = (art.textContent || "").replace(/\s+/g, "");
+        if (!text.includes(needle)) continue;
+        const link = art.querySelector('a[href*="/status/"]') as HTMLAnchorElement | null;
+        if (link?.href) return link.href;
+      }
+      return null;
+    }, prefix);
+    return href || null;
+  } catch (e) {
+    console.log(`⚠️  投稿 URL の取得に失敗（投稿自体は成功扱い）: ${(e as Error).message}`);
+    return null;
+  }
 }
 
 // ─── 1ツイート投稿 ────────────────────────────────────
@@ -780,7 +814,17 @@ async function main() {
         break;
       }
       if (success && !IS_DRY_RUN) {
-        updateStatus(jobs[i].draftDir, jobs[i].allTweets, jobs[i].tweet.number, jobs[i].scheduledDate);
+        // 予約投稿はまだライブに無いので URL 取得は即時投稿のときだけ行う
+        const postedUrl = jobs[i].scheduledDate
+          ? null
+          : await findLatestPostedUrl(page, jobs[i].tweet.text);
+        updateStatus(
+          jobs[i].draftDir,
+          jobs[i].allTweets,
+          jobs[i].tweet.number,
+          jobs[i].scheduledDate,
+          postedUrl
+        );
       }
       if (i < jobs.length - 1) await page.waitForTimeout(2000);
     }
