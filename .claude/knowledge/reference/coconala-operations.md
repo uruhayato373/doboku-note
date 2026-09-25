@@ -284,7 +284,8 @@ DM 一覧 = `/message?fromMyPage=true`、行 = `a.c-messageItemWrap[href="/mypag
       │   S2 添削  → /keiken-tensaku            → 添削下書き.md（NG→OK 2点）
       │   S3 作成  → 宣誓/素材検査→/keiken-tensaku --mode sakusei → 答案ドラフト.md（事実確認チェックリスト）
       │   C系 PDF → ヒアリング不要・キット §4c「C系 PDF 送付」文＋該当PDF特定
-      ├ 納品文面ドラフト生成
+      ├ 納品文面ドラフト生成（S1/S2/S3 は 返信文.txt にまとめる）
+      ├ 返信文を civil-keiken-tensaku-qa（機械ゲート check-tensaku-reply を含む）で PASS まで検証（S1/S2/S3・FAIL のまま運営者へ渡さない）
       └ orders-log へ append（status: received・**talkroomId 必須**・replyDueAt を転記）
   → npm run check-coconala-orders（記録漏れ・金額ズレ・返信期限を機械で確認）
   → ★運営者: 最終赤入れ/事実確認（10〜30分・C系は送付のみ）→ トークルームへ送信

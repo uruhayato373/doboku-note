@@ -1,7 +1,8 @@
 ---
 name: keiken-tensaku
 description: >
-  1級・2級土木 施工経験記述の顧客対応ドラフトを生成する統括スキル。civil-keiken-tensaku-drafter を起動。
+  1級・2級土木 施工経験記述の顧客対応ドラフトを生成する統括スキル。civil-keiken-tensaku-drafter を起動し、
+  顧客への返信文は civil-keiken-tensaku-qa（＋check-tensaku-reply）で PASS するまで検証してから運営者へ渡す。
   3モード: ①**添削（既定・`--mode tensaku`）**＝顧客の提出原稿から添削下書き（字数判定＋6軸＋NG→OK＋採点者視点）。
   ②**作成（`--mode sakusei`・ココナラ S3）**＝下書き無しで作成用ヒアリングシートの回答から答案ドラフト
   （2テーマ×設問1/2）を構成。③**診断（`--mode shindan`・ココナラ S1）**＝下書き→A/B/C判定＋減点ワースト3＋字数

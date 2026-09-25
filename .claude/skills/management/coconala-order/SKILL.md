@@ -46,6 +46,7 @@ user-invocable: true
 3. 土木の `/keiken-tensaku` は使わない。`content/coconala/products/coconala-pe-oral-qa/運用テンプレ.md` §2 のヒアリングシートを送り、提出物（業務内容の詳細・業務経歴・部門）の欠落を検査。欠けていれば追加質問を出して停止 → 同 §3 の型で想定質問20問と回答の骨子を作る（各骨子に提出物の根拠を付け、根拠の無い骨子は確認事項へ回す＝創作しない）。
 
 **共通の後段**
+3b. **返信文の検証**（土木 S1/S2/S3）: トークルームに貼る文面を `返信文.txt` にまとめ、`civil-keiken-tensaku-qa`（機械ゲート `check-tensaku-reply` を含む）で PASS するまで直す。送信するのは PASS した文面だけ。
 4. **orders-log 追記**: `date` / `serviceId` / **`talkroomId`（必須）** / `priceYen`（カタログから）/ `grade`（C系は null 可）/ `status:'received'` / `replyDueAt`（snapshot から転記）/ `deliveredAt:null` / `artifacts:[]`。
 5. **突合**: `npm run check-coconala-orders` を実行し exit 0 を確認（記録漏れ・金額ズレ・返信期限を機械が見る）。
 6. **引き継ぎ提示**: 下記チェックリストを表示して終了。**返信期限（無連絡で自動キャンセル）を必ず明示する**。

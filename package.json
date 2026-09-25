@@ -87,6 +87,7 @@
     "check-coconala-live": "node scripts/check-coconala-live.mjs",
     "check-coconala-orders": "node scripts/check-coconala-orders.mjs",
     "check-coconala-wiring": "node scripts/check-coconala-wiring.mjs",
+    "check-tensaku-reply": "node scripts/check-tensaku-reply.mjs",
     "check-competitor-scan-due": "node scripts/check-competitor-scan-due.mjs",
     "check-dispatch-log": "node scripts/check-dispatch-log.mjs",
     "check-content-quality": "node .claude/scripts/lint-mdx-mobile.mjs --all --baseline --report",
