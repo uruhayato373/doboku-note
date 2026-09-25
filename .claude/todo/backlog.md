@@ -750,15 +750,6 @@ Drive台帳・vault・Drive APIの照合前にローカル実体を削除しな�
 
 **完了条件**: 結論と理由をレジストリの google 行（`ci.enabled` の方針）に書いたら、このカードを削除する。
 
-### [DN-0319] 残るカード系コンポーネント12個をカード primitive（`rounded-card-*` / `shadow-card-*`）へ揃える
-タグ: [コンテンツ品質] [種類:改善] [起票:2026-09-25]
-
-**起点**: 2026-07 の品質改善スプリント（`docs/operations/10_品質改善スプリント_Turbopack_KaTeX_UI.md`・削除済み、`git show 1afb73f97:<path>` で読める）で UI 監査 UI-005 のカード統一は検索・トップ最新記事・about・links・tools まで進み、次の12個が残候補だった。その後に揃えたかは未確認。
-- `CareerAffiliate` / `NoteLink` / `MagazineInlineCard` / `LinkCardClient` / `RelatedArticleCard` / `HubCtaBanner` / `LinksHubTile` / `MagazineTopBanner` / `SidebarAdBanner` / `AuthorProfile` / `PdcaCycle` / `PersonaSelector`
-
-**やること**: 12個の現状を `node scripts/lint-ui.mjs` と目視で確かめ、揃っていないものを既存の CSS primitive で置き換える（一括抽象化はしない）。合否は `/design-review`。
-
-**完了条件**: 12個がカード primitive に揃うか、揃えない理由を design-system.md に書いたら、このカードを削除する。
 
 ### [DN-0321] 総監の品質サイクル進捗表を docs/ から外し、admin が JSON から表示する形へ移す
 タグ: [インフラ・計測] [種類:改善] [起票:2026-09-25]
