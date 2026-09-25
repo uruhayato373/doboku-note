@@ -29,6 +29,7 @@ developer_instructions = """
 | 受注実績（こちらの記録） | `.claude/state/coconala/orders-log.json`（v2・`talkroomId` 必須） |
 | 商品構成の現在地 | カタログの `status`／`pauseReason`（`retired`=恒久廃止・`archivedAt` 済／`absence`=長期不在の一時休止・`resumeOn` に復帰予定日） |
 | 受注の実体（ココナラ側） | `.claude/state/coconala/orders-snapshot.json`（`npm run coconala-orders` が生成） |
+| 購入者のメッセージ・添付（1取引） | `.tmp/coconala/talkrooms/{id}/`（`npm run coconala-talkroom -- <id>` が生成・リポジトリ外・個人情報） |
 | KPI 週次 | `.claude/state/coconala/kpi-log.json` |
 | 運用・スキーマ・ドリフト分類 | `.claude/knowledge/reference/coconala-operations.md` |
 | 戦略・出品文面・ヒアリングシート・撤退ライン | `content/note/1級・2級土木/ココナラ展開キット.md` |
@@ -37,7 +38,7 @@ developer_instructions = """
 ## 担当範囲
 
 1. **出品・修正**（`/coconala-publish`）— カタログ＋listings（`.claude/config/coconala-listings.json`）を SoT に `coconala-publish.mjs`（新規）/`coconala-edit.mjs`（修正）で出品フォームへ流し込む。下書きで検証 → `--commit` で公開 → publish がカタログを `listed`＋`serviceUrl`＋`listedAt` に自動書き戻し
-2. **受注 E2E**（`/coconala-order`）— ヒアリングシート受領 → 一時保存 → `/keiken-tensaku` 起動 → 添削下書き提示 → **納品文面ドラフト**生成 → orders-log 追記
+2. **受注 E2E**（`/coconala-order`）— ヒアリングシート受領 → 一時保存 → `/keiken-tensaku` 起動 → 添削下書き提示 → **納品文面ドラフト**生成 → 返信文を `civil-keiken-tensaku-qa` で PASS まで検証 → orders-log 追記
 3. **KPI 記録**（`/coconala-status`）— ダッシュボード数値の貼付を正規化 → kpi-log 追記 → カタログ突合 → 撤退ライン判定
 4. **カタログ更新** — 満枠 `'full'`、季節オフ `'paused'`、価格改定（`price` と `priceYen` を同時更新→`/coconala-publish` で反映）
 5. **出品文面の改訂案** — ココナラ展開キット.md（散文）／listings.json（投入本文）を SoT として改訂（同一 commit で更新）。構成の型は `.claude/shared-policy/STRUCTURE.md`「強化コンポーネント」を参照（C系PDF=直適用／S系人力=翻案・body は1000字上限・誠実表現必須）
@@ -76,7 +77,7 @@ C1/C2（`provision_format=3`・PDF 納品）は**ヒアリング不要**。購�
 4. `/keiken-tensaku <path> --grade N` で添削下書きを生成。
 5. **納品文面ドラフト**を生成（下記テンプレ）。運営者の最終赤入れ結果を差し込む前提の骨組み。
 6. `orders-log.json` に1件 append（`date` / `serviceId` / `priceYen`（カタログから）/ `grade` / `status: 'received'`）。`updatedAt` も更新。
-7. 運営者へ引き継ぎチェックリストを提示（最終赤入れ→送信→`status: 'delivered'` 更新→所要時間 `tensakuMinutes` 記録）。
+7. 運営者へ引き継ぎチェックリストを提示（返信文 QA の判定と未確認点を添える。最終赤入れ→送信→`status: 'delivered'` 更新→所要時間 `tensakuMinutes` 記録）。
 
 ### ケース1.5: 受注（S3 答案作成＝ヒアリング→文章化）
 
@@ -86,7 +87,7 @@ C1/C2（`provision_format=3`・PDF 納品）は**ヒアリング不要**。購�
 4. `/keiken-tensaku <sheet.md> --grade N --mode sakusei` で**答案ドラフト**を生成（2テーマ×設問1/2・字数ゲート内・事実は回答由来のみ・欠落は `〇〇`）。
 5. **納品文面ドラフト**（本人の事実確認・最終化を必須と明記・「そのまま提出可」とは書かない）を生成。
 6. `orders-log.json` に append（`serviceId: 'coconala-sakusei'`・`status: 'received'`）。
-7. 運営者へ引き継ぎ（最終確認→送信→`delivered`→工数 `tensakuMinutes` 記録）。
+7. 運営者へ引き継ぎ（返信文 QA の判定を添える。最終確認→送信→`delivered`→工数 `tensakuMinutes` 記録）。
 
 ### ケース2: KPI 記録
 
@@ -162,6 +163,7 @@ C1/C2（`provision_format=3`・PDF 納品）は**ヒアリング不要**。購�
 - 購入者評価: `scripts/coconala-rate-buyer.mjs`（`/ratings/provider_add/{talkroomId}`・星は `img[alt]` クリック・確認画面の二段構え）。**公開・取消不可なので既定は入力までで停止**、送信は `--submit`。星は5固定なので5をつけたくない取引では使わない。未送信と期限切迫は `check-coconala-orders` が surface する
 - 投入 SoT: `.claude/config/coconala-listings.json`（本文/カテゴリ/納期/genreFacets/provisionFormat）／アカウント: `.claude/config/coconala-account.json`
 - 添削 Generator: `.claude/agents/civil-keiken-tensaku-drafter.md`（`/keiken-tensaku`）
+- 返信文 Evaluator: `.claude/agents/civil-keiken-tensaku-qa.md`（機械ゲート `scripts/check-tensaku-reply.mjs`）
 - 機械ガード: `scripts/check-coconala-wiring.mjs`（`npm run check-coconala-wiring`・pre-commit。カタログ↔listings↔商品画像↔state↔sales のカバレッジ検査）
 - 運用 SSOT: `.claude/knowledge/reference/coconala-operations.md` / 戦略・文面: `content/note/1級・2級土木/ココナラ展開キット.md`
 - メモリ: [[project_coconala_tensaku_channel]] / [[feedback_metrics_cicd_supplied]] / [[feedback_no_price_in_mdx_body]]
