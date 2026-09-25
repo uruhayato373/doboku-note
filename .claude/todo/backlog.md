@@ -446,18 +446,6 @@ Mac で行う（各 1 回・順に）: (1) `git pull` で Windows 対応・設�
 
 **完了条件**: `.claude/state/yt-verify/latest.json` の `recorded_but_gone` が 0 で、6 件それぞれの処置（置換 ID／削除日）が台帳に残っていること。認証が要るので Mac か CI（verify-yt-status.yml）で行う。
 
-### [DN-0228] PSI の field(CrUX) が全 URL で null の期間を「判定不能」として機械で示し、判定規則を固定する
-タグ: [インフラ・計測] [種類:改善] [Codex候補] [起票:2026-09-14]
-
-2026-08-18 以降の全 psi-batch で 22/22 URL の `field_data` が null（`field_availability.url_level` / `origin_level` とも false）。W36 の週次レビューがこれを「復旧」と誤記した（measurement-incidents.md 2026-09-14）。実害判定（Critical）は field でしか立てられないので、この期間は判定不能であることを人が読み違えない形にする。
-
-1. `fetch-psi-data` の batch サマリ（または weekly-metrics の psi 節）に「field 非 null URL 数 / 対象数（url_level・origin_level 別）」を出力し、週次レビューの PSI 節はその機械値を転記する
-2. `.claude/config/psi-config.json` の `judgment` に「field 無し期間の扱い」を明文化する（lab は直近 5 バッチ中央値・重大度は Medium 上限・復旧報告は非 null になったバッチ名と URL 数を併記）
-3. origin レベルも無い＝CrUX の母数不足の可能性が高いので、対象 22 URL の見直しか、母数のあるトップ・ハブに絞るかを判断して記録する
-
-**完了条件**: 週次レビューが機械出力から field 件数を転記でき、field 無し期間の判定規則が psi-config と measurement-incidents.md で一致していること。
-
-
 ### [DN-0207] 技術士一次・基礎科目の解析を途中式から学ぶ計算ガイド3本を作る
 タグ: [コンテンツ品質] [種類:制作] [Codex候補] [起票:2026-09-13]
 

@@ -7,13 +7,15 @@
   "url_list_file": ".claude/config/psi-urls.txt",
   "output_dir": ".claude/state/metrics/psi",
   "judgment": {
-    "doc": ".claude/knowledge/reference/measurement-incidents.md「2026-07-27: lab と field の判定原則」",
+    "doc": ".claude/knowledge/reference/measurement-incidents.md「2026-07-27: lab と field の判定原則」「2026-09-14: PSI field_data のキー存在を『field あり』と読んだ（W36 週次レビューの偽復旧）」",
     "primary_source": "field",
     "note": "実害＝対応要否は field(CrUX 実ユーザー p75)で判定する。lab は合成スロットリング値で日次の振れが大きく、単発値・単発差分での CRITICAL 判定は誤警報を生む（2026-07-27 W30 の誤報）。lab は改善余地の診断と施策の前後比較に使う。",
     "critical_requires_field_slow": true,
     "min_field_coverage": 1,
     "field_missing_policy": "report_only",
     "_min_field_coverage_note": "field(CrUX) を持つ result がこの件数未満なら psi-threshold-check が field-coverage 違反をレポートする。primary_source=field のとき、field が全 null だと『実害なし』と『判定材料なし』を区別できないため（DN-0127・CLAUDE.md §9 の入力欠落版）。ただし CrUX の公開可否は Google 側のトラフィック・プライバシー閾値に依存し、サイト側で解消できない欠測を CI 失敗にしてもデータは戻らない。2026-08-18 以降の継続欠測を受け、field_missing_policy=report_only とし、欠測は警告、field の AVERAGE/SLOW と取得失敗率20%超だけをゲートする。primary_source は field のまま維持し、lab は中央値による診断専用とする。",
+    "field_missing_reporting_rule": "field は非 null の件数（field_availability.url_level / origin_level）で読む。0 件なら『field なし・実害判定不能』と書き、『復旧』『FAST』は書かない。復旧を報告するときは非 null になったバッチ名と URL 数を併記する（DN-0158・2026-09-14 W36 の偽復旧の再発防止）。",
+    "url_list_review_2026_09_25": "2026-08-18〜の全欠測は origin_level も無い（DN-0158 (3)）が、同一 22 URL で 2026-07-21〜08-17 は origin/URL 両レベルとも供給されていた（measurement-incidents.md 2026-08-25 追記の観測表）。母数不足が恒常的な原因なら以前から欠測していたはずで、供給が急に止まった形は Google 側のトラフィック閾値割れではなく CrUX 供給側の障害と整合する。よって対象 URL リストの絞り込みは行わない。次に origin_level が false のまま 2027-01 を超えたら、GSC Core Web Vitals レポート（PSI API と別経路）で同じ期間のデータ有無を照合し、URL リスト見直しを再検討する。",
     "lab_regression_uses_median_of": 5,
     "lab_max_severity_when_field_fast": "medium"
   },
