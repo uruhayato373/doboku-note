@@ -58,8 +58,7 @@ export default async function QualificationsPage({ searchParams }: { searchParam
         </div>
       )}
 
-      <div className="card">
-        <div className="table-wrap">
+      <div className="table-wrap" style={{ border: 'none', borderRadius: 0 }}>
           <table className="data">
             <thead>
               <tr>
@@ -77,7 +76,6 @@ export default async function QualificationsPage({ searchParams }: { searchParam
               ))}
             </tbody>
           </table>
-        </div>
       </div>
     </>
   );
