@@ -266,7 +266,7 @@ export default function ConcreteTimeCheckClient() {
         )}
 
         {(!airValid || !meanValid) && (
-          <p className="mt-4 text-sm text-[var(--color-warn)]">
+          <p className="mt-4 text-sm text-[var(--warn-text-emphasis)]">
             気温が未入力です。{!airValid && "外気温は 25℃ 以下として"} 計算しています。
           </p>
         )}

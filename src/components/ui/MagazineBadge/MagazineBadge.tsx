@@ -12,7 +12,7 @@ interface MagazineBadgeProps {
  */
 export default function MagazineBadge({ children }: MagazineBadgeProps) {
   return (
-    <div className="absolute left-1.5 top-1.5 rounded-card-inline bg-brand px-1.5 py-0.5 text-[10px] font-medium text-white shadow-sm">
+    <div className="absolute left-1.5 top-1.5 rounded-card-inline bg-brand dark:bg-brand-fill px-1.5 py-0.5 text-[10px] font-medium text-white shadow-sm">
       {children}
     </div>
   );

@@ -75,7 +75,7 @@ export default function AuthorCard({
             href={AUTHOR.noteCta.url}
             target="_blank"
             rel={NOTE_LINK_REL}
-            className="mt-4 inline-flex items-center gap-2 px-3.5 py-2 rounded-md bg-[var(--accent)] text-white text-sm font-bold shadow-sm hover:bg-[var(--accent)] transition-colors"
+            className="mt-4 inline-flex items-center gap-2 px-3.5 py-2 rounded-md bg-[var(--accent)] dark:bg-[var(--accent-fill)] text-white text-sm font-bold shadow-sm hover:bg-[var(--accent)] dark:hover:bg-[var(--accent-fill)] transition-colors"
           >
             {AUTHOR.noteCta.label}
           </a>

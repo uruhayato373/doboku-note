@@ -64,7 +64,7 @@ export default function WaterContentClient() {
               className={inputBase}
             />
             {overWcGuide && (
-              <p className="mt-1.5 text-xs leading-5 text-[var(--color-warn)]">
+              <p className="mt-1.5 text-xs leading-5 text-[var(--warn-text-emphasis)]">
                 一般的な条件の目安（{WC_GUIDE_MAX}%以下）を超えています
               </p>
             )}
@@ -98,7 +98,7 @@ export default function WaterContentClient() {
             </div>
           </div>
           {overWaterGuide && (
-            <div className="inline-flex items-center rounded-full border border-[var(--color-warn)] px-3 py-1 text-sm font-bold text-[var(--color-warn)]">
+            <div className="inline-flex items-center rounded-full border border-[var(--color-warn)] px-3 py-1 text-sm font-bold text-[var(--warn-text-emphasis)]">
               目安（{UNIT_WATER_GUIDE_MAX}kg/m³以下）超過
             </div>
           )}
