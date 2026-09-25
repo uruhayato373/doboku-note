@@ -38,6 +38,15 @@
 **やること**: 会社 PC で Google ドライブ（Drive File Stream）を起動して G: を見える状態にし、`node scripts/drive-vault-sync.mjs --group coconala-asset` で対象 9 件を確認してから `--commit`。更新された `.claude/state/assets/drive-manifest.json` を PR #638 のブランチ（`feature/coconala-grade-split`・worktree `.claude/worktrees/coconala-grade`）へコミットして push し、CI が通ったら `gh pr merge 638 --merge`。マージ後に worktree `coconala-grade` と `tensaku-qa` を `git worktree remove`。Mac で進める場合は画像が無いので、`node scripts/coconala-thumb.mjs --service <id>` で生成し直してから登録する。
 
 **完了条件**: `npm run check-coconala-wiring` が PASS し、PR #638 が develop にマージされたら、このカードを削除する。
+### [DN-0310] 1級二次（10/4）の後に、1級の経験記述サービスの受付を止めるか来季向けの文面へ替える
+タグ: [収益化] [種類:改善] [検証:check-coconala-live] [起票:2026-09-25] [期日:2026-10-03]
+
+**起点**: 1級の添削・作成（`tensaku-set`・`tensaku-4theme`・`sakusei`・`sakusei-4theme`）と `1kyu-premium` の「お願い」欄に「二次検定（10/4予定）に確実に間に合わせるため、10/2受付分まで」と書いている。10/3 以降も受付中のままだと、試験後に買った人へ納品しても意味が無い。2級の試験後（10/25 以降）の棚は DN-0264 で決める。
+
+**やること**: 10/3 に、1級の5件を `coconala-pause` で受付停止にするか、来季（令和9年度）向けの文面へ替えるかを決める。受付停止ならカタログの status と pauseReason を更新し、替えるなら `coconala-listings.json` を直して `coconala-edit --service <id> --commit`（出品中の編集は下書き保存を使わない）。1級の PDF 教材（模試・完成答案・フルパック）の扱いも同時に決める。
+
+**完了条件**: 10/3 中に5件が受付停止か新しい文面になり、`npm run check-coconala-live` が全件一致したら、このカードを削除する。
+
 ### [DN-0278] YouTube 概要欄の冒頭に季節の主商品リンクと保有資格を置き、予約済み・公開済みへ同期する
 タグ: [SNS・マーケ] [種類:改善] [検証:check-video-publication] [起票:2026-09-23]
 
@@ -83,7 +92,7 @@
 
 **起点**: 2026-09-23 に競合の出品画像と並べて比べた。最大手のちゃんさと技師は、マスコット（ヘルメットの白クマが赤ペンで添削）と大きな「経験記述 添削」の文字、303geos は文字だけ、ひげごろーは本人写真と強い配色。3者に共通するのは太く大きい文字と強いコントラストで、自社の画像（淡い写真の背景に細い文字）は検索一覧の小さい表示で埋もれる。ユーザー決定の方針: 診断・添削・答案作成のような人が見るサービスは、doboku-note 先生を大きく入れ、資格（技術士・元発注者）を添える。PDF 教材はキャラクターを小さく隅に置き、主役は中身（冊子の見本・冊数）。画像には価格を入れない（ココナラは価格を画像の横に出す。9/23 の値上げでサムネ12枚を作り直したうえ、画像の中身は `check-coconala-live` でも検査できない）。最大手と同じ「キャラクター＋添削」の型なので、配色と構図で真似に見えないようにする。キャラクター素材（`.claude/config/character-poses.json`・11ポーズ）に「赤ペンで添削」のポーズが無く、新しいポーズは Codex で作る。Codex の利用上限が解けてから着手する。受験者が購入前に「誰が見てくれるか・何が入っているか」を一目で判断できるようにする画像で、HARMはA。画像の変更で閲覧が増えるかは未検証。
 
-**やること**: (1) 【2026-09-23 済】今の文言（「採点者視点」→「発注者視点で赤入れ」）で8件（shindan・tensaku-set・sakusei・sakusei-4theme・civil-keiken-kit・sokan-bunseki・rccm-mondai3-tensaku・rccm-mondai1-shindan）のサムネを作り直して差し替え、診断・添削のギャラリーも入れ直した（両方2枚）。`check-coconala-live` は20件一致、Drive vault 同期済み。(2) キャラクターの添削ポーズを `CHARACTER-SPEC`（1ポーズ＝1画像）に沿って Codex で作り、`character-poses.json` に登録する。(3) `coconala-thumb.mjs` に「人が見るサービス用（キャラクター大・太字・価格なし）」と「PDF 用（キャラクター小・中身の見本）」の2型を足し、診断・添削・答案作成の3件から差し替える。差し替えは `coconala-edit --replace-image` で、複数画像の商品（診断・添削は2枚）はギャラリーを入れ直す。PDF 教材は3件の閲覧を見てから同じ型へそろえる。
+**やること**: (1) 【2026-09-23 済】今の文言（「採点者視点」→「発注者視点で赤入れ」）で8件（shindan・tensaku-set・sakusei・sakusei-4theme・civil-keiken-kit・sokan-bunseki・rccm-mondai3-tensaku・rccm-mondai1-shindan）のサムネを作り直して差し替え、診断・添削のギャラリーも入れ直した（両方2枚）。`check-coconala-live` は20件一致、Drive vault 同期済み。(2) キャラクターの添削ポーズを `CHARACTER-SPEC`（1ポーズ＝1画像）に沿って Codex で作り、`character-poses.json` に登録する。(3) `coconala-thumb.mjs` に「人が見るサービス用（キャラクター大・太字・価格なし）」と「PDF 用（キャラクター小・中身の見本）」の2型を足し、添削・作成から差し替える。差し替えは `coconala-edit --replace-image` で、複数画像の商品（添削は2枚）はギャラリーを入れ直す。2026-09-25 に経験記述サービスを1級・2級に分け（PR #638）、診断・総監・RCCM はアーカイブした。対象は1級・2級の添削・作成8件（`tensaku-set`・`tensaku-4theme`・`sakusei`・`sakusei-4theme`・`2kyu-tensaku`・`2kyu-tensaku-3theme`・`2kyu-sakusei`・`2kyu-sakusei-3theme`。同日に級別の背景色で作り直し済み）と `1kyu-premium`。PDF 教材は3件の閲覧を見てから同じ型へそろえる。
 
 **完了条件**: 差し替えた商品の公開ページで画像枚数が変わらず（ギャラリーを保持）、`npm run check-coconala-live` が全件一致。出品画像の文言に「採点者」を自称する表現が0件。差し替えから30日後に、差し替えた商品と差し替えていない商品の閲覧数を kpi-log で読む。表示回数が非公開（セラーサクセス未加入）でクリック率は取れず、試験日の季節変動も混ざるので、効果は断定しない。
 
@@ -111,8 +120,8 @@
 **起点**: ココナラブログは公開8本に対し、書き上がった下書きが8本残っている（`2kyu-doko-made-kaku`・`2kyu-moshi-tsukaikata`・`chokuzen-2shukan-roadmap` ほか）。2級受験者が本試験直前に、経験記述の書き込み量と模試の使い方を確かめるための記事で、HARMはA。2026-09-23に見本記事（813777）を公開し、2級の模試とフルパックの本文から見本へリンクした。公開済み記事の閲覧は30日で各6〜16と小さい。記事公開で出品の閲覧が増えるかは未検証。
 
 **やること**: 残り2本を `DOBOKU_PW_MIN_FREE_MB=1200 node scripts/coconala-blog-publish.mjs --post <slug> --commit` で1日1本公開する（coconala-blog-policy.md §6）。9/24 に `coconala-blog-qa` で採点済み（`2kyu-doko-made-kaku` は同日公開済み・814642）。
-1. 9/25: `chokuzen-2shukan-roadmap`（PASS 3.0）。1級向け（funnel `coconala-1kyu-full-pdf`）で、1級二次 10/4 の直前訴求なので先に出す
-2. 9/26 以降: `2kyu-moshi-tsukaikata`（CTA を実商品「3回分・6冊＋特典」に直して `check-coconala-blog` violations 0。導線整合以外は 3 点）
+1. 9/26: `chokuzen-2shukan-roadmap`（PASS 3.0）。1級向け（funnel `coconala-1kyu-full-pdf`）で、1級二次 10/4 の直前訴求なので先に出す（9/25 は誤って削除された3記事の再公開に使った）
+2. 9/27 以降: `2kyu-moshi-tsukaikata`（CTA を実商品「3回分・6冊＋特典」に直して `check-coconala-blog` violations 0。導線整合以外は 3 点）
 
 **完了条件**: 3本の blogUrl が frontmatter に書き戻され、公開スクリプトのライブ実査（ログアウト状態・外部リンク0件）が通る。公開から30日後に、記事と2級出品の閲覧を kpi-log で読む（欠測は0と扱わない）。
 
@@ -120,15 +129,14 @@
 
 
 
-### [DN-0237] RCCM 問題I 業務経験論文テンプレ・択一論点集 50 問・ココナラ 3 出品を CBT 期間内（〜10/31）に出す
-タグ: [収益化] [種類:制作] [起票:2026-09-16] [期日:2026-10-10]
+### [DN-0308] RCCM 問題I 業務経験論文テンプレと択一論点集 50 問を note で CBT 期間内（〜10/31）に出す
+タグ: [収益化] [種類:制作] [起票:2026-09-25] [期日:2026-10-10]
 
-**起点**: 2026-09-15 に問題III 模範論文集（m770bef96b39f）を note 公開し EXP-009 を開始。計画 `~/.claude/plans/rccm-staged-reef.md` T2 の残商品。試験事実の SSOT は `content/note/RCCM/magazines/RCCM問題III-2026模範論文集/_facts-2026.md`。
+**起点**: 2026-09-15 に問題III 模範論文集（m770bef96b39f）を note 公開し EXP-009 を開始。計画 `~/.claude/plans/rccm-staged-reef.md` T2 の残商品。試験事実の SSOT は `content/note/RCCM/magazines/RCCM問題III-2026模範論文集/_facts-2026.md`。旧 DN-0237 からココナラ 3 出品を外して再起票した（2026-09-25 にココナラの RCCM 出品はすべてアーカイブし、ココナラからは撤退した）。
 
-**やること**: (1) `rccm-mondai1-template`（¥1,980・`rccm-essay-writer type=mondai1` → `rccm-essay-qa`）を公開し RCCMもくじ nd297cb9b31e0 の問題I 節を実 URL に差し替える。(2) `rccm-takuitsu-yosou-50`（¥1,480・問1〜10 無料・全問自作・`content-qa`＋`note-fact-checker`）。(3) ココナラ `coconala-rccm-mondai3-tensaku` / `-mondai1-shindan` / `-mondai3-pdf` を `/coconala-publish --commit`（PDF は `magazine-pdf-builder`・印刷 PDF は Windows）。各公開時に `note-magazines.ts` published:true・`sales-recorder.md`・もくじ追記を同一 commit で。
+**やること**: (1) `rccm-mondai1-template`（¥1,980・`rccm-essay-writer type=mondai1` → `rccm-essay-qa`）を公開し RCCMもくじ nd297cb9b31e0 の問題I 節を実 URL に差し替える。(2) `rccm-takuitsu-yosou-50`（¥1,480・問1〜10 無料・全問自作・`content-qa`＋`note-fact-checker`）。各公開時に `note-magazines.ts` published:true・`sales-recorder.md`・もくじ追記を同一 commit で。
 
-**完了条件**: 3 商品が note/ココナラでライブ、`verify-note-magazines` と `check-coconala-wiring` 緑、RCCMもくじに 3 節の実 URL。
-
+**完了条件**: 2 商品が note でライブ、`verify-note-magazines` が緑、RCCMもくじに 2 節の実 URL。
 ### [DN-0247] サイト新資格 `/exam/rccm/`（ガイド 7 本）を PR-1 で公開し、重点資格へ登録する
 タグ: [コンテンツ品質] [種類:制作] [起票:2026-09-16] [期日:2026-10-10]
 
@@ -369,15 +377,6 @@ CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認し
 **やること**: まず有料記事の購入者の多いマガジンに絞るか全件かを決める。配線は `wire-note-paid-cta.mjs` の会員 CTA ブロックへココナラの一文とカードを足す形にし、ライブ反映は `note-update-partial` の insertAfter で有料境界を動かさずに行う（全文置換は使わない）。
 
 **完了条件**: 対象記事の原稿と公開記事の両方にココナラの案内があり、`node scripts/wire-note-paid-cta.mjs --check` が通る。反映後30日のココナラ添削・診断の閲覧と注文を kpi-log で読む（欠測は0と扱わない）。
-
-### [DN-0263] サイトの口頭試験・RCCM記事から新しいココナラ商品へ導線を配線し、送客クリックを読めるようにする
-タグ: [収益化] [種類:改善] [起票:2026-09-23]
-
-**起点**: 2026-09-23 に RCCM 択一 PDF と技術士口頭試験の2商品を出品したが、`src/lib/offsite-cta.ts` の対応表に無く、サイトからの導線が無い。サイト→ココナラのクリック（`data-cta="coconala"`）は集計しておらず、送客の寄与は判断できない（09_販売チャネル競合分析.md §D7）。口頭試験の受験者（HARM は A）が筆記合格発表（11月上旬）後に準備教材を探す場面で届けたい。
-
-**やること**: 口頭試験の無料記事と、公開後の `/exam/rccm/` の記事を offsite-cta.ts の対応表へ加える。GA4 で cta=coconala のイベント件数を取る経路を確かめ、週次レビューが読む指標へ加える。
-
-**完了条件**: build 後の該当ページの HTML に `data-cta="coconala"` のカードがある（curl で確認）。GA4 の取得でイベント件数が出て、0件と未取得を区別して表示できる。
 
 ### [DN-0256] V5 カバー未反映の保留記事（W9・W10・学科10 以外の 9 本）を公開後に差し替える
 タグ: [コンテンツ品質] [種類:定期] [起票:2026-09-19] [期日:2026-10-05]
