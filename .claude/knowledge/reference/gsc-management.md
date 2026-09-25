@@ -578,3 +578,37 @@ EXP-006 の本判定は予定どおり next_check 2026-08-27 に、カバレッ�
 - 判断: 旧 `/docs` URL だけを載せた `sitemap-legacy.xml`（1,312 件・robots.txt に掲載・2026-11-30 を過ぎたビルドで自動終了）を採用（PR #600 をユーザーがマージ）。本番に出るのは次の deploy から
 - 根拠: 旧 `/docs` が 28 日の表示の 32%（4,487 / 14,183）を取り、新 URL 18 件が「Google が旧 URL を正規に選択」の重複。Google の「Move a site with URL changes」（2026-08-20 更新）が旧 URL の sitemap も送る手順を示している
 - 読み方: 効果は `gsc-page` の `/docs/` 行の表示比率と、URL Inspection の重複件数で見る。GSC の旧 sitemap に出る「リダイレクト」警告は想定どおり。11/30 より前に止める・延ばすときは `scripts/lib/legacy-sitemap.mjs` の `LEGACY_SITEMAP_UNTIL` を変える
+
+### 2026-09-25（週次・自動レビュー）
+
+- 観測: 窓 W38（09-14〜09-20、digest-2026-W38）＋GA4 28日（〜09-23）。件数: High-Impr-Low-CTR 2 / Rank-Stuck 0 / Traffic-Drop 0 / Hidden-Winner 89（クラスタ集約）/ Orphan-Query 0 / SNS-Shift 0 / Cannibalization 1 / Content-Decay 0（pack 履歴 1 週分のみで判定不能・悪化なしの確認ではない）
+- 上位候補と推奨:
+  1. `/exam/civil-construction-1/textbook/network-schedule` — impr 1,215/35d・CTR 0.16%・pos 7.6（「インターフェアリングフロートとは」）→ 単独 URL のメタ実験（14〜28 日・想定 +6.9 クリック/週）
+  2. `/exam/civil-construction-2/secondary/*` クラスタ — sessions ≈3,043/28d・eng.rate 71〜87%（代表 r07 が 820）。2級二次（経験記述）が重点資格外で突出 → 戦略対象への昇格是非を戦略レビューで検討
+  3. `/standards/chugoku/local` vs `part-01` — カニバリ（impr 計 69/35d・pos 8〜9）→ 内部リンク主従整理。ただし 9/24 の part-N sitemap 復帰後の index 状況を見てから
+  - 他 5 件（scraper メタ実験・/tools/keiken-charcount 導線・/practice/ クラスタ・pe-first-stage・chubu 1-3 bot 疑い）→ improvements/2026-09-25.md
+- トリアージ待ち（処分は土曜週次レビューの growth-triage が決める）:
+  - OPP-2ee0d7aa00（High-Impr-Low-CTR）→ `/nsm-experiment propose`（メタ実験・単独 URL）
+  - OPP なし・自抽出（Hidden-Winner: civil-construction-2 secondary クラスタ）→ strategy-advisor / 週次レビューで昇格判断
+  - OPP-09ce18f721（Cannibalization）→ 保留寄り（part-N 復帰後の coverage 確認が先）
+  - OPP-07ad782c8d（High-Impr-Low-CTR: scraper）→ 小規模のためメタ実験の同梱候補（5 URL 上限内）
+- 注記: 自動生成・人間の上書き歓迎。Orphan-Query 0 件は「該当なし」ではなく「pos>30 の 140 クエリに専用ページが既存」という別事象（index 側の確認を gsc-index-auditor へ回付）。youtube/video が前週 8→今週 0 で行ごと消滅（投稿停止か計測欠落かの現物確認を推奨）
+
+### 2026-09-25（coverage・自動レビュー）
+
+- 観測（batch 2026-09-23・history 該当エントリと完全一致）: inspected 1,434 / sitemap 1,434（差分 0）・indexed 1,146・ratio **79.9%**（前回 9/7 41.8% → **+38.1pt**）・discovered-not-indexed 233（前回 723）・crawled-not-indexed 14・hygiene（404+redirect）0・other 41
+- セクション別回復: `/exam/` 1,016/1,208＝84.1%（+461 件・主因）/ `/topics/` 13/16＝81.2% / `/practice/` 37/62＝59.7% / `/standards/` 68/128＝53.1%（純増 +14 のみ。比率改善は part-N 分冊 133 件の一時離脱＝分母縮小の効果が大）
+- 原因バケット:
+  - 権威性: discovered 233 + crawled 14 + 未認識 23 ＝計 270 件がクロール優先度/品質判定起因（`/exam/` discovered 145・`/standards/` 55・`/practice/` 23 と偏在）。技術的取得障害は 0
+  - 技術: page_fetch_state に FAILED/ROBOTS_DENIED/5xx 相当 0 件
+  - hygiene: 404・redirect は 0 件。ただし other 内に **canonical 不一致 18 件**（Google が旧 `/docs/` を正規に選択。user_canonical は新 `/exam/` 17・`/standards/` 1）
+- canonical 不一致 代表 3 件（総数 18）:
+  - `/exam/civil-construction-1/guide/surveying` ← google 正規 `/docs/civil-construction-1-guide-surveying`
+  - `/exam/civil-construction-1/secondary/getting-started` ← `/docs/civil-construction-1-secondary-getting-started`
+  - `/exam/pe-comprehensive-management/keywords/authenticity` ← `/docs/pe-comprehensive-management-authenticity`
+- 推奨アクション（判断マトリクスに沿う）:
+  1. `/standards/` は次回 batch（part-N 133 件復帰後）で part-N 除きの比率で再評価。discovered 増・ratio 数 pt 低下は 9/24 ログのとおり想定内として扱う
+  2. canonical 不一致 18 件は 9/24 採用の sitemap-legacy.xml（旧 URL 送信）の効果測定対象そのもの。再クロール要求はせず次回 batch で件数推移を見る（様子見）
+  3. 権威性起因 270 件は内部施策では動かない領域。被リンク・統合・量抑制の判断は週次/月次レビューへ
+- 異常フラグ: なし（ratio 79.9%≥60% / 前回比 +38.1pt / discovered 16.2%<20% / hygiene 0 / inspected=sitemap / results 1,434 件・前回比 −5.4%）
+- 注記: 自動生成・最終決定は人間。sitemap_urls の −82 件（1,516→1,434）は part-N 一時離脱による既知の変動でありデータ異常ではない
