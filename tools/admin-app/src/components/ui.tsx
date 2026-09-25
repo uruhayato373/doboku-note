@@ -1,16 +1,9 @@
 import Link from 'next/link';
-import {
-  Activity,
-  ChartNoAxesCombined,
-  Gauge,
-  MousePointerClick,
-  Users,
-} from 'lucide-react';
 import { Badge, Card } from '@/components/primitives';
 import type { SnapshotFile } from '@/lib/snapshots';
 import { ageInDays } from '@/lib/snapshots';
 
-/** KPI カード。 */
+/** KPI カード。ラベルと値だけのシンプルな表示（アイコン・装飾線は持たない）。 */
 export function Kpi({
   label,
   value,
@@ -20,28 +13,13 @@ export function Kpi({
   value: string | number;
   unit?: string;
 }) {
-  const Icon = label.includes('ユーザー')
-    ? Users
-    : label.includes('セッション')
-      ? Activity
-      : label.includes('クリック')
-        ? MousePointerClick
-        : label.includes('PSI') || label.includes('性能')
-          ? Gauge
-          : ChartNoAxesCombined;
   return (
-    <Card className="kpi group">
-      <div className="kpi-topline">
-        <div className="label">{label}</div>
-        <span className="kpi-icon" aria-hidden="true">
-          <Icon size={16} strokeWidth={1.8} />
-        </span>
-      </div>
+    <Card className="kpi">
+      <div className="label">{label}</div>
       <div className="value">
         {typeof value === 'number' ? value.toLocaleString() : value}
         {unit ? <span className="unit">{unit}</span> : null}
       </div>
-      <div className="kpi-rule" aria-hidden="true" />
     </Card>
   );
 }
