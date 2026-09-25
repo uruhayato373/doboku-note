@@ -60,6 +60,18 @@ test('mapExamCalendar: 過去の試験日でも status は planned のまま（�
   assert.equal(skipped, 0);
 });
 
+test('mapExamCalendar: onlyExamIds を渡すと展開中の資格だけを出す（候補資格の日程を運用予定に混ぜない）', () => {
+  const json = {
+    exams: {
+      active: { label: 'A', events: { exam: { label: '試験', date: '2026-11-22' } } },
+      candidate: { label: 'C', events: { exam: { label: '試験', date: '2026-11-23' } } },
+    },
+  };
+  const { events } = mapExamCalendar(json, '.claude/config/exam-calendar.json', new Set(['active']));
+  assert.deepEqual(events.map((e) => e.ref), ['active/exam']);
+  assert.equal(mapExamCalendar(json, '.claude/config/exam-calendar.json').events.length, 2);
+});
+
 test('mapExamCalendar: 不正な日付形式の event はスキップして skipped に計上する', () => {
   const json = {
     exams: {

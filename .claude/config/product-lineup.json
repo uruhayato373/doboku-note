@@ -93,9 +93,7 @@
           "id": "written",
           "label": "第二次 筆記",
           "events": [
-            "written"
-          ],
-          "periods": [
+            "written",
             "writtenResult"
           ],
           "stats": [
@@ -105,9 +103,11 @@
         {
           "id": "oral",
           "label": "第二次 口頭",
-          "periods": [
-            "oral",
+          "events": [
             "finalResult"
+          ],
+          "periods": [
+            "oral"
           ],
           "stats": []
         }
@@ -123,9 +123,7 @@
           "label": "第二次 筆記",
           "events": [
             "written",
-            "writtenSelective"
-          ],
-          "periods": [
+            "writtenSelective",
             "writtenResult"
           ],
           "stats": [
@@ -135,9 +133,11 @@
         {
           "id": "oral",
           "label": "第二次 口頭",
-          "periods": [
-            "oral",
+          "events": [
             "finalResult"
+          ],
+          "periods": [
+            "oral"
           ],
           "stats": []
         }

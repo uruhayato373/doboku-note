@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "verifiedAt": "2026-07-21",
-  "policy": "受験者数・合格者数・合格率を記事・note・SNS・戦略文書へ書く前に本ファイルを参照する。記憶・既存原稿・LLM の推測から転記しない。人間向け解説（21部門の詳細表・引用テンプレ）は .claude/knowledge/reference/pe-exam-by-division.md、総監単独の年度時系列は .claude/knowledge/reference/pe-cem-pass-rate-history.md。年度更新時は source の公式ページで確認し verifiedAt と source を同時更新する。",
+  "policy": "受験者数・合格者数・合格率を記事・note・SNS・戦略文書へ書く前に本ファイルを参照する。記憶・既存原稿・LLM の推測から転記しない。人間向け解説（21部門の詳細表・引用テンプレ）は .claude/knowledge/reference/pe-exam-by-division.md、総監単独の年度時系列は .claude/knowledge/reference/pe-cem-pass-rate-history.md。年度更新時は source の公式ページで確認し verifiedAt と source を同時更新する。 収録する資格の一覧と展開状態は qualification-registry.json が正本で、候補資格の統計も同じ形で蓄積する。",
   "conventions": {
     "rate": "passRate は対受験者合格率（受験者ベース・単位 %）。対申込者合格率ではない。",
     "stage": "技術士第二次の stage は final=筆記+口頭の最終合格 / written=筆記のみ（口頭前）。段階が違う年度を単純比較しない。",
@@ -47,20 +47,26 @@
       "issuer": "全国建設研修センター（JCTC）",
       "source": "https://www.jctc.jp/exam/doboku-2/",
       "latest": {
-        "year": "R6",
-        "fiscalYear": 2024,
-        "annualTotalExaminees": 46007,
+        "year": "R7",
+        "fiscalYear": 2025,
+        "annualTotalExaminees": 59697,
         "stages": {
-          "firstEarly": { "label": "第一次（前期）", "examinees": 13593, "passers": 5840, "passRate": 43.0 },
-          "firstLate": { "label": "第一次（後期）", "examinees": 13608, "passers": 6130, "passRate": 45.0 },
-          "second": { "label": "第二次", "examinees": 18806, "passers": 6646, "passRate": 35.3 }
+          "firstEarly": { "label": "第一次（前期）", "examinees": 14030, "passers": 7274, "passRate": 51.8 },
+          "firstLate": { "label": "第一次（後期・一次二次同時受検の一次を含む）", "examinees": 24556, "passers": 12194, "passRate": 49.7 },
+          "second": { "label": "第二次", "examinees": 21111, "passers": 11341, "passRate": 53.7 }
         }
       },
       "history": [
+        { "year": "R6", "fiscalYear": 2024, "annualTotalExaminees": 46007 },
         { "year": "R5", "fiscalYear": 2023, "annualTotalExaminees": 54963 },
         { "year": "R4", "fiscalYear": 2022, "annualTotalExaminees": 60177 }
       ],
-      "note": "annualTotalExaminees は第一次(前期+後期)+第二次の『のべ受検者数』。R3→R6 で第二次が 32,847→18,806 と 43% 減（1級第一次の受験資格緩和で若年層の1級直行ルートが拡大した影響と推測）。"
+      "note": "annualTotalExaminees は第一次(前期+後期)+第二次の『のべ受検者数』。R3→R6 で第二次が 32,847→18,806 と 43% 減（1級第一次の受験資格緩和で若年層の1級直行ルートが拡大した影響と推測）。",
+      "sources": {
+        "R7firstEarly": "https://www.jctc.jp/kentei/info/datasheets20250701.pdf（公式からは削除済み・Web Archive 保存版で照合）",
+        "R7firstLate": "https://www.jctc.jp/kentei/info/datasheets20251203.pdf",
+        "R7second": "https://www.jctc.jp/kentei/info/datasheets20260204.pdf"
+      }
     },
     "pe-comprehensive-management": {
       "label": "技術士第二次試験 総合技術監理部門",
@@ -87,13 +93,14 @@
       "latest": {
         "year": "R7",
         "fiscalYear": 2025,
-        "stage": "written",
+        "stage": "final",
         "applicants": 18299,
         "examinees": 14094,
-        "passers": 1378,
-        "passRate": 9.8
+        "passers": 1304,
+        "passRate": 9.3,
+        "writtenPassers": 1378
       },
-      "note": "技術士第二次で受験者最多の部門（全体の約6割）。R7 は筆記段階の速報値で最終合格は令和8年3月官報公告。"
+      "note": "技術士第二次で受験者最多の部門（全体の約6割）。R7 は最終合格（令和8年3月公表・文科省 技術士第二次試験統計）で 2026-09-26 に照合。筆記合格は 1,378 名。"
     },
     "pe-first-stage": {
       "label": "技術士第一次試験",
@@ -189,6 +196,407 @@
         "2023": { "examinees": 5515, "passers": 2253, "passRate": 40.9 }
       },
       "note": "R7 は公式合格発表ページの合格率 34.4% のみ公式確認済み（2026-09-26）。受験者数・合格者数は公式未掲載のため null（埋めない）。history の 2021〜2023 は 2026-09-15 に二次情報（ジョブハウス建設コラム＝協会 PDF 引用）から転記した暫定値で、記事へ引用する前に協会の年次報告で照合する。合格率は年により 34〜48% と幅がある。"
+    },
+    "pe-information": {
+      "label": "技術士第二次試験 情報工学部門",
+      "issuer": "日本技術士会（IPEJ）／文部科学省",
+      "source": "https://www.engineer.or.jp/c_topics/010/attached/attach_10868_2.pdf",
+      "divisionRef": "peSecondaryDivisions.情報工学",
+      "latest": {
+        "year": "R7",
+        "fiscalYear": 2025,
+        "stage": "final",
+        "applicants": 523,
+        "examinees": 430,
+        "passers": 18,
+        "passRate": 4.2
+      }
+    },
+    "pe-water-supply": {
+      "label": "技術士第二次試験 上下水道部門",
+      "issuer": "日本技術士会（IPEJ）／文部科学省",
+      "source": "https://www.engineer.or.jp/c_topics/010/attached/attach_10868_2.pdf",
+      "divisionRef": "peSecondaryDivisions.上下水道",
+      "latest": {
+        "year": "R7",
+        "fiscalYear": 2025,
+        "stage": "final",
+        "applicants": 2067,
+        "examinees": 1605,
+        "passers": 174,
+        "passRate": 10.8
+      }
+    },
+    "pe-agriculture": {
+      "label": "技術士第二次試験 農業部門",
+      "issuer": "日本技術士会（IPEJ）／文部科学省",
+      "source": "https://www.engineer.or.jp/c_topics/010/attached/attach_10868_2.pdf",
+      "divisionRef": "peSecondaryDivisions.農業",
+      "latest": {
+        "year": "R7",
+        "fiscalYear": 2025,
+        "stage": "final",
+        "applicants": 1190,
+        "examinees": 944,
+        "passers": 117,
+        "passRate": 12.4
+      }
+    },
+    "pe-forestry": {
+      "label": "技術士第二次試験 森林部門",
+      "issuer": "日本技術士会（IPEJ）／文部科学省",
+      "source": "https://www.engineer.or.jp/c_topics/010/attached/attach_10868_2.pdf",
+      "divisionRef": "peSecondaryDivisions.森林",
+      "latest": {
+        "year": "R7",
+        "fiscalYear": 2025,
+        "stage": "final",
+        "applicants": 351,
+        "examinees": 286,
+        "passers": 34,
+        "passRate": 11.9
+      }
+    },
+    "pe-fisheries": {
+      "label": "技術士第二次試験 水産部門",
+      "issuer": "日本技術士会（IPEJ）／文部科学省",
+      "source": "https://www.engineer.or.jp/c_topics/010/attached/attach_10868_2.pdf",
+      "divisionRef": "peSecondaryDivisions.水産",
+      "latest": {
+        "year": "R7",
+        "fiscalYear": 2025,
+        "stage": "final",
+        "applicants": 128,
+        "examinees": 97,
+        "passers": 14,
+        "passRate": 14.4
+      }
+    },
+    "pe-environment": {
+      "label": "技術士第二次試験 環境部門",
+      "issuer": "日本技術士会（IPEJ）／文部科学省",
+      "source": "https://www.engineer.or.jp/c_topics/010/attached/attach_10868_2.pdf",
+      "divisionRef": "peSecondaryDivisions.環境",
+      "latest": {
+        "year": "R7",
+        "fiscalYear": 2025,
+        "stage": "final",
+        "applicants": 537,
+        "examinees": 406,
+        "passers": 48,
+        "passRate": 11.8
+      }
+    },
+    "pe-applied-science": {
+      "label": "技術士第二次試験 応用理学部門",
+      "issuer": "日本技術士会（IPEJ）／文部科学省",
+      "source": "https://www.engineer.or.jp/c_topics/010/attached/attach_10868_2.pdf",
+      "divisionRef": "peSecondaryDivisions.応用理学",
+      "latest": {
+        "year": "R7",
+        "fiscalYear": 2025,
+        "stage": "final",
+        "applicants": 752,
+        "examinees": 622,
+        "passers": 64,
+        "passRate": 10.3
+      }
+    },
+    "pe-sanitary": {
+      "label": "技術士第二次試験 衛生工学部門",
+      "issuer": "日本技術士会（IPEJ）／文部科学省",
+      "source": "https://www.engineer.or.jp/c_topics/010/attached/attach_10868_2.pdf",
+      "divisionRef": "peSecondaryDivisions.衛生工学",
+      "latest": {
+        "year": "R7",
+        "fiscalYear": 2025,
+        "stage": "final",
+        "applicants": 593,
+        "examinees": 488,
+        "passers": 49,
+        "passRate": 10.0
+      }
+    },
+    "pipe-work-1": {
+      "label": "1級管工事施工管理技術検定",
+      "issuer": "全国建設研修センター（JCTC）",
+      "source": "https://www.jctc.jp/kentei/info/datasheets20251009.pdf",
+      "latest": {
+        "year": "R7",
+        "fiscalYear": 2025,
+        "stages": {
+          "first": { "label": "第一次検定", "examinees": 23826, "passers": 9224, "passRate": 38.7 },
+          "second": { "label": "第二次検定", "examinees": 6886, "passers": 4360, "passRate": 63.3 }
+        }
+      },
+      "note": "第二次は datasheets20260304_1.pdf。JCTC は申込者数を公表していない。2026-09-26 に公式 PDF で照合。"
+    },
+    "landscape-1": {
+      "label": "1級造園施工管理技術検定",
+      "issuer": "全国建設研修センター（JCTC）",
+      "source": "https://www.jctc.jp/kentei/info/datasheets20251009.pdf",
+      "latest": {
+        "year": "R7",
+        "fiscalYear": 2025,
+        "stages": {
+          "first": { "label": "第一次検定", "examinees": 3290, "passers": 1713, "passRate": 52.1 },
+          "second": { "label": "第二次検定", "examinees": 1979, "passers": 890, "passRate": 45.0 }
+        }
+      },
+      "note": "第二次は datasheets20260304_1.pdf。JCTC は申込者数を公表していない。2026-09-26 に公式 PDF で照合。"
+    },
+    "pipe-work-2": {
+      "label": "2級管工事施工管理技術検定",
+      "issuer": "全国建設研修センター（JCTC）",
+      "source": "https://www.jctc.jp/kentei/info/datasheets20260105.pdf",
+      "latest": {
+        "year": "R7",
+        "fiscalYear": 2025,
+        "stages": {
+          "firstEarly": { "label": "第一次（前期）", "examinees": 4895, "passers": 3087, "passRate": 63.1 },
+          "firstLate": { "label": "第一次（後期・一次二次同時受検の一次を含む）", "examinees": 9409, "passers": 5752, "passRate": 61.1 },
+          "second": { "label": "第二次", "examinees": 7552, "passers": 3776, "passRate": 50.0 }
+        }
+      },
+      "note": "前期は datasheets20250701.pdf（公式からは削除済み・Web Archive 保存版）、第二次は datasheets20260304_2.pdf。2026-09-26 に照合。"
+    },
+    "landscape-2": {
+      "label": "2級造園施工管理技術検定",
+      "issuer": "全国建設研修センター（JCTC）",
+      "source": "https://www.jctc.jp/kentei/info/datasheets20260105.pdf",
+      "latest": {
+        "year": "R7",
+        "fiscalYear": 2025,
+        "stages": {
+          "firstEarly": { "label": "第一次（前期）", "examinees": 1526, "passers": 868, "passRate": 56.9 },
+          "firstLate": { "label": "第一次（後期・一次二次同時受検の一次を含む）", "examinees": 2439, "passers": 1212, "passRate": 49.7 },
+          "second": { "label": "第二次", "examinees": 2300, "passers": 1160, "passRate": 50.4 }
+        }
+      },
+      "note": "前期は datasheets20250701.pdf（公式からは削除済み・Web Archive 保存版）、第二次は datasheets20260304_2.pdf。2026-09-26 に照合。"
+    },
+    "building-construction-1": {
+      "label": "1級建築施工管理技術検定",
+      "issuer": "建設業振興基金（FCIP）",
+      "source": "https://www.fcip-shiken.jp/pdf/kekka_r07_1k.pdf",
+      "latest": {
+        "year": "R7",
+        "fiscalYear": 2025,
+        "stages": {
+          "first": { "label": "第一次検定", "plannedExaminees": 51934, "examinees": 41812, "passers": 20294, "passRate": 48.5 },
+          "second": { "label": "第二次検定", "plannedExaminees": 22198, "examinees": 18160, "passers": 7091, "passRate": 39.0 }
+        }
+      },
+      "note": "plannedExaminees は結果表の「受検予定者数」（申込者数とは別の公表値）。2026-09-26 に公式 PDF で照合。"
+    },
+    "electrical-work-1": {
+      "label": "1級電気工事施工管理技術検定",
+      "issuer": "建設業振興基金（FCIP）",
+      "source": "https://www.fcip-shiken.jp/pdf/kekka_r07_1d.pdf",
+      "latest": {
+        "year": "R7",
+        "fiscalYear": 2025,
+        "stages": {
+          "first": { "label": "第一次検定", "plannedExaminees": 30494, "examinees": 24821, "passers": 10290, "passRate": 41.5 },
+          "second": { "label": "第二次検定", "plannedExaminees": 11017, "examinees": 9494, "passers": 6607, "passRate": 69.6 }
+        }
+      },
+      "note": "plannedExaminees は結果表の「受検予定者数」（申込者数とは別の公表値）。2026-09-26 に公式 PDF で照合。"
+    },
+    "building-construction-2": {
+      "label": "2級建築施工管理技術検定",
+      "issuer": "建設業振興基金（FCIP）",
+      "source": "https://www.fcip-shiken.jp/pdf/kekka_r07_2k.pdf",
+      "latest": {
+        "year": "R7",
+        "fiscalYear": 2025,
+        "stages": {
+          "first": { "label": "第一次検定（11月実施分）", "plannedExaminees": 29000, "examinees": 22803, "passers": 8285, "passRate": 36.3 },
+          "second": { "label": "第二次検定", "plannedExaminees": 24792, "examinees": 18320, "passers": 5991, "passRate": 32.7 }
+        }
+      },
+      "note": "plannedExaminees は結果表の「受検予定者数」（申込者数とは別の公表値）。2026-09-26 に公式 PDF で照合。 第一次は11月実施分（一次二次同時受検の一次）。前期（第一次検定のみ）の全国集計は公式 PDF を特定できず未確認。"
+    },
+    "electrical-work-2": {
+      "label": "2級電気工事施工管理技術検定",
+      "issuer": "建設業振興基金（FCIP）",
+      "source": "https://www.fcip-shiken.jp/pdf/kekka_r07_2d.pdf",
+      "latest": {
+        "year": "R7",
+        "fiscalYear": 2025,
+        "stages": {
+          "first": { "label": "第一次検定（11月実施分）", "plannedExaminees": 8662, "examinees": 6841, "passers": 3772, "passRate": 55.1 },
+          "second": { "label": "第二次検定", "plannedExaminees": 6694, "examinees": 5023, "passers": 2600, "passRate": 51.8 }
+        }
+      },
+      "note": "plannedExaminees は結果表の「受検予定者数」（申込者数とは別の公表値）。2026-09-26 に公式 PDF で照合。 第一次は11月実施分（一次二次同時受検の一次）。前期（第一次検定のみ）の全国集計は公式 PDF を特定できず未確認。"
+    },
+    "construction-machinery-1": {
+      "label": "1級建設機械施工管理技術検定",
+      "issuer": "日本建設機械施工協会（JCMA）",
+      "source": "https://jcmanet-shiken.jp/gokaku-happyo/r7_1_2_gokaku_happyo_2ji/",
+      "latest": {
+        "year": "R7",
+        "fiscalYear": 2025,
+        "stages": {
+          "second": { "label": "第二次検定（1級）", "examinees": 568, "passers": 327, "passRate": 57.6 }
+        }
+      },
+      "note": "第一次検定の受検者数・合格率は公式に数値表が無く未確認（合格者の受検番号のみ公表）。2026-09-26 に照合。"
+    },
+    "construction-machinery-2": {
+      "label": "2級建設機械施工管理技術検定",
+      "issuer": "日本建設機械施工協会（JCMA）",
+      "source": "https://jcmanet-shiken.jp/gokaku-happyo/r7_1_2_gokaku_happyo_2ji/",
+      "latest": {
+        "year": "R7",
+        "fiscalYear": 2025,
+        "stages": {
+          "second": { "label": "第二次検定（2級・実人数）", "examinees": 2159, "passers": 1086, "passRate": 50.3 }
+        }
+      },
+      "note": "第一次検定の受検者数・合格率は公式に数値表が無く未確認（合格者の受検番号のみ公表）。2026-09-26 に照合。"
+    },
+    "pavement-1": {
+      "label": "1級舗装施工管理技術者資格試験",
+      "issuer": "日本道路建設業協会",
+      "source": "https://www.dohkenkyo.or.jp/shikakushiken/pavement/shikakusyutoku/tabid334.html",
+      "latest": {
+        "year": "R7",
+        "fiscalYear": 2025,
+        "applicants": 4075,
+        "examinees": 3216,
+        "passers": 866,
+        "passRate": 26.9
+      },
+      "note": "一次・二次の区分がない単一試験。協会ページの表-1（画像）で 2026-09-26 に照合。"
+    },
+    "pavement-2": {
+      "label": "2級舗装施工管理技術者資格試験",
+      "issuer": "日本道路建設業協会",
+      "source": "https://www.dohkenkyo.or.jp/shikakushiken/pavement/shikakusyutoku/tabid334.html",
+      "latest": {
+        "year": "R7",
+        "fiscalYear": 2025,
+        "applicants": 1714,
+        "examinees": 1398,
+        "passers": 800,
+        "passRate": 57.2
+      },
+      "note": "一次・二次の区分がない単一試験。協会ページの表-1（画像）で 2026-09-26 に照合。"
+    },
+    "civil-service-national-general-civil": {
+      "label": "国家公務員採用一般職試験（大卒程度）土木",
+      "issuer": "人事院",
+      "source": "https://www.jinji.go.jp/content/900035594.pdf",
+      "latest": {
+        "year": "R7",
+        "fiscalYear": 2025,
+        "stages": {
+          "first": { "label": "第1次試験", "applicants": 579, "examinees": 379, "passers": 324, "passRate": null },
+          "final": {
+            "label": "最終合格",
+            "applicants": 579,
+            "examinees": 241,
+            "passers": 231,
+            "passRate": null,
+            "competitionRatio": 2.5,
+            "competitionRatioBasis": "申込者数÷最終合格者数（a/c）"
+          }
+        }
+      },
+      "note": "採用試験のため合格率ではなく倍率が公表値。passRate は null とし、competitionRatio に公表の倍率、competitionRatioBasis にその定義を置く（機関ごとに定義が違う）。 final.examinees は第2次試験の受験者数。2026-09-26 に公式 PDF で照合。"
+    },
+    "civil-service-tokyo-1b-civil": {
+      "label": "東京都職員 I類B（一般方式）土木",
+      "issuer": "東京都人事委員会",
+      "source": "https://www.saiyou.metro.tokyo.lg.jp/documents/d/saiyou/section_rw07",
+      "latest": {
+        "year": "R7",
+        "fiscalYear": 2025,
+        "stages": {
+          "first": { "label": "第1次試験", "applicants": 147, "examinees": 110, "passers": 89, "passRate": null },
+          "final": {
+            "label": "最終合格",
+            "applicants": 147,
+            "examinees": 74,
+            "passers": 70,
+            "passRate": null,
+            "competitionRatio": 1.6,
+            "competitionRatioBasis": "受験者数÷最終合格者数（A/B）"
+          }
+        }
+      },
+      "note": "採用試験のため合格率ではなく倍率が公表値。passRate は null とし、competitionRatio に公表の倍率、competitionRatioBasis にその定義を置く（機関ごとに定義が違う）。 final.examinees は第2次試験の受験者数。一般方式のみ（新方式は別集計）。採用予定 67。2026-09-26 に公式 PDF で照合。"
+    },
+    "civil-service-tokubetsuku-1-civil": {
+      "label": "特別区職員 I類【秋試験】土木造園（土木）",
+      "issuer": "特別区人事委員会",
+      "source": "https://www.union.tokyo23city.lg.jp/jinji/jinjiiinkaitop/saiyoshiken/jisshijokyo/r7jisshijokyo/documents/r7ichiruiaki_jissijokyo.pdf",
+      "latest": {
+        "year": "R7",
+        "fiscalYear": 2025,
+        "stages": {
+          "first": { "label": "第1次試験", "applicants": 60, "examinees": 47, "passers": 33, "passRate": null },
+          "final": {
+            "label": "最終合格",
+            "applicants": 60,
+            "examinees": 31,
+            "passers": 26,
+            "passRate": null,
+            "competitionRatio": 1.8,
+            "competitionRatioBasis": "公式表の倍率（定義の注記なし）"
+          }
+        }
+      },
+      "note": "採用試験のため合格率ではなく倍率が公表値。passRate は null とし、competitionRatio に公表の倍率、competitionRatioBasis にその定義を置く（機関ごとに定義が違う）。 final.examinees は第2次試験の受験者数。採用予定数 69。2026-09-26 に公式 PDF で照合。"
+    },
+    "surveyor": {
+      "label": "測量士試験",
+      "issuer": "国土交通省 国土地理院",
+      "source": "https://www.gsi.go.jp/soumu/soumu20250708_00001.html",
+      "latest": {
+        "year": "R7",
+        "fiscalYear": 2025,
+        "examinees": 3703,
+        "passers": 1487,
+        "passRate": 40.2
+      },
+      "note": "申込者数は公表されていない。2026-09-26 に公式発表で照合。"
+    },
+    "assistant-surveyor": {
+      "label": "測量士補試験",
+      "issuer": "国土交通省 国土地理院",
+      "source": "https://www.gsi.go.jp/soumu/soumu20250626_00001.html",
+      "latest": {
+        "year": "R7",
+        "fiscalYear": 2025,
+        "examinees": 13363,
+        "passers": 6837,
+        "passRate": 51.2
+      },
+      "note": "申込者数は公表されていない。2026-09-26 に公式発表で照合。"
+    },
+    "geological-survey-engineer": {
+      "label": "地質調査技士資格検定試験",
+      "issuer": "全国地質調査業協会連合会",
+      "source": "https://www.zenchiren.or.jp/geo_comp/",
+      "latest": null,
+      "note": "未確認。公式は合格者の受験番号のみ公表しており、全国の受験者数・合格率の集計を確認できなかった（2026-09-26）。"
+    },
+    "road-bridge-inspector": {
+      "label": "道路橋点検士",
+      "issuer": "橋梁調査会（J-BEC）",
+      "source": "https://www.jbec.or.jp/wf/society",
+      "latest": null,
+      "note": "未確認。単年度の受験者統計は公式に見当たらない。R7.3 時点の累計（研修会修了者 16,849 名・道路橋点検士 9,380 名）は単年度統計ではないため latest に入れない（2026-09-26）。"
+    },
+    "steel-structure-diagnostician": {
+      "label": "土木鋼構造診断士・土木鋼構造診断士補",
+      "issuer": "日本鋼構造協会",
+      "source": "http://www.jssc.or.jp/diagnosis/index.html",
+      "latest": null,
+      "note": "未確認。2026-09-26 時点で公式ページから受験者統計を取得できなかった（推測で埋めない）。"
     }
   },
   "peSecondaryDivisions": {
@@ -197,7 +605,8 @@
     "sources": {
       "index": "https://www.engineer.or.jp/c_topics/010/010868.html",
       "R6": "https://www.engineer.or.jp/c_topics/001/attached/attach_1013_2.pdf",
-      "R7": "https://www.mext.go.jp/content/20251118-mxt_kiban02-000045976_04.pdf"
+      "R7": "https://www.engineer.or.jp/c_topics/010/attached/attach_10868_2.pdf",
+      "R7written": "https://www.mext.go.jp/content/20251118-mxt_kiban02-000045976_04.pdf"
     },
     "note": "e-Stat には技術士試験統計は収録されていない。一次情報は上記 PDF が唯一の SSoT。数値の並びは applicants/examinees/passers/passRate。",
     "R6": {
@@ -234,35 +643,43 @@
     },
     "R7": {
       "fiscalYear": 2025,
-      "stage": "written",
-      "stageLabel": "筆記試験合格（口頭前・速報。最終合格は令和8年3月官報公告予定）",
+      "stage": "final",
+      "stageLabel": "最終合格（筆記＋口頭・令和8年3月公表の確定値）。writtenPassers は筆記合格者数",
       "totals": {
-        "all21": { "applicants": 30700, "examinees": 24135, "passers": 2957, "passRate": 12.3 },
-        "excludingCem20": { "applicants": 27543, "examinees": 21560, "passers": 2342, "passRate": 10.9 }
+        "all21": { "applicants": 30700, "examinees": 24135, "passers": 2752, "passRate": 11.4, "writtenPassers": 2957 },
+        "excludingCem20": { "applicants": 27543, "examinees": 21560, "passers": 2168, "passRate": 10.1, "writtenPassers": 2342 }
       },
       "divisions": {
-        "建設": { "examId": "pe-construction", "applicants": 18299, "examinees": 14094, "passers": 1378, "passRate": 9.8 },
-        "総合技術監理": { "examId": "pe-comprehensive-management", "applicants": 3157, "examinees": 2575, "passers": 615, "passRate": 23.9 },
-        "上下水道": { "applicants": 2067, "examinees": 1605, "passers": 191, "passRate": 11.9 },
-        "電気電子": { "applicants": 1270, "examinees": 1027, "passers": 117, "passRate": 11.4 },
-        "農業": { "applicants": 1190, "examinees": 944, "passers": 117, "passRate": 12.4 },
-        "機械": { "applicants": 1041, "examinees": 884, "passers": 187, "passRate": 21.2 },
-        "応用理学": { "applicants": 752, "examinees": 622, "passers": 72, "passRate": 11.6 },
-        "衛生工学": { "applicants": 593, "examinees": 488, "passers": 50, "passRate": 10.2 },
-        "環境": { "applicants": 537, "examinees": 406, "passers": 50, "passRate": 12.3 },
-        "情報工学": { "applicants": 523, "examinees": 430, "passers": 19, "passRate": 4.4 },
-        "森林": { "applicants": 351, "examinees": 286, "passers": 34, "passRate": 11.9 },
-        "経営工学": { "applicants": 258, "examinees": 216, "passers": 34, "passRate": 15.7 },
-        "化学": { "applicants": 176, "examinees": 153, "passers": 26, "passRate": 17.0 },
-        "水産": { "applicants": 128, "examinees": 97, "passers": 14, "passRate": 14.4 },
-        "金属": { "applicants": 91, "examinees": 72, "passers": 13, "passRate": 18.1 },
-        "原子力・放射線": { "applicants": 70, "examinees": 61, "passers": 10, "passRate": 16.4 },
-        "航空・宇宙": { "applicants": 52, "examinees": 50, "passers": 11, "passRate": 22.0 },
-        "生物工学": { "applicants": 58, "examinees": 51, "passers": 9, "passRate": 17.6 },
-        "繊維": { "applicants": 36, "examinees": 30, "passers": 3, "passRate": 10.0 },
-        "資源工学": { "applicants": 27, "examinees": 24, "passers": 4, "passRate": 16.7 },
-        "船舶・海洋": { "applicants": 24, "examinees": 20, "passers": 3, "passRate": 15.0 }
-      }
+        "建設": { "examId": "pe-construction", "applicants": 18299, "examinees": 14094, "passers": 1304, "passRate": 9.3, "writtenPassers": 1378 },
+        "総合技術監理": {
+          "examId": "pe-comprehensive-management",
+          "applicants": 3157,
+          "examinees": 2575,
+          "passers": 584,
+          "passRate": 22.7,
+          "writtenPassers": 615
+        },
+        "上下水道": { "examId": "pe-water-supply", "applicants": 2067, "examinees": 1605, "passers": 174, "passRate": 10.8, "writtenPassers": 191 },
+        "電気電子": { "applicants": 1270, "examinees": 1027, "passers": 104, "passRate": 10.1, "writtenPassers": 117 },
+        "農業": { "examId": "pe-agriculture", "applicants": 1190, "examinees": 944, "passers": 117, "passRate": 12.4, "writtenPassers": 117 },
+        "機械": { "applicants": 1041, "examinees": 884, "passers": 143, "passRate": 16.2, "writtenPassers": 187 },
+        "応用理学": { "examId": "pe-applied-science", "applicants": 752, "examinees": 622, "passers": 64, "passRate": 10.3, "writtenPassers": 72 },
+        "衛生工学": { "examId": "pe-sanitary", "applicants": 593, "examinees": 488, "passers": 49, "passRate": 10.0, "writtenPassers": 50 },
+        "環境": { "examId": "pe-environment", "applicants": 537, "examinees": 406, "passers": 48, "passRate": 11.8, "writtenPassers": 50 },
+        "情報工学": { "examId": "pe-information", "applicants": 523, "examinees": 430, "passers": 18, "passRate": 4.2, "writtenPassers": 19 },
+        "森林": { "examId": "pe-forestry", "applicants": 351, "examinees": 286, "passers": 34, "passRate": 11.9, "writtenPassers": 34 },
+        "経営工学": { "applicants": 258, "examinees": 216, "passers": 30, "passRate": 13.9, "writtenPassers": 34 },
+        "化学": { "applicants": 176, "examinees": 153, "passers": 21, "passRate": 13.7, "writtenPassers": 26 },
+        "水産": { "examId": "pe-fisheries", "applicants": 128, "examinees": 97, "passers": 14, "passRate": 14.4, "writtenPassers": 14 },
+        "金属": { "applicants": 91, "examinees": 72, "passers": 13, "passRate": 18.1, "writtenPassers": 13 },
+        "原子力・放射線": { "applicants": 70, "examinees": 61, "passers": 9, "passRate": 14.8, "writtenPassers": 10 },
+        "航空・宇宙": { "applicants": 52, "examinees": 50, "passers": 8, "passRate": 16.0, "writtenPassers": 11 },
+        "生物工学": { "applicants": 58, "examinees": 51, "passers": 8, "passRate": 15.7, "writtenPassers": 9 },
+        "繊維": { "applicants": 36, "examinees": 30, "passers": 3, "passRate": 10.0, "writtenPassers": 3 },
+        "資源工学": { "applicants": 27, "examinees": 24, "passers": 4, "passRate": 16.7, "writtenPassers": 4 },
+        "船舶・海洋": { "applicants": 24, "examinees": 20, "passers": 3, "passRate": 15.0, "writtenPassers": 3 }
+      },
+      "source": "https://www.engineer.or.jp/c_topics/010/attached/attach_10868_2.pdf"
     }
   }
 }

@@ -35,6 +35,7 @@
  * fs を伴う読み取りは末尾の collectScheduleEvents 系（read*）に閉じ込める。
  * ---------------------------------------------------------------------------
  */
+import { activeIds } from './qualification-registry.mjs';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { basename, join } from 'node:path';
 import { jstDayTime, todayJst } from './jst-date.mjs';
@@ -91,12 +92,16 @@ function capErrors(errors, cap = 5) {
 /**
  * exam-calendar.json → ScheduleEvent[]。
  * 過去日でも overdue にしない（試験日は「予定が守られたか」を判定する対象ではないアンカー）。
+ * onlyExamIds を渡すとその資格だけを対象にする（展開中の資格だけを運用予定に出すため。
+ * 候補資格の日程も exam-calendar に蓄積しているが、運用の予定表には混ぜない）。
+ * @param {Set<string>|null} [onlyExamIds]
  * @returns {{events: ScheduleEvent[], skipped: number}}
  */
-export function mapExamCalendar(json, relPath) {
+export function mapExamCalendar(json, relPath, onlyExamIds = null) {
   const events = [];
   let skipped = 0;
   for (const [examId, exam] of Object.entries(json?.exams ?? {})) {
+    if (onlyExamIds && !onlyExamIds.has(examId)) continue;
     for (const [eventId, ev] of Object.entries(exam?.events ?? {})) {
       if (typeof ev?.date !== 'string' || !YMD_RE.test(ev.date)) {
         skipped += 1;
@@ -418,7 +423,8 @@ function readExamCalendar(rootDir) {
   const relPath = '.claude/config/exam-calendar.json';
   try {
     const json = readJsonFile(join(rootDir, relPath));
-    const { events, skipped } = mapExamCalendar(json, relPath);
+    const registry = readJsonFile(join(rootDir, '.claude/config/qualification-registry.json'));
+    const { events, skipped } = mapExamCalendar(json, relPath, new Set(activeIds(registry)));
     const errors = skipped > 0
       ? [{ path: relPath, message: `${skipped} 件の event が不正な日付形式でスキップ` }]
       : [];

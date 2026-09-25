@@ -77,6 +77,7 @@ const GROUPS: { title: string; entries: NavEntry[] }[] = [
     entries: [
       { href: '/strategy/policy', label: '共通方針', match: '/strategy/policy' },
       { href: '/metrics/business', label: '事業方針と改善', match: '/metrics/business' },
+      { href: '/strategy/qualifications', label: '資格一覧', match: '/strategy/qualifications' },
       { href: '/content/lineup', label: '商品ラインナップ', match: '/content/lineup' },
       { href: '/sales', label: '売上', match: '/sales' },
       { href: '/affiliate', label: 'アフィリエイト', match: '/affiliate' },

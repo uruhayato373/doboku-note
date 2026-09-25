@@ -179,7 +179,8 @@ function fmtExamDate(date: string): string {
 /** 区分の試験日（exam-calendar.json）と残り日数。未発表の区分は期間の文言だけ出す。 */
 function StageSchedule({ schedule }: { schedule: LineupSchedule | null }) {
   if (!schedule) return null;
-  const many = schedule.events.length > 1;
+  // 1 件だけなら区分名で分かるので名前を省く。期間と並ぶときは何の日付か分からなくなるので出す。
+  const many = schedule.events.length + schedule.periods.length > 1;
   return (
     <div className="small" style={{ marginTop: 4, lineHeight: 1.45 }}>
       {schedule.events.map((e) => (

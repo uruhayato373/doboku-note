@@ -3,6 +3,7 @@
 import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { extname, join, relative } from "node:path";
 import { FORBIDDEN, findForbidden } from "./lib/exam-calendar-guards.mjs";
+import { activeIds, validateQualificationRegistry } from "./lib/qualification-registry.mjs";
 
 const ROOT = process.cwd();
 const SSOT_PATH = join(ROOT, ".claude/config/exam-calendar.json");
@@ -10,6 +11,8 @@ const calendar = JSON.parse(readFileSync(SSOT_PATH, "utf8"));
 
 const expected = {
   "civil-construction-1": {
+    applicationOpen: "2026-03-23",
+    applicationDeadline: "2026-04-06",
     first: "2026-07-05",
     second: "2026-10-04",
     firstResult: "2026-08-13",
@@ -17,6 +20,10 @@ const expected = {
     source: "https://www.jctc.jp/exam/doboku-1/",
   },
   "civil-construction-2": {
+    firstEarlyApplicationOpen: "2026-03-04",
+    firstEarlyApplicationDeadline: "2026-03-18",
+    firstLateApplicationOpen: "2026-07-08",
+    firstLateApplicationDeadline: "2026-07-22",
     firstEarly: "2026-06-07",
     firstLate: "2026-10-25",
     second: "2026-10-25",
@@ -26,19 +33,28 @@ const expected = {
     source: "https://www.jctc.jp/exam/doboku-2/",
   },
   "pe-comprehensive-management": {
+    applicationOpen: "2026-04-01",
+    applicationDeadlineWeb: "2026-04-14",
     applicationDeadline: "2026-04-15",
+    writtenResult: "2026-11-04",
+    finalResult: "2027-03-12",
     written: "2026-07-19",
     writtenSelective: "2026-07-20",
     source: "https://www.engineer.or.jp/c_topics/011/011422.html",
   },
   "pe-construction": {
+    applicationOpen: "2026-04-01",
+    applicationDeadlineWeb: "2026-04-14",
     applicationDeadline: "2026-04-15",
+    writtenResult: "2026-11-04",
+    finalResult: "2027-03-12",
     written: "2026-07-20",
     source: "https://www.engineer.or.jp/c_topics/011/011422.html",
   },
   "pe-first-stage": {
     applicationOpen: "2026-06-10",
     applicationDeadline: "2026-06-23",
+    applicationDeadlineMail: "2026-06-24",
     exam: "2026-11-22",
     source: "https://www.engineer.or.jp/c_topics/011/011423.html",
   },
@@ -107,11 +123,25 @@ for (const [examId, exam] of Object.entries(calendar.exams ?? {})) {
     }
   }
 }
-// SSOT にあるのに contract が無い資格は「検査していない」＝素通りするので明示的に落とす
-for (const examId of Object.keys(calendar.exams ?? {})) {
+// 資格一覧（qualification-registry.json）・受験者統計（exam-stats.json）・商品ラインナップと id が揃っていること。
+const readConfig = (name) => JSON.parse(readFileSync(join(ROOT, ".claude/config", name), "utf8"));
+const registry = readConfig("qualification-registry.json");
+for (const e of validateQualificationRegistry({
+  registry,
+  calendar,
+  examStats: readConfig("exam-stats.json"),
+  lineupConfig: readConfig("product-lineup.json"),
+  refExists: (p) => existsSync(join(ROOT, p)),
+})) {
+  errors.push(e);
+}
+// 展開中（active）の資格は本文・商品に日付を載せるので、公式値を上の expected に二重登録して照合する。
+// contract が無い active は「検査していない」＝素通りするので明示的に落とす。候補（candidate/declined）は
+// 形の検査（validateQualificationRegistry）だけで、本文へ日付を載せる段階で active にして contract を足す。
+for (const examId of activeIds(registry)) {
   if (!expected[examId]) {
     errors.push(
-      `${examId} は SSOT にあるが本スクリプトの expected に無い（無検査で素通りする）`,
+      `${examId} は registry で active だが本スクリプトの expected に無い（無検査で素通りする）`,
     );
   }
 }

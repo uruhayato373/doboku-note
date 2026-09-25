@@ -18,7 +18,7 @@ export type NextExamEvent = {
   isDeadline: boolean;
 };
 
-type CalendarEvent = { label: string; date: string };
+type CalendarEvent = { label: string; date: string; kind?: 'application' | 'exam' | 'result' };
 type CalendarExam = { label: string; year: number; events: Record<string, CalendarEvent> };
 
 const exams = (examCalendar as { exams: Record<string, CalendarExam> }).exams;
@@ -36,12 +36,14 @@ function formatJaDate(iso: string): string {
 
 /**
  * 今日（JST）以降で最も近いイベントを返す。同日に複数ある場合（2級の後期一次と二次）は
- * 試験本体（申込系でない）を優先する。未来のイベントが無ければ null。
+ * 試験本体（申込系でない）を優先する。合格発表（kind: result）は「次の試験」ではないので対象外。
+ * 未来のイベントが無ければ null。
  */
 export function getNextExamEvent(categorySlug: string, today: string = jstToday()): NextExamEvent | null {
   const exam = exams[categorySlug];
   if (!exam) return null;
   const upcoming = Object.entries(exam.events)
+    .filter(([, ev]) => ev.kind !== 'result')
     .map(([id, ev]) => ({ id, ...ev, isDeadline: /application|deadline|open/i.test(id) || /申込/.test(ev.label) }))
     .filter((ev) => ev.date >= today)
     .sort((a, b) => a.date.localeCompare(b.date) || Number(a.isDeadline) - Number(b.isDeadline));
