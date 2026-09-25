@@ -1,220 +1,110 @@
 {
   "_doc": "商品ラインナップ表（admin /content/lineup）の分類 SSOT。各チャネルの商品台帳（note-magazines.ts / coconala-services.ts / kindle-published/catalog.json / brain-products.ts）は書き換えず、商品 id を「資格 × 試験区分」のマスへ写すルールだけをここに置く。ルールは上から順に評価し最初の一致を採る。どのルールにも当たらない商品は画面で「未分類」として赤表示する（黙って落とさない）。判定は scripts/lib/product-lineup.mjs が唯一の実装。",
   "_apps": "apps は他に台帳を持たないアプリ・PWA（公開済み・計画中・構想）の手動台帳。status は planned / draft / review / published / retired（content-lifecycle.mjs の STAGES）。構想段階の iOS アプリも planned で載せ、備考に判断の状態を書く。",
-  "_calendar": "区分の日程は .claude/config/exam-calendar.json（試験日の SSOT）から引く。calendarId = exam-calendar の exams キー、stage.events = 確定日の events id、stage.periods = 日付未発表の periods id。ここに日付や期間の文言を書かない。 受験者数は .claude/config/exam-stats.json（受験者数の SSOT）から引く。statsId 省略時は calendarId、stage.stats = 'latest'（latest 本体）か latest.stages のキー。数値をここに書かない。",
   "qualifications": [
     {
       "id": "civil-construction-1",
       "label": "1級土木施工管理技士",
-      "calendarId": "civil-construction-1",
       "stages": [
         {
           "id": "first",
-          "label": "第一次検定",
-          "events": [
-            "first",
-            "firstResult"
-          ],
-          "stats": [
-            "first"
-          ]
+          "label": "第一次検定"
         },
         {
           "id": "second",
-          "label": "第二次検定",
-          "events": [
-            "second",
-            "secondResult"
-          ],
-          "stats": [
-            "second"
-          ]
+          "label": "第二次検定"
         }
       ]
     },
     {
       "id": "civil-construction-2",
       "label": "2級土木施工管理技士",
-      "calendarId": "civil-construction-2",
       "stages": [
         {
           "id": "first",
-          "label": "第一次検定",
-          "events": [
-            "firstEarly",
-            "firstEarlyResult",
-            "firstLate",
-            "firstLateResult"
-          ],
-          "stats": [
-            "firstEarly",
-            "firstLate"
-          ]
+          "label": "第一次検定"
         },
         {
           "id": "second",
-          "label": "第二次検定",
-          "events": [
-            "second",
-            "secondResult"
-          ],
-          "stats": [
-            "second"
-          ]
+          "label": "第二次検定"
         }
       ]
     },
     {
       "id": "pe-first-stage",
       "label": "技術士 第一次試験",
-      "calendarId": "pe-first-stage",
       "stages": [
         {
           "id": "first",
-          "label": "第一次試験",
-          "events": [
-            "exam"
-          ],
-          "periods": [
-            "result"
-          ],
-          "stats": [
-            "latest"
-          ]
+          "label": "第一次試験"
         }
       ]
     },
     {
       "id": "pe-construction",
       "label": "技術士 建設部門",
-      "calendarId": "pe-construction",
       "stages": [
         {
           "id": "written",
-          "label": "第二次 筆記",
-          "events": [
-            "written",
-            "writtenResult"
-          ],
-          "stats": [
-            "latest"
-          ]
+          "label": "第二次 筆記"
         },
         {
           "id": "oral",
-          "label": "第二次 口頭",
-          "events": [
-            "finalResult"
-          ],
-          "periods": [
-            "oral"
-          ],
-          "stats": []
+          "label": "第二次 口頭"
         }
       ]
     },
     {
       "id": "pe-comprehensive-management",
       "label": "技術士 総合技術監理部門",
-      "calendarId": "pe-comprehensive-management",
       "stages": [
         {
           "id": "written",
-          "label": "第二次 筆記",
-          "events": [
-            "written",
-            "writtenSelective",
-            "writtenResult"
-          ],
-          "stats": [
-            "latest"
-          ]
+          "label": "第二次 筆記"
         },
         {
           "id": "oral",
-          "label": "第二次 口頭",
-          "events": [
-            "finalResult"
-          ],
-          "periods": [
-            "oral"
-          ],
-          "stats": []
+          "label": "第二次 口頭"
         }
       ]
     },
     {
       "id": "rccm",
       "label": "RCCM",
-      "calendarId": "rccm",
       "stages": [
         {
           "id": "written",
-          "label": "筆記",
-          "events": [
-            "cbtStart",
-            "cbtEnd",
-            "result"
-          ],
-          "stats": [
-            "latest"
-          ]
+          "label": "筆記"
         }
       ]
     },
     {
       "id": "concrete-chief-engineer",
       "label": "コンクリート主任技士",
-      "calendarId": "concrete-chief-engineer",
       "stages": [
         {
           "id": "written",
-          "label": "筆記",
-          "events": [
-            "exam",
-            "result"
-          ],
-          "stats": [
-            "latest"
-          ]
+          "label": "筆記"
         }
       ]
     },
     {
       "id": "concrete-engineer",
       "label": "コンクリート技士",
-      "calendarId": "concrete-engineer",
       "stages": [
         {
           "id": "written",
-          "label": "筆記",
-          "events": [
-            "exam",
-            "result"
-          ],
-          "stats": [
-            "latest"
-          ]
+          "label": "筆記"
         }
       ]
     },
     {
       "id": "concrete-diagnostician",
       "label": "コンクリート診断士",
-      "calendarId": "concrete-diagnostician",
       "stages": [
         {
           "id": "written",
-          "label": "筆記",
-          "events": [
-            "exam"
-          ],
-          "periods": [
-            "result"
-          ],
-          "stats": [
-            "latest"
-          ]
+          "label": "筆記"
         }
       ]
     }

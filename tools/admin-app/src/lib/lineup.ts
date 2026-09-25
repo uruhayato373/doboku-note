@@ -25,8 +25,7 @@ import { repoPath } from './repo-root';
  * 商品を「資格 × 試験区分 × チャネル」のマトリクスへ並べる。分類ルールの SSOT は
  * `.claude/config/product-lineup.json`、判定は `scripts/lib/product-lineup.mjs`、
  * 状態の語彙は `scripts/lib/content-lifecycle.mjs` を使い、ここでは各チャネルの既存台帳を
- * 読んで item へ正規化するだけ。台帳は書き換えない。試験日は `.claude/config/exam-calendar.json`、
- * 受験者数は `.claude/config/exam-stats.json` から引く。
+ * 読んで item へ正規化するだけ。台帳は書き換えない。試験日・受験者数は資格一覧（/strategy/qualifications）が扱う。
  * 読めなかったチャネルは 0 件ではなく `sourceErrors` に出す（CLAUDE.md §9）。
  */
 
@@ -44,23 +43,7 @@ export interface LineupItem {
   cells?: string[];
 }
 
-export interface LineupSchedule {
-  events: { label: string; date: string; daysLeft: number }[];
-  periods: { label: string; window: string }[];
-}
-
-export interface LineupStat {
-  label: string;
-  year: string | null;
-  examinees: number | null;
-  passRate: number | null;
-  unverified: boolean;
-  note: string | null;
-}
-
 export interface LineupRow {
-  schedule: LineupSchedule | null;
-  stats: LineupStat[];
   key: string;
   qualificationId: string;
   qualificationLabel: string;
@@ -78,7 +61,6 @@ export interface LineupView {
   configErrors: string[];
   sourceErrors: { channel: string; message: string }[];
   totals: Record<string, { all: number; published: number }>;
-  today: string;
 }
 
 interface LineupConfig {
@@ -224,11 +206,7 @@ function loadBrainItems(): LineupItem[] {
 
 export function loadLineupView(): LineupView {
   const config = JSON.parse(readFileSync(repoPath('.claude', 'config', 'product-lineup.json'), 'utf8')) as LineupConfig;
-  const calendar = JSON.parse(readFileSync(repoPath('.claude', 'config', 'exam-calendar.json'), 'utf8')) as unknown;
-  const examStats = JSON.parse(readFileSync(repoPath('.claude', 'config', 'exam-stats.json'), 'utf8')) as unknown;
-  const configErrors = validateLineupConfig(config, calendar, examStats) as string[];
-  // 残り日数は JST の日付で数える（運用記録と同じ基準）。
-  const today = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Asia/Tokyo' }).format(new Date());
+  const configErrors = validateLineupConfig(config) as string[];
   const sourceErrors: LineupView['sourceErrors'] = [];
   const items: LineupItem[] = [];
   const loaders: [string, () => LineupItem[]][] = [
@@ -262,7 +240,7 @@ export function loadLineupView(): LineupView {
     });
   }
 
-  const { rows, unclassified } = buildLineup(config, items, { calendar, examStats, today }) as { rows: LineupRow[]; unclassified: LineupItem[] };
+  const { rows, unclassified } = buildLineup(config, items) as { rows: LineupRow[]; unclassified: LineupItem[] };
   const totals: LineupView['totals'] = {};
   for (const c of config.channels) totals[c.id] = { all: 0, published: 0 };
   for (const i of items) {
@@ -271,5 +249,5 @@ export function loadLineupView(): LineupView {
     t.all += 1;
     if (i.stage === 'published') t.published += 1;
   }
-  return { channels: config.channels, rows, unclassified, configErrors, sourceErrors, totals, today };
+  return { channels: config.channels, rows, unclassified, configErrors, sourceErrors, totals };
 }

@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import { PageHead, Kpi } from '@/components/ui';
+import { PageHead } from '@/components/ui';
 import { Badge } from '@/components/primitives';
-import { loadLineupView, type LineupItem, type LineupRow, type LineupSchedule, type LineupStat } from '@/lib/lineup';
+import { loadLineupView, type LineupItem, type LineupRow } from '@/lib/lineup';
 
 export const dynamic = 'force-dynamic';
 
@@ -29,7 +29,7 @@ export default async function LineupPage({ searchParams }: { searchParams: Promi
   const { retired } = await searchParams;
   const showRetired = retired === '1';
   const view = loadLineupView();
-  const { channels, rows, unclassified, configErrors, sourceErrors, totals } = view;
+  const { channels, rows, unclassified, configErrors, sourceErrors } = view;
 
   const visible = (items: LineupItem[]) =>
     items
@@ -39,12 +39,6 @@ export default async function LineupPage({ searchParams }: { searchParams: Promi
   return (
     <>
       <PageHead title="商品ラインナップ" />
-
-      <div className="grid cols-4" style={{ marginBottom: 16 }}>
-        {channels.map((c) => (
-          <Kpi key={c.id} label={`${c.label} 販売中`} value={`${totals[c.id]?.published ?? 0} / ${totals[c.id]?.all ?? 0}`} />
-        ))}
-      </div>
 
       {(configErrors.length > 0 || sourceErrors.length > 0) && (
         <div className="card warn-border">
@@ -62,18 +56,14 @@ export default async function LineupPage({ searchParams }: { searchParams: Promi
         </div>
       )}
 
-      <div className="card">
-        <h2>
-          ラインナップ表
-          <span className="sub">
-            {showRetired ? (
-              <Link href="/content/lineup">停止中を隠す</Link>
-            ) : (
-              <Link href="/content/lineup?retired=1">停止中も表示する</Link>
-            )}
-          </span>
-        </h2>
-        <div className="table-wrap">
+      <div className="small" style={{ marginBottom: 8, textAlign: 'right' }}>
+        {showRetired ? (
+          <Link href="/content/lineup">停止中を隠す</Link>
+        ) : (
+          <Link href="/content/lineup?retired=1">停止中も表示する</Link>
+        )}
+      </div>
+      <div className="table-wrap">
           <table className="data">
             <thead>
               <tr>
@@ -90,7 +80,6 @@ export default async function LineupPage({ searchParams }: { searchParams: Promi
               ))}
             </tbody>
           </table>
-        </div>
       </div>
 
       {unclassified.length > 0 && (
@@ -130,8 +119,6 @@ function LineupRowView({
       )}
       <td style={{ whiteSpace: 'nowrap' }}>
         <div>{row.stageLabel}</div>
-        <StageSchedule schedule={row.schedule} />
-        <StageStats stats={row.stats} />
       </td>
       {channels.map((c) => {
         const items = visible(row.byChannel[c.id] ?? []);
@@ -158,68 +145,6 @@ function LineupRowView({
         );
       })}
     </tr>
-  );
-}
-
-const WEEKDAYS = ['日', '月', '火', '水', '木', '金', '土'];
-
-/** 'YYYY-MM-DD' → '2026/10/4（日）'。 */
-function fmtExamDate(date: string): string {
-  const [y, m, d] = date.split('-').map(Number) as [number, number, number];
-  const wd = WEEKDAYS[new Date(Date.UTC(y, m - 1, d)).getUTCDay()];
-  return `${y}/${m}/${d}（${wd}）`;
-}
-
-/** 区分の試験日（exam-calendar.json）と残り日数。未発表の区分は期間の文言だけ出す。 */
-function StageSchedule({ schedule }: { schedule: LineupSchedule | null }) {
-  if (!schedule) return null;
-  // 1 件だけなら区分名で分かるので名前を省く。期間と並ぶときは何の日付か分からなくなるので出す。
-  const many = schedule.events.length + schedule.periods.length > 1;
-  return (
-    <div className="small" style={{ marginTop: 4, lineHeight: 1.45 }}>
-      {schedule.events.map((e) => (
-        <div key={`${e.label}-${e.date}`} className={e.daysLeft < 0 ? 'muted' : undefined}>
-          {many && <span className="muted">{e.label} </span>}
-          {fmtExamDate(e.date)}{' '}
-          {e.daysLeft > 0 ? (
-            <Badge variant={e.daysLeft <= 30 ? 'warning' : 'outline'}>あと{e.daysLeft}日</Badge>
-          ) : e.daysLeft === 0 ? (
-            <Badge variant="warning">本日</Badge>
-          ) : (
-            '（実施済み）'
-          )}
-        </div>
-      ))}
-      {schedule.periods.map((p) => (
-        <div key={p.label} className="muted" style={{ whiteSpace: 'normal', maxWidth: 180 }}>
-          {p.label} {p.window}
-        </div>
-      ))}
-    </div>
-  );
-}
-
-/** 区分の受験者数（exam-stats.json の最新年度）。公式未確認は数値を出さず「未確認」。 */
-function StageStats({ stats }: { stats: LineupStat[] }) {
-  if (stats.length === 0) return null;
-  const many = stats.length > 1;
-  return (
-    <div className="small muted" style={{ marginTop: 4, lineHeight: 1.45 }}>
-      {stats.map((s) =>
-        s.unverified ? (
-          <div key={s.label} title={s.note ?? undefined}>
-            受験者数 <span className="project-warning-text">未確認</span>
-          </div>
-        ) : (
-          <div key={s.label}>
-            {many ? `${s.label} ` : ''}
-            {s.year} {s.examinees != null ? `受験者 ${s.examinees.toLocaleString('ja-JP')}人` : '受験者数 公式未掲載'}
-            {s.passRate != null ? `・合格率 ${s.passRate}%` : ''}
-            {s.note ? `（${s.note}）` : ''}
-          </div>
-        ),
-      )}
-    </div>
   );
 }
 
