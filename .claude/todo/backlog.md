@@ -391,14 +391,6 @@ CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認し
 
 **完了条件**: `e2e/a11y-baseline.json` の全キーが `{}`（serious 0）で `npm run test:e2e:a11y` が緑。
 
-### [DN-0238] ビジュアルリグレッション（Playwright toHaveScreenshot）を代表テンプレに入れる
-タグ: [コンテンツ品質] [種類:改善] [起票:2026-09-17]
-
-**起点**: 2026-09-17 の CI 監査（第 1 バッチ #519 で axe・本番スイープ・夜間 E2E を導入）で残った最大の穴。CSS・Tailwind 変更によるレイアウト崩れは lint-ui でも axe でも捕まらず、Tailwind の transform 変種が本 build で無効だった件（memory）もこの種だった。
-
-**やること**: `e2e/a11y.spec.ts` と同じ代表 8 テンプレ（home / 資格ハブ / KW 記事 / 過去問 / テキスト / 基準章 / ツール / 検索）と `/links`（SNS のプロフィールから来る入口・2026-09-24 に 1 画面目の密度を直した）× desktop・mobile × light/dark の約 32 枚を `toHaveScreenshot` で固定。アニメーション無効化・GA 等の外部要素をマスク・`maxDiffPixelRatio` は 0.01 から。基準画像は CI（ubuntu・同一フォント）で生成して commit し、ローカルは `--update-snapshots` を使わない運用を docs/operations/12 に書く。
-
-**完了条件**: PR の E2E で意図しないレイアウト差分が赤になる。基準更新の手順（CI の artifact から取り込む）が docs にあり、1 回の意図的な UI 変更で更新を実演済み。
 
 ### [DN-0239] 日本語校正（textlint + prh）を変更ファイルだけのラチェットで導入する
 タグ: [コンテンツ品質] [種類:改善] [起票:2026-09-17]
