@@ -729,6 +729,15 @@ Drive台帳・vault・Drive APIの照合前にローカル実体を削除しな�
 
 ## 🟣 判断待ち — ユーザーの意思決定が必要
 
+### [DN-0314] Drive vault にあるココナラ商品画像の旧版5枚を、現行の生成画像で上書きするか決める
+タグ: [収益化] [種類:意思決定] [起票:2026-09-25] [期日:2026-10-09]
+
+**起点**: vault 台帳（`.claude/state/assets/drive-manifest.json`）の5枚が、今の `scripts/coconala-thumb.mjs` の出力と違う。`thumb-tensaku-4theme` は旧商品「4テーマセット ¥12,000」のままで、公開中の全5テーマ版（¥15,000）と合わない。`thumb-tensaku-set` / `thumb-1kyu-premium` も旧版。`thumb-sakusei` / `thumb-sakusei-4theme` は台帳が「作成」版で、Mac 上の実体は「指導」版（ライブ差し替え済み）。CI（`coconala-wiring`）は台帳にエントリがあれば通るので影響しない。上書きは vault の旧版を消すため、自動モードでは不可逆操作として止まる。
+
+**やること**: 上書きしてよいか決める。する場合は Mac で `node scripts/coconala-thumb.mjs --service coconala-<id> --out .tmp/thumb-verify/thumb-<id>.png` で3枚（`tensaku-set` / `tensaku-4theme` / `1kyu-premium`）を作り直して `.claude/config/coconala/assets/` へ置き、`node scripts/drive-vault-sync.mjs --group coconala-asset --commit` で5枚を登録して台帳を commit する。あわせて会社 PC の worktree `coconala-grade` と `tensaku-qa`（PR #638 はマージ済み）を `git worktree remove` する。
+
+**完了条件**: 上書きする場合は `node scripts/drive-vault-sync.mjs --group coconala-asset --verify` が不一致 0。しない場合は理由をこのカードに書いて削除する。
+
 ### [DN-0305] 「業務経験 → 資格」カード（EXP-012）の反応を見て、入口記事を増やすか・文言や位置を変えるかを決める
 タグ: [コンテンツ品質] [種類:意思決定] [起票:2026-09-25] [期日:2026-11-30]
 
