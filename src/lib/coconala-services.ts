@@ -126,9 +126,11 @@ const SERVICES_RAW = {
   // S1: レビュー獲得フロント。1テーマ分の診断のみ（書き換え文は提供しない＝S2 との線引き）。
   //   実測（2026-07-16）: 診断セグメントの競合は1件（道路プロ ¥1,000×1件）のみ＝ほぼ空白。
   //   価格競争が存在しないため ¥1,500 据え置き。
+  // 2026-09-25 アーカイブ（ユーザー決定）: ココナラの通常サービス出品上限（20件）に達し、級別の新商品を出す枠を空けるため。
+  //   受注0件・30日閲覧17回、市場でも土木の診断は販売実績1件（market-research 9/23）で需要が薄い。
   'coconala-shindan': {
     id: 'coconala-shindan',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4317349',
     // 2026-08-12: 「採点者目線」→「発注者目線」。運営者は発注者（審査する側）であって
     // 試験の採点者ではない（author-authority-banner.md の 2026-08-11 訂正と整合）。
@@ -142,6 +144,7 @@ const SERVICES_RAW = {
     priceYen: 1500,
     examScope: ['civil-1', 'civil-2'],
     weeklyCapacity: 5,
+    pauseReason: 'retired',
     listedAt: '2026-07-18',
   },
 
@@ -176,8 +179,8 @@ const SERVICES_RAW = {
   //   自社は2テーマ ¥6,000 の2.5倍＝¥15,000（作成の5管理版 ¥20,000 と対の刻み）・週1名・受け取りから48時間。
   'coconala-tensaku-4theme': {
     id: 'coconala-tensaku-4theme',
-    status: 'draft',
-    serviceUrl: '',
+    status: 'listed',
+    serviceUrl: 'https://coconala.com/services/4418735',
     title: '1級土木経験記述5管理を添削します',
     shortTitle: '1級 経験記述 添削（5管理フル）',
     description:
@@ -186,6 +189,7 @@ const SERVICES_RAW = {
     priceYen: 15000,
     examScope: ['civil-1'],
     weeklyCapacity: 1,
+    listedAt: '2026-09-25',
   },
 
   // S3: 答案作成（ヒアリング→文章化）。競合実測（2026-07-18）: daiko 実売中央値¥10,000・トップ4社が質問起点

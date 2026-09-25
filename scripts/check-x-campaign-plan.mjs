@@ -26,6 +26,7 @@
 import { readFileSync, readdirSync, existsSync } from "node:fs";
 import { basename, join } from "node:path";
 import { readDocMetaIndex } from "./lib/doc-meta-index.mjs";
+import { todayJst } from "./lib/jst-date.mjs";
 
 const MIN_GAP_MIN = 60;      // 同一日の投稿間隔の下限（分）
 const SALES_FUNNELS = ["note", "coconala", "brain"];
@@ -97,6 +98,10 @@ for (const [name, cat] of [["coconala", coconala], ["note", noteMags], ["brain",
 const bare = (u) => u.split("?")[0].replace(/\/$/, "");
 
 let anyError = false;
+// 投稿日が今日より前の投稿は、送客先がその後に受付終了・非公開になっても直せない（投稿済み）。
+// 出品の整理（上限20件の枠確保でのアーカイブ等）のたびに過去の計画でコミットが止まらないよう、
+// 送客先の status 不一致は「これから投稿する分」だけをエラーにし、過去分は WARN に下げる。
+const TODAY = todayJst();
 let totalPosts = 0;
 for (const file of files) {
   const plan = JSON.parse(readFileSync(file, "utf8"));
@@ -164,7 +169,7 @@ for (const file of files) {
       if (url.hostname !== "note.com") errors.push(`${label}: note URLではない`);
       const hit = noteMags.get(bare(post.target));
       if (!hit) errors.push(`${label}: note マガジン/記事がカタログに無い ${bare(post.target)}`);
-      else if (!hit.published) errors.push(`${label}: note "${hit.id}" は published:false（未公開へ送客）`);
+      else if (!hit.published) (post.date < TODAY ? retainedWarnings : errors).push(`${label}: note "${hit.id}" は published:false（未公開へ送客）`);
     }
     if (post.funnel === "coconala" && post.target) {
       if (!post.target.startsWith("https://coconala.com/services/")) {
@@ -172,7 +177,7 @@ for (const file of files) {
       } else {
         const hit = coconala.get(bare(post.target));
         if (!hit) errors.push(`${label}: ココナラ出品がカタログに無い ${bare(post.target)}`);
-        else if (hit.status !== "listed") errors.push(`${label}: ココナラ "${hit.id}" は status:${hit.status}（受付終了へ送客）`);
+        else if (hit.status !== "listed") (post.date < TODAY ? retainedWarnings : errors).push(`${label}: ココナラ "${hit.id}" は status:${hit.status}（受付終了へ送客${post.date < TODAY ? "・投稿済みのため修正不能" : ""}）`);
       }
     }
     if (post.funnel === "brain" && post.target) {
@@ -181,7 +186,7 @@ for (const file of files) {
       } else {
         const hit = brain.get(bare(post.target));
         if (!hit) errors.push(`${label}: Brain 商品がカタログに無い ${bare(post.target)}`);
-        else if (hit.status !== "listed") errors.push(`${label}: Brain "${hit.id}" は status:${hit.status}`);
+        else if (hit.status !== "listed") (post.date < TODAY ? retainedWarnings : errors).push(`${label}: Brain "${hit.id}" は status:${hit.status}${post.date < TODAY ? "（投稿済みのため修正不能）" : ""}`);
       }
     }
   }
