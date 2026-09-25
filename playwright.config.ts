@@ -15,7 +15,13 @@ export default defineConfig({
   timeout: 30_000,
   // 初回コンパイル待ちは globalSetup のウォームアップで assertion の外へ出している。
   // ここは「温まったサーバーに対する妥当な待ち」に留める（伸ばしすぎると本物の遅延を見逃す）。
-  expect: { timeout: 10_000 },
+  expect: {
+    timeout: 10_000,
+    // ビジュアルリグレッション（e2e/visual.spec.ts・DN-0238）。フォントの subpixel
+    // アンチエイリアシングの揺れを許容しつつ、意図しないレイアウト崩れは検出する値。
+    // 基準画像は CI（ubuntu-latest・同一フォント環境）で生成する（docs/operations/12 参照）。
+    toHaveScreenshot: { maxDiffPixelRatio: 0.01 },
+  },
   globalSetup: './e2e/global-setup.ts',
   reporter: isCI
     ? [['line'], ['html', { outputFolder: 'playwright-report', open: 'never' }]]
