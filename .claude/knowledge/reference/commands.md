@@ -31,6 +31,8 @@ npm run schedule-view     # 予約・計画・期日の横断ビュー（読み�
 
 ```bash
 npm run check-mdx-dates      # 記事の created/dateModified が frontmatter に揃っているか（sitemap lastmod と JSON-LD datePublished の真実源。欠けるとビルドが git 履歴へフォールバックし、公開 SEO 信号がリネームや履歴書換えで動く状態へ逆戻りする。書き込みは pre-commit の backfill-mdx-dates --staged）
+npm run lint:ja               # 日本語校正（textlint + prh）。staged の content/site/**/*.mdx だけの表記ゆれ・全角英数を検出（pre-commit と quality:audit:ci に同梱・DN-0239）。辞書は prh.yml、ルール定義は .textlintrc.json
+npm run lint:ja:all           # 全件 report（1,280 ファイルを 100 件ずつバッチ実行・OOM 回避。ゲートしない。件数を減らしたいときは辞書 prh.yml に語を足す）
 npm run check-bold-rendering # 太字が実際に描画されるか（remark で実パースし text に ** が残る＝崩壊を検出・サイト MDX と note 記事が対象・quality:audit に同梱）
 npm run check-note-duplicate-images # note 記事で同じ画像を 2 回使っていないか（2 枚目は CDN 確定せず全文更新が中断する・pre-commit の note-lint 規則 10 と同じ判定・quality:audit ci）
 npm run check-note-inline-code      # note 記事の本文にインラインのバッククォートが無いか（note は `〇〇` を記号のまま出す・目印は【〇〇】・pre-commit の note-lint 規則 11 と同じ判定・quality:audit ci）

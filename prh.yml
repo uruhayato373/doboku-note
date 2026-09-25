@@ -1,0 +1,82 @@
+version: 1
+
+# doboku-note 用語表記統一辞書（DN-0239）。
+#
+# 対象は content/site/**/*.mdx（土木・建設系試験対策コンテンツ）。
+#
+# 選定基準: このリポジトリの content/site 内で「同じ語の表記ゆれ（送り仮名違い等）」が
+# 実際に併存している語だけを採る。expected は corpus 内の多数派表記（既に本文の大半が
+# その表記であり、変更時の影響が小さい方）。件数は 2026-09-26 に content/site を実測。
+#
+# **意図的に含めないもの**:
+# - 「施工」/「施行」— 表記ゆれではなく別語（施工=工事の実施、施行=法令の効力発生）。
+#   置換すると正しい文を壊す（例: 「法の施行日」→誤って「法の施工日」にしてはならない）。
+# - 「①②③」等の丸数字・ローマ数字（Ⅰ Ⅱ Ⅲ）— 経験記述の解答欄区分
+#   （(1)検討項目/(2)対応処置 等）や試験区分の表記に使われており、機種依存文字として
+#   一律に禁止すると意図した記法を壊す。要る場合は個別に判断する。
+# - 「問合せ」/「問い合わせ」— corpus内の件数が拮抗（9件/10件）しており多数派を決められない。
+
+rules:
+  # 送り仮名・表記ゆれ（土木・建設用語）
+  - expected: 箇所
+    patterns:
+      - か所
+      - ヶ所
+  - expected: 打込み
+    patterns:
+      - 打ち込み
+  - expected: 型枠
+    patterns:
+      - 型わく
+  - expected: 組み立て
+    patterns:
+      - 組立て
+  - expected: 取り付け
+    patterns:
+      - 取付け
+  - expected: 積込み
+    patterns:
+      - 積み込み
+  - expected: 受入れ
+    patterns:
+      - 受け入れ
+  - expected: 打継ぎ
+    patterns:
+      - 打ち継ぎ
+  - expected: 仕上り
+    patterns:
+      - 仕上がり
+  - expected: 組合せ
+    patterns:
+      - 組み合わせ
+  - expected: 見積り
+    patterns:
+      - 見積もり
+  - expected: 積み上げ
+    patterns:
+      - 積上げ
+  - expected: 切土
+    patterns:
+      - 切り土
+  - expected: 盛土
+    patterns:
+      - 盛り土
+  - expected: 土留め
+    patterns:
+      - 土止め
+  - expected: 締固め
+    patterns:
+      - 締め固め
+  - expected: 掘り起こし
+    patterns:
+      - 掘起こし
+  - expected: 据付け
+    patterns:
+      - 据え付け
+  - expected: 打合せ
+    patterns:
+      - 打ち合わせ
+
+# 全角英数字の検出は .textlintrc.json の textlint-rule-preset-jtf-style（2.1.8/2.1.9 のみ有効化）が担う。
+# prh は単純な文字列/正規表現の置換辞書で、全角→半角のような「文字コードを1文字ずつ変換する」
+# ルールは表現できない（$1 は単なる後方参照で変換にはならない）。
