@@ -144,7 +144,7 @@ export default function SlingTensionClient() {
 
         <div className="mt-5 grid gap-4 sm:grid-cols-2">
           <div className="rounded-card-content bg-[var(--accent-fill)] p-4">
-            <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--ink-muted)]">
+            <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--ink-body)]">
               1本当たりの張力 T
             </div>
             <div className="font-serif font-black text-[22px] text-[var(--ink)] mt-1 tabular-nums">
@@ -152,7 +152,7 @@ export default function SlingTensionClient() {
             </div>
           </div>
           <div className="rounded-card-content bg-[var(--accent-fill)] p-4">
-            <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--ink-muted)]">
+            <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--ink-body)]">
               必要な破断荷重（安全係数{SAFETY_FACTOR}）
             </div>
             <div className="font-serif font-black text-[22px] text-[var(--ink)] mt-1 tabular-nums">
