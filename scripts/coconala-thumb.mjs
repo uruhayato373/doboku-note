@@ -189,9 +189,9 @@ const THUMB_COPY = {
   },
   'coconala-2kyu-sakusei': {
     eyebrow: '2級土木施工管理技士 ／ 第2次検定 経験記述',
-    title: ['経験記述 作成', '48時間で返却'],
-    hook: '質問シートに答えるだけ。\nあなたの実工事を読み手に伝わる答案に',
-    priceLabel: '2テーマ・書き直し1回込み',
+    title: ['経験記述 指導', '骨子から添削まで'],
+    hook: '実工事をヒアリングして骨子を設計。\nあなたが書いた答案を元発注者が添削',
+    priceLabel: '2テーマ・再添削1回込み',
   },
   'coconala-2kyu-sakusei-3theme': {
     eyebrow: '2級土木施工管理技士 ／ 第2次検定 経験記述',
