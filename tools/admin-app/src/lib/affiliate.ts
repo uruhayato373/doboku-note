@@ -14,6 +14,16 @@ import { repoPath } from './repo-root';
 
 const AFF = ['.claude', 'state', 'metrics', 'affiliate'] as const;
 
+/** doboku の副サイト（note 等）の A8 サイト名。正本は .claude/config/a8-report-automation.json の a8.relatedSites。 */
+function readRelatedSites(): string[] {
+  try {
+    const c = JSON.parse(readFileSync(repoPath('.claude', 'config', 'a8-report-automation.json'), 'utf8'));
+    return Array.isArray(c?.a8?.relatedSites) ? c.a8.relatedSites : [];
+  } catch {
+    return [];
+  }
+}
+
 export interface SiteTotals {
   site: string;
   impressions: number | null;
@@ -64,6 +74,8 @@ export interface AffiliateSummary {
   updatedAt: string | null;
   lastRun: string | null;
   siteTotals: SiteTotals | null;
+  /** A8 のサイト別レポートを掲載先（サイト／note）ごとに。note は a8-report-automation.json の relatedSites */
+  surfaceTotals: { label: string; site: string; clicks: number | null; conversions: number | null; approved: number | null; revenueYen: number | null; collected: boolean }[];
   programs: ProgramRow[];
   accountWideMonths: MonthRow[];
   accountWideDays: DayRow[];
@@ -112,6 +124,7 @@ const EMPTY: AffiliateSummary = {
   updatedAt: null,
   lastRun: null,
   siteTotals: null,
+  surfaceTotals: [],
   programs: [],
   accountWideMonths: [],
   accountWideDays: [],
@@ -140,7 +153,17 @@ export function affiliateSummary(): AffiliateSummary {
   const target = log.site ?? 'doboku-note';
   // siteSummary / programPeriod は期間ごとに蓄積される。表示は対象期間（log.period）の行だけ（normalize-a8-csv の inCurrentPeriod と同じ）
   const inPeriod = (r: RawRow) => r.period === log.period?.raw;
-  const s = (log.siteSummary ?? []).filter(inPeriod).find((r) => String(r.site ?? '').includes(target)) ?? null;
+  // サイト名は完全一致（部分一致だと 'doboku-note' が 'doboku-note（note）' にも当たる）
+  const rowsInPeriod = (log.siteSummary ?? []).filter(inPeriod);
+  const s = rowsInPeriod.find((r) => String(r.site ?? '').trim() === target) ?? null;
+  const related = readRelatedSites();
+  const surfaceTotals = [
+    { label: 'サイト', site: target },
+    ...related.map((site) => ({ label: 'note', site })),
+  ].map(({ label, site }) => {
+    const r = rowsInPeriod.find((x) => String(x.site ?? '').trim() === site) ?? null;
+    return { label, site, clicks: r?.clicks ?? null, conversions: r?.conversions ?? null, approved: r?.approved ?? null, revenueYen: r?.revenueYen ?? null, collected: r !== null };
+  });
 
   const siteTotals: SiteTotals | null = s
     ? {
@@ -199,6 +222,7 @@ export function affiliateSummary(): AffiliateSummary {
     updatedAt: log.updatedAt ?? null,
     lastRun: log.lastRun ?? null,
     siteTotals,
+    surfaceTotals,
     programs,
     accountWideMonths,
     accountWideDays,

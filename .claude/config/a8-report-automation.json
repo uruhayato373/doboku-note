@@ -7,6 +7,8 @@
     "reAuthPattern": "re-authentication|/login",
 
     "targetSite": "doboku-note",
+    "relatedSites": ["doboku-note（note）"],
+    "_relatedSitesNote": "2026-09-26 に note を副サイト（websiteId=006）として登録。サイト別レポートでは doboku-note（サイト）と別行になる。口座横断のプログラム別は両方を含むので、検算は targetSite＋relatedSites の合計と比べる。サイト名は完全一致で照合する（部分一致だと doboku-note が note 行にも当たる）。",
     "mediaId": "a25050375786",
     "_accountNote": "2026-07-27 実機確認: A8 の管理画面に **サイト切替は存在しない**。メディアID=口座で、ヘッダーの「サイト名」は口座の代表サイト（統計で見る都道府県）が常に表示されるだけ。したがって assert すべきは『正しい口座か』（mediaId）であり、doboku-note の分離はレポート単位で行う。",
 

@@ -25,6 +25,7 @@ import {
   KEY,
   toResultsRecords,
   crossCheckAgainstSite,
+  sumSiteRows,
   suggestMissingPrograms,
 } from "./lib/a8-report-csv.mjs";
 
@@ -49,6 +50,12 @@ function parseArgs() {
     if (a[i] === "--latest") opts.latest = true;
     else if (a[i] === "--dry-run") opts.dryRun = true;
     else if (a[i] === "--run") opts.run = a[++i];
+    else {
+      // 知らない引数（--help の打ち間違い等）で黙って取り込みを走らせない（2026-09-26: --help で
+      // 古い手元 run を取り込み、SSOT を書き換えた）
+      console.error(`未知の引数: ${a[i]}\n使い方: node scripts/normalize-a8-csv.mjs [--latest | --run <dir>] [--dry-run]`);
+      process.exit(a[i] === "--help" || a[i] === "-h" ? 0 : 2);
+    }
   }
   if (!opts.latest && !opts.run) opts.latest = true;
   return opts;
@@ -180,9 +187,11 @@ function main() {
   const siteRow =
     currentPeriod == null
       ? null
-      : (log.siteSummary || [])
-          .filter(inCurrentPeriod)
-          .find((r) => String(r.site || "").includes(cfg.a8.targetSite));
+      : sumSiteRows(
+          (log.siteSummary || []).filter(inCurrentPeriod),
+          // 口座横断のプログラム別は doboku のサイトと note の両方を含むので、その合計と比べる
+          [cfg.a8.targetSite, ...(cfg.a8.relatedSites ?? [])],
+        );
   if (currentPeriod == null) {
     log.crossCheck = { comparable: false, reason: "この run では期間を特定できない（有効な CSV が無い）" };
   } else {

@@ -24,7 +24,9 @@ const PLACEMENT_LABELS: Record<string, string> = {
  * 口座横断の月別・日別、検算、未写像の一覧は週次レビュー（check-a8-report-due）が見る。
  */
 export default function AffiliatePage() {
-  const { collected, period, siteTotals, programs, unmapped } = affiliateSummary();
+  const { collected, period, surfaceTotals, programs, unmapped } = affiliateSummary();
+  const got = surfaceTotals.filter((x) => x.collected);
+  const sumOf = (f: 'conversions' | 'revenueYen') => (got.length ? got.reduce((a, x) => a + (x[f] ?? 0), 0) : null);
   const placements = affiliatePlacements();
   const experiments = affiliateExperiments();
   const clicks = placements.rows.reduce((s, r) => s + r.clicks, 0);
@@ -36,10 +38,20 @@ export default function AffiliatePage() {
       <div className="grid cols-4" style={{ marginBottom: 12 }}>
         <Kpi label={placements.window ? `サイト内クリック ${md(placements.window.start)}〜${md(placements.window.end)}` : 'サイト内クリック'} value={placements.rows.length ? clicks : '—'} />
         <Kpi label="クリック率" value={rate(clicks, imps)} />
-        <Kpi label={`A8 発生（サイト＋note） ${period?.singleMonth ?? ""}`} value={collected ? num(siteTotals?.conversions ?? null) : '—'} />
-        <Kpi label={`A8 確定額（サイト＋note） ${period?.singleMonth ?? ""}`} value={collected ? yen(siteTotals?.revenueYen ?? null) : '—'} />
+        <Kpi label={`A8 発生 ${period?.singleMonth ?? ''}`} value={collected ? num(sumOf('conversions')) : '—'} />
+        <Kpi label={`A8 確定額 ${period?.singleMonth ?? ''}`} value={collected ? yen(sumOf('revenueYen')) : '—'} />
       </div>
 
+      {surfaceTotals.length > 1 && (
+        <p className="small" style={{ marginBottom: 4 }}>
+          A8 内訳{' '}
+          {surfaceTotals.map((x) => (
+            <span key={x.site} style={{ marginRight: 16 }}>
+              {x.label}: {x.collected ? `発生 ${num(x.conversions)}・確定 ${yen(x.revenueYen)}` : '未取得'}
+            </span>
+          ))}
+        </p>
+      )}
       {(experiments.length > 0 || unmapped.length > 0) && (
         <p className="small" style={{ marginBottom: 12 }}>
           {experiments.map((x) => (

@@ -31,7 +31,7 @@ export default function AffiliatePlacementsPage() {
                 <td className="num">{s.links.length ? new Set(s.links.map((l) => l.path)).size : <span className="muted">0</span>}</td>
                 <td>{[...new Set(s.links.map((l) => l.program ?? '未登録'))].join('・') || <span className="muted">—</span>}</td>
                 <td className="small">
-                  {s.id === 'site' ? 'クリック＝GA4（配置別）／成果＝A8（note と合算）' : s.id === 'note' ? 'クリック＝計測なし／成果＝A8（サイトと合算）' : '将来（X・Threads）'}
+                  {s.id === 'site' ? 'クリック＝GA4（配置別）／成果＝A8 サイト別（doboku-note）' : s.id === 'note' ? 'クリック＝A8／成果＝A8 サイト別（doboku-note（note）・2026-09-26〜）' : '将来（X・Threads）'}
                 </td>
               </tr>
             ))}
