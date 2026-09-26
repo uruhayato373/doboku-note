@@ -152,6 +152,16 @@
           "label": "筆記"
         }
       ]
+    },
+    {
+      "id": "assistant-surveyor",
+      "label": "測量士補",
+      "stages": [
+        {
+          "id": "written",
+          "label": "筆記"
+        }
+      ]
     }
   ],
   "channels": [
@@ -294,6 +304,12 @@
         "match": "^surveyor-",
         "cells": [
           "surveyor:written"
+        ]
+      },
+      {
+        "match": "^assistant-surveyor-",
+        "cells": [
+          "assistant-surveyor:written"
         ]
       }
     ],

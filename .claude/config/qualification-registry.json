@@ -76,7 +76,7 @@
     },
 
     { "id": "surveyor", "label": "測量士", "family": "survey-inspection", "portfolio": "active" },
-    { "id": "assistant-surveyor", "label": "測量士補", "family": "survey-inspection", "portfolio": "candidate" },
+    { "id": "assistant-surveyor", "label": "測量士補", "family": "survey-inspection", "portfolio": "active" },
     { "id": "geological-survey-engineer", "label": "地質調査技士", "family": "survey-inspection", "portfolio": "candidate" },
     { "id": "road-bridge-inspector", "label": "道路橋点検士", "family": "survey-inspection", "portfolio": "candidate" },
     { "id": "steel-structure-diagnostician", "label": "土木鋼構造診断士", "family": "survey-inspection", "portfolio": "candidate" }

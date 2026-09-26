@@ -65,6 +65,13 @@ const expected = {
     result: "2026-10-28",
     source: "https://dohkenkyo.or.jp/Portals/0/images/shikakushiken/pavement/R08manual_2.pdf",
   },
+  "assistant-surveyor": {
+    applicationOpen: "2026-01-05",
+    applicationDeadline: "2026-01-22",
+    exam: "2026-05-17",
+    result: "2026-06-25",
+    source: "https://www.gsi.go.jp/LAW/R8shiken_00001.html",
+  },
   "surveyor": {
     applicationOpen: "2026-01-05",
     applicationDeadline: "2026-01-22",

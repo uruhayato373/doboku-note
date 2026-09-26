@@ -1144,18 +1144,18 @@
           "types": [
             "mcq"
           ],
-          "detail": "択一式のみ28問(700点満点、450点以上で合格、記述式なし)"
+          "detail": "択一式28問（測量士と同日）"
         }
       ],
       "pastExams": {
-        "questions": "public",
-        "answers": "public",
-        "note": "国土地理院が試験問題・解答例・実施結果を全年度公式公開",
+        "questions": "partial",
+        "answers": "partial",
+        "note": "国土地理院が過去5か年の試験問題と解答例を掲載",
         "source": "https://www.gsi.go.jp/LAW/SHIKEN/past.html"
       },
       "verification": {
         "checkedAt": "2026-09-26",
-        "checkedBy": "agent",
+        "checkedBy": "self",
         "unresolved": [],
         "pending": [],
         "notPublished": []
