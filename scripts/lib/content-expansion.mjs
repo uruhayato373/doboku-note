@@ -97,7 +97,8 @@ export function expansionReport(root, data = loadExpansion(root), registry = nul
       const productArtifacts = artifacts.filter(a => PRODUCT_ARTIFACT_RE.test(a.path));
       return { ...unit, artifacts, productArtifacts, stale: artifacts.some(a => a.state !== 'current'), sourceWaiting, pending };
     });
-    return { ...source, title: registered?.title ?? source.sourceId, units };
+    if (registered && (!registered.shortTitle?.trim() || !registered.shelf?.trim())) issues.push(`${source.sourceId}: reference-sources.json に shortTitle / shelf がありません`);
+    return { ...source, title: registered?.title ?? source.sourceId, shortTitle: registered?.shortTitle ?? source.sourceId, shelf: registered?.shelf ?? 'その他', units };
   });
   const missingSources = expected.filter(s => !seen.has(s.id)).map(s => ({ sourceId: s.id, title: s.title }));
   if (missingSources.length) issues.push(`未棚卸し教材 ${missingSources.length} 件`);

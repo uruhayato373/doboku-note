@@ -10,32 +10,39 @@ type Unit = {
   id: string;
   need: string;
   content: string;
-  visual: { decision: string };
-  derivative: { decision: string };
   artifacts: { path: string; state: string }[];
   productArtifacts: { path: string }[];
   backlogIds?: string[];
+  reason: string;
+  evidenceLevel: string;
+  locators: string[];
+  visual: { decision: string; reason?: string };
+  derivative: { decision: string; reason?: string };
   pending: boolean;
   sourceWaiting: boolean;
   stale: boolean;
 };
-type Source = { sourceId: string; title: string; units: Unit[] };
+type Source = { sourceId: string; title: string; scopeNote?: string; units: Unit[] };
 type Summary = ReturnType<typeof sourceSummary>;
 
 const label = (key: string) => (DECISION_LABELS as Record<string, string>)[key] ?? key;
+const evidenceLabels: Record<string, string> = { 'body-reviewed': '本文照合', 'prior-review': '過去の照合記録', 'topic-map': '概念名の対応のみ', 'source-unavailable': '原典不足' };
+const needsAttention = (u: Unit) => u.pending || u.sourceWaiting || u.stale;
 const pct = (n: number, d: number) => (d ? `${Math.round((n / d) * 100)}%` : '—');
 
 /**
  * /materials — 教材（人が見る画面）。一覧は教材ごとの展開状況（本文・図解・SNS・商品）、
- * `?id=<教材id>` はその教材の論点ごとの展開先と、展開予定（バックログのカード）を出す。
+ * `?id=<教材id>` はその教材の論点ごとの展開先と、展開予定（バックログのカード）を出す。論点の行を開くと
+ * 判定の理由・根拠の箇所・成果物が確認後に変わったかを出す。`&only=attention` は要確認（未確認・原典待ち・
+ * 変更後の再確認）の論点だけに絞る。
  * 商品の列は、台帳に記録した商品原稿と、論点の記事へリンクしている note / Kindle（linkedProductsByUnit・派生）を合わせたもの。
  *
  * 台帳の正本は .claude/state/content-expansion.json、判定と集計は scripts/lib/content-expansion.mjs
- * （expansionReport・sourceSummary）が唯一の実装。確認待ち（未確認・原典待ち・変更後の再確認）の
- * 一覧は /content/expansion。教材の本文は出さない（論点と展開状況だけ）。
+ * （expansionReport・sourceSummary）が唯一の実装。旧 /content/expansion（確認待ち）はここへ転送する。
+ * 教材の本文は出さない（論点と展開状況だけ）。
  */
-export default async function MaterialsPage({ searchParams }: { searchParams: Promise<{ id?: string }> }) {
-  const { id } = await searchParams;
+export default async function MaterialsPage({ searchParams }: { searchParams: Promise<{ id?: string; only?: string }> }) {
+  const { id, only } = await searchParams;
   let report: { sources: Source[]; issues: string[] };
   let linked: Map<string, string[]>;
   try {
@@ -52,7 +59,7 @@ export default async function MaterialsPage({ searchParams }: { searchParams: Pr
   const source = id ? report.sources.find((s) => s.sourceId === id) : undefined;
   // 商品＝台帳に記録した商品原稿、または論点の記事へリンクしている note / Kindle（関連商品・派生情報）
   const products = (u: Unit) => [...new Set([...u.productArtifacts.map((a) => a.path), ...(linked.get(u.id) ?? [])])];
-  return source ? <Detail source={source} products={products} /> : <List sources={report.sources} issues={report.issues} products={products} />;
+  return source ? <Detail source={source} products={products} onlyAttention={only === 'attention'} /> : <List sources={report.sources} issues={report.issues} products={products} />;
 }
 
 function List({ sources, issues, products }: { sources: Source[]; issues: string[]; products: (u: Unit) => string[] }) {
@@ -62,9 +69,9 @@ function List({ sources, issues, products }: { sources: Source[]; issues: string
       {issues.length > 0 && (
         <div className="card warn-border">
           <h2>台帳の確認が必要 {issues.length} 件</h2>
-          <p className="small muted">
-            <Link href="/content/expansion">確認待ち</Link>で詳細を見る。
-          </p>
+          <ul className="small">
+            {issues.map((x) => <li key={x}>{x}</li>)}
+          </ul>
         </div>
       )}
       <div className="table-wrap">
@@ -102,7 +109,11 @@ function List({ sources, issues, products }: { sources: Source[]; issues: string
                   </td>
                   <td className="num">{(() => { const n = s.units.filter((u) => products(u).length > 0).length; return n ? pct(n, m.units) : <span className="muted">—</span>; })()}</td>
                   <td className="num">{m.planned || <span className="muted">—</span>}</td>
-                  <td className="num">{attention ? <span className="project-warning-text">{attention}</span> : <span className="muted">0</span>}</td>
+                  <td className="num">{attention ? (
+                      <Link className="project-warning-text" href={`/materials?id=${encodeURIComponent(s.sourceId)}&only=attention`}>{attention}</Link>
+                    ) : (
+                      <span className="muted">0</span>
+                    )}</td>
                 </tr>
               );
             })}
@@ -113,8 +124,10 @@ function List({ sources, issues, products }: { sources: Source[]; issues: string
   );
 }
 
-function Detail({ source, products }: { source: Source; products: (u: Unit) => string[] }) {
+function Detail({ source, products, onlyAttention }: { source: Source; products: (u: Unit) => string[]; onlyAttention: boolean }) {
   const m = sourceSummary(source) as Summary;
+  const units = onlyAttention ? source.units.filter(needsAttention) : source.units;
+  const base = `/materials?id=${encodeURIComponent(source.sourceId)}`;
   const siteCount = (u: Unit) => u.artifacts.filter((a) => a.path.startsWith('content/site/')).length;
   const snsCount = (u: Unit) => u.artifacts.filter((a) => a.path.startsWith('content/sns/')).length;
   return (
@@ -126,6 +139,11 @@ function Detail({ source, products }: { source: Source; products: (u: Unit) => s
           論点 {m.units} · 本文 {pct(m.content, m.units)} · 図解 {m.visual} · SNS {m.sns} · 商品 {pct(source.units.filter((u) => products(u).length > 0).length, m.units)}
         </span>
       </div>
+      <nav className="filterbar small" style={{ marginBottom: 8 }}>
+        {onlyAttention ? <Link href={base}>すべての論点（{source.units.length}）</Link> : <strong>すべての論点（{source.units.length}）</strong>}
+        {onlyAttention ? <strong>要確認のみ（{units.length}）</strong> : <Link href={`${base}&only=attention`}>要確認のみ（{source.units.filter(needsAttention).length}）</Link>}
+      </nav>
+      {source.scopeNote && <p className="small muted">{source.scopeNote}</p>}
       <div className="table-wrap">
         <table className="data">
           <thead>
@@ -141,11 +159,27 @@ function Detail({ source, products }: { source: Source; products: (u: Unit) => s
             </tr>
           </thead>
           <tbody>
-            {source.units.map((u) => (
+            {units.map((u) => (
               <tr key={u.id}>
-                <td style={{ whiteSpace: 'normal', maxWidth: 420 }}>{u.need}</td>
+                <td style={{ whiteSpace: 'normal', maxWidth: 420 }}>
+                  <details>
+                    <summary>{u.need}</summary>
+                    <div className="small" style={{ marginTop: 4 }}>
+                      <p>{u.reason}</p>
+                      <p>図解：{u.visual.reason}</p>
+                      <p>SNS：{u.derivative.reason}</p>
+                      {u.artifacts.map((a) => (
+                        <div key={a.path} className="mono">
+                          {a.path}
+                          {a.state !== 'current' && <strong className="project-warning-text">（{a.state === 'missing' ? '実体なし' : '確認後に変更'}）</strong>}
+                        </div>
+                      ))}
+                      <p className="muted">確認の深さ：{evidenceLabels[u.evidenceLevel] ?? u.evidenceLevel} · 根拠：{u.locators.join(' / ')}</p>
+                    </div>
+                  </details>
+                </td>
                 <td>
-                  <State text={label(u.content)} warn={u.pending || u.sourceWaiting || u.stale} />
+                  <State text={label(u.content) + (u.stale ? '・再確認' : '')} warn={needsAttention(u)} />
                 </td>
                 <td><State text={label(u.visual.decision)} warn={['needed', 'unreviewed'].includes(u.visual.decision)} /></td>
                 <td><State text={label(u.derivative.decision)} warn={['needed', 'unreviewed'].includes(u.derivative.decision)} /></td>

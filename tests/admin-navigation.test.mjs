@@ -119,7 +119,7 @@ test('既存の画面はすべてサイドバーのどこか 1 か所に置か�
   const hrefs = [...src.matchAll(/href: '(\/[^'?]*)'/g)].map((m) => m[1]);
   for (const href of [
     '/metrics', '/strategy/policy', '/metrics/business', '/strategy/qualifications', '/content/lineup',
-    '/sales', '/affiliate', '/content/expansion', '/metrics/seo-watch', '/metrics/gsc', '/metrics/ga4',
+    '/sales', '/affiliate', '/metrics/seo-watch', '/metrics/gsc', '/metrics/ga4',
     '/metrics/psi', '/sns', '/metrics/video', '/gallery/characters', '/schedule', '/todo', '/docs',
     '/plans', '/quality', '/knowledge', '/agents', '/skills', '/content/lifecycle', '/content', '/materials',
   ]) {

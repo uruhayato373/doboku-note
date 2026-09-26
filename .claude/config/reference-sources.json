@@ -77,6 +77,8 @@
     {
       "id": "concrete-chief-textbook-2022",
       "title": "コンクリート主任技士 試験対策 2022年版",
+      "shortTitle": "主任技士 テキスト 2022",
+      "shelf": "コンクリート",
       "class": "commercial-book",
       "origin": {
         "kind": "drive",
@@ -128,6 +130,8 @@
     {
       "id": "concrete-chief-textbook-2024",
       "title": "コンクリート主任技士 試験対策 2024年版",
+      "shortTitle": "主任技士 テキスト 2024",
+      "shelf": "コンクリート",
       "class": "commercial-book",
       "origin": {
         "kind": "drive",
@@ -182,6 +186,8 @@
     {
       "id": "concrete-diagnostician-textbook",
       "title": "コンクリート診断士 受験対策テキスト",
+      "shortTitle": "診断士 テキスト",
+      "shelf": "コンクリート",
       "class": "commercial-book",
       "origin": {
         "kind": "drive",
@@ -298,6 +304,8 @@
     {
       "id": "civil1-textbook-general",
       "title": "土木施工管理技術テキスト（土木一般編）",
+      "shortTitle": "施工管理テキスト 土木一般",
+      "shelf": "1級・2級土木",
       "class": "commercial-book",
       "origin": {
         "kind": "drive",
@@ -370,6 +378,8 @@
     {
       "id": "civil1-textbook-management",
       "title": "土木施工管理技術テキスト（施工管理・法規編）",
+      "shortTitle": "施工管理テキスト 管理・法規",
+      "shelf": "1級・2級土木",
       "class": "commercial-book",
       "origin": {
         "kind": "drive",
@@ -449,6 +459,8 @@
     {
       "id": "civil1-primary-workbook-2021",
       "title": "2021年版 1級土木施工管理 第一次検定問題解説集",
+      "shortTitle": "1級 一次 問題解説集 2021",
+      "shelf": "1級・2級土木",
       "class": "commercial-book",
       "origin": {
         "kind": "drive",
@@ -479,6 +491,8 @@
     {
       "id": "civil1-secondary-workbook-2021",
       "title": "2021年版 1級土木施工管理 第二次検定問題解説集",
+      "shortTitle": "1級 二次 問題解説集 2021",
+      "shelf": "1級・2級土木",
       "class": "commercial-book",
       "origin": {
         "kind": "drive",
@@ -509,6 +523,8 @@
     {
       "id": "pe-cem-textbook",
       "title": "技術士（総合技術監理部門）標準テキスト",
+      "shortTitle": "総監 標準テキスト",
+      "shelf": "技術士",
       "class": "commercial-book",
       "origin": {
         "kind": "drive",
@@ -581,6 +597,8 @@
     {
       "id": "pe-cem-exam-guide",
       "title": "技術士（総合技術監理部門）受験万全対策",
+      "shortTitle": "総監 受験万全対策",
+      "shelf": "技術士",
       "class": "commercial-book",
       "origin": {
         "kind": "drive",
@@ -676,6 +694,8 @@
     {
       "id": "pe-cem-essay-guide",
       "title": "技術士（総合技術監理部門）論文対策",
+      "shortTitle": "総監 論文対策",
+      "shelf": "技術士",
       "class": "commercial-book",
       "origin": {
         "kind": "drive",
@@ -733,6 +753,8 @@
     {
       "id": "pe-essay-writing-guide",
       "title": "技術士論文の書き方",
+      "shortTitle": "技術士論文の書き方",
+      "shelf": "技術士",
       "class": "commercial-book",
       "origin": {
         "kind": "drive",
@@ -806,6 +828,8 @@
     {
       "id": "civil-practice-note",
       "title": "土木施工実務ノート（市販実務書の再構成ノート）",
+      "shortTitle": "土木施工実務ノート",
+      "shelf": "土木実務",
       "class": "commercial-book",
       "origin": {
         "kind": "none"
@@ -820,6 +844,8 @@
     {
       "id": "safety-management-all-7th",
       "title": "新しい時代の安全管理のすべて 第7版",
+      "shortTitle": "安全管理のすべて 第7版",
+      "shelf": "土木実務",
       "class": "commercial-book",
       "origin": {
         "kind": "drive",
@@ -903,6 +929,8 @@
     {
       "id": "disaster-civil-basics",
       "title": "よくわかる最新防災土木の基礎知識",
+      "shortTitle": "防災土木の基礎知識",
+      "shelf": "防災・業界",
       "class": "commercial-book",
       "origin": {
         "kind": "drive",
@@ -958,6 +986,8 @@
     {
       "id": "civil-construction-basics",
       "title": "土木技術者のための土木施工管理の基礎",
+      "shortTitle": "土木施工管理の基礎",
+      "shelf": "土木実務",
       "class": "commercial-book",
       "origin": {
         "kind": "drive",
@@ -1006,6 +1036,8 @@
     {
       "id": "construction-materials-basics",
       "title": "土木技術者のための建設材料の基本と仕組み",
+      "shortTitle": "建設材料の基本",
+      "shelf": "土木実務",
       "class": "commercial-book",
       "origin": {
         "kind": "drive",
@@ -1061,6 +1093,8 @@
     {
       "id": "construction-industry-trends-5th",
       "title": "最新建設業界の動向とカラクリがよ〜くわかる本 第5版",
+      "shortTitle": "建設業界の動向 第5版",
+      "shelf": "防災・業界",
       "class": "commercial-book",
       "origin": {
         "kind": "drive",
@@ -1116,6 +1150,8 @@
     {
       "id": "civil-industry-trends-3rd",
       "title": "最新土木業界の動向とカラクリがよ〜くわかる本 第3版",
+      "shortTitle": "土木業界の動向 第3版",
+      "shelf": "防災・業界",
       "class": "commercial-book",
       "origin": {
         "kind": "drive",
@@ -1171,6 +1207,8 @@
     {
       "id": "civil-informatics",
       "title": "土木情報学",
+      "shortTitle": "土木情報学",
+      "shelf": "DX・AI",
       "class": "commercial-book",
       "origin": {
         "kind": "drive",
@@ -1201,6 +1239,8 @@
     {
       "id": "concrete-basics-5th",
       "title": "よくわかる最新コンクリートの基本と仕組み 第5版",
+      "shortTitle": "コンクリートの基本 第5版",
+      "shelf": "コンクリート",
       "class": "commercial-book",
       "origin": {
         "kind": "drive",
@@ -1256,6 +1296,8 @@
     {
       "id": "construction-ai-management",
       "title": "建設業AI経営",
+      "shortTitle": "建設業AI経営",
+      "shelf": "DX・AI",
       "class": "commercial-book",
       "origin": {
         "kind": "drive",
@@ -1311,6 +1353,8 @@
     {
       "id": "construction-business-act-tips-3rd",
       "title": "建設業法のツボとコツがゼッタイにわかる本 第3版",
+      "shortTitle": "建設業法のツボとコツ",
+      "shelf": "防災・業界",
       "class": "commercial-book",
       "origin": {
         "kind": "drive",
@@ -1366,6 +1410,8 @@
     {
       "id": "civil2-first-exam-manga-2026",
       "title": "マンガでわかる2級土木施工管理技士 第一次検定 2026年版",
+      "shortTitle": "マンガ 2級 一次 2026",
+      "shelf": "1級・2級土木",
       "class": "commercial-book",
       "origin": {
         "kind": "drive",
@@ -1421,6 +1467,8 @@
     {
       "id": "civil-technology-basics",
       "title": "よくわかる最新土木技術の基本と仕組み",
+      "shortTitle": "土木技術の基本",
+      "shelf": "土木実務",
       "class": "commercial-book",
       "origin": {
         "kind": "drive",
@@ -1476,6 +1524,8 @@
     {
       "id": "weather-disaster-basics",
       "title": "図解入門 よくわかる最新 気象災害の基本と仕組み",
+      "shortTitle": "気象災害の基本",
+      "shelf": "防災・業界",
       "class": "commercial-book",
       "origin": {
         "kind": "drive",
@@ -1531,6 +1581,8 @@
     {
       "id": "construction-claude-code-guide",
       "title": "建設業向けClaude Code実践活用ガイド",
+      "shortTitle": "建設業向けClaude Code",
+      "shelf": "DX・AI",
       "class": "commercial-book",
       "origin": {
         "kind": "drive",
@@ -1586,6 +1638,8 @@
     {
       "id": "pe-construction-keyword-book",
       "title": "技術士 建設部門『論文対策キーワード』（運営者が著作権を保有）",
+      "shortTitle": "建設部門 論文キーワード",
+      "shelf": "技術士",
       "class": "operator-owned",
       "origin": {
         "kind": "drive",

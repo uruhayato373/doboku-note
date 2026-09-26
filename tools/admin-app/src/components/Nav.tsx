@@ -37,7 +37,7 @@ const channelTrees = (ids: readonly AdminChannelId[]): NavTree[] =>
  * サイドバーの情報設計（2026-09-26: 作業の種類ではなく領域でまとめる）。
  *
  * - 戦略: 全体の数字と方針、資格一覧（展開中・候補・見送りと日程・受験者数）
- * - 教材: 教材ごとの論点を本文・図解・SNS・商品へどう展開したか・するか（教材一覧／確認待ち）
+ * - 教材: 教材一覧と、棚（shelf）ごとの各教材ページ（論点を本文・図解・SNS・商品へどう展開したか・するか）
  * - 商品: 商品ラインナップ → 販売チャネル（note/ココナラ/Kindle）→ 売上
  * - サイト: 無料記事と、その集客の計測（検索順位・GSC・GA4・PSI）
  * - SNS: 投稿状況・各 SNS・動画成果・キャラクター素材
@@ -59,8 +59,7 @@ const GROUPS: { title: string; entries: NavEntry[] }[] = [
   {
     title: '教材',
     entries: [
-      { href: '/materials', label: '教材一覧', match: '/materials' },
-      { href: '/content/expansion', label: '確認待ち', match: '/content/expansion' },
+      { href: '/materials', label: '教材一覧', match: '/materials', query: { id: '' } },
     ],
   },
   {
@@ -204,10 +203,13 @@ function TodoLinks({
 export default function Nav({
   todoLayers = [],
   lineupQualifications = [],
+  materials = [],
 }: {
   todoLayers?: TodoLayer[];
   /** 商品ラインナップの下に並べる資格（layout が product-lineup.json から渡す） */
   lineupQualifications?: { id: string; label: string }[];
+  /** 教材一覧の下に棚ごとに並べる教材（layout が reference-sources.json から渡す） */
+  materials?: { shelf: string; items: { id: string; label: string }[] }[];
 }) {
   const pathname = usePathname() ?? '';
   const searchParams = useSearchParams();
@@ -224,6 +226,15 @@ export default function Nav({
       })),
     ],
   };
+  const materialTrees: NavTree[] = materials.map((m) => ({
+    label: m.shelf,
+    tabs: m.items.map((it) => ({
+      href: `/materials?id=${encodeURIComponent(it.id)}`,
+      label: it.label,
+      match: '/materials',
+      query: { id: it.id },
+    })),
+  }));
 
   return (
     <nav className="app-nav" aria-label="管理画面">
@@ -233,7 +244,14 @@ export default function Nav({
       {GROUPS.map((group) => (
         <Fragment key={group.title}>
           <span className="group">{group.title}</span>
-          {group.entries.map((e) => (!isTree(e) && e.match === '/content/lineup' ? lineupTree : e)).map((entry) => {
+          {group.entries
+            .flatMap((e): NavEntry[] => {
+              if (isTree(e)) return [e];
+              if (e.match === '/content/lineup') return [lineupTree];
+              if (e.match === '/materials') return [e, ...materialTrees];
+              return [e];
+            })
+            .map((entry) => {
             if (isTree(entry)) {
               return (
                 <SectionTree

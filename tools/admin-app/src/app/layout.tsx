@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import Nav from '@/components/Nav';
 import { todoBoard } from '@/lib/todo';
 import { lineupQualifications } from '@/lib/lineup';
+import { materialsNav } from '@/lib/materials';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -42,7 +43,7 @@ export default function RootLayout({
       <body className="admin-shell bg-background text-foreground antialiased">
         {/* Nav は useSearchParams で層の active を出すため Suspense 境界が要る */}
         <Suspense fallback={<nav className="app-nav" />}>
-          <Nav todoLayers={layers} lineupQualifications={lineupQualifications()} />
+          <Nav todoLayers={layers} lineupQualifications={lineupQualifications()} materials={materialsNav()} />
         </Suspense>
         <main className="container min-w-0 flex-1">{children}</main>
       </body>
