@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /**
- * report-exam-ssot.mjs — 資格の正本（日程・受験者数）の照合状態レポート（月次レビューが読む）
+ * report-exam-ssot.mjs — 資格の正本（日程・受験者数・出題形式）の照合状態レポート（月次レビューが読む）
  *
- * 入力: .claude/config/qualification-registry.json・exam-calendar.json・exam-stats.json
+ * 入力: .claude/config/qualification-registry.json・exam-calendar.json・exam-stats.json・exam-formats.json
  * 判定: scripts/lib/qualification-registry.mjs の summarizeSsotStatus（管理画面「資格一覧」と同じ実装）
  *
  *   npm run exam-ssot-status             # 要対応と記録（発表待ち・非公表）を Markdown で出す
@@ -25,6 +25,7 @@ const summary = summarizeSsotStatus({
   registry: read('qualification-registry.json'),
   calendar: read('exam-calendar.json'),
   examStats: read('exam-stats.json'),
+  formats: read('exam-formats.json'),
   today: todayJst(),
 });
 

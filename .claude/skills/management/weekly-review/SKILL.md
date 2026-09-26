@@ -67,8 +67,9 @@ domain: strategy
   `source:"playwright"` で書く（Graph API は使わない＝2026-09-23 ユーザー決定）。週次レビューはこの snapshot を読む（実行しない）。★ドリフトが出たら次セッションで
   `/ig-reconcile` を実行して posted.json backfill / 未公開を予約（真実源 `.claude/knowledge/reference/ig-publish-reconcile.md`）。
   Playwright 版 `npm run verify-ig-status` はプランナー実体確認が要るときのフォールバック（ローカル実行限定）
-- note 競合再スキャン期限: `npm run check-competitor-scan-due -- --json` を実行（四半期＝90日。creds不要・ローカルhistory参照）。
-  `due:true` なら「次セッションで `/competitor-review`（scout→competitor-analyst→09反映）」をサーフェスのみ（実取得はしない）。
+- 競合再スキャン期限: `npm run check-competitor-scan-due -- --json` を実行（四半期＝90日。creds不要・ローカルhistory参照）。
+  チャネル（note/coconala/x/ig）の `due:true` なら「次セッションで `/competitor-review`（scout→competitor-analyst→09反映）」、
+  `market`（資格キーワードの市場スキャン）の `due:true` なら「次セッションで `npm run scan-qualification-market -- --coconala` → 月次レビューで `npm run qualification-market` を読む」をサーフェスのみ（実取得はしない）。
 - GSC/GA4 UI 取得期限（月次）: `npm run check-gsc-ui-due -- --json` を実行（30日。committed `{gsc-ui,ga4-ui}/last-run.json` 参照・creds不要）。
   **日数だけでなく完全性も見る**＝`channels[].due` は「最後の完全取得から30日」または「直近実行が不完全（部分成功・未ログイン等）」で true。
   `anyDue` が true なら理由（`reasons`）をそのまま列挙する。取得と正規化は Mac の launchd `gsc-local` が DUE で自動実行するので、
@@ -133,7 +134,7 @@ domain: strategy
 - 「note 再公開ドリフト（本文 N 本 / タグ N 本）」（`check-note-republish` が drift のときのみ）
 - 「note 構成監査 CRITICAL（境界破損 N 本）」（`check-note-structure` が CRITICAL のときのみ）
 - 「公開ページの目視確認（run・note N ページ／YouTube M 本・画像 K 枚・指摘 L 件）」（画像を取れなかった週は「未確認」と理由）
-- 「競合再スキャン DUE」（`check-competitor-scan-due` が due のときのみ）
+- 「競合再スキャン DUE」（`check-competitor-scan-due` が due のときのみ・チャネル名つき。market は市場スキャン）
 - 「GSC/GA4 UI 取得 DUE（月次）」（`check-gsc-ui-due` の `anyDue` が true のときのみ・理由つき・→ Mac で `npm run gsc-local:install -- --status` とログ `~/Library/Logs/doboku-note/gsc-local.log` を確認、急ぐなら `-- --run-now`）
 - 「GSC 自動化 DUE」（`check-gsc-indexing-due` か `check-gsc-sitemaps` が due のときのみ・理由つき・→ 同上の Mac 確認／sitemap は権限と fetch-metrics の run）
 - 「GA4 設定ドリフト」（`check-ga4-dimensions` が blockingMissing を返したときのみ・→ 次セッションで `npm run ga4-admin:apply`）

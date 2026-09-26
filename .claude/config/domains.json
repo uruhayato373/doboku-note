@@ -38,6 +38,12 @@
           "href": "/strategy/qualifications",
           "kind": "inventory",
           "match": "/strategy/qualifications"
+        },
+        {
+          "label": "展開の判断",
+          "href": "/strategy/market",
+          "kind": "policy",
+          "match": "/strategy/market"
         }
       ]
     },

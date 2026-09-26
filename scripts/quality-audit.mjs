@@ -232,7 +232,8 @@ const CHECKS = [
   { id: 'dispatch-log', npm: 'check-dispatch-log', timeout: 30_000, ci: true, note: 'dispatch-log.json の id 必須化・at キー・outcome 語彙整合（_schema=date/実データ=at/読み手=e.date の三つ巴不一致で weekly-review 集計が常に0件だった再発防止）。DN-0093 順4' },
   { id: 'dead-handles', npm: 'check-dead-handles', timeout: 60_000, ci: true, note: '退役ハンドル（404 note旧名・凍結X旧アカ）への参照' },
   { id: 'jst-date', npm: 'check-jst-date', timeout: 30_000, ci: true, note: '運用記録の日付がUTCで前日付になっていないか' },
-  { id: 'exam-calendar', npm: 'check-exam-calendar', timeout: 30_000, ci: true, note: '1級・2級土木の公式試験日SSOTと既知誤記を検査' },
+  { id: 'exam-calendar', npm: 'check-exam-calendar', timeout: 30_000, ci: true, note: '1級・2級土木の公式試験日SSOTと既知誤記を検査。資格台帳・日程・統計・出題形式（exam-formats）の id と照合記録の整合も見る' },
+  { id: 'qualification-market', npm: 'check-qualification-market', timeout: 30_000, ci: true, note: '展開の判断材料の正本（market-scan の検索語・*-competitors の exams・売上の資格への分類）の整合。壁時計に依存しない' },
   { id: 'x-campaign-plan', npm: 'check-x-campaign-plan', timeout: 30_000, ci: true, note: 'X月間計画の日付・導線・URL・販売投稿間隔を検査' },
   { id: 'x-review', npm: 'check-x-review', timeout: 30_000, ci: true, note: 'X確認期間の原稿・時刻・公開マガジン導線・先生カードの再生成元を検査' },
   { id: 'x-card-render', npm: 'check-x-card-render', timeout: 30_000, ci: true, note: 'Xカード画像の配色・主題・生URL焼込みを描画台帳で検査（画像は開かない）' },
@@ -331,6 +332,12 @@ const CHECKS = [
     cmd: ['node', 'scripts/report-exam-ssot.mjs', '--check'],
     timeout: 30_000, ci: true,
     note: '資格の正本（qualification-registry・exam-calendar・exam-stats）の照合状態レポートが実行可能か（成果物は書かない。要対応の中身は壁時計依存なので CI では見ない。読み手＝月次レビュー /monthly-review 手順）',
+  },
+  {
+    id: 'qualification-market-report',
+    cmd: ['node', 'scripts/report-qualification-market.mjs', '--check'],
+    timeout: 30_000, ci: true,
+    note: '資格ごとの展開の判断材料（出題形式・受験者数・売上・市場の混み具合）の一覧が実行可能か（成果物は書かない。市場スキャンの古さなど要対応は壁時計依存なので CI では見ない。読み手＝月次レビュー /monthly-review 手順と管理画面 展開の判断）',
   },
   {
     id: 'site-to-sales-report',

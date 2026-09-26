@@ -1,5 +1,5 @@
 {
-  "_doc": "資格の一覧と展開状態の SSOT。資格 id はここで定義し、試験日程は .claude/config/exam-calendar.json、受験者数・合格率は .claude/config/exam-stats.json が同じ id で持つ（三者の id の一致は npm run check-exam-calendar が検査する）。展開の判断理由の正本は decision.ref の文書。重点資格・KPI は .claude/config/business-direction.json が別に持つ。",
+  "_doc": "資格の一覧と展開状態の SSOT。資格 id はここで定義し、試験日程は .claude/config/exam-calendar.json、受験者数・合格率は .claude/config/exam-stats.json、出題形式と過去問の公開範囲は .claude/config/exam-formats.json が同じ id で持つ（四者の id の一致は npm run check-exam-calendar が検査する）。展開の判断材料（自分で書く区分の受験者数・売上・競合の混み具合）は npm run qualification-market／管理画面 戦略＞展開の判断が並べ、判断の理由の正本は docs/strategy/06_多資格展開戦略.md（declined は decision.ref）。重点資格・KPI は .claude/config/business-direction.json が別に持つ。",
   "portfolioStatuses": {
     "active": "サイト・商品を展開中",
     "candidate": "展開候補（未評価を含む）。情報だけを正本に蓄積する",

@@ -3,12 +3,12 @@
  * check-competitor-scan-due.mjs
  * ---------------------------------------------------------------------------
  * 競合の再取得（scout-*-competitors）が四半期サイクル（既定90日）に対して期限切れかを
- * 全チャネル（note / coconala / x / ig）で機械判定する surfacer。
+ * 全チャネル（note / coconala / x / ig）と、資格キーワードでの市場スキャン（market）で機械判定する surfacer。
  * note / coconala / ig は competitor-scan.yml が四半期に自動取得し、本 surfacer は
  * その失敗・停止の backstop。X はログイン済み個人セッションが
  * 必要なため、weekly-review-guard / weekly-review から手動期限を通知する。
  *
- * 判定: 各チャネルの history/ の最新 competitors-YYYY-MM-DD.json の日付から経過日数
+ * 判定: 各チャネルの history/ の最新 competitors-YYYY-MM-DD.json（market は market-YYYY-MM-DD.json）の日付から経過日数
  *       >= しきい値（既定90日）で DUE。履歴が無ければ DUE(初回)。
  *
  * 使い方:
@@ -33,6 +33,8 @@ const PLATFORMS = {
   coconala: { dir: '.claude/state/coconala/history', automation: 'ci', review: 'competitor-scan.yml の失敗を確認。取得済みなら /competitor-review --platform coconala で意味分析' },
   x: { dir: '.claude/state/x-competitors/history', review: '/competitor-review --platform x' },
   ig: { dir: '.claude/state/ig-competitors/history', automation: 'ci', review: 'competitor-scan.yml の失敗を確認。取得済みなら /competitor-review --platform ig で意味分析' },
+  // 資格ごとの混み具合（YouTube・note・ココナラの検索）。展開の判断（npm run qualification-market）が読む
+  market: { dir: '.claude/state/market/history', prefix: 'market', review: 'npm run scan-qualification-market -- --coconala → /competitor-review で展開の判断を見直す' },
 };
 
 const args = process.argv.slice(2);
@@ -42,10 +44,11 @@ const THRESHOLD = di >= 0 && args[di + 1] ? parseInt(args[di + 1], 10) || 90 : 9
 const pi = args.indexOf('--platform');
 const ONLY = pi >= 0 && args[pi + 1] ? args[pi + 1] : null;
 
-function latestScanDate(dir) {
+function latestScanDate(dir, prefix = 'competitors') {
+  const re = new RegExp(`^${prefix}-(\\d{4}-\\d{2}-\\d{2})\\.json$`);
   let files = [];
   try {
-    files = readdirSync(join(ROOT, dir)).filter((f) => /^competitors-(\d{4}-\d{2}-\d{2})\.json$/.test(f));
+    files = readdirSync(join(ROOT, dir)).filter((f) => re.test(f));
   } catch {
     return null;
   }
@@ -56,13 +59,13 @@ function latestScanDate(dir) {
 
 const platforms = ONLY ? { [ONLY]: PLATFORMS[ONLY] } : PLATFORMS;
 if (ONLY && !PLATFORMS[ONLY]) {
-  console.error(`ERROR: 未知のチャネル "${ONLY}"（note|coconala|x|ig）`);
+  console.error(`ERROR: 未知のチャネル "${ONLY}"（${Object.keys(PLATFORMS).join('|')}）`);
   process.exit(0);
 }
 
 const perPlatform = {};
 for (const [name, cfg] of Object.entries(platforms)) {
-  const last = latestScanDate(cfg.dir);
+  const last = latestScanDate(cfg.dir, cfg.prefix);
   const daysSince = last ? Math.floor((Date.now() - Date.parse(last + 'T00:00:00Z')) / 86400000) : null;
   const due = last == null || daysSince >= THRESHOLD;
   perPlatform[name] = { lastScan: last, daysSince, due, automation: cfg.automation ?? 'manual', review: cfg.review };

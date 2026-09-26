@@ -74,3 +74,11 @@ test('validateLineupConfig: 未定義マス・不正な正規表現・未知チ�
   assert.ok(errors.some((e) => e.includes('rules.x')));
   assert.ok(errors.some((e) => e.includes('apps.a: cells が空')));
 });
+
+test('classifySale: 売上の接頭辞を外し、salesRules → rules.note の順で写す', async () => {
+  const { classifySale } = await import('../scripts/lib/product-lineup.mjs');
+  const config = { salesRules: [{ match: '^bk-', cells: ['b:written'] }], rules: { note: [{ match: '^civil-1-', cells: ['c:second'] }] } };
+  assert.deepEqual(classifySale(config, 'article:bk-road-r8'), ['b:written']);
+  assert.deepEqual(classifySale(config, 'membership:civil-1-lab'), ['c:second']);
+  assert.equal(classifySale(config, 'article:unknown'), null);
+});
