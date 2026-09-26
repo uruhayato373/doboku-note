@@ -33,6 +33,10 @@ const channelTrees = (ids: readonly AdminChannelId[]): NavTree[] =>
     .filter((c): c is NonNullable<typeof c> => Boolean(c))
     .map((c) => ({ label: c.label, tabs: toNavTabs(c.tabs) }));
 
+/** グループ名とチャネル名が同じとき（サイト）は、ツリーを挟まずタブをそのまま並べる。 */
+const channelTabs = (id: AdminChannelId): Tab[] =>
+  toNavTabs(enabledChannels().find((c) => c.id === id)?.tabs ?? []);
+
 /**
  * サイドバーの情報設計（2026-09-26: 作業の種類ではなく領域でまとめる）。
  *
@@ -82,8 +86,8 @@ const GROUPS: { title: string; entries: NavEntry[] }[] = [
   {
     title: 'サイト',
     entries: [
-      ...channelTrees(['site']),
-      { href: '/metrics/seo-watch', label: '検索順位の改善', match: '/metrics/seo-watch' },
+      ...channelTabs('site'),
+      { href: '/metrics/seo-watch', label: '検索順位', match: '/metrics/seo-watch' },
       { href: '/metrics/gsc', label: '検索（GSC）', match: '/metrics/gsc' },
       { href: '/metrics/ga4', label: 'アクセス（GA4）', match: '/metrics/ga4' },
       { href: '/metrics/psi', label: '表示速度（PSI）', match: '/metrics/psi' },
