@@ -98,7 +98,7 @@ export default function StandardsDataPage() {
             data-cta="standards-data"
             data-cta-label="catalog-json"
             data-cta-placement="standards-data-hero"
-            className="focus-ring inline-flex min-h-11 items-center gap-2 bg-[var(--accent)] px-5 py-2.5 text-sm font-bold text-white transition-opacity hover:opacity-90"
+            className="focus-ring inline-flex min-h-11 items-center gap-2 bg-[var(--accent)] px-5 py-2.5 text-sm font-bold text-[var(--paper)] transition-opacity hover:opacity-90"
           >
             <Download aria-hidden="true" className="h-4 w-4" />
             データカタログ JSON
@@ -203,7 +203,7 @@ export default function StandardsDataPage() {
           </p>
           <Link
             href="/contact"
-            className="focus-ring mt-5 inline-flex min-h-11 items-center bg-[var(--accent)] px-5 py-2.5 text-sm font-bold text-white transition-opacity hover:opacity-90"
+            className="focus-ring mt-5 inline-flex min-h-11 items-center bg-[var(--accent)] px-5 py-2.5 text-sm font-bold text-[var(--paper)] transition-opacity hover:opacity-90"
           >
             データ加工について問い合わせる
           </Link>
