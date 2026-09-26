@@ -10,6 +10,12 @@
       "manages": "方針とKPI・資格ポートフォリオ・週次/月次の判断・競合",
       "nav": [
         {
+          "label": "事業の分類",
+          "href": "/strategy/taxonomy",
+          "kind": "policy",
+          "match": "/strategy/taxonomy"
+        },
+        {
           "label": "分析概観",
           "href": "/metrics",
           "kind": "results",
@@ -38,7 +44,7 @@
     {
       "id": "plan",
       "label": "計画",
-      "role": "いつやるか",
+      "role": "決める",
       "manages": "年間ロードマップ・スケジュール・バックログ",
       "nav": [
         {
@@ -58,7 +64,7 @@
     {
       "id": "product",
       "label": "商品",
-      "role": "売る（主収益）",
+      "role": "売る",
       "manages": "品揃えと販売チャネル（note・ココナラ・Kindle・アプリ）・売上・商品品質・商品への動線",
       "nav": [
         {
@@ -84,7 +90,7 @@
     {
       "id": "affiliate",
       "label": "アフィリエイト",
-      "role": "送客で稼ぐ",
+      "role": "売る",
       "manages": "成果・掲載先（サイト/note/SNS）・提携と案件",
       "nav": [
         {
@@ -110,7 +116,7 @@
     {
       "id": "site",
       "label": "サイト",
-      "role": "集める（検索）",
+      "role": "集める",
       "manages": "記事と過去問の品質・SEO・サイト内の動線・計測（GSC/GA4/PSI）・図版とOGP",
       "nav": [
         {
@@ -160,7 +166,7 @@
     {
       "id": "sns",
       "label": "SNS",
-      "role": "集める（SNS）",
+      "role": "集める",
       "manages": "投稿・各SNS（X/Instagram/YouTube）・動画・キャラクター素材",
       "nav": [
         {
@@ -186,7 +192,7 @@
     {
       "id": "material",
       "label": "教材",
-      "role": "つくる素材",
+      "role": "つくる",
       "manages": "教材（参考文献）から記事・図解・SNS・商品への展開・原典の正確さ",
       "nav": [
         {
@@ -366,6 +372,8 @@
     "サイドバーは各領域の判断に使う画面だけを置く（種類は navKinds）。領域の概要は領域名（/domains/<id>）",
     "チャネル・SNS・プラットフォームはサイドバーの枝にせず、画面内のタブにする",
     "原稿・画像・ファイルの作業場は、判断画面からのリンクか 管理＞すべて から開く",
-    "既存の URL は変えない。新しい画面は /<領域 id>/… に作る"
+    "既存の URL は変えない。新しい画面は /<領域 id>/… に作る",
+    "横断する視点（計測・品質・動線）は独立した領域にせず、対象の領域に割り振る",
+    "バックログは [領域:]、スキル・エージェントは frontmatter domain、文書は documents で必ず領域を持つ（npm run check-domains / check-backlog-schema）"
   ]
 }
