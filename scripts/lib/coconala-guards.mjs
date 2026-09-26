@@ -253,6 +253,16 @@ export function parseInquiryDate(dateText, nowMs) {
   return null;
 }
 
+/**
+ * DM 一覧の相対日付（『8分前』）を読むときの基準時刻。相対表記は snapshot を採った瞬間の
+ * 表示なので、検査の実行時刻で逆算すると取得からの経過分だけ新着が後ろへずれ、返信済みの
+ * DM が必ず再オープンする（2026-09-26 に DM 10227804 で発生）。fetchedAt が読めなければ実行時刻。
+ */
+export function inquiryClockMs(fetchedAt, fallbackMs = Date.now()) {
+  const t = Date.parse(fetchedAt ?? '');
+  return Number.isFinite(t) ? t : fallbackMs;
+}
+
 export function classifyInquiries(inquiries, resolved = [], nowMs = Date.now()) {
   const resolvedMap = new Map(
     (Array.isArray(resolved) ? resolved : []).map((r) => [

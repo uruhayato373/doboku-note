@@ -189,6 +189,7 @@ DM 一覧 = `/message?fromMyPage=true`、行 = `a.c-messageItemWrap[href="/mypag
 ここにしか来ない。メールは出品アカウント宛にしか届かず接続済み Gmail からは見えない）。
 人が決着させた DM は [`.claude/config/coconala/resolved-inquiries.json`](../../config/coconala/resolved-inquiries.json) で除外し、
 **除外件数を必ず出力する**（黙って消すと検査ゼロの偽 PASS になる）。
+`resolvedOn` より後に新着があれば再オープンする。一覧の「8分前」は分単位で丸められるので、`resolvedOn` は自分の最後の送信から数分後の時刻（`+09:00` 付き）で書く。相対日付は snapshot の `fetchedAt` を基準に読む（`inquiryClockMs`）。
 
 > 2026-08-17 まで既読 DM を無条件で「要対応」に積んでいたため、**4/4 件が偽陽性**だった
 > （運営通知1・規約違反削除2・受注完了済み1）。W33 レビューと W34 計画の両方がこれに引っかかり、
