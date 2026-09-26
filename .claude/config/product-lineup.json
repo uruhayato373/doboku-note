@@ -122,6 +122,36 @@
           "label": "筆記"
         }
       ]
+    },
+    {
+      "id": "pavement-1",
+      "label": "1級舗装施工管理技術者",
+      "stages": [
+        {
+          "id": "written",
+          "label": "資格試験"
+        }
+      ]
+    },
+    {
+      "id": "pavement-2",
+      "label": "2級舗装施工管理技術者",
+      "stages": [
+        {
+          "id": "written",
+          "label": "資格試験"
+        }
+      ]
+    },
+    {
+      "id": "surveyor",
+      "label": "測量士",
+      "stages": [
+        {
+          "id": "written",
+          "label": "筆記"
+        }
+      ]
     }
   ],
   "channels": [
@@ -239,6 +269,31 @@
         "match": "^cd-",
         "cells": [
           "concrete-diagnostician:written"
+        ]
+      },
+      {
+        "match": "^pavement-1-",
+        "cells": [
+          "pavement-1:written"
+        ]
+      },
+      {
+        "match": "^pavement-2-",
+        "cells": [
+          "pavement-2:written"
+        ]
+      },
+      {
+        "match": "^pavement-",
+        "cells": [
+          "pavement-1:written",
+          "pavement-2:written"
+        ]
+      },
+      {
+        "match": "^surveyor-",
+        "cells": [
+          "surveyor:written"
         ]
       }
     ],

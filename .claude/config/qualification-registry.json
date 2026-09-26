@@ -50,8 +50,8 @@
     { "id": "pipe-work-2", "label": "2級管工事施工管理技士", "family": "construction-management", "portfolio": "declined", "decision": { "summary": "令和6年度に経験記述が「施工記述」へ変わり売れる型が弱く、運営者の経験で信頼性を担保しにくい（2026-09-26）", "ref": "docs/strategy/06_多資格展開戦略.md" } },
     { "id": "electrical-work-1", "label": "1級電気工事施工管理技士", "family": "construction-management", "portfolio": "declined", "decision": { "summary": "経験記述は与えられた条件に答える型で、電気は運営者の専門外（信頼性を担保できない）（2026-09-26）", "ref": "docs/strategy/06_多資格展開戦略.md" } },
     { "id": "electrical-work-2", "label": "2級電気工事施工管理技士", "family": "construction-management", "portfolio": "declined", "decision": { "summary": "経験記述は与えられた条件に答える型で、電気は運営者の専門外（信頼性を担保できない）（2026-09-26）", "ref": "docs/strategy/06_多資格展開戦略.md" } },
-    { "id": "pavement-1", "label": "1級舗装施工管理技術者", "family": "construction-management", "portfolio": "candidate" },
-    { "id": "pavement-2", "label": "2級舗装施工管理技術者", "family": "construction-management", "portfolio": "candidate" },
+    { "id": "pavement-1", "label": "1級舗装施工管理技術者", "family": "construction-management", "portfolio": "active" },
+    { "id": "pavement-2", "label": "2級舗装施工管理技術者", "family": "construction-management", "portfolio": "active" },
 
     {
       "id": "civil-service-national-general-civil",
@@ -75,7 +75,7 @@
       "decision": { "summary": "土木公務員は「公務員×資格」の検索意図で扱う。採用試験の対策商品は未評価", "ref": "docs/strategy/13_土木公務員SEO戦略2026-08.md" }
     },
 
-    { "id": "surveyor", "label": "測量士", "family": "survey-inspection", "portfolio": "candidate" },
+    { "id": "surveyor", "label": "測量士", "family": "survey-inspection", "portfolio": "active" },
     { "id": "assistant-surveyor", "label": "測量士補", "family": "survey-inspection", "portfolio": "candidate" },
     { "id": "geological-survey-engineer", "label": "地質調査技士", "family": "survey-inspection", "portfolio": "candidate" },
     { "id": "road-bridge-inspector", "label": "道路橋点検士", "family": "survey-inspection", "portfolio": "candidate" },

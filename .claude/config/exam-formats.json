@@ -954,27 +954,25 @@
       "stages": [
         {
           "key": "written",
-          "label": "資格試験（同日実施：一般試験＋応用試験）",
+          "label": "資格試験（一般試験・応用試験を同日）",
           "types": [
             "mcq",
             "written",
             "experience"
           ],
-          "detail": "一般試験(択一60問,180分)＋応用試験(記述180分:経験論文40%+設計等2問選択記述)"
+          "detail": "一般試験（択一式・法規と舗装全般）＋応用試験（記述式・専門知識と「施工現場で経験したこと」を基にした課題・対策・結果）"
         }
       ],
       "pastExams": {
-        "questions": "public",
+        "questions": "partial",
         "answers": "none",
-        "note": "一般試験・応用試験とも問題文のみ公開。正答・模範解答の公表は確認できず",
+        "note": "日本道路建設業協会が直近5年度（令和4〜8年度）の一般・応用試験の問題を掲載。解答は非公表",
         "source": "https://www.dohkenkyo.or.jp/shikakushiken/pavement/shikakusyutoku/kakomondai/"
       },
       "verification": {
         "checkedAt": "2026-09-26",
-        "checkedBy": "agent",
-        "unresolved": [
-          "一般試験の出題数(60問等)・配点は二次情報に基づく。公式「受験の手引き」PDFはテキスト抽出不可のため本文未直接確認"
-        ],
+        "checkedBy": "self",
+        "unresolved": [],
         "pending": [],
         "notPublished": []
       }
@@ -983,27 +981,25 @@
       "stages": [
         {
           "key": "written",
-          "label": "資格試験（同日実施：一般試験＋応用試験）",
+          "label": "資格試験（一般試験・応用試験を同日）",
           "types": [
             "mcq",
             "written",
             "experience"
           ],
-          "detail": "一般試験(択一40問必須,120分)＋応用試験(記述120分:経験記述必須+穴埋め選択)"
+          "detail": "一般試験（択一式・法規と舗装全般）＋応用試験（記述式・専門知識と「施工現場で経験したこと」を基にした課題・対策・結果）"
         }
       ],
       "pastExams": {
-        "questions": "public",
+        "questions": "partial",
         "answers": "none",
-        "note": "一般試験・応用試験とも問題文のみ公開。正答・模範解答の公表は確認できず",
+        "note": "日本道路建設業協会が直近5年度（令和4〜8年度）の一般・応用試験の問題を掲載。解答は非公表",
         "source": "https://www.dohkenkyo.or.jp/shikakushiken/pavement/shikakusyutoku/kakomondai/"
       },
       "verification": {
         "checkedAt": "2026-09-26",
-        "checkedBy": "agent",
-        "unresolved": [
-          "応用試験の配点・構成比は二次情報に基づく。公式PDFの本文未直接確認"
-        ],
+        "checkedBy": "self",
+        "unresolved": [],
         "pending": [],
         "notPublished": []
       }
@@ -1118,23 +1114,23 @@
       "stages": [
         {
           "key": "written",
-          "label": "筆記試験(午前・午後)",
+          "label": "筆記試験（午前・午後）",
           "types": [
             "mcq",
             "written"
           ],
-          "detail": "午前:択一式28問(700点)。午後:記述式(必須1題300点+基準点測量等4題中2題選択各200点)"
+          "detail": "午前 択一式28問＋午後 記述式（必須1題＋選択4題から2題。計算を含む）"
         }
       ],
       "pastExams": {
-        "questions": "public",
-        "answers": "public",
-        "note": "国土地理院が試験問題・解答例・実施結果を全年度公式公開",
+        "questions": "partial",
+        "answers": "partial",
+        "note": "国土地理院が過去5か年の試験問題と解答例を掲載",
         "source": "https://www.gsi.go.jp/LAW/SHIKEN/past.html"
       },
       "verification": {
         "checkedAt": "2026-09-26",
-        "checkedBy": "agent",
+        "checkedBy": "self",
         "unresolved": [],
         "pending": [],
         "notPublished": []
