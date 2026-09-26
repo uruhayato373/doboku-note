@@ -48,6 +48,12 @@
       "manages": "年間ロードマップ・スケジュール・バックログ",
       "nav": [
         {
+          "label": "年間ロードマップ",
+          "href": "/plan/roadmap",
+          "kind": "policy",
+          "match": "/plan/roadmap"
+        },
+        {
           "label": "スケジュール",
           "href": "/schedule",
           "kind": "actions",

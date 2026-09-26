@@ -8,12 +8,15 @@
  *   3. docs/**（reviews・handoffs を除く）と .claude/knowledge/reference/*.md が documents で
  *      ちょうど1つの領域に解決できる
  *   4. 各領域のサイドバー画面（nav）の種類が navKinds にあり、URL の画面（tools/admin-app/src/app 配下の page.tsx）が実在する
+ *   5. 年間ロードマップ（annual-roadmap.json）の領域・期間・バックログ ID が正しい
  * バックログの [領域:] は check-backlog-schema が見る。検査した件数を出し、0 件は検査不成立（exit 2）。
  */
 import { readdirSync, readFileSync, statSync, existsSync } from 'node:fs';
 import { join, dirname, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadDomains, documentDomain, frontmatterDomain } from './lib/domains.mjs';
+import { loadRoadmap, validateRoadmap } from './lib/annual-roadmap.mjs';
+import { parseBacklog } from './lib/backlog-lib.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const cfg = loadDomains(ROOT);
@@ -58,13 +61,17 @@ for (const d of cfg.domains) {
   }
 }
 
+const roadmap = loadRoadmap(ROOT);
+const backlogIds = new Set(parseBacklog(readFileSync(join(ROOT, '.claude/todo/backlog.md'), 'utf8')).map((c) => c.id).filter(Boolean));
+for (const e of validateRoadmap(roadmap, { domainIds: ids, backlogIds })) errors.push(`annual-roadmap: ${e}`);
+
 const docs = [
   ...walk(join(ROOT, 'docs'), (p) => p.endsWith('.md') && !/[\\/]docs[\\/](reviews|handoffs)[\\/]/.test(p)),
   ...walk(join(ROOT, '.claude/knowledge/reference'), (p) => p.endsWith('.md')),
 ];
 for (const p of docs) if (!documentDomain(cfg, rel(p))) errors.push(`${rel(p)}: domains.json の documents で領域が決まらない`);
 
-console.log(`[check-domains] 領域 ${ids.size} / サイドバー画面 ${navViews} / スキル・エージェント ${defs.length} 件 / 文書 ${docs.length} 件を実検査 / 違反 ${errors.length} 件`);
+console.log(`[check-domains] 領域 ${ids.size} / サイドバー画面 ${navViews} / ロードマップ ${roadmap.items?.length ?? 0} 項目 / スキル・エージェント ${defs.length} 件 / 文書 ${docs.length} 件を実検査 / 違反 ${errors.length} 件`);
 if (defs.length === 0 || docs.length === 0 || navViews === 0) {
   console.error('✗ 検査不成立: 対象を 1 件も読めなかった');
   process.exit(2);

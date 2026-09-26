@@ -1,0 +1,286 @@
+{
+  "version": 1,
+  "_doc": ".claude/todo/annual.md（考え方と注力しないもの）/ docs/strategy/14_領域モデル.md",
+  "description": "年間ロードマップの正本（領域 × 月の重点）。管理画面 計画 ＞ 年間ロードマップ が試験カレンダー（exam-calendar.json）と重ねて描く。日付・受験者数はここに書かない（試験の日付は exam-calendar.json）。",
+  "period": {
+    "start": "2026-10",
+    "end": "2027-09"
+  },
+  "buyWindowWeeks": 8,
+  "_buyWindowNote": "試験日の何週間前から「買い場」として塗るか。売れる時期の目安で、変えるときはここだけ直す。",
+  "items": [
+    {
+      "id": "r01",
+      "domain": "strategy",
+      "start": "2026-10",
+      "end": "2026-12",
+      "label": "判定日を迎えた実験を月次で必ず判定（EXP-008 ほか）"
+    },
+    {
+      "id": "r02",
+      "domain": "strategy",
+      "start": "2026-10",
+      "end": "2026-12",
+      "label": "手取り・費用・作業時間の記録",
+      "backlogIds": [
+        "DN-0303"
+      ]
+    },
+    {
+      "id": "r03",
+      "domain": "strategy",
+      "start": "2027-01",
+      "end": "2027-03",
+      "label": "合格発表後に資格ポートフォリオを見直す"
+    },
+    {
+      "id": "r04",
+      "domain": "strategy",
+      "start": "2027-04",
+      "end": "2027-06",
+      "label": "総監・建設部門の直前期の価格と品揃えを確定"
+    },
+    {
+      "id": "r05",
+      "domain": "strategy",
+      "start": "2027-07",
+      "end": "2027-09",
+      "label": "年間ロードマップの次版"
+    },
+    {
+      "id": "r06",
+      "domain": "plan",
+      "start": "2026-10",
+      "end": "2026-12",
+      "label": "全カードの領域運用を定着・期日切れゼロ"
+    },
+    {
+      "id": "r07",
+      "domain": "plan",
+      "start": "2027-01",
+      "end": "2027-03",
+      "label": "来年度の試験期に合わせて Q2〜Q3 のカードを起票"
+    },
+    {
+      "id": "r08",
+      "domain": "product",
+      "start": "2026-10",
+      "end": "2026-12",
+      "label": "土木二次後の棚替え",
+      "backlogIds": [
+        "DN-0264",
+        "DN-0310"
+      ]
+    },
+    {
+      "id": "r09",
+      "domain": "product",
+      "start": "2026-10",
+      "end": "2026-12",
+      "label": "RCCM を CBT 期間内に公開",
+      "backlogIds": [
+        "DN-0308"
+      ]
+    },
+    {
+      "id": "r10",
+      "domain": "product",
+      "start": "2026-10",
+      "end": "2026-12",
+      "label": "Kindle 土木二次の提出",
+      "backlogIds": [
+        "DN-0262"
+      ]
+    },
+    {
+      "id": "r11",
+      "domain": "product",
+      "start": "2026-10",
+      "end": "2026-12",
+      "label": "技術士 口頭試験対策 note"
+    },
+    {
+      "id": "r12",
+      "domain": "product",
+      "start": "2027-01",
+      "end": "2027-03",
+      "label": "総監 R9 予想問題集の執筆・コンクリート診断士 記述対策の執筆"
+    },
+    {
+      "id": "r13",
+      "domain": "product",
+      "start": "2027-04",
+      "end": "2027-06",
+      "label": "総監 R9 予想・建設部門の直前商品を公開、2級前期の直前訴求"
+    },
+    {
+      "id": "r14",
+      "domain": "product",
+      "start": "2027-07",
+      "end": "2027-09",
+      "label": "1級二次の経験記述商品を今季版へ、診断士の直前訴求"
+    },
+    {
+      "id": "r15",
+      "domain": "affiliate",
+      "start": "2026-10",
+      "end": "2026-12",
+      "label": "EXP-008 の判定（記事末の存廃を含む）"
+    },
+    {
+      "id": "r16",
+      "domain": "affiliate",
+      "start": "2027-01",
+      "end": "2027-03",
+      "label": "掲載先（サイト／note）別の成果で案件と配置を見直す"
+    },
+    {
+      "id": "r17",
+      "domain": "affiliate",
+      "start": "2027-07",
+      "end": "2027-09",
+      "label": "年間の EPC で継続案件を決める"
+    },
+    {
+      "id": "r18",
+      "domain": "site",
+      "start": "2026-10",
+      "end": "2026-12",
+      "label": "RCCM を重点資格として公開",
+      "backlogIds": [
+        "DN-0247"
+      ]
+    },
+    {
+      "id": "r19",
+      "domain": "site",
+      "start": "2026-10",
+      "end": "2026-12",
+      "label": "技術士一次の計算ガイド・再試験",
+      "backlogIds": [
+        "DN-0207",
+        "DN-0208"
+      ]
+    },
+    {
+      "id": "r20",
+      "domain": "site",
+      "start": "2027-01",
+      "end": "2027-03",
+      "label": "年度表現の陳腐化の検知・合格発表後の年度更新",
+      "backlogIds": [
+        "DN-0243"
+      ]
+    },
+    {
+      "id": "r21",
+      "domain": "site",
+      "start": "2027-04",
+      "end": "2027-06",
+      "label": "技術士二次（R8）過去問の追加",
+      "backlogIds": [
+        "DN-0206",
+        "DN-0209"
+      ]
+    },
+    {
+      "id": "r22",
+      "domain": "site",
+      "start": "2027-07",
+      "end": "2027-09",
+      "label": "1級一次の解答速報と過去問追加"
+    },
+    {
+      "id": "r23",
+      "domain": "sns",
+      "start": "2026-10",
+      "end": "2026-12",
+      "label": "X の販売投稿を試験期に合わせる",
+      "backlogIds": [
+        "DN-0280"
+      ]
+    },
+    {
+      "id": "r24",
+      "domain": "sns",
+      "start": "2026-10",
+      "end": "2026-12",
+      "label": "YouTube 概要欄の季節商品",
+      "backlogIds": [
+        "DN-0278"
+      ]
+    },
+    {
+      "id": "r25",
+      "domain": "sns",
+      "start": "2027-01",
+      "end": "2027-03",
+      "label": "合格体験者の発信"
+    },
+    {
+      "id": "r26",
+      "domain": "sns",
+      "start": "2027-04",
+      "end": "2027-06",
+      "label": "総監・建設部門の直前カウントダウン"
+    },
+    {
+      "id": "r27",
+      "domain": "sns",
+      "start": "2027-07",
+      "end": "2027-09",
+      "label": "1級二次・診断士の直前"
+    },
+    {
+      "id": "r28",
+      "domain": "material",
+      "start": "2026-10",
+      "end": "2026-12",
+      "label": "原典待ち論点の復旧",
+      "backlogIds": [
+        "DN-0224"
+      ]
+    },
+    {
+      "id": "r29",
+      "domain": "material",
+      "start": "2027-01",
+      "end": "2027-03",
+      "label": "教材ページの「要確認」をゼロへ"
+    },
+    {
+      "id": "r30",
+      "domain": "material",
+      "start": "2027-07",
+      "end": "2027-09",
+      "label": "新しい教材（新年度版）の取り込み"
+    },
+    {
+      "id": "r31",
+      "domain": "ops",
+      "start": "2026-10",
+      "end": "2026-12",
+      "label": "ログイン必須の計測の CI 化を広げる",
+      "backlogIds": [
+        "DN-0317"
+      ]
+    },
+    {
+      "id": "r32",
+      "domain": "ops",
+      "start": "2026-10",
+      "end": "2026-12",
+      "label": "note 原稿と公開のずれ解消",
+      "backlogIds": [
+        "DN-0269"
+      ]
+    },
+    {
+      "id": "r33",
+      "domain": "ops",
+      "start": "2027-01",
+      "end": "2027-03",
+      "label": "領域ごとの文書・スキルの棚卸し（月次）"
+    }
+  ]
+}
