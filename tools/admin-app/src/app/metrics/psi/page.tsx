@@ -69,7 +69,7 @@ export default async function PsiPage({
         <h2>
           スコア一覧
           <span className="sub">
-            <Freshness snapshot={snap} /> {snap?.file} · {byUrl.size} URL
+            <Freshness snapshot={snap} /> {byUrl.size} URL
           </span>
         </h2>
         <SnapshotPicker basePath="/metrics/psi" files={history} current={snap?.file ?? ''} />

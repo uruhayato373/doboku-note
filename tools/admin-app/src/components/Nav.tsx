@@ -251,7 +251,7 @@ export default function Nav({
   return (
     <nav className="app-nav" aria-label="管理画面">
       <Link className="brand" href="/metrics">
-        doboku admin<small>local · :3021</small>
+        doboku admin
       </Link>
       {GROUPS.map((group) => (
         <Fragment key={group.title}>
