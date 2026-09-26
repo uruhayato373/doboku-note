@@ -74,6 +74,7 @@ export interface AffiliateSummary {
 
 interface RawRow {
   site?: string;
+  period?: string;
   month?: string;
   date?: string;
   program?: string | null;
@@ -137,7 +138,9 @@ export function affiliateSummary(): AffiliateSummary {
   if (!log || !(log.siteSummary?.length || log.programPeriod?.length)) return EMPTY;
 
   const target = log.site ?? 'doboku-note';
-  const s = (log.siteSummary ?? []).find((r) => String(r.site ?? '').includes(target)) ?? null;
+  // siteSummary / programPeriod は期間ごとに蓄積される。表示は対象期間（log.period）の行だけ（normalize-a8-csv の inCurrentPeriod と同じ）
+  const inPeriod = (r: RawRow) => r.period === log.period?.raw;
+  const s = (log.siteSummary ?? []).filter(inPeriod).find((r) => String(r.site ?? '').includes(target)) ?? null;
 
   const siteTotals: SiteTotals | null = s
     ? {
@@ -158,6 +161,7 @@ export function affiliateSummary(): AffiliateSummary {
 
   const programs: ProgramRow[] = (log.programPeriod ?? [])
     .filter((r) => r.program) // allowlist で doboku 分と判定できた行のみ
+    .filter(inPeriod)
     .map((r) => ({
       program: r.program ?? null,
       programId: r.programId ?? null,
