@@ -26,6 +26,8 @@ import { shouldShowQualificationBridge } from '@/config/qualification-bridge';
 import { DISCOVERY_CATEGORIES } from '@/lib/sidebar-discovery';
 
 interface ArticleFooterProps {
+  /** 記事末バナーに付ける A8 計測ピクセル。本文側で既に 1 発出すページは undefined（1 ページ 1 ピクセル）。 */
+  readonly careerPixelSrc?: string | undefined;
   readonly references: ReferenceItem[];
   readonly category: DocMeta['category'];
   readonly docGroup: DocGroupKey;
@@ -54,6 +56,7 @@ interface ArticleFooterProps {
  * 関連記事／著者」の構成を出し分ける。ロジックは抽出前と不変。
  */
 export default function ArticleFooter({
+  careerPixelSrc,
   references,
   category,
   docGroup,
@@ -74,8 +77,8 @@ export default function ArticleFooter({
   // ディスプレイ枠を並べると 2 タイルが揃う。
   //
   // creative は resolveDocsCareerSidebarAd がサイドバーと同じ解決（キャンペーン/総監の
-  // 出し分け込み）を返す。**pixelSrc は渡さない**＝発火源はサイドバー 1 箇所のままで
-  // 「1 ページ 1 ピクセル」を維持する（同一 mat の二重発火を避ける）。
+  // 出し分け込み）を返す。pixelSrc は DocPage が渡すときだけ付ける（本文に転職広告が無いページで
+  // ここが唯一の発火源になる＝「1 ページ 1 ピクセル」。記事サイドバー広告は 2026-09-26 撤去）。
   // trackLabel はサイドバーと分離して面別に集計できるようにする（*-sidebar → *-endbanner）。
   // キャリア記事の記事末は **広告を置かない**。2026-07-16〜08-12 の実測で
   // 記事末バナーは 975 表示 0 クリック（CTR 0.00%）だったため、悩みに対応する柱と hub へ戻す
@@ -104,6 +107,7 @@ export default function ArticleFooter({
       alt={endBannerAd.creative.alt}
       width={endBannerAd.creative.width}
       height={endBannerAd.creative.height}
+      pixelSrc={careerPixelSrc}
       trackLabel={endBannerAd.trackLabel.replace(/-sidebar$/, '-endbanner')}
       placement="article-end"
     />
