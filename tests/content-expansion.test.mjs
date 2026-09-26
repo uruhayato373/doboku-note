@@ -58,3 +58,28 @@ test('原典不足で一部対応の論点は制作待ちと分け、完了に�
   assert.equal(r.summary.blocked,1);assert.equal(r.summary.pending,0);assert.equal(r.productionComplete,false);
   assert.equal(r.units[0].content,'partial');
 });
+
+// --- 教材一覧・教材ページの集計（2026-09-26） -------------------------------------
+
+test('sourceSummary: 本文・図解・SNS・商品原稿・展開予定・要確認を数える', async () => {
+  const { sourceSummary, PRODUCT_ARTIFACT_RE } = await import('../scripts/lib/content-expansion.mjs');
+  assert.ok(PRODUCT_ARTIFACT_RE.test('content/note/x/article.md'));
+  assert.ok(PRODUCT_ARTIFACT_RE.test('content/kindle/a.md'));
+  assert.ok(!PRODUCT_ARTIFACT_RE.test('content/site/x/article.mdx'));
+  const m = sourceSummary({ units: [
+    { content: 'covered', visual: { decision: 'existing' }, derivative: { decision: 'prepared' }, productArtifacts: [{ path: 'content/note/a' }], backlogIds: ['DN-0001'], pending: false, sourceWaiting: false, stale: false },
+    { content: 'partial', visual: { decision: 'needed' }, derivative: { decision: 'needed' }, productArtifacts: [], pending: true, sourceWaiting: false, stale: true },
+  ] });
+  assert.deepEqual(m, { units: 2, content: 1, visual: 1, visualNeeded: 1, sns: 1, snsNeeded: 1, product: 1, pending: 1, blocked: 0, stale: 1, planned: 1 });
+});
+
+test('linkedProductsByUnit: 実データで論点の記事へリンクする note / Kindle を関連商品として導く', async () => {
+  const { expansionReport, linkedProductsByUnit } = await import('../scripts/lib/content-expansion.mjs');
+  const root = new URL('..', import.meta.url).pathname;
+  const report = expansionReport(root);
+  const map = await linkedProductsByUnit(root, report);
+  assert.equal(map.size, report.units.length);
+  const withProducts = [...map.values()].filter((v) => v.length > 0);
+  assert.ok(withProducts.length > 0, '関連商品が 1 件も導けない（URL→slug の写像が壊れている可能性）');
+  for (const v of withProducts) for (const p of v) assert.match(p, /^content\/(note|kindle)\//);
+});

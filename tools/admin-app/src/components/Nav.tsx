@@ -36,8 +36,9 @@ const channelTrees = (ids: readonly AdminChannelId[]): NavTree[] =>
 /**
  * サイドバーの情報設計（2026-09-26: 作業の種類ではなく領域でまとめる）。
  *
- * - 戦略: 全体の数字と方針
- * - 商品: 資格（何を売るか）→ 商品ラインナップ → 販売チャネル（note/ココナラ/Kindle）→ 売上
+ * - 戦略: 全体の数字と方針、資格一覧（展開中・候補・見送りと日程・受験者数）
+ * - 教材: 教材ごとの論点を本文・図解・SNS・商品へどう展開したか・するか（教材一覧／確認待ち）
+ * - 商品: 商品ラインナップ → 販売チャネル（note/ココナラ/Kindle）→ 売上
  * - サイト: 無料記事と、その集客の計測（検索順位・GSC・GA4・PSI）
  * - SNS: 投稿状況・各 SNS・動画成果・キャラクター素材
  * - 計画: スケジュール（試験・商品・SNS・開発をまたぐ時間軸）とバックログ〜年間
@@ -52,12 +53,19 @@ const GROUPS: { title: string; entries: NavEntry[] }[] = [
       { href: '/metrics', label: '分析概観', match: '/metrics' },
       { href: '/strategy/policy', label: '共通方針', match: '/strategy/policy' },
       { href: '/metrics/business', label: '事業方針と改善', match: '/metrics/business' },
+      { href: '/strategy/qualifications', label: '資格一覧', match: '/strategy/qualifications' },
+    ],
+  },
+  {
+    title: '教材',
+    entries: [
+      { href: '/materials', label: '教材一覧', match: '/materials' },
+      { href: '/content/expansion', label: '確認待ち', match: '/content/expansion' },
     ],
   },
   {
     title: '商品',
     entries: [
-      { href: '/strategy/qualifications', label: '資格一覧', match: '/strategy/qualifications' },
       { href: '/content/lineup', label: '商品ラインナップ', match: '/content/lineup' },
       ...channelTrees(['note', 'coconala', 'kindle']),
       { href: '/sales', label: '売上', match: '/sales' },
@@ -68,7 +76,6 @@ const GROUPS: { title: string; entries: NavEntry[] }[] = [
     title: 'サイト',
     entries: [
       ...channelTrees(['site']),
-      { href: '/content/expansion', label: '教材からの展開', match: '/content/expansion' },
       { href: '/metrics/seo-watch', label: '検索順位の改善', match: '/metrics/seo-watch' },
       { href: '/metrics/gsc', label: '検索（GSC）', match: '/metrics/gsc' },
       { href: '/metrics/ga4', label: 'アクセス（GA4）', match: '/metrics/ga4' },

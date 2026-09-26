@@ -11,7 +11,7 @@ export default async function ContentExpansionPage({ searchParams }: { searchPar
   const search = await searchParams;
   let report: ReturnType<typeof expansionReport>;
   try { report = expansionReport(findRepoRoot()); }
-  catch { return <><PageHead title="教材からの展開" /><p className="card">対応表を読み取れません。未確認です。</p></>; }
+  catch { return <><PageHead title="教材の確認待ち" /><p className="card">対応表を読み取れません。未確認です。</p></>; }
   const filtered = report.sources.filter((s: any) => !search.source || search.source === s.sourceId);
   const selected = filtered.flatMap((source: any) => source.units.filter((u: any) => !search.state || (search.state === 'pending' ? u.pending : search.state === 'blocked' ? u.sourceWaiting : search.state === 'stale' ? u.stale : true)).map((unit: any) => ({ source, unit })));
   const pageCount = Math.max(1, Math.ceil(selected.length / 100));
@@ -25,7 +25,7 @@ export default async function ContentExpansionPage({ searchParams }: { searchPar
   };
   const s = report.summary;
   return <div className={styles.view}>
-    <PageHead title="教材からの展開" sub={`確認日 ${report.reviewedAt} · 記事・図解・SNSの対応と残作業`} />
+    <PageHead title="教材の確認待ち" sub={`確認日 ${report.reviewedAt} · 未確認・原典待ち・変更後の再確認。教材ごとの展開状況は教材一覧（/materials）`} />
     <div className="card"><p>{report.scopeNote}</p><p>教材 {s.reviewedSources}/{s.expectedSources} 件・論点 {s.units} 件。要作業・未確認 {s.pending} 件、原典待ち {s.blocked} 件、変更後の再確認 {s.stale} 件。</p><p className="small">「内容対応あり」は教材の全文検証や公開を意味しません。概念名の対応のみの項目は未確認に含めます。原典不足で一部対応の項目は原典待ちに含めます。図や投稿の数を学習効果・販売成果とみなしません。</p><nav className="filterbar"><Link href="/metrics/business">事業方針とKPI</Link><Link href="/content/lifecycle">公開状況</Link><Link href="/todo">実装タスク</Link></nav></div>
     {report.issues.length > 0 && <div className="card"><h2>台帳の確認が必要です</h2><ul>{report.issues.map((x: string) => <li key={x}>{x}</li>)}</ul></div>}
     <form className="business-form"><label>教材 <select name="source" defaultValue={search.source ?? ''}><option value="">すべて</option>{report.sources.map((x: any) => <option key={x.sourceId} value={x.sourceId}>{x.title}</option>)}</select></label><label>対象 <select name="state" defaultValue={search.state ?? ''}><option value="">すべて</option><option value="pending">要作業・未確認</option><option value="blocked">原典待ち</option><option value="stale">変更後の再確認</option></select></label><button>表示</button></form>

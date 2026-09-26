@@ -105,10 +105,10 @@ test('contentSegmentLabel は sns/sources のような 1:1 でない物理セグ
   assert.equal(r.unknown, 'does-not-exist');
 });
 
-test('サイドバーは領域の 6 グループで、旧グループ名が残っていない', () => {
+test('サイドバーは領域の 7 グループで、旧グループ名が残っていない', () => {
   const src = readFileSync(join(ROOT, 'tools/admin-app/src/components/Nav.tsx'), 'utf8');
   const titles = [...src.matchAll(/title: '([^']+)'/g)].map((m) => m[1]);
-  assert.deepEqual(titles, ['戦略', '商品', 'サイト', 'SNS', '計画', '管理']);
+  assert.deepEqual(titles, ['戦略', '教材', '商品', 'サイト', 'SNS', '計画', '管理']);
   for (const old of ['発信', 'コンテンツ', '運用', '分析', '戦略・収益化']) {
     assert.ok(!titles.includes(old), `旧グループ名「${old}」が残っている`);
   }
@@ -121,7 +121,7 @@ test('既存の画面はすべてサイドバーのどこか 1 か所に置か�
     '/metrics', '/strategy/policy', '/metrics/business', '/strategy/qualifications', '/content/lineup',
     '/sales', '/affiliate', '/content/expansion', '/metrics/seo-watch', '/metrics/gsc', '/metrics/ga4',
     '/metrics/psi', '/sns', '/metrics/video', '/gallery/characters', '/schedule', '/todo', '/docs',
-    '/plans', '/quality', '/knowledge', '/agents', '/skills', '/content/lifecycle', '/content',
+    '/plans', '/quality', '/knowledge', '/agents', '/skills', '/content/lifecycle', '/content', '/materials',
   ]) {
     const n = hrefs.filter((h) => h === href).length;
     assert.ok(n >= 1, `${href} がサイドバーに無い`);
