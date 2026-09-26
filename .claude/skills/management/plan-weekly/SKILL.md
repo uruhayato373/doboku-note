@@ -23,7 +23,7 @@ domain: plan
 
 1. `todo-planner` エージェントが以下を読む:
    - `.claude/todo/annual.md`（試験カレンダー・年間優先事項）
-   - `.claude/todo/monthly.md`（今月のゴール・タスク状態）
+   - `.claude/todo/monthly.md`（今月のゴール・タスク状態）。候補は `[時期:]` が今月を含むカード（管理画面 計画 ＞ 年間ロードマップ の今月の行）
    - `.claude/todo/weekly.md`（前週の完了・未完了）
    - `.claude/knowledge/reference/codex-division-of-labor.md`（Codex に振れる作業の基準）
    - `git log --oneline -20`（直近の実績）

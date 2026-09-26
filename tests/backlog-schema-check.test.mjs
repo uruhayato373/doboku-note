@@ -177,3 +177,19 @@ test('実 backlog は全カードが一意な DN-#### を持つ', () => {
   assert.equal(new Set(ids).size, cards.length, 'ID が重複している');
   assert.ok(ids.every((id) => /^DN-\d{4}$/.test(id)), 'DN-#### 形式でない ID がある');
 });
+
+test('優先度の見出しの外のカードと、形式の違う [時期:] は違反になる（2026-09-26）', () => {
+  const text = [
+    '## 凡例', '', '| ## 🔴 高 | 来月 |', '', '### [DN-0901] 凡例に紛れたカード', 'タグ: [収益化] [種類:改善]', '',
+    '## 🔴 高 — 来月中に着手', '', '### [DN-0902] 正しい位置', 'タグ: [収益化] [時期:2026-13] [種類:改善]', '',
+  ].join('\n');
+  const cards = parseBacklog(text);
+  const orphans = findOrphanHeadings(text);
+  const v = validateCards(cards, orphans, {
+    rawHeadingCount: (text.match(/^### /gm) ?? []).length,
+    npmScripts: new Set(),
+    allowedCategories: new Set(CANONICAL_CATEGORIES),
+  });
+  assert.ok(v.some((x) => x.rule === 'orphan' && x.msg.includes('凡例に紛れた')));
+  assert.ok(v.some((x) => x.rule === 'when'));
+});

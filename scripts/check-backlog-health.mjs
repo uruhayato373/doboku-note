@@ -43,6 +43,7 @@ import {
   KINDS,
   CANONICAL_CATEGORIES,
   TODO_LAYER_FILES,
+  parseWhen,
 } from './lib/backlog-lib.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -130,6 +131,7 @@ const DUE_RULES = (DAYS) => [
   { id: 'S12', why: '完了 prose 蓄積（TRIM 候補）3 件以上', hit: (r) => (r.completionProseHeavy?.length ?? 0) >= 3 },
   { id: 'S13', why: 'チャネル状態複製の疑い 3 件以上', hit: (r) => (r.ssotDuplicationSuspects?.length ?? 0) >= 3 },
   { id: 'S14', why: '期日超過のカード', hit: (r) => (r.overdueDue?.length ?? 0) >= 1 },
+  { id: 'S15', why: '[時期:] の月を過ぎたまま残っているカード（時期の見直しか完了の記録が要る）', hit: (r) => (r.pastWhen?.length ?? 0) >= 1 },
 ];
 
 /** JST の YYYY-MM-DD（UTC 実行で前日付になる事故を避ける・check-jst-date と同じ規律）。 */
@@ -310,6 +312,17 @@ export function computeOverdueDue(cards, todayYmd) {
     .sort((a, b) => a.due.localeCompare(b.due));
 }
 
+/**
+ * [時期:] の終わりの月を過ぎたまま残っているカード（2026-09-26）。年間ロードマップと今月のカードは
+ * [時期:] だけで決まるので、過ぎたカードを放置すると「今月やること」から黙って消える。
+ */
+export function computePastWhen(cards, thisMonth) {
+  return cards
+    .map((c) => ({ c, w: parseWhen(c.when) }))
+    .filter(({ w }) => w && w.end < thisMonth)
+    .map(({ c, w }) => ({ id: c.id, line: c.line, when: c.when, end: w.end, title: c.title }));
+}
+
 export async function run({ argv = [], quiet = false } = {}) {
 const out = createOutput({ quiet });
 const JSON_OUT = argv.includes('--json');
@@ -457,6 +470,7 @@ const staleAfterCommit = s11Degraded ? [] : computeStaleAfterCommit(cards, commi
 const proseHeavy = computeCompletionProseHeavy(cards);
 const ssotSuspects = computeSsotDuplicationSuspects(cards);
 const overdueDue = computeOverdueDue(cards, jstToday());
+const pastWhen = computePastWhen(cards, jstToday().slice(0, 7));
 
 const report = {
   cards: cards.length,
@@ -486,6 +500,7 @@ const report = {
   completionProseHeavy: proseHeavy,
   ssotDuplicationSuspects: ssotSuspects,
   overdueDue,
+  pastWhen,
 };
 
 if (RECORD) {
@@ -508,6 +523,7 @@ if (DUE) {
   for (const h of hits) out.log(`  ${h.id} ${h.why}`);
   // S14 は「どのカードがいつ切れたか」が分からないと動けないので明細を出す。
   for (const c of report.overdueDue ?? []) out.log(`    期日超過 ${c.id ?? '(ID無し)'} ${c.due} ${c.title}`);
+  for (const c of report.pastWhen ?? []) out.log(`    時期超過 ${c.id ?? '(ID無し)'} ${c.when} ${c.title}`);
   out.log(`  → /backlog-sweep --audit（カード ${cards.length} 件・詳細は npm run check-backlog-health）`);
   out.log('────────────────────────────────────────────────');
   out.log('');

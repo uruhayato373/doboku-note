@@ -18,7 +18,7 @@ npm run admin   # http://127.0.0.1:3021
 | 計測概観 / GA4 / GSC / PSI | `.claude/state/metrics/{ga4,gsc,psi}/*.json` | CI がコミットするスナップショットを読むだけ。**ライブ API は叩かない**（会社 PC はプロキシで Google/Meta 遮断・CI 供給が正）。`?snapshot=` で履歴切替、鮮度バッジ（週次 CI・8 日超で赤） |
 | 検索順位の改善（`/metrics/seo-watch`） | `.claude/config/seo-watchwords.json`・`.claude/state/experiments.json`・GSC rank-watchのwatch/run履歴 | 資格別候補、受験意図・登録根拠・学習導線、固定クエリの7日比較、改善/待機理由、観察期限、28日の方針レビュー。同じ判定関数をCLIと共有し、読み取り専用。 |
 | エージェント / スキル | `.claude/agents/*.md` / `.claude/skills/**/SKILL.md` | gray-matter で frontmatter パース。事業の領域（frontmatter `domain`）で束ね・絞り込み、エージェントは役割（制作/検査） |
-| 年間ロードマップ（`/plan/roadmap`） | `.claude/config/annual-roadmap.json`・`exam-calendar.json`・`qualification-registry.json` | 時間軸は縦（月の行）。左に展開中の資格の申込・試験・合格発表と買い場（翌年の未公表分は昨年度から推定・薄字）、右に領域ごとの重点カード（同じ期間はまとめる・バックログのカードへリンク）。計算は `scripts/lib/annual-roadmap.mjs` |
+| 年間ロードマップ（`/plan/roadmap`） | バックログの `[時期:]`・`.claude/config/annual-roadmap.json`（期間・買い場の週数）・`exam-calendar.json`・`qualification-registry.json` | 時間軸は縦（月の行）。左に展開中の資格の申込・試験・合格発表と買い場（翌年の未公表分は昨年度から推定・薄字）、右にその月に始めるカード（バックログの [時期:]・領域付き・カードへリンク）。計算は `scripts/lib/annual-roadmap.mjs` |
 | 販売状態（`/product/status?ch=note|coconala|kindle`） | note 公開状態・ココナラ台帳・Kindle 本棚 | 商品の人が手を打つ状態をチャネル別タブで。原稿・画像の作業場へのリンクもここ |
 | 領域の概要（`/domains/<id>`・サイドバーのグループ名から） | `.claude/config/domains.json`・backlog の `[領域:]`・frontmatter `domain`・`documents` | 領域ごとの次の予定・タスク・スキルとエージェント・文書。サイドバーのグループ・並び・項目（画面と種類）はすべて domains.json の `nav`（`lib/domains.ts`→`Nav.tsx`）。チャネル・SNS は枝にせず画面内のタブ |
 | ナレッジ | `.claude/knowledge/**/*.{md,json}` | エージェント向けSSOTの人向け読み取り専用ビュー。全文検索・カテゴリ絞り込み・Markdown HTML表示（`lib/markdown.ts` の共有レンダラ＝TODO の詳細展開と同一パイプライン）・JSON整形表示 |

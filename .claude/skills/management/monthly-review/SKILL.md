@@ -18,7 +18,7 @@ domain: strategy
 5. `npm run check-content-expansion -- --json` と `.claude/knowledge/reference/content-expansion.md` で、教材の未確認・原典待ち・成果物変更後の再確認を読む。記事数・図数で充足や効果を代用せず、追加制作の必要性を資格別の学習行動・販売・運営負担から判断する。全重点資格の集客、学習、商品別販売、運営時間、教材不備を点検する。試験カレンダーと前年同時期を参照し、同じ期間・定義以外の増減を効果と呼ばない。数字から原因を断定せず、対象の本文・商品説明・導線を読む。
 6. `snapshot --monthly --commit` を保存し、`review` の判断・理由・次の一手・実験参照・次回日を記録する。データ不足時はprovisional。重点は最大3件。変更しない判断にも理由を残す。
 7. 目標を変える場合は対象資格・指標のcompleteな実測snapshotと理由を `target` 記録へ追記する。数字を仮置きして達成指標にしない。収益・費用・時間から継続/集中/縮小を判断し、重点資格変更は機械SSOTへ反映する。
-8. 年間の重点は `.claude/config/annual-roadmap.json`（管理画面 計画 ＞ 年間ロードマップ）を見て、今月と来月の帯が現状と合っているかを確かめ、ずれていれば items を直す（完了した項目は done: true）。
+8. 年間の重点はバックログのカードの `[時期:]` が正本（管理画面 計画 ＞ 年間ロードマップ）。今月・来月の行が現状と合っているかを確かめ、ずれていればカードの `[時期:]` を直す。月間計画（monthly.md）の選択タスクは `[時期:]` が今月を含むカードから選ぶ。時期を過ぎて残るカードは `npm run check-backlog-health` の S15 に出る。
 9. 改善は既存 `experiments.json` と `/nsm-experiment` へ接続する。running の実験で `next_check_date` が今月内または過去のものは、判定（close/継続の理由）か延長理由のどちらかを `actions` に必ず1行残す。判定せずに日付だけ後ろへずらさない（2026-09 に EXP-008 が再計測前の追加展開で判定を一度も経ずに 9/18→10/20 へ延びた）。SEOは7日観察・同時実験上限・専用判定を保つ。単発実装はbacklog、monthly/weeklyはそのID参照。`npm run check-business-direction` を通し、変更したJSONだけ明示してGitにコミットする。
 
 ## 報告

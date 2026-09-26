@@ -1,5 +1,5 @@
 /**
- * annual-roadmap.mjs — 年間ロードマップ（.claude/config/annual-roadmap.json）の読み込み・検証と、
+ * annual-roadmap.mjs — 年間ロードマップの設定（.claude/config/annual-roadmap.json・期間と買い場の週数）の読み込み・検証と、
  * 試験カレンダー（exam-calendar.json）を月の横軸に並べる計算。描画は管理画面 /plan/roadmap。
  *
  * 公表済みの日付はそのまま置く。期間の後半（翌年の試験期）でまだ日付が出ていない行事は、
@@ -28,25 +28,12 @@ export function monthsOf(period) {
   return out;
 }
 
-/**
- * 形式の検証。domainIds は領域の正本、backlogIds は今バックログにある ID の集合。
- * done:true の項目はバックログから消えていてよい（完了したカードは削除する運用）。
- */
-export function validateRoadmap(cfg, { domainIds, backlogIds }) {
+/** 設定の検証（期間と買い場の週数だけ）。重点の中身はバックログの [時期:] が正本で、check-backlog-schema が見る。 */
+export function validateRoadmap(cfg) {
   const errors = [];
   if (!YM.test(cfg.period?.start ?? '') || !YM.test(cfg.period?.end ?? '') || cfg.period.start > cfg.period.end) errors.push('period の start / end を確認');
   if (!Number.isInteger(cfg.buyWindowWeeks) || cfg.buyWindowWeeks < 1) errors.push('buyWindowWeeks は 1 以上の整数');
-  const seen = new Set();
-  for (const it of cfg.items ?? []) {
-    const at = it.id ?? it.label;
-    if (!it.id || seen.has(it.id)) errors.push(`${at}: id が無いか重複`);
-    seen.add(it.id);
-    if (!domainIds.has(it.domain)) errors.push(`${at}: domain ${it.domain} は領域の正本にない`);
-    if (!YM.test(it.start ?? '') || !YM.test(it.end ?? '') || it.start > it.end) errors.push(`${at}: start / end は YYYY-MM で start ≦ end`);
-    else if (it.start < cfg.period.start || it.end > cfg.period.end) errors.push(`${at}: 期間（${cfg.period.start}〜${cfg.period.end}）の外`);
-    if (!it.label?.trim()) errors.push(`${at}: label が無い`);
-    if (!it.done) for (const b of it.backlogIds ?? []) if (!backlogIds.has(b)) errors.push(`${at}: ${b} はバックログに無い（完了なら done: true を付けるか ID を外す）`);
-  }
+  if ('items' in cfg) errors.push('items を置かない（重点はバックログの [時期:] に書く）');
   return errors;
 }
 
