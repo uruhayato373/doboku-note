@@ -56,7 +56,7 @@ const shiftYear = (d, n) => `${Number(d.slice(0, 4)) + n}${d.slice(4)}`;
 
 /**
  * 試験カレンダーを期間の横軸に並べる。位置は期間全体に対する 0〜1 の割合。
- * @returns {{ id: string, label: string, marks: {kind:string,label:string,date:string,at:number,estimated:boolean}[], buys: {from:number,to:number,estimated:boolean}[] }[]}
+ * @returns {{ id: string, label: string, marks: {kind:string,label:string,date:string,at:number,estimated:boolean}[], buys: {from:number,to:number,estimated:boolean,fromDate:string,toDate:string,label:string}[] }[]}
  */
 export function examTimeline(calendar, ids, period, buyWindowWeeks) {
   const start = toTime(`${period.start}-01`);
@@ -81,7 +81,11 @@ export function examTimeline(calendar, ids, period, buyWindowWeeks) {
         .filter((m) => m.kind === 'exam')
         .map((m) => {
           const t = toTime(m.date);
-          return { from: Math.max(0, pos(t - buyWindowWeeks * 7 * dayMs)), to: m.at, estimated: m.estimated };
+          const fromT = t - buyWindowWeeks * 7 * dayMs;
+          return {
+            from: Math.max(0, pos(fromT)), to: m.at, estimated: m.estimated,
+            fromDate: new Date(fromT).toISOString().slice(0, 10), toDate: m.date, label: m.label,
+          };
         });
       return { id, label: exam.label, marks, buys };
     });
