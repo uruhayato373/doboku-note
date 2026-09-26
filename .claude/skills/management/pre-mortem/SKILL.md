@@ -2,6 +2,7 @@
 name: pre-mortem
 description: >
   計画の潜在的失敗シナリオを事前分析するPre-Mortemを実施する。Use when user asks to [事前検死, Pre-Mortem, リスク分析, /pre-mortem].
+domain: strategy
 ---
 
 ## 概要

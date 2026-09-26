@@ -3,6 +3,7 @@ name: guide-rewriter
 description: >
   全資格のガイド記事を guide-qa と guide-fact-checker の指摘に沿って修正する Generator。導入・散文・見出し・CTA・本文3000字下限を整える。新規記事・新事実の創作・品質採点は担当外。
 model: sonnet
+domain: site
 ---
 
 # Guide Rewriter Agent

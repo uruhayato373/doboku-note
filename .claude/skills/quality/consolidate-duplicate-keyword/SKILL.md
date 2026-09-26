@@ -6,6 +6,7 @@ description: >
   RelatedKeywords 更新 + _redirects 追加 + 自動生成再ビルドまでの作業書。
   Use when user asks to [重複キーワード 統合, /consolidate-duplicate-keyword, 統合手順].
 user-invocable: true
+domain: site
 ---
 
 **実行環境**: macOS only。

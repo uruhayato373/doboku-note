@@ -7,6 +7,7 @@ description: >
   **初回実行時 or セレクタ更新後は必ず --dry-run で事前検証すること**.
 disable-model-invocation: true
 argument-hint: "<draft> [<YYYY-MM-DDTHH:MM>...] [--tweet N] [--immediate] [--dry-run]"
+domain: sns
 ---
 
 Playwright（永続プロファイル）で X のコンポーザを自動操作し、即時投稿または予約投稿する。

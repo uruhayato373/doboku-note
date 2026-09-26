@@ -7,6 +7,7 @@ description: >
   Use when user says "来月のX計画を作って", "X投稿計画を立てて", "9月分のXを設計", "/x-campaign-plan".
 disable-model-invocation: true
 argument-hint: "--month YYYY-MM [--primary-exam civil-1]"
+domain: sns
 ---
 
 # X Campaign Plan

@@ -40,6 +40,7 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { basename, join } from 'node:path';
 import { jstDayTime, todayJst } from './jst-date.mjs';
 import { parseBacklog } from './backlog-lib.mjs';
+import domainsConfig from '../../.claude/config/domains.json' with { type: 'json' };
 
 /**
  * @typedef {Object} ScheduleEvent
@@ -48,7 +49,7 @@ import { parseBacklog } from './backlog-lib.mjs';
  * @property {string|null} time     'HH:MM' JST
  * @property {'exam'|'x'|'instagram'|'youtube'|'todo'|'note'|'kindle'|'coconala'|'video'|'experiment'|'review'} channel
  * @property {'exam'|'post'|'plan-slot'|'todo-due'|'publish'|'check'} kind
- * @property {'exam'|'product'|'sns'|'dev'|'business'} domain   予定の領域（CHANNEL_DOMAIN が唯一の写像）
+ * @property {string} domain   予定の領域（exam か domains.json の id。バックログはカードの [領域:]、他は CHANNEL_DOMAIN）
  * @property {'planned'|'reserved'|'posted'|'overdue'} status
  * @property {string} label
  * @property {string|null} detail
@@ -75,13 +76,15 @@ const YMD_RE = /^\d{4}-\d{2}-\d{2}$/;
  * 予定の領域（管理画面の切り口）。スケジュールは 1 本の時間軸に集め、領域で絞り込む
  * （領域ごとに予定表を分けると同じ予定を二重に持ち、試験日と商品公開を並べて見られなくなる）。
  */
+/**
+ * 予定の領域。試験（exam）と、事業の領域（正本 .claude/config/domains.json・並びも正本どおり）。
+ */
 export const DOMAINS = [
   { id: 'exam', label: '試験' },
-  { id: 'product', label: '商品' },
-  { id: 'sns', label: 'SNS' },
-  { id: 'dev', label: '開発' },
-  { id: 'business', label: '経営' },
+  ...domainsConfig.domains.map((d) => ({ id: d.id, label: d.label })),
 ];
+/** バックログの [領域:商品] のラベル → 領域 id。 */
+const DOMAIN_BY_LABEL = new Map(domainsConfig.domains.flatMap((d) => [[d.label, d.id], [d.id, d.id]]));
 
 /** チャネル → 領域（唯一の写像）。 */
 export const CHANNEL_DOMAIN = {
@@ -93,9 +96,9 @@ export const CHANNEL_DOMAIN = {
   instagram: 'sns',
   youtube: 'sns',
   video: 'sns',
-  todo: 'dev',
-  experiment: 'business',
-  review: 'business',
+  todo: 'ops', // カードに [領域:] があればそちらが優先（mapBacklogDue）
+  experiment: 'strategy',
+  review: 'strategy',
 };
 
 /** 'YYYY-MM-DD'（または ISO 日時）を JST の暦日に正規化する。解釈できなければ null。 */
@@ -346,6 +349,7 @@ export function mapBacklogDue(cards, todayKey) {
       time: null,
       channel: 'todo',
       kind: 'todo-due',
+      ...(DOMAIN_BY_LABEL.has(c.domain) ? { domain: DOMAIN_BY_LABEL.get(c.domain) } : {}),
       status: c.due < todayKey ? 'overdue' : 'planned',
       label: `${c.id ?? ''} ${c.title}`.trim(),
       detail: null,
@@ -843,7 +847,7 @@ export async function collectScheduleEvents(rootDir, { nowMs = Date.now() } = {}
     ...experiments.events,
     ...reviews.events,
   ]
-    .map((e) => ({ ...e, domain: CHANNEL_DOMAIN[e.channel] ?? 'dev' }))
+    .map((e) => ({ ...e, domain: e.domain ?? CHANNEL_DOMAIN[e.channel] ?? 'ops' }))
     .sort((a, b) => keyOf(a.date, a.time).localeCompare(keyOf(b.date, b.time)));
 
   // x-campaign の SourceReport は「消し込み後に残った件数」を count にする

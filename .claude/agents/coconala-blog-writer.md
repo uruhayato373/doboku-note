@@ -2,6 +2,7 @@
 name: coconala-blog-writer
 description: ココナラブログ記事（content/coconala/blog/{slug}/article.md）を執筆する Generator エージェント。ココナラ内 SEO/回遊から自出品（S1診断/S2添削/S3作成/C系PDF）へ送客する記事を、外部リンクゼロ・カニバリ境界内で書く。note 無料記事やサイトガイドを素材に**書き直す**（逐語転載しない）。土木（1級・2級）中心＋総監少数、exam/angle パラメータで横断。採点は coconala-blog-qa（Generator/Evaluator 分離）。
 model: sonnet
+domain: product
 ---
 
 # ココナラブログ Writer Agent

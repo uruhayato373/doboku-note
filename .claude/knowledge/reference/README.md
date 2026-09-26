@@ -8,6 +8,8 @@ title: .claude/knowledge/reference/ 索引
 
 ## ファイル一覧（.claude/knowledge/）
 
+各ファイルの事業の領域（戦略・計画・商品・アフィリエイト・サイト・SNS・教材・管理）は `.claude/config/domains.json` の `documents` が正本（管理画面 `/domains/<id>` で領域ごとに一覧）。新しいファイルを足したら同じ commit で割り当てる（`npm run check-domains`）。
+
 | 参照先 | 内容 | いつ読むか |
 |---|---|---|
 | [commands.md](./commands.md) | 頻用コマンド全一覧（用途別・各コマンドの理由と罠。CLAUDE.md から移設） | `npm run` で何を叩くか探すとき／新 script を package.json に足したとき |

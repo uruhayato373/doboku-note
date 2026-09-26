@@ -4,6 +4,7 @@ description: >
   全資格のガイド記事にある試験制度・統計・法令等の事実を外部一次情報と照合し、判定・正値・出典を返す Evaluator。修正はしない。内部データ照合と技術士模範答案の技術事実検査は別担当。
 model: sonnet
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
+domain: site
 ---
 
 # Guide Fact Checker Agent

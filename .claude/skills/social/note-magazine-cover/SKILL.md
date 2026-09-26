@@ -9,6 +9,7 @@ description: >
 disable-model-invocation: true
 user-invocable: true
 argument-hint: "--key <magazineKey> (--dir <magazineDir> | --image <path.png>) [--commit]"
+domain: product
 ---
 
 `scripts/note-magazine-cover.mjs` を駆動し、note 有料マガジンの見出し画像を設定する。`note-magazine-create`（新規作成）・`note-edit-magazine`（タイトル/説明/価格編集）・`note-magazine-add`（収録）が扱わない「カバー画像」を担う。`note-edit-session` でログイン済みの永続プロファイルを再利用。

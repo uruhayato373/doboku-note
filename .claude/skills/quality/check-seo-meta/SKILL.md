@@ -6,6 +6,7 @@ description: >
   検査ロジックは build 後 SEO スキャナ（scripts/lib/seo-checks.mjs）を再利用。母集合は
   doc-meta-index.json（published のみ）で、収集不足時は監査失敗にする。dev server は不要（out/ 直接検査が主経路・HTTP は --base-url）。
   Use when user asks to [SEO meta 監査, OGP 検証, title 重複チェック, 構造化データ検証, /check-seo-meta].
+domain: site
 ---
 
 # /check-seo-meta — SEO meta タグ・OGP・JSON-LD 監査

@@ -38,22 +38,15 @@ const channelTabs = (id: AdminChannelId): Tab[] =>
   toNavTabs(enabledChannels().find((c) => c.id === id)?.tabs ?? []);
 
 /**
- * サイドバーの情報設計（2026-09-26: 作業の種類ではなく領域でまとめる）。
+ * サイドバーの情報設計（2026-09-26: 事業の領域で束ねる）。
  *
- * - 戦略: 全体の数字と方針、資格一覧（展開中・候補・見送りと日程・受験者数）
- * - 教材: 教材一覧と、棚（shelf）ごとの各教材ページ（論点を本文・図解・SNS・商品へどう展開したか・するか）
- * - 商品: 商品ラインナップ → 販売チャネル（note/ココナラ/Kindle）→ 売上
- * - アフィリエイト: 他社商品への送客（成果・掲載先＝サイト/note/SNS・提携と案件）。自社商品とは判断材料が違うので分ける
- * - サイト: 無料記事と、その集客の計測（検索順位・GSC・GA4・PSI）
- * - SNS: 投稿状況・各 SNS・動画成果・キャラクター素材
- * - 計画: スケジュール（試験・商品・SNS・開発をまたぐ時間軸）とバックログ〜年間
- * - 管理: 文書・品質・エージェント類と、チャネル横断の点検（ライフサイクル・すべて）
- *
- * URL は変えない（入口の並べ方だけを変える）。
+ * グループ＝領域。名前と並び順の正本は .claude/config/domains.json（layout が domains で渡す）で、
+ * ここは各領域にどの画面を置くかだけを書く。グループ名は領域の概要（/domains/<id>）へのリンク。
+ * 考え方は docs/strategy/14_領域モデル.md。URL は変えない（入口の並べ方だけを変える）。
  */
-const GROUPS: { title: string; entries: NavEntry[] }[] = [
+const GROUPS: { domain: string; entries: NavEntry[] }[] = [
   {
-    title: '戦略',
+    domain: 'strategy',
     entries: [
       { href: '/metrics', label: '分析概観', match: '/metrics' },
       { href: '/strategy/policy', label: '共通方針', match: '/strategy/policy' },
@@ -62,13 +55,13 @@ const GROUPS: { title: string; entries: NavEntry[] }[] = [
     ],
   },
   {
-    title: '教材',
+    domain: 'material',
     entries: [
       { href: '/materials', label: '教材一覧', match: '/materials', query: { id: '' } },
     ],
   },
   {
-    title: '商品',
+    domain: 'product',
     entries: [
       { href: '/content/lineup', label: '商品ラインナップ', match: '/content/lineup' },
       ...channelTrees(['note', 'coconala', 'kindle']),
@@ -76,7 +69,7 @@ const GROUPS: { title: string; entries: NavEntry[] }[] = [
     ],
   },
   {
-    title: 'アフィリエイト',
+    domain: 'affiliate',
     entries: [
       { href: '/affiliate', label: '成果', match: '/affiliate' },
       { href: '/affiliate/placements', label: '掲載先', match: '/affiliate/placements' },
@@ -84,7 +77,7 @@ const GROUPS: { title: string; entries: NavEntry[] }[] = [
     ],
   },
   {
-    title: 'サイト',
+    domain: 'site',
     entries: [
       ...channelTabs('site'),
       { href: '/metrics/seo-watch', label: '検索順位', match: '/metrics/seo-watch' },
@@ -94,7 +87,7 @@ const GROUPS: { title: string; entries: NavEntry[] }[] = [
     ],
   },
   {
-    title: 'SNS',
+    domain: 'sns',
     entries: [
       { href: '/sns', label: '投稿状況', match: '/sns' },
       ...channelTrees(['x', 'instagram', 'youtube']),
@@ -103,14 +96,14 @@ const GROUPS: { title: string; entries: NavEntry[] }[] = [
     ],
   },
   {
-    title: '計画',
+    domain: 'plan',
     entries: [
       { href: '/schedule', label: 'スケジュール', match: '/schedule' },
       { href: '/todo', label: 'バックログ', match: '/todo' },
     ],
   },
   {
-    title: '管理',
+    domain: 'ops',
     entries: [
       { href: '/docs', label: '方針・設計', match: '/docs' },
       { href: '/plans', label: '実装計画', match: '/plans' },
@@ -129,6 +122,14 @@ function isTree(entry: NavEntry): entry is NavTree {
 }
 
 /** 現在パスと必要ならクエリに応じて active を付ける。/metrics はサブページと排他。 */
+/** 領域の正本の順に並べる。正本に無いグループは末尾（名前は id のまま＝設定漏れが見える）。 */
+function orderedGroups(domains: { id: string; label: string }[]) {
+  const rank = new Map(domains.map((d, i) => [d.id, i]));
+  return [...GROUPS]
+    .sort((a, b) => (rank.get(a.domain) ?? 99) - (rank.get(b.domain) ?? 99))
+    .map((group) => ({ group, label: domains.find((d) => d.id === group.domain)?.label ?? group.domain }));
+}
+
 function isActive(
   pathname: string,
   searchParams: URLSearchParams,
@@ -216,12 +217,15 @@ export default function Nav({
   todoLayers = [],
   lineupQualifications = [],
   materials = [],
+  domains = [],
 }: {
   todoLayers?: TodoLayer[];
   /** 商品ラインナップの下に並べる資格（layout が product-lineup.json から渡す） */
   lineupQualifications?: { id: string; label: string }[];
   /** 教材一覧の下に棚ごとに並べる教材（layout が reference-sources.json から渡す） */
   materials?: { shelf: string; items: { id: string; label: string }[] }[];
+  /** 領域の名前と並び（layout が domains.json から渡す） */
+  domains?: { id: string; label: string }[];
 }) {
   const pathname = usePathname() ?? '';
   const searchParams = useSearchParams();
@@ -253,9 +257,11 @@ export default function Nav({
       <Link className="brand" href="/metrics">
         doboku admin
       </Link>
-      {GROUPS.map((group) => (
-        <Fragment key={group.title}>
-          <span className="group">{group.title}</span>
+      {orderedGroups(domains).map(({ group, label }) => (
+        <Fragment key={group.domain}>
+          <Link className={'group' + (pathname === `/domains/${group.domain}` ? ' active' : '')} href={`/domains/${group.domain}`}>
+            {label}
+          </Link>
           {group.entries
             .flatMap((e): NavEntry[] => {
               if (isTree(e)) return [e];

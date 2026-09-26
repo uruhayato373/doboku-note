@@ -4,6 +4,7 @@ description: >
   技術士第一次試験（pe-first-stage）全21ページの原典視覚突合・正答照合・構造検査を実施し
   `.claude/state/pe-first-stage-audit/` に監査記録を書き出す品質監査スキル。
   Use when user asks to [pe-first-stage監査, 技術士第一次試験QA, /audit-pe-first-stage].
+domain: site
 ---
 
 ## 概要

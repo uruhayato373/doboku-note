@@ -7,6 +7,7 @@ description: >
   Use when user says "Xリポスト", "引用リポスト", "x-repost".
 disable-model-invocation: true
 argument-hint: "[discover | curate | exec | run] [--dry-run]"
+domain: sns
 ---
 
 # x-repost — X 引用リポスト curation スキル

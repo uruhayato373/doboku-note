@@ -4,6 +4,7 @@ description: >
   backlog カードの分類・重複・陳腐化を、検証済みの機械結果と実績に基づき監査する Evaluator。KEEP 等の処分案を返し、編集・タスク実行・週次計画はしない。Use when user asks to [バックログ棚卸し, /backlog-sweep --audit].
 model: sonnet
 tools: Read, Glob, Grep, Bash
+domain: plan
 ---
 
 # Backlog Curator Agent

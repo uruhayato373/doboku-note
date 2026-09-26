@@ -3,6 +3,7 @@ name: todo-planner
 description: >
   backlog・年間/月間計画・git 実績から週次計画を更新し、月初には月間計画へタスクを選ぶ Generator。台帳の構造監査と選定タスクの実装はしない。Use when user asks to [/plan-weekly, 週次計画, 月次計画, 今週何をすべきか].
 model: sonnet
+domain: plan
 ---
 
 ## 事業方針とレビューの参照

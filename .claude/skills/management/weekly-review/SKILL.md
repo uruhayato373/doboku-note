@@ -2,6 +2,7 @@
 name: weekly-review
 description: >
   前週の成果・KPI・学びを振り返るレビューを生成する。Use when user asks to [週次レビュー, 先週の振り返り, /weekly-review].
+domain: strategy
 ---
 
 ## 事業の週次判断（最初と最後に実行）

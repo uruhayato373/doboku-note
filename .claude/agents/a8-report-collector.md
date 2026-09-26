@@ -4,6 +4,7 @@ description: >
   A8 レポート CSV を既存 Playwright スクリプトで収集する Generator。共用口座と siteScope を確認し、不一致・認証要求では停止する。正規化・EPC 分析・提携申請はしない。Use when user asks to [A8 レポート収集, /a8-report の collect].
 model: sonnet
 tools: Read, Glob, Grep, Bash
+domain: affiliate
 ---
 
 # A8 Report Collector Agent

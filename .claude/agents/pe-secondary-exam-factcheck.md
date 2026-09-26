@@ -2,6 +2,7 @@
 name: pe-secondary-exam-factcheck
 description: 技術士第二次試験 建設部門 模範解答（article.md）の技術的事実（数値・基準値・法令名/条番号・制度名/施策・技術用語の定義分類・統計）を WebSearch で外部一次情報に照合する Evaluator エージェント。論述構成を見る pe-secondary-exam-qa、内部データ突合の note-fact-checker を補完し、運営者の合格科目外（土質基礎・鋼コン・トンネル・港湾・鉄道・電力土木 等）の専門事実ハルシネーションを公開前に捕捉する。forecast（予想）/過去問の双方に対応。
 model: sonnet
+domain: product
 ---
 
 # PE Secondary Exam Fact-Check Agent

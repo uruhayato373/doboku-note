@@ -459,7 +459,8 @@
     "growth-triage": "node scripts/growth-triage.mjs",
     "check-growth-triage": "node scripts/check-growth-triage.mjs",
     "check-business-direction": "node scripts/check-business-direction.mjs",
-    "check-content-expansion": "node scripts/check-content-expansion.mjs"
+    "check-content-expansion": "node scripts/check-content-expansion.mjs",
+    "check-domains": "node scripts/check-domains.mjs"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.1135.0",

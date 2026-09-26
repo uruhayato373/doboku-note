@@ -5,6 +5,7 @@ description: >
   semantic に評価し、追加候補・削除候補を confidence 付きで surface する Evaluator エージェント。
   Use when user asks to [過去問紐づけ監査, exam-keyword 監査, 紐づけ精度評価, /audit-exam-mapping, auditor].
 model: sonnet
+domain: site
 ---
 
 # Exam Keyword Mapping Auditor Agent

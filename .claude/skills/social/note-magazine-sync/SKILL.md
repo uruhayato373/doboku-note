@@ -7,6 +7,7 @@ description: >
   Use when user says "noteの同期確認", "SoT突合", "マガジン公開状態チェック",
   "ブラウザcliでnoteを確認", "/note-magazine-sync".
 argument-hint: "[--contents]（収録記事の詳細まで確認する場合）"
+domain: product
 ---
 
 # note マガジン同期チェック＋SoT 自動修正

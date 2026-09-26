@@ -4,6 +4,7 @@ description: >
   デザインシステム準拠を 7 カテゴリ・重大度判定でレビューする統合スキル。
   `.tsx` ファイルは `--visual` で Playwright 視覚検証（light/dark × desktop/mobile）＋ 静的 lint を追加実行。
   Use when user asks to [デザインレビュー, UI確認, 視覚検証, Playwright 確認, /design-review].
+domain: site
 ---
 
 CSS・MDX・TSXコンポーネントを doboku-note デザインシステムに照らしてレビューし、違反を検出・分類・修正提案する。`.tsx` では視覚回帰とデザイントークン準拠も検証可能（旧 `ui-visual-qa` エージェントの機能を統合）。

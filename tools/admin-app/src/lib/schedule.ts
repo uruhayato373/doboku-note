@@ -24,7 +24,8 @@ export type ScheduleChannel =
   | 'exam' | 'x' | 'instagram' | 'youtube' | 'todo'
   | 'note' | 'kindle' | 'coconala' | 'video' | 'experiment' | 'review';
 export type ScheduleKind = 'exam' | 'post' | 'plan-slot' | 'todo-due' | 'publish' | 'check';
-export type ScheduleDomain = 'exam' | 'product' | 'sns' | 'dev' | 'business';
+export type ScheduleDomain =
+  | 'exam' | 'strategy' | 'plan' | 'product' | 'affiliate' | 'site' | 'sns' | 'material' | 'ops';
 export type ScheduleStatus = 'planned' | 'reserved' | 'posted' | 'overdue';
 export type ScheduleSourceId =
   | 'exam-calendar'
@@ -115,7 +116,7 @@ export async function scheduleBoard(month: string): Promise<ScheduleBoard> {
   return { events: monthEvents, allEvents: events, sources, generatedAt };
 }
 
-/** 予定の領域（切り口）。唯一の定義は schedule-events.mjs の DOMAINS。 */
+/** 予定の領域（試験＋事業の領域）。定義は schedule-events.mjs の DOMAINS（正本 domains.json）。 */
 export const DOMAINS = DOMAINS_IMPL as { id: ScheduleDomain; label: string }[];
 
 /** 領域の直近の予定（今日以降・投稿済みを除く）。各領域ページの「次の予定」に使う。 */

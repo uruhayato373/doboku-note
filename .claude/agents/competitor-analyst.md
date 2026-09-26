@@ -4,6 +4,7 @@ description: >
   取得済みの note・X・Instagram・ココナラ 競合データを比較し、価格・品揃え・訴求の変化と戦略文書への反映案を返す Evaluator。取得・価格変更・執筆・文書編集はしない。
 model: sonnet
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
+domain: strategy
 ---
 
 # Competitor Analyst Agent

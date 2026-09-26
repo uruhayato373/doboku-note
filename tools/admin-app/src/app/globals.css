@@ -2322,3 +2322,13 @@ table.data.schedule-grid td {
 .business-grid { margin: 16px 0; }
 .business-grid > .card { margin: 0; }
 .business-direction h2 { font-size: 22px; line-height: 1.5; }
+
+/* グループ名は領域の概要（/domains/<id>）へのリンク */
+.app-nav a.group {
+  display: block;
+  text-decoration: none;
+}
+.app-nav a.group:hover,
+.app-nav a.group.active {
+  color: var(--accent);
+}

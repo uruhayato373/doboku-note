@@ -252,7 +252,7 @@ test('CHANNEL_DOMAIN: 全チャネルが DOMAINS のどれかに写る', async (
   for (const [ch, dom] of Object.entries(CHANNEL_DOMAIN)) assert.ok(ids.has(dom), `${ch} → ${dom} が未定義の領域`);
   assert.equal(CHANNEL_DOMAIN.note, 'product');
   assert.equal(CHANNEL_DOMAIN.video, 'sns');
-  assert.equal(CHANNEL_DOMAIN.experiment, 'business');
+  assert.equal(CHANNEL_DOMAIN.experiment, 'strategy');
 });
 
 test('mapNoteArticles: 予約は reserved（過ぎたら overdue）、公開は posted、下書きは出さない', async () => {
@@ -289,4 +289,10 @@ test('mapVideoStatus: 公開済みは posted、予約だけは reserved（過ぎ
     shorts: [{ publishAt: '2026-10-01T12:00:00+09:00' }, { publishAt: '2026-09-01T12:00:00+09:00' }],
   } } } }, 's.json', '2026-09-26');
   assert.deepEqual(ev.map((e) => `${e.ref}:${e.status}`), ['p/longform:posted', 'p/shorts/0:reserved', 'p/shorts/1:overdue']);
+});
+
+test('mapBacklogDue: カードの [領域:] を予定の領域にする', async () => {
+  const { mapBacklogDue } = await import('../scripts/lib/schedule-events.mjs');
+  const [ev] = mapBacklogDue([{ id: 'DN-0001', title: 't', due: '2026-10-01', domain: '商品' }], '2026-09-26');
+  assert.equal(ev.domain, 'product');
 });

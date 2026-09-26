@@ -2,6 +2,7 @@
 name: magazine-pdf-builder
 description: note マガジン（content/note/magazines/**）の article.md を「問題文＋解答」中心の紙用 PDF に変換する spec を作成し、scripts/magazine-to-pdf.mjs を実行する Generator エージェント。複数解答（A/B案）・予想問題の構造差を include/exclude DSL で吸収する。
 model: sonnet
+domain: product
 ---
 
 # Magazine PDF Builder Agent

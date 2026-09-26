@@ -3,6 +3,7 @@ name: note-operator
 description: >
   note の価格・マガジン・記事収録・購入者コメント返信・PDF 添付欠落を既存スクリプトで運用する。会員プラン運用は note-membership-operator。Use when user asks to [note 価格変更, note マガジン作成, note コメント返信, /note-operate].
 model: sonnet
+domain: product
 ---
 
 # Note Operator Agent

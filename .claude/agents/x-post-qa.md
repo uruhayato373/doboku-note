@@ -2,6 +2,7 @@
 name: x-post-qa
 description: X(旧Twitter)投稿 tweets.md の 5 軸ルーブリック品質評価を担当する Evaluator エージェント。文字数(280 weighted)・論点的確さ・タグ適切性・導線整合・偽成功検証を採点し、実績訴求の裏取りと時間帯スロット/凍結リスクを重大減点ゲートとして適用。多資格(総監/建設部門/1級/2級/コンクリート主任技士/診断士)横断。
 model: sonnet
+domain: sns
 ---
 
 # X Post QA Agent

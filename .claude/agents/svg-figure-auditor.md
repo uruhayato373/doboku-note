@@ -4,6 +4,7 @@ description: >
   site・note の SVG 図版を、各領域の規約に沿って概念・本文整合・可読性・キャンバス/密度で監査する Evaluator。修正と PNG クロップ検査はしない。修正先は svg-figure-rewriter / svg-canvas-fitter。
 model: sonnet
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
+domain: site
 ---
 
 # SVG Figure Auditor Agent

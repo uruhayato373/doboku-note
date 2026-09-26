@@ -4,6 +4,7 @@ description: >
   SNS バイナリを Drive へ退避する前に、原稿の健全性・再生成可能性・公開状態を監査する Evaluator。OFFLOAD/ARCHIVE_KEEP/KEEP_LOCAL/BLOCK と実行案を返し、迷えば保持する。同期・削除はしない。
 model: sonnet
 tools: Read, Glob, Grep
+domain: sns
 ---
 
 # SNS Archive Auditor Agent

@@ -2,6 +2,7 @@
 name: x-post-writer
 description: X(旧Twitter)投稿の tweets.md を多資格(総監/建設部門/1級土木/2級土木/コンクリート主任技士/コンクリート診断士)横断で執筆する Generator エージェント。過去問・キーワードからネタを生成し、280 weighted 以下・試験別ベースタグ・時間帯スロット・サイト誘導・実績訴求のガードレールを遵守。
 model: sonnet
+domain: sns
 ---
 
 # X Post Writer Agent

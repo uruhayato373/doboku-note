@@ -3,6 +3,7 @@ name: cem-essay-writer
 description: >
   総監記述式 note 有料マガジンのペルソナ別論文・予想問題・国家施策バンク・5管理トレードオフを執筆する Generator。施策600字以内と真正な経験座を守る。無料サイト答案と品質採点は担当外。
 model: sonnet
+domain: product
 ---
 
 # CEM Essay Writer Agent

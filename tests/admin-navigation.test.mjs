@@ -105,13 +105,12 @@ test('contentSegmentLabel は sns/sources のような 1:1 でない物理セグ
   assert.equal(r.unknown, 'does-not-exist');
 });
 
-test('サイドバーは領域の 7 グループで、旧グループ名が残っていない', () => {
+test('サイドバーのグループは領域の正本（domains.json）とちょうど一致する', () => {
   const src = readFileSync(join(ROOT, 'tools/admin-app/src/components/Nav.tsx'), 'utf8');
-  const titles = [...src.matchAll(/title: '([^']+)'/g)].map((m) => m[1]);
-  assert.deepEqual(titles, ['戦略', '教材', '商品', 'アフィリエイト', 'サイト', 'SNS', '計画', '管理']);
-  for (const old of ['発信', 'コンテンツ', '運用', '分析', '戦略・収益化']) {
-    assert.ok(!titles.includes(old), `旧グループ名「${old}」が残っている`);
-  }
+  const groups = [...src.matchAll(/^    domain: '([^']+)',$/gm)].map((m) => m[1]).sort();
+  const cfg = JSON.parse(readFileSync(join(ROOT, '.claude/config/domains.json'), 'utf8'));
+  assert.deepEqual(groups, cfg.domains.map((d) => d.id).sort());
+  assert.ok(!/title: '/.test(src), 'グループ名を Nav.tsx に直書きしない（正本は domains.json）');
 });
 
 test('既存の画面はすべてサイドバーのどこか 1 か所に置かれている', () => {
