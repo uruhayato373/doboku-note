@@ -70,6 +70,20 @@
       ]
     },
     {
+      "id": "pe-water-supply",
+      "label": "技術士 上下水道部門",
+      "stages": [
+        {
+          "id": "written",
+          "label": "第二次 筆記"
+        },
+        {
+          "id": "oral",
+          "label": "第二次 口頭"
+        }
+      ]
+    },
+    {
       "id": "rccm",
       "label": "RCCM",
       "stages": [
@@ -180,6 +194,12 @@
         ]
       },
       {
+        "match": "^pe-water-oral-",
+        "cells": [
+          "pe-water-supply:oral"
+        ]
+      },
+      {
         "match": "^(tankan-|essay-|r8-essay-|setsumon3-|tradeoff-)",
         "cells": [
           "pe-comprehensive-management:written"
@@ -189,6 +209,12 @@
         "match": "^pe-construction-",
         "cells": [
           "pe-construction:written"
+        ]
+      },
+      {
+        "match": "^pe-water-",
+        "cells": [
+          "pe-water-supply:written"
         ]
       },
       {

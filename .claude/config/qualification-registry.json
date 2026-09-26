@@ -32,7 +32,7 @@
       "portfolio": "declined",
       "decision": { "summary": "市場が小さく読者・権威性・既存資産がつながらないため参入しない", "ref": "docs/strategy/06_多資格展開戦略.md" }
     },
-    { "id": "pe-water-supply", "label": "技術士 上下水道部門", "family": "professional-engineer", "portfolio": "candidate" },
+    { "id": "pe-water-supply", "label": "技術士 上下水道部門", "family": "professional-engineer", "portfolio": "active" },
     { "id": "pe-agriculture", "label": "技術士 農業部門", "family": "professional-engineer", "portfolio": "candidate" },
     { "id": "pe-forestry", "label": "技術士 森林部門", "family": "professional-engineer", "portfolio": "candidate" },
     { "id": "pe-fisheries", "label": "技術士 水産部門", "family": "professional-engineer", "portfolio": "candidate" },

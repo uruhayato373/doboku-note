@@ -51,6 +51,15 @@ const expected = {
     written: "2026-07-20",
     source: "https://www.engineer.or.jp/c_topics/011/011422.html",
   },
+  "pe-water-supply": {
+    applicationOpen: "2026-04-01",
+    applicationDeadlineWeb: "2026-04-14",
+    applicationDeadline: "2026-04-15",
+    writtenResult: "2026-11-04",
+    finalResult: "2027-03-12",
+    written: "2026-07-20",
+    source: "https://www.engineer.or.jp/c_topics/011/011422.html",
+  },
   "pe-first-stage": {
     applicationOpen: "2026-06-10",
     applicationDeadline: "2026-06-23",
