@@ -275,6 +275,7 @@
     "check-seo-meta:check": "node .claude/skills/quality/check-seo-meta/scripts/seo-meta-threshold-check.mjs",
     "check-ssot-consumers": "node scripts/check-ssot-consumers.mjs",
     "check-weekly-review-due": "node scripts/check-weekly-review-due.mjs",
+    "check-monthly-review-due": "node scripts/check-monthly-review-due.mjs",
     "check-weekly-review": "node scripts/check-weekly-review.mjs",
     "check-x-campaign-plan": "node scripts/check-x-campaign-plan.mjs",
     "check-x-card-render": "node scripts/check-x-card-render.mjs",

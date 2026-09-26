@@ -18,16 +18,16 @@ title: 推奨ワークフロー
    12:00 JST  gsc-auto-review.yml（自動）<- ダイジェストの OPP に意味の判断を足す
 土曜:
 2. 09:00 JST  /weekly-review          <- 実績を振り返る（計測ダイジェストを埋め込み、全件トリアージで backlog/実験/watchword へ起票）
-3. 09:00 JST  /weekly-plan            <- 来週の計画を立てる（前週の申し送り・backlog から選定）
+3. 09:00 JST  /plan-weekly            <- 来週の計画を .claude/todo/weekly.md に書く（[時期:] が今月を含むカードと申し送りの DN から選定）
 月曜:
 4. 11:17 JST  weekly-review-guard.yml（自動）<- 先週分の *-review.md 欠落を赤落ち・計測ダイジェストの未処分/未反映を Issue で検知
 ```
 
 計測→記録→改善サイクルの分業・閾値・処分の規則は [growth-cycle.md](growth-cycle.md)。
 
-詳細は `.claude/skills/management/weekly-review/SKILL.md` と `.claude/skills/management/weekly-plan/SKILL.md` を参照。
+詳細は `.claude/skills/management/weekly-review/SKILL.md` と `.claude/skills/management/plan-weekly/SKILL.md` を参照（`/weekly-plan` は戦略を練り直す週だけ手動で使う）。
 
-**実行主体（2026-09-19 にローカルへ切替）**: 手順 2-3 は**ローカルの対話セッションで `/weekly-review` を土曜に実行する**（完了後に `/weekly-plan` が自動で続く）。クラウドルーティン `doboku-note weekly PDCA`（`trig_01Edgim5qXCiGwKtnL4AVEmM`）は **enabled:false で退役**（本文は保持・再開は `RemoteTrigger update {enabled:true}`）。理由: サンドボックスでは `.claude/` 配下への書き込みが許可プロンプトで止まり数日沈黙する（下の callout）うえ、Playwright/tsx 依存の検査（`check-note-attachments:live`・`report-monetization-coverage`）が cloud では動かず、週次の材料が欠ける。ローカルなら全部揃う。欠落の backstop は月曜の `weekly-review-guard.yml`「Check last week's review exists」（ファイル実在）と SessionStart の `check-weekly-review-due`（土曜 09:00 JST を過ぎて今週分が無ければ 1 行で催促）。旧「ルーティンが PR を出したか」検査（`check-weekly-routine-fired` / channel weekly-pdca）は撤去。
+**実行主体（2026-09-19 にローカルへ切替）**: 手順 2-3 は**ローカルの対話セッションで `/weekly-review` を土曜に実行する**（完了後に `/plan-weekly` で weekly.md を更新する。月次は `/monthly-review` を月初に回し、忘れは `check-monthly-review-due` が SessionStart で知らせる）。クラウドルーティン `doboku-note weekly PDCA`（`trig_01Edgim5qXCiGwKtnL4AVEmM`）は **enabled:false で退役**（本文は保持・再開は `RemoteTrigger update {enabled:true}`）。理由: サンドボックスでは `.claude/` 配下への書き込みが許可プロンプトで止まり数日沈黙する（下の callout）うえ、Playwright/tsx 依存の検査（`check-note-attachments:live`・`report-monetization-coverage`）が cloud では動かず、週次の材料が欠ける。ローカルなら全部揃う。欠落の backstop は月曜の `weekly-review-guard.yml`「Check last week's review exists」（ファイル実在）と SessionStart の `check-weekly-review-due`（土曜 09:00 JST を過ぎて今週分が無ければ 1 行で催促）。旧「ルーティンが PR を出したか」検査（`check-weekly-routine-fired` / channel weekly-pdca）は撤去。
 
 > [!note] 以下 2 つの callout はルーティン時代の記録（再開するときの前提知識）
 
@@ -89,10 +89,10 @@ title: 推奨ワークフロー
 │  docs/reviews/weekly/YYYY-Www-review.md                         │
 │    │ PSI 推移 + 校正学習候補 + 申し送りを 1 本の md に統合         │
 │                                                                 │
-│  /weekly-plan                                                   │
-│    │ 前週の申し送りを Must/Should に組込                          │
+│  /plan-weekly                                                   │
+│    │ [時期:] が今月を含むカード＋申し送りの DN から選ぶ           │
 │    ▼                                                            │
-│  docs/reviews/weekly/YYYY-Www.md（計画は別ファイル）              │
+│  .claude/todo/weekly.md（週間計画の正本）                        │
 │    │ 対応タスクを計画として明示                                  │
 │                                                                 │
 │  ユーザーが校正学習候補を承認 → 適用                              │
@@ -287,7 +287,7 @@ doc・コンテンツは `develop` へ直 push で蓄積する（「1 修正 = 1
 - 1級土木施工管理技士・技術士総合技術監理の MDX コンテンツ整備
 - PDF→MDX 変換フロー
 - Cloudflare Pages 本番運用
-- 週次 PDCA（簡略版: weekly-review → weekly-plan のみ）
+- 週次 PDCA（簡略版: weekly-review → plan-weekly のみ）
 
 **Phase 1 で停止中のスキル・エージェント**:
 - analytics 系スキル（GSC・GA4 データ取得、SEO 監査）

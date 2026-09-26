@@ -141,7 +141,7 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 | `/google-search-growth` | GSC/GA4 の Playwright UI CSV 取得→既存 API と URL 突合→修正候補分類（approval gate で停止・ローカル専用） | `検索流入改善`, `GSC CSV 取得`, `GSC/GA4 統合診断`, `/google-search-growth` |
 | `/monthly-review` | 前月の資格別KPI・販売・運営負担から重点と目標、次の改善を記録 | `月次レビュー`, `前月の振り返り`, `/monthly-review` |
 | `/weekly-review` | 資格別KPI・判断を週次履歴へ記録し、次の改善へ接続。Xは投入済みの最終予約記録と未投入計画を区別する。申し送りは各項目を backlog 起票／定常／Issue／実験へ振り分ける（旧週削除時の抽出もれは pre-commit が止める） | `週次レビュー`, `今週の振り返り`, `/weekly-review` |
-| `/weekly-plan` | 週次計画を生成（NSM・メトリクス連動・重め。`/weekly-review` 完了後に自動起動） | `戦略的週次計画`, `NSM込みの計画`, `/weekly-plan` |
+| `/weekly-plan` | 戦略的な週次計画を生成（NSM・メトリクス連動・重め。手動のみ。週間計画の正本 weekly.md は `/plan-weekly`） | `戦略的週次計画`, `NSM込みの計画`, `/weekly-plan` |
 | `/nsm-experiment` | NSM 改善の実験ライフサイクル管理 | `実験登録`, `NSM実験`, `/nsm-experiment` |
 | `/north-star-metric` | 学習価値・集客・販売・運営負担のKPI定義と実測に基づく目標を共通SSOTへ記録 | `NSM定義`, `北極星指標`, `/north-star-metric` |
 | `/growth-loops` | 成長ループの設計・評価 | `成長ループ`, `フライホイール設計`, `/growth-loops` |
@@ -244,7 +244,7 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 ### 週次 PDCA を回したい
 
 1. `/weekly-improve` — 計測データから改善候補を自動抽出・実験登録（performance）
-2. `/weekly-review` → `/weekly-plan` — 振り返りと翌週計画の作成
+2. `/weekly-review` → `/plan-weekly` — 振り返りと翌週の週間計画（weekly.md）の更新
 
 ### GSC のインデックス状況（登録/未登録）を管理したい
 
