@@ -12,6 +12,8 @@
  * 全量モード（既定）:
  *   1. 未知キーの token（[実行者:x] のような打ち間違い。廃止済み [実行:] もここで error）が無い
  *   2. [種類:] が KINDS の語彙内（null は移行中のみ許容）
+ *   3. 🔴 高・🟡 中は [時期:] 必須（when-missing）、[期日:] があれば期日の月を [時期:] に含める（when-due）。
+ *      いつやるかの正本は [時期:] だけで、見出しは重要度（2026-09-26〜）
  *   4. カテゴリが CANONICAL_CATEGORIES ∪ baseline の語彙内
  *   5. [検証:cmd] が package.json の scripts に実在する
  *   6. 生 `### ` 行数 == カード数 + orphan 数（パーサ退行・フェンス事故の検知）
@@ -90,6 +92,18 @@ export function validateCards(cards, orphans, opts) {
     }
     if (c.when && !parseWhen(c.when)) {
       v.push({ rule: 'when', at: at(c), msg: `[時期:${c.when}] は YYYY-MM か YYYY-MM..YYYY-MM（開始 ≦ 終了）で書く` });
+    }
+    // いつやるかの正本は [時期:]（2026-09-26〜）。見出しは重要度だけを表す。月間は [時期:] から導出するので、
+    // 🔴 高・🟡 中に時期が無いと月間・週間に一度も出てこない（2026-09-26 に 28 枚が漏れていた）。
+    if (!c.when && (c.tier === 'high' || c.tier === 'mid')) {
+      v.push({ rule: 'when-missing', at: at(c), msg: `「${c.title.slice(0, 40)}」に [時期:] が無い（🔴 高・🟡 中は必須。月間・週間に出てこない）` });
+    }
+    // 期日があるのに時期がその月を含まないと、期日の月の月間に出てこない
+    if (c.due && /^\d{4}-\d{2}-\d{2}$/.test(c.due)) {
+      const w = c.when ? parseWhen(c.when) : null;
+      const m = c.due.slice(0, 7);
+      if (!w) v.push({ rule: 'when-due', at: at(c), msg: `[期日:${c.due}] があるのに [時期:] が無い（${m} を含む [時期:] を付ける）` });
+      else if (m < w.start || m > w.end) v.push({ rule: 'when-due', at: at(c), msg: `[期日:${c.due}] の月 ${m} が [時期:${c.when}] に入っていない` });
     }
     if (c.kind && !KINDS.includes(c.kind)) {
       v.push({ rule: 'kind', at: at(c), msg: `[種類:${c.kind}] は語彙外（${KINDS.join(' / ')}）` });

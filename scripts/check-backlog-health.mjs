@@ -25,6 +25,8 @@
  *   S12 完了 prose の蓄積（本文に「済み」「完了し」等の完了報告表現が閾値以上＝TRIM 候補）
  *   S13 チャネル状態複製の疑い（noteStatus/status/published の値や「残N本」がカードに写されている＝
  *       SSOT が真実源のはずが本文へ複製され、後で陳腐化する候補。todo-standards.md §1-2 の対象）
+ *   S14 期日超過 ／ S15 [時期:] の月を過ぎたまま残っている ／
+ *   S16 月の過積載（今月〜2か月先で [時期:] がその月を含むカードが月 12 件＝todo-standards §2-2 の目安を超える）
  *
  * Usage:
  *   node scripts/check-backlog-health.mjs           人間向け
@@ -44,6 +46,7 @@ import {
   CANONICAL_CATEGORIES,
   TODO_LAYER_FILES,
   parseWhen,
+  whenCovers,
 } from './lib/backlog-lib.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -132,6 +135,7 @@ const DUE_RULES = (DAYS) => [
   { id: 'S13', why: 'チャネル状態複製の疑い 3 件以上', hit: (r) => (r.ssotDuplicationSuspects?.length ?? 0) >= 3 },
   { id: 'S14', why: '期日超過のカード', hit: (r) => (r.overdueDue?.length ?? 0) >= 1 },
   { id: 'S15', why: '[時期:] の月を過ぎたまま残っているカード（時期の見直しか完了の記録が要る）', hit: (r) => (r.pastWhen?.length ?? 0) >= 1 },
+  { id: 'S16', why: `今月〜2か月先に [時期:] のカードが目安（月 ${MONTH_LOAD_LIMIT} 件）を超える月がある（[時期:] を後ろの月へ散らす）`, hit: (r) => (r.monthLoad?.length ?? 0) >= 1 },
 ];
 
 /** JST の YYYY-MM-DD（UTC 実行で前日付になる事故を避ける・check-jst-date と同じ規律）。 */
@@ -316,6 +320,25 @@ export function computeOverdueDue(cards, todayYmd) {
  * [時期:] の終わりの月を過ぎたまま残っているカード（2026-09-26）。年間ロードマップと今月のカードは
  * [時期:] だけで決まるので、過ぎたカードを放置すると「今月やること」から黙って消える。
  */
+/** 月間の目安（todo-standards.md §2-2「8〜12 件」の上限）。 */
+export const MONTH_LOAD_LIMIT = 12;
+
+/**
+ * 今月から months か月の各月で、[時期:] がその月を含むカードの数が limit を超える月を返す。
+ * 月間は [時期:] から導出するので、ここが膨らむと月間・週間が選べない量になる（2026-09-26 に 10 月が 43 件）。
+ */
+export function computeMonthLoad(cards, thisMonth, { limit = MONTH_LOAD_LIMIT, months = 3 } = {}) {
+  const [y, m] = thisMonth.split('-').map(Number);
+  const out = [];
+  for (let i = 0; i < months; i++) {
+    const d = new Date(Date.UTC(y, m - 1 + i, 1));
+    const ym = d.toISOString().slice(0, 7);
+    const hit = cards.filter((c) => whenCovers(c.when, ym));
+    if (hit.length > limit) out.push({ month: ym, count: hit.length, high: hit.filter((c) => c.tier === 'high').length });
+  }
+  return out;
+}
+
 export function computePastWhen(cards, thisMonth) {
   return cards
     .map((c) => ({ c, w: parseWhen(c.when) }))
@@ -471,6 +494,7 @@ const proseHeavy = computeCompletionProseHeavy(cards);
 const ssotSuspects = computeSsotDuplicationSuspects(cards);
 const overdueDue = computeOverdueDue(cards, jstToday());
 const pastWhen = computePastWhen(cards, jstToday().slice(0, 7));
+const monthLoad = computeMonthLoad(cards, jstToday().slice(0, 7));
 
 const report = {
   cards: cards.length,
@@ -501,6 +525,7 @@ const report = {
   ssotDuplicationSuspects: ssotSuspects,
   overdueDue,
   pastWhen,
+  monthLoad,
 };
 
 if (RECORD) {
@@ -524,6 +549,7 @@ if (DUE) {
   // S14 は「どのカードがいつ切れたか」が分からないと動けないので明細を出す。
   for (const c of report.overdueDue ?? []) out.log(`    期日超過 ${c.id ?? '(ID無し)'} ${c.due} ${c.title}`);
   for (const c of report.pastWhen ?? []) out.log(`    時期超過 ${c.id ?? '(ID無し)'} ${c.when} ${c.title}`);
+  for (const m of report.monthLoad ?? []) out.log(`    月の過積載 ${m.month}: ${m.count} 件（うち 🔴 ${m.high}・目安 ${MONTH_LOAD_LIMIT} 件）`);
   out.log(`  → /backlog-sweep --audit（カード ${cards.length} 件・詳細は npm run check-backlog-health）`);
   out.log('────────────────────────────────────────────────');
   out.log('');
@@ -576,6 +602,12 @@ line('S12 完了 prose 蓄積（TRIM 候補・本文 5 件以上）', proseHeavy
 for (const c of proseHeavy.slice(0, 8)) out.log(`      L${c.line} ${c.count}件 ${c.title}`);
 line('S13 チャネル状態複製の疑い（SSOT が真実源・カードから剥がす候補）', ssotSuspects.length);
 for (const c of ssotSuspects.slice(0, 8)) out.log(`      L${c.line} ${c.count}件 ${c.title}`);
+line('S14 期日超過', overdueDue.length);
+for (const c of overdueDue.slice(0, 8)) out.log(`      ${c.id ?? '(ID無し)'} ${c.due} ${c.title}`);
+line('S15 [時期:] の月を過ぎたまま残っている', pastWhen.length);
+for (const c of pastWhen.slice(0, 8)) out.log(`      ${c.id ?? '(ID無し)'} ${c.when} ${c.title}`);
+line(`S16 月の過積載（今月〜2か月先で [時期:] のカードが月 ${MONTH_LOAD_LIMIT} 件超）`, monthLoad.length);
+for (const m of monthLoad) out.log(`      ${m.month}: ${m.count} 件（うち 🔴 ${m.high}）`);
 out.log('\n判定と適用は /backlog-sweep --audit（backlog-curator）が行う。ここは候補の列挙のみ。');
 return out.result(0);
 }
