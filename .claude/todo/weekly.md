@@ -1,8 +1,6 @@
-# 週間計画 — 2026-W38（09/14〜09/20）
+# 週間計画 — 2026-W40（09/28〜10/04）
 
-**今週の成果**: NSM は2週連続の急伸（+43.5%）だったが、DN-0026・DN-0185 の計測記録は2週連続未着手のまま持ち越し、knip ratchet の再赤と台帳カードの誤復活（マージ由来）で台帳・CI 双方に歪みが出た週だった（W37 レビュー）。
-
-**実験・Issue（backlog ID なし）**: EXP-007 は 09-15 に裁定し枠を解放、EXP-008 は 09-18 に `report-career-funnel` 再測定。Issue #485（index coverage 41.8%）は `/gsc-review` で切り分け、#457 は 38 日 open で close 判断待ち。
+**今週の成果**: 1級土木 第二次検定（10/4）を挟む週。3週連続持ち越しの計測記録 DN-0026・DN-0185 を今週中に閉じ、DN-0310 で1級経験記述サービスの試験後の扱いを10/3までに決める。DN-0220 の図解ロールアウトは継続。W39 の週次レビューはまだ未作成（check-weekly-review-due が DUE）。
 
 **参照**: [monthly.md](./monthly.md) ／ タスクの詳細・完了条件・検証は [backlog.md](./backlog.md) の各 ID を見る（ここには複製しない）
 
@@ -12,24 +10,23 @@
 
 | ID | 今週の出口 | 担当 |
 |---|---|---|
-| DN-0185 | GSC の索引状況と GA4 `standards_data_download` の発火を記録する（2週連続未達を解消） | 当方 |
-| DN-0026 | 28日窓（09-14成立）の GSC URL 検査を実施し、次記事着手可否を判断する | 当方 |
+| DN-0026 | 28日窓の GSC URL 検査と比較を実施し、次記事「土木公務員に技術士は必要？」の着手可否を判断する（期日09/28） | 当方 |
+| DN-0310 | 1級二次（10/4）前の10/3に、経験記述サービス5件の受付停止か来季向け文面替えを決めて反映する | 当方 |
+| DN-0185 | GSC の索引状況と GA4 `standards_data_download` の発火を1度ずつ記録し、加工受託の入口として継続可否を判断する | 当方 |
 | DN-0220 | develop 統合済みの図解を既存 deploy 手順で本番反映し、SNS 公開/予約 SSOT へ接続する | 当方 |
 
 ## 定常運用（surfacer から pull・backlog ID なし）
 
 | surfacer | 今週の出口 |
 |---|---|
-| check-membership-drip | 予定日超過なし（WARN 0・基準日09-14 実測済み）。次回配信を期日通り実行する |
-| check-note-republish | 本文 drift（257）の消化を続ける（並行編集で増減するため着手時に実測する） |
-| x-queue-surfacer | 投入待ちなし（充足10/24）。096〜103の日付書式判定は DN-0220 の SNS 接続後に見直す |
-| verify-ig-status（ig-reconcile） | snapshot が09-10で4日超過。再実行して published_UNrecorded/scheduled/anomaly を更新する |
-| check-coconala-orders | 09-20に全7タブ・取引3件・DM4件を再取得。DM 10051134の再オープン確認とroom 18194267の納品・評価記録を運営者が閉じる |
-| check-sales-freshness | 08月販売履歴26件71,640円を再取得し、note表示71,640円と一致。未解決productId 0件・監査PASS |
-| note-traffic-fetch | 08月の全記事820件・PV 7,455・表示83,515を取得済み。資格別は未帰属記事があるためpartialとして事業レビューへ反映 |
-| check-gsc-ui-due | ga4-ui が due（完全取得の記録なし）。`/google-search-growth` で取得する |
-| check-doc-lifecycle | handoff 2件の棚卸し候補あり。`/doc-declutter` を回す |
-| distill-proofread-learnings | 11週未実施。今週の校正学習を蒸留する |
+| check-membership-drip | overdue 1件（添削練習01 工事概要の具体性・予定09-25を1日超過）。配信を実行する |
+| check-note-republish | 本文未初期化7件・drift消化を続ける（並行編集で増減するため着手時に実測する） |
+| check-coconala-orders | 評価未送信1件（coconala-tensaku-4theme・room 18351970）。期限内に評価を送信する |
+| verify-ig-status（ig-reconcile） | snapshot が09-19で7日超過。再実行して published_UNrecorded/scheduled/anomalyを更新する |
+| x-queue-surfacer | 投入待ちなし（充足10/31）。096〜103の日付書式判定不能8件は DN-0184 の SNS 接続後に見直す |
+| check-gsc-ui-due | ga4-ui が DUE（直近実行は取得0/3失敗）。`/google-search-growth` で取得する |
+| check-experiment-due | EXP-007 が MEASURE_DUE 超過（`/nsm-experiment close`）。EXP-008 は要人手2件待ちで measuring 継続 |
+| check-weekly-review-due | 2026-W39 の週次レビュー未作成。対話セッションで `/weekly-review` を実行する |
 
 ## 手動キュー（ユーザー・別PC／時間差で可）
 
@@ -47,6 +44,6 @@
 
 ## 今週やらないこと
 
-- **DN-0184**（YouTube/SNS 人物テンプレートの複数ポーズ実装）— 大規模改修。今週は計測debt（DN-0026/DN-0185）を優先する
-- **DN-0206 / DN-0207 / DN-0208**（技術士建設部門・一次のコンテンツ拡充）— 新規制作より台帳・CI の歪み是正と計測記録を優先する週
-- **DN-0231**（partial clone + git maintenance）— Mac 側の作業。今週は計測 debt を優先する
+- **DN-0247 / DN-0308**（RCCM サイト新設・note 問題I/択一）— 期日は10/10で来週でも間に合う。今週は試験週の判断（DN-0310）と計測 debt（DN-0026/0185）を優先する
+- **DN-0184**（YouTube/SNS 人物テンプレートの複数ポーズ実装）— 大規模改修。今週も計測 debt と試験週の判断を優先する
+- **DN-0206 / DN-0207 / DN-0208**（技術士建設部門・一次のコンテンツ拡充）— 新規制作より台帳・計測の是正を優先する週
