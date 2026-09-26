@@ -3,6 +3,7 @@ name: svg-canvas-fitter
 description: >
   サイト figure-*.svg を指定の固定キャンバスへ再配置する Generator。データ・ラベル・概念・色を保持し、収まらなければ親へ返す。色/フォントだけの校正と品質採点は別担当。
 model: sonnet
+domain: site
 ---
 
 # SVG Canvas Fitter Agent

@@ -3,6 +3,7 @@ name: search-intent-auditor
 description: 機械抽出で選ばれた最大 20 URL に限定して、各ページが対象クエリの検索意図に合致しているかを評価する audit-only Evaluator エージェント。metrics-analyzer が surface した High-Impr-Low-CTR / Rank-Stuck / Cannibalization 等の候補 URL と、その主要クエリを受け取り、タイトル/リード/H2 構成が意図（知りたい・比較したい・手続きしたい）に応えているかを意味評価する。決定的な計測判定はしない・修正もしない。
 model: sonnet
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
+domain: site
 ---
 
 # Search Intent Auditor Agent

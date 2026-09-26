@@ -122,7 +122,7 @@ cover:
 
 **PR：アフィリエイト広告を含みます。**
 
-https://px.a8.net/svt/ejp?a8mat=4B5OO5+FHBA2+5B0Y+NTJWY
+https://px.a8.net/svt/ejp?a8mat=4B5OO5+FHED6+5B0Y+NTJWY
 
 ## まだ辞めない方がいい場合
 

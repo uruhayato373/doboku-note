@@ -1,0 +1,84 @@
+{
+  "_doc": "資格の一覧と展開状態の SSOT。資格 id はここで定義し、試験日程は .claude/config/exam-calendar.json、受験者数・合格率は .claude/config/exam-stats.json が同じ id で持つ（三者の id の一致は npm run check-exam-calendar が検査する）。展開の判断理由の正本は decision.ref の文書。重点資格・KPI は .claude/config/business-direction.json が別に持つ。",
+  "portfolioStatuses": {
+    "active": "サイト・商品を展開中",
+    "candidate": "展開候補（未評価を含む）。情報だけを正本に蓄積する",
+    "declined": "参入しないと判断済み（decision.ref に理由）"
+  },
+  "families": {
+    "civil-construction": "土木施工管理",
+    "construction-management": "施工管理（その他）",
+    "professional-engineer": "技術士",
+    "concrete": "コンクリート",
+    "consultant": "建設コンサルタント",
+    "civil-service": "公務員（土木）",
+    "survey-inspection": "測量・点検・調査"
+  },
+  "qualifications": [
+    { "id": "civil-construction-1", "label": "1級土木施工管理技士", "family": "civil-construction", "portfolio": "active" },
+    { "id": "civil-construction-2", "label": "2級土木施工管理技士", "family": "civil-construction", "portfolio": "active" },
+    { "id": "pe-first-stage", "label": "技術士 第一次試験", "family": "professional-engineer", "portfolio": "active" },
+    { "id": "pe-construction", "label": "技術士 建設部門", "family": "professional-engineer", "portfolio": "active" },
+    { "id": "pe-comprehensive-management", "label": "技術士 総合技術監理部門", "family": "professional-engineer", "portfolio": "active" },
+    { "id": "rccm", "label": "RCCM", "family": "consultant", "portfolio": "active" },
+    { "id": "concrete-engineer", "label": "コンクリート技士", "family": "concrete", "portfolio": "active" },
+    { "id": "concrete-chief-engineer", "label": "コンクリート主任技士", "family": "concrete", "portfolio": "active" },
+    { "id": "concrete-diagnostician", "label": "コンクリート診断士", "family": "concrete", "portfolio": "active" },
+
+    {
+      "id": "pe-information",
+      "label": "技術士 情報工学部門",
+      "family": "professional-engineer",
+      "portfolio": "declined",
+      "decision": { "summary": "市場が小さく読者・権威性・既存資産がつながらないため参入しない", "ref": "docs/strategy/06_多資格展開戦略.md" }
+    },
+    { "id": "pe-water-supply", "label": "技術士 上下水道部門", "family": "professional-engineer", "portfolio": "candidate" },
+    { "id": "pe-agriculture", "label": "技術士 農業部門", "family": "professional-engineer", "portfolio": "candidate" },
+    { "id": "pe-forestry", "label": "技術士 森林部門", "family": "professional-engineer", "portfolio": "candidate" },
+    { "id": "pe-fisheries", "label": "技術士 水産部門", "family": "professional-engineer", "portfolio": "candidate" },
+    { "id": "pe-environment", "label": "技術士 環境部門", "family": "professional-engineer", "portfolio": "candidate" },
+    { "id": "pe-applied-science", "label": "技術士 応用理学部門", "family": "professional-engineer", "portfolio": "candidate" },
+    { "id": "pe-sanitary", "label": "技術士 衛生工学部門", "family": "professional-engineer", "portfolio": "candidate" },
+
+    { "id": "construction-machinery-1", "label": "1級建設機械施工管理技士", "family": "construction-management", "portfolio": "candidate" },
+    { "id": "construction-machinery-2", "label": "2級建設機械施工管理技士", "family": "construction-management", "portfolio": "candidate" },
+    { "id": "landscape-1", "label": "1級造園施工管理技士", "family": "construction-management", "portfolio": "candidate" },
+    { "id": "landscape-2", "label": "2級造園施工管理技士", "family": "construction-management", "portfolio": "candidate" },
+    { "id": "building-construction-1", "label": "1級建築施工管理技士", "family": "construction-management", "portfolio": "candidate" },
+    { "id": "building-construction-2", "label": "2級建築施工管理技士", "family": "construction-management", "portfolio": "candidate" },
+    { "id": "pipe-work-1", "label": "1級管工事施工管理技士", "family": "construction-management", "portfolio": "candidate" },
+    { "id": "pipe-work-2", "label": "2級管工事施工管理技士", "family": "construction-management", "portfolio": "candidate" },
+    { "id": "electrical-work-1", "label": "1級電気工事施工管理技士", "family": "construction-management", "portfolio": "candidate" },
+    { "id": "electrical-work-2", "label": "2級電気工事施工管理技士", "family": "construction-management", "portfolio": "candidate" },
+    { "id": "pavement-1", "label": "1級舗装施工管理技術者", "family": "construction-management", "portfolio": "candidate" },
+    { "id": "pavement-2", "label": "2級舗装施工管理技術者", "family": "construction-management", "portfolio": "candidate" },
+
+    {
+      "id": "civil-service-national-general-civil",
+      "label": "国家公務員一般職（大卒程度）土木",
+      "family": "civil-service",
+      "portfolio": "candidate",
+      "decision": { "summary": "土木公務員は「公務員×資格」の検索意図で扱う。採用試験の対策商品は未評価", "ref": "docs/strategy/13_土木公務員SEO戦略2026-08.md" }
+    },
+    {
+      "id": "civil-service-tokyo-1b-civil",
+      "label": "東京都職員 I類B 土木",
+      "family": "civil-service",
+      "portfolio": "candidate",
+      "decision": { "summary": "土木公務員は「公務員×資格」の検索意図で扱う。採用試験の対策商品は未評価", "ref": "docs/strategy/13_土木公務員SEO戦略2026-08.md" }
+    },
+    {
+      "id": "civil-service-tokubetsuku-1-civil",
+      "label": "特別区職員 I類 土木・造園（土木）",
+      "family": "civil-service",
+      "portfolio": "candidate",
+      "decision": { "summary": "土木公務員は「公務員×資格」の検索意図で扱う。採用試験の対策商品は未評価", "ref": "docs/strategy/13_土木公務員SEO戦略2026-08.md" }
+    },
+
+    { "id": "surveyor", "label": "測量士", "family": "survey-inspection", "portfolio": "candidate" },
+    { "id": "assistant-surveyor", "label": "測量士補", "family": "survey-inspection", "portfolio": "candidate" },
+    { "id": "geological-survey-engineer", "label": "地質調査技士", "family": "survey-inspection", "portfolio": "candidate" },
+    { "id": "road-bridge-inspector", "label": "道路橋点検士", "family": "survey-inspection", "portfolio": "candidate" },
+    { "id": "steel-structure-diagnostician", "label": "土木鋼構造診断士", "family": "survey-inspection", "portfolio": "candidate" }
+  ]
+}

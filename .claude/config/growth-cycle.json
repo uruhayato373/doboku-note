@@ -17,7 +17,6 @@
     "affiliate_cta_impression",
     "coconala_cta_click",
     "coconala_cta_impression",
-    "brain_cta_click",
     "standards_data_download",
     "note_article_click",
     "internal_nav_click",
@@ -70,7 +69,6 @@
         "note_cta_click",
         "affiliate_cta_click",
         "coconala_cta_click",
-        "brain_cta_click",
         "quiz_cta_click"
       ],
       "ctaImpressionEvents": [

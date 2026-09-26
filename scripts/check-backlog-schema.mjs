@@ -36,6 +36,7 @@ import { readFileSync, existsSync, readdirSync, writeSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
+import { loadDomains } from './lib/domains.mjs';
 import {
   parseBacklog,
   findOrphanHeadings,
@@ -60,7 +61,7 @@ const DONE_PATTERNS = [
 const DONE_ALLOW = /完了条件|完了したら|完了検知|完了率|完了まで|完了時|完了判定/;
 
 export function validateCards(cards, orphans, opts) {
-  const { rawHeadingCount, npmScripts, allowedCategories } = opts;
+  const { rawHeadingCount, npmScripts, allowedCategories, domainLabels } = opts;
   const v = [];
   const at = (c) => `${BACKLOG}:${c.line}`;
 
@@ -78,7 +79,12 @@ export function validateCards(cards, orphans, opts) {
     for (const u of c.unknownKeys ?? []) {
       // [実行:] は 2026-08-26 に軸ごと廃止（単独で回せるかは選定側モデルが本文で判断）。
       // TAG_KEYS から外れたので unknownKeys に落ち、ここで再導入を止める。
-      v.push({ rule: 'unknown-key', at: at(c), msg: `未知の token キー [${u.raw}]（語彙: ${Object.keys({ 種類: 1, 検証: 1, 起票: 1, 期日: 1 }).join('/')}${u.key === '実行' ? '。[実行:] 軸は 2026-08-26 廃止' : ''}）` });
+      v.push({ rule: 'unknown-key', at: at(c), msg: `未知の token キー [${u.raw}]（語彙: ${Object.keys({ 種類: 1, 検証: 1, 起票: 1, 期日: 1, 領域: 1 }).join('/')}${u.key === '実行' ? '。[実行:] 軸は 2026-08-26 廃止' : ''}）` });
+    }
+    // [領域:] は全カード必須（2026-09-26〜。サイドバー・スケジュールと同じ領域で束ねる）。
+    if (domainLabels) {
+      if (!c.domain) v.push({ rule: 'domain-missing', at: at(c), msg: `「${c.title.slice(0, 40)}」に [領域:] が無い（${[...domainLabels].join(' / ')}）` });
+      else if (!domainLabels.has(c.domain)) v.push({ rule: 'domain', at: at(c), msg: `[領域:${c.domain}] は語彙外（正本: .claude/config/domains.json）` });
     }
     if (c.kind && !KINDS.includes(c.kind)) {
       v.push({ rule: 'kind', at: at(c), msg: `[種類:${c.kind}] は語彙外（${KINDS.join(' / ')}）` });
@@ -203,6 +209,7 @@ function main() {
     rawHeadingCount: (text.match(/^### /gm) ?? []).length,
     npmScripts: new Set(Object.keys(pkg.scripts ?? {})),
     allowedCategories,
+    domainLabels: new Set(loadDomains(ROOT).domains.map((d) => d.label)),
   });
 
   // 構造アサーション: admin が自前のタグ分解へ戻っていないか（2 実装の再分岐を止める）

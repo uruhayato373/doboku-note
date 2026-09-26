@@ -146,6 +146,7 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 
 ## Part 4: 新資格を追加するときの手順
 
+- **資格の正本に登録する（最初に行う）**: `.claude/config/qualification-registry.json` で `portfolio` を `active` にする（候補として既にあれば `candidate` から変える）。日程 `exam-calendar.json`・受験者数 `exam-stats.json` の同 id を公式で照合し直し、`scripts/check-exam-calendar.mjs` の `expected` に公式日付を、`.claude/config/product-lineup.json` に資格×試験区分の行（商品の分類先）を足す。三者の id の整合は `npm run check-exam-calendar` が止める。管理画面「資格一覧」（`/strategy/qualifications`）で候補の日程・受験者数を確認できる
 0. `src/config/categories.json` に entry を足し、`area`（exam / practice / standards）と許可する `groups` を宣言する。記事型の定義と許可表は [content-taxonomy.md](./content-taxonomy.md) §3（`npm run check-content-taxonomy` が強制）
 1. Part 1 の「試験別の整備方針差分」表に新しい列を追加して整備方針を決定
 2. Part 2 の「コンテンツ別レビュー視点」表にも対応する列を追加

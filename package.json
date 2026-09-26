@@ -68,8 +68,6 @@
     "check-affiliate-wiring": "node scripts/check-affiliate-wiring.mjs",
     "check-bold-rendering": "node scripts/check-bold-rendering.mjs",
     "check-table-rendering": "node scripts/check-table-rendering.mjs",
-    "check-brain-wiring": "node scripts/check-brain-wiring.mjs",
-    "brain-sales-fetch": "node scripts/brain-sales-fetch.mjs",
     "check-callout-types": "node scripts/check-callout-types.mjs",
     "check-career-separation": "node scripts/check-career-separation.mjs",
     "check-career-separation:built": "node scripts/check-career-separation.mjs --built",
@@ -121,6 +119,7 @@
     "todo:release": "node scripts/todo-release.mjs",
     "todo:complete": "node scripts/todo-complete.mjs",
     "check-exam-calendar": "node scripts/check-exam-calendar.mjs",
+    "exam-ssot-status": "node scripts/report-exam-ssot.mjs",
     "seo-rank-watch": "node scripts/seo-rank-watch.mjs",
     "check-seo-rank-watch": "node scripts/check-seo-rank-watch.mjs",
     "check-experiment-due": "node scripts/check-experiment-due.mjs",
@@ -460,7 +459,9 @@
     "growth-triage": "node scripts/growth-triage.mjs",
     "check-growth-triage": "node scripts/check-growth-triage.mjs",
     "check-business-direction": "node scripts/check-business-direction.mjs",
-    "check-content-expansion": "node scripts/check-content-expansion.mjs"
+    "check-content-expansion": "node scripts/check-content-expansion.mjs",
+    "check-domains": "node scripts/check-domains.mjs",
+    "check-generated-indexes": "node scripts/check-generated-indexes.mjs"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.1135.0",

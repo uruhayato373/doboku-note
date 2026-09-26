@@ -61,7 +61,6 @@ content/
   coconala/blog/ ココナラブログ
   sns/          instagram / x / youtube の制作物
   kindle/       Kindle 非公開原稿（Web 配信対象ではない）
-  brain/        Brain 販売投入本文・販売画像・配布 ZIP（価格・status・URL は src/lib/brain-products.ts）
   sources/      制作の根拠となる入力資料（原典 PDF・OCR 入力）
 ```
 
@@ -107,19 +106,7 @@ content/
 9. **参考文献の原本・文字起こし・記事を結ぶ情報か** → 原本の区分と参照 ID は
    [reference-sources-policy.md](./reference-sources-policy.md)、実体の置き場は上記 8、記事は `sources` で ID を持つ
 
-### 具体例: Brain（1 商品が 4 領域にまたがる場合）
-
-同じ Brain 商品でも、情報の性質ごとに正規配置は分かれる（DN-0103 Phase 03）。
-
-| 情報 | 領域 | 場所 |
-|---|---|---|
-| 販売投入本文・販売画像・配布 ZIP | Publishable Content | `content/brain/` |
-| 価格・status・URL（機械可読 SoT） | Application / Tooling | `src/lib/brain-products.ts` |
-| 商品企画・検証・バックテスト記録 | Human Documentation | `docs/products/brain-*/` |
-| 出品運用フロー・安全弁・Brain UI のクセ | Agent Operations（Knowledge） | `.claude/knowledge/reference/brain-operations.md` |
-| アカウント・認証設定 | Agent Operations（Runtime） | `.claude/config/brain-account.json` |
-
-「1 商品だから 1 か所にまとめる」と早合点しない。**画面（admin `/content/brain`）は複数 SoT を横断表示してよいが、ファイルは画面都合で複製しない**。
+「1 商品だから 1 か所にまとめる」と早合点しない。**1 商品でも情報の性質ごとに正規配置は分かれる**（販売投入本文は Publishable Content・機械可読 SoT は Application/Tooling・企画/検証は Human Documentation・運用フロー/安全弁は Agent Operations、といった具合。画面は複数 SoT を横断表示してよいが、ファイルは画面都合で複製しない）。
 
 ## docs/ と .claude/todo の関係（2026-08-18 制定）
 

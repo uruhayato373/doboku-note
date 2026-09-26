@@ -5,6 +5,7 @@ description: >
   重複（同一成果物を生成する routine）・残骸 one-shot（self-disable 漏れ）・平文シークレット・
   cron 衝突・無効ルーティンを検出してレポートする。新規 routine を作る前の重複チェックにも使う。
   Use when user asks to [ルーティン一覧, ルーティン監査, クラウドルーティン確認, routine 重複チェック, スケジュール一覧, /routines].
+domain: ops
 ---
 
 クラウドルーティン（claude.ai の RemoteTrigger / `/schedule` で作る定期エージェント）を list して監査する Evaluator 系スキル。

@@ -5,6 +5,7 @@ description: >
   --rank-watch では資格受験者の課題を優先し、GSCの7日比較→1件改善→観察と、待機を含む実行記録・28日の方針レビューを回す。
   Use when user asks to [SEO Rank Watch, 検索順位を改善, 週次改善, 改善ループ, /weekly-improve, 計測改善サイクル, 今週の改善候補].
 user-invocable: true
+domain: strategy
 ---
 
 # /weekly-improve — 週次 計測→改善サイクル

@@ -70,9 +70,8 @@ test('/content は本文を読まずにチャネルを数え、ドリルダウ�
   const cards = page.locator('a.knowledge-card');
   expect(await cards.count()).toBeGreaterThan(0);
 
-  // Brain / Kindle は専用画面（/content/brain・/content/kindle）へ誘導するため、
-  // 汎用ドリルダウンの検証からは除く（DN-0103 Phase 04・Kindle 管理ビュー新設時）。
-  const genericCards = page.locator('a.knowledge-card:not([href="/content/brain"]):not([href="/content/kindle"])');
+  // Kindle は専用画面（/content/kindle）へ誘導するため、汎用ドリルダウンの検証からは除く。
+  const genericCards = page.locator('a.knowledge-card:not([href="/content/kindle"])');
   expect(await genericCards.count()).toBeGreaterThan(0);
   await genericCards.first().click();
   await expect(page).toHaveURL(/\/content\/.+~/);
@@ -99,28 +98,16 @@ test('/docs の目的・チャネル・保持区分フィルタが URL query と
   await page.goto('/docs');
   const before = await page.locator('a.knowledge-card').count();
 
-  await page.getByLabel('チャネル').selectOption('brain');
+  // チャネルを明示した docs は現在ない（2026-09-26 に Brain 文書を削除）ため、件数ではなく
+  // URL query への保存と reload 後の復元だけを確かめる。
+  expect(before).toBeGreaterThan(0);
+  await page.getByLabel('チャネル').selectOption('note');
   await page.getByRole('button', { name: '絞り込む' }).click();
-
-  await expect(page).toHaveURL(/channel=brain/);
-  const filtered = page.locator('a.knowledge-card');
-  await expect(filtered).not.toHaveCount(before);
-  await expect(filtered.first()).toBeVisible();
-  for (const chip of await filtered.locator('.doc-channel-chips .chip-outline').allInnerTexts()) {
-    expect(chip).toContain('Brain');
-  }
+  await expect(page).toHaveURL(/channel=note/);
 
   // reload しても select の選択状態が URL query から復元される
   await page.reload();
-  await expect(page.getByLabel('チャネル')).toHaveValue('brain');
-});
-
-test('docs 詳細のタイトル直下に目的・チャネル・保持区分のバッジが出る（Brain override 文書）', async ({ page }) => {
-  await page.goto('/docs/products/brain-r8-policy-prediction-skill/00-product-concept');
-  const row = page.locator('.doc-taxonomy-row');
-  await expect(row).toBeVisible();
-  await expect(row).toContainText('商品仕様');
-  await expect(row).toContainText('Brain');
+  await expect(page.getByLabel('チャネル')).toHaveValue('note');
 });
 
 test('Obsidian callout は div.callout へ、GFM table は div.table-wrap へ変換される', async ({ page }) => {

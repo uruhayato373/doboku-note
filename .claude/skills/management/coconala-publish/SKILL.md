@@ -10,6 +10,7 @@ description: >
   coconala-guards でテスト固定・長期不在は全件休止が既定）。KPI 照合は /coconala-status、受注処理は /coconala-order と別。
   Use when user asks to [ココナラに出品, ココナラ出品を修正, ココナラの価格を反映, サービスを公開, ココナラを休止, 出品を再開, 商品を取り下げ, /coconala-publish].
 user-invocable: true
+domain: product
 ---
 
 ## 用途

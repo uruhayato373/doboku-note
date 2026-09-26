@@ -5,6 +5,7 @@ description: >
 disable-model-invocation: true
 user-invocable: true
 argument-hint: "--dir <magazineDir> [--commit]"
+domain: product
 ---
 
 `scripts/note-magazine-create.mjs` を駆動し、note 有料マガジンを **`note掲載文.txt` 駆動**で新規作成する。`note-edit-magazine`（既存マガジンの設定編集）・`note-magazine-add`（記事の収録）と役割分離。Playwright × システム Chrome（`channel:'chrome'`＋永続プロファイル＋proxy＋ignoreHTTPSErrors、Windows可）。

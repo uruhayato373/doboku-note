@@ -4,6 +4,7 @@ description: browser-use CLI で note.com（note.com/dobokunote）エディタ�
 disable-model-invocation: true
 user-invocable: true
 argument-hint: "<persona> <RXX>[ <M/D> <HH:MM>][, ...] | --free <content/note配下dir>[ <M/D> <HH:MM>|now][, ...]"
+domain: product
 ---
 
 browser-use CLI（Chrome プロファイル経由）で **note.com/dobokunote** のエディタを自動操作し、総監模範論文ペルソナ別マガジンの記事（`content/note/技術士総監/magazines/総監模範論文-<persona>/<RXX>/article.md`）を下書き保存または予約投稿する。

@@ -10,6 +10,7 @@ description: >
   Use when user says "提携申請", "アフィリを申請", "もしもで申請", "affiliate-apply".
 disable-model-invocation: true
 argument-hint: "--asp <moshimo|afb> --id <id[,id]> [--commit]"
+domain: affiliate
 ---
 
 > [!warning] これは不可逆操作

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import UpcomingEvents from '@/components/UpcomingEvents';
 import { PageHead } from '@/components/ui';
 import { snsBoard } from '@/lib/sns-board';
 import { videoSnsJoin } from '@/lib/video-sns-join';
@@ -38,6 +39,7 @@ export default async function SnsBoardPage() {
         title="投稿状況"
         sub="読み取り専用 · content/sns/{schedule.json, instagram/**/posted.json, x/draft/**/status.json}"
       />
+      <UpcomingEvents domain="sns" />
 
       <div className="card" id="instagram">
         <h2>

@@ -6,6 +6,7 @@ description: >
   Use when user says "X投稿用画像を作って", "サマリカードを生成", "/create-x-card".
 disable-model-invocation: true
 argument-hint: "--draft <NNN> | --range <NNN>-<NNN> | --all [--force]"
+domain: sns
 ---
 
 `scripts/gen-x-card.mjs` を実行して X 投稿用サマリカード PNG を生成する。

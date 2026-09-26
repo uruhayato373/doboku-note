@@ -5,6 +5,7 @@ description: >
   三層構造・属性別共通ペルソナ・5 管理間トレードオフの明示・採点者視点 ExamPoint を備えた MDX を生成する。--mode revise で pe-essay-review の添削レポートを反映する。
   Use when user asks to [模範論文を作成, 模範論文ドラフト, 記述式答案を書く, essay draft, /pe-essay-draft].
 user-invocable: true
+domain: product
 ---
 
 # /pe-essay-draft — 総監記述式 模範論文 ドラフト Generator

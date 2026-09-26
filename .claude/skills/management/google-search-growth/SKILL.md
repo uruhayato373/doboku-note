@@ -10,6 +10,7 @@ description: >
 user-invocable: true
 disable-model-invocation: true
 allowed-tools: Read, Glob, Grep, Bash, Task
+domain: site
 ---
 
 GSC/GA4 を横断して「どの URL が・なぜ検索に効いていないか」を突合し、修正候補を優先順位付けする

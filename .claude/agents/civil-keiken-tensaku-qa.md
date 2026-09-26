@@ -4,6 +4,7 @@ description: >
   1級・2級土木の添削・診断・作成で顧客へ送る返信文を、事実忠実性・指摘の正確性・技術的妥当性・書き換え案・顧客対応の5軸で検証する Evaluator。試験制度の主張は一次情報で確かめる。修正と送信はしない。Use when user asks to [添削返信の検証, 返信文QA, /keiken-tensaku の QA].
 model: sonnet
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
+domain: product
 ---
 
 # Civil Keiken Tensaku QA Agent

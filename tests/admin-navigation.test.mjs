@@ -49,23 +49,6 @@ test('enabled channel の href は空欄でなく、href(+query) の複合key �
   assert.deepEqual(keys, [...new Set(keys)], `href+query の複合key が重複: ${JSON.stringify(keys)}`);
 });
 
-test('brain channel は Phase 04 で有効化され、/content/brain タブを持つ', () => {
-  const out = tsx(`
-    import { channelById } from './tools/admin-app/src/lib/channel-registry.ts';
-    const brain = channelById('brain');
-    process.stdout.write(JSON.stringify({
-      enabled: brain?.enabled,
-      sourcePath: brain?.sourcePath,
-      tabs: brain?.tabs.map((t) => ({ href: t.href, match: t.match })),
-    }));
-  `);
-  assert.deepEqual(JSON.parse(out), {
-    enabled: true,
-    sourcePath: 'content/brain',
-    tabs: [{ href: '/content/brain', match: '/content/brain' }],
-  });
-});
-
 test('kindle channel は専用画面タブ + ファイルタブを持つ', () => {
   const out = tsx(`
     import { channelById } from './tools/admin-app/src/lib/channel-registry.ts';
@@ -122,21 +105,27 @@ test('contentSegmentLabel は sns/sources のような 1:1 でない物理セグ
   assert.equal(r.unknown, 'does-not-exist');
 });
 
-test('Nav.tsx に旧グループ名「発信」が残っていない', () => {
+test('サイドバーのグループは領域の正本（domains.json）とちょうど一致する', () => {
   const src = readFileSync(join(ROOT, 'tools/admin-app/src/components/Nav.tsx'), 'utf8');
-  assert.ok(!src.includes('発信'), 'Nav.tsx に「発信」が残っている');
-  assert.ok(src.includes("title: 'コンテンツ'"), 'Nav.tsx に「コンテンツ」グループが無い');
+  const groups = [...src.matchAll(/^    domain: '([^']+)',$/gm)].map((m) => m[1]).sort();
+  const cfg = JSON.parse(readFileSync(join(ROOT, '.claude/config/domains.json'), 'utf8'));
+  assert.deepEqual(groups, cfg.domains.map((d) => d.id).sort());
+  assert.ok(!/title: '/.test(src), 'グループ名を Nav.tsx に直書きしない（正本は domains.json）');
 });
 
-test('管理グループに /content が無く、コンテンツグループに /content が 1 つだけある', () => {
-  // autocrlf の作業ツリーでは CRLF になるため、`\n` 固定の regex の前に正規化する
-  const src = readFileSync(join(ROOT, 'tools/admin-app/src/components/Nav.tsx'), 'utf8').replace(/\r\n/g, '\n');
-  const adminGroupMatch = src.match(/title: '管理'[\s\S]*?entries: \[([\s\S]*?)\],\n {2}\},\n\];/);
-  assert.ok(adminGroupMatch, '管理グループが見つからない');
-  assert.ok(!adminGroupMatch[1].includes("href: '/content'"), '管理グループに /content が残っている');
-
-  const contentGroupMatch = src.match(/title: 'コンテンツ'[\s\S]*?entries: \[([\s\S]*?)\n {4}\],\n {2}\},/);
-  assert.ok(contentGroupMatch, 'コンテンツグループが見つからない');
-  const occurrences = contentGroupMatch[1].match(/href: '\/content'/g) ?? [];
-  assert.equal(occurrences.length, 1, `コンテンツグループの /content 件数が想定外: ${occurrences.length}`);
+test('既存の画面はすべてサイドバーのどこか 1 か所に置かれている', () => {
+  const src = readFileSync(join(ROOT, 'tools/admin-app/src/components/Nav.tsx'), 'utf8');
+  const hrefs = [...src.matchAll(/href: '(\/[^'?]*)'/g)].map((m) => m[1]);
+  for (const href of [
+    '/metrics', '/strategy/policy', '/metrics/business', '/strategy/qualifications', '/content/lineup',
+    '/sales', '/affiliate', '/affiliate/placements', '/affiliate/programs', '/metrics/seo-watch', '/metrics/gsc', '/metrics/ga4',
+    '/metrics/psi', '/sns', '/metrics/video', '/gallery/characters', '/schedule', '/todo', '/docs',
+    '/plans', '/quality', '/knowledge', '/agents', '/skills', '/content/lifecycle', '/content', '/materials',
+  ]) {
+    const n = hrefs.filter((h) => h === href).length;
+    assert.ok(n >= 1, `${href} がサイドバーに無い`);
+  }
+  for (const id of ['note', 'coconala', 'kindle', 'site', 'x', 'instagram', 'youtube']) {
+    assert.ok(src.includes(`'${id}'`), `チャネル ${id} がどのグループにも置かれていない`);
+  }
 });

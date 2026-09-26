@@ -16,7 +16,7 @@ export const LISTINGS_PATH = join(ROOT, '.claude/config/coconala-listings.json')
 
 /**
  * カタログ TS の本文からサービスを抽出する（純粋関数）。
- * @returns {Record<string, {id,status,serviceUrl,priceYen,title,listedAt,examScope,pauseReason}>}
+ * @returns {Record<string, {id,status,serviceUrl,priceYen,title,shortTitle,listedAt,examScope,pauseReason}>}
  */
 export function parseCatalog(ts) {
   const rawStart = ts.indexOf('const SERVICES_RAW');
@@ -30,6 +30,7 @@ export function parseCatalog(ts) {
     const slice = body.slice(cur.at, hits[i + 1] ? hits[i + 1].at : body.length);
     const pm = slice.match(/priceYen:\s*(\d+)/);
     const tm = slice.match(/title:\s*'([^']*)'|title:\s*"([^"]*)"/);
+    const sm = slice.match(/shortTitle:\s*'([^']*)'/);
     const lm = slice.match(/listedAt:\s*'([^']*)'/);
     // examScope: ['civil-1'] → ['civil-1']（サムネの級別テーマ選択が使う）
     const em = slice.match(/examScope:\s*\[([^\]]*)\]/);
@@ -42,6 +43,7 @@ export function parseCatalog(ts) {
       serviceUrl: cur.serviceUrl,
       priceYen: pm ? parseInt(pm[1], 10) : null,
       title: tm ? (tm[1] || tm[2]) : '',
+      shortTitle: sm ? sm[1] : null,
       listedAt: lm ? lm[1] : null,
       examScope: em ? [...em[1].matchAll(/'([^']+)'/g)].map((x) => x[1]) : [],
       pauseReason: rm ? rm[1] : null,

@@ -3,6 +3,7 @@ name: monetization-strategy
 description: >
   収益化戦略のブレインストーミングと施策ロードマップを生成する。
   Use when user asks to [収益化, マネタイズ戦略, /monetization-strategy, 稼ぎ方を考えたい, 月X万円達成するには, AdSense以外の収益源, 有料記事戦略].
+domain: product
 ---
 
 doboku-note の収益化戦略を 3-5 案ブレインストームし、適合度・リスク・検証実験を設計する。

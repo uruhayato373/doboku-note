@@ -14,7 +14,7 @@
 
 ```
 content/site/                # サイト記事 MDX（civil-construction-1/ は Convention A: 個別ファイル名、pe-comprehensive-management/ は Convention B: article.mdx）
-content/{note,sns,kindle,coconala,brain,sources}/  # チャネル別の制作物と入力（kindle は非公開原稿・Git 管理・Web 配信外）
+content/{note,sns,kindle,coconala,sources}/  # チャネル別の制作物と入力（kindle は非公開原稿・Git 管理・Web 配信外）
 src/                         # コンポーネント・CSS・レイアウト
 docs/                        # 人が読む恒久文書（strategy / editorial / marketing / operations / products / design）
 .claude/rules/               # パス条件付きルール（paths: 必須。該当ファイルを Read/Edit したときだけ読み込まれる）

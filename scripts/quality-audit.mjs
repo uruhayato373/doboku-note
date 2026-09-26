@@ -102,6 +102,8 @@ function unzipMissing() {
 // npm: package.json の script 名 / cmd: 直接コマンド配列。どちらか一方。
 const CHECKS = [
   { id: 'content-expansion', npm: 'check-content-expansion', timeout: 30_000, ci: true, note: '全教材の母数・記事/図/SNS対応表の整合。未確認・原典待ち・成果物変更を別表示し、構造PASSで制作完了とはしない' },
+  { id: 'domains', npm: 'check-domains', timeout: 30_000, ci: true, note: '領域の正本（domains.json）と、スキル/エージェントの frontmatter domain・文書の割り当ての整合' },
+  { id: 'generated-indexes', npm: 'check-generated-indexes', timeout: 180_000, ci: true, note: 'refresh-indexes の生成物（src/config の索引・人気記事・frequent-topics）がコミットと一致。MDX 追加時の回し忘れを止める' },
   { id: 'business-direction', npm: 'check-business-direction', timeout: 30_000, ci: true, note: '資格別事業方針・計測とレビュー履歴の整合' },
   { id: 'seo-rank-watch', npm: 'check-seo-rank-watch', timeout: 30_000, ci: true, note: '順位監視・観察状態・履歴の整合' },
   // ── ci:true 厳格ゲート ──
@@ -323,6 +325,12 @@ const CHECKS = [
     cmd: ['node', '.claude/scripts/report-career-funnel.mjs', '--check'],
     timeout: 60_000, ci: true,
     note: 'キャリアファネル集計（流入→回遊→CTA→成果）が実行可能か（成果物は書かない・月次レビューと EXP-008 が読む）',
+  },
+  {
+    id: 'exam-ssot-status',
+    cmd: ['node', 'scripts/report-exam-ssot.mjs', '--check'],
+    timeout: 30_000, ci: true,
+    note: '資格の正本（qualification-registry・exam-calendar・exam-stats）の照合状態レポートが実行可能か（成果物は書かない。要対応の中身は壁時計依存なので CI では見ない。読み手＝月次レビュー /monthly-review 手順）',
   },
   {
     id: 'site-to-sales-report',

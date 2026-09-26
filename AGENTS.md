@@ -16,7 +16,7 @@
 
 ```
 content/site/                # サイト記事 MDX（civil-construction-1/ は Convention A: 個別ファイル名、pe-comprehensive-management/ は Convention B: article.mdx）
-content/{note,sns,kindle,coconala,brain,sources}/  # チャネル別の制作物と入力（kindle は非公開原稿・Git 管理・Web 配信外）
+content/{note,sns,kindle,coconala,sources}/  # チャネル別の制作物と入力（kindle は非公開原稿・Git 管理・Web 配信外）
 src/                         # コンポーネント・CSS・レイアウト
 docs/                        # 人が読む恒久文書（strategy / editorial / marketing / operations / products / design）
 .claude/rules/               # パス条件付きルール（paths: 必須。該当ファイルを Read/Edit したときだけ読み込まれる）
@@ -157,10 +157,10 @@ Codex はファイルを読む・編集する前に、以下の適用パスに�
 
 - [.claude/rules/assets-images.md](.claude/rules/assets-images.md) — `**/img/**`, `content/**/*.svg`, `content/**/*.png`, `content/**/*.webp`, `.claude/config/asset-storage.json`, `.claude/config/drive-vault.json`, `.claude/state/assets/**`, `.github/workflows/r2-*.yml`, `.github/workflows/ogp-supply.yml`
 - [.claude/rules/code.md](.claude/rules/code.md) — `src/**`, `scripts/**`, `.claude/scripts/**`, `tools/**`, `tests/**`, `package.json`, `.github/workflows/**`
-- [.claude/rules/content-channels.md](.claude/rules/content-channels.md) — `content/note/**`, `content/sns/**`, `content/kindle/**`, `content/coconala/**`, `content/brain/**`
+- [.claude/rules/content-channels.md](.claude/rules/content-channels.md) — `content/note/**`, `content/sns/**`, `content/kindle/**`, `content/coconala/**`
 - [.claude/rules/content-site.md](.claude/rules/content-site.md) — `content/site/**`
 - [.claude/rules/docs.md](.claude/rules/docs.md) — `docs/**`, `.claude/knowledge/**`
-- [.claude/rules/operations.md](.claude/rules/operations.md) — `.claude/state/**`, `.claude/config/**`, `src/lib/note-magazines.ts`, `src/lib/magazine-placement.ts`, `src/lib/coconala-services.ts`, `src/lib/brain-products.ts`
+- [.claude/rules/operations.md](.claude/rules/operations.md) — `.claude/state/**`, `.claude/config/**`, `src/lib/note-magazines.ts`, `src/lib/magazine-placement.ts`, `src/lib/coconala-services.ts`
 - [.claude/rules/shared-business-policy.md](.claude/rules/shared-business-policy.md) — `.claude/shared-policy/**`, `tools/admin-app/src/app/strategy/policy/**`, `tools/admin-app/src/lib/document-roots.ts`, `tools/admin-app/src/components/Nav.tsx`, `tools/admin-app/src/lib/shared-policy.ts`
 - [.claude/rules/skills-agents.md](.claude/rules/skills-agents.md) — `.claude/skills/**`, `.claude/agents/**`, `.claude/commands/**`
 - [.claude/rules/todo-plans.md](.claude/rules/todo-plans.md) — `.claude/todo/**`, `.claude/plans/**`, `docs/handoffs/**`, `docs/reviews/**`

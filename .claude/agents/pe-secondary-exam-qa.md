@@ -2,6 +2,7 @@
 name: pe-secondary-exam-qa
 description: 技術士第二次試験 建設部門 note有料マガジンのフル模範解答（article.md）を6軸ルーブリックで品質採点する Evaluator エージェント。設問適合・論述構成・分かりやすさ（あいまい表現排除）・発注者視点/専門性・note完成度・改訂コンピテンシー反映（令和8〜）を検査。forecast:true の予想問題モード（記事内予想設問を真実源・予想根拠/免責/自作問題の出典なしを検査）に対応。論述メソッドの真実源は content/sources/textbook/技術士論文の書き方。
 model: sonnet
+domain: product
 ---
 
 # PE Secondary Exam QA Agent

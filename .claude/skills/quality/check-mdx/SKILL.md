@@ -6,6 +6,7 @@ description: >
   pre-commit hook からも利用される。
   Use when user asks to [MDX検査, lint MDX, 構文チェック, リンクチェック, SVG監査, frontmatter チェック, 法令リンク, note リンク, /check-mdx].
 user-invocable: true
+domain: site
 ---
 
 MDX 品質に関する 10 種類の検査ルールを 1 つのスキルに統合した Evaluator。旧 `/check-mdx` `/check-frontmatter` `/check-links` `/audit-staging` `/audit-exam-explanations` `/audit-svg` `/check-related-keyword-inline` `/check-legal-citations` を吸収。

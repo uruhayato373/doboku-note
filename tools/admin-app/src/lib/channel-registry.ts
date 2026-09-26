@@ -16,8 +16,7 @@ export type AdminChannelId =
   | 'instagram'
   | 'youtube'
   | 'coconala'
-  | 'kindle'
-  | 'brain';
+  | 'kindle';
 
 export type AdminChannelTab = {
   href: string;
@@ -32,7 +31,6 @@ export type AdminChannel = {
   sourcePath: string | null;
   /**
    * false の間は Nav・/content 上でリンク可能な入口を作らない
-   * （Phase 04 で Brain 専用画面ができるまで `enabled: false`）。
    */
   enabled: boolean;
   tabs: readonly AdminChannelTab[];
@@ -125,7 +123,7 @@ export const ADMIN_CHANNELS: readonly AdminChannel[] = [
     id: 'kindle',
     label: 'Kindle',
     sourcePath: 'content/kindle',
-    // 専用 read-only 画面が /content/kindle にできた（brain と同型）。
+    // 専用 read-only 画面が /content/kindle にできた。
     enabled: true,
     tabs: [
       {
@@ -138,16 +136,6 @@ export const ADMIN_CHANNELS: readonly AdminChannel[] = [
         label: 'ファイル',
         match: '/content/content~kindle',
       },
-    ],
-  },
-  {
-    id: 'brain',
-    label: 'Brain',
-    sourcePath: 'content/brain',
-    // 専用 read-only 画面が /content/brain にできた（DN-0103 Phase 04）。
-    enabled: true,
-    tabs: [
-      { href: '/content/brain', label: '商品', match: '/content/brain' },
     ],
   },
 ] as const;

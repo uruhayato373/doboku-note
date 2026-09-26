@@ -35,22 +35,25 @@
  * fs を伴う読み取りは末尾の collectScheduleEvents 系（read*）に閉じ込める。
  * ---------------------------------------------------------------------------
  */
+import { activeIds } from './qualification-registry.mjs';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { basename, join } from 'node:path';
 import { jstDayTime, todayJst } from './jst-date.mjs';
 import { parseBacklog } from './backlog-lib.mjs';
+import domainsConfig from '../../.claude/config/domains.json' with { type: 'json' };
 
 /**
  * @typedef {Object} ScheduleEvent
  * @property {string} id            `${sourceId}:${ref}` 一意
  * @property {string} date          'YYYY-MM-DD' JST
  * @property {string|null} time     'HH:MM' JST
- * @property {'exam'|'x'|'instagram'|'youtube'|'todo'} channel
- * @property {'exam'|'post'|'plan-slot'|'todo-due'} kind
+ * @property {'exam'|'x'|'instagram'|'youtube'|'todo'|'note'|'kindle'|'coconala'|'video'|'experiment'|'review'} channel
+ * @property {'exam'|'post'|'plan-slot'|'todo-due'|'publish'|'check'} kind
+ * @property {string} domain   予定の領域（exam か domains.json の id。バックログはカードの [領域:]、他は CHANNEL_DOMAIN）
  * @property {'planned'|'reserved'|'posted'|'overdue'} status
  * @property {string} label
  * @property {string|null} detail
- * @property {'exam-calendar'|'x-campaign'|'x-status'|'ig-status'|'youtube-schedule'|'backlog'} sourceId
+ * @property {'exam-calendar'|'x-campaign'|'x-status'|'ig-status'|'youtube-schedule'|'backlog'|'note-articles'|'kindle-catalog'|'coconala-catalog'|'video-status'|'experiments'|'business-review'} sourceId
  * @property {string} sourcePath    repo 相対パス
  * @property {string} ref
  */
@@ -68,6 +71,43 @@ import { parseBacklog } from './backlog-lib.mjs';
  */
 
 const YMD_RE = /^\d{4}-\d{2}-\d{2}$/;
+
+/**
+ * 予定の領域（管理画面の切り口）。スケジュールは 1 本の時間軸に集め、領域で絞り込む
+ * （領域ごとに予定表を分けると同じ予定を二重に持ち、試験日と商品公開を並べて見られなくなる）。
+ */
+/**
+ * 予定の領域。試験（exam）と、事業の領域（正本 .claude/config/domains.json・並びも正本どおり）。
+ */
+export const DOMAINS = [
+  { id: 'exam', label: '試験' },
+  ...domainsConfig.domains.map((d) => ({ id: d.id, label: d.label })),
+];
+/** バックログの [領域:商品] のラベル → 領域 id。 */
+const DOMAIN_BY_LABEL = new Map(domainsConfig.domains.flatMap((d) => [[d.label, d.id], [d.id, d.id]]));
+
+/** チャネル → 領域（唯一の写像）。 */
+export const CHANNEL_DOMAIN = {
+  exam: 'exam',
+  note: 'product',
+  kindle: 'product',
+  coconala: 'product',
+  x: 'sns',
+  instagram: 'sns',
+  youtube: 'sns',
+  video: 'sns',
+  todo: 'ops', // カードに [領域:] があればそちらが優先（mapBacklogDue）
+  experiment: 'strategy',
+  review: 'strategy',
+};
+
+/** 'YYYY-MM-DD'（または ISO 日時）を JST の暦日に正規化する。解釈できなければ null。 */
+function toJstDate(value) {
+  if (typeof value !== 'string') return null;
+  if (YMD_RE.test(value)) return value;
+  const d = jstDayTime(value);
+  return d?.date ?? null;
+}
 
 /** date+time（JST）を辞書順比較できるキーへ。time が無ければ日の始まり(00:00)として扱う。 */
 function keyOf(date, time) {
@@ -91,12 +131,16 @@ function capErrors(errors, cap = 5) {
 /**
  * exam-calendar.json → ScheduleEvent[]。
  * 過去日でも overdue にしない（試験日は「予定が守られたか」を判定する対象ではないアンカー）。
+ * onlyExamIds を渡すとその資格だけを対象にする（展開中の資格だけを運用予定に出すため。
+ * 候補資格の日程も exam-calendar に蓄積しているが、運用の予定表には混ぜない）。
+ * @param {Set<string>|null} [onlyExamIds]
  * @returns {{events: ScheduleEvent[], skipped: number}}
  */
-export function mapExamCalendar(json, relPath) {
+export function mapExamCalendar(json, relPath, onlyExamIds = null) {
   const events = [];
   let skipped = 0;
   for (const [examId, exam] of Object.entries(json?.exams ?? {})) {
+    if (onlyExamIds && !onlyExamIds.has(examId)) continue;
     for (const [eventId, ev] of Object.entries(exam?.events ?? {})) {
       if (typeof ev?.date !== 'string' || !YMD_RE.test(ev.date)) {
         skipped += 1;
@@ -305,6 +349,7 @@ export function mapBacklogDue(cards, todayKey) {
       time: null,
       channel: 'todo',
       kind: 'todo-due',
+      ...(DOMAIN_BY_LABEL.has(c.domain) ? { domain: DOMAIN_BY_LABEL.get(c.domain) } : {}),
       status: c.due < todayKey ? 'overdue' : 'planned',
       label: `${c.id ?? ''} ${c.title}`.trim(),
       detail: null,
@@ -399,6 +444,116 @@ export function weekdayLabel(dateKey) {
 }
 
 /** channel × status の件数集計。 */
+/**
+ * note 記事の frontmatter → 公開予定・公開実績（商品）。reserved=予約済み、published=公開済み。
+ * @param {Array<{rel: string, title: string, status: string, date: string}>} entries
+ */
+export function mapNoteArticles(entries, todayKey) {
+  const events = [];
+  for (const e of entries) {
+    const date = toJstDate(e.date);
+    if (!date || !['reserved', 'published'].includes(e.status)) continue;
+    const status = e.status === 'reserved' ? (date < todayKey ? 'overdue' : 'reserved') : 'posted';
+    events.push({
+      id: `note-articles:${e.rel}`, date, time: null, channel: 'note', kind: 'publish', status,
+      label: `note ${e.status === 'reserved' ? '予約' : '公開'}: ${e.title}`, detail: null,
+      sourceId: 'note-articles', sourcePath: e.rel, ref: e.rel,
+    });
+  }
+  return events;
+}
+
+/** Kindle catalog → 提出日・公開日（商品）。 */
+export function mapKindleCatalog(json, relPath) {
+  const events = [];
+  for (const b of json?.books ?? []) {
+    for (const [field, verb] of [['submittedDate', '提出'], ['publishedDate', '公開']]) {
+      const date = toJstDate(b[field]);
+      if (!date) continue;
+      events.push({
+        id: `kindle-catalog:${b.id}:${field}`, date, time: null, channel: 'kindle', kind: 'publish', status: 'posted',
+        label: `Kindle ${verb}: ${b.title}`, detail: null, sourceId: 'kindle-catalog', sourcePath: relPath, ref: `${b.id}/${field}`,
+      });
+    }
+  }
+  return events;
+}
+
+/** ココナラ catalog（coconala-catalog.mjs parseCatalog の結果）→ 出品日（商品）。 */
+export function mapCoconalaCatalog(catalog, relPath) {
+  const events = [];
+  for (const svc of Object.values(catalog ?? {})) {
+    const date = toJstDate(svc.listedAt);
+    if (!date) continue;
+    events.push({
+      id: `coconala-catalog:${svc.id}`, date, time: null, channel: 'coconala', kind: 'publish', status: 'posted',
+      label: `ココナラ 出品: ${svc.title}`, detail: null, sourceId: 'coconala-catalog', sourcePath: relPath, ref: svc.id,
+    });
+  }
+  return events;
+}
+
+/** video-content-status.json → 動画パック派生物の公開予定・公開実績（SNS）。 */
+export function mapVideoStatus(json, relPath, todayKey) {
+  const events = [];
+  for (const [packId, pack] of Object.entries(json?.packs ?? {})) {
+    for (const [kind, d] of Object.entries(pack?.derivatives ?? {})) {
+      const items = Array.isArray(d) ? d : [d];
+      items.forEach((it, i) => {
+        const published = toJstDate(it?.publishedAt);
+        const scheduled = toJstDate(it?.publishAt);
+        const date = published ?? scheduled;
+        if (!date) return;
+        const status = published ? 'posted' : date < todayKey ? 'overdue' : 'reserved';
+        const ref = `${packId}/${kind}${items.length > 1 ? `/${i}` : ''}`;
+        events.push({
+          id: `video-status:${ref}`, date, time: null, channel: 'video', kind: 'post', status,
+          label: `動画 ${kind}: ${packId}`, detail: it?.url ?? null, sourceId: 'video-status', sourcePath: relPath, ref,
+        });
+      });
+    }
+  }
+  return events;
+}
+
+/** experiments.json → 実行中の実験の再計測期限（経営）。終了済み（done/closed）は出さない。 */
+export function mapExperiments(list, relPath, todayKey) {
+  const events = [];
+  for (const x of list ?? []) {
+    const date = toJstDate(x?.next_check_date);
+    if (!date || ['done', 'closed', 'cancelled'].includes(x.status)) continue;
+    events.push({
+      id: `experiments:${x.id}`, date, time: null, channel: 'experiment', kind: 'check',
+      status: date < todayKey ? 'overdue' : 'planned',
+      label: `実験 再計測: ${x.id} ${x.title ?? ''}`.trim(), detail: null, sourceId: 'experiments', sourcePath: relPath, ref: x.id,
+    });
+  }
+  return events;
+}
+
+/** 事業レビュー（最新の review-*.json）→ 次回レビュー日（経営）。資格×頻度ごとに最新の 1 件だけ。 */
+export function mapBusinessReviews(reviews, todayKey) {
+  const latest = new Map();
+  for (const r of reviews) {
+    const key = `${r.json?.qualification}/${r.json?.cadence}`;
+    const prev = latest.get(key);
+    if (!prev || (r.json?.createdAt ?? '') > (prev.json?.createdAt ?? '')) latest.set(key, r);
+  }
+  const events = [];
+  for (const r of latest.values()) {
+    const date = toJstDate(r.json?.nextReviewDate);
+    if (!date) continue;
+    const cadence = r.json.cadence === 'monthly' ? '月次' : r.json.cadence === 'weekly' ? '週次' : r.json.cadence;
+    events.push({
+      id: `business-review:${r.rel}`, date, time: null, channel: 'review', kind: 'check',
+      status: date < todayKey ? 'overdue' : 'planned',
+      label: `${cadence}事業レビュー（${r.json.qualification === 'all' ? '全体' : r.json.qualification}）`, detail: null,
+      sourceId: 'business-review', sourcePath: r.rel, ref: r.rel,
+    });
+  }
+  return events;
+}
+
 export function summarize(events) {
   const out = {};
   for (const ev of events) {
@@ -418,7 +573,8 @@ function readExamCalendar(rootDir) {
   const relPath = '.claude/config/exam-calendar.json';
   try {
     const json = readJsonFile(join(rootDir, relPath));
-    const { events, skipped } = mapExamCalendar(json, relPath);
+    const registry = readJsonFile(join(rootDir, '.claude/config/qualification-registry.json'));
+    const { events, skipped } = mapExamCalendar(json, relPath, new Set(activeIds(registry)));
     const errors = skipped > 0
       ? [{ path: relPath, message: `${skipped} 件の event が不正な日付形式でスキップ` }]
       : [];
@@ -571,8 +727,88 @@ function readBacklogDue(rootDir, todayKey) {
   }
 }
 
+/** 1 ソースを読んで {events, report} にする共通の包み（失敗は ok:false で報告し、他ソースを道連れにしない）。 */
+function readSource(id, label, relPath, fn) {
+  try {
+    const events = fn();
+    return { events, report: { id, label, path: relPath, ok: true, count: events.length, dateless: 0, legacy: 0, errors: [] } };
+  } catch (err) {
+    return { events: [], report: { id, label, path: relPath, ok: false, count: 0, dateless: 0, legacy: 0, errors: [{ path: relPath, message: String(err?.message ?? err) }] } };
+  }
+}
+
+/** frontmatter の単純な `key: value` を読む（note 記事の予約・公開日だけに使う軽量版）。 */
+function frontmatterOf(text) {
+  const m = text.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+  const out = {};
+  if (!m) return out;
+  for (const line of m[1].split(/\r?\n/)) {
+    const kv = line.match(/^([A-Za-z]+):\s*"?([^"]*?)"?\s*$/);
+    if (kv) out[kv[1]] = kv[2];
+  }
+  return out;
+}
+
+function readNoteArticles(rootDir, todayKey) {
+  const relRoot = 'content/note';
+  return readSource('note-articles', 'note', relRoot, () => {
+    const entries = [];
+    const walk = (rel) => {
+      for (const d of readdirSync(join(rootDir, rel), { withFileTypes: true })) {
+        const child = `${rel}/${d.name}`;
+        if (d.isDirectory()) walk(child);
+        else if (/^article(-[^/\\]+)?\.md$/.test(d.name)) {
+          const fm = frontmatterOf(readFileSync(join(rootDir, child), 'utf8'));
+          if (fm.notePublishedAt) entries.push({ rel: child, title: basename(rel), status: fm.noteStatus ?? '', date: fm.notePublishedAt });
+        }
+      }
+    };
+    walk(relRoot);
+    return mapNoteArticles(entries, todayKey);
+  });
+}
+
+function readKindleCatalog(rootDir) {
+  const relPath = 'scripts/kindle-published/catalog.json';
+  return readSource('kindle-catalog', 'kindle', relPath, () => mapKindleCatalog(readJsonFile(join(rootDir, relPath)), relPath));
+}
+
+async function readCoconalaCatalog(rootDir) {
+  const relPath = 'src/lib/coconala-services.ts';
+  try {
+    const { parseCatalog } = await import('./coconala-catalog.mjs');
+    return readSource('coconala-catalog', 'coconala', relPath, () => mapCoconalaCatalog(parseCatalog(readFileSync(join(rootDir, relPath), 'utf8')), relPath));
+  } catch (err) {
+    return readSource('coconala-catalog', 'coconala', relPath, () => { throw err; });
+  }
+}
+
+function readVideoStatus(rootDir, todayKey) {
+  const relPath = '.claude/state/video-content-status.json';
+  return readSource('video-status', 'video', relPath, () => mapVideoStatus(readJsonFile(join(rootDir, relPath)), relPath, todayKey));
+}
+
+function readExperiments(rootDir, todayKey) {
+  const relPath = '.claude/state/experiments.json';
+  return readSource('experiments', 'experiment', relPath, () => {
+    const json = readJsonFile(join(rootDir, relPath));
+    const list = Array.isArray(json) ? json : (json.experiments ?? Object.values(json));
+    return mapExperiments(list, relPath, todayKey);
+  });
+}
+
+function readBusinessReviews(rootDir, todayKey) {
+  const relDir = '.claude/state/metrics/business';
+  return readSource('business-review', 'review', relDir, () => {
+    const reviews = readdirSync(join(rootDir, relDir))
+      .filter((f) => /^review-.*\.json$/.test(f))
+      .map((f) => ({ rel: `${relDir}/${f}`, json: readJsonFile(join(rootDir, relDir, f)) }));
+    return mapBusinessReviews(reviews, todayKey);
+  });
+}
+
 /**
- * 6 ソースを独立に読み、共通 ScheduleEvent[] へ集約する（読み取り専用）。
+ * 12 ソースを独立に読み、共通 ScheduleEvent[] へ集約する（読み取り専用）。各予定に domain（領域）を付ける。
  * 1 ソースの失敗は他ソースを道連れにしない（各々 try/catch 済みの read*関数を呼ぶだけ）。
  * @param {string} rootDir リポジトリルート（絶対パス）
  * @param {{nowMs?: number}} [opts]
@@ -587,6 +823,12 @@ export async function collectScheduleEvents(rootDir, { nowMs = Date.now() } = {}
   const igStatus = readIgStatus(rootDir, nowMs);
   const youtube = readYoutubeSchedule(rootDir, nowMs);
   const backlog = readBacklogDue(rootDir, todayKey);
+  const note = readNoteArticles(rootDir, todayKey);
+  const kindle = readKindleCatalog(rootDir);
+  const coconala = await readCoconalaCatalog(rootDir);
+  const video = readVideoStatus(rootDir, todayKey);
+  const experiments = readExperiments(rootDir, todayKey);
+  const reviews = readBusinessReviews(rootDir, todayKey);
 
   const xActual = xStatus.events;
   const xPlanRemaining = reconcileXPlan(campaign.events, xActual, todayKey);
@@ -598,7 +840,15 @@ export async function collectScheduleEvents(rootDir, { nowMs = Date.now() } = {}
     ...igStatus.events,
     ...youtube.events,
     ...backlog.events,
-  ].sort((a, b) => keyOf(a.date, a.time).localeCompare(keyOf(b.date, b.time)));
+    ...note.events,
+    ...kindle.events,
+    ...coconala.events,
+    ...video.events,
+    ...experiments.events,
+    ...reviews.events,
+  ]
+    .map((e) => ({ ...e, domain: e.domain ?? CHANNEL_DOMAIN[e.channel] ?? 'ops' }))
+    .sort((a, b) => keyOf(a.date, a.time).localeCompare(keyOf(b.date, b.time)));
 
   // x-campaign の SourceReport は「消し込み後に残った件数」を count にする
   // （events に実際に入るのはこの残数だけなので、ここが 0 件と読めていないの区別を保つ対象）。
@@ -606,7 +856,7 @@ export async function collectScheduleEvents(rootDir, { nowMs = Date.now() } = {}
 
   return {
     events,
-    sources: [exam.report, campaignReport, xStatus.report, igStatus.report, youtube.report, backlog.report],
+    sources: [exam.report, campaignReport, xStatus.report, igStatus.report, youtube.report, backlog.report, note.report, kindle.report, coconala.report, video.report, experiments.report, reviews.report],
     generatedAt: new Date(nowMs).toISOString(),
   };
 }

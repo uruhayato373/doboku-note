@@ -2,6 +2,7 @@
 name: sync-r2-images
 description: >
   R2上の画像をローカルに同期する。Use when user asks to [画像が見えない, R2画像を同期, /sync-r2-images].
+domain: ops
 ---
 
 Cloudflare R2 にアップロード済みの画像を、ローカル開発環境に同期する。

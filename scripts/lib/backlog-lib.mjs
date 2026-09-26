@@ -21,6 +21,7 @@
  *   [検証:cmd]         → verify（完了の決定的ゲート）
  *   [起票:YYYY-MM-DD]  → filed（鮮度測定）
  *   [期日:YYYY-MM-DD]  → due（期限）
+ *   [領域:商品] 等     → domain（事業の領域。語彙は .claude/config/domains.json の label）
  *   上記以外の最初の token → category（無ければ '未分類'）
  *   `### [ID] タイトル` の先頭 [ID]（ID_PATTERN 合致時のみ）→ id（doboku では任意。
  *   stats47 は backlog-loop の ledger 結線に必須）
@@ -77,7 +78,7 @@ export const KINDS = ['不具合', '改善', '意思決定', '制作', '定期']
 export const DEFECT_KIND = '不具合';
 
 /** タグ行の kv キー → カード側のフィールド名（[実行:] は 2026-08-26 廃止＝unknownKeys 行き） */
-const TAG_KEYS = { 種類: 'kind', 検証: 'verify', 起票: 'filed', 期日: 'due' };
+const TAG_KEYS = { 種類: 'kind', 検証: 'verify', 起票: 'filed', 期日: 'due', 領域: 'domain' };
 
 /**
  * カード ID の形（stats47 docs-governance の idPattern と同一）。ハイフンを最低 1 つ要求するので、
@@ -139,6 +140,7 @@ export function parseTagLine(raw) {
     verify: null,
     filed: null,
     due: null,
+    domain: null,
     unknownKeys: [],
     unknownCategories: [],
   };
@@ -166,7 +168,7 @@ export function parseTagLine(raw) {
  * backlog.md 本文をカード配列へ。
  * @param {string} text backlog.md の中身
  * @returns {Array<{id:string|null,line:number,tier:string,title:string,category:string,kind:string|null,
- *                  codex:boolean,wip:boolean,verify:string|null,filed:string|null,due:string|null,
+ *                  codex:boolean,wip:boolean,verify:string|null,filed:string|null,due:string|null,domain:string|null,
  *                  hasTagLine:boolean,tokens:string[],extraCategories:string[],
  *                  unknownKeys:Array<{key:string,value:string,raw:string}>,
  *                  unknownCategories:string[],body:string}>}
@@ -212,6 +214,7 @@ export function parseBacklog(text) {
           verify: null,
           filed: null,
           due: null,
+          domain: null,
           hasTagLine: false,
           tokens: [],
           extraCategories: [],

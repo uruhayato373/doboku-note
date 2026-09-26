@@ -18,6 +18,7 @@ import { join, relative, dirname } from 'node:path';
 import { loadGitDates, lookupGitDates } from './lib/git-dates.mjs';
 import { buildAliasMap, normalizeTags } from '../../scripts/lib/content-taxonomy.mjs';
 import { collectPublishedDocs } from '../../scripts/lib/published-docs.mjs';
+import { writeJsonIfChanged } from '../../scripts/lib/write-generated.mjs';
 
 const ROOT = process.cwd();
 const TAG_ALIASES = buildAliasMap(JSON.parse(readFileSync(join(ROOT, 'src/config/tags.json'), 'utf8')));
@@ -153,7 +154,7 @@ function main() {
   };
 
   mkdirSync(dirname(OUT_PATH), { recursive: true });
-  writeFileSync(OUT_PATH, JSON.stringify(output, null, 2) + '\n', 'utf8');
+  writeJsonIfChanged(OUT_PATH, output);
 
   console.log(`[doc-meta] ✓ ${relative(ROOT, OUT_PATH)} に出力`);
   console.log(`  published: ${published}`);

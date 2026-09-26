@@ -6,6 +6,8 @@ title: スキル ガバナンス記録
 
 # スキル ガバナンス記録
 
+> 2026-09-26 退役: `/brain-publish`（Brain 出品・審査反映）と brain-operator エージェントを削除。Brain チャネルから完全撤退（出品2点・約2か月で売上台帳0件・サイト送客0件）。monthly-review に資格の正本照合（`npm run exam-ssot-status`）を結線。
+
 > 2026-09-14 更新: publish-x にローカルの実予約定期検査 `check-x-queue-health` を結線。Codex朝夜監視が実行し、CIには認証を要求しない。スキル件数は不変。
 
 > 2026-09-14 更新: weekly-review のX集計を投入済み最終予約記録（last_queued_at）へ修正。x-campaign-plan はキュー照合と公開確認を区別する。件数は不変。

@@ -47,15 +47,15 @@ test('ディレクトリ既定推論: frontmatter 無しは先頭ディレクト
   for (const key of Object.keys(r)) assert.deepEqual(r[key].channel, ['cross']);
 });
 
-test('frontmatter override は既定値を上書きする（Brain 文書想定）', () => {
+test('frontmatter override は既定値を上書きする（チャネル文書想定）', () => {
   const out = tsx(`
     import { classifyDocument } from './tools/admin-app/src/lib/doc-taxonomy.ts';
-    const t = classifyDocument('products', { documentType: 'research', channel: 'brain', retention: 'durable' });
+    const t = classifyDocument('products', { documentType: 'research', channel: 'kindle', retention: 'durable' });
     process.stdout.write(JSON.stringify(t));
   `);
   const t = JSON.parse(out);
   assert.equal(t.documentType, 'research');
-  assert.deepEqual(t.channel, ['brain']);
+  assert.deepEqual(t.channel, ['kindle']);
   assert.equal(t.retention, 'durable');
   assert.deepEqual(t.invalidFields, []);
 });
@@ -117,34 +117,6 @@ test('現行 docs/**/*.md は全て有効な frontmatter 値を持つ（決定�
   const r = JSON.parse(out);
   assert.ok(r.checked > 30, `検査対象が想定より少ない: ${r.checked}`);
   assert.deepEqual(r.invalid, [], `不正な frontmatter 値を持つ docs 文書がある: ${JSON.stringify(r.invalid)}`);
-});
-
-test('Brain override 文書は channel:brain で分類される', () => {
-  const files = [
-    'docs/products/brain-claude-code-essay-skill/00-product-spec.md',
-    'docs/products/brain-claude-code-essay-skill/01-package-spec.md',
-    'docs/products/brain-claude-code-essay-skill/03-publication-checklist.md',
-    'docs/products/brain-claude-code-essay-skill/04-build-plan.md',
-    'docs/products/brain-r8-policy-prediction-skill/00-product-concept.md',
-    'docs/products/brain-r8-policy-prediction-skill/01-evidence-ledger.md',
-    'docs/products/brain-r8-policy-prediction-skill/02-match-criteria.md',
-    'docs/products/brain-r8-policy-prediction-skill/03-backtest-protocol.md',
-    'docs/products/brain-r8-policy-prediction-skill/04-backtest-results.md',
-  ];
-  const out = tsx(`
-    import { readFileSync } from 'node:fs';
-    import matter from 'gray-matter';
-    import { classifyDocument } from './tools/admin-app/src/lib/doc-taxonomy.ts';
-    const files = ${JSON.stringify(files)};
-    const results = files.map((f) => {
-      const { data } = matter(readFileSync(f, 'utf8'));
-      return classifyDocument('products', data).channel;
-    });
-    process.stdout.write(JSON.stringify(results));
-  `);
-  const results = JSON.parse(out);
-  assert.equal(results.length, files.length);
-  for (const channel of results) assert.deepEqual(channel, ['brain']);
 });
 
 test('Callout: allowlist タイプごとに div.callout-{type} へ変換され、title 有無どちらも扱える', () => {

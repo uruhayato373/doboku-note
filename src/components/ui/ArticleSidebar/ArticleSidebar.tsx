@@ -1,10 +1,8 @@
 import { type DocMeta } from '@/lib/docs';
 import { type DocGroupKey } from '@/lib/doc-classifier';
-import { type SidebarAdCreative } from '@/config/affiliate-creatives';
 import { type TocHeading } from '@/lib/toc';
 import { type ResolvedHubCta } from '@/lib/hub-cta';
 import AuthorSidebarCard from '@/components/ui/AuthorSidebarCard';
-import SidebarAdBanner from '@/components/ui/SidebarAdBanner';
 import HubCtaBanner from '@/components/ui/HubCtaBanner/HubCtaBanner';
 import TableOfContents from '@/components/ui/TableOfContents';
 import ExamQuestionNav from '@/components/ui/ExamQuestionNav';
@@ -14,7 +12,6 @@ import { SidebarProduct } from '@/components/ui/SidebarDiscovery';
 import RelatedTools from '@/components/ui/RelatedTools';
 
 interface ArticleSidebarProps {
-  readonly careerSidebarAd: { creative: SidebarAdCreative; trackLabel: string };
   /** もくじ（L2 索引）タイル。HUB 資格 & 非 career のとき非 null。記事末尾と同一もくじを PC 側で併掲。 */
   readonly sidebarMokuji: ResolvedHubCta | null;
   readonly headings: TocHeading[];
@@ -32,8 +29,9 @@ interface ArticleSidebarProps {
  * docs 記事の右サイドバー（PC ≥993px）。
  *
  * 2 ブロック構成:
- *  1. 通常フロー（追従させない）: 運営者プロフィール → 転職アフィリ枠（唯一のピクセル源）→
- *     note もくじタイル。広告・著者を追従させると「広告が追いかけてくる」体験になるため固定。
+ *  1. 通常フロー（追従させない）: 運営者プロフィール → note もくじタイル。
+ *     転職アフィリ枠は 2026-09-26 に撤去（GA4 4 週で表示 12,673・クリック 0／DN-0322）。
+ *     A8 ピクセルは DocPage が本文または記事末の転職広告に 1 発だけ付ける。
  *  2. sticky クラスタ（列の最終要素・読中に追従）: TOC / 設問ナビ → カテゴリナビ → ピラーナビ。
  *     ナビゲーションだけを追従させ、長記事でも導線が視界に残る。
  *
@@ -43,7 +41,6 @@ interface ArticleSidebarProps {
  * utm -docs-sb で面分離）。sidebarMokuji が null（非 HUB 資格・career）のときは枠ごと非表示。
  */
 export default function ArticleSidebar({
-  careerSidebarAd,
   sidebarMokuji,
   headings,
   category,
@@ -63,16 +60,13 @@ export default function ArticleSidebar({
     // 根の <aside> 要素・幅（w-[316px]）・表示制御（≥993px）・py-10 は TwoColumnShell が所有する。
     // ここは中身のみを返す（aside 入れ子の意味論を回避）。
     <>
-      {/* ブロック1: 通常フロー（追従させない）——著者・転職ピクセル・note。
+      {/* ブロック1: 通常フロー（追従させない）——著者・note。
           読者への信頼提示を先に置き、ファーストビューの商業要素を減らす。 */}
       <div className="mb-3">
         <details className="border border-[var(--rule-soft)] bg-[var(--paper)]">
           <summary className="focus-ring cursor-pointer px-4 py-3 text-sm font-bold text-[var(--ink)]">運営者・保有資格について</summary>
           <AuthorSidebarCard />
         </details>
-      </div>
-      <div className="mb-3">
-        <SidebarAdBanner {...careerSidebarAd.creative} trackLabel={careerSidebarAd.trackLabel} />
       </div>
       {/* note もくじタイル（L2 索引）。HUB 資格の全 docs ページで記事末尾と併掲（全ページ統一・2026-07）。
           非 HUB 資格（一次・concrete・reference）と career タグ記事は sidebarMokuji=null で非表示。 */}

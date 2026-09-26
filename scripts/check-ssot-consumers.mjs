@@ -32,7 +32,6 @@ const WATCHED = [
   { module: '@/config/author', preferred: 'AuthorProfile / AuthorCard' },
   { module: '@/lib/note-magazines', preferred: 'MagazineCard / MagazineHeroCta / hub-cta' },
   { module: '@/lib/coconala-services', preferred: 'exam-key-bridge（pickCoconalaFor）' },
-  { module: '@/lib/brain-products', preferred: 'exam-key-bridge（pickBrainFor）' },
 ];
 
 /**
@@ -49,11 +48,6 @@ const ALLOWLIST = [
     file: 'src/app/links/page.tsx',
     module: '@/config/author',
     reason: 'ヒーローのアバター・名乗り（AuthorProfile は末尾で別途使用）',
-  },
-  {
-    file: 'src/app/docs/[...slug]/page.tsx',
-    module: '@/lib/note-magazines',
-    reason: 'magazinePlacement / topSlot の解決に生データが要る（描画は MagazineTopBanner 等に委譲）',
   },
 ];
 
@@ -74,7 +68,7 @@ for (const abs of pages) {
   const src = readFileSync(abs, 'utf8');
   for (const { module, preferred } of WATCHED) {
     // import 文の中にモジュール指定があるか（コメント内の言及は拾わない）
-    const re = new RegExp(`^import[^;]*from\\s+['"]${module.replace(/[/@]/g, '\\$&')}['"]`, 'm');
+    const re = new RegExp(`^import[^;]*from\\s+['"]${module.replace(/[.*+?^${}()|[\]\\/@]/g, '\\$&')}['"]`, 'm');
     if (!re.test(src)) continue;
     const allowed = ALLOWLIST.find((a) => a.file === rel && a.module === module);
     findings.push({ file: rel, module, preferred, allowed: Boolean(allowed), reason: allowed?.reason ?? null });

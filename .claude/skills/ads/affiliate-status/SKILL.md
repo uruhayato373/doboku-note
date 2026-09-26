@@ -9,6 +9,7 @@ description: >
   **取得できなかった ASP を「提携なし」と報告しないこと**（unknown として区別する）。
 disable-model-invocation: true
 argument-hint: "[--asp a8|moshimo|afb] [--write]"
+domain: affiliate
 ---
 
 > [!important] 「提携なし」と「確認できなかった」は別

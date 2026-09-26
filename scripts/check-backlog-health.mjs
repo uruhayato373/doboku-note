@@ -264,7 +264,7 @@ export function computeCompletionProseHeavy(cards, threshold = 5) {
  * チャネル状態複製の疑い（2026-08-27・todo-standards.md §1-2）。
  * backlog カードへ noteStatus / status / published の値や「残N本」を書くと、SSOT（frontmatter /
  * catalog.json / posted.json / *-services.ts 等）の実際の値が変わってもカードは追随せず陳腐化する
- * （実例: DN-0031 は brain-products.ts が listed に変わった後もカードは「審査待ち」を配り続けた）。
+ * （実例: DN-0031 は出品カタログが listed に変わった後もカードは「審査待ち」を配り続けた）。
  * コードフェンス内は実装スニペットの引用でありカードの主張ではないため対象外にする。
  */
 const SSOT_DUP_PATTERNS = [

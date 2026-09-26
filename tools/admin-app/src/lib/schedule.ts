@@ -8,6 +8,7 @@ import {
   groupByDay as groupByDayImpl,
   summarize as summarizeImpl,
   weekdayLabel as weekdayLabelImpl,
+  DOMAINS as DOMAINS_IMPL,
 } from '../../../../scripts/lib/schedule-events.mjs';
 import { todayJst as todayJstImpl } from '../../../../scripts/lib/jst-date.mjs';
 
@@ -19,8 +20,12 @@ import { todayJst as todayJstImpl } from '../../../../scripts/lib/jst-date.mjs';
  * ここはフィルタ（月）と型付けだけを行うアダプタに徹する。
  */
 
-export type ScheduleChannel = 'exam' | 'x' | 'instagram' | 'youtube' | 'todo';
-export type ScheduleKind = 'exam' | 'post' | 'plan-slot' | 'todo-due';
+export type ScheduleChannel =
+  | 'exam' | 'x' | 'instagram' | 'youtube' | 'todo'
+  | 'note' | 'kindle' | 'coconala' | 'video' | 'experiment' | 'review';
+export type ScheduleKind = 'exam' | 'post' | 'plan-slot' | 'todo-due' | 'publish' | 'check';
+export type ScheduleDomain =
+  | 'exam' | 'strategy' | 'plan' | 'product' | 'affiliate' | 'site' | 'sns' | 'material' | 'ops';
 export type ScheduleStatus = 'planned' | 'reserved' | 'posted' | 'overdue';
 export type ScheduleSourceId =
   | 'exam-calendar'
@@ -28,7 +33,13 @@ export type ScheduleSourceId =
   | 'x-status'
   | 'ig-status'
   | 'youtube-schedule'
-  | 'backlog';
+  | 'backlog'
+  | 'note-articles'
+  | 'kindle-catalog'
+  | 'coconala-catalog'
+  | 'video-status'
+  | 'experiments'
+  | 'business-review';
 
 export interface ScheduleEventView {
   id: string;
@@ -36,6 +47,7 @@ export interface ScheduleEventView {
   time: string | null;
   channel: ScheduleChannel;
   kind: ScheduleKind;
+  domain: ScheduleDomain;
   status: ScheduleStatus;
   label: string;
   detail: string | null;
@@ -102,4 +114,14 @@ export async function scheduleBoard(month: string): Promise<ScheduleBoard> {
   };
   const monthEvents = events.filter((e) => e.date.startsWith(month));
   return { events: monthEvents, allEvents: events, sources, generatedAt };
+}
+
+/** 予定の領域（試験＋事業の領域）。定義は schedule-events.mjs の DOMAINS（正本 domains.json）。 */
+export const DOMAINS = DOMAINS_IMPL as { id: ScheduleDomain; label: string }[];
+
+/** 領域の直近の予定（今日以降・投稿済みを除く）。各領域ページの「次の予定」に使う。 */
+export async function upcomingEvents(domain: ScheduleDomain, limit = 5): Promise<ScheduleEventView[]> {
+  const { events } = (await collectScheduleEventsImpl(findRepoRoot())) as { events: ScheduleEventView[] };
+  const today = todayJst();
+  return events.filter((e) => e.domain === domain && e.date >= today && e.status !== 'posted').slice(0, limit);
 }

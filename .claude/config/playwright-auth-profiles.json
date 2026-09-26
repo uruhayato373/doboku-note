@@ -55,37 +55,6 @@
         ]
       }
     },
-    "brain": {
-      "profileDirName": "playwright-brain-profile",
-      "stateFileName": "playwright-brain-state.json",
-      "loginUrl": "https://brain-market.com/login",
-      "checkUrl": "https://brain-market.com/mypage",
-      "accountConfigPath": ".claude/config/brain-account.json",
-      "sessionMode": "profile",
-      "interactiveLoginRequired": true,
-      "notes": " 2026-09-21: Brain チャネルから撤退の方針（ユーザー決定）。CI 対象外（enabled:false）。ログイン・export も行わない。",
-      "ci": {
-        "mode": "encrypted-state",
-        "enabled": false,
-        "canary": false,
-        "operations": [
-          "read",
-          "write"
-        ],
-        "cron": "50 21 * * 3",
-        "stateDomains": [
-          "brain-market.com"
-        ],
-        "readOnlyScripts": [
-          "scripts/brain-sales-fetch.mjs"
-        ],
-        "writeScripts": [
-          "scripts/brain-publish.mjs",
-          "scripts/brain-profile-edit.mjs",
-          "scripts/brain-insert-figures.mjs"
-        ]
-      }
-    },
     "coconala": {
       "profileDirName": "playwright-coconala-profile",
       "stateFileName": "playwright-coconala-state.json",

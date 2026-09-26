@@ -4,6 +4,7 @@ description: >
   GSC/GA4 の UI CSV を既存 Playwright スクリプトで収集する Generator。プロパティを確認し、認証要求・不一致で停止する。分析・正規化・品質判定はしない。Use when user asks to [GSC CSV 収集, /google-search-growth の collect].
 model: sonnet
 tools: Read, Glob, Grep, Bash
+domain: site
 ---
 
 # GSC Browser Collector Agent

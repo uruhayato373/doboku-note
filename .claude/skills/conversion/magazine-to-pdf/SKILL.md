@@ -6,6 +6,7 @@ description: >
   DSL で吸収する。note 掲載専用 CTA・採点者視点・出題予想根拠は除外。
   Use when user asks to [マガジンをPDF, 記事を紙で読みたい, note記事をPDF, 模範論文PDF, 解答をPDF, /magazine-to-pdf].
 user-invocable: true
+domain: product
 ---
 
 ## 用途

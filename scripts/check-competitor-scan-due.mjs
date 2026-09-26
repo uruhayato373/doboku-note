@@ -3,9 +3,9 @@
  * check-competitor-scan-due.mjs
  * ---------------------------------------------------------------------------
  * 競合の再取得（scout-*-competitors）が四半期サイクル（既定90日）に対して期限切れかを
- * 全チャネル（note / coconala / x / ig / brain）で機械判定する surfacer。
+ * 全チャネル（note / coconala / x / ig）で機械判定する surfacer。
  * note / coconala / ig は competitor-scan.yml が四半期に自動取得し、本 surfacer は
- * その失敗・停止の backstop。X はログイン済み個人セッション、Brain は WebSearch 判断が
+ * その失敗・停止の backstop。X はログイン済み個人セッションが
  * 必要なため、weekly-review-guard / weekly-review から手動期限を通知する。
  *
  * 判定: 各チャネルの history/ の最新 competitors-YYYY-MM-DD.json の日付から経過日数
@@ -27,13 +27,12 @@ import { dirname, join } from 'node:path';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 
-// チャネル → history ディレクトリ（既存 note/coconala は専用dir、X/IG/Brain は機能スコープdir）
+// チャネル → history ディレクトリ（既存 note/coconala は専用dir、X/IG は機能スコープdir）
 const PLATFORMS = {
   note: { dir: '.claude/state/note/history', automation: 'ci', review: 'competitor-scan.yml の失敗を確認。取得済みなら /competitor-review --platform note で意味分析' },
   coconala: { dir: '.claude/state/coconala/history', automation: 'ci', review: 'competitor-scan.yml の失敗を確認。取得済みなら /competitor-review --platform coconala で意味分析' },
   x: { dir: '.claude/state/x-competitors/history', review: '/competitor-review --platform x' },
   ig: { dir: '.claude/state/ig-competitors/history', automation: 'ci', review: 'competitor-scan.yml の失敗を確認。取得済みなら /competitor-review --platform ig で意味分析' },
-  brain: { dir: '.claude/state/brain-competitors/history', review: '手動: WebSearch(allowed_domains:brain-market.com)で新規exam販売者確認＝白地(自動scoutなし・09§E)' },
 };
 
 const args = process.argv.slice(2);
@@ -57,7 +56,7 @@ function latestScanDate(dir) {
 
 const platforms = ONLY ? { [ONLY]: PLATFORMS[ONLY] } : PLATFORMS;
 if (ONLY && !PLATFORMS[ONLY]) {
-  console.error(`ERROR: 未知のチャネル "${ONLY}"（note|coconala|x|ig|brain）`);
+  console.error(`ERROR: 未知のチャネル "${ONLY}"（note|coconala|x|ig）`);
   process.exit(0);
 }
 

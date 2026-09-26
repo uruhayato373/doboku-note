@@ -62,7 +62,6 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 | `/keiken-charcount` | 1級・2級土木 施工経験記述マガジン答案を解答欄しきい値で字数チェック（決定論的・暫定値） | `経験記述の字数確認`, `答案の字数オーバー検出`, `/keiken-charcount` |
 | `/keiken-tensaku` | 経験記述の顧客対応ドラフト生成（`civil-keiken-tensaku-drafter`）→ 返信文を `civil-keiken-tensaku-qa`＋`check-tensaku-reply` で PASS まで検証。①添削（既定・提出原稿→赤入れ）②作成（`--mode sakusei`・ココナラ S3・ヒアリング→答案ドラフト）③診断（`--mode shindan`・ココナラ S1・A/B/C＋ワースト3・書き換え文なし）。捏造禁止（回答にない事実を作らない） | `経験記述を添削`, `添削下書きを作成`, `経験記述の答案作成`, `ヒアリングから答案`, `経験記述を診断`, `/keiken-tensaku` |
 | `/coconala-publish` | ココナラ出品サービスを Playwright で新規出品・内容修正・価格反映・**棚の出し入れ（受付休止/再開/アーカイブ）**（`coconala-operator`。カタログ＋listings SoT→フォーム充填。account assert＋draft-first＋`--commit` gate。公開成功でカタログ書き戻し。休止系は `coconala-pause`＝`pauseReason` で恒久廃止と長期不在を区別・対象選択は `coconala-guards` でテスト固定） | `ココナラに出品`, `ココナラ出品を修正`, `ココナラ価格反映`, `ココナラを休止`, `出品を再開`, `/coconala-publish` |
-| `/brain-publish` | Brain キット商品を Playwright で出品・公開申請（`brain-operator`。カタログ＋listings SoT→Tiptap 充填。draft-first＋`--commit` gate・有料ライン/価格/確認モーダル assert・申請成功でカタログ書き戻し） | `Brainに出品`, `Brain商品を公開申請`, `/brain-publish` |
 | `/coconala-order` | ココナラ受注1件のE2E（`coconala-operator`。土木はシート検証→`/keiken-tensaku`、PDF 商品は部門確認と特典同梱、技術士口頭 想定質問は運用テンプレ→納品文面ドラフト→orders-log 追記。最終赤入れ・送信は運営者） | `ココナラで受注した`, `ココナラの納品文面`, `/coconala-order` |
 | `/coconala-status` | ココナラ 受注実体の収集＋orders-log 突合（`coconala-orders`→`check-coconala-orders`＝記録漏れ・金額ズレ・返信期限・納品滞留）＋KPI 週次記録（`/coconala-analytics`）＋カタログ↔state↔sales 照合＋撤退ライン判定（read-only・是正はしない） | `ココナラの状態を確認`, `ココナラKPIを記録`, `/coconala-status` |
 | `/coconala-analytics` | ココナラ「サービス・ブログ分析」を Playwright で read-only 収集し `kpi-log.json` へ週次 upsert（`coconala-analytics`→`check-coconala-analytics`）。全体累計＋サービス別（listed 全件を URL 直打ち）＋ブログ別閲覧数。**数値は30日ローリング累計で週次増分ではない**・**`0000` はマスクで 0 ではない**（null 記録）・partial は exit 2。書き込みなし | `ココナラの数字を取る`, `ココナラKPIを自動取得`, `閲覧数を記録`, `/coconala-analytics` |
@@ -147,7 +146,7 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 | `/north-star-metric` | 学習価値・集客・販売・運営負担のKPI定義と実測に基づく目標を共通SSOTへ記録 | `NSM定義`, `北極星指標`, `/north-star-metric` |
 | `/growth-loops` | 成長ループの設計・評価 | `成長ループ`, `フライホイール設計`, `/growth-loops` |
 | `/monetization-strategy` | 収益化戦略のブレインストーム | `収益化`, `月X万円達成するには`, `/monetization-strategy` |
-| `/competitor-review` | 競合の価格・品揃えを**全チャネル横断**（note/X/IG/ココナラ/Brain・`--platform`）で四半期再取得（scout＋時系列drift）→ competitor-analyst で差別化再評価＋反映パッチ（09/07）。有料本文は取得不可 | `競合を再調査`, `競合レビュー`, `競合の価格を再取得`, `/competitor-review` |
+| `/competitor-review` | 競合の価格・品揃えを**全チャネル横断**（note/X/IG/ココナラ・`--platform`）で四半期再取得（scout＋時系列drift）→ competitor-analyst で差別化再評価＋反映パッチ（09/07）。有料本文は取得不可 | `競合を再調査`, `競合レビュー`, `競合の価格を再取得`, `/competitor-review` |
 | `/knowledge` | 過去の失敗・教訓を参照・追記 | `ナレッジ参照`, `失敗から学ぶ`, `/knowledge` |
 | `/critical-review` | 批判的レビュー | `批判的に見て`, `/critical-review` |
 | `/pre-mortem` | Pre-Mortem の実施 | `Pre-Mortem`, `リスク洗い出し`, `/pre-mortem` |

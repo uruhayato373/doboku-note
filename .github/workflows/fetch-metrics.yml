@@ -403,6 +403,10 @@ jobs:
           # 書き手と同じ commit で消すのが唯一安全（別 commit は上の reset --hard + copy-back に戻される）。
           node scripts/prune-state-snapshots.mjs --commit --family ga4,gsc,monetization,crosswalk,weekly-metrics,growth,bing
 
+          # 人気記事（src/config/popular-pages.json）は GA4 ページ別スナップショットから作る生成物。
+          # スナップショットと同じ commit で作り直さないと、次にビルドした手元にだけ差分が出る（2026-09-26）。
+          node scripts/build-popular-pages.mjs
+          git add src/config/popular-pages.json
           git add .claude/state/metrics/business .claude/state/metrics/ga4 .claude/state/metrics/gsc .claude/state/metrics/monetization .claude/state/metrics/crosswalk .claude/state/metrics/affiliate .claude/state/metrics/growth .claude/state/metrics/bing .claude/state/metrics/ga4-admin .claude/state/weekly-metrics .claude/state/experiments.json
           if git diff --cached --quiet; then
             echo "No changes to publish"

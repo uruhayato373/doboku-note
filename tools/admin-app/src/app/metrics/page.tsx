@@ -4,7 +4,6 @@ import LineChart, { type LinePoint } from '@/components/charts/LineChart';
 import { Freshness, Kpi, PageHead } from '@/components/ui';
 import { repoPath } from '@/lib/repo-root';
 import {
-  ageInDays,
   latestSnapshot,
   loadSnapshot,
   readJsonFile,
@@ -98,9 +97,7 @@ export default function MetricsOverview() {
     <>
       <PageHead
         title="分析概観"
-        sub={`GA4 / GSC / PSI の最新スナップショット（CI がコミット・ローカルでは取得しない）${
-          period ? ` · GA4 期間 ${period}` : ''
-        }`}
+        sub={period ? `期間 ${period}` : undefined}
       />
 
       <div className="grid cols-4" style={{ marginBottom: 16 }}>
@@ -114,7 +111,7 @@ export default function MetricsOverview() {
         <h2>
           GA4 日次アクティブユーザー
           <span className="sub">
-            <Freshness snapshot={gaSnap} /> {gaSnap?.file}
+            <Freshness snapshot={gaSnap} />
           </span>
         </h2>
         <LineChart points={usersSeries} unit="人/日" />
@@ -126,31 +123,27 @@ export default function MetricsOverview() {
       </div>
 
       <div className="card">
-        <h2>スナップショット鮮度</h2>
+        <h2>データの更新</h2>
         <div className="table-wrap">
           <table className="data">
             <thead>
               <tr>
-                <th>ソース</th>
-                <th>最新ファイル</th>
-                <th className="num">経過</th>
-                <th>状態</th>
+                <th>データ</th>
+                <th>最終取得</th>
               </tr>
             </thead>
             <tbody>
               {(
                 [
-                  ['GA4 (date)', gaSnap],
-                  ['GSC (query)', gscSnap],
-                  ['PSI (batch)', psiSnap],
-                  ['Instagram (insights)', igSnap],
-                  ['Cloudflare (zone)', cfSnap],
+                  ['GA4', gaSnap],
+                  ['GSC', gscSnap],
+                  ['PSI', psiSnap],
+                  ['Instagram', igSnap],
+                  ['Cloudflare', cfSnap],
                 ] as [string, SnapshotFile | null][]
               ).map(([label, snap]) => (
                 <tr key={label}>
                   <td>{label}</td>
-                  <td className="mono small">{snap?.file ?? '—'}</td>
-                  <td className="num">{ageInDays(snap) ?? '—'}日</td>
                   <td>
                     <Freshness snapshot={snap} />
                   </td>

@@ -46,7 +46,7 @@
 2. **資格カード**（`ExamCardView`）: `EXAM_GROUPS` 配下に置き、モバイル1列／`sm` 2列／3枚のグループは`lg` 3列。1枚は資格ブランド帯 + 見出し + tagline + **最大3行**。スマホでは帯をテーマ色の線だけにし（イラストは `sm` 以上）、グループの説明文も省く
    - ①**サイトで無料学習** → `/exam/{...}`（内部リンク）
    - ②**note もくじ（L2）** → `.claude/config/note-funnel.json` の `exams.{key}.L2` を参照（**存在時のみ**。URLをページに直書きしない）
-   - ③**個別サービス** → 資格に紐づく listed のココナラ（無ければ Brain）から**代表 1 件**。`pickCoconalaFor` / `pickBrainFor`（`src/lib/exam-key-bridge.ts`）が選ぶ。**0 件なら行ごと省略**（コンクリート 3 資格は現在 2 行）
+   - ③**個別サービス** → 資格に紐づく listed のココナラから**代表 1 件**。`pickCoconalaFor`（`src/lib/exam-key-bridge.ts`）が選ぶ。**0 件なら行ごと省略**（コンクリート 3 資格は現在 2 行）
    - 技術士第一次は現在、①サイト行だけを表示する（2026-09-24 時点）
    - 各行はアイコン（`ServiceIcon`）+ リンク名 + チャネル小ラベル + 特徴 1 行。特徴は `line-clamp: 2`（商品 `description` は 170〜210 字あり、素で出すと 1 行だけ 220px になる）
    - **マガジンの個別列挙は廃止**し L2 もくじへ集約した。商品を追加しても /links の改修は不要
@@ -54,7 +54,7 @@
 
 **1 画面目の検査**: `e2e/mobile.spec.ts` が、スマホ（iPhone 13・390×664）で最初の資格リンクが 1 画面目に収まることと横スクロールが無いことを、PR と夜間 E2E で見る（夜間の失敗は `automation-failure` Issue → 週次レビュー）。ヒーローやカードの上に要素を足すとこれが赤くなる。
 
-> **ロゴの扱い**: チャネル識別は `src/components/icons/ServiceIcon.tsx` が担う。公式ロゴを `public/images/brand/{note,coconala,brain}.svg` に置けば自動でロゴ表示へ切り替わり、未配置の間は lucide の汎用アイコンにフォールバックする（素材待ちで表示が壊れない）。ロゴは商標なので**改変・着色をせず原寸比で出す**。
+> **ロゴの扱い**: チャネル識別は `src/components/icons/ServiceIcon.tsx` が担う。公式ロゴを `public/images/brand/{note,coconala}.svg` に置けば自動でロゴ表示へ切り替わり、未配置の間は lucide の汎用アイコンにフォールバックする（素材待ちで表示が壊れない）。ロゴは商標なので**改変・着色をせず原寸比で出す**。
 > なお handoff 2026-07-25 の「note ロゴを使わない」は **note リンクカードのサムネ画像に焼き込まない**という文脈の方針で、`check-note-link-cards` も `/images/note-links/*.webp` だけを検査する。ここで扱うサービス識別バッジは対象外（2026-07-28 にユーザー判断で方針確認済み）。
 
 ## 4. データソース（SSoT）
@@ -65,7 +65,6 @@
 | **note もくじ（L2）の URL** | `.claude/config/note-funnel.json` の `exams.{key}.L2`（読み出しは `src/lib/note-mokuji.ts`） | L2がある資格カードの② note 行 |
 | **資格ブランド（ラベル・テーマ色・背景イラスト）** | `src/lib/exam-brand.ts`（`EXAM_BRAND` / `examKeyOf`） | カード頭の帯 |
 | ココナラ単発サービス（状態・価格・URL） | `src/lib/coconala-services.ts`（`listedCoconalaServices()`） | 各資格カードの③ 行（`pickCoconalaFor` が代表 1 件を選ぶ） |
-| Brain キット商品（状態・価格・URL） | `src/lib/brain-products.ts`（`listedBrainProducts()`） | 同上（ココナラが 0 件の資格でのみ `pickBrainFor`） |
 | 資格キーの対応（`ExamKey` ⇄ 商品カタログの `examScope`） | `src/lib/exam-key-bridge.ts` | ③ 行の突合（`tankan` ⇄ `pe-comprehensive-management` 等） |
 | 有料マガジン情報（タイトル・description・URL） | `src/lib/note-magazines.ts` | **/links からは直接参照しない**（もくじへ集約したため）。記事内 CTA・サイドバーでは引き続き使用 |
 

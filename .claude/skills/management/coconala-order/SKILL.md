@@ -7,6 +7,7 @@ description: >
   最終赤入れとトークルームへの送信は運営者（人間）。捏造禁止・外部誘導禁止・個人情報非コミット。
   Use when user asks to [ココナラで受注した, ココナラの納品文面を作って, 添削依頼が来た, PDF商品が売れた, /coconala-order].
 user-invocable: true
+domain: product
 ---
 
 ## 用途

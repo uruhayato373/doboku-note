@@ -9,6 +9,7 @@ description: >
   [IG公開状態を確認, インスタ公開状態, 未公開を予約投稿, IGのSoTドリフト是正, IG status reconcile, /ig-reconcile].
 disable-model-invocation: true
 argument-hint: "[--backfill] [--schedule-unpublished] [--exam=cem]"
+domain: sns
 ---
 
 IG カルーセルの「実際に公開されているか（現状確認）」と「未公開の予約投稿」を、毎回ゼロから手作業せず**反復実行**するためのオーケストレーションスキル。設計の真実源は [.claude/knowledge/reference/ig-publish-reconcile.md](../../../../.claude/knowledge/reference/ig-publish-reconcile.md)。

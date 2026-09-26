@@ -39,7 +39,7 @@ backlog が持つのは**単発で完了がある未着手タスク**だけ = �
 
 | 置かないもの | 行き先（真実源） | backlog カードに書いてよいこと |
 |---|---|---|
-| **チャネル状態の複製**（公開/下書き/予約/残数） | note=frontmatter `noteStatus`・`src/lib/note-magazines.ts` / IG=`posted.json`・`status.json` / Kindle=`scripts/kindle-published/catalog.json` / ココナラ=`src/lib/coconala-services.ts` / Brain=`src/lib/brain-products.ts` / X=`content/sns/x/draft/*/status.json` | SSOT への参照と完了条件だけ。件数・日付・状態値を本文へ写さない（写した瞬間から腐る。実例: 2026-08-27 の DN-0031＝SSOT は listed なのにカードは審査待ちを配り続けた） |
+| **チャネル状態の複製**（公開/下書き/予約/残数） | note=frontmatter `noteStatus`・`src/lib/note-magazines.ts` / IG=`posted.json`・`status.json` / Kindle=`scripts/kindle-published/catalog.json` / ココナラ=`src/lib/coconala-services.ts` / X=`content/sns/x/draft/*/status.json` | SSOT への参照と完了条件だけ。件数・日付・状態値を本文へ写さない（写した瞬間から腐る。実例: 2026-08-27 の DN-0031＝SSOT は listed なのにカードは審査待ちを配り続けた） |
 | **反復する運用サイクル**（配信・投入・予約・drift 消化・残数を機械が数えられるバーンダウン） | weekly の「定常運用」節が surfacer（`check-membership-drip` / `check-note-republish` / `x-queue-surfacer` / `verify-ig-status` / `check-*-due` / `quality-census` 等）から直接 pull する。backlog を介さない | （カード化しない。§4 ルール1「反復＝backlog に置かない合図」の適用拡大） |
 | **コンテンツ制作企画**（いつか作る商品・記事群） | 企画SSOT: note=各試験 `content/note/{試験}/noteコンテンツ計画.md` / Kindle=`content/kindle/strategy.md` / ココナラ=`content/note/1級・2級土木/ココナラ展開キット.md` | 企画SSOTが無いチャネル（site 記事等）の制作は backlog に置いてよい。新しい企画SSOTを発明しない |
 
@@ -100,6 +100,7 @@ backlog が持つのは**単発で完了がある未着手タスク**だけ = �
 | `[検証:cmd]` | 任意 | 完了を判定できる決定的コマンド (自動処理の gate 第一候補) |
 | `[起票:YYYY-MM-DD]` | 任意 | 鮮度測定 |
 | `[期日:YYYY-MM-DD]` | 任意 | 期限。超過は admin がバッジで出す |
+| `[領域:X]` | doboku-note は必須 | 事業の領域（戦略 / 計画 / 商品 / アフィリエイト / サイト / SNS / 教材 / 管理）。語彙の正本は `.claude/config/domains.json`。サイドバー・スケジュールと同じ領域で束ねる。doboku-note だけの拡張（stats47 共通スキーマには無い） |
 | `[Codex候補]` | flag | バルク処理向き |
 | `[進行中]` | flag | 作業中 (人または別 run)。**自動処理はこのカードに触らない**（付け外しは doboku-note では `todo:claim`/`todo:release`。契約→[todo-lifecycle.md](todo-lifecycle.md)） |
 

@@ -9,6 +9,7 @@ description: >
   投稿・出品・価格変更はしない（検知と報告のみ）。
   Use when user asks to [ココナラの状態を確認, ココナラKPIを記録, ココナラの数字を貼る, 撤退ライン判定, /coconala-status].
 user-invocable: true
+domain: product
 ---
 
 ## 用途

@@ -8,6 +8,7 @@ description: >
   動作確認済（2026-06-15・channel:'chrome'＋ignoreHTTPSErrorsでプロキシ越え）・Macも可。** note-edit-magazine（設定/価格）とは別操作。
 disable-model-invocation: true
 argument-hint: "--target <magazineKey> (--from <k1,k2> | --notes <n1,n2>) [--plan-only] [--probe] [--commit] [--limit N]"
+domain: product
 ---
 
 既存記事を別マガジンへ収録する。`note-edit-magazine`（タイトル/説明/価格・記事単価）では扱わない「収録マガジンへの追加」専用。`note-edit-session` でログイン済みの永続プロファイルを再利用する。

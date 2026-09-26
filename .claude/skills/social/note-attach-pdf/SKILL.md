@@ -9,6 +9,7 @@ description: >
 disable-model-invocation: true
 user-invocable: true
 argument-hint: "--dir <magazineDir> [--commit]   (単記事: scripts/note-attach-file.mjs --note <key> --file <pdf> [--commit|--draft-only])"
+domain: product
 ---
 
 記事へ印刷用 PDF を添付する。公開済み記事は `--commit` で再公開し、公開前の下書きは `--draft-only` でPDFカードを保存できる。`note-publish`（記事公開）がカバー/本文/価格/有料境界までは自動化したが、**PDF ファイル添付は markdown 不可の note プラットフォーム機能で従来「半手動」**だった領域を自動化する。`note-edit-session` のログイン済み永続プロファイルを再利用。

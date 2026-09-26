@@ -2,6 +2,7 @@
 name: backlog-sweep
 description: >
   .claude/todo/backlog.md からタスクを1〜2件選んで実査・実行・検証し、完了したらセクションごと削除して台帳を減らす1サイクル。実査で「既に完了していた」と分かった場合も台帳掃除として削除する。/loop で回して自走させる想定。`--audit` モードでは台帳そのものの構造（種類の混在・重複クラスタ・陳腐化）を backlog-curator に監査させ、1枚単位の sweep では見えない台帳全体を棚卸しする。今週の計画を立てる /plan-weekly（weekly.md を書く）とは別物で、こちらは backlog の実行と削除を担う。Use when user asks to [バックログを消化して, backlog を減らして, sweep を回して, バックログを棚卸しして, /backlog-sweep, /backlog-sweep --audit].
+domain: plan
 ---
 
 backlog の「実行」と「削除」を回す。タスクの選定は**スクリプトが決める**（CLAUDE.md §5・モデルに委ねない）。

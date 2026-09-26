@@ -8,6 +8,7 @@ description: >
   Use when user asks to [ドキュメント棚卸し, handoff 整理, doc 肥大化, 完了 handoff を削除, doc declutter, /doc-declutter].
 user-invocable: true
 argument-hint: "[handoffs|reference|all] (既定: handoffs)"
+domain: ops
 ---
 
 ドキュメントの**ライフサイクル（肥大化・完了・重複）**を棚卸しする半自動オーケストレーションスキル。

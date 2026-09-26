@@ -4,6 +4,7 @@ description: >
   A8 収集済み CSV・manifest・正規化結果の品質とサイト帰属を監査する Evaluator。取得・正規化・修正・EPC 判断はしない。Use when user asks to [A8 CSV 品質確認, /a8-report の validate].
 model: sonnet
 tools: Read, Glob, Grep, Bash
+domain: affiliate
 ---
 
 # A8 CSV Auditor Agent

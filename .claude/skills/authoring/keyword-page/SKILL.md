@@ -3,6 +3,7 @@ name: keyword-page
 description: >
   総合技術監理キーワードページの作成・校正。既存の空ページを試験対策コンテンツとして仕上げる。
   Use when user asks to [キーワードページ作成, キーワード記事, keyword page, /keyword-page].
+domain: site
 ---
 
 ## 用途

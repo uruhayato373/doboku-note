@@ -71,7 +71,9 @@ npm run auth:ci-restore       # CI専用。暗号化stateを復元。authenticat
 npm run auth:ci-writeback     # CI専用。更新後のstorageStateをCAS（etag/generation）で書き戻す
 npm run auth:ci-plan          # ops-writeのwrite planを作りDOBOKU_CI_WRITE_PLAN_SHA256を計算する
 npm run check-content-taxonomy # 分類語彙（領域×資格×記事型×テーマ×タグ）の整合。group が許可外・未登録タグは赤、別名綴り・構造タグ不整合は baseline ラチェット（`:ci`）、topic 三方向の 0 件は WARN。規則は content-taxonomy.md・pre-commit --staged ＋ quality:audit
-npm run check-content-expansion # 全教材の論点→記事/図/SNS対応・未確認・原典待ち・成果物変更を検査（管理画面 /content/expansion・週次/月次で確認）
+npm run check-content-expansion # 全教材の論点→記事/図/SNS対応・未確認・原典待ち・成果物変更を検査（管理画面 /materials・週次/月次で確認）
+npm run check-domains          # 領域の正本（.claude/config/domains.json）とスキル/エージェントの domain:・文書の割り当ての整合（バックログの [領域:] は check-backlog-schema）
+npm run check-generated-indexes # refresh-indexes を実際に回し、生成物がコミットと一致するか（一致しなければ書き換わったファイルをコミットする。生成時刻だけの差分は出ない）
 ```
 
 ## 公的基準（共通仕様書の章記事・ページ画像）
@@ -122,7 +124,6 @@ npm run ops-write -- exec --operation <id> --args '{...}' --plan-sha256 <hash> -
 npm run x-publish-scheduled -- --commit --json # 承認済みキューから期日到来分のXを投稿（scheduled-publish.yml の cron 専用実体）。罠: 頻度ゲート（x-frequency-gate.mjs 12規則）が判定不能なものは必ず block（投稿しない）側に倒す＝「なぜ投稿されないか」は counts/blocks を読む
 npm run ig-graph-publish -- --pack <pack> --format carousel --commit --json # Instagram Graph API で即時公開（**使わない**＝2026-09-23 ユーザー決定で Graph API を使わない。主経路は ops-write の instagram.publish-bs。予約不可・publish-ig-bs とは別経路）。env: IG_GRAPH_ACCESS_TOKEN / IG_BUSINESS_ACCOUNT_ID / IG_GRAPH_API_VERSION。罠: 投稿用メディアは public R2 に一時公開されるため stage-ig-media-r2 の --cleanup 実行を確認する（残すと公開URLが残置）
 npm run stage-ig-media-r2 -- --pack <pack> --format carousel --cleanup # ig-graph-publish が使う一時公開/削除の単体実行（--dry-run で URL 計算だけ）
-npm run brain-sales-fetch  # Brain 売上を read-only 取得（ログイン要・ローカル専用）
 ```
 
 ## ココナラ
@@ -210,4 +211,5 @@ npm run measure-experiments    # measure 仕様を持つ running/measuring 実�
 npm run growth-triage          # 週次レビュー（ローカル）で機会ダイジェストを全件処分: list [--json] → apply --decisions .tmp/growth-triage-YYYY-Www.json [--commit]（backlog/実験/watchword/裁定/束ね/却下/保留を採番・起票・triage-log 記録）。罠: DN 採番に git 全履歴が要る（shallow clone は exit 2）・全件を先に検証し 1 件でも不正なら何も書かない
 npm run check-growth-triage    # 月曜 guard: 最新ダイジェストの未処分 0・レビューにマーカー（申し送りの振り分けは check-handoff-extraction）。exit 1 未反映 / 2 ダイジェスト/レビュー無しか古い
 npm run check-business-direction # 事業方針・指標・履歴・追記専用の検査
+npm run exam-ssot-status # 資格の正本（日程・受験者数）の照合状態＝要対応（未確認・原文未照合・180日超・次年度日程未登録・統計が古い）と記録（発表待ち・非公表）。月次レビューが読む（`-- --json`／`-- --check` は完走だけ＝quality-audit ci）
 ```

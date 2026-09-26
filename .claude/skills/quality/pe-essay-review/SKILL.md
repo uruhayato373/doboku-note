@@ -5,6 +5,7 @@ description: >
   採点者（A評価合格者）・現役総監技術士OB（業界実務）・受験予備校講師（試験戦略）の3視点で各論文を1〜10点評価し、致命的問題と修正提案を提示する。
   Use when user asks to [模範論文レビュー, essay review, 論文評価, /pe-essay-review].
 user-invocable: true
+domain: product
 ---
 
 # /pe-essay-review — 総監記述式 模範論文レビュー

@@ -2,6 +2,8 @@
 
 import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { extname, join, relative } from "node:path";
+import { FORBIDDEN, findForbidden } from "./lib/exam-calendar-guards.mjs";
+import { activeIds, validateQualificationRegistry } from "./lib/qualification-registry.mjs";
 
 const ROOT = process.cwd();
 const SSOT_PATH = join(ROOT, ".claude/config/exam-calendar.json");
@@ -9,30 +11,50 @@ const calendar = JSON.parse(readFileSync(SSOT_PATH, "utf8"));
 
 const expected = {
   "civil-construction-1": {
+    applicationOpen: "2026-03-23",
+    applicationDeadline: "2026-04-06",
     first: "2026-07-05",
     second: "2026-10-04",
+    firstResult: "2026-08-13",
+    secondResult: "2027-01-08",
     source: "https://www.jctc.jp/exam/doboku-1/",
   },
   "civil-construction-2": {
+    firstEarlyApplicationOpen: "2026-03-04",
+    firstEarlyApplicationDeadline: "2026-03-18",
+    firstLateApplicationOpen: "2026-07-08",
+    firstLateApplicationDeadline: "2026-07-22",
     firstEarly: "2026-06-07",
     firstLate: "2026-10-25",
     second: "2026-10-25",
+    firstEarlyResult: "2026-07-07",
+    firstLateResult: "2026-12-02",
+    secondResult: "2027-02-03",
     source: "https://www.jctc.jp/exam/doboku-2/",
   },
   "pe-comprehensive-management": {
+    applicationOpen: "2026-04-01",
+    applicationDeadlineWeb: "2026-04-14",
     applicationDeadline: "2026-04-15",
+    writtenResult: "2026-11-04",
+    finalResult: "2027-03-12",
     written: "2026-07-19",
     writtenSelective: "2026-07-20",
     source: "https://www.engineer.or.jp/c_topics/011/011422.html",
   },
   "pe-construction": {
+    applicationOpen: "2026-04-01",
+    applicationDeadlineWeb: "2026-04-14",
     applicationDeadline: "2026-04-15",
+    writtenResult: "2026-11-04",
+    finalResult: "2027-03-12",
     written: "2026-07-20",
     source: "https://www.engineer.or.jp/c_topics/011/011422.html",
   },
   "pe-first-stage": {
     applicationOpen: "2026-06-10",
     applicationDeadline: "2026-06-23",
+    applicationDeadlineMail: "2026-06-24",
     exam: "2026-11-22",
     source: "https://www.engineer.or.jp/c_topics/011/011423.html",
   },
@@ -87,11 +109,39 @@ for (const [examId, contract] of Object.entries(expected)) {
   }
   inspected.push({ examId, label: exam.label ?? examId, n });
 }
-// SSOT にあるのに contract が無い資格は「検査していない」＝素通りするので明示的に落とす
-for (const examId of Object.keys(calendar.exams ?? {})) {
+// periods（日付未発表の期間）は label と window の文言が必須。同じ id が events（確定日）にも
+// あると「発表済みなのに期間のまま」の二重管理になるので落とす（発表されたら events へ移して消す）。
+let periodCount = 0;
+for (const [examId, exam] of Object.entries(calendar.exams ?? {})) {
+  for (const [periodId, period] of Object.entries(exam.periods ?? {})) {
+    periodCount++;
+    if (typeof period?.label !== "string" || typeof period?.window !== "string" || !period.window) {
+      errors.push(`${examId}.periods.${periodId} は label と window（公式の期間の文言）が必要です`);
+    }
+    if (exam.events?.[periodId]) {
+      errors.push(`${examId}.periods.${periodId} は events にも存在します（日付が発表されたら periods から消す）`);
+    }
+  }
+}
+// 資格一覧（qualification-registry.json）・受験者統計（exam-stats.json）・商品ラインナップと id が揃っていること。
+const readConfig = (name) => JSON.parse(readFileSync(join(ROOT, ".claude/config", name), "utf8"));
+const registry = readConfig("qualification-registry.json");
+for (const e of validateQualificationRegistry({
+  registry,
+  calendar,
+  examStats: readConfig("exam-stats.json"),
+  lineupConfig: readConfig("product-lineup.json"),
+  refExists: (p) => existsSync(join(ROOT, p)),
+})) {
+  errors.push(e);
+}
+// 展開中（active）の資格は本文・商品に日付を載せるので、公式値を上の expected に二重登録して照合する。
+// contract が無い active は「検査していない」＝素通りするので明示的に落とす。候補（candidate/declined）は
+// 形の検査（validateQualificationRegistry）だけで、本文へ日付を載せる段階で active にして contract を足す。
+for (const examId of activeIds(registry)) {
   if (!expected[examId]) {
     errors.push(
-      `${examId} は SSOT にあるが本スクリプトの expected に無い（無検査で素通りする）`,
+      `${examId} は registry で active だが本スクリプトの expected に無い（無検査で素通りする）`,
     );
   }
 }
@@ -106,6 +156,8 @@ const scanRoots = [
   "content/note/1級・2級土木",
   ".claude/agents",
   ".claude/skills",
+  // 2026-09-26: 年間計画（annual.md）の日付表の誤りが走査外で素通りしたため追加
+  ".claude/todo",
   "src/config",
   "src/lib",
   "content/site/concrete-chief-engineer",
@@ -113,46 +165,12 @@ const scanRoots = [
   "content/site/concrete-diagnostician",
 ];
 const textExtensions = new Set([".md", ".mdx", ".json", ".ts", ".mjs"]);
-/**
- * 判定前に取り除く「実体としてのパス／ファイル名」。
- * 実在するディレクトリ名は誤記チェックの対象にしてはいけない——が、**実体が消えたら
- * 除外も消す**こと。2026-08-13 に content/note/コンクリート主任技師/ を「主任技士」へ
- * リネームしたのに除外だけ残り、docs/strategy/README.md の
- * 「旧名を指す壊れリンク」を静かに検査対象から外していた（除外がバグを覆い隠した）。
- * 除外を足すときは、その実体が消えたときに気づける形にする（下の存在検査）。
- */
-const PATH_LITERALS = [
-  /コンクリート主任技師20/g, // content/sources/textbook/コンクリート主任技師2022|2024（ローカル PDF 名・実在）
-  /09_YouTube戦略_コンクリート技士・主任技士\.md/g, // docs/marketing の実在ファイル名。版表で直後に更新日（YYYY-MM-DD）が並ぶと日付近接ルールが誤検知する
-];
 // 除外の前提（実体が在ること）が崩れたら落とす。除外は「実在するから誤記でない」という
 // 主張なので、実在しなくなった瞬間に除外自体が誤りになる。
 const PATH_LITERAL_ROOTS = [
   { glob: "content/sources/textbook", startsWith: "コンクリート主任技師20", why: "content/sources/textbook/コンクリート主任技師20xx" },
   { glob: "docs/marketing", startsWith: "09_YouTube戦略_コンクリート技士", why: "docs/marketing/09_YouTube戦略_コンクリート技士・主任技士.md" },
 ];
-const forbidden = [
-  // ISO 予約時刻（2026-10-27T21:05…）は試験日の誤記ではなく X 台帳の投稿日なので除外する（2026-09-16・RCCM 10/27 投稿で偽赤）
-  { pattern: /2026-10-27(?!T\d)/g, reason: "2級後期・第二次は2026-10-25" },
-  { pattern: /10月27日/g, reason: "2級後期・第二次は10月25日" },
-  { pattern: /10\/4-10\/27/g, reason: "土木第二次は1級10/4・2級10/25" },
-  {
-    pattern: /主任技師/g,
-    reason:
-      "公式名称は「コンクリート主任技士」（技師ではない）。2026-08-12 に 46 ファイル 163 箇所を是正した誤記の再発",
-    stripPathLiterals: true,
-  },
-  {
-    pattern: /コンクリート主任技士[^\n]{0,12}10月/g,
-    reason: "コンクリート主任技士の試験は11/29（申込締切8/25）。10月ではない",
-  },
-  {
-    pattern: /コンクリート(?:主任)?技士[^\n]{0,30}(?:2026-09-01|2026-11-30|9月1日|11月30日)/g,
-    reason: "2026年度のコンクリート技士・主任技士は申込締切8/25、試験11/29",
-    stripPathLiterals: true,
-  },
-];
-
 function walk(dir) {
   const files = [];
   for (const entry of readdirSync(dir, { withFileTypes: true })) {
@@ -169,21 +187,9 @@ for (const scanRoot of scanRoots) {
   const absoluteRoot = join(ROOT, scanRoot);
   if (!existsSync(absoluteRoot) || !statSync(absoluteRoot).isDirectory()) continue;
   for (const file of walk(absoluteRoot)) {
-    const raw = readFileSync(file, "utf8");
-    let stripped = null;
     scannedFiles++;
-    for (const rule of forbidden) {
-      let content = raw;
-      if (rule.stripPathLiterals) {
-        if (stripped === null) {
-          stripped = PATH_LITERALS.reduce((acc, re) => acc.replace(re, ""), raw);
-        }
-        content = stripped;
-      }
-      rule.pattern.lastIndex = 0;
-      if (rule.pattern.test(content)) {
-        errors.push(`${relative(ROOT, file)}: ${rule.reason}`);
-      }
+    for (const reason of findForbidden(readFileSync(file, "utf8"))) {
+      errors.push(`${relative(ROOT, file)}: ${reason}`);
     }
   }
 }
@@ -216,7 +222,7 @@ if (errors.length) {
 const totalEvents = inspected.reduce((a, x) => a + x.n, 0);
 console.log(
   `[check-exam-calendar] OK: ${calendar.verifiedAt}確認済み — ` +
-    `資格 ${inspected.length} 件 / 日付 ${totalEvents} 件を実照合、` +
-    `${scannedFiles} ファイルを走査（禁止パターン ${forbidden.length} 種）`,
+    `資格 ${inspected.length} 件 / 日付 ${totalEvents} 件を実照合・未発表の期間 ${periodCount} 件を検査、` +
+    `${scannedFiles} ファイルを走査（禁止パターン ${FORBIDDEN.length} 種）`,
 );
 for (const x of inspected) console.log(`  ${x.label}: ${x.n} 件`);

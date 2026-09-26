@@ -4,6 +4,7 @@ description: >
   文書の肥大化・陳腐化・重複・完了状況を、検証済み外部実体に基づき監査する Evaluator。KEEP/TRIM/DELETE/CONSOLIDATE と抽出・参照更新案を返す。編集・削除はしない。コード差分起点の同期監査は doc-sync-auditor。
 model: sonnet
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
+domain: ops
 ---
 
 # Doc Curator Agent

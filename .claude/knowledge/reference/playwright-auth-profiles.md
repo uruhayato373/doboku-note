@@ -31,7 +31,6 @@ PC ごとに独立保持し、Windows と Mac の間でコピー・Git・OneDriv
 | service | profile | sessionMode | アカウント assert | ci.mode / ci.operations |
 |---|---|---|---|---|
 | `note` | `playwright-note-profile` | profile | note の `dobokunote` 表示 | encrypted-state / read+write |
-| `brain` | `playwright-brain-profile` | profile | `.claude/config/brain-account.json` | encrypted-state / read+write |
 | `coconala` | `playwright-coconala-profile` | profile | `.claude/config/coconala-account.json` | encrypted-state / read+write |
 | `kdp` | `playwright-kdp-profile` | profile | KDP 本棚の実体 | encrypted-state / read+write |
 | `x` | `playwright-x-profile` | profile | `.claude/config/x-account.json` | encrypted-state / read+write |
@@ -114,20 +113,20 @@ operator/skill が持つ dry-run→`--commit` ゲートに従い、認証 CLI �
   | 分類 | service |
   |---|---|
   | `authenticated` | note / coconala |
-  | `expired`（次に使うとき人が再ログインする） | brain / kdp / x / instagram / google / a8 / moshimo |
+  | `expired`（次に使うとき人が再ログインする） | kdp / x / instagram / google / a8 / moshimo |
   | `unsupported`（設計どおり） | afb |
 
 > [!note]
-> この表は当初 brain / google / x を `unknown` と記録していたが、原因は**判定側**にあり、実体は
-> 3 件ともログアウト済みだった。同日に 2 つ直している。
+> この表は当初 google / x を `unknown` と記録していたが、原因は**判定側**にあり、実体は
+> ログアウト済みだった。同日に 2 つ直している。
 >
 > - `status` が goto 後に 1 回 1.5 秒待って 1 回だけ判定していた。note は 4 回目（約 6 秒）で
 >   account marker が出るため、`--all` では `unknown`・`--service` では `authenticated` と結果が
 >   割れていた → `unknown` のときだけ待ち直す poll にした（`authenticated` / `expired` /
 >   `blocked` は決着済みなので即返す）
-> - ログアウト判定が URL の redirect だけを見ていた。brain は `/mypage` のままログイン CTA、
->   google は `/search-console/about` へ退避、x は `x.com/` でパスワード欄を出すため、どれも
->   redirect パターンに当たらなかった → パスワード欄・ログアウト表示・GSC の about も見る
+> - ログアウト判定が URL の redirect だけを見ていた。google は `/search-console/about` へ退避、
+>   x は `x.com/` でパスワード欄を出すため、どちらも redirect パターンに当たらなかった →
+>   パスワード欄・ログアウト表示・GSC の about も見る
 >
 > **`unknown` は「まだ判定できていない」であって「ログアウト」ではない。** account marker が
 > 出ているページにパスワード変更欄があっても `expired` にしない（note の `/settings/account` が
@@ -198,7 +197,7 @@ PutObject に IfMatch で付けていたバグ（R2 は PutObject の IfMatch �
 **全サービスの export（2026-09-21・Mac）で直した判定の穴**: a8 は registry の旧 URL `management.af8.jp` が DNS 不解決（真実源は
 a8-report-automation.json の `media-console.a8.net`）／afb は adapter が `supported:false` で export が成立しなかった（判定を
 `#top_site_select` の DOM に）／google は最後に開いたプロパティ（stats47）に飛ぶので `?resource_id=sc-domain:doboku-note.com` を明示／
-brain は sellerName がメニュー内で不可視（「記事を書く」で判定・ただし撤退方針で CI 対象外）／**x は hosted runner だと
+**x は hosted runner だと
 「セキュリティ検証の実行」のボット挑戦ページになり判定不能**（cookie の問題ではなく datacenter IP。`enabled:false`・ローカルか
 residential IP の self-hosted runner が要る）。headed でないと 403 になるサイト向けに `auth:export --headed` を追加。
 

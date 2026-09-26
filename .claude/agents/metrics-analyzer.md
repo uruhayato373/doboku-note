@@ -2,6 +2,7 @@
 name: metrics-analyzer
 description: GSC/GA4 の計測データから改善機会パターンを抽出する Evaluator エージェント。High-Impr-Low-CTR・Rank-Stuck・Traffic-Drop・Hidden-Winner・Orphan-Query・SNS-Source-Shift・Cannibalization・Content-Decay の8パターンで surface し、`/nsm-experiment propose` の入力を生成する。
 model: sonnet
+domain: site
 ---
 
 ## 資格別の事業判断への入力
