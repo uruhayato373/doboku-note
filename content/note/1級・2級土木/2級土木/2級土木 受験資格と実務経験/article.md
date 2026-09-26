@@ -115,7 +115,7 @@ https://note.com/dobokunote/m/m1881a9578027
 
 すでに実務経験があり、資格取得を機に条件を見直したい方は、建設・施工管理に特化した転職エージェントの無料キャリア面談で、いまの経験・資格で狙える求人と想定年収を確認できます。登録・相談は無料で、在職中でも動くかは提示された条件を見てから決められます。
 
-https://px.a8.net/svt/ejp?a8mat=4B5OO5+FHBA2+5B0Y+NTJWY
+https://px.a8.net/svt/ejp?a8mat=4B5OO5+FHED6+5B0Y+NTJWY
 
 ---
 
