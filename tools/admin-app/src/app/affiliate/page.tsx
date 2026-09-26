@@ -36,8 +36,8 @@ export default function AffiliatePage() {
       <div className="grid cols-4" style={{ marginBottom: 12 }}>
         <Kpi label={placements.window ? `サイト内クリック ${md(placements.window.start)}〜${md(placements.window.end)}` : 'サイト内クリック'} value={placements.rows.length ? clicks : '—'} />
         <Kpi label="クリック率" value={rate(clicks, imps)} />
-        <Kpi label={`A8 発生 ${period?.singleMonth ?? ''}`} value={collected ? num(siteTotals?.conversions ?? null) : '—'} />
-        <Kpi label={`A8 確定額 ${period?.singleMonth ?? ''}`} value={collected ? yen(siteTotals?.revenueYen ?? null) : '—'} />
+        <Kpi label={`A8 発生（サイト＋note） ${period?.singleMonth ?? ""}`} value={collected ? num(siteTotals?.conversions ?? null) : '—'} />
+        <Kpi label={`A8 確定額（サイト＋note） ${period?.singleMonth ?? ""}`} value={collected ? yen(siteTotals?.revenueYen ?? null) : '—'} />
       </div>
 
       {(experiments.length > 0 || unmapped.length > 0) && (

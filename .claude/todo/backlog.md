@@ -758,6 +758,24 @@ Drive台帳・vault・Drive APIの照合前にローカル実体を削除しな�
 
 ## 🟣 判断待ち — ユーザーの意思決定が必要
 
+### [DN-0323] A8 に note を別の掲載サイトとして登録し、note の転職リンクの成果をサイトと分ける
+タグ: [収益化] [種類:意思決定] [起票:2026-09-26]
+
+**起点**: note の転職記事 7 本（管理画面 `/affiliate/placements`）は、サイトと同じ A8 登録サイト（doboku-note・websiteId=002）のリンク（ビルドジョブ `…NTJWY`）を使っている。A8 のサイト別レポートでは note とサイトの成果が合算され、8 月の A8 クリック 71 と GA4 のサイト内クリック 11 の差の内訳も分けられない。stats47 と doboku-note は既にサイト別レポートで分けているので、note を別サイトにすれば同じ仕組みで分けられる。
+
+**やること**: (1) A8 のサイト登録に note（https://note.com/dobokunote）を追加する（アカウント設定の変更・A8 の審査あり。操作はユーザー確認のうえ実施）(2) ビルドジョブの提携が登録サイトごとに要るかを確認し、要るなら `npm run affiliate-apply` で申請する (3) 承認後、note 用のリンク（新しい a8mat）を `src/config/affiliate-mats.json` に登録して DN-0324 へ進む。
+
+**完了条件**: A8 で note 用サイトの審査とビルドジョブ提携が承認され、note 用 a8mat が発行されたら、このカードを削除する。
+
+### [DN-0324] note の転職リンクを note 用 a8mat へ差し替え、成果を掲載先ごとに集計する
+タグ: [収益化] [種類:改善] [起票:2026-09-26]
+
+**起点**: DN-0323 の承認待ち。A8 の正規化（`scripts/normalize-a8-csv.mjs`）はサイト別レポートを `siteSummary` として site ごとに持つので、note 用サイトの行を doboku-note と別に読めば掲載先別の成果になる。
+
+**やること**: note 7 記事のリンクを note 用 a8mat へ差し替えてライブ更新（`note-update-body` の罠は reference_note_update_body_gotchas）、`a8-report-automation.json` と admin の成果画面を「サイト／note」の2行で出す形へ直す（コード変更は feature ブランチ＋PR）。
+
+**完了条件**: 7 記事のライブが新しいリンクになり、管理画面 `/affiliate` の A8 成果がサイトと note に分かれて表示されたら、このカードを削除する。
+
 ### [DN-0320] SEO の本番監査（production smoke）を作るかと、保留中の SEO 判断3件を決める
 タグ: [インフラ・計測] [種類:意思決定] [起票:2026-09-25]
 

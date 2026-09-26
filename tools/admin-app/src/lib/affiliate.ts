@@ -242,3 +242,36 @@ export function affiliateExperiments(): { id: string; title: string; nextCheck: 
     return [];
   }
 }
+
+/** 掲載先（サイト／note／SNS）ごとのアフィリエイトリンク。数えるのは scripts/lib/affiliate-placements.mjs。 */
+export { affiliatePlacements as affiliateSurfaces } from '../../../../scripts/lib/affiliate-placements.mjs';
+
+/** 提携・案件（.claude/state/ads/affiliate-catalog.json）＋リンクの期限（src/config/affiliate-mats.json）。 */
+export interface ProgramCatalogRow {
+  id: string;
+  label: string;
+  placement: string;
+  asps: { asp: string; status: string; rewardYen: number | null }[];
+  expiresAt: string | null;
+}
+export function affiliateCatalog(): ProgramCatalogRow[] {
+  try {
+    const c = JSON.parse(readFileSync(repoPath('.claude', 'state', 'ads', 'affiliate-catalog.json'), 'utf8')) as {
+      programs: Record<string, { label: string; placement: string; asps?: Record<string, { status?: string; rewardYen?: number | null }> }>;
+    };
+    const mats = JSON.parse(readFileSync(repoPath('src', 'config', 'affiliate-mats.json'), 'utf8')).mats as { program: string; expiresAt: string | null }[];
+    return Object.entries(c.programs).map(([id, p]) => {
+      const dates = mats.filter((m) => m.program === id).map((m) => m.expiresAt);
+      return {
+        id,
+        label: p.label,
+        placement: p.placement,
+        asps: Object.entries(p.asps ?? {}).map(([asp, x]) => ({ asp, status: x.status ?? 'unknown', rewardYen: x.rewardYen ?? null })),
+        // 期限なしのリンクが1本でもあれば期限なし
+        expiresAt: dates.length && dates.every(Boolean) ? (dates as string[]).sort().at(-1)! : null,
+      };
+    });
+  } catch {
+    return [];
+  }
+}

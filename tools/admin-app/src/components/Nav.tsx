@@ -39,6 +39,7 @@ const channelTrees = (ids: readonly AdminChannelId[]): NavTree[] =>
  * - 戦略: 全体の数字と方針、資格一覧（展開中・候補・見送りと日程・受験者数）
  * - 教材: 教材一覧と、棚（shelf）ごとの各教材ページ（論点を本文・図解・SNS・商品へどう展開したか・するか）
  * - 商品: 商品ラインナップ → 販売チャネル（note/ココナラ/Kindle）→ 売上
+ * - アフィリエイト: 他社商品への送客（成果・掲載先＝サイト/note/SNS・提携と案件）。自社商品とは判断材料が違うので分ける
  * - サイト: 無料記事と、その集客の計測（検索順位・GSC・GA4・PSI）
  * - SNS: 投稿状況・各 SNS・動画成果・キャラクター素材
  * - 計画: スケジュール（試験・商品・SNS・開発をまたぐ時間軸）とバックログ〜年間
@@ -68,7 +69,14 @@ const GROUPS: { title: string; entries: NavEntry[] }[] = [
       { href: '/content/lineup', label: '商品ラインナップ', match: '/content/lineup' },
       ...channelTrees(['note', 'coconala', 'kindle']),
       { href: '/sales', label: '売上', match: '/sales' },
-      { href: '/affiliate', label: 'アフィリエイト', match: '/affiliate' },
+    ],
+  },
+  {
+    title: 'アフィリエイト',
+    entries: [
+      { href: '/affiliate', label: '成果', match: '/affiliate' },
+      { href: '/affiliate/placements', label: '掲載先', match: '/affiliate/placements' },
+      { href: '/affiliate/programs', label: '提携・案件', match: '/affiliate/programs' },
     ],
   },
   {
@@ -123,7 +131,7 @@ function isActive(
   tab: Tab,
 ): boolean {
   const pathMatches =
-    tab.match === '/metrics' || tab.match === '/content'
+    tab.match === '/metrics' || tab.match === '/content' || tab.match === '/affiliate'
       ? pathname === tab.match
       : pathname === tab.match || pathname.startsWith(tab.match + '/');
 
