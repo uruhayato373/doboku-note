@@ -123,6 +123,7 @@
     "check-qualification-market": "node scripts/check-qualification-market.mjs",
     "qualification-market": "node scripts/report-qualification-market.mjs",
     "scan-qualification-market": "node scripts/scan-qualification-market.mjs",
+    "roll-backlog-when": "node scripts/roll-backlog-when.mjs",
     "seo-rank-watch": "node scripts/seo-rank-watch.mjs",
     "check-seo-rank-watch": "node scripts/check-seo-rank-watch.mjs",
     "check-experiment-due": "node scripts/check-experiment-due.mjs",

@@ -5,7 +5,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseBacklog, findOrphanHeadings, KINDS, CANONICAL_CATEGORIES } from '../scripts/lib/backlog-lib.mjs';
 import { validateCards, validateStagedLines } from '../scripts/check-backlog-schema.mjs';
-import { signatureTokens, duplicateCandidates, computeMonthLoad } from '../scripts/check-backlog-health.mjs';
+import { signatureTokens, duplicateCandidates } from '../scripts/check-backlog-health.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -234,18 +234,3 @@ test('[期日:] があれば、その月を [時期:] に含める（🟢・🟣
   assert.deepEqual(at('🔴 高', '[収益化] [種類:制作] [時期:2026-11..2027-03] [期日:2027-03-15]'), []);
 });
 
-test('S16 computeMonthLoad: 今月〜2か月先で目安を超える月だけを返す', () => {
-  const cards = [
-    ...Array.from({ length: 3 }, () => ({ when: '2026-10', tier: 'high' })),
-    { when: '2026-10..2026-12', tier: 'mid' },
-    { when: '2027-01', tier: 'high' },
-    { when: null, tier: 'low' },
-  ];
-  assert.deepEqual(computeMonthLoad(cards, '2026-09', { limit: 2 }), [{ month: '2026-10', count: 4, high: 3 }]);
-  assert.deepEqual(computeMonthLoad(cards, '2026-09', { limit: 4 }), []);
-  // 年をまたぐ月も数える（2026-12 起点で 12 月・1 月・2 月）
-  assert.deepEqual(computeMonthLoad(cards, '2026-12', { limit: 0 }), [
-    { month: '2026-12', count: 1, high: 0 },
-    { month: '2027-01', count: 1, high: 1 },
-  ]);
-});

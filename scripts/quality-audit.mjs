@@ -334,6 +334,12 @@ const CHECKS = [
     note: '資格の正本（qualification-registry・exam-calendar・exam-stats）の照合状態レポートが実行可能か（成果物は書かない。要対応の中身は壁時計依存なので CI では見ない。読み手＝月次レビュー /monthly-review 手順）',
   },
   {
+    id: 'roll-backlog-when',
+    cmd: ['node', 'scripts/roll-backlog-when.mjs'],
+    timeout: 30_000, ci: true,
+    note: '終わらなかったカードを翌月へ回すスクリプトが backlog.md を読めるか（表示だけで書かない。回す件数は壁時計依存なので CI では判定しない。読み手＝月次レビュー手順 8）',
+  },
+  {
     id: 'qualification-market-report',
     cmd: ['node', 'scripts/report-qualification-market.mjs', '--check'],
     timeout: 30_000, ci: true,
