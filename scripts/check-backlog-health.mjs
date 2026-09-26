@@ -25,6 +25,7 @@
  *   S12 完了 prose の蓄積（本文に「済み」「完了し」等の完了報告表現が閾値以上＝TRIM 候補）
  *   S13 チャネル状態複製の疑い（noteStatus/status/published の値や「残N本」がカードに写されている＝
  *       SSOT が真実源のはずが本文へ複製され、後で陳腐化する候補。todo-standards.md §1-2 の対象）
+ *   S14 期日超過 ／ S15 [時期:] の月を過ぎたまま残っている（月初に npm run roll-backlog-when で翌月へ回す）
  *
  * Usage:
  *   node scripts/check-backlog-health.mjs           人間向け
@@ -43,6 +44,7 @@ import {
   KINDS,
   CANONICAL_CATEGORIES,
   TODO_LAYER_FILES,
+  parseWhen,
 } from './lib/backlog-lib.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -130,6 +132,7 @@ const DUE_RULES = (DAYS) => [
   { id: 'S12', why: '完了 prose 蓄積（TRIM 候補）3 件以上', hit: (r) => (r.completionProseHeavy?.length ?? 0) >= 3 },
   { id: 'S13', why: 'チャネル状態複製の疑い 3 件以上', hit: (r) => (r.ssotDuplicationSuspects?.length ?? 0) >= 3 },
   { id: 'S14', why: '期日超過のカード', hit: (r) => (r.overdueDue?.length ?? 0) >= 1 },
+  { id: 'S15', why: '[時期:] の月を過ぎたまま残っているカード（時期の見直しか完了の記録が要る）', hit: (r) => (r.pastWhen?.length ?? 0) >= 1 },
 ];
 
 /** JST の YYYY-MM-DD（UTC 実行で前日付になる事故を避ける・check-jst-date と同じ規律）。 */
@@ -310,6 +313,17 @@ export function computeOverdueDue(cards, todayYmd) {
     .sort((a, b) => a.due.localeCompare(b.due));
 }
 
+/**
+ * [時期:] の終わりの月を過ぎたまま残っているカード（2026-09-26）。年間ロードマップと今月のカードは
+ * [時期:] だけで決まるので、過ぎたカードを放置すると「今月やること」から黙って消える。
+ */
+export function computePastWhen(cards, thisMonth) {
+  return cards
+    .map((c) => ({ c, w: parseWhen(c.when) }))
+    .filter(({ w }) => w && w.end < thisMonth)
+    .map(({ c, w }) => ({ id: c.id, line: c.line, when: c.when, end: w.end, title: c.title }));
+}
+
 export async function run({ argv = [], quiet = false } = {}) {
 const out = createOutput({ quiet });
 const JSON_OUT = argv.includes('--json');
@@ -457,6 +471,7 @@ const staleAfterCommit = s11Degraded ? [] : computeStaleAfterCommit(cards, commi
 const proseHeavy = computeCompletionProseHeavy(cards);
 const ssotSuspects = computeSsotDuplicationSuspects(cards);
 const overdueDue = computeOverdueDue(cards, jstToday());
+const pastWhen = computePastWhen(cards, jstToday().slice(0, 7));
 
 const report = {
   cards: cards.length,
@@ -486,6 +501,7 @@ const report = {
   completionProseHeavy: proseHeavy,
   ssotDuplicationSuspects: ssotSuspects,
   overdueDue,
+  pastWhen,
 };
 
 if (RECORD) {
@@ -508,6 +524,8 @@ if (DUE) {
   for (const h of hits) out.log(`  ${h.id} ${h.why}`);
   // S14 は「どのカードがいつ切れたか」が分からないと動けないので明細を出す。
   for (const c of report.overdueDue ?? []) out.log(`    期日超過 ${c.id ?? '(ID無し)'} ${c.due} ${c.title}`);
+  for (const c of report.pastWhen ?? []) out.log(`    時期超過 ${c.id ?? '(ID無し)'} ${c.when} ${c.title}`);
+  if ((report.pastWhen ?? []).length) out.log('    → 終わっていなければ npm run roll-backlog-when -- --write で翌月へ回す');
   out.log(`  → /backlog-sweep --audit（カード ${cards.length} 件・詳細は npm run check-backlog-health）`);
   out.log('────────────────────────────────────────────────');
   out.log('');
@@ -560,6 +578,10 @@ line('S12 完了 prose 蓄積（TRIM 候補・本文 5 件以上）', proseHeavy
 for (const c of proseHeavy.slice(0, 8)) out.log(`      L${c.line} ${c.count}件 ${c.title}`);
 line('S13 チャネル状態複製の疑い（SSOT が真実源・カードから剥がす候補）', ssotSuspects.length);
 for (const c of ssotSuspects.slice(0, 8)) out.log(`      L${c.line} ${c.count}件 ${c.title}`);
+line('S14 期日超過', overdueDue.length);
+for (const c of overdueDue.slice(0, 8)) out.log(`      ${c.id ?? '(ID無し)'} ${c.due} ${c.title}`);
+line('S15 [時期:] の月を過ぎたまま残っている', pastWhen.length);
+for (const c of pastWhen.slice(0, 8)) out.log(`      ${c.id ?? '(ID無し)'} ${c.when} ${c.title}`);
 out.log('\n判定と適用は /backlog-sweep --audit（backlog-curator）が行う。ここは候補の列挙のみ。');
 return out.result(0);
 }

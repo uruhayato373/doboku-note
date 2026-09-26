@@ -26,6 +26,7 @@ export const CHECKS = [
   { name: 'plan-staleness', script: 'scripts/check-plan-staleness.mjs', args: [], timeout: 10_000 },
   { name: 'backlog-due', script: 'scripts/check-backlog-health.mjs', args: ['--due'], timeout: 15_000 },
   { name: 'weekly-review-due', script: 'scripts/check-weekly-review-due.mjs', args: [], timeout: 10_000 },
+  { name: 'monthly-review-due', script: 'scripts/check-monthly-review-due.mjs', args: [], timeout: 10_000 },
   { name: 'gsc-login', script: 'scripts/check-gsc-login.mjs', args: [], timeout: 5_000 },
   { name: 'resources', script: 'scripts/local-resource-audit.mjs', args: ['--quick'], timeout: 30_000 },
   { name: 'disk-hygiene', script: 'scripts/check-disk-hygiene.mjs', args: ['--quick'], timeout: 15_000 },

@@ -1,22 +1,54 @@
 {
   "_doc": "check-backlog-verify が前回の status を覚えておくための状態。red → green の遷移だけが「完了の疑い」で、常時 green は [検証:] の指定が完了判定になっていない疑い（surfacer を指している）。",
-  "updatedAt": "2026-09-14",
+  "updatedAt": "2026-09-26",
   "commands": {
+    "check-coconala-live": {
+      "status": "green",
+      "at": "2026-09-26"
+    },
+    "check-coconala-orders": {
+      "status": "green",
+      "at": "2026-09-26"
+    },
+    "check-video-publication": {
+      "status": "green",
+      "at": "2026-09-26"
+    },
+    "check-x-campaign-plan": {
+      "status": "green",
+      "at": "2026-09-26"
+    },
     "check-content-expansion": {
       "status": "green",
-      "at": "2026-09-14"
+      "at": "2026-09-26"
     },
     "resources:cloud": {
-      "status": "red",
-      "at": "2026-09-14"
+      "status": "green",
+      "at": "2026-09-26"
     },
     "check-video-content": {
       "status": "green",
-      "at": "2026-09-14"
+      "at": "2026-09-26"
+    },
+    "test:e2e:a11y": {
+      "status": "green",
+      "at": "2026-09-26"
+    },
+    "report-career-funnel": {
+      "status": "green",
+      "at": "2026-09-26"
     },
     "quality:audit:ci": {
       "status": "error",
-      "at": "2026-09-14"
+      "at": "2026-09-26"
+    },
+    "check-exam-calendar": {
+      "status": "green",
+      "at": "2026-09-26"
+    },
+    "check-x-queue-health": {
+      "status": "red",
+      "at": "2026-09-26"
     }
   }
 }

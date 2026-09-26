@@ -12,6 +12,8 @@
  * 全量モード（既定）:
  *   1. 未知キーの token（[実行者:x] のような打ち間違い。廃止済み [実行:] もここで error）が無い
  *   2. [種類:] が KINDS の語彙内（null は移行中のみ許容）
+ *   3. 🔴 高・🟡 中は [時期:] 必須（when-missing）、[期日:] があれば期日の月を [時期:] に含める（when-due）。
+ *      いつやるかの正本は [時期:] だけで、見出しは重要度（2026-09-26〜）
  *   4. カテゴリが CANONICAL_CATEGORIES ∪ baseline の語彙内
  *   5. [検証:cmd] が package.json の scripts に実在する
  *   6. 生 `### ` 行数 == カード数 + orphan 数（パーサ退行・フェンス事故の検知）
@@ -44,6 +46,8 @@ import {
   CANONICAL_CATEGORIES,
   TODO_LAYER_FILES,
   DOBOKU_ID_PATTERN,
+  parseWhen,
+  TODO_DIR,
 } from './lib/backlog-lib.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -79,12 +83,27 @@ export function validateCards(cards, orphans, opts) {
     for (const u of c.unknownKeys ?? []) {
       // [実行:] は 2026-08-26 に軸ごと廃止（単独で回せるかは選定側モデルが本文で判断）。
       // TAG_KEYS から外れたので unknownKeys に落ち、ここで再導入を止める。
-      v.push({ rule: 'unknown-key', at: at(c), msg: `未知の token キー [${u.raw}]（語彙: ${Object.keys({ 種類: 1, 検証: 1, 起票: 1, 期日: 1, 領域: 1 }).join('/')}${u.key === '実行' ? '。[実行:] 軸は 2026-08-26 廃止' : ''}）` });
+      v.push({ rule: 'unknown-key', at: at(c), msg: `未知の token キー [${u.raw}]（語彙: ${Object.keys({ 種類: 1, 検証: 1, 起票: 1, 期日: 1, 領域: 1, 時期: 1 }).join('/')}${u.key === '実行' ? '。[実行:] 軸は 2026-08-26 廃止' : ''}）` });
     }
     // [領域:] は全カード必須（2026-09-26〜。サイドバー・スケジュールと同じ領域で束ねる）。
     if (domainLabels) {
       if (!c.domain) v.push({ rule: 'domain-missing', at: at(c), msg: `「${c.title.slice(0, 40)}」に [領域:] が無い（${[...domainLabels].join(' / ')}）` });
       else if (!domainLabels.has(c.domain)) v.push({ rule: 'domain', at: at(c), msg: `[領域:${c.domain}] は語彙外（正本: .claude/config/domains.json）` });
+    }
+    if (c.when && !parseWhen(c.when)) {
+      v.push({ rule: 'when', at: at(c), msg: `[時期:${c.when}] は YYYY-MM か YYYY-MM..YYYY-MM（開始 ≦ 終了）で書く` });
+    }
+    // いつやるかの正本は [時期:]（2026-09-26〜）。見出しは重要度だけを表す。月間は [時期:] から導出するので、
+    // 🔴 高・🟡 中に時期が無いと月間・週間に一度も出てこない（2026-09-26 に 28 枚が漏れていた）。
+    if (!c.when && (c.tier === 'high' || c.tier === 'mid')) {
+      v.push({ rule: 'when-missing', at: at(c), msg: `「${c.title.slice(0, 40)}」に [時期:] が無い（🔴 高・🟡 中は必須。月間・週間に出てこない）` });
+    }
+    // 期日があるのに時期がその月を含まないと、期日の月の月間に出てこない
+    if (c.due && /^\d{4}-\d{2}-\d{2}$/.test(c.due)) {
+      const w = c.when ? parseWhen(c.when) : null;
+      const m = c.due.slice(0, 7);
+      if (!w) v.push({ rule: 'when-due', at: at(c), msg: `[期日:${c.due}] があるのに [時期:] が無い（${m} を含む [時期:] を付ける）` });
+      else if (m < w.start || m > w.end) v.push({ rule: 'when-due', at: at(c), msg: `[期日:${c.due}] の月 ${m} が [時期:${c.when}] に入っていない` });
     }
     if (c.kind && !KINDS.includes(c.kind)) {
       v.push({ rule: 'kind', at: at(c), msg: `[種類:${c.kind}] は語彙外（${KINDS.join(' / ')}）` });
@@ -99,6 +118,11 @@ export function validateCards(cards, orphans, opts) {
     }
   }
 
+  // 優先度（🔴🟡🟢🟣）の見出しの外にあるカードは admin にも sweep にも出ない（2026-09-26: 凡例の表の
+  // 「## 🔴 高」の直後へ誤挿入した 16 枚が、件数の突合だけでは素通りした）
+  for (const o of orphans) {
+    v.push({ rule: 'orphan', at: `${BACKLOG}:${o.line}`, msg: `「${o.title.slice(0, 40)}」が優先度の見出し（## 🔴/🟡/🟢/🟣）の外にある` });
+  }
   if (rawHeadingCount !== cards.length + orphans.length) {
     v.push({
       rule: 'parser',
@@ -114,6 +138,28 @@ export function validateCards(cards, orphans, opts) {
  * @param addedTodoFiles 追加された 4 層以外の .md
  * @param cards parseBacklog の出力（新規カードの token 必須チェック用）
  */
+/**
+ * 計画の層の契約（2026-09-26〜）。月間は [時期:] が今月を含むカードから導出するので monthly.md に
+ * タスク表を置かない。weekly.md の表に書いた ID はバックログに実在すること（削除済みカードの残骸を止める）。
+ * @param {{ monthly: string, weekly: string }} texts 各ファイルの本文（無ければ空文字）
+ * @param {Set<string>} backlogIds
+ */
+export function validateLayers(texts, backlogIds) {
+  const v = [];
+  (texts.monthly ?? '').split(/\r?\n/).forEach((l, i) => {
+    if (/^\s*\|/.test(l) && /DN-\d{4}/.test(l)) {
+      v.push({ rule: 'monthly-table', at: `.claude/todo/monthly.md:${i + 1}`, msg: 'monthly.md にタスク表を置かない（月間は [時期:] が今月を含むカードから自動で決まる。カードの [時期:] を直す）' });
+    }
+  });
+  (texts.weekly ?? '').split(/\r?\n/).forEach((l, i) => {
+    if (!/^\s*\|/.test(l)) return;
+    for (const id of l.match(/DN-\d{4}/g) ?? []) {
+      if (!backlogIds.has(id)) v.push({ rule: 'weekly-ref', at: `.claude/todo/weekly.md:${i + 1}`, msg: `${id} はバックログに無い（完了・削除したカードの行を weekly.md から消す）` });
+    }
+  });
+  return v;
+}
+
 export function validateStagedLines(addedLines, addedTodoFiles, cards = [], knownTitles = null) {
   const v = [];
   // 新規カードは token を揃える（ラチェット＝既存カードの欠落は返済を強制しない）。
@@ -211,6 +257,12 @@ function main() {
     allowedCategories,
     domainLabels: new Set(loadDomains(ROOT).domains.map((d) => d.label)),
   });
+
+  const readLayer = (f) => (existsSync(join(ROOT, TODO_DIR, f)) ? readFileSync(join(ROOT, TODO_DIR, f), 'utf8') : '');
+  violations.push(...validateLayers(
+    { monthly: readLayer('monthly.md'), weekly: readLayer('weekly.md') },
+    new Set(cards.map((c) => c.id).filter(Boolean)),
+  ));
 
   // 構造アサーション: admin が自前のタグ分解へ戻っていないか（2 実装の再分岐を止める）
   const todoTs = join(ROOT, 'tools/admin-app/src/lib/todo.ts');

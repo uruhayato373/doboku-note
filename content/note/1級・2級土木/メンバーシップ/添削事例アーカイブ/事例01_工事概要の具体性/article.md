@@ -1,6 +1,6 @@
 ---
 notePricing: membership
-noteStatus: reserved
+noteStatus: published
 noteSeries: 添削練習アーカイブ
 membershipOnly: true
 utmCampaign: civil-membership-addelta-01

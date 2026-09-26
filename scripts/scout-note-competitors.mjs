@@ -29,7 +29,7 @@
  *
  * 使い方:
  *   npm run scout-note-competitors                     # config 全社を偵察→時系列保存＋前回比ドリフト
- *   npm run scout-note-competitors -- --exam concrete-chief  # 試験タグで絞って偵察（部分実行=履歴/driftなし）
+ *   npm run scout-note-competitors -- --exam concrete-chief-engineer  # 資格 id で絞って偵察（部分実行=履歴/driftなし）
  *   npm run scout-note-competitors -- --handle sosou_nino,chansato_st  # ad-hoc 指定
  *   npm run scout-note-competitors -- --note-pages 20  # 単品記事を直近20ページまで（既定5）
  *   npm run scout-note-competitors -- --contents       # 各マガジンの収録記事も取得（重い）
@@ -57,7 +57,7 @@ function argVal(flag, def) {
 const WANT_CONTENTS = args.includes('--contents');
 const NOTE_PAGES = Math.max(1, parseInt(argVal('--note-pages', '5'), 10) || 5);
 const HANDLE_OVERRIDE = argVal('--handle', null);
-const EXAM_FILTER = argVal('--exam', null); // 試験タグで config を絞る（sokan/pe/civil/concrete-* 等）
+const EXAM_FILTER = argVal('--exam', null); // 資格 id（qualification-registry.json）で config を絞る
 
 /** curl で JSON を取得（プロキシ + 失効チェック無効化）。HTML/空はリトライ。 */
 function curlJson(url) {

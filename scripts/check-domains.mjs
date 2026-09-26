@@ -7,12 +7,15 @@
  *      frontmatter に domain: があり、正本の id である
  *   3. docs/**（reviews・handoffs を除く）と .claude/knowledge/reference/*.md が documents で
  *      ちょうど1つの領域に解決できる
+ *   4. 各領域のサイドバー画面（nav）の種類が navKinds にあり、URL の画面（tools/admin-app/src/app 配下の page.tsx）が実在する
+ *   5. 年間ロードマップの設定（annual-roadmap.json）が期間と買い場の週数だけを持つ（重点はバックログの [時期:]）
  * バックログの [領域:] は check-backlog-schema が見る。検査した件数を出し、0 件は検査不成立（exit 2）。
  */
 import { readdirSync, readFileSync, statSync, existsSync } from 'node:fs';
 import { join, dirname, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadDomains, documentDomain, frontmatterDomain } from './lib/domains.mjs';
+import { loadRoadmap, validateRoadmap } from './lib/annual-roadmap.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const cfg = loadDomains(ROOT);
@@ -44,14 +47,30 @@ for (const p of defs) {
   else if (!ids.has(d)) errors.push(`${rel(p)}: domain: ${d} は領域 id にない（${[...ids].join(' / ')}）`);
 }
 
+let navViews = 0;
+const kinds = new Set(Object.keys(cfg.navKinds ?? {}));
+const appDir = join(ROOT, 'tools/admin-app/src/app');
+for (const d of cfg.domains) {
+  if (!Array.isArray(d.nav) || d.nav.length === 0) errors.push(`${d.id}: nav（サイドバーの画面）が無い`);
+  for (const v of d.nav ?? []) {
+    navViews++;
+    if (!kinds.has(v.kind)) errors.push(`${d.id} / ${v.label}: kind ${v.kind} は navKinds にない`);
+    const path = v.href.split('?')[0].replace(/^\//, '');
+    if (!existsSync(join(appDir, path, 'page.tsx'))) errors.push(`${d.id} / ${v.label}: ${v.href} の画面（app/${path}/page.tsx）が無い`);
+  }
+}
+
+const roadmap = loadRoadmap(ROOT);
+for (const e of validateRoadmap(roadmap)) errors.push(`annual-roadmap: ${e}`);
+
 const docs = [
   ...walk(join(ROOT, 'docs'), (p) => p.endsWith('.md') && !/[\\/]docs[\\/](reviews|handoffs)[\\/]/.test(p)),
   ...walk(join(ROOT, '.claude/knowledge/reference'), (p) => p.endsWith('.md')),
 ];
 for (const p of docs) if (!documentDomain(cfg, rel(p))) errors.push(`${rel(p)}: domains.json の documents で領域が決まらない`);
 
-console.log(`[check-domains] 領域 ${ids.size} / スキル・エージェント ${defs.length} 件 / 文書 ${docs.length} 件を実検査 / 違反 ${errors.length} 件`);
-if (defs.length === 0 || docs.length === 0) {
+console.log(`[check-domains] 領域 ${ids.size} / サイドバー画面 ${navViews} / ロードマップ設定 1 件 / スキル・エージェント ${defs.length} 件 / 文書 ${docs.length} 件を実検査 / 違反 ${errors.length} 件`);
+if (defs.length === 0 || docs.length === 0 || navViews === 0) {
   console.error('✗ 検査不成立: 対象を 1 件も読めなかった');
   process.exit(2);
 }

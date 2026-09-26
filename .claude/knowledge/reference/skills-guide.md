@@ -133,7 +133,7 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 
 | スキル | 一言説明 | 呼ぶとき |
 |---|---|---|
-| `/plan-weekly` | .claude/todo/ を読んで今週の優先タスクを決め weekly.md を直接更新（Sonnet 1回・軽量。※戦略計画は /weekly-plan） | `今週のタスクを決めて`, `今週何をすべきか`, `weekly.md更新`, `/plan-weekly` |
+| `/plan-weekly` | `[時期:]` が今月を含むカードから今週の優先タスクを決め weekly.md を直接更新（Sonnet 1回・軽量。※戦略計画は /weekly-plan） | `今週のタスクを決めて`, `今週何をすべきか`, `weekly.md更新`, `/plan-weekly` |
 | `/backlog-sweep` | backlog から1〜2件を選定→実査→実行→検証→**セクション削除**で台帳を減らす1サイクル（実査で既に完了なら掃除として削除）。`/loop` で自走。**`--audit` は台帳そのものの棚卸し**（`backlog-curator` を同時3体で起動し、1枚単位の sweep では見えない台帳全体を KEEP/RETAG/TRIM/MERGE/DELETE/RESEED/SPLIT に分類）。※計画を書く /plan-weekly とは別物 | `バックログを消化して`, `backlog を減らして`, `sweep を回して`, `バックログを棚卸しして`, `/backlog-sweep`, `/backlog-sweep --audit` |
 | `/weekly-improve` | 計測→改善候補→実験登録。`--rank-watch` は資格受験者優先・7日観察・実行記録・28日方針レビュー | `SEO Rank Watch`, `今週の改善`, `PDCA`, `/weekly-improve` |
 | `/gsc-review` | 月次 GSC index coverage レビュー（gsc-index-auditor 起動→判断ログ追記） | `GSC月次レビュー`, `インデックス率`, `index coverage`, `/gsc-review` |
@@ -141,12 +141,12 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 | `/google-search-growth` | GSC/GA4 の Playwright UI CSV 取得→既存 API と URL 突合→修正候補分類（approval gate で停止・ローカル専用） | `検索流入改善`, `GSC CSV 取得`, `GSC/GA4 統合診断`, `/google-search-growth` |
 | `/monthly-review` | 前月の資格別KPI・販売・運営負担から重点と目標、次の改善を記録 | `月次レビュー`, `前月の振り返り`, `/monthly-review` |
 | `/weekly-review` | 資格別KPI・判断を週次履歴へ記録し、次の改善へ接続。Xは投入済みの最終予約記録と未投入計画を区別する。申し送りは各項目を backlog 起票／定常／Issue／実験へ振り分ける（旧週削除時の抽出もれは pre-commit が止める） | `週次レビュー`, `今週の振り返り`, `/weekly-review` |
-| `/weekly-plan` | 週次計画を生成（NSM・メトリクス連動・重め。`/weekly-review` 完了後に自動起動） | `戦略的週次計画`, `NSM込みの計画`, `/weekly-plan` |
+| `/weekly-plan` | 戦略的な週次計画を生成（NSM・メトリクス連動・重め。手動のみ。週間計画の正本 weekly.md は `/plan-weekly`） | `戦略的週次計画`, `NSM込みの計画`, `/weekly-plan` |
 | `/nsm-experiment` | NSM 改善の実験ライフサイクル管理 | `実験登録`, `NSM実験`, `/nsm-experiment` |
 | `/north-star-metric` | 学習価値・集客・販売・運営負担のKPI定義と実測に基づく目標を共通SSOTへ記録 | `NSM定義`, `北極星指標`, `/north-star-metric` |
 | `/growth-loops` | 成長ループの設計・評価 | `成長ループ`, `フライホイール設計`, `/growth-loops` |
 | `/monetization-strategy` | 収益化戦略のブレインストーム | `収益化`, `月X万円達成するには`, `/monetization-strategy` |
-| `/competitor-review` | 競合の価格・品揃えを**全チャネル横断**（note/X/IG/ココナラ・`--platform`）で四半期再取得（scout＋時系列drift）→ competitor-analyst で差別化再評価＋反映パッチ（09/07）。有料本文は取得不可 | `競合を再調査`, `競合レビュー`, `競合の価格を再取得`, `/competitor-review` |
+| `/competitor-review` | 競合の価格・品揃えを**全チャネル横断**（note/X/IG/ココナラ/YouTube・`--platform`）で四半期再取得（scout＋時系列drift＋資格キーワードの市場スキャン `scan-qualification-market`）→ competitor-analyst で差別化再評価＋反映パッチ（09/07）。有料本文は取得不可 | `競合を再調査`, `競合レビュー`, `競合の価格を再取得`, `/competitor-review` |
 | `/knowledge` | 過去の失敗・教訓を参照・追記 | `ナレッジ参照`, `失敗から学ぶ`, `/knowledge` |
 | `/critical-review` | 批判的レビュー | `批判的に見て`, `/critical-review` |
 | `/pre-mortem` | Pre-Mortem の実施 | `Pre-Mortem`, `リスク洗い出し`, `/pre-mortem` |
@@ -244,7 +244,7 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 ### 週次 PDCA を回したい
 
 1. `/weekly-improve` — 計測データから改善候補を自動抽出・実験登録（performance）
-2. `/weekly-review` → `/weekly-plan` — 振り返りと翌週計画の作成
+2. `/weekly-review` → `/plan-weekly` — 振り返りと翌週の週間計画（weekly.md）の更新
 
 ### GSC のインデックス状況（登録/未登録）を管理したい
 

@@ -147,23 +147,26 @@ test('admin の TODO タブ構成が backlog-lib の 4 層と一致する（層�
   assert.ok(files.every((f) => f.label && f.id), 'ラベル/id が欠けた層がある');
 });
 
-test('週間・月間は章見出しではなく計画表の各行をタスクとして読む', () => {
+test('週間は計画表の各行、月間は [時期:] が今月を含むバックログのカードから導出する', async () => {
   const weekly = todoBoardPlanCards('weekly');
   const monthly = todoBoardPlanCards('monthly');
+  const backlog = todoBoardBacklogCards();
   const weeklyLines = readFileSync(join(ROOT, '.claude/todo/weekly.md'), 'utf8').split(/\r?\n/);
-  const monthlyLines = readFileSync(join(ROOT, '.claude/todo/monthly.md'), 'utf8').split(/\r?\n/);
 
   assert.ok(weekly.length >= 3, '週間タスクが標準の3件未満になっている');
-  assert.ok(monthly.length >= 3, '月間タスクが3件未満になっている');
   assert.ok(weekly.every((item) => /^\||^-\s+\*\*/.test(weeklyLines[item.line - 1].trim())),
     '週間の表行・手動キュー以外がタスクへ混入している');
-  assert.ok(monthly.every((item) => monthlyLines[item.line - 1].trim().startsWith('|')),
-    '月間の表行以外がタスクへ混入している');
-  assert.ok([...weekly, ...monthly].every((item) => item.source === 'plan'));
+  assert.ok(weekly.every((item) => item.source === 'plan'));
   assert.ok(!weekly.some((item) => /^今週やること|今週やらないこと|メモ・ブロッカー/.test(item.title)),
     '章見出しがタスクに戻っている');
-  assert.ok(!monthly.some((item) => /^今月のゴール|今月やらないこと/.test(item.title)),
-    '月間テーマ見出しがタスクに戻っている');
+
+  // 月間＝[時期:] が今月（JST）を含むカード。monthly.md の表からは作らない（2026-09-26〜）
+  const { whenCovers } = await import('../scripts/lib/backlog-lib.mjs');
+  const { todayJst } = await import('../scripts/lib/jst-date.mjs');
+  const month = todayJst().slice(0, 7);
+  const expected = backlog.filter((c) => whenCovers(c.when, month)).map((c) => c.id).sort();
+  assert.deepEqual(monthly.map((c) => c.id).sort(), expected, '月間が [時期:] から導出されていない');
+  assert.ok(monthly.every((c) => c.source === 'backlog'), '月間に計画表の行が混入している');
 });
 
 test('週間・月間の表示は完了済みを除外し、年間は達成済みも残す', () => {

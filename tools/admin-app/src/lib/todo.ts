@@ -7,7 +7,9 @@ import {
   TODO_LAYER_FILES,
   TODO_DIR,
   KINDS,
+  whenCovers,
 } from '../../../../scripts/lib/backlog-lib.mjs';
+import { todayJst } from '../../../../scripts/lib/jst-date.mjs';
 import { listPlanUnits } from '../../../../scripts/lib/plan-units.mjs';
 
 /**
@@ -106,6 +108,10 @@ export interface TodoCard {
   title: string;
   codex: boolean;
   body: string;
+  /** `[時期:]`（やる月）。backlog カードのみ。年間ロードマップと月間はこの値だけで決まる。 */
+  when: string | null;
+  /** `[領域:]`（事業の領域ラベル）。backlog カードのみ。 */
+  domain: string | null;
   /** 週次・月次の表を束ねる見出し。backlog は null。 */
   section: string | null;
   /** 計画表に書かれた状態（自由文字列。plan 層のみ）。backlog は null。 */
@@ -121,7 +127,7 @@ export interface TodoCard {
   planPath: string | null;
   /**
    * 導出済みの実行状態（backlog カードのみ。plan 層の行は null＝この軸を持たない）。
-   * SSOT は backlog.md の [進行中]・weekly.md/monthly.md の DN-#### 掲載・plan unit の有無。
+   * SSOT は backlog.md の [進行中]・[時期:]（今月）・weekly.md の表への DN-#### 掲載・plan unit の有無。
    */
   lifecycleStatus: TodoStatus | null;
 }
@@ -154,6 +160,8 @@ function parseBacklog(lines: string[], f: FileSpec, todoDir: string): TodoCard[]
     wip: boolean;
     body: string;
     verify: string | null;
+    when: string | null;
+    domain: string | null;
   }>;
   return cards.map((c) => ({
     file: f.id,
@@ -170,6 +178,8 @@ function parseBacklog(lines: string[], f: FileSpec, todoDir: string): TodoCard[]
     title: c.title,
     codex: c.codex,
     body: c.body,
+    when: c.when ?? null,
+    domain: c.domain ?? null,
     section: null,
     status: null,
     owner: null,
@@ -317,6 +327,8 @@ function parsePlanTables(lines: string[], f: FileSpec, todoDir: string): TodoCar
         title,
         codex: rawTitle.includes('Codex候補') || ownerRaw.includes('Codex候補') || detail.includes('Codex候補'),
         body: detail,
+        when: null,
+        domain: null,
         section: planSection(h3 || h2 || f.label),
         status: complete ? '完了' : status,
         owner,
@@ -362,6 +374,8 @@ function parsePlanTables(lines: string[], f: FileSpec, todoDir: string): TodoCar
         title: plainInline(item[1]!),
         codex: false,
         body: plainInline(item[2] ?? ''),
+        when: null,
+        domain: null,
         section: planSection(section),
         status: '手動待ち',
         owner: 'ユーザー',
@@ -413,6 +427,8 @@ function parseSections(lines: string[], f: FileSpec, todoDir: string): TodoCard[
         codex: false,
         body: '',
         bodyLines: [],
+        when: null,
+        domain: null,
         section: null,
         status: null,
         owner: null,
@@ -436,7 +452,9 @@ function parseSections(lines: string[], f: FileSpec, todoDir: string): TodoCard[
 }
 
 export interface TodoBoard {
-  files: { id: string; label: string; path: string; count: number; title: string; summary: string }[];
+  files: { id: string; label: string; path: string; count: number; title: string; summary: string; notes: string }[];
+  /** 月間の対象月（JST の今月 'YYYY-MM'）。月間の一覧は [時期:] がこの月を含むカード。 */
+  month: string;
   counts: Record<string, number>;
   items: TodoCard[];
 }
@@ -453,32 +471,45 @@ function readClaims(): Map<string, TodoClaim> {
   }
 }
 
+/** `## 見出し` の本文（次の `## ` まで）を Markdown のまま取り出す。無ければ空。 */
+function sectionText(lines: string[], heading: RegExp): string {
+  const start = lines.findIndex((l) => /^##\s+/.test(l) && heading.test(l));
+  if (start < 0) return '';
+  const end = lines.findIndex((l, i) => i > start && /^##?\s+/.test(l));
+  return lines.slice(start + 1, end < 0 ? undefined : end).join('\n').replace(/^-{3,}\s*$/gm, '').trim();
+}
+
+/**
+ * 4 層のボード。層の意味（2026-09-26〜）:
+ *  - backlog: カード（正本）
+ *  - monthly: [時期:] が今月を含むカード（導出・monthly.md は「今月の成果目標」だけ）
+ *  - weekly : weekly.md の表（今月のカードから週ごとに選ぶ手書きの計画）
+ *  - annual : annual.md の方針。年間の中身は [時期:] で /plan/roadmap が描く（サイドバーには出さない）
+ */
 export function todoBoard(): TodoBoard {
   // パスを分割して書かない（'docs','todo' の分割記法が一括置換から漏れ、移設時に
   // ボードが黙って 0 件になりかけた）。置き場は backlog-lib の TODO_DIR が唯一の宣言。
   const todoDir = repoPath(...(TODO_DIR as string).split('/'));
+  const month = (todayJst() as string).slice(0, 7);
   const items: TodoCard[] = [];
-  let weeklyText = '';
-  let monthlyText = '';
   for (const f of FILES) {
     const p = join(todoDir, f.file);
     if (!existsSync(p)) continue;
+    // 月間は monthly.md の表を読まない（[時期:] から下で導出する）
+    if (f.id === 'monthly') continue;
     const lines = readFileSync(p, 'utf8').split(/\r?\n/);
-    if (f.id === 'weekly') weeklyText = lines.join('\n');
-    if (f.id === 'monthly') monthlyText = lines.join('\n');
     items.push(...(
       f.mode === 'backlog'
         ? parseBacklog(lines, f, todoDir)
-        : f.id === 'weekly' || f.id === 'monthly'
+        : f.id === 'weekly'
           ? parsePlanTables(lines, f, todoDir)
           : parseSections(lines, f, todoDir)
     ));
   }
 
-  // 状態導出（backlog カードのみ）。今週/今月に載っているかは表パーサの結果に依存せず、
-  // 本文全体から DN-#### を素朴に拾う（厳密さより「載っているか」の可視化が目的。手動キュー節も拾ってよい）。
-  const weeklyIds = new Set(weeklyText.match(/DN-\d{4}/g) ?? []);
-  const monthlyIds = new Set(monthlyText.match(/DN-\d{4}/g) ?? []);
+  // 今週＝weekly.md の表の行に書かれた ID だけ（「今週やらないこと」など本文中の ID は拾わない）。
+  // 今月＝[時期:] が今月を含むカード（monthly.md への手書きの掲載ではない）。
+  const weeklyIds = new Set(items.filter((i) => i.file === 'weekly' && i.id).map((i) => i.id as string));
   const claims = readClaims();
   // masterPath（実ドキュメント）を使う。u.path（unit のディレクトリ/ファイル自体）だと
   // dir 型で /plans/[...path] が解決できないリンクになる（2026-08-26 admin 目視で発見）。
@@ -498,32 +529,47 @@ export function todoBoard(): TodoBoard {
       lifecycleStatus: deriveStatus({
         wip: it.wip,
         inWeekly: it.id ? weeklyIds.has(it.id) : false,
-        inMonthly: it.id ? monthlyIds.has(it.id) : false,
+        inMonthly: whenCovers(it.when, month),
         hasPlan: Boolean(planPath),
       }),
     };
   });
+  // 月間の一覧＝今月のカード（backlog カードに file:'monthly' を付けた表示用の写し。台帳は backlog.md だけ）
+  const monthlyCards = decorated
+    .filter((it) => it.source === 'backlog' && whenCovers(it.when, month))
+    .map((it) => ({ ...it, file: 'monthly', fileLabel: '月間' }));
+  const all = [...decorated, ...monthlyCards];
 
   const counts: Record<string, number> = { high: 0, mid: 0, low: 0, hold: 0, none: 0 };
-  for (const it of decorated) counts[it.tier ?? 'none']!++;
+  for (const it of decorated) if (it.source === 'backlog') counts[it.tier ?? 'none']!++;
   return {
+    month,
     files: FILES.filter((f) => existsSync(join(todoDir, f.file))).map((f) => {
       const lines = readFileSync(join(todoDir, f.file), 'utf8').split(/\r?\n/);
       const title = plainInline(lines.find((line) => /^#\s+/.test(line))?.replace(/^#\s+/, '') ?? f.label);
-      const summaryLine = lines.find((line) => /^\*\*(今週のゴール|フォーカス)\*\*:/.test(line));
+      const summaryLine = lines.find((line) => /^\*\*(今週のゴール|今週の成果|フォーカス)\*\*:/.test(line));
       const summary = plainInline(summaryLine?.replace(/^\*\*[^*]+\*\*:\s*/, '') ?? '');
-      const fileItems = decorated.filter((i) => i.file === f.id);
+      const notes =
+        f.id === 'monthly' ? sectionText(lines, /今月の成果目標/)
+        : f.id === 'annual'
+          ? [['注力しないもの', /注力しない/], ['四半期定例', /四半期定例/]]
+              .map(([h, re]) => { const t = sectionText(lines, re as RegExp); return t ? `### ${h}\n\n${t}` : ''; })
+              .filter(Boolean)
+              .join('\n\n')
+        : '';
+      const fileItems = all.filter((i) => i.file === f.id);
       return {
         id: f.id,
         label: f.label,
         path: `${TODO_DIR}/${f.file}`,
         count: visibleTodoCards(fileItems, f.id).length,
-        title,
+        title: f.id === 'monthly' ? `${Number(month.slice(5))}月のカード` : title,
         summary,
+        notes,
       };
     }),
     counts,
-    items: decorated,
+    items: all,
   };
 }
 

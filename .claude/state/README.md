@@ -39,6 +39,7 @@
 | `proofread-learnings/` | 校正学習の蒸留ログ | `/distill-proofread-learnings` |
 | `resurrection-candidates/` | 復活候補ページのメタ | `/resurrect-content` |
 | `improvements/` | PSI 改善候補レポート（`performance-auditor` 出力） | `performance-auditor` エージェント |
+| `market/history/` | 資格キーワードでの市場スキャン（YouTube・note の検索結果と追跡中 YouTube チャンネルの登録者数。1 ファイル＝その日・最も新しい日付が最新）。展開の判断（`npm run qualification-market`・管理画面 戦略＞展開の判断）が読む | `npm run scan-qualification-market`（四半期・期限は `check-competitor-scan-due` の market） |
 
 ## 消費者
 
