@@ -12,7 +12,9 @@ const TIER: Record<string, string> = { high: '高', mid: '中', low: '低', hold
 /** 文書パス → 管理画面の閲覧 URL（docs は /docs、作業マニュアルは /knowledge）。 */
 function docHref(path: string): string {
   const noExt = path.replace(/\.md$/, '');
-  return noExt.startsWith('docs/') ? `/${noExt}` : `/knowledge/${noExt.replace(/^\.claude\/knowledge\//, '')}`;
+  const [base, rest] = noExt.startsWith('docs/') ? ['/docs', noExt.slice('docs/'.length)] : ['/knowledge', noExt.replace(/^\.claude\/knowledge\//, '')];
+  // パスはファイル名由来なので区切りごとに符号化する（href に生の値を入れない）
+  return `${base}/${rest.split('/').map(encodeURIComponent).join('/')}`;
 }
 
 /**

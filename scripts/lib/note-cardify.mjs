@@ -188,7 +188,7 @@ export async function assertNoUrlHeadings(noteId, { retries = 2, delayMs = 3000 
       const body = (await res.json())?.data?.body || '';
       const bad = [];
       for (const m of body.matchAll(/<h([1-6])[^>]*>([\s\S]*?)<\/h\1>/g)) {
-        const text = m[2].replace(/<[^>]+>/g, '').trim();
+        const text = m[2].replace(/<[^>]*>?/g, '').replace(/[<>]/g, '').trim(); // 判定用テキスト（HTML には戻さない）。残った < > も落とす
         if (/https?:\/\//.test(text)) bad.push(`h${m[1]}: ${text.slice(0, 80)}`);
       }
       return { ok: bad.length === 0, bad, fetchError: null };
