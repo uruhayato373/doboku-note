@@ -2187,6 +2187,13 @@ table.data.content-table .quality-col { width: 176px; }
 .ch-dot.instagram { background: var(--ch-ig); }
 .ch-dot.youtube { background: var(--ch-yt); }
 .ch-dot.todo { background: var(--ch-todo); }
+.ch-dot.exam { background: hsl(43 90% 50%); }
+.ch-dot.note { background: hsl(160 60% 42%); }
+.ch-dot.kindle { background: hsl(28 85% 52%); }
+.ch-dot.coconala { background: hsl(200 80% 50%); }
+.ch-dot.video { background: hsl(0 60% 60%); }
+.ch-dot.experiment { background: hsl(268 60% 62%); }
+.ch-dot.review { background: hsl(290 45% 55%); }
 
 .schedule-nav {
   display: flex;

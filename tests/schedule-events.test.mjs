@@ -243,3 +243,50 @@ test('summarize: channel x status の件数集計', () => {
   ];
   assert.deepEqual(summarize(events), { x: { posted: 2, overdue: 1 }, youtube: { overdue: 1 } });
 });
+
+// --- 領域（domain）と商品・経営・動画の読み取り（2026-09-26） --------------------
+
+test('CHANNEL_DOMAIN: 全チャネルが DOMAINS のどれかに写る', async () => {
+  const { CHANNEL_DOMAIN, DOMAINS } = await import('../scripts/lib/schedule-events.mjs');
+  const ids = new Set(DOMAINS.map((d) => d.id));
+  for (const [ch, dom] of Object.entries(CHANNEL_DOMAIN)) assert.ok(ids.has(dom), `${ch} → ${dom} が未定義の領域`);
+  assert.equal(CHANNEL_DOMAIN.note, 'product');
+  assert.equal(CHANNEL_DOMAIN.video, 'sns');
+  assert.equal(CHANNEL_DOMAIN.experiment, 'business');
+});
+
+test('mapNoteArticles: 予約は reserved（過ぎたら overdue）、公開は posted、下書きは出さない', async () => {
+  const { mapNoteArticles } = await import('../scripts/lib/schedule-events.mjs');
+  const ev = mapNoteArticles([
+    { rel: 'a/article.md', title: 'A', status: 'reserved', date: '2026-10-01' },
+    { rel: 'b/article.md', title: 'B', status: 'reserved', date: '2026-09-01' },
+    { rel: 'c/article.md', title: 'C', status: 'published', date: '2026-08-01' },
+    { rel: 'd/article.md', title: 'D', status: 'draft', date: '2026-10-01' },
+  ], '2026-09-26');
+  assert.deepEqual(ev.map((e) => `${e.ref}:${e.status}`), ['a/article.md:reserved', 'b/article.md:overdue', 'c/article.md:posted']);
+  assert.ok(ev.every((e) => e.channel === 'note' && e.kind === 'publish'));
+});
+
+test('mapExperiments / mapBusinessReviews: 終了した実験は出さず、レビューは資格×頻度ごとに最新だけ', async () => {
+  const { mapExperiments, mapBusinessReviews } = await import('../scripts/lib/schedule-events.mjs');
+  const ex = mapExperiments([
+    { id: 'EXP-1', status: 'running', next_check_date: '2026-10-01', title: 't' },
+    { id: 'EXP-2', status: 'done', next_check_date: '2026-10-01' },
+    { id: 'EXP-3', status: 'running', next_check_date: '2026-09-01' },
+  ], 'x.json', '2026-09-26');
+  assert.deepEqual(ex.map((e) => `${e.ref}:${e.status}`), ['EXP-1:planned', 'EXP-3:overdue']);
+  const rv = mapBusinessReviews([
+    { rel: 'r1', json: { qualification: 'all', cadence: 'monthly', createdAt: '2026-09-01', nextReviewDate: '2026-09-28' } },
+    { rel: 'r2', json: { qualification: 'all', cadence: 'monthly', createdAt: '2026-09-20', nextReviewDate: '2026-10-28' } },
+  ], '2026-09-26');
+  assert.deepEqual(rv.map((e) => e.date), ['2026-10-28']);
+});
+
+test('mapVideoStatus: 公開済みは posted、予約だけは reserved（過ぎたら overdue）', async () => {
+  const { mapVideoStatus } = await import('../scripts/lib/schedule-events.mjs');
+  const ev = mapVideoStatus({ packs: { p: { derivatives: {
+    longform: { publishedAt: '2026-09-05T00:40:57Z' },
+    shorts: [{ publishAt: '2026-10-01T12:00:00+09:00' }, { publishAt: '2026-09-01T12:00:00+09:00' }],
+  } } } }, 's.json', '2026-09-26');
+  assert.deepEqual(ev.map((e) => `${e.ref}:${e.status}`), ['p/longform:posted', 'p/shorts/0:reserved', 'p/shorts/1:overdue']);
+});

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { PageHead } from '@/components/ui';
+import UpcomingEvents from '@/components/UpcomingEvents';
 import { Badge } from '@/components/primitives';
 import { loadQualificationsView, type QualificationView } from '@/lib/qualifications';
 
@@ -50,6 +51,7 @@ export default async function QualificationsPage({ searchParams }: { searchParam
   return (
     <>
       <PageHead title="資格一覧" />
+      <UpcomingEvents domain="exam" />
 
       {view.errors.length > 0 && (
         <div className="card warn-border">

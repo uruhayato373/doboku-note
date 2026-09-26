@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { PageHead } from '@/components/ui';
+import UpcomingEvents from '@/components/UpcomingEvents';
 import { Badge } from '@/components/primitives';
 import { loadLineupView, type LineupItem, type LineupRow } from '@/lib/lineup';
 
@@ -46,6 +47,7 @@ export default async function LineupPage({ searchParams }: { searchParams: Promi
   return (
     <>
       <PageHead title={detail ? `商品ラインナップ：${rows[0]!.qualificationLabel}` : '商品ラインナップ'} />
+      <UpcomingEvents domain="product" />
 
       {(configErrors.length > 0 || sourceErrors.length > 0) && (
         <div className="card warn-border">

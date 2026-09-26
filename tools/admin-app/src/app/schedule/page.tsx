@@ -10,6 +10,8 @@ import {
   todayJst,
   type ScheduleEventView,
   type ScheduleChannel,
+  type ScheduleDomain,
+  DOMAINS,
 } from '@/lib/schedule';
 
 export const dynamic = 'force-dynamic';
@@ -20,20 +22,26 @@ export const dynamic = 'force-dynamic';
  * データは scripts/lib/schedule-events.mjs の collectScheduleEvents を @/lib/schedule 経由で
  * 読むだけ。書き込みUI・予約操作・カレンダー編集はここに一切実装しない（admin は読み取り専用）。
  *
- * `ch`（チャネル絞り込み）の適用範囲: 健全性ストリップは常に5チャネル全部を出す
+ * `dom`（領域: 試験/商品/SNS/開発/経営）と `ch`（チャネル）で絞り込む。適用範囲: 健全性ストリップは常に5チャネル全部を出す
  * （「データソースは生きているか」という別の関心事のため）。月グリッド・日別ドリルダウン・
  * 超過一覧（YouTube 集約行含む）は ch でフィルタする。
  */
 
-type Query = { m?: string; d?: string; ch?: string };
+type Query = { m?: string; d?: string; ch?: string; dom?: string };
 
-const CHANNEL_ORDER: ScheduleChannel[] = ['exam', 'x', 'instagram', 'youtube', 'todo'];
+const CHANNEL_ORDER: ScheduleChannel[] = ['exam', 'note', 'kindle', 'coconala', 'x', 'instagram', 'youtube', 'video', 'todo', 'experiment', 'review'];
 const CHANNEL_LABEL: Record<ScheduleChannel, string> = {
   exam: '試験',
+  note: 'note',
+  kindle: 'Kindle',
+  coconala: 'ココナラ',
   x: 'X',
   instagram: 'Instagram',
   youtube: 'YouTube',
+  video: '動画パック',
   todo: 'TODO',
+  experiment: '実験',
+  review: 'レビュー',
 };
 const STATUS_LABEL: Record<ScheduleEventView['status'], string> = {
   planned: '予定',
@@ -48,6 +56,12 @@ const SOURCE_CHANNEL: Record<ScheduleEventView['sourceId'], ScheduleChannel> = {
   'ig-status': 'instagram',
   'youtube-schedule': 'youtube',
   backlog: 'todo',
+  'note-articles': 'note',
+  'kindle-catalog': 'kindle',
+  'coconala-catalog': 'coconala',
+  'video-status': 'video',
+  experiments: 'experiment',
+  'business-review': 'review',
 };
 const WEEK_HEADERS = ['月', '火', '水', '木', '金', '土', '日'];
 
@@ -56,6 +70,9 @@ function isValidMonth(v: string | undefined): v is string {
 }
 function isValidDay(v: string | undefined): v is string {
   return !!v && /^\d{4}-\d{2}-\d{2}$/.test(v);
+}
+function isValidDomain(v: string | undefined): v is ScheduleDomain {
+  return !!v && DOMAINS.some((d) => d.id === v);
 }
 function isValidChannel(v: string | undefined): v is ScheduleChannel {
   return !!v && (CHANNEL_ORDER as string[]).includes(v);
@@ -311,27 +328,35 @@ export default async function SchedulePage({ searchParams }: { searchParams: Pro
   const month = isValidMonth(raw.m) ? raw.m : today.slice(0, 7);
   const day = isValidDay(raw.d) ? raw.d : undefined;
   const channel = isValidChannel(raw.ch) ? raw.ch : undefined;
-  const query: Query = { m: month, d: day, ch: channel };
+  const domain = isValidDomain(raw.dom) ? raw.dom : undefined;
+  const query: Query = { m: month, d: day, ch: channel, dom: domain };
 
   const board = await scheduleBoard(month);
-  const monthEvents = channel ? board.events.filter((e) => e.channel === channel) : board.events;
+  // 領域（dom）とチャネル（ch）は重ねて絞り込める
+  const pick = (e: ScheduleEventView) => (!domain || e.domain === domain) && (!channel || e.channel === channel);
+  const monthEvents = board.events.filter(pick);
   const dayEvents = day ? board.allEvents.filter((e) => e.date === day) : [];
 
   return (
     <>
-      <PageHead
-        title="スケジュール"
-        sub="読み取り専用 · exam-calendar / x-campaigns / x-status / ig-status / youtube-schedule / backlog を集約"
-      />
+      <PageHead title="スケジュール" />
+      <div className="filterbar">
+        <Link href={href(query, { dom: undefined, ch: undefined })} className={'chip' + (!domain ? ' active' : '')}>すべて</Link>
+        {DOMAINS.map((d) => (
+          <Link key={d.id} href={href(query, { dom: d.id, ch: undefined })} className={'chip' + (domain === d.id ? ' active' : '')}>
+            {d.label}
+          </Link>
+        ))}
+      </div>
       <ChannelHealth board={board} />
       <MonthNav month={month} query={query} />
       <MonthGrid month={month} events={monthEvents} query={query} today={today} />
-      {day ? <DayDrilldown day={day} events={channel ? dayEvents.filter((e) => e.channel === channel) : dayEvents} /> : null}
+      {day ? <DayDrilldown day={day} events={dayEvents.filter(pick)} /> : null}
       <OverdueCard
         month={month}
         events={monthEvents}
         allEvents={board.allEvents}
-        showYoutube={!channel || channel === 'youtube'}
+        showYoutube={(!channel || channel === 'youtube') && (!domain || domain === 'sns')}
       />
     </>
   );
