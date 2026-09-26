@@ -18,6 +18,7 @@
  */
 
 import { readFileSync, writeFileSync } from "node:fs";
+import { writeJsonIfChanged } from '../../scripts/lib/write-generated.mjs';
 
 // ── Config ──
 
@@ -225,7 +226,7 @@ function main() {
     },
     pillars,
   };
-  writeFileSync(OUT_PATH, JSON.stringify(out, null, 2) + "\n");
+  writeJsonIfChanged(OUT_PATH, out);
   console.log(`出力: ${OUT_PATH}`);
 }
 

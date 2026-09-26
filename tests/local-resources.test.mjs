@@ -44,7 +44,7 @@ test('warning thresholds and growth distinguish LFS and multiple tool processes'
   assert.deepEqual(warningsFor(snapshot, policy, { directories: [{ path: '.git/lfs', bytes: GiB }] }), ['low-disk', 'low-memory', 'budget:.git/lfs', 'growth:.git/lfs', 'multiple:mcp:github:2']);
 });
 test('heavy-work wrapper propagates child failure and releases its lock', () => {
-  const run = () => spawnSync(process.execPath, ['scripts/local-resource-run.mjs', '--', 'node', '-e', 'process.exit(7)'], { encoding: 'utf8', env: { ...process.env, CI: 'true' }, timeout: 10000 });
+  const run = () => spawnSync(process.execPath, ['scripts/local-resource-run.mjs', '--', 'node', '-e', 'process.exit(7)'], { encoding: 'utf8', env: { ...process.env, CI: 'true', DOBOKU_HEAVY_LOCK_NAME: `heavy-work-test-${process.pid}` }, timeout: 10000 });
   const runWhenAvailable = () => {
     const deadline = Date.now() + 10000;
     let result;
