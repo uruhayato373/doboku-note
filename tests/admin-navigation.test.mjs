@@ -105,21 +105,28 @@ test('contentSegmentLabel は sns/sources のような 1:1 でない物理セグ
   assert.equal(r.unknown, 'does-not-exist');
 });
 
-test('Nav.tsx に旧グループ名「発信」が残っていない', () => {
+test('サイドバーは領域の 6 グループで、旧グループ名が残っていない', () => {
   const src = readFileSync(join(ROOT, 'tools/admin-app/src/components/Nav.tsx'), 'utf8');
-  assert.ok(!src.includes('発信'), 'Nav.tsx に「発信」が残っている');
-  assert.ok(src.includes("title: 'コンテンツ'"), 'Nav.tsx に「コンテンツ」グループが無い');
+  const titles = [...src.matchAll(/title: '([^']+)'/g)].map((m) => m[1]);
+  assert.deepEqual(titles, ['戦略', '商品', 'サイト', 'SNS', '計画', '管理']);
+  for (const old of ['発信', 'コンテンツ', '運用', '分析', '戦略・収益化']) {
+    assert.ok(!titles.includes(old), `旧グループ名「${old}」が残っている`);
+  }
 });
 
-test('管理グループに /content が無く、コンテンツグループに /content が 1 つだけある', () => {
-  // autocrlf の作業ツリーでは CRLF になるため、`\n` 固定の regex の前に正規化する
-  const src = readFileSync(join(ROOT, 'tools/admin-app/src/components/Nav.tsx'), 'utf8').replace(/\r\n/g, '\n');
-  const adminGroupMatch = src.match(/title: '管理'[\s\S]*?entries: \[([\s\S]*?)\],\n {2}\},\n\];/);
-  assert.ok(adminGroupMatch, '管理グループが見つからない');
-  assert.ok(!adminGroupMatch[1].includes("href: '/content'"), '管理グループに /content が残っている');
-
-  const contentGroupMatch = src.match(/title: 'コンテンツ'[\s\S]*?entries: \[([\s\S]*?)\n {4}\],\n {2}\},/);
-  assert.ok(contentGroupMatch, 'コンテンツグループが見つからない');
-  const occurrences = contentGroupMatch[1].match(/href: '\/content'/g) ?? [];
-  assert.equal(occurrences.length, 1, `コンテンツグループの /content 件数が想定外: ${occurrences.length}`);
+test('既存の画面はすべてサイドバーのどこか 1 か所に置かれている', () => {
+  const src = readFileSync(join(ROOT, 'tools/admin-app/src/components/Nav.tsx'), 'utf8');
+  const hrefs = [...src.matchAll(/href: '(\/[^'?]*)'/g)].map((m) => m[1]);
+  for (const href of [
+    '/metrics', '/strategy/policy', '/metrics/business', '/strategy/qualifications', '/content/lineup',
+    '/sales', '/affiliate', '/content/expansion', '/metrics/seo-watch', '/metrics/gsc', '/metrics/ga4',
+    '/metrics/psi', '/sns', '/metrics/video', '/gallery/characters', '/schedule', '/todo', '/docs',
+    '/plans', '/quality', '/knowledge', '/agents', '/skills', '/content/lifecycle', '/content',
+  ]) {
+    const n = hrefs.filter((h) => h === href).length;
+    assert.ok(n >= 1, `${href} がサイドバーに無い`);
+  }
+  for (const id of ['note', 'coconala', 'kindle', 'site', 'x', 'instagram', 'youtube']) {
+    assert.ok(src.includes(`'${id}'`), `チャネル ${id} がどのグループにも置かれていない`);
+  }
 });

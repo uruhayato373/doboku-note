@@ -4,7 +4,7 @@ import { Fragment } from 'react';
 import Link from 'next/link';
 import { usePathname, useSearchParams } from 'next/navigation';
 import ThemeToggle from './ThemeToggle';
-import { enabledChannels, type AdminChannelTab } from '../lib/channel-registry';
+import { enabledChannels, type AdminChannelId, type AdminChannelTab } from '../lib/channel-registry';
 
 type Tab = {
   href: string;
@@ -26,61 +26,69 @@ export type TodoLayer = { id: string; label: string; count: number };
 /** channel-registry.ts の tabs をそのまま NavTree.tabs へ写す（label/route の再複製をしない）。 */
 const toNavTabs = (tabs: readonly AdminChannelTab[]): Tab[] => tabs.map((t) => ({ ...t }));
 
+/** チャネル（channel-registry.ts が唯一の SSOT）を領域グループへ置く。無効なチャネルは出さない。 */
+const channelTrees = (ids: readonly AdminChannelId[]): NavTree[] =>
+  ids
+    .map((id) => enabledChannels().find((c) => c.id === id))
+    .filter((c): c is NonNullable<typeof c> => Boolean(c))
+    .map((c) => ({ label: c.label, tabs: toNavTabs(c.tabs) }));
+
 /**
- * サイドバーの情報設計。
+ * サイドバーの情報設計（2026-09-26: 作業の種類ではなく領域でまとめる）。
  *
- * - コンテンツ: チャネル（サイト/note/X/Instagram/YouTube/ココナラ/Kindle）を
- *   選んでから、記事・画像・配布物へ進む。チャネル定義は channel-registry.ts が唯一の SSOT。
- * - 計画: バックログから年間まで、時間軸で作業を選ぶ
- * - 運用 / 分析 / 収益 / 管理: 媒体をまたぐ共通作業としてまとめる
+ * - 戦略: 全体の数字と方針
+ * - 商品: 資格（何を売るか）→ 商品ラインナップ → 販売チャネル（note/ココナラ/Kindle）→ 売上
+ * - サイト: 無料記事と、その集客の計測（検索順位・GSC・GA4・PSI）
+ * - SNS: 投稿状況・各 SNS・動画成果・キャラクター素材
+ * - 計画: スケジュール（試験・商品・SNS・開発をまたぐ時間軸）とバックログ〜年間
+ * - 管理: 文書・品質・エージェント類と、チャネル横断の点検（ライフサイクル・すべて）
  *
- * 保存場所やルートは変えず、日常の「何をするか」に合わせて入口だけを整理する。
+ * URL は変えない（入口の並べ方だけを変える）。
  */
 const GROUPS: { title: string; entries: NavEntry[] }[] = [
   {
-    title: 'コンテンツ',
+    title: '戦略',
     entries: [
-      { href: '/content', label: 'すべて', match: '/content' },
+      { href: '/metrics', label: '分析概観', match: '/metrics' },
+      { href: '/strategy/policy', label: '共通方針', match: '/strategy/policy' },
+      { href: '/metrics/business', label: '事業方針と改善', match: '/metrics/business' },
+    ],
+  },
+  {
+    title: '商品',
+    entries: [
+      { href: '/strategy/qualifications', label: '資格一覧', match: '/strategy/qualifications' },
+      { href: '/content/lineup', label: '商品ラインナップ', match: '/content/lineup' },
+      ...channelTrees(['note', 'coconala', 'kindle']),
+      { href: '/sales', label: '売上', match: '/sales' },
+      { href: '/affiliate', label: 'アフィリエイト', match: '/affiliate' },
+    ],
+  },
+  {
+    title: 'サイト',
+    entries: [
+      ...channelTrees(['site']),
       { href: '/content/expansion', label: '教材からの展開', match: '/content/expansion' },
-      { href: '/content/lifecycle', label: 'ライフサイクル', match: '/content/lifecycle' },
+      { href: '/metrics/seo-watch', label: '検索順位の改善', match: '/metrics/seo-watch' },
+      { href: '/metrics/gsc', label: '検索（GSC）', match: '/metrics/gsc' },
+      { href: '/metrics/ga4', label: 'アクセス（GA4）', match: '/metrics/ga4' },
+      { href: '/metrics/psi', label: '表示速度（PSI）', match: '/metrics/psi' },
+    ],
+  },
+  {
+    title: 'SNS',
+    entries: [
+      { href: '/sns', label: '投稿状況', match: '/sns' },
+      ...channelTrees(['x', 'instagram', 'youtube']),
+      { href: '/metrics/video', label: '動画成果', match: '/metrics/video' },
       { href: '/gallery/characters', label: 'キャラクター素材', match: '/gallery/characters' },
-      ...enabledChannels().map((c) => ({
-        label: c.label,
-        tabs: toNavTabs(c.tabs),
-      })),
     ],
   },
   {
     title: '計画',
-    entries: [{ href: '/todo', label: 'バックログ', match: '/todo' }],
-  },
-  {
-    title: '運用',
     entries: [
-      { href: '/sns', label: '投稿状況', match: '/sns' },
       { href: '/schedule', label: 'スケジュール', match: '/schedule' },
-    ],
-  },
-  {
-    title: '分析',
-    entries: [
-      { href: '/metrics', label: '分析概観', match: '/metrics' },
-      { href: '/metrics/ga4', label: 'アクセス（GA4）', match: '/metrics/ga4' },
-      { href: '/metrics/seo-watch', label: '検索順位の改善', match: '/metrics/seo-watch' },
-      { href: '/metrics/gsc', label: '検索（GSC）', match: '/metrics/gsc' },
-      { href: '/metrics/psi', label: '表示速度（PSI）', match: '/metrics/psi' },
-      { href: '/metrics/video', label: '動画成果', match: '/metrics/video' },
-    ],
-  },
-  {
-    title: '戦略・収益化',
-    entries: [
-      { href: '/strategy/policy', label: '共通方針', match: '/strategy/policy' },
-      { href: '/metrics/business', label: '事業方針と改善', match: '/metrics/business' },
-      { href: '/strategy/qualifications', label: '資格一覧', match: '/strategy/qualifications' },
-      { href: '/content/lineup', label: '商品ラインナップ', match: '/content/lineup' },
-      { href: '/sales', label: '売上', match: '/sales' },
-      { href: '/affiliate', label: 'アフィリエイト', match: '/affiliate' },
+      { href: '/todo', label: 'バックログ', match: '/todo' },
     ],
   },
   {
@@ -92,6 +100,8 @@ const GROUPS: { title: string; entries: NavEntry[] }[] = [
       { href: '/knowledge', label: 'ナレッジ', match: '/knowledge' },
       { href: '/agents', label: 'エージェント', match: '/agents' },
       { href: '/skills', label: 'スキル', match: '/skills' },
+      { href: '/content/lifecycle', label: 'ライフサイクル', match: '/content/lifecycle' },
+      { href: '/content', label: 'すべて', match: '/content' },
     ],
   },
 ];
