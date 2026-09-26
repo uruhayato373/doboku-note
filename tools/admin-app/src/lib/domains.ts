@@ -1,7 +1,8 @@
 import { findRepoRoot } from './repo-root';
 import { loadDomains } from '../../../../scripts/lib/domains.mjs';
 
-export type Domain = { id: string; label: string; role: string; manages: string };
+export type NavView = { label: string; href: string; kind: string; match: string; query?: Record<string, string> };
+export type Domain = { id: string; label: string; role: string; manages: string; nav: NavView[] };
 
 /** 領域の一覧（正本 .claude/config/domains.json の並び）。読めなければ空。 */
 export function domainList(): Domain[] {

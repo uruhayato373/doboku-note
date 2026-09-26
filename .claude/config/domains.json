@@ -7,49 +7,254 @@
       "id": "strategy",
       "label": "戦略",
       "role": "決める",
-      "manages": "方針とKPI・資格ポートフォリオ・週次/月次の判断・競合"
+      "manages": "方針とKPI・資格ポートフォリオ・週次/月次の判断・競合",
+      "nav": [
+        {
+          "label": "分析概観",
+          "href": "/metrics",
+          "kind": "results",
+          "match": "/metrics"
+        },
+        {
+          "label": "事業方針と改善",
+          "href": "/metrics/business",
+          "kind": "policy",
+          "match": "/metrics/business"
+        },
+        {
+          "label": "共通方針",
+          "href": "/strategy/policy",
+          "kind": "policy",
+          "match": "/strategy/policy"
+        },
+        {
+          "label": "資格一覧",
+          "href": "/strategy/qualifications",
+          "kind": "inventory",
+          "match": "/strategy/qualifications"
+        }
+      ]
     },
     {
       "id": "plan",
       "label": "計画",
       "role": "いつやるか",
-      "manages": "年間ロードマップ・スケジュール・バックログ"
+      "manages": "年間ロードマップ・スケジュール・バックログ",
+      "nav": [
+        {
+          "label": "スケジュール",
+          "href": "/schedule",
+          "kind": "actions",
+          "match": "/schedule"
+        },
+        {
+          "label": "バックログ",
+          "href": "/todo",
+          "kind": "actions",
+          "match": "/todo"
+        }
+      ]
     },
     {
       "id": "product",
       "label": "商品",
       "role": "売る（主収益）",
-      "manages": "品揃えと販売チャネル（note・ココナラ・Kindle・アプリ）・売上・商品品質・商品への動線"
+      "manages": "品揃えと販売チャネル（note・ココナラ・Kindle・アプリ）・売上・商品品質・商品への動線",
+      "nav": [
+        {
+          "label": "商品ラインナップ",
+          "href": "/content/lineup",
+          "kind": "inventory",
+          "match": "/content/lineup"
+        },
+        {
+          "label": "売上",
+          "href": "/sales",
+          "kind": "results",
+          "match": "/sales"
+        },
+        {
+          "label": "販売状態",
+          "href": "/product/status",
+          "kind": "actions",
+          "match": "/product/status"
+        }
+      ]
     },
     {
       "id": "affiliate",
       "label": "アフィリエイト",
       "role": "送客で稼ぐ",
-      "manages": "成果・掲載先（サイト/note/SNS）・提携と案件"
+      "manages": "成果・掲載先（サイト/note/SNS）・提携と案件",
+      "nav": [
+        {
+          "label": "掲載先",
+          "href": "/affiliate/placements",
+          "kind": "inventory",
+          "match": "/affiliate/placements"
+        },
+        {
+          "label": "成果",
+          "href": "/affiliate",
+          "kind": "results",
+          "match": "/affiliate"
+        },
+        {
+          "label": "提携・案件",
+          "href": "/affiliate/programs",
+          "kind": "actions",
+          "match": "/affiliate/programs"
+        }
+      ]
     },
     {
       "id": "site",
       "label": "サイト",
       "role": "集める（検索）",
-      "manages": "記事と過去問の品質・SEO・サイト内の動線・計測（GSC/GA4/PSI）・図版とOGP"
+      "manages": "記事と過去問の品質・SEO・サイト内の動線・計測（GSC/GA4/PSI）・図版とOGP",
+      "nav": [
+        {
+          "label": "記事",
+          "href": "/content/articles",
+          "kind": "inventory",
+          "match": "/content/articles"
+        },
+        {
+          "label": "検索順位",
+          "href": "/metrics/seo-watch",
+          "kind": "results",
+          "match": "/metrics/seo-watch"
+        },
+        {
+          "label": "検索（GSC）",
+          "href": "/metrics/gsc",
+          "kind": "results",
+          "match": "/metrics/gsc"
+        },
+        {
+          "label": "アクセス（GA4）",
+          "href": "/metrics/ga4",
+          "kind": "results",
+          "match": "/metrics/ga4"
+        },
+        {
+          "label": "表示速度（PSI）",
+          "href": "/metrics/psi",
+          "kind": "results",
+          "match": "/metrics/psi"
+        },
+        {
+          "label": "記事図版",
+          "href": "/gallery/figures",
+          "kind": "assets",
+          "match": "/gallery/figures"
+        },
+        {
+          "label": "OGP",
+          "href": "/gallery/ogp",
+          "kind": "assets",
+          "match": "/gallery/ogp"
+        }
+      ]
     },
     {
       "id": "sns",
       "label": "SNS",
       "role": "集める（SNS）",
-      "manages": "投稿・各SNS（X/Instagram/YouTube）・動画・キャラクター素材"
+      "manages": "投稿・各SNS（X/Instagram/YouTube）・動画・キャラクター素材",
+      "nav": [
+        {
+          "label": "投稿状況",
+          "href": "/sns",
+          "kind": "actions",
+          "match": "/sns"
+        },
+        {
+          "label": "動画成果",
+          "href": "/metrics/video",
+          "kind": "results",
+          "match": "/metrics/video"
+        },
+        {
+          "label": "キャラクター素材",
+          "href": "/gallery/characters",
+          "kind": "assets",
+          "match": "/gallery/characters"
+        }
+      ]
     },
     {
       "id": "material",
       "label": "教材",
       "role": "つくる素材",
-      "manages": "教材（参考文献）から記事・図解・SNS・商品への展開・原典の正確さ"
+      "manages": "教材（参考文献）から記事・図解・SNS・商品への展開・原典の正確さ",
+      "nav": [
+        {
+          "label": "教材一覧",
+          "href": "/materials",
+          "kind": "inventory",
+          "match": "/materials",
+          "query": {
+            "id": ""
+          }
+        }
+      ]
     },
     {
       "id": "ops",
       "label": "管理",
       "role": "支える",
-      "manages": "文書・品質検査・エージェント/スキル・自動化・CI・インフラ"
+      "manages": "文書・品質検査・エージェント/スキル・自動化・CI・インフラ",
+      "nav": [
+        {
+          "label": "方針・設計",
+          "href": "/docs",
+          "kind": "policy",
+          "match": "/docs"
+        },
+        {
+          "label": "実装計画",
+          "href": "/plans",
+          "kind": "actions",
+          "match": "/plans"
+        },
+        {
+          "label": "品質概観",
+          "href": "/quality",
+          "kind": "results",
+          "match": "/quality"
+        },
+        {
+          "label": "ナレッジ",
+          "href": "/knowledge",
+          "kind": "policy",
+          "match": "/knowledge"
+        },
+        {
+          "label": "エージェント",
+          "href": "/agents",
+          "kind": "inventory",
+          "match": "/agents"
+        },
+        {
+          "label": "スキル",
+          "href": "/skills",
+          "kind": "inventory",
+          "match": "/skills"
+        },
+        {
+          "label": "ライフサイクル",
+          "href": "/content/lifecycle",
+          "kind": "inventory",
+          "match": "/content/lifecycle"
+        },
+        {
+          "label": "すべて",
+          "href": "/content",
+          "kind": "assets",
+          "match": "/content"
+        }
+      ]
     }
   ],
   "documents": {
@@ -149,5 +354,18 @@
     "docs/strategy/05_情報アーキテクチャ.md": "site",
     "docs/strategy/09_販売チャネル競合分析.md": "product",
     "docs/strategy/13_土木公務員SEO戦略2026-08.md": "site"
-  }
+  },
+  "navKinds": {
+    "inventory": "品揃え・一覧（何があり何が足りないか）",
+    "results": "成果・計測（効いたか）",
+    "actions": "要対応・状態（人が手を打つもの）",
+    "policy": "方針（判断の基準）",
+    "assets": "素材（作業に使うもの）"
+  },
+  "navRules": [
+    "サイドバーは各領域の判断に使う画面だけを置く（種類は navKinds）。領域の概要は領域名（/domains/<id>）",
+    "チャネル・SNS・プラットフォームはサイドバーの枝にせず、画面内のタブにする",
+    "原稿・画像・ファイルの作業場は、判断画面からのリンクか 管理＞すべて から開く",
+    "既存の URL は変えない。新しい画面は /<領域 id>/… に作る"
+  ]
 }

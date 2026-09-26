@@ -4,7 +4,6 @@ import { Fragment } from 'react';
 import Link from 'next/link';
 import { usePathname, useSearchParams } from 'next/navigation';
 import ThemeToggle from './ThemeToggle';
-import { enabledChannels, type AdminChannelId, type AdminChannelTab } from '../lib/channel-registry';
 
 type Tab = {
   href: string;
@@ -23,123 +22,26 @@ type NavEntry = Tab | NavTree;
 /** TODO の 4 層（layout が server 側で数えて渡す）。件数の真実源は backlog-lib の TODO_LAYER_FILES。 */
 export type TodoLayer = { id: string; label: string; count: number };
 
-/** channel-registry.ts の tabs をそのまま NavTree.tabs へ写す（label/route の再複製をしない）。 */
-const toNavTabs = (tabs: readonly AdminChannelTab[]): Tab[] => tabs.map((t) => ({ ...t }));
-
-/** チャネル（channel-registry.ts が唯一の SSOT）を領域グループへ置く。無効なチャネルは出さない。 */
-const channelTrees = (ids: readonly AdminChannelId[]): NavTree[] =>
-  ids
-    .map((id) => enabledChannels().find((c) => c.id === id))
-    .filter((c): c is NonNullable<typeof c> => Boolean(c))
-    .map((c) => ({ label: c.label, tabs: toNavTabs(c.tabs) }));
-
-/** グループ名とチャネル名が同じとき（サイト）は、ツリーを挟まずタブをそのまま並べる。 */
-const channelTabs = (id: AdminChannelId): Tab[] =>
-  toNavTabs(enabledChannels().find((c) => c.id === id)?.tabs ?? []);
+/** 領域とサイドバーの画面（layout が .claude/config/domains.json から渡す。ここに直書きしない）。 */
+export type NavDomain = { id: string; label: string; nav: Tab[] };
 
 /**
- * サイドバーの情報設計（2026-09-26: 事業の領域で束ねる）。
- *
- * グループ＝領域。名前と並び順の正本は .claude/config/domains.json（layout が domains で渡す）で、
- * ここは各領域にどの画面を置くかだけを書く。グループ名は領域の概要（/domains/<id>）へのリンク。
- * 考え方は docs/strategy/14_領域モデル.md。URL は変えない（入口の並べ方だけを変える）。
+ * サイドバーの情報設計（2026-09-26）。グループ＝事業の領域、項目＝その領域の判断に使う画面だけ。
+ * 名前・並び・画面の正本は domains.json（nav・navKinds・navRules）、考え方は docs/strategy/14_領域モデル.md。
+ * チャネルや SNS はサイドバーの枝にせず画面内のタブにする。グループ名は領域の概要（/domains/<id>）へのリンク。
+ * 動的に展開する枝（商品ラインナップ＝資格、教材一覧＝棚、バックログ＝4層）だけ href で差し込む。
  */
-const GROUPS: { domain: string; entries: NavEntry[] }[] = [
-  {
-    domain: 'strategy',
-    entries: [
-      { href: '/metrics', label: '分析概観', match: '/metrics' },
-      { href: '/strategy/policy', label: '共通方針', match: '/strategy/policy' },
-      { href: '/metrics/business', label: '事業方針と改善', match: '/metrics/business' },
-      { href: '/strategy/qualifications', label: '資格一覧', match: '/strategy/qualifications' },
-    ],
-  },
-  {
-    domain: 'material',
-    entries: [
-      { href: '/materials', label: '教材一覧', match: '/materials', query: { id: '' } },
-    ],
-  },
-  {
-    domain: 'product',
-    entries: [
-      { href: '/content/lineup', label: '商品ラインナップ', match: '/content/lineup' },
-      ...channelTrees(['note', 'coconala', 'kindle']),
-      { href: '/sales', label: '売上', match: '/sales' },
-    ],
-  },
-  {
-    domain: 'affiliate',
-    entries: [
-      { href: '/affiliate', label: '成果', match: '/affiliate' },
-      { href: '/affiliate/placements', label: '掲載先', match: '/affiliate/placements' },
-      { href: '/affiliate/programs', label: '提携・案件', match: '/affiliate/programs' },
-    ],
-  },
-  {
-    domain: 'site',
-    entries: [
-      ...channelTabs('site'),
-      { href: '/metrics/seo-watch', label: '検索順位', match: '/metrics/seo-watch' },
-      { href: '/metrics/gsc', label: '検索（GSC）', match: '/metrics/gsc' },
-      { href: '/metrics/ga4', label: 'アクセス（GA4）', match: '/metrics/ga4' },
-      { href: '/metrics/psi', label: '表示速度（PSI）', match: '/metrics/psi' },
-    ],
-  },
-  {
-    domain: 'sns',
-    entries: [
-      { href: '/sns', label: '投稿状況', match: '/sns' },
-      ...channelTrees(['x', 'instagram', 'youtube']),
-      { href: '/metrics/video', label: '動画成果', match: '/metrics/video' },
-      { href: '/gallery/characters', label: 'キャラクター素材', match: '/gallery/characters' },
-    ],
-  },
-  {
-    domain: 'plan',
-    entries: [
-      { href: '/schedule', label: 'スケジュール', match: '/schedule' },
-      { href: '/todo', label: 'バックログ', match: '/todo' },
-    ],
-  },
-  {
-    domain: 'ops',
-    entries: [
-      { href: '/docs', label: '方針・設計', match: '/docs' },
-      { href: '/plans', label: '実装計画', match: '/plans' },
-      { href: '/quality', label: '品質概観', match: '/quality' },
-      { href: '/knowledge', label: 'ナレッジ', match: '/knowledge' },
-      { href: '/agents', label: 'エージェント', match: '/agents' },
-      { href: '/skills', label: 'スキル', match: '/skills' },
-      { href: '/content/lifecycle', label: 'ライフサイクル', match: '/content/lifecycle' },
-      { href: '/content', label: 'すべて', match: '/content' },
-    ],
-  },
-];
 
 function isTree(entry: NavEntry): entry is NavTree {
   return 'tabs' in entry;
 }
 
-/** 現在パスと必要ならクエリに応じて active を付ける。/metrics はサブページと排他。 */
-/** 領域の正本の順に並べる。正本に無いグループは末尾（名前は id のまま＝設定漏れが見える）。 */
-function orderedGroups(domains: { id: string; label: string }[]) {
-  const rank = new Map(domains.map((d, i) => [d.id, i]));
-  return [...GROUPS]
-    .sort((a, b) => (rank.get(a.domain) ?? 99) - (rank.get(b.domain) ?? 99))
-    .map((group) => ({ group, label: domains.find((d) => d.id === group.domain)?.label ?? group.domain }));
-}
-
-function isActive(
-  pathname: string,
-  searchParams: URLSearchParams,
-  tab: Tab,
-): boolean {
-  const pathMatches =
-    tab.match === '/metrics' || tab.match === '/content' || tab.match === '/affiliate'
-      ? pathname === tab.match
-      : pathname === tab.match || pathname.startsWith(tab.match + '/');
-
+/**
+ * 現在パスと必要ならクエリに応じて active を付ける。別の項目がその下の階層にあるとき
+ * （/metrics と /metrics/gsc など）は完全一致だけにする。
+ */
+function isActive(pathname: string, searchParams: URLSearchParams, tab: Tab, exact = false): boolean {
+  const pathMatches = exact ? pathname === tab.match : pathname === tab.match || pathname.startsWith(tab.match + '/');
   if (!pathMatches) return false;
   if (!tab.query) return true;
   // 値が空文字のキーは「そのクエリが無いこと」（例: 商品ラインナップの一覧＝q なし）
@@ -224,8 +126,8 @@ export default function Nav({
   lineupQualifications?: { id: string; label: string }[];
   /** 教材一覧の下に棚ごとに並べる教材（layout が reference-sources.json から渡す） */
   materials?: { shelf: string; items: { id: string; label: string }[] }[];
-  /** 領域の名前と並び（layout が domains.json から渡す） */
-  domains?: { id: string; label: string }[];
+  /** 領域の名前・並び・画面（layout が domains.json から渡す） */
+  domains?: NavDomain[];
 }) {
   const pathname = usePathname() ?? '';
   const searchParams = useSearchParams();
@@ -252,17 +154,21 @@ export default function Nav({
     })),
   }));
 
+  // 下の階層に別の項目がある項目は完全一致で active にする（/metrics と /metrics/gsc など）
+  const allMatches = domains.flatMap((d) => d.nav.map((t) => t.match));
+  const exactMatches = new Set(allMatches.filter((m) => allMatches.some((o) => o !== m && o.startsWith(m + '/'))));
+
   return (
     <nav className="app-nav" aria-label="管理画面">
       <Link className="brand" href="/metrics">
         doboku admin
       </Link>
-      {orderedGroups(domains).map(({ group, label }) => (
-        <Fragment key={group.domain}>
-          <Link className={'group' + (pathname === `/domains/${group.domain}` ? ' active' : '')} href={`/domains/${group.domain}`}>
-            {label}
+      {domains.map((group) => (
+        <Fragment key={group.id}>
+          <Link className={'group' + (pathname === `/domains/${group.id}` ? ' active' : '')} href={`/domains/${group.id}`}>
+            {group.label}
           </Link>
-          {group.entries
+          {group.nav
             .flatMap((e): NavEntry[] => {
               if (isTree(e)) return [e];
               if (e.match === '/content/lineup') return [lineupTree];
@@ -292,7 +198,7 @@ export default function Nav({
               <NavLink
                 key={entry.href}
                 tab={entry}
-                active={isActive(pathname, searchParams, entry)}
+                active={isActive(pathname, searchParams, entry, exactMatches.has(entry.match))}
               />
             );
           })}
