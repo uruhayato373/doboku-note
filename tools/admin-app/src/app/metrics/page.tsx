@@ -4,7 +4,6 @@ import LineChart, { type LinePoint } from '@/components/charts/LineChart';
 import { Freshness, Kpi, PageHead } from '@/components/ui';
 import { repoPath } from '@/lib/repo-root';
 import {
-  ageInDays,
   latestSnapshot,
   loadSnapshot,
   readJsonFile,
