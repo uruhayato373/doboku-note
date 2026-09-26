@@ -1,41 +1,42 @@
 {
-  "generatedAt": "2026-09-22T08:39:08.143Z",
+  "generatedAt": "2026-09-26T05:07:04.240Z",
   "windows": {
     "ga4": {
-      "start": "2026-08-20",
-      "end": "2026-09-16"
+      "start": "2026-08-27",
+      "end": "2026-09-23"
     },
     "gsc": {
-      "start": "2026-08-18",
-      "end": "2026-09-14"
+      "start": "2026-08-25",
+      "end": "2026-09-21"
     },
     "aligned": false,
     "usable": true
   },
   "inputs": {
-    "ga4Label": ".claude/state/metrics/ga4/ga4-cta-clicks-by-label-2026-09-17T23-16-42.json",
-    "ga4Placement": ".claude/state/metrics/ga4/ga4-cta-clicks-by-placement-2026-09-17T23-16-44.json",
-    "ga4Device": ".claude/state/metrics/ga4/ga4-cta-clicks-by-device-2026-09-17T23-16-41.json",
-    "ga4Page": ".claude/state/metrics/ga4/ga4-page-2026-09-17T23-16-38.json",
-    "gscPageQuery": ".claude/state/metrics/gsc/gsc-page-query-2026-09-17T23-16-37.json",
-    "a8": ".claude/state/metrics/affiliate/a8-results.json"
+    "ga4Label": ".claude/state/metrics/ga4/ga4-cta-clicks-by-label-2026-09-24T23-41-33.json",
+    "ga4Placement": ".claude/state/metrics/ga4/ga4-cta-clicks-by-placement-2026-09-24T23-41-35.json",
+    "ga4Device": ".claude/state/metrics/ga4/ga4-cta-clicks-by-device-2026-09-24T23-41-33.json",
+    "ga4Page": ".claude/state/metrics/ga4/ga4-page-2026-09-24T23-41-30.json",
+    "gscPageQuery": ".claude/state/metrics/gsc/gsc-page-query-2026-09-24T23-41-27.json",
+    "a8": ".claude/state/metrics/affiliate/a8-results.json",
+    "afb": null
   },
   "coverage": {
-    "docMetaIndexTotal": 1255,
-    "careerArticles": 39,
-    "siteMdxScanned": 1274,
+    "docMetaIndexTotal": 1261,
+    "careerArticles": 43,
+    "siteMdxScanned": 1280,
     "extraLinkSourcesScanned": 1,
-    "gscRowsTotal": 890,
-    "gscRowsMatchedCareer": 7,
+    "gscRowsTotal": 1050,
+    "gscRowsMatchedCareer": 6,
     "ga4LabelRowsMatched": 15,
-    "ga4PlacementRowsMatched": 10,
-    "careerArticlesInGa4Top": 0,
-    "noteCareerArticles": 19
+    "ga4PlacementRowsMatched": 9,
+    "careerArticlesInGa4Top": 9,
+    "noteCareerArticles": 24
   },
   "funnel": {
     "highIntentQuery": {
-      "impressions": 33,
-      "clicks": 0,
+      "impressions": 44,
+      "clicks": 1,
       "rows": [
         {
           "query": "技術士転職",
@@ -43,6 +44,13 @@
           "impressions": 7,
           "clicks": 0,
           "position": 72.85714285714286
+        },
+        {
+          "query": "土木公務員 資格",
+          "url": "https://doboku-note.com/exam/pe-comprehensive-management/guide/public-engineer-qualification-map",
+          "impressions": 5,
+          "clicks": 0,
+          "position": 10.8
         },
         {
           "query": "技術 士 年収",
@@ -66,13 +74,6 @@
           "position": 29.333333333333332
         },
         {
-          "query": "ビルドジョブ 口コミ",
-          "url": "https://doboku-note.com/docs/civil-construction-1-guide-buildjob-review",
-          "impressions": 2,
-          "clicks": 0,
-          "position": 20
-        },
-        {
           "query": "土木施工管理 年収",
           "url": "https://doboku-note.com/exam/civil-construction-1/guide/career-salary",
           "impressions": 2,
@@ -80,11 +81,25 @@
           "position": 96
         },
         {
+          "query": "公務員 土木職 資格",
+          "url": "https://doboku-note.com/exam/pe-comprehensive-management/guide/public-engineer-qualification-map",
+          "impressions": 2,
+          "clicks": 0,
+          "position": 9.5
+        },
+        {
           "query": "技術士 総合技術監理部門 年収",
           "url": "https://doboku-note.com/exam/pe-construction/guide/career",
           "impressions": 2,
           "clicks": 0,
           "position": 30
+        },
+        {
+          "query": "rccm 受験資格 公務員",
+          "url": "https://doboku-note.com/exam/pe-comprehensive-management/guide/public-engineer-qualification-map",
+          "impressions": 1,
+          "clicks": 1,
+          "position": 15
         },
         {
           "query": "施工管理job 評判",
@@ -108,6 +123,13 @@
           "position": 70
         },
         {
+          "query": "1級土木施工管理技士補 年収",
+          "url": "https://doboku-note.com/exam/civil-construction-1/guide/career-salary",
+          "impressions": 1,
+          "clicks": 0,
+          "position": 86
+        },
+        {
           "query": "一級土木施工管理技士 年収",
           "url": "https://doboku-note.com/exam/civil-construction-1/guide/career-salary",
           "impressions": 1,
@@ -122,6 +144,13 @@
           "position": 69
         },
         {
+          "query": "土木施工管理技士1級 平均年収",
+          "url": "https://doboku-note.com/exam/civil-construction-1/guide/career-salary",
+          "impressions": 1,
+          "clicks": 0,
+          "position": 67
+        },
+        {
           "query": "施工管理 転職 理由",
           "url": "https://doboku-note.com/exam/civil-construction-1/guide/interview",
           "impressions": 1,
@@ -129,11 +158,32 @@
           "position": 18
         },
         {
-          "query": "公務員 土木職 資格",
+          "query": "1級土木施工管理技士 実務経験 公務員",
           "url": "https://doboku-note.com/exam/pe-comprehensive-management/guide/public-engineer-qualification-map",
           "impressions": 1,
           "clicks": 0,
-          "position": 9
+          "position": 23
+        },
+        {
+          "query": "公務員 土木 資格",
+          "url": "https://doboku-note.com/exam/pe-comprehensive-management/guide/public-engineer-qualification-map",
+          "impressions": 1,
+          "clicks": 0,
+          "position": 11
+        },
+        {
+          "query": "公務員 土木 資格 おすすめ",
+          "url": "https://doboku-note.com/exam/pe-comprehensive-management/guide/public-engineer-qualification-map",
+          "impressions": 1,
+          "clicks": 0,
+          "position": 13
+        },
+        {
+          "query": "土木 公務員 資格",
+          "url": "https://doboku-note.com/exam/pe-comprehensive-management/guide/public-engineer-qualification-map",
+          "impressions": 1,
+          "clicks": 0,
+          "position": 11
         },
         {
           "query": "技術士 転職",
@@ -166,7 +216,7 @@
       ]
     },
     "internalLinks": {
-      "career-path": 48,
+      "career-path": 44,
       "market-value": 29,
       "service-choice": 2,
       "quit": 4,
@@ -175,53 +225,49 @@
     "affiliateCta": {
       "byPlacement": {
         "sidebar": {
-          "impressions": 12673,
-          "clicks": 0
+          "impressions": 12916,
+          "clicks": 2
         },
         "article-inline": {
-          "impressions": 3546,
+          "impressions": 3723,
           "clicks": 7
         },
         "article-end": {
-          "impressions": 3413,
+          "impressions": 3328,
           "clicks": 0
         },
         "article-mid": {
-          "impressions": 2671,
-          "clicks": 3
+          "impressions": 2678,
+          "clicks": 4
         },
         "category-sidebar": {
-          "impressions": 773,
-          "clicks": 1
+          "impressions": 695,
+          "clicks": 0
         },
         "category-mobile": {
           "impressions": 76,
-          "clicks": 0
-        },
-        "category-career-section": {
-          "impressions": 2,
           "clicks": 0
         }
       },
       "byLabel": {
         "BuildJob-sidebar": {
-          "impressions": 7355,
-          "clicks": 0
+          "impressions": 7514,
+          "clicks": 1
         },
         "ビルドジョブ": {
-          "impressions": 3728,
+          "impressions": 3855,
           "clicks": 4
         },
         "DXConsulting-sidebar": {
-          "impressions": 3219,
-          "clicks": 0
-        },
-        "KensetsuJobs-sidebar": {
-          "impressions": 2852,
+          "impressions": 3292,
           "clicks": 1
         },
+        "KensetsuJobs-sidebar": {
+          "impressions": 2785,
+          "clicks": 0
+        },
         "BuildJob-endbanner": {
-          "impressions": 1996,
+          "impressions": 1932,
           "clicks": 0
         },
         "建設JOBs": {
@@ -229,11 +275,11 @@
           "clicks": 5
         },
         "ハイクラス DX・コンサル転職": {
-          "impressions": 1084,
-          "clicks": 1
+          "impressions": 1141,
+          "clicks": 2
         },
         "DXConsulting-endbanner": {
-          "impressions": 750,
+          "impressions": 729,
           "clicks": 0
         },
         "KensetsuJobs-endbanner": {
@@ -243,15 +289,11 @@
         "GKS-sidebar": {
           "impressions": 96,
           "clicks": 0
-        },
-        "BuildJob-hubcareer": {
-          "impressions": 2,
-          "clicks": 0
         }
       },
-      "totalImpressions": 23154,
-      "totalClicks": 11,
-      "ctr": 0.00047507989980133023,
+      "totalImpressions": 23416,
+      "totalClicks": 13,
+      "ctr": 0.000555175948069696,
       "notSet": []
     },
     "a8": {
@@ -270,29 +312,30 @@
       "monthsInWindow": [
         "2026-08"
       ]
-    }
+    },
+    "afb": null
   },
   "pillars": {
     "career-path": {
-      "articles": 17,
+      "articles": 19,
       "gscImpressions": 9,
       "gscClicks": 0,
-      "inboundLinks": 48
+      "inboundLinks": 44
     },
     "market-value": {
-      "articles": 8,
+      "articles": 9,
       "gscImpressions": 0,
       "gscClicks": 0,
       "inboundLinks": 29
     },
     "service-choice": {
       "articles": 5,
-      "gscImpressions": 2,
+      "gscImpressions": 0,
       "gscClicks": 0,
       "inboundLinks": 2
     },
     "quit": {
-      "articles": 4,
+      "articles": 5,
       "gscImpressions": 0,
       "gscClicks": 0,
       "inboundLinks": 4
@@ -341,8 +384,8 @@
       "gscClicks": 0,
       "gscPosition": null,
       "topQueries": [],
-      "ga4Users": null,
-      "ga4Sessions": null,
+      "ga4Users": 1,
+      "ga4Sessions": 1,
       "inboundLiteralLinks": 0,
       "careerAffiliateCount": 1,
       "placements": []
@@ -355,16 +398,10 @@
       "reviewStatus": "needs-review",
       "group": "guide",
       "pillar": "service-choice",
-      "gscImpressions": 2,
+      "gscImpressions": 0,
       "gscClicks": 0,
-      "gscPosition": 20,
-      "topQueries": [
-        {
-          "query": "ビルドジョブ 口コミ",
-          "impressions": 2,
-          "clicks": 0
-        }
-      ],
+      "gscPosition": null,
+      "topQueries": [],
       "ga4Users": null,
       "ga4Sessions": null,
       "inboundLiteralLinks": 0,
@@ -475,10 +512,10 @@
       "gscClicks": 0,
       "gscPosition": null,
       "topQueries": [],
-      "ga4Users": null,
-      "ga4Sessions": null,
+      "ga4Users": 1,
+      "ga4Sessions": 1,
       "inboundLiteralLinks": 10,
-      "careerAffiliateCount": 0,
+      "careerAffiliateCount": 1,
       "placements": []
     },
     {
@@ -493,8 +530,8 @@
       "gscClicks": 0,
       "gscPosition": null,
       "topQueries": [],
-      "ga4Users": null,
-      "ga4Sessions": null,
+      "ga4Users": 2,
+      "ga4Sessions": 2,
       "inboundLiteralLinks": 3,
       "careerAffiliateCount": 0,
       "placements": []
@@ -599,8 +636,8 @@
       "gscClicks": 0,
       "gscPosition": null,
       "topQueries": [],
-      "ga4Users": null,
-      "ga4Sessions": null,
+      "ga4Users": 1,
+      "ga4Sessions": 1,
       "inboundLiteralLinks": 2,
       "careerAffiliateCount": 0,
       "placements": []
@@ -619,7 +656,7 @@
       "topQueries": [],
       "ga4Users": null,
       "ga4Sessions": null,
-      "inboundLiteralLinks": 7,
+      "inboundLiteralLinks": 6,
       "careerAffiliateCount": 1,
       "placements": []
     },
@@ -653,9 +690,45 @@
       "gscClicks": 0,
       "gscPosition": null,
       "topQueries": [],
+      "ga4Users": 1,
+      "ga4Sessions": 1,
+      "inboundLiteralLinks": 8,
+      "careerAffiliateCount": 1,
+      "placements": []
+    },
+    {
+      "slug": "civil-construction-1-guide-public-engineer-exam-study",
+      "category": "civil-construction-1",
+      "title": "土木職の公務員採用試験、勉強法は出題の構造から逆算する",
+      "published": true,
+      "reviewStatus": null,
+      "group": "guide",
+      "pillar": "career-path",
+      "gscImpressions": 0,
+      "gscClicks": 0,
+      "gscPosition": null,
+      "topQueries": [],
       "ga4Users": null,
       "ga4Sessions": null,
-      "inboundLiteralLinks": 8,
+      "inboundLiteralLinks": 0,
+      "careerAffiliateCount": 1,
+      "placements": []
+    },
+    {
+      "slug": "civil-construction-1-guide-public-engineer-salary-table",
+      "category": "civil-construction-1",
+      "title": "給料表で読む公務員の年収",
+      "published": true,
+      "reviewStatus": null,
+      "group": "guide",
+      "pillar": "market-value",
+      "gscImpressions": 0,
+      "gscClicks": 0,
+      "gscPosition": null,
+      "topQueries": [],
+      "ga4Users": null,
+      "ga4Sessions": null,
+      "inboundLiteralLinks": 0,
       "careerAffiliateCount": 1,
       "placements": []
     },
@@ -714,6 +787,24 @@
       "placements": []
     },
     {
+      "slug": "civil-construction-1-guide-quit-public-engineer",
+      "category": "civil-construction-1",
+      "title": "土木公務員を辞めたい",
+      "published": true,
+      "reviewStatus": null,
+      "group": "guide",
+      "pillar": "quit",
+      "gscImpressions": 0,
+      "gscClicks": 0,
+      "gscPosition": null,
+      "topQueries": [],
+      "ga4Users": null,
+      "ga4Sessions": null,
+      "inboundLiteralLinks": 0,
+      "careerAffiliateCount": 1,
+      "placements": []
+    },
+    {
       "slug": "civil-construction-1-guide-resume",
       "category": "civil-construction-1",
       "title": "職務経歴書の書き方",
@@ -761,8 +852,8 @@
       "gscClicks": 0,
       "gscPosition": null,
       "topQueries": [],
-      "ga4Users": null,
-      "ga4Sessions": null,
+      "ga4Users": 1,
+      "ga4Sessions": 2,
       "inboundLiteralLinks": 10,
       "careerAffiliateCount": 1,
       "placements": []
@@ -835,7 +926,7 @@
       "topQueries": [],
       "ga4Users": null,
       "ga4Sessions": null,
-      "inboundLiteralLinks": 5,
+      "inboundLiteralLinks": 3,
       "careerAffiliateCount": 0,
       "placements": []
     },
@@ -869,9 +960,9 @@
       "gscClicks": 0,
       "gscPosition": null,
       "topQueries": [],
-      "ga4Users": null,
-      "ga4Sessions": null,
-      "inboundLiteralLinks": 9,
+      "ga4Users": 1,
+      "ga4Sessions": 1,
+      "inboundLiteralLinks": 8,
       "careerAffiliateCount": 1,
       "placements": []
     },
@@ -977,8 +1068,8 @@
       "gscClicks": 0,
       "gscPosition": null,
       "topQueries": [],
-      "ga4Users": null,
-      "ga4Sessions": null,
+      "ga4Users": 1,
+      "ga4Sessions": 1,
       "inboundLiteralLinks": 1,
       "careerAffiliateCount": 1,
       "placements": []
@@ -1025,6 +1116,24 @@
       "title": "建設部門技術士のキャリア",
       "published": true,
       "reviewStatus": "approved",
+      "group": "guide",
+      "pillar": "career-path",
+      "gscImpressions": 0,
+      "gscClicks": 0,
+      "gscPosition": null,
+      "topQueries": [],
+      "ga4Users": 1,
+      "ga4Sessions": 1,
+      "inboundLiteralLinks": 0,
+      "careerAffiliateCount": 1,
+      "placements": []
+    },
+    {
+      "slug": "rccm-guide-career-value",
+      "category": "rccm",
+      "title": "取得後に何が変わるか",
+      "published": true,
+      "reviewStatus": null,
       "group": "guide",
       "pillar": "career-path",
       "gscImpressions": 0,
@@ -1128,6 +1237,22 @@
       "notePricing": "free"
     },
     {
+      "path": "content/note/1級・2級土木/公務員技術職の試験を受けるか決める-無料/article.md",
+      "utmCampaign": "civil-career-public-exam",
+      "noteId": "n74574220cc9d",
+      "noteUrl": "https://note.com/dobokunote/n/n74574220cc9d",
+      "noteStatus": "published",
+      "notePricing": "free"
+    },
+    {
+      "path": "content/note/1級・2級土木/公務員土木を辞める前の棚卸し-無料/article.md",
+      "utmCampaign": "civil-career-public-quit-inventory",
+      "noteId": "n844dc3ac8383",
+      "noteUrl": "https://note.com/dobokunote/n/n844dc3ac8383",
+      "noteStatus": "published",
+      "notePricing": "free"
+    },
+    {
       "path": "content/note/1級・2級土木/公務員土木か民間か-無料/article.md",
       "utmCampaign": "civil-career-public-vs-private",
       "noteId": "n8b03a7de0c6b",
@@ -1144,10 +1269,26 @@
       "notePricing": "free"
     },
     {
+      "path": "content/note/1級・2級土木/RCCMを持つ人の次の職場-無料/article.md",
+      "utmCampaign": "civil-career-rccm-next",
+      "noteId": "n619606e67f94",
+      "noteUrl": "https://note.com/dobokunote/n/n619606e67f94",
+      "noteStatus": "published",
+      "notePricing": "free"
+    },
+    {
       "path": "content/note/1級・2級土木/年収を上げる人の違い-無料/article.md",
       "utmCampaign": "civil-career-salary-difference",
       "noteId": "nfbff7b1469b6",
       "noteUrl": "'https://note.com/dobokunote/n/nfbff7b1469b6'",
+      "noteStatus": "published",
+      "notePricing": "free"
+    },
+    {
+      "path": "content/note/1級・2級土木/給料表で読む土木公務員の年収-無料/article.md",
+      "utmCampaign": "civil-career-salary-table",
+      "noteId": "n523e6403a937",
+      "noteUrl": "https://note.com/dobokunote/n/n523e6403a937",
       "noteStatus": "published",
       "notePricing": "free"
     },
@@ -1164,6 +1305,14 @@
       "utmCampaign": "civil-career-timing",
       "noteId": "n401905648243",
       "noteUrl": "'https://note.com/dobokunote/n/n401905648243'",
+      "noteStatus": "published",
+      "notePricing": "free"
+    },
+    {
+      "path": "content/note/1級・2級土木/転職相談の前に緊急度を確かめる-無料/article.md",
+      "utmCampaign": "civil-career-urgency",
+      "noteId": "n394a24392863",
+      "noteUrl": "https://note.com/dobokunote/n/n394a24392863",
       "noteStatus": "published",
       "notePricing": "free"
     },
@@ -1193,12 +1342,12 @@
     }
   ],
   "baselineDrift": [
-    "affiliate 表示: 起票時 7370 → 今回 23154（314%）",
-    "affiliate クリック: 起票時 19 → 今回 11（58%）",
-    "高意図 query 表示: 起票時 10 → 今回 33（330%）"
+    "affiliate 表示: 起票時 7370 → 今回 23416（318%）",
+    "affiliate クリック: 起票時 19 → 今回 13（68%）",
+    "高意図 query 表示: 起票時 10 → 今回 44（440%）"
   ],
   "warnings": [
-    "窓が不一致（GA4 2026-08-20〜2026-09-16 / GSC 2026-08-18〜2026-09-14）。取得元の遅延差なので異常ではないが、出所を跨いで CTR/EPC を割らないこと",
-    "GA4 page スナップショットは上位 100 ページのみで、career 記事は 1 本も入っていない。users/sessions は「0」ではなく「観測範囲外」なので断定に使わない"
+    "入力欠落 1 件: afb（CI の fetch-metrics 供給を確認する）",
+    "窓が不一致（GA4 2026-08-27〜2026-09-23 / GSC 2026-08-25〜2026-09-21）。取得元の遅延差なので異常ではないが、出所を跨いで CTR/EPC を割らないこと"
   ]
 }

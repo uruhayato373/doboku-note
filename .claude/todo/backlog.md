@@ -21,6 +21,15 @@
 
 ## 🔴 高 — 来月中に着手
 
+### [DN-0341] コンクリート主任技士「ペルソナ選択ガイド」（無料の入口）が note 上で限定公開になり、誰も読めない状態を直す
+タグ: [収益化] [領域:商品] [時期:2026-10] [種類:不具合] [起票:2026-09-26]
+
+**起点**: 2026-W39 週次レビューの note 視覚チェックで、原稿 `content/note/コンクリート主任技士/magazines/コンクリート主任技士-実務立場別小論文集/00-ペルソナ選択ガイド/article.md`（`notePricing: free`）が、公開 API（`/api/v3/notes/n6a56bef2fe2b`）で `price:0`・`is_limited:true`・`can_read:false` になっており、画面にはマガジン価格（¥2,980〜）が出ていた。無料の入口記事が購入者以外に読めない。
+
+**やること**: note の公開設定を無料（誰でも読める）へ戻し、同じマガジン内のほかの無料記事に同じ状態が無いかを公開 API の `is_limited` で確かめる（ライブ変更なので実行前に確認）。
+
+**完了条件**: 公開 API で `is_limited:false`（または未認証で本文が読める）を確認したら、このカードを削除する。
+
 ### [DN-0311] ココナラの商品展開を「人の作業が主役・PDF は安い入口」へ組み直し、note・KDP と資格ごとに棲み分ける
 タグ: [収益化] [領域:商品] [種類:改善] [起票:2026-09-25]
 
@@ -643,6 +652,33 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 **やること**: 読み取りは kdp → x → google → afb の順に、レジストリで `canary:true, enabled:true` → `gh workflow run login-collectors.yml --ref develop -f service=<svc> -f mode=probe-only` を2回 → `-f mode=collect` を別日に3回 → Mac で `npm run auth:status -- --service <svc>` が authenticated のまま → `canary:false` で cron。書き込みは `npm run ops-write:plan` → `ops-write.yml`（最初は `commit=false`）で instagram.publish-bs → note.sync-tags → note.update-body → note.publish → coconala → X 投稿 → X Articles → KDP の順。事前のユーザー操作（Secret `DOBOKU_AUTH_AGE_IDENTITY`・`CLOUDFLARE_ANALYTICS_API_TOKEN`・各サービスの `auth:export`・Environment `external-writes`）が済んでいないサービスはそこで止める。罠は memory の reference_ci_encrypted_state_gotchas。4週安定したら `check-*-due` と ops freshness の `note:` を CI 主経路に書き換える。
 
 **完了条件**: 対象サービスがすべて `canary:false` で cron 稼働するか、サービスごとのカードへ分けたら、このカードを削除する。
+
+### [DN-0338] 1級土木「ネットワーク式工程表」のtitle・descriptionを「インターフェアリングフロートとは」の検索意図に合わせる
+タグ: [コンテンツ品質] [領域:サイト] [種類:改善] [起票:2026-09-26]
+
+**起点**: 週次トリアージ（.claude/state/metrics/growth/digest-2026-W38.json）の OPP-2ee0d7aa00: 「インターフェアリングフロートとは」は平均 7.6 位なのに CTR 0.16%（期待 3%）（期待効果 6.9 searchClicks/週）。原稿: `content/site/civil-construction-1/textbook-network-schedule/article.mdx`
+
+**やること**: GSC で「インターフェアリングフロートとは」（35日 表示1,215・クリック2・平均7.6位・旧URLを含む）の着地ページと表示中のタイトルを確認し、textbook-network-schedule の seoTitle・description・リード文にフロート4種（トータル/フリー/インターフェアリング/ディペンデント）の定義と試験での問われ方を入れる。本文に無い定義は足さず、既存の図 figure-3-21-23 と整合させる。変更後は refresh-indexes。
+
+**完了条件**: seoTitle・description・リードが検索語の定義に答える形で公開され、公開日から28日後の同クエリの CTR を変更前（0.16%）と比べた記録が business review か本カードの完了記録にある。
+
+### [DN-0339] Instagram の公開済み未記録48件と照合異常45件を /ig-reconcile で解消する
+タグ: [SNS・マーケ] [領域:SNS] [種類:不具合] [起票:2026-09-26]
+
+**起点**: 週次レビューの申し送り（.claude/state/metrics/growth/digest-2026-W38.json）
+
+**やること**: CI 週次の照合 `.claude/state/ig-reconcile/snapshot.json`（2026-09-19）で published_UNrecorded 48・anomaly 45・reel_built_unposted 42 が出ている。ローカルで `/ig-reconcile` を実行し、公開済みを posted.json へ backfill、異常の内訳（重複・種別・予約ずれ）を分類して直す。未公開のうち予約すべきものは予約前に一覧を示して確認を取る（外部への予約はユーザー承認後）。
+
+**完了条件**: 次の CI 照合 snapshot で published_UNrecorded と anomaly が 0、または残りの各件に理由（削除済み・対象外など）が台帳に記録されている。
+
+### [DN-0340] backlog の ID 再利用4件と「常時緑」の検証ゲート2本を直す
+タグ: [エージェント・SSOT] [領域:管理] [種類:不具合] [起票:2026-09-26]
+
+**起点**: 週次レビューの申し送り（.claude/state/metrics/growth/digest-2026-W38.json）
+
+**やること**: check-backlog-health S10 が DN-0243・DN-0322・DN-0323・DN-0324 を「削除後に別タスクとして再登場」と出している（1e19109df 等）。採番を git 全履歴基準に揃え、再利用カードを新 ID で再起票して参照（weekly・計画・dispatch-log）を直す。あわせて check-backlog-verify が「常時緑」とする [検証:check-content-expansion]（DN-0224）と [検証:check-video-content]（DN-0184・DN-0279）を、完了判定できるコマンドへ差し替えるか外す（W38 からの持ち越し）。さらに `growth-triage apply --commit` が起票カードに `[領域:]` を付けられず check-backlog-schema で必ず巻き戻る（2026-09-26 に SKIP_BACKLOG_SCHEMA=1 で書いて手で補った）ので、判断ファイルに `domain`（と任意の `period`）を受けて `scripts/lib/growth-triage.mjs` の `renderCard` がタグへ出すよう直す（回帰テスト付き）。
+
+**完了条件**: check-backlog-health の S10 が 0、check-backlog-verify の常時緑が 0、`[領域:]` 付きの判断ファイルで growth-triage apply --commit が SKIP なしで通り、check-backlog-schema が緑。
 
 ## 🟢 低 — 時期未定
 
