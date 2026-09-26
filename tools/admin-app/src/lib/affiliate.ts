@@ -207,3 +207,38 @@ export function affiliateSummary(): AffiliateSummary {
     notAttributable: (log.notAttributable ?? []).length,
   };
 }
+
+/** サイト内の広告クリック（GA4・配置別）。career-funnel-latest.json（npm run report-career-funnel）を読むだけ。 */
+export interface PlacementView {
+  window: { start: string; end: string } | null;
+  generatedAt: string | null;
+  rows: { placement: string; impressions: number; clicks: number }[];
+}
+export function affiliatePlacements(): PlacementView {
+  try {
+    const j = JSON.parse(readFileSync(repoPath(...AFF, 'career-funnel-latest.json'), 'utf8')) as {
+      generatedAt?: string;
+      windows?: { ga4?: { start: string; end: string } };
+      funnel?: { affiliateCta?: { byPlacement?: Record<string, { impressions?: number; clicks?: number }> } };
+    };
+    const rows = Object.entries(j.funnel?.affiliateCta?.byPlacement ?? {})
+      .map(([placement, v]) => ({ placement, impressions: v.impressions ?? 0, clicks: v.clicks ?? 0 }))
+      .sort((a, b) => b.impressions - a.impressions);
+    return { window: j.windows?.ga4 ?? null, generatedAt: j.generatedAt ?? null, rows };
+  } catch {
+    return { window: null, generatedAt: null, rows: [] };
+  }
+}
+
+/** アフィリエイトに関わる実行中の実験と次の判定日（.claude/state/experiments.json）。 */
+export function affiliateExperiments(): { id: string; title: string; nextCheck: string | null }[] {
+  try {
+    const e = JSON.parse(readFileSync(repoPath('.claude', 'state', 'experiments.json'), 'utf8'));
+    const list = (Array.isArray(e) ? e : e.experiments ?? []) as { id: string; title: string; status: string; target_metric?: string; next_check_date?: string }[];
+    return list
+      .filter((x) => x.status === 'running' && /affiliate|アフィリ/i.test(`${x.title} ${x.target_metric ?? ''}`))
+      .map((x) => ({ id: x.id, title: x.title, nextCheck: x.next_check_date ?? null }));
+  } catch {
+    return [];
+  }
+}
