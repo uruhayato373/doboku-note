@@ -3,6 +3,8 @@ import { readFileSync } from 'node:fs';
 import { PageHead } from '@/components/ui';
 import { findRepoRoot, repoPath } from '@/lib/repo-root';
 import { domainList } from '@/lib/domains';
+import { todoBoard } from '@/lib/todo';
+import { renderMarkdown } from '@/lib/markdown';
 import { loadRoadmap, monthsOf, examTimeline } from '../../../../../../scripts/lib/annual-roadmap.mjs';
 import { parseBacklog, parseWhen } from '../../../../../../scripts/lib/backlog-lib.mjs';
 
@@ -21,7 +23,8 @@ const COLOR: Record<string, string> = { exam: 'var(--accent)', result: 'var(--go
  * /plan/roadmap — 年間ロードマップ（時間軸は縦＝月の行）。
  * 左: 資格の行事と買い場（exam-calendar.json・翌年の未公表分は昨年度から推定して薄字）。
  * 右: その月に始まるカード（バックログの [時期:]・[領域:] が唯一の正本。重点の別台帳を持たない）。
- * 設定（期間・買い場の週数）は annual-roadmap.json。
+ * 設定（期間・買い場の週数）は annual-roadmap.json。年間の方針（注力しない・四半期定例）は annual.md を下部に表示する
+ * （年間の画面はここだけ。/todo?f=annual はここへ転送）。
  */
 export default function RoadmapPage() {
   const root = findRepoRoot();
@@ -40,6 +43,7 @@ export default function RoadmapPage() {
     return i < 0 ? 99 : i;
   };
   const thisMonth = new Date(Date.now() + 9 * 3600_000).toISOString().slice(0, 7);
+  const annualNotes = todoBoard().files.find((f) => f.id === 'annual')?.notes ?? '';
 
   const cards = (parseBacklog(readFileSync(repoPath('.claude', 'todo', 'backlog.md'), 'utf8')) as {
     id: string | null; title: string; domain: string | null; when: string | null; wip: boolean;
@@ -112,6 +116,12 @@ export default function RoadmapPage() {
           </tbody>
         </table>
       </div>
+      {annualNotes ? (
+        <div className="card" style={{ marginTop: 16 }}>
+          <h2>年間の方針</h2>
+          <div className="md-prose small" dangerouslySetInnerHTML={{ __html: renderMarkdown(annualNotes) }} />
+        </div>
+      ) : null}
     </>
   );
 }

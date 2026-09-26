@@ -45,6 +45,7 @@ import {
   TODO_LAYER_FILES,
   DOBOKU_ID_PATTERN,
   parseWhen,
+  TODO_DIR,
 } from './lib/backlog-lib.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -123,6 +124,28 @@ export function validateCards(cards, orphans, opts) {
  * @param addedTodoFiles 追加された 4 層以外の .md
  * @param cards parseBacklog の出力（新規カードの token 必須チェック用）
  */
+/**
+ * 計画の層の契約（2026-09-26〜）。月間は [時期:] が今月を含むカードから導出するので monthly.md に
+ * タスク表を置かない。weekly.md の表に書いた ID はバックログに実在すること（削除済みカードの残骸を止める）。
+ * @param {{ monthly: string, weekly: string }} texts 各ファイルの本文（無ければ空文字）
+ * @param {Set<string>} backlogIds
+ */
+export function validateLayers(texts, backlogIds) {
+  const v = [];
+  (texts.monthly ?? '').split(/\r?\n/).forEach((l, i) => {
+    if (/^\s*\|/.test(l) && /DN-\d{4}/.test(l)) {
+      v.push({ rule: 'monthly-table', at: `.claude/todo/monthly.md:${i + 1}`, msg: 'monthly.md にタスク表を置かない（月間は [時期:] が今月を含むカードから自動で決まる。カードの [時期:] を直す）' });
+    }
+  });
+  (texts.weekly ?? '').split(/\r?\n/).forEach((l, i) => {
+    if (!/^\s*\|/.test(l)) return;
+    for (const id of l.match(/DN-\d{4}/g) ?? []) {
+      if (!backlogIds.has(id)) v.push({ rule: 'weekly-ref', at: `.claude/todo/weekly.md:${i + 1}`, msg: `${id} はバックログに無い（完了・削除したカードの行を weekly.md から消す）` });
+    }
+  });
+  return v;
+}
+
 export function validateStagedLines(addedLines, addedTodoFiles, cards = [], knownTitles = null) {
   const v = [];
   // 新規カードは token を揃える（ラチェット＝既存カードの欠落は返済を強制しない）。
@@ -220,6 +243,12 @@ function main() {
     allowedCategories,
     domainLabels: new Set(loadDomains(ROOT).domains.map((d) => d.label)),
   });
+
+  const readLayer = (f) => (existsSync(join(ROOT, TODO_DIR, f)) ? readFileSync(join(ROOT, TODO_DIR, f), 'utf8') : '');
+  violations.push(...validateLayers(
+    { monthly: readLayer('monthly.md'), weekly: readLayer('weekly.md') },
+    new Set(cards.map((c) => c.id).filter(Boolean)),
+  ));
 
   // 構造アサーション: admin が自前のタグ分解へ戻っていないか（2 実装の再分岐を止める）
   const todoTs = join(ROOT, 'tools/admin-app/src/lib/todo.ts');

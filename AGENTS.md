@@ -21,7 +21,7 @@ src/                         # コンポーネント・CSS・レイアウト
 docs/                        # 人が読む恒久文書（strategy / editorial / marketing / operations / products / design）
 .claude/rules/               # パス条件付きルール（paths: 必須。該当ファイルを Read/Edit したときだけ読み込まれる）
 .claude/knowledge/reference/ # 作業マニュアル（全索引は同ディレクトリの README.md）
-.claude/todo/                # タスク台帳 4 層（backlog/weekly/monthly/annual・閲覧は admin /todo）
+.claude/todo/                # タスク台帳（backlog がマスタ・年間/月間はカードの [時期:] から導出・閲覧は admin 計画）
 .claude/skills/ .claude/agents/  # スキル・サブエージェント定義（件数の SSOT は各 registry）
 scripts/ tools/admin-app/    # 検査・自動化スクリプト／運営管理画面（ローカル専用・npm run admin）
 ```

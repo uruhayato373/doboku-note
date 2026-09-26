@@ -193,3 +193,26 @@ test('優先度の見出しの外のカードと、形式の違う [時期:] は
   assert.ok(v.some((x) => x.rule === 'orphan' && x.msg.includes('凡例に紛れた')));
   assert.ok(v.some((x) => x.rule === 'when'));
 });
+
+test('計画の層の契約: monthly.md のタスク表と、weekly.md の削除済み ID を違反にする（2026-09-26）', async () => {
+  const { validateLayers } = await import('../scripts/check-backlog-schema.mjs');
+  const v = validateLayers(
+    {
+      monthly: '# 月間計画\n\n## 今月の成果目標\n\n1. 目標（DN-0001 に触れる文は可）\n\n| ID | 出口 |\n|---|---|\n| DN-0001 | x |',
+      weekly: '## 実行タスク\n\n| ID | 今週の出口 |\n|---|---|\n| DN-0001 | a |\n| DN-0999 | b |\n\n## 今週やらないこと\n\n- **DN-0998** 本文の ID は対象外',
+    },
+    new Set(['DN-0001']),
+  );
+  assert.deepEqual(v.map((x) => x.rule).sort(), ['monthly-table', 'weekly-ref']);
+  assert.ok(v.find((x) => x.rule === 'weekly-ref').msg.includes('DN-0999'));
+});
+
+test('S15 computePastWhen: [時期:] の終わりの月を過ぎたカードだけを返す', async () => {
+  const { computePastWhen } = await import('../scripts/check-backlog-health.mjs');
+  const cards = [
+    { id: 'DN-0001', line: 1, title: 'past', when: '2026-07..2026-08' },
+    { id: 'DN-0002', line: 2, title: 'current', when: '2026-09..2026-10' },
+    { id: 'DN-0003', line: 3, title: 'none', when: null },
+  ];
+  assert.deepEqual(computePastWhen(cards, '2026-09').map((c) => c.id), ['DN-0001']);
+});

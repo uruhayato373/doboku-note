@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { redirect } from 'next/navigation';
 import { PageHead } from '@/components/ui';
 import { renderMarkdown } from '@/lib/markdown';
 import { projectRefsByBacklogId } from '@/lib/project';
@@ -17,8 +18,8 @@ import {
 export const dynamic = 'force-dynamic';
 
 /**
- * TODO は読み取り専用。backlog はタスクマスタ、weekly/monthly は表の各行、annual は
- * 季節マイルストーンとして表示する。層によって意味が違うため、同じカードUIへ押し込まない。
+ * TODO は読み取り専用。backlog はタスクマスタ、monthly は [時期:] が今月を含むカード（backlog と同じ表）、
+ * weekly は weekly.md の表の各行。annual は /plan/roadmap へ転送する（年間は [時期:] で描く）。
  */
 
 type Query = { f?: string; t?: string; k?: string; id?: string };
@@ -348,12 +349,16 @@ function PlanTable({
 
 export default async function TodoPage({ searchParams }: { searchParams: Promise<Query> }) {
   const query = await searchParams;
+  // 年間は /plan/roadmap（[時期:] で描く）が唯一の画面。annual.md のタブは持たない
+  if (query.f === 'annual') redirect('/plan/roadmap');
   const board = todoBoard();
   const layer = board.files.some((file) => file.id === query.f) ? query.f! : 'backlog';
   const meta = board.files.find((file) => file.id === layer);
   const layerCards = board.items.filter((item) => item.file === layer);
   const displayedLayerCards = visibleTodoCards(layerCards, layer);
   const isBacklog = layer === 'backlog';
+  // 月間は [時期:] が今月を含むカード（backlog の写し）なので、バックログと同じ表で出す
+  const isCardList = isBacklog || layer === 'monthly';
 
   const tier = isBacklog && TIERS.some((item) => item.key === query.t) ? query.t as TierKey : null;
   const kind = isBacklog && query.k && layerCards.some((card) => card.kind === query.k) ? query.k : null;
@@ -365,11 +370,11 @@ export default async function TodoPage({ searchParams }: { searchParams: Promise
   const visible = byTier(tierScope);
 
   // 逆方向の結線: このタスクを参照している docs 文書（backlog 層でだけ引く）
-  const docRefs = isBacklog ? projectRefsByBacklogId() : new Map<string, { slug: string; title: string }[]>();
+  const docRefs = isCardList ? projectRefsByBacklogId() : new Map<string, { slug: string; title: string }[]>();
 
-  // weekly/monthly は本文を複製せず ID で backlog を参照するので、表示側で join する
-  // （todo.ts の docstring どおり。annual は ID 参照を持たないため対象外）。
-  const backlogRefs = layer === 'weekly' || layer === 'monthly' ? backlogIndex() : undefined;
+  // weekly は本文を複製せず ID で backlog を参照するので、表示側で join する
+  // （月間はカードそのものを出すので join 不要。annual は画面を持たない）。
+  const backlogRefs = layer === 'weekly' ? backlogIndex() : undefined;
 
   const tierCounts = countBy(tierScope, tierKey);
   const kindCounts = countBy(kindScope, (card) => card.kind);
@@ -384,6 +389,8 @@ export default async function TodoPage({ searchParams }: { searchParams: Promise
   const completedAreHidden = displayedLayerCards.length !== layerCards.length;
   const sub = isBacklog
     ? `${visible.length} / ${layerCards.length}件を表示`
+    : layer === 'monthly'
+      ? `${board.month.slice(0, 4)}年${Number(board.month.slice(5))}月 · [時期:] が今月を含むカード ${layerCards.length}件`
     : `${meta?.title ?? meta?.label ?? layer} · 未完了 ${activeCount}件${completeCount && !completedAreHidden ? ` / 完了 ${completeCount}件` : ''}`;
 
   return (
@@ -393,11 +400,17 @@ export default async function TodoPage({ searchParams }: { searchParams: Promise
       {!isBacklog && meta?.summary ? (
         <p className="todo-plan-focus"><strong>焦点</strong>{meta.summary}</p>
       ) : null}
+      {layer === 'monthly' && meta?.notes ? (
+        <div className="card" style={{ marginBottom: 12 }}>
+          <h2>今月の成果目標</h2>
+          <div className="md-prose" dangerouslySetInnerHTML={{ __html: renderMarkdown(meta.notes) }} />
+        </div>
+      ) : null}
 
       <div className={'todo-shell' + (isBacklog ? '' : ' plan-only')}>
         <div className="todo-main">
-          {isBacklog ? (
-            <BacklogTable cards={visible} focusId={query.id} docRefs={docRefs} />
+          {isCardList ? (
+            <BacklogTable cards={isBacklog ? visible : displayedLayerCards} focusId={query.id} docRefs={docRefs} />
           ) : (
             <PlanTable cards={displayedLayerCards} annual={layer === 'annual'} backlogRefs={backlogRefs} />
           )}

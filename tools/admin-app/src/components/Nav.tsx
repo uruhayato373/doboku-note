@@ -19,7 +19,7 @@ type NavTree = {
 
 type NavEntry = Tab | NavTree;
 
-/** TODO の 4 層（layout が server 側で数えて渡す）。件数の真実源は backlog-lib の TODO_LAYER_FILES。 */
+/** 計画の層の件数（layout が server 側で todoBoard() から数えて渡す）。月間は [時期:] が今月を含むカード数。 */
 export type TodoLayer = { id: string; label: string; count: number };
 
 /** 領域とサイドバーの画面（layout が .claude/config/domains.json から渡す。ここに直書きしない）。 */
@@ -29,7 +29,7 @@ export type NavDomain = { id: string; label: string; nav: Tab[] };
  * サイドバーの情報設計（2026-09-26）。グループ＝事業の領域、項目＝その領域の判断に使う画面だけ。
  * 名前・並び・画面の正本は domains.json（nav・navKinds・navRules）、考え方は docs/strategy/14_領域モデル.md。
  * チャネルや SNS はサイドバーの枝にせず画面内のタブにする。グループ名は領域の概要（/domains/<id>）へのリンク。
- * 動的に展開する枝（商品ラインナップ＝資格、教材一覧＝棚、バックログ＝4層）だけ href で差し込む。
+ * 動的に展開する枝（商品ラインナップ＝資格、教材一覧＝棚）だけ href で差し込み、計画の層（/todo?f=）には件数を付ける。
  */
 
 function isTree(entry: NavEntry): entry is NavTree {
@@ -50,10 +50,11 @@ function isActive(pathname: string, searchParams: URLSearchParams, tab: Tab, exa
   );
 }
 
-function NavLink({ tab, active }: { tab: Tab; active: boolean }) {
+function NavLink({ tab, active, count }: { tab: Tab; active: boolean; count?: number }) {
   return (
     <Link href={tab.href} className={'tab' + (active ? ' active' : '')}>
       {tab.label}
+      {count !== undefined ? <span className="n">{count}</span> : null}
     </Link>
   );
 }
@@ -79,39 +80,6 @@ function SectionTree({ tree, pathname }: { tree: NavTree; pathname: string }) {
         ))}
       </div>
     </details>
-  );
-}
-
-/**
- * TODO の 4 層を「計画」グループ直下に出す。
- * 層は「行き先」、優先度・種類は本文側の絞り込みとして役割を分ける。
- */
-function TodoLinks({
-  layers,
-  pathname,
-}: {
-  layers: TodoLayer[];
-  pathname: string;
-}) {
-  const searchParams = useSearchParams();
-  const onTodo = pathname === '/todo' || pathname.startsWith('/todo/');
-  const current = layers.some((layer) => layer.id === searchParams.get('f'))
-    ? searchParams.get('f')
-    : 'backlog';
-
-  return (
-    <>
-      {layers.map((layer) => (
-        <Link
-          key={layer.id}
-          href={layer.id === 'backlog' ? '/todo' : `/todo?f=${layer.id}`}
-          className={'tab' + (onTodo && current === layer.id ? ' active' : '')}
-        >
-          {layer.label}
-          <span className="n">{layer.count}</span>
-        </Link>
-      ))}
-    </>
   );
 }
 
@@ -154,6 +122,9 @@ export default function Nav({
     })),
   }));
 
+  // 計画の層（/todo?f=）には件数を付ける。件数は layout が todoBoard() から渡す（月間＝[時期:] が今月のカード）
+  const layerCount = (t: Tab) =>
+    t.match === '/todo' ? todoLayers.find((l) => l.id === (t.query?.f || 'backlog'))?.count : undefined;
   // 下の階層に別の項目がある項目は完全一致で active にする（/metrics と /metrics/gsc など）
   const allMatches = domains.flatMap((d) => d.nav.map((t) => t.match));
   const exactMatches = new Set(allMatches.filter((m) => allMatches.some((o) => o !== m && o.startsWith(m + '/'))));
@@ -185,20 +156,12 @@ export default function Nav({
                 />
               );
             }
-            if (entry.match === '/todo' && todoLayers.length) {
-              return (
-                <TodoLinks
-                  key={entry.href}
-                  layers={todoLayers}
-                  pathname={pathname}
-                />
-              );
-            }
             return (
               <NavLink
                 key={entry.href}
                 tab={entry}
                 active={isActive(pathname, searchParams, entry, exactMatches.has(entry.match))}
+                count={layerCount(entry)}
               />
             );
           })}

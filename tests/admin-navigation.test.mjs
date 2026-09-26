@@ -114,7 +114,10 @@ test('サイドバーは領域の正本（domains.json）から描き、Nav.tsx 
 
 test('既存の判断画面はすべてサイドバーのどこか 1 か所に置かれている', () => {
   const cfg = JSON.parse(readFileSync(join(ROOT, '.claude/config/domains.json'), 'utf8'));
-  const hrefs = cfg.domains.flatMap((d) => d.nav.map((v) => v.href.split('?')[0]));
+  const full = cfg.domains.flatMap((d) => d.nav.map((v) => v.href));
+  assert.equal(new Set(full).size, full.length, '同じ画面（クエリ込み）がサイドバーに 2 回ある');
+  // 計画の層（/todo?f=monthly 等）は同じ画面のクエリ違いなので、パスは重複してよい
+  const hrefs = [...new Set(full.map((h) => h.split('?')[0]))];
   for (const href of [
     '/metrics', '/strategy/policy', '/metrics/business', '/strategy/qualifications', '/content/lineup',
     '/sales', '/product/status', '/affiliate', '/affiliate/placements', '/affiliate/programs', '/metrics/seo-watch', '/metrics/gsc', '/metrics/ga4',

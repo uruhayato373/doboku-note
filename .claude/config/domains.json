@@ -45,7 +45,7 @@
       "id": "plan",
       "label": "計画",
       "role": "決める",
-      "manages": "年間ロードマップ・スケジュール・バックログ",
+      "manages": "年間ロードマップ（[時期:] のカード）・月間（今月のカード）・週間・バックログ・スケジュール",
       "nav": [
         {
           "label": "年間ロードマップ",
@@ -54,16 +54,37 @@
           "match": "/plan/roadmap"
         },
         {
-          "label": "スケジュール",
-          "href": "/schedule",
+          "label": "月間",
+          "href": "/todo?f=monthly",
           "kind": "actions",
-          "match": "/schedule"
+          "match": "/todo",
+          "query": {
+            "f": "monthly"
+          }
+        },
+        {
+          "label": "週間",
+          "href": "/todo?f=weekly",
+          "kind": "actions",
+          "match": "/todo",
+          "query": {
+            "f": "weekly"
+          }
         },
         {
           "label": "バックログ",
           "href": "/todo",
           "kind": "actions",
-          "match": "/todo"
+          "match": "/todo",
+          "query": {
+            "f": ""
+          }
+        },
+        {
+          "label": "スケジュール",
+          "href": "/schedule",
+          "kind": "actions",
+          "match": "/schedule"
         }
       ]
     },

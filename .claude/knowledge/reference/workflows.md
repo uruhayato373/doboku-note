@@ -128,7 +128,7 @@ title: 推奨ワークフロー
 
 **原則**（3 層モデル）:
 - **Tier 3 機械可読データ** → `.claude/state/metrics/*.json`（develop に CI が直接 commit）
-- **Tier 1 状態あり・アクション item** → `.claude/todo/`（backlog / annual / monthly / weekly の 4 層）。**GitHub Issue は使わない**（CLAUDE.md §8・真実源 [information-architecture.md](information-architecture.md)）
+- **Tier 1 状態あり・アクション item** → `.claude/todo/`（backlog / annual / monthly / weekly の 4 層。年間・月間の中身はカードの `[時期:]` から導出）。**GitHub Issue は使わない**（CLAUDE.md §8・真実源 [information-architecture.md](information-architecture.md)）
 - **Tier 2 固定的知識・設計** → `docs/{領域}/*.md`, `.claude/knowledge/reference/*.md`
 - 週次 PDCA は `docs/reviews/weekly/YYYY-Www-review.md`（レビュー）と `YYYY-Www.md`（計画）の 2 本に保存。最新週のみ保持し、旧週は未完タスクを `.claude/todo/backlog.md` へ抽出してから削除（履歴は git）
 - 申し送りは次週の計画へ引き継ぎ → 解消したら次の review で「完了」として記録
