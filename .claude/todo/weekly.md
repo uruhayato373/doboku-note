@@ -25,7 +25,7 @@
 | verify-ig-status（ig-reconcile） | snapshot が09-19で7日超過。再実行して published_UNrecorded/scheduled/anomalyを更新する |
 | x-queue-surfacer | 投入待ちなし（充足10/31）。096〜103の日付書式判定不能8件は DN-0184 の SNS 接続後に見直す |
 | check-gsc-ui-due | ga4-ui が DUE（直近実行は取得0/3失敗）。`/google-search-growth` で取得する |
-| check-experiment-due | EXP-007 が MEASURE_DUE 超過（`/nsm-experiment close`）。EXP-008 は要人手2件待ちで measuring 継続 |
+| check-experiment-due | EXP-007 は W39 レビューで close 済み。10/1 に EXP-009（RCCM）・EXP-011 を再計測する。EXP-008 は measuring 継続（判定 10/20） |
 | check-weekly-review-due | 2026-W39 の週次レビュー未作成。対話セッションで `/weekly-review` を実行する |
 
 ## 手動キュー（ユーザー・別PC／時間差で可）
@@ -34,6 +34,8 @@
 |---|---|---|
 | DN-0135 | 各行の実体解消 | 詳細・完了条件は backlog の DN-0135 の表を参照。片付いた行から消す。**#12 KDP Select 自動更新オフは期限 2026-10-06** |
 | DN-0224 | 教材原典待ち17論点の復旧を再開する | 別PCで原本入手・再撮影後に再照合。詳細は[実装計画](../plans/DN-0224-source-recovery.md) |
+| DN-0312 | room 18351970 の残り添削と購入者評価を返す | 評価の期限 10/6。送信は運営者（下書きを見てから）|
+| DN-0341 | 無料のペルソナ選択ガイドの限定公開を解除する | note のライブ変更。実行前に確認 |
 
 ## 今後の確定予定（KDP）
 
