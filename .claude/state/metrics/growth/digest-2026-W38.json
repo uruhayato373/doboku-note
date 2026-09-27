@@ -10,7 +10,7 @@
     "endDate": "2026-09-13",
     "days": 28
   },
-  "generatedAt": "2026-09-24T23:42:05.249Z",
+  "generatedAt": "2026-09-27T11:53:01.874Z",
   "pack": ".claude/state/metrics/growth/pack-2026-W38.json",
   "inputs": [
     {
@@ -21,13 +21,13 @@
     },
     {
       "name": "monetization-coverage",
-      "file": ".claude/state/metrics/monetization/coverage-2026-09-24T23-41-53.json",
+      "file": ".claude/state/metrics/monetization/coverage-2026-09-27T11-52-50.json",
       "coverage": "complete",
       "note": null
     },
     {
       "name": "bing-webmaster",
-      "file": ".claude/state/metrics/bing/bing-2026-09-25.json",
+      "file": ".claude/state/metrics/bing/bing-2026-09-27.json",
       "coverage": "complete",
       "note": null
     }
@@ -139,11 +139,6 @@
         "baseWeekly": 1.8,
         "deltaPct": -42.9
       },
-      "brain_cta_click": {
-        "week": 0,
-        "baseWeekly": 0,
-        "deltaPct": null
-      },
       "quiz_cta_click": {
         "week": 0,
         "baseWeekly": 0,
@@ -246,30 +241,9 @@
   "suppressed": 0,
   "notSurfaced": {
     "seo": 0,
-    "revenue": 27
+    "revenue": 28
   },
   "surfaced": [
-    {
-      "id": "OPP-797f94e448",
-      "category": "experiment",
-      "type": "experiment-due",
-      "key": {
-        "experiment": "EXP-007",
-        "reasons": "MEASURE_DUE"
-      },
-      "title": "EXP-007（X を1日1本→3本へ増量（型×時間帯スロット A/B/C の設計））: next_check_date 2026-09-15 を超過",
-      "metrics": {
-        "status": "measuring",
-        "nextCheckDate": "2026-09-15"
-      },
-      "expectedWeeklyGain": null,
-      "suggest": [
-        "verdict",
-        "defer"
-      ],
-      "watchwordDraft": null,
-      "review": "/nsm-experiment close EXP-007"
-    },
     {
       "id": "OPP-cdeb596eb5",
       "category": "experiment",
@@ -388,15 +362,39 @@
       "key": {
         "placement": "sidebar"
       },
-      "title": "配置 sidebar は表示 12916（28 日）で CTR 0.02%（配置の中央値 0.23%）",
+      "title": "配置 sidebar は表示 13616（28 日）で CTR 0.01%（配置の中央値 0.28%）",
       "metrics": {
-        "impressions28d": 12916,
+        "impressions28d": 13616,
         "clicks28d": 2,
-        "ctrPct": 0.02,
-        "medianCtrPct": 0.23
+        "ctrPct": 0.01,
+        "medianCtrPct": 0.28
       },
       "expectedWeeklyGain": {
-        "value": 7.1,
+        "value": 9,
+        "unit": "ctaClicks"
+      },
+      "suggest": [
+        "experiment",
+        "backlog"
+      ],
+      "watchwordDraft": null
+    },
+    {
+      "id": "OPP-927fd9bd18",
+      "category": "revenue",
+      "type": "revenue-placement-ctr",
+      "key": {
+        "placement": "article-sidebar"
+      },
+      "title": "配置 article-sidebar は表示 12131（28 日）で CTR 0.12%（配置の中央値 0.28%）",
+      "metrics": {
+        "impressions28d": 12131,
+        "clicks28d": 15,
+        "ctrPct": 0.12,
+        "medianCtrPct": 0.28
+      },
+      "expectedWeeklyGain": {
+        "value": 4.7,
         "unit": "ctaClicks"
       },
       "suggest": [
@@ -421,30 +419,6 @@
       },
       "expectedWeeklyGain": {
         "value": 1.2,
-        "unit": "ctaClicks"
-      },
-      "suggest": [
-        "backlog",
-        "experiment"
-      ],
-      "watchwordDraft": null
-    },
-    {
-      "id": "OPP-3061b036bb",
-      "category": "revenue",
-      "type": "revenue-page-cta-rate",
-      "key": {
-        "page": "/exam/pe-comprehensive-management/past-exams/r08-primary"
-      },
-      "title": "/exam/pe-comprehensive-management/past-exams/r08-primary の CTA クリック率 0.32%（サイト平均 0.7%）",
-      "metrics": {
-        "ctaImpressions35d": 1259,
-        "ctaClicks35d": 4,
-        "ctrPct": 0.32,
-        "siteCtrPct": 0.7
-      },
-      "expectedWeeklyGain": {
-        "value": 1,
         "unit": "ctaClicks"
       },
       "suggest": [

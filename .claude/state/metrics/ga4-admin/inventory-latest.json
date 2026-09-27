@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "runId": "2026-09-24T23-42-03Z",
-  "collectedAt": "2026-09-24T23:42:03.118Z",
+  "runId": "2026-09-27T11-52-59Z",
+  "collectedAt": "2026-09-27T11:52:59.032Z",
   "propertyId": "419382901",
   "mode": "api-check",
   "source": "admin-api",
   "status": "ok",
-  "desiredCount": 2,
+  "desiredCount": 4,
   "inventory": {
     "dimensions": [
       {
@@ -28,13 +28,25 @@
         "displayName": "cta_placement",
         "parameterName": "cta_placement",
         "scopeLabel": "EVENT"
+      },
+      {
+        "displayName": "metric_rating",
+        "parameterName": "metric_rating",
+        "scopeLabel": "EVENT"
+      },
+      {
+        "displayName": "metric_name",
+        "parameterName": "metric_name",
+        "scopeLabel": "EVENT"
       }
     ]
   },
   "missing": [],
   "present": [
     "event_label",
-    "cta_placement"
+    "cta_placement",
+    "metric_name",
+    "metric_rating"
   ],
   "created": [],
   "createFailures": [],
@@ -80,7 +92,6 @@
       "note_cta_click",
       "affiliate_cta_click",
       "coconala_cta_click",
-      "brain_cta_click",
       "quiz_complete",
       "standards_data_download"
     ],

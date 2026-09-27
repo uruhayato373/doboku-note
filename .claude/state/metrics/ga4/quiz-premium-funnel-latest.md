@@ -1,7 +1,7 @@
 # PWA Premium Phase 0 判定
 
 - 状態: **collecting**
-- 計測窓: 2026-08-27〜2026-09-23
+- 計測窓: 2026-08-30〜2026-09-26
 - 対象: /tools/kakomon-quiz
 - PWA利用者: 2人（WAIT / 100人以上）
 - Premium閲覧: 1人

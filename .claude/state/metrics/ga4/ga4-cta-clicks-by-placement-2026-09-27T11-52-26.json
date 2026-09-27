@@ -1,0 +1,234 @@
+{
+  "meta": {
+    "startDate": "2026-08-30",
+    "endDate": "2026-09-26",
+    "windowKind": "days",
+    "eventNames": [
+      "note_cta_click",
+      "note_cta_impression",
+      "affiliate_cta_click",
+      "affiliate_cta_impression",
+      "note_article_click",
+      "internal_nav_click",
+      "career_need_select",
+      "career_tool_result",
+      "career_checklist_copy",
+      "career_checklist_download",
+      "coconala_cta_click",
+      "standards_data_download",
+      "coconala_cta_impression",
+      "quiz_complete",
+      "qualification_bridge_impression",
+      "qualification_bridge_click"
+    ],
+    "japanOnly": true,
+    "byDevice": false,
+    "byLabel": false,
+    "byPlacement": true,
+    "propertyId": "properties/419382901",
+    "rowCount": 40,
+    "truncated": false
+  },
+  "rows": [
+    {
+      "placement": "sidebar",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 13616
+    },
+    {
+      "placement": "article-sidebar",
+      "eventName": "note_cta_impression",
+      "eventCount": 12131
+    },
+    {
+      "placement": "article-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 7669
+    },
+    {
+      "placement": "article-inline",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 4228
+    },
+    {
+      "placement": "article-end",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3483
+    },
+    {
+      "placement": "article-body",
+      "eventName": "note_cta_impression",
+      "eventCount": 3482
+    },
+    {
+      "placement": "article-footer",
+      "eventName": "note_cta_impression",
+      "eventCount": 3152
+    },
+    {
+      "placement": "article-mid",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2759
+    },
+    {
+      "placement": "article-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 2604
+    },
+    {
+      "placement": "(unknown)",
+      "eventName": "internal_nav_click",
+      "eventCount": 2087
+    },
+    {
+      "placement": "category-sidebar",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 666
+    },
+    {
+      "placement": "category-sidebar",
+      "eventName": "note_cta_impression",
+      "eventCount": 472
+    },
+    {
+      "placement": "article-body",
+      "eventName": "note_cta_click",
+      "eventCount": 226
+    },
+    {
+      "placement": "article-end-offsite",
+      "eventName": "coconala_cta_impression",
+      "eventCount": 136
+    },
+    {
+      "placement": "article-end",
+      "eventName": "note_cta_impression",
+      "eventCount": 101
+    },
+    {
+      "placement": "category-mobile",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 80
+    },
+    {
+      "placement": "category-mobile",
+      "eventName": "note_cta_impression",
+      "eventCount": 40
+    },
+    {
+      "placement": "article-top",
+      "eventName": "note_cta_click",
+      "eventCount": 38
+    },
+    {
+      "placement": "practice-footer",
+      "eventName": "qualification_bridge_impression",
+      "eventCount": 36
+    },
+    {
+      "placement": "article-mid",
+      "eventName": "note_cta_click",
+      "eventCount": 35
+    },
+    {
+      "placement": "links-hub",
+      "eventName": "note_cta_impression",
+      "eventCount": 34
+    },
+    {
+      "placement": "home-hero",
+      "eventName": "note_cta_impression",
+      "eventCount": 17
+    },
+    {
+      "placement": "article-sidebar",
+      "eventName": "note_cta_click",
+      "eventCount": 15
+    },
+    {
+      "placement": "article-body",
+      "eventName": "note_article_click",
+      "eventCount": 13
+    },
+    {
+      "placement": "article-footer",
+      "eventName": "note_cta_click",
+      "eventCount": 12
+    },
+    {
+      "placement": "article-end",
+      "eventName": "note_cta_click",
+      "eventCount": 10
+    },
+    {
+      "placement": "article-inline",
+      "eventName": "affiliate_cta_click",
+      "eventCount": 10
+    },
+    {
+      "placement": "links-hub",
+      "eventName": "coconala_cta_impression",
+      "eventCount": 8
+    },
+    {
+      "placement": "(unknown)",
+      "eventName": "coconala_cta_click",
+      "eventCount": 6
+    },
+    {
+      "placement": "practice-footer",
+      "eventName": "qualification_bridge_click",
+      "eventCount": 6
+    },
+    {
+      "placement": "links-hub",
+      "eventName": "note_cta_click",
+      "eventCount": 4
+    },
+    {
+      "placement": "standards-chapter-footer",
+      "eventName": "qualification_bridge_impression",
+      "eventCount": 4
+    },
+    {
+      "placement": "article-mid",
+      "eventName": "affiliate_cta_click",
+      "eventCount": 3
+    },
+    {
+      "placement": "category-mobile",
+      "eventName": "note_cta_click",
+      "eventCount": 3
+    },
+    {
+      "placement": "links-hub",
+      "eventName": "internal_nav_click",
+      "eventCount": 3
+    },
+    {
+      "placement": "standards-chapter-footer",
+      "eventName": "qualification_bridge_click",
+      "eventCount": 3
+    },
+    {
+      "placement": "sidebar",
+      "eventName": "affiliate_cta_click",
+      "eventCount": 2
+    },
+    {
+      "placement": "career-hub",
+      "eventName": "career_need_select",
+      "eventCount": 1
+    },
+    {
+      "placement": "category-sidebar",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "placement": "standards-data-sample",
+      "eventName": "standards_data_download",
+      "eventCount": 1
+    }
+  ]
+}
