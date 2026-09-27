@@ -215,6 +215,16 @@ jobs:
           GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
         run: npm run fetch-ga4-cta-clicks -- --by-placement
 
+      # 実ユーザー計測（RUM）: サイトの web_vitals イベントをページの型×端末×指標×評価で取り、良好率で判定する
+      # （CrUX が訪問不足で供給されないための代わり）。カスタムディメンション未登録の間は status: dimensions-missing で exit 0。
+      # .claude/state/metrics/rum/web-vitals-*.json。週次レビューが npm run report-web-vitals で読む。
+      - name: Fetch GA4 (web vitals, real-user Core Web Vitals)
+        continue-on-error: true
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+        run: npm run fetch-ga4-web-vitals
+
       # 送客の成果をページ単位で比べる: pagePath × sessions / keyEvents / sessionKeyEventRate（標準指標・過去 28 日）。
       # キーイベントの定義は GA4 側（ga4-admin-desired-state.json）。0 行は全ページ 0 セッションの異常として exit 1。
       # ga4-key-events-by-page-*.json。週次レビューが読む。
@@ -374,7 +384,7 @@ jobs:
           # 残す（drift guard に拒否されると bot commit が丸ごと落ちるため）。
           npm run pre-commit:install
 
-          mkdir -p .claude/state/metrics/ga4 .claude/state/metrics/gsc .claude/state/metrics/monetization .claude/state/metrics/crosswalk .claude/state/metrics/affiliate .claude/state/metrics/growth .claude/state/metrics/bing .claude/state/metrics/ga4-admin .claude/state/weekly-metrics
+          mkdir -p .claude/state/metrics/ga4 .claude/state/metrics/gsc .claude/state/metrics/monetization .claude/state/metrics/crosswalk .claude/state/metrics/affiliate .claude/state/metrics/growth .claude/state/metrics/bing .claude/state/metrics/ga4-admin .claude/state/metrics/rum .claude/state/weekly-metrics
           cp -r /tmp/metrics-publish/ga4/* .claude/state/metrics/ga4/ 2>/dev/null || true
           cp -r /tmp/metrics-publish/gsc/* .claude/state/metrics/gsc/ 2>/dev/null || true
           cp -r /tmp/metrics-publish/monetization/* .claude/state/metrics/monetization/ 2>/dev/null || true
@@ -385,6 +395,7 @@ jobs:
           cp /tmp/metrics-publish/growth/pack-*.json .claude/state/metrics/growth/ 2>/dev/null || true
           cp -r /tmp/metrics-publish/bing/* .claude/state/metrics/bing/ 2>/dev/null || true
           cp -r /tmp/metrics-publish/ga4-admin/* .claude/state/metrics/ga4-admin/ 2>/dev/null || true
+          cp -r /tmp/metrics-publish/rum/* .claude/state/metrics/rum/ 2>/dev/null || true
 
           # 実験の自動計測と機会ダイジェストは develop 最新（reset 後）の experiments.json と triage-log
           # （土曜の週次レビューが push する処分記録）を読む必要があるので、ここで実行して同じ commit に載せる。
@@ -407,7 +418,7 @@ jobs:
           # スナップショットと同じ commit で作り直さないと、次にビルドした手元にだけ差分が出る（2026-09-26）。
           node scripts/build-popular-pages.mjs
           git add src/config/popular-pages.json
-          git add .claude/state/metrics/business .claude/state/metrics/ga4 .claude/state/metrics/gsc .claude/state/metrics/monetization .claude/state/metrics/crosswalk .claude/state/metrics/affiliate .claude/state/metrics/growth .claude/state/metrics/bing .claude/state/metrics/ga4-admin .claude/state/weekly-metrics .claude/state/experiments.json
+          git add .claude/state/metrics/business .claude/state/metrics/ga4 .claude/state/metrics/gsc .claude/state/metrics/monetization .claude/state/metrics/crosswalk .claude/state/metrics/affiliate .claude/state/metrics/growth .claude/state/metrics/bing .claude/state/metrics/ga4-admin .claude/state/metrics/rum .claude/state/weekly-metrics .claude/state/experiments.json
           if git diff --cached --quiet; then
             echo "No changes to publish"
             exit 0

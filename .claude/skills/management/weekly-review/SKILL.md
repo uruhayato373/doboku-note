@@ -268,8 +268,16 @@ B. 実験進捗レポート:
 > 真実源: `.claude/knowledge/reference/measurement-incidents.md`「2026-09-14: PSI field_data の
 > キー存在を『field あり』と読んだ（W36 週次レビューの偽復旧）」。
 
+> **実ユーザー計測（RUM・2026-09-27〜）**: CrUX が訪問不足で 0 件のあいだ、実害は自前の実ユーザー計測で判定する。
+> `npm run report-web-vitals` を実行し、出力をそのまま転記する（ページの型×端末×指標ごとに良好率。良好 75% 以上＝良好・
+> 不良 25% 超＝不良・件数 30 未満は判定しない）。**「不良」の組が出たら、その週に改善カードを起票する**（起点は
+> 「週次レビュー（開始日〜終了日）」・対象はページの型・lab の `lcp_element` を原因の手がかりに添える）。既に同じ型の
+> カードがあれば起票せず、そのカードに今週の良好率を 1 行足す。exit 2（記録なし・10 日超・カスタムディメンション未登録）は
+> 「実害判定不能」と書き、原因（`npm run ga4-admin:apply` 未実行など）を課題に 1 行残す。lab だけで起票しない原則は変えない。
+
 分析項目:
-- **field_data.LCP/INP/CLS の category**（FAST/AVERAGE/SLOW）を先に見る＝実害の有無
+- **実ユーザー計測の不良・要改善の組**（上の `report-web-vitals`）を先に見る＝実害の有無。CrUX の field が出ている URL はそれも併記する
+- **field_data.LCP/INP/CLS の category**（FAST/AVERAGE/SLOW）
 - lab の Performance / LCP は**直近 5 バッチ中央値**で前週比（単発バッチの外れ値は「スパイクあり・中央値横ばい」と 1 行添えるに留める）
 - 違反 URL の **`lcp_element`**（何が LCP か）を必ず併記する。`<img loading="lazy">` なら
   `npm run check-lcp-image-hints` で機械検出できる（pre-commit ゲート済み）
