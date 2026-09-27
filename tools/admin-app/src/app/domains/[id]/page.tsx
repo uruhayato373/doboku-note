@@ -79,7 +79,10 @@ export default async function DomainPage({ params }: { params: Promise<{ id: str
         </div>
         <div className="card">
           <h2>
-            文書 <span className="sub">{documents.length} 件</span>
+            文書 <span className="sub">{documents.length} 件</span>{' '}
+            <Link href="/docs" className="small" style={{ fontWeight: 400 }}>
+              すべての文書を探す →
+            </Link>
           </h2>
           <div className="table-wrap">
             <table className="data">

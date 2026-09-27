@@ -34,6 +34,10 @@ interface CardModel {
  * 3 軸フィルタ（documentType/channel/retention）を独立させる（DN-0103 Phase 02）。
  * /knowledge・/plans は taxonomy を持たないため、この 3 props を渡さなければ従来どおり動く。
  */
+/** 一覧は更新の新しい順（日付は git の最終コミット日。同日は題名順）。 */
+const newestFirst = (a: { modifiedAt: string; title: string }, b: { modifiedAt: string; title: string }) =>
+  b.modifiedAt.localeCompare(a.modifiedAt) || a.title.localeCompare(b.title, 'ja');
+
 export function DocRootView({
   descriptor,
   query,
@@ -68,6 +72,7 @@ export function DocRootView({
           if (retention && e.retention !== retention) return false;
           return true;
         })
+        .sort(newestFirst)
         .map((e) => ({
           key: e.file,
           href: `${descriptor.routeBase}/${e.slug}`,
@@ -94,6 +99,7 @@ export function DocRootView({
         }))
     : (plainEntries ?? [])
         .filter((e) => (!category || e.category === category) && (!q || e.searchText.includes(q)))
+        .sort(newestFirst)
         .map((e) => ({
           key: e.file,
           href: `${descriptor.routeBase}/${e.slug}`,

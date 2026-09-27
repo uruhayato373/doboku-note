@@ -98,6 +98,42 @@ export function cardedPathsFrom(backlogText) {
 }
 
 /** クラスター別の集計・候補と、約 28 日前の集計との差（件数の推移）。 */
+/**
+ * Bing の検索語の候補（11〜30 位・クラスター別）。Bing Webmaster は検索語とページが別の集計で、
+ * 検索語×ページの組が無いので、ページには束ねず検索語だけを出す（週次の行を直近 28 日分で合算・順位は表示回数で重み付け）。
+ * rows = bing-*.json の sections.query.rows（{ date, query, impressions, clicks, avgImpressionPosition }）。
+ */
+export function summarizeBing(cluster, rows, striking, endDate) {
+  const re = new RegExp(cluster.queryPattern, 'i');
+  const end = Date.parse(endDate ?? rows.map((r) => r.date).sort().at(-1));
+  const byQuery = new Map();
+  for (const r of rows) {
+    if (!re.test(r.query ?? '') || !(r.avgImpressionPosition > 0)) continue;
+    const age = (end - Date.parse(r.date)) / 86_400_000;
+    if (!(age >= 0 && age < 28)) continue;
+    const g = byQuery.get(r.query) ?? { query: r.query, impressions: 0, clicks: 0, posSum: 0 };
+    g.impressions += r.impressions ?? 0;
+    g.clicks += r.clicks ?? 0;
+    g.posSum += (r.avgImpressionPosition ?? 0) * (r.impressions ?? 0);
+    byQuery.set(r.query, g);
+  }
+  const all = [...byQuery.values()].map((g) => ({ query: g.query, impressions: g.impressions, clicks: g.clicks, position: g.impressions ? Math.round((g.posSum / g.impressions) * 10) / 10 : null }));
+  const candidates = all
+    .filter((q) => q.position != null && q.position >= striking.minPosition && q.position <= striking.maxPosition && q.impressions >= striking.minImpressions)
+    .sort((a, b) => b.impressions - a.impressions);
+  return { queries: all.length, top10: all.filter((q) => q.position != null && q.position < 10.5).length, candidates };
+}
+
+/** 最新の Bing Webmaster の記録（.claude/state/metrics/bing/bing-YYYY-MM-DD.json）。無ければ null。 */
+function latestBing(root) {
+  const dir = join(root, '.claude/state/metrics/bing');
+  if (!existsSync(dir)) return null;
+  const name = readdirSync(dir).filter((f) => /^bing-\d{4}-\d{2}-\d{2}\.json$/.test(f)).sort().at(-1);
+  if (!name) return null;
+  const data = JSON.parse(readFileSync(join(dir, name), 'utf8'));
+  return data.sections?.query?.ok ? { file: name, rows: data.sections.query.rows ?? [] } : null;
+}
+
 export function buildSearchOpportunities(root) {
   const config = readJson(root, CONFIG);
   const snaps = listPageQuerySnapshots(root);
@@ -109,13 +145,16 @@ export function buildSearchOpportunities(root) {
   const backlogPath = join(root, '.claude/todo/backlog.md');
   const cardedPaths = cardedPathsFrom(existsSync(backlogPath) ? readFileSync(backlogPath, 'utf8') : '');
 
+  const bing = latestBing(root);
   const clusters = config.clusters.map((c) => {
     const now = summarizeCluster(c, latest.data.rows, config.striking, { watchedPaths, cardedPaths });
+    const b = bing ? summarizeBing(c, bing.rows, config.striking) : null;
     const before = prev ? summarizeCluster(c, prev.data.rows, config.striking) : null;
     return {
       ...now,
       candidates: now.candidates.slice(0, config.striking.maxCandidatesPerCluster),
       candidateTotal: now.candidates.length,
+      bing: b ? { queries: b.queries, top10: b.top10, candidates: b.candidates.slice(0, config.striking.maxCandidatesPerCluster), candidateTotal: b.candidates.length } : null,
       previous: before ? { impressions: before.impressions, clicks: before.clicks, top10: before.top10, striking: before.striking, avgPosition: before.avgPosition } : null,
     };
   });
@@ -124,6 +163,7 @@ export function buildSearchOpportunities(root) {
     period: { startDate: latest.data.meta.startDate, endDate: latest.data.meta.endDate },
     source: latest.file,
     previous: prev ? { startDate: prev.data.meta.startDate, endDate: prev.data.meta.endDate, source: prev.file } : null,
+    bingSource: bing?.file ?? null,
     clusters,
   };
 }

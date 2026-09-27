@@ -156,8 +156,9 @@ export function buildProcedureView(root, cadenceId, { reviews = [] } = {}) {
   if (!c) return null;
   const skillText = existsSync(join(root, c.skill)) ? readFileSync(join(root, c.skill), 'utf8') : '';
 
-  const reportDir = join(root, 'docs/reviews/weekly');
-  const reportName = existsSync(reportDir) ? readdirSync(reportDir).filter((f) => /^\d{4}-W\d{2}-review\.md$/.test(f)).sort().at(-1) ?? null : null;
+  const reportDir = join(root, c.report?.dir ?? 'docs/reviews/weekly');
+  const reportRe = new RegExp(c.report?.pattern ?? '^\\d{4}-W\\d{2}-review\\.md$');
+  const reportName = existsSync(reportDir) ? readdirSync(reportDir).filter((f) => reportRe.test(f)).sort().at(-1) ?? null : null;
   const reportText = reportName ? readFileSync(join(reportDir, reportName), 'utf8') : '';
   const week = reportName?.slice(0, 8) ?? null;
   const have = reportSections(reportText);
@@ -192,7 +193,7 @@ export function buildProcedureView(root, cadenceId, { reviews = [] } = {}) {
     },
     reportFile: () => (reportName
       ? { state: 'ok', note: `${reportName}（${have.length} 節）` }
-      : { state: 'missing', note: 'docs/reviews/weekly にレポートが無い' }),
+      : { state: 'missing', note: `${c.report?.dir ?? 'docs/reviews/weekly'} にレポートが無い` }),
     routing: () => {
       const { hasSection, items } = extractWeeklyHandoffItems(reportText);
       if (!hasSection) return { state: 'missing', note: '「来週への申し送り」の節が無い' };
@@ -217,12 +218,12 @@ export function buildProcedureView(root, cadenceId, { reviews = [] } = {}) {
     none: () => ({ state: 'manual', note: '機械で確かめられる証拠が残らない' }),
   };
 
-  const expected = cadenceId === 'weekly' ? formatSections(skillText) : [];
+  const expected = formatSections(skillText);
   return {
     label: c.label,
-    report: reportName && cadenceId === 'weekly' ? { name: reportName, week } : null,
+    report: reportName ? { name: reportName, week } : null,
     steps: (c.procedure ?? []).map((p) => ({ label: p.label, does: p.does, ...evidence[p.evidence](p) })),
-    sections: cadenceId === 'weekly'
+    sections: expected.length
       ? {
           expected: expected.map((title) => {
             const h = findSection(title);

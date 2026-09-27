@@ -597,6 +597,15 @@ gh issue list --label automation-failure --state open --json number,title,create
 - 前週レビューへの相対リンク `[YYYY-W(N-1)-review.md](./YYYY-W(N-1)-review.md)` を冒頭に入れると追跡しやすい
 - GitHub Issue は作成しない（CLAUDE.md §8 準拠）
 
+### Phase 3.5: バックログの関門（必須・運営者に諮る）
+
+`npm run backlog-gate -- --weekly` で対象を出し、次の 3 つを片付ける。結果は「## バックログの関門」節に書く（手順の点検がこの節で実施を確かめる）。
+
+1. **今決められる判断待ち（🟣）を全件**（`[時期:]` が来月以降のカードは判断材料がそろう時期が決まっているので、その月まで諮らない）、1 件ずつ「背景 1〜2 行・選択肢・おすすめと理由」にまとめて運営者に諮る（AskUserQuestion は 1 回 4 問までなので、4 件ずつ区切って全件を回す）。答えで台帳を直す: やる → `[時期:]` を付けて 🟡（期日があれば 🔴）へ移す／やらない → `node scripts/backlog-edit.mjs --delete <ID>`／保留 → そのまま（次の週次で再び諮る）。
+2. **期日切れ**は、終わっていれば削除、続けるなら期日を直す。
+3. **直近 7 日の起票**の重要度と `[時期:]` が妥当かを確かめ、ずれていれば直す。
+4. **開いてから 7 日を超えた automation-failure Issue**（`gh issue list --label automation-failure --state open --json number,title,createdAt`）は、その場で原因を直すか、`[種類:不具合]` のカードにして Issue 本文にカード番号を書く。Issue は復旧で自動クローズするが、原因が直らない限り開いたままで、backlog の選定（不具合優先）に乗らない（2026-09-27 時点で #478 workflow-health ほか 4 件が滞留）。
+
 ### Phase 4: 申し送りの振り分け → 週次計画の自動生成
 
 **1. 申し送りの振り分け（必須）**: `.claude/todo/weekly.md` を書く `/plan-weekly` はレビューを読まないので、申し送りはレビューに書いただけでは台帳へ届かない（W37 で 5 件が行き場を失った・DN-0230）。「来週への申し送り」の**各項目の末尾に振り分け先を書く**。先は次の 4 つのどれか。
@@ -752,6 +761,10 @@ pre-commit の `scripts/check-handoff-extraction.mjs` が 2026-W39 以降のレ�
 
 ## 学び
 - ...
+
+## バックログの関門
+
+判断待ち N 件 → やる A（ID）／やらない B（ID）／保留 C（ID）。期日切れ N 件の処置。直近 7 日の起票で直したもの。7 日超の Issue → 直した／カード（ID）。
 
 ## 来週への申し送り
 - ... → 振り分け: DN-#### ／ 定常 ／ #Issue ／ EXP-###（Phase 4。1 項目 1 行）

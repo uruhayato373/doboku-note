@@ -234,12 +234,6 @@
       "manages": "文書・品質検査・エージェント/スキル・自動化・CI・インフラ",
       "nav": [
         {
-          "label": "方針・設計",
-          "href": "/docs",
-          "kind": "policy",
-          "match": "/docs"
-        },
-        {
           "label": "実装計画",
           "href": "/plans",
           "kind": "actions",
@@ -393,6 +387,7 @@
     "原稿・画像・ファイルの作業場は、判断画面からのリンクか 管理＞すべて から開く",
     "既存の URL は変えない。新しい画面は /<領域 id>/… に作る",
     "横断する視点（計測・品質・動線）は独立した領域にせず、対象の領域に割り振る",
-    "バックログは [領域:]、スキル・エージェントは frontmatter domain、文書は documents で必ず領域を持つ（npm run check-domains / check-backlog-schema）"
+    "バックログは [領域:]、スキル・エージェントは frontmatter domain、文書は documents で必ず領域を持つ（npm run check-domains / check-backlog-schema）",
+    "文書（docs/）はサイドバーに置かず、各領域ページの「文書」欄（documents で割り当て）から開く。全体の一覧と検索は /docs"
   ]
 }
