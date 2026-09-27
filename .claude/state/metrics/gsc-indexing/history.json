@@ -321,6 +321,60 @@
         "/exam/pe-comprehensive-management/keywords/key-performance-indicators",
         "/exam/pe-construction/guide/competency-revision-r8"
       ]
+    },
+    {
+      "runId": "2026-09-27T01-30-09Z",
+      "collectedAt": "2026-09-27T01:30:09.767Z",
+      "mode": "commit",
+      "status": "ok",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 26,
+      "accepted": 10,
+      "alreadyIndexed": 12,
+      "unreadable": 0,
+      "slugs": [
+        "/exam/pe-comprehensive-management/keywords/cost-benefit-analysis",
+        "/exam/civil-construction-1/textbook/pavement-repair-quality",
+        "/exam/civil-construction-2/guide/schedule-management",
+        "/exam/civil-construction-1/guide/surveying",
+        "/exam/civil-construction-2/guide/law-key-points",
+        "/exam/civil-construction-2/guide/haken-seishain",
+        "/exam/pe-first-stage/primary/r06-aptitude",
+        "/exam/pe-construction/guide/secondary-study-method",
+        "/exam/civil-construction-1/guide/exam-overview",
+        "/exam/civil-construction-1/guide/public-servant",
+        "/exam/civil-construction-1/guide/safety-management",
+        "/exam/concrete-diagnostician/primary/exercise-06",
+        "/exam/pe-construction/keywords/environment-exam-themes",
+        "/exam/pe-construction/past-exams/r06-port-airport",
+        "/exam/civil-construction-1/guide/study-plan",
+        "/exam/civil-construction-2/guide/study-plan",
+        "/exam/pe-comprehensive-management/guide/pattern-essay-general-contractor",
+        "/exam/pe-comprehensive-management/keywords/human-capital-disclosure",
+        "/exam/pe-comprehensive-management/keywords/performance-regulation",
+        "/exam/pe-construction/keywords/bosai-kokudo-kyoujinka",
+        "/exam/pe-construction/keywords/power-civil-exam-themes",
+        "/exam/pe-construction/keywords/required-exam-themes",
+        "/exam/pe-construction/keywords/steel-concrete-ronbun-keyword",
+        "/exam/pe-construction/past-exams/r01-required",
+        "/exam/pe-construction/past-exams/r02-required",
+        "/exam/pe-construction/past-exams/r04-road"
+      ],
+      "acceptedSlugs": [
+        "/exam/civil-construction-1/guide/safety-management",
+        "/exam/concrete-diagnostician/primary/exercise-06",
+        "/exam/pe-construction/keywords/environment-exam-themes",
+        "/exam/pe-construction/past-exams/r06-port-airport",
+        "/exam/pe-comprehensive-management/guide/pattern-essay-general-contractor",
+        "/exam/pe-comprehensive-management/keywords/human-capital-disclosure",
+        "/exam/pe-construction/keywords/power-civil-exam-themes",
+        "/exam/pe-construction/keywords/required-exam-themes",
+        "/exam/pe-construction/past-exams/r02-required",
+        "/exam/pe-construction/past-exams/r04-road"
+      ]
     }
   ]
 }
