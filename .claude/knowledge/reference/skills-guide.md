@@ -38,6 +38,7 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 |---|---|---|
 | `/pdf-to-mdx` | PDF/画像 → MDX 変換（試験別テンプレート）。`--scanned` でテキスト層なしスキャン書籍を視覚 OCR（`scanned-textbook-transcriber`）→ 内部リファレンス .md ＋図クロップ | `PDF変換`, `MDX化`, `スキャン教材の文字起こし`, `書籍OCR`, `/pdf-to-mdx --exam {cem\|civil-construction-1\|general}`, `/pdf-to-mdx --scanned` |
 | `/exam-questions-import` | 過去問集 PDF → MDX（解答追加も可） | `過去問取込`, `/exam-questions-import --exam {civil-primary\|civil-secondary\|pe-primary\|pe-first-stage}` |
+| `/create-pop-image` | 承認済みPOP意匠でnote・SNS・ココナラ画像を制作し、原稿・プロンプト・原本を管理 | `POP画像`, `この感じで画像を作る`, `/create-pop-image` |
 | `/ogp-create` | サイト OGP（mono-tag・全幅＋資格別テーマ色外枠）生成。note 記事・マガジンカバーは 2026-09-17 から本スキル外の V5 キャラクターカバー（`generate-note-covers.mjs` / `generate-magazine-covers.mjs`・SSOT `.claude/knowledge/design-system/note-cover-character-v5.md`）で、本スキルはフォントと資格別背景写真を提供するだけ。デザイン SSOT は `.claude/knowledge/reference/ogp-prompts.md`（OGP）、一括目視 QA は `npm run ogp-gallery` / `npm run note-cover-gallery` | `OGP画像`, `noteカバー`, `/ogp-create` |
 | `/ogp-design-explore` | OGP 意匠の**新方向を aidesigner / Canva の MCP で素案として試作**し、採用案を `/ogp-create` の satori テンプレに落として量産につなぐ。試作専用（量産・per-article 生成は `/ogp-create`）。MCP は外部クレジット消費 | `OGPデザイン検討`, `OGP素案`, `OGPリデザイン試作`, `/ogp-design-explore` |
 | `/magazine-to-pdf` | note マガジンの article.md →「問題文＋解答」中心の紙用 PDF（spec 駆動・A/B案両収録） | `マガジンをPDF`, `記事を紙で`, `模範論文PDF`, `/magazine-to-pdf --spec scripts/pdf-specs/{name}.json [--desktop]` |

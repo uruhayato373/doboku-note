@@ -13,6 +13,9 @@ user-invocable: true
 domain: product
 ---
 
+商品画像の新規制作は `/create-pop-image` と [共通方針](../../../knowledge/reference/pop-image-policy.md)。既存承認画像の再出力は従来どおり承認台帳とSHAを照合する。
+
+
 ## 用途
 
 ココナラの**出品・修正の実操作**を決定的スクリプトで行う。note-publish と同思想（永続プロファイル＋
@@ -80,7 +83,7 @@ gh workflow run ops-write.yml --ref develop -f operation=coconala.publish -f arg
 
 ## 商品画像（サービスサムネ）
 
-承認画像登録済みの商品は `coconala-thumb` が原本の SHA-256 を照合してコピーする。未登録商品のみ、AI の文字なし背景写真に satori で日本語を重ねる。登録済み原本の欠落時は旧意匠に戻さず停止する。原本・配色・訴求の真実源は [coconala-operations.md 商品画像節](../../../../.claude/knowledge/reference/coconala-operations.md)。
+承認画像登録済みの商品は `coconala-thumb` が原本の SHA-256 を照合してコピーする。既存CLIの未登録商品向けフォールバックは文字なし背景写真＋satori。新規制作は `/create-pop-image` を使い、承認後に画像台帳へ登録する。登録済み原本の欠落時は旧意匠に戻さず停止する。原本・配色・訴求の真実源は [coconala-operations.md 商品画像節](../../../../.claude/knowledge/reference/coconala-operations.md)。
 
 ```
 npm run gen-image-gemini -- --out .claude/config/coconala/assets/bg-civil.png --prompt "..."  # 背景（Gemini API課金）
