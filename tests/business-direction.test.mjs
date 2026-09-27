@@ -248,3 +248,13 @@ test('coconala views stay in the 30-day window and attribute only single-qualifi
  const masked=coconalaViewFacts({path:'s',snapshot:{period:{services:{from:'2026-08-24',to:'2026-09-22'}},totals:{views:null},services:[{serviceId:'coconala-rccm-x',views:null}]}});
  assert.equal(masked.find(f=>f.qualification==='rccm').value,null);
 });
+test('a metric-subject measurement keeps its own coverage beside a partial aggregate of the same channel',t=>{
+ const root=fixture(t);
+ const ops=(subject,values,coverage)=>({kind:'measurement',qualification:'all',period,channel:'operations',subject,source:'売上管理の実査',coverage,values});
+ saveRecord(root,ops('aggregate',{qualityDefects:1},'partial'),now);
+ saveRecord(root,ops('netReceipts',{netReceipts:74218},'complete'),now);
+ const r=buildReport(root,period,now),cell=m=>r.cells.find(c=>c.qualification==='all'&&c.metric===m);
+ assert.deepEqual([cell('netReceipts').value,cell('netReceipts').coverage],[74218,'complete']);
+ assert.equal(cell('qualityDefects').coverage,'partial');
+ assert.throws(()=>saveRecord(root,{...ops('netReceipts',{netReceipts:1,costYen:2},'complete'),period:{startDate:'2026-07-01',endDate:'2026-07-31'}},now),/指標単位の計測/);
+});
