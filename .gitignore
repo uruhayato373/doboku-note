@@ -421,3 +421,6 @@ content/sns/x/draft/*-diagrams/img/tweet-*.png
 **/playwright-*-state*.json
 **/storage-state*.json
 .tmp/auth-state/
+
+# Lighthouse CI 実行レポート（DN-0240）。CI では artifact としてアップロードするのみ。
+.lighthouseci/

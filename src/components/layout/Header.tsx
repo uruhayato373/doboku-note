@@ -216,7 +216,6 @@ export default function Header() {
               <Link
                 href="/"
                 className="focus-ring flex items-baseline gap-2 sm:gap-3 rounded-card-inline hover:opacity-80 transition-opacity"
-                aria-label="doboku-note ホーム"
               >
                 <span className="font-serif text-[26px] sm:text-[32px] font-black tracking-tight leading-none text-[var(--ink)]">
                   doboku
