@@ -84,6 +84,9 @@ export default async function StandardDocumentPage({ params }: { params: Promise
           { label: entry.agencyName, href: `/standards/${entry.agencyId}` },
         ]}
         title={entry.title}
+        lead={chapters.length > 0
+          ? `${entry.agencyName}が公表する「${entry.title}」全${chapters.length}章（全${entry.pages.toLocaleString('ja-JP')}ページ）を編・章ごとに読めます。原本PDF・発行元ページへのリンクはページ末尾の出典欄にあります。`
+          : `${entry.agencyName}が公表する「${entry.title}」全${entry.pages.toLocaleString('ja-JP')}ページの文字起こしです。原本PDF・発行元ページへのリンクはページ末尾の出典欄にあります。`}
         meta={<span className="text-sm">{entry.edition} · {chapters.length > 0 ? `${chapters.length}章 · ` : ''}{entry.pages.toLocaleString('ja-JP')}ページ</span>}
       />
         <div className="pt-5">

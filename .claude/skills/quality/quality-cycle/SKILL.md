@@ -66,7 +66,7 @@ scripts-cem/
 ├── quality-cycle.mjs       # CEM プロファイルのエントリ
 ├── log-rewrite.mjs
 ├── merge-scores.mjs
-├── record-verify.mjs       # 採点結果を scores+state(verified)+進捗md に1ステップ記録（ドリフト防止）
+├── record-verify.mjs       # 採点結果を scores+state(verified) に1ステップ記録（ドリフト防止。進捗は管理画面 /quality/progress）
 └── lib/                    # cem 固有のロジック（プロンプト等）
 
 scripts-civil-textbook/
