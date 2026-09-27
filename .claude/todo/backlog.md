@@ -154,6 +154,16 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0416] 展開対象試験カタログ（exam-expansion-catalog.json）と資格台帳（qualification-registry.json）の正本を 1 つにする
+タグ: [エージェント・SSOT] [領域:戦略] [時期:2026-10] [種類:不具合] [起票:2026-09-27]
+
+**起点**: 2026-09-27 に PR #640（2026-09-25 作成）の競合を解消してマージした。#640 は展開対象の試験一覧・評点・優先順位の正本を `.claude/config/exam-expansion-catalog.json`（`npm run exam-expansion` / `check-exam-expansion`）に置くが、その後の 2026-09-26 に展開の判断の正本は `qualification-registry.json` の portfolio と `npm run qualification-market`・06_多資格展開戦略.md の判断の記録へ移っていた。カタログでは技術士 上下水道部門・1級/2級舗装・測量士が candidate のままで、9/26 に active と決めた資格台帳と食い違う。06 と戦略 README は develop 側（カタログに触れない版）を採った。
+
+**やること**: カタログの評点・競合・次の一手のうち資格台帳に無い情報を qualification-registry.json か qualification-market の材料へ移し、カタログを廃止する（`exam-expansion` スクリプト・quality-audit の登録・commands.md の行も外す）か、カタログを台帳から生成する形にして二重の手入力をなくす。
+
+**完了条件**: 展開する資格の状態を書く場所が 1 か所になり、`npm run check-qualification-market` と quality-audit が通る。
+
+
 ### [DN-0410] チャネル別の送客（UTM）を 1 画面で見られる GA4 の計測ダッシュボードを作る
 タグ: [インフラ・計測] [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-09-27]
 
