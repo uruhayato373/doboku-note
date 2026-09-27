@@ -46,5 +46,9 @@ if (process.argv.includes('--json')) {
       for (const q of p.queries.slice(0, 3)) console.log(`      ${q.position}位 ${q.impressions}回  ${q.query}`);
     }
     if (c.candidateTotal > c.candidates.length) console.log(`  …ほか ${c.candidateTotal - c.candidates.length} ページ`);
+    if (c.bing) {
+      console.log(`  [Bing] 検索語 ${c.bing.queries} / 1桁 ${c.bing.top10} / 11〜30位の候補 ${c.bing.candidateTotal}（ページは Bing の集計に無い）`);
+      for (const q of c.bing.candidates) console.log(`      ${q.position}位 ${q.impressions}回  ${q.query}`);
+    }
   }
 }

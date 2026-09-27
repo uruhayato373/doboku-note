@@ -36,3 +36,20 @@ test('バックログのカード本文に出るページのパスを、その�
   assert.equal(m.get('/standards/okinawa'), 'DN-0001');
   assert.equal(m.get('/exam/rccm/guide/x'), 'DN-0002');
 });
+
+test('Bing は検索語だけを直近 28 日で合算し、表示で重み付けした順位で 11〜30 位の候補を出す', async () => {
+  const { summarizeBing } = await import('../scripts/lib/search-opportunities.mjs');
+  const cluster = { queryPattern: '技術士' };
+  const striking = { minPosition: 10.5, maxPosition: 30, minImpressions: 3 };
+  const rows = [
+    { date: '2026-09-18', query: '技術士 cpd', impressions: 4, clicks: 0, avgImpressionPosition: 12 },
+    { date: '2026-09-11', query: '技術士 cpd', impressions: 4, clicks: 1, avgImpressionPosition: 14 },
+    { date: '2026-09-18', query: '技術士 総監', impressions: 50, clicks: 5, avgImpressionPosition: 3 },
+    { date: '2026-08-01', query: '技術士 古い', impressions: 99, clicks: 0, avgImpressionPosition: 15 },
+    { date: '2026-09-18', query: '土木 別', impressions: 9, clicks: 0, avgImpressionPosition: 20 },
+  ];
+  const b = summarizeBing(cluster, rows, striking);
+  assert.equal(b.queries, 2);
+  assert.equal(b.top10, 1);
+  assert.deepEqual(b.candidates.map((q) => [q.query, q.position, q.impressions]), [['技術士 cpd', 13, 8]]);
+});
