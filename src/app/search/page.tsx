@@ -9,7 +9,7 @@ import { getAllDocsMeta } from "@/lib/docs";
 import { getPopularDocs } from "@/lib/popular";
 import { buildPageMetadata } from "@/lib/metadata";
 import { buildExamCards } from "@/lib/home-exam-cards";
-import SearchPageClient from "./SearchPageClient";
+import SearchPageClient, { SearchPageFallback } from "./SearchPageClient";
 
 // 検索結果ページはクエリ依存で無数の URL を生む（薄い/重複ページ）ため noindex,follow。
 // 固有 title と self canonical を持たせ、root の汎用 title / homepage canonical 継承を断つ。
@@ -45,11 +45,7 @@ export default function SearchPage() {
         lead="キーワードを入力して記事・キーワードページを探す"
         className="mb-6"
       />
-      <Suspense
-        fallback={
-          <p className="font-mono text-[12px] text-[var(--ink-muted)]">Loading…</p>
-        }
-      >
+      <Suspense fallback={<SearchPageFallback examCards={examCards} otherCategories={otherCategories} popular={popular} />}>
         <SearchPageClient images={images} examCards={examCards} otherCategories={otherCategories} popular={popular} />
       </Suspense>
     </PageShell>
