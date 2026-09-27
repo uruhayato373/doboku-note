@@ -8,7 +8,7 @@
 
 **設計思想** — ユーザーが「ここだけで合格できる」体験を資格ごとに提供する試験対策ハブ。Obsidian（ステージング）→ doboku-note（プロダクション）→ PWA 過去問演習アプリ（資格別 PWA × 共通エンジン）の流れでコンテンツを管理。収益モデルは note 有料記事 + YouTube + PWA 過去問アプリ。詳細: `docs/strategy/02_設計思想.md`、`docs/strategy/03_事業戦略.md`、`docs/products/06_PWA過去問アプリ設計方針.md`
 
-**事業の判断基準** — 「図で理解し、過去問で確かめ、答案に活かす。」資格×学習段階の課題を軸に、正確な教材、note/ココナラ販売、受取・費用・運営時間まで確認する。判断理由の正典は `docs/strategy/01_プロダクト戦略.md`、重点資格・KPI定義の機械SSOTは `.claude/config/business-direction.json`。管理画面 `/metrics/business` と SEO・週次/月次レビュー・戦略エージェントはこの設定を参照する。計測/目標/判断は `.claude/state/metrics/business/` に追記、改善状態は既存 `experiments.json`、単発実装はbacklog。図数・記事数・順位だけを成功にせず、欠測を0や利益へ変換しない。手順は `.claude/knowledge/reference/business-review.md`、週次は `/weekly-review`、月次は `/monthly-review`。 共通原則は[共通事業方針](.claude/shared-policy/POLICY.md)(管理画面は「戦略・収益化」→「共通事業方針」)と[個別適用](.claude/shared-policy/application.json)。企画・収益化・週次/月次計画の前に読み、判断契約を出力へ反映する。正本はこのリポジトリではなくObsidian vaultの`memos/共通事業方針SSOT.md`。写しは手編集せず policy:check / policy:sync を使う。詳細は`.claude/rules/shared-business-policy.md`。<!-- doc-ref:ignore -->
+**事業の判断基準** — 「図で理解し、過去問で確かめ、答案に活かす。」資格×学習段階の課題を軸に、正確な教材、note/ココナラ販売、受取・費用・運営時間まで確認する。判断理由の正典は `docs/strategy/01_プロダクト戦略.md`、重点資格・KPI定義の機械SSOTは `.claude/config/business-direction.json`。管理画面 `/metrics/business` と SEO・週次/月次レビュー・戦略エージェントはこの設定を参照する。計測/目標/判断は `.claude/state/metrics/business/` に追記、改善状態は既存 `experiments.json`、単発実装はbacklog。図数・記事数・順位だけを成功にせず、欠測を0や利益へ変換しない。手順は `.claude/knowledge/reference/business-review.md`、週次は `/weekly-review`、月次は `/monthly-review`。 共通原則は[共通事業方針](.claude/shared-policy/POLICY.md)(管理画面は「戦略」→「方針」)と[個別適用](.claude/shared-policy/application.json)。企画・収益化・週次/月次計画の前に読み、判断契約を出力へ反映する。正本はこのリポジトリではなくObsidian vaultの`memos/共通事業方針SSOT.md`。写しは手編集せず policy:check / policy:sync を使う。詳細は`.claude/rules/shared-business-policy.md`。<!-- doc-ref:ignore -->
 
 **技術スタック** — Next.js 16 + next-mdx-remote / JavaScript (ESM) + MDX / 数式は KaTeX（remark-math + rehype-katex）/ 図表は SVG・PNG を R2（`storage.doboku-note.com`）から配信 / 検索は Pagefind（ビルド時 `out/pagefind`）/ GA4（gtag: G-8VXJ1RL1HG）/ ホスティング Cloudflare Pages。**デプロイ**は `main` push で GitHub Actions が自動実行、`develop` → `main` は `/deploy` スキル経由でユーザーが判断する
 
@@ -16,12 +16,12 @@
 
 ```
 content/site/                # サイト記事 MDX（civil-construction-1/ は Convention A: 個別ファイル名、pe-comprehensive-management/ は Convention B: article.mdx）
-content/{note,sns,kindle,coconala,brain,sources}/  # チャネル別の制作物と入力（kindle は非公開原稿・Git 管理・Web 配信外）
+content/{note,sns,kindle,coconala,sources}/  # チャネル別の制作物と入力（kindle は非公開原稿・Git 管理・Web 配信外）
 src/                         # コンポーネント・CSS・レイアウト
 docs/                        # 人が読む恒久文書（strategy / editorial / marketing / operations / products / design）
 .claude/rules/               # パス条件付きルール（paths: 必須。該当ファイルを Read/Edit したときだけ読み込まれる）
 .claude/knowledge/reference/ # 作業マニュアル（全索引は同ディレクトリの README.md）
-.claude/todo/                # タスク台帳 4 層（backlog/weekly/monthly/annual・閲覧は admin /todo）
+.claude/todo/                # タスク台帳（backlog がマスタ・年間/月間はカードの [時期:] から導出・閲覧は admin 計画）
 .claude/skills/ .claude/agents/  # スキル・サブエージェント定義（件数の SSOT は各 registry）
 scripts/ tools/admin-app/    # 検査・自動化スクリプト／運営管理画面（ローカル専用・npm run admin）
 ```
@@ -134,7 +134,7 @@ npm run check-claude-md-size   # CLAUDE.md ≤150 行・rules の paths: 必須
 - docs/ の `.md` は Obsidian callout 運用（docs-markdown-style.md）。`docs/**` を開くと docs ルールが載る
 
 ### 12. 失敗や不確実性を隠さない
-- 未検証の部分やスキップした処理がある場合は「完了」と言わずに明示する
+- 未検証の部分やスキップした処理がある場合は「完了」と言わずに明示する。見つけた不具合をその場で直さないなら同じセッションで `[種類:不具合]` を起票し、報告はカード番号で書く
 - **deploy 後 500** は Cloudflare API token 期限切れを仮説 1 番に確認（GitHub Secrets で再発行）
 - 計測データに異常がある場合は measurement-incidents.md を先に確認してから結論を出す
 - **自分の失敗の後処理**: 自分の誤り（誤読・誤操作・偽の完了報告）に気づいたら (1) 同一セッション内で自分で修正する（ユーザーへ差し戻さない）(2) 原因を正典へ記録する（外部検証・CLI の罠→measurement-incidents.md／作業規律→memory の feedback）(3) **実行するコマンドと合格条件が特定できるときだけ**機械ゲート化する（§9。回帰テスト付き。特定できないものは記録まで）
@@ -157,10 +157,10 @@ Codex はファイルを読む・編集する前に、以下の適用パスに�
 
 - [.claude/rules/assets-images.md](.claude/rules/assets-images.md) — `**/img/**`, `content/**/*.svg`, `content/**/*.png`, `content/**/*.webp`, `.claude/config/asset-storage.json`, `.claude/config/drive-vault.json`, `.claude/state/assets/**`, `.github/workflows/r2-*.yml`, `.github/workflows/ogp-supply.yml`
 - [.claude/rules/code.md](.claude/rules/code.md) — `src/**`, `scripts/**`, `.claude/scripts/**`, `tools/**`, `tests/**`, `package.json`, `.github/workflows/**`
-- [.claude/rules/content-channels.md](.claude/rules/content-channels.md) — `content/note/**`, `content/sns/**`, `content/kindle/**`, `content/coconala/**`, `content/brain/**`
+- [.claude/rules/content-channels.md](.claude/rules/content-channels.md) — `content/note/**`, `content/sns/**`, `content/kindle/**`, `content/coconala/**`
 - [.claude/rules/content-site.md](.claude/rules/content-site.md) — `content/site/**`
 - [.claude/rules/docs.md](.claude/rules/docs.md) — `docs/**`, `.claude/knowledge/**`
-- [.claude/rules/operations.md](.claude/rules/operations.md) — `.claude/state/**`, `.claude/config/**`, `src/lib/note-magazines.ts`, `src/lib/magazine-placement.ts`, `src/lib/coconala-services.ts`, `src/lib/brain-products.ts`
+- [.claude/rules/operations.md](.claude/rules/operations.md) — `.claude/state/**`, `.claude/config/**`, `src/lib/note-magazines.ts`, `src/lib/magazine-placement.ts`, `src/lib/coconala-services.ts`
 - [.claude/rules/shared-business-policy.md](.claude/rules/shared-business-policy.md) — `.claude/shared-policy/**`, `tools/admin-app/src/app/strategy/policy/**`, `tools/admin-app/src/lib/document-roots.ts`, `tools/admin-app/src/components/Nav.tsx`, `tools/admin-app/src/lib/shared-policy.ts`
 - [.claude/rules/skills-agents.md](.claude/rules/skills-agents.md) — `.claude/skills/**`, `.claude/agents/**`, `.claude/commands/**`
 - [.claude/rules/todo-plans.md](.claude/rules/todo-plans.md) — `.claude/todo/**`, `.claude/plans/**`, `docs/handoffs/**`, `docs/reviews/**`

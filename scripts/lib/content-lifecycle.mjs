@@ -137,22 +137,6 @@ export function coconalaStatusToStage(status, pauseReason = null) {
   }
 }
 
-/** Brain 商品（src/lib/brain-products.ts） */
-export function brainStatusToStage(status) {
-  switch (status) {
-    case 'draft':
-      return 'draft';
-    case 'submitted':
-      return 'review';
-    case 'listed':
-      return 'published';
-    case 'rejected':
-      return 'draft';
-    default:
-      return null;
-  }
-}
-
 /** Kindle（scripts/kindle-published/catalog.json） */
 export function kindleStatusToStage(status) {
   switch (status) {

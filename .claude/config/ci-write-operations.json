@@ -237,43 +237,6 @@
         ".claude/config/coconala-listings.json"
       ]
     },
-    "brain.publish": {
-      "service": "brain",
-      "script": "scripts/brain-publish.mjs",
-      "risk": "high",
-      "argsSchema": {
-        "service": "string",
-        "edit-url": "string?"
-      },
-      "inputs": [
-        "content/brain/listings.json",
-        "content/brain/assets"
-      ],
-      "commitArgs": [
-        "--commit"
-      ],
-      "verify": [],
-      "ledger": [
-        "content/brain/listings.json"
-      ]
-    },
-    "brain.profile-edit": {
-      "service": "brain",
-      "script": "scripts/brain-profile-edit.mjs",
-      "risk": "low",
-      "argsSchema": {
-        "bio-file": "string",
-        "avatar": "string?"
-      },
-      "inputs": [
-        "{bio-file}"
-      ],
-      "commitArgs": [
-        "--commit"
-      ],
-      "verify": [],
-      "ledger": []
-    },
     "kdp.publish": {
       "service": "kdp",
       "script": "scripts/kdp-publish.mjs",

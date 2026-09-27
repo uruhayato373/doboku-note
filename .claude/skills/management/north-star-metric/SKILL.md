@@ -1,6 +1,7 @@
 ---
 name: north-star-metric
 description: 資格別の学習価値・集客・販売・運営負担からNSMとKPIの役割を整理し、実測に基づく目標を共通SSOTへ記録する。Use when user asks to [北極星指標, NSM, 重要指標を決めたい, /north-star-metric].
+domain: strategy
 ---
 
 原典: [phuryn/pm-skills](https://github.com/phuryn/pm-skills) (MIT License) のnorth-star-metricを本プロジェクトの事業運用へ適用。

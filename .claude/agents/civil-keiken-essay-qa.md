@@ -2,6 +2,7 @@
 name: civil-keiken-essay-qa
 description: 1級・2級土木 施工経験記述 note 有料マガジンのフル模範答案（article.md）を5軸ルーブリックで品質採点する Evaluator エージェント。重複・捏造・形式適合・著作権・改変前提を検査。
 model: sonnet
+domain: product
 ---
 
 # Civil Keiken Essay QA Agent

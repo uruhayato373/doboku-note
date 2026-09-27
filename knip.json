@@ -39,7 +39,8 @@
     "rclone",
     "sips",
     "tesseract",
-    "which"
+    "which",
+    "yt-dlp"
   ],
   "ignoreDependencies": [
     "hast-util-sanitize"

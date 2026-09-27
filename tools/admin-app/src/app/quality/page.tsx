@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { PageHead } from '@/components/ui';
 import LineChart from '@/components/charts/LineChart';
 import { qualitySummary, qualityCensus, type Severity } from '@/lib/quality';
@@ -27,6 +28,18 @@ export default function QualityPage() {
         title="品質概観"
         sub={`違反のある記事 ${articleCount} 件 · 全体傾向とルール別内訳（人気集計期間 ${winStr}）· 記事別品質は「サイト記事」に統合`}
       />
+
+      <Link
+        href="/quality/progress"
+        className="card"
+        style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', textDecoration: 'none', color: 'inherit' }}
+      >
+        <span>
+          <strong>品質サイクル進捗（総監キーワード）</strong>
+          <span className="small muted" style={{ display: 'block' }}>キーワードページごとの採点・弱い軸・リライト状況・検索の順位</span>
+        </span>
+        <span style={{ fontSize: 20, opacity: 0.6 }}>→</span>
+      </Link>
 
       {/* 採点カバレッジ census */}
       <div className="card">

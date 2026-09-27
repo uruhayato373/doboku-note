@@ -36,7 +36,7 @@ export function SearchResults({
         </p>
         <button
           onClick={() => window.location.reload()}
-          className="focus-ring rounded-card-content bg-[var(--accent)] px-4 py-2 text-white transition-opacity hover:opacity-90"
+          className="focus-ring rounded-card-content bg-[var(--accent)] px-4 py-2 text-[var(--paper)] transition-opacity hover:opacity-90"
         >
           再試行
         </button>
@@ -92,7 +92,7 @@ export function SearchResults({
 
               {post.excerpt && (
                 <p
-                  className="mb-3 line-clamp-2 text-sm leading-relaxed text-[var(--ink-body)] [&_mark]:rounded-card-inline [&_mark]:bg-yellow-200 [&_mark]:px-0.5 [&_mark]:dark:bg-yellow-800/60"
+                  className="mb-3 line-clamp-2 text-sm leading-relaxed text-[var(--ink-body)] [&_mark]:rounded-card-inline [&_mark]:bg-yellow-200 [&_mark]:px-0.5 [&_mark]:dark:bg-yellow-800/60 [&_mark]:dark:text-warn"
                   dangerouslySetInnerHTML={{ __html: post.excerpt }}
                 />
               )}

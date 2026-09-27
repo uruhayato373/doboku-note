@@ -9,7 +9,7 @@ deleteOnComplete: true
 
 ## 別PCでの再開
 
-2026-09-14、ユーザーの「別PCで続けるのでバックログに記録しておいて」により制作を中断。担当claimを解除して引き継ぐ。現在の判定は [教材対応表](../state/content-expansion.json)、今回の調査根拠は [17論点の実査記録](../state/quality/content-source-recovery-20260914.json)。管理画面は `/content/expansion`（原典待ちと要作業の両方を確認）。
+2026-09-14、ユーザーの「別PCで続けるのでバックログに記録しておいて」により制作を中断。担当claimを解除して引き継ぐ。現在の判定は [教材対応表](../state/content-expansion.json)、今回の調査根拠は [17論点の実査記録](../state/quality/content-source-recovery-20260914.json)。管理画面は `/materials`（各教材の「要確認のみ」で原典待ちと要作業の両方を確認）。
 
 再開時は最新developを取り込み、以下の起動文から着手する。
 

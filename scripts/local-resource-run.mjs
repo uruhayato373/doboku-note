@@ -13,7 +13,8 @@ const policy = JSON.parse(readFileSync(join(root, '.claude/config/local-resource
 const resources = machineResources(root);
 if (!process.env.CI && resources.freeDiskBytes < policy.minFreeDiskGiB * GiB) throw new Error('Insufficient free disk for heavy work');
 if (!process.env.CI && !args.slice(0, separator).includes('--allow-low-memory') && resources.freeMemoryBytes < policy.minFreeMemoryGiB * GiB) throw new Error('Insufficient free memory for heavy work (close unused apps first)');
-const release = acquireLock(root, 'heavy-work');
+// テストは実プロセス（ビルド等）と同じ lock を奪い合わないよう別名を渡す（2026-09-26: 並行ビルド中に test が落ちた）
+const release = acquireLock(root, process.env.DOBOKU_HEAVY_LOCK_NAME || 'heavy-work');
 const child = spawn(command[0] === 'node' ? process.execPath : command[0], command.slice(1), { cwd: root, stdio: 'inherit', windowsHide: true });
 let released = false;
 const finish = code => { if (!released) { released = true; release(); } process.exitCode = code; };

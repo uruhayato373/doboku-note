@@ -44,7 +44,7 @@ export function validateReviewSchedule(data, plans) {
     if (rows.length > 3) errors.push(`${date}: 1日3件の上限を超えています`);
     const minutes = rows.map(r => Number(r.time.slice(0, 2)) * 60 + Number(r.time.slice(3))).sort((a, b) => a - b);
     for (let i = 1; i < minutes.length; i++) if (minutes[i] - minutes[i - 1] < 60) errors.push(`${date}: 時刻重複または間隔不足`);
-    if (rows.filter(r => ['note', 'coconala', 'brain'].includes(r.funnel)).length > 1) errors.push(`${date}: 販売投稿が1日1件を超えています`);
+    if (rows.filter(r => ['note', 'coconala', 'brain' /* 撤退済み・過去計画の履歴 */].includes(r.funnel)).length > 1) errors.push(`${date}: 販売投稿が1日1件を超えています`);
   }
   return errors;
 }

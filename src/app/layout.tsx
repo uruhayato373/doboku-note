@@ -10,6 +10,7 @@ import { Suspense } from "react";
 import BackToTopButton from "@/components/ui/BackToTopButton";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import AnalyticsProvider from "@/components/providers/AnalyticsProvider";
+import WebVitals from "@/components/WebVitals";
 import { getCommonSeoData } from "@/lib/metadata";
 import StructuredData from "@/components/seo/StructuredData";
 
@@ -36,6 +37,7 @@ export default function RootLayout({
       </head>
       <body className="font-sans">
         <GoogleAnalytics />
+        <WebVitals />
         <Suspense fallback={null}>
           <AnalyticsProvider />
         </Suspense>

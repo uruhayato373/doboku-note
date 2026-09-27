@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "_doc": "資格ごとの市場（競合の混み具合）を機械取得する検索語と判定の閾値。資格 id は qualification-registry.json と同じで、見送り（declined）以外の全資格に keywords と coconala が要る（npm run check-qualification-market が検査）。取得は npm run scan-qualification-market（YouTube=yt-dlp の検索・note=公開検索 API・ココナラ=scripts/coconala-research.mjs）で、結果は .claude/state/market/history/market-YYYY-MM-DD.json（1 ファイル＝その日の市場・最も新しい日付が最新）。判定と集計は scripts/lib/qualification-market.mjs が唯一の実装で、npm run qualification-market と管理画面 資格一覧（展開の判断）が読む。誰を追跡するかは {note,x,ig,coconala,youtube}-competitors.json、判断の理由は docs/strategy/06_多資格展開戦略.md。",
+  "results": {
+    "youtube": 20,
+    "note": 20
+  },
+  "_titleMatch": "titleMatch は、その資格の動画・記事・サービスとみなすタイトルの正規表現（全角英数は NFKC で半角にそろえてから照合）。検索語だけだと関係の無い大型チャンネル（例: RCCM の検索に出る一般の討論番組）や別資格（1級建築士など）が混ざるので、混み具合はタイトルが当たったものだけで数える。",
+  "_density": "混み具合は「強い売り手の数」で決める。YouTube=再生 strongViews 以上の動画を持つチャンネル数、note=検索上位で有料記事を出している作者数、ココナラ=評価 strongReviews 件以上のサービス数。数が bands.low 以上で「少」、mid 以上で「中」、high 以上で「多」、0 は「無」。",
+  "density": {
+    "bands": {
+      "low": 1,
+      "mid": 3,
+      "high": 6
+    },
+    "youtube": {
+      "strongViews": 10000
+    },
+    "coconala": {
+      "strongReviews": 10
+    }
+  },
+  "queries": {
+    "civil-construction-1": { "keywords": ["1級土木施工管理技士 経験記述", "1級土木施工管理技士 第一次検定"], "titleMatch": "(1|一)(・2)?級.{0,4}土木|土木施工管理.{0,12}(1|一)級", "coconala": ["1級土木 二次"] },
+    "civil-construction-2": { "keywords": ["2級土木施工管理技士 経験記述", "2級土木施工管理技士 過去問"], "titleMatch": "(1・)?(2|二)級.{0,4}土木|1・2級土木|土木施工管理.{0,12}(2|二)級", "coconala": ["2級土木"] },
+    "pe-first-stage": { "keywords": ["技術士 第一次試験 対策", "技術士一次試験 建設部門"], "titleMatch": "技術士.{0,12}(一次|第一次|1次)|(一次|第一次|1次).{0,6}技術士", "coconala": ["技術士 一次試験"] },
+    "pe-construction": { "keywords": ["技術士 建設部門 二次試験", "技術士 建設部門 論文"], "titleMatch": "技術士.{0,20}建設|建設部門", "coconala": ["技術士 建設部門"] },
+    "pe-comprehensive-management": { "keywords": ["技術士 総合技術監理部門", "総監 記述式"], "titleMatch": "総監|総合技術監理", "coconala": ["総合技術監理"] },
+    "rccm": { "keywords": ["RCCM 試験 対策", "RCCM 論文"], "titleMatch": "RCCM", "coconala": ["RCCM"] },
+    "concrete-engineer": { "keywords": ["コンクリート技士 試験", "コンクリート技士 過去問"], "titleMatch": "コンクリート技士", "coconala": ["コンクリート技士"] },
+    "concrete-chief-engineer": { "keywords": ["コンクリート主任技士 小論文", "コンクリート主任技士 試験"], "titleMatch": "主任技士", "coconala": ["コンクリート主任技士"] },
+    "concrete-diagnostician": { "keywords": ["コンクリート診断士 記述", "コンクリート診断士 試験"], "titleMatch": "コンクリート診断士", "coconala": ["コンクリート診断士"] },
+    "pe-water-supply": { "keywords": ["技術士 上下水道部門", "技術士 上下水道 論文"], "titleMatch": "上下水道", "coconala": ["技術士 上下水道"] },
+    "pe-agriculture": { "keywords": ["技術士 農業部門", "技術士 農業土木 論文"], "titleMatch": "技術士.{0,12}農業|農業部門|農業土木", "coconala": ["技術士 農業"] },
+    "pe-forestry": { "keywords": ["技術士 森林部門"], "titleMatch": "森林部門|技術士.{0,12}森林", "coconala": ["技術士 森林"] },
+    "pe-fisheries": { "keywords": ["技術士 水産部門"], "titleMatch": "水産部門|技術士.{0,12}水産", "coconala": ["技術士 水産"] },
+    "pe-environment": { "keywords": ["技術士 環境部門"], "titleMatch": "環境部門|技術士.{0,12}環境", "coconala": ["技術士 環境部門"] },
+    "pe-applied-science": { "keywords": ["技術士 応用理学部門"], "titleMatch": "応用理学", "coconala": ["技術士 応用理学"] },
+    "pe-sanitary": { "keywords": ["技術士 衛生工学部門"], "titleMatch": "衛生工学", "coconala": ["技術士 衛生工学"] },
+    "construction-machinery-1": { "keywords": ["1級建設機械施工管理技士"], "titleMatch": "(1|一)級.{0,4}建設機械|建設機械.{0,12}(1|一)級", "coconala": ["建設機械施工管理技士"] },
+    "construction-machinery-2": { "keywords": ["2級建設機械施工管理技士"], "titleMatch": "(2|二)級.{0,4}建設機械|建設機械.{0,12}(2|二)級", "coconala": ["建設機械施工管理技士"] },
+    "landscape-1": { "keywords": ["1級造園施工管理技士 経験記述", "1級造園施工管理技士"], "titleMatch": "(1|一)(・2)?級.{0,4}造園|造園施工管理.{0,12}(1|一)級", "coconala": ["造園施工管理技士"] },
+    "landscape-2": { "keywords": ["2級造園施工管理技士"], "titleMatch": "(1・)?(2|二)級.{0,4}造園|造園施工管理.{0,12}(2|二)級", "coconala": ["造園施工管理技士"] },
+    "building-construction-1": { "keywords": ["1級建築施工管理技士 経験記述", "1級建築施工管理技士 第一次検定"], "titleMatch": "(1|一)(・2)?級.{0,4}建築施工|建築施工管理.{0,12}(1|一)級|(1|一)級.{0,4}建築.{0,2}セコカン", "coconala": ["1級建築施工管理技士"] },
+    "building-construction-2": { "keywords": ["2級建築施工管理技士 経験記述", "2級建築施工管理技士 過去問"], "titleMatch": "(1・)?(2|二)級.{0,4}建築施工|建築施工管理.{0,12}(2|二)級|(2|二)級.{0,4}建築.{0,2}セコカン", "coconala": ["2級建築施工管理技士"] },
+    "pipe-work-1": { "keywords": ["1級管工事施工管理技士 経験記述", "1級管工事施工管理技士 第一次検定"], "titleMatch": "(1|一)(・2)?級.{0,4}管工事|管工事施工管理.{0,12}(1|一)級", "coconala": ["1級管工事施工管理技士"] },
+    "pipe-work-2": { "keywords": ["2級管工事施工管理技士 経験記述", "2級管工事施工管理技士"], "titleMatch": "(1・)?(2|二)級.{0,4}管工事|管工事施工管理.{0,12}(2|二)級", "coconala": ["2級管工事施工管理技士"] },
+    "electrical-work-1": { "keywords": ["1級電気工事施工管理技士 経験記述", "1級電気工事施工管理技士 第一次検定"], "titleMatch": "(1|一)(・2)?級.{0,4}電気工事施工|電気工事施工管理.{0,12}(1|一)級|(1|一)級.{0,4}電気.{0,2}セコカン|(1|一)級電施", "coconala": ["1級電気工事施工管理技士"] },
+    "electrical-work-2": { "keywords": ["2級電気工事施工管理技士 経験記述", "2級電気工事施工管理技士"], "titleMatch": "(1・)?(2|二)級.{0,4}電気工事施工|電気工事施工管理.{0,12}(2|二)級|(2|二)級.{0,4}電気.{0,2}セコカン|(2|二)級電施", "coconala": ["2級電気工事施工管理技士"] },
+    "pavement-1": { "keywords": ["1級舗装施工管理技術者"], "titleMatch": "舗装", "coconala": ["舗装施工管理技術者"] },
+    "pavement-2": { "keywords": ["2級舗装施工管理技術者"], "titleMatch": "舗装", "coconala": ["舗装施工管理技術者"] },
+    "civil-service-national-general-civil": { "keywords": ["国家一般職 土木 対策"], "titleMatch": "国家一般職|国家公務員|国家総合職|国家専門職", "coconala": ["公務員 土木"] },
+    "civil-service-tokyo-1b-civil": { "keywords": ["東京都 土木 専門記述"], "titleMatch": "東京都", "coconala": ["公務員 土木"] },
+    "civil-service-tokubetsuku-1-civil": { "keywords": ["特別区 土木 専門記述"], "titleMatch": "特別区", "coconala": ["公務員 土木"] },
+    "surveyor": { "keywords": ["測量士 試験 対策"], "titleMatch": "測量士(?!補)", "coconala": ["測量士"] },
+    "assistant-surveyor": { "keywords": ["測量士補 試験 対策"], "titleMatch": "測量士補", "coconala": ["測量士補"] },
+    "geological-survey-engineer": { "keywords": ["地質調査技士 試験"], "titleMatch": "地質調査", "coconala": ["地質調査技士"] },
+    "road-bridge-inspector": { "keywords": ["道路橋点検士"], "titleMatch": "道路橋点検|橋梁点検|橋梁調査会", "coconala": ["道路橋点検士"] },
+    "steel-structure-diagnostician": { "keywords": ["土木鋼構造診断士"], "titleMatch": "鋼構造診断士", "coconala": ["土木鋼構造診断士"] }
+  }
+}

@@ -1,30 +1,253 @@
 import Link from 'next/link';
 import { PageHead } from '@/components/ui';
 import { findRepoRoot } from '@/lib/repo-root';
-import { buildReport, reviewPeriod, samePeriod, records } from '../../../../../../scripts/lib/business-direction.mjs';
+import { buildReport, reviewPeriod, samePeriod } from '../../../../../../scripts/lib/business-direction.mjs';
+import { buildReviewView } from '../../../../../../scripts/lib/review-wiring.mjs';
+import { buildGate } from '../../../../../../scripts/lib/backlog-gate.mjs';
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import RecordPanel from './RecordPanel';
+
 export const dynamic = 'force-dynamic';
-const show = (value: number | null) => value == null ? '未計測' : value.toLocaleString('ja-JP');
-export default async function BusinessPage({ searchParams }: { searchParams: Promise<Record<string, string | undefined>> }) {
-  const search = await searchParams, cadence = search.cadence === 'monthly' ? 'monthly' : 'weekly';
+
+/**
+ * 戦略 ＞ レビュー。週次・月次それぞれの実行状況と、配線（入力 → 判断 → 出力）を図にする。
+ * 配線の正本は .claude/config/review-wiring.json（スキルとの一致は check-review-wiring）、
+ * 判断はレビュー記録（review-*.json）、出力は起点に「週次レビュー（期間）」を書いたカード・実験・週次計画。
+ * KPI の値はトップ（/）。人が読まない点検は件数だけ出し、中身は折りたたむ。
+ */
+type Input = { command: string; label: string };
+type Stage = { stage: string; judge: Input[]; check: Input[] };
+type Review = { file: string; cadence: string; period: { startDate: string; endDate: string }; status: string; findings: string; decision: string; nextAction: string; experimentIds?: string[]; nextReviewDate: string; createdAt?: string };
+type Cadence = {
+  id: string;
+  label: string;
+  outputs: string[];
+  byStage: Stage[];
+  counts: { judge: number; check: number };
+  drift: { missing: string[]; extra: string[] };
+  due: { due: boolean; period: { startDate: string; endDate: string }; status?: string } | null;
+  latest: Review | null;
+  cards: { id: string; title: string }[];
+  weeklyPlan: string | null;
+  history: Review[];
+};
+
+const stepHead: React.CSSProperties = { display: 'flex', alignItems: 'center', gap: 8, margin: '0 0 8px' };
+const num = (n: number) => (
+  <span style={{ display: 'inline-flex', width: 22, height: 22, borderRadius: 11, background: 'var(--panel-2)', alignItems: 'center', justifyContent: 'center', fontSize: 12, fontWeight: 700 }}>{n}</span>
+);
+
+/** 週次・月次の切り替えタブ。各タブに状態（未実施・実施済み）を添える。 */
+function CadenceTabs({ list, current }: { list: Cadence[]; current: string }) {
+  return (
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 12, marginBottom: 16 }}>
+      {list.map((c) => {
+        const overdue = c.due?.due;
+        const active = c.id === current;
+        return (
+          <Link
+            key={c.id}
+            href={c.id === 'weekly' ? '/metrics/business' : `/metrics/business?cadence=${c.id}`}
+            className="card"
+            style={{ margin: 0, padding: 14, textDecoration: 'none', color: 'inherit', boxShadow: active ? 'inset 0 0 0 2px var(--accent, #6aa0ff)' : undefined }}
+          >
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <strong style={{ fontSize: 18 }}>{c.label}レビュー</strong>
+              <span className={`badge ${overdue ? 'warn' : 'good'}`}>{overdue ? '未実施' : '実施済み'}</span>
+            </div>
+            <div className="small muted" style={{ marginTop: 4 }}>
+              {c.latest ? `最終 ${c.latest.period.startDate.slice(5)}〜${c.latest.period.endDate.slice(5)}・次回 ${c.latest.nextReviewDate.slice(5)}` : '記録なし'}
+            </div>
+            {overdue && c.due && <div className="small" style={{ color: 'var(--warn)' }}>{c.due.period.startDate.slice(5)}〜{c.due.period.endDate.slice(5)} が未記録</div>}
+          </Link>
+        );
+      })}
+    </div>
+  );
+}
+
+function Output({ label, value, href }: { label: string; value: number | string; href?: string }) {
+  const body = (
+    <>
+      <div className="small muted">{label}</div>
+      <div style={{ fontSize: 24, fontWeight: 700 }}>{value}</div>
+    </>
+  );
+  return (
+    <div style={{ padding: '4px 0 4px 12px', borderLeft: '3px solid var(--panel-2)' }}>
+      {href ? <Link href={href} style={{ color: 'inherit', textDecoration: 'none' }}>{body}</Link> : body}
+    </div>
+  );
+}
+
+/** 1 つのレビューを「① 何を見るか → ② 何を決めたか → ③ 何を出したか」の縦の流れで出す。 */
+type Gate = { weekly: { decisions: { ageDays: number | null }[]; decisionsLater: unknown[]; overdue: unknown[]; filedThisWeek: unknown[] }; monthly: { lowWithoutWhen: unknown[]; stale: unknown[]; thisMonth: number } };
+
+function Flow({ c, gate }: { c: Cadence; gate: Gate | null }) {
+  const checks = c.byStage.reduce((n, s) => n + s.check.length, 0);
+  const drifted = c.drift.missing.length > 0 || c.drift.extra.length > 0;
+  return (
+    <>
+      <div className="card">
+        <h2 style={stepHead}>{num(1)} 判断 {c.latest && <span className="sub">{c.latest.period.startDate}〜{c.latest.period.endDate}{c.latest.status === 'provisional' ? '（暫定）' : ''}</span>}</h2>
+        {c.latest ? (
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 16, lineHeight: 1.8 }}>
+            <div>
+              <div className="small muted">決めたこと</div>
+              <p style={{ margin: 0 }}>{c.latest.decision}</p>
+            </div>
+            <div>
+              <div className="small muted">次の一手</div>
+              <p style={{ margin: 0 }}>{c.latest.nextAction}</p>
+            </div>
+          </div>
+        ) : (
+          <p className="muted">まだ記録がない</p>
+        )}
+      </div>
+
+      <div className="card">
+        <h2 style={stepHead}>{num(2)} 出力</h2>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: 12 }}>
+          <Output label="起票したカード" value={c.cards.length} href={c.cards.length ? '/todo?f=backlog' : undefined} />
+          <Output label="実験" value={c.latest?.experimentIds?.length ?? 0} />
+          {c.weeklyPlan && <Output label="週次計画" value="開く →" href="/todo?f=weekly" />}
+        </div>
+        {c.cards.length > 0 && (
+          <ul className="small" style={{ margin: '10px 0 0', paddingLeft: 18 }}>
+            {c.cards.map((x) => (
+              <li key={x.id}>
+                <Link className="mono" href={`/todo?f=backlog&id=${x.id}`}>{x.id}</Link> {x.title}
+              </li>
+            ))}
+          </ul>
+        )}
+        {c.latest?.experimentIds?.length ? <p className="small" style={{ marginBottom: 0 }}>実験: {c.latest.experimentIds.join('・')}</p> : null}
+      </div>
+
+      {gate && (
+        <div className="card">
+          <h2 style={stepHead}>
+            バックログの関門{' '}
+            <span className="sub">{c.id === 'weekly' ? '判断待ちを全件諮る・期日切れ・新規' : '時期なしの🟢・90 日超を月を付けるか削除'}</span>
+          </h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: 12 }}>
+            {c.id === 'weekly' ? (
+              <>
+                <Output
+                  label="今決められる判断待ち"
+                  value={`${gate.weekly.decisions.length}`}
+                  href="/todo?f=backlog"
+                />
+                <Output label="判断の時期が先" value={gate.weekly.decisionsLater.length} />
+                <Output label="いちばん古い判断待ち" value={gate.weekly.decisions.length ? `${gate.weekly.decisions[0]?.ageDays ?? '—'} 日` : '—'} />
+                <Output label="期日切れ" value={gate.weekly.overdue.length} />
+                <Output label="直近 7 日の起票" value={gate.weekly.filedThisWeek.length} />
+              </>
+            ) : (
+              <>
+                <Output label="時期の無い 🟢" value={gate.monthly.lowWithoutWhen.length} href="/todo?f=backlog" />
+                <Output label="起票から 90 日超" value={gate.monthly.stale.length} />
+                <Output label="今月の 🔴🟡" value={gate.monthly.thisMonth} />
+              </>
+            )}
+          </div>
+        </div>
+      )}
+
+      <div className="card">
+        <h2 style={stepHead}>{num(3)} 見る材料 <span className="sub">判断に使う {c.counts.judge} 件</span></h2>
+        <div style={{ display: 'grid', gap: 10 }}>
+          {c.byStage.filter((s) => s.judge.length).map((s) => (
+            <div key={s.stage} style={{ display: 'grid', gridTemplateColumns: '7em 1fr', gap: 8, alignItems: 'baseline' }}>
+              <span className="small muted">{s.stage}</span>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
+                {s.judge.map((i) => <span key={i.command} className="chip">{i.label}</span>)}
+              </div>
+            </div>
+          ))}
+        </div>
+        <p className="small muted" style={{ margin: '12px 0 0' }}>ほかに自動の点検 {checks} 件（異常があるときだけ見ればよい）</p>
+        {drifted && <p className="badge warn">配線の正本とスキルがずれている</p>}
+      </div>
+
+      <Link
+        href={c.id === 'weekly' ? '/metrics/business/procedure' : '/metrics/business/procedure?cadence=monthly'}
+        className="card"
+        style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', textDecoration: 'none', color: 'inherit' }}
+      >
+        <span>
+          <strong>{c.label}レビューの手順を点検する</strong>
+          <span className="small muted" style={{ display: 'block' }}>手順ごとの実施の証拠・レポートの節の埋まり具合・実行するコマンドの全件</span>
+        </span>
+        <span style={{ fontSize: 20, opacity: 0.6 }}>→</span>
+      </Link>
+
+      {c.history.length > 0 && (
+        <div className="card">
+          <h2>これまでの判断</h2>
+          <ol style={{ margin: 0, paddingLeft: 0, listStyle: 'none', display: 'grid', gap: 10 }}>
+            {c.history.map((r) => (
+              <li key={r.file} className="small" style={{ borderLeft: '3px solid var(--panel-2)', paddingLeft: 10, lineHeight: 1.7 }}>
+                <div className="muted">{r.period.startDate}〜{r.period.endDate}{r.status === 'provisional' ? '（暫定）' : ''}</div>
+                {r.decision}
+              </li>
+            ))}
+          </ol>
+        </div>
+      )}
+    </>
+  );
+}
+
+export default async function ReviewPage({ searchParams }: { searchParams: Promise<Record<string, string | undefined>> }) {
+  const search = await searchParams;
+  const cadence = search.cadence === 'monthly' ? 'monthly' : 'weekly';
   const period = search.start && search.end ? { startDate: search.start, endDate: search.end } : reviewPeriod(cadence);
+  const root = findRepoRoot();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let data: any;
-  try { data = buildReport(findRepoRoot(), period); } catch { return <><PageHead title="事業方針と改善" /><p className="card">設定・計測期間を読み取れません。<Link href="/metrics/business">直近の週次へ戻る</Link></p></>; }
-  const { strategy, cells } = data, scopes = [{ id: 'all', label: '全体' }, ...strategy.qualifications];
-  const existingReview = data.reviews.find((r: any) => r.cadence === cadence && samePeriod(r.period, period));
-  const previous = records(findRepoRoot()).filter((r: any) => r.kind === 'snapshot' && r.period.endDate < period.startDate && Math.round((Date.parse(r.period.endDate) - Date.parse(r.period.startDate)) / 86400000) === Math.round((Date.parse(period.endDate) - Date.parse(period.startDate)) / 86400000)).at(-1);
-  return <>
-    <PageHead title="事業方針と改善" sub="資格別の学習価値・販売・運営負担を同じ基準で振り返る" />
-    <div className="card business-direction"><p className="small">私たちが届ける価値</p><h2>{strategy.positioning}</h2><p>{strategy.objective}</p><div className="business-journey">受験者の課題 <span>→</span> 図で理解 <span>→</span> 過去問・答案で確認 <span>→</span> 必要な教材・支援</div><p className="small">図の枚数や検索順位だけで成果を判定しません。正確さ、学習行動、収益、運営時間を合わせて見ます。</p></div>
-    <div className="business-grid">{strategy.qualifications.map((q: any) => <section className="card" key={q.id}><h2>{q.label}</h2><p className="small">{q.audience}</p><p>{q.promise}</p><ol>{q.journey.map((x: string) => <li key={x}>{x}</li>)}</ol><p className="small">有料の支援: {q.offer}</p></section>)}</div>
-    <div className="card"><h2>確認する期間</h2><nav className="filterbar"><Link href="/metrics/business">前週</Link><Link href="/metrics/business?cadence=monthly">前月</Link><Link href="/metrics/seo-watch">検索順位の改善</Link><Link href="/sales">売上明細</Link><Link href="/todo">実装タスク</Link><Link href="/content/expansion">教材からの展開</Link></nav><form className="filterbar"><input type="hidden" name="cadence" value={cadence} /><label>開始 <input aria-label="開始日" type="date" name="start" defaultValue={period.startDate} required /></label><label>終了 <input aria-label="終了日" type="date" name="end" defaultValue={period.endDate} required /></label><button>表示</button></form><p>{period.startDate}〜{period.endDate} · {cadence === 'monthly' ? '月次' : '週次'}<br /><span className="small">GSCは太平洋時間、運用記録は日本時間。各データの対象期間を揃えて表示し、期間が異なる計測を埋め合わせません。</span></p></div>
-    <div className="card"><h2>資格別KPI</h2><p className="small">—は未計測、部分は登録・確認できた範囲、対象外は現在その資格で運用していない指標です。全体には重点資格外と未帰属を含みます。人数は資格間で足しません。資格別のGoogle計測は正規URL配下の範囲です。旧URLで閲覧されていた期間と直接比較して増減を効果としません。目標は基準値を確認後に設定します。</p><div className="table-wrap"><table className="data"><thead><tr><th>段階・指標</th>{scopes.map((q: any) => <th key={q.id}>{q.label}</th>)}</tr></thead><tbody>{strategy.metrics.map((m: any) => <tr key={m.id}><td><details><summary>{m.stage} · {m.label}</summary><p className="small">{m.definition}</p></details></td>{scopes.map((q: any) => { const cell = cells.find((x: any) => x.metric === m.id && x.qualification === q.id), prev = previous?.cells.find((x: any) => x.metric === m.id && x.qualification === q.id); return <td key={q.id}><strong>{cell.applicable === false ? '対象外' : show(cell.value)}{cell.value != null ? m.unit : ''}</strong>{cell.coverage === 'partial' && <span className="badge warn">部分</span>}{cell.target && <div className="small">目標 {cell.target.direction === 'at-most' ? '≤' : '≥'}{cell.target.value}{m.unit}</div>}{cell.value != null && prev?.value != null && <div className="small">以前の保存値 {show(prev.value)}（{previous.period.startDate}〜{previous.period.endDate}）</div>}<details className="small"><summary>範囲・出典</summary><p>{cell.note}</p><p className="mono">{cell.source ?? (cell.applicable === false ? '対象外' : '取得待ち')}</p></details></td>; })}</tr>)}</tbody></table></div></div>
-    <div className="card"><h2>運営収支</h2><p className="small">同じ資格・期間の実受取と費用が両方確認できた場合だけ差額を表示します。未記録の費用や労働対価を含む利益の確定値ではありません。</p>{data.operatingBalance.map((b: any) => <p key={b.qualification}>{scopes.find((q: any) => q.id === b.qualification)?.label}: {b.value == null ? '受取・費用の確認待ち' : `${show(b.value)}円`}</p>)}</div>
-    <div className="card"><h2>別期間の既存計測</h2><p className="small">上の対象期間には転記しません。最新の取得範囲を確認できます。</p>{data.sources.filter((r: any) => !samePeriod(r.period, period)).map((r: any, i: number) => <p key={i}>{strategy.metrics.find((m: any) => m.id === r.metric)?.label}: {show(r.value)} · {r.period.startDate}〜{r.period.endDate}<br /><span className="small mono">{r.source}</span></p>)}</div>
-    <div className="card"><h2>レビューと次の改善</h2>{data.due.map((d: any) => <p key={d.cadence}><span className={`badge ${d.due ? 'warn' : 'good'}`}>{d.cadence === 'monthly' ? '月次' : '週次'} {d.due ? '要確認' : '記録あり'}</span> {d.period.startDate}〜{d.period.endDate} {d.status === 'provisional' ? '（欠測を含む暫定判断）' : ''}</p>)}{data.followups.map((r: any) => <p key={r.file}><Link href={`/metrics/business?cadence=${r.cadence}&start=${r.period.startDate}&end=${r.period.endDate}`}>暫定判断の再確認: {r.period.startDate}〜{r.period.endDate}</Link></p>)}{data.targetsDue.map((t: any) => <p key={t.file}>目標の見直し: {t.qualification} / {t.metric}（{t.reviewDate}）</p>)}<p>週次は実験の結果と次の一手。月次は資格・商品への配分と目標を見直します。観察中のSEO施策は7日間再編集せず、実験を増やす前に期限到来分を確認します。</p>{data.experiments.map((e: any) => <p key={e.id}>{e.id} · {e.title}<br /><span className={`badge ${e.overdue ? 'warn' : 'neutral'}`}>次回 {e.nextReviewDate ?? '未設定'}</span></p>)}</div>
-    <RecordPanel strategy={strategy} period={period} cadence={cadence} existingReview={existingReview} observations={data.observations} />
-    <div className="card"><h2>判断の履歴</h2>{data.reviews.length === 0 ? <p>レビューはまだ記録されていません。</p> : data.reviews.map((r: any) => <details key={r.file}><summary>{r.period.startDate}〜{r.period.endDate} · {r.cadence === 'monthly' ? '月次' : '週次'} · 次回 {r.nextReviewDate}</summary><p>{r.findings}</p><p><strong>判断:</strong> {r.decision}</p><p><strong>次:</strong> {r.nextAction}</p><p className="small mono">{r.file}</p></details>)}</div>
-    <div className="card"><h2>個別の商品・計測記録</h2>{data.observations.filter((r: any) => samePeriod(r.period, period)).map((r: any) => <details key={r.file}><summary>{r.channel} · {r.qualification} · {r.subject}</summary><p>{Object.entries(r.values).map(([k,v]) => `${strategy.metrics.find((m: any) => m.id === k)?.label}: ${v ?? '未計測'}`).join(' / ')}</p><p className="small">{r.source}</p><p className="small mono">{r.file}</p></details>)}</div>
-    <div className="card"><h2>共通の運用ルール</h2><ul>{strategy.rules.map((r: string) => <li key={r}>{r}</li>)}</ul><p className="small">集客の継続指標: {strategy.northStar.role}<br />学習価値を表す次の指標: {strategy.northStar.candidate}。{strategy.northStar.readiness}</p><p className="mono small">npm run fetch-business-metrics -- --commit<br />npm run business-review -- report<br />npm run business-review -- report --monthly<br />npm run check-business-direction</p></div>
-  </>;
+  try {
+    data = buildReport(root, period);
+  } catch {
+    return (
+      <>
+        <PageHead title="レビュー" />
+        <p className="card">設定・計測期間を読み取れない。<Link href="/metrics/business">直近の週次へ戻る</Link></p>
+      </>
+    );
+  }
+  const cadences = buildReviewView(root, { reviews: data.reviews, due: data.due }) as Cadence[];
+  const current = cadences.find((c) => c.id === cadence);
+  const gate = (() => {
+    try {
+      return buildGate(readFileSync(join(root, '.claude/todo/backlog.md'), 'utf8'), new Date(Date.now() + 9 * 3600000).toISOString().slice(0, 10)) as Gate;
+    } catch {
+      return null;
+    }
+  })();
+  const existingReview = data.reviews.find((r: Review) => r.cadence === cadence && samePeriod(r.period, period));
+
+  return (
+    <>
+      <PageHead title="レビュー" />
+      <CadenceTabs list={cadences} current={cadence} />
+      {current && <Flow c={current} gate={gate} />}
+
+      <details className="card">
+        <summary>手で記録する（計測・目標・レビュー）</summary>
+        <form className="filterbar">
+          <input type="hidden" name="cadence" value={cadence} />
+          <Link href="/metrics/business">前週</Link>
+          <Link href="/metrics/business?cadence=monthly">前月</Link>
+          <label>開始 <input aria-label="開始日" type="date" name="start" defaultValue={period.startDate} required /></label>
+          <label>終了 <input aria-label="終了日" type="date" name="end" defaultValue={period.endDate} required /></label>
+          <button>表示</button>
+        </form>
+        <p className="small">{period.startDate}〜{period.endDate} · {cadence === 'monthly' ? '月次' : '週次'}</p>
+        <RecordPanel strategy={data.strategy} period={period} cadence={cadence} existingReview={existingReview} observations={data.observations} />
+      </details>
+    </>
+  );
 }

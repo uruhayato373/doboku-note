@@ -4,6 +4,7 @@ description: >
   記事の PNG/WebP 図画像を1枚ずつ目視分類し、写り込みを除くタイト再クロップと確認を行う Generator。/figure-recrop のワーカー。MDX・台帳編集と PDF からの図抽出は担当外。
 model: sonnet
 tools: Read, Bash, Glob, Grep
+domain: site
 ---
 
 # Figure Crop Worker Agent

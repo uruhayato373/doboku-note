@@ -6,7 +6,11 @@ description: >
   Use when user says "X投稿用画像を作って", "サマリカードを生成", "/create-x-card".
 disable-model-invocation: true
 argument-hint: "--draft <NNN> | --range <NNN>-<NNN> | --all [--force]"
+domain: sns
 ---
+
+POP意匠での新規制作・改修は `/create-pop-image` と [共通方針](../../../knowledge/reference/pop-image-policy.md) を先に参照する。以下のCLIがそのままPOP版を描画するとは扱わない。
+
 
 `scripts/gen-x-card.mjs` を実行して X 投稿用サマリカード PNG を生成する。
 

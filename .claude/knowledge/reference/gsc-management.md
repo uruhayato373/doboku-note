@@ -612,3 +612,10 @@ EXP-006 の本判定は予定どおり next_check 2026-08-27 に、カバレッ�
   3. 権威性起因 270 件は内部施策では動かない領域。被リンク・統合・量抑制の判断は週次/月次レビューへ
 - 異常フラグ: なし（ratio 79.9%≥60% / 前回比 +38.1pt / discovered 16.2%<20% / hygiene 0 / inspected=sitemap / results 1,434 件・前回比 −5.4%）
 - 注記: 自動生成・最終決定は人間。sitemap_urls の −82 件（1,516→1,434）は part-N 一時離脱による既知の変動でありデータ異常ではない
+
+### 2026-09-27（手動・SEO の保留 4 点の判断・旧 DN-0320）
+
+- ① 本番の SEO 監査（check-seo-production + seo-production-audit.yml）は作らない。deploy 後の `npm run check-production-ssr` と日次の seo-rank-watch で足りる
+- ② 資格の入口ページに CollectionPage / ItemList を付ける → DN-0412
+- ③ 未登録ページを統合・noindex する基準は、建設部門・RCCM の登録率の調査（DN-0390）で決める
+- ④ GSC 実験の対象と成功指標は、検索キーワード戦略の 11〜30 位の改善サイクル（report-search-opportunities・週次で起票・28 日後に判定）にまとめる

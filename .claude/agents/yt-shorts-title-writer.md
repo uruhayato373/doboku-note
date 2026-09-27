@@ -2,6 +2,7 @@
 name: yt-shorts-title-writer
 description: YouTube Shorts（過去問派生）の論点ベースのタイトルを1本ずつ執筆する Generator エージェント。pack の featured 問題の設問文から論点を1フレーズに圧縮し、policy §2 規約（技術士総監 令和X年度 択一｜論点 #Shorts・40字以内・使い回し禁止・正答ネタバレ禁止）に沿って meta.json の title を上書きする。
 model: sonnet
+domain: sns
 ---
 
 # YouTube Shorts Title Writer Agent

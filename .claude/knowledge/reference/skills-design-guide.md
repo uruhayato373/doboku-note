@@ -25,8 +25,15 @@ name: kebab-case-name
 description: >
   [何をするか（1〜2 文）]。[どんなときに使うか、具体的な条件]。
   Use when user asks to [具体的なトリガーフレーズ, 別のトリガーフレーズ, /slash-command].
+domain: product
 ---
 ```
+
+### domain フィールド（必須・2026-09-26〜）
+
+- 事業の領域 id（`strategy` / `plan` / `product` / `affiliate` / `site` / `sns` / `material` / `ops`）。正本は `.claude/config/domains.json`、`npm run check-domains` が欠落と語彙外を止める
+- **作るもの・動かすものの領域**で決める。writer と qa の組は同じ領域（例: note 記事の書き手と QA は `product`、X 投稿は `sns`）。領域を横断する道具（文書同期・デプロイ・コードレビュー）は `ops`
+- 置き場（`.claude/skills/<カテゴリ>/`）は作業の種類、domain は事業の領域で、別の軸。domain のためにディレクトリを移さない
 
 ### name フィールド（Critical）
 

@@ -60,7 +60,7 @@ export async function run({ argv = [], quiet = false } = {}) {
   const exists = (w) => existsSync(join(ROOT, 'docs', 'reviews', 'weekly', `${w}-review.md`));
   const due = dueWeek(Date.now(), exists);
   if (json) { out.log(JSON.stringify({ due, checkedAt: new Date().toISOString() })); }
-  else if (due) { out.log(`[weekly-review-due] ${due} の週次レビューが未作成（土曜 09:00 JST 以降）。対話セッションで /weekly-review を実行する（完了後 /weekly-plan が続く）`); }
+  else if (due) { out.log(`[weekly-review-due] ${due} の週次レビューが未作成（土曜 09:00 JST 以降）。対話セッションで /weekly-review を実行する（完了後 /plan-weekly で weekly.md を更新）`); }
   return out.result(due ? 1 : 0);
 }
 

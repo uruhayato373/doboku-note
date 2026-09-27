@@ -418,7 +418,10 @@ export function resolvePlacement(
         ],
       };
     }
+    // 2026-09-27（DN-0364）: 本文中の枠は長文記事でしか出ず、SNS から着地するキーワードページで
+    // note 商品への導線が実質ゼロ（サイドバーと末尾のもくじだけ）だったため、冒頭（top）にも置く。
     return {
+      top: slot('tankan-reading-guide', slug, 'top'),
       inline: [slot('tankan-reading-guide', slug, 'inline-mobile')],
     };
   }

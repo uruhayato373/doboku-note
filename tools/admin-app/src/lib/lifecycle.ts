@@ -11,7 +11,6 @@ import {
   siteDocToStage,
   noteToStage,
   coconalaStatusToStage,
-  brainStatusToStage,
   kindleStatusToStage,
   xTweetStatusToStage,
   youtubeScheduleStatusToStage,
@@ -24,7 +23,6 @@ import {
 import { SNS_CONTENT_ROOT } from '../../../../scripts/lib/repository-paths.mjs';
 
 import { articlesIndex, magazines, noteArticleCounts } from './content';
-import { loadBrainView } from './brain';
 import { loadKindleView } from './kindle';
 import { findRepoRoot, repoPath } from './repo-root';
 
@@ -203,19 +201,6 @@ function coconalaLifecycle(): ChannelLifecycle {
   }
 }
 
-function brainLifecycle(): ChannelLifecycle {
-  const href = '/content/brain';
-  const source = 'src/lib/brain-products.ts（status）';
-  try {
-    const view = loadBrainView();
-    const counts = emptyCounts();
-    for (const p of view.products) tally(counts, brainStatusToStage(p.status));
-    return done('brain', 'Brain 商品', href, source, counts);
-  } catch (e) {
-    return failed('brain', 'Brain 商品', href, source, (e as Error).message);
-  }
-}
-
 async function kindleLifecycle(): Promise<ChannelLifecycle> {
   const href = '/content/kindle';
   const source = 'scripts/kindle-published/catalog.json（status）';
@@ -299,7 +284,6 @@ export async function allChannelLifecycles(): Promise<ChannelLifecycle[]> {
     noteArticleLifecycle(),
     noteLifecycle(),
     coconalaLifecycle(),
-    brainLifecycle(),
     xLifecycle(),
     youtubeShortsLifecycle(),
   ];

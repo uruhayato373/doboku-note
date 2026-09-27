@@ -32,7 +32,7 @@
 import { readFileSync, existsSync, writeSync } from 'node:fs';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { assessSnapshot, reconcileOrders, classifyReplyDeadlines, classifyInquiries } from './lib/coconala-guards.mjs';
+import { assessSnapshot, reconcileOrders, classifyReplyDeadlines, classifyInquiries, inquiryClockMs } from './lib/coconala-guards.mjs';
 
 const TAG = '[check-coconala-orders]';
 const ROOT = process.cwd();
@@ -138,7 +138,7 @@ for (const d of classifyReplyDeadlines(snapOrders, now, { warnHours: REPLY_WARN_
 //     本物の警告を埋もれさせていた（X の陳腐化下書きと同じ構図）。
 const inquiries = Array.isArray(snap.inquiries) ? snap.inquiries : [];
 const resolvedList = readJson(RESOLVED_PATH)?.resolved ?? [];
-const inq = classifyInquiries(inquiries, resolvedList, Date.now());
+const inq = classifyInquiries(inquiries, resolvedList, inquiryClockMs(snap.fetchedAt));
 for (const q of inq.actions) {
   const what = q.serviceId ?? (q.subject ? `「${q.subject}」` : '（対象商品不明）');
   // 再オープンは「なぜ今出てきたか」が分からないと取り違えられるので理由を添える。

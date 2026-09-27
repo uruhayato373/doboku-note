@@ -1,3 +1,6 @@
+
+
+POP表紙・商品サムネイルでは [共通制作方針](./pop-image-policy.md) により無地ヘルメットを許容する。標準プロフィール素材はロゴ入りを継続する。
 # キャラクター素材ポリシー（doboku-note 先生）
 
 ブランドマスコット **「doboku-note 先生」** の素材ライブラリ運用 SSOT。アイデンティティ（人格・外見・ブランド）の真実源は [CHARACTER-SPEC.md](../../../content/sns/_assets/character/CHARACTER-SPEC.md)、ポーズ素材の機械可読な真実源は [`.claude/config/character-poses.json`](../../config/character-poses.json)。本ドキュメントは「どこに・どう保存し・どう生成/抽出し・どのチャネルでどう使うか」を集約する。

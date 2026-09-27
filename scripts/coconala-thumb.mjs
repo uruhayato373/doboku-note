@@ -2,7 +2,8 @@
 /**
  * coconala-thumb.mjs — ココナラ商品画像（サービスサムネ）を satori で生成
  * ---------------------------------------------------------------------------
- * ブランド流儀（brand-image-system）に沿い「AI 生成の雰囲気写真（文字なし）」を背景に、
+ * 承認済みの POP 画像は SHA-256 を照合してコピーし、再実行による旧意匠への巻き戻りを防ぐ。
+ * 未登録の商品は「AI 生成の雰囲気写真（文字なし）」を背景に、
  * サービス名・訴求・価格を satori/HTML で正確に重ねる（AI に日本語を焼き込ませない）。
  * キャンバス 1200×900（4:3・ココナラのサービス画像比率）。
  *
@@ -14,6 +15,7 @@
  * ---------------------------------------------------------------------------
  */
 import fs from 'node:fs';
+import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import satori from 'satori';
@@ -370,6 +372,7 @@ async function resolveVisual(id, svc, bgOverride) {
   return { uri: bgDataUri(DEFAULT_BG), theme: THEMES.default, note: 'bg=既定(共通)' };
 }
 
+const approved = JSON.parse(fs.readFileSync(path.join(ROOT, '.claude/config/coconala-thumb-approved.json'), 'utf8')).images;
 const catalog = readCatalog();
 const listings = readListings();
 const DEFAULT_BG = '.claude/config/coconala/assets/bg-civil.png';
@@ -381,6 +384,18 @@ for (const id of targets) {
   if (!svc) { console.error('カタログに無い: ' + id); continue; }
   const hasOptions = (listings[id]?.options || []).length > 0;
   const out = getArg('--out') || `.claude/config/coconala/assets/thumb-${id.replace('coconala-', '')}.png`;
+  if (approved[id]) {
+    if (bgOverride) throw new Error(id + ': 承認済み画像は --bg で変更できません。承認原本を更新してください。');
+    const source = path.join(ROOT, approved[id].path);
+    if (!fs.existsSync(source)) throw new Error('承認済み画像がありません。Drive vault の coconala-asset から復元してください: ' + source);
+    const bytes = fs.readFileSync(source);
+    if (createHash('sha256').update(bytes).digest('hex') !== approved[id].sha256) throw new Error('承認原本の SHA-256 不一致: ' + id);
+    const destination = path.resolve(ROOT, out);
+    fs.mkdirSync(path.dirname(destination), { recursive: true });
+    fs.writeFileSync(destination, bytes);
+    console.log('[approved] ' + id + ' → ' + destination);
+    continue;
+  }
   const { uri, theme, note } = await resolveVisual(id, svc, bgOverride);
   await render(id, uri, out, svc.priceYen, hasOptions, theme, note);
 }

@@ -48,7 +48,7 @@ export function assessQueueHealth({ snapshot, tweets, articles = [], account, no
       issues.push({ code: 'article_overdue', ref: article.ref, at: article.scheduled_at });
     } else if (teaserAt > now && (!article.teaser || !isTweetInQueue(article.teaser, rows))) {
       issues.push({ code: 'teaser_missing', ref: article.ref, at: article.teaser_scheduled_at });
-    } else if (teaserAt <= now && article.teaser?.status !== 'posted') {
+    } else if (teaserAt <= now && !['posted', 'cancelled'].includes(article.teaser?.status)) {
       issues.push({ code: 'teaser_publication_unconfirmed', ref: article.ref, at: article.teaser_scheduled_at });
     }
   }
