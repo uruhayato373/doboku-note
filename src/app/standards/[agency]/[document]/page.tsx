@@ -14,6 +14,7 @@ import {
   getStandardDocument,
   getStandardDocuments,
   standardDocumentPath,
+  standardPartLabel,
   standardPartPath,
 } from '@/lib/standards';
 import {
@@ -152,7 +153,9 @@ export default async function StandardDocumentPage({ params }: { params: Promise
                   href={standardPartPath(entry, part)}
                   className="focus-ring flex min-h-14 items-center justify-between gap-4 px-4 py-3 transition-colors hover:bg-[var(--accent-fill)]"
                 >
-                  <span className="font-medium text-[var(--ink)]">PDF page {part.firstPage}–{part.lastPage}</span>
+                  <span className="font-medium text-[var(--ink)]">
+                    {[standardPartLabel(entry, part), `PDF page ${part.firstPage}–${part.lastPage}`].filter(Boolean).join('｜')}
+                  </span>
                   <span className="font-mono text-[11px] text-[var(--ink-muted)]">{part.pageCount}頁 →</span>
                 </Link>
               </li>
