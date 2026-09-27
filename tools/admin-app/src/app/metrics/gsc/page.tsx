@@ -1,3 +1,4 @@
+import SearchTabs from '@/components/SearchTabs';
 import { DataTable, Freshness, Kpi, PageHead, SnapshotPicker, fmt, type Col } from '@/components/ui';
 import {
   latestSnapshot,
@@ -58,6 +59,7 @@ export default async function GscPage({
           qMeta?.startDate ? ` · 期間 ${qMeta.startDate} 〜 ${qMeta.endDate}` : ''
         }`}
       />
+      <SearchTabs current="/metrics/gsc" />
 
       <div className="grid cols-3" style={{ marginBottom: 16 }}>
         <Kpi label="総クリック（上位100クエリ）" value={totClicks} />

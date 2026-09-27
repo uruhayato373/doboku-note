@@ -1,6 +1,5 @@
-import { existsSync, readFileSync } from 'node:fs';
-import { join } from 'node:path';
 import { buildReport, records, reviewPeriod } from '../../../../scripts/lib/business-direction.mjs';
+import { latestIndexAsOf } from '../../../../scripts/lib/index-coverage.mjs';
 import { findRepoRoot } from './repo-root';
 
 /**
@@ -43,30 +42,6 @@ export function kpiPeriod(month?: string): { startDate: string; endDate: string 
   return reviewPeriod('monthly');
 }
 
-type IndexEntry = { date: string; indexed_ratio: number; batch_file?: string };
-type InspectRow = { url: string; index?: { verdict?: string } };
-
-/** 期間の末日以前で最新のインデックス検査から、全体と資格別（/exam/<id>/ 配下）の登録率を出す。 */
-function indexRatios(root: string, endDate: string, scopes: Scope[]): Record<string, number | null> {
-  const out: Record<string, number | null> = Object.fromEntries(scopes.map((s) => [s.id, null]));
-  const histPath = join(root, '.claude/state/metrics/gsc/index-coverage-history.json');
-  if (!existsSync(histPath)) return out;
-  const entries = (JSON.parse(readFileSync(histPath, 'utf8')).entries ?? []) as IndexEntry[];
-  const latest = entries.filter((e) => e.date <= endDate).sort((a, b) => a.date.localeCompare(b.date)).at(-1);
-  if (!latest) return out;
-  out.all = latest.indexed_ratio;
-  const batchPath = latest.batch_file ? join(root, '.claude/state/metrics/url-inspection', latest.batch_file) : '';
-  if (!batchPath || !existsSync(batchPath)) return out;
-  const batch = JSON.parse(readFileSync(batchPath, 'utf8'));
-  const rows = (Array.isArray(batch) ? batch : batch.results ?? []) as InspectRow[];
-  for (const s of scopes) {
-    if (s.id === 'all') continue;
-    const mine = rows.filter((r) => r.url.includes(`/exam/${s.id}/`));
-    if (mine.length) out[s.id] = mine.filter((r) => r.index?.verdict === 'PASS').length / mine.length;
-  }
-  return out;
-}
-
 export function loadKpiView(month?: string): KpiView {
   const root = findRepoRoot();
   const period = kpiPeriod(month);
@@ -75,7 +50,8 @@ export function loadKpiView(month?: string): KpiView {
     cells: { qualification: string; metric: string; value: number | null; coverage: string; applicable: boolean }[];
   };
   const scopes: Scope[] = [{ id: 'all', label: '全体' }, ...report.strategy.qualifications.map((q) => ({ id: q.id, label: q.label }))];
-  const idx = indexRatios(root, period.endDate, scopes);
+  const latest = latestIndexAsOf(root, period.endDate, scopes.filter((s) => s.id !== 'all').map((s) => s.id));
+  const idx: Record<string, number | null> = Object.fromEntries(scopes.map((s) => [s.id, s.id === 'all' ? latest?.all.ratio ?? null : latest?.byQualification[s.id]?.ratio ?? null]));
   const metricMeta = (id: string) =>
     id === 'indexRatio' ? { label: 'インデックス率', unit: '%' } : report.strategy.metrics.find((m) => m.id === id) ?? { label: id, unit: '' };
 

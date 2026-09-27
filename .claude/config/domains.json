@@ -159,16 +159,15 @@
           "match": "/content/articles"
         },
         {
-          "label": "検索順位",
-          "href": "/metrics/seo-watch",
+          "label": "検索",
+          "href": "/metrics/search-strategy",
           "kind": "results",
-          "match": "/metrics/seo-watch"
-        },
-        {
-          "label": "検索（GSC）",
-          "href": "/metrics/gsc",
-          "kind": "results",
-          "match": "/metrics/gsc"
+          "match": "/metrics/search-strategy",
+          "matchAlso": [
+            "/metrics/gsc",
+            "/metrics/seo-watch",
+            "/metrics/index"
+          ]
         },
         {
           "label": "アクセス（GA4）",
