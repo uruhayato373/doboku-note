@@ -6,6 +6,9 @@ paths:
   - "content/coconala/**"
 ---
 
+表紙・商品サムネイルの新規制作／改修は [キャラクターPOP画像方針](../knowledge/reference/pop-image-policy.md) と `/create-pop-image` を使う。媒体の安全域と公開手順は各正典に従う。
+
+
 # 販売・集客チャネルの制作物（note / SNS / Kindle / ココナラ）を扱うときの規約
 
 サイト記事（`content/site/`）とは別系統。各チャネルの真実源を先に Read してから書く。CLAUDE.md §8「提案の前に現物を確認する」はここで最も効く（既存 CTA・公開状態・価格は必ず実物で裏取り）。

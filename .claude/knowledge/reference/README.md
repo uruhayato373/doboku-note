@@ -20,6 +20,7 @@ title: .claude/knowledge/reference/ 索引
 | [.claude/knowledge/reference/reference-sources-policy.md](./reference-sources-policy.md) | 参考文献6区分の逐語・図・文字起こし公開・出典粒度と、原本→Drive文字起こし→記事 `sources` ID→検査のライフサイクル SSOT | 原本・一次資料から文字起こしや記事を作るとき／参考文献を追加・変更するとき |
 | [.claude/knowledge/reference/docs-markdown-style.md](./docs-markdown-style.md) | docs/ 配下 .md ドキュメントの Obsidian callout（`> [!note]` 等）運用ルール・MDX `<Callout>` との対比・推奨 4 タイプ | docs/handoffs/ / docs/{領域}/ / .claude/knowledge/reference/ の .md を書くとき |
 | [.claude/knowledge/reference/image-policy.md](./image-policy.md) | 図版種別判定フロー・CC/PD 写真ソース・出典表記・写真 SVG 化禁止ルール | 図/写真を追加・置換するとき |
+| [pop-image-policy.md](./pop-image-policy.md) | キャラクターPOP表紙の共通方針・承認原本・生成履歴の管理 | note・SNS・ココナラの表紙制作 |
 | [.claude/knowledge/reference/brand-image-system.md](./brand-image-system.md) | 資格別ブランド写真プールの多フォーマット展開＋サイト色スキーム統一の SSOT（wide/square の2マスター→hero/OGP/note カバー/カード/300×250 バナーへクロップ展開・色ターゲット・Codex 生成プロンプト・生成→保存→反映パイプライン） | hero/OGP/note カバー/カード/広告バナーの背景写真を新規作成・差替・統一するとき |
 | [.claude/knowledge/reference/note-svg-policy.md](./note-svg-policy.md) | note 記事用 図解 SVG/PNG ポリシー（キャンバス・最小フォント・余白・密度上限・失敗パターン） | `content/note/**/img/figure-*` を作成・修正するとき |
 | [.claude/knowledge/reference/figure-canvas-policy.md](./figure-canvas-policy.md) | サイト図版 `figure-*.svg` の固定キャンバス標準（feed 4:5 `400×500`／landscape 16:9 `640×360` `--wide`・概念名タイトル禁止・記事+SNS両用）。機械可読は `.claude/config/figure-canvas.json`、ガード `check-figure-canvas`、整形 `svg-canvas-fitter`、カタログ生成 `build-svg-catalog`（fitStatus の真実源）、SNS 書き出し `render-figure-sns` | `figure-*.svg` を新規作成・移行・SNS 書き出しするとき |

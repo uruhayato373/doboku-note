@@ -12,6 +12,9 @@ argument-hint: "--key <magazineKey> (--dir <magazineDir> | --image <path.png>) [
 domain: product
 ---
 
+画像そのものを新規制作する場合は `/create-pop-image` と [共通方針](../../../knowledge/reference/pop-image-policy.md) を使う。本スキルは完成画像のアップロードを担当する。
+
+
 `scripts/note-magazine-cover.mjs` を駆動し、note 有料マガジンの見出し画像を設定する。`note-magazine-create`（新規作成）・`note-edit-magazine`（タイトル/説明/価格編集）・`note-magazine-add`（収録）が扱わない「カバー画像」を担う。`note-edit-session` でログイン済みの永続プロファイルを再利用。
 
 ## ⚠️ なぜ必要か（systematic 欠落）
