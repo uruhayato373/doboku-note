@@ -1,13 +1,13 @@
 {
-  "updated_at": "2026-09-20T00:38:29.091Z",
+  "updated_at": "2026-09-27T04:18:16.410Z",
   "exam": "civil-career",
   "campaign": "x-longform-career-2026",
-  "note": "X Articleはネイティブ予約不可のため、1回限りのCodexローカル自動化で公開する。翌朝の告知はArticle URL確定後にpublish-xへ解放する。既存9月枠との差し替え済み。 2026-09-20: Codex ローカル自動化は Mac スリープ中に発火せず起床時(05:30前後)に遅延実行され公開窓を外していた(Article 1: 09-07 04:50 / Article 2: 09-14・09-17 05:30)。Article 2 は 09-20 08:54 に手動復旧で公開。automation.toml の rrule を直接編集して早朝へ寄せたが Codex アプリは新時刻(09:20)で発火せず(Mac 稼働中)→ 台帳は元の夕方枠へ戻した。時刻変更はアプリの Automations UI と台帳を同時に行う(DN-0257)。",
+  "note": "X Articleはネイティブ予約不可のため、1回限りのCodexローカル自動化で公開する。翌朝の告知はArticle URL確定後にpublish-xへ解放する。既存9月枠との差し替え済み。 2026-09-20: Codex ローカル自動化は Mac スリープ中に発火せず起床時(05:30前後)に遅延実行され公開窓を外していた(Article 1: 09-07 04:50 / Article 2: 09-14・09-17 05:30)。Article 2 は 09-20 08:54 に手動復旧で公開。automation.toml の rrule を直接編集して早朝へ寄せたが Codex アプリは新時刻(09:20)で発火せず(Mac 稼働中)→ 台帳は元の夕方枠へ戻した。時刻変更はアプリの Automations UI と台帳を同時に行う(DN-0257)。 2026-09-27: Article 1・3 は逸失（Mac スリープ）。空き枠のある 10/26・10/28 夕方へ引き直し、手動公開に切り替え（DN-0257）。Article 4 は 9/27 20:15 の自動化のまま（Mac を起こしておく）。",
   "tweets": {
     "1": {
-      "title": "9/22 20:20 civil-1 / X Article自動化 / 辞めるか残るか",
+      "title": "10/26 20:20 civil-1 / X Article自動化 / 辞めるか残るか",
       "status": "scheduled",
-      "scheduled_at": "2026-09-22T20:20:00+09:00",
+      "scheduled_at": "2026-10-26T20:20:00+09:00",
       "text": "施工管理を辞めたいと思った夜に。仕事内容への不満と、今の職場環境への不満を分けて、続ける・環境を変える・転職するの3択を整理する。",
       "posted_at": null,
       "manual_only": true,
@@ -18,9 +18,9 @@
       "original_scheduled_at": "2026-09-06T19:50:00+09:00"
     },
     "2": {
-      "title": "9/23 07:40 civil-1 / X Article告知 / 辞めるか残るか",
+      "title": "10/27 07:40 civil-1 / X Article告知 / 辞めるか残るか",
       "status": "scheduled",
-      "scheduled_at": "2026-09-23T07:40:00+09:00",
+      "scheduled_at": "2026-10-27T07:40:00+09:00",
       "text": "施工管理を辞めたい夜に、いきなり退職届を書く必要はありません。仕事そのものが嫌なのか、今の会社の環境が嫌なのか。結論の前に分けるべき2つを長文にしました。\n\n{{ARTICLE_URL_01}}\n#施工管理 #転職",
       "posted_at": null,
       "manual_only": true,
@@ -45,19 +45,20 @@
     },
     "4": {
       "title": "9/17 08:00 civil-1 / X Article告知 / 市場価値",
-      "status": "scheduled",
+      "status": "cancelled",
       "scheduled_at": "2026-09-17T08:00:00+09:00",
       "text": "1級土木の価値は、資格手当だけでは測れません。監理技術者として担える役割と、自分の工種・規模・立場をどう伝えるか。転職前に整理したい考え方をまとめました。\n\nhttps://x.com/doboku373/status/2101459864715510124\n#1級土木施工管理技士 #施工管理技士",
       "posted_at": null,
       "manual_only": false,
       "publication_mode": "publish-x-after-article",
       "article_url": "https://x.com/doboku373/status/2101459864715510124",
-      "original_scheduled_at": "2026-09-14T08:00:00.000+09:00"
+      "original_scheduled_at": "2026-09-14T08:00:00.000+09:00",
+      "cancelled_reason": "9/17 08:00 の枠を逸失し 9 月は全日上限。Article 2 は公開済みのため告知は見送り（DN-0257・2026-09-27）"
     },
     "5": {
-      "title": "9/20 19:35 civil-1 / X Article自動化 / キャリアパス",
+      "title": "10/28 19:35 civil-1 / X Article自動化 / キャリアパス",
       "status": "scheduled",
-      "scheduled_at": "2026-09-20T19:35:00+09:00",
+      "scheduled_at": "2026-10-28T19:35:00+09:00",
       "text": "施工管理の次は同業他社だけではない。発注者支援、建設コンサル、公務員、技術士まで、資格と経験を捨てずに働き方を変える道を整理する。",
       "posted_at": null,
       "manual_only": true,
@@ -68,9 +69,9 @@
       "original_scheduled_at": "2026-09-20T19:35:00.000+09:00"
     },
     "6": {
-      "title": "9/21 07:15 civil-1 / X Article告知 / キャリアパス",
+      "title": "10/29 07:15 civil-1 / X Article告知 / キャリアパス",
       "status": "scheduled",
-      "scheduled_at": "2026-09-21T07:15:00+09:00",
+      "scheduled_at": "2026-10-29T07:15:00+09:00",
       "text": "施工管理の次は、別の建設会社だけではありません。発注者支援、建設コンサル、公務員、技術士への道まで、資格と経験を捨てずに働き方を変える選択肢を整理しました。\n\n{{ARTICLE_URL_03}}\n#施工管理技士 #キャリア",
       "posted_at": null,
       "manual_only": true,
