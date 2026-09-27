@@ -1,7 +1,7 @@
 {
   "version": 1,
   "_doc": "docs/strategy/15_KPIツリー.md",
-  "_note": "週次・月次レビューの配線の正本。inputs はスキル（.claude/skills/management/{weekly,monthly}-review/SKILL.md）が実行するコマンドの全件で、stage は KPI ツリーの段、role は「判断」（判断の材料）か「点検」（仕組みの健全性・人が読まなくてよい）。スキルとこのファイルの食い違いは npm run check-review-wiring が止める。管理画面 戦略 ＞ レビュー がこの配線と実行状況を図にする。レビューから起票したカードは本文の起点に「週次レビュー（開始日〜終了日）」「月次レビュー（開始日〜終了日）」と書く（管理画面が数える）。 procedure は各レビューの手順（段ごとに何をして、何が残れば実施したと言えるか）。evidence は review-wiring.mjs の EVIDENCE のどれか（reviewRecord＝business-direction のレビュー記録／sections＝週次レポートの節／triage＝計測ダイジェストの全件処分／reportFile＝docs/reviews/weekly のレポート／routing＝申し送りの振り分け／weeklyPlan＝翌週の週間計画／none＝証拠が残らない手順）。管理画面 戦略 ＞ レビュー ＞ 手順の点検 が表示する。",
+  "_note": "週次・月次レビューの配線の正本。inputs はスキル（.claude/skills/management/{weekly,monthly}-review/SKILL.md）が実行するコマンドの全件で、stage は KPI ツリーの段、role は「判断」（判断の材料）か「点検」（仕組みの健全性・人が読まなくてよい）。スキルとこのファイルの食い違いは npm run check-review-wiring が止める。管理画面 戦略 ＞ レビュー がこの配線と実行状況を図にする。レビューから起票したカードは本文の起点に「週次レビュー（開始日〜終了日）」「月次レビュー（開始日〜終了日）」と書く（管理画面が数える）。 procedure は各レビューの手順（段ごとに何をして、何が残れば実施したと言えるか）。evidence は review-wiring.mjs の EVIDENCE のどれか（reviewRecord＝business-direction のレビュー記録／sections＝週次レポートの節／triage＝計測ダイジェストの全件処分／reportFile＝cadences.<id>.report のレポート（週次 docs/reviews/weekly・月次 docs/reviews/monthly）／routing＝申し送りの振り分け／weeklyPlan＝翌週の週間計画／none＝証拠が残らない手順）。管理画面 戦略 ＞ レビュー ＞ 手順の点検 が表示する。",
   "stages": [
     "受取・販売",
     "検索",
@@ -14,6 +14,10 @@
     "weekly": {
       "label": "週次",
       "skill": ".claude/skills/management/weekly-review/SKILL.md",
+      "report": {
+        "dir": "docs/reviews/weekly",
+        "pattern": "^\\d{4}-W\\d{2}-review\\.md$"
+      },
       "outputs": [
         "バックログ（改善・不具合の起票）",
         "実験（experiments.json）",
@@ -411,6 +415,10 @@
     "monthly": {
       "label": "月次",
       "skill": ".claude/skills/management/monthly-review/SKILL.md",
+      "report": {
+        "dir": "docs/reviews/monthly",
+        "pattern": "^\\d{4}-\\d{2}-review\\.md$"
+      },
       "outputs": [
         "目標と資格別の配分（target 記録）",
         "実験の判定（experiments.json）",
@@ -542,37 +550,63 @@
         {
           "label": "検索クラスターの推移",
           "does": "クラスター別の 1 桁・11〜30 位の検索語数と 28 日前との差を読む",
-          "evidence": "none"
+          "evidence": "sections",
+          "sections": [
+            "検索クラスター"
+          ]
         },
         {
           "label": "販売・送客の突合",
           "does": "note・KDP・ココナラ・アフィリエイトを確定値で読み、欠測は欠測で残す",
-          "evidence": "none"
+          "evidence": "sections",
+          "sections": [
+            "販売と送客"
+          ]
         },
         {
           "label": "資格の正本と市場",
           "does": "試験日程・受験者数の照合と、資格ごとの展開の判断材料を読む",
-          "evidence": "none"
+          "evidence": "sections",
+          "sections": [
+            "資格の正本と市場"
+          ]
         },
         {
           "label": "目標と配分",
           "does": "目標を変えるなら実測に基づく target 記録を追記する",
-          "evidence": "none"
+          "evidence": "sections",
+          "sections": [
+            "受取額と目標"
+          ]
         },
         {
           "label": "バックログの関門",
           "does": "時期の無い🟢と90日超のカードを運営者に諮り、月を付けるか削除する",
-          "evidence": "none"
+          "evidence": "sections",
+          "sections": [
+            "バックログの関門"
+          ]
         },
         {
           "label": "年間・月間の時期付け",
           "does": "カードの [時期:] を直し、残りを翌月へ回す",
-          "evidence": "none"
+          "evidence": "sections",
+          "sections": [
+            "時期付け"
+          ]
         },
         {
           "label": "実験の判定",
           "does": "期限の来た実験を判定か延長理由のどちらかで閉じる",
-          "evidence": "none"
+          "evidence": "sections",
+          "sections": [
+            "実験の判定"
+          ]
+        },
+        {
+          "label": "レポートの保存",
+          "does": "docs/reviews/monthly に月次レポートを書く",
+          "evidence": "reportFile"
         }
       ]
     }
