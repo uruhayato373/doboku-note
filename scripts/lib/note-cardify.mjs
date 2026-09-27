@@ -59,12 +59,14 @@ export async function cardifyBareUrls(page, { tag = '[cardify]', waitMs = 10000,
     await sleep(400);
     await page.keyboard.press('Enter');
     // 変換完了を実測で待つ（カード数の増加）。増えないURL（埋め込み不可）はタイムアウトで失敗扱いにして飛ばす。
+    // 少なくとも 1 回は数える（do-while）。先に時計を見る while だと、waitMs が短い／Enter 直後に時計が進んだとき
+    // 1 回も数えずに失敗扱いになり、カード化できた URL まで failed に入る（CI run 36316496163 のフレーク）。
     let ok = false;
-    const t0 = Date.now();
-    while (Date.now() - t0 < waitMs) {
-      await sleep(500);
+    const deadline = Date.now() + waitMs;
+    do {
+      await sleep(Math.min(500, waitMs));
       if ((await countCards(page)) > before) { ok = true; break; }
-    }
+    } while (Date.now() < deadline);
     if (!ok) failed.set(u, (failed.get(u) || 0) + 1);
     processed++;
   }

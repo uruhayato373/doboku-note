@@ -5,6 +5,11 @@ interface SeeAlsoProps {
   readonly href: string;
   readonly title: string;
   readonly reason?: string;
+  /**
+   * 付けるとクリックを GA4 の internal_nav_click（event_label＝この値・cta_placement＝see-also）で数える。
+   * 遷移を測りたいカードだけに付け、値はサイト全体で一意にする（`--by-label` で面をまたいで混ざらないように）。
+   */
+  readonly ctaLabel?: string;
 }
 
 /**
@@ -21,7 +26,7 @@ interface SeeAlsoProps {
  *
  * 上限: 1 記事 5 個以内（content-principles 準拠、過剰な装飾を避ける）。
  */
-export default function SeeAlso({ href, title, reason }: SeeAlsoProps) {
+export default function SeeAlso({ href, title, reason, ctaLabel }: SeeAlsoProps) {
   return (
     <NavLinkCard
       href={href}
@@ -29,6 +34,7 @@ export default function SeeAlso({ href, title, reason }: SeeAlsoProps) {
       title={title}
       description={reason}
       icon={BookOpenCheck}
+      cta={ctaLabel ? { label: ctaLabel, placement: 'see-also' } : undefined}
     />
   );
 }

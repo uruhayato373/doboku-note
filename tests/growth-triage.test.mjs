@@ -4,6 +4,7 @@ import { readFileSync } from 'node:fs';
 import { validateDecisions, renderCard, insertCard, nextExperimentId, newExperiment, closeExperiment, buildWatch, pendingItems } from '../scripts/lib/growth-triage.mjs';
 import { parseBacklog, CANONICAL_CATEGORIES } from '../scripts/lib/backlog-lib.mjs';
 import { validateCards, validateStagedLines } from '../scripts/check-backlog-schema.mjs';
+import { loadDomains } from '../scripts/lib/domains.mjs';
 import { readWatchConfig, validateConfig } from '../scripts/lib/seo-rank-watch.mjs';
 
 const seo = { id: 'OPP-aaaaaaaaaa', category: 'seo', type: 'seo-high-impr-low-ctr', title: '「過去問 解答」は平均 4 位なのに CTR 0%', key: { page: '/exam/civil-construction-1/secondary/r07', query: '過去問 解答' }, expectedWeeklyGain: { value: 3.2, unit: 'searchClicks' }, contentPath: 'content/site/civil-construction-1/secondary-r07.mdx', suggest: ['watchword', 'backlog'],
@@ -11,7 +12,7 @@ const seo = { id: 'OPP-aaaaaaaaaa', category: 'seo', type: 'seo-high-impr-low-ct
 const rev = { id: 'OPP-bbbbbbbbbb', category: 'revenue', type: 'revenue-placement-ctr', title: '配置 sidebar の CTR 0%', key: { placement: 'sidebar' }, expectedWeeklyGain: { value: 7.2, unit: 'ctaClicks' }, suggest: ['experiment', 'backlog'], watchwordDraft: null };
 const exp = { id: 'OPP-cccccccccc', category: 'experiment', type: 'experiment-due', title: 'EXP-007: 期限超過', key: { experiment: 'EXP-007', reasons: 'MEASURE_DUE' }, suggest: ['verdict', 'defer'], watchwordDraft: null };
 const ctx = { items: [seo, rev, exp], backlogIds: new Set(['DN-0185']), experimentIds: new Set(['EXP-007']) };
-const backlogCard = { action: 'backlog', tier: 'mid', category: '収益化', kind: '改善', title: 'サイドバー CTA の見直し', doing: 'sidebar の CTA を本文中へ移す案を 1 ページで試す', done: 'sidebar の CTR が中央値の半分以上になる' };
+const backlogCard = { action: 'backlog', tier: 'mid', category: '収益化', domain: 'サイト', period: '2026-10', kind: '改善', title: 'サイドバー CTA の見直し', doing: 'sidebar の CTA を本文中へ移す案を 1 ページで試す', done: 'sidebar の CTR が中央値の半分以上になる' };
 
 test('validateDecisions accepts a complete, well-formed batch', () => {
   const decisions = [
@@ -59,8 +60,11 @@ test('rendered cards land in the right tier and satisfy the real backlog schema'
   assert.equal(mine.tier, 'mid');
   assert.equal(mine.category, '収益化');
   assert.equal(mine.kind, '改善');
+  assert.equal(mine.domain, 'サイト');
+  assert.equal(mine.when, '2026-10');
   const npmScripts = new Set(Object.keys(JSON.parse(readFileSync('package.json', 'utf8')).scripts));
-  const violations = validateCards(cards, [], { rawHeadingCount: (next.match(/^### /gm) ?? []).length, npmScripts, allowedCategories: new Set(CANONICAL_CATEGORIES) })
+  const domainLabels = new Set(loadDomains(process.cwd()).domains.map((x) => x.label));
+  const violations = validateCards(cards, [], { rawHeadingCount: (next.match(/^### /gm) ?? []).length, npmScripts, allowedCategories: new Set(CANONICAL_CATEGORIES), domainLabels })
     .filter((v) => v.msg.includes('DN-9990') || v.rule === 'parser');
   assert.deepEqual(violations, []);
   const staged = validateStagedLines(card.split('\n'), [], cards);
@@ -99,4 +103,19 @@ test('check-growth-triage requires full disposition of the digest and the marker
   assert.equal(bad.violations.length, 2);
   assert.match(bad.violations.join('\n'), /未処分: OPP-bbbbbbbbbb[\s\S]*埋め込まれていない/);
   assert.match(checkTriage({ digest: { ...digest, generatedAt: '2026-09-01T00:00:00Z' }, log: {}, review: '', reviewName: 'r', now }).invalid, /日前/);
+});
+
+test('backlog decisions need domain (and period for high/mid) — the schema requires [領域:] on every card (DN-0340)', () => {
+  const domainLabels = new Set(loadDomains(process.cwd()).domains.map((x) => x.label));
+  const c = { ...ctx, domainLabels };
+  assert.deepEqual(validateDecisions([{ id: null, ...backlogCard }], c), []);
+  const noDomain = { ...backlogCard }; delete noDomain.domain;
+  assert.match(validateDecisions([{ id: null, ...noDomain }], c).join(), /domain/);
+  assert.match(validateDecisions([{ id: null, ...backlogCard, domain: '存在しない領域' }], c).join(), /語彙外/);
+  const noPeriod = { ...backlogCard }; delete noPeriod.period;
+  assert.match(validateDecisions([{ id: null, ...noPeriod }], c).join(), /period/);
+  assert.deepEqual(validateDecisions([{ id: null, ...noPeriod, tier: 'low' }], c), [], 'low / hold は [時期:] 任意');
+  assert.match(validateDecisions([{ id: null, ...backlogCard, period: '2026-13' }], c).join(), /period は/);
+  const card = renderCard({ dnId: 'DN-9991', d: { ...noPeriod, tier: 'low' }, item: null, digestFile: 'd.json', today: '2026-09-27' });
+  assert.match(card, /^タグ: \[収益化\] \[領域:サイト\] \[種類:改善\] \[起票:2026-09-27\]$/m);
 });

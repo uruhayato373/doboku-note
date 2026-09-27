@@ -69,7 +69,7 @@ export function ExamCard({ e }: { e: ExamData }) {
           height={565}
           loading="lazy"
           decoding="async"
-          className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+          className="absolute inset-0 h-full w-full object-cover"
         />
       ) : (
         <div className="absolute inset-0 bg-[var(--accent-fill)]" />

@@ -14,7 +14,7 @@
  *   node scripts/backlog-edit.mjs --show DN-0100              # カード本文を表示
  *   node scripts/backlog-edit.mjs --delete DN-0129            # dry-run（削除される範囲を表示）
  *   node scripts/backlog-edit.mjs --delete DN-0129 --commit   # 実削除 → check-backlog-schema を自動実行
- *   node scripts/backlog-edit.mjs --next-id                   # 次に使える DN-#### を1件出力（RESEED/新規起票用）
+ *   node scripts/backlog-edit.mjs --next-id                   # 次に使える DN-#### を1件出力（全ブランチの履歴基準・採番前に git fetch）
  * exit: 0 成功 / 1 ID が見つからない・重複・書き込み失敗 / 2 引数不正
  */
 import { readFileSync, writeFileSync } from 'node:fs';
@@ -67,7 +67,7 @@ export function deleteCard(text, id) {
  * カードの両方）を見れば十分。旧パス `docs/todo/backlog.md`（2026-08-18 移設前）も含める。
  *
  * @param {string} text 現在の backlog.md（生テキスト）
- * @param {string|null} gitLogText `git log -p -- backlog.md [旧パス]` の生テキスト。
+ * @param {string|null} gitLogText `git log --all -p -- backlog.md [旧パス]` の生テキスト（backlogGitLog）。
  *   取得できない環境（degraded）では null を渡す＝現在のテキストだけで判定する。
  * @returns {{ next: string, max: number, degraded: boolean }}
  */
@@ -79,6 +79,27 @@ export function nextId(text, gitLogText) {
   }
   const max = ids.size ? Math.max(...ids) : 0;
   return { next: `DN-${String(max + 1).padStart(4, '0')}`, max, degraded: gitLogText == null };
+}
+
+/**
+ * backlog.md の全履歴（`git log --all -p`）。取得できなければ null。
+ *
+ * **`--all` が要る**（2026-09-27・DN-0340）: 現在のブランチの履歴だけを見ると、並行セッションの
+ * worktree／未マージのブランチで既に使われて削除された ID が見えず、マージ後に同じ番号が別タスクとして
+ * 着地する（DN-0243 は develop に無いブランチで削除 → 別ブランチで起票、の順で再利用された）。
+ * ローカルの全ブランチ・リモート追跡ブランチ・stash まで見る。他人の未 fetch の push は見えないので、
+ * 採番の直前に `git fetch` しておく。
+ */
+export function backlogGitLog({ timeout = 30_000, cwd } = {}) {
+  try {
+    return execFileSync(
+      'git',
+      ['log', '--all', '-p', '--format=%H', '--', BACKLOG, 'docs/todo/backlog.md'],
+      { encoding: 'utf8', maxBuffer: 256 * 1024 * 1024, timeout, cwd, stdio: ['ignore', 'pipe', 'ignore'] },
+    );
+  } catch {
+    return null;
+  }
 }
 
 // ── CLI ──────────────────────────────────────────────────────────────────
@@ -99,16 +120,8 @@ if (isMain) {
   const raw = readFileSync(BACKLOG, 'utf8');
 
   if (NEXT_ID) {
-    let gitLogText = null;
-    try {
-      gitLogText = execFileSync(
-        'git',
-        ['log', '-p', '--format=%H', '--', BACKLOG, 'docs/todo/backlog.md'],
-        { encoding: 'utf8', maxBuffer: 128 * 1024 * 1024, timeout: 20_000 },
-      );
-    } catch {
-      // git が無い／遅い環境では現在の backlog.md だけで判定する（黙って劣化させない・§9）
-    }
+    // git が無い／遅い環境では現在の backlog.md だけで判定する（黙って劣化させない・§9）
+    const gitLogText = backlogGitLog();
     const r = nextId(raw, gitLogText);
     if (r.degraded) console.error(`[${NAME}] 警告: git 履歴を読めず現在の backlog.md だけで判定した（削除済み ID との衝突リスクが残る）`);
     console.log(r.next);
