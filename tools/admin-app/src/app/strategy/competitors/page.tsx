@@ -1,0 +1,99 @@
+import Link from 'next/link';
+import { PageHead } from '@/components/ui';
+import { loadCompetitorView, type CompetitorRow } from '@/lib/competitors';
+
+export const dynamic = 'force-dynamic';
+
+/**
+ * /strategy/competitors — 競合（人が見る画面）。チャネルはサイドバーの枝にせず画面内のタブにする（domains.json navRules）。
+ * 今はココナラだけ。資格で絞り込み、累計販売の多い順に並べる。組み立ては lib/competitors.ts。
+ */
+const yen = (n: number | null) => (n === null ? '—' : `¥${n.toLocaleString('ja-JP')}`);
+const md = (date: string | null) => {
+  if (!date) return '—';
+  const [, m, d] = date.split('-').map(Number) as [number, number, number];
+  return `${m}/${d}`;
+};
+
+export default async function CompetitorsPage({ searchParams }: { searchParams: Promise<{ exam?: string }> }) {
+  const { exam } = await searchParams;
+  const view = loadCompetitorView();
+  const exams = [...new Set(view.rows.flatMap((r) => r.exams))].sort((a, b) =>
+    (view.examLabels[a] ?? a).localeCompare(view.examLabels[b] ?? b, 'ja'),
+  );
+  const rows = view.rows
+    .filter((r) => !exam || r.exams.includes(exam))
+    .sort((a, b) => (b.sales ?? -1) - (a.sales ?? -1));
+
+  return (
+    <>
+      <PageHead title="競合" sub={view.fetchedDate ? `取得 ${md(view.fetchedDate)}` : undefined} />
+      <nav className="filterbar" style={{ marginBottom: 8 }}>
+        <span className="chip active">ココナラ</span>
+      </nav>
+      <nav className="filterbar" style={{ marginBottom: 12 }}>
+        <Link className={'chip' + (!exam ? ' active' : '')} href="/strategy/competitors">
+          すべて {view.rows.length}
+        </Link>
+        {exams.map((id) => (
+          <Link
+            key={id}
+            className={'chip' + (exam === id ? ' active' : '')}
+            href={`/strategy/competitors?exam=${encodeURIComponent(id)}`}
+          >
+            {view.examLabels[id] ?? id} {view.rows.filter((r) => r.exams.includes(id)).length}
+          </Link>
+        ))}
+      </nav>
+
+      {rows.length === 0 ? (
+        <p className="small muted">データなし</p>
+      ) : (
+        <div className="table-wrap">
+          <table className="data">
+            <thead>
+              <tr>
+                <th>セラー</th>
+                <th>資格</th>
+                <th className="num">出品</th>
+                <th className="num">最低</th>
+                <th className="num">中央</th>
+                <th className="num">最高</th>
+                <th className="num">累計販売</th>
+                <th className="num">販売の増分</th>
+                <th className="num">評価</th>
+                <th>変化</th>
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((r) => (
+                <Row key={r.handle} row={r} examLabels={view.examLabels} />
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </>
+  );
+}
+
+function Row({ row: r, examLabels }: { row: CompetitorRow; examLabels: Record<string, string> }) {
+  return (
+    <tr>
+      <td>
+        <a href={`https://coconala.com/users/${r.handle}`} target="_blank" rel="noreferrer">
+          {r.label}
+        </a>
+      </td>
+      <td className="small">{r.exams.map((e) => examLabels[e] ?? e).join('・')}</td>
+      <td className="num">{r.services ?? '—'}</td>
+      <td className="num">{yen(r.priceMin)}</td>
+      <td className="num">{yen(r.priceMedian)}</td>
+      <td className="num">{yen(r.priceMax)}</td>
+      <td className="num">{r.sales?.toLocaleString('ja-JP') ?? '—'}</td>
+      <td className="num">{r.salesDelta === null ? '新規' : `+${r.salesDelta}（${md(r.baseDate)}〜）`}</td>
+      <td className="num">{r.rating ?? '—'}</td>
+      <td className="small">{r.changes.join(' / ') || '—'}</td>
+    </tr>
+  );
+}

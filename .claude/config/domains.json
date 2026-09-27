@@ -44,6 +44,12 @@
           "href": "/strategy/market",
           "kind": "policy",
           "match": "/strategy/market"
+        },
+        {
+          "label": "競合",
+          "href": "/strategy/competitors",
+          "kind": "results",
+          "match": "/strategy/competitors"
         }
       ]
     },
