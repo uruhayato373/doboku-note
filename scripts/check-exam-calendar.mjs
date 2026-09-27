@@ -51,6 +51,43 @@ const expected = {
     written: "2026-07-20",
     source: "https://www.engineer.or.jp/c_topics/011/011422.html",
   },
+  "pavement-1": {
+    applicationOpen: "2026-02-02",
+    applicationDeadline: "2026-02-20",
+    exam: "2026-06-28",
+    result: "2026-10-28",
+    source: "https://dohkenkyo.or.jp/Portals/0/images/shikakushiken/pavement/R08manual_1.pdf",
+  },
+  "pavement-2": {
+    applicationOpen: "2026-02-02",
+    applicationDeadline: "2026-02-20",
+    exam: "2026-06-28",
+    result: "2026-10-28",
+    source: "https://dohkenkyo.or.jp/Portals/0/images/shikakushiken/pavement/R08manual_2.pdf",
+  },
+  "assistant-surveyor": {
+    applicationOpen: "2026-01-05",
+    applicationDeadline: "2026-01-22",
+    exam: "2026-05-17",
+    result: "2026-06-25",
+    source: "https://www.gsi.go.jp/LAW/R8shiken_00001.html",
+  },
+  "surveyor": {
+    applicationOpen: "2026-01-05",
+    applicationDeadline: "2026-01-22",
+    exam: "2026-05-17",
+    result: "2026-07-09",
+    source: "https://www.gsi.go.jp/LAW/R8shiken_00001.html",
+  },
+  "pe-water-supply": {
+    applicationOpen: "2026-04-01",
+    applicationDeadlineWeb: "2026-04-14",
+    applicationDeadline: "2026-04-15",
+    writtenResult: "2026-11-04",
+    finalResult: "2027-03-12",
+    written: "2026-07-20",
+    source: "https://www.engineer.or.jp/c_topics/011/011422.html",
+  },
   "pe-first-stage": {
     applicationOpen: "2026-06-10",
     applicationDeadline: "2026-06-23",
@@ -123,13 +160,15 @@ for (const [examId, exam] of Object.entries(calendar.exams ?? {})) {
     }
   }
 }
-// 資格一覧（qualification-registry.json）・受験者統計（exam-stats.json）・商品ラインナップと id が揃っていること。
+// 資格一覧（qualification-registry.json）・受験者統計（exam-stats.json）・出題形式（exam-formats.json）・
+// 商品ラインナップと id が揃っていること。
 const readConfig = (name) => JSON.parse(readFileSync(join(ROOT, ".claude/config", name), "utf8"));
 const registry = readConfig("qualification-registry.json");
 for (const e of validateQualificationRegistry({
   registry,
   calendar,
   examStats: readConfig("exam-stats.json"),
+  formats: readConfig("exam-formats.json"),
   lineupConfig: readConfig("product-lineup.json"),
   refExists: (p) => existsSync(join(ROOT, p)),
 })) {

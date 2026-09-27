@@ -22,6 +22,7 @@
  *   [起票:YYYY-MM-DD]  → filed（鮮度測定）
  *   [期日:YYYY-MM-DD]  → due（期限）
  *   [領域:商品] 等     → domain（事業の領域。語彙は .claude/config/domains.json の label）
+ *   [時期:YYYY-MM] / [時期:YYYY-MM..YYYY-MM] → when（やる月。年間ロードマップと今月のカードの正本）
  *   上記以外の最初の token → category（無ければ '未分類'）
  *   `### [ID] タイトル` の先頭 [ID]（ID_PATTERN 合致時のみ）→ id（doboku では任意。
  *   stats47 は backlog-loop の ledger 結線に必須）
@@ -78,7 +79,25 @@ export const KINDS = ['不具合', '改善', '意思決定', '制作', '定期']
 export const DEFECT_KIND = '不具合';
 
 /** タグ行の kv キー → カード側のフィールド名（[実行:] は 2026-08-26 廃止＝unknownKeys 行き） */
-const TAG_KEYS = { 種類: 'kind', 検証: 'verify', 起票: 'filed', 期日: 'due', 領域: 'domain' };
+const TAG_KEYS = { 種類: 'kind', 検証: 'verify', 起票: 'filed', 期日: 'due', 領域: 'domain', 時期: 'when' };
+
+/**
+ * [時期:] の値 → { start, end }（'YYYY-MM'）。'2026-11' か '2026-10..2026-12'。形式が違えば null。
+ * 年間ロードマップ（/plan/roadmap）と「今月やるカード」はこの値だけで決まる（別の台帳を持たない）。
+ */
+export function parseWhen(raw) {
+  const m = String(raw ?? '').trim().match(/^(\d{4}-(?:0[1-9]|1[0-2]))(?:\.\.(\d{4}-(?:0[1-9]|1[0-2])))?$/);
+  if (!m) return null;
+  const start = m[1];
+  const end = m[2] ?? m[1];
+  return start <= end ? { start, end } : null;
+}
+
+/** カードの [時期:] がその月（'YYYY-MM'）を含むか。 */
+export function whenCovers(raw, month) {
+  const w = parseWhen(raw);
+  return Boolean(w && w.start <= month && month <= w.end);
+}
 
 /**
  * カード ID の形（stats47 docs-governance の idPattern と同一）。ハイフンを最低 1 つ要求するので、
@@ -141,6 +160,7 @@ export function parseTagLine(raw) {
     filed: null,
     due: null,
     domain: null,
+    when: null,
     unknownKeys: [],
     unknownCategories: [],
   };
@@ -168,7 +188,7 @@ export function parseTagLine(raw) {
  * backlog.md 本文をカード配列へ。
  * @param {string} text backlog.md の中身
  * @returns {Array<{id:string|null,line:number,tier:string,title:string,category:string,kind:string|null,
- *                  codex:boolean,wip:boolean,verify:string|null,filed:string|null,due:string|null,domain:string|null,
+ *                  codex:boolean,wip:boolean,verify:string|null,filed:string|null,due:string|null,domain:string|null,when:string|null,
  *                  hasTagLine:boolean,tokens:string[],extraCategories:string[],
  *                  unknownKeys:Array<{key:string,value:string,raw:string}>,
  *                  unknownCategories:string[],body:string}>}
@@ -215,6 +235,7 @@ export function parseBacklog(text) {
           filed: null,
           due: null,
           domain: null,
+          when: null,
           hasTagLine: false,
           tokens: [],
           extraCategories: [],

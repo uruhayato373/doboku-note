@@ -67,8 +67,9 @@ domain: strategy
   `source:"playwright"` で書く（Graph API は使わない＝2026-09-23 ユーザー決定）。週次レビューはこの snapshot を読む（実行しない）。★ドリフトが出たら次セッションで
   `/ig-reconcile` を実行して posted.json backfill / 未公開を予約（真実源 `.claude/knowledge/reference/ig-publish-reconcile.md`）。
   Playwright 版 `npm run verify-ig-status` はプランナー実体確認が要るときのフォールバック（ローカル実行限定）
-- note 競合再スキャン期限: `npm run check-competitor-scan-due -- --json` を実行（四半期＝90日。creds不要・ローカルhistory参照）。
-  `due:true` なら「次セッションで `/competitor-review`（scout→competitor-analyst→09反映）」をサーフェスのみ（実取得はしない）。
+- 競合再スキャン期限: `npm run check-competitor-scan-due -- --json` を実行（四半期＝90日。creds不要・ローカルhistory参照）。
+  チャネル（note/coconala/x/ig）の `due:true` なら「次セッションで `/competitor-review`（scout→competitor-analyst→09反映）」、
+  `market`（資格キーワードの市場スキャン）の `due:true` なら「次セッションで `npm run scan-qualification-market -- --coconala` → 月次レビューで `npm run qualification-market` を読む」をサーフェスのみ（実取得はしない）。
 - GSC/GA4 UI 取得期限（月次）: `npm run check-gsc-ui-due -- --json` を実行（30日。committed `{gsc-ui,ga4-ui}/last-run.json` 参照・creds不要）。
   **日数だけでなく完全性も見る**＝`channels[].due` は「最後の完全取得から30日」または「直近実行が不完全（部分成功・未ログイン等）」で true。
   `anyDue` が true なら理由（`reasons`）をそのまま列挙する。取得と正規化は Mac の launchd `gsc-local` が DUE で自動実行するので、
@@ -133,7 +134,7 @@ domain: strategy
 - 「note 再公開ドリフト（本文 N 本 / タグ N 本）」（`check-note-republish` が drift のときのみ）
 - 「note 構成監査 CRITICAL（境界破損 N 本）」（`check-note-structure` が CRITICAL のときのみ）
 - 「公開ページの目視確認（run・note N ページ／YouTube M 本・画像 K 枚・指摘 L 件）」（画像を取れなかった週は「未確認」と理由）
-- 「競合再スキャン DUE」（`check-competitor-scan-due` が due のときのみ）
+- 「競合再スキャン DUE」（`check-competitor-scan-due` が due のときのみ・チャネル名つき。market は市場スキャン）
 - 「GSC/GA4 UI 取得 DUE（月次）」（`check-gsc-ui-due` の `anyDue` が true のときのみ・理由つき・→ Mac で `npm run gsc-local:install -- --status` とログ `~/Library/Logs/doboku-note/gsc-local.log` を確認、急ぐなら `-- --run-now`）
 - 「GSC 自動化 DUE」（`check-gsc-indexing-due` か `check-gsc-sitemaps` が due のときのみ・理由つき・→ 同上の Mac 確認／sitemap は権限と fetch-metrics の run）
 - 「GA4 設定ドリフト」（`check-ga4-dimensions` が blockingMissing を返したときのみ・→ 次セッションで `npm run ga4-admin:apply`）
@@ -486,6 +487,7 @@ node -e "const d=require('./.claude/state/dispatch/dispatch-log.json');const w=d
 - **残量**: カード総数 X 件（🔴/🟡/🟢）・前週比 ±Y
 - **分類率**: `[種類:]` 付与済み A / 全体 B（旧 `[実行:]` 軸は 2026-08-26 廃止。未分類は選定順序〔不具合優先〕に乗らない）
 - **モデル別**: executor 別の件数と失敗/手戻り（Phase C のモデル分業を見直す材料）
+- **期日と時期**: `check-backlog-health` の S14（期日超過）と S15（`[時期:]` の月を過ぎたまま）。S14 はそのレビューで片付けるか期日を直す。S15 は終わっていれば削除、残りは月初の `npm run roll-backlog-when -- --write` で翌月へ回す。月次レビューの未実施は `npm run check-monthly-review-due` が知らせる
 - **台帳の健全性**: `check-backlog-health` の S2（🟢/🟣 に沈んだ不具合）・S4（`種類:定期`＝backlog の役割違反）・S9（`.claude/todo` の 4 層以外）。**この 3 つが 0 でない週は放置しない**（S2 は選定順で先頭に出るのに tier が嘘をついている状態、S4/S9 は置き場違い）。しきい値を超えたら次セッションで `/backlog-sweep --audit`
 
 - **完了の疑い**: `check-backlog-verify` が `赤→緑` を出した週は、そのカードを次の `/backlog-sweep` で**実査**する（緑は完了の証明ではない——2026-08-18 に check-note-attachments の正規表現が案内済み 77 本を誤検出した実例がある）。`常時緑` が出たら、そのカードの `[検証:]` が surfacer を指していて**完了判定に使えない**ということなので、検証コマンドを差し替えるか外す。
@@ -583,7 +585,7 @@ gh issue list --label automation-failure --state open --json number,title,create
 
 pre-commit の `scripts/check-handoff-extraction.mjs` が 2026-W39 以降のレビューで次を検査する。各項目に振り分け先があるか。DN-ID が backlog（または dispatch-log の完了記録）にあるか。EXP-ID が experiments.json にあるか。旧週のレビューと計画を削除するときも、削除される申し送りの各項目に上記の居場所があるか、新しい週次ファイルへ同じ文面で転記されているかを見る。無ければ commit を止める。
 
-**2. 週次計画**: 振り分け後、**自動的に `/weekly-plan` を実行**して翌週の計画を `docs/reviews/weekly/YYYY-Www.md` に保存する（review 本体とは別ファイル。`weekly-plan` 側の出力先に従う）。レビューの「来週への申し送り」が計画の入力になる。
+**2. 週間計画**: 振り分け後、**続けて `/plan-weekly` を実行**して翌週の `.claude/todo/weekly.md` を書き直す（週間計画の正本はこの 1 ファイル。候補は `[時期:]` が今月を含むカードで、申し送りで起票・振り分けた DN もここへ入る）。`/weekly-plan`（`docs/reviews/weekly/YYYY-Www.md` へ戦略計画を書く重い版）は自動では回さず、戦略を練り直したい週だけ手動で使う（2026-09-26 に週間計画が 2 系統になり正本側が更新されていなかったため）。
 
 ## 出力フォーマット（md 本文）
 
@@ -733,7 +735,7 @@ pre-commit の `scripts/check-handoff-extraction.mjs` が 2026-W39 以降のレ�
 
 - **毎週土曜にローカルで実行**（金曜 06:00 JST の fetch-metrics が成長パック・機会ダイジェスト・実験の自動計測を push し、12:00 の gsc-auto-review が意味の判断を足した後）
 - レビューは `docs/reviews/weekly/YYYY-Www-review.md` に保存（GitHub Issue は使わない）
-- レビュー完了後に `/weekly-plan` が自動実行され、翌週の計画を `docs/reviews/weekly/YYYY-Www.md` に保存する
+- レビュー完了後に `/plan-weekly` を実行し、翌週の計画を `.claude/todo/weekly.md` に書く（`/weekly-plan` は手動のみ）
 - 未完了アクションは「来週への申し送り」に振り分け先付きで書き（Phase 4）、次週計画へ引き継ぐ
 - 計測ダイジェストの表示対象（`OPP-…`）は Phase 2.5 で全件処分する。未処分とレビューへの未反映は月曜の `check-growth-triage` が Issue にする
 - 最新レビュー＋次週計画だけを `docs/reviews/weekly/` に保持する。旧週は未完タスク・恒久知見を抽出後に削除し、履歴はgitで参照する（抽出もれは `check-handoff-extraction` が pre-commit で止める）

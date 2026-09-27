@@ -48,8 +48,26 @@ export function validateLineupConfig(config) {
       checkCells(`rules.${channel}[${i}]`, r.cells);
     });
   }
+  (config.salesRules ?? []).forEach((r, i) => {
+    try {
+      new RegExp(r.match);
+    } catch {
+      errors.push(`salesRules[${i}]: 正規表現が不正 ${r.match}`);
+    }
+    checkCells(`salesRules[${i}]`, r.cells);
+  });
   for (const app of config.apps ?? []) checkCells(`apps.${app.id}`, app.cells);
   return errors;
+}
+
+/**
+ * 売上記録（sales-log.json）の productId をマスへ写す。売上の id は sales-recorder 独自の系統
+ * （bk-*・article:<slug>・membership:<plan>）なので、接頭辞を外して salesRules → rules.note の順に当てる。
+ * @returns {string[] | null}
+ */
+export function classifySale(config, productId) {
+  const id = String(productId).replace(/^(article|membership):/, '');
+  return classifyProduct(config.salesRules, id) ?? classifyProduct(config.rules?.note, id);
 }
 
 /**

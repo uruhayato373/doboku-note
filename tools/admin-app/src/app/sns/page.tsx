@@ -35,10 +35,18 @@ export default async function SnsBoardPage() {
 
   return (
     <>
-      <PageHead
-        title="投稿状況"
-        sub="読み取り専用 · content/sns/{schedule.json, instagram/**/posted.json, x/draft/**/status.json}"
-      />
+      <PageHead title="投稿状況" />
+      {/* SNS はサイドバーの枝にせずこのページの節にする（domains.json navRules）。素材の作業場はここから開く */}
+      <nav className="filterbar" style={{ marginBottom: 12 }}>
+        <a className="chip" href="#instagram">Instagram</a>
+        <a className="chip" href="#x">X</a>
+        <a className="chip" href="#video">YouTube・動画</a>
+        <span className="small muted" style={{ marginLeft: 'auto' }}>
+          <Link href="/gallery/sns?ch=instagram">Instagram 画像・動画</Link>
+          <Link href="/gallery/sns?ch=x" style={{ marginLeft: 12 }}>X 画像</Link>
+          <Link href="/content/video" style={{ marginLeft: 12 }}>動画パック</Link>
+        </span>
+      </nav>
       <UpcomingEvents domain="sns" />
 
       <div className="card" id="instagram">

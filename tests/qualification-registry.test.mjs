@@ -1,6 +1,6 @@
 // tests/qualification-registry.test.mjs
 //
-// 資格一覧（qualification-registry.json）と exam-calendar / exam-stats / product-lineup の整合検査。
+// 資格一覧（qualification-registry.json）と exam-calendar / exam-stats / exam-formats / product-lineup の整合検査。
 // 実データが整合していることと、食い違いを検出できることの両方を固定する。
 
 import { test } from 'node:test';
@@ -11,11 +11,12 @@ import { validateQualificationRegistry, activeIds } from '../scripts/lib/qualifi
 
 const read = (p) => JSON.parse(readFileSync(new URL(`../${p}`, import.meta.url), 'utf8'));
 
-test('実データ: registry・exam-calendar・exam-stats・product-lineup が整合している', () => {
+test('実データ: registry・exam-calendar・exam-stats・exam-formats・product-lineup が整合している', () => {
   const errors = validateQualificationRegistry({
     registry: read('.claude/config/qualification-registry.json'),
     calendar: read('.claude/config/exam-calendar.json'),
     examStats: read('.claude/config/exam-stats.json'),
+    formats: read('.claude/config/exam-formats.json'),
     lineupConfig: read('.claude/config/product-lineup.json'),
     refExists: (p) => existsSync(new URL(`../${p}`, import.meta.url)),
   });
@@ -135,4 +136,42 @@ test('部門別表の参照と日程の名前×種類の矛盾を検出する', 
   assert.ok(errors.some((e) => e.includes('latest.passers 1 が部門別表 2')), errors.join('\n'));
   assert.ok(errors.some((e) => e.includes('「第二次検定 合格発表」の kind は result')));
   assert.ok(errors.some((e) => e.includes('「受検申込受付 開始」の kind は application')));
+});
+
+const formats = () => ({
+  formatTypes: { mcq: '', essay: '', experience: '' },
+  stageKeys: { first: '', second: '', written: '' },
+  pastExamLevels: { public: '', partial: '', none: '', unknown: '' },
+  exams: {
+    a: { stages: [{ key: 'written', label: '筆記', types: ['mcq', 'essay'] }], pastExams: { questions: 'public', answers: 'none', source: 'https://example.jp/' }, verification: V() },
+    c: { stages: [{ key: 'first', label: '一次', types: ['mcq'] }], pastExams: { questions: 'unknown', answers: 'unknown' }, verification: V('agent') },
+  },
+});
+
+test('出題形式: 整合したデータは違反 0（展開中は商品ラインナップの区分と一致）', () => {
+  const d = { ...base(), formats: formats() };
+  d.lineupConfig = { qualifications: [{ id: 'a', stages: [{ id: 'written' }] }] };
+  assert.deepEqual(validateQualificationRegistry(d), []);
+});
+
+test('出題形式: 欠け・語彙外・出典なしの公開・未照合・区分の不一致を検出する', () => {
+  const f = formats();
+  delete f.exams.c;
+  f.exams.a.stages.push({ key: 'oral', label: '', types: ['talk'] });
+  f.exams.a.pastExams = { questions: 'public', answers: 'maybe' };
+  f.exams.a.verification = V('agent');
+  const d = { ...base(), formats: f, lineupConfig: { qualifications: [{ id: 'a', stages: [{ id: 'first' }] }] } };
+  const errors = validateQualificationRegistry(d);
+  for (const needle of [
+    'exam-formats に registry の c が無い',
+    'stages[1].key oral は stageKeys に無い',
+    'stages[1].label が必要',
+    'types の talk は formatTypes に無い',
+    'pastExams.answers は',
+    'pastExams.source（公開を確かめた公式 URL）が必要',
+    'exam-formats.a: 展開中の資格は主担当の原文照合',
+    'product-lineup の区分 first と一致しない',
+  ]) {
+    assert.ok(errors.some((e) => e.includes(needle)), `${needle}\n${errors.join('\n')}`);
+  }
 });

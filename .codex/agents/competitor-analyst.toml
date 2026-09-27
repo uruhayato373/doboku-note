@@ -13,6 +13,7 @@ developer_instructions = """
   - coconala: `.claude/state/coconala/competitors-snapshot.json`
   - x: `.claude/state/x-competitors/snapshot.json`
   - ig: `.claude/state/ig-competitors/snapshot.json`
+  - youtube・資格ごとの混み具合: `npm run qualification-market -- --json`（市場スキャン `.claude/state/market/history/market-*.json` と `youtube-competitors.json` の登録者数から組み立てた値。親が実行して渡す）
 - 各競合の**価格帯・品揃え・権威性の源泉・更新頻度**を要約（`platformExtra` の固有値も加味）
 - 09 の 2 軸マップ（横=実績型/物量型・縦=価格帯）を実データで更新。**チャネル横断で同一主体が現れる**（例: sosou_nino=note+X、chansato_st=note+ココナラ）ことを名寄せして統合ビューを出す
 - 自社（`src/lib/note-magazines.ts` / `src/lib/coconala-services.ts` の実価格）との**対比**で以下を surface：

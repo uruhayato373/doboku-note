@@ -69,11 +69,50 @@ function checkStatRow(where, row, errors) {
   }
 }
 
+const PAST_EXAM_KEYS = ['questions', 'answers'];
+
 /**
- * @param {{ registry: any, calendar: any, examStats: any, lineupConfig?: any, refExists?: (path: string) => boolean }} input
+ * 出題形式（exam-formats.json）: 区分ごとの形式と過去問の公開範囲。語彙はファイル冒頭の formatTypes・stageKeys・
+ * pastExamLevels。展開中の資格は区分が商品ラインナップ（product-lineup.json）の区分と一致すること
+ * （区分ごとの売上と形式を同じ行に並べるため）。
+ */
+function checkFormats(formats, ids, active, lineupConfig, errors) {
+  const types = new Set(Object.keys(formats.formatTypes ?? {}));
+  const stageKeys = new Set(Object.keys(formats.stageKeys ?? {}));
+  const levels = new Set(Object.keys(formats.pastExamLevels ?? {}));
+  const lineupStages = new Map((lineupConfig?.qualifications ?? []).filter((q) => Array.isArray(q.stages)).map((q) => [q.id, q.stages.map((s) => s.id)]));
+  for (const id of ids) if (!formats.exams?.[id]) errors.push(`exam-formats に registry の ${id} が無い`);
+  for (const [id, f] of Object.entries(formats.exams ?? {})) {
+    const where = `exam-formats.${id}`;
+    if (!ids.has(id)) errors.push(`${where} が registry に無い`);
+    if (!Array.isArray(f.stages) || f.stages.length === 0) errors.push(`${where}.stages が空`);
+    const keys = [];
+    for (const [i, s] of (f.stages ?? []).entries()) {
+      if (!stageKeys.has(s.key)) errors.push(`${where}.stages[${i}].key ${s.key} は stageKeys に無い`);
+      if (keys.includes(s.key)) errors.push(`${where}.stages[${i}].key ${s.key} が重複`);
+      keys.push(s.key);
+      if (typeof s.label !== 'string' || !s.label) errors.push(`${where}.stages[${i}].label が必要`);
+      if (!Array.isArray(s.types) || s.types.length === 0) errors.push(`${where}.stages[${i}].types が空`);
+      for (const t of s.types ?? []) if (!types.has(t)) errors.push(`${where}.stages[${i}].types の ${t} は formatTypes に無い`);
+    }
+    for (const k of PAST_EXAM_KEYS) {
+      if (!levels.has(f.pastExams?.[k])) errors.push(`${where}.pastExams.${k} は ${[...levels].join('/')}`);
+    }
+    const claimsPublic = PAST_EXAM_KEYS.some((k) => ['public', 'partial'].includes(f.pastExams?.[k]));
+    if (claimsPublic && !/^https?:\/\//.test(f.pastExams?.source ?? '')) errors.push(`${where}.pastExams.source（公開を確かめた公式 URL）が必要`);
+    checkVerification(where, f.verification, active.has(id), errors);
+    if (active.has(id) && lineupStages.has(id)) {
+      const want = lineupStages.get(id);
+      if (want.join(',') !== keys.join(',')) errors.push(`${where}: 展開中の資格の区分 ${keys.join(',')} が product-lineup の区分 ${want.join(',')} と一致しない`);
+    }
+  }
+}
+
+/**
+ * @param {{ registry: any, calendar: any, examStats: any, formats?: any, lineupConfig?: any, refExists?: (path: string) => boolean }} input
  * @returns {string[]} 違反メッセージ（空なら整合）
  */
-export function validateQualificationRegistry({ registry, calendar, examStats, lineupConfig = null, refExists = null }) {
+export function validateQualificationRegistry({ registry, calendar, examStats, formats = null, lineupConfig = null, refExists = null }) {
   const errors = [];
   const statuses = new Set(Object.keys(registry.portfolioStatuses ?? {}));
   const families = new Set(Object.keys(registry.families ?? {}));
@@ -137,6 +176,8 @@ export function validateQualificationRegistry({ registry, calendar, examStats, l
     }
   }
 
+  if (formats) checkFormats(formats, ids, active, lineupConfig, errors);
+
   // 商品ラインナップの行は展開中の資格そのもの。候補を載せない・展開中を落とさない。
   if (lineupConfig) {
     const lineup = new Set(lineupConfig.qualifications.map((q) => q.id));
@@ -160,11 +201,11 @@ function fiscalYearOf(date) {
 export const STALE_DAYS = 180;
 
 /**
- * 正本（日程・統計）の照合状態を資格ごとにまとめる。月次レビュー（npm run exam-ssot-status）と
+ * 正本（日程・統計・出題形式）の照合状態を資格ごとにまとめる。月次レビュー（npm run exam-ssot-status）と
  * 管理画面「資格一覧」が読む唯一の実装。actions は要対応、pending・notPublished は記録だけ。
- * @param {{ registry: any, calendar: any, examStats: any, today: string }} input today は JST の YYYY-MM-DD
+ * @param {{ registry: any, calendar: any, examStats: any, formats?: any, today: string }} input today は JST の YYYY-MM-DD
  */
-export function summarizeSsotStatus({ registry, calendar, examStats, today }) {
+export function summarizeSsotStatus({ registry, calendar, examStats, formats = null, today }) {
   const currentFy = fiscalYearOf(today);
   const rows = registry.qualifications.map((q) => {
     const cal = calendar.exams?.[q.id] ?? {};
@@ -180,6 +221,7 @@ export function summarizeSsotStatus({ registry, calendar, examStats, today }) {
     };
     const calendarStatus = part('日程', cal.verification);
     const statsStatus = part('統計', st.verification);
+    const formatStatus = formats ? part('出題形式', formats.exams?.[q.id]?.verification) : null;
     const dates = Object.values(cal.events ?? {}).map((e) => e.date).sort();
     const upcoming = dates.filter((d) => d >= today);
     const schedulePast = dates.length > 0 && upcoming.length === 0 && Object.keys(cal.periods ?? {}).length === 0;
@@ -192,6 +234,7 @@ export function summarizeSsotStatus({ registry, calendar, examStats, today }) {
       portfolio: q.portfolio,
       calendar: calendarStatus,
       stats: statsStatus,
+      format: formatStatus,
       nextDate: upcoming[0] ?? null,
       schedulePast,
       latestFiscalYear: latestFy,

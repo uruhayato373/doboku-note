@@ -1,5 +1,5 @@
 {
-  "_doc": "資格の一覧と展開状態の SSOT。資格 id はここで定義し、試験日程は .claude/config/exam-calendar.json、受験者数・合格率は .claude/config/exam-stats.json が同じ id で持つ（三者の id の一致は npm run check-exam-calendar が検査する）。展開の判断理由の正本は decision.ref の文書。重点資格・KPI は .claude/config/business-direction.json が別に持つ。",
+  "_doc": "資格の一覧と展開状態の SSOT。資格 id はここで定義し、試験日程は .claude/config/exam-calendar.json、受験者数・合格率は .claude/config/exam-stats.json、出題形式と過去問の公開範囲は .claude/config/exam-formats.json が同じ id で持つ（四者の id の一致は npm run check-exam-calendar が検査する）。展開の判断材料（自分で書く区分の受験者数・売上・競合の混み具合）は npm run qualification-market／管理画面 戦略＞展開の判断が並べ、判断の理由の正本は docs/strategy/06_多資格展開戦略.md（declined は decision.ref）。重点資格・KPI は .claude/config/business-direction.json が別に持つ。",
   "portfolioStatuses": {
     "active": "サイト・商品を展開中",
     "candidate": "展開候補（未評価を含む）。情報だけを正本に蓄積する",
@@ -32,7 +32,7 @@
       "portfolio": "declined",
       "decision": { "summary": "市場が小さく読者・権威性・既存資産がつながらないため参入しない", "ref": "docs/strategy/06_多資格展開戦略.md" }
     },
-    { "id": "pe-water-supply", "label": "技術士 上下水道部門", "family": "professional-engineer", "portfolio": "candidate" },
+    { "id": "pe-water-supply", "label": "技術士 上下水道部門", "family": "professional-engineer", "portfolio": "active" },
     { "id": "pe-agriculture", "label": "技術士 農業部門", "family": "professional-engineer", "portfolio": "candidate" },
     { "id": "pe-forestry", "label": "技術士 森林部門", "family": "professional-engineer", "portfolio": "candidate" },
     { "id": "pe-fisheries", "label": "技術士 水産部門", "family": "professional-engineer", "portfolio": "candidate" },
@@ -40,18 +40,18 @@
     { "id": "pe-applied-science", "label": "技術士 応用理学部門", "family": "professional-engineer", "portfolio": "candidate" },
     { "id": "pe-sanitary", "label": "技術士 衛生工学部門", "family": "professional-engineer", "portfolio": "candidate" },
 
-    { "id": "construction-machinery-1", "label": "1級建設機械施工管理技士", "family": "construction-management", "portfolio": "candidate" },
-    { "id": "construction-machinery-2", "label": "2級建設機械施工管理技士", "family": "construction-management", "portfolio": "candidate" },
-    { "id": "landscape-1", "label": "1級造園施工管理技士", "family": "construction-management", "portfolio": "candidate" },
-    { "id": "landscape-2", "label": "2級造園施工管理技士", "family": "construction-management", "portfolio": "candidate" },
+    { "id": "construction-machinery-1", "label": "1級建設機械施工管理技士", "family": "construction-management", "portfolio": "declined", "decision": { "summary": "第二次が記述（1級）か択一（2級）と実技で、自分で答案を組み立てる区分が無い（2026-09-26）", "ref": "docs/strategy/06_多資格展開戦略.md" } },
+    { "id": "construction-machinery-2", "label": "2級建設機械施工管理技士", "family": "construction-management", "portfolio": "declined", "decision": { "summary": "第二次が記述（1級）か択一（2級）と実技で、自分で答案を組み立てる区分が無い（2026-09-26）", "ref": "docs/strategy/06_多資格展開戦略.md" } },
+    { "id": "landscape-1", "label": "1級造園施工管理技士", "family": "construction-management", "portfolio": "declined", "decision": { "summary": "令和6年度に経験記述が廃止され、売れる型（自分の答案）が無くなった（2026-09-26）", "ref": "docs/strategy/06_多資格展開戦略.md" } },
+    { "id": "landscape-2", "label": "2級造園施工管理技士", "family": "construction-management", "portfolio": "declined", "decision": { "summary": "令和6年度に経験記述が廃止され、売れる型（自分の答案）が無くなった（2026-09-26）", "ref": "docs/strategy/06_多資格展開戦略.md" } },
     { "id": "building-construction-1", "label": "1級建築施工管理技士", "family": "construction-management", "portfolio": "candidate" },
     { "id": "building-construction-2", "label": "2級建築施工管理技士", "family": "construction-management", "portfolio": "candidate" },
-    { "id": "pipe-work-1", "label": "1級管工事施工管理技士", "family": "construction-management", "portfolio": "candidate" },
-    { "id": "pipe-work-2", "label": "2級管工事施工管理技士", "family": "construction-management", "portfolio": "candidate" },
-    { "id": "electrical-work-1", "label": "1級電気工事施工管理技士", "family": "construction-management", "portfolio": "candidate" },
-    { "id": "electrical-work-2", "label": "2級電気工事施工管理技士", "family": "construction-management", "portfolio": "candidate" },
-    { "id": "pavement-1", "label": "1級舗装施工管理技術者", "family": "construction-management", "portfolio": "candidate" },
-    { "id": "pavement-2", "label": "2級舗装施工管理技術者", "family": "construction-management", "portfolio": "candidate" },
+    { "id": "pipe-work-1", "label": "1級管工事施工管理技士", "family": "construction-management", "portfolio": "declined", "decision": { "summary": "令和6年度に経験記述が「施工記述」へ変わり売れる型が弱く、運営者の経験で信頼性を担保しにくい（2026-09-26）", "ref": "docs/strategy/06_多資格展開戦略.md" } },
+    { "id": "pipe-work-2", "label": "2級管工事施工管理技士", "family": "construction-management", "portfolio": "declined", "decision": { "summary": "令和6年度に経験記述が「施工記述」へ変わり売れる型が弱く、運営者の経験で信頼性を担保しにくい（2026-09-26）", "ref": "docs/strategy/06_多資格展開戦略.md" } },
+    { "id": "electrical-work-1", "label": "1級電気工事施工管理技士", "family": "construction-management", "portfolio": "declined", "decision": { "summary": "経験記述は与えられた条件に答える型で、電気は運営者の専門外（信頼性を担保できない）（2026-09-26）", "ref": "docs/strategy/06_多資格展開戦略.md" } },
+    { "id": "electrical-work-2", "label": "2級電気工事施工管理技士", "family": "construction-management", "portfolio": "declined", "decision": { "summary": "経験記述は与えられた条件に答える型で、電気は運営者の専門外（信頼性を担保できない）（2026-09-26）", "ref": "docs/strategy/06_多資格展開戦略.md" } },
+    { "id": "pavement-1", "label": "1級舗装施工管理技術者", "family": "construction-management", "portfolio": "active" },
+    { "id": "pavement-2", "label": "2級舗装施工管理技術者", "family": "construction-management", "portfolio": "active" },
 
     {
       "id": "civil-service-national-general-civil",
@@ -75,8 +75,8 @@
       "decision": { "summary": "土木公務員は「公務員×資格」の検索意図で扱う。採用試験の対策商品は未評価", "ref": "docs/strategy/13_土木公務員SEO戦略2026-08.md" }
     },
 
-    { "id": "surveyor", "label": "測量士", "family": "survey-inspection", "portfolio": "candidate" },
-    { "id": "assistant-surveyor", "label": "測量士補", "family": "survey-inspection", "portfolio": "candidate" },
+    { "id": "surveyor", "label": "測量士", "family": "survey-inspection", "portfolio": "active" },
+    { "id": "assistant-surveyor", "label": "測量士補", "family": "survey-inspection", "portfolio": "active" },
     { "id": "geological-survey-engineer", "label": "地質調査技士", "family": "survey-inspection", "portfolio": "candidate" },
     { "id": "road-bridge-inspector", "label": "道路橋点検士", "family": "survey-inspection", "portfolio": "candidate" },
     { "id": "steel-structure-diagnostician", "label": "土木鋼構造診断士", "family": "survey-inspection", "portfolio": "candidate" }

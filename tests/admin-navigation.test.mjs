@@ -105,27 +105,25 @@ test('contentSegmentLabel は sns/sources のような 1:1 でない物理セグ
   assert.equal(r.unknown, 'does-not-exist');
 });
 
-test('サイドバーのグループは領域の正本（domains.json）とちょうど一致する', () => {
+test('サイドバーは領域の正本（domains.json）から描き、Nav.tsx に項目を直書きしない', () => {
   const src = readFileSync(join(ROOT, 'tools/admin-app/src/components/Nav.tsx'), 'utf8');
-  const groups = [...src.matchAll(/^    domain: '([^']+)',$/gm)].map((m) => m[1]).sort();
+  assert.ok(!/const GROUPS/.test(src) && !/channelTrees/.test(src), 'グループ・チャネルの枝を Nav.tsx に直書きしない');
   const cfg = JSON.parse(readFileSync(join(ROOT, '.claude/config/domains.json'), 'utf8'));
-  assert.deepEqual(groups, cfg.domains.map((d) => d.id).sort());
-  assert.ok(!/title: '/.test(src), 'グループ名を Nav.tsx に直書きしない（正本は domains.json）');
+  for (const d of cfg.domains) assert.ok(d.nav?.length, `${d.id} に nav が無い`);
 });
 
-test('既存の画面はすべてサイドバーのどこか 1 か所に置かれている', () => {
-  const src = readFileSync(join(ROOT, 'tools/admin-app/src/components/Nav.tsx'), 'utf8');
-  const hrefs = [...src.matchAll(/href: '(\/[^'?]*)'/g)].map((m) => m[1]);
+test('既存の判断画面はすべてサイドバーのどこか 1 か所に置かれている', () => {
+  const cfg = JSON.parse(readFileSync(join(ROOT, '.claude/config/domains.json'), 'utf8'));
+  const full = cfg.domains.flatMap((d) => d.nav.map((v) => v.href));
+  assert.equal(new Set(full).size, full.length, '同じ画面（クエリ込み）がサイドバーに 2 回ある');
+  // 計画の層（/todo?f=monthly 等）は同じ画面のクエリ違いなので、パスは重複してよい
+  const hrefs = [...new Set(full.map((h) => h.split('?')[0]))];
   for (const href of [
     '/metrics', '/strategy/policy', '/metrics/business', '/strategy/qualifications', '/content/lineup',
-    '/sales', '/affiliate', '/affiliate/placements', '/affiliate/programs', '/metrics/seo-watch', '/metrics/gsc', '/metrics/ga4',
+    '/sales', '/product/status', '/affiliate', '/affiliate/placements', '/affiliate/programs', '/metrics/seo-watch', '/metrics/gsc', '/metrics/ga4',
     '/metrics/psi', '/sns', '/metrics/video', '/gallery/characters', '/schedule', '/todo', '/docs',
     '/plans', '/quality', '/knowledge', '/agents', '/skills', '/content/lifecycle', '/content', '/materials',
   ]) {
-    const n = hrefs.filter((h) => h === href).length;
-    assert.ok(n >= 1, `${href} がサイドバーに無い`);
-  }
-  for (const id of ['note', 'coconala', 'kindle', 'site', 'x', 'instagram', 'youtube']) {
-    assert.ok(src.includes(`'${id}'`), `チャネル ${id} がどのグループにも置かれていない`);
+    assert.equal(hrefs.filter((h) => h === href).length, 1, `${href} がサイドバーにちょうど 1 回ない`);
   }
 });
