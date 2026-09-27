@@ -18,6 +18,7 @@ type RawCompetitor = {
   counts?: { services?: number };
   price?: { min?: number; median?: number; max?: number } | null;
   platformExtra?: { totalSales?: number; totalReviews?: number; avgRating?: number };
+  services?: { priceYen?: number; reviews?: number }[];
 };
 type RawSnapshot = {
   fetchedAt: string;
@@ -35,6 +36,15 @@ export type CompetitorRow = {
   priceMax: number | null;
   sales: number | null;
   rating: number | null;
+  /**
+   * 売上（円）。自社は受注記録の実数、競合は推定＝取得できた関連サービスだけの Σ(価格 × レビュー数) ×
+   * (累計販売 ÷ 累計レビュー)。累計販売は他分野の出品も含むので掛けない。オプション・過去の価格・割引は入らない。
+   */
+  revenueYen: number | null;
+  /** 基準からの売上の増分（円）。競合は基準のスナップショットで同じ推定をした値との差。 */
+  revenueDeltaYen: number | null;
+  /** true＝推定値（競合）、false＝実数（自社）。 */
+  revenueEstimated: boolean;
   /** 基準スナップショットからの累計販売の増分（基準なし＝null）。 */
   salesDelta: number | null;
   /** 基準スナップショットの日付（YYYY-MM-DD）。 */
@@ -110,6 +120,9 @@ export function loadCompetitorView(): CompetitorView {
     const prev = base?.snap.competitors.find((x) => x.handle === c.handle);
     const sales = c.platformExtra?.totalSales ?? null;
     const prevSales = prev?.platformExtra?.totalSales;
+    const salesDelta = sales !== null && typeof prevSales === 'number' ? sales - prevSales : null;
+    const revenue = estimateRevenue(c);
+    const prevRevenue = prev ? estimateRevenue(prev) : null;
     return {
       handle: c.handle,
       label: c.label,
@@ -120,7 +133,10 @@ export function loadCompetitorView(): CompetitorView {
       priceMax: c.price?.max ?? null,
       sales,
       rating: c.platformExtra?.avgRating ?? null,
-      salesDelta: sales !== null && typeof prevSales === 'number' ? sales - prevSales : null,
+      salesDelta,
+      revenueYen: revenue,
+      revenueDeltaYen: revenue !== null && prevRevenue !== null ? revenue - prevRevenue : null,
+      revenueEstimated: true,
       baseDate: base?.date ?? null,
       changes: prev ? changesBetween(prev, c) : [],
     };
@@ -134,8 +150,10 @@ const SCOPE_TO_EXAM: Record<string, string> = { 'civil-1': 'civil-construction-1
 function loadSelfRow(root: string, baseDate: string | null): CompetitorRow {
   const listed = listedCoconalaServices();
   const prices = listed.map((s) => s.priceYen).sort((a, b) => a - b);
-  const log = readJson<{ orders?: { date: string }[] } | { date: string }[]>(join(root, '.claude/state/coconala/orders-log.json'));
+  const log = readJson<{ orders?: { date: string; priceYen?: number }[] } | { date: string; priceYen?: number }[]>(join(root, '.claude/state/coconala/orders-log.json'));
   const orders = Array.isArray(log) ? log : (log?.orders ?? []);
+  const recent = baseDate ? orders.filter((o) => o.date >= baseDate) : [];
+  const sum = (xs: { priceYen?: number }[]) => xs.reduce((n, o) => n + (o.priceYen ?? 0), 0);
   return {
     handle: 'self',
     label: '自社',
@@ -146,8 +164,21 @@ function loadSelfRow(root: string, baseDate: string | null): CompetitorRow {
     priceMax: prices.at(-1) ?? null,
     sales: orders.length,
     rating: null,
-    salesDelta: baseDate ? orders.filter((o) => o.date >= baseDate).length : null,
+    salesDelta: baseDate ? recent.length : null,
+    revenueYen: sum(orders),
+    revenueDeltaYen: baseDate ? sum(recent) : null,
+    revenueEstimated: false,
     baseDate,
     changes: [],
   };
+}
+
+/** 関連サービスの売上推定。Σ(価格 × レビュー数) を販売/レビュー比で販売数へ引き直す。材料が欠ければ null。 */
+function estimateRevenue(c: RawCompetitor): number | null {
+  const sales = c.platformExtra?.totalSales;
+  const reviews = c.platformExtra?.totalReviews;
+  const priced = (c.services ?? []).filter((s) => typeof s.priceYen === 'number' && typeof s.reviews === 'number');
+  if (!sales || !reviews || priced.length === 0) return null;
+  const byReviews = priced.reduce((n, s) => n + s.priceYen! * s.reviews!, 0);
+  return Math.round(byReviews * (sales / reviews));
 }

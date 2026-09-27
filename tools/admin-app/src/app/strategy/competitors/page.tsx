@@ -6,9 +6,11 @@ export const dynamic = 'force-dynamic';
 
 /**
  * /strategy/competitors — 競合（人が見る画面）。チャネルはサイドバーの枝にせず画面内のタブにする（domains.json navRules）。
- * 今はココナラだけ。先頭に自社、続けて競合を累計販売の多い順に並べ、資格で絞り込む。組み立ては lib/competitors.ts。
+ * 今はココナラだけ。先頭に自社、続けて競合を売上（推定）の多い順に並べ、資格で絞り込む。組み立ては lib/competitors.ts。
  */
 const yen = (n: number | null) => (n === null ? '—' : `¥${n.toLocaleString('ja-JP')}`);
+/** 推定値は ≈ を付ける（競合の売上は公開されておらず、累計販売 × 平均単価の推定）。 */
+const money = (n: number | null, estimated: boolean) => (n === null ? '—' : `${estimated ? '≈' : ''}${yen(n)}`);
 const md = (date: string | null) => {
   if (!date) return '—';
   const [, m, d] = date.split('-').map(Number) as [number, number, number];
@@ -23,7 +25,7 @@ export default async function CompetitorsPage({ searchParams }: { searchParams: 
   );
   const rows = view.rows
     .filter((r) => !exam || r.exams.includes(exam))
-    .sort((a, b) => (b.sales ?? -1) - (a.sales ?? -1));
+    .sort((a, b) => (b.revenueYen ?? -1) - (a.revenueYen ?? -1));
 
   return (
     <>
@@ -61,6 +63,8 @@ export default async function CompetitorsPage({ searchParams }: { searchParams: 
                 <th className="num">最高</th>
                 <th className="num">累計販売</th>
                 <th className="num">販売の増分</th>
+                <th className="num">売上</th>
+                <th className="num">売上の増分</th>
                 <th className="num">評価</th>
                 <th>変化</th>
               </tr>
@@ -99,6 +103,8 @@ function Row({ row: r, examLabels, self }: { row: CompetitorRow; examLabels: Rec
       <td className="num">{yen(r.priceMax)}</td>
       <td className="num">{r.sales?.toLocaleString('ja-JP') ?? '—'}</td>
       <td className="num">{r.salesDelta === null ? '新規' : `+${r.salesDelta}（${md(r.baseDate)}〜）`}</td>
+      <td className="num">{money(r.revenueYen, r.revenueEstimated)}</td>
+      <td className="num">{r.revenueDeltaYen === null ? '—' : `+${money(r.revenueDeltaYen, r.revenueEstimated)}`}</td>
       <td className="num">{r.rating ?? '—'}</td>
       <td className="small">{r.changes.join(' / ') || '—'}</td>
     </tr>
