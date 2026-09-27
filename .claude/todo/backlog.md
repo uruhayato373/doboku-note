@@ -827,17 +827,6 @@ stats47 と同じ検討（両サイト共通の論点）。（出典: 2026-09-25
 
 **完了条件**: build 後の HTML に JSON-LD が出て、リッチリザルトテストでエラーが無い。
 
-### [DN-0318] Google 系の取得を GitHub の hosted runner で回せるか再検証する
-タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-09-25]
-
-**起点**: 2026-09-22 の handoff（削除済み）で「google の hosted CI 可否は stats47 の GSC 成功を踏まえ別途再検証（未着手）」とされた。doboku-note の google-console UI CSV 取得は CI 1回でセッションが失効した一方、stats47 は google-admin profile の coverage export で CI 取得に成功している（方式の違いが原因の可能性）。
-
-**やること**: stats47 の方式を doboku-note の `login-collectors.yml` の google 行に当てはめられるかを調べ、hosted runner で可か、self-hosted runner かローカル実行を続けるかを決める。
-
-**完了条件**: 結論と理由をレジストリの google 行（`ci.enabled` の方針）に書いたら、このカードを削除する。
-
-**判断（2026-09-27・運営者）**: やる（10 月・低優先）。
-
 ### [DN-0400] 総監対策 iOS アプリ（買い切り ¥1,800）を作るかを決め、作るなら凍結中の仕様 5 本で着手する
 タグ: [収益化] [領域:商品] [時期:2027-03] [種類:意思決定] [起票:2026-09-27]
 
