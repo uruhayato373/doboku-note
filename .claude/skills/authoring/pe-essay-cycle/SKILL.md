@@ -3,7 +3,8 @@ name: pe-essay-cycle
 description: >
   技術士総合技術監理部門 記述式（模範論文・doboku-note 記述式ページ・note 有料記事）の作業を一本化する統括オーケストレーション・スキル。
   作成（pe-essay-draft）→ 添削（pe-essay-review）→ 修正反映（pe-essay-draft --mode revise）→ note 企画（pe-note-plan）→ 公開（note-prepublish-review）の各工程へルーティングし、毎回の指示の重複とミスを防ぐ。
-  Use when user asks to [総監記述式の作業, 模範論文を作りたい, 模範論文の添削, 記述式ページの整備, note 有料記事の企画, /pe-essay-cycle].
+  forecast モードで年度ごとの予想（テーマ予測 → 予想問題 → ペルソナ模範解答）を回す。
+  Use when user asks to [総監記述式の作業, 模範論文を作りたい, 模範論文の添削, 記述式ページの整備, note 有料記事の企画, 記述式の予想問題, R9 予想, /pe-essay-cycle].
 user-invocable: true
 domain: product
 ---
@@ -46,6 +47,7 @@ domain: product
 | `plan` | `pe-note-plan`（企画スキル） | ④ note 有料記事の編集ロードマップ提案 |
 | `publish` | `/note-prepublish-review` ＋ `.claude/knowledge/reference/note-essay-review-checklist.md`（ペルソナ別マガジン）／`.claude/knowledge/reference/note-publish-enhancement.md`（記事個別） | note 公開前の品質ゲート＋公開工程 |
 | `page` | `/keyword-page` / `/improve-article` / `/quality-cycle` のいずれか | ① doboku-note 記述式ページの整備（ルーティング指示のみ） |
+| `forecast` | [references/forecast-flow.md](references/forecast-flow.md)（Stage 1 は親、Stage 2・3 は `cem-essay-writer` → `cem-essay-qa` と `draft`/`review`） | 年度 R{NN} の予想：テーマ予測（3 軸スコア）→ 予想問題 → ペルソナ模範解答 |
 
 ## 実行手順
 
@@ -85,6 +87,10 @@ domain: product
 - 新規キーワードページ作成・校正 → `/keyword-page`
 - 単一記事の対話的改善・PDF 照合 → `/improve-article`
 - 複数ページのバルク品質サイクル → `/quality-cycle --profile cem`
+
+### forecast — 年度の予想を回す
+
+`references/forecast-flow.md` の手順 1〜6 を順に実行する。年度（`--year R9` など）を必ず受け取り、前年度白書を根拠にする。3 軸 ◎ 以上のテーマだけを Stage 2 へ、固定 3 ペルソナすべてで組める設問だけを Stage 3 へ進める。
 
 ## ミス防止ルール（全モード共通・単一の真実源）
 

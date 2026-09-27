@@ -3,7 +3,8 @@ name: pe-essay-cycle
 description: >
   技術士総合技術監理部門 記述式（模範論文・doboku-note 記述式ページ・note 有料記事）の作業を一本化する統括オーケストレーション・スキル。
   作成（pe-essay-draft）→ 添削（pe-essay-review）→ 修正反映（pe-essay-draft --mode revise）→ note 企画（pe-note-plan）→ 公開（note-prepublish-review）の各工程へルーティングし、毎回の指示の重複とミスを防ぐ。
-  Use when user asks to [総監記述式の作業, 模範論文を作りたい, 模範論文の添削, 記述式ページの整備, note 有料記事の企画, /pe-essay-cycle].
+  forecast モードで年度ごとの予想（テーマ予測 → 予想問題 → ペルソナ模範解答）を回す。
+  Use when user asks to [総監記述式の作業, 模範論文を作りたい, 模範論文の添削, 記述式ページの整備, note 有料記事の企画, 記述式の予想問題, R9 予想, /pe-essay-cycle].
 user-invocable: true
 domain: product
 ---
