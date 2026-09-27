@@ -441,3 +441,13 @@ test('本人確認が完了しない対話ログインは期限後もblockedで�
     rmSync(f.base, { recursive: true, force: true });
   }
 });
+
+test('moshimo: 本文のお知らせ・メディア一覧ではなく選択中メディアで判定する（2026-09-28 実測）', async () => {
+  const { loadAuthAdapter } = await import('../scripts/lib/playwright-auth-adapters.mjs');
+  const adapter = loadAuthAdapter('moshimo', { repoRoot: process.cwd() });
+  const url = 'https://af.moshimo.com/af/shop/index?shop_site_id=672381';
+  const text = 'メディアを選択 統計で見る都道府県 doboku-note … 復旧までしばらくお待ちください';
+  assert.equal(classifyAuthSnapshot(adapter, { url, title: 'メディアオーナートップページ', text, accountText: 'doboku-note' }).status, 'authenticated');
+  assert.equal(classifyAuthSnapshot(adapter, { url, title: 'メディアオーナートップページ', text, accountText: '統計で見る都道府県' }).status, 'unknown');
+  assert.equal(classifyAuthSnapshot(adapter, { url: 'https://af.moshimo.com/af/shop/login', text: '', accountText: '' }).status, 'expired');
+});

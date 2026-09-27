@@ -83,3 +83,9 @@ test('ci.skipScheduleIfFresh の書式を検査する', () => {
   assert.throws(() => validateCIBlock('a8', { ...base, ci: { ...base.ci, skipScheduleIfFresh: { marker: 'a.json', hours: 0 } } }), /hours/);
   assert.throws(() => validateCIBlock('a8', { ...base, ci: { ...base.ci, skipScheduleIfFresh: { marker: 'a.json', hours: 100 } } }), /hours/);
 });
+
+test('16進で出るアカウント名（ASCII 以外・制御文字入り）を復号する', () => {
+  const hex = Buffer.from('user@example.com\n', 'utf8').toString('hex').toUpperCase();
+  assert.equal(parseKeychainAccount(`    "acct"<blob>=0x${hex}  "user@example.com\\012"`), 'user@example.com');
+  assert.equal(parseKeychainAccount(`    "acct"<blob>=0x${Buffer.from('ユーザー', 'utf8').toString('hex')}  "\\343..."`), 'ユーザー');
+});
