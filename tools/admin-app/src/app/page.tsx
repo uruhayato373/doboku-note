@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { PageHead } from '@/components/ui';
+import { domainOverview } from '@/lib/domains';
 import { loadKpiView } from '@/lib/kpi-tree';
 
 export const dynamic = 'force-dynamic';
@@ -65,6 +66,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ m
   const rate = v.receipts != null && v.goal ? v.receipts / v.goal.value : null;
   const thisMonth = new Date().toISOString().slice(0, 7);
   const next = shiftMonth(v.month, 1);
+  const tasks = domainOverview('strategy')?.cards ?? [];
 
   return (
     <>
@@ -120,6 +122,26 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ m
       <p className="small muted" style={{ marginTop: 6 }}>
         検索語は Google の直近 28 日（{v.search.period ?? '未取得'}）・<Link href="/metrics/search-strategy">検索の詳細</Link>
       </p>
+
+      <div className="card" style={{ marginTop: 20 }}>
+        <h2>
+          戦略のタスク <span className="sub">{tasks.length} 件</span>
+        </h2>
+        {tasks.length === 0 ? (
+          <p className="muted small">なし</p>
+        ) : (
+          <ul style={{ margin: 0, paddingLeft: 0, listStyle: 'none', display: 'grid', gap: 6 }}>
+            {tasks.slice(0, 5).map((c) => (
+              <li key={c.id} className="small" style={{ display: 'flex', gap: 8, alignItems: 'baseline' }}>
+                <Link className="mono" href={`/todo?f=backlog&id=${encodeURIComponent(c.id)}`}>{c.id}</Link>
+                <span style={{ flex: 1 }}>{c.title}</span>
+                <span className="muted">{c.wip ? '進行中' : c.due ? `期日 ${c.due.slice(5).replace('-', '/')}` : ''}</span>
+              </li>
+            ))}
+          </ul>
+        )}
+        {tasks.length > 5 && <p className="small" style={{ marginBottom: 0 }}><Link href="/todo?f=backlog">残り {tasks.length - 5} 件をバックログで</Link></p>}
+      </div>
 
       <h2 style={{ margin: '24px 0 8px' }}>詳しく見る</h2>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 12 }}>
