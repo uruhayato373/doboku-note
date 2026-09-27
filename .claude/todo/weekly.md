@@ -17,7 +17,6 @@
 
 | ID | 今週の出口 | 担当 |
 |---|---|---|
-| DN-0358 | note の売上記録を9/13以降の分まで `/record-sales` で取り込み、`check-qualification-market` を通す | 当方 |
 | DN-0185 | GSC の索引状況と GA4 `standards_data_download` の発火を1度ずつ記録する | 当方 |
 | DN-0363 | Instagram の 1級・2級ハイライト（`content/sns/instagram/highlights/07_civil-1`・`08_civil-2` の各5枚。リンク先は各 `note.md`）を Business Suite からストーリー投稿し、ハイライトに登録する。1級は10/5以降に試験後向けへ差し替え | 運営者 |
 | DN-0363 | X の固定投稿と自己紹介を1級土木 二次の直前向けへ差し替える（文面案 `.tmp/x-pin/tweets.md`）。差し替え後 `x-account.json` を実値に合わせる。10/5以降は2級向けへ | 運営者 |
