@@ -29,7 +29,7 @@ export default function SalesPage() {
             真実源 {source ?? '—'} · 最終更新 {updatedAt ?? '—'}
           </span>
         </h2>
-        <p className="small">台帳に登録された販売額です。手数料控除後の受取や利益ではありません。目標と資格別の判断は <Link href="/metrics/business?cadence=monthly">事業方針と改善</Link> で管理します。</p>
+        <p className="small">台帳に登録された販売額です。手数料控除後の受取や利益ではありません。目標と資格別の判断は <Link href="/metrics/business?cadence=monthly">レビュー</Link> で管理します。</p>
         <BarChart bars={bars} />
       </div>
 

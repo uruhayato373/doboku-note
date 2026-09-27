@@ -72,7 +72,7 @@ domain: strategy
   `market`（資格キーワードの市場スキャン）の `due:true` なら「次セッションで `npm run scan-qualification-market -- --coconala` → 月次レビューで `npm run qualification-market` を読む」をサーフェスのみ（実取得はしない）。
 - 競合の変化と追跡候補（ココナラ）: `npm run report-competitor-watch -- --json` を実行（オフライン・committed state 参照・creds不要）。
   `changes[]`（値下げ・出品増減・撤収・累計販売 +20 件以上）、`candidates[]`（追跡外で関連サービスの販売実績 20 件以上の売り手）、
-  `partial[]`（売上推定が一部だけの売り手）を読む。候補は次セッションで handle を解決して `.claude/config/coconala-competitors.json` に足すかを判断。一覧は管理画面 戦略 ＞ 競合
+  `partial[]`（売上推定が一部だけの売り手）を読む。候補は次セッションで handle を解決して `.claude/config/coconala-competitors.json` に足すかを判断。一覧は管理画面 戦略 ＞ 資格と市場 ＞ 競合
 - GSC/GA4 UI 取得期限（月次）: `npm run check-gsc-ui-due -- --json` を実行（30日。committed `{gsc-ui,ga4-ui}/last-run.json` 参照・creds不要）。
   **日数だけでなく完全性も見る**＝`channels[].due` は「最後の完全取得から30日」または「直近実行が不完全（部分成功・未ログイン等）」で true。
   `anyDue` が true なら理由（`reasons`）をそのまま列挙する。取得と正規化は Mac の launchd `gsc-local` が DUE で自動実行するので、

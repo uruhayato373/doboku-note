@@ -112,5 +112,5 @@ if (asJson) {
   for (const c of candidates) console.log(`    - ${c.seller}: 販売 ${c.sales}・${c.services} 出品・¥${c.minPrice ?? '—'}〜${c.maxPrice || '—'}（${c.sample}）`);
   console.log(`  売上推定が一部だけ ${partial.length} 社`);
   for (const p of partial) console.log(`    - ${p.label}: 取得 ${p.captured} / 累計 ${p.total}`);
-  console.log('  → 追跡に加えるなら .claude/config/coconala-competitors.json に handle を足す。一覧は管理画面 戦略 ＞ 競合');
+  console.log('  → 追跡に加えるなら .claude/config/coconala-competitors.json に handle を足す。一覧は管理画面 戦略 ＞ 資格と市場 ＞ 競合');
 }

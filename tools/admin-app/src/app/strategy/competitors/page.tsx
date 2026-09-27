@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { PageHead } from '@/components/ui';
+import SectionTabs from '@/components/SectionTabs';
 import { loadCompetitorView, type CompetitorRow } from '@/lib/competitors';
 
 export const dynamic = 'force-dynamic';
@@ -30,6 +31,7 @@ export default async function CompetitorsPage({ searchParams }: { searchParams: 
   return (
     <>
       <PageHead title="競合" sub={view.fetchedDate ? `取得 ${md(view.fetchedDate)}` : undefined} />
+      <SectionTabs set="market" current="/strategy/competitors" />
       <nav className="filterbar" style={{ marginBottom: 8 }}>
         <span className="chip active">ココナラ</span>
       </nav>

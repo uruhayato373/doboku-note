@@ -10,11 +10,11 @@ export default async function BusinessPage({ searchParams }: { searchParams: Pro
   const search = await searchParams, cadence = search.cadence === 'monthly' ? 'monthly' : 'weekly';
   const period = search.start && search.end ? { startDate: search.start, endDate: search.end } : reviewPeriod(cadence);
   let data: any;
-  try { data = buildReport(findRepoRoot(), period); } catch { return <><PageHead title="事業方針と改善" /><p className="card">設定・計測期間を読み取れません。<Link href="/metrics/business">直近の週次へ戻る</Link></p></>; }
+  try { data = buildReport(findRepoRoot(), period); } catch { return <><PageHead title="レビュー" /><p className="card">設定・計測期間を読み取れません。<Link href="/metrics/business">直近の週次へ戻る</Link></p></>; }
   const { strategy } = data, scopes = [{ id: 'all', label: '全体' }, ...strategy.qualifications];
   const existingReview = data.reviews.find((r: any) => r.cadence === cadence && samePeriod(r.period, period));
   return <>
-    <PageHead title="事業方針と改善" sub="資格別の学習価値・販売・運営負担を同じ基準で振り返る" />
+    <PageHead title="レビュー" sub="資格別の学習価値・販売・運営負担を同じ基準で振り返る" />
       <UpcomingEvents domain="strategy" />
     <div className="card business-direction"><p className="small">私たちが届ける価値</p><h2>{strategy.positioning}</h2><p>{strategy.objective}</p><div className="business-journey">受験者の課題 <span>→</span> 図で理解 <span>→</span> 過去問・答案で確認 <span>→</span> 必要な教材・支援</div><p className="small">図の枚数や検索順位だけで成果を判定しません。正確さ、学習行動、収益、運営時間を合わせて見ます。</p></div>
     <div className="business-grid">{strategy.qualifications.map((q: any) => <section className="card" key={q.id}><h2>{q.label}</h2><p className="small">{q.audience}</p><p>{q.promise}</p><ol>{q.journey.map((x: string) => <li key={x}>{x}</li>)}</ol><p className="small">有料の支援: {q.offer}</p></section>)}</div>
