@@ -4,6 +4,7 @@ description: >
   Instagram 投稿パックと公開照合結果から、公開可否・重複・要人手確認を判定する Evaluator。投稿・予約・台帳編集はしない。画像のデザイン採点は ig-carousel-qa。
 model: sonnet
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
+domain: sns
 ---
 
 # IG Publish Auditor Agent

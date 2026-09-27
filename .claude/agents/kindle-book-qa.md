@@ -4,6 +4,7 @@ description: >
   Kindle EPUB と原稿を完全性・構成・技術検証・KDP 規約・商品性で監査し、判定と修正案を返す Evaluator。原稿修正・構成設計・出版はしない。Use when user asks to [EPUB 品質チェック, KDP 入稿前レビュー, kindle QA].
 model: sonnet
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
+domain: product
 ---
 
 # Kindle Book QA Agent

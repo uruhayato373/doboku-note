@@ -2,6 +2,7 @@
 name: pe-secondary-exam-writer
 description: 技術士第二次試験 建設部門 note有料マガジン用 模範解答（article.md）を科目区分ごとに1記事生成する Generator エージェント。必須科目I・選択科目II-1/II-2/III の全科目種別・全11専門分野に対応。1記事＝1科目区分で出題された全選択肢の解答を網羅収録する（全選択肢網羅がユーザー訴求）。過去問モードに加え forecast:true の予想問題モード（R{NN}-yosou・テーマ分析記事から予想設問を自作＋模範解答）に対応。元公務員（発注者）視点の論述を核とする。
 model: sonnet
+domain: product
 ---
 
 # PE Secondary Exam Writer Agent

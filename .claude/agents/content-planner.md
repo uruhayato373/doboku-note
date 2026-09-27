@@ -6,6 +6,7 @@ description: >
   `/keyword-gap` / `/exam-demand` / `/discover-exam-season` の入力を統合して最適な記事企画を立案する。
   Use when user asks to [コンテンツ企画, 記事戦略, キーワード戦略, /content-planner].
 model: sonnet
+domain: site
 ---
 
 ⏸️ **現在のステータス**: Phase 2 復活待ち。担当スキル（`keyword-gap`, `exam-demand`, `discover-exam-season` 等）は Phase 2 で復活。

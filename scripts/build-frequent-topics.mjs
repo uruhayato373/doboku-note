@@ -58,16 +58,21 @@ function csvEscape(v) {
 // このスクリプトはテンプレートで frontmatter を毎回組み立てるため、保全しないと
 // 再生成のたびに手作業で足した created/dateModified/ogp が消える。
 let preservedCreated = null;
+let preservedDateModified = null;
+let existingRaw = null;
 let preservedOgpBlock = null;
 let existingEol = "\n";
 if (existsSync(OUT)) {
   const { raw, eol } = readMdxFile(OUT);
   existingEol = eol;
+  existingRaw = raw;
   const fmMatch = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/);
   if (fmMatch) {
     const fm = fmMatch[1];
     const createdMatch = fm.match(/^created:\s*(.+)$/m);
     if (createdMatch) preservedCreated = createdMatch[1].trim();
+    const modifiedMatch = fm.match(/^dateModified:\s*(.+)$/m);
+    if (modifiedMatch) preservedDateModified = modifiedMatch[1].trim();
     const ogpMatch = fm.match(/^ogp:\r?\n((?:  .+\r?\n?)+)/m);
     if (ogpMatch) preservedOgpBlock = `ogp:\n${ogpMatch[1].trimEnd().split(/\r?\n/).map((l) => l).join("\n")}`;
   }
@@ -238,9 +243,17 @@ if (process.argv.includes('--check')) {
   process.exit(0);
 }
 
+// 集計結果が前回と同じなら dateModified を進めない（書かない）。ビルドのたびに更新日だけが
+// 進み「更新された記事」に見える差分が出ていた（2026-09-26）。本文・frontmatter が変わったときだけ今日の日付で書く。
+const normalize = (t) => t.replace(/\r\n/g, "\n").replace(/^dateModified:.*$/m, "dateModified:").trimEnd();
+const next = `${frontmatter}\n\n${body}`;
 mkdirSync(dirname(OUT), { recursive: true });
-writeMdxFile(OUT, `${frontmatter}\n\n${body}`, existingEol);
-console.log(`[build-frequent-topics] wrote ${OUT}`);
+if (existingRaw !== null && preservedDateModified && normalize(existingRaw) === normalize(next)) {
+  console.log(`[build-frequent-topics] 変更なし（${OUT} を書かない・dateModified ${preservedDateModified} を維持）`);
+} else {
+  writeMdxFile(OUT, next, existingEol);
+  console.log(`[build-frequent-topics] wrote ${OUT}`);
+}
 console.log(`  topics=${totalTopics} questions=${totalQuestions} links=${totalLinks}`);
 console.log(`  TOP5: ${ranked.slice(0, 5).map((t) => `${t.title}(${t.count})`).join(", ")}`);
 

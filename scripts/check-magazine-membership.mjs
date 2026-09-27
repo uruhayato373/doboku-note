@@ -49,7 +49,7 @@
  * 真実源: .claude/config/note-magazine-membership.json
  */
 import { execFileSync } from 'node:child_process';
-import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync, statSync, writeSync } from 'node:fs';
 import { basename, dirname, join, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -435,7 +435,8 @@ function main() {
   }
 
   if (jsonOut) {
-    process.stdout.write(`${JSON.stringify({
+    // 同期で書く: 直後の process.exit(1) でパイプへの非同期書き込みが途中で捨てられ、管理画面の JSON.parse が壊れていた（2026-09-26）
+    writeSync(1, `${JSON.stringify({
       articles: files.length, labels: Object.keys(labelMap).length, magazines: rows.length,
       freshness: { ...freshness, fetchedAt }, rows, violations: bad,
       inclusion: { checked: inclusion.length, leaks, unverified: inclusionUnverified, partials },

@@ -2,6 +2,7 @@
 name: ig-stories-writer
 description: Instagram Stories の 4 枚連投用 caption.txt / note.md を 1 パックずつ仕上げる Generator エージェント。リンクスタンプ・投票ステッカー・質問ステッカーの文言設計を担う。
 model: sonnet
+domain: sns
 ---
 
 # IG Stories Writer Agent

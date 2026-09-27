@@ -2,6 +2,16 @@ import PageShell from "@/components/layout/PageShell";
 import PageHeader from "@/components/layout/PageHeader";
 import type { Metadata } from "next";
 import KeikenCharcountClient from "./KeikenCharcountClient";
+import OffsiteCta from "@/components/ui/OffsiteCta/OffsiteCta";
+import { resolveOffsiteCta } from "@/lib/offsite-cta";
+import { buildMagazineUrl, getMagazine, type MagazineId } from "@/lib/note-magazines";
+
+// 答案を書いている最中の人が来る高 intent ページ。記事への内部リンク（クライアント側）に加えて、
+// note の完成答案集とココナラ添削へ直接つなぐ（2026-09-27 配線監査 DN-0364）。
+const NOTE_PRODUCTS: readonly { id: MagazineId; lead: string }[] = [
+  { id: "civil-1-experience-essay", lead: "1級｜5管理別の完成答案と置換ガイド" },
+  { id: "civil-2-experience-essay", lead: "2級｜自分の工事に置き換えて書ける完成答案" },
+];
 
 export const metadata: Metadata = {
   // title template `%s | doboku-note` で自動付与されるため "doboku-note" は重ねない
@@ -51,6 +61,34 @@ export default function KeikenCharcountPage() {
       />
 
       <KeikenCharcountClient />
+      <div className="max-w-[760px] mx-auto px-4 sm:px-6 pb-10">
+        <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--ink-muted)] mb-3">
+          完成答案で書き方を確かめる（note）
+        </div>
+        <div className="grid gap-3 sm:grid-cols-2">
+          {NOTE_PRODUCTS.map(({ id, lead }) => {
+            const mag = getMagazine(id);
+            if (!mag) return null;
+            const label = `${id}:tools-keiken-charcount`;
+            return (
+              <a
+                key={id}
+                href={buildMagazineUrl(mag, label)}
+                target="_blank"
+                rel="noopener"
+                data-cta="note"
+                data-cta-label={label}
+                data-cta-placement="tools-keiken-charcount"
+                className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-[var(--accent)]"
+              >
+                <div className="font-bold text-[var(--ink)]">{mag.shortTitle ?? mag.title}</div>
+                <div className="text-sm text-[var(--ink-body)] mt-1">{lead}</div>
+              </a>
+            );
+          })}
+        </div>
+        <OffsiteCta items={resolveOffsiteCta("tools-keiken-charcount")} heading="答案を見てほしい方へ" />
+      </div>
     </PageShell>
   );
 }

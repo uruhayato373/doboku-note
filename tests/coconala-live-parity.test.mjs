@@ -117,3 +117,15 @@ test('isCoconalaPriceStep: ¥10,000 以下は500円刻み、超は1,000円刻み
   for (const ok of [500, 1500, 9500, 10000, 11000, 20000]) assert.equal(isCoconalaPriceStep(ok), true, String(ok));
   for (const ng of [0, -500, 1200, 10500, 12500, 7500.5]) assert.equal(isCoconalaPriceStep(ng), false, String(ng));
 });
+
+test('diffLiveProfile: 職業・ひとことアピール・自己紹介文が SoT と一致すれば空、ずれれば各項目を挙げる', async () => {
+  const { diffLiveProfile } = await import('../scripts/lib/coconala-live.mjs');
+  const html = '<title>dobokunoteさん(技術士（建設）｜元発注者)のプロフィール | ココナラ</title>'
+    + '<meta property="og:description" content="発注者視点で添削 | 経験: 設計">'
+    + '<script>{"introduction":"一行目\\n\\n二行目です"}</script>';
+  const profile = { job: '技術士（建設）｜元発注者', appeal: '発注者視点で添削', bio: '一行目\n\n二行目です' };
+  assert.deepEqual(diffLiveProfile(profile, html), []);
+  const issues = diffLiveProfile({ job: '別', appeal: '別', bio: '別の本文' }, html);
+  assert.equal(issues.length, 3);
+  assert.match(diffLiveProfile(profile, '<html></html>')[0], /職業を読めない/);
+});

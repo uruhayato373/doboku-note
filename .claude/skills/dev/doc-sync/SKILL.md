@@ -8,6 +8,7 @@ description: >
   Use when user asks to [ドキュメント同期, doc同期, 仕様ズレ確認, ドキュメント更新もれ, /doc-sync].
 user-invocable: true
 argument-hint: "[<git-range>] (既定: 作業ツリー+staged vs HEAD)"
+domain: ops
 ---
 
 コード変更に対しドキュメントの**意味的な陳腐化（semantic staleness）**を監査する半自動オーケストレーションスキル。

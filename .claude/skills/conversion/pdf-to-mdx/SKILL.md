@@ -5,6 +5,7 @@ description: >
   出力ディレクトリ構造・frontmatter スキーマ・カテゴリ推定・PDF 残骸除去を自動化する。
   `--scanned` でテキスト層なしスキャン書籍を視覚 OCR（pdfimages＋サブエージェント）で内部リファレンス .md ＋図に変換するモードも持つ。
   Use when user asks to [PDFをMDXに, PDF変換, 過去問取込, スキャン教材の文字起こし, 書籍OCR, 総監PDF変換, 1級土木PDF変換, /pdf-to-mdx, /pdf-to-mdx --scanned].
+domain: material
 ---
 
 PDF または画像ファイルから doboku-note 用 MDX を生成する統合スキル。**旧 `/pdf-to-mdx` / `/cem-pdf-to-mdx` / `/civil-construction-1-pdf-to-mdx` / `/clean-pdf-artifacts` を吸収**し、試験別の変換ルールを `templates/{exam}.md` に外出しして管理する。

@@ -2,6 +2,7 @@
 name: coconala-blog
 description: ココナラブログ（記事型）の企画・執筆・採点・公開を一気通貫で回す。ココナラ内の検索/回遊から自出品（S1診断・S2添削・S3作成・C系PDF）へ送客する記事を、外部リンクゼロ・カニバリ境界内で作り、下書き保存→ライブ実査まで検証する。coconala-blog-writer で書き coconala-blog-qa で採点し、scripts/coconala-blog-publish.mjs（draft-first・実公開は --commit gate）で投入。競合偵察は npm run scout-coconala-blogs。出品そのものを作る /coconala-publish、受注を回す /coconala-order とは対象が異なる。Use when user asks to [ココナラブログを書く, ココナラブログを公開, ココナラのブログ記事, ブログで送客, /coconala-blog].
 user-invocable: true
+domain: product
 ---
 
 # /coconala-blog — ココナラブログの企画〜公開

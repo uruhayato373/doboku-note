@@ -20,8 +20,7 @@ function baseAdapter(serviceId, options) {
     supported: true,
     expectedMarkers: [],
     // ログアウトを URL の redirect だけで判定すると取りこぼす。2026-09-07 実測では
-    // brain（/mypage のままログイン CTA）・google（/search-console/about へ退避）・
-    // x（x.com/ でパスワード欄）のいずれも redirect パターンに当たらず unknown になっていた。
+    // google（/search-console/about へ退避）・x（x.com/ でパスワード欄）のいずれも redirect パターンに当たらず unknown になっていた。
     expiredPattern: /(?:\/login|\/signin|ServiceLogin|InteractiveLogin|re-authentication)/i,
     // account marker が見つからないときに「ログアウトの証拠」として扱う本文（任意）
     loggedOutMarkers: [],
@@ -33,13 +32,6 @@ export function loadAuthAdapter(serviceId, options) {
   const adapter = baseAdapter(serviceId, options);
   if (serviceId === 'note') {
     return { ...adapter, checkUrl: 'https://note.com/settings/account', expectedMarkers: ['dobokunote'] };
-  }
-  if (serviceId === 'brain') {
-    // sellerName は折り畳みメニュー内で可視テキストに出ない（brain-session.mjs assertAccount は best-effort 扱い）。
-    // ログイン済みの確実な信号は brain-session.mjs waitForLogin と同じ「記事を書く」ボタン。
-    // ログアウト時は /mypage のまま本文が「ログイン」＋「新規登録」になる（redirect しない）。
-    // 2026-09-21: 旧 marker（sellerName）では headed ログイン後も authenticated にならず 10 分待ちになった。
-    return { ...adapter, checkUrl: 'https://brain-market.com/mypage', expectedMarkers: ['記事を書く'], loggedOutMarkers: ['新規登録'] };
   }
   if (serviceId === 'coconala') {
     const account = readJson(repoRoot, '.claude/config/coconala-account.json');
