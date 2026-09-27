@@ -12,6 +12,7 @@
  *
  * 判断ファイル: { "digestWeek": "2026-W38", "decisions": [ { "id": "OPP-…", "action": "backlog", … }, … ] }
  *   action と必須項目は scripts/lib/growth-triage.mjs 冒頭。id:null の backlog は申し送りの起票。
+ *   backlog は domain（[領域:]・domains.json のラベル）必須、period（[時期:]）は tier high / mid で必須。
  *
  * 書き込み先（--commit）: .claude/todo/backlog.md / .claude/state/experiments.json / .claude/config/seo-watchwords.json /
  *   .claude/state/metrics/growth/triage-log.json。全判断を先に検証し、1 件でも不正なら何も書かない。
@@ -23,8 +24,9 @@
 import { existsSync, readdirSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { jst } from './lib/business-direction.mjs';
-import { nextId } from './backlog-edit.mjs';
+import { nextId, backlogGitLog } from './backlog-edit.mjs';
 import { parseBacklog } from './lib/backlog-lib.mjs';
+import { loadDomains } from './lib/domains.mjs';
 import { readWatchConfig, validateConfig } from './lib/seo-rank-watch.mjs';
 import { validateDecisions, renderCard, insertCard, nextExperimentId, newExperiment, closeExperiment, buildWatch, pendingItems } from './lib/growth-triage.mjs';
 
@@ -50,7 +52,7 @@ function loadDigest(week) {
 function gitHistory() {
   try {
     if (execFileSync('git', ['rev-parse', '--is-shallow-repository'], { encoding: 'utf8' }).trim() === 'true') return null;
-    return execFileSync('git', ['log', '-p', '--format=%H', '--', BACKLOG, 'docs/todo/backlog.md'], { encoding: 'utf8', maxBuffer: 256 * 1024 * 1024, timeout: 60_000 });
+    return backlogGitLog({ timeout: 60_000 }); // 全ブランチ（--all）。並行ブランチで使われた ID も避ける
   } catch {
     return null;
   }
@@ -83,6 +85,7 @@ function apply(loaded) {
     items: digest.surfaced,
     backlogIds: new Set(parseBacklog(backlogText).map((c) => c.id).filter(Boolean)),
     experimentIds: new Set(ledger.experiments.map((e) => e.id)),
+    domainLabels: new Set(loadDomains(process.cwd()).domains.map((x) => x.label)),
   });
   const byId = new Map(digest.surfaced.map((i) => [i.id, i]));
   for (const d of decisions.filter((x) => x.action === 'verdict')) {

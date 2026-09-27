@@ -57,3 +57,22 @@ test('cardifyBareUrls: 埋め込み不可の URL を飛ばして後ろをカー�
   assert.equal(r.processed, 2); // 上限 40 回まで同じ行を打ち直さない
   assert.equal(page.blocks[1].card, true);
 });
+
+// CI run 36316496163 のフレーク: 待ちの while が先に時計を見ていたため、Enter 直後に時計が waitMs 以上
+// 進むと 1 回もカードを数えずに失敗扱いになっていた。時計を必ず進めて再現し、少なくとも 1 回は数えることを固定する。
+test('cardifyBareUrls: 時計が waitMs 以上進んでもカード数を 1 回は確認する', async () => {
+  const realNow = Date.now;
+  let fake = realNow();
+  Date.now = () => (fake += 50);
+  try {
+    const brain = 'https://brain-market.com/a/x';
+    const note = 'https://note.com/dobokunote/n/n4fde0f62dc20';
+    const page = fakePage([brain, note], new Set([brain]));
+    const r = await cardifyBareUrls(page, { tag: '[t]', waitMs: 1 });
+    assert.deepEqual(r.failed, [brain]);
+    assert.equal(r.cards, 1);
+    assert.equal(page.blocks[1].card, true);
+  } finally {
+    Date.now = realNow;
+  }
+});

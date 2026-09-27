@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// 年度表現の陳腐化検出（DN-0243）。
+// 年度表現の陳腐化検出（DN-0426）。
 //
 // 背景: ガイド・keyword 記事の title/seoTitle/description に当年度の表現（「令和8年度」
 // 「2026年度」）が多数あるが、年明けに一斉に古くなる。既存の check-exam-calendar は
