@@ -14,6 +14,7 @@ import {
   isStandardPartIndexable,
   readTranscribedPages,
   standardDocumentPath,
+  standardPartLabel,
   standardPartPath,
 } from '@/lib/standards';
 import { hasStandardChapters } from '@/lib/standards-articles';
@@ -39,9 +40,17 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   if (!resolved) return { title: '分冊が見つかりません', robots: { index: false, follow: false } };
   const { document: entry, part: entryPart } = resolved;
   const path = standardPartPath(entry, entryPart);
+  const label = standardPartLabel(entry, entryPart);
+  const range = `PDF page ${entryPart.firstPage}–${entryPart.lastPage}`;
   return {
-    title: { absolute: `${entry.title} PDF page ${entryPart.firstPage}–${entryPart.lastPage}｜全文文字起こし` },
-    description: `${entry.agencyName}「${entry.title}」PDF page ${entryPart.firstPage}–${entryPart.lastPage}の逐語文字起こし。原本のページ番号・改行・空白を保持しています。`,
+    title: {
+      absolute: label
+        ? `${label}｜${entry.title} ${range}`
+        : `${entry.title} ${range}｜全文文字起こし`,
+    },
+    description: label
+      ? `${entry.agencyName}「${entry.title}」のうち${label}（${range}）の逐語文字起こし。原本のページ番号・改行・空白を保持しています。`
+      : `${entry.agencyName}「${entry.title}」${range}の逐語文字起こし。原本のページ番号・改行・空白を保持しています。`,
     alternates: { canonical: path },
     openGraph: {
       title: `${entry.title} PDF page ${entryPart.firstPage}–${entryPart.lastPage}`,
@@ -65,6 +74,7 @@ export default async function StandardPartPage({ params }: { params: Promise<Par
   if (!resolved) notFound();
   const { document: entry, part: entryPart } = resolved;
   const pages = readTranscribedPages(entryPart);
+  const label = standardPartLabel(entry, entryPart);
   const relatedTopics = getTopicsForStandardText(entry, pages.map((page) => page.text).join('\n'));
   const partIndex = entry.parts.findIndex((candidate) => candidate.slug === entryPart.slug);
   const previous = partIndex > 0 ? entry.parts[partIndex - 1] : null;
@@ -96,7 +106,9 @@ export default async function StandardPartPage({ params }: { params: Promise<Par
               { label: entry.title, href: standardDocumentPath(entry) },
             ]}
             label="原典照合用・逐語文字起こし"
-            title={`${entry.title} PDF page ${entryPart.firstPage}–${entryPart.lastPage}`}
+            title={label
+              ? `${label}（PDF page ${entryPart.firstPage}–${entryPart.lastPage}）`
+              : `${entry.title} PDF page ${entryPart.firstPage}–${entryPart.lastPage}`}
             lead="原本PDFのページ番号を基準に、紙面内の改行・空白を保って表示しています。横に長い表は左右にスクロールできます。"
             meta={`${entryPart.pageCount}ページ`}
           />

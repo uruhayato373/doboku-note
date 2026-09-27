@@ -116,6 +116,21 @@ export function getStandardPart(
   return document && part ? { document, part } : null;
 }
 
+// 分冊の中身を表す章名。分冊の題名が文書題名＋ページ範囲だけだと、文書ページと同じ
+// 検索語（例「中国地方整備局 共通仕様書」）を取り合うため、章名を題名の先頭に置く。
+// catalog.json は build-standards-library.mjs の生成物なので、ここで持つ。
+const STANDARD_PART_LABELS: Record<string, string> = {
+  'chugoku/local/part-01': '第1〜3編 共通編・材料編・土木工事共通編 関係の独自仕様',
+  'chugoku/local/part-02': '第6〜10編 河川・河川海岸・砂防・道路編 関係の独自仕様',
+};
+
+export function standardPartLabel(
+  document: Pick<StandardDocument, 'agencyId' | 'documentId'>,
+  part: Pick<StandardPart, 'slug'>,
+): string | null {
+  return STANDARD_PART_LABELS[`${document.agencyId}/${document.documentId}/${part.slug}`] ?? null;
+}
+
 export function isStandardPartIndexable(document: StandardDocument): boolean {
   if (document.duplicateOf) return false;
   // Regional common specifications largely share the same national body.
