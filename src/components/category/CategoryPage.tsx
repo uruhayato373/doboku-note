@@ -2,8 +2,9 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import PageShell from '@/components/layout/PageShell';
 import TwoColumnShell from '@/components/layout/TwoColumnShell';
-import { getCategoryBySlug } from '@/lib/categories';
+import { getCategoryBySlug, getCategoryHubPath } from '@/lib/categories';
 import { getDocsMetaByCategory } from '@/lib/docs';
+import HubStructuredData from '@/components/seo/HubStructuredData';
 import { groupDocs } from '@/lib/category-groups';
 import { DocCard, DocSection } from '@/components/category/CategorySections';
 import { PopularShowcase, PopularRanking } from '@/components/category/PopularSections';
@@ -126,6 +127,7 @@ export default async function CategoryPage({
 
   return (
     <PageShell variant="article">
+        <HubStructuredData path={getCategoryHubPath(slug)} name={cat.label} description={cat.description ?? cat.subtitle} docs={docs} />
         {/* 学習の入口を本文と右列の先頭に置く。note CTA はモバイルでは記事一覧の下に表示。 */}
         <TwoColumnShell gutter="default" mainClassName="pt-8 sm:pt-10 pb-10" aside={categorySidebar}>
             {/* 左メインカラム全体を 1 枚の白カードに統一（グレー地に白サーフェス・角丸ゼロの
