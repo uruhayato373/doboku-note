@@ -154,16 +154,6 @@
 
 ## 🟡 中 — 重要度が中くらい
 
-### [DN-0413] 管理画面のレビュー画面の手入力フォーム（RecordPanel.tsx）の lint エラー 11 件を直す
-タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-09-27]
-
-**起点**: 2026-09-27 のレビュー画面の作り直しで `npx eslint tools/admin-app/src/app/metrics/business` を実行したところ、`RecordPanel.tsx` に `@typescript-eslint/no-explicit-any` が 11 件あった（今回の変更より前からある）。管理画面は CI の lint 対象外のため、赤のまま気づかれていなかった。
-
-**やること**: `any` を business-direction の記録の型（計測・目標・レビュー）に置き換える。型は `scripts/lib/business-direction.mjs` の JSDoc か、管理画面側に最小の型を定義する。
-
-**完了条件**: `cd tools/admin-app && npx eslint src/app/metrics/business` がエラー 0 で、手入力フォームの送信が今までどおり動く。
-
-
 ### [DN-0410] チャネル別の送客（UTM）を 1 画面で見られる GA4 の計測ダッシュボードを作る
 タグ: [インフラ・計測] [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-09-27]
 
