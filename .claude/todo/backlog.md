@@ -215,6 +215,8 @@
 
 **完了条件**: 5 件それぞれ対応したか「やらない」と決め、反映から 28 日後の週次まとめで同じ候補が再掲されないことを確認したら、このカードを削除する。
 
+**進捗（2026-09-27）**: (a) スクレーパの seoTitle・リードを「スクレープドーザとは」へ（018751c39）。(c) 1級 exam-overview のリード直後に 1級二次まるごとパック、(d) 総監 r08-primary に択一 過去問PDF（令和）のカードを置いた（5fc9bd35b・221a1f98e）。(b) 中国地方整備局の分冊 part-01/02 の題名を章名始まりにした（PR #680）。サイドバーの CTA は DN-0364 の配線方針と合わせて決めるため未着手。残りは反映 28 日後の再掲確認。
+
 ### [DN-0418] 被リンク獲得の声かけ（アウトリーチ）を始める
 タグ: [SNS・マーケ] [領域:SNS] [時期:2026-11..2027-01] [種類:改善] [起票:2026-09-27]
 
@@ -467,6 +469,8 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 
 **完了条件**: seoTitle・description・リードが検索語の定義に答える形で公開され、公開日から28日後の同クエリの CTR を変更前（0.16%）と比べた記録が business review か本カードの完了記録にある。
 
+**進捗（2026-09-27）**: seoTitle を「インターフェアリングフロートとは｜IF＝TF−FF…」に、description とリードを定義と試験での問われ方（IF を求める計算・TF＝FF＋IF の空欄補充）に直して develop へ反映（29cbf89f2）。残りは 28 日後（10/25 前後）の CTR 比較だけ。
+
 ### [DN-0340] backlog の ID 再利用4件と「常時緑」の検証ゲート2本を直す
 タグ: [エージェント・SSOT] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-09-26]
 
@@ -475,6 +479,8 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 **やること**: check-backlog-health S10 が DN-0243・DN-0322・DN-0323・DN-0324 を「削除後に別タスクとして再登場」と出している（1e19109df 等）。採番を git 全履歴基準に揃え、再利用カードを新 ID で再起票して参照（weekly・計画・dispatch-log）を直す。あわせて check-backlog-verify が「常時緑」とする [検証:check-content-expansion]（DN-0224）と [検証:check-video-content]（DN-0184・DN-0279）を、完了判定できるコマンドへ差し替えるか外す（W38 からの持ち越し）。さらに `growth-triage apply --commit` が起票カードに `[領域:]` を付けられず check-backlog-schema で必ず巻き戻る（2026-09-26 に SKIP_BACKLOG_SCHEMA=1 で書いて手で補った）ので、判断ファイルに `domain`（と任意の `period`）を受けて `scripts/lib/growth-triage.mjs` の `renderCard` がタグへ出すよう直す（回帰テスト付き）。
 
 **完了条件**: check-backlog-health の S10 が 0、check-backlog-verify の常時緑が 0、`[領域:]` 付きの判断ファイルで growth-triage apply --commit が SKIP なしで通り、check-backlog-schema が緑。
+
+**進捗（2026-09-27）**: PR #678 で (a) 採番を `git log --all` 基準にし、再利用 4 件を DN-0426〜0429 へ振り直した（S10＝0）。(b) DN-0184・DN-0279 の検証タグを外し、DN-0224 は `check-content-expansion:linked` へ差し替えた。(c) growth-triage の判断ファイルの domain/period をタグへ出すようにした（回帰テスト付き）。残りは「常時緑」の 5 本（check-coconala-live・check-coconala-orders・report-career-funnel・check-video-publication・check-x-campaign-plan）。
 
 ### [DN-0346] ココナラの資格別の市場スキャンを取り直し、展開の判断のココナラ列を下限から実測に変える
 タグ: [インフラ・計測] [領域:戦略] [時期:2026-10] [種類:改善] [起票:2026-09-26]
@@ -655,6 +661,8 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 
 **完了条件**: ハブからの 3 方向の遷移数が GA4 で 4 週分読め、13 の第2期に記録されている。
 
+**進捗（2026-09-27）**: PR #678 で資格ハブ末尾の 3 枚のカードに `internal_nav_click`（label: qualification-map:civil1 / :pe / :pe-cm）を付け、技術士（業務経歴票）へのカードを足した。読み方は 13_土木公務員SEO戦略 第2期に記載。残りは deploy 後 4 週分の遷移数の記録。
+
 ### [DN-0367] 受取額（netReceipts）を毎月機械で記録する
 タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-09-27]
 
@@ -676,10 +684,6 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 **完了条件**: 2026年10月分の費用と作業時間が記録され、管理画面で受取額 − 費用と時間あたり受取額が出る。
 
 
-### [DN-0371] About ページを作る
-タグ: [UI・UX] [種類:制作] [領域:サイト] [時期:2026-10..2026-12] [起票:2026-09-27]
-
-doboku-note に About ページが無い。運営者・監修の立場・教材の方針を載せる。（出典: 2026-09-24 の手書きメモ・vault dairy/2026-09-24）
 
 ### [DN-0372] YouTube のサムネイル画像とアクセス数を動画ごとに点検する
 タグ: [SNS・マーケ] [種類:改善] [領域:SNS] [時期:2026-10..2026-12] [起票:2026-09-27]
@@ -776,6 +780,8 @@ stats47 と同じ検討（両サイト共通の論点）。（出典: 2026-09-25
 
 **追記（2026-09-27・集客点検）**: 対象を建設部門・RCCM に限らず、`.claude/state/metrics/gsc-indexing/priority-latest.txt` の需要あり未登録 38 件（総監 cost-benefit-analysis・1級 guide/construction-plan・2級 guide/schedule-management など）へ広げる。 2026-09-27 の教材配線先の点検では、教材から配線した 1級 textbook 7 本（steel-structures・water-sewer・coast-port・dam-construction・tunnel-natm・sabo-landslide・railway-underground）・1級 guide 2 本・2級 guide 4 本（exam-overview・concrete-key-points・quality-management・study-method）も未登録で表示 0。2級二次（10/25）前に 2級分を先に見る。
 
+**進捗（2026-09-27）**: 2026-09-23 の URL 検査で未登録 144 件を分類。本番の sitemap.xml 漏れ 0・canonical 誤り 0・被リンク数と本文量は登録済みと差なし。大半は「検出 - 未登録」（未クロール）で、建設部門 50・RCCM 7・1級 20・2級 21。総監 13 件と 1級 2 件は Google が旧 /docs/ URL を正規に選んだまま（301 済み・旧 URL 用 sitemap は 11/30 まで）。本文からの被リンクが 0〜1 件だった 2級一次過去問 10 回分・2級ガイド 5 本・1級ガイド 4 本へ内部リンクを追加した（814de5390）。コードとコンテンツで打てる手は尽きたので、残りは GSC での登録リクエスト（ブラウザ作業・2級二次関連と RCCM を優先）と次の URL 検査での確認。
+
 ### [DN-0391] 施工管理の転職クラスターの検索意図と既存のキャリア記事がずれていないかを点検する
 タグ: [コンテンツ品質] [領域:サイト] [時期:2026-10..2026-11] [種類:改善] [起票:2026-09-27]
 
@@ -816,14 +822,6 @@ stats47 と同じ検討（両サイト共通の論点）。（出典: 2026-09-25
 
 **進捗（2026-09-27）**: P0「著者属性と異なる表現」は済み。「採点する側／採点する立場／発注者側＝採点する側」を note 4 本（原稿と公開ページ）で直し、公開ページで全文を照合した。「添削」はココナラで添削を販売しているため残す（運営者判断）。残りは同じ監査の他の指摘で、`npm run audit-note-funnel -- --exam civil --live` で今の状態を実査してから直す。
 
-### [DN-0399] 2026-07-11 の UI 静的監査（UI-001〜012）の残りを実査し、残っているものを直す
-タグ: [UI・UX] [領域:サイト] [時期:2026-10..2026-11] [種類:改善] [起票:2026-09-27]
-
-**起点**: 2026-09-27 の docs/ 棚卸しで、docs/reviews/2026-07-11-static-ui-codebase-audit.md（480 行・同日削除。原文は `git show 08da26e20:docs/reviews/2026-07-11-static-ui-codebase-audit.md`）の指摘 12 件が backlog に載らないまま文書に残っていた。一部は解消済み（UI-002: `src/components/ui/Callout/Callout.tsx` は "use client" ではなくなった）。
-
-**やること**: 原文の UI-001（UI 仕様書と実装の不一致）・UI-003（キーボードフォーカスの共通スタイル）・UI-004（SpecSheetList の旧トークン）・UI-005（カードプリミティブの部分導入）・UI-006（transition-all）・UI-007（Header メニューのフォーカス管理）・UI-008（Callout の型契約）・UI-009（knip のデッド UI）・UI-010〜012 を 1 件ずつ現行コードで実査し、残っているものを `/page-design` の手順で直す（アクセシビリティの UI-003・UI-007 を先に）。
-
-**完了条件**: 12 件すべてに「解消済み（根拠）／修正（commit）／対応しない（理由）」を付けてこのカードに書き、`npm run lint` と `node scripts/lint-ui.mjs` が通る。
 
 ### [DN-0397] 実ユーザー計測（#666）を本番で立ち上げ、表示速度の「計測→起票→改善」を閉じる
 タグ: [インフラ・計測] [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-09-27] [期日:2026-10-17]
