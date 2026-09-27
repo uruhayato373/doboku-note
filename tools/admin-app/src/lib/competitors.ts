@@ -1,5 +1,6 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { listedCoconalaServices } from '../../../../src/lib/coconala-services';
 import { findRepoRoot } from './repo-root';
 
 /**
@@ -46,6 +47,8 @@ export type CompetitorView = {
   platform: 'coconala';
   fetchedDate: string | null;
   rows: CompetitorRow[];
+  /** 自社の行。出品は coconala-services.ts の listed、販売は orders-log.json（自社の受注記録）から数える。 */
+  self: CompetitorRow;
   examLabels: Record<string, string>;
 };
 
@@ -96,7 +99,9 @@ export function loadCompetitorView(): CompetitorView {
   const examLabels = Object.fromEntries((registry?.qualifications ?? []).map((q) => [q.id, q.label]));
 
   const latest = snaps[0];
-  if (!latest) return { platform: 'coconala', fetchedDate: null, rows: [], examLabels };
+  const selfBase = latest ? snaps.find((s) => daysBetween(s.date, latest.date) >= BASE_MIN_DAYS)?.date ?? null : null;
+  const self = loadSelfRow(root, selfBase);
+  if (!latest) return { platform: 'coconala', fetchedDate: null, rows: [], self, examLabels };
 
   const rows: CompetitorRow[] = latest.snap.competitors.map((c) => {
     const has = (s: (typeof snaps)[number]) => s.snap.competitors.some((x) => x.handle === c.handle);
@@ -120,5 +125,29 @@ export function loadCompetitorView(): CompetitorView {
       changes: prev ? changesBetween(prev, c) : [],
     };
   });
-  return { platform: 'coconala', fetchedDate: latest.date, rows, examLabels };
+  return { platform: 'coconala', fetchedDate: latest.date, rows, self, examLabels };
+}
+
+/** coconala-services.ts の examScope を資格 id（qualification-registry.json）へ寄せる。 */
+const SCOPE_TO_EXAM: Record<string, string> = { 'civil-1': 'civil-construction-1', 'civil-2': 'civil-construction-2' };
+
+function loadSelfRow(root: string, baseDate: string | null): CompetitorRow {
+  const listed = listedCoconalaServices();
+  const prices = listed.map((s) => s.priceYen).sort((a, b) => a - b);
+  const log = readJson<{ orders?: { date: string }[] } | { date: string }[]>(join(root, '.claude/state/coconala/orders-log.json'));
+  const orders = Array.isArray(log) ? log : (log?.orders ?? []);
+  return {
+    handle: 'self',
+    label: '自社',
+    exams: [...new Set(listed.flatMap((s) => s.examScope.map((e) => SCOPE_TO_EXAM[e] ?? e)))],
+    services: listed.length,
+    priceMin: prices[0] ?? null,
+    priceMedian: prices.length ? prices[Math.floor((prices.length - 1) / 2)]! : null,
+    priceMax: prices.at(-1) ?? null,
+    sales: orders.length,
+    rating: null,
+    salesDelta: baseDate ? orders.filter((o) => o.date >= baseDate).length : null,
+    baseDate,
+    changes: [],
+  };
 }

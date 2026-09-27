@@ -6,7 +6,7 @@ export const dynamic = 'force-dynamic';
 
 /**
  * /strategy/competitors — 競合（人が見る画面）。チャネルはサイドバーの枝にせず画面内のタブにする（domains.json navRules）。
- * 今はココナラだけ。資格で絞り込み、累計販売の多い順に並べる。組み立ては lib/competitors.ts。
+ * 今はココナラだけ。先頭に自社、続けて競合を累計販売の多い順に並べ、資格で絞り込む。組み立ては lib/competitors.ts。
  */
 const yen = (n: number | null) => (n === null ? '—' : `¥${n.toLocaleString('ja-JP')}`);
 const md = (date: string | null) => {
@@ -66,6 +66,9 @@ export default async function CompetitorsPage({ searchParams }: { searchParams: 
               </tr>
             </thead>
             <tbody>
+              {(!exam || view.self.exams.includes(exam)) && (
+                <Row row={view.self} examLabels={view.examLabels} self />
+              )}
               {rows.map((r) => (
                 <Row key={r.handle} row={r} examLabels={view.examLabels} />
               ))}
@@ -77,13 +80,17 @@ export default async function CompetitorsPage({ searchParams }: { searchParams: 
   );
 }
 
-function Row({ row: r, examLabels }: { row: CompetitorRow; examLabels: Record<string, string> }) {
+function Row({ row: r, examLabels, self }: { row: CompetitorRow; examLabels: Record<string, string>; self?: boolean }) {
   return (
-    <tr>
+    <tr style={self ? { fontWeight: 600 } : undefined}>
       <td>
-        <a href={`https://coconala.com/users/${r.handle}`} target="_blank" rel="noreferrer">
-          {r.label}
-        </a>
+        {self ? (
+          r.label
+        ) : (
+          <a href={`https://coconala.com/users/${r.handle}`} target="_blank" rel="noreferrer">
+            {r.label}
+          </a>
+        )}
       </td>
       <td className="small">{r.exams.map((e) => examLabels[e] ?? e).join('・')}</td>
       <td className="num">{r.services ?? '—'}</td>
