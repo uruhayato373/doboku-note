@@ -82,7 +82,7 @@
     --hero-cta-tint: rgba(15, 39, 66, 0.8);  /* 背景イラストを覆うブランド紺（白文字 AA 確保の濃度） */
     --hero-cta-band: #41c9b4;                /* バッジ帯＝note 緑（文字は紺 --hero-cta-band-ink） */
     --hero-cta-band-ink: #0f2742;
-    --hero-cta-button: #12886f;              /* ボタン背景＝暗め note 緑（白文字 4.9:1） */
+    --hero-cta-button: #11846c;              /* ボタン背景＝暗め note 緑（白文字 4.62:1・2026-09-25 DN-0251 で微調整） */
     --hero-cta-button-hover: #0e6e59;
 
     /* Editorial palette — Soft Editorial (2026-07). 紺のアイデンティティを保ちつつ
@@ -94,9 +94,26 @@
     --bg: #f6f7f9;
     --ink: #181a1f;
     --ink-body: #33363d;
-    --ink-muted: #697080;
+    --ink-muted: #666d7c;                    /* 2026-09-25 DN-0251: #697080 から微調整（--accent-fill 上で 4.65:1） */
     --rule: #23252b;
     --rule-soft: #e7e9ef;
+
+    /* PR/広告バッジの塗り背景専用（--ink-muted はテキスト用途と共有すると dark で衝突するため分離。
+       DN-0251）。light は --ink-muted と同じ値で白文字が既に 4.5 以上。 */
+    --ink-muted-fill: var(--ink-muted);
+
+    /* SEV_META（keiken-charcount 等）の「塗り背景＋白文字」ピル専用トークン。
+       DN-0251: --color-* を直接使うと dark で白文字コントラストが崩れるため用途別に分離。
+       ok/danger は dark で -fill（濃色）へ切替、warn は明度が高いまま残るため文字色を切替える。 */
+    --pill-ok-bg: var(--color-positive);
+    --pill-warn-bg: var(--color-warn);
+    --pill-warn-text: #222222;
+    --pill-danger-bg: var(--color-danger);
+
+    /* --color-warn を強調テキスト（ページ地に直接乗せる文字色）として使うと、
+       light の値は塗り背景向けに調整されており白背景で 2.37:1 しか出ない（DN-0251）。
+       dark は既に明色寄りで --color-warn そのままで 12.88:1 通る。 */
+    --warn-text-emphasis: #906d10;
 
     /* レイアウト変数（light/dark 共通・theme 非依存）。
        ≤576px の記事カード横 gutter。記事カードの max-zenn-sp:px と、設問カード .prose-blog details の
@@ -186,9 +203,21 @@
     --bg: #121316;
     --ink: #ececea;
     --ink-body: #b6b9c0;
-    --ink-muted: #80858f;
+    --ink-muted: #8b9099;                    /* 2026-09-25 DN-0251: #80858f から微調整（--accent-fill 上で 4.65:1） */
     --rule: #3c3f47;
     --rule-soft: #2b2e35;
+
+    /* PR/広告バッジの塗り背景専用（白文字 4.62:1。DN-0251） */
+    --ink-muted-fill: #71757e;
+
+    /* keiken-charcount 等の塗りピル。ok/danger は -fill（濃色）へ切替、
+       warn は --pill-warn-text（:root で #222222 固定・再定義しない）が効く。 */
+    --pill-ok-bg: var(--color-positive-fill);
+    --pill-danger-bg: var(--color-danger-fill);
+
+    /* dark は --color-warn がすでに明色寄りで安全なため再定義しない（:root の値は
+       dark では使われず、この値だけ :root と揃えて再掲する）。 */
+    --warn-text-emphasis: var(--color-warn);
 
     /* Callout palette — dark mode (deeper bg, lighter fg) */
     --ct-note-bg: #172554;     --ct-note-bd: #3b82f6;     --ct-note-fg: #93c5fd;

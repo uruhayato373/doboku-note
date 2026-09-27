@@ -2,7 +2,7 @@
  * playwright-auth-profile.mjs — Playwright 認証プロファイルの保存先を OS 非依存で解決する
  * ---------------------------------------------------------------------------
  * 背景（DN-0108・00-master.md）: プロファイル保存先が3系統に分裂している——
- *   (1) repo 配下 `.local/playwright-*-profile`（note/brain/coconala/kdp/x/instagram）
+ *   (1) repo 配下 `.local/playwright-*-profile`（note/coconala/kdp/x/instagram）
  *   (2) Mac ユーザー名の絶対パス直書き（一部 X/Instagram/A8 スキル）
  *   (3) `DOBOKU_PROFILE_ROOT`（Google・a8/moshimo/afb が asp-browser.mjs 経由で再利用）
  *   worktree で作業すると `.local` は Git 管理外なので空プロファイルが作られ、再ログインの

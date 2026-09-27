@@ -1,16 +1,9 @@
 import Link from 'next/link';
-import {
-  Activity,
-  ChartNoAxesCombined,
-  Gauge,
-  MousePointerClick,
-  Users,
-} from 'lucide-react';
 import { Badge, Card } from '@/components/primitives';
 import type { SnapshotFile } from '@/lib/snapshots';
 import { ageInDays } from '@/lib/snapshots';
 
-/** KPI カード。 */
+/** KPI カード。ラベルと値だけのシンプルな表示（アイコン・装飾線は持たない）。 */
 export function Kpi({
   label,
   value,
@@ -20,28 +13,13 @@ export function Kpi({
   value: string | number;
   unit?: string;
 }) {
-  const Icon = label.includes('ユーザー')
-    ? Users
-    : label.includes('セッション')
-      ? Activity
-      : label.includes('クリック')
-        ? MousePointerClick
-        : label.includes('PSI') || label.includes('性能')
-          ? Gauge
-          : ChartNoAxesCombined;
   return (
-    <Card className="kpi group">
-      <div className="kpi-topline">
-        <div className="label">{label}</div>
-        <span className="kpi-icon" aria-hidden="true">
-          <Icon size={16} strokeWidth={1.8} />
-        </span>
-      </div>
+    <Card className="kpi">
+      <div className="label">{label}</div>
       <div className="value">
         {typeof value === 'number' ? value.toLocaleString() : value}
         {unit ? <span className="unit">{unit}</span> : null}
       </div>
-      <div className="kpi-rule" aria-hidden="true" />
     </Card>
   );
 }
@@ -51,19 +29,8 @@ export function PageHead({ title, sub }: { title: string; sub?: string }) {
   return (
     <div className="page-head">
       <div className="page-head-copy">
-        <div className="page-eyebrow">
-          <span aria-hidden="true" />
-          Operations console
-        </div>
         <h1>{title}</h1>
         {sub ? <p>{sub}</p> : null}
-      </div>
-      <div
-        className="page-status"
-        title="この管理画面はローカルのスナップショットを表示します"
-      >
-        <span className="status-dot" aria-hidden="true" />
-        Local workspace
       </div>
     </div>
   );
@@ -94,7 +61,8 @@ export function Freshness({ snapshot }: { snapshot: SnapshotFile | null }) {
 
 /**
  * スナップショット履歴ピッカー（?snapshot= のリンク列・クライアント JS 不要）。
- * basePath へ ?snapshot=<file> を付けたリンクを最新数件だけ並べる。
+ * basePath へ ?snapshot=<file> を付けたリンクを最新数件だけ並べる。同じ日の取得は最新の1件にまとめる
+ * （同じ日付が並ぶと見分けられない）。ファイル名は出さない。
  */
 export function SnapshotPicker({
   basePath,
@@ -109,23 +77,17 @@ export function SnapshotPicker({
   paramKey?: string;
   limit?: number;
 }) {
-  if (files.length <= 1) return null;
+  const byDay = files.filter((f, i) => files.findIndex((g) => g.stamp.slice(0, 10) === f.stamp.slice(0, 10)) === i);
+  if (byDay.length <= 1) return null;
   return (
     <div className="filterbar" style={{ marginTop: 4 }}>
-      <span
-        className="muted small"
-        style={{ alignSelf: 'center', marginRight: 4 }}
-      >
-        履歴:
-      </span>
-      {files.slice(0, limit).map((f, i) => (
+      {byDay.slice(0, limit).map((f) => (
         <Link
           key={f.file}
           href={`${basePath}?${paramKey}=${encodeURIComponent(f.file)}`}
           className={'chip' + (f.file === current ? ' active' : '')}
         >
-          {f.stamp.slice(0, 10)}
-          {i === 0 ? ' (最新)' : ''}
+          {f.stamp.slice(5, 10).replace('-', '/')}
         </Link>
       ))}
     </div>

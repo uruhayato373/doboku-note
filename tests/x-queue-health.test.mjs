@@ -63,3 +63,8 @@ test('Article告知は予約時刻超過だけで公開扱いにしない', () =
   data.articles = [{ ref: 'Article-1', status: 'published', article_url: 'https://x.com/i/article/1', published_at: '2026-09-13T19:00:00+09:00', scheduled_at: '2026-09-13T19:00:00+09:00', teaser_scheduled_at: '2026-09-14T07:00:00+09:00', teaser: { status: 'queued' } }];
   assert(assessQueueHealth(data).issues.some(i => i.code === 'teaser_publication_unconfirmed'));
 });
+test('告知を見送って cancelled にした Article は、告知の公開確認を求めない', () => {
+  const data = input();
+  data.articles = [{ ref: 'Article-1', status: 'published', article_url: 'https://x.com/i/article/1', published_at: '2026-09-13T19:00:00+09:00', scheduled_at: '2026-09-13T19:00:00+09:00', teaser_scheduled_at: '2026-09-14T07:00:00+09:00', teaser: { status: 'cancelled' } }];
+  assert(!assessQueueHealth(data).issues.some(i => i.code === 'teaser_publication_unconfirmed'));
+});

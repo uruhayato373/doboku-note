@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-09-14T01:09:26.321Z",
+  "generated_at": "2026-09-26T05:12:01.492Z",
   "thresholds": {
     "fail": 2,
     "thin_chars": 3000,
@@ -11,20 +11,20 @@
     ]
   },
   "totals": {
-    "total": 1206,
+    "total": 1261,
     "scored": 1064,
-    "unscored": 142,
+    "unscored": 197,
     "failed": 0,
     "thin": 317,
-    "coverage_pct": 88.2
+    "coverage_pct": 84.4
   },
   "by_category": {
     "civil-construction-1": {
       "groups": {
         "guide": {
-          "total": 51,
+          "total": 54,
           "scored": 46,
-          "unscored": 5,
+          "unscored": 8,
           "failed": 0,
           "thin": 0,
           "avg_weighted": 2.66
@@ -46,18 +46,18 @@
           "avg_weighted": 2.54
         },
         "textbook": {
-          "total": 63,
+          "total": 71,
           "scored": 45,
-          "unscored": 18,
+          "unscored": 26,
           "failed": 0,
           "thin": 0,
           "avg_weighted": 2.87
         }
       },
       "totals": {
-        "total": 154,
+        "total": 165,
         "scored": 131,
-        "unscored": 23,
+        "unscored": 34,
         "failed": 0,
         "thin": 0
       }
@@ -100,18 +100,18 @@
     "civil-practice": {
       "groups": {
         "guide": {
-          "total": 50,
+          "total": 63,
           "scored": 0,
-          "unscored": 50,
+          "unscored": 63,
           "failed": 0,
           "thin": 0,
           "avg_weighted": null
         }
       },
       "totals": {
-        "total": 50,
+        "total": 63,
         "scored": 0,
-        "unscored": 50,
+        "unscored": 63,
         "failed": 0,
         "thin": 0
       }
@@ -267,9 +267,9 @@
     "pe-construction": {
       "groups": {
         "guide": {
-          "total": 11,
+          "total": 16,
           "scored": 11,
-          "unscored": 0,
+          "unscored": 5,
           "failed": 0,
           "thin": 0,
           "avg_weighted": 2.55
@@ -283,18 +283,18 @@
           "avg_weighted": 2.61
         },
         "past-exam": {
-          "total": 84,
+          "total": 96,
           "scored": 84,
-          "unscored": 0,
+          "unscored": 12,
           "failed": 0,
           "thin": 0,
           "avg_weighted": 2.56
         }
       },
       "totals": {
-        "total": 130,
+        "total": 147,
         "scored": 130,
-        "unscored": 0,
+        "unscored": 17,
         "failed": 0,
         "thin": 15
       }
@@ -302,26 +302,45 @@
     "pe-first-stage": {
       "groups": {
         "guide": {
-          "total": 6,
+          "total": 9,
           "scored": 0,
-          "unscored": 6,
+          "unscored": 9,
           "failed": 0,
           "thin": 0,
           "avg_weighted": null
         },
         "primary": {
-          "total": 39,
+          "total": 42,
           "scored": 21,
-          "unscored": 18,
+          "unscored": 21,
           "failed": 0,
           "thin": 0,
           "avg_weighted": 2.61
         }
       },
       "totals": {
-        "total": 45,
+        "total": 51,
         "scored": 21,
-        "unscored": 24,
+        "unscored": 30,
+        "failed": 0,
+        "thin": 0
+      }
+    },
+    "rccm": {
+      "groups": {
+        "guide": {
+          "total": 8,
+          "scored": 0,
+          "unscored": 8,
+          "failed": 0,
+          "thin": 0,
+          "avg_weighted": null
+        }
+      },
+      "totals": {
+        "total": 8,
+        "scored": 0,
+        "unscored": 8,
         "failed": 0,
         "thin": 0
       }
@@ -2867,15 +2886,291 @@
   ],
   "delta": {
     "first_run": false,
-    "previous_generated_at": "2026-09-11T16:14:25.421Z",
+    "previous_generated_at": "2026-09-14T01:09:26.321Z",
     "totals_diff": {
-      "total": -5,
+      "total": 55,
       "scored": 0,
-      "unscored": -5,
+      "unscored": 55,
       "failed": 0,
-      "thin": -6
+      "thin": 0
     },
-    "newly_unscored": [],
+    "newly_unscored": [
+      {
+        "slug": "civil-construction-1-guide-public-engineer-exam-study",
+        "category": "civil-construction-1",
+        "group": "guide"
+      },
+      {
+        "slug": "civil-construction-1-guide-public-engineer-salary-table",
+        "category": "civil-construction-1",
+        "group": "guide"
+      },
+      {
+        "slug": "civil-construction-1-guide-quit-public-engineer",
+        "category": "civil-construction-1",
+        "group": "guide"
+      },
+      {
+        "slug": "civil-construction-1-textbook-coast-port",
+        "category": "civil-construction-1",
+        "group": "textbook"
+      },
+      {
+        "slug": "civil-construction-1-textbook-dam-construction",
+        "category": "civil-construction-1",
+        "group": "textbook"
+      },
+      {
+        "slug": "civil-construction-1-textbook-railway-underground",
+        "category": "civil-construction-1",
+        "group": "textbook"
+      },
+      {
+        "slug": "civil-construction-1-textbook-river-works",
+        "category": "civil-construction-1",
+        "group": "textbook"
+      },
+      {
+        "slug": "civil-construction-1-textbook-sabo-landslide",
+        "category": "civil-construction-1",
+        "group": "textbook"
+      },
+      {
+        "slug": "civil-construction-1-textbook-steel-structures",
+        "category": "civil-construction-1",
+        "group": "textbook"
+      },
+      {
+        "slug": "civil-construction-1-textbook-tunnel-natm",
+        "category": "civil-construction-1",
+        "group": "textbook"
+      },
+      {
+        "slug": "civil-construction-1-textbook-water-sewer",
+        "category": "civil-construction-1",
+        "group": "textbook"
+      },
+      {
+        "slug": "civil-practice-ai-document-verification",
+        "category": "civil-practice",
+        "group": "guide"
+      },
+      {
+        "slug": "civil-practice-bim-cim-site-practice",
+        "category": "civil-practice",
+        "group": "guide"
+      },
+      {
+        "slug": "civil-practice-board-of-audit-inspection",
+        "category": "civil-practice",
+        "group": "guide"
+      },
+      {
+        "slug": "civil-practice-construction-inspection-types",
+        "category": "civil-practice",
+        "group": "guide"
+      },
+      {
+        "slug": "civil-practice-earthquake-tsunami-site-response",
+        "category": "civil-practice",
+        "group": "guide"
+      },
+      {
+        "slug": "civil-practice-flood-season-river-work",
+        "category": "civil-practice",
+        "group": "guide"
+      },
+      {
+        "slug": "civil-practice-gis-layer-validation",
+        "category": "civil-practice",
+        "group": "guide"
+      },
+      {
+        "slug": "civil-practice-ict-construction-workflow",
+        "category": "civil-practice",
+        "group": "guide"
+      },
+      {
+        "slug": "civil-practice-material-selection-receiving",
+        "category": "civil-practice",
+        "group": "guide"
+      },
+      {
+        "slug": "civil-practice-numerical-model-review",
+        "category": "civil-practice",
+        "group": "guide"
+      },
+      {
+        "slug": "civil-practice-rainfall-work-suspension",
+        "category": "civil-practice",
+        "group": "guide"
+      },
+      {
+        "slug": "civil-practice-typhoon-forecast-work-planning",
+        "category": "civil-practice",
+        "group": "guide"
+      },
+      {
+        "slug": "civil-practice-volcanic-hazard-site-planning",
+        "category": "civil-practice",
+        "group": "guide"
+      },
+      {
+        "slug": "pe-construction-aimai-hyougen-sahou",
+        "category": "pe-construction",
+        "group": "guide"
+      },
+      {
+        "slug": "pe-construction-keyword-note-tsukurikata",
+        "category": "pe-construction",
+        "group": "guide"
+      },
+      {
+        "slug": "pe-construction-r08-construction-planning",
+        "category": "pe-construction",
+        "group": "past-exam"
+      },
+      {
+        "slug": "pe-construction-r08-environment",
+        "category": "pe-construction",
+        "group": "past-exam"
+      },
+      {
+        "slug": "pe-construction-r08-geotechnical",
+        "category": "pe-construction",
+        "group": "past-exam"
+      },
+      {
+        "slug": "pe-construction-r08-port-airport",
+        "category": "pe-construction",
+        "group": "past-exam"
+      },
+      {
+        "slug": "pe-construction-r08-power-civil",
+        "category": "pe-construction",
+        "group": "past-exam"
+      },
+      {
+        "slug": "pe-construction-r08-railway",
+        "category": "pe-construction",
+        "group": "past-exam"
+      },
+      {
+        "slug": "pe-construction-r08-required",
+        "category": "pe-construction",
+        "group": "past-exam"
+      },
+      {
+        "slug": "pe-construction-r08-river-coast",
+        "category": "pe-construction",
+        "group": "past-exam"
+      },
+      {
+        "slug": "pe-construction-r08-road",
+        "category": "pe-construction",
+        "group": "past-exam"
+      },
+      {
+        "slug": "pe-construction-r08-steel-concrete",
+        "category": "pe-construction",
+        "group": "past-exam"
+      },
+      {
+        "slug": "pe-construction-r08-tunnel",
+        "category": "pe-construction",
+        "group": "past-exam"
+      },
+      {
+        "slug": "pe-construction-r08-urban-planning",
+        "category": "pe-construction",
+        "group": "past-exam"
+      },
+      {
+        "slug": "pe-construction-setsumon-bunkai",
+        "category": "pe-construction",
+        "group": "guide"
+      },
+      {
+        "slug": "pe-construction-shiken-toujitsu-tejun",
+        "category": "pe-construction",
+        "group": "guide"
+      },
+      {
+        "slug": "pe-construction-suikou-checklist",
+        "category": "pe-construction",
+        "group": "guide"
+      },
+      {
+        "slug": "pe-first-stage-guide-calculus-numerical-calculation",
+        "category": "pe-first-stage",
+        "group": "guide"
+      },
+      {
+        "slug": "pe-first-stage-guide-matrix-vector-calculation",
+        "category": "pe-first-stage",
+        "group": "guide"
+      },
+      {
+        "slug": "pe-first-stage-guide-resistance-circuit-calculation",
+        "category": "pe-first-stage",
+        "group": "guide"
+      },
+      {
+        "slug": "pe-first-stage-r01-retry-aptitude",
+        "category": "pe-first-stage",
+        "group": "primary"
+      },
+      {
+        "slug": "pe-first-stage-r01-retry-basic",
+        "category": "pe-first-stage",
+        "group": "primary"
+      },
+      {
+        "slug": "pe-first-stage-r01-retry-construction",
+        "category": "pe-first-stage",
+        "group": "primary"
+      },
+      {
+        "slug": "rccm-guide-career-value",
+        "category": "rccm",
+        "group": "guide"
+      },
+      {
+        "slug": "rccm-guide-difference-pe",
+        "category": "rccm",
+        "group": "guide"
+      },
+      {
+        "slug": "rccm-guide-eligibility-application",
+        "category": "rccm",
+        "group": "guide"
+      },
+      {
+        "slug": "rccm-guide-mondai1-keiken-ronbun",
+        "category": "rccm",
+        "group": "guide"
+      },
+      {
+        "slug": "rccm-guide-mondai2-4-takuitsu",
+        "category": "rccm",
+        "group": "guide"
+      },
+      {
+        "slug": "rccm-guide-mondai3-themes-2026",
+        "category": "rccm",
+        "group": "guide"
+      },
+      {
+        "slug": "rccm-guide-overview",
+        "category": "rccm",
+        "group": "guide"
+      },
+      {
+        "slug": "rccm-guide-study-plan",
+        "category": "rccm",
+        "group": "guide"
+      }
+    ],
     "thin_regression": [],
     "score_dropped": []
   },
@@ -2972,7 +3267,7 @@
       "slug": "civil-construction-1-guide-career-consultation-before-quit",
       "category": "civil-construction-1",
       "group": "guide",
-      "body_chars": 4393,
+      "body_chars": 5206,
       "scored": false,
       "weighted": null,
       "scored_at": null,
@@ -2983,7 +3278,7 @@
       "slug": "civil-construction-1-guide-career-path",
       "category": "civil-construction-1",
       "group": "guide",
-      "body_chars": 3264,
+      "body_chars": 4743,
       "scored": true,
       "weighted": 3,
       "scored_at": "2026-06-08T05:29:49.891Z",
@@ -3049,7 +3344,7 @@
       "slug": "civil-construction-1-guide-consultant",
       "category": "civil-construction-1",
       "group": "guide",
-      "body_chars": 3002,
+      "body_chars": 3051,
       "scored": true,
       "weighted": 2.4,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -3170,7 +3465,7 @@
       "slug": "civil-construction-1-guide-hatchu-shien",
       "category": "civil-construction-1",
       "group": "guide",
-      "body_chars": 4019,
+      "body_chars": 4990,
       "scored": true,
       "weighted": 2.4,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -3233,6 +3528,28 @@
       "thin": false
     },
     {
+      "slug": "civil-construction-1-guide-public-engineer-exam-study",
+      "category": "civil-construction-1",
+      "group": "guide",
+      "body_chars": 4697,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-construction-1-guide-public-engineer-salary-table",
+      "category": "civil-construction-1",
+      "group": "guide",
+      "body_chars": 4390,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
       "slug": "civil-construction-1-guide-public-servant",
       "category": "civil-construction-1",
       "group": "guide",
@@ -3269,10 +3586,21 @@
       "slug": "civil-construction-1-guide-quit-or-stay",
       "category": "civil-construction-1",
       "group": "guide",
-      "body_chars": 3772,
+      "body_chars": 4830,
       "scored": true,
       "weighted": 2.4,
       "scored_at": "2026-07-10T00:00:00.000Z",
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-construction-1-guide-quit-public-engineer",
+      "category": "civil-construction-1",
+      "group": "guide",
+      "body_chars": 3904,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
       "failed": false,
       "thin": false
     },
@@ -3775,7 +4103,7 @@
       "slug": "civil-construction-1-secondary-experience-writing-examples",
       "category": "civil-construction-1",
       "group": "secondary",
-      "body_chars": 14383,
+      "body_chars": 14942,
       "scored": true,
       "weighted": 2.1,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -3915,6 +4243,17 @@
       "thin": false
     },
     {
+      "slug": "civil-construction-1-textbook-coast-port",
+      "category": "civil-construction-1",
+      "group": "textbook",
+      "body_chars": 8480,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
       "slug": "civil-construction-1-textbook-concrete-materials",
       "category": "civil-construction-1",
       "group": "textbook",
@@ -4029,6 +4368,17 @@
       "category": "civil-construction-1",
       "group": "textbook",
       "body_chars": 6674,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-construction-1-textbook-dam-construction",
+      "category": "civil-construction-1",
+      "group": "textbook",
+      "body_chars": 8309,
       "scored": false,
       "weighted": null,
       "scored_at": null,
@@ -4289,6 +4639,17 @@
       "thin": false
     },
     {
+      "slug": "civil-construction-1-textbook-railway-underground",
+      "category": "civil-construction-1",
+      "group": "textbook",
+      "body_chars": 8595,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
       "slug": "civil-construction-1-textbook-rebar-formwork",
       "category": "civil-construction-1",
       "group": "textbook",
@@ -4311,6 +4672,17 @@
       "thin": false
     },
     {
+      "slug": "civil-construction-1-textbook-river-works",
+      "category": "civil-construction-1",
+      "group": "textbook",
+      "body_chars": 9292,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
       "slug": "civil-construction-1-textbook-road-act",
       "category": "civil-construction-1",
       "group": "textbook",
@@ -4326,6 +4698,17 @@
       "category": "civil-construction-1",
       "group": "textbook",
       "body_chars": 10930,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-construction-1-textbook-sabo-landslide",
+      "category": "civil-construction-1",
+      "group": "textbook",
+      "body_chars": 8101,
       "scored": false,
       "weighted": null,
       "scored_at": null,
@@ -4509,6 +4892,17 @@
       "thin": false
     },
     {
+      "slug": "civil-construction-1-textbook-steel-structures",
+      "category": "civil-construction-1",
+      "group": "textbook",
+      "body_chars": 8173,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
       "slug": "civil-construction-1-textbook-surveying-basics",
       "category": "civil-construction-1",
       "group": "textbook",
@@ -4542,6 +4936,17 @@
       "thin": false
     },
     {
+      "slug": "civil-construction-1-textbook-tunnel-natm",
+      "category": "civil-construction-1",
+      "group": "textbook",
+      "body_chars": 8194,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
       "slug": "civil-construction-1-textbook-waste-disposal-manifest",
       "category": "civil-construction-1",
       "group": "textbook",
@@ -4560,6 +4965,17 @@
       "scored": true,
       "weighted": 3,
       "scored_at": "2026-07-10T00:00:00.000Z",
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-construction-1-textbook-water-sewer",
+      "category": "civil-construction-1",
+      "group": "textbook",
+      "body_chars": 9061,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
       "failed": false,
       "thin": false
     },
@@ -4952,7 +5368,7 @@
       "slug": "civil-construction-2-secondary-experience-writing-examples",
       "category": "civil-construction-2",
       "group": "secondary",
-      "body_chars": 3262,
+      "body_chars": 3802,
       "scored": true,
       "weighted": 2.2,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -5070,6 +5486,17 @@
       "thin": false
     },
     {
+      "slug": "civil-practice-ai-document-verification",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 3907,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
       "slug": "civil-practice-asphalt-pavement-control",
       "category": "civil-practice",
       "group": "guide",
@@ -5085,6 +5512,28 @@
       "category": "civil-practice",
       "group": "guide",
       "body_chars": 4001,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-bim-cim-site-practice",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 5069,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-board-of-audit-inspection",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 5111,
       "scored": false,
       "weighted": null,
       "scored_at": null,
@@ -5202,6 +5651,17 @@
       "thin": false
     },
     {
+      "slug": "civil-practice-construction-inspection-types",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 6002,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
       "slug": "civil-practice-construction-plan-document",
       "category": "civil-practice",
       "group": "guide",
@@ -5228,6 +5688,17 @@
       "category": "civil-practice",
       "group": "guide",
       "body_chars": 4277,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-earthquake-tsunami-site-response",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 3334,
       "scored": false,
       "weighted": null,
       "scored_at": null,
@@ -5279,6 +5750,17 @@
       "thin": false
     },
     {
+      "slug": "civil-practice-flood-season-river-work",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 4351,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
       "slug": "civil-practice-formwork-material-inspection",
       "category": "civil-practice",
       "group": "guide",
@@ -5312,10 +5794,54 @@
       "thin": false
     },
     {
+      "slug": "civil-practice-gis-layer-validation",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 4065,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-ict-construction-workflow",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 5343,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
       "slug": "civil-practice-lifting-equipment-selection",
       "category": "civil-practice",
       "group": "guide",
       "body_chars": 4534,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-material-selection-receiving",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 4128,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-numerical-model-review",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 5297,
       "scored": false,
       "weighted": null,
       "scored_at": null,
@@ -5393,6 +5919,17 @@
       "category": "civil-practice",
       "group": "guide",
       "body_chars": 3126,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-rainfall-work-suspension",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 5622,
       "scored": false,
       "weighted": null,
       "scored_at": null,
@@ -5620,10 +6157,32 @@
       "thin": false
     },
     {
+      "slug": "civil-practice-typhoon-forecast-work-planning",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 3558,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-volcanic-hazard-site-planning",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 3333,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
       "slug": "concrete-chief-engineer-guide-essay",
       "category": "concrete-chief-engineer",
       "group": "guide",
-      "body_chars": 5094,
+      "body_chars": 6597,
       "scored": true,
       "weighted": 2.8,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -5832,7 +6391,7 @@
       "slug": "concrete-diagnostician-guide-essay",
       "category": "concrete-diagnostician",
       "group": "guide",
-      "body_chars": 4621,
+      "body_chars": 5695,
       "scored": false,
       "weighted": null,
       "scored_at": null,
@@ -8439,7 +8998,7 @@
       "slug": "pe-comprehensive-management-essay-exam-strategy",
       "category": "pe-comprehensive-management",
       "group": "guide",
-      "body_chars": 11272,
+      "body_chars": 11276,
       "scored": true,
       "weighted": 2.4,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -8461,7 +9020,7 @@
       "slug": "pe-comprehensive-management-essay-persona-guide",
       "category": "pe-comprehensive-management",
       "group": "guide",
-      "body_chars": 4250,
+      "body_chars": 5139,
       "scored": true,
       "weighted": 2,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -8505,7 +9064,7 @@
       "slug": "pe-comprehensive-management-exam-application-guide",
       "category": "pe-comprehensive-management",
       "group": "guide",
-      "body_chars": 9368,
+      "body_chars": 9575,
       "scored": true,
       "weighted": 2.8,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -11893,7 +12452,7 @@
       "slug": "pe-comprehensive-management-public-engineer-qualification-map",
       "category": "pe-comprehensive-management",
       "group": "guide",
-      "body_chars": 3890,
+      "body_chars": 5554,
       "scored": true,
       "weighted": 2.8,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -14222,6 +14781,17 @@
       "thin": false
     },
     {
+      "slug": "pe-construction-aimai-hyougen-sahou",
+      "category": "pe-construction",
+      "group": "guide",
+      "body_chars": 5818,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
       "slug": "pe-construction-bosai-kokudo-kyoujinka",
       "category": "pe-construction",
       "group": "keyword",
@@ -14291,7 +14861,7 @@
       "slug": "pe-construction-construction-planning-exam-themes",
       "category": "pe-construction",
       "group": "keyword",
-      "body_chars": 7478,
+      "body_chars": 7585,
       "scored": true,
       "weighted": 2.6,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -14324,7 +14894,7 @@
       "slug": "pe-construction-environment-exam-themes",
       "category": "pe-construction",
       "group": "keyword",
-      "body_chars": 6854,
+      "body_chars": 6941,
       "scored": true,
       "weighted": 2.6,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -14346,7 +14916,7 @@
       "slug": "pe-construction-geotechnical-exam-themes",
       "category": "pe-construction",
       "group": "keyword",
-      "body_chars": 7025,
+      "body_chars": 7114,
       "scored": true,
       "weighted": 2.6,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -14379,7 +14949,7 @@
       "slug": "pe-construction-gyoumu-keireki-hyou",
       "category": "pe-construction",
       "group": "guide",
-      "body_chars": 4602,
+      "body_chars": 4885,
       "scored": true,
       "weighted": 2.6,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -14431,6 +15001,17 @@
       "thin": false
     },
     {
+      "slug": "pe-construction-keyword-note-tsukurikata",
+      "category": "pe-construction",
+      "group": "guide",
+      "body_chars": 5278,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
       "slug": "pe-construction-kokudo-keisei-chiiki",
       "category": "pe-construction",
       "group": "keyword",
@@ -14478,7 +15059,7 @@
       "slug": "pe-construction-pe-secondary-essay-guide",
       "category": "pe-construction",
       "group": "guide",
-      "body_chars": 5151,
+      "body_chars": 5362,
       "scored": true,
       "weighted": 2.2,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -14489,7 +15070,7 @@
       "slug": "pe-construction-port-airport-exam-themes",
       "category": "pe-construction",
       "group": "keyword",
-      "body_chars": 6861,
+      "body_chars": 6950,
       "scored": true,
       "weighted": 2.6,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -14511,7 +15092,7 @@
       "slug": "pe-construction-power-civil-exam-themes",
       "category": "pe-construction",
       "group": "keyword",
-      "body_chars": 6835,
+      "body_chars": 6922,
       "scored": true,
       "weighted": 2.8,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -15454,10 +16035,142 @@
       "thin": false
     },
     {
+      "slug": "pe-construction-r08-construction-planning",
+      "category": "pe-construction",
+      "group": "past-exam",
+      "body_chars": 4259,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "pe-construction-r08-environment",
+      "category": "pe-construction",
+      "group": "past-exam",
+      "body_chars": 3163,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "pe-construction-r08-geotechnical",
+      "category": "pe-construction",
+      "group": "past-exam",
+      "body_chars": 4403,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "pe-construction-r08-port-airport",
+      "category": "pe-construction",
+      "group": "past-exam",
+      "body_chars": 3557,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "pe-construction-r08-power-civil",
+      "category": "pe-construction",
+      "group": "past-exam",
+      "body_chars": 2813,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "pe-construction-r08-railway",
+      "category": "pe-construction",
+      "group": "past-exam",
+      "body_chars": 2405,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "pe-construction-r08-required",
+      "category": "pe-construction",
+      "group": "past-exam",
+      "body_chars": 2120,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "pe-construction-r08-river-coast",
+      "category": "pe-construction",
+      "group": "past-exam",
+      "body_chars": 3181,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "pe-construction-r08-road",
+      "category": "pe-construction",
+      "group": "past-exam",
+      "body_chars": 2882,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "pe-construction-r08-steel-concrete",
+      "category": "pe-construction",
+      "group": "past-exam",
+      "body_chars": 3368,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "pe-construction-r08-tunnel",
+      "category": "pe-construction",
+      "group": "past-exam",
+      "body_chars": 3441,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "pe-construction-r08-urban-planning",
+      "category": "pe-construction",
+      "group": "past-exam",
+      "body_chars": 2930,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
       "slug": "pe-construction-railway-exam-themes",
       "category": "pe-construction",
       "group": "keyword",
-      "body_chars": 6527,
+      "body_chars": 6606,
       "scored": true,
       "weighted": 2.8,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -15490,7 +16203,7 @@
       "slug": "pe-construction-river-coast-exam-themes",
       "category": "pe-construction",
       "group": "keyword",
-      "body_chars": 6943,
+      "body_chars": 7030,
       "scored": true,
       "weighted": 2.8,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -15553,6 +16266,17 @@
       "thin": false
     },
     {
+      "slug": "pe-construction-setsumon-bunkai",
+      "category": "pe-construction",
+      "group": "guide",
+      "body_chars": 5976,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
       "slug": "pe-construction-shakai-shihon-ronbun-keyword",
       "category": "pe-construction",
       "group": "keyword",
@@ -15560,6 +16284,17 @@
       "scored": true,
       "weighted": 2.4,
       "scored_at": "2026-07-10T00:00:00.000Z",
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "pe-construction-shiken-toujitsu-tejun",
+      "category": "pe-construction",
+      "group": "guide",
+      "body_chars": 5125,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
       "failed": false,
       "thin": false
     },
@@ -15578,7 +16313,7 @@
       "slug": "pe-construction-steel-concrete-exam-themes",
       "category": "pe-construction",
       "group": "keyword",
-      "body_chars": 7293,
+      "body_chars": 7386,
       "scored": true,
       "weighted": 2,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -15597,6 +16332,17 @@
       "thin": true
     },
     {
+      "slug": "pe-construction-suikou-checklist",
+      "category": "pe-construction",
+      "group": "guide",
+      "body_chars": 4322,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
       "slug": "pe-construction-toan-kousei-template",
       "category": "pe-construction",
       "group": "guide",
@@ -15611,7 +16357,7 @@
       "slug": "pe-construction-tunnel-exam-themes",
       "category": "pe-construction",
       "group": "keyword",
-      "body_chars": 6434,
+      "body_chars": 6511,
       "scored": true,
       "weighted": 2,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -15633,7 +16379,7 @@
       "slug": "pe-construction-urban-planning-exam-themes",
       "category": "pe-construction",
       "group": "keyword",
-      "body_chars": 7075,
+      "body_chars": 7168,
       "scored": true,
       "weighted": 2,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -15685,6 +16431,17 @@
       "thin": false
     },
     {
+      "slug": "pe-first-stage-guide-calculus-numerical-calculation",
+      "category": "pe-first-stage",
+      "group": "guide",
+      "body_chars": 3784,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
       "slug": "pe-first-stage-guide-construction-subject",
       "category": "pe-first-stage",
       "group": "guide",
@@ -15696,10 +16453,32 @@
       "thin": false
     },
     {
+      "slug": "pe-first-stage-guide-matrix-vector-calculation",
+      "category": "pe-first-stage",
+      "group": "guide",
+      "body_chars": 4101,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
       "slug": "pe-first-stage-guide-overview",
       "category": "pe-first-stage",
       "group": "guide",
       "body_chars": 6311,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "pe-first-stage-guide-resistance-circuit-calculation",
+      "category": "pe-first-stage",
+      "group": "guide",
+      "body_chars": 3564,
       "scored": false,
       "weighted": null,
       "scored_at": null,
@@ -15949,6 +16728,39 @@
       "thin": false
     },
     {
+      "slug": "pe-first-stage-r01-retry-aptitude",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "body_chars": 17361,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "pe-first-stage-r01-retry-basic",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "body_chars": 23643,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "pe-first-stage-r01-retry-construction",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "body_chars": 23362,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
       "slug": "pe-first-stage-r02-aptitude",
       "category": "pe-first-stage",
       "group": "primary",
@@ -16143,6 +16955,94 @@
       "scored": true,
       "weighted": 2,
       "scored_at": "2026-07-10T00:00:00.000Z",
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "rccm-guide-career-value",
+      "category": "rccm",
+      "group": "guide",
+      "body_chars": 4958,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "rccm-guide-difference-pe",
+      "category": "rccm",
+      "group": "guide",
+      "body_chars": 3250,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "rccm-guide-eligibility-application",
+      "category": "rccm",
+      "group": "guide",
+      "body_chars": 3330,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "rccm-guide-mondai1-keiken-ronbun",
+      "category": "rccm",
+      "group": "guide",
+      "body_chars": 4483,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "rccm-guide-mondai2-4-takuitsu",
+      "category": "rccm",
+      "group": "guide",
+      "body_chars": 3545,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "rccm-guide-mondai3-themes-2026",
+      "category": "rccm",
+      "group": "guide",
+      "body_chars": 3809,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "rccm-guide-overview",
+      "category": "rccm",
+      "group": "guide",
+      "body_chars": 4144,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "rccm-guide-study-plan",
+      "category": "rccm",
+      "group": "guide",
+      "body_chars": 3410,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
       "failed": false,
       "thin": false
     }

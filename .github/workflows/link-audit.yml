@@ -39,17 +39,24 @@ jobs:
         continue-on-error: true
         run: npm run check-external-links -- --report .claude/state/link-audit/external-latest.json
 
+      # DN-0276: X 投稿済みが凍結・手動削除でライブから消えていないかをログイン不要の
+      # oEmbed で照合する（認証済みブラウザ不要・link-audit と同じ「読み取り専用・週次」枠）。
+      - name: Run X posted-live audit (oEmbed)
+        continue-on-error: true
+        run: npm run check-x-posted-live -- --report .claude/state/x-posted-live/latest.json
+
       - name: Publish report to develop branch (.claude/state/link-audit/)
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add .claude/state/link-audit
+          git add .claude/state/link-audit .claude/state/x-posted-live
           if git diff --cached --quiet; then
             echo "No link-audit changes to publish"
             exit 0
           fi
 
           BROKEN=$(node -e "const fs=require('fs');const f=fs.readdirSync('.claude/state/link-audit').filter(x=>x.startsWith('audit-')).sort().pop();console.log(JSON.parse(fs.readFileSync('.claude/state/link-audit/'+f,'utf8')).summary.HIGH);")
-          git commit -m "chore(metrics): link audit $(date -u +%Y-%m-%dT%H:%MZ) — ${BROKEN} broken [skip ci]"
+          X_GONE=$(node -e "const fs=require('fs');const p='.claude/state/x-posted-live/latest.json';console.log(fs.existsSync(p)?JSON.parse(fs.readFileSync(p,'utf8')).gone:'n/a');")
+          git commit -m "chore(metrics): link audit $(date -u +%Y-%m-%dT%H:%MZ) — ${BROKEN} broken / X gone ${X_GONE} [skip ci]"
           git push origin develop

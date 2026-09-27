@@ -2,6 +2,7 @@
 name: keyword-rewriter
 description: 技術士総合技術監理（CEM）キーワードページのバルクリライトを担当するGeneratorエージェント。
 model: sonnet
+domain: site
 ---
 
 # Keyword Rewriter Agent

@@ -7,6 +7,7 @@ description: >
   根拠収集 → 記事に反映のシンプルなフローで内容の深みを追加する。
   Use when user asks to [NotebookLMで調べて, 深掘り調査, 引用根拠でリライト,
   テキストで補強, NotebookLMで品質向上, /notebooklm-research].
+domain: material
 ---
 
 # /notebooklm-research — NotebookLM 起点のキーワード内容補強

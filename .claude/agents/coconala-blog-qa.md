@@ -3,6 +3,7 @@ name: coconala-blog-qa
 description: ココナラブログ記事（content/coconala/blog/{slug}/article.md）を5軸ルーブリックで採点する Evaluator エージェント。検索適合・論点の的確さ/捏造なし・カニバリ境界・導線整合・構成準拠を 0〜3 で採点し、平均 2.0 以上で合格。加えて外部リンク/連絡先ゼロ・送客先 listed などのハードゲートを check-coconala-blog で機械確認する（ゲートは平均で薄めない）。修正はしない（audit-only）。
 model: sonnet
 tools: Read, Glob, Grep, Bash
+domain: product
 ---
 
 # ココナラブログ QA Agent

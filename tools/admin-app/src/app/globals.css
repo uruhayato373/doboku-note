@@ -63,7 +63,9 @@
   --sidebar-2: hsl(222 40% 14%);
   --sidebar-border: hsl(217 33% 20%);
   --sidebar-ink: hsl(210 40% 96%);
-  --sidebar-muted: hsl(215 20% 65%);
+  --sidebar-muted: hsl(215 20% 72%);
+  --sidebar-group-bg: hsl(217 33% 18%);
+  --row-alt: hsl(214 32% 95%);
   --radius: 12px;
   --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
@@ -72,7 +74,7 @@
   color-scheme: dark;
   --background: 222 47% 7%;
   --foreground: 210 40% 96%;
-  --card: 222 38% 10%;
+  --card: 222 36% 12%;
   --card-foreground: 210 40% 96%;
   --popover: 222 38% 10%;
   --popover-foreground: 210 40% 96%;
@@ -80,23 +82,23 @@
   --primary-foreground: 222 47% 8%;
   --secondary: 217 30% 16%;
   --secondary-foreground: 210 40% 96%;
-  --muted-token: 217 30% 14%;
-  --muted-foreground: 215 20% 65%;
+  --muted-token: 217 30% 18%;
+  --muted-foreground: 215 22% 74%;
   --accent-token: 217 48% 18%;
   --accent-foreground: 213 94% 72%;
   --destructive: 0 72% 62%;
   --destructive-foreground: 210 40% 98%;
-  --border-token: 217 28% 19%;
-  --input: 217 28% 19%;
+  --border-token: 217 26% 26%;
+  --input: 217 26% 26%;
   --ring: 217 91% 60%;
 
   --bg: hsl(var(--background));
   --panel: hsl(var(--card));
   --panel-2: hsl(var(--muted-token));
   --border: hsl(var(--border-token));
-  --border-soft: hsl(217 27% 15%);
+  --border-soft: hsl(217 26% 21%);
   --ink: hsl(var(--foreground));
-  --ink-body: hsl(215 25% 78%);
+  --ink-body: hsl(215 25% 84%);
   --ink-muted: hsl(var(--muted-foreground));
   --accent: hsl(var(--primary));
   --accent-fill: hsl(var(--accent-token));
@@ -119,7 +121,9 @@
   --sidebar-2: hsl(222 42% 10%);
   --sidebar-border: hsl(217 28% 17%);
   --sidebar-ink: hsl(210 40% 96%);
-  --sidebar-muted: hsl(215 20% 62%);
+  --sidebar-muted: hsl(215 22% 72%);
+  --sidebar-group-bg: hsl(217 35% 15%);
+  --row-alt: hsl(217 30% 16%);
 }
 
 * {
@@ -248,11 +252,11 @@ a:hover {
   margin-top: 10px;
   padding: 11px 10px 5px;
   border-top: 1px solid hsl(215 30% 30% / 0.4);
-  color: var(--sidebar-muted);
-  font-size: 9px;
+  color: var(--sidebar-ink);
+  font-size: 12.5px;
   font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+  background: var(--sidebar-group-bg);
+  border-radius: 6px;
 }
 /* 最初のグループはブランド直下なので区切り線を引かない（線が二重に見える） */
 .app-nav .brand + .group {
@@ -560,22 +564,6 @@ a:hover {
 .page-head-copy {
   min-width: 0;
 }
-.page-eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  margin-bottom: 6px;
-  color: var(--accent);
-  font-size: 9px;
-  font-weight: 800;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-.page-eyebrow > span {
-  width: 18px;
-  height: 1px;
-  background: var(--accent);
-}
 .page-head h1 {
   font-size: clamp(24px, 2vw, 30px);
   color: var(--ink);
@@ -588,28 +576,6 @@ a:hover {
   margin: 0;
   color: var(--ink-muted);
   font-size: 12.5px;
-}
-.page-status {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  flex: none;
-  padding: 7px 10px;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  background: hsl(var(--card) / 0.75);
-  color: var(--ink-muted);
-  box-shadow: 0 1px 2px rgb(15 23 42 / 0.04);
-  font-family: var(--mono);
-  font-size: 9.5px;
-  backdrop-filter: blur(8px);
-}
-.status-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 999px;
-  background: var(--good);
-  box-shadow: 0 0 8px color-mix(in srgb, var(--good) 60%, transparent);
 }
 @media (max-width: 620px) {
   .page-head {
@@ -628,6 +594,14 @@ a:hover {
   box-shadow:
     0 1px 2px rgb(15 23 42 / 0.03),
     0 12px 30px rgb(15 23 42 / 0.035);
+}
+/* 表だけを包むカードは枠を出さない（表の周りの二重の枠をなくす）。見出しと余白は残す。 */
+.card:has(> .table-wrap),
+.card:has(> table) {
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
 }
 .card + .card {
   margin-top: 16px;
@@ -678,73 +652,29 @@ a:hover {
 
 /* ── KPI ── */
 .kpi {
-  position: relative;
-  overflow: hidden;
   background: var(--panel);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 15px 16px 16px;
-  box-shadow:
-    0 1px 2px rgb(15 23 42 / 0.03),
-    0 10px 24px rgb(15 23 42 / 0.04);
-  transition:
-    border-color 160ms ease,
-    box-shadow 160ms ease,
-    transform 160ms ease;
-}
-.kpi:hover {
-  border-color: hsl(var(--primary) / 0.35);
-  box-shadow: 0 14px 34px hsl(var(--primary) / 0.08);
-  transform: translateY(-1px);
-}
-.kpi-topline {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
+  padding: 10px 14px;
 }
 .kpi .label {
   color: var(--ink-muted);
   font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.01em;
-}
-.kpi-icon {
-  display: grid;
-  width: 30px;
-  height: 30px;
-  flex: none;
-  place-items: center;
-  border: 1px solid hsl(var(--primary) / 0.12);
-  border-radius: 8px;
-  background: hsl(var(--primary) / 0.08);
-  color: var(--accent);
 }
 .kpi .value {
   color: var(--ink);
-  margin-top: 7px;
-  font-size: clamp(24px, 2vw, 30px);
-  font-weight: 750;
+  margin-top: 2px;
+  font-size: 18px;
+  font-weight: 650;
   font-variant-numeric: tabular-nums;
-  letter-spacing: -0.045em;
-  line-height: 1.1;
+  line-height: 1.3;
 }
 .kpi .unit {
-  font-size: 13px;
+  font-size: 12px;
   color: var(--ink-muted);
   font-weight: 400;
   margin-left: 4px;
-  letter-spacing: 0;
-}
-.kpi-rule {
-  position: absolute;
-  right: 16px;
-  bottom: 0;
-  left: 16px;
-  height: 2px;
-  border-radius: 999px 999px 0 0;
-  background: linear-gradient(90deg, var(--accent), transparent 65%);
-  opacity: 0.55;
 }
 
 /* ── テーブル ──
@@ -754,8 +684,6 @@ a:hover {
 .table-wrap {
   max-width: 100%;
   overflow-x: auto;
-  border: 1px solid var(--border-soft);
-  border-radius: 10px;
 }
 table.data {
   width: 100%;
@@ -775,8 +703,7 @@ table.data th {
   position: sticky;
   top: 0;
   background: var(--panel-2);
-  font-size: 10.5px;
-  letter-spacing: 0.025em;
+  font-size: 12px;
 }
 table.data td.num,
 table.data th.num {
@@ -788,8 +715,12 @@ table.data td.wrap {
   white-space: normal;
   max-width: 460px;
 }
-table.data tr:hover td {
-  background: hsl(var(--primary) / 0.035);
+/* 1 行おきに薄く塗って行を追いやすくする（偶数行）。hover はその上にもう一段濃く。 */
+table.data tbody tr:nth-child(even) td {
+  background: var(--row-alt);
+}
+table.data tbody tr:hover td {
+  background: hsl(var(--primary) / 0.09);
 }
 .mono {
   font-family: var(--mono);
@@ -2009,8 +1940,8 @@ code {
   letter-spacing: 0.08em;
 }
 .app-nav .group {
-  margin-top: 6px;
-  padding: 8px 10px 3px;
+  margin-top: 8px;
+  padding: 10px 10px 4px;
 }
 .app-nav .tab {
   min-height: 30px;
@@ -2053,7 +1984,7 @@ code {
   gap: 12px;
 }
 .kpi {
-  padding: 12px 14px;
+  padding: 10px 12px;
 }
 table.data {
   font-size: 12px;
@@ -2226,6 +2157,13 @@ table.data.content-table .quality-col { width: 176px; }
 .ch-dot.instagram { background: var(--ch-ig); }
 .ch-dot.youtube { background: var(--ch-yt); }
 .ch-dot.todo { background: var(--ch-todo); }
+.ch-dot.exam { background: hsl(43 90% 50%); }
+.ch-dot.note { background: hsl(160 60% 42%); }
+.ch-dot.kindle { background: hsl(28 85% 52%); }
+.ch-dot.coconala { background: hsl(200 80% 50%); }
+.ch-dot.video { background: hsl(0 60% 60%); }
+.ch-dot.experiment { background: hsl(268 60% 62%); }
+.ch-dot.review { background: hsl(290 45% 55%); }
 
 .schedule-nav {
   display: flex;
@@ -2384,3 +2322,13 @@ table.data.schedule-grid td {
 .business-grid { margin: 16px 0; }
 .business-grid > .card { margin: 0; }
 .business-direction h2 { font-size: 22px; line-height: 1.5; }
+
+/* グループ名は領域の概要（/domains/<id>）へのリンク */
+.app-nav a.group {
+  display: block;
+  text-decoration: none;
+}
+.app-nav a.group:hover,
+.app-nav a.group.active {
+  color: var(--accent);
+}

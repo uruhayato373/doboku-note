@@ -54,10 +54,10 @@
     }
   ],
   "northStar": {
-    "current": "organicUsers",
-    "role": "集客の継続指標。事業全体の成功や合格への貢献を単独では表さない。",
+    "current": "netReceipts",
+    "role": "事業の頂点指標。手数料等控除後の月の受取額（全チャネル合計・資格別）。目標は target 記録で持つ（2026-09-27 運営者決定: 月 ¥100,000）。",
     "candidate": "理解から演習・答案確認まで進んだ学習者",
-    "readiness": "資格横断の計測範囲・重複排除・同意と品質を検証するまで正式なNSMへ置換しない。"
+    "readiness": "学習価値の指標は資格横断の計測範囲・重複排除・同意と品質を検証するまで正式な指標へ置換しない。自然検索ユーザー（organicUsers）は集客の補助指標として保持する（大半が Bing・Google と分けて読む）。"
   },
   "review": {
     "weekly": "前の完了した月曜〜日曜。実験の結果・欠測と次の一手を確認。",
@@ -264,7 +264,9 @@
       "definition": "アカウント日次リーチの合計（延べ）。ユニークではない。",
       "channel": "instagram",
       "target": null,
-      "appliesTo": ["all"]
+      "appliesTo": [
+        "all"
+      ]
     },
     {
       "id": "igFollowers",
@@ -274,7 +276,9 @@
       "definition": "期間末時点のフォロワー数（ストック）。",
       "channel": "instagram",
       "target": null,
-      "appliesTo": ["all"]
+      "appliesTo": [
+        "all"
+      ]
     },
     {
       "id": "cfRequestsJp",
@@ -284,7 +288,9 @@
       "definition": "Cloudflare edge 集計・bot を含む・GA4 と一致しない。GA4 の bot 疑義の突合用。",
       "channel": "cloudflare",
       "target": null,
-      "appliesTo": ["all"]
+      "appliesTo": [
+        "all"
+      ]
     },
     {
       "id": "cfRequestsOther",
@@ -294,7 +300,9 @@
       "definition": "Cloudflare edge 集計・bot を含む・GA4 と一致しない。GA4 の bot 疑義の突合用。",
       "channel": "cloudflare",
       "target": null,
-      "appliesTo": ["all"]
+      "appliesTo": [
+        "all"
+      ]
     }
   ],
   "rules": [
@@ -353,20 +361,31 @@
     "source": "scripts/kindle-published/catalog.json の書籍ID。重点資格に一意帰属できない技術士一次・2級土木・コンクリート系は全体のみに含める。",
     "rules": [
       {
-        "prefixes": ["A-"],
-        "ids": ["e-02"],
+        "prefixes": [
+          "A-"
+        ],
+        "ids": [
+          "e-02"
+        ],
         "qualification": "civil-construction-1"
       },
       {
-        "prefixes": ["b-", "f-"],
+        "prefixes": [
+          "b-",
+          "f-"
+        ],
         "qualification": "pe-comprehensive-management"
       },
       {
-        "prefixes": ["c-"],
+        "prefixes": [
+          "c-"
+        ],
         "qualification": "pe-construction"
       },
       {
-        "prefixes": ["h-"],
+        "prefixes": [
+          "h-"
+        ],
         "qualification": "rccm"
       }
     ]

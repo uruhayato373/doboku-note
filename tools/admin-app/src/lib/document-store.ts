@@ -1,3 +1,4 @@
+import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync, readdirSync, realpathSync, statSync } from 'node:fs';
 import { extname, join, relative, resolve, sep } from 'node:path';
 import matter from 'gray-matter';
@@ -91,8 +92,35 @@ export function plainText(markdown: string): string {
 
 const stripExt = (rel: string) => rel.replace(/\.(md|json)$/, '');
 
+
+/**
+ * 走査ルート配下の各ファイルの最終コミット日時（ルート相対パス → ISO）。git 1 回で取る。
+ * ファイルの mtime は checkout・merge のたびに今日へ変わり、全文書が同じ日付に見えるため使わない。
+ * コミットの無いファイル（未追跡）と git が使えない環境は含めない（呼び出し側が mtime へ戻す）。
+ */
+function lastCommitDates(root: string): Map<string, string> {
+  const dates = new Map<string, string>();
+  try {
+    const out = execFileSync('git', ['-c', 'core.quotepath=false', 'log', '--format=>%cI', '--name-only', '--relative', '--', '.'], {
+      cwd: root,
+      encoding: 'utf8',
+      maxBuffer: 64 * 1024 * 1024,
+      stdio: ['ignore', 'pipe', 'ignore'],
+    });
+    let current = '';
+    for (const line of out.split('\n')) {
+      if (line.startsWith('>')) current = line.slice(1);
+      else if (line && current && !dates.has(line)) dates.set(line, current);
+    }
+  } catch {
+    // git が無い・リポジトリ外: 空のまま返し、mtime を使う
+  }
+  return dates;
+}
+
 /** 走査ルート配下の全文書。category は先頭ディレクトリ（無ければ 'other'）。 */
 export function listDocuments(source: DocumentSource): DocumentEntry[] {
+  const committed = lastCommitDates(source.root);
   return walk(source.root, source.allowedExtensions, [], source.exclude)
     .map((absolute) => {
       const rel = toPosix(relative(source.root, absolute));
@@ -110,7 +138,7 @@ export function listDocuments(source: DocumentSource): DocumentEntry[] {
         title,
         category: segments.length > 1 ? segments[0]! : 'other',
         summary: text.slice(0, 180),
-        modifiedAt: stats.mtime.toISOString(),
+        modifiedAt: committed.get(rel) ?? stats.mtime.toISOString(),
         size: stats.size,
         searchText: `${title} ${rel} ${text}`.toLocaleLowerCase('ja'),
         frontmatter: parsed.data,
@@ -163,7 +191,7 @@ export function loadDocument(source: DocumentSource, slugParts: string[]): Loade
   const raw = readFileSync(absolute, 'utf8');
   const rel = toPosix(relative(realpathSync(resolve(source.root)), absolute));
   const file = `${source.filePrefix}/${rel}`;
-  const modifiedAt = statSync(absolute).mtime.toISOString();
+  const modifiedAt = lastCommitDates(resolve(source.root)).get(rel) ?? statSync(absolute).mtime.toISOString();
 
   if (extname(absolute) === '.json') {
     let formatted = raw;

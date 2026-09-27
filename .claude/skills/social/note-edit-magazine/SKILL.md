@@ -7,6 +7,7 @@ description: >
   **初回 or 様子見は必ず --dry-run。書き込みは収益アカウントのため保存後 API 検証まで必須**。
 disable-model-invocation: true
 argument-hint: "--key <magazineKey> --dir <magazineDir>（or --txt note掲載文.txt）[--articles] [--dry-run]"
+domain: product
 ---
 
 note の有料マガジンを `note掲載文.txt`（マガジン設定の単一SoT・■ セクション＋機械ブロック）駆動で編集する。`publish-x` と同じ「システム Chrome ＋永続プロファイル」方式で、bot 検知を回避して編集・保存する。読み取り検証は `verify-note-magazines`、編集導線の入口は `note-edit-session`。本スキルは値の自動反映（書き込み）を担う。

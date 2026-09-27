@@ -1,16 +1,12 @@
 #!/usr/bin/env node
 // 採点結果をアトミックに記録する 1 ステップ。
-// merge-scores.mjs（scores.json 反映）+ state.status='verified' 更新 +
-// build-progress-md.mjs（進捗 md 再生成）を 1 コマンドで実行し、
+// merge-scores.mjs（scores.json 反映）+ state.status='verified' 更新 を 1 コマンドで実行し、
 // scores.json と state.json のドリフトを構造的に防ぐ。
 //
 // Usage: node record-verify.mjs <results.json> [--wave G-8-reverify]
 //   results.json: [{ slug, scores:{structure,mobile,principle,reference,linking}, weak_axes?, qualitative_comment? }, ...]
 
 import { readFileSync } from 'node:fs';
-import { execFileSync } from 'node:child_process';
-import { fileURLToPath } from 'node:url';
-import { dirname, join } from 'node:path';
 import {
   readScores,
   writeScores,
@@ -72,13 +68,7 @@ for (const r of results) {
 writeScores(scores);
 writeState(state);
 
-// (c) 進捗 md 再生成
-const here = dirname(fileURLToPath(import.meta.url));
-try {
-  execFileSync('node', [join(here, 'build-progress-md.mjs')], { stdio: 'inherit' });
-} catch (e) {
-  console.error('build-progress-md.mjs 失敗（scores/state は更新済み）:', e.message);
-}
+// 進捗は管理画面 /quality/progress が scores/state から直接出す（md へは書かない）
 
 const avg = merged ? (results.filter((r) => r && r.scores).reduce((a, r) => a + computeWeighted(r.scores), 0) / merged).toFixed(2) : '0';
 console.log(`\n記録完了: merged=${merged} skipped=${skipped} / 平均weighted=${avg} / ≥2.5達成=${passed.length}/${merged}`);

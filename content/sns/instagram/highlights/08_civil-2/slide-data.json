@@ -1,0 +1,122 @@
+{
+  "_meta": {
+    "kind": "highlight-civil-2",
+    "format": "stories",
+    "size": { "width": 1080, "height": 1920 },
+    "slidesCount": 5,
+    "purpose": "2級土木施工管理技術検定（第一次後期・第二次、10/25）直前の受験者向け 5 枚 Stories。導入→無料（サイト）→経験記述→学科記述→直前演習の動線。",
+    "policy": ".claude/knowledge/reference/ig-highlight-design-policy.md",
+    "strategy": "docs/marketing/01_SNS集客戦略.md v7.1 §2（2級土木 直前パック展開）",
+    "examDate": "2026-10-25（.claude/config/exam-calendar.json exams.civil-construction-2.events.firstLate / second）",
+    "priceNote": "価格は画像に焼き込まない。src/lib/note-magazines.ts の price を正とする（変わるため）"
+  },
+  "slides": [
+    {
+      "index": 1,
+      "filename": "01-cover.png",
+      "role": "cover",
+      "tagText": "2級土木",
+      "title": "10/25直前",
+      "subtitle": "第一次後期・第二次",
+      "body": [
+        "過去問と経験記述の書き方",
+        "自分の工事に置き換える答案",
+        "学科記述テーマ別出る順",
+        "直前2週間の総仕上げ"
+      ],
+      "stickers": [],
+      "_note": "導入スライド。リンクなし。5枚で何が分かるかを提示"
+    },
+    {
+      "index": 2,
+      "filename": "02-free.png",
+      "role": "free",
+      "tagText": "2級土木",
+      "title": "無料で読める",
+      "subtitle": "経験記述の出題傾向と書き方",
+      "body": [
+        "サイトで無料公開中",
+        "経験記述の出題傾向",
+        "書き方の基本",
+        "会員登録は不要"
+      ],
+      "chipCta": "サイトで読む",
+      "stickers": [
+        {
+          "type": "link",
+          "url": "https://doboku-note.com/exam/civil-construction-2/secondary/experience-writing-guide?utm_source=instagram&utm_medium=social&utm_campaign=ig-hl-civil2&utm_content=s2",
+          "label": "経験記述の出題傾向と書き方は無料で読める"
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "filename": "03-experience.png",
+      "role": "experience",
+      "tagText": "2級土木",
+      "title": "経験記述",
+      "subtitle": "自分の工事に置き換える",
+      "body": [
+        "安全・品質・工程 3テーマ",
+        "工種別の完成答案",
+        "自分の現場への置換ガイド",
+        "減点回避の添削例"
+      ],
+      "chipCta": "完成答案集を見る",
+      "stickers": [
+        {
+          "type": "link",
+          "url": "https://note.com/dobokunote/m/m1881a9578027?utm_source=instagram&utm_medium=social&utm_campaign=ig-hl-civil2&utm_content=s3",
+          "label": "施工経験記述 完成答案集（note）"
+        }
+      ],
+      "_note": "magazineId: civil-2-experience-essay（src/lib/note-magazines.ts）"
+    },
+    {
+      "index": 4,
+      "filename": "04-gakka.png",
+      "role": "gakka",
+      "tagText": "2級土木",
+      "title": "学科記述",
+      "subtitle": "テーマ別 出る順",
+      "body": [
+        "問題2〜9をテーマ別に再編",
+        "土工・コンクリート工など5本",
+        "出題頻度と解答の型",
+        "頻出語句の穴埋めリスト"
+      ],
+      "chipCta": "出る順を見る",
+      "stickers": [
+        {
+          "type": "link",
+          "url": "https://note.com/dobokunote/m/m9a09a8982734?utm_source=instagram&utm_medium=social&utm_campaign=ig-hl-civil2&utm_content=s4",
+          "label": "学科記述 テーマ別出る順（note）"
+        }
+      ],
+      "_note": "magazineId: civil-2-gakka-kijutsu（src/lib/note-magazines.ts）"
+    },
+    {
+      "index": 5,
+      "filename": "05-chokuzen.png",
+      "role": "chokuzen",
+      "tagText": "2級土木",
+      "title": "直前仕上げ",
+      "subtitle": "模試・暗記・出題分析",
+      "body": [
+        "予想模試 3回",
+        "直前暗記ノート 147問",
+        "出題分析・直前ロードマップ",
+        "全部は土木もくじへ"
+      ],
+      "chipCta": "直前パックを見る",
+      "stickers": [
+        {
+          "type": "link",
+          "url": "https://note.com/dobokunote/m/md3518107aa97?utm_source=instagram&utm_medium=social&utm_campaign=ig-hl-civil2&utm_content=s5",
+          "label": "直前総仕上げパック（note）"
+        }
+      ],
+      "_note": "magazineId: civil-2-chokuzen-pack（src/lib/note-magazines.ts）。教材一覧・添削の案内は note.md 運用メモへ（本枚は直前パックへの直リンクを優先）"
+    }
+  ]
+}

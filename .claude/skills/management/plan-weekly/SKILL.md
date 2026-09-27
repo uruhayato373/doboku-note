@@ -2,11 +2,12 @@
 name: plan-weekly
 description: >
   .claude/todo/{annual,monthly,weekly}.md と git log を読んで今週のタスクを優先順位付きで決定し、.claude/todo/weekly.md を直接更新する（月曜の作業開始前・todo-planner を1回起動する軽量版）。NSM/メトリクス連動の戦略的計画・weekly-review 後の翌週計画は /weekly-plan の担当で別物。Use when user asks to [今週のタスクを決めて, 今週何をすべきか, weekly.md を更新して, /plan-weekly].
+domain: plan
 ---
 
 ## 事業レビューからの選定
 
-`docs/strategy/01_プロダクト戦略.md`、`.claude/config/business-direction.json`、`.claude/state/metrics/business/` の最新週次/月次判断を先に読む。重点資格・学習上の不足・販売と運営負担に沿って選ぶ。月初は `/monthly-review` の判断からmonthlyへpullする。施策の状態は実験台帳、単発の実装はbacklogを参照し、毎週の取得・レビューを新規backlogへ量産しない。
+`docs/strategy/01_プロダクト戦略.md`、`.claude/config/business-direction.json`、`.claude/state/metrics/business/` の最新週次/月次判断を先に読む。重点資格・学習上の不足・販売と運営負担に沿って選ぶ。月初は `/monthly-review` の判断で、今月やるカードの `[時期:]` を付ける・直す（monthly.md は成果目標だけ・タスク表は書かない）。施策の状態は実験台帳、単発の実装はbacklogを参照し、毎週の取得・レビューを新規backlogへ量産しない。
 
 `todo-planner` エージェントを起動して今週の計画を立て、`.claude/todo/weekly.md` を更新する。
 
@@ -21,8 +22,8 @@ description: >
 ## 動作
 
 1. `todo-planner` エージェントが以下を読む:
-   - `.claude/todo/annual.md`（試験カレンダー・年間優先事項）
-   - `.claude/todo/monthly.md`（今月のゴール・タスク状態）
+   - `.claude/config/exam-calendar.json`（試験日。annual.md は方針の文章だけで日付を持たない）
+   - `.claude/todo/monthly.md`（今月の成果目標）。候補は `[時期:]` が今月を含むカード（管理画面 計画 ＞ 月間）
    - `.claude/todo/weekly.md`（前週の完了・未完了）
    - `.claude/knowledge/reference/codex-division-of-labor.md`（Codex に振れる作業の基準）
    - `git log --oneline -20`（直近の実績）

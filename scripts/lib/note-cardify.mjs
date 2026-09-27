@@ -19,7 +19,7 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 /**
  * 次にカード化する bare URL 段落の位置を決める（純関数・単体テスト対象）。
  * カード化できなかった段落は bare のまま同じ位置に残るので、URL ごとに失敗回数ぶん
- * 先頭側の出現を飛ばす。飛ばさないと埋め込み不可の URL（brain-market 等）を先頭で
+ * 先頭側の出現を飛ばす。飛ばさないと埋め込み不可の URL（外部販売サイト等）を先頭で
  * 打ち直し続け、後ろの URL が 1 本もカード化されない（2026-09-24 DN-0302）。
  * @param {string[]} urls エディタ内の bare URL 段落のテキスト（文書順）
  * @param {Map<string, number>} failed URL → カード化に失敗した回数
@@ -188,7 +188,7 @@ export async function assertNoUrlHeadings(noteId, { retries = 2, delayMs = 3000 
       const body = (await res.json())?.data?.body || '';
       const bad = [];
       for (const m of body.matchAll(/<h([1-6])[^>]*>([\s\S]*?)<\/h\1>/g)) {
-        const text = m[2].replace(/<[^>]+>/g, '').trim();
+        const text = m[2].split(/<[^>]*>/).join('').replace(/[<>]/g, '').trim(); // 判定用テキスト（HTML には戻さない）。残った < > も落とす
         if (/https?:\/\//.test(text)) bad.push(`h${m[1]}: ${text.slice(0, 80)}`);
       }
       return { ok: bad.length === 0, bad, fetchError: null };

@@ -7,6 +7,7 @@ description: >
   Use when user says "来月のX計画を作って", "X投稿計画を立てて", "9月分のXを設計", "/x-campaign-plan".
 disable-model-invocation: true
 argument-hint: "--month YYYY-MM [--primary-exam civil-1]"
+domain: sns
 ---
 
 # X Campaign Plan
@@ -23,7 +24,7 @@ argument-hint: "--month YYYY-MM [--primary-exam civil-1]"
 | 資格ごとの季節性（申込・試験日） | `.claude/config/exam-calendar.json` |
 | 何が実際に反応したか | `.claude/state/x-metrics/own-posts.json`（`npm run x-own-metrics -- --report`） |
 | 競合の動き | `.claude/state/x-competitors/snapshot.json`（`npm run scout-x-competitors`・四半期） |
-| 売れる状態の商品だけ | `src/lib/coconala-services.ts`(`listed`) / `note-magazines.ts`(`published:true`) / `brain-products.ts`(`listed`) |
+| 売れる状態の商品だけ | `src/lib/coconala-services.ts`(`listed`) / `note-magazines.ts`(`published:true`) |
 
 ## 手順
 
@@ -47,7 +48,7 @@ argument-hint: "--month YYYY-MM [--primary-exam civil-1]"
    - スロット **A 朝 07:10–08:40 / B 昼 12:10–12:55 / C 夜 19:30–21:30** を 1 本ずつ
    - 時刻は日ごとに分単位でジッタ（同一 HH:MM 固定は凍結ガード違反）
    - 同一日の間隔 60 分以上
-   - **販売 funnel（note/coconala/brain）は 1 日 1 本まで・スロット C のみ**・日をまたいで連続させない
+   - **販売 funnel（note/coconala）は 1 日 1 本まで・スロット C のみ**・日をまたいで連続させない
    - `target` は**カタログで売れる状態のものだけ**。`linkless` は `target: null`
 
    ```jsonc

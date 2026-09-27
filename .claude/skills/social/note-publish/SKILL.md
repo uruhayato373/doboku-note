@@ -5,6 +5,7 @@ description: >
 disable-model-invocation: true
 user-invocable: true
 argument-hint: "--article <article.md path> [--commit] [--schedule YYYY-MM-DDTHH:MM]"
+domain: product
 ---
 
 `scripts/note-publish.mjs` を駆動し、note 有料記事を**下書き作成→公開**する。`publish-note`（browser-use=Mac・AIエージェント）の **Windows 決定的 Playwright 版**で、`note-magazine-add` と同じ「システム Chrome（`channel:'chrome'`）＋永続プロファイル（`.local/playwright-note-profile`）＋proxy＋`ignoreHTTPSErrors`」で会社PCの社内プロキシ（TLS傍受）を越える。

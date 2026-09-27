@@ -152,7 +152,7 @@ export default function TrenchLegalCheckClient() {
         </div>
         <div
           className={`font-serif font-black text-[22px] mt-2 ${
-            h !== null && w !== null ? (glApplicable ? "text-[var(--color-positive)]" : "text-[var(--color-warn)]") : "text-[var(--ink)]"
+            h !== null && w !== null ? (glApplicable ? "text-[var(--color-positive)]" : "text-[var(--warn-text-emphasis)]") : "text-[var(--ink)]"
           }`}
         >
           {h === null || w === null
