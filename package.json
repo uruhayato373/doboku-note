@@ -63,6 +63,7 @@
     "character-icons": "node scripts/generate-character-icons.mjs",
     "check-a8-report-due": "node scripts/check-a8-report-due.mjs",
     "check-affiliate-mats": "node scripts/check-affiliate-mats.mjs",
+    "backlog-gate": "node scripts/backlog-gate.mjs",
     "backlog-sweep-pick": "node scripts/backlog-sweep-pick.mjs",
     "check-affiliate-prose": "node scripts/check-affiliate-prose.mjs",
     "check-affiliate-wiring": "node scripts/check-affiliate-wiring.mjs",

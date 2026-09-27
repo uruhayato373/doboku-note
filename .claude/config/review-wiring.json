@@ -262,6 +262,18 @@
           "role": "点検"
         },
         {
+          "command": "backlog-gate",
+          "label": "バックログの関門（判断待ちを全件諮る・期日切れ・新規）",
+          "stage": "計画・運用",
+          "role": "判断"
+        },
+        {
+          "command": "node:backlog-edit",
+          "label": "判断で「やらない」になったカードの削除",
+          "stage": "計画・運用",
+          "role": "点検"
+        },
+        {
           "command": "check-experiment-due",
           "label": "実験の再計測期限",
           "stage": "計画・運用",
@@ -377,6 +389,14 @@
           "evidence": "reportFile"
         },
         {
+          "label": "バックログの関門",
+          "does": "判断待ちを全件運営者に諮り、期日切れと新規の起票を直す",
+          "evidence": "sections",
+          "sections": [
+            "バックログの関門"
+          ]
+        },
+        {
           "label": "申し送りの振り分け",
           "does": "来週への申し送りの各項目に行き先（DN・定常・Issue・実験）を書く",
           "evidence": "routing"
@@ -489,6 +509,12 @@
           "role": "判断"
         },
         {
+          "command": "backlog-gate",
+          "label": "バックログの関門（時期なしの🟢・90日超）",
+          "stage": "計画・運用",
+          "role": "判断"
+        },
+        {
           "command": "check-business-direction",
           "label": "事業方針の設定と履歴の整合",
           "stage": "計画・運用",
@@ -531,6 +557,11 @@
         {
           "label": "目標と配分",
           "does": "目標を変えるなら実測に基づく target 記録を追記する",
+          "evidence": "none"
+        },
+        {
+          "label": "バックログの関門",
+          "does": "時期の無い🟢と90日超のカードを運営者に諮り、月を付けるか削除する",
           "evidence": "none"
         },
         {

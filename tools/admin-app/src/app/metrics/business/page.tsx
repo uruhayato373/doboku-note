@@ -3,6 +3,9 @@ import { PageHead } from '@/components/ui';
 import { findRepoRoot } from '@/lib/repo-root';
 import { buildReport, reviewPeriod, samePeriod } from '../../../../../../scripts/lib/business-direction.mjs';
 import { buildReviewView } from '../../../../../../scripts/lib/review-wiring.mjs';
+import { buildGate } from '../../../../../../scripts/lib/backlog-gate.mjs';
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import RecordPanel from './RecordPanel';
 
 export const dynamic = 'force-dynamic';
@@ -79,7 +82,9 @@ function Output({ label, value, href }: { label: string; value: number | string;
 }
 
 /** 1 つのレビューを「① 何を見るか → ② 何を決めたか → ③ 何を出したか」の縦の流れで出す。 */
-function Flow({ c }: { c: Cadence }) {
+type Gate = { weekly: { decisions: { ageDays: number | null }[]; overdue: unknown[]; filedThisWeek: unknown[] }; monthly: { lowWithoutWhen: unknown[]; stale: unknown[]; thisMonth: number } };
+
+function Flow({ c, gate }: { c: Cadence; gate: Gate | null }) {
   const checks = c.byStage.reduce((n, s) => n + s.check.length, 0);
   const drifted = c.drift.missing.length > 0 || c.drift.extra.length > 0;
   return (
@@ -120,6 +125,35 @@ function Flow({ c }: { c: Cadence }) {
         )}
         {c.latest?.experimentIds?.length ? <p className="small" style={{ marginBottom: 0 }}>実験: {c.latest.experimentIds.join('・')}</p> : null}
       </div>
+
+      {gate && (
+        <div className="card">
+          <h2 style={stepHead}>
+            バックログの関門{' '}
+            <span className="sub">{c.id === 'weekly' ? '判断待ちを全件諮る・期日切れ・新規' : '時期なしの🟢・90 日超を月を付けるか削除'}</span>
+          </h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: 12 }}>
+            {c.id === 'weekly' ? (
+              <>
+                <Output
+                  label="判断待ち"
+                  value={`${gate.weekly.decisions.length}`}
+                  href="/todo?f=backlog"
+                />
+                <Output label="いちばん古い判断待ち" value={gate.weekly.decisions.length ? `${gate.weekly.decisions[0]?.ageDays ?? '—'} 日` : '—'} />
+                <Output label="期日切れ" value={gate.weekly.overdue.length} />
+                <Output label="直近 7 日の起票" value={gate.weekly.filedThisWeek.length} />
+              </>
+            ) : (
+              <>
+                <Output label="時期の無い 🟢" value={gate.monthly.lowWithoutWhen.length} href="/todo?f=backlog" />
+                <Output label="起票から 90 日超" value={gate.monthly.stale.length} />
+                <Output label="今月の 🔴🟡" value={gate.monthly.thisMonth} />
+              </>
+            )}
+          </div>
+        </div>
+      )}
 
       <div className="card">
         <h2 style={stepHead}>{num(3)} 見る材料 <span className="sub">判断に使う {c.counts.judge} 件</span></h2>
@@ -185,13 +219,20 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
   }
   const cadences = buildReviewView(root, { reviews: data.reviews, due: data.due }) as Cadence[];
   const current = cadences.find((c) => c.id === cadence);
+  const gate = (() => {
+    try {
+      return buildGate(readFileSync(join(root, '.claude/todo/backlog.md'), 'utf8'), new Date(Date.now() + 9 * 3600000).toISOString().slice(0, 10)) as Gate;
+    } catch {
+      return null;
+    }
+  })();
   const existingReview = data.reviews.find((r: Review) => r.cadence === cadence && samePeriod(r.period, period));
 
   return (
     <>
       <PageHead title="レビュー" />
       <CadenceTabs list={cadences} current={cadence} />
-      {current && <Flow c={current} />}
+      {current && <Flow c={current} gate={gate} />}
 
       <details className="card">
         <summary>手で記録する（計測・目標・レビュー）</summary>
