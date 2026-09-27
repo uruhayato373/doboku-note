@@ -202,7 +202,7 @@ export const STALE_DAYS = 180;
 
 /**
  * 正本（日程・統計・出題形式）の照合状態を資格ごとにまとめる。月次レビュー（npm run exam-ssot-status）と
- * 管理画面「資格一覧」が読む唯一の実装。actions は要対応、pending・notPublished は記録だけ。
+ * 管理画面「資格と市場 ＞ 資格一覧」が読む唯一の実装。actions は要対応、pending・notPublished は記録だけ。
  * @param {{ registry: any, calendar: any, examStats: any, formats?: any, today: string }} input today は JST の YYYY-MM-DD
  */
 export function summarizeSsotStatus({ registry, calendar, examStats, formats = null, today }) {

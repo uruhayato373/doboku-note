@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { PageHead } from '@/components/ui';
+import SectionTabs from '@/components/SectionTabs';
 import { domainList, domainOverview } from '@/lib/domains';
 import { findRepoRoot } from '@/lib/repo-root';
 import { loadDomains } from '../../../../../../scripts/lib/domains.mjs';
@@ -19,6 +20,7 @@ export default function TaxonomyPage() {
   return (
     <>
       <PageHead title="事業の分類" />
+      <SectionTabs set="policy" current="/strategy/taxonomy" />
       <div className="table-wrap" style={{ marginBottom: 16 }}>
         <table className="data">
           <thead>

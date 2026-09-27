@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { PageHead } from '@/components/ui';
+import SectionTabs from '@/components/SectionTabs';
 import { Badge } from '@/components/primitives';
 import { loadMarketView, type ChannelCell, type MarketRow } from '@/lib/market';
 
@@ -52,6 +53,7 @@ export default async function MarketPage({ searchParams }: { searchParams: Promi
   return (
     <>
       <PageHead title="展開の判断" />
+      <SectionTabs set="market" current="/strategy/market" />
 
       {view.errors.length > 0 && (
         <div className="card warn-border">

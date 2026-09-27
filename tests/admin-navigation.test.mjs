@@ -118,12 +118,19 @@ test('既存の判断画面はすべてサイドバーのどこか 1 か所に�
   assert.equal(new Set(full).size, full.length, '同じ画面（クエリ込み）がサイドバーに 2 回ある');
   // 計画の層（/todo?f=monthly 等）は同じ画面のクエリ違いなので、パスは重複してよい
   const hrefs = [...new Set(full.map((h) => h.split('?')[0]))];
+  // サイドバー 1 項目の中のタブ（SectionTabs）で開く画面は matchAlso に載る（検索・資格と市場・方針）
+  const tabbed = cfg.domains.flatMap((d) => d.nav.flatMap((v) => v.matchAlso ?? []));
+  const reachable = [...hrefs, ...tabbed];
   for (const href of [
-    '/metrics', '/strategy/policy', '/metrics/business', '/strategy/qualifications', '/content/lineup',
+    '/strategy/policy', '/metrics/business', '/strategy/qualifications', '/content/lineup',
     '/sales', '/product/status', '/affiliate', '/affiliate/placements', '/affiliate/programs', '/metrics/seo-watch', '/metrics/gsc', '/metrics/ga4',
-    '/metrics/psi', '/sns', '/metrics/video', '/gallery/characters', '/schedule', '/todo', '/docs',
+    '/metrics/psi', '/sns', '/metrics/video', '/gallery/characters', '/schedule', '/todo',
     '/plans', '/quality', '/knowledge', '/agents', '/skills', '/content/lifecycle', '/content', '/materials',
   ]) {
-    assert.equal(hrefs.filter((h) => h === href).length, 1, `${href} がサイドバーにちょうど 1 回ない`);
+    assert.equal(reachable.filter((h) => h === href).length, 1, `${href} がサイドバー（またはその中のタブ）にちょうど 1 回ない`);
   }
+  // 文書（/docs）はサイドバーに置かず、各領域ページの文書欄から開く（2026-09-27・domains.json の navRules）
+  assert.ok(!hrefs.includes('/docs'), '/docs はサイドバーに置かない');
+  // 旧「分析概観」（/metrics）はトップ（KPI）へ転送した（2026-09-27）
+  assert.ok(!hrefs.includes('/metrics'), '/metrics はサイドバーに置かない');
 });

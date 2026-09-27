@@ -32,7 +32,7 @@ export default function RecordPanel({ strategy, period, cadence, existingReview,
     } catch (error) { setMessage(error instanceof Error ? error.message : '記録に失敗しました'); }
     finally { setBusy(false); }
   }
-  return <details className="card"><summary>計測・目標・レビューを記録する</summary>
+  return <div>
     <p className="small">期間 {period.startDate}〜{period.endDate}。顧客名・メール・認証情報は入力しません。訂正は新しい記録として残ります。</p>
     <form onSubmit={submit} className="business-form">
       <label>記録するもの<select value={kind} onChange={e => setKind(e.target.value)}><option value="measurement">計測値</option><option value="target">実測に基づく目標</option><option value="review">{cadence === 'monthly' ? '月次' : '週次'}レビュー{existingReview ? 'の追記訂正' : ''}</option></select></label>
@@ -46,5 +46,5 @@ export default function RecordPanel({ strategy, period, cadence, existingReview,
       <button type="submit" disabled={busy}>{busy ? '記録中…' : '履歴へ保存'}</button>
       <p role="status" className="small">{message}</p>
     </form>
-  </details>;
+  </div>;
 }

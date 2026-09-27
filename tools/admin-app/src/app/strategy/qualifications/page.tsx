@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { PageHead } from '@/components/ui';
+import SectionTabs from '@/components/SectionTabs';
 import UpcomingEvents from '@/components/UpcomingEvents';
 import { Badge } from '@/components/primitives';
 import { loadQualificationsView, type QualificationView } from '@/lib/qualifications';
@@ -51,6 +52,7 @@ export default async function QualificationsPage({ searchParams }: { searchParam
   return (
     <>
       <PageHead title="資格一覧" />
+      <SectionTabs set="market" current="/strategy/qualifications" />
       <UpcomingEvents domain="exam" />
 
       {view.errors.length > 0 && (

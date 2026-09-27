@@ -215,10 +215,13 @@ npm run growth-triage          # 週次レビュー（ローカル）で機会�
 npm run check-growth-triage    # 月曜 guard: 最新ダイジェストの未処分 0・レビューにマーカー（申し送りの振り分けは check-handoff-extraction）。exit 1 未反映 / 2 ダイジェスト/レビュー無しか古い
 npm run check-business-direction # 事業方針・指標・履歴・追記専用の検査
 npm run exam-ssot-status # 資格の正本（日程・受験者数・出題形式）の照合状態＝要対応（未確認・原文未照合・180日超・次年度日程未登録・統計が古い）と記録（発表待ち・非公表）。月次レビューが読む（`-- --json`／`-- --check` は完走だけ＝quality-audit ci）
-npm run qualification-market # 資格ごとの展開の判断材料（自分で書く区分＝経験記述・論文とその受験者数・買われる時期・売上・YouTube/note/ココナラの混み具合・X/IG 追跡数）。管理画面 戦略＞展開の判断と同じ実装（`-- --json`／`-- --check`）。要対応（市場スキャンの未取得・90日超・出題形式の未確認）があっても exit 0
+npm run qualification-market # 資格ごとの展開の判断材料（自分で書く区分＝経験記述・論文とその受験者数・買われる時期・売上・YouTube/note/ココナラの混み具合・X/IG 追跡数）。管理画面 戦略＞資格と市場＞展開の判断と同じ実装（`-- --json`／`-- --check`）。要対応（市場スキャンの未取得・90日超・出題形式の未確認）があっても exit 0
 npm run check-qualification-market # 展開の判断材料の正本の整合（market-scan の検索語とタイトル条件・*-competitors の exams が資格 id・売上がすべて資格へ分類できる）。CI ゲート。売上の新しい productId は product-lineup.json の salesRules に足す
 npm run report-competitor-watch # ココナラ競合の変化（値下げ・出品増減・累計販売 +20 件以上）と追跡外の候補（関連サービスの販売実績 20 件以上）・売上推定が一部だけの売り手。committed state を読むだけ（取得しない）。読み手＝週次レビュー。exit 2＝state が読めない
+npm run report-search-opportunities # 検索キーワード戦略（.claude/config/search-strategy.json）のクラスター別の表示・1桁件数・11〜30位件数と約28日前との差、改善候補（11〜30位で表示のある検索語をページ単位に束ねたもの・観察中/起票済み/旧URLに印）。GSC の検索語×ページ集計を読むだけ。読み手＝週次（起票）・月次（推移）。exit 2＝集計が無い
+npm run check-review-wiring # 週次・月次レビューのスキルが実行するコマンドと配線の正本（.claude/config/review-wiring.json・stage と role）の一致。CI ゲート。スキルにコマンドを足したら正本にも stage・role 付きで足す。管理画面 戦略 ＞ レビュー の配線図の元
 npm run check-monthly-review-due # 月次レビューの催促（SessionStart）。毎月 3 日（JST）以降に前月を対象にした月次レビューの記録（business/review-*.json の cadence:monthly）が無ければ exit 1 で 1 行出す。`-- --json`
+npm run backlog-gate      # 週次・月次レビューのバックログの関門（読み取り専用）。`-- --weekly`＝判断待ち🟣の全件・期日切れ・直近7日の起票、`-- --monthly`＝時期の無い🟢の全件・起票から90日超・今月の🔴🟡件数。`--json` あり。運営者に諮った結果で台帳を直すのはレビュー側（判定は scripts/lib/backlog-gate.mjs）
 npm run roll-backlog-when # 終わらなかったカードを翌月へ回す（`[時期:]` の終わりが今月より前のカードの終わりを今月へ延ばす・開始は残す）。既定は表示だけ、`-- --write` で backlog.md を書き換え、`-- --month YYYY-MM` で基準月。月初の月次レビューが回す。終わったカードは回さずに削除する
 npm run scan-qualification-market # 資格キーワードで YouTube（yt-dlp 検索）・note（公開検索 API）を取り .claude/state/market/history/market-YYYY-MM-DD.json へ（同日の再実行は取得済みの語を飛ばす・`--force` で取り直し）。`--coconala` でココナラも（coconala-research.mjs・Playwright・四半期 1 回）。`--qualification <id>`／`--channel youtube|note|coconala`／`--dry-run`。罠: note は JSON 以外（403）が返った時点で打ち切る＝連打しない。ココナラは空きメモリが足りないと Playwright ガードで起動しない
 ```

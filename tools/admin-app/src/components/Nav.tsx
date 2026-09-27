@@ -9,6 +9,8 @@ type Tab = {
   href: string;
   label: string;
   match: string;
+  /** 同じ項目を現在地とみなす別の画面（画面内タブで行き来する URL。例: 検索 ＝ /metrics/gsc・/metrics/seo-watch ほか） */
+  matchAlso?: readonly string[];
   query?: Readonly<Record<string, string>>;
 };
 
@@ -41,7 +43,8 @@ function isTree(entry: NavEntry): entry is NavTree {
  * （/metrics と /metrics/gsc など）は完全一致だけにする。
  */
 function isActive(pathname: string, searchParams: URLSearchParams, tab: Tab, exact = false): boolean {
-  const pathMatches = exact ? pathname === tab.match : pathname === tab.match || pathname.startsWith(tab.match + '/');
+  const hit = (m: string) => (exact ? pathname === m : pathname === m || pathname.startsWith(m + '/'));
+  const pathMatches = [tab.match, ...(tab.matchAlso ?? [])].some(hit);
   if (!pathMatches) return false;
   if (!tab.query) return true;
   // 値が空文字のキーは「そのクエリが無いこと」（例: 商品ラインナップの一覧＝q なし）
