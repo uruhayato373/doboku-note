@@ -9,7 +9,7 @@ src/components/
 ├── GoogleAnalytics.tsx      # ルート直下（layout に組み込む計測タグ・単体で完結）
 ├── category/                # /category ページ専用（CategorySections, CategoryViews 等）
 ├── home/                    # トップページ専用セクション
-├── icons/                   # 汎用アイコン（CategoryIcons 等。above-fold の Header は
+├── icons/                   # 汎用アイコン（ServiceIcon 等。above-fold の Header は
 │                             # 独自 inline SVG を使い lucide-react を読み込まない — LCP 対策）
 ├── layout/                  # サイト全体のチェック（Header.tsx, Footer.tsx）
 ├── providers/                # Context プロバイダー（ThemeProvider.tsx）
