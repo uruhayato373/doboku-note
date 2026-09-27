@@ -103,6 +103,7 @@ npm run kdp-report        # Kindle 月次ロイヤリティを KDP レポート�
 npm run check-kdp-report-freshness # KDPロイヤリティ台帳の期限とdoboku-note LIVE全冊（対象月末までに出版した本）のcatalog紐付けを検査（共有口座の他サイト書籍は除外。16日以降=前月確定、28日以降=当月推計。quality:auditのops区分が日次通知）
 npm run note-traffic-fetch # note ダッシュボード「アクセス状況」を read-only 取得→.claude/state/metrics/note/{referrers,articles-pv}-YYYY-MM.json（--month は今月/先月のみ・--commit で保存・--check は fixture で正規化の完走確認＝quality:audit ci・ログイン要・DN-0249）。流入元は自己閲覧を含み、サイト経由は PR #511 deploy 前は no referrer に含まれる
 npm run note-sales-fetch  # note 売上履歴を read-only 取得→検算OKで.claude/state/sales/sales-log.jsonの当月を差し替え（--month YYYY-MM --commit・ログイン要・DN-0018）
+npm run record-net-receipts # 月の受取額（NSM）を事業の計測記録へ。note は売上管理の月別詳細の「手数料控除後売上」をブラウザで read-only 取得（パスワード再確認は人）、KDP は kdp-royalties.json の catalog 対象・確定値、ココナラは `--coconala <円>`（控除後・クローズ日計上）。`--month YYYY-MM`、既定 dry-run・`--commit` で記録。3 つそろい KDP 確定のときだけ complete（欠測を 0 にしない）
 npm run check-magazine-cta # 公開マガジンがサイトで1面以上CTAとして出るか（top/中間CTA/MagazineCard・quality:audit に同梱）
 npm run check-sales-freshness # sales-log.json の転記停止（updatedAt）と、毎月5日以降に前月noteアクセス取得・月次売上表示との金額一致を検査（quality:audit の **ops 区分**＝ops-audit.yml が日次で Issue へ。取得自体は認証が要るのでローカル専用）
 npm run check-weekly-review-due # 週次レビュー（ローカル実行・土曜）の忘れを催促（土曜 09:00 JST 以降に今週分、月〜金は先週分の *-review.md が無ければ exit 1・SessionStart フックが呼ぶ。最終 backstop は月曜の weekly-review-guard）
