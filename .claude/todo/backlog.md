@@ -1055,14 +1055,6 @@ Drive台帳・vault・Drive APIの照合前にローカル実体を削除しな�
 
 ---
 
-### [DN-0304] 「業務経験 → 資格」カードの GA4 イベントが GA4 の画面に届いていることを確かめる
-タグ: [インフラ・計測] [領域:サイト] [時期:2026-09..2026-10] [種類:改善] [起票:2026-09-25] [期日:2026-10-09]
-
-**起点**: `/practice/` 全記事と共通仕様書の章末に `QualificationBridge`（立場 3 択）を置いた（実験 EXP-012・方針は [13_土木公務員SEO戦略2026-08.md](../../docs/strategy/13_土木公務員SEO戦略2026-08.md)「非受験層を受験者へ育てる導線」）。本番反映・本番 HTML・GA4 収集エンドポイントへの送信（204）までは確認済みで、経緯は EXP-012 の `actions`。GA4 の画面での受信だけが未確認（ローカルからは Claude in Chrome 未接続・Realtime API のスクリプト無し・アプリ内ブラウザは非表示扱いで送信されない）。
-
-**やること**: GA4 の DebugView かリアルタイムで、`qualification_bridge_impression`（`event_label`=card）と `qualification_bridge_click`（`event_label`=orderer / contractor / qualification-map）が、`cta_placement`（practice-footer / standards-chapter-footer）付きで届いていることを見る。リアルタイムは直近 30 分しか出ないため、見る直前に `node .tmp/ga-qb.mjs`（無ければ本番の `/practice/cost-and-design-change` でカードを表示して 1 回クリック）で送る。届かない場合は、送信は 204 なので GA4 側のフィルタ（内部トラフィック・データフィルタ）を先に疑う。代替として、翌日以降に `fetch-ga4-cta-clicks --by-label` の結果に 2026-09-25 のイベントがあれば受信の確認とみなしてよい。
-
-**完了条件**: GA4 の画面か Data API で 2 イベントの受信を確認したら、このカードを削除する。
 
 ### [DN-0224] 教材の原典待ち17論点を復旧し記事・図解・SNSとの対応を再照合する
 タグ: [コンテンツ品質] [領域:教材] [時期:2026-10..2026-12] [種類:改善] [起票:2026-09-14] [検証:check-content-expansion]
