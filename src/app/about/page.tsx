@@ -256,6 +256,18 @@ export default function AboutPage() {
       {/* Start Learning Section */}
       <SectionBlock width="wide" space="md" divider="top">
         <h2 className="font-serif text-2xl sm:text-3xl font-black text-[var(--ink)] mb-3">
+          教材と記事の方針
+        </h2>
+        <ul className="list-disc space-y-2 pl-6 text-[15px] text-[var(--ink-body)]">
+          <li>法令・基準・試験制度・統計は、e-Gov 法令検索・国土交通省・試験実施機関などの一次情報で確かめ、出典を示します。</li>
+          <li>過去問は試験実施機関が公表した問題を出典とし、解説・学習ポイントは運営者が独自に書いています。</li>
+          <li>市販の書籍は論点の整理に参考にしますが、本文・図表を転載しません。図解はサイト用に作り直しています。</li>
+          <li>誤りや古くなった記述に気づいた場合は、下のお問い合わせからお知らせください。確認のうえ修正します。</li>
+        </ul>
+      </SectionBlock>
+
+      <SectionBlock width="wide" space="md" divider="top">
+        <h2 className="font-serif text-2xl sm:text-3xl font-black text-[var(--ink)] mb-3">
           学習を始める
         </h2>
         <p className="text-[15px] text-[var(--ink-body)] mb-6">
