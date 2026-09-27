@@ -103,7 +103,10 @@ function Row({ row: r, examLabels, self }: { row: CompetitorRow; examLabels: Rec
       <td className="num">{yen(r.priceMax)}</td>
       <td className="num">{r.sales?.toLocaleString('ja-JP') ?? '—'}</td>
       <td className="num">{r.salesDelta === null ? '新規' : `+${r.salesDelta}（${md(r.baseDate)}〜）`}</td>
-      <td className="num">{money(r.revenueYen, r.revenueEstimated)}</td>
+      <td className="num">
+        {money(r.revenueYen, r.revenueEstimated)}
+        {r.partial && <span className="small muted">（一部）</span>}
+      </td>
       <td className="num">{r.revenueDeltaYen === null ? '—' : `+${money(r.revenueDeltaYen, r.revenueEstimated)}`}</td>
       <td className="num">{r.rating ?? '—'}</td>
       <td className="small">{r.changes.join(' / ') || '—'}</td>

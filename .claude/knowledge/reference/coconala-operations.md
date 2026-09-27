@@ -270,7 +270,7 @@ DM 一覧 = `/message?fromMyPage=true`、行 = `a.c-messageItemWrap[href="/mypag
 
 | 検査 | 見るもの | いつ走るか |
 |---|---|---|
-| `npm run check-coconala-live` | listed の全サービスについて、公開ページの構造化データ（schema.org Product・ログイン不要）の価格＝`priceYen`、名前＝タイトル＋キャッチコピー、説明文＝listings の `body`（空白・改行は無視）、出品者名、販売可能状態 | 日次の ops-audit（`quality-audit --ops`）。食い違いは automation-failure Issue（channel ops） |
+| `npm run check-coconala-live` | listed の全サービスについて、公開ページの構造化データ（schema.org Product・ログイン不要）の価格＝`priceYen`、名前＝タイトル＋キャッチコピー、説明文＝listings の `body`（空白・改行は無視）、出品者名、販売可能状態。あわせて出品者プロフィール（`coconala-account.json` の `profileUrl`）の職業・ひとことアピール・自己紹介文を `profile` と突合（資格・職歴・得意分野は対象外） | 日次の ops-audit（`quality-audit --ops`）。食い違いは automation-failure Issue（channel ops） |
 | `npm run check-coconala-wiring`（検査10） | PDF 商品の価格ルール＝`notePriceBasis`（note で同じ中身を買う方法）の基準 × 1.1 をココナラの価格刻みで切り上げた額以上。note に同じ中身が無い PDF は `notePriceExempt` に理由 | pre-commit（カタログ・listings・`note-magazines.ts` の変更時）と CI（`quality-audit --ci`） |
 
 - 出品文・価格を変えたら、SoT（カタログ・listings）を先に直して `coconala-edit` で反映し、`check-coconala-live` が緑になるまでを1セットにする。

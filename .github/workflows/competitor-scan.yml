@@ -60,6 +60,16 @@ jobs:
         if: always()
         run: npx playwright install --with-deps chromium
 
+      # 検索結果（market-research.json）を先に取り直す。scout は出品の価格・販売実績をここから読み、
+      # report-competitor-watch は追跡外の候補をここから出す。語の一覧はファイル自身が持つ（--refresh）。
+      - name: Refresh Coconala search results (public pages)
+        id: coconala_research
+        if: always()
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          node scripts/coconala-research.mjs --refresh --max-pages 3 --details 0 2>&1 | tee /tmp/competitor-coconala-research.log
+
       - name: Scan Coconala competitors (public pages)
         id: coconala
         if: always()
@@ -75,6 +85,7 @@ jobs:
           NOTE_OUTCOME: ${{ steps.note.outcome }}
           IG_OUTCOME: ${{ steps.ig.outcome }}
           COCONALA_OUTCOME: ${{ steps.coconala.outcome }}
+          RESEARCH_OUTCOME: ${{ steps.coconala_research.outcome }}
         run: |
           set -euo pipefail
           stamp=$(date -u +%F)
@@ -96,6 +107,11 @@ jobs:
             mkdir -p /tmp/competitor-publish/coconala/history
             cp .claude/state/coconala/competitors-snapshot.json /tmp/competitor-publish/coconala/
             cp ".claude/state/coconala/history/competitors-${stamp}.json" /tmp/competitor-publish/coconala/history/
+          fi
+
+          if [ "$RESEARCH_OUTCOME" = "success" ]; then
+            mkdir -p /tmp/competitor-publish/coconala-research
+            cp .claude/state/coconala/market-research.json .claude/state/coconala/market-summary.json /tmp/competitor-publish/coconala-research/
           fi
 
       - name: Publish successful snapshots to develop
@@ -122,11 +138,15 @@ jobs:
             cp -R /tmp/competitor-publish/coconala/competitors-snapshot.json .claude/state/coconala/
             cp -R /tmp/competitor-publish/coconala/history/. .claude/state/coconala/history/
           fi
+          if [ -d /tmp/competitor-publish/coconala-research ]; then
+            cp /tmp/competitor-publish/coconala-research/*.json .claude/state/coconala/
+          fi
 
           git add \
             .claude/state/note/competitors-snapshot.json .claude/state/note/history \
             .claude/state/ig-competitors/snapshot.json .claude/state/ig-competitors/history \
-            .claude/state/coconala/competitors-snapshot.json .claude/state/coconala/history
+            .claude/state/coconala/competitors-snapshot.json .claude/state/coconala/history \
+            .claude/state/coconala/market-research.json .claude/state/coconala/market-summary.json
           if git diff --cached --quiet; then
             echo "No competitor snapshot changes to publish"
             exit 0
@@ -151,8 +171,9 @@ jobs:
           NOTE_OUTCOME: ${{ steps.note.outcome }}
           IG_OUTCOME: ${{ steps.ig.outcome }}
           COCONALA_OUTCOME: ${{ steps.coconala.outcome }}
+          RESEARCH_OUTCOME: ${{ steps.coconala_research.outcome }}
         run: |
-          if [ "$NOTE_OUTCOME" != "success" ] || [ "$IG_OUTCOME" != "success" ] || [ "$COCONALA_OUTCOME" != "success" ]; then
-            echo "::error::競合スキャンに失敗したチャネルがあります（note=$NOTE_OUTCOME / ig=$IG_OUTCOME / coconala=$COCONALA_OUTCOME）。"
+          if [ "$NOTE_OUTCOME" != "success" ] || [ "$IG_OUTCOME" != "success" ] || [ "$COCONALA_OUTCOME" != "success" ] || [ "$RESEARCH_OUTCOME" != "success" ]; then
+            echo "::error::競合スキャンに失敗したチャネルがあります（note=$NOTE_OUTCOME / ig=$IG_OUTCOME / coconala=$COCONALA_OUTCOME / coconala-research=$RESEARCH_OUTCOME）。"
             exit 1
           fi

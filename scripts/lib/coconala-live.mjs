@@ -62,3 +62,24 @@ export function diffLiveService(service, listing, product, { sellerName } = {}) 
   }
   return issues;
 }
+
+/**
+ * 出品者プロフィールの公開ページ（/users/{id}・ログイン不要）と account SoT の突合。
+ * 職業は <title>「{名前}さん({職業})のプロフィール」、ひとことアピールは og:description の先頭、
+ * 自己紹介文は SSR の埋め込みデータ（改行は文字列 "\n"）に出る（2026-09-27 実測）。
+ * 自己紹介文は空白と "\n" を除いて部分一致で見る（HTML エスケープの差を避けるため本文だけを比べる）。
+ */
+export function diffLiveProfile(profile, html) {
+  if (!profile) return ['coconala-account.json に profile が無い'];
+  const issues = [];
+  const title = /<title>[^<]*?さん\((.*)\)のプロフィール/.exec(html)?.[1];
+  if (title === undefined) return ['公開プロフィールの <title> から職業を読めない（ページ構造の変更）'];
+  if (profile.job && title !== profile.job) issues.push(`職業: live「${title}」≠ SoT「${profile.job}」`);
+  const og = /og:description" content="([^"]*)"/.exec(html)?.[1] ?? '';
+  if (profile.appeal && !og.startsWith(profile.appeal)) issues.push(`ひとことアピール: live「${og.split(' | ')[0]}」≠ SoT「${profile.appeal}」`);
+  if (profile.bio) {
+    const flat = (s) => String(s).replace(/\\n/g, '').replace(/\s+/g, '');
+    if (!flat(html).includes(flat(profile.bio))) issues.push('自己紹介文: live に SoT の本文がそのまま出ていない（ココナラで直接直したか、SoT が古い）');
+  }
+  return issues;
+}

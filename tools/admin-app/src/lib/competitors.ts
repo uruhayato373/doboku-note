@@ -45,6 +45,11 @@ export type CompetitorRow = {
   revenueDeltaYen: number | null;
   /** true＝推定値（競合）、false＝実数（自社）。 */
   revenueEstimated: boolean;
+  /**
+   * 取得できたサービスの販売実績の合計が累計販売の半分未満＝売上推定はそのセラーの一部だけ（他分野の出品や
+   * 検索に出ない出品が多い）。例: 施工管理の一次模試を多数売るセラーで二次模試だけ取れている。
+   */
+  partial: boolean;
   /** 基準スナップショットからの累計販売の増分（基準なし＝null）。 */
   salesDelta: number | null;
   /** 基準スナップショットの日付（YYYY-MM-DD）。 */
@@ -137,6 +142,7 @@ export function loadCompetitorView(): CompetitorView {
       revenueYen: revenue,
       revenueDeltaYen: revenue !== null && prevRevenue !== null ? revenue - prevRevenue : null,
       revenueEstimated: true,
+      partial: isPartial(c),
       baseDate: base?.date ?? null,
       changes: prev ? changesBetween(prev, c) : [],
     };
@@ -168,9 +174,17 @@ function loadSelfRow(root: string, baseDate: string | null): CompetitorRow {
     revenueYen: sum(orders),
     revenueDeltaYen: baseDate ? sum(recent) : null,
     revenueEstimated: false,
+    partial: false,
     baseDate,
     changes: [],
   };
+}
+
+/** 取得できたサービスの販売実績の合計が累計販売の半分未満か。材料が無ければ false（判定しない）。 */
+function isPartial(c: RawCompetitor): boolean {
+  const total = c.platformExtra?.totalSales;
+  const captured = (c.services ?? []).reduce((n, s) => n + (s.reviews ?? 0), 0);
+  return !!total && captured > 0 && captured * 2 < total;
 }
 
 /** 関連サービスの売上推定。Σ(価格 × 販売実績)。サービス行の reviews はカードの「実績 N 件」（販売数）。材料が無ければ null。 */
