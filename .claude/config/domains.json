@@ -16,12 +16,6 @@
           "match": "/strategy/taxonomy"
         },
         {
-          "label": "分析概観",
-          "href": "/metrics",
-          "kind": "results",
-          "match": "/metrics"
-        },
-        {
           "label": "事業方針と改善",
           "href": "/metrics/business",
           "kind": "policy",
