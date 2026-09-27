@@ -113,7 +113,7 @@ test('legacy3 節、参照表現、級別の正しい割り振りは通す', () 
   assert.deepEqual(civil2, []);
 });
 
-test('要求された全走査領域と Brain ZIP をスコープに固定する', () => {
+test('要求された全走査領域をスコープに固定する', () => {
   const paths = new Set(SCAN_TARGETS.map((target) => `${target.kind}:${target.path}`));
   for (const expected of [
     'dir:content/note/1級・2級土木',
@@ -125,26 +125,7 @@ test('要求された全走査領域と Brain ZIP をスコープに固定する
     'dir:content/kindle',
     'dir:.claude/agents',
     'dir:docs',
-    'zip-glob:content/brain/dist',
     'file:.claude/config/coconala-listings.json',
-    'file:content/brain/listings.json',
   ]) assert.ok(paths.has(expected), `走査スコープ欠落: ${expected}`);
 });
 
-test('Brain 同一URL上書きは単一ZIPへ限定し、no-store と可能ならURL purgeで旧キャッシュを防ぐ', () => {
-  const zip = 'claude-code-civil-essay-kit-beta-8K93ERd_D6fR.zip';
-  const output = execFileSync('node', ['scripts/upload-brain-dist-r2.mjs', '--dry-run', '--file', zip, '--overwrite'], { encoding: 'utf8' });
-  assert.match(output, new RegExp(`\\[dry overwrite\\] brain/dist/${zip.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`));
-  const unsafe = spawnSync('node', ['scripts/upload-brain-dist-r2.mjs', '--dry-run', '--overwrite'], { encoding: 'utf8' });
-  assert.equal(unsafe.status, 1);
-  assert.match(unsafe.stderr, /--file/);
-  const workflow = readFileSync('.github/workflows/r2-brain-dist.yml', 'utf8');
-  assert.match(workflow, /overwrite == 'true'/);
-  assert.match(workflow, /pages\/projects\/doboku-note\/domains/);
-  assert.match(workflow, /zones\/\$ZONE_ID\/purge_cache/);
-  assert.match(workflow, /pages\/projects\/doboku-note\/domains\/doboku-note\.com/);
-  assert.match(workflow, /storage\.doboku-note\.com\/brain\/dist\/\$DIST_FILE/);
-  const uploader = readFileSync('scripts/upload-brain-dist-r2.mjs', 'utf8');
-  assert.match(uploader, /no-cache, no-store, must-revalidate/);
-  assert.match(uploader, /remote\.CacheControl !== DISTRIBUTION_CACHE_CONTROL/);
-});

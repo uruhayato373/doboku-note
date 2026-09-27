@@ -252,3 +252,17 @@ test("crossCheckAgainstSite: allowlist 抽出がサイト別を超えたら混�
 
   assert.equal(crossCheckAgainstSite(null, []).comparable, false);
 });
+
+test('sumSiteRows: サイト名は完全一致で合計し、doboku-note が note 行に当たらない', async () => {
+  const { sumSiteRows } = await import('../scripts/lib/a8-report-csv.mjs');
+  const rows = [
+    { site: 'doboku-note', clicks: 10, conversions: 1, revenueYen: 0 },
+    { site: 'doboku-note（note）', clicks: 5, conversions: 0, revenueYen: 100 },
+    { site: '統計で見る都道府県', clicks: 99 },
+  ];
+  assert.equal(sumSiteRows(rows, ['doboku-note']).clicks, 10);
+  const both = sumSiteRows(rows, ['doboku-note', 'doboku-note（note）']);
+  assert.equal(both.clicks, 15);
+  assert.equal(both.revenueYen, 100);
+  assert.equal(sumSiteRows(rows, ['無い']), null);
+});

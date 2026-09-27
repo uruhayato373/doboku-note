@@ -85,7 +85,7 @@ title: ビルドジョブは土木施工管理に向く？評判を見る前に�
 
 **PR：ビルドジョブの案内です。** 土木・建設の経験と希望条件を無料で相談できます。登録後は担当者との面談へ進み、紹介された求人を見て応募するか判断します。
 
-https://px.a8.net/svt/ejp?a8mat=4B5OO5+FHBA2+5B0Y+NTJWY
+https://px.a8.net/svt/ejp?a8mat=4B5OO5+FHED6+5B0Y+NTJWY
 
 相談先を比較してから考えたい方は、[施工管理の転職サービス比較](https://doboku-note.com/exam/civil-construction-1/guide/career-agent-comparison?utm_source=note&utm_medium=referral&utm_campaign=civil-career-buildjob-review&utm_content=agent-comparison)も参考にしてください。
 

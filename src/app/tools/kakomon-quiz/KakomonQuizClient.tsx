@@ -682,7 +682,7 @@ function PremiumInterestCard({
           type="button"
           onClick={() => markInterest("premium_intent")}
           aria-pressed={mainSelected}
-          className="focus-ring mt-4 w-full rounded-card-content border border-[var(--accent)] bg-[var(--accent)] px-5 py-3 text-sm font-bold text-white transition-opacity hover:opacity-90"
+          className="focus-ring mt-4 w-full rounded-card-content border border-[var(--accent)] bg-[var(--accent)] px-5 py-3 text-sm font-bold text-[var(--paper)] transition-opacity hover:opacity-90"
         >
           {mainSelected ? "購入意向を記録しました" : "この内容なら使いたい（匿名で記録）"}
         </button>

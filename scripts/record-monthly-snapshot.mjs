@@ -26,6 +26,7 @@
  * exit: 0 追記/既存あり / 1 検査不成立（データ源が読めない）
  * ---------------------------------------------------------------------------
  */
+import { activeIds } from './lib/qualification-registry.mjs';
 import { readFileSync, writeFileSync, existsSync, readdirSync, writeSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -115,7 +116,10 @@ function main() {
   const examEvents = [];
   try {
     const cal = readJson(join(ROOT, '.claude/config/exam-calendar.json'));
+    // 展開中の資格だけ（候補資格の日程も exam-calendar に蓄積しているが、売上の説明変数には混ぜない）
+    const active = new Set(activeIds(readJson(join(ROOT, '.claude/config/qualification-registry.json'))));
     for (const [key, ex] of Object.entries(cal.exams ?? {})) {
+      if (!active.has(key)) continue;
       for (const ev of Object.values(ex.events ?? {})) {
         if (String(ev.date ?? '').startsWith(month)) {
           examEvents.push({ exam: key, label: `${ex.label} ${ev.label}`, date: ev.date });

@@ -2,6 +2,7 @@
 name: strategy-advisor
 description: 資格別の学習価値・図解・販売・運営負担を共通SSOTで統括し、週次/月次レビューから実験と計画へつなぐ戦略オーケストレーター。
 model: inherit
+domain: strategy
 ---
 
 # Strategy Advisor

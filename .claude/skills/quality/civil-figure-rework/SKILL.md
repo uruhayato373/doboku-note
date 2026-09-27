@@ -6,6 +6,7 @@ description: >
   オーケストレータスキル。1ページ単位で commit。
   Use when user asks to [過去問図再抽出, 1級土木 図クロップ改善, テキスト写り込み修正, /civil-figure-rework].
 user-invocable: true
+domain: site
 ---
 
 # /civil-figure-rework

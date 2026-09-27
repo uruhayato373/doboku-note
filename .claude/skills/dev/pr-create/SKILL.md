@@ -4,6 +4,7 @@ description: >
   現在のブランチから GitHub PR を作成する。git status / diff / log を解析し、PR タイトルと body を自動生成、gh CLI で PR を open する。body は HEREDOC で整形し Co-Authored-By を付与、git add は明示指定のみ。
   Use when user asks to [PR作って, PR作成, プルリク, /pr-create, create pull request].
 user-invocable: true
+domain: ops
 ---
 
 現在のブランチから GitHub PR を作成する統一スキル。`/deploy`（develop→main 運用フロー）とは別に、**feature ブランチから develop/main への個別 PR 作成** を担う。

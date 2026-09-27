@@ -83,15 +83,15 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 
 | 記事 | 出すサービス |
 |---|---|
-| 経験記述（1級 `secondary-experience-writing-{guide,examples}`） | `coconala-shindan`＋`coconala-tensaku-set`（＋Brain 経験キット） |
-| 経験記述（2級 `secondary-experience-writing-{guide,examples}`） | `coconala-shindan`＋`coconala-2kyu-tensaku`（draft のため出品まで非表示・＋Brain 経験キット）。2026-09-25 級別化で分離（旧: 1級2級共通で `coconala-tensaku-set` を出していた） |
+| 経験記述（1級 `secondary-experience-writing-{guide,examples}`） | `coconala-shindan`＋`coconala-tensaku-set` |
+| 経験記述（2級 `secondary-experience-writing-{guide,examples}`） | `coconala-shindan`＋`coconala-2kyu-tensaku`（draft のため出品まで非表示）。2026-09-25 級別化で分離（旧: 1級2級共通で `coconala-tensaku-set` を出していた） |
 | 二次 年度別過去問（`secondary-r0[3-9]`） | `{1kyu,2kyu}-kanseitoan-pdf`（模範答案セット）＋`{1kyu,2kyu}-full-pdf`（2026-08-05 統廃合で改配線） |
 | 二次 学科分野別（1級 `secondary-(concrete\|construction-plan\|earthwork\|quality-management)-(basics\|past-problems)`） | `coconala-1kyu-full-pdf`（学科単品は paused） |
 | 二次 入門・直前（1級 `secondary-getting-started`／`guide-last-minute-2026`） | `coconala-1kyu-moshi-pdf`＋`coconala-1kyu-full-pdf` |
 | 二次 入門（2級 `secondary-getting-started`） | `coconala-2kyu-moshi-pdf`＋`coconala-2kyu-full-pdf` |
-| 総監 記述系（`essay-*`／`pattern-essay-*`／`{h2X,r0X}-secondary`） | `coconala-sokan-bunseki-pdf`（＋Brain 施策バンク） |
+| 総監 記述系（`essay-*`／`pattern-essay-*`／`{h2X,r0X}-secondary`） | `coconala-sokan-bunseki-pdf` |
 
-未掲載（`/links` のみ）: `coconala-sakusei`／`coconala-civil-keiken-kit`（経験記述ページは診断+添削+Brain で満杯・クロップ回避のため意図的に載せない）。※模範答案セット（`{1kyu,2kyu}-kanseitoan-pdf`）は 2026-08-05 統廃合で年度別過去問記事の CTA へ配線済み。
+未掲載（`/links` のみ）: `coconala-sakusei`／`coconala-civil-keiken-kit`（経験記述ページは診断+添削で満杯・クロップ回避のため意図的に載せない）。※模範答案セット（`{1kyu,2kyu}-kanseitoan-pdf`）は 2026-08-05 統廃合で年度別過去問記事の CTA へ配線済み。
 
 ### 2.1b 出品投入 SoT: `.claude/config/coconala-listings.json`
 
@@ -189,6 +189,7 @@ DM 一覧 = `/message?fromMyPage=true`、行 = `a.c-messageItemWrap[href="/mypag
 ここにしか来ない。メールは出品アカウント宛にしか届かず接続済み Gmail からは見えない）。
 人が決着させた DM は [`.claude/config/coconala/resolved-inquiries.json`](../../config/coconala/resolved-inquiries.json) で除外し、
 **除外件数を必ず出力する**（黙って消すと検査ゼロの偽 PASS になる）。
+`resolvedOn` より後に新着があれば再オープンする。一覧の「8分前」は分単位で丸められるので、`resolvedOn` は自分の最後の送信から数分後の時刻（`+09:00` 付き）で書く。相対日付は snapshot の `fetchedAt` を基準に読む（`inquiryClockMs`）。
 
 > 2026-08-17 まで既読 DM を無条件で「要対応」に積んでいたため、**4/4 件が偽陽性**だった
 > （運営通知1・規約違反削除2・受注完了済み1）。W33 レビューと W34 計画の両方がこれに引っかかり、
@@ -269,7 +270,7 @@ DM 一覧 = `/message?fromMyPage=true`、行 = `a.c-messageItemWrap[href="/mypag
 
 | 検査 | 見るもの | いつ走るか |
 |---|---|---|
-| `npm run check-coconala-live` | listed の全サービスについて、公開ページの構造化データ（schema.org Product・ログイン不要）の価格＝`priceYen`、名前＝タイトル＋キャッチコピー、説明文＝listings の `body`（空白・改行は無視）、出品者名、販売可能状態 | 日次の ops-audit（`quality-audit --ops`）。食い違いは automation-failure Issue（channel ops） |
+| `npm run check-coconala-live` | listed の全サービスについて、公開ページの構造化データ（schema.org Product・ログイン不要）の価格＝`priceYen`、名前＝タイトル＋キャッチコピー、説明文＝listings の `body`（空白・改行は無視）、出品者名、販売可能状態。あわせて出品者プロフィール（`coconala-account.json` の `profileUrl`）の職業・ひとことアピール・自己紹介文を `profile` と突合（資格・職歴・得意分野は対象外） | 日次の ops-audit（`quality-audit --ops`）。食い違いは automation-failure Issue（channel ops） |
 | `npm run check-coconala-wiring`（検査10） | PDF 商品の価格ルール＝`notePriceBasis`（note で同じ中身を買う方法）の基準 × 1.1 をココナラの価格刻みで切り上げた額以上。note に同じ中身が無い PDF は `notePriceExempt` に理由 | pre-commit（カタログ・listings・`note-magazines.ts` の変更時）と CI（`quality-audit --ci`） |
 
 - 出品文・価格を変えたら、SoT（カタログ・listings）を先に直して `coconala-edit` で反映し、`check-coconala-live` が緑になるまでを1セットにする。

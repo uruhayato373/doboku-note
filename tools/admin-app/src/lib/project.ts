@@ -60,7 +60,7 @@ const RETIRED_PATTERNS: RegExp[] = [
 export interface DocChannelLink {
   id: Exclude<DocChannel, 'cross'>;
   label: string;
-  /** 対応チャネルが未実装（Brain 等）なら null（死んだリンクを出さない）。 */
+  /** 対応チャネルが未実装なら null（死んだリンクを出さない）。 */
   href: string | null;
 }
 

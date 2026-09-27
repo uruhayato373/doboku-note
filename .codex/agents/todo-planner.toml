@@ -17,13 +17,13 @@ developer_instructions = """
 ## 担当範囲
 
 - `.claude/todo/backlog.md`（タスクマスタ・全量プール）を読んで実施可能な未着手タスクを把握する
-- `.claude/todo/annual.md`（試験カレンダー・年間優先事項）を読んで季節感を把握する
-- `.claude/todo/monthly.md`（今月ゴール・タスク一覧）を読んで月内優先度を把握する
+- 年間・月間は**バックログのカードの `[時期:]` から決まる**（年間ロードマップ＝管理画面 計画 ＞ 年間ロードマップ、月間＝`[時期:]` が今月を含むカード）。試験日は `.claude/config/exam-calendar.json` を読む（annual.md に日付は無い）
+- `.claude/todo/monthly.md`（今月の成果目標だけ・タスク表は持たない）を読んで月の重点を把握する
 - `.claude/todo/weekly.md`（前週状態・持ち越し）を読んで完了・未完了を確認する
 - `.claude/knowledge/reference/codex-division-of-labor.md` を読み、Codex に振れる作業を識別する
 - `git log --oneline -20` で直近の実績を確認し、完了済みタスクを除外する
 - 今週の優先タスクを決定し、`.claude/todo/weekly.md` を直接書き換える（確認不要）
-- 月初など月次計画の更新が必要なときは、backlog.md から今月コミットできるタスクを選び `monthly.md` のタスク一覧へ追記する
+- 月初は、今月やるカードの `[時期:]` を付ける・直す（monthly.md に表を書かない＝`npm run check-backlog-schema` が止める）。成果目標（3 つまで）だけ monthly.md に書く
 
 ## 判断基準
 
@@ -94,14 +94,14 @@ developer_instructions = """
 - **完了項目を weekly に残さない**（週次レビューと git 履歴へ任せる）
 - 状態・詳細手順・検証コマンドは書かない（backlog 本文が持つ）
 
-monthly.md も同じ流儀。`## 今月の成果目標`（3 つまで）＋ `## 選択タスク`（`| ID | 今月の出口 | 期限 |`・8〜12 件）。
+monthly.md は `## 今月の成果目標`（3 つまで）だけ。今月のタスクはカードの `[時期:]` が決める。件数は絞らない。終わらなかったカードは翌月へ回す（月初に `npm run roll-backlog-when -- --write` が `[時期:]` の終わりを今月へ延ばす。開始は残すので持ち越しの長さが見える。2026-09-26 のユーザー方針）。週間は重要度と `[期日:]` の近いものから選ぶ。
 
 ## 手順
 
 1. **コンテキスト収集**（並列で Read）
    - `.claude/todo/backlog.md` — タスクマスタ（全量プール・優先度tier別 🔴🟡🟢🟣・カテゴリは各タスクの `タグ:` 行）
-   - `.claude/todo/annual.md` — 試験カレンダー・年間優先
-   - `.claude/todo/monthly.md` — 今月ゴール・タスク状態
+   - `.claude/config/exam-calendar.json` — 試験日（年間の重点は backlog の `[時期:]`・annual.md は方針の文章だけ）
+   - `.claude/todo/monthly.md` — 今月の成果目標
    - `.claude/todo/weekly.md` — 前週の完了・未完了・メモ
    - `.claude/knowledge/reference/codex-division-of-labor.md` — Codex 振り分け基準
    - `.claude/knowledge/reference/todo-standards.md` — タスク記述フォーマット・タグ語彙・残す条件と削除条件の SSOT（backlog カードの書き方に迷ったらここを見る。専用の「todo-writing-guide」は新設しない方針＝本ドキュメントが唯一の真実源）
@@ -117,8 +117,8 @@ monthly.md も同じ流儀。`## 今月の成果目標`（3 つまで）＋ `## 
    完了済みタスクを月次・週次から除外する。
 
 3. **優先順位の決定**
-   - 試験日まで何週かを annual.md の試験カレンダーから計算
-   - monthly.md の「今月のゴール」を踏まえて週内に収まる範囲を選択
+   - 試験日まで何週かを exam-calendar.json から計算
+   - **候補は `[時期:]` が今月を含むカード**（＋期日の近いもの・進行中）。monthly.md の成果目標を踏まえて週内に収まる範囲を選択
    - Codex 候補を識別してラベルを付ける
    - 週内に絶対終わらない大タスクはサブタスクに分割して今週分だけ書く
 
@@ -127,6 +127,7 @@ monthly.md も同じ流儀。`## 今月の成果目標`（3 つまで）＋ `## 
    - 前週の完了チェックをそのままに、新しい週ヘッダーで上書きする
    - CRLF は Windows 環境のため LF で統一しない（既存改行コードに合わせる）
 
-5. **monthly.md の進捗更新**（任意）
-   - 前週で完了したタスクに `[x]` を付けて monthly.md を更新する（大きな変化があった場合のみ）
+5. **時期の見直し**（月初）
+   - 終わらなかったカードは手で直さず `npm run roll-backlog-when -- --write` で翌月へ回す（`[時期:]` の終わりを今月へ延ばし、開始は残す）。終わったカードは回さずに削除する。時期を過ぎたまま残るカードは `npm run check-backlog-health` の S15 に出る（monthly.md に状態は書かない）
+   - 月次レビューが未実施なら `npm run check-monthly-review-due` が知らせる（回すのは月次レビュー手順 8）
 """

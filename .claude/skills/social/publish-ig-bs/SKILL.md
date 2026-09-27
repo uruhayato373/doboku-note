@@ -9,6 +9,7 @@ description: >
   **初回 / セレクタ更新後は必ず --dry-run で事前検証すること**。
 disable-model-invocation: true
 argument-hint: "post <pack> --schedule <YYYY-MM-DDTHH:MM> [--reel] [--dry-run] [--pause] [--keep-fb] | login"
+domain: sns
 ---
 
 Playwright で Business Suite（business.facebook.com）のコンポーザを自動操作し、Instagram カルーセルを予約投稿する。設計は [[publish-x]] に倣う（永続プロファイル・システム Chrome で bot 回避・偽成功を出さない fail-safe・dry-run 必須）。
