@@ -105,6 +105,7 @@ domain: strategy
   理由が返るので、`actions` が空でも**「実体が検査不成立」として必ず surface する**（静かなのは
   「問題が無い」ではなく「見ていない」）。
 - **教材からの展開**: `npm run check-content-expansion -- --json` で全教材の未確認・必要制作・原典待ち・確認後の変更を確認する。判定手順は `.claude/knowledge/reference/content-expansion.md`、対応表は管理画面 `/materials`（教材ページの「要確認のみ」）。対象0件や概念名の対応だけを完了にしない。残務は既存backlog IDへ接続し、公開・予約・効果は各チャネルと事業レビューのSSOTで別に確認する。
+- **検索キーワード戦略（改善候補の起票）**: `npm run report-search-opportunities -- --json` を実行（committed の GSC 検索語×ページ集計を読むだけ）。クラスター（資格名・土木公務員・施工管理の転職・技術図書。`docs/strategy/16_検索キーワード戦略.md`）ごとの `candidates[]` のうち、`watched`（観察中）・`card`（起票済み）・`legacyUrl`（旧URL＝転送と内部リンクの確認だけ）が付いていないものを表示の多い順に**最大 3 件バックログへ起票**する（🟡・`[領域:サイト]`・`[種類:改善]`。本文に対象ページ・検索語と順位・表示・直す箇所＝title/description/冒頭の答え/見出し/内部リンク、完了条件＝反映後 28 日の集計で対象語が 1 桁か表示増）。新規ページは作らない。1 キーワードの 7 日観察が要るものは下の SEO Rank Watch へ登録する
 - **SEO Rank Watch**: `npm run seo-rank-watch -- report --json` で資格別候補・実行/待機理由・観察期限・達成後監視・鮮度・同時実行上限・方針レビュー期限を確認する。一般用語の順位だけを週の成果にしない。観察/方針の期限到来は `/weekly-improve --rank-watch --no-fetch` へ渡す。汎用NSMの10日/28日基準でrank-watchを変更しない。確認後は専用 `log-run` で判断を記録する。
 - **実験サイクルの期限**: `npm run check-experiment-due -- --json`（オフライン・`experiments.json` 参照）。
   これが「計測→記録→改善→**再計測**」の最後の輪。`due[]` の MEASURE_DUE / CLOSE_DUE / PENDING /
@@ -139,6 +140,7 @@ domain: strategy
 - 「公開ページの目視確認（run・note N ページ／YouTube M 本・画像 K 枚・指摘 L 件）」（画像を取れなかった週は「未確認」と理由）
 - 「競合再スキャン DUE」（`check-competitor-scan-due` が due のときのみ・チャネル名つき。market は市場スキャン）
 - 「ココナラ競合の変化 N 件 / 追跡候補 M 社」（`report-competitor-watch` の `changes[]`・`candidates[]` が空でないときのみ・1 行ずつ。新規追跡のみの変化は件数だけ）
+- 「検索の改善候補を起票 N 件（DN-####…）/ 未起票 M 件」（`report-search-opportunities` の候補から起票したときのみ）
 - 「GSC/GA4 UI 取得 DUE（月次）」（`check-gsc-ui-due` の `anyDue` が true のときのみ・理由つき・→ Mac で `npm run gsc-local:install -- --status` とログ `~/Library/Logs/doboku-note/gsc-local.log` を確認、急ぐなら `-- --run-now`）
 - 「GSC 自動化 DUE」（`check-gsc-indexing-due` か `check-gsc-sitemaps` が due のときのみ・理由つき・→ 同上の Mac 確認／sitemap は権限と fetch-metrics の run）
 - 「GA4 設定ドリフト」（`check-ga4-dimensions` が blockingMissing を返したときのみ・→ 次セッションで `npm run ga4-admin:apply`）

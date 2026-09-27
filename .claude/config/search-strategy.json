@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "_doc": "docs/strategy/16_検索キーワード戦略.md",
+  "_note": "検索キーワード戦略の機械正本。クラスター（狙う読者 × 検索語の型 × 受け皿のページ）ごとに、GSC の検索語×ページ集計から「11〜30 位で表示がある」改善候補を出す。実装は scripts/lib/search-opportunities.mjs、CLI は npm run report-search-opportunities、管理画面は 検索 ＞ キーワード戦略。1 キーワードの実験と 7 日観察は既存の SEO Rank Watch（seo-watchwords.json）が持つ。",
+  "striking": {
+    "minPosition": 10.5,
+    "maxPosition": 30,
+    "minImpressions": 3,
+    "maxCandidatesPerCluster": 5
+  },
+  "clusters": [
+    {
+      "id": "qualification",
+      "label": "資格名",
+      "audience": "資格の受験を決めた人・受験中の人",
+      "queryPattern": "(1級|2級|一級|二級)?土木施工管理|施工管理技士|技術士|総監|総合技術監理|rccm|コンクリート(主任|診断|技士)|舗装施工管理|測量士",
+      "pagePrefixes": ["/exam/"],
+      "goal": "資格名を含む検索語で 1 桁順位の件数を増やす"
+    },
+    {
+      "id": "public-servant",
+      "label": "土木公務員",
+      "audience": "自治体・国の土木職（発注者）で、資格や実務の判断基準を探す人",
+      "queryPattern": "公務員|土木職|自治体|発注者|役所|監督員",
+      "pagePrefixes": ["/exam/pe-comprehensive-management/guide/public-engineer-qualification-map", "/exam/civil-construction-1/guide/public-servant-merit", "/practice/"],
+      "goal": "公務員×資格・発注者実務の検索語で 1 ページ目に入る"
+    },
+    {
+      "id": "career",
+      "label": "施工管理の転職",
+      "audience": "施工管理の仕事を続けるか、転職・キャリアを考える人",
+      "queryPattern": "転職|辞め|退職|年収|キャリア|求人|エージェント",
+      "pagePrefixes": ["/exam/civil-construction-1/guide/", "/exam/pe-construction/guide/career", "/topics/"],
+      "goal": "施工管理の転職・年収の検索語で表示と 1 桁順位を増やす"
+    },
+    {
+      "id": "standards",
+      "label": "技術図書（共通仕様書など）",
+      "audience": "国・都道府県の共通仕様書や基準書を実務で引く人",
+      "queryPattern": "共通仕様書|仕様書|歩掛|積算|設計要領|施工管理基準|出来形|品質管理基準|示方書|基準書|要領",
+      "pagePrefixes": ["/standards/"],
+      "goal": "発行元名（地整・都道府県）×共通仕様書の検索語で 1 桁順位にする"
+    }
+  ]
+}

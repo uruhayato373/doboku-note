@@ -128,6 +128,7 @@
     "roll-backlog-when": "node scripts/roll-backlog-when.mjs",
     "seo-rank-watch": "node scripts/seo-rank-watch.mjs",
     "check-seo-rank-watch": "node scripts/check-seo-rank-watch.mjs",
+    "report-search-opportunities": "node scripts/report-search-opportunities.mjs",
     "check-experiment-due": "node scripts/check-experiment-due.mjs",
     "check-figure-canvas": "node scripts/check-figure-canvas.mjs",
     "check-figure-crop": "node scripts/check-figure-crop-integrity.mjs",
