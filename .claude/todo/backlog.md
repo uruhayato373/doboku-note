@@ -601,7 +601,7 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 
 **起点**: Codex の 1 回限りローカル自動化は Mac スリープ中に発火せず、起床時に遅延実行されて公開窓（15 分前〜120 分後）を外す（Article 1・3 はこれで逸失）。アプリは `automation.toml` の直接編集を読まない。2026-09-27 に運営者が「今夜は Mac を起こす＋1・3 は手動」と決定。9・10 月は 10/8 と 10/23 以降しか 1 日 3 本の空きが無いため、1・3 を 10/26・10/28 の夕方へ引き直し（告知は翌朝）、Article 2 の告知 Tweet 4 は見送り（`cancelled`）にした。
 
-**やること**: (1) 2026-09-27 20:00〜22:15 は Mac を起こしておき、自動化 `x-article-4` の公開と告知 Tweet 8（9/28 07:50）の予約を翌朝 `~/.codex/automations/x-article-4/memory.md` と `article_url` で確認する。逸失したら手動復旧 `DOBOKU_PW_MIN_FREE_MB=1024 npm run x-article:publish -- --article 4 --publish --force`（Claude Code の auto mode は拒否するので運営者が起動）。(2) 10/26 20:20 に `npm run x-article:publish -- --article 1 --publish`、10/28 19:35 に `--article 3` を運営者が実行し、告知（Tweet 2・6）を publish-x で予約する（手順は `.claude/skills/social/publish-x/SKILL.md`）。
+**やること**: (1) 2026-09-27 20:00〜22:15 は Mac を起こしておき、自動化 `x-article-4` の公開と告知 Tweet 8（9/28 07:50）の予約を翌朝 `~/.codex/automations/x-article-4/memory.md` と `article_url` で確認する。逸失したら手動復旧 `DOBOKU_PW_MIN_FREE_MB=1024 npm run x-article:publish -- --article 4 --publish --force`（Claude Code の auto mode は拒否するので運営者が起動）。(2) 10/26 19:20 に `npm run x-article:publish -- --article 1 --publish`、10/28 19:35 に `--article 3` を運営者が実行し、告知（Tweet 2・6）を publish-x で予約する（手順は `.claude/skills/social/publish-x/SKILL.md`）。
 
 **完了条件**: `npm run check-x-queue-health` の issues が空で、Article 1・3・4 の `article_url` が埋まっている。
 
