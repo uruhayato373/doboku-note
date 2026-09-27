@@ -13,7 +13,7 @@ import { fileURLToPath } from 'node:url';
 import {
   STAGES, STAGE_LABELS, emptyCounts, tally,
   videoStatusToStage, siteDocToStage, noteToStage, coconalaStatusToStage,
-  brainStatusToStage, kindleStatusToStage, xTweetStatusToStage,
+  kindleStatusToStage, xTweetStatusToStage,
   youtubeScheduleStatusToStage, igPackToStage,
 } from '../scripts/lib/content-lifecycle.mjs';
 
@@ -60,14 +60,10 @@ test('coconala: paused は pauseReason で retired と scheduled に分かれる
   assert.equal(coconalaStatusToStage('unknown-status'), null);
 });
 
-test('実カタログのネイティブ値を全て写像できる（coconala / brain / kindle）', () => {
+test('実カタログのネイティブ値を全て写像できる（coconala / kindle）', () => {
   const coconala = readFileSync(join(ROOT, 'src/lib/coconala-services.ts'), 'utf8');
   for (const m of coconala.matchAll(/^\s*status: '([a-z_]+)'/gm)) {
     assert.ok(coconalaStatusToStage(m[1], 'retired') !== null, `未写像の coconala status: ${m[1]}`);
-  }
-  const brain = readFileSync(join(ROOT, 'src/lib/brain-products.ts'), 'utf8');
-  for (const m of brain.matchAll(/^\s*status: '([a-z_]+)'/gm)) {
-    assert.ok(brainStatusToStage(m[1]) !== null, `未写像の brain status: ${m[1]}`);
   }
   const catalog = JSON.parse(readFileSync(join(ROOT, 'scripts/kindle-published/catalog.json'), 'utf8'));
   for (const b of catalog.books) {

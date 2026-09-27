@@ -1,0 +1,30 @@
+{
+  "kind": "review",
+  "qualification": "all",
+  "cadence": "weekly",
+  "period": {
+    "startDate": "2026-09-14",
+    "endDate": "2026-09-20"
+  },
+  "status": "provisional",
+  "snapshot": ".claude/state/metrics/business/snapshot-2026-09-26T05-17-59-555Z-89e13c37-e14b-4d5d-99f3-5006002a3af2.json",
+  "qualificationsReviewed": [
+    "civil-construction-1",
+    "pe-comprehensive-management",
+    "pe-construction",
+    "rccm"
+  ],
+  "findings": "9/14〜9/20の自然検索人数は全体2130、正規URLの1級土木848・総監174・建設部門64・RCCM3（資格間で合算しない）。Googleクリックは全体136、1級4・総監2・建設0・RCCM0。note CTAクリックは全体89（1級29・総監7・建設3・RCCM0）、演習開始2・完了0。note台帳登録分は0件（最終売上9/12・転記9/20、網羅性は未確認）。ココナラは期間中の注文0・購入前相談0（全タブ実査）。note記事PV・KDP・ココナラ閲覧・実受取・費用・作業時間は欠測。現物では1級 secondary-r07 の MagazineCard（civil-1-pastexam-essay）が本文80行目、建設部門 steel-concrete-exam-themes は MagazineCard が174行中167・169行目の末尾だけで28日26人・CTA CTR 0%、RCCM ガイド8本は公開済みで mondai3 に rccm-mondai3-magazine を配置。GSC 検査では登録済みが9/7の41.8%から9/23に79.9%（1434件中1146）へ回復し #485 は自動クローズ。9/17〜9/23のGA4自然検索は1328人（前週2136・-37.8%）だが、9/19〜9/23の5連休で日次が平日約400人→約180人に落ちた形で、W38の期間値2130とは窓が異なる。",
+  "decision": "4資格の図解→演習→答案の方針を維持し、欠測があるため暫定レビューとして記録する。EXP-007 は投稿当たりの反応が3枠中2枠で不変、送客は判定不能のため no-effect で終了し、X本数は現状維持を既定にする（収益への寄与は note 内回遊と検索直が主）。EXP-008 は10/20の28日判定を待ち、記事サイドバー撤去（9/26）後の変化を同じ判定で見る。5連休の自然検索減は季節要因の可能性が高く、1週で施策判断しない。",
+  "nextAction": "(1) 10/1 に EXP-009（RCCM 問題III）と EXP-011（直前パック）を実売で計測し、1級二次（10/4）後は DN-0250 で CTA を切り替える。(2) 9月の note アクセス・販売を月末に取得して9/13以降の0件が実売か転記漏れかを確かめ、KDP・ココナラ閲覧・運営時間（DN-0303）の欠測を埋める。(3) 建設部門 steel-concrete-exam-themes のように末尾だけに CTA がある高流入ページは、次の月次で読者の次の行動（年度別過去問→模範解答）と照らして配置を検討する。10/3 の週次で5連休明けの自然検索の戻りを確認する。",
+  "experimentIds": [
+    "EXP-007",
+    "EXP-008",
+    "EXP-009",
+    "EXP-011"
+  ],
+  "nextReviewDate": "2026-10-03",
+  "schemaVersion": 1,
+  "createdAt": "2026-09-26T05:18:27.353Z",
+  "strategyHash": "6535d049c52c0018ceca8e5a93349f6aaf00bcb342c1292a4e41d41faab3fb13"
+}

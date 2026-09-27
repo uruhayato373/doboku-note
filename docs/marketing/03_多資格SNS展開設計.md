@@ -101,18 +101,9 @@ IG 過去問パックは「**試験軸つきの問題データ SoT**」から生
 - 生成器（`generate-exam-pack-dirs.mjs` / `bulk-generate-exam-packs.mjs`）の出力パスを `{試験}/{年度}` 対応に改修。
 - 移行はコンテンツが安定したタイミングで一括実施（並行セッション競合を避ける）。
 
-## 8. 実装タスク（順番・本設計合意後）
+## 8. 実装状況
 
-> 状態: **大部分を実装完了（2026-06-02 セッション）**。IG carousel/reels 静止素材は総監/1級/2級で揃った。残は mp4 再生成（ffmpeg/VOICEVOX 環境）と X 実投稿運用。
-
-1. ✅ 本設計の合意（このドキュメント）
-2. ✅ `exam-palette.mjs`（`note-cover-tokens.json` の exams を解決する SNS 共有ローダ）。concrete 系は tokens に定義済み
-3. ✅ 既存総監 IG パックを `cem/exam-packs/{年度}/` へ移行（git mv, 1909b6f23）＋ `ig-post-create`/`ig-reel-create`/`yt-shorts-create` の `--exam-dir`（既定=技術士総監）・examId `[zk]` 対応
-4. ✅ 1級土木（`parse-civil-1`＋`civil-1-exam-questions.json`）・2級土木（`parse-civil-2`＋`civil-2-exam-questions.json`、前期 r05z/後期 r05k 分離）を試験軸データ SoT へ統合
-5. ✅ `exam-cover-ig.mjs` を試験識別レイヤー＋**3 フォーマット（carousel/reels/stories）**対応に実装。`slide-data._meta.exam` 注入。正式名称 1 行・レイアウト洗練（C3）。CTA は `buildQuizCta` が試験別 stats/色を出し分け
-6. ✅ パック生成: 1級 carousel 228 + reels 228、2級 carousel 123 + reels 123、総監 carousel/reels/stories カバー＋CTA 刷新。caption は `generate-caption.cjs` が試験別タグで生成
-7. ✅ X 多資格分業: `x-post-policy.md`・`x-post-writer`/`x-post-qa` 新設、`gen-x-card.mjs` 試験別色、X draft 命名 `{連番}-{試験}-{名前}`
-8. ⏳ 残: reels `video.mp4` 再生成（ffmpeg/VOICEVOX 環境）、r03-r06 reels 09-cta は世代統一済、X 実投稿運用（`x-post-writer` 量産→`publish-x`）
+本設計は 2026-06-02 に実装した（試験別パレットの共有ローダ `exam-palette.mjs`、総監パックの `cem/exam-packs/{年度}/` への移行、1級・2級の試験軸データ統合、`exam-cover-ig.mjs` の carousel/reels/stories 対応、X の多資格分業＝`x-post-writer`/`x-post-qa`）。以降の制作・投稿の進捗は `.claude/todo/backlog.md` と各チャネルの台帳が持つ。
 
 ## 9. 未決事項
 

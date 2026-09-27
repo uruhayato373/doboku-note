@@ -16,6 +16,7 @@
  */
 import fs from 'fs';
 import path from 'path';
+import { writeJsonIfChanged } from '../../../../../scripts/lib/write-generated.mjs';
 
 const ROOT = process.cwd();
 const CATEGORY_PREFIX = 'pe-comprehensive-management-';
@@ -279,7 +280,7 @@ function main() {
   };
 
   fs.mkdirSync(path.dirname(OUT_FILE), { recursive: true });
-  fs.writeFileSync(OUT_FILE, JSON.stringify(output, null, 2));
+  writeJsonIfChanged(OUT_FILE, output, { trailingNewline: false });
 
   const totalRels = Object.values(relations).reduce((s, arr) => s + arr.length, 0);
   const avg = allSlugs.length > 0 ? (totalRels / allSlugs.length).toFixed(2) : '0.00';

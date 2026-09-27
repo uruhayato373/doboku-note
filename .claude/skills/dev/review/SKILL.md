@@ -4,6 +4,7 @@ description: >
   対象ファイルの種類を自動判定し、適切なレビュースキル（review-mobile / check-mdx / check-links / code-review / design-review / critical-review）を実行して結果を集約する統一エントリーポイント。
   Use when user asks to [レビュー, /review, レビューして, 確認して, チェックして].
 user-invocable: true
+domain: ops
 ---
 
 対象ファイルのパスと種類から **適切なレビュースキルを自動判定・実行** し、結果を1つのサマリに集約する統一入口。「どのスキルを呼べばよいかユーザが覚えなくてよい」状態を作ることが目的。

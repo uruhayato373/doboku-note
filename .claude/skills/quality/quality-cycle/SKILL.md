@@ -5,6 +5,7 @@ description: >
   `--profile {cem|civil-textbook}` で試験を切替。state ファイル名は profile 別に分離（既存データと互換）。
   旧 /quality-cycle（CEM）/ /civil-textbook-cycle（1級土木）を統合。
   Use when user asks to [品質サイクル, スコアリング, リライト, 品質向上ループ, /quality-cycle].
+domain: site
 ---
 
 キーワードページ・教科書 MDX の品質サイクルを継続的に回すオーケストレータ。プロファイル別に state ファイル・Evaluator / Generator エージェント・拡張パターンが切り替わる。
@@ -65,7 +66,7 @@ scripts-cem/
 ├── quality-cycle.mjs       # CEM プロファイルのエントリ
 ├── log-rewrite.mjs
 ├── merge-scores.mjs
-├── record-verify.mjs       # 採点結果を scores+state(verified)+進捗md に1ステップ記録（ドリフト防止）
+├── record-verify.mjs       # 採点結果を scores+state(verified) に1ステップ記録（ドリフト防止。進捗は管理画面 /quality/progress）
 └── lib/                    # cem 固有のロジック（プロンプト等）
 
 scripts-civil-textbook/

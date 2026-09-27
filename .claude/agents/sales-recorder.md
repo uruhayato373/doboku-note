@@ -5,6 +5,7 @@ description: >
   productId 推定・重複チェック・月次集計を行う。
   Use when user asks to [売上記録, 販売履歴を記録, note 売上を追加, /record-sales].
 model: sonnet
+domain: product
 ---
 
 # Sales Recorder Agent
@@ -140,6 +141,7 @@ productId は `article:<slug>` 形式。slug は商品名から推定:
 | `情報管理 × 他4管理｜トレードオフ` | `article:tradeoff-information-management` |
 | `2級土木 施工経験記述｜令和{N}年度` | `article:civil-2-pastexam-essay-r0{N}` |
 | `2級土木 施工経験記述｜品質管理 完成答案集` | `article:civil-2-essay-quality-complete` |
+| `1級土木 施工経験記述｜工程管理 完成答案集（…）`（1級 完成答案集の工程管理 単品） | `article:civil-1-essay-schedule-complete` |
 | `2級土木 施工経験記述｜小規模地域インフラ4工事` | `article:civil-2-small-infra-4` |
 | `2級土木 施工経験記述｜{工種} 5管理フルカバー完成答案`（想定工事バンク単品¥980） | `article:civil-2-koji-bank-{koshu}`（{koshu} は想定工事バンクの工事番号。例: `article:civil-2-koji-bank-68`＝工事68-上水道配水管布設開削／`article:civil-2-koji-bank-08`＝工事08-補強土壁テールアルメ〔¥1,680〕） |
 | `1級土木 二次学科記述｜{テーマ}`（テーマ別出る順 単品¥580） | `article:civil-1-gakka-kijutsu-{theme}` |
@@ -199,7 +201,7 @@ productId は `article:<slug>` 形式。slug は商品名から推定:
 | `総監口頭試験…「業務経歴」の語り方` | `article:tankan-oral-exam` |
 | `【総監再受験者向け】不合格要因を特定する3パターン分析` | `article:tankan-retake-analysis` |
 | `1級土木 施工経験記述｜令和{N}年度 過去問 模範答案` | `article:civil-1-pastexam-essay-r0{N}` |
-| `1級土木 施工経験記述｜{工種}（5管理 完成答案）`（完全攻略パック単品） | `article:civil-1-keiken-pack-{工事番号 or 工種}`。既出: `article:civil-1-keiken-pack-15`（工事15 橋脚フーチング マスコン）／`article:civil-1-keiken-pack-24`（工事24 PC橋上部工）／`article:civil-1-keiken-pack-51`（工事51 河川護岸ブロック張）／`article:civil-1-keiken-pack-55`（工事55 河道掘削・しゅんせつ）／`article:civil-1-keiken-pack-72`（工事72 既設管更生）／`article:civil-1-keiken-pack-76`（工事76 橋脚躯体）／`article:civil-1-keiken-pack-102`（工事102 橋梁支承取替）／`article:civil-1-keiken-pack-105`（工事105 鋼道路橋塗替塗装）／`article:civil-1-keiken-pack-108`（工事108 橋梁床版下面炭素繊維補強）／`article:civil-1-keiken-pack-tunnel`（補充のトンネル工） |
+| `1級土木 施工経験記述｜{工種}（5管理 完成答案）`（完全攻略パック単品） | `article:civil-1-keiken-pack-{工事番号 or 工種}`。既出: `article:civil-1-keiken-pack-15`（工事15 橋脚フーチング マスコン）／`article:civil-1-keiken-pack-03`（工事03 宅地造成切盛土）／`article:civil-1-keiken-pack-33`（工事33 深礎杭）／`article:civil-1-keiken-pack-68`（工事68 上水道配水管布設開削）／`article:civil-1-keiken-pack-73`（工事73 水道管不断水工事）／`article:civil-1-keiken-pack-87`（工事87 山岳トンネル NATM）／`article:civil-1-keiken-pack-24`（工事24 PC橋上部工）／`article:civil-1-keiken-pack-51`（工事51 河川護岸ブロック張）／`article:civil-1-keiken-pack-55`（工事55 河道掘削・しゅんせつ）／`article:civil-1-keiken-pack-72`（工事72 既設管更生）／`article:civil-1-keiken-pack-76`（工事76 橋脚躯体）／`article:civil-1-keiken-pack-102`（工事102 橋梁支承取替）／`article:civil-1-keiken-pack-105`（工事105 鋼道路橋塗替塗装）／`article:civil-1-keiken-pack-108`（工事108 橋梁床版下面炭素繊維補強）／`article:civil-1-keiken-pack-tunnel`（補充のトンネル工） |
 | `1級土木 施工経験記述｜{管理A}×{管理B}`（2テーマ組合せ大全 単品） | `article:civil-1-combo-essay-{a}-{b}`（例: `-quality-environment`） |
 
 **推定できない場合**: `article:unknown-{YYYYMMDD}-{index}` として記録し、後でユーザーが修正。

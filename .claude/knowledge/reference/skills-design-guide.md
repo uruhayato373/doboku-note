@@ -25,8 +25,15 @@ name: kebab-case-name
 description: >
   [何をするか（1〜2 文）]。[どんなときに使うか、具体的な条件]。
   Use when user asks to [具体的なトリガーフレーズ, 別のトリガーフレーズ, /slash-command].
+domain: product
 ---
 ```
+
+### domain フィールド（必須・2026-09-26〜）
+
+- 事業の領域 id（`strategy` / `plan` / `product` / `affiliate` / `site` / `sns` / `material` / `ops`）。正本は `.claude/config/domains.json`、`npm run check-domains` が欠落と語彙外を止める
+- **作るもの・動かすものの領域**で決める。writer と qa の組は同じ領域（例: note 記事の書き手と QA は `product`、X 投稿は `sns`）。領域を横断する道具（文書同期・デプロイ・コードレビュー）は `ops`
+- 置き場（`.claude/skills/<カテゴリ>/`）は作業の種類、domain は事業の領域で、別の軸。domain のためにディレクトリを移さない
 
 ### name フィールド（Critical）
 
@@ -271,5 +278,5 @@ frontmatter に `user-invocable: true` を付けるのは、以下のいずれ�
 2. **「何を作るか」を先に合意する** — SKILL.md の変換ルールが完成の定義
 3. **主観をルーブリック化する** — 品質は 5 軸ルーブリックで定量評価
 4. **ハーネスはできるだけシンプルに保つ** — スキルを増やすより既存スキルのパラメータ化を優先
-5. **新モデルが出たらハーネスを見直す** — 現行は Opus 5（1M context が既定かつ上限）。モデル更新時は公式のプロンプトガイドを読み、旧モデル向けの回避策・過剰な検証指示が残っていないか棚卸しする（2026-07-27 実施）
+5. **新モデルが出たらハーネスを見直す** — モデル更新時は公式のプロンプトガイドを読み、旧モデル向けの回避策・過剰な検証指示が残っていないか棚卸しする（現行モデルと最終実施日は memory の project_model_assumptions が正）
 6. **Opus で考え、Sonnet で実行する** — サブエージェントは原則 `model: sonnet`

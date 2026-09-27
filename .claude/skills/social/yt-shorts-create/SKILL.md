@@ -2,6 +2,7 @@
 name: yt-shorts-create
 description: IG Reels パック (slide-NN.mp4) から 30-60 秒の YouTube Shorts mp4 + meta.json を派生生成する。戦略 v7 (Instagram 一次・YouTube 二次展開) に整合。
 allowed-tools: Bash, Read, Write
+domain: sns
 ---
 
 # YouTube Shorts 派生スキル（v7）

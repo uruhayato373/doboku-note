@@ -12,9 +12,7 @@ export const SCAN_TARGETS = [
   { kind: 'dir', path: 'content/kindle', label: 'Kindle' },
   { kind: 'dir', path: '.claude/agents', label: 'エージェント定義' },
   { kind: 'dir', path: 'docs', label: 'docs' },
-  { kind: 'zip-glob', path: 'content/brain/dist', suffix: '.zip', label: 'Brain 配布 ZIP' },
   { kind: 'file', path: '.claude/config/coconala-listings.json', label: 'ココナラ出品 SSOT' },
-  { kind: 'file', path: 'content/brain/listings.json', label: 'Brain 出品 SSOT' },
 ];
 
 const TEXT_EXTENSIONS = new Set(['.md', '.mdx', '.json', '.txt', '.yaml', '.yml']);

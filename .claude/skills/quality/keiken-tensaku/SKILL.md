@@ -12,6 +12,7 @@ description: >
   自社マガジン答案の字数検査 /keiken-charcount・品質採点 civil-keiken-essay-qa とは対象が異なる（顧客答案が対象）。
   Use when user asks to [経験記述を添削, 添削下書きを作成, 骨子シートを作成, ヒアリングから骨子, ココナラ添削/指導, /keiken-tensaku].
 user-invocable: true
+domain: product
 ---
 
 ## 用途

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import SectionTabs from '@/components/SectionTabs';
 import { rootById } from '@/lib/document-roots';
 import { sharedPolicyDocs } from '@/lib/shared-policy';
 
@@ -16,6 +17,7 @@ export default function SharedPolicyIndexPage() {
 
   return (
     <section className="page">
+      <SectionTabs set="policy" current="/strategy/policy" />
       <h1>共通方針（Obsidian 正本の写し）</h1>
       <p className="project-rail-meta">
         stats47 / doboku-note / Obsidian vault で共有する判断枠組み。正本は Obsidian vault の <code>memos/*SSOT.md</code>、

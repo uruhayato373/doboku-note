@@ -109,7 +109,7 @@ export default function ConcreteMaturityClient() {
             </div>
           </div>
           {isCold && (
-            <div className="inline-flex items-center rounded-full border border-[var(--color-warn)] px-3 py-1 text-sm font-bold text-[var(--color-warn)]">
+            <div className="inline-flex items-center rounded-full border border-[var(--color-warn)] px-3 py-1 text-sm font-bold text-[var(--warn-text-emphasis)]">
               寒中コンクリートの区分
             </div>
           )}
@@ -117,7 +117,7 @@ export default function ConcreteMaturityClient() {
 
         {ratio !== null && (
           <div className="mt-5 rounded-card-content bg-[var(--accent-fill)] p-4">
-            <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--ink-muted)]">
+            <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--ink-body)]">
               標準養生28日相当（{STANDARD_28D_MATURITY}℃・D）との比
             </div>
             <div className="font-serif font-black text-[22px] text-[var(--ink)] mt-1 tabular-nums">

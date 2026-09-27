@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import SearchTabs from '@/components/SearchTabs';
 import { PageHead } from '@/components/ui';
 import { findRepoRoot } from '@/lib/repo-root';
 import { report } from '../../../../../../scripts/lib/seo-rank-watch.mjs';
@@ -18,7 +19,7 @@ export default function SeoWatchPage() {
     return <><PageHead title="検索順位の改善" sub="SEO Rank Watch" /><div className="card"><p className="badge bad">監視データを読み取れません</p><p>設定・実験台帳・GSC履歴を確認してください。</p></div></>;
   }
   return <>
-    <PageHead title="検索順位の改善" sub="資格受験者の課題を優先し、1件の改善と本番反映後の実測を積み重ねる" />
+    <PageHead title="検索順位の改善" sub="資格受験者の課題を優先し、1件の改善と本番反映後の実測を積み重ねる" /><SearchTabs current="/metrics/seo-watch" />
     <nav className="project-crumbs"><Link href="/metrics/gsc">GSC全体</Link>{' · '}<Link href="/todo">バックログ</Link></nav>
     <div className="card">
       <h2>資格検索の方針</h2>

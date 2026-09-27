@@ -1,277 +1,124 @@
-import { PageHead } from '@/components/ui';
-import { BarChart, type Bar } from '@/components/charts/BarChart';
-import { affiliateSummary } from '@/lib/affiliate';
+import { PageHead, Kpi } from '@/components/ui';
+import { affiliateSummary, affiliatePlacements, affiliateExperiments } from '@/lib/affiliate';
 
 export const dynamic = 'force-dynamic';
 
 const yen = (v: number | null) => (v == null ? '—' : '¥' + Number(v).toLocaleString('en-US'));
 const num = (v: number | null) => (v == null ? '—' : Number(v).toLocaleString('en-US'));
-const epcFmt = (v: number | null) => (v == null ? '—' : '¥' + v.toFixed(1));
+const rate = (c: number, i: number) => (i ? `${((c / i) * 100).toFixed(2)}%` : '—');
+const md = (d: string) => d.slice(5).replace('-', '/');
 
+const PLACEMENT_LABELS: Record<string, string> = {
+  sidebar: '記事サイドバー',
+  'article-inline': '本文中',
+  'article-mid': '本文中間',
+  'article-end': '記事末',
+  'category-sidebar': 'カテゴリ サイドバー',
+  'category-mobile': 'カテゴリ モバイル',
+  'category-career-section': 'カテゴリ キャリア欄',
+};
+
+/**
+ * /affiliate — 人が月に一度見る最小限。改善の判断はサイト内の配置別クリック（GA4）で行い、
+ * A8 は成果（発生・確定）だけを見る（A8 のクリックは stats47 と同居の口座なので分母に使わない）。
+ * 口座横断の月別・日別、検算、未写像の一覧は週次レビュー（check-a8-report-due）が見る。
+ */
 export default function AffiliatePage() {
-  const {
-    collected,
-    site,
-    period,
-    updatedAt,
-    lastRun,
-    siteTotals,
-    programs,
-    accountWideMonths,
-    accountWideDays,
-    crossCheck,
-    unmapped,
-    notAttributable,
-  } = affiliateSummary();
-
-  if (!collected) {
-    return (
-      <>
-        <PageHead title="アフィリエイト" sub="A8 成果（.claude/state/metrics/affiliate/a8-report-log.json）" />
-        <div className="card">
-          <h2>未収集</h2>
-          <p>
-            A8 レポートがまだ取り込まれていません。<code>/a8-report</code> スキル、または以下で収集してください。
-          </p>
-          <pre>
-            npm run a8-ui:fetch{'\n'}
-            npm run a8-ui:normalize -- --latest
-          </pre>
-        </div>
-      </>
-    );
-  }
-
-  const bars: Bar[] = accountWideMonths.map((m) => ({ label: m.month.slice(2), value: m.clicks ?? 0 }));
+  const { collected, period, surfaceTotals, programs, unmapped } = affiliateSummary();
+  const got = surfaceTotals.filter((x) => x.collected);
+  const sumOf = (f: 'conversions' | 'revenueYen') => (got.length ? got.reduce((a, x) => a + (x[f] ?? 0), 0) : null);
+  const placements = affiliatePlacements();
+  const experiments = affiliateExperiments();
+  const clicks = placements.rows.reduce((s, r) => s + r.clicks, 0);
+  const imps = placements.rows.reduce((s, r) => s + r.impressions, 0);
 
   return (
     <>
-      <PageHead
-        title="アフィリエイト"
-        sub={`${site ?? '—'} · 期間 ${period?.start ?? '?'}〜${period?.end ?? '?'} · 最終取得 ${updatedAt?.slice(0, 16).replace('T', ' ') ?? '—'}`}
-      />
+      <PageHead title="アフィリエイト" />
+      <div className="grid cols-4" style={{ marginBottom: 12 }}>
+        <Kpi label={placements.window ? `サイト内クリック ${md(placements.window.start)}〜${md(placements.window.end)}` : 'サイト内クリック'} value={placements.rows.length ? clicks : '—'} />
+        <Kpi label="クリック率" value={rate(clicks, imps)} />
+        <Kpi label={`A8 発生 ${period?.singleMonth ?? ''}`} value={collected ? num(sumOf('conversions')) : '—'} />
+        <Kpi label={`A8 確定額 ${period?.singleMonth ?? ''}`} value={collected ? yen(sumOf('revenueYen')) : '—'} />
+      </div>
 
-      {unmapped.length > 0 ? (
-        <div className="card">
-          <h2>
-            未写像のプログラム
-            <span className="sub">
-              <span className="badge warn">{unmapped.length} 件</span> 集計から漏れています
+      {surfaceTotals.length > 1 && (
+        <p className="small" style={{ marginBottom: 4 }}>
+          A8 内訳{' '}
+          {surfaceTotals.map((x) => (
+            <span key={x.site} style={{ marginRight: 16 }}>
+              {x.label}: {x.collected ? `発生 ${num(x.conversions)}・確定 ${yen(x.revenueYen)}` : '未取得'}
             </span>
-          </h2>
-          <p className="sub">
-            <code>.claude/config/a8-report-automation.json</code> の <code>a8.programIdMap</code> に追記して
-            <code>npm run a8-ui:normalize -- --latest</code> を再実行してください。
-          </p>
-          <div className="table-wrap">
-            <table className="data">
-              <thead>
-                <tr>
-                  <th>プログラムID</th>
-                  <th>プログラム名</th>
-                </tr>
-              </thead>
-              <tbody>
-                {unmapped.map((u) => (
-                  <tr key={u.programId ?? u.programRaw}>
-                    <td>{u.programId ?? '—'}</td>
-                    <td className="wrap">{u.programRaw}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      ) : null}
-
-      {siteTotals ? (
-        <div className="card">
-          <h2>
-            {siteTotals.site} の実績
-            <span className="sub">
-              サイト別レポート＝<strong>doboku-note に分離された唯一の真実源</strong>
+          ))}
+        </p>
+      )}
+      {(experiments.length > 0 || unmapped.length > 0) && (
+        <p className="small" style={{ marginBottom: 12 }}>
+          {experiments.map((x) => (
+            <span key={x.id} style={{ marginRight: 16 }}>
+              次の判定 {x.nextCheck ? md(x.nextCheck) : '未設定'}（{x.id}）
             </span>
-          </h2>
-          <div className="table-wrap">
-            <table className="data">
-              <thead>
-                <tr>
-                  <th className="num">imp</th>
-                  <th className="num">クリック</th>
-                  <th className="num">発生</th>
-                  <th className="num">発生額</th>
-                  <th className="num">確定</th>
-                  <th className="num">確定額</th>
-                  <th className="num">キャンセル</th>
-                  <th className="num">未確定</th>
-                  <th className="num">EPC</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td className="num">{num(siteTotals.impressions)}</td>
-                  <td className="num">{num(siteTotals.clicks)}</td>
-                  <td className="num">{num(siteTotals.conversions)}</td>
-                  <td className="num">{yen(siteTotals.grossRevenueYen)}</td>
-                  <td className="num">{num(siteTotals.approved)}</td>
-                  <td className="num">{yen(siteTotals.revenueYen)}</td>
-                  <td className="num">
-                    {num(siteTotals.cancelledCount)} / {yen(siteTotals.cancelledYen)}
-                  </td>
-                  <td className="num">
-                    {num(siteTotals.pendingCount)} / {yen(siteTotals.pendingRevenueYen)}
-                  </td>
-                  <td className="num">{epcFmt(siteTotals.epc)}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <p className="sub">
-            EPC は「確定額 ÷ クリック」。発生額はキャンセルされると確定額に載らないため、両者の差は要確認。
-          </p>
-        </div>
-      ) : (
-        <div className="card">
-          <h2>
-            サイト別実績なし<span className="sub"><span className="badge bad">要確認</span></span>
-          </h2>
-          <p>サイト別レポートに {site} の行がありません＝分離された実績を取れていません。</p>
-        </div>
+          ))}
+          {unmapped.length > 0 && <span className="project-warning-text">A8 集計から漏れている案件 {unmapped.length} 件</span>}
+        </p>
       )}
 
-      <div className="card">
-        <h2>
-          プログラム別
-          <span className="sub">
-            口座横断レポートから allowlist 抽出（{programs.length} 件）
-          </span>
-        </h2>
-        {crossCheck?.comparable ? (
-          <p className="sub">
-            検算: 抽出クリック {num(crossCheck.deltas?.clicks?.picked ?? null)} /{' '}
-            {num(crossCheck.deltas?.clicks?.site ?? null)}（サイト別）{' '}
-            {crossCheck.exceeded ? (
-              <span className="badge bad">超過＝stats47 混入の疑い</span>
-            ) : (
-              <span className="badge good">範囲内</span>
-            )}
-          </p>
-        ) : null}
+      <div className="grid cols-2">
         <div className="table-wrap">
           <table className="data">
             <thead>
               <tr>
-                <th>プログラム</th>
+                <th>配置</th>
+                <th className="num">表示</th>
                 <th className="num">クリック</th>
+                <th className="num">率</th>
+              </tr>
+            </thead>
+            <tbody>
+              {placements.rows.map((r) => (
+                <tr key={r.placement}>
+                  <td>{PLACEMENT_LABELS[r.placement] ?? r.placement}</td>
+                  <td className="num">{num(r.impressions)}</td>
+                  <td className={'num' + (r.clicks === 0 && r.impressions >= 1000 ? ' project-warning-text' : '')}>{r.clicks}</td>
+                  <td className="num">{rate(r.clicks, r.impressions)}</td>
+                </tr>
+              ))}
+              {placements.rows.length === 0 && (
+                <tr>
+                  <td colSpan={4} className="muted">未計測（npm run report-career-funnel）</td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
+        <div className="table-wrap">
+          <table className="data">
+            <thead>
+              <tr>
+                <th>A8 案件 {period?.singleMonth ?? ''}</th>
                 <th className="num">発生</th>
-                <th className="num">発生額</th>
                 <th className="num">確定</th>
                 <th className="num">確定額</th>
-                <th className="num">EPC</th>
               </tr>
             </thead>
             <tbody>
               {programs.map((p) => (
                 <tr key={p.programId ?? p.programRaw}>
-                  <td className="wrap">
-                    <strong>{p.program}</strong>
-                    <br />
-                    <span className="sub">{p.programRaw}</span>
-                  </td>
-                  <td className="num">{num(p.clicks)}</td>
+                  <td>{p.program}</td>
                   <td className="num">{num(p.conversions)}</td>
-                  <td className="num">{yen(p.grossRevenueYen)}</td>
                   <td className="num">{num(p.approved)}</td>
                   <td className="num">{yen(p.revenueYen)}</td>
-                  <td className="num">{epcFmt(p.epc)}</td>
                 </tr>
               ))}
+              {programs.length === 0 && (
+                <tr>
+                  <td colSpan={4} className="muted">{collected ? '該当なし' : '未取得（/a8-report）'}</td>
+                </tr>
+              )}
             </tbody>
           </table>
         </div>
-        {notAttributable > 0 ? (
-          <p className="sub">
-            対象期間（{period?.raw ?? '不明'}）が単月でないため、{notAttributable} 件は月次 SSOT
-            （a8-results.json）へ未反映です。月次内訳には期間フォーム対応が必要。
-          </p>
-        ) : null}
       </div>
-
-      {accountWideMonths.length > 0 ? (
-        <div className="card">
-          <h2>
-            月次クリック（口座横断）
-            <span className="sub">
-              <span className="badge warn">stats47 込み</span> doboku 単独ではない・トレンド把握用
-            </span>
-          </h2>
-          <BarChart bars={bars} />
-          <div className="table-wrap">
-            <table className="data">
-              <thead>
-                <tr>
-                  <th>月</th>
-                  <th className="num">クリック</th>
-                  <th className="num">発生</th>
-                  <th className="num">発生額</th>
-                  <th className="num">確定額</th>
-                </tr>
-              </thead>
-              <tbody>
-                {accountWideMonths
-                  .slice()
-                  .reverse()
-                  .map((m) => (
-                    <tr key={m.month}>
-                      <td>{m.month}</td>
-                      <td className="num">{num(m.clicks)}</td>
-                      <td className="num">{num(m.conversions)}</td>
-                      <td className="num">{yen(m.grossRevenueYen)}</td>
-                      <td className="num">{yen(m.revenueYen)}</td>
-                    </tr>
-                  ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      ) : null}
-
-      {accountWideDays.length > 0 ? (
-        <div className="card">
-          <h2>
-            日別（直近 {accountWideDays.length} 日・口座横断）
-            <span className="sub">
-              <span className="badge warn">stats47 込み</span> 異常検知用
-            </span>
-          </h2>
-          <div className="table-wrap">
-            <table className="data">
-              <thead>
-                <tr>
-                  <th>日付</th>
-                  <th className="num">クリック</th>
-                  <th className="num">発生</th>
-                  <th className="num">発生額</th>
-                </tr>
-              </thead>
-              <tbody>
-                {accountWideDays.map((d) => (
-                  <tr key={d.date}>
-                    <td>{d.date}</td>
-                    <td className="num">{num(d.clicks)}</td>
-                    <td className="num">{num(d.conversions)}</td>
-                    <td className="num">{yen(d.grossRevenueYen)}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      ) : null}
-
-      <p className="sub">
-        run {lastRun ?? '—'} · 供給は <code>/a8-report</code>（a8-ui:fetch → a8-ui:normalize）
-      </p>
     </>
   );
 }

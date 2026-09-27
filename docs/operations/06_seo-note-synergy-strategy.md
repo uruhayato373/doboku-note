@@ -57,17 +57,13 @@ North star = **impressions（検索面積 ＋ トピック権威）**。clicks �
 
 ## ロードマップ（優先順位）
 
-### Phase A — PE で型を確立
-- [x] **A0**: 本戦略doc 作成（2026-06-02）
-- [x] **A1**: `general-vs-comprehensive`（一般部門と総監の違い）新設（中立比較リファレンス・note funnel）— 2026-06-02
-- [x] **A2**: PE guide 3本新設（差別化）— `public-engineer-qualification-map`（資格地図・site 0本）/ `public-servant-comprehensive-merit`（公務員メリット・発注者視点）/ `private-engineer-comprehensive-merit`（民間メリット・経審）— 2026-06-02（workflow）
-- [x] **A3**: `exam-index` hub に「関連ガイド」節を追加し新 guide 4本へ spoke 配線 — 2026-06-02
-- [ ] A4: note→サイト deep-link 監査（L3）— **保留**（note 現状維持の方針。新 canonical ページへの張替えは note 編集を伴うため次段階で判断）。現状 note→サイト被リンクは75本で健全
-- [x] **A5**: 高imp低CTR 7ページの seoTitle/description リライト（jisec / break-even-point / conformity-bias / cost-driver / digital-rights / push-production / tripod-theory）— 2026-06-02（workflow）
+### Phase A・B — 実施した打ち手（2026-06-02）
 
-### Phase B — Civil 横展開（型を流用）
-- [x] **B1**: Civil guide 新設 — `civil-construction-1-guide-vs-pe`（施工管理技士と技術士の違い・civil↔PE 橋渡し）採用 — 2026-06-02
-- [x] **B2**: `guide-vs-pe` を `guide-career-path` の関連に配線。civil 経験記述マガジンは**既に各2本サイトリンク済み**のため note→site は達成済み（追加は過剰リンク回避で見送り）— 2026-06-02
+PE で型を作り、Civil へ流用した。
+- **新規 guide**: `general-vs-comprehensive`（一般部門と総監の違い）、`public-engineer-qualification-map` / `public-servant-comprehensive-merit` / `private-engineer-comprehensive-merit`、Civil の `civil-construction-1-guide-vs-pe`（施工管理技士と技術士の違い）
+- **hub 配線**: `exam-index` に「関連ガイド」節を足して新 guide へ配線、`guide-vs-pe` を `guide-career-path` の関連に配線
+- **CTR**: 高 imp 低 CTR の7ページ（jisec / break-even-point / conformity-bias / cost-driver / digital-rights / push-production / tripod-theory）の seoTitle / description を書き直した
+- **保留した打ち手**: note→サイトの deep-link 張り替え（A4）は note 編集を伴うため見送った（当時 note→サイトの被リンクは75本で健全）。civil 経験記述マガジンは既に各2本サイトへリンク済みで、追加は過剰リンクになるため見送った
 
 > **重要所見（2026-06-02）— Civil guide クラスタは「重複」でなく「切り口違いのクラスタ」**: B2 着手時、近接トピックの guide が複数あることを検出したが、精査の結果 **seoTitle/intent が分かれ、SeeAlso/RelatedKeywords で相互リンク済み**（前制作で差別化＋クラスタ化されていた）。**削除/統合は不要**と判断（流入を増やす検索面積として活かす方針）。カニばりは「同一クエリの正面競合」時のみ実害で、切り口が分かれていれば両立する。
 >
@@ -81,7 +77,7 @@ North star = **impressions（検索面積 ＋ トピック権威）**。clicks �
 
 ### Phase C — 計測（効果判定）
 
-- [ ] **C1: 本SEO群の効果判定（評価目安日 〜2026-06-30）** — デプロイ起点 2026-06-02 ＋ 約4週。新規ページのインデックス・順位確立に数週かかるため。
+**C1: 本 SEO 群の効果判定**（デプロイ起点 2026-06-02 ＋ 約4週が目安。新規ページのインデックス・順位確立に数週かかるため）。
 
 **データ源（新規取得は不要）**: 既存自動計測を参照する。
 - 金 06:00 JST の CI `fetch-metrics.yml` が `npm run fetch-gsc-data` で `.claude/state/metrics/gsc/`（`gsc-query-*` / 7日窓 `gsc-date-*`）にコミット。
@@ -101,22 +97,12 @@ North star = **impressions（検索面積 ＋ トピック権威）**。clicks �
 
 **留意**: ベースライン低・受験季節影響・小数値ノイズ大 → 単月の増減でなく**傾向**で判断。クリーンな7日WoWは organic スナップショットが溜まる時期以降。
 
-### 実装メモ（2026-06-02 追補: L5 FAQ schema = striking-distance 強化）
-GSC ページ単位（2026-04-27〜05-25）で striking-distance を実査した結果の知見と施策:
-- **最重要所見**: 高imp ページ（`textbook-scraper` 753imp/pos8.7、`primary-r07-a/b` 286/122imp、過去問全般）は **seoTitle・定義・FAQ 等が既に最適化済み** → 0% CTR は on-page でなく **順位（権威）律速**。表の重複追加（冗長概要表禁止）になるため churn せず "rank-limited" と判定。
-- **構造化データの体系的欠落を是正**: PE keyword ページは FAQ schema 未付与が多数（civil は完備）。**page-1（pos5-9）かつ高imp** の PE 9ページに FAQPage（frontmatter `faqs`）を追加（回答は各ページ本文から正確に派生・捏造なし）:
-  - 第1弾: `jisec`(163imp) / `asch-conformity-experiment`(121) / `blind-drill`(104) ＋ `keyword-2026`(363) の冗長 seoTitle 短縮（commit 2d271a30c）
-  - 第2弾: `break-even-point`(63) / `catastrophe-bias`(61) / `appraisal-three-principles`(51) / `end-of-pipe`(58) / `cost-driver`(56)（commit 262f52d9c）
-- **pos25+ の rank-buried ページは対象外**（FAQ ではクリック改善しない＝順位律速）。L5 の費用対効果は pos5-9 の少数ページに限定するのが妥当。
-- **C1 計測対象に追加**: 上記9ページの CTR / position 推移を ~6/30 の週次レビューで確認。
-- **次レバーの本命（所見）**: striking-distance on-page は概ね出し切り → 残りは L1/L2（権威・面積、進行中）と **P2 = 被リンク資産（無料 web ツール等、サイト未保有）** が上限を上げる本命。
+### 知見: striking-distance の上限（2026-06-02・GSC 2026-04-27〜05-25 のページ単位実査）
 
-### 実装メモ（2026-06-02）
-- A1–A5・B1 を 1 セッションで実装（A2/A5/B1 は workflow で並行生成 → 親が QA・hub配線・索引・コミット統合）。
-- QA で検出・修正: guide-1-vs-2 の資格手当具体額 → site 方針（一律相場なし）へ／guide-1-vs-2 の太字崩れ（経審）→ 括弧外出し／guide-vs-pe 誤字。
-- 全6新ページ dev curl HTTP200・コンパイル/太字/文字化けなしを確認。
-- B2/C: 近接重複は削除でなく「保持＋差別化＋クラスタ化」へ方針転換（guide-1-vs-2 を一旦削除→復活し差別化）。詳細は handoff 2026-06-02（抽出済みで削除・記録は git 履歴）。
-- **デプロイ済（2026-06-02、develop→main→Cloudflare Pages, run 26779764413）**。本番 .pages.dev で全ページ HTTP200 確認。commit: cd5641935 / b3cd98922 / 31ee0bf35 / d2eed393a / 059e5137d / 3117379ee。
+- 高 imp ページ（`textbook-scraper`・`primary-r07-a/b`・過去問全般）は seoTitle・定義・FAQ が既に最適化済みで、CTR 0% は on-page でなく**順位（権威）律速**。表の重複追加（冗長概要表禁止）になるため手を入れず "rank-limited" と判定する
+- PE keyword ページは FAQ schema の欠落が多かった（civil は完備）。page-1（pos5-9）かつ高 imp の PE 9ページに FAQPage（frontmatter `faqs`＝本文から派生・捏造なし）を足した。pos25+ の rank-buried ページは FAQ ではクリックが改善しないので対象外
+- on-page の打ち手は概ね出し切った。上限を上げる本命は L1/L2（権威・面積）と被リンク資産（無料 web ツール等）
+- 近接トピックの重複は削除でなく「保持＋差別化＋クラスタ化」で扱う（上の重要所見）
 
 ## 参照
 
@@ -124,4 +110,3 @@ GSC ページ単位（2026-04-27〜05-25）で striking-distance を実査した
 - コンポーネント: `Callout` / `RelatedKeywords` / `NoteLink` / `SeeAlso`（`src/lib/component-loader/index.ts`）
 - Red Line 真実源: `content/note/技術士総監/noteコンテンツ計画.md`・`docs/marketing/02_チャネル動線設計.md` §7
 - GSC データ: `.claude/state/metrics/gsc/`（最新 2026-05-28）
-- 関連: [05_civil-affiliate-seo-expansion.md](./05_civil-affiliate-seo-expansion.md)

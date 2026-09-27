@@ -4,6 +4,7 @@ description: >
   過去問集 PDF を MDX 形式に変換する統合スキル。`--exam` フラグで試験・検定別テンプレートを切替え、
   問題番号・選択肢・解説・正解の構造を自動化する。旧 /exam-questions-import / /exam-questions-2-import を統合。
   Use when user asks to [過去問インポート, 問題集変換, 過去問取込, /exam-questions-import].
+domain: site
 ---
 
 過去問集 PDF を構造化された MDX に変換する統合スキル。

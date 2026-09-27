@@ -21,7 +21,7 @@ Google Drive 側が `.claude/config/drive-vault.json`（台帳 `.claude/state/as
 
 | audience（誰が使うか） | 置き場 | 例 |
 |---|---|---|
-| **`site`** サイトが配信する | public R2 `doboku-note`（`storage.doboku-note.com`） | 記事図版（`posts/`）・OGP・Brain 配布 ZIP |
+| **`site`** サイトが配信する | public R2 `doboku-note`（`storage.doboku-note.com`） | 記事図版（`posts/`）・OGP |
 | **`ci`** GitHub Actions が読み書きする | R2（public / private / byVisibility） | note カバー PNG（`note-cover-supply.yml` が毎回書く）・git 履歴 bundle（例外・復元経路） |
 | **`human`** 人か手元のスクリプトだけが使う | Google Drive vault `マイドライブ/doboku-note/` | 原本 PDF・ページ画像・文字起こし・配布 PDF・未投稿レンダー・Kindle・ココナラ素材 |
 
@@ -422,7 +422,7 @@ cache は `.local/cache/assets/`（Git 非追跡）。復元先のbytes/sha256�
 ## 9. R2 と Drive に何が入っているか（台帳のカバー範囲）
 
 2026-09-05 の Drive 移行後の実測（`rclone size` / `rclone lsf`）。R2 のオブジェクトは **台帳 `manifest.json`
-（4 group・2,696 エントリ）か Git（`posts/` の記事図版）か `brain-products.ts`** のどれかが持つ。人 tier は
+（4 group・2,696 エントリ）か Git（`posts/` の記事図版）** のどれかが持つ。人 tier は
 **Drive vault の台帳 `drive-manifest.json`（11 group・19,236 エントリ）**が持つ。
 
 | 置き場 / prefix | 件数 | 真実源 | 復元 |
@@ -431,7 +431,6 @@ cache は `.local/cache/assets/`（Git 非追跡）。復元先のbytes/sha256�
 | private `note/covers/` | 840（772MiB） | 台帳 `note-cover-png`（全カバー。2026-09-05 DN-0171 で public 複製 823 件を private へ server-side copy → md5 照合 → public 側削除） | `asset-hydrate --group note-cover-png` |
 | public `posts/`（記事図版） | 4,298（149MiB） | **Git**（`content/site/**/img`） | `r2-sync.yml` が一方向で同期。配信コピーなので台帳不要 |
 | public `posts/`（ogp.png） | 1,586（662MiB） | 台帳 `site-ogp-png`（1,574） | `ogp-supply.yml` が生成・供給 |
-| public `brain/dist/` | 2 | `brain-products.ts` | `upload-brain-dist-r2` |
 | Drive `マイドライブ/doboku-note/` | 20,078（11.4GiB） | 台帳 `drive-manifest.json` 19,236 ＋ 手で置いた原本・文字起こし | `drive-vault-sync --pull --group <id>` |
 
 **2026-09-05 に Drive へ移したもの（DN-0169 完了）**: 11 group 19,236 件＝共通仕様書ページ 11,898 / 教材 PDF 417

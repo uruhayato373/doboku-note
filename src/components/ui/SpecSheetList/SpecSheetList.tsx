@@ -157,10 +157,12 @@ export default function SpecSheetList({
       {title && (
         <header className={styles.head}>
           <div className={styles.headRow}>
-            {/* 意図的に h* タグではなく div を使用: これはコンポーネント内部の
+            {/* 意図的に h* タグ・見出しロールを使用しない: これはコンポーネント内部の
                 ラベルであり、記事の見出し階層（TOC / a11y heading navigation）
-                とは別概念。MDX の `###` 見出しと混在しないようにする。 */}
-            <div className={styles.title} role="heading" aria-level={4}>
+                とは別概念。MDX の `###` 見出しと混在しないようにする
+                （role="heading" は記事側の h2/h3 との相対位置が呼び出し箇所ごとに
+                異なり aria-level を固定できないため、heading-order 違反を避ける）。 */}
+            <div className={styles.title}>
               {title}
             </div>
           </div>

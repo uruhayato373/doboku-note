@@ -316,3 +316,13 @@ test('startLine / endLine は行番号削除に使える範囲（末尾空行は
   assert.equal(b.startLine, 8);
   assert.equal(b.endLine, 8);
 });
+
+test('parseWhen / whenCovers: 単月と範囲、逆順と不正は null', async () => {
+  const { parseWhen, whenCovers } = await import('../scripts/lib/backlog-lib.mjs');
+  assert.deepEqual(parseWhen('2026-11'), { start: '2026-11', end: '2026-11' });
+  assert.deepEqual(parseWhen('2026-10..2026-12'), { start: '2026-10', end: '2026-12' });
+  assert.equal(parseWhen('2026-12..2026-10'), null);
+  assert.equal(parseWhen('2026-13'), null);
+  assert.equal(whenCovers('2026-10..2026-12', '2026-11'), true);
+  assert.equal(whenCovers('2026-10..2026-12', '2027-01'), false);
+});

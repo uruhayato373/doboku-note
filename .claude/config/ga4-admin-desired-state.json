@@ -27,6 +27,30 @@
       ],
       "blocking": true,
       "$observed": "2026-07-30 実機: 表示名「cta_placement」/ スコープ イベント / パラメータ cta_placement / 作成 2026-07-25"
+    },
+    {
+      "displayName": "metric_name",
+      "parameterName": "metric_name",
+      "scope": "EVENT",
+      "description": "実ユーザー計測の指標名（LCP / INP / CLS）。web_vitals イベントのパラメータ。ページの型×端末×指標の判定に必須。",
+      "requiredBy": [
+        "npm run fetch-ga4-web-vitals",
+        ".github/workflows/fetch-metrics.yml"
+      ],
+      "blocking": false,
+      "$observed": "未作成（2026-09-27 追加・npm run ga4-admin:apply で作成する）"
+    },
+    {
+      "displayName": "metric_rating",
+      "parameterName": "metric_rating",
+      "scope": "EVENT",
+      "description": "実ユーザー計測の評価（good / needs-improvement / poor。web-vitals の閾値）。良好率 75% の判定に必須。",
+      "requiredBy": [
+        "npm run fetch-ga4-web-vitals",
+        ".github/workflows/fetch-metrics.yml"
+      ],
+      "blocking": false,
+      "$observed": "未作成（2026-09-27 追加・npm run ga4-admin:apply で作成する）"
     }
   ],
   "keyEvents": [
@@ -41,10 +65,6 @@
     {
       "eventName": "coconala_cta_click",
       "why": "ココナラ（診断・添削・答案作成）への送客"
-    },
-    {
-      "eventName": "brain_cta_click",
-      "why": "Brain 商品への送客"
     },
     {
       "eventName": "quiz_complete",

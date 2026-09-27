@@ -10,6 +10,10 @@
  *   - BK 系の price は「N記事セット」表記（「N本セット」だけ見ると拾えない）
  *   - description の「計N記事」は**小計**を含む（道路の「…＝計9記事）…（全24記事）」）。
  *     総数として読むと偽陽性になるので、ゲートは price のみ。
+ *
+ * 束ね商品の包含（軸 D）: 2026-09-25、二次検定まるごとパックが「完全攻略パックの全模範答案」を
+ *   約束しながら 169 本中 101 本しか収録していなかった。config に実測の本数 101 を書いていたため、
+ *   欠けたまま期待どおりと判定され 1 か月緑だった。本数でなく記事 key の包含で照合する。
  */
 import { strict as assert } from 'node:assert';
 import { readFileSync } from 'node:fs';
@@ -17,7 +21,8 @@ import { dirname, join } from 'node:path';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 import {
-  auditMagazine, listNoteArticles, parseSoT, readArticleMeta, snapshotFreshness,
+  auditMagazine, computeExpected, findMissing, inclusionSources, listNoteArticles, parseSoT,
+  readArticleMeta, snapshotFreshness,
 } from '../scripts/check-magazine-membership.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -198,4 +203,61 @@ test('全ラベルが labels / packs / excluded のどれかに分類されて�
     `未分類のラベル: ${unclassified.join(', ')}\n`
     + '  .claude/config/note-magazine-membership.json の labels / packs / excluded のどれかへ登録する',
   );
+});
+
+// ---- 軸 D: 束ね商品の包含 ----
+
+const n = (...keys) => keys.map((key) => ({ key, name: key }));
+
+test('本数が同じでも別の記事なら漏れとして返す（本数照合では見逃す形）', () => {
+  assert.deepEqual(findMissing(n('a', 'b', 'c'), n('a', 'b', 'x')).map((x) => x.key), ['c']);
+  assert.deepEqual(findMissing(n('a', 'b'), n('b', 'a', 'z')), []);
+});
+
+test('今回の事故の形: 構成元 169 本のうち 101 本しか入っていなければ 68 本を漏れとして返す', () => {
+  const src = n(...Array.from({ length: 169 }, (_, i) => `k${i}`));
+  const pack = n(...Array.from({ length: 101 }, (_, i) => `k${i}`), 'gakka1', 'anki');
+  assert.equal(findMissing(src, pack).length, 68);
+});
+
+test('"all" は構成元の期待数（ラベル＋extras）を引き継ぐ。本数を手書きしない', () => {
+  const idToLabels = new Map([['complete', ['完全攻略']], ['gakka', ['学科']], ['marugoto', ['案内']]]);
+  const byLabel = new Map([['完全攻略', 155], ['学科', 5], ['案内', 1]]);
+  const packs = {
+    complete: { labels: ['完全攻略'] },
+    marugoto: { labels: ['案内'], fromMagazines: { complete: 'all', gakka: 'all' } },
+  };
+  const extras = { complete: { count: 14 }, marugoto: { count: 3 } };
+  const got = computeExpected({ ids: ['complete', 'gakka', 'marugoto'], idToLabels, byLabel, packs, extras });
+  assert.deepEqual(got.get('marugoto'), { repoCount: 1 + 169 + 5, extra: 3 });
+  // 構成元が増えればパックの期待も自動で増える（凍結しない）
+  byLabel.set('完全攻略', 205);
+  const grown = computeExpected({ ids: ['complete', 'gakka', 'marugoto'], idToLabels, byLabel, packs, extras });
+  assert.equal(grown.get('marugoto').repoCount, 1 + 219 + 5);
+});
+
+test('fromMagazines の循環・未分類の構成元・不正値は例外（黙って 0 を足さない）', () => {
+  const base = { idToLabels: new Map(), byLabel: new Map(), extras: {} };
+  assert.throws(() => computeExpected({ ...base, ids: ['a', 'b'], packs: { a: { fromMagazines: { b: 'all' } }, b: { fromMagazines: { a: 'all' } } } }), /循環/);
+  assert.throws(() => computeExpected({ ...base, ids: ['a'], packs: { a: { fromMagazines: { ghost: 'all' } } } }), /どの分類にも無い/);
+  assert.throws(() => computeExpected({ ...base, ids: ['a', 'b'], packs: { a: { fromMagazines: { b: '全部' } } } }), /"all" か 0 以上の整数/);
+});
+
+test('包含の照合対象 = "all" の構成元 ＋ 別マガジンに対応する labels（自分自身と選抜同梱は除く）', () => {
+  const labelMap = { 'ゼネコン': 'gc-mag', '河川': 'river-mag' };
+  const pack = { labels: ['ゼネコン', '河川', '案内'], fromMagazines: { r8: 'all', pick: 3 } };
+  assert.deepEqual(inclusionSources('complete', pack, labelMap).sort(), ['gc-mag', 'r8', 'river-mag']);
+  assert.deepEqual(inclusionSources('gc-mag', { labels: ['ゼネコン'] }, labelMap), []);
+});
+
+test('現物の config: 選抜同梱（本数指定）には partialReason があり、まるごと・完全系は選抜同梱を持たない', () => {
+  // 「一部同梱」と書けば欠けを正解として凍結できてしまう。まるごと/完全を名乗る商品に本数指定を許さない。
+  const config = CONFIG();
+  for (const [id, pack] of Object.entries(dropDoc(config.packs))) {
+    const partial = Object.entries(pack.fromMagazines ?? {}).filter(([, v]) => v !== 'all');
+    if (partial.length) {
+      assert.ok(pack.partialReason && pack.partialReason.length >= 10, `packs.${id} に partialReason が無い`);
+      assert.ok(!/marugoto|complete/.test(id), `packs.${id} はまるごと/完全系なのに選抜同梱 ${partial.map(([k]) => k).join(', ')} を持つ`);
+    }
+  }
 });

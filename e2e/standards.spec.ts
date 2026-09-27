@@ -9,7 +9,7 @@ test('全国10機関を選択し、共通仕様書一覧へ移動できる', asy
   await agencies.getByRole('link', { name: /中部地方整備局/ }).click();
 
   await expect(page).toHaveURL(/\/standards\/chubu$/);
-  await expect(page.getByRole('heading', { name: '中部地方整備局', exact: true })).toBeVisible();
+  await expect(page.getByRole('heading', { level: 1, name: /^中部地方整備局 土木工事共通仕様書/ })).toBeVisible();
   await expect(page.getByRole('link', { name: /土木工事共通仕様書/ }).first()).toBeVisible();
 });
 

@@ -100,6 +100,8 @@ export function validateRecord(record, config, history = [], now = new Date()) {
     required(nonempty(r.source) && r.source.length <= 500 && !/[?]|(?:token|password|secret|BEGIN PRIVATE KEY)/i.test(r.source), '出典は秘密情報・URLクエリを含めず記録してください');
     required(nonempty(r.subject) && ['complete', 'partial'].includes(r.coverage), '計測対象と完全性を指定してください');
     required(r.values && Object.keys(r.values).length > 0, '計測値がありません');
+    // subject が指標 id の計測は、その指標 1 つだけを持つ（完全性は記録単位なので、完全性の違う指標を同じ記録に混ぜない）
+    if (config.metrics.some(m => m.id === r.subject)) required(Object.keys(r.values).length === 1 && Object.hasOwn(r.values, r.subject), '指標単位の計測はその指標だけを記録してください');
     for (const [key, value] of Object.entries(r.values)) {
       const metric = config.metrics.find(m => m.id === key && m.channel === r.channel);
       required(metric && (value === null || (typeof value === 'number' && Number.isFinite(value) && value >= 0 && Number.isInteger(value))), '計測値・指標が不正です');
@@ -418,7 +420,7 @@ export function buildReport(root, period = reviewPeriod('weekly'), now = new Dat
   const cells = ['all', ...c.qualifications.map(q => q.id)].flatMap(qualification => c.metrics.map(metric => {
     const applicable = !metric.appliesTo || metric.appliesTo.includes(qualification);
     if (!applicable) return { qualification, metric: metric.id, value: null, coverage: 'not-applicable', source: null, note: 'この資格では現在この指標を運用対象にしていません。', target: null, applicable: false };
-    const measured = observations.find(r => r.qualification === qualification && r.subject === 'aggregate' && samePeriod(r.period, period) && Object.hasOwn(r.values, metric.id));
+    const measured = observations.find(r => r.qualification === qualification && (r.subject === 'aggregate' || r.subject === metric.id) && samePeriod(r.period, period) && Object.hasOwn(r.values, metric.id));
     const auto = sources.find(r => r.qualification === qualification && r.metric === metric.id && samePeriod(r.period, period));
     const fact = measured ? { value: measured.values[metric.id], source: measured.file, coverage: measured.coverage, note: measured.source } : auto;
     const target = currentRecords(history, 'target').find(t => t.qualification === qualification && t.metric === metric.id && t.effectiveDate <= period.startDate);

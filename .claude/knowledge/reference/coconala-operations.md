@@ -2,6 +2,9 @@
 title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 ---
 
+商品画像の共通デザイン・note/SNSへの派生・生成履歴の保存は [POP画像の共通制作方針](./pop-image-policy.md) と `/create-pop-image` を参照する。
+
+
 # ココナラ運用 SSOT — 1級・2級土木 経験記述サービス
 
 ココナラ（coconala.com）で出品する単発サービスの**運用・スキーマ・安全弁**の真実源。2026-07-16 新設。
@@ -83,15 +86,15 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 
 | 記事 | 出すサービス |
 |---|---|
-| 経験記述（1級 `secondary-experience-writing-{guide,examples}`） | `coconala-shindan`＋`coconala-tensaku-set`（＋Brain 経験キット） |
-| 経験記述（2級 `secondary-experience-writing-{guide,examples}`） | `coconala-shindan`＋`coconala-2kyu-tensaku`（draft のため出品まで非表示・＋Brain 経験キット）。2026-09-25 級別化で分離（旧: 1級2級共通で `coconala-tensaku-set` を出していた） |
+| 経験記述（1級 `secondary-experience-writing-{guide,examples}`） | `coconala-shindan`＋`coconala-tensaku-set` |
+| 経験記述（2級 `secondary-experience-writing-{guide,examples}`） | `coconala-shindan`＋`coconala-2kyu-tensaku`（draft のため出品まで非表示）。2026-09-25 級別化で分離（旧: 1級2級共通で `coconala-tensaku-set` を出していた） |
 | 二次 年度別過去問（`secondary-r0[3-9]`） | `{1kyu,2kyu}-kanseitoan-pdf`（模範答案セット）＋`{1kyu,2kyu}-full-pdf`（2026-08-05 統廃合で改配線） |
 | 二次 学科分野別（1級 `secondary-(concrete\|construction-plan\|earthwork\|quality-management)-(basics\|past-problems)`） | `coconala-1kyu-full-pdf`（学科単品は paused） |
 | 二次 入門・直前（1級 `secondary-getting-started`／`guide-last-minute-2026`） | `coconala-1kyu-moshi-pdf`＋`coconala-1kyu-full-pdf` |
 | 二次 入門（2級 `secondary-getting-started`） | `coconala-2kyu-moshi-pdf`＋`coconala-2kyu-full-pdf` |
-| 総監 記述系（`essay-*`／`pattern-essay-*`／`{h2X,r0X}-secondary`） | `coconala-sokan-bunseki-pdf`（＋Brain 施策バンク） |
+| 総監 記述系（`essay-*`／`pattern-essay-*`／`{h2X,r0X}-secondary`） | `coconala-sokan-bunseki-pdf` |
 
-未掲載（`/links` のみ）: `coconala-sakusei`／`coconala-civil-keiken-kit`（経験記述ページは診断+添削+Brain で満杯・クロップ回避のため意図的に載せない）。※模範答案セット（`{1kyu,2kyu}-kanseitoan-pdf`）は 2026-08-05 統廃合で年度別過去問記事の CTA へ配線済み。
+未掲載（`/links` のみ）: `coconala-sakusei`／`coconala-civil-keiken-kit`（経験記述ページは診断+添削で満杯・クロップ回避のため意図的に載せない）。※模範答案セット（`{1kyu,2kyu}-kanseitoan-pdf`）は 2026-08-05 統廃合で年度別過去問記事の CTA へ配線済み。
 
 ### 2.1b 出品投入 SoT: `.claude/config/coconala-listings.json`
 
@@ -189,6 +192,7 @@ DM 一覧 = `/message?fromMyPage=true`、行 = `a.c-messageItemWrap[href="/mypag
 ここにしか来ない。メールは出品アカウント宛にしか届かず接続済み Gmail からは見えない）。
 人が決着させた DM は [`.claude/config/coconala/resolved-inquiries.json`](../../config/coconala/resolved-inquiries.json) で除外し、
 **除外件数を必ず出力する**（黙って消すと検査ゼロの偽 PASS になる）。
+`resolvedOn` より後に新着があれば再オープンする。一覧の「8分前」は分単位で丸められるので、`resolvedOn` は自分の最後の送信から数分後の時刻（`+09:00` 付き）で書く。相対日付は snapshot の `fetchedAt` を基準に読む（`inquiryClockMs`）。
 
 > 2026-08-17 まで既読 DM を無条件で「要対応」に積んでいたため、**4/4 件が偽陽性**だった
 > （運営通知1・規約違反削除2・受注完了済み1）。W33 レビューと W34 計画の両方がこれに引っかかり、
@@ -269,7 +273,7 @@ DM 一覧 = `/message?fromMyPage=true`、行 = `a.c-messageItemWrap[href="/mypag
 
 | 検査 | 見るもの | いつ走るか |
 |---|---|---|
-| `npm run check-coconala-live` | listed の全サービスについて、公開ページの構造化データ（schema.org Product・ログイン不要）の価格＝`priceYen`、名前＝タイトル＋キャッチコピー、説明文＝listings の `body`（空白・改行は無視）、出品者名、販売可能状態 | 日次の ops-audit（`quality-audit --ops`）。食い違いは automation-failure Issue（channel ops） |
+| `npm run check-coconala-live` | listed の全サービスについて、公開ページの構造化データ（schema.org Product・ログイン不要）の価格＝`priceYen`、名前＝タイトル＋キャッチコピー、説明文＝listings の `body`（空白・改行は無視）、出品者名、販売可能状態。あわせて出品者プロフィール（`coconala-account.json` の `profileUrl`）の職業・ひとことアピール・自己紹介文を `profile` と突合（資格・職歴・得意分野は対象外） | 日次の ops-audit（`quality-audit --ops`）。食い違いは automation-failure Issue（channel ops） |
 | `npm run check-coconala-wiring`（検査10） | PDF 商品の価格ルール＝`notePriceBasis`（note で同じ中身を買う方法）の基準 × 1.1 をココナラの価格刻みで切り上げた額以上。note に同じ中身が無い PDF は `notePriceExempt` に理由 | pre-commit（カタログ・listings・`note-magazines.ts` の変更時）と CI（`quality-audit --ci`） |
 
 - 出品文・価格を変えたら、SoT（カタログ・listings）を先に直して `coconala-edit` で反映し、`check-coconala-live` が緑になるまでを1セットにする。
@@ -493,12 +497,12 @@ note-publish 流儀の決定的 Playwright。ログイン済みプロファイ�
 > 同じ表現が全ページに残る（2026-08-12 に「採点者に伝わる答案へ」が全13ページで実際に発生）。
 > 文言の一括是正は listings / カタログ / サムネ ＋ **bio** の4面を見て、最後にライブ実査する。
 
-**商品画像（サービスサムネ）**: ブランド流儀＝AI で「文字なし雰囲気写真」を生成 → satori で日本語文字を正確に重ねる（AI に日本語を焼き込ませない）。
+**商品画像（サービスサムネ）**: 2026-09-27 に公開中18商品を、資格名・商品名・技術士〈総合技術監理部門〉を大きく見せるキャラクター入り POP 意匠へ統一。1級土木＝青、2級土木＝緑、コンクリート主任技士＝紫。価格・doboku-note の文字は入れず、添削／指導／PDF教材で訴求を分ける。画像生成後、日本語・冊数・対象テーマを目視確認した承認原本を使う。原本の対応と SHA-256 は `.claude/config/coconala-thumb-approved.json`、実体は `assets/pop-20260927/`（Drive vault の coconala-asset）に保存。既存CLIは未登録商品に写真＋satoriを使うフォールバックを持つ。新規商品の制作は `/create-pop-image` で行い、承認後に画像台帳へ登録する。
 
 | スクリプト | 役割 |
 |---|---|
 | `scripts/gen-image-gemini.mjs --out <png> --prompt "..."` | Gemini 画像 API（`gemini-2.5-flash-image`・`.env.local` の `GEMINI_API_KEY`）で背景写真を生成。**API 課金・1呼び出し=1枚**。プロンプトは brand-image-system §5 準拠（明るく低コントラスト・青トーン・文字/人物なし・左に文字余白） |
-| `scripts/coconala-thumb.mjs [--service <id>] [--bg <png>]` | 背景＋タイトル/訴求/価格/ブランド色を satori で 1200×900（4:3）合成。コピーは `THUMB_COPY`（サムネ用の短文）＋カタログ priceYen（オプション有=「〜」）。出力 `.claude/config/coconala/assets/thumb-<id>.png` |
+| `scripts/coconala-thumb.mjs [--service <id>] [--bg <png>]` | .claude/config/coconala-thumb-approved.json に登録した商品は原本の SHA-256 を確認してコピー（欠落・不一致は停止、--bg は不可）。未登録の商品は背景＋タイトル/訴求/価格を satori で 1200×900 合成。出力 `.claude/config/coconala/assets/thumb-<id>.png` |
 
 素材は `.claude/config/coconala/assets/`（`bg-civil.png`＝生成背景の保存・再生成の課金回避／`thumb-*.png`＝合成結果）。
 
@@ -692,6 +696,7 @@ note-publish 流儀の決定的 Playwright。ログイン済みプロファイ�
 | `.c-blogEditor_decorationBtn` を掴む | これは**4ボタンを包むコンテナ**（textContent＝「見出し 太字 位置 引用」）。中心を押すと3番目の**「位置」**が当たり、5行が `c-blogBody_center` になった | 見出しは `.c-blogEditor_decorationBtn-first`、引用は `-last` |
 | 見出し化後に `> div` で探す | 見出しは **`div` ではなく `h2.c-blogBody_h2` になる**ので、h2 が5個できているのに「行が見つからない」 | `.c-blogEditor_base > *` で探し、テキストは空白差を吸収して比較 |
 | カード挿入後に `page.click(CE)` でフォーカスを取り直す | クリック位置にキャレットが飛び、**以降の段落が本文の途中に挿入される**。字数もカード枚数も正常なのに**順序だけ壊れる** | Range で `selectNodeContents` → `collapse(false)` して末尾へ移動 |
+| 公開済み記事の段落をスクリプトで置換・挿入する | 段落を Range 選択して差し替えると**直後の H2 が複製**され、生の `## …` を含むブロックが増える。Enter／Shift+Enter／改行なしの 1 文字列連結の 6 方式すべてで再現（2026-08-31）。`coconala-blog-publish.mjs` も二重公開ガードで公開済み記事には使えない | 自動化しない。ブラウザで**カーソルを置いて必要な箇所だけ**手で直す（段落全体を選択して打ち直さない）。自動化を試すなら保存前にエディタ内のブロック列を期待値と完全一致で検証し、不一致なら保存しない |
 
 > 最後の罠が示すとおり、**字数とカード枚数の検証だけでは順序の破壊を検出できない**。
 > `coconala-blog-publish.mjs` は原稿のブロック列と DOM の並びを突き合わせる**順序検証**を持つ。

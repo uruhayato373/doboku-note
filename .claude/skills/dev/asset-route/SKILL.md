@@ -5,6 +5,7 @@ description: >
   サイトが配信する→public R2 / GitHub Actions が読み書きする→private R2 / 人か手元のスクリプトだけ→Google Drive vault。
   新しいアセット群を追加するとき、既存 group を別 tier へ移すとき、R2 か Drive か迷ったときに使う。
   Use when user asks to [アセットの置き場, R2 か Drive か, 退避先を決める, asset-route, 新しい画像群をどこに置く, group を Drive へ移す].
+domain: ops
 ---
 
 置き場ルールの真実源は [asset-storage-policy.md](../../../knowledge/reference/asset-storage-policy.md) §1。

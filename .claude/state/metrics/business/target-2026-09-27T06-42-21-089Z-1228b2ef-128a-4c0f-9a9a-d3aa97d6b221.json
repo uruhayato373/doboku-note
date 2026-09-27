@@ -1,0 +1,18 @@
+{
+  "kind": "target",
+  "qualification": "all",
+  "period": {
+    "startDate": "2026-08-01",
+    "endDate": "2026-08-31"
+  },
+  "metric": "netReceipts",
+  "value": 100000,
+  "direction": "at-least",
+  "effectiveDate": "2026-10-01",
+  "reviewDate": "2026-12-31",
+  "snapshot": ".claude/state/metrics/business/snapshot-2026-09-27T06-42-09-001Z-42b0cc0c-55ed-40d6-8c8e-892aa2c02ac2.json",
+  "reason": "2026-09-27 運営者決定。NSM を月の受取額へ切り替え、全体で月 ¥100,000 以上を目標にする。基準は 2026年8月の実測 ¥74,218（note 手数料控除後 ¥60,629・ココナラ ¥7,800・KDP ¥5,789）。総監・建設部門は6〜7月、1級・2級土木は二次検定前に売上が集中するため、月ごとの達成は季節を見て読み、四半期末に目標と資格別の配分を見直す。",
+  "schemaVersion": 1,
+  "createdAt": "2026-09-27T06:42:21.089Z",
+  "strategyHash": "b4b76b23797460822a4126aa507b23061e45a77874522d016db00f5fa7a0b3cb"
+}

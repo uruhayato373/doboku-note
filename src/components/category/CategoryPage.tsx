@@ -2,8 +2,9 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import PageShell from '@/components/layout/PageShell';
 import TwoColumnShell from '@/components/layout/TwoColumnShell';
-import { getCategoryBySlug } from '@/lib/categories';
+import { getCategoryBySlug, getCategoryHubPath } from '@/lib/categories';
 import { getDocsMetaByCategory } from '@/lib/docs';
+import HubStructuredData from '@/components/seo/HubStructuredData';
 import { groupDocs } from '@/lib/category-groups';
 import { DocCard, DocSection } from '@/components/category/CategorySections';
 import { PopularShowcase, PopularRanking } from '@/components/category/PopularSections';
@@ -20,6 +21,8 @@ import {
 import HubCtaBanner from '@/components/ui/HubCtaBanner/HubCtaBanner';
 import AuthorSidebarCard from '@/components/ui/AuthorSidebarCard';
 import { resolveHubCta } from '@/lib/hub-cta';
+import { resolveOffsiteCta } from '@/lib/offsite-cta';
+import OffsiteCta from '@/components/ui/OffsiteCta/OffsiteCta';
 import SidebarAdBanner from '@/components/ui/SidebarAdBanner';
 import { resolveCategoryCareerAds } from '@/config/affiliate-creatives';
 import CategoryJumpNav from '@/components/category/CategoryJumpNav';
@@ -72,11 +75,14 @@ export default async function CategoryPage({
   // note CTA（資格別リッチ背景×HTML文字）。幅広面はもくじへ集約、直前期は特定商品へ直リンク。
   // 本文・PC サイドバー・モバイルの 3 面に同一内容を出し、utm で面分離する（旧 上位3誌直リンクを廃止し
   // 「もくじ集約」に一本化・2026-07）。HUB 非対応資格（concrete/一次）は null → 非表示。
-  // note もくじ CTA は面ごとに 1 つずつ（重複回避）: PC=右サイドバー（hubCtaSidebar）／モバイル=最下部
-  // （hubCtaMobile）。本文フロー内には置かない（カテゴリ hub は回遊が主タスクで、記事一覧の手前に販売
-  // タイルを割り込ませない・2026-07-06。旧 hubCta 本文 CTA は撤去）。utm で面分離。
+  // note もくじ CTA は面ごとに 1 つずつ（重複回避）: PC=右サイドバー（hubCtaSidebar）／モバイル=見出し直後
+  // （hubCtaMobile）。2026-07-06 は「記事一覧の手前に販売タイルを割り込ませない」で最下部に置いたが、
+  // SNS から着地する入口でスマホの note 導線が最下部（86〜89%）・転職広告が先になっていたため、
+  // 2026-09-27（DN-0364）に見出し直後へ移した。utm で面分離。
   const hubCtaSidebar = resolveHubCta(slug, { utmSuffix: 'sb' });
   const hubCtaMobile = resolveHubCta(slug, { utmSuffix: 'mob' });
+  // ココナラ（自社出品・A8 経由）。記事末尾と同じ部品で、資格トップでは見出し直後に出す。
+  const offsiteCta = resolveOffsiteCta(slug);
   // モバイル本文中の visible バナー（pixelSrc を渡さない＝PC サイドバー側が唯一の発火源）。
   // 各案件を 1 枚ずつの node にしてビューのグループ境界に分散配置する（カードの隙間に「両方」）。
   const mobileCareerAds = careerAds.map((ad, i) => (
@@ -121,6 +127,7 @@ export default async function CategoryPage({
 
   return (
     <PageShell variant="article">
+        <HubStructuredData path={getCategoryHubPath(slug)} name={cat.label} description={cat.description ?? cat.subtitle} docs={docs} />
         {/* 学習の入口を本文と右列の先頭に置く。note CTA はモバイルでは記事一覧の下に表示。 */}
         <TwoColumnShell gutter="default" mainClassName="pt-8 sm:pt-10 pb-10" aside={categorySidebar}>
             {/* 左メインカラム全体を 1 枚の白カードに統一（グレー地に白サーフェス・角丸ゼロの
@@ -141,6 +148,12 @@ export default async function CategoryPage({
               <p className="text-[15px] leading-[1.8] text-[var(--ink-body)] max-w-[60ch]">{cat.subtitle}</p>
             </div>
             <CategoryJumpNav category={slug} />
+            {hubCtaMobile && (
+              <div className="zenn-desktop:hidden mt-6 mx-auto max-w-[360px]">
+                <HubCtaBanner cta={hubCtaMobile} placement="category-mobile" />
+              </div>
+            )}
+            <OffsiteCta items={offsiteCta} heading="この資格に関連するサービス" />
             {slug === 'reference-materials' && (
               <section className="border-b border-[var(--rule-soft)] py-6" aria-labelledby="reference-materials-about">
                 <h2 id="reference-materials-about" className="font-serif text-[20px] font-bold text-[var(--ink)]">
@@ -194,17 +207,11 @@ export default async function CategoryPage({
             </div>
             </div>
 
-            {/* note もくじ CTA（モバイル＜993px のみ）。PC は右サイドバーへ集約。 */}
             {slug === 'concrete-engineer' && <div className="zenn-desktop:hidden mt-8 space-y-3">
               <ConcreteEngineerProduct placement="category-mobile" />
               <ConcreteEngineerRelated />
             </div>}
             {slug !== 'concrete-engineer' && !hubCtaMobile && <div className="zenn-desktop:hidden mt-8"><SidebarProduct category={slug} placement="category-mobile" /></div>}
-            {hubCtaMobile && (
-              <div className="zenn-desktop:hidden pb-10 mx-auto max-w-[360px]">
-                <HubCtaBanner cta={hubCtaMobile} placement="category-mobile" />
-              </div>
-            )}
         </TwoColumnShell>
     </PageShell>
   );
