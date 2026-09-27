@@ -108,6 +108,50 @@
       }
     },
     {
+      "slug": "red-pen",
+      "file": "red-pen.png",
+      "framing": {
+        "source": {
+          "width": 800,
+          "height": 1965,
+          "sha256": "8f4ffc2d794e50780f981e63ae83ef67432ad6fa3e93b9f0d34bffd4c7a2ba91"
+        },
+        "reviewedAt": "2026-09-27",
+        "variants": {
+          "full": {
+            "box": [0, 0, 1, 1],
+            "note": "原画像全体。左右反転なし。"
+          },
+          "waist": {
+            "box": [0, 0, 1, 0.55],
+            "note": "赤ペンと腰の手を残す。"
+          },
+          "bust": {
+            "box": [0, 0, 1, 0.4],
+            "note": "赤ペンと表情を残す。"
+          }
+        }
+      },
+      "label": "赤ペンで添削",
+      "category": "gesture",
+      "beats": ["point", "hook"],
+      "verified": true,
+      "composition": {
+        "uses": ["explanation", "caution"],
+        "facing": "front",
+        "gestureDirection": "left",
+        "placements": ["right"],
+        "crops": ["bust", "full"],
+        "note": "画面左へ赤ペンを向ける。添削サービス画像の右側に配置。",
+        "reviewedAt": "2026-09-27"
+      },
+      "quality": {
+        "status": "ready",
+        "note": "外見・ヘルメット表記・透過と赤ペンを目視確認。",
+        "reviewedAt": "2026-09-27"
+      }
+    },
+    {
       "slug": "good-sign",
       "file": "good-sign.png",
       "framing": {
