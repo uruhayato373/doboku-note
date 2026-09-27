@@ -53,13 +53,14 @@ frontmatter `group` の語彙は 7 値。定義は**問題形式**で与え、�
 
 ## 5. タグ
 
-### 5-1. 3 つの class（`tags.json` の `class`）
+### 5-1. 4 つの class（`tags.json` の `class`）
 
 | class | 役割 | 例 | 追加の条件 |
 |---|---|---|---|
 | `structural` / `flag` | 機械スイッチ。**記事種別を写すタグ（`guide` `textbook` `primary` `secondary` `keyword` `pillar` `past-questions` `択一式` `記述式` `index`）は group と矛盾しない範囲でのみ許され、新規記事には原則書かない**（group が真実）。flag は `career`（転職・キャリア）と `模範論文`（一覧非表示） | `career` | コード変更を伴うのでユーザー承認 |
 | `qualification` | 資格名・科目・分野・年度 | 技術士（第二次試験）、鋼構造及びコンクリート、令和7年度 | 試験実施機関の正式表記。揺れは `aliases` へ |
 | `topical` | 技術テーマ。`topics.json` に載るものは **1 タグ＝1 テーマ** | コンクリート、河川、脱炭素 | 「同時に 3 本以上に付く」か「テーマに結びつく」のどちらかを満たすときだけ登録。**n＝1 の主題タグを作らない**（近い既存タグの `aliases` に入れる） |
+| `learning` | 学習の型（試験対策・記述式対策・出題傾向・過去問分析・頻出テーマ・学習計画・学習法・経験記述・受験申込・合格率など）。技術テーマではないので**テーマ判定から外す**（`topics.json` の tags に置くと `check-content-taxonomy` が HARD） | 試験対策、出題傾向 | topical と同じ。語が技術テーマか学習の型かで class を選ぶ（2026-09-27 に 12 語を topical から移した） |
 
 ### 5-2. 正規表記と別名
 
@@ -79,6 +80,7 @@ frontmatter `group` の語彙は 7 値。定義は**問題形式**で与え、�
 - **昇格基準**: (1) 検索需要の根拠を `description` の直下に 1 行で残す、(2) 05_IA の三方向（資格試験／施工実務／公的基準）のうち **2 方向以上**が公開時点で埋まる（目安: exam 5 本以上・practice 1 本以上・standards 1 件以上）、(3) 総監 5 管理のように基準が原理的に無いテーマは `standardKeywords: []` を許し、ページは基準節を出さない。
 - 三方向の件数と 0 件の方向は `check-content-taxonomy` の WARN で出す（読み手＝`/weekly-review` Phase 2）。
 - `安全管理` は資格横断の 1 テーマ（`safety-management-cem`）に属し、`safety-laws` は関係法令のテーマ（2026-09-11。同じ語を 2 テーマに置けないため）。
+- 2026-09-27 の棚卸し（DN-0424）: テーマ外の公開記事 319 本のうち 26 本を既存テーマへ入れた（重要ポイント系ガイドは既存の主題タグ、1級専門土木の 3 章と総監 R8 予想の 1 本は `topics:`）。候補タグは新テーマにせず、`建設DX`・`生産性向上`→information-management、`担い手確保`→human-resource-management、`PPP/PFI`→economic-management へ吸収した。`地域づくり`・`コンパクトシティ`・`国土形成計画`・`港湾`（と技術士 選択科目の 港湾及び空港・鉄道・電力土木・都市及び地方計画）は exam だけで practice・standards が 0 のため昇格基準 (2) を満たさず、合う既存テーマも無いのでテーマ外のまま。
 
 ## 7. 原本 class × 展開先の加工ルール
 

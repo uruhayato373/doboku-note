@@ -71,6 +71,8 @@ for (const t of topics) {
   for (const tag of t.tags ?? []) {
     const canonical = aliasMap.toCanonical.get(tag);
     if (canonical === undefined) hard.push({ rule: 'config-topic-tag', at: t.slug, msg: `タグ「${tag}」が tags.json に無い` });
+    // learning class（試験対策・出題傾向など学習の型）は技術テーマでないのでテーマに束ねない（content-taxonomy.md §5-1）
+    if (canonical !== undefined && aliasMap.classOf.get(canonical) === 'learning') hard.push({ rule: 'config-topic-tag', at: t.slug, msg: `タグ「${tag}」は learning class（学習の型）でテーマに使えない` });
     const key = canonical ?? tag;
     if (topicTagOwner.has(key) && topicTagOwner.get(key) !== t.slug) hard.push({ rule: 'config-topic-tag', at: t.slug, msg: `タグ「${key}」が ${topicTagOwner.get(key)} と重複` });
     topicTagOwner.set(key, t.slug);

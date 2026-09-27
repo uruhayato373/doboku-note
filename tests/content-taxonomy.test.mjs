@@ -106,6 +106,10 @@ test('設定の整合: categories の area/groups、topics のタグ解決、GRO
     for (const g of c.groups) assert.ok(TAXONOMY.groups[g], `${c.slug}: group ${g}`);
   }
   for (const t of TOPICS) for (const tag of t.tags) assert.ok(m.toCanonical.has(tag), `topics.json ${t.slug}: タグ「${tag}」が tags.json に無い`);
+  // 学習の型（learning class）はテーマ判定から外す
+  assert.ok(TAXONOMY.tagClasses.includes('learning'));
+  for (const name of ['試験対策', '記述式対策', '出題傾向', '過去問分析']) assert.equal(m.classOf.get(name), 'learning', `${name} は learning class`);
+  for (const t of TOPICS) for (const tag of t.tags) assert.notEqual(m.classOf.get(m.toCanonical.get(tag)), 'learning', `topics.json ${t.slug}: 「${tag}」は learning class`);
   const tax = await loadTsModule('src/lib/content-taxonomy.ts');
   assert.equal(tax.getCategoryArea('civil-practice'), 'practice');
   assert.equal(tax.getCategoryArea('pe-construction'), 'exam');
