@@ -9,7 +9,7 @@ metadata:
 
 iOS アプリ（技術士総合技術監理部門対策）の仕様/設計フェーズ Phase 0 完了。
 
-**真実源**: `docs/project/05_プロダクト/` 配下 5 ドキュメント
+**真実源**: backlog DN-0400（2026-09-27 に docs/products/01〜05 を削除してカードへ移した。原文は `git show 747fab5d9:docs/products/<ファイル名>`）
 
 - 01_iOSアプリ仕様.md v3 — 仕様本体（買い切り¥1,800単軸、Free=R07・Premium=R01-R06、MVP+Phase 2 ロードマップ、成功監視 KPI）
 - 02_iOS画面設計.md v2 — 8 画面ワイヤー + 画面遷移 + Free/Premium UI 挙動

@@ -115,7 +115,7 @@ test('Obsidian callout は div.callout へ、GFM table は div.table-wrap へ変
   await expect(page.locator('.knowledge-document .callout').first()).toBeVisible();
   await expect(page.locator('.knowledge-document .callout-title').first()).toBeVisible();
 
-  await page.goto('/docs/reviews/2026-07-19-civil-note-content-funnel-audit');
+  await page.goto('/docs/strategy/01_プロダクト戦略');
   await expect(page.locator('.knowledge-document .table-wrap table').first()).toBeVisible();
 });
 

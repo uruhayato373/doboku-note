@@ -58,6 +58,7 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 | `/consolidate-duplicate-keyword` | 総監キーワード集の重複スラグ統合 | `重複スラグ統合`, `/consolidate-duplicate-keyword` |
 | `/note-prepublish-review` | note 公開前の統合品質ゲート | `note公開前チェック`, `公開準備`, `/note-prepublish-review` |
 | `/check-seo-meta` | out/ の正規 URL（sitemap + 公開記事 + 静的ルート）の title/description/self canonical/self og:url/robots/JSON-LD/SSR を検査（seo-checks 共有・母集合ガード） | `SEOメタ検査`, `OGP確認`, `/check-seo-meta` |
+| `/pe-essay-cycle` | 総監記述式の統括（draft/review/revise/plan/publish/page へルーティング）。`forecast` モードで年度ごとの予想（テーマ予測 3 軸スコア → 予想問題 → 固定 3 ペルソナ模範解答）を回す。手順は `references/forecast-flow.md` | `総監記述式の作業`, `記述式の予想問題`, `R9 予想`, `/pe-essay-cycle forecast --year R9` |
 | `/pe-essay-review` | 総監記述式模範論文を 3 視点で採点（**サイト** r0X-essay ページ。note 有料マガジンは `cem-essay-qa`） | `記述式採点`, `模範論文レビュー`, `/pe-essay-review` |
 | `/keiken-charcount` | 1級・2級土木 施工経験記述マガジン答案を解答欄しきい値で字数チェック（決定論的・暫定値） | `経験記述の字数確認`, `答案の字数オーバー検出`, `/keiken-charcount` |
 | `/keiken-tensaku` | 経験記述の顧客対応ドラフト生成（`civil-keiken-tensaku-drafter`）→ 返信文を `civil-keiken-tensaku-qa`＋`check-tensaku-reply` で PASS まで検証。①添削（既定・提出原稿→赤入れ）②作成（`--mode sakusei`・ココナラ S3・ヒアリング→答案ドラフト）③診断（`--mode shindan`・ココナラ S1・A/B/C＋ワースト3・書き換え文なし）。捏造禁止（回答にない事実を作らない） | `経験記述を添削`, `添削下書きを作成`, `経験記述の答案作成`, `ヒアリングから答案`, `経験記述を診断`, `/keiken-tensaku` |
