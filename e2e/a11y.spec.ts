@@ -1,6 +1,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { AxeBuilder } from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
+import { representativeRoutes as a11yRoutes } from './routes';
 
 /**
  * アクセシビリティ（axe-core・WCAG 2.1 A/AA）のラチェットゲート。
@@ -16,17 +17,6 @@ import { expect, test } from '@playwright/test';
  */
 const BASELINE_PATH = 'e2e/a11y-baseline.json';
 const UPDATE = process.env.A11Y_UPDATE_BASELINE === '1';
-
-export const a11yRoutes = [
-  '/',
-  '/exam/pe-comprehensive-management',
-  '/exam/pe-comprehensive-management/keywords/alarp-principle',
-  '/exam/civil-construction-1/secondary/r06',
-  '/exam/civil-construction-1/textbook/network-schedule',
-  '/standards/kinki/common/chapters/1-3',
-  '/tools/keiken-charcount',
-  '/search?q=コンクリート',
-] as const;
 
 type Baseline = Record<string, Record<string, number>>;
 
