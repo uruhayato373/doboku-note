@@ -15,6 +15,12 @@ import { checkReply, extractRewriteBlocks, countChars } from '../scripts/lib/ten
 const SOURCE = '漏水が1,260箇所判明し、当初推定の800箇所を上回った。約20分から約10分に短縮。2班から3班に増員。延長2km。工期 2024年10月1日〜2027年3月1日。';
 const codes = (r) => r.violations.map((v) => v.code);
 
+test('R6: 「受け取りから48時間以内」のような返却期限は工事の数値として止めない（工事の「30分以内」は止める）', () => {
+  const r = checkReply('受け取りから48時間以内に添削してお返しします。受領後24時間で返信します。', { source: SOURCE });
+  assert.deepEqual(codes(r), []);
+  assert.ok(codes(checkReply('運搬を30分以内とした。', { source: SOURCE })).includes('R6_UNGROUNDED_NUMBER'));
+});
+
 test('書き換え例: 表記と実字数が一致すれば通す（CRLF でも同じ字数）', () => {
   const body = 'あ'.repeat(180);
   const lf = `(1) 課題（180字）\n${body}\n\n以上`;
