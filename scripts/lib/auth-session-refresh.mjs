@@ -64,9 +64,16 @@ export function sharedStatePath(service, env = process.env, home = homedir()) {
   return join(dir, `${service}-state.json`);
 }
 
-/** `security find-generic-password` の属性出力からアカウント名を取り出す。 */
+/**
+ * `security find-generic-password` の属性出力からアカウント名を取り出す。
+ * ASCII 以外や制御文字を含む値は `"acct"<blob>=0x<16進>  "<エスケープ表示>"` の形で出るので、16進を優先して復号する
+ * （2026-09-28 実測: stats47-measurement-a8 がこの形で、引用符の形だけを見ていたため no_credential になった）。
+ */
 export function parseKeychainAccount(text) {
-  const m = /"acct"<blob>="([^"]*)"/.exec(String(text ?? ''));
+  const s = String(text ?? '');
+  const hex = /"acct"<blob>=0x([0-9A-Fa-f]+)/.exec(s);
+  if (hex) return Buffer.from(hex[1], 'hex').toString('utf8').trim() || null;
+  const m = /"acct"<blob>="([^"]*)"/.exec(s);
   return m ? m[1] : null;
 }
 

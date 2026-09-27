@@ -123,6 +123,11 @@ export function loadAuthAdapter(serviceId, options) {
       expectedMarkers: [siteId, root.targetSiteName].filter(Boolean),
       forbiddenMarkers: root.forbiddenSiteText ?? [],
       expiredPattern: new RegExp(asp.reAuthPattern, 'i'),
+      // 本文全体で判定しない（2026-09-28 実測）。トップ画面は「メディアを選択」に共用口座の全サイト名
+      // （stats47 の「統計で見る都道府県」を含む）を常に並べ、お知らせ欄に「しばらくお待ちください」を
+      // 載せるため、ログイン済みでも禁止サイト検出・bot 判定に落ちていた。URL・title と、選択中の
+      // メディア（select[name=shop_site_id] の selected。captureAuthSnapshot が accountText に入れる）だけを見る。
+      markerScope: 'account',
     };
   }
   throw new Error(`AUTH_ADAPTER_UNSUPPORTED: ${serviceId}`);
@@ -133,7 +138,8 @@ export function classifyAuthSnapshot(adapter, snapshot) {
     return { status: 'unsupported', reason: adapter.unsupportedReason };
   }
   const url = String(snapshot.url ?? '');
-  const haystack = [url, snapshot.title, snapshot.text, snapshot.accountText].filter(Boolean).join('\n');
+  const bodyText = adapter.markerScope === 'account' ? null : snapshot.text;
+  const haystack = [url, snapshot.title, bodyText, snapshot.accountText].filter(Boolean).join('\n');
   // 「セキュリティ検証の実行 / 悪意のあるボットから保護」は X が datacenter IP に出す JS 挑戦ページ（2026-09-21 CI 実測）
   if (/captcha|challenge|bot check|access denied|ブロックされました|安全でないブラウザ|セキュリティ検証|悪意のあるボット|しばらくお待ちください/i.test(haystack)) {
     return { status: 'blocked', reason: 'CAPTCHA・bot判定・アクセス遮断の可能性' };
@@ -200,6 +206,14 @@ export async function captureAuthSnapshot(serviceId, page) {
   if (serviceId === 'x') {
     base.accountText = await page
       .locator('[data-testid="SideNav_AccountSwitcher_Button"]')
+      .first()
+      .innerText()
+      .catch(() => '');
+  }
+  if (serviceId === 'moshimo') {
+    // 選択中のメディア名（共用口座のどのサイトを見ているか）。一覧の全サイト名は拾わない。
+    base.accountText = await page
+      .locator('select[name=shop_site_id] option:checked')
       .first()
       .innerText()
       .catch(() => '');
