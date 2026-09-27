@@ -30,77 +30,132 @@ type Cadence = {
   history: Review[];
 };
 
-const box: React.CSSProperties = { border: '1px solid var(--line, #444)', borderRadius: 8, padding: 12, flex: 1, minWidth: 220 };
-const arrow = <div style={{ alignSelf: 'center', fontSize: 20, opacity: 0.6 }}>→</div>;
+const stepHead: React.CSSProperties = { display: 'flex', alignItems: 'center', gap: 8, margin: '0 0 8px' };
+const num = (n: number) => (
+  <span style={{ display: 'inline-flex', width: 22, height: 22, borderRadius: 11, background: 'var(--panel-2)', alignItems: 'center', justifyContent: 'center', fontSize: 12, fontWeight: 700 }}>{n}</span>
+);
 
-function Status({ c }: { c: Cadence }) {
-  const overdue = c.due?.due;
+/** 週次・月次の切り替えタブ。各タブに状態（未実施・実施済み）を添える。 */
+function CadenceTabs({ list, current }: { list: Cadence[]; current: string }) {
   return (
-    <p>
-      <span className={`badge ${overdue ? 'warn' : 'good'}`}>{overdue ? '未実施' : '実施済み'}</span>{' '}
-      {c.latest ? (
-        <>
-          最終 {c.latest.period.startDate}〜{c.latest.period.endDate}（{c.latest.status === 'provisional' ? '暫定' : '完了'}）・次回 {c.latest.nextReviewDate}
-        </>
-      ) : (
-        '記録なし'
-      )}
-      {overdue && c.due && <> ・ 対象 {c.due.period.startDate}〜{c.due.period.endDate} が未記録</>}
-    </p>
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 12, marginBottom: 16 }}>
+      {list.map((c) => {
+        const overdue = c.due?.due;
+        const active = c.id === current;
+        return (
+          <Link
+            key={c.id}
+            href={c.id === 'weekly' ? '/metrics/business' : `/metrics/business?cadence=${c.id}`}
+            className="card"
+            style={{ margin: 0, padding: 14, textDecoration: 'none', color: 'inherit', boxShadow: active ? 'inset 0 0 0 2px var(--accent, #6aa0ff)' : undefined }}
+          >
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <strong style={{ fontSize: 18 }}>{c.label}レビュー</strong>
+              <span className={`badge ${overdue ? 'warn' : 'good'}`}>{overdue ? '未実施' : '実施済み'}</span>
+            </div>
+            <div className="small muted" style={{ marginTop: 4 }}>
+              {c.latest ? `最終 ${c.latest.period.startDate.slice(5)}〜${c.latest.period.endDate.slice(5)}・次回 ${c.latest.nextReviewDate.slice(5)}` : '記録なし'}
+            </div>
+            {overdue && c.due && <div className="small" style={{ color: 'var(--warn)' }}>{c.due.period.startDate.slice(5)}〜{c.due.period.endDate.slice(5)} が未記録</div>}
+          </Link>
+        );
+      })}
+    </div>
   );
 }
 
-function Wiring({ c }: { c: Cadence }) {
+function Output({ label, value, href }: { label: string; value: number | string; href?: string }) {
+  const body = (
+    <>
+      <div className="small muted">{label}</div>
+      <div style={{ fontSize: 24, fontWeight: 700 }}>{value}</div>
+    </>
+  );
   return (
-    <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', alignItems: 'stretch' }}>
-      <div style={box}>
-        <h3 style={{ marginTop: 0 }}>入力 <span className="small muted">判断 {c.counts.judge}・点検 {c.counts.check}</span></h3>
-        {c.byStage.map((s) => (
-          <div key={s.stage} style={{ marginBottom: 6 }}>
-            <strong className="small">{s.stage}</strong>
-            <ul style={{ margin: '2px 0 0 16px', padding: 0 }}>
-              {s.judge.map((i) => (
-                <li key={i.command} className="small">{i.label}</li>
-              ))}
-            </ul>
-            {s.check.length > 0 && (
-              <details className="small muted">
-                <summary>点検 {s.check.length}</summary>
-                <ul style={{ margin: '2px 0 0 16px', padding: 0 }}>{s.check.map((i) => <li key={i.command}>{i.label}</li>)}</ul>
-              </details>
-            )}
-          </div>
-        ))}
-        {(c.drift.missing.length > 0 || c.drift.extra.length > 0) && <p className="badge warn">配線の正本とスキルがずれている</p>}
-      </div>
-      {arrow}
-      <div style={box}>
-        <h3 style={{ marginTop: 0 }}>判断</h3>
+    <div className="card" style={{ margin: 0, padding: 12 }}>
+      {href ? <Link href={href} style={{ color: 'inherit', textDecoration: 'none' }}>{body}</Link> : body}
+    </div>
+  );
+}
+
+/** 1 つのレビューを「① 何を見るか → ② 何を決めたか → ③ 何を出したか」の縦の流れで出す。 */
+function Flow({ c }: { c: Cadence }) {
+  const checks = c.byStage.reduce((n, s) => n + s.check.length, 0);
+  const drifted = c.drift.missing.length > 0 || c.drift.extra.length > 0;
+  return (
+    <>
+      <div className="card">
+        <h2 style={stepHead}>{num(1)} 判断 {c.latest && <span className="sub">{c.latest.period.startDate}〜{c.latest.period.endDate}{c.latest.status === 'provisional' ? '（暫定）' : ''}</span>}</h2>
         {c.latest ? (
-          <>
-            <p className="small muted">{c.latest.period.startDate}〜{c.latest.period.endDate}</p>
-            <p className="small"><strong>判断:</strong> {c.latest.decision}</p>
-            <p className="small"><strong>次の一手:</strong> {c.latest.nextAction}</p>
-          </>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 16, lineHeight: 1.8 }}>
+            <div>
+              <div className="small muted">決めたこと</div>
+              <p style={{ margin: 0 }}>{c.latest.decision}</p>
+            </div>
+            <div>
+              <div className="small muted">次の一手</div>
+              <p style={{ margin: 0 }}>{c.latest.nextAction}</p>
+            </div>
+          </div>
         ) : (
-          <p className="small muted">記録なし</p>
+          <p className="muted">まだ記録がない</p>
         )}
       </div>
-      {arrow}
-      <div style={box}>
-        <h3 style={{ marginTop: 0 }}>出力</h3>
-        <p className="small">
-          起票カード {c.cards.length}
-          {c.cards.length > 0 && <>（{c.cards.map((x) => x.id).join('・')}）</>}
-        </p>
-        <p className="small">実験 {c.latest?.experimentIds?.length ?? 0}{c.latest?.experimentIds?.length ? `（${c.latest.experimentIds.join('・')}）` : ''}</p>
-        {c.weeklyPlan && <p className="small">週次計画: <Link href="/todo?f=weekly">{c.weeklyPlan.replace(/^#\s*/, '')}</Link></p>}
-        <details className="small muted">
-          <summary>出力先</summary>
-          <ul style={{ margin: '2px 0 0 16px', padding: 0 }}>{c.outputs.map((o) => <li key={o}>{o}</li>)}</ul>
-        </details>
+
+      <div className="card">
+        <h2 style={stepHead}>{num(2)} 出力</h2>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: 12 }}>
+          <Output label="起票したカード" value={c.cards.length} href={c.cards.length ? '/todo?f=backlog' : undefined} />
+          <Output label="実験" value={c.latest?.experimentIds?.length ?? 0} />
+          {c.weeklyPlan && <Output label="週次計画" value="開く →" href="/todo?f=weekly" />}
+        </div>
+        {c.cards.length > 0 && (
+          <ul className="small" style={{ margin: '10px 0 0', paddingLeft: 18 }}>
+            {c.cards.map((x) => (
+              <li key={x.id}>
+                <Link className="mono" href={`/todo?f=backlog&id=${x.id}`}>{x.id}</Link> {x.title}
+              </li>
+            ))}
+          </ul>
+        )}
+        {c.latest?.experimentIds?.length ? <p className="small" style={{ marginBottom: 0 }}>実験: {c.latest.experimentIds.join('・')}</p> : null}
       </div>
-    </div>
+
+      <div className="card">
+        <h2 style={stepHead}>{num(3)} 見る材料 <span className="sub">判断に使う {c.counts.judge} 件</span></h2>
+        <div style={{ display: 'grid', gap: 10 }}>
+          {c.byStage.filter((s) => s.judge.length).map((s) => (
+            <div key={s.stage} style={{ display: 'grid', gridTemplateColumns: '7em 1fr', gap: 8, alignItems: 'baseline' }}>
+              <span className="small muted">{s.stage}</span>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
+                {s.judge.map((i) => <span key={i.command} className="chip">{i.label}</span>)}
+              </div>
+            </div>
+          ))}
+        </div>
+        <details className="small muted" style={{ marginTop: 12 }}>
+          <summary>自動の点検 {checks} 件（異常があるときだけ見ればよい）</summary>
+          {c.byStage.filter((s) => s.check.length).map((s) => (
+            <p key={s.stage} style={{ margin: '4px 0' }}><strong>{s.stage}:</strong> {s.check.map((i) => i.label).join('・')}</p>
+          ))}
+        </details>
+        {drifted && <p className="badge warn">配線の正本とスキルがずれている</p>}
+      </div>
+
+      {c.history.length > 0 && (
+        <div className="card">
+          <h2>これまでの判断</h2>
+          <ol style={{ margin: 0, paddingLeft: 0, listStyle: 'none', display: 'grid', gap: 10 }}>
+            {c.history.map((r) => (
+              <li key={r.file} className="small" style={{ borderLeft: '3px solid var(--panel-2)', paddingLeft: 10, lineHeight: 1.7 }}>
+                <div className="muted">{r.period.startDate}〜{r.period.endDate}{r.status === 'provisional' ? '（暫定）' : ''}</div>
+                {r.decision}
+              </li>
+            ))}
+          </ol>
+        </div>
+      )}
+    </>
   );
 }
 
@@ -122,31 +177,17 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
     );
   }
   const cadences = buildReviewView(root, { reviews: data.reviews, due: data.due }) as Cadence[];
+  const current = cadences.find((c) => c.id === cadence);
   const existingReview = data.reviews.find((r: Review) => r.cadence === cadence && samePeriod(r.period, period));
 
   return (
     <>
       <PageHead title="レビュー" />
-      {cadences.map((c) => (
-        <div className="card" key={c.id}>
-          <h2>{c.label}レビュー</h2>
-          <Status c={c} />
-          <Wiring c={c} />
-          {c.history.length > 0 && (
-            <details style={{ marginTop: 8 }}>
-              <summary className="small">これまでの判断 {c.history.length}</summary>
-              {c.history.map((r) => (
-                <div key={r.file} className="small" style={{ margin: '6px 0' }}>
-                  <strong>{r.period.startDate}〜{r.period.endDate}</strong>（{r.status === 'provisional' ? '暫定' : '完了'}）: {r.decision}
-                </div>
-              ))}
-            </details>
-          )}
-        </div>
-      ))}
+      <CadenceTabs list={cadences} current={cadence} />
+      {current && <Flow c={current} />}
 
       <details className="card">
-        <summary>記録する（計測・目標・レビューの手入力）</summary>
+        <summary>手で記録する（計測・目標・レビュー）</summary>
         <form className="filterbar">
           <input type="hidden" name="cadence" value={cadence} />
           <Link href="/metrics/business">前週</Link>
