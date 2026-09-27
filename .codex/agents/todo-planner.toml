@@ -54,6 +54,8 @@ developer_instructions = """
 **タスク本文・状態・完了経緯を複製しない**。backlog の `DN-####` を選ぶ表だけを書く
 （2026-08-18 に ID 参照ビューへ移行。真実源 → [todo-standards.md](../knowledge/reference/todo-standards.md) §2-2）。
 
+見出しの週番号は ISO 8601 週（木曜が属する週・月曜始まり）。手で数えずに対象週の月曜の日付から出す: macOS は `date -j -f %F <月曜 YYYY-MM-DD> +%G-W%V`、Linux は `date -d <月曜> +%G-W%V`（2026-09-28 → 2026-W40。2026-09-27 に W41 と数え違えた）。
+
 ```markdown
 # 週間計画 — YYYY-Www（MM/DD〜MM/DD）
 
