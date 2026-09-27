@@ -133,14 +133,21 @@ function Flow({ c }: { c: Cadence }) {
             </div>
           ))}
         </div>
-        <details className="small muted" style={{ marginTop: 12 }}>
-          <summary>自動の点検 {checks} 件（異常があるときだけ見ればよい）</summary>
-          {c.byStage.filter((s) => s.check.length).map((s) => (
-            <p key={s.stage} style={{ margin: '4px 0' }}><strong>{s.stage}:</strong> {s.check.map((i) => i.label).join('・')}</p>
-          ))}
-        </details>
+        <p className="small muted" style={{ margin: '12px 0 0' }}>ほかに自動の点検 {checks} 件（異常があるときだけ見ればよい）</p>
         {drifted && <p className="badge warn">配線の正本とスキルがずれている</p>}
       </div>
+
+      <Link
+        href={c.id === 'weekly' ? '/metrics/business/procedure' : '/metrics/business/procedure?cadence=monthly'}
+        className="card"
+        style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', textDecoration: 'none', color: 'inherit' }}
+      >
+        <span>
+          <strong>{c.label}レビューの手順を点検する</strong>
+          <span className="small muted" style={{ display: 'block' }}>手順ごとの実施の証拠・レポートの節の埋まり具合・実行するコマンドの全件</span>
+        </span>
+        <span style={{ fontSize: 20, opacity: 0.6 }}>→</span>
+      </Link>
 
       {c.history.length > 0 && (
         <div className="card">

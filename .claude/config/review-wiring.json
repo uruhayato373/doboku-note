@@ -1,91 +1,548 @@
 {
   "version": 1,
   "_doc": "docs/strategy/15_KPIツリー.md",
-  "_note": "週次・月次レビューの配線の正本。inputs はスキル（.claude/skills/management/{weekly,monthly}-review/SKILL.md）が実行するコマンドの全件で、stage は KPI ツリーの段、role は「判断」（判断の材料）か「点検」（仕組みの健全性・人が読まなくてよい）。スキルとこのファイルの食い違いは npm run check-review-wiring が止める。管理画面 戦略 ＞ レビュー がこの配線と実行状況を図にする。レビューから起票したカードは本文の起点に「週次レビュー（開始日〜終了日）」「月次レビュー（開始日〜終了日）」と書く（管理画面が数える）。",
-  "stages": ["受取・販売", "検索", "SNS", "商品・品質", "計画・運用", "基盤の点検"],
+  "_note": "週次・月次レビューの配線の正本。inputs はスキル（.claude/skills/management/{weekly,monthly}-review/SKILL.md）が実行するコマンドの全件で、stage は KPI ツリーの段、role は「判断」（判断の材料）か「点検」（仕組みの健全性・人が読まなくてよい）。スキルとこのファイルの食い違いは npm run check-review-wiring が止める。管理画面 戦略 ＞ レビュー がこの配線と実行状況を図にする。レビューから起票したカードは本文の起点に「週次レビュー（開始日〜終了日）」「月次レビュー（開始日〜終了日）」と書く（管理画面が数える）。 procedure は各レビューの手順（段ごとに何をして、何が残れば実施したと言えるか）。evidence は review-wiring.mjs の EVIDENCE のどれか（reviewRecord＝business-direction のレビュー記録／sections＝週次レポートの節／triage＝計測ダイジェストの全件処分／reportFile＝docs/reviews/weekly のレポート／routing＝申し送りの振り分け／weeklyPlan＝翌週の週間計画／none＝証拠が残らない手順）。管理画面 戦略 ＞ レビュー ＞ 手順の点検 が表示する。",
+  "stages": [
+    "受取・販売",
+    "検索",
+    "SNS",
+    "商品・品質",
+    "計画・運用",
+    "基盤の点検"
+  ],
   "cadences": {
     "weekly": {
       "label": "週次",
       "skill": ".claude/skills/management/weekly-review/SKILL.md",
-      "outputs": ["バックログ（改善・不具合の起票）", "実験（experiments.json）", "週次計画（.claude/todo/weekly.md）", "レビュー記録（review-*.json）"],
+      "outputs": [
+        "バックログ（改善・不具合の起票）",
+        "実験（experiments.json）",
+        "週次計画（.claude/todo/weekly.md）",
+        "レビュー記録（review-*.json）"
+      ],
       "inputs": [
-        { "command": "business-review", "label": "資格別 KPI・受取額と目標の差", "stage": "受取・販売", "role": "判断" },
-        { "command": "sales-summary", "label": "note 売上の集計", "stage": "受取・販売", "role": "判断" },
-        { "command": "check-sales-freshness", "label": "売上記録の鮮度", "stage": "受取・販売", "role": "点検" },
-        { "command": "coconala-orders", "label": "ココナラ受注の取り直し", "stage": "受取・販売", "role": "点検" },
-        { "command": "check-coconala-orders", "label": "ココナラ取引と評価の要対応", "stage": "受取・販売", "role": "判断" },
-        { "command": "coconala-rate-buyer", "label": "ココナラ購入者への評価", "stage": "受取・販売", "role": "点検" },
-        { "command": "check-coconala-blog", "label": "ココナラブログの送客先", "stage": "受取・販売", "role": "点検" },
-        { "command": "check-kdp-report-freshness", "label": "KDP レポートの鮮度", "stage": "受取・販売", "role": "点検" },
-        { "command": "check-a8-report-due", "label": "A8 成果レポートの期限", "stage": "受取・販売", "role": "点検" },
-        { "command": "report-monetization-coverage", "label": "収益導線の網羅", "stage": "受取・販売", "role": "判断" },
-        { "command": "check-note-delivery-due", "label": "note 配信予定の期限", "stage": "受取・販売", "role": "点検" },
-        { "command": "check-note-republish", "label": "note 再公開のずれ", "stage": "受取・販売", "role": "点検" },
-        { "command": "check-note-attachments:live", "label": "note 添付 PDF の欠落", "stage": "受取・販売", "role": "点検" },
-        { "command": "node:check-note-structure", "label": "note 有料境界の破損", "stage": "受取・販売", "role": "点検" },
-        { "command": "node:fetch-note-public-view-shots", "label": "note 公開ページの目視", "stage": "受取・販売", "role": "点検" },
-        { "command": "verify-note-status", "label": "note 公開状態の照合", "stage": "受取・販売", "role": "点検" },
-        { "command": "note-traffic-fetch", "label": "note 流入元・記事別 PV", "stage": "受取・販売", "role": "判断" },
-        { "command": "report-search-opportunities", "label": "検索キーワード戦略の改善候補（起票）", "stage": "検索", "role": "判断" },
-        { "command": "seo-rank-watch", "label": "検索順位の監視と改善", "stage": "検索", "role": "判断" },
-        { "command": "fetch-gsc-data", "label": "GSC データ取得", "stage": "検索", "role": "点検" },
-        { "command": "fetch-ga4-data", "label": "GA4 データ取得", "stage": "検索", "role": "点検" },
-        { "command": "check-gsc-ui-due", "label": "GSC/GA4 UI 取得の期限", "stage": "検索", "role": "点検" },
-        { "command": "check-gsc-indexing-due", "label": "GSC 登録リクエストの期限", "stage": "検索", "role": "点検" },
-        { "command": "check-gsc-sitemaps", "label": "サイトマップの読み込み", "stage": "検索", "role": "点検" },
-        { "command": "gsc-local:install", "label": "GSC 定期実行の状態", "stage": "検索", "role": "点検" },
-        { "command": "google-console:login", "label": "Google コンソールのログイン", "stage": "検索", "role": "点検" },
-        { "command": "check-ga4-dimensions", "label": "GA4 カスタムディメンション", "stage": "検索", "role": "点検" },
-        { "command": "ga4-admin:apply", "label": "GA4 設定の反映", "stage": "検索", "role": "点検" },
-        { "command": "check-internal-links-vs-gsc", "label": "内部リンクと GSC の突合", "stage": "検索", "role": "点検" },
-        { "command": "growth-digest", "label": "計測ダイジェスト", "stage": "検索", "role": "判断" },
-        { "command": "growth-triage", "label": "計測→改善のトリアージ", "stage": "検索", "role": "判断" },
-        { "command": "verify-ig-status", "label": "Instagram 公開状態の照合", "stage": "SNS", "role": "点検" },
-        { "command": "x-queue-surfacer", "label": "X 予約キューの残量", "stage": "SNS", "role": "点検" },
-        { "command": "node:x-queue-surfacer", "label": "X 予約キューの残量（直接実行）", "stage": "SNS", "role": "点検" },
-        { "command": "report-competitor-watch", "label": "ココナラ競合の変化と追跡候補", "stage": "商品・品質", "role": "判断" },
-        { "command": "check-competitor-scan-due", "label": "競合再スキャンの期限", "stage": "商品・品質", "role": "点検" },
-        { "command": "qualification-market", "label": "資格別の展開の判断材料", "stage": "商品・品質", "role": "判断" },
-        { "command": "scan-qualification-market", "label": "資格の市場スキャン", "stage": "商品・品質", "role": "点検" },
-        { "command": "check-content-expansion", "label": "教材からの展開の期限", "stage": "商品・品質", "role": "判断" },
-        { "command": "quality-census", "label": "品質採点の網羅", "stage": "商品・品質", "role": "点検" },
-        { "command": "check-experiment-due", "label": "実験の再計測期限", "stage": "計画・運用", "role": "判断" },
-        { "command": "check-monthly-review-due", "label": "月次レビューの期限", "stage": "計画・運用", "role": "点検" },
-        { "command": "node:check-backlog-health", "label": "バックログの健全性", "stage": "計画・運用", "role": "点検" },
-        { "command": "node:check-backlog-verify", "label": "バックログの検証ゲート", "stage": "計画・運用", "role": "点検" },
-        { "command": "node:backlog-sweep-pick", "label": "バックログ消化の候補", "stage": "計画・運用", "role": "点検" },
-        { "command": "roll-backlog-when", "label": "時期の翌月繰り越し", "stage": "計画・運用", "role": "点検" },
-        { "command": "node:check-doc-lifecycle", "label": "文書の棚卸し", "stage": "基盤の点検", "role": "点検" },
-        { "command": "node:check-external-write-orphans", "label": "外部書き込みの取り残し", "stage": "基盤の点検", "role": "点検" },
-        { "command": "check-knip-ratchet", "label": "デッドコード", "stage": "基盤の点検", "role": "点検" },
-        { "command": "check-disk-hygiene", "label": "ディスク容量", "stage": "基盤の点検", "role": "点検" },
-        { "command": "check-lcp-image-hints", "label": "画像の読み込み指定（LCP）", "stage": "基盤の点検", "role": "点検" },
-        { "command": "psi-audit:check", "label": "表示速度（PSI）", "stage": "基盤の点検", "role": "点検" }
+        {
+          "command": "business-review",
+          "label": "資格別 KPI・受取額と目標の差",
+          "stage": "受取・販売",
+          "role": "判断"
+        },
+        {
+          "command": "sales-summary",
+          "label": "note 売上の集計",
+          "stage": "受取・販売",
+          "role": "判断"
+        },
+        {
+          "command": "check-sales-freshness",
+          "label": "売上記録の鮮度",
+          "stage": "受取・販売",
+          "role": "点検"
+        },
+        {
+          "command": "coconala-orders",
+          "label": "ココナラ受注の取り直し",
+          "stage": "受取・販売",
+          "role": "点検"
+        },
+        {
+          "command": "check-coconala-orders",
+          "label": "ココナラ取引と評価の要対応",
+          "stage": "受取・販売",
+          "role": "判断"
+        },
+        {
+          "command": "coconala-rate-buyer",
+          "label": "ココナラ購入者への評価",
+          "stage": "受取・販売",
+          "role": "点検"
+        },
+        {
+          "command": "check-coconala-blog",
+          "label": "ココナラブログの送客先",
+          "stage": "受取・販売",
+          "role": "点検"
+        },
+        {
+          "command": "check-kdp-report-freshness",
+          "label": "KDP レポートの鮮度",
+          "stage": "受取・販売",
+          "role": "点検"
+        },
+        {
+          "command": "check-a8-report-due",
+          "label": "A8 成果レポートの期限",
+          "stage": "受取・販売",
+          "role": "点検"
+        },
+        {
+          "command": "report-monetization-coverage",
+          "label": "収益導線の網羅",
+          "stage": "受取・販売",
+          "role": "判断"
+        },
+        {
+          "command": "check-note-delivery-due",
+          "label": "note 配信予定の期限",
+          "stage": "受取・販売",
+          "role": "点検"
+        },
+        {
+          "command": "check-note-republish",
+          "label": "note 再公開のずれ",
+          "stage": "受取・販売",
+          "role": "点検"
+        },
+        {
+          "command": "check-note-attachments:live",
+          "label": "note 添付 PDF の欠落",
+          "stage": "受取・販売",
+          "role": "点検"
+        },
+        {
+          "command": "node:check-note-structure",
+          "label": "note 有料境界の破損",
+          "stage": "受取・販売",
+          "role": "点検"
+        },
+        {
+          "command": "node:fetch-note-public-view-shots",
+          "label": "note 公開ページの目視",
+          "stage": "受取・販売",
+          "role": "点検"
+        },
+        {
+          "command": "verify-note-status",
+          "label": "note 公開状態の照合",
+          "stage": "受取・販売",
+          "role": "点検"
+        },
+        {
+          "command": "note-traffic-fetch",
+          "label": "note 流入元・記事別 PV",
+          "stage": "受取・販売",
+          "role": "判断"
+        },
+        {
+          "command": "report-search-opportunities",
+          "label": "検索キーワード戦略の改善候補（起票）",
+          "stage": "検索",
+          "role": "判断"
+        },
+        {
+          "command": "seo-rank-watch",
+          "label": "検索順位の監視と改善",
+          "stage": "検索",
+          "role": "判断"
+        },
+        {
+          "command": "fetch-gsc-data",
+          "label": "GSC データ取得",
+          "stage": "検索",
+          "role": "点検"
+        },
+        {
+          "command": "fetch-ga4-data",
+          "label": "GA4 データ取得",
+          "stage": "検索",
+          "role": "点検"
+        },
+        {
+          "command": "check-gsc-ui-due",
+          "label": "GSC/GA4 UI 取得の期限",
+          "stage": "検索",
+          "role": "点検"
+        },
+        {
+          "command": "check-gsc-indexing-due",
+          "label": "GSC 登録リクエストの期限",
+          "stage": "検索",
+          "role": "点検"
+        },
+        {
+          "command": "check-gsc-sitemaps",
+          "label": "サイトマップの読み込み",
+          "stage": "検索",
+          "role": "点検"
+        },
+        {
+          "command": "gsc-local:install",
+          "label": "GSC 定期実行の状態",
+          "stage": "検索",
+          "role": "点検"
+        },
+        {
+          "command": "google-console:login",
+          "label": "Google コンソールのログイン",
+          "stage": "検索",
+          "role": "点検"
+        },
+        {
+          "command": "check-ga4-dimensions",
+          "label": "GA4 カスタムディメンション",
+          "stage": "検索",
+          "role": "点検"
+        },
+        {
+          "command": "ga4-admin:apply",
+          "label": "GA4 設定の反映",
+          "stage": "検索",
+          "role": "点検"
+        },
+        {
+          "command": "check-internal-links-vs-gsc",
+          "label": "内部リンクと GSC の突合",
+          "stage": "検索",
+          "role": "点検"
+        },
+        {
+          "command": "growth-digest",
+          "label": "計測ダイジェスト",
+          "stage": "検索",
+          "role": "判断"
+        },
+        {
+          "command": "growth-triage",
+          "label": "計測→改善のトリアージ",
+          "stage": "検索",
+          "role": "判断"
+        },
+        {
+          "command": "verify-ig-status",
+          "label": "Instagram 公開状態の照合",
+          "stage": "SNS",
+          "role": "点検"
+        },
+        {
+          "command": "x-queue-surfacer",
+          "label": "X 予約キューの残量",
+          "stage": "SNS",
+          "role": "点検"
+        },
+        {
+          "command": "node:x-queue-surfacer",
+          "label": "X 予約キューの残量（直接実行）",
+          "stage": "SNS",
+          "role": "点検"
+        },
+        {
+          "command": "report-competitor-watch",
+          "label": "ココナラ競合の変化と追跡候補",
+          "stage": "商品・品質",
+          "role": "判断"
+        },
+        {
+          "command": "check-competitor-scan-due",
+          "label": "競合再スキャンの期限",
+          "stage": "商品・品質",
+          "role": "点検"
+        },
+        {
+          "command": "qualification-market",
+          "label": "資格別の展開の判断材料",
+          "stage": "商品・品質",
+          "role": "判断"
+        },
+        {
+          "command": "scan-qualification-market",
+          "label": "資格の市場スキャン",
+          "stage": "商品・品質",
+          "role": "点検"
+        },
+        {
+          "command": "check-content-expansion",
+          "label": "教材からの展開の期限",
+          "stage": "商品・品質",
+          "role": "判断"
+        },
+        {
+          "command": "quality-census",
+          "label": "品質採点の網羅",
+          "stage": "商品・品質",
+          "role": "点検"
+        },
+        {
+          "command": "check-experiment-due",
+          "label": "実験の再計測期限",
+          "stage": "計画・運用",
+          "role": "判断"
+        },
+        {
+          "command": "check-monthly-review-due",
+          "label": "月次レビューの期限",
+          "stage": "計画・運用",
+          "role": "点検"
+        },
+        {
+          "command": "node:check-backlog-health",
+          "label": "バックログの健全性",
+          "stage": "計画・運用",
+          "role": "点検"
+        },
+        {
+          "command": "node:check-backlog-verify",
+          "label": "バックログの検証ゲート",
+          "stage": "計画・運用",
+          "role": "点検"
+        },
+        {
+          "command": "node:backlog-sweep-pick",
+          "label": "バックログ消化の候補",
+          "stage": "計画・運用",
+          "role": "点検"
+        },
+        {
+          "command": "roll-backlog-when",
+          "label": "時期の翌月繰り越し",
+          "stage": "計画・運用",
+          "role": "点検"
+        },
+        {
+          "command": "node:check-doc-lifecycle",
+          "label": "文書の棚卸し",
+          "stage": "基盤の点検",
+          "role": "点検"
+        },
+        {
+          "command": "node:check-external-write-orphans",
+          "label": "外部書き込みの取り残し",
+          "stage": "基盤の点検",
+          "role": "点検"
+        },
+        {
+          "command": "check-knip-ratchet",
+          "label": "デッドコード",
+          "stage": "基盤の点検",
+          "role": "点検"
+        },
+        {
+          "command": "check-disk-hygiene",
+          "label": "ディスク容量",
+          "stage": "基盤の点検",
+          "role": "点検"
+        },
+        {
+          "command": "check-lcp-image-hints",
+          "label": "画像の読み込み指定（LCP）",
+          "stage": "基盤の点検",
+          "role": "点検"
+        },
+        {
+          "command": "psi-audit:check",
+          "label": "表示速度（PSI）",
+          "stage": "基盤の点検",
+          "role": "点検"
+        }
+      ],
+      "procedure": [
+        {
+          "label": "事業の判断",
+          "does": "受取額と目標の差・資格別 KPI を読み、判断と次の一手を記録する",
+          "evidence": "reviewRecord"
+        },
+        {
+          "label": "実績の収集",
+          "does": "開発・コンテンツ・検索・表示速度・SNS・収益導線を集める",
+          "evidence": "sections",
+          "sections": [
+            "開発活動",
+            "コンテンツ実績",
+            "NSM（オーガニック検索流入）",
+            "PSI パフォーマンス推移",
+            "SNS 流入と投稿実績",
+            "収益カバレッジ ダッシュボード"
+          ]
+        },
+        {
+          "label": "分析と統合",
+          "does": "計画との差・成果・課題・学びと、台帳・自動化の失敗を振り返る",
+          "evidence": "sections",
+          "sections": [
+            "計画 vs 実績",
+            "成果ハイライト",
+            "課題・ブロッカー",
+            "学び",
+            "backlog 消化サマリ",
+            "automation-failure Issue の消化"
+          ]
+        },
+        {
+          "label": "計測→改善の全件トリアージ",
+          "does": "計測ダイジェストの改善候補を 1 件残らず起票・実験・却下などに処分する",
+          "evidence": "triage"
+        },
+        {
+          "label": "レポートの保存",
+          "does": "docs/reviews/weekly に週次レポートを書く",
+          "evidence": "reportFile"
+        },
+        {
+          "label": "申し送りの振り分け",
+          "does": "来週への申し送りの各項目に行き先（DN・定常・Issue・実験）を書く",
+          "evidence": "routing"
+        },
+        {
+          "label": "翌週の計画",
+          "does": "/plan-weekly で翌週の週間計画を書き直す",
+          "evidence": "weeklyPlan"
+        }
       ]
     },
     "monthly": {
       "label": "月次",
       "skill": ".claude/skills/management/monthly-review/SKILL.md",
-      "outputs": ["目標と資格別の配分（target 記録）", "実験の判定（experiments.json）", "月間の時期付け（backlog の [時期:]）", "レビュー記録（review-*.json）"],
+      "outputs": [
+        "目標と資格別の配分（target 記録）",
+        "実験の判定（experiments.json）",
+        "月間の時期付け（backlog の [時期:]）",
+        "レビュー記録（review-*.json）"
+      ],
       "inputs": [
-        { "command": "business-review", "label": "資格別 KPI・受取額と目標の差", "stage": "受取・販売", "role": "判断" },
-        { "command": "fetch-business-metrics", "label": "事業計測の取得", "stage": "受取・販売", "role": "点検" },
-        { "command": "note-sales-fetch", "label": "note 売上の取得と検算", "stage": "受取・販売", "role": "判断" },
-        { "command": "note-traffic-fetch", "label": "note 流入元・記事別 PV", "stage": "受取・販売", "role": "判断" },
-        { "command": "kdp-report", "label": "KDP ロイヤリティ", "stage": "受取・販売", "role": "判断" },
-        { "command": "coconala-analytics", "label": "ココナラ分析", "stage": "受取・販売", "role": "判断" },
-        { "command": "report-site-to-sales", "label": "サイト送客から販売まで", "stage": "受取・販売", "role": "判断" },
-        { "command": "report-buildjob-affiliate", "label": "アフィリエイト EPC", "stage": "受取・販売", "role": "判断" },
-        { "command": "report-career-funnel", "label": "転職導線（流入→回遊→成果）", "stage": "受取・販売", "role": "判断" },
-        { "command": "report-search-opportunities", "label": "検索クラスターの推移", "stage": "検索", "role": "判断" },
-        { "command": "qualification-market", "label": "資格別の展開の判断材料", "stage": "商品・品質", "role": "判断" },
-        { "command": "scan-qualification-market", "label": "資格の市場スキャン", "stage": "商品・品質", "role": "点検" },
-        { "command": "exam-ssot-status", "label": "試験日程・受験者数の照合", "stage": "商品・品質", "role": "点検" },
-        { "command": "check-exam-calendar", "label": "試験日程の整合", "stage": "商品・品質", "role": "点検" },
-        { "command": "check-content-expansion", "label": "教材からの展開の期限", "stage": "商品・品質", "role": "判断" },
-        { "command": "check-business-direction", "label": "事業方針の設定と履歴の整合", "stage": "計画・運用", "role": "点検" },
-        { "command": "check-backlog-health", "label": "バックログの健全性", "stage": "計画・運用", "role": "点検" },
-        { "command": "roll-backlog-when", "label": "時期の翌月繰り越し", "stage": "計画・運用", "role": "点検" }
+        {
+          "command": "business-review",
+          "label": "資格別 KPI・受取額と目標の差",
+          "stage": "受取・販売",
+          "role": "判断"
+        },
+        {
+          "command": "fetch-business-metrics",
+          "label": "事業計測の取得",
+          "stage": "受取・販売",
+          "role": "点検"
+        },
+        {
+          "command": "note-sales-fetch",
+          "label": "note 売上の取得と検算",
+          "stage": "受取・販売",
+          "role": "判断"
+        },
+        {
+          "command": "note-traffic-fetch",
+          "label": "note 流入元・記事別 PV",
+          "stage": "受取・販売",
+          "role": "判断"
+        },
+        {
+          "command": "kdp-report",
+          "label": "KDP ロイヤリティ",
+          "stage": "受取・販売",
+          "role": "判断"
+        },
+        {
+          "command": "coconala-analytics",
+          "label": "ココナラ分析",
+          "stage": "受取・販売",
+          "role": "判断"
+        },
+        {
+          "command": "report-site-to-sales",
+          "label": "サイト送客から販売まで",
+          "stage": "受取・販売",
+          "role": "判断"
+        },
+        {
+          "command": "report-buildjob-affiliate",
+          "label": "アフィリエイト EPC",
+          "stage": "受取・販売",
+          "role": "判断"
+        },
+        {
+          "command": "report-career-funnel",
+          "label": "転職導線（流入→回遊→成果）",
+          "stage": "受取・販売",
+          "role": "判断"
+        },
+        {
+          "command": "report-search-opportunities",
+          "label": "検索クラスターの推移",
+          "stage": "検索",
+          "role": "判断"
+        },
+        {
+          "command": "qualification-market",
+          "label": "資格別の展開の判断材料",
+          "stage": "商品・品質",
+          "role": "判断"
+        },
+        {
+          "command": "scan-qualification-market",
+          "label": "資格の市場スキャン",
+          "stage": "商品・品質",
+          "role": "点検"
+        },
+        {
+          "command": "exam-ssot-status",
+          "label": "試験日程・受験者数の照合",
+          "stage": "商品・品質",
+          "role": "点検"
+        },
+        {
+          "command": "check-exam-calendar",
+          "label": "試験日程の整合",
+          "stage": "商品・品質",
+          "role": "点検"
+        },
+        {
+          "command": "check-content-expansion",
+          "label": "教材からの展開の期限",
+          "stage": "商品・品質",
+          "role": "判断"
+        },
+        {
+          "command": "check-business-direction",
+          "label": "事業方針の設定と履歴の整合",
+          "stage": "計画・運用",
+          "role": "点検"
+        },
+        {
+          "command": "check-backlog-health",
+          "label": "バックログの健全性",
+          "stage": "計画・運用",
+          "role": "点検"
+        },
+        {
+          "command": "roll-backlog-when",
+          "label": "時期の翌月繰り越し",
+          "stage": "計画・運用",
+          "role": "点検"
+        }
+      ],
+      "procedure": [
+        {
+          "label": "事業の判断",
+          "does": "月の受取額と目標の差から、チャネル → 入口へ原因を降りて判断を記録する",
+          "evidence": "reviewRecord"
+        },
+        {
+          "label": "検索クラスターの推移",
+          "does": "クラスター別の 1 桁・11〜30 位の検索語数と 28 日前との差を読む",
+          "evidence": "none"
+        },
+        {
+          "label": "販売・送客の突合",
+          "does": "note・KDP・ココナラ・アフィリエイトを確定値で読み、欠測は欠測で残す",
+          "evidence": "none"
+        },
+        {
+          "label": "資格の正本と市場",
+          "does": "試験日程・受験者数の照合と、資格ごとの展開の判断材料を読む",
+          "evidence": "none"
+        },
+        {
+          "label": "目標と配分",
+          "does": "目標を変えるなら実測に基づく target 記録を追記する",
+          "evidence": "none"
+        },
+        {
+          "label": "年間・月間の時期付け",
+          "does": "カードの [時期:] を直し、残りを翌月へ回す",
+          "evidence": "none"
+        },
+        {
+          "label": "実験の判定",
+          "does": "期限の来た実験を判定か延長理由のどちらかで閉じる",
+          "evidence": "none"
+        }
       ]
     }
   }
