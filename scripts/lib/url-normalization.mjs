@@ -111,6 +111,12 @@ export function toAbsoluteUrl(raw, origin = "https://doboku-note.com") {
   return null;
 }
 
+/** 論理 slug から正規公開パス（例 /exam/civil-construction-1/guide/x）を引く。対応が無ければ null。 */
+export function publicPathFromSlug(slug) {
+  for (const [path, s] of loadPublicPathMap()) if (s === slug) return path;
+  return null;
+}
+
 /** 旧 /docs または正規公開 URL から論理 slug を取り出す（doc-meta-index との突合用）。 */
 export function slugFromKey(key) {
   if (!key) return null;

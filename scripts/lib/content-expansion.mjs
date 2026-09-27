@@ -143,18 +143,80 @@ export async function linkedProductsByUnit(root, report) {
   };
   walk('content/note');
   walk('content/kindle');
-  const slugOf = (path) => {
-    const m = path.match(/^content\/site\/([^/]+)\/(?:([^/]+)\/article\.mdx?|([^/]+)\.mdx?)$/);
-    return m ? `${m[1]}-${m[2] ?? m[3]}` : null;
-  };
   const out = new Map();
   for (const u of report.units) {
     const found = new Set();
     for (const a of u.artifacts) {
-      const slug = slugOf(a.path);
+      const slug = siteSlugOf(a.path);
       for (const p of bySlug.get(slug) ?? []) found.add(p);
     }
     out.set(u.id, [...found]);
   }
   return out;
+}
+
+/** 台帳の記事パス content/site/<category>/<dir>/article.mdx（または <category>/<name>.mdx）を論理 slug `${category}-${dir|name}` に写す。 */
+export function siteSlugOf(path) {
+  const m = path.match(/^content\/site\/([^/]+)\/(?:([^/]+)\/article\.mdx?|([^/]+)\.mdx?)$/);
+  return m ? `${m[1]}-${m[2] ?? m[3]}` : null;
+}
+
+/** GSC ページ集計の最新（ページ単位 gsc-page-YYYY-*）を論理 slug ごとに合算する。無ければ空 Map と file:null。 */
+async function latestGscBySlug(root) {
+  const { readdirSync } = await import('node:fs');
+  const { slugFromKey } = await import('./url-normalization.mjs');
+  const dir = resolve(root, '.claude/state/metrics/gsc');
+  const files = existsSync(dir) ? readdirSync(dir).filter((f) => /^gsc-page-\d{4}-.*\.json$/.test(f)).sort() : [];
+  const out = new Map();
+  if (!files.length) return { bySlug: out, file: null, period: null };
+  const data = JSON.parse(readFileSync(resolve(dir, files.at(-1)), 'utf8'));
+  for (const r of data.rows ?? []) {
+    const slug = slugFromKey(r.keys?.[0]);
+    if (!slug) continue;
+    const prev = out.get(slug) ?? { impressions: 0, clicks: 0 };
+    out.set(slug, { impressions: prev.impressions + (r.impressions ?? 0), clicks: prev.clicks + (r.clicks ?? 0) });
+  }
+  return { bySlug: out, file: files.at(-1), period: data.meta ? `${data.meta.startDate}〜${data.meta.endDate}` : null };
+}
+
+/**
+ * 教材ごとの「サイトの配線先」（台帳には書かない派生情報）。論点の成果物のうちサイト記事を、
+ * 公開 URL・公開状態・区分（doc-meta-index の group）・GSC の表示/クリック（最新のページ集計）と結ぶ。
+ * 逆引き（ページ → 教材）も同じ走査で返す。
+ * @returns {{ bySource: Map<string, object[]>, byPage: Map<string, {sourceId: string, units: number}[]>, gsc: {file: string|null, period: string|null} }}
+ */
+export async function siteWiring(root, report) {
+  const { readDocMetaIndex } = await import('./doc-meta-index.mjs');
+  const { publicPathFromSlug } = await import('./url-normalization.mjs');
+  const docs = readDocMetaIndex(root).docs ?? {};
+  const gsc = await latestGscBySlug(root);
+  const bySource = new Map();
+  const byPage = new Map();
+  for (const s of report.sources) {
+    const pages = new Map();
+    for (const u of s.units) {
+      for (const a of u.artifacts) {
+        const slug = siteSlugOf(a.path);
+        if (!slug) continue;
+        if (!pages.has(slug)) {
+          const d = docs[slug];
+          const g = gsc.bySlug.get(slug);
+          pages.set(slug, {
+            slug, path: a.path, title: d?.shortTitle ?? d?.title ?? slug, category: d?.category ?? a.path.split('/')[2],
+            group: d?.group ?? null, published: d?.published === true, url: publicPathFromSlug(slug),
+            units: new Set(), impressions: g?.impressions ?? 0, clicks: g?.clicks ?? 0,
+          });
+        }
+        pages.get(slug).units.add(u.id);
+      }
+    }
+    const list = [...pages.values()].map((p) => ({ ...p, units: p.units.size }))
+      .sort((a, b) => a.category.localeCompare(b.category) || String(a.group).localeCompare(String(b.group)) || b.impressions - a.impressions);
+    bySource.set(s.sourceId, list);
+    for (const p of list) {
+      if (!byPage.has(p.slug)) byPage.set(p.slug, []);
+      byPage.get(p.slug).push({ sourceId: s.sourceId, units: p.units });
+    }
+  }
+  return { bySource, byPage, gsc: { file: gsc.file, period: gsc.period } };
 }
