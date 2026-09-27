@@ -92,7 +92,7 @@ export function SearchResults({
 
               {post.excerpt && (
                 <p
-                  className="mb-3 line-clamp-2 text-sm leading-relaxed text-[var(--ink-body)] [&_mark]:rounded-card-inline [&_mark]:bg-yellow-200 [&_mark]:px-0.5 [&_mark]:dark:bg-yellow-800/60"
+                  className="mb-3 line-clamp-2 text-sm leading-relaxed text-[var(--ink-body)] [&_mark]:rounded-card-inline [&_mark]:bg-yellow-200 [&_mark]:px-0.5 [&_mark]:dark:bg-yellow-800/60 [&_mark]:dark:text-warn"
                   dangerouslySetInnerHTML={{ __html: post.excerpt }}
                 />
               )}

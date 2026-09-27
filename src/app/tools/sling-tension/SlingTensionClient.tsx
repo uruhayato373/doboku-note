@@ -52,7 +52,7 @@ export default function SlingTensionClient() {
     caution: {
       label: "60度を超えています",
       borderClass: "border-[var(--color-warn)]",
-      textClass: "text-[var(--color-warn)]",
+      textClass: "text-[var(--warn-text-emphasis)]",
     },
     danger: {
       label: "90度を超えています",

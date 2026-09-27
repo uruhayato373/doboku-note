@@ -188,7 +188,7 @@ export default function ConcretePumpPlanClient() {
           </span>
         </div>
         {!targetRate && (
-          <p className="mt-3 text-sm text-[var(--color-warn)]">
+          <p className="mt-3 text-sm text-[var(--warn-text-emphasis)]">
             ①の総打込み量・作業時間を入力すると目標速度が決まり、この計算が動きます。
           </p>
         )}

@@ -109,7 +109,7 @@ export default function ConcreteMaturityClient() {
             </div>
           </div>
           {isCold && (
-            <div className="inline-flex items-center rounded-full border border-[var(--color-warn)] px-3 py-1 text-sm font-bold text-[var(--color-warn)]">
+            <div className="inline-flex items-center rounded-full border border-[var(--color-warn)] px-3 py-1 text-sm font-bold text-[var(--warn-text-emphasis)]">
               寒中コンクリートの区分
             </div>
           )}
