@@ -12,6 +12,11 @@ interface NavLinkCardProps {
   compact?: boolean;
   truncate?: boolean;
   className?: string;
+  /**
+   * 回遊クリック計測（AnalyticsProvider の data-cta="nav" → internal_nav_click）。
+   * 渡したときだけ付く。label が GA4 の event_label、placement が cta_placement になる。
+   */
+  cta?: { label: string; placement: string } | undefined;
 }
 
 /** 本文内リンクカード共通の構造と操作表現。用途固有の文言・アイコンだけを呼び出し側から渡す。 */
@@ -24,10 +29,12 @@ export default function NavLinkCard({
   compact = false,
   truncate = false,
   className,
+  cta,
 }: NavLinkCardProps) {
   return (
     <Link
       href={href}
+      {...(cta ? { 'data-cta': 'nav', 'data-cta-label': cta.label, 'data-cta-placement': cta.placement } : {})}
       className={cn(
         'card-surface-content card-interactive not-prose group flex gap-3 hover:border-brand',
         compact ? 'my-4 items-center px-4 py-3' : 'my-5 items-start px-4 py-3.5',
