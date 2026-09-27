@@ -8,6 +8,7 @@ description: >
   Use when user asks to [参照URL から SVG, NotebookLM で図を作成,
   概念図を深掘り生成, /visual-research, 概念図を追加して].
 user-invocable: true
+domain: material
 ---
 
 # /visual-research — NotebookLM × 参照URL → 概念図

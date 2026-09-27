@@ -5,6 +5,7 @@ description: >
   作成（pe-essay-draft）→ 添削（pe-essay-review）→ 修正反映（pe-essay-draft --mode revise）→ note 企画（pe-note-plan）→ 公開（note-prepublish-review）の各工程へルーティングし、毎回の指示の重複とミスを防ぐ。
   Use when user asks to [総監記述式の作業, 模範論文を作りたい, 模範論文の添削, 記述式ページの整備, note 有料記事の企画, /pe-essay-cycle].
 user-invocable: true
+domain: product
 ---
 
 # /pe-essay-cycle — 総監記述式 統括オーケストレーション

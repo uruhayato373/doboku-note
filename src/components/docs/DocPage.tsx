@@ -281,15 +281,17 @@ export async function renderDocPage(slugStr: string) {
   // 全ページ統一の一環で復活し、カテゴリ hub（sidebar -sb + mobile -mob）と同じ二面構成に揃える。
   const sidebarMokuji =
     showMokuji && category ? resolveHubCta(category, { utmSuffix: 'docs-sb' }) : null;
-  // 外部チャネル（ココナラ添削／Brain 自作キット）CTA。施工経験記述・総監記述系の高適合ページのみ非空。
+  // 外部チャネル（ココナラ添削）CTA。施工経験記述・総監記述系の高適合ページのみ非空。
   // 商品の listed 状態は offsite-cta.ts 側で判定（未 listed は自動非表示）。
   const offsiteCta = resolveOffsiteCta(slugStr);
   // 記事冒頭 CTA（二次系高 intent ページのみ placement.top で設定）。getMagazine() ゲートを
   // 通すため未公開マガジン（会員ラボ等）は自動非表示。末尾の画像カードと重複してよい。
   const topSlot = magazinePlacement.top;
   const topMagazine = topSlot ? getMagazine(topSlot.magazineId) : null;
-  // サイドバー転職枠の creative（slug ハッシュ A/B: 建設JOBs ↔ ビルドジョブ/GKS）。
-  const careerSidebarAd = resolveDocsCareerSidebarAd(category ?? '', slugStr);
+  // 転職枠の creative（slug ハッシュ A/B: 建設JOBs ↔ ビルドジョブ/GKS）。記事サイドバーの広告は
+  // 2026-09-26 に撤去（GA4 4 週で表示 12,673・クリック 0／DN-0322）。ここでは A8 計測ピクセルの
+  // 供給にだけ使う（記事末バナー・本文中間カードは同じ解決で同じ案件を出す）。
+  const careerAd = resolveDocsCareerSidebarAd(category ?? '', slugStr);
 
   // 参考資料セクションを本文から抽出して別カードに切り出す
   // → 本文・TOC の両方から ## 参考資料 が消え、<ExternalReferences> として表示される
@@ -374,13 +376,18 @@ export async function renderDocPage(slugStr: string) {
     if (relatedTop) midRenderers.push(() => <MidArticleCta mode="related" doc={relatedTop} />);
   }
   // 3) 転職ネイティブカード（1 記事 1 枚まで＝広告密度を抑える）
+  let careerMidIndex = -1;
   if (careerMidCard) {
     const card = careerMidCard;
+    careerMidIndex = midRenderers.length;
     midRenderers.push(() => <MidArticleCta mode="career" card={card} />);
   }
 
   // 実際に使う枠数＝用意できた中身と容量の小さい方。
   const midSlots = midRenderers.slice(0, midSlotCapacity);
+  // A8 計測ピクセルは 1 ページ 1 発（affiliate-operations.md）。本文に転職広告（手書き inline／中間カード）が
+  // 出るページは本文側で 1 発、出ないページは記事末バナーが出るときだけそこで 1 発にする。
+  const bodyHasCareerAd = hasInlineCareerCard || (careerMidIndex >= 0 && careerMidIndex < midSlotCapacity);
   // 位置: h2 境界に均等配分。先頭セクション直後（0）と最終 h2（まとめ）直前は避ける。
   const midPositions = midSlots.map((_, i) =>
     Math.min(
@@ -430,7 +437,6 @@ export async function renderDocPage(slugStr: string) {
           gutter="flush-mobile"
           aside={
             <ArticleSidebar
-              careerSidebarAd={careerSidebarAd}
               sidebarMokuji={sidebarMokuji}
               headings={headings}
               category={category}
@@ -493,7 +499,19 @@ export async function renderDocPage(slugStr: string) {
               />
             </article>
 
+            {bodyHasCareerAd && (
+              <img
+                src={careerAd.creative.pixelSrc}
+                width={1}
+                height={1}
+                alt=""
+                aria-hidden
+                style={{ position: 'absolute', left: '-9999px' }}
+                suppressHydrationWarning
+              />
+            )}
             <ArticleFooter
+              careerPixelSrc={bodyHasCareerAd ? undefined : careerAd.creative.pixelSrc}
               references={references}
               category={category}
               docGroup={docGroup}

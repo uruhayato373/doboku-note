@@ -6,6 +6,7 @@
  * 逆に UI で直接直して SoT が古いまま、というずれが起きうる（価格 select 失敗でも ok:true を返す偽成功の前例あり）。
  * 公開ページの構造化データ（ログイン不要）で、listed の全サービスについて次を突合する:
  *   価格 = priceYen／タイトル＋キャッチコピー／本文（空白・改行を除いて一致）／出品者名／販売可能状態
+ * あわせて出品者プロフィール（account SoT の profileUrl）の職業・ひとことアピール・自己紹介文を突合する。
  *
  * 使い方:
  *   node scripts/check-coconala-live.mjs            # 全 listed を実査
@@ -20,7 +21,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
 import { readCatalog, readListings } from './lib/coconala-catalog.mjs';
-import { parseServiceProduct, diffLiveService } from './lib/coconala-live.mjs';
+import { parseServiceProduct, diffLiveService, diffLiveProfile } from './lib/coconala-live.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const asJson = process.argv.includes('--json');
@@ -47,10 +48,11 @@ function fetchHtml(url) {
 
 const catalog = readCatalog();
 const listings = readListings();
-let sellerName = '';
+let account = {};
 try {
-  sellerName = JSON.parse(readFileSync(join(ROOT, '.claude/config/coconala-account.json'), 'utf8')).sellerName || '';
-} catch { /* 出品者名の照合だけ省く */ }
+  account = JSON.parse(readFileSync(join(ROOT, '.claude/config/coconala-account.json'), 'utf8'));
+} catch { /* 出品者名とプロフィールの照合だけ省く */ }
+const sellerName = account.sellerName || '';
 
 const all = Object.values(catalog);
 const targets = all.filter((s) => s.status === 'listed');
@@ -71,12 +73,25 @@ for (const [i, s] of targets.entries()) {
   results.push({ id: s.id, url: s.serviceUrl, ok: issues.length === 0, fetched: true, issues });
 }
 
+// 出品者プロフィール。profileUrl が無ければ対象外（出品前）。
+if (account.profileUrl) {
+  await sleep(1000);
+  const res = fetchHtml(account.profileUrl);
+  if (!res.ok) {
+    results.push({ id: 'profile', url: account.profileUrl, ok: false, fetched: false, issues: [`取得失敗: ${res.reason}`] });
+  } else {
+    const issues = diffLiveProfile(account.profile, res.html);
+    results.push({ id: 'profile', url: account.profileUrl, ok: issues.length === 0, fetched: true, issues });
+  }
+}
+const checkTargets = targets.length + (account.profileUrl ? 1 : 0);
+
 const fetched = results.filter((r) => r.fetched).length;
 const mismatched = results.filter((r) => r.fetched && !r.ok);
 const failed = results.filter((r) => !r.fetched);
 const summary = {
   checkedAt: new Date().toISOString(),
-  targets: targets.length,
+  targets: checkTargets,
   fetched,
   matched: fetched - mismatched.length,
   mismatched: mismatched.length,
@@ -87,14 +102,14 @@ const summary = {
 if (asJson) {
   process.stdout.write(`${JSON.stringify({ summary, results }, null, 2)}\n`);
 } else {
-  console.log(`[check-coconala-live] 対象 listed ${targets.length} 件 / 実検査 ${fetched} 件 / 一致 ${summary.matched} / 食い違い ${mismatched.length} / 取得失敗 ${failed.length}（対象外 ${skipped.length} 件: draft・paused など）`);
+  console.log(`[check-coconala-live] 対象 listed ${targets.length} 件＋プロフィール ${checkTargets - targets.length} 件 / 実検査 ${fetched} 件 / 一致 ${summary.matched} / 食い違い ${mismatched.length} / 取得失敗 ${failed.length}（対象外 ${skipped.length} 件: draft・paused など）`);
   for (const r of [...mismatched, ...failed]) {
     console.log(`  ✗ ${r.id} ${r.url ?? ''}`);
     for (const issue of r.issues) console.log(`      - ${issue}`);
   }
-  if (!mismatched.length && !failed.length) console.log('[check-coconala-live] ✓ 公開ページは全件カタログ／listings と一致');
+  if (!mismatched.length && !failed.length) console.log('[check-coconala-live] ✓ 公開ページは全件カタログ／listings・プロフィールは account と一致');
 }
 
 // 食い違いは live か SoT の修正が要る（exit 1）。取得失敗が過半なら一致を言えないので検査不成立（exit 2）。
-const code = mismatched.length ? 1 : failed.length && failed.length * 2 >= targets.length ? 2 : failed.length ? 1 : 0;
+const code = mismatched.length ? 1 : failed.length && failed.length * 2 >= checkTargets ? 2 : failed.length ? 1 : 0;
 process.exitCode = code;

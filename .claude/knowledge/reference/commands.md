@@ -23,6 +23,7 @@ npm run check-e2e-targets      # E2E が叩くサイト内 URL が out/ に実�
 npm run check-production-ssr # deploy 後の本番 SSR 検証（exit 0=正常 / 1=壊れている / **2=検査不成立＝接続できていない**。会社PCの HTTP 000／プロキシのブロック HTML をサイト障害と誤読しない・手打ち curl で代用しない）。/deploy と cloudflare-deploy.yml の公開後に実行。社内回線から接続できない場合は同workflowの verify_only=true で再デプロイせず外部検査。
 npm run check-production-sweep # 本番 sitemap 全 URL を実際に叩く（200・自己 canonical・<main>・noindex 無し・og:image 200・セキュリティヘッダ）。deploy 後と日曜に CI（production-sweep.yml）が自動。手元は `-- --sample 50`。exit 1=本番異常 / 2=検査不成立
 npm run test:e2e:a11y        # axe（WCAG 2.1 A/AA）を代表 8 ページ×light/dark で実行。critical 0 かつ serious が e2e/a11y-baseline.json を超えないことがゲート。基準更新は :baseline（修正を確認してから・減らす方向のみ）
+npx lhci autorun --config=lighthouserc.json  # Lighthouse を build 成果物（npm run serve）に対し代表4ページ（home/KW記事/過去問/ツール）で実行。**要 `npm run build`**。accessibility/seo ≥0.95・best-practices ≥0.9 は error（マージ不可）、performance ≥0.7 は warn（job summary のみ・lab の揺れが大きいためゲートしない）。PR（lighthouse.yml）で自動実行。**閾値の SSOT は lighthouserc.json**（本番 field 監視の .claude/config/psi-config.json とは目的が違うため意図的に別の値・二重管理しない。役割: lighthouserc=マージ前 lab ゲート／psi-config=本番後 field 監視+回帰検出）
 npm run check-command-guidance # 検査やスクリプトが案内するコマンド（npm run / node パス）が実在するか。**正典ドキュメント（CLAUDE.md / AGENTS.md / この一覧 / .claude/rules）の案内も対象**（記載はあるが package.json に無い `npm run serve` を 2026-08-30 まで放置していた再発防止）
 npm run schedule-view     # 予約・計画・期日の横断ビュー（読み取り専用・JST。exam-calendar/x-campaigns/x-status/ig-status/youtube-schedule/backlogを集約。DN-0131のような超過を横断で surface する）
 ```
@@ -72,7 +73,9 @@ npm run auth:ci-restore       # CI専用。暗号化stateを復元。authenticat
 npm run auth:ci-writeback     # CI専用。更新後のstorageStateをCAS（etag/generation）で書き戻す
 npm run auth:ci-plan          # ops-writeのwrite planを作りDOBOKU_CI_WRITE_PLAN_SHA256を計算する
 npm run check-content-taxonomy # 分類語彙（領域×資格×記事型×テーマ×タグ）の整合。group が許可外・未登録タグは赤、別名綴り・構造タグ不整合は baseline ラチェット（`:ci`）、topic 三方向の 0 件は WARN。規則は content-taxonomy.md・pre-commit --staged ＋ quality:audit
-npm run check-content-expansion # 全教材の論点→記事/図/SNS対応・未確認・原典待ち・成果物変更を検査（管理画面 /content/expansion・週次/月次で確認）
+npm run check-content-expansion # 全教材の論点→記事/図/SNS対応・未確認・原典待ち・成果物変更を検査（管理画面 /materials・週次/月次で確認）
+npm run check-domains          # 領域の正本（.claude/config/domains.json）とスキル/エージェントの domain:・文書の割り当ての整合（バックログの [領域:] は check-backlog-schema）
+npm run check-generated-indexes # refresh-indexes を実際に回し、生成物がコミットと一致するか（一致しなければ書き換わったファイルをコミットする。生成時刻だけの差分は出ない）
 ```
 
 ## 公的基準（共通仕様書の章記事・ページ画像）
@@ -123,7 +126,6 @@ npm run ops-write -- exec --operation <id> --args '{...}' --plan-sha256 <hash> -
 npm run x-publish-scheduled -- --commit --json # 承認済みキューから期日到来分のXを投稿（scheduled-publish.yml の cron 専用実体）。罠: 頻度ゲート（x-frequency-gate.mjs 12規則）が判定不能なものは必ず block（投稿しない）側に倒す＝「なぜ投稿されないか」は counts/blocks を読む
 npm run ig-graph-publish -- --pack <pack> --format carousel --commit --json # Instagram Graph API で即時公開（**使わない**＝2026-09-23 ユーザー決定で Graph API を使わない。主経路は ops-write の instagram.publish-bs。予約不可・publish-ig-bs とは別経路）。env: IG_GRAPH_ACCESS_TOKEN / IG_BUSINESS_ACCOUNT_ID / IG_GRAPH_API_VERSION。罠: 投稿用メディアは public R2 に一時公開されるため stage-ig-media-r2 の --cleanup 実行を確認する（残すと公開URLが残置）
 npm run stage-ig-media-r2 -- --pack <pack> --format carousel --cleanup # ig-graph-publish が使う一時公開/削除の単体実行（--dry-run で URL 計算だけ）
-npm run brain-sales-fetch  # Brain 売上を read-only 取得（ログイン要・ローカル専用）
 ```
 
 ## ココナラ
@@ -136,7 +138,7 @@ npm run check-tensaku-reply -- <返信文> --source <提出原稿> --grade 1 # �
 npm run coconala-analytics # ココナラ分析画面（全体/サービス別/ブログ別）を read-only 収集→analytics-snapshot.json（--append-kpi で kpi-log へ週次 upsert・定期取得は login-collectors.yml・Playwright・書き込みなし）
 npm run check-coconala-analytics # 上記の鮮度・欠測・マスク値（0000は0でない）・kpi-log 整合をオフライン検査
 npm run check-coconala-wiring # カタログ↔listings↔商品画像↔受注/KPI/売上の整合と、PDF の価格ルール（note 基準×1.1 以上）を検査（pre-commit --staged＋CI）
-npm run check-coconala-live # ココナラ公開ページ（ログイン不要の構造化データ）の価格・タイトル・キャッチ・本文・出品者・販売状態をカタログ／listings と突合（exit 1=食い違い・2=取得失敗が過半で検査不成立・日次 ops-audit）
+npm run check-coconala-live # ココナラ公開ページ（ログイン不要の構造化データ）の価格・タイトル・キャッチ・本文・出品者・販売状態をカタログ／listings と、出品者プロフィールの職業・アピール・自己紹介文を coconala-account.json と突合（exit 1=食い違い・2=取得失敗が過半で検査不成立・日次 ops-audit）
 npm run coconala-pause    # ココナラ出品の受付休止/再開/アーカイブ（--resume --absence で不在明け一括復帰・既定 dry-run）
 ```
 
@@ -211,4 +213,11 @@ npm run measure-experiments    # measure 仕様を持つ running/measuring 実�
 npm run growth-triage          # 週次レビュー（ローカル）で機会ダイジェストを全件処分: list [--json] → apply --decisions .tmp/growth-triage-YYYY-Www.json [--commit]（backlog/実験/watchword/裁定/束ね/却下/保留を採番・起票・triage-log 記録）。罠: DN 採番に git 全履歴が要る（shallow clone は exit 2）・全件を先に検証し 1 件でも不正なら何も書かない
 npm run check-growth-triage    # 月曜 guard: 最新ダイジェストの未処分 0・レビューにマーカー（申し送りの振り分けは check-handoff-extraction）。exit 1 未反映 / 2 ダイジェスト/レビュー無しか古い
 npm run check-business-direction # 事業方針・指標・履歴・追記専用の検査
+npm run exam-ssot-status # 資格の正本（日程・受験者数・出題形式）の照合状態＝要対応（未確認・原文未照合・180日超・次年度日程未登録・統計が古い）と記録（発表待ち・非公表）。月次レビューが読む（`-- --json`／`-- --check` は完走だけ＝quality-audit ci）
+npm run qualification-market # 資格ごとの展開の判断材料（自分で書く区分＝経験記述・論文とその受験者数・買われる時期・売上・YouTube/note/ココナラの混み具合・X/IG 追跡数）。管理画面 戦略＞展開の判断と同じ実装（`-- --json`／`-- --check`）。要対応（市場スキャンの未取得・90日超・出題形式の未確認）があっても exit 0
+npm run check-qualification-market # 展開の判断材料の正本の整合（market-scan の検索語とタイトル条件・*-competitors の exams が資格 id・売上がすべて資格へ分類できる）。CI ゲート。売上の新しい productId は product-lineup.json の salesRules に足す
+npm run report-competitor-watch # ココナラ競合の変化（値下げ・出品増減・累計販売 +20 件以上）と追跡外の候補（関連サービスの販売実績 20 件以上）・売上推定が一部だけの売り手。committed state を読むだけ（取得しない）。読み手＝週次レビュー。exit 2＝state が読めない
+npm run check-monthly-review-due # 月次レビューの催促（SessionStart）。毎月 3 日（JST）以降に前月を対象にした月次レビューの記録（business/review-*.json の cadence:monthly）が無ければ exit 1 で 1 行出す。`-- --json`
+npm run roll-backlog-when # 終わらなかったカードを翌月へ回す（`[時期:]` の終わりが今月より前のカードの終わりを今月へ延ばす・開始は残す）。既定は表示だけ、`-- --write` で backlog.md を書き換え、`-- --month YYYY-MM` で基準月。月初の月次レビューが回す。終わったカードは回さずに削除する
+npm run scan-qualification-market # 資格キーワードで YouTube（yt-dlp 検索）・note（公開検索 API）を取り .claude/state/market/history/market-YYYY-MM-DD.json へ（同日の再実行は取得済みの語を飛ばす・`--force` で取り直し）。`--coconala` でココナラも（coconala-research.mjs・Playwright・四半期 1 回）。`--qualification <id>`／`--channel youtube|note|coconala`／`--dry-run`。罠: note は JSON 以外（403）が返った時点で打ち切る＝連打しない。ココナラは空きメモリが足りないと Playwright ガードで起動しない
 ```

@@ -8,6 +8,7 @@ description: >
   意味判断は Evaluator、修正はしない（自動修正エージェントは持たない・旧 catch-all seo-auditor は復活させない）。
   Use when user asks to [SEO総合レビュー, SEOグロース, 技術SEO監査, /seo-growth-review].
 user-invocable: true
+domain: site
 ---
 
 SEO を4面（技術健全性 / index coverage / performance / 検索意図）で束ねるオーケストレータ。各面は既存の分業体制（`.claude/knowledge/reference/gsc-management.md` の分業表）に乗り、**決定的な検出は機械スクリプト、意味的な評価は audit-only Evaluator、修正はしない**という原則を通す。

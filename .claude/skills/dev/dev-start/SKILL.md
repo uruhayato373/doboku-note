@@ -2,6 +2,7 @@
 name: dev-start
 description: >
   npm run dev で開発サーバーを起動（ポート3020の自動クリーンアップ込み）。Use when user asks to [開発サーバー起動, npm run dev, /dev-start].
+domain: ops
 ---
 
 開発サーバー（Next.js）をポート3020で起動します。ポート3020が使用中の場合、自動的にクリーンアップしてから起動します。

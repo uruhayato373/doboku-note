@@ -1,6 +1,6 @@
 name: "Ops Write (CI write operations)"
 
-# workflow_dispatch 専用。外部サービス（note / ココナラ / Brain / KDP / X）への**書き込み**を
+# workflow_dispatch 専用。外部サービス（note / ココナラ / KDP / X）への**書き込み**を
 # CI から実行する唯一の入口。実行できる operation は .claude/config/ci-write-operations.json
 # （カタログ・18 操作）だけで、この choice の並びはそのキーと同期させる（check-playwright-auth-wiring
 # の 9 番目の検査がカタログと playwright-auth-profiles.json ci.writeScripts の整合を見る）。
@@ -37,8 +37,6 @@ on:
           - note.membership-plan-edit
           - coconala.publish
           - coconala.edit
-          - brain.publish
-          - brain.profile-edit
           - kdp.publish
           - x.article-publish
           - x.thread-replies

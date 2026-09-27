@@ -117,7 +117,7 @@ export default function ConcreteMaturityClient() {
 
         {ratio !== null && (
           <div className="mt-5 rounded-card-content bg-[var(--accent-fill)] p-4">
-            <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--ink-muted)]">
+            <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--ink-body)]">
               標準養生28日相当（{STANDARD_28D_MATURITY}℃・D）との比
             </div>
             <div className="font-serif font-black text-[22px] text-[var(--ink)] mt-1 tabular-nums">

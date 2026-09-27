@@ -221,6 +221,22 @@ export function normalizeA8Csv(csvText, { reportKey, cfg, fetchedAt = null } = {
  * 抽出分がサイト別の doboku-note 行を**超えていたら** stats47 の混入を疑う。
  * 判定は呼び出し側（auditor）が行うため、ここでは差分を返すだけ。
  */
+/**
+ * サイト別レポートの行から、指定したサイト名（完全一致）の行を合計した 1 行を返す。無ければ null。
+ * 部分一致にしない（2026-09-26: 'doboku-note' が 'doboku-note（note）' にも当たる）。
+ */
+export function sumSiteRows(rows, names) {
+  const hit = (rows || []).filter((r) => names.includes(String(r.site || '').trim()));
+  if (!hit.length) return null;
+  const fields = ['impressions', 'clicks', 'conversions', 'grossRevenueYen', 'approved', 'revenueYen', 'cancelledCount', 'cancelledYen', 'pendingCount', 'pendingRevenueYen'];
+  const out = { site: names.join('+') };
+  for (const f of fields) {
+    const vals = hit.map((r) => r[f]).filter((v) => typeof v === 'number');
+    out[f] = vals.length ? vals.reduce((a, b) => a + b, 0) : null;
+  }
+  return out;
+}
+
 export function crossCheckAgainstSite(siteRow, allowlistedRows) {
   if (!siteRow) return { comparable: false, reason: "サイト別レポートが無い" };
   const sum = (f) => allowlistedRows.reduce((s, r) => s + (typeof r[f] === "number" ? r[f] : 0), 0);

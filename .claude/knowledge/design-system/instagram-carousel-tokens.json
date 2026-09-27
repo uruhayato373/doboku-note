@@ -186,7 +186,9 @@
       "03_reels-roundup":   { "bg": "#FAF5FF", "accent": "#7C3AED", "accentLight": "#E9D5FF", "label": "purple (動的)" },
       "04_faq":             { "bg": "#FFFBEB", "accent": "#D97706", "accentLight": "#FEF3C7", "label": "amber (問答)" },
       "05_announcement":    { "bg": "#FFF1F2", "accent": "#E11D48", "accentLight": "#FECDD3", "label": "rose (告知)" },
-      "06_materials":       { "bg": "#F8FAFC", "accent": "#1858B5", "accentLight": "#E2E8F0", "label": "slate (落ち着き)" }
+      "06_materials":       { "bg": "#F8FAFC", "accent": "#1858B5", "accentLight": "#E2E8F0", "label": "slate (落ち着き)" },
+      "07_civil-1":         { "bg": "#EAF3FC", "accent": "#1E73C8", "accentLight": "#CFE4F7", "label": "azure (1級土木)" },
+      "08_civil-2":         { "bg": "#EAF5EF", "accent": "#2A7050", "accentLight": "#CFEADA", "label": "green (2級土木)" }
     },
     "typography": {
       "overline": { "fontFamily": "Manrope", "weight": 800, "size": 28, "letterSpacing": 0.15, "lineHeight": 1.2, "_use": "tag テキスト 'HIGHLIGHT N/6' 等の上部 small caps" },
@@ -217,7 +219,9 @@
       "03_reels-roundup":   "▷",
       "04_faq":             "?",
       "05_announcement":    "!",
-      "06_materials":       "¶"
+      "06_materials":       "¶",
+      "07_civil-1":         "①",
+      "08_civil-2":         "②"
     }
   }
 }

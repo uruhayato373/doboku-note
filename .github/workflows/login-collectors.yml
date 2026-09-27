@@ -13,7 +13,6 @@ on:
     - cron: "20 21 * * 1" # a8       月 21:20 UTC = 火 06:20 JST
     - cron: "20 21 * * 2" # coconala 火 21:20 UTC = 水 06:20 JST
     - cron: "20 21 * * 3" # note     水 21:20 UTC = 木 06:20 JST
-    - cron: "50 21 * * 3" # brain    水 21:50 UTC = 木 06:50 JST
     - cron: "40 21 15,27 * *" # kdp  15/27日 21:40 UTC = 16/28日 06:40 JST
     - cron: "10 22 * * 5" # x        金 22:10 UTC = 土 07:10 JST
     - cron: "20 21 2 * *" # google   毎月2日 21:20 UTC = 3日 06:20 JST
@@ -31,7 +30,6 @@ on:
           - kdp
           - coconala
           - note
-          - brain
           - x
           - google
           - afb
@@ -242,16 +240,6 @@ jobs:
           [ "$rc" -ne 0 ] && echo "::warning::note の live 検査が rc=${rc}（添付/会員限定）。traffic/sales の記録は別 step で確保済み"
           echo "rc=${rc}" >> "$GITHUB_OUTPUT"
 
-      - name: "brain: sales fetch"
-        id: collect_brain
-        if: matrix.service == 'brain' && steps.restore.outputs.status == 'authenticated' && matrix.mode != 'probe-only'
-        continue-on-error: true
-        run: |
-          set +e
-          node scripts/brain-sales-fetch.mjs --json
-          rc=$?
-          echo "rc=${rc}" >> "$GITHUB_OUTPUT"
-
       - name: "instagram: public status reconcile (verify-ig-status, no planner)"
         id: collect_instagram
         if: matrix.service == 'instagram' && steps.restore.outputs.status == 'authenticated' && matrix.mode != 'probe-only'
@@ -318,7 +306,6 @@ jobs:
             kdp) rc="${{ steps.collect_kdp.outputs.rc }}" ;;
             coconala) rc="${{ steps.collect_coconala.outputs.rc }}" ;;
             note) rc="${{ steps.collect_note.outputs.rc }}" ;;
-            brain) rc="${{ steps.collect_brain.outputs.rc }}" ;;
             x) rc="${{ steps.collect_x.outputs.rc }}" ;;
             google) rc="${{ steps.collect_google.outputs.rc }}" ;;
             afb) rc="${{ steps.collect_afb.outputs.rc }}" ;;

@@ -45,3 +45,18 @@ test('deriveStatus: weekly/monthlyどちらでもなくplanがあればPLANNED�
 test('deriveStatus: 全てfalseならBACKLOGになる', () => {
   assert.equal(deriveStatus({ wip: false, inWeekly: false, inMonthly: false, hasPlan: false }), 'BACKLOG');
 });
+
+test('今週は weekly.md の表の行だけ。「今週やらないこと」に書いた ID は今週扱いにしない（2026-09-26）', () => {
+  const out = execFileSync(process.execPath, [TSX_CLI, '-e', `
+    import { todoBoard } from './tools/admin-app/src/lib/todo.ts';
+    import { readFileSync } from 'node:fs';
+    const b = todoBoard();
+    const text = readFileSync('.claude/todo/weekly.md', 'utf8');
+    const skip = (text.split(/^## 今週やらないこと/m)[1] ?? '').match(/DN-\\\\d{4}/g) ?? [];
+    const tableIds = new Set(b.items.filter((i) => i.file === 'weekly' && i.id).map((i) => i.id));
+    const wrong = b.items.filter((i) => i.file === 'backlog' && i.lifecycleStatus === 'THIS_WEEK' && !tableIds.has(i.id)).map((i) => i.id);
+    process.stdout.write(JSON.stringify({ wrong }));
+  `], { cwd: ROOT, encoding: 'utf8' });
+  const { wrong } = JSON.parse(out);
+  assert.deepEqual(wrong, [], '表に無い ID が今週扱いになっている');
+});

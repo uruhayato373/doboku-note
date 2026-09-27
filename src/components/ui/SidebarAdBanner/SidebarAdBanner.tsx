@@ -4,7 +4,7 @@ interface SidebarAdBannerProps {
   readonly alt: string;
   readonly width: number;
   readonly height: number;
-  readonly pixelSrc?: string;
+  readonly pixelSrc?: string | undefined;
   /** GA4 クリック計測ラベル（例: "GKS" / "SAT"）。AnalyticsProvider のデリゲートリスナーが拾う。 */
   readonly trackLabel?: string;
   /** GA4 の表示位置。category-mobile など呼び出し側で面を分離する。 */
@@ -39,7 +39,7 @@ export default function SidebarAdBanner({
       <div className="card-surface-content relative overflow-hidden p-2">
         <span
           className="absolute right-2 top-2 z-10 inline-flex items-center rounded px-1.5 py-0.5 text-[10px] font-bold tracking-wider text-white"
-          style={{ background: "var(--ink-muted)" }}
+          style={{ background: "#181a1f" }}
           aria-label="広告"
         >
           PR

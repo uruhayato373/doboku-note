@@ -2,6 +2,7 @@
 name: civil-secondary-exam-writer
 description: 1級土木施工管理技士 secondary-rXX (二次過去問) の解答・ポイント・各設問解説を補完する Generator エージェント。
 model: sonnet
+domain: site
 ---
 
 # Civil Secondary Exam Writer Agent

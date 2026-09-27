@@ -7,6 +7,7 @@ description: >
   performance（CTR/rank）は /weekly-improve（metrics-analyzer）、CWV は performance-auditor の担当で直交。
   Use when user asks to [GSC月次レビュー, index coverage確認, インデックス率, /gsc-review].
 user-invocable: true
+domain: site
 ---
 
 月次の GSC **index coverage** レビューを回すオーケストレータ。「サイトの何割が Google に登録され、未登録の原因は何か」を継続管理する。設計・閾値・判断マトリクスの真実源は [.claude/knowledge/reference/gsc-management.md](../../../../.claude/knowledge/reference/gsc-management.md)。

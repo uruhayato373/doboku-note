@@ -1,8 +1,0 @@
-{
-  "sellerName": "doboku-note",
-  "profileUrl": "",
-  "agreedGuidelineAt": "2026-07-22",
-  "firstSubmittedAt": "2026-07-22",
-  "salesPage": null,
-  "_note": "Brain（brain-market.com）出品アカウントの単一機械可読 SSOT（coconala-account.json と同じ流儀）。sellerName は Playwright 自動操作（brain-publish）の account assert に使う（ログイン後ページの可視テキストに含まれるかで誤アカウント操作を防ぐ）。agreedGuidelineAt は『記事公開の審査ガイドライン』同意日（同意モーダルのクリックはユーザー明示許可が必要＝2026-07-22 許可済み。新たに出た場合は brain-publish が --agree なしでは押さず停止する）。profileUrl は判明後に埋める。商品の価格・状態・URL の真実源は src/lib/brain-products.ts、投入本文は content/brain/listings.json、運用は .claude/knowledge/reference/brain-operations.md。ログイン済みプロファイルは .local/playwright-brain-profile（gitignore・ログイン/CAPTCHA は人）。salesPage（{ url, rowSelector, cells:{ title, date, amount } }）は brain-sales-fetch.mjs が販売管理ページを読む selector 設定。null のままは未調査を意味し、実機で初回調査してから埋めること（埋めるまで brain-sales-fetch は「selector 未設定＝検査不成立」で exit 2 する）。"
-}

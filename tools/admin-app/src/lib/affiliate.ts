@@ -14,6 +14,16 @@ import { repoPath } from './repo-root';
 
 const AFF = ['.claude', 'state', 'metrics', 'affiliate'] as const;
 
+/** doboku の副サイト（note 等）の A8 サイト名。正本は .claude/config/a8-report-automation.json の a8.relatedSites。 */
+function readRelatedSites(): string[] {
+  try {
+    const c = JSON.parse(readFileSync(repoPath('.claude', 'config', 'a8-report-automation.json'), 'utf8'));
+    return Array.isArray(c?.a8?.relatedSites) ? c.a8.relatedSites : [];
+  } catch {
+    return [];
+  }
+}
+
 export interface SiteTotals {
   site: string;
   impressions: number | null;
@@ -64,6 +74,8 @@ export interface AffiliateSummary {
   updatedAt: string | null;
   lastRun: string | null;
   siteTotals: SiteTotals | null;
+  /** A8 のサイト別レポートを掲載先（サイト／note）ごとに。note は a8-report-automation.json の relatedSites */
+  surfaceTotals: { label: string; site: string; clicks: number | null; conversions: number | null; approved: number | null; revenueYen: number | null; collected: boolean }[];
   programs: ProgramRow[];
   accountWideMonths: MonthRow[];
   accountWideDays: DayRow[];
@@ -74,6 +86,7 @@ export interface AffiliateSummary {
 
 interface RawRow {
   site?: string;
+  period?: string;
   month?: string;
   date?: string;
   program?: string | null;
@@ -111,6 +124,7 @@ const EMPTY: AffiliateSummary = {
   updatedAt: null,
   lastRun: null,
   siteTotals: null,
+  surfaceTotals: [],
   programs: [],
   accountWideMonths: [],
   accountWideDays: [],
@@ -137,7 +151,19 @@ export function affiliateSummary(): AffiliateSummary {
   if (!log || !(log.siteSummary?.length || log.programPeriod?.length)) return EMPTY;
 
   const target = log.site ?? 'doboku-note';
-  const s = (log.siteSummary ?? []).find((r) => String(r.site ?? '').includes(target)) ?? null;
+  // siteSummary / programPeriod は期間ごとに蓄積される。表示は対象期間（log.period）の行だけ（normalize-a8-csv の inCurrentPeriod と同じ）
+  const inPeriod = (r: RawRow) => r.period === log.period?.raw;
+  // サイト名は完全一致（部分一致だと 'doboku-note' が 'doboku-note（note）' にも当たる）
+  const rowsInPeriod = (log.siteSummary ?? []).filter(inPeriod);
+  const s = rowsInPeriod.find((r) => String(r.site ?? '').trim() === target) ?? null;
+  const related = readRelatedSites();
+  const surfaceTotals = [
+    { label: 'サイト', site: target },
+    ...related.map((site) => ({ label: 'note', site })),
+  ].map(({ label, site }) => {
+    const r = rowsInPeriod.find((x) => String(x.site ?? '').trim() === site) ?? null;
+    return { label, site, clicks: r?.clicks ?? null, conversions: r?.conversions ?? null, approved: r?.approved ?? null, revenueYen: r?.revenueYen ?? null, collected: r !== null };
+  });
 
   const siteTotals: SiteTotals | null = s
     ? {
@@ -158,6 +184,7 @@ export function affiliateSummary(): AffiliateSummary {
 
   const programs: ProgramRow[] = (log.programPeriod ?? [])
     .filter((r) => r.program) // allowlist で doboku 分と判定できた行のみ
+    .filter(inPeriod)
     .map((r) => ({
       program: r.program ?? null,
       programId: r.programId ?? null,
@@ -195,6 +222,7 @@ export function affiliateSummary(): AffiliateSummary {
     updatedAt: log.updatedAt ?? null,
     lastRun: log.lastRun ?? null,
     siteTotals,
+    surfaceTotals,
     programs,
     accountWideMonths,
     accountWideDays,
@@ -202,4 +230,72 @@ export function affiliateSummary(): AffiliateSummary {
     unmapped: (log.unmapped ?? []).map((u) => ({ programId: u.programId ?? null, programRaw: u.programRaw ?? '' })),
     notAttributable: (log.notAttributable ?? []).length,
   };
+}
+
+/** サイト内の広告クリック（GA4・配置別）。career-funnel-latest.json（npm run report-career-funnel）を読むだけ。 */
+export interface PlacementView {
+  window: { start: string; end: string } | null;
+  generatedAt: string | null;
+  rows: { placement: string; impressions: number; clicks: number }[];
+}
+export function affiliatePlacements(): PlacementView {
+  try {
+    const j = JSON.parse(readFileSync(repoPath(...AFF, 'career-funnel-latest.json'), 'utf8')) as {
+      generatedAt?: string;
+      windows?: { ga4?: { start: string; end: string } };
+      funnel?: { affiliateCta?: { byPlacement?: Record<string, { impressions?: number; clicks?: number }> } };
+    };
+    const rows = Object.entries(j.funnel?.affiliateCta?.byPlacement ?? {})
+      .map(([placement, v]) => ({ placement, impressions: v.impressions ?? 0, clicks: v.clicks ?? 0 }))
+      .sort((a, b) => b.impressions - a.impressions);
+    return { window: j.windows?.ga4 ?? null, generatedAt: j.generatedAt ?? null, rows };
+  } catch {
+    return { window: null, generatedAt: null, rows: [] };
+  }
+}
+
+/** アフィリエイトに関わる実行中の実験と次の判定日（.claude/state/experiments.json）。 */
+export function affiliateExperiments(): { id: string; title: string; nextCheck: string | null }[] {
+  try {
+    const e = JSON.parse(readFileSync(repoPath('.claude', 'state', 'experiments.json'), 'utf8'));
+    const list = (Array.isArray(e) ? e : e.experiments ?? []) as { id: string; title: string; status: string; target_metric?: string; next_check_date?: string }[];
+    return list
+      .filter((x) => x.status === 'running' && /affiliate|アフィリ/i.test(`${x.title} ${x.target_metric ?? ''}`))
+      .map((x) => ({ id: x.id, title: x.title, nextCheck: x.next_check_date ?? null }));
+  } catch {
+    return [];
+  }
+}
+
+/** 掲載先（サイト／note／SNS）ごとのアフィリエイトリンク。数えるのは scripts/lib/affiliate-placements.mjs。 */
+export { affiliatePlacements as affiliateSurfaces } from '../../../../scripts/lib/affiliate-placements.mjs';
+
+/** 提携・案件（.claude/state/ads/affiliate-catalog.json）＋リンクの期限（src/config/affiliate-mats.json）。 */
+export interface ProgramCatalogRow {
+  id: string;
+  label: string;
+  placement: string;
+  asps: { asp: string; status: string; rewardYen: number | null }[];
+  expiresAt: string | null;
+}
+export function affiliateCatalog(): ProgramCatalogRow[] {
+  try {
+    const c = JSON.parse(readFileSync(repoPath('.claude', 'state', 'ads', 'affiliate-catalog.json'), 'utf8')) as {
+      programs: Record<string, { label: string; placement: string; asps?: Record<string, { status?: string; rewardYen?: number | null }> }>;
+    };
+    const mats = JSON.parse(readFileSync(repoPath('src', 'config', 'affiliate-mats.json'), 'utf8')).mats as { program: string; expiresAt: string | null }[];
+    return Object.entries(c.programs).map(([id, p]) => {
+      const dates = mats.filter((m) => m.program === id).map((m) => m.expiresAt);
+      return {
+        id,
+        label: p.label,
+        placement: p.placement,
+        asps: Object.entries(p.asps ?? {}).map(([asp, x]) => ({ asp, status: x.status ?? 'unknown', rewardYen: x.rewardYen ?? null })),
+        // 期限なしのリンクが1本でもあれば期限なし
+        expiresAt: dates.length && dates.every(Boolean) ? (dates as string[]).sort().at(-1)! : null,
+      };
+    });
+  } catch {
+    return [];
+  }
 }
