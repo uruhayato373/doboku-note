@@ -127,6 +127,7 @@ export function loadAuthRegistry(options = {}) {
  *   cron: enabled のとき 5 フィールドの文字列必須
  *   readOnlyScripts / writeScripts: repo 相対 posix パスの配列（'write' を含まないなら writeScripts は空）
  *   stateDomains: encrypted-state のとき 1 件以上（書き戻し前の cookie フィルタに使う）
+ *   skipScheduleIfFresh（任意）: { marker, field?, hours } — 収集マーカーが hours 以内なら定期実行を skip
  */
 export function validateCIBlock(id, entry) {
   const ci = entry.ci;
@@ -153,6 +154,14 @@ export function validateCIBlock(id, entry) {
     if (typeof ci.cron !== 'string' || ci.cron.trim().split(/\s+/).length !== 5) fail('ci.cron (5 fields) required when enabled');
   }
   if (ci.cron !== null && ci.cron !== undefined && typeof ci.cron !== 'string') fail('ci.cron must be string or null');
+  if (ci.skipScheduleIfFresh !== undefined) {
+    const rule = ci.skipScheduleIfFresh;
+    if (!rule || typeof rule !== 'object' || typeof rule.marker !== 'string' || rule.marker.includes('\\') || isAbsolute(rule.marker)) {
+      fail('ci.skipScheduleIfFresh.marker must be a repo-relative posix path');
+    }
+    if (!(Number.isFinite(rule.hours) && rule.hours > 0 && rule.hours <= 72)) fail('ci.skipScheduleIfFresh.hours must be 0 < hours <= 72');
+    if (rule.field !== undefined && typeof rule.field !== 'string') fail('ci.skipScheduleIfFresh.field must be a string');
+  }
   return true;
 }
 

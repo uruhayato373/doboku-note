@@ -220,7 +220,8 @@ Secrets が渡らないため復号できない。
 `AUTH_CI_SCRIPT_NOT_ALLOWLISTED` で常に拒否する。
 
 **人が残る操作**: 初回ログイン、2FA、CAPTCHA、`auth:export`（authenticated なローカル profile から
-暗号化 state を書き出す操作そのものは人がローカルで実行する）。
+暗号化 state を書き出す操作そのものは人がローカルで実行する）。例外として A8・もしも・KDP は Mac の launchd
+（`auth-session-refresh.mjs`・下の「Mac のログイン維持」）がログイン維持と `ci.enabled` の service の export を自動で行う。
 
 **コマンド一覧**:
 
@@ -231,6 +232,26 @@ npm run auth:ci-restore      # CI 専用。暗号化 state を復元し一時 ro
 npm run auth:ci-writeback    # CI 専用。更新後の storageState を CAS で書き戻す
 npm run auth:ci-plan         # ops-write の write plan を作り DOBOKU_CI_WRITE_PLAN_SHA256 を計算する
 ```
+
+## Mac のログイン維持（auth:refresh・2026-09-28）
+
+A8 は揮発性 Cookie で、Mac で export した state が CI の定期収集（予定より数時間遅れて動く）の時点で切れていた
+（2026-09-22 run 35670832802・Issue #570）。stats47 の `measurement-session-refresh`（launchd 17:30）と同じ仕組みを
+`scripts/auth-session-refresh.mjs` として持ち、launchd で毎日 17:45 とログイン時に回す（`npm run auth-refresh:install`）。
+
+| 段 | 内容 |
+|---|---|
+| 共用 state の取り込み | A8・もしもは stats47 と同じ口座。stats47 が保存する `~/.local/share/asp-sessions/<service>-state.json` が auth root の state より新しければ写す。同じ口座へ両方から毎日ログインしないため、ここで通ればログインしない |
+| 確認 | `auth:status` と同じ判定（口座 assert 付き） |
+| キーチェーンでログイン | 切れていれば 1 回だけ。項目は `doboku-note-auth-<service>`、A8・もしもは無ければ `stats47-measurement-<service>`。KDP は doboku-note 専用の項目だけ（別口座の資格情報で入らない） |
+| export と収集 | `ci.enabled` の service は暗号化 state を書き出し、`ci.cron` が 24 時間以内なら直後に `login-collectors` を `workflow_dispatch` で起動する |
+| 定期実行の省略 | `ci.skipScheduleIfFresh`（A8 は `a8-ui/last-run.json` が 30 時間以内）なら同じ回の定期実行は `fresh` で skip する（期限切れの state で失敗させない） |
+
+2FA・CAPTCHA・ID/PW 不通・口座不一致では突破せず、auth root の `metadata/<service>.autologin-failed` を残して通知センターに出す。
+人が `npm run auth:login -- --service <service>` で通し、印を消すまで自動では再試行しない。ログは
+`~/Library/Logs/doboku-note/auth-session-refresh.log`。
+
+KDP はキーチェーンに `doboku-note-auth-kdp` を登録したときだけ対象になる（未登録は `skipped`）。
 
 ## 検証
 

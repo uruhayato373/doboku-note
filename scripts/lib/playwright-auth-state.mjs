@@ -182,7 +182,12 @@ const VALID_CI_MODES = new Set(['collect', undefined, null]);
  * @param {{ event: 'schedule'|'workflow_dispatch', schedule?: string, inputService?: string, inputMode?: string }} params
  * @returns {{ matrix: Array<{ service: string, mode: string }>, skipped: Array<{ service: string, reason: string }>, invalid: boolean, counts: { enabled: number, due: number, skipped: number } }}
  */
-export function planCIServices(registry, { event, schedule, inputService, inputMode }) {
+/**
+ * @param {object} [freshness] service → { ageHours, maxHours } 。schedule のときだけ見る。
+ *   Mac の auth-session-refresh が export 直後に dispatch で収集済みなら、同じ日の定期実行は
+ *   期限切れの state で失敗するだけなので skip する（stats47 の authenticated-measurement gate と同じ考え方）。
+ */
+export function planCIServices(registry, { event, schedule, inputService, inputMode, freshness = {} }) {
   const services = registry ?? {};
   const mode = inputMode ?? 'collect';
   const matrix = [];
@@ -221,6 +226,11 @@ export function planCIServices(registry, { event, schedule, inputService, inputM
     enabledCount += 1;
     if (ci.canary) { skipped.push({ service, reason: 'canary' }); continue; }
     if (ci.cron !== schedule) { skipped.push({ service, reason: 'not-due' }); continue; }
+    const fresh = freshness[service];
+    if (fresh && Number.isFinite(fresh.ageHours) && fresh.ageHours >= 0 && fresh.ageHours < fresh.maxHours) {
+      skipped.push({ service, reason: 'fresh', ageHours: Math.round(fresh.ageHours * 10) / 10 });
+      continue;
+    }
     matrix.push({ service, mode });
   }
 

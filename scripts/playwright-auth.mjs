@@ -810,8 +810,28 @@ export async function ciWritebackAuthState(context = {}, service, collectorExitC
 export function ciPlanAuthState(context = {}, { event, schedule, inputService, inputMode } = {}) {
   const repoRoot = context.repoRoot ?? REPO_ROOT;
   const registry = loadAuthRegistry({ cwd: repoRoot });
-  const plan = planCIServices(registry.services, { event, schedule, inputService, inputMode });
+  const freshness = scheduleFreshness(registry.services, repoRoot, context.now ?? new Date());
+  const plan = planCIServices(registry.services, { event, schedule, inputService, inputMode, freshness });
   return { ok: !plan.invalid, command: 'ci-plan', ...plan };
+}
+
+/**
+ * ci.skipScheduleIfFresh = { marker, field, hours } を持つ service について、収集マーカー（commit 済み JSON）の
+ * 経過時間を返す。マーカーが読めない・時刻が無いときは何も返さない（＝skip しない。取りこぼしより二重実行を選ぶ）。
+ */
+export function scheduleFreshness(services, repoRoot, now) {
+  const out = {};
+  for (const [service, entry] of Object.entries(services ?? {})) {
+    const rule = entry?.ci?.skipScheduleIfFresh;
+    if (!rule) continue;
+    try {
+      const marker = JSON.parse(readFileSync(join(repoRoot, rule.marker), 'utf8'));
+      const at = Date.parse(marker?.[rule.field ?? 'collectedAt']);
+      if (!Number.isFinite(at)) continue;
+      out[service] = { ageHours: (now.getTime() - at) / 3600000, maxHours: rule.hours };
+    } catch { /* マーカー無しは skip しない */ }
+  }
+  return out;
 }
 
 export async function executeAuthCommand(argv, context = {}) {

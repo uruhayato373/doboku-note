@@ -115,6 +115,8 @@
     "auth:ci-restore": "node scripts/playwright-auth.mjs ci-restore",
     "auth:ci-writeback": "node scripts/playwright-auth.mjs ci-writeback",
     "auth:ci-plan": "node scripts/playwright-auth.mjs ci-plan",
+    "auth:refresh": "node scripts/auth-session-refresh.mjs",
+    "auth-refresh:install": "node scripts/install-auth-session-refresh-launchd.mjs",
     "ops-write:plan": "node scripts/ops-write.mjs plan",
     "ops-write": "node scripts/ops-write.mjs exec",
     "check-task-plan-links": "node scripts/check-task-plan-links.mjs",
