@@ -82,7 +82,7 @@ function Output({ label, value, href }: { label: string; value: number | string;
 }
 
 /** 1 つのレビューを「① 何を見るか → ② 何を決めたか → ③ 何を出したか」の縦の流れで出す。 */
-type Gate = { weekly: { decisions: { ageDays: number | null }[]; overdue: unknown[]; filedThisWeek: unknown[] }; monthly: { lowWithoutWhen: unknown[]; stale: unknown[]; thisMonth: number } };
+type Gate = { weekly: { decisions: { ageDays: number | null }[]; decisionsLater: unknown[]; overdue: unknown[]; filedThisWeek: unknown[] }; monthly: { lowWithoutWhen: unknown[]; stale: unknown[]; thisMonth: number } };
 
 function Flow({ c, gate }: { c: Cadence; gate: Gate | null }) {
   const checks = c.byStage.reduce((n, s) => n + s.check.length, 0);
@@ -136,10 +136,11 @@ function Flow({ c, gate }: { c: Cadence; gate: Gate | null }) {
             {c.id === 'weekly' ? (
               <>
                 <Output
-                  label="判断待ち"
+                  label="今決められる判断待ち"
                   value={`${gate.weekly.decisions.length}`}
                   href="/todo?f=backlog"
                 />
+                <Output label="判断の時期が先" value={gate.weekly.decisionsLater.length} />
                 <Output label="いちばん古い判断待ち" value={gate.weekly.decisions.length ? `${gate.weekly.decisions[0]?.ageDays ?? '—'} 日` : '—'} />
                 <Output label="期日切れ" value={gate.weekly.overdue.length} />
                 <Output label="直近 7 日の起票" value={gate.weekly.filedThisWeek.length} />

@@ -6,7 +6,7 @@
  * 読み手: npm run backlog-gate（週次・月次スキル）・管理画面 戦略 ＞ レビュー。
  * ---------------------------------------------------------------------------
  */
-import { parseBacklog, whenCovers } from './backlog-lib.mjs';
+import { parseBacklog, parseWhen, whenCovers } from './backlog-lib.mjs';
 
 export const STALE_DAYS = 90;
 export const NEW_DAYS = 7;
@@ -19,13 +19,18 @@ export function buildGate(backlogText, today) {
   const month = today.slice(0, 7);
   const view = (c) => ({ id: c.id, title: c.title, tier: c.tier, when: c.when, due: c.due, filed: c.filed, ageDays: c.filed ? daysBetween(c.filed, today) : null });
   const byAgeDesc = (a, b) => (b.ageDays ?? 0) - (a.ageDays ?? 0);
-  const decisions = cards.filter((c) => c.tier === 'hold').map(view).sort(byAgeDesc);
+  // 判断待ちのうち [時期:] が来月以降のものは「判断の材料がそろう時期」が決まっている＝今は諮らない
+  const holds = cards.filter((c) => c.tier === 'hold');
+  const later = (c) => { const w = parseWhen(c.when); return Boolean(w && w.start > month); };
+  const decisions = holds.filter((c) => !later(c)).map(view).sort(byAgeDesc);
+  const decisionsLater = holds.filter(later).map(view).sort((a, b) => String(a.when).localeCompare(String(b.when)));
   return {
     today,
     total: cards.length,
     byTier: cards.reduce((a, c) => ((a[c.tier] = (a[c.tier] ?? 0) + 1), a), {}),
     weekly: {
       decisions,
+      decisionsLater,
       overdue: cards.filter((c) => c.due && c.due < today).map(view),
       filedThisWeek: cards.filter((c) => c.filed && daysBetween(c.filed, today) <= NEW_DAYS).map(view),
     },
