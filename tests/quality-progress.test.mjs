@@ -24,3 +24,18 @@ test('スコアの全ページを weighted 昇順に並べ、状態・リライ�
   assert.equal(s.lt25, 1);
   assert.deepEqual(s.byStatus, { rewritten: 1, 未着手: 1 });
 });
+
+test('GSC はページ単位の gsc-page-YYYY-* だけを読み、検索語×ページの gsc-page-query-* を拾わない', async () => {
+  const { mkdtempSync, mkdirSync, writeFileSync } = await import('node:fs');
+  const { tmpdir } = await import('node:os');
+  const { join } = await import('node:path');
+  const { loadQualityProgress } = await import('../scripts/lib/quality-progress.mjs');
+  const root = mkdtempSync(join(tmpdir(), 'qp-'));
+  const st = join(root, '.claude/state');
+  mkdirSync(join(st, 'metrics/gsc'), { recursive: true });
+  writeFileSync(join(st, 'quality-scores.json'), JSON.stringify({ pages: { a: { weighted: 2.2 } } }));
+  writeFileSync(join(st, 'quality-cycle-state.json'), JSON.stringify({ pages: {} }));
+  writeFileSync(join(st, 'metrics/gsc/gsc-page-2026-09-01.json'), JSON.stringify({ rows: [] }));
+  writeFileSync(join(st, 'metrics/gsc/gsc-page-query-2026-09-20.json'), JSON.stringify({ rows: [] }));
+  assert.equal(loadQualityProgress(root).gscFile, 'gsc-page-2026-09-01.json');
+});

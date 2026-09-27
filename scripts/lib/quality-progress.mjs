@@ -19,7 +19,8 @@ function loadJson(p) {
 
 function loadLatestGscPage(GSC_DIR) {
   const files = readdirSync(GSC_DIR)
-    .filter((f) => f.startsWith('gsc-page-') && f.endsWith('.json'))
+    // gsc-page-query-* は検索語×ページの別集計（ページ単位の表示が検索語ごとに割れる）。ページ単位の gsc-page-YYYY-* だけを読む
+    .filter((f) => /^gsc-page-\d{4}-/.test(f) && f.endsWith('.json'))
     .sort();
   if (files.length === 0) return { rows: [], file: null };
   const latest = files[files.length - 1];
