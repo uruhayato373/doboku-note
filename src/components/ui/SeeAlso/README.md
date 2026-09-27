@@ -14,6 +14,8 @@
 
 `reason` は省略可能。タイトルだけでも動く。
 
+`ctaLabel` を付けると、クリックを GA4 の `internal_nav_click`（`event_label`＝その値・`cta_placement`＝`see-also`）で数える。遷移を測りたいカードだけに付け、値はサイト全体で一意にする（例: `qualification-map:civil1`）。読み方は `npm run fetch-ga4-cta-clicks -- --by-label`。
+
 ## デザイン仕様
 
 実体は共通 `NavLinkCard`（`src/components/ui/NavLinkCard/`）。SeeAlso は用途固有の文言・アイコンだけを渡すラッパーで、独自スタイルは持たない。
