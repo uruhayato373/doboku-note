@@ -19,5 +19,5 @@
     "career": { "requiresGroup": "guide", "note": "転職・キャリア記事。isCareerDoc() の真実源。学習系の一覧から除外される" },
     "模範論文": { "requiresGroup": null, "note": "一覧・カテゴリページから非表示（DocPage/CategoryPage が読む）" }
   },
-  "tagClasses": ["structural", "flag", "qualification", "topical"]
+  "tagClasses": ["structural", "flag", "qualification", "topical", "learning"]
 }

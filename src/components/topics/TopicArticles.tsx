@@ -5,13 +5,18 @@ import Link from 'next/link';
 import ContentThumbnail from '@/components/ui/ContentThumbnail';
 import DisclosureChevron from '@/components/ui/DisclosureChevron';
 
-export type TopicArticle = { href: string; title: string; description: string; category: string; categoryLabel: string; kind: string; image: string };
+export type TopicArea = 'exam' | 'practice' | 'standards';
+export type TopicArticle = { href: string; title: string; description: string; category: string; categoryLabel: string; categoryOrder: number; area: TopicArea; kind: string; image: string };
 
-export default function TopicArticles({ articles }: { articles: TopicArticle[] }) {
+// 一覧は 領域（資格試験／施工実務／公的基準）→ 資格・カテゴリ の順に区切る（05_情報アーキテクチャ.md の三方向）
+const AREAS: TopicArea[] = ['exam', 'practice', 'standards'];
+
+export default function TopicArticles({ articles, areaLabels }: { articles: TopicArticle[]; areaLabels: Record<TopicArea, string> }) {
   const [category, setCategory] = useState('');
   const [kind, setKind] = useState('');
   const [query, setQuery] = useState('');
-  const categories = [...new Map(articles.map(a => [a.category, a.categoryLabel])).entries()];
+  const categories = [...new Map([...articles].sort((a,b) => a.categoryOrder - b.categoryOrder).map(a => [a.category, a.categoryLabel])).entries()];
+  const areaOf = new Map(articles.map(a => [a.category, a.area]));
   const kinds = [...new Set(articles.map(a => a.kind))];
   const match = (a: TopicArticle) => (!category || a.category === category) && (!kind || a.kind === kind) && `${a.title} ${a.description}`.toLocaleLowerCase().includes(query.trim().toLocaleLowerCase());
   const filtered = !!(category || kind || query.trim());
@@ -42,14 +47,26 @@ export default function TopicArticles({ articles }: { articles: TopicArticle[] }
       </li>)}
     </ul>}
     {count === 0 && <p className="py-6 text-[var(--ink)]">条件に合う記事がありません。絞り込みを解除してお探しください。</p>}
-    <div className="space-y-3">
-      {categories.map(([value,label])=>{
-        const rows = articles.filter(a=>a.category===value && (filtered || !featured.has(a.href)));
-        const matches = rows.filter(match);
-        return <details key={`${value}-${filtered}`} open={filtered} hidden={!matches.length} className="rounded-card-content border border-[var(--rule-soft)] bg-[var(--paper)]">
-          <summary className="focus-ring cursor-pointer px-4 py-4 font-bold text-[var(--ink)]"><h3 className="inline">{label}</h3> <span className="text-sm font-normal text-[var(--ink-muted)]">{matches.length}件</span></summary>
-          <ul className="px-4">{rows.map(a=><li key={a.href} hidden={!match(a)} className="border-t border-[var(--rule-soft)]"><Link className="focus-ring block py-4 hover:text-[var(--accent)]" href={a.href}><span className="text-xs text-[var(--ink-muted)]">{a.kind}</span><h4 className="mt-1 font-bold text-[var(--ink)]">{a.title}</h4><p className="mt-1 line-clamp-2 text-sm text-[var(--ink-muted)]">{a.description}</p></Link></li>)}</ul>
-        </details>;
+    <div className="space-y-8">
+      {AREAS.map(area=>{
+        const cats = categories.filter(([value])=>areaOf.get(value)===area);
+        const rowsOf = (value: string) => articles.filter(a=>a.category===value && (filtered || !featured.has(a.href)));
+        const areaCount = articles.filter(a=>a.area===area && match(a)).length;
+        const rowCount = cats.reduce((n,[value])=>n + rowsOf(value).filter(match).length, 0);
+        if (!cats.length) return null;
+        return <section key={area} id={`area-${area}`} hidden={!rowCount} aria-labelledby={`area-${area}-heading`} className="scroll-mt-24">
+          <h3 id={`area-${area}-heading`} className="mb-3 text-lg font-bold text-[var(--ink)]">{areaLabels[area]} <span className="text-sm font-normal text-[var(--ink-muted)]">{areaCount}件</span></h3>
+          <div className="space-y-3">
+            {cats.map(([value,label])=>{
+              const rows = rowsOf(value);
+              const matches = rows.filter(match);
+              return <details key={`${value}-${filtered}`} open={filtered} hidden={!matches.length} className="rounded-card-content border border-[var(--rule-soft)] bg-[var(--paper)]">
+                <summary className="focus-ring cursor-pointer px-4 py-4 font-bold text-[var(--ink)]"><h4 className="inline">{label}</h4> <span className="text-sm font-normal text-[var(--ink-muted)]">{matches.length}件</span></summary>
+                <ul className="px-4">{rows.map(a=><li key={a.href} hidden={!match(a)} className="border-t border-[var(--rule-soft)]"><Link className="focus-ring block py-4 hover:text-[var(--accent)]" href={a.href}><span className="text-xs text-[var(--ink-muted)]">{a.kind}</span><h5 className="mt-1 font-bold text-[var(--ink)]">{a.title}</h5><p className="mt-1 line-clamp-2 text-sm text-[var(--ink-muted)]">{a.description}</p></Link></li>)}</ul>
+              </details>;
+            })}
+          </div>
+        </section>;
       })}
     </div>
   </div>;

@@ -26,7 +26,7 @@
   {
     "name": "試験対策",
     "slug": "exam-preparation",
-    "class": "topical",
+    "class": "learning",
     "aliases": [
       "受験対策"
     ]
@@ -54,7 +54,7 @@
   {
     "name": "学習法",
     "slug": "study-method",
-    "class": "topical",
+    "class": "learning",
     "aliases": [
       "勉強法",
       "独学"
@@ -63,7 +63,7 @@
   {
     "name": "出題傾向",
     "slug": "exam-trends",
-    "class": "topical"
+    "class": "learning"
   },
   {
     "name": "キーワード",
@@ -187,7 +187,7 @@
   {
     "name": "経験記述",
     "slug": "experience-writing",
-    "class": "topical"
+    "class": "learning"
   },
   {
     "name": "テキスト",
@@ -303,7 +303,7 @@
   {
     "name": "記述式対策",
     "slug": "essay-preparation",
-    "class": "topical",
+    "class": "learning",
     "aliases": [
       "論文の書き方",
       "答案の書き方",
@@ -577,17 +577,17 @@
   {
     "name": "過去問分析",
     "slug": "past-exam-analysis",
-    "class": "topical"
+    "class": "learning"
   },
   {
     "name": "頻出テーマ",
     "slug": "frequent-themes",
-    "class": "topical"
+    "class": "learning"
   },
   {
     "name": "受験者属性別",
     "slug": "by-examinee-profile",
-    "class": "topical"
+    "class": "learning"
   },
   {
     "name": "砂防",
@@ -710,7 +710,7 @@
   {
     "name": "学習計画",
     "slug": "study-plan",
-    "class": "topical",
+    "class": "learning",
     "aliases": [
       "スケジュール",
       "勉強時間",
@@ -720,7 +720,7 @@
   {
     "name": "受験申込",
     "slug": "exam-application",
-    "class": "topical",
+    "class": "learning",
     "aliases": [
       "出願",
       "業務経歴票",
@@ -747,7 +747,7 @@
   {
     "name": "キーワード学習",
     "slug": "keyword-study",
-    "class": "topical",
+    "class": "learning",
     "aliases": [
       "キーワード集",
       "keyword-analysis"
@@ -756,7 +756,7 @@
   {
     "name": "合格率",
     "slug": "pass-rate",
-    "class": "topical",
+    "class": "learning",
     "aliases": [
       "難易度",
       "exam-statistics"

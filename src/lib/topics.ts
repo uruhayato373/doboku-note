@@ -6,7 +6,13 @@ import { canonicalTag } from '@/lib/content-taxonomy';
 export type Topic = {
   slug: string;
   label: string;
+  /** 検索クエリに合わせた title（無ければ label から組み立てる）。title template の suffix は含めない */
+  seoTitle?: string;
   description: string;
+  /** 検索需要の根拠 1 行（content-taxonomy.md §6 昇格基準 (1)）。ページには出さない */
+  demandEvidence?: string;
+  /** 一覧の前に置く編集リード（段落ごと）。テーマの要点・資格ごとの出方・実務での使いどころ */
+  intro?: string[];
   tags: string[];
   /** このカテゴリの記事は全件このテーマに属す（例: コンクリート 3 資格 → concrete）。
       タグ語彙が資格ごとに揺れて突合 0% になるカテゴリの受け皿（2026-09 監査で 6/10 カテゴリが 0% だった）。 */

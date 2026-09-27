@@ -9,7 +9,7 @@ import categoriesData from '@/config/categories.json';
 import tagsData from '@/config/tags.json';
 
 export type PublicArea = 'exam' | 'practice' | 'standards';
-type TagClass = 'structural' | 'flag' | 'qualification' | 'topical';
+type TagClass = 'structural' | 'flag' | 'qualification' | 'topical' | 'learning';
 
 type TagEntry = { name: string; slug: string; class?: TagClass; canonical?: string; aliases?: string[] };
 
@@ -29,6 +29,10 @@ for (const e of tagsData as TagEntry[]) {
 
 export function getCategoryArea(category: string | undefined): PublicArea {
   return (category && categoryArea.get(category)) || 'exam';
+}
+
+export function getAreaLabel(area: PublicArea): string {
+  return areas[area]?.label ?? area;
 }
 
 export function getAreaHubPath(area: PublicArea): string {
