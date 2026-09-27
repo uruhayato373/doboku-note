@@ -344,6 +344,12 @@
           "role": "点検"
         },
         {
+          "command": "report-web-vitals",
+          "label": "表示速度の実ユーザー計測（不良なら起票）",
+          "stage": "基盤の点検",
+          "role": "判断"
+        },
+        {
           "command": "psi-audit:check",
           "label": "表示速度（PSI）",
           "stage": "基盤の点検",
