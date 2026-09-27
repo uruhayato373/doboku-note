@@ -439,6 +439,12 @@
           "role": "判断"
         },
         {
+          "command": "record-net-receipts",
+          "label": "月の受取額の記録（NSM）",
+          "stage": "受取・販売",
+          "role": "判断"
+        },
+        {
           "command": "fetch-business-metrics",
           "label": "事業計測の取得",
           "stage": "受取・販売",
