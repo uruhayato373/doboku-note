@@ -1,11 +1,11 @@
 {
- "_note": "X(旧Twitter) 競合アカウント一覧。scripts/scout-x-competitors.mjs が読む。handle = x.com/{handle} の {handle}（@なし）。exams タグは note-competitors.json と共通（sokan/pe/pe-construction/civil/concrete-engineer/concrete-chief/concrete-diagnostician）。シードは docs/strategy/07_競合調査.md の「SNS競合」節（2026-07-04・多くは要確認）由来＝scout 実行時にライブ検証する。取得は read-only・四半期・安全弁必須（x-post-policy.md §11）。分析真実源は 09_販売チャネル競合分析.md（価格/品揃え軸）、コンテンツ型/エンゲージ軸は 07 の SNS競合節。",
+ "_note": "X(旧Twitter) 競合アカウント一覧。scripts/scout-x-competitors.mjs が読む。handle = x.com/{handle} の {handle}（@なし）。exams は qualification-registry.json の資格 id（npm run check-qualification-market が検査）。シードは docs/strategy/07_競合調査.md の「SNS競合」節（2026-07-04・多くは要確認）由来＝scout 実行時にライブ検証する。取得は read-only・四半期・安全弁必須（x-post-policy.md §11）。分析真実源は 09_販売チャネル競合分析.md（価格/品揃え軸）、コンテンツ型/エンゲージ軸は 07 の SNS競合節。",
  "competitors": [
   {
    "handle": "sosou_nino",
    "label": "小泉士郎",
    "exams": [
-    "sokan",
+    "pe-comprehensive-management",
     "pe-construction"
    ],
    "note": "最大競合(note)。X ハンドル未確定(sosou_nino は note 用・CLI で not_found)＝07 の『X 突出インフル不在・note主導線』と整合。X 実ハンドル判明後に差し替え"
@@ -23,7 +23,7 @@
    "label": "技術士パパ",
    "exams": [
     "pe-construction",
-    "sokan"
+    "pe-comprehensive-management"
    ],
    "note": "建設×総監2部門・ゼネコン15年。導線=note/YouTube"
   },
@@ -31,7 +31,7 @@
    "handle": "suger_sensei",
    "label": "シュガー先生",
    "exams": [
-    "civil"
+    "civil-construction-2"
    ],
    "note": "2級土木・工業高校教員。図解『神7』/合否ドラマ型。導線=note(セコカンLAB)"
   },
@@ -39,7 +39,7 @@
    "handle": "kaminoblog",
    "label": "カミノ",
    "exams": [
-    "civil"
+    "civil-construction-1"
    ],
    "note": "土木公務員・1級土木。職種解説/DM相談"
   },
@@ -47,7 +47,8 @@
    "handle": "miyabi_labo",
    "label": "miyabi_labo",
    "exams": [
-    "civil"
+    "civil-construction-1",
+    "civil-construction-2"
    ],
    "note": "note=miyabi_labo と同一主体。まとめノート"
   },
@@ -55,7 +56,8 @@
    "handle": "Yurii6ww",
    "label": "Yurii",
    "exams": [
-    "civil"
+    "civil-construction-1",
+    "civil-construction-2"
    ],
    "note": "07 のX投稿型エンゲージ実測(2026-07-14)対象の土木施工管理アカウント"
   },
@@ -63,7 +65,7 @@
    "handle": "dobokusekoukan",
    "label": "土木ブロガー",
    "exams": [
-    "civil"
+    "civil-construction-1"
    ],
    "note": "2026-07-20 キーワード検索『土木施工管理技士 経験記述』で発掘。1級土木二次・経験記述・YouTube連動"
   },
@@ -71,7 +73,6 @@
    "handle": "tvxq_pelican29",
    "label": "ペリカン(建設業)",
    "exams": [
-    "pe",
     "pe-construction",
     "concrete-diagnostician"
    ],
@@ -90,10 +91,61 @@
    "label": "コンクリート資格アプリ",
    "exams": [
     "concrete-engineer",
-    "concrete-chief",
+    "concrete-chief-engineer",
     "concrete-diagnostician"
    ],
    "note": "コンクリート3資格の唯一の日次発信アカ（2026-08-13 実在確認・followers 98 / tweets 1174）。導線=学習アプリ+YouTube一問一答。**投稿量に対しエンゲージほぼ0**（直近6本で♥0〜1）＝コンクリートXニッチの需要が薄い可能性。バースト投稿（同分に4本）で当社の禁忌と逆。"
+  },
+  {
+   "handle": "LICEN0202",
+   "label": "ひげごろー（施工管理技士の学校）",
+   "exams": [
+    "building-construction-1",
+    "building-construction-2",
+    "civil-construction-1",
+    "civil-construction-2",
+    "pipe-work-1",
+    "pipe-work-2"
+   ],
+   "note": "2026-09-26 施工管理系の競合調査（WebSearch・公開ページ）で追加。施工管理を横断する最大手の個人講師。BASE で模擬試験¥3,500〜¥45,000・ココナラ（1528311）で二次模試¥30,000・経験記述添削¥35,000・YouTube「施工管理技士の学校」。フォロワー約3,200は検索スニペット由来（未検証）"
+  },
+  {
+   "handle": "shino40_kan",
+   "label": "Shino40（1級管工事施工管理技士）",
+   "exams": [
+    "pipe-work-1",
+    "pipe-work-2",
+    "civil-construction-1",
+    "building-construction-1"
+   ],
+   "note": "2026-09-26 施工管理系の競合調査（WebSearch・公開ページ）で追加。note（shino40）で暗記ノート（2級管工事 二次 ¥10,000 を確認）。ブログ sekoukannri.com・kankouji-sekou.com。フォロワー約3,150は検索スニペット由来（未検証）"
+  },
+  {
+   "handle": "kurodaCEO",
+   "label": "黒田豊（造園家）",
+   "exams": [
+    "landscape-1",
+    "landscape-2"
+   ],
+   "note": "2026-09-26 施工管理系の競合調査（WebSearch・公開ページ）で追加。造園施工管理の唯一の専業発信者。Kindle/書籍「読むだけセコカン」シリーズ（価格は未取得）。フォロワー約3,000は検索スニペット由来（未検証）"
+  },
+  {
+   "handle": "denginoheya",
+   "label": "電気技術者の部屋＋",
+   "exams": [
+    "electrical-work-1",
+    "electrical-work-2"
+   ],
+   "note": "2026-09-26 施工管理系の競合調査（WebSearch・公開ページ）で追加。1級電気工事の経験記述例を自サイトで無料公開。有料販売は確認できず"
+  },
+  {
+   "handle": "kamonegi_shikak",
+   "label": "カモパパ資格垢",
+   "exams": [
+    "electrical-work-1",
+    "electrical-work-2"
+   ],
+   "note": "2026-09-26 施工管理系の競合調査（WebSearch・公開ページ）で追加。2024-12 開設の小規模アカウント。note は無料記事のみ確認"
   }
  ]
 }

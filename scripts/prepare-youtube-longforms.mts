@@ -12,7 +12,6 @@ import { existsSync, readFileSync, readdirSync, statSync, writeFileSync } from '
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { BRAIN_PRODUCTS } from '../src/lib/brain-products.ts';
 import { COCONALA_SERVICES } from '../src/lib/coconala-services.ts';
 import { NOTE_MAGAZINES } from '../src/lib/note-magazines.ts';
 
@@ -204,13 +203,8 @@ function cta(manifest: Manifest) {
   } else if (kind === 'coconala-service' && targetId) {
     const item = (COCONALA_SERVICES as Record<string, any>)[targetId];
     if (item?.status !== 'listed') throw new Error(`${manifest.packId}: 非公開のココナラ CTA ${targetId}`);
-    label = '経験記述の診断・添削を申し込む';
+    label = targetId.includes('kit') ? '経験記述の設計キットを見る' : '経験記述の診断・添削を申し込む';
     target = item.serviceUrl;
-  } else if (kind === 'brain-product' && targetId) {
-    const item = BRAIN_PRODUCTS.find((candidate) => candidate.id === targetId);
-    if (item?.status !== 'listed') throw new Error(`${manifest.packId}: 非公開の Brain CTA ${targetId}`);
-    label = '経験記述の設計キットを見る';
-    target = item.productUrl;
   } else if (kind === 'site-article' && targetPath) {
     label = 'サイトの詳しい解説を読む';
     target = new URL(targetPath, 'https://doboku-note.com').toString();

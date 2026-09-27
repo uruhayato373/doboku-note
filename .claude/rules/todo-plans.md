@@ -10,11 +10,11 @@ paths:
 
 ## `.claude/todo/`（CLAUDE.md §8）
 
-- backlog がマスタ・ID は `DN-####`・月初に monthly、週初に weekly へ pull（`/plan-weekly`・`todo-planner`）。閲覧は admin `/todo`
+- backlog がマスタ・ID は `DN-####`。**やる月はカードの `[時期:]`** で決め、年間（管理画面 年間ロードマップ）と月間（`[時期:]` が今月を含むカード）はそこから導出する。`monthly.md` は成果目標だけ、`annual.md` は方針の文章だけ。週初に今月のカードから weekly へ pull（`/plan-weekly`・`todo-planner`）。閲覧は admin 計画
 - **backlog に置くのは単発で完了がある未着手タスクだけ** — チャネル状態の複製・反復する運用サイクル・コンテンツ制作企画は置かない。行き先は [todo-standards.md](../knowledge/reference/todo-standards.md) §1-2
 - **カードに触れたら完了 prose を足さず残作業へ再スコープ**（部分完了は TRIM、タイトルが残作業と乖離したら旧削除＋新 ID で RESEED。確認不要・基準は todo-standards.md「5. 残す条件と削除条件」）してから commit する
 - 週次レビューの申し送りは backlog へ `DN-####` 起票まで完了とする。定期作業は置かない。`[検証:]` に surfacer を書かない
-- ゲート: `npm run check-backlog-schema`（タグ行の語彙・`[検証:]` の実在・ID 必須/重複・完了 prose の混入。pre-commit `--staged`）、`npm run check-backlog-health`（候補 surfacer・常に exit 0）、`npm run check-task-plan-links`（plan↔backlog の結線）、`npm run check-project-task-refs`（docs/ の backlog ID 参照切れ）
+- ゲート: `npm run check-backlog-schema`（タグ行の語彙・`[検証:]`/`[時期:]`/`[領域:]` の形式・🔴/🟡 の `[時期:]` 必須と `[期日:]` の月を含むこと・ID 必須/重複・完了 prose の混入・優先度見出しの外のカード・monthly.md のタスク表・weekly.md の削除済み ID。pre-commit `--staged`）、`npm run check-backlog-health`（候補 surfacer・常に exit 0）、`npm run check-task-plan-links`（plan↔backlog の結線）、`npm run check-project-task-refs`（docs/ の backlog ID 参照切れ）
 - 実行ライフサイクルの契約 → [todo-lifecycle.md](../knowledge/reference/todo-lifecycle.md)。台帳の構造監査は `backlog-curator`（`/backlog-sweep --audit`）
 - **GitHub Issue は使わない**（唯一の例外＝`automation-failure` ラベル＝自動化の失敗・沈黙の記録。起票は `scripts/report-automation-failure.mjs`、復旧時は起票元 workflow の成功で `--resolve` が自動クローズ。配線の無い channel だけ人が閉じる）
 

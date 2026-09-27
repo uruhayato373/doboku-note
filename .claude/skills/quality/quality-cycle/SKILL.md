@@ -5,6 +5,7 @@ description: >
   `--profile {cem|civil-textbook}` で試験を切替。state ファイル名は profile 別に分離（既存データと互換）。
   旧 /quality-cycle（CEM）/ /civil-textbook-cycle（1級土木）を統合。
   Use when user asks to [品質サイクル, スコアリング, リライト, 品質向上ループ, /quality-cycle].
+domain: site
 ---
 
 キーワードページ・教科書 MDX の品質サイクルを継続的に回すオーケストレータ。プロファイル別に state ファイル・Evaluator / Generator エージェント・拡張パターンが切り替わる。

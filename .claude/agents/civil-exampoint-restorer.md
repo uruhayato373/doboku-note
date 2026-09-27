@@ -2,6 +2,7 @@
 name: civil-exampoint-restorer
 description: 1級土木施工管理技士 primary-* (一次過去問) の壊れた &lt;ExamPoint&gt; を体言止め学習ポイントに再生成する Generator エージェント。
 model: sonnet
+domain: site
 ---
 
 # Civil ExamPoint Restorer Agent

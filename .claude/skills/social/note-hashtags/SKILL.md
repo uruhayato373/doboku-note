@@ -4,6 +4,7 @@ description: >
   note 公開用ドラフト（content/note/{slug}/article.md）の内容を解析して、note の上限である 99 個までのハッシュタグを生成し、{article_dir}/hashtags.txt に保存する Generator スキル。1 行 1 個・純粋ハッシュタグのみ・コメント無しでファイル全選択コピペで note に貼り付け可能。
   Use when user asks to [note ハッシュタグ生成, note タグ作成, hashtags.txt 生成, /note-hashtags].
 user-invocable: true
+domain: product
 ---
 
 # /note-hashtags — note ハッシュタグ 99 個生成

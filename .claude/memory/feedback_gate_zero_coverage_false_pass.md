@@ -91,9 +91,9 @@ deploy skill Step 7.5 はこれを呼ぶだけにし、手打ち curl を禁じ�
 - **否定の証拠は肯定の証拠の後ろで見る**。ログアウト検出にパスワード欄を使うのは正しいが、
   account marker 確認より**前**に置くと、認証済みの設定画面（note `/settings/account`＝パスワード変更欄がある）を
   `expired` と誤判定する。同型の順序ミスを踏みかけて回帰（`coconala` が authenticated のまま）で気づいた。
-- ログアウト判定を **URL の redirect だけ**に頼らない。実測では brain=`/mypage` のままログイン CTA、
-  google=`/search-console/about` へ退避、x=`x.com/` でパスワード欄で、どれも redirect パターンに当たらず
-  `unknown` に埋もれていた（3件とも実体はログアウト）。
+- ログアウト判定を **URL の redirect だけ**に頼らない。実測では
+  google=`/search-console/about` へ退避、x=`x.com/` でパスワード欄で、どちらも redirect パターンに当たらず
+  `unknown` に埋もれていた（実体はログアウト）。
 
 **How to apply（緑/赤の共通）:**
 - **赤を見たとき**: 「そもそも計測できていたか」を確認する。値が 0 なら「無い」か「読めない」かを別経路（著者ログイン等）で1件実測してから作業を起こす。0 を根拠に作業リストを作らない。

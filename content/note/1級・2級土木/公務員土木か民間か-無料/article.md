@@ -88,7 +88,7 @@ title: 公務員土木か民間か｜仕事内容・働き方・採用ルート�
 
 応募するかは求人の条件を見て判断してください。自治体への応募は各自治体の採用窓口から進めます。
 
-https://px.a8.net/svt/ejp?a8mat=4B5OO5+FHBA2+5B0Y+NTJWY
+https://px.a8.net/svt/ejp?a8mat=4B5OO5+FHED6+5B0Y+NTJWY
 
 ## おわりに
 

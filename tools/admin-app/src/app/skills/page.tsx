@@ -1,35 +1,31 @@
 import { PageHead } from '@/components/ui';
 import { loadSkills, type SkillEntry } from '@/lib/registry';
+import { domainList } from '@/lib/domains';
 
 export const dynamic = 'force-dynamic';
-
-const CATEGORY_LABEL: Record<string, string> = {
-  analytics: '分析',
-  authoring: '執筆',
-  conversion: '変換',
-  dev: '開発',
-  management: '運営',
-  metrics: '計測',
-  quality: '品質',
-  social: 'SNS',
-  ui: 'UI',
-};
 
 export default function SkillsPage() {
   const { items, errors } = loadSkills();
 
-  // カテゴリ別にグループ化
+  // 事業の領域ごとに束ねる（並びと名前は正本 domains.json・domain が無いものは「未設定」）
+  const domains = domainList();
+  const label = (id: string) => domains.find((d) => d.id === id)?.label ?? '未設定';
   const groups = new Map<string, SkillEntry[]>();
   for (const s of items) {
-    const arr = groups.get(s.category) ?? [];
+    const key = s.domain ?? 'none';
+    const arr = groups.get(key) ?? [];
     arr.push(s);
-    groups.set(s.category, arr);
+    groups.set(key, arr);
   }
-  const cats = [...groups.keys()].sort();
+  const rank = (id: string) => {
+    const i = domains.findIndex((d) => d.id === id);
+    return i < 0 ? 99 : i;
+  };
+  const cats = [...groups.keys()].sort((a, b) => rank(a) - rank(b));
 
   return (
     <>
-      <PageHead title="スキル" sub={`${items.length} 件 / ${cats.length} カテゴリ · .claude/skills/`} />
+      <PageHead title="スキル" sub={`${items.length} 件`} />
 
       {errors.length > 0 ? (
         <div className="card warn-border">
@@ -45,7 +41,7 @@ export default function SkillsPage() {
       <div className="filterbar">
         {cats.map((c) => (
           <a key={c} href={`#cat-${c}`} className="chip">
-            {CATEGORY_LABEL[c] ?? c} {groups.get(c)!.length}
+            {label(c)} {groups.get(c)!.length}
           </a>
         ))}
       </div>
@@ -53,8 +49,8 @@ export default function SkillsPage() {
       {cats.map((c) => (
         <div className="card" key={c} id={`cat-${c}`}>
           <h2>
-            {CATEGORY_LABEL[c] ?? c}
-            <span className="sub">{groups.get(c)!.length} 件 · skills/{c}/</span>
+            {label(c)}
+            <span className="sub">{groups.get(c)!.length} 件</span>
           </h2>
           <div className="grid cols-2">
             {groups

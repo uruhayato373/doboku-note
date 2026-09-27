@@ -5,6 +5,7 @@ description: >
   既存の段階投下プラン・magazine 在庫・価格 yaml・過去問カバレッジを読み、次に出すべき記事（属性 × 年度・投下順・無料/有料ティア・価格・バンドル・クロスプロモ）を優先度付きで提示する。
   Use when user asks to [note 有料記事の企画, note の次の一手, magazine の企画, 記述式コンテンツの投下計画, /pe-note-plan].
 user-invocable: true
+domain: product
 ---
 
 # /pe-note-plan — 総監記述式 note 有料記事 企画

@@ -128,7 +128,7 @@ export default function ConcretePumpPlanClient() {
         </div>
 
         <div className="mt-5 rounded-card-content bg-[var(--accent-fill)] p-4">
-          <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--ink-muted)]">
+          <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--ink-body)]">
             目標の時間当たり打込み量
           </div>
           <div className="font-serif font-black text-[22px] text-[var(--ink)] mt-1 tabular-nums">
@@ -264,19 +264,19 @@ export default function ConcretePumpPlanClient() {
             <tbody>
               <tr className="border-b border-[var(--rule-soft)]">
                 <td className="py-2 pr-3 text-[var(--ink-body)]">水平距離</td>
-                <td className="py-2 pl-3 text-right tabular-nums">{hd.toFixed(1)} m</td>
+                <td className="py-2 pl-3 text-right tabular-nums text-[var(--ink)]">{hd.toFixed(1)} m</td>
               </tr>
               <tr className="border-b border-[var(--rule-soft)]">
                 <td className="py-2 pr-3 text-[var(--ink-body)]">垂直管換算（×{VERTICAL_COEF_125A}）</td>
-                <td className="py-2 pl-3 text-right tabular-nums">{vertEq.toFixed(1)} m</td>
+                <td className="py-2 pl-3 text-right tabular-nums text-[var(--ink)]">{vertEq.toFixed(1)} m</td>
               </tr>
               <tr className="border-b border-[var(--rule-soft)]">
                 <td className="py-2 pr-3 text-[var(--ink-body)]">ベント管換算（×{BEND90_LENGTH_125A}）</td>
-                <td className="py-2 pl-3 text-right tabular-nums">{bendEq.toFixed(1)} m</td>
+                <td className="py-2 pl-3 text-right tabular-nums text-[var(--ink)]">{bendEq.toFixed(1)} m</td>
               </tr>
               <tr>
                 <td className="py-2 pr-3 text-[var(--ink-body)]">ホース換算（×{HOSE_LENGTH}）</td>
-                <td className="py-2 pl-3 text-right tabular-nums">{hoseEq.toFixed(1)} m</td>
+                <td className="py-2 pl-3 text-right tabular-nums text-[var(--ink)]">{hoseEq.toFixed(1)} m</td>
               </tr>
             </tbody>
           </table>

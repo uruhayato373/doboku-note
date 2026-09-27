@@ -109,8 +109,6 @@ public/posts
 # Playwright ココナラ市場調査用（read-only・未ログインだがプロファイル実体はコミットしない）
 .local/playwright-coconala-profile/
 
-# Playwright Brain 出品・編集用（Brain ログイン cookie を含む・コミット禁止）
-.local/playwright-brain-profile/
 
 # Playwright KDP 入稿・出版用（KDP ログイン cookie を含む・コミット禁止）
 .local/playwright-kdp-profile/
@@ -423,3 +421,6 @@ content/sns/x/draft/*-diagrams/img/tweet-*.png
 **/playwright-*-state*.json
 **/storage-state*.json
 .tmp/auth-state/
+
+# Lighthouse CI 実行レポート（DN-0240）。CI では artifact としてアップロードするのみ。
+.lighthouseci/

@@ -3,6 +3,7 @@ name: monitor
 description: >
   Monitor toolでバックグラウンド監視を起動する（dev/mojibake/ci/build/r2/frontmatter/health/mdx-validation）。
   Use when user asks to [監視, モニター, monitor, /monitor].
+domain: ops
 ---
 
 バックグラウンド監視をMonitor toolで起動するスキル。引数で監視タイプを指定する。

@@ -7,6 +7,7 @@ description: >
   .claude/config/keiken-answer-sheet-limits.json のしきい値で OVER を surface する。決定論的処理（CLAUDE.md 原則5）。
   Use when user asks to [経験記述の字数確認, 施工経験記述の文字数チェック, 解答欄に収まるか, 答案の字数オーバー検出, /keiken-charcount].
 user-invocable: true
+domain: product
 ---
 
 ## 用途

@@ -5,6 +5,7 @@ description: >
   productId 推定・重複チェック・月次集計を行う。
   Use when user asks to [売上記録, 販売履歴を記録, note 売上を追加, /record-sales].
 model: sonnet
+domain: product
 ---
 
 # Sales Recorder Agent

@@ -102,6 +102,8 @@ function unzipMissing() {
 // npm: package.json の script 名 / cmd: 直接コマンド配列。どちらか一方。
 const CHECKS = [
   { id: 'content-expansion', npm: 'check-content-expansion', timeout: 30_000, ci: true, note: '全教材の母数・記事/図/SNS対応表の整合。未確認・原典待ち・成果物変更を別表示し、構造PASSで制作完了とはしない' },
+  { id: 'domains', npm: 'check-domains', timeout: 30_000, ci: true, note: '領域の正本（domains.json）と、スキル/エージェントの frontmatter domain・文書の割り当ての整合' },
+  { id: 'generated-indexes', npm: 'check-generated-indexes', timeout: 180_000, ci: true, note: 'refresh-indexes の生成物（src/config の索引・人気記事・frequent-topics）がコミットと一致。MDX 追加時の回し忘れを止める' },
   { id: 'business-direction', npm: 'check-business-direction', timeout: 30_000, ci: true, note: '資格別事業方針・計測とレビュー履歴の整合' },
   { id: 'seo-rank-watch', npm: 'check-seo-rank-watch', timeout: 30_000, ci: true, note: '順位監視・観察状態・履歴の整合' },
   // ── ci:true 厳格ゲート ──
@@ -186,7 +188,7 @@ const CHECKS = [
   // ここは「取得が回っていない／新商品が snapshot に無い」を週次で拾う（2026-09-19 まで週次スキル内で LLM が叩くだけだった）。
   { id: 'coconala-analytics', npm: 'check-coconala-analytics', timeout: 60_000, ci: false, ops: true, note: 'ココナラ分析の鮮度・listed全件取得・kpi-log整合を検査。取得は 2026-09-21 以降 login-collectors.yml（coconala 火 cron・暗号化 state）が hosted CI で回す（失効時のフォールバックはローカル認証実行）。読み手＝ops-audit.yml（日次Issue）で、停止は同ワークフローへ集約する。' },
   // ココナラの公開ページ（ログイン不要の構造化データ）とカタログ／listings の突合。外部の状態に依存するので ops 区分。
-  { id: 'coconala-live', npm: 'check-coconala-live', timeout: 240_000, ci: false, ops: true, note: 'ココナラ公開ページの価格・タイトル・キャッチ・本文・出品者・販売状態がカタログ／listings と一致するか（2026-09-23 新設）。読み手＝ops-audit.yml（日次 --ops）→ automation-failure Issue（channel ops）。exit 2 は取得失敗が過半＝検査不成立' },
+  { id: 'coconala-live', npm: 'check-coconala-live', timeout: 240_000, ci: false, ops: true, note: 'ココナラ公開ページの価格・タイトル・キャッチ・本文・出品者・販売状態がカタログ／listings と、出品者プロフィールの職業・アピール・自己紹介文が coconala-account.json と一致するか（2026-09-23 新設・プロフィールは 2026-09-27 追加）。読み手＝ops-audit.yml（日次 --ops）→ automation-failure Issue（channel ops）。exit 2 は取得失敗が過半＝検査不成立' },
   { id: 'sales-freshness', npm: 'check-sales-freshness', timeout: 30_000, ci: false, ops: true, note: '売上転記（note-sales-fetch）の停止と、note-traffic-fetchで取得済みの月次売上表示との金額不一致を検知する（updatedAt が 21 日超または月次不一致で赤・閑散期でも偽赤にならない）。2026-07 は 18% しか転記されず 34 日誰も気づかなかった。取得は認証が要るのでローカル専用。読み手＝ops-audit.yml（日次 --ops → automation-failure Issue channel ops・復旧で自動クローズ）' },
   { id: 'kdp-report-freshness', npm: 'check-kdp-report-freshness', timeout: 30_000, ci: false, ops: true, note: 'KDP 月次ロイヤリティの取得停止を検知する。毎月16日以降は前月確定値、28日以降は当月推計値、共有口座のうちその月末時点で LIVE だった doboku-note の本（kdpLiveBookIdsAsOf）の catalog 紐付けを要求する（月末後に出た本を前月の期待冊数に数えない）。取得は認証が要るためローカル専用。読み手＝ops-audit.yml（日次 --ops → automation-failure Issue channel ops・復旧で自動クローズ）' },
   { id: 'cloudflare-metrics-freshness', npm: 'check-cloudflare-metrics-freshness', timeout: 30_000, ci: false, ops: true, note: 'Cloudflare zone analytics 日次取得（cloudflare-metrics.yml）と zone 設定監査（cloudflare-config-audit.yml）の停止を検知する。ドリフト自体は channel cloudflare-config が持つ。読み手＝ops-audit.yml（日次 --ops）' },
@@ -230,7 +232,8 @@ const CHECKS = [
   { id: 'dispatch-log', npm: 'check-dispatch-log', timeout: 30_000, ci: true, note: 'dispatch-log.json の id 必須化・at キー・outcome 語彙整合（_schema=date/実データ=at/読み手=e.date の三つ巴不一致で weekly-review 集計が常に0件だった再発防止）。DN-0093 順4' },
   { id: 'dead-handles', npm: 'check-dead-handles', timeout: 60_000, ci: true, note: '退役ハンドル（404 note旧名・凍結X旧アカ）への参照' },
   { id: 'jst-date', npm: 'check-jst-date', timeout: 30_000, ci: true, note: '運用記録の日付がUTCで前日付になっていないか' },
-  { id: 'exam-calendar', npm: 'check-exam-calendar', timeout: 30_000, ci: true, note: '1級・2級土木の公式試験日SSOTと既知誤記を検査' },
+  { id: 'exam-calendar', npm: 'check-exam-calendar', timeout: 30_000, ci: true, note: '1級・2級土木の公式試験日SSOTと既知誤記を検査。資格台帳・日程・統計・出題形式（exam-formats）の id と照合記録の整合も見る' },
+  { id: 'qualification-market', npm: 'check-qualification-market', timeout: 30_000, ci: true, note: '展開の判断材料の正本（market-scan の検索語・*-competitors の exams・売上の資格への分類）の整合。壁時計に依存しない' },
   { id: 'x-campaign-plan', npm: 'check-x-campaign-plan', timeout: 30_000, ci: true, note: 'X月間計画の日付・導線・URL・販売投稿間隔を検査' },
   { id: 'x-review', npm: 'check-x-review', timeout: 30_000, ci: true, note: 'X確認期間の原稿・時刻・公開マガジン導線・先生カードの再生成元を検査' },
   { id: 'x-card-render', npm: 'check-x-card-render', timeout: 30_000, ci: true, note: 'Xカード画像の配色・主題・生URL焼込みを描画台帳で検査（画像は開かない）' },
@@ -323,6 +326,24 @@ const CHECKS = [
     cmd: ['node', '.claude/scripts/report-career-funnel.mjs', '--check'],
     timeout: 60_000, ci: true,
     note: 'キャリアファネル集計（流入→回遊→CTA→成果）が実行可能か（成果物は書かない・月次レビューと EXP-008 が読む）',
+  },
+  {
+    id: 'exam-ssot-status',
+    cmd: ['node', 'scripts/report-exam-ssot.mjs', '--check'],
+    timeout: 30_000, ci: true,
+    note: '資格の正本（qualification-registry・exam-calendar・exam-stats）の照合状態レポートが実行可能か（成果物は書かない。要対応の中身は壁時計依存なので CI では見ない。読み手＝月次レビュー /monthly-review 手順）',
+  },
+  {
+    id: 'roll-backlog-when',
+    cmd: ['node', 'scripts/roll-backlog-when.mjs'],
+    timeout: 30_000, ci: true,
+    note: '終わらなかったカードを翌月へ回すスクリプトが backlog.md を読めるか（表示だけで書かない。回す件数は壁時計依存なので CI では判定しない。読み手＝月次レビュー手順 8）',
+  },
+  {
+    id: 'qualification-market-report',
+    cmd: ['node', 'scripts/report-qualification-market.mjs', '--check'],
+    timeout: 30_000, ci: true,
+    note: '資格ごとの展開の判断材料（出題形式・受験者数・売上・市場の混み具合）の一覧が実行可能か（成果物は書かない。市場スキャンの古さなど要対応は壁時計依存なので CI では見ない。読み手＝月次レビュー /monthly-review 手順と管理画面 展開の判断）',
   },
   {
     id: 'site-to-sales-report',

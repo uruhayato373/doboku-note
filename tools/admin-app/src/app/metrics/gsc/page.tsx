@@ -69,7 +69,7 @@ export default async function GscPage({
         <h2>
           検索クエリ別
           <span className="sub">
-            <Freshness snapshot={querySnap} /> {querySnap?.file}
+            <Freshness snapshot={querySnap} />
           </span>
         </h2>
         <SnapshotPicker basePath="/metrics/gsc" files={queryHistory} current={querySnap?.file ?? ''} />

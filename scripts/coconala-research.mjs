@@ -36,7 +36,8 @@
  *   node scripts/coconala-research.mjs --query "技術士 添削"   # クエリ指定（複数可）
  *   node scripts/coconala-research.mjs --max-pages 3         # ページ数上限
  *   node scripts/coconala-research.mjs --details 20          # 上位N件は詳細ページも取得
- *   node scripts/coconala-research.mjs --force               # 既存を無視して最初から取り直す
+ *   node scripts/coconala-research.mjs --force               # 既存を無視して最初から取り直す（既定クエリ以外は消える）
+ *   node scripts/coconala-research.mjs --refresh             # 既存の全クエリを同じ語で取り直す（四半期 CI・語は残す）
  *   node scripts/coconala-research.mjs --headed              # 目視デバッグ
  * ---------------------------------------------------------------------------
  */
@@ -50,7 +51,11 @@ const ROOT = process.cwd();
 const OUT_DIR = join(ROOT, '.claude/state/coconala');
 const OUT_PATH = join(OUT_DIR, 'market-research.json');
 const SUMMARY_PATH = join(OUT_DIR, 'market-summary.json');
-const PROFILE = resolveProfileDir('coconala', { cwd: ROOT, repoRoot: ROOT });
+const IS_CI = process.env.CI === 'true' || process.env.GITHUB_ACTIONS === 'true';
+// CI は Playwright 管理の Chromium と runner の一時 profile（scout-coconala-competitors.mjs と同じ）。
+const PROFILE = IS_CI
+  ? join(process.env.RUNNER_TEMP || join(ROOT, '.tmp'), 'playwright-coconala-research-profile')
+  : resolveProfileDir('coconala', { cwd: ROOT, repoRoot: ROOT });
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 
 // --- 引数 ---
@@ -68,6 +73,7 @@ const MAX_PAGES = parseInt(getOne('--max-pages', '10'), 10);
 const DETAIL_TOP = parseInt(getOne('--details', '12'), 10);
 const HEADED = argv.includes('--headed');
 const FORCE = argv.includes('--force');
+const REFRESH = argv.includes('--refresh');
 
 /**
  * 価格文字列 → 数値（"10,000円" / "2,000 円" → 10000）
@@ -185,7 +191,7 @@ async function main() {
   mkdirSync(OUT_DIR, { recursive: true });
   const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
     headless: !HEADED,
-    channel: 'chrome',
+    ...(IS_CI ? {} : { channel: 'chrome' }),
     proxy: PROXY ? { server: PROXY } : undefined,
     ignoreHTTPSErrors: true,
     viewport: { width: 1366, height: 1000 },
@@ -204,7 +210,15 @@ async function main() {
   };
   if (prev) console.log(`[coconala-research] 既存を検出 → 再開モード（完了済み ${prev.queries.filter((q) => q.complete).length}/${prev.queries.length} クエリ）`);
 
-  for (const keyword of QUERIES) {
+  // --refresh: 既存の語を全部、途中経過を捨てて取り直す（語の一覧は market-research.json が持つ）。
+  const queries = REFRESH ? result.queries.map((x) => x.keyword) : QUERIES;
+  if (REFRESH) {
+    for (const x of result.queries) Object.assign(x, { pagesScanned: 0, complete: false, services: [] });
+    result.fetchedAt = new Date().toISOString();
+    console.log(`[coconala-research] --refresh: 既存 ${queries.length} 語を取り直す`);
+  }
+
+  for (const keyword of queries) {
     // --- 再開: 既存クエリを引き継ぐ ---
     let q = result.queries.find((x) => x.keyword === keyword);
     if (q?.complete) {
