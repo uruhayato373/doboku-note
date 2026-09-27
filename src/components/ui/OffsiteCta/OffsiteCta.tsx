@@ -39,14 +39,15 @@ export default function OffsiteCta({
               className="group flex h-full flex-col rounded-card-content border border-[var(--rule-soft)] bg-[var(--accent-fill)] px-4 py-3.5 transition-colors hover:border-[var(--accent)]"
             >
               <span className="mb-1.5 flex items-center gap-1.5">
-                <span className="inline-flex w-fit items-center rounded-full border border-[var(--rule-soft)] px-2 py-0.5 text-[11px] font-semibold text-[var(--ink-muted)]">
+                <span className="inline-flex w-fit items-center rounded-full border border-[var(--rule-soft)] px-2 py-0.5 text-[11px] font-semibold text-[var(--ink-body)]">
                   {CHANNEL_LABEL[it.channel]}
                 </span>
                 {it.affiliate && <AffiliatePrBadge />}
               </span>
               <span className="text-sm leading-6 text-ink-body">{it.catch}</span>
               {/* 価格の説明が長いと shrink-0 の価格にスマホで商品名が 1 文字幅まで潰され、価格が横にはみ出していた
-                  （2026-09-27 目視）。折り返しを許し、価格は収まらなければ次の行へ回す。 */}
+                  （2026-09-27 目視）。折り返しを許し、価格は収まらなければ次の行へ回す。
+                  ラベルと価格は accent-fill 地で ink-muted だとコントラスト不足（a11y e2e）なので ink-body。 */}
               <span className="mt-2 flex flex-wrap items-baseline justify-between gap-x-2 gap-y-1">
                 <span className="min-w-0 text-[14px] font-bold text-[var(--accent)] group-hover:underline">
                   {it.shortTitle}
@@ -54,7 +55,7 @@ export default function OffsiteCta({
                     ›
                   </span>
                 </span>
-                <span className="text-xs text-[var(--ink-muted)]">{it.price}</span>
+                <span className="text-xs text-[var(--ink-body)]">{it.price}</span>
               </span>
             </a>
           </li>
