@@ -75,7 +75,7 @@ frontmatter `group` の語彙は 7 値。定義は**問題形式**で与え、�
 
 ## 6. 横断テーマ（topics）
 
-- `src/config/topics.json` の 1 entry ＝ `/topics/{slug}`。必須: `slug` / `label` / `description` / `tags`（正規表記・各タグは 1 テーマにだけ属す）。任意: `categories`（カテゴリ丸ごと所属）、`standardKeywords` / `featuredStandardRefs`（基準文書の結線）、**`featured`（入口記事の論理 slug。一覧の先頭に固定）**。
+- `src/config/topics.json` の 1 entry ＝ `/topics/{slug}`。必須: `slug` / `label` / `description` / `tags`（正規表記・各タグは 1 テーマにだけ属す）。任意: `categories`（カテゴリ丸ごと所属）、`standardKeywords` / `featuredStandardRefs`（基準文書の結線）、**`featured`（入口記事の論理 slug。一覧の先頭に固定）**、`seoTitle`（検索クエリに合わせた title）・`demandEvidence`（下記 (1) の検索需要の根拠 1 行。`description` の直後に置く・ページには出さない）・`intro`（一覧の前に置く 2〜4 段落の編集リード）。ページの一覧は領域（資格試験／土木施工の実務／公的基準）→ 資格の順に区切る。
 - 記事側は frontmatter **`topics: [slug]`** で明示所属を宣言できる（タグ由来の自動収集に加える。`check-topic-wiring` が slug の実在を検査）。
 - **昇格基準**: (1) 検索需要の根拠を `description` の直下に 1 行で残す、(2) 05_IA の三方向（資格試験／施工実務／公的基準）のうち **2 方向以上**が公開時点で埋まる（目安: exam 5 本以上・practice 1 本以上・standards 1 件以上）、(3) 総監 5 管理のように基準が原理的に無いテーマは `standardKeywords: []` を許し、ページは基準節を出さない。
 - 三方向の件数と 0 件の方向は `check-content-taxonomy` の WARN で出す（読み手＝`/weekly-review` Phase 2）。

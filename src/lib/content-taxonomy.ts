@@ -31,6 +31,10 @@ export function getCategoryArea(category: string | undefined): PublicArea {
   return (category && categoryArea.get(category)) || 'exam';
 }
 
+export function getAreaLabel(area: PublicArea): string {
+  return areas[area]?.label ?? area;
+}
+
 export function getAreaHubPath(area: PublicArea): string {
   return areas[area]?.hubPath ?? '/exam';
 }
