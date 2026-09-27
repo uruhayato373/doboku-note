@@ -628,15 +628,6 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 
 **完了条件**: 2026年10月分の費用と作業時間が記録され、管理画面で受取額 − 費用と時間あたり受取額が出る。
 
-### [DN-0369] 演習開始・完了（quizStarts / quizCompletions）が 0 件の原因を調べる
-タグ: [インフラ・計測] [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-09-27]
-
-**起点**: 2026年8月の事業レポートで quizStarts・quizCompletions が全体 0 件（coverage は complete）。KPI ツリーの学習の段が測れていない。イベントの未発火か、集計の対象範囲の違いか未確認。
-
-**やること**: 本番の演習ページでイベントが GA4 に届くか（DebugView または GA4 のリアルタイム）を確かめ、届いていなければ実装を、届いていれば `fetch-business-metrics` の集計条件を直す。
-
-**完了条件**: 直近の完了週で quizStarts が 0 以外で記録されるか、0 が実態だと根拠付きで確認できる。
-
 
 ### [DN-0371] About ページを作る
 タグ: [UI・UX] [種類:制作] [領域:サイト] [時期:2026-10..2026-12] [起票:2026-09-27]
@@ -728,6 +719,8 @@ stats47 と同じ検討（両サイト共通の論点）。（出典: 2026-09-25
 
 **完了条件**: 旧 URL へのリンクが 0 件で、次の集計で同じ検索語に新 URL が出ている。
 
+**進捗（2026-09-27）**: 2 本とも旧 URL は 1 回の 301 で新 URL（200）へ転送されている。サイト内の旧 URL リンクは `pe-construction/shiken-toujitsu-tejun` の 1 か所だけで、新 URL へ直した（note・SNS には無し）。残りは次の GSC 集計で同じ検索語に新 URL が出るかの確認だけ。
+
 ### [DN-0390] 技術士 建設部門（60%）と RCCM（0%）のインデックス率が低い原因を調べて直す
 タグ: [インフラ・計測] [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-09-27]
 
@@ -774,6 +767,8 @@ stats47 と同じ検討（両サイト共通の論点）。（出典: 2026-09-25
 **やること**: 月次スキル（`.claude/skills/management/monthly-review/SKILL.md`）に週次と同じ形の「出力フォーマット」（手順ごとの節）と保存先 `docs/reviews/monthly/YYYY-MM-review.md` を足し、`.claude/config/review-wiring.json` の monthly の procedure を evidence: sections に切り替える（`scripts/lib/review-wiring.mjs` の buildProcedureView が月次レポートを読むように直す）。
 
 **完了条件**: 次の月次レビュー後に手順の点検（月次）で「記録が残らない」が 0 件になり、`npm run check-review-wiring` と `node --test tests/review-wiring.test.mjs` が通る。
+
+**進捗（2026-09-27）**: 実装済み（PR #665: review-wiring.json の report・月次スキルの出力フォーマット・buildProcedureView）。#665 のマージ後、最初の月次レビューのあとに手順の点検（月次）で完了条件を確かめて削除する。
 
 ### [DN-0398] 2026-07-19 の note 監査の残り（ライブ CTA 未反映・無料記事の CTA 重複・商品階層・magazines の CTA 監査・カバー文字溢れ）を実査して直す
 タグ: [コンテンツ品質] [領域:商品] [時期:2026-10] [種類:不具合] [起票:2026-09-27] [期日:2026-10-11]
