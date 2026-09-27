@@ -567,7 +567,7 @@ A8 側の `clicks` は参考値）。A8 から取るのは**成果（発生件�
 - [a8-affiliate-pipeline.md](a8-affiliate-pipeline.md) — A8 固有（案件開拓 scout ＋ 成果 CSV 取込）
 - [measurement-incidents.md](measurement-incidents.md) — 計測データの罠
 - `docs/strategy/04_収益化戦略.md` — 収益化戦略
-- `docs/operations/08_転職アフィリ記事ビルド計画.md` — 記事側の設計（note 記事 N1-N12 含む）
+- 記事側の設計（サイト S1〜S27・note N1〜N12）は完了し、計画書は 2026-09-27 に削除（原文 commit 747fab5d9 の「08_転職アフィリ記事ビルド計画」）。引用する事実の年次照合は backlog DN-0401
 - `docs/operations/09_BuildJob収益最大化スプリント.md` — 高意図 slug の選定根拠
 
 ### 2026-09-08（対象条件の照合と相談準備）
