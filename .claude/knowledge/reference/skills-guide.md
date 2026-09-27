@@ -38,6 +38,7 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 |---|---|---|
 | `/pdf-to-mdx` | PDF/画像 → MDX 変換（試験別テンプレート）。`--scanned` でテキスト層なしスキャン書籍を視覚 OCR（`scanned-textbook-transcriber`）→ 内部リファレンス .md ＋図クロップ | `PDF変換`, `MDX化`, `スキャン教材の文字起こし`, `書籍OCR`, `/pdf-to-mdx --exam {cem\|civil-construction-1\|general}`, `/pdf-to-mdx --scanned` |
 | `/exam-questions-import` | 過去問集 PDF → MDX（解答追加も可） | `過去問取込`, `/exam-questions-import --exam {civil-primary\|civil-secondary\|pe-primary\|pe-first-stage}` |
+| `/create-pop-image` | 承認済みPOP意匠でnote・SNS・ココナラ画像を制作し、原稿・プロンプト・原本を管理 | `POP画像`, `この感じで画像を作る`, `/create-pop-image` |
 | `/ogp-create` | サイト OGP（mono-tag・全幅＋資格別テーマ色外枠）生成。note 記事・マガジンカバーは 2026-09-17 から本スキル外の V5 キャラクターカバー（`generate-note-covers.mjs` / `generate-magazine-covers.mjs`・SSOT `.claude/knowledge/design-system/note-cover-character-v5.md`）で、本スキルはフォントと資格別背景写真を提供するだけ。デザイン SSOT は `.claude/knowledge/reference/ogp-prompts.md`（OGP）、一括目視 QA は `npm run ogp-gallery` / `npm run note-cover-gallery` | `OGP画像`, `noteカバー`, `/ogp-create` |
 | `/ogp-design-explore` | OGP 意匠の**新方向を aidesigner / Canva の MCP で素案として試作**し、採用案を `/ogp-create` の satori テンプレに落として量産につなぐ。試作専用（量産・per-article 生成は `/ogp-create`）。MCP は外部クレジット消費 | `OGPデザイン検討`, `OGP素案`, `OGPリデザイン試作`, `/ogp-design-explore` |
 | `/magazine-to-pdf` | note マガジンの article.md →「問題文＋解答」中心の紙用 PDF（spec 駆動・A/B案両収録） | `マガジンをPDF`, `記事を紙で`, `模範論文PDF`, `/magazine-to-pdf --spec scripts/pdf-specs/{name}.json [--desktop]` |
@@ -58,11 +59,11 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 | `/consolidate-duplicate-keyword` | 総監キーワード集の重複スラグ統合 | `重複スラグ統合`, `/consolidate-duplicate-keyword` |
 | `/note-prepublish-review` | note 公開前の統合品質ゲート | `note公開前チェック`, `公開準備`, `/note-prepublish-review` |
 | `/check-seo-meta` | out/ の正規 URL（sitemap + 公開記事 + 静的ルート）の title/description/self canonical/self og:url/robots/JSON-LD/SSR を検査（seo-checks 共有・母集合ガード） | `SEOメタ検査`, `OGP確認`, `/check-seo-meta` |
+| `/pe-essay-cycle` | 総監記述式の統括（draft/review/revise/plan/publish/page へルーティング）。`forecast` モードで年度ごとの予想（テーマ予測 3 軸スコア → 予想問題 → 固定 3 ペルソナ模範解答）を回す。手順は `references/forecast-flow.md` | `総監記述式の作業`, `記述式の予想問題`, `R9 予想`, `/pe-essay-cycle forecast --year R9` |
 | `/pe-essay-review` | 総監記述式模範論文を 3 視点で採点（**サイト** r0X-essay ページ。note 有料マガジンは `cem-essay-qa`） | `記述式採点`, `模範論文レビュー`, `/pe-essay-review` |
 | `/keiken-charcount` | 1級・2級土木 施工経験記述マガジン答案を解答欄しきい値で字数チェック（決定論的・暫定値） | `経験記述の字数確認`, `答案の字数オーバー検出`, `/keiken-charcount` |
 | `/keiken-tensaku` | 経験記述の顧客対応ドラフト生成（`civil-keiken-tensaku-drafter`）→ 返信文を `civil-keiken-tensaku-qa`＋`check-tensaku-reply` で PASS まで検証。①添削（既定・提出原稿→赤入れ）②作成（`--mode sakusei`・ココナラ S3・ヒアリング→答案ドラフト）③診断（`--mode shindan`・ココナラ S1・A/B/C＋ワースト3・書き換え文なし）。捏造禁止（回答にない事実を作らない） | `経験記述を添削`, `添削下書きを作成`, `経験記述の答案作成`, `ヒアリングから答案`, `経験記述を診断`, `/keiken-tensaku` |
-| `/coconala-publish` | ココナラ出品サービスを Playwright で新規出品・内容修正・価格反映・**棚の出し入れ（受付休止/再開/アーカイブ）**（`coconala-operator`。カタログ＋listings SoT→フォーム充填。account assert＋draft-first＋`--commit` gate。公開成功でカタログ書き戻し。休止系は `coconala-pause`＝`pauseReason` で恒久廃止と長期不在を区別・対象選択は `coconala-guards` でテスト固定） | `ココナラに出品`, `ココナラ出品を修正`, `ココナラ価格反映`, `ココナラを休止`, `出品を再開`, `/coconala-publish` |
-| `/brain-publish` | Brain キット商品を Playwright で出品・公開申請（`brain-operator`。カタログ＋listings SoT→Tiptap 充填。draft-first＋`--commit` gate・有料ライン/価格/確認モーダル assert・申請成功でカタログ書き戻し） | `Brainに出品`, `Brain商品を公開申請`, `/brain-publish` |
+| `/coconala-publish` | ココナラ出品サービスを Playwright で新規出品・内容修正・価格反映・**棚の出し入れ（受付休止/再開/アーカイブ）**（`coconala-operator`。カタログ＋listings SoT→フォーム充填。商品画像は承認原本を優先。account assert＋draft-first＋`--commit` gate。公開成功でカタログ書き戻し。休止系は `coconala-pause`＝`pauseReason` で恒久廃止と長期不在を区別・対象選択は `coconala-guards` でテスト固定） | `ココナラに出品`, `ココナラ出品を修正`, `ココナラ価格反映`, `ココナラを休止`, `出品を再開`, `/coconala-publish` |
 | `/coconala-order` | ココナラ受注1件のE2E（`coconala-operator`。土木はシート検証→`/keiken-tensaku`、PDF 商品は部門確認と特典同梱、技術士口頭 想定質問は運用テンプレ→納品文面ドラフト→orders-log 追記。最終赤入れ・送信は運営者） | `ココナラで受注した`, `ココナラの納品文面`, `/coconala-order` |
 | `/coconala-status` | ココナラ 受注実体の収集＋orders-log 突合（`coconala-orders`→`check-coconala-orders`＝記録漏れ・金額ズレ・返信期限・納品滞留）＋KPI 週次記録（`/coconala-analytics`）＋カタログ↔state↔sales 照合＋撤退ライン判定（read-only・是正はしない） | `ココナラの状態を確認`, `ココナラKPIを記録`, `/coconala-status` |
 | `/coconala-analytics` | ココナラ「サービス・ブログ分析」を Playwright で read-only 収集し `kpi-log.json` へ週次 upsert（`coconala-analytics`→`check-coconala-analytics`）。全体累計＋サービス別（listed 全件を URL 直打ち）＋ブログ別閲覧数。**数値は30日ローリング累計で週次増分ではない**・**`0000` はマスクで 0 ではない**（null 記録）・partial は exit 2。書き込みなし | `ココナラの数字を取る`, `ココナラKPIを自動取得`, `閲覧数を記録`, `/coconala-analytics` |
@@ -134,7 +135,7 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 
 | スキル | 一言説明 | 呼ぶとき |
 |---|---|---|
-| `/plan-weekly` | .claude/todo/ を読んで今週の優先タスクを決め weekly.md を直接更新（Sonnet 1回・軽量。※戦略計画は /weekly-plan） | `今週のタスクを決めて`, `今週何をすべきか`, `weekly.md更新`, `/plan-weekly` |
+| `/plan-weekly` | `[時期:]` が今月を含むカードから今週の優先タスクを決め weekly.md を直接更新（Sonnet 1回・軽量。※戦略計画は /weekly-plan） | `今週のタスクを決めて`, `今週何をすべきか`, `weekly.md更新`, `/plan-weekly` |
 | `/backlog-sweep` | backlog から1〜2件を選定→実査→実行→検証→**セクション削除**で台帳を減らす1サイクル（実査で既に完了なら掃除として削除）。`/loop` で自走。**`--audit` は台帳そのものの棚卸し**（`backlog-curator` を同時3体で起動し、1枚単位の sweep では見えない台帳全体を KEEP/RETAG/TRIM/MERGE/DELETE/RESEED/SPLIT に分類）。※計画を書く /plan-weekly とは別物 | `バックログを消化して`, `backlog を減らして`, `sweep を回して`, `バックログを棚卸しして`, `/backlog-sweep`, `/backlog-sweep --audit` |
 | `/weekly-improve` | 計測→改善候補→実験登録。`--rank-watch` は資格受験者優先・7日観察・実行記録・28日方針レビュー | `SEO Rank Watch`, `今週の改善`, `PDCA`, `/weekly-improve` |
 | `/gsc-review` | 月次 GSC index coverage レビュー（gsc-index-auditor 起動→判断ログ追記） | `GSC月次レビュー`, `インデックス率`, `index coverage`, `/gsc-review` |
@@ -142,12 +143,12 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 | `/google-search-growth` | GSC/GA4 の Playwright UI CSV 取得→既存 API と URL 突合→修正候補分類（approval gate で停止・ローカル専用） | `検索流入改善`, `GSC CSV 取得`, `GSC/GA4 統合診断`, `/google-search-growth` |
 | `/monthly-review` | 前月の資格別KPI・販売・運営負担から重点と目標、次の改善を記録 | `月次レビュー`, `前月の振り返り`, `/monthly-review` |
 | `/weekly-review` | 資格別KPI・判断を週次履歴へ記録し、次の改善へ接続。Xは投入済みの最終予約記録と未投入計画を区別する。申し送りは各項目を backlog 起票／定常／Issue／実験へ振り分ける（旧週削除時の抽出もれは pre-commit が止める） | `週次レビュー`, `今週の振り返り`, `/weekly-review` |
-| `/weekly-plan` | 週次計画を生成（NSM・メトリクス連動・重め。`/weekly-review` 完了後に自動起動） | `戦略的週次計画`, `NSM込みの計画`, `/weekly-plan` |
+| `/weekly-plan` | 戦略的な週次計画を生成（NSM・メトリクス連動・重め。手動のみ。週間計画の正本 weekly.md は `/plan-weekly`） | `戦略的週次計画`, `NSM込みの計画`, `/weekly-plan` |
 | `/nsm-experiment` | NSM 改善の実験ライフサイクル管理 | `実験登録`, `NSM実験`, `/nsm-experiment` |
 | `/north-star-metric` | 学習価値・集客・販売・運営負担のKPI定義と実測に基づく目標を共通SSOTへ記録 | `NSM定義`, `北極星指標`, `/north-star-metric` |
 | `/growth-loops` | 成長ループの設計・評価 | `成長ループ`, `フライホイール設計`, `/growth-loops` |
 | `/monetization-strategy` | 収益化戦略のブレインストーム | `収益化`, `月X万円達成するには`, `/monetization-strategy` |
-| `/competitor-review` | 競合の価格・品揃えを**全チャネル横断**（note/X/IG/ココナラ/Brain・`--platform`）で四半期再取得（scout＋時系列drift）→ competitor-analyst で差別化再評価＋反映パッチ（09/07）。有料本文は取得不可 | `競合を再調査`, `競合レビュー`, `競合の価格を再取得`, `/competitor-review` |
+| `/competitor-review` | 競合の価格・品揃えを**全チャネル横断**（note/X/IG/ココナラ/YouTube・`--platform`）で四半期再取得（scout＋時系列drift＋資格キーワードの市場スキャン `scan-qualification-market`）→ competitor-analyst で差別化再評価＋反映パッチ（09/07）。有料本文は取得不可 | `競合を再調査`, `競合レビュー`, `競合の価格を再取得`, `/competitor-review` |
 | `/knowledge` | 過去の失敗・教訓を参照・追記 | `ナレッジ参照`, `失敗から学ぶ`, `/knowledge` |
 | `/critical-review` | 批判的レビュー | `批判的に見て`, `/critical-review` |
 | `/pre-mortem` | Pre-Mortem の実施 | `Pre-Mortem`, `リスク洗い出し`, `/pre-mortem` |
@@ -245,7 +246,7 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 ### 週次 PDCA を回したい
 
 1. `/weekly-improve` — 計測データから改善候補を自動抽出・実験登録（performance）
-2. `/weekly-review` → `/weekly-plan` — 振り返りと翌週計画の作成
+2. `/weekly-review` → `/plan-weekly` — 振り返りと翌週の週間計画（weekly.md）の更新
 
 ### GSC のインデックス状況（登録/未登録）を管理したい
 

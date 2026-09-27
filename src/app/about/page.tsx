@@ -91,7 +91,7 @@ export default function AboutPage() {
               今後の展開
             </h4>
             <p className="text-sm text-[var(--ink-muted)] leading-relaxed">
-              現在は<strong>1級土木施工管理技士</strong>・<strong>技術士（総合技術監理部門）</strong>を中心にコンテンツを整備していますが、運営者が取得してきた<strong>技術士（建設部門）・コンクリート主任技士・コンクリート診断士・1級舗装施工管理技術者・行政書士・応用情報技術者</strong>などの受験経験を活かし、土木・建設・法務・IT にまたがる多様な資格試験の対策コンテンツを順次展開していく予定です。
+              現在は<strong>1級土木施工管理技士</strong>・<strong>技術士（総合技術監理部門）</strong>を中心にコンテンツを整備していますが、運営者が取得してきた<strong>技術士（建設部門・上下水道部門）・コンクリート主任技士・コンクリート診断士・1級舗装施工管理技術者・測量士・行政書士・応用情報技術者</strong>などの受験経験を活かし、土木・建設・法務・IT にまたがる多様な資格試験の対策コンテンツを順次展開していく予定です。
             </p>
           </div>
         </SectionCard>
@@ -151,7 +151,7 @@ export default function AboutPage() {
                 <div className="bg-[var(--bg)] border border-[var(--rule-soft)] rounded-card-content p-4">
                   <div className="flex items-center gap-4">
                     <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-card-inline bg-[var(--accent)]">
-                      <BookOpen className="w-6 h-6 text-white" />
+                      <BookOpen className="w-6 h-6 text-[var(--paper)]" />
                     </div>
                     <div>
                       <h4 className="font-bold text-[var(--ink)] mb-1">
@@ -166,7 +166,7 @@ export default function AboutPage() {
                 <div className="bg-[var(--bg)] border border-[var(--rule-soft)] rounded-card-content p-4">
                   <div className="flex items-center gap-4">
                     <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-card-inline bg-[var(--accent)]">
-                      <FileText className="w-6 h-6 text-white" />
+                      <FileText className="w-6 h-6 text-[var(--paper)]" />
                     </div>
                     <div>
                       <h4 className="font-bold text-[var(--ink)] mb-1">
@@ -181,7 +181,7 @@ export default function AboutPage() {
                 <div className="bg-[var(--bg)] border border-[var(--rule-soft)] rounded-card-content p-4">
                   <div className="flex items-center gap-4">
                     <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-card-inline bg-[var(--accent)]">
-                      <GraduationCap className="w-6 h-6 text-white" />
+                      <GraduationCap className="w-6 h-6 text-[var(--paper)]" />
                     </div>
                     <div>
                       <h4 className="font-bold text-[var(--ink)] mb-1">
@@ -205,7 +205,7 @@ export default function AboutPage() {
                 <div className="bg-[var(--bg)] border border-[var(--rule-soft)] rounded-card-content p-4">
                   <div className="flex items-center gap-4">
                     <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-card-inline bg-[var(--accent)]">
-                      <Target className="w-6 h-6 text-white" />
+                      <Target className="w-6 h-6 text-[var(--paper)]" />
                     </div>
                     <div>
                       <h4 className="font-bold text-[var(--ink)] mb-1">
@@ -220,7 +220,7 @@ export default function AboutPage() {
                 <div className="bg-[var(--bg)] border border-[var(--rule-soft)] rounded-card-content p-4">
                   <div className="flex items-center gap-4">
                     <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-card-inline bg-[var(--accent)]">
-                      <Search className="w-6 h-6 text-white" />
+                      <Search className="w-6 h-6 text-[var(--paper)]" />
                     </div>
                     <div>
                       <h4 className="font-bold text-[var(--ink)] mb-1">
@@ -235,7 +235,7 @@ export default function AboutPage() {
                 <div className="bg-[var(--bg)] border border-[var(--rule-soft)] rounded-card-content p-4">
                   <div className="flex items-center gap-4">
                     <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-card-inline bg-[var(--accent)]">
-                      <CheckCircle className="w-6 h-6 text-white" />
+                      <CheckCircle className="w-6 h-6 text-[var(--paper)]" />
                     </div>
                     <div>
                       <h4 className="font-bold text-[var(--ink)] mb-1">
@@ -292,7 +292,7 @@ export default function AboutPage() {
         <div className="flex flex-wrap gap-3">
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 bg-[var(--accent)] text-white px-5 py-2.5 rounded-card-content font-medium hover:opacity-90 transition-opacity"
+            className="inline-flex items-center gap-2 bg-[var(--accent)] text-[var(--paper)] px-5 py-2.5 rounded-card-content font-medium hover:opacity-90 transition-opacity"
           >
             お問い合わせフォーム
           </Link>

@@ -3,6 +3,7 @@ name: review-mobile
 description: >
   MDXコンテンツのモバイル視認性・可読性をレビューする。表の不適切な使用、数式の可読性、解説の冗長さを検出し修正案を提示する。
   Use when user asks to [モバイルレビュー, 表示確認, 可読性チェック, /review-mobile].
+domain: site
 ---
 
 MDX コンテンツをモバイル視認性・可読性の観点でレビューし、問題を検出・分類・修正提案する。

@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-09-23T00:55:57.389Z",
+  "generated_at": "2026-09-26T02:51:14.215Z",
   "summary": {
-    "total_mdx_files": 1278,
+    "total_mdx_files": 1280,
     "total_unique_tags": 123,
     "allowlist_size": 318,
     "known_count": 123,
@@ -1084,7 +1084,7 @@
     },
     {
       "name": "guide",
-      "count": 192,
+      "count": 194,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1169,6 +1169,7 @@
         "civil-construction-2-secondary-written-questions-guide",
         "civil-practice-asphalt-pavement-control",
         "civil-practice-backfill-river-excavation",
+        "civil-practice-board-of-audit-inspection",
         "civil-practice-cast-in-place-pile-methods",
         "civil-practice-checklist-shoring-buoyancy",
         "civil-practice-concrete-compaction-numbers",
@@ -1179,6 +1180,7 @@
         "civil-practice-concrete-placement-timing",
         "civil-practice-concrete-pump-capacity",
         "civil-practice-concrete-repair-leakage",
+        "civil-practice-construction-inspection-types",
         "civil-practice-construction-plan-document",
         "civil-practice-cost-and-design-change",
         "civil-practice-earth-retaining-displacement",
@@ -3140,7 +3142,7 @@
     },
     {
       "name": "品質管理",
-      "count": 36,
+      "count": 38,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-secondary-quality-management-basics",
@@ -3149,6 +3151,8 @@
         "civil-construction-1-textbook-histogram",
         "civil-construction-1-textbook-quality-inspection",
         "civil-construction-1-textbook-quality-overview",
+        "civil-practice-board-of-audit-inspection",
+        "civil-practice-construction-inspection-types",
         "civil-practice-material-selection-receiving",
         "civil-practice-numerical-model-review",
         "civil-practice-quality-record-site-bcp",
@@ -3287,6 +3291,39 @@
       ]
     },
     {
+      "name": "施工計画",
+      "count": 26,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-secondary-construction-plan-basics",
+        "civil-construction-1-secondary-construction-plan-past-problems",
+        "civil-construction-1-textbook-construction-mgmt-overview",
+        "civil-construction-1-textbook-construction-plan-overview",
+        "civil-construction-1-textbook-management-subplans",
+        "civil-construction-1-textbook-site-investigation",
+        "civil-construction-1-textbook-work-scheduling",
+        "civil-practice-ai-document-verification",
+        "civil-practice-bim-cim-site-practice",
+        "civil-practice-construction-inspection-types",
+        "civil-practice-construction-plan-document",
+        "civil-practice-cost-and-design-change",
+        "civil-practice-earthquake-tsunami-site-response",
+        "civil-practice-gis-layer-validation",
+        "civil-practice-ict-construction-workflow",
+        "civil-practice-material-selection-receiving",
+        "civil-practice-numerical-model-review",
+        "civil-practice-oshms-pdca-site-operation",
+        "civil-practice-quality-record-site-bcp",
+        "civil-practice-risk-assessment-construction-workflow",
+        "civil-practice-typhoon-forecast-work-planning",
+        "civil-practice-volcanic-hazard-site-planning",
+        "pe-comprehensive-management-construction-plan",
+        "pe-comprehensive-management-method-planning",
+        "pe-comprehensive-management-process-planning-construction",
+        "pe-construction-construction-planning-ronbun-keyword"
+      ]
+    },
+    {
       "name": "secondary",
       "count": 25,
       "inAllowlist": true,
@@ -3316,38 +3353,6 @@
         "civil-construction-2-secondary-r05",
         "civil-construction-2-secondary-r06",
         "civil-construction-2-secondary-r07"
-      ]
-    },
-    {
-      "name": "施工計画",
-      "count": 25,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-secondary-construction-plan-basics",
-        "civil-construction-1-secondary-construction-plan-past-problems",
-        "civil-construction-1-textbook-construction-mgmt-overview",
-        "civil-construction-1-textbook-construction-plan-overview",
-        "civil-construction-1-textbook-management-subplans",
-        "civil-construction-1-textbook-site-investigation",
-        "civil-construction-1-textbook-work-scheduling",
-        "civil-practice-ai-document-verification",
-        "civil-practice-bim-cim-site-practice",
-        "civil-practice-construction-plan-document",
-        "civil-practice-cost-and-design-change",
-        "civil-practice-earthquake-tsunami-site-response",
-        "civil-practice-gis-layer-validation",
-        "civil-practice-ict-construction-workflow",
-        "civil-practice-material-selection-receiving",
-        "civil-practice-numerical-model-review",
-        "civil-practice-oshms-pdca-site-operation",
-        "civil-practice-quality-record-site-bcp",
-        "civil-practice-risk-assessment-construction-workflow",
-        "civil-practice-typhoon-forecast-work-planning",
-        "civil-practice-volcanic-hazard-site-planning",
-        "pe-comprehensive-management-construction-plan",
-        "pe-comprehensive-management-method-planning",
-        "pe-comprehensive-management-process-planning-construction",
-        "pe-construction-construction-planning-ronbun-keyword"
       ]
     },
     {
@@ -4123,6 +4128,21 @@
       ]
     },
     {
+      "name": "地方公共団体",
+      "count": 8,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-board-of-audit-inspection",
+        "pe-comprehensive-management-essay-pattern-cross-year-application",
+        "pe-comprehensive-management-pattern-essay-road-municipality",
+        "pe-comprehensive-management-r03-essay-road-municipality",
+        "pe-comprehensive-management-r04-essay-road-municipality",
+        "pe-comprehensive-management-r05-essay-road-municipality",
+        "pe-comprehensive-management-r06-essay-road-municipality",
+        "pe-comprehensive-management-r07-essay-road-municipality"
+      ]
+    },
+    {
       "name": "専門土木",
       "count": 8,
       "inAllowlist": true,
@@ -4179,20 +4199,6 @@
         "rccm-guide-mondai3-themes-2026",
         "rccm-guide-overview",
         "rccm-guide-study-plan"
-      ]
-    },
-    {
-      "name": "地方公共団体",
-      "count": 7,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-essay-pattern-cross-year-application",
-        "pe-comprehensive-management-pattern-essay-road-municipality",
-        "pe-comprehensive-management-r03-essay-road-municipality",
-        "pe-comprehensive-management-r04-essay-road-municipality",
-        "pe-comprehensive-management-r05-essay-road-municipality",
-        "pe-comprehensive-management-r06-essay-road-municipality",
-        "pe-comprehensive-management-r07-essay-road-municipality"
       ]
     },
     {

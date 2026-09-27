@@ -2,7 +2,8 @@
 /**
  * coconala-thumb.mjs — ココナラ商品画像（サービスサムネ）を satori で生成
  * ---------------------------------------------------------------------------
- * ブランド流儀（brand-image-system）に沿い「AI 生成の雰囲気写真（文字なし）」を背景に、
+ * 承認済みの POP 画像は SHA-256 を照合してコピーし、再実行による旧意匠への巻き戻りを防ぐ。
+ * 未登録の商品は「AI 生成の雰囲気写真（文字なし）」を背景に、
  * サービス名・訴求・価格を satori/HTML で正確に重ねる（AI に日本語を焼き込ませない）。
  * キャンバス 1200×900（4:3・ココナラのサービス画像比率）。
  *
@@ -14,6 +15,7 @@
  * ---------------------------------------------------------------------------
  */
 import fs from 'node:fs';
+import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import satori from 'satori';
@@ -165,15 +167,15 @@ const THUMB_COPY = {
   },
   'coconala-sakusei': {
     eyebrow: '1級土木施工管理技士 ／ 第2次検定 経験記述',
-    title: ['経験記述 作成', '48時間で返却'],
-    hook: '質問シートに答えるだけ。\nあなたの実工事を読み手に伝わる答案に',
-    priceLabel: '2テーマ・書き直し1回込み',
+    title: ['経験記述 指導', '骨子から添削まで'],
+    hook: '実工事をヒアリングして骨子を設計。\nあなたが書いた答案を元発注者が添削',
+    priceLabel: '2テーマ・再添削1回込み',
   },
   'coconala-sakusei-4theme': {
     eyebrow: '1級土木施工管理技士 ／ 第2次検定 経験記述',
-    title: ['経験記述 作成', '全5テーマ'],
-    hook: '当日どの2テーマが出ても大丈夫。\n実工事を全5テーマ分そろえて備える',
-    priceLabel: '5テーマ・書き直し1回込み',
+    title: ['経験記述 指導', '全5テーマ'],
+    hook: '全5テーマの骨子を設計し、\nあなたが書いた答案を元発注者が添削',
+    priceLabel: '5テーマ・再添削1回込み',
   },
   'coconala-2kyu-tensaku': {
     eyebrow: '2級土木施工管理技士 ／ 第2次検定 経験記述',
@@ -189,15 +191,15 @@ const THUMB_COPY = {
   },
   'coconala-2kyu-sakusei': {
     eyebrow: '2級土木施工管理技士 ／ 第2次検定 経験記述',
-    title: ['経験記述 作成', '48時間で返却'],
-    hook: '質問シートに答えるだけ。\nあなたの実工事を読み手に伝わる答案に',
-    priceLabel: '2テーマ・書き直し1回込み',
+    title: ['経験記述 指導', '骨子から添削まで'],
+    hook: '実工事をヒアリングして骨子を設計。\nあなたが書いた答案を元発注者が添削',
+    priceLabel: '2テーマ・再添削1回込み',
   },
   'coconala-2kyu-sakusei-3theme': {
     eyebrow: '2級土木施工管理技士 ／ 第2次検定 経験記述',
-    title: ['経験記述 作成', '全3テーマ'],
-    hook: 'R6・R7の出題は品質・安全・工程。\n実工事を全3テーマ分そろえて備える',
-    priceLabel: '3テーマ・書き直し1回込み',
+    title: ['経験記述 指導', '全3テーマ'],
+    hook: 'R6・R7の出題は品質・安全・工程。\n全3テーマの骨子から添削まで',
+    priceLabel: '3テーマ・再添削1回込み',
   },
   'coconala-1kyu-premium': {
     eyebrow: '1級土木施工管理技士 ／ 第2次検定 教材＋添削',
@@ -370,6 +372,7 @@ async function resolveVisual(id, svc, bgOverride) {
   return { uri: bgDataUri(DEFAULT_BG), theme: THEMES.default, note: 'bg=既定(共通)' };
 }
 
+const approved = JSON.parse(fs.readFileSync(path.join(ROOT, '.claude/config/coconala-thumb-approved.json'), 'utf8')).images;
 const catalog = readCatalog();
 const listings = readListings();
 const DEFAULT_BG = '.claude/config/coconala/assets/bg-civil.png';
@@ -381,6 +384,18 @@ for (const id of targets) {
   if (!svc) { console.error('カタログに無い: ' + id); continue; }
   const hasOptions = (listings[id]?.options || []).length > 0;
   const out = getArg('--out') || `.claude/config/coconala/assets/thumb-${id.replace('coconala-', '')}.png`;
+  if (approved[id]) {
+    if (bgOverride) throw new Error(id + ': 承認済み画像は --bg で変更できません。承認原本を更新してください。');
+    const source = path.join(ROOT, approved[id].path);
+    if (!fs.existsSync(source)) throw new Error('承認済み画像がありません。Drive vault の coconala-asset から復元してください: ' + source);
+    const bytes = fs.readFileSync(source);
+    if (createHash('sha256').update(bytes).digest('hex') !== approved[id].sha256) throw new Error('承認原本の SHA-256 不一致: ' + id);
+    const destination = path.resolve(ROOT, out);
+    fs.mkdirSync(path.dirname(destination), { recursive: true });
+    fs.writeFileSync(destination, bytes);
+    console.log('[approved] ' + id + ' → ' + destination);
+    continue;
+  }
   const { uri, theme, note } = await resolveVisual(id, svc, bgOverride);
   await render(id, uri, out, svc.priceYen, hasOptions, theme, note);
 }

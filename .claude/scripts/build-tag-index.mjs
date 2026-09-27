@@ -21,6 +21,7 @@
 import { readdirSync, readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { join, relative, dirname, extname } from 'node:path';
 import matter from 'gray-matter';
+import { writeJsonIfChanged } from '../../scripts/lib/write-generated.mjs';
 
 const ROOT = process.cwd();
 const POSTS_ROOT = join(ROOT, 'content/site');
@@ -191,7 +192,7 @@ function main() {
   };
 
   mkdirSync(dirname(OUT_PATH), { recursive: true });
-  writeFileSync(OUT_PATH, JSON.stringify(output, null, 2) + '\n', 'utf8');
+  writeJsonIfChanged(OUT_PATH, output);
 
   console.log(`[tag-index] ✓ ${relative(ROOT, OUT_PATH)} に出力`);
   console.log(`  total unique tags: ${allTags.length}`);

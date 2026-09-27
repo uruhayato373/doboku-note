@@ -5,6 +5,7 @@ description: >
   メインスレッドが pdfimages で抽出・回転・分割した単ページ画像群（数枚）を Read し、本文・箇条書き・白書引用・見出し階層を保ったまま指定パスへ Write する。
   Use when user asks to [スキャン教材の文字起こし, 書籍OCR, スキャンPDFをMDX, /pdf-to-mdx --scanned のワーカー].
 model: sonnet
+domain: material
 ---
 
 # Scanned Textbook Transcriber Agent

@@ -115,3 +115,23 @@ export default function SearchPageClient({ images, examCards, otherCategories, p
     </>
   );
 }
+
+/**
+ * useSearchParams の解決待ち（Suspense fallback）でも、検索語なしの初期表示と同じ形を先に描く。
+ * 旧 fallback は「Loading…」1 行で、解決後に資格カード・人気記事のゼロステートへ置き換わって
+ * ページ全体が押し下げられていた（PSI desktop CLS 0.730 を毎日再現）。
+ */
+export function SearchPageFallback({ examCards, otherCategories, popular }: Omit<SearchPageClientProps, "images">) {
+  const noop = () => {};
+  return (
+    <>
+      <div className="mb-4">
+        <SearchBox value="" onChange={noop} placeholder="キーワードを入力して検索..." onSearch={noop} />
+      </div>
+      <div className="mb-8">
+        <SearchFilters category="" onCategoryChange={noop} hasQuery={false} onReset={noop} />
+      </div>
+      <SearchZeroState examCards={examCards} otherCategories={otherCategories} popular={popular} />
+    </>
+  );
+}

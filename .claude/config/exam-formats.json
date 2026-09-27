@@ -1,0 +1,1267 @@
+{
+  "schemaVersion": 1,
+  "verifiedAt": "2026-09-26",
+  "policy": "出題形式（区分ごとの答案の形式）と過去問の公開範囲の SSOT。資格 id は qualification-registry.json と同じで、全資格が必要（npm run check-exam-calendar が id の一致・語彙・照合記録・展開中の区分と product-lineup の区分の一致を検査）。展開の判断（npm run qualification-market・管理画面 展開の判断）が「自分で答案を組み立てる区分（経験記述・論文）」の受験者数と売上を並べるのに使う。展開中の資格は主担当が公式原文を読んで照合する（checkedBy: self）。記事・note に出題形式を書くときもここを参照し、記憶から写さない。",
+  "formatTypes": {
+    "mcq": "択一",
+    "written": "記述",
+    "experience": "経験記述",
+    "essay": "論文",
+    "oral": "口頭",
+    "practical": "実技"
+  },
+  "_formatTypes": "written=知識を問う記述（語句・短文・穴埋め・計算）/ experience=自分の工事・業務経験に基づく記述（施工経験記述・技術士の業務内容の詳細・RCCM 問題I 等）/ essay=課題に対する論文・小論文・専門記述。experience と essay が「自分で答案を組み立てる」区分で、売上はここに集中している（2026-09 の実売）。",
+  "stageKeys": {
+    "first": "一次（施工管理の第一次検定・公務員の第1次試験・技術士第一次試験）",
+    "second": "二次（施工管理の第二次検定・公務員の第2次試験）",
+    "written": "筆記（1 日で完結する試験・技術士第二次の筆記）",
+    "oral": "口頭・面接",
+    "practical": "実技"
+  },
+  "pastExamLevels": {
+    "public": "公式が公開",
+    "partial": "一部だけ公開",
+    "none": "公式は非公開",
+    "unknown": "未確認"
+  },
+  "exams": {
+    "civil-construction-1": {
+      "stages": [
+        {
+          "key": "first",
+          "label": "第一次検定",
+          "types": [
+            "mcq"
+          ],
+          "detail": "四肢択一（必須＋選択）。合格で1級土木施工管理技士補"
+        },
+        {
+          "key": "second",
+          "label": "第二次検定",
+          "types": [
+            "experience",
+            "written"
+          ],
+          "detail": "問題1 経験記述（設問2つ・テーマは年度で変わる。R7 は品質管理・環境対策）＋必須・選択の記述"
+        }
+      ],
+      "pastExams": {
+        "questions": "partial",
+        "answers": "partial",
+        "note": "JCTC が第一次の問題と正答肢、第二次の問題を掲載（直近の年度のみ）。第二次の解答は非公表",
+        "source": "https://www.jctc.jp/mondai/"
+      },
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "self",
+        "unresolved": [],
+        "pending": [],
+        "notPublished": []
+      }
+    },
+    "civil-construction-2": {
+      "stages": [
+        {
+          "key": "first",
+          "label": "第一次検定（前期・後期）",
+          "types": [
+            "mcq"
+          ],
+          "detail": "四肢択一。前期・後期の年2回"
+        },
+        {
+          "key": "second",
+          "label": "第二次検定",
+          "types": [
+            "experience",
+            "written"
+          ],
+          "detail": "問題1 経験記述（必須）＋記述・穴埋め"
+        }
+      ],
+      "pastExams": {
+        "questions": "partial",
+        "answers": "partial",
+        "note": "JCTC が第一次の問題と正答肢、第二次の問題を掲載（直近の年度のみ）。第二次の解答は非公表",
+        "source": "https://www.jctc.jp/mondai/"
+      },
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "self",
+        "unresolved": [],
+        "pending": [],
+        "notPublished": []
+      }
+    },
+    "pe-first-stage": {
+      "stages": [
+        {
+          "key": "first",
+          "label": "第一次試験",
+          "types": [
+            "mcq"
+          ],
+          "detail": "基礎・適性・専門の3科目とも五肢択一マークシート(筆記のみ)"
+        }
+      ],
+      "pastExams": {
+        "questions": "public",
+        "answers": "public",
+        "note": "全問マークシートのため過去問・正答とも公式に全年度公開",
+        "source": "https://www.engineer.or.jp/c_categories/index02021.html"
+      },
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "self",
+        "unresolved": [],
+        "pending": [],
+        "notPublished": []
+      }
+    },
+    "pe-construction": {
+      "stages": [
+        {
+          "key": "written",
+          "label": "筆記試験",
+          "types": [
+            "written",
+            "essay"
+          ],
+          "detail": "必須I(記述2h,課題解決能力)essay/選択II(記述,専門知識・応用能力)written/選択III(記述,課題遂行)essay計3.5h"
+        },
+        {
+          "key": "oral",
+          "label": "口頭試験",
+          "types": [
+            "oral",
+            "experience"
+          ],
+          "detail": "筆記合格者のみ。記述式答案と業務経歴(業務内容の詳細)を踏まえ試問"
+        }
+      ],
+      "pastExams": {
+        "questions": "public",
+        "answers": "none",
+        "note": "過去問題(問題文)は公式公開。記述式のため模範解答・正答は非公表",
+        "source": "https://www.engineer.or.jp/c_categories/index02022.html"
+      },
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "self",
+        "unresolved": [],
+        "pending": [],
+        "notPublished": []
+      }
+    },
+    "pe-comprehensive-management": {
+      "stages": [
+        {
+          "key": "written",
+          "label": "筆記試験",
+          "types": [
+            "mcq",
+            "essay",
+            "written"
+          ],
+          "detail": "必須I:択一(2h,5管理技術)+記述(3.5h)essay。選択IIは選んだ技術部門と同一(専門知識・応用能力)written"
+        },
+        {
+          "key": "oral",
+          "label": "口頭試験",
+          "types": [
+            "oral",
+            "experience"
+          ],
+          "detail": "筆記合格者のみ。必須記述答案と業務経歴(業務内容の詳細)を踏まえ試問"
+        }
+      ],
+      "pastExams": {
+        "questions": "public",
+        "answers": "partial",
+        "note": "択一式は正答を公式公開。必須記述・選択科目の模範解答は非公表",
+        "source": "https://www.engineer.or.jp/c_topics/003/003935.html"
+      },
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "self",
+        "unresolved": [],
+        "pending": [],
+        "notPublished": []
+      }
+    },
+    "rccm": {
+      "stages": [
+        {
+          "key": "written",
+          "label": "試験A・試験B(1日でCBT実施)",
+          "types": [
+            "experience",
+            "mcq",
+            "essay"
+          ],
+          "detail": "試験A:問題I業務経験論文(記述)+問題II択一。試験B:問題III管理技術力小論文(テーマ事前公表)+問題IV択一"
+        }
+      ],
+      "pastExams": {
+        "questions": "partial",
+        "answers": "none",
+        "note": "問題III（管理技術力）の出題テーマだけ試験前に公表。過去問・正答の公式公開は無い",
+        "source": "https://www.rccm-cpd.com/rccm/rccmtop.html"
+      },
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "self",
+        "unresolved": [
+          "過去の試験問題を公式に公開していないことは、RCCM 試験のトップページに掲載が無いことからの判断（受験の手引き PDF の本文は未読）"
+        ],
+        "pending": [],
+        "notPublished": []
+      }
+    },
+    "concrete-engineer": {
+      "stages": [
+        {
+          "key": "written",
+          "label": "筆記試験",
+          "types": [
+            "mcq"
+          ],
+          "detail": "四肢択一式および〇✕式のみ(記述式なし)"
+        }
+      ],
+      "pastExams": {
+        "questions": "none",
+        "answers": "partial",
+        "note": "合格発表と同時に択一の正解肢を約1か月だけ掲載。問題文は公開していない",
+        "source": "https://www.jci-net.or.jp/j/exam/gishi/qa.html"
+      },
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "self",
+        "unresolved": [],
+        "pending": [],
+        "notPublished": []
+      }
+    },
+    "concrete-chief-engineer": {
+      "stages": [
+        {
+          "key": "written",
+          "label": "筆記試験",
+          "types": [
+            "mcq",
+            "essay"
+          ],
+          "detail": "四肢択一式+記述式小論文(コンクリートの製造・施工・管理等の課題論文)"
+        }
+      ],
+      "pastExams": {
+        "questions": "none",
+        "answers": "partial",
+        "note": "合格発表と同時に択一の正解肢を約1か月だけ掲載。問題文と小論文の解答は公開していない",
+        "source": "https://www.jci-net.or.jp/j/exam/gishi/qa.html"
+      },
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "self",
+        "unresolved": [],
+        "pending": [],
+        "notPublished": []
+      }
+    },
+    "concrete-diagnostician": {
+      "stages": [
+        {
+          "key": "written",
+          "label": "筆記試験",
+          "types": [
+            "mcq",
+            "essay"
+          ],
+          "detail": "問題A四肢択一(マークシート)+問題B記述式(劣化事例の診断・対策を論述、選択式)"
+        }
+      ],
+      "pastExams": {
+        "questions": "none",
+        "answers": "partial",
+        "note": "試験の約2か月後に択一（問題A）の正解肢を約1か月だけ掲載。問題文と問題B（記述）の解答は公開していない",
+        "source": "https://www.jci-net.or.jp/j/exam/shindan/index.html"
+      },
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "self",
+        "unresolved": [],
+        "pending": [],
+        "notPublished": []
+      }
+    },
+    "pe-information": {
+      "stages": [
+        {
+          "key": "written",
+          "label": "筆記試験",
+          "types": [
+            "written",
+            "essay"
+          ],
+          "detail": "建設部門等と共通構造。必須I(記述2h)essay/選択II(記述)written/選択III(記述)essay計3.5h"
+        },
+        {
+          "key": "oral",
+          "label": "口頭試験",
+          "types": [
+            "oral",
+            "experience"
+          ],
+          "detail": "筆記合格者のみ。記述式答案と業務経歴(業務内容の詳細)を踏まえ試問"
+        }
+      ],
+      "pastExams": {
+        "questions": "public",
+        "answers": "none",
+        "note": "全部門共通。過去問題は公式公開だが記述式のため模範解答は非公表",
+        "source": "https://www.engineer.or.jp/c_categories/index02022.html"
+      },
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "agent",
+        "unresolved": [
+          "情報工学部門の選択科目別テーマ内容までは個別確認していない(共通の記述式構造のみ一次資料で確認)"
+        ],
+        "pending": [],
+        "notPublished": []
+      }
+    },
+    "pe-water-supply": {
+      "stages": [
+        {
+          "key": "written",
+          "label": "筆記試験",
+          "types": [
+            "written",
+            "essay"
+          ],
+          "detail": "必須科目I（記述・論文）＋選択科目II・III（上水道及び工業用水道／下水道から1つ）。建設部門と同じ構造"
+        },
+        {
+          "key": "oral",
+          "label": "口頭試験",
+          "types": [
+            "oral",
+            "experience"
+          ],
+          "detail": "筆記合格者のみ。記述式答案と業務経歴(業務内容の詳細)を踏まえ試問"
+        }
+      ],
+      "pastExams": {
+        "questions": "public",
+        "answers": "none",
+        "note": "日本技術士会が令和元年度以降の必須・選択科目の問題を公開。記述式のため解答は非公表",
+        "source": "https://www.engineer.or.jp/c_categories/index02022230.html"
+      },
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "self",
+        "unresolved": [],
+        "pending": [],
+        "notPublished": []
+      }
+    },
+    "pe-agriculture": {
+      "stages": [
+        {
+          "key": "written",
+          "label": "筆記試験",
+          "types": [
+            "written",
+            "essay"
+          ],
+          "detail": "建設部門等と共通構造。必須I(記述2h)essay/選択II(記述)written/選択III(記述)essay計3.5h"
+        },
+        {
+          "key": "oral",
+          "label": "口頭試験",
+          "types": [
+            "oral",
+            "experience"
+          ],
+          "detail": "筆記合格者のみ。記述式答案と業務経歴(業務内容の詳細)を踏まえ試問"
+        }
+      ],
+      "pastExams": {
+        "questions": "public",
+        "answers": "none",
+        "note": "全部門共通。過去問題は公式公開だが記述式のため模範解答は非公表",
+        "source": "https://www.engineer.or.jp/c_categories/index02022.html"
+      },
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "agent",
+        "unresolved": [
+          "農業部門の選択科目別テーマ内容までは個別確認していない(共通の記述式構造のみ一次資料で確認)"
+        ],
+        "pending": [],
+        "notPublished": []
+      }
+    },
+    "pe-forestry": {
+      "stages": [
+        {
+          "key": "written",
+          "label": "筆記試験",
+          "types": [
+            "written",
+            "essay"
+          ],
+          "detail": "建設部門等と共通構造。必須I(記述2h)essay/選択II(記述)written/選択III(記述)essay計3.5h"
+        },
+        {
+          "key": "oral",
+          "label": "口頭試験",
+          "types": [
+            "oral",
+            "experience"
+          ],
+          "detail": "筆記合格者のみ。記述式答案と業務経歴(業務内容の詳細)を踏まえ試問"
+        }
+      ],
+      "pastExams": {
+        "questions": "public",
+        "answers": "none",
+        "note": "全部門共通。過去問題は公式公開だが記述式のため模範解答は非公表",
+        "source": "https://www.engineer.or.jp/c_categories/index02022.html"
+      },
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "agent",
+        "unresolved": [
+          "森林部門の選択科目別テーマ内容までは個別確認していない(共通の記述式構造のみ一次資料で確認)"
+        ],
+        "pending": [],
+        "notPublished": []
+      }
+    },
+    "pe-fisheries": {
+      "stages": [
+        {
+          "key": "written",
+          "label": "筆記試験",
+          "types": [
+            "written",
+            "essay"
+          ],
+          "detail": "建設部門等と共通構造。必須I(記述2h)essay/選択II(記述)written/選択III(記述)essay計3.5h"
+        },
+        {
+          "key": "oral",
+          "label": "口頭試験",
+          "types": [
+            "oral",
+            "experience"
+          ],
+          "detail": "筆記合格者のみ。記述式答案と業務経歴(業務内容の詳細)を踏まえ試問"
+        }
+      ],
+      "pastExams": {
+        "questions": "public",
+        "answers": "none",
+        "note": "全部門共通。過去問題は公式公開だが記述式のため模範解答は非公表",
+        "source": "https://www.engineer.or.jp/c_categories/index02022.html"
+      },
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "agent",
+        "unresolved": [
+          "水産部門の選択科目別テーマ内容までは個別確認していない(共通の記述式構造のみ一次資料で確認)"
+        ],
+        "pending": [],
+        "notPublished": []
+      }
+    },
+    "pe-environment": {
+      "stages": [
+        {
+          "key": "written",
+          "label": "筆記試験",
+          "types": [
+            "written",
+            "essay"
+          ],
+          "detail": "建設部門等と共通構造。必須I(記述2h)essay/選択II(記述)written/選択III(記述)essay計3.5h"
+        },
+        {
+          "key": "oral",
+          "label": "口頭試験",
+          "types": [
+            "oral",
+            "experience"
+          ],
+          "detail": "筆記合格者のみ。記述式答案と業務経歴(業務内容の詳細)を踏まえ試問"
+        }
+      ],
+      "pastExams": {
+        "questions": "public",
+        "answers": "none",
+        "note": "全部門共通。過去問題は公式公開だが記述式のため模範解答は非公表",
+        "source": "https://www.engineer.or.jp/c_categories/index02022.html"
+      },
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "agent",
+        "unresolved": [
+          "環境部門の選択科目別テーマ内容までは個別確認していない(共通の記述式構造のみ一次資料で確認)"
+        ],
+        "pending": [],
+        "notPublished": []
+      }
+    },
+    "pe-applied-science": {
+      "stages": [
+        {
+          "key": "written",
+          "label": "筆記試験",
+          "types": [
+            "written",
+            "essay"
+          ],
+          "detail": "建設部門等と共通構造。必須I(記述2h)essay/選択II(記述)written/選択III(記述)essay計3.5h"
+        },
+        {
+          "key": "oral",
+          "label": "口頭試験",
+          "types": [
+            "oral",
+            "experience"
+          ],
+          "detail": "筆記合格者のみ。記述式答案と業務経歴(業務内容の詳細)を踏まえ試問"
+        }
+      ],
+      "pastExams": {
+        "questions": "public",
+        "answers": "none",
+        "note": "全部門共通。過去問題は公式公開だが記述式のため模範解答は非公表",
+        "source": "https://www.engineer.or.jp/c_categories/index02022.html"
+      },
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "agent",
+        "unresolved": [
+          "応用理学部門の選択科目別テーマ内容までは個別確認していない(共通の記述式構造のみ一次資料で確認)"
+        ],
+        "pending": [],
+        "notPublished": []
+      }
+    },
+    "pe-sanitary": {
+      "stages": [
+        {
+          "key": "written",
+          "label": "筆記試験",
+          "types": [
+            "written",
+            "essay"
+          ],
+          "detail": "建設部門等と共通構造。必須I(記述2h)essay/選択II(記述)written/選択III(記述)essay計3.5h"
+        },
+        {
+          "key": "oral",
+          "label": "口頭試験",
+          "types": [
+            "oral",
+            "experience"
+          ],
+          "detail": "筆記合格者のみ。記述式答案と業務経歴(業務内容の詳細)を踏まえ試問"
+        }
+      ],
+      "pastExams": {
+        "questions": "public",
+        "answers": "none",
+        "note": "全部門共通。過去問題は公式公開だが記述式のため模範解答は非公表",
+        "source": "https://www.engineer.or.jp/c_categories/index02022.html"
+      },
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "agent",
+        "unresolved": [
+          "衛生工学部門の選択科目別テーマ内容までは個別確認していない(共通の記述式構造のみ一次資料で確認)"
+        ],
+        "pending": [],
+        "notPublished": []
+      }
+    },
+    "construction-machinery-1": {
+      "stages": [
+        {
+          "key": "first",
+          "label": "第一次検定",
+          "types": [
+            "mcq"
+          ],
+          "detail": "四肢択一マークシート方式（筆記、3時間）"
+        },
+        {
+          "key": "second",
+          "label": "第二次検定（筆記）",
+          "types": [
+            "written"
+          ],
+          "detail": "記述式。組合せ施工法・施工管理法・建設機械施工法。R6〜工事概要提示型"
+        },
+        {
+          "key": "practical",
+          "label": "第二次検定（実技）",
+          "types": [
+            "practical"
+          ],
+          "detail": "申込時選択した第1〜6種のうち2種別の建設機械を実機操作"
+        }
+      ],
+      "pastExams": {
+        "questions": "public",
+        "answers": "partial",
+        "note": "第一次は正答公表。第二次筆記(記述式)は正答非公表",
+        "source": "https://jcmanet-shiken.jp/2025/06/16/r7_1_2kyusikennmondai_kohyo/"
+      },
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "agent",
+        "unresolved": [],
+        "pending": [],
+        "notPublished": []
+      }
+    },
+    "construction-machinery-2": {
+      "stages": [
+        {
+          "key": "first",
+          "label": "第一次検定",
+          "types": [
+            "mcq"
+          ],
+          "detail": "共通問題＋種別問題の四肢択一マークシート方式（3時間）"
+        },
+        {
+          "key": "second",
+          "label": "第二次検定（筆記）",
+          "types": [
+            "mcq"
+          ],
+          "detail": "施工管理法に関する四肢択一20問。得点率60%以上（12問以上）で合格"
+        },
+        {
+          "key": "practical",
+          "label": "第二次検定（実技）",
+          "types": [
+            "practical"
+          ],
+          "detail": "選択種別の建設機械を実機操作。得点率70%以上で合格"
+        }
+      ],
+      "pastExams": {
+        "questions": "public",
+        "answers": "partial",
+        "note": "第一次は正答公表。第二次筆記(択一)の正答は合格発表時に公表",
+        "source": "https://jcmanet-shiken.jp/2025/06/16/r7_1_2kyusikennmondai_kohyo/"
+      },
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "agent",
+        "unresolved": [],
+        "pending": [],
+        "notPublished": []
+      }
+    },
+    "landscape-1": {
+      "stages": [
+        {
+          "key": "first",
+          "label": "第一次検定",
+          "types": [
+            "mcq"
+          ],
+          "detail": "四肢択一マークシート方式"
+        },
+        {
+          "key": "second",
+          "label": "第二次検定",
+          "types": [
+            "written"
+          ],
+          "detail": "R6〜経験記述を廃止。施工管理法の必須記述4問構成に変更"
+        }
+      ],
+      "pastExams": {
+        "questions": "partial",
+        "answers": "partial",
+        "note": "記述設問は正答非公表。直近2年度分のみ公式掲載",
+        "source": "https://www.jctc.jp/mondai/"
+      },
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "agent",
+        "unresolved": [
+          "「施工管理法4問」の内訳は二次情報に基づく。公式受検の手引きPDFの本文で直接未確認"
+        ],
+        "pending": [],
+        "notPublished": []
+      }
+    },
+    "landscape-2": {
+      "stages": [
+        {
+          "key": "first",
+          "label": "第一次検定（前期・後期）",
+          "types": [
+            "mcq"
+          ],
+          "detail": "四肢択一マークシート方式"
+        },
+        {
+          "key": "second",
+          "label": "第二次検定",
+          "types": [
+            "written"
+          ],
+          "detail": "R6〜経験記述を廃止。造園施工管理・安全管理の必須記述2問(3時間)"
+        }
+      ],
+      "pastExams": {
+        "questions": "partial",
+        "answers": "partial",
+        "note": "記述設問は正答非公表。直近2年度分のみ公式掲載",
+        "source": "https://www.jctc.jp/mondai/"
+      },
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "agent",
+        "unresolved": [
+          "「造園施工管理」「安全管理」の2問構成は令和6年度実例に基づく二次情報。年度により変わりうる"
+        ],
+        "pending": [],
+        "notPublished": []
+      }
+    },
+    "building-construction-1": {
+      "stages": [
+        {
+          "key": "first",
+          "label": "第一次検定",
+          "types": [
+            "mcq"
+          ],
+          "detail": "四肢または五肢択一マークシート方式"
+        },
+        {
+          "key": "second",
+          "label": "第二次検定",
+          "types": [
+            "experience",
+            "written"
+          ],
+          "detail": "経験記述(R6〜工事概要3種から選択し自身経験で解答)＋施工管理法の記述式"
+        }
+      ],
+      "pastExams": {
+        "questions": "partial",
+        "answers": "partial",
+        "note": "記述設問は正答非公表と明記。R7・R8年度分のみ公式サイト掲載",
+        "source": "https://www.fcip-shiken.jp/about/"
+      },
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "agent",
+        "unresolved": [],
+        "pending": [],
+        "notPublished": []
+      }
+    },
+    "building-construction-2": {
+      "stages": [
+        {
+          "key": "first",
+          "label": "第一次検定",
+          "types": [
+            "mcq"
+          ],
+          "detail": "四肢または五肢択一マークシート方式"
+        },
+        {
+          "key": "second",
+          "label": "第二次検定",
+          "types": [
+            "experience",
+            "written"
+          ],
+          "detail": "経験記述(R6〜工事概要から選択し自身経験で解答)＋記述式"
+        }
+      ],
+      "pastExams": {
+        "questions": "partial",
+        "answers": "partial",
+        "note": "記述設問は正答非公表と明記。R7・R8年度分のみ公式サイト掲載",
+        "source": "https://www.fcip-shiken.jp/about/"
+      },
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "agent",
+        "unresolved": [],
+        "pending": [],
+        "notPublished": []
+      }
+    },
+    "pipe-work-1": {
+      "stages": [
+        {
+          "key": "first",
+          "label": "第一次検定",
+          "types": [
+            "mcq"
+          ],
+          "detail": "四肢択一マークシート方式"
+        },
+        {
+          "key": "second",
+          "label": "第二次検定",
+          "types": [
+            "written"
+          ],
+          "detail": "必須3問+選択2問中4問解答。R6〜「経験記述」を「施工記述」に名称・出題形式変更"
+        }
+      ],
+      "pastExams": {
+        "questions": "partial",
+        "answers": "partial",
+        "note": "記述設問は正答非公表。直近2年度分のみ公式掲載",
+        "source": "https://www.jctc.jp/mondai/"
+      },
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "agent",
+        "unresolved": [
+          "R6改正後の「施工記述」が自身経験に基づく設問か(experience相当)か、与条件のみに基づく設問か(written相当)かを公式受検の手引きの文言で未確認"
+        ],
+        "pending": [],
+        "notPublished": []
+      }
+    },
+    "pipe-work-2": {
+      "stages": [
+        {
+          "key": "first",
+          "label": "第一次検定（前期・後期）",
+          "types": [
+            "mcq"
+          ],
+          "detail": "四肢択一マークシート方式"
+        },
+        {
+          "key": "second",
+          "label": "第二次検定",
+          "types": [
+            "written"
+          ],
+          "detail": "R6〜経験記述を廃止し「施工記述」(与条件への対応力を問う記述)へ変更"
+        }
+      ],
+      "pastExams": {
+        "questions": "partial",
+        "answers": "partial",
+        "note": "記述設問は正答非公表。直近2年度分のみ公式掲載",
+        "source": "https://www.jctc.jp/mondai/"
+      },
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "agent",
+        "unresolved": [
+          "R6改正後の「施工記述」がexperience相当かwritten相当か公式文言で未確認"
+        ],
+        "pending": [],
+        "notPublished": []
+      }
+    },
+    "electrical-work-1": {
+      "stages": [
+        {
+          "key": "first",
+          "label": "第一次検定",
+          "types": [
+            "mcq"
+          ],
+          "detail": "四肢/五肢択一マークシート方式"
+        },
+        {
+          "key": "second",
+          "label": "第二次検定",
+          "types": [
+            "experience",
+            "written"
+          ],
+          "detail": "経験記述(R6〜問A/B選択,与条件下の予測・理由・対策)＋施工全般・法規の記述、計6問"
+        }
+      ],
+      "pastExams": {
+        "questions": "partial",
+        "answers": "partial",
+        "note": "記述設問は正答非公表。R7・R8年度分のみ公式サイト掲載",
+        "source": "https://www.fcip-shiken.jp/about/"
+      },
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "agent",
+        "unresolved": [
+          "1級電気工事第二次検定にマークシート(択一)問題が含まれるかは情報源間で確認できず(2級は問4/5が択一と判明)"
+        ],
+        "pending": [],
+        "notPublished": []
+      }
+    },
+    "electrical-work-2": {
+      "stages": [
+        {
+          "key": "first",
+          "label": "第一次検定",
+          "types": [
+            "mcq"
+          ],
+          "detail": "四肢/五肢択一マークシート方式"
+        },
+        {
+          "key": "second",
+          "label": "第二次検定",
+          "types": [
+            "experience",
+            "written",
+            "mcq"
+          ],
+          "detail": "問1-3記述(経験記述含む,R6〜条件付与型)、問4-5は四肢択一マークシート"
+        }
+      ],
+      "pastExams": {
+        "questions": "partial",
+        "answers": "partial",
+        "note": "記述設問は正答非公表。R7・R8年度分のみ公式サイト掲載",
+        "source": "https://www.fcip-shiken.jp/about/"
+      },
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "agent",
+        "unresolved": [],
+        "pending": [],
+        "notPublished": []
+      }
+    },
+    "pavement-1": {
+      "stages": [
+        {
+          "key": "written",
+          "label": "資格試験（一般試験・応用試験を同日）",
+          "types": [
+            "mcq",
+            "written",
+            "experience"
+          ],
+          "detail": "一般試験（択一式・法規と舗装全般）＋応用試験（記述式・専門知識と「施工現場で経験したこと」を基にした課題・対策・結果）"
+        }
+      ],
+      "pastExams": {
+        "questions": "partial",
+        "answers": "none",
+        "note": "日本道路建設業協会が直近5年度（令和4〜8年度）の一般・応用試験の問題を掲載。解答は非公表",
+        "source": "https://www.dohkenkyo.or.jp/shikakushiken/pavement/shikakusyutoku/kakomondai/"
+      },
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "self",
+        "unresolved": [],
+        "pending": [],
+        "notPublished": []
+      }
+    },
+    "pavement-2": {
+      "stages": [
+        {
+          "key": "written",
+          "label": "資格試験（一般試験・応用試験を同日）",
+          "types": [
+            "mcq",
+            "written",
+            "experience"
+          ],
+          "detail": "一般試験（択一式・法規と舗装全般）＋応用試験（記述式・専門知識と「施工現場で経験したこと」を基にした課題・対策・結果）"
+        }
+      ],
+      "pastExams": {
+        "questions": "partial",
+        "answers": "none",
+        "note": "日本道路建設業協会が直近5年度（令和4〜8年度）の一般・応用試験の問題を掲載。解答は非公表",
+        "source": "https://www.dohkenkyo.or.jp/shikakushiken/pavement/shikakusyutoku/kakomondai/"
+      },
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "self",
+        "unresolved": [],
+        "pending": [],
+        "notPublished": []
+      }
+    },
+    "civil-service-national-general-civil": {
+      "stages": [
+        {
+          "key": "first",
+          "label": "第1次試験",
+          "types": [
+            "mcq",
+            "essay"
+          ],
+          "detail": "基礎能力試験(多肢選択)+専門試験(多肢選択)+専門試験(記述式,技術系は一般論文の代わり)"
+        },
+        {
+          "key": "second",
+          "label": "第2次試験",
+          "types": [
+            "oral"
+          ],
+          "detail": "人物試験(個別面接)。試験前に性格検査も実施(合否判定には不使用)"
+        }
+      ],
+      "pastExams": {
+        "questions": "public",
+        "answers": "partial",
+        "note": "多肢選択の問題例・概要を公表。記述式の模範解答・詳細解説は非公表",
+        "source": "https://www.jinji.go.jp/saiyo/siken/mondairei/mondairei_15.html"
+      },
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "agent",
+        "unresolved": [
+          "基礎能力試験・専門試験(多肢選択)について、人事院が正答番号そのものを一般公開しているかは一次資料で確定できず(問題例・概要PDFの公開は確認)"
+        ],
+        "pending": [],
+        "notPublished": []
+      }
+    },
+    "civil-service-tokyo-1b-civil": {
+      "stages": [
+        {
+          "key": "first",
+          "label": "第1次試験（一般方式）",
+          "types": [
+            "mcq",
+            "essay"
+          ],
+          "detail": "教養試験(五肢択一,2時間30分)+専門試験(記述,5題中3題選択)+論文試験(課題式1題,90分)"
+        },
+        {
+          "key": "second",
+          "label": "第2次試験",
+          "types": [
+            "oral"
+          ],
+          "detail": "口述試験（個別面接中心）"
+        }
+      ],
+      "pastExams": {
+        "questions": "public",
+        "answers": "partial",
+        "note": "教養試験は正答公表想定、専門記述・論文の模範解答は非公表。過去問はH28年度分から掲載",
+        "source": "https://www.saiyou2.metro.tokyo.lg.jp/pc/selection/answer/"
+      },
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "agent",
+        "unresolved": [
+          "公式サイトがWebFetchでBot対策により403となり本文を直接確認できず、検索結果の要約(studying.jp等の二次情報)に基づく",
+          "土木区分に別途「新方式」(専門記述・論文を課さない方式)が並行実施される場合があり、どちらが本id想定の主形式か要確認"
+        ],
+        "pending": [],
+        "notPublished": []
+      }
+    },
+    "civil-service-tokubetsuku-1-civil": {
+      "stages": [
+        {
+          "key": "first",
+          "label": "第1次試験",
+          "types": [
+            "written"
+          ],
+          "detail": "R5年度〜専門試験のみ(90分,6題中4題選択,記述式・語群選択式等)。教養・論文試験は廃止"
+        },
+        {
+          "key": "second",
+          "label": "第2次試験",
+          "types": [
+            "oral"
+          ],
+          "detail": "個別面接＋自己PRシートによるプレゼンテーション"
+        }
+      ],
+      "pastExams": {
+        "questions": "partial",
+        "answers": "partial",
+        "note": "著作権等で一部非公開。正答は五肢択一式のみ公開のため、記述中心の土木造園は実質非公表に近い",
+        "source": "https://www.union.tokyo23city.lg.jp/jinji/jinjiiinkaitop/shiryo/shikemmondai/r7mondai.html"
+      },
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "agent",
+        "unresolved": [],
+        "pending": [],
+        "notPublished": []
+      }
+    },
+    "surveyor": {
+      "stages": [
+        {
+          "key": "written",
+          "label": "筆記試験（午前・午後）",
+          "types": [
+            "mcq",
+            "written"
+          ],
+          "detail": "午前 択一式28問＋午後 記述式（必須1題＋選択4題から2題。計算を含む）"
+        }
+      ],
+      "pastExams": {
+        "questions": "partial",
+        "answers": "partial",
+        "note": "国土地理院が過去5か年の試験問題と解答例を掲載",
+        "source": "https://www.gsi.go.jp/LAW/SHIKEN/past.html"
+      },
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "self",
+        "unresolved": [],
+        "pending": [],
+        "notPublished": []
+      }
+    },
+    "assistant-surveyor": {
+      "stages": [
+        {
+          "key": "written",
+          "label": "筆記試験",
+          "types": [
+            "mcq"
+          ],
+          "detail": "択一式28問（測量士と同日）"
+        }
+      ],
+      "pastExams": {
+        "questions": "partial",
+        "answers": "partial",
+        "note": "国土地理院が過去5か年の試験問題と解答例を掲載",
+        "source": "https://www.gsi.go.jp/LAW/SHIKEN/past.html"
+      },
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "self",
+        "unresolved": [],
+        "pending": [],
+        "notPublished": []
+      }
+    },
+    "geological-survey-engineer": {
+      "stages": [
+        {
+          "key": "written",
+          "label": "筆記試験",
+          "types": [
+            "mcq",
+            "written"
+          ],
+          "detail": "現場調査部門:択一80問+記述2問。現場技術・管理部門:択一100問+記述2問(倫理綱領等,論述式)で口頭試験なし"
+        },
+        {
+          "key": "oral",
+          "label": "口頭試験(現場調査部門のみ)",
+          "types": [
+            "oral",
+            "experience"
+          ],
+          "detail": "実務経歴に基づく経験・技能を試問。現場技術・管理部門には口頭試験なし"
+        }
+      ],
+      "pastExams": {
+        "questions": "partial",
+        "answers": "partial",
+        "note": "択一(マークシート)の解答は平成19年分以降公式公開。記述式は将来試験への影響を避け模範解答非公開",
+        "source": "https://www.zenchiren.or.jp/geo_comp/"
+      },
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "agent",
+        "unresolved": [
+          "土壌・地下水汚染部門は令和4年度より休止中のため試験内容の現行版は未確認"
+        ],
+        "pending": [],
+        "notPublished": []
+      }
+    },
+    "road-bridge-inspector": {
+      "stages": [
+        {
+          "key": "written",
+          "label": "試験2(学科・基本知識)",
+          "types": [
+            "written"
+          ],
+          "detail": "3日間の技術研修会最終日の修了試験。橋梁・橋梁点検の基本知識(出題形式の一次資料未確認)"
+        },
+        {
+          "key": "practical",
+          "label": "試験1(実技・点検実習整理)",
+          "types": [
+            "practical"
+          ],
+          "detail": "現地実橋での点検実習結果を整理し点検調書を作成"
+        }
+      ],
+      "pastExams": {
+        "questions": "none",
+        "answers": "none",
+        "note": "研修会内の修了試験のため過去問・正答とも公開されていない",
+        "source": "https://www.jbec.or.jp/roadinspector/about/"
+      },
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "agent",
+        "unresolved": [
+          "指示にあった発行元「道路保全技術センター」は一次資料で確認できず、実際の発行元は一般財団法人橋梁調査会(JBEC)と判明",
+          "試験2(学科)が択一式か記述式か、出題数・配点・試験時間の詳細は一次資料で確認できなかった"
+        ],
+        "pending": [],
+        "notPublished": []
+      }
+    },
+    "steel-structure-diagnostician": {
+      "stages": [
+        {
+          "key": "written",
+          "label": "認定試験",
+          "types": [
+            "mcq",
+            "written",
+            "experience"
+          ],
+          "detail": "択一式50問(105分)+専門技術記述式+業務経験論文記述式(診断士補は択一式のみ)"
+        }
+      ],
+      "pastExams": {
+        "questions": "unknown",
+        "answers": "unknown",
+        "note": "発行元(日本鋼構造協会)公式サイトの取得に失敗し過去問・正答の公式公開有無を一次情報で確認できず",
+        "source": "http://www.jssc.or.jp/"
+      },
+      "verification": {
+        "checkedAt": "2026-09-26",
+        "checkedBy": "agent",
+        "unresolved": [
+          "日本鋼構造協会公式サイトが取得エラー(Invalid character in chunk size)となり、過去問公開状況・出題数配点を一次資料で直接確認できなかった。第三者サイトの『解答(案)』流通のみ確認"
+        ],
+        "pending": [],
+        "notPublished": []
+      }
+    }
+  }
+}

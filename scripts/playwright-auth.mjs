@@ -588,7 +588,7 @@ export async function exportAuthState(context = {}, service) {
     try {
       ensureAuthDirectories(service, options);
       const sameProcess = entry.sessionMode === 'same-process';
-      // --headed: headless を bot 判定で 403 にするサイト（Brain 等）は headed で認証確認してから export する
+      // --headed: headless を bot 判定で 403 にするサイトは headed で認証確認してから export する
       opened = await openAuthContext(service, context, sameProcess || Boolean(context.headed));
       let probeStatus;
       if (sameProcess) {

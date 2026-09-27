@@ -102,7 +102,7 @@ gh api repos/uruhayato373/doboku-note/environments   # 方針に応じて0件 or
 
 ### 脅威モデル
 
-- オブジェクト＝収益口座のフルセッション（note/coconala/brain/kdp/x/google/a8/afbのCookie・localStorage）。復号されれば各サービスへその口座としてアクセスできる
+- オブジェクト＝収益口座のフルセッション（note/coconala/kdp/x/google/a8/afbのCookie・localStorage）。復号されれば各サービスへその口座としてアクセスできる
 - read-only運用の担保は資格情報自体ではなく allowlist（`ci.readOnlyScripts`/`ci.writeScripts`・resolverの`AUTH_CI_SCRIPT_NOT_ALLOWLISTED`）
 - repo write権限者はSecretsを読めるworkflowを起動できるため復号可能（GitHub側の権限モデルに従う）
 - fork PRにはSecretsが渡らない。`pull_request_target`は使用しない

@@ -23,6 +23,7 @@ npm run check-e2e-targets      # E2E が叩くサイト内 URL が out/ に実�
 npm run check-production-ssr # deploy 後の本番 SSR 検証（exit 0=正常 / 1=壊れている / **2=検査不成立＝接続できていない**。会社PCの HTTP 000／プロキシのブロック HTML をサイト障害と誤読しない・手打ち curl で代用しない）。/deploy と cloudflare-deploy.yml の公開後に実行。社内回線から接続できない場合は同workflowの verify_only=true で再デプロイせず外部検査。
 npm run check-production-sweep # 本番 sitemap 全 URL を実際に叩く（200・自己 canonical・<main>・noindex 無し・og:image 200・セキュリティヘッダ）。deploy 後と日曜に CI（production-sweep.yml）が自動。手元は `-- --sample 50`。exit 1=本番異常 / 2=検査不成立
 npm run test:e2e:a11y        # axe（WCAG 2.1 A/AA）を代表 8 ページ×light/dark で実行。critical 0 かつ serious が e2e/a11y-baseline.json を超えないことがゲート。基準更新は :baseline（修正を確認してから・減らす方向のみ）
+npx lhci autorun --config=lighthouserc.json  # Lighthouse を build 成果物（npm run serve）に対し代表4ページ（home/KW記事/過去問/ツール）で実行。**要 `npm run build`**。accessibility/seo ≥0.95・best-practices ≥0.9 は error（マージ不可）、performance ≥0.7 は warn（job summary のみ・lab の揺れが大きいためゲートしない）。PR（lighthouse.yml）で自動実行。**閾値の SSOT は lighthouserc.json**（本番 field 監視の .claude/config/psi-config.json とは目的が違うため意図的に別の値・二重管理しない。役割: lighthouserc=マージ前 lab ゲート／psi-config=本番後 field 監視+回帰検出）
 npm run check-command-guidance # 検査やスクリプトが案内するコマンド（npm run / node パス）が実在するか。**正典ドキュメント（CLAUDE.md / AGENTS.md / この一覧 / .claude/rules）の案内も対象**（記載はあるが package.json に無い `npm run serve` を 2026-08-30 まで放置していた再発防止）
 npm run schedule-view     # 予約・計画・期日の横断ビュー（読み取り専用・JST。exam-calendar/x-campaigns/x-status/ig-status/youtube-schedule/backlogを集約。DN-0131のような超過を横断で surface する）
 ```
@@ -38,6 +39,7 @@ npm run fix-bold-rendering   # 上の崩壊のうち機械的に安全な形だ�
 npm run check-table-rendering # GFM テーブルが実際に table になるか（remark 実パースでデリミタ行が text に残る＝生パイプ表示を検出。原因〔改行 \r\r\n 破損／ヘッダとデリミタのセル数不一致〕を問わず症状で拾う・pre-commit --staged ＋ quality:audit）
 npm run check-table-references # 本文が指す「表N.M」のキャプションが実在するか（転記由来の宙に浮いた参照）
 npm run check-published-vs-redirects # 統合済み記事の再公開を止める（published:true なのに `_redirects` で 301 の転送元＝ページは在るのに別ページへ飛ぶ。統合の記録は frontmatter に無く _redirects にしかないので目視では気づけない。pre-commit --staged ＋ quality:audit）
+npm run check-year-staleness   # title/seoTitle/description に残る前年度以前の年度表現を warn 列挙（過去問・年度別記事は主題なので除外・report）。年度切替（毎年1月）直後だけ quality-audit.mjs の ci フラグを true へ上げ、0 件になったら戻す（DN-0243）
 npm run check-ogp-line-count   # OGP タイトルが何行に折れるかを実測（既定は surfacer で判定しない。`--max=N` / `check-ogp-line-count:done` で完了判定になる。check-ogp-title-fit はフォントサイズしか見ない）
 npm run check-keiken-answer-split # 施工経験記述の解答欄の割り振りが級と合っているか（1級=(1)に検討項目/(2)対応処置・評価、2級=(1)課題/(2)検討項目と対応処置。2級式を1級教材へ使うと(2)に3要素が乗り1区画約200字に収まらない。**note 原稿だけでなく退避される模試の生成 markdown も走査**）
 npm run check-content-layout   # content/ の 6 チャネルに実体があるかを観測（件数・容量。空チャネル＝移行の取りこぼしで fail）
@@ -71,7 +73,9 @@ npm run auth:ci-restore       # CI専用。暗号化stateを復元。authenticat
 npm run auth:ci-writeback     # CI専用。更新後のstorageStateをCAS（etag/generation）で書き戻す
 npm run auth:ci-plan          # ops-writeのwrite planを作りDOBOKU_CI_WRITE_PLAN_SHA256を計算する
 npm run check-content-taxonomy # 分類語彙（領域×資格×記事型×テーマ×タグ）の整合。group が許可外・未登録タグは赤、別名綴り・構造タグ不整合は baseline ラチェット（`:ci`）、topic 三方向の 0 件は WARN。規則は content-taxonomy.md・pre-commit --staged ＋ quality:audit
-npm run check-content-expansion # 全教材の論点→記事/図/SNS対応・未確認・原典待ち・成果物変更を検査（管理画面 /content/expansion・週次/月次で確認）
+npm run check-content-expansion # 全教材の論点→記事/図/SNS対応・未確認・原典待ち・成果物変更を検査（管理画面 /materials・週次/月次で確認）
+npm run check-domains          # 領域の正本（.claude/config/domains.json）とスキル/エージェントの domain:・文書の割り当ての整合（バックログの [領域:] は check-backlog-schema）
+npm run check-generated-indexes # refresh-indexes を実際に回し、生成物がコミットと一致するか（一致しなければ書き換わったファイルをコミットする。生成時刻だけの差分は出ない）
 ```
 
 ## 公的基準（共通仕様書の章記事・ページ画像）
@@ -122,7 +126,6 @@ npm run ops-write -- exec --operation <id> --args '{...}' --plan-sha256 <hash> -
 npm run x-publish-scheduled -- --commit --json # 承認済みキューから期日到来分のXを投稿（scheduled-publish.yml の cron 専用実体）。罠: 頻度ゲート（x-frequency-gate.mjs 12規則）が判定不能なものは必ず block（投稿しない）側に倒す＝「なぜ投稿されないか」は counts/blocks を読む
 npm run ig-graph-publish -- --pack <pack> --format carousel --commit --json # Instagram Graph API で即時公開（**使わない**＝2026-09-23 ユーザー決定で Graph API を使わない。主経路は ops-write の instagram.publish-bs。予約不可・publish-ig-bs とは別経路）。env: IG_GRAPH_ACCESS_TOKEN / IG_BUSINESS_ACCOUNT_ID / IG_GRAPH_API_VERSION。罠: 投稿用メディアは public R2 に一時公開されるため stage-ig-media-r2 の --cleanup 実行を確認する（残すと公開URLが残置）
 npm run stage-ig-media-r2 -- --pack <pack> --format carousel --cleanup # ig-graph-publish が使う一時公開/削除の単体実行（--dry-run で URL 計算だけ）
-npm run brain-sales-fetch  # Brain 売上を read-only 取得（ログイン要・ローカル専用）
 ```
 
 ## ココナラ
@@ -135,7 +138,7 @@ npm run check-tensaku-reply -- <返信文> --source <提出原稿> --grade 1 # �
 npm run coconala-analytics # ココナラ分析画面（全体/サービス別/ブログ別）を read-only 収集→analytics-snapshot.json（--append-kpi で kpi-log へ週次 upsert・定期取得は login-collectors.yml・Playwright・書き込みなし）
 npm run check-coconala-analytics # 上記の鮮度・欠測・マスク値（0000は0でない）・kpi-log 整合をオフライン検査
 npm run check-coconala-wiring # カタログ↔listings↔商品画像↔受注/KPI/売上の整合と、PDF の価格ルール（note 基準×1.1 以上）を検査（pre-commit --staged＋CI）
-npm run check-coconala-live # ココナラ公開ページ（ログイン不要の構造化データ）の価格・タイトル・キャッチ・本文・出品者・販売状態をカタログ／listings と突合（exit 1=食い違い・2=取得失敗が過半で検査不成立・日次 ops-audit）
+npm run check-coconala-live # ココナラ公開ページ（ログイン不要の構造化データ）の価格・タイトル・キャッチ・本文・出品者・販売状態をカタログ／listings と、出品者プロフィールの職業・アピール・自己紹介文を coconala-account.json と突合（exit 1=食い違い・2=取得失敗が過半で検査不成立・日次 ops-audit）
 npm run coconala-pause    # ココナラ出品の受付休止/再開/アーカイブ（--resume --absence で不在明け一括復帰・既定 dry-run）
 ```
 
@@ -146,6 +149,7 @@ npm run check-video-content    # 動画パック（DN-0110）の整合ゲート�
 npm run render-longform        # 動画パックの 16:9 通常動画レンダラー（storyboard→1920×1080 PNG＋ASS 字幕＋VOICEVOX/ffmpeg mp4。出力は .tmp/video-render/・音声環境無しは --skip-tts で PNG/ASS まで。VOICEVOXとffmpegがあればWindows/Macでmp4生成可・生成用Actionsは未設置）
 npm run check-video-publication # 公開済み派生物の実体照合が回っているか（未照合・鮮度切れ・記録の孤児・実査ドリフト）。実査本体は verify-video-publication＝CI 週次(verify-yt-status.yml)で creds 必須・**対象0件は明示してPASS**・quality:audit に同梱
 npm run x-own-metrics     # 自投稿の反応（いいね/RT）を採取→型×時間帯×導線の表（.claude/state/x-metrics/・**中央値で読む**。impressions/replies は CLI が返さず取得不可）
+npm run check-x-posted-live  # 投稿済み X の生存確認。posted_url を持つものだけログイン不要の oEmbed で照合（DN-0276・週次 link-audit.yml）。404=凍結/削除の疑い、posted_url が無い投稿済みの件数も出す（検査ゼロを PASS にしない）。posted_url は publish-x.ts が投稿直後にベストエフォートで書く
 ```
 
 ## Instagram・Cloudflare（CI 取得・freshness）
@@ -171,6 +175,7 @@ npm run check-google-ui-ssot   # UI CSV 情報の追跡 SSOT の整合ゲート�
 npm run ga4-admin:check        # GA4 管理画面の設定を desired state と突合（dry-run／:apply で不足カスタムディメンションを作成）
 npm run check-ga4-dimensions   # GA4 カスタムディメンション（event_label/cta_placement）のドリフト検知（オフライン）
 npm run fetch-ga4-cta-clicks   # CTA イベント × pagePath（28 日・CI 週次）。`--by-device` / `--by-label` / `--by-placement`（後 2 つは要カスタムディメンション・未登録は exit 0）/ `--key-events`＝pagePath × sessions/keyEvents/sessionKeyEventRate（ga4-key-events-by-page-*.json・0 行は exit 1）
+npm run fetch-ga4-web-vitals  # 実ユーザー計測（RUM）: サイトの web_vitals イベント（LCP・INP・CLS）を ページの型×端末×指標×評価 の件数で取り、良好率 75%/不良 25% 超で判定して .claude/state/metrics/rum/web-vitals-*.json へ（28 日・CI 週次）。要 GA4 カスタムディメンション metric_name・metric_rating（未登録は status: dimensions-missing で exit 0）。`--check`＝fixture で完走だけ確認（CI）
 npm run gsc-indexing:check     # 未登録URLをGSC URL検査で診断（dry-run／:request で登録リクエスト・上限10件/回。`-- --urls /exam/a,/standards/b` か `-- --file list.txt` で正規パス指定。旧 /docs/slug は _redirects の 301 先へ自動変換）
 npm run gsc-indexing:priority  # 最新 URL 検査 batch × GSC page 実績から登録リクエストの順位表を作る（CI が週次で commit。人間は priority-latest.txt を :request に渡すだけ）
 npm run check-gsc-indexing-due # 表示実績のある未登録が残っているのに 7 日以上リクエスト無しなら DUE（weekly-review-guard が surface・常に exit 0）
@@ -210,6 +215,17 @@ npm run measure-experiments    # measure 仕様を持つ running/measuring 実�
 npm run growth-triage          # 週次レビュー（ローカル）で機会ダイジェストを全件処分: list [--json] → apply --decisions .tmp/growth-triage-YYYY-Www.json [--commit]（backlog/実験/watchword/裁定/束ね/却下/保留を採番・起票・triage-log 記録）。罠: DN 採番に git 全履歴が要る（shallow clone は exit 2）・全件を先に検証し 1 件でも不正なら何も書かない
 npm run check-growth-triage    # 月曜 guard: 最新ダイジェストの未処分 0・レビューにマーカー（申し送りの振り分けは check-handoff-extraction）。exit 1 未反映 / 2 ダイジェスト/レビュー無しか古い
 npm run check-business-direction # 事業方針・指標・履歴・追記専用の検査
+npm run exam-ssot-status # 資格の正本（日程・受験者数・出題形式）の照合状態＝要対応（未確認・原文未照合・180日超・次年度日程未登録・統計が古い）と記録（発表待ち・非公表）。月次レビューが読む（`-- --json`／`-- --check` は完走だけ＝quality-audit ci）
+npm run qualification-market # 資格ごとの展開の判断材料（自分で書く区分＝経験記述・論文とその受験者数・買われる時期・売上・YouTube/note/ココナラの混み具合・X/IG 追跡数）。管理画面 戦略＞資格と市場＞展開の判断と同じ実装（`-- --json`／`-- --check`）。要対応（市場スキャンの未取得・90日超・出題形式の未確認）があっても exit 0
+npm run check-qualification-market # 展開の判断材料の正本の整合（market-scan の検索語とタイトル条件・*-competitors の exams が資格 id・売上がすべて資格へ分類できる）。CI ゲート。売上の新しい productId は product-lineup.json の salesRules に足す
+npm run report-competitor-watch # ココナラ競合の変化（値下げ・出品増減・累計販売 +20 件以上）と追跡外の候補（関連サービスの販売実績 20 件以上）・売上推定が一部だけの売り手。committed state を読むだけ（取得しない）。読み手＝週次レビュー。exit 2＝state が読めない
+npm run report-search-opportunities # 検索キーワード戦略（.claude/config/search-strategy.json）のクラスター別の表示・1桁件数・11〜30位件数と約28日前との差、改善候補（11〜30位で表示のある検索語をページ単位に束ねたもの・観察中/起票済み/旧URLに印）。GSC の検索語×ページ集計を読むだけ。読み手＝週次（起票）・月次（推移）。exit 2＝集計が無い
+npm run report-web-vitals     # 実ユーザー計測の最新記録を読み、手を打つ組（不良・要改善で件数 30 以上）を先に出す。読み手＝週次レビュー（不良が出たら改善カードを起票）。exit 2＝記録が無い・10 日超・カスタムディメンション未登録
+npm run check-review-wiring # 週次・月次レビューのスキルが実行するコマンドと配線の正本（.claude/config/review-wiring.json・stage と role）の一致。CI ゲート。スキルにコマンドを足したら正本にも stage・role 付きで足す。管理画面 戦略 ＞ レビュー の配線図の元
+npm run check-monthly-review-due # 月次レビューの催促（SessionStart）。毎月 3 日（JST）以降に前月を対象にした月次レビューの記録（business/review-*.json の cadence:monthly）が無ければ exit 1 で 1 行出す。`-- --json`
+npm run backlog-gate      # 週次・月次レビューのバックログの関門（読み取り専用）。`-- --weekly`＝判断待ち🟣の全件・期日切れ・直近7日の起票、`-- --monthly`＝時期の無い🟢の全件・起票から90日超・今月の🔴🟡件数。`--json` あり。運営者に諮った結果で台帳を直すのはレビュー側（判定は scripts/lib/backlog-gate.mjs）
+npm run roll-backlog-when # 終わらなかったカードを翌月へ回す（`[時期:]` の終わりが今月より前のカードの終わりを今月へ延ばす・開始は残す）。既定は表示だけ、`-- --write` で backlog.md を書き換え、`-- --month YYYY-MM` で基準月。月初の月次レビューが回す。終わったカードは回さずに削除する
+npm run scan-qualification-market # 資格キーワードで YouTube（yt-dlp 検索）・note（公開検索 API）を取り .claude/state/market/history/market-YYYY-MM-DD.json へ（同日の再実行は取得済みの語を飛ばす・`--force` で取り直し）。`--coconala` でココナラも（coconala-research.mjs・Playwright・四半期 1 回）。`--qualification <id>`／`--channel youtube|note|coconala`／`--dry-run`。罠: note は JSON 以外（403）が返った時点で打ち切る＝連打しない。ココナラは空きメモリが足りないと Playwright ガードで起動しない
 npm run exam-expansion        # 展開対象試験カタログ（.claude/config/exam-expansion-catalog.json）の優先順位・対応状況を表で出す（--json で JSON）
 npm run check-exam-expansion  # 同カタログの評点・参照整合（exam-stats・プロフィールの保有資格・販売カタログ・content/site の資格ディレクトリ）。quality:audit:ci
 ```

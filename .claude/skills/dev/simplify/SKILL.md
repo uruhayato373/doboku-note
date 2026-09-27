@@ -4,6 +4,7 @@ description: >
   変更中のコード（git diff）を読んで、再利用可能な既存コードの見落とし・過剰設計・無関係な編集・非効率な実装を列挙し、ユーザ承認の上で最小差分で修正する。
   Use when user asks to [シンプル化, 簡素化, リファクタ, 冗長を削って, /simplify, simplify].
 user-invocable: true
+domain: ops
 ---
 
 変更中のコード（git diff）を対象に、**再利用 / 品質 / 効率** の3観点で問題を洗い出し、**ユーザ承認後に最小差分で修正する** Evaluator + Generator。

@@ -44,7 +44,7 @@
 | `gakka-ukeoi-yakkan` | 公共工事標準請負契約約款は「誰の義務か」で読む | 約款の規定が発注者と受注者どちらの義務か判断できない | exam-point | レビュー | 台本/構成 | `civil-1-ichiji-ronten` |
 | `gakka-unpan-shimekatame-kikai` | 運搬・敷均し・締固め機械の整理法 | 運搬機械の適用距離や締固め機械と土質の対応が覚えられない | exam-point | レビュー | 台本/構成 | `civil-1-ichiji-ronten` |
 | `keiken-2theme-heiki` | 2テーマ指定への備え — 設問1と設問2の書き分け | 設問1と設問2で別テーマを指定される形式に対応できる気がしない | howto | レビュー | 台本/構成 | `civil-1-combo-essay` |
-| `keiken-ai-sekkei` | AIに経験記述を丸投げすると落ちる理由と正しい使い方 | AIに書かせた答案がそのまま使えるのか判断できない | howto | レビュー | 台本/構成 | `brain-civil-essay-kit` |
+| `keiken-ai-sekkei` | AIに経験記述を丸投げすると落ちる理由と正しい使い方 | AIに書かせた答案がそのまま使えるのか判断できない | howto | レビュー | 台本/構成 | `coconala-civil-keiken-kit` |
 | `keiken-anzen-1kyu` | 安全管理テーマの経験記述 — 一般論にしない書き方 | 安全管理の答案がどの現場でも通じる一般論になってしまう | howto | レビュー | 台本/構成 | `civil-1-experience-essay` |
 | `keiken-dokugaku-genkai` | 独学添削の限界 — 自分の答案は自分で採点できない | 自分の答案のどこが減点対象か自分では判断できない | diagnosis | レビュー | 台本/構成 | `coconala-tensaku-set` |
 | `keiken-hinshitsu-1kyu` | 品質管理テーマの経験記述 — 課題・検討・対応の組み立て方 | 品質管理で何を課題にすれば答案が成立するのか分からない | howto | レビュー | 台本/構成 | `civil-1-experience-essay` |

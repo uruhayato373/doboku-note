@@ -84,7 +84,7 @@ export default async function Ga4Page({
         <h2>
           ページ別（上位20）
           <span className="sub">
-            <Freshness snapshot={pageSnap} /> {pageSnap?.file}
+            <Freshness snapshot={pageSnap} />
           </span>
         </h2>
         <SnapshotPicker basePath="/metrics/ga4" files={pageHistory} current={pageSnap?.file ?? ''} />

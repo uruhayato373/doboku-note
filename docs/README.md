@@ -18,7 +18,7 @@
 | [products/](./products/) | 商品・アプリ・キットの仕様 | `06_PWA過去問アプリ設計方針.md` |
 | [design/](./design/) | UI コンポーネントの視覚ギャラリー | `callout-gallery.md`／`speclist-gallery.md` |
 | [reviews/](./reviews/) | 単発の監査・批判的レビューの記録 | 日付つきレビュー |
-| [handoffs/](./handoffs/) | セッション引き継ぎ（**溜めない**） | 抽出→削除が既定 |
+| `handoffs/` | セッション引き継ぎ（**溜めない**。空のときはディレクトリ自体が無い） | 抽出→削除が既定 |
 
 デザインの**規約**（トークン・レイアウト体系・禁止パターン）は
 [.claude/knowledge/design-system/design-system.md](../.claude/knowledge/design-system/design-system.md) が真実源で、

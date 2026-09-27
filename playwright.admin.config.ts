@@ -18,7 +18,7 @@ export default defineConfig({
   fullyParallel: true,
   // dev サーバーは 1 プロセスの next dev（CI のような水平分散インフラではない）。
   // 既定 workers（CPU コア基準・このマシンで 16 前後）で叩くと、SSR 側の重い処理
-  // （kindle ページの git log 子プロセス起動・brain の全ファイル stat 等）が同時実行の
+  // （kindle ページの git log 子プロセス起動等）が同時実行の
   // キューで詰まり、対象外の既存テストまで expect timeout(7.5s) で道連れに落ちる
   // （`--workers=1` では新規・既存とも全件緑になることを確認済み・2026-08-28）。
   // 単一サーバーが安定してさばける並列数へ絞る。

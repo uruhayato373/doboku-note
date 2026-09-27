@@ -8,6 +8,7 @@ description: >
   needs=recrop/recrop-urgent を対象に、視覚で切り位置を決め figure-recrop.mjs で機械適用する。
   Use when user asks to [図の写り込みを除く, 図を再クロップ, 答え漏らし図の是正, /figure-recrop].
 user-invocable: true
+domain: site
 ---
 
 # /figure-recrop

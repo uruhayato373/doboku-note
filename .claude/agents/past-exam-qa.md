@@ -4,6 +4,7 @@ description: >
   全資格の択一・記述過去問 MDX を正答・選択肢解説・ExamPoint・関連キーワード・可読性で監査する Evaluator。修正はしない。PDF 忠実性・図クロップ・キーワード記事は別担当。Use when user asks to [過去問品質監査, 解答解説チェック, past-exam QA].
 model: sonnet
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
+domain: site
 ---
 
 # Past-Exam QA Agent

@@ -3,6 +3,7 @@ name: diff-r2
 description: >
   ローカル `content/site/` と Cloudflare R2 バケット `doboku-note`（prefix `posts/`）の
   差分を双方向でレポートする。Use when user asks to [r2の差分, r2とローカルの比較, diff r2, r2 同期確認].
+domain: ops
 ---
 
 ローカルの `content/site/` と R2 バケットの両方を走査し、3種類の差分を検出する:

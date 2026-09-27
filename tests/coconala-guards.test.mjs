@@ -21,6 +21,7 @@ import {
   assessSnapshot,
   classifyInquiries,
   parseInquiryDate,
+  inquiryClockMs,
 } from '../scripts/lib/coconala-guards.mjs';
 
 /** 本日のカタログを模したフィクスチャ */
@@ -331,4 +332,16 @@ test('classifyInquiries: 日付があるのに読めない・決着日が無い�
     REOPEN_NOW,
   );
   assert.equal(noResolvedOn.actions.length, 1, 'いつ決着したか不明なのに消している');
+});
+
+test('inquiryClockMs: 相対日付は snapshot の取得時刻から読む（実行時刻で読むと返信済みが再オープンする）', () => {
+  const fetchedAt = '2026-09-26T08:11:41.393Z'; // 17:11 JST に取得・表示は「8分前」
+  const q = [{ dmId: '9', dateText: '8分前' }];
+  const resolved = [{ dmId: '9', reason: '返信済み', resolvedOn: '2026-09-26T17:05+09:00' }];
+  const atFetch = classifyInquiries(q, resolved, inquiryClockMs(fetchedAt));
+  assert.equal(atFetch.excluded.length, 1, '取得時刻基準なら 17:03 の動きは決着より前');
+  const later = classifyInquiries(q, resolved, Date.parse('2026-09-26T09:30:00Z'));
+  assert.equal(later.actions.length, 1, '実行時刻基準だと経過分だけずれて再オープンする（旧挙動の再現）');
+  assert.equal(inquiryClockMs('壊れた値', 123), 123);
+  assert.equal(inquiryClockMs(undefined, 456), 456);
 });

@@ -3,6 +3,7 @@ name: past-exam-rewriter
 description: >
   総監・1級2級土木の択一/記述過去問 MDX に past-exam-qa の指摘を適用する Generator。設問文・正答・KaTeX は原則保持し、正答変更は誤りの指摘時のみ。図処理・二次解答の新規補完は担当外。Use when user asks to [過去問校正, ExamPoint 圧縮, 過去問構造統一].
 model: sonnet
+domain: site
 ---
 
 # Past-Exam Rewriter Agent

@@ -73,22 +73,43 @@ function severityOf(chars: number, max: number): Severity {
 
 const SEV_META: Record<
   Severity,
-  { label: string; color: string; note: string }
+  { label: string; color: string; textEmphasis: string; pillBg: string; pillText: string; note: string }
 > = {
-  ok: { label: "解答欄に収まる", color: "var(--color-positive)", note: "上限以内です。" },
+  // color: progress bar の塗り色（文字を乗せないので素の --color-* のままでよい）。
+  // textEmphasis: 「上限を X 字オーバー」の強調テキスト色（ページ地の上に直接乗る）。
+  // pillBg/pillText: ラベルピル（塗り背景＋文字）専用。
+  // どちらも --color-* の生値は dark の白文字ピルや light の warn 文字色と衝突するため
+  // 用途別トークンで解決する（DN-0251。warn light は #d4a017 が白地で 2.37:1 しか出ない）。
+  ok: {
+    label: "解答欄に収まる",
+    color: "var(--color-positive)",
+    textEmphasis: "var(--color-positive)",
+    pillBg: "var(--pill-ok-bg)",
+    pillText: "#fff",
+    note: "上限以内です。",
+  },
   borderline: {
     label: "ぎりぎり",
     color: "var(--color-warn)",
+    textEmphasis: "var(--warn-text-emphasis)",
+    pillBg: "var(--pill-warn-bg)",
+    pillText: "var(--pill-warn-text)",
     note: "上限+10%以内。1行字数の幅で収まる可能性はありますが、余裕を持って圧縮推奨。",
   },
   over: {
     label: "要圧縮",
     color: "var(--color-danger)",
+    textEmphasis: "var(--color-danger)",
+    pillBg: "var(--pill-danger-bg)",
+    pillText: "#fff",
     note: "上限を超えています。解答欄に収まるよう圧縮してください。",
   },
   severe: {
     label: "大幅超過",
     color: "var(--color-danger)",
+    textEmphasis: "var(--color-danger)",
+    pillBg: "var(--pill-danger-bg)",
+    pillText: "#fff",
     note: "上限の1.3倍超。物理的に解答欄へ収まりません。大幅な圧縮が必要です。",
   },
 };
@@ -212,8 +233,8 @@ export default function KeikenCharcountClient() {
             </div>
           </div>
           <div
-            className="inline-flex items-center rounded-full px-3 py-1 text-sm font-bold text-white"
-            style={{ background: meta.color }}
+            className="inline-flex items-center rounded-full px-3 py-1 text-sm font-bold"
+            style={{ background: meta.pillBg, color: meta.pillText }}
           >
             {meta.label}
           </div>
@@ -234,7 +255,7 @@ export default function KeikenCharcountClient() {
             </>
           ) : (
             <>
-              上限を <strong style={{ color: meta.color }}>{-remaining}</strong> 字オーバー。{meta.note}
+              上限を <strong style={{ color: meta.textEmphasis }}>{-remaining}</strong> 字オーバー。{meta.note}
             </>
           )}
         </p>

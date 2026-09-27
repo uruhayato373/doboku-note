@@ -2,7 +2,7 @@ name: Fetch competitor snapshots (quarterly)
 
 # 認証不要で取得できる競合データを四半期ごとに取得し、develop の時系列 state へ保存する。
 # note / Instagram は公開HTTP、ココナラはログイン不要の公開ページを headless Chromium で読む。
-# X は個人アカウントのログイン済みCLI、Brainは検索結果の意味判断が必要なため本workflowの対象外。
+# X は個人アカウントのログイン済みCLIのため本workflowの対象外。
 
 on:
   schedule:
@@ -19,7 +19,7 @@ concurrency:
 jobs:
   scan:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 75
     steps:
       - name: Checkout develop
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -60,6 +60,16 @@ jobs:
         if: always()
         run: npx playwright install --with-deps chromium
 
+      # 検索結果（market-research.json）を先に取り直す。scout は出品の価格・販売実績をここから読み、
+      # report-competitor-watch は追跡外の候補をここから出す。語の一覧はファイル自身が持つ（--refresh）。
+      - name: Refresh Coconala search results (public pages)
+        id: coconala_research
+        if: always()
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          node scripts/coconala-research.mjs --refresh --details 0 2>&1 | tee /tmp/competitor-coconala-research.log
+
       - name: Scan Coconala competitors (public pages)
         id: coconala
         if: always()
@@ -75,6 +85,7 @@ jobs:
           NOTE_OUTCOME: ${{ steps.note.outcome }}
           IG_OUTCOME: ${{ steps.ig.outcome }}
           COCONALA_OUTCOME: ${{ steps.coconala.outcome }}
+          RESEARCH_OUTCOME: ${{ steps.coconala_research.outcome }}
         run: |
           set -euo pipefail
           stamp=$(date -u +%F)
@@ -96,6 +107,11 @@ jobs:
             mkdir -p /tmp/competitor-publish/coconala/history
             cp .claude/state/coconala/competitors-snapshot.json /tmp/competitor-publish/coconala/
             cp ".claude/state/coconala/history/competitors-${stamp}.json" /tmp/competitor-publish/coconala/history/
+          fi
+
+          if [ "$RESEARCH_OUTCOME" = "success" ]; then
+            mkdir -p /tmp/competitor-publish/coconala-research
+            cp .claude/state/coconala/market-research.json .claude/state/coconala/market-summary.json /tmp/competitor-publish/coconala-research/
           fi
 
       - name: Publish successful snapshots to develop
@@ -122,11 +138,15 @@ jobs:
             cp -R /tmp/competitor-publish/coconala/competitors-snapshot.json .claude/state/coconala/
             cp -R /tmp/competitor-publish/coconala/history/. .claude/state/coconala/history/
           fi
+          if [ -d /tmp/competitor-publish/coconala-research ]; then
+            cp /tmp/competitor-publish/coconala-research/*.json .claude/state/coconala/
+          fi
 
           git add \
             .claude/state/note/competitors-snapshot.json .claude/state/note/history \
             .claude/state/ig-competitors/snapshot.json .claude/state/ig-competitors/history \
-            .claude/state/coconala/competitors-snapshot.json .claude/state/coconala/history
+            .claude/state/coconala/competitors-snapshot.json .claude/state/coconala/history \
+            .claude/state/coconala/market-research.json .claude/state/coconala/market-summary.json
           if git diff --cached --quiet; then
             echo "No competitor snapshot changes to publish"
             exit 0
@@ -151,8 +171,9 @@ jobs:
           NOTE_OUTCOME: ${{ steps.note.outcome }}
           IG_OUTCOME: ${{ steps.ig.outcome }}
           COCONALA_OUTCOME: ${{ steps.coconala.outcome }}
+          RESEARCH_OUTCOME: ${{ steps.coconala_research.outcome }}
         run: |
-          if [ "$NOTE_OUTCOME" != "success" ] || [ "$IG_OUTCOME" != "success" ] || [ "$COCONALA_OUTCOME" != "success" ]; then
-            echo "::error::競合スキャンに失敗したチャネルがあります（note=$NOTE_OUTCOME / ig=$IG_OUTCOME / coconala=$COCONALA_OUTCOME）。"
+          if [ "$NOTE_OUTCOME" != "success" ] || [ "$IG_OUTCOME" != "success" ] || [ "$COCONALA_OUTCOME" != "success" ] || [ "$RESEARCH_OUTCOME" != "success" ]; then
+            echo "::error::競合スキャンに失敗したチャネルがあります（note=$NOTE_OUTCOME / ig=$IG_OUTCOME / coconala=$COCONALA_OUTCOME / coconala-research=$RESEARCH_OUTCOME）。"
             exit 1
           fi
