@@ -1,6 +1,10 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { deleteCard, findCard, detectEol, nextId } from '../scripts/backlog-edit.mjs';
+import { mkdtempSync, mkdirSync, writeFileSync, rmSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import { execFileSync } from 'node:child_process';
+import { deleteCard, findCard, detectEol, nextId, backlogGitLog } from '../scripts/backlog-edit.mjs';
 
 // 実カードの最小形（タグ行込み・parseBacklog が要求する構造）を CRLF で組む。
 const CRLF = '\r\n';
@@ -96,4 +100,27 @@ test('nextId: gitLogTextがnullならdegraded:trueを立てる', () => {
   const md = fixture([{ id: 'DN-0001', title: 'A' }]);
   assert.equal(nextId(md, null).degraded, true);
   assert.equal(nextId(md, '').degraded, false); // 空文字は「取得できた（0件）」であってnullではない
+});
+
+test('backlogGitLog: 別ブランチでだけ使われて消えた ID も採番から避ける（DN-0340）', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'backlog-next-id-'));
+  try {
+    const git = (...a) => execFileSync('git', ['-c', 'user.name=t', '-c', 'user.email=t@example.com', '-c', 'commit.gpgsign=false', ...a], { cwd: dir, stdio: 'ignore' });
+    const write = (md) => { mkdirSync(join(dir, '.claude/todo'), { recursive: true }); writeFileSync(join(dir, '.claude/todo/backlog.md'), md); };
+    git('init', '-q', '-b', 'main');
+    write(fixture([{ id: 'DN-0003', title: 'A' }]));
+    git('add', '.'); git('commit', '-qm', 'base');
+    git('checkout', '-qb', 'side');
+    write(fixture([{ id: 'DN-0003', title: 'A' }, { id: 'DN-0009', title: '並行ブランチで起票' }]));
+    git('commit', '-qam', 'add 9');
+    write(fixture([{ id: 'DN-0003', title: 'A' }]));
+    git('commit', '-qam', 'delete 9');
+    git('checkout', '-q', 'main');
+    const md = fixture([{ id: 'DN-0003', title: 'A' }]);
+    const log = backlogGitLog({ cwd: dir });
+    assert.notEqual(log, null);
+    assert.equal(nextId(md, log).next, 'DN-0010'); // main の履歴だけなら DN-0004 になり 9 を踏む
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
 });

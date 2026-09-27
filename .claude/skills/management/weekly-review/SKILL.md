@@ -556,7 +556,7 @@ gh issue list --label automation-failure --state open --json number,title,create
 
    | action | いつ | 必須項目 | 行き先と実行者 |
    |---|---|---|---|
-   | `backlog` | 単発の実装（CTA 配置・文言、title/description、計測の修理、導線ゼロの解消） | title / tier（high・mid・low・hold）/ category / kind / doing / done（任意 verify） | `.claude/todo/backlog.md` の DN → `/backlog-sweep` |
+   | `backlog` | 単発の実装（CTA 配置・文言、title/description、計測の修理、導線ゼロの解消） | title / tier（high・mid・low・hold）/ category / domain（領域ラベル）/ kind / doing / done（high・mid は period＝YYYY-MM[..YYYY-MM]、任意 verify） | `.claude/todo/backlog.md` の DN → `/backlog-sweep` |
    | `experiment` | 効果を前後で測るべき変更（配置・文言の試行など） | title / hypothesis / targetMetric / targetDelta（任意 measure） | `experiments.json`（proposed）→ `/nsm-experiment start`。measure を付ければ CI が自動計測 |
    | `watchword` | 受験意図の SEO 機会（watchword 下書きがあるものだけ） | watch（id / priority / audience / need / rationale / nextStep ほか） | `seo-watchwords.json`（improve）→ 日次 `seo-rank-watch` が自動改善・効果判定 |
    | `verdict` | 期限の来た実験（VERDICT_DUE 等） | result（success・partial・no-effect・negative）/ learnings | 実験を close |

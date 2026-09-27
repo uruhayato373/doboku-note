@@ -41,7 +41,7 @@ npm run fix-bold-rendering   # 上の崩壊のうち機械的に安全な形だ�
 npm run check-table-rendering # GFM テーブルが実際に table になるか（remark 実パースでデリミタ行が text に残る＝生パイプ表示を検出。原因〔改行 \r\r\n 破損／ヘッダとデリミタのセル数不一致〕を問わず症状で拾う・pre-commit --staged ＋ quality:audit）
 npm run check-table-references # 本文が指す「表N.M」のキャプションが実在するか（転記由来の宙に浮いた参照）
 npm run check-published-vs-redirects # 統合済み記事の再公開を止める（published:true なのに `_redirects` で 301 の転送元＝ページは在るのに別ページへ飛ぶ。統合の記録は frontmatter に無く _redirects にしかないので目視では気づけない。pre-commit --staged ＋ quality:audit）
-npm run check-year-staleness   # title/seoTitle/description に残る前年度以前の年度表現を warn 列挙（過去問・年度別記事は主題なので除外・report）。年度切替（毎年1月）直後だけ quality-audit.mjs の ci フラグを true へ上げ、0 件になったら戻す（DN-0243）
+npm run check-year-staleness   # title/seoTitle/description に残る前年度以前の年度表現を warn 列挙（過去問・年度別記事は主題なので除外・report）。年度切替（毎年1月）直後だけ quality-audit.mjs の ci フラグを true へ上げ、0 件になったら戻す（DN-0426）
 npm run check-ogp-line-count   # OGP タイトルが何行に折れるかを実測（既定は surfacer で判定しない。`--max=N` / `check-ogp-line-count:done` で完了判定になる。check-ogp-title-fit はフォントサイズしか見ない）
 npm run check-keiken-answer-split # 施工経験記述の解答欄の割り振りが級と合っているか（1級=(1)に検討項目/(2)対応処置・評価、2級=(1)課題/(2)検討項目と対応処置。2級式を1級教材へ使うと(2)に3要素が乗り1区画約200字に収まらない。**note 原稿だけでなく退避される模試の生成 markdown も走査**）
 npm run check-content-layout   # content/ の 6 チャネルに実体があるかを観測（件数・容量。空チャネル＝移行の取りこぼしで fail）
@@ -76,6 +76,7 @@ npm run auth:ci-writeback     # CI専用。更新後のstorageStateをCAS（etag
 npm run auth:ci-plan          # ops-writeのwrite planを作りDOBOKU_CI_WRITE_PLAN_SHA256を計算する
 npm run check-content-taxonomy # 分類語彙（領域×資格×記事型×テーマ×タグ）の整合。group が許可外・未登録タグは赤、別名綴り・構造タグ不整合は baseline ラチェット（`:ci`）、topic 三方向の 0 件は WARN。規則は content-taxonomy.md・pre-commit --staged ＋ quality:audit
 npm run check-content-expansion # 全教材の論点→記事/図/SNS対応・未確認・原典待ち・成果物変更を検査（管理画面 /materials・週次/月次で確認）
+npm run check-content-expansion:linked # backlogIds を持つ論点に要作業・原典待ち・再確認が残れば exit 1（backlog の [検証:] 用・無印は常に緑）
 npm run check-domains          # 領域の正本（.claude/config/domains.json）とスキル/エージェントの domain:・文書の割り当ての整合（バックログの [領域:] は check-backlog-schema）
 npm run check-generated-indexes # refresh-indexes を実際に回し、生成物がコミットと一致するか（一致しなければ書き換わったファイルをコミットする。生成時刻だけの差分は出ない）
 ```

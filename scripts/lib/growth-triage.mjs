@@ -10,7 +10,7 @@
 //   reject     … 却下（理由必須。suppressWeeks.reject 週は再表示しない）
 //   defer      … 保留（until まで再表示しない・理由必須）
 // id が null の backlog は「来週への申し送り」など OPP 以外の起票（ID の付かない申し送りを残さないため）。
-import { CANONICAL_CATEGORIES, KINDS } from './backlog-lib.mjs';
+import { CANONICAL_CATEGORIES, KINDS, parseWhen } from './backlog-lib.mjs';
 
 export const ACTIONS = ['backlog', 'experiment', 'watchword', 'verdict', 'bundle', 'reject', 'defer'];
 export const TIER_HEADINGS = { high: '## 🔴', mid: '## 🟡', low: '## 🟢', hold: '## 🟣' };
@@ -18,8 +18,12 @@ export const RESULTS = ['success', 'partial', 'no-effect', 'negative'];
 
 const text = (v, min = 1) => typeof v === 'string' && v.trim().length >= min;
 
-/** 判断ファイルの検査。items＝この週の表示対象（digest.surfaced）。 */
-export function validateDecisions(decisions, { items, backlogIds, experimentIds }) {
+/**
+ * 判断ファイルの検査。items＝この週の表示対象（digest.surfaced）。
+ * backlog の判断は domain（[領域:]・全カード必須）と、tier が high / mid なら period（[時期:]）も要る
+ * （check-backlog-schema と同じ契約。無いと書き込み後の検査で必ず巻き戻る）。domainLabels＝domains.json のラベル。
+ */
+export function validateDecisions(decisions, { items, backlogIds, experimentIds, domainLabels = null }) {
   const errors = [];
   const byId = new Map(items.map((i) => [i.id, i]));
   const seen = new Set();
@@ -40,6 +44,10 @@ export function validateDecisions(decisions, { items, backlogIds, experimentIds 
       if (!CANONICAL_CATEGORIES.includes(d.category)) errors.push(`${at}: category は ${CANONICAL_CATEGORIES.join(' / ')}`);
       if (!KINDS.includes(d.kind)) errors.push(`${at}: kind は ${KINDS.join(' / ')}`);
       if (!text(d.doing, 10) || !text(d.done, 10)) errors.push(`${at}: doing（やること）と done（完了条件）を 10 字以上で`);
+      if (!text(d.domain)) errors.push(`${at}: domain（[領域:]・.claude/config/domains.json のラベル）が必要`);
+      else if (domainLabels && !domainLabels.has(d.domain)) errors.push(`${at}: domain「${d.domain}」は語彙外（${[...domainLabels].join(' / ')}）`);
+      if (d.period != null && !parseWhen(d.period)) errors.push(`${at}: period は YYYY-MM か YYYY-MM..YYYY-MM`);
+      if (d.period == null && (d.tier === 'high' || d.tier === 'mid')) errors.push(`${at}: tier ${d.tier} は period（[時期:]）が必要`);
     }
     if (d.action === 'experiment') {
       for (const k of ['title', 'hypothesis', 'targetMetric', 'targetDelta']) if (!text(d[k], 5)) errors.push(`${at}: ${k}（5 字以上）が必要`);
@@ -70,7 +78,14 @@ export function renderCard({ dnId, d, item, digestFile, today }) {
   const origin = item
     ? `週次トリアージ（${digestFile}）の ${item.id}: ${item.title}${item.expectedWeeklyGain ? `（期待効果 ${item.expectedWeeklyGain.value} ${item.expectedWeeklyGain.unit}/週）` : ''}${item.contentPath ? `。原稿: \`${item.contentPath}\`` : ''}`
     : `週次レビューの申し送り（${digestFile ?? '計測ダイジェスト外'}）`;
-  const tags = [`[${d.category}]`, `[種類:${d.kind}]`, ...(d.verify ? [`[検証:${d.verify}]`] : []), `[起票:${today}]`];
+  const tags = [
+    `[${d.category}]`,
+    ...(d.domain ? [`[領域:${d.domain}]`] : []),
+    ...(d.period ? [`[時期:${d.period}]`] : []),
+    `[種類:${d.kind}]`,
+    ...(d.verify ? [`[検証:${d.verify}]`] : []),
+    `[起票:${today}]`,
+  ];
   return [
     `### [${dnId}] ${d.title}`,
     `タグ: ${tags.join(' ')}`,
