@@ -39,8 +39,9 @@ const HUB: Partial<Record<string, HubCtaSpec>> = {
     mokuji: { url: 'https://note.com/dobokunote/n/n4fde0f62dc20', title1: '施工経験記述', title2: '学科記述・暗記' },
     seasonal: {
       switchUtcMs: examDayEndUtcMs('civil-construction-1', 'second'),
-      product: 'civil-1-anki-note',
-      sub: '赤シート対応PDF付',
+      // 2026-09-27: 暗記ノート単品（¥580）→ 暗記ノートを含む直前総仕上げパック（模試3回＋暗記ノート＋出題分析）
+      product: 'civil-1-chokuzen-pack',
+      sub: '模試3回＋暗記ノート＋出題分析',
     },
   },
   'civil-construction-2': {
@@ -50,8 +51,8 @@ const HUB: Partial<Record<string, HubCtaSpec>> = {
     mokuji: { url: 'https://note.com/dobokunote/n/n4fde0f62dc20', title1: '施工経験記述', title2: '学科記述・暗記' },
     seasonal: {
       switchUtcMs: examDayEndUtcMs('civil-construction-2', 'second'),
-      product: 'civil-2-anki-note',
-      sub: '赤シート対応PDF付',
+      product: 'civil-2-chokuzen-pack',
+      sub: '模試3回＋暗記ノート＋出題分析',
     },
   },
   'pe-comprehensive-management': {
