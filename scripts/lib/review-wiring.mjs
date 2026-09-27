@@ -14,7 +14,7 @@ import { extractWeeklyHandoffItems, parseRouting } from './handoff-extraction.mj
 export const CONFIG = '.claude/config/review-wiring.json';
 export const EVIDENCE = ['reviewRecord', 'sections', 'triage', 'reportFile', 'routing', 'weeklyPlan', 'none'];
 
-/** スキル本文が実行するコマンド（npm run X → X、node scripts/X.mjs → node:X）。重複なし・並びは出現順。 */
+/** スキル本文が実行するコマンド（npm run の名前はそのまま、node scripts/ 直の実行は「node:」＋スクリプト名）。重複なし・並びは出現順。 */
 export function extractCommands(skillText) {
   const out = [];
   for (const m of String(skillText).matchAll(/npm run ([a-z0-9:_-]+)|node scripts\/([A-Za-z0-9_./-]+)\.mjs/g)) {
