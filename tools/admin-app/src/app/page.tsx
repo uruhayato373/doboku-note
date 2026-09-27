@@ -1,13 +1,12 @@
 import Link from 'next/link';
-import MetricsOverview from '@/components/MetricsOverview';
 import { PageHead } from '@/components/ui';
-import { loadKpiView, type KpiCell } from '@/lib/kpi-tree';
+import { loadKpiView } from '@/lib/kpi-tree';
 
 export const dynamic = 'force-dynamic';
 
 /**
  * トップ = KPI。一目で分かる最小限だけを上に出す: 受取額と目標 → どこから売れたか（チャネル別・資格別の販売額）
- * → 入口（サイト・検索クラスター）。KPI ツリーの全行と集客の推移は下部に折りたたむ（docs/strategy/15_KPIツリー.md）。
+ * → 入口（サイト・検索クラスター）。KPI ツリーの全行と集客の推移は別ページ（下部のカードから開く）（docs/strategy/15_KPIツリー.md）。
  */
 const yen = (v: number | null) => (v == null ? '—' : `¥${v.toLocaleString('ja-JP')}`);
 const fmt = (v: number | null, unit: string) =>
@@ -47,13 +46,16 @@ function Tile({ label, value, sub }: { label: string; value: string; sub?: strin
   );
 }
 
-function Cell({ cell, unit }: { cell: KpiCell | undefined; unit: string }) {
-  if (!cell || !cell.applicable) return <td className="num muted">対象外</td>;
+/** 詳細ページへの入口。カード全体がリンク。 */
+function LinkCard({ href, title, desc }: { href: string; title: string; desc: string }) {
   return (
-    <td className="num">
-      {fmt(cell.value, unit)}
-      {cell.coverage === 'partial' && <span className="small muted">（一部）</span>}
-    </td>
+    <Link href={href} className="card" style={{ margin: 0, padding: 14, display: 'flex', justifyContent: 'space-between', alignItems: 'center', textDecoration: 'none', color: 'inherit' }}>
+      <span>
+        <strong>{title}</strong>
+        <span className="small muted" style={{ display: 'block' }}>{desc}</span>
+      </span>
+      <span style={{ fontSize: 20, opacity: 0.6 }}>→</span>
+    </Link>
   );
 }
 
@@ -119,41 +121,12 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ m
         検索語は Google の直近 28 日（{v.search.period ?? '未取得'}）・<Link href="/metrics/search-strategy">検索の詳細</Link>
       </p>
 
-      <details className="card" style={{ marginTop: 20 }}>
-        <summary>KPI ツリー（全指標・資格別）</summary>
-        <div className="table-wrap">
-          <table className="data">
-            <thead>
-              <tr>
-                <th>指標</th>
-                {v.scopes.map((s) => (
-                  <th key={s.id} className="num">{s.label}</th>
-                ))}
-              </tr>
-            </thead>
-            {v.groups.map((g) => (
-              <tbody key={g.label}>
-                <tr>
-                  <th colSpan={v.scopes.length + 1} style={{ textAlign: 'left' }}>{g.label}</th>
-                </tr>
-                {g.rows.map((r) => (
-                  <tr key={r.id}>
-                    <td style={{ paddingLeft: r.depth * 16 + 8, fontWeight: r.depth === 0 ? 700 : undefined }}>{r.label}</td>
-                    {v.scopes.map((s) => (
-                      <Cell key={s.id} cell={r.cells[s.id]} unit={r.unit} />
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            ))}
-          </table>
-        </div>
-      </details>
-
-      <details className="card">
-        <summary>集客の推移とデータの更新</summary>
-        <MetricsOverview />
-      </details>
+      <h2 style={{ margin: '24px 0 8px' }}>詳しく見る</h2>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 12 }}>
+        <LinkCard href={`/metrics/kpi?month=${v.month}`} title="KPI ツリー" desc="全指標を資格別の表で" />
+        <LinkCard href="/metrics/traffic" title="集客の推移" desc="PV・流入のグラフとデータの更新状況" />
+        <LinkCard href="/metrics/search-strategy" title="検索キーワード" desc="クラスター別の順位と改善候補" />
+      </div>
     </>
   );
 }
