@@ -72,7 +72,7 @@ function Output({ label, value, href }: { label: string; value: number | string;
     </>
   );
   return (
-    <div className="card" style={{ margin: 0, padding: 12 }}>
+    <div style={{ padding: '4px 0 4px 12px', borderLeft: '3px solid var(--panel-2)' }}>
       {href ? <Link href={href} style={{ color: 'inherit', textDecoration: 'none' }}>{body}</Link> : body}
     </div>
   );
