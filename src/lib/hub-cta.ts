@@ -14,7 +14,8 @@ type HubCtaSpec = {
    *  タイル内の 3 箇所が同じ「一覧がある」を言い換えるだけでクリック動機が無かった）。
    *  一覧であることは CTA ボタンの「教材一覧を見る」が担う。 */
   mokuji: { url: string; title1: string; title2: string };
-  seasonal?: { switchUtcMs: number; product: MagazineId; sub: string };
+  /** title: 商品の shortTitle が長く資格名と重複するときの短縮表示（qual 行に資格名が出るため）。 */
+  seasonal?: { switchUtcMs: number; product: MagazineId; sub: string; title?: string };
 };
 
 /** もくじタイルの補足行。資格によらず「この先が有料教材の一覧」であることだけを示す。 */
@@ -39,8 +40,10 @@ const HUB: Partial<Record<string, HubCtaSpec>> = {
     mokuji: { url: 'https://note.com/dobokunote/n/n4fde0f62dc20', title1: '施工経験記述', title2: '学科記述・暗記' },
     seasonal: {
       switchUtcMs: examDayEndUtcMs('civil-construction-1', 'second'),
-      product: 'civil-1-anki-note',
-      sub: '赤シート対応PDF付',
+      // 2026-09-27: 暗記ノート単品（¥580）→ 暗記ノートを含む直前総仕上げパック（模試3回＋暗記ノート＋出題分析）
+      product: 'civil-1-chokuzen-pack',
+      title: '直前総仕上げパック',
+      sub: '模試3回＋暗記ノート＋出題分析',
     },
   },
   'civil-construction-2': {
@@ -50,8 +53,9 @@ const HUB: Partial<Record<string, HubCtaSpec>> = {
     mokuji: { url: 'https://note.com/dobokunote/n/n4fde0f62dc20', title1: '施工経験記述', title2: '学科記述・暗記' },
     seasonal: {
       switchUtcMs: examDayEndUtcMs('civil-construction-2', 'second'),
-      product: 'civil-2-anki-note',
-      sub: '赤シート対応PDF付',
+      product: 'civil-2-chokuzen-pack',
+      title: '直前総仕上げパック',
+      sub: '模試3回＋暗記ノート＋出題分析',
     },
   },
   'pe-comprehensive-management': {
@@ -127,7 +131,7 @@ export function resolveHubCta(
         bg: spec.bg,
         themeVar: spec.themeVar,
         qual: spec.qual,
-        title1: mag.shortTitle ?? mag.title,
+        title1: spec.seasonal.title ?? mag.shortTitle ?? mag.title,
         title2: '',
         sub: spec.seasonal.sub,
         // price は「¥3,480（6テーマ…）」等の説明入りがあるので先頭の金額だけをピル表示に使う

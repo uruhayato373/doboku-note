@@ -86,6 +86,24 @@ const RULES: readonly OffsiteRule[] = [
     coconalaCatch: '直前の総仕上げに（予想模試・全部入りパック PDF）。',
   },
   {
+    // 資格トップ（カテゴリ hub・slug はカテゴリ名そのもの）。SNS から着地する入口なので、
+    // 二次の人の添削と直前の総仕上げを出す（2026-09-27 配線監査 DN-0364）。
+    test: /^civil-construction-1$/,
+    coconala: ['coconala-tensaku-set', 'coconala-1kyu-full-pdf'],
+    coconalaCatch: '自分の答案を見てほしい方・直前に総仕上げしたい方へ。',
+  },
+  {
+    // 施工経験記述 文字数チェッカー（/tools/keiken-charcount）。答案を書いている最中の人が来る。
+    test: /^tools-keiken-charcount$/,
+    coconala: ['coconala-tensaku-set', 'coconala-2kyu-tensaku'],
+    coconalaCatch: '字数が収まったら、次は中身。自分の答案を見てほしい方へ。',
+  },
+  {
+    test: /^civil-construction-2$/,
+    coconala: ['coconala-2kyu-tensaku', 'coconala-2kyu-full-pdf'],
+    coconalaCatch: '自分の答案を見てほしい方・直前に総仕上げしたい方へ。',
+  },
+  {
     // 総監 記述系（模範論文解説 essay-* / pattern-essay-* / 二次過去問 h2X・r0X-secondary）:
     // 出題テーマの読み方（ココナラ分析 PDF）。
     test: /^pe-comprehensive-management-(essay-|pattern-essay-|(?:h\d{2}|r\d{2})-secondary$)/,
