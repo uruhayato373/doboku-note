@@ -242,7 +242,7 @@ async function createDimension(page, cfg, runId, def) {
   await page.waitForTimeout(1200);
 
   // 表示名
-  const nameBox = page.getByLabel(/ディメンション名|Dimension name|表示名/).first();
+  const nameBox = page.locator('input[aria-labelledby="custom-name-input-label"]');
   if (!(await nameBox.isVisible().catch(() => false))) {
     throw Object.assign(new Error("ディメンション名の入力欄が見つからない"), { step: "fill-display-name" });
   }
@@ -263,13 +263,13 @@ async function createDimension(page, cfg, runId, def) {
   }
 
   // 説明（任意）
-  const descBox = page.getByLabel(/説明|Description/).first();
+  const descBox = page.locator('input[aria-labelledby="description-input-label"]');
   if (await descBox.isVisible().catch(() => false)) {
     await descBox.fill(def.description ?? "");
   }
 
   // イベントパラメータ
-  const paramBox = page.getByLabel(/イベント パラメータ|イベントパラメータ|Event parameter|パラメータ/).first();
+  const paramBox = page.locator('input[aria-labelledby="parameter-name-input-label"]');
   if (!(await paramBox.isVisible().catch(() => false))) {
     throw Object.assign(new Error("イベントパラメータの入力欄が見つからない"), { step: "fill-parameter" });
   }
