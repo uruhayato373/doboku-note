@@ -764,6 +764,24 @@ stats47 と同じ検討（両サイト共通の論点）。（出典: 2026-09-25
 
 **完了条件**: 週次の点検が 10 件以下になり、移した点検がすべて quality-audit（ops か ci）に読み手付きで登録され、`npm run check-review-wiring` が通る。
 
+### [DN-0395] 月次レビューの手順が証拠を残すように、月次レポート（docs/reviews/monthly）を書かせる
+タグ: [インフラ・計測] [領域:戦略] [時期:2026-10] [種類:改善] [起票:2026-09-27]
+
+**起点**: 2026-09-27 に管理画面 戦略 ＞ レビュー ＞ 手順の点検（`/metrics/business/procedure?cadence=monthly`）を作ったところ、月次の 7 手順のうち証拠が残るのはレビュー記録（事業の判断）だけで、検索クラスターの推移・販売の突合・資格の正本と市場・目標と配分・時期付け・実験の判定の 6 手順は「記録が残らない」だった。週次は docs/reviews/weekly のレポートの節で実施を確かめられるが、月次にはレポートが無い。DN-0388 のマージ（#665）が前提。
+
+**やること**: 月次スキル（`.claude/skills/management/monthly-review/SKILL.md`）に週次と同じ形の「出力フォーマット」（手順ごとの節）と保存先 `docs/reviews/monthly/YYYY-MM-review.md` を足し、`.claude/config/review-wiring.json` の monthly の procedure を evidence: sections に切り替える（`scripts/lib/review-wiring.mjs` の buildProcedureView が月次レポートを読むように直す）。
+
+**完了条件**: 次の月次レビュー後に手順の点検（月次）で「記録が残らない」が 0 件になり、`npm run check-review-wiring` と `node --test tests/review-wiring.test.mjs` が通る。
+
+### [DN-0396] 週間計画の見出しの週番号を ISO 週に合わせる（09/28〜10/04 が W41 になっている）
+タグ: [インフラ・計測] [領域:計画] [時期:2026-10] [種類:不具合] [起票:2026-09-27]
+
+**起点**: 2026-09-27 に手順の点検（`/metrics/business/procedure`）で、`.claude/todo/weekly.md` の見出しが「2026-W41（09/28〜10/04）」になっているのを見つけた。ISO 週では 09/28 は 2026-W40（週次レポート 2026-W39 の翌週）。週番号で週次レポートや計測ダイジェストと突き合わせる処理がずれる。
+
+**やること**: `/plan-weekly`（todo-planner）が週番号を決める箇所を探して ISO 週（`scripts/lib/review-wiring.mjs` の isoWeekOf と同じ定義）に直し、今の weekly.md の見出しを W40 に直す。
+
+**完了条件**: 手順の点検の「翌週の計画」が「証拠あり」になる。
+
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
 ### [DN-0347] 年間ロードマップに月別の売上（資格別）を重ね、売上の偏りと買われる時期のずれを見えるようにする
