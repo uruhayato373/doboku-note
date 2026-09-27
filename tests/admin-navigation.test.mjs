@@ -121,9 +121,11 @@ test('既存の判断画面はすべてサイドバーのどこか 1 か所に�
   for (const href of [
     '/metrics', '/strategy/policy', '/metrics/business', '/strategy/qualifications', '/content/lineup',
     '/sales', '/product/status', '/affiliate', '/affiliate/placements', '/affiliate/programs', '/metrics/seo-watch', '/metrics/gsc', '/metrics/ga4',
-    '/metrics/psi', '/sns', '/metrics/video', '/gallery/characters', '/schedule', '/todo', '/docs',
+    '/metrics/psi', '/sns', '/metrics/video', '/gallery/characters', '/schedule', '/todo',
     '/plans', '/quality', '/knowledge', '/agents', '/skills', '/content/lifecycle', '/content', '/materials',
   ]) {
     assert.equal(hrefs.filter((h) => h === href).length, 1, `${href} がサイドバーにちょうど 1 回ない`);
   }
+  // 文書（/docs）はサイドバーに置かず、各領域ページの文書欄から開く（2026-09-27・domains.json の navRules）
+  assert.ok(!hrefs.includes('/docs'), '/docs はサイドバーに置かない');
 });
