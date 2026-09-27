@@ -20,7 +20,7 @@ export default function NotFound() {
         </Link>
         <Link
           href="/"
-          className="inline-flex items-center gap-2 rounded-card-inline bg-[var(--accent)] px-4 py-2 text-sm font-bold text-white hover:opacity-90 transition-opacity"
+          className="inline-flex items-center gap-2 rounded-card-inline bg-[var(--accent)] px-4 py-2 text-sm font-bold text-[var(--paper)] hover:opacity-90 transition-opacity"
         >
           <span>ホーム（資格一覧）へ</span>
           <span aria-hidden>→</span>
