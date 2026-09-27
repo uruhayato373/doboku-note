@@ -221,6 +221,7 @@ npm run check-qualification-market # 展開の判断材料の正本の整合（m
 npm run report-competitor-watch # ココナラ競合の変化（値下げ・出品増減・累計販売 +20 件以上）と追跡外の候補（関連サービスの販売実績 20 件以上）・売上推定が一部だけの売り手。committed state を読むだけ（取得しない）。読み手＝週次レビュー。exit 2＝state が読めない
 npm run report-search-opportunities # 検索キーワード戦略（.claude/config/search-strategy.json）のクラスター別の表示・1桁件数・11〜30位件数と約28日前との差、改善候補（11〜30位で表示のある検索語をページ単位に束ねたもの・観察中/起票済み/旧URLに印）。GSC の検索語×ページ集計を読むだけ。読み手＝週次（起票）・月次（推移）。exit 2＝集計が無い
 npm run report-web-vitals     # 実ユーザー計測の最新記録を読み、手を打つ組（不良・要改善で件数 30 以上）を先に出す。読み手＝週次レビュー（不良が出たら改善カードを起票）。exit 2＝記録が無い・10 日超・カスタムディメンション未登録
+npm run x-profile-sync    # X の自己紹介を正本 .claude/config/x-account.json の profile.bio に合わせる。既定 dry-run（差分表示）、`-- --commit` で書き換えて表示の一致を確認。ログイン中が handle 以外なら ABORT（exit 2・別アカウントは書き換えない）。上限は limits.bio
 npm run check-review-wiring # 週次・月次レビューのスキルが実行するコマンドと配線の正本（.claude/config/review-wiring.json・stage と role）の一致。CI ゲート。スキルにコマンドを足したら正本にも stage・role 付きで足す。管理画面 戦略 ＞ レビュー の配線図の元
 npm run check-monthly-review-due # 月次レビューの催促（SessionStart）。毎月 3 日（JST）以降に前月を対象にした月次レビューの記録（business/review-*.json の cadence:monthly）が無ければ exit 1 で 1 行出す。`-- --json`
 npm run backlog-gate      # 週次・月次レビューのバックログの関門（読み取り専用）。`-- --weekly`＝判断待ち🟣の全件・期日切れ・直近7日の起票、`-- --monthly`＝時期の無い🟢の全件・起票から90日超・今月の🔴🟡件数。`--json` あり。運営者に諮った結果で台帳を直すのはレビュー側（判定は scripts/lib/backlog-gate.mjs）

@@ -131,6 +131,7 @@
     "check-seo-rank-watch": "node scripts/check-seo-rank-watch.mjs",
     "report-search-opportunities": "node scripts/report-search-opportunities.mjs",
     "report-web-vitals": "node scripts/report-web-vitals.mjs",
+    "x-profile-sync": "node scripts/x-profile-sync.mjs",
     "check-review-wiring": "node scripts/check-review-wiring.mjs",
     "check-experiment-due": "node scripts/check-experiment-due.mjs",
     "check-figure-canvas": "node scripts/check-figure-canvas.mjs",
