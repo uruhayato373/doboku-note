@@ -80,11 +80,11 @@ gh workflow run ops-write.yml --ref develop -f operation=coconala.publish -f arg
 
 ## 商品画像（サービスサムネ）
 
-AI で雰囲気写真（文字なし）を生成 → satori で日本語を正確に重ねる（brand-image-system 流儀）。
+承認画像登録済みの商品は `coconala-thumb` が原本の SHA-256 を照合してコピーする。未登録商品のみ、AI の文字なし背景写真に satori で日本語を重ねる。登録済み原本の欠落時は旧意匠に戻さず停止する。原本・配色・訴求の真実源は [coconala-operations.md 商品画像節](../../../../.claude/knowledge/reference/coconala-operations.md)。
 
 ```
 npm run gen-image-gemini -- --out .claude/config/coconala/assets/bg-civil.png --prompt "..."  # 背景（Gemini API課金）
-npm run coconala-thumb                                                                          # 背景+文字を1200×900合成（THUMB_COPY）
+npm run coconala-thumb                                                                          # 承認原本をコピー／未登録は背景+文字を合成（THUMB_COPY）
 node scripts/coconala-publish.mjs --service <id> --commit --image thumb-<key>.png              # 公開と同時に画像アップロード（1商品=1実行）
 node scripts/coconala-edit.mjs --service <id> --service-id <n> --image thumb-<key>.png --commit # 既存商品へ画像だけ更新
 ```
