@@ -7,7 +7,7 @@ domain: strategy
 
 ## 事業の週次判断（最初と最後に実行）
 
-`docs/strategy/01_プロダクト戦略.md` と `.claude/config/business-direction.json` を基準にする。`npm run business-review -- report --json` で前の完了した月曜〜日曜の資格別KPI、欠測、既存レビュー期日を確認する。以下の収集項目はこの判断を支える資料であり、集客だけを成功としない。
+`docs/strategy/01_プロダクト戦略.md` と `.claude/config/business-direction.json` を基準にする。**読む順は KPI ツリー（`docs/strategy/15_KPIツリー.md`・管理画面トップ）に従う**: 頂点の月の受取額（`netReceipts`）と目標（`target` 記録）の差を先に確認し、週次では直近の完了月の値を参照するだけにして、原因の候補は前週から落ちた段・目標を割っている段（チャネル → 入口）に絞る。`npm run business-review -- report --json` で前の完了した月曜〜日曜の資格別KPI、欠測、既存レビュー期日を確認する。以下の収集項目はこの判断を支える資料であり、集客だけを成功としない。
 
 収集後、`.claude/knowledge/reference/business-review.md` の手順でsnapshotとweeklyのreviewを追記する。資格別に「実測／未確認／判断／次の一手」を分け、実験IDと次回日を残す。note/ココナラ内アクセス・販売、運営時間も確認する。欠測はprovisional、同じ期間のレビューはsupersedesによる訂正。MDレポートを整理しても機械履歴は削除しない。JSONを明示してコミットする。月次の方針・目標変更は `/monthly-review` へ渡す。
 
