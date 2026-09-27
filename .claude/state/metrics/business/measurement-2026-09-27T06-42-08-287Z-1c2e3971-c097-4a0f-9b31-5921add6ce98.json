@@ -1,0 +1,18 @@
+{
+  "kind": "measurement",
+  "qualification": "all",
+  "period": {
+    "startDate": "2026-08-01",
+    "endDate": "2026-08-31"
+  },
+  "channel": "operations",
+  "subject": "netReceipts",
+  "coverage": "complete",
+  "source": "note 売上管理 2026年8月の売上詳細「手数料控除後売上」60,629円（売上71,640円・手数料11,011円）＋ココナラ 売上管理の売上履歴 2026/08 計上分 7,800円（手数料控除後・トークルームのクローズ日で計上）＋KDP ロイヤリティ確定値 5,789円（catalog 対象書籍のみ）。振込手数料は含めない。",
+  "values": {
+    "netReceipts": 74218
+  },
+  "schemaVersion": 1,
+  "createdAt": "2026-09-27T06:42:08.287Z",
+  "strategyHash": "b4b76b23797460822a4126aa507b23061e45a77874522d016db00f5fa7a0b3cb"
+}
