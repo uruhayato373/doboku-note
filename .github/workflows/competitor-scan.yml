@@ -19,7 +19,7 @@ concurrency:
 jobs:
   scan:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 75
     steps:
       - name: Checkout develop
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -68,7 +68,7 @@ jobs:
         continue-on-error: true
         run: |
           set -o pipefail
-          node scripts/coconala-research.mjs --refresh --max-pages 3 --details 0 2>&1 | tee /tmp/competitor-coconala-research.log
+          node scripts/coconala-research.mjs --refresh --details 0 2>&1 | tee /tmp/competitor-coconala-research.log
 
       - name: Scan Coconala competitors (public pages)
         id: coconala
