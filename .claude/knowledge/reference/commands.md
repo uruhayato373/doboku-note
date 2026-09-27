@@ -103,6 +103,7 @@ npm run kdp-report        # Kindle 月次ロイヤリティを KDP レポート�
 npm run check-kdp-report-freshness # KDPロイヤリティ台帳の期限とdoboku-note LIVE全冊（対象月末までに出版した本）のcatalog紐付けを検査（共有口座の他サイト書籍は除外。16日以降=前月確定、28日以降=当月推計。quality:auditのops区分が日次通知）
 npm run note-traffic-fetch # note ダッシュボード「アクセス状況」を read-only 取得→.claude/state/metrics/note/{referrers,articles-pv}-YYYY-MM.json（--month は今月/先月のみ・--commit で保存・--check は fixture で正規化の完走確認＝quality:audit ci・ログイン要・DN-0249）。流入元は自己閲覧を含み、サイト経由は PR #511 deploy 前は no referrer に含まれる
 npm run note-sales-fetch  # note 売上履歴を read-only 取得→検算OKで.claude/state/sales/sales-log.jsonの当月を差し替え（--month YYYY-MM --commit・ログイン要・DN-0018）
+npm run record-net-receipts # 月の受取額（NSM）を事業の計測記録へ。note は売上管理の月別詳細の「手数料控除後売上」をブラウザで read-only 取得（パスワード再確認は人）、KDP は kdp-royalties.json の catalog 対象・確定値、ココナラは `--coconala <円>`（控除後・クローズ日計上）。`--month YYYY-MM`、既定 dry-run・`--commit` で記録。3 つそろい KDP 確定のときだけ complete（欠測を 0 にしない）
 npm run check-magazine-cta # 公開マガジンがサイトで1面以上CTAとして出るか（top/中間CTA/MagazineCard・quality:audit に同梱）
 npm run check-sales-freshness # sales-log.json の転記停止（updatedAt）と、毎月5日以降に前月noteアクセス取得・月次売上表示との金額一致を検査（quality:audit の **ops 区分**＝ops-audit.yml が日次で Issue へ。取得自体は認証が要るのでローカル専用）
 npm run check-weekly-review-due # 週次レビュー（ローカル実行・土曜）の忘れを催促（土曜 09:00 JST 以降に今週分、月〜金は先週分の *-review.md が無ければ exit 1・SessionStart フックが呼ぶ。最終 backstop は月曜の weekly-review-guard）
@@ -135,6 +136,7 @@ npm run coconala-orders   # ココナラ受注＋購入前DMの実体を read-on
 npm run coconala-talkroom -- <talkroomId> # トークルーム1件のメッセージと添付（原寸・docx は本文 .txt も）を .tmp/coconala/talkrooms/{id}/ へ取得（Playwright・送信なし・開くと既読になる）。添付はホバーで出るボタンの download イベントから署名URLを受けて取得＝saveAs を使わない。exit 2=添付の取りこぼし
 npm run check-coconala-orders # 上記 snapshot ↔ orders-log をオフライン突合（記録漏れ・金額ズレ・返信期限〔48h自動キャンセル〕・DM要対応）
 npm run check-tensaku-reply -- <返信文> --source <提出原稿> --grade 1 # 添削・診断・作成の顧客返信文を送信前に検査（3000字・外部誘導・合格保証・下書き注記・書き換え例の（N字）表記と解答欄・原稿に無い工事の数値）。--source なしは exit 2（未検査を緑にしない）。意味の評価は civil-keiken-tensaku-qa
+npm run check-kosshi-sheet -- <骨子シート> --source <ヒアリングシート> # S3 指導の骨子シートを送信前に検査（「」引用と数値がヒアリングシートに実在・引用の外の地の文は1行60字以内で句点なし＝答案の文章を書かない・各テーマに（1）（2）の区画・1引用30字以内・外部誘導/合格保証/下書き注記）。exit 0/1/2（2=--source なし）。civil-keiken-tensaku-qa が mode=kosshi で実行
 npm run coconala-analytics # ココナラ分析画面（全体/サービス別/ブログ別）を read-only 収集→analytics-snapshot.json（--append-kpi で kpi-log へ週次 upsert・定期取得は login-collectors.yml・Playwright・書き込みなし）
 npm run check-coconala-analytics # 上記の鮮度・欠測・マスク値（0000は0でない）・kpi-log 整合をオフライン検査
 npm run check-coconala-wiring # カタログ↔listings↔商品画像↔受注/KPI/売上の整合と、PDF の価格ルール（note 基準×1.1 以上）を検査（pre-commit --staged＋CI）

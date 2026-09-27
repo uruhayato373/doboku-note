@@ -6,6 +6,9 @@ title: スキル ガバナンス記録
 
 # スキル ガバナンス記録
 
+- 2026-09-27: `social/create-pop-image` を追加。承認済みPOP意匠の媒体横断制作と原本・生成履歴を管理。note-magazine-cover／create-x-card／coconala-publishから結線。専任エージェントは追加しない。
+
+
 > 2026-09-26 退役: `/brain-publish`（Brain 出品・審査反映）と brain-operator エージェントを削除。Brain チャネルから完全撤退（出品2点・約2か月で売上台帳0件・サイト送客0件）。monthly-review に資格の正本照合（`npm run exam-ssot-status`）を結線。
 
 > 2026-09-14 更新: publish-x にローカルの実予約定期検査 `check-x-queue-health` を結線。Codex朝夜監視が実行し、CIには認証を要求しない。スキル件数は不変。
@@ -37,10 +40,10 @@ title: スキル ガバナンス記録
 ├── authoring/       # 11 — 記事を作る
 ├── conversion/      # 7 — 形式変換（MDX / OGP 画像 / 紙用 PDF / Kindle EPUB）＋ KDP 入稿・出版 ＋ OGP 意匠の素案試作
 ├── quality/         # 16 — MDX・note 公開前品質検査
-├── management/      # 25 — 計画・分析・戦略
+├── management/      # 24 — 計画・分析・戦略
 ├── dev/             # 15 — 開発・CI/CD・ローカルPlaywright認証運用・アセット置き場の判定
 ├── analytics/       # 2 — サイト分析
-├── social/          # 24 — SNS 投稿・note運用
+├── social/          # 25 — SNS 投稿・note運用
 ├── metrics/         # 1 — 売上記録
 └── ui/              # 1 — UI/UX デザイン
 ```
@@ -79,6 +82,8 @@ title: スキル ガバナンス記録
 > 2026-07-20 新設（note 競合インテリジェンスの機械化）: `management/competitor-review`（note 競合の価格・品揃え・ポジショニングを**四半期で再取得→差別化再評価→09反映パッチ**まで回す user-invocable スキル）。あわせて **新エージェント `competitor-analyst`（Evaluator・sonnet・audit-only）** と決定的スクリプト 2 本＝`scripts/scout-note-competitors.mjs`（note 公開 API から 12社のマガジン/単品/価格/スキ数/更新頻度を取得→**日付つき時系列 `.claude/state/note/history/` ＋前回比 drift 検出**〔価格改定/新商品/休眠/新規参入〕）と `scripts/check-competitor-scan-due.mjs`（四半期90日の期限 surfacer・weekly-review Agent B が DUE を surface）を新設。競合ハンドル SSOT は `.claude/config/note-competitors.json`。**有料本文は paywall で取得不可**＝タイトル/価格/スキ数/投稿日まで（中身の質は「未読」扱い・断定しない）。取得は公開ページのみ（creds 不要・`curl --ssl-no-revoke`）で計測 API ローカル禁止とは別枠。**新規クラウド cron は作らない**（weekly PDCA 1本のみ稼働の方針）＝定期性は due-surfacer＋`.claude/todo/annual.md` の四半期定例で担保。分析真実源 `docs/strategy/09_販売チャネル競合分析.md`（機械 drift → analyst が「09 反映パッチ」→ ユーザー承認で親が Edit 適用）。合計 `92→93`・management `18→19`・agents `+1`（`competitor-analyst`）。
 
 > 2026-07-20 新設（A8 アフィリ確認パイプライン・新カテゴリ ads）: `ads/scout-asp`（A8.net を Playwright で操作し**申請済みアフィリの承認確認**〔`list`〕を主用途に、提携取込〔`import-partnered`〕・転職案件の開拓/申請〔`scout`/`apply`・A8 カテゴリ09 のみ・週次上限〕・承認昇格〔`check-approval`〕・広告コード取得〔`harvest`〕まで回す user-invocable スキル。`disable-model-invocation: true`）。**新カテゴリ `ads/` を新設**。stats47 の同名 `scout-asp` を doboku=転職一本へ移植・スリム化＝(1) scout を A8 カテゴリ09(仕事)のみに限定・講座/教材/書籍/添削を blocklist 恒久除外（memory `affiliate-career-only` の Red Line 機械強制）、(2) **register は自動追記しない**（doboku の creative SSOT は手キュレーションの `src/config/affiliate-creatives.ts`＝3枠・意図配置・カニバリ回避。stats47 の `AFFILIATE_ADS[]` intent-hub は無い）→ harvest は「配置候補〔SidebarAdCreative 形 + affiliate-mats.json 追記案〕を catalog の adDraft に出力」まで・確定配置は人判断。決定的スクリプト `.claude/scripts/ads/lib/{a8-scout-core,a8-code-core}.mjs`（純関数コア）／`.claude/scripts/ads/check-a8-apply-budget.cjs`（週次申請上限）／`.claude/scripts/ads/data/a8-curated.json`（係数・blocklist・vertical・上限の SSOT）／`.claude/state/ads/a8-catalog.json`（状態機械）を新設。認証は永続プロファイル＋セッション Cookie 再注入（`.local/playwright-a8-{profile,state.json}`・`login.mjs`）。正典 SSOT は新設 `.claude/knowledge/reference/a8-affiliate-pipeline.md`、認証は `playwright-auth-profiles.md` に a8 profile 行を追記済み（2026-07-27）。**ローカル Mac 限定・初回のみ人間ログイン＋`list --dry-run --headed` で実機セレクタ確定**。合計 `90→91`・新カテゴリ `ads 0→1`（9→10 カテゴリ）。agents 件数は不変（Phase 3 で `affiliate-manager` を検討）。
+
+> 2026-09-27 修正: `management/coconala-publish` の商品画像案内を承認原本の照合・コピー優先へ更新。未登録商品のみ従来の satori 生成。件数不変。
 
 > 2026-07-18 新設（ココナラ出品の自動化）: `management/coconala-publish`（ココナラ出品サービスを Playwright で**新規出品・内容修正・価格反映**する user-invocable スキル。`coconala-operator` が起動）。決定的スクリプト `scripts/coconala-publish.mjs`（新規）／`coconala-edit.mjs`（修正）／`coconala-discover.mjs`（フォーム偵察）＋共有 `scripts/lib/coconala-{session,form}.mjs`、投入 SoT `.claude/config/coconala-listings.json`（本文/カテゴリ/納期/genreFacets・価格はカタログが真実源）を新設。note-publish 流儀＝ログイン済みプロファイル `.local/playwright-coconala-profile`＋account assert（sellerName=dobokunote）＋draft-first＋`--commit` gate、公開成功でカタログを `listed`＋`serviceUrl`＋`listedAt` に書き戻し。**2026-07-16 の「ココナラ UI の自動操作はしない」方針を出品・修正について改訂**（利用規約に自分の出品の自動化を禁じる明示条項は 2026-07-18 時点で未確認・第13条2項22号は購入者側の自動応答が対象。トークルーム返信送信は運営者のまま）。`coconala-operator` の description／`coconala-operations.md` §1/§2.1b/§5/§8／`coconala-account.json`／カタログ header を同期。合計 `89→90`・management `17→18`。agents 件数は不変（既存 `coconala-operator` の能力拡張）。
 
