@@ -238,6 +238,11 @@
           "write"
         ],
         "cron": "20 21 * * 1",
+        "skipScheduleIfFresh": {
+          "marker": ".claude/state/metrics/affiliate/a8-ui/last-run.json",
+          "field": "collectedAt",
+          "hours": 30
+        },
         "stateDomains": [
           "a8.net",
           "af8.jp"
