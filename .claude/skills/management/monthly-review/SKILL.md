@@ -10,6 +10,8 @@ domain: strategy
 
 ## 手順
 
+**配線の正本**: このスキルが実行するコマンドは `.claude/config/review-wiring.json` の monthly に段と役割付きで載せる（CI の check-review-wiring が食い違いを止める）。このレビューから起票したカードは本文の起点を「月次レビュー（開始日〜終了日）」で始める。
+
 1. `docs/strategy/01_プロダクト戦略.md` と `.claude/config/business-direction.json` を読む。手順・JSON契約は `.claude/knowledge/reference/business-review.md` を読む。
 2. `npm run business-review -- report --monthly --json` を実行する。**最初に月の受取額（`netReceipts`）と目標の差を書く**（管理画面トップ＝KPI と同じ集計・ツリーは `docs/strategy/15_KPIツリー.md`）。受取額が未記録なら取得（note「売上詳細」の手数料控除後売上＋ココナラ売上履歴＋KDP 確定値）を先に行い、`subject: netReceipts` の計測として記録する。原因は目標を割ったチャネルから入口へ降りて探し、資格別の配分は季節（試験日までの距離・前年同期）で読む。既定は前の完了した暦月。対象月指定時は `--start YYYY-MM-01 --end YYYY-MM-DD` で月末まで指定する。既存の同月レビューと次回日を読み、期日前で追加証拠がなければ重複記録しない。
 3. 検索は `npm run report-search-opportunities -- --json` でクラスター別（`docs/strategy/16_検索キーワード戦略.md`）の表示・1 桁の検索語数・11〜30 位の検索語数と約 28 日前との差を読み、KPI ツリーの「サイト」の段として書く。起票済みの改善カードの対象語が 28 日後に上がったかを確かめ、上がらなければ検索意図とのずれを見直す。クラスターや受け皿の変更は月次でだけ行い、`.claude/config/search-strategy.json` と 16 を同時に直す。

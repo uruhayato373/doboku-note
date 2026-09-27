@@ -13,6 +13,8 @@ domain: strategy
 
 対象週の実績を調査し、成果・課題・学びを記録する週次レビューを生成する。
 
+**配線の正本**: このスキルが実行するコマンドは `.claude/config/review-wiring.json` の weekly に段（KPI ツリー）と役割（判断／点検）付きで載せる（CI の check-review-wiring が食い違いを止める。管理画面 戦略 ＞ レビュー が配線図と実行状況を出す）。**このレビューから起票したカードは本文の起点を「週次レビュー（開始日〜終了日）」で始める**（例: 週次レビュー（2026-09-21〜2026-09-27））。管理画面はこの文字列でレビュー由来のカードを数える。
+
 ## 実行主体（2026-09-19〜）
 
 **ローカルの対話セッションで土曜に実行する**（クラウドルーティンは退役・[workflows.md](../../../knowledge/reference/workflows.md)「実行主体」）。忘れは SessionStart の `check-weekly-review-due`（土曜 09:00 JST 以降に今週分が無ければ 1 行）と月曜の `weekly-review-guard.yml`（先週分の実在）が拾う。Playwright・ログイン依存の検査（`check-note-attachments:live`・`check-x-queue-health`。IG 照合は CI snapshot を読み `verify-ig-status` はフォールバック）はローカルだからこそ全部回せる。機械で決まる surfacer は CI 側（quality-audit の ops/report 区分・weekly-review-guard の job summary）が先に回しているので、本スキルは**その結果を読む**ことを優先し、同じ検査を二重に叩かない。
