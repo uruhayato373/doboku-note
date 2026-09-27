@@ -37,8 +37,8 @@ export type CompetitorRow = {
   sales: number | null;
   rating: number | null;
   /**
-   * 売上（円）。自社は受注記録の実数、競合は推定＝取得できた関連サービスだけの Σ(価格 × レビュー数) ×
-   * (累計販売 ÷ 累計レビュー)。累計販売は他分野の出品も含むので掛けない。オプション・過去の価格・割引は入らない。
+   * 売上（円）。自社は受注記録の実数、競合は推定＝取得できた関連サービスだけの Σ(価格 × サービスの販売実績)。
+   * サービス行の reviews はカードの「実績 N 件」＝販売数。他分野の出品・オプション・過去の価格・割引は入らない。
    */
   revenueYen: number | null;
   /** 基準からの売上の増分（円）。競合は基準のスナップショットで同じ推定をした値との差。 */
@@ -173,12 +173,9 @@ function loadSelfRow(root: string, baseDate: string | null): CompetitorRow {
   };
 }
 
-/** 関連サービスの売上推定。Σ(価格 × レビュー数) を販売/レビュー比で販売数へ引き直す。材料が欠ければ null。 */
+/** 関連サービスの売上推定。Σ(価格 × 販売実績)。サービス行の reviews はカードの「実績 N 件」（販売数）。材料が無ければ null。 */
 function estimateRevenue(c: RawCompetitor): number | null {
-  const sales = c.platformExtra?.totalSales;
-  const reviews = c.platformExtra?.totalReviews;
   const priced = (c.services ?? []).filter((s) => typeof s.priceYen === 'number' && typeof s.reviews === 'number');
-  if (!sales || !reviews || priced.length === 0) return null;
-  const byReviews = priced.reduce((n, s) => n + s.priceYen! * s.reviews!, 0);
-  return Math.round(byReviews * (sales / reviews));
+  if (priced.length === 0) return null;
+  return priced.reduce((n, s) => n + s.priceYen! * s.reviews!, 0);
 }
