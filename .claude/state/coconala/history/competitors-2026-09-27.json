@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-27T03:29:03.288Z",
+  "fetchedAt": "2026-09-27T04:09:14.344Z",
   "platform": "coconala",
   "caveat": "累計販売実績(totalSales)/nickname は公開プロフィール header 由来（clean）。個別サービスの価格/品揃えは market-research.json（検索由来・土木/技術士 関連のみ＝全出品でない）。プロフィールの出品カードは推薦カルーセルと同一DOM構造で他社品が混入するため使わない。投稿日は非公開＝cadence取得不可。有料本文は取得不可。",
   "driftBasis": "competitors-2026-09-23.json",
@@ -12,11 +12,49 @@
       "detail": "累計販売実績 993→1006"
     },
     {
+      "handle": "578238",
+      "type": "price",
+      "field": "max",
+      "before": 23000,
+      "after": 6000,
+      "detail": "最高価格 ¥23000→¥6000"
+    },
+    {
+      "handle": "578238",
+      "type": "price",
+      "field": "median",
+      "before": 8000,
+      "after": 6000,
+      "detail": "価格中央値 ¥8000→¥6000"
+    },
+    {
+      "handle": "578238",
+      "type": "removed",
+      "before": 3,
+      "after": 1,
+      "detail": "出品サービス 3→1件"
+    },
+    {
       "handle": "623717",
       "type": "sales",
       "before": 15,
       "after": 16,
       "detail": "累計販売実績 15→16"
+    },
+    {
+      "handle": "5561691",
+      "type": "price",
+      "field": "median",
+      "before": 3750,
+      "after": 3000,
+      "detail": "価格中央値 ¥3750→¥3000"
+    },
+    {
+      "handle": "5561691",
+      "type": "removed",
+      "before": 4,
+      "after": 3,
+      "detail": "出品サービス 4→3件"
     },
     {
       "handle": "1528311",
@@ -92,6 +130,21 @@
       "handle": "2990006",
       "type": "new-entrant",
       "detail": "新規追跡対象（前回比較なし）"
+    },
+    {
+      "handle": "2005610",
+      "type": "new-entrant",
+      "detail": "新規追跡対象（前回比較なし）"
+    },
+    {
+      "handle": "3321327",
+      "type": "new-entrant",
+      "detail": "新規追跡対象（前回比較なし）"
+    },
+    {
+      "handle": "1761437",
+      "type": "new-entrant",
+      "detail": "新規追跡対象（前回比較なし）"
     }
   ],
   "competitors": [
@@ -124,7 +177,7 @@
       "cadence": null,
       "platformExtra": {
         "totalSales": 1006,
-        "totalReviews": 792,
+        "totalReviews": 803,
         "avgRating": 4.98
       },
       "services": [
@@ -132,7 +185,7 @@
           "title": "新出題形式対応！土木の経験記述セットで添削します",
           "priceYen": 24000,
           "rating": 5,
-          "reviews": 154,
+          "reviews": 157,
           "url": "https://coconala.com/services/2280554",
           "segment": "tensaku"
         },
@@ -140,7 +193,7 @@
           "title": "新出題形式対応！経験記述の作成代行・提案をします",
           "priceYen": 16000,
           "rating": 5,
-          "reviews": 138,
+          "reviews": 139,
           "url": "https://coconala.com/services/1930448",
           "segment": "daiko"
         },
@@ -148,7 +201,7 @@
           "title": "新出題形式対応！土木施工の経験記述を添削します",
           "priceYen": 12000,
           "rating": 4.9,
-          "reviews": 313,
+          "reviews": 318,
           "url": "https://coconala.com/services/1690708",
           "segment": "tensaku"
         },
@@ -156,7 +209,7 @@
           "title": "土木施工管理技士経験記述(1テーマ）添削します",
           "priceYen": 6000,
           "rating": 5,
-          "reviews": 12,
+          "reviews": 13,
           "url": "https://coconala.com/services/4355542",
           "segment": "tensaku"
         },
@@ -164,7 +217,7 @@
           "title": "新出題形式対応！経験記述セットで作成代行します",
           "priceYen": 32000,
           "rating": 5,
-          "reviews": 168,
+          "reviews": 169,
           "url": "https://coconala.com/services/2196022",
           "segment": "daiko"
         },
@@ -265,25 +318,25 @@
         "nickname": "梅村在虎   建設教育\n                出品者ランク： シルバー 直近3ヶ月間で一定の販売実績があり、納品完了率85%以上の基準をクリアした出品者です。  \n          詳しくはこちら"
       },
       "counts": {
-        "services": 3,
+        "services": 1,
         "servicesSource": "market-research.json（土木/技術士 検索由来・関連サービスのみ＝全出品ではない）"
       },
       "price": {
         "min": 6000,
-        "median": 8000,
-        "max": 23000,
+        "median": 6000,
+        "max": 6000,
         "bands": {
           "low": 0,
           "mid": 0,
-          "high": 2,
-          "premium": 1
+          "high": 1,
+          "premium": 0
         }
       },
       "cadence": null,
       "platformExtra": {
         "totalSales": 269,
-        "totalReviews": 164,
-        "avgRating": 4.77
+        "totalReviews": 1,
+        "avgRating": 5
       },
       "services": [
         {
@@ -292,22 +345,6 @@
           "rating": 5,
           "reviews": 1,
           "url": "https://coconala.com/services/349772",
-          "segment": "tensaku"
-        },
-        {
-          "title": "一級土木施工管理技士経験記述例作成します",
-          "priceYen": 23000,
-          "rating": 4.7,
-          "reviews": 130,
-          "url": "https://coconala.com/services/349503",
-          "segment": "daiko"
-        },
-        {
-          "title": "一級土木施工管理技士経験記述の添削します",
-          "priceYen": 8000,
-          "rating": 4.6,
-          "reviews": 33,
-          "url": "https://coconala.com/services/323433",
           "segment": "tensaku"
         }
       ]
@@ -341,7 +378,7 @@
       "cadence": null,
       "platformExtra": {
         "totalSales": 16,
-        "totalReviews": 15,
+        "totalReviews": 16,
         "avgRating": 2
       },
       "services": [
@@ -365,7 +402,7 @@
           "title": "１級施工経験記述４点まとめて作成します",
           "priceYen": 20000,
           "rating": null,
-          "reviews": null,
+          "reviews": 1,
           "url": "https://coconala.com/services/3895666",
           "segment": "daiko"
         },
@@ -399,17 +436,17 @@
         "nickname": "道路プロ0609\n                出品者ランク： ゴールド 直近3ヶ月間で一定の販売実績があり、納品完了率90%以上、評価4.8以上の基準をクリアし、本人確認済みの信頼性の高い出品者です。  \n          詳しくはこちら"
       },
       "counts": {
-        "services": 4,
+        "services": 3,
         "servicesSource": "market-research.json（土木/技術士 検索由来・関連サービスのみ＝全出品ではない）"
       },
       "price": {
         "min": 1000,
-        "median": 3750,
+        "median": 3000,
         "max": 7000,
         "bands": {
           "low": 0,
           "mid": 1,
-          "high": 3,
+          "high": 2,
           "premium": 0
         }
       },
@@ -417,17 +454,9 @@
       "platformExtra": {
         "totalSales": 44,
         "totalReviews": 42,
-        "avgRating": 3.75
+        "avgRating": 5
       },
       "services": [
-        {
-          "title": "土木施工管理技士_記述添削説明します",
-          "priceYen": 4500,
-          "rating": null,
-          "reviews": null,
-          "url": "https://coconala.com/services/4414257",
-          "segment": "tensaku"
-        },
         {
           "title": "1・2級舗装+土木施工管理、【事前合格判定】します",
           "priceYen": 1000,
@@ -632,19 +661,19 @@
           "segment": "kyozai"
         },
         {
-          "title": "技術士　建設部門　過去問－解答骨子集　を提供します",
-          "priceYen": 2000,
-          "rating": null,
-          "reviews": null,
-          "url": "https://coconala.com/services/4340335",
-          "segment": "kyozai"
-        },
-        {
           "title": "技術士　総監キーワード問題集　を提供します",
           "priceYen": 2500,
           "rating": null,
           "reviews": null,
           "url": "https://coconala.com/services/4334284",
+          "segment": "kyozai"
+        },
+        {
+          "title": "技術士　建設部門　過去問－解答骨子集　を提供します",
+          "priceYen": 2000,
+          "rating": null,
+          "reviews": null,
+          "url": "https://coconala.com/services/4340335",
           "segment": "kyozai"
         },
         {
@@ -698,20 +727,20 @@
       },
       "services": [
         {
-          "title": "技術士（上下水道）論文添削・合格レベル論文にします",
-          "priceYen": 6500,
-          "rating": 5,
-          "reviews": 36,
-          "url": "https://coconala.com/services/1689991",
-          "segment": "tensaku"
-        },
-        {
           "title": "技術士筆記試験(下水道選択Ⅱ・Ⅲ）解答を提供します",
           "priceYen": 5000,
           "rating": 3.8,
           "reviews": 8,
           "url": "https://coconala.com/services/1798961",
           "segment": "kyozai"
+        },
+        {
+          "title": "技術士（上下水道）論文添削・合格レベル論文にします",
+          "priceYen": 6500,
+          "rating": 5,
+          "reviews": 36,
+          "url": "https://coconala.com/services/1689991",
+          "segment": "tensaku"
         },
         {
           "title": "技術士上下水道部門筆記試験の模範解答を提供します",
@@ -757,20 +786,20 @@
       },
       "services": [
         {
-          "title": "技術士（上下水道部門）キーワードと出典を提供します",
-          "priceYen": 1000,
-          "rating": 5,
-          "reviews": 2,
-          "url": "https://coconala.com/services/4022956",
-          "segment": "kyozai"
-        },
-        {
           "title": "技術士試験の論文添削、アドバイスします",
           "priceYen": 3000,
           "rating": 5,
           "reviews": 46,
           "url": "https://coconala.com/services/2693992",
           "segment": "tensaku"
+        },
+        {
+          "title": "技術士（上下水道部門）キーワードと出典を提供します",
+          "priceYen": 1000,
+          "rating": 5,
+          "reviews": 2,
+          "url": "https://coconala.com/services/4022956",
+          "segment": "kyozai"
         },
         {
           "title": "技術士(下水・総監)の面接対策、模擬面接をします",
@@ -1042,20 +1071,20 @@
           "segment": "kyozai"
         },
         {
-          "title": "技術士口頭試験対策(想定問答添削）します",
-          "priceYen": 10000,
-          "rating": null,
-          "reviews": null,
-          "url": "https://coconala.com/services/3944203",
-          "segment": "tensaku"
-        },
-        {
           "title": "技術士総合技術監理部門｜キーワード集提供します",
           "priceYen": 1500,
           "rating": null,
           "reviews": null,
           "url": "https://coconala.com/services/4140206",
           "segment": "kyozai"
+        },
+        {
+          "title": "技術士口頭試験対策(想定問答添削）します",
+          "priceYen": 10000,
+          "rating": null,
+          "reviews": null,
+          "url": "https://coconala.com/services/3944203",
+          "segment": "tensaku"
         }
       ]
     },
@@ -1088,7 +1117,7 @@
       "cadence": null,
       "platformExtra": {
         "totalSales": 14,
-        "totalReviews": 12,
+        "totalReviews": 13,
         "avgRating": 3.3
       },
       "services": [
@@ -1112,7 +1141,7 @@
           "title": "技術士二次試験｜課題設定までの論理を徹底添削します",
           "priceYen": 1500,
           "rating": 5,
-          "reviews": 2,
+          "reviews": 3,
           "url": "https://coconala.com/services/4388230",
           "segment": "tensaku"
         }
@@ -1356,6 +1385,175 @@
           "rating": null,
           "reviews": null,
           "url": "https://coconala.com/services/2995996",
+          "segment": "tensaku"
+        }
+      ]
+    },
+    {
+      "handle": "2005610",
+      "label": "一級建築士 あつぼ先生",
+      "exams": [
+        "civil-construction-1",
+        "civil-construction-2"
+      ],
+      "note": "2026-09-27 report-competitor-watch の追跡外候補から追加。土木施工管理技士 経験記述 添削¥5,000（関連3出品・販売195）。1級2級土木 添削の中価格帯の大手",
+      "profile": {
+        "nickname": "一級建築士 あつぼ先生\n                出品者ランク： ブロンズ 累積の販売実績が10件以上あり、納品完了率80％以上の基準をクリアした出品者です。  \n          詳しくはこちら"
+      },
+      "counts": {
+        "services": 3,
+        "servicesSource": "market-research.json（土木/技術士 検索由来・関連サービスのみ＝全出品ではない）"
+      },
+      "price": {
+        "min": 5000,
+        "median": 5000,
+        "max": 5000,
+        "bands": {
+          "low": 0,
+          "mid": 0,
+          "high": 3,
+          "premium": 0
+        }
+      },
+      "cadence": null,
+      "platformExtra": {
+        "totalSales": 245,
+        "totalReviews": 195,
+        "avgRating": 4.9
+      },
+      "services": [
+        {
+          "title": "土木施工管理技士試験　経験記述　添削します",
+          "priceYen": 5000,
+          "rating": 4.8,
+          "reviews": 31,
+          "url": "https://coconala.com/services/2414292",
+          "segment": "tensaku"
+        },
+        {
+          "title": "建築施工管理技士試験　経験記述　添削します",
+          "priceYen": 5000,
+          "rating": 4.9,
+          "reviews": 127,
+          "url": "https://coconala.com/services/2518861",
+          "segment": "tensaku"
+        },
+        {
+          "title": "管工事施工管理技士試験　経験記述　添削します",
+          "priceYen": 5000,
+          "rating": 5,
+          "reviews": 37,
+          "url": "https://coconala.com/services/2518862",
+          "segment": "tensaku"
+        }
+      ]
+    },
+    {
+      "handle": "3321327",
+      "label": "フリーランス技術者K",
+      "exams": [
+        "civil-construction-1",
+        "civil-construction-2"
+      ],
+      "note": "2026-09-27 report-competitor-watch の追跡外候補から追加。土木施工管理技士 経験記述 作成代行¥7,000〜10,000（販売92）",
+      "profile": {
+        "nickname": "フリーランス技術者K\n                出品者ランク： プラチナ 直近3ヶ月間で一定の販売実績があり、納品完了率90%以上、評価4.8以上の基準をクリアし、本人確認済みの信頼性の高い出品者です。  \n          詳しくはこちら"
+      },
+      "counts": {
+        "services": 2,
+        "servicesSource": "market-research.json（土木/技術士 検索由来・関連サービスのみ＝全出品ではない）"
+      },
+      "price": {
+        "min": 7000,
+        "median": 8500,
+        "max": 10000,
+        "bands": {
+          "low": 0,
+          "mid": 0,
+          "high": 2,
+          "premium": 0
+        }
+      },
+      "cadence": null,
+      "platformExtra": {
+        "totalSales": 106,
+        "totalReviews": 92,
+        "avgRating": 4.9
+      },
+      "services": [
+        {
+          "title": "作成代行！　土木施工管理技士試験の文章を作成します",
+          "priceYen": 10000,
+          "rating": 4.9,
+          "reviews": 76,
+          "url": "https://coconala.com/services/2346732",
+          "segment": "daiko"
+        },
+        {
+          "title": "１・２級土木施工管理技士の経験記述試験を添削します",
+          "priceYen": 7000,
+          "rating": 4.9,
+          "reviews": 16,
+          "url": "https://coconala.com/services/2346424",
+          "segment": "tensaku"
+        }
+      ]
+    },
+    {
+      "handle": "1761437",
+      "label": "たくえい☘️アステラ法務コンサルティング",
+      "exams": [
+        "civil-construction-1",
+        "civil-construction-2"
+      ],
+      "note": "2026-09-27 report-competitor-watch の追跡外候補から追加。ゼロから土木施工経験記述を作成¥4,000〜5,000（販売40）",
+      "profile": {
+        "nickname": "たくえい☘️アステラ法務コンサルティング\n                出品者ランク： プラチナ 直近3ヶ月間で一定の販売実績があり、納品完了率90%以上、評価4.8以上の基準をクリアし、本人確認済みの信頼性の高い出品者です。  \n          詳しくはこちら"
+      },
+      "counts": {
+        "services": 3,
+        "servicesSource": "market-research.json（土木/技術士 検索由来・関連サービスのみ＝全出品ではない）"
+      },
+      "price": {
+        "min": 2000,
+        "median": 4000,
+        "max": 5000,
+        "bands": {
+          "low": 0,
+          "mid": 1,
+          "high": 2,
+          "premium": 0
+        }
+      },
+      "cadence": null,
+      "platformExtra": {
+        "totalSales": 66,
+        "totalReviews": 40,
+        "avgRating": 3.2
+      },
+      "services": [
+        {
+          "title": "新形式OK！ゼロから土木施工経験記述を作成します",
+          "priceYen": 5000,
+          "rating": 4.7,
+          "reviews": 18,
+          "url": "https://coconala.com/services/3876781",
+          "segment": "daiko"
+        },
+        {
+          "title": "給水装置工事主任技術者試験のお悩みサポートします",
+          "priceYen": 2000,
+          "rating": null,
+          "reviews": null,
+          "url": "https://coconala.com/services/3721916",
+          "segment": "soudan"
+        },
+        {
+          "title": "新形式OK！土木施工管理技士試験経験記述添削します",
+          "priceYen": 4000,
+          "rating": 4.9,
+          "reviews": 22,
+          "url": "https://coconala.com/services/3661884",
           "segment": "tensaku"
         }
       ]
