@@ -1,9 +1,24 @@
 'use client';
 
-import { Fragment } from 'react';
 import Link from 'next/link';
 import { usePathname, useSearchParams } from 'next/navigation';
+import { ChevronRight } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarGroup,
+  SidebarGroupLabel,
+  SidebarHeader,
+  SidebarMenu,
+  SidebarMenuBadge,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  SidebarMenuSub,
+  SidebarMenuSubButton,
+  SidebarMenuSubItem,
+} from '@/components/ui/sidebar';
 
 type Tab = {
   href: string;
@@ -55,10 +70,14 @@ function isActive(pathname: string, searchParams: URLSearchParams, tab: Tab, exa
 
 function NavLink({ tab, active, count }: { tab: Tab; active: boolean; count?: number }) {
   return (
-    <Link href={tab.href} className={'tab' + (active ? ' active' : '')}>
-      {tab.label}
-      {count !== undefined ? <span className="n">{count}</span> : null}
-    </Link>
+    <SidebarMenuItem>
+      <SidebarMenuButton asChild isActive={active}>
+        <Link href={tab.href}>
+          {tab.label}
+          {count !== undefined ? <SidebarMenuBadge>{count}</SidebarMenuBadge> : null}
+        </Link>
+      </SidebarMenuButton>
+    </SidebarMenuItem>
   );
 }
 
@@ -68,21 +87,25 @@ function SectionTree({ tree, pathname }: { tree: NavTree; pathname: string }) {
   const active = tree.tabs.some((tab) => isActive(pathname, searchParams, tab));
 
   return (
-    <details className="nav-tree" open={active}>
-      <summary className={'tab' + (active ? ' active' : '')}>
-        <span className="chev" aria-hidden="true" />
-        {tree.label}
-      </summary>
-      <div className="nav-sub">
-        {tree.tabs.map((tab) => (
-          <NavLink
-            key={tab.href}
-            tab={tab}
-            active={isActive(pathname, searchParams, tab)}
-          />
-        ))}
-      </div>
-    </details>
+    <SidebarMenuItem>
+      <details className="group/tree" open={active}>
+        <SidebarMenuButton asChild isActive={active}>
+          <summary className="cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+            <ChevronRight aria-hidden="true" className="size-3.5 shrink-0 opacity-60 transition-transform group-open/tree:rotate-90" />
+            {tree.label}
+          </summary>
+        </SidebarMenuButton>
+        <SidebarMenuSub>
+          {tree.tabs.map((tab) => (
+            <SidebarMenuSubItem key={tab.href}>
+              <SidebarMenuSubButton asChild isActive={isActive(pathname, searchParams, tab)}>
+                <Link href={tab.href}>{tab.label}</Link>
+              </SidebarMenuSubButton>
+            </SidebarMenuSubItem>
+          ))}
+        </SidebarMenuSub>
+      </details>
+    </SidebarMenuItem>
   );
 }
 
@@ -133,45 +156,45 @@ export default function Nav({
   const exactMatches = new Set(allMatches.filter((m) => allMatches.some((o) => o !== m && o.startsWith(m + '/'))));
 
   return (
-    <nav className="app-nav" aria-label="管理画面">
-      <Link className="brand" href="/metrics">
-        doboku admin
-      </Link>
-      {domains.map((group) => (
-        <Fragment key={group.id}>
-          <Link className={'group' + (pathname === `/domains/${group.id}` ? ' active' : '')} href={`/domains/${group.id}`}>
-            {group.label}
-          </Link>
-          {group.nav
-            .flatMap((e): NavEntry[] => {
-              if (isTree(e)) return [e];
-              if (e.match === '/content/lineup') return [lineupTree];
-              if (e.match === '/materials') return [e, ...materialTrees];
-              return [e];
-            })
-            .map((entry) => {
-            if (isTree(entry)) {
-              return (
-                <SectionTree
-                  key={entry.label}
-                  tree={entry}
-                  pathname={pathname}
-                />
-              );
-            }
-            return (
-              <NavLink
-                key={entry.href}
-                tab={entry}
-                active={isActive(pathname, searchParams, entry, exactMatches.has(entry.match))}
-                count={layerCount(entry)}
-              />
-            );
-          })}
-        </Fragment>
-      ))}
-      <span className="spacer" />
-      <ThemeToggle />
-    </nav>
+    <Sidebar aria-label="管理画面">
+      <SidebarHeader className="max-md:hidden">
+        <Link className="px-2.5 text-[15px] font-bold tracking-wide text-(--sidebar-ink) no-underline hover:no-underline" href="/metrics">
+          doboku admin
+        </Link>
+      </SidebarHeader>
+      <SidebarContent>
+        {domains.map((group) => (
+          <SidebarGroup key={group.id}>
+            <SidebarGroupLabel asChild data-active={pathname === `/domains/${group.id}`}>
+              <Link href={`/domains/${group.id}`}>{group.label}</Link>
+            </SidebarGroupLabel>
+            <SidebarMenu>
+              {group.nav
+                .flatMap((e): NavEntry[] => {
+                  if (isTree(e)) return [e];
+                  if (e.match === '/content/lineup') return [lineupTree];
+                  if (e.match === '/materials') return [e, ...materialTrees];
+                  return [e];
+                })
+                .map((entry) =>
+                  isTree(entry) ? (
+                    <SectionTree key={entry.label} tree={entry} pathname={pathname} />
+                  ) : (
+                    <NavLink
+                      key={entry.href}
+                      tab={entry}
+                      active={isActive(pathname, searchParams, entry, exactMatches.has(entry.match))}
+                      count={layerCount(entry)}
+                    />
+                  ),
+                )}
+            </SidebarMenu>
+          </SidebarGroup>
+        ))}
+      </SidebarContent>
+      <SidebarFooter>
+        <ThemeToggle />
+      </SidebarFooter>
+    </Sidebar>
   );
 }

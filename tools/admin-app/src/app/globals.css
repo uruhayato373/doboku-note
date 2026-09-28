@@ -252,261 +252,8 @@ a:hover {
   background: hsl(var(--primary) / 0.2);
 }
 
-/* ── レイアウト（左サイドバー + 本文） ──
-   18 タブを 1 列に並べるため sticky な縦カラムにする。height:100vh + overflow-y で
-   ビューポートが低いときはサイドバー内だけがスクロールする（本文の位置は動かさない）。 */
-.app-nav {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  flex: 0 0 252px;
-  width: 252px;
-  height: 100vh;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  padding: 18px 14px 14px;
-  background:
-    radial-gradient(
-      circle at 20% 0%,
-      hsl(217 91% 60% / 0.15),
-      transparent 18rem
-    ),
-    var(--sidebar);
-  border-right: 1px solid var(--sidebar-border);
-  color: var(--sidebar-ink);
-  box-shadow: 12px 0 40px rgb(15 23 42 / 0.08);
-}
-.app-nav .brand {
-  display: flex;
-  align-items: center;
-  gap: 11px;
-  min-height: 44px;
-  padding: 0 8px 12px;
-  color: var(--sidebar-ink);
-}
-.app-nav .brand-copy {
-  display: flex;
-  min-width: 0;
-  flex-direction: column;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  line-height: 1.3;
-}
-.app-nav .brand-copy small {
-  display: block;
-  margin-top: 1px;
-  color: var(--sidebar-muted);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-.brand-mark {
-  position: relative;
-  display: grid;
-  flex: none;
-  width: 34px;
-  height: 34px;
-  place-items: center;
-  overflow: hidden;
-  border: 1px solid hsl(217 91% 70% / 0.35);
-  border-radius: 10px;
-  background: linear-gradient(145deg, hsl(217 91% 60%), hsl(234 89% 60%));
-  box-shadow: 0 8px 24px hsl(221 83% 34% / 0.35);
-}
-.brand-mark span {
-  position: absolute;
-  width: 14px;
-  height: 3px;
-  border-radius: 999px;
-  background: white;
-}
-.brand-mark span:nth-child(1) {
-  transform: translateY(-6px);
-}
-.brand-mark span:nth-child(2) {
-  width: 19px;
-}
-.brand-mark span:nth-child(3) {
-  transform: translateY(6px);
-}
-.app-nav .group {
-  margin-top: 10px;
-  padding: 11px 10px 5px;
-  border-top: 1px solid hsl(215 30% 30% / 0.4);
-  color: var(--sidebar-ink);
-  font-size: 12.5px;
-  font-weight: 700;
-  background: var(--sidebar-group-bg);
-  border-radius: 6px;
-}
-/* 最初のグループはブランド直下なので区切り線を引かない（線が二重に見える） */
-.app-nav .brand + .group {
-  margin-top: 0;
-  border-top: 0;
-  padding-top: 2px;
-}
-.app-nav .tab {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  min-height: 34px;
-  padding: 7px 10px;
-  border-radius: 8px;
-  color: hsl(215 22% 76%);
-  font-size: 12.5px;
-  line-height: 1.4;
-  transition:
-    background-color 150ms ease,
-    color 150ms ease,
-    transform 150ms ease;
-}
-.app-nav .tab:hover {
-  background: hsl(217 33% 22% / 0.72);
-  color: white;
-  text-decoration: none;
-}
-.app-nav .tab.active {
-  background: linear-gradient(
-    90deg,
-    hsl(217 91% 60% / 0.24),
-    hsl(217 91% 60% / 0.08)
-  );
-  color: white;
-  font-weight: 600;
-  box-shadow: inset 0 0 0 1px hsl(217 91% 70% / 0.1);
-}
-.app-nav .tab.active::before {
-  position: absolute;
-  left: 0;
-  width: 2px;
-  height: 18px;
-  border-radius: 999px;
-  background: hsl(213 94% 68%);
-  box-shadow: 0 0 12px hsl(217 91% 60% / 0.7);
-  content: '';
-}
-.app-nav .tab-icon {
-  width: 16px;
-  height: 16px;
-  flex: none;
-  color: hsl(215 20% 65%);
-  stroke-width: 1.8;
-}
-.app-nav .tab.active .tab-icon,
-.app-nav .tab:hover .tab-icon {
-  color: hsl(213 94% 76%);
-}
-.app-nav .tab-label {
-  min-width: 0;
-  flex: 1;
-}
-/* ── サイドバーの入れ子（TODO の 4 層）──
-   層は「行き先」なのでここに置く。絞り込み（優先度・種類）は本文側の責務。 */
-.app-nav .nav-tree > summary {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  list-style: none;
-  cursor: pointer;
-}
-.app-nav .nav-tree > summary::-webkit-details-marker {
-  display: none;
-}
-/* TODO の開閉アイコン。lucide の ChevronRight を details の open 状態で回転する。 */
-.app-nav .nav-tree > summary .chev {
-  width: 14px;
-  height: 14px;
-  flex: none;
-  opacity: 0.55;
-  transition: transform 150ms ease;
-}
-.app-nav .nav-tree[open] > summary .chev {
-  transform: rotate(90deg);
-}
-.app-nav .nav-sub {
-  margin: 2px 0 4px 18px;
-  padding-left: 10px;
-  border-left: 1px solid hsl(215 30% 30% / 0.55);
-}
-.app-nav .nav-sub a.tab {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  min-height: 30px;
-  padding: 5px 9px;
-  font-size: 12px;
-}
-.app-nav .nav-sub a.tab .n {
-  flex: none;
-  color: var(--sidebar-muted);
-  font-size: 11px;
-  font-variant-numeric: tabular-nums;
-}
-.app-nav .nav-sub a.tab.active .n {
-  color: hsl(213 94% 72%);
-}
-
-.app-nav .spacer {
-  flex: 1;
-  min-height: 14px;
-}
-
-/* ── テーマ切替ボタン ──
-   表示するのは「押した後に切り替わる先」。data-theme は head の inline script が必ず入れるので、
-   ラベルの出し分けは CSS だけで完結する（React state を持たない = hydration ずれが起きない）。 */
-.nav-footer {
-  position: sticky;
-  bottom: -1px;
-  z-index: 2;
-  display: grid;
-  gap: 8px;
-  margin: 0 -4px -2px;
-  padding: 14px 4px 2px;
-  background: linear-gradient(transparent, var(--sidebar) 18%);
-}
-.local-indicator {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  padding: 8px 10px;
-  border: 1px solid hsl(215 30% 30% / 0.55);
-  border-radius: 9px;
-  background: hsl(217 33% 15% / 0.72);
-}
-.local-indicator > span {
-  width: 7px;
-  height: 7px;
-  flex: none;
-  border-radius: 999px;
-  background: hsl(160 84% 48%);
-  box-shadow: 0 0 10px hsl(160 84% 48% / 0.8);
-}
-.local-indicator div {
-  display: flex;
-  min-width: 0;
-  flex-direction: column;
-}
-.local-indicator strong {
-  color: var(--sidebar-ink);
-  font-size: 10.5px;
-  font-weight: 600;
-}
-.local-indicator small {
-  color: var(--sidebar-muted);
-  font-family: var(--mono);
-  font-size: 9px;
-}
-
 .theme-toggle {
-  /* 背の低いウィンドウではサイドバー自体がスクロールするので、切替は常に見える位置に貼り付ける。 */
-  position: sticky;
-  bottom: 0;
+  /* サイドバー下部（SidebarFooter）に置く。 */
   display: block;
   width: 100%;
   padding: 7px 10px;
@@ -519,7 +266,6 @@ a:hover {
   text-align: left;
   cursor: pointer;
 }
-/* スクロールしたタブがボタンの隙間から透けないよう、下地をサイドバー色で敷く。 */
 .theme-toggle:hover {
   border-color: hsl(217 91% 70% / 0.45);
   color: white;
@@ -551,87 +297,18 @@ a:hover {
   padding: 30px clamp(22px, 3vw, 46px) 72px;
 }
 
-/* 760px 以下で横スクロール可能な上部バーへ畳む（グループ見出しは落とす）。 */
+/* 760px 以下は本文の余白を詰める（サイドバーは md 未満で上部バーのメニューから開く・components/ui/sidebar.tsx）。 */
 @media (max-width: 760px) {
   body {
     display: block;
-  }
-  .app-nav {
-    position: sticky;
-    top: 0;
-    flex: none;
-    width: 100%;
-    height: auto;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: center;
-    gap: 4px;
-    padding: 9px 12px;
-    overflow-x: auto;
-    border-right: none;
-    border-bottom: 1px solid var(--sidebar-border);
-  }
-  .app-nav .brand {
-    min-height: 34px;
-    padding: 0 10px 0 0;
-  }
-  .brand-mark {
-    width: 30px;
-    height: 30px;
-  }
-  .app-nav .brand-copy,
-  .app-nav .nav-tree .nav-sub {
-    display: none;
-  }
-  .app-nav .group {
-    display: none;
-  }
-  .app-nav .tab {
-    min-height: 32px;
-    padding: 6px 9px;
-    white-space: nowrap;
-  }
-  .app-nav .tab.active::before {
-    inset: auto 10px 0;
-    width: auto;
-    height: 2px;
-  }
-  .app-nav .spacer {
-    min-height: 0;
-  }
-  .nav-footer {
-    position: static;
-    display: block;
-    margin: 0;
-    padding: 0;
-    background: none;
-  }
-  .local-indicator {
-    display: none;
-  }
-  .theme-toggle {
-    width: 34px;
-    padding: 7px 8px;
-  }
-  .theme-toggle .face span {
-    display: none;
   }
   .container {
     padding: 22px 16px 56px;
   }
 }
 
-/* 761〜960px: サイドバーは残したまま幅だけ詰める。 */
+/* 761〜960px: 本文の余白だけ詰める。 */
 @media (min-width: 761px) and (max-width: 960px) {
-  .app-nav {
-    flex: 0 0 210px;
-    width: 210px;
-    padding: 12px 8px 14px;
-  }
-  .app-nav a.tab {
-    font-size: 12.5px;
-    padding: 5px 9px;
-  }
   .container {
     padding: 20px 16px 56px;
   }
@@ -935,7 +612,7 @@ table.data tbody tr:hover td {
 /* 本文（カード）＋ 右ペイン（絞り込み）の 2 カラム。
    絞り込みを横並びチップで置くと折り返して本文を押し下げ、そのぶんカードが細くなる。
    縦に並べても場所を食わない右ペインへ逃がし、本文はカード幅の確保に使う。
-   層（バックログ/週間/月間/年間）は「行き先」なのでサイドバーの入れ子（.nav-tree）が持つ。 */
+   層（バックログ/週間/月間/年間）は「行き先」なのでサイドバーの入れ子（Nav.tsx の SectionTree）が持つ。 */
 .todo-shell {
   display: flex;
   align-items: flex-start;
@@ -1998,51 +1675,6 @@ code {
 .content-listing .muted {
   color: var(--ink-muted);
 }
-
-/* ── 高密度の管理画面 ──
-   画面上部の装飾より一覧性を優先し、すべての一覧ページで同じ密度に揃える。 */
-.app-nav {
-  flex-basis: 212px;
-  width: 212px;
-  gap: 1px;
-  padding: 14px 10px 16px;
-}
-.app-nav .brand {
-  min-height: 40px;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0;
-  padding: 2px 10px 10px;
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-}
-.app-nav .brand small {
-  margin-top: 2px;
-  color: var(--sidebar-muted);
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-}
-.app-nav .group {
-  margin-top: 8px;
-  padding: 10px 10px 4px;
-}
-.app-nav .tab {
-  min-height: 30px;
-  padding: 5px 10px;
-}
-.app-nav .nav-tree > summary .chev {
-  width: 0;
-  height: 0;
-  border-top: 4px solid transparent;
-  border-bottom: 4px solid transparent;
-  border-left: 5px solid currentColor;
-}
-.app-nav .nav-sub a.tab {
-  min-height: 27px;
-  padding: 4px 8px;
-}
 .container {
   max-width: none;
   margin: 0;
@@ -2138,24 +1770,6 @@ table.data.content-table .quality-col { width: 176px; }
   table.data .optional-col { display: none; }
 }
 @media (max-width: 760px) {
-  .app-nav { width: 100%; }
-  .app-nav .brand { min-height: 32px; flex-direction: row; align-items: center; gap: 6px; padding: 0 10px 0 0; }
-  .app-nav .brand small { margin: 0; }
-  .app-nav .nav-tree { position: relative; }
-  .app-nav .nav-tree[open] .nav-sub {
-    position: absolute;
-    top: calc(100% + 4px);
-    left: 0;
-    z-index: 30;
-    display: block;
-    min-width: 150px;
-    margin: 0;
-    padding: 5px;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    background: var(--sidebar);
-    box-shadow: 0 8px 22px rgb(0 0 0 / 18%);
-  }
   table.data.content-table .date-col { display: none; }
   table.data.content-table .quality-col { width: 148px; }
 }
@@ -2407,14 +2021,4 @@ table.data.schedule-grid td {
 .business-grid { margin: 16px 0; }
 .business-grid > .card { margin: 0; }
 .business-direction h2 { font-size: 22px; line-height: 1.5; }
-
-/* グループ名は領域の概要（/domains/<id>）へのリンク */
-.app-nav a.group {
-  display: block;
-  text-decoration: none;
-}
-.app-nav a.group:hover,
-.app-nav a.group.active {
-  color: var(--accent);
-}
 } /* @layer utilities */
