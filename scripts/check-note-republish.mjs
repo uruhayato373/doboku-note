@@ -133,7 +133,7 @@ for (const f of files) {
   else driftCand.push({ file: f, rec, cur, curCanon: routes.loaded ? canonBodyHash(raw, routes) : null });
 
   // meta / asset は本文とは独立トラック（反映手段が別: 価格は note-edit、PDF は note-attach-file、
-  // カバーは note-update-cover）。同じ記事が同時に複数トラックで drift しうる。
+  // カバーは coverHashes で note-sync-plan が見る）。同じ記事が同時に複数トラックで drift しうる。反映は note-update-body --sync が 1 回にまとめる。
   const mCur = metaHash(raw);
   const mRec = (st.metaHashes || {})[f];
   if (mRec === undefined) metaUnknown.push(f); else if (mRec !== mCur) metaDrift.push(f);
@@ -269,14 +269,14 @@ if (tagDrift.length) {
   for (const f of tagDrift) console.log('  ' + f.replace(/^content\/note\//, ''));
 }
 if (metaDrift.length) {
-  console.log('\n■ 要反映（価格/有料境界/カバー定義が公開時から変更）:');
+  console.log('\n■ 要反映（価格/有料/有料境界が公開時から変更）:');
   for (const f of metaDrift) console.log('  ' + f.replace(/^content\/note\//, '').replace(/\/article\.md$/, ''));
-  console.log('  → 価格/境界: note-update-body --commit --boundary-h2 / note-article-price-sweep、カバー: note-update-cover --commit');
+  console.log('  → 価格/境界: note-update-body --commit --boundary-h2 / note-article-price-sweep（記事単位の同期は note-update-body --sync --article <path> --commit・週次は Mac の note-sync-routine）');
 }
 if (assetDrift.length) {
-  console.log('\n■ 要反映（本文画像・PDF 添付・カバー画像の実体が変更）:');
+  console.log('\n■ 要反映（本文画像・PDF 添付の実体が変更）:');
   for (const f of assetDrift) console.log('  ' + f.replace(/^content\/note\//, '').replace(/\/article\.md$/, ''));
-  console.log('  → 本文画像: note-update-body --commit（毎回アップロードし直す）、PDF: note-attach-file --commit（差し替えは note 側の旧カード削除が要る）、カバー: note-update-cover --commit');
+  console.log('  → 本文画像: note-update-body --commit（毎回アップロードし直す）、PDF: note-attach-file --commit（差し替えは note 側の旧カード削除が要る）（記事単位の同期は note-update-body --sync --article <path> --commit・週次は Mac の note-sync-routine）');
 }
 if (unknown.length) console.log(`\n□ 本文未初期化 ${unknown.length}件（baseline で初期化するか要再公開判断）`);
 if (metaUnknown.length) console.log(`□ メタ未初期化 ${metaUnknown.length}件（baseline で初期化）`);

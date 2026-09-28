@@ -1,16 +1,14 @@
-// tests/note-republish-classify.test.mjs
+// tests/note-pdf-promise.test.mjs
 //
 // 回帰テスト目的（DN-0147）:
 // scripts/lib/note-frontmatter.mjs の pdfPromise 判定が `/PDF/ && /(ダウンロード|添付|配布)/`
 // という狭い正規表現で、「印刷用PDFにまとめました」のような言い回しを拾えなかった。
-// その結果 scripts/note-republish-plan.mjs の分類が、PDF 実在の記事を ready（PDF なし前提の
-// 一括バッチ）に誤って混ぜていた（実測4件・2026-08-27）。
+// その結果、本文の再公開で PDF 実在の記事を PDF なし前提の一括バッチに誤って混ぜていた（実測4件・2026-08-27）。
+// 今は scripts/lib/note-sync-plan.mjs が pdfPromise で「配布 PDF の取り寄せが要るか」を決める（tests/note-sync-plan.test.mjs）。
 //
 // ここで固定する契約:
 //   1. PDF_PROMISE_RE が check-note-attachments.mjs 側の広い signature を吸収していること
 //   2. parseNoteArticle が PDF_PROMISE_RE を実際に使っていること（本文「印刷用PDF」で pdfPromise=true）
-//   3. classifyArticle が「pdfPromise が false でも localPdfs があれば pdf系に入る」こと
-//   4. classifyArticle の優先順位（aborted > membership > hasImage > pdf系 > ready）が壊れていないこと
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -19,7 +17,6 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
 import { PDF_PROMISE_RE, parseNoteArticle } from '../scripts/lib/note-frontmatter.mjs';
-import { classifyArticle } from '../scripts/note-republish-plan.mjs';
 
 // --- 1. PDF_PROMISE_RE 単体 -------------------------------------------------
 
@@ -53,7 +50,7 @@ test('PDF_PROMISE_RE: 「PDF」を含まない文では検知しない', () => {
 // --- 2. parseNoteArticle が PDF_PROMISE_RE を使っていること -----------------
 
 function makeArticle(body) {
-  const dir = mkdtempSync(join(tmpdir(), 'note-republish-classify-'));
+  const dir = mkdtempSync(join(tmpdir(), 'note-pdf-promise-'));
   const path = join(dir, 'article.md');
   writeFileSync(
     path,
@@ -83,59 +80,4 @@ test('parseNoteArticle: PDF に触れない本文では pdfPromise=false のま�
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }
-});
-
-// --- 3 & 4. classifyArticle の分類ロジック -----------------------------------
-
-/** classifyArticle が要求する parseNoteArticle 形の最小フィクスチャ。 */
-function fixture(overrides = {}) {
-  return {
-    path: 'content/note/dummy/article.md',
-    noteId: 'ntest0000001',
-    isMembership: false,
-    imageCount: 0,
-    pdfPromise: false,
-    localPdfs: [],
-    ...overrides,
-  };
-}
-
-test('classifyArticle: pdfPromise=false でも localPdfs があれば pdfReady に入る（DN-0147 の核心）', () => {
-  const a = fixture({ localPdfs: ['content/note/dummy/建設部門-必須科目I-R04-模範解答.pdf'] });
-  assert.equal(classifyArticle(a, new Set()), 'pdfReady');
-});
-
-test('classifyArticle: pdfPromise=true・localPdfs=0 は pdfMissing', () => {
-  const a = fixture({ pdfPromise: true, localPdfs: [] });
-  assert.equal(classifyArticle(a, new Set()), 'pdfMissing');
-});
-
-test('classifyArticle: pdfPromise=false・localPdfs=0 は ready', () => {
-  const a = fixture();
-  assert.equal(classifyArticle(a, new Set()), 'ready');
-});
-
-test('classifyArticle: 優先順位 — aborted は membership/hasImage/pdf系より優先する', () => {
-  const a = fixture({
-    isMembership: true,
-    imageCount: 3,
-    pdfPromise: true,
-    localPdfs: ['x.pdf'],
-  });
-  assert.equal(classifyArticle(a, new Set(['ntest0000001'])), 'aborted');
-});
-
-test('classifyArticle: 優先順位 — membership は hasImage/pdf系より優先する', () => {
-  const a = fixture({ isMembership: true, imageCount: 3, pdfPromise: true, localPdfs: ['x.pdf'] });
-  assert.equal(classifyArticle(a, new Set()), 'membership');
-});
-
-test('classifyArticle: 優先順位 — hasImage は pdf系より優先する', () => {
-  const a = fixture({ imageCount: 1, pdfPromise: true, localPdfs: ['x.pdf'] });
-  assert.equal(classifyArticle(a, new Set()), 'hasImage');
-});
-
-test('classifyArticle: noteId が無い記事は aborted 台帳と突合しない', () => {
-  const a = fixture({ noteId: null });
-  assert.equal(classifyArticle(a, new Set(['ntest0000001'])), 'ready');
 });

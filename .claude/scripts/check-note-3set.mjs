@@ -14,7 +14,7 @@
  *                      ことが多いため、この検査は state を見ない。→ /note-prepublish-review Phase 1 用
  *
  * カバーはここでは見ない（2026-09-29）。note-publish が公開時に最新デザインで生成してから登録し、以後は
- * 台帳 cover-ledger.json × note の公開 API を CI の check-note-cover-live が週次で判定する。手元の PNG の有無は
+ * 台帳（note-republish-hashes.json の coverHashes）× note の公開 API を CI の check-note-sync が週次で判定する。手元の PNG の有無は
  * checkout によって違う（Git 管理外）ので、ここで見ると別の checkout で偽の欠落になる。
  * hashtags: <dir>/hashtags.txt
  * 真実源: .claude/knowledge/reference/content-principles.md §14-d

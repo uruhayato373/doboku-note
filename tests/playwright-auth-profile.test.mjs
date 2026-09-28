@@ -280,7 +280,7 @@ test('Phase 02 runtimeはrepo相対profileを持たず共通resolverを参照す
       'attach-file', 'comment-reply', 'delete-note', 'edit-magazine', 'edit-session',
       'magazine-add-articles', 'magazine-cover', 'magazine-create',
       'membership-plan-create', 'membership-plan-edit', 'membership-plan-status',
-      'publish-discover', 'publish', 'sales-fetch', 'sync-tags', 'update-body', 'update-cover',
+      'publish-discover', 'publish', 'sales-fetch', 'sync-tags', 'update-body',
     ].map((name) => `scripts/note-${name}.mjs`),
   ];
   for (const file of files) {

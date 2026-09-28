@@ -231,7 +231,7 @@ await page.keyboard.press('Delete');
 カバー画像を更新する場合、本文編集の前にアイキャッチを差し替える。
 editor-operations.md Phase 2 と同じ手順で既存アイキャッチを置き換える（画像はアップロード操作なので edit 画面でも機能する。paste 制約は本文テキストのみ）。
 
-> **カバーだけの一括差し替え（本文を触らない・公開済み記事）は専用ツール `npm run note-update-cover` を使う**（一回限り `.tmp/*.mjs` を書かない）。stale 検出ルール・paywall 保持の仕組み・fail-safe 仕様は真実源 [`.claude/knowledge/design-system/note-cover.md`](../../../../../.claude/knowledge/design-system/note-cover.md)「ライブ反映」に集約（本節では再掲しない）。
+> **公開済み記事のカバー・本文・タグは Mac の週次 note-sync が記事単位で 1 回の更新にまとめて反映する**。今すぐ手で流すなら `npm run note-update-body -- --sync --article <path> --commit`（未反映の部品だけ）か `--parts cover`（カバーだけ）を使う（一回限り `.tmp/*.mjs` を書かない）。stale 検出ルール・paywall 保持の仕組み・fail-safe 仕様は真実源 [`.claude/knowledge/design-system/note-cover.md`](../../../../../.claude/knowledge/design-system/note-cover.md)「ライブ反映」に集約（本節では再掲しない）。
 
 ### Phase U-6: 「公開に進む」→「更新する」（2 段）
 

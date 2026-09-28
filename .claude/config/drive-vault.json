@@ -275,7 +275,7 @@
       "requiredBy": [
         "新デザインの人による全件確認（note-cover-tokens.json の designVersion を上げる前）"
       ],
-      "reason": "新しいnoteカバーテンプレートの全件確認用一式。版を上げる前に人が一覧確認し、端末間で共有するためDriveへ置く。note への登録（Mac の週次 note-cover-routine）とは別の確認用成果物。"
+      "reason": "新しいnoteカバーテンプレートの全件確認用一式。版を上げる前に人が一覧確認し、端末間で共有するためDriveへ置く。note への登録（Mac の週次 note-sync-routine）とは別の確認用成果物。"
     },
     {
       "id": "repo-archive",

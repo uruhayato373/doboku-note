@@ -72,14 +72,14 @@ const stageLabel = (stage: string | null): string =>
 /**
  * note 商品 id → note 上の表紙画像 URL の索引。
  * 手元の _cover.png の有無は見ない（カバー PNG は Git 管理外で、置いてある checkout とない checkout がある）。
- * 台帳 .claude/state/note/cover-ledger.json（Mac の週次 note-cover-routine が登録直後に note API で読んだ URL）を、
- * 商品の noteUrl の /m/{key} で引く。台帳に無い商品は null（＝最新デザインで未登録。判定は check-note-cover-live）。
+ * 台帳 .claude/state/note-republish-hashes.json の magazineCovers（Mac の週次 note-sync-routine が登録直後に note API で
+ * 読んだ URL）を、商品の noteUrl の /m/{key} で引く。台帳に無い商品は null（＝最新デザインで未登録。判定は check-note-sync）。
  */
 function noteCoverIndex(products: { id: string; noteUrl: string }[]): Map<string, string> {
   const out = new Map<string, string>();
-  let ledger: { magazines?: Record<string, { noteKey?: string; liveUrl?: string }> } = {};
+  let ledger: { magazines?: Record<string, { noteKey?: string; liveUrl?: string }> };
   try {
-    ledger = JSON.parse(readFileSync(repoPath('.claude', 'state', 'note', 'cover-ledger.json'), 'utf8'));
+    ledger = { magazines: JSON.parse(readFileSync(repoPath('.claude', 'state', 'note-republish-hashes.json'), 'utf8')).magazineCovers };
   } catch {
     return out;
   }

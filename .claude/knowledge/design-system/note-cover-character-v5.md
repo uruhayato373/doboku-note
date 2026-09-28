@@ -7,7 +7,7 @@ title: note キャラクターカバー（V5・既定）
 
 # note キャラクターカバー（V5・既定）
 
-2026-09-16のモックを元に、既存の先生と強調した日本語見出しを合成する note カバーのデザイン。2026-09-17 から記事・マガジンの通常生成器と note への登録（Mac の週次 note-cover-routine・note-publish）がこの描画を使う（旧 G2/V4 テンプレへは戻らない）。描画は `scripts/lib/note-character-cover.mjs`、対象一覧とポーズ割当は `scripts/lib/note-cover-inventory.mjs` に集約し、次の入口はどれも同じ入力・同じポーズ・同じ画像になる。
+2026-09-16のモックを元に、既存の先生と強調した日本語見出しを合成する note カバーのデザイン。2026-09-17 から記事・マガジンの通常生成器と note への登録（Mac の週次 note-sync-routine・note-publish）がこの描画を使う（旧 G2/V4 テンプレへは戻らない）。描画は `scripts/lib/note-character-cover.mjs`、対象一覧とポーズ割当は `scripts/lib/note-cover-inventory.mjs` に集約し、次の入口はどれも同じ入力・同じポーズ・同じ画像になる。
 
 | 入口 | 出力先 | 使いどころ |
 |---|---|---|
@@ -39,7 +39,7 @@ npm run note-character-covers -- --filter 工程管理
 
 `manifest.json`に対象・生成・失敗件数、ポーズ別件数、選択理由、人物の配置枠、退役対象、入力・出力のhash、生成前のカバーhash、実描画枠を保存する。0件・生成失敗・出力先重複・未解決のマガジン出力先は成功扱いにしない。途中結果も50件ごとに保存する。
 
-note 上のカバーの登録は2段に分ける（2026-09-29）。**判定**は CI の `note-cover-live.yml`（週次・`npm run check-note-cover-live`）が、対象一覧 × 台帳 `.claude/state/note/cover-ledger.json` × note の公開 API で「カバー無し・未登録・デザイン版が古い・文言が変わった・note 側で画像が変わった」を数える（読み取りだけ）。**登録**は Mac の launchd `note-cover`（毎週日曜 3:00・`npm run note-cover:install`）が同じ判定（`scripts/lib/note-cover-live.mjs`）で要登録を選び、生成 → `note-update-cover`／`note-magazine-cover` で登録 → 公開 API で画像 URL を読み直して台帳へ記録 → develop へ push する。手元の PNG の有無は判定に使わない。**見た目を変えたら `note-cover-tokens.json` の `designVersion`（article／magazine）を上げる**＝その側の全件が次の週次で再登録される（見た目の変わらないリファクタでは上げない）。ポーズは前後の記事で変わりうるので、文言・色が同じならポーズの差だけでは再登録しない。新規記事は `note-publish` が公開時に最新デザインで生成してから登録する。
+note 上のカバーの登録は2段に分ける（2026-09-29）。**判定**は CI の `note-sync-live.yml`（週次・`npm run check-note-sync`）が、対象一覧 × 再公開台帳 `.claude/state/note-republish-hashes.json` の `coverHashes`（マガジンは `magazineCovers`）× note の公開 API で「カバー無し・未登録・デザイン版が古い・文言が変わった・note 側で画像が変わった」を数える（読み取りだけ）。**登録**は Mac の launchd `note-sync`（毎週日曜 3:00・`npm run note-sync:install`）が記事単位の同期（`note-update-body --sync`）の中で行う。本文・タグの変更と同じ 1 回の「更新する」にまとめ、カバーだけのために記事を開き直さない。登録後は公開 API で画像 URL を読み直して台帳へ記録し、develop へ push する。マガジンは記事と別の設定画面なので `note-magazine-cover` で 1 誌ずつ登録する。手元の PNG の有無は判定に使わない。**見た目を変えたら `note-cover-tokens.json` の `designVersion`（article／magazine）を上げる**＝その側の全件が次の週次から再登録される（見た目の変わらないリファクタでは上げない）。ポーズは前後の記事で変わりうるので、文言・色が同じならポーズの差だけでは再登録しない。新規記事は `note-publish` が公開時に最新デザインで生成してから登録する。
 
 登録した版の控えは[アセット置き場](../reference/asset-storage-policy.md)に従い、週次が自動で保存する（記事＝private R2 `note-cover-png`、マガジン＝Drive vault `note-magazine-cover-png`）。POP版の全件確認用一式は `.tmp/note-cover-pop-all/` に生成し、Drive vault の `note-cover-pop-preview` で `制作物/noteカバー/POP版/` へ保存する。生成結果だけをGitへ追加しない。
 

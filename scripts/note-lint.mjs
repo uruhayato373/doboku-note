@@ -14,7 +14,7 @@
  *   4b. マガジンCTA形式（check-note-magazine-cta.mjs）— markdown リンク形式のマガジンURL / マガジンURL同一行の価格(¥)
  *       → bare URL 単独行（リンクカード）に・価格は本文に書かない（改訂で陳腐化）。content-principles.md §14-c
  *   4c. 3点セット充足（check-note-3set.mjs）— 公開状態（noteUrl 非空/noteStatus publish）の記事は
- *       hashtags.txt 必須（下書きは対象外。カバーは note-publish が公開時に生成し CI の check-note-cover-live が見る）。content-principles.md §14-d
+ *       hashtags.txt 必須（下書きは対象外。カバーは note-publish が公開時に生成し CI の check-note-sync が見る）。content-principles.md §14-d
  *   5. 部分注入 — 同一マガジンに実URL注入済み記事がありながら {{MAGAZINE_URL}} が残る記事（注入漏れ）
  *      → 手作業でなく `npm run note-inject-magazine-url -- <persona> <url>` を使う（CRLF保持・冪等）
  *   6. 廃止セクション見出し — 「## …からのコメント」（合格者／元公務員からのコメント節、2026-06-10 廃止）

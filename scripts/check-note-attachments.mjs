@@ -51,7 +51,7 @@ const ONLY = (() => { const i = argv.indexOf('--only'); return i >= 0 ? new Set(
 
 // 本文が「PDF を配る」と約束している signature。prose 側の網。
 // 単一真実源は scripts/lib/note-frontmatter.mjs の PDF_PROMISE_RE（DN-0147 で移設・
-// note-republish-plan.mjs の pdfPromise 判定と同じ正規表現を共有する）。
+// note-sync-plan（parseNoteArticle）の pdfPromise 判定と同じ正規表現を共有する）。
 
 const allow = existsSync(ALLOW_PATH) ? JSON.parse(readFileSync(ALLOW_PATH, 'utf8')) : { entries: [] };
 const allowMap = new Map((allow.entries || []).map((e) => [e.noteId, e]));
