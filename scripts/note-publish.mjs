@@ -40,8 +40,8 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
  * ---------------------------------------------------------------------------
  */
 import { chromium } from 'playwright';
-import { readFileSync, existsSync, writeFileSync, readdirSync } from 'node:fs';
-import { join, dirname, basename, resolve, relative } from 'node:path';
+import { readFileSync, existsSync, writeFileSync, readdirSync, mkdirSync } from 'node:fs';
+import { join, dirname, basename, resolve, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { recordPublishedHash, recordPublishedTagHash, recordPublishedMetaHash, recordPublishedAssetHash } from './lib/note-republish-hash.mjs';
 import { cardifyBareUrls, repairUrlHeadings, listUrlHeadingsInEditor } from './lib/note-cardify.mjs';
@@ -89,17 +89,26 @@ const { body: tokenBody, images: bodyImages, missing: imgMissing } = extractBody
 body = tokenBody;
 if (imgMissing.length) console.log(`[img] WARN 除去した画像行: ${imgMissing.join(' / ')}`);
 const typeSuffix = (basename(articleAbs).match(/article-([^.]+)\.md$/) || [])[1] || '';
-const coverCandidates = [typeSuffix && join(dir, `img/cover-${typeSuffix}.png`), join(dir, 'img/cover.png')].filter(Boolean);
-// カバー PNG は R2 へ退避してある（DN-0111 Phase 4-B）。実体が無ければ取り寄せる。
-// 取れなければ cover=null のまま進めず、**note へ書き込む前に止める**——
-// カバー無しで公開すると、後から差し替えても外部（SNS カード等）に残ってしまう。
-const { ensureLocal: ensureLocalAsset } = await import('./lib/asset-storage.mjs');
-const cover = coverCandidates.find((c) => ensureLocalAsset(c)) || null;
-if (!cover && coverCandidates.length) {
-  console.error('[prep] カバーが手元にも R2 にも無い。note へは何も書かずに止める:');
-  for (const c of coverCandidates) console.error('  ' + c);
-  process.exit(1);
-}
+// カバーは公開のたびに最新のデザインと文言で生成する（R2 の旧版を取り寄せると古いデザインで公開してしまう）。
+// 生成できなければ **note へ書き込む前に止める**——カバー無しで公開すると、後から差し替えても外部（SNS カード等）に残る。
+// 以後の差し替えは Mac の週次 note-cover-routine が台帳（cover-ledger.json）と note の公開 API を見て行う。
+const cover = await (async () => {
+  try {
+    const { loadNoteCoverInventory } = await import('./lib/note-cover-inventory.mjs');
+    const { renderNoteCharacterCover } = await import('./lib/note-character-cover.mjs');
+    const rel = relative(ROOT, articleAbs).split(sep).join('/');
+    const target = (await loadNoteCoverInventory(ROOT)).targets.find((t) => t.kind === 'article' && t.source === rel);
+    if (!target) throw new Error(`カバーの対象一覧に無い: ${rel}`);
+    const { buffer } = await renderNoteCharacterCover(ROOT, target.input);
+    const out = join(ROOT, target.imagePath);
+    mkdirSync(dirname(out), { recursive: true });
+    writeFileSync(out, buffer);
+    return out;
+  } catch (error) {
+    console.error(`[prep] カバーを生成できない。note へは何も書かずに止める: ${error.message}`);
+    process.exit(1);
+  }
+})();
 const tagsCandidates = [typeSuffix && join(dir, `hashtags-${typeSuffix}.txt`), join(dir, 'hashtags.txt')].filter(Boolean);
 const tagsFile = tagsCandidates.find(existsSync);
 const tags = tagsFile ? readFileSync(tagsFile, 'utf8').split(/\r?\n/).map((s) => s.trim().replace(/^#/, '')).filter(Boolean).slice(0, 99) : [];

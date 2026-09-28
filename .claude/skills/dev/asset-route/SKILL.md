@@ -18,7 +18,7 @@ domain: ops
    記事図版は `r2-sync.yml` が自動同期、OGP は `ogp-supply.yml` が生成・供給する。**手で offload しない**。
 2. **GitHub Actions がその実体を読むか書くか？** — `.github/workflows/*.yml` を grep して確かめる（憶測で「CI が使う」と言わない。
    2026-09-05 の調査で、動画レンダー・Kindle・IG 公開のワークフローは**存在しなかった**）
-   → **`audience: ci`** → R2（`bucket: private` か `byVisibility`）。例: note カバー PNG（`note-cover-supply.yml`）。
+   → **`audience: ci`** → R2（`bucket: private` か `byVisibility`）。現在この区分のグループは無い（2026-09-29 まで note カバー PNG が該当）。
 3. **それ以外＝人か手元のスクリプトだけが使う** → **`audience: human`** → Google Drive vault `マイドライブ/doboku-note/`
    （`drive-vault.json`）。原本 PDF・ページ画像・文字起こし・配布 PDF・未投稿レンダー・Kindle・ココナラ素材。
    - R2 に残す例外は `asset-storage.json` の `audienceException` に 20 字以上の理由を書く（例: git 履歴 bundle 2.65GB）。

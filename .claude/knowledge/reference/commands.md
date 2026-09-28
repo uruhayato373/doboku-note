@@ -99,9 +99,11 @@ npm run check-standards-page-images # 上の provenance 整合（catalog↔manif
 
 ## note・会員・売上・Kindle
 
-`npm run note-character-covers -- --source-root /path/to/source-checkout --output-root /path/to/isolated-output` — V5 キャラクターカバーを独立出力先へ全件生成し照合用 manifest を残す（全量差し替え用）。通常の記事・マガジン生成は `node scripts/generate-note-covers.mjs [dir]` / `node scripts/generate-magazine-covers.mjs [id]` で、同じ描画・同じポーズ割当（[仕様](../design-system/note-cover-character-v5.md)）。文言が枠に入るかは `npm run check-note-cover-fit`（pre-commit は `--staged`・実測幅）。
+`npm run note-character-covers -- --source-root /path/to/source-checkout --output-root /path/to/isolated-output` — V5 キャラクターカバーを独立出力先へ全件生成し照合用 manifest を残す（新デザインの全件確認用。note への登録は下の週次）。通常の記事・マガジン生成は `node scripts/generate-note-covers.mjs [dir]` / `node scripts/generate-magazine-covers.mjs [id]` で、同じ描画・同じポーズ割当（[仕様](../design-system/note-cover-character-v5.md)）。文言が枠に入るかは `npm run check-note-cover-fit`（pre-commit は `--staged`・実測幅）。
 
-`npm run note-cover-rollout -- <reconcile|snapshot|plan|run|verify|record>` — 全量差し替えの照合（manifest↔最新原稿・差分だけ再生成）→ 公開 API の前後スナップショット → 対象/保留の決定 → 既存 CLI（note-update-cover / note-magazine-cover）への逐次投入（回線待ち・chunk 再試行・未 OK だけ再走査）→ eyecatch 変化と price/status/is_limited 不変の突合 → `.claude/state/note/cover-rollout/<date>.json` への記録。作業場は `.tmp/note-cover-rollout/`（消えると再開できない。`generated/manifest.json` と `live-before.json` は残す）。罠: CLI の「新カバー未確認」中断は coverless を防げない（削除が先に live へ書かれる・measurement-incidents 2026-09-18）ので verify で eyecatch を必ず見る。
+`npm run check-note-cover-live` — note 上のカバー（記事 eyecatch・マガジン cover）が最新デザインで登録済みかを、対象一覧 × 台帳 `.claude/state/note/cover-ledger.json` × note の公開 API で判定する（読み取りだけ・約 900 回 API を読むので 5〜8 分）。exit 1＝要登録あり／2＝検査不成立。CI の `note-cover-live.yml` が週次で回す。`--json` で要登録と保留の一覧。
+
+`npm run note-cover:install` — Mac の launchd に note カバーの週次登録を入れる（毎週日曜 3:00・寝ていた週は起床時に 1 回）。専用 worktree（`.claude/worktrees/note-cover`・lock 済み）で `scripts/note-cover-routine.mjs` が要登録を生成 → note へ登録 → 台帳・R2・Drive を更新して develop へ push。`-- --status` / `-- --run-now` / `-- --uninstall`。前提は note にログイン済みのプロファイル。要登録の確認だけなら `npm run note-cover-routine -- --dry-run`（どの checkout でも可）。罠: 見た目を変えたら `note-cover-tokens.json` の `designVersion` を上げないと再登録されない。上げると全件（約 1,000 件・1 回 300 件まで）が数週に分けて登録し直される。
 
 ```bash
 npm run kdp-report        # Kindle 月次ロイヤリティを KDP レポートから取得→.claude/state/sales/kdp-royalties.json（読み取り専用・当月/前月のみ・定期取得は login-collectors.yml）

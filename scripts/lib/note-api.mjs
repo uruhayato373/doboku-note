@@ -132,6 +132,29 @@ export async function fetchMagazine(key, opts = {}) {
   return { state: 'alive', status: d.status ?? null, name: d.name ?? null, error: null };
 }
 
+const isDefaultMagazineCover = (url) => !url || /\/assets\/default\/default_magazine_header/.test(url);
+
+/**
+ * クリエイターの公開マガジン一覧（全ページ）。cover は既定ヘッダーなら null。
+ * ページが欠けたまま返すと「一覧に無い＝同定不能」に化けるので、取得不成立は throw する。
+ * @returns {Promise<Array<{key: string, name: string, description: string, price: number, status: string, cover: string|null}>>}
+ */
+export async function fetchCreatorMagazines(creator, { maxPages = 100, ...opts } = {}) {
+  const live = [];
+  for (let p = 1; p <= maxPages; p += 1) {
+    const { json, error } = curlJson(`https://note.com/api/v2/creators/${creator}/contents?kind=magazine&page=${p}`, opts);
+    const c = json?.data?.contents;
+    if (error || !Array.isArray(c) || (!c.length && !json?.data?.isLastPage)) throw new Error(`マガジン一覧の取得不成立: page=${p} ${error || ''}`.trim());
+    live.push(...c.map((m) => ({ key: m.key, name: m.name, description: m.description, price: m.price, status: m.status, cover: isDefaultMagazineCover(m.cover) ? null : m.cover })));
+    if (json.data.isLastPage) {
+      if (live.length !== json.data.totalCount) throw new Error(`マガジン一覧が欠落: ${live.length}/${json.data.totalCount}`);
+      return live;
+    }
+    sleepSync(300);
+  }
+  throw new Error(`マガジン一覧が ${maxPages} ページを超えた`);
+}
+
 /**
  * マガジン収録記事の一覧（全ページ）。
  * @returns {Promise<{articles: Array<{key: string, name: string, price: number}>, error: string|null}>}
