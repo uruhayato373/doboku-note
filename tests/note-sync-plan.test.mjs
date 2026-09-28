@@ -68,3 +68,21 @@ test('週次は本文なし → 画像なしの本文 → 画像ありの本文�
   ];
   assert.deepEqual(orderForRun(items).map((i) => i.path), ['a', 'b', 'c']);
 });
+
+test('Drive に預けた配布 PDF がある記事 dir を拾う（原稿が PDF に触れていなくても note に添付がある・2026-09-29 工事21）', async () => {
+  const { mkdtempSync, mkdirSync, writeFileSync, rmSync } = await import('node:fs');
+  const { join } = await import('node:path');
+  const { tmpdir } = await import('node:os');
+  const { drivePdfDirs } = await import('../scripts/lib/note-sync-plan.mjs');
+  const root = mkdtempSync(join(tmpdir(), 'note-sync-drive-'));
+  try {
+    mkdirSync(join(root, '.claude/state/assets'), { recursive: true });
+    writeFileSync(join(root, '.claude/state/assets/drive-manifest.json'), JSON.stringify({ entries: {
+      'content/note/a/工事21/1級土木-経験記述-工事21.pdf': {},
+      'content/note/b/R06/pdf/R06.pdf': {},
+      'content/note/c/img/figure.png': {},
+    } }));
+    const dirs = drivePdfDirs(root);
+    assert.deepEqual([...dirs].sort(), ['content/note/a/工事21', 'content/note/b/R06']);
+  } finally { rmSync(root, { recursive: true, force: true }); }
+});

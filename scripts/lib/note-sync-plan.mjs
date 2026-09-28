@@ -18,6 +18,7 @@ import { loadNoteCoverInventory } from './note-cover-inventory.mjs';
 import { coverInputHash, designVersions, readLedger, sameImage } from './note-cover-live.mjs';
 
 const ABORT_LEDGER = '.claude/state/note-update-aborted.json';
+const DRIVE_MANIFEST = '.claude/state/assets/drive-manifest.json';
 // 保存前に止まる中断（エディタの本文を汚さない）＝自動で再試行してよい。note-update-body もこの集合を使う。
 //   img-settle / img-lost … 画像の CDN 確定待ちで止まった　pdf-missing … 貼り直す PDF が手元に無い（本文を触る前）
 //   cover-failed … カバーの差し替えを確認できない（本文を触る前。次回また差し替える）　tags-unreadable … タグを読めない（保存前）
@@ -34,6 +35,19 @@ export const BLOCKERS = {
 
 function readAborted(root) {
   try { return JSON.parse(readFileSync(join(root, ABORT_LEDGER), 'utf8')).aborted || []; } catch { return []; }
+}
+
+/** Drive vault に預けてある配布 PDF がある記事 dir（記事 dir 直下か pdf/ 配下）。 */
+export function drivePdfDirs(root) {
+  const dirs = new Set();
+  try {
+    for (const k of Object.keys(JSON.parse(readFileSync(join(root, DRIVE_MANIFEST), 'utf8')).entries || {})) {
+      if (!/\.pdf$/i.test(k)) continue;
+      const d = dirname(k);
+      dirs.add(d.endsWith('/pdf') ? dirname(d) : d);
+    }
+  } catch { /* 台帳が無ければ原稿と手元だけで判断する */ }
+  return dirs;
 }
 
 function republishReport(root) {
@@ -89,6 +103,7 @@ export async function buildSyncPlan(root = process.cwd()) {
   const ledger = readLedger();
   const design = designVersions(root);
   const aborted = new Map(readAborted(root).map((a) => [a.noteId, a]));
+  const drivePdf = drivePdfDirs(root);
 
   const items = [];
   for (const t of targets) {
@@ -107,7 +122,8 @@ export async function buildSyncPlan(root = process.cwd()) {
       : [];
     const c = classifySync({
       bodyReason, assetDrift: asset.has(path), tagDrift: tagArticles.has(path), metaDrift: meta.has(path), coverReason,
-      abort: aborted.get(t.noteId) || null, imageMissing, pdfPending: a.pdfPromise || a.localPdfs.length > 0, pdfLocal: a.localPdfs.length > 0,
+      abort: aborted.get(t.noteId) || null, imageMissing, // 原稿が PDF に触れていなくても、Drive に預けた配布 PDF があれば note に添付がある（2026-09-29 工事21 で実測）
+      pdfPending: a.pdfPromise || a.localPdfs.length > 0 || drivePdf.has(dirname(path)), pdfLocal: a.localPdfs.length > 0,
       memberTrial: a.data.memberTrial || null, boundaryMissing: a.notePricing === 'paid' && !hasBoundaryHeading(a.body, a.paidBoundary),
     });
     items.push({
