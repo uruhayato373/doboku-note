@@ -6,7 +6,7 @@
   "designVersion": {
     "$comment": "note 上のカバーの見た目の版。描画の見た目を変えたら上げる（上げた側の全件を Mac の週次 note-cover-routine が再登録する。見た目が変わらないリファクタでは上げない）。判定は scripts/lib/note-cover-live.mjs",
     "article": "2026-09-28-text-first",
-    "magazine": "2026-09-28-text-first"
+    "magazine": "2026-09-29-magazine-pop"
   },
   "updated": "2026-09-01",
   "source": "handoff covers-g2-all.jsx（claude.ai/design プロトタイプ G2 案）を satori 本番レンダラへ移植。1.1.0 で Crop-safe V4（opt-in variant）を追加（.claude/knowledge/design-system/note-cover-crop-safe-v4.md）",
