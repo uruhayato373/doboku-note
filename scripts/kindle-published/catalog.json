@@ -2065,7 +2065,7 @@
       "priceJpy": 1980,
       "royalty": 0.35,
       "chapterCount": 6,
-      "status": "ready",
+      "status": "in_review",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/j-03.json",
       "epub": "kindle-dist/j-03.epub",
@@ -2077,9 +2077,14 @@
           "version": "1.0",
           "date": "2026-09-23",
           "change": "制作完了（note の2級土木 第2次検定 記述マガジン 6 本を再編集＋書き下ろし前付け）。KDP Select OFF＝note 併売のため日本 35%"
+        },
+        {
+          "version": "1.0",
+          "date": "2026-09-28",
+          "change": "KDP出版申請（審査中）・draft A2CG0D790LFPP4"
         }
       ],
-      "draftAsin": null,
+      "draftAsin": "A2CG0D790LFPP4",
       "publishedDate": null
     },
     {
