@@ -1,9 +1,8 @@
 #!/usr/bin/env node
 // note 有料マガジンの「ヘッダー画像」= マガジンdir直下 _cover.png を生成する（note アップロード用）。
 //
-// 2026-09-17 から描画は記事カバーと同じ V5 キャラクターカバー（濃色・仕様 SSOT:
-// .claude/knowledge/design-system/note-cover-character-v5.md）。note のマガジン/クリエイターページの
-// ヘッダーは中央 1280×216 帯がクロップ表示されるため、主見出しはその帯に収まる枠で描く。
+// 描画は記事と同じ V5 描画器を使い、マガジン専用の濃色POPレイアウトを適用する。
+// 仕様 SSOT: .claude/knowledge/design-system/note-cover-character-v5.md。
 // 生成した _cover.png は note-magazine-cover.mjs がアップロードし、保管先は Drive vault
 // （drive-vault.json の note-magazine-cover-png）。
 //

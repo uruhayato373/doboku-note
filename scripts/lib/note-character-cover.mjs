@@ -7,9 +7,8 @@ import opentype from '@shuding/opentype.js';
 import { renderCharacterFrame } from './character-framing.mjs';
 
 export const NOTE_CHARACTER_CANVAS = { width: 1280, height: 670 };
-// 2026-09-28 承認の文字優先POPレイアウト。記事・マガジンを中央固定にせず、同じ左寄せ構成で描く。
+// 記事は明るい左寄せPOP、マガジンは資格名・商品名を強調する濃色POPで描く。
 // 主要文字は左右45px・上下15pxの内側へ置き、人物は右端の補助要素として狭いカードでは切れてよい。
-// note上で白背景へ溶け込まないよう、資格色の細い外周枠を10px内側へ置く。
 const POP_LAYOUT = {
   safe: { x: 45, y: 15, width: 1190, height: 640 },
   textX: 90, textWidth: 760,
