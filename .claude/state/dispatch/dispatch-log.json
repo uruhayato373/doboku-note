@@ -1375,6 +1375,18 @@
       "commit": "24539ea37a75",
       "verification": null,
       "note": "DN-0360（新レイアウトの全件 live 反映）へ統合。held 9 本は DN-0360 の反映対象に含めた"
+    },
+    {
+      "id": "DN-0361",
+      "at": "2026-09-28",
+      "task": "note カバーの状態管理を「手元PNGの有無」から「note 公開状態の週次台帳」へ再設計する",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "0fb378655116",
+      "verification": null,
+      "note": "未着手のまま DN-0360 へ一本化（反映確認は note API の eyecatch）。管理画面・R2 移設の部分は運営者判断で不要"
     }
   ]
 }
