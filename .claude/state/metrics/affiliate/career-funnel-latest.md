@@ -1,10 +1,10 @@
 # キャリアファネル基線レポート
 
-生成: 2026-09-26T05:07:04.240Z
+生成: 2026-09-28T05:21:03.008Z
 
 > [!warning]
 > GA4 と GSC は取得遅延が違うため**窓が一致しない**。出所を跨いで CTR や EPC を割らないこと。
-> GA4 2026-08-27〜2026-09-23 ／ GSC 2026-08-25〜2026-09-21
+> GA4 2026-08-01〜2026-08-31 ／ GSC 2026-08-28〜2026-09-24
 
 ## 実検査の内訳
 
@@ -16,47 +16,49 @@ _「異常 0 件」と「1 件も検査していない」を区別するため�
 | careerArticles | 43 |
 | siteMdxScanned | 1280 |
 | extraLinkSourcesScanned | 1 |
-| gscRowsTotal | 1050 |
-| gscRowsMatchedCareer | 6 |
-| ga4LabelRowsMatched | 15 |
+| gscRowsTotal | 1150 |
+| gscRowsMatchedCareer | 5 |
+| ga4LabelRowsMatched | 13 |
 | ga4PlacementRowsMatched | 9 |
-| careerArticlesInGa4Top | 9 |
+| careerArticlesInGa4Top | 0 |
 | noteCareerArticles | 24 |
 
 ## WARN
 
 - 入力欠落 1 件: afb（CI の fetch-metrics 供給を確認する）
-- 窓が不一致（GA4 2026-08-27〜2026-09-23 / GSC 2026-08-25〜2026-09-21）。取得元の遅延差なので異常ではないが、出所を跨いで CTR/EPC を割らないこと
+- 窓が不一致（GA4 2026-08-01〜2026-08-31 / GSC 2026-08-28〜2026-09-24）。取得元の遅延差なので異常ではないが、出所を跨いで CTR/EPC を割らないこと
+- GA4 の窓の終端が 28 日前。計測 CI の供給停止を疑う（fetch-metrics の直近 run を見る）
+- GA4 page スナップショットは上位 10000 ページのみで、career 記事は 1 本も入っていない。users/sessions は「0」ではなく「観測範囲外」なので断定に使わない
 
 ## 漏斗
 
 ### 1. 高意図 query（GSC 窓）
 
-表示 44 ／ クリック 1
+表示 51 ／ クリック 1
 
 語彙: 転職・辞めたい・やめたい・年収・市場価値・評判・口コミ・エージェント・求人・ホワイト・公務員・発注者支援
 
 | query | 表示 | クリック | 順位 |
 |---|---|---|---|
 | 技術士転職 | 7 | 0 | 72.9 |
-| 土木公務員 資格 | 5 | 0 | 10.8 |
+| 土木公務員 資格 | 6 | 0 | 11.3 |
+| 公務員 土木職 資格 | 3 | 0 | 9.0 |
 | 技術 士 年収 | 3 | 0 | 77.7 |
 | 技術士 年収 | 3 | 0 | 73.0 |
 | 技術士総合技術監理部門年収 | 3 | 0 | 29.3 |
 | 土木施工管理 年収 | 2 | 0 | 96.0 |
-| 公務員 土木職 資格 | 2 | 0 | 9.5 |
+| 公務員 土木 資格 おすすめ | 2 | 0 | 11.0 |
+| 土木 公務員 資格 | 2 | 0 | 10.0 |
 | 技術士 総合技術監理部門 年収 | 2 | 0 | 30.0 |
 | rccm 受験資格 公務員 | 1 | 1 | 15.0 |
 | 施工管理job 評判 | 1 | 0 | 68.0 |
 | 施工管理 転職エージェント | 1 | 0 | 18.0 |
 | 1級土木施工管理技士年収 | 1 | 0 | 70.0 |
 | 1級土木施工管理技士補 年収 | 1 | 0 | 86.0 |
-| 一級土木施工管理技士 年収 | 1 | 0 | 61.0 |
-| 土木施工管理技士 年収 | 1 | 0 | 69.0 |
 
 ### 2. キャリアページの流入（GA4 窓）
 
-GA4 上位ページに入った career 記事: 9 / 43 本
+GA4 上位ページに入った career 記事: 0 / 43 本
 
 ### 3. 柱ごとの検索と内部リンク
 
@@ -64,7 +66,7 @@ _被リンクは literal リンクの本数であり、実際の遷移ではな�
 
 | 柱 | 記事 | GSC 表示 | GSC クリック | 被リンク |
 |---|---|---|---|---|
-| career-path | 19 | 9 | 0 | 44 |
+| career-path | 19 | 8 | 0 | 44 |
 | market-value | 9 | 0 | 0 | 29 |
 | service-choice | 5 | 0 | 0 | 2 |
 | quit | 5 | 0 | 0 | 4 |
@@ -72,29 +74,27 @@ _被リンクは literal リンクの本数であり、実際の遷移ではな�
 
 ### 4. affiliate CTA（GA4 窓）
 
-表示 23416 ／ クリック 13 ／ CTR 0.06%
+表示 24832 ／ クリック 15 ／ CTR 0.06%
 
 | placement | 表示 | クリック | CTR |
 |---|---|---|---|
-| sidebar | 12916 | 2 | 0.02% |
-| article-inline | 3723 | 7 | 0.19% |
-| article-end | 3328 | 0 | 0.00% |
-| article-mid | 2678 | 4 | 0.15% |
-| category-sidebar | 695 | 0 | 0.00% |
-| category-mobile | 76 | 0 | 0.00% |
+| sidebar | 13616 | 2 | 0.01% |
+| article-inline | 4228 | 10 | 0.24% |
+| article-end | 3483 | 0 | 0.00% |
+| article-mid | 2759 | 3 | 0.11% |
+| category-sidebar | 666 | 0 | 0.00% |
+| category-mobile | 80 | 0 | 0.00% |
 
 | label | 表示 | クリック |
 |---|---|---|
-| BuildJob-sidebar | 7514 | 1 |
-| ビルドジョブ | 3855 | 4 |
-| DXConsulting-sidebar | 3292 | 1 |
-| KensetsuJobs-sidebar | 2785 | 0 |
-| BuildJob-endbanner | 1932 | 0 |
-| 建設JOBs | 1405 | 5 |
-| ハイクラス DX・コンサル転職 | 1141 | 2 |
-| DXConsulting-endbanner | 729 | 0 |
-| KensetsuJobs-endbanner | 667 | 0 |
-| GKS-sidebar | 96 | 0 |
+| BuildJob-sidebar | 5573 | 4 |
+| DXConsulting-sidebar | 2894 | 0 |
+| ビルドジョブ | 2831 | 4 |
+| BuildJob-endbanner | 1791 | 0 |
+| ハイクラス DX・コンサル転職 | 1140 | 5 |
+| DXConsulting-endbanner | 828 | 1 |
+| KensetsuJobs-sidebar | 322 | 1 |
+| BuildJob-hubcareer | 5 | 0 |
 
 ### 5. A8 成果
 
@@ -109,15 +109,14 @@ afb: 未取得（fetch-afb-outcomes.mjs --commit が未実行、または fetch-
 
 ## 起票時基線からのずれ（±30% 超）
 
-- affiliate 表示: 起票時 7370 → 今回 23416（318%）
-- affiliate クリック: 起票時 19 → 今回 13（68%）
-- 高意図 query 表示: 起票時 10 → 今回 44（440%）
+- affiliate 表示: 起票時 7370 → 今回 24832（337%）
+- 高意図 query 表示: 起票時 10 → 今回 51（510%）
 
 ## 記事台帳
 
 | slug | 柱 | 公開 | GSC 表示 | クリック | 順位 | 被リンク | CTA |
 |---|---|---|---|---|---|---|---|
-| civil-construction-1-guide-company-types | career-path | ○ | 8 | 0 | 65.2 | 0 | 1 |
+| civil-construction-1-guide-company-types | career-path | ○ | 7 | 0 | 60.4 | 0 | 1 |
 | civil-construction-1-guide-age-career | career-path | ○ | 1 | 0 | 63 | 0 | 1 |
 | civil-construction-1-guide-allowance | market-value | ○ | 0 | 0 | — | 0 | 1 |
 | civil-construction-1-guide-buildjob-review | service-choice | ○ | 0 | 0 | — | 0 | 1 |

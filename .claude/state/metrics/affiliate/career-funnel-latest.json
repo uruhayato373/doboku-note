@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-09-26T05:07:04.240Z",
+  "generatedAt": "2026-09-28T05:21:03.008Z",
   "windows": {
     "ga4": {
-      "start": "2026-08-27",
-      "end": "2026-09-23"
+      "start": "2026-08-01",
+      "end": "2026-08-31"
     },
     "gsc": {
-      "start": "2026-08-25",
-      "end": "2026-09-21"
+      "start": "2026-08-28",
+      "end": "2026-09-24"
     },
     "aligned": false,
     "usable": true
   },
   "inputs": {
-    "ga4Label": ".claude/state/metrics/ga4/ga4-cta-clicks-by-label-2026-09-24T23-41-33.json",
-    "ga4Placement": ".claude/state/metrics/ga4/ga4-cta-clicks-by-placement-2026-09-24T23-41-35.json",
-    "ga4Device": ".claude/state/metrics/ga4/ga4-cta-clicks-by-device-2026-09-24T23-41-33.json",
-    "ga4Page": ".claude/state/metrics/ga4/ga4-page-2026-09-24T23-41-30.json",
-    "gscPageQuery": ".claude/state/metrics/gsc/gsc-page-query-2026-09-24T23-41-27.json",
+    "ga4Label": ".claude/state/metrics/ga4/ga4-cta-clicks-by-label-2026-09-27T11-52-30.json",
+    "ga4Placement": ".claude/state/metrics/ga4/ga4-cta-clicks-by-placement-2026-09-27T11-52-26.json",
+    "ga4Device": ".claude/state/metrics/ga4/ga4-cta-clicks-by-device-2026-09-27T11-52-23.json",
+    "ga4Page": ".claude/state/metrics/ga4/ga4-page-2026-09-27T11-52-20.json",
+    "gscPageQuery": ".claude/state/metrics/gsc/gsc-page-query-2026-09-27T11-52-17.json",
     "a8": ".claude/state/metrics/affiliate/a8-results.json",
     "afb": null
   },
@@ -26,16 +26,16 @@
     "careerArticles": 43,
     "siteMdxScanned": 1280,
     "extraLinkSourcesScanned": 1,
-    "gscRowsTotal": 1050,
-    "gscRowsMatchedCareer": 6,
-    "ga4LabelRowsMatched": 15,
+    "gscRowsTotal": 1150,
+    "gscRowsMatchedCareer": 5,
+    "ga4LabelRowsMatched": 13,
     "ga4PlacementRowsMatched": 9,
-    "careerArticlesInGa4Top": 9,
+    "careerArticlesInGa4Top": 0,
     "noteCareerArticles": 24
   },
   "funnel": {
     "highIntentQuery": {
-      "impressions": 44,
+      "impressions": 51,
       "clicks": 1,
       "rows": [
         {
@@ -48,9 +48,16 @@
         {
           "query": "土木公務員 資格",
           "url": "https://doboku-note.com/exam/pe-comprehensive-management/guide/public-engineer-qualification-map",
-          "impressions": 5,
+          "impressions": 6,
           "clicks": 0,
-          "position": 10.8
+          "position": 11.333333333333334
+        },
+        {
+          "query": "公務員 土木職 資格",
+          "url": "https://doboku-note.com/exam/pe-comprehensive-management/guide/public-engineer-qualification-map",
+          "impressions": 3,
+          "clicks": 0,
+          "position": 9
         },
         {
           "query": "技術 士 年収",
@@ -81,11 +88,18 @@
           "position": 96
         },
         {
-          "query": "公務員 土木職 資格",
+          "query": "公務員 土木 資格 おすすめ",
           "url": "https://doboku-note.com/exam/pe-comprehensive-management/guide/public-engineer-qualification-map",
           "impressions": 2,
           "clicks": 0,
-          "position": 9.5
+          "position": 11
+        },
+        {
+          "query": "土木 公務員 資格",
+          "url": "https://doboku-note.com/exam/pe-comprehensive-management/guide/public-engineer-qualification-map",
+          "impressions": 2,
+          "clicks": 0,
+          "position": 10
         },
         {
           "query": "技術士 総合技術監理部門 年収",
@@ -158,6 +172,27 @@
           "position": 18
         },
         {
+          "query": "土木 施工管理 転職",
+          "url": "https://doboku-note.com/exam/civil-construction-2/guide/career-change",
+          "impressions": 1,
+          "clicks": 0,
+          "position": 55
+        },
+        {
+          "query": "土木施工管理 転職",
+          "url": "https://doboku-note.com/exam/civil-construction-2/guide/career-change",
+          "impressions": 1,
+          "clicks": 0,
+          "position": 55
+        },
+        {
+          "query": "土木施工管理技士 年収",
+          "url": "https://doboku-note.com/exam/civil-construction-2/guide/salary",
+          "impressions": 1,
+          "clicks": 0,
+          "position": 5
+        },
+        {
           "query": "1級土木施工管理技士 実務経験 公務員",
           "url": "https://doboku-note.com/exam/pe-comprehensive-management/guide/public-engineer-qualification-map",
           "impressions": 1,
@@ -172,46 +207,11 @@
           "position": 11
         },
         {
-          "query": "公務員 土木 資格 おすすめ",
-          "url": "https://doboku-note.com/exam/pe-comprehensive-management/guide/public-engineer-qualification-map",
-          "impressions": 1,
-          "clicks": 0,
-          "position": 13
-        },
-        {
-          "query": "土木 公務員 資格",
-          "url": "https://doboku-note.com/exam/pe-comprehensive-management/guide/public-engineer-qualification-map",
-          "impressions": 1,
-          "clicks": 0,
-          "position": 11
-        },
-        {
           "query": "技術士 転職",
           "url": "https://doboku-note.com/exam/pe-construction/guide/career",
           "impressions": 1,
           "clicks": 0,
           "position": 63
-        },
-        {
-          "query": "技術士年収",
-          "url": "https://doboku-note.com/exam/pe-construction/guide/career",
-          "impressions": 1,
-          "clicks": 0,
-          "position": 73
-        },
-        {
-          "query": "技術士建設部門年収",
-          "url": "https://doboku-note.com/exam/pe-construction/guide/career",
-          "impressions": 1,
-          "clicks": 0,
-          "position": 57
-        },
-        {
-          "query": "転職 技術士",
-          "url": "https://doboku-note.com/exam/pe-construction/guide/career",
-          "impressions": 1,
-          "clicks": 0,
-          "position": 56
         }
       ]
     },
@@ -225,75 +225,67 @@
     "affiliateCta": {
       "byPlacement": {
         "sidebar": {
-          "impressions": 12916,
+          "impressions": 13616,
           "clicks": 2
         },
         "article-inline": {
-          "impressions": 3723,
-          "clicks": 7
+          "impressions": 4228,
+          "clicks": 10
         },
         "article-end": {
-          "impressions": 3328,
+          "impressions": 3483,
           "clicks": 0
         },
         "article-mid": {
-          "impressions": 2678,
-          "clicks": 4
+          "impressions": 2759,
+          "clicks": 3
         },
         "category-sidebar": {
-          "impressions": 695,
+          "impressions": 666,
           "clicks": 0
         },
         "category-mobile": {
-          "impressions": 76,
+          "impressions": 80,
           "clicks": 0
         }
       },
       "byLabel": {
         "BuildJob-sidebar": {
-          "impressions": 7514,
-          "clicks": 1
-        },
-        "ビルドジョブ": {
-          "impressions": 3855,
+          "impressions": 5573,
           "clicks": 4
         },
         "DXConsulting-sidebar": {
-          "impressions": 3292,
+          "impressions": 2894,
+          "clicks": 0
+        },
+        "ビルドジョブ": {
+          "impressions": 2831,
+          "clicks": 4
+        },
+        "BuildJob-endbanner": {
+          "impressions": 1791,
+          "clicks": 0
+        },
+        "ハイクラス DX・コンサル転職": {
+          "impressions": 1140,
+          "clicks": 5
+        },
+        "DXConsulting-endbanner": {
+          "impressions": 828,
           "clicks": 1
         },
         "KensetsuJobs-sidebar": {
-          "impressions": 2785,
-          "clicks": 0
+          "impressions": 322,
+          "clicks": 1
         },
-        "BuildJob-endbanner": {
-          "impressions": 1932,
-          "clicks": 0
-        },
-        "建設JOBs": {
-          "impressions": 1405,
-          "clicks": 5
-        },
-        "ハイクラス DX・コンサル転職": {
-          "impressions": 1141,
-          "clicks": 2
-        },
-        "DXConsulting-endbanner": {
-          "impressions": 729,
-          "clicks": 0
-        },
-        "KensetsuJobs-endbanner": {
-          "impressions": 667,
-          "clicks": 0
-        },
-        "GKS-sidebar": {
-          "impressions": 96,
+        "BuildJob-hubcareer": {
+          "impressions": 5,
           "clicks": 0
         }
       },
-      "totalImpressions": 23416,
-      "totalClicks": 13,
-      "ctr": 0.000555175948069696,
+      "totalImpressions": 24832,
+      "totalClicks": 15,
+      "ctr": 0.0006040592783505155,
       "notSet": []
     },
     "a8": {
@@ -318,7 +310,7 @@
   "pillars": {
     "career-path": {
       "articles": 19,
-      "gscImpressions": 9,
+      "gscImpressions": 8,
       "gscClicks": 0,
       "inboundLinks": 44
     },
@@ -384,8 +376,8 @@
       "gscClicks": 0,
       "gscPosition": null,
       "topQueries": [],
-      "ga4Users": 1,
-      "ga4Sessions": 1,
+      "ga4Users": null,
+      "ga4Sessions": null,
       "inboundLiteralLinks": 0,
       "careerAffiliateCount": 1,
       "placements": []
@@ -512,8 +504,8 @@
       "gscClicks": 0,
       "gscPosition": null,
       "topQueries": [],
-      "ga4Users": 1,
-      "ga4Sessions": 1,
+      "ga4Users": null,
+      "ga4Sessions": null,
       "inboundLiteralLinks": 10,
       "careerAffiliateCount": 1,
       "placements": []
@@ -530,8 +522,8 @@
       "gscClicks": 0,
       "gscPosition": null,
       "topQueries": [],
-      "ga4Users": 2,
-      "ga4Sessions": 2,
+      "ga4Users": null,
+      "ga4Sessions": null,
       "inboundLiteralLinks": 3,
       "careerAffiliateCount": 0,
       "placements": []
@@ -544,9 +536,9 @@
       "reviewStatus": "approved",
       "group": "guide",
       "pillar": "career-path",
-      "gscImpressions": 8,
+      "gscImpressions": 7,
       "gscClicks": 0,
-      "gscPosition": 65.2,
+      "gscPosition": 60.4,
       "topQueries": [
         {
           "query": "ゼネコン コンサル",
@@ -636,8 +628,8 @@
       "gscClicks": 0,
       "gscPosition": null,
       "topQueries": [],
-      "ga4Users": 1,
-      "ga4Sessions": 1,
+      "ga4Users": null,
+      "ga4Sessions": null,
       "inboundLiteralLinks": 2,
       "careerAffiliateCount": 0,
       "placements": []
@@ -690,8 +682,8 @@
       "gscClicks": 0,
       "gscPosition": null,
       "topQueries": [],
-      "ga4Users": 1,
-      "ga4Sessions": 1,
+      "ga4Users": null,
+      "ga4Sessions": null,
       "inboundLiteralLinks": 8,
       "careerAffiliateCount": 1,
       "placements": []
@@ -852,8 +844,8 @@
       "gscClicks": 0,
       "gscPosition": null,
       "topQueries": [],
-      "ga4Users": 1,
-      "ga4Sessions": 2,
+      "ga4Users": null,
+      "ga4Sessions": null,
       "inboundLiteralLinks": 10,
       "careerAffiliateCount": 1,
       "placements": []
@@ -960,8 +952,8 @@
       "gscClicks": 0,
       "gscPosition": null,
       "topQueries": [],
-      "ga4Users": 1,
-      "ga4Sessions": 1,
+      "ga4Users": null,
+      "ga4Sessions": null,
       "inboundLiteralLinks": 8,
       "careerAffiliateCount": 1,
       "placements": []
@@ -1068,8 +1060,8 @@
       "gscClicks": 0,
       "gscPosition": null,
       "topQueries": [],
-      "ga4Users": 1,
-      "ga4Sessions": 1,
+      "ga4Users": null,
+      "ga4Sessions": null,
       "inboundLiteralLinks": 1,
       "careerAffiliateCount": 1,
       "placements": []
@@ -1122,8 +1114,8 @@
       "gscClicks": 0,
       "gscPosition": null,
       "topQueries": [],
-      "ga4Users": 1,
-      "ga4Sessions": 1,
+      "ga4Users": null,
+      "ga4Sessions": null,
       "inboundLiteralLinks": 0,
       "careerAffiliateCount": 1,
       "placements": []
@@ -1342,12 +1334,13 @@
     }
   ],
   "baselineDrift": [
-    "affiliate 表示: 起票時 7370 → 今回 23416（318%）",
-    "affiliate クリック: 起票時 19 → 今回 13（68%）",
-    "高意図 query 表示: 起票時 10 → 今回 44（440%）"
+    "affiliate 表示: 起票時 7370 → 今回 24832（337%）",
+    "高意図 query 表示: 起票時 10 → 今回 51（510%）"
   ],
   "warnings": [
     "入力欠落 1 件: afb（CI の fetch-metrics 供給を確認する）",
-    "窓が不一致（GA4 2026-08-27〜2026-09-23 / GSC 2026-08-25〜2026-09-21）。取得元の遅延差なので異常ではないが、出所を跨いで CTR/EPC を割らないこと"
+    "窓が不一致（GA4 2026-08-01〜2026-08-31 / GSC 2026-08-28〜2026-09-24）。取得元の遅延差なので異常ではないが、出所を跨いで CTR/EPC を割らないこと",
+    "GA4 の窓の終端が 28 日前。計測 CI の供給停止を疑う（fetch-metrics の直近 run を見る）",
+    "GA4 page スナップショットは上位 10000 ページのみで、career 記事は 1 本も入っていない。users/sessions は「0」ではなく「観測範囲外」なので断定に使わない"
   ]
 }
