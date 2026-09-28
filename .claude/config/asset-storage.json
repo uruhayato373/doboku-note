@@ -34,7 +34,8 @@
   "groups": [
     {
       "id": "note-cover-png",
-      "audience": "ci",
+      "audience": "human",
+      "audienceException": "Mac の週次 note-cover-routine が note へ登録した版の控え。約 1,000 件・400MB を毎週 sha256 で差分保存（asset-offload --skip-existing）し、台帳 cover-ledger.json の sha256 と突き合わせるので、ストリーミングマウント越しの Drive vault より R2 の方が確実。CI は読み書きしない（2026-09-29）。",
       "match": {
         "pathRegex": "^content/note/.+/img/cover[A-Za-z0-9_-]*\\.png$"
       },
@@ -45,9 +46,8 @@
       "regenerable": false,
       "generator": "scripts/generate-note-covers.mjs",
       "requiredBy": [
-        "scripts/note-publish.mjs",
-        "scripts/note-update-cover.mjs",
-        "tools/admin-app（画像ギャラリー）"
+        "scripts/note-cover-routine.mjs（登録した版を保存）",
+        "scripts/note-update-cover.mjs（手元に無ければ取り寄せる）"
       ],
       "reason": "note へアップロード済みの実体。2026-08-21 の全 827 件再生成で byte 再現できないことを実測したので（不一致 9 件・うち 8 件は 340 万サブピクセル中 18 個の不可視差）、再生成ではなく保管する。 2026-09-05（DN-0171）に byVisibility → private 一本化: public 複製はサイトも note も読んでおらず（src/ tools/ に参照 0）、公開のたびに private の旧コピーが台帳外で残る型の温床だった。",
       "phase": "4-B"

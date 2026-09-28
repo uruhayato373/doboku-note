@@ -1,7 +1,7 @@
 # note カバー画像デザイン仕様（G2「全幅バナー帯」）
 
 > [!warning]
-> **描画は 2026-09-17 から V5 キャラクターカバーに切り替わった**（SSOT: [note-cover-character-v5.md](note-cover-character-v5.md)）。`generate-note-covers.mjs` / `generate-magazine-covers.mjs` / CI（note-cover-supply.yml）はいずれも V5 を描き、本書と [Crop-safe V4](note-cover-crop-safe-v4.md) のレイアウト幾何（バナー帯・HiBox・チップ・三重安全領域）はもう描画されない。本書で今も有効なのは **試験=色/系列=濃淡の二軸カラー**（`note-cover-tokens.json` の `exams`）と **frontmatter `cover:` の文言フィールド**（leadIn / headline / hi / hiSuffix / benefit を V5 がそのまま使う）、および「ライブ反映」の運用。`banner` / `chips` / `meta` / `visualAsset` は読まれない。
+> **描画は 2026-09-17 から V5 キャラクターカバーに切り替わった**（SSOT: [note-cover-character-v5.md](note-cover-character-v5.md)）。`generate-note-covers.mjs` / `generate-magazine-covers.mjs` / note への登録（Mac の週次 note-cover-routine）はいずれも V5 を描き、本書と [Crop-safe V4](note-cover-crop-safe-v4.md) のレイアウト幾何（バナー帯・HiBox・チップ・三重安全領域）はもう描画されない。本書で今も有効なのは **試験=色/系列=濃淡の二軸カラー**（`note-cover-tokens.json` の `exams`）と **frontmatter `cover:` の文言フィールド**（leadIn / headline / hi / hiSuffix / benefit を V5 がそのまま使う）、および「ライブ反映」の運用。`banner` / `chips` / `meta` / `visualAsset` は読まれない。
 
 note 記事・有料マガジンのカバー画像（1280×670）の G2 時代の仕様。値の SSoT は [`note-cover-tokens.json`](note-cover-tokens.json)。本書はレイアウト意図と運用ルールを説明する。
 
@@ -124,7 +124,7 @@ npm run check-note-cover-fit      # CI/手動（0件必須）。pre-commit は -
 
 ## ライブ反映（公開後の stale カバー解消）
 
-`cover.png` を再デザインしても、**公開済み note 記事のカバーは自動では更新されない**（ソース→ライブ非同期）。stale 判定は `cover.png` の git 最終コミット日 > frontmatter `notePublishedAt`。差し替えはブラウザ自動化で行う。
+公開済みの記事・マガジンのカバーは、Mac の週次 launchd `note-cover`（`scripts/note-cover-routine.mjs`）が要登録（カバー無し・未登録・デザイン版が古い・文言が変わった）を選んで差し替える。判定は CI の `note-cover-live.yml` と共通（台帳 `.claude/state/note/cover-ledger.json` × note の公開 API）。仕組みの全体は [note-cover-character-v5.md](note-cover-character-v5.md)「全件生成と差し替えの境界」。下は 1 本だけ手で差し替えるときの手順（手で差し替えた記事は台帳に載らないので、次の週次で同じ版がもう一度登録される）。
 
 ```bash
 # DRY（差し替え load 確認まで・保存しない）

@@ -272,15 +272,14 @@
 
 **判断（2026-09-27・運営者）**: 上書きする。
 
-### [DN-0360] note の記事・マガジンの新カバーを一括で live 反映する
+### [DN-0360] note の記事・マガジンの新カバーを Mac の週次で登録しきる
 タグ: [収益化] [領域:商品] [時期:2026-09..2026-11] [種類:改善] [起票:2026-09-27]
 
-**起点**: 記事カバー 1,021 枚は Google Drive `制作物/noteカバー/POP版`、マガジンカバー 99 枚は `制作物/マガジンカバー/` に生成・保存済み。マガジン専用レイアウトの再生成コードと Drive 台帳はドラフト PR #699。記事は 2026-09-28 夜から live 反映し、09-29 朝に運営者指示で run を停止した（plan: update 917・hold 4＝予約公開 1・下書き 2・noteId 無し 1。699 件 OK・失敗 1 件＝chunk r1-26。停止時に実行中だった r1-29 は未 OK 扱いで再開時に貼り直される＝無害）。新カバー 921 件は private R2 へ退避済み（asset-offload・sha256 検証済み）。計画とログは `.claude/state/note/cover-rollout/work-2026-09-28/`（live-before・live-plan・lists・logs）に追跡してあるので、どの checkout からでも再開できる。
+**起点**: 2026-09-29 に note カバーの仕組みを「CI は判定だけ（`note-cover-live.yml`）・生成と登録は Mac の launchd `note-cover`（`scripts/note-cover-routine.mjs`・毎週日曜 3:00）」へ切り替え、一括差し替えツールと CI 供給を廃止した。台帳 `.claude/state/note/cover-ledger.json` には 9/28〜29 に新デザインで登録済みの記事 699 件を初期登録済み。同日の `npm run check-note-cover-live` は最新 699・要登録 317（記事 219＝未登録 218・note にカバー無し 1／マガジン 98）・保留 5。マガジン専用レイアウトはドラフト PR #699。
 
-**やること**: (1) 記事: develop の checkout で `mkdir -p .tmp/note-cover-rollout && cp -R .claude/state/note/cover-rollout/work-2026-09-28/. .tmp/note-cover-rollout/` → `DOBOKU_PW_ALLOW_PARALLEL=1 node scripts/note-cover-rollout.mjs run`（未 OK のみ・カバーは R2 から自動取得。R2 を旧版に戻さないこと）→ `verify` → `record --date 2026-09-28 --status done`。終わったら .tmp の logs・live-plan を同じ work ディレクトリへ写し戻してコミットし、`.claude/state/note-republish-hashes.json` もコミットする。hold 4 本は公開後に同じ手順。 (2) マガジン: PR #699 を develop へ取り込んだ後、Drive の画像を一覧確認して `run --magazines` で更新し cover を確認する。終わったら worktree を削除する。
+**やること**: (1) `npm run note-cover:install` で launchd を登録し、`-- --run-now` で 1 回流す（1 回 300 件まで・約 3.5 時間。残りは翌週）。(2) PR #699 を develop へ取り込むときに `note-cover-tokens.json` の `designVersion.magazine` を上げ、マガジンを新レイアウトで登録し直させる。(3) 週次の結果は CI の `note-cover-live.yml`（月曜 9:00）と `~/Library/Logs/doboku-note/note-cover.log` で見る。
 
-**完了条件**: 公開中の全記事・全マガジンの note 上のカバーが新レイアウトになり、文字切れ・意図しない折返し・主要要素のトリミングが0件であることを確認したら、このカードを削除する。
-
+**完了条件**: `npm run check-note-cover-live` が exit 0（要登録 0）になったら、このカードを削除する。
 ### [DN-0362] Playwright 認証を「人・Mac・CI」の役割分担で設計し直し、ログインの維持を自動化する
 タグ: [インフラ・計測] [領域:管理] [時期:2026-10..2026-11] [種類:改善] [起票:2026-09-27] [進行中]
 

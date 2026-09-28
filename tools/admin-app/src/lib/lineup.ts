@@ -1,5 +1,4 @@
-import { existsSync, readdirSync, readFileSync } from 'node:fs';
-import { join, relative, sep } from 'node:path';
+import { readFileSync } from 'node:fs';
 
 import {
   buildLineup,
@@ -70,63 +69,25 @@ interface LineupConfig {
 const stageLabel = (stage: string | null): string =>
   stage ? ((STAGE_LABELS as Record<string, string>)[stage] ?? stage) : '不明';
 
-/** content/note 配下の相対パス → /media/note/... の URL。 */
-function noteMediaUrl(abs: string): string {
-  const rel = relative(repoPath('content', 'note'), abs).split(sep).map(encodeURIComponent).join('/');
-  return `/media/note/${rel}`;
-}
-
-function frontmatterValue(md: string, key: string): string | null {
-  const fm = md.startsWith('---') ? md.slice(3, md.indexOf('\n---', 3)) : '';
-  const m = fm.match(new RegExp(`^${key}:\\s*"?([^"\\n]*)"?\\s*$`, 'm'));
-  return m ? m[1]!.trim() : null;
-}
-
 /**
- * note 商品 id → 表紙画像 URL の索引。
- * マガジン dir（content/note/{資格}/magazines/{ラベル}/）の表紙（_cover.png か img/cover.png）を、
- * ①記事 frontmatter の utmCampaign / noteUrl ②ラベル→id（note-magazine-membership.json）
- * ③掲載文（note掲載文.txt）のタイトル行が商品タイトルの接頭辞、の順で商品へ結び付ける。
+ * note 商品 id → note 上の表紙画像 URL の索引。
+ * 手元の _cover.png の有無は見ない（カバー PNG は Git 管理外で、置いてある checkout とない checkout がある）。
+ * 台帳 .claude/state/note/cover-ledger.json（Mac の週次 note-cover-routine が登録直後に note API で読んだ URL）を、
+ * 商品の noteUrl の /m/{key} で引く。台帳に無い商品は null（＝最新デザインで未登録。判定は check-note-cover-live）。
  */
-function noteCoverIndex(products: { id: string; title: string | null; noteUrl: string }[]): Map<string, string> {
+function noteCoverIndex(products: { id: string; noteUrl: string }[]): Map<string, string> {
   const out = new Map<string, string>();
-  const noteRoot = repoPath('content', 'note');
-  let membership: { labels?: Record<string, string> } = {};
+  let ledger: { magazines?: Record<string, { noteKey?: string; liveUrl?: string }> } = {};
   try {
-    membership = JSON.parse(readFileSync(repoPath('.claude', 'config', 'note-magazine-membership.json'), 'utf8'));
+    ledger = JSON.parse(readFileSync(repoPath('.claude', 'state', 'note', 'cover-ledger.json'), 'utf8'));
   } catch {
-    /* 無ければラベル経由の対応だけ諦める */
+    return out;
   }
-  const byNoteUrl = new Map(products.map((p) => [p.noteUrl, p.id]));
-  const titled = products.filter((p) => p.title);
-
-  for (const exam of readdirSync(noteRoot, { withFileTypes: true })) {
-    const magRoot = join(noteRoot, exam.name, 'magazines');
-    if (!exam.isDirectory() || !existsSync(magRoot)) continue;
-    for (const d of readdirSync(magRoot, { withFileTypes: true })) {
-      if (!d.isDirectory()) continue;
-      const dir = join(magRoot, d.name);
-      const cover = [join(dir, '_cover.png'), join(dir, 'img', 'cover.png')].find((p) => existsSync(p));
-      if (!cover) continue;
-      const ids = new Set<string>();
-      const article = join(dir, 'article.md');
-      if (existsSync(article)) {
-        const md = readFileSync(article, 'utf8');
-        const utm = frontmatterValue(md, 'utmCampaign');
-        const url = frontmatterValue(md, 'noteUrl');
-        if (utm) ids.add(utm);
-        if (url && byNoteUrl.has(url)) ids.add(byNoteUrl.get(url)!);
-      }
-      const labelId = membership.labels?.[d.name];
-      if (labelId) ids.add(labelId);
-      const listing = join(dir, 'note掲載文.txt');
-      if (existsSync(listing)) {
-        const head = readFileSync(listing, 'utf8').split('\n').slice(0, 5).map((l) => l.trim());
-        const titleLine = head.find((l) => l && !l.startsWith('━') && !l.includes('コピペ用'));
-        if (titleLine) for (const p of titled) if (p.title!.startsWith(titleLine)) ids.add(p.id);
-      }
-      for (const id of ids) if (!out.has(id)) out.set(id, noteMediaUrl(cover));
-    }
+  const urlByKey = new Map(Object.values(ledger.magazines ?? {}).filter((e) => e.noteKey && e.liveUrl).map((e) => [e.noteKey!, e.liveUrl!]));
+  for (const p of products) {
+    const key = p.noteUrl?.match(/\/m\/(m[0-9a-f]+)/)?.[1];
+    const url = key ? urlByKey.get(key) : undefined;
+    if (url) out.set(p.id, url);
   }
   return out;
 }

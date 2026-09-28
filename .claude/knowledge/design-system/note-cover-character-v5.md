@@ -7,13 +7,13 @@ title: note キャラクターカバー（V5・既定）
 
 # note キャラクターカバー（V5・既定）
 
-2026-09-16のモックを元に、既存の先生と強調した日本語見出しを合成する note カバーのデザイン。2026-09-17 から記事・マガジンの通常生成器と CI 供給がこの描画を使う（旧 G2/V4 テンプレへは戻らない）。描画は `scripts/lib/note-character-cover.mjs`、対象一覧とポーズ割当は `scripts/lib/note-cover-inventory.mjs` に集約し、次の入口はどれも同じ入力・同じポーズ・同じ画像になる。
+2026-09-16のモックを元に、既存の先生と強調した日本語見出しを合成する note カバーのデザイン。2026-09-17 から記事・マガジンの通常生成器と note への登録（Mac の週次 note-cover-routine・note-publish）がこの描画を使う（旧 G2/V4 テンプレへは戻らない）。描画は `scripts/lib/note-character-cover.mjs`、対象一覧とポーズ割当は `scripts/lib/note-cover-inventory.mjs` に集約し、次の入口はどれも同じ入力・同じポーズ・同じ画像になる。
 
 | 入口 | 出力先 | 使いどころ |
 |---|---|---|
-| `node scripts/generate-note-covers.mjs [dir]` | `content/note/**/img/cover*.png` | 記事の通常生成。CI の note-cover-supply.yml が欠落 dir を 1 件ずつ渡す |
+| `node scripts/generate-note-covers.mjs [dir]` | `content/note/**/img/cover*.png` | 記事の手元生成（note への登録は下記の週次が自分で生成する） |
 | `node scripts/generate-magazine-covers.mjs [id]` | `<magazineDir>/_cover.png` | マガジンの通常生成 |
-| `npm run note-character-covers -- --source-root … --output-root …` | 独立出力先 ＋ `manifest.json` | 全量差し替え。原稿ツリーに書かず照合用の hash・ポーズ・実描画枠を残す |
+| `npm run note-character-covers -- --source-root … --output-root …` | 独立出力先 ＋ `manifest.json` | 新デザインの全件確認。原稿ツリーに書かず照合用の hash・ポーズ・実描画枠を残す（Drive `制作物/noteカバー/POP版/`） |
 
 ```bash
 npm run note-character-covers -- --source-root /path/to/source-checkout --output-root /path/to/isolated-output
@@ -39,11 +39,11 @@ npm run note-character-covers -- --filter 工程管理
 
 `manifest.json`に対象・生成・失敗件数、ポーズ別件数、選択理由、人物の配置枠、退役対象、入力・出力のhash、生成前のカバーhash、実描画枠を保存する。0件・生成失敗・出力先重複・未解決のマガジン出力先は成功扱いにしない。途中結果も50件ごとに保存する。
 
-別セッションの作業中は専用worktreeから元checkoutを読み取り、出力先を分ける。生成後に元原稿／旧カバーのhashを再照合し、変わった対象は再生成・再確認してから置換する。worktreeを分けてもnote認証プロファイルと公開記事は共有されるので、ブラウザを併用しない。記事・マガジンの更新を逐次実行し、公開APIのカバー変更と公開範囲・価格の保持を確認する。
+note 上のカバーの登録は2段に分ける（2026-09-29）。**判定**は CI の `note-cover-live.yml`（週次・`npm run check-note-cover-live`）が、対象一覧 × 台帳 `.claude/state/note/cover-ledger.json` × note の公開 API で「カバー無し・未登録・デザイン版が古い・文言が変わった・note 側で画像が変わった」を数える（読み取りだけ）。**登録**は Mac の launchd `note-cover`（毎週日曜 3:00・`npm run note-cover:install`）が同じ判定（`scripts/lib/note-cover-live.mjs`）で要登録を選び、生成 → `note-update-cover`／`note-magazine-cover` で登録 → 公開 API で画像 URL を読み直して台帳へ記録 → develop へ push する。手元の PNG の有無は判定に使わない。**見た目を変えたら `note-cover-tokens.json` の `designVersion`（article／magazine）を上げる**＝その側の全件が次の週次で再登録される（見た目の変わらないリファクタでは上げない）。ポーズは前後の記事で変わりうるので、文言・色が同じならポーズの差だけでは再登録しない。新規記事は `note-publish` が公開時に最新デザインで生成してから登録する。
 
-生成物の保存先は[アセット置き場](../reference/asset-storage-policy.md)に従う。記事カバーはprivate R2（`node scripts/asset-offload.mjs --group note-cover-png --include-untracked --commit`）、マガジンはDrive vault（`node scripts/drive-vault-sync.mjs --group note-magazine-cover-png --commit`）。POP版の全件確認用一式は `.tmp/note-cover-pop-all/` に生成し、Drive vault の `note-cover-pop-preview` で `制作物/noteカバー/POP版/` へ保存する。生成結果だけをGitへ追加しない。公開側の差し替えは `scripts/note-update-cover.mjs`（記事）/ `scripts/note-magazine-cover.mjs`（マガジン）を `npm run note-cover-rollout -- reconcile → snapshot → plan → run [--magazines] → verify → record` が逐次投入・突合・記録する（作業場 `.tmp/note-cover-rollout/`）。2026-09-17 の全量差し替えの記録は `.claude/state/note/cover-rollout/`。
+登録した版の控えは[アセット置き場](../reference/asset-storage-policy.md)に従い、週次が自動で保存する（記事＝private R2 `note-cover-png`、マガジン＝Drive vault `note-magazine-cover-png`）。POP版の全件確認用一式は `.tmp/note-cover-pop-all/` に生成し、Drive vault の `note-cover-pop-preview` で `制作物/noteカバー/POP版/` へ保存する。生成結果だけをGitへ追加しない。
 
-テスト: `node --test tests/note-character-cover.test.mjs`（通常生成器が旧テンプレを import しない静的ゲートを含む）。
+テスト: `node --test tests/note-character-cover.test.mjs`（通常生成器が旧テンプレを import しない静的ゲートを含む）・`node --test tests/note-cover-live.test.mjs`（要登録の判定）。
 
 ## ポーズの使い分け
 

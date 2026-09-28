@@ -4,8 +4,8 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
  *
  * note-publish.mjs（新規公開）/ note-update-body.mjs（本文差し替え）と対で、
  * 「カバーだけを最新版へ差し替え→更新する」を担う。
- * cover.png をサイト側で再デザイン（G2/キャラ variant 等）した後、ライブ note に未反映の
- * "stale カバー" を解消する。検出は `cover.png` の git 最終コミット日 > frontmatter notePublishedAt。
+ * 通常は Mac の週次 note-cover-routine が要登録（台帳 cover-ledger.json × note の公開 API で判定）を選んで
+ * 本スクリプトを --list で呼ぶ。手で 1 本だけ差し替えるときも直接呼べる（その場合は台帳に載らない）。
  *
  * 使い方:
  *   node scripts/note-update-cover.mjs --article <article.md path>            # DRY（差し替え load 確認まで・「更新する」は押さない。※カバー自体は live へ反映され得る＝下記 fail-safe）

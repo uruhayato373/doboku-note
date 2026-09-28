@@ -22,7 +22,7 @@ Google Drive 側が `.claude/config/drive-vault.json`（台帳 `.claude/state/as
 | audience（誰が使うか） | 置き場 | 例 |
 |---|---|---|
 | **`site`** サイトが配信する | public R2 `doboku-note`（`storage.doboku-note.com`） | 記事図版（`posts/`）・OGP |
-| **`ci`** GitHub Actions が読み書きする | R2（public / private / byVisibility） | note カバー PNG（`note-cover-supply.yml` が毎回書く）・git 履歴 bundle（例外・復元経路） |
+| **`ci`** GitHub Actions が読み書きする | R2（public / private / byVisibility） | 現在該当なし（2026-09-29 まで note カバー PNG。生成と登録を Mac の週次へ移したので human＋例外 R2 になった） |
 | **`human`** 人か手元のスクリプトだけが使う | Google Drive vault `マイドライブ/doboku-note/` | 原本 PDF・ページ画像・文字起こし・配布 PDF・未投稿レンダー・Kindle・ココナラ素材 |
 
 - **機械表現**: `asset-storage.json` の全 group に `audience` が必須。`site ⇒ bucket public`、`ci ⇒ private|byVisibility`。
@@ -56,7 +56,7 @@ Google Drive 側が `.claude/config/drive-vault.json`（台帳 `.claude/state/as
 |---|---|---|---|
 | `site-ogp-png` | site | public R2 `posts/` | `ogp-supply.yml` が生成・供給 |
 | `site-ogp-thumbnails` | site | public R2 `posts/` | 原本OGPから248/336/640pxのWebPを生成。`ogp-supply.yml`の`build-ogp-thumbnails --supply`で原本sha256/recipeを照合し、アップロード後に全バイトを読み戻す。派生物は原本台帳から再生成し、個別の台帳コピーは作らない |
-| `note-cover-png` | ci | private R2 `note/covers/` | `note-cover-supply.yml` が書く。2026-09-05（DN-0171）まで byVisibility で公開済みを public にも置いていたが、サイトも note も読まないので private 一本化 |
+| `note-cover-png` | human（例外で R2） | private R2 `note/covers/` | note へ登録した版の控え。書くのは Mac の週次 `note-cover-routine`（`asset-offload --skip-existing`）で、CI は読み書きしない（2026-09-29 に CI 供給 `note-cover-supply.yml` を廃止）。約 1,000 件を毎週 sha256 で差分保存するので Drive マウントより R2 が確実（`audienceException`） |
 | `git-history-bundle` | human（例外） | private R2 | 2.65GB 書き込み一回・復元時だけ。ストリーミングマウント越しの単一巨大 blob は脆い |
 | `sns-archived-media` | human | Drive `制作物/SNS音声動画/` | reels の wav/mp4・YouTube Shorts mp4。投稿は人の JIT。`post-youtube-scheduled.yml` の Shorts 台帳は手動投入へ切替済み（pending 0・参照キー `sns/youtube-shorts/` は R2 に 0 件）なので CI は読んでいない。2026-09-05 DN-0170 で旧 `upload-sns-r2` 系統を廃止（[sns-archive-policy.md](sns-archive-policy.md)） |
 | `standards-page-image` | human | Drive `原資料PDF/共通仕様書/{整備局}/{PDF名}/{pages,text}/` | 原本 PDF の隣（§1-2） |
@@ -237,13 +237,8 @@ tar -xzf hydrated-assets.tar.gz
 CI 内で `ogp-create.mjs` を実行して `ogp.png` を作ってから供給するため、この Release 橋を経由しない
 （詳細 §3）。この「CI が生成できる」は `asset-storage.json` の `regenerable` フィールド（byte 再現を
 保証するかの意味・§6）とは別概念——`site-ogp-png` の `regenerable` は引き続き `false`。
-第二号は `note-cover-png`（2026-09-02・`note-cover-supply.yml`）。develop への `content/note/**/article*.md`
-push で `scripts/check-note-cover-coverage.mjs --json` が欠落 dir を拾い、`generate-note-covers.mjs <dir>` で
-生成 → **欠落として検出したカバー以外の生成物は削除**（同居記事の再描画分を上げると既存 R2 カバーを別バイトで
-上書きし manifest の sha256 が動く）→ `asset-offload --group note-cover-png --include-untracked --commit` →
-manifest を develop へ commit する。R2 creds の無い環境（会社 PC・Claude Code Remote）で書いた記事は、
-ローカルで Release 橋を使わなくても develop へマージされれば供給される（PR 上の unit-tests は
-マージ後の manifest commit を取り込んだ次の push から緑）。
+かつての第二号 `note-cover-png`（`note-cover-supply.yml`・2026-09-02〜09-29）は廃止した。note カバーの生成と登録は
+Mac の週次 `note-cover-routine` が行い、CI は判定（`note-cover-live.yml`）だけを持つ。
 
 ```
 npm run asset-inbox-push -- --path '<前方一致>' --commit   # ローカル: R2 credential 不要
