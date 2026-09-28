@@ -286,6 +286,7 @@ DM 一覧 = `/message?fromMyPage=true`、行 = `a.c-messageItemWrap[href="/mypag
 購入通知 → npm run coconala-orders（実体を取得＝何が売れたかを推測しない・§2.2b）
   → 初回挨拶＋シート送付（定型文・キット §4c → §4/§4b）
   → 受領 → npm run coconala-talkroom -- <talkroomId>（メッセージ＋添付原寸＋docx本文を .tmp/coconala/talkrooms/{id}/ へ）
+    → 取引後の DM（追加の質問・添削）は npm run coconala-dm -- <dmId>（全メッセージを展開して messages.json と添付を .tmp/coconala/dm/{id}/ へ）
   → scratchpad/.tmp に .md 保存（★リポジトリに置かない・C系は不要）
   → /coconala-order <serviceId> <path>
       ├ カタログ status 確認（draft なら停止・full なら警告）
