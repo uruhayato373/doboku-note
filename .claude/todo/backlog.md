@@ -275,9 +275,9 @@
 ### [DN-0360] note の記事・マガジンの新カバーを一括で live 反映する
 タグ: [収益化] [領域:商品] [時期:2026-09..2026-11] [種類:改善] [起票:2026-09-27]
 
-**起点**: 記事カバー 1,021 枚は Google Drive `制作物/noteカバー/POP版`、マガジンカバー 99 枚は `制作物/マガジンカバー/` に生成・保存済み。マガジン専用レイアウトの再生成コードと Drive 台帳はドラフト PR #699。記事は 2026-09-28 夜から worktree `.claude/worktrees/note-cover-articles`（branch `chore/note-cover-articles`・develop 53fe43e4f で全件再生成）で live 反映中。plan は記事 update 917・hold 4（予約公開 1・下書き 2・noteId 無し 1）。09-29 朝に運営者指示で run を停止した（699 件 OK・失敗 1 件＝chunk r1-26。停止時に実行中だった chunk r1-29 は一部 live 済みでも未 OK 扱いで、再開時に貼り直される＝無害）。作業場は同 worktree の `.tmp/note-cover-rollout/`（generated・live-before・live-plan・logs/run-live.log）。生成 PNG は記事フォルダの `img/cover.png` へコピー済み（置かないと R2 の旧カバーを取りに行き skip になる）。
+**起点**: 記事カバー 1,021 枚は Google Drive `制作物/noteカバー/POP版`、マガジンカバー 99 枚は `制作物/マガジンカバー/` に生成・保存済み。マガジン専用レイアウトの再生成コードと Drive 台帳はドラフト PR #699。記事は 2026-09-28 夜から live 反映し、09-29 朝に運営者指示で run を停止した（plan: update 917・hold 4＝予約公開 1・下書き 2・noteId 無し 1。699 件 OK・失敗 1 件＝chunk r1-26。停止時に実行中だった r1-29 は未 OK 扱いで再開時に貼り直される＝無害）。新カバー 921 件は private R2 へ退避済み（asset-offload・sha256 検証済み）。計画とログは `.claude/state/note/cover-rollout/work-2026-09-28/`（live-before・live-plan・lists・logs）に追跡してあるので、どの checkout からでも再開できる。
 
-**やること**: (1) 記事: 同 worktree で `DOBOKU_PW_ALLOW_PARALLEL=1 node scripts/note-cover-rollout.mjs run` で残り（未 OK のみ）を再開 → `verify` → `record --date 2026-09-28 --status done`。続けて `node scripts/asset-offload.mjs --group note-cover-png --include-untracked --commit` で新カバーを private R2 へ上げ、`.claude/state/note-republish-hashes.json` と record をコミットする（R2 を更新しないと次回の作業で旧カバーが復元される）。hold 4 本は公開後に同じ手順。(2) マガジン: PR #699 を develop へ取り込んだ後、Drive の画像を一覧確認して `run --magazines` で更新し cover を確認する。終わったら worktree を削除する。
+**やること**: (1) 記事: develop の checkout で `mkdir -p .tmp/note-cover-rollout && cp -R .claude/state/note/cover-rollout/work-2026-09-28/. .tmp/note-cover-rollout/` → `DOBOKU_PW_ALLOW_PARALLEL=1 node scripts/note-cover-rollout.mjs run`（未 OK のみ・カバーは R2 から自動取得。R2 を旧版に戻さないこと）→ `verify` → `record --date 2026-09-28 --status done`。終わったら .tmp の logs・live-plan を同じ work ディレクトリへ写し戻してコミットし、`.claude/state/note-republish-hashes.json` もコミットする。hold 4 本は公開後に同じ手順。 (2) マガジン: PR #699 を develop へ取り込んだ後、Drive の画像を一覧確認して `run --magazines` で更新し cover を確認する。終わったら worktree を削除する。
 
 **完了条件**: 公開中の全記事・全マガジンの note 上のカバーが新レイアウトになり、文字切れ・意図しない折返し・主要要素のトリミングが0件であることを確認したら、このカードを削除する。
 
