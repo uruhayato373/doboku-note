@@ -7,9 +7,11 @@
  * ---------------------------------------------------------------------------
  */
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
 import { join } from 'node:path';
 import { pendingItems } from './growth-triage.mjs';
 import { extractWeeklyHandoffItems, parseRouting } from './handoff-extraction.mjs';
+import { records } from './business-direction.mjs';
 
 export const CONFIG = '.claude/config/review-wiring.json';
 export const EVIDENCE = ['reviewRecord', 'sections', 'triage', 'reportFile', 'routing', 'weeklyPlan', 'none'];
@@ -55,7 +57,7 @@ export function cardsFromReview(backlogText, cadenceLabel, period) {
   const key = `${cadenceLabel}レビュー（${period.startDate}〜${period.endDate}）`;
   const cards = [];
   let current = null;
-  for (const line of String(backlogText).split('\n')) {
+  for (const line of String(backlogText).split(/\r?\n/)) {
     const m = /^### \[(DN-\d{4})\] (.+)$/.exec(line);
     if (m) current = { id: m[1], title: m[2] };
     else if (current && line.includes(key) && !cards.some((c) => c.id === current.id)) cards.push(current);
@@ -70,7 +72,7 @@ export function buildReviewView(root, { reviews = [], due = [] } = {}) {
   const backlogPath = join(root, '.claude/todo/backlog.md');
   const backlog = existsSync(backlogPath) ? readFileSync(backlogPath, 'utf8') : '';
   const weeklyPath = join(root, '.claude/todo/weekly.md');
-  const weeklyHead = existsSync(weeklyPath) ? readFileSync(weeklyPath, 'utf8').split('\n').find((l) => l.startsWith('# ')) ?? null : null;
+  const weeklyHead = existsSync(weeklyPath) ? readFileSync(weeklyPath, 'utf8').split(/\r?\n/).find((l) => l.startsWith('# ')) ?? null : null;
 
   return Object.entries(config.cadences).map(([id, c]) => {
     const skillPath = join(root, c.skill);
@@ -115,7 +117,7 @@ export function formatSections(skillText) {
   if (at < 0) return [];
   const out = [];
   let inFence = false;
-  for (const line of text.slice(at).split('\n')) {
+  for (const line of text.slice(at).split(/\r?\n/)) {
     if (/^\s*```/.test(line)) { inFence = !inFence; continue; }
     const m = inFence && /^## (.+)$/.exec(line);
     if (m && !out.includes(m[1].trim())) out.push(m[1].trim());
@@ -128,7 +130,7 @@ export function reportSections(reportText) {
   const sections = [];
   let cur = null;
   let inFence = false;
-  for (const line of String(reportText).split('\n')) {
+  for (const line of String(reportText).split(/\r?\n/)) {
     if (/^\s*```/.test(line)) inFence = !inFence;
     const m = !inFence && /^## (.+)$/.exec(line);
     if (m) {
@@ -202,7 +204,7 @@ export function buildProcedureView(root, cadenceId, { reviews = [] } = {}) {
     },
     weeklyPlan: () => {
       const path = join(root, '.claude/todo/weekly.md');
-      const head = existsSync(path) ? readFileSync(path, 'utf8').split('\n').find((l) => l.startsWith('# ')) ?? '' : '';
+      const head = existsSync(path) ? readFileSync(path, 'utf8').split(/\r?\n/).find((l) => l.startsWith('# ')) ?? '' : '';
       const plan = /(\d{4})-W(\d{2})（(\d{2})\/(\d{2})〜/.exec(head);
       if (!plan) return { state: 'missing', note: '週間計画が無い（見出しに週と期間が無い）' };
       const planStart = `${plan[1]}-${plan[3]}-${plan[4]}`;
@@ -233,4 +235,111 @@ export function buildProcedureView(root, cadenceId, { reviews = [] } = {}) {
         }
       : null,
   };
+}
+
+/** レポートのファイル名から、そのレポートが扱う回のキー（週次＝ISO 週 YYYY-Www・月次＝YYYY-MM）。 */
+export function runKeyOfReport(name) {
+  return /^(\d{4}-W\d{2})-review\.md$/.exec(name)?.[1] ?? /^(\d{4}-\d{2})-review\.md$/.exec(name)?.[1] ?? null;
+}
+
+/**
+ * レビュー記録の期間から回のキー。週次は「前の完了週」を振り返るので、期間の翌日が属する ISO 週＝レポートの週
+ * （例: 期間 09-14〜09-20 の記録は W39 のレポートの回）。月次のレポート名は対象月なので開始日の年月。
+ */
+export function runKeyOfPeriod(cadenceId, period) {
+  if (cadenceId === 'monthly') return String(period.startDate).slice(0, 7);
+  const next = new Date(Date.parse(`${period.endDate}T00:00:00Z`) + 86400000).toISOString().slice(0, 10);
+  return isoWeekOf(next);
+}
+
+
+/**
+ * 保持方針で削除された過去のレポート（週次・月次とも最新 1 本だけを残し、古い回は git 履歴が持つ）を git から読む。
+ * 返り値は レポート名 → 本文。git が使えない環境では空（履歴は「レポートなし」で出る）。
+ */
+function deletedReports(root, dir, re) {
+  const out = new Map();
+  try {
+    const git = (args) => execFileSync('git', args, { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'], maxBuffer: 16 * 1024 * 1024 });
+    const log = git(['log', '--diff-filter=D', '--name-only', '--format=@%H', '--', dir]);
+    let commit = null;
+    for (const line of log.split(/\r?\n/)) {
+      if (line.startsWith('@')) { commit = line.slice(1); continue; }
+      const name = line.trim().split('/').at(-1);
+      if (!commit || !name || !re.test(name) || out.has(name)) continue;
+      out.set(name, git(['show', `${commit}^:${dir}/${name}`]));
+    }
+  } catch {
+    // git が無い・浅いクローンで親が無いなどは読めないだけ（履歴は「レポートなし」で出る）
+  }
+  return out;
+}
+
+/**
+ * 回ごとの実施履歴（新しい順）。レビュー記録とレポートを回のキーで突き合わせ、
+ * 「記録（確定/暫定）・レポート・必須の節・申し送りの振り分け（週次）・起票カード」を 1 行にする。
+ * verdict は ok（記録が確定・レポートあり・必須の節が全部・振り分け済み）/ partial（どれか欠ける）/ missing（記録もレポートも無い）。
+ * 保持方針で削除された古いレポートは git 履歴から読む（reportSource: 'git'）。
+ * 最新の回だけに意味がある証拠（計測トリアージ・週間計画）は buildProcedureView が見るので、ここでは扱わない。
+ */
+/** @param {string} root @param {string} cadenceId @param {{ reviews?: any[], limit?: number }} [opts] reviews を省くと .claude/state/metrics/business の全記録（同じ期間の書き直しも数える） */
+export function buildRunHistory(root, cadenceId, { reviews = records(root).filter((r) => r.kind === 'review'), limit = 12 } = {}) {
+  const config = JSON.parse(readFileSync(join(root, CONFIG), 'utf8'));
+  const c = config.cadences[cadenceId];
+  if (!c) return [];
+  const skillPath = join(root, c.skill);
+  const expected = existsSync(skillPath) ? formatSections(readFileSync(skillPath, 'utf8')) : [];
+  const backlogPath = join(root, '.claude/todo/backlog.md');
+  const backlog = existsSync(backlogPath) ? readFileSync(backlogPath, 'utf8') : '';
+  const reportDir = join(root, c.report?.dir ?? 'docs/reviews/weekly');
+  const reportRe = new RegExp(c.report?.pattern ?? '^\d{4}-W\d{2}-review\.md$');
+  const reports = existsSync(reportDir) ? readdirSync(reportDir).filter((f) => reportRe.test(f)) : [];
+  const archived = deletedReports(root, c.report?.dir ?? 'docs/reviews/weekly', reportRe);
+
+  const runs = new Map();
+  const runOf = (key) => {
+    if (!runs.has(key)) runs.set(key, { key, records: [], report: null });
+    return runs.get(key);
+  };
+  for (const r of reviews.filter((x) => x.cadence === cadenceId)) runOf(runKeyOfPeriod(cadenceId, r.period)).records.push(r);
+  for (const name of archived.keys()) {
+    const key = runKeyOfReport(name);
+    if (key) Object.assign(runOf(key), { report: name, reportSource: 'git' });
+  }
+  for (const name of reports) {
+    const key = runKeyOfReport(name);
+    if (key) Object.assign(runOf(key), { report: name, reportSource: 'file' });
+  }
+
+  return [...runs.values()]
+    .sort((a, b) => b.key.localeCompare(a.key))
+    .slice(0, limit)
+    .map(({ key, records, report, reportSource = null }) => {
+      const latest = [...records].sort((a, b) => String(b.createdAt ?? b.file).localeCompare(String(a.createdAt ?? a.file)))[0] ?? null;
+      const text = !report ? '' : reportSource === 'git' ? archived.get(report) : readFileSync(join(reportDir, report), 'utf8');
+      const have = reportSections(text);
+      const sections = report ? { found: expected.filter((e) => have.some((h) => sameSection(h.title, e))).length, expected: expected.length } : null;
+      let routing = null;
+      if (cadenceId === 'weekly' && report) {
+        const { hasSection, items } = extractWeeklyHandoffItems(text);
+        routing = hasSection ? { routed: items.filter((it) => parseRouting(it.text)).length, total: items.length } : { routed: 0, total: -1 };
+      }
+      const period = latest?.period ?? null;
+      const cards = period ? cardsFromReview(backlog, c.label, period).length : 0;
+      const recordOk = latest?.status && latest.status !== 'provisional';
+      const sectionsOk = sections && sections.found === sections.expected;
+      const routingOk = routing === null || (routing.total >= 0 && routing.routed === routing.total);
+      const verdict = !latest && !report ? 'missing' : recordOk && report && sectionsOk && routingOk ? 'ok' : 'partial';
+      return {
+        key,
+        period,
+        record: latest ? { status: latest.status, revisions: records.length, decision: latest.decision ?? '', file: latest.file ?? null } : null,
+        report,
+        reportSource,
+        sections,
+        routing,
+        cards,
+        verdict,
+      };
+    });
 }
