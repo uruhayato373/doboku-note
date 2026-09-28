@@ -58,6 +58,13 @@ https://note.com/dobokunote/m/m150c9db08902
 
 https://note.com/dobokunote/m/m8290970a7f05
 
+<!-- cta:coconala-custom -->
+この答案を**あなたの工事に合わせて**仕上げたいときは、ココナラで個別に対応しています。書いた答案があれば添削で赤入れ、まだ書けていなければヒアリングから骨子（構成）をつくります。
+
+https://coconala.com/services/4317375
+
+https://coconala.com/services/4317796
+
 ## 令和3年度 問題1（試験問題・再掲）
 
 **問題1**　あなたが経験した土木工事の現場において、その現場状況から特に留意した**安全管理**に関して、次の〔設問1〕、〔設問2〕に答えなさい。

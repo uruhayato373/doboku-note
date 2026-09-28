@@ -49,6 +49,13 @@ cover:
 
 https://note.com/dobokunote/m/m150c9db08902
 
+<!-- cta:coconala-custom -->
+この答案を**あなたの工事に合わせて**仕上げたいときは、ココナラで個別に対応しています。書いた答案があれば添削で赤入れ、まだ書けていなければヒアリングから骨子（構成）をつくります。
+
+https://coconala.com/services/4317375
+
+https://coconala.com/services/4317796
+
 ## 一次（択一）— 「調べる」でNotebookLMに範囲を圧縮させる
 
 一次は範囲が広く、暗記の比重が大きい。ここで効くのは **NotebookLM**（Googleの無料Webアプリ、ノーセットアップ）です。最大の特徴は、**与えた資料だけを根拠に答える**こと。

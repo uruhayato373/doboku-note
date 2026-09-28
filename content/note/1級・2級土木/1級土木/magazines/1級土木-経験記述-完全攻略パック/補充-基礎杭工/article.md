@@ -68,6 +68,13 @@ https://note.com/dobokunote/m/m3a578194a0a9
 
 https://note.com/dobokunote/m/m8290970a7f05
 
+<!-- cta:coconala-custom -->
+この答案を**あなたの工事に合わせて**仕上げたいときは、ココナラで個別に対応しています。書いた答案があれば添削で赤入れ、まだ書けていなければヒアリングから骨子（構成）をつくります。
+
+https://coconala.com/services/4317375
+
+https://coconala.com/services/4317796
+
 ## 基礎・杭工の答案で採点者が見るポイント
 
 ### 施工計画テーマの場合

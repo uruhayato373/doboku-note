@@ -198,6 +198,13 @@ https://note.com/dobokunote/m/m74cfd7c695d6
 
 https://note.com/dobokunote/m/md29a34906314
 
+<!-- cta:coconala-custom -->
+この答案を**あなたの工事に合わせて**仕上げたいときは、ココナラで個別に対応しています。書いた答案があれば添削で赤入れ、まだ書けていなければヒアリングから骨子（構成）をつくります。
+
+https://coconala.com/services/4317375
+
+https://coconala.com/services/4317796
+
 学科記述をテーマ別に出る順で深掘りするなら、こちらのマガジンが対応します。
 
 https://note.com/dobokunote/m/mcfe1059b3335
