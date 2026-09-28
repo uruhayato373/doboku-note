@@ -292,7 +292,7 @@ export function buildRunHistory(root, cadenceId, { reviews = records(root).filte
   const backlogPath = join(root, '.claude/todo/backlog.md');
   const backlog = existsSync(backlogPath) ? readFileSync(backlogPath, 'utf8') : '';
   const reportDir = join(root, c.report?.dir ?? 'docs/reviews/weekly');
-  const reportRe = new RegExp(c.report?.pattern ?? '^\d{4}-W\d{2}-review\.md$');
+  const reportRe = (c.report?.pattern ? new RegExp(c.report.pattern) : /^\d{4}-W\d{2}-review\.md$/);
   const reports = existsSync(reportDir) ? readdirSync(reportDir).filter((f) => reportRe.test(f)) : [];
   const archived = deletedReports(root, c.report?.dir ?? 'docs/reviews/weekly', reportRe);
 
