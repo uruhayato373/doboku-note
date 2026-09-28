@@ -61,11 +61,11 @@ Mac の `--dry-run` でセレクタが生きていることを確かめてから
    ```bash
    npx tsx .claude/skills/social/publish-ig-bs/publish-ig-bs.ts login
    ```
-   → `business.facebook.com/latest` に入るとセッションが `.local/playwright-ig-bs-profile/` に保存され自動終了。
+   → `business.facebook.com/latest` に入るとセッションが `<auth root>/profiles/playwright-ig-bs-profile/` に保存され自動終了。
 3. **セッション切れ時**: 同じ `login` で再ログイン。
 4. **SingletonLock エラー時**:
    ```bash
-   pkill -f "playwright-ig-bs-profile" 2>/dev/null; rm -f .local/playwright-ig-bs-profile/SingletonLock
+   pkill -f "playwright-ig-bs-profile" 2>/dev/null; rm -f <auth root>/profiles/playwright-ig-bs-profile/SingletonLock
    ```
 
 ## 使い方

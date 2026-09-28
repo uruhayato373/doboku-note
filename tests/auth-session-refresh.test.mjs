@@ -1,5 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import { join } from 'node:path';
 import {
   AUTO_LOGIN,
   classifyLoginOutcome,
@@ -16,12 +17,14 @@ test('共用口座だけ stats47 のキーチェーン項目を代わりに使�
   assert.deepEqual(keychainServiceNames('a8'), ['doboku-note-auth-a8', 'stats47-measurement-a8']);
   assert.deepEqual(keychainServiceNames('moshimo'), ['doboku-note-auth-moshimo', 'stats47-measurement-moshimo']);
   assert.deepEqual(keychainServiceNames('kdp'), ['doboku-note-auth-kdp']);
-  assert.deepEqual(keychainServiceNames('note'), []);
+  assert.deepEqual(keychainServiceNames('note'), ['doboku-note-auth-note']);
+  assert.deepEqual(keychainServiceNames('coconala'), ['doboku-note-auth-coconala']);
+  assert.deepEqual(keychainServiceNames('x'), []);
 });
 
 test('共用 state の置き場は asp-sessions（env で差し替え可）・共用でない service は null', () => {
-  assert.equal(sharedStatePath('a8', {}, '/Users/u'), '/Users/u/.local/share/asp-sessions/a8-state.json');
-  assert.equal(sharedStatePath('moshimo', { DOBOKU_SHARED_ASP_SESSIONS: '/tmp/s' }, '/Users/u'), '/tmp/s/moshimo-state.json');
+  assert.equal(sharedStatePath('a8', {}, '/Users/u'), join('/Users/u', '.local', 'share', 'asp-sessions', 'a8-state.json'));
+  assert.equal(sharedStatePath('moshimo', { DOBOKU_SHARED_ASP_SESSIONS: '/tmp/s' }, '/Users/u'), join('/tmp/s', 'moshimo-state.json'));
   assert.equal(sharedStatePath('kdp', {}, '/Users/u'), null);
 });
 

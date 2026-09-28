@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /**
- * install-auth-session-refresh-launchd.mjs — A8 / もしも / KDP のログイン維持を launchd へ登録する。
+ * install-auth-session-refresh-launchd.mjs — ログイン維持（A8 / もしも / KDP / note / ココナラ）を launchd へ登録する。
+ * Windows で実行したときは install-auth-session-refresh-task.mjs（タスクスケジューラ）へ切り替える。
  * ---------------------------------------------------------------------------
  * 中身は scripts/auth-session-refresh.mjs（なぜ Mac で回すかは同ファイル冒頭）。手順は
  * install-gsc-local-launchd.mjs と同じで、plist の絶対パスは端末ごとに違うため template から描画し、
@@ -33,6 +34,11 @@ const TEMPLATE = join(REPO_ROOT, 'scripts', 'scheduled', `${LABEL}.plist.tmpl`);
 const LOG = '~/Library/Logs/doboku-note/auth-session-refresh.log';
 const argv = process.argv.slice(2);
 
+if (process.platform === 'win32') {
+  // Windows はタスクスケジューラへ登録する（同じ npm run auth-refresh:install で OS を切り替える）
+  const { main } = await import('./install-auth-session-refresh-task.mjs');
+  process.exit(main());
+}
 if (process.platform !== 'darwin') {
   console.error(`${TAG} launchd は macOS 専用（現在 ${process.platform}）。検査不成立。`);
   console.error(`${TAG} キーチェーンを使うため macOS 以外では動かさない。`);

@@ -61,7 +61,7 @@ gh workflow run ops-write.yml --ref develop -f operation=coconala.publish -f arg
 
 ## 前提（最重要）
 
-- **実行はローカルのみ**（ログイン済みプロファイル `.local/playwright-coconala-profile` があるマシン）。初回は headed で手動ログインが要る（プロファイルに保持）。
+- **実行はローカルのみ**（ログイン済みプロファイル `<auth root>/profiles/playwright-coconala-profile` があるマシン）。初回は headed で手動ログインが要る（プロファイルに保持）。
 - **account assert**: `coconala-account.json` の `sellerName`（=dobokunote）がマイページ本文に含まれることを確認してから操作。別アカウントなら即中断。
 - **規約**: 2026-07-18 時点で利用規約・ルールに「出品者が自分の出品をブラウザ自動化することを禁じる明示条項」は確認できず（購入者側の自動応答＝第13条2項22号は対象外）。ただし禁止行為一覧(zendesk)の1面は未確認・**bot 検知の運用リスクは残る**ため、低頻度（出品時・価格改定時）に限る。
 

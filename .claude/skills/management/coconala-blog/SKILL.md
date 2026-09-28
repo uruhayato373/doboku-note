@@ -14,7 +14,7 @@ domain: product
 
 ## 前提（最重要）
 
-- **実行はローカルのみ**（ココナラログイン済みプロファイル `.local/playwright-coconala-profile` があるマシン）
+- **実行はローカルのみ**（ココナラログイン済みプロファイル `<auth root>/profiles/playwright-coconala-profile` があるマシン）
 - **収益アカウント**。`assertAccount`（sellerName=dobokunote）を全操作の前に通す
 - **外部リンクは書けない**。note・doboku-note の URL も名前も本文に出さない（アカウント制限リスク）
 - 送客は**サービスカード**で行う（本文に `service:<serviceId>` の単独行 → publish が URL へ展開）

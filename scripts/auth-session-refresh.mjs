@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /**
- * auth-session-refresh.mjs — A8 / もしも / KDP のログインを Mac 上で保ち、CI へ渡す（launchd 毎日 17:45）。
+ * auth-session-refresh.mjs — A8 / もしも / KDP / note / ココナラのログインを手元の PC で保つ。
+ *   Mac は launchd 毎日 17:45（CI への受け渡しも行う）、Windows はタスクスケジューラ（受け渡しはしない）。
  * ---------------------------------------------------------------------------
  * なぜ要るか:
  *   A8 は揮発性 Cookie で、Mac で export した state が CI の定期収集（予定より数時間遅れて動く）の時点で
@@ -12,31 +13,33 @@
  *      `~/.local/share/asp-sessions/<service>-state.json` へ保存する state の方が新しければ auth root へ写す。
  *      同じ口座へ両プロジェクトから毎日ログインしないため、ここで通れば 2 には進まない
  *   2. 確認: `auth:status` と同じ判定（口座 assert 付き）
- *   3. 切れていればキーチェーンの ID/PW で 1 回だけログインし、もう一度 2 で確かめる
- *   4. --export: CI が使う service（ci.enabled）は暗号化 state を private R2 へ書き出す
+ *   3. 切れていれば OS の資格情報ストア（Mac キーチェーン / Windows 資格情報マネージャー）の ID/PW で
+ *      1 回だけログインし、もう一度 2 で確かめる
+ *   4. --export（Mac のみ。CI へは Mac から一方向で渡す。Windows では無視する）: CI が使う service（ci.enabled）は暗号化 state を private R2 へ書き出す
  *   5. --dispatch-due: その service の定期収集（ci.cron）が 24 時間以内に来るなら、今すぐ
  *      login-collectors を起動する。定期実行の方は ci.skipScheduleIfFresh の gate が省略する
  *
  * 守ること（stats47 と同じ）:
- *   - ID/PW はキーチェーンからだけ読む。ログ・引数・ファイルへ出さない
+ *   - ID/PW は scripts/lib/credential-store.mjs からだけ読む。ログ・引数・ファイルへ出さない
  *   - 2FA / CAPTCHA / 追加確認は突破しない。human_required で止めて通知する
  *   - 自動ログインの失敗は 1 回で止め、失敗印（auth root の metadata/<service>.autologin-failed）を残す。
  *     人が確認して印を消すまで再試行しない（アカウントロック回避）
- *   - 共用口座以外（KDP）は doboku-note 専用のキーチェーン項目だけを使う
+ *   - 共用口座以外（KDP・note・ココナラ）は doboku-note 専用の項目だけを使う
  *
- * キーチェーン登録（オーナーが 1 回だけ。-w を値なしで付けるとパスワードを対話入力できる）:
- *   security add-generic-password -s doboku-note-auth-kdp -a <Amazon のメールアドレス> -w
+ * 資格情報の登録（オーナーが各 PC で 1 回だけ。値を省くとパスワードを対話入力できる）:
+ *   Mac:     security add-generic-password -s doboku-note-auth-<service> -a <ログインID> -w
+ *   Windows: cmdkey /generic:doboku-note-auth-<service> /user:<ログインID> /pass
  *   A8・もしもは stats47 の項目（stats47-measurement-a8 / -moshimo）があればそれを使う。
  *   doboku-note だけ別にするなら doboku-note-auth-a8 / -moshimo を登録する（こちらが優先）
  *
  * 使い方:
  *   node scripts/auth-session-refresh.mjs [--service a8,moshimo,kdp] [--export] [--dispatch-due] [--dry-run|--no-login] [--json]
- *   --service を省くと、資格情報の出どころ（共用 state かキーチェーン）がある service だけを回す
+ *   --service を省くと、資格情報の出どころ（共用 state か資格情報ストア）がある service だけを回す
  *   --dry-run: 取り込み判定と status だけ（取り込みの書き込み・ログイン・export・dispatch はしない）
- *   --no-login: 共用 state の取り込みと status まで（キーチェーンでのログインはしない）
- * 導入: npm run auth-refresh:install（launchd）
+ *   --no-login: 共用 state の取り込みと status まで（資格情報ストアでのログインはしない）
+ * 導入: npm run auth-refresh:install（Mac は launchd、Windows はタスクスケジューラ）
  *
- * exit: 0 全件 ok（または対象外）/ 1 いずれかが要対応（通知済み）/ 2 検査不成立（macOS 以外・対象 0 件）
+ * exit: 0 全件 ok（または対象外）/ 1 いずれかが要対応（通知済み）/ 2 検査不成立（Mac・Windows 以外・対象 0 件）
  * ---------------------------------------------------------------------------
  */
 import { execFileSync, spawnSync } from 'node:child_process';
@@ -50,9 +53,9 @@ import {
   cronFiresWithin,
   decideSharedImport,
   keychainServiceNames,
-  parseKeychainAccount,
   sharedStatePath,
 } from './lib/auth-session-refresh.mjs';
+import { credentialStoreSupported, hasSecret, readFirstCredential } from './lib/credential-store.mjs';
 import { withAuthLock } from './lib/playwright-auth-lock.mjs';
 import {
   ensureAuthDirectories,
@@ -69,35 +72,43 @@ const argv = process.argv.slice(2);
 const opt = (name) => { const i = argv.indexOf(name); return i >= 0 ? argv[i + 1] : null; };
 const DRY_RUN = argv.includes('--dry-run');
 const NO_LOGIN = DRY_RUN || argv.includes('--no-login');
-const DO_EXPORT = argv.includes('--export') && !DRY_RUN;
-const DISPATCH_DUE = argv.includes('--dispatch-due') && !DRY_RUN;
+const IS_MAC = process.platform === 'darwin';
+// CI への受け渡しは Mac から一方向（Windows からは書き出さない。DN-0362）
+const DO_EXPORT = argv.includes('--export') && !DRY_RUN && IS_MAC;
+const DISPATCH_DUE = argv.includes('--dispatch-due') && !DRY_RUN && IS_MAC;
 const AS_JSON = argv.includes('--json');
 const authOptions = { cwd: REPO_ROOT, repoRoot: REPO_ROOT, env: process.env, isCI: false };
 
-function keychainCredential(service) {
-  for (const name of keychainServiceNames(service)) {
-    const run = (extra) => execFileSync('security', ['find-generic-password', '-s', name, ...extra], {
-      encoding: 'utf8',
-      stdio: ['ignore', 'pipe', 'ignore'],
-    });
-    try {
-      const user = parseKeychainAccount(run([]));
-      const password = run(['-w']).replace(/\n$/, '');
-      if (user && password) return { user, password, source: name };
-    } catch { /* 次の候補へ */ }
-  }
-  return null;
+function storedCredential(service) {
+  return readFirstCredential(keychainServiceNames(service));
 }
 
-function hasKeychainItem(service) {
-  return keychainServiceNames(service).some(
-    (name) => spawnSync('security', ['find-generic-password', '-s', name], { stdio: 'ignore' }).status === 0,
-  );
+function hasStoredCredential(service) {
+  return keychainServiceNames(service).some((name) => hasSecret(name));
 }
+
+// Windows の通知: 文言は環境変数で渡す（コマンド文字列へ埋め込まない）
+const WINDOWS_NOTIFY_SCRIPT = `
+Add-Type -AssemblyName System.Windows.Forms
+$n = New-Object System.Windows.Forms.NotifyIcon
+$n.Icon = [System.Drawing.SystemIcons]::Warning
+$n.Visible = $true
+$n.ShowBalloonTip(10000, 'doboku-note ログイン維持', $env:DOBOKU_NOTIFY_TEXT, 'Warning')
+Start-Sleep -Seconds 10
+$n.Dispose()
+`;
 
 function notify(message) {
   try {
-    execFileSync('osascript', ['-e', `display notification ${JSON.stringify(message)} with title "doboku-note ログイン維持"`]);
+    if (IS_MAC) {
+      execFileSync('osascript', ['-e', `display notification ${JSON.stringify(message)} with title "doboku-note ログイン維持"`]);
+    } else if (process.platform === 'win32') {
+      execFileSync('powershell.exe', ['-NoProfile', '-NonInteractive', '-Command', WINDOWS_NOTIFY_SCRIPT], {
+        env: { ...process.env, DOBOKU_NOTIFY_TEXT: message.slice(0, 250) },
+        stdio: 'ignore',
+        windowsHide: true,
+      });
+    }
   } catch { /* 通知は補助 */ }
 }
 
@@ -154,7 +165,7 @@ async function submitCredential(page, spec, cred) {
   await page.waitForTimeout(5000);
 }
 
-/** 3. キーチェーンで 1 回だけログインし、state を保存する。 */
+/** 3. 資格情報ストアの ID/PW で 1 回だけログインし、state を保存する。 */
 async function autoLogin(service, cred, checkUrl) {
   const spec = AUTO_LOGIN[service];
   return withAuthLock(service, { command: 'auto-login', authOptions }, async () => {
@@ -216,9 +227,9 @@ async function refresh(service, entry) {
     if (existsSync(failMark)) {
       return { ...result, status: 'blocked', reason: `前回の自動ログインが失敗したため停止中。確認後に ${failMark} を削除する` };
     }
-    const cred = keychainCredential(service);
+    const cred = storedCredential(service);
     if (!cred) {
-      return { ...result, status: 'no_credential', reason: `キーチェーンに ${keychainServiceNames(service).join(' / ')} が無い` };
+      return { ...result, status: 'no_credential', reason: `資格情報ストアに ${keychainServiceNames(service).join(' / ')} が無い` };
     }
     const checkUrl = service === 'kdp' ? 'https://kdpreports.amazon.co.jp/dashboard' : null;
     const login = await autoLogin(service, cred, checkUrl).catch((e) => ({ status: 'error', reason: String(e.message).slice(0, 160) }));
@@ -250,9 +261,12 @@ async function refresh(service, entry) {
 }
 
 async function main() {
-  if (process.platform !== 'darwin') {
-    console.error(`${TAG} macOS 専用（キーチェーンと launchd を使う）。検査不成立。`);
+  if (!credentialStoreSupported()) {
+    console.error(`${TAG} Mac・Windows 専用（OS の資格情報ストアを使う）。検査不成立。`);
     return 2;
+  }
+  if (!IS_MAC && (argv.includes('--export') || argv.includes('--dispatch-due'))) {
+    console.error(`${TAG} --export / --dispatch-due は Mac 専用（CI へは Mac から一方向で渡す）。この PC では無視する。`);
   }
   const registry = loadAuthRegistry({ cwd: REPO_ROOT });
   const requested = opt('--service')?.split(',').map((s) => s.trim()).filter(Boolean);
@@ -262,8 +276,8 @@ async function main() {
   for (const service of candidates) {
     if (!AUTO_LOGIN[service] || !registry.services[service]) throw new Error(`自動ログイン非対応の service: ${service}`);
     const shared = sharedStatePath(service);
-    if (!requested && !(shared && existsSync(shared)) && !hasKeychainItem(service)) {
-      skipped.push({ service, status: 'skipped', reason: `共用 state もキーチェーン（${keychainServiceNames(service).join(' / ')}）も無い` });
+    if (!requested && !(shared && existsSync(shared)) && !hasStoredCredential(service)) {
+      skipped.push({ service, status: 'skipped', reason: `共用 state も資格情報（${keychainServiceNames(service).join(' / ')}）も無い` });
       continue;
     }
     targets.push(service);
