@@ -16,7 +16,7 @@ domain: product
 ## ⚠️ 前提
 
 1. **Windows(会社PC)で動作確認済**（2026-06-15、完全パックへ63記事を投入し API 検証）。`channel:'chrome'` ＋ `ignoreHTTPSErrors` で社内プロキシ(TLS傍受)を越える。Mac でも可。
-2. **初回ログイン済み**: `npm run note-edit-session`（`channel:'chrome'` ＋ `.local/playwright-note-profile`。セッションは永続化され再利用される）。未ログインなら本スクリプトが検知して中断・案内する。
+2. **初回ログイン済み**: `npm run note-edit-session`（`channel:'chrome'` ＋ `<auth root>/profiles/playwright-note-profile`。セッションは永続化され再利用される）。未ログインなら本スクリプトが検知して中断・案内する。
 3. **確定フロー（実機検証済）**: 記事ページ `/n/{key}` の「記事を追加」ボタン → ダイアログ「記事を追加」（自分の全マガジン一覧・各行に 追加/追加済 トグル）→ ターゲットマガジン名の行の直後ボタンで状態判定 →「追加」なら押す。**UI 変更時は `--probe`（dry-run）で `.tmp/note-add-*.png` とダイアログ button 文言を確認**してからセレクタを詰める。
 
 ## 使い方

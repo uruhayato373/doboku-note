@@ -77,7 +77,7 @@ async function ensureLogin(page: Page): Promise<boolean> {
   const url = page.url();
   if (url.includes("/login") || url.includes("/i/flow/login")) {
     if (!INTERACTIVE) {
-      console.error("🚨 X セッション切れ。`npx tsx .tmp/x-login.ts` で再ログインするか --interactive を付けて実行してください。");
+      console.error("🚨 X セッション切れ。`npm run auth:login -- --service x` で再ログインするか --interactive を付けて実行してください。");
       return false;
     }
     console.log("⚠️  ログインしてください。完了後自動継続します...");

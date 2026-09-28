@@ -171,15 +171,15 @@ npx tsx .claude/skills/social/publish-x/publish-x.ts 004 \
 ## 前提条件
 
 1. **システム Chrome がインストール済み**（Playwright 組み込み Chromium は X にボット判定される）
-2. **初回ログイン**: `.tmp/x-login.ts` を使って手動ログイン → セッションが `.local/playwright-x-profile/` に保存される
+2. **初回ログイン**: `npm run auth:login -- --service x` で手動ログイン → セッションが `<auth root>/profiles/playwright-x-profile/` に保存される
    ```bash
-   npx tsx .tmp/x-login.ts
+   npm run auth:login -- --service x
    # ブラウザが開くのでアカウントにログイン → x.com/home に遷移すると自動終了
    ```
-3. **セッション切れ時**: 同様に `.tmp/x-login.ts` で再ログイン（`publish-x.ts` が Chrome チャンネルを使うので再ログイン後も bot 検知なし）
+3. **セッション切れ時**: 同様に `npm run auth:login -- --service x` で再ログイン（`publish-x.ts` が Chrome チャンネルを使うので再ログイン後も bot 検知なし）
 4. **SingletonLock エラー時**: 前回の Playwright が残っている場合は以下でクリア
    ```bash
-   pkill -f "playwright-x-profile" 2>/dev/null; rm -f .local/playwright-x-profile/SingletonLock
+   pkill -f "playwright-x-profile" 2>/dev/null; rm -f <auth root>/profiles/playwright-x-profile/SingletonLock
    ```
 
 ## 実証済みセレクタ（2026-04-20 stats47 で検証）

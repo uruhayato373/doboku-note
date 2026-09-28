@@ -203,7 +203,8 @@ if (ciWriteCatalog) {
   if (!existsSync(OPS_WRITE_WORKFLOW_PATH)) {
     findings.ciWriteCatalog.push('ops-write.yml が存在しない');
   } else {
-    const workflowText = readFileSync(OPS_WRITE_WORKFLOW_PATH, 'utf8');
+    // Windows の作業ツリーは CRLF（autocrlf）。\n 固定の正規表現が一致せず Windows でだけ FAIL していた（DN-0433）
+    const workflowText = readFileSync(OPS_WRITE_WORKFLOW_PATH, 'utf8').replace(/\r\n/g, '\n');
     const optionsMatch = workflowText.match(/operation:\n(?:.*\n)*?\s+options:\n([\s\S]*?)\n\s*args:/);
     if (!optionsMatch) {
       findings.ciWriteCatalog.push('ops-write.yml から inputs.operation.options を抽出できない');

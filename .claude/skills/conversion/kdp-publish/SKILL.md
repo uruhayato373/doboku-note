@@ -51,7 +51,7 @@ gh workflow run ops-write.yml --ref develop -f operation=kdp.publish -f args='{"
 > 1 冊だけ試しても同じモーダルで弾かれた**。日次リセット型ではない。提出日の実績と推定は
 > 戦略ドキュメント [strategy.md](../../../../content/kindle/strategy.md)「提出ペースと作成数制限」を参照。
 
-- **ローカル限定・ログイン済みプロファイル**: 初回のみ人が手動ログイン（CAPTCHA/2FA も人）。以降 `.local/playwright-kdp-profile` にセッション保持で無人。未ログインなら script が最大2分待つ。
+- **ローカル限定・ログイン済みプロファイル**: 初回のみ人が手動ログイン（CAPTCHA/2FA も人）。以降 `<auth root>/profiles/playwright-kdp-profile` にセッション保持で無人。未ログインなら script が最大2分待つ。
 - **EPUB/表紙が Downloads にある**: `npm run sync-kindle-dist -- --downloads <id>` で配置。
 - **メタデータ登録済み**: `.claude/config/kdp-memo.json` books[id] が必要。未登録（C系/F系/e-02）は kdp-operator ケース2 で先に生成。
 
@@ -201,7 +201,7 @@ node scripts/kdp-publish.mjs --diag-category --asin <既存draft ASIN>
 | カテゴリーが「本のカテゴリーを追加します」で進めない | 末端は4つ目のドロップダウンでなく**「場所」パネルのチェックボックス**。技術士系=工学・技術・環境▸☑技術士。A/E系は `--diag-category` で確認 |
 | AI申告で「画像の作成に使用したAIツールを指定します」 | 画像=AI生成 を選ぶとツール名が必須。config `defaults.aiDeclaration.imageTool` を記入（表紙背景の生成元） |
 | 価格ページへ進めない | AI申告未完 or アクセシビリティ未回答。新規アップロード時は affirmation チェックボックスも必要（script が自動チェック） |
-| 連続実行で Chrome がハング | 永続プロファイルのロック競合。`.local/playwright-kdp-profile/Singleton*` を削除し1プロセスずつ実行 |
+| 連続実行で Chrome がハング | 永続プロファイルのロック競合。`<auth root>/profiles/playwright-kdp-profile/Singleton*` を削除し1プロセスずつ実行 |
 
 ## 参照
 

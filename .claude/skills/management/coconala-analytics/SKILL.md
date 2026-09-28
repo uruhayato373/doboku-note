@@ -12,7 +12,7 @@ domain: product
 
 ## 前提
 
-- **実行はローカルのみ**（ログイン済みプロファイル `.local/playwright-coconala-profile` があるマシン）
+- **実行はローカルのみ**（ログイン済みプロファイル `<auth root>/profiles/playwright-coconala-profile` があるマシン）
 - **収益アカウント**。`assertAccount`（sellerName=dobokunote）を全操作の前に通す
 - **read-only**。メモ追加・期間変更・出品操作はしない（画面を読むだけ）
 

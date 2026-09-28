@@ -66,7 +66,7 @@ async function ensureLogin(page: Page): Promise<boolean> {
   await page.goto("https://x.com/home", { waitUntil: "domcontentloaded" });
   await page.waitForTimeout(3000);
   if (page.url().includes("/login") || page.url().includes("/i/flow/login")) {
-    console.error("🚨 X セッション切れ。`npx tsx .tmp/x-login.ts` で再ログインしてください。");
+    console.error("🚨 X セッション切れ。`npm run auth:login -- --service x` で再ログインしてください。");
     return false;
   }
   console.log("✅ ログイン済み");
