@@ -109,11 +109,16 @@ function stripNoteCta(body) {
       // CTA の直前に置かれた区切りも一緒に落とす（残すと孤立 <hr/> になる）
       while (kept.length && /^\s*$/.test(kept[kept.length - 1])) kept.pop()
       if (kept.length && /^\s*---+\s*$/.test(kept[kept.length - 1])) kept.pop()
-      // マーカー行から note URL 行までを捨てる。URL が無い形もありうるので上限を切る。
-      let j = i + 1
-      const limit = Math.min(lines.length, i + 7)
-      while (j < limit && !/note\.com\//.test(lines[j])) j++
-      i = j < limit ? j : i   // URL が見つからなければマーカー行だけ捨てる
+      // マーカー行からブロック内の最後の URL 行までを捨てる。URL が無い形もありうるので上限を切る。
+      // 2026-09-28: ココナラ導線（cta:coconala-custom・DN-0268）は URL が 2 本で note.com を含まないため、
+      // 旧式（最初の note URL まで）ではマーカーだけ落ちて案内文が本文に残った。
+      const limit = Math.min(lines.length, i + 10)
+      let last = -1
+      for (let j = i + 1; j < limit; j++) {
+        if (/^\s*(#|<!--\s*cta:)/.test(lines[j])) break
+        if (/(note|coconala)\.com\//.test(lines[j])) last = j
+      }
+      if (last >= 0) i = last   // URL が見つからなければマーカー行だけ捨てる
     }
     out = kept.join('\n')
   }

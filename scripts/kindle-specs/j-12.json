@@ -36,7 +36,8 @@
     "^- .*doboku-note\\.com",
     "^- .*（無料[・）]",
     "印刷用PDF",
-    "^施工経験記述は「自分が経験した工事」を書く問題"
+    "^(?:>\\s*)?\\*\\*失格注意\\*\\*",
+    "^(?:施工経験記述(?:は|には)|経験(?:していない|のない)工事).*失格"
   ],
   "frontMatter": "content/kindle/books/j-12/front-matter.md",
   "chapterLabel": "h1-tail",

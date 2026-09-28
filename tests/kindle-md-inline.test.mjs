@@ -18,3 +18,10 @@ test('note 原稿の m<sup>3</sup> は上付きタグとして通す（文字列
   assert.equal(inlineMd('盛土量 12,000m<sup>3</sup>'), '盛土量 12,000m<sup>3</sup>')
   assert.equal(inlineMd('<script>x</script>'), '&lt;script&gt;x&lt;/script&gt;')
 })
+
+// 2026-09-28: 原稿の目印が【〇〇】（DN-0277 で統一）と素の 〇〇 にも分かれ、j-13/j-14/j-15 などで記号のまま印字されていた。
+test('【〇〇】と素の 〇〇 も点線下線にする', () => {
+  assert.equal(inlineMd('【〇〇】川 床止め工事'), '<span class="fill">〇〇</span>川 床止め工事')
+  assert.equal(inlineMd('令和〇年〇月'), '令和<span class="fill">〇</span>年<span class="fill">〇</span>月')
+  assert.equal(inlineMd('【注意】**品質**'), '【注意】<strong>品質</strong>')
+})

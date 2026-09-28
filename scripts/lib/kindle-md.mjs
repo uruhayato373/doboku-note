@@ -6,7 +6,11 @@ import { xesc } from './epub-writer.mjs'
 
 // `〇〇` は note 原稿で「自分の現場の値に差し替える箇所」を示す。記号のまま印字すると文字化けに見えるため
 // 点線の下線（.fill・CSS は各ビルダー）で示す（2026-09-23 i/j 系 QA で i-01 554 箇所・i-11 848 箇所を検出）。
+// 原稿の書き方は `〇〇`・【〇〇】（2026-09-24 DN-0277 で統一）・素の 〇〇 が混在するので、どれも下線にする
+// （2026-09-28 QA: 素の 〇〇 と【〇〇】が j-13/j-14/j-15 などで 1,700 箇所以上印字されていた）。
 export const inlineMd = (s) => xesc(s).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/`([^`]+?)`/g, '<span class="fill">$1</span>')
+  .replace(/【([^】<]*[〇◯][^】<]*)】/g, '<span class="fill">$1</span>')
+  .replace(/(<span class="fill">[^<]*<\/span>)|[〇◯]+/g, (m, span) => span || `<span class="fill">${m}</span>`)
   // note 原稿の単位表記 m<sup>3</sup> は xesc で文字列化されるので、sup/sub だけ実タグに戻す（i/j 系で 280 箇所）
   .replace(/&lt;(sup|sub)&gt;(.+?)&lt;\/\1&gt;/g, '<$1>$2</$1>')
 
