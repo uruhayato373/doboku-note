@@ -71,6 +71,7 @@ Google Drive 側が `.claude/config/drive-vault.json`（台帳 `.claude/state/as
 | `kindle-dist` | human | Drive `制作物/Kindle/`（Git が正本） | CI の check-kindle-format が blob を読むので Git 追跡は維持。Drive は控え |
 | `coconala-asset` | human | Drive `制作物/ココナラ/` | |
 | `note-magazine-cover-png` | human | Drive `制作物/マガジンカバー/` | |
+| `note-cover-pop-preview` | human | Drive `制作物/noteカバー/POP版/` | 新テンプレートの全件確認用。記事・マガジン画像、生成manifest、QA結果を個別復元できる形で保存 |
 | `repo-archive` | human | Drive `アーカイブ/repo/` | |
 | ~~`legacy-r2-orphan`~~ | human | 記事画像 2,573 件は削除済み（参照 0 を確認）・SNS 素材 1,146 件は Drive `アーカイブ/旧R2/sns/` | 2026-09-05 に R2 から消し group を削除 |
 

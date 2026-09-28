@@ -5,7 +5,7 @@
  * note カバー（V5 キャラクターカバー）の文言が**描画枠に入らず生成が失敗する**回帰を、原稿の commit 前に止めるゲート。
  *
  * 判定は描画側と同じ関数（scripts/lib/note-character-cover.mjs の coverFitIssues）＝同梱フォントの実測幅で、
- *   - 主見出し（cover.headline / coverTitle 2 行目 / マガジン magazineName）が x=345〜739 の枠に 96〜48px・最大 3 行で入るか
+ *   - 主見出し（cover.headline / coverTitle 2 行目 / マガジン magazineName）が共通枠（幅790＝COVER_LAYOUTS）に100〜48px・最大3行で入るか
  *   - リード（leadIn / qualifier）・補足（hi+hiSuffix / proof）・訴求帯（benefit）が 18px 以上で各枠に入るか
  * を検査する。文字数の推定ではなく実測なので、ここが緑なら generate-note-covers は同じ文言で失敗しない。
  * 収まらない文言は**省略せず短縮する**（生成器も省略しない設計）。仕様: note-cover-character-v5.md

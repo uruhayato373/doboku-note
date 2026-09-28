@@ -110,7 +110,7 @@ node scripts/generate-note-covers.mjs 1級土木                # slug 部分一
 node scripts/generate-note-covers.mjs 安全管理               # 1 記事だけ再生成（全件生成と同じポーズ・同じ画像）
 ```
 
-主見出しの実描画枠は生成時に Satori から取り、中央 630×216 の外に出れば生成失敗になる（`--debug-safety` の赤枠目視は V5 では廃止）。
+現行V5の実描画枠・安全域は [`note-cover-character-v5.md`](./note-cover-character-v5.md) を正本とする。G2の中央クロップ前提をV5へ適用しない。
 
 ```bash
 # 全 cover を1枚 HTML で一覧目視（OGP の ogp-gallery と対称・資格×種別で絞込）

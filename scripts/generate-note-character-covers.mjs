@@ -9,7 +9,7 @@
 //   npm run note-character-covers -- --source-root /path/to/source-checkout --output-root /path/to/isolated-output
 //   npm run note-character-covers -- --filter 工程管理          # 記事相対パス / magazine:<ID> の部分一致
 import { readFileSync, existsSync, mkdirSync, writeFileSync, renameSync } from 'node:fs';
-import { resolve, join, dirname } from 'node:path';
+import { resolve, join, dirname, relative, isAbsolute } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
 import { renderNoteCharacterCover } from './lib/note-character-cover.mjs';
@@ -22,7 +22,9 @@ const sourceRoot = resolve(option('--source-root') || ownRoot);
 const outputRoot = resolve(option('--output-root') || join(ownRoot, '.tmp/note-character-covers'));
 const filter = option('--filter');
 const sourceContent = join(sourceRoot, 'content');
-if (sourceRoot === outputRoot || outputRoot === sourceContent || outputRoot.startsWith(sourceContent + '/')) {
+const fromContent = relative(sourceContent, outputRoot);
+const overlapsSource = sourceRoot === outputRoot || fromContent === '' || (!fromContent.startsWith('..') && !isAbsolute(fromContent));
+if (overlapsSource) {
   throw new Error('生成先を原稿ツリーに重ねられません。独立した出力ディレクトリを指定してください');
 }
 const inventory = await loadNoteCoverInventory(sourceRoot, { configRoot: ownRoot });

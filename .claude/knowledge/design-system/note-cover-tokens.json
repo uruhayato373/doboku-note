@@ -70,16 +70,16 @@
       "soft": "#38A0A0",
       "accent": "#16365C"
     },
-    "concrete-chief": {
-      "dir": "コンクリート主任技士",
-      "label": "コンクリート主任技士",
-      "short": "コンクリ主任",
-      "hue": "teal",
-      "base": "#0F6E6E",
-      "deep": "#0A4F4F",
-      "soft": "#2A8A8A",
-      "accent": "#16365C"
-    },
+  "concrete-chief": {
+    "dir": "コンクリート主任技士",
+    "label": "コンクリート主任技士",
+    "short": "コンクリ主任",
+    "hue": "plum",
+    "base": "#6E3A8C",
+    "deep": "#522A69",
+    "soft": "#8B57A8",
+    "accent": "#16365C"
+  },
     "concrete-diagnosis": {
       "dir": "コンクリート診断士",
       "label": "コンクリート診断士",
