@@ -7,7 +7,7 @@ import { mkdtempSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import sharp from 'sharp';
 import { readFileSync } from 'node:fs';
-import { coverCopy, headlineLayout, resolveCoverExam, renderNoteCharacterCover, coverPoseCandidates, assignCoverPoses, coverFitIssues, COVER_LAYOUTS } from '../scripts/lib/note-character-cover.mjs';
+import { coverCopy, headlineLayout, resolveCoverExam, renderNoteCharacterCover, coverPoseCandidates, assignCoverPoses, coverFitIssues, COVER_LAYOUTS, magazineDisplayCopy } from '../scripts/lib/note-character-cover.mjs';
 import { loadNoteCoverInventory } from '../scripts/lib/note-cover-inventory.mjs';
 import { MAGAZINES } from '../scripts/generate-magazine-covers.mjs';
 
@@ -70,7 +70,13 @@ test('combined civil directory does not accidentally select the second-grade col
   assert.throws(() => resolveCoverExam('unknown', tokens), /解決できません/);
 });
 
-// 2026-09-28 から記事・マガジンとも中央固定をやめ、同じ左寄せPOPレイアウトを使う。
+test('magazine copy emphasizes the qualification and package contents', () => {
+  assert.deepEqual(magazineDisplayCopy({ magazine: true, examKey: 'civil-2', lines: ['2級土木 二次検定', 'まるごとパック', '経験記述＋学科記述＋直前対策'] }),
+    { qualification: '2級土木', title: '二次検定まるごとパック', proof: '経験記述＋学科記述＋直前対策', authority: '技術士（総監）が作成' });
+  assert.deepEqual(magazineDisplayCopy({ magazine: true, examKey: 'pe-construction', lines: ['建設部門 2次 合格パック', 'トンネル（必須科目I＋トンネル）', '全29記事 ¥4,980'] }),
+    { qualification: '技術士 建設部門', title: 'トンネル 合格パック', proof: '必須科目I＋トンネル', authority: '技術士（総監）が作成' });
+});
+
 test('actual article and magazine renders keep every text node inside the measured safe area', async () => {
   const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
   for (const input of [
@@ -88,7 +94,7 @@ test('actual article and magazine renders keep every text node inside the measur
     }
     assert.match(result.sourceSha256, /^[a-f0-9]{64}$/);
   }
-  assert.deepEqual(COVER_LAYOUTS.article, COVER_LAYOUTS.magazine);
+  assert.notDeepEqual(COVER_LAYOUTS.article, COVER_LAYOUTS.magazine);
 });
 
 test('all nine usable waist poses keep hands and props clear of text and the benefit band', async () => {
