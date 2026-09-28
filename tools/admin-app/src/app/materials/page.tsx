@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { PageHead } from '@/components/ui';
-import { Badge } from '@/components/primitives';
+import { Badge } from '@/components/ui/badge';
 import { findRepoRoot } from '@/lib/repo-root';
 import { expansionReport, sourceSummary, linkedProductsByUnit, siteWiring, DECISION_LABELS } from '../../../../../scripts/lib/content-expansion.mjs';
 import categories from '../../../../../src/config/categories.json';

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Badge } from '@/components/primitives';
+import { Badge } from '@/components/ui/badge';
 import { DocDetailView } from '@/components/DocDetailView';
 import { rootById } from '@/lib/document-roots';
 import { projectAnalysis } from '@/lib/project';

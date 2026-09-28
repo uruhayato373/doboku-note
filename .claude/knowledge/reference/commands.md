@@ -140,6 +140,7 @@ npm run stage-ig-media-r2 -- --pack <pack> --format carousel --cleanup # ig-grap
 npm run coconala-orders   # ココナラ受注＋購入前DMの実体を read-only 収集→orders-snapshot.json（Playwright・書き込みなし・定期取得は login-collectors.yml）
 npm run coconala-talkroom -- <talkroomId> # トークルーム1件のメッセージと添付（原寸・docx は本文 .txt も）を .tmp/coconala/talkrooms/{id}/ へ取得（Playwright・送信なし・開くと既読になる）。添付はホバーで出るボタンの download イベントから署名URLを受けて取得＝saveAs を使わない。exit 2=添付の取りこぼし
 npm run coconala-dm -- <dmId>        # DM 1件の全メッセージ（「過去のメッセージを読み込む」を増えなくなるまで展開）と添付を .tmp/coconala/dm/{id}/ へ取得（thread.txt・messages.json・attachments/）。Playwright・送信なし・開くと既読になる。DM の ID は orders-snapshot.json の inquiries[].dmId。添付はトークルームと違い .uploaded_files の通常リンク。exit 2=0件・展開しきれない・添付の取りこぼし
+npm run check-admin-ui-debt          # 管理画面ページの生 card クラス・インライン style の件数をページごとの基準値（.claude/config/admin-ui-debt-baseline.json）と比べ、増えたら exit 1（新規ページは 0 件）。減らしたら --update で基準値を下げる。部品は tools/admin-app/src/components/ui/*・layout.tsx（DN-0432）
 npm run check-coconala-orders # 上記 snapshot ↔ orders-log をオフライン突合（記録漏れ・金額ズレ・返信期限〔48h自動キャンセル〕・DM要対応）
 npm run check-tensaku-reply -- <返信文> --source <提出原稿> --grade 1 # 添削・診断・作成の顧客返信文を送信前に検査（3000字・外部誘導・合格保証・下書き注記・書き換え例の（N字）表記と解答欄・原稿に無い工事の数値）。--source なしは exit 2（未検査を緑にしない）。意味の評価は civil-keiken-tensaku-qa
 npm run check-kosshi-sheet -- <骨子シート> --source <ヒアリングシート> # S3 指導の骨子シートを送信前に検査（「」引用と数値がヒアリングシートに実在・引用の外の地の文は1行60字以内で句点なし＝答案の文章を書かない・各テーマに（1）（2）の区画・1引用30字以内・外部誘導/合格保証/下書き注記）。exit 0/1/2（2=--source なし）。civil-keiken-tensaku-qa が mode=kosshi で実行

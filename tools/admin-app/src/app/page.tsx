@@ -1,5 +1,10 @@
 import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 import { PageHead } from '@/components/ui';
+import { Grid, Section, Stack } from '@/components/layout';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Progress } from '@/components/ui/progress';
 import { loadKpiView } from '@/lib/kpi-tree';
 
 export const dynamic = 'force-dynamic';
@@ -22,39 +27,43 @@ function shiftMonth(month: string, delta: number): string {
 function Bars({ rows }: { rows: { label: string; value: number | null }[] }) {
   const max = Math.max(1, ...rows.map((r) => r.value ?? 0));
   return (
-    <div style={{ display: 'grid', gap: 6 }}>
+    <Stack gap="sm">
       {rows.map((r) => (
-        <div key={r.label} style={{ display: 'grid', gridTemplateColumns: '9em 1fr 6em', alignItems: 'center', gap: 8 }}>
-          <span className="small">{r.label}</span>
-          <div style={{ height: 10, background: 'var(--line, #333)', borderRadius: 5, overflow: 'hidden' }}>
-            <div style={{ width: `${((r.value ?? 0) / max) * 100}%`, height: '100%', background: 'var(--accent, #6aa0ff)' }} />
-          </div>
-          <span className="small num" style={{ textAlign: 'right' }}>{yen(r.value)}</span>
+        <div key={r.label} className="grid grid-cols-[9em_1fr_6em] items-center gap-2 text-xs">
+          <span>{r.label}</span>
+          <Progress value={((r.value ?? 0) / max) * 100} />
+          <span className="text-right tabular-nums">{yen(r.value)}</span>
         </div>
       ))}
-    </div>
+    </Stack>
   );
 }
 
 function Tile({ label, value, sub }: { label: string; value: string; sub?: string }) {
   return (
-    <div className="card" style={{ margin: 0, padding: 12 }}>
-      <div className="small muted">{label}</div>
-      <div style={{ fontSize: 22, fontWeight: 700 }}>{value}</div>
-      {sub && <div className="small muted">{sub}</div>}
-    </div>
+    <Card className="gap-1 py-3">
+      <CardContent className="flex flex-col gap-1 px-3">
+        <span className="text-xs text-muted-foreground">{label}</span>
+        <span className="text-2xl font-bold tabular-nums">{value}</span>
+        {sub && <span className="text-xs text-muted-foreground">{sub}</span>}
+      </CardContent>
+    </Card>
   );
 }
 
 /** 詳細ページへの入口。カード全体がリンク。 */
 function LinkCard({ href, title, desc }: { href: string; title: string; desc: string }) {
   return (
-    <Link href={href} className="card" style={{ margin: 0, padding: 14, display: 'flex', justifyContent: 'space-between', alignItems: 'center', textDecoration: 'none', color: 'inherit' }}>
-      <span>
-        <strong>{title}</strong>
-        <span className="small muted" style={{ display: 'block' }}>{desc}</span>
-      </span>
-      <span style={{ fontSize: 20, opacity: 0.6 }}>→</span>
+    <Link href={href} className="rounded-lg text-inherit no-underline hover:no-underline focus-visible:ring-2 focus-visible:ring-ring">
+      <Card className="h-full transition-colors hover:bg-muted/40">
+        <CardHeader>
+          <CardTitle>{title}</CardTitle>
+          <CardDescription>{desc}</CardDescription>
+        </CardHeader>
+        <CardContent className="flex justify-end text-muted-foreground">
+          <ArrowRight className="size-4" />
+        </CardContent>
+      </Card>
     </Link>
   );
 }
@@ -67,66 +76,84 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ m
   const next = shiftMonth(v.month, 1);
 
   return (
-    <>
-      <PageHead title="KPI" />
-      <nav className="filterbar" style={{ marginBottom: 12 }}>
-        <Link className="chip" href={`/?month=${shiftMonth(v.month, -1)}`}>← 前の月</Link>
-        <span className="chip active">{v.month}</span>
-        {next < thisMonth && <Link className="chip" href={`/?month=${next}`}>次の月 →</Link>}
-      </nav>
+    <Stack gap="lg">
+      <Stack gap="md">
+        <PageHead title="KPI" />
+        <nav className="flex items-center gap-2">
+          <Button asChild variant="outline" size="sm">
+            <Link href={`/?month=${shiftMonth(v.month, -1)}`}>← 前の月</Link>
+          </Button>
+          <Button variant="secondary" size="sm" disabled>{v.month}</Button>
+          {next < thisMonth && (
+            <Button asChild variant="outline" size="sm">
+              <Link href={`/?month=${next}`}>次の月 →</Link>
+            </Button>
+          )}
+        </nav>
 
-      <div className="card">
-        <div className="small muted">月の受取額（手数料控除後）</div>
-        <div style={{ fontSize: 36, fontWeight: 800, lineHeight: 1.2 }}>
-          {yen(v.receipts)}
-          {v.goal && <span className="small muted" style={{ fontWeight: 400 }}> / 目標 {yen(v.goal.value)}</span>}
-        </div>
-        {rate != null ? (
-          <>
-            <div style={{ height: 12, background: 'var(--line, #333)', borderRadius: 6, overflow: 'hidden', maxWidth: 560, marginTop: 6 }}>
-              <div style={{ width: `${Math.min(rate, 1) * 100}%`, height: '100%', background: rate >= 1 ? 'var(--good)' : 'var(--warn, #d9a200)' }} />
+        <Card>
+          <CardHeader>
+            <CardDescription>月の受取額（手数料控除後）</CardDescription>
+          </CardHeader>
+          <CardContent className="flex flex-col gap-2">
+            <div className="text-4xl leading-tight font-extrabold tabular-nums">
+              {yen(v.receipts)}
+              {v.goal && <span className="text-xs font-normal text-muted-foreground"> / 目標 {yen(v.goal.value)}</span>}
             </div>
-            <div className="small">達成率 {Math.round(rate * 100)}% ・ あと {yen(Math.max(0, (v.goal?.value ?? 0) - (v.receipts ?? 0)))}</div>
-          </>
-        ) : (
-          <div className="small muted">この月の受取額は未記録</div>
-        )}
-      </div>
+            {rate != null ? (
+              <>
+                <Progress
+                  value={rate * 100}
+                  className="h-3 max-w-[560px]"
+                  indicatorClassName={rate >= 1 ? 'bg-(--good)' : 'bg-(--warn)'}
+                />
+                <span className="text-xs">
+                  達成率 {Math.round(rate * 100)}% ・ あと {yen(Math.max(0, (v.goal?.value ?? 0) - (v.receipts ?? 0)))}
+                </span>
+              </>
+            ) : (
+              <span className="text-xs text-muted-foreground">この月の受取額は未記録</span>
+            )}
+          </CardContent>
+        </Card>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 12, marginTop: 12 }}>
-        <div className="card" style={{ margin: 0 }}>
-          <h2>チャネル別の販売額</h2>
-          <Bars rows={v.channels} />
-        </div>
-        <div className="card" style={{ margin: 0 }}>
-          <h2>資格別の販売額</h2>
-          <Bars rows={v.qualifications} />
-        </div>
-      </div>
+        <Grid min="lg">
+          <Card>
+            <CardHeader><CardTitle>チャネル別の販売額</CardTitle></CardHeader>
+            <CardContent><Bars rows={v.channels} /></CardContent>
+          </Card>
+          <Card>
+            <CardHeader><CardTitle>資格別の販売額</CardTitle></CardHeader>
+            <CardContent><Bars rows={v.qualifications} /></CardContent>
+          </Card>
+        </Grid>
+      </Stack>
 
-      <h2 style={{ margin: '20px 0 8px' }}>入口（サイト）</h2>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: 12 }}>
-        <Tile label="インデックス率" value={fmt(v.site.indexRatio, '%')} />
-        <Tile label="Google クリック" value={fmt(v.site.gscClicks, '')} sub="この月" />
-        {v.search.clusters.map((c) => (
-          <Tile
-            key={c.label}
-            label={`1桁の検索語・${c.label}`}
-            value={String(c.top10)}
-            sub={c.prevTop10 == null ? undefined : `前 ${c.prevTop10}`}
-          />
-        ))}
-      </div>
-      <p className="small muted" style={{ marginTop: 6 }}>
-        検索語は Google の直近 28 日（{v.search.period ?? '未取得'}）・<Link href="/metrics/search-strategy">検索の詳細</Link>
-      </p>
+      <Section
+        title="入口（サイト）"
+        note={<>検索語は Google の直近 28 日（{v.search.period ?? '未取得'}）・<Link href="/metrics/search-strategy">検索の詳細</Link></>}
+      >
+        <Grid min="sm">
+          <Tile label="インデックス率" value={fmt(v.site.indexRatio, '%')} />
+          <Tile label="Google クリック" value={fmt(v.site.gscClicks, '')} sub="この月" />
+          {v.search.clusters.map((c) => (
+            <Tile
+              key={c.label}
+              label={`1桁の検索語・${c.label}`}
+              value={String(c.top10)}
+              sub={c.prevTop10 == null ? undefined : `前 ${c.prevTop10}`}
+            />
+          ))}
+        </Grid>
+      </Section>
 
-      <h2 style={{ margin: '24px 0 8px' }}>詳しく見る</h2>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 12 }}>
-        <LinkCard href={`/metrics/kpi?month=${v.month}`} title="KPI ツリー" desc="全指標を資格別の表で" />
-        <LinkCard href="/metrics/traffic" title="集客の推移" desc="PV・流入のグラフとデータの更新状況" />
-        <LinkCard href="/metrics/search-strategy" title="検索キーワード" desc="クラスター別の順位と改善候補" />
-      </div>
-    </>
+      <Section title="詳しく見る">
+        <Grid min="md">
+          <LinkCard href={`/metrics/kpi?month=${v.month}`} title="KPI ツリー" desc="全指標を資格別の表で" />
+          <LinkCard href="/metrics/traffic" title="集客の推移" desc="PV・流入のグラフとデータの更新状況" />
+          <LinkCard href="/metrics/search-strategy" title="検索キーワード" desc="クラスター別の順位と改善候補" />
+        </Grid>
+      </Section>
+    </Stack>
   );
 }

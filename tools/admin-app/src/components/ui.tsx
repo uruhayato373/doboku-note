@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { Badge, Card } from '@/components/primitives';
+import { Badge } from '@/components/ui/badge';
+import { Card } from '@/components/ui/card';
 import type { SnapshotFile } from '@/lib/snapshots';
 import { ageInDays } from '@/lib/snapshots';
 
@@ -14,7 +15,7 @@ export function Kpi({
   unit?: string;
 }) {
   return (
-    <Card className="kpi">
+    <Card className="kpi gap-0 py-0">
       <div className="label">{label}</div>
       <div className="value">
         {typeof value === 'number' ? value.toLocaleString() : value}
