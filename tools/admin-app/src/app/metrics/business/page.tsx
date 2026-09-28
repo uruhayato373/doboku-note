@@ -8,10 +8,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { findRepoRoot } from '@/lib/repo-root';
-import { buildReport, reviewPeriod, samePeriod } from '../../../../../../scripts/lib/business-direction.mjs';
+import { buildReport, reviewPeriod } from '../../../../../../scripts/lib/business-direction.mjs';
 import { buildProcedureView, buildReviewView, buildRunHistory } from '../../../../../../scripts/lib/review-wiring.mjs';
 import { buildGate } from '../../../../../../scripts/lib/backlog-gate.mjs';
-import RecordPanel from './RecordPanel';
 
 export const dynamic = 'force-dynamic';
 
@@ -404,7 +403,7 @@ function Inputs({ c }: { c: Cadence }) {
 export default async function ReviewPage({ searchParams }: { searchParams: Promise<Record<string, string | undefined>> }) {
   const search = await searchParams;
   const cadence = search.cadence === 'monthly' ? 'monthly' : 'weekly';
-  const period = search.start && search.end ? { startDate: search.start, endDate: search.end } : reviewPeriod(cadence);
+  const period = reviewPeriod(cadence);
   const root = findRepoRoot();
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let data: any;
@@ -433,7 +432,6 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
       return null;
     }
   })();
-  const existingReview = data.reviews.find((r: Review) => r.cadence === cadence && samePeriod(r.period, period));
 
   return (
     <Stack gap="lg">
@@ -449,23 +447,6 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
         </TabsContent>
       </Tabs>
 
-      <Card>
-        <CardContent>
-          <details>
-            <summary className="cursor-pointer text-sm font-semibold">手で記録する（計測・目標・レビュー）</summary>
-            <form className="filterbar mt-3">
-              <input type="hidden" name="cadence" value={cadence} />
-              <Link href="/metrics/business">前週</Link>
-              <Link href="/metrics/business?cadence=monthly">前月</Link>
-              <label>開始 <input aria-label="開始日" type="date" name="start" defaultValue={period.startDate} required /></label>
-              <label>終了 <input aria-label="終了日" type="date" name="end" defaultValue={period.endDate} required /></label>
-              <button>表示</button>
-            </form>
-            <p className="text-xs">{period.startDate}〜{period.endDate} · {cadence === 'monthly' ? '月次' : '週次'}</p>
-            <RecordPanel strategy={data.strategy} period={period} cadence={cadence} existingReview={existingReview} observations={data.observations} />
-          </details>
-        </CardContent>
-      </Card>
 
     </Stack>
   );
