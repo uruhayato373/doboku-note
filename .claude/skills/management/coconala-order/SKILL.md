@@ -27,6 +27,7 @@ domain: product
 **共通の前段**
 0. **実体を取る**: `npm run coconala-orders` を実行し `.claude/state/coconala/orders-snapshot.json` を更新する。**何が売れたかを購入通知の記憶や推測で決めない**。serviceId 未指定ならスナップショットから特定する（`talkroomId` / `serviceId` / `priceYen` / `soldOn` / `replyDueAt` が採れる）。ログインが切れていれば headed の Chrome で人がログイン。
 0b. **購入者のメッセージと添付を取る**: `npm run coconala-talkroom -- <talkroomId>` で `.tmp/coconala/talkrooms/{id}/` に messages.txt・添付（原寸）・docx の本文 .txt・manifest.json を出す。**その場で Playwright を書かない**（添付はホバーで出るボタンにしかなく、画像は saveAs が競合して失敗する＝2026-09-25 に4回書き直した）。exit 2 は添付の取りこぼし。画像（手書きの工事概要など）は原寸を Read して読む。
+   取引の後に DM で届いた追加の質問・答案は `npm run coconala-dm -- <dmId>` で `.tmp/coconala/dm/{id}/` に取る（古いメッセージの展開と添付を含む。DM の ID は orders-snapshot.json の inquiries[].dmId）。
 1. **カタログ確認**: `serviceId` の `status` を Read。`draft`（未出品）なら停止。`full` なら受付枠超過を警告。
 2. **一時保存**（S系のみ）: 0b の出力（または貼り付けられたシート/下書き）を `.md` にまとめて scratchpad / `.tmp/` へ保存。**リポジトリには置かない**（個人情報）。
 
