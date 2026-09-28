@@ -166,7 +166,7 @@
 **完了条件**: 対象未満のユーザー比率（%）と取得期間を記録し、main 昇格の可否を決めている。
 
 ### [DN-0432] 管理画面を shadcn/ui の標準部品・雛形・テーマで作り直し、余白やカードの書き方を共通化する
-タグ: [UI・UX] [領域:管理] [時期:2026-10..2026-11] [種類:改善] [起票:2026-09-28]
+タグ: [UI・UX] [領域:管理] [時期:2026-10..2026-11] [種類:改善] [起票:2026-09-28] [進行中]
 
 **起点**: 2026-09-28、KPI 画面のカード同士がくっつく不具合（PR #684 で修正）から、見た目の共通化・再利用・単一責務を相談した。原因は余白を `.card + .card`（直後がカードのときだけ）で決めていたことで、ページ側は生の `className="card"` 102 箇所・インライン `style` 161 箇所・`globals.css` 2,300 行超に依存し、`src/components/primitives.tsx` の Card/Badge は 7 ファイルでしか使われていない。前提の Tailwind v4 移行は PR #683 で完了済み。
 
@@ -292,14 +292,14 @@
 ### [DN-0433] Playwright 認証の文書と実装のずれを直す（配線検査の FAIL・古いプロファイルパス・X の CI 扱い）
 タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-09-28]
 
-**起点**: 2026-09-28 の調査で見つかった。(a) `node scripts/check-playwright-auth-wiring.mjs` の検査9が `ops-write.yml` から `inputs.operation.options` を抽出できず FAIL。(b) publish-x・publish-ig-bs・coconala-*・note-*・google-search-growth の SKILL.md が旧 `.local/playwright-*-profile` を案内している（実体は `scripts/lib/playwright-auth-profile.mjs` の置き場）。(c) `note-edit-session.mjs:20` のコメントが `~/.doboku-note-session`。(d) `google-console-browser.mjs:12` は「CI では使わない」と書くが `attachCISession` を呼ぶ。(e) レジストリで x は `ci.enabled:false` なのに `scheduled-publish.yml` が x を encrypted-state で投稿しているように読める（未確認）。
+**起点**: 2026-09-28 の調査で見つかった。(a) `node scripts/check-playwright-auth-wiring.mjs` の検査9が `ops-write.yml` から `inputs.operation.options` を抽出できず FAIL。(b) publish-x・publish-ig-bs・coconala-*・note-*・google-search-growth の SKILL.md が旧 `.local/playwright-*-profile` を案内している（実体は `scripts/lib/playwright-auth-profile.mjs` の置き場）。(c) `note-edit-session.mjs:20` のコメントが `~/.doboku-note-session`。(d) `google-console-browser.mjs:12` は「CI では使わない」と書くが `attachCISession` を呼ぶ。(e) レジストリで x は `ci.enabled:false` なのに `scheduled-publish.yml` の publish-x ジョブは `restore-auth-state` を直接呼び、`ci.enabled` を見ない（`ci-plan` の enabled 判定＝`playwright-auth-state.mjs:203` を通らない）。2026-09-28 時点で同 workflow の全 34 回とも publish-x は `skipped`（期日到来の予約が無かった）＝まだ一度も CI から X に投稿していないが、予約が期日に来た時点で CI から投稿が走る。
 
-**やること**: (a)(b)(c)(d) を直す。(e) は実際の workflow 実行履歴で CI 投稿が動いているか確かめ、レジストリか workflow のどちらを正にするか決める。
+**やること**: (a)(b)(c)(d) は PR（feat/auth-win-refresh）で修正済み・マージ待ち。(e) はレジストリ（CI 不可）と workflow（CI 投稿）のどちらを正にするかをオーナーが決め、workflow 側なら plan-x で `ci.enabled` を見て止める。
 
 **完了条件**: `check-playwright-auth-wiring --strict` が exit 0、SKILL.md に旧パスが残らず、x の CI 扱いがレジストリと workflow で一致したら、このカードを削除する。
 
 ### [DN-0362] Playwright 認証を「人・Mac・CI」の役割分担で設計し直し、ログインの維持を自動化する
-タグ: [インフラ・計測] [領域:管理] [時期:2026-10..2026-11] [種類:改善] [起票:2026-09-27]
+タグ: [インフラ・計測] [領域:管理] [時期:2026-10..2026-11] [種類:改善] [起票:2026-09-27] [進行中]
 
 **起点**: 2026-09-27、Instagram の状態確認で、自動化用プロファイルの多くが期限切れのまま使う直前まで気づけない構造だと分かった（`.claude/knowledge/reference/playwright-auth-profiles.md` の 9/7 実測で 9 サービス中 6 つが expired）。サービスごとの CI 扱いはあるが、ログインを誰がどこでするかの共通ルールと、ログインの維持・期限切れ検知が無い。文書の一部は Windows 前提（`%LOCALAPPDATA%`）のまま。stats47 には、キーチェーンの ID/PW で切れたときだけ 1 回再ログインし、2FA・CAPTCHA では止めて通知、失敗は 1 回で止める実装がある（`~/stats47/.claude/scripts/measurement/refresh-session.mjs`・`bootstrap-session.mjs`）。A8・もしもは stats47 とログイン状態を共有済み。
 
