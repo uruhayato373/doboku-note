@@ -75,7 +75,15 @@ jobs:
           result=$(node -e "console.log(JSON.parse(require('fs').readFileSync('plan.json','utf8')).result || '')")
           plan_hash=$(node -e "console.log(JSON.parse(require('fs').readFileSync('plan.json','utf8')).planHash || '')")
           echo "plan result: ${result} (rc=${rc}) plan_hash=${plan_hash}"
-          if [ "$result" = "plan" ] && [ -n "$plan_hash" ]; then
+          # レジストリで x の CI が無効（bot 挑戦・datacenter IP でのセッション失効のため）なら投稿しない。
+          # オーナー判断 2026-09-28（DN-0433 (e)）: CI からの X 投稿はいったん止め、期日の予約は手元で投稿する。
+          x_ci_enabled=$(node -e "const r=JSON.parse(require('fs').readFileSync('.claude/config/playwright-auth-profiles.json','utf8'));console.log(r.services?.x?.ci?.enabled===true?'true':'false')")
+          if [ "$x_ci_enabled" != "true" ]; then
+            if [ "$result" = "plan" ]; then
+              echo "::warning::期日の X 予約があるが、レジストリで x の ci.enabled=false のため CI では投稿しない。手元の /publish-x で投稿する。"
+            fi
+            echo "due=0" >> "$GITHUB_OUTPUT"
+          elif [ "$result" = "plan" ] && [ -n "$plan_hash" ]; then
             echo "due=1" >> "$GITHUB_OUTPUT"
             echo "plan_hash=${plan_hash}" >> "$GITHUB_OUTPUT"
           else

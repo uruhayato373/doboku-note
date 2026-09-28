@@ -289,15 +289,6 @@
 
 **完了条件**: 台帳が週次で更新され、管理画面・`check-note-cover-live`・週次レビューがその台帳だけを参照し、マガジンカバーが private R2 に移設されて生成コマンドがローカル容量を圧迫しないことを確認したら、このカードを削除する。DN-0360（新レイアウトの PR 化・live 反映）はこのカード完了後に着手する。
 
-### [DN-0433] Playwright 認証の文書と実装のずれを直す（配線検査の FAIL・古いプロファイルパス・X の CI 扱い）
-タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-09-28]
-
-**起点**: 2026-09-28 の調査で見つかった。(a) `node scripts/check-playwright-auth-wiring.mjs` の検査9が `ops-write.yml` から `inputs.operation.options` を抽出できず FAIL。(b) publish-x・publish-ig-bs・coconala-*・note-*・google-search-growth の SKILL.md が旧 `.local/playwright-*-profile` を案内している（実体は `scripts/lib/playwright-auth-profile.mjs` の置き場）。(c) `note-edit-session.mjs:20` のコメントが `~/.doboku-note-session`。(d) `google-console-browser.mjs:12` は「CI では使わない」と書くが `attachCISession` を呼ぶ。(e) レジストリで x は `ci.enabled:false` なのに `scheduled-publish.yml` の publish-x ジョブは `restore-auth-state` を直接呼び、`ci.enabled` を見ない（`ci-plan` の enabled 判定＝`playwright-auth-state.mjs:203` を通らない）。2026-09-28 時点で同 workflow の全 34 回とも publish-x は `skipped`（期日到来の予約が無かった）＝まだ一度も CI から X に投稿していないが、予約が期日に来た時点で CI から投稿が走る。
-
-**やること**: (a)(b)(c)(d) は PR #686 で修正済み（2026-09-28 マージ）。(e) はレジストリ（CI 不可）と workflow（CI 投稿）のどちらを正にするかをオーナーが決め、workflow 側なら plan-x で `ci.enabled` を見て止める。
-
-**完了条件**: `check-playwright-auth-wiring --strict` が exit 0、SKILL.md に旧パスが残らず、x の CI 扱いがレジストリと workflow で一致したら、このカードを削除する。
-
 ### [DN-0362] Playwright 認証を「人・Mac・CI」の役割分担で設計し直し、ログインの維持を自動化する
 タグ: [インフラ・計測] [領域:管理] [時期:2026-10..2026-11] [種類:改善] [起票:2026-09-27] [進行中]
 
