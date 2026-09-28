@@ -6,6 +6,7 @@ import {
   validatePartialSpec,
   normalizeAttachmentSnapshot,
   sameAttachmentSnapshot,
+  headingIntegrity,
 } from '../scripts/lib/note-partial-update.mjs';
 
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
@@ -76,4 +77,20 @@ test('部分更新 CLI は select-all と全文 paste を使わない', () => {
   assert.match(source, /keyboard\.insertText\(op\.new\)/);
   assert.match(source, /sameAttachmentSnapshot/);
   assert.match(source, /DRY-READONLY/);
+});
+
+test('冒頭 CTA 後の見出し検査: 2026-09-23 の割れ方（CTA が h2・直後の見出しが割れる）を止める', () => {
+  const before = { h2: ['R8 で何が出るのか', '出題傾向'], h3: [] };
+  const cta = '総監の択一式を17年分さかのぼって、出題の型と頻出論点を整理したマガジンで全体像をつかめます。まずは無料の分析記事から読み進めてください。';
+  const broken = { h2: [cta, '8 で何が出るのか', '出題傾向'], h3: [] };
+  const result = headingIntegrity(before, broken);
+  assert.equal(result.ok, false);
+  assert.ok(result.failures.some((f) => f.startsWith('h2-changed:R8')));
+  assert.ok(result.failures.some((f) => f.startsWith('long-heading:0→1')));
+});
+
+test('冒頭 CTA 後の見出し検査: 見出しが同じなら通す（重複見出しは個数まで一致）', () => {
+  const before = { h2: ['はじめに', '解答例', '解答例'], h3: ['補足'] };
+  assert.deepEqual(headingIntegrity(before, { h2: ['はじめに', '解答例', '解答例'], h3: ['補足'] }), { ok: true, failures: [] });
+  assert.equal(headingIntegrity(before, { h2: ['はじめに', '解答例'], h3: ['補足'] }).ok, false);
 });
