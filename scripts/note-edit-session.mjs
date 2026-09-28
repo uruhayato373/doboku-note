@@ -18,7 +18,7 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
  *   npm run note-edit-session -- <note の URL>       # 指定ページを開く
  *   npm run note-edit-session -- m6854c7437d4d       # マガジン key だけでも可
  *
- * セッション保存先: ~/.doboku-note-session（リポジトリ外。cookie を含むため git に入れない）
+ * セッション保存先: auth root の profiles/playwright-note-profile（リポジトリ外・場所は npm run auth:paths -- --service note。cookie を含むため git に入れない）
  * 前提: chromium バイナリは導入済（@playwright/test 1.59.x）。未導入なら
  *       `npx playwright install chromium` を先に実行。
  * ---------------------------------------------------------------------------

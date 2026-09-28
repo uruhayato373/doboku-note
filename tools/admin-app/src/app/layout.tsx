@@ -1,4 +1,3 @@
-import { Suspense } from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Nav from '@/components/Nav';
@@ -45,18 +44,18 @@ export default function RootLayout({
       </head>
       <body className="admin-shell bg-background text-foreground antialiased">
         <SidebarProvider>
-          {/* スマホ幅だけの上部バー。サイドバーは SidebarTrigger で開くオーバーレイになる */}
-          <header className="sticky top-0 z-20 flex h-12 items-center gap-2 border-b border-(--sidebar-border) bg-(--sidebar) px-3 text-(--sidebar-ink) md:hidden">
-            <SidebarTrigger />
-            <Link href="/metrics" className="text-sm font-bold text-(--sidebar-ink) no-underline hover:no-underline">
-              doboku admin
-            </Link>
-          </header>
-          {/* Nav は useSearchParams で層の active を出すため Suspense 境界が要る */}
-          <Suspense fallback={<div className="hidden w-[212px] shrink-0 bg-(--sidebar) md:block" />}>
-            <Nav todoLayers={layers} lineupQualifications={lineupQualifications()} materials={materialsNav()} domains={domainList()} />
-          </Suspense>
-          <SidebarInset className="container">{children}</SidebarInset>
+          {/* useSearchParams の Suspense 境界は Nav の中（メニュー部分だけ）に置く */}
+          <Nav todoLayers={layers} lineupQualifications={lineupQualifications()} materials={materialsNav()} domains={domainList()} />
+          <SidebarInset>
+            {/* スマホ幅だけの上部バー。サイドバーは SidebarTrigger で開く Sheet（公式 Sidebar のモバイル表示）になる */}
+            <header className="sticky top-0 z-20 flex h-12 items-center gap-2 border-b border-sidebar-border bg-sidebar px-3 text-sidebar-foreground md:hidden">
+              <SidebarTrigger />
+              <Link href="/metrics" className="text-sm font-bold text-sidebar-foreground no-underline hover:no-underline">
+                doboku admin
+              </Link>
+            </header>
+            <div className="container w-full">{children}</div>
+          </SidebarInset>
         </SidebarProvider>
       </body>
     </html>

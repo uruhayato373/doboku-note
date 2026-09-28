@@ -16,7 +16,7 @@ domain: sns
 
 > **戦略上の注意（必読）**
 > - **規約グレー**: X ToS は API 外の自動操作を禁止。低頻度・人間的間隔で検出リスクを下げているが、ゼロではない。運営アカウントは SNS 集客の中核資産であることを理解した上で運用する。
-> - **ローカル実行のみ**: X セッションは `.local/playwright-x-profile/`（このMac内）にしかなく、datacenter IP はボット判定される。**クラウド cron 不可**。定期実行は `/loop` をローカルで回す。引用リポスト（curate/コメント生成を伴う書き込み）はカタログ外操作であり `ops-write.yml` の対象にもならない。CI 化済みなのは encrypted-state 経由の**予約投稿**（`scheduled-publish.yml`。頻度ゲート付き・真実源 `x-post-policy.md` §11.5.1）と読み取り（`login-collectors.yml`）だけで、本 curation フローとは別系統。
+> - **ローカル実行のみ**: X セッションは `<auth root>/profiles/playwright-x-profile/`（このMac内）にしかなく、datacenter IP はボット判定される。**クラウド cron 不可**。定期実行は `/loop` をローカルで回す。引用リポスト（curate/コメント生成を伴う書き込み）はカタログ外操作であり `ops-write.yml` の対象にもならない。CI 化済みなのは encrypted-state 経由の**予約投稿**（`scheduled-publish.yml`。頻度ゲート付き・真実源 `x-post-policy.md` §11.5.1）と読み取り（`login-collectors.yml`）だけで、本 curation フローとは別系統。
 > - **完全自動 = コメント無検閲**: 引用コメントは人間の目を通さず投稿される。安全ゲートは curator と config.blocklist の二重。**初回は必ず `--dry-run`**。
 
 ## 構成
@@ -33,7 +33,7 @@ domain: sns
 ## 前提（publish-x と同じ）
 
 1. **システム Chrome** インストール済み（Playwright 同梱 Chromium は X にボット判定される）。
-2. **初回ログイン**: `npx tsx .tmp/x-login.ts` でセッションを `.local/playwright-x-profile/` に保存。
+2. **初回ログイン**: `npm run auth:login -- --service x` でセッションを `<auth root>/profiles/playwright-x-profile/` に保存。
 3. **config.json の `ownHandle` を設定**（@抜き）。未設定だと discover が停止する（自投稿リポスト防止）。
 
 ## 使い方

@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { Suspense, useEffect, useRef } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { ChevronRight } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
@@ -18,6 +19,7 @@ import {
   SidebarMenuSub,
   SidebarMenuSubButton,
   SidebarMenuSubItem,
+  useSidebar,
 } from '@/components/ui/sidebar';
 
 type Tab = {
@@ -109,12 +111,7 @@ function SectionTree({ tree, pathname }: { tree: NavTree; pathname: string }) {
   );
 }
 
-export default function Nav({
-  todoLayers = [],
-  lineupQualifications = [],
-  materials = [],
-  domains = [],
-}: {
+type NavProps = {
   todoLayers?: TodoLayer[];
   /** 商品ラインナップの下に並べる資格（layout が product-lineup.json から渡す） */
   lineupQualifications?: { id: string; label: string }[];
@@ -122,9 +119,22 @@ export default function Nav({
   materials?: { shelf: string; items: { id: string; label: string }[] }[];
   /** 領域の名前・並び・画面（layout が domains.json から渡す） */
   domains?: NavDomain[];
-}) {
+};
+
+/** 領域ごとのメニュー。useSearchParams を使うので Nav が Suspense で包む。 */
+function NavGroups({ todoLayers = [], lineupQualifications = [], materials = [], domains = [] }: NavProps) {
   const pathname = usePathname() ?? '';
   const searchParams = useSearchParams();
+  // スマホ幅の Sheet は画面を移ったら閉じる（公式 Sidebar は開閉を利用側に任せる）。
+  // このメニューは Sheet が開いたときに初めて描かれるので、描いた時点の URL からの変化だけを見る
+  const { setOpenMobile } = useSidebar();
+  const url = `${pathname}?${searchParams.toString()}`;
+  const shownAt = useRef(url);
+  useEffect(() => {
+    if (shownAt.current === url) return;
+    shownAt.current = url;
+    setOpenMobile(false);
+  }, [url, setOpenMobile]);
   // 商品ラインナップは「一覧」と資格ごとの詳細（?q=<資格id>）を持つツリーにする
   const lineupTree: NavTree = {
     label: '商品ラインナップ',
@@ -156,41 +166,55 @@ export default function Nav({
   const exactMatches = new Set(allMatches.filter((m) => allMatches.some((o) => o !== m && o.startsWith(m + '/'))));
 
   return (
+    <>
+      {domains.map((group) => (
+        <SidebarGroup key={group.id}>
+          <SidebarGroupLabel asChild data-active={pathname === `/domains/${group.id}`}>
+            <Link href={`/domains/${group.id}`}>{group.label}</Link>
+          </SidebarGroupLabel>
+          <SidebarMenu>
+            {group.nav
+              .flatMap((e): NavEntry[] => {
+                if (isTree(e)) return [e];
+                if (e.match === '/content/lineup') return [lineupTree];
+                if (e.match === '/materials') return [e, ...materialTrees];
+                return [e];
+              })
+              .map((entry) =>
+                isTree(entry) ? (
+                  <SectionTree key={entry.label} tree={entry} pathname={pathname} />
+                ) : (
+                  <NavLink
+                    key={entry.href}
+                    tab={entry}
+                    active={isActive(pathname, searchParams, entry, exactMatches.has(entry.match))}
+                    count={layerCount(entry)}
+                  />
+                ),
+              )}
+          </SidebarMenu>
+        </SidebarGroup>
+      ))}
+    </>
+  );
+}
+
+/**
+ * 公式 Sidebar の外枠は Suspense の外で描く。中に入れると、遅れて hydrate する間に SidebarProvider の
+ * useIsMobile が確定し、サーバー（デスクトップ用の枠）と画面側（スマホ用の Sheet）が食い違う。
+ */
+export default function Nav(props: NavProps) {
+  return (
     <Sidebar aria-label="管理画面">
       <SidebarHeader className="max-md:hidden">
-        <Link className="px-2.5 text-[15px] font-bold tracking-wide text-(--sidebar-ink) no-underline hover:no-underline" href="/metrics">
+        <Link className="px-2.5 text-[15px] font-bold tracking-wide text-sidebar-foreground no-underline hover:no-underline" href="/metrics">
           doboku admin
         </Link>
       </SidebarHeader>
       <SidebarContent>
-        {domains.map((group) => (
-          <SidebarGroup key={group.id}>
-            <SidebarGroupLabel asChild data-active={pathname === `/domains/${group.id}`}>
-              <Link href={`/domains/${group.id}`}>{group.label}</Link>
-            </SidebarGroupLabel>
-            <SidebarMenu>
-              {group.nav
-                .flatMap((e): NavEntry[] => {
-                  if (isTree(e)) return [e];
-                  if (e.match === '/content/lineup') return [lineupTree];
-                  if (e.match === '/materials') return [e, ...materialTrees];
-                  return [e];
-                })
-                .map((entry) =>
-                  isTree(entry) ? (
-                    <SectionTree key={entry.label} tree={entry} pathname={pathname} />
-                  ) : (
-                    <NavLink
-                      key={entry.href}
-                      tab={entry}
-                      active={isActive(pathname, searchParams, entry, exactMatches.has(entry.match))}
-                      count={layerCount(entry)}
-                    />
-                  ),
-                )}
-            </SidebarMenu>
-          </SidebarGroup>
-        ))}
+        <Suspense fallback={null}>
+          <NavGroups {...props} />
+        </Suspense>
       </SidebarContent>
       <SidebarFooter>
         <ThemeToggle />

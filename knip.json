@@ -15,7 +15,8 @@
     "docs/**",
     ".obsidian/**",
     "public/**",
-    "out/**"
+    "out/**",
+    ".claude/config/shadcn-reference/**"
   ],
   "ignoreBinaries": [
     "cmd.exe",
@@ -45,6 +46,9 @@
   "ignoreDependencies": [
     "hast-util-sanitize",
     "class-variance-authority",
-    "@radix-ui/react-slot"
+    "@radix-ui/react-slot",
+    "@radix-ui/react-dialog",
+    "@radix-ui/react-separator",
+    "@radix-ui/react-tooltip"
   ]
 }

@@ -9,7 +9,7 @@
  *   - プロファイルは本体固定パス（worktree でも同一ログインを共有／auth-profiles.md 準拠）
  *   - Cookie / storageState を標準出力・ファイルへ書き出さない
  *   - debug 保存前に email / Bearer トークンをマスク
- *   - CI では使わない（サービスアカウント API 経路のみ）
+ *   - CI の既定経路はサービスアカウント API（registry の google は ci.enabled:false）。暗号化 state を渡されたときだけ attachCISession で書き戻しを付ける
  */
 import { chromium } from "playwright";
 import {

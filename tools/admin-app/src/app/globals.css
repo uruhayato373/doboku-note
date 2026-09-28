@@ -48,6 +48,16 @@
   --color-popover: hsl(var(--popover));
   --color-popover-foreground: hsl(var(--popover-foreground));
 
+  /* shadcn/ui 公式 Sidebar のトークン（components/ui/sidebar.tsx）。値は管理画面の濃紺サイドバー（--sidebar*）へ割り当てる */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-ink);
+  --color-sidebar-primary: hsl(var(--primary));
+  --color-sidebar-primary-foreground: hsl(var(--primary-foreground));
+  --color-sidebar-accent: var(--sidebar-2);
+  --color-sidebar-accent-foreground: var(--sidebar-ink);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-muted);
+
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
@@ -246,6 +256,14 @@ a {
 }
 a:hover {
   text-decoration: underline;
+}
+/* 公式 Sidebar（data-slot="sidebar"）の中のリンクは部品の文字色に従う。:where で詳細度を a と同じに保ち、
+   部品側の text-sidebar-* / hover: ユーティリティが勝つようにする */
+:where([data-slot="sidebar"]) a {
+  color: inherit;
+}
+:where([data-slot="sidebar"]) a:hover {
+  text-decoration: none;
 }
 
 ::selection {
