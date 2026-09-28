@@ -275,9 +275,9 @@
 ### [DN-0360] note の記事・マガジンの新カバーを一括で live 反映する
 タグ: [収益化] [領域:商品] [時期:2026-10..2026-11] [種類:改善] [起票:2026-09-27]
 
-**起点**: 記事カバー 1,021 枚は Google Drive `制作物/noteカバー/POP版`、マガジンカバー 99 枚は `制作物/マガジンカバー/` に生成・保存済み。マガジン専用レイアウトの再生成コードと Drive 台帳はドラフト PR #699。note 上のカバー更新は未実施。
+**起点**: 記事カバー 1,021 枚は Google Drive `制作物/noteカバー/POP版`、マガジンカバー 99 枚は `制作物/マガジンカバー/` に生成・保存済み。マガジン専用レイアウトの再生成コードと Drive 台帳はドラフト PR #699。記事は 2026-09-28 夜から worktree `.claude/worktrees/note-cover-articles`（branch `chore/note-cover-articles`・develop 53fe43e4f で全件再生成）で live 反映中。plan は記事 update 917・hold 4（予約公開 1・下書き 2・noteId 無し 1）。09-29 06:19 時点で 699 件 OK・失敗 1 件（chunk r1-26）。作業場は同 worktree の `.tmp/note-cover-rollout/`（generated・live-before・live-plan・logs/run-live.log）。生成 PNG は記事フォルダの `img/cover.png` へコピー済み（置かないと R2 の旧カバーを取りに行き skip になる）。
 
-**やること**: PR #699 を develop へ取り込んだ後、Drive の画像を一覧確認し、記事とマガジンの note 上のカバー更新を一括で実施する。`note-cover-rollout` の snapshot → plan → run → verify → record で実行時の公開対象を確定し、旧 held 9 本も公開済みなら含める。記事は note API の eyecatch、マガジンは cover で反映を確認する。
+**やること**: (1) 記事: 同 worktree で `tail logs/run-live.log` を見て、run が止まっていれば `DOBOKU_PW_ALLOW_PARALLEL=1 node scripts/note-cover-rollout.mjs run` で残り（未 OK のみ）を再開 → `verify` → `record --date 2026-09-28 --status done`。続けて `node scripts/asset-offload.mjs --group note-cover-png --include-untracked --commit` で新カバーを private R2 へ上げ、`.claude/state/note-republish-hashes.json` と record をコミットする（R2 を更新しないと次回の作業で旧カバーが復元される）。hold 4 本は公開後に同じ手順。(2) マガジン: PR #699 を develop へ取り込んだ後、Drive の画像を一覧確認して `run --magazines` で更新し cover を確認する。終わったら worktree を削除する。
 
 **完了条件**: 公開中の全記事・全マガジンの note 上のカバーが新レイアウトになり、文字切れ・意図しない折返し・主要要素のトリミングが0件であることを確認したら、このカードを削除する。
 
