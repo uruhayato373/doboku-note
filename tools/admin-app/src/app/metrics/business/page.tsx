@@ -81,7 +81,7 @@ function CadenceTabs({ list, current }: { list: Cadence[]; current: string }) {
         {list.map((x) => (
           <TabsTrigger key={x.id} href={x.id === 'weekly' ? '/metrics/business' : `/metrics/business?cadence=${x.id}`} active={x.id === current}>
             {x.label}レビュー
-            <Badge variant={x.due?.due ? 'warning' : 'success'} className="px-1.5 py-0 text-[10px] leading-4">
+            <Badge variant={x.due?.due ? 'warning' : 'success'}>
               {x.due?.due ? '未実施' : '実施済み'}
             </Badge>
           </TabsTrigger>

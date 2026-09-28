@@ -3,9 +3,9 @@ import { Slot } from '@radix-ui/react-slot';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/cn';
 
-/** shadcn/ui の Badge。success / warning は管理画面の状態表示用に足した variant。 */
+/** shadcn/ui の Badge（標準のクラス: rounded-md border px-2 py-0.5 text-xs font-medium）。success / warning は管理画面の状態表示用に足した variant。 */
 export const badgeVariants = cva(
-  'inline-flex w-fit shrink-0 items-center justify-center gap-1 overflow-hidden rounded-full border px-2.5 py-0.5 text-[11px] leading-5 font-semibold whitespace-nowrap [&>svg]:size-3 [&>svg]:pointer-events-none',
+  'inline-flex w-fit shrink-0 items-center justify-center gap-1 overflow-hidden rounded-md border px-2 py-0.5 text-xs font-medium whitespace-nowrap [&>svg]:size-3 [&>svg]:pointer-events-none',
   {
     variants: {
       variant: {
