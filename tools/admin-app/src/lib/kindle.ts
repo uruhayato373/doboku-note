@@ -1,6 +1,7 @@
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { existsSync, readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { findRepoRoot, repoPath } from './repo-root';
 import { loadProjectEntries } from './project';
 import {
@@ -10,6 +11,7 @@ import {
   estimateFreshness,
   joinRoyalties,
   coverMediaUrl,
+  artifactRelPaths,
   ROYALTIES_PATH,
 } from '../../../../scripts/lib/kindle-catalog.mjs';
 
@@ -215,5 +217,39 @@ export async function loadKindleView(): Promise<KindleView> {
     freshnessOk,
     royalties,
     relatedDocs,
+  };
+}
+
+export interface KindlePreviewView {
+  id: string;
+  title: string;
+  status: string;
+  coverUrl: string | null;
+  /** プレビュー未生成なら null */
+  pages: { url: string; item: string }[] | null;
+  generatedAt: string | null;
+  /** プレビューが今の EPUB から作られたか（EPUB が無ければ null） */
+  matchesEpub: boolean | null;
+}
+
+/** /content/kindle/<id> — EPUB のページ画像（.tmp/kindle-preview/<id>/manifest.json）を表示用に読む。 */
+export function loadKindlePreview(id: string): KindlePreviewView | null {
+  const book = loadKindleCatalog().find((b: { id: string }) => b.id === id) as Record<string, unknown> | undefined;
+  if (!book) return null;
+  const manifestPath = repoPath('.tmp', 'kindle-preview', id, 'manifest.json');
+  const manifest = existsSync(manifestPath)
+    ? (JSON.parse(readFileSync(manifestPath, 'utf8')) as { epubSha256: string; generatedAt: string; pages: { file: string; item: string }[] })
+    : null;
+  const epubRel = artifactRelPaths(book).epub as string | null;
+  const epubPath = epubRel ? repoPath(...epubRel.split('/')) : null;
+  const epubSha = epubPath && existsSync(epubPath) ? createHash('sha256').update(readFileSync(epubPath)).digest('hex') : null;
+  return {
+    id,
+    title: (book.title as string) ?? id,
+    status: (book.status as string) ?? 'unknown',
+    coverUrl: coverMediaUrl(book),
+    pages: manifest ? manifest.pages.map((p) => ({ url: `/media/kindlepreview/${encodeURIComponent(id)}/${p.file}`, item: p.item })) : null,
+    generatedAt: manifest?.generatedAt ?? null,
+    matchesEpub: manifest && epubSha ? manifest.epubSha256 === epubSha : null,
   };
 }

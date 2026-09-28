@@ -105,6 +105,7 @@ npm run check-standards-page-images # 上の provenance 整合（catalog↔manif
 
 ```bash
 npm run kdp-report        # Kindle 月次ロイヤリティを KDP レポートから取得→.claude/state/sales/kdp-royalties.json（読み取り専用・当月/前月のみ・定期取得は login-collectors.yml）
+npm run kindle-preview -- --id <id[,id]>   # EPUB を 600×800 のページ画像に描画→.tmp/kindle-preview/<id>/（--status ready で一括）。管理画面 /content/kindle/<id> で表紙と並べて目視確認。Kindle 実機の描画とは近似。EPUB を作り直したら再生成（画面が「EPUB が更新されています」と出す）
 npm run check-kdp-report-freshness # KDPロイヤリティ台帳の期限とdoboku-note LIVE全冊（対象月末までに出版した本）のcatalog紐付けを検査（共有口座の他サイト書籍は除外。16日以降=前月確定、28日以降=当月推計。quality:auditのops区分が日次通知）
 npm run note-traffic-fetch # note ダッシュボード「アクセス状況」を read-only 取得→.claude/state/metrics/note/{referrers,articles-pv}-YYYY-MM.json（--month は今月/先月のみ・--commit で保存・--check は fixture で正規化の完走確認＝quality:audit ci・ログイン要・DN-0249）。流入元は自己閲覧を含み、サイト経由は PR #511 deploy 前は no referrer に含まれる
 npm run note-sales-fetch  # note 売上履歴を read-only 取得→検算OKで.claude/state/sales/sales-log.jsonの当月を差し替え（--month YYYY-MM --commit・ログイン要・DN-0018）
