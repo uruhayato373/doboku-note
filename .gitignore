@@ -92,6 +92,8 @@ public/posts
 # 個別列挙しかしていなかったため untracked で git status に出た（＝コミットしうる状態）。
 # 新しいサービスを足すたびに列挙もれで同じ事故が起きるので、パターンで塞ぐ。
 .local/playwright-*-state.json
+# 認証 state のバックアップ（*.bak-日時）も資格情報を含むので追跡しない
+.local/*.bak-*
 .local/playwright-*-profile/
 .local/playwright-*-debug/
 
