@@ -83,7 +83,7 @@ export default function PeFirstStageQuizPage() {
         title="技術士第一次試験 過去問演習"
         lead={
           <>
-            <strong className="text-[var(--ink)]">基礎・適性・専門（建設部門）</strong>の平成25〜令和7年度と令和元年度再試験・全1,120問を、年度別・科目別・ランダム・間違い復習で解けます。図と数式もそのまま表示します。
+            <strong className="text-(--ink)">基礎・適性・専門（建設部門）</strong>の平成25〜令和7年度と令和元年度再試験・全1,120問を、年度別・科目別・ランダム・間違い復習で解けます。図と数式もそのまま表示します。
           </>
         }
       />

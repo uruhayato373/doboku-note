@@ -235,16 +235,16 @@ export function PeFirstStageView({ groups, mobileCareerAds = [] }: { groups: Doc
         </CurriculumSection>
       )}
       <section className="card-surface-section mb-10 p-5 sm:p-6" aria-labelledby="pe1-free-quiz">
-        <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--accent)]">登録不要・無料</div>
-        <h2 id="pe1-free-quiz" className="mt-1 font-serif text-[21px] sm:text-[24px] font-black text-[var(--ink)]">
+        <div className="text-[11px] font-bold uppercase tracking-wider text-(--accent)">登録不要・無料</div>
+        <h2 id="pe1-free-quiz" className="mt-1 font-serif text-[21px] sm:text-[24px] font-black text-(--ink)">
           平成25〜令和7年度と令和元年度再試験・全1,120問をその場で演習
         </h2>
-        <p className="mt-2 text-[14px] leading-7 text-[var(--ink-body)]">
+        <p className="mt-2 text-[14px] leading-7 text-(--ink-body)">
           基礎・適性・専門（建設部門）を、年度別・科目別・ランダムで即採点。間違えた問題だけの復習にも対応しています。
         </p>
         <Link
           href="/tools/kakomon-quiz/pe-first-stage"
-          className="focus-ring mt-4 inline-flex rounded-card-content border border-[var(--accent)] bg-[var(--accent-fill)] px-4 py-2 text-sm font-bold text-[var(--accent)] hover:underline"
+          className="focus-ring mt-4 inline-flex rounded-card-content border border-(--accent) bg-(--accent-fill) px-4 py-2 text-sm font-bold text-(--accent) hover:underline"
         >
           無料で過去問を解く →
         </Link>
@@ -293,27 +293,27 @@ export function PeComprehensiveView({ groups, mobileCareerAds = [] }: { groups: 
       {keywordCount > 0 && (
         <section id="sec-keyword" className="scroll-mt-24">
           <div className="mb-6">
-            <h2 className="font-serif text-[22px] sm:text-[26px] font-black text-[var(--ink)]">キーワードを探す</h2>
-            <p className="text-[14px] text-[var(--ink-muted)] mt-1">
+            <h2 className="font-serif text-[22px] sm:text-[26px] font-black text-(--ink)">キーワードを探す</h2>
+            <p className="text-[14px] text-(--ink-muted) mt-1">
               5 管理 × 26 セクションで体系化された全 {keywordCount} キーワードの索引
             </p>
           </div>
           <Link
             href="/sitemap-keywords"
-            className="focus-ring card-surface-content group flex items-center gap-4 p-5 transition-[border-color,box-shadow] hover:border-[var(--accent)] hover:shadow-card-hover"
+            className="focus-ring card-surface-content group flex items-center gap-4 p-5 transition-[border-color,box-shadow] hover:border-(--accent) hover:shadow-card-hover"
           >
-            <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-card-inline bg-[var(--accent)] text-lg font-bold text-[var(--paper)]">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-card-inline bg-(--accent) text-lg font-bold text-(--paper)">
               ≡
             </div>
             <div className="flex-1">
-              <div className="font-bold text-lg text-[var(--ink)] group-hover:text-[var(--accent)] transition-colors">
+              <div className="font-bold text-lg text-(--ink) group-hover:text-(--accent) transition-colors">
                 キーワードを全件見る（{keywordCount} 件）
               </div>
-              <div className="text-sm text-[var(--ink-muted)]">
+              <div className="text-sm text-(--ink-muted)">
                 文部科学省「総合技術監理 キーワード集 2026」に基づくセクション別索引へ
               </div>
             </div>
-            <span className="text-[var(--accent)] group-hover:translate-x-1 transition-transform" aria-hidden>›</span>
+            <span className="text-(--accent) group-hover:translate-x-1 transition-transform" aria-hidden>›</span>
           </Link>
         </section>
       )}

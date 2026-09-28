@@ -45,7 +45,7 @@ export default function MidArticleCta(props: MidArticleCtaProps) {
   }
   return (
     <div className="not-prose my-8 max-w-2xl">
-      <div className="mb-2 text-sm font-semibold text-[var(--ink-muted)]">この続きに読みたい</div>
+      <div className="mb-2 text-sm font-semibold text-(--ink-muted)">この続きに読みたい</div>
       <RelatedArticleCard doc={props.doc} />
     </div>
   );

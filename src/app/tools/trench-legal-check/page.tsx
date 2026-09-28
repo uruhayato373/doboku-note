@@ -43,7 +43,7 @@ export default function TrenchLegalCheckPage() {
         title="溝掘削 法令チェッカー"
         lead={
           <>
-            掘削面の高さと地山の種類を入れると、<strong className="text-[var(--ink)]">作業主任者の選任義務</strong>・<strong className="text-[var(--ink)]">法面勾配の基準</strong>・<strong className="text-[var(--ink)]">土止め先行工法ガイドラインの適用範囲</strong>を確認できます。「安全な深さ」を判定するツールではありません。
+            掘削面の高さと地山の種類を入れると、<strong className="text-(--ink)">作業主任者の選任義務</strong>・<strong className="text-(--ink)">法面勾配の基準</strong>・<strong className="text-(--ink)">土止め先行工法ガイドラインの適用範囲</strong>を確認できます。「安全な深さ」を判定するツールではありません。
           </>
         }
       />

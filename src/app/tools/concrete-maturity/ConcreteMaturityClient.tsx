@@ -39,9 +39,9 @@ export default function ConcreteMaturityClient() {
   const isCold = mean !== null && mean <= COLD_DAILY_MEAN_C;
 
   const inputBase =
-    "focus-ring w-full rounded-card-content border border-[var(--rule-soft)] bg-[var(--bg)] px-3 py-2 text-[15px] text-[var(--ink)] focus:border-[var(--accent)]";
+    "focus-ring w-full rounded-card-content border border-(--rule-soft) bg-(--bg) px-3 py-2 text-[15px] text-(--ink) focus:border-(--accent)";
   const labelBase =
-    "block text-[11px] font-bold uppercase tracking-wider text-[var(--ink-muted)] mb-2";
+    "block text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-2";
 
   return (
     <div className="max-w-[760px] mx-auto px-4 sm:px-6 py-8 sm:py-10">
@@ -90,7 +90,7 @@ export default function ConcreteMaturityClient() {
               onChange={(e) => setDailyMean(e.target.value)}
               className={inputBase}
             />
-            <p className="mt-1.5 text-xs leading-5 text-[var(--ink-muted)]">
+            <p className="mt-1.5 text-xs leading-5 text-(--ink-muted)">
               寒中コンクリートの区分を決める
             </p>
           </div>
@@ -101,81 +101,81 @@ export default function ConcreteMaturityClient() {
       <div className="card-surface-section mt-4 p-5 sm:p-6">
         <div className="flex items-center justify-between gap-4 flex-wrap">
           <div>
-            <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--ink-muted)]">
+            <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted)">
               積算温度 M = Σ(θ+{MATURITY_OFFSET})Δt
             </div>
-            <div className="font-serif font-black text-[24px] sm:text-[28px] leading-tight mt-1 text-[var(--ink)] tabular-nums">
+            <div className="font-serif font-black text-[24px] sm:text-[28px] leading-tight mt-1 text-(--ink) tabular-nums">
               {maturity !== null ? `${maturity.toFixed(0)} ℃・D` : "—"}
             </div>
           </div>
           {isCold && (
-            <div className="inline-flex items-center rounded-full border border-[var(--color-warn)] px-3 py-1 text-sm font-bold text-[var(--warn-text-emphasis)]">
+            <div className="inline-flex items-center rounded-full border border-(--color-warn) px-3 py-1 text-sm font-bold text-(--warn-text-emphasis)">
               寒中コンクリートの区分
             </div>
           )}
         </div>
 
         {ratio !== null && (
-          <div className="mt-5 rounded-card-content bg-[var(--accent-fill)] p-4">
-            <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--ink-body)]">
+          <div className="mt-5 rounded-card-content bg-(--accent-fill) p-4">
+            <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-body)">
               標準養生28日相当（{STANDARD_28D_MATURITY}℃・D）との比
             </div>
-            <div className="font-serif font-black text-[22px] text-[var(--ink)] mt-1 tabular-nums">
+            <div className="font-serif font-black text-[22px] text-(--ink) mt-1 tabular-nums">
               {(ratio * 100).toFixed(0)}%
             </div>
-            <p className="mt-2 text-sm leading-6 text-[var(--ink-body)]">
+            <p className="mt-2 text-sm leading-6 text-(--ink-body)">
               比が100%を超えても、標準養生28日と同じ強度が出ているとは限りません。強度への換算は配合ごとに事前に把握した関係式が必要です。
             </p>
           </div>
         )}
 
         {isCold && (
-          <p className="mt-4 rounded-card-content border-l-4 border-[var(--color-warn)] bg-[var(--bg)] p-3 text-sm leading-6 text-[var(--ink-body)]">
+          <p className="mt-4 rounded-card-content border-l-4 border-(--color-warn) bg-(--bg) p-3 text-sm leading-6 text-(--ink-body)">
             日平均気温が4℃以下のため、寒中コンクリートとして扱う区分に該当します。打込み時のコンクリート温度は5〜20℃を確保し、初期凍害を受けない強度が出るまで5℃以上に保つ必要があります。
           </p>
         )}
       </div>
 
       {/* 根拠 */}
-      <div className="mt-6 rounded-card-content border border-[var(--rule-soft)] bg-[var(--bg)] p-5 text-sm leading-7 text-[var(--ink-body)]">
-        <p className="font-bold text-[var(--ink)] mb-2">数値の根拠</p>
+      <div className="mt-6 rounded-card-content border border-(--rule-soft) bg-(--bg) p-5 text-sm leading-7 text-(--ink-body)">
+        <p className="font-bold text-(--ink) mb-2">数値の根拠</p>
         <ul className="list-disc pl-5 space-y-1">
           <li>
-            <strong className="text-[var(--ink)]">積算温度 M = Σ(θ+10)Δt</strong>は、コンクリートの強度発現を温度と時間の積み重ねで捉えるマチュリティ（Saul の積算温度式）です。θは養生期間中の平均気温、Δtは日数を表します。
+            <strong className="text-(--ink)">積算温度 M = Σ(θ+10)Δt</strong>は、コンクリートの強度発現を温度と時間の積み重ねで捉えるマチュリティ（Saul の積算温度式）です。θは養生期間中の平均気温、Δtは日数を表します。
           </li>
           <li>
-            <strong className="text-[var(--ink)]">標準養生28日相当 840℃・D</strong>は、標準養生（20℃）で材齢28日の積算温度（20+10）×28から求めた値です。
+            <strong className="text-(--ink)">標準養生28日相当 840℃・D</strong>は、標準養生（20℃）で材齢28日の積算温度（20+10）×28から求めた値です。
           </li>
           <li>
-            <strong className="text-[var(--ink)]">寒中コンクリートの区分（日平均気温4℃以下）</strong>は、打込み後91日間の積算温度が840℃・D未満となる場合も対象になります。
+            <strong className="text-(--ink)">寒中コンクリートの区分（日平均気温4℃以下）</strong>は、打込み後91日間の積算温度が840℃・D未満となる場合も対象になります。
           </li>
-          <li className="text-[var(--ink-muted)]">
-            ※ 積算温度と圧縮強度の関係（σ=A logM+Bの形）は、使用する材料・配合・養生条件によって異なる実験定数A・Bを必要とします。<strong className="text-[var(--ink-body)]">本ツールは強度を推定・判定するものではありません。</strong>重要部材では供試体の試験による確認と併用してください。
+          <li className="text-(--ink-muted)">
+            ※ 積算温度と圧縮強度の関係（σ=A logM+Bの形）は、使用する材料・配合・養生条件によって異なる実験定数A・Bを必要とします。<strong className="text-(--ink-body)">本ツールは強度を推定・判定するものではありません。</strong>重要部材では供試体の試験による確認と併用してください。
           </li>
         </ul>
       </div>
 
       {/* 関連 */}
       <div className="mt-6">
-        <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--ink-muted)] mb-3">
+        <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-3">
           関連するページ
         </div>
         <div className="grid gap-3 sm:grid-cols-2">
           <Link
             href="/practice/formwork-removal-timing"
-            className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-[var(--accent)]"
+            className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-(--accent)"
           >
-            <div className="font-bold text-[var(--ink)]">型枠・支保工はいつ外せるか</div>
-            <div className="text-sm text-[var(--ink-body)] mt-1">
+            <div className="font-bold text-(--ink)">型枠・支保工はいつ外せるか</div>
+            <div className="text-sm text-(--ink-body) mt-1">
               積算温度による推定の位置づけを解説した記事
             </div>
           </Link>
           <Link
             href="/tools/concrete-time-check"
-            className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-[var(--accent)]"
+            className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-(--accent)"
           >
-            <div className="font-bold text-[var(--ink)]">打込み 時間管理チェッカー</div>
-            <div className="text-sm text-[var(--ink-body)] mt-1">
+            <div className="font-bold text-(--ink)">打込み 時間管理チェッカー</div>
+            <div className="text-sm text-(--ink-body) mt-1">
               暑中／寒中の区分と当日の限度時刻を計算
             </div>
           </Link>

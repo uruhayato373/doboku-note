@@ -16,7 +16,7 @@ export function Card({ className, ...props }: HTMLAttributes<HTMLDivElement>) {
 }
 
 type BadgeVariant =
-  'default' | 'secondary' | 'outline' | 'success' | 'warning' | 'destructive';
+  'default' | 'secondary' | 'outline-solid' | 'success' | 'warning' | 'destructive';
 
 const badgeVariants: Record<BadgeVariant, string> = {
   default: 'border-transparent bg-primary text-primary-foreground',

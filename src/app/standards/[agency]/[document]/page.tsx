@@ -78,7 +78,7 @@ export default async function StandardDocumentPage({ params }: { params: Promise
         <div className="card-surface-section px-5 pb-8 sm:px-8 sm:pb-10 lg:px-10">
       <PageHeader
         variant="inline"
-        className="border-b border-[var(--rule-soft)] py-6 sm:py-8"
+        className="border-b border-(--rule-soft) py-6 sm:py-8"
         breadcrumb={[
           { label: 'ホーム', href: '/' },
           { label: '基準類', href: '/standards' },
@@ -92,8 +92,8 @@ export default async function StandardDocumentPage({ params }: { params: Promise
       />
         <div className="pt-5">
         {entry.unreadableRanges.length > 0 && (
-          <SectionCard title="原本画質による判読注記" padding="compact" className="mb-6 border-[var(--color-warn)]">
-            <ul className="space-y-3 text-[13px] leading-[1.8] text-[var(--ink-body)]">
+          <SectionCard title="原本画質による判読注記" padding="compact" className="mb-6 border-(--color-warn)">
+            <ul className="space-y-3 text-[13px] leading-[1.8] text-(--ink-body)">
               {entry.unreadableRanges.map((range) => (
                 <li key={`${range.page}-${range.range}`}>
                   <strong>PDF page {range.page}：</strong>{range.range}
@@ -105,31 +105,31 @@ export default async function StandardDocumentPage({ params }: { params: Promise
 
         {books.length > 0 && (
           <section aria-labelledby="chapters" className="mb-8">
-            <h2 id="chapters" className="text-2xl font-bold text-[var(--ink)]">章から読む</h2>
-            <p className="mt-2 text-[14px] leading-[1.8] text-[var(--ink-muted)]">
+            <h2 id="chapters" className="text-2xl font-bold text-(--ink)">章から読む</h2>
+            <p className="mt-2 text-[14px] leading-[1.8] text-(--ink-muted)">
               読みたい編・章を選んでください。
             </p>
             {books.map((book) => (
               <div key={book.bookNumber} className="mt-5">
-                <h3 className="text-lg font-bold text-[var(--ink)]">
+                <h3 className="text-lg font-bold text-(--ink)">
                   第{book.bookNumber}編 {book.bookTitle}
                 </h3>
-                <ol className="mt-3 divide-y divide-[var(--rule-soft)] border-y border-[var(--rule-soft)] bg-[var(--paper)]">
+                <ol className="mt-3 divide-y divide-(--rule-soft) border-y border-(--rule-soft) bg-(--paper)">
                   {book.chapters.map((chapter) => (
                     <li key={chapter.chapterId}>
                       <Link
                         href={standardChapterPath(entry, chapter)}
-                        className="focus-ring flex min-h-14 items-center justify-between gap-4 px-4 py-3 transition-colors hover:bg-[var(--accent-fill)]"
+                        className="focus-ring flex min-h-14 items-center justify-between gap-4 px-4 py-3 transition-colors hover:bg-(--accent-fill)"
                       >
                         <span className="min-w-0 flex-1">
-                          <span className="block font-medium text-[var(--ink)]">
+                          <span className="block font-medium text-(--ink)">
                             第{chapter.chapterNumber}章 {chapter.chapterTitle}
                           </span>
-                          <span className="mt-1 block font-mono text-[11px] text-[var(--ink-muted)]">
+                          <span className="mt-1 block font-mono text-[11px] text-(--ink-muted)">
                             {chapter.sections.length}節 · 原本 p.{chapter.firstPage}–{chapter.lastPage}
                           </span>
                         </span>
-                        <span className="shrink-0 font-mono text-[11px] text-[var(--ink-muted)]">→</span>
+                        <span className="shrink-0 font-mono text-[11px] text-(--ink-muted)">→</span>
                       </Link>
                     </li>
                   ))}
@@ -140,23 +140,23 @@ export default async function StandardDocumentPage({ params }: { params: Promise
         )}
 
         <section aria-labelledby="transcription-parts">
-          <h2 id="transcription-parts" className="text-xl font-bold text-[var(--ink)]">原典PDFページで確認する</h2>
-          <p className="mt-2 text-[14px] leading-[1.8] text-[var(--ink-muted)]">
+          <h2 id="transcription-parts" className="text-xl font-bold text-(--ink)">原典PDFページで確認する</h2>
+          <p className="mt-2 text-[14px] leading-[1.8] text-(--ink-muted)">
             {books.length > 0
               ? '章記事の元になった逐語文字起こしです。紙面の改行・空白・ページ番号をそのまま保っているため、原本との照合に使えます。1分冊は原則50ページです。'
               : '1分冊は原則50ページです。各ページ見出しの番号は原本PDF上のページ番号です。'}
           </p>
-          <ol className="mt-4 divide-y divide-[var(--rule-soft)] border-y border-[var(--rule-soft)] bg-[var(--paper)]">
+          <ol className="mt-4 divide-y divide-(--rule-soft) border-y border-(--rule-soft) bg-(--paper)">
             {entry.parts.map((part) => (
               <li key={part.slug}>
                 <Link
                   href={standardPartPath(entry, part)}
-                  className="focus-ring flex min-h-14 items-center justify-between gap-4 px-4 py-3 transition-colors hover:bg-[var(--accent-fill)]"
+                  className="focus-ring flex min-h-14 items-center justify-between gap-4 px-4 py-3 transition-colors hover:bg-(--accent-fill)"
                 >
-                  <span className="font-medium text-[var(--ink)]">
+                  <span className="font-medium text-(--ink)">
                     {[standardPartLabel(entry, part), `PDF page ${part.firstPage}–${part.lastPage}`].filter(Boolean).join('｜')}
                   </span>
-                  <span className="font-mono text-[11px] text-[var(--ink-muted)]">{part.pageCount}頁 →</span>
+                  <span className="font-mono text-[11px] text-(--ink-muted)">{part.pageCount}頁 →</span>
                 </Link>
               </li>
             ))}

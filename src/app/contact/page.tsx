@@ -41,21 +41,21 @@ export default function ContactPage() {
         {/* メール */}
         <SectionCard className="mb-6">
           <div className="flex items-center gap-3 mb-5">
-            <div className="bg-[var(--accent-fill)] w-12 h-12 rounded-card-content flex items-center justify-center shrink-0">
-              <Mail className="w-6 h-6 text-[var(--accent)]" />
+            <div className="bg-(--accent-fill) w-12 h-12 rounded-card-content flex items-center justify-center shrink-0">
+              <Mail className="w-6 h-6 text-(--accent)" />
             </div>
             <div>
-              <h2 className="font-serif font-bold text-[var(--ink)] text-lg">
+              <h2 className="font-serif font-bold text-(--ink) text-lg">
                 メールでのお問い合わせ
               </h2>
-              <p className="text-sm text-[var(--ink-muted)]">
+              <p className="text-sm text-(--ink-muted)">
                 以下のメールアドレスまでお気軽にご連絡ください
               </p>
             </div>
           </div>
           <a
             href="mailto:info@doboku-note.com"
-            className="inline-flex items-center gap-2 font-mono text-lg text-[var(--accent)] hover:underline"
+            className="inline-flex items-center gap-2 font-mono text-lg text-(--accent) hover:underline"
           >
             info@doboku-note.com
           </a>
@@ -63,29 +63,29 @@ export default function ContactPage() {
 
         {/* お問い合わせの種類 */}
         <SectionCard title="お問い合わせの例" className="mb-6">
-          <ul className="space-y-2 text-[15px] text-[var(--ink-body)]">
+          <ul className="space-y-2 text-[15px] text-(--ink-body)">
             <li className="flex items-start gap-2">
-              <span className="text-[var(--accent)] mt-1 shrink-0">●</span>
+              <span className="text-(--accent) mt-1 shrink-0">●</span>
               <span>コンテンツの誤り・古い情報のご指摘</span>
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-[var(--accent)] mt-1 shrink-0">●</span>
+              <span className="text-(--accent) mt-1 shrink-0">●</span>
               <span>試験対策に関するご質問</span>
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-[var(--accent)] mt-1 shrink-0">●</span>
+              <span className="text-(--accent) mt-1 shrink-0">●</span>
               <span>サイトの不具合・表示の問題</span>
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-[var(--accent)] mt-1 shrink-0">●</span>
+              <span className="text-(--accent) mt-1 shrink-0">●</span>
               <span>共通仕様書・公的資料のHTML／Markdown／JSON-LD化</span>
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-[var(--accent)] mt-1 shrink-0">●</span>
+              <span className="text-(--accent) mt-1 shrink-0">●</span>
               <span>年度改定差分・原本照合・検索データ整備</span>
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-[var(--accent)] mt-1 shrink-0">●</span>
+              <span className="text-(--accent) mt-1 shrink-0">●</span>
               <span>その他のご意見・ご要望</span>
             </li>
           </ul>
@@ -95,19 +95,19 @@ export default function ContactPage() {
         <div className="grid gap-4 md:grid-cols-2">
           <SectionCard padding="default">
             <div className="flex items-center gap-2 mb-3">
-              <Clock className="w-5 h-5 text-[var(--ink-muted)]" />
-              <h3 className="font-serif font-bold text-[var(--ink)]">返信について</h3>
+              <Clock className="w-5 h-5 text-(--ink-muted)" />
+              <h3 className="font-serif font-bold text-(--ink)">返信について</h3>
             </div>
-            <p className="text-sm text-[var(--ink-body)] leading-relaxed">
+            <p className="text-sm text-(--ink-body) leading-relaxed">
               お問い合わせいただいた内容には、通常3営業日以内にご返信いたします。内容によってはお時間をいただく場合がございます。
             </p>
           </SectionCard>
           <SectionCard padding="default">
             <div className="flex items-center gap-2 mb-3">
-              <AlertCircle className="w-5 h-5 text-[var(--ink-muted)]" />
-              <h3 className="font-serif font-bold text-[var(--ink)]">ご了承事項</h3>
+              <AlertCircle className="w-5 h-5 text-(--ink-muted)" />
+              <h3 className="font-serif font-bold text-(--ink)">ご了承事項</h3>
             </div>
-            <p className="text-sm text-[var(--ink-body)] leading-relaxed">
+            <p className="text-sm text-(--ink-body) leading-relaxed">
               個別の試験問題の解答や、合否に関するご質問にはお答えできかねます。あらかじめご了承ください。
             </p>
           </SectionCard>

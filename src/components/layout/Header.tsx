@@ -208,7 +208,7 @@ export default function Header() {
   return (
     <>
       <header
-        className="bg-[var(--paper)] border-b border-[var(--rule-soft)] transition-colors duration-300"
+        className="bg-(--paper) border-b border-(--rule-soft) transition-colors duration-300"
       >
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="flex justify-between items-center h-16 sm:h-[72px]">
@@ -217,10 +217,10 @@ export default function Header() {
                 href="/"
                 className="focus-ring flex items-baseline gap-2 sm:gap-3 rounded-card-inline hover:opacity-80 transition-opacity"
               >
-                <span className="font-serif text-[26px] sm:text-[32px] font-black tracking-tight leading-none text-[var(--ink)]">
+                <span className="font-serif text-[26px] sm:text-[32px] font-black tracking-tight leading-none text-(--ink)">
                   doboku
                 </span>
-                <span className="font-mono text-[10px] sm:text-xs text-[var(--ink-muted)] tracking-widest uppercase">
+                <span className="font-mono text-[10px] sm:text-xs text-(--ink-muted) tracking-widest uppercase">
                   — note
                 </span>
               </Link>
@@ -229,21 +229,21 @@ export default function Header() {
             <div className="flex items-center gap-2 md:hidden">
               <Link
                 href="/search"
-                className="focus-ring flex min-h-11 min-w-11 items-center justify-center rounded-card-inline hover:bg-[var(--accent-fill)] transition-colors"
+                className="focus-ring flex min-h-11 min-w-11 items-center justify-center rounded-card-inline hover:bg-(--accent-fill) transition-colors"
                 aria-label="検索"
               >
-                <Search className="w-6 h-6 text-[var(--ink-body)]" />
+                <Search className="w-6 h-6 text-(--ink-body)" />
               </Link>
               <button
                 ref={menuTriggerRef}
                 onClick={toggleMenu}
-                className="focus-ring flex min-h-11 min-w-11 items-center justify-center rounded-card-inline hover:bg-[var(--accent-fill)] transition-colors"
+                className="focus-ring flex min-h-11 min-w-11 items-center justify-center rounded-card-inline hover:bg-(--accent-fill) transition-colors"
                 aria-label="メニューを開く"
                 aria-expanded={isMenuOpen}
                 aria-haspopup="true"
                 aria-controls="mobile-drawer-menu"
               >
-                <Menu className="w-6 h-6 text-[var(--ink-body)]" />
+                <Menu className="w-6 h-6 text-(--ink-body)" />
               </button>
               <ThemeToggle />
             </div>
@@ -251,7 +251,7 @@ export default function Header() {
             <nav className="hidden md:flex items-center gap-1">
               <Link
                 href="/search"
-                className="focus-ring flex flex-col items-center gap-1 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2 rounded-card-inline transition-colors"
+                className="focus-ring flex flex-col items-center gap-1 text-(--ink-body) hover:text-(--accent) hover:bg-(--accent-fill) px-3 py-2 rounded-card-inline transition-colors"
               >
                 <Search className="w-5 h-5" />
                 <span className="text-[11px] font-medium">検索</span>
@@ -263,7 +263,7 @@ export default function Header() {
                   onClick={toggleCategoryDropdown}
                   aria-expanded={isCategoryOpen}
                   aria-haspopup="true"
-                  className="focus-ring flex flex-col items-center gap-1 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2 rounded-card-inline transition-colors"
+                  className="focus-ring flex flex-col items-center gap-1 text-(--ink-body) hover:text-(--accent) hover:bg-(--accent-fill) px-3 py-2 rounded-card-inline transition-colors"
                 >
                   <GraduationCap className="w-5 h-5" />
                   <span className="flex items-center gap-0.5 text-[11px] font-medium">
@@ -272,13 +272,13 @@ export default function Header() {
                   </span>
                 </button>
                 {isCategoryOpen && (
-                  <div className="absolute top-full right-0 mt-1 w-64 bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-content shadow-lift z-50 overflow-hidden">
+                  <div className="absolute top-full right-0 mt-1 w-64 bg-(--paper) border border-(--rule-soft) rounded-card-content shadow-lift z-50 overflow-hidden">
                     {categories.map((cat, i) => (
                       <div key={cat.slug}>
                         {/* 資格でないカテゴリ（variant: general）の手前に区切りを置く */}
                         {cat.variant === "general" && categories[i - 1]?.variant !== "general" && (
-                          <div className="border-t border-[var(--rule-soft)] px-4 pt-2 pb-1">
-                            <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--ink-muted)]">
+                          <div className="border-t border-(--rule-soft) px-4 pt-2 pb-1">
+                            <span className="font-mono text-[10px] uppercase tracking-widest text-(--ink-muted)">
                               資格を問わない実務
                             </span>
                           </div>
@@ -286,7 +286,7 @@ export default function Header() {
                         <Link
                           href={getCategoryHubPath(cat.slug)}
                           onClick={closeCategoryDropdown}
-                          className="focus-ring flex items-center gap-3 px-4 py-3 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] transition-colors"
+                          className="focus-ring flex items-center gap-3 px-4 py-3 text-(--ink-body) hover:text-(--accent) hover:bg-(--accent-fill) transition-colors"
                         >
                           <CategoryIcon variant={cat.variant} className="w-4 h-4 shrink-0" />
                           <span className="text-sm">{cat.label}</span>
@@ -299,7 +299,7 @@ export default function Header() {
 
               <Link
                 href="/topics"
-                className="focus-ring flex flex-col items-center gap-1 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2 rounded-card-inline transition-colors"
+                className="focus-ring flex flex-col items-center gap-1 text-(--ink-body) hover:text-(--accent) hover:bg-(--accent-fill) px-3 py-2 rounded-card-inline transition-colors"
               >
                 <Tags className="w-5 h-5" />
                 <span className="text-[11px] font-medium">テーマ</span>
@@ -307,7 +307,7 @@ export default function Header() {
 
               <Link
                 href="/standards"
-                className="focus-ring flex flex-col items-center gap-1 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2 rounded-card-inline transition-colors"
+                className="focus-ring flex flex-col items-center gap-1 text-(--ink-body) hover:text-(--accent) hover:bg-(--accent-fill) px-3 py-2 rounded-card-inline transition-colors"
               >
                 <BookOpen className="w-5 h-5" />
                 <span className="text-[11px] font-medium">基準類</span>
@@ -315,7 +315,7 @@ export default function Header() {
 
               <Link
                 href="/links"
-                className="focus-ring flex flex-col items-center gap-1 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2 rounded-card-inline transition-colors"
+                className="focus-ring flex flex-col items-center gap-1 text-(--ink-body) hover:text-(--accent) hover:bg-(--accent-fill) px-3 py-2 rounded-card-inline transition-colors"
               >
                 <Layers className="w-5 h-5" />
                 <span className="text-[11px] font-medium">教材</span>
@@ -323,7 +323,7 @@ export default function Header() {
 
               <Link
                 href="/tools"
-                className="focus-ring flex flex-col items-center gap-1 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2 rounded-card-inline transition-colors"
+                className="focus-ring flex flex-col items-center gap-1 text-(--ink-body) hover:text-(--accent) hover:bg-(--accent-fill) px-3 py-2 rounded-card-inline transition-colors"
               >
                 <HardHat className="w-5 h-5" />
                 <span className="text-[11px] font-medium">計算・演習</span>
@@ -331,12 +331,12 @@ export default function Header() {
 
               <Link
                 href="/about"
-                className="focus-ring flex flex-col items-center gap-1 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2 rounded-card-inline transition-colors"
+                className="focus-ring flex flex-col items-center gap-1 text-(--ink-body) hover:text-(--accent) hover:bg-(--accent-fill) px-3 py-2 rounded-card-inline transition-colors"
               >
                 <User className="w-5 h-5" />
                 <span className="text-[11px] font-medium">About</span>
               </Link>
-              <div className="ml-2 pl-2 border-l border-[var(--rule-soft)]">
+              <div className="ml-2 pl-2 border-l border-(--rule-soft)">
                 <ThemeToggle />
               </div>
             </nav>
@@ -349,7 +349,7 @@ export default function Header() {
         <button
           type="button"
           onClick={closeMenu}
-          className="fixed inset-0 z-[60] m-0 appearance-none border-0 bg-black/50 p-0 md:hidden"
+          className="fixed inset-0 z-60 m-0 appearance-none border-0 bg-black/50 p-0 md:hidden"
           aria-label="メニューを閉じる"
         />
       )}
@@ -358,7 +358,7 @@ export default function Header() {
       <div
         id="mobile-drawer-menu"
         ref={drawerRef}
-        className={`fixed top-0 right-0 h-dvh w-64 overflow-y-auto overscroll-contain bg-[var(--paper)] shadow-lift z-[70] transform transition-transform duration-300 ease-in-out md:hidden ${
+        className={`fixed top-0 right-0 h-dvh w-64 overflow-y-auto overscroll-contain bg-(--paper) shadow-lift z-70 transform transition-transform duration-300 ease-in-out md:hidden ${
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
         role={isMenuOpen ? 'dialog' : undefined}
@@ -370,7 +370,7 @@ export default function Header() {
           {/* 閉じるボタン */}
           <button
             onClick={closeMenu}
-            className="focus-ring sticky top-4 z-10 ml-auto flex min-h-11 min-w-11 items-center justify-center rounded-card-inline bg-[var(--paper)] hover:bg-[var(--accent-fill)] text-[var(--ink-body)]"
+            className="focus-ring sticky top-4 z-10 ml-auto flex min-h-11 min-w-11 items-center justify-center rounded-card-inline bg-(--paper) hover:bg-(--accent-fill) text-(--ink-body)"
             aria-label="メニューを閉じる"
           >
             <X className="w-6 h-6" />
@@ -382,7 +382,7 @@ export default function Header() {
             <Link
               href="/search"
               onClick={closeMenu}
-              className="focus-ring flex min-h-11 items-center gap-3 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2.5 rounded-card-inline transition-colors"
+              className="focus-ring flex min-h-11 items-center gap-3 text-(--ink-body) hover:text-(--accent) hover:bg-(--accent-fill) px-3 py-2.5 rounded-card-inline transition-colors"
             >
               <Search className="w-5 h-5" />
               <span className="font-medium">検索</span>
@@ -392,8 +392,8 @@ export default function Header() {
               <div key={cat.slug}>
                 {/* 資格でないカテゴリ（variant: general）の手前に区切りを置く */}
                 {cat.variant === "general" && categories[i - 1]?.variant !== "general" && (
-                  <div className="border-t border-[var(--rule-soft)] mt-2 pt-3 px-3 pb-1">
-                    <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--ink-muted)]">
+                  <div className="border-t border-(--rule-soft) mt-2 pt-3 px-3 pb-1">
+                    <span className="font-mono text-[10px] uppercase tracking-widest text-(--ink-muted)">
                       資格を問わない実務
                     </span>
                   </div>
@@ -401,7 +401,7 @@ export default function Header() {
                 <Link
                   href={getCategoryHubPath(cat.slug)}
                   onClick={closeMenu}
-                  className="focus-ring flex min-h-11 items-center gap-3 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2.5 rounded-card-inline transition-colors"
+                  className="focus-ring flex min-h-11 items-center gap-3 text-(--ink-body) hover:text-(--accent) hover:bg-(--accent-fill) px-3 py-2.5 rounded-card-inline transition-colors"
                 >
                   <CategoryIcon variant={cat.variant} />
                   <span className="font-medium">{cat.label}</span>
@@ -412,7 +412,7 @@ export default function Header() {
             <Link
               href="/standards"
               onClick={closeMenu}
-              className="focus-ring flex min-h-11 items-center gap-3 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2.5 rounded-card-inline transition-colors"
+              className="focus-ring flex min-h-11 items-center gap-3 text-(--ink-body) hover:text-(--accent) hover:bg-(--accent-fill) px-3 py-2.5 rounded-card-inline transition-colors"
             >
               <BookOpen className="w-5 h-5" />
               <span className="font-medium">基準類・仕様書</span>
@@ -421,7 +421,7 @@ export default function Header() {
             <Link
               href="/topics"
               onClick={closeMenu}
-              className="focus-ring flex min-h-11 items-center gap-3 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2.5 rounded-card-inline transition-colors"
+              className="focus-ring flex min-h-11 items-center gap-3 text-(--ink-body) hover:text-(--accent) hover:bg-(--accent-fill) px-3 py-2.5 rounded-card-inline transition-colors"
             >
               <Layers className="w-5 h-5" />
               <span className="font-medium">テーマから探す</span>
@@ -431,7 +431,7 @@ export default function Header() {
             <Link
               href="/links"
               onClick={closeMenu}
-              className="focus-ring flex min-h-11 items-center gap-3 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2.5 rounded-card-inline transition-colors"
+              className="focus-ring flex min-h-11 items-center gap-3 text-(--ink-body) hover:text-(--accent) hover:bg-(--accent-fill) px-3 py-2.5 rounded-card-inline transition-colors"
             >
               <Layers className="w-5 h-5" />
               <span className="font-medium">教材</span>
@@ -441,7 +441,7 @@ export default function Header() {
             <Link
               href="/tools"
               onClick={closeMenu}
-              className="focus-ring flex min-h-11 items-center gap-3 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2.5 rounded-card-inline transition-colors"
+              className="focus-ring flex min-h-11 items-center gap-3 text-(--ink-body) hover:text-(--accent) hover:bg-(--accent-fill) px-3 py-2.5 rounded-card-inline transition-colors"
             >
               <HardHat className="w-5 h-5" />
               <span className="font-medium">計算・演習</span>
@@ -449,7 +449,7 @@ export default function Header() {
             <Link
               href="/about"
               onClick={closeMenu}
-              className="focus-ring flex min-h-11 items-center gap-3 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2.5 rounded-card-inline transition-colors"
+              className="focus-ring flex min-h-11 items-center gap-3 text-(--ink-body) hover:text-(--accent) hover:bg-(--accent-fill) px-3 py-2.5 rounded-card-inline transition-colors"
             >
               <User className="w-5 h-5" />
               <span className="font-medium">About</span>

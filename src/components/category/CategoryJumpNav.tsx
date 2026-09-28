@@ -73,10 +73,10 @@ export default function CategoryJumpNav({ category }: { category: string }) {
       aria-label="この資格の学習メニュー"
       data-cta="nav"
       data-cta-label="category-jump-nav"
-      className="border-b border-[var(--rule-soft)] py-4"
+      className="border-b border-(--rule-soft) py-4"
     >
       <div className="mb-3">
-        <div className="text-[17px] font-bold tracking-[0.02em] text-[var(--ink)]">
+        <div className="text-[17px] font-bold tracking-[0.02em] text-(--ink)">
           学習を始める
         </div>
       </div>
@@ -88,9 +88,9 @@ export default function CategoryJumpNav({ category }: { category: string }) {
           >
             <Link
               href={item.href}
-              className="focus-ring flex h-full min-h-11 items-center justify-between gap-2 rounded-card-inline border border-[var(--rule-soft)] px-3 py-3 text-sm font-bold text-[var(--ink)] transition-colors hover:bg-[var(--accent-fill)]"
+              className="focus-ring flex h-full min-h-11 items-center justify-between gap-2 rounded-card-inline border border-(--rule-soft) px-3 py-3 text-sm font-bold text-(--ink) transition-colors hover:bg-(--accent-fill)"
             >
-              <span>{item.label}</span><span aria-hidden="true" className="text-[var(--accent)]">→</span>
+              <span>{item.label}</span><span aria-hidden="true" className="text-(--accent)">→</span>
             </Link>
           </li>
         ))}

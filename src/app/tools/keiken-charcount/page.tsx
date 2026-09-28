@@ -55,14 +55,14 @@ export default function KeikenCharcountPage() {
         title="施工経験記述 文字数チェッカー"
         lead={
           <>
-            <strong className="text-[var(--ink)]">1級・2級土木施工管理技士 第2次検定 問題1（施工経験記述）</strong>の答案が、本番の<strong className="text-[var(--ink)]">解答欄の字数</strong>に収まるかを無料でチェックします。級・出題形式・設問を選び、答案を貼り付けるだけ。
+            <strong className="text-(--ink)">1級・2級土木施工管理技士 第2次検定 問題1（施工経験記述）</strong>の答案が、本番の<strong className="text-(--ink)">解答欄の字数</strong>に収まるかを無料でチェックします。級・出題形式・設問を選び、答案を貼り付けるだけ。
           </>
         }
       />
 
       <KeikenCharcountClient />
       <div className="max-w-[760px] mx-auto px-4 sm:px-6 pb-10">
-        <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--ink-muted)] mb-3">
+        <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-3">
           完成答案で書き方を確かめる（note）
         </div>
         <div className="grid gap-3 sm:grid-cols-2">
@@ -79,10 +79,10 @@ export default function KeikenCharcountPage() {
                 data-cta="note"
                 data-cta-label={label}
                 data-cta-placement="tools-keiken-charcount"
-                className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-[var(--accent)]"
+                className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-(--accent)"
               >
-                <div className="font-bold text-[var(--ink)]">{mag.shortTitle ?? mag.title}</div>
-                <div className="text-sm text-[var(--ink-body)] mt-1">{lead}</div>
+                <div className="font-bold text-(--ink)">{mag.shortTitle ?? mag.title}</div>
+                <div className="text-sm text-(--ink-body) mt-1">{lead}</div>
               </a>
             );
           })}

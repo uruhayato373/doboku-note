@@ -45,7 +45,7 @@ export default function ConcreteTimeCheckPage() {
         title="コンクリート打込み 時間管理チェッカー"
         lead={
           <>
-            <strong className="text-[var(--ink)]">外気温</strong>と<strong className="text-[var(--ink)]">練混ぜ完了時刻</strong>を入れると、許容打重ね時間間隔・練混ぜ〜打込み終了・荷卸しの限度が<strong className="text-[var(--ink)]">時刻</strong>で出ます。日平均気温から暑中／寒中コンクリートの区分も判定します。
+            <strong className="text-(--ink)">外気温</strong>と<strong className="text-(--ink)">練混ぜ完了時刻</strong>を入れると、許容打重ね時間間隔・練混ぜ〜打込み終了・荷卸しの限度が<strong className="text-(--ink)">時刻</strong>で出ます。日平均気温から暑中／寒中コンクリートの区分も判定します。
           </>
         }
       />

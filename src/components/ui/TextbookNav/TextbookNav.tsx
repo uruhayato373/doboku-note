@@ -28,17 +28,17 @@ export default function TextbookNav({ currentSlug, categoryArticles }: TextbookN
 
   return (
     <MetaCard trackNav="textbook-nav">
-      <h2 className="text-lg font-bold text-[var(--ink)] mb-4">
+      <h2 className="text-lg font-bold text-(--ink) mb-4">
         テキスト章ナビゲーション
       </h2>
       <div className="grid gap-3 grid-cols-1 sm:grid-cols-2">
         {prev ? (
           <Link
             href={getPublicDocPath(prev.slug)}
-            className="block rounded-card-content border border-[var(--rule-soft)] p-4 transition-colors hover:border-[var(--accent)]"
+            className="block rounded-card-content border border-(--rule-soft) p-4 transition-colors hover:border-(--accent)"
           >
-            <div className="text-xs text-[var(--ink-muted)] mb-1">← 前の章</div>
-            <div className="text-sm font-semibold text-[var(--accent)]">{prev.title}</div>
+            <div className="text-xs text-(--ink-muted) mb-1">← 前の章</div>
+            <div className="text-sm font-semibold text-(--accent)">{prev.title}</div>
           </Link>
         ) : (
           <div />
@@ -46,10 +46,10 @@ export default function TextbookNav({ currentSlug, categoryArticles }: TextbookN
         {next ? (
           <Link
             href={getPublicDocPath(next.slug)}
-            className="block rounded-card-content border border-[var(--rule-soft)] p-4 text-right transition-colors hover:border-[var(--accent)]"
+            className="block rounded-card-content border border-(--rule-soft) p-4 text-right transition-colors hover:border-(--accent)"
           >
-            <div className="text-xs text-[var(--ink-muted)] mb-1">次の章 →</div>
-            <div className="text-sm font-semibold text-[var(--accent)]">{next.title}</div>
+            <div className="text-xs text-(--ink-muted) mb-1">次の章 →</div>
+            <div className="text-sm font-semibold text-(--accent)">{next.title}</div>
           </Link>
         ) : (
           <div />

@@ -453,7 +453,7 @@ export async function renderDocPage(slugStr: string) {
             {/* Editorial article card: 12px radius, soft border + shadow。
                 横 padding = タブレット40(px-10) / デスクトップ44(zenn-desktop:px-11)。
                 ≤576px は角丸・左右枠を外し px = var(--article-gutter-sp)（設問カード details のフルブリード相殺と連動） */}
-            <article className="bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-section shadow-soft py-12 px-10 zenn-desktop:px-11 overflow-hidden transition-colors duration-300 max-zenn-sp:rounded-none max-zenn-sp:border-x-0 max-zenn-sp:py-[35px] max-zenn-sp:px-[var(--article-gutter-sp)]">
+            <article className="bg-(--paper) border border-(--rule-soft) rounded-card-section shadow-soft py-12 px-10 zenn-desktop:px-11 overflow-hidden transition-colors duration-300 max-zenn-sp:rounded-none max-zenn-sp:border-x-0 max-zenn-sp:py-[35px] max-zenn-sp:px-(--article-gutter-sp)">
               {/* 記事ヘッダー: breadcrumb + H1 + description リード + byline を集約 */}
               <ArticleHeader
                 title={doc.meta.title}
@@ -484,7 +484,7 @@ export async function renderDocPage(slugStr: string) {
               )}
               {/* MDX Content — 先頭の # H1 は server-side で描画済みのため strip。
                   参考資料セクションは extractReferencesSection で抽出済みのため strippedContent を渡す */}
-              <div className="prose-blog prose-base">
+              <div className="prose-blog">
                 <SafeMDXRemote
                   source={stripLeadingH1(strippedContent)}
                   components={componentsWithMid}

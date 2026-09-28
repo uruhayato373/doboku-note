@@ -18,7 +18,7 @@ export default function PremiumNoteHero() {
         data-cta="note"
         data-cta-label="home-note-hero"
         data-cta-placement="home-hero"
-        className="group relative block aspect-[3/2] w-full overflow-hidden rounded-card-section border border-[var(--rule-soft)] shadow-card-content transition-shadow hover:shadow-card-hover sm:aspect-[24/9]"
+        className="group relative block aspect-3/2 w-full overflow-hidden rounded-card-section border border-(--rule-soft) shadow-card-content transition-shadow hover:shadow-card-hover sm:aspect-24/9"
       >
         <Image
           src="/images/cta-bg/note-hero.webp"
@@ -28,22 +28,22 @@ export default function PremiumNoteHero() {
           className="object-cover object-[70%_center] sm:object-center"
         />
         {/* モバイルの center クロップでも左の文字が読めるよう、左側だけ薄い白スクリム（固定白＝dark でも明色地に整合） */}
-        <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/35 to-transparent sm:via-white/20" />
-        <div className="absolute inset-y-0 left-0 flex w-[72%] flex-col items-start justify-center pl-5 pr-3 text-[var(--on-image-ink)] sm:w-[54%] sm:pl-10">
+        <div className="absolute inset-0 bg-linear-to-r from-white/80 via-white/35 to-transparent sm:via-white/20" />
+        <div className="absolute inset-y-0 left-0 flex w-[72%] flex-col items-start justify-center pl-5 pr-3 text-(--on-image-ink) sm:w-[54%] sm:pl-10">
           <span className="font-serif text-[21px] font-black leading-tight sm:text-[32px]" style={HALO}>
             土木・建設系資格の
             <br />
             note 有料教材
           </span>
           <span
-            className="mt-2 text-[12px] font-bold leading-relaxed text-[var(--on-image-ink-soft)] sm:text-[14px]"
+            className="mt-2 text-[12px] font-bold leading-relaxed text-(--on-image-ink-soft) sm:text-[14px]"
             style={HALO}
           >
             技術士（総監・建設部門）・1級／2級土木施工管理技士に対応。
             <br className="hidden sm:block" />
             模範論文・施工経験記述・記述解答のフル完成答案を販売しています。
           </span>
-          <span className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-[var(--on-image-pill-bg)] px-4 py-1.5 text-[13px] font-black text-white shadow-card-content transition-transform group-hover:translate-x-0.5 sm:mt-4 sm:text-[14px]">
+          <span className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-(--on-image-pill-bg) px-4 py-1.5 text-[13px] font-black text-white shadow-card-content transition-transform group-hover:translate-x-0.5 sm:mt-4 sm:text-[14px]">
             教材一覧を見る
             <span aria-hidden>›</span>
           </span>

@@ -119,7 +119,7 @@ export function SearchBox({
           )}
         >
           <svg
-            className={cn("text-[var(--ink-muted)]", compact ? "h-4 w-4" : "h-5 w-5")}
+            className={cn("text-(--ink-muted)", compact ? "h-4 w-4" : "h-5 w-5")}
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -146,9 +146,9 @@ export function SearchBox({
           onBlur={onBlur}
           placeholder={placeholder}
           className={cn(
-            "block w-full bg-[var(--paper)] text-[var(--ink)] border border-[var(--rule-soft)] rounded-card-content",
-            "focus-ring focus:border-[var(--accent)]",
-            "placeholder:text-[var(--ink-muted)]",
+            "block w-full bg-(--paper) text-(--ink) border border-(--rule-soft) rounded-card-content",
+            "focus-ring focus:border-(--accent)",
+            "placeholder:text-(--ink-muted)",
             "transition-colors duration-200",
             compact ? "pl-8 pr-8 py-2 text-sm" : "pl-10 pr-10 py-2"
           )}
@@ -167,7 +167,7 @@ export function SearchBox({
             <svg
               aria-hidden="true"
               className={cn(
-                "text-[var(--ink-muted)] hover:text-[var(--ink)] transition-colors",
+                "text-(--ink-muted) hover:text-(--ink) transition-colors",
                 compact ? "h-4 w-4" : "h-5 w-5"
               )}
               fill="none"
@@ -197,15 +197,15 @@ export function SearchBox({
                 <button
                   onClick={() => handleSuggestionClick(suggestion)}
                   className={cn(
-                    "w-full px-4 py-2 text-left text-sm text-[var(--ink-body)]",
-                    "hover:bg-[var(--accent-fill)] hover:text-[var(--accent)]",
-                    "focus-ring focus:bg-[var(--accent-fill)]",
+                    "w-full px-4 py-2 text-left text-sm text-(--ink-body)",
+                    "hover:bg-(--accent-fill) hover:text-(--accent)",
+                    "focus-ring focus:bg-(--accent-fill)",
                     "transition-colors duration-150"
                   )}
                 >
                   <div className="flex items-center">
                     <svg
-                      className="h-4 w-4 text-[var(--ink-muted)] mr-2"
+                      className="h-4 w-4 text-(--ink-muted) mr-2"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"

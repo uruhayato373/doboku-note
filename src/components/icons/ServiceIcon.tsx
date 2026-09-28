@@ -28,7 +28,7 @@ const FALLBACK_ICON = {
 
 export default function ServiceIcon({
   channel,
-  className = 'w-[18px] h-[18px] text-[var(--ink-muted)] shrink-0 mt-0.5',
+  className = 'w-[18px] h-[18px] text-(--ink-muted) shrink-0 mt-0.5',
 }: {
   channel: ServiceChannel;
   className?: string;

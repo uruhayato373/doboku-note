@@ -43,7 +43,7 @@ export default function ConcreteMaturityPage() {
         title="コンクリート 積算温度（マチュリティ）計算ツール"
         lead={
           <>
-            養生期間中の<strong className="text-[var(--ink)]">平均気温</strong>と<strong className="text-[var(--ink)]">日数</strong>から積算温度（マチュリティ）を計算し、標準養生28日相当（840℃・D）との比較で養生の進み具合の目安を確認します。強度そのものは、配合ごとに事前に把握した関係式・試験による確認と併用してください。
+            養生期間中の<strong className="text-(--ink)">平均気温</strong>と<strong className="text-(--ink)">日数</strong>から積算温度（マチュリティ）を計算し、標準養生28日相当（840℃・D）との比較で養生の進み具合の目安を確認します。強度そのものは、配合ごとに事前に把握した関係式・試験による確認と併用してください。
           </>
         }
       />

@@ -109,15 +109,15 @@ export default function RebarSpliceCheckClient() {
   const allPass = allEntered && rows.every((r) => r.pass === true);
 
   const inputBase =
-    "focus-ring w-full rounded-card-content border border-[var(--rule-soft)] bg-[var(--bg)] px-3 py-2 text-[15px] text-[var(--ink)] focus:border-[var(--accent)]";
+    "focus-ring w-full rounded-card-content border border-(--rule-soft) bg-(--bg) px-3 py-2 text-[15px] text-(--ink) focus:border-(--accent)";
   const labelBase =
-    "block text-[11px] font-bold uppercase tracking-wider text-[var(--ink-muted)] mb-2";
+    "block text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-2";
 
   return (
     <div className="max-w-[760px] mx-auto px-4 sm:px-6 py-8 sm:py-10">
       {/* ① ずらし量 */}
       <div className="card-surface-section p-5 sm:p-6">
-        <div className="font-bold text-[var(--ink)] mb-4">① 千鳥配置のずらし量</div>
+        <div className="font-bold text-(--ink) mb-4">① 千鳥配置のずらし量</div>
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
             <label htmlFor="diameter" className={labelBase}>
@@ -148,11 +148,11 @@ export default function RebarSpliceCheckClient() {
             />
           </div>
         </div>
-        <div className="mt-5 rounded-card-content bg-[var(--accent-fill)] p-4 flex items-baseline justify-between">
-          <span className="text-sm text-[var(--ink-body)]">
+        <div className="mt-5 rounded-card-content bg-(--accent-fill) p-4 flex items-baseline justify-between">
+          <span className="text-sm text-(--ink-body)">
             隣り合う継手間の必要距離（継手の長さ + {STAGGER_MULTIPLIER}d）
           </span>
-          <span className="font-serif font-black text-[24px] text-[var(--ink)] tabular-nums">
+          <span className="font-serif font-black text-[24px] text-(--ink) tabular-nums">
             {staggerDistance !== null ? `${staggerDistance.toFixed(0)} mm` : "—"}
           </span>
         </div>
@@ -160,7 +160,7 @@ export default function RebarSpliceCheckClient() {
 
       {/* ② ガス圧接ふくらみ検査 */}
       <div className="card-surface-section mt-4 p-5 sm:p-6">
-        <div className="font-bold text-[var(--ink)] mb-4">② ガス圧接部の検査（JIS Z 3120）</div>
+        <div className="font-bold text-(--ink) mb-4">② ガス圧接部の検査（JIS Z 3120）</div>
 
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
@@ -194,7 +194,7 @@ export default function RebarSpliceCheckClient() {
         </div>
 
         {diffOk === false && !isD41D51 && (
-          <p className="mt-3 rounded-card-content border-l-4 border-[var(--color-danger)] bg-[var(--bg)] p-3 text-sm leading-6 text-[var(--ink-body)]">
+          <p className="mt-3 rounded-card-content border-l-4 border-(--color-danger) bg-(--bg) p-3 text-sm leading-6 text-(--ink-body)">
             径の差が{MANUAL_GAS_WELD_MAX_DIFF_MM}mmを超えています。D41とD51の組合せを除き、手動ガス圧接そのものが認められません。
           </p>
         )}
@@ -289,28 +289,28 @@ export default function RebarSpliceCheckClient() {
         <div className="mt-5 overflow-x-auto">
           <table className="w-full text-sm border-collapse">
             <thead>
-              <tr className="border-b border-[var(--rule)]">
-                <th className="py-2 pr-3 text-left font-bold text-[var(--ink)]">項目</th>
-                <th className="py-2 px-3 text-left font-bold text-[var(--ink)] whitespace-nowrap">
+              <tr className="border-b border-(--rule)">
+                <th className="py-2 pr-3 text-left font-bold text-(--ink)">項目</th>
+                <th className="py-2 px-3 text-left font-bold text-(--ink) whitespace-nowrap">
                   基準
                 </th>
-                <th className="py-2 pl-3 text-right font-bold text-[var(--ink)] whitespace-nowrap">
+                <th className="py-2 pl-3 text-right font-bold text-(--ink) whitespace-nowrap">
                   判定
                 </th>
               </tr>
             </thead>
             <tbody>
               {rows.map((r) => (
-                <tr key={r.label} className="border-b border-[var(--rule-soft)] last:border-0">
-                  <td className="py-2 pr-3 text-[var(--ink-body)]">{r.label}</td>
-                  <td className="py-2 px-3 text-[var(--ink-muted)] whitespace-nowrap">{r.criterion}</td>
+                <tr key={r.label} className="border-b border-(--rule-soft) last:border-0">
+                  <td className="py-2 pr-3 text-(--ink-body)">{r.label}</td>
+                  <td className="py-2 px-3 text-(--ink-muted) whitespace-nowrap">{r.criterion}</td>
                   <td className="py-2 pl-3 text-right whitespace-nowrap">
                     {r.pass === null ? (
-                      <span className="text-[var(--ink-muted)]">—</span>
+                      <span className="text-(--ink-muted)">—</span>
                     ) : r.pass ? (
-                      <span className="font-bold text-[var(--color-positive)]">合格</span>
+                      <span className="font-bold text-(--color-positive)">合格</span>
                     ) : (
-                      <span className="font-bold text-[var(--color-danger)]">不合格</span>
+                      <span className="font-bold text-(--color-danger)">不合格</span>
                     )}
                   </td>
                 </tr>
@@ -323,8 +323,8 @@ export default function RebarSpliceCheckClient() {
           <div
             className={`mt-4 rounded-card-content border-l-4 p-4 text-center font-bold ${
               allPass
-                ? "border-[var(--color-positive)] text-[var(--color-positive)]"
-                : "border-[var(--color-danger)] text-[var(--color-danger)]"
+                ? "border-(--color-positive) text-(--color-positive)"
+                : "border-(--color-danger) text-(--color-danger)"
             }`}
             style={{ background: "var(--bg)" }}
           >
@@ -334,19 +334,19 @@ export default function RebarSpliceCheckClient() {
       </div>
 
       {/* 根拠 */}
-      <div className="mt-6 rounded-card-content border border-[var(--rule-soft)] bg-[var(--bg)] p-5 text-sm leading-7 text-[var(--ink-body)]">
-        <p className="font-bold text-[var(--ink)] mb-2">数値の根拠</p>
+      <div className="mt-6 rounded-card-content border border-(--rule-soft) bg-(--bg) p-5 text-sm leading-7 text-(--ink-body)">
+        <p className="font-bold text-(--ink) mb-2">数値の根拠</p>
         <ul className="list-disc pl-5 space-y-1">
           <li>
-            <strong className="text-[var(--ink)]">千鳥配置のずらし量</strong>は、隣り合う継手同士の間隔を継手の長さに鉄筋直径の25倍を加えた長さ以上とする考え方です。継手の長さそのものは設計図書で決まるため、本ツールでは入力値として扱います。
+            <strong className="text-(--ink)">千鳥配置のずらし量</strong>は、隣り合う継手同士の間隔を継手の長さに鉄筋直径の25倍を加えた長さ以上とする考え方です。継手の長さそのものは設計図書で決まるため、本ツールでは入力値として扱います。
           </li>
           <li>
-            <strong className="text-[var(--ink)]">ガス圧接部の判定基準</strong>はJIS Z 3120。ふくらみの直径は鉄筋径の1.4倍以上・長さは1.1倍以上、圧接面のずれは1/4以下、中心軸の偏心量は1/5以下、折れ曲がりは2°以下、片ふくらみは1/5以下です。
+            <strong className="text-(--ink)">ガス圧接部の判定基準</strong>はJIS Z 3120。ふくらみの直径は鉄筋径の1.4倍以上・長さは1.1倍以上、圧接面のずれは1/4以下、中心軸の偏心量は1/5以下、折れ曲がりは2°以下、片ふくらみは1/5以下です。
           </li>
           <li>
-            <strong className="text-[var(--ink)]">径差{MANUAL_GAS_WELD_MAX_DIFF_MM}mm超の手動ガス圧接禁止</strong>は、D41とD51の組合せを除いて適用されます。作業は鉄筋のガス圧接技術検定（JIS Z 3881）の有資格者に限られます。
+            <strong className="text-(--ink)">径差{MANUAL_GAS_WELD_MAX_DIFF_MM}mm超の手動ガス圧接禁止</strong>は、D41とD51の組合せを除いて適用されます。作業は鉄筋のガス圧接技術検定（JIS Z 3881）の有資格者に限られます。
           </li>
-          <li className="text-[var(--ink-muted)]">
+          <li className="text-(--ink-muted)">
             ※ 本ツールは入力値をJIS Z 3120の基準と照らすだけで、外観検査・引張試験そのものを代替しません。外観検査は全数、引張試験は1日1組の作業班が完了した箇所を1ロットとして抜き取るのが基本です。
           </li>
         </ul>
@@ -354,25 +354,25 @@ export default function RebarSpliceCheckClient() {
 
       {/* 関連 */}
       <div className="mt-6">
-        <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--ink-muted)] mb-3">
+        <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-3">
           関連するページ
         </div>
         <div className="grid gap-3 sm:grid-cols-2">
           <Link
             href="/practice/rebar-splice-selection"
-            className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-[var(--accent)]"
+            className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-(--accent)"
           >
-            <div className="font-bold text-[var(--ink)]">継手を3方式から選ぶ</div>
-            <div className="text-sm text-[var(--ink-body)] mt-1">
+            <div className="font-bold text-(--ink)">継手を3方式から選ぶ</div>
+            <div className="text-sm text-(--ink-body) mt-1">
               重ね継手・ガス圧接・機械式継手の選定基準を解説
             </div>
           </Link>
           <Link
             href="/tools"
-            className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-[var(--accent)]"
+            className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-(--accent)"
           >
-            <div className="font-bold text-[var(--ink)]">無料ツール一覧</div>
-            <div className="text-sm text-[var(--ink-body)] mt-1">
+            <div className="font-bold text-(--ink)">無料ツール一覧</div>
+            <div className="text-sm text-(--ink-body) mt-1">
               現場管理値の計算ツールをまとめて見る
             </div>
           </Link>

@@ -62,9 +62,9 @@ function Choice<T extends string>({
   const hintId = useId();
   return (
     <fieldset className="mt-6">
-      <legend className="text-[15px] font-bold text-[var(--ink)]">{legend}</legend>
+      <legend className="text-[15px] font-bold text-(--ink)">{legend}</legend>
       {hint && (
-        <p id={hintId} className="mt-1 text-[13px] text-[var(--ink-muted)]">
+        <p id={hintId} className="mt-1 text-[13px] text-(--ink-muted)">
           {hint}
         </p>
       )}
@@ -88,10 +88,10 @@ function Choice<T extends string>({
               />
               <label
                 htmlFor={id}
-                className={`focus-ring-within inline-block cursor-pointer rounded-card-content border px-3 py-2 text-[14px] transition-colors peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-[var(--accent)] ${
+                className={`focus-ring-within inline-block cursor-pointer rounded-card-content border px-3 py-2 text-[14px] transition-colors peer-focus-visible:outline-solid peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-(--accent) ${
                   checked
-                    ? "border-brand bg-[var(--accent-fill)] font-medium text-[var(--ink)]"
-                    : "border-[var(--rule-soft)] text-[var(--ink-body)] hover:border-brand dark:border-[var(--rule-soft)]"
+                    ? "border-brand bg-(--accent-fill) font-medium text-(--ink)"
+                    : "border-(--rule-soft) text-(--ink-body) hover:border-brand dark:border-(--rule-soft)"
                 }`}
               >
                 {o.label}
@@ -161,10 +161,10 @@ export default function CareerCheckClient() {
   return (
     <div className="mx-auto w-full max-w-[760px] px-4 sm:px-0">
       <section aria-labelledby="career-check-form" className="card-surface-section p-5 sm:p-6 print:hidden">
-        <h2 id="career-check-form" className="text-lg font-bold text-[var(--ink)]">
+        <h2 id="career-check-form" className="text-lg font-bold text-(--ink)">
           いまの状況を選ぶ
         </h2>
-        <p className="mt-1 text-[13px] text-[var(--ink-muted)]">
+        <p className="mt-1 text-[13px] text-(--ink-muted)">
           すべて選択式です。氏名・会社名・連絡先・年収の入力欄はありません。利用状況の計測では、選択した資格・経験年数・悩みの分類と操作状況を送信します。
         </p>
 
@@ -210,7 +210,7 @@ export default function CareerCheckClient() {
         <button
           type="button"
           onClick={run}
-          className="focus-ring mt-8 w-full rounded-card-content bg-[var(--accent)] px-5 py-3 text-[15px] font-bold text-[var(--paper)] transition-opacity hover:opacity-90 sm:w-auto"
+          className="focus-ring mt-8 w-full rounded-card-content bg-(--accent) px-5 py-3 text-[15px] font-bold text-(--paper) transition-opacity hover:opacity-90 sm:w-auto"
         >
           整理する
         </button>
@@ -219,23 +219,23 @@ export default function CareerCheckClient() {
       <div ref={resultRef} tabIndex={-1} aria-live="polite" className="focus-ring">
         {result && (
           <section aria-labelledby="career-check-result" className="mt-8">
-            <h2 id="career-check-result" className="text-xl font-bold text-[var(--ink)]">
+            <h2 id="career-check-result" className="text-xl font-bold text-(--ink)">
               {result.headline}
             </h2>
-            <p className="mt-2 text-[13px] text-[var(--ink-muted)]">
+            <p className="mt-2 text-[13px] text-(--ink-muted)">
               このツールは転職の可否・想定年収・採用の可能性を判定しません。求人紹介や採用可能性を保証するものでもありません。
             </p>
 
-            <h3 className="mt-6 text-[16px] font-bold text-[var(--ink)]">まず整理すべき論点</h3>
+            <h3 className="mt-6 text-[16px] font-bold text-(--ink)">まず整理すべき論点</h3>
             <ul className="mt-2 space-y-2">
               {result.points.map((p) => (
-                <li key={p} className="text-[15px] leading-relaxed text-[var(--ink-body)]">
+                <li key={p} className="text-[15px] leading-relaxed text-(--ink-body)">
                   {p}
                 </li>
               ))}
             </ul>
 
-            <h3 className="mt-6 text-[16px] font-bold text-[var(--ink)]">次に読むページ</h3>
+            <h3 className="mt-6 text-[16px] font-bold text-(--ink)">次に読むページ</h3>
             <ul className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-2">
               {result.reads.map((r) =>
                 r.external ? (
@@ -244,10 +244,10 @@ export default function CareerCheckClient() {
                       href={r.href}
                       target="_blank"
                       rel="noopener"
-                      className="focus-ring block h-full rounded-card-content border border-[var(--rule-soft)] px-4 py-3 dark:border-[var(--rule-soft)]"
+                      className="focus-ring block h-full rounded-card-content border border-(--rule-soft) px-4 py-3 dark:border-(--rule-soft)"
                     >
-                      <span className="block text-[15px] font-medium text-[var(--ink)]">{r.title}</span>
-                      <span className="mt-0.5 block text-[13px] text-[var(--ink-muted)]">{r.reason}</span>
+                      <span className="block text-[15px] font-medium text-(--ink)">{r.title}</span>
+                      <span className="mt-0.5 block text-[13px] text-(--ink-muted)">{r.reason}</span>
                     </a>
                   </li>
                 ) : (
@@ -257,10 +257,10 @@ export default function CareerCheckClient() {
                       data-cta="career-need"
                       data-cta-label={result.need ?? "urgent"}
                       data-cta-placement="career-tool"
-                      className="focus-ring block h-full rounded-card-content border border-[var(--rule-soft)] px-4 py-3 transition-colors hover:border-brand dark:border-[var(--rule-soft)]"
+                      className="focus-ring block h-full rounded-card-content border border-(--rule-soft) px-4 py-3 transition-colors hover:border-brand dark:border-(--rule-soft)"
                     >
-                      <span className="block text-[15px] font-medium text-[var(--ink)]">{r.title}</span>
-                      <span className="mt-0.5 block text-[13px] text-[var(--ink-muted)]">{r.reason}</span>
+                      <span className="block text-[15px] font-medium text-(--ink)">{r.title}</span>
+                      <span className="mt-0.5 block text-[13px] text-(--ink-muted)">{r.reason}</span>
                     </Link>
                   </li>
                 ),
@@ -269,10 +269,10 @@ export default function CareerCheckClient() {
 
             {result.questions.length > 0 && (
               <>
-                <h3 className="mt-6 text-[16px] font-bold text-[var(--ink)]">面談・求人票で確認する</h3>
+                <h3 className="mt-6 text-[16px] font-bold text-(--ink)">面談・求人票で確認する</h3>
                 <ul className="mt-2 space-y-2">
                   {result.questions.map((q) => (
-                    <li key={q} className="text-[15px] leading-relaxed text-[var(--ink-body)]">
+                    <li key={q} className="text-[15px] leading-relaxed text-(--ink-body)">
                       {q}
                     </li>
                   ))}
@@ -282,10 +282,10 @@ export default function CareerCheckClient() {
 
             {result.inventory.length > 0 && (
               <>
-                <h3 className="mt-6 text-[16px] font-bold text-[var(--ink)]">工事経歴の棚卸し</h3>
+                <h3 className="mt-6 text-[16px] font-bold text-(--ink)">工事経歴の棚卸し</h3>
                 <ul className="mt-2 space-y-2">
                   {result.inventory.map((i) => (
-                    <li key={i} className="text-[15px] leading-relaxed text-[var(--ink-body)]">
+                    <li key={i} className="text-[15px] leading-relaxed text-(--ink-body)">
                       {i}
                     </li>
                   ))}
@@ -294,14 +294,14 @@ export default function CareerCheckClient() {
                   <button
                     type="button"
                     onClick={copyChecklist}
-                    className="focus-ring rounded-card-content border border-[var(--rule-soft)] px-4 py-2 text-[14px] text-[var(--ink-body)] transition-colors hover:border-brand dark:border-[var(--rule-soft)]"
+                    className="focus-ring rounded-card-content border border-(--rule-soft) px-4 py-2 text-[14px] text-(--ink-body) transition-colors hover:border-brand dark:border-(--rule-soft)"
                   >
                     {copied ? "コピーしました" : "チェックリストをコピー"}
                   </button>
                   <button
                     type="button"
                     onClick={() => window.print()}
-                    className="focus-ring rounded-card-content border border-[var(--rule-soft)] px-4 py-2 text-[14px] text-[var(--ink-body)] transition-colors hover:border-brand dark:border-[var(--rule-soft)]"
+                    className="focus-ring rounded-card-content border border-(--rule-soft) px-4 py-2 text-[14px] text-(--ink-body) transition-colors hover:border-brand dark:border-(--rule-soft)"
                   >
                     印刷する
                   </button>
@@ -314,7 +314,7 @@ export default function CareerCheckClient() {
                       label: result.need ?? "urgent",
                       params: { cta_placement: "career-tool" },
                     })}
-                    className="focus-ring rounded-card-content border border-[var(--rule-soft)] px-4 py-2 text-[14px] text-[var(--ink-body)] transition-colors hover:border-brand dark:border-[var(--rule-soft)]"
+                    className="focus-ring rounded-card-content border border-(--rule-soft) px-4 py-2 text-[14px] text-(--ink-body) transition-colors hover:border-brand dark:border-(--rule-soft)"
                   >
                     記入用メモを保存（テキスト）
                   </a>

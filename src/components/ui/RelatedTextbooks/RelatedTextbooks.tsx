@@ -139,10 +139,10 @@ export default function RelatedTextbooks({ currentMeta, categoryArticles }: Rela
 
   return (
     <MetaCard trackNav="related-textbooks">
-      <h2 className="text-lg font-bold text-[var(--ink)] mb-1">
+      <h2 className="text-lg font-bold text-(--ink) mb-1">
         この試験で扱われた教材
       </h2>
-      <p className="text-sm text-[var(--ink-muted)] mb-4">
+      <p className="text-sm text-(--ink-muted) mb-4">
         問題の分野に関連する教科書の章 ({entries.length} 件)
       </p>
       <ul className="space-y-2">
@@ -150,11 +150,11 @@ export default function RelatedTextbooks({ currentMeta, categoryArticles }: Rela
           <li key={doc.slug}>
             <Link
               href={getPublicDocPath(doc.slug)}
-              className="block rounded-card-content border border-[var(--rule-soft)] px-4 py-3 transition-colors hover:border-[var(--accent)]"
+              className="block rounded-card-content border border-(--rule-soft) px-4 py-3 transition-colors hover:border-(--accent)"
             >
-              <div className="text-sm font-semibold text-[var(--accent)]">{doc.title}</div>
+              <div className="text-sm font-semibold text-(--accent)">{doc.title}</div>
               {doc.description && (
-                <div className="text-xs text-[var(--ink-body)] mt-1 line-clamp-2">{doc.description}</div>
+                <div className="text-xs text-(--ink-body) mt-1 line-clamp-2">{doc.description}</div>
               )}
             </Link>
           </li>

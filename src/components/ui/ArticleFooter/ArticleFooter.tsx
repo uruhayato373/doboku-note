@@ -173,7 +173,7 @@ export default function ArticleFooter({
           文言/価格/リンク先は resolveHubCta が SoT から HTML 駆動（平時=もくじ／直前期=売れ筋商品）。 */}
       {/* もくじタイル（300×250）と転職バナー（300×250）を同寸で横並び。
           片方だけのときは従来どおり中央に 1 枚。高さは items-start で揃えない
-          （HubCtaBanner の aspect-[6/5] を引き伸ばさないため）。
+          （HubCtaBanner の aspect-6/5 を引き伸ばさないため）。
           justify-center は grid-cols を定義する sm 以上でのみ効かせる — 1 カラムの
           モバイルで付けると暗黙カラムが内容幅に縮み、w-full の子が 18px に潰れる（実測）。 */}
       {footerMokuji && endBanner ? (
@@ -231,10 +231,10 @@ export default function ArticleFooter({
           docGroup === 'textbook') && (
           /* モバイルでは記事一覧が数千 px になり本文の倍近い高さを占めるため（textbook 実測 5,000px）、
              既定は閉じた details にして、開きたい人だけ展開させる。デスクトップはサイドバーで表示済み。 */
-          <details className="mt-8 zenn-desktop:hidden group rounded-card-section border border-[var(--rule-soft)] bg-[var(--paper)] dark:border-[var(--rule-soft)]">
-            <summary className="focus-ring flex min-h-11 cursor-pointer list-none items-center justify-between px-4 py-3 text-[14px] font-bold text-[var(--ink)] [&::-webkit-details-marker]:hidden">
+          <details className="mt-8 zenn-desktop:hidden group rounded-card-section border border-(--rule-soft) bg-(--paper) dark:border-(--rule-soft)">
+            <summary className="focus-ring flex min-h-11 cursor-pointer list-none items-center justify-between px-4 py-3 text-[14px] font-bold text-(--ink) [&::-webkit-details-marker]:hidden">
               <span>{category === 'civil-practice' ? '関連する実務記事を開く' : 'この資格の記事一覧を開く'}</span>
-              <span aria-hidden="true" className="text-[var(--ink-muted)] transition-transform group-open:rotate-180">⌄</span>
+              <span aria-hidden="true" className="text-(--ink-muted) transition-transform group-open:rotate-180">⌄</span>
             </summary>
             <div className="px-3 pb-3">
               <CategoryNavCard

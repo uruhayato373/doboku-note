@@ -10,9 +10,9 @@ interface SearchPaginationProps {
 
 const BTN_BASE = "focus-ring min-h-11 min-w-11 px-3 py-2 text-sm font-medium rounded-card-inline border transition-colors";
 const BTN_INACTIVE =
-  "text-[var(--ink-body)] border-[var(--rule-soft)] hover:bg-[var(--accent-fill)] hover:text-[var(--accent)]";
-const BTN_ACTIVE = "bg-[var(--accent)] text-white dark:text-[var(--bg)] border-[var(--accent)]";
-const BTN_DISABLED = "text-[var(--ink-muted)] opacity-50 border-[var(--rule-soft)] cursor-not-allowed";
+  "text-(--ink-body) border-(--rule-soft) hover:bg-(--accent-fill) hover:text-(--accent)";
+const BTN_ACTIVE = "bg-(--accent) text-white dark:text-(--bg) border-(--accent)";
+const BTN_DISABLED = "text-(--ink-muted) opacity-50 border-(--rule-soft) cursor-not-allowed";
 
 export function SearchPagination({
   currentPage,
@@ -70,7 +70,7 @@ export function SearchPagination({
             1
           </button>
           {pageNumbers[0] && pageNumbers[0] > 2 && (
-            <span className="px-2 py-2 text-[var(--ink-muted)]">...</span>
+            <span className="px-2 py-2 text-(--ink-muted)">...</span>
           )}
         </>
       )}
@@ -93,7 +93,7 @@ export function SearchPagination({
         return lastPage && lastPage < totalPages ? (
           <>
             {lastPage < totalPages - 1 && (
-              <span className="px-2 py-2 text-[var(--ink-muted)]">...</span>
+              <span className="px-2 py-2 text-(--ink-muted)">...</span>
             )}
             <button onClick={() => onPageChange(totalPages)} className={cn(BTN_BASE, BTN_INACTIVE)}>
               {totalPages}

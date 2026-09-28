@@ -92,11 +92,11 @@ export default async function HomePage() {
             <Link
               key={item.href}
               href={item.href}
-              className="focus-ring card-interactive border border-[var(--rule-soft)] bg-[var(--paper)] p-5 transition-[border-color,box-shadow] hover:border-[var(--accent)]"
+              className="focus-ring card-interactive border border-(--rule-soft) bg-(--paper) p-5 transition-[border-color,box-shadow] hover:border-(--accent)"
             >
-              <div className="font-mono text-[10px] uppercase tracking-widest text-[var(--accent)]">{item.label}</div>
-              <h2 className="mt-2 font-serif text-xl font-bold text-[var(--ink)]">{item.title}</h2>
-              <p className="mt-2 text-[13px] leading-[1.75] text-[var(--ink-muted)]">{item.description}</p>
+              <div className="font-mono text-[10px] uppercase tracking-widest text-(--accent)">{item.label}</div>
+              <h2 className="mt-2 font-serif text-xl font-bold text-(--ink)">{item.title}</h2>
+              <p className="mt-2 text-[13px] leading-[1.75] text-(--ink-muted)">{item.description}</p>
             </Link>
           ))}
         </div>

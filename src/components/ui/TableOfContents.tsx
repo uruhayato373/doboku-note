@@ -119,25 +119,25 @@ export default function TableOfContents({ headings, variant = 'sidebar' }: Table
   if (variant === 'mobile') {
     return (
       <details
-        className="group rounded-card-content border border-[var(--rule-soft)] bg-[var(--paper)] open:border-[var(--accent)] transition-colors"
+        className="group rounded-card-content border border-(--rule-soft) bg-(--paper) open:border-(--accent) transition-colors"
         data-cta="nav"
         data-cta-label="mobile-article-toc"
       >
         <summary className="focus-ring flex min-h-11 cursor-pointer list-none items-center gap-3 rounded-card-content px-4 py-3 marker:hidden">
-          <span className="min-w-0 flex-1 font-serif text-[16px] font-bold text-[var(--ink)]">
+          <span className="min-w-0 flex-1 font-serif text-[16px] font-bold text-(--ink)">
             このページの内容
           </span>
-          <span className="shrink-0 font-mono text-[11px] tabular-nums text-[var(--ink-muted)]">
+          <span className="shrink-0 font-mono text-[11px] tabular-nums text-(--ink-muted)">
             {groups.length}項目
           </span>
           <ChevronDown
             aria-hidden="true"
-            className="h-4 w-4 text-[var(--ink-muted)] transition-transform group-open:rotate-180"
+            className="h-4 w-4 text-(--ink-muted) transition-transform group-open:rotate-180"
           />
         </summary>
         <nav
           aria-label="このページの目次"
-          className="toc-content toc-content-mobile max-h-[55vh] overflow-y-auto border-t border-[var(--rule-soft)] px-4 py-3"
+          className="toc-content toc-content-mobile max-h-[55vh] overflow-y-auto border-t border-(--rule-soft) px-4 py-3"
         >
           {tocList}
         </nav>

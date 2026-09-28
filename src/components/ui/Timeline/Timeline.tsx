@@ -28,22 +28,22 @@ export default function Timeline({ items, className = "" }: TimelineProps) {
 
   return (
     <div className={`my-6 ml-4 ${className}`}>
-      <div className="space-y-6 border-l-2 border-dashed border-[var(--accent)]">
+      <div className="space-y-6 border-l-2 border-dashed border-(--accent)">
         {items.map((item, index) => {
           const IconComponent = getIcon(item.icon);
 
           return (
             <div key={index} className="relative w-full">
-              <IconComponent className="absolute -top-0.5 z-10 -ml-3.5 h-7 w-7 rounded-full bg-[var(--paper)] text-[var(--accent)]" />
+              <IconComponent className="absolute -top-0.5 z-10 -ml-3.5 h-7 w-7 rounded-full bg-(--paper) text-(--accent)" />
               <div className="ml-8">
-                <div className="font-bold text-[var(--accent)] text-base md:text-lg">
+                <div className="font-bold text-(--accent) text-base md:text-lg">
                   {item.title}
                 </div>
-                <p className="mt-2 text-sm md:text-base text-[var(--ink-body)] leading-relaxed">
+                <p className="mt-2 text-sm md:text-base text-(--ink-body) leading-relaxed md:leading-6">
                   {item.description}
                 </p>
                 {item.time && (
-                  <span className="mt-2 inline-block rounded-card-inline bg-[var(--accent-fill)] px-2 py-1 text-sm font-semibold text-[var(--accent)]">
+                  <span className="mt-2 inline-block rounded-card-inline bg-(--accent-fill) px-2 py-1 text-sm font-semibold text-(--accent)">
                     {item.time}
                   </span>
                 )}

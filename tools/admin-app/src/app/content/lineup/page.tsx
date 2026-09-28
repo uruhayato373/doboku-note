@@ -8,10 +8,10 @@ export const dynamic = 'force-dynamic';
 
 const STAGE_ORDER = ['published', 'review', 'scheduled', 'draft', 'planned', 'retired', 'unknown'];
 
-function stageVariant(stage: string): 'success' | 'warning' | 'outline' | 'secondary' | 'destructive' {
+function stageVariant(stage: string): 'success' | 'warning' | 'outline-solid' | 'secondary' | 'destructive' {
   if (stage === 'published') return 'success';
   if (stage === 'review' || stage === 'scheduled') return 'warning';
-  if (stage === 'draft' || stage === 'planned') return 'outline';
+  if (stage === 'draft' || stage === 'planned') return 'outline-solid';
   if (stage === 'unknown') return 'destructive';
   return 'secondary';
 }

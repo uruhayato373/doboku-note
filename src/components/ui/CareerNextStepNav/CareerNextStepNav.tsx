@@ -20,8 +20,8 @@ export default function CareerNextStepNav({ slug }: { slug: string }) {
   if (steps.length === 0) return null;
   return (
     <MetaCard ariaLabel="次に読むページ" trackNav="career-next-step">
-      <h2 className="text-lg font-bold text-[var(--ink)] mb-1">次に読むページ</h2>
-      <p className="text-sm text-[var(--ink-muted)] mb-4">
+      <h2 className="text-lg font-bold text-(--ink) mb-1">次に読むページ</h2>
+      <p className="text-sm text-(--ink-muted) mb-4">
         いま迷っている内容に近いほうを 1 つ選んで、そこで示された行動を先に済ませてください。
       </p>
       <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2">
@@ -29,10 +29,10 @@ export default function CareerNextStepNav({ slug }: { slug: string }) {
           <li key={s.href}>
             <Link
               href={s.href}
-              className="block h-full rounded-card-content border border-[var(--rule-soft)] px-4 py-3 transition-colors hover:border-brand"
+              className="block h-full rounded-card-content border border-(--rule-soft) px-4 py-3 transition-colors hover:border-brand"
             >
-              <span className="block text-[15px] font-medium text-[var(--ink)]">{s.title}</span>
-              <span className="mt-0.5 block text-[13px] text-[var(--ink-muted)]">{s.reason}</span>
+              <span className="block text-[15px] font-medium text-(--ink)">{s.title}</span>
+              <span className="mt-0.5 block text-[13px] text-(--ink-muted)">{s.reason}</span>
             </Link>
           </li>
         ))}

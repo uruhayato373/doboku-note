@@ -63,8 +63,8 @@ export default function ArticleSidebar({
       {/* ブロック1: 通常フロー（追従させない）——著者・note。
           読者への信頼提示を先に置き、ファーストビューの商業要素を減らす。 */}
       <div className="mb-3">
-        <details className="border border-[var(--rule-soft)] bg-[var(--paper)]">
-          <summary className="focus-ring cursor-pointer px-4 py-3 text-sm font-bold text-[var(--ink)]">運営者・保有資格について</summary>
+        <details className="border border-(--rule-soft) bg-(--paper)">
+          <summary className="focus-ring cursor-pointer px-4 py-3 text-sm font-bold text-(--ink)">運営者・保有資格について</summary>
           <AuthorSidebarCard />
         </details>
       </div>

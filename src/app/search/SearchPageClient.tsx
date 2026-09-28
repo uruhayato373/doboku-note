@@ -84,8 +84,8 @@ export default function SearchPageClient({ images, examCards, otherCategories, p
 
       {/* 検索結果 */}
       {error && (
-        <div className="mb-6 rounded-card-content border border-[var(--color-danger)] bg-[var(--color-danger-fill)] p-4">
-          <p className="text-[var(--color-danger)]">{error}</p>
+        <div className="mb-6 rounded-card-content border border-(--color-danger) bg-(--color-danger-fill) p-4">
+          <p className="text-(--color-danger)">{error}</p>
         </div>
       )}
 

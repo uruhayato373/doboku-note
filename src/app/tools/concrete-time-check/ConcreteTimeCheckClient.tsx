@@ -36,19 +36,19 @@ const SEASON_META: Record<
   normal: {
     label: "通常のコンクリート",
     color: "var(--color-positive)",
-    borderClass: "border-[var(--color-positive)]",
+    borderClass: "border-(--color-positive)",
     note: null,
   },
   hot: {
     label: "暑中コンクリート",
     color: "var(--color-danger)",
-    borderClass: "border-[var(--color-danger)]",
+    borderClass: "border-(--color-danger)",
     note: "打込み時のコンクリート温度は原則 35℃ 以下。運搬・打込み・締固めを迅速に行い、打込み直後から乾燥を防ぐ養生に入る。",
   },
   cold: {
     label: "寒中コンクリート",
     color: "var(--color-warn)",
-    borderClass: "border-[var(--color-warn)]",
+    borderClass: "border-(--color-warn)",
     note: "打込み時のコンクリート温度は 5〜20℃ を確保し、初期凍害を受けない強度が出るまで 5℃ 以上に保つ。凝結が遅れるため、時間の限度は余裕側で運用する。",
   },
 };
@@ -126,9 +126,9 @@ export default function ConcreteTimeCheckClient() {
   );
 
   const inputBase =
-    "focus-ring w-full rounded-card-content border border-[var(--rule-soft)] bg-[var(--bg)] px-3 py-2 text-[15px] text-[var(--ink)] focus:border-[var(--accent)]";
+    "focus-ring w-full rounded-card-content border border-(--rule-soft) bg-(--bg) px-3 py-2 text-[15px] text-(--ink) focus:border-(--accent)";
   const labelBase =
-    "block text-[11px] font-bold uppercase tracking-wider text-[var(--ink-muted)] mb-2";
+    "block text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-2";
 
   return (
     <div className="max-w-[760px] mx-auto px-4 sm:px-6 py-8 sm:py-10">
@@ -148,7 +148,7 @@ export default function ConcreteTimeCheckClient() {
               onChange={(e) => setAirTemp(e.target.value)}
               className={inputBase}
             />
-            <p className="mt-1.5 text-xs leading-5 text-[var(--ink-muted)]">
+            <p className="mt-1.5 text-xs leading-5 text-(--ink-muted)">
               打込み当日の気温。時間の限度を決める
             </p>
           </div>
@@ -165,7 +165,7 @@ export default function ConcreteTimeCheckClient() {
               onChange={(e) => setDailyMean(e.target.value)}
               className={inputBase}
             />
-            <p className="mt-1.5 text-xs leading-5 text-[var(--ink-muted)]">
+            <p className="mt-1.5 text-xs leading-5 text-(--ink-muted)">
               暑中／寒中の区分を決める
             </p>
           </div>
@@ -180,7 +180,7 @@ export default function ConcreteTimeCheckClient() {
               onChange={(e) => setMixTime(e.target.value)}
               className={inputBase}
             />
-            <p className="mt-1.5 text-xs leading-5 text-[var(--ink-muted)]">
+            <p className="mt-1.5 text-xs leading-5 text-(--ink-muted)">
               プラントでの練混ぜ開始時刻
             </p>
           </div>
@@ -191,7 +191,7 @@ export default function ConcreteTimeCheckClient() {
       <div className="card-surface-section mt-4 p-5 sm:p-6">
         <div className="flex items-center justify-between gap-4 flex-wrap">
           <div>
-            <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--ink-muted)]">
+            <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted)">
               施工区分
             </div>
             <div
@@ -202,7 +202,7 @@ export default function ConcreteTimeCheckClient() {
             </div>
           </div>
           {/* バッジは「どちらの限度を採ったか」を示す。区分の色とは別軸なので配色も分ける */}
-          <div className="inline-flex items-center rounded-full border border-[var(--rule)] px-3 py-1 text-sm font-bold text-[var(--ink-body)]">
+          <div className="inline-flex items-center rounded-full border border-(--rule) px-3 py-1 text-sm font-bold text-(--ink-body)">
             {isHotAir ? `外気温 ${TEMP_BOUNDARY_C}℃ 超` : `外気温 ${TEMP_BOUNDARY_C}℃ 以下`}
           </div>
         </div>
@@ -210,12 +210,12 @@ export default function ConcreteTimeCheckClient() {
         <div className="mt-5 overflow-x-auto">
           <table className="w-full text-sm border-collapse">
             <thead>
-              <tr className="border-b border-[var(--rule)]">
-                <th className="py-2 pr-3 text-left font-bold text-[var(--ink)]">項目</th>
-                <th className="py-2 px-3 text-right font-bold text-[var(--ink)] whitespace-nowrap">
+              <tr className="border-b border-(--rule)">
+                <th className="py-2 pr-3 text-left font-bold text-(--ink)">項目</th>
+                <th className="py-2 px-3 text-right font-bold text-(--ink) whitespace-nowrap">
                   限度
                 </th>
-                <th className="py-2 pl-3 text-right font-bold text-[var(--ink)] whitespace-nowrap">
+                <th className="py-2 pl-3 text-right font-bold text-(--ink) whitespace-nowrap">
                   期限時刻
                 </th>
               </tr>
@@ -226,28 +226,28 @@ export default function ConcreteTimeCheckClient() {
                 return (
                   <tr
                     key={r.key}
-                    className="border-b border-[var(--rule-soft)] last:border-0"
+                    className="border-b border-(--rule-soft) last:border-0"
                     style={r.emphasis ? { background: "var(--accent-fill)" } : undefined}
                   >
                     <td className="py-2.5 pr-3">
-                      <span className={r.emphasis ? "font-bold text-[var(--ink)]" : "text-[var(--ink-body)]"}>
+                      <span className={r.emphasis ? "font-bold text-(--ink)" : "text-(--ink-body)"}>
                         {r.label}
                       </span>
-                      <span className="block text-xs text-[var(--ink-muted)] mt-0.5">{r.source}</span>
+                      <span className="block text-xs text-(--ink-muted) mt-0.5">{r.source}</span>
                     </td>
-                    <td className="py-2.5 px-3 text-right tabular-nums whitespace-nowrap text-[var(--ink-body)]">
+                    <td className="py-2.5 px-3 text-right tabular-nums whitespace-nowrap text-(--ink-body)">
                       {r.limit.toFixed(1)} h
                     </td>
                     <td className="py-2.5 pl-3 text-right tabular-nums whitespace-nowrap">
                       {at ? (
-                        <span className="font-bold text-[var(--ink)]">
+                        <span className="font-bold text-(--ink)">
                           {at.time}
                           {at.nextDay && (
-                            <span className="ml-1 text-xs font-normal text-[var(--ink-muted)]">翌日</span>
+                            <span className="ml-1 text-xs font-normal text-(--ink-muted)">翌日</span>
                           )}
                         </span>
                       ) : (
-                        <span className="text-[var(--ink-muted)]">—</span>
+                        <span className="text-(--ink-muted)">—</span>
                       )}
                     </td>
                   </tr>
@@ -259,33 +259,33 @@ export default function ConcreteTimeCheckClient() {
 
         {meta.note && (
           <p
-            className={`mt-4 rounded-card-content border-l-4 ${meta.borderClass} bg-[var(--bg)] p-3 text-sm leading-6 text-[var(--ink-body)]`}
+            className={`mt-4 rounded-card-content border-l-4 ${meta.borderClass} bg-(--bg) p-3 text-sm leading-6 text-(--ink-body)`}
           >
             {meta.note}
           </p>
         )}
 
         {(!airValid || !meanValid) && (
-          <p className="mt-4 text-sm text-[var(--warn-text-emphasis)]">
+          <p className="mt-4 text-sm text-(--warn-text-emphasis)">
             気温が未入力です。{!airValid && "外気温は 25℃ 以下として"} 計算しています。
           </p>
         )}
       </div>
 
       {/* 根拠 */}
-      <div className="mt-6 rounded-card-content border border-[var(--rule-soft)] bg-[var(--bg)] p-5 text-sm leading-7 text-[var(--ink-body)]">
-        <p className="font-bold text-[var(--ink)] mb-2">数値の根拠</p>
+      <div className="mt-6 rounded-card-content border border-(--rule-soft) bg-(--bg) p-5 text-sm leading-7 text-(--ink-body)">
+        <p className="font-bold text-(--ink) mb-2">数値の根拠</p>
         <ul className="list-disc pl-5 space-y-1">
           <li>
-            <strong className="text-[var(--ink)]">練混ぜ〜打込み終了</strong>と<strong className="text-[var(--ink)]">許容打重ね時間間隔</strong>は、土木学会 コンクリート標準示方書 施工編。外気温 25℃ 以下で 2.0h / 2.5h、25℃ を超えると 1.5h / 2.0h。
+            <strong className="text-(--ink)">練混ぜ〜打込み終了</strong>と<strong className="text-(--ink)">許容打重ね時間間隔</strong>は、土木学会 コンクリート標準示方書 施工編。外気温 25℃ 以下で 2.0h / 2.5h、25℃ を超えると 1.5h / 2.0h。
           </li>
           <li>
-            <strong className="text-[var(--ink)]">練混ぜ〜荷卸し 1.5 時間</strong>は JIS A 5308（レディーミクストコンクリート）。購入者と協議のうえ限度を変更できる規定があるため、特記仕様書を確認してください。
+            <strong className="text-(--ink)">練混ぜ〜荷卸し 1.5 時間</strong>は JIS A 5308（レディーミクストコンクリート）。購入者と協議のうえ限度を変更できる規定があるため、特記仕様書を確認してください。
           </li>
           <li>
-            <strong className="text-[var(--ink)]">暑中／寒中の区分</strong>は日平均気温で判定（暑中＝25℃ を超える時期、寒中＝4℃ 以下となる時期）。時間の限度を切り替える 25℃ は<strong className="text-[var(--ink)]">外気温</strong>で、同じ 25℃ でも指している量が違います。
+            <strong className="text-(--ink)">暑中／寒中の区分</strong>は日平均気温で判定（暑中＝25℃ を超える時期、寒中＝4℃ 以下となる時期）。時間の限度を切り替える 25℃ は<strong className="text-(--ink)">外気温</strong>で、同じ 25℃ でも指している量が違います。
           </li>
-          <li className="text-[var(--ink-muted)]">
+          <li className="text-(--ink-muted)">
             ※ 発注者の特記仕様書や監督員の指示が示方書と異なる場合は、そちらが優先します。本ツールは標準値の早見であり、現場の管理値を代替するものではありません。
           </li>
         </ul>
@@ -293,25 +293,25 @@ export default function ConcreteTimeCheckClient() {
 
       {/* 関連 */}
       <div className="mt-6">
-        <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--ink-muted)] mb-3">
+        <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-3">
           関連する対策ページ
         </div>
         <div className="grid gap-3 sm:grid-cols-2">
           <Link
             href="/tools"
-            className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-[var(--accent)]"
+            className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-(--accent)"
           >
-            <div className="font-bold text-[var(--ink)]">無料ツール一覧</div>
-            <div className="text-sm text-[var(--ink-body)] mt-1">
+            <div className="font-bold text-(--ink)">無料ツール一覧</div>
+            <div className="text-sm text-(--ink-body) mt-1">
               経験記述の文字数チェック・受験資格判定・過去問演習
             </div>
           </Link>
           <Link
             href="/exam/civil-construction-1"
-            className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-[var(--accent)]"
+            className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-(--accent)"
           >
-            <div className="font-bold text-[var(--ink)]">1級土木施工管理技士</div>
-            <div className="text-sm text-[var(--ink-body)] mt-1">
+            <div className="font-bold text-(--ink)">1級土木施工管理技士</div>
+            <div className="text-sm text-(--ink-body) mt-1">
               コンクリート工の出題ポイントと過去問解説
             </div>
           </Link>

@@ -136,16 +136,16 @@ export default function PdcaCycle({ items }: PdcaCycleProps) {
               className="card-surface-content flex items-start gap-3 p-3"
             >
               <div
-                className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-sm"
+                className="shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-sm"
                 style={{ backgroundColor: color.bg }}
               >
                 {PHASE_LETTERS[i]}
               </div>
               <div className="flex-1 min-w-0">
-                <div className="font-bold text-sm text-[var(--ink)]">
+                <div className="font-bold text-sm text-(--ink)">
                   {item.label}
                 </div>
-                <div className="text-sm text-[var(--ink-body)] mt-0.5">
+                <div className="text-sm text-(--ink-body) mt-0.5">
                   {item.description}
                 </div>
               </div>

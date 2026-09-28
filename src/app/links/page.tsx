@@ -261,14 +261,14 @@ function CardRow({
         <span className="block text-sm text-brand group-hover:underline">
           {label}
           {channelLabel && (
-            <span className="ml-1.5 text-xs text-[var(--ink-muted)]">{channelLabel}</span>
+            <span className="ml-1.5 text-xs text-(--ink-muted)">{channelLabel}</span>
           )}
           {affiliate && <AffiliatePrBadge className="ml-1.5 align-middle" />}
         </span>
         {/* 商品カタログの description は 170〜210 字あり、そのまま出すと 1 行だけ極端に高くなる
             （実測 220px）。一覧は走査が目的なので 2 行で打ち切り、全カードの行高を揃える。 */}
         <span
-          className="mt-0.5 block overflow-hidden text-xs leading-relaxed text-[var(--ink-muted)]"
+          className="mt-0.5 block overflow-hidden text-xs leading-relaxed text-(--ink-muted)"
           style={{ display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}
         >
           {sub}
@@ -277,7 +277,7 @@ function CardRow({
     </>
   );
   const cls =
-    'focus-ring group flex gap-2.5 border-b border-[var(--rule-soft)] py-2.5 last:border-b-0';
+    'focus-ring group flex gap-2.5 border-b border-(--rule-soft) py-2.5 last:border-b-0';
   return external ? (
     <a
       href={href}
@@ -330,9 +330,9 @@ function ExamCardView({ card }: { card: ExamCard }) {
           style={{ backgroundColor: `var(${brand.themeVar})` }}
         />
       </div>
-      <div className="border-b border-[var(--rule-soft)] px-3 py-2">
-        <div className="font-serif text-[15px] font-bold leading-tight text-[var(--ink)]">{card.heading}</div>
-        <div className="mt-0.5 text-xs leading-snug text-[var(--ink-muted)]">{card.tagline}</div>
+      <div className="border-b border-(--rule-soft) px-3 py-2">
+        <div className="font-serif text-[15px] font-bold leading-tight text-(--ink)">{card.heading}</div>
+        <div className="mt-0.5 text-xs leading-snug text-(--ink-muted)">{card.tagline}</div>
       </div>
       <div className="px-3 py-1">
         <CardRow
@@ -383,10 +383,10 @@ function ExamSections() {
 
         return (
           <section key={group.id} id={`group-${group.id}`} className="scroll-mt-24">
-            <div className="mb-3 border-b border-[var(--rule-soft)] pb-2 sm:mb-4 sm:pb-3">
-              <h3 className="font-serif text-lg font-bold text-[var(--ink)]">{group.title}</h3>
+            <div className="mb-3 border-b border-(--rule-soft) pb-2 sm:mb-4 sm:pb-3">
+              <h3 className="font-serif text-lg font-bold text-(--ink)">{group.title}</h3>
               {/* スマホでは省く（各カードの見出し下に誰向けかの 1 行があり、1 画面目を資格リンクに使う） */}
-              <p className="mt-1 hidden text-xs leading-relaxed text-[var(--ink-muted)] sm:block">
+              <p className="mt-1 hidden text-xs leading-relaxed text-(--ink-muted) sm:block">
                 {group.description}
               </p>
             </div>
@@ -434,16 +434,16 @@ export default function LinksPage() {
                 alt={`${AUTHOR.name}のプロフィール画像`}
                 width={112}
                 height={112}
-                className="w-16 h-16 sm:w-28 sm:h-28 rounded-full border-2 border-[var(--rule-soft)] shrink-0"
+                className="w-16 h-16 sm:w-28 sm:h-28 rounded-full border-2 border-(--rule-soft) shrink-0"
               />
               <div className="min-w-0">
-                <h1 className="font-serif text-xl sm:text-3xl font-black text-[var(--ink)] mb-1">
+                <h1 className="font-serif text-xl sm:text-3xl font-black text-(--ink) mb-1">
                   doboku-note
                 </h1>
-                <p className="font-serif text-sm sm:text-lg font-bold text-[var(--accent)] mb-1 leading-snug">
+                <p className="font-serif text-sm sm:text-lg font-bold text-(--accent) mb-1 leading-snug sm:leading-7">
                   発注者の視点で、土木・建設系資格の「合格」へ最短ルートを。
                 </p>
-                <p className="text-xs sm:text-sm text-[var(--ink-body)] leading-relaxed">
+                <p className="text-xs sm:text-sm text-(--ink-body) leading-relaxed sm:leading-5">
                   {EXAM_CARDS.length}資格の試験対策｜運営：{AUTHOR.name}・元自治体の土木職（発注者）
                   {/* 保有資格はスマホでは「運営者について」に任せ、1 画面目を資格リンクに使う */}
                   <span className="hidden sm:inline">、技術士2部門ほか多数の資格を保有</span>
@@ -456,7 +456,7 @@ export default function LinksPage() {
                   <a
                     key={chip.id}
                     href={`#group-${chip.id}`}
-                    className="inline-flex items-center rounded-full border border-[var(--rule-soft)] px-3 py-1 text-xs font-bold text-[var(--ink-body)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors"
+                    className="inline-flex items-center rounded-full border border-(--rule-soft) px-3 py-1 text-xs font-bold text-(--ink-body) hover:border-(--accent) hover:text-(--accent) transition-colors"
                   >
                     {chip.label}
                   </a>
@@ -492,14 +492,14 @@ export default function LinksPage() {
 
           {/* 試験別: 無料入口 → 有料教材（試験ファースト funnel） */}
           <section className="mb-12">
-            <h2 className="font-serif text-lg sm:text-xl font-bold text-[var(--ink)] mb-1 sm:text-center">
+            <h2 className="font-serif text-lg sm:text-xl font-bold text-(--ink) mb-1 sm:text-center">
               資格別コンテンツ
             </h2>
             {/* 旧「それぞれで得られるもの」凡例（ページ末尾・210px）の意味づけをここへ吸収した。
                 カード内の各行には「note」「ココナラ」などのチャネル小ラベルが付いている。 */}
-            <p className="text-xs text-[var(--ink-muted)] mb-4 sm:mb-8 sm:text-center leading-relaxed">
+            <p className="text-xs text-(--ink-muted) mb-4 sm:mb-8 sm:text-center leading-relaxed">
               カード内は
-              <span className="text-[var(--accent)] font-bold">無料で読む</span>
+              <span className="text-(--accent) font-bold">無料で読む</span>
               → note 教材 → 添削・キット の順
             </p>
 
@@ -512,7 +512,7 @@ export default function LinksPage() {
               リンクより先に置くとスマホで資格カードが 2 画面目以降に押し出されたため、カードの後ろへ移した
               （旧冒頭の紹介文はヒーローと資格別コンテンツの説明に内容が重なるので廃止・2026-09-24）。 */}
           <section>
-            <h2 className="font-serif text-base font-bold text-[var(--ink)] mb-3">
+            <h2 className="font-serif text-base font-bold text-(--ink) mb-3">
               doboku-note の教材の特徴
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -523,17 +523,17 @@ export default function LinksPage() {
                     key={p.title}
                     className="card-surface-content flex items-start gap-3 px-4 py-3 shadow-none sm:flex-col"
                   >
-                    <div className="w-9 h-9 rounded-full bg-[var(--accent-fill)] flex items-center justify-center shrink-0">
+                    <div className="w-9 h-9 rounded-full bg-(--accent-fill) flex items-center justify-center shrink-0">
                       <Icon
-                        className="w-4 h-4 text-[var(--accent)]"
+                        className="w-4 h-4 text-(--accent)"
                         aria-hidden="true"
                       />
                     </div>
                     <div className="min-w-0">
-                      <div className="font-serif font-bold text-[var(--ink)] text-sm">
+                      <div className="font-serif font-bold text-(--ink) text-sm">
                         {p.title}
                       </div>
-                      <div className="text-xs text-[var(--ink-muted)] mt-0.5 leading-relaxed">
+                      <div className="text-xs text-(--ink-muted) mt-0.5 leading-relaxed">
                         {p.body}
                       </div>
                     </div>

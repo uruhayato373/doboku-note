@@ -38,7 +38,7 @@ export default function JukenShikakuPage() {
         title="土木施工管理技士 受験資格チェッカー"
         lead={
           <>
-            <strong className="text-[var(--ink)]">1級・2級土木施工管理技士</strong>の受験資格を無料で判定します。第一次検定の<strong className="text-[var(--ink)]">年齢要件</strong>と、第二次検定の<strong className="text-[var(--ink)]">新受検資格（合格後の実務経験年数）</strong>を、級・保有資格ルート別にチェックできます（令和6年度〜の新制度）。
+            <strong className="text-(--ink)">1級・2級土木施工管理技士</strong>の受験資格を無料で判定します。第一次検定の<strong className="text-(--ink)">年齢要件</strong>と、第二次検定の<strong className="text-(--ink)">新受検資格（合格後の実務経験年数）</strong>を、級・保有資格ルート別にチェックできます（令和6年度〜の新制度）。
           </>
         }
       />

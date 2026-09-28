@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   },
 };
 
-const bodyClass = 'text-[15px] text-[var(--ink-body)] leading-relaxed';
+const bodyClass = 'text-[15px] text-(--ink-body) leading-relaxed';
 
 export default function TermsPage() {
   return (
@@ -44,7 +44,7 @@ export default function TermsPage() {
         className="mb-8"
       />
 
-      <p className="text-[var(--ink-body)] mb-8 leading-relaxed">
+      <p className="text-(--ink-body) mb-8 leading-relaxed">
         本利用規約（以下「本規約」）は、doboku-note（以下「当サイト」）の利用に関する条件を定めるものです。
         当サイトを利用されることにより、本規約に同意したものとみなします。
       </p>
@@ -52,7 +52,7 @@ export default function TermsPage() {
       <div className="space-y-6">
         <SectionCard
           interactive
-          icon={<FileText className="w-5 h-5 text-[var(--accent)]" />}
+          icon={<FileText className="w-5 h-5 text-(--accent)" />}
           title="1. サービスの内容"
         >
           <div className={bodyClass}>
@@ -68,7 +68,7 @@ export default function TermsPage() {
 
         <SectionCard
           interactive
-          icon={<BookOpen className="w-5 h-5 text-[var(--accent)]" />}
+          icon={<BookOpen className="w-5 h-5 text-(--accent)" />}
           title="2. 知的財産権"
         >
           <div className={bodyClass}>
@@ -88,7 +88,7 @@ export default function TermsPage() {
 
         <SectionCard
           interactive
-          icon={<AlertTriangle className="w-5 h-5 text-[var(--accent)]" />}
+          icon={<AlertTriangle className="w-5 h-5 text-(--accent)" />}
           title="3. 免責事項"
         >
           <ul className={`${bodyClass} list-disc list-inside space-y-2`}>
@@ -109,14 +109,14 @@ export default function TermsPage() {
 
         <SectionCard
           interactive
-          icon={<Shield className="w-5 h-5 text-[var(--accent)]" />}
+          icon={<Shield className="w-5 h-5 text-(--accent)" />}
           title="4. 広告について"
         >
           <div className={bodyClass}>
             <p>
               当サイトにはアフィリエイトプログラムに基づく広告リンクが含まれる場合があります。
               Cookie の使用については
-              <a href="/privacy" className="text-[var(--accent)] hover:underline">プライバシーポリシー</a>
+              <a href="/privacy" className="text-(--accent) hover:underline">プライバシーポリシー</a>
               をご確認ください。
             </p>
           </div>
@@ -124,7 +124,7 @@ export default function TermsPage() {
 
         <SectionCard
           interactive
-          icon={<Ban className="w-5 h-5 text-[var(--accent)]" />}
+          icon={<Ban className="w-5 h-5 text-(--accent)" />}
           title="5. 禁止事項"
         >
           <div className={bodyClass}>
@@ -141,7 +141,7 @@ export default function TermsPage() {
 
         <SectionCard
           interactive
-          icon={<RefreshCw className="w-5 h-5 text-[var(--accent)]" />}
+          icon={<RefreshCw className="w-5 h-5 text-(--accent)" />}
           title="6. 規約の変更"
         >
           <div className={bodyClass}>
@@ -157,11 +157,11 @@ export default function TermsPage() {
       <SectionCard
         as="div"
         padding="compact"
-        className="mt-8 bg-[var(--accent-fill)] border-0 shadow-none"
+        className="mt-8 bg-(--accent-fill) border-0 shadow-none"
       >
-        <p className="text-sm text-[var(--ink-body)]">
+        <p className="text-sm text-(--ink-body)">
           ご不明な点がございましたら、
-          <a href="/contact" className="text-[var(--accent)] hover:underline">お問い合わせ</a>
+          <a href="/contact" className="text-(--accent) hover:underline">お問い合わせ</a>
           よりご連絡ください。
         </p>
       </SectionCard>

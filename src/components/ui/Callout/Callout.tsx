@@ -124,7 +124,7 @@ export default function Callout({ type = "note", title, children }: CalloutProps
       )}
 
       <div
-        className={`callout-body text-[1em] leading-relaxed text-[var(--ink-body)] ${title ? "" : "pl-9"}`}
+        className={`callout-body text-[1em] leading-relaxed text-(--ink-body) ${title ? "" : "pl-9"}`}
       >
         {children}
       </div>

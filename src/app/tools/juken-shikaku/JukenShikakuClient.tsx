@@ -101,8 +101,8 @@ export default function JukenShikakuClient() {
   const secondAnyMet = condResults.some((c) => c.met);
 
   const btn = "focus-ring px-3 py-1.5 rounded-card-content text-sm font-bold border transition-colors";
-  const on = "border-[var(--accent)] text-[var(--accent)] bg-[var(--accent-fill)]";
-  const off = "border-[var(--rule-soft)] text-[var(--ink-body)] hover:border-[var(--accent)]";
+  const on = "border-(--accent) text-(--accent) bg-(--accent-fill)";
+  const off = "border-(--rule-soft) text-(--ink-body) hover:border-(--accent)";
 
   // 級を変えたらルートを既定へ
   function changeGrade(g: Grade) {
@@ -115,7 +115,7 @@ export default function JukenShikakuClient() {
       <div className="card-surface-section p-5 sm:p-6">
         {/* 級 */}
         <div className="mb-4">
-          <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--ink-muted)] mb-2">級</div>
+          <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-2">級</div>
           <div className="flex gap-2">
             {(["civil-1", "civil-2"] as Grade[]).map((g) => (
               <button key={g} type="button" onClick={() => changeGrade(g)} className={`${btn} ${grade === g ? on : off}`} aria-pressed={grade === g}>
@@ -127,7 +127,7 @@ export default function JukenShikakuClient() {
 
         {/* 検定区分 */}
         <div className="mb-4">
-          <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--ink-muted)] mb-2">検定区分</div>
+          <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-2">検定区分</div>
           <div className="flex gap-2">
             <button type="button" onClick={() => setExam("first")} className={`${btn} ${exam === "first" ? on : off}`} aria-pressed={exam === "first"}>
               第一次検定
@@ -140,7 +140,7 @@ export default function JukenShikakuClient() {
 
         {exam === "first" ? (
           <div>
-            <label htmlFor="age" className="block text-[11px] font-bold uppercase tracking-wider text-[var(--ink-muted)] mb-2">
+            <label htmlFor="age" className="block text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-2">
               受検年度中の年齢
             </label>
             <input
@@ -151,14 +151,14 @@ export default function JukenShikakuClient() {
               value={age}
               onChange={(e) => setAge(e.target.value)}
               placeholder={`例: ${FIRST_AGE[grade]}`}
-              className="focus-ring w-32 rounded-card-content border border-[var(--rule-soft)] bg-[var(--bg)] px-3 py-2 text-[15px] text-[var(--ink)] focus:border-[var(--accent)]"
+              className="focus-ring w-32 rounded-card-content border border-(--rule-soft) bg-(--bg) px-3 py-2 text-[15px] text-(--ink) focus:border-(--accent)"
             />
-            <span className="ml-2 text-sm text-[var(--ink-body)]">歳</span>
+            <span className="ml-2 text-sm text-(--ink-body)">歳</span>
           </div>
         ) : (
           <div className="flex flex-col gap-4">
             <div>
-              <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--ink-muted)] mb-2">保有資格（受検ルート）</div>
+              <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-2">保有資格（受検ルート）</div>
               <div className="flex flex-col gap-2">
                 {routes.map((r) => (
                   <button key={r.key} type="button" onClick={() => setRouteKey(r.key)} className={`${btn} text-left ${routeKey === r.key ? on : off}`} aria-pressed={routeKey === r.key}>
@@ -168,7 +168,7 @@ export default function JukenShikakuClient() {
               </div>
             </div>
             <div>
-              <label htmlFor="years" className="block text-[11px] font-bold uppercase tracking-wider text-[var(--ink-muted)] mb-2">
+              <label htmlFor="years" className="block text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-2">
                 合格後の実務経験年数
               </label>
               <input
@@ -180,9 +180,9 @@ export default function JukenShikakuClient() {
                 value={years}
                 onChange={(e) => setYears(e.target.value)}
                 placeholder="例: 5"
-                className="focus-ring w-32 rounded-card-content border border-[var(--rule-soft)] bg-[var(--bg)] px-3 py-2 text-[15px] text-[var(--ink)] focus:border-[var(--accent)]"
+                className="focus-ring w-32 rounded-card-content border border-(--rule-soft) bg-(--bg) px-3 py-2 text-[15px] text-(--ink) focus:border-(--accent)"
               />
-              <span className="ml-2 text-sm text-[var(--ink-body)]">年</span>
+              <span className="ml-2 text-sm text-(--ink-body)">年</span>
             </div>
           </div>
         )}
@@ -192,15 +192,15 @@ export default function JukenShikakuClient() {
       <div className="card-surface-section mt-4 p-5 sm:p-6">
         {exam === "first" ? (
           <div>
-            <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--ink-muted)] mb-1">第一次検定 受験可否</div>
+            <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-1">第一次検定 受験可否</div>
             {ageNum == null ? (
-              <p className="text-sm text-[var(--ink-body)]">年齢を入力してください。{GRADE_LABEL[grade]}土木の第一次検定は <strong className="text-[var(--ink)]">{FIRST_AGE[grade]}歳以上</strong>（受検年度中の年齢）で、学歴・実務経験を問わず受検できます。</p>
+              <p className="text-sm text-(--ink-body)">年齢を入力してください。{GRADE_LABEL[grade]}土木の第一次検定は <strong className="text-(--ink)">{FIRST_AGE[grade]}歳以上</strong>（受検年度中の年齢）で、学歴・実務経験を問わず受検できます。</p>
             ) : (
               <div className="flex items-center gap-3">
                 <span className="inline-flex items-center rounded-full px-3 py-1 text-sm font-bold text-white" style={{ background: firstOk ? OK : NG }}>
                   {firstOk ? "受験できます" : "受験できません"}
                 </span>
-                <span className="text-sm text-[var(--ink-body)]">
+                <span className="text-sm text-(--ink-body)">
                   {firstOk ? `${FIRST_AGE[grade]}歳以上の要件を満たします。` : `${FIRST_AGE[grade]}歳以上が必要です（あと${FIRST_AGE[grade] - ageNum}歳）。`}
                 </span>
               </div>
@@ -209,7 +209,7 @@ export default function JukenShikakuClient() {
         ) : (
           <div>
             <div className="flex items-center justify-between gap-3 flex-wrap mb-3">
-              <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--ink-muted)]">第二次検定 受験可否（新受検資格）</div>
+              <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted)">第二次検定 受験可否（新受検資格）</div>
               {yearsNum != null && (
                 <span className="inline-flex items-center rounded-full px-3 py-1 text-sm font-bold text-white" style={{ background: secondAnyMet ? OK : NG }}>
                   {secondAnyMet ? "いずれかの要件を満たします" : "まだ要件を満たしません"}
@@ -222,15 +222,15 @@ export default function JukenShikakuClient() {
                   <span className="mt-0.5 shrink-0 font-bold" style={{ color: yearsNum == null ? "var(--ink-muted)" : c.met ? OK : NG }}>
                     {yearsNum == null ? "—" : c.met ? "✓" : "×"}
                   </span>
-                  <span className="text-[var(--ink-body)]">
-                    <strong className="text-[var(--ink)]">{c.label} {c.years}年以上</strong>
-                    {yearsNum != null && !c.met && <span className="text-[var(--ink-muted)]">（あと{Math.max(0, c.years - yearsNum)}年）</span>}
-                    {c.note && <span className="block text-[12px] text-[var(--ink-muted)] mt-0.5">{c.note}</span>}
+                  <span className="text-(--ink-body)">
+                    <strong className="text-(--ink)">{c.label} {c.years}年以上</strong>
+                    {yearsNum != null && !c.met && <span className="text-(--ink-muted)">（あと{Math.max(0, c.years - yearsNum)}年）</span>}
+                    {c.note && <span className="block text-[12px] text-(--ink-muted) mt-0.5">{c.note}</span>}
                   </span>
                 </li>
               ))}
             </ul>
-            <p className="mt-3 text-[12px] text-[var(--ink-muted)]">
+            <p className="mt-3 text-[12px] text-(--ink-muted)">
               ※「特定実務経験を含む」短縮や「監理技術者補佐」要件は、該当する実務・証明が必要です。自身がどの条件に当てはまるかは公式手引で確認してください。
             </p>
           </div>
@@ -238,27 +238,27 @@ export default function JukenShikakuClient() {
       </div>
 
       {/* 注記・出典 */}
-      <div className="mt-6 rounded-card-content border border-[var(--rule-soft)] bg-[var(--bg)] p-5 text-sm leading-7 text-[var(--ink-body)]">
-        <p className="font-bold text-[var(--ink)] mb-2">補足（重要）</p>
+      <div className="mt-6 rounded-card-content border border-(--rule-soft) bg-(--bg) p-5 text-sm leading-7 text-(--ink-body)">
+        <p className="font-bold text-(--ink) mb-2">補足（重要）</p>
         <ul className="list-disc pl-5 space-y-1">
-          <li>本ツールは <strong className="text-[var(--ink)]">令和6年度〜の新受検資格</strong>に基づきます（第一次＝年齢、第二次＝第一次検定等合格後の実務経験）。</li>
-          <li><strong className="text-[var(--ink)]">経過措置（令和10年度まで）</strong>として、改正前の<strong className="text-[var(--ink)]">旧受検資格（学歴別の実務経験年数）</strong>でも受検できます。学歴によっては旧資格の方が早く受検できる場合があります（旧資格の年数判定は公式手引を参照）。</li>
-          <li><strong className="text-[var(--ink)]">実務経験</strong>とは、施工計画の作成や工程・品質・安全管理など、工事の施工管理に直接関わる職務経験です（単純な労務・測量・設計のみ等は対象外）。</li>
-          <li className="text-[var(--ink-muted)]">※ 最終的な受験可否は、必ず<a className="text-[var(--accent)] underline" href="https://www.jctc.jp/" target="_blank" rel="noopener noreferrer">全国建設研修センター（公式）</a>の最新の受検の手引でご確認ください。</li>
+          <li>本ツールは <strong className="text-(--ink)">令和6年度〜の新受検資格</strong>に基づきます（第一次＝年齢、第二次＝第一次検定等合格後の実務経験）。</li>
+          <li><strong className="text-(--ink)">経過措置（令和10年度まで）</strong>として、改正前の<strong className="text-(--ink)">旧受検資格（学歴別の実務経験年数）</strong>でも受検できます。学歴によっては旧資格の方が早く受検できる場合があります（旧資格の年数判定は公式手引を参照）。</li>
+          <li><strong className="text-(--ink)">実務経験</strong>とは、施工計画の作成や工程・品質・安全管理など、工事の施工管理に直接関わる職務経験です（単純な労務・測量・設計のみ等は対象外）。</li>
+          <li className="text-(--ink-muted)">※ 最終的な受験可否は、必ず<a className="text-(--accent) underline" href="https://www.jctc.jp/" target="_blank" rel="noopener noreferrer">全国建設研修センター（公式）</a>の最新の受検の手引でご確認ください。</li>
         </ul>
       </div>
 
       {/* 関連（内部リンク・funnel） */}
       <div className="mt-6">
-        <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--ink-muted)] mb-3">試験の全体像を知る</div>
+        <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-3">試験の全体像を知る</div>
         <div className="grid gap-3 sm:grid-cols-2">
-          <Link href="/exam/civil-construction-1/guide/exam-overview" className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-[var(--accent)]">
-            <div className="font-bold text-[var(--ink)]">1級土木 試験概要</div>
-            <div className="text-sm text-[var(--ink-body)] mt-1">受験資格・科目・合格率・日程をまとめて解説</div>
+          <Link href="/exam/civil-construction-1/guide/exam-overview" className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-(--accent)">
+            <div className="font-bold text-(--ink)">1級土木 試験概要</div>
+            <div className="text-sm text-(--ink-body) mt-1">受験資格・科目・合格率・日程をまとめて解説</div>
           </Link>
-          <Link href="/exam/civil-construction-2/guide/exam-overview" className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-[var(--accent)]">
-            <div className="font-bold text-[var(--ink)]">2級土木 試験概要</div>
-            <div className="text-sm text-[var(--ink-body)] mt-1">受験資格・科目・合格率・日程をまとめて解説</div>
+          <Link href="/exam/civil-construction-2/guide/exam-overview" className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-(--accent)">
+            <div className="font-bold text-(--ink)">2級土木 試験概要</div>
+            <div className="text-sm text-(--ink-body) mt-1">受験資格・科目・合格率・日程をまとめて解説</div>
           </Link>
         </div>
       </div>

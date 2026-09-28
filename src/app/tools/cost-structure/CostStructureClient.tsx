@@ -16,10 +16,10 @@ import Link from "next/link";
 type Item = { key: string; label: string; colorClass: string };
 
 const ITEMS: Item[] = [
-  { key: "direct", label: "直接工事費", colorClass: "bg-[var(--accent)]" },
-  { key: "commonTemp", label: "共通仮設費", colorClass: "bg-[var(--color-positive)]" },
-  { key: "siteMgmt", label: "現場管理費", colorClass: "bg-[var(--color-warn)]" },
-  { key: "generalMgmt", label: "一般管理費等", colorClass: "bg-[var(--ink-muted)]" },
+  { key: "direct", label: "直接工事費", colorClass: "bg-(--accent)" },
+  { key: "commonTemp", label: "共通仮設費", colorClass: "bg-(--color-positive)" },
+  { key: "siteMgmt", label: "現場管理費", colorClass: "bg-(--color-warn)" },
+  { key: "generalMgmt", label: "一般管理費等", colorClass: "bg-(--ink-muted)" },
 ];
 
 function toNum(s: string | undefined): number {
@@ -42,9 +42,9 @@ export default function CostStructureClient() {
   const workCost = toNum(values.direct) + indirect; // 工事原価 = 直接工事費 + 間接工事費
 
   const inputBase =
-    "focus-ring w-full rounded-card-content border border-[var(--rule-soft)] bg-[var(--bg)] px-3 py-2 text-[15px] text-[var(--ink)] focus:border-[var(--accent)]";
+    "focus-ring w-full rounded-card-content border border-(--rule-soft) bg-(--bg) px-3 py-2 text-[15px] text-(--ink) focus:border-(--accent)";
   const labelBase =
-    "block text-[11px] font-bold uppercase tracking-wider text-[var(--ink-muted)] mb-2";
+    "block text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-2";
 
   return (
     <div className="max-w-[760px] mx-auto px-4 sm:px-6 py-8 sm:py-10">
@@ -73,10 +73,10 @@ export default function CostStructureClient() {
       {/* 結果 */}
       <div className="card-surface-section mt-4 p-5 sm:p-6">
         <div className="flex items-baseline justify-between">
-          <span className="text-[11px] font-bold uppercase tracking-wider text-[var(--ink-muted)]">
+          <span className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted)">
             請負工事費 合計
           </span>
-          <span className="font-serif font-black text-[24px] text-[var(--ink)] tabular-nums">
+          <span className="font-serif font-black text-[24px] text-(--ink) tabular-nums">
             {total.toLocaleString()} 千円
           </span>
         </div>
@@ -84,7 +84,7 @@ export default function CostStructureClient() {
         {total > 0 && (
           <>
             {/* 積み上げバー */}
-            <div className="mt-4 h-8 w-full flex rounded-card-content overflow-hidden border border-[var(--rule-soft)]">
+            <div className="mt-4 h-8 w-full flex rounded-card-content overflow-hidden border border-(--rule-soft)">
               {ITEMS.map((item, i) => {
                 const pct = ((nums[i] ?? 0) / total) * 100;
                 return pct > 0 ? (
@@ -101,12 +101,12 @@ export default function CostStructureClient() {
             <div className="mt-5 overflow-x-auto">
               <table className="w-full text-sm border-collapse">
                 <thead>
-                  <tr className="border-b border-[var(--rule)]">
-                    <th className="py-2 pr-3 text-left font-bold text-[var(--ink)]">費目</th>
-                    <th className="py-2 px-3 text-right font-bold text-[var(--ink)] whitespace-nowrap">
+                  <tr className="border-b border-(--rule)">
+                    <th className="py-2 pr-3 text-left font-bold text-(--ink)">費目</th>
+                    <th className="py-2 px-3 text-right font-bold text-(--ink) whitespace-nowrap">
                       金額
                     </th>
-                    <th className="py-2 pl-3 text-right font-bold text-[var(--ink)] whitespace-nowrap">
+                    <th className="py-2 pl-3 text-right font-bold text-(--ink) whitespace-nowrap">
                       構成比
                     </th>
                   </tr>
@@ -115,15 +115,15 @@ export default function CostStructureClient() {
                   {ITEMS.map((item, i) => {
                     const value = nums[i] ?? 0;
                     return (
-                      <tr key={item.key} className="border-b border-[var(--rule-soft)] last:border-0">
+                      <tr key={item.key} className="border-b border-(--rule-soft) last:border-0">
                         <td className="py-2 pr-3">
                           <span className={`inline-block w-2.5 h-2.5 rounded-full mr-2 ${item.colorClass}`} />
-                          <span className="text-[var(--ink-body)]">{item.label}</span>
+                          <span className="text-(--ink-body)">{item.label}</span>
                         </td>
-                        <td className="py-2 px-3 text-right tabular-nums text-[var(--ink-body)]">
+                        <td className="py-2 px-3 text-right tabular-nums text-(--ink-body)">
                           {value.toLocaleString()}
                         </td>
-                        <td className="py-2 pl-3 text-right tabular-nums font-bold text-[var(--ink)]">
+                        <td className="py-2 pl-3 text-right tabular-nums font-bold text-(--ink)">
                           {((value / total) * 100).toFixed(1)}%
                         </td>
                       </tr>
@@ -133,16 +133,16 @@ export default function CostStructureClient() {
               </table>
             </div>
 
-            <div className="mt-4 pt-4 border-t border-[var(--rule-soft)] grid gap-3 sm:grid-cols-2">
-              <div className="rounded-card-content bg-[var(--accent-fill)] p-3">
-                <div className="text-xs text-[var(--ink-muted)]">工事原価（直接工事費＋間接工事費）</div>
-                <div className="font-bold text-[var(--ink)] mt-0.5 tabular-nums">
+            <div className="mt-4 pt-4 border-t border-(--rule-soft) grid gap-3 sm:grid-cols-2">
+              <div className="rounded-card-content bg-(--accent-fill) p-3">
+                <div className="text-xs text-(--ink-muted)">工事原価（直接工事費＋間接工事費）</div>
+                <div className="font-bold text-(--ink) mt-0.5 tabular-nums">
                   {workCost.toLocaleString()} 千円（{((workCost / total) * 100).toFixed(1)}%）
                 </div>
               </div>
-              <div className="rounded-card-content bg-[var(--accent-fill)] p-3">
-                <div className="text-xs text-[var(--ink-muted)]">間接工事費（共通仮設費＋現場管理費）</div>
-                <div className="font-bold text-[var(--ink)] mt-0.5 tabular-nums">
+              <div className="rounded-card-content bg-(--accent-fill) p-3">
+                <div className="text-xs text-(--ink-muted)">間接工事費（共通仮設費＋現場管理費）</div>
+                <div className="font-bold text-(--ink) mt-0.5 tabular-nums">
                   {indirect.toLocaleString()} 千円（{((indirect / total) * 100).toFixed(1)}%）
                 </div>
               </div>
@@ -152,42 +152,42 @@ export default function CostStructureClient() {
       </div>
 
       {/* 根拠 */}
-      <div className="mt-6 rounded-card-content border border-[var(--rule-soft)] bg-[var(--bg)] p-5 text-sm leading-7 text-[var(--ink-body)]">
-        <p className="font-bold text-[var(--ink)] mb-2">数値の根拠と注意</p>
+      <div className="mt-6 rounded-card-content border border-(--rule-soft) bg-(--bg) p-5 text-sm leading-7 text-(--ink-body)">
+        <p className="font-bold text-(--ink) mb-2">数値の根拠と注意</p>
         <ul className="list-disc pl-5 space-y-1">
           <li>
-            <strong className="text-[var(--ink)]">費目区分</strong>は土木工事の積算基準に基づきます。請負代金額は工事価格と消費税相当額に分かれ、工事価格はさらに工事原価（直接工事費＋間接工事費）と一般管理費等に分かれます。
+            <strong className="text-(--ink)">費目区分</strong>は土木工事の積算基準に基づきます。請負代金額は工事価格と消費税相当額に分かれ、工事価格はさらに工事原価（直接工事費＋間接工事費）と一般管理費等に分かれます。
           </li>
           <li>
-            <strong className="text-[var(--ink)]">直接工事費・間接工事費は現場の裁量で動かせる部分が大きく、一般管理費等は会社側で決まる固定的な部分</strong>という性格の違いがあります。
+            <strong className="text-(--ink)">直接工事費・間接工事費は現場の裁量で動かせる部分が大きく、一般管理費等は会社側で決まる固定的な部分</strong>という性格の違いがあります。
           </li>
-          <li className="text-[var(--ink-muted)]">
-            ※ <strong className="text-[var(--ink-body)]">本ツールは構成比を計算するだけで、「何%を超えたら赤字」という判定は行いません。</strong>そうした閾値を示す公的な積算基準は存在しません。差異を見るときは絶対額ではなく、自社の実行予算・過去実績との比較で計画からの伸び方を確認してください。
+          <li className="text-(--ink-muted)">
+            ※ <strong className="text-(--ink-body)">本ツールは構成比を計算するだけで、「何%を超えたら赤字」という判定は行いません。</strong>そうした閾値を示す公的な積算基準は存在しません。差異を見るときは絶対額ではなく、自社の実行予算・過去実績との比較で計画からの伸び方を確認してください。
           </li>
         </ul>
       </div>
 
       {/* 関連 */}
       <div className="mt-6">
-        <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--ink-muted)] mb-3">
+        <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-3">
           関連するページ
         </div>
         <div className="grid gap-3 sm:grid-cols-2">
           <Link
             href="/practice/cost-and-design-change"
-            className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-[var(--accent)]"
+            className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-(--accent)"
           >
-            <div className="font-bold text-[var(--ink)]">原価と設計変更</div>
-            <div className="text-sm text-[var(--ink-body)] mt-1">
+            <div className="font-bold text-(--ink)">原価と設計変更</div>
+            <div className="text-sm text-(--ink-body) mt-1">
               費目構成と差異の見方、設計変更の協議記録を解説
             </div>
           </Link>
           <Link
             href="/tools"
-            className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-[var(--accent)]"
+            className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-(--accent)"
           >
-            <div className="font-bold text-[var(--ink)]">無料ツール一覧</div>
-            <div className="text-sm text-[var(--ink-body)] mt-1">
+            <div className="font-bold text-(--ink)">無料ツール一覧</div>
+            <div className="text-sm text-(--ink-body) mt-1">
               現場管理値の計算ツールをまとめて見る
             </div>
           </Link>

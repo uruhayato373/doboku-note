@@ -23,10 +23,10 @@ export default function CareerNeedPicker() {
             data-cta="career-need"
             data-cta-label={e.need}
             data-cta-placement="career-hub"
-            className="block h-full rounded-card-content border border-[var(--rule-soft)] bg-[var(--paper)] px-4 py-3 transition-colors hover:border-brand dark:border-[var(--rule-soft)]"
+            className="block h-full rounded-card-content border border-(--rule-soft) bg-(--paper) px-4 py-3 transition-colors hover:border-brand dark:border-(--rule-soft)"
           >
-            <span className="block text-[15px] font-medium text-[var(--ink)]">{e.state}</span>
-            <span className="mt-1 block text-[13px] text-[var(--ink-muted)]">
+            <span className="block text-[15px] font-medium text-(--ink)">{e.state}</span>
+            <span className="mt-1 block text-[13px] text-(--ink-muted)">
               最初に必要なこと: {e.first}
             </span>
             <span className="mt-2 block text-[13px] font-medium text-brand">{e.label}</span>

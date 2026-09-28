@@ -55,13 +55,13 @@ export default function SectionBlock({
 }: SectionBlockProps) {
   const dividerClass =
     divider === 'top'
-      ? 'border-t border-[var(--rule-soft)]'
+      ? 'border-t border-(--rule-soft)'
       : divider === 'bottom'
-        ? 'border-b border-[var(--rule-soft)]'
+        ? 'border-b border-(--rule-soft)'
         : '';
 
   const outerClass = [
-    band ? 'bg-[var(--paper)] border-b border-[var(--rule-soft)]' : '',
+    band ? 'bg-(--paper) border-b border-(--rule-soft)' : '',
     dividerClass,
     SPACES[space],
     'px-4 sm:px-6 lg:px-10',

@@ -11,5 +11,5 @@ const icons = {
 };
 export default function TopicIcon({ slug }: { slug: string }) {
   const Icon = icons[slug as keyof typeof icons] ?? Blocks;
-  return <Icon size={28} aria-hidden="true" className="mb-4 text-[var(--accent)]" />;
+  return <Icon size={28} aria-hidden="true" className="mb-4 text-(--accent)" />;
 }

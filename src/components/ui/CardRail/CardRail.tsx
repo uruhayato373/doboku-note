@@ -74,7 +74,7 @@ export default function CardRail({ children, ariaLabel }: CardRailProps) {
   };
 
   const arrowClass =
-    'absolute z-[2] hidden h-9 w-9 items-center justify-center border border-[var(--rule-soft)] bg-[var(--paper)] text-[var(--ink-muted)] shadow-[0_1px_6px_rgba(0,0,0,0.10)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)] focus-ring sm:inline-flex';
+    'absolute z-2 hidden h-9 w-9 items-center justify-center border border-(--rule-soft) bg-(--paper) text-(--ink-muted) shadow-[0_1px_6px_rgba(0,0,0,0.10)] transition-colors hover:border-(--accent) hover:text-(--accent) focus-ring sm:inline-flex';
   // 縦センタリングは inline style（Tailwind の translate 系は本 build で信頼できない）
   const arrowPos = { top: '50%', transform: 'translateY(-50%)' } as const;
 

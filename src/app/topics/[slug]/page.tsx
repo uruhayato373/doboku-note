@@ -54,8 +54,8 @@ export default async function TopicPage({ params }: { params: Promise<Params> })
       />
       {topic.intro && topic.intro.length > 0 && (
         <SectionBlock space="sm" ariaLabel="このテーマの要点">
-          <h2 className="mb-4 font-serif text-2xl font-bold text-[var(--ink)]">{topic.label}で押さえること</h2>
-          <div className="max-w-[780px] space-y-4 text-[15px] leading-[1.9] text-[var(--ink-body)]">
+          <h2 className="mb-4 font-serif text-2xl font-bold text-(--ink)">{topic.label}で押さえること</h2>
+          <div className="max-w-[780px] space-y-4 text-[15px] leading-[1.9] text-(--ink-body)">
             {topic.intro.map((paragraph) => <p key={paragraph.slice(0, 24)}>{paragraph}</p>)}
           </div>
         </SectionBlock>
@@ -64,11 +64,11 @@ export default async function TopicPage({ params }: { params: Promise<Params> })
         {areaNav.length > 1 && (
           <nav aria-label="領域へ移動" className="mb-6 flex flex-wrap gap-x-5 gap-y-1">
             {areaNav.map(({ area, count }) => (
-              <a key={area} className="focus-ring inline-block py-3 text-[var(--accent)] underline" href={area === 'standards' && standards.length > 0 ? '#topic-standards' : `#area-${area}`}>{areaLabels[area]}（{count}件） →</a>
+              <a key={area} className="focus-ring inline-block py-3 text-(--accent) underline" href={area === 'standards' && standards.length > 0 ? '#topic-standards' : `#area-${area}`}>{areaLabels[area]}（{count}件） →</a>
             ))}
           </nav>
         )}
-        <h2 className="mb-6 font-serif text-2xl font-bold text-[var(--ink)]">試験対策・実務ノート</h2>
+        <h2 className="mb-6 font-serif text-2xl font-bold text-(--ink)">試験対策・実務ノート</h2>
         <TopicArticles articles={docs.map(doc => ({
           href: getPublicDocPath(doc.slug), title: doc.shortTitle || doc.title,
           description: doc.subtitle || doc.description || '', category: String(doc.category),
@@ -79,7 +79,7 @@ export default async function TopicPage({ params }: { params: Promise<Params> })
       </SectionBlock>
       {standards.length > 0 && (
         <SectionBlock divider="top" ariaLabel="関連する基準資料">
-          <h2 id="topic-standards" className="mb-6 scroll-mt-24 font-serif text-2xl font-bold text-[var(--ink)]">関連する公的基準・マニュアル</h2>
+          <h2 id="topic-standards" className="mb-6 scroll-mt-24 font-serif text-2xl font-bold text-(--ink)">関連する公的基準・マニュアル</h2>
           <div className="grid gap-4 lg:grid-cols-2">
             {standards.map((document) => <StandardDocumentCard key={`${document.agencyId}-${document.documentId}`} document={document} />)}
           </div>

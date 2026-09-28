@@ -79,7 +79,7 @@ symlink・バイナリを本文として読まないこと・`MIGRATION_MAP` と
 - **文書ビューの共通化**: ナレッジ／プロジェクトは `src/lib/document-store.ts` の 1 実装（列挙・検索テキスト・安全な詳細読込）を通す。パストラバーサル検査（prefix ＋ **realpath** で symlink 経由の root 外を弾く）と、catch-all セグメントの復号もここだけが持つ。Markdown → HTML と見出し目次は `lib/markdown.ts` の `renderDocument` が**同一 AST から**返すので、目次と本文の id がずれない。
 - **パス解決**: `src/lib/repo-root.ts` の `findRepoRoot()`（`process.cwd()` から `package.json` name=doboku-note を上方探索）。バンドル下で不安定な `import.meta.url` は使わない。
 - **チャート**: 依存追加なしのサーバーレンダー inline SVG（`src/components/charts/` の LineChart / BarChart）。
-- **スタイル**: Tailwind CSS v3 + shadcn/ui 互換トークン/プリミティブ。管理画面専用 `tailwind.config.cjs` を `globals.css` の `@config` で明示し、サイト本体の Tailwind 設定と分離する。既存の集計ビュー固有スタイルは同 CSS に残す。
+- **スタイル**: Tailwind CSS v4 + shadcn/ui 互換トークン/プリミティブ。テーマは `globals.css` の `@theme` に CSS で定義し、サイト本体の Tailwind 設定（`tailwind.config.js`）とは分離する。既存の集計ビュー固有スタイルは同 CSS の `@layer utilities` に置く（v3 と同じくユーティリティと詳細度＋記述順で競わせるため）。
 - **ナビ**: 左サイドバー固定（`Nav.tsx`・領域の 6 グループ＝戦略/商品/サイト/SNS/計画/管理。2026-09-26 に作業の種類別から領域別へ並べ替え、URL は不変）。チャネルは領域に置く（商品＝note・ココナラ・Kindle、サイト＝サイト、SNS＝X・Instagram・YouTube）。横断の時間軸であるスケジュールは計画、チャネル横断の点検（ライフサイクル・`すべて`＝`/content`）は管理。チャネル定義（label・route・タブ）は `src/lib/channel-registry.ts` が唯一の SSOT（fs を持たない純粋モジュール・Nav とサーバー側の双方から import する）。TODO は計画直下にバックログ/週間/月間/年間を表示し、恒久文書・実装計画も管理から参照できる。狭い画面では上部バーへ畳む。
 - **テーマ**: ライト/ダーク切替（`ThemeToggle.tsx`）。色は全て `globals.css` のトークンで、ダークは `:root[data-theme="dark"]` の 1 経路だけ。初期値（保存値 or OS 設定）は `layout.tsx` の head inline script が描画前に解決する（prefers-color-scheme のメディアクエリは持たない＝パレット二重定義を避けるため）。選択は localStorage `admin-theme`。
 - **セキュリティ**: `-H 127.0.0.1` 明示バインド。media route は traversal ガード + MIME allowlist。書き込み操作用の画面・APIは設けず、管理画面は読み取り専用とする。

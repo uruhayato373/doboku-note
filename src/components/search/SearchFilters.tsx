@@ -27,8 +27,8 @@ export function SearchFilters({
           "min-h-11 px-3 py-2 text-sm rounded-full border transition-colors",
           "focus-ring",
           !category
-            ? "bg-[var(--accent)] text-white dark:text-[var(--bg)] border-[var(--accent)]"
-            : "bg-[var(--paper)] text-[var(--ink-body)] border-[var(--rule-soft)] hover:bg-[var(--accent-fill)] hover:text-[var(--accent)]"
+            ? "bg-(--accent) text-white dark:text-(--bg) border-(--accent)"
+            : "bg-(--paper) text-(--ink-body) border-(--rule-soft) hover:bg-(--accent-fill) hover:text-(--accent)"
         )}
       >
         すべて
@@ -42,18 +42,18 @@ export function SearchFilters({
             "min-h-11 px-3 py-2 text-sm rounded-full border transition-colors",
             "focus-ring",
             category === cat.value
-              ? "bg-[var(--accent)] text-white dark:text-[var(--bg)] border-[var(--accent)]"
-              : "bg-[var(--paper)] text-[var(--ink-body)] border-[var(--rule-soft)] hover:bg-[var(--accent-fill)] hover:text-[var(--accent)]"
+              ? "bg-(--accent) text-white dark:text-(--bg) border-(--accent)"
+              : "bg-(--paper) text-(--ink-body) border-(--rule-soft) hover:bg-(--accent-fill) hover:text-(--accent)"
           )}
         >
           {cat.label}
         </button>
       ))}
-      {category && <button onClick={() => onCategoryChange("")} className="focus-ring min-h-11 px-3 py-2 text-sm text-[var(--accent)] underline">資格のみ解除</button>}
+      {category && <button onClick={() => onCategoryChange("")} className="focus-ring min-h-11 px-3 py-2 text-sm text-(--accent) underline">資格のみ解除</button>}
       {(category || hasQuery) && (
         <button
           onClick={onReset}
-          className="focus-ring min-h-11 rounded-card-inline px-3 py-2 text-sm text-[var(--ink-muted)] hover:text-[var(--ink)] transition-colors"
+          className="focus-ring min-h-11 rounded-card-inline px-3 py-2 text-sm text-(--ink-muted) hover:text-(--ink) transition-colors"
         >
           検索をリセット
         </button>

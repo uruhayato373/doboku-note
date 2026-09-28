@@ -73,68 +73,68 @@ export default function StandardsComparePage() {
             ['地域差分', `${comparison.summary.differentDocuments}文書`],
           ].map(([label, value]) => (
             <SectionCard key={label} padding="compact">
-              <div className="text-[11px] font-bold tracking-[0.08em] text-[var(--ink-muted)]">{label}</div>
-              <div className="mt-2 text-2xl font-bold text-[var(--ink)]">{value}</div>
+              <div className="text-[11px] font-bold tracking-[0.08em] text-(--ink-muted)">{label}</div>
+              <div className="mt-2 text-2xl font-bold text-(--ink)">{value}</div>
             </SectionCard>
           ))}
         </div>
 
-        <div className="mt-8 overflow-x-auto border border-[var(--rule-soft)] bg-[var(--paper)]">
+        <div className="mt-8 overflow-x-auto border border-(--rule-soft) bg-(--paper)">
           <table className="w-full min-w-[780px] border-collapse text-left text-[13px]">
-            <thead className="bg-[var(--bg)] text-[var(--ink)]">
+            <thead className="bg-(--bg) text-(--ink)">
               <tr>
-                <th scope="col" className="border-b border-[var(--rule)] px-4 py-3">発行機関・版</th>
-                <th scope="col" className="border-b border-[var(--rule)] px-4 py-3">比較結果</th>
-                <th scope="col" className="border-b border-[var(--rule)] px-4 py-3 text-right">一致章</th>
-                <th scope="col" className="border-b border-[var(--rule)] px-4 py-3 text-right">差分章</th>
-                <th scope="col" className="border-b border-[var(--rule)] px-4 py-3 text-right">原本</th>
+                <th scope="col" className="border-b border-(--rule) px-4 py-3">発行機関・版</th>
+                <th scope="col" className="border-b border-(--rule) px-4 py-3">比較結果</th>
+                <th scope="col" className="border-b border-(--rule) px-4 py-3 text-right">一致章</th>
+                <th scope="col" className="border-b border-(--rule) px-4 py-3 text-right">差分章</th>
+                <th scope="col" className="border-b border-(--rule) px-4 py-3 text-right">原本</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-[var(--rule-soft)]">
+            <tbody className="divide-y divide-(--rule-soft)">
               {comparison.rows.map((row) => (
                 <tr key={row.agencyId}>
                   <td className="px-4 py-3 align-top">
                     <Link
                       href={`/standards/${row.agencyId}/${row.documentId}`}
-                      className="focus-ring font-bold text-[var(--ink)] hover:text-[var(--accent)] hover:underline"
+                      className="focus-ring font-bold text-(--ink) hover:text-(--accent) hover:underline"
                     >
                       {row.agencyName}
                     </Link>
-                    <div className="mt-1 text-[11px] text-[var(--ink-muted)]">
+                    <div className="mt-1 text-[11px] text-(--ink-muted)">
                       {inferStandardEdition(row.title)}
                     </div>
                   </td>
                   <td className="px-4 py-3 align-top">
-                    <span className={row.status === 'different' ? 'font-bold text-[var(--accent)]' : 'text-[var(--ink-body)]'}>
+                    <span className={row.status === 'different' ? 'font-bold text-(--accent)' : 'text-(--ink-body)'}>
                       {statusLabel[row.status]}
                     </span>
                     {row.duplicateOf && (
-                      <div className="mt-1 text-[11px] text-[var(--ink-muted)]">{row.duplicateOf} と原本SHA一致</div>
+                      <div className="mt-1 text-[11px] text-(--ink-muted)">{row.duplicateOf} と原本SHA一致</div>
                     )}
                   </td>
-                  <td className="px-4 py-3 text-right tabular-nums text-[var(--ink-body)]">
+                  <td className="px-4 py-3 text-right tabular-nums text-(--ink-body)">
                     {row.structured ? row.sameChapters : '—'}
                   </td>
-                  <td className="px-4 py-3 text-right tabular-nums text-[var(--ink-body)]">
+                  <td className="px-4 py-3 text-right tabular-nums text-(--ink-body)">
                     {row.structured ? row.changedChapters : '—'}
                   </td>
-                  <td className="px-4 py-3 text-right tabular-nums text-[var(--ink-muted)]">{row.pages}頁</td>
+                  <td className="px-4 py-3 text-right tabular-nums text-(--ink-muted)">{row.pages}頁</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
-        <p className="mt-3 text-[12px] leading-[1.7] text-[var(--ink-muted)]">
+        <p className="mt-3 text-[12px] leading-[1.7] text-(--ink-muted)">
           「本文一致」は、生成器コメント、原本ページ参照タグ、空白差を除外した章本文が一致することを示します。PDFファイル自体のハッシュ一致とは別の判定です。
         </p>
       </SectionBlock>
 
       <SectionBlock divider="top" ariaLabel="地域固有の差分">
         <div className="mb-6 flex items-start gap-3">
-          <GitCompare aria-hidden="true" className="mt-0.5 h-7 w-7 shrink-0 text-[var(--accent)]" />
+          <GitCompare aria-hidden="true" className="mt-0.5 h-7 w-7 shrink-0 text-(--accent)" />
           <div>
-            <h2 className="text-2xl font-bold text-[var(--ink)]">地域固有の差分</h2>
-            <p className="mt-2 max-w-[72ch] text-[14px] leading-[1.8] text-[var(--ink-body)]">
+            <h2 className="text-2xl font-bold text-(--ink)">地域固有の差分</h2>
+            <p className="mt-2 max-w-[72ch] text-[14px] leading-[1.8] text-(--ink-body)">
               近畿版から追加・削除・変更された行を、章と直前の条項ごとに表示します。番号だけがずれた場合も、その影響範囲を確認できます。
             </p>
           </div>
@@ -144,29 +144,29 @@ export default function StandardsComparePage() {
           {comparison.changes.map((change) => (
             <details
               key={`${change.agencyId}-${change.chapterId}`}
-              className="group border border-[var(--rule-soft)] bg-[var(--paper)]"
+              className="group border border-(--rule-soft) bg-(--paper)"
             >
               <summary className="focus-ring flex min-h-16 cursor-pointer list-none items-center gap-4 px-5 py-4 marker:hidden">
                 <span className="min-w-0 flex-1">
-                  <span className="block text-[12px] font-bold text-[var(--accent)]">{change.agencyName}</span>
-                  <span className="mt-1 block font-bold text-[var(--ink)]">{change.chapterTitle}</span>
+                  <span className="block text-[12px] font-bold text-(--accent)">{change.agencyName}</span>
+                  <span className="mt-1 block font-bold text-(--ink)">{change.chapterTitle}</span>
                 </span>
-                <span className="shrink-0 text-right text-[11px] tabular-nums text-[var(--ink-muted)]">
+                <span className="shrink-0 text-right text-[11px] tabular-nums text-(--ink-muted)">
                   {change.hunks.length}箇所<br />−{change.removedLines} / ＋{change.addedLines}
                 </span>
-                <DisclosureChevron className="text-[var(--ink-muted)]" />
+                <DisclosureChevron className="text-(--ink-muted)" />
               </summary>
-              <div className="border-t border-[var(--rule-soft)] px-5 py-5">
+              <div className="border-t border-(--rule-soft) px-5 py-5">
                 <div className="mb-4 flex flex-wrap gap-x-5 gap-y-2 text-[13px]">
                   <Link
                     href={`/standards/kinki/common/chapters/${change.chapterId}`}
-                    className="focus-ring inline-flex min-h-11 items-center text-[var(--accent)] hover:underline"
+                    className="focus-ring inline-flex min-h-11 items-center text-(--accent) hover:underline"
                   >
                     比較基準の近畿版
                   </Link>
                   <Link
                     href={`/standards/${change.agencyId}/common/chapters/${change.chapterId}`}
-                    className="focus-ring inline-flex min-h-11 items-center text-[var(--accent)] hover:underline"
+                    className="focus-ring inline-flex min-h-11 items-center text-(--accent) hover:underline"
                   >
                     {change.agencyName}版
                   </Link>
@@ -174,19 +174,19 @@ export default function StandardsComparePage() {
                 <div className="space-y-5">
                   {change.hunks.map((hunk, index) => (
                     <section key={`${change.chapterId}-${index}`} aria-label={`差分${index + 1}`}>
-                      <h3 className="text-[13px] font-bold text-[var(--ink)]">
+                      <h3 className="text-[13px] font-bold text-(--ink)">
                         {index + 1}. {hunk.context ?? '章内の記述'}
                       </h3>
                       <div className="mt-2 grid gap-3 lg:grid-cols-2">
-                        <div className="min-w-0 border-l-4 border-[var(--color-danger)] bg-[var(--color-danger-fill)] p-3">
-                          <div className="mb-2 text-[11px] font-bold text-[var(--ink-muted)]">近畿版</div>
-                          <pre className="whitespace-pre-wrap break-words font-sans text-[12px] leading-[1.7] text-[var(--ink-body)]">
+                        <div className="min-w-0 border-l-4 border-(--color-danger) bg-(--color-danger-fill) p-3">
+                          <div className="mb-2 text-[11px] font-bold text-(--ink-muted)">近畿版</div>
+                          <pre className="whitespace-pre-wrap wrap-break-word font-sans text-[12px] leading-[1.7] text-(--ink-body)">
                             {hunk.before.length > 0 ? hunk.before.join('\n') : '（該当記述なし）'}
                           </pre>
                         </div>
-                        <div className="min-w-0 border-l-4 border-[var(--accent)] bg-[var(--accent-fill)] p-3">
-                          <div className="mb-2 text-[11px] font-bold text-[var(--ink-muted)]">{change.agencyName}版</div>
-                          <pre className="whitespace-pre-wrap break-words font-sans text-[12px] leading-[1.7] text-[var(--ink-body)]">
+                        <div className="min-w-0 border-l-4 border-(--accent) bg-(--accent-fill) p-3">
+                          <div className="mb-2 text-[11px] font-bold text-(--ink-muted)">{change.agencyName}版</div>
+                          <pre className="whitespace-pre-wrap wrap-break-word font-sans text-[12px] leading-[1.7] text-(--ink-body)">
                             {hunk.after.length > 0 ? hunk.after.join('\n') : '（該当記述なし）'}
                           </pre>
                         </div>
@@ -203,15 +203,15 @@ export default function StandardsComparePage() {
       <SectionBlock divider="top" width="860" ariaLabel="比較方法と注意事項">
         <SectionCard title="比較方法と利用上の注意">
           <div className="flex items-start gap-3">
-            <ShieldCheck aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" />
-            <div className="space-y-2 text-[13px] leading-[1.8] text-[var(--ink-body)]">
+            <ShieldCheck aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-(--accent)" />
+            <div className="space-y-2 text-[13px] leading-[1.8] text-(--ink-body)">
               <p>{comparison.method}。</p>
               <p>差分は調査の入口です。契約・施工・検査の判断では、各発行機関が公開する最新版原本と適用条件を必ず確認してください。</p>
               <p>現在の収録は各文書1版です。次回改定時から同じ比較方式で年度差分を保存・公開します。</p>
             </div>
           </div>
           <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2">
-            <Link href="/standards/data" className="focus-ring inline-flex min-h-11 items-center font-bold text-[var(--accent)] hover:underline">
+            <Link href="/standards/data" className="focus-ring inline-flex min-h-11 items-center font-bold text-(--accent) hover:underline">
               データ仕様を見る →
             </Link>
             <a
@@ -220,7 +220,7 @@ export default function StandardsComparePage() {
               data-cta="standards-data"
               data-cta-label="comparison-json"
               data-cta-placement="standards-compare-footer"
-              className="focus-ring inline-flex min-h-11 items-center font-bold text-[var(--accent)] hover:underline"
+              className="focus-ring inline-flex min-h-11 items-center font-bold text-(--accent) hover:underline"
             >
               比較結果JSONを取得
             </a>

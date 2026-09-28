@@ -50,22 +50,22 @@ export default function ToolsIndexPage() {
       />
 
       <SectionBlock width="860" space="sm">
-        <nav aria-label="ツールの用途" className="mb-8 flex flex-wrap gap-3">{TOOL_GROUPS.map(g=><a key={g.id} href={`#tools-${g.id}`} className="focus-ring rounded-card-inline border border-[var(--rule-soft)] px-4 py-3 text-sm text-[var(--ink)]">{g.title}</a>)}</nav>
+        <nav aria-label="ツールの用途" className="mb-8 flex flex-wrap gap-3">{TOOL_GROUPS.map(g=><a key={g.id} href={`#tools-${g.id}`} className="focus-ring rounded-card-inline border border-(--rule-soft) px-4 py-3 text-sm text-(--ink)">{g.title}</a>)}</nav>
         {TOOL_GROUPS.map(g => <section key={g.id} id={`tools-${g.id}`} className="mb-10 scroll-mt-24">
-          <h2 className="mb-4 flex items-center gap-3 text-xl font-bold text-[var(--ink)]"><g.icon aria-hidden="true" size={24} />{g.title}</h2>
+          <h2 className="mb-4 flex items-center gap-3 text-xl font-bold text-(--ink)"><g.icon aria-hidden="true" size={24} />{g.title}</h2>
           <div className="grid gap-4 sm:grid-cols-2">
           {TOOLS.filter(t => toolGroup(t.href) === g.id).map((t) => (
             <Link
               key={t.href}
               href={t.href}
-              className="focus-ring card-surface-section group block p-5 transition-colors hover:border-[var(--accent)]"
+              className="focus-ring card-surface-section group block p-5 transition-colors hover:border-(--accent)"
             >
-              <div className="inline-flex items-center font-mono text-[10px] uppercase tracking-wider text-[var(--accent)] px-2 py-0.5 bg-[var(--accent-fill)] rounded-full mb-3">
+              <div className="inline-flex items-center font-mono text-[10px] uppercase tracking-wider text-(--accent) px-2 py-0.5 bg-(--accent-fill) rounded-full mb-3">
                 {t.tag}
               </div>
-              <h3 className="font-bold text-[17px] text-[var(--ink)] group-hover:underline mb-1.5">{t.title}</h3>
-              <p className="text-sm leading-6 text-[var(--ink-body)]">{t.desc}</p>
-              <p className="mt-4 border-t border-[var(--rule-soft)] pt-3 text-sm font-medium text-[var(--accent)]">{FLOWS[t.href.split('/').at(-1)!]}</p>
+              <h3 className="font-bold text-[17px] text-(--ink) group-hover:underline mb-1.5">{t.title}</h3>
+              <p className="text-sm leading-6 text-(--ink-body)">{t.desc}</p>
+              <p className="mt-4 border-t border-(--rule-soft) pt-3 text-sm font-medium text-(--accent)">{FLOWS[t.href.split('/').at(-1)!]}</p>
             </Link>
           ))}
         </div>

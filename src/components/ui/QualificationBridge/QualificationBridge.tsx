@@ -17,8 +17,8 @@ export default function QualificationBridge({ placement }: { placement: Qualific
   return (
     <div data-cta="qualification-bridge" data-cta-label="card" data-cta-placement={placement}>
       <MetaCard ariaLabel="この業務経験を資格につなげる">
-        <h2 className="text-lg font-bold text-[var(--ink)] mb-1">この業務経験を資格につなげる</h2>
-        <p className="text-sm text-[var(--ink-muted)] mb-4">
+        <h2 className="text-lg font-bold text-(--ink) mb-1">この業務経験を資格につなげる</h2>
+        <p className="text-sm text-(--ink-muted) mb-4">
           いま担当している仕事の知識と経験は、土木系資格の受検や学習に使えます。立場に近いものを 1 つ選んでください。
         </p>
         <ul className="grid grid-cols-1 gap-2 sm:grid-cols-3">
@@ -27,10 +27,10 @@ export default function QualificationBridge({ placement }: { placement: Qualific
               <Link
                 href={option.href}
                 data-cta-label={option.key}
-                className="focus-ring block h-full rounded-card-content border border-[var(--rule-soft)] px-4 py-3 transition-colors hover:border-brand dark:border-[var(--rule-soft)]"
+                className="focus-ring block h-full rounded-card-content border border-(--rule-soft) px-4 py-3 transition-colors hover:border-brand dark:border-(--rule-soft)"
               >
-                <span className="block text-[15px] font-medium text-[var(--ink)]">{option.title}</span>
-                <span className="mt-0.5 block text-[13px] text-[var(--ink-muted)]">{option.reason}</span>
+                <span className="block text-[15px] font-medium text-(--ink)">{option.title}</span>
+                <span className="mt-0.5 block text-[13px] text-(--ink-muted)">{option.reason}</span>
               </Link>
             </li>
           ))}

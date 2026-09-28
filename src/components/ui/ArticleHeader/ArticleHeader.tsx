@@ -42,9 +42,9 @@ export default function ArticleHeader({
       {category && categoryLabel && (
         <nav
           aria-label="breadcrumb"
-          className="mb-6 font-mono text-[11px] text-[var(--ink-muted)] uppercase tracking-widest flex items-center gap-2"
+          className="mb-6 font-mono text-[11px] text-(--ink-muted) uppercase tracking-widest flex items-center gap-2"
         >
-          <Link href={getCategoryHubPath(category)} className="hover:text-[var(--accent)] transition-colors">
+          <Link href={getCategoryHubPath(category)} className="hover:text-(--accent) transition-colors">
             {categoryLabel}
           </Link>
           {groupLabel && (
@@ -58,14 +58,14 @@ export default function ArticleHeader({
 
       <h1
         id={generateHeadingId(title)}
-        className="font-sans font-bold text-[26px] sm:text-[28px] text-[var(--ink)] leading-[1.4] text-balance [word-break:auto-phrase] m-0"
+        className="font-sans font-bold text-[26px] sm:text-[28px] text-(--ink) leading-[1.4] text-balance [word-break:auto-phrase] m-0"
         style={{ letterSpacing: '0.02em', fontFeatureSettings: '"palt" 1' }}
       >
         {title}
       </h1>
 
       {description && (
-        <p className="mt-3 text-[15px] leading-[1.85] text-[var(--ink-body)]">
+        <p className="mt-3 text-[15px] leading-[1.85] text-(--ink-body)">
           {description}
         </p>
       )}

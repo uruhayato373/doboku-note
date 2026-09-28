@@ -35,7 +35,7 @@ function KeywordChip({ doc }: { doc: DocMeta }) {
       data-cta="nav"
       data-cta-label="keyword-chip"
       aria-label={full}
-      className="focus-ring inline-flex items-center rounded-card-inline border border-[var(--rule-soft)] bg-[var(--paper)] px-3 py-1.5 text-sm text-[var(--ink)] transition-colors hover:border-[var(--accent)] hover:bg-[var(--accent-fill)] hover:text-[var(--accent)]"
+      className="focus-ring inline-flex items-center rounded-card-inline border border-(--rule-soft) bg-(--paper) px-3 py-1.5 text-sm text-(--ink) transition-colors hover:border-(--accent) hover:bg-(--accent-fill) hover:text-(--accent)"
     >
       {chipLabel(doc)}
     </Link>
@@ -46,9 +46,9 @@ function KeywordChip({ doc }: { doc: DocMeta }) {
 function BlockHeading({ label, count }: { label: string; count: number }) {
   return (
     <div className="mb-1 flex items-center gap-3">
-      <span className="shrink-0 text-[13px] font-bold text-[var(--ink-body)]">{label}</span>
-      <span className="shrink-0 font-mono text-[11px] tabular-nums text-[var(--ink-muted)]">{count}</span>
-      <span aria-hidden="true" className="h-px flex-1 bg-[var(--rule-soft)]" />
+      <span className="shrink-0 text-[13px] font-bold text-(--ink-body)">{label}</span>
+      <span className="shrink-0 font-mono text-[11px] tabular-nums text-(--ink-muted)">{count}</span>
+      <span aria-hidden="true" className="h-px flex-1 bg-(--rule-soft)" />
     </div>
   );
 }
@@ -60,12 +60,12 @@ function LeadRow({ doc }: { doc: DocMeta }) {
       href={getPublicDocPath(doc.slug)}
       data-cta="nav"
       data-cta-label="keyword-lead"
-      className="focus-ring group mb-4 flex items-center gap-3 border border-[var(--rule-soft)] border-l-[3px] border-l-[var(--accent)] bg-[var(--paper)] px-3 py-2.5 transition-colors hover:border-[var(--accent)] hover:bg-[var(--accent-fill)]"
+      className="focus-ring group mb-4 flex items-center gap-3 border border-(--rule-soft) border-l-[3px] border-l-(--accent) bg-(--paper) px-3 py-2.5 transition-colors hover:border-(--accent) hover:bg-(--accent-fill)"
     >
-      <span className="text-[15px] font-medium text-[var(--ink)] group-hover:text-[var(--accent)]">
+      <span className="text-[15px] font-medium text-(--ink) group-hover:text-(--accent)">
         {doc.shortTitle || doc.title}
       </span>
-      <span aria-hidden className="ml-auto text-[var(--accent)] transition-transform group-hover:translate-x-0.5">
+      <span aria-hidden className="ml-auto text-(--accent) transition-transform group-hover:translate-x-0.5">
         ›
       </span>
     </Link>
@@ -97,11 +97,11 @@ export function KeywordSection({
       {required && (
         <div className="mb-10">
           <BlockHeading label={required.label} count={requiredCount} />
-          {required.note && <p className="mb-3 text-[13px] text-[var(--ink-muted)]">{required.note}</p>}
+          {required.note && <p className="mb-3 text-[13px] text-(--ink-muted)">{required.note}</p>}
           {required.theme && <LeadRow doc={required.theme} />}
           {required.groups.map((group) => (
             <div key={group.label} className="mb-4 last:mb-0">
-              <p className="mb-2 text-[13px] text-[var(--ink-muted)]">
+              <p className="mb-2 text-[13px] text-(--ink-muted)">
                 {group.label}（{group.docs.length} テーマ）
               </p>
               <div className="flex flex-wrap gap-2">
@@ -117,7 +117,7 @@ export function KeywordSection({
       {selective && (
         <div>
           <BlockHeading label={selective.label} count={selectiveCount} />
-          {selective.note && <p className="mb-3 text-[13px] text-[var(--ink-muted)]">{selective.note}</p>}
+          {selective.note && <p className="mb-3 text-[13px] text-(--ink-muted)">{selective.note}</p>}
           <ExamMatrix
             columns={selective.columns.map((c) => c.header)}
             rows={matrixRows}

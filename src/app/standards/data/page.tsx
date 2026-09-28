@@ -85,8 +85,8 @@ export default function StandardsDataPage() {
             ['本文割当漏れ', '0行'],
           ].map(([label, value]) => (
             <SectionCard key={label} padding="compact">
-              <div className="text-[11px] font-bold tracking-[0.08em] text-[var(--ink-muted)]">{label}</div>
-              <div className="mt-2 text-2xl font-bold text-[var(--ink)]">{value}</div>
+              <div className="text-[11px] font-bold tracking-[0.08em] text-(--ink-muted)">{label}</div>
+              <div className="mt-2 text-2xl font-bold text-(--ink)">{value}</div>
             </SectionCard>
           ))}
         </div>
@@ -98,7 +98,7 @@ export default function StandardsDataPage() {
             data-cta="standards-data"
             data-cta-label="catalog-json"
             data-cta-placement="standards-data-hero"
-            className="focus-ring inline-flex min-h-11 items-center gap-2 bg-[var(--accent)] px-5 py-2.5 text-sm font-bold text-[var(--paper)] transition-opacity hover:opacity-90"
+            className="focus-ring inline-flex min-h-11 items-center gap-2 bg-(--accent) px-5 py-2.5 text-sm font-bold text-(--paper) transition-opacity hover:opacity-90"
           >
             <Download aria-hidden="true" className="h-4 w-4" />
             データカタログ JSON
@@ -109,14 +109,14 @@ export default function StandardsDataPage() {
             data-cta="standards-data"
             data-cta-label="comparison-json"
             data-cta-placement="standards-data-hero"
-            className="focus-ring inline-flex min-h-11 items-center gap-2 border border-[var(--accent)] px-5 py-2.5 text-sm font-bold text-[var(--accent)] transition-colors hover:bg-[var(--accent-fill)]"
+            className="focus-ring inline-flex min-h-11 items-center gap-2 border border-(--accent) px-5 py-2.5 text-sm font-bold text-(--accent) transition-colors hover:bg-(--accent-fill)"
           >
             <GitCompare aria-hidden="true" className="h-4 w-4" />
             地域差分 JSON
           </a>
           <Link
             href="/standards/compare"
-            className="focus-ring inline-flex min-h-11 items-center px-4 py-2.5 text-sm font-bold text-[var(--accent)] hover:underline"
+            className="focus-ring inline-flex min-h-11 items-center px-4 py-2.5 text-sm font-bold text-(--accent) hover:underline"
           >
             画面で地域差分を見る →
           </Link>
@@ -125,17 +125,17 @@ export default function StandardsDataPage() {
 
       <SectionBlock divider="top" ariaLabel="提供形式">
         <div className="mb-6">
-          <h2 className="text-2xl font-bold text-[var(--ink)]">同じ原典を3つの形で提供</h2>
-          <p className="mt-2 max-w-[70ch] text-[14px] leading-[1.8] text-[var(--ink-body)]">
+          <h2 className="text-2xl font-bold text-(--ink)">同じ原典を3つの形で提供</h2>
+          <p className="mt-2 max-w-[70ch] text-[14px] leading-[1.8] text-(--ink-body)">
             MarkdownとJSON-LDは二者択一ではありません。Markdownを検証済み本文、JSON-LDを意味・階層・出典の表現、HTMLを読者向け表示として役割分担しています。
           </p>
         </div>
         <div className="grid gap-4 md:grid-cols-3">
           {formats.map(({ icon: Icon, title, text }) => (
             <SectionCard key={title} padding="default">
-              <Icon aria-hidden="true" className="h-6 w-6 text-[var(--accent)]" />
-              <h3 className="mt-4 text-lg font-bold text-[var(--ink)]">{title}</h3>
-              <p className="mt-2 text-[14px] leading-[1.8] text-[var(--ink-body)]">{text}</p>
+              <Icon aria-hidden="true" className="h-6 w-6 text-(--accent)" />
+              <h3 className="mt-4 text-lg font-bold text-(--ink)">{title}</h3>
+              <p className="mt-2 text-[14px] leading-[1.8] text-(--ink-body)">{text}</p>
             </SectionCard>
           ))}
         </div>
@@ -147,7 +147,7 @@ export default function StandardsDataPage() {
               data-cta="standards-data"
               data-cta-label="sample-chapter-markdown"
               data-cta-placement="standards-data-sample"
-              className="focus-ring inline-flex min-h-11 items-center text-[var(--accent)] hover:underline"
+              className="focus-ring inline-flex min-h-11 items-center text-(--accent) hover:underline"
             >
               第1編 第1章 Markdown
             </a>
@@ -157,7 +157,7 @@ export default function StandardsDataPage() {
               data-cta="standards-data"
               data-cta-label="sample-chapter-jsonld"
               data-cta-placement="standards-data-sample"
-              className="focus-ring inline-flex min-h-11 items-center text-[var(--accent)] hover:underline"
+              className="focus-ring inline-flex min-h-11 items-center text-(--accent) hover:underline"
             >
               第1編 第1章 JSON-LD
             </a>
@@ -169,10 +169,10 @@ export default function StandardsDataPage() {
         <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
           <div>
             <div className="flex items-center gap-3">
-              <ShieldCheck aria-hidden="true" className="h-7 w-7 text-[var(--accent)]" />
-              <h2 className="text-2xl font-bold text-[var(--ink)]">原本へ戻れるデータ</h2>
+              <ShieldCheck aria-hidden="true" className="h-7 w-7 text-(--accent)" />
+              <h2 className="text-2xl font-bold text-(--ink)">原本へ戻れるデータ</h2>
             </div>
-            <ul className="mt-5 list-disc space-y-3 pl-5 text-[14px] leading-[1.8] text-[var(--ink-body)]">
+            <ul className="mt-5 list-disc space-y-3 pl-5 text-[14px] leading-[1.8] text-(--ink-body)">
               <li>原本PDFのURL、文書全体と章ごとのSHA-256を記録</li>
               <li>PDF全ページと本文行の割当を検査し、判読不能箇所を推測で補完しない</li>
               <li>加工主体をdoboku-note、原資料の発行者を各機関として明確に分離</li>
@@ -180,7 +180,7 @@ export default function StandardsDataPage() {
             </ul>
           </div>
           <SectionCard title="現在の地域比較" padding="default">
-            <p className="text-[14px] leading-[1.8] text-[var(--ink-body)]">
+            <p className="text-[14px] leading-[1.8] text-(--ink-body)">
               近畿版を比較基準として、{comparison.summary.structuredDocuments}文書を行単位で比較しています。
               完全一致は{comparison.summary.identicalDocuments}文書、地域差分は
               {comparison.summary.differentDocuments}文書・{comparison.summary.changedChapters}章・
@@ -188,7 +188,7 @@ export default function StandardsDataPage() {
             </p>
             <Link
               href="/standards/compare"
-              className="focus-ring mt-4 inline-flex min-h-11 items-center font-bold text-[var(--accent)] hover:underline"
+              className="focus-ring mt-4 inline-flex min-h-11 items-center font-bold text-(--accent) hover:underline"
             >
               比較結果を確認する →
             </Link>
@@ -198,17 +198,17 @@ export default function StandardsDataPage() {
 
       <SectionBlock divider="top" width="860" ariaLabel="データ加工の相談">
         <SectionCard title="公的資料の構造化・更新について">
-          <p className="text-[15px] leading-[1.85] text-[var(--ink-body)]">
+          <p className="text-[15px] leading-[1.85] text-(--ink-body)">
             PDF資料のHTML・Markdown・JSON-LD化、年度改定差分、原本照合、検索・AI利用向けデータ整備について相談を受け付けています。行政機関、建設コンサルタント、システム事業者での利用を想定しています。
           </p>
           <Link
             href="/contact"
-            className="focus-ring mt-5 inline-flex min-h-11 items-center bg-[var(--accent)] px-5 py-2.5 text-sm font-bold text-[var(--paper)] transition-opacity hover:opacity-90"
+            className="focus-ring mt-5 inline-flex min-h-11 items-center bg-(--accent) px-5 py-2.5 text-sm font-bold text-(--paper) transition-opacity hover:opacity-90"
           >
             データ加工について問い合わせる
           </Link>
         </SectionCard>
-        <p className="mt-5 text-[12px] leading-[1.8] text-[var(--ink-muted)]">
+        <p className="mt-5 text-[12px] leading-[1.8] text-(--ink-muted)">
           本データは各発行機関の公式サービスではありません。出典資料をdoboku-noteが加工した二次利用物です。公共データ利用規約（第1.0版）に基づき、出典と加工内容を表示しています。
         </p>
       </SectionBlock>

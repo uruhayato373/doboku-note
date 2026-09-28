@@ -54,22 +54,22 @@ const DataTable: React.FC<DataTableProps> = ({
       {title && (
         <div className="mb-6">
           <div className={`${sizeStyles.title} font-bold text-center relative inline-block w-full`}>
-            <span className="relative z-10 bg-[var(--paper)] px-6 py-2 text-[var(--accent)]">
+            <span className="relative z-10 bg-(--paper) px-6 py-2 text-(--accent)">
               {title}
             </span>
-            <div className="absolute top-1/2 left-0 w-full h-0.5 bg-[var(--accent)] transform -translate-y-1/2"></div>
+            <div className="absolute top-1/2 left-0 w-full h-0.5 bg-(--accent) transform -translate-y-1/2"></div>
           </div>
         </div>
       )}
 
       <div className="overflow-x-auto">
-        <table className="border border-[var(--rule-soft)] shadow-card-content w-full text-sm leading-5">
-          <thead className="bg-[var(--accent-fill)]">
+        <table className="border border-(--rule-soft) shadow-card-content w-full text-sm leading-5">
+          <thead className="bg-(--accent-fill)">
             <tr>
               {columns.map((column) => (
                 <th
                   key={column.key}
-                  className={`py-3 px-4 ${column.align === 'right' ? 'text-right' : column.align === 'center' ? 'text-center' : 'text-left'} font-medium text-[var(--ink-body)]`}
+                  className={`py-3 px-4 ${column.align === 'right' ? 'text-right' : column.align === 'center' ? 'text-center' : 'text-left'} font-medium text-(--ink-body)`}
                 >
                   {column.label}
                 </th>
@@ -81,11 +81,11 @@ const DataTable: React.FC<DataTableProps> = ({
               const isTotal = isTotalRow(row);
               const isEvenRow = index % 2 === 0;
               return (
-                <tr key={index} className={isEvenRow ? 'bg-[var(--paper)]' : 'bg-[var(--bg)]'}>
+                <tr key={index} className={isEvenRow ? 'bg-(--paper)' : 'bg-(--bg)'}>
                   {columns.map((column) => (
                     <td
                       key={column.key}
-                      className={`py-3 px-4 ${column.align === 'right' ? 'text-right' : column.align === 'center' ? 'text-center' : 'text-left'} ${isTotal ? 'font-medium text-[var(--ink-body)]' : 'text-[var(--ink)]'} ${column.className || ''}`}
+                      className={`py-3 px-4 ${column.align === 'right' ? 'text-right' : column.align === 'center' ? 'text-center' : 'text-left'} ${isTotal ? 'font-medium text-(--ink-body)' : 'text-(--ink)'} ${column.className || ''}`}
                     >
                       {row[column.key]}
                     </td>

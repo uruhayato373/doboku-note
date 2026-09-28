@@ -48,7 +48,7 @@ export default function MagazineInlineCard({
       className="card-surface-content focus-ring not-prose group my-6 block max-w-2xl overflow-hidden hover:shadow-card-hover hover:border-brand dark:hover:border-brand transition-shadow"
     >
       <div className="flex min-h-[112px] flex-row">
-        <div className="relative aspect-[6/5] w-24 shrink-0 self-center overflow-hidden bg-[var(--bg)] sm:w-[180px]">
+        <div className="relative aspect-6/5 w-24 shrink-0 self-center overflow-hidden bg-(--bg) sm:w-[180px]">
           {brand.ctaBg ? (
             <Image
               src={brand.ctaBg}

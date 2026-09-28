@@ -9,6 +9,13 @@ module.exports = {
   theme: {
     extend: {
       screens: {
+        // 既定ブレークポイントを v3 と同じ px で明示する。v4 の既定は rem のため、px の zenn-* と
+        // 単位が混ざると v4 が大小を比較できず出力順が崩れる（sm: が zenn-desktop: に勝ってしまう）。
+        sm: '640px',
+        md: '768px',
+        lg: '1024px',
+        xl: '1280px',
+        '2xl': '1536px',
         // Zenn-aligned breakpoints（Zenn本番CSSの max-width 式に一致する min-width 値）
         'zenn-tiny': '401px',      // ≥401 （Zenn ≤400 の反転）
         'zenn-sp': '577px',        // ≥577 （Zenn ≤576 の反転）

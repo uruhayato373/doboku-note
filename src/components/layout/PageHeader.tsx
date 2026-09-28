@@ -49,7 +49,7 @@ function Breadcrumb({ items }: { items: Crumb[] }) {
   return (
     <nav
       aria-label="breadcrumb"
-      className="font-mono text-[11px] text-[var(--ink-muted)] uppercase tracking-widest mb-3 flex items-center gap-2 flex-wrap"
+      className="font-mono text-[11px] text-(--ink-muted) uppercase tracking-widest mb-3 flex items-center gap-2 flex-wrap"
     >
       {items.map((c, i) => (
         <span key={`${c.label}-${i}`} className="flex items-center gap-2">
@@ -59,7 +59,7 @@ function Breadcrumb({ items }: { items: Crumb[] }) {
             </span>
           )}
           {c.href ? (
-            <Link href={c.href} className="hover:text-[var(--accent)] transition-colors">
+            <Link href={c.href} className="hover:text-(--accent) transition-colors">
               {c.label}
             </Link>
           ) : (
@@ -84,22 +84,22 @@ function HeaderStack({
     <>
       {breadcrumb && breadcrumb.length > 0 && <Breadcrumb items={breadcrumb} />}
       {label && (
-        <div className="inline-flex items-center font-mono text-[11px] uppercase tracking-wider text-[var(--accent)] px-2.5 py-1 bg-[var(--accent-fill)] rounded-full mb-4">
+        <div className="inline-flex items-center font-mono text-[11px] uppercase tracking-wider text-(--accent) px-2.5 py-1 bg-(--accent-fill) rounded-full mb-4">
           {label}
         </div>
       )}
       <h1
-        className={`font-serif font-black text-[var(--ink)] tracking-[0.01em] ${TITLE_SIZES[titleSize]}`}
+        className={`font-serif font-black text-(--ink) tracking-[0.01em] ${TITLE_SIZES[titleSize]}`}
         style={{ fontFeatureSettings: '"palt" 1' }}
       >
         {title}
       </h1>
       {lead && (
-        <p className="mt-3 text-[15px] sm:text-[16px] text-[var(--ink-body)] leading-[1.9] max-w-[62ch]">
+        <p className="mt-3 text-[15px] sm:text-[16px] text-(--ink-body) leading-[1.9] max-w-[62ch]">
           {lead}
         </p>
       )}
-      {meta && <div className="mt-3 font-mono text-[11px] text-[var(--ink-muted)]">{meta}</div>}
+      {meta && <div className="mt-3 font-mono text-[11px] text-(--ink-muted)">{meta}</div>}
       {actions && <div className="mt-4 flex flex-wrap items-center gap-3">{actions}</div>}
     </>
   );

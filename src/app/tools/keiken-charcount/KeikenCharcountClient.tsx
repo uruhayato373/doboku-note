@@ -135,9 +135,9 @@ export default function KeikenCharcountClient() {
   const btnBase =
     "focus-ring px-3 py-1.5 rounded-card-content text-sm font-bold border transition-colors";
   const on =
-    "border-[var(--accent)] text-[var(--accent)] bg-[var(--accent-fill)]";
+    "border-(--accent) text-(--accent) bg-(--accent-fill)";
   const off =
-    "border-[var(--rule-soft)] text-[var(--ink-body)] hover:border-[var(--accent)]";
+    "border-(--rule-soft) text-(--ink-body) hover:border-(--accent)";
 
   return (
     <div className="max-w-[760px] mx-auto px-4 sm:px-6 py-8 sm:py-10">
@@ -145,7 +145,7 @@ export default function KeikenCharcountClient() {
       <div className="card-surface-section p-5 sm:p-6">
         <div className="flex flex-col gap-4">
           <div>
-            <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--ink-muted)] mb-2">
+            <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-2">
               級
             </div>
             <div className="flex gap-2">
@@ -164,7 +164,7 @@ export default function KeikenCharcountClient() {
           </div>
 
           <div>
-            <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--ink-muted)] mb-2">
+            <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-2">
               出題形式
             </div>
             <div className="flex flex-wrap gap-2">
@@ -188,7 +188,7 @@ export default function KeikenCharcountClient() {
           </div>
 
           <div>
-            <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--ink-muted)] mb-2">
+            <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-2">
               設問
             </div>
             <div className="flex flex-wrap gap-2">
@@ -216,7 +216,7 @@ export default function KeikenCharcountClient() {
           onChange={(e) => setText(e.target.value)}
           placeholder="ここに施工経験記述の答案を貼り付け／入力してください。&#10;（数値プレースホルダ〇は受験時に同桁の数値へ置換される前提で1字として数えます）"
           rows={10}
-          className="focus-ring mt-5 w-full resize-y rounded-card-content border border-[var(--rule-soft)] bg-[var(--bg)] p-4 text-[15px] leading-[1.9] text-[var(--ink)] focus:border-[var(--accent)]"
+          className="focus-ring mt-5 w-full resize-y rounded-card-content border border-(--rule-soft) bg-(--bg) p-4 text-[15px] leading-[1.9] text-(--ink) focus:border-(--accent)"
         />
       </div>
 
@@ -224,12 +224,12 @@ export default function KeikenCharcountClient() {
       <div className="card-surface-section mt-4 p-5 sm:p-6">
         <div className="flex items-end justify-between gap-4 flex-wrap">
           <div>
-            <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--ink-muted)]">
+            <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted)">
               実文字数
             </div>
-            <div className="font-serif font-black text-[var(--ink)] leading-none mt-1">
+            <div className="font-serif font-black text-(--ink) leading-none mt-1">
               <span className="text-[40px] sm:text-[48px]">{chars}</span>
-              <span className="text-[18px] text-[var(--ink-muted)]"> / {max} 字</span>
+              <span className="text-[18px] text-(--ink-muted)"> / {max} 字</span>
             </div>
           </div>
           <div
@@ -241,17 +241,17 @@ export default function KeikenCharcountClient() {
         </div>
 
         {/* プログレスバー */}
-        <div className="mt-4 h-2.5 w-full overflow-hidden rounded-full bg-[var(--rule-soft)]">
+        <div className="mt-4 h-2.5 w-full overflow-hidden rounded-full bg-(--rule-soft)">
           <div
             className="h-full rounded-full transition-[width]"
             style={{ width: `${pct}%`, background: meta.color }}
           />
         </div>
 
-        <p className="mt-3 text-sm leading-6 text-[var(--ink-body)]">
+        <p className="mt-3 text-sm leading-6 text-(--ink-body)">
           {remaining >= 0 ? (
             <>
-              上限まであと <strong className="text-[var(--ink)]">{remaining}</strong> 字。{meta.note}
+              上限まであと <strong className="text-(--ink)">{remaining}</strong> 字。{meta.note}
             </>
           ) : (
             <>
@@ -262,19 +262,19 @@ export default function KeikenCharcountClient() {
       </div>
 
       {/* 注記・出典 */}
-      <div className="mt-6 rounded-card-content border border-[var(--rule-soft)] bg-[var(--bg)] p-5 text-sm leading-7 text-[var(--ink-body)]">
-        <p className="font-bold text-[var(--ink)] mb-2">カウント・しきい値について</p>
+      <div className="mt-6 rounded-card-content border border-(--rule-soft) bg-(--bg) p-5 text-sm leading-7 text-(--ink-body)">
+        <p className="font-bold text-(--ink) mb-2">カウント・しきい値について</p>
         <ul className="list-disc pl-5 space-y-1">
           <li>
-            文字数は <strong className="text-[var(--ink)]">空白・改行を除いた実文字数</strong>（マークダウン装飾やタグも除外）。数値プレースホルダ〇は受験時に数値へ置換される前提で1字として算入します。
+            文字数は <strong className="text-(--ink)">空白・改行を除いた実文字数</strong>（マークダウン装飾やタグも除外）。数値プレースホルダ〇は受験時に数値へ置換される前提で1字として算入します。
           </li>
           <li>
-            上限の根拠 — <strong className="text-[var(--ink)]">1級</strong>: 現行2テーマは各 8行×25字＝<strong>200字</strong>、旧形式は (1)9行・(2)11行・(3)7行（×25字）。<strong className="text-[var(--ink)]">2級</strong>: 問題文に字数規定はなく、通説目安の <strong>1項目約250字</strong>を採用。
+            上限の根拠 — <strong className="text-(--ink)">1級</strong>: 現行2テーマは各 8行×25字＝<strong>200字</strong>、旧形式は (1)9行・(2)11行・(3)7行（×25字）。<strong className="text-(--ink)">2級</strong>: 問題文に字数規定はなく、通説目安の <strong>1項目約250字</strong>を採用。
           </li>
           <li>
             「ぎりぎり」は上限+10%以内（1行字数の幅で収まり得る帯）。確実を期すなら上限以内に圧縮してください。
           </li>
-          <li className="text-[var(--ink-muted)]">
+          <li className="text-(--ink-muted)">
             ※ 経験記述は「自分が経験した工事」を書く問題です。模範答案の丸写しは失格につながります。必ず自分の現場に置き換えて使用してください。
           </li>
         </ul>
@@ -282,23 +282,23 @@ export default function KeikenCharcountClient() {
 
       {/* 関連（内部リンク・funnel） */}
       <div className="mt-6">
-        <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--ink-muted)] mb-3">
+        <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-3">
           経験記述の書き方をもっと詳しく
         </div>
         <div className="grid gap-3 sm:grid-cols-2">
           <Link
             href="/exam/civil-construction-1/secondary/experience-writing-guide"
-            className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-[var(--accent)]"
+            className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-(--accent)"
           >
-            <div className="font-bold text-[var(--ink)]">1級土木 施工経験記述の書き方</div>
-            <div className="text-sm text-[var(--ink-body)] mt-1">課題→検討→対応の型と頻出テーマを解説</div>
+            <div className="font-bold text-(--ink)">1級土木 施工経験記述の書き方</div>
+            <div className="text-sm text-(--ink-body) mt-1">課題→検討→対応の型と頻出テーマを解説</div>
           </Link>
           <Link
             href="/exam/civil-construction-2/secondary/experience-writing-guide"
-            className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-[var(--accent)]"
+            className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-(--accent)"
           >
-            <div className="font-bold text-[var(--ink)]">2級土木 施工経験記述の書き方</div>
-            <div className="text-sm text-[var(--ink-body)] mt-1">2級の解答欄・テーマ別の書き分けを解説</div>
+            <div className="font-bold text-(--ink)">2級土木 施工経験記述の書き方</div>
+            <div className="text-sm text-(--ink-body) mt-1">2級の解答欄・テーマ別の書き分けを解説</div>
           </Link>
         </div>
       </div>

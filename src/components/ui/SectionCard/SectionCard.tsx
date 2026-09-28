@@ -2,7 +2,7 @@
  * editorial カードの共通プリミティブ。
  *
  * 各ページにコピペされていた
- *   bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-section shadow-soft
+ *   bg-(--paper) border border-(--rule-soft) rounded-card-section shadow-soft
  * の chrome に加え、terms 内ローカル SectionCard / privacy 内ローカル PolicyCard の
  * 「icon タイル + serif 見出し + 本文」構成を任意 props で吸収する。
  *
@@ -37,7 +37,7 @@ const PADDINGS: Record<NonNullable<SectionCardProps['padding']>, string> = {
 };
 
 const BASE =
-  'bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-section shadow-soft';
+  'bg-(--paper) border border-(--rule-soft) rounded-card-section shadow-soft';
 
 function CardHeader({
   icon,
@@ -46,7 +46,7 @@ function CardHeader({
 }: Pick<SectionCardProps, 'icon' | 'title' | 'headingLevel'>) {
   const Heading = headingLevel === 3 ? 'h3' : 'h2';
   const heading = (
-    <Heading className="font-serif text-lg font-bold text-[var(--ink)] leading-tight">
+    <Heading className="font-serif text-lg font-bold text-(--ink) leading-tight">
       {title}
     </Heading>
   );
@@ -55,7 +55,7 @@ function CardHeader({
   }
   return (
     <div className="flex items-center gap-3 mb-4">
-      <div className="bg-[var(--accent-fill)] w-10 h-10 rounded-card-content flex items-center justify-center shrink-0">
+      <div className="bg-(--accent-fill) w-10 h-10 rounded-card-content flex items-center justify-center shrink-0">
         {icon}
       </div>
       {heading}

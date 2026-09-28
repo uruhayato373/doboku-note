@@ -46,9 +46,9 @@ export default function CareerCheckPage() {
         title="土木施工管理キャリア整理ツール"
         lead={
           <>
-            施工管理の経験を<strong className="text-[var(--ink)]">資格・工種・工事規模・立場</strong>
+            施工管理の経験を<strong className="text-(--ink)">資格・工種・工事規模・立場</strong>
             の4つで棚卸しし、いま整理すべき論点と、面談・求人票で確認することを一覧にします。
-            <strong className="text-[var(--ink)]">転職の可否や想定年収は判定しません</strong>
+            <strong className="text-(--ink)">転職の可否や想定年収は判定しません</strong>
             。すべて選択式で、入力は保存も送信もされません。
           </>
         }
@@ -62,7 +62,7 @@ export default function CareerCheckPage() {
       */}
       <noscript>
         <div className="mx-auto mt-8 w-full max-w-[760px] px-4 sm:px-0">
-          <p className="text-[15px] text-[var(--ink-body)]">
+          <p className="text-[15px] text-(--ink-body)">
             このツールは JavaScript が有効な環境で動きます。無効の場合は、次のページから同じ内容を確認できます。
           </p>
           <ul className="mt-3 space-y-2">
@@ -76,7 +76,7 @@ export default function CareerCheckPage() {
                 <Link href={e.href} className="text-brand underline">
                   {e.label}
                 </Link>
-                <span className="text-[var(--ink-muted)]">（{e.state}）</span>
+                <span className="text-(--ink-muted)">（{e.state}）</span>
               </li>
             ))}
           </ul>

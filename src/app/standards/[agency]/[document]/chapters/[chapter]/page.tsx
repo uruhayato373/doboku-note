@@ -125,7 +125,7 @@ export default async function StandardChapterPage({ params }: { params: Promise<
         <SectionCard
           as="article"
           padding="none"
-          className="overflow-hidden px-10 py-12 transition-colors duration-300 zenn-desktop:px-11 max-zenn-sp:rounded-none max-zenn-sp:border-x-0 max-zenn-sp:px-[var(--article-gutter-sp)] max-zenn-sp:py-[35px]"
+          className="overflow-hidden px-10 py-12 transition-colors duration-300 zenn-desktop:px-11 max-zenn-sp:rounded-none max-zenn-sp:border-x-0 max-zenn-sp:px-(--article-gutter-sp) max-zenn-sp:py-[35px]"
         >
           <StandardsArticleHeader
             breadcrumb={[
@@ -153,7 +153,7 @@ export default async function StandardChapterPage({ params }: { params: Promise<
           {/* 節移動は PC の右ナビ／モバイルの「資料内を移動」に集約し、
               同じ一覧が本文前に重複して読書開始を押し下げないようにする。 */}
           <div
-            className="prose-blog prose-base mt-7 [&>h2:first-child]:mt-0"
+            className="prose-blog mt-7 [&>h2:first-child]:mt-0"
             data-standards-chapter={target.chapterId}
           >
             <SafeMdx source={markdown} components={components} options={mdxOptions} />
@@ -161,16 +161,16 @@ export default async function StandardChapterPage({ params }: { params: Promise<
 
           <section
             aria-labelledby="chapter-source"
-            className="mt-10 border-t border-[var(--rule-soft)] pt-6"
+            className="mt-10 border-t border-(--rule-soft) pt-6"
           >
-            <h2 id="chapter-source" className="text-lg font-bold text-[var(--ink)]">原典PDFページで確認する</h2>
-            <p className="mt-2 text-[13px] leading-[1.8] text-[var(--ink-muted)]">
+            <h2 id="chapter-source" className="text-lg font-bold text-(--ink)">原典PDFページで確認する</h2>
+            <p className="mt-2 text-[13px] leading-[1.8] text-(--ink-muted)">
               この章は原本PDFの {target.firstPage}–{target.lastPage} ページから構成しています。紙面の改行・空白をそのまま保った逐語文字起こしは分冊ページで確認できます。
             </p>
             {firstPart && (
               <Link
                 href={`${standardPartPath(entry, firstPart)}#pdf-page-${target.firstPage}`}
-                className="focus-ring mt-3 inline-flex min-h-11 items-center text-[13px] font-bold text-[var(--accent)] hover:underline"
+                className="focus-ring mt-3 inline-flex min-h-11 items-center text-[13px] font-bold text-(--accent) hover:underline"
               >
                 逐語文字起こし PDF page {target.firstPage} を開く →
               </Link>

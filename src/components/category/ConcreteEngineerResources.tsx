@@ -5,7 +5,7 @@ import NoteProductCard from '@/components/ui/NoteProductCard';
 import { getPublicDocPath } from '@/lib/content-routes';
 import { getRelatedTools } from '@/lib/tools';
 
-const linkClass = 'focus-ring flex min-h-11 items-center justify-between gap-2 py-2 text-sm text-[var(--ink)] hover:text-[var(--accent)]';
+const linkClass = 'focus-ring flex min-h-11 items-center justify-between gap-2 py-2 text-sm text-(--ink) hover:text-(--accent)';
 
 export function ConcreteEngineerStudy() {
   const links = [
@@ -14,8 +14,8 @@ export function ConcreteEngineerStudy() {
     ['textbook-production-qc', '製造・品質管理を復習する'],
   ];
   return <MetaCard padding="compact" ariaLabel="学習・復習の入口" trackNav="concrete-study">
-    <h2 className="text-lg font-bold text-[var(--ink)]">学習・復習の入口</h2>
-    <ul className="mt-2 divide-y divide-[var(--rule-soft)]">
+    <h2 className="text-lg font-bold text-(--ink)">学習・復習の入口</h2>
+    <ul className="mt-2 divide-y divide-(--rule-soft)">
       {links.map(([slug, title]) => <li key={slug}><Link className={linkClass} href={getPublicDocPath(`concrete-engineer-${slug}`)}>{title}<span aria-hidden="true">→</span></Link></li>)}
     </ul>
   </MetaCard>;
@@ -35,8 +35,8 @@ export function ConcreteEngineerRelated() {
     { href: '/exam/concrete-chief-engineer', title: 'コンクリート主任技士の対策' },
   ];
   return <MetaCard padding="compact" ariaLabel="関連ツール・資格" trackNav="concrete-related">
-    <h2 className="text-lg font-bold text-[var(--ink)]">関連ツール・資格</h2>
-    <ul className="mt-2 divide-y divide-[var(--rule-soft)]">
+    <h2 className="text-lg font-bold text-(--ink)">関連ツール・資格</h2>
+    <ul className="mt-2 divide-y divide-(--rule-soft)">
       {links.map(link => <li key={link.href}><Link className={linkClass} href={link.href}>{link.title}<span aria-hidden="true">→</span></Link></li>)}
     </ul>
   </MetaCard>;

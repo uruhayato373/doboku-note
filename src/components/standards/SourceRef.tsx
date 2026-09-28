@@ -33,7 +33,7 @@ export default function SourceRef({
       <Link
         href={href}
         data-source-pages={pages}
-        className="focus-ring inline-flex min-h-11 items-center gap-1 font-mono text-[11px] text-[var(--ink-muted)] transition-colors hover:text-[var(--accent)] hover:underline"
+        className="focus-ring inline-flex min-h-11 items-center gap-1 font-mono text-[11px] text-(--ink-muted) transition-colors hover:text-(--accent) hover:underline"
       >
         {prefix}原典を確認 <span className="tabular-nums">{label}</span> →
       </Link>

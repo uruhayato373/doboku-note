@@ -70,15 +70,15 @@ export default function ConcretePumpPlanClient() {
   const withinLimit = totalEq <= HORIZONTAL_LIMIT_M;
 
   const inputBase =
-    "focus-ring w-full rounded-card-content border border-[var(--rule-soft)] bg-[var(--bg)] px-3 py-2 text-[15px] text-[var(--ink)] focus:border-[var(--accent)]";
+    "focus-ring w-full rounded-card-content border border-(--rule-soft) bg-(--bg) px-3 py-2 text-[15px] text-(--ink) focus:border-(--accent)";
   const labelBase =
-    "block text-[11px] font-bold uppercase tracking-wider text-[var(--ink-muted)] mb-2";
+    "block text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-2";
 
   return (
     <div className="max-w-[760px] mx-auto px-4 sm:px-6 py-8 sm:py-10">
       {/* ① ポンプ車台数 */}
       <div className="card-surface-section p-5 sm:p-6">
-        <div className="font-bold text-[var(--ink)] mb-4">① ポンプ車の必要台数</div>
+        <div className="font-bold text-(--ink) mb-4">① ポンプ車の必要台数</div>
         <div className="grid gap-4 sm:grid-cols-3">
           <div>
             <label htmlFor="total-volume" className={labelBase}>
@@ -121,22 +121,22 @@ export default function ConcretePumpPlanClient() {
               onChange={(e) => setUnitSpeed(e.target.value)}
               className={inputBase}
             />
-            <p className="mt-1.5 text-xs leading-5 text-[var(--ink-muted)]">
+            <p className="mt-1.5 text-xs leading-5 text-(--ink-muted)">
               目安は{REAL_SPEED_MIN}〜{REAL_SPEED_MAX}（カタログ最大値ではない）
             </p>
           </div>
         </div>
 
-        <div className="mt-5 rounded-card-content bg-[var(--accent-fill)] p-4">
-          <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--ink-body)]">
+        <div className="mt-5 rounded-card-content bg-(--accent-fill) p-4">
+          <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-body)">
             目標の時間当たり打込み量
           </div>
-          <div className="font-serif font-black text-[22px] text-[var(--ink)] mt-1 tabular-nums">
+          <div className="font-serif font-black text-[22px] text-(--ink) mt-1 tabular-nums">
             {targetRate ? `${targetRate.toFixed(1)} m³/h` : "—"}
           </div>
-          <div className="mt-3 pt-3 border-t border-[var(--rule-soft)] flex items-baseline justify-between">
-            <span className="text-sm text-[var(--ink-body)]">必要台数</span>
-            <span className="font-serif font-black text-[28px] text-[var(--ink)] tabular-nums">
+          <div className="mt-3 pt-3 border-t border-(--rule-soft) flex items-baseline justify-between">
+            <span className="text-sm text-(--ink-body)">必要台数</span>
+            <span className="font-serif font-black text-[28px] text-(--ink) tabular-nums">
               {pumpCount ?? "—"}
               {pumpCount && <span className="text-base font-bold ml-1">台</span>}
             </span>
@@ -146,7 +146,7 @@ export default function ConcretePumpPlanClient() {
 
       {/* ② アジテータ車台数 */}
       <div className="card-surface-section mt-4 p-5 sm:p-6">
-        <div className="font-bold text-[var(--ink)] mb-4">② アジテータ車の必要台数</div>
+        <div className="font-bold text-(--ink) mb-4">② アジテータ車の必要台数</div>
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
             <label htmlFor="truck-capacity" className={labelBase}>
@@ -178,17 +178,17 @@ export default function ConcretePumpPlanClient() {
           </div>
         </div>
 
-        <div className="mt-5 rounded-card-content bg-[var(--accent-fill)] p-4 flex items-baseline justify-between">
-          <span className="text-sm text-[var(--ink-body)]">
+        <div className="mt-5 rounded-card-content bg-(--accent-fill) p-4 flex items-baseline justify-between">
+          <span className="text-sm text-(--ink-body)">
             必要台数（N = 目標速度 × 往復時間 ÷ 積載量）
           </span>
-          <span className="font-serif font-black text-[28px] text-[var(--ink)] tabular-nums">
+          <span className="font-serif font-black text-[28px] text-(--ink) tabular-nums">
             {truckCount ?? "—"}
             {truckCount && <span className="text-base font-bold ml-1">台</span>}
           </span>
         </div>
         {!targetRate && (
-          <p className="mt-3 text-sm text-[var(--warn-text-emphasis)]">
+          <p className="mt-3 text-sm text-(--warn-text-emphasis)">
             ①の総打込み量・作業時間を入力すると目標速度が決まり、この計算が動きます。
           </p>
         )}
@@ -196,8 +196,8 @@ export default function ConcretePumpPlanClient() {
 
       {/* ③ 水平換算長 */}
       <div className="card-surface-section mt-4 p-5 sm:p-6">
-        <div className="font-bold text-[var(--ink)] mb-1">③ 圧送距離は届くか（125A配管）</div>
-        <p className="text-xs leading-5 text-[var(--ink-muted)] mb-4">
+        <div className="font-bold text-(--ink) mb-1">③ 圧送距離は届くか（125A配管）</div>
+        <p className="text-xs leading-5 text-(--ink-muted) mb-4">
           粗骨材最大寸法40mm・125A配管を前提にした換算係数です。100A・150Aなど他径は係数が変わるため、圧送指針の該当表を確認してください。
         </p>
         <div className="grid gap-4 sm:grid-cols-2">
@@ -262,21 +262,21 @@ export default function ConcretePumpPlanClient() {
         <div className="mt-5 overflow-x-auto">
           <table className="w-full text-sm border-collapse">
             <tbody>
-              <tr className="border-b border-[var(--rule-soft)]">
-                <td className="py-2 pr-3 text-[var(--ink-body)]">水平距離</td>
-                <td className="py-2 pl-3 text-right tabular-nums text-[var(--ink)]">{hd.toFixed(1)} m</td>
+              <tr className="border-b border-(--rule-soft)">
+                <td className="py-2 pr-3 text-(--ink-body)">水平距離</td>
+                <td className="py-2 pl-3 text-right tabular-nums text-(--ink)">{hd.toFixed(1)} m</td>
               </tr>
-              <tr className="border-b border-[var(--rule-soft)]">
-                <td className="py-2 pr-3 text-[var(--ink-body)]">垂直管換算（×{VERTICAL_COEF_125A}）</td>
-                <td className="py-2 pl-3 text-right tabular-nums text-[var(--ink)]">{vertEq.toFixed(1)} m</td>
+              <tr className="border-b border-(--rule-soft)">
+                <td className="py-2 pr-3 text-(--ink-body)">垂直管換算（×{VERTICAL_COEF_125A}）</td>
+                <td className="py-2 pl-3 text-right tabular-nums text-(--ink)">{vertEq.toFixed(1)} m</td>
               </tr>
-              <tr className="border-b border-[var(--rule-soft)]">
-                <td className="py-2 pr-3 text-[var(--ink-body)]">ベント管換算（×{BEND90_LENGTH_125A}）</td>
-                <td className="py-2 pl-3 text-right tabular-nums text-[var(--ink)]">{bendEq.toFixed(1)} m</td>
+              <tr className="border-b border-(--rule-soft)">
+                <td className="py-2 pr-3 text-(--ink-body)">ベント管換算（×{BEND90_LENGTH_125A}）</td>
+                <td className="py-2 pl-3 text-right tabular-nums text-(--ink)">{bendEq.toFixed(1)} m</td>
               </tr>
               <tr>
-                <td className="py-2 pr-3 text-[var(--ink-body)]">ホース換算（×{HOSE_LENGTH}）</td>
-                <td className="py-2 pl-3 text-right tabular-nums text-[var(--ink)]">{hoseEq.toFixed(1)} m</td>
+                <td className="py-2 pr-3 text-(--ink-body)">ホース換算（×{HOSE_LENGTH}）</td>
+                <td className="py-2 pl-3 text-right tabular-nums text-(--ink)">{hoseEq.toFixed(1)} m</td>
               </tr>
             </tbody>
           </table>
@@ -284,18 +284,18 @@ export default function ConcretePumpPlanClient() {
 
         <div
           className={`mt-4 rounded-card-content border-l-4 p-4 flex items-baseline justify-between ${
-            withinLimit ? "border-[var(--color-positive)]" : "border-[var(--color-danger)]"
+            withinLimit ? "border-(--color-positive)" : "border-(--color-danger)"
           }`}
           style={{ background: "var(--bg)" }}
         >
-          <span className="text-sm text-[var(--ink-body)]">水平換算距離の合計</span>
-          <span className="font-serif font-black text-[24px] text-[var(--ink)] tabular-nums">
+          <span className="text-sm text-(--ink-body)">水平換算距離の合計</span>
+          <span className="font-serif font-black text-[24px] text-(--ink) tabular-nums">
             {totalEq.toFixed(1)} m
           </span>
         </div>
         <p
           className={`mt-2 text-sm font-bold ${
-            withinLimit ? "text-[var(--color-positive)]" : "text-[var(--color-danger)]"
+            withinLimit ? "text-(--color-positive)" : "text-(--color-danger)"
           }`}
         >
           {withinLimit
@@ -305,19 +305,19 @@ export default function ConcretePumpPlanClient() {
       </div>
 
       {/* 根拠 */}
-      <div className="mt-6 rounded-card-content border border-[var(--rule-soft)] bg-[var(--bg)] p-5 text-sm leading-7 text-[var(--ink-body)]">
-        <p className="font-bold text-[var(--ink)] mb-2">数値の根拠</p>
+      <div className="mt-6 rounded-card-content border border-(--rule-soft) bg-(--bg) p-5 text-sm leading-7 text-(--ink-body)">
+        <p className="font-bold text-(--ink) mb-2">数値の根拠</p>
         <ul className="list-disc pl-5 space-y-1">
           <li>
-            <strong className="text-[var(--ink)]">現場実質の打込み速度 {REAL_SPEED_MIN}〜{REAL_SPEED_MAX} m³/h</strong>は、スランプ18cm程度のコンクリートをポンプ工法で打ち込む場合の目安です。ポンプ車のカタログ上の最大吐出量（スクイズ式50m³/h程度・ピストン式100m³/h超）とは別の値で、台数計算にはこちらを使います。
+            <strong className="text-(--ink)">現場実質の打込み速度 {REAL_SPEED_MIN}〜{REAL_SPEED_MAX} m³/h</strong>は、スランプ18cm程度のコンクリートをポンプ工法で打ち込む場合の目安です。ポンプ車のカタログ上の最大吐出量（スクイズ式50m³/h程度・ピストン式100m³/h超）とは別の値で、台数計算にはこちらを使います。
           </li>
           <li>
-            <strong className="text-[var(--ink)]">水平換算長の係数（125A）</strong>は土木学会「コンクリートのポンプ施工指針」に基づく目安です。垂直管は1mにつき{VERTICAL_COEF_125A}m、90°ベント管は1か所につき{BEND90_LENGTH_125A}m、フレキシブルホース（長さ5〜8m）は1本につき{HOSE_LENGTH}mとして換算します。配管径が変わると係数も変わるため、100A・150Aなどは指針の該当表を直接確認してください。
+            <strong className="text-(--ink)">水平換算長の係数（125A）</strong>は土木学会「コンクリートのポンプ施工指針」に基づく目安です。垂直管は1mにつき{VERTICAL_COEF_125A}m、90°ベント管は1か所につき{BEND90_LENGTH_125A}m、フレキシブルホース（長さ5〜8m）は1本につき{HOSE_LENGTH}mとして換算します。配管径が変わると係数も変わるため、100A・150Aなどは指針の該当表を直接確認してください。
           </li>
           <li>
-            <strong className="text-[var(--ink)]">水平圧送可能距離の目安 {HORIZONTAL_LIMIT_M}m</strong>は一般的な目安であり、機種・配合・気温によって実際の限界は変動します。
+            <strong className="text-(--ink)">水平圧送可能距離の目安 {HORIZONTAL_LIMIT_M}m</strong>は一般的な目安であり、機種・配合・気温によって実際の限界は変動します。
           </li>
-          <li className="text-[var(--ink-muted)]">
+          <li className="text-(--ink-muted)">
             ※ 配管径は粗骨材の最大寸法から選定します（20・25mmは100A以上、40mmは125A以上が目安）。特記仕様書・施工計画書の値が優先します。本ツールは標準的な考え方の早見であり、現場の判断を代替するものではありません。
           </li>
         </ul>
@@ -325,25 +325,25 @@ export default function ConcretePumpPlanClient() {
 
       {/* 関連 */}
       <div className="mt-6">
-        <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--ink-muted)] mb-3">
+        <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-3">
           関連するページ
         </div>
         <div className="grid gap-3 sm:grid-cols-2">
           <Link
             href="/practice/concrete-pump-capacity"
-            className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-[var(--accent)]"
+            className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-(--accent)"
           >
-            <div className="font-bold text-[var(--ink)]">ポンプ車・ミキサ車は何台必要か</div>
-            <div className="text-sm text-[var(--ink-body)] mt-1">
+            <div className="font-bold text-(--ink)">ポンプ車・ミキサ車は何台必要か</div>
+            <div className="text-sm text-(--ink-body) mt-1">
               配車計算の考え方を解説した記事
             </div>
           </Link>
           <Link
             href="/tools"
-            className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-[var(--accent)]"
+            className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-(--accent)"
           >
-            <div className="font-bold text-[var(--ink)]">無料ツール一覧</div>
-            <div className="text-sm text-[var(--ink-body)] mt-1">
+            <div className="font-bold text-(--ink)">無料ツール一覧</div>
+            <div className="text-sm text-(--ink-body) mt-1">
               現場管理値の計算ツールをまとめて見る
             </div>
           </Link>

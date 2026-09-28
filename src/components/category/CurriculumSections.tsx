@@ -40,8 +40,8 @@ export function CurriculumSection({
   return (
     <section id={`sec-${id}`} className="scroll-mt-24">
       <div className="mb-6">
-        <h2 className="font-serif text-[22px] sm:text-[26px] font-black text-[var(--ink)]">{title}</h2>
-        {description && <p className="text-[14px] text-[var(--ink-muted)] mt-1">{description}</p>}
+        <h2 className="font-serif text-[22px] sm:text-[26px] font-black text-(--ink)">{title}</h2>
+        {description && <p className="text-[14px] text-(--ink-muted) mt-1">{description}</p>}
       </div>
       {children}
     </section>
@@ -50,7 +50,7 @@ export function CurriculumSection({
 
 function CurriculumRow({ doc, marker }: { doc: DocMeta; marker: React.ReactNode }) {
   return (
-    <li className="border-b border-[var(--rule-soft)] last:border-b-0">
+    <li className="border-b border-(--rule-soft) last:border-b-0">
       <Link href={getPublicDocPath(doc.slug)} data-cta="nav" data-cta-label="curriculum-list" className="group flex items-baseline gap-3 py-3">
         <span className="shrink-0 flex items-center justify-center min-w-6" aria-hidden>
           {marker}
@@ -58,11 +58,11 @@ function CurriculumRow({ doc, marker }: { doc: DocMeta; marker: React.ReactNode 
         {/* タイトル下に subtitle を縦積み（旧: 右寄せ truncate はデスクトップで途切れ・
             モバイル非表示だった）。全文・全デバイス表示で記事選択の手がかりを保つ（2026-07 C-2）。 */}
         <span className="flex min-w-0 flex-col gap-0.5">
-          <span className="text-[15px] sm:text-base font-medium text-[var(--ink)] group-hover:text-[var(--accent)] transition-colors">
+          <span className="text-[15px] sm:text-base font-medium text-(--ink) group-hover:text-(--accent) transition-colors">
             {doc.shortTitle || doc.title}
           </span>
           {doc.subtitle && (
-            <span className="text-[13px] text-[var(--ink-muted)]">{doc.subtitle}</span>
+            <span className="text-[13px] text-(--ink-muted)">{doc.subtitle}</span>
           )}
         </span>
       </Link>
@@ -88,7 +88,7 @@ function ChapterRows({ block, numbered, thumbnails, previewFirst = false }: { bl
         <CurriculumRow
           key={doc.slug}
           doc={doc}
-          marker={<span className="font-mono text-[10px] font-bold text-[var(--accent)]">要点</span>}
+          marker={<span className="font-mono text-[10px] font-bold text-(--accent)">要点</span>}
         />
       ))}
       {block.docs.map((doc, i) => previewFirst && i === 0 ? (
@@ -99,11 +99,11 @@ function ChapterRows({ block, numbered, thumbnails, previewFirst = false }: { bl
           doc={doc}
           marker={
             numbered ? (
-              <span className="font-mono text-[11px] tabular-nums text-[var(--ink-muted)]">
+              <span className="font-mono text-[11px] tabular-nums text-(--ink-muted)">
                 {String(i + 1).padStart(2, '0')}
               </span>
             ) : (
-              <span className="block h-1.5 w-1.5 rounded-[1px] bg-[var(--accent)] opacity-60" />
+              <span className="block h-1.5 w-1.5 rounded-[1px] bg-(--accent) opacity-60" />
             )
           }
         />
@@ -138,7 +138,7 @@ export function CurriculumList({
   return (
     <div className={collapsible ? 'space-y-3' : 'space-y-6'}>
       {previewFirst && <nav aria-label="工種から探す" className="flex flex-wrap gap-2">
-        {visible.map((block, i) => <a key={i} href={`#practice-field-${i}`} className="focus-ring rounded-card-inline border border-[var(--rule-soft)] bg-[var(--paper)] px-3 py-3 text-sm text-[var(--ink)] hover:bg-[var(--accent-fill)]">{block.label ?? 'その他'}</a>)}
+        {visible.map((block, i) => <a key={i} href={`#practice-field-${i}`} className="focus-ring rounded-card-inline border border-(--rule-soft) bg-(--paper) px-3 py-3 text-sm text-(--ink) hover:bg-(--accent-fill)">{block.label ?? 'その他'}</a>)}
       </nav>}
       {visible.map((block, bi) => {
         const showVolume = !!block.volume && block.volume !== visible[bi - 1]?.volume;
@@ -150,32 +150,32 @@ export function CurriculumList({
                  13px 太字＋区切り罫線で「ここから別の分冊」を示す（旧: mono 11px muted で
                  章より弱く階層が逆転していた）。2 冊目以降は上に余白を足す。 */
               <div className={`mb-3 flex items-center gap-3${bi > 0 ? ' mt-6' : ''}`}>
-                <span className="shrink-0 text-[13px] font-bold text-[var(--ink-body)]">{block.volume}</span>
-                <span aria-hidden="true" className="h-px flex-1 bg-[var(--rule-soft)]" />
+                <span className="shrink-0 text-[13px] font-bold text-(--ink-body)">{block.volume}</span>
+                <span aria-hidden="true" className="h-px flex-1 bg-(--rule-soft)" />
               </div>
             )}
             {collapsible && block.label ? (
-              <details className="group rounded-card-content border border-[var(--rule-soft)] bg-[var(--paper)] open:border-[var(--accent)] transition-colors">
+              <details className="group rounded-card-content border border-(--rule-soft) bg-(--paper) open:border-(--accent) transition-colors">
                 {/* E-1: 章番号(mono accent) + タイトル + N記事 + 右端シェブロン（1行）。
                     章の中身は開いて確認する（閉状態のトピックプレビューは冗長のため撤去）。 */}
                 <summary className="flex cursor-pointer list-none items-center gap-3 px-4 py-3 marker:hidden">
                   {block.chapterNo && (
-                    <span className="shrink-0 font-mono text-[11px] font-bold tracking-wider text-[var(--accent)]">
+                    <span className="shrink-0 font-mono text-[11px] font-bold tracking-wider text-(--accent)">
                       {block.chapterNo}
                     </span>
                   )}
-                  <span className="min-w-0 flex-1 truncate font-serif text-lg font-bold text-[var(--ink)]">{block.label}</span>
-                  <span className="shrink-0 font-mono text-[11px] tabular-nums text-[var(--ink-muted)]">{count}記事</span>
-                  <DisclosureChevron className="text-[var(--ink-muted)]" />
+                  <span className="min-w-0 flex-1 truncate font-serif text-lg font-bold text-(--ink)">{block.label}</span>
+                  <span className="shrink-0 font-mono text-[11px] tabular-nums text-(--ink-muted)">{count}記事</span>
+                  <DisclosureChevron className="text-(--ink-muted)" />
                 </summary>
-                <div className="border-t border-[var(--rule-soft)] px-4">
+                <div className="border-t border-(--rule-soft) px-4">
                   <ChapterRows block={block} numbered={numbered} thumbnails={thumbnails} />
                 </div>
               </details>
             ) : (
               <>
                 {block.label && (
-                  <h3 className="font-serif text-lg font-bold text-[var(--ink)] mb-1 border-b border-[var(--rule-soft)] pb-2">
+                  <h3 className="font-serif text-lg font-bold text-(--ink) mb-1 border-b border-(--rule-soft) pb-2">
                     {block.label}
                   </h3>
                 )}
@@ -228,14 +228,14 @@ export function CareerSection({
         ))}
       </CardRail>
       {overflow.length > 0 && (
-        <details className="group mt-4 rounded-card-content border border-[var(--rule-soft)] bg-[var(--paper)] open:border-[var(--accent)] transition-colors">
+        <details className="group mt-4 rounded-card-content border border-(--rule-soft) bg-(--paper) open:border-(--accent) transition-colors">
           {/* テキスト章アコーディオン（CurriculumList collapsible）と同型の 1 行 summary */}
           <summary className="flex cursor-pointer list-none items-center gap-3 px-4 py-3 marker:hidden">
-            <span className="min-w-0 flex-1 truncate font-serif text-lg font-bold text-[var(--ink)]">その他のキャリア記事</span>
-            <span className="shrink-0 font-mono text-[11px] tabular-nums text-[var(--ink-muted)]">{overflow.length}記事</span>
-            <DisclosureChevron className="text-[var(--ink-muted)]" />
+            <span className="min-w-0 flex-1 truncate font-serif text-lg font-bold text-(--ink)">その他のキャリア記事</span>
+            <span className="shrink-0 font-mono text-[11px] tabular-nums text-(--ink-muted)">{overflow.length}記事</span>
+            <DisclosureChevron className="text-(--ink-muted)" />
           </summary>
-          <div className="border-t border-[var(--rule-soft)] px-4">
+          <div className="border-t border-(--rule-soft) px-4">
             <CurriculumList blocks={[{ docs: overflow }]} />
           </div>
         </details>

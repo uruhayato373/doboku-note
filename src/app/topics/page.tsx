@@ -31,12 +31,12 @@ export default function TopicsPage() {
               <Link
                 key={topic.slug}
                 href={`/topics/${topic.slug}`}
-                className="focus-ring card-interactive border border-[var(--rule-soft)] bg-[var(--paper)] p-5 transition-[border-color,box-shadow] hover:border-[var(--accent)]"
+                className="focus-ring card-interactive border border-(--rule-soft) bg-(--paper) p-5 transition-[border-color,box-shadow] hover:border-(--accent)"
               >
                 <TopicIcon slug={topic.slug} />
-                <h2 className="font-serif text-lg font-bold text-[var(--ink)]">{topic.label}</h2>
-                <p className="mt-2 text-[13px] leading-[1.75] text-[var(--ink-muted)]">{topic.description}</p>
-                <p className="mt-4 font-mono text-[10px] uppercase tracking-widest text-[var(--accent)]">
+                <h2 className="font-serif text-lg font-bold text-(--ink)">{topic.label}</h2>
+                <p className="mt-2 text-[13px] leading-[1.75] text-(--ink-muted)">{topic.description}</p>
+                <p className="mt-4 font-mono text-[10px] uppercase tracking-widest text-(--accent)">
                   記事 {docs.length} / 基準資料 {standards.length}
                 </p>
               </Link>
