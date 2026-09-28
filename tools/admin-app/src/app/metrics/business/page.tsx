@@ -4,7 +4,8 @@ import { join } from 'node:path';
 import { PageHead } from '@/components/ui';
 import { Grid, Section, Stack } from '@/components/layout';
 import { Badge } from '@/components/ui/badge';
-import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { findRepoRoot } from '@/lib/repo-root';
 import { buildReport, reviewPeriod, samePeriod } from '../../../../../../scripts/lib/business-direction.mjs';
@@ -71,39 +72,28 @@ const VERDICT: Record<Run['verdict'], { label: string; variant: 'success' | 'war
 };
 const md = (d: string) => d.slice(5).replace('-', '/');
 
-/** 週次・月次の切り替え。各タブに実施状態を添える。 */
+/** 週次・月次の切り替え（shadcn の Tabs と同じ見た目・URL で切り替える）。各タブに実施状態を添え、下に選択中の最終・次回を出す。 */
 function CadenceTabs({ list, current }: { list: Cadence[]; current: string }) {
+  const c = list.find((x) => x.id === current);
   return (
-    <Grid min="md">
-      {list.map((c) => {
-        const active = c.id === current;
-        return (
-          <Link
-            key={c.id}
-            href={c.id === 'weekly' ? '/metrics/business' : `/metrics/business?cadence=${c.id}`}
-            aria-current={active ? 'page' : undefined}
-            className="rounded-lg text-inherit no-underline hover:no-underline"
-          >
-            <Card className={active ? 'ring-2 ring-primary' : 'transition-colors hover:bg-muted/40'}>
-              <CardHeader>
-                <CardTitle className="text-base">{c.label}レビュー</CardTitle>
-                <CardDescription>
-                  {c.latest ? `最終 ${md(c.latest.period.startDate)}〜${md(c.latest.period.endDate)}・次回 ${md(c.latest.nextReviewDate)}` : '記録なし'}
-                </CardDescription>
-                <CardAction>
-                  <Badge variant={c.due?.due ? 'warning' : 'success'}>{c.due?.due ? '未実施' : '実施済み'}</Badge>
-                </CardAction>
-              </CardHeader>
-              {c.due?.due && (
-                <CardContent className="text-xs text-(--warn)">
-                  {md(c.due.period.startDate)}〜{md(c.due.period.endDate)} が未記録
-                </CardContent>
-              )}
-            </Card>
-          </Link>
-        );
-      })}
-    </Grid>
+    <div className="flex flex-col gap-2">
+      <TabsList aria-label="レビューの種類">
+        {list.map((x) => (
+          <TabsTrigger key={x.id} href={x.id === 'weekly' ? '/metrics/business' : `/metrics/business?cadence=${x.id}`} active={x.id === current}>
+            {x.label}レビュー
+            <Badge variant={x.due?.due ? 'warning' : 'success'} className="px-1.5 py-0 text-[10px] leading-4">
+              {x.due?.due ? '未実施' : '実施済み'}
+            </Badge>
+          </TabsTrigger>
+        ))}
+      </TabsList>
+      {c && (
+        <p className="m-0 text-xs text-muted-foreground">
+          {c.latest ? `最終 ${md(c.latest.period.startDate)}〜${md(c.latest.period.endDate)}・次回 ${md(c.latest.nextReviewDate)}` : '記録なし'}
+          {c.due?.due && <span className="text-(--warn)">・{md(c.due.period.startDate)}〜{md(c.due.period.endDate)} が未記録</span>}
+        </p>
+      )}
+    </div>
   );
 }
 
@@ -447,15 +437,17 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
 
   return (
     <Stack gap="lg">
-      <Stack>
+      <Tabs>
         <PageHead title="レビュー" />
         <CadenceTabs list={cadences} current={cadence} />
-      </Stack>
-      {procedure && <Current run={runs[0]} procedure={procedure} />}
-      {procedure && <Checklist procedure={procedure} />}
-      <History runs={runs} weekly={cadence === 'weekly'} />
-      {current && <Outcome c={current} gate={gate} />}
-      {current && <Inputs c={current} />}
+        <TabsContent className="flex flex-col gap-6">
+          {procedure && <Current run={runs[0]} procedure={procedure} />}
+          {procedure && <Checklist procedure={procedure} />}
+          <History runs={runs} weekly={cadence === 'weekly'} />
+          {current && <Outcome c={current} gate={gate} />}
+          {current && <Inputs c={current} />}
+        </TabsContent>
+      </Tabs>
 
       <Card>
         <CardContent>
