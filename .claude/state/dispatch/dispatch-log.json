@@ -1363,6 +1363,18 @@
       "commit": "90fe8e903fe7",
       "verification": "npm run check-coconala-wiring PASS（develop CI run 36139961973・台帳32件）/ PR #638 merged / 残件は DN-0314",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0256",
+      "at": "2026-09-28",
+      "task": "V5 カバー未反映の保留記事（W9・W10・学科10 以外の 9 本）を公開後に差し替える",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "24539ea37a75",
+      "verification": null,
+      "note": "DN-0360（新レイアウトの全件 live 反映）へ統合。held 9 本は DN-0360 の反映対象に含めた"
     }
   ]
 }
