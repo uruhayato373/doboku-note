@@ -8,6 +8,14 @@ title: 計測・検証事故の記録
 
 個別事例は時系列の逆順（新しい順）で追記する。各事例は「現象 / 根本原因 / 気づきの遅延理由（or 検出経緯）/ 適用した対策 / 教訓」を明記する。
 
+## 2026-09-28 — 共有作業ツリーの git merge が「could not write index / fatal: stash failed」で失敗し、index.lock が残る
+
+- **現象**: 本体 checkout（複数セッション・Codex・デスクトップアプリが同時に使う）で `git pull` / `git merge` が `error: could not write index` と `fatal: stash failed` で止まり、同日に `.git/index.lock` の残骸が 4 回残った（12:09・14:22・14:53・15:12）。autostash の設定はどこにも無い。
+- **根本原因**: 早送りできない merge は、作業ツリーを守るため内部で `git stash create` を呼び、index を書き直す（`GIT_TRACE=1` で確認）。同じ瞬間にほかのプロセス（フックの `git status`・デスクトップアプリの差分表示の `git diff`・他セッション）が index を書き直していると、Windows では置き換えがぶつかって失敗し、lock が残ることがある。残った lock があるあいだは、以後の merge がすべて同じ文言で失敗する。単独の `git stash create` は lock が無ければ成功し、同じ merge も再実行で通った＝設定ではなく競合。`timeout` で git を途中終了させた場合（12:09）も lock が残る。
+- **検出経緯**: merge の失敗を 3 回繰り返し、lock を消しても再発した。lock の作成時刻が毎回 15:12:31.017 と同じだったのは Windows のファイル作成時刻トンネリング（同名で作り直したファイルが元の作成時刻を引き継ぐ）で、新しく作られた lock だった。
+- **対策**: 全セッションで走るフック（`scripts/hooks/agent-hook.mjs`）と SessionStart の `scripts/check-git-sync.mjs` の git 呼び出しに `GIT_OPTIONAL_LOCKS=0` を付け、読み取りのついでに index を書き直さないようにした。
+- **恒久ルール**: (1) lock が残ったら、`git.exe` が動いていないことと lock の古さ（数分以上）を確かめてから消す。(2) 共有 checkout で merge が通らないときは、一時 worktree（`git worktree add --detach <dir> origin/develop` → `cherry-pick` → `push origin HEAD:develop`）で自分のコミットだけを載せる。(3) git を `timeout` で包まない（途中終了で lock と `tmp_obj_*` が残る）。(4) 共有の backlog を直接読み書きしてコミットすると、他セッションの未コミットの編集を巻き込む（同日 DN-0360 で発生）。コミット前に `git diff -- <file>` で自分の差分だけか確かめる。
+
 ## 2026-09-26: 資格の正本を公式照合したときの罠（手書きの写し・要約の日付化け・調査担当の引用・語の定義違い）
 
 資格37件の試験日程・受験者数を公式で照合して正本（`qualification-registry.json`・`exam-calendar.json`・`exam-stats.json`）へ入れたときに見つかった。いずれも「値が入っていて緑」に見えた。

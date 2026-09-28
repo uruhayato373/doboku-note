@@ -45,9 +45,14 @@ function readStdin() {
   }
 }
 
+// フックは全セッションのイベントごとに走る。status/diff が index を書き直すと、並行する merge・commit と
+// index.lock を取り合い、Windows では「could not write index / stash failed」や lock の残骸になる（2026-09-28）。
+// 読み取り専用なので optional lock（index の自動書き直し）を切る。
+const GIT_ENV = { ...process.env, GIT_OPTIONAL_LOCKS: '0' };
+
 function git(args) {
   try {
-    return execFileSync('git', args, { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] });
+    return execFileSync('git', args, { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'], env: GIT_ENV });
   } catch {
     return '';
   }

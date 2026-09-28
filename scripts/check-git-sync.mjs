@@ -23,6 +23,8 @@ function gitSafe(args, opts = {}) {
     return execFileSync('git', args, {
       encoding: 'utf8',
       stdio: ['ignore', 'pipe', 'ignore'],
+      // SessionStart で全セッションが走る。status が index を書き直して並行 git と lock を取り合わないようにする
+      env: { ...process.env, GIT_OPTIONAL_LOCKS: '0' },
       ...opts,
     }).trim();
   } catch {
