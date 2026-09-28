@@ -2,13 +2,13 @@ import Link from 'next/link';
 import { PageHead } from '@/components/ui';
 import SectionTabs from '@/components/SectionTabs';
 import UpcomingEvents from '@/components/UpcomingEvents';
-import { Badge } from '@/components/primitives';
+import { Badge } from '@/components/ui/badge';
 import { loadQualificationsView, type QualificationView } from '@/lib/qualifications';
 
 export const dynamic = 'force-dynamic';
 
 const PORTFOLIO_LABEL: Record<string, string> = { active: '展開中', candidate: '候補', declined: '見送り' };
-const PORTFOLIO_VARIANT: Record<string, 'success' | 'outline-solid' | 'secondary'> = { active: 'success', candidate: 'outline-solid', declined: 'secondary' };
+const PORTFOLIO_VARIANT: Record<string, 'success' | 'outline' | 'secondary'> = { active: 'success', candidate: 'outline', declined: 'secondary' };
 function fmtDate(date: string): string {
   const [, m, d] = date.split('-').map(Number) as [number, number, number];
   return `${m}/${d}`;

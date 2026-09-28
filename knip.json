@@ -43,6 +43,8 @@
     "yt-dlp"
   ],
   "ignoreDependencies": [
-    "hast-util-sanitize"
+    "hast-util-sanitize",
+    "class-variance-authority",
+    "@radix-ui/react-slot"
   ]
 }

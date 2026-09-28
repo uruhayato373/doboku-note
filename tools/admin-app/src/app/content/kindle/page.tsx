@@ -1,15 +1,15 @@
 import Link from 'next/link';
 import { PageHead, Kpi } from '@/components/ui';
-import { Badge } from '@/components/primitives';
+import { Badge } from '@/components/ui/badge';
 import { loadKindleView, type KindleBookView } from '@/lib/kindle';
 
 export const dynamic = 'force-dynamic';
 
 /** status → Badge variant。判定していない状態を緑にしない。 */
-function statusVariant(status: string): 'success' | 'warning' | 'outline-solid' | 'destructive' | 'secondary' {
+function statusVariant(status: string): 'success' | 'warning' | 'outline' | 'destructive' | 'secondary' {
   if (status === 'live') return 'success';
   if (status === 'in_review') return 'warning';
-  if (status === 'ready') return 'outline-solid';
+  if (status === 'ready') return 'outline';
   if (status === 'rejected') return 'destructive';
   return 'secondary';
 }
