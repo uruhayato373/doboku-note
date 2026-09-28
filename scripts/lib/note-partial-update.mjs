@@ -124,3 +124,25 @@ export function normalizeAttachmentSnapshot(snapshot) {
 export function sameAttachmentSnapshot(before, after) {
   return JSON.stringify(normalizeAttachmentSnapshot(before)) === JSON.stringify(normalizeAttachmentSnapshot(after));
 }
+
+export const MAX_HEADING_CHARS = 60;
+
+/**
+ * 冒頭 CTA 操作の前後で見出し構造が崩れていないか（DN-0272）。
+ * 2026-09-23 に CTA の文が h2 になり、直後の見出しが「R」「は」の段落とカードに割れた事故の再発防止。
+ * before/after は編集画面の h2・h3 の文字列（trim 済み）の配列。
+ * - 編集前の h2 は、同じ文言のまま同じ個数だけ残っていること（割れた見出しは文言が変わる）
+ * - 60 字を超える見出しが増えていないこと（CTA の文が見出しになった形）
+ */
+export function headingIntegrity(before, after) {
+  const failures = [];
+  const count = (list) => list.reduce((map, text) => map.set(text, (map.get(text) || 0) + 1), new Map());
+  const beforeH2 = count(before.h2 || []);
+  const afterH2 = count(after.h2 || []);
+  for (const [text, n] of beforeH2) {
+    if ((afterH2.get(text) || 0) !== n) failures.push(`h2-changed:${text.slice(0, 20)}`);
+  }
+  const long = (h) => [...(h.h2 || []), ...(h.h3 || [])].filter((text) => text.length > MAX_HEADING_CHARS).length;
+  if (long(after) > long(before)) failures.push(`long-heading:${long(before)}→${long(after)}`);
+  return { ok: failures.length === 0, failures };
+}

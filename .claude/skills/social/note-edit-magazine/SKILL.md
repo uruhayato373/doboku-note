@@ -14,7 +14,7 @@ note の有料マガジンを `note掲載文.txt`（マガジン設定の単一S
 
 ## ⚠️ 前提: ログインセッションが永続化済みであること
 
-`channel:'chrome'`（システム Chrome）＋ `.local/playwright-note-profile` を使う。**初回のみ手動ログイン**が必要:
+`channel:'chrome'`（システム Chrome）＋ `<auth root>/profiles/playwright-note-profile` を使う。**初回のみ手動ログイン**が必要:
 
 ```bash
 npm run note-edit-session -- <magazineKey>   # 開いた画面でログイン → 閉じる（セッション保存）

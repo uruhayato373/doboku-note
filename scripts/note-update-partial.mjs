@@ -10,6 +10,7 @@ import {
   validatePartialSpec,
   normalizeAttachmentSnapshot,
   sameAttachmentSnapshot,
+  headingIntegrity,
 } from './lib/note-partial-update.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 
@@ -296,6 +297,52 @@ async function selectText(page, oldText) {
   }, oldText);
 }
 
+/**
+ * 指定 h2 の直前に空の段落を作り、その中へ caret を置く（DN-0272）。
+ * h2 の直前へ caret を置くだけだと、note のエディタは caret を見出しの中へ寄せることがあり、
+ * 続けて入力した CTA の文が h2 になり、URL の入力で直後の見出しが割れた（2026-09-23 の 2 本）。
+ * 段落の中から入力を始めれば、Enter で増える行も段落になり、見出しには入らない。
+ */
+async function caretInNewParagraphBefore(page, headingIndex) {
+  return page.evaluate((index) => {
+    const ed = document.querySelector('[contenteditable=true]');
+    const target = ed.querySelectorAll('h2')[index];
+    if (!target) return false;
+    const paragraph = document.createElement('p');
+    paragraph.appendChild(document.createElement('br'));
+    target.insertAdjacentElement('beforebegin', paragraph);
+    ed.dispatchEvent(new InputEvent('input', { bubbles: true, inputType: 'insertParagraph' }));
+    ed.focus();
+    const range = document.createRange(); range.setStart(paragraph, 0); range.collapse(true);
+    const selection = getSelection(); selection.removeAllRanges(); selection.addRange(range);
+    return true;
+  }, headingIndex);
+}
+
+async function caretIsInParagraph(page) {
+  return page.evaluate(() => {
+    const node = getSelection()?.anchorNode;
+    const element = node?.nodeType === Node.TEXT_NODE ? node.parentElement : node;
+    return Boolean(element?.closest?.('p')) && !element?.closest?.('h1,h2,h3,h4');
+  });
+}
+
+async function typeTopCta(page, headingIndex, op) {
+  if (!(await caretInNewParagraphBefore(page, headingIndex))) return false;
+  await sleep(300);
+  if (!(await caretIsInParagraph(page))) {
+    console.log('[top-cta] caret が段落の中に無い（見出しへ入力しないため中断）');
+    return false;
+  }
+  if (op.newText) await page.keyboard.type(op.newText, { delay: 2 });
+  for (const url of op.newUrls) {
+    await page.keyboard.press('Enter');
+    await page.keyboard.type(url, { delay: 3 });
+    await page.keyboard.press('Enter'); await sleep(3500);
+  }
+  return true;
+}
+
 async function applyOperation(page, op) {
   if (op.type === 'replaceText') {
     for (let i = 0; i < expected(op); i++) {
@@ -328,42 +375,10 @@ async function applyOperation(page, op) {
     if (removed.count <= 0) return false;
     await sleep(500);
     if (!op.newText && op.newUrls.length === 0) return true;
-    const placed = await page.evaluate((headingIndex) => {
-      const ed = document.querySelector('[contenteditable=true]');
-      const targetH2 = ed.querySelectorAll('h2')[headingIndex];
-      if (!targetH2) return false;
-      const range = document.createRange(); range.setStartBefore(targetH2); range.collapse(true);
-      const selection = getSelection(); selection.removeAllRanges(); selection.addRange(range);
-      return true;
-    }, removed.headingIndex);
-    if (!placed) return false;
-    await page.keyboard.press('Enter');
-    if (op.newText) await page.keyboard.type(op.newText, { delay: 2 });
-    for (const url of op.newUrls) {
-      await page.keyboard.press('Enter');
-      await page.keyboard.type(url, { delay: 3 });
-      await page.keyboard.press('Enter'); await sleep(3500);
-    }
-    return true;
+    return typeTopCta(page, removed.headingIndex, op);
   }
   if (op.type === 'insertTopCta') {
-    const placed = await page.evaluate(() => {
-      const ed = document.querySelector('[contenteditable=true]');
-      const firstH2 = ed.querySelector('h2');
-      if (!firstH2) return false;
-      const range = document.createRange(); range.setStartBefore(firstH2); range.collapse(true);
-      const selection = getSelection(); selection.removeAllRanges(); selection.addRange(range);
-      return true;
-    });
-    if (!placed) return false;
-    await page.keyboard.press('Enter');
-    await page.keyboard.type(op.newText, { delay: 2 });
-    for (const url of op.newUrls) {
-      await page.keyboard.press('Enter');
-      await page.keyboard.type(url, { delay: 3 });
-      await page.keyboard.press('Enter'); await sleep(3500);
-    }
-    return true;
+    return typeTopCta(page, 0, op);
   }
   if (op.type === 'replaceCard') {
     for (let i = 0; i < expected(op); i++) {
@@ -685,6 +700,14 @@ async function applyOperation(page, op) {
   return false;
 }
 
+async function headingSnapshot(page) {
+  return page.evaluate(() => {
+    const ed = document.querySelector('[contenteditable=true]');
+    const texts = (selector) => [...(ed?.querySelectorAll(selector) || [])].map((h) => (h.innerText || '').trim());
+    return { h2: texts('h2'), h3: texts('h3') };
+  });
+}
+
 async function verifyOperations(page, spec) {
   return page.evaluate(({ operations, verify }) => {
     const ed = document.querySelector('[contenteditable=true]');
@@ -770,6 +793,7 @@ async function runSpec(page, specArg) {
   const before = await editorState(page);
   if (before.chars < 300) throw new Error(`本文が短すぎる（chars=${before.chars}）`);
   const attachmentsBefore = await attachmentSnapshot(page);
+  const headingsBefore = await headingSnapshot(page);
   console.log(`[2] editor chars=${before.chars} PDF=${attachmentsBefore.hrefs.length} names=${attachmentsBefore.names.length}`);
 
   let changes = 0;
@@ -814,6 +838,11 @@ async function runSpec(page, specArg) {
   const verification = await verifyOperations(page, spec);
   console.log(`[3] edited chars ${before.chars}→${after.chars}; PDF ${attachmentsBefore.hrefs.length}→${attachmentsAfter.hrefs.length}`);
   if (!verification.ok) throw new Error(`編集後検証NG: ${verification.failures.join(', ')}`);
+  // 冒頭 CTA 操作は見出しの割れ・CTA の見出し化を保存前に止める（DN-0272）
+  if (spec.operations.some((op) => op.type === 'replaceTopCta' || op.type === 'insertTopCta')) {
+    const integrity = headingIntegrity(headingsBefore, await headingSnapshot(page));
+    if (!integrity.ok) throw new Error(`見出し構造NG（保存しない）: ${integrity.failures.join(', ')}`);
+  }
   if (!sameAttachmentSnapshot(attachmentsBefore, attachmentsAfter)) throw new Error('PDF添付不変条件NG（更新前後のURL/ファイル名が不一致）');
   if (after.chars < Math.min(300, before.chars * 0.8)) throw new Error('本文文字数が安全閾値を下回った');
   await page.screenshot({ path: shot('edited', noteId) });

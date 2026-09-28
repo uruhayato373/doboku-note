@@ -40,7 +40,7 @@ npm run verify-ig-status -- --json  # 機械処理用
 ドリフトを 7 分類で出す（真実源は reference の表）:
 `published_recorded`(整合) / `published_UNrecorded`(★要 backfill) / `draft_misrecorded`(★) / `recorded_but_gone`(★記録 URL が削除済み) / `scheduled`(予約済み) / `unpublished`(未公開＝予約候補) / `anomaly`(★同テーマ重複・要人手判断)。スナップショットは `.claude/state/ig-reconcile/snapshot.json`。
 
-> Playwright + ログイン済み `.local/playwright-ig-bs-profile` が必要。**ローカル実行限定**（会社 PC のプロキシ下では外部到達不可）。セッション切れは `publish-ig-bs ... login` で再ログイン。
+> Playwright + ログイン済み `<auth root>/profiles/playwright-ig-bs-profile` が必要。**ローカル実行限定**（会社 PC のプロキシ下では外部到達不可）。セッション切れは `publish-ig-bs ... login` で再ログイン。
 
 ### 2. ドリフト是正（非破壊・operator 確認のうえ）
 
