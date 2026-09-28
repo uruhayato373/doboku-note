@@ -43,7 +43,7 @@ export default function CostStructurePage() {
         title="工事原価 構成比計算ツール"
         lead={
           <>
-            直接工事費・共通仮設費・現場管理費・一般管理費等の金額を入れると、請負工事費に占める<strong className="text-[var(--ink)]">構成比</strong>を計算します。<strong className="text-[var(--ink)]">「赤字かどうか」は判定しません</strong>——公的な判定基準が存在しないためです。自社の実績・計画との比較材料としてお使いください。
+            直接工事費・共通仮設費・現場管理費・一般管理費等の金額を入れると、請負工事費に占める<strong className="text-(--ink)">構成比</strong>を計算します。<strong className="text-(--ink)">「赤字かどうか」は判定しません</strong>——公的な判定基準が存在しないためです。自社の実績・計画との比較材料としてお使いください。
           </>
         }
       />

@@ -2,8 +2,8 @@
  * 記事末尾・サイドバーの情報カード（rounded-card-section）の共通シェル。
  *
  * 12 箇所で literal にコピペされていた以下のクラス指定を 1 箇所に集約する:
- *   bg-[var(--paper)] rounded-card-section shadow-card-section
- *   border border-[var(--rule-soft)] p-{...}（editorial token・SectionCard と同一 chrome）
+ *   bg-(--paper) rounded-card-section shadow-card-section
+ *   border border-(--rule-soft) p-{...}（editorial token・SectionCard と同一 chrome）
  *
  * 子要素（h2 タイトル / p サブタイトル / リスト 等）は呼び出し側の責務。
  * MetaCard は外枠のみを抽象化する純粋なシェル。

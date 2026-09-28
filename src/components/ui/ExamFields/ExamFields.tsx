@@ -25,7 +25,7 @@ const COLOR_CLASSES: Record<string, { border: string; bg: string; text: string }
   amber: { border: 'border-amber-400 dark:border-amber-500', bg: 'bg-amber-50 dark:bg-amber-900/20', text: 'text-amber-700 dark:text-amber-300' },
   rose: { border: 'border-rose-400 dark:border-rose-500', bg: 'bg-rose-50 dark:bg-rose-900/20', text: 'text-rose-700 dark:text-rose-300' },
   teal: { border: 'border-teal-400 dark:border-teal-500', bg: 'bg-teal-50 dark:bg-teal-900/20', text: 'text-teal-700 dark:text-teal-300' },
-  default: { border: 'border-[var(--rule-soft)]', bg: 'bg-[var(--bg)]', text: 'text-[var(--ink-body)]' },
+  default: { border: 'border-(--rule-soft)', bg: 'bg-(--bg)', text: 'text-(--ink-body)' },
 };
 
 export default function ExamFields({ items }: ExamFieldsProps) {
@@ -38,14 +38,14 @@ export default function ExamFields({ items }: ExamFieldsProps) {
             <div className={`text-base font-bold mb-2 ${colors.text}`}>
               {field.name}
             </div>
-            <div className="text-sm text-[var(--ink-body)] mb-3 leading-relaxed">
+            <div className="text-sm text-(--ink-body) mb-3 leading-relaxed">
               {field.scope}
             </div>
             <div className="flex flex-wrap gap-1.5">
               {field.keywords.map((kw, i) => (
                 <span
                   key={i}
-                  className="text-xs px-2 py-0.5 rounded-full bg-[var(--paper)] border border-[var(--rule-soft)] text-[var(--ink-muted)]"
+                  className="text-xs px-2 py-0.5 rounded-full bg-(--paper) border border-(--rule-soft) text-(--ink-muted)"
                 >
                   {kw}
                 </span>

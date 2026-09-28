@@ -58,7 +58,7 @@ function PeSectionTree({ keywordDocs }: { keywordDocs: DocMeta[] }) {
 
         return (
           <div key={chapter.id}>
-            <h2 className="text-lg font-bold text-[var(--ink)] mb-4">
+            <h2 className="text-lg font-bold text-(--ink) mb-4">
               {chapter.title}
             </h2>
             <div className="space-y-3 ml-2">
@@ -67,10 +67,10 @@ function PeSectionTree({ keywordDocs }: { keywordDocs: DocMeta[] }) {
                 if (keywords.length === 0) return null;
 
                 return (
-                  <div key={sec.id} className="border-l-2 border-[var(--rule-soft)] pl-4">
+                  <div key={sec.id} className="border-l-2 border-(--rule-soft) pl-4">
                     <div className="flex items-center gap-2 mb-1">
-                      <span className="text-base font-semibold text-[var(--ink-body)]">{sec.title}</span>
-                      <span className="text-xs text-[var(--ink-muted)]">({keywords.length} 件)</span>
+                      <span className="text-base font-semibold text-(--ink-body)">{sec.title}</span>
+                      <span className="text-xs text-(--ink-muted)">({keywords.length} 件)</span>
                     </div>
                     <div className="flex flex-wrap gap-2 ml-2 mt-2">
                       {keywords
@@ -79,7 +79,7 @@ function PeSectionTree({ keywordDocs }: { keywordDocs: DocMeta[] }) {
                           <Link
                             key={kw.slug}
                             href={getPublicDocPath(kw.slug)}
-                            className="text-base px-2.5 py-1 rounded-full border border-[var(--rule-soft)] bg-[var(--paper)] text-[var(--ink-body)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors"
+                            className="text-base px-2.5 py-1 rounded-full border border-(--rule-soft) bg-(--paper) text-(--ink-body) hover:border-(--accent) hover:text-(--accent) transition-colors"
                           >
                             {kw.title}
                           </Link>
@@ -95,7 +95,7 @@ function PeSectionTree({ keywordDocs }: { keywordDocs: DocMeta[] }) {
 
       {unmapped.length > 0 && (
         <div>
-          <h2 className="text-lg font-bold text-[var(--ink)] mb-4">その他</h2>
+          <h2 className="text-lg font-bold text-(--ink) mb-4">その他</h2>
           <div className="flex flex-wrap gap-2 ml-2">
             {unmapped
               .sort((a, b) => (a.title || '').localeCompare(b.title || '', 'ja'))
@@ -103,7 +103,7 @@ function PeSectionTree({ keywordDocs }: { keywordDocs: DocMeta[] }) {
                 <Link
                   key={kw.slug}
                   href={getPublicDocPath(kw.slug)}
-                  className="text-base px-2.5 py-1 rounded-full border border-[var(--rule-soft)] bg-[var(--paper)] text-[var(--ink-body)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors"
+                  className="text-base px-2.5 py-1 rounded-full border border-(--rule-soft) bg-(--paper) text-(--ink-body) hover:border-(--accent) hover:text-(--accent) transition-colors"
                 >
                   {kw.title}
                 </Link>
@@ -135,7 +135,7 @@ export default async function SitemapKeywordsPage() {
         title="総合技術監理 キーワード索引"
         lead={
           <>
-            <a href="https://www.mext.go.jp/b_menu/shingi/gijyutu/gijyutu7/toushin/1411203_00007.htm" target="_blank" rel="noopener noreferrer" className="text-[var(--accent)] hover:underline">文部科学省「総合技術監理 キーワード集 2026」</a>に基づき、5 管理（経済性 / 人的資源 / 情報 / 安全 / 社会環境）× 26 セクションの体系で整理した全キーワードの索引です。
+            <a href="https://www.mext.go.jp/b_menu/shingi/gijyutu/gijyutu7/toushin/1411203_00007.htm" target="_blank" rel="noopener noreferrer" className="text-(--accent) hover:underline">文部科学省「総合技術監理 キーワード集 2026」</a>に基づき、5 管理（経済性 / 人的資源 / 情報 / 安全 / 社会環境）× 26 セクションの体系で整理した全キーワードの索引です。
           </>
         }
         meta={<span className="tabular-nums">{keywordDocs.length.toLocaleString()} keywords</span>}

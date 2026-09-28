@@ -14,7 +14,7 @@ import { NOTE_LINK_REL } from "@/lib/external-link-rel";
  */
 
 // SSOT: プロフィール画像サイズ（全カード共通）。ここ1箇所を変えれば全ページに反映。
-const AVATAR_CLASS = "h-[120px] w-[120px] shrink-0 rounded-full border border-[var(--rule-soft)]";
+const AVATAR_CLASS = "h-[120px] w-[120px] shrink-0 rounded-full border border-(--rule-soft)";
 
 type Variant = "sidebar" | "wide";
 
@@ -42,7 +42,7 @@ function Avatar() {
 function Qualifications({ columns = 1 }: { columns?: 1 | 2 }) {
   return (
     <div>
-      <div className="mb-2 font-mono text-[10px] uppercase tracking-[0.15em] text-[var(--ink-muted)]">
+      <div className="mb-2 font-mono text-[10px] uppercase tracking-[0.15em] text-(--ink-muted)">
         保有資格
       </div>
       <ul
@@ -55,9 +55,9 @@ function Qualifications({ columns = 1 }: { columns?: 1 | 2 }) {
         {AUTHOR.qualifications.map((q) => (
           <li
             key={q}
-            className="flex items-start gap-1.5 text-[14px] leading-snug text-[var(--ink-body)]"
+            className="flex items-start gap-1.5 text-[14px] leading-snug text-(--ink-body)"
           >
-            <span aria-hidden className="mt-[7px] h-1 w-1 shrink-0 rounded-full bg-[var(--accent)]" />
+            <span aria-hidden className="mt-[7px] h-1 w-1 shrink-0 rounded-full bg-(--accent)" />
             <span>{q}</span>
           </li>
         ))}
@@ -72,7 +72,7 @@ function NoteCta() {
       href={AUTHOR.noteCta.url}
       target="_blank"
       rel={NOTE_LINK_REL}
-      className="flex items-center justify-center gap-2 rounded-full bg-[var(--accent)] px-3.5 py-2 text-[14px] font-bold text-[var(--paper)] transition-opacity hover:opacity-90"
+      className="flex items-center justify-center gap-2 rounded-full bg-(--accent) px-3.5 py-2 text-[14px] font-bold text-(--paper) transition-opacity hover:opacity-90"
     >
       {AUTHOR.noteCta.label}
     </a>
@@ -82,17 +82,17 @@ function NoteCta() {
 function SocialLinks({ center = false }: { center?: boolean }) {
   return (
     <div
-      className={`flex items-center gap-4 text-[13px] text-[var(--ink-muted)] ${center ? "justify-center" : ""}`}
+      className={`flex items-center gap-4 text-[13px] text-(--ink-muted) ${center ? "justify-center" : ""}`}
     >
       <a
         href={AUTHOR.twitterUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="hover:text-[var(--accent)] hover:underline"
+        className="hover:text-(--accent) hover:underline"
       >
         X @doboku373
       </a>
-      <Link href="/about" className="hover:text-[var(--accent)] hover:underline">
+      <Link href="/about" className="hover:text-(--accent) hover:underline">
         運営者について →
       </Link>
     </div>
@@ -108,11 +108,11 @@ export default function AuthorProfile({
     return (
       <aside
         aria-label="運営者プロフィール"
-        className="overflow-hidden rounded-card-section border border-[var(--rule-soft)] bg-[var(--paper)] shadow-soft"
+        className="overflow-hidden rounded-card-section border border-(--rule-soft) bg-(--paper) shadow-soft"
       >
-        <span aria-hidden className="block h-[3px] w-full bg-[var(--accent)] opacity-70" />
+        <span aria-hidden className="block h-[3px] w-full bg-(--accent) opacity-70" />
         <div className="p-6 sm:p-8">
-          <div className="mb-5 font-mono text-[10px] tracking-[0.2em] text-[var(--ink-muted)]">
+          <div className="mb-5 font-mono text-[10px] tracking-[0.2em] text-(--ink-muted)">
             {eyebrow}
           </div>
           <div className="flex flex-col items-start gap-6 sm:flex-row">
@@ -122,11 +122,11 @@ export default function AuthorProfile({
             <div className="min-w-0 flex-1">
               <Link
                 href="/about"
-                className="font-serif text-xl font-black text-[var(--ink)] transition-colors hover:text-[var(--accent)]"
+                className="font-serif text-xl font-black text-(--ink) transition-colors hover:text-(--accent)"
               >
                 {AUTHOR.name}
               </Link>
-              <p className="mt-3 text-sm leading-[1.95] text-[var(--ink-body)]">{AUTHOR.bio}</p>
+              <p className="mt-3 text-sm leading-[1.95] text-(--ink-body)">{AUTHOR.bio}</p>
               <div className="mt-5">
                 <Qualifications columns={2} />
               </div>
@@ -153,11 +153,11 @@ export default function AuthorProfile({
   return (
     <aside
       aria-label="運営者プロフィール"
-      className="overflow-hidden rounded-card-content border border-[var(--rule-soft)] bg-[var(--paper)]"
+      className="overflow-hidden rounded-card-content border border-(--rule-soft) bg-(--paper)"
     >
-      <span aria-hidden className="block h-[3px] w-full bg-[var(--accent)] opacity-70" />
+      <span aria-hidden className="block h-[3px] w-full bg-(--accent) opacity-70" />
       <div className="p-5">
-        <div className="mb-3 font-mono text-[10px] tracking-[0.2em] text-[var(--ink-muted)]">
+        <div className="mb-3 font-mono text-[10px] tracking-[0.2em] text-(--ink-muted)">
           {eyebrow}
         </div>
         <div className="flex flex-col items-center text-center">
@@ -166,11 +166,11 @@ export default function AuthorProfile({
           </Link>
           <Link
             href="/about"
-            className="mt-3 font-serif text-lg font-black text-[var(--ink)] transition-colors hover:text-[var(--accent)]"
+            className="mt-3 font-serif text-lg font-black text-(--ink) transition-colors hover:text-(--accent)"
           >
             {AUTHOR.name}
           </Link>
-          <p className="mt-2 text-[14px] leading-[1.8] text-[var(--ink-body)]">
+          <p className="mt-2 text-[14px] leading-[1.8] text-(--ink-body)">
             {taglineRole}
             {taglineRest && (
               <>

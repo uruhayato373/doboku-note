@@ -46,18 +46,18 @@ export default function LinkCardClient({
           )}
 
           <span className="block min-w-0 flex-1 p-4">
-            <span className="linkcard-title mb-2 line-clamp-2 text-base font-semibold text-[var(--ink)] transition-colors group-hover:text-[var(--accent)]">
+            <span className="linkcard-title mb-2 line-clamp-2 text-base font-semibold text-(--ink) transition-colors group-hover:text-(--accent)">
               {title}
             </span>
 
             {description && (
-              <span className="mb-2 line-clamp-2 text-sm text-[var(--ink-body)]">
+              <span className="mb-2 line-clamp-2 text-sm text-(--ink-body)">
                 {description}
               </span>
             )}
 
             {siteName && (
-              <span className="block text-xs font-medium text-[var(--ink-muted)]">
+              <span className="block text-xs font-medium text-(--ink-muted)">
                 {siteName}
               </span>
             )}

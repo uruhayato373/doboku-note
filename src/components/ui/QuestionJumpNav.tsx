@@ -23,18 +23,18 @@ export default function QuestionJumpNav({ headings }: { headings: Heading[] }) {
   return (
     <nav
       aria-label="問題番号へ移動"
-      className="mb-6 rounded-card-section border border-[var(--rule-soft)] bg-[var(--paper)] p-3 dark:border-[var(--rule-soft)]"
+      className="mb-6 rounded-card-section border border-(--rule-soft) bg-(--paper) p-3 dark:border-(--rule-soft)"
     >
       <div className="mb-2 flex items-baseline justify-between gap-2">
-        <span className="font-sans text-[13px] font-bold text-[var(--ink)]">問題番号へ移動</span>
-        <span className="font-mono text-[11px] text-[var(--ink-muted)]">全 {items.length} 問</span>
+        <span className="font-sans text-[13px] font-bold text-(--ink)">問題番号へ移動</span>
+        <span className="font-mono text-[11px] text-(--ink-muted)">全 {items.length} 問</span>
       </div>
       <ol className="flex flex-wrap gap-1.5">
         {items.map((it) => (
           <li key={it.id}>
             <Link
               href={`#${it.id}`}
-              className="focus-ring inline-flex h-9 min-w-9 items-center justify-center rounded-card-inline border border-[var(--rule-soft)] px-2 font-mono text-[12px] tabular-nums text-[var(--ink-body)] transition-colors hover:border-[var(--accent)] hover:bg-[var(--accent-fill)] hover:text-[var(--accent)] dark:border-[var(--rule-soft)]"
+              className="focus-ring inline-flex h-9 min-w-9 items-center justify-center rounded-card-inline border border-(--rule-soft) px-2 font-mono text-[12px] tabular-nums text-(--ink-body) transition-colors hover:border-(--accent) hover:bg-(--accent-fill) hover:text-(--accent) dark:border-(--rule-soft)"
             >
               {it.n}
             </Link>

@@ -22,7 +22,7 @@ export default function ThemeToggle() {
   if (!mounted) {
     return (
       <button
-        className="h-11 w-11 animate-pulse rounded-card-inline bg-[var(--rule-soft)]"
+        className="h-11 w-11 animate-pulse rounded-card-inline bg-(--rule-soft)"
         disabled
         aria-label="読み込み中..."
       />
@@ -41,7 +41,7 @@ export default function ThemeToggle() {
     if (resolvedTheme === 'dark') {
       return <Sun className="w-5 h-5 text-yellow-500" />;
     }
-    return <Moon className="w-5 h-5 text-[var(--ink-body)]" />;
+    return <Moon className="w-5 h-5 text-(--ink-body)" />;
   };
 
   const getAriaLabel = () => {
@@ -51,12 +51,12 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={cycleTheme}
-      className="focus-ring flex min-h-11 min-w-11 flex-col items-center justify-center space-y-1 rounded-card-inline bg-[var(--bg)] px-3 py-2 transition-colors duration-200 hover:bg-[var(--accent-fill)]"
+      className="focus-ring flex min-h-11 min-w-11 flex-col items-center justify-center space-y-1 rounded-card-inline bg-(--bg) px-3 py-2 transition-colors duration-200 hover:bg-(--accent-fill)"
       aria-label={getAriaLabel()}
       title={`現在: ${resolvedTheme === 'dark' ? 'dark' : 'light'}モード`}
     >
       {getIcon()}
-      <span className="hidden md:block text-xs font-medium text-[var(--ink-body)]">
+      <span className="hidden md:block text-xs font-medium text-(--ink-body)">
         {resolvedTheme === 'dark' ? 'dark' : 'light'}
       </span>
     </button>

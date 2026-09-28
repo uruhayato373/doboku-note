@@ -29,8 +29,8 @@ interface CategoryNavCardProps {
 
 /* ─── 共通: セルリンク ─── */
 function CellLink({ slug, label, currentSlug }: { slug: string | undefined; label: string; currentSlug: string }) {
-  if (!slug) return <span className="text-[var(--ink-muted)] opacity-50">—</span>;
-  if (slug === currentSlug) return <span className="font-bold text-[var(--ink)]">{label}</span>;
+  if (!slug) return <span className="text-(--ink-muted) opacity-50">—</span>;
+  if (slug === currentSlug) return <span className="font-bold text-(--ink)">{label}</span>;
   return (
     <Link href={getPublicDocPath(slug)} className="text-brand hover:text-brand-deep hover:underline">
       {label}
@@ -48,19 +48,19 @@ function PastExamCard({ variant, currentSlug, categoryArticles, category }: { va
       <SidebarWrapper title="過去問">
         <table className="w-full text-sm">
           <thead>
-            <tr className="border-b border-[var(--rule-soft)]">
-              <th className="text-left py-1 pr-2 font-medium text-[var(--ink-muted)] text-xs" />
-              <th className="text-center py-1 px-1 font-medium text-[var(--ink-muted)] text-xs">{data.col1Header}</th>
-              <th className="text-center py-1 px-1 font-medium text-[var(--ink-muted)] text-xs">{data.col2Header}</th>
-              {data.col3Header && <th className="text-center py-1 px-1 font-medium text-[var(--ink-muted)] text-xs">{data.col3Header}</th>}
+            <tr className="border-b border-(--rule-soft)">
+              <th className="text-left py-1 pr-2 font-medium text-(--ink-muted) text-xs" />
+              <th className="text-center py-1 px-1 font-medium text-(--ink-muted) text-xs">{data.col1Header}</th>
+              <th className="text-center py-1 px-1 font-medium text-(--ink-muted) text-xs">{data.col2Header}</th>
+              {data.col3Header && <th className="text-center py-1 px-1 font-medium text-(--ink-muted) text-xs">{data.col3Header}</th>}
             </tr>
           </thead>
           <tbody>
             {data.years.map((year) => {
               const isCurrent = year.col1?.slug === currentSlug || year.col2?.slug === currentSlug || year.col3?.slug === currentSlug;
               return (
-                <tr key={year.yearCode} className={isCurrent ? 'bg-[var(--accent-fill)]' : ''}>
-                  <td className="py-1.5 pr-2 text-[var(--ink-body)] font-medium whitespace-nowrap">{year.label}</td>
+                <tr key={year.yearCode} className={isCurrent ? 'bg-(--accent-fill)' : ''}>
+                  <td className="py-1.5 pr-2 text-(--ink-body) font-medium whitespace-nowrap">{year.label}</td>
                   <td className="py-1.5 px-1 text-center"><CellLink slug={year.col1?.slug} label={data.col1Header} currentSlug={currentSlug} /></td>
                   <td className="py-1.5 px-1 text-center"><CellLink slug={year.col2?.slug} label={data.col2Header} currentSlug={currentSlug} /></td>
                   {data.col3Header && <td className="py-1.5 px-1 text-center"><CellLink slug={year.col3?.slug} label={data.col3Header} currentSlug={currentSlug} /></td>}
@@ -78,19 +78,19 @@ function PastExamCard({ variant, currentSlug, categoryArticles, category }: { va
       <div className="overflow-x-auto">
         <table className="w-full text-base border-collapse">
           <thead>
-            <tr className="border-b-2 border-[var(--rule-soft)]">
-              <th className="text-left py-3 px-4 font-semibold text-[var(--ink-body)]">年度</th>
-              <th className="text-center py-3 px-4 font-semibold text-[var(--ink-body)]">{data.col1Header === '択一' ? '択一式' : `問題${data.col1Header}`}</th>
-              <th className="text-center py-3 px-4 font-semibold text-[var(--ink-body)]">{data.col2Header === '記述' ? '記述式' : `問題${data.col2Header}`}</th>
-              {data.col3Header && <th className="text-center py-3 px-4 font-semibold text-[var(--ink-body)]">第2次検定</th>}
+            <tr className="border-b-2 border-(--rule-soft)">
+              <th className="text-left py-3 px-4 font-semibold text-(--ink-body)">年度</th>
+              <th className="text-center py-3 px-4 font-semibold text-(--ink-body)">{data.col1Header === '択一' ? '択一式' : `問題${data.col1Header}`}</th>
+              <th className="text-center py-3 px-4 font-semibold text-(--ink-body)">{data.col2Header === '記述' ? '記述式' : `問題${data.col2Header}`}</th>
+              {data.col3Header && <th className="text-center py-3 px-4 font-semibold text-(--ink-body)">第2次検定</th>}
             </tr>
           </thead>
           <tbody>
             {data.years.map((year) => {
               const isCurrent = year.col1?.slug === currentSlug || year.col2?.slug === currentSlug || year.col3?.slug === currentSlug;
               return (
-                <tr key={year.yearCode} className={`border-b border-[var(--rule-soft)] transition-colors ${isCurrent ? 'bg-[var(--accent-fill)]' : 'hover:bg-[var(--accent-fill)]'}`}>
-                  <td className={`py-3 px-4 text-[var(--ink)] ${isCurrent ? 'font-bold' : 'font-medium'}`}>{year.label}</td>
+                <tr key={year.yearCode} className={`border-b border-(--rule-soft) transition-colors ${isCurrent ? 'bg-(--accent-fill)' : 'hover:bg-(--accent-fill)'}`}>
+                  <td className={`py-3 px-4 text-(--ink) ${isCurrent ? 'font-bold' : 'font-medium'}`}>{year.label}</td>
                   <td className="py-3 px-4 text-center"><CellLink slug={year.col1?.slug} label={data.col1Header === '択一' ? '択一式' : `問題${data.col1Header}`} currentSlug={currentSlug} /></td>
                   <td className="py-3 px-4 text-center"><CellLink slug={year.col2?.slug} label={data.col2Header === '記述' ? '記述式' : `問題${data.col2Header}`} currentSlug={currentSlug} /></td>
                   {data.col3Header && <td className="py-3 px-4 text-center"><CellLink slug={year.col3?.slug} label="第2次検定" currentSlug={currentSlug} /></td>}
@@ -123,14 +123,14 @@ function SectionCard({ variant, currentSlug, currentSection }: { variant: 'sideb
 
     return (
       <SidebarWrapper title="同セクションのキーワード">
-        <p className="text-xs text-[var(--ink-muted)] mb-2">
+        <p className="text-xs text-(--ink-muted) mb-2">
           {section.id} {section.title}
         </p>
         <ul className="max-h-[280px] overflow-y-auto toc-scroll">
           {keywords.map(kw => (
-            <li key={kw.slug} className="border-b border-[var(--rule-soft)] last:border-b-0">
+            <li key={kw.slug} className="border-b border-(--rule-soft) last:border-b-0">
               {kw.slug === currentSuffix ? (
-                <span className="block text-sm py-2 font-bold text-[var(--ink)]">
+                <span className="block text-sm py-2 font-bold text-(--ink)">
                   {kw.title}
                 </span>
               ) : (
@@ -155,7 +155,7 @@ function SectionCard({ variant, currentSlug, currentSection }: { variant: 'sideb
           const isCurrentChapter = ch.id === currentChapterId;
           return (
             <div key={ch.id}>
-              <h3 className={`text-sm font-bold mb-2 ${isCurrentChapter ? 'text-[var(--accent)]' : 'text-[var(--ink-body)]'}`}>
+              <h3 className={`text-sm font-bold mb-2 ${isCurrentChapter ? 'text-(--accent)' : 'text-(--ink-body)'}`}>
                 {ch.title}
               </h3>
               <div className="flex flex-wrap gap-1.5">
@@ -166,8 +166,8 @@ function SectionCard({ variant, currentSlug, currentSection }: { variant: 'sideb
                       key={sec.id}
                       className={`text-xs px-2.5 py-1 rounded-full border ${
                         isCurrentSection
-                          ? 'bg-[var(--accent-fill)] border-[var(--accent)] font-bold text-[var(--accent)]'
-                          : 'border-[var(--rule-soft)] text-[var(--ink-body)]'
+                          ? 'bg-(--accent-fill) border-(--accent) font-bold text-(--accent)'
+                          : 'border-(--rule-soft) text-(--ink-body)'
                       }`}
                     >
                       {sec.id} {sec.title}
@@ -188,7 +188,7 @@ function SidebarWrapper({ title, children }: { title: string; children: React.Re
   return (
     <MetaCard as="div" padding="compact" trackNav="category-nav">
       <div
-        className="nav-card-title text-[var(--ink)]"
+        className="nav-card-title text-(--ink)"
       >
         {title}
       </div>
@@ -200,7 +200,7 @@ function SidebarWrapper({ title, children }: { title: string; children: React.Re
 function MobileWrapper({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <MetaCard trackNav="category-nav">
-      <h2 className="text-lg font-bold text-[var(--ink)] mb-4">{title}</h2>
+      <h2 className="text-lg font-bold text-(--ink) mb-4">{title}</h2>
       {children}
     </MetaCard>
   );
@@ -214,7 +214,7 @@ function MobileWrapper({ title, children }: { title: string; children: React.Rea
 function NavSubtitle({ children }: { children: React.ReactNode }) {
   return (
     <span
-      className="mt-0.5 block text-[12px] leading-[1.5] text-[var(--ink-muted)] overflow-hidden"
+      className="mt-0.5 block text-[12px] leading-normal text-(--ink-muted) overflow-hidden"
       style={{ display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}
     >
       {children}
@@ -246,10 +246,10 @@ function LinkListCard({
           {docs.map((d) => {
             const { main, sub } = resolveNavTitle(d);
             return (
-              <li key={d.slug} className="border-b border-[var(--rule-soft)] last:border-b-0">
+              <li key={d.slug} className="border-b border-(--rule-soft) last:border-b-0">
                 {d.slug === currentSlug ? (
                   <span className="block py-2">
-                    <span className="block text-sm font-bold text-[var(--ink)]">{main}</span>
+                    <span className="block text-sm font-bold text-(--ink)">{main}</span>
                     {sub && <NavSubtitle>{sub}</NavSubtitle>}
                   </span>
                 ) : (
@@ -274,10 +274,10 @@ function LinkListCard({
         {docs.map((d) => {
           const { main, sub } = resolveNavTitle(d);
           return (
-            <li key={d.slug} className={`rounded-card-content border px-4 py-3 transition-colors ${d.slug === currentSlug ? 'bg-[var(--accent-fill)] border-[var(--accent)]' : 'border-[var(--rule-soft)] hover:border-[var(--accent)]'}`}>
+            <li key={d.slug} className={`rounded-card-content border px-4 py-3 transition-colors ${d.slug === currentSlug ? 'bg-(--accent-fill) border-(--accent)' : 'border-(--rule-soft) hover:border-(--accent)'}`}>
               {d.slug === currentSlug ? (
                 <>
-                  <span className="block text-sm font-bold text-[var(--ink)]">{main}</span>
+                  <span className="block text-sm font-bold text-(--ink)">{main}</span>
                   {sub && <NavSubtitle>{sub}</NavSubtitle>}
                 </>
               ) : (

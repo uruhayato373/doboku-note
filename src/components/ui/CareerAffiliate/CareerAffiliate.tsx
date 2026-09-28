@@ -129,7 +129,7 @@ export default function CareerAffiliate({
         data-cta-label={effService}
         data-cta-placement={placement}
         className={`card-surface-content focus-ring group relative flex flex-col sm:flex-row items-stretch gap-4 p-4 hover:shadow-card-hover hover:border-brand dark:hover:border-brand transition-shadow${
-          emphasis ? ' border-l-4 border-l-brand bg-[var(--accent-fill)] dark:border-l-brand' : ''
+          emphasis ? ' border-l-4 border-l-brand bg-(--accent-fill) dark:border-l-brand' : ''
         }`}
         style={{ textDecoration: "none" }}
       >

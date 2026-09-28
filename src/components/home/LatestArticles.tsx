@@ -30,8 +30,8 @@ export default function LatestArticles({ articles }: LatestArticlesProps) {
     <section id="latest" className="scroll-mt-24 max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10 py-8 sm:py-10">
       <div className="flex items-end justify-between mb-6 sm:mb-8 gap-4">
         <div>
-          <h2 className="font-serif text-2xl sm:text-3xl font-black text-[var(--ink)]">最新の記事</h2>
-          <p className="text-[14px] text-[var(--ink-muted)] mt-1.5">現場と参考書から抽出した論点を、定期的に更新</p>
+          <h2 className="font-serif text-2xl sm:text-3xl font-black text-(--ink)">最新の記事</h2>
+          <p className="text-[14px] text-(--ink-muted) mt-1.5">現場と参考書から抽出した論点を、定期的に更新</p>
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
@@ -41,11 +41,11 @@ export default function LatestArticles({ articles }: LatestArticlesProps) {
             <Link
               key={a.slug}
               href={getPublicDocPath(a.slug)}
-              className="focus-ring card-surface-section group flex overflow-hidden transition-[border-color,box-shadow] hover:border-[var(--accent)] hover:shadow-soft"
+              className="focus-ring card-surface-section group flex overflow-hidden transition-[border-color,box-shadow] hover:border-(--accent) hover:shadow-soft"
             >
               {/* サムネ（記事別 OGP＝1200:630・資格別テーマ色＋タグ焼き込み。RelatedArticleCard と同系統）。
                   資格別写真プール（guide-covers）は猫/場違い画像の混入により 2026-07-07 に廃止し OGP へ一本化。 */}
-              <div className="relative aspect-[1200/630] w-[128px] shrink-0 self-start overflow-hidden bg-[var(--accent-fill)] sm:w-[188px] md:w-[204px]">
+              <div className="relative aspect-1200/630 w-[128px] shrink-0 self-start overflow-hidden bg-(--accent-fill) sm:w-[188px] md:w-[204px]">
                 {a.image && (
                   <ContentThumbnail src={a.image} sizes="(max-width: 640px) 128px, (max-width: 768px) 188px, 204px" />
                 )}
@@ -53,26 +53,26 @@ export default function LatestArticles({ articles }: LatestArticlesProps) {
               <div className="min-w-0 p-4 sm:p-5">
                 <div className="flex items-center gap-2 mb-2 flex-wrap">
                   {a.categoryLabel && (
-                    <span className="rounded-card-inline bg-[var(--accent-fill)] px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest text-[var(--accent)]">
+                    <span className="rounded-card-inline bg-(--accent-fill) px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest text-(--accent)">
                       {a.categoryLabel}
                     </span>
                   )}
-                  {date && <span className="font-mono text-[10px] text-[var(--ink-muted)] tabular-nums">{date}</span>}
+                  {date && <span className="font-mono text-[10px] text-(--ink-muted) tabular-nums">{date}</span>}
                 </div>
-                <h3 className="font-serif font-bold text-base text-[var(--ink)] leading-snug group-hover:text-[var(--accent)] transition-colors sm:line-clamp-2">
+                <h3 className="font-serif font-bold text-base text-(--ink) leading-snug group-hover:text-(--accent) transition-colors sm:line-clamp-2">
                   {a.title}
                 </h3>
                 {a.tags && a.tags.length > 0 && (
                   <div className="flex gap-3 mt-3 flex-wrap">
                     {a.tags.slice(0, 4).map((t) => (
-                      <span key={t} className="font-mono text-[10px] text-[var(--ink-muted)] flex items-center gap-1">
+                      <span key={t} className="font-mono text-[10px] text-(--ink-muted) flex items-center gap-1">
                         <Hash className="w-2.5 h-2.5" />
                         {t}
                       </span>
                     ))}
                   </div>
                 )}
-                <div className="mt-3 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-widest text-[var(--ink-muted)] group-hover:text-[var(--accent)] transition-colors">
+                <div className="mt-3 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-widest text-(--ink-muted) group-hover:text-(--accent) transition-colors">
                   <span>Read</span>
                   <ArrowRight className="w-3 h-3" />
                 </div>

@@ -23,7 +23,7 @@ export default function OffsiteCta({
   if (!items.length) return null;
   return (
     <div className="not-prose mt-8">
-      <div className="mb-2 text-sm font-semibold text-[var(--ink-muted)]">
+      <div className="mb-2 text-sm font-semibold text-(--ink-muted)">
         {heading}
       </div>
       <ul className="grid gap-3 sm:grid-cols-2">
@@ -36,10 +36,10 @@ export default function OffsiteCta({
               data-cta={it.channel}
               data-cta-label={it.trackLabel}
               data-cta-placement="article-end-offsite"
-              className="group flex h-full flex-col rounded-card-content border border-[var(--rule-soft)] bg-[var(--accent-fill)] px-4 py-3.5 transition-colors hover:border-[var(--accent)]"
+              className="group flex h-full flex-col rounded-card-content border border-(--rule-soft) bg-(--accent-fill) px-4 py-3.5 transition-colors hover:border-(--accent)"
             >
               <span className="mb-1.5 flex items-center gap-1.5">
-                <span className="inline-flex w-fit items-center rounded-full border border-[var(--rule-soft)] px-2 py-0.5 text-[11px] font-semibold text-[var(--ink-body)]">
+                <span className="inline-flex w-fit items-center rounded-full border border-(--rule-soft) px-2 py-0.5 text-[11px] font-semibold text-(--ink-body)">
                   {CHANNEL_LABEL[it.channel]}
                 </span>
                 {it.affiliate && <AffiliatePrBadge />}
@@ -49,13 +49,13 @@ export default function OffsiteCta({
                   （2026-09-27 目視）。折り返しを許し、価格は収まらなければ次の行へ回す。
                   ラベルと価格は accent-fill 地で ink-muted だとコントラスト不足（a11y e2e）なので ink-body。 */}
               <span className="mt-2 flex flex-wrap items-baseline justify-between gap-x-2 gap-y-1">
-                <span className="min-w-0 text-[14px] font-bold text-[var(--accent)] group-hover:underline">
+                <span className="min-w-0 text-[14px] font-bold text-(--accent) group-hover:underline">
                   {it.shortTitle}
                   <span aria-hidden className="ml-0.5 transition-transform group-hover:translate-x-0.5">
                     ›
                   </span>
                 </span>
-                <span className="text-xs text-[var(--ink-body)]">{it.price}</span>
+                <span className="text-xs text-(--ink-body)">{it.price}</span>
               </span>
             </a>
           </li>

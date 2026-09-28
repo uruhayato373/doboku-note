@@ -24,7 +24,7 @@ export function PopularShowcase({ items }: { items: PopularDoc[] }) {
   if (items.length === 0) return null;
   return (
     <section data-cta="nav" data-cta-label="popular-showcase">
-      <h2 className="font-serif text-[22px] sm:text-[26px] font-black text-[var(--ink)] mb-5">よく読まれている記事</h2>
+      <h2 className="font-serif text-[22px] sm:text-[26px] font-black text-(--ink) mb-5">よく読まれている記事</h2>
       <ol className="flex flex-col">
         {items.map((item) => (
           <OgpThumbRow key={item.doc.slug} doc={item.doc} rank={item.rank} eager />
@@ -43,21 +43,21 @@ export function PopularRanking({ items }: { items: PopularDoc[] }) {
   const label = windowLabel();
   return (
     <div data-cta="nav" data-cta-label="popular-ranking" className="card-surface-content overflow-hidden shadow-none">
-      <div className="px-4 py-3 border-b border-[var(--rule-soft)] flex items-baseline justify-between gap-2">
-        <h3 className="font-serif font-bold text-[var(--ink)] text-sm">人気記事</h3>
-        {label && <span className="font-mono text-[10px] text-[var(--ink-muted)] tabular-nums">{label}</span>}
+      <div className="px-4 py-3 border-b border-(--rule-soft) flex items-baseline justify-between gap-2">
+        <h3 className="font-serif font-bold text-(--ink) text-sm">人気記事</h3>
+        {label && <span className="font-mono text-[10px] text-(--ink-muted) tabular-nums">{label}</span>}
       </div>
       <ol className="flex flex-col">
         {items.map((item) => (
           <li key={item.doc.slug}>
             <Link
               href={getPublicDocPath(item.doc.slug)}
-              className="group flex gap-3 px-4 py-3 border-b border-[var(--rule-soft)] last:border-b-0 hover:bg-[var(--accent-fill)] transition-colors"
+              className="group flex gap-3 px-4 py-3 border-b border-(--rule-soft) last:border-b-0 hover:bg-(--accent-fill) transition-colors"
             >
-              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-card-inline bg-[var(--accent-fill)] font-mono text-xs font-bold text-[var(--accent)]">
+              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-card-inline bg-(--accent-fill) font-mono text-xs font-bold text-(--accent)">
                 {item.rank}
               </span>
-              <span className="font-serif text-[13px] font-bold leading-tight text-[var(--ink)] group-hover:text-[var(--accent)] transition-colors line-clamp-2">
+              <span className="font-serif text-[13px] font-bold leading-tight text-(--ink) group-hover:text-(--accent) transition-colors line-clamp-2">
                 {item.doc.shortTitle || item.doc.title}
               </span>
             </Link>

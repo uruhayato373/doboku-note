@@ -5,7 +5,7 @@ import type { StandardDocument, StandardPart } from '@/lib/standards';
 export default function StandardsAttribution({ document, part }: { document?: StandardDocument; part?: StandardPart }) {
   return (
     <SectionCard as="aside" title="出典・利用上の注意" padding="compact" className="mt-8">
-      <div className="space-y-2 text-[13px] leading-[1.8] text-[var(--ink-body)]">
+      <div className="space-y-2 text-[13px] leading-[1.8] text-(--ink-body)">
         {document && (
           <p>
             出典：{document.agencyName}「{document.title}」（
@@ -13,7 +13,7 @@ export default function StandardsAttribution({ document, part }: { document?: St
               href={document.landing}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[var(--accent)] underline underline-offset-4"
+              className="text-(--accent) underline underline-offset-4"
             >
               原典掲載ページ
             </a>
@@ -24,7 +24,7 @@ export default function StandardsAttribution({ document, part }: { document?: St
                   href={document.sourceUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[var(--accent)] underline underline-offset-4"
+                  className="text-(--accent) underline underline-offset-4"
                 >
                   原本PDF
                 </a>
@@ -44,7 +44,7 @@ export default function StandardsAttribution({ document, part }: { document?: St
             href="https://www.mlit.go.jp/link.html"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[var(--accent)] underline underline-offset-4"
+            className="text-(--accent) underline underline-offset-4"
           >
             国土交通省ウェブサイト利用規約
           </a>
@@ -53,23 +53,23 @@ export default function StandardsAttribution({ document, part }: { document?: St
             href="https://www.digital.go.jp/resources/open_data/public_data_license_v1.0"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[var(--accent)] underline underline-offset-4"
+            className="text-(--accent) underline underline-offset-4"
           >
             公共データ利用規約（第1.0版）
           </a>
           {' / '}
-          <Link href="/terms" className="text-[var(--accent)] underline underline-offset-4">
+          <Link href="/terms" className="text-(--accent) underline underline-offset-4">
             当サイト利用規約
           </Link>
         </p>
         {document && (
-          <details className="border-t border-[var(--rule-soft)] pt-2">
+          <details className="border-t border-(--rule-soft) pt-2">
             <summary className="focus-ring flex min-h-11 cursor-pointer items-center font-bold">原本・文字起こしの詳細</summary>
             <dl className="space-y-2 break-all pb-3">
               <div><dt>原本 SHA-256</dt><dd>{document.sourceSha256}</dd></div>
               <div><dt>文字起こしの構成</dt><dd>{document.partCount}分冊</dd></div>
               {part && <div><dt>この分冊の SHA-256</dt><dd>{part.sha256}</dd></div>}
-              {document.duplicateOf && <div><dt>同一原本</dt><dd><Link href={`/standards/${document.duplicateOf}`} className="text-[var(--accent)] underline">同じ原本を掲載する文書</Link></dd></div>}
+              {document.duplicateOf && <div><dt>同一原本</dt><dd><Link href={`/standards/${document.duplicateOf}`} className="text-(--accent) underline">同じ原本を掲載する文書</Link></dd></div>}
             </dl>
           </details>
         )}

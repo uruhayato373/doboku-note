@@ -26,16 +26,16 @@ export default function StandardsArticleHeader({
   meta,
 }: StandardsArticleHeaderProps) {
   return (
-    <header className="border-b border-[var(--rule-soft)] pb-6">
+    <header className="border-b border-(--rule-soft) pb-6">
       <nav
         aria-label="breadcrumb"
-        className="mb-4 flex flex-wrap items-center gap-2 font-mono text-[11px] tracking-wide text-[var(--ink-muted)]"
+        className="mb-4 flex flex-wrap items-center gap-2 font-mono text-[11px] tracking-wide text-(--ink-muted)"
       >
         {breadcrumb.map((crumb, index) => (
           <span key={`${crumb.label}-${index}`} className="flex min-w-0 items-center gap-2">
             {index > 0 && <span aria-hidden="true" className="opacity-60">›</span>}
             {crumb.href ? (
-              <Link href={crumb.href} className="focus-ring hover:text-[var(--accent)]">
+              <Link href={crumb.href} className="focus-ring hover:text-(--accent)">
                 {crumb.label}
               </Link>
             ) : (
@@ -45,22 +45,22 @@ export default function StandardsArticleHeader({
         ))}
       </nav>
 
-      <div className="mb-1 text-[11px] font-bold tracking-[0.06em] text-[var(--accent)]">
+      <div className="mb-1 text-[11px] font-bold tracking-[0.06em] text-(--accent)">
         {label}
       </div>
       <h1
-        className="m-0 text-balance font-sans text-[26px] font-bold leading-[1.4] tracking-[0.02em] text-[var(--ink)] [word-break:auto-phrase] sm:text-[28px]"
+        className="m-0 text-balance font-sans text-[26px] font-bold leading-[1.4] tracking-[0.02em] text-(--ink) [word-break:auto-phrase] sm:text-[28px]"
         style={{ fontFeatureSettings: '"palt" 1' }}
       >
         {title}
       </h1>
       {lead && (
-        <p className="mt-3 max-w-[62ch] text-[15px] leading-[1.85] text-[var(--ink-body)]">
+        <p className="mt-3 max-w-[62ch] text-[15px] leading-[1.85] text-(--ink-body)">
           {lead}
         </p>
       )}
       {meta && (
-        <div className={`${lead ? 'mt-3' : 'mt-2'} font-mono text-[11px] leading-5 text-[var(--ink-muted)]`}>
+        <div className={`${lead ? 'mt-3' : 'mt-2'} font-mono text-[11px] leading-5 text-(--ink-muted)`}>
           {meta}
         </div>
       )}

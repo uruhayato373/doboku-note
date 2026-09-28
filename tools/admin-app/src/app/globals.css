@@ -1,8 +1,93 @@
-@config "../../tailwind.config.cjs";
+@import 'tailwindcss';
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* v3 互換: v4 の text-* は行高を単位なしの比率（text-sm = 1.25/0.875）で持つため、子孫へ比率として継承され、
+   小さい文字の子の行高が v3（rem の絶対値で継承）より縮む。v3 と同じ rem 値に戻す。 */
+@theme {
+  --text-xs--line-height: 1rem;
+  --text-sm--line-height: 1.25rem;
+  --text-base--line-height: 1.5rem;
+  --text-lg--line-height: 1.75rem;
+  --text-xl--line-height: 1.75rem;
+  --text-2xl--line-height: 2rem;
+  --text-3xl--line-height: 2.25rem;
+  --text-4xl--line-height: 2.5rem;
+}
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+@theme {
+  --color-border: hsl(var(--border-token));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-muted: hsl(var(--muted-token));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-accent: hsl(var(--accent-token));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --shadow-card:
+    0 1px 2px rgb(15 23 42 / 0.04), 0 12px 30px rgb(15 23 42 / 0.05);
+
+  --font-sans:
+    Inter, ui-sans-serif, system-ui, Hiragino Kaku Gothic ProN, Hiragino Sans,
+    Yu Gothic UI, Meiryo, sans-serif;
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: rgb(229 231 235); /* v3 既定の gray-200。v4 の oklch 版とはわずかに異なるため値で固定 */
+  }
+
+  /* v4 の preflight は button の cursor を default にしたため、v3 と同じ pointer に戻す */
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+/* v3 互換のカスケード: v3 では自作 CSS がユーティリティと同じ土俵（詳細度＋記述順）で競っていた。
+   v4 はユーティリティを @layer utilities に入れるため、レイヤー外の自作 CSS が詳細度に関係なく勝ってしまう
+   （例: body の color が text-foreground を上書き）。自作 CSS を utilities レイヤーの末尾に置いて v3 と同じ順位に戻す。 */
+@layer utilities {
 
 /* admin-app グローバルスタイル。
    Tailwind + shadcn/ui 互換トークンを土台に、既存の集計ビュー用クラスを重ねる。 */
@@ -2332,3 +2417,4 @@ table.data.schedule-grid td {
 .app-nav a.group.active {
   color: var(--accent);
 }
+} /* @layer utilities */

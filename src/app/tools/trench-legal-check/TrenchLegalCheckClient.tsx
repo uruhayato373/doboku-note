@@ -55,16 +55,16 @@ export default function TrenchLegalCheckClient() {
     w <= GL_MAX_WIDTH;
 
   const inputBase =
-    "focus-ring w-full rounded-card-content border border-[var(--rule-soft)] bg-[var(--bg)] px-3 py-2 text-[15px] text-[var(--ink)] focus:border-[var(--accent)]";
+    "focus-ring w-full rounded-card-content border border-(--rule-soft) bg-(--bg) px-3 py-2 text-[15px] text-(--ink) focus:border-(--accent)";
   const labelBase =
-    "block text-[11px] font-bold uppercase tracking-wider text-[var(--ink-muted)] mb-2";
+    "block text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-2";
 
   return (
     <div className="max-w-[760px] mx-auto px-4 sm:px-6 py-8 sm:py-10">
       {/* 常設の警告 */}
-      <div className="rounded-card-content border-l-4 border-[var(--color-danger)] bg-[var(--bg)] p-4 text-sm leading-6 text-[var(--ink-body)]">
-        労働安全衛生規則第361条は、地山の崩壊または土石の落下により労働者に危険を及ぼす<strong className="text-[var(--ink)]">おそれがあるとき</strong>、深さにかかわらず土止め支保工の設置を義務づけています。
-        このツールが出す結果は<strong className="text-[var(--ink)]">「作業主任者が要るか」「勾配の基準値」「ガイドラインの想定範囲」</strong>であり、「この深さなら土留めなしで安全」を意味しません。
+      <div className="rounded-card-content border-l-4 border-(--color-danger) bg-(--bg) p-4 text-sm leading-6 text-(--ink-body)">
+        労働安全衛生規則第361条は、地山の崩壊または土石の落下により労働者に危険を及ぼす<strong className="text-(--ink)">おそれがあるとき</strong>、深さにかかわらず土止め支保工の設置を義務づけています。
+        このツールが出す結果は<strong className="text-(--ink)">「作業主任者が要るか」「勾配の基準値」「ガイドラインの想定範囲」</strong>であり、「この深さなら土留めなしで安全」を意味しません。
       </div>
 
       {/* 入力 */}
@@ -117,42 +117,42 @@ export default function TrenchLegalCheckClient() {
 
       {/* 結果① 作業主任者 */}
       <div className="card-surface-section mt-4 p-5 sm:p-6">
-        <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--ink-muted)]">
+        <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted)">
           ① 作業主任者の選任義務（施行令第6条第9号・規則第359条）
         </div>
         <div
           className={`font-serif font-black text-[22px] mt-2 ${
-            needsSupervisor ? "text-[var(--color-danger)]" : "text-[var(--ink)]"
+            needsSupervisor ? "text-(--color-danger)" : "text-(--ink)"
           }`}
         >
           {h === null ? "—" : needsSupervisor ? "地山の掘削作業主任者が必要" : "選任義務の対象外（高さ2m未満）"}
         </div>
-        <p className="mt-2 text-sm leading-6 text-[var(--ink-body)]">
+        <p className="mt-2 text-sm leading-6 text-(--ink-body)">
           掘削面の高さが2m以上になると、地山の掘削作業主任者の選任が義務になります。推進工事の立坑を掘り下げる作業にも同じ基準が及びます。
         </p>
       </div>
 
       {/* 結果② 勾配基準 */}
       <div className="card-surface-section mt-4 p-5 sm:p-6">
-        <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--ink-muted)]">
+        <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted)">
           ② 土留めを設けない場合の法面勾配の基準（規則第356条）
         </div>
-        <div className="font-serif font-black text-[28px] mt-2 text-[var(--ink)] tabular-nums">
+        <div className="font-serif font-black text-[28px] mt-2 text-(--ink) tabular-nums">
           {grad !== null ? `${grad}度以下` : "—"}
         </div>
-        <p className="mt-2 text-sm leading-6 text-[var(--ink-body)]">
+        <p className="mt-2 text-sm leading-6 text-(--ink-body)">
           この勾配は「土留めを設けずに法面を切って掘削してよい上限」を定めたものです。基準を満たしていても、地質が崩れやすい・地下水位が高い・振動を受けやすいといった条件があれば、①とは別に361条の土留め義務が生じます。
         </p>
       </div>
 
       {/* 結果③ 土止め先行工法ガイドライン */}
       <div className="card-surface-section mt-4 p-5 sm:p-6">
-        <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--ink-muted)]">
+        <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted)">
           ③ 土止め先行工法ガイドラインの想定範囲
         </div>
         <div
           className={`font-serif font-black text-[22px] mt-2 ${
-            h !== null && w !== null ? (glApplicable ? "text-[var(--color-positive)]" : "text-[var(--warn-text-emphasis)]") : "text-[var(--ink)]"
+            h !== null && w !== null ? (glApplicable ? "text-(--color-positive)" : "text-(--warn-text-emphasis)") : "text-(--ink)"
           }`}
         >
           {h === null || w === null
@@ -161,28 +161,28 @@ export default function TrenchLegalCheckClient() {
               ? "想定範囲内（簡易土留め工法が候補になる）"
               : "想定範囲外（本設の土留め工法を個別に検討）"}
         </div>
-        <p className="mt-2 text-sm leading-6 text-[var(--ink-body)]">
+        <p className="mt-2 text-sm leading-6 text-(--ink-body)">
           想定範囲は深さおおむね{GL_MIN_DEPTH}〜{GL_MAX_DEPTH}m・幅おおむね{GL_MAX_WIDTH}m以下でほぼ鉛直に掘削する小規模な溝です。矢板・支保工は掘削深さが自立可能なおおむね{SHORING_PRE_INSTALL_DEPTH}mに達した段階で先行して設置します。地下水位が高い、軟弱地盤、埋設物が輻輳するといった条件が重なる場合は、範囲内でも本設の土留め工法への切り替えを検討してください。
         </p>
       </div>
 
       {/* 根拠 */}
-      <div className="mt-6 rounded-card-content border border-[var(--rule-soft)] bg-[var(--bg)] p-5 text-sm leading-7 text-[var(--ink-body)]">
-        <p className="font-bold text-[var(--ink)] mb-2">数値の根拠</p>
+      <div className="mt-6 rounded-card-content border border-(--rule-soft) bg-(--bg) p-5 text-sm leading-7 text-(--ink-body)">
+        <p className="font-bold text-(--ink) mb-2">数値の根拠</p>
         <ul className="list-disc pl-5 space-y-1">
           <li>
-            <strong className="text-[var(--ink)]">作業主任者の選任義務（2m基準）</strong>は労働安全衛生法施行令第6条第9号・労働安全衛生規則第359条。
+            <strong className="text-(--ink)">作業主任者の選任義務（2m基準）</strong>は労働安全衛生法施行令第6条第9号・労働安全衛生規則第359条。
           </li>
           <li>
-            <strong className="text-[var(--ink)]">法面勾配の基準</strong>は労働安全衛生規則第356条の別表（岩盤・堅い粘土からなる地山は5m未満90度／5m以上75度、その他の地山は2m未満90度／2m以上5m未満75度／5m以上60度）。
+            <strong className="text-(--ink)">法面勾配の基準</strong>は労働安全衛生規則第356条の別表（岩盤・堅い粘土からなる地山は5m未満90度／5m以上75度、その他の地山は2m未満90度／2m以上5m未満75度／5m以上60度）。
           </li>
           <li>
-            <strong className="text-[var(--ink)]">土留め支保工の設置義務</strong>そのものは同規則第361条。数値基準はなく「危険を及ぼすおそれのあるとき」に生じます。①②③のいずれも、この義務の有無を判定するものではありません。
+            <strong className="text-(--ink)">土留め支保工の設置義務</strong>そのものは同規則第361条。数値基準はなく「危険を及ぼすおそれのあるとき」に生じます。①②③のいずれも、この義務の有無を判定するものではありません。
           </li>
           <li>
-            <strong className="text-[var(--ink)]">土止め先行工法ガイドライン</strong>は厚生労働省策定。上水道・下水道・電気通信・ガス供給施設等の小規模な溝掘削を対象としています。
+            <strong className="text-(--ink)">土止め先行工法ガイドライン</strong>は厚生労働省策定。上水道・下水道・電気通信・ガス供給施設等の小規模な溝掘削を対象としています。
           </li>
-          <li className="text-[var(--ink-muted)]">
+          <li className="text-(--ink-muted)">
             ※ 現場ごとの土質・地下水・周辺環境の調査結果が優先します。本ツールは条文の数値基準を整理する早見であり、土留めの要否そのものを判定するものではありません。
           </li>
         </ul>
@@ -190,25 +190,25 @@ export default function TrenchLegalCheckClient() {
 
       {/* 関連 */}
       <div className="mt-6">
-        <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--ink-muted)] mb-3">
+        <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-3">
           関連するページ
         </div>
         <div className="grid gap-3 sm:grid-cols-2">
           <Link
             href="/practice/trench-excavation-safety"
-            className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-[var(--accent)]"
+            className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-(--accent)"
           >
-            <div className="font-bold text-[var(--ink)]">溝掘削の土留めをいつ入れるか</div>
-            <div className="text-sm text-[var(--ink-body)] mt-1">
+            <div className="font-bold text-(--ink)">溝掘削の土留めをいつ入れるか</div>
+            <div className="text-sm text-(--ink-body) mt-1">
               法令の構造と判断の考え方を解説した記事
             </div>
           </Link>
           <Link
             href="/tools"
-            className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-[var(--accent)]"
+            className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-(--accent)"
           >
-            <div className="font-bold text-[var(--ink)]">無料ツール一覧</div>
-            <div className="text-sm text-[var(--ink-body)] mt-1">
+            <div className="font-bold text-(--ink)">無料ツール一覧</div>
+            <div className="text-sm text-(--ink-body) mt-1">
               現場管理値の計算ツールをまとめて見る
             </div>
           </Link>

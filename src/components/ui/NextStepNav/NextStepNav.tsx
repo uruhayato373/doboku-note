@@ -15,8 +15,8 @@ export default function NextStepNav({ category }: { category: string }) {
   if (steps.length === 0) return null;
   return (
     <MetaCard ariaLabel="次のステップ" trackNav="next-step">
-      <h2 className="text-lg font-bold text-[var(--ink)] mb-1">次のステップ</h2>
-      <p className="text-sm text-[var(--ink-muted)] mb-4">
+      <h2 className="text-lg font-bold text-(--ink) mb-1">次のステップ</h2>
+      <p className="text-sm text-(--ink-muted) mb-4">
         要点をつかんだら、演習と本文で定着させましょう。
       </p>
       <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2">
@@ -24,10 +24,10 @@ export default function NextStepNav({ category }: { category: string }) {
           <li key={s.href}>
             <Link
               href={s.href}
-              className="block h-full rounded-card-content border border-[var(--rule-soft)] px-4 py-3 transition-colors hover:border-brand"
+              className="block h-full rounded-card-content border border-(--rule-soft) px-4 py-3 transition-colors hover:border-brand"
             >
-              <span className="block text-[15px] font-medium text-[var(--ink)]">{s.label}</span>
-              <span className="mt-0.5 block text-[13px] text-[var(--ink-muted)]">{s.hint}</span>
+              <span className="block text-[15px] font-medium text-(--ink)">{s.label}</span>
+              <span className="mt-0.5 block text-[13px] text-(--ink-muted)">{s.hint}</span>
             </Link>
           </li>
         ))}

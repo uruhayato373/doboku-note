@@ -1,3 +1,6 @@
+/* Tailwind v4 互換: レイヤー外の CSS はユーティリティ（@layer utilities）に詳細度と無関係に勝つため、
+   v3 と同じく「詳細度＋記述順」で競うよう utilities レイヤーに入れる（例: prose-blog details の mx-5 が効く）。 */
+@layer utilities {
 /* =============================================================================
    SpecSheetList.module.css
    土木ノート仕様書調リスト — Editorial tokens (globals.css) 準拠
@@ -114,3 +117,4 @@
   font-size: 1em;
   line-height: 1.8;
 }
+} /* @layer utilities */

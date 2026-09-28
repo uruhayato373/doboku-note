@@ -27,11 +27,11 @@ export default async function SafeMdx({
     const message = error instanceof Error ? error.message : String(error);
     console.error('MDX compile error:', message.slice(0, 200));
     return (
-      <div className="rounded-card-content border border-[var(--color-warn)] bg-[var(--color-warn-fill)] p-4">
-        <p className="text-[var(--color-warn)] font-semibold">
+      <div className="rounded-card-content border border-(--color-warn) bg-(--color-warn-fill) p-4">
+        <p className="text-(--color-warn) font-semibold">
           このページのコンテンツにフォーマットエラーがあります。
         </p>
-        <p className="text-[var(--color-warn)] text-sm mt-1">
+        <p className="text-(--color-warn) text-sm mt-1">
           管理者に報告してください。
         </p>
       </div>

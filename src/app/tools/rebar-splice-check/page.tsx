@@ -43,7 +43,7 @@ export default function RebarSpliceCheckPage() {
         title="鉄筋継手 判定ツール"
         lead={
           <>
-            継手長さと鉄筋径から<strong className="text-[var(--ink)]">千鳥配置のずらし量</strong>（継手長さ+25d）を計算し、ガス圧接部の<strong className="text-[var(--ink)]">ふくらみの実測値</strong>がJIS Z 3120の検査基準を満たすかを判定します。
+            継手長さと鉄筋径から<strong className="text-(--ink)">千鳥配置のずらし量</strong>（継手長さ+25d）を計算し、ガス圧接部の<strong className="text-(--ink)">ふくらみの実測値</strong>がJIS Z 3120の検査基準を満たすかを判定します。
           </>
         }
       />

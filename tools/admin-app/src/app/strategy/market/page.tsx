@@ -17,9 +17,9 @@ export const dynamic = 'force-dynamic';
 type SortKey = 'compose' | 'sales' | 'name';
 
 const PORTFOLIO_LABEL: Record<string, string> = { active: '展開中', candidate: '候補', declined: '見送り' };
-const PORTFOLIO_VARIANT: Record<string, 'success' | 'outline' | 'secondary'> = { active: 'success', candidate: 'outline', declined: 'secondary' };
+const PORTFOLIO_VARIANT: Record<string, 'success' | 'outline-solid' | 'secondary'> = { active: 'success', candidate: 'outline-solid', declined: 'secondary' };
 const DENSITY_LABEL: Record<string, string> = { none: '無', low: '少', mid: '中', high: '多' };
-const DENSITY_VARIANT: Record<string, 'success' | 'outline' | 'warning' | 'destructive'> = { none: 'success', low: 'outline', mid: 'warning', high: 'destructive' };
+const DENSITY_VARIANT: Record<string, 'success' | 'outline-solid' | 'warning' | 'destructive'> = { none: 'success', low: 'outline-solid', mid: 'warning', high: 'destructive' };
 
 const md = (date: string) => {
   const [, m, d] = date.split('-').map(Number) as [number, number, number];

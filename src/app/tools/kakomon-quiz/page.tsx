@@ -35,7 +35,7 @@ export default function KakomonQuizPage() {
         title="1級土木 過去問 無料演習"
         lead={
           <>
-            <strong className="text-[var(--ink)]">1級土木施工管理技士 第一次検定</strong>の過去問を、その場で解ける<strong className="text-[var(--ink)]">4択演習</strong>です。1問ずつ即採点し、全選択肢の解説を表示します（平成26〜令和7年度・全1,098問／年度別・ランダム・間違い復習）。
+            <strong className="text-(--ink)">1級土木施工管理技士 第一次検定</strong>の過去問を、その場で解ける<strong className="text-(--ink)">4択演習</strong>です。1問ずつ即採点し、全選択肢の解説を表示します（平成26〜令和7年度・全1,098問／年度別・ランダム・間違い復習）。
           </>
         }
       />

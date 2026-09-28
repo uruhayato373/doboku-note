@@ -2,12 +2,12 @@
  * 全ページ共通のページシェル（chrome）。
  *
  * これまで各ページが個別にコピペしていた
- *   <div className="min-h-screen flex flex-col bg-[var(--bg)] ..."><Header/><main>…</main><Footer/></div>
+ *   <div className="min-h-screen flex flex-col bg-(--bg) ..."><Header/><main>…</main><Footer/></div>
  * を 1 箇所に集約する。`variant` で <main> ラッパーの形だけを切り替え、
  * 3 種類の構造（単カラム rail / band+body / 2カラム記事）を表現する。
  *
  * variant:
- * - `default` : 素の <main className="flex-grow">。ページ側が PageHeader(band) + SectionBlock を内側で構成する。
+ * - `default` : 素の <main className="grow">。ページ側が PageHeader(band) + SectionBlock を内側で構成する。
  * - `content` : <main> 自体に内側 content rail（max-w + 左右/上下 padding）を持たせる単一カラム用。
  * - `article` : コンテナを一切持たない <div>。docs/category は内側で TwoColumnShell（2カラム本文＋右サイドバー）を使う。
  *
@@ -50,7 +50,7 @@ export default function PageShell({
 
   if (variant === 'content') {
     const mainClass = [
-      'flex-grow w-full mx-auto px-4 sm:px-6 lg:px-10 py-10 sm:py-12',
+      'grow w-full mx-auto px-4 sm:px-6 lg:px-10 py-10 sm:py-12',
       RAILS[rail],
       className,
     ]
@@ -59,20 +59,20 @@ export default function PageShell({
     region = <main className={mainClass}>{children}</main>;
   } else if (variant === 'article') {
     region = (
-      <div className={['flex-grow w-full', className].filter(Boolean).join(' ')}>
+      <div className={['grow w-full', className].filter(Boolean).join(' ')}>
         {children}
       </div>
     );
   } else {
     region = (
-      <main className={['flex-grow', className].filter(Boolean).join(' ')}>
+      <main className={['grow', className].filter(Boolean).join(' ')}>
         {children}
       </main>
     );
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-[var(--bg)] transition-colors duration-300">
+    <div className="min-h-screen flex flex-col bg-(--bg) transition-colors duration-300">
       {beforeHeader}
       <Header />
       {region}

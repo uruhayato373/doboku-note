@@ -20,13 +20,13 @@ export default function RelatedArticleCard({ doc }: RelatedArticleCardProps) {
       href={getPublicDocPath(doc.slug)}
       className="card-interactive card-surface-content focus-ring not-prose group flex h-full flex-col overflow-hidden hover:border-brand dark:hover:border-brand"
     >
-      <div className="relative aspect-[1200/630] w-full overflow-hidden bg-[var(--bg)]">
+      <div className="relative aspect-1200/630 w-full overflow-hidden bg-(--bg)">
         <ContentThumbnail src={getOgpDisplayUrl(doc.slug)} sizes="(max-width: 640px) 100vw, 320px" />
       </div>
       <div className="flex flex-1 flex-col px-4 py-3">
         <div className="line-clamp-2 text-sm font-semibold text-brand">{doc.title}</div>
         {doc.description && (
-          <div className="mt-1 line-clamp-2 text-xs text-[var(--ink-body)]">
+          <div className="mt-1 line-clamp-2 text-xs text-(--ink-body)">
             {doc.description}
           </div>
         )}

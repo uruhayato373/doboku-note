@@ -27,8 +27,8 @@ export default function RelatedArticles({ currentMeta, categoryArticles }: Relat
 
   return (
     <MetaCard trackNav="related-articles">
-      <h2 className="mb-1 text-lg font-bold text-[var(--ink)]">関連記事</h2>
-      <p className="mb-4 text-sm text-[var(--ink-muted)]">
+      <h2 className="mb-1 text-lg font-bold text-(--ink)">関連記事</h2>
+      <p className="mb-4 text-sm text-(--ink-muted)">
         同じテーマの記事 ({related.length} 件)
       </p>
       <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 zenn-desktop:grid-cols-3">

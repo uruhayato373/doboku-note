@@ -74,7 +74,7 @@ export default function MagazineHeroCta({
 
       <div className="relative flex flex-col items-center px-5 pb-5 pt-6 text-center sm:px-8 sm:pb-6 sm:pt-7">
         <span
-          className="rounded-[4px] px-5 py-0.5 text-[11px] font-black tracking-[0.1em] sm:text-[13px]"
+          className="rounded-[4px] px-5 py-0.5 text-[11px] font-black tracking-widest sm:text-[13px]"
           style={{ background: "var(--hero-cta-band)", color: "var(--hero-cta-band-ink)" }}
         >
           {magazine.badge}
@@ -93,7 +93,7 @@ export default function MagazineHeroCta({
           className="mt-4 h-[88px] w-[88px] rounded-full border-[3px] border-white shadow-card-hover sm:h-[108px] sm:w-[108px]"
         />
         <span className="hero-cta-button mt-4 flex w-full items-center justify-center gap-2 rounded-card-inline py-3 text-[14px] font-black text-white transition-colors sm:text-[16px]">
-          <span className="rounded-[4px] bg-white px-1.5 py-0.5 text-[11px] font-black text-[var(--hero-cta-button)]">
+          <span className="rounded-[4px] bg-white px-1.5 py-0.5 text-[11px] font-black text-(--hero-cta-button)">
             note
           </span>
           {button}

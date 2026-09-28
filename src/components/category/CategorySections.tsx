@@ -29,26 +29,26 @@ export function DocCard({ doc }: { doc: DocMeta }) {
       href={getPublicDocPath(doc.slug)}
       data-cta="nav"
       data-cta-label="category-card"
-      className="group relative flex flex-col overflow-hidden border border-[var(--rule-soft)] bg-[var(--paper)] transition-colors hover:border-[var(--accent)] hover:bg-[var(--accent-fill)]"
+      className="group relative flex flex-col overflow-hidden border border-(--rule-soft) bg-(--paper) transition-colors hover:border-(--accent) hover:bg-(--accent-fill)"
     >
       {/* ブランド色の上端アクセント（mockup の category band を mono 化＝硬質エディトリアル維持）。
           ガイドカバー写真（guide-cover.ts）は dormant: メタガイドに literal 機械写真が不一致のため撤回（PR #276→revert）。 */}
-      <span aria-hidden className="block h-[3px] w-full bg-[var(--accent)] opacity-70 transition-opacity group-hover:opacity-100" />
+      <span aria-hidden className="block h-[3px] w-full bg-(--accent) opacity-70 transition-opacity group-hover:opacity-100" />
       <div className="flex flex-1 flex-col gap-1.5 p-5">
-        <h3 className="font-serif text-lg font-bold text-[var(--ink)] group-hover:text-[var(--accent)] line-clamp-2 transition-colors">
+        <h3 className="font-serif text-lg font-bold text-(--ink) group-hover:text-(--accent) line-clamp-2 transition-colors">
           {displayTitle}
         </h3>
         {excerpt && (
-          <p className="text-sm text-[var(--ink-muted)] line-clamp-2">
+          <p className="text-sm text-(--ink-muted) line-clamp-2">
             {excerpt}
           </p>
         )}
-        <div className="mt-auto pt-3 flex items-center justify-between border-t border-dashed border-[var(--rule-soft)]">
-          <span className="inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-widest text-[var(--ink-muted)] group-hover:text-[var(--accent)] transition-colors">
+        <div className="mt-auto pt-3 flex items-center justify-between border-t border-dashed border-(--rule-soft)">
+          <span className="inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-widest text-(--ink-muted) group-hover:text-(--accent) transition-colors">
             Read <span aria-hidden>→</span>
           </span>
           {date && (
-            <span className="font-mono text-[10px] tabular-nums text-[var(--ink-muted)]">{date}</span>
+            <span className="font-mono text-[10px] tabular-nums text-(--ink-muted)">{date}</span>
           )}
         </div>
       </div>
@@ -328,25 +328,25 @@ export function OgpThumbRow({ doc, rank, eager = false, headingLevel: Heading = 
   const title = doc.shortTitle || doc.title;
   const excerpt = doc.subtitle || doc.description;
   return (
-    <li className="border-b border-[var(--rule-soft)] last:border-b-0">
+    <li className="border-b border-(--rule-soft) last:border-b-0">
       <Link href={getPublicDocPath(doc.slug)} className="focus-ring group flex gap-3 sm:gap-4 py-4">
         {/* self-start 必須: 親 flex の align-items:stretch がサムネをテキスト列の高さに
-            引き伸ばし aspect-[1200/630] を無効化する（縦伸び事故の根治・2026-07-15）。 */}
-        <div className="relative aspect-[1200/630] w-[124px] sm:w-[168px] shrink-0 self-start overflow-hidden border border-[var(--rule-soft)] bg-[var(--bg)]">
+            引き伸ばし aspect-1200/630 を無効化する（縦伸び事故の根治・2026-07-15）。 */}
+        <div className="relative aspect-1200/630 w-[124px] sm:w-[168px] shrink-0 self-start overflow-hidden border border-(--rule-soft) bg-(--bg)">
           <ContentThumbnail src={getOgpDisplayUrl(doc.slug)} eager={eager} />
         </div>
         <div className="flex min-w-0 flex-1 gap-2.5">
           {rank != null && (
-            <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-card-inline bg-[var(--accent-fill)] font-mono text-xs font-bold tabular-nums text-[var(--accent)]">
+            <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-card-inline bg-(--accent-fill) font-mono text-xs font-bold tabular-nums text-(--accent)">
               {rank}
             </span>
           )}
           <div className="flex min-w-0 flex-col gap-1">
-            <Heading className="font-serif text-[15px] sm:text-lg font-bold leading-snug text-[var(--ink)] group-hover:text-[var(--accent)] transition-colors">
+            <Heading className="font-serif text-[15px] sm:text-lg font-bold leading-snug sm:leading-7 text-(--ink) group-hover:text-(--accent) transition-colors">
               {title}
             </Heading>
             {excerpt && (
-              <p className="text-[13px] sm:text-sm text-[var(--ink-muted)] line-clamp-2">{excerpt}</p>
+              <p className="text-[13px] sm:text-sm text-(--ink-muted) line-clamp-2">{excerpt}</p>
             )}
           </div>
         </div>
@@ -359,8 +359,8 @@ export function DocSection({ group, layout, secondaryDocs }: { group: DocGroup; 
   return (
     <section id={`sec-${group.key}`} className="scroll-mt-24">
       <div className="mb-6">
-        <h2 className="font-serif text-[22px] sm:text-[26px] font-black text-[var(--ink)]">{group.title}</h2>
-        <p className="text-[14px] text-[var(--ink-muted)] mt-1">{group.description}</p>
+        <h2 className="font-serif text-[22px] sm:text-[26px] font-black text-(--ink)">{group.title}</h2>
+        <p className="text-[14px] text-(--ink-muted) mt-1">{group.description}</p>
       </div>
       {layout === 'exam-table' ? (
         <PrimaryExamTable docs={group.docs} secondaryDocs={secondaryDocs} />

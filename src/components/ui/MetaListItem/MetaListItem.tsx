@@ -12,7 +12,7 @@
  * 利用例:
  *   // 内部リンク（過去問逆引き）
  *   <Link href={...} className="block group">
- *     <MetaListItem title={<>{year} <span className="text-[var(--ink-body)]">{question}</span></>} />
+ *     <MetaListItem title={<>{year} <span className="text-(--ink-body)">{question}</span></>} />
  *   </Link>
  *
  *   // 外部リンク（参考資料）
@@ -38,18 +38,18 @@ interface MetaListItemProps {
 
 export default function MetaListItem({ title, source, plain = false }: MetaListItemProps) {
   const titleClassName = plain
-    ? 'text-[var(--ink-body)]'
-    : 'text-[var(--accent)] group-hover:text-[var(--accent)] group-hover:underline';
+    ? 'text-(--ink-body)'
+    : 'text-(--accent) group-hover:text-(--accent) group-hover:underline';
 
   return (
     <div className="flex items-baseline gap-2 text-sm">
-      <span className="text-[var(--ink-muted)] shrink-0 leading-tight">→</span>
+      <span className="text-(--ink-muted) shrink-0 leading-tight">→</span>
       <span className="min-w-0">
         <span className={titleClassName}>{title}</span>
         {source && (
           <>
             {' '}
-            <span className="text-xs text-[var(--ink-muted)]">{source}</span>
+            <span className="text-xs text-(--ink-muted)">{source}</span>
           </>
         )}
       </span>

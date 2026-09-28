@@ -44,7 +44,7 @@ export default function PillarNavCard({ variant, currentSection }: PillarNavCard
     return (
       <MetaCard as="div" padding="compact" trackNav="pillar-nav">
         <div
-          className="nav-card-title text-[var(--ink)]"
+          className="nav-card-title text-(--ink)"
         >
           5 管理学習ガイド
         </div>
@@ -58,8 +58,8 @@ export default function PillarNavCard({ variant, currentSection }: PillarNavCard
                   aria-current={isActive ? "true" : undefined}
                   className={
                     isActive
-                      ? "text-sm font-bold text-[var(--ink)]"
-                      : "text-sm text-[var(--ink-body)] hover:text-brand hover:underline"
+                      ? "text-sm font-bold text-(--ink)"
+                      : "text-sm text-(--ink-body) hover:text-brand hover:underline"
                   }
                 >
                   {p.label}
@@ -74,7 +74,7 @@ export default function PillarNavCard({ variant, currentSection }: PillarNavCard
 
   return (
     <MetaCard>
-      <h2 className="text-lg font-bold text-[var(--ink)] mb-4">
+      <h2 className="text-lg font-bold text-(--ink) mb-4">
         5 管理学習ガイド
       </h2>
       <ul className="space-y-2">
@@ -85,8 +85,8 @@ export default function PillarNavCard({ variant, currentSection }: PillarNavCard
               key={p.slug}
               className={`rounded-card-content border px-4 py-3 transition-colors ${
                 isActive
-                  ? "bg-[var(--accent-fill)] border-[var(--accent)]"
-                  : "border-[var(--rule-soft)] hover:border-[var(--accent)]"
+                  ? "bg-(--accent-fill) border-(--accent)"
+                  : "border-(--rule-soft) hover:border-(--accent)"
               }`}
             >
               <Link
@@ -94,7 +94,7 @@ export default function PillarNavCard({ variant, currentSection }: PillarNavCard
                 aria-current={isActive ? "true" : undefined}
                 className={
                   isActive
-                    ? "text-sm font-bold text-[var(--ink)]"
+                    ? "text-sm font-bold text-(--ink)"
                     : "text-sm text-brand hover:underline"
                 }
               >

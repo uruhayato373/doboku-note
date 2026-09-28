@@ -44,7 +44,7 @@ export default function ConcretePumpPlanPage() {
         title="ポンプ車・アジテータ車 配車計算ツール"
         lead={
           <>
-            総打込み量と作業時間から<strong className="text-[var(--ink)]">ポンプ車の必要台数</strong>を、積載量と往復時間から<strong className="text-[var(--ink)]">アジテータ車の必要台数</strong>を計算します。圧送ルートの<strong className="text-[var(--ink)]">水平換算長</strong>が100mの目安に収まるかも同じ画面で確認できます。
+            総打込み量と作業時間から<strong className="text-(--ink)">ポンプ車の必要台数</strong>を、積載量と往復時間から<strong className="text-(--ink)">アジテータ車の必要台数</strong>を計算します。圧送ルートの<strong className="text-(--ink)">水平換算長</strong>が100mの目安に収まるかも同じ画面で確認できます。
           </>
         }
       />

@@ -59,7 +59,7 @@ export default async function StandardsAgencyPage({ params }: { params: Promise<
         <div className="card-surface-section px-5 pb-8 sm:px-8 sm:pb-10 lg:px-10">
       <PageHeader
         variant="inline"
-        className="border-b border-[var(--rule-soft)] py-6 sm:py-8"
+        className="border-b border-(--rule-soft) py-6 sm:py-8"
         breadcrumb={[{ label: 'ホーム', href: '/' }, { label: '基準類', href: '/standards' }, { label: entry.agencyName }]}
         title={edition ? `${entry.agencyName} 土木工事共通仕様書（${edition}）` : `${entry.agencyName} 土木工事共通仕様書`}
         lead={commonDoc
@@ -70,8 +70,8 @@ export default async function StandardsAgencyPage({ params }: { params: Promise<
         <div className="pt-5">
         <section aria-labelledby="agency-documents">
           <div className="mb-3">
-            <h2 id="agency-documents" className="text-2xl font-bold text-[var(--ink)]">収録文書</h2>
-            <p className="mt-2 text-[14px] leading-[1.8] text-[var(--ink-muted)]">
+            <h2 id="agency-documents" className="text-2xl font-bold text-(--ink)">収録文書</h2>
+            <p className="mt-2 text-[14px] leading-[1.8] text-(--ink-muted)">
               読みたい文書を選んでください。
             </p>
           </div>

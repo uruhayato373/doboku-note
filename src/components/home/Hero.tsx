@@ -4,7 +4,7 @@ import { ArrowRight, Search } from "lucide-react";
 export default function Hero() {
   return (
     // 背景写真は全幅ブリード・ヘッダー直下に密着。テキストは HTML でオーバーレイ（リフロー/SEO/レスポンシブ最適）。
-    <section className="relative w-full min-h-[420px] sm:min-h-[500px] lg:min-h-[540px] overflow-hidden bg-[var(--paper)]">
+    <section className="relative w-full min-h-[420px] sm:min-h-[500px] lg:min-h-[540px] overflow-hidden bg-(--paper)">
       <img
         src="/images/hero-home-v2.webp"
         width={1942}
@@ -52,7 +52,7 @@ export default function Hero() {
           </a>
           <Link
             href="/search"
-            className="hero-ink inline-flex min-h-11 items-center gap-2 rounded-full border border-white/70 bg-white/60 px-5 py-3 font-sans text-[13px] font-bold shadow-s backdrop-blur-sm transition-[filter,transform] hover:-translate-y-0.5 hover:brightness-105 sm:text-[14px]"
+            className="hero-ink inline-flex min-h-11 items-center gap-2 rounded-full border border-white/70 bg-white/60 px-5 py-3 font-sans text-[13px] font-bold shadow-s backdrop-blur-xs transition-[filter,transform] hover:-translate-y-0.5 hover:brightness-105 sm:text-[14px]"
           >
             <Search className="h-4 w-4" strokeWidth={2.5} />
             <span>用語・過去問を検索</span>

@@ -63,7 +63,7 @@ export default function NoteLink({
       className="card-surface-content focus-ring not-prose group my-6 block max-w-2xl overflow-hidden hover:shadow-card-hover hover:border-brand dark:hover:border-brand transition-shadow"
     >
       <div className="flex flex-col sm:flex-row">
-        <div className="relative w-full sm:w-[240px] shrink-0 aspect-square bg-[var(--bg)]">
+        <div className="relative w-full sm:w-[240px] shrink-0 aspect-square bg-(--bg)">
           <Image
             src={imageSrc}
             alt=""
@@ -72,7 +72,7 @@ export default function NoteLink({
             sizes="(max-width: 640px) 100vw, 240px"
           />
           <div
-            className="absolute left-1.5 top-1.5 rounded-card-inline bg-brand dark:bg-brand-fill px-1.5 py-0.5 text-[10px] font-medium text-white shadow-sm"
+            className="absolute left-1.5 top-1.5 rounded-card-inline bg-brand dark:bg-brand-fill px-1.5 py-0.5 text-[10px] font-medium text-white shadow-xs"
           >
             {isProduct ? "note 有料教材" : "note 解説記事"}
           </div>
@@ -82,7 +82,7 @@ export default function NoteLink({
             <span className="text-[11px] text-ink-muted font-medium">
               {isProduct ? "doboku-note 連動教材" : "note（dobokunote）"}
             </span>
-            <ExternalLink className="w-3.5 h-3.5 text-[var(--ink-muted)] group-hover:text-brand dark:group-hover:text-brand transition-colors shrink-0" />
+            <ExternalLink className="w-3.5 h-3.5 text-(--ink-muted) group-hover:text-brand dark:group-hover:text-brand transition-colors shrink-0" />
           </div>
           <div className="text-[14px] sm:text-[15px] font-bold text-ink-strong leading-tight group-hover:text-brand-deep dark:group-hover:text-brand transition-colors line-clamp-2">
             {title}

@@ -26,13 +26,13 @@ export default function StandardDataLinks({ document, chapter }: Props) {
   return (
     <aside
       aria-label="機械可読データ"
-      className="mt-6 border-l-4 border-[var(--accent)] bg-[var(--accent-fill)] px-4 py-4"
+      className="mt-6 border-l-4 border-(--accent) bg-(--accent-fill) px-4 py-4"
     >
       <div className="flex items-start gap-3">
-        <Braces aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" />
+        <Braces aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-(--accent)" />
         <div className="min-w-0 flex-1">
-          <h2 className="text-[15px] font-bold text-[var(--ink)]">機械可読データ</h2>
-          <p className="mt-1 text-[13px] leading-[1.7] text-[var(--ink-body)]">
+          <h2 className="text-[15px] font-bold text-(--ink)">機械可読データ</h2>
+          <p className="mt-1 text-[13px] leading-[1.7] text-(--ink-body)">
             出典・原本ハッシュ・編章節条の階層を保持した加工データを利用できます。
           </p>
           <div className="mt-3 flex flex-wrap gap-x-5 gap-y-2">
@@ -44,7 +44,7 @@ export default function StandardDataLinks({ document, chapter }: Props) {
                 data-cta="standards-data"
                 data-cta-label={download.key}
                 data-cta-placement={chapter ? 'standards-chapter' : 'standards-document'}
-                className="focus-ring inline-flex min-h-11 items-center gap-1.5 text-[13px] font-bold text-[var(--accent)] hover:underline"
+                className="focus-ring inline-flex min-h-11 items-center gap-1.5 text-[13px] font-bold text-(--accent) hover:underline"
               >
                 <Download aria-hidden="true" className="h-4 w-4" />
                 {download.label}
@@ -52,7 +52,7 @@ export default function StandardDataLinks({ document, chapter }: Props) {
             ))}
             <Link
               href="/standards/data"
-              className="focus-ring inline-flex min-h-11 items-center text-[13px] font-bold text-[var(--accent)] hover:underline"
+              className="focus-ring inline-flex min-h-11 items-center text-[13px] font-bold text-(--accent) hover:underline"
             >
               データ仕様・利用条件 →
             </Link>

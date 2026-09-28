@@ -43,7 +43,7 @@ export default function WaterContentPage() {
         title="コンクリート 単位水量・水和水 計算ツール"
         lead={
           <>
-            水セメント比と単位セメント量から<strong className="text-[var(--ink)]">単位水量</strong>を計算し、水和反応に必要な水（セメント質量の25〜30%）と<strong className="text-[var(--ink)]">余剰水</strong>の内訳を確認します。
+            水セメント比と単位セメント量から<strong className="text-(--ink)">単位水量</strong>を計算し、水和反応に必要な水（セメント質量の25〜30%）と<strong className="text-(--ink)">余剰水</strong>の内訳を確認します。
           </>
         }
       />

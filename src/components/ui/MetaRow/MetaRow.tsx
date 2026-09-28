@@ -41,7 +41,7 @@ export default function MetaRow({
 
   if (variant === "byline") {
     return (
-      <div className="mt-3 mb-8 pb-4 border-b border-[var(--rule-soft)] flex items-center gap-3 flex-wrap font-mono text-[11px] text-[var(--ink-muted)] tabular-nums">
+      <div className="mt-3 mb-8 pb-4 border-b border-(--rule-soft) flex items-center gap-3 flex-wrap font-mono text-[11px] text-(--ink-muted) tabular-nums">
         {readMinutes && <span>読了 約 {readMinutes} 分</span>}
         {dateLabel && readMinutes && <span aria-hidden>·</span>}
         {dateLabel && <span>{datePrefix} {dateLabel}</span>}
@@ -50,21 +50,21 @@ export default function MetaRow({
   }
 
   return (
-    <div className="mt-8 pt-4 border-t border-[var(--rule-soft)] flex items-center gap-3 flex-wrap">
+    <div className="mt-8 pt-4 border-t border-(--rule-soft) flex items-center gap-3 flex-wrap">
       {showTags && (
         <div className="flex gap-2 flex-wrap">
           {visibleTags.map((tag) => (
             <Link
               key={tag}
               href={getTopicPathForTag(tag) ?? `/search?q=${encodeURIComponent(tag)}`}
-              className="font-mono text-[11px] text-[var(--accent)] bg-[var(--accent-fill)] hover:bg-[var(--accent)] hover:text-[var(--paper)] px-2.5 py-0.5 rounded-full transition-colors"
+              className="font-mono text-[11px] text-(--accent) bg-(--accent-fill) hover:bg-(--accent) hover:text-(--paper) px-2.5 py-0.5 rounded-full transition-colors"
             >
               #{tag}
             </Link>
           ))}
         </div>
       )}
-      <div className="ml-auto flex items-center gap-3 font-mono text-[11px] text-[var(--ink-muted)] tabular-nums">
+      <div className="ml-auto flex items-center gap-3 font-mono text-[11px] text-(--ink-muted) tabular-nums">
         {readMinutes && <span>読了 約 {readMinutes} 分</span>}
         {dateLabel && readMinutes && <span aria-hidden>·</span>}
         {dateLabel && <span>{datePrefix} {dateLabel}</span>}

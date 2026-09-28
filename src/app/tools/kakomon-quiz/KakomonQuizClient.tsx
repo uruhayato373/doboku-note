@@ -260,29 +260,29 @@ function MenuScreen({
   const totalPct = tally.answered > 0 ? Math.round((tally.correct / tally.answered) * 100) : null;
   return (
     <div className="max-w-[760px] mx-auto px-4 sm:px-6 py-8 sm:py-10">
-      <p className="text-[14px] sm:text-[15px] leading-[1.9] text-[var(--ink-body)] mb-6">
+      <p className="text-[14px] sm:text-[15px] leading-[1.9] text-(--ink-body) mb-6">
         {config.intro}
       </p>
 
       {totalPct !== null && (
         <div className="card-surface-content p-4 mb-6 flex items-center justify-between">
-          <div className="text-[13px] text-[var(--ink-body)]">
-            これまでの累計 <strong className="text-[var(--ink)]">{tally.answered}</strong> 問・正答率{" "}
-            <strong className="text-[var(--ink)]">{totalPct}%</strong>
+          <div className="text-[13px] text-(--ink-body)">
+            これまでの累計 <strong className="text-(--ink)">{tally.answered}</strong> 問・正答率{" "}
+            <strong className="text-(--ink)">{totalPct}%</strong>
           </div>
           {wrongCount > 0 && (
-            <span className="text-[12px] text-[var(--ink-muted)]">要復習 {wrongCount} 問</span>
+            <span className="text-[12px] text-(--ink-muted)">要復習 {wrongCount} 問</span>
           )}
         </div>
       )}
 
       {loadError && (
         <div className="card-surface-content p-4 mb-6 text-center">
-          <p className="text-sm text-[var(--color-danger)] font-bold mb-2">問題データの読み込みに失敗しました</p>
+          <p className="text-sm text-(--color-danger) font-bold mb-2">問題データの読み込みに失敗しました</p>
           <button
             type="button"
             onClick={onRetry}
-            className="focus-ring rounded-card-content border border-[var(--accent)] bg-[var(--accent-fill)] px-4 py-1.5 text-sm font-bold text-[var(--accent)]"
+            className="focus-ring rounded-card-content border border-(--accent) bg-(--accent-fill) px-4 py-1.5 text-sm font-bold text-(--accent)"
           >
             再読み込み
           </button>
@@ -295,19 +295,19 @@ function MenuScreen({
           type="button"
           disabled={loading}
           onClick={() => onStart({ kind: "random" })}
-          className="focus-ring card-surface-content block p-4 text-left shadow-none transition-colors hover:border-[var(--accent)] disabled:opacity-60"
+          className="focus-ring card-surface-content block p-4 text-left shadow-none transition-colors hover:border-(--accent) disabled:opacity-60"
         >
-          <div className="font-bold text-[var(--ink)]">ランダム20問に挑戦</div>
-          <div className="text-sm text-[var(--ink-body)] mt-1">全年度からランダム出題。腕試しに最適</div>
+          <div className="font-bold text-(--ink)">ランダム20問に挑戦</div>
+          <div className="text-sm text-(--ink-body) mt-1">全年度からランダム出題。腕試しに最適</div>
         </button>
         <button
           type="button"
           disabled={loading || wrongCount === 0}
           onClick={() => onStart({ kind: "review" })}
-          className="focus-ring card-surface-content block p-4 text-left shadow-none transition-colors hover:border-[var(--accent)] disabled:opacity-50"
+          className="focus-ring card-surface-content block p-4 text-left shadow-none transition-colors hover:border-(--accent) disabled:opacity-50"
         >
-          <div className="font-bold text-[var(--ink)]">間違いだけ復習{wrongCount > 0 ? `（${wrongCount}問）` : ""}</div>
-          <div className="text-sm text-[var(--ink-body)] mt-1">
+          <div className="font-bold text-(--ink)">間違いだけ復習{wrongCount > 0 ? `（${wrongCount}問）` : ""}</div>
+          <div className="text-sm text-(--ink-body) mt-1">
             {wrongCount > 0 ? "間違えた問題だけを解き直す" : "間違えた問題がここに溜まります"}
           </div>
         </button>
@@ -319,7 +319,7 @@ function MenuScreen({
 
       {config.showSubjects && (data?.subjects ?? config.placeholderSubjects) && (
         <>
-          <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--ink-muted)] mb-3">
+          <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-3">
             科目別に演習
           </div>
           <div className="grid gap-2.5 sm:grid-cols-3 mb-8">
@@ -329,10 +329,10 @@ function MenuScreen({
                 type="button"
                 disabled={loading}
                 onClick={() => onStart({ kind: "subject", subject: subject.subject })}
-                className="focus-ring card-surface-content p-3 text-left shadow-none transition-colors hover:border-[var(--accent)] disabled:opacity-60"
+                className="focus-ring card-surface-content p-3 text-left shadow-none transition-colors hover:border-(--accent) disabled:opacity-60"
               >
-                <div className="font-bold text-[var(--ink)] text-[14px]">{subject.subjectLabel}</div>
-                <div className="text-[12px] text-[var(--ink-muted)] mt-0.5">{subject.count}問</div>
+                <div className="font-bold text-(--ink) text-[14px]">{subject.subjectLabel}</div>
+                <div className="text-[12px] text-(--ink-muted) mt-0.5">{subject.count}問</div>
               </button>
             ))}
           </div>
@@ -340,11 +340,11 @@ function MenuScreen({
       )}
 
       {/* 年度別 */}
-      <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--ink-muted)] mb-3">
+      <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-3">
         年度別に演習
       </div>
       {loading && !data ? (
-        <div className="text-sm text-[var(--ink-muted)] py-6 text-center">読み込み中…</div>
+        <div className="text-sm text-(--ink-muted) py-6 text-center">読み込み中…</div>
       ) : (
         <div className="grid gap-2.5 grid-cols-2 sm:grid-cols-3">
           {(data?.years ?? config.placeholderYears ?? PLACEHOLDER_YEARS).map((y) => (
@@ -353,16 +353,16 @@ function MenuScreen({
               type="button"
               disabled={loading}
               onClick={() => onStart({ kind: "year", year: y.year })}
-              className="focus-ring card-surface-content p-3 text-left shadow-none transition-colors hover:border-[var(--accent)] disabled:opacity-60"
+              className="focus-ring card-surface-content p-3 text-left shadow-none transition-colors hover:border-(--accent) disabled:opacity-60"
             >
-              <div className="font-bold text-[var(--ink)] text-[14px]">{y.yearLabel}</div>
-              <div className="text-[12px] text-[var(--ink-muted)] mt-0.5">{y.count}問</div>
+              <div className="font-bold text-(--ink) text-[14px]">{y.yearLabel}</div>
+              <div className="text-[12px] text-(--ink-muted) mt-0.5">{y.count}問</div>
             </button>
           ))}
         </div>
       )}
 
-      <p className="mt-6 text-[12px] text-[var(--ink-muted)]">
+      <p className="mt-6 text-[12px] text-(--ink-muted)">
         {config.sourceNote}
       </p>
     </div>
@@ -451,19 +451,19 @@ function QuizRunner({
     return (
       <div className="max-w-[760px] mx-auto px-4 sm:px-6 py-10">
         <div className="card-surface-section p-6 text-center">
-          <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--ink-muted)]">
+          <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted)">
             結果 — {title}
           </div>
-          <div className="font-serif font-black text-[var(--ink)] mt-2">
+          <div className="font-serif font-black text-(--ink) mt-2">
             <span className="text-[48px]">{score}</span>
-            <span className="text-[20px] text-[var(--ink-muted)]"> / {scoredAnswered} 問正解</span>
+            <span className="text-[20px] text-(--ink-muted)"> / {scoredAnswered} 問正解</span>
           </div>
-          <div className="mt-2 text-[var(--ink-body)]">正答率 {pct}%</div>
+          <div className="mt-2 text-(--ink-body)">正答率 {pct}%</div>
           <div className="mt-5 flex flex-wrap justify-center gap-3">
             <button
               type="button"
               onClick={onExit}
-              className="focus-ring rounded-card-content border border-[var(--accent)] bg-[var(--accent-fill)] px-5 py-2 text-sm font-bold text-[var(--accent)]"
+              className="focus-ring rounded-card-content border border-(--accent) bg-(--accent-fill) px-5 py-2 text-sm font-bold text-(--accent)"
             >
               別のモードを選ぶ
             </button>
@@ -480,17 +480,17 @@ function QuizRunner({
 
   return (
     <div className="max-w-[760px] mx-auto px-4 sm:px-6 py-8 sm:py-10">
-      <div className="flex items-center justify-between text-[12px] text-[var(--ink-muted)] mb-3">
-        <button type="button" onClick={onExit} className="focus-ring font-bold hover:text-[var(--accent)]">
+      <div className="flex items-center justify-between text-[12px] text-(--ink-muted) mb-3">
+        <button type="button" onClick={onExit} className="focus-ring font-bold hover:text-(--accent)">
           ← モード選択
         </button>
         <span>
           問 {idx + 1} / {questions.length}・{title}
         </span>
       </div>
-      <div className="h-1.5 w-full overflow-hidden rounded-full bg-[var(--rule-soft)] mb-5">
+      <div className="h-1.5 w-full overflow-hidden rounded-full bg-(--rule-soft) mb-5">
         <div
-          className="h-full rounded-full bg-[var(--accent)] transition-[width]"
+          className="h-full rounded-full bg-(--accent) transition-[width]"
           style={{ width: `${((idx + (answered ? 1 : 0)) / questions.length) * 100}%` }}
         />
       </div>
@@ -503,13 +503,13 @@ function QuizRunner({
           {q.options.map((o) => {
             const isCorrect = o.num === q.correct;
             const isPicked = selected === o.num;
-            let borderClass = "border-[var(--rule-soft)]";
+            let borderClass = "border-(--rule-soft)";
             let bg: CSSProperties | undefined;
             if (answered && isScorable && isCorrect) {
-              borderClass = "border-[var(--color-positive)]";
+              borderClass = "border-(--color-positive)";
               bg = { background: "color-mix(in srgb, var(--color-positive) 12%, transparent)" };
             } else if (answered && isScorable && isPicked && !isCorrect) {
-              borderClass = "border-[var(--color-danger)]";
+              borderClass = "border-(--color-danger)";
               bg = { background: "color-mix(in srgb, var(--color-danger) 12%, transparent)" };
             }
             return (
@@ -519,9 +519,9 @@ function QuizRunner({
                 onClick={() => choose(o.num)}
                 disabled={answered}
                 style={bg}
-                className={`focus-ring flex items-start gap-2.5 rounded-card-content border ${borderClass} p-3 text-left text-sm leading-6 text-[var(--ink-body)] transition-colors ${!answered ? "hover:border-[var(--accent)]" : ""}`}
+                className={`focus-ring flex items-start gap-2.5 rounded-card-content border ${borderClass} p-3 text-left text-sm leading-6 text-(--ink-body) transition-colors ${!answered ? "hover:border-(--accent)" : ""}`}
               >
-                <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-current text-[12px] font-bold text-[var(--ink-muted)]">
+                <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-current text-[12px] font-bold text-(--ink-muted)">
                   {o.num}
                 </span>
                 <QuizRichText html={o.html} text={o.text} className="flex-1" />
@@ -541,7 +541,7 @@ function QuizRunner({
         </div>
 
         {answered && (
-          <div className="mt-5 rounded-card-content bg-[var(--bg)] p-4">
+          <div className="mt-5 rounded-card-content bg-(--bg) p-4">
             <div
               className="text-sm font-bold mb-2"
               style={{ color: q.correct == null ? "var(--ink-body)" : selected === q.correct ? OK : NG }}
@@ -554,7 +554,7 @@ function QuizRunner({
             </div>
             <ul className="flex flex-col gap-1.5">
               {q.explanations.map((e) => (
-                <li key={e.num} className="flex items-start gap-2 text-[13px] leading-6 text-[var(--ink-body)]">
+                <li key={e.num} className="flex items-start gap-2 text-[13px] leading-6 text-(--ink-body)">
                   <span className="shrink-0 font-bold" style={{ color: !isScorable ? "var(--ink-muted)" : (e.statementCorrect ?? e.correct ?? e.isAnswer) ? OK : NG }}>
                     {!isScorable ? "—" : (e.statementCorrect ?? e.correct ?? e.isAnswer) ? "○" : "×"} {e.num}
                   </span>
@@ -566,7 +566,7 @@ function QuizRunner({
               ))}
             </ul>
             {q.articlePath && (
-              <Link href={q.articlePath} className="focus-ring mt-3 inline-block text-[13px] font-bold text-[var(--accent)] hover:underline">
+              <Link href={q.articlePath} className="focus-ring mt-3 inline-block text-[13px] font-bold text-(--accent) hover:underline">
                 元記事で詳しい解説を読む →
               </Link>
             )}
@@ -577,7 +577,7 @@ function QuizRunner({
           <button
             type="button"
             onClick={next}
-            className="focus-ring mt-5 w-full rounded-card-content border border-[var(--accent)] bg-[var(--accent-fill)] px-5 py-2.5 text-sm font-bold text-[var(--accent)]"
+            className="focus-ring mt-5 w-full rounded-card-content border border-(--accent) bg-(--accent-fill) px-5 py-2.5 text-sm font-bold text-(--accent)"
           >
             {isLast ? "結果を見る" : "次の問題へ →"}
           </button>
@@ -598,7 +598,7 @@ function QuizRichText({
   className?: string;
   strong?: boolean;
 }) {
-  const styles = `quiz-rich-text min-w-0 text-[13px] leading-6 text-[var(--ink-body)] [&_p]:m-0 [&_p+_p]:mt-2 [&_strong]:text-[var(--ink)] [&_table]:min-w-full [&_table]:border-collapse [&_td]:border [&_td]:border-[var(--rule-soft)] [&_td]:px-2 [&_td]:py-1 [&_th]:border [&_th]:border-[var(--rule-soft)] [&_th]:px-2 [&_th]:py-1 [&_img]:mx-auto [&_img]:my-3 [&_img]:h-auto [&_img]:max-h-[420px] [&_img]:max-w-full ${strong ? "text-[15px] sm:text-[16px] leading-[1.9] font-bold text-[var(--ink)]" : ""} ${className}`;
+  const styles = `quiz-rich-text min-w-0 text-[13px] leading-6 text-(--ink-body) [&_p]:m-0 [&_p+_p]:mt-2 [&_strong]:text-(--ink) [&_table]:min-w-full [&_table]:border-collapse [&_td]:border [&_td]:border-(--rule-soft) [&_td]:px-2 [&_td]:py-1 [&_th]:border [&_th]:border-(--rule-soft) [&_th]:px-2 [&_th]:py-1 [&_img]:mx-auto [&_img]:my-3 [&_img]:h-auto [&_img]:max-h-[420px] [&_img]:max-w-full ${strong ? "text-[15px] sm:text-[16px] leading-[1.9] font-bold text-(--ink)" : ""} ${className}`;
   if (!html) return <span className={styles}>{text}</span>;
   // HTML は scripts/build-quiz-data.mjs が追跡下のMDXだけからビルドした信頼済みデータ。
   return <div className={styles} dangerouslySetInnerHTML={{ __html: html }} />;
@@ -654,10 +654,10 @@ function PremiumInterestCard({
         type="button"
         onClick={() => markInterest(action)}
         aria-pressed={active}
-        className="focus-ring rounded-card-content border border-[var(--rule-soft)] bg-[var(--paper)] p-3 text-left transition-colors hover:border-[var(--accent)]"
+        className="focus-ring rounded-card-content border border-(--rule-soft) bg-(--paper) p-3 text-left transition-colors hover:border-(--accent)"
       >
-        <span className="block text-sm font-bold text-[var(--ink)]">{active ? "希望を記録しました" : title}</span>
-        <span className="mt-1 block text-xs leading-5 text-[var(--ink-muted)]">{description}</span>
+        <span className="block text-sm font-bold text-(--ink)">{active ? "希望を記録しました" : title}</span>
+        <span className="mt-1 block text-xs leading-5 text-(--ink-muted)">{description}</span>
       </button>
     );
   };
@@ -665,24 +665,24 @@ function PremiumInterestCard({
   const mainSelected = selected.has("premium_intent");
   return (
     <section className="card-surface-section mt-6 overflow-hidden" aria-labelledby={`premium-${placement}`}>
-      <div className="border-b border-[var(--rule-soft)] bg-[var(--accent-fill)] px-5 py-3">
-        <span className="text-[11px] font-bold uppercase tracking-wider text-[var(--accent)]">Premium 準備中</span>
+      <div className="border-b border-(--rule-soft) bg-(--accent-fill) px-5 py-3">
+        <span className="text-[11px] font-bold uppercase tracking-wider text-(--accent)">Premium 準備中</span>
       </div>
       <div className="p-5 sm:p-6">
-        <h2 id={`premium-${placement}`} className="font-serif text-xl font-black text-[var(--ink)] sm:text-2xl">
+        <h2 id={`premium-${placement}`} className="font-serif text-xl font-black text-(--ink) sm:text-2xl">
           解くだけで終わらない学習管理へ
         </h2>
-        <p className="mt-2 text-sm leading-7 text-[var(--ink-body)]">
+        <p className="mt-2 text-sm leading-7 text-(--ink-body)">
           全1,098問の無料演習はそのまま。苦手分野の分析、復習スケジュール、端末間同期を追加する買い切り機能を検討しています。
         </p>
-        <div className="mt-4 rounded-card-content bg-[var(--bg)] p-4 text-sm leading-6 text-[var(--ink-body)]">
-          価格仮説は<strong className="text-[var(--ink)]">資格ごと買い切り ¥980〜¥1,480</strong>。現在は需要検証中で、決済も連絡先入力もありません。
+        <div className="mt-4 rounded-card-content bg-(--bg) p-4 text-sm leading-6 text-(--ink-body)">
+          価格仮説は<strong className="text-(--ink)">資格ごと買い切り ¥980〜¥1,480</strong>。現在は需要検証中で、決済も連絡先入力もありません。
         </div>
         <button
           type="button"
           onClick={() => markInterest("premium_intent")}
           aria-pressed={mainSelected}
-          className="focus-ring mt-4 w-full rounded-card-content border border-[var(--accent)] bg-[var(--accent)] px-5 py-3 text-sm font-bold text-[var(--paper)] transition-opacity hover:opacity-90"
+          className="focus-ring mt-4 w-full rounded-card-content border border-(--accent) bg-(--accent) px-5 py-3 text-sm font-bold text-(--paper) transition-opacity hover:opacity-90"
         >
           {mainSelected ? "購入意向を記録しました" : "この内容なら使いたい（匿名で記録）"}
         </button>
@@ -707,7 +707,7 @@ function FunnelLinks({ config, mode }: { config: KakomonQuizConfig; mode: Exclud
 
   return (
     <div className="mt-6">
-      <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--ink-muted)] mb-3">
+      <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-3">
         続けて合格へ
       </div>
       <div className="grid gap-3 sm:grid-cols-2">
@@ -731,17 +731,17 @@ function FunnelLinks({ config, mode }: { config: KakomonQuizConfig; mode: Exclud
               });
             }
           }
-          className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-[var(--accent)]"
+          className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-(--accent)"
         >
-          <div className="font-bold text-[var(--ink)]">{config.noteCta.title}</div>
-          <div className="text-sm text-[var(--ink-body)] mt-1">{config.noteCta.description}</div>
+          <div className="font-bold text-(--ink)">{config.noteCta.title}</div>
+          <div className="text-sm text-(--ink-body) mt-1">{config.noteCta.description}</div>
         </a>
         <Link
           href={config.detailCta.href}
-          className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-[var(--accent)]"
+          className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-(--accent)"
         >
-          <div className="font-bold text-[var(--ink)]">{config.detailCta.title}</div>
-          <div className="text-sm text-[var(--ink-body)] mt-1">{config.detailCta.description}</div>
+          <div className="font-bold text-(--ink)">{config.detailCta.title}</div>
+          <div className="text-sm text-(--ink-body) mt-1">{config.detailCta.description}</div>
         </Link>
       </div>
     </div>

@@ -39,7 +39,7 @@ export function ExamChipLink({
   return (
     <Link
       href={href}
-      className={`focus-ring inline-flex items-center rounded-card-inline border border-[var(--rule-soft)] bg-[var(--accent-fill)] py-2 font-medium text-[var(--accent)] transition-colors hover:border-[var(--accent)] ${
+      className={`focus-ring inline-flex items-center rounded-card-inline border border-(--rule-soft) bg-(--accent-fill) py-2 font-medium text-(--accent) transition-colors hover:border-(--accent) ${
         dense ? 'px-2.5 font-mono text-[13px] tabular-nums' : 'px-3 text-sm'
       }`}
     >
@@ -80,15 +80,15 @@ export default function ExamMatrix({
   // 1 科目 1 行に圧縮する（tableFrom='wide' の 993〜1279px 帯もこの経路で描かれるため効く）。
   const rowLabelClass =
     rowLabelWidth === 'wide'
-      // min-w-[10rem] は「最長の行ラベル（鋼構造・コンクリート＝160px）」に合わせた floor。
+      // min-w-40 は「最長の行ラベル（鋼構造・コンクリート＝160px）」に合わせた floor。
       // これ以上広げるとチップ 7 個（258px）＋gap（56px）が 1024px 幅の記事カラム（498px）に収まらず
       // 2 行に折返して行高が 118px に膨らむ（実測）。狭めても各行のチップ開始位置は揃う。
-      ? 'w-full font-medium text-[var(--ink)] zenn-tablet:w-auto zenn-tablet:min-w-[10rem] zenn-tablet:shrink-0 zenn-tablet:whitespace-nowrap'
-      : 'min-w-[5.5rem] shrink-0 whitespace-nowrap font-medium text-[var(--ink)]';
+      ? 'w-full font-medium text-(--ink) zenn-tablet:w-auto zenn-tablet:min-w-40 zenn-tablet:shrink-0 zenn-tablet:whitespace-nowrap'
+      : 'min-w-22 shrink-0 whitespace-nowrap font-medium text-(--ink)';
   const cellX = dense ? 'px-2' : 'px-4';
   // 行ラベル列は横スクロール中も左に貼り付けて「どの科目の行か」を失わせない。
   // 背景は不透明（--paper）でないとスクロールした年度セルが透けるため、行 hover は group-hover で追従させる。
-  const stickyLabel = 'sticky left-0 z-10 border-r border-[var(--rule-soft)] bg-[var(--paper)]';
+  const stickyLabel = 'sticky left-0 z-10 border-r border-(--rule-soft) bg-(--paper)';
   return (
     <>
       {/* table 未満の幅（既定 <993px・tableFrom='wide' なら <1280px）: 1 レコード=1行。
@@ -99,7 +99,7 @@ export default function ExamMatrix({
           return (
             <li
               key={row.key}
-              className="flex flex-wrap items-center gap-2 border-b border-[var(--rule-soft)] py-3 last:border-b-0"
+              className="flex flex-wrap items-center gap-2 border-b border-(--rule-soft) py-3 last:border-b-0"
             >
               <span className={rowLabelClass} title={row.labelTitle}>{row.label}</span>
               {available.map((c) => (
@@ -121,10 +121,10 @@ export default function ExamMatrix({
       <div className={`overflow-x-auto ${tableShownClass}`}>
         <table className="min-w-full border-collapse text-base">
           <thead>
-            <tr className="border-b-2 border-[var(--rule-soft)]">
-              <th className={`${stickyLabel} px-4 py-3 text-left font-semibold text-[var(--ink-body)]`}>{rowHeader}</th>
+            <tr className="border-b-2 border-(--rule-soft)">
+              <th className={`${stickyLabel} px-4 py-3 text-left font-semibold text-(--ink-body)`}>{rowHeader}</th>
               {columns.map((col) => (
-                <th key={col} className={`${cellX} whitespace-nowrap py-3 text-center font-semibold text-[var(--ink-body)]`}>
+                <th key={col} className={`${cellX} whitespace-nowrap py-3 text-center font-semibold text-(--ink-body)`}>
                   {col}
                 </th>
               ))}
@@ -134,10 +134,10 @@ export default function ExamMatrix({
             {rows.map((row) => (
               <tr
                 key={row.key}
-                className="group border-b border-[var(--rule-soft)] transition-colors hover:bg-[var(--accent-fill)]"
+                className="group border-b border-(--rule-soft) transition-colors hover:bg-(--accent-fill)"
               >
                 <td
-                  className={`${stickyLabel} whitespace-nowrap px-4 py-3 font-medium text-[var(--ink)] transition-colors group-hover:bg-[var(--accent-fill)]`}
+                  className={`${stickyLabel} whitespace-nowrap px-4 py-3 font-medium text-(--ink) transition-colors group-hover:bg-(--accent-fill)`}
                   title={row.labelTitle}
                 >
                   {row.label}
@@ -145,11 +145,11 @@ export default function ExamMatrix({
                 {row.cells.map((c, i) => (
                   <td key={i} className={`${cellX} whitespace-nowrap py-3 text-center`}>
                     {c.doc ? (
-                      <Link href={getPublicDocPath(c.doc.slug)} className="text-[var(--accent)] hover:underline">
+                      <Link href={getPublicDocPath(c.doc.slug)} className="text-(--accent) hover:underline">
                         {c.label}
                       </Link>
                     ) : (
-                      <span className="text-[var(--ink-muted)] opacity-50">—</span>
+                      <span className="text-(--ink-muted) opacity-50">—</span>
                     )}
                   </td>
                 ))}

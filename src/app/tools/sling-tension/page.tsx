@@ -43,7 +43,7 @@ export default function SlingTensionPage() {
         title="玉掛け 吊り角度・張力計算ツール"
         lead={
           <>
-            吊り荷重・ワイヤー本数・吊り角度を入れると、<strong className="text-[var(--ink)]">1本当たりの張力</strong>と、安全係数6を満たすために<strong className="text-[var(--ink)]">必要な破断荷重</strong>が出ます。角度が開くほど張力がどう増えるかを確認できます。
+            吊り荷重・ワイヤー本数・吊り角度を入れると、<strong className="text-(--ink)">1本当たりの張力</strong>と、安全係数6を満たすために<strong className="text-(--ink)">必要な破断荷重</strong>が出ます。角度が開くほど張力がどう増えるかを確認できます。
           </>
         }
       />

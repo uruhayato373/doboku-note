@@ -31,16 +31,16 @@ const LINK_BASE =
 
 function navLinkClass(active: boolean): string {
   return active
-    ? `${LINK_BASE} border-[var(--accent)] bg-[var(--accent-fill)] font-bold text-[var(--ink)]`
-    : `${LINK_BASE} border-transparent text-[var(--ink-body)] hover:border-[var(--rule)] hover:bg-[var(--accent-fill)] hover:text-[var(--ink)]`;
+    ? `${LINK_BASE} border-(--accent) bg-(--accent-fill) font-bold text-(--ink)`
+    : `${LINK_BASE} border-transparent text-(--ink-body) hover:border-(--rule) hover:bg-(--accent-fill) hover:text-(--ink)`;
 }
 
 function NavHeading({ children, count }: { children: string; count?: number }) {
   return (
-    <div className="flex items-baseline justify-between gap-3 border-b border-[var(--rule-soft)] px-4 py-3">
-      <h3 className="text-[15px] font-bold tracking-[0.02em] text-[var(--ink)]">{children}</h3>
+    <div className="flex items-baseline justify-between gap-3 border-b border-(--rule-soft) px-4 py-3">
+      <h3 className="text-[15px] font-bold tracking-[0.02em] text-(--ink)">{children}</h3>
       {typeof count === 'number' && (
-        <span className="font-mono text-[11px] tabular-nums text-[var(--ink-muted)]">{count}</span>
+        <span className="font-mono text-[11px] tabular-nums text-(--ink-muted)">{count}</span>
       )}
     </div>
   );
@@ -50,7 +50,7 @@ function AgencyNav({ currentAgency }: { currentAgency: string }) {
   const agencies = getStandardsCatalog().agencies;
 
   return (
-    <nav aria-label="発行機関を移動" className="border border-[var(--rule-soft)] bg-[var(--paper)]">
+    <nav aria-label="発行機関を移動" className="border border-(--rule-soft) bg-(--paper)">
       <NavHeading count={agencies.length}>発行機関</NavHeading>
       <ul className="py-1" data-standards-nav="agencies">
         {agencies.map((agency) => {
@@ -63,7 +63,7 @@ function AgencyNav({ currentAgency }: { currentAgency: string }) {
                 aria-current={active ? 'page' : undefined}
               >
                 <span className="min-w-0 flex-1">{agency.agencyName}</span>
-                <span className="shrink-0 font-mono text-[11px] tabular-nums text-[var(--ink-muted)]">
+                <span className="shrink-0 font-mono text-[11px] tabular-nums text-(--ink-muted)">
                   {agency.documentCount}
                 </span>
               </Link>
@@ -85,7 +85,7 @@ function DocumentLink({ document, active }: { document: StandardDocument; active
     >
       <span className="min-w-0 flex-1">
         <span className="line-clamp-2">{document.title}</span>
-        <span className="mt-1 block font-mono text-[11px] font-normal text-[var(--ink-muted)]">
+        <span className="mt-1 block font-mono text-[11px] font-normal text-(--ink-muted)">
           {document.role === 'common' ? '共通仕様書' : '工事必携・関連資料'} · {document.pages.toLocaleString('ja-JP')}頁
         </span>
       </span>
@@ -100,7 +100,7 @@ function DocumentNav({ currentDocument }: { currentDocument: StandardDocument })
   const remaining = others.slice(5);
 
   return (
-    <nav aria-label="この機関の文書を移動" className="border border-[var(--rule-soft)] bg-[var(--paper)]">
+    <nav aria-label="この機関の文書を移動" className="border border-(--rule-soft) bg-(--paper)">
       <NavHeading count={documents.length}>この機関の文書</NavHeading>
       <ul className="py-1" data-standards-nav="documents">
         <li>
@@ -113,12 +113,12 @@ function DocumentNav({ currentDocument }: { currentDocument: StandardDocument })
         ))}
       </ul>
       {remaining.length > 0 && (
-        <details className="group border-t border-[var(--rule-soft)]">
-          <summary className="focus-ring flex min-h-11 cursor-pointer list-none items-center gap-2 px-4 py-2 text-[12px] font-bold text-[var(--accent)] marker:hidden">
+        <details className="group border-t border-(--rule-soft)">
+          <summary className="focus-ring flex min-h-11 cursor-pointer list-none items-center gap-2 px-4 py-2 text-[12px] font-bold text-(--accent) marker:hidden">
             <span className="min-w-0 flex-1">ほか{remaining.length}文書を表示</span>
-            <DisclosureChevron className="disclosure-chevron h-4 w-4 shrink-0 text-[var(--ink-muted)]" />
+            <DisclosureChevron className="disclosure-chevron h-4 w-4 shrink-0 text-(--ink-muted)" />
           </summary>
-          <ul className="border-t border-[var(--rule-soft)] py-1">
+          <ul className="border-t border-(--rule-soft) py-1">
             {remaining.map((document) => (
               <li key={document.documentId}>
                 <DocumentLink document={document} active={false} />
@@ -146,7 +146,7 @@ function ChapterNav({
   const total = books.reduce((sum, book) => sum + book.chapters.length, 0);
 
   return (
-    <nav aria-label="章を移動" className="border border-[var(--rule-soft)] bg-[var(--paper)]">
+    <nav aria-label="章を移動" className="border border-(--rule-soft) bg-(--paper)">
       <NavHeading count={total}>章から読む</NavHeading>
       <div data-standards-nav="chapters">
         {books.map((book) => {
@@ -157,18 +157,18 @@ function ChapterNav({
             <details
               key={book.bookNumber}
               open={activeBook}
-              className="group border-b border-[var(--rule-soft)] last:border-b-0"
+              className="group border-b border-(--rule-soft) last:border-b-0"
             >
               <summary className="focus-ring flex min-h-11 cursor-pointer list-none items-center gap-2 px-4 py-2 marker:hidden">
-                <span className="min-w-0 flex-1 text-[13px] font-bold leading-[1.5] text-[var(--ink-body)]">
+                <span className="min-w-0 flex-1 text-[13px] font-bold leading-normal text-(--ink-body)">
                   第{book.bookNumber}編 {book.bookTitle}
                 </span>
-                <span className="font-mono text-[11px] tabular-nums text-[var(--ink-muted)]">
+                <span className="font-mono text-[11px] tabular-nums text-(--ink-muted)">
                   {book.chapters.length}
                 </span>
-                <DisclosureChevron className="disclosure-chevron h-4 w-4 shrink-0 text-[var(--ink-muted)]" />
+                <DisclosureChevron className="disclosure-chevron h-4 w-4 shrink-0 text-(--ink-muted)" />
               </summary>
-              <ul className="border-t border-[var(--rule-soft)] py-1">
+              <ul className="border-t border-(--rule-soft) py-1">
                 {book.chapters.map((chapter) => {
                   const active = chapter.chapterId === currentChapter?.chapterId;
                   return (
@@ -178,7 +178,7 @@ function ChapterNav({
                         className={navLinkClass(active)}
                         aria-current={active ? 'page' : undefined}
                       >
-                        <span className="w-8 shrink-0 font-mono text-[11px] tabular-nums text-[var(--ink-muted)]">
+                        <span className="w-8 shrink-0 font-mono text-[11px] tabular-nums text-(--ink-muted)">
                           {chapter.chapterNumber}章
                         </span>
                         <span className="min-w-0 flex-1">{chapter.chapterTitle}</span>
@@ -202,7 +202,7 @@ function ChapterNav({
 function SectionNav({ chapter }: { chapter: StandardChapter }) {
   if (chapter.sections.length === 0) return null;
   return (
-    <nav aria-label="この章の節を移動" className="border border-[var(--rule-soft)] bg-[var(--paper)]">
+    <nav aria-label="この章の節を移動" className="border border-(--rule-soft) bg-(--paper)">
       <NavHeading count={chapter.sections.length}>この章の節</NavHeading>
       <ol className="py-1" data-standards-nav="sections">
         {chapter.sections.map((section) => (
@@ -211,7 +211,7 @@ function SectionNav({ chapter }: { chapter: StandardChapter }) {
               href={`#${generateHeadingId(section.headingText)}`}
               className={navLinkClass(false)}
             >
-              <span className="w-8 shrink-0 font-mono text-[11px] tabular-nums text-[var(--ink-muted)]">
+              <span className="w-8 shrink-0 font-mono text-[11px] tabular-nums text-(--ink-muted)">
                 {section.number}節
               </span>
               <span className="min-w-0 flex-1">{section.title}</span>
@@ -225,7 +225,7 @@ function SectionNav({ chapter }: { chapter: StandardChapter }) {
 
 function PartNav({ document, currentPart }: { document: StandardDocument; currentPart?: StandardPart | undefined }) {
   return (
-    <nav aria-label="分冊を移動" className="border border-[var(--rule-soft)] bg-[var(--paper)]">
+    <nav aria-label="分冊を移動" className="border border-(--rule-soft) bg-(--paper)">
       <NavHeading count={document.parts.length}>原典PDFページ</NavHeading>
       <ol className="py-1" data-standards-nav="parts">
         {document.parts.map((part, index) => {
@@ -237,7 +237,7 @@ function PartNav({ document, currentPart }: { document: StandardDocument; curren
                 className={navLinkClass(active)}
                 aria-current={active ? 'page' : undefined}
               >
-                <span className="w-5 shrink-0 font-mono text-[11px] tabular-nums text-[var(--ink-muted)]">
+                <span className="w-5 shrink-0 font-mono text-[11px] tabular-nums text-(--ink-muted)">
                   {String(index + 1).padStart(2, '0')}
                 </span>
                 <span className="min-w-0 flex-1">PDF {part.firstPage}–{part.lastPage}</span>
@@ -252,14 +252,14 @@ function PartNav({ document, currentPart }: { document: StandardDocument; curren
 
 function PageNav({ pageNumbers }: { pageNumbers: number[] }) {
   return (
-    <nav aria-label="この分冊のページ" className="border border-[var(--rule-soft)] bg-[var(--paper)]">
+    <nav aria-label="この分冊のページ" className="border border-(--rule-soft) bg-(--paper)">
       <NavHeading count={pageNumbers.length}>ページへ移動</NavHeading>
-      <ol className="grid grid-cols-5 gap-px bg-[var(--rule-soft)] p-px" data-standards-nav="pages">
+      <ol className="grid grid-cols-5 gap-px bg-(--rule-soft) p-px" data-standards-nav="pages">
         {pageNumbers.map((page) => (
-          <li key={page} className="bg-[var(--paper)]">
+          <li key={page} className="bg-(--paper)">
             <a
               href={`#pdf-page-${page}`}
-              className="focus-ring flex min-h-11 items-center justify-center font-mono text-[11px] tabular-nums text-[var(--ink-body)] transition-colors hover:bg-[var(--accent-fill)] hover:text-[var(--accent)]"
+              className="focus-ring flex min-h-11 items-center justify-center font-mono text-[11px] tabular-nums text-(--ink-body) transition-colors hover:bg-(--accent-fill) hover:text-(--accent)"
               aria-label={`PDF page ${page}へ移動`}
             >
               {page}
@@ -337,20 +337,20 @@ export default function StandardsNavigation({
   if (variant === 'mobile') {
     return (
       <details
-        className="group zenn-desktop:hidden border border-[var(--rule-soft)] bg-[var(--paper)]"
+        className="group zenn-desktop:hidden border border-(--rule-soft) bg-(--paper)"
         data-standards-mobile-nav
       >
         <summary className="focus-ring flex min-h-12 cursor-pointer list-none items-center gap-3 px-4 py-3 marker:hidden">
           <span className="min-w-0 flex-1">
-            <span className="block text-[15px] font-bold tracking-[0.02em] text-[var(--ink)]">資料内を移動</span>
-            <span className="mt-0.5 block truncate text-[11px] text-[var(--ink-muted)]">{contextLabel}</span>
+            <span className="block text-[15px] font-bold tracking-[0.02em] text-(--ink)">資料内を移動</span>
+            <span className="mt-0.5 block truncate text-[11px] text-(--ink-muted)">{contextLabel}</span>
           </span>
-          <DisclosureChevron className="disclosure-chevron h-4 w-4 shrink-0 text-[var(--ink-muted)]" />
+          <DisclosureChevron className="disclosure-chevron h-4 w-4 shrink-0 text-(--ink-muted)" />
         </summary>
-        <div className="space-y-3 border-t border-[var(--rule-soft)] bg-[var(--bg)] p-3">
+        <div className="space-y-3 border-t border-(--rule-soft) bg-(--bg) p-3">
           <Link
             href={parentHref}
-            className="focus-ring inline-flex min-h-11 items-center text-[12px] font-bold text-[var(--accent)] hover:underline"
+            className="focus-ring inline-flex min-h-11 items-center text-[12px] font-bold text-(--accent) hover:underline"
           >
             ← {parentLabel}
           </Link>
@@ -363,13 +363,13 @@ export default function StandardsNavigation({
 
   return (
     <div className="sticky top-6 max-h-[calc(100vh-3rem)] space-y-3 overflow-y-auto" data-standards-sidebar>
-      <div className="border border-[var(--rule-soft)] bg-[var(--paper)] p-5">
-        <div className="text-[11px] font-bold tracking-[0.08em] text-[var(--accent)]">基準類ナビ</div>
-        <h2 className="mt-2 text-[18px] font-bold tracking-[0.02em] text-[var(--ink)]">資料内を移動</h2>
-        <p className="mt-2 line-clamp-2 text-[13px] leading-[1.7] text-[var(--ink-muted)]">{contextLabel}</p>
+      <div className="border border-(--rule-soft) bg-(--paper) p-5">
+        <div className="text-[11px] font-bold tracking-[0.08em] text-(--accent)">基準類ナビ</div>
+        <h2 className="mt-2 text-[18px] font-bold tracking-[0.02em] text-(--ink)">資料内を移動</h2>
+        <p className="mt-2 line-clamp-2 text-[13px] leading-[1.7] text-(--ink-muted)">{contextLabel}</p>
         <Link
           href={parentHref}
-          className="focus-ring mt-3 inline-flex min-h-11 items-center text-[12px] font-bold text-[var(--accent)] hover:underline"
+          className="focus-ring mt-3 inline-flex min-h-11 items-center text-[12px] font-bold text-(--accent) hover:underline"
         >
           ← {parentLabel}
         </Link>

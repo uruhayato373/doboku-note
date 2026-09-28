@@ -24,8 +24,8 @@ export function SearchZeroState({ examCards, otherCategories, popular }: SearchZ
   return (
     <div className="space-y-10">
       <section>
-        <h2 className="font-serif text-lg font-bold text-[var(--ink)] mb-1">試験から探す</h2>
-        <p className="text-sm text-[var(--ink-muted)] mb-4">資格ごとのまとめページへ</p>
+        <h2 className="font-serif text-lg font-bold text-(--ink) mb-1">試験から探す</h2>
+        <p className="text-sm text-(--ink-muted) mb-4">資格ごとのまとめページへ</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {examCards.map((e) => (
             <ExamCard key={e.slug} e={e} />
@@ -35,18 +35,18 @@ export function SearchZeroState({ examCards, otherCategories, popular }: SearchZ
 
       {otherCategories.length > 0 && (
         <section>
-          <h2 className="font-serif text-lg font-bold text-[var(--ink)] mb-1">その他のカテゴリ</h2>
+          <h2 className="font-serif text-lg font-bold text-(--ink) mb-1">その他のカテゴリ</h2>
           <div className="grid gap-3 sm:grid-cols-2">
             {otherCategories.map((cat) => (
               <Link
                 key={cat.slug}
                 href={getCategoryHubPath(cat.slug)}
-                className="focus-ring card-surface-content group flex flex-col gap-1 p-4 transition-[border-color,box-shadow] hover:border-[var(--accent)] hover:shadow-soft"
+                className="focus-ring card-surface-content group flex flex-col gap-1 p-4 transition-[border-color,box-shadow] hover:border-(--accent) hover:shadow-soft"
               >
-                <span className="font-serif font-bold text-[var(--ink)] group-hover:text-[var(--accent)] transition-colors">
+                <span className="font-serif font-bold text-(--ink) group-hover:text-(--accent) transition-colors">
                   {cat.label}
                 </span>
-                <span className="text-sm text-[var(--ink-muted)] line-clamp-1">{cat.subtitle}</span>
+                <span className="text-sm text-(--ink-muted) line-clamp-1">{cat.subtitle}</span>
               </Link>
             ))}
           </div>
@@ -55,19 +55,19 @@ export function SearchZeroState({ examCards, otherCategories, popular }: SearchZ
 
       {popular.length > 0 && (
         <section>
-          <h2 className="font-serif text-lg font-bold text-[var(--ink)] mb-1">よく読まれている記事</h2>
-          <p className="text-sm text-[var(--ink-muted)] mb-4">アクセスの多い記事から</p>
+          <h2 className="font-serif text-lg font-bold text-(--ink) mb-1">よく読まれている記事</h2>
+          <p className="text-sm text-(--ink-muted) mb-4">アクセスの多い記事から</p>
           <ol className="card-surface-content overflow-hidden shadow-none">
             {popular.map((item) => (
               <li key={item.doc.slug}>
                 <Link
                   href={getPublicDocPath(item.doc.slug)}
-                  className="focus-ring group flex gap-3 border-b border-[var(--rule-soft)] px-4 py-3 transition-colors last:border-b-0 hover:bg-[var(--accent-fill)]"
+                  className="focus-ring group flex gap-3 border-b border-(--rule-soft) px-4 py-3 transition-colors last:border-b-0 hover:bg-(--accent-fill)"
                 >
-                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-card-inline bg-[var(--accent-fill)] font-mono text-xs font-bold text-[var(--accent)]">
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-card-inline bg-(--accent-fill) font-mono text-xs font-bold text-(--accent)">
                     {item.rank}
                   </span>
-                  <span className="font-serif text-[14px] font-bold leading-tight text-[var(--ink)] group-hover:text-[var(--accent)] transition-colors line-clamp-2">
+                  <span className="font-serif text-[14px] font-bold leading-tight text-(--ink) group-hover:text-(--accent) transition-colors line-clamp-2">
                     {item.doc.shortTitle || item.doc.title}
                   </span>
                 </Link>

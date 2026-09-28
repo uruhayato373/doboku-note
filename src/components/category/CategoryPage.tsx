@@ -136,16 +136,16 @@ export default async function CategoryPage({
             <div className="card-surface-section px-5 sm:px-8 lg:px-10 pb-8 sm:pb-10">
             {/* カテゴリ見出し（縮小版・H1/パンくず/説明は SEO のため維持。CATEGORY チップは
                 パンくずと重複のため削除） */}
-            <div className="pt-6 sm:pt-8 pb-5 border-b border-[var(--rule-soft)]">
-              <nav aria-label="breadcrumb" className="font-mono text-[11px] text-[var(--ink-muted)] uppercase tracking-widest mb-2 flex items-center gap-2">
-                <Link href="/" className="hover:text-[var(--accent)] transition-colors">Home</Link>
+            <div className="pt-6 sm:pt-8 pb-5 border-b border-(--rule-soft)">
+              <nav aria-label="breadcrumb" className="font-mono text-[11px] text-(--ink-muted) uppercase tracking-widest mb-2 flex items-center gap-2">
+                <Link href="/" className="hover:text-(--accent) transition-colors">Home</Link>
                 <span aria-hidden className="opacity-60">›</span>
                 <span>Category</span>
               </nav>
-              <h1 className="font-serif font-bold tracking-tight text-[var(--ink)] text-[24px] sm:text-[28px] leading-[1.3] mb-2">
+              <h1 className="font-serif font-bold tracking-tight text-(--ink) text-[24px] sm:text-[28px] leading-[1.3] mb-2">
                 {cat.label}
               </h1>
-              <p className="text-[15px] leading-[1.8] text-[var(--ink-body)] max-w-[60ch]">{cat.subtitle}</p>
+              <p className="text-[15px] leading-[1.8] text-(--ink-body) max-w-[60ch]">{cat.subtitle}</p>
             </div>
             <CategoryJumpNav category={slug} />
             {hubCtaMobile && (
@@ -155,11 +155,11 @@ export default async function CategoryPage({
             )}
             <OffsiteCta items={offsiteCta} heading="この資格に関連するサービス" />
             {slug === 'reference-materials' && (
-              <section className="border-b border-[var(--rule-soft)] py-6" aria-labelledby="reference-materials-about">
-                <h2 id="reference-materials-about" className="font-serif text-[20px] font-bold text-[var(--ink)]">
+              <section className="border-b border-(--rule-soft) py-6" aria-labelledby="reference-materials-about">
+                <h2 id="reference-materials-about" className="font-serif text-[20px] font-bold text-(--ink)">
                   公的資料を実務判断に使いやすく整理
                 </h2>
-                <p className="mt-2 max-w-[65ch] text-[14px] leading-[1.9] text-[var(--ink-body)]">
+                <p className="mt-2 max-w-[65ch] text-[14px] leading-[1.9] text-(--ink-body)">
                   国土交通省・地方整備局・自治体が公開する設計便覧や土木工事共通仕様書から、設計・施工時に確認しやすい規定を資料別に整理しています。原典の代替ではなく、該当箇所を探すための索引として利用し、最終判断では各発注機関が公開する最新版の原文と適用条件を確認してください。
                 </p>
               </section>
@@ -167,7 +167,7 @@ export default async function CategoryPage({
             <div className="pt-8 text-[17px] leading-[1.9]">
           {docs.length === 0 ? (
             <div className="text-center py-12">
-              <p className="text-[var(--ink-muted)] text-lg">
+              <p className="text-(--ink-muted) text-lg">
                 このカテゴリにはまだコンテンツがありません。
               </p>
             </div>

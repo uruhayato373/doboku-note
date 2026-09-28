@@ -1,6 +1,718 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@config '../../tailwind.config.js';
+
+/* v3 互換: v4 の text-* は行高を単位なしの比率（text-sm = 1.25/0.875）で持つため、子孫へ比率として継承され、
+   小さい文字の子の行高が v3（rem の絶対値で継承）より縮む。v3 と同じ rem 値に戻す。 */
+@theme {
+  --text-xs--line-height: 1rem;
+  --text-sm--line-height: 1.25rem;
+  --text-base--line-height: 1.5rem;
+  --text-lg--line-height: 1.75rem;
+  --text-xl--line-height: 1.75rem;
+  --text-2xl--line-height: 2rem;
+  --text-3xl--line-height: 2.25rem;
+  --text-4xl--line-height: 2.5rem;
+}
+
+/* 既定の border 色をエディトリアル token に向ける。
+   Tailwind v4 の既定 border 色は currentcolor のため、color クラス未指定の border-*
+   （Callout の border-l・prose のテーブル/hr 等）がダークモードに追従しない。
+   既定値を --rule-soft（light/dark 両定義）に上書きして theme-aware にする。
+   明示的な border-[var(--...)] / border-{color} はユーティリティ specificity が勝つため不変。 */
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--rule-soft);
+  }
+
+  /* v4 の preflight は button の cursor を default にしたため、v3 と同じ pointer に戻す */
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+@utility nav-card-title {
+  /* ===== nav-card-title: サイドバー・カード見出し共通 ===== */
+  font-size: var(--font-size-ui-title);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+}
+
+@utility card-interactive {
+  /* ===== card-interactive: クリック可能カードの hover 演出（影＋2px 浮き）=====
+     2026-07 Soft Editorial。演出は「影の深化＋translateY(-2px)」まで。
+     scale・色反転・長い duration は禁止（design-system §8）。reduced-motion は上の base で無効化。 */
+  transition:
+    box-shadow var(--dur-base) var(--ease-soft),
+    transform var(--dur-base) var(--ease-soft),
+    border-color var(--dur-base) var(--ease-soft);
+  &:hover {
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-2px);
+  }
+}
+
+@utility focus-ring {
+  /* キーボード操作の現在位置を全UIで揃える共通フォーカス表現。
+     `focus-visible` のみで発火させ、マウスクリック時の不要なリングを避ける。 */
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  &:focus-visible {
+    outline-color: var(--accent);
+    box-shadow:
+      0 0 0 2px var(--bg),
+      0 0 0 4px color-mix(in srgb, var(--accent) 70%, transparent);
+  }
+}
+
+@utility disclosure-chevron {
+  /* アコーディオン開閉シェブロン（DisclosureChevron）。開閉回転はここで行う
+     （.card-interactive 等と同じく見た目を集約）。閉=右向き、親 details[open] で 90°回転。
+     FAQCard・CurriculumList（テキスト章）＋ MDX 記事内の素の <details> 共通。
+     ※ 旧コメントの「Tailwind の transform 変種が効かないため」は 2026-08-20 の実測で誤りと判明。
+        group-open:rotate-90 は正常に生成・適用される。ここに置く理由は MDX 側の <details> に
+        class を付けられないことで、Tailwind の制約ではない。 */
+  transition: transform var(--dur-base) var(--ease-soft);
+  details[open] > summary & {
+    transform: rotate(90deg);
+  }
+}
+
+@utility card-rail {
+  /* 横スクロール カードレール（キャリア等の二次セクションを全件縦積みせず畳む）。
+     全カテゴリ共通（CareerSection）。scroll-snap で1枚ずつ吸着し、カード幅を
+     clamp(…,80%,288px) にして常に次カードを覗かせる＝「まだ先がある」の主シグナル。
+     右端の subtle フェードで補強（左端は sharp＝snap-align:start の focus 位置を潰さない）。
+     overflow-x/scroll-snap は本 build で健全（transform 変種も 2026-08-20 実測で健全）。
+     カードは flex 既定の align-items:stretch で等高になる。 */
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 0.75rem; /* カード影のクリップ防止（overflow-y も auto 化するため） */
+  -webkit-mask: linear-gradient(90deg, #000 calc(100% - 24px), transparent);
+  mask: linear-gradient(90deg, #000 calc(100% - 24px), transparent);
+  /* スクロールバーは非表示（覗き＋右端フェード＋左右矢印が「先がある」の主シグナル。
+       常時表示の横バーは冗長・下部に無用な帯を生むため隠す。スクロール機能自体は維持）。 */
+  scrollbar-width: none; /* Firefox */
+  &::-webkit-scrollbar {
+    display: none; /* Chrome / Safari / Edge */
+  }
+  & > * {
+    scroll-snap-align: start;
+    flex: 0 0 clamp(240px, 80%, 288px);
+  }
+  @media (min-width: 640px) {
+    & > * {
+      flex-basis: 288px;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    scroll-behavior: auto;
+  }
+}
+
+@utility card-surface-content {
+  /* 再利用可能なカード外観。構造は React、見た目はこの層に集約する。 */
+  background: var(--paper);
+  border: 1px solid var(--rule-soft);
+  border-radius: var(--radius-card-content);
+  box-shadow: var(--shadow-card-content);
+}
+
+@utility card-surface-section {
+  background: var(--paper);
+  border: 1px solid var(--rule-soft);
+  border-radius: var(--radius-card-section);
+  box-shadow: var(--shadow-card-section);
+}
+
+@utility hero-cta-button {
+  /* note ヒーロー CTA のボタン。hover はインライン style では書けないためここに集約
+     （トークンは --hero-cta-* ＝テーマ非追従・背景イラスト上の固定色）。 */
+  background: var(--hero-cta-button);
+  box-shadow:
+    inset 0 -3px 0 rgb(0 0 0 / 0.18),
+    0 2px 8px rgb(0 0 0 / 0.25);
+  .group:hover & {
+    background: var(--hero-cta-button-hover);
+  }
+}
+
+@utility group {
+  &:hover .hero-cta-button {
+    background: var(--hero-cta-button-hover);
+  }
+}
+
+@utility hero-overlay {
+  background: linear-gradient(
+    to bottom,
+    var(--hero-overlay-top),
+    var(--hero-overlay-mid),
+    var(--hero-overlay-bottom)
+  );
+}
+
+@utility hero-ink {
+  color: var(--hero-ink);
+}
+
+@utility hero-ink-soft {
+  color: var(--hero-ink-soft);
+}
+
+@utility hero-rule {
+  background: var(--hero-rule);
+}
+
+@utility hero-shadow-soft {
+  text-shadow: var(--hero-shadow-soft);
+}
+
+@utility hero-shadow-strong {
+  text-shadow: var(--hero-shadow-strong);
+}
+
+@utility prose-blog {
+  /* ===== prose-blog: kakkom から継承 ===== */
+  @apply prose prose-gray max-w-none;
+  /* dark:prose-invert はここに書かない（ファイル内の @utility prose-blog の直後に置いた .dark .prose-blog を参照） */
+
+  /* 本文: font-size 16px / line-height 1.8 / weight 500（中太）。
+     2026-07: 和文可読性のため letter-spacing 0.03em を追加（0.02〜0.05em ベストプラクティス内）。 */
+  font-size: var(--font-size-body);
+  line-height: 1.8;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-autospace: normal;
+
+  /* コード・数式はトラッキングをリセット（等幅・記号の整列を崩さない） */
+  & :not(pre) > code {
+    letter-spacing: normal;
+    text-autospace: no-autospace;
+  }
+  & pre {
+    letter-spacing: normal;
+    text-autospace: no-autospace;
+  }
+  & pre code {
+    letter-spacing: normal;
+    text-autospace: no-autospace;
+  }
+  & .katex {
+    letter-spacing: normal;
+    text-autospace: no-autospace;
+  }
+
+  /* 段落: 参考サイト準拠 line-height 1.8（p+pでのみ間隔をとる） */
+  & p {
+    line-height: 1.8;
+  }
+  & p + p {
+    margin-top: 1.5em;
+  }
+
+  /* 箇条書き: Zenn実測値に準拠（line-height 1.7、margin 1.4rem） */
+  & ul {
+    margin: 1.4rem 0;
+    line-height: 1.7;
+  }
+  & ol {
+    margin: 1.4rem 0;
+    line-height: 1.7;
+  }
+  & ul {
+    padding-left: 1.8em;
+  }
+  & ol {
+    padding-left: 1.7em;
+  }
+  & li {
+    margin: 0.4rem 0;
+    line-height: 1.7;
+  }
+  & ul ul {
+    margin: 0.2em 0;
+  }
+  & ul ol {
+    margin: 0.2em 0;
+  }
+  & ol ul {
+    margin: 0.2em 0;
+  }
+  & ol ol {
+    margin: 0.2em 0;
+  }
+  & ol p {
+    margin: 0;
+  }
+  & ul p {
+    margin: 0;
+  }
+
+  /* 原典番号付き列挙（本文に (1)(2)/①… が既にある転記リスト）: disc/circle マーカーを抑制し、
+     原典の番号を唯一のマーカーにする（二重マーカー回避）。MDX 側で <div className="list-plain"> ラップ（opt-in）。
+     入れ子（①… など）の字下げは維持。details 内の list-disc list-inside（.prose-blog details ul）にも効くよう
+     詳細度 (0,2,1) > (0,1,2) で上書きする。 */
+  & .list-plain ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  & .list-plain ul ul {
+    padding-left: 1.25em;
+  }
+
+  /* 見出し直後の段落: Zenn実測値0.3emでほぼ密着させる */
+  & h1 + p {
+    margin-top: 0.3em;
+  }
+  & h2 + p {
+    margin-top: 0.3em;
+  }
+  & h3 + p {
+    margin-top: 0.3em;
+  }
+  & h4 + p {
+    margin-top: 0.3em;
+  }
+  & h5 + p {
+    margin-top: 0.3em;
+  }
+  & h6 + p {
+    margin-top: 0.3em;
+  }
+
+  /* リンク: editorial アンダーライン（半透明 accent + offset 4px、hoverで濃く）。
+     2026-07: 下線色を accent 由来の color-mix に統一し、accent 変更へ自動追従（旧: 生 rgba の light/dark 2 定義）。 */
+  & a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: color-mix(in srgb, var(--accent) 38%, transparent);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+  }
+  & a:hover {
+    text-decoration-color: var(--accent);
+  }
+
+  /* 見出し共通: 行間 + 和文プロポーショナル詰め（palt）。
+     palt で仮名・約物を詰め、正のトラッキングで呼吸を戻す（游ゴシック/ヒラギノ対応）。 */
+  & h1 {
+    @apply leading-snug;
+    font-feature-settings: 'palt' 1;
+  }
+  & h2 {
+    @apply leading-snug;
+    font-feature-settings: 'palt' 1;
+  }
+  & h3 {
+    @apply leading-snug;
+    font-feature-settings: 'palt' 1;
+  }
+  & h4 {
+    @apply leading-snug;
+    font-feature-settings: 'palt' 1;
+  }
+
+  /* h1: ページタイトル — 参考サイト(sidejobearn)に合わせゴシック・太さ700・行間1.4。
+     2026-06-26: 旧 mincho serif（明朝見出し）を廃止し本文と同じゴシックに統一。 */
+  & h1 {
+    font-weight: 700;
+    color: var(--ink);
+    font-size: var(--font-size-h1);
+    line-height: 1.4;
+    letter-spacing: 0.02em;
+    margin: 0 0 0.9em;
+    padding-bottom: 0;
+    border-bottom: none;
+    max-width: none;
+  }
+
+  /* h2: セクション区切り — ゴシック・太さ700・行間1.4、装飾なし */
+  & h2 {
+    font-weight: 700;
+    color: var(--ink);
+    font-size: var(--font-size-h2);
+    line-height: 1.4;
+    letter-spacing: 0.02em;
+    margin: 2.8em 0 0.8em;
+    padding: 0;
+    border-left: none;
+  }
+
+  /* h3: サブセクション — 中間色の左アクセントバー（ゴシック・太さ700） */
+  & h3 {
+    @apply font-bold;
+    color: var(--ink);
+    font-size: var(--font-size-h3);
+    line-height: 1.4;
+    @apply mb-4 mt-12 pl-4 py-1;
+    @apply border-l-4;
+    border-left-color: var(--accent);
+    letter-spacing: 0.02em;
+  }
+
+  /* h4: 小見出し — 細いグレーの左アクセント */
+  & h4 {
+    @apply text-lg font-semibold;
+    /* v3 では後置の text-lg が先の leading-snug を上書きして 28px だった。v4 の text-lg は
+       --tw-leading（leading-snug）を優先するため 24.75px に縮む。v3 の行高を明示して固定する。 */
+    line-height: 1.75rem;
+    color: var(--ink-body);
+    @apply mb-3 mt-8 pl-3;
+    @apply border-l-2;
+    border-left-color: var(--rule-soft);
+    letter-spacing: 0.02em;
+  }
+
+  /* ===== 表: editorial — soft border + accent thead ===== */
+  /* 多列表（ふるい分け 9 列等）はモバイル 375px で画面外へはみ出し右端が読めない。
+     MDX の table は .table-scroll でラップされる（docs/[...slug]/page.tsx）ので、
+     **外側の余白と幅はラッパーが持つ**。表自身に min-width は付けない —— 実測（375px）で
+     11 列表は min-width の有無に関わらず 737px 溢れる（元から収まらない＝これが直したい表）一方、
+     3〜4 列表は min-width:max-content を付けると 700〜950px 溢れて横スクロールを強制されてしまう
+     （付けなければ 0px で折り返して収まる）。収まる表は従来どおり折り返させる。 */
+  & .table-scroll {
+    @apply mx-4 my-6;
+    width: calc(100% - 2rem);
+    overflow-x: auto;
+    overscroll-behavior-x: contain; /* 端まで来てもページ全体が横に動かない */
+    /* 横にはみ出す表の「続きがある」手がかり: 右端（未読側）にだけ影を出し、
+       スクロールで端に着くと消える（background-attachment: local の定番）。実測（390px）で
+       4 列以上の規格表は右端が切れて見え、スクロールできることが伝わらなかった。 */
+    background:
+      linear-gradient(to right, var(--paper) 30%, transparent) left / 40px 100%
+        no-repeat local,
+      linear-gradient(to left, var(--paper) 30%, transparent) right / 40px 100%
+        no-repeat local,
+      linear-gradient(to right, rgba(0, 0, 0, 0.14), transparent) left / 14px
+        100% no-repeat scroll,
+      linear-gradient(to left, rgba(0, 0, 0, 0.14), transparent) right / 14px
+        100% no-repeat scroll;
+  }
+  & table {
+    @apply my-0 text-sm rounded-card-content overflow-hidden;
+    border: 1px solid var(--rule-soft);
+    margin-inline: 0;
+    width: 100%;
+  }
+
+  & thead {
+    background: var(--accent-fill);
+  }
+
+  & thead th {
+    @apply font-semibold py-3 px-4;
+    color: var(--accent);
+    border-bottom: 1px solid var(--rule-soft);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: var(--font-size-xsmall);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  & tbody td {
+    @apply py-2.5 px-4;
+    color: var(--ink-body);
+    border-bottom: 1px solid var(--rule-soft);
+    font-size: 1em;
+  }
+
+  /* MDX 表の最初列 = ラベル列という慣習に基づき、デフォルトで折り返さない。
+     例外（最初列に長文が来る表）は対象 td に opt-out クラスを付与するか
+     <Nowrap> を中立列で使う。詳細は CLAUDE.md / Nowrap コンポーネント README 参照。 */
+  & table thead th:first-child {
+    white-space: nowrap;
+  }
+  & table tbody td:first-child {
+    white-space: nowrap;
+  }
+
+  & tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  /* 2026-07: 行 hover を accent-fill 由来の color-mix に統一（accent 変更へ自動追従・light/dark 1 定義）。 */
+  & tbody tr:hover {
+    background: color-mix(in srgb, var(--accent-fill) 55%, transparent);
+  }
+
+  /* ===== details: editorial accent ===== */
+  & details {
+    @apply mx-4 my-6 rounded-card-content overflow-hidden;
+    border: 1px solid var(--rule-soft);
+    background: var(--paper);
+  }
+
+  & details[open] {
+    background: var(--paper);
+  }
+
+  & details summary {
+    @apply cursor-pointer select-none py-3.5 px-5 font-bold text-base list-none transition-colors;
+    color: var(--accent);
+  }
+  & details summary:hover {
+    background: var(--accent-fill);
+  }
+
+  & details summary::-webkit-details-marker {
+    display: none;
+  }
+
+  /* 開閉アイコン: 細線シェブロン（右向き→開くと90°回転）。DisclosureChevron.tsx と同一 path の
+     mask（content グリフ差替えでなく回転式に統一・2026-07）。色は summary の currentColor(--accent) を継承。 */
+  & details summary::before {
+    content: '';
+    @apply mr-1.5 inline-block align-middle;
+    width: 0.75em;
+    height: 0.75em;
+    background-color: currentColor;
+    -webkit-mask: var(--disclosure-chevron) no-repeat center / contain;
+    mask: var(--disclosure-chevron) no-repeat center / contain;
+    transition: transform 0.2s;
+  }
+
+  & details[open] summary::before {
+    transform: rotate(90deg);
+  }
+
+  & details[open] summary {
+    border-bottom: 1px solid var(--rule-soft);
+  }
+
+  & details > :not(summary):not([data-callout]):not([data-spec-sheet-list]) {
+    @apply px-5;
+  }
+
+  /* bordered components inside details: margin で外枠から離す（自身の padding を尊重） */
+  & details > [data-callout] {
+    @apply mx-5;
+  }
+  & details > [data-spec-sheet-list] {
+    @apply mx-5;
+  }
+
+  & details ol {
+    @apply list-decimal list-inside;
+  }
+  & details ol > li {
+    padding-left: 1.2em;
+    text-indent: -1.2em;
+  }
+
+  & details ul {
+    @apply list-disc list-inside;
+  }
+
+  & details > :not(summary):first-of-type {
+    @apply pt-4;
+  }
+
+  & details > :not(summary):last-child {
+    @apply pb-4;
+  }
+
+  /* ===== blockquote: editorial soft rule ===== */
+  & blockquote {
+    @apply mx-4 my-6 pl-5 py-2 pr-4;
+    border-left: 3px solid var(--rule-soft);
+    background: transparent;
+    color: var(--ink-muted);
+    font-style: italic;
+  }
+
+  & blockquote p {
+    @apply mb-0;
+  }
+
+  /* ===== code: インラインコード — accent fill */
+  & :not(pre) > code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.92em;
+    padding: 1px 6px;
+    border-radius: var(--radius-card-inline);
+    background: var(--accent-fill);
+    color: var(--accent);
+    border: 1px solid var(--rule-soft);
+  }
+
+  & :not(pre) > code::before {
+    content: none;
+  }
+
+  & :not(pre) > code::after {
+    content: none;
+  }
+
+  /* ===== pre: コードブロック ===== */
+  & pre {
+    @apply mx-4 my-6 rounded-card-content;
+    border: 1px solid var(--rule-soft);
+    /* 長い行はブロック内で横スクロールさせる。基準類の章記事は原本の版面を保った表を
+       コードブロックで出すため、これが無いとページ全体が横に伸びる（実測 302px はみ出し）。
+       多列データ表を .table-scroll で包むのと同じ考え方で、内容を削らず到達性だけを確保する。 */
+    overflow-x: auto;
+    max-width: 100%;
+  }
+
+  /* ========================================
+   * モバイル最適化 (≤576px) — Zenn 準拠
+   * Phase 0: 本文 font-size を 16px に
+   * Phase A: table/blockquote/pre/details のフルブリード化
+   * Phase B: 見出し font-size を em で縮小
+   * Phase C-1: line-height を 1.8 に
+   * ======================================== */
+  @media (max-width: 576px) {
+    /* Phase 0 + C-1: 本文 */
+    font-size: 16px;
+    line-height: 1.8;
+    & p {
+      line-height: 1.8;
+    }
+
+    /* Phase B: 見出し — em 単位で本文サイズ比例 */
+    & h1 {
+      font-size: 1.6em;
+    }
+    & h2 {
+      font-size: 1.4em;
+    }
+    & h3 {
+      font-size: 1.2em;
+    }
+
+    /* Phase A: 内包要素フルブリード化（カード内 padding いっぱいに広げる）。
+       表はラッパーが余白と幅を持つので、フルブリード化もラッパー側に当てる。 */
+    & .table-scroll {
+      margin-left: 0;
+      margin-right: 0;
+      width: 100%;
+    }
+    & blockquote {
+      margin-left: 0;
+      margin-right: 0;
+    }
+    & pre {
+      margin-left: 0;
+      margin-right: 0;
+    }
+    /* 設問カード（details）はモバイルで真のフルブリード化。記事カードの横 padding（--article-gutter-sp）
+       を負マージンで相殺してカード端いっぱいに広げ、内側 padding を同値の単層にする。
+       旧: カード 16px + details 内 20px の二重（設問本文が端から 36px）→ 単層 16px。 */
+    & details {
+      margin-left: calc(-1 * var(--article-gutter-sp));
+      margin-right: calc(-1 * var(--article-gutter-sp));
+      border-left: 0;
+      border-right: 0;
+      border-radius: 0;
+    }
+    & details > summary {
+      padding-left: var(--article-gutter-sp);
+      padding-right: var(--article-gutter-sp);
+    }
+    & details > :not(summary):not([data-callout]):not([data-spec-sheet-list]) {
+      padding-left: var(--article-gutter-sp);
+      padding-right: var(--article-gutter-sp);
+    }
+  }
+}
+
+/* prose-blog のダーク反転。@utility の中で dark:prose-invert（入れ子の &:is(.dark *)）にすると、v4 は後続の
+   prose-gray の宣言（@supports(color: lab()) 版）をダーク用セレクタに付けて出力し、反転を打ち消す
+   （本文がダークで暗いまま）。@utility の外の通常ルールとして書く。 */
+.dark .prose-blog {
+  @apply prose-invert;
+}
+
+@utility katex {
+  .prose-blog & {
+    letter-spacing: normal;
+    text-autospace: no-autospace;
+  }
+}
+
+@utility list-plain {
+  /* 原典番号付き列挙（本文に (1)(2)/①… が既にある転記リスト）: disc/circle マーカーを抑制し、
+     原典の番号を唯一のマーカーにする（二重マーカー回避）。MDX 側で <div className="list-plain"> ラップ（opt-in）。
+     入れ子（①… など）の字下げは維持。details 内の list-disc list-inside（.prose-blog details ul）にも効くよう
+     詳細度 (0,2,1) > (0,1,2) で上書きする。 */
+  .prose-blog & ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  .prose-blog & ul ul {
+    padding-left: 1.25em;
+  }
+}
+
+@utility callout-body {
+  /* Callout 内の最終段落の margin-bottom をリセット（prose の 1.25em が外側 p-4 と合算されて下余白が過大になるのを防ぐ）
+     top 側はタイトルが絶対配置（-top-2）で外枠に重なっており、prose の margin-top がタイトルとのクリアランスを確保しているため残す */
+  & > p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@utility font-serif-book {
+  /* ===== フォントファミリー切替（opt-in）=====
+     2026-04-22 Claude Design ハンドオフ追加。body に以下のクラスを付けると切替可能。
+     2026-04-26 #84 LCP 改善で Source Serif 4 / Noto Serif JP を削除。OS 標準の serif/mincho に集約。
+     デフォルトは Sans（Inter + Noto Sans JP）。UI 露出は別 PR で検討。 */
+  &body {
+    font-family: Georgia, 'Times New Roman', 'Yu Mincho', serif;
+  }
+}
+
+@utility font-mincho {
+  &body {
+    font-family: 'Hiragino Mincho ProN', 'Yu Mincho', YuMincho, Georgia, serif;
+  }
+}
+
+@utility table-scroll {
+  /* ===== 表: editorial — soft border + accent thead ===== */
+  /* 多列表（ふるい分け 9 列等）はモバイル 375px で画面外へはみ出し右端が読めない。
+     MDX の table は .table-scroll でラップされる（docs/[...slug]/page.tsx）ので、
+     **外側の余白と幅はラッパーが持つ**。表自身に min-width は付けない —— 実測（375px）で
+     11 列表は min-width の有無に関わらず 737px 溢れる（元から収まらない＝これが直したい表）一方、
+     3〜4 列表は min-width:max-content を付けると 700〜950px 溢れて横スクロールを強制されてしまう
+     （付けなければ 0px で折り返して収まる）。収まる表は従来どおり折り返させる。 */
+  .prose-blog & {
+    @apply mx-4 my-6;
+    width: calc(100% - 2rem);
+    overflow-x: auto;
+    overscroll-behavior-x: contain; /* 端まで来てもページ全体が横に動かない */
+    /* 横にはみ出す表の「続きがある」手がかり: 右端（未読側）にだけ影を出し、
+       スクロールで端に着くと消える（background-attachment: local の定番）。実測（390px）で
+       4 列以上の規格表は右端が切れて見え、スクロールできることが伝わらなかった。 */
+    background:
+      linear-gradient(to right, var(--paper) 30%, transparent) left / 40px 100%
+        no-repeat local,
+      linear-gradient(to left, var(--paper) 30%, transparent) right / 40px 100%
+        no-repeat local,
+      linear-gradient(to right, rgba(0, 0, 0, 0.14), transparent) left / 14px
+        100% no-repeat scroll,
+      linear-gradient(to left, rgba(0, 0, 0, 0.14), transparent) right / 14px
+        100% no-repeat scroll;
+  }
+  @media (max-width: 576px) {
+    /* Phase A: 内包要素フルブリード化（カード内 padding いっぱいに広げる）。
+       表はラッパーが余白と幅を持つので、フルブリード化もラッパー側に当てる。 */
+    .prose-blog & {
+      margin-left: 0;
+      margin-right: 0;
+      width: 100%;
+    }
+  }
+}
 
 /* 既定の border 色をエディトリアル token に向ける。
    Tailwind preflight は color クラス未指定の border-* を gray-200 固定にするため、
@@ -250,543 +962,6 @@
       transition-duration: 0.01ms !important;
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
-    }
-  }
-}
-
-@layer components {
-  /* ===== nav-card-title: サイドバー・カード見出し共通 ===== */
-  .nav-card-title {
-    font-size: var(--font-size-ui-title);
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    margin-bottom: 8px;
-  }
-
-  /* ===== card-interactive: クリック可能カードの hover 演出（影＋2px 浮き）=====
-     2026-07 Soft Editorial。演出は「影の深化＋translateY(-2px)」まで。
-     scale・色反転・長い duration は禁止（design-system §8）。reduced-motion は上の base で無効化。 */
-  .card-interactive {
-    transition:
-      box-shadow var(--dur-base) var(--ease-soft),
-      transform var(--dur-base) var(--ease-soft),
-      border-color var(--dur-base) var(--ease-soft);
-  }
-  .card-interactive:hover {
-    box-shadow: var(--shadow-card-hover);
-    transform: translateY(-2px);
-  }
-
-  /* キーボード操作の現在位置を全UIで揃える共通フォーカス表現。
-     `focus-visible` のみで発火させ、マウスクリック時の不要なリングを避ける。 */
-  .focus-ring {
-    outline: 2px solid transparent;
-    outline-offset: 2px;
-  }
-  .focus-ring:focus-visible {
-    outline-color: var(--accent);
-    box-shadow:
-      0 0 0 2px var(--bg),
-      0 0 0 4px color-mix(in srgb, var(--accent) 70%, transparent);
-  }
-
-  /* アコーディオン開閉シェブロン（DisclosureChevron）。開閉回転はここで行う
-     （.card-interactive 等と同じく見た目を集約）。閉=右向き、親 details[open] で 90°回転。
-     FAQCard・CurriculumList（テキスト章）＋ MDX 記事内の素の <details> 共通。
-     ※ 旧コメントの「Tailwind の transform 変種が効かないため」は 2026-08-20 の実測で誤りと判明。
-        group-open:rotate-90 は正常に生成・適用される。ここに置く理由は MDX 側の <details> に
-        class を付けられないことで、Tailwind の制約ではない。 */
-  .disclosure-chevron {
-    transition: transform var(--dur-base) var(--ease-soft);
-  }
-  details[open] > summary .disclosure-chevron {
-    transform: rotate(90deg);
-  }
-
-  /* 横スクロール カードレール（キャリア等の二次セクションを全件縦積みせず畳む）。
-     全カテゴリ共通（CareerSection）。scroll-snap で1枚ずつ吸着し、カード幅を
-     clamp(…,80%,288px) にして常に次カードを覗かせる＝「まだ先がある」の主シグナル。
-     右端の subtle フェードで補強（左端は sharp＝snap-align:start の focus 位置を潰さない）。
-     overflow-x/scroll-snap は本 build で健全（transform 変種も 2026-08-20 実測で健全）。
-     カードは flex 既定の align-items:stretch で等高になる。 */
-  .card-rail {
-    display: flex;
-    gap: 1rem;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    padding-bottom: 0.75rem; /* カード影のクリップ防止（overflow-y も auto 化するため） */
-    -webkit-mask: linear-gradient(90deg, #000 calc(100% - 24px), transparent);
-            mask: linear-gradient(90deg, #000 calc(100% - 24px), transparent);
-    /* スクロールバーは非表示（覗き＋右端フェード＋左右矢印が「先がある」の主シグナル。
-       常時表示の横バーは冗長・下部に無用な帯を生むため隠す。スクロール機能自体は維持）。 */
-    scrollbar-width: none; /* Firefox */
-  }
-  .card-rail::-webkit-scrollbar {
-    display: none; /* Chrome / Safari / Edge */
-  }
-  .card-rail > * {
-    scroll-snap-align: start;
-    flex: 0 0 clamp(240px, 80%, 288px);
-  }
-  @media (min-width: 640px) {
-    .card-rail > * {
-      flex-basis: 288px;
-    }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .card-rail {
-      scroll-behavior: auto;
-    }
-  }
-
-  /* 再利用可能なカード外観。構造は React、見た目はこの層に集約する。 */
-  .card-surface-content {
-    background: var(--paper);
-    border: 1px solid var(--rule-soft);
-    border-radius: var(--radius-card-content);
-    box-shadow: var(--shadow-card-content);
-  }
-
-  .card-surface-section {
-    background: var(--paper);
-    border: 1px solid var(--rule-soft);
-    border-radius: var(--radius-card-section);
-    box-shadow: var(--shadow-card-section);
-  }
-
-  /* note ヒーロー CTA のボタン。hover はインライン style では書けないためここに集約
-     （トークンは --hero-cta-* ＝テーマ非追従・背景イラスト上の固定色）。 */
-  .hero-cta-button {
-    background: var(--hero-cta-button);
-    box-shadow:
-      inset 0 -3px 0 rgb(0 0 0 / 0.18),
-      0 2px 8px rgb(0 0 0 / 0.25);
-  }
-  .group:hover .hero-cta-button {
-    background: var(--hero-cta-button-hover);
-  }
-
-  .hero-overlay {
-    background: linear-gradient(
-      to bottom,
-      var(--hero-overlay-top),
-      var(--hero-overlay-mid),
-      var(--hero-overlay-bottom)
-    );
-  }
-
-  .hero-ink { color: var(--hero-ink); }
-  .hero-ink-soft { color: var(--hero-ink-soft); }
-  .hero-rule { background: var(--hero-rule); }
-  .hero-shadow-soft { text-shadow: var(--hero-shadow-soft); }
-  .hero-shadow-strong { text-shadow: var(--hero-shadow-strong); }
-
-  /* ===== prose-blog: kakkom から継承 ===== */
-  .prose-blog {
-    @apply prose prose-gray dark:prose-invert max-w-none;
-  }
-
-  /* 本文: font-size 16px / line-height 1.8 / weight 500（中太）。
-     2026-07: 和文可読性のため letter-spacing 0.03em を追加（0.02〜0.05em ベストプラクティス内）。 */
-  .prose-blog {
-    font-size: var(--font-size-body);
-    line-height: 1.8;
-    font-weight: 500;
-    letter-spacing: 0.03em;
-    text-autospace: normal;
-  }
-
-  /* コード・数式はトラッキングをリセット（等幅・記号の整列を崩さない） */
-  .prose-blog :not(pre) > code,
-  .prose-blog pre,
-  .prose-blog pre code,
-  .prose-blog .katex {
-    letter-spacing: normal;
-    text-autospace: no-autospace;
-  }
-
-  /* 段落: 参考サイト準拠 line-height 1.8（p+pでのみ間隔をとる） */
-  .prose-blog p {
-    line-height: 1.8;
-  }
-  .prose-blog p + p {
-    margin-top: 1.5em;
-  }
-
-  /* 箇条書き: Zenn実測値に準拠（line-height 1.7、margin 1.4rem） */
-  .prose-blog ul,
-  .prose-blog ol {
-    margin: 1.4rem 0;
-    line-height: 1.7;
-  }
-  .prose-blog ul {
-    padding-left: 1.8em;
-  }
-  .prose-blog ol {
-    padding-left: 1.7em;
-  }
-  .prose-blog li {
-    margin: 0.4rem 0;
-    line-height: 1.7;
-  }
-  .prose-blog ul ul,
-  .prose-blog ul ol,
-  .prose-blog ol ul,
-  .prose-blog ol ol {
-    margin: 0.2em 0;
-  }
-  .prose-blog ol p,
-  .prose-blog ul p {
-    margin: 0;
-  }
-
-  /* 原典番号付き列挙（本文に (1)(2)/①… が既にある転記リスト）: disc/circle マーカーを抑制し、
-     原典の番号を唯一のマーカーにする（二重マーカー回避）。MDX 側で <div className="list-plain"> ラップ（opt-in）。
-     入れ子（①… など）の字下げは維持。details 内の list-disc list-inside（.prose-blog details ul）にも効くよう
-     詳細度 (0,2,1) > (0,1,2) で上書きする。 */
-  .prose-blog .list-plain ul {
-    list-style: none;
-    padding-left: 0;
-  }
-  .prose-blog .list-plain ul ul {
-    padding-left: 1.25em;
-  }
-
-  /* 見出し直後の段落: Zenn実測値0.3emでほぼ密着させる */
-  .prose-blog h1 + p,
-  .prose-blog h2 + p,
-  .prose-blog h3 + p,
-  .prose-blog h4 + p,
-  .prose-blog h5 + p,
-  .prose-blog h6 + p {
-    margin-top: 0.3em;
-  }
-
-  /* Callout 内の最終段落の margin-bottom をリセット（prose の 1.25em が外側 p-4 と合算されて下余白が過大になるのを防ぐ）
-     top 側はタイトルが絶対配置（-top-2）で外枠に重なっており、prose の margin-top がタイトルとのクリアランスを確保しているため残す */
-  .callout-body > p:last-child {
-    margin-bottom: 0;
-  }
-
-  /* リンク: editorial アンダーライン（半透明 accent + offset 4px、hoverで濃く）。
-     2026-07: 下線色を accent 由来の color-mix に統一し、accent 変更へ自動追従（旧: 生 rgba の light/dark 2 定義）。 */
-  .prose-blog a {
-    color: var(--accent);
-    text-decoration: underline;
-    text-decoration-color: color-mix(in srgb, var(--accent) 38%, transparent);
-    text-decoration-thickness: 1px;
-    text-underline-offset: 4px;
-  }
-  .prose-blog a:hover {
-    text-decoration-color: var(--accent);
-  }
-
-  /* 見出し共通: 行間 + 和文プロポーショナル詰め（palt）。
-     palt で仮名・約物を詰め、正のトラッキングで呼吸を戻す（游ゴシック/ヒラギノ対応）。 */
-  .prose-blog h1,
-  .prose-blog h2,
-  .prose-blog h3,
-  .prose-blog h4 {
-    @apply leading-snug;
-    font-feature-settings: "palt" 1;
-  }
-
-  /* h1: ページタイトル — 参考サイト(sidejobearn)に合わせゴシック・太さ700・行間1.4。
-     2026-06-26: 旧 mincho serif（明朝見出し）を廃止し本文と同じゴシックに統一。 */
-  .prose-blog h1 {
-    font-weight: 700;
-    color: var(--ink);
-    font-size: var(--font-size-h1);
-    line-height: 1.4;
-    letter-spacing: 0.02em;
-    margin: 0 0 0.9em;
-    padding-bottom: 0;
-    border-bottom: none;
-    max-width: none;
-  }
-
-  /* h2: セクション区切り — ゴシック・太さ700・行間1.4、装飾なし */
-  .prose-blog h2 {
-    font-weight: 700;
-    color: var(--ink);
-    font-size: var(--font-size-h2);
-    line-height: 1.4;
-    letter-spacing: 0.02em;
-    margin: 2.8em 0 0.8em;
-    padding: 0;
-    border-left: none;
-  }
-
-  /* h3: サブセクション — 中間色の左アクセントバー（ゴシック・太さ700） */
-  .prose-blog h3 {
-    @apply font-bold;
-    color: var(--ink);
-    font-size: var(--font-size-h3);
-    line-height: 1.4;
-    @apply mb-4 mt-12 pl-4 py-1;
-    @apply border-l-4;
-    border-left-color: var(--accent);
-    letter-spacing: 0.02em;
-  }
-
-  /* h4: 小見出し — 細いグレーの左アクセント */
-  .prose-blog h4 {
-    @apply text-lg font-semibold;
-    color: var(--ink-body);
-    @apply mb-3 mt-8 pl-3;
-    @apply border-l-2;
-    border-left-color: var(--rule-soft);
-    letter-spacing: 0.02em;
-  }
-
-  /* ===== フォントファミリー切替（opt-in）=====
-     2026-04-22 Claude Design ハンドオフ追加。body に以下のクラスを付けると切替可能。
-     2026-04-26 #84 LCP 改善で Source Serif 4 / Noto Serif JP を削除。OS 標準の serif/mincho に集約。
-     デフォルトは Sans（Inter + Noto Sans JP）。UI 露出は別 PR で検討。 */
-  body.font-serif-book {
-    font-family: Georgia, "Times New Roman", "Yu Mincho", serif;
-  }
-  body.font-mincho {
-    font-family: "Hiragino Mincho ProN", "Yu Mincho", YuMincho, Georgia, serif;
-  }
-
-  /* ===== 表: editorial — soft border + accent thead ===== */
-  /* 多列表（ふるい分け 9 列等）はモバイル 375px で画面外へはみ出し右端が読めない。
-     MDX の table は .table-scroll でラップされる（docs/[...slug]/page.tsx）ので、
-     **外側の余白と幅はラッパーが持つ**。表自身に min-width は付けない —— 実測（375px）で
-     11 列表は min-width の有無に関わらず 737px 溢れる（元から収まらない＝これが直したい表）一方、
-     3〜4 列表は min-width:max-content を付けると 700〜950px 溢れて横スクロールを強制されてしまう
-     （付けなければ 0px で折り返して収まる）。収まる表は従来どおり折り返させる。 */
-  .prose-blog .table-scroll {
-    @apply mx-4 my-6;
-    width: calc(100% - 2rem);
-    overflow-x: auto;
-    overscroll-behavior-x: contain; /* 端まで来てもページ全体が横に動かない */
-    /* 横にはみ出す表の「続きがある」手がかり: 右端（未読側）にだけ影を出し、
-       スクロールで端に着くと消える（background-attachment: local の定番）。実測（390px）で
-       4 列以上の規格表は右端が切れて見え、スクロールできることが伝わらなかった。 */
-    background:
-      linear-gradient(to right, var(--paper) 30%, transparent) left / 40px 100% no-repeat local,
-      linear-gradient(to left, var(--paper) 30%, transparent) right / 40px 100% no-repeat local,
-      linear-gradient(to right, rgba(0, 0, 0, 0.14), transparent) left / 14px 100% no-repeat scroll,
-      linear-gradient(to left, rgba(0, 0, 0, 0.14), transparent) right / 14px 100% no-repeat scroll;
-  }
-  .prose-blog table {
-    @apply my-0 text-sm rounded-card-content overflow-hidden;
-    border: 1px solid var(--rule-soft);
-    margin-inline: 0;
-    width: 100%;
-  }
-
-  .prose-blog thead {
-    background: var(--accent-fill);
-  }
-
-  .prose-blog thead th {
-    @apply font-semibold py-3 px-4;
-    color: var(--accent);
-    border-bottom: 1px solid var(--rule-soft);
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: var(--font-size-xsmall);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-  }
-
-  .prose-blog tbody td {
-    @apply py-2.5 px-4;
-    color: var(--ink-body);
-    border-bottom: 1px solid var(--rule-soft);
-    font-size: 1em;
-  }
-
-  /* MDX 表の最初列 = ラベル列という慣習に基づき、デフォルトで折り返さない。
-     例外（最初列に長文が来る表）は対象 td に opt-out クラスを付与するか
-     <Nowrap> を中立列で使う。詳細は CLAUDE.md / Nowrap コンポーネント README 参照。 */
-  .prose-blog table thead th:first-child,
-  .prose-blog table tbody td:first-child {
-    white-space: nowrap;
-  }
-
-  .prose-blog tbody tr:last-child td {
-    border-bottom: none;
-  }
-
-  /* 2026-07: 行 hover を accent-fill 由来の color-mix に統一（accent 変更へ自動追従・light/dark 1 定義）。 */
-  .prose-blog tbody tr:hover {
-    background: color-mix(in srgb, var(--accent-fill) 55%, transparent);
-  }
-
-  /* ===== details: editorial accent ===== */
-  .prose-blog details {
-    @apply mx-4 my-6 rounded-card-content overflow-hidden;
-    border: 1px solid var(--rule-soft);
-    background: var(--paper);
-  }
-
-  .prose-blog details[open] {
-    background: var(--paper);
-  }
-
-  .prose-blog details summary {
-    @apply cursor-pointer select-none py-3.5 px-5 font-bold text-base list-none transition-colors;
-    color: var(--accent);
-  }
-  .prose-blog details summary:hover {
-    background: var(--accent-fill);
-  }
-
-  .prose-blog details summary::-webkit-details-marker {
-    display: none;
-  }
-
-  /* 開閉アイコン: 細線シェブロン（右向き→開くと90°回転）。DisclosureChevron.tsx と同一 path の
-     mask（content グリフ差替えでなく回転式に統一・2026-07）。色は summary の currentColor(--accent) を継承。 */
-  .prose-blog details summary::before {
-    content: "";
-    @apply mr-1.5 inline-block align-middle;
-    width: 0.75em;
-    height: 0.75em;
-    background-color: currentColor;
-    -webkit-mask: var(--disclosure-chevron) no-repeat center / contain;
-    mask: var(--disclosure-chevron) no-repeat center / contain;
-    transition: transform 0.2s;
-  }
-
-  .prose-blog details[open] summary::before {
-    transform: rotate(90deg);
-  }
-
-  .prose-blog details[open] summary {
-    border-bottom: 1px solid var(--rule-soft);
-  }
-
-  .prose-blog details > :not(summary):not([data-callout]):not([data-spec-sheet-list]) {
-    @apply px-5;
-  }
-
-  /* bordered components inside details: margin で外枠から離す（自身の padding を尊重） */
-  .prose-blog details > [data-callout],
-  .prose-blog details > [data-spec-sheet-list] {
-    @apply mx-5;
-  }
-
-  .prose-blog details ol {
-    @apply list-decimal list-inside;
-  }
-  .prose-blog details ol > li {
-    padding-left: 1.2em;
-    text-indent: -1.2em;
-  }
-
-  .prose-blog details ul {
-    @apply list-disc list-inside;
-  }
-
-  .prose-blog details > :not(summary):first-of-type {
-    @apply pt-4;
-  }
-
-  .prose-blog details > :not(summary):last-child {
-    @apply pb-4;
-  }
-
-  /* ===== blockquote: editorial soft rule ===== */
-  .prose-blog blockquote {
-    @apply mx-4 my-6 pl-5 py-2 pr-4;
-    border-left: 3px solid var(--rule-soft);
-    background: transparent;
-    color: var(--ink-muted);
-    font-style: italic;
-  }
-
-  .prose-blog blockquote p {
-    @apply mb-0;
-  }
-
-  /* ===== code: インラインコード — accent fill */
-  .prose-blog :not(pre) > code {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 0.92em;
-    padding: 1px 6px;
-    border-radius: var(--radius-card-inline);
-    background: var(--accent-fill);
-    color: var(--accent);
-    border: 1px solid var(--rule-soft);
-  }
-
-  .prose-blog :not(pre) > code::before,
-  .prose-blog :not(pre) > code::after {
-    content: none;
-  }
-
-  /* ===== pre: コードブロック ===== */
-  .prose-blog pre {
-    @apply mx-4 my-6 rounded-card-content;
-    border: 1px solid var(--rule-soft);
-    /* 長い行はブロック内で横スクロールさせる。基準類の章記事は原本の版面を保った表を
-       コードブロックで出すため、これが無いとページ全体が横に伸びる（実測 302px はみ出し）。
-       多列データ表を .table-scroll で包むのと同じ考え方で、内容を削らず到達性だけを確保する。 */
-    overflow-x: auto;
-    max-width: 100%;
-  }
-
-  /* ========================================
-   * モバイル最適化 (≤576px) — Zenn 準拠
-   * Phase 0: 本文 font-size を 16px に
-   * Phase A: table/blockquote/pre/details のフルブリード化
-   * Phase B: 見出し font-size を em で縮小
-   * Phase C-1: line-height を 1.8 に
-   * ======================================== */
-  @media (max-width: 576px) {
-    /* Phase 0 + C-1: 本文 */
-    .prose-blog {
-      font-size: 16px;
-      line-height: 1.8;
-    }
-    .prose-blog p {
-      line-height: 1.8;
-    }
-
-    /* Phase B: 見出し — em 単位で本文サイズ比例 */
-    .prose-blog h1 {
-      font-size: 1.6em;
-    }
-    .prose-blog h2 {
-      font-size: 1.4em;
-    }
-    .prose-blog h3 {
-      font-size: 1.2em;
-    }
-
-    /* Phase A: 内包要素フルブリード化（カード内 padding いっぱいに広げる）。
-       表はラッパーが余白と幅を持つので、フルブリード化もラッパー側に当てる。 */
-    .prose-blog .table-scroll {
-      margin-left: 0;
-      margin-right: 0;
-      width: 100%;
-    }
-    .prose-blog blockquote {
-      margin-left: 0;
-      margin-right: 0;
-    }
-    .prose-blog pre {
-      margin-left: 0;
-      margin-right: 0;
-    }
-    /* 設問カード（details）はモバイルで真のフルブリード化。記事カードの横 padding（--article-gutter-sp）
-       を負マージンで相殺してカード端いっぱいに広げ、内側 padding を同値の単層にする。
-       旧: カード 16px + details 内 20px の二重（設問本文が端から 36px）→ 単層 16px。 */
-    .prose-blog details {
-      margin-left: calc(-1 * var(--article-gutter-sp));
-      margin-right: calc(-1 * var(--article-gutter-sp));
-      border-left: 0;
-      border-right: 0;
-      border-radius: 0;
-    }
-    .prose-blog details > summary,
-    .prose-blog details > :not(summary):not([data-callout]):not([data-spec-sheet-list]) {
-      padding-left: var(--article-gutter-sp);
-      padding-right: var(--article-gutter-sp);
     }
   }
 }
