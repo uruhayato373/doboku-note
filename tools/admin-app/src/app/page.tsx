@@ -93,7 +93,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ m
         )}
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 12 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 12, marginTop: 12 }}>
         <div className="card" style={{ margin: 0 }}>
           <h2>チャネル別の販売額</h2>
           <Bars rows={v.channels} />
