@@ -306,6 +306,8 @@
     "coconala-talkroom": "node scripts/coconala-talkroom.mjs",
     "coconala-dm": "node scripts/coconala-dm.mjs",
     "check-admin-ui-debt": "node scripts/check-admin-ui-debt.mjs",
+    "check-shadcn-parity": "node scripts/check-shadcn-parity.mjs",
+    "sync-shadcn-reference": "node scripts/sync-shadcn-reference.mjs",
     "coconala-pause": "node scripts/coconala-pause.mjs",
     "coconala-profile": "node scripts/coconala-profile.mjs",
     "coconala-publish": "node scripts/coconala-publish.mjs",

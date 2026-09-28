@@ -52,8 +52,9 @@ const LEGACY_SPEC_SHEET_PATTERN = /--color-(ink|border|brand)|JetBrains Mono|bor
 // --- Check 6: transition-all should be narrowed to the properties that actually move ---
 const TRANSITION_ALL_PATTERN = /\btransition-all\b/;
 
-// Storybook ファイルは除外
-const EXCLUDE_PATTERN = /\.stories\.tsx$/;
+// Storybook ファイルと、shadcn/ui 公式のまま使う管理画面の部品（とその参照の保存物）は除外。
+// 後者はサイトのトークン規約ではなく公式どおりかを check-shadcn-parity が見る（transition-all・rounded-xl も公式の書き方）。
+const EXCLUDE_PATTERN = /\.stories\.tsx$|^tools\/admin-app\/src\/components\/ui\/|^\.claude\/config\/shadcn-reference\//;
 const UI_FILE_PATTERN = /\.(tsx|css)$/;
 
 // 誤検出を避けるための除外パターン（コメント行、import 文）

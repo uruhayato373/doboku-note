@@ -15,7 +15,8 @@
     "docs/**",
     ".obsidian/**",
     "public/**",
-    "out/**"
+    "out/**",
+    ".claude/config/shadcn-reference/**"
   ],
   "ignoreBinaries": [
     "cmd.exe",
