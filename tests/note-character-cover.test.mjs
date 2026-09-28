@@ -7,7 +7,7 @@ import { mkdtempSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import sharp from 'sharp';
 import { readFileSync } from 'node:fs';
-import { coverCopy, headlineLayout, resolveCoverExam, renderNoteCharacterCover, coverPoseCandidates, assignCoverPoses, coverFitIssues } from '../scripts/lib/note-character-cover.mjs';
+import { coverCopy, headlineLayout, resolveCoverExam, renderNoteCharacterCover, coverPoseCandidates, assignCoverPoses, coverFitIssues, COVER_LAYOUTS } from '../scripts/lib/note-character-cover.mjs';
 import { loadNoteCoverInventory } from '../scripts/lib/note-cover-inventory.mjs';
 import { MAGAZINES } from '../scripts/generate-magazine-covers.mjs';
 
@@ -70,7 +70,8 @@ test('combined civil directory does not accidentally select the second-grade col
   assert.throws(() => resolveCoverExam('unknown', tokens), /解決できません/);
 });
 
-test('actual article and magazine renders preserve the main text in both center crops', async () => {
+// 2026-09-28 から記事・マガジンとも中央固定をやめ、同じ左寄せPOPレイアウトを使う。
+test('actual article and magazine renders keep every text node inside the measured safe area', async () => {
   const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
   for (const input of [
     { cover: { headline: '工程管理', leadIn: '1級土木', hi: '予想', hiSuffix: 'テーマ' }, examKey: 'civil-1', palette: { band: '#1E73C8' } },
@@ -80,12 +81,14 @@ test('actual article and magazine renders preserve the main text in both center 
     const metadata = await sharp(result.buffer).metadata();
     assert.equal(metadata.width, 1280); assert.equal(metadata.height, 670);
     assert.ok(result.measuredHeadlineNodes.length > 0);
-    for (const node of result.measuredHeadlineNodes) {
-      assert.ok(node.left >= 325 && node.left + node.width <= 955);
-      assert.ok(node.top >= 227 && node.top + node.height <= 443);
+    const safe = COVER_LAYOUTS[input.magazine ? 'magazine' : 'article'].safe;
+    for (const node of result.measuredTextNodes) {
+      assert.ok(node.left >= safe.x && node.left + node.width <= safe.x + safe.width, node.role);
+      assert.ok(node.top >= safe.y && node.top + node.height <= safe.y + safe.height, node.role);
     }
     assert.match(result.sourceSha256, /^[a-f0-9]{64}$/);
   }
+  assert.deepEqual(COVER_LAYOUTS.article, COVER_LAYOUTS.magazine);
 });
 
 test('all nine usable waist poses keep hands and props clear of text and the benefit band', async () => {
@@ -97,9 +100,9 @@ test('all nine usable waist poses keep hands and props clear of text and the ben
     });
     assert.equal(result.pose, pose);
     const box = result.characterBox;
-    assert.ok(box.left >= 750 && box.left + box.width <= 1030, pose);
-    assert.ok(box.top + box.height <= 502, pose);
-    assert.ok(result.measuredHeadlineNodes.every(n => n.left + n.width < box.left), pose);
+    const { safe } = COVER_LAYOUTS.article;
+    assert.ok(box.left >= safe.x && box.left + box.width <= safe.x + safe.width, pose);
+    assert.ok(result.measuredTextNodes.every(n => n.left + n.width < box.left), pose);
   }
   await assert.rejects(renderNoteCharacterCover(root, { cover: { headline: '注意点', character: 'surprised' },
     examKey: 'civil-1', palette: { band: '#1E73C8' } }), /要修正・未確認/);
@@ -131,4 +134,12 @@ test('article, magazine and batch generators share one inventory so a single rer
     assert.doesNotMatch(source, /ogp-templates\.mjs|renderTemplate\(|v4FitIssues/, file);
     assert.match(source, /note-cover-inventory\.mjs/, file);
   }
+});
+
+test('headlines that fit on one line are not wrapped just to be larger', () => {
+  const measure = (text, size) => Array.from(text).length * size; // 全角想定の等幅近似
+  const one = headlineLayout('管理技術者の要件', measure, COVER_LAYOUTS.article.headline);
+  assert.deepEqual(one.lines, ['管理技術者の要件']);
+  const short = headlineLayout('工程管理', measure, COVER_LAYOUTS.article.headline);
+  assert.equal(short.size, 100, '短い見出しは最大サイズで 1 行');
 });

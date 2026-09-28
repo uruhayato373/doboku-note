@@ -44,7 +44,7 @@
   ],
   "layout": {
     "原資料PDF": "資料ごとの正本を1か所で管理。書籍/{referenceId}__{短い書名}/{source,pages,ocr,crops}/ に原本・画像・文字起こし・校正記録・図を同居させる。共通仕様書も原本隣接の同名フォルダに pages/text/ocr を置く。",
-    "制作物": "人が使う成果物。note配布PDF / IGレンダー / SNS音声動画（reels wav・mp4、YouTube Shorts mp4）/ 動画レンダー / Kindle / ココナラ / マガジンカバー。",
+    "制作物": "人が使う成果物。note配布PDF / IGレンダー / SNS音声動画（reels wav・mp4、YouTube Shorts mp4）/ 動画レンダー / Kindle / ココナラ / マガジンカバー / noteカバー確認用一式。",
     "アーカイブ": "repo/（repo-archive）と 旧R2/（legacy-r2-orphan の SNS 素材）。"
   },
   "groups": [
@@ -260,6 +260,23 @@
         "scripts/note-magazine-create.mjs"
       ],
       "reason": "note マガジンのカバー。マガジン作成は人が手元で行う。CI が書く記事カバー（note-cover-png）とは別物。"
+    },
+    {
+      "id": "note-cover-pop-preview",
+      "status": "active",
+      "audience": "human",
+      "match": {
+        "pathRegex": "^\\.tmp/note-cover-pop-all/(?:content/note/.+\\.png|manifest\\.json|pop-image\\.json|qa-report\\.json|qa-contact-sheet\\.png)$"
+      },
+      "vaultDir": "制作物/noteカバー/POP版",
+      "keyFrom": "stripPrefix:.tmp/note-cover-pop-all/",
+      "regenerable": true,
+      "generator": "npm run note-character-covers -- --output-root .tmp/note-cover-pop-all",
+      "requiredBy": [
+        "新レイアウトの人による全件確認",
+        "note-cover-rollout の差し替え前確認"
+      ],
+      "reason": "新しいnoteカバーテンプレートの全件確認用一式。公開前に人が一覧確認し、記事とマガジンの差し替え対象を端末間で共有するためDriveへ置く。CIが使う運用中の記事カバー正本とは別の確認用成果物。"
     },
     {
       "id": "repo-archive",

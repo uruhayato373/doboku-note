@@ -65,6 +65,7 @@ test('resolveVaultRoot: win32 は G: と %USERPROFILE% の候補を試し、無�
 test('vaultRelFor: stripPrefix / repoRelative は vaultDir の下に落ち、\\ を残さず NFC になる', () => {
   assert.equal(vaultRelFor('content/note/技術士総監/x/pdf/a.pdf', dgroup('note-delivery-pdf')), '制作物/note配布PDF/技術士総監/x/pdf/a.pdf');
   assert.equal(vaultRelFor('.tmp/video-render/pack1/video.mp4', dgroup('video-render-artifact')), '制作物/動画レンダー/pack1/video.mp4');
+  assert.equal(vaultRelFor('.tmp/note-cover-pop-all/content/note/技術士総監/x/img/cover.png', dgroup('note-cover-pop-preview')), '制作物/noteカバー/POP版/content/note/技術士総監/x/img/cover.png');
   assert.equal(vaultRelFor('.claude/state/ocr-audit/x.json', dgroup('repo-archive')), 'アーカイブ/repo/.claude/state/ocr-audit/x.json');
   const nfd = 'content/sources/textbook/\u30d8\u309a\u30fc\u30b7\u3099/a.pdf'; // ページ（NFD）
   const out = vaultRelFor(nfd, dgroup('textbook-source-pdf'));
@@ -104,6 +105,7 @@ test('driveGroupFor: 台帳・原稿・サイト図版を巻き込まない', ()
   assert.equal(driveGroupFor('content/sources/books/book-id__書名/book-manifest.json', DCFG), null);
   assert.equal(driveGroupFor('content/site/civil-construction-1/guide-x/img/fig.png', DCFG), null);
   assert.equal(driveGroupFor('content/note/技術士総監/x/img/cover.png', DCFG), null, 'note カバーは CI が書く R2 側');
+  assert.equal(driveGroupFor('.tmp/note-cover-pop-all/content/note/技術士総監/x/img/cover.png', DCFG).id, 'note-cover-pop-preview');
   assert.equal(driveGroupFor('content/sns/instagram/x/reels/a.png', DCFG), null, 'reels の中間 PNG はどの group にも属さない（再生成）');
   assert.equal(driveGroupFor('content/sns/instagram/x/reels/wav/a.wav', DCFG).id, 'sns-archived-media');
   assert.equal(driveGroupFor('content/sns/instagram/x/reels/video.mp4', DCFG).id, 'sns-archived-media');

@@ -4,7 +4,7 @@ description = "note 記事のカバー frontmatter（cover: ブロック・leadI
 developer_instructions = """
 # Note Cover Writer Agent
 
-`content/note/**/article.md` の frontmatter に、カバー用の `cover:` ブロックを執筆する **Generator エージェント**。**構造は V4（crop-safe）の文言フィールド**＝タイトルを「leadIn → headline → hi+hiSuffix → benefit」に分解する（下記 V4 節）。**描画は 2026-09-17 から V5 キャラクターカバー**（[`note-cover-character-v5.md`](../knowledge/design-system/note-cover-character-v5.md)）で、同じフィールドをそのまま読む。V5 で効く制約: 主見出しは 96〜48px・最大 3 行で幅 394px（実測で入らなければ生成失敗・省略しない）、`hi+hiSuffix` は 1 行 388px、leadIn 584px、benefit 554px（いずれも 18px 未満になる長さは失敗）。判定は `npm run check-note-cover-fit`（実測）。人物ポーズは `cover.character`（ポーズ slug）で明示でき、未指定は内容から自動選択。G2「全幅バナー帯」（banner/chips/meta）は 2026-07-24 全量 V4 移行済みのレガシーで、新規に書かない。
+`content/note/**/article.md` の frontmatter に、カバー用の `cover:` ブロックを執筆する **Generator エージェント**。**構造は V4（crop-safe）の文言フィールド**＝タイトルを「leadIn → headline → hi+hiSuffix → benefit」に分解する（下記 V4 節）。**描画は V5 キャラクターPOPカバー**（[`note-cover-character-v5.md`](../knowledge/design-system/note-cover-character-v5.md)）で、同じフィールドをそのまま読む。V5 で効く制約: 主見出しは 100〜48px・最大 3 行で幅790px（1行で入るものは折り返さない。実測で入らなければ生成失敗・省略しない）、`hi+hiSuffix`・leadIn は1行760px、benefitは724px（いずれも18px未満になる長さは失敗）。記事とマガジンは同じ左寄せレイアウト。判定は `npm run check-note-cover-fit`（実測）。人物ポーズは `cover.character`（ポーズ slug）で明示でき、未指定は内容から自動選択。G2「全幅バナー帯」（banner/chips/meta）は 2026-07-24 全量 V4 移行済みのレガシーで、新規に書かない。
 
 > **READ FIRST（真実源）**:
 > - 現行描画・ポーズの使い分け・フィット制約 → [`.claude/knowledge/design-system/note-cover-character-v5.md`](../../.claude/knowledge/design-system/note-cover-character-v5.md)
@@ -51,12 +51,12 @@ developer_instructions = """
 
 V4 のコピー規則（G2 との違い）:
 
-- **banner を書かない**。代わりに **headline（主題 4〜8字・最重要）** と **benefit（読後価値 8〜15字）** を書く。V5 描画では headline を 96〜48px・最大 3 行で 394px 幅へ折り返し、入らなければ生成エラー（自動で省略しない。短い言い切りを最優先）。
+- **banner を書かない**。代わりに **headline（主題 4〜8字・最重要）** と **benefit（読後価値 8〜15字）** を書く。V5描画ではheadlineを100〜48px・最大3行で790px幅へ折り返し、入らなければ生成エラー（自動で省略しない。短い言い切りを最優先）。
 - **chips を書かない**（V4 では描画されない。指定すると警告）。chips に書いていた売り・中身は benefit 1 本に凝縮する。
 - **執筆者クレジット・meta（無料記事等）は描画されない**（資格情報は leadIn/qualifier が担う）。
 - `hi + hiSuffix` は合計 2〜7 字（数字・年度・分類。例 `680`+`問分析`）。
 - `leadIn` は資格・試験区分 8〜18字（例 `技術士 総監｜択一式` `1級土木｜第1次検定`）。
-- **visualPrompt / visualAsset は V5 では読まれない**（背景は資格別ブランド写真プール固定）。新規に書かない。
+- **visualPrompt / visualAsset は V5 では読まれない**（背景写真を使わない文字優先POP）。新規に書かない。
 - マガジン V4（`generate-magazine-covers.mjs` の spec）は `qualifier / magazineName / proof / benefit`。**価格・自動同期できない記事本数は画像へ入れない**。
 
 **長文の分解パターン（シリーズ物・8字に入らないとき）**: 長い descriptive 文をそのまま載せず、V4 の 4 スロットへ再配分する。落とすのではなく「識別に効く核だけを headline に、残りを他スロットに」移す。

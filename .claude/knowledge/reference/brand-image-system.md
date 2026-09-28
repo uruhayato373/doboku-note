@@ -22,7 +22,7 @@ title: ブランド画像システム（資格別・多フォーマット・色�
 | `pe-comprehensive` | 技術士（総合技術監理）※第一次も共有 | `#16365c` | 濃紺 |
 | `pe-construction` | 技術士（建設部門） | `#33356b` | 藍 |
 | `concrete-engineer` | コンクリート技士 | `#287a62` | 緑寄りティール |
-| `concrete-chief` | コンクリート主任技士 | `#0f6e6e` | ティール |
+| `concrete-chief` | コンクリート主任技士 | `#0f6e6e` | ティール（サイトOGP用。noteカバーは紫 `#6E3A8C`） |
 | `concrete-diagnosis` | コンクリート診断士 | `#6e3a8c` | 紫 |
 
 editorial 基調：`--accent #2a5f96` / `--ink #181a1f` / CTA=`--color-warn #d4a017`（琥珀）。（2026-07 Soft Editorial で accent を紺のまま 1 段明るく調整。写真の色ターゲットは `--exam-*` 側で不変のため OGP／カバー等の再生成は不要。）写真には青焼き（technical blueprint）線を淡く重ねるとサイトの図面モチーフと揃う。
@@ -33,7 +33,7 @@ editorial 基調：`--accent #2a5f96` / `--ink #181a1f` / CTA=`--color-warn #d4a
 
 | 原版 | 比率 | 生成サイズ目安 | 賄うフォーマット |
 |---|---|---|---|
-| **wide**（横長）| 2.4:1 | 2400×1000 | hero(2.4:1) / OGP(1.9:1) / note カバー(1.91:1) / ホームカード(16:9) |
+| **wide**（横長）| 2.4:1 | 2400×1000 | hero(2.4:1) / OGP(1.9:1) / ホームカード(16:9) |
 | **square**（近正方）| 1.2:1 | 1200×1000 | 広告バナー 300×250(1.2:1) / About 図版 / IG(1:1 は中央クロップ) |
 
 - **クロップ規約**：`object-cover` 中央。**重要被写体は中央〜やや広めに置く**（wide→16:9 は左右トリム、square→1:1 は左右トリム）。文字を置く"余白ゾーン"を上か下に確保。
@@ -46,7 +46,7 @@ editorial 基調：`--accent #2a5f96` / `--ink #181a1f` / CTA=`--color-warn #d4a
 | トップ hero | 2.4:1 | wide | `public/images/hero-home-v2.webp`（現行。`hero-home.webp` はロールバック用に保持） |
 | ホームカード | 16:9 | wide | `public/images/card-<category>.webp` |
 | OGP 背景 | 1.9:1 | wide | `.claude/config/ogp/backgrounds/<exam-key>.png` |
-| note カバー背景 | 1.91:1 | wide | **実装済み（2026-07-24 V4 → 2026-09-17 V5 キャラクターカバー）**: `generate-note-covers.mjs` / `generate-magazine-covers.mjs` が共有する `scripts/lib/note-character-cover.mjs` が `.claude/config/ogp/backgrounds/<exam-key>.png` を 1280×670 center-crop して背景に使う（civil-1-2 は civil-1 を流用）。記事は明色（写真 opacity .45＋白帯）・マガジンは濃色（写真 opacity .13＋fillBg 帯）で文字可読性を担保。個別 `visualAsset` の上書きは V5 で廃止（読まれない） |
+| note カバー | 1.91:1 | 写真プール対象外 | 2026-09-28から背景写真なしの文字優先POP。資格色・コピー・人物の正本は `note-cover-character-v5.md` と `note-cover-tokens.json` |
 | 広告バナー | 300×250 | square | `public/images/ads/<exam-key>-300x250.*`（自社ハウスバナー/ディスプレイ広告用の予備素材。サイト内の note CTA タイルは焼き込み画像を廃し `public/images/cta-bg/<exam>.webp` イラスト＋HTML 文字でデータ駆動＝`src/lib/exam-brand.ts`。2026-07）|
 
 ## 4. 生成→保存→反映パイプライン
@@ -75,7 +75,7 @@ editorial 基調：`--accent #2a5f96` / `--ink #181a1f` / CTA=`--color-warn #d4a
 
 ## 6. 運用メモ・未実装
 
-- **note カバーの写真化**：2026-09-17 の V5 キャラクターカバーで解決済み（全記事・全マガジンが資格別ブランド写真プールを背景に、先生の立ち絵を右側へ合成。`note-cover-character-v5.md`）。OGP の mono-tag とは別 renderer。
+- **note カバー**：2026-09-28 のV5文字優先POPでは写真プールを使わない。全記事・全マガジンを明るい色面・大きな左寄せ文字・右側の先生キャラクターで構成する（`note-cover-character-v5.md`）。OGPのmono-tagとは別renderer。
 - **広告 300×250**：AdSense 枠は Google 配信で自画像は載らない。本システムは**自社ハウスバナー/ディスプレイ広告クリエイティブ**用途を想定。
 - **pe-first-stage**：OGP は exam-key `pe-comprehensive` を共有。ホームカードのみ独自画像可。
 - **再生成トリガー**：背景差替時は OGP 全再生成（`npm run ogp -- --all --force`）。カバー/カードは対応スクリプトで再生成。

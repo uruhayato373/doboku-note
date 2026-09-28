@@ -43,13 +43,13 @@ note 公開用ドラフト（`content/note/`）のカバー画像（1280×670）
 
 過去 Phase で 5 種テンプレ（navy-white / dark-wood / red-line / blackboard / dark-grid）を併用していたが、2026-04-29 に T06 Mono Tag に統一（理由: SNS シェアでブランド一貫性を担保 + メンテ単純化）。**旧**テンプレの背景画像 (`assets/fonts/ogp-backgrounds/*.png`) は履歴として残置しているが現在は参照されない。新しい資格別 AI 背景は別系統で `.claude/config/ogp/backgrounds/<exam-key>.png|webp|jpg` に置き、`ogp-create.mjs` の `resolveBackgroundImage` が参照する（任意・未配置なら従来のオフホワイト+グリッドにフォールバック。下記「資格別 AI 背景」）。
 
-**note 記事・マガジンカバーは 2026-09-17 から V5 キャラクターカバー（本スキル外の `scripts/lib/note-character-cover.mjs`）が標準**。サイト OGP（`mono-tag`）とは別系統だが、背景は同じ資格別ブランド写真プール（`.claude/config/ogp/backgrounds/`）とフォント（本スキルの `assets/fonts/`）を共有する。値の真実源は [`.claude/knowledge/design-system/note-cover-tokens.json`](../../../../.claude/knowledge/design-system/note-cover-tokens.json)、V4 仕様は [`.claude/knowledge/design-system/note-cover-crop-safe-v4.md`](../../../../.claude/knowledge/design-system/note-cover-crop-safe-v4.md)（G2 レガシー仕様は [`note-cover.md`](../../../../.claude/knowledge/design-system/note-cover.md)）。
+**note 記事・マガジンカバーは V5文字優先POP（本スキル外の `scripts/lib/note-character-cover.mjs`）が標準**。サイトOGP（`mono-tag`）とは別系統で、背景写真は共有せず、フォント（本スキルの`assets/fonts/`）だけを共有する。値の真実源は [`.claude/knowledge/design-system/note-cover-tokens.json`](../../../../.claude/knowledge/design-system/note-cover-tokens.json)、現行レイアウトは [`note-cover-character-v5.md`](../../../../.claude/knowledge/design-system/note-cover-character-v5.md)、V4履歴は [`.claude/knowledge/design-system/note-cover-crop-safe-v4.md`](../../../../.claude/knowledge/design-system/note-cover-crop-safe-v4.md)（G2履歴は [`note-cover.md`](../../../../.claude/knowledge/design-system/note-cover.md)）。
 
 ## 全幅レイアウト（2026-06-16〜）
 
 mono-tag は **全幅レイアウト**。左右 72px パディング内に、**最上段の 1 行メタ（資格名 kicker＝左・30px 塗りチップ＋種別ピル＝右・テキストのみ）→ タイトル（縦中央寄せ）**を左寄せで積み、**ワードマークは右下へ従属配置**する。タイトルは `safetyWidth: 1010px`（`.claude/config/ogp/text.json`）に収まる最大フォント（上限 76px）で大きく描く。背景写真の上に淡スクリム、外周に資格別テーマ色 16px 外枠。**装飾ライン（旧・左上シアン/右下紺のアクセントバー）と資格名の ▶ マーカー・種別バッジの装飾アイコンは 2026-07-07 に撤去**（text-forward トレンド準拠。詳細は SSOT ogp-prompts.md の変更履歴）。旧レイアウト＝ワードマーク左上→カテゴリチップ→タイトルの縦積み（〜2026-07-07）。
 
-旧「中央 630×630 セーフティゾーン」制約は mono-tag では撤廃した（外部リンクカードでの可読性優先）。中央 1:1 クロップ耐性が必要な **note-cover-g2**（note 記事カバー）は引き続き中央セーフ幅 590px を厳守する別系統。背景・経緯は [`.claude/knowledge/reference/ogp-prompts.md`](../../../../.claude/knowledge/reference/ogp-prompts.md)「変更履歴」を参照。
+旧「中央630×630セーフティゾーン」制約はmono-tagと現行note V5の双方で撤廃した。noteの現行安全域は`note-cover-character-v5.md`を参照し、G2の中央クロップ前提を適用しない。背景・経緯は [`.claude/knowledge/reference/ogp-prompts.md`](../../../../.claude/knowledge/reference/ogp-prompts.md)「変更履歴」を参照。
 
 ## 資格別テーマ色（16px 外枠）
 
@@ -199,7 +199,7 @@ ogp:
 
 ## note カバー（兄弟スクリプト・V5 既定）
 
-`scripts/generate-note-covers.mjs` が `content/note/{slug}/img/cover.png`（1280×670）を出力する。**描画は 2026-09-17 から本スキルのテンプレではなく V5 キャラクターカバー**（`scripts/lib/note-character-cover.mjs`・SSOT [`note-cover-character-v5.md`](../../../../.claude/knowledge/design-system/note-cover-character-v5.md)）。本スキルが提供するのはフォント（`assets/fonts/`）と資格別ブランド写真プールだけ。
+`scripts/generate-note-covers.mjs` が `content/note/{slug}/img/cover.png`（1280×670）を出力する。**描画は本スキルのテンプレではなくV5文字優先POP**（`scripts/lib/note-character-cover.mjs`・SSOT [`note-cover-character-v5.md`](../../../../.claude/knowledge/design-system/note-cover-character-v5.md)）。本スキルからはフォント（`assets/fonts/`）だけを利用し、資格別ブランド写真プールは使わない。
 
 - コピーは frontmatter `cover:`（leadIn / headline / hi+hiSuffix / benefit）、無ければ `coverTitle`（1 行目=リード・2 行目=主見出し・3 行目=補足）、それも無ければ title。
 - 人物ポーズは `cover.character` の明示指定を最優先し、未指定は内容から自動選択（全件に割り当ててから絞るので 1 記事再生成でも同じポーズ）。
@@ -214,14 +214,14 @@ npm run check-note-cover-fit                      # 主見出し・リード・�
 npm run note-update-cover -- --list <file> --commit  # 公開済み記事の stale カバーをライブ差し替え（有料 paywall 保持・本文不触）
 ```
 
-> 主見出しは 96〜48px・最大 3 行で x=345〜739 の枠へ折り返す。入らない文言は**省略せず生成失敗**になる（`check-note-cover-fit` が同じ実測で commit 前に止める）。
+> 主見出しは 100〜48px・最大3行で幅790pxの枠へ折り返す（記事・マガジン共通。1行で入るものは折り返さない）。入らない文言は**省略せず生成失敗**になる（`check-note-cover-fit` が同じ実測で commit 前に止める）。
 
 ### `cover:` ブロック（V5 が読む frontmatter）
 
 ```yaml
 cover:
   leadIn: "1級土木施工管理技士 二次"   # リード（資格・試験区分）
-  headline: "安全管理"                 # 主見出し（最重要・96〜48px・最大 3 行）
+  headline: "安全管理"                 # 主見出し（最重要・100〜48px・最大3行・幅790px）
   hi: "完成答案"                       # 補足（hi+hiSuffix で 1 フレーズ）
   hiSuffix: "と添削例"
   benefit: "書き換えてそのまま使える"  # 訴求帯
@@ -257,4 +257,4 @@ cover:
 - 改行・フォント計算: `.claude/skills/conversion/ogp-create/scripts/lib/ogp-text.mjs`
 - エントリポイント: `.claude/skills/conversion/ogp-create/scripts/ogp-create.mjs`
 - note カバー: `scripts/generate-note-covers.mjs`（variant: crop-safe-v4=既定 / variant 無し cover:=G2 レガシー / cover: 無し=mono-tag）
-- note カバー V4 仕様: `.claude/knowledge/design-system/note-cover-crop-safe-v4.md`（SSOT）／ G2 レガシー: `note-cover.md` ／ トークン: `.claude/knowledge/design-system/note-cover-tokens.json`（値の真実源）
+- noteカバー現行V5: `.claude/knowledge/design-system/note-cover-character-v5.md`（SSOT）／V4・G2履歴: `note-cover-crop-safe-v4.md`・`note-cover.md`／トークン: `.claude/knowledge/design-system/note-cover-tokens.json`（値の真実源）
