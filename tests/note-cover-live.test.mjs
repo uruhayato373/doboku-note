@@ -1,6 +1,6 @@
 /**
  * note カバーの登録判定（scripts/lib/note-cover-live.mjs の planCoverWork）。
- * CI の check-note-cover-live と Mac の週次 note-cover-routine が同じ判定で動くので、ここで理由の振り分けを固定する。
+ * CI の check-note-sync と Mac の週次 note-sync-routine（マガジン）・lib/note-sync-plan（記事）が同じ判定で動くので、ここで理由の振り分けを固定する。
  */
 import { strict as assert } from 'node:assert';
 import test from 'node:test';

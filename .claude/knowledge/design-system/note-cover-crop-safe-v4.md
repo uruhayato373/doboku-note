@@ -374,8 +374,9 @@ Evaluatorは生成担当と分離する。
 ### 記事
 
 ```bash
-npm run note-update-cover -- --list .tmp/note-cover-v4-articles.txt
-npm run note-update-cover -- --list .tmp/note-cover-v4-articles.txt --commit
+# 2026-09-29 以降は Mac の週次 note-sync が自動で反映する。手で流すなら:
+npm run note-update-body -- --parts cover --list .tmp/note-cover-v4-articles.txt
+npm run note-update-body -- --parts cover --list .tmp/note-cover-v4-articles.txt --commit
 ```
 
 安全条件：

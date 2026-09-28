@@ -57,6 +57,7 @@ export const ADMIN_CHANNELS: readonly AdminChannel[] = [
       { href: '/content/note', label: '記事', match: '/content/note' },
       { href: '/content/magazines', label: 'マガジン', match: '/content/magazines' },
       { href: '/content/note-status', label: '公開状態', match: '/content/note-status' },
+      { href: '/content/note-sync', label: '反映', match: '/content/note-sync' },
       { href: '/gallery/note', label: '画像', match: '/gallery/note' },
     ],
   },

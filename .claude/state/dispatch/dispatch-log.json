@@ -1387,6 +1387,42 @@
       "commit": "0fb378655116",
       "verification": null,
       "note": "未着手のまま DN-0360 へ一本化（反映確認は note API の eyecatch）。管理画面・R2 移設の部分は運営者判断で不要"
+    },
+    {
+      "id": "DN-0269",
+      "at": "2026-09-29",
+      "task": "note の原稿と公開記事のずれ（本文145・タグ136・素材197）を解消し、古いずれを CI で止める検査を入れる",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "9a5043c0db4e",
+      "verification": null,
+      "note": "DN-0360（note の記事単位の同期）へ統合。未反映は Mac の週次 note-sync が 1 記事 1 回の更新で反映し、CI の check-note-sync が判定する"
+    },
+    {
+      "id": "DN-0277",
+      "at": "2026-09-29",
+      "task": "本文のバッククォートを【〇〇】へ直した note 257 本を再公開する",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "9a5043c0db4e",
+      "verification": null,
+      "note": "DN-0360（note の記事単位の同期）へ統合。未反映は Mac の週次 note-sync が 1 記事 1 回の更新で反映し、CI の check-note-sync が判定する"
+    },
+    {
+      "id": "DN-0316",
+      "at": "2026-09-29",
+      "task": "総監2本の冒頭パック CTA 除去を note の公開記事へ反映する",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "9a5043c0db4e",
+      "verification": null,
+      "note": "DN-0360（note の記事単位の同期）へ統合。未反映は Mac の週次 note-sync が 1 記事 1 回の更新で反映し、CI の check-note-sync が判定する"
     }
   ]
 }

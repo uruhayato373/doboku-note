@@ -281,7 +281,7 @@ src/config/doc-meta-index.json
 
 # note カバーの SVG は satori の中間生成物。V4 は背景写真を data:image base64 で丸ごと内包するため
 # 1 枚 1.5〜2.6 MiB になり、827 件 1,288.6 MiB（HEAD の 31%）を追跡していた。読むコードは 1 行も無く
-# （note-publish / note-update-cover / note-cover-gallery / note-lint / check-note-cover-fit /
+# （note-publish / note-update-body / note-cover-gallery / note-lint / check-note-cover-fit /
 # check-note-3set の 3点セットゲートは全て cover*.png のみを見る）、R2 にも同期されていない。
 # 描画デバッグで要るときは generate-note-covers.mjs --emit-svg で .tmp/note-covers/ へ出す。
 # 図版の figure-*.svg は本文が参照する原本なので巻き込まないこと（2026-08-21・DN-0111 Phase 2）。

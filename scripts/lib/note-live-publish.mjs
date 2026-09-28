@@ -16,7 +16,12 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
  * @param {string} noteId
  * @param {string} boundary 有料境界に使う H2 の先頭一致正規表現
  * @param {boolean} isPaid notePricing: paid のとき true
- * @param {{keepBoundary?: boolean, trialLineBottom?: boolean, membershipLock?: boolean, paidLineBottom?: boolean, screenshotPrefix?: string}} options
+ * @param {{keepBoundary?: boolean, trialLineBottom?: boolean, membershipLock?: boolean, paidLineBottom?: boolean, screenshotPrefix?: string,
+ *          preserveLines?: boolean, onSettings?: (page) => Promise<boolean>, report?: {reason?: string}}} options
+ *   preserveLines: 本文を触っていない更新（カバー・タグだけ）。有料境界も試し読みラインも動かさず、存在だけ確かめて更新する。
+ *     「更新する」が設定画面に既に出ていれば試し読みに入らない（入るとタグの入力状態が失われる・2026-07-23 実測）。
+ *   onSettings: 設定画面に着いた直後（境界処理の前）に呼ぶ追加手順（タグの入力など）。false を返したら保存しない。
+ *   report: 中断したとき report.reason に理由の語（'trial-guard' など）を書く。呼び出し側が中断台帳に残す。
  *   paidLineBottom: 有料記事の境界 line を本文の末尾へ置き直す（本文はほぼ全部無料・末尾だけ有料の記事用。2026-09-24 DN-0271）。
  *     下書きの line 位置は全文貼り替えで冒頭側へずれていることがある（序章 n3eb135ebdff7 で実測）ので、動かした後に
  *     line の前後のブロック数（前 ≥10・後 ≤1）で末尾に置けたと確かめられなければ保存しない。
@@ -41,7 +46,8 @@ export async function publishLive(
   noteId,
   boundary = '試験問題|予想問題',
   isPaid = true,
-  { keepBoundary = false, trialLineBottom = false, membershipLock = false, paidLineBottom = false, screenshotPrefix = 'nu' } = {},
+  { keepBoundary = false, trialLineBottom = false, membershipLock = false, paidLineBottom = false, screenshotPrefix = 'nu',
+    preserveLines = false, onSettings = null, report = {} } = {},
 ) {
   const shot = (name) => join(ROOT, `.tmp/${screenshotPrefix}-${name}-${noteId}.png`);
 
@@ -53,21 +59,47 @@ export async function publishLive(
     await page.screenshot({ path: shot('nonext') });
     return false;
   }
-  let onSettings = false;
-  for (let attempt = 0; attempt < 3 && !onSettings; attempt++) {
+  let onSettingsPage = false;
+  for (let attempt = 0; attempt < 3 && !onSettingsPage; attempt++) {
     if (await next.count()) await next.first().click();
     for (let i = 0; i < 8; i++) {
       await sleep(1800);
       const a = await page.getByRole('button', { name: '有料エリア設定' }).count();
       const u = await page.getByRole('button', { name: '更新する', exact: true }).count();
       const s = await page.getByRole('button', { name: '試し読みエリアを設定', exact: true }).count();
-      if (a || u || s) { onSettings = true; break; }
+      if (a || u || s) { onSettingsPage = true; break; }
     }
   }
-  if (!onSettings) {
+  if (!onSettingsPage) {
     console.error('[5] ABORT: 公開設定ページに到達せず。保存せず終了。');
     await page.screenshot({ path: shot('nosettings') });
+    report.reason = 'no-settings';
     return false;
+  }
+  if (onSettings && !(await onSettings(page))) {
+    await page.screenshot({ path: shot('onsettings') });
+    report.reason = report.reason || 'settings-step';
+    return false;
+  }
+
+  if (preserveLines) {
+    const area = page.getByRole('button', { name: '有料エリア設定' });
+    const trial = page.getByRole('button', { name: '試し読みエリアを設定', exact: true });
+    if (isPaid && await area.count()) {
+      await area.first().click();
+      let hasLine = false;
+      for (let i = 0; i < 8 && !hasLine; i++) { await sleep(1200); hasLine = await page.evaluate(() => /このラインより先を有料にする/.test(document.body.innerText || '')); }
+      if (!hasLine) { console.error('[5b] ABORT: 有料境界 line を確認できず。保存せず中断（paywall 保護）。'); report.reason = 'boundary'; return false; }
+      console.log('[5b] 有料境界を保持（動かさない）');
+    } else if (await page.getByRole('button', { name: '更新する', exact: true }).count()) {
+      console.log('[5b] 更新するへ直行（試し読みラインに触らない）');
+    } else if (await trial.count()) {
+      await trial.first().click(); await sleep(4000);
+      console.log('[5b] 試し読みラインを動かさず更新へ進む');
+    } else {
+      console.log('[5b] 境界なし');
+    }
+    return clickUpdate(page, shot);
   }
 
   // 無料記事では note 側にボタンが見えても有料境界へ入らない。
@@ -106,6 +138,7 @@ export async function publishLive(
     await page.screenshot({ path: shot('paidlinebottom') });
     if (!set.ok || !verify.found || verify.after > 1 || verify.before < 10) {
       console.error('[5b] ABORT: 有料境界 line を末尾に置けたと確認できず。保存せず中断（paywall 保護）。');
+      report.reason = report.reason || 'boundary';
       return false;
     }
   } else if (await area.count() && keepBoundary) {
@@ -120,6 +153,7 @@ export async function publishLive(
     console.log('[5b] 既存境界line=' + hasLine);
     if (!hasLine) {
       console.error('[5b] ABORT: 有料記事だが既存境界lineを確認できず。保存せず中断（paywall保護）。');
+      report.reason = report.reason || 'boundary';
       return false;
     }
   } else if (await area.count()) {
@@ -145,6 +179,7 @@ export async function publishLive(
     console.log('[5b] boundary target:', JSON.stringify(target));
     if (!target.ok) {
       console.error('[5b] ABORT: 有料境界の基準(試験/予想問題 H2)を特定できず。保存せず中断。--keep-boundary か --boundary-h2 を検討。');
+      report.reason = report.reason || 'boundary';
       await page.screenshot({ path: shot('boundary') });
       return false;
     }
@@ -157,6 +192,7 @@ export async function publishLive(
     });
     if (!clicked) {
       console.error('[5b] ABORT: data-np-target ボタンを DOM 上で特定できず。');
+      report.reason = report.reason || 'boundary';
       await page.screenshot({ path: shot('boundary') });
       return false;
     }
@@ -179,10 +215,12 @@ export async function publishLive(
     await page.screenshot({ path: shot('boundary') });
     if (!verify.boundaryBeforeExam) {
       console.error('[5b] ABORT: 有料境界が「予想問題/試験問題」直前に揃わない。保存せず中断（paywall 保護）。');
+      report.reason = report.reason || 'boundary';
       return false;
     }
   } else if (await page.getByRole('button', { name: '試し読みエリアを設定', exact: true }).count()) {
     if (trialFlowAction({ trialLineBottom, membershipLock }) === 'abort') {
+      report.reason = 'trial-guard';
       console.error('[5b] ABORT: この記事はメンバーシップ特典マガジンに入っており、ラインを引かずに更新すると全文が会員限定になる。'
         + '誰でも読める状態を保つなら --trial-line-bottom（ラインを末尾直前に置く）、意図して全文ロックしている記事なら'
         + ' --keep-member-lock で再実行する。保存せず中断。');
@@ -207,6 +245,7 @@ export async function publishLive(
       await page.screenshot({ path: shot('trialline') });
       if (!set.ok || !hasLine) {
         console.error('[5b] ABORT: 試し読みライン設置を確認できず。保存せず中断（会員境界保護）。');
+        report.reason = 'trial-line';
         return false;
       }
     } else {
@@ -216,6 +255,11 @@ export async function publishLive(
     console.log('[5b] 無料記事（有料エリア設定ボタンなし）→ 境界処理をスキップ');
   }
 
+  return clickUpdate(page, shot);
+}
+
+/** 「更新する」→ 更新通知「いいえ」。 */
+async function clickUpdate(page, shot) {
   let updated = false;
   for (const label of ['更新する', '更新']) {
     const button = page.getByRole('button', { name: label, exact: label === '更新する' });

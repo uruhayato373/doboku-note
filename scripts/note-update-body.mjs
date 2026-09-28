@@ -3,8 +3,13 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 /**
  * note-update-body.mjs
  * ---------------------------------------------------------------------------
- * 既公開 note 記事の本文を「全文置換」してライブ反映する Playwright アップデータ。
- * note-publish.mjs（新規作成→公開）と対で、「本文差し替え→更新する」を担う。
+ * 既公開 note 記事を**記事単位で 1 回だけ更新する** Playwright アップデータ（本文の全文置換・カバー・ハッシュタグ）。
+ * note-publish.mjs（新規作成→公開）と対で、「差し替え→更新する」を担う。
+ *
+ * --sync（推奨・Mac の週次 note-sync-routine が使う）: 記事ごとの反映計画（scripts/lib/note-sync-plan.mjs）から
+ *   未反映の部品（本文・カバー・タグ）だけを 1 回のエディタ操作で反映し、「更新する」は 1 回だけ押す。
+ *   本文を触らない記事は有料境界・試し読みラインを動かさない。反映した部品は API で確かめてから台帳へ記録する。
+ *   PDF 添付は --reattach-pdf と同じく貼り直す。止まっている記事（中断・会員特典の公開範囲未指定など）は飛ばす。
  *
  * 前提: frontmatter に noteId が設定済み（公開済み記事のみ対象）。
  *
@@ -13,6 +18,8 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
  *   node scripts/note-update-body.mjs --article <article.md path> --commit   # 実ライブ反映（公開に進む→更新する）
  *   node scripts/note-update-body.mjs --article <article.md path> --pause    # 本文差替まで自動→タイトル変更＋更新確定を手動
  *   node scripts/note-update-body.mjs --list <list.txt> --commit             # 複数記事を一括ライブ反映
+ *   node scripts/note-update-body.mjs --sync --list <list.txt> --commit      # 記事単位の同期（本文・カバー・タグの未反映分だけ）
+ *   node scripts/note-update-body.mjs --parts cover,tags --article <path> --commit  # 部品を明示（計画を見ずに反映）
  *   npm 経由: npm run note-update-body -- --article <path> [--commit|--pause]
  *
  * 追加オプション:
@@ -54,7 +61,9 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
  *   公開済み記事の autosave 下書きは browser close で破棄され、再オープンで公開版がロードされる。
  *   ＝ライブには一切反映されない。同一セッション内で「更新する」まで到達して初めて反映される。
  *
- * 注意: カバー画像・タグは変更しない。タイトルは frontmatter に title があれば差し替える（--no-title で抑止）。
+ * 注意: --sync / --parts なしの従来モードは本文だけ（カバー・タグは変えない）。タイトルは frontmatter に title があれば差し替える（--no-title で抑止）。
+ * 会員特典マガジン内の無料記事は frontmatter の memberTrial（bottom＝ラインを末尾直前に置く / lock＝全文会員限定のまま）で
+ * 公開範囲を記事ごとに決める（--trial-line-bottom / --keep-member-lock の記事単位版）。
  * 実行はローカル（note ログイン済みプロファイルのある Windows/Mac）限定。会社 PC で可（channel:'chrome'）。
  * ---------------------------------------------------------------------------
  */
@@ -62,7 +71,15 @@ import { chromium } from 'playwright';
 import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync } from 'node:fs';
 import { join, dirname, resolve, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { recordPublishedHash, recordPublishedMetaHash } from './lib/note-republish-hash.mjs';
+import { createHash } from 'node:crypto';
+import { recordPublishedHash, recordPublishedMetaHash, recordPublishedAssetHash, recordPublishedTagHash } from './lib/note-republish-hash.mjs';
+import { replaceCoverInEditor } from './lib/note-editor-cover.mjs';
+import { applyTagsOnSettings, readNoteAsAuthor } from './lib/note-tag-editor.mjs';
+import { planTagSync, verifyTagSync } from './lib/note-tag-plan.mjs';
+import { buildSyncPlan, SAFE_ABORTS } from './lib/note-sync-plan.mjs';
+import { loadNoteCoverInventory } from './lib/note-cover-inventory.mjs';
+import { renderNoteCharacterCover } from './lib/note-character-cover.mjs';
+import { designVersions, readLedger, recordCover, sameImage, writeLedger } from './lib/note-cover-live.mjs';
 import { cardifyBareUrls, repairUrlHeadings, listUrlHeadingsInEditor } from './lib/note-cardify.mjs';
 import { extractBodyImages, insertImagesAtPlaceholders, insertImagesAfterAnchors, countEditorImages, settleAbortReason } from './lib/note-images.mjs';
 import { assertLiveBody, expectedFreePreviewMin, formatLiveIssues } from './lib/note-live-check.mjs';
@@ -72,6 +89,7 @@ import { todayJst } from './lib/jst-date.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+const sha256File = (p) => createHash('sha256').update(readFileSync(p)).digest('hex');
 const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 
@@ -98,7 +116,7 @@ const ALLOW_ATTACH_LOSS = argv.includes('--allow-attachment-loss');
 const MAX_CONSEC_FAIL = Number(getArg('--max-consecutive-fail') || 3);
 // 全文置換で消える PDF 添付を、同じセッションで貼り直す。ローカルに実ファイルが揃っている
 // ときだけ有効で、1つでも解決できなければ本文を触らず中断する（消して戻せない状態を作らない）。
-const REATTACH_PDF = argv.includes('--reattach-pdf');
+const REATTACH_PDF = argv.includes('--reattach-pdf') || argv.includes('--sync');
 // note のファイルアップロードは **1 日 100 件が上限**（超えると以降が全て「カード未検出」で
 // 失敗する）。note-attach-batch.mjs が既に done-log で管理していた既知の制約を、
 // --reattach-pdf も共有する。2026-07-31 にこれを引き継がなかったため上限に達し、
@@ -154,6 +172,12 @@ const TRIAL_LINE_BOTTOM = argv.includes('--trial-line-bottom'); // メンバー�
 // 意図して全文ロックしている記事用）。2026-09-23 から、無料記事は --trial-line-bottom かこれを指定しないと
 // 試し読み画面で中断する（指定なしで進むと、誰でも読めていた記事が全文会員限定になった）。
 const KEEP_MEMBER_LOCK = argv.includes('--keep-member-lock');
+// 記事単位の同期（本文・カバー・タグの未反映分だけを 1 回の更新で）。PDF 添付は貼り直す（--reattach-pdf と同じ）。
+const SYNC = argv.includes('--sync');
+const PARTS_ARG = getArg('--parts'); // body,cover,tags（計画を見ずに明示）
+const VALID_PARTS = new Set(['body', 'cover', 'tags']);
+if (PARTS_ARG && PARTS_ARG.split(',').some((x) => !VALID_PARTS.has(x))) { console.error('--parts は body,cover,tags の組み合わせ'); process.exit(1); }
+if (SYNC && (IMAGES_ONLY || PAUSE)) { console.error('--sync は --images-only / --pause と併用できない'); process.exit(1); }
 
 // 目次が「最初のh2より後」に入って直せなかった記事（バッチ末尾サマリで失敗として可視化する）
 const tocProblems = [];
@@ -230,7 +254,11 @@ function parseArticle(articlePath) {
   // 本文 H1（ライブ題名との突合に使う）。body からは :171 で剥がされるのでここで拾って渡す。
   const bodyH1 = (raw.match(/^#\s+(.+)$/m) || [])[1]?.trim() ?? '';
   const minFreeChars = isPaid ? expectedFreePreviewMin(tokenBody, boundary) : 0;
-  return { abs, noteId, title, bodyH1, body: tokenBody, images, isPaid, isMembership, boundary, expectedImgs, minFreeChars };
+  // 会員特典マガジン内の無料記事の公開範囲（記事ごと）。未指定なら従来どおりフラグに従う。
+  const memberTrial = fmField('memberTrial');
+  const suffix = (abs.match(/article(-[^/\\]+)\.md$/) || [])[1] || '';
+  const tagsFile = [suffix && join(dirname(abs), `hashtags${suffix}.txt`), join(dirname(abs), 'hashtags.txt')].filter(Boolean).find(existsSync) || null;
+  return { abs, rel: relative(ROOT, abs).split('\\').join('/'), noteId, title, bodyH1, body: tokenBody, images, isPaid, isMembership, boundary, expectedImgs, minFreeChars, memberTrial, tagsFile };
 }
 
 /**
@@ -388,8 +416,12 @@ async function insertTocBlock(page, noteId) {
 // 本文H1とライブ題名の食い違い（frontmatter に title が無い記事）。最終サマリで surface する。
 const TITLE_DRIFTS = [];
 
-async function updateArticle(page, { abs, noteId, title, bodyH1, body, images, isPaid, isMembership, boundary, expectedImgs, minFreeChars }, probe) {
-  console.log(`\n[article] ${noteId} — ${abs.split(/[/\\]/).slice(-2).join('/')}`);
+async function updateArticle(page, article, probe, parts = ['body'], sync = {}) {
+  const { abs, noteId, title, bodyH1, body, images, isPaid, isMembership, boundary, expectedImgs, minFreeChars } = article;
+  const doBody = parts.includes('body');
+  const trialLineBottom = TRIAL_LINE_BOTTOM || article.memberTrial === 'bottom';
+  const memberLock = KEEP_MEMBER_LOCK || article.memberTrial === 'lock';
+  console.log(`\n[article] ${noteId} — ${abs.split(/[/\\]/).slice(-2).join('/')}${parts.join(',') === 'body' ? '' : `（${parts.join('・')}）`}`);
 
   // 2. 編集 URL へ遷移
   const editUrl = `https://editor.note.com/notes/${noteId}/edit`;
@@ -404,6 +436,21 @@ async function updateArticle(page, { abs, noteId, title, bodyH1, body, images, i
   }
   await sleep(2000);
   console.log(`[2] editor loaded: ${page.url()}`);
+
+  // 2b. カバー（本文より先。note はカバーの削除・アップロードを「更新する」より前に live へ書くので dry-run では触らない）
+  if (parts.includes('cover')) {
+    if (!sync.coverTarget) { abortReason = 'cover-failed'; console.error('[cover] FAIL: カバーの描画入力が対象一覧に無い'); return false; }
+    if (!COMMIT) console.log('[cover] dry-run（差し替えない）');
+    else {
+      const { buffer } = await renderNoteCharacterCover(ROOT, sync.coverTarget.input);
+      const out = join(ROOT, sync.coverTarget.imagePath);
+      mkdirSync(dirname(out), { recursive: true });
+      writeFileSync(out, buffer);
+      const r = await replaceCoverInEditor(page, out);
+      if (!r.ok) { abortReason = 'cover-failed'; console.error(`[cover] FAIL: ${r.reason}`); await page.screenshot({ path: join(ROOT, `.tmp/nu-cover-${noteId}.png`) }); return false; }
+      sync.coverFile = out;
+    }
+  }
 
   // --images-only: 全文置換せず既存本文の各画像アンカー直後に画像を追加するのみ。
   //   PDF 添付カード・有料境界・本文に一切触らない（過去問PDF 有料記事の画像欠落修復用）。
@@ -429,6 +476,7 @@ async function updateArticle(page, { abs, noteId, title, bodyH1, body, images, i
     return true;
   }
 
+  if (doBody) {
   // 3-pre. 添付ファイル保護ゲート（2026-07-28 新設）
   // 全文置換（Ctrl+A → Delete）は本文内の PDF 添付カードごと消す。SoT の markdown には添付が
   // 存在しないので paste では戻らず、購入者が PDF を受け取れなくなる。既存添付を検出したら
@@ -627,6 +675,8 @@ async function updateArticle(page, { abs, noteId, title, bodyH1, body, images, i
     }
   }
 
+  } // doBody
+
   // 5. 手動確定（--pause）: 本文差替まで済ませ、タイトル変更＋更新確定はユーザーに委ねる。
   //    無料記事の「更新する」自動確定は未検証、かつタイトル変更ツールが無いため、この2つを同一
   //    セッションで手動処理する（P4 もくじ live 反映）。ブラウザを閉じるとスクリプトが終了する。
@@ -656,12 +706,51 @@ async function updateArticle(page, { abs, noteId, title, bodyH1, body, images, i
     console.log(`[dry-run] paste まで成功（未反映）。スクショ: .tmp/nu-dry-${noteId}.png。実反映は --commit。`);
     return true;
   }
+  // タグ: ログイン済みの API で今のタグを読み、原稿（hashtags*.txt）と同じ集合にする計画を作る（公開設定画面で反映）
+  let tagPlan = null; let tagRejected = []; let tagLiveCount = 0;
+  if (parts.includes('tags')) {
+    const desired = article.tagsFile ? readFileSync(article.tagsFile, 'utf8').split(/\s+/).map((t) => t.trim().replace(/^#/, '')).filter(Boolean) : [];
+    const cur = await readNoteAsAuthor(ctx, noteId);
+    if (!cur || cur.unmeasurable || !desired.length) { abortReason = 'tags-unreadable'; console.error('[tags] FAIL: 今のタグか原稿のタグを読めない → 保存しない'); return false; }
+    tagLiveCount = cur.tags.length;
+    tagPlan = planTagSync({ live: cur.tags, desired: [...new Set(desired)], prune: true });
+    console.log(`[tags] live=${cur.tags.length} 原稿=${desired.length} → 追加${tagPlan.addable.length}・削除${tagPlan.extra.length}`);
+  }
+  const report = {};
   const live = await publishLive(page, noteId, boundary, isPaid, {
     keepBoundary: KEEP_BOUNDARY,
-    trialLineBottom: TRIAL_LINE_BOTTOM,
-    membershipLock: isMembership || KEEP_MEMBER_LOCK,
+    trialLineBottom,
+    membershipLock: isMembership || memberLock,
+    preserveLines: !doBody,
+    report,
+    onSettings: tagPlan?.changed ? async (pg) => {
+      const applied = await applyTagsOnSettings(pg, { add: tagPlan.addable, remove: tagPlan.extra });
+      if (!applied.ok) console.error(`[tags] ABORT: ${applied.reason} → 保存しない`);
+      tagRejected = applied.rejected;
+      return applied.ok;
+    } : null,
   });
-  if (!live) { console.error(`[FAIL] ライブ反映に失敗: ${noteId}`); return false; }
+  if (!live) { abortReason = report.reason || null; console.error(`[FAIL] ライブ反映に失敗: ${noteId}${report.reason ? `（${report.reason}）` : ''}`); return false; }
+
+  // 5f. カバー・タグの実体確認と記録（ログイン済み API。確かめられない部品は記録せず、次回また対象に残す）
+  if (parts.includes('cover') || tagPlan) {
+    await sleep(3000);
+    const after = await readNoteAsAuthor(ctx, noteId);
+    if (parts.includes('cover')) {
+      if (after?.eyecatch && !sameImage(after.eyecatch, sync.coverBefore)) {
+        const ledger = readLedger();
+        recordCover(ledger, sync.coverTarget, { design: sync.design.article, noteKey: noteId, liveUrl: after.eyecatch, sha256: sha256File(sync.coverFile) });
+        writeLedger(ROOT, ledger);
+        console.log('[5f] カバー差し替えを確認・記録');
+      } else console.error('[5f] WARN: カバーの画像 URL が変わっていない → 記録しない（次回また差し替える）');
+    }
+    if (tagPlan) {
+      const v = after && !after.unmeasurable ? verifyTagSync({ after: after.tags, plan: tagPlan, liveCount: tagLiveCount, rejected: tagRejected }) : { ok: false };
+      if (v.ok && !v.rejected.length && article.tagsFile && recordPublishedTagHash(relative(ROOT, article.tagsFile))) console.log(`[5f] タグを確認・記録（live=${after.tags.length}）`);
+      else console.error(`[5f] WARN: タグが原稿どおりにならない${v.rejected?.length ? `（入力不可: ${v.rejected.join(' ')} → 原稿の hashtags を直す）` : ''} → 記録しない`);
+    }
+  }
+  if (!doBody) { console.log(`[OK] ${noteId} ライブ反映完了`); return true; }
 
   // 5e. 公開後 API 実体検証（自動化）: URL見出し / 空引用 / 画像の欠落・過多 / 太字記号 / 存在しないサイトリンク。
   //     ネットワーク失敗は WARN（手動確認へフォールバック）、検出は FAIL。
@@ -683,7 +772,23 @@ async function updateArticle(page, { abs, noteId, title, bodyH1, body, images, i
 }
 
 const articles = loadArticles();
-console.log(`=== note-update-body: ${articles.length} 件 / mode=${COMMIT ? 'COMMIT(ライブ反映)' : 'DRY-RUN(反映しない)'} ===`);
+console.log(`=== note-update-body: ${articles.length} 件 / mode=${COMMIT ? 'COMMIT(ライブ反映)' : 'DRY-RUN(反映しない)'}${SYNC ? ' / 記事単位の同期' : ''} ===`);
+
+// --sync: 記事ごとの反映計画（未反映の部品と、止まっている理由）。--parts: 部品を明示。どちらも無ければ本文だけ。
+const planByPath = SYNC ? new Map((await buildSyncPlan(ROOT)).items.map((i) => [i.path, i])) : null;
+const needCover = SYNC || (PARTS_ARG || '').includes('cover');
+const coverTargets = needCover ? new Map((await loadNoteCoverInventory(ROOT)).targets.filter((t) => t.kind === 'article').map((t) => [t.source, t])) : null;
+const design = needCover ? designVersions(ROOT) : null;
+function partsFor(rel) {
+  if (PARTS_ARG) return { parts: PARTS_ARG.split(',') };
+  if (!SYNC) return { parts: ['body'] };
+  const item = planByPath.get(rel);
+  if (!item) return { skip: '公開済み記事の反映計画に無い（未公開・noteId 無し）' };
+  if (item.status === 'synced') return { skip: '反映済み（未反映の部品なし）' };
+  if (item.status === 'blocked' && !(FORCE_RETRY && ['aborted', 'trial-guard'].includes(item.blocker))) return { skip: `止まっている: ${item.blocker}` };
+  return { parts: item.parts };
+}
+let skipped = 0;
 
 const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
   headless: false, channel: 'chrome',
@@ -712,6 +817,13 @@ try {
     try {
       abortReason = null; // 前の記事の理由を持ち越さない
       const parsed = parseArticle(artPath);
+      const want = partsFor(parsed.rel);
+      if (want.skip) { console.log(`\n[skip] ${parsed.noteId} ${want.skip}: ${parsed.rel}`); skipped++; continue; }
+      const sync = { design };
+      if (want.parts.includes('cover')) {
+        sync.coverTarget = coverTargets.get(parsed.rel);
+        sync.coverBefore = (await readNoteAsAuthor(ctx, parsed.noteId))?.eyecatch || null;
+      }
       // probe: 単一記事は --probe 優先、それ以外は本文から自動導出（list 時は各記事ごと自動）
       const probe = (articles.length === 1 && PROBE_ARG) ? PROBE_ARG : deriveProbe(parsed.body);
       // 前回この記事で中断していたら、エディタに壊れた状態が残っている可能性がある。
@@ -727,7 +839,7 @@ try {
       //   img-settle  … insertImages で CDN 確定待ちに失敗（本文差替後・保存前）
       //   img-lost    … 同じ確定待ちの段階で、挿入した画像がエディタから消えていた（保存前・DN-0273）
       //   pdf-missing … --reattach-pdf の実体確認で失敗（**本文差替の前**・editor loaded 直後）
-      const SAFE_ABORTS = new Set(['img-settle', 'img-lost', 'pdf-missing']);
+      // 集合の定義は lib/note-sync-plan.mjs の SAFE_ABORTS（反映計画と同じ判定）
       const prevWasSafe = SAFE_ABORTS.has(prevAbort?.reason);
       if (prevWasSafe) {
         console.log(`[retry] ${parsed.noteId} は前回 ${prevAbort.reason} で中断（${prevAbort.at}）。保存前に止まっているので自動再試行する`);
@@ -741,15 +853,18 @@ try {
         if (articles.length > 1 && consecFail >= MAX_CONSEC_FAIL) { console.error('\n[ABORT] 連続 SKIP/失敗で中断'); break; }
         continue;
       }
-      const result = await updateArticle(page, parsed, probe);
+      const result = await updateArticle(page, parsed, probe, want.parts, sync);
       if (result) {
         clearAbort(parsed.noteId);
         ok++;
-        // フル本文を live 反映できた → 再公開ドリフト検出のハッシュを in-sync 化（--commit 時のみ）。
-        if (COMMIT && recordPublishedHash(relative(ROOT, parsed.abs))) console.log(`[hash] ${relative(ROOT, parsed.abs)} 再公開ハッシュ更新`);
-        // 本文反映は有料境界を再設定し価格ページも通るため、live 影響メタも in-sync 化する。
-        // アセット(PDF/カバー)は別工程なのでここでは触らない（note-attach-file / note-update-cover が記録）。
-        if (COMMIT) recordPublishedMetaHash(relative(ROOT, parsed.abs));
+        // フル本文を live 反映できた → 本文・本文画像/PDF（上げ直し・貼り直し済み）のハッシュを in-sync 化（--commit 時のみ）。
+        // カバーとタグは updateArticle が API で確かめてから記録する。
+        if (COMMIT && want.parts.includes('body')) {
+          if (recordPublishedHash(parsed.rel)) console.log(`[hash] ${parsed.rel} 再公開ハッシュ更新`);
+          recordPublishedAssetHash(parsed.rel);
+        }
+        // 設定画面を通って境界を再設定/保持したので、live 影響メタも in-sync 化する。
+        if (COMMIT) recordPublishedMetaHash(parsed.rel);
         consecFail = 0;
       } else { recordAbort(parsed.noteId, abortReason ?? '更新フローが false を返した（保存せず中断）'); fail++; consecFail++; }
     } catch (e) {
@@ -769,7 +884,7 @@ try {
   await ctx.close();
 }
 
-console.log(`\n[done] ok=${ok} fail=${fail} / ${articles.length}`);
+console.log(`\n[done] ok=${ok} fail=${fail} skip=${skipped} / ${articles.length}`);
 if (TITLE_DRIFTS.length) {
   // ok=N fail=0 を「全部正しくなった」と読ませないための注記。本文だけ直ってタイトルが
   // 古いまま残るのは、読者から最も見える形の未完了（2026-08-13 に 5 本で実発生）。

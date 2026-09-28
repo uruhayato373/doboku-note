@@ -1,6 +1,6 @@
 // note-cover-inventory.mjs — note カバー生成の対象一覧（記事＋マガジン）を 1 箇所で作る。
 //
-// generate-note-covers（記事）/ generate-magazine-covers（マガジン）/ note-cover-routine・check-note-cover-live（登録と判定）/
+// generate-note-covers（記事）/ generate-magazine-covers（マガジン）/ note-sync-routine・check-note-sync（登録と判定）/
 // generate-note-character-covers（独立出力先への一括生成）/ check-note-cover-fit（pre-commit ゲート）が
 // 同じ関数で対象と入力を組み立てる。ポーズは全件に割り当ててから絞り込むので、どの入口から
 // 1 件だけ再生成しても一括生成と同じポーズになる（note-cover-character-v5.md「ポーズの使い分け」）。

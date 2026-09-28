@@ -10,7 +10,7 @@
  * どれでも落ちる）と、その ignore が図版 SVG を巻き込んでいないこと。
  *
  * カバー PNG が note に最新デザインで登録されているかは、手元の実体ではなく note の公開 API と台帳で見る
- * （scripts/check-note-cover-live.mjs・週次 CI。登録は Mac の週次 note-cover-routine）。
+ * （scripts/check-note-sync.mjs・週次 CI。登録は Mac の週次 note-sync-routine）。
  */
 import { strict as assert } from 'node:assert';
 import { execFileSync } from 'node:child_process';

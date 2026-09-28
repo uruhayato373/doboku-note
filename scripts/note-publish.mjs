@@ -91,7 +91,7 @@ if (imgMissing.length) console.log(`[img] WARN 除去した画像行: ${imgMissi
 const typeSuffix = (basename(articleAbs).match(/article-([^.]+)\.md$/) || [])[1] || '';
 // カバーは公開のたびに最新のデザインと文言で生成する（R2 の旧版を取り寄せると古いデザインで公開してしまう）。
 // 生成できなければ **note へ書き込む前に止める**——カバー無しで公開すると、後から差し替えても外部（SNS カード等）に残る。
-// 以後の差し替えは Mac の週次 note-cover-routine が台帳（cover-ledger.json）と note の公開 API を見て行う。
+// 以後の差し替えは Mac の週次 note-sync-routine が台帳（note-republish-hashes.json の coverHashes）と note の公開 API を見て行う。
 const cover = await (async () => {
   try {
     const { loadNoteCoverInventory } = await import('./lib/note-cover-inventory.mjs');

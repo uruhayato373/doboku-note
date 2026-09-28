@@ -2,21 +2,21 @@
 //
 // 判定の材料は 3 つだけ:
 //   1. 対象一覧と描画入力 … note-cover-inventory（生成器と同じ入力・同じポーズ）
-//   2. 台帳 … .claude/state/note/cover-ledger.json（Git 追跡）。登録した画像のデザイン版・入力ハッシュ・sha256・
-//      登録直後に note API で読んだ画像 URL を 1 件ずつ持つ
+//   2. 台帳 … .claude/state/note-republish-hashes.json の coverHashes / magazineCovers（記事単位の再公開台帳に統合）。
+//      登録した画像のデザイン版・入力ハッシュ・sha256・登録直後に note API で読んだ画像 URL を 1 件ずつ持つ
 //   3. note の公開 API … 今 note に出ている画像 URL
 // 手元の PNG の有無は見ない（カバー PNG は Git 管理外で、置いてある checkout とない checkout がある）。
 //
-// 使うのは CI の check-note-cover-live（判定だけ）と Mac の週次 note-cover-routine（生成→登録→台帳更新）。
+// 使うのは CI の check-note-sync（判定だけ）・Mac の週次 note-sync-routine（マガジンの登録）・lib/note-sync-plan（記事の反映計画）。
 // 同じ判定を 2 か所に書かないため、どちらもこのファイルの planCoverWork を呼ぶ。
-import { existsSync, readFileSync, renameSync, writeFileSync, mkdirSync } from 'node:fs';
-import { dirname, join } from 'node:path';
+import { existsSync, readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import { createHash } from 'node:crypto';
 import { fetchNoteDetails, fetchCreatorMagazines } from './note-api.mjs';
 import { parseNoteText } from './note-meta.mjs';
+import { readCoverRecords, saveCoverRecords } from './note-republish-hash.mjs';
 
 export const CREATOR = 'dobokunote';
-export const LEDGER_PATH = '.claude/state/note/cover-ledger.json';
 const TOKENS_PATH = '.claude/knowledge/design-system/note-cover-tokens.json';
 // note掲載文.txt が live の説明文と一致しないマガジンは src/lib/note-magazines.ts の noteUrl で同定する
 const MAGAZINE_KEY_OVERRIDE = { 'magazine:river-consultant': 'm32132ecb3033', 'magazine:general-contractor': 'm32aaa137f22e' };
@@ -39,17 +39,13 @@ export function coverInputHash(target) {
   return createHash('sha256').update(JSON.stringify(input)).digest('hex').slice(0, 16);
 }
 
-export function readLedger(root) {
-  const p = join(root, LEDGER_PATH);
-  return existsSync(p) ? JSON.parse(readFileSync(p, 'utf8')) : { version: 1, articles: {}, magazines: {} };
+/** 台帳（記事・マガジンのカバー記録）。root は互換のための引数で、台帳は cwd 相対の再公開台帳を読む。 */
+export function readLedger() {
+  return readCoverRecords();
 }
 
-export function writeLedger(root, ledger) {
-  const p = join(root, LEDGER_PATH);
-  mkdirSync(dirname(p), { recursive: true });
-  const sorted = (o) => Object.fromEntries(Object.entries(o).sort(([a], [b]) => a.localeCompare(b)));
-  writeFileSync(p + '.tmp', JSON.stringify({ version: 1, updatedAt: new Date().toISOString(), articles: sorted(ledger.articles), magazines: sorted(ledger.magazines) }, null, 2) + '\n');
-  renameSync(p + '.tmp', p);
+export function writeLedger(_root, ledger) {
+  saveCoverRecords(ledger);
 }
 
 /** 登録直後に呼ぶ。liveUrl は note API で読み直した URL（読めなければ記録しない＝次回また対象になる）。 */

@@ -41,24 +41,6 @@
         ".claude/state/note-republish"
       ]
     },
-    "note.update-cover": {
-      "service": "note",
-      "script": "scripts/note-update-cover.mjs",
-      "risk": "medium",
-      "argsSchema": {
-        "article": "string"
-      },
-      "inputs": [
-        "{article}"
-      ],
-      "commitArgs": [
-        "--commit"
-      ],
-      "verify": [
-        "scripts/verify-note-status.mjs"
-      ],
-      "ledger": []
-    },
     "note.update-partial": {
       "service": "note",
       "script": "scripts/note-update-partial.mjs",
