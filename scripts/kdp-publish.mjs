@@ -17,7 +17,9 @@
  *   node scripts/kdp-publish.mjs --id <id> --commit-publish   # 上記＋出版(不可逆)＋出版後検証
  *   node scripts/kdp-publish.mjs --sync-status                # catalog 各冊を本棚でタイトル検索し {asin,status,提出日} を突合
  *   node scripts/kdp-publish.mjs --id <id> --update-manuscript [--commit] # LIVE本の原稿だけを差し替え
- *   node scripts/kdp-publish.mjs --list-drafts                # 本棚を .tmp へダンプ(読み取り)
+ *   node scripts/kdp-publish.mjs --id <id> --update-cover [--cover <jpg>] [--commit [--commit-publish]]
+ *                                                             # LIVE本の表紙だけを差し替え(既定 scripts/kindle-dist/<id>.jpg・--commit-publish で再出版)
+ *   node scripts/kdp-publish.mjs --list-drafts               # 本棚を .tmp へダンプ(読み取り)
  *   node scripts/kdp-publish.mjs --delete-drafts <ASIN,...>   # 下書きのみ削除(1件ずつ・下書きassert)
  *   node scripts/kdp-publish.mjs --dump --asin <ASIN> --page <details|content|pricing>  # UI変更時の較正
  *   node scripts/kdp-publish.mjs --diag-category --asin <ASIN>  # カテゴリーカスケードの候補実測(A/E系較正)
@@ -57,6 +59,7 @@ const MODE_DIAG_CAT = argv.includes('--diag-category');
 const MODE_PUBLISH_ONLY = argv.includes('--publish-only');
 const MODE_SET_PRICE = argv.includes('--set-price');
 const MODE_UPDATE_MANUSCRIPT = argv.includes('--update-manuscript');
+const MODE_UPDATE_COVER = argv.includes('--update-cover');
 const COMMIT = argv.includes('--commit');
 const BOOKLESS = MODE_SYNC || MODE_LIST || MODE_DELETE;
 if (!ID && !BOOKLESS) { console.error('--id <book id> required（または --sync-status / --list-drafts / --delete-drafts）'); process.exit(1); }
@@ -65,19 +68,19 @@ const defaults = getDefaults();
 
 // ── データ準備（book-less モードでは不要）─────────────────────────────────
 let book = null;
-if (ID && MODE_SET_PRICE && !hasSpec(ID)) {
-  // spec の無い既刊（A 系＝build-takuitsu-reconstruct 製）は catalog を価格の真実源にする。
+if (ID && (MODE_SET_PRICE || MODE_UPDATE_COVER) && !hasSpec(ID)) {
+  // spec の無い既刊（A 系＝build-takuitsu-reconstruct 製）は catalog を価格・タイトルの真実源にする。
   const row = readCatalogRow(ID);
   if (!row) { console.error(`ABORT: spec も catalog 行も無い: ${ID}`); process.exit(1); }
   book = { id: ID, title: row.title, price: row.priceJpy, aiDeclaration: defaults.aiDeclaration };
-  console.log(`[prep] ${ID} は spec 無し → catalog.priceJpy ¥${book.price} を目標にする`);
+  console.log(`[prep] ${ID} は spec 無し → catalog の title / priceJpy ¥${book.price} を使う`);
 } else if (ID) {
-  book = resolveBook(ID, { requireMemo: !(MODE_DUMP || MODE_DIAG_CAT || MODE_SET_PRICE) });
+  book = resolveBook(ID, { requireMemo: !(MODE_DUMP || MODE_DIAG_CAT || MODE_SET_PRICE || MODE_UPDATE_COVER) });
   const errs = validateBook(book);
   if (errs.length && !(MODE_DUMP || MODE_DIAG_CAT)) { console.error('ABORT: メタデータ検証エラー:\n  - ' + errs.join('\n  - ')); process.exit(1); }
   book.epub = join(homedir(), 'Downloads', `kindle-${ID}.epub`);
   book.cover = join(homedir(), 'Downloads', `kindle-cover-${ID}.jpg`);
-  if (!MODE_DUMP && !MODE_DIAG_CAT && !MODE_PUBLISH_ONLY && !MODE_SET_PRICE) {
+  if (!MODE_DUMP && !MODE_DIAG_CAT && !MODE_PUBLISH_ONLY && !MODE_SET_PRICE && !MODE_UPDATE_COVER) {
     const requiredFiles = MODE_UPDATE_MANUSCRIPT ? [['EPUB', book.epub]] : [['EPUB', book.epub], ['表紙', book.cover]];
     for (const [label, f] of requiredFiles) {
       if (!existsSync(f)) { console.error(`ABORT: ${label} が無い: ${f}\n（先に npm run sync-kindle-dist -- --downloads ${ID} で配置）`); process.exit(1); }
@@ -85,6 +88,13 @@ if (ID && MODE_SET_PRICE && !hasSpec(ID)) {
   }
   if (!book.catVerified) console.log(`[prep] ⚠ カテゴリー末端「${book.catLeaf}」は未検証。提出前に --diag-category で確認推奨`);
   console.log(`[prep] id=${ID} title="${(book.title || '').slice(0, 34)}" price=¥${book.price} mode=${COMMIT_PUBLISH ? 'PUBLISH(出版する)' : 'DRAFT(下書きのみ)'}`);
+}
+if (MODE_UPDATE_COVER) {
+  // 表紙の真実源は git 管理の scripts/kindle-dist/<id>.jpg（A 系はファイル名が小文字）。
+  const candidates = getArg('--cover') ? [getArg('--cover')] : [ID, ID.toLowerCase()].map((n) => join(ROOT, 'scripts/kindle-dist', `${n}.jpg`));
+  book.cover = candidates.find((f) => existsSync(f));
+  if (!book.cover) { console.error(`ABORT: 表紙が無い: ${candidates.join(' / ')}`); process.exit(1); }
+  if (!/\.jpe?g$/i.test(book.cover)) { console.error(`ABORT: 表紙は JPEG のみ: ${book.cover}`); process.exit(1); }
 }
 
 // ── catalog draftAsin ヘルパ（再開性=重複防止）──────────────────────────
@@ -188,6 +198,19 @@ async function readPublishOutcome(page) {
   return { ok: !errors.length && !/\/pricing/i.test(page.url()), errors, fields, url: page.url() };
 }
 
+// 既刊の編集ページ（title-setup）は Amazon の再認証（/ap/signin・max_auth_age=0）を挟むことがある
+// （2026-09-28 A-01 実測: 本棚はログイン済みでも content へ直行すると再認証へ飛ぶ）。パスワードは人が入れる。
+async function gotoTitleSetup(page, url) {
+  await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
+  if (!/\/ap\/signin/.test(page.url())) return true;
+  console.log('[auth] KDP が再認証を要求 → 開いたブラウザでパスワードを入力してください（最大 3 分待機）…');
+  for (let i = 0; i < 72; i++) {
+    await sleep(2500);
+    if (/kdp\.amazon\.co\.jp\/.*title-setup\/kindle\//.test(page.url())) { await page.waitForLoadState('domcontentloaded').catch(() => {}); return true; }
+  }
+  return false;
+}
+
 // 改定成功時に catalog.priceJpy を書き戻す（spec と catalog の片側残りを作らない・check-kindle-prices）。
 const writeCatalogPrice = (id, price, from) => {
   const c = readCatalog(); const b = c?.books?.find((x) => x.id === id); if (!b) return;
@@ -234,10 +257,10 @@ try {
     }
   }
 
-  // ═══ MODE: --update-manuscript（LIVE本の原稿だけを安全に差し替え）════
-  // 詳細・表紙・価格・KDP Select には触れない。タイトル・ASIN・販売状態を本棚と
-  // コンテンツページの両方で照合し、既存 LIVE 本以外は fail-closed で停止する。
-  if (MODE_UPDATE_MANUSCRIPT) {
+  // ═══ MODE: --update-manuscript / --update-cover（LIVE本の原稿 or 表紙だけを安全に差し替え）════
+  // 詳細・価格・KDP Select には触れない。タイトル・ASIN・販売状態を本棚と
+  // コンテンツページの両方で照合し、既存 LIVE 本以外は fail-closed で停止する（両モード共通）。
+  if (MODE_UPDATE_MANUSCRIPT || MODE_UPDATE_COVER) {
     const catalog = readCatalog();
     const catalogBook = catalog?.books?.find((b) => b.id === ID);
     if (!catalogBook?.asin || catalogBook.status !== 'live') {
@@ -291,7 +314,9 @@ try {
     }
 
     const contentUrl = `https://kdp.amazon.co.jp/ja_JP/title-setup/kindle/${titleId}/content`;
-    await page.goto(contentUrl, { waitUntil: 'domcontentloaded', timeout: 60000 });
+    if (!(await gotoTitleSetup(page, contentUrl))) {
+      console.error('ABORT: 再認証が完了しなかった'); await shot(page, 'update-reauth-fail'); await ctx.close(); process.exit(2);
+    }
     await page.waitForSelector('#data-assets-interior-file-upload-AjaxInput', { state: 'attached', timeout: 30000 });
     const current = await page.evaluate(() => ({
       title: (document.querySelector('#data-title-text')?.textContent || '').trim(),
@@ -307,6 +332,121 @@ try {
     if (body.includes('ASIN:') && !body.includes(catalogBook.asin)) {
       console.error(`ABORT: コンテンツページの ASIN が catalog と不一致（期待 ${catalogBook.asin}）`);
       await ctx.close(); process.exit(2);
+    }
+
+    if (MODE_UPDATE_COVER) {
+      // 保存後の表紙欄は source_file_name が空に戻るため、差し替えの証拠はサムネイルの版で取る。
+      // サムネイル URL のパス（…/DIGITAL_BOOK_THUMBNAIL）は版をまたいで同じで、versionId だけが変わる。
+      const readCover = () => page.evaluate(() => {
+        const visible = (id) => {
+          const el = document.getElementById(id);
+          return !!el && !el.classList.contains('a-hidden') && getComputedStyle(el).display !== 'none';
+        };
+        const src = document.querySelector('#data-assets-cover-file-upload-thumbnail')?.getAttribute('src') || '';
+        let thumbKey = '';
+        try { const u = new URL(src); thumbKey = `${u.pathname}?versionId=${u.searchParams.get('versionId') || ''}`; } catch {}
+        return {
+          filename: document.querySelector('#data-assets-cover-asset-filename')?.value || '',
+          thumbKey,
+          successVisible: visible('data-assets-cover-file-upload-success'),
+          successText: (document.querySelector('#data-assets-cover-file-upload-success')?.innerText || '').replace(/\s+/g, ' ').trim(),
+          failureVisible: visible('data-assets-cover-file-upload-failure'),
+          failureText: (document.querySelector('#data-assets-cover-file-upload-failure')?.innerText || '').replace(/\s+/g, ' ').trim(),
+        };
+      });
+      await page.waitForSelector('#data-assets-cover-file-upload-AjaxInput', { state: 'attached', timeout: 30000 });
+      const beforeCover = await readCover();
+      const bytes = statSync(book.cover).size;
+      const sha256 = createHash('sha256').update(readFileSync(book.cover)).digest('hex');
+      console.log(`[cover] 本棚照合 OK: ${ID} / ${catalogBook.asin} / 販売中 / titleId=${titleId}`);
+      console.log(`[cover] 現在の表紙=${beforeCover.thumbKey || '(サムネイル無し)'}`);
+      console.log(`[cover] 新表紙=${book.cover} / ${bytes} bytes / sha256=${sha256}`);
+      if (!beforeCover.thumbKey) {
+        console.error('ABORT: 現在の表紙サムネイルを読めない（差し替えを確かめられないため停止）');
+        await shot(page, 'cover-thumb-fail'); await ctx.close(); process.exit(3);
+      }
+      if (!COMMIT) {
+        console.log('[cover] dry-run 完了（--commit で表紙だけをアップロードして下書き保存、--commit-publish を足すと再出版まで）');
+        await shot(page, 'cover-dry-run'); await ctx.close(); process.exit(0);
+      }
+
+      // 既存の成功表示はアップロード前から DOM に残るため、いったん不可視化して新しい表示だけを証拠にする。
+      await page.evaluate(() => document.querySelector('#data-assets-cover-file-upload-success')?.classList.add('a-hidden'));
+      await page.locator('#data-assets-cover-file-upload-AjaxInput').setInputFiles(book.cover);
+      const selectedName = await page.locator('#data-assets-cover-file-upload-AjaxInput').evaluate((el) => el.files?.[0]?.name || '');
+      if (selectedName !== basename(book.cover)) {
+        console.error(`ABORT: ブラウザが新表紙を選択できていない（${selectedName || '空'}）`);
+        await shot(page, 'cover-file-select-fail'); await ctx.close(); process.exit(4);
+      }
+      let coverState = 'timeout';
+      for (let t = 0; t < 36; t++) {
+        await sleep(5000);
+        const st = await readCover();
+        if (st.failureVisible) { coverState = `error: ${st.failureText}`; break; }
+        // source_file_name はアップロード直後に入るかが未実測。入っているなら新表紙の名前であることを要求する。
+        if (st.successVisible && /表紙のアップロードに成功しました/.test(st.successText) && (!st.filename || st.filename === basename(book.cover))) { coverState = 'ok'; break; }
+        if (t % 6 === 0) console.log(`[cover] 表紙処理待ち… ${t * 5}s`);
+      }
+      await shot(page, 'cover-uploaded');
+      if (coverState !== 'ok') {
+        console.error(`ABORT: 表紙アップロード ${coverState}。保存せず停止`);
+        await ctx.close(); process.exit(4);
+      }
+      console.log(`[cover] アップロード OK: ${basename(book.cover)}`);
+
+      // 必須化された AI 申告が未回答なら同じページで埋める（後の出版で弾かれないように）
+      if (!aiAnswered(await readAiDeclaration(page), book.aiDeclaration)) await fillAiDeclaration(page, book.aiDeclaration);
+
+      await page.locator('#save-announce').click({ timeout: 10000 });
+      let saved = false;
+      for (let t = 0; t < 12 && !saved; t++) { await sleep(2500); saved = /正常に保存しました/.test(await page.evaluate(() => document.body.innerText || '').catch(() => '')); }
+      if (!saved) {
+        console.error('ABORT: 「正常に保存しました」を確認できない');
+        await shot(page, 'cover-save-fail'); await ctx.close(); process.exit(4);
+      }
+      await sleep(1500);
+
+      if (!(await gotoTitleSetup(page, contentUrl))) {
+        console.error('ABORT: 保存後の再読込で再認証が完了しなかった（表紙は下書き保存済み・差し替えは未確認）'); await ctx.close(); process.exit(4);
+      }
+      await page.waitForSelector('#data-assets-cover-file-upload-AjaxInput', { state: 'attached', timeout: 30000 });
+      const afterCover = await readCover();
+      if (!afterCover.thumbKey || afterCover.thumbKey === beforeCover.thumbKey) {
+        console.error(`ABORT: 保存後の表紙サムネイルが変わっていない（before=${beforeCover.thumbKey} after=${afterCover.thumbKey || '(無し)'}）`);
+        await shot(page, 'cover-verify-fail'); await ctx.close(); process.exit(4);
+      }
+      await shot(page, 'cover-verified');
+      console.log(`[cover] 下書き保存・再読込で差し替えを確認: ${afterCover.thumbKey}`);
+
+      if (!COMMIT_PUBLISH) {
+        console.log(`[done] 表紙差し替えを下書き保存: ${ID} / ${catalogBook.asin} / sha256=${sha256}（販売ページへの反映は --commit-publish で再出版）`);
+        await ctx.close(); process.exit(0);
+      }
+
+      // 再出版（不可逆）。価格ページで価格が catalog と一致することを確かめてから押す。
+      await gotoTitleSetup(page, `https://kdp.amazon.co.jp/ja_JP/title-setup/kindle/${titleId}/pricing`);
+      await sleep(6000);
+      if (!/\/pricing/i.test(page.url())) { console.error('ABORT: 価格ページに到達できず URL=' + page.url()); await shot(page, 'cover-pub-nav-fail'); await ctx.close(); process.exit(3); }
+      const price = await page.evaluate(() => document.querySelector('input[name="data[digital][channels][amazon][JP][price_vat_inclusive]"]')?.value || '');
+      if (String(price) !== String(catalogBook.priceJpy)) {
+        console.error(`ABORT: 価格ページの JP 価格 ${price || '(読めず)'} が catalog.priceJpy ${catalogBook.priceJpy} と違う → 出版せず停止（表紙は下書き保存済み）`);
+        await shot(page, 'cover-pub-price-fail'); await ctx.close(); process.exit(3);
+      }
+      console.log('[cover] ★再出版: 「Kindle本を出版」クリック…');
+      let clicked = false;
+      for (const sel of ['#save-and-publish', '#save-and-publish-announce', 'button:has-text("Kindle 本を出版")', 'button:has-text("Kindle本を出版")']) {
+        try { const l = page.locator(sel); if (await l.count()) { await l.first().scrollIntoViewIfNeeded(); await l.first().click({ timeout: 10000 }); clicked = true; break; } } catch {}
+      }
+      if (!clicked) { console.error('ABORT: 出版ボタンが見つからない（表紙は下書き保存済み）'); await shot(page, 'cover-pub-btn-fail'); await ctx.close(); process.exit(3); }
+      const outcome = await readPublishOutcome(page);
+      await shot(page, 'cover-published');
+      if (!outcome.ok) {
+        console.error(`FAIL: 再出版されていない（URL=${outcome.url}）${outcome.errors.length ? '\n  エラー: ' + outcome.errors.join(' / ') : ''}`);
+        for (const f of outcome.fields) console.error(`  欄: ${f.name || '(名前なし)'} … ${f.near}`);
+        await ctx.close(); process.exit(4);
+      }
+      console.log(`[done] 表紙差し替えを再出版: ${ID} / ${catalogBook.asin} / sha256=${sha256}（変更事項のレビューへ・反映まで最大 72h） URL=${outcome.url}`);
+      await ctx.close(); process.exit(0);
     }
 
     const bytes = statSync(book.epub).size;

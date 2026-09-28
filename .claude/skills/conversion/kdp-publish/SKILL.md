@@ -176,11 +176,12 @@ node scripts/kdp-publish.mjs --diag-category --asin <既存draft ASIN>
 ```
 → カスケード最深 select の候補（=「場所」チェックボックスの選択肢）を実測。`books[id].kdp.categoryLeaf` に設定。
 
-### 既刊 EPUB 差し替え（**未実装・手順予約**）
-`--update-manuscript` は未実装。既刊（販売中）の EPUB を差し替える案件が出たら、まず `--dump --asin <ASIN> --page content`
-で編集セッションの DOM を較正してから実装する。**必須安全弁**（実装時）: ①ページ上のタイトルと spec.title 一致 assert
-（別の本に上書きする事故防止）②本棚 status=販売中 assert ③content 以外（details/pricing）を触らない。修正版は
-**既存差し替え**（新規作成禁止・[[kindle-dup-prevention]]）。
+### 既刊の原稿・表紙の差し替え
+```
+node scripts/kdp-publish.mjs --id <id> --update-manuscript [--commit]                 # 原稿(EPUB)だけ・下書き保存まで
+node scripts/kdp-publish.mjs --id <id> --update-cover [--commit [--commit-publish]]    # 表紙だけ・既定 scripts/kindle-dist/<id>.jpg
+```
+両モードとも catalog の live＋ASIN、本棚の「販売中」行、コンテンツページのタイトル/ASIN を照合してから触る（details/pricing は触らない。表紙の再出版だけ pricing で価格一致を確かめて出版ボタンを押す）。修正版は**既存差し替え**（新規作成禁止・[[kindle-dup-prevention]]）。編集ページは Amazon の再認証（/ap/signin）を挟むことがあり、パスワードは人がブラウザで入れる。
 
 ## kdp-operator への委譲
 
