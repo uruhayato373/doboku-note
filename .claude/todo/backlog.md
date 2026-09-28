@@ -289,14 +289,23 @@
 
 **完了条件**: 台帳が週次で更新され、管理画面・`check-note-cover-live`・週次レビューがその台帳だけを参照し、マガジンカバーが private R2 に移設されて生成コマンドがローカル容量を圧迫しないことを確認したら、このカードを削除する。DN-0360（新レイアウトの PR 化・live 反映）はこのカード完了後に着手する。
 
+### [DN-0433] Playwright 認証の文書と実装のずれを直す（配線検査の FAIL・古いプロファイルパス・X の CI 扱い）
+タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-09-28]
+
+**起点**: 2026-09-28 の調査で見つかった。(a) `node scripts/check-playwright-auth-wiring.mjs` の検査9が `ops-write.yml` から `inputs.operation.options` を抽出できず FAIL。(b) publish-x・publish-ig-bs・coconala-*・note-*・google-search-growth の SKILL.md が旧 `.local/playwright-*-profile` を案内している（実体は `scripts/lib/playwright-auth-profile.mjs` の置き場）。(c) `note-edit-session.mjs:20` のコメントが `~/.doboku-note-session`。(d) `google-console-browser.mjs:12` は「CI では使わない」と書くが `attachCISession` を呼ぶ。(e) レジストリで x は `ci.enabled:false` なのに `scheduled-publish.yml` が x を encrypted-state で投稿しているように読める（未確認）。
+
+**やること**: (a)(b)(c)(d) を直す。(e) は実際の workflow 実行履歴で CI 投稿が動いているか確かめ、レジストリか workflow のどちらを正にするか決める。
+
+**完了条件**: `check-playwright-auth-wiring --strict` が exit 0、SKILL.md に旧パスが残らず、x の CI 扱いがレジストリと workflow で一致したら、このカードを削除する。
+
 ### [DN-0362] Playwright 認証を「人・Mac・CI」の役割分担で設計し直し、ログインの維持を自動化する
 タグ: [インフラ・計測] [領域:管理] [時期:2026-10..2026-11] [種類:改善] [起票:2026-09-27]
 
 **起点**: 2026-09-27、Instagram の状態確認で、自動化用プロファイルの多くが期限切れのまま使う直前まで気づけない構造だと分かった（`.claude/knowledge/reference/playwright-auth-profiles.md` の 9/7 実測で 9 サービス中 6 つが expired）。サービスごとの CI 扱いはあるが、ログインを誰がどこでするかの共通ルールと、ログインの維持・期限切れ検知が無い。文書の一部は Windows 前提（`%LOCALAPPDATA%`）のまま。stats47 には、キーチェーンの ID/PW で切れたときだけ 1 回再ログインし、2FA・CAPTCHA では止めて通知、失敗は 1 回で止める実装がある（`~/stats47/.claude/scripts/measurement/refresh-session.mjs`・`bootstrap-session.mjs`）。A8・もしもは stats47 とログイン状態を共有済み。
 
-**やること**: (1) 役割分担を文書化する＝人（初回ログイン・2FA・キーチェーン登録・失敗印の解除）／Mac の launchd（ログイン維持・CI への状態受け渡し・見た目に関わる書き込み）／CI（読み取りの定期収集のみ。ログインしない・期限切れは検査不成立）。(2) stats47 の refresh-session 方式を共通化し、note・ココナラへ広げる。X・Instagram は凍結・利用制限の危険が大きいので健康診断と通知だけにして再ログインは人が行う。(3) 週1回のログイン健康診断を週次レビューに載せる。(4) 文書の Windows 前提を Mac の実パスへ直す。ID/PW をログ・引数・ファイルに出さない。エージェントはパスワードでのログインを実行しない（実行はオーナーか launchd）。
+**やること**: (1) 役割分担を文書化する＝人（初回ログイン・2FA・キーチェーン登録・失敗印の解除）／Mac の launchd（ログイン維持・CI への状態受け渡し・見た目に関わる書き込み）／CI（読み取りの定期収集のみ。ログインしない・期限切れは検査不成立）。(2) stats47 の refresh-session 方式を共通化し、note・ココナラへ広げる。X・Instagram は凍結・利用制限の危険が大きいので健康診断と通知だけにして再ログインは人が行う。(3) 週1回のログイン健康診断を週次レビューに載せる。(4) 文書の Windows 前提を Mac の実パスへ直す。(5) 2026-09-28 オーナー承認: Windows でも同じ維持を回す＝ID/PW は Windows 資格情報マネージャー（stats47 `credential-store.mjs` と同じ読み口・CI は読まない）、起動はタスクスケジューラ。Windows→CI の受け渡しはしない（CI へは Mac から一方向のまま）。ID/PW をログ・引数・ファイルに出さない。エージェントはパスワードでのログインを実行しない（実行はオーナーか launchd）。
 
-**完了条件**: 役割分担が文書にあり、note・ココナラのログイン維持が launchd で動き、週次レビューにログイン健康診断の欄があることを確認したら、このカードを削除する。
+**完了条件**: 役割分担が文書にあり、note・ココナラのログイン維持が launchd（Mac）とタスクスケジューラ（Windows）で動き、週次レビューにログイン健康診断の欄があることを確認したら、このカードを削除する。
 
 ### [DN-0363] SNS の入口→サイト→note/ココナラの経路を台帳と機械監査で管理する
 タグ: [収益化] [領域:SNS] [時期:2026-10..2026-11] [種類:改善] [起票:2026-09-27]
