@@ -137,6 +137,11 @@ async function fillAiDeclaration(page, ai) {
   const radio = (await row.count()) ? row.first() : page.getByText(target, { exact: true }).first();
   await radio.scrollIntoViewIfNeeded(); await sleep(400);
   await radio.click(); await sleep(2000);
+  // 既に「いいえ」の本を「はい」へ変えると、1 回のクリックでは選択欄が開かないことがある
+  // （2026-09-28 d-03 の表紙差し替えで selectOption が不可視のまま timeout）。開くまで押し直す。
+  for (let i = 0; anyAi && i < 3 && !(await page.locator(AI_SELECTS.text).isVisible().catch(() => false)); i++) {
+    await radio.click().catch(() => {}); await sleep(2500);
+  }
   if (anyAi) {
     // option の value は内部値（NONE / FEW_AND_EXTENSIVE …）と同一
     for (const [k, sel] of Object.entries(AI_SELECTS)) await page.selectOption(sel, { value: ai[k] || 'NONE' });
@@ -446,12 +451,20 @@ try {
       // 再出版（不可逆）。価格ページで価格が catalog と一致することを確かめてから押す。
       // 表紙を保存すると KDP が原稿を処理し直し、終わるまで pricing は content へ戻される
       // （2026-09-28 A-01 実測:「ファイルを処理しています…」・コンテンツ=設定中）。最大 10 分待つ。
+      // 「回答が正しいことを確認」のチェックは下書き保存では残らず、再読込で未チェックに戻る
+      // （2026-09-28 c-07 実測・出版で「この項目は必須です」×2）。content でチェックし直して
+      // 「保存して続行」で pricing へ進む（URL 直行では確認が付かない）。
       for (let t = 0; t < 20; t++) {
-        await gotoTitleSetup(page, `https://kdp.amazon.co.jp/ja_JP/title-setup/kindle/${titleId}/pricing`);
-        await sleep(6000);
-        if (/\/pricing/i.test(page.url())) break;
-        console.log(`[cover] 原稿の再処理待ち（価格ページがまだ開けない）… ${(t + 1) * 30}s`);
-        await sleep(24000);
+        if (t > 0) { console.log(`[cover] 原稿の再処理待ち（価格ページがまだ開けない）… ${t * 30}s`); await sleep(24000); }
+        if (!(await gotoTitleSetup(page, contentUrl))) continue;
+        await page.waitForSelector('#save-and-continue-announce', { state: 'attached', timeout: 30000 }).catch(() => {});
+        await sleep(3000);
+        const aff = await affirmUploadAnswers(page);
+        if (t === 0) console.log(`[cover] 出版前の回答の確認チェック: ${aff.found} 欄（今回チェック ${aff.clicked}）`);
+        await sleep(1000);
+        await page.locator('#save-and-continue-announce').click({ timeout: 10000 }).catch(() => {});
+        for (let w = 0; w < 6 && !/\/pricing/i.test(page.url()); w++) await sleep(2500);
+        if (/\/pricing/i.test(page.url())) { await sleep(4000); break; }
       }
       if (!/\/pricing/i.test(page.url())) { console.error('ABORT: 価格ページに到達できず URL=' + page.url()); await shot(page, 'cover-pub-nav-fail'); await ctx.close(); process.exit(3); }
       const price = await page.evaluate(() => document.querySelector('input[name="data[digital][channels][amazon][JP][price_vat_inclusive]"]')?.value || '');
