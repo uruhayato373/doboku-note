@@ -7,9 +7,8 @@ import opentype from '@shuding/opentype.js';
 import { renderCharacterFrame } from './character-framing.mjs';
 
 export const NOTE_CHARACTER_CANVAS = { width: 1280, height: 670 };
-// 2026-09-28 承認の文字優先POPレイアウト。記事・マガジンを中央固定にせず、同じ左寄せ構成で描く。
+// 記事は明るい左寄せPOP、マガジンは資格名・商品名を強調する濃色POPで描く。
 // 主要文字は左右45px・上下15pxの内側へ置き、人物は右端の補助要素として狭いカードでは切れてよい。
-// note上で白背景へ溶け込まないよう、資格色の細い外周枠を10px内側へ置く。
 const POP_LAYOUT = {
   safe: { x: 45, y: 15, width: 1190, height: 640 },
   textX: 90, textWidth: 760,
@@ -19,7 +18,12 @@ const POP_LAYOUT = {
 };
 export const COVER_LAYOUTS = {
   article: POP_LAYOUT,
-  magazine: POP_LAYOUT,
+  magazine: {
+    safe: POP_LAYOUT.safe,
+    textX: 185,
+    textWidth: 700,
+    character: { left: 910, width: 330, maxHeight: 490 },
+  },
 };
 export const coverLayout = input => COVER_LAYOUTS[input?.magazine ? 'magazine' : 'article'];
 const clean = value => String(value ?? '').replace(/\s+/g, ' ').trim();
@@ -107,6 +111,10 @@ export function coverFitIssues(root, input) {
   const errors = [];
   let copy;
   try { copy = coverCopy(input); } catch (error) { return [error.message]; }
+  if (input.magazine) {
+    try { magazineTypography(magazineDisplayCopy(input, copy), measure); } catch (error) { errors.push(error.message); }
+    return errors;
+  }
   const L = coverLayout(input);
   try { headlineLayout(copy.headline, measure, L.headline); } catch (error) { errors.push(error.message); }
   for (const [label, text, max, width] of [['lead', copy.lead, ...leadFit(L)], ['proof', copy.proof, ...proofFit(L)], ['benefit', copy.benefit, ...benefitFit(L)]]) {
@@ -180,7 +188,91 @@ const div = (style, children = [], props = {}) => ({ type: 'div', props: { ...pr
 const at = (x, y, width, height, children, style = {}, props = {}) => div({ position: 'absolute', left: x, top: y, width, height, ...style }, children, props);
 const textNode = (text, size, color, style = {}, role) => div({ fontSize: size, color, lineHeight: 1.1, whiteSpace: 'nowrap', ...style }, text, role ? { 'data-cover-role': role } : {});
 
+const MAGAZINE_EXAM_LABELS = {
+  'civil-1': '1級土木', 'civil-2': '2級土木', 'civil-1-2': '1級・2級土木',
+  'pe-comprehensive': '技術士 総監', 'pe-construction': '技術士 建設部門', 'pe-first-stage': '技術士 第一次',
+  'concrete-engineer': 'コンクリート技士', 'concrete-chief': 'コンクリート主任技士',
+  'concrete-diagnosis': 'コンクリート診断士', rccm: 'RCCM',
+};
+
+export function magazineDisplayCopy(input, copy = coverCopy(input)) {
+  const qualification = MAGAZINE_EXAM_LABELS[input.examKey];
+  if (!qualification) throw new Error(`マガジンの資格名が未定義: ${input.examKey}`);
+  let title = copy.headline;
+  let proof = copy.proof;
+  const pack = title.match(/^(.+?)（(必須科目I＋.+)）$/u);
+  if (pack && /合格パック/.test(copy.lead)) { title = `${pack[1]} 合格パック`; proof = pack[2]; }
+  else if (title === 'まるごとパック' && /(?:二次|第2次)検定/.test(copy.lead)) title = '二次検定まるごとパック';
+  return { qualification, title, proof, authority: '技術士（総監）が作成' };
+}
+
+function magazineSize(text, max, min, width, measure) {
+  const size = Math.min(max, Math.floor(width / (measure(text, 1) || 1)));
+  if (size < min) throw new Error(`マガジンの文言が表示幅に収まりません: ${text}`);
+  return size;
+}
+
+function magazineTypography(copy, measure) {
+  return {
+    qualification: magazineSize(copy.qualification, 116, 52, 700, measure),
+    title: magazineSize(copy.title, 86, 38, 700, measure),
+    proof: copy.proof ? magazineSize(copy.proof, 36, 26, 690, measure) : null,
+  };
+}
+
+async function renderMagazineCharacterCover(root, input) {
+  const ctx = context(root);
+  const measure = (text, size) => ctx.font.getAdvanceWidth(text, size);
+  const copy = magazineDisplayCopy(input);
+  const typography = magazineTypography(copy, measure);
+  const L = COVER_LAYOUTS.magazine;
+  const band = input.palette.band;
+  const selection = input.cover?.character ? { pose: input.cover.character, reason: '原稿指定' }
+    : input.poseSelection || selectPose(input, input.title || copy.title);
+  const { pose } = selection;
+  const frameKey = `${pose}/${L.character.width}`;
+  if (!ctx.characters.has(frameKey)) ctx.characters.set(frameKey, renderCharacterFrame(root, { pose, frame: 'waist', width: L.character.width }));
+  const character = await ctx.characters.get(frameKey);
+  const scale = Math.min(1, L.character.maxHeight / character.height);
+  const characterBox = { width: Math.round(character.width * scale), height: Math.round(character.height * scale) };
+  characterBox.left = L.character.left + Math.round((L.character.width - characterBox.width) / 2);
+  characterBox.top = 620 - characterBox.height;
+  const authorityWidth = Math.ceil(measure(copy.authority, 37) + 60);
+  const children = [
+    at(0, 0, 1280, 670, [], { background: band }),
+    at(24, 24, 1232, 622, [], { border: '4px solid #f4d36b', borderRadius: 18 }),
+    at(185, 100, authorityWidth, 68, textNode(copy.authority, 37, band, {}, 'authority'),
+      { alignItems: 'center', justifyContent: 'center', background: '#f4d36b', borderRadius: 8 }),
+    at(185, 209, 700, 128, textNode(copy.qualification, typography.qualification, '#f4d36b', {}, 'qualification'), { alignItems: 'center' }),
+    at(185, 347, 700, 92, textNode(copy.title, typography.title, '#ffffff', {}, 'title'), { alignItems: 'center' }),
+    ...(copy.proof ? [
+      at(185, 469, 690, 84, [], { borderTop: '3px solid #f4d36b', borderBottom: '3px solid #f4d36b' }),
+      at(185, 486, 690, 50, textNode(copy.proof, typography.proof, '#ffffff', {}, 'proof'), { alignItems: 'center' }),
+    ] : []),
+    { type: 'img', props: { src: `data:image/png;base64,${character.buffer.toString('base64')}`,
+      width: characterBox.width, height: characterBox.height,
+      style: { position: 'absolute', left: characterBox.left, top: characterBox.top } } },
+  ];
+  const nodes = [];
+  const svg = await satori(div({ width: 1280, height: 670, position: 'relative', fontFamily: 'Noto Sans JP', fontWeight: 700 }, children),
+    { ...NOTE_CHARACTER_CANVAS, fonts: ctx.fonts, onNodeDetected: node => { if (node.props?.['data-cover-role']) nodes.push(node); } });
+  const errors = [];
+  for (const node of nodes) {
+    if (node.left < L.safe.x || node.top < L.safe.y || node.left + node.width > L.safe.x + L.safe.width || node.top + node.height > L.safe.y + L.safe.height)
+      errors.push(`文字の実描画枠が安全域外: ${node.props['data-cover-role']}`);
+    if (node.props['data-cover-role'] !== 'authority' && node.left + node.width > characterBox.left)
+      errors.push(`文字と人物が重なります: ${node.props['data-cover-role']}`);
+  }
+  if (nodes.length !== (copy.proof ? 4 : 3)) errors.push('マガジンの文字枠を取得できません');
+  if (errors.length) throw new Error(errors.join(' / '));
+  const buffer = await sharp(Buffer.from(svg)).png().toBuffer();
+  return { buffer, copy, typography, pose, poseReason: selection.reason, characterBox, sourceSha256: character.sourceSha256,
+    measuredHeadlineNodes: nodes.filter(node => ['qualification', 'title'].includes(node.props['data-cover-role'])).map(({ left, top, width, height }) => ({ left, top, width, height })),
+    measuredTextNodes: nodes.map(({ left, top, width, height, props }) => ({ role: props['data-cover-role'], left, top, width, height })) };
+}
+
 export async function renderNoteCharacterCover(root, input) {
+  if (input.magazine) return renderMagazineCharacterCover(root, input);
   const ctx = context(root);
   const measure = (text, size) => ctx.font.getAdvanceWidth(text, size);
   const copy = coverCopy(input);
