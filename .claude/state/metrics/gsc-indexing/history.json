@@ -375,6 +375,60 @@
         "/exam/pe-construction/past-exams/r02-required",
         "/exam/pe-construction/past-exams/r04-road"
       ]
+    },
+    {
+      "runId": "2026-09-28T01-30-15Z",
+      "collectedAt": "2026-09-28T01:30:15.775Z",
+      "mode": "commit",
+      "status": "ok",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 26,
+      "accepted": 10,
+      "alreadyIndexed": 16,
+      "unreadable": 0,
+      "slugs": [
+        "/exam/pe-comprehensive-management/keywords/cost-benefit-analysis",
+        "/exam/civil-construction-1/textbook/pavement-repair-quality",
+        "/exam/civil-construction-2/guide/schedule-management",
+        "/exam/civil-construction-1/guide/surveying",
+        "/exam/civil-construction-2/guide/law-key-points",
+        "/exam/civil-construction-2/guide/haken-seishain",
+        "/exam/pe-first-stage/primary/r06-aptitude",
+        "/exam/pe-construction/guide/secondary-study-method",
+        "/exam/civil-construction-1/guide/exam-overview",
+        "/exam/civil-construction-1/guide/public-servant",
+        "/exam/civil-construction-1/guide/study-plan",
+        "/exam/civil-construction-2/guide/study-plan",
+        "/exam/pe-comprehensive-management/keywords/performance-regulation",
+        "/exam/pe-construction/keywords/bosai-kokudo-kyoujinka",
+        "/exam/pe-construction/keywords/steel-concrete-ronbun-keyword",
+        "/exam/pe-construction/past-exams/r01-required",
+        "/exam/pe-construction/past-exams/r07-required",
+        "/exam/pe-first-stage/primary/r01-basic",
+        "/exam/civil-construction-1/guide/career-agents",
+        "/exam/civil-construction-1/guide/dx-jobs",
+        "/exam/civil-construction-1/guide/environment-management",
+        "/exam/civil-construction-1/guide/market-value",
+        "/exam/civil-construction-1/guide/public-engineer-salary-table",
+        "/exam/civil-construction-1/guide/quit-or-stay",
+        "/exam/civil-construction-1/guide/quit-public-engineer",
+        "/exam/civil-construction-1/guide/salary-by-role"
+      ],
+      "acceptedSlugs": [
+        "/exam/civil-construction-1/guide/surveying",
+        "/exam/civil-construction-2/guide/haken-seishain",
+        "/exam/pe-first-stage/primary/r06-aptitude",
+        "/exam/pe-construction/past-exams/r01-required",
+        "/exam/civil-construction-1/guide/environment-management",
+        "/exam/civil-construction-1/guide/market-value",
+        "/exam/civil-construction-1/guide/public-engineer-salary-table",
+        "/exam/civil-construction-1/guide/quit-or-stay",
+        "/exam/civil-construction-1/guide/quit-public-engineer",
+        "/exam/civil-construction-1/guide/salary-by-role"
+      ]
     }
   ]
 }
