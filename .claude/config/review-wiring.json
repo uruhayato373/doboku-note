@@ -1,7 +1,7 @@
 {
   "version": 1,
   "_doc": "docs/strategy/15_KPIツリー.md",
-  "_note": "週次・月次レビューの配線の正本。inputs はスキル（.claude/skills/management/{weekly,monthly}-review/SKILL.md）が実行するコマンドの全件で、stage は KPI ツリーの段、role は「判断」（判断の材料）か「点検」（仕組みの健全性・人が読まなくてよい）。スキルとこのファイルの食い違いは npm run check-review-wiring が止める。管理画面 戦略 ＞ レビュー がこの配線と実行状況を図にする。レビューから起票したカードは本文の起点に「週次レビュー（開始日〜終了日）」「月次レビュー（開始日〜終了日）」と書く（管理画面が数える）。 procedure は各レビューの手順（段ごとに何をして、何が残れば実施したと言えるか）。evidence は review-wiring.mjs の EVIDENCE のどれか（reviewRecord＝business-direction のレビュー記録／sections＝週次レポートの節／triage＝計測ダイジェストの全件処分／reportFile＝cadences.<id>.report のレポート（週次 docs/reviews/weekly・月次 docs/reviews/monthly）／routing＝申し送りの振り分け／weeklyPlan＝翌週の週間計画／none＝証拠が残らない手順）。管理画面 戦略 ＞ レビュー ＞ 手順の点検 が表示する。",
+  "_note": "週次・月次レビューの配線の正本。inputs はスキル（.claude/skills/management/{weekly,monthly}-review/SKILL.md）が実行するコマンドの全件で、stage は KPI ツリーの段、role は「判断」（判断の材料）か「点検」（仕組みの健全性・人が読まなくてよい）。スキルとこのファイルの食い違いは npm run check-review-wiring が止める。管理画面 戦略 ＞ レビュー がこの配線と実行状況を図にする。レビューから起票したカードは本文の起点に「週次レビュー（開始日〜終了日）」「月次レビュー（開始日〜終了日）」と書く（管理画面が数える）。 procedure は各レビューの手順（段ごとに何をして、何が残れば実施したと言えるか）。evidence は review-wiring.mjs の EVIDENCE のどれか（reviewRecord＝business-direction のレビュー記録／sections＝週次レポートの節／triage＝計測ダイジェストの全件処分／reportFile＝cadences.<id>.report のレポート（週次 docs/reviews/weekly・月次 docs/reviews/monthly）／routing＝申し送りの振り分け／weeklyPlan＝翌週の週間計画／none＝証拠が残らない手順）。管理画面 戦略 ＞ レビュー（/metrics/business）の「手順チェックリスト」「実施履歴」が表示する。",
   "stages": [
     "受取・販売",
     "検索",

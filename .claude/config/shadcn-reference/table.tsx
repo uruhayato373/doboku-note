@@ -1,9 +1,7 @@
-// shadcn/ui 公式（new-york-v4）の table.tsx をそのまま使う。変えたのは import 先（cn → @/lib/cn・Slot → @radix-ui/react-slot）だけ。
-// 公式との差は npm run check-shadcn-parity が止める（参照: .claude/config/shadcn-reference/table.tsx・例外: .claude/config/shadcn-parity-allow.json）。
 "use client"
 
 import * as React from "react"
-import { cn } from "@/lib/cn"
+import { cn } from "cn"
 
 function Table({ className, ...props }: React.ComponentProps<"table">) {
   return (

@@ -1,0 +1,15 @@
+{
+  "_comment": "check-shadcn-parity の例外。管理画面の UI 部品（tools/admin-app/src/components/ui/*.tsx）は shadcn/ui 公式（.claude/config/shadcn-reference/*.tsx）と同じクラスにするのが原則で、ここに書いた差だけを許す。1 件ごとに理由を書く。登録した差が無くなったら（公式へ寄せたら）検査が知らせるので行を消す（DN-0432）。",
+  "components": {
+    "badge": {
+      "cva:badgeVariants:variant.success": {
+        "extra": ["bg-emerald-500/10", "dark:text-emerald-300", "text-emerald-700"],
+        "reason": "公式には状態を表す variant が無い。管理画面の「実施済み・証拠あり・確定」を destructive / outline と区別して出すために足した"
+      },
+      "cva:badgeVariants:variant.warning": {
+        "extra": ["bg-amber-500/12", "dark:text-amber-300", "text-amber-700"],
+        "reason": "同上。「一部・暫定・未実施・不足あり」用"
+      }
+    }
+  }
+}

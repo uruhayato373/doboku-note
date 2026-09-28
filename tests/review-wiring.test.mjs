@@ -45,3 +45,19 @@ test('手順の evidence は決まった語彙だけ', () => {
   const config = { stages: [], cadences: { weekly: { inputs: [], procedure: [{ label: 'x', evidence: 'magic' }, { label: 'y', evidence: 'sections' }] } } };
   assert.equal(validateWiring(config).length, 2);
 });
+
+test('CRLF の本文でも出力フォーマットの節とレポートの節を拾う（Windows の作業ツリー）', async () => {
+  const { formatSections: f, reportSections: r } = await import('../scripts/lib/review-wiring.mjs');
+  const skill = '## 出力フォーマット（md 本文）\r\n\r\n```markdown\r\n## サマリー\r\n- x\r\n\r\n## 計画 vs 実績\r\n```\r\n';
+  assert.deepEqual(f(skill), ['サマリー', '計画 vs 実績']);
+  assert.deepEqual(r('# t\r\n## サマリー\r\n- 欠測\r\n## 次\r\n').map((s) => [s.title, s.lines, s.gaps]), [['サマリー', 1, 1], ['次', 0, 0]]);
+});
+
+test('回のキー: 週次は振り返り期間の翌日の週（レポートの週）・月次は対象月、レポート名からも同じキー', async () => {
+  const { runKeyOfPeriod, runKeyOfReport } = await import('../scripts/lib/review-wiring.mjs');
+  assert.equal(runKeyOfPeriod('weekly', { startDate: '2026-09-14', endDate: '2026-09-20' }), '2026-W39');
+  assert.equal(runKeyOfReport('2026-W39-review.md'), '2026-W39');
+  assert.equal(runKeyOfPeriod('monthly', { startDate: '2026-08-01', endDate: '2026-08-31' }), '2026-08');
+  assert.equal(runKeyOfReport('2026-08-review.md'), '2026-08');
+  assert.equal(runKeyOfReport('2026-W39.md'), null);
+});
