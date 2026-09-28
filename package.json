@@ -304,6 +304,7 @@
     "coconala-edit": "node scripts/coconala-edit.mjs",
     "coconala-orders": "node scripts/coconala-orders.mjs",
     "coconala-talkroom": "node scripts/coconala-talkroom.mjs",
+    "coconala-dm": "node scripts/coconala-dm.mjs",
     "coconala-pause": "node scripts/coconala-pause.mjs",
     "coconala-profile": "node scripts/coconala-profile.mjs",
     "coconala-publish": "node scripts/coconala-publish.mjs",
