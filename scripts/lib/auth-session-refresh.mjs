@@ -9,7 +9,7 @@ import { homedir } from 'node:os';
 import { join } from 'node:path';
 
 /**
- * キーチェーンで自動ログインできるサービス。
+ * OS の資格情報ストア（Mac キーチェーン / Windows 資格情報マネージャー）で自動ログインできるサービス。
  * - shared: stats47 と共用する口座。stats47 が毎日保存する state を先に取り込み、doboku-note からの
  *   ログインは state が切れているときだけにする（同じ口座へ両方から毎日ログインしない）。キーチェーンも
  *   stats47 の項目を代わりに使ってよい。
@@ -45,12 +45,31 @@ export const AUTO_LOGIN = Object.freeze({
     loggedIn: (url) => /kdp(reports)?\.amazon\.co\.jp\//.test(url) && !/\/ap\/(signin|mfa|cvf)/.test(url),
     challengeUrl: /\/ap\/(mfa|cvf)|\/errors\/validateCaptcha/,
   },
+  // note・ココナラは doboku-note 専用口座。セレクタは 2026-09-28 にログイン画面の DOM で確認した。
+  // ログイン成否の最終判定は statusAuthService（口座名の本文一致 assert）が行う。
+  note: {
+    shared: false,
+    loginUrl: 'https://note.com/login',
+    user: 'input[name=login]',
+    password: 'input[name=password]',
+    submit: 'button[type=submit]',
+    loggedIn: (url) => /^https:\/\/(editor\.)?note\.com\//.test(url) && !/\/login|\/signup/.test(url),
+  },
+  coconala: {
+    shared: false,
+    loginUrl: 'https://coconala.com/login',
+    user: '#UserLoginEmail',
+    password: '#UserLoginPassword',
+    remember: '#loginEmailSave',
+    submit: 'form[action*="/login"] button[type=submit]',
+    loggedIn: (url) => /^https:\/\/coconala\.com\//.test(url) && !/\/login|\/signup/.test(url),
+  },
 });
 
 export const KEYCHAIN_PREFIX = 'doboku-note-auth-';
 export const SHARED_KEYCHAIN_PREFIX = 'stats47-measurement-';
 
-/** 探すキーチェーン項目名（優先順）。 */
+/** 探す資格情報の項目名（優先順）。Mac・Windows とも同じ名前。 */
 export function keychainServiceNames(service) {
   const spec = AUTO_LOGIN[service];
   if (!spec) return [];
@@ -64,18 +83,8 @@ export function sharedStatePath(service, env = process.env, home = homedir()) {
   return join(dir, `${service}-state.json`);
 }
 
-/**
- * `security find-generic-password` の属性出力からアカウント名を取り出す。
- * ASCII 以外や制御文字を含む値は `"acct"<blob>=0x<16進>  "<エスケープ表示>"` の形で出るので、16進を優先して復号する
- * （2026-09-28 実測: stats47-measurement-a8 がこの形で、引用符の形だけを見ていたため no_credential になった）。
- */
-export function parseKeychainAccount(text) {
-  const s = String(text ?? '');
-  const hex = /"acct"<blob>=0x([0-9A-Fa-f]+)/.exec(s);
-  if (hex) return Buffer.from(hex[1], 'hex').toString('utf8').trim() || null;
-  const m = /"acct"<blob>="([^"]*)"/.exec(s);
-  return m ? m[1] : null;
-}
+// 後方互換: テストと既存の呼び出し元のため credential-store から再輸出する。
+export { parseKeychainAccount } from './credential-store.mjs';
 
 /** ログイン送信後の画面を ok / human_required / login_failed に分ける。 */
 export function classifyLoginOutcome(service, { url, hasPassword, hasChallenge }) {

@@ -74,8 +74,8 @@ npm run auth:export           # ローカルstorageStateをage暗号化しprivat
 npm run auth:ci-restore       # CI専用。暗号化stateを復元。authenticated以外はexit 2でリトライしない（人の再ログイン待ち）
 npm run auth:ci-writeback     # CI専用。更新後のstorageStateをCAS（etag/generation）で書き戻す
 npm run auth:ci-plan          # ops-writeのwrite planを作りDOBOKU_CI_WRITE_PLAN_SHA256を計算する
-npm run auth:refresh          # A8/もしも/KDP のログイン維持（Mac 専用）。stats47 の共用 state（~/.local/share/asp-sessions）を取り込み、切れていればキーチェーンで 1 回だけログイン。`--export`・`--dispatch-due`（定期収集が 24h 以内なら直後に起動）。`--no-login` は取り込みと status だけ。失敗印 metadata/<service>.autologin-failed を消すまで再試行しない
-npm run auth-refresh:install  # 上を launchd に登録（毎日 17:45＝stats47 の 17:30 直後・ログイン時。登録直後にも 1 回走る）。`-- --status` / `-- --run-now` / `-- --uninstall`
+npm run auth:refresh          # A8/もしも/KDP/note/ココナラのログイン維持（Mac・Windows）。stats47 の共用 state（~/.local/share/asp-sessions）を取り込み、切れていれば OS の資格情報ストア（キーチェーン／資格情報マネージャー）で 1 回だけログイン。`--export`・`--dispatch-due`（Mac のみ。定期収集が 24h 以内なら直後に起動）。`--no-login` は取り込みと status だけ。失敗印 metadata/<service>.autologin-failed を消すまで再試行しない
+npm run auth-refresh:install  # 上を Mac は launchd（毎日 17:45＝stats47 の 17:30 直後・ログイン時。登録直後にも 1 回走る）、Windows はタスクスケジューラ（毎日 17:45・本体 checkout から登録・worktree からは拒否）に登録。`-- --status` / `-- --run-now` / `-- --uninstall`
 npm run check-content-taxonomy # 分類語彙（領域×資格×記事型×テーマ×タグ）の整合。group が許可外・未登録タグは赤、別名綴り・構造タグ不整合は baseline ラチェット（`:ci`）、topic 三方向の 0 件は WARN。規則は content-taxonomy.md・pre-commit --staged ＋ quality:audit
 npm run check-content-expansion # 全教材の論点→記事/図/SNS対応・未確認・原典待ち・成果物変更を検査（管理画面 /materials・週次/月次で確認）
 npm run check-content-expansion:linked # backlogIds を持つ論点に要作業・原典待ち・再確認が残れば exit 1（backlog の [検証:] 用・無印は常に緑）
