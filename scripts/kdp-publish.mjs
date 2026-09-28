@@ -150,6 +150,23 @@ async function fillAiDeclaration(page, ai) {
   console.log(`[ai] AI申告: ${target}${anyAi ? ` (text=${ai.text} img=${ai.images} tr=${ai.translations})` : ''}`);
 }
 
+// 原稿・表紙をアップロードすると、AI 申告とアクセシビリティの下に「回答が正しいことを確認」の
+// チェック欄が出る（React 動的描画）。未チェックだと出版で「この項目は必須です」×2 になる
+// （2026-09-28 A-01 表紙差し替えで実測）。一致するものをすべてチェックし、{ found, clicked } を返す。
+async function affirmUploadAnswers(page) {
+  return page.evaluate(() => {
+    let found = 0, clicked = 0;
+    for (const b of document.querySelectorAll('input[type="checkbox"], [role="checkbox"]')) {
+      const ctx = (b.closest('label,div,section,li') || {}).textContent || '';
+      if (!/回答が正しいこと|確認することになります|新しい原稿または表紙/.test(ctx) || b.disabled) continue;
+      const checked = b.type === 'checkbox' ? b.checked : b.getAttribute('aria-checked') === 'true';
+      found++;
+      if (!checked) { b.click(); clicked++; }
+    }
+    return { found, clicked };
+  });
+}
+
 // 既刊のコンテンツページで AI 申告が未回答なら埋めて下書き保存する。
 // 戻り値: 'already'（回答済み）/ 'needed'（dry-run で未回答を検出）/ 'filled'（埋めて保存・再検証済み）
 async function ensureAiDeclarationSaved(page, titleId, ai, { commit }) {
@@ -396,6 +413,9 @@ try {
 
       // 必須化された AI 申告が未回答なら同じページで埋める（後の出版で弾かれないように）
       if (!aiAnswered(await readAiDeclaration(page), book.aiDeclaration)) await fillAiDeclaration(page, book.aiDeclaration);
+      await sleep(1000);
+      const aff = await affirmUploadAnswers(page);
+      console.log(`[cover] 回答の確認チェック: ${aff.found} 欄（今回チェック ${aff.clicked}）`);
 
       await page.locator('#save-announce').click({ timeout: 10000 });
       let saved = false;
@@ -424,8 +444,15 @@ try {
       }
 
       // 再出版（不可逆）。価格ページで価格が catalog と一致することを確かめてから押す。
-      await gotoTitleSetup(page, `https://kdp.amazon.co.jp/ja_JP/title-setup/kindle/${titleId}/pricing`);
-      await sleep(6000);
+      // 表紙を保存すると KDP が原稿を処理し直し、終わるまで pricing は content へ戻される
+      // （2026-09-28 A-01 実測:「ファイルを処理しています…」・コンテンツ=設定中）。最大 10 分待つ。
+      for (let t = 0; t < 20; t++) {
+        await gotoTitleSetup(page, `https://kdp.amazon.co.jp/ja_JP/title-setup/kindle/${titleId}/pricing`);
+        await sleep(6000);
+        if (/\/pricing/i.test(page.url())) break;
+        console.log(`[cover] 原稿の再処理待ち（価格ページがまだ開けない）… ${(t + 1) * 30}s`);
+        await sleep(24000);
+      }
       if (!/\/pricing/i.test(page.url())) { console.error('ABORT: 価格ページに到達できず URL=' + page.url()); await shot(page, 'cover-pub-nav-fail'); await ctx.close(); process.exit(3); }
       const price = await page.evaluate(() => document.querySelector('input[name="data[digital][channels][amazon][JP][price_vat_inclusive]"]')?.value || '');
       if (String(price) !== String(catalogBook.priceJpy)) {
@@ -1057,18 +1084,7 @@ try {
   // 新規アップロード時の affirmation（「回答が正しいことを確認」）＝React動的描画。
   // input[type=checkbox] / [role=checkbox] 両対応で文脈テキスト一致のものを click。
   try {
-    const affirmed = await page.evaluate(() => {
-      const nodes = Array.from(document.querySelectorAll('input[type="checkbox"], [role="checkbox"]'));
-      for (const b of nodes) {
-        const ctx = (b.closest('label,div,section,li') || {}).textContent || '';
-        if (!/回答が正しいこと|確認することになります|新しい原稿または表紙/.test(ctx)) continue;
-        if (b.disabled) continue;
-        const checked = b.type === 'checkbox' ? b.checked : b.getAttribute('aria-checked') === 'true';
-        if (!checked) b.click();
-        return true;
-      }
-      return false;
-    });
+    const affirmed = (await affirmUploadAnswers(page)).found > 0;
     if (!affirmed) {
       const lbl = page.getByText('自分の回答が正しいことを確認することになります', { exact: false });
       if (await lbl.count()) await lbl.first().click({ timeout: 4000 }).catch(() => {});
