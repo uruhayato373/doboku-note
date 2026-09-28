@@ -64,6 +64,15 @@ https://note.com/dobokunote/m/m8554e87ca6ec
 
 https://note.com/dobokunote/n/n4fde0f62dc20
 
+<!-- cta:coconala-custom -->
+この答案をあなたの工事に合わせて仕上げたいときは、ココナラで個別に対応しています。書いた答案があれば添削で赤入れ、まだ書けていなければヒアリングから骨子（構成）をつくります。
+
+https://coconala.com/services/4418775
+
+まだ答案が無い人は、ヒアリングから骨子（構成）をつくるこちらへ。
+
+https://coconala.com/services/4418781
+
 ## 安全管理の答案で採点者が見るポイント
 
 安全管理は「現場で起こりうる労働災害・第三者災害を、どの対策で防いだか」を系統立てて書くテーマである。採点者は次を見ている。

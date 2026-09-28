@@ -2,8 +2,8 @@
   "_comment": "check-admin-ui-debt のラチェット基準値。ページごとの生 card クラスとインライン style の件数。増えたら CI が落ちる。shadcn 部品へ移して減らしたら `node scripts/check-admin-ui-debt.mjs --update` で下げる（DN-0432）。",
   "_updatedAt": "2026-09-28",
   "totals": {
-    "rawCard": 93,
-    "inlineStyle": 126
+    "rawCard": 81,
+    "inlineStyle": 90
   },
   "files": {
     "tools/admin-app/src/app/affiliate/page.tsx": {
@@ -77,14 +77,6 @@
     "tools/admin-app/src/app/materials/page.tsx": {
       "rawCard": 4,
       "inlineStyle": 11
-    },
-    "tools/admin-app/src/app/metrics/business/page.tsx": {
-      "rawCard": 9,
-      "inlineStyle": 26
-    },
-    "tools/admin-app/src/app/metrics/business/procedure/page.tsx": {
-      "rawCard": 3,
-      "inlineStyle": 10
     },
     "tools/admin-app/src/app/metrics/ga4/page.tsx": {
       "rawCard": 2,

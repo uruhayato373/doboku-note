@@ -37,6 +37,7 @@ paths:
 ## 管理画面・データ・CI
 
 - `tools/admin-app/`（`npm run admin`・`http://127.0.0.1:3021`・RSC ファースト・ルート node_modules 再利用・dev 専用でビルド/デプロイなし・投稿は既存 CLI を child_process 実行しガードは CLI 側） → [tools/admin-app/README.md](../../tools/admin-app/README.md)。E2E は `npm run test:e2e:admin`（CI の e2e には載せない）。サイトの E2E は `npm run serve`（3025）を既定ターゲットにし、叩く URL は `npm run check-e2e-targets` で out/ に実在させる
+- 管理画面の UI 部品は shadcn/ui 公式のまま使う（自作・「互換」の手書きをしない）。公式との差は `npm run check-shadcn-parity` が止め、意図した差だけ `.claude/config/shadcn-parity-allow.json` に理由付きで登録する。新しい部品は `npm run sync-shadcn-reference -- <name>` で参照を取ってから足す（DN-0432）
 - DB は導入しない（D1 不採用・frontmatter + build-time JSON 継続・再検討トリガー） → [data-storage-decision.md](../knowledge/reference/data-storage-decision.md)
 - `notebooklm` CLI のクセ → [notebooklm-cli-gotchas.md](../knowledge/reference/notebooklm-cli-gotchas.md)。Playwright 認証プロファイル → [playwright-auth-profiles.md](../knowledge/reference/playwright-auth-profiles.md)
 - CI/CD の Secrets・破壊操作の権限設計 → [ci-cd-security-hardening.md](../knowledge/reference/ci-cd-security-hardening.md)。workflow は full clone 禁止（`npm run check-workflow-clone-depth`）・actionlint/permissions/timeout/SHA 固定（`npm run check-workflow-hygiene`）。自動化の失敗・沈黙は `scripts/report-automation-failure.mjs` で `automation-failure` Issue に記録（GitHub Issue の唯一の例外）
