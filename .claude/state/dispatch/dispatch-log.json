@@ -1423,6 +1423,18 @@
       "commit": "9a5043c0db4e",
       "verification": null,
       "note": "DN-0360（note の記事単位の同期）へ統合。未反映は Mac の週次 note-sync が 1 記事 1 回の更新で反映し、CI の check-note-sync が判定する"
+    },
+    {
+      "id": "DN-0450",
+      "at": "2026-09-29",
+      "task": "2級土木の note 記事で著者オーソリティ画像をPOP版へ差し替え、未反映記事を解消する",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "90570cfb94a8",
+      "verification": "公開API独立再照合 91/91 POP・標準版0/note-lint 91記事OK/PDF添付は差替前後で非減少（スクリプトguard）",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }
