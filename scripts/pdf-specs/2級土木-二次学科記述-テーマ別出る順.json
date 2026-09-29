@@ -7,7 +7,7 @@
       "include": [
         {
           "from": "^## 出る順① 打込み・締固め（2回）",
-          "to": "^<!-- cta:civil-membership-lab"
+          "to": "^<!-- cta:civil-membership-lab|^## 出典"
         }
       ],
       "exclude": [
@@ -23,7 +23,7 @@
       "include": [
         {
           "from": "^## 出る順① 鉄筋・型枠・型枠支保工の品質管理（3回・ほぼ毎年）",
-          "to": "^<!-- cta:civil-membership-lab"
+          "to": "^<!-- cta:civil-membership-lab|^## 出典"
         }
       ],
       "exclude": [
@@ -39,7 +39,7 @@
       "include": [
         {
           "from": "^## 出る順① 盛土の施工・締固め（最頻出・土工の中核）",
-          "to": "^<!-- cta:civil-membership-lab"
+          "to": "^<!-- cta:civil-membership-lab|^## 出典"
         }
       ],
       "exclude": [
@@ -55,7 +55,7 @@
       "include": [
         {
           "from": "^## 出る順① 移動式クレーン・玉掛け作業（3回・最頻）",
-          "to": "^<!-- cta:civil-membership-lab"
+          "to": "^<!-- cta:civil-membership-lab|^## 出典"
         }
       ],
       "exclude": [
@@ -71,7 +71,7 @@
       "include": [
         {
           "from": "^## 出る順① 工程表の特徴・構造（最頻出・5年連続）",
-          "to": "^<!-- cta:civil-membership-lab"
+          "to": "^<!-- cta:civil-membership-lab|^## 出典"
         }
       ],
       "exclude": [

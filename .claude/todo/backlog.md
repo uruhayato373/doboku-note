@@ -163,6 +163,15 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0460] 合格ラボ撤退の後始末: 会員特典マガジン7誌から記事を外し、会員向け22記事を非公開にする
+タグ: [収益化] [領域:商品] [時期:2026-10] [種類:改善] [起票:2026-09-30] [期日:2026-10-31]
+
+**起点**: 2026-09-30 のユーザー決定で note メンバーシップ「土木セコカン合格ラボ」から撤退した。note 記事 266 本の勧誘ブロックとサイト配置（PR #742）は同日に外した。会員特典マガジンに入った無料記事は、更新のたびに試し読みラインの指定（`--trial-line-bottom`）が要り、指定が無いと trial-guard で止まる。本試験（1級 10/4・2級 10/25）前はココナラ導線の反映を優先するため後回しにした。
+
+**やること**: (1) `.claude/config/note-membership.json` の `benefitMagazines` 7 誌から収録記事を外す（外す操作のスクリプトは無い。`note-magazine-add-articles.mjs` の逆操作を Playwright で作るか手作業）。(2) `notePricing: membership` の 22 記事（`content/note/1級・2級土木/メンバーシップ/` 配下: 予想問題マガジン 11・学科記述予想 10・添削事例 1）と「はじめに-合格ラボ」を非公開にする（下書きへ戻す操作のスクリプトも無い）。(3) 運用ドキュメントに残る合格ラボの記述（`noteコンテンツ計画.md`・`メンバーシップ説明文.md`・`content/note/README.md`・`ココナラ展開キット.md` ほか）を撤退済みに直す。
+
+**完了条件**: note 公開 API で会員向け 22 記事＋はじめにが取得できず（非公開）、特典マガジンに入っていた無料記事が `--trial-line-bottom` 無しの `note-update-body --sync` で trial-guard に掛からず更新できる。`grep -rl 合格ラボ content/note docs` が撤退の記録以外に残らない。
+
 ### [DN-0452] 管工事（1級・2級）の施工記述を分析し、note 教材を 1 商品で試す
 タグ: [収益化] [領域:商品] [時期:2026-10] [種類:制作] [起票:2026-09-29]
 
@@ -1448,6 +1457,20 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 **やること**: (1) `/create-pop-image` で主任技士・添削の POP 画像を作り、承認後に `coconala-thumb-approved.json` へ登録して `coconala-edit --image … --replace-image --commit` で差し替える。(2) ココナラの画面でプロフィールの「資格・検定」に コンクリート主任技士・コンクリート診断士 を追加する（人の作業・自動化なし）。(3) 受注時の手順を決める。既存エージェントに主任技士の採点軸を足すか、手作業の赤入れテンプレートで受けるかを選び、`coconala-operations.md` に書く。
 
 **完了条件**: 公開ページの商品画像が承認済み POP 画像の SHA と一致し、プロフィールの資格欄に主任技士が表示され、主任技士の添削を受注したときの手順が `coconala-operations.md` にある。
+
+### [DN-0461] コンクリート主任技士 小論文「令和形式テーマ別」を note・ココナラで公開し、サイトと旧商品の導線を切り替える
+タグ: [収益化] [領域:商品] [時期:2026-10] [種類:制作] [起票:2026-09-30] [期日:2026-10-31]
+
+**起点**: 2026-09-30 に、旧4テーマ×8立場（序論・本論・結論型）が令和2年度以降の「1題・約1,000字・4項目」形式と合わないため作り直した（PR `feat/cce-essay-reiwa`）。原稿は `content/note/コンクリート主任技士/magazines/コンクリート主任技士-小論文テーマ別-令和形式/`（無料の出題傾向分析＋有料5本、cce-essay-qa 合格・機械ゲート `check-cce-essay` 通過）。SoT `cce-essay-reiwa-pack` は `published:false`、ココナラ `coconala-cce-essay-reiwa-pdf` は `status:'draft'`。本試験は 2026-11-29。
+
+**やること**（PR マージ後、この順で）:
+1. note に6本を公開し（単品 ¥1,480・無料1本）、マガジン（¥3,980・掲載文は同 dir の `note掲載文.txt`）を作って収録。各記事の hashtags.txt とカバーを用意し、`note-magazines.ts` の noteUrl を埋めて `published: true`。収録後に `verify-note-magazines --contents` の snapshot を再生成する。
+2. サイト `concrete-chief-engineer-guide-essay` の導線を新マガジンへ切り替える（`magazine-placement.ts` の top、本文の旧テーマ別パック4枚の `<MagazineCard>` を外して新マガジンに差し替え）。
+3. 旧商品（実務立場別答案集・テーマ別パック・小論文模範答案集）は販売履歴があるので非公開にしない。各記事の冒頭に「令和形式の新版」への案内を1行足し、note 同期で反映する。
+4. ココナラ K3 の PDF を `node scripts/build-coconala-content-pdf.mjs --product K3` で作り、商品画像を承認してから出品（文面は運営者が確認してから公開）。
+5. 共有 pre-commit フックを develop 側で `npm run pre-commit:install` し直し、`check-cce-essay --staged` を有効にする（worktree 間の鮮度チェック偽陽性のため PR では入れていない）。
+
+**完了条件**: note の6本とマガジンが公開ページで見え、`check-magazine-membership` と `check-coconala-wiring` が exit 0。サイト guide-essay のビルド後 HTML に新マガジンの CTA が出ている。効果判定は DN-0265（本試験後）で旧商品と分けて数える。
 
 ### [DN-0265] コンクリート主任技士のココナラ出品（PDF 2件・小論文添削 1件）を本試験後に継続か休止か判定する
 タグ: [収益化] [領域:商品] [時期:2026-12] [種類:意思決定] [起票:2026-09-23] [期日:2026-12-15]

@@ -1015,9 +1015,10 @@ const MAGAZINES_RAW = {
     badge: 'メンバーシップ特典',
   },
 
+  // 2026-09-30 撤退（メンバーシップ廃止）。published:false で getMagazine が null を返し、全 CTA が消える。
   'civil-membership-lab': {
     id: 'civil-membership-lab',
-    published: true,
+    published: false,
     noteUrl: 'https://note.com/dobokunote/membership/join',
     landingUrl: 'https://note.com/dobokunote/n/n6b66793ca20c',
     title: '土木セコカン合格ラボ｜月例予想＋経験記述添削メンバーシップ',

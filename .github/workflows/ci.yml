@@ -19,7 +19,9 @@ permissions:
   issues: write
 
 jobs:
-  build:
+  # 品質検査とビルドは互いの出力を使わないので、別ジョブで並行に走らせる（2026-09-30）。
+  # 1 ジョブで直列だと 品質検査 156s + ビルド 148s + SEO 55s が積み上がっていた。
+  audit:
     runs-on: ubuntu-latest
     timeout-minutes: 20
 
@@ -60,6 +62,30 @@ jobs:
       - name: Quality audit (ci gate)
         run: npm run quality:audit:ci
 
+
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install Dependencies
+        run: npm ci --legacy-peer-deps
+
+      # doc-meta-index.json は git 追跡から外した生成物（2026-08-29・履歴肥大の再発防止）。
+      # ビルド時に自動生成されるが、それより前に走る quality:audit:ci の各検査が
+      # src/config/doc-meta-index.json を直接読むため、ここで明示的に生成しておく。
+      - name: Build doc meta index
+        run: node .claude/scripts/build-doc-meta-index.mjs --ci
+
       - name: Build
         run: npm run build
 
@@ -91,8 +117,20 @@ jobs:
       # （2026-09-18 まで「クローズは人間」だったが、復旧しても誰も閉じず通知チャネルが死んでいた）。
       # 起票は develop への push だけ。PR の赤は PR 画面に出て作者が見る（30 日で 58 敗のうち 37 敗が PR で、
       # 全部を同じ Issue にコメント追記していたため本物の develop の赤が埋もれていた）。
+
+  # 失敗 Issue の起票と解消は、両ジョブの結果を見て 1 か所で行う。
+  report:
+    needs: [audit, build]
+    if: always() && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
       - name: Report failure (automation-failure Issue)
-        if: failure() && github.event_name == 'push'
+        if: github.event_name == 'push' && (needs.audit.result == 'failure' || needs.build.result == 'failure')
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -113,7 +151,7 @@ jobs:
       # develop への push が緑になったら pre-merge channel の open Issue を自動クローズする。
       # PR の成功では閉じない（PR が緑でも develop 本体が赤いままのことがある）。
       - name: Resolve pre-merge Issue (develop が緑)
-        if: success() && github.event_name == 'push' && github.ref_name == 'develop'
+        if: github.event_name == 'push' && github.ref_name == 'develop' && needs.audit.result == 'success' && needs.build.result == 'success'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

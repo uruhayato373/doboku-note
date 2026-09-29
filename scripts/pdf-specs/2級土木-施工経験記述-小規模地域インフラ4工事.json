@@ -8,7 +8,7 @@
       "include": [
         {
           "from": "^## 想定工事①",
-          "to": "^<!-- cta:civil-membership-lab"
+          "to": "^<!-- cta:civil-membership-lab|^## 出典"
         }
       ]
     }
