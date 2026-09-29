@@ -86,12 +86,12 @@ function spawnIfStale(hours) {
 function noteKeys(dir = 'content/note') {
   const keys = new Map();
   try {
-    const ls = execFileSync('git', ['ls-files', '-s', '-z', '--', dir], { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
+    const ls = execFileSync('git', ['-c', 'core.quotepath=false', 'ls-files', '-s', '-z', '--', dir], { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
     for (const rec of ls.split('\0')) {
       const m = rec.match(/^\d+ ([0-9a-f]+) \d+\t(.+)$/);
       if (m) keys.set(m[2], `blob:${m[1]}`);
     }
-    const st = execFileSync('git', ['status', '--porcelain', '-z', '--', dir], { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
+    const st = execFileSync('git', ['-c', 'core.quotepath=false', 'status', '--porcelain', '-z', '--', dir], { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
     for (const rec of st.split('\0')) if (rec.length > 3) keys.delete(rec.slice(3));
   } catch { /* git が無い・壊れている → 全部が更新時刻の鍵になるだけ */ }
   return keys;
