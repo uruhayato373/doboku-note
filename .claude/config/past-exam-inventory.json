@@ -1261,7 +1261,7 @@
         "page": "https://www.jctc.jp/mondai/",
         "windowYears": null,
         "publishLagDays": 30,
-        "policy": "JCTC が第一次の問題と正答肢、第二次の問題を直近の年度だけ掲載（exam-formats.json）。第二次の解答は非公表。令和7年度1級の第一次は2026-09-29時点で掲載終了。publishLagDays は催促の目安（公式の掲載時期は未確認）。"
+        "policy": "JCTC が第一次の問題と正答肢、第二次の問題を直近の年度だけ掲載（exam-formats.json）。第二次の解答は非公表。令和7年度1級の第一次は2026-09-29時点で掲載終了。publishLagDays は催促の目安（公式の掲載時期は未確認）。 掲載終了した年度は Wayback Machine（web.archive.org）に保存された公式 PDF を取得した（sourceUrl は元の公式 URL）。"
       },
       "otherSources": [],
       "years": [
@@ -1304,6 +1304,372 @@
               "acquiredAt": "2026-09-29"
             }
           ]
+        },
+        {
+          "year": 2024,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "answer",
+              "section": "第一次検定 正答肢",
+              "file": "R06/R06_第一次検定_正答.pdf",
+              "sourceUrl": "https://www.jctc.jp/wjctcp/wp-content/uploads/2024/09/20240902k_seitou.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "question",
+              "section": "第二次検定",
+              "file": "R06/R06_第二次検定.pdf",
+              "sourceUrl": "https://www.jctc.jp/wjctcp/wp-content/uploads/2024/12/20241202k_mondai.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            }
+          ]
+        },
+        {
+          "year": 2023,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "第一次検定 問題A",
+              "file": "R05/R05_第一次検定_問題A.pdf",
+              "sourceUrl": "https://www.jctc.jp/wjctcp/wp-content/uploads/2023/09/20230904k_mondaia.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "question",
+              "section": "第一次検定 問題B",
+              "file": "R05/R05_第一次検定_問題B.pdf",
+              "sourceUrl": "https://www.jctc.jp/wjctcp/wp-content/uploads/2023/09/20230904k_mondaib.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "answer",
+              "section": "第一次検定 正答肢",
+              "file": "R05/R05_第一次検定_正答.pdf",
+              "sourceUrl": "https://www.jctc.jp/wjctcp/wp-content/uploads/2023/09/20230904k_seitou.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "question",
+              "section": "第二次検定",
+              "file": "R05/R05_第二次検定.pdf",
+              "sourceUrl": "https://www.jctc.jp/wjctcp/wp-content/uploads/2023/12/20231204k_mondai.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            }
+          ]
+        },
+        {
+          "year": 2022,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "第一次検定 問題A",
+              "file": "R04/R04_第一次検定_問題A.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/220905k_guiasd/220905k_a.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "question",
+              "section": "第一次検定 問題B",
+              "file": "R04/R04_第一次検定_問題B.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/220905k_guiasd/220905k_b.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "answer",
+              "section": "第一次検定 正答肢",
+              "file": "R04/R04_第一次検定_正答.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/220905k_guiasd/220905k.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "question",
+              "section": "第二次検定",
+              "file": "R04/R04_第二次検定.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/221205k_6s8gyu/221205k_mondai_1.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            }
+          ]
+        },
+        {
+          "year": 2021,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "第一次検定 問題A",
+              "file": "R03/R03_第一次検定_問題A.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/210913k_5gui6v/kan01.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "question",
+              "section": "第一次検定 問題B",
+              "file": "R03/R03_第一次検定_問題B.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/210913k_5gui6v/kan02.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "question",
+              "section": "第二次検定",
+              "file": "R03/R03_第二次検定.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/211206k_a45486/qa.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            }
+          ]
+        },
+        {
+          "year": 2020,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験 問題A",
+              "file": "R02/R02_学科試験_問題A.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/200914k_pdgaek/kan01.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "question",
+              "section": "学科試験 問題B",
+              "file": "R02/R02_学科試験_問題B.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/200914k_pdgaek/kan02.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "question",
+              "section": "実地試験",
+              "file": "R02/R02_実地試験.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/201207k_u5a100/qa.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            }
+          ]
+        },
+        {
+          "year": 2019,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験 問題A",
+              "file": "R01/R01_学科試験_問題A.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/190902k_giduss/kan01.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "question",
+              "section": "学科試験 問題B",
+              "file": "R01/R01_学科試験_問題B.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/190902k_giduss/kan02.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            }
+          ]
+        },
+        {
+          "year": 2018,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験 問題A",
+              "file": "H30/H30_学科試験_問題A.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/180903k_f7it9p/kan01.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "question",
+              "section": "学科試験 問題B",
+              "file": "H30/H30_学科試験_問題B.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/180903k_f7it9p/kan02.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "question",
+              "section": "実地試験",
+              "file": "H30/H30_実地試験.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/181203k_fawe4a/qa.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            }
+          ]
+        },
+        {
+          "year": 2016,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験 問題A",
+              "file": "H28/H28_学科試験_問題A.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/160905k_joylgu/kan01.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "question",
+              "section": "学科試験 問題B",
+              "file": "H28/H28_学科試験_問題B.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/160905k_joylgu/kan02.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "question",
+              "section": "実地試験",
+              "file": "H28/H28_実地試験.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/161205k_iify44/qa.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            }
+          ]
+        },
+        {
+          "year": 2015,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験 問題A",
+              "file": "H27/H27_学科試験_問題A.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/150907k_gyusr6/kan01.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "question",
+              "section": "学科試験 問題B",
+              "file": "H27/H27_学科試験_問題B.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/150907k_gyusr6/kan02.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            }
+          ]
+        },
+        {
+          "year": 2014,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験 問題A",
+              "file": "H26/H26_学科試験_問題A.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/141009k_heluvd/kan01.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "question",
+              "section": "学科試験 問題B",
+              "file": "H26/H26_学科試験_問題B.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/141009k_heluvd/kan02.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "question",
+              "section": "実地試験",
+              "file": "H26/H26_実地試験.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/141208k_bodnhj/qa.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            }
+          ]
+        },
+        {
+          "year": 2013,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験 問題A",
+              "file": "H25/H25_学科試験_問題A.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/0902k_iihoia/kan01.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "question",
+              "section": "学科試験 問題B",
+              "file": "H25/H25_学科試験_問題B.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/0902k_iihoia/kan02.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            }
+          ]
+        },
+        {
+          "year": 2009,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験 問題A",
+              "file": "H21/H21_学科試験_問題A.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/1015k/kan01.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "question",
+              "section": "学科試験 問題B",
+              "file": "H21/H21_学科試験_問題B.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/1015k/kan02.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            }
+          ]
+        },
+        {
+          "year": 2006,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験 問題A",
+              "file": "H18/H18_学科試験_問題A.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/1020k/kan01.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "question",
+              "section": "学科試験 問題B",
+              "file": "H18/H18_学科試験_問題B.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/1020k/kan02.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "question",
+              "section": "実地試験",
+              "file": "H18/H18_実地試験.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/1205k/qa.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            }
+          ]
         }
       ]
     },
@@ -1313,7 +1679,7 @@
         "page": "https://www.jctc.jp/mondai/",
         "windowYears": null,
         "publishLagDays": 30,
-        "policy": "JCTC が第一次の問題と正答肢、第二次の問題を直近の年度だけ掲載（exam-formats.json）。第二次の解答は非公表。publishLagDays は催促の目安（公式の掲載時期は未確認）。"
+        "policy": "JCTC が第一次の問題と正答肢、第二次の問題を直近の年度だけ掲載（exam-formats.json）。第二次の解答は非公表。publishLagDays は催促の目安（公式の掲載時期は未確認）。 掲載終了した年度は Wayback Machine（web.archive.org）に保存された公式 PDF を取得した（sourceUrl は元の公式 URL）。"
       },
       "otherSources": [],
       "years": [
@@ -1361,6 +1727,260 @@
               "file": "R07/R07_第一次検定_後期_正答.pdf",
               "sourceUrl": "https://www.jctc.jp/wjctcp/wp-content/uploads/2025/11/20251117k_seitou.pdf",
               "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2024,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "第一次検定（前期）",
+              "file": "R06/R06_第一次検定_前期.pdf",
+              "sourceUrl": "https://www.jctc.jp/wjctcp/wp-content/uploads/2024/06/20240603k_mondai.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "answer",
+              "section": "第一次検定（前期） 正答肢",
+              "file": "R06/R06_第一次検定_前期_正答.pdf",
+              "sourceUrl": "https://www.jctc.jp/wjctcp/wp-content/uploads/2024/06/20240603k_seitou.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "question",
+              "section": "第一次検定（後期）",
+              "file": "R06/R06_第一次検定_後期.pdf",
+              "sourceUrl": "https://www.jctc.jp/wjctcp/wp-content/uploads/2024/11/20241118k_mondaia.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "question",
+              "section": "第二次検定",
+              "file": "R06/R06_第二次検定.pdf",
+              "sourceUrl": "https://www.jctc.jp/wjctcp/wp-content/uploads/2024/11/20241118k_mondaib.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "answer",
+              "section": "第一次検定（後期） 正答肢",
+              "file": "R06/R06_第一次検定_後期_正答.pdf",
+              "sourceUrl": "https://www.jctc.jp/wjctcp/wp-content/uploads/2024/11/20241118k_seitou.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            }
+          ]
+        },
+        {
+          "year": 2023,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "第一次検定（前期）",
+              "file": "R05/R05_第一次検定_前期.pdf",
+              "sourceUrl": "https://www.jctc.jp/wjctcp/wp-content/uploads/2023/06/20230605k_mondaia.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "answer",
+              "section": "第一次検定（前期） 正答肢",
+              "file": "R05/R05_第一次検定_前期_正答.pdf",
+              "sourceUrl": "https://www.jctc.jp/wjctcp/wp-content/uploads/2023/06/20230605k_seitou.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "question",
+              "section": "第一次検定（後期）",
+              "file": "R05/R05_第一次検定_後期.pdf",
+              "sourceUrl": "https://www.jctc.jp/wjctcp/wp-content/uploads/2023/11/20241120k_mondaia.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "question",
+              "section": "第二次検定",
+              "file": "R05/R05_第二次検定.pdf",
+              "sourceUrl": "https://www.jctc.jp/wjctcp/wp-content/uploads/2023/11/20241120k_mondaib.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "answer",
+              "section": "第一次検定（後期） 正答肢",
+              "file": "R05/R05_第一次検定_後期_正答.pdf",
+              "sourceUrl": "https://www.jctc.jp/wjctcp/wp-content/uploads/2023/11/20241120k_seitou.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            }
+          ]
+        },
+        {
+          "year": 2022,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "第一次検定（前期）",
+              "file": "R04/R04_第一次検定_前期.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/220606k_4giohi/kan01.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "answer",
+              "section": "第一次検定（前期） 正答肢",
+              "file": "R04/R04_第一次検定_前期_正答.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/220606k_4giohi/220606k.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "question",
+              "section": "第一次検定（後期）",
+              "file": "R04/R04_第一次検定_後期.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/221121k_5futiy/221121k_mondai_1.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "question",
+              "section": "第二次検定",
+              "file": "R04/R04_第二次検定.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/221121k_5futiy/221121k_mondai_2.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "answer",
+              "section": "第一次検定（後期） 正答肢",
+              "file": "R04/R04_第一次検定_後期_正答.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/221121k_5futiy/221121k.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            }
+          ]
+        },
+        {
+          "year": 2021,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "第一次検定（前期）",
+              "file": "R03/R03_第一次検定_前期.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/210607k_a798k5/kan01.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "question",
+              "section": "第一次検定（後期）",
+              "file": "R03/R03_第一次検定_後期.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/211122k_ip89as/kan01.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "question",
+              "section": "第二次検定",
+              "file": "R03/R03_第二次検定.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/211122k_ip89as/kan02.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            }
+          ]
+        },
+        {
+          "year": 2015,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験",
+              "file": "H27/H27_学科試験.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/151116k_1iuehh/kan01.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "question",
+              "section": "実地試験",
+              "file": "H27/H27_実地試験.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/151116k_1iuehh/kan02.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            }
+          ]
+        },
+        {
+          "year": 2014,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験",
+              "file": "H26/H26_学科試験.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/141117k_h9d6f7/kan01.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            }
+          ]
+        },
+        {
+          "year": 2011,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験",
+              "file": "H23/H23_学科試験.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/1122k_k9ldfj/kan01.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            }
+          ]
+        },
+        {
+          "year": 2009,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験",
+              "file": "H21/H21_学科試験.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/1117_2k/kan2_g.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "question",
+              "section": "実地試験",
+              "file": "H21/H21_実地試験.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/1117_2k/kan2_z.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            }
+          ]
+        },
+        {
+          "year": 2008,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験",
+              "file": "H20/H20_学科試験.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/1118_2k/kan2_g.pdf",
+              "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
             }
           ]
         }
