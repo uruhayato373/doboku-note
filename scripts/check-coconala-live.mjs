@@ -21,30 +21,12 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
 import { readCatalog, readListings } from './lib/coconala-catalog.mjs';
-import { parseServiceProduct, diffLiveService, diffLiveProfile } from './lib/coconala-live.mjs';
+import { checkListedServices, diffLiveProfile, fetchLiveHtml } from './lib/coconala-live.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const asJson = process.argv.includes('--json');
-const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140 Safari/537.36';
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-
-function fetchHtml(url) {
-  for (let attempt = 1; attempt <= 2; attempt++) {
-    try {
-      const out = execFileSync('curl', ['-sS', '-L', '--max-time', '25', '-A', UA, '-w', '\n%{http_code}', url], {
-        encoding: 'utf8',
-        maxBuffer: 32 * 1024 * 1024,
-      });
-      const cut = out.lastIndexOf('\n');
-      const status = Number(out.slice(cut + 1));
-      if (status === 200) return { ok: true, html: out.slice(0, cut) };
-      if (attempt === 2) return { ok: false, reason: `HTTP ${status}` };
-    } catch (e) {
-      if (attempt === 2) return { ok: false, reason: String(e.message).split('\n')[0] };
-    }
-  }
-  return { ok: false, reason: 'unknown' };
-}
+const fetchHtml = (url) => fetchLiveHtml(url, execFileSync);
 
 const catalog = readCatalog();
 const listings = readListings();
@@ -57,21 +39,7 @@ const sellerName = account.sellerName || '';
 const all = Object.values(catalog);
 const targets = all.filter((s) => s.status === 'listed');
 const skipped = all.filter((s) => s.status !== 'listed').map((s) => `${s.id}(${s.status})`);
-const results = [];
-for (const [i, s] of targets.entries()) {
-  if (i) await sleep(1000);
-  if (!s.serviceUrl) {
-    results.push({ id: s.id, ok: false, fetched: false, issues: ['listed なのに serviceUrl が空'] });
-    continue;
-  }
-  const res = fetchHtml(s.serviceUrl);
-  if (!res.ok) {
-    results.push({ id: s.id, url: s.serviceUrl, ok: false, fetched: false, issues: [`取得失敗: ${res.reason}`] });
-    continue;
-  }
-  const issues = diffLiveService(s, listings[s.id], parseServiceProduct(res.html), { sellerName });
-  results.push({ id: s.id, url: s.serviceUrl, ok: issues.length === 0, fetched: true, issues });
-}
+const results = await checkListedServices(catalog, listings, { sellerName, execFileSync });
 
 // 出品者プロフィール。profileUrl が無ければ対象外（出品前）。
 if (account.profileUrl) {

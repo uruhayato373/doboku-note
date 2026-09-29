@@ -1,5 +1,5 @@
 /**
- * coconala-live.mjs — ココナラの公開サービスページとカタログ／listings SoT の突合（純粋関数）
+ * coconala-live.mjs — ココナラの公開サービスページとカタログ／listings SoT の突合（判定は純粋関数・末尾に取得）
  * ---------------------------------------------------------------------------
  * 公開ページ（ログイン不要）は schema.org の Product を JSON-LD で持つ（2026-09-23 実測）:
  *   name = タイトル＋空白＋キャッチコピー／description = サービス内容（改行・空白以外は投入本文と一致）
@@ -82,4 +82,68 @@ export function diffLiveProfile(profile, html) {
     if (!flat(html).includes(flat(profile.bio))) issues.push('自己紹介文: live に SoT の本文がそのまま出ていない（ココナラで直接直したか、SoT が古い）');
   }
   return issues;
+}
+
+/**
+ * 食い違いを台帳の列に振り分ける（DN-0438）。diffLiveService の説明文の先頭で決める。
+ *   text  … タイトル・キャッチコピー・本文　price … 価格　sale … 出品者・販売状態・公開ページが読めない
+ * @param {string[]} issues
+ * @returns {{ text: string[], price: string[], sale: string[] }}
+ */
+export function groupLiveIssues(issues) {
+  const g = { text: [], price: [], sale: [] };
+  for (const i of issues) {
+    if (/^(タイトル|キャッチコピー|本文)/.test(i)) g.text.push(i);
+    else if (/^価格/.test(i)) g.price.push(i);
+    else g.sale.push(i);
+  }
+  return g;
+}
+
+// ---- ここから下は取得（副作用あり）。照合の判定は上の純粋関数だけで行う ----
+
+const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140 Safari/537.36';
+
+/** 公開ページを curl で取る（ログイン・書き込みなし）。2 回まで試す。 */
+export function fetchLiveHtml(url, execFileSync) {
+  for (let attempt = 1; attempt <= 2; attempt++) {
+    try {
+      const out = execFileSync('curl', ['-sS', '-L', '--max-time', '25', '-A', UA, '-w', '\n%{http_code}', url], {
+        encoding: 'utf8',
+        maxBuffer: 32 * 1024 * 1024,
+      });
+      const cut = out.lastIndexOf('\n');
+      const status = Number(out.slice(cut + 1));
+      if (status === 200) return { ok: true, html: out.slice(0, cut) };
+      if (attempt === 2) return { ok: false, reason: `HTTP ${status}` };
+    } catch (e) {
+      if (attempt === 2) return { ok: false, reason: String(e.message).split('\n')[0] };
+    }
+  }
+  return { ok: false, reason: 'unknown' };
+}
+
+/**
+ * listed の全サービスを公開ページと照合する（check-coconala-live と台帳の索引が共有する）。1 件ごとに 1 秒あける。
+ * @returns {Promise<Array<{id:string,url?:string,ok:boolean,fetched:boolean,issues:string[]}>>}
+ */
+export async function checkListedServices(catalog, listings, { sellerName = '', execFileSync, sleepMs = 1000 } = {}) {
+  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+  const results = [];
+  const targets = Object.values(catalog).filter((s) => s.status === 'listed');
+  for (const [i, s] of targets.entries()) {
+    if (i) await sleep(sleepMs);
+    if (!s.serviceUrl) {
+      results.push({ id: s.id, ok: false, fetched: false, issues: ['listed なのに serviceUrl が空'] });
+      continue;
+    }
+    const res = fetchLiveHtml(s.serviceUrl, execFileSync);
+    if (!res.ok) {
+      results.push({ id: s.id, url: s.serviceUrl, ok: false, fetched: false, issues: [`取得失敗: ${res.reason}`] });
+      continue;
+    }
+    const issues = diffLiveService(s, listings[s.id], parseServiceProduct(res.html), { sellerName });
+    results.push({ id: s.id, url: s.serviceUrl, ok: issues.length === 0, fetched: true, issues });
+  }
+  return results;
 }
