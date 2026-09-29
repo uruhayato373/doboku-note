@@ -23,6 +23,7 @@ import { chromium } from 'playwright';
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { join, dirname, resolve, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import sharp from 'sharp';
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 import { countEditorImages, uploadAtCaret, settleUploads } from './lib/note-images.mjs';
 import { listAttachedFiles } from './lib/note-attach.mjs';
@@ -40,6 +41,10 @@ const NEW_PROSE_PREFIX = 'この教材は、技術士（総合技術監理部門
 const OLD_CAPTION = '技術士（総合技術監理部門）を持つ元発注者が、施工管理技士の記述を分析して作成';
 const OLD_CAPTION_PREFIX = '技術士（総合技術監理部門）を持つ元発注者が';
 const BOTTOM_PROSE_PREFIX = '上位資格の分析力';
+const BANNER_REFERENCE_DIR = join(ROOT, 'content/note/共通/著者オーソリティ/img');
+const POP_BANNER_NAME = 'figure-author-authority-pop.png';
+// 16×16 縮小画素の平均差（0〜255）。同一原本は約0、標準版とPOP版の間は約69
+const BANNER_MATCH_MAX_DISTANCE = 25;
 const DEFAULT_BOUNDARY = '試験問題|予想問題';
 const SETTLE_MIN_MS = Number(process.env.NOTE_IMG_SETTLE_MIN_MS || 90_000);
 const SETTLE_PER_IMG_MS = Number(process.env.NOTE_IMG_SETTLE_PER_IMG_MS || 90_000);
@@ -137,6 +142,7 @@ function parseArticle(articlePath) {
     boundary,
     banners,
     prose,
+    popTarget: banners[0].rel.endsWith(POP_BANNER_NAME),
   };
 }
 
@@ -174,8 +180,8 @@ async function accountGate(page) {
   return false;
 }
 
-async function probeBannerFigures(page) {
-  return page.evaluate(async ({ captionPrefix, bottomPrefix, newProsePrefix }) => {
+async function probeBannerFigures(page, article = null) {
+  const raw = await page.evaluate(async ({ captionPrefix, bottomPrefix, newProsePrefix }) => {
     const editor = document.querySelector('[contenteditable=true]');
     if (!editor) return { mode: 'none', figuresTotal: 0, figures: [], targets: [], firstBlock: null };
     const figures = Array.from(editor.querySelectorAll('figure'));
@@ -263,6 +269,7 @@ async function probeBannerFigures(page) {
         class: imageClass,
         width,
         height,
+        src: image?.currentSrc || image?.getAttribute('src') || '',
         caption20: captionFull.slice(0, 20),
         caption: captionFull.slice(0, 40),
         previous,
@@ -273,33 +280,10 @@ async function probeBannerFigures(page) {
         isFirstBlock: !previous,
       });
     }
-    const oldFigures = classified.filter((figure) => figure.class === 'old');
-    const newTop = classified.filter((figure) => figure.class === 'new' && figure.pos === 'top');
-    const newBottom = classified.filter((figure) => figure.class === 'new' && figure.pos === 'bottom');
-    const oldOther = oldFigures.filter((figure) => figure.pos === 'other');
-    const mode = oldFigures.length
-      ? 'swap'
-      : newTop.length && !hasNewProse
-        ? 'prose-only'
-        : newTop.length && hasNewProse
-          ? 'already-done'
-          : !newTop.length && !hasNewProse && firstBlock
-            ? 'insert'
-            : 'none';
     return {
-      mode,
       figuresTotal: figures.length,
       figures: classified,
       hasNewProse,
-      oldCount: oldFigures.length,
-      oldTopCount: oldFigures.filter((figure) => figure.pos === 'top').length,
-      oldBottomCount: oldFigures.filter((figure) => figure.pos === 'bottom').length,
-      oldOtherCount: oldOther.length,
-      newTopCount: newTop.length,
-      newBottomCount: newBottom.length,
-      newTop,
-      newBottom,
-      targets: oldFigures,
       bridge: describeTextBlock(bridge),
       firstBlock: describeTextBlock(firstBlock),
       firstH2: describeTextBlock(firstH2),
@@ -309,15 +293,90 @@ async function probeBannerFigures(page) {
     bottomPrefix: BOTTOM_PROSE_PREFIX,
     newProsePrefix: NEW_PROSE_PREFIX,
   });
+  if (article?.popTarget) await classifyFiguresForPopTarget(raw.figures);
+  return summarizeProbe(raw);
+}
+
+function summarizeProbe(raw) {
+  const { figures: classified, hasNewProse, firstBlock } = raw;
+  const oldFigures = classified.filter((figure) => figure.class === 'old');
+  const newTop = classified.filter((figure) => figure.class === 'new' && figure.pos === 'top');
+  const newBottom = classified.filter((figure) => figure.class === 'new' && figure.pos === 'bottom');
+  const oldOther = oldFigures.filter((figure) => figure.pos === 'other');
+  const mode = oldFigures.length
+    ? 'swap'
+    : newTop.length && !hasNewProse
+      ? 'prose-only'
+      : newTop.length && hasNewProse
+        ? 'already-done'
+        : !newTop.length && !hasNewProse && firstBlock
+          ? 'insert'
+          : 'none';
+  return {
+    ...raw,
+    mode,
+    oldCount: oldFigures.length,
+    oldTopCount: oldFigures.filter((figure) => figure.pos === 'top').length,
+    oldBottomCount: oldFigures.filter((figure) => figure.pos === 'bottom').length,
+    oldOtherCount: oldOther.length,
+    unknownCount: classified.filter((figure) => figure.class === 'unknown').length,
+    newTopCount: newTop.length,
+    newBottomCount: newBottom.length,
+    newTop,
+    newBottom,
+    targets: oldFigures,
+  };
+}
+
+// POP 版（2級土木・DN-0450）は標準版と同じ正方形なので比率では区別できない。
+// 正方形バナーの画像を取得して原本2枚と縮小画素で照合し、標準版を差し替え対象（old）にする。
+let bannerReferenceSignatures = null;
+async function imageSignature(buffer) {
+  return sharp(buffer).resize(16, 16, { fit: 'fill' }).removeAlpha().raw().toBuffer();
+}
+function signatureDistance(left, right) {
+  let sum = 0;
+  for (let index = 0; index < left.length; index++) sum += Math.abs(left[index] - right[index]);
+  return sum / left.length;
+}
+async function classifyBannerImage(url) {
+  if (!bannerReferenceSignatures) {
+    bannerReferenceSignatures = {
+      pop: await imageSignature(readFileSync(join(BANNER_REFERENCE_DIR, POP_BANNER_NAME))),
+      standard: await imageSignature(readFileSync(join(BANNER_REFERENCE_DIR, 'figure-author-authority.png'))),
+    };
+  }
+  if (!/^https:\/\//.test(url)) return { variant: 'unknown', reason: `src=${url.slice(0, 30) || '(空)'}` };
+  try {
+    const response = await fetch(url);
+    if (!response.ok) return { variant: 'unknown', reason: `HTTP ${response.status}` };
+    const signature = await imageSignature(Buffer.from(await response.arrayBuffer()));
+    const pop = signatureDistance(signature, bannerReferenceSignatures.pop);
+    const standard = signatureDistance(signature, bannerReferenceSignatures.standard);
+    const variant = Math.min(pop, standard) >= BANNER_MATCH_MAX_DISTANCE ? 'unknown' : pop < standard ? 'pop' : 'standard';
+    return { variant, pop, standard };
+  } catch (error) {
+    return { variant: 'unknown', reason: error.message };
+  }
+}
+async function classifyFiguresForPopTarget(figures) {
+  for (const figure of figures) {
+    // H2 より前の本文図（16:9）を位置だけで旧バナーと誤認しない。旧16:9バナーはキャプションで識別する
+    if (figure.class === 'old' && !figure.caption.startsWith(OLD_CAPTION_PREFIX)) figure.class = 'other';
+    if (figure.class !== 'new') continue;
+    const result = await classifyBannerImage(figure.src);
+    figure.variant = result.variant;
+    figure.class = result.variant === 'pop' ? 'new' : result.variant === 'standard' ? 'old' : 'unknown';
+  }
 }
 
 function printProbe(article, probe, attachedBefore, figuresBefore) {
-  console.log(`[PROBE] ${article.noteId} local-banners=${article.banners.length} figures=${probe.figuresTotal} old=${probe.oldCount} new-top=${probe.newTopCount} new-bottom=${probe.newBottomCount} mode=${probe.mode} prose=${probe.hasNewProse ? 'present' : 'missing'}`);
+  console.log(`[PROBE] ${article.noteId} local-banners=${article.banners.length} figures=${probe.figuresTotal} old=${probe.oldCount} new-top=${probe.newTopCount} new-bottom=${probe.newBottomCount} mode=${probe.mode}${probe.unknownCount ? ` unknown=${probe.unknownCount}` : ''} prose=${probe.hasNewProse ? 'present' : 'missing'}`);
   if (probe.mode === 'insert') console.log(`[PROBE] insert: B=${probe.firstBlock.tag}:"${probe.firstBlock.text.slice(0, 40)}"`);
   console.log(`[PROBE] counts attached=${attachedBefore.length} figures=${figuresBefore}`);
   for (const figure of probe.figures) {
     const ratio = figure.ratio == null ? 'n/a' : figure.ratio.toFixed(3);
-    console.log(`  figure index=${figure.index} pos=${figure.pos} ratio=${ratio} class=${figure.class} caption20="${figure.caption20}"`);
+    console.log(`  figure index=${figure.index} pos=${figure.pos} ratio=${ratio} class=${figure.class}${figure.variant ? ` variant=${figure.variant}` : ''} caption20="${figure.caption20}"`);
   }
   for (const target of probe.targets) {
     console.log(`  target figure[${target.index}] pos=${target.pos} empty-before=${target.emptyParagraphsBefore} prev="${target.previous}" next=${target.nextTag}:"${target.next}"`);
@@ -940,7 +999,7 @@ async function inspectExistingTopProse(page, prose) {
   }, prose);
 }
 
-async function verifyPublishedBody(noteId, { requireNewProse = true } = {}) {
+async function verifyPublishedBody(noteId, { requireNewProse = true, requirePop = false } = {}) {
   const live = await fetchNoteBody(noteId);
   if (live.error) {
     console.log(`[5e] raw error=${JSON.stringify(live.error)} unmeasurable=${Boolean(live.unmeasurable)} httpStatus=${live.httpStatus ?? live.statusCode ?? 'n/a'}`);
@@ -953,6 +1012,17 @@ async function verifyPublishedBody(noteId, { requireNewProse = true } = {}) {
   }
   if (requireNewProse && !live.body.includes(NEW_PROSE_PREFIX)) return { ok: false, reason: '公開本文に新しい著者説明がない' };
   if (live.body.includes(OLD_CAPTION)) return { ok: false, reason: '公開本文に旧キャプションが残っている' };
+  if (requirePop) {
+    const variants = [];
+    for (const [, src] of live.body.matchAll(/<img[^>]+src="([^"]+)"/g)) {
+      const { variant } = await classifyBannerImage(src);
+      if (variant !== 'unknown') variants.push(variant);
+    }
+    const pop = variants.filter((variant) => variant === 'pop').length;
+    const standard = variants.filter((variant) => variant === 'standard').length;
+    console.log(`[5e] public API banners: pop=${pop} standard=${standard}`);
+    if (pop !== 1 || standard !== 0) return { ok: false, reason: `公開本文のバナーが POP 1 枚になっていない（pop=${pop}, standard=${standard}）` };
+  }
   return { ok: true };
 }
 
@@ -968,7 +1038,7 @@ async function processArticle(page, article) {
 
   const attachedBefore = await listAttachedFiles(page);
   const figuresBefore = await countEditorFigures(page);
-  const probe = await probeBannerFigures(page);
+  const probe = await probeBannerFigures(page, article);
   printProbe(article, probe, attachedBefore, figuresBefore);
   if (article.isMembership) {
     console.log('[NOTE] membership 記事: 有料境界は free と同様に扱い、既存の試し読みラインを動かさない');
@@ -979,6 +1049,9 @@ async function processArticle(page, article) {
   }
 
   const dirtyDraftReason = 'エディタに未保存の下書き差分が残っている疑い（画像0・本文だけ新形式）→ note-update-body --commit で正規化してから再実行';
+  if (probe.unknownCount > 0) {
+    return { ok: false, reason: `正方形バナー ${probe.unknownCount} 件を標準版/POP版のどちらとも照合できない` };
+  }
   if (probe.newTopCount > 1) {
     return { ok: false, reason: `new top figure が ${probe.newTopCount} 件ある（正しくは1件）` };
   }
@@ -995,7 +1068,7 @@ async function processArticle(page, article) {
   const imageOnlyAlreadyDone = imageOnly && probe.oldCount === 0 && probe.newTopCount === 1;
   if (probe.mode === 'already-done' || imageOnlyAlreadyDone) {
     if (!article.isMembership) {
-      const live = await verifyPublishedBody(article.noteId, { requireNewProse: !imageOnly });
+      const live = await verifyPublishedBody(article.noteId, { requireNewProse: !imageOnly, requirePop: article.popTarget });
       if (!live.ok) return { ok: false, reason: `already-done 公開 API 検証失敗: ${live.reason}` };
       console.log('[PROBE] already-done confirmed by editor DOM + public API');
     } else {
@@ -1144,8 +1217,8 @@ async function processArticle(page, article) {
       reason: `figure 数が不正 ${figuresBefore} - old(${probe.oldCount}) + inserted(${insertedCount}) = ${expectedFiguresAfter}、実測 ${figuresAfter}。保存しない`,
     };
   }
-  const finalProbe = await probeBannerFigures(page);
-  if (finalProbe.oldCount !== 0 || finalProbe.newTopCount !== 1) {
+  const finalProbe = await probeBannerFigures(page, article);
+  if (finalProbe.oldCount !== 0 || finalProbe.newTopCount !== 1 || finalProbe.unknownCount !== 0) {
     console.log(`[diag] final-classification=${JSON.stringify(finalProbe.figures.map((figure) => ({ index: figure.index, pos: figure.pos, ratio: figure.ratio, class: figure.class })))}`);
     return { ok: false, reason: `最終バナー分類が不正（old=${finalProbe.oldCount}, new-top=${finalProbe.newTopCount}）。保存しない` };
   }
@@ -1164,7 +1237,7 @@ async function processArticle(page, article) {
   });
   if (!published) return { ok: false, reason: 'publishLive が失敗' };
 
-  const verified = await verifyPublishedBody(article.noteId, { requireNewProse: !imageOnly });
+  const verified = await verifyPublishedBody(article.noteId, { requireNewProse: !imageOnly, requirePop: article.popTarget });
   if (!verified.ok) return { ok: false, reason: `公開後検証失敗: ${verified.reason}` };
   if (!verified.unmeasurable) console.log('[verify] public API: 新本文あり / 旧キャプションなし');
 
