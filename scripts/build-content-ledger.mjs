@@ -21,13 +21,19 @@
  * リンク先が順番・位置どおり出ているかを見る。導線は note-append-cta で公開記事へ直接入れることがあり、同期の記録から
  * 推測できないため。ok 以外（missing / order / position / 取得失敗 unknown）は毎回照合し直す。
  *
+ * 記事・出品ごとに「前回から変わったか」で読み直し・照合し直しを決める（2026-09-29）。note の原稿は git の中身の
+ * ハッシュ（未コミットの変更がある原稿だけ更新時刻と大きさ）を鍵にするので、worktree を替えても中身が同じなら読み直さない。
+ * 照合は、鍵が変わった・前回ずれていた・取得できなかった・24 時間たった ものだけやり直す。--refresh で全件やり直す。
+ *
  * ココナラの公開照合: 出品中（listed）の全サービスの公開ページを、正本（カタログ・listings）と照合する
  * （check-coconala-live と同じ lib）。画像は承認済み POP 画像（coconala-thumb-approved.json）の登録で見る。
- * 件数が少ない（約 20 件・30 秒）ので毎回照合する。--no-live のときは前回の結果のまま。
+ * 出品ごとに正本（カタログの項目・listings・承認済み画像）のハッシュを持ち、上と同じ条件の出品だけ照合する。
+ * --no-live のときは前回の結果のまま。
  *
  * exit: 0 作成 / 1 失敗（同期の計画が作れない・記事 0 本）
  */
 import { execFileSync, spawn } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { existsSync, readdirSync, readFileSync, statSync, writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -44,11 +50,11 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 export const LEDGER_PATH = join(ROOT, '.claude', 'state', 'content-ledger.json');
 const NOTE_ROOT = join(ROOT, 'content', 'note');
 const TAG = '[content-ledger]';
-const VERSION = 3; // 2: 導線の公開照合（ctaExpect / ctaLive）を追加　3: 導線の種類ごとに照合（ctaExpect を配列に）
+const VERSION = 4; // 2: 導線の公開照合を追加　3: 導線の種類ごとに照合　4: 記事・出品ごとの鍵（中身のハッシュ）で読み直しを決める
 const argv = process.argv.slice(2);
-const REFRESH_CTA = argv.includes('--refresh-cta');
+const REFRESH = argv.includes('--refresh') || argv.includes('--refresh-cta');
 const NO_LIVE = argv.includes('--no-live');
-const CTA_OK_TTL_MS = 24 * 3_600_000;
+const LIVE_TTL_MS = 24 * 3_600_000;
 
 function readPrevious() {
   try {
@@ -71,6 +77,26 @@ function spawnIfStale(hours) {
   console.log(`${TAG} 索引が${prev ? '古い' : '無い'}ので裏で作り直す（管理画面は待たずに起動する）。`);
 }
 
+/**
+ * 原稿ごとの鍵。git 管理下で変更の無い原稿は index の blob ハッシュ（中身が同じなら worktree を替えても同じ）。
+ * 未コミットの変更がある・未追跡の原稿だけ、更新時刻と大きさを鍵にする（読むと遅いので中身は読まない）。
+ */
+function noteKeys() {
+  const keys = new Map();
+  try {
+    const ls = execFileSync('git', ['ls-files', '-s', '-z', '--', 'content/note'], { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
+    for (const rec of ls.split('\0')) {
+      const m = rec.match(/^\d+ ([0-9a-f]+) \d+\t(.+)$/);
+      if (m) keys.set(m[2], `blob:${m[1]}`);
+    }
+    const st = execFileSync('git', ['status', '--porcelain', '-z', '--', 'content/note'], { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
+    for (const rec of st.split('\0')) if (rec.length > 3) keys.delete(rec.slice(3));
+  } catch { /* git が無い・壊れている → 全部が更新時刻の鍵になるだけ */ }
+  return keys;
+}
+
+const fresh = (at) => Boolean(at) && Date.now() - Date.parse(at) < LIVE_TTL_MS;
+
 function walkNotes() {
   const out = [];
   const walk = (dir) => {
@@ -92,14 +118,15 @@ async function build() {
   const prev = readPrevious();
   // 索引の形を変えたら VERSION を上げる（古い索引の記事はキャッシュせず読み直す）
   const prevByPath = new Map((prev?.version === VERSION ? prev.notes : []).map((n) => [n.path, n]));
+  const gitKeys = noteKeys();
   let reread = 0;
 
   const notes = [];
   for (const abs of walkNotes()) {
     const path = relative(ROOT, abs).replace(/\\/g, '/');
-    const mtimeMs = statSync(abs).mtimeMs;
+    const key = gitKeys.get(path) ?? (() => { const st = statSync(abs); return `mtime:${st.mtimeMs}:${st.size}`; })();
     const cached = prevByPath.get(path);
-    if (cached && cached.mtimeMs === mtimeMs) {
+    if (cached && cached.key === key) {
       notes.push({ ...cached, sync: null, ctaLive: cached.ctaLive ?? null });
       continue;
     }
@@ -110,7 +137,7 @@ async function build() {
     const theme = classifyNote(themes, rel, fm);
     notes.push({
       path,
-      mtimeMs,
+      key,
       title: fm.title || rel.split(/[\\/]/).slice(-2, -1)[0] || path,
       theme,
       themeLabel: themeLabel(themes, theme),
@@ -141,9 +168,8 @@ async function build() {
     if (!n.ctaExpect?.length || !key) { n.ctaLive = null; continue; }
     cta.targets += 1;
     const prevLive = prevByPath.get(n.path)?.ctaLive;
-    const fresh = prevLive?.state === 'ok' && prevByPath.get(n.path)?.mtimeMs === n.mtimeMs
-      && Date.now() - Date.parse(prevLive.checkedAt) < CTA_OK_TTL_MS;
-    if (NO_LIVE || (fresh && !REFRESH_CTA)) {
+    const reuse = prevLive?.state === 'ok' && prevByPath.get(n.path)?.key === n.key && fresh(prevLive.checkedAt);
+    if (NO_LIVE || (reuse && !REFRESH)) {
       n.ctaLive = prevLive ?? null;
       if (prevLive) cta.reused += 1;
     } else {
@@ -161,18 +187,34 @@ async function build() {
   }
   if (cta.checked > 0 && cta.unknown === cta.checked) throw new Error(`導線の公開照合が全件取得失敗（${cta.unknown} 本）。ネットワークを確認するか --no-live で作る`);
 
-  // ココナラ: 出品中のサービスを公開ページと照合し、列（本文・価格・販売）ごとに食い違いを持つ
-  let coconala = prev?.coconala ?? null;
+  // ココナラ: 出品中のサービスを、出品ごとに正本が変わった・前回ずれていた・24 時間たったものだけ公開ページと照合する
+  let coconala = prev?.version === VERSION ? prev.coconala ?? null : null;
   if (!NO_LIVE) {
     const catalog = readCatalog();
+    const listings = readListings();
+    let approved = {};
+    try { approved = JSON.parse(readFileSync(join(ROOT, '.claude/config/coconala-thumb-approved.json'), 'utf8')).images ?? {}; } catch { /* 画像の鍵だけ空 */ }
     let sellerName = '';
     try { sellerName = JSON.parse(readFileSync(join(ROOT, '.claude/config/coconala-account.json'), 'utf8')).sellerName || ''; } catch { /* 出品者名の照合だけ省く */ }
-    const results = await checkListedServices(catalog, readListings(), { sellerName, execFileSync });
+    const listed = Object.values(catalog).filter((s) => s.status === 'listed');
+    const keyOf = (s) => createHash('sha1').update(JSON.stringify([s, listings[s.id] ?? null, approved[s.id] ?? null, sellerName])).digest('hex');
     const items = {};
-    for (const r of results) items[r.id] = { fetched: r.fetched, ...(r.fetched ? groupLiveIssues(r.issues) : { text: [], price: [], sale: r.issues }) };
-    coconala = { checkedAt: new Date().toISOString(), targets: results.length, fetched: results.filter((r) => r.fetched).length, items };
-    if (results.length && coconala.fetched === 0) throw new Error(`ココナラの公開照合が全件取得失敗（${results.length} 件）。ネットワークを確認するか --no-live で作る`);
-    console.log(`${TAG} ココナラの公開照合: 出品中 ${results.length} 件 / 取得 ${coconala.fetched} 件 / 食い違い ${results.filter((r) => r.fetched && !r.ok).length} 件`);
+    const toCheck = {};
+    for (const s of listed) {
+      const was = coconala?.items?.[s.id];
+      const clean = was?.fetched && !was.text.length && !was.price.length && !was.sale.length;
+      if (!REFRESH && clean && was.key === keyOf(s) && fresh(was.checkedAt)) items[s.id] = was;
+      else toCheck[s.id] = s;
+    }
+    const results = await checkListedServices(toCheck, listings, { sellerName, execFileSync });
+    const now = new Date().toISOString();
+    for (const r of results) {
+      items[r.id] = { key: keyOf(catalog[r.id]), checkedAt: now, fetched: r.fetched, ...(r.fetched ? groupLiveIssues(r.issues) : { text: [], price: [], sale: r.issues }) };
+    }
+    const fetched = results.filter((r) => r.fetched).length;
+    if (results.length && fetched === 0) throw new Error(`ココナラの公開照合が全件取得失敗（${results.length} 件）。ネットワークを確認するか --no-live で作る`);
+    coconala = { checkedAt: now, targets: listed.length, fetched: Object.values(items).filter((i) => i.fetched).length, items };
+    console.log(`${TAG} ココナラの公開照合: 出品中 ${listed.length} 件 / 照合 ${results.length} 件（取得 ${fetched}・食い違い ${results.filter((r) => r.fetched && !r.ok).length}）/ 前回を再利用 ${listed.length - results.length} 件`);
   }
 
   const ledger = {

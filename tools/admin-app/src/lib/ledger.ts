@@ -74,7 +74,7 @@ interface NoteIndex {
   counts: { sync: Record<string, number> };
   blockers: Record<string, { label: string; action: string }>;
   notes: NoteIndexEntry[];
-  coconala?: { checkedAt: string; items: Record<string, { fetched: boolean; text: string[]; price: string[]; sale: string[] }> } | null;
+  coconala?: { checkedAt: string; items: Record<string, { fetched: boolean; text: string[]; price: string[]; sale: string[]; checkedAt?: string }> } | null;
 }
 
 interface LineupConfig {
@@ -146,7 +146,7 @@ export function loadLedgerView(): LedgerView {
       price: hit?.price ?? [],
       sale: hit ? hit.sale : index?.coconala ? ['公開照合の対象に入っていない（出品中なのに照合されていない）'] : [],
       image: approved[id] ? null : '承認済みの POP 画像が無い（coconala-thumb-approved.json に未登録）',
-      checkedAt: index?.coconala?.checkedAt ?? null,
+      checkedAt: hit?.checkedAt ?? index?.coconala?.checkedAt ?? null,
     };
   };
 
