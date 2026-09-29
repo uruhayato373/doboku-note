@@ -58,14 +58,15 @@ const RULES: readonly OffsiteRule[] = [
     // 1級 二次 年度別過去問（secondary-r03〜r09）: 経験記述 過去問模範答案＋学科記述攻略が刺さる。
     test: /^civil-construction-1-secondary-r0[3-9]$/,
     // 2026-08-05 統廃合: 過去問模範答案・学科攻略の単品は停止（paused）→ 模範答案セット＋フルパックへ。
-    coconala: ['coconala-kanseitoan-pdf', 'coconala-1kyu-full-pdf'],
-    coconalaCatch: '過去問の模範答案で仕上げたい方へ（模範答案セット・全部入りパック PDF）。',
+    // 2026-09-29: 模範答案セット単品はアーカイブ（ココナラは添削系へ精選）→ 模範答案を含むフルパックと添削へ。
+    coconala: ['coconala-1kyu-full-pdf', 'coconala-tensaku-set'],
+    coconalaCatch: '過去問の模範答案で仕上げたい方へ（模範答案入りの全部入りパック PDF・答案の添削）。',
   },
   {
     // 2級 二次 年度別過去問。
     test: /^civil-construction-2-secondary-r0[3-9]$/,
-    coconala: ['coconala-2kyu-kanseitoan-pdf', 'coconala-2kyu-full-pdf'],
-    coconalaCatch: '過去問の模範答案で仕上げたい方へ（模範答案セット・全部入りパック PDF）。',
+    coconala: ['coconala-2kyu-full-pdf', 'coconala-2kyu-tensaku'],
+    coconalaCatch: '過去問の模範答案で仕上げたい方へ（模範答案入りの全部入りパック PDF・答案の添削）。',
   },
   {
     // 1級 二次 学科記述の分野別ページ（コンクリート/施工計画/土工/品質の basics・past-problems）。
