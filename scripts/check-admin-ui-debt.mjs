@@ -11,6 +11,8 @@
  * 数えるもの（tools/admin-app/src/app/ 配下の .tsx）:
  *   rawCard      className に単語 "card" を含む（"card" / "card warn-border" など。"card-grid" 等は数えない）
  *   inlineStyle  style={{ の出現
+ *   rawTable     生の <table（2026-09-29 追加。表は components/admin の TableFrame＋shadcn の Table 部品で組む）
+ *   rawBadge     className に単語 "badge" を含む（状態表示は components/admin の StatusBadge＝shadcn の Badge）
  *
  * 判定:
  *   基準値（.claude/config/admin-ui-debt-baseline.json）より増えたページがあれば exit 1。
@@ -35,16 +37,24 @@ const TAG = '[check-admin-ui-debt]';
 
 const RE_CLASSNAME = /className=(?:"([^"]*)"|'([^']*)'|\{`([^`]*)`\})/g;
 const RE_STYLE = /style=\{\{/g;
+const RE_TABLE = /<table\b/g;
+export const KEYS = ['rawCard', 'inlineStyle', 'rawTable', 'rawBadge'];
+const LABEL = { rawCard: '生の card クラス', inlineStyle: 'インライン style', rawTable: '生の <table>', rawBadge: '生の badge クラス' };
 
 /** ソース 1 本の件数を数える（テストから使う純関数）。 */
 export function countDebt(src) {
   let rawCard = 0;
+  let rawBadge = 0;
   for (const m of src.matchAll(RE_CLASSNAME)) {
     const cls = (m[1] ?? m[2] ?? m[3] ?? '').split(/\s+/);
     if (cls.includes('card')) rawCard++;
+    if (cls.includes('badge')) rawBadge++;
   }
+  // 'badge ' + 変数 のように組み立てる書き方も数える
+  rawBadge += (src.match(/className=\{\s*['"`]badge\b/g) || []).length;
   const inlineStyle = (src.match(RE_STYLE) || []).length;
-  return { rawCard, inlineStyle };
+  const rawTable = (src.match(RE_TABLE) || []).length;
+  return { rawCard, inlineStyle, rawTable, rawBadge };
 }
 
 /** 基準値と比べる（テストから使う純関数）。 */
@@ -52,10 +62,11 @@ export function compare(current, baseline) {
   const regressions = [];
   const improvements = [];
   for (const [file, now] of Object.entries(current)) {
-    const base = baseline[file] ?? { rawCard: 0, inlineStyle: 0 };
-    for (const key of ['rawCard', 'inlineStyle']) {
-      if (now[key] > base[key]) regressions.push({ file, key, base: base[key], now: now[key], isNew: !(file in baseline) });
-      else if (now[key] < base[key]) improvements.push({ file, key, base: base[key], now: now[key] });
+    const base = baseline[file] ?? {};
+    for (const key of KEYS) {
+      // 基準値に無い項目（あとから足した rawTable 等）は、そのページの基準値が作られていれば 0 とみなす
+      if ((now[key] ?? 0) > (base[key] ?? 0)) regressions.push({ file, key, base: base[key] ?? 0, now: now[key] ?? 0, isNew: !(file in baseline) });
+      else if ((now[key] ?? 0) < (base[key] ?? 0)) improvements.push({ file, key, base: base[key] ?? 0, now: now[key] ?? 0 });
     }
   }
   return { regressions, improvements };
@@ -81,19 +92,20 @@ function main() {
   const current = {};
   for (const f of files) {
     const c = countDebt(readFileSync(f, 'utf8'));
-    if (c.rawCard || c.inlineStyle) current[relative(ROOT, f).split(sep).join('/')] = c;
+    if (KEYS.some((k) => c[k])) current[relative(ROOT, f).split(sep).join('/')] = c;
   }
-  const totals = Object.values(current).reduce((a, c) => ({ rawCard: a.rawCard + c.rawCard, inlineStyle: a.inlineStyle + c.inlineStyle }), { rawCard: 0, inlineStyle: 0 });
+  const totals = Object.fromEntries(KEYS.map((k) => [k, Object.values(current).reduce((n, c) => n + (c[k] ?? 0), 0)]));
+  const summary = KEYS.map((k) => `${LABEL[k]} ${totals[k]} 件`).join('・');
 
   if (argv.includes('--update')) {
     const doc = {
-      _comment: 'check-admin-ui-debt のラチェット基準値。ページごとの生 card クラスとインライン style の件数。増えたら CI が落ちる。shadcn 部品へ移して減らしたら `node scripts/check-admin-ui-debt.mjs --update` で下げる（DN-0432）。',
+      _comment: 'check-admin-ui-debt のラチェット基準値。ページごとの生 card クラス・インライン style・生の <table>・生の badge クラスの件数。増えたら CI が落ちる。shadcn 部品へ移して減らしたら `node scripts/check-admin-ui-debt.mjs --update` で下げる（DN-0432）。',
       _updatedAt: todayJst(),
       totals,
       files: Object.fromEntries(Object.entries(current).sort(([a], [b]) => a.localeCompare(b))),
     };
     writeFileSync(BASELINE, JSON.stringify(doc, null, 2) + '\n', 'utf8');
-    console.log(`${TAG} 基準値を更新: ページ ${files.length} 本を実検査 / 生 card ${totals.rawCard} 件・インライン style ${totals.inlineStyle} 件`);
+    console.log(`${TAG} 基準値を更新: ページ ${files.length} 本を実検査 / ${summary}`);
     return 0;
   }
 
@@ -107,17 +119,17 @@ function main() {
   if (argv.includes('--json')) {
     console.log(JSON.stringify({ checked: files.length, totals, regressions, improvements }, null, 2));
   } else {
-    console.log(`${TAG} ページ ${files.length} 本を実検査 / 生 card ${totals.rawCard} 件・インライン style ${totals.inlineStyle} 件`);
+    console.log(`${TAG} ページ ${files.length} 本を実検査 / ${summary}`);
     for (const r of regressions) {
-      const what = r.key === 'rawCard' ? '生の card クラス' : 'インライン style';
+      const what = LABEL[r.key];
       console.log(`  ✗ ${r.file}: ${what} ${r.base} → ${r.now}${r.isNew ? '（新規ページは 0 件にする）' : ''}`);
     }
     for (const i of improvements) {
-      const what = i.key === 'rawCard' ? '生の card クラス' : 'インライン style';
+      const what = LABEL[i.key];
       console.log(`  info ${i.file}: ${what} ${i.base} → ${i.now}（--update で基準値を下げる）`);
     }
     if (!regressions.length) console.log(`${TAG} ✓ 増えたページなし`);
-    else console.log(`${TAG} components/ui/*（Card など）と components/layout.tsx（Stack / Grid / Section）を使う`);
+    else console.log(`${TAG} components/admin（TableFrame・PanelCard・StatusBadge・FacetShell）と components/ui/*・components/layout.tsx を使う`);
   }
   return regressions.length ? 1 : 0;
 }

@@ -1,170 +1,276 @@
 {
-  "_comment": "check-admin-ui-debt のラチェット基準値。ページごとの生 card クラスとインライン style の件数。増えたら CI が落ちる。shadcn 部品へ移して減らしたら `node scripts/check-admin-ui-debt.mjs --update` で下げる（DN-0432）。",
-  "_updatedAt": "2026-09-28",
+  "_comment": "check-admin-ui-debt のラチェット基準値。ページごとの生 card クラス・インライン style・生の <table>・生の badge クラスの件数。増えたら CI が落ちる。shadcn 部品へ移して減らしたら `node scripts/check-admin-ui-debt.mjs --update` で下げる（DN-0432）。",
+  "_updatedAt": "2026-09-29",
   "totals": {
     "rawCard": 81,
-    "inlineStyle": 90
+    "inlineStyle": 90,
+    "rawTable": 50,
+    "rawBadge": 113
   },
   "files": {
     "tools/admin-app/src/app/affiliate/page.tsx": {
       "rawCard": 0,
-      "inlineStyle": 5
+      "inlineStyle": 5,
+      "rawTable": 2,
+      "rawBadge": 0
     },
     "tools/admin-app/src/app/affiliate/placements/page.tsx": {
       "rawCard": 0,
-      "inlineStyle": 1
+      "inlineStyle": 1,
+      "rawTable": 2,
+      "rawBadge": 0
+    },
+    "tools/admin-app/src/app/affiliate/programs/page.tsx": {
+      "rawCard": 0,
+      "inlineStyle": 0,
+      "rawTable": 1,
+      "rawBadge": 0
     },
     "tools/admin-app/src/app/agents/page.tsx": {
       "rawCard": 1,
-      "inlineStyle": 0
+      "inlineStyle": 0,
+      "rawTable": 1,
+      "rawBadge": 0
     },
     "tools/admin-app/src/app/content/[...path]/page.tsx": {
       "rawCard": 1,
-      "inlineStyle": 0
+      "inlineStyle": 0,
+      "rawTable": 0,
+      "rawBadge": 0
     },
     "tools/admin-app/src/app/content/articles/page.tsx": {
       "rawCard": 1,
-      "inlineStyle": 0
+      "inlineStyle": 0,
+      "rawTable": 1,
+      "rawBadge": 9
     },
     "tools/admin-app/src/app/content/kindle/page.tsx": {
       "rawCard": 6,
-      "inlineStyle": 1
+      "inlineStyle": 1,
+      "rawTable": 2,
+      "rawBadge": 0
+    },
+    "tools/admin-app/src/app/content/ledger/coconala/[id]/page.tsx": {
+      "rawCard": 0,
+      "inlineStyle": 0,
+      "rawTable": 1,
+      "rawBadge": 3
     },
     "tools/admin-app/src/app/content/lifecycle/page.tsx": {
       "rawCard": 3,
-      "inlineStyle": 1
+      "inlineStyle": 1,
+      "rawTable": 1,
+      "rawBadge": 6
     },
     "tools/admin-app/src/app/content/lineup/page.tsx": {
       "rawCard": 2,
-      "inlineStyle": 9
+      "inlineStyle": 9,
+      "rawTable": 1,
+      "rawBadge": 0
     },
     "tools/admin-app/src/app/content/magazines/page.tsx": {
       "rawCard": 1,
-      "inlineStyle": 0
+      "inlineStyle": 0,
+      "rawTable": 1,
+      "rawBadge": 5
     },
     "tools/admin-app/src/app/content/note-status/page.tsx": {
       "rawCard": 3,
-      "inlineStyle": 0
+      "inlineStyle": 0,
+      "rawTable": 2,
+      "rawBadge": 20
     },
     "tools/admin-app/src/app/content/note/page.tsx": {
       "rawCard": 1,
-      "inlineStyle": 0
+      "inlineStyle": 0,
+      "rawTable": 1,
+      "rawBadge": 11
     },
     "tools/admin-app/src/app/content/page.tsx": {
       "rawCard": 1,
-      "inlineStyle": 0
+      "inlineStyle": 0,
+      "rawTable": 0,
+      "rawBadge": 0
     },
     "tools/admin-app/src/app/content/video/page.tsx": {
       "rawCard": 2,
-      "inlineStyle": 1
+      "inlineStyle": 1,
+      "rawTable": 1,
+      "rawBadge": 7
     },
     "tools/admin-app/src/app/domains/[id]/page.tsx": {
       "rawCard": 3,
-      "inlineStyle": 3
+      "inlineStyle": 3,
+      "rawTable": 3,
+      "rawBadge": 0
     },
     "tools/admin-app/src/app/gallery/figures/page.tsx": {
       "rawCard": 1,
-      "inlineStyle": 3
+      "inlineStyle": 3,
+      "rawTable": 0,
+      "rawBadge": 7
+    },
+    "tools/admin-app/src/app/gallery/note/page.tsx": {
+      "rawCard": 0,
+      "inlineStyle": 0,
+      "rawTable": 0,
+      "rawBadge": 2
+    },
+    "tools/admin-app/src/app/gallery/ogp/page.tsx": {
+      "rawCard": 0,
+      "inlineStyle": 0,
+      "rawTable": 0,
+      "rawBadge": 2
     },
     "tools/admin-app/src/app/gallery/sns/page.tsx": {
       "rawCard": 1,
-      "inlineStyle": 0
+      "inlineStyle": 0,
+      "rawTable": 0,
+      "rawBadge": 1
     },
     "tools/admin-app/src/app/knowledge/page.tsx": {
       "rawCard": 1,
-      "inlineStyle": 0
+      "inlineStyle": 0,
+      "rawTable": 0,
+      "rawBadge": 0
     },
     "tools/admin-app/src/app/materials/page.tsx": {
       "rawCard": 4,
-      "inlineStyle": 11
+      "inlineStyle": 11,
+      "rawTable": 3,
+      "rawBadge": 0
     },
     "tools/admin-app/src/app/metrics/ga4/page.tsx": {
       "rawCard": 2,
-      "inlineStyle": 0
+      "inlineStyle": 0,
+      "rawTable": 0,
+      "rawBadge": 0
     },
     "tools/admin-app/src/app/metrics/gsc/page.tsx": {
       "rawCard": 2,
-      "inlineStyle": 1
+      "inlineStyle": 1,
+      "rawTable": 0,
+      "rawBadge": 0
     },
     "tools/admin-app/src/app/metrics/index/page.tsx": {
       "rawCard": 1,
-      "inlineStyle": 0
+      "inlineStyle": 0,
+      "rawTable": 1,
+      "rawBadge": 0
     },
     "tools/admin-app/src/app/metrics/kpi/page.tsx": {
       "rawCard": 1,
-      "inlineStyle": 2
+      "inlineStyle": 2,
+      "rawTable": 1,
+      "rawBadge": 0
     },
     "tools/admin-app/src/app/metrics/psi/page.tsx": {
       "rawCard": 1,
-      "inlineStyle": 0
+      "inlineStyle": 0,
+      "rawTable": 1,
+      "rawBadge": 1
     },
     "tools/admin-app/src/app/metrics/search-strategy/page.tsx": {
       "rawCard": 3,
-      "inlineStyle": 0
+      "inlineStyle": 0,
+      "rawTable": 2,
+      "rawBadge": 0
     },
     "tools/admin-app/src/app/metrics/seo-watch/page.tsx": {
       "rawCard": 8,
-      "inlineStyle": 0
+      "inlineStyle": 0,
+      "rawTable": 1,
+      "rawBadge": 11
     },
     "tools/admin-app/src/app/metrics/video/page.tsx": {
       "rawCard": 5,
-      "inlineStyle": 2
+      "inlineStyle": 2,
+      "rawTable": 2,
+      "rawBadge": 15
     },
     "tools/admin-app/src/app/plan/roadmap/page.tsx": {
       "rawCard": 1,
-      "inlineStyle": 11
+      "inlineStyle": 11,
+      "rawTable": 1,
+      "rawBadge": 0
     },
     "tools/admin-app/src/app/product/status/page.tsx": {
       "rawCard": 1,
-      "inlineStyle": 3
+      "inlineStyle": 3,
+      "rawTable": 1,
+      "rawBadge": 0
     },
     "tools/admin-app/src/app/quality/page.tsx": {
       "rawCard": 5,
-      "inlineStyle": 3
+      "inlineStyle": 3,
+      "rawTable": 1,
+      "rawBadge": 4
     },
     "tools/admin-app/src/app/quality/progress/page.tsx": {
       "rawCard": 2,
-      "inlineStyle": 2
+      "inlineStyle": 2,
+      "rawTable": 1,
+      "rawBadge": 0
     },
     "tools/admin-app/src/app/sales/page.tsx": {
       "rawCard": 2,
-      "inlineStyle": 0
+      "inlineStyle": 0,
+      "rawTable": 1,
+      "rawBadge": 0
     },
     "tools/admin-app/src/app/schedule/page.tsx": {
       "rawCard": 3,
-      "inlineStyle": 0
+      "inlineStyle": 0,
+      "rawTable": 3,
+      "rawBadge": 1
     },
     "tools/admin-app/src/app/skills/page.tsx": {
       "rawCard": 2,
-      "inlineStyle": 2
+      "inlineStyle": 2,
+      "rawTable": 0,
+      "rawBadge": 0
     },
     "tools/admin-app/src/app/sns/page.tsx": {
       "rawCard": 4,
-      "inlineStyle": 6
+      "inlineStyle": 6,
+      "rawTable": 4,
+      "rawBadge": 1
     },
     "tools/admin-app/src/app/strategy/competitors/page.tsx": {
       "rawCard": 0,
-      "inlineStyle": 2
+      "inlineStyle": 2,
+      "rawTable": 1,
+      "rawBadge": 0
     },
     "tools/admin-app/src/app/strategy/market/page.tsx": {
       "rawCard": 1,
-      "inlineStyle": 8
+      "inlineStyle": 8,
+      "rawTable": 1,
+      "rawBadge": 0
     },
     "tools/admin-app/src/app/strategy/policy/page.tsx": {
       "rawCard": 1,
-      "inlineStyle": 0
+      "inlineStyle": 0,
+      "rawTable": 0,
+      "rawBadge": 0
     },
     "tools/admin-app/src/app/strategy/qualifications/page.tsx": {
       "rawCard": 1,
-      "inlineStyle": 8
+      "inlineStyle": 8,
+      "rawTable": 1,
+      "rawBadge": 0
     },
     "tools/admin-app/src/app/strategy/taxonomy/page.tsx": {
       "rawCard": 2,
-      "inlineStyle": 4
+      "inlineStyle": 4,
+      "rawTable": 2,
+      "rawBadge": 0
     },
     "tools/admin-app/src/app/todo/page.tsx": {
       "rawCard": 1,
-      "inlineStyle": 1
+      "inlineStyle": 1,
+      "rawTable": 2,
+      "rawBadge": 7
     }
   }
 }
