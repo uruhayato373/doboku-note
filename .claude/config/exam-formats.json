@@ -825,7 +825,7 @@
           "types": [
             "written"
           ],
-          "detail": "必須3問+選択2問中4問解答。R6〜「経験記述」を「施工記述」に名称・出題形式変更"
+          "detail": "必須3問（問題1 設備全般＝正誤・系統図/要領図の改善策、問題2 工程管理、問題3 労働安全衛生法の穴埋め）＋選択1問（問題4 空調・問題5 衛生から1問）。R6〜「施工記述」: 試験側が建物・機器を指定し、施工上の留意事項・機器の特徴・試運転調整を書く。受験者自身の工事経験は問わない（R6・R7 問題原文で確認）"
         }
       ],
       "pastExams": {
@@ -835,11 +835,9 @@
         "source": "https://www.jctc.jp/mondai/"
       },
       "verification": {
-        "checkedAt": "2026-09-26",
+        "checkedAt": "2026-09-29",
         "checkedBy": "agent",
-        "unresolved": [
-          "R6改正後の「施工記述」が自身経験に基づく設問か(experience相当)か、与条件のみに基づく設問か(written相当)かを公式受検の手引きの文言で未確認"
-        ],
+        "unresolved": [],
         "pending": [],
         "notPublished": []
       }
@@ -860,7 +858,7 @@
           "types": [
             "written"
           ],
-          "detail": "R6〜経験記述を廃止し「施工記述」(与条件への対応力を問う記述)へ変更"
+          "detail": "必須3問（問題1 設備全般＝正誤・系統図/要領図の改善策、問題2 工程管理、問題3 労働安全衛生法の穴埋め）＋選択1問（問題4 空調・問題5 衛生から1問）。R6〜「施工記述」: 試験側が建物・機器を指定し、施工上の留意事項・機器の特徴・試運転調整を書く。受験者自身の工事経験は問わない（R6・R7 問題原文で確認）"
         }
       ],
       "pastExams": {
@@ -870,11 +868,9 @@
         "source": "https://www.jctc.jp/mondai/"
       },
       "verification": {
-        "checkedAt": "2026-09-26",
+        "checkedAt": "2026-09-29",
         "checkedBy": "agent",
-        "unresolved": [
-          "R6改正後の「施工記述」がexperience相当かwritten相当か公式文言で未確認"
-        ],
+        "unresolved": [],
         "pending": [],
         "notPublished": []
       }
