@@ -794,6 +794,33 @@
       },
       "years": [
         {
+          "year": 2026,
+          "official": "listed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "第一次検定 問題A",
+              "file": "R08/R08_第一次検定_問題A.pdf",
+              "sourceUrl": "https://www.jctc.jp/wjctcp/wp-content/uploads/2026/07/20260706d_mondaia.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "第一次検定 問題B",
+              "file": "R08/R08_第一次検定_問題B.pdf",
+              "sourceUrl": "https://www.jctc.jp/wjctcp/wp-content/uploads/2026/07/20260706d_mondaib.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "answer",
+              "section": "第一次検定 正答肢",
+              "file": "R08/R08_第一次検定_正答.pdf",
+              "sourceUrl": "https://www.jctc.jp/wjctcp/wp-content/uploads/2026/07/20260706d_seitou.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
           "year": 2025,
           "official": "unknown",
           "files": [
@@ -1000,6 +1027,26 @@
         "policy": "JCTC が第一次の問題と正答肢、第二次の問題を直近の年度だけ掲載（exam-formats.json）。第二次の解答は非公表。publishLagDays は催促の目安（公式の掲載時期は未確認）。"
       },
       "years": [
+        {
+          "year": 2026,
+          "official": "listed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "第一次検定（前期）",
+              "file": "R08/R08_第一次検定_前期.pdf",
+              "sourceUrl": "https://www.jctc.jp/wjctcp/wp-content/uploads/2026/06/20260608d_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "answer",
+              "section": "第一次検定（前期）正答肢",
+              "file": "R08/R08_第一次検定_前期_正答.pdf",
+              "sourceUrl": "https://www.jctc.jp/wjctcp/wp-content/uploads/2026/06/20260608d_seitou.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
         {
           "year": 2025,
           "official": "unknown",
@@ -1217,6 +1264,96 @@
         "policy": "日本技術士会が必須科目・選択科目の問題文を公開。記述式のため解答は非公表。publishLagDays は催促の目安（公式の掲載時期は未確認）。"
       },
       "years": [
+        {
+          "year": 2026,
+          "official": "listed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "必須科目I",
+              "file": "R08/R08_必須科目I.pdf",
+              "sourceUrl": "https://www.engineer.or.jp/c_topics/011/attached/attach_11979_1.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "選択科目 土質及び基礎",
+              "file": "R08/R08_0901_土質及び基礎.pdf",
+              "sourceUrl": "https://www.engineer.or.jp/c_topics/011/attached/attach_11979_2.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "選択科目 鋼構造及びコンクリート",
+              "file": "R08/R08_0902_鋼構造及びコンクリート.pdf",
+              "sourceUrl": "https://www.engineer.or.jp/c_topics/011/attached/attach_11979_3.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "選択科目 都市及び地方計画",
+              "file": "R08/R08_0903_都市及び地方計画.pdf",
+              "sourceUrl": "https://www.engineer.or.jp/c_topics/011/attached/attach_11979_4.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "選択科目 河川砂防及び海岸海洋",
+              "file": "R08/R08_0904_河川砂防及び海岸海洋.pdf",
+              "sourceUrl": "https://www.engineer.or.jp/c_topics/011/attached/attach_11979_5.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "選択科目 港湾及び空港",
+              "file": "R08/R08_0905_港湾及び空港.pdf",
+              "sourceUrl": "https://www.engineer.or.jp/c_topics/011/attached/attach_11979_6.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "選択科目 電力土木",
+              "file": "R08/R08_0906_電力土木.pdf",
+              "sourceUrl": "https://www.engineer.or.jp/c_topics/011/attached/attach_11979_7.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "選択科目 道路",
+              "file": "R08/R08_0907_道路.pdf",
+              "sourceUrl": "https://www.engineer.or.jp/c_topics/011/attached/attach_11979_8.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "選択科目 鉄道",
+              "file": "R08/R08_0908_鉄道.pdf",
+              "sourceUrl": "https://www.engineer.or.jp/c_topics/011/attached/attach_11979_9.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "選択科目 トンネル",
+              "file": "R08/R08_0909_トンネル.pdf",
+              "sourceUrl": "https://www.engineer.or.jp/c_topics/011/attached/attach_11979_10.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "選択科目 施工計画施工設備及び積算",
+              "file": "R08/R08_0910_施工計画施工設備及び積算.pdf",
+              "sourceUrl": "https://www.engineer.or.jp/c_topics/011/attached/attach_11979_11.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "選択科目 建設環境",
+              "file": "R08/R08_0911_建設環境.pdf",
+              "sourceUrl": "https://www.engineer.or.jp/c_topics/011/attached/attach_11979_12.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
         {
           "year": 2025,
           "official": "unknown",
@@ -1859,6 +1996,33 @@
         "policy": "択一式は正答も公式公開。記述式の模範解答は非公表（手元の模範解答・解説は第三者の資料＝commentary）。publishLagDays は催促の目安（公式の掲載時期は未確認）。"
       },
       "years": [
+        {
+          "year": 2026,
+          "official": "listed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "必須科目 択一式",
+              "file": "R08/R08_試験問題_択一式.pdf",
+              "sourceUrl": "https://www.engineer.or.jp/c_topics/011/attached/attach_11991_1.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "必須科目 記述式",
+              "file": "R08/R08_試験問題_記述式.pdf",
+              "sourceUrl": "https://www.engineer.or.jp/c_topics/011/attached/attach_11991_2.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "answer",
+              "section": "択一式 正答",
+              "file": "R08/R08_試験問題_択一式_正答.pdf",
+              "sourceUrl": "https://www.engineer.or.jp/c_topics/003/attached/attach_3935_2.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
         {
           "year": 2025,
           "official": "unknown",

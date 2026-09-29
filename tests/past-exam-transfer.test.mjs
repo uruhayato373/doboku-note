@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { pendingFiles, jstDate } from '../scripts/past-exam-fetch.mjs';
-import { buildPlan, findRemote } from '../scripts/drive-browser-transfer.mjs';
+import { buildPlan, findRemote, toRepoPath } from '../scripts/drive-browser-transfer.mjs';
 
 const cfg = { groups: [
   { id: 'past-exam-source-pdf', status: 'active', match: { pathRegex: '^content/sources/past-exams/[^/]+/[^/]+/[^/]+\\.pdf$' }, vaultDir: '原資料PDF/過去問', keyFrom: 'stripPrefix:content/sources/past-exams/' },
@@ -49,4 +49,9 @@ test('findRemote は同じフォルダの同名 1 件だけを返し、重複や
   assert.equal(findRemote(listing, 'F', 'a.pdf').id, '1');
   assert.equal(findRemote(listing, 'F', 'b.pdf'), null);
   assert.equal(findRemote(listing, 'F', 'c.pdf'), null);
+});
+
+test('toRepoPath は先頭の文字を落とさず、Windows 区切りを / にする（１級と２級が同じフォルダに潰れた回帰）', () => {
+  assert.equal(toRepoPath('content/sources/past-exams/', '１級土木施工管理技士\\R08\\a.pdf'), 'content/sources/past-exams/１級土木施工管理技士/R08/a.pdf');
+  assert.equal(toRepoPath('content/sources/past-exams/', '２級土木施工管理技士/R08/a.pdf'), 'content/sources/past-exams/２級土木施工管理技士/R08/a.pdf');
 });

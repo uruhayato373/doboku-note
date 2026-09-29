@@ -22,7 +22,7 @@
  */
 import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs';
-import { basename, join, posix, resolve } from 'node:path';
+import { basename, join, posix, relative, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { loadDriveConfig, loadDriveManifest, driveGroupFor, vaultRelFor } from './lib/drive-vault.mjs';
@@ -53,6 +53,11 @@ export function buildPlan(groupId, repoPaths, { cfg, manifest }) {
   return { group: groupId, folders: [...folders.values()].sort((a, b) => a.vaultPath.localeCompare(b.vaultPath)) };
 }
 
+/** 走査の相対パス（Windows は \ 区切り）を repo 相対の / 区切りにする。 */
+export function toRepoPath(prefix, rel) {
+  return posix.join(prefix, rel.split(/[\\/]/).join('/'));
+}
+
 /** listing（Drive MCP の files 配列）から、フォルダ内の同名ファイルを 1 件だけ引く。 */
 export function findRemote(listing, folderId, name) {
   const hit = listing.filter((f) => f.parentId === folderId && f.title === name);
@@ -69,6 +74,10 @@ async function upload(plan) {
   let ok = 0, ng = 0;
   try {
     const page = ctx.pages()[0] ?? await ctx.newPage();
+    // 起動直後に開いた最初のフォルダでは、画面がフォルダを示していてもアップロード先がマイドライブ直下になる
+    // （2026-09-29 に 2 回とも最初のフォルダで発生）。先にマイドライブを開いて落ち着かせる。
+    await page.goto('https://drive.google.com/drive/my-drive', { waitUntil: 'domcontentloaded', timeout: 60_000 });
+    await page.waitForTimeout(8000);
     for (const f of plan.folders) {
       if (!f.folderId) { console.log(`SKIP ${f.vaultPath}: folderId が未設定`); continue; }
       const name = basename(f.vaultPath);
@@ -178,7 +187,8 @@ async function main() {
     const group = cfg.groups.find((g) => g.id === groupId);
     const prefix = String(group?.keyFrom || '').replace(/^stripPrefix:/, '');
     if (!group || !prefix || prefix === group.keyFrom) throw new Error('--group は keyFrom が stripPrefix の group を指定する');
-    const repoPaths = walk(join(REPO_ROOT, prefix)).map((p) => posix.join(prefix, p.slice(join(REPO_ROOT, prefix).length + 1).split(/[\\/]/).join('/')));
+    const base = join(REPO_ROOT, prefix);
+    const repoPaths = walk(base).map((p) => toRepoPath(prefix, relative(base, p)));
     const plan = buildPlan(groupId, repoPaths, { cfg, manifest: loadDriveManifest() });
     console.log(JSON.stringify(plan, null, 2));
     console.error(`[${NAME}] plan: 手元 ${repoPaths.length} 件を走査 / 未登録 ${plan.folders.reduce((s, f) => s + f.files.length, 0)} 件・${plan.folders.length} フォルダ`);

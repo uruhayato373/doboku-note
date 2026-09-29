@@ -11,7 +11,8 @@
  * exit 0 = 全件成功（または対象 0 件と明示）/ exit 1 = 1 件以上失敗
  */
 import { spawnSync } from 'node:child_process';
-import { existsSync, mkdirSync, readFileSync, renameSync, rmSync, writeFileSync } from 'node:fs';
+import { copyFileSync, existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
 import { dirname, join, posix } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
@@ -42,12 +43,14 @@ export function jstDate(d = new Date()) {
 
 function fetchPdf(url, dest) {
   mkdirSync(dirname(dest), { recursive: true });
-  const tmp = dest + '.part';
+  // curl には ASCII の一時パスを渡す。Windows の curl は引数を ANSI コードページで受けるので、
+  // 「鋼」のような字を含む保存先が別の名前に化ける（2026-09-29 実測）。日本語名への付け替えは Node が行う。
+  const tmp = join(tmpdir(), `past-exam-${process.pid}-${Date.now()}.part`);
   const r = spawnSync('curl', ['-sSL', '--ssl-no-revoke', '--max-time', '180', '-o', tmp, '-w', '%{http_code}', url], { encoding: 'utf8' });
   const code = (r.stdout || '').trim();
   const ok = r.status === 0 && code === '200' && existsSync(tmp) && readFileSync(tmp).subarray(0, 5).toString('latin1') === '%PDF-';
-  if (ok) renameSync(tmp, dest);
-  else rmSync(tmp, { force: true });
+  if (ok) copyFileSync(tmp, dest);
+  rmSync(tmp, { force: true });
   return { ok, detail: ok ? '' : `http=${code} rc=${r.status} ${(r.stderr || '').trim().slice(0, 120)}` };
 }
 

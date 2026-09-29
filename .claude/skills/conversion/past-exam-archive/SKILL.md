@@ -30,6 +30,7 @@ domain: material
    URL を連番などで推測しない。会社PCで WebFetch が通らないときは general-purpose サブエージェント（sonnet）に同じ条件で調べさせる。
    新資格は `dir: content/sources/past-exams/{資格名}` と `official`（`page`・`windowYears`・`publishLagDays`・`policy`）も足す。
 3. **公式から取得**: `npm run past-exam-fetch -- [--exam <id>] [--year <西暦>]` で予定を確かめ、`--commit` で取得して `acquiredAt` を書く。
+   会社PCのプロキシは時々 407 を返す。取得済みは飛ばすので、失敗が消えるまで同じコマンドを繰り返す。
 4. **置き先を決める**: `node scripts/drive-browser-transfer.mjs plan --group past-exam-source-pdf > .tmp/past-exam-plan.json`。
 5. **Drive のフォルダを用意する（Drive MCP）**: plan の各 `vaultPath` について、`原資料PDF/過去問`（`search_files` で `title = '過去問'` かつ親が `原資料PDF`）配下の
    `{資格}/{年度}` を `search_files` で探し、無ければ `create_file`（`application/vnd.google-apps.folder`）で作る。得たフォルダ ID を plan の `folderId` に書く。
@@ -37,6 +38,7 @@ domain: material
    別プロファイルの Chrome が動いていて止まったら `DOBOKU_PW_ALLOW_PARALLEL=1`）。ここでの「SENT」は送信しただけで、実在の確認ではない。
 7. **一覧を取る（Drive MCP）**: `search_files` で `mimeType = 'application/pdf' and createdTime > '<アップロード開始時刻>'`（`pageSize` 100・次ページも）を取り、
    `files` 配列をそのまま `.tmp/past-exam-listing.json` に保存する。件数が plan と合わなければ、足りないフォルダだけの plan で 6 をやり直す。
+   `parentId` がマイドライブ直下など予定と違うファイルは `update_file`（`parentId`）で正しいフォルダへ移し、listing の `parentId` も直す（verify は親フォルダが違うものを通さない）。
 8. **読み戻して照合**: `node scripts/drive-browser-transfer.mjs verify --plan .tmp/past-exam-plan.json --listing .tmp/past-exam-listing.json --out .tmp/past-exam-receipts`。
    全件一致したフォルダだけ receipt ができる。
 9. **台帳に登録**: 各 receipt を `node scripts/drive-connector-register.mjs --receipt <file>` で dry-run し、全件通ったら同じ引数に `--commit`。
