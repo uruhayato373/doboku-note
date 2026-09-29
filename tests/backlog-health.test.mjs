@@ -43,6 +43,15 @@ test('同一 commit 内の削除＋追加（tier 間の移動）は再利用に�
   assert.deepEqual(r, []);
 });
 
+test('誤って消したカードを同じ題名で戻したのは再利用にしない（復元）', () => {
+  const r = detectReuse(log(
+    ['aaa', '+### [DN-0005] 総監対策 iOS アプリを作るかを決める'],
+    ['bbb', '-### [DN-0005] 総監対策 iOS アプリを作るかを決める'],
+    ['ccc', '+### [DN-0005] 総監対策 iOS アプリを作るかを決める'],
+  ));
+  assert.deepEqual(r, []);
+});
+
 test('削除しただけ（完了）は再利用にしない', () => {
   const r = detectReuse(log(
     ['aaa', '+### [DN-0003] タスク'],
