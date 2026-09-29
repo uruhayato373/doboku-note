@@ -165,7 +165,7 @@ note 導線の機械監査は CI が担当する。`r2-audit.yml` がソース D
 1. 疑わしい箇所を特定（ユーザー指摘・Grep での異常パターン検出）
       ↓
 2. 原典 PDF を特定
-      content/sources/textbook/技術士（総監）/過去問/RXX/RXX_試験問題_択一式.pdf
+      content/sources/past-exams/技術士（総監）/RXX/RXX_試験問題_択一式.pdf
       content/sources/textbook/技術士（建設部門）/...（部門別）
       ↓
 3. PyMuPDF で該当ページをレンダリング（dpi 180 推奨）

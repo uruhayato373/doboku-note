@@ -131,7 +131,7 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 
 過去問（primary）で**単一正答が成立しない／複数正答に見える**ときは、`past-exam-qa` の内部照合（条文・統計ロジック）だけで断定せず、**必ず原典（実際の試験問題PDF）と照合**する。転記ミスは正答キーだけでなく、**設問文・全選択肢の本文そのものが別問題に化けている**ことがある（答え番号は合っているのに本文が別物＝civil-1 `primary-h27-a`/`primary-h28-a` の No.61 港則法で実証、2026-07-10）。`past-exam-rewriter` は本文化けを直せない（統計・条文推測での書き直しは捏造）ので、**親が原典照合して本文を差し替える**。
 
-- **原典（civil-1 一次）**: `content/sources/textbook/１級土木施工管理技士/過去問/` は **H30〜R07 のみ**。H26〜H29 の問題A/B原本と**公式正答肢表**は touhokugiken.com が無料公開（問題=`/answer/{h27|h28…}/…-1doboku-a.pdf`〔H27は`h27-1doboku-a.pdf`・H28は`1doboku-a.pdf`と命名ゆれ〕、正答=`…-kaitou.pdf`、索引=`/answer.html`）。
+- **原典（civil-1 一次）**: `content/sources/past-exams/１級土木施工管理技士/` は **H30〜R07 のみ**。H26〜H29 の問題A/B原本と**公式正答肢表**は touhokugiken.com が無料公開（問題=`/answer/{h27|h28…}/…-1doboku-a.pdf`〔H27は`h27-1doboku-a.pdf`・H28は`1doboku-a.pdf`と命名ゆれ〕、正答=`…-kaitou.pdf`、索引=`/answer.html`）。
 - **PDFの読み方**: WebFetch はPDFバイナリを読めない → 保存された PDF を `pdftotext -layout` で直読み。**正答肢表は画像テーブル** → `pdftoppm -png` で PNG 化して目視。
 - **条文の許可/届出**: e-Gov はSPAで WebFetch 不可 → `hourei.net` / `lawplayer.com` の静的ミラーで条番号を確認。
 - 詳細な失敗モードと入手経路は memory [[civil1-primary-answer-key-errors]]、進捗は `.claude/todo/backlog.md`「全資格 品質採点カバレッジ トラック」Phase2分類1。
@@ -146,7 +146,7 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 
 ## Part 4: 新資格を追加するときの手順
 
-- **資格の正本に登録する（最初に行う）**: `.claude/config/qualification-registry.json` で `portfolio` を `active` にする（候補として既にあれば `candidate` から変える）。日程 `exam-calendar.json`・受験者数 `exam-stats.json`・出題形式 `exam-formats.json` の同 id を公式で照合し直して `checkedBy: self` にし、`scripts/check-exam-calendar.mjs` の `expected` に公式日付を、`.claude/config/product-lineup.json` に資格×試験区分の行（商品の分類先・`exam-formats.json` の区分と同じ並び）を足す。四者の id の整合は `npm run check-exam-calendar` が止める。展開を決める前の判断材料は `npm run qualification-market`（管理画面 戦略＞資格と市場＞展開の判断）、判断の記録は `docs/strategy/06_多資格展開戦略.md`。管理画面「資格と市場 ＞ 資格一覧」（`/strategy/qualifications`）で候補の日程・受験者数を確認できる
+- **資格の正本に登録する（最初に行う）**: `.claude/config/qualification-registry.json` で `portfolio` を `active` にする（候補として既にあれば `candidate` から変える）。日程 `exam-calendar.json`・受験者数 `exam-stats.json`・出題形式 `exam-formats.json` の同 id を公式で照合し直して `checkedBy: self` にし、`scripts/check-exam-calendar.mjs` の `expected` に公式日付を、`.claude/config/product-lineup.json` に資格×試験区分の行（商品の分類先・`exam-formats.json` の区分と同じ並び）を足す。四者の id の整合は `npm run check-exam-calendar` が止める。過去問を取得する資格は `.claude/config/past-exam-inventory.json` にも同じ id で年度の行を足す（整合と取得の催促は `npm run check-past-exam-inventory`。台帳に無い資格は検査しない）。展開を決める前の判断材料は `npm run qualification-market`（管理画面 戦略＞資格と市場＞展開の判断）、判断の記録は `docs/strategy/06_多資格展開戦略.md`。管理画面「資格と市場 ＞ 資格一覧」（`/strategy/qualifications`）で候補の日程・受験者数を確認できる
 0. `src/config/categories.json` に entry を足し、`area`（exam / practice / standards）と許可する `groups` を宣言する。記事型の定義と許可表は [content-taxonomy.md](./content-taxonomy.md) §3（`npm run check-content-taxonomy` が強制）
 1. Part 1 の「試験別の整備方針差分」表に新しい列を追加して整備方針を決定
 2. Part 2 の「コンテンツ別レビュー視点」表にも対応する列を追加

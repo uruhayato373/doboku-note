@@ -14,7 +14,7 @@ developer_instructions = """
 
 ## 背景（必読）
 
-`content/sources/textbook/技術士（建設部門）/過去問/R01〜R07/` に全 84 ファイルの PDF が保存済み。
+`content/sources/past-exams/技術士（建設部門）/R01〜R07/` に全 84 ファイルの PDF が保存済み。
 `content/site/pe-construction/` に問題文 MDX（R01〜R07 × 12 科目 = 84 ページ）が完成済み。
 問題文はサイト側（無料 SEO 基盤）、模範解答は note 有料マガジン側に分業する（Red Line #1）。
 
@@ -440,7 +440,7 @@ note の販売は**記事（年度・科目）単位**。article.md だけでは
 - `content/note/技術士建設部門/noteコンテンツ計画.md` — 商品戦略・Red Line
 - `.claude/knowledge/reference/content-principles.md` — コンテンツ品質ルール
 - `content/site/pe-construction/{year}-{subject}/article.mdx` — 問題文 MDX
-- `content/sources/textbook/技術士（建設部門）/過去問/{year}/{year}_{subject}.pdf` — PDF 原典
+- `content/sources/past-exams/技術士（建設部門）/{year}/{year}_{subject}.pdf` — PDF 原典
 - `content/sources/textbook/技術士論文の書き方/技術士論文の書き方.pdf` — 論述メソッドの真実源（非公開・原則抽出のみ）
 - `.claude/agents/pe-secondary-exam-qa.md` — 対の Evaluator（5軸採点）
 - `.claude/agents/civil-keiken-essay-writer.md` — note 記事生成の姉妹 Generator

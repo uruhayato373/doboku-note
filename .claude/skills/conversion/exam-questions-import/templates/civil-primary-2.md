@@ -7,7 +7,7 @@
 ## ソース情報
 
 - **試験**: 2級土木施工管理技術検定 第1次検定
-- **PDF 配置**: `content/sources/textbook/２級土木施工管理技士/過去問/R{YY}/`
+- **PDF 配置**: `content/sources/past-exams/２級土木施工管理技士/R{YY}/`
 - **収録年度**: 令和3年度〜令和7年度（5 年分、各年度 前期/後期 2 回開催）
 - **特徴**: 1級と異なり、年度ごとに **別ファイル**（page_ranges 表は不要、PDF 1 つ = 1 MDX）
 
@@ -17,16 +17,16 @@
 
 | 年度 | サブ | PDF パス | 出力ファイル | 問題数 | OCR 品質 | expected_figures |
 |---|---|---|---|---|---|---|
-| r03 | zenki | `content/sources/textbook/２級土木施工管理技士/過去問/R03/R03_第一次検定_前期.pdf` | `primary-r03-zenki/article.mdx` | 61 | 良好 | 5 |
-| r03 | kouki | `content/sources/textbook/２級土木施工管理技士/過去問/R03/R03_第一次検定_後期.pdf` | `primary-r03-kouki/article.mdx` | 61 | 良好 | 5 |
-| r04 | zenki | `content/sources/textbook/２級土木施工管理技士/過去問/R04/R04_第一次検定_前期.pdf` | `primary-r04-zenki/article.mdx` | 61 | 良好 | 5 |
-| r04 | kouki | `content/sources/textbook/２級土木施工管理技士/過去問/R04/R04_第一次検定_後期.pdf` | `primary-r04-kouki/article.mdx` | 61 | 良好 | 5 |
-| r05 | zenki | `content/sources/textbook/２級土木施工管理技士/過去問/R05/R05_第一次検定_前期.pdf` | `primary-r05-zenki/article.mdx` | 61 | 良好 | 5 |
-| r05 | kouki | `content/sources/textbook/２級土木施工管理技士/過去問/R05/R05_第一次検定_後期.pdf` | `primary-r05-kouki/article.mdx` | 61 | 良好 | 5 |
-| r06 | zenki | `content/sources/textbook/２級土木施工管理技士/過去問/R06/R06_第一次検定_前期.pdf` | `primary-r06-zenki/article.mdx` | 61 | 良好 | 5 |
-| r06 | kouki | `content/sources/textbook/２級土木施工管理技士/過去問/R06/R06_第一次検定_後期.pdf` | `primary-r06-kouki/article.mdx` | 61 | 良好 | 5 |
-| r07 | zenki | `content/sources/textbook/２級土木施工管理技士/過去問/R07/R07_第一次検定_前期.pdf` | `primary-r07-zenki/article.mdx` | 61 | 良好 | 5 |
-| r07 | kouki | `content/sources/textbook/２級土木施工管理技士/過去問/R07/R07_第一次検定_後期.pdf` | `primary-r07-kouki/article.mdx` | 61 | 良好 | 5 |
+| r03 | zenki | `content/sources/past-exams/２級土木施工管理技士/R03/R03_第一次検定_前期.pdf` | `primary-r03-zenki/article.mdx` | 61 | 良好 | 5 |
+| r03 | kouki | `content/sources/past-exams/２級土木施工管理技士/R03/R03_第一次検定_後期.pdf` | `primary-r03-kouki/article.mdx` | 61 | 良好 | 5 |
+| r04 | zenki | `content/sources/past-exams/２級土木施工管理技士/R04/R04_第一次検定_前期.pdf` | `primary-r04-zenki/article.mdx` | 61 | 良好 | 5 |
+| r04 | kouki | `content/sources/past-exams/２級土木施工管理技士/R04/R04_第一次検定_後期.pdf` | `primary-r04-kouki/article.mdx` | 61 | 良好 | 5 |
+| r05 | zenki | `content/sources/past-exams/２級土木施工管理技士/R05/R05_第一次検定_前期.pdf` | `primary-r05-zenki/article.mdx` | 61 | 良好 | 5 |
+| r05 | kouki | `content/sources/past-exams/２級土木施工管理技士/R05/R05_第一次検定_後期.pdf` | `primary-r05-kouki/article.mdx` | 61 | 良好 | 5 |
+| r06 | zenki | `content/sources/past-exams/２級土木施工管理技士/R06/R06_第一次検定_前期.pdf` | `primary-r06-zenki/article.mdx` | 61 | 良好 | 5 |
+| r06 | kouki | `content/sources/past-exams/２級土木施工管理技士/R06/R06_第一次検定_後期.pdf` | `primary-r06-kouki/article.mdx` | 61 | 良好 | 5 |
+| r07 | zenki | `content/sources/past-exams/２級土木施工管理技士/R07/R07_第一次検定_前期.pdf` | `primary-r07-zenki/article.mdx` | 61 | 良好 | 5 |
+| r07 | kouki | `content/sources/past-exams/２級土木施工管理技士/R07/R07_第一次検定_後期.pdf` | `primary-r07-kouki/article.mdx` | 61 | 良好 | 5 |
 
 **正答 PDF**: 別ファイルで併存（`R{YY}_第一次検定_{zenki|kouki}_正答.pdf`）。import 時に解答抽出に併用、独立 MDX は作らない（解説内に統合）。
 
@@ -169,6 +169,6 @@ pdftoppm -png -r 150 -f {開始P} -l {終了P} '{PDFパス}' /tmp/exam-2k-p
 
 ## 参照
 
-- `content/sources/textbook/２級土木施工管理技士/過去問/` — ソース PDF ディレクトリ
+- `content/sources/past-exams/２級土木施工管理技士/` — ソース PDF ディレクトリ
 - `.claude/knowledge/reference/content-authoring.md` — 過去問 MDX の構造ルール
 - `.claude/skills/conversion/exam-questions-import/templates/civil-primary.md` — 1級テンプレ（共通フォーマットの真実源）

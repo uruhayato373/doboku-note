@@ -16,7 +16,7 @@
       "needs": "ok",
       "reason": "元PDF(R04第一次B p.5 No.6)から上枝含め再抽出＝作業B・D・イベント①を復元(737x366→1069x636)。旧判定『元図が見切れ・要ソース再取得』は誤りで、元PDFは鮮明ベクターで完全な図を保持。r05-b-fig-02と同一図。再クロップ済 2026-07-09。",
       "verified": "2026-07-09",
-      "source_pdf": "content/sources/textbook/１級土木施工管理技士/過去問/R04/R04_第一次検定_問題B.pdf",
+      "source_pdf": "content/sources/past-exams/１級土木施工管理技士/R04/R04_第一次検定_問題B.pdf",
       "page": 5,
       "dpi": 300
     },
@@ -25,7 +25,7 @@
       "needs": "ok",
       "reason": "R05第一次B p.5 No.6の図はR04と完全同一(設問のみF/4日差)。r04-b-fig-02と同じ再抽出クロップを適用し作業B・D復元。再クロップ済 2026-07-09。",
       "verified": "2026-07-09",
-      "source_pdf": "content/sources/textbook/１級土木施工管理技士/過去問/R05/R05_第一次検定_問題B.pdf",
+      "source_pdf": "content/sources/past-exams/１級土木施工管理技士/R05/R05_第一次検定_問題B.pdf",
       "page": 5,
       "dpi": 300
     },
@@ -34,7 +34,7 @@
       "needs": "ok",
       "reason": "元PDF(R01第一次B p.7)からフル再抽出＝ネットワーク図。旧画像は上段枝と作業ラベルA-Fが欠落＋設問写り込み。並行workflow抽出→親目視QA合格。再クロップ済 2026-07-09。",
       "verified": "2026-07-09",
-      "source_pdf": "content/sources/textbook/１級土木施工管理技士/過去問/R01/R01_第一次検定_問題B.pdf",
+      "source_pdf": "content/sources/past-exams/１級土木施工管理技士/R01/R01_第一次検定_問題B.pdf",
       "page": 7,
       "dpi": 300
     },
@@ -43,7 +43,7 @@
       "needs": "ok",
       "reason": "元PDF(R07第一次B p.5)からフル再抽出＝ネットワーク図。旧画像はノード③が上端見切れ。並行workflow抽出→親目視QA合格。再クロップ済 2026-07-09。",
       "verified": "2026-07-09",
-      "source_pdf": "content/sources/textbook/１級土木施工管理技士/過去問/R07/R07_第一次検定_問題B.pdf",
+      "source_pdf": "content/sources/past-exams/１級土木施工管理技士/R07/R07_第一次検定_問題B.pdf",
       "page": 5,
       "dpi": 300
     },
@@ -52,7 +52,7 @@
       "needs": "ok",
       "reason": "元PDF(R06第一次B p.5)からフル再抽出＝ネットワーク図。旧画像は上枝作業Dが上端見切れ。並行workflow抽出→親目視QA合格。再クロップ済 2026-07-09。",
       "verified": "2026-07-09",
-      "source_pdf": "content/sources/textbook/１級土木施工管理技士/過去問/R06/R06_第一次検定_問題B.pdf",
+      "source_pdf": "content/sources/past-exams/１級土木施工管理技士/R06/R06_第一次検定_問題B.pdf",
       "page": 5,
       "dpi": 300
     },
@@ -692,7 +692,7 @@
       "needs": "ok",
       "reason": "元PDF(R01第一次B p.8)からフル再抽出＝施工体制図。旧画像はE社断片のみで5社系統図が欠落。並行workflow抽出→親目視QA合格。再クロップ済 2026-07-09。",
       "verified": "2026-07-09",
-      "source_pdf": "content/sources/textbook/１級土木施工管理技士/過去問/R01/R01_第一次検定_問題B.pdf",
+      "source_pdf": "content/sources/past-exams/１級土木施工管理技士/R01/R01_第一次検定_問題B.pdf",
       "page": 8,
       "dpi": 300
     },
@@ -710,7 +710,7 @@
       "needs": "ok",
       "reason": "元PDF(R01第一次B p.3)からフル再抽出＝ボックスカルバート配筋図4図。旧画像は側壁/断面図の下端見切れで鉄筋記号・単位欠落。並行workflow抽出→親目視QA合格。再クロップ済 2026-07-09。",
       "verified": "2026-07-09",
-      "source_pdf": "content/sources/textbook/１級土木施工管理技士/過去問/R01/R01_第一次検定_問題B.pdf",
+      "source_pdf": "content/sources/past-exams/１級土木施工管理技士/R01/R01_第一次検定_問題B.pdf",
       "page": 3,
       "dpi": 300
     },
@@ -752,7 +752,7 @@
       "needs": "ok",
       "reason": "元PDF(H30第一次B p.7)からフル再抽出＝施工体制図。旧画像は右下断片のみで組織図大部分が欠落。並行workflow抽出→親目視QA合格。再クロップ済 2026-07-09。",
       "verified": "2026-07-09",
-      "source_pdf": "content/sources/textbook/１級土木施工管理技士/過去問/H30/H30_第一次検定_問題B.pdf",
+      "source_pdf": "content/sources/past-exams/１級土木施工管理技士/H30/H30_第一次検定_問題B.pdf",
       "page": 7,
       "dpi": 300
     },
@@ -776,7 +776,7 @@
       "needs": "ok",
       "reason": "元PDF(p.10)からフル再抽出＝管渠断面図。旧画像は下半分(管渠円・基礎・寸法)が欠落。並行workflow抽出→親目視QA(余白タイト化・切れ確認)合格。再クロップ済 2026-07-09。",
       "verified": "2026-07-09",
-      "source_pdf": "content/sources/textbook/１級土木施工管理技士/過去問/R03/R03_第二次検定.pdf",
+      "source_pdf": "content/sources/past-exams/１級土木施工管理技士/R03/R03_第二次検定.pdf",
       "page": 10,
       "dpi": 300
     },
@@ -803,7 +803,7 @@
       "needs": "ok",
       "reason": "元PDF(p.10)からフル再抽出＝車両系機械作業図。旧画像は運転席左端と合図者足元が見切れ。並行workflow抽出→親目視QA(余白タイト化・切れ確認)合格。再クロップ済 2026-07-09。",
       "verified": "2026-07-09",
-      "source_pdf": "content/sources/textbook/１級土木施工管理技士/過去問/R07/R07_第二次検定.pdf",
+      "source_pdf": "content/sources/past-exams/１級土木施工管理技士/R07/R07_第二次検定.pdf",
       "page": 10,
       "dpi": 300
     },
@@ -821,7 +821,7 @@
       "needs": "ok",
       "reason": "元PDF(p.9)からフル再抽出＝土留め支保工断面。旧画像は左右見切れ＋前問文写り込み。並行workflow抽出→親目視QA(余白タイト化・切れ確認)合格。再クロップ済 2026-07-09。",
       "verified": "2026-07-09",
-      "source_pdf": "content/sources/textbook/１級土木施工管理技士/過去問/R06/R06_第二次検定.pdf",
+      "source_pdf": "content/sources/past-exams/１級土木施工管理技士/R06/R06_第二次検定.pdf",
       "page": 9,
       "dpi": 300
     },
@@ -830,7 +830,7 @@
       "needs": "ok",
       "reason": "元PDF(R03第一次B p.3)からフル再抽出＝L型擁壁配筋図4図。旧画像は断面図②D13が下端見切れ。並行workflow抽出→親目視QA合格。再クロップ済 2026-07-09。",
       "verified": "2026-07-09",
-      "source_pdf": "content/sources/textbook/１級土木施工管理技士/過去問/R03/R03_第一次検定_問題B.pdf",
+      "source_pdf": "content/sources/past-exams/１級土木施工管理技士/R03/R03_第一次検定_問題B.pdf",
       "page": 3,
       "dpi": 300
     },
@@ -839,7 +839,7 @@
       "needs": "ok",
       "reason": "元PDF(R05第一次B p.3)からフル再抽出＝擁壁配筋図4図。旧画像は断面図の鉄筋ラベル・寸法が下端見切れ。並行workflow抽出→親目視QA合格。再クロップ済 2026-07-09。",
       "verified": "2026-07-09",
-      "source_pdf": "content/sources/textbook/１級土木施工管理技士/過去問/R05/R05_第一次検定_問題B.pdf",
+      "source_pdf": "content/sources/past-exams/１級土木施工管理技士/R05/R05_第一次検定_問題B.pdf",
       "page": 3,
       "dpi": 300
     },
@@ -1058,7 +1058,7 @@
       "needs": "ok",
       "reason": "元PDF(p.6)からフル再抽出＝ベルヌーイの定理図。旧画像は下部キャプションが見切れ。並行workflow抽出→親目視QA(余白タイト化・切れ確認)合格。再クロップ済 2026-07-09。",
       "verified": "2026-07-09",
-      "source_pdf": "content/sources/textbook/２級土木施工管理技士/過去問/R07/R07_第一次検定_前期.pdf",
+      "source_pdf": "content/sources/past-exams/２級土木施工管理技士/R07/R07_第一次検定_前期.pdf",
       "page": 6,
       "dpi": 300
     },
@@ -1067,7 +1067,7 @@
       "needs": "ok",
       "reason": "元PDF(p.3)からフル再抽出＝3サウンディング試験図。旧画像は右端キャプションが見切れ。並行workflow抽出→親目視QA(余白タイト化・切れ確認)合格。再クロップ済 2026-07-09。",
       "verified": "2026-07-09",
-      "source_pdf": "content/sources/textbook/２級土木施工管理技士/過去問/R07/R07_第一次検定_前期.pdf",
+      "source_pdf": "content/sources/past-exams/２級土木施工管理技士/R07/R07_第一次検定_前期.pdf",
       "page": 3,
       "dpi": 300
     },
@@ -1088,7 +1088,7 @@
       "needs": "ok",
       "reason": "元PDF(p.17)からフル再抽出＝FN曲線+統計表(与件)。旧画像は図表見出しが欠落。設問選択肢は図の上にあり非混入。並行workflow抽出→親目視QA(余白タイト化・切れ確認)合格。再クロップ済 2026-07-09。",
       "verified": "2026-07-09",
-      "source_pdf": "content/sources/textbook/技術士（総監）/過去問/H28/H28_試験問題_択一式.pdf",
+      "source_pdf": "content/sources/past-exams/技術士（総監）/H28/H28_試験問題_択一式.pdf",
       "page": 17,
       "dpi": 300
     },
@@ -1161,7 +1161,7 @@
     {
       "figure": "civil-construction-1/primary-h30-a/img/h30-a-fig-12",
       "needs": "ok",
-      "source_pdf": "content/sources/textbook/１級土木施工管理技士/過去問/H30/H30_第一次検定_問題A.pdf",
+      "source_pdf": "content/sources/past-exams/１級土木施工管理技士/H30/H30_第一次検定_問題A.pdf",
       "page": 5,
       "dpi": 300,
       "reason": "図 側圧分布(イ)(ロ)(ハ)(ニ)。旧画像は【正解】(1)の答え漏らし＋No.11設問文写り込み＋4図が下端見切れの三重欠陥だった。元PDF(H30第一次A p.5)から4図のみをフル再抽出(設問文/選択肢/正解/トンボ除去)。再クロップ済 2026-07-10。",
