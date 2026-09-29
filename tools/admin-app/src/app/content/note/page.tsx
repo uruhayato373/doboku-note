@@ -4,9 +4,9 @@ import {
   magazineLabelIndex,
   noteArticles,
   noteRepoRelPath,
-  noteRepublishState,
   type NoteArticle,
 } from '@/lib/content';
+import { noteSyncPlan, type SyncItem, type SyncPart } from '@/lib/note-sync';
 
 export const dynamic = 'force-dynamic';
 
@@ -42,12 +42,21 @@ type Query = { e?: string; p?: string; s?: string; m?: string };
  */
 const NO_MAGAZINE = '__none';
 
-/** 状態の絞り込み。「要再公開」は check-note-republish の判定が取れたときだけ意味を持つ。 */
+/**
+ * 状態の絞り込み。「反映待ち」「止まっている」は note の記事単位の同期計画（scripts/lib/note-sync-plan.mjs。
+ * /content/note-sync・週次・launchd note-sync と同じ判定）が取れたときだけ意味を持つ（DN-0436）。
+ */
 const STATES: { key: string; label: string }[] = [
   { key: 'published', label: '公開済み' },
   { key: 'unpublished', label: '未公開' },
-  { key: 'drift', label: '要再公開' },
+  { key: 'ready', label: '反映待ち' },
+  { key: 'blocked', label: '止まっている' },
 ];
+
+const PART_LABEL: Record<SyncPart, string> = { body: '本文', cover: 'カバー', tags: 'タグ' };
+
+/** 導線マーカー（原稿の `<!-- cta:<id> -->`）のうち、表で見せるもの。それ以外は数だけ出す。 */
+const CTA_LABEL: Record<string, string> = { 'coconala-custom': 'ココナラ', 'pack-top': 'パック' };
 
 const PRICING: { key: string; label: string }[] = [
   { key: 'paid', label: '有料' },
@@ -127,14 +136,18 @@ export default async function ContentNotePage({
   };
 
   const all = noteArticles();
-  const republish = noteRepublishState();
-  const isDrift = (i: NoteArticle) => republish.ok && republish.drift.has(noteRepoRelPath(i.rel));
+  const plan = noteSyncPlan();
+  const syncByPath = new Map<string, SyncItem>(plan.items.map((s) => [s.path, s]));
+  const syncOf = (i: NoteArticle) => syncByPath.get(noteRepoRelPath(i.rel)) ?? null;
+  const isReady = (i: NoteArticle) => plan.ok && syncOf(i)?.status === 'ready';
+  const isBlocked = (i: NoteArticle) => plan.ok && syncOf(i)?.status === 'blocked';
 
   const matchState = (i: NoteArticle) =>
     state === 'published' ? i.published
       : state === 'unpublished' ? !i.published
-        : state === 'drift' ? isDrift(i)
-          : true;
+        : state === 'ready' ? isReady(i)
+          : state === 'blocked' ? isBlocked(i)
+            : true;
   const matchExam = (i: NoteArticle) => !exam || i.exam === exam;
   const matchPricing = (i: NoteArticle) => !pricing || i.pricing === pricing;
   const matchMagazine = (i: NoteArticle) =>
@@ -155,7 +168,8 @@ export default async function ContentNotePage({
   const stateCounts = new Map<string, number>([
     ['published', stateScope.filter((i) => i.published).length],
     ['unpublished', stateScope.filter((i) => !i.published).length],
-    ['drift', stateScope.filter(isDrift).length],
+    ['ready', stateScope.filter(isReady).length],
+    ['blocked', stateScope.filter(isBlocked).length],
   ]);
   const magazineCounts = countBy(magazineScope, (i) => i.magazine ?? NO_MAGAZINE);
 
@@ -187,15 +201,16 @@ export default async function ContentNotePage({
         <div className="todo-main">
           <div className="card">
             <p className="muted">
-              {republish.ok ? (
+              {plan.ok ? (
                 <>
-                  要再公開（本文が公開時から変更）<strong>{republish.counts.drift}</strong> 本 / 同期済み{' '}
-                  {republish.counts.synced} 本 / 未初期化 {republish.counts.unknown} 本
+                  公開記事の同期: 反映済み {plan.counts.synced} 本 / 反映待ち <strong>{plan.counts.ready}</strong> 本 /
+                  止まっている <strong>{plan.counts.blocked}</strong> 本（理由と直し方は{' '}
+                  <Link href="/content/note-sync">反映</Link>）
                 </>
               ) : (
                 <>
-                  <span className="badge bad">ドリフト取得失敗</span> check-note-republish が実行できないため、
-                  下の「要再公開」列は判定していません（空欄＝問題なし ではありません）。{republish.error}
+                  <span className="badge bad">同期計画の取得失敗</span> note-sync-plan が実行できないため、
+                  下の「同期」列は判定していません（空欄＝問題なし ではありません）。{plan.error}
                 </>
               )}
             </p>
@@ -221,14 +236,14 @@ export default async function ContentNotePage({
                       <th className="category-col optional-col">資格</th>
                       <th className="price-col">価格</th>
                       <th className="publish-col">公開</th>
-                      <th className="publish-col">要再公開</th>
+                      <th className="publish-col">同期</th>
+                      <th className="publish-col">導線</th>
                     </tr>
                   </thead>
                   <tbody>
                     {items.map((i) => {
-                      const repoRel = noteRepoRelPath(i.rel);
-                      const drift = republish.drift.has(repoRel);
-                      const unknown = republish.unknown.has(repoRel);
+                      const sync = syncOf(i);
+                      const blockerLabel = sync?.blocker ? plan.blockers[sync.blocker]?.label ?? sync.blocker : null;
                       return (
                         <tr key={i.rel}>
                           <td className="title-cell" title={i.rel}>
@@ -260,17 +275,27 @@ export default async function ContentNotePage({
                             )}
                           </td>
                           <td className="publish-col">
-                            {!republish.ok ? (
+                            {!plan.ok ? (
                               <span className="badge neutral">?</span>
-                            ) : drift ? (
-                              <span className="badge warn">要</span>
-                            ) : unknown ? (
-                              <span className="badge neutral">未初期化</span>
+                            ) : sync?.status === 'blocked' ? (
+                              <span className="badge bad" title={blockerLabel ?? undefined}>止</span>
+                            ) : sync?.status === 'ready' ? (
+                              <span title={sync.parts.map((p) => PART_LABEL[p]).join('・')}>
+                                {sync.parts.map((p) => (
+                                  <span key={p} className="badge warn">{PART_LABEL[p]}</span>
+                                ))}
+                              </span>
                             ) : i.published ? (
-                              <span className="badge good">同期</span>
+                              <span className="badge good">済</span>
                             ) : (
                               <span className="muted">—</span>
                             )}
+                          </td>
+                          <td className="publish-col">
+                            {i.ctas.filter((c) => CTA_LABEL[c]).map((c) => (
+                              <span key={c} className="badge neutral" title={`<!-- cta:${c} -->`}>{CTA_LABEL[c]}</span>
+                            ))}
+                            {i.ctas.length === 0 ? <span className="muted">—</span> : null}
                           </td>
                         </tr>
                       );
@@ -319,9 +344,9 @@ export default async function ContentNotePage({
             total={magazineScope.length}
             items={magazineItems}
           />
-          {!republish.ok ? (
+          {!plan.ok ? (
             <p className="muted">
-              <span className="badge bad">要再公開は判定不可</span> この絞り込みは 0 件になります。
+              <span className="badge bad">同期は判定不可</span> 「反映待ち」「止まっている」の絞り込みは 0 件になります。
             </p>
           ) : null}
         </aside>
