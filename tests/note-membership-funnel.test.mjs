@@ -46,7 +46,7 @@ test('note 記事: 会員向け記事以外に合格ラボへの導線が無い'
   assert.ok(files.length > 100, `走査した note 記事が少なすぎる: ${files.length}`);
   const hits = files.filter((f) => {
     const c = readFileSync(f, 'utf8');
-    return c.includes(CTA_MARKER) || c.includes(JOIN_URL) || c.includes(INTRO_SELF_URL);
+    return [CTA_MARKER, JOIN_URL, INTRO_SELF_URL].some((needle) => c.split(needle).length > 1);
   });
   assert.deepEqual(hits.map((f) => f.slice(ROOT.length)), [], '撤退した会員への導線が残っている');
 });
