@@ -6,6 +6,13 @@ on:
   push:
     branches: [develop]
 
+# 同じブランチ／PR に新しい push が来たら、古い実行は結果を待つ意味が無いので止める。
+# develop への直 push が 1 日 50 回を超え、古い実行が最後まで走って後続を待たせていた（2026-09-30）。
+# 失敗 Issue の起票・解消は最新の実行が担うので、途中で止めた実行が Issue を残すことはない。
+concurrency:
+  group: pre-merge-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
   # 失敗時に automation-failure Issue を起票する（限定例外チャネル）。
