@@ -38,6 +38,8 @@ export interface LineupItem {
   platform?: string;
   note?: string;
   cells?: string[];
+  /** 恒久に終えた商品（ココナラの pauseReason:'retired'＝アーカイブ済み）。台帳は既定で隠す */
+  ended?: boolean;
 }
 
 export interface LineupRow {
@@ -123,6 +125,7 @@ export function loadCoconalaItems(): LineupItem[] {
       stageLabel: stageLabel(stage),
       url: s.serviceUrl || null,
       coverUrl: null,
+      ended: s.status === 'paused' && s.pauseReason === 'retired',
     };
   });
 }

@@ -260,9 +260,9 @@ const SERVICES_RAW = {
   // 3管理フルで全出題をカバーする設計（1級の5管理とは価格・スコープが非対称）。
   'coconala-2kyu-tensaku': {
     id: 'coconala-2kyu-tensaku',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4418775',
-    title: '2級土木経験記述を24時間で添削します',
+    title: '10/25に間に合う｜2級土木経験記述を24時間で添削',
     shortTitle: '2級 経験記述 添削（2テーマ・24時間）',
     description:
       '2級土木施工管理技士 第2次検定の施工経験記述（問題1）を、受け取りから24時間以内に添削してお返しします。令和6年度からの新形式は3テーマ（品質管理・安全管理・工程管理）のうち2テーマが当日指定され、テーマはご自身で選べません（近年は工程管理が連続で出題）。2テーマ分の赤入れ（NG→OK 書き換え案）＋6観点のチェックリスト判定表＋読み手視点のコメント＋書き直し1回を含みます。下書きがまだない方には、ヒアリングで骨子を組み立てる指導サービスがあります（どちらも代筆はしません）。経験していない工事や数値の創作はお受けしません。',
@@ -270,18 +270,25 @@ const SERVICES_RAW = {
     priceYen: 5000,
     examScope: ['civil-2'],
     weeklyCapacity: 2,
+    pauseReason: 'absence',
+    resumeOn: '2026-10-26',
     listedAt: '2026-09-25',
   },
+  // 2026-09-29 ユーザー決定（DN-0445）: 2級は3テーマのうち2つが当日指定されるので、2テーマだけの準備は外れうる。
+  //   直前（〜10/25）は全3テーマの添削・骨子の2本に絞り、どちらも24時間返却にする。2テーマ版2本と PDF 2本は休止。
+  //   価格は2級受検者（1級より若く実務の浅い層が中心と想定・年齢分布は未確認）向けに下げる実験:
+  //   添削 ¥7,500→¥5,000・骨子 ¥10,000→¥6,500。受付は各週1名（3テーマ24時間は重い）。10/26に受注数で見直す。
   'coconala-2kyu-tensaku-3theme': {
     id: 'coconala-2kyu-tensaku-3theme',
     status: 'listed',
     serviceUrl: 'https://coconala.com/services/4418778',
-    title: '2級土木経験記述の全3テーマを添削します',
-    shortTitle: '2級 経験記述 添削（全3テーマ）',
+    title: '2級経験記述 全3テーマを24時間で添削します',
+    shortTitle: '2級 経験記述 添削（全3テーマ・24時間）',
     description:
-      '2級土木施工管理技士 第2次検定の施工経験記述（問題1）を、3テーマ（品質管理・安全管理・工程管理）すべて添削。当日どの2テーマが指定されても自分の工事で書けるよう、全3テーマ分の赤入れ（NG→OK 書き換え案）＋6観点のチェックリスト判定表＋読み手視点のコメント＋書き直し1回（まとめて）を、受け取りから48時間以内にお返しします。経験していない工事や数値の創作はお受けしません。',
-    price: '¥7,500（2級・全3テーマセット・書き直し1回込み）',
-    priceYen: 7500,
+      '2級土木施工管理技士 第2次検定の施工経験記述（問題1）を、3テーマ（品質管理・安全管理・工程管理）すべて添削。当日どの2テーマが指定されても自分の工事で書けるよう、全3テーマ分の赤入れ（NG→OK 書き換え案）＋6観点のチェックリスト判定表＋読み手視点のコメント＋書き直し1回（まとめて）を、受け取りから24時間以内にお返しします。経験していない工事や数値の創作はお受けしません。',
+    price: '¥5,000（2級・全3テーマセット・24時間以内・書き直し1回込み）',
+    priceYen: 5000,
+    priceHistory: [{ priceYen: 7500, until: '2026-09-29' }],
     examScope: ['civil-2'],
     weeklyCapacity: 1,
     listedAt: '2026-09-25',
@@ -292,28 +299,31 @@ const SERVICES_RAW = {
   //   「指導」へ作り替えて同じ id・serviceUrl で再申請（代筆はしない）。価格は据え置き。
   'coconala-2kyu-sakusei': {
     id: 'coconala-2kyu-sakusei',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4418781',
-    title: '2級土木経験記述の書き方を骨子から指導します',
+    title: '10/25に間に合う｜2級経験記述の骨子を24時間で設計',
     shortTitle: '2級 経験記述 指導（骨子→添削・2テーマ）',
     description:
-      '2級土木施工管理技士 第2次検定の施工経験記述（問題1）を、ご自身で書けるように指導するサービス。ヒアリングで実工事の事実を整理して2テーマ分の骨子シート（何を・どの順で・どの数値で書くか）を48時間以内にお渡しし、骨子をもとにご本人が書いた答案を添削、書き直し後の再添削1回まで行います。下書きがすでにある方は添削サービスへ。答案の代筆はしません。経験していない工事や数値の創作もお受けしません。合格を保証するものではありません。',
+      '2級土木施工管理技士 第2次検定の施工経験記述（問題1）を、ご自身で書けるように指導するサービス。ヒアリングで実工事の事実を整理して2テーマ分の骨子シート（何を・どの順で・どの数値で書くか）を24時間以内にお渡しし、骨子をもとにご本人が書いた答案を24時間以内に添削、書き直し後の再添削1回（24時間以内）まで行います。下書きがすでにある方は添削サービスへ。答案の代筆はしません。経験していない工事や数値の創作もお受けしません。合格を保証するものではありません。',
     price: '¥7,000（2級・骨子2テーマ＋添削・再添削1回込み）',
     priceYen: 7000,
     examScope: ['civil-2'],
     weeklyCapacity: 2,
+    pauseReason: 'absence',
+    resumeOn: '2026-10-26',
     listedAt: '2026-09-25',
   },
   'coconala-2kyu-sakusei-3theme': {
     id: 'coconala-2kyu-sakusei-3theme',
     status: 'listed',
     serviceUrl: 'https://coconala.com/services/4418785',
-    title: '2級土木経験記述の全3テーマを骨子から指導します',
-    shortTitle: '2級 経験記述 指導（全3テーマ）',
+    title: '2級経験記述の全3テーマ骨子を24時間で設計します',
+    shortTitle: '2級 経験記述 指導（全3テーマ・24時間）',
     description:
-      '2級土木施工管理技士 第2次検定の施工経験記述（問題1）を、ご自身で書けるように指導するサービス。ヒアリングで実工事の事実を整理して全3テーマ（品質管理・安全管理・工程管理）分の骨子シート（何を・どの順で・どの数値で書くか）を72時間以内にお渡しし、骨子をもとにご本人が書いた答案を添削、書き直し後の再添削1回まで行います。下書きがすでにある方は添削サービスへ。答案の代筆はしません。経験していない工事や数値の創作もお受けしません。合格を保証するものではありません。',
-    price: '¥10,000（2級・全3テーマの骨子＋添削・再添削1回込み）',
-    priceYen: 10000,
+      '2級土木施工管理技士 第2次検定の施工経験記述（問題1）を、ご自身で書けるように指導するサービス。ヒアリングで実工事の事実を整理して全3テーマ（品質管理・安全管理・工程管理）分の骨子シート（何を・どの順で・どの数値で書くか）を24時間以内にお渡しし、骨子をもとにご本人が書いた答案を24時間以内に添削、書き直し後の再添削1回（24時間以内）まで行います。下書きがすでにある方は添削サービスへ。答案の代筆はしません。経験していない工事や数値の創作もお受けしません。合格を保証するものではありません。',
+    price: '¥6,500（2級・全3テーマの骨子＋添削・再添削1回込み・各24時間以内）',
+    priceYen: 6500,
+    priceHistory: [{ priceYen: 10000, until: '2026-09-29' }],
     examScope: ['civil-2'],
     weeklyCapacity: 1,
     listedAt: '2026-09-25',
@@ -344,9 +354,10 @@ const SERVICES_RAW = {
   //   買い分け不能（初受注の混乱シグナル→展開キット §2 決定ログ）。1商品に統合し ¥5,000。
   //   ※ココナラの価格刻み＝¥10,000以下は500円刻み。¥4,980 等の端数は入力できない（publish が拒否）。
   //   納品 = coconala-C2-*.pdf 5冊 + coconala-C4-*.pdf 5冊 の計10冊。
+  // 2026-09-29 アーカイブ: ココナラは添削系へ精選（展開キット §2 決定ログ）。模範答案は教材フルパックに収録済み。
   'coconala-kanseitoan-pdf': {
     id: 'coconala-kanseitoan-pdf',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4317580',
     title: '1級土木 経験記述の模範答案セットを送ります',
     shortTitle: '1級 経験記述 模範答案セット PDF',
@@ -358,14 +369,17 @@ const SERVICES_RAW = {
     notePriceBasis: 'civil-1-experience-essay + civil-1-pastexam-essay',
     examScope: ['civil-1'],
     weeklyCapacity: 10,
+    pauseReason: 'retired',
+    archivedAt: '2026-09-29',
     listedAt: '2026-07-18',
   },
 
   // C3: 2級 経験記述 模範答案セット（テーマ別3冊＋年度別5冊＝C3+C5 統合・2026-08-05 統廃合）。
   //   納品 = coconala-C3-*.pdf 3冊 + coconala-C5-*.pdf 5冊 の計8冊。
+  // 2026-09-29 アーカイブ: ココナラは添削系へ精選（展開キット §2 決定ログ）。模範答案は教材フルパックに収録済み。
   'coconala-2kyu-kanseitoan-pdf': {
     id: 'coconala-2kyu-kanseitoan-pdf',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4317722',
     title: '2級土木 経験記述の模範答案セットを送ります',
     shortTitle: '2級 経験記述 模範答案セット PDF',
@@ -377,6 +391,8 @@ const SERVICES_RAW = {
     notePriceBasis: 'civil-2-experience-essay + civil-2-pastexam-essay',
     examScope: ['civil-2'],
     weeklyCapacity: 10,
+    pauseReason: 'retired',
+    archivedAt: '2026-09-29',
     listedAt: '2026-07-18',
   },
 
@@ -480,9 +496,11 @@ const SERVICES_RAW = {
   },
 
   // C9: 2級 二次 予想模擬試験3回（問題冊子＋解答解説）。C8 の2級版。
+  // 2026-09-29 ユーザー決定（DN-0445）: 2級二次（10/25）まで PDF は休止し、添削・骨子（2テーマ24時間・全3テーマ）に集中する。
+  //   2級は3テーマのうち2つが当日指定されるので全3テーマ版は残す。恒久廃止ではない一時休止なので absence 区分。
   'coconala-2kyu-moshi-pdf': {
     id: 'coconala-2kyu-moshi-pdf',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4317889',
     title: 'R8対応 2級土木二次の予想模試3回分を送ります',
     shortTitle: '2級 二次 予想模試3回 PDF',
@@ -494,6 +512,8 @@ const SERVICES_RAW = {
     notePriceBasis: 'civil-2-chokuzen-pack | civil-2-r8-mock3-pdf + civil-2-anki-note',
     examScope: ['civil-2'],
     weeklyCapacity: 20,
+    pauseReason: 'absence',
+    resumeOn: '2026-10-26',
     listedAt: '2026-07-18',
   },
   // C10: 1級 二次 教材フルパック（C1+C2+C4+C6+C8 全部入り・PDF 22冊）。2026-08-05 新設。
@@ -528,9 +548,11 @@ const SERVICES_RAW = {
 
   // C11: 2級 二次 教材フルパック（C3+C5+C7+C9 全部入り・PDF 19冊）。C10 の2級版。
   //   価格 ¥7,000（1級 ¥10,000 の 0.7＝級差を保つ・500円刻み適合）。
+  // 2026-09-29 ユーザー決定（DN-0445）: 2級二次（10/25）まで PDF は休止し、添削・骨子（2テーマ24時間・全3テーマ）に集中する。
+  //   2級は3テーマのうち2つが当日指定されるので全3テーマ版は残す。恒久廃止ではない一時休止なので absence 区分。
   'coconala-2kyu-full-pdf': {
     id: 'coconala-2kyu-full-pdf',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4341191',
     title: 'R8対応 2級土木二次の教材フルパックを送ります',
     shortTitle: '2級 二次 教材フルパック PDF',
@@ -542,6 +564,8 @@ const SERVICES_RAW = {
     notePriceBasis: 'civil-2-niji-marugoto-pack | civil-2-chokuzen-pack + civil-2-experience-essay + civil-2-pastexam-essay + civil-2-gakka-kijutsu',
     examScope: ['civil-2'],
     weeklyCapacity: 20,
+    pauseReason: 'absence',
+    resumeOn: '2026-10-26',
     listedAt: '2026-08-05',
   },
 
@@ -575,9 +599,11 @@ const SERVICES_RAW = {
   // 制作物（DLキット）テスト出品。Claude Code + Node.js を要する自作ツール版＝客層が限定される
   // ため status:'draft'（防御的非表示）で配線のみ用意。公開前ゲート: (1) 納品ZIPは外部URL(note/
   // サイト)を除去した coconala 版に差し替える（安全弁#2 外部誘導）、(2) /coconala-publish --commit。
+  // 2026-09-29: 出品管理の一覧から消え、公開ページは「非公開・受付を休止」（実測）。ココナラ側の状態を正として終了扱いにした。
+  //   誰がいつ非公開にしたかは未確認。ココナラブログ suuchi-no-irekata の送客先だったので付け替えが要る。
   'coconala-civil-keiken-kit': {
     id: 'coconala-civil-keiken-kit',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4322659',
     title: '施工経験記述を自作するAI設計キットを渡します',
     shortTitle: '経験記述 AI設計キット（DL）',
@@ -587,6 +613,8 @@ const SERVICES_RAW = {
     priceYen: 8000,
     examScope: ['civil-1', 'civil-2'],
     weeklyCapacity: 20,
+    pauseReason: 'retired',
+    archivedAt: '2026-09-29',
     listedAt: '2026-07-22',
   },
   // 総監 出題テーマ分析 PDF（テスト出品）。有料note「設問3国家施策バンク」本文は転載せず、

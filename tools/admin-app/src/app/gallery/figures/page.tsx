@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { PanelCard, StatusBadge, type Tone } from '@/components/admin';
 import Thumb from '@/components/Thumb';
 import { PageHead } from '@/components/ui';
 import { scanFigures, figureProgress, FIGURE_NEEDS_ORDER, FIGURE_NEEDS_LABEL } from '@/lib/gallery';
@@ -6,7 +7,7 @@ import { scanFigures, figureProgress, FIGURE_NEEDS_ORDER, FIGURE_NEEDS_LABEL } f
 export const dynamic = 'force-dynamic';
 
 /** needs → バッジ色（緊急=bad / 要対応=warn / ok=good）。 */
-function needsClass(n: string | null): string {
+function needsTone(n: string | null): Tone {
   if (!n || n === 'ok') return 'good';
   if (n === 'recrop-urgent') return 'bad';
   return 'warn';
@@ -55,26 +56,22 @@ export default async function FiguresGallery({
       />
 
       {/* 図クロップ進捗（公開×掲載＝ライブで読者に見える図）*/}
-      <div className="card">
-        <h2>
-          進捗（公開×掲載のライブ図）
-          <span className="sub">figure-provenance.json · ok 以外＝要対応 · png/webp は basename 重複排除</span>
-        </h2>
-        <div className="filterbar" style={{ marginBottom: prog.breakdown.length ? 8 : 0 }}>
-          <span className="badge good">OK {prog.liveOk}</span>
-          <span className="badge bad">要対応 {prog.liveAction}</span>
-          <span className="badge neutral">{prog.pct}% 完了</span>
+      <PanelCard title="進捗（公開×掲載のライブ図）" description="figure-provenance.json · ok 以外＝要対応 · png/webp は basename 重複排除">
+        <div className={'flex flex-wrap items-center gap-2' + (prog.breakdown.length ? ' mb-2' : '')}>
+          <StatusBadge tone="good">OK {prog.liveOk}</StatusBadge>
+          <StatusBadge tone="bad">要対応 {prog.liveAction}</StatusBadge>
+          <StatusBadge tone="neutral">{prog.pct}% 完了</StatusBadge>
         </div>
         {prog.breakdown.length ? (
-          <p className="small muted" style={{ margin: 0 }}>
+          <p className="m-0 text-sm text-muted-foreground">
             内訳: {prog.breakdown.map((b) => `${FIGURE_NEEDS_LABEL[b.needs]} ${b.count}`).join(' · ')}
           </p>
         ) : null}
-      </div>
+      </PanelCard>
 
       {/* 対応（needs）フィルタ — /figure-recrop・figure-provenance.md が参照 */}
       <div className="filterbar">
-        <span className="muted small" style={{ alignSelf: 'center', marginRight: 4 }}>
+        <span className="mr-1 self-center text-xs text-muted-foreground">
           対応:
         </span>
         <Link href={link({ needs: 'all' })} className={'chip' + (activeNeeds === 'all' ? ' active' : '')}>
@@ -109,24 +106,24 @@ export default async function FiguresGallery({
       </div>
 
       {filtered.length === 0 ? (
-        <div className="empty">該当なし</div>
+        <p className="text-sm text-muted-foreground">該当なし</p>
       ) : (
         <div className="gallery small">
           {filtered.map((i) => (
             <Thumb key={i.rel} url={i.url} name={i.name}>
-              <span className="badge neutral">{i.category}</span>
-              <span className={'badge ' + (i.kind === 'svg' ? 'accent' : 'neutral')}>{i.kind}</span>
+              <StatusBadge tone="neutral">{i.category}</StatusBadge>
+              <StatusBadge tone={i.kind === 'svg' ? 'info' : 'neutral'}>{i.kind}</StatusBadge>
               {i.needs ? (
-                <span
-                  className={'badge ' + needsClass(i.needs)}
+                <StatusBadge
+                  tone={needsTone(i.needs)}
                   title={[i.needsReason, i.sourceDir ? `元: ${i.sourceDir}` : '']
                     .filter(Boolean)
                     .join(' / ')}
                 >
                   {FIGURE_NEEDS_LABEL[i.needs] ?? i.needs}
-                </span>
+                </StatusBadge>
               ) : null}
-              {i.kind === 'raster' && !i.referenced ? <span className="badge warn">孤児</span> : null}
+              {i.kind === 'raster' && !i.referenced ? <StatusBadge tone="warn">孤児</StatusBadge> : null}
             </Thumb>
           ))}
         </div>

@@ -1,0 +1,69 @@
+{
+  "policy": ".claude/knowledge/reference/pop-image-policy.md",
+  "designVersion": "pop-20260927",
+  "source": {
+    "productId": "civil-2-niji-marugoto-pack",
+    "article": "content/note/1級・2級土木/2級土木/magazines/2級土木-二次まるごとパック/article.md",
+    "channel": "note",
+    "purpose": "article-authority-banner",
+    "format": {
+      "width": 1280,
+      "height": 1280
+    }
+  },
+  "copy": {
+    "eyebrow": "この教材、誰がつくってる？",
+    "headline": "答案を読む 3つの視点",
+    "proofs": [
+      {
+        "credential": "総監（技術士）",
+        "role": "分析力"
+      },
+      {
+        "credential": "元発注者（自治体）",
+        "role": "審査の目"
+      },
+      {
+        "credential": "施工管理技士",
+        "role": "当事者性"
+      }
+    ],
+    "synthesis": "分析 × 審査 × 当事者性"
+  },
+  "evidence": [
+    "content/note/1級・2級土木/2級土木/magazines/2級土木-二次まるごとパック/article.md",
+    ".claude/knowledge/reference/author-authority-banner.md",
+    "src/config/author.ts"
+  ],
+  "references": [
+    {
+      "path": "content/note/共通/著者オーソリティ/img/figure-author-authority.png",
+      "sha256": "522c48afbe98ccef81b717a12c37e2c1e4641ec2652241ffc59a872bef331450"
+    },
+    {
+      "path": "content/sns/_assets/character/explaining.png",
+      "sha256": "4c11869520bc03fc66ae836abb7621ab03c963aa195c7a3d5f6d295d6bdae34f"
+    }
+  ],
+  "prompt": "Use case: ads-marketing\nAsset type: square in-article authority banner for a Japanese note.com exam-prep article, 1:1 composition\nInput images: Image 1 is the existing banner whose purpose and factual hierarchy must be preserved but whose layout should be redesigned; Image 2 is the approved doboku-note teacher character whose identity, face, glasses, short dark hair, light beard, navy workwear, white helmet and gold reflective vest must be preserved.\nPrimary request: redesign this banner into a brighter, pop, catchy but trustworthy Japanese educational graphic for civil-engineering exam candidates. It must look like a polished modern study-service advertisement, not a government brochure.\nComposition: 1:1 square. Put the teacher character large on the right, waist-up, presenting toward the left. Put text and three rounded proof cards on the left. Keep all text and face well inside a generous mobile-safe area. Use bold Japanese typography, high contrast, thick clean shapes, small check marks and subtle bridge/blueprint motifs. No tiny URL.\nColor palette: 2級土木 green as the main color, deep navy for trust, warm yellow for highlights, white and very pale mint background. Avoid excessive saturation.\nText (verbatim; do not add, omit, translate, paraphrase, or misspell any text):\n「この教材、誰がつくってる？」\n「答案を読む 3つの視点」\nCard 1: 「総監（技術士）」 / 「分析力」\nCard 2: 「元発注者（自治体）」 / 「審査の目」\nCard 3: 「施工管理技士」 / 「当事者性」\nBottom ribbon: 「分析 × 審査 × 当事者性」\nConstraints: clearly separate the three credentials; never say 採点者 or 採点眼; no claims of guaranteed success; no price; no brand URL; do not imply that the former public owner graded the certification exam. Preserve the exact character identity from Image 2. Japanese characters must be clean and correctly rendered. No watermark.",
+  "output": {
+    "canonicalPath": "content/note/共通/著者オーソリティ/img/figure-author-authority-pop.png",
+    "articleCopyPath": "content/note/1級・2級土木/2級土木/magazines/2級土木-二次まるごとパック/img/figure-author-authority-pop.png",
+    "sha256": "7dfa2292af8cfeaf7934687b3179bc238d24ef35fd76242a57885dcceff582fc"
+  },
+  "review": {
+    "reviewedAt": "2026-09-29",
+    "originalSize": "PASS: all specified copy is legible and uncut",
+    "mobile360": "PASS: headline, three credentials, roles, and synthesis ribbon remain legible",
+    "factAlignment": "PASS: credentials remain separated; no grading or success-guarantee claim",
+    "characterIdentity": "PASS: approved explaining pose identity preserved"
+  },
+  "storage": {
+    "canonical": "git-tracked shared authority asset",
+    "articleCopy": "local generated copy; ignored by repository policy"
+  },
+  "publication": {
+    "status": "not-published",
+    "url": "https://note.com/dobokunote/n/n89b3048e5d24"
+  }
+}

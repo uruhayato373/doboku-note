@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { PanelCard, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import { loadAgents, type AgentEntry } from '@/lib/registry';
 import { domainList } from '@/lib/domains';
@@ -30,14 +31,13 @@ export default async function AgentsPage({ searchParams }: { searchParams: Promi
       <PageHead title="エージェント" sub={`${items.length} 件`} />
 
       {errors.length > 0 ? (
-        <div className="card warn-border">
-          <h2>読み取れない定義 {errors.length} 件</h2>
-          <ul className="small muted">
+        <PanelCard title={`読み取れない定義 ${errors.length} 件`}>
+          <ul className="text-xs text-muted-foreground">
             {errors.map((e) => (
               <li key={e}>{e}</li>
             ))}
           </ul>
-        </div>
+        </PanelCard>
       ) : null}
 
       <div className="filterbar">
@@ -54,30 +54,28 @@ export default async function AgentsPage({ searchParams }: { searchParams: Promi
         })}
       </div>
 
-      <div className="table-wrap">
-        <table className="data">
-          <thead>
-            <tr>
-              <th>名前</th>
-              <th>領域</th>
-              <th>役割</th>
-              <th>説明</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filtered.map((a) => (
-              <tr key={a.name}>
-                <td className="mono">{a.name}</td>
-                <td className="small">{label(a.domain)}</td>
-                <td className="small">{role(a)}</td>
-                <td className="wrap small">
-                  <span className="desc-clamp">{a.description}</span>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      <TableFrame>
+        <TableHeader>
+          <TableRow>
+            <TableHead>名前</TableHead>
+            <TableHead>領域</TableHead>
+            <TableHead>役割</TableHead>
+            <TableHead>説明</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {filtered.map((a) => (
+            <TableRow key={a.name}>
+              <TableCell className="font-mono">{a.name}</TableCell>
+              <TableCell className="text-xs">{label(a.domain)}</TableCell>
+              <TableCell className="text-xs">{role(a)}</TableCell>
+              <TableCell className="whitespace-normal text-xs">
+                <span className="desc-clamp">{a.description}</span>
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </TableFrame>
     </>
   );
 }

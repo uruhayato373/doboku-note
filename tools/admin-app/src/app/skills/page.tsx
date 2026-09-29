@@ -1,3 +1,4 @@
+import { PanelCard } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import { loadSkills, type SkillEntry } from '@/lib/registry';
 import { domainList } from '@/lib/domains';
@@ -28,14 +29,13 @@ export default function SkillsPage() {
       <PageHead title="スキル" sub={`${items.length} 件`} />
 
       {errors.length > 0 ? (
-        <div className="card warn-border">
-          <h2>パース警告 {errors.length}件</h2>
-          <ul className="small muted">
+        <PanelCard title={`パース警告 ${errors.length}件`}>
+          <ul className="text-xs text-muted-foreground">
             {errors.map((e) => (
               <li key={e}>{e}</li>
             ))}
           </ul>
-        </div>
+        </PanelCard>
       ) : null}
 
       <div className="filterbar">
@@ -47,11 +47,8 @@ export default function SkillsPage() {
       </div>
 
       {cats.map((c) => (
-        <div className="card" key={c} id={`cat-${c}`}>
-          <h2>
-            {label(c)}
-            <span className="sub">{groups.get(c)!.length} 件</span>
-          </h2>
+        <div key={c} id={`cat-${c}`}>
+          <PanelCard title={<>{label(c)} <span className="sub">{groups.get(c)!.length} 件</span></>}>
           <div className="grid cols-2">
             {groups
               .get(c)!
@@ -66,6 +63,7 @@ export default function SkillsPage() {
                 </div>
               ))}
           </div>
+          </PanelCard>
         </div>
       ))}
     </>

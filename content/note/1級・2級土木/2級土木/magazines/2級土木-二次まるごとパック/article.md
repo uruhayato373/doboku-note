@@ -20,7 +20,7 @@ cover:
 # 2級土木 二次検定まるごとパック（経験記述＋学科記述＋直前対策）
 
 
-![](img/figure-author-authority.png)
+![](img/figure-author-authority-pop.png)
 
 この教材は、技術士（総合技術監理部門）を持つ元・地方自治体の土木職（発注者）がつくっています。1級・2級土木施工管理技士にも自分で合格しており、受験者と同じ答案を書いた当事者です。
 
@@ -120,6 +120,17 @@ https://note.com/dobokunote/n/n6b66793ca20c
 購入前に出題傾向だけ確認したい方は、[施工経験記述 出題傾向と対策](https://doboku-note.com/exam/civil-construction-2/secondary/experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil2-niji-marugoto&utm_content=experience-writing-guide)を無料で公開しています。
 
 ---
+
+<!-- cta:coconala-2kyu-chokuzen -->
+【10/25の二次に、まだ間に合います】
+
+書いた答案があれば、全3テーマを24時間で添削します（赤入れ＋書き直し1回）。
+
+https://coconala.com/services/4418778
+
+まだ書けていなければ、ヒアリングから全3テーマの骨子を24時間でつくります。
+
+https://coconala.com/services/4418785
 
 <!-- cta:civil-mokuji -->
 1級・2級土木のほかの記事・経験記述の答案集は「土木もくじ」から一覧できます。上位資格の分析力・発注者として書類を評価してきた目・合格者の当事者性で、あなたの答案を合格ラインへ引き上げます。

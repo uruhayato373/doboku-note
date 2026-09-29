@@ -61,11 +61,11 @@ https://note.com/dobokunote/n/n4fde0f62dc20
 <!-- cta:coconala-custom -->
 この答案をあなたの工事に合わせて仕上げたいときは、ココナラで個別に対応しています。書いた答案があれば添削で赤入れ、まだ書けていなければヒアリングから骨子（構成）をつくります。
 
-https://coconala.com/services/4418775
+https://coconala.com/services/4418778
 
 まだ答案が無い人は、ヒアリングから骨子（構成）をつくるこちらへ。
 
-https://coconala.com/services/4418781
+https://coconala.com/services/4418785
 
 ## 想定工事①：上水道の仕切弁・消火栓付き弁室更新工事
 

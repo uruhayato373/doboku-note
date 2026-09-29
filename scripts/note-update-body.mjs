@@ -464,8 +464,8 @@ async function updateArticle(page, article, probe, parts = ['body'], sync = {}) 
     if (!r.settled && !IMG_LENIENT) { abortReason = settleAbortReason(r.settle); console.error(`[4.4] ABORT: 画像が CDN 確定せず（${abortReason}・保存すると live で欠落）→ 再実行`); await page.screenshot({ path: join(ROOT, `.tmp/nu-imgsettle-${noteId}.png`) }); return false; }
     const live = await publishLive(page, noteId, boundary, isPaid, {
       keepBoundary: KEEP_BOUNDARY,
-      trialLineBottom: TRIAL_LINE_BOTTOM,
-      membershipLock: isMembership || KEEP_MEMBER_LOCK,
+      trialLineBottom,
+      membershipLock: isMembership || memberLock,
     });
     if (!live) { console.error(`[FAIL] ライブ反映に失敗: ${noteId}`); return false; }
     const chk = await assertLiveBody(noteId, { expectedImgs, paid: isPaid, minFreeChars });
@@ -760,7 +760,7 @@ async function updateArticle(page, article, probe, parts = ['body'], sync = {}) 
   } else if (!chk.ok) {
     console.error(`[5e] FAIL: 公開本文に不整合: ${formatLiveIssues(chk, expectedImgs)} → 再実行 or note エディタで手動修正`);
     return false;
-  } else if (!isPaid && !isMembership && !TRIAL_LINE_BOTTOM && !KEEP_MEMBER_LOCK && chk.isLimited === true) {
+  } else if (!isPaid && !isMembership && !trialLineBottom && !memberLock && chk.isLimited === true) {
     // 無料記事なのに会員限定になった＝未ログインで読めない（中身を検査できず img=0 でも OK に見える）
     console.error(`[5e] FAIL: 無料記事が会員限定（is_limited=true）で公開された。--trial-line-bottom で再実行して読める状態に戻す: ${noteId}`);
     return false;

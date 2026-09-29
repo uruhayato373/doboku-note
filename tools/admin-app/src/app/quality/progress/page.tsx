@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import { TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow, numCol } from '@/components/admin';
+import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
 import { findRepoRoot } from '@/lib/repo-root';
 import { loadQualityProgress } from '../../../../../../scripts/lib/quality-progress.mjs';
@@ -20,7 +22,7 @@ export default async function QualityProgressPage({ searchParams }: { searchPara
     return (
       <>
         <PageHead title="品質サイクル進捗" />
-        <p className="card muted">採点データ（quality-scores.json）が無い</p>
+        <p className="text-sm text-muted-foreground">採点データ（quality-scores.json）が無い</p>
       </>
     );
   }
@@ -33,7 +35,8 @@ export default async function QualityProgressPage({ searchParams }: { searchPara
   return (
     <>
       <PageHead title="品質サイクル進捗（総監キーワード）" />
-      <nav className="filterbar" style={{ marginBottom: 12 }}>
+      <Stack>
+      <nav className="filterbar">
         <Link className="chip" href="/quality">← 品質概観</Link>
         <Link className={'chip' + (!status && !below ? ' active' : '')} href={href({})}>すべて {v.summary.total}</Link>
         {Object.entries(v.summary.byStatus).map(([s, n]) => (
@@ -45,38 +48,37 @@ export default async function QualityProgressPage({ searchParams }: { searchPara
           2.5 未満 {v.summary.lt25}
         </Link>
       </nav>
-      <div className="card table-wrap">
-        <table className="data">
-          <thead>
-            <tr>
-              <th>キーワード</th>
-              <th className="num">weighted</th>
-              <th>弱い軸</th>
-              <th>状態</th>
-              <th className="num">リライト</th>
-              <th className="num">順位</th>
-              <th className="num">表示</th>
-              <th className="num">クリック</th>
-              <th>最終更新</th>
-            </tr>
-          </thead>
-          <tbody>
-            {rows.map((r) => (
-              <tr key={r.slug}>
-                <td style={{ whiteSpace: 'normal' }}>{r.title}</td>
-                <td className="num">{r.weighted.toFixed(2)}</td>
-                <td className="small">{r.weakAxes.join('・') || '—'}</td>
-                <td className="small">{STATUS_JA[r.status] ?? r.status}</td>
-                <td className="num">{r.rewriteCount}</td>
-                <td className="num">{r.gscPos == null ? '—' : r.gscPos.toFixed(1)}</td>
-                <td className="num">{r.impr}</td>
-                <td className="num">{r.clicks}</td>
-                <td className="small">{r.lastDate}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      <TableFrame>
+        <TableHeader>
+          <TableRow>
+            <TableHead>キーワード</TableHead>
+            <TableHead className={numCol}>weighted</TableHead>
+            <TableHead>弱い軸</TableHead>
+            <TableHead>状態</TableHead>
+            <TableHead className={numCol}>リライト</TableHead>
+            <TableHead className={numCol}>順位</TableHead>
+            <TableHead className={numCol}>表示</TableHead>
+            <TableHead className={numCol}>クリック</TableHead>
+            <TableHead>最終更新</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {rows.map((r) => (
+            <TableRow key={r.slug}>
+              <TableCell className="whitespace-normal">{r.title}</TableCell>
+              <TableCell className={numCol}>{r.weighted.toFixed(2)}</TableCell>
+              <TableCell className="text-xs">{r.weakAxes.join('・') || '—'}</TableCell>
+              <TableCell className="text-xs">{STATUS_JA[r.status] ?? r.status}</TableCell>
+              <TableCell className={numCol}>{r.rewriteCount}</TableCell>
+              <TableCell className={numCol}>{r.gscPos == null ? '—' : r.gscPos.toFixed(1)}</TableCell>
+              <TableCell className={numCol}>{r.impr}</TableCell>
+              <TableCell className={numCol}>{r.clicks}</TableCell>
+              <TableCell className="text-xs">{r.lastDate}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </TableFrame>
+      </Stack>
     </>
   );
 }

@@ -141,6 +141,17 @@ https://note.com/dobokunote/m/m1881a9578027
 
 ---
 
+<!-- cta:coconala-2kyu-chokuzen -->
+【10/25の二次に、まだ間に合います】
+
+書いた答案があれば、全3テーマを24時間で添削します（赤入れ＋書き直し1回）。
+
+https://coconala.com/services/4418778
+
+まだ書けていなければ、ヒアリングから全3テーマの骨子を24時間でつくります。
+
+https://coconala.com/services/4418785
+
 <!-- cta:civil-mokuji -->
 1級・2級土木のほかの記事・経験記述の答案集は「土木もくじ」から一覧できます。
 

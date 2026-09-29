@@ -58,7 +58,7 @@ export default async function KnowledgePage({ searchParams }: Props) {
           </Link>
         ))}
       </div>
-      {items.length === 0 && <div className="card empty">一致するナレッジはありません。</div>}
+      {items.length === 0 && <p className="text-sm text-muted-foreground">一致するナレッジはありません。</p>}
     </>
   );
 }

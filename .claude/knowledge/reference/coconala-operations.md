@@ -278,6 +278,7 @@ DM 一覧 = `/message?fromMyPage=true`、行 = `a.c-messageItemWrap[href="/mypag
 | `npm run check-coconala-wiring`（検査10） | PDF 商品の価格ルール＝`notePriceBasis`（note で同じ中身を買う方法）の基準 × 1.1 をココナラの価格刻みで切り上げた額以上。note に同じ中身が無い PDF は `notePriceExempt` に理由 | pre-commit（カタログ・listings・`note-magazines.ts` の変更時）と CI（`quality-audit --ci`） |
 
 - 出品文・価格を変えたら、SoT（カタログ・listings）を先に直して `coconala-edit` で反映し、`check-coconala-live` が緑になるまでを1セットにする。
+- 同じ照合の結果は管理画面のコンテンツ台帳（`/content/ledger?c=coconala`）にも出る（索引 `npm run content-ledger` を作るたびに照合）。1 サービスの正本 3 ファイルは `/content/ledger/coconala/<id>` でまとめて見られる。
 - note の値上げで価格ルールの下限が上がると `check-coconala-wiring` が落ちる。ココナラ側も改定するか、note の値上げを見直す。
 - 過去の受注額はカタログの `priceHistory`（旧定価と有効最終日）で受注日時点の定価と突合する（検査3）。
 

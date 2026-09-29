@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
+import { Facet, FacetHead, FacetShell, PanelCard, StatusBadge, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow, type FacetItem, type Tone } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import { renderMarkdown } from '@/lib/markdown';
 import { projectRefsByBacklogId } from '@/lib/project';
@@ -56,41 +57,24 @@ function countBy(cards: TodoCard[], pick: (card: TodoCard) => string | null): Ma
   return counts;
 }
 
-function Facet({
-  title,
-  param,
-  now,
-  active,
-  total,
-  items,
-}: {
-  title: string;
-  param: keyof Query;
-  now: Query;
-  active: string | null;
-  total: number;
-  items: { key: string; label: string; count: number; dot?: string }[];
-}) {
-  return (
-    <section className="facet">
-      <h4>{title}</h4>
-      <Link href={href(now, { [param]: undefined })} className={active ? '' : 'active'}>
-        <span className="fl">すべて</span>
-        <span className="n">{total}</span>
-      </Link>
-      {items.map((item) => (
-        <Link
-          key={item.key}
-          href={href(now, { [param]: item.key })}
-          className={active === item.key ? 'active' : ''}
-        >
-          {item.dot ? <span className={'tier-dot ' + item.dot} /> : null}
-          <span className="fl">{item.label}</span>
-          <span className="n">{item.count}</span>
-        </Link>
-      ))}
-    </section>
-  );
+/** facet 1 つ分の項目（先頭に「すべて」）。 */
+function facetItems(
+  now: Query,
+  param: keyof Query,
+  active: string | null,
+  total: number,
+  items: { key: string; label: string; count: number; dot?: string }[],
+): FacetItem[] {
+  return [
+    { key: '__all', label: 'すべて', count: total, href: href(now, { [param]: undefined }), active: !active },
+    ...items.map((item) => ({
+      key: item.key,
+      label: item.dot ? <><span className={'tier-dot ' + item.dot} /> {item.label}</> : item.label,
+      count: item.count,
+      href: href(now, { [param]: item.key }),
+      active: active === item.key,
+    })),
+  ];
 }
 
 function TaskLink({ card }: { card: TodoCard }) {
@@ -114,10 +98,10 @@ function TaskLink({ card }: { card: TodoCard }) {
 }
 
 function DueBadge({ due }: { due: string | null }) {
-  if (!due) return <span className="muted">—</span>;
+  if (!due) return <span className="text-muted-foreground">—</span>;
   const today = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Asia/Tokyo' }).format(new Date());
-  const cls = due < today ? 'bad' : due === today ? 'warn' : 'neutral';
-  return <span className={'badge ' + cls}>{due}</span>;
+  const tone: Tone = due < today ? 'bad' : due === today ? 'warn' : 'neutral';
+  return <StatusBadge tone={tone}>{due}</StatusBadge>;
 }
 
 /**
@@ -131,7 +115,7 @@ const STATUS_LABEL: Record<TodoStatus, string> = {
   PLANNED: '計画あり',
   BACKLOG: '未着手',
 };
-const STATUS_CLASS: Record<TodoStatus, string> = {
+const STATUS_TONE: Record<TodoStatus, Tone> = {
   IN_PROGRESS: 'warn',
   THIS_WEEK: 'good',
   THIS_MONTH: 'good',
@@ -139,8 +123,8 @@ const STATUS_CLASS: Record<TodoStatus, string> = {
   BACKLOG: 'neutral',
 };
 function LifecycleStatusBadge({ status }: { status: TodoStatus | null }) {
-  if (!status) return <span className="muted">—</span>;
-  return <span className={'badge ' + STATUS_CLASS[status]}>{STATUS_LABEL[status]}</span>;
+  if (!status) return <span className="text-muted-foreground">—</span>;
+  return <StatusBadge tone={STATUS_TONE[status]}>{STATUS_LABEL[status]}</StatusBadge>;
 }
 
 /** claim中の owner・経過時間。経過はサーバレンダ時点のスナップショット（表示専用・記録には使わない）。 */
@@ -150,7 +134,7 @@ function ClaimInfo({ claim }: { claim: TodoCard['claim'] }) {
   const minutes = Number.isFinite(startedMs) ? Math.round((Date.now() - startedMs) / 60000) : null;
   const elapsed = minutes == null ? null : minutes >= 60 ? `${Math.round(minutes / 60)}時間` : `${minutes}分`;
   return (
-    <div className="muted todo-claim-info">
+    <div className="text-muted-foreground todo-claim-info">
       claim: {claim.owner}{elapsed ? `・${elapsed}経過` : ''}
     </div>
   );
@@ -166,9 +150,9 @@ function planHref(planPath: string): string {
 function BacklogJoinInfo({ id, index }: { id: string | null; index: Map<string, BacklogRef> }) {
   if (!id) return null;
   const ref = index.get(id);
-  if (!ref) return <span className="badge bad">台帳なし</span>;
+  if (!ref) return <StatusBadge tone="bad">台帳なし</StatusBadge>;
   return (
-    <span className="muted todo-plan-join">
+    <span className="text-muted-foreground todo-plan-join">
       <span className={'tier-dot ' + ref.tier} /> {ref.title}
       {ref.due ? <> ・期日 {ref.due}</> : null}
     </span>
@@ -231,63 +215,61 @@ function BacklogTable({
   focusId?: string;
   docRefs: Map<string, { slug: string; title: string }[]>;
 }) {
-  if (!cards.length) return <div className="empty">該当するタスクはありません</div>;
+  if (!cards.length) return <p className="text-sm text-muted-foreground">該当するタスクはありません</p>;
   return (
-    <div className="table-wrap todo-table-wrap">
-      <table className="data todo-table">
-        <thead>
-          <tr>
-            <th className="todo-priority-col">優先</th>
-            <th>タスク</th>
-            <th className="todo-kind-col">種類</th>
-            <th className="todo-due-col">期日</th>
-            <th className="todo-status-col">状態</th>
-          </tr>
-        </thead>
-        <tbody>
-          {cards.map((card) => (
-            <tr
-              key={card.path + card.line}
-              id={card.id ?? undefined}
-              className={[
-                card.wip ? 'is-wip' : '',
-                card.id === focusId ? 'todo-card-hit' : '',
-              ].filter(Boolean).join(' ') || undefined}
-            >
-              <td>
-                <span className="todo-priority">
-                  <span className={'tier-dot ' + tierKey(card)} />
-                  {tierLabel(card)}
-                </span>
-              </td>
-              <td className="todo-task-cell">
-                <TaskLink card={card} />
-                {card.wip ? <ClaimInfo claim={card.claim} /> : null}
-                <div className="todo-task-meta">
-                  {card.id ? <span className="todo-id">{card.id}</span> : null}
-                  {card.codex ? (
-                    <span className="badge accent" title="バルク処理向き（自動dispatchではない）">
-                      Codex
-                    </span>
-                  ) : null}
-                  {card.wip ? <span className="badge warn">進行中</span> : null}
-                  {card.planPath ? <Link className="todo-doc-ref" href={planHref(card.planPath)}>実装計画</Link> : null}
-                  {card.id ? <DocRefs refs={docRefs.get(card.id)} /> : null}
-                </div>
-                <PromptDetails card={card} />
-              </td>
-              <td className="todo-kind-cell">{card.kind ? <span className="badge soft">{card.kind}</span> : <span className="muted">—</span>}</td>
-              <td className="todo-due-cell"><DueBadge due={card.due} /></td>
-              <td className="todo-status-cell"><LifecycleStatusBadge status={card.lifecycleStatus} /></td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+    <TableFrame className="min-w-[680px]">
+      <TableHeader>
+        <TableRow>
+          <TableHead className="w-[74px]">優先</TableHead>
+          <TableHead>タスク</TableHead>
+          <TableHead className="w-[86px] max-[900px]:hidden">種類</TableHead>
+          <TableHead className="w-28 max-[900px]:hidden">期日</TableHead>
+          <TableHead className="w-[116px] max-[900px]:hidden">状態</TableHead>
+        </TableRow>
+      </TableHeader>
+      <TableBody className="[&_td]:align-top">
+        {cards.map((card) => (
+          <TableRow
+            key={card.path + card.line}
+            id={card.id ?? undefined}
+            className={[
+              card.wip ? 'is-wip' : '',
+              card.id === focusId ? 'todo-card-hit' : '',
+            ].filter(Boolean).join(' ') || undefined}
+          >
+            <TableCell>
+              <span className="todo-priority">
+                <span className={'tier-dot ' + tierKey(card)} />
+                {tierLabel(card)}
+              </span>
+            </TableCell>
+            <TableCell className="whitespace-normal min-w-0 [overflow-wrap:anywhere]">
+              <TaskLink card={card} />
+              {card.wip ? <ClaimInfo claim={card.claim} /> : null}
+              <div className="todo-task-meta">
+                {card.id ? <span className="todo-id">{card.id}</span> : null}
+                {card.codex ? (
+                  <StatusBadge tone="info" title="バルク処理向き（自動dispatchではない）">
+                    Codex
+                  </StatusBadge>
+                ) : null}
+                {card.wip ? <StatusBadge tone="warn">進行中</StatusBadge> : null}
+                {card.planPath ? <Link className="todo-doc-ref" href={planHref(card.planPath)}>実装計画</Link> : null}
+                {card.id ? <DocRefs refs={docRefs.get(card.id)} /> : null}
+              </div>
+              <PromptDetails card={card} />
+            </TableCell>
+            <TableCell className="max-[900px]:hidden">{card.kind ? <StatusBadge tone="info">{card.kind}</StatusBadge> : <span className="text-muted-foreground">—</span>}</TableCell>
+            <TableCell className="max-[900px]:hidden"><DueBadge due={card.due} /></TableCell>
+            <TableCell className="max-[900px]:hidden"><LifecycleStatusBadge status={card.lifecycleStatus} /></TableCell>
+          </TableRow>
+        ))}
+      </TableBody>
+    </TableFrame>
   );
 }
 
-function StatusBadge({ card }: { card: TodoCard }) {
+function PlanStatusBadge({ card }: { card: TodoCard }) {
   const raw = card.status || '';
   const status = card.complete
     ? '完了'
@@ -300,8 +282,8 @@ function StatusBadge({ card }: { card: TodoCard }) {
           : /未着手/.test(raw)
             ? '未着手'
             : '計画';
-  const cls = card.complete ? 'good' : /待ち|保留/.test(status) ? 'warn' : /進行|着手/.test(status) ? 'accent' : 'neutral';
-  return <span className={'badge ' + cls}>{status}</span>;
+  const tone: Tone = card.complete ? 'good' : /待ち|保留/.test(status) ? 'warn' : /進行|着手/.test(status) ? 'info' : 'neutral';
+  return <StatusBadge tone={tone}>{status}</StatusBadge>;
 }
 
 function PlanTable({
@@ -314,36 +296,34 @@ function PlanTable({
   /** weekly/monthly のみ: backlogIndex() の join 結果（台帳の title/tier/due・drift 検出）。 */
   backlogRefs?: Map<string, BacklogRef>;
 }) {
-  if (!cards.length) return <div className="empty">計画項目がありません</div>;
+  if (!cards.length) return <p className="text-sm text-muted-foreground">計画項目がありません</p>;
   const ordered = annual ? cards : [...cards].sort((a, b) => Number(a.complete) - Number(b.complete));
   const hasOwner = !annual && cards.some((card) => card.owner);
   return (
-    <div className="table-wrap todo-table-wrap">
-      <table className="data todo-table todo-plan-table">
-        <thead>
-          <tr>
-            {!annual ? <th className="todo-section-col">区分</th> : null}
-            <th>{annual ? '時期・テーマ' : '実行項目'}</th>
-            {!annual ? <th className="todo-status-col">状態</th> : null}
-            {hasOwner ? <th className="todo-owner-col">担当</th> : null}
-          </tr>
-        </thead>
-        <tbody>
-          {ordered.map((card) => (
-            <tr key={card.path + card.line} className={card.complete ? 'is-complete' : undefined}>
-              {!annual ? <td className="todo-section-cell">{card.section ?? card.fileLabel}</td> : null}
-              <td className="todo-task-cell">
-                <TaskLink card={card} />
-                {card.id ? <span className="todo-id">{card.id}</span> : null}
-                {backlogRefs ? <BacklogJoinInfo id={card.id} index={backlogRefs} /> : null}
-              </td>
-              {!annual ? <td><StatusBadge card={card} /></td> : null}
-              {hasOwner ? <td>{card.owner ?? <span className="muted">—</span>}</td> : null}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+    <TableFrame className="min-w-[680px]">
+      <TableHeader>
+        <TableRow>
+          {!annual ? <TableHead className="w-[190px] max-[900px]:w-[150px]">区分</TableHead> : null}
+          <TableHead>{annual ? '時期・テーマ' : '実行項目'}</TableHead>
+          {!annual ? <TableHead className="w-[116px] max-[900px]:hidden">状態</TableHead> : null}
+          {hasOwner ? <TableHead className="w-[92px]">担当</TableHead> : null}
+        </TableRow>
+      </TableHeader>
+      <TableBody className="[&_td]:align-top">
+        {ordered.map((card) => (
+          <TableRow key={card.path + card.line} className={card.complete ? 'is-complete' : undefined}>
+            {!annual ? <TableCell className="max-[900px]:w-[150px]">{card.section ?? card.fileLabel}</TableCell> : null}
+            <TableCell className="whitespace-normal min-w-0 [overflow-wrap:anywhere]">
+              <TaskLink card={card} />
+              {card.id ? <span className="todo-id">{card.id}</span> : null}
+              {backlogRefs ? <BacklogJoinInfo id={card.id} index={backlogRefs} /> : null}
+            </TableCell>
+            {!annual ? <TableCell><PlanStatusBadge card={card} /></TableCell> : null}
+            {hasOwner ? <TableCell>{card.owner ?? <span className="text-muted-foreground">—</span>}</TableCell> : null}
+          </TableRow>
+        ))}
+      </TableBody>
+    </TableFrame>
   );
 }
 
@@ -393,6 +373,36 @@ export default async function TodoPage({ searchParams }: { searchParams: Promise
       ? `${board.month.slice(0, 4)}年${Number(board.month.slice(5))}月 · [時期:] が今月を含むカード ${layerCards.length}件`
     : `${meta?.title ?? meta?.label ?? layer} · 未完了 ${activeCount}件${completeCount && !completedAreHidden ? ` / 完了 ${completeCount}件` : ''}`;
 
+  const main = isCardList ? (
+    <BacklogTable cards={isBacklog ? visible : displayedLayerCards} focusId={query.id} docRefs={docRefs} />
+  ) : (
+    <PlanTable cards={displayedLayerCards} annual={layer === 'annual'} backlogRefs={backlogRefs} />
+  );
+  const rail = isBacklog && (
+    <>
+      <FacetHead clearHref={tier || kind ? '/todo' : null} />
+      <Facet
+        title="優先度"
+        items={facetItems(
+          now,
+          't',
+          tier,
+          tierScope.length,
+          TIERS.filter((item) => tierCounts.has(item.key) || tier === item.key).map((item) => ({
+            key: item.key,
+            label: item.label,
+            count: tierCounts.get(item.key) ?? 0,
+            dot: item.key,
+          })),
+        )}
+      />
+      <Facet
+        title="種類"
+        items={facetItems(now, 'k', kind, kindScope.length, kindKeys.map((key) => ({ key, label: key, count: kindCounts.get(key) ?? 0 })))}
+      />
+    </>
+  );
+
   return (
     <>
       <PageHead title={meta?.label ?? 'TODO'} sub={sub} />
@@ -401,51 +411,12 @@ export default async function TodoPage({ searchParams }: { searchParams: Promise
         <p className="todo-plan-focus"><strong>焦点</strong>{meta.summary}</p>
       ) : null}
       {layer === 'monthly' && meta?.notes ? (
-        <div className="card" style={{ marginBottom: 12 }}>
-          <h2>今月の成果目標</h2>
+        <PanelCard title="今月の成果目標" className="mb-3">
           <div className="md-prose" dangerouslySetInnerHTML={{ __html: renderMarkdown(meta.notes) }} />
-        </div>
+        </PanelCard>
       ) : null}
 
-      <div className={'todo-shell' + (isBacklog ? '' : ' plan-only')}>
-        <div className="todo-main">
-          {isCardList ? (
-            <BacklogTable cards={isBacklog ? visible : displayedLayerCards} focusId={query.id} docRefs={docRefs} />
-          ) : (
-            <PlanTable cards={displayedLayerCards} annual={layer === 'annual'} backlogRefs={backlogRefs} />
-          )}
-        </div>
-
-        {isBacklog ? (
-          <aside className="todo-rail">
-            <div className="rail-head">
-              <span>絞り込み</span>
-              {tier || kind ? <Link href="/todo">すべて解除</Link> : null}
-            </div>
-            <Facet
-              title="優先度"
-              param="t"
-              now={now}
-              active={tier}
-              total={tierScope.length}
-              items={TIERS.filter((item) => tierCounts.has(item.key) || tier === item.key).map((item) => ({
-                key: item.key,
-                label: item.label,
-                count: tierCounts.get(item.key) ?? 0,
-                dot: item.key,
-              }))}
-            />
-            <Facet
-              title="種類"
-              param="k"
-              now={now}
-              active={kind}
-              total={kindScope.length}
-              items={kindKeys.map((key) => ({ key, label: key, count: kindCounts.get(key) ?? 0 }))}
-            />
-          </aside>
-        ) : null}
-      </div>
+      {isBacklog ? <FacetShell main={main} rail={rail} /> : main}
     </>
   );
 }

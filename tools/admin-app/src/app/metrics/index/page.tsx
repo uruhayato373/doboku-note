@@ -1,3 +1,4 @@
+import { TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow, numCol } from '@/components/admin';
 import SearchTabs from '@/components/SearchTabs';
 import { PageHead } from '@/components/ui';
 import { findRepoRoot } from '@/lib/repo-root';
@@ -23,39 +24,35 @@ export default function IndexPage() {
     <>
       <PageHead title="検索" sub="インデックス率（URL 検査・週次）" />
       <SearchTabs current="/metrics/index" />
-      <div className="card">
-        <div className="table-wrap">
-          <table className="data">
-            <thead>
-              <tr>
-                <th>検査日</th>
-                <th className="num">全体</th>
-                {quals.map((q) => (
-                  <th key={q.id} className="num">{q.label}</th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {rows.map((r) => (
-                <tr key={r.date}>
-                  <td>{r.date}</td>
-                  <td className="num">
-                    {pct(r.all)} <span className="small muted">{r.all.indexed}/{r.all.inspected}</span>
-                  </td>
-                  {quals.map((q) => {
-                    const v = r.byQualification[q.id];
-                    return (
-                      <td key={q.id} className="num">
-                        {pct(v)} {v && v.inspected > 0 && <span className="small muted">{v.indexed}/{v.inspected}</span>}
-                      </td>
-                    );
-                  })}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
+      <TableFrame>
+        <TableHeader>
+          <TableRow>
+            <TableHead>検査日</TableHead>
+            <TableHead className={numCol}>全体</TableHead>
+            {quals.map((q) => (
+              <TableHead key={q.id} className={numCol}>{q.label}</TableHead>
+            ))}
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {rows.map((r) => (
+            <TableRow key={r.date}>
+              <TableCell>{r.date}</TableCell>
+              <TableCell className={numCol}>
+                {pct(r.all)} <span className="text-xs text-muted-foreground">{r.all.indexed}/{r.all.inspected}</span>
+              </TableCell>
+              {quals.map((q) => {
+                const v = r.byQualification[q.id];
+                return (
+                  <TableCell key={q.id} className={numCol}>
+                    {pct(v)} {v && v.inspected > 0 && <span className="text-xs text-muted-foreground">{v.indexed}/{v.inspected}</span>}
+                  </TableCell>
+                );
+              })}
+            </TableRow>
+          ))}
+        </TableBody>
+      </TableFrame>
     </>
   );
 }

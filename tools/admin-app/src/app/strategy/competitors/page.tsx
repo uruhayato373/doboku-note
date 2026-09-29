@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { numCol, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import SectionTabs from '@/components/SectionTabs';
 import { loadCompetitorView, type CompetitorRow } from '@/lib/competitors';
@@ -51,36 +52,34 @@ export default async function CompetitorsPage({ searchParams }: { searchParams: 
       </nav>
 
       {rows.length === 0 ? (
-        <p className="small muted">データなし</p>
+        <p className="text-sm text-muted-foreground">データなし</p>
       ) : (
-        <div className="table-wrap">
-          <table className="data">
-            <thead>
-              <tr>
-                <th>セラー</th>
-                <th>資格</th>
-                <th className="num">出品</th>
-                <th className="num">最低</th>
-                <th className="num">中央</th>
-                <th className="num">最高</th>
-                <th className="num">累計販売</th>
-                <th className="num">販売の増分</th>
-                <th className="num">売上</th>
-                <th className="num">売上の増分</th>
-                <th className="num">評価</th>
-                <th>変化</th>
-              </tr>
-            </thead>
-            <tbody>
-              {(!exam || view.self.exams.includes(exam)) && (
-                <Row row={view.self} examLabels={view.examLabels} self />
-              )}
-              {rows.map((r) => (
-                <Row key={r.handle} row={r} examLabels={view.examLabels} />
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <TableFrame>
+          <TableHeader>
+            <TableRow>
+              <TableHead>セラー</TableHead>
+              <TableHead>資格</TableHead>
+              <TableHead className={numCol}>出品</TableHead>
+              <TableHead className={numCol}>最低</TableHead>
+              <TableHead className={numCol}>中央</TableHead>
+              <TableHead className={numCol}>最高</TableHead>
+              <TableHead className={numCol}>累計販売</TableHead>
+              <TableHead className={numCol}>販売の増分</TableHead>
+              <TableHead className={numCol}>売上</TableHead>
+              <TableHead className={numCol}>売上の増分</TableHead>
+              <TableHead className={numCol}>評価</TableHead>
+              <TableHead>変化</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {(!exam || view.self.exams.includes(exam)) && (
+              <Row row={view.self} examLabels={view.examLabels} self />
+            )}
+            {rows.map((r) => (
+              <Row key={r.handle} row={r} examLabels={view.examLabels} />
+            ))}
+          </TableBody>
+        </TableFrame>
       )}
     </>
   );
@@ -88,8 +87,8 @@ export default async function CompetitorsPage({ searchParams }: { searchParams: 
 
 function Row({ row: r, examLabels, self }: { row: CompetitorRow; examLabels: Record<string, string>; self?: boolean }) {
   return (
-    <tr style={self ? { fontWeight: 600 } : undefined}>
-      <td>
+    <TableRow className={self ? 'font-semibold' : undefined}>
+      <TableCell>
         {self ? (
           r.label
         ) : (
@@ -97,21 +96,21 @@ function Row({ row: r, examLabels, self }: { row: CompetitorRow; examLabels: Rec
             {r.label}
           </a>
         )}
-      </td>
-      <td className="small">{r.exams.map((e) => examLabels[e] ?? e).join('・')}</td>
-      <td className="num">{r.services ?? '—'}</td>
-      <td className="num">{yen(r.priceMin)}</td>
-      <td className="num">{yen(r.priceMedian)}</td>
-      <td className="num">{yen(r.priceMax)}</td>
-      <td className="num">{r.sales?.toLocaleString('ja-JP') ?? '—'}</td>
-      <td className="num">{r.salesDelta === null ? '新規' : `+${r.salesDelta}（${md(r.baseDate)}〜）`}</td>
-      <td className="num">
+      </TableCell>
+      <TableCell className="text-xs">{r.exams.map((e) => examLabels[e] ?? e).join('・')}</TableCell>
+      <TableCell className={numCol}>{r.services ?? '—'}</TableCell>
+      <TableCell className={numCol}>{yen(r.priceMin)}</TableCell>
+      <TableCell className={numCol}>{yen(r.priceMedian)}</TableCell>
+      <TableCell className={numCol}>{yen(r.priceMax)}</TableCell>
+      <TableCell className={numCol}>{r.sales?.toLocaleString('ja-JP') ?? '—'}</TableCell>
+      <TableCell className={numCol}>{r.salesDelta === null ? '新規' : `+${r.salesDelta}（${md(r.baseDate)}〜）`}</TableCell>
+      <TableCell className={numCol}>
         {money(r.revenueYen, r.revenueEstimated)}
-        {r.partial && <span className="small muted">（一部）</span>}
-      </td>
-      <td className="num">{r.revenueDeltaYen === null ? '—' : `+${money(r.revenueDeltaYen, r.revenueEstimated)}`}</td>
-      <td className="num">{r.rating ?? '—'}</td>
-      <td className="small">{r.changes.join(' / ') || '—'}</td>
-    </tr>
+        {r.partial && <span className="text-xs text-muted-foreground">（一部）</span>}
+      </TableCell>
+      <TableCell className={numCol}>{r.revenueDeltaYen === null ? '—' : `+${money(r.revenueDeltaYen, r.revenueEstimated)}`}</TableCell>
+      <TableCell className={numCol}>{r.rating ?? '—'}</TableCell>
+      <TableCell className="text-xs">{r.changes.join(' / ') || '—'}</TableCell>
+    </TableRow>
   );
 }

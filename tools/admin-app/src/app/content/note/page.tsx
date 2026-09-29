@@ -1,4 +1,10 @@
 import Link from 'next/link';
+import {
+  Facet, FacetHead, FacetShell, StatusBadge,
+  EmptyRow, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow,
+  type FacetItem,
+} from '@/components/admin';
+import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
 import {
   magazineLabelIndex,
@@ -14,8 +20,7 @@ export const dynamic = 'force-dynamic';
  * note 記事一覧（読み取り専用）。
  *
  * 827 本を素で 1 表に流すと目で追えないため、右レールで資格・価格・状態・マガジンを絞り込む。
- * レール実装は /todo と同じ `todo-shell` / `todo-main` / `todo-rail` + `.facet` を再利用する
- * （globals.css:915-1011 に 900px 以下で縦積み＋先頭へ引き上げるレスポンシブが既にある）。
+ * レール実装は components/admin の FacetShell / FacetHead / Facet（/content/ledger と同じ）。
  * JS 不要のリンク遷移だけで動く＝RSC ファーストの方針どおり。
  *
  * 表はタイトル 1 行（＝note で公開しているタイトル）だけを出し、所属マガジンはレールへ寄せる。
@@ -87,41 +92,24 @@ function countBy(items: NoteArticle[], pick: (item: NoteArticle) => string | nul
   return counts;
 }
 
-function Facet({
-  title,
-  param,
-  now,
-  active,
-  total,
-  items,
-}: {
-  title: string;
-  param: keyof Query;
-  now: Query;
-  active: string | null;
-  total: number;
-  items: { key: string; label: string; count: number; hint?: string }[];
-}) {
-  return (
-    <section className="facet">
-      <h4>{title}</h4>
-      <Link href={href(now, { [param]: undefined })} className={active ? '' : 'active'}>
-        <span className="fl">すべて</span>
-        <span className="n">{total}</span>
-      </Link>
-      {items.map((item) => (
-        <Link
-          key={item.key}
-          href={href(now, { [param]: item.key })}
-          className={active === item.key ? 'active' : ''}
-          title={item.hint}
-        >
-          <span className="fl">{item.label}</span>
-          <span className="n">{item.count}</span>
-        </Link>
-      ))}
-    </section>
-  );
+/** facet 1 つ分の項目（先頭に「すべて」）。hint はマウスを載せたときの補足。 */
+function facetItems(
+  now: Query,
+  param: keyof Query,
+  active: string | null,
+  total: number,
+  items: { key: string; label: string; count: number; hint?: string }[],
+): FacetItem[] {
+  return [
+    { key: '__all', label: 'すべて', count: total, href: href(now, { [param]: undefined }), active: !active },
+    ...items.map((item) => ({
+      key: item.key,
+      label: item.hint ? <span title={item.hint}>{item.label}</span> : item.label,
+      count: item.count,
+      href: href(now, { [param]: item.key }),
+      active: active === item.key,
+    })),
+  ];
 }
 
 export default async function ContentNotePage({
@@ -199,16 +187,9 @@ export default async function ContentNotePage({
   const examKeys = [...examCounts.entries()].sort((a, b) => b[1] - a[1]).map(([k]) => k);
   const filtered = Boolean(exam || pricing || state || magazine);
 
-  return (
-    <>
-      <PageHead
-        title="note 記事"
-        sub={`${all.length} 本（noteUrl あり = 公開済み ${all.filter((i) => i.published).length}）· content/note/**`}
-      />
-      <div className="todo-shell">
-        <div className="todo-main">
-          <div className="card">
-            <p className="muted">
+  const main = (
+    <Stack>
+            <p className="text-sm text-muted-foreground">
               {plan.ok ? (
                 <>
                   公開記事の同期: 反映済み {plan.counts.synced} 本 / 反映待ち <strong>{plan.counts.ready}</strong> 本 /
@@ -217,12 +198,12 @@ export default async function ContentNotePage({
                 </>
               ) : (
                 <>
-                  <span className="badge bad">同期計画の取得失敗</span> note-sync-plan が実行できないため、
+                  <StatusBadge tone="bad">同期計画の取得失敗</StatusBadge> note-sync-plan が実行できないため、
                   下の「同期」列は判定していません（空欄＝問題なし ではありません）。{plan.error}
                 </>
               )}
             </p>
-            <p className="muted">
+            <p className="text-sm text-muted-foreground">
               {filtered ? (
                 <>
                   <strong>{items.length}</strong> 本を表示中（全 {all.length} 本）
@@ -233,28 +214,25 @@ export default async function ContentNotePage({
               {' '}タイトルをクリックすると note の公開記事を別タブで開く。
             </p>
 
-            {items.length === 0 ? (
-              <p className="empty">この条件に該当する記事はありません。</p>
-            ) : (
-              <div className="table-wrap">
-                <table className="data content-table">
-                  <thead>
-                    <tr>
-                      <th className="title-col">タイトル</th>
-                      <th className="category-col optional-col">テーマ</th>
-                      <th className="price-col">価格</th>
-                      <th className="publish-col">公開</th>
-                      <th className="publish-col">同期</th>
-                      <th className="publish-col">導線</th>
-                    </tr>
-                  </thead>
-                  <tbody>
+            <TableFrame>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>タイトル</TableHead>
+                      <TableHead className="hidden xl:table-cell">テーマ</TableHead>
+                      <TableHead>価格</TableHead>
+                      <TableHead>公開</TableHead>
+                      <TableHead>同期</TableHead>
+                      <TableHead>導線</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {items.length === 0 ? <EmptyRow colSpan={6}>この条件に該当する記事はありません。</EmptyRow> : null}
                     {items.map((i) => {
                       const sync = syncOf(i);
                       const blockerLabel = sync?.blocker ? plan.blockers[sync.blocker]?.label ?? sync.blocker : null;
                       return (
-                        <tr key={i.rel}>
-                          <td className="title-cell" title={i.rel}>
+                        <TableRow key={i.rel}>
+                          <TableCell className="max-w-[28rem] truncate" title={i.rel}>
                             {i.noteUrl ? (
                               <a href={i.noteUrl} target="_blank" rel="noopener noreferrer">
                                 {i.title}
@@ -262,107 +240,90 @@ export default async function ContentNotePage({
                             ) : (
                               i.title
                             )}
-                          </td>
-                          <td className="category-col optional-col">
+                          </TableCell>
+                          <TableCell className="hidden xl:table-cell">
                             {i.theme ? (
-                              <span className="muted">{i.themeLabel}</span>
+                              <span className="text-muted-foreground">{i.themeLabel}</span>
                             ) : (
-                              <span className="badge bad" title="content-themes.json のどのルールにも当たらない">未分類</span>
+                              <StatusBadge tone="bad" title="content-themes.json のどのルールにも当たらない">未分類</StatusBadge>
                             )}
-                          </td>
-                          <td className="price-col">
-                            <span
-                              className={
-                                'badge ' + (i.pricing === 'paid' ? 'accent' : i.pricing === 'free' ? 'good' : 'neutral')
-                              }
-                            >
+                          </TableCell>
+                          <TableCell>
+                            <StatusBadge tone={i.pricing === 'paid' ? 'info' : i.pricing === 'free' ? 'good' : 'neutral'}>
                               {i.pricing === 'paid' ? '有料' : i.pricing === 'free' ? '無料' : i.pricing === 'membership' ? '会員' : '?'}
-                            </span>
-                          </td>
-                          <td className="publish-col">
+                            </StatusBadge>
+                          </TableCell>
+                          <TableCell>
                             {i.published ? (
-                              <span className="badge good">公開</span>
+                              <StatusBadge tone="good">公開</StatusBadge>
                             ) : (
-                              <span className="badge warn">未</span>
+                              <StatusBadge tone="warn">未</StatusBadge>
                             )}
-                          </td>
-                          <td className="publish-col">
+                          </TableCell>
+                          <TableCell>
                             {!plan.ok ? (
-                              <span className="badge neutral">?</span>
+                              <StatusBadge tone="neutral">?</StatusBadge>
                             ) : sync?.status === 'blocked' ? (
-                              <span className="badge bad" title={blockerLabel ?? undefined}>止</span>
+                              <StatusBadge tone="bad" title={blockerLabel ?? undefined}>止</StatusBadge>
                             ) : sync?.status === 'ready' ? (
-                              <span title={sync.parts.map((p) => PART_LABEL[p]).join('・')}>
+                              <span className="inline-flex flex-wrap gap-1" title={sync.parts.map((p) => PART_LABEL[p]).join('・')}>
                                 {sync.parts.map((p) => (
-                                  <span key={p} className="badge warn">{PART_LABEL[p]}</span>
+                                  <StatusBadge key={p} tone="warn">{PART_LABEL[p]}</StatusBadge>
                                 ))}
                               </span>
                             ) : i.published ? (
-                              <span className="badge good">済</span>
+                              <StatusBadge tone="good">済</StatusBadge>
                             ) : (
-                              <span className="muted">—</span>
+                              <span className="text-muted-foreground">—</span>
                             )}
-                          </td>
-                          <td className="publish-col">
-                            {i.ctas.filter((c) => CTA_LABEL[c]).map((c) => (
-                              <span key={c} className="badge neutral" title={`<!-- cta:${c} -->`}>{CTA_LABEL[c]}</span>
-                            ))}
-                            {i.ctas.length === 0 ? <span className="muted">—</span> : null}
-                          </td>
-                        </tr>
+                          </TableCell>
+                          <TableCell>
+                            <span className="inline-flex flex-wrap gap-1">
+                              {i.ctas.filter((c) => CTA_LABEL[c]).map((c) => (
+                                <StatusBadge key={c} tone="neutral" title={`<!-- cta:${c} -->`}>{CTA_LABEL[c]}</StatusBadge>
+                              ))}
+                            </span>
+                            {i.ctas.length === 0 ? <span className="text-muted-foreground">—</span> : null}
+                          </TableCell>
+                        </TableRow>
                       );
                     })}
-                  </tbody>
-                </table>
-              </div>
-            )}
-          </div>
-        </div>
+                  </TableBody>
+            </TableFrame>
+    </Stack>
+  );
 
-        <aside className="todo-rail">
-          <div className="rail-head">
-            <span>絞り込み</span>
-            {filtered ? <Link href="/content/note">すべて解除</Link> : null}
-          </div>
-          <Facet
-            title="テーマ"
-            param="e"
-            now={now}
-            active={exam}
-            total={examScope.length}
-            items={examKeys.map((key) => ({ key, label: themeLabels.get(key) ?? key, count: examCounts.get(key) ?? 0 }))}
-          />
-          <Facet
-            title="価格"
-            param="p"
-            now={now}
-            active={pricing}
-            total={pricingScope.length}
-            items={PRICING.map((p) => ({ ...p, count: pricingCounts.get(p.key) ?? 0 }))}
-          />
-          <Facet
-            title="状態"
-            param="s"
-            now={now}
-            active={state}
-            total={stateScope.length}
-            items={STATES.map((s) => ({ ...s, count: stateCounts.get(s.key) ?? 0 }))}
-          />
-          <Facet
-            title="マガジン"
-            param="m"
-            now={now}
-            active={magazine}
-            total={magazineScope.length}
-            items={magazineItems}
-          />
-          {!plan.ok ? (
-            <p className="muted">
-              <span className="badge bad">同期は判定不可</span> 「反映待ち」「止まっている」の絞り込みは 0 件になります。
-            </p>
-          ) : null}
-        </aside>
-      </div>
+  const rail = (
+    <>
+      <FacetHead clearHref={filtered ? '/content/note' : null} />
+      <Facet
+        title="テーマ"
+        items={facetItems(now, 'e', exam, examScope.length, examKeys.map((key) => ({ key, label: themeLabels.get(key) ?? key, count: examCounts.get(key) ?? 0 })))}
+      />
+      <Facet
+        title="価格"
+        items={facetItems(now, 'p', pricing, pricingScope.length, PRICING.map((p) => ({ ...p, count: pricingCounts.get(p.key) ?? 0 })))}
+      />
+      <Facet
+        title="状態"
+        items={facetItems(now, 's', state, stateScope.length, STATES.map((s) => ({ ...s, count: stateCounts.get(s.key) ?? 0 })))}
+      />
+      <Facet title="マガジン" items={facetItems(now, 'm', magazine, magazineScope.length, magazineItems)} />
+      {!plan.ok ? (
+        <p className="text-sm text-muted-foreground">
+          <StatusBadge tone="bad">同期は判定不可</StatusBadge> 「反映待ち」「止まっている」の絞り込みは 0 件になります。
+        </p>
+      ) : null}
+    </>
+  );
+
+  return (
+    <>
+      <PageHead
+        title="note 記事"
+        sub={`${all.length} 本（noteUrl あり = 公開済み ${all.filter((i) => i.published).length}）· content/note/**`}
+      />
+      <FacetShell main={main} rail={rail} />
     </>
   );
 }

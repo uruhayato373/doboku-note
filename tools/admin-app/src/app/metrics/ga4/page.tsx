@@ -1,3 +1,5 @@
+import { PanelCard } from '@/components/admin';
+import { Stack } from '@/components/layout';
 import { DataTable, Freshness, PageHead, SnapshotPicker, fmt, type Col } from '@/components/ui';
 import {
   latestSnapshot,
@@ -51,15 +53,16 @@ function Section({
     ...metricCols(),
   ];
   return (
-    <div className="card">
-      <h2>
-        {title}
-        <span className="sub">
+    <PanelCard
+      title={title}
+      description={
+        <>
           <Freshness snapshot={snap} /> {rows.length}行
-        </span>
-      </h2>
+        </>
+      }
+    >
       <DataTable cols={cols} rows={rows} />
-    </div>
+    </PanelCard>
   );
 }
 
@@ -78,15 +81,11 @@ export default async function Ga4Page({
     <>
       <PageHead title="アクセス（GA4）" sub="チャネル / ページ / 参照元 / SNS 別（各最新スナップショット・ユーザー降順）" />
 
+      <Stack>
       <Section title="チャネル別" snap={latestSnapshot('ga4', 'ga4-channel')} dimKey="channel" dimLabel="チャネル" />
 
-      <div className="card">
-        <h2>
-          ページ別（上位20）
-          <span className="sub">
-            <Freshness snapshot={pageSnap} />
-          </span>
-        </h2>
+      <PanelCard title="ページ別（上位20）" description={<Freshness snapshot={pageSnap} />}>
+        <Stack gap="sm">
         <SnapshotPicker basePath="/metrics/ga4" files={pageHistory} current={pageSnap?.file ?? ''} />
         <DataTable
           cols={[
@@ -98,7 +97,8 @@ export default async function Ga4Page({
             .sort((a, b) => (b.activeUsers || 0) - (a.activeUsers || 0))
             .slice(0, 20)}
         />
-      </div>
+        </Stack>
+      </PanelCard>
 
       <Section title="参照元別" snap={latestSnapshot('ga4', 'ga4-source')} dimKey="source" dimLabel="参照元" limit={20} />
       <Section
@@ -108,6 +108,7 @@ export default async function Ga4Page({
         dimLabel="source / medium"
         wrapDim
       />
+      </Stack>
     </>
   );
 }

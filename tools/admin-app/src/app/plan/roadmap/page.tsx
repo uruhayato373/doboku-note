@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { readFileSync } from 'node:fs';
+import { PanelCard, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import { findRepoRoot, repoPath } from '@/lib/repo-root';
 import { domainList } from '@/lib/domains';
@@ -66,61 +67,58 @@ export default function RoadmapPage() {
   return (
     <>
       <PageHead title="年間ロードマップ" sub={`${cfg.period.start.replace('-', '/')}〜${cfg.period.end.replace('-', '/')}`} />
-      <p className="small muted" style={{ marginBottom: 8 }}>
+      <p className="mb-2 text-xs text-muted-foreground">
         ● 試験　◆ 合格発表　■ 申込　緑＝買い場（試験前 {cfg.buyWindowWeeks} 週）　薄い字＝昨年度からの推定　右＝その月に始めるカード（バックログの [時期:]）
       </p>
       {before.length > 0 && (
         <p className="small project-warning-text">時期を過ぎたカード {before.length} 件（時期を見直すか完了を記録）: {before.map((c) => c.id).join(' ')}</p>
       )}
-      <div className="table-wrap">
-        <table className="data">
-          <thead>
-            <tr>
-              <th style={{ width: 64 }}>月</th>
-              <th style={{ width: '40%' }}>資格の行事</th>
-              <th>やること（領域）</th>
-            </tr>
-          </thead>
-          <tbody>
-            {months.map((m) => (
-              <tr key={m} style={m === thisMonth ? { background: 'var(--accent-fill)' } : undefined}>
-                <td style={{ verticalAlign: 'top', fontWeight: 700 }}>
-                  {m === months[0] || m.endsWith('-01') ? <div className="small muted">{m.slice(0, 4)}</div> : null}
-                  {mon(m)}
-                </td>
-                <td className="small" style={{ verticalAlign: 'top', whiteSpace: 'normal' }}>
-                  {eventsIn(m).map((e, i) => (
-                    <div key={i} style={{ opacity: e.estimated ? 0.5 : 1 }}>
-                      <span style={{ color: COLOR[e.kind] ?? 'inherit' }}>{ICON[e.kind] ?? '・'}</span> {md(e.date)} {e.q} {e.label}
-                      {e.estimated ? '（推定）' : ''}
-                    </div>
-                  ))}
-                  {buysIn(m).map((b, i) => (
-                    <div key={`b${i}`} style={{ color: 'var(--good)', opacity: b.estimated ? 0.5 : 1 }}>
-                      買い場 {b.q} {b.label}（{md(b.toDate)}）
-                    </div>
-                  ))}
-                </td>
-                <td className="small" style={{ verticalAlign: 'top', whiteSpace: 'normal' }}>
-                  {startsIn(m).map((c) => (
-                    <div key={c.id ?? c.title} style={{ marginBottom: 3 }}>
-                      <span className="muted">{c.domain ?? '—'}</span>{' '}
-                      <Link href={`/todo?f=backlog&id=${encodeURIComponent(c.id ?? '')}`}>{c.title}</Link>
-                      {c.w!.end !== c.w!.start && <span className="muted">（〜{mon(c.w!.end)}）</span>}
-                      {c.wip && <span className="project-warning-text"> 進行中</span>}
-                    </div>
-                  ))}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      <TableFrame>
+        <TableHeader>
+          <TableRow>
+            <TableHead className="w-16">月</TableHead>
+            <TableHead className="w-[40%]">資格の行事</TableHead>
+            <TableHead>やること（領域）</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {months.map((m) => (
+            <TableRow key={m} style={m === thisMonth ? { background: 'var(--accent-fill)' } : undefined}>
+              <TableCell className="align-top font-bold">
+                {m === months[0] || m.endsWith('-01') ? <div className="text-xs text-muted-foreground">{m.slice(0, 4)}</div> : null}
+                {mon(m)}
+              </TableCell>
+              <TableCell className="align-top whitespace-normal text-xs">
+                {eventsIn(m).map((e, i) => (
+                  <div key={i} className={e.estimated ? 'opacity-50' : undefined}>
+                    <span style={{ color: COLOR[e.kind] ?? 'inherit' }}>{ICON[e.kind] ?? '・'}</span> {md(e.date)} {e.q} {e.label}
+                    {e.estimated ? '（推定）' : ''}
+                  </div>
+                ))}
+                {buysIn(m).map((b, i) => (
+                  <div key={`b${i}`} className={'text-[color:var(--good)]' + (b.estimated ? ' opacity-50' : '')}>
+                    買い場 {b.q} {b.label}（{md(b.toDate)}）
+                  </div>
+                ))}
+              </TableCell>
+              <TableCell className="align-top whitespace-normal text-xs">
+                {startsIn(m).map((c) => (
+                  <div key={c.id ?? c.title} className="mb-[3px]">
+                    <span className="text-muted-foreground">{c.domain ?? '—'}</span>{' '}
+                    <Link href={`/todo?f=backlog&id=${encodeURIComponent(c.id ?? '')}`}>{c.title}</Link>
+                    {c.w!.end !== c.w!.start && <span className="text-muted-foreground">（〜{mon(c.w!.end)}）</span>}
+                    {c.wip && <span className="project-warning-text"> 進行中</span>}
+                  </div>
+                ))}
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </TableFrame>
       {annualNotes ? (
-        <div className="card" style={{ marginTop: 16 }}>
-          <h2>年間の方針</h2>
+        <PanelCard title="年間の方針" className="mt-4">
           <div className="md-prose small" dangerouslySetInnerHTML={{ __html: renderMarkdown(annualNotes) }} />
-        </div>
+        </PanelCard>
       ) : null}
     </>
   );

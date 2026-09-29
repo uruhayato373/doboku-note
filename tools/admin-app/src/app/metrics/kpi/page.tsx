@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import { TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow, numCol } from '@/components/admin';
+import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
 import { loadKpiView, type KpiCell } from '@/lib/kpi-tree';
 
@@ -9,12 +11,12 @@ const fmt = (v: number | null, unit: string) =>
   v == null ? '—' : unit === '円' ? `¥${v.toLocaleString('ja-JP')}` : `${v.toLocaleString('ja-JP')}${unit === '%' ? '%' : ''}`;
 
 function Cell({ cell, unit }: { cell: KpiCell | undefined; unit: string }) {
-  if (!cell || !cell.applicable) return <td className="num muted">対象外</td>;
+  if (!cell || !cell.applicable) return <TableCell className={`${numCol} text-muted-foreground`}>対象外</TableCell>;
   return (
-    <td className="num">
+    <TableCell className={numCol}>
       {fmt(cell.value, unit)}
-      {cell.coverage === 'partial' && <span className="small muted">（一部）</span>}
-    </td>
+      {cell.coverage === 'partial' && <span className="text-xs text-muted-foreground">（一部）</span>}
+    </TableCell>
   );
 }
 
@@ -24,34 +26,34 @@ export default async function KpiTreePage({ searchParams }: { searchParams: Prom
   return (
     <>
       <PageHead title={`KPI ツリー（${v.month}）`} />
-      <p className="small"><Link href={`/?month=${v.month}`}>← KPI へ戻る</Link></p>
-      <div className="card table-wrap">
-        <table className="data">
-          <thead>
-            <tr>
-              <th>指標</th>
+      <Stack>
+        <p className="m-0 text-sm"><Link href={`/?month=${v.month}`}>← KPI へ戻る</Link></p>
+        <TableFrame>
+          <TableHeader>
+            <TableRow>
+              <TableHead>指標</TableHead>
               {v.scopes.map((s) => (
-                <th key={s.id} className="num">{s.label}</th>
+                <TableHead key={s.id} className={numCol}>{s.label}</TableHead>
               ))}
-            </tr>
-          </thead>
+            </TableRow>
+          </TableHeader>
           {v.groups.map((g) => (
-            <tbody key={g.label}>
-              <tr>
-                <th colSpan={v.scopes.length + 1} style={{ textAlign: 'left' }}>{g.label}</th>
-              </tr>
+            <TableBody key={g.label}>
+              <TableRow>
+                <TableHead colSpan={v.scopes.length + 1} className="text-left">{g.label}</TableHead>
+              </TableRow>
               {g.rows.map((r) => (
-                <tr key={r.id}>
-                  <td style={{ paddingLeft: r.depth * 16 + 8, fontWeight: r.depth === 0 ? 700 : undefined }}>{r.label}</td>
+                <TableRow key={r.id}>
+                  <TableCell style={{ paddingLeft: r.depth * 16 + 8, fontWeight: r.depth === 0 ? 700 : undefined }}>{r.label}</TableCell>
                   {v.scopes.map((s) => (
                     <Cell key={s.id} cell={r.cells[s.id]} unit={r.unit} />
                   ))}
-                </tr>
+                </TableRow>
               ))}
-            </tbody>
+            </TableBody>
           ))}
-        </table>
-      </div>
+        </TableFrame>
+      </Stack>
     </>
   );
 }

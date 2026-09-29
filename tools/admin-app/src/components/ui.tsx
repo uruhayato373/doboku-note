@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
+import { TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow, numCol } from '@/components/admin';
+import { cn } from '@/lib/cn';
 import type { SnapshotFile } from '@/lib/snapshots';
 import { ageInDays } from '@/lib/snapshots';
 
@@ -111,37 +113,32 @@ export function DataTable<Row>({
   cols: Col<Row>[];
   rows: Row[];
 }) {
-  if (rows.length === 0) return <div className="empty">データなし</div>;
+  if (rows.length === 0) return <p className="text-sm text-muted-foreground">データなし</p>;
   return (
-    <div className="table-wrap">
-      <table className="data">
-        <thead>
-          <tr>
-            {cols.map((c) => (
-              <th key={c.key} className={c.num ? 'num' : ''}>
-                {c.label}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map((row, ri) => (
-            <tr key={ri}>
-              {cols.map((c) => (
-                <td
-                  key={c.key}
-                  className={(c.num ? 'num ' : '') + (c.wrap ? 'wrap' : '')}
-                >
-                  {c.render
-                    ? c.render(row)
-                    : String((row as Record<string, unknown>)[c.key] ?? '')}
-                </td>
-              ))}
-            </tr>
+    <TableFrame>
+      <TableHeader>
+        <TableRow>
+          {cols.map((c) => (
+            <TableHead key={c.key} className={c.num ? numCol : undefined}>
+              {c.label}
+            </TableHead>
           ))}
-        </tbody>
-      </table>
-    </div>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
+        {rows.map((row, ri) => (
+          <TableRow key={ri}>
+            {cols.map((c) => (
+              <TableCell key={c.key} className={cn(c.num && numCol, c.wrap && 'whitespace-normal')}>
+                {c.render
+                  ? c.render(row)
+                  : String((row as Record<string, unknown>)[c.key] ?? '')}
+              </TableCell>
+            ))}
+          </TableRow>
+        ))}
+      </TableBody>
+    </TableFrame>
   );
 }
 

@@ -63,7 +63,7 @@ export default function ContentPage() {
           );
         })}
       </div>
-      {channels.length === 0 && <div className="card empty">{d.emptyState}</div>}
+      {channels.length === 0 && <p className="text-sm text-muted-foreground">{d.emptyState}</p>}
     </>
   );
 }

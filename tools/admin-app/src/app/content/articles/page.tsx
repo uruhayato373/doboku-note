@@ -1,3 +1,6 @@
+import {
+  StatusBadge, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow,
+} from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import { articlesIndex } from '@/lib/content';
 import { GROUP_LABEL } from '@/lib/gallery';
@@ -17,20 +20,18 @@ export default function ContentArticlesPage() {
         title="サイト記事"
         sub={`全 ${summary.total ?? docs.length} 記事（公開 ${summary.published ?? '—'} / 非公開 ${summary.unpublished ?? '—'}）· 品質 = 採点 census + lint baseline`}
       />
-      <div className="card">
-        <div className="table-wrap">
-          <table className="data content-table">
-            <thead>
-              <tr>
-                <th className="category-col">分類</th>
-                <th className="title-col">タイトル</th>
-                <th className="optional-col id-col">slug</th>
-                <th className="quality-col">品質</th>
-                <th className="status-col">状態</th>
-                <th className="date-col">公開日</th>
-              </tr>
-            </thead>
-            <tbody>
+      <TableFrame>
+        <TableHeader>
+          <TableRow>
+            <TableHead>分類</TableHead>
+            <TableHead>タイトル</TableHead>
+            <TableHead className="hidden xl:table-cell">slug</TableHead>
+            <TableHead>品質</TableHead>
+            <TableHead>状態</TableHead>
+            <TableHead>公開日</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
               {docs.map((d) => {
                 const lint = lintBySlug.get(d.slug);
                 const score = censusBySlug.get(d.slug);
@@ -57,46 +58,44 @@ export default function ContentArticlesPage() {
                 ].join(' · ');
 
                 return (
-                  <tr key={d.slug}>
-                    <td className="category-col">
-                      <span className="badge neutral">{GROUP_LABEL[d.group] ?? d.group}</span>
-                    </td>
-                    <td className="title-cell" title={d.title}>{d.title}</td>
-                    <td className="mono small optional-col path-cell" title={d.slug}>{d.slug}</td>
-                    <td className="quality-col" title={detail}>
-                      <span className="quality-badges">
+                  <TableRow key={d.slug}>
+                    <TableCell>
+                      <StatusBadge tone="neutral">{GROUP_LABEL[d.group] ?? d.group}</StatusBadge>
+                    </TableCell>
+                    <TableCell className="max-w-[28rem] truncate" title={d.title}>{d.title}</TableCell>
+                    <TableCell className="hidden max-w-[16rem] truncate font-mono text-xs xl:table-cell" title={d.slug}>{d.slug}</TableCell>
+                    <TableCell title={detail}>
+                      <span className="flex flex-wrap gap-1">
                         {!d.published ? (
-                          <span className="badge neutral">対象外</span>
+                          <StatusBadge tone="neutral">対象外</StatusBadge>
                         ) : !score ? (
-                          <span className="badge neutral">未収集</span>
+                          <StatusBadge tone="neutral">未収集</StatusBadge>
                         ) : score.failed ? (
-                          <span className="badge bad">不合格</span>
+                          <StatusBadge tone="bad">不合格</StatusBadge>
                         ) : score.scored ? (
-                          <span className={'badge ' + (score.thin ? 'warn' : 'good')}>
+                          <StatusBadge tone={score.thin ? 'warn' : 'good'}>
                             {score.weighted ?? '採点済'}
-                          </span>
+                          </StatusBadge>
                         ) : (
-                          <span className="badge warn">未採点</span>
+                          <StatusBadge tone="warn">未採点</StatusBadge>
                         )}
-                        {score?.thin ? <span className="badge warn">薄層</span> : null}
+                        {score?.thin ? <StatusBadge tone="warn">薄層</StatusBadge> : null}
                         {lint ? (
-                          <span className={'badge ' + (highCount > 0 ? 'bad' : 'warn')}>違反{lint.total}</span>
+                          <StatusBadge tone={highCount > 0 ? 'bad' : 'warn'}>違反{lint.total}</StatusBadge>
                         ) : null}
                       </span>
-                    </td>
-                    <td className="status-col">
-                      <span className={'badge ' + (d.published ? 'good' : 'warn')}>
+                    </TableCell>
+                    <TableCell>
+                      <StatusBadge tone={d.published ? 'good' : 'warn'}>
                         {d.published ? '公開' : '非公開'}
-                      </span>
-                    </td>
-                    <td className="muted small date-col">{d.publishedAt ?? ''}</td>
-                  </tr>
+                      </StatusBadge>
+                    </TableCell>
+                    <TableCell className="text-xs text-muted-foreground">{d.publishedAt ?? ''}</TableCell>
+                  </TableRow>
                 );
               })}
-            </tbody>
-          </table>
-        </div>
-      </div>
+        </TableBody>
+      </TableFrame>
     </>
   );
 }

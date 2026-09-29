@@ -40,7 +40,7 @@ export default function SharedPolicyIndexPage() {
           );
         })}
       </div>
-      {docs.length === 0 && <div className="card empty">{descriptor.emptyState}</div>}
+      {docs.length === 0 && <p className="text-sm text-muted-foreground">{descriptor.emptyState}</p>}
     </section>
   );
 }
