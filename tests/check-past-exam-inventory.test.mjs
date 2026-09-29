@@ -5,7 +5,7 @@ import { evaluateInventory } from '../scripts/check-past-exam-inventory.mjs';
 const driveCfg = { groups: [{ id: 'textbook-source-pdf', status: 'active', match: { pathRegex: '^content/sources/textbook/.+\\.pdf$' } }] };
 const formats = { exams: { surveyor: {} } };
 const DIR = 'content/sources/textbook/測量士/過去問';
-const calendar = { exams: { surveyor: { year: 2026, events: { exam: { date: '2026-05-17' } } } } };
+const calendar = { exams: { surveyor: { year: 2026, events: { apply: { date: '2026-01-05', kind: 'application' }, exam: { date: '2026-05-17', kind: 'exam' } } } } };
 const file = (name, acquiredAt = null) => ({ kind: 'question', section: '午前', file: name, sourceUrl: 'https://example.jp/a.pdf', acquiredAt });
 const inv = (years, extra = {}) => ({ exams: { surveyor: { dir: DIR, official: { windowYears: 5, publishLagDays: 60 }, years, ...extra } } });
 const run = (inventory, opts = {}) => evaluateInventory({
@@ -61,4 +61,11 @@ test('year の重複と official の語彙外は FAIL', () => {
   const r = run(inv([{ year: 2026, official: 'listed', files: [] }, { year: 2026, official: 'maybe', files: [] }]));
   assert.ok(r.fails.some(f => f.includes('重複')));
   assert.ok(r.fails.some(f => f.includes('official は')));
+});
+
+test('模擬試験だけの年度は今年度の行として数えない', () => {
+  const years = [{ year: 2026, official: 'unknown', files: [{ ...file('R08/mock.pdf', '2026-09-29'), kind: 'mock' }] }];
+  const r = run(inv(years), { fileExists: () => true });
+  assert.ok(r.warns.some(w => w.includes('2026 年度の試験')));
+  assert.equal(r.fails.length, 0);
 });

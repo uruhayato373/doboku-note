@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "verifiedAt": "2026-09-29",
-  "policy": "過去問の年度単位の在庫（資格×年度×ファイル）の SSOT。資格 id は exam-formats.json と同じ。PDF 本体は Git に入れず dir 配下（gitignore 済み）に置き、Drive vault の textbook-source-pdf（原資料PDF/教材/）へ退避する。official は公式掲載の状態（listed=掲載中 / removed=掲載終了 / never=公式に無い・試験中止 / unknown）、acquiredAt は手元に取得した日（未取得は null）。themes は分析結果（記述・経験記述の出題テーマ）を年度ごとに持つ。公式の掲載は直近数年度だけのことが多く、取り逃した年度は二度と手に入らない。npm run check-past-exam-inventory が整合と取得の催促を出し、月次レビュー（手順4）が読む。既存の 1級・2級土木と技術士の過去問は同じ置き場で Drive 退避済みだが、この台帳へはまだ載せていない。",
+  "policy": "過去問の年度単位の在庫（資格×年度×ファイル）の SSOT。資格 id は exam-formats.json と同じ。PDF 本体は Git に入れず dir 配下（gitignore 済み）に置き、Drive vault の textbook-source-pdf（原資料PDF/教材/）へ退避する。official は公式掲載の状態（listed=掲載中 / removed=掲載終了 / never=公式に無い・試験中止 / unknown）、acquiredAt は手元に取得した日（未取得は null）。themes は分析結果（記述・経験記述の出題テーマ）を年度ごとに持つ。公式の掲載は直近数年度だけのことが多く、取り逃した年度は二度と手に入らない。npm run check-past-exam-inventory が整合と取得の催促を出し、月次レビュー（手順4）が読む。1級・2級土木と技術士（建設部門・総監）は Drive 台帳から登録した既存分で、acquiredAt は Drive 登録日（実際の取得日ではない）、official は未照合（unknown）。",
   "exams": {
     "pavement-1": {
       "dir": "content/sources/textbook/１級舗装施工管理技術者/過去問",
@@ -783,6 +783,1647 @@
           "source": "https://www.thg.co.jp/soku/publishing/7603011.htm"
         }
       ]
+    },
+    "civil-construction-1": {
+      "dir": "content/sources/textbook/１級土木施工管理技士/過去問",
+      "official": {
+        "page": "https://www.jctc.jp/mondai/",
+        "windowYears": null,
+        "publishLagDays": 30,
+        "policy": "JCTC が第一次の問題と正答肢、第二次の問題を直近の年度だけ掲載（exam-formats.json）。第二次の解答は非公表。publishLagDays は催促の目安（公式の掲載時期は未確認）。"
+      },
+      "years": [
+        {
+          "year": 2025,
+          "official": "unknown",
+          "files": [
+            {
+              "kind": "question",
+              "section": "第一次検定_問題A",
+              "file": "R07/R07_第一次検定_問題A.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "第一次検定_問題B",
+              "file": "R07/R07_第一次検定_問題B.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "第二次検定",
+              "file": "R07/R07_第二次検定.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            }
+          ]
+        },
+        {
+          "year": 2024,
+          "official": "unknown",
+          "files": [
+            {
+              "kind": "question",
+              "section": "第一次検定_問題A",
+              "file": "R06/R06_第一次検定_問題A.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "第一次検定_問題B",
+              "file": "R06/R06_第一次検定_問題B.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "第二次検定",
+              "file": "R06/R06_第二次検定.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            }
+          ]
+        },
+        {
+          "year": 2023,
+          "official": "unknown",
+          "files": [
+            {
+              "kind": "question",
+              "section": "第一次検定_問題A",
+              "file": "R05/R05_第一次検定_問題A.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "第一次検定_問題B",
+              "file": "R05/R05_第一次検定_問題B.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "第二次検定",
+              "file": "R05/R05_第二次検定.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            }
+          ]
+        },
+        {
+          "year": 2022,
+          "official": "unknown",
+          "files": [
+            {
+              "kind": "question",
+              "section": "第一次検定_問題A",
+              "file": "R04/R04_第一次検定_問題A.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "第一次検定_問題B",
+              "file": "R04/R04_第一次検定_問題B.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "第二次検定",
+              "file": "R04/R04_第二次検定.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            }
+          ]
+        },
+        {
+          "year": 2021,
+          "official": "unknown",
+          "files": [
+            {
+              "kind": "question",
+              "section": "第一次検定_問題A",
+              "file": "R03/R03_第一次検定_問題A.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "第一次検定_問題B",
+              "file": "R03/R03_第一次検定_問題B.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "第二次検定",
+              "file": "R03/R03_第二次検定.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            }
+          ]
+        },
+        {
+          "year": 2020,
+          "official": "unknown",
+          "files": [
+            {
+              "kind": "question",
+              "section": "第一次検定_問題A",
+              "file": "R02/R02_第一次検定_問題A.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "第一次検定_問題B",
+              "file": "R02/R02_第一次検定_問題B.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            }
+          ]
+        },
+        {
+          "year": 2019,
+          "official": "unknown",
+          "files": [
+            {
+              "kind": "question",
+              "section": "第一次検定_問題A",
+              "file": "R01/R01_第一次検定_問題A.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "第一次検定_問題B",
+              "file": "R01/R01_第一次検定_問題B.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            }
+          ]
+        },
+        {
+          "year": 2018,
+          "official": "unknown",
+          "files": [
+            {
+              "kind": "question",
+              "section": "第一次検定_問題A",
+              "file": "H30/H30_第一次検定_問題A.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "第一次検定_問題B",
+              "file": "H30/H30_第一次検定_問題B.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            }
+          ]
+        }
+      ],
+      "otherSources": []
+    },
+    "civil-construction-2": {
+      "dir": "content/sources/textbook/２級土木施工管理技士/過去問",
+      "official": {
+        "page": "https://www.jctc.jp/mondai/",
+        "windowYears": null,
+        "publishLagDays": 30,
+        "policy": "JCTC が第一次の問題と正答肢、第二次の問題を直近の年度だけ掲載（exam-formats.json）。第二次の解答は非公表。publishLagDays は催促の目安（公式の掲載時期は未確認）。"
+      },
+      "years": [
+        {
+          "year": 2025,
+          "official": "unknown",
+          "files": [
+            {
+              "kind": "question",
+              "section": "第一次検定_前期",
+              "file": "R07/R07_第一次検定_前期.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "answer",
+              "section": "第一次検定_前期_正答",
+              "file": "R07/R07_第一次検定_前期_正答.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "第一次検定_後期",
+              "file": "R07/R07_第一次検定_後期.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "answer",
+              "section": "第一次検定_後期_正答",
+              "file": "R07/R07_第一次検定_後期_正答.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "第二次検定",
+              "file": "R07/R07_第二次検定.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            }
+          ]
+        },
+        {
+          "year": 2024,
+          "official": "unknown",
+          "files": [
+            {
+              "kind": "question",
+              "section": "第一次検定_前期",
+              "file": "R06/R06_第一次検定_前期.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "answer",
+              "section": "第一次検定_前期_正答",
+              "file": "R06/R06_第一次検定_前期_正答.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "第一次検定_後期",
+              "file": "R06/R06_第一次検定_後期.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "answer",
+              "section": "第一次検定_後期_正答",
+              "file": "R06/R06_第一次検定_後期_正答.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "第二次検定",
+              "file": "R06/R06_第二次検定.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            }
+          ]
+        },
+        {
+          "year": 2023,
+          "official": "unknown",
+          "files": [
+            {
+              "kind": "question",
+              "section": "第一次検定_前期",
+              "file": "R05/R05_第一次検定_前期.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "answer",
+              "section": "第一次検定_前期_正答",
+              "file": "R05/R05_第一次検定_前期_正答.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "第一次検定_後期",
+              "file": "R05/R05_第一次検定_後期.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "answer",
+              "section": "第一次検定_後期_正答",
+              "file": "R05/R05_第一次検定_後期_正答.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "第二次検定",
+              "file": "R05/R05_第二次検定.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            }
+          ]
+        },
+        {
+          "year": 2022,
+          "official": "unknown",
+          "files": [
+            {
+              "kind": "question",
+              "section": "第一次検定_前期",
+              "file": "R04/R04_第一次検定_前期.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "answer",
+              "section": "第一次検定_前期_正答",
+              "file": "R04/R04_第一次検定_前期_正答.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "第一次検定_後期",
+              "file": "R04/R04_第一次検定_後期.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "answer",
+              "section": "第一次検定_後期_正答",
+              "file": "R04/R04_第一次検定_後期_正答.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "第二次検定",
+              "file": "R04/R04_第二次検定.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            }
+          ]
+        },
+        {
+          "year": 2021,
+          "official": "unknown",
+          "files": [
+            {
+              "kind": "question",
+              "section": "第一次検定_前期",
+              "file": "R03/R03_第一次検定_前期.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "answer",
+              "section": "第一次検定_前期_正答",
+              "file": "R03/R03_第一次検定_前期_正答.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "第一次検定_後期",
+              "file": "R03/R03_第一次検定_後期.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "answer",
+              "section": "第一次検定_後期_正答",
+              "file": "R03/R03_第一次検定_後期_正答.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "第二次検定",
+              "file": "R03/R03_第二次検定.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            }
+          ]
+        }
+      ],
+      "otherSources": []
+    },
+    "pe-construction": {
+      "dir": "content/sources/textbook/技術士（建設部門）/過去問",
+      "official": {
+        "page": "https://www.engineer.or.jp/c_categories/index02022.html",
+        "windowYears": null,
+        "publishLagDays": 30,
+        "policy": "日本技術士会が必須科目・選択科目の問題文を公開。記述式のため解答は非公表。publishLagDays は催促の目安（公式の掲載時期は未確認）。"
+      },
+      "years": [
+        {
+          "year": 2025,
+          "official": "unknown",
+          "files": [
+            {
+              "kind": "question",
+              "section": "0901_土質及び基礎",
+              "file": "R07/R07_0901_土質及び基礎.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0902_鋼構造及びコンクリート",
+              "file": "R07/R07_0902_鋼構造及びコンクリート.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0903_都市及び地方計画",
+              "file": "R07/R07_0903_都市及び地方計画.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0904_河川砂防及び海岸海洋",
+              "file": "R07/R07_0904_河川砂防及び海岸海洋.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0905_港湾及び空港",
+              "file": "R07/R07_0905_港湾及び空港.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0906_電力土木",
+              "file": "R07/R07_0906_電力土木.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0907_道路",
+              "file": "R07/R07_0907_道路.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0908_鉄道",
+              "file": "R07/R07_0908_鉄道.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0909_トンネル",
+              "file": "R07/R07_0909_トンネル.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0910_施工計画施工設備及び積算",
+              "file": "R07/R07_0910_施工計画施工設備及び積算.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0911_建設環境",
+              "file": "R07/R07_0911_建設環境.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "必須科目I",
+              "file": "R07/R07_必須科目I.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            }
+          ]
+        },
+        {
+          "year": 2024,
+          "official": "unknown",
+          "files": [
+            {
+              "kind": "question",
+              "section": "0901_土質及び基礎",
+              "file": "R06/R06_0901_土質及び基礎.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0902_鋼構造及びコンクリート",
+              "file": "R06/R06_0902_鋼構造及びコンクリート.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0903_都市及び地方計画",
+              "file": "R06/R06_0903_都市及び地方計画.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0904_河川砂防及び海岸海洋",
+              "file": "R06/R06_0904_河川砂防及び海岸海洋.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0905_港湾及び空港",
+              "file": "R06/R06_0905_港湾及び空港.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0906_電力土木",
+              "file": "R06/R06_0906_電力土木.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0907_道路",
+              "file": "R06/R06_0907_道路.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0908_鉄道",
+              "file": "R06/R06_0908_鉄道.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0909_トンネル",
+              "file": "R06/R06_0909_トンネル.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0910_施工計画施工設備及び積算",
+              "file": "R06/R06_0910_施工計画施工設備及び積算.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0911_建設環境",
+              "file": "R06/R06_0911_建設環境.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "必須科目I",
+              "file": "R06/R06_必須科目I.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            }
+          ]
+        },
+        {
+          "year": 2023,
+          "official": "unknown",
+          "files": [
+            {
+              "kind": "question",
+              "section": "0901_土質及び基礎",
+              "file": "R05/R05_0901_土質及び基礎.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0902_鋼構造及びコンクリート",
+              "file": "R05/R05_0902_鋼構造及びコンクリート.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0903_都市及び地方計画",
+              "file": "R05/R05_0903_都市及び地方計画.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0904_河川砂防及び海岸海洋",
+              "file": "R05/R05_0904_河川砂防及び海岸海洋.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0905_港湾及び空港",
+              "file": "R05/R05_0905_港湾及び空港.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0906_電力土木",
+              "file": "R05/R05_0906_電力土木.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0907_道路",
+              "file": "R05/R05_0907_道路.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0908_鉄道",
+              "file": "R05/R05_0908_鉄道.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0909_トンネル",
+              "file": "R05/R05_0909_トンネル.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0910_施工計画施工設備及び積算",
+              "file": "R05/R05_0910_施工計画施工設備及び積算.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0911_建設環境",
+              "file": "R05/R05_0911_建設環境.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "必須科目I",
+              "file": "R05/R05_必須科目I.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            }
+          ]
+        },
+        {
+          "year": 2022,
+          "official": "unknown",
+          "files": [
+            {
+              "kind": "question",
+              "section": "0901_土質及び基礎",
+              "file": "R04/R04_0901_土質及び基礎.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0902_鋼構造及びコンクリート",
+              "file": "R04/R04_0902_鋼構造及びコンクリート.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0903_都市及び地方計画",
+              "file": "R04/R04_0903_都市及び地方計画.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0904_河川砂防及び海岸海洋",
+              "file": "R04/R04_0904_河川砂防及び海岸海洋.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0905_港湾及び空港",
+              "file": "R04/R04_0905_港湾及び空港.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0906_電力土木",
+              "file": "R04/R04_0906_電力土木.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0907_道路",
+              "file": "R04/R04_0907_道路.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0908_鉄道",
+              "file": "R04/R04_0908_鉄道.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0909_トンネル",
+              "file": "R04/R04_0909_トンネル.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0910_施工計画施工設備及び積算",
+              "file": "R04/R04_0910_施工計画施工設備及び積算.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0911_建設環境",
+              "file": "R04/R04_0911_建設環境.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "必須科目I",
+              "file": "R04/R04_必須科目I.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            }
+          ]
+        },
+        {
+          "year": 2021,
+          "official": "unknown",
+          "files": [
+            {
+              "kind": "question",
+              "section": "0901_土質及び基礎",
+              "file": "R03/R03_0901_土質及び基礎.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0902_鋼構造及びコンクリート",
+              "file": "R03/R03_0902_鋼構造及びコンクリート.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0903_都市及び地方計画",
+              "file": "R03/R03_0903_都市及び地方計画.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0904_河川砂防及び海岸海洋",
+              "file": "R03/R03_0904_河川砂防及び海岸海洋.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0905_港湾及び空港",
+              "file": "R03/R03_0905_港湾及び空港.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0906_電力土木",
+              "file": "R03/R03_0906_電力土木.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0907_道路",
+              "file": "R03/R03_0907_道路.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0908_鉄道",
+              "file": "R03/R03_0908_鉄道.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0909_トンネル",
+              "file": "R03/R03_0909_トンネル.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0910_施工計画施工設備及び積算",
+              "file": "R03/R03_0910_施工計画施工設備及び積算.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0911_建設環境",
+              "file": "R03/R03_0911_建設環境.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "必須科目I",
+              "file": "R03/R03_必須科目I.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            }
+          ]
+        },
+        {
+          "year": 2020,
+          "official": "unknown",
+          "files": [
+            {
+              "kind": "question",
+              "section": "0901_土質及び基礎",
+              "file": "R02/R02_0901_土質及び基礎.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0902_鋼構造及びコンクリート",
+              "file": "R02/R02_0902_鋼構造及びコンクリート.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0903_都市及び地方計画",
+              "file": "R02/R02_0903_都市及び地方計画.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0904_河川砂防及び海岸海洋",
+              "file": "R02/R02_0904_河川砂防及び海岸海洋.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0905_港湾及び空港",
+              "file": "R02/R02_0905_港湾及び空港.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0906_電力土木",
+              "file": "R02/R02_0906_電力土木.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0907_道路",
+              "file": "R02/R02_0907_道路.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0908_鉄道",
+              "file": "R02/R02_0908_鉄道.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0909_トンネル",
+              "file": "R02/R02_0909_トンネル.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0910_施工計画施工設備及び積算",
+              "file": "R02/R02_0910_施工計画施工設備及び積算.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0911_建設環境",
+              "file": "R02/R02_0911_建設環境.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "必須科目I",
+              "file": "R02/R02_必須科目I.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            }
+          ]
+        },
+        {
+          "year": 2019,
+          "official": "unknown",
+          "files": [
+            {
+              "kind": "question",
+              "section": "0901_土質及び基礎",
+              "file": "R01/R01_0901_土質及び基礎.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0902_鋼構造及びコンクリート",
+              "file": "R01/R01_0902_鋼構造及びコンクリート.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0903_都市及び地方計画",
+              "file": "R01/R01_0903_都市及び地方計画.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0904_河川砂防及び海岸海洋",
+              "file": "R01/R01_0904_河川砂防及び海岸海洋.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0905_港湾及び空港",
+              "file": "R01/R01_0905_港湾及び空港.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0906_電力土木",
+              "file": "R01/R01_0906_電力土木.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0907_道路",
+              "file": "R01/R01_0907_道路.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0908_鉄道",
+              "file": "R01/R01_0908_鉄道.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0909_トンネル",
+              "file": "R01/R01_0909_トンネル.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0910_施工計画施工設備及び積算",
+              "file": "R01/R01_0910_施工計画施工設備及び積算.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "0911_建設環境",
+              "file": "R01/R01_0911_建設環境.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "必須科目I",
+              "file": "R01/R01_必須科目I.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            }
+          ]
+        }
+      ],
+      "otherSources": []
+    },
+    "pe-comprehensive-management": {
+      "dir": "content/sources/textbook/技術士（総監）/過去問",
+      "official": {
+        "page": "https://www.engineer.or.jp/c_topics/003/003935.html",
+        "windowYears": null,
+        "publishLagDays": 30,
+        "policy": "択一式は正答も公式公開。記述式の模範解答は非公表（手元の模範解答・解説は第三者の資料＝commentary）。publishLagDays は催促の目安（公式の掲載時期は未確認）。"
+      },
+      "years": [
+        {
+          "year": 2026,
+          "official": "unknown",
+          "files": [
+            {
+              "kind": "mock",
+              "section": "令和８年度模擬試験_択一式",
+              "file": "R08/令和８年度模擬試験_択一式.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            }
+          ]
+        },
+        {
+          "year": 2025,
+          "official": "unknown",
+          "files": [
+            {
+              "kind": "commentary",
+              "section": "模範解答",
+              "file": "R07/R07_模範解答.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "試験問題_択一式",
+              "file": "R07/R07_試験問題_択一式.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "answer",
+              "section": "試験問題_択一式_正答",
+              "file": "R07/R07_試験問題_択一式_正答.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "試験問題_記述式",
+              "file": "R07/R07_試験問題_記述式.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "commentary",
+              "section": "令和７年度記述式_解答と解説",
+              "file": "R07/令和７年度記述式_解答と解説.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            }
+          ]
+        },
+        {
+          "year": 2024,
+          "official": "unknown",
+          "files": [
+            {
+              "kind": "commentary",
+              "section": "模範解答",
+              "file": "R06/R06_模範解答.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "試験問題_択一式",
+              "file": "R06/R06_試験問題_択一式.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "answer",
+              "section": "試験問題_択一式_正答",
+              "file": "R06/R06_試験問題_択一式_正答.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "試験問題_記述式",
+              "file": "R06/R06_試験問題_記述式.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "commentary",
+              "section": "令和６年度記述式_解答と解説",
+              "file": "R06/令和６年度記述式_解答と解説.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            }
+          ]
+        },
+        {
+          "year": 2023,
+          "official": "unknown",
+          "files": [
+            {
+              "kind": "commentary",
+              "section": "模範解答",
+              "file": "R05/R05_模範解答.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "試験問題_択一式",
+              "file": "R05/R05_試験問題_択一式.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "answer",
+              "section": "試験問題_択一式_正答",
+              "file": "R05/R05_試験問題_択一式_正答.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "試験問題_記述式",
+              "file": "R05/R05_試験問題_記述式.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "commentary",
+              "section": "令和５年度記述式_解答と解説",
+              "file": "R05/令和５年度記述式_解答と解説.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            }
+          ]
+        },
+        {
+          "year": 2022,
+          "official": "unknown",
+          "files": [
+            {
+              "kind": "commentary",
+              "section": "模範解答",
+              "file": "R04/R04_模範解答.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "試験問題_択一式",
+              "file": "R04/R04_試験問題_択一式.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "answer",
+              "section": "試験問題_択一式_正答",
+              "file": "R04/R04_試験問題_択一式_正答.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "試験問題_記述式",
+              "file": "R04/R04_試験問題_記述式.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "commentary",
+              "section": "令和４年度記述式_解答と解説",
+              "file": "R04/令和４年度記述式_解答と解説.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            }
+          ]
+        },
+        {
+          "year": 2021,
+          "official": "unknown",
+          "files": [
+            {
+              "kind": "question",
+              "section": "試験問題_択一式",
+              "file": "R03/R03_試験問題_択一式.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "answer",
+              "section": "試験問題_択一式_正答",
+              "file": "R03/R03_試験問題_択一式_正答.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "試験問題_記述式",
+              "file": "R03/R03_試験問題_記述式.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "commentary",
+              "section": "令和３年度記述式_回答と解説",
+              "file": "R03/令和３年度記述式_回答と解説.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "commentary",
+              "section": "令和３年度記述式_解答と解説",
+              "file": "R03/令和３年度記述式_解答と解説.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            }
+          ]
+        },
+        {
+          "year": 2020,
+          "official": "unknown",
+          "files": [
+            {
+              "kind": "commentary",
+              "section": "模範解答_01",
+              "file": "R02/R02_模範解答_01.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "commentary",
+              "section": "模範解答_02",
+              "file": "R02/R02_模範解答_02.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "試験問題_択一式",
+              "file": "R02/R02_試験問題_択一式.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "answer",
+              "section": "試験問題_択一式_正答",
+              "file": "R02/R02_試験問題_択一式_正答.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "試験問題_記述式",
+              "file": "R02/R02_試験問題_記述式.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            }
+          ]
+        },
+        {
+          "year": 2019,
+          "official": "unknown",
+          "files": [
+            {
+              "kind": "commentary",
+              "section": "模範解答_01",
+              "file": "R01/R01_模範解答_01.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "commentary",
+              "section": "模範解答_02",
+              "file": "R01/R01_模範解答_02.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "commentary",
+              "section": "模範解答_03",
+              "file": "R01/R01_模範解答_03.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "commentary",
+              "section": "模範解答_04",
+              "file": "R01/R01_模範解答_04.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "試験問題_択一式",
+              "file": "R01/R01_試験問題_択一式.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "answer",
+              "section": "試験問題_択一式_正答",
+              "file": "R01/R01_試験問題_択一式_正答.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "試験問題_記述式",
+              "file": "R01/R01_試験問題_記述式.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            }
+          ]
+        },
+        {
+          "year": 2018,
+          "official": "unknown",
+          "files": [
+            {
+              "kind": "commentary",
+              "section": "模範解答_01",
+              "file": "H30/H30_模範解答_01.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "commentary",
+              "section": "模範解答_02",
+              "file": "H30/H30_模範解答_02.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "試験問題_択一式",
+              "file": "H30/H30_試験問題_択一式.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "試験問題_記述式",
+              "file": "H30/H30_試験問題_記述式.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            }
+          ]
+        },
+        {
+          "year": 2017,
+          "official": "unknown",
+          "files": [
+            {
+              "kind": "commentary",
+              "section": "模範解答_01",
+              "file": "H29/H29_模範解答_01.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "commentary",
+              "section": "模範解答_02",
+              "file": "H29/H29_模範解答_02.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "commentary",
+              "section": "模範解答_03",
+              "file": "H29/H29_模範解答_03.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "試験問題_択一式",
+              "file": "H29/H29_試験問題_択一式.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "試験問題_記述式",
+              "file": "H29/H29_試験問題_記述式.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            }
+          ]
+        },
+        {
+          "year": 2016,
+          "official": "unknown",
+          "files": [
+            {
+              "kind": "commentary",
+              "section": "模範解答_01",
+              "file": "H28/H28_模範解答_01.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "commentary",
+              "section": "模範解答_02",
+              "file": "H28/H28_模範解答_02.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "試験問題_択一式",
+              "file": "H28/H28_試験問題_択一式.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "試験問題_記述式",
+              "file": "H28/H28_試験問題_記述式.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            }
+          ]
+        },
+        {
+          "year": 2015,
+          "official": "unknown",
+          "files": [
+            {
+              "kind": "question",
+              "section": "試験問題_択一式",
+              "file": "H27/H27_試験問題_択一式.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "試験問題_記述式",
+              "file": "H27/H27_試験問題_記述式.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            }
+          ]
+        },
+        {
+          "year": 2014,
+          "official": "unknown",
+          "files": [
+            {
+              "kind": "question",
+              "section": "試験問題_択一式",
+              "file": "H26/H26_試験問題_択一式.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "試験問題_記述式",
+              "file": "H26/H26_試験問題_記述式.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            }
+          ]
+        },
+        {
+          "year": 2013,
+          "official": "unknown",
+          "files": [
+            {
+              "kind": "question",
+              "section": "試験問題_択一式",
+              "file": "H25/H25_試験問題_択一式.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "試験問題_記述式",
+              "file": "H25/H25_試験問題_記述式.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            }
+          ]
+        },
+        {
+          "year": 2012,
+          "official": "unknown",
+          "files": [
+            {
+              "kind": "question",
+              "section": "試験問題_択一式",
+              "file": "H24/H24_試験問題_択一式.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "試験問題_記述式",
+              "file": "H24/H24_試験問題_記述式.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            }
+          ]
+        },
+        {
+          "year": 2011,
+          "official": "unknown",
+          "files": [
+            {
+              "kind": "question",
+              "section": "試験問題_択一式",
+              "file": "H23/H23_試験問題_択一式.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "試験問題_記述式",
+              "file": "H23/H23_試験問題_記述式.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            }
+          ]
+        },
+        {
+          "year": 2010,
+          "official": "unknown",
+          "files": [
+            {
+              "kind": "question",
+              "section": "試験問題_択一式",
+              "file": "H22/H22_試験問題_択一式.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "試験問題_記述式",
+              "file": "H22/H22_試験問題_記述式.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            }
+          ]
+        },
+        {
+          "year": 2009,
+          "official": "unknown",
+          "files": [
+            {
+              "kind": "question",
+              "section": "試験問題_択一式",
+              "file": "H21/H21_試験問題_択一式.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "試験問題_記述式",
+              "file": "H21/H21_試験問題_記述式.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-09-05"
+            }
+          ]
+        }
+      ],
+      "otherSources": []
     }
   }
 }

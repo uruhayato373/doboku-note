@@ -24,7 +24,7 @@ const NAME = 'check-past-exam-inventory';
 const INVENTORY_PATH = '.claude/config/past-exam-inventory.json';
 const DRIVE_GROUP = 'textbook-source-pdf';
 const OFFICIAL = ['listed', 'removed', 'never', 'unknown'];
-const KINDS = ['question', 'answer'];
+const KINDS = ['question', 'answer', 'commentary', 'mock']; // commentary=第三者の解答・解説 / mock=模擬試験
 const DAY = 86_400_000;
 
 /** 検査本体（純関数）。fileExists=null は手元の実体を見ない（CI）。 */
@@ -40,12 +40,14 @@ export function evaluateInventory({ inventory, formats, calendar, manifest, driv
     const dir = String(exam.dir || '');
     if (!/^content\/sources\/textbook\/[^/]+\/過去問$/.test(dir)) fails.push(at(`dir は content/sources/textbook/{資格}/過去問 の形にする（${dir || '未設定'}）`));
     const seenYears = new Set();
+    const examYears = new Set(); // 本試験の行がある年度（模擬・解説だけの年度は数えない）
     const listedMissing = [];
     for (const y of exam.years || []) {
       stats.years++;
       const yl = `${id} ${y.year}`;
       if (!Number.isInteger(y.year) || seenYears.has(y.year)) fails.push(`${yl}: year は重複しない西暦の整数`);
       seenYears.add(y.year);
+      if (y.official === 'never' || (y.files || []).some(f => f.kind === 'question')) examYears.add(y.year);
       if (!OFFICIAL.includes(y.official)) fails.push(`${yl}: official は ${OFFICIAL.join('/')} のどれか（${y.official}）`);
       for (const f of y.files || []) {
         stats.files++;
@@ -76,9 +78,9 @@ export function evaluateInventory({ inventory, formats, calendar, manifest, driv
       }
     }
     const cal = calendar.exams?.[id];
-    const examDate = cal?.events?.exam?.date || cal?.events?.written?.date || cal?.events?.first?.date;
+    const examDate = Object.values(cal?.events || {}).filter(e => e.kind === 'exam' && e.date).map(e => e.date).sort()[0];
     const lag = exam.official?.publishLagDays;
-    if (cal && examDate && Number.isInteger(lag) && !seenYears.has(cal.year)
+    if (cal && examDate && Number.isInteger(lag) && !examYears.has(cal.year)
       && today.getTime() >= Date.parse(examDate + 'T00:00:00+09:00') + lag * DAY) {
       warns.push(`${id}: ${cal.year} 年度の試験（${examDate}）から ${lag} 日を過ぎた。公式掲載を確かめて年度の行を足す（${exam.official?.page || '掲載ページ未設定'}）`);
     }
