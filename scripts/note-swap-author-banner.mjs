@@ -11,6 +11,8 @@
  *   node scripts/note-swap-author-banner.mjs --article <article.md> --image-only # 本文を触らず画像だけ
  *   node scripts/note-swap-author-banner.mjs --list <paths.txt> --commit          # 一括更新
  *   npm run note-swap-author-banner -- --list <paths.txt> [--commit]
+ *   --trial-line-bottom  無料記事が会員特典マガジンに入っているとき、ラインを末尾直前に置いて誰でも読める状態を保つ
+ *   --publish-draft      下書きは差し替え済み（already-done）なのに公開本文が古い記事を、そのまま公開する
  *
  * 安全ゲート:
  *   - dobokunote アカウント確認、全 figure の位置・画像比率・old/new 分類を編集前に表示
@@ -61,6 +63,8 @@ const LIST_ARG = getArg('--list');
 const BOUNDARY_ARG = getArg('--boundary-h2');
 const COMMIT = argv.includes('--commit');
 const FORCE_IMAGE_ONLY = argv.includes('--image-only');
+const PUBLISH_DRAFT = argv.includes('--publish-draft');
+const TRIAL_LINE_BOTTOM = argv.includes('--trial-line-bottom');
 const MAX_CONSEC_FAIL = Number(getArg('--max-consecutive-fail') || 3);
 const DAILY_LIMIT = Number(getArg('--daily-limit') || 90);
 
@@ -1069,6 +1073,11 @@ async function processArticle(page, article) {
   if (probe.mode === 'already-done' || imageOnlyAlreadyDone) {
     if (!article.isMembership) {
       const live = await verifyPublishedBody(article.noteId, { requireNewProse: !imageOnly, requirePop: article.popTarget });
+      if (!live.ok && PUBLISH_DRAFT && COMMIT) {
+        // 前回の実行が公開直前で止まり、エディタの下書きだけ差し替え済みの記事。下書きを検証済みのまま公開する
+        console.log(`[publish-draft] 下書きは差し替え済み・公開本文が古い（${live.reason}）→ 下書きを公開`);
+        return publishVerifiedDraft(page, article, imageOnly);
+      }
       if (!live.ok) return { ok: false, reason: `already-done 公開 API 検証失敗: ${live.reason}` };
       console.log('[PROBE] already-done confirmed by editor DOM + public API');
     } else {
@@ -1227,9 +1236,14 @@ async function processArticle(page, article) {
   }
   console.log(`[guard] attached ${attachedBefore.length}→${attachedAfter.length}, figures ${figuresBefore}→${figuresAfter} (old=${probe.oldCount}, inserted=${insertedCount}), final old=0 new-top=1`);
 
+  return publishVerifiedDraft(page, article, imageOnly);
+}
+
+async function publishVerifiedDraft(page, article, imageOnly) {
   const published = await publishLive(page, article.noteId, article.boundary, article.isPaid, {
     keepBoundary: false,
-    trialLineBottom: false,
+    // 無料×メンバーシップ特典マガジンの記事は --trial-line-bottom で誰でも読める状態を保つ
+    trialLineBottom: TRIAL_LINE_BOTTOM,
     // 無料記事がメンバーシップ特典マガジンに入っていると、ラインなしの更新で全文が会員限定になる（2026-09-23）。
     // 意図して全文ロックしている記事だけ --keep-member-lock で通す（無ければ publishLive が中断する）
     membershipLock: article.isMembership || process.argv.includes('--keep-member-lock'),
