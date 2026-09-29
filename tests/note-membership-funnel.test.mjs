@@ -1,13 +1,14 @@
-// note メンバーシップ「土木セコカン合格ラボ」訴求・加入導線のドリフト検出テスト。
+// note メンバーシップ「土木セコカン合格ラボ」撤退（2026-09-30）の再混入検出テスト。
 //
-// 目的: SoT（note-magazines.ts）・note 記事本文・サイト配置（magazine-placement.ts）が
-//       「公開済み・加入導線あり」の状態から再び「未公開扱い」へ戻るのを機械検出する。
+// 目的: 撤退した会員への導線が、SoT（note-magazines.ts）・note 記事本文・サイト配置
+//       （magazine-placement.ts）へ戻ってくるのを機械検出する。会員向け記事（メンバーシップ/配下）は対象外。
 //
 // テストのために商品定義や本文を二重定義しない。すべて実ソースを読み、実 resolvePlacement を
 // esbuild でトランスパイルして呼ぶ（magazine-placement.ts は import type のみ＝ランタイム依存ゼロ）。
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync, statSync } from 'node:fs';
+import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildSync } from 'esbuild';
 
@@ -22,69 +23,36 @@ const MEMBERSHIP_ID = 'civil-membership-lab';
 const CTA_MARKER = '<!-- cta:civil-membership-lab -->';
 const INTRO_SELF_URL = 'https://note.com/dobokunote/n/n6b66793ca20c';
 
-// 加入導線の対象 6 記事（作業票 §4）。
-const TARGET_ARTICLES = [
-  'content/note/1級・2級土木/土木もくじ/article.md',
-  'content/note/1級・2級土木/経験記述-落ちる答案診断-無料/article.md',
-  'content/note/1級・2級土木/経験記述-独学添削の限界-無料/article.md',
-  'content/note/1級・2級土木/経験記述-予想問題で書く練習-無料/article.md',
-  'content/note/1級・2級土木/1級土木/magazines/1級土木-二次まるごとパック/article.md',
-  'content/note/1級・2級土木/メンバーシップ/はじめに-合格ラボ/article.md',
-];
-const INTRO_ARTICLE = 'content/note/1級・2級土木/メンバーシップ/はじめに-合格ラボ/article.md';
-
-function stripFrontmatter(content) {
-  return content.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n/, '');
-}
-function countOccurrences(haystack, needle) {
-  return haystack.split(needle).length - 1;
+function walkArticles(dir, out = []) {
+  for (const e of readdirSync(dir)) {
+    const p = join(dir, e);
+    if (statSync(p).isDirectory()) { if (e !== 'メンバーシップ') walkArticles(p, out); }
+    else if (/^article(-[^/\\]+)?\.md$/.test(e)) out.push(p);
+  }
+  return out;
 }
 
-// ── SoT: 商品 URL と説明記事 URL を分離する ──────────────────────────────
-test('note-magazines.ts: civil-membership-lab は加入URLと無料説明記事URLを持つ', () => {
+// ── SoT: 撤退した会員は published:false（getMagazine が null を返し全 CTA が消える）──
+test('note-magazines.ts: civil-membership-lab は撤退済み（published:false）', () => {
   const src = read('src/lib/note-magazines.ts');
   const block = src.match(/'civil-membership-lab':\s*\{([\s\S]*?)\n {2}\},/);
   assert.ok(block, "civil-membership-lab エントリが見つからない");
-  const body = block[1];
-  assert.match(body, /\bpublished:\s*true\b/, 'published:true でない（未公開へドリフト）');
-  assert.match(
-    body,
-    /noteUrl:\s*'https:\/\/note\.com\/dobokunote\/membership\/join'/,
-    'noteUrl が正式加入 URL(/membership/join) でない',
-  );
-  assert.match(
-    body,
-    /landingUrl:\s*'https:\/\/note\.com\/dobokunote\/n\/n6b66793ca20c'/,
-    'landingUrl が無料説明記事でない',
-  );
+  assert.match(block[1], /\bpublished:\s*false\b/, '撤退した会員が published:true に戻っている');
 });
 
-// ── note 記事: 入口5記事は無料説明へ、説明記事だけが加入画面へ ───────────
-for (const rel of TARGET_ARTICLES) {
-  test(`note 記事の会員CTAは段階導線を守る: ${rel}`, () => {
-    const content = read(rel);
-    assert.equal(countOccurrences(content, CTA_MARKER), 1, `CTA マーカーが 1 件でない: ${rel}`);
-    if (rel === INTRO_ARTICLE) {
-      assert.equal(countOccurrences(content, JOIN_URL), 1, `説明記事に加入 URL が 1 件でない: ${rel}`);
-    } else {
-      assert.equal(countOccurrences(content, INTRO_SELF_URL), 1, `入口記事に無料説明 URL が 1 件でない: ${rel}`);
-      assert.equal(countOccurrences(content, JOIN_URL), 0, `入口記事が加入画面へ直送している: ${rel}`);
-    }
+// ── note 記事: 会員向け記事以外に会員への導線が残っていない ───────────────
+test('note 記事: 会員向け記事以外に合格ラボへの導線が無い', () => {
+  const files = walkArticles(ROOT + 'content/note');
+  assert.ok(files.length > 100, `走査した note 記事が少なすぎる: ${files.length}`);
+  const hits = files.filter((f) => {
+    const c = readFileSync(f, 'utf8');
+    return [CTA_MARKER, JOIN_URL, INTRO_SELF_URL].some((needle) => c.split(needle).length > 1);
   });
-}
-
-// ── 説明記事の本文に自己参照 URL が残っていない（frontmatter の noteUrl/noteId は対象外）──
-test('はじめに-合格ラボ: 本文に自己参照 URL が残っていない', () => {
-  const body = stripFrontmatter(read(INTRO_ARTICLE));
-  assert.equal(
-    countOccurrences(body, INTRO_SELF_URL),
-    0,
-    '本文に自己参照 URL(n6b66793ca20c) が残存（加入 URL へ置換されていない）',
-  );
+  assert.deepEqual(hits.map((f) => f.slice(ROOT.length)), [], '撤退した会員への導線が残っている');
 });
 
-// ── サイト配置: 土木二次は原則 top=買い切り・inline[0]=メンバーシップ ────────
-test('resolvePlacement: 土木二次の原則と書き方ガイド固有CTAを維持する', async () => {
+// ── サイト配置: 土木の代表面に会員 CTA が出ない ─────────────────────────────
+test('resolvePlacement: 土木の配置にメンバーシップが出ない', async () => {
   const ts = read('src/lib/magazine-placement.ts');
   const js = buildSync({
     stdin: { contents: ts, loader: 'ts', resolveDir: ROOT + 'src/lib' },
@@ -97,34 +65,23 @@ test('resolvePlacement: 土木二次の原則と書き方ガイド固有CTAを�
   const { resolvePlacement } = mod;
   assert.equal(typeof resolvePlacement, 'function', 'resolvePlacement を import できない');
 
-  // [slug, docGroup] の代表面。top=買い切り（≠メンバーシップ）・inline[0]=メンバーシップ が原則。
   const cases = [
     ['civil-construction-1-secondary-r07', 'secondary'],
     ['civil-construction-2-secondary-r07', 'secondary'],
     ['civil-construction-2-secondary-experience-writing-examples', 'secondary'],
+    ['civil-construction-1-secondary-getting-started', 'secondary'],
     ['civil-construction-2-secondary-getting-started', 'secondary'],
     ['civil-construction-1-secondary-past-problems', 'secondary'], // 1級 catch-all
     ['civil-construction-1-guide-last-minute-2026', 'guide'], // 二次隣接（直前）
+    ['civil-construction-2-primary-r07-a', 'primary'],
   ];
-
   for (const [slug, group] of cases) {
     const p = resolvePlacement(slug, group);
-    assert.ok(p.top, `${slug}: top（冒頭 買い切り CTA）が無い`);
-    assert.notEqual(
-      p.top.magazineId,
-      MEMBERSHIP_ID,
-      `${slug}: 冒頭 top はメンバーシップでなく買い切りであるべき`,
-    );
-    assert.ok(p.inline.length > 0, `${slug}: inline が空`);
-    assert.equal(
-      p.inline[0].magazineId,
-      MEMBERSHIP_ID,
-      `${slug}: inline[0]（本文中間 CTA 供給源）がメンバーシップでない`,
-    );
+    const ids = [p.top, ...p.inline].filter(Boolean).map((x) => x.magazineId);
+    assert.ok(!ids.includes(MEMBERSHIP_ID), `${slug}: 撤退した会員が配置されている`);
   }
 
   // 1級の書き方ガイドは、検索意図に直結する完成答案集を中間の主 CTA にする固有設計。
-  // メンバーシップは土木もくじへ集約し、ページ内の強い商品CTAを3段階に絞る。
   const guide = resolvePlacement(
     'civil-construction-1-secondary-experience-writing-guide',
     'secondary',
