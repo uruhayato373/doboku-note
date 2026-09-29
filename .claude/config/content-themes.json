@@ -65,6 +65,24 @@
         "pathPrefix": "RCCM/"
       },
       {
+        "theme": "surveyor",
+        "pathPrefix": "測量士/",
+        "why": "測量士・測量士補の note（午後記述の分野別マガジン・計算の型）"
+      },
+      {
+        "theme": "pavement-2",
+        "pathPrefix": "舗装/舗装2級-"
+      },
+      {
+        "theme": "pavement-1",
+        "pathPrefix": "舗装/"
+      },
+      {
+        "theme": "construction-management",
+        "pathPrefix": "管工事/",
+        "why": "1級・2級共通の管工事 教材"
+      },
+      {
         "theme": "concrete-engineer",
         "pathPrefix": "コンクリート技士/"
       },
