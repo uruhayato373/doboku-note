@@ -1,0 +1,208 @@
+{
+  "schemaVersion": 1,
+  "_doc": "コンクリート主任技士 小論文の出題履歴とテーマ分類の SSOT。サイト（guide-essay）・note（小論文テーマ別マガジン・傾向分析記事）・cce-essay-writer/qa・check-cce-essay がここを参照する。記事へ年度別テーマを書くときはここから写し、記憶や他記事から写さない。",
+  "policy": "JCI は小論文の問題文を公開していない（exam-formats.json concrete-chief-engineer.pastExams）。本ファイルは市販過去問解説書と受験者・合格者の公開記事の突合で作る二次情報。confidence: high=書籍OCR原文で確認、medium=独立2出典以上が一致、low=1出典のみ。問題文は逐語で記事へ転載しない（テーマ名と設問項目名だけを使う）。新年度は試験後に追記し、sources と confidence を必ず付ける。",
+  "verifiedAt": "2026-09-30",
+  "checkedBy": "self",
+  "charsPerLine": {
+    "value": 25,
+    "confidence": "medium",
+    "note": "H29・H30 は書籍原文に「1行25文字」。R2 以降は行数指定のみ確認、1行字数は未確認（総量「1,000字程度」は2出典）。"
+  },
+  "themes": {
+    "environment": { "label": "環境負荷低減", "aliases": ["持続可能な社会", "カーボンニュートラル", "SDGs13"] },
+    "durability": { "label": "耐久性の向上・維持管理", "aliases": ["長寿命化", "維持管理", "SDGs12"] },
+    "productivity": { "label": "生産性向上・DX", "aliases": ["i-Construction", "施工の効率化", "IT", "SDGs8"] },
+    "climate-quality": { "label": "気候変動に対応した品質確保", "aliases": ["暑中・寒中", "自然災害"] },
+    "workforce": { "label": "担い手不足下の品質確保・分野の魅力", "aliases": ["労働人口減少", "少子高齢化", "分野を魅力的に"] }
+  },
+  "years": [
+    {
+      "year": 2025, "era": "R7", "questionCount": 1, "choice": true,
+      "options": [
+        { "label": "コンクリート・コンクリート構造物における環境負荷の低減", "theme": "environment" },
+        { "label": "建設分野の労働人口減少下でのコンクリート・コンクリート構造物の品質向上", "theme": "workforce" }
+      ],
+      "items": [
+        { "name": "表題", "lines": "1" },
+        { "name": "過去または現在の業務における具体的な技術的取り組み", "lines": "15-20" },
+        { "name": "主任技士として今後なすべき具体的な技術的対策", "lines": "10-15" }
+      ],
+      "confidence": "medium",
+      "sources": ["web:koneka1130.com/31568", "web:note.com/shin23__/n/na572d542ee43"]
+    },
+    {
+      "year": 2024, "era": "R6", "questionCount": 1, "choice": true,
+      "options": [
+        { "label": "気候変動に対応したコンクリートの品質確保", "theme": "climate-quality" },
+        { "label": "コンクリート分野を魅力的にするための技術的な方策", "theme": "workforce" }
+      ],
+      "items": [
+        { "name": "テーマ番号と表題", "lines": "1-2" },
+        { "name": "現状とその原因", "lines": "7-10" },
+        { "name": "業務の現状と課題", "lines": "7-10" },
+        { "name": "課題解決のために講じるべき行動・活動", "lines": "10-14" }
+      ],
+      "confidence": "medium",
+      "sources": ["web:koneka1130.com/31568", "web:koneka1130.com/64661", "web:fire-nao.com/license-syuningishi", "web:note.com/gosharub/n/nebe38e2bab63"]
+    },
+    {
+      "year": 2023, "era": "R5", "questionCount": 1, "choice": true,
+      "options": [
+        { "label": "環境負荷低減", "theme": "environment" },
+        { "label": "生産性向上（DX・i-Construction）", "theme": "productivity" }
+      ],
+      "items": [
+        { "name": "テーマ番号と表題", "lines": "1-2" },
+        { "name": "現状と課題", "lines": "5-10" },
+        { "name": "業務との関係", "lines": null },
+        { "name": "貢献できること", "lines": "7-14" }
+      ],
+      "confidence": "medium",
+      "sources": ["web:koneka1130.com/31568", "web:koneka1130.com/64661", "web:note.com/gosharub/n/nebe38e2bab63"]
+    },
+    {
+      "year": 2022, "era": "R4", "questionCount": 1, "choice": true,
+      "options": [
+        { "label": "SDGs 17目標から選択（例: 8 働きがい・経済成長／12 つくる責任つかう責任／13 気候変動）", "theme": null }
+      ],
+      "optionThemes": ["productivity", "durability", "environment"],
+      "items": [
+        { "name": "選択した目標", "lines": "1" },
+        { "name": "業務の現状と課題", "lines": "8-10" },
+        { "name": "貢献できること", "lines": "8-10" }
+      ],
+      "confidence": "medium",
+      "note": "選択数は出典間で「2つ選択」「1つ選択」と揺れる。解答例の対応は gosharub（8=生産性・12=耐久性・13=環境）。",
+      "sources": ["web:koneka1130.com/31568", "web:koneka1130.com/64661", "web:note.com/gosharub/n/nebe38e2bab63"]
+    },
+    {
+      "year": 2021, "era": "R3", "questionCount": 1, "choice": false,
+      "options": [
+        { "label": "環境負荷低減（パリ協定を題材）", "theme": "environment" }
+      ],
+      "items": [
+        { "name": "表題", "lines": "1-2" },
+        { "name": "技術的知識", "lines": "14-18" },
+        { "name": "業務との関係", "lines": "10-14" },
+        { "name": "今後の展望", "lines": "6-8" }
+      ],
+      "confidence": "medium",
+      "sources": ["web:koneka1130.com/31568", "web:koneka1130.com/64661", "web:note.com/gosharub/n/nebe38e2bab63"]
+    },
+    {
+      "year": 2020, "era": "R2", "questionCount": 1, "choice": true,
+      "options": [
+        { "label": "環境負荷低減", "theme": "environment" },
+        { "label": "耐久性の向上", "theme": "durability" },
+        { "label": "生産性の向上", "theme": "productivity" }
+      ],
+      "items": [
+        { "name": "選択したテーマ", "lines": "1" },
+        { "name": "技術的知識", "lines": "14-18" },
+        { "name": "業務との関係", "lines": "10-14" },
+        { "name": "今後の展望", "lines": "6-8" }
+      ],
+      "confidence": "medium",
+      "note": "この年から1題・約1,000字・試験3時間の形式（2024年版書籍の試験概要: R2〜R5は択一25問＋小論文1問・3時間）。",
+      "sources": ["book:concrete-chief-textbook-2024/ocr/00_試験概要・傾向と対策.md", "web:koneka1130.com/31568", "web:koneka1130.com/64661", "web:yururi-yururito.com/concrete-chief-engineer-essay", "web:note.com/gosharub/n/nebe38e2bab63"]
+    },
+    {
+      "year": 2019, "era": "R1", "questionCount": 2, "choice": true,
+      "options": [
+        { "label": "問1: 従事している業務", "theme": null, "kind": "experience" },
+        { "label": "問2: 耐久性の向上と環境負荷低減の両立", "theme": "durability" },
+        { "label": "問2: 現場施工の効率化と品質確保の両立", "theme": "productivity" }
+      ],
+      "items": [],
+      "confidence": "low",
+      "note": "問2の選択肢は gosharub の見出しのみ。koneka は H29 相当の設問を2019年として記載しており年度がずれている可能性がある。",
+      "sources": ["web:note.com/gosharub/n/nebe38e2bab63"]
+    },
+    {
+      "year": 2018, "era": "H30", "questionCount": 2, "choice": true,
+      "options": [
+        { "label": "問1: 技術的なトラブルあるいは失敗の事例（概要・原因・対策と評価）", "theme": null, "kind": "experience" },
+        { "label": "問2: コンクリート分野における環境負荷低減", "theme": "environment" },
+        { "label": "問2: コンクリート構造物の維持管理", "theme": "durability" },
+        { "label": "問2: コンクリート構造物の耐震補強", "theme": "durability" }
+      ],
+      "items": [],
+      "confidence": "high",
+      "sources": ["book:concrete-chief-textbook-2024/ocr/09_最近5年の全問題.md", "web:kenchik.info/2020/11/04/con_syuningishi_shouronbun"]
+    },
+    {
+      "year": 2017, "era": "H29", "questionCount": 2, "choice": true,
+      "options": [
+        { "label": "問1: 従事している業務（表題・内容・力を入れていること）", "theme": null, "kind": "experience" },
+        { "label": "問2: 自然災害", "theme": "climate-quality" },
+        { "label": "問2: 少子高齢化", "theme": "workforce" },
+        { "label": "問2: IT（情報技術）", "theme": "productivity" },
+        { "label": "問2: 持続可能な社会の構築", "theme": "environment" }
+      ],
+      "items": [],
+      "confidence": "high",
+      "sources": ["book:concrete-chief-textbook-2024/ocr/09_最近5年の全問題.md", "web:kenchik.info/2020/11/04/con_syuningishi_shouronbun"]
+    },
+    {
+      "year": 2016, "era": "H28", "questionCount": 2, "choice": false,
+      "options": [
+        { "label": "問1: 知識や経験を活かして技術的課題に対応した事例", "theme": null, "kind": "experience" },
+        { "label": "問2: 最近の技術的進歩とその活用", "theme": "productivity" }
+      ],
+      "items": [],
+      "confidence": "high",
+      "sources": ["book:concrete-chief-textbook-2022/ocr/00_平成28年度_全問題と解答.md", "web:kenchik.info/2020/11/04/con_syuningishi_shouronbun"]
+    },
+    {
+      "year": 2015, "era": "H27", "questionCount": 2, "choice": false,
+      "options": [
+        { "label": "問1: 技術的課題に対応した事例と再評価", "theme": null, "kind": "experience" },
+        { "label": "問2: 持続可能な社会の実現に向けたコンクリート分野の課題と取組み", "theme": "environment" }
+      ],
+      "items": [],
+      "confidence": "high",
+      "sources": ["book:concrete-chief-textbook-2022/ocr/01_平成27年度_全問題と解答.md", "web:kenchik.info/2020/11/04/con_syuningishi_shouronbun"]
+    },
+    {
+      "year": 2014, "era": "H26", "questionCount": 2, "choice": false,
+      "options": [
+        { "label": "問1: 業務と苦労した課題への取組み・評価", "theme": null, "kind": "experience" },
+        { "label": "問2: 耐久性に関する最近の技術とその活用", "theme": "durability" }
+      ],
+      "items": [],
+      "confidence": "high",
+      "sources": ["book:concrete-chief-textbook-2022/ocr/02_平成26年度_全問題と解答.md", "web:kenchik.info/2020/11/04/con_syuningishi_shouronbun"]
+    },
+    {
+      "year": 2013, "era": "H25", "questionCount": 2, "choice": false,
+      "options": [
+        { "label": "問1: これまでの主な業務の説明", "theme": null, "kind": "experience" },
+        { "label": "問2: 今後懸念される問題とその対処", "theme": null }
+      ],
+      "items": [],
+      "confidence": "high",
+      "sources": ["book:concrete-chief-textbook-2022/ocr/03_平成25年度_全問題と解答.md", "web:kenchik.info/2020/11/04/con_syuningishi_shouronbun"]
+    },
+    {
+      "year": 2012, "era": "H24", "questionCount": 1, "choice": false,
+      "options": [
+        { "label": "知識や技術を活用して社会に貢献した事例", "theme": null, "kind": "experience" }
+      ],
+      "items": [],
+      "confidence": "high",
+      "sources": ["book:concrete-chief-textbook-2022/ocr/04_平成24年度_全問題と解答.md"]
+    }
+  ],
+  "answerModel": {
+    "_doc": "note 小論文テーマ別記事の模範答案の型（R2〜R7 の設問構成を束ねた共通形）。check-cce-essay がこの字数帯で検査する。",
+    "parts": [
+      { "key": "title", "heading": "(1) 表題", "chars": [10, 60], "scope": "common" },
+      { "key": "situation", "heading": "(2) 現状と課題", "chars": [250, 380], "scope": "common" },
+      { "key": "work", "heading": "(3) 業務との関係・技術的取り組み", "chars": [280, 450], "scope": "persona" },
+      { "key": "action", "heading": "(4) 今後の技術的対策・展望", "chars": [220, 380], "scope": "common" }
+    ],
+    "totalChars": [800, 1100],
+    "personas": ["生コン工場", "プレキャスト工場", "ゼネコン土木施工", "維持管理・補修", "発注者・監督員", "ゼネコン建築施工", "設計コンサルタント", "試験・検査機関"]
+  }
+}
