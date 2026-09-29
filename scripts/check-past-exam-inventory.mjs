@@ -36,7 +36,10 @@ export function evaluateInventory({ inventory, formats, calendar, manifest, driv
   for (const [id, exam] of Object.entries(inventory.exams || {})) {
     stats.exams++;
     const at = (msg) => `${id}: ${msg}`;
-    if (!formats.exams?.[id]) fails.push(at('exam-formats.json に無い資格 id'));
+    // registry:false は保存だけが目的の試験（技術士の他部門・都道府県の採用試験など）。資格台帳には載せず label で名乗る
+    if (exam.registry === false) {
+      if (!String(exam.label || '').trim()) fails.push(at('registry:false の試験は label が要る'));
+    } else if (!formats.exams?.[id]) fails.push(at('exam-formats.json に無い資格 id（保存だけの試験なら registry:false と label）'));
     const dir = String(exam.dir || '');
     if (!/^content\/sources\/past-exams\/[^/]+$/.test(dir)) fails.push(at(`dir は content/sources/past-exams/{資格} の形にする（${dir || '未設定'}）`));
     const seenYears = new Set();

@@ -74,3 +74,11 @@ test('正答だけの年度は今年度の行として数えず、公式以外�
   const bad = run(inv([{ year: 2026, official: 'listed', files: [{ ...file('R08/b.pdf'), kind: 'commentary' }] }]));
   assert.ok(bad.fails.some(f => f.includes('kind は')));
 });
+
+test('資格台帳に無い試験は registry:false と label で載せられ、label が無ければ FAIL', () => {
+  const years = [{ year: 2026, official: 'listed', files: [] }];
+  const ok = run({ exams: { 'pe-mechanical': { registry: false, label: '技術士 機械部門', dir: 'content/sources/past-exams/技術士（機械部門）', years } } });
+  assert.deepEqual(ok.fails, []);
+  const ng = run({ exams: { 'pe-mechanical': { registry: false, dir: 'content/sources/past-exams/技術士（機械部門）', years } } });
+  assert.ok(ng.fails.some((f) => f.includes('label')));
+});

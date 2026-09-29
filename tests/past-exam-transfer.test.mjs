@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { pendingFiles, jstDate } from '../scripts/past-exam-fetch.mjs';
-import { buildPlan, findRemote, toRepoPath } from '../scripts/drive-browser-transfer.mjs';
+import { buildPlan, findRemote, toRepoPath, resolveFolderIds } from '../scripts/drive-browser-transfer.mjs';
 
 const cfg = { groups: [
   { id: 'past-exam-source-pdf', status: 'active', match: { pathRegex: '^content/sources/past-exams/[^/]+/[^/]+/[^/]+\\.pdf$' }, vaultDir: '原資料PDF/過去問', keyFrom: 'stripPrefix:content/sources/past-exams/' },
@@ -54,4 +54,22 @@ test('findRemote は同じフォルダの同名 1 件だけを返し、重複や
 test('toRepoPath は先頭の文字を落とさず、Windows 区切りを / にする（１級と２級が同じフォルダに潰れた回帰）', () => {
   assert.equal(toRepoPath('content/sources/past-exams/', '１級土木施工管理技士\\R08\\a.pdf'), 'content/sources/past-exams/１級土木施工管理技士/R08/a.pdf');
   assert.equal(toRepoPath('content/sources/past-exams/', '２級土木施工管理技士/R08/a.pdf'), 'content/sources/past-exams/２級土木施工管理技士/R08/a.pdf');
+});
+
+test('resolveFolderIds は root から名前でたどって folderId を埋め、無い・同名 2 つは未解決にする', () => {
+  const folders = [
+    { id: 'D', parentId: 'ROOT', title: '技術士（機械部門）' },
+    { id: 'Y8', parentId: 'D', title: 'R08' },
+    { id: 'Y7a', parentId: 'D', title: 'R07' }, { id: 'Y7b', parentId: 'D', title: 'R07' },
+  ];
+  const plan = { folders: [
+    { vaultPath: '原資料PDF/過去問/技術士（機械部門）/R08', folderId: null },
+    { vaultPath: '原資料PDF/過去問/技術士（機械部門）/R07', folderId: null },
+    { vaultPath: '原資料PDF/過去問/技術士（機械部門）/R06', folderId: null },
+    { vaultPath: '原資料PDF/過去問/技術士（化学部門）/R08', folderId: 'KEEP' },
+  ] };
+  const un = resolveFolderIds(plan, folders, 'ROOT', '原資料PDF/過去問');
+  assert.equal(plan.folders[0].folderId, 'Y8');
+  assert.equal(plan.folders[3].folderId, 'KEEP');
+  assert.deepEqual(un, ['原資料PDF/過去問/技術士（機械部門）/R07', '原資料PDF/過去問/技術士（機械部門）/R06']);
 });
