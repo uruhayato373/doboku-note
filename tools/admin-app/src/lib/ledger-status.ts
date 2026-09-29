@@ -44,10 +44,14 @@ export function jst(iso: string | null | undefined): string {
 
 /** ココナラの出品中のサービス: 本文＝タイトル・キャッチコピー・本文と販売状態、画像＝承認済み POP 画像の登録 */
 function productDrift(live: NonNullable<LedgerRow['live']>, part: 'body' | 'cover'): Drift {
-  if (part === 'cover') return live.image ? { state: 'drift', why: live.image } : { state: 'ok', why: '承認済みの POP 画像が登録されている（公開ページの画像との一致は見ていない）' };
+  if (part === 'cover') {
+    if (live.imageUnknown) return { state: 'unknown', why: live.imageUnknown };
+    return live.image ? { state: 'drift', why: live.image } : { state: 'ok', why: live.okNote?.image ?? '承認済みの POP 画像が登録されている（公開ページの画像との一致は見ていない）' };
+  }
+  if (live.bodyUnknown) return { state: 'unknown', why: live.bodyUnknown };
   if (!live.checkedAt) return { state: 'unknown', why: '公開照合をしていない（npm run content-ledger で作る）' };
   const issues = [...live.sale, ...live.text];
-  return issues.length ? { state: 'drift', why: issues.join(' / ') } : { state: 'ok', why: `公開ページが正本と一致（照合 ${jst(live.checkedAt)}）` };
+  return issues.length ? { state: 'drift', why: issues.join(' / ') } : { state: 'ok', why: live.okNote?.body ?? `公開ページが正本と一致（照合 ${jst(live.checkedAt)}）` };
 }
 
 /**

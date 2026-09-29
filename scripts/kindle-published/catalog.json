@@ -37,7 +37,19 @@
       ],
       "notes": "LIVE（2026-07-15 本棚突合で確認）。分冊 A-01〜A-06 との重複コンテンツ規約は審査を通過。",
       "dist": "kindle-published/kindle-A-00-goubon.epub",
-      "draftAsin": "A2901CR7S6QQJY"
+      "draftAsin": "A2901CR7S6QQJY",
+      "uploaded": {
+        "epub": {
+          "sha256": "fd75792ac6f3dcb7314dc090f9d22a6a747186ca642b90b7a1e59d156cf7ba3f",
+          "at": "2026-09-29",
+          "via": "baseline"
+        },
+        "cover": {
+          "sha256": "20240b36eba0a4d3effddfd447deb96a14d29881c935667cf4d1724d27919cc2",
+          "at": "2026-09-29",
+          "via": "baseline"
+        }
+      }
     },
     {
       "id": "A-01",
@@ -71,7 +83,19 @@
         }
       ],
       "dist": "kindle-published/kindle-A-01-anzen-updated.epub",
-      "draftAsin": "AT465EYYW4VCN"
+      "draftAsin": "AT465EYYW4VCN",
+      "uploaded": {
+        "epub": {
+          "sha256": "d65adb2212dea46ee869c6c676340fc3ea635ced5a2c35e24deb3cfa12feca4f",
+          "at": "2026-09-29",
+          "via": "baseline"
+        },
+        "cover": {
+          "sha256": "cfe31a4029aa8403d08f2542244ec4a805afa1520e20fa5805ce0a4920d1ea13",
+          "at": "2026-09-29",
+          "via": "baseline"
+        }
+      }
     },
     {
       "id": "A-02",
@@ -99,7 +123,19 @@
         }
       ],
       "dist": "kindle-published/kindle-A-02-hoki.epub",
-      "draftAsin": "A5YT5D5ZGEA59"
+      "draftAsin": "A5YT5D5ZGEA59",
+      "uploaded": {
+        "epub": {
+          "sha256": "e71d499878811fec318eb50e2f1ee7cb1f9845bc746a22b6dc82590bf6d6bf81",
+          "at": "2026-09-29",
+          "via": "baseline"
+        },
+        "cover": {
+          "sha256": "3563dd54f9bce3691a131f5834ba395041f7bd2de1d3224a7f3679d0f8a7d423",
+          "at": "2026-09-29",
+          "via": "baseline"
+        }
+      }
     },
     {
       "id": "A-03",
@@ -127,7 +163,19 @@
         }
       ],
       "dist": "kindle-published/kindle-A-03-sekokeikaku.epub",
-      "draftAsin": "A3TMN4ARVI63H6"
+      "draftAsin": "A3TMN4ARVI63H6",
+      "uploaded": {
+        "epub": {
+          "sha256": "1bf0b88caf97a4d12ec4f35b13737850792d8d716a955ecccd9076c49f4dfc42",
+          "at": "2026-09-29",
+          "via": "baseline"
+        },
+        "cover": {
+          "sha256": "65254e79ccfc818f25ef41dac2453292cdeba6ea88c84bc5ce8219cfb1a96e82",
+          "at": "2026-09-29",
+          "via": "baseline"
+        }
+      }
     },
     {
       "id": "A-04",
@@ -155,7 +203,19 @@
         }
       ],
       "dist": "kindle-published/kindle-A-04-kankyo.epub",
-      "draftAsin": "A2LJM7G3D1YA9V"
+      "draftAsin": "A2LJM7G3D1YA9V",
+      "uploaded": {
+        "epub": {
+          "sha256": "b9b01610bd4526fe00bf43a1318ff2a3e014b068bd3a4d8a9e9e9910e813e7ac",
+          "at": "2026-09-29",
+          "via": "baseline"
+        },
+        "cover": {
+          "sha256": "4a0b46ae24ef7632a285fd9da9d4c555ff2d98b78e8873296206d0acdb9dd5df",
+          "at": "2026-09-29",
+          "via": "baseline"
+        }
+      }
     },
     {
       "id": "A-05",
@@ -183,7 +243,19 @@
         }
       ],
       "dist": "kindle-published/kindle-A-05-hinshitsu.epub",
-      "draftAsin": "A1Q5I6TCI7EHV5"
+      "draftAsin": "A1Q5I6TCI7EHV5",
+      "uploaded": {
+        "epub": {
+          "sha256": "2d081be17adfd0b0503daae5ccb6f7b85bc029d9a6801946b57f92b2bb7f4d91",
+          "at": "2026-09-29",
+          "via": "baseline"
+        },
+        "cover": {
+          "sha256": "42c1b7689c885a3750fa706f97912ce16d145c7462822938dd10ec3a4f782ea4",
+          "at": "2026-09-29",
+          "via": "baseline"
+        }
+      }
     },
     {
       "id": "A-06",
@@ -212,7 +284,19 @@
         }
       ],
       "dist": "kindle-published/kindle-A-06-koutei.epub",
-      "draftAsin": "ACL3CWR633GU0"
+      "draftAsin": "ACL3CWR633GU0",
+      "uploaded": {
+        "epub": {
+          "sha256": "06fbc65c6172e57a9efe4db38c9057408996c8d59be245ea6dddeedc4073ef6f",
+          "at": "2026-09-29",
+          "via": "baseline"
+        },
+        "cover": {
+          "sha256": "6b7c7b0f0d8f300744444e9dd33f8d985dc598fc0c9a5e700f2bd4eea8bc1754",
+          "at": "2026-09-29",
+          "via": "baseline"
+        }
+      }
     },
     {
       "id": "e-01",
@@ -245,7 +329,19 @@
           "change": "KDP 公開（LIVE・販売中 ¥990）・ASIN=B0H8ZZMM7R。重複下書き B0H8KH1N6G は削除対象。"
         }
       ],
-      "draftAsin": "A16UCVNFVPDF8U"
+      "draftAsin": "A16UCVNFVPDF8U",
+      "uploaded": {
+        "epub": {
+          "sha256": "f49d4786b574b87d1767fa93525b5c479f780e81686e4ba85dc180454f017398",
+          "at": "2026-09-29",
+          "via": "baseline"
+        },
+        "cover": {
+          "sha256": "ee20d4e10e39fefb30ba393c87429a75ddb408c945dc42c861735d2e225dea85",
+          "at": "2026-09-29",
+          "via": "baseline"
+        }
+      }
     },
     {
       "id": "e-02",
@@ -280,7 +376,19 @@
         }
       ],
       "draftAsin": "A2HZN8FV9FNYBO",
-      "publishedDate": "2026-08-27"
+      "publishedDate": "2026-08-27",
+      "uploaded": {
+        "epub": {
+          "sha256": "0c01a3429657c76dd8740072167c95e0a3d38793468a189a22c20546a4bd7982",
+          "at": "2026-09-29",
+          "via": "baseline"
+        },
+        "cover": {
+          "sha256": "3621101ee9fd623ef9350d8ad3f9d1ae5a5bb3bb3d93b9c546a7809e0f5701f8",
+          "at": "2026-09-29",
+          "via": "baseline"
+        }
+      }
     },
     {
       "id": "b-reiwa",
@@ -312,7 +420,19 @@
           "change": "KDP 新規提出・レビュー中"
         }
       ],
-      "draftAsin": "AP3EM9WBN9XUM"
+      "draftAsin": "AP3EM9WBN9XUM",
+      "uploaded": {
+        "epub": {
+          "sha256": "ef33f789028bcd67eb16a7c038721f240658235c3baec353b37fc35132bef382",
+          "at": "2026-09-29",
+          "via": "baseline"
+        },
+        "cover": {
+          "sha256": "9455a427d7f8f89ff630e9f94987a15b0c24b5bf0da7ecbfcb87e3639e71d0c8",
+          "at": "2026-09-29",
+          "via": "baseline"
+        }
+      }
     },
     {
       "id": "b-heisei",
@@ -344,7 +464,19 @@
       "submittedDate": "2026-07-20",
       "notes": "2026-07-20 KDP提出（レビュー中）。LIVE化したら ASIN/publishedDate/status=live を catalog/戦略doc/README の3箇所に記録。",
       "publishedDate": "2026-07-23",
-      "draftAsin": "A1JJR5WB9IUSGM"
+      "draftAsin": "A1JJR5WB9IUSGM",
+      "uploaded": {
+        "epub": {
+          "sha256": "c66fd0d867e272dcde07f4be840e09cde44a215497806e281f437e9eb0797d5d",
+          "at": "2026-09-29",
+          "via": "baseline"
+        },
+        "cover": {
+          "sha256": "95f1d3602d06608940f3ed101ed7fbfe0a925605e8d5190429088a2319a52525",
+          "at": "2026-09-29",
+          "via": "baseline"
+        }
+      }
     },
     {
       "id": "d-01",
@@ -376,7 +508,19 @@
           "change": "KDP 本棚突合で LIVE 確認・ASIN=B0H8JHYGH9"
         }
       ],
-      "draftAsin": "ADZQN2E5RIR1"
+      "draftAsin": "ADZQN2E5RIR1",
+      "uploaded": {
+        "epub": {
+          "sha256": "5a3362f6328b2a844e8601195ee00ed4b45dffd6b3620c381b9eb06d9fe734de",
+          "at": "2026-09-29",
+          "via": "baseline"
+        },
+        "cover": {
+          "sha256": "a3fb2de0d89a41b2e5c4736798a392d892985b715f01971a474ecf47b67229e6",
+          "at": "2026-09-29",
+          "via": "baseline"
+        }
+      }
     },
     {
       "id": "d-02",
@@ -408,7 +552,19 @@
           "change": "KDP 本棚突合で LIVE 確認・ASIN=B0H8L2WXBY"
         }
       ],
-      "draftAsin": "A2AGFBUNYF1QD"
+      "draftAsin": "A2AGFBUNYF1QD",
+      "uploaded": {
+        "epub": {
+          "sha256": "7b1662b81228386b5f0ead2efbcf09bd4d77261c655ff5b68a4de549cb118c85",
+          "at": "2026-09-29",
+          "via": "baseline"
+        },
+        "cover": {
+          "sha256": "818a9e0d46f36bdd08ebee2ddf604de0301f73ee52dd47a507afc7154fea214f",
+          "at": "2026-09-29",
+          "via": "baseline"
+        }
+      }
     },
     {
       "id": "d-03",
@@ -445,7 +601,19 @@
           "change": "修正版EPUBへ差し替え。原稿チェック完了・下書き保存後の再読込検証済み。KDP Select早期解除をサポートへ申請"
         }
       ],
-      "draftAsin": "A3S27ORYENCQ8Q"
+      "draftAsin": "A3S27ORYENCQ8Q",
+      "uploaded": {
+        "epub": {
+          "sha256": "0a4396ea9b8c0e00b2e2fab8496b7d3a4348b9e56df91d6ed6c5344689581499",
+          "at": "2026-09-29",
+          "via": "baseline"
+        },
+        "cover": {
+          "sha256": "6575efca92165b289406457d26c4d80e04f50cd116e5742486df2f7f2b28202a",
+          "at": "2026-09-29",
+          "via": "baseline"
+        }
+      }
     },
     {
       "id": "d-00",
@@ -482,7 +650,19 @@
           "change": "修正版EPUBへ差し替え。原稿チェック完了・正常保存・誤字脱字0件を再確認。KDP Select早期解除をサポートへ申請"
         }
       ],
-      "draftAsin": "A3CP4T0YDLYMJM"
+      "draftAsin": "A3CP4T0YDLYMJM",
+      "uploaded": {
+        "epub": {
+          "sha256": "135240696371dbd1b0cd9e5f2326cb928355577ca78b1ecd82c2147e13494efe",
+          "at": "2026-09-29",
+          "via": "baseline"
+        },
+        "cover": {
+          "sha256": "86a27fad6b8177974a2f25f0e95edc8e4f48d71352d3854a13b9e30fa49631aa",
+          "at": "2026-09-29",
+          "via": "baseline"
+        }
+      }
     },
     {
       "id": "c-01",
@@ -515,7 +695,19 @@
           "from": 1250,
           "to": 1650
         }
-      ]
+      ],
+      "uploaded": {
+        "epub": {
+          "sha256": "f9cd8d731b2923fee14fbc4fa33abc22ae7c916fd91ac247779fcae4afc4917e",
+          "at": "2026-09-29",
+          "via": "baseline"
+        },
+        "cover": {
+          "sha256": "ffa1432c8c928d5753baad3da89f0f4563798391baa6f53555b152c975c90e4c",
+          "at": "2026-09-29",
+          "via": "baseline"
+        }
+      }
     },
     {
       "id": "c-02",
@@ -548,7 +740,19 @@
           "from": 1250,
           "to": 1650
         }
-      ]
+      ],
+      "uploaded": {
+        "epub": {
+          "sha256": "78ed1c4ed0c7fbab290b12fad533b0cc4e3035d95fe607ff53af30ba565e69c7",
+          "at": "2026-09-29",
+          "via": "baseline"
+        },
+        "cover": {
+          "sha256": "713aaed70f1d1d0e79bde5a6d0d31c303da694710a5009969b3e98e69ce254c1",
+          "at": "2026-09-29",
+          "via": "baseline"
+        }
+      }
     },
     {
       "id": "c-03",
@@ -581,7 +785,19 @@
           "from": 1250,
           "to": 1650
         }
-      ]
+      ],
+      "uploaded": {
+        "epub": {
+          "sha256": "7765a96d5bd4dfdcf5a09fcdc97473069b9481bfe3bd5d4a3ac4d87d53baf973",
+          "at": "2026-09-29",
+          "via": "baseline"
+        },
+        "cover": {
+          "sha256": "153cf3eb40e98c43041faad38266460fc1140434a4f76275a8e3f5634f996d95",
+          "at": "2026-09-29",
+          "via": "baseline"
+        }
+      }
     },
     {
       "id": "c-04",
@@ -614,7 +830,19 @@
           "from": 1250,
           "to": 1650
         }
-      ]
+      ],
+      "uploaded": {
+        "epub": {
+          "sha256": "d792c720a849c84d007070ea8347be5c283664bfdce88a1c73bb5650bf263827",
+          "at": "2026-09-29",
+          "via": "baseline"
+        },
+        "cover": {
+          "sha256": "b491ae65d4950dc3aa3eb4afc30d6b702ecdaf8529aac3e55a8b212085d44ce9",
+          "at": "2026-09-29",
+          "via": "baseline"
+        }
+      }
     },
     {
       "id": "c-05",
@@ -647,7 +875,19 @@
           "from": 1250,
           "to": 1650
         }
-      ]
+      ],
+      "uploaded": {
+        "epub": {
+          "sha256": "21f00c4254cea8838e223f2af7936baf3d018cc64d7c91d71a1a8147d2d7af24",
+          "at": "2026-09-29",
+          "via": "baseline"
+        },
+        "cover": {
+          "sha256": "c9148a86a10b596cb9c9831dea6ee501a936f55f1d68b8b372c7315866dfa4d1",
+          "at": "2026-09-29",
+          "via": "baseline"
+        }
+      }
     },
     {
       "id": "c-06",
@@ -680,7 +920,19 @@
           "from": 1250,
           "to": 1650
         }
-      ]
+      ],
+      "uploaded": {
+        "epub": {
+          "sha256": "c4832824095633cb75a8821fc0ef6c31e64bf2fe00a1de7ea4d29c314c6cd262",
+          "at": "2026-09-29",
+          "via": "baseline"
+        },
+        "cover": {
+          "sha256": "95d015be6ded7de1a99e0cd663188c18ac027aaecc9d713001a3da7217f90a69",
+          "at": "2026-09-29",
+          "via": "baseline"
+        }
+      }
     },
     {
       "id": "c-07",
@@ -713,7 +965,19 @@
           "from": 1250,
           "to": 1650
         }
-      ]
+      ],
+      "uploaded": {
+        "epub": {
+          "sha256": "73ea990d56a48c084b2f56924405c06a6d71296cef340d1a0ea17771d11a6543",
+          "at": "2026-09-29",
+          "via": "baseline"
+        },
+        "cover": {
+          "sha256": "ddadeb9396c82ca396ea501cfd2c9dd9a4a4704dda7e77c6a12a716f7f5f54ad",
+          "at": "2026-09-29",
+          "via": "baseline"
+        }
+      }
     },
     {
       "id": "c-08",
@@ -746,7 +1010,19 @@
           "from": 1250,
           "to": 1650
         }
-      ]
+      ],
+      "uploaded": {
+        "epub": {
+          "sha256": "763efbfec30a5873004c173ec4fd9b8e608f8e79318c75bc0c6c300d2f4557fb",
+          "at": "2026-09-29",
+          "via": "baseline"
+        },
+        "cover": {
+          "sha256": "57e150b25f8222a9391fd2ebb924ddac12403facab3f02163fdc095160e87245",
+          "at": "2026-09-29",
+          "via": "baseline"
+        }
+      }
     },
     {
       "id": "c-09",
@@ -779,7 +1055,19 @@
           "from": 1250,
           "to": 1650
         }
-      ]
+      ],
+      "uploaded": {
+        "epub": {
+          "sha256": "a9df0adea02cd476d33379a805ea3982e16d3190f256c68b5570985df0b88a07",
+          "at": "2026-09-29",
+          "via": "baseline"
+        },
+        "cover": {
+          "sha256": "701e755e2c127143572e3cf68c3fb123327826b84bef9b8108460a5e74a130af",
+          "at": "2026-09-29",
+          "via": "baseline"
+        }
+      }
     },
     {
       "id": "c-10",
@@ -812,7 +1100,19 @@
           "from": 1250,
           "to": 1650
         }
-      ]
+      ],
+      "uploaded": {
+        "epub": {
+          "sha256": "92bb02d88c7cb6054e8f9bcbe577abbc435203f37322f3b57297d47c018369b0",
+          "at": "2026-09-29",
+          "via": "baseline"
+        },
+        "cover": {
+          "sha256": "cba2b117dca2adb733d6bc5f32d449fe6c3674ced200364b087d0db708e461f9",
+          "at": "2026-09-29",
+          "via": "baseline"
+        }
+      }
     },
     {
       "id": "c-11",
@@ -845,7 +1145,19 @@
           "from": 1250,
           "to": 1650
         }
-      ]
+      ],
+      "uploaded": {
+        "epub": {
+          "sha256": "ca3a26507ede02e7bad79041574e6d4a4cc637765428f2778c57828b2e1316e2",
+          "at": "2026-09-29",
+          "via": "baseline"
+        },
+        "cover": {
+          "sha256": "24a22107629d3405e0d3c0300fef6aa72429461710727fdc35f4e7605e0a1002",
+          "at": "2026-09-29",
+          "via": "baseline"
+        }
+      }
     },
     {
       "id": "c-I",
@@ -878,7 +1190,19 @@
           "from": 1250,
           "to": 1650
         }
-      ]
+      ],
+      "uploaded": {
+        "epub": {
+          "sha256": "03b8f3f9eed687fd359fc93ae02d3329a24c231616b762bd0d8dd77d3a007cd0",
+          "at": "2026-09-29",
+          "via": "baseline"
+        },
+        "cover": {
+          "sha256": "4e32b14f5c7d14b2e3eeef1e15b10d3beaf43b6acd86775842665be353288531",
+          "at": "2026-09-29",
+          "via": "baseline"
+        }
+      }
     },
     {
       "id": "f-01",
@@ -904,7 +1228,19 @@
       ],
       "draftAsin": "AZQ24V18B5OKN",
       "submittedDate": "2026-07-27",
-      "publishedDate": "2026-07-27"
+      "publishedDate": "2026-07-27",
+      "uploaded": {
+        "epub": {
+          "sha256": "b54824e375d2addbd0e4bfe0ff7d9838d6a96cb7802079379f6bdca5c07a8e1b",
+          "at": "2026-09-29",
+          "via": "baseline"
+        },
+        "cover": {
+          "sha256": "a9b796ee4493178c1fce9310b44d3bcf29632f69dff5fac78c3834b2a642877a",
+          "at": "2026-09-29",
+          "via": "baseline"
+        }
+      }
     },
     {
       "id": "f-02",
@@ -930,7 +1266,19 @@
       ],
       "draftAsin": "A19DA1FEU42JLG",
       "submittedDate": "2026-07-27",
-      "publishedDate": "2026-07-27"
+      "publishedDate": "2026-07-27",
+      "uploaded": {
+        "epub": {
+          "sha256": "a16a5e33ade08225f78189352e2f2ea7070a1b09a3208058920a9564c125e5b5",
+          "at": "2026-09-29",
+          "via": "baseline"
+        },
+        "cover": {
+          "sha256": "a33950cefed07fb79d41e08fcf481a566d0b4bd7e6e04484c6056d27311a33c2",
+          "at": "2026-09-29",
+          "via": "baseline"
+        }
+      }
     },
     {
       "id": "f-03",
@@ -956,7 +1304,19 @@
       ],
       "draftAsin": "A2GZNUK12SE3C3",
       "submittedDate": "2026-07-27",
-      "publishedDate": "2026-07-27"
+      "publishedDate": "2026-07-27",
+      "uploaded": {
+        "epub": {
+          "sha256": "227078fb0877c4522ce40105ba960adec80e2b92bf7d866033bcd4ab4d9e3155",
+          "at": "2026-09-29",
+          "via": "baseline"
+        },
+        "cover": {
+          "sha256": "07dc428eabc55c80f20e573c61df261b58dd46d01d17febb814e818c1f9e03fe",
+          "at": "2026-09-29",
+          "via": "baseline"
+        }
+      }
     },
     {
       "id": "f-04",
@@ -982,7 +1342,19 @@
       ],
       "draftAsin": "AF2FX6X693HN6",
       "submittedDate": "2026-07-27",
-      "publishedDate": "2026-07-27"
+      "publishedDate": "2026-07-27",
+      "uploaded": {
+        "epub": {
+          "sha256": "5e5d4276e1d0b84fcafae2888327f2637065d414c70e0522c1705d09e062ae95",
+          "at": "2026-09-29",
+          "via": "baseline"
+        },
+        "cover": {
+          "sha256": "1819c0301dd0aa36eb3ab442f19a7c8b55306c350b46b6344185c2b57a5c6a86",
+          "at": "2026-09-29",
+          "via": "baseline"
+        }
+      }
     },
     {
       "id": "f-05",
@@ -1008,7 +1380,19 @@
       ],
       "draftAsin": "A1XSZ6C2OWIWDD",
       "submittedDate": "2026-07-27",
-      "publishedDate": "2026-07-27"
+      "publishedDate": "2026-07-27",
+      "uploaded": {
+        "epub": {
+          "sha256": "3c4903cc86727d507f6caf0b241ad046ad9da32bede1188307596af595a531be",
+          "at": "2026-09-29",
+          "via": "baseline"
+        },
+        "cover": {
+          "sha256": "599fa15b6cc0d5080e5996aaa994491f80d2174259522a06471c90fd960281b5",
+          "at": "2026-09-29",
+          "via": "baseline"
+        }
+      }
     },
     {
       "id": "f-06",
@@ -1034,7 +1418,19 @@
       ],
       "draftAsin": "A3FDLXGX4XWXNI",
       "submittedDate": "2026-07-27",
-      "publishedDate": "2026-07-27"
+      "publishedDate": "2026-07-27",
+      "uploaded": {
+        "epub": {
+          "sha256": "2d824f824749d96e68dbf1050932f79474318a4d833ac4143b44aaf5f3406dae",
+          "at": "2026-09-29",
+          "via": "baseline"
+        },
+        "cover": {
+          "sha256": "3892d540a07358d8efb4711d052fbebfc3ce92c6ec0b48b4e6d221fe1c72d093",
+          "at": "2026-09-29",
+          "via": "baseline"
+        }
+      }
     },
     {
       "id": "f-07",
@@ -1060,7 +1456,19 @@
       ],
       "draftAsin": "A139HU0RSV7SW",
       "submittedDate": "2026-07-27",
-      "publishedDate": "2026-07-27"
+      "publishedDate": "2026-07-27",
+      "uploaded": {
+        "epub": {
+          "sha256": "acc379114a81c77d24901d0e47dd6d448b9d4db7c1132bc2f798220dffc6108f",
+          "at": "2026-09-29",
+          "via": "baseline"
+        },
+        "cover": {
+          "sha256": "584efe4e88090777870a769be841f5e4080568cf97d1199a8624d67d53e3df5c",
+          "at": "2026-09-29",
+          "via": "baseline"
+        }
+      }
     },
     {
       "id": "f-08",
@@ -1095,7 +1503,19 @@
         }
       ],
       "draftAsin": "A2NF277QIFSS1A",
-      "publishedDate": "2026-08-27"
+      "publishedDate": "2026-08-27",
+      "uploaded": {
+        "epub": {
+          "sha256": "218b9df51d6659aae783d853f081afbd005307591ed5e37c7c44d46f04cb1690",
+          "at": "2026-09-29",
+          "via": "baseline"
+        },
+        "cover": {
+          "sha256": "39784ca451831bedcf6a096c14f9cb7397daad67c0b0ba65142aae6382bbefc1",
+          "at": "2026-09-29",
+          "via": "baseline"
+        }
+      }
     },
     {
       "id": "f-09",
@@ -1130,7 +1550,19 @@
         }
       ],
       "draftAsin": "A30Q37A4AVVCC6",
-      "publishedDate": "2026-08-27"
+      "publishedDate": "2026-08-27",
+      "uploaded": {
+        "epub": {
+          "sha256": "1fca0ba8bc2c5dc9a32bb703d6c4f7c0d82e845c8555ecc7a01230876a29494d",
+          "at": "2026-09-29",
+          "via": "baseline"
+        },
+        "cover": {
+          "sha256": "838477dc24a57b6cb08d48fe83abdf907051190a364176b1db2e61c3ac5caa32",
+          "at": "2026-09-29",
+          "via": "baseline"
+        }
+      }
     },
     {
       "id": "f-10",
@@ -1165,7 +1597,19 @@
         }
       ],
       "draftAsin": "A38R83UMIERQLB",
-      "publishedDate": "2026-08-27"
+      "publishedDate": "2026-08-27",
+      "uploaded": {
+        "epub": {
+          "sha256": "9c9ebd25245e56e0012a53bfec87e64db0f102477a6ab29ae2f6f8b68503c48f",
+          "at": "2026-09-29",
+          "via": "baseline"
+        },
+        "cover": {
+          "sha256": "e32166e7acf71bee9fa46812d54aa886a1bb49378dc567a52e6a1230ba019d64",
+          "at": "2026-09-29",
+          "via": "baseline"
+        }
+      }
     },
     {
       "id": "f-11",
@@ -1200,7 +1644,19 @@
         }
       ],
       "draftAsin": "A6R4WDFOK345G",
-      "publishedDate": "2026-08-27"
+      "publishedDate": "2026-08-27",
+      "uploaded": {
+        "epub": {
+          "sha256": "d52ee2204589c3f33763b325fcd54b168e466fea3ae31287f1bc69c7a96cdbbd",
+          "at": "2026-09-29",
+          "via": "baseline"
+        },
+        "cover": {
+          "sha256": "3d1243c650630094ec038c8b82efebd30d6e6a65302980f7776736c9dd6f8aa9",
+          "at": "2026-09-29",
+          "via": "baseline"
+        }
+      }
     },
     {
       "id": "f-12",
@@ -1235,7 +1691,19 @@
         }
       ],
       "draftAsin": "APMEFPLY0KJ0J",
-      "publishedDate": "2026-08-27"
+      "publishedDate": "2026-08-27",
+      "uploaded": {
+        "epub": {
+          "sha256": "b540fa239197d87b3f35ffa2e495babe339cd6e9b956f6ad1c77ac50acade452",
+          "at": "2026-09-29",
+          "via": "baseline"
+        },
+        "cover": {
+          "sha256": "eb0be924171e953a6e0109eda5e981f42aa304459826a7e5afc259dee0b6dc90",
+          "at": "2026-09-29",
+          "via": "baseline"
+        }
+      }
     },
     {
       "id": "f-13",
@@ -1270,7 +1738,19 @@
         }
       ],
       "draftAsin": "A2POURQ85XVC03",
-      "publishedDate": "2026-08-27"
+      "publishedDate": "2026-08-27",
+      "uploaded": {
+        "epub": {
+          "sha256": "1f8c127181d73356a012d1cf327f17f781d6c925b8ed72d48931b71f5096a742",
+          "at": "2026-09-29",
+          "via": "baseline"
+        },
+        "cover": {
+          "sha256": "d64ff7f3b71c36d8e67017a1b872b6485e9ce42e4b9876b7b946d2456e12517c",
+          "at": "2026-09-29",
+          "via": "baseline"
+        }
+      }
     },
     {
       "id": "f-14",
@@ -1305,7 +1785,19 @@
         }
       ],
       "draftAsin": "A38LL41WKHPDFG",
-      "publishedDate": "2026-08-27"
+      "publishedDate": "2026-08-27",
+      "uploaded": {
+        "epub": {
+          "sha256": "d075838ab381e23c44a64a095b528ebf40b27aab652d24b388360c640b50a3b5",
+          "at": "2026-09-29",
+          "via": "baseline"
+        },
+        "cover": {
+          "sha256": "6c71b4fc263eede32460f2b420ebfc2efa1a5b912a9ecb756ad76f555736c61a",
+          "at": "2026-09-29",
+          "via": "baseline"
+        }
+      }
     },
     {
       "id": "f-15",
@@ -1347,7 +1839,19 @@
           "from": 1250,
           "to": 1650
         }
-      ]
+      ],
+      "uploaded": {
+        "epub": {
+          "sha256": "b481ac1c0c8da5f7f4d69cfb5fa148a3e6f3fb285d29b5eef778c0eecd0d6ec8",
+          "at": "2026-09-29",
+          "via": "baseline"
+        },
+        "cover": {
+          "sha256": "213080e57e3440a7e0ef8eee4f7a41586f4b5ef1c02eebeda64788564db6e6c9",
+          "at": "2026-09-29",
+          "via": "baseline"
+        }
+      }
     },
     {
       "id": "f-16",
@@ -1389,7 +1893,19 @@
           "from": 1250,
           "to": 1650
         }
-      ]
+      ],
+      "uploaded": {
+        "epub": {
+          "sha256": "452b384e7ab73763e2c16c792b2bf5e8634854449bb0a3527a5709007d70c5c5",
+          "at": "2026-09-29",
+          "via": "baseline"
+        },
+        "cover": {
+          "sha256": "c6e45f54b5d98af0c5800848e84140bf85c133421b07f9181e7cd13442c65bb2",
+          "at": "2026-09-29",
+          "via": "baseline"
+        }
+      }
     },
     {
       "id": "g-01",
@@ -1430,7 +1946,19 @@
       ],
       "draftAsin": "A2OMU1X8YED1C1",
       "publishedDate": "2026-09-04",
-      "notes": "KDP Select加入中（2026-08-28〜2026-11-25）。2026-09-20に自動更新をオフにし、再読込後も未選択を確認。択一98問のnote PDFは2026-11-26以降に公開する。"
+      "notes": "KDP Select加入中（2026-08-28〜2026-11-25）。2026-09-20に自動更新をオフにし、再読込後も未選択を確認。択一98問のnote PDFは2026-11-26以降に公開する。",
+      "uploaded": {
+        "epub": {
+          "sha256": "55e4aecf8fc06f675612663811687026c6836fd6e8815a1d96aa6643fa597ac3",
+          "at": "2026-09-29",
+          "via": "baseline"
+        },
+        "cover": {
+          "sha256": "ee740034f60b8b556e06ee7fe3dd5d9f7516e9cafa4d99cfb648ac60bdafdf3b",
+          "at": "2026-09-29",
+          "via": "baseline"
+        }
+      }
     },
     {
       "id": "g-02",
@@ -1465,7 +1993,19 @@
         }
       ],
       "draftAsin": "A1SOBDV0E25MSK",
-      "publishedDate": "2026-09-04"
+      "publishedDate": "2026-09-04",
+      "uploaded": {
+        "epub": {
+          "sha256": "3c0807a37d550244951d592e616a326f92e480772a8d5217fd60be7472ea05d2",
+          "at": "2026-09-29",
+          "via": "baseline"
+        },
+        "cover": {
+          "sha256": "c9f9443825e09879431a47f967d9dcd220e6d9f6598b5945e143bb224a228a6a",
+          "at": "2026-09-29",
+          "via": "baseline"
+        }
+      }
     },
     {
       "id": "h-01",
@@ -1513,7 +2053,19 @@
           "to": 2980
         }
       ],
-      "submittedDate": "2026-09-23"
+      "submittedDate": "2026-09-23",
+      "uploaded": {
+        "epub": {
+          "sha256": "da73e07f8244b619a58bd7303a759e347691499b14c16bc203339b4582317314",
+          "at": "2026-09-29",
+          "via": "baseline"
+        },
+        "cover": {
+          "sha256": "fa15e1df387be81116846b20d28c06ae413b7118551efe2752b70b5bcfedb580",
+          "at": "2026-09-29",
+          "via": "baseline"
+        }
+      }
     },
     {
       "id": "i-01",
@@ -2031,7 +2583,19 @@
         }
       ],
       "draftAsin": "A2F5NI40EC0Z0U",
-      "publishedDate": null
+      "publishedDate": null,
+      "uploaded": {
+        "epub": {
+          "sha256": "7aea88de26d421e1beba3c4f76ab8241433234408cddb06af28a1fe3b50dcf13",
+          "at": "2026-09-29",
+          "via": "baseline"
+        },
+        "cover": {
+          "sha256": "53baab26ef38959a2c1700ebed2e37e5de277521b94622ae0ef8e22fa24a5c97",
+          "at": "2026-09-29",
+          "via": "baseline"
+        }
+      }
     },
     {
       "id": "j-02",
@@ -2090,7 +2654,19 @@
         }
       ],
       "draftAsin": "A2CG0D790LFPP4",
-      "publishedDate": null
+      "publishedDate": null,
+      "uploaded": {
+        "epub": {
+          "sha256": "d29d1de3c6b5ee31709b9aaa994f559bd09e9010a71bf75668a7f3235d8bfafe",
+          "at": "2026-09-29",
+          "via": "baseline"
+        },
+        "cover": {
+          "sha256": "0d1321ab14827f0cf9436ee56b9e1effb72803ec3ccef6940a65fdf1561e3643",
+          "at": "2026-09-29",
+          "via": "baseline"
+        }
+      }
     },
     {
       "id": "j-11",

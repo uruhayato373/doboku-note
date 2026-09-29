@@ -44,6 +44,8 @@ import { fetchNoteDetails } from './lib/note-api.mjs';
 import { readCatalog, readListings } from './lib/coconala-catalog.mjs';
 import { checkListedServices, groupLiveIssues } from './lib/coconala-live.mjs';
 import { classifyArticleCtas, extractCtaExpectations } from './lib/note-cta-live.mjs';
+import { artifactRelPaths, loadKindleCatalog } from './lib/kindle-catalog.mjs';
+import { fileSha256, isOnKdp } from './lib/kindle-uploaded.mjs';
 import { BLOCKERS, buildSyncPlan } from './lib/note-sync-plan.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -81,15 +83,15 @@ function spawnIfStale(hours) {
  * 原稿ごとの鍵。git 管理下で変更の無い原稿は index の blob ハッシュ（中身が同じなら worktree を替えても同じ）。
  * 未コミットの変更がある・未追跡の原稿だけ、更新時刻と大きさを鍵にする（読むと遅いので中身は読まない）。
  */
-function noteKeys() {
+function noteKeys(dir = 'content/note') {
   const keys = new Map();
   try {
-    const ls = execFileSync('git', ['ls-files', '-s', '-z', '--', 'content/note'], { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
+    const ls = execFileSync('git', ['ls-files', '-s', '-z', '--', dir], { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
     for (const rec of ls.split('\0')) {
       const m = rec.match(/^\d+ ([0-9a-f]+) \d+\t(.+)$/);
       if (m) keys.set(m[2], `blob:${m[1]}`);
     }
-    const st = execFileSync('git', ['status', '--porcelain', '-z', '--', 'content/note'], { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
+    const st = execFileSync('git', ['status', '--porcelain', '-z', '--', dir], { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
     for (const rec of st.split('\0')) if (rec.length > 3) keys.delete(rec.slice(3));
   } catch { /* git が無い・壊れている → 全部が更新時刻の鍵になるだけ */ }
   return keys;
@@ -217,6 +219,25 @@ async function build() {
     console.log(`${TAG} ココナラの公開照合: 出品中 ${listed.length} 件 / 照合 ${results.length} 件（取得 ${fetched}・食い違い ${results.filter((r) => r.fetched && !r.ok).length}）/ 前回を再利用 ${listed.length - results.length} 件`);
   }
 
+  // Kindle: KDP に上がっている本（公開中・審査中）の手元の EPUB・表紙の sha256。上げた版（catalog の uploaded）と
+  // 管理画面で比べる。ファイルは中身の鍵（git の blob・未コミットは更新時刻）が変わったときだけ読み直す
+  const prevKindle = prev?.version === VERSION ? prev.kindle?.files ?? {} : {};
+  const kindleKeys = noteKeys('scripts');
+  const kindleFiles = {};
+  let kindleRehashed = 0;
+  for (const b of loadKindleCatalog().filter(isOnKdp)) {
+    const rel = artifactRelPaths(b);
+    for (const path of [rel.epub, rel.cover].filter(Boolean)) {
+      const abs = join(ROOT, path);
+      if (!existsSync(abs)) { kindleFiles[path] = { key: null, sha256: null }; continue; }
+      const key = kindleKeys.get(path) ?? (() => { const st = statSync(abs); return `mtime:${st.mtimeMs}:${st.size}`; })();
+      if (prevKindle[path]?.key === key) { kindleFiles[path] = prevKindle[path]; continue; }
+      kindleFiles[path] = { key, sha256: fileSha256(abs) };
+      kindleRehashed += 1;
+    }
+  }
+  console.log(`${TAG} Kindle: 手元の版 ${Object.keys(kindleFiles).length} ファイル（読み直し ${kindleRehashed}）`);
+
   const ledger = {
     _doc: 'scripts/build-content-ledger.mjs が作る管理画面「コンテンツ台帳」用の note 記事の索引（生成物・git 管理外）。正本は原稿と同期の台帳。',
     version: VERSION,
@@ -226,6 +247,7 @@ async function build() {
     blockers: BLOCKERS,
     notes,
     coconala,
+    kindle: { files: kindleFiles },
   };
   mkdirSync(dirname(LEDGER_PATH), { recursive: true });
   writeFileSync(LEDGER_PATH, JSON.stringify(ledger));
