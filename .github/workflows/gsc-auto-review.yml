@@ -128,7 +128,7 @@ jobs:
 
       - name: Run GSC auto review
         if: steps.pre.outputs.has_token == 'true'
-        uses: anthropics/claude-code-action@7b0b255830a1fab6e602658672acad11c12d841d # v1
+        uses: anthropics/claude-code-action@756cc22e19660d20e8cc9496b4f242475a7f7790 # v1
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
