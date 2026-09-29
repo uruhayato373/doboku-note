@@ -8,6 +8,10 @@
  *       Drive 台帳に無い手元ファイルを、置き先の vault フォルダごとに並べる（folderId は null で出る）
  *   node scripts/drive-browser-transfer.mjs upload --plan plan.json
  *       folderId を埋めた plan の各フォルダを開き「新規 → ファイルのアップロード」で送る
+ *   node scripts/drive-browser-transfer.mjs upload-tree --units units.json
+ *       units=[{ parentId, parentName, dir }]。手元のフォルダを丸ごと「フォルダのアップロード」で送る（数百本を一度に）
+ *   node scripts/drive-browser-transfer.mjs resolve --plan plan.json --folders folders.json --root-id <id> --root-path <vault パス>
+ *       フォルダ一覧（Drive MCP の mimeType=folder の files 配列）から plan の folderId を埋める（upload-tree の後）
  *   node scripts/drive-browser-transfer.mjs verify --plan plan.json --listing listing.json --out <dir>
  *       listing（Drive MCP search_files の files 配列）で ID を引き、CDP で応答本文を横取りして
  *       sha256 を手元と照合し、フォルダごとの receipt を <dir> に書く
@@ -19,6 +23,7 @@
  *   - 新しいフォルダを開いた直後の「新規」はマイドライブ直下に落ちる。タブ名が年度名になるまで待つ
  *   - アップロード後の一覧の文字は進行パネルとも一致する。実在は verify（Drive MCP の listing）で確かめる
  *   - 別プロファイルの Chrome が動いていると起動ガードが止める。別プロファイルなら DOBOKU_PW_ALLOW_PARALLEL=1
+ *   - フォルダのアップロードは同名フォルダを統合せず 2 つ目を作る。送る前に置き先に同名が無いことを確かめる
  */
 import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs';
@@ -51,6 +56,30 @@ export function buildPlan(groupId, repoPaths, { cfg, manifest }) {
     folders.get(vaultDir).files.push(p);
   }
   return { group: groupId, folders: [...folders.values()].sort((a, b) => a.vaultPath.localeCompare(b.vaultPath)) };
+}
+
+/**
+ * フォルダ一覧（Drive MCP search_files の files 配列・mimeType=folder）を root から名前でたどり、
+ * plan の各 vaultPath に folderId を埋める。同じ親に同名フォルダが 2 つ以上あれば曖昧として埋めない。
+ */
+export function resolveFolderIds(plan, folders, rootId, rootPath) {
+  const byParent = new Map();
+  for (const f of folders) {
+    const k = `${f.parentId}\u0000${f.title}`;
+    byParent.set(k, byParent.has(k) ? null : f.id);
+  }
+  const unresolved = [];
+  for (const f of plan.folders) {
+    if (f.folderId) continue;
+    if (!f.vaultPath.startsWith(rootPath + '/')) { unresolved.push(f.vaultPath); continue; }
+    let id = rootId;
+    for (const seg of f.vaultPath.slice(rootPath.length + 1).split('/')) {
+      id = byParent.get(`${id}\u0000${seg}`) ?? null;
+      if (!id) break;
+    }
+    if (id) f.folderId = id; else unresolved.push(f.vaultPath);
+  }
+  return unresolved;
 }
 
 /** 走査の相対パス（Windows は \ 区切り）を repo 相対の / 区切りにする。 */
@@ -146,6 +175,44 @@ async function remoteSha(ctx, page, fileId) {
   }
 }
 
+/**
+ * units: [{ parentId, parentName, dir }]。dir（手元のフォルダ）を丸ごと parentId の下へ「フォルダのアップロード」で送る。
+ * Drive は同名フォルダがあっても統合せず 2 つ目を作るので、送る前に Drive MCP で同名が無いことを確かめておく。
+ */
+async function uploadTree(units) {
+  const ctx = await openContext();
+  let ok = 0, ng = 0;
+  try {
+    const page = ctx.pages()[0] ?? await ctx.newPage();
+    await page.goto('https://drive.google.com/drive/my-drive', { waitUntil: 'domcontentloaded', timeout: 60_000 });
+    await page.waitForTimeout(8000);
+    for (const u of units) {
+      const abs = resolve(REPO_ROOT, u.dir);
+      const files = walk(abs);
+      try {
+        await page.goto(`https://drive.google.com/drive/folders/${u.parentId}`, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+        await page.waitForFunction((n) => document.title.startsWith(`${n} - `), u.parentName, { timeout: 60_000 });
+        await page.waitForTimeout(3000);
+        await page.getByRole('button', { name: /新規|New/ }).first().click({ timeout: 30_000 });
+        const chooserP = page.waitForEvent('filechooser', { timeout: 30_000 });
+        await page.getByRole('menuitem', { name: /フォルダのアップロード|Folder upload/ }).first().click();
+        await (await chooserP).setFiles(abs);
+        const bytes = files.reduce((s, p) => s + statSync(p).size, 0);
+        await page.waitForTimeout(30_000 + files.length * 1500 + Math.ceil(bytes / 200_000) * 1000);
+        ok += files.length;
+        console.log(`SENT ${u.dir} → ${u.parentName} ${files.length} 本`);
+      } catch (e) {
+        ng += files.length;
+        console.log(`NG   ${u.dir}: ${oneLine(e)}`);
+      }
+    }
+  } finally {
+    await ctx.close();
+  }
+  console.log(`[${NAME}] upload-tree 送信 ${ok} / 失敗 ${ng}（実在は resolve と verify で確かめる）`);
+  return ng;
+}
+
 async function verify(plan, listing, outDir) {
   mkdirSync(outDir, { recursive: true });
   const ctx = await openContext();
@@ -194,10 +261,19 @@ async function main() {
     console.error(`[${NAME}] plan: 手元 ${repoPaths.length} 件を走査 / 未登録 ${plan.folders.reduce((s, f) => s + f.files.length, 0)} 件・${plan.folders.length} フォルダ`);
     return;
   }
+  if (cmd === 'upload-tree') { process.exitCode = (await uploadTree(JSON.parse(readFileSync(opt('--units'), 'utf8')))) ? 1 : 0; return; }
   const plan = JSON.parse(readFileSync(opt('--plan'), 'utf8'));
+  if (cmd === 'resolve') {
+    const unresolved = resolveFolderIds(plan, JSON.parse(readFileSync(opt('--folders'), 'utf8')), opt('--root-id'), opt('--root-path'));
+    writeFileSync(opt('--plan'), JSON.stringify(plan, null, 2));
+    console.error(`[${NAME}] resolve: ${plan.folders.length - unresolved.length}/${plan.folders.length} フォルダの ID を埋めた`);
+    for (const v of unresolved) console.error(`  未解決 ${v}`);
+    process.exitCode = unresolved.length ? 1 : 0;
+    return;
+  }
   if (cmd === 'upload') process.exitCode = (await upload(plan)) ? 1 : 0;
   else if (cmd === 'verify') process.exitCode = (await verify(plan, JSON.parse(readFileSync(opt('--listing'), 'utf8')), opt('--out'))) ? 1 : 0;
-  else throw new Error('使い方: plan --group G | upload --plan P | verify --plan P --listing L --out DIR');
+  else throw new Error('使い方: plan --group G | upload --plan P | upload-tree --units U | resolve --plan P --folders F --root-id ID --root-path PATH | verify --plan P --listing L --out DIR');
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {

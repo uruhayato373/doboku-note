@@ -45,6 +45,19 @@ domain: material
 10. **合格条件**: `npm run check-past-exam-inventory` で FAIL 0・対象の「Drive 未退避」0、`npm run check-drive-vault` が整合。
     在庫台帳と Drive 台帳を同じ commit にする（`git add` はこの 2 ファイルだけ）。
 
+## 大量に送るとき（新しい資格・部門を丸ごと）
+
+数百本を 5〜6 の手順でフォルダごとに送ると、Drive MCP のフォルダ作成が数百回になる。フォルダ構成ごと送る:
+
+1. 置き先（例 `原資料PDF/過去問`）に同名フォルダが無いことを Drive MCP で確かめる（Drive はフォルダのアップロードで同名を統合しない）。
+2. `.tmp/units.json` に `[{ "parentId": "<置き先の ID>", "parentName": "過去問", "dir": "content/sources/past-exams/{資格}" }]` を書き、
+   `node scripts/drive-browser-transfer.mjs upload-tree --units .tmp/units.json`。既存の資格に年度だけ足すときは `parentId` を資格フォルダにして `dir` を年度フォルダにする。
+3. Drive MCP で `mimeType = 'application/vnd.google-apps.folder' and createdTime > '<開始時刻>'` を取り `.tmp/folders.json` に保存し（既存フォルダも辿るなら資格フォルダも含める）、
+   `node scripts/drive-browser-transfer.mjs resolve --plan .tmp/past-exam-plan.json --folders .tmp/folders.json --root-id <原資料PDF/過去問 の ID> --root-path 原資料PDF/過去問`。
+4. 以降は手順 7〜10 と同じ（listing は PDF の createdTime で取り、ページを全部たどる）。
+
+資格台帳に無い試験（技術士の他部門・都道府県の採用試験など）は、在庫台帳に `registry: false` と `label` を付けて載せる。
+
 ## やってはいけないこと
 
 - 誤った場所に置いたファイルを放置しない。Drive MCP の `update_file`（`parentId`）で正しいフォルダへ移す。
