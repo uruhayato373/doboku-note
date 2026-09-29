@@ -90,10 +90,13 @@
       "manages": "品揃えと販売チャネル（note・ココナラ・Kindle・アプリ）・売上・商品品質・商品への動線",
       "nav": [
         {
-          "label": "商品ラインナップ",
-          "href": "/content/lineup",
+          "label": "コンテンツ台帳",
+          "href": "/content/ledger",
           "kind": "inventory",
-          "match": "/content/lineup"
+          "match": "/content/ledger",
+          "matchAlso": [
+            "/content/lineup"
+          ]
         },
         {
           "label": "売上",

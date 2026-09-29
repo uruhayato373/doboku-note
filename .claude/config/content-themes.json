@@ -1,24 +1,85 @@
 {
-  "_doc": "制作物の「テーマ」の語彙と、チャネルごとの制作物をテーマへ写すルール（DN-0437）。テーマは qualification-registry.json の資格 id・資格ファミリー id と、下の topics（資格以外の話題）のどれか。名前は qualification-registry.json から引き、ここに写さない。ルールは上から順に評価し最初の一致を採る。記事の frontmatter に contentTheme: があればルールより優先する（theme: は出題テーマ名として既に 45 本が使っているので使わない）。どれにも当たらない制作物は「未分類」として画面で赤く出す（黙って落とさない）。ファイルは移動しない（同期の台帳・リンクが壊れるため）。判定は scripts/lib/content-theme.mjs だけに書く。",
+  "_doc": "制作物の「テーマ」の語彙と、チャネルごとの制作物をテーマへ写すルール（DN-0437）。テーマは qualification-registry.json の資格 id・資格ファミリー id と、下の topics（資格以外の話題）のどれか。名前は qualification-registry.json から引き、ここに写さない。ルールは上から順に評価し最初の一致を採る。記事の frontmatter に contentTheme: があればルールより優先する（theme: は出題テーマ名として既に 45 本が使っているので使わない）。どれにも当たらない制作物は「未分類」として画面で赤く出す（黙って落とさない）。ファイルは移動しない（同期の台帳・リンクが壊れるため）。判定は scripts/lib/content-theme.mjs だけに書く。 shortLabels はサイドメニュー用の短い名前（無ければ正式名）。",
   "topics": [
-    { "id": "career", "label": "転職・キャリア" },
-    { "id": "common", "label": "共通・運営" }
+    {
+      "id": "career",
+      "label": "転職・キャリア"
+    },
+    {
+      "id": "common",
+      "label": "共通・運営"
+    }
   ],
+  "shortLabels": {
+    "civil-construction-1": "1級土木",
+    "civil-construction-2": "2級土木",
+    "civil-construction": "1・2級土木 共通",
+    "pe-first-stage": "技術士一次",
+    "pe-construction": "技術士 建設部門",
+    "pe-comprehensive-management": "技術士 総監",
+    "pe-water-supply": "技術士 上下水道",
+    "concrete-chief-engineer": "コンクリート主任",
+    "concrete-engineer": "コンクリート技士",
+    "concrete-diagnostician": "コンクリート診断士",
+    "pavement-1": "1級舗装",
+    "pavement-2": "2級舗装"
+  },
   "rules": {
     "note": [
-      { "theme": "career", "utmCampaignPrefix": "civil-career-", "why": "転職・キャリアの記事は資格のフォルダに置いてあるが、utmCampaign が civil-career- で始まる" },
-      { "theme": "career", "pathPrefix": "共通/資格活用キャリアマップ/" },
-      { "theme": "civil-construction-1", "pathPrefix": "1級・2級土木/1級土木/" },
-      { "theme": "civil-construction-2", "pathPrefix": "1級・2級土木/2級土木/" },
-      { "theme": "civil-construction", "pathPrefix": "1級・2級土木/", "why": "1級・2級どちらにも向けた無料記事・もくじ・会員記事" },
-      { "theme": "pe-comprehensive-management", "pathPrefix": "技術士総監/" },
-      { "theme": "pe-construction", "pathPrefix": "技術士建設部門/" },
-      { "theme": "pe-first-stage", "pathPrefix": "技術士一次/" },
-      { "theme": "rccm", "pathPrefix": "RCCM/" },
-      { "theme": "concrete-engineer", "pathPrefix": "コンクリート技士/" },
-      { "theme": "concrete-chief-engineer", "pathPrefix": "コンクリート主任技士/" },
-      { "theme": "concrete-diagnostician", "pathPrefix": "コンクリート診断士/" },
-      { "theme": "common", "pathPrefix": "共通/" }
+      {
+        "theme": "career",
+        "utmCampaignPrefix": "civil-career-",
+        "why": "転職・キャリアの記事は資格のフォルダに置いてあるが、utmCampaign が civil-career- で始まる"
+      },
+      {
+        "theme": "career",
+        "pathPrefix": "共通/資格活用キャリアマップ/"
+      },
+      {
+        "theme": "civil-construction-1",
+        "pathPrefix": "1級・2級土木/1級土木/"
+      },
+      {
+        "theme": "civil-construction-2",
+        "pathPrefix": "1級・2級土木/2級土木/"
+      },
+      {
+        "theme": "civil-construction",
+        "pathPrefix": "1級・2級土木/",
+        "why": "1級・2級どちらにも向けた無料記事・もくじ・会員記事"
+      },
+      {
+        "theme": "pe-comprehensive-management",
+        "pathPrefix": "技術士総監/"
+      },
+      {
+        "theme": "pe-construction",
+        "pathPrefix": "技術士建設部門/"
+      },
+      {
+        "theme": "pe-first-stage",
+        "pathPrefix": "技術士一次/"
+      },
+      {
+        "theme": "rccm",
+        "pathPrefix": "RCCM/"
+      },
+      {
+        "theme": "concrete-engineer",
+        "pathPrefix": "コンクリート技士/"
+      },
+      {
+        "theme": "concrete-chief-engineer",
+        "pathPrefix": "コンクリート主任技士/"
+      },
+      {
+        "theme": "concrete-diagnostician",
+        "pathPrefix": "コンクリート診断士/"
+      },
+      {
+        "theme": "common",
+        "pathPrefix": "共通/"
+      }
     ]
   }
 }
