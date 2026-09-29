@@ -33,6 +33,8 @@ const EXAM_THEME: Record<string, ExamTheme> = {
   "concrete-chief-engineer": { bar: "bg-(--exam-concrete-chief)", hoverBorder: "hover:border-(--exam-concrete-chief)" },
   "concrete-diagnostician": { bar: "bg-(--exam-concrete-diagnosis)", hoverBorder: "hover:border-(--exam-concrete-diagnosis)" },
   rccm: { bar: "bg-(--exam-rccm)", hoverBorder: "hover:border-(--exam-rccm)" },
+  surveyor: { bar: "bg-(--exam-surveyor)", hoverBorder: "hover:border-(--exam-surveyor)" },
+  pavement: { bar: "bg-(--exam-pavement)", hoverBorder: "hover:border-(--exam-pavement)" },
 };
 const FALLBACK_THEME: ExamTheme = { bar: "bg-(--accent)", hoverBorder: "hover:border-(--accent)" };
 

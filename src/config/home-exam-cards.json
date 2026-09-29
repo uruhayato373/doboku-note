@@ -132,5 +132,49 @@
         "tags": []
       }
     ]
+  },
+  {
+    "slug": "surveyor",
+    "order": 9,
+    "label": "測量士・測量士補",
+    "en": "Surveyor",
+    "subtitle": "午前 択一・午後 記述式 対策",
+    "description": "午後記述式の分野別の出題傾向と解き方の型、測量士補の択一の勉強法を、令和4〜8年度の公式問題から整理。",
+    "nextExam": "2027年5月（予定）",
+    "stats": [
+      {
+        "label": "記事",
+        "total": true
+      },
+      {
+        "label": "ガイド",
+        "groups": [
+          "guide"
+        ],
+        "tags": []
+      }
+    ]
+  },
+  {
+    "slug": "pavement",
+    "order": 10,
+    "label": "舗装施工管理技術者",
+    "en": "Pavement Engineer",
+    "subtitle": "一般試験・応用試験 対策",
+    "description": "応用試験の経験記述の書き方と、設計・材料・施工・維持修繕の頻出論点を1級・2級別に整理。",
+    "nextExam": "2027年6月（予定）",
+    "stats": [
+      {
+        "label": "記事",
+        "total": true
+      },
+      {
+        "label": "ガイド",
+        "groups": [
+          "guide"
+        ],
+        "tags": []
+      }
+    ]
   }
 ]

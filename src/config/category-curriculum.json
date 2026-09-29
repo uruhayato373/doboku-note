@@ -624,5 +624,29 @@
         "guide-difference-pe"
       ]
     }
+  },
+  "surveyor": {
+    "examGuide": {
+      "title": "受験ガイド",
+      "description": "試験の概要・午後記述式の分野選び・測量士補の択一・学習計画",
+      "slugs": [
+        "guide-overview",
+        "guide-gogo-bunya",
+        "guide-assistant-takuitsu",
+        "guide-study-plan"
+      ]
+    }
+  },
+  "pavement": {
+    "examGuide": {
+      "title": "受験ガイド",
+      "description": "試験の概要・応用試験の経験記述・選択問題の頻出論点・学習計画",
+      "slugs": [
+        "guide-overview",
+        "guide-keiken-kijutsu",
+        "guide-sentaku-hinshutsu",
+        "guide-study-plan"
+      ]
+    }
   }
 }
