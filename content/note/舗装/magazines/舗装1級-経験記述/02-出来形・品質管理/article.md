@@ -8,6 +8,13 @@ noteStatus: draft
 utmCampaign: pavement-2027
 price: 980
 paidBoundary: "模範答案"
+cover:
+  variant: crop-safe-v4
+  leadIn: "1級舗装 応用試験 問1"
+  headline: "品質管理 模範答案"
+  hi: "96%"
+  hiSuffix: "の判定まで"
+  benefit: "工種別の置換え表つき"
 ---
 # 1級舗装 応用試験 問1｜出来形・品質管理 模範答案と工種別の置換え表
 

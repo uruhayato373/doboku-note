@@ -56,7 +56,7 @@ export function buildArticleTarget(sourceRoot, absPath, { tokens, config }, raw 
     noteStatus: data.noteStatus || null,
     input: {
       cover: { ...data.cover, ...config.articleOverrides[source] }, coverTitle: data.coverTitle, title, examKey, category: exam.short,
-      palette: { band: exam[data.cover?.tone || (data.notePricing === 'paid' ? 'deep' : 'base')] || exam.base },
+      palette: { band: exam[data.cover?.tone || (data.notePricing === 'paid' ? 'deep' : 'base')] || exam.base, authority: exam.authority },
     },
   };
 }
@@ -78,7 +78,7 @@ export function buildMagazineTargets(sourceRoot, magazines, { tokens, v4Map, con
       sourceSha256: hashBytes(JSON.stringify(mag)), imagePath,
       previousImageSha256: existsSync(join(sourceRoot, imagePath)) ? hashBytes(readFileSync(join(sourceRoot, imagePath))) : null,
       noteKey: mag.noteKey || null,
-      input: { ...mag, cover: mag, magazine: true, examKey, palette: { band: mag.fillBg || tokens.exams[examKey].deep, label: mag.category } },
+      input: { ...mag, cover: mag, magazine: true, examKey, palette: { band: mag.fillBg || tokens.exams[examKey].deep, label: mag.category, authority: tokens.exams[examKey].authority } },
     });
   }
   return { targets, retired, errors };

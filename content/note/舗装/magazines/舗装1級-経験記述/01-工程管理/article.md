@@ -8,6 +8,13 @@ noteStatus: draft
 utmCampaign: pavement-2027
 price: 980
 paidBoundary: "模範答案"
+cover:
+  variant: crop-safe-v4
+  leadIn: "1級舗装 応用試験 問1"
+  headline: "工程管理 模範答案"
+  hi: "夜間"
+  hiSuffix: "規制の工事"
+  benefit: "工種別の置換え表つき"
 ---
 # 1級舗装 応用試験 問1｜工程管理 模範答案と工種別の置換え表
 

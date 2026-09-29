@@ -6,6 +6,13 @@ noteContentType: learning
 noteMagazine: 舗装1級-経験記述
 noteStatus: draft
 utmCampaign: pavement-2027
+cover:
+  variant: crop-safe-v4
+  leadIn: "1級舗装 応用試験 問1"
+  headline: "経験記述の組み方"
+  hi: "200"
+  hiSuffix: "・300・100字"
+  benefit: "課題→対策→結果"
 ---
 # 1級舗装 応用試験 問1（経験記述）の書き方｜課題→対策→結果の組み方と字数配分
 

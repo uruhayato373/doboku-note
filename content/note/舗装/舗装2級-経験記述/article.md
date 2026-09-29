@@ -6,6 +6,13 @@ price: 980
 paidBoundary: "模範答案"
 noteStatus: draft
 utmCampaign: pavement-2027
+cover:
+  variant: crop-safe-v4
+  leadIn: "2級舗装 応用試験 問1"
+  headline: "経験記述 模範答案"
+  hi: "78"
+  hiSuffix: "・218字"
+  benefit: "短い字数で書き切る"
 ---
 # 2級舗装 応用試験 問1（経験記述）の模範答案｜課題78字・対策218字の書き方と3本の答案例
 

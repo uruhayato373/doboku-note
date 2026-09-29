@@ -5,6 +5,13 @@ price: 1980
 paidBoundary: "機器別の模範解答"
 noteStatus: draft
 utmCampaign: pipe-work-2027
+cover:
+  variant: crop-safe-v4
+  leadIn: "管工事 第二次検定"
+  headline: "施工記述の模範解答"
+  hi: "13"
+  hiSuffix: "機器"
+  benefit: "R6からの新形式に対応"
 ---
 
 # 管工事施工管理技士 第二次検定「施工記述」機器別 模範解答バンク（1級・2級／令和6年度からの新形式）

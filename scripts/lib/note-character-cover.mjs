@@ -301,7 +301,9 @@ export async function renderNoteCharacterCover(root, input) {
   const tint = /^#[0-9a-f]{6}$/i.test(band) ? `${band}18` : '#eaf2fa';
   const leadSize = fitted(copy.lead, ...leadFit(L));
   const leadWidth = Math.min(790, Math.max(490, Math.ceil(measure(copy.lead, leadSize) + 54)));
-  const authority = input.magazine ? '総監が制作' : '総監が解説';
+  // 解説者の肩書は資格ごとに上書きできる（note-cover-tokens.json exams.*.authority・既定は総監）
+  const who = input.palette?.authority || '総監';
+  const authority = input.magazine ? `${who}が制作` : `${who}が解説`;
   const children = [
     at(0, 0, 1280, 670, [], { background: `linear-gradient(125deg, #ffffff 0%, #f8fafc 58%, ${tint} 100%)` }),
     at(10, 10, 1260, 650, [], { border: `5px solid ${band}`, borderRadius: 8 }),
