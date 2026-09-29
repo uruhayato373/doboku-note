@@ -32,7 +32,10 @@ export function buildThemes(cfg, registry) {
       if (!themes.has(r.theme)) throw new Error(`content-themes.json: rules.${channel} が未知のテーマ ${r.theme} を指している`);
     }
   }
-  return { themes, rules };
+  for (const id of Object.keys(cfg.shortLabels ?? {})) {
+    if (!themes.has(id)) throw new Error(`content-themes.json: shortLabels が未知のテーマ ${id} を指している`);
+  }
+  return { themes, rules, shortLabels: cfg.shortLabels ?? {} };
 }
 
 /**
@@ -54,6 +57,12 @@ export function classifyNote(ctx, rel, fm = {}) {
     return r.theme;
   }
   return UNCLASSIFIED;
+}
+
+/** サイドメニュー用の短い名前（shortLabels に無ければ正式名）。 */
+export function themeShortLabel(ctx, id) {
+  if (!id) return '未分類';
+  return ctx.shortLabels?.[id] ?? themeLabel(ctx, id);
 }
 
 /** テーマ id の表示名。未分類は '未分類'。 */

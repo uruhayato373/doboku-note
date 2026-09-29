@@ -75,3 +75,11 @@ test('実際の note の記事はすべてテーマに分類できる（新し�
   assert.ok(checked > 500, `検査対象が少なすぎる（${checked} 本）`);
   assert.deepEqual(unclassified, []);
 });
+
+test('サイドメニュー用の短い名前（無ければ正式名）', async () => {
+  const { themeShortLabel } = await import('../scripts/lib/content-theme.mjs');
+  const c = buildThemes({ ...cfg, shortLabels: { 'pe-comprehensive-management': '技術士 総監' } }, registry);
+  assert.equal(themeShortLabel(c, 'pe-comprehensive-management'), '技術士 総監');
+  assert.equal(themeShortLabel(c, 'career'), '転職・キャリア');
+  assert.throws(() => buildThemes({ ...cfg, shortLabels: { typo: 'x' } }, registry), /未知のテーマ typo/);
+});

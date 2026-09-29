@@ -92,7 +92,7 @@ function noteCoverIndex(products: { id: string; noteUrl: string }[]): Map<string
   return out;
 }
 
-function loadNoteItems(): LineupItem[] {
+export function loadNoteItems(): LineupItem[] {
   const mags = magazines();
   const covers = noteCoverIndex(mags);
   return mags.map((m) => {
@@ -110,7 +110,7 @@ function loadNoteItems(): LineupItem[] {
   });
 }
 
-function loadCoconalaItems(): LineupItem[] {
+export function loadCoconalaItems(): LineupItem[] {
   const catalog = readCoconalaCatalog() as Record<string, { id: string; status: string; serviceUrl: string; priceYen: number | null; title: string; shortTitle: string | null; pauseReason: string | null }>;
   return Object.values(catalog).map((s) => {
     const stage = coconalaStatusToStage(s.status, s.pauseReason) ?? 'unknown';
@@ -127,7 +127,7 @@ function loadCoconalaItems(): LineupItem[] {
   });
 }
 
-function loadKindleItems(): LineupItem[] {
+export function loadKindleItems(): LineupItem[] {
   return loadKindleCatalog().map((b: { id: string; title: string; priceJpy: number; status: string; asin: string | null }) => {
     const stage = kindleStatusToStage(b.status) ?? 'unknown';
     return {
@@ -188,16 +188,4 @@ export function loadLineupView(): LineupView {
     if (i.stage === 'published') t.published += 1;
   }
   return { channels: config.channels, rows, unclassified, configErrors, sourceErrors, totals };
-}
-
-/** サイドバー「商品ラインナップ」の下に並べる資格（ラインナップ設定の順）。設定が読めなければ空。 */
-export function lineupQualifications(): { id: string; label: string }[] {
-  try {
-    const config = JSON.parse(readFileSync(repoPath('.claude', 'config', 'product-lineup.json'), 'utf8')) as {
-      qualifications: { id: string; label: string }[];
-    };
-    return config.qualifications.map((q) => ({ id: q.id, label: q.label }));
-  } catch {
-    return [];
-  }
 }
