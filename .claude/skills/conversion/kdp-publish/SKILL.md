@@ -181,6 +181,8 @@ node scripts/kdp-publish.mjs --diag-category --asin <既存draft ASIN>
 node scripts/kdp-publish.mjs --id <id> --update-manuscript [--commit]                 # 原稿(EPUB)だけ・下書き保存まで
 node scripts/kdp-publish.mjs --id <id> --update-cover [--commit [--commit-publish]]    # 表紙だけ・既定 scripts/kindle-dist/<id>.jpg
 ```
+
+**上げた版の記録（2026-09-29）**: 新規の下書き保存・出版・原稿の差し替え・表紙の差し替えが成功すると、上げた EPUB・表紙の sha256 と日時を `catalog.json` の各冊の `uploaded` に書く（`scripts/lib/kindle-uploaded.mjs`）。管理画面のコンテンツ台帳（`/content/ledger?c=kindle`）は、手元でビルドしてある版とこの記録を比べて「本文（EPUB）・画像（表紙）」の済・ずれを出す。KDP の公開ページは機械で照合しないので、ずれ＝「手元を直したがまだ入稿していない」の意味。公開中・審査中の48冊は 2026-09-29 の手元の版を上げた版とみなして記録した（`via: baseline`）。
 両モードとも catalog の live＋ASIN、本棚の「販売中」行、コンテンツページのタイトル/ASIN を照合してから触る（details/pricing は触らない。表紙の再出版だけ pricing で価格一致を確かめて出版ボタンを押す）。修正版は**既存差し替え**（新規作成禁止・[[kindle-dup-prevention]]）。編集ページは Amazon の再認証（/ap/signin）を挟むことがあり、パスワードは人がブラウザで入れる。
 
 ## kdp-operator への委譲

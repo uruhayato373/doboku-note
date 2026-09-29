@@ -34,6 +34,7 @@ import { join, dirname, basename } from 'node:path';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { homedir } from 'node:os';
+import { fileSha256, recordUploaded } from './lib/kindle-uploaded.mjs';
 import { resolveBook, validateBook, getDefaults, hasSpec } from './lib/kdp-common.mjs';
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
@@ -232,6 +233,15 @@ async function gotoTitleSetup(page, url) {
   }
   return false;
 }
+
+// 保存に成功した原稿・表紙のハッシュを catalog の uploaded に書く（管理画面の台帳が手元の版とのずれを出す・lib/kindle-uploaded.mjs）。
+const writeCatalogUploaded = (id, files, via) => {
+  const c = readCatalog(); const b = c?.books?.find((x) => x.id === id); if (!b) return;
+  const at = new Date().toLocaleString('sv-SE', { timeZone: 'Asia/Tokyo' }).replace(' ', 'T') + '+09:00';
+  for (const [part, path] of Object.entries(files)) recordUploaded(b, part, fileSha256(path), { at, via });
+  writeFileSync(CATALOG, JSON.stringify(c, null, 2) + '\n');
+  console.log(`[catalog] ${id} uploaded 記録（${Object.keys(files).join('・')}・${via}）`);
+};
 
 // 改定成功時に catalog.priceJpy を書き戻す（spec と catalog の片側残りを作らない・check-kindle-prices）。
 const writeCatalogPrice = (id, price, from) => {
@@ -444,6 +454,7 @@ try {
       console.log(`[cover] 下書き保存・再読込で差し替えを確認: ${afterCover.thumbKey}`);
 
       if (!COMMIT_PUBLISH) {
+        writeCatalogUploaded(ID, { cover: book.cover }, 'update-cover');
         console.log(`[done] 表紙差し替えを下書き保存: ${ID} / ${catalogBook.asin} / sha256=${sha256}（販売ページへの反映は --commit-publish で再出版）`);
         await ctx.close(); process.exit(0);
       }
@@ -485,6 +496,7 @@ try {
         for (const f of outcome.fields) console.error(`  欄: ${f.name || '(名前なし)'} … ${f.near}`);
         await ctx.close(); process.exit(4);
       }
+      writeCatalogUploaded(ID, { cover: book.cover }, 'update-cover');
       console.log(`[done] 表紙差し替えを再出版: ${ID} / ${catalogBook.asin} / sha256=${sha256}（変更事項のレビューへ・反映まで最大 72h） URL=${outcome.url}`);
       await ctx.close(); process.exit(0);
     }
@@ -574,6 +586,7 @@ try {
       await shot(page, 'update-verify-fail'); await ctx.close(); process.exit(4);
     }
     await shot(page, 'update-verified');
+    writeCatalogUploaded(ID, { epub: book.epub }, 'update-manuscript');
     console.log(`[done] 原稿差し替え完了: ${ID} / ${catalogBook.asin} / ${verified.filename} / sha256=${sha256}`);
     await ctx.close(); process.exit(0);
   }
@@ -1138,6 +1151,7 @@ try {
     for (const sel of ['#save', '#save-announce']) { try { const l = page.locator(sel); if (await l.count()) { await l.first().click({ timeout: 8000 }); break; } } catch {} }
     await sleep(4000); await shot(page, '08-saved');
     printChecklist(asin, up);
+    writeCatalogUploaded(ID, { epub: book.epub, cover: book.cover }, 'new-draft');
     console.log('[done] DRAFT 完了（詳細+カテゴリー+原稿処理完了+AI申告+アクセシビリティ+価格・下書き保存）。出版は --commit-publish で再実行。');
     await ctx.close();
     process.exit(0);
@@ -1148,6 +1162,7 @@ try {
   const outcome = pub ? await readPublishOutcome(page) : { ok: false, errors: ['出版ボタンが見つからない'], url: page.url() };
   await shot(page, '09-published');
   console.log('[6] 出版後: ' + (outcome.ok ? 'リクエスト送信確認（審査へ・通常72h）' : `FAIL 出版されていない${outcome.errors.length ? '（' + outcome.errors.join(' / ') + '）' : ''}`) + ' URL=' + outcome.url);
+  if (outcome.ok) writeCatalogUploaded(ID, { epub: book.epub, cover: book.cover }, 'publish');
   await ctx.close();
   process.exit(outcome.ok ? 0 : 2);
 } catch (e) {
