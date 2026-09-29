@@ -174,7 +174,7 @@
 3. ~~最初の 1 商品を設計~~ 2026-09-29 済: 手順1 も済（exam-formats.json 更新・出題分析は content/note/管工事/第二次検定-出題分析.md）。商品は機器別の施工記述 模範解答バンク ¥1,980（content/note/管工事/noteコンテンツ計画.md）。残りは執筆・外部照合（空調は資料根拠）と手順2
 4. 売れたかを見て active にするか決める（`qualification-registry.json` と 06 の判断の記録を同じ commit で直す）
 
-**進捗（2026-09-29）**: 商品の下書き content/note/管工事/施工記述-機器別模範解答バンク/article.md（13機器・数値は告示/SHASE 系資料で照合、8か所修正済み）。残り: 標準仕様書（機械設備工事編）本文との照合・競合スキャン（手順2）・公開。
+**進捗（2026-09-30）**: 商品 content/note/管工事/施工記述-機器別模範解答バンク/article.md（¥1,980・13機器）は公開準備まで完了（draft）。公共建築工事標準仕様書（機械設備工事編）令和7年版と照合済み、カバー・hashtags 済み。残り: 競合スキャン（手順2）と公開（公開は運営者の判断で行う（2026-09-30 決定・下書き止め）。手順: 下書き保存で表示確認 `node scripts/note-publish.mjs --article <path>` → 公開 `--commit`（1記事ずつ・ブラウザ同時1本）→ マガジンは /note-magazine-create・/note-magazine-cover・/note-magazine-add（掲載文は各マガジンの note掲載文.txt）→ note-magazines.ts・product-lineup.json salesRules に登録 → npm run verify-note-status。）。
 
 **完了条件**: note に 1 商品が公開され、`pipe-work-*` の出題形式と競合が正本に記録されている。
 
@@ -396,7 +396,7 @@
 
 **やること**: 2026-09-29 に構成と価格を決めた（content/note/測量士/noteコンテンツ計画.md、R4〜R8 午後の出題分析は同ディレクトリ 午後記述-出題分析.md）。分野別マガジン ¥2,980（序章無料＋No.1〜5 単品 ¥980）→ 計算の型20 ¥1,480 の順に作る。測量士補は有料を作らず、サイト無料記事と過去問アプリで測量士の商品へつなぐ。最終値は公式解答例と照合してから載せる。
 
-**進捗（2026-09-29）**: 下書き完了（未公開）。分野別マガジン content/note/測量士/magazines/測量士午後-分野別/（00 序章〜05）、計算の型20 content/note/測量士/測量士午後-計算の型20/。計算の最終値は公式解答例と照合済み。各記事末尾の「要確認」（R4 No.4 図葉数、R5 C-1 仮杭内訳 ほか）を潰してから公開。
+**進捗（2026-09-30）**: 公開準備まで完了（noteStatus: draft）。分野別マガジン content/note/測量士/magazines/測量士午後-分野別/（00 序章無料＋No.1〜5 各¥980・セット¥2,980、掲載文・_cover.png あり）、計算の型20 content/note/測量士/測量士午後-計算の型20/（¥1,480）。要確認は問題図・解答例・e-Gov で全件解消、新科目名（測地測量・測図測量ほか）を併記。全記事にカバー文言・hashtags（97〜98）済み。公開は運営者の判断で行う（2026-09-30 決定・下書き止め）。手順: 下書き保存で表示確認 `node scripts/note-publish.mjs --article <path>` → 公開 `--commit`（1記事ずつ・ブラウザ同時1本）→ マガジンは /note-magazine-create・/note-magazine-cover・/note-magazine-add（掲載文は各マガジンの note掲載文.txt）→ note-magazines.ts・product-lineup.json salesRules に登録 → npm run verify-note-status。
 
 **完了条件**: 公開して note-magazines.ts（id は `surveyor-`／`assistant-surveyor-` 始まり）・product-lineup.json・salesRules に載せたら、このカードを削除する。
 
@@ -1198,7 +1198,7 @@ CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認し
 
 **やること**: 計画の商品を、civil-keiken-essay-writer／qa の型（重複・捏造・形式の検査）で書く。舗装に広げるならエージェント定義と registry を同じ commit で直す。
 
-**進捗（2026-09-29）**: 下書き完了（noteStatus: draft・未公開）。1級マガジン content/note/舗装/magazines/舗装1級-経験記述/（序章＋工程・出来形品質・安全）、1級選択 content/note/舗装/舗装1級-選択問題-頻出論点/、2級 content/note/舗装/舗装2級-経験記述/。経験記述の数値は国交省 施工管理基準等で照合済み（締固め度は個々94%・平均96%に訂正）。残り: 選択問題の「要確認」箇所を便覧原本で確認→カバー・hashtags→公開→note-magazines.ts/salesRules 登録。
+**進捗（2026-09-30）**: 公開準備まで完了（noteStatus: draft）。1級マガジン content/note/舗装/magazines/舗装1級-経験記述/（序章無料＋工程・出来形品質・安全、各¥980・セット¥2,480、掲載文・_cover.png あり）、1級選択 content/note/舗装/舗装1級-選択問題-頻出論点/（¥1,480・要確認24件を問題図と公的資料で解消）、2級 content/note/舗装/舗装2級-経験記述/（¥980）。全記事にカバー文言・hashtags（97）済み。公開は運営者の判断で行う（2026-09-30 決定・下書き止め）。手順: 下書き保存で表示確認 `node scripts/note-publish.mjs --article <path>` → 公開 `--commit`（1記事ずつ・ブラウザ同時1本）→ マガジンは /note-magazine-create・/note-magazine-cover・/note-magazine-add（掲載文は各マガジンの note掲載文.txt）→ note-magazines.ts・product-lineup.json salesRules に登録 → npm run verify-note-status。
 
 **完了条件**: note で公開し、note-magazines.ts（id は `pavement-` 始まり＝product-lineup.json で分類）と売上記録の salesRules に載せたら、このカードを削除する。
 
