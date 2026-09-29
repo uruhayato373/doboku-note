@@ -14,7 +14,7 @@
  *   node scripts/quality-audit.mjs --json  # 結果 JSON を stdout に出す（レポートファイルも書く）
  *
  * 設計:
- *   - 各チェックは spawnSync で独立プロセス実行。timeout 到達で SIGTERM → status='timeout'（ハング対策完結）。
+ *   - 各チェックは独立プロセスで最大 CONCURRENCY 本並列に実行（serial:true は並列分の後に直列）。timeout 到達で SIGTERM → status='timeout'（ハング対策完結）。
  *   - `ci: true` = マージ前に守るべき厳格チェック（型・テスト・MDX・lint・ラチェット・リンク・台帳整合）。
  *     **結果が PR の diff だけで決まる検査に限る**。壁時計（配信予定日・鮮度）や外部状態に依存する検査を
  *     ここへ入れると、diff と無関係に全 PR が赤くなり、赤が読まれなくなる（2026-09: membership-drip が
@@ -27,7 +27,8 @@
  *   - 外部 API・公開更新（note/R2/deploy/fetch-*）は定義に載せない（副作用ゼロを保証）。
  *   - 存在しない npm script は skip 扱い（新チェックの段階導入に耐える）。
  */
-import { spawnSync } from 'node:child_process';
+import { spawn, spawnSync } from 'node:child_process';
+import { availableParallelism } from 'node:os';
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { join, resolve, dirname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -248,7 +249,7 @@ const CHECKS = [
   { id: 'x-card-render', npm: 'check-x-card-render', timeout: 30_000, ci: true, note: 'Xカード画像の配色・主題・生URL焼込みを描画台帳で検査（画像は開かない）' },
   // 420秒は 876 件の実走で 440秒かかり僅かに超過してフラップした（2026-08-25 実測）。
   // 8 並列化で 263秒まで縮めたうえで、ネットワーク変動の余裕を見て 600秒にした。
-  { id: 'outbound-links', npm: 'check-outbound-links', timeout: 600_000, ci: true, note: '送客先 note.com URL の生死を public API で実査（取得失敗が2割超なら検査不成立で赤）' },
+  { id: 'outbound-links', npm: 'check-outbound-links', timeout: 600_000, ci: false, note: '送客先 note.com URL の生死を public API で実査（取得失敗が2割超なら検査不成立で赤）。外部 API 依存で 1 分半かかり、push 毎に note API を叩くと 403 を招くため週次 report（weekly-review-guard）へ移した（2026-09-30）' },
   // BROKEN_SLUG 166→0（RelatedKeywords 解決を categories.json 由来へ統一・2026-07-13）を受け、
   // site scope の内部リンク切れを ci gate へ昇格（--scope site。build 前 source link 契約）。
   { id: 'internal-links', cmd: ['npm', 'run', '--silent', 'check-links', '--', '--scope', 'site'], timeout: 180_000, ci: true, note: 'site scope の /docs・/category・anchor リンク切れ（RelatedKeywords 共通 resolver）' },
@@ -472,6 +473,29 @@ function failureExcerpt(stdout, stderr, maxLines = 40) {
   return out.join('\n').trim();
 }
 
+/**
+ * spawnSync と同じ形（status / stdout / stderr / error.code='ETIMEDOUT'）を返す非同期版。
+ * 検査を並列に回すために使う（直列だと CI の quality audit が 6 分かかっていた・2026-09-30）。
+ */
+function spawnAsync(cmd, args, { timeout, maxBuffer, ...opts }) {
+  return new Promise((resolveP) => {
+    const child = spawn(cmd, args, { ...opts, stdio: ['ignore', 'pipe', 'pipe'] });
+    let stdout = '', stderr = '', timedOut = false;
+    const cap = (acc, d) => (acc.length < maxBuffer ? acc + d : acc);
+    child.stdout.setEncoding('utf8').on('data', (d) => { stdout = cap(stdout, d); });
+    child.stderr.setEncoding('utf8').on('data', (d) => { stderr = cap(stderr, d); });
+    const timer = setTimeout(() => { timedOut = true; child.kill('SIGTERM'); }, timeout);
+    child.on('error', (error) => { clearTimeout(timer); resolveP({ status: null, stdout, stderr, error }); });
+    child.on('close', (status) => {
+      clearTimeout(timer);
+      resolveP({ status, stdout, stderr, error: timedOut ? Object.assign(new Error('timeout'), { code: 'ETIMEDOUT' }) : undefined });
+    });
+  });
+}
+
+// 同時に走らせる検査の数。QUALITY_AUDIT_CONCURRENCY=1 で従来どおり直列（切り分け用）。
+const CONCURRENCY = Math.max(1, Number(process.env.QUALITY_AUDIT_CONCURRENCY) || Math.min(4, availableParallelism()));
+
 async function runCheck(check) {
   const started = Date.now();
   // --ci は ci:true だけ / --ops は ops:true だけ / --report-only は report 区分だけ。
@@ -491,8 +515,8 @@ async function runCheck(check) {
   // これを放置すると node 直起動の検査だけが走り、残り全部が 0.0s FAIL になる＝「偽赤」で
   // 誰も結果を読まなくなる（CLAUDE.md §9）。コマンドは内部固定でユーザー入力を含まないため
   // shell 経由で安全に起動できる。
-  const r = spawnSync(command[0], command.slice(1), {
-    cwd: ROOT, encoding: 'utf8', timeout: check.timeout, maxBuffer: 16 * 1024 * 1024,
+  const r = await spawnAsync(command[0], command.slice(1), {
+    cwd: ROOT, timeout: check.timeout, maxBuffer: 16 * 1024 * 1024,
     shell: process.platform === 'win32',
     env: { ...process.env, NO_COLOR: '1', FORCE_COLOR: '0' },
   });
@@ -568,8 +592,16 @@ export function githubFailureAnnotation(result) {
 async function main() {
   const stamp = new Date().toISOString();
   const results = [];
-  for (const check of CHECKS) {
-    const res = await runCheck(check);
+  // 並列に実行し、結果の表示と集計は CHECKS の定義順に揃える（ログとレポートの並びを変えない）。
+  // serial:true の検査は、共有ファイルを書くなど並列にすると壊れるもの。並列分が終わってから 1 本ずつ回す。
+  const settled = new Array(CHECKS.length);
+  const parallelIdx = CHECKS.map((c, i) => i).filter((i) => !CHECKS[i].serial);
+  let next = 0;
+  await Promise.all(Array.from({ length: CONCURRENCY }, async () => {
+    while (next < parallelIdx.length) { const i = parallelIdx[next++]; settled[i] = await runCheck(CHECKS[i]); }
+  }));
+  for (let i = 0; i < CHECKS.length; i++) if (CHECKS[i].serial) settled[i] = await runCheck(CHECKS[i]);
+  for (const res of settled) {
     if (res) {
       results.push(res);
       if (CI && process.env.GITHUB_ACTIONS === 'true' && ['fail', 'timeout'].includes(res.status)) {
