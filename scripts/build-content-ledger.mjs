@@ -53,7 +53,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 export const LEDGER_PATH = join(ROOT, '.claude', 'state', 'content-ledger.json');
 const NOTE_ROOT = join(ROOT, 'content', 'note');
 const TAG = '[content-ledger]';
-const VERSION = 5; // 2: 導線照合　3: 導線別　4: 内容鍵　5: note カバー分類
+const VERSION = 6; // 2: 導線の公開照合を追加　3: 導線の種類ごとに照合　4: 記事・出品ごとの鍵（中身のハッシュ）で読み直しを決める　5: 記事区分（noteContentType）を追加　6: note カバー分類を追加
 const argv = process.argv.slice(2);
 const REFRESH = argv.includes('--refresh') || argv.includes('--refresh-cta');
 const NO_LIVE = argv.includes('--no-live');
@@ -87,12 +87,12 @@ function spawnIfStale(hours) {
 function noteKeys(dir = 'content/note') {
   const keys = new Map();
   try {
-    const ls = execFileSync('git', ['ls-files', '-s', '-z', '--', dir], { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
+    const ls = execFileSync('git', ['-c', 'core.quotepath=false', 'ls-files', '-s', '-z', '--', dir], { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
     for (const rec of ls.split('\0')) {
       const m = rec.match(/^\d+ ([0-9a-f]+) \d+\t(.+)$/);
       if (m) keys.set(m[2], `blob:${m[1]}`);
     }
-    const st = execFileSync('git', ['status', '--porcelain', '-z', '--', dir], { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
+    const st = execFileSync('git', ['-c', 'core.quotepath=false', 'status', '--porcelain', '-z', '--', dir], { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
     for (const rec of st.split('\0')) if (rec.length > 3) keys.delete(rec.slice(3));
   } catch { /* git が無い・壊れている → 全部が更新時刻の鍵になるだけ */ }
   return keys;
@@ -144,6 +144,7 @@ async function build() {
       path,
       key,
       title: fm.title || rel.split(/[\\/]/).slice(-2, -1)[0] || path,
+      contentType: fm.noteContentType || 'unknown',
       theme,
       themeLabel: themeLabel(themes, theme),
       coverCategory,

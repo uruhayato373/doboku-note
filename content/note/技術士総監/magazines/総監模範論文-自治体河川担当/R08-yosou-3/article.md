@@ -1,6 +1,7 @@
 ---
 notePricing: paid
 noteSeries: 総監模範論文-自治体河川担当ペルソナ
+noteContentType: product
 utmCampaign: essay-river-muni-r08-3
 noteUrl: "https://note.com/dobokunote/n/n64d64e40212d"
 noteId: "n64d64e40212d"

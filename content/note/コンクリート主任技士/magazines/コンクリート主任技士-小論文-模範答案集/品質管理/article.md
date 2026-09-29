@@ -3,6 +3,7 @@ title: "コンクリート主任技士 小論文 模範答案｜所要の品質�
 notePricing: paid
 paidBoundary: "答案の方針"
 noteSeries: コンクリート主任技士-小論文
+noteContentType: product
 utmCampaign: cce-essay-quality
 noteUrl: "https://note.com/dobokunote/n/n879c64afeae6"
 noteId: "n879c64afeae6"

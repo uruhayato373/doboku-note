@@ -1,6 +1,7 @@
 ---
 notePricing: paid
 noteSeries: 1級土木-施工経験記述-完成答案集
+noteContentType: product
 noteMagazine: 1級土木-施工経験記述-完成答案集
 utmCampaign: civil1-keiken-quality
 noteUrl: https://note.com/dobokunote/n/n00a296b3089f

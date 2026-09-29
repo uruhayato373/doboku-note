@@ -1,5 +1,6 @@
 ---
 notePricing: paid
+noteContentType: product
 notePublishedAt: "2026-07-16"
 noteId: "nd68f3f6b5f9e"
 noteUrl: "https://note.com/dobokunote/n/nd68f3f6b5f9e"

@@ -1,5 +1,6 @@
 ---
 notePricing: free
+noteContentType: product
 noteStatus: published
 utmCampaign: civil-membership-intro
 noteUrl: "https://note.com/dobokunote/n/n6b66793ca20c"

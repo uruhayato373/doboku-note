@@ -1,6 +1,7 @@
 ---
 notePricing: paid
 noteSeries: 1級土木-施工経験記述-2テーマ組合せ大全
+noteContentType: product
 noteMagazine: 1級土木-施工経験記述-2テーマ組合せ大全
 utmCampaign: civil1-keiken-combo-process-env
 noteUrl: https://note.com/dobokunote/n/n6c5de63ee02d

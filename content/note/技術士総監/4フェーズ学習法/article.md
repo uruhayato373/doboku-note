@@ -4,6 +4,7 @@ noteUrl: https://note.com/dobokunote/n/n6f9854578518
 noteId: n6f9854578518
 notePricing: free
 noteSeries: 学習戦略
+noteContentType: learning
 utmCampaign: 4-phase-learning-strategy
 coverTitle:
   - 総監 二次試験

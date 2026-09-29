@@ -1,6 +1,7 @@
 ---
 title: 土木公務員の職務経歴書｜「調整業務」を民間にも伝わる担当経験へ
 notePricing: free
+noteContentType: career
 noteStatus: published
 utmCampaign: civil-career-public-work-history
 notePublishedAt: "2026-09-08"

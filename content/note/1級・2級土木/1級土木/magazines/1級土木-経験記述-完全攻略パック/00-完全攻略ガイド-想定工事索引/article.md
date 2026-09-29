@@ -1,6 +1,7 @@
 ---
 notePricing: free
 noteSeries: 1級土木-経験記述-完全攻略パック
+noteContentType: product
 noteMagazine: 1級土木-経験記述-完全攻略パック
 utmCampaign: civil1-keiken-pack-index
 noteUrl: "https://note.com/dobokunote/n/n9cf7e60661fa"

@@ -3,6 +3,7 @@ notePricing: paid
 price: 2980
 noteStatus: published
 noteSeries: 総監口頭試験-完全準備
+noteContentType: product
 utmCampaign: koutou-taisaku-kanzen
 notePublishedAt: "2026-09-19"
 noteId: "n6992933e3caf"

@@ -1,5 +1,6 @@
 ---
 notePricing: paid
+noteContentType: product
 noteMagazine: BK-02
 year: R06
 subject: river-coast

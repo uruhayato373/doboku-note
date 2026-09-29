@@ -2,6 +2,7 @@
 title: "【総監もくじ】技術士 総合技術監理部門の教材、どれから？状況別に「まず1冊」がわかる全案内"
 notePricing: free
 noteSeries: 総合案内
+noteContentType: index
 utmCampaign: 101-tankan-index
 noteUrl: "https://note.com/dobokunote/n/n3ed4c77ceed6"
 noteId: "n3ed4c77ceed6"

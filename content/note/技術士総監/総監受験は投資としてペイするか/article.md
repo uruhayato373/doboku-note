@@ -4,6 +4,7 @@ noteStatus: published
 noteUrl: "https://note.com/dobokunote/n/n9376aac312df"
 noteId: "n9376aac312df"
 noteSeries: 民間技術者受験
+noteContentType: learning
 utmCampaign: 95-roi-calculator
 notePublishedAt: "2026-07-14"
 coverTitle:

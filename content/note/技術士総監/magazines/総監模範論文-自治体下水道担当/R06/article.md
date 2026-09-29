@@ -1,6 +1,7 @@
 ---
 notePricing: paid
 noteSeries: 総監模範論文-自治体下水道担当ペルソナ
+noteContentType: product
 utmCampaign: essay-sewage-muni-r06
 noteUrl: https://note.com/dobokunote/n/n8599d452d447
 noteId: n8599d452d447

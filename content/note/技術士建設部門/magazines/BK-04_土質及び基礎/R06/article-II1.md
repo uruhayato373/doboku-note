@@ -1,5 +1,6 @@
 ---
 notePricing: paid
+noteContentType: product
 noteMagazine: BK-04
 year: R06
 subject: geotechnical

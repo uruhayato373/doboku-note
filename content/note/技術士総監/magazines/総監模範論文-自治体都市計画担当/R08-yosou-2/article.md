@@ -1,6 +1,7 @@
 ---
 notePricing: paid
 noteSeries: 総監模範論文-自治体都市計画担当ペルソナ
+noteContentType: product
 utmCampaign: essay-urban-muni-r08-2
 noteUrl: https://note.com/dobokunote/n/ndc04ca72bde4
 noteId: ndc04ca72bde4

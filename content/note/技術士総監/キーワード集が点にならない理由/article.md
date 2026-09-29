@@ -1,6 +1,7 @@
 ---
 notePricing: free
 noteSeries: 学習戦略
+noteContentType: learning
 utmCampaign: 91-keyword-not-scoring
 coverTitle:
   - キーワード集を読んだのに

@@ -1,6 +1,7 @@
 ---
 title: 公務員技術職（土木）を受けるか決める｜専門試験の出題構成から現在地を見積もる
 notePricing: free
+noteContentType: career
 noteStatus: published
 utmCampaign: civil-career-public-exam
 notePublishedAt: "2026-09-23"

@@ -1,5 +1,6 @@
 ---
 notePricing: paid
+noteContentType: product
 price: 780
 paidBoundary: "国家施策オプション"
 noteStatus: published

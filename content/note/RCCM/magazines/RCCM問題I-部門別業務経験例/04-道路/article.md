@@ -9,6 +9,7 @@ notePricing: paid
 price: 1980
 paidBoundary: "記入例1"
 noteSeries: RCCM問題I-道路
+noteContentType: product
 noteUrl: "https://note.com/dobokunote/n/n36e88e2d1d6b"
 noteId: "n36e88e2d1d6b"
 notePublishedAt: "2026-09-20"

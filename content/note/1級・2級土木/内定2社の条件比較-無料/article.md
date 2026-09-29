@@ -1,6 +1,7 @@
 ---
 title: 土木施工管理の内定比較｜同じ年収の2社、給与・休日・担当現場をどう比べる？
 notePricing: free
+noteContentType: career
 noteStatus: published
 utmCampaign: civil-career-offer-comparison
 notePublishedAt: "2026-09-08"

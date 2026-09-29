@@ -1,5 +1,6 @@
 ---
 notePricing: paid
+noteContentType: product
 noteMagazine: BK-08
 year: R05
 subject: port-airport

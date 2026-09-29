@@ -1,6 +1,7 @@
 ---
 notePricing: free
 noteSeries: 総監記述式
+noteContentType: learning
 noteStatus: published
 noteUrl: "https://note.com/dobokunote/n/n021d95a51f24"
 utmCampaign: r8-hit-process

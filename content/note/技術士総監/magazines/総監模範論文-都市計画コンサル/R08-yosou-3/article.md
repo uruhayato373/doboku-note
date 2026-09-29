@@ -1,6 +1,7 @@
 ---
 notePricing: paid
 noteSeries: 総監模範論文-都市計画コンサルペルソナ
+noteContentType: product
 utmCampaign: essay-urban-consul-r08-yosou-3
 noteUrl: "https://note.com/dobokunote/n/nf869ca63ed6d"
 noteId: "nf869ca63ed6d"

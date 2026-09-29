@@ -4,6 +4,7 @@ noteStatus: published
 noteUrl: "https://note.com/dobokunote/n/n2d5a97eb6c3e"
 noteId: "n2d5a97eb6c3e"
 noteSeries: 技術士建設部門-無料入口
+noteContentType: learning
 utmCampaign: pe-construction-secondary-study-method
 coverTitle:
   - 技術士 建設部門 二次

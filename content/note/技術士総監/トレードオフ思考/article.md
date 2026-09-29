@@ -1,6 +1,7 @@
 ---
 notePricing: free
 noteSeries: 総監記述式
+noteContentType: learning
 utmCampaign: 99-tradeoff-thinking
 noteUrl: https://note.com/dobokunote/n/n1b325d339f59
 noteId: n1b325d339f59

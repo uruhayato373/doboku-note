@@ -1,6 +1,7 @@
 ---
 notePricing: paid
 noteSeries: コンクリート診断士-記述式
+noteContentType: product
 utmCampaign: cd-essay-b-salt
 noteUrl: "https://note.com/dobokunote/n/n993f8b2c13cd"
 noteId: "n993f8b2c13cd"

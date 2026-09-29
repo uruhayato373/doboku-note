@@ -1,6 +1,7 @@
 ---
 notePricing: paid
 noteSeries: 総監模範論文-自治体上水道担当ペルソナ
+noteContentType: product
 utmCampaign: essay-water-muni-r05
 noteUrl: https://note.com/dobokunote/n/nf412aece7166
 noteId: nf412aece7166

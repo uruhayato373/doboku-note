@@ -39,7 +39,7 @@ export const dynamic = 'force-dynamic';
  * backlog DN-0125。
  */
 
-type Query = { e?: string; p?: string; s?: string; m?: string };
+type Query = { e?: string; t?: string; p?: string; s?: string; m?: string };
 
 /**
  * 「マガジン未設定」を表す facet キー。ラベルは frontmatter の生値なので衝突しない接頭辞を使う。
@@ -74,6 +74,14 @@ const PRICING: { key: string; label: string }[] = [
   { key: 'paid', label: '有料' },
   { key: 'free', label: '無料' },
   { key: 'membership', label: 'メンバーシップ' },
+];
+
+const CONTENT_TYPES: { key: string; label: string }[] = [
+  { key: 'product', label: '商品' },
+  { key: 'index', label: 'もくじ' },
+  { key: 'learning', label: '学習記事' },
+  { key: 'career', label: 'キャリア' },
+  { key: 'editorial', label: '一般・雑談' },
 ];
 
 function href(q: Query, patch: Partial<Query>): string {
@@ -120,11 +128,13 @@ export default async function ContentNotePage({
   const sp = await searchParams;
   const one = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v) || null;
   const exam = one(sp.e);
+  const contentType = one(sp.t);
   const pricing = one(sp.p);
   const state = one(sp.s);
   const magazine = one(sp.m);
   const now: Query = {
     e: exam ?? undefined,
+    t: contentType ?? undefined,
     p: pricing ?? undefined,
     s: state ?? undefined,
     m: magazine ?? undefined,
@@ -144,21 +154,24 @@ export default async function ContentNotePage({
           : state === 'blocked' ? isBlocked(i)
             : true;
   const matchExam = (i: NoteArticle) => !exam || (exam === NO_THEME ? !i.theme : i.theme === exam);
+  const matchContentType = (i: NoteArticle) => !contentType || i.contentType === contentType;
   const matchPricing = (i: NoteArticle) => !pricing || i.pricing === pricing;
   const matchMagazine = (i: NoteArticle) =>
     !magazine ? true : magazine === NO_MAGAZINE ? !i.magazine : i.magazine === magazine;
 
   const items = all.filter(
-    (i) => matchExam(i) && matchPricing(i) && matchState(i) && matchMagazine(i));
+    (i) => matchExam(i) && matchContentType(i) && matchPricing(i) && matchState(i) && matchMagazine(i));
 
   // 各facetの件数は「自分以外のfacetを適用した後」で数える。全体数を出すと、絞った状態で
   // 0 件のはずの選択肢が大きい数字で並び、押しても何も出ないという読み違いになる。
-  const examScope = all.filter((i) => matchPricing(i) && matchState(i) && matchMagazine(i));
-  const pricingScope = all.filter((i) => matchExam(i) && matchState(i) && matchMagazine(i));
-  const stateScope = all.filter((i) => matchExam(i) && matchPricing(i) && matchMagazine(i));
-  const magazineScope = all.filter((i) => matchExam(i) && matchPricing(i) && matchState(i));
+  const examScope = all.filter((i) => matchContentType(i) && matchPricing(i) && matchState(i) && matchMagazine(i));
+  const typeScope = all.filter((i) => matchExam(i) && matchPricing(i) && matchState(i) && matchMagazine(i));
+  const pricingScope = all.filter((i) => matchExam(i) && matchContentType(i) && matchState(i) && matchMagazine(i));
+  const stateScope = all.filter((i) => matchExam(i) && matchContentType(i) && matchPricing(i) && matchMagazine(i));
+  const magazineScope = all.filter((i) => matchExam(i) && matchContentType(i) && matchPricing(i) && matchState(i));
 
   const examCounts = countBy(examScope, (i) => i.theme ?? NO_THEME);
+  const typeCounts = countBy(typeScope, (i) => i.contentType);
   const themeLabels = new Map(all.map((i) => [i.theme ?? NO_THEME, i.theme ? i.themeLabel : '未分類']));
   const pricingCounts = countBy(pricingScope, (i) => i.pricing);
   const stateCounts = new Map<string, number>([
@@ -185,7 +198,7 @@ export default async function ContentNotePage({
     }));
 
   const examKeys = [...examCounts.entries()].sort((a, b) => b[1] - a[1]).map(([k]) => k);
-  const filtered = Boolean(exam || pricing || state || magazine);
+  const filtered = Boolean(exam || contentType || pricing || state || magazine);
 
   const main = (
     <Stack>
@@ -218,6 +231,7 @@ export default async function ContentNotePage({
                   <TableHeader>
                     <TableRow>
                       <TableHead>タイトル</TableHead>
+                      <TableHead className="hidden xl:table-cell">記事区分</TableHead>
                       <TableHead className="hidden xl:table-cell">テーマ</TableHead>
                       <TableHead>価格</TableHead>
                       <TableHead>公開</TableHead>
@@ -226,7 +240,7 @@ export default async function ContentNotePage({
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    {items.length === 0 ? <EmptyRow colSpan={6}>この条件に該当する記事はありません。</EmptyRow> : null}
+                    {items.length === 0 ? <EmptyRow colSpan={7}>この条件に該当する記事はありません。</EmptyRow> : null}
                     {items.map((i) => {
                       const sync = syncOf(i);
                       const blockerLabel = sync?.blocker ? plan.blockers[sync.blocker]?.label ?? sync.blocker : null;
@@ -240,6 +254,9 @@ export default async function ContentNotePage({
                             ) : (
                               i.title
                             )}
+                          </TableCell>
+                          <TableCell className="hidden xl:table-cell">
+                            {CONTENT_TYPES.find((type) => type.key === i.contentType)?.label ?? i.contentType}
                           </TableCell>
                           <TableCell className="hidden xl:table-cell">
                             {i.theme ? (
@@ -296,6 +313,10 @@ export default async function ContentNotePage({
   const rail = (
     <>
       <FacetHead clearHref={filtered ? '/content/note' : null} />
+      <Facet
+        title="記事区分"
+        items={facetItems(now, 't', contentType, typeScope.length, CONTENT_TYPES.map((type) => ({ ...type, count: typeCounts.get(type.key) ?? 0 })))}
+      />
       <Facet
         title="テーマ"
         items={facetItems(now, 'e', exam, examScope.length, examKeys.map((key) => ({ key, label: themeLabels.get(key) ?? key, count: examCounts.get(key) ?? 0 })))}

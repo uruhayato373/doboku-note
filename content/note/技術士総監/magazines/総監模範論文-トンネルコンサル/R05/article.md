@@ -10,6 +10,7 @@ published: false
 reviewStatus: needs-review
 notePricing: paid
 noteSeries: 総監模範論文-トンネルコンサルペルソナ
+noteContentType: product
 utmCampaign: essay-tunnel-consultant-r5
 noteMagazine: 総監模範論文-トンネルコンサル
 noteUrl: "https://note.com/dobokunote/n/nc705f7260a69"

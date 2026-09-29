@@ -2,6 +2,7 @@
 notePricing: paid
 paidBoundary: "人の行動と組織（優先度: 最高）"
 noteSeries: 総監テキスト精読ガイド
+noteContentType: product
 utmCampaign: 99-human-resource-management
 noteUrl: https://note.com/dobokunote/n/nb010cafe207b
 noteId: "nb010cafe207b"

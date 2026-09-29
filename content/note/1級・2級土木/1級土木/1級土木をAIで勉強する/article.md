@@ -1,6 +1,7 @@
 ---
 notePricing: free
 noteSeries: 学習戦略
+noteContentType: learning
 utmCampaign: ai-study-civil1
 noteUrl: "https://note.com/dobokunote/n/n8b0e42784742"
 noteId: "n8b0e42784742"

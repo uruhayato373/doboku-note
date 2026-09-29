@@ -1,6 +1,7 @@
 ---
 notePricing: paid
 noteSeries: RCCM問題II-IV-直前暗記ノート
+noteContentType: product
 utmCampaign: rccm-2026
 noteStatus: published
 notePublishedAt: "2026-09-17"

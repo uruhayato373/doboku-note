@@ -4,6 +4,7 @@ noteId: "n5d0292fa4f1f"
 utmCampaign: tankan-kijutsu-kakikata
 noteUrl: "https://note.com/dobokunote/n/n5d0292fa4f1f"
 notePricing: paid
+noteContentType: product
 price: 500
 paidBoundary: "ありがちな失敗"
 noteStatus: published

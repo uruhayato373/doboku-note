@@ -1,6 +1,7 @@
 ---
 notePricing: paid
 noteSeries: 総監模範論文-ゼネコンペルソナ
+noteContentType: product
 utmCampaign: essay-gc-r05
 noteUrl: https://note.com/dobokunote/n/n6478ba1037d9
 noteId: n6478ba1037d9

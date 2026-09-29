@@ -1,6 +1,7 @@
 ---
 notePricing: paid
 noteSeries: コンクリート主任技士-直前暗記ノート
+noteContentType: product
 utmCampaign: cce-anki-note
 noteStatus: published
 notePublishedAt: "2026-09-17"

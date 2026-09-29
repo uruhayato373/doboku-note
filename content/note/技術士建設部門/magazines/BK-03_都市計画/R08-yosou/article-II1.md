@@ -1,5 +1,6 @@
 ---
 notePricing: paid
+noteContentType: product
 noteMagazine: BK-03
 year: R08-yosou
 subject: urban-planning

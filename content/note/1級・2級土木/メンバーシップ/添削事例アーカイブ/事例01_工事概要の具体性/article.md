@@ -2,6 +2,7 @@
 notePricing: membership
 noteStatus: published
 noteSeries: 添削練習アーカイブ
+noteContentType: product
 membershipOnly: true
 utmCampaign: civil-membership-addelta-01
 notePublishedAt: "2026-09-25"

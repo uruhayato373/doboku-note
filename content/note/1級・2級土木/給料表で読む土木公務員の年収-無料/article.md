@@ -1,5 +1,6 @@
 ---
 notePricing: free
+noteContentType: career
 noteStatus: published
 utmCampaign: civil-career-salary-table
 notePublishedAt: "2026-09-23"

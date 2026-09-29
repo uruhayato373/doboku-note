@@ -4,6 +4,7 @@ noteStatus: published
 noteUrl: "https://note.com/dobokunote/n/n601cfce4d651"
 noteId: "n601cfce4d651"
 noteSeries: 技術士建設部門-無料入口
+noteContentType: learning
 utmCampaign: pe-construction-sentaku-kakiwake
 coverTitle:
   - 選択科目II-1/II-2/III

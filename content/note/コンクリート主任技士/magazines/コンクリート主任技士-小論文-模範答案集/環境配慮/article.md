@@ -3,6 +3,7 @@ title: "コンクリート主任技士 小論文 模範答案｜環境負荷低�
 notePricing: paid
 paidBoundary: "答案の方針"
 noteSeries: コンクリート主任技士-小論文
+noteContentType: product
 utmCampaign: cce-essay-environment
 noteUrl: "https://note.com/dobokunote/n/na15f69e2dcb0"
 noteId: "na15f69e2dcb0"

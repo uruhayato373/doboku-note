@@ -1,6 +1,7 @@
 ---
 notePricing: free
 noteSeries: 2級土木-想定工事バンク
+noteContentType: product
 noteMagazine: 2級土木-想定工事バンク
 noteUrl: "https://note.com/dobokunote/n/ned33a34bc42f"
 noteId: "ned33a34bc42f"

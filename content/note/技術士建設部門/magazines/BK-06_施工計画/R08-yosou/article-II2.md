@@ -1,5 +1,6 @@
 ---
 notePricing: paid
+noteContentType: product
 noteMagazine: BK-06
 year: R08-yosou
 subject: construction-planning

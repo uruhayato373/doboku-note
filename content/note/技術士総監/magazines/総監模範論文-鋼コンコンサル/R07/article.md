@@ -10,6 +10,7 @@ published: false
 reviewStatus: needs-review
 notePricing: paid
 noteSeries: 総監模範論文-鋼コンコンサルペルソナ
+noteContentType: product
 utmCampaign: essay-steel-concrete-r7
 noteMagazine: 総監模範論文-鋼コンコンサル
 noteUrl: "https://note.com/dobokunote/n/n09c2195b4678"

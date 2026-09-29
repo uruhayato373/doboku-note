@@ -4,6 +4,7 @@ noteStatus: published
 noteUrl: https://note.com/dobokunote/n/n279ac7c6fe6a
 noteId: n279ac7c6fe6a
 noteSeries: 公務員受験
+noteContentType: learning
 utmCampaign: 93-civil-servant-merits
 coverTitle:
   - 自治体の技術職員が

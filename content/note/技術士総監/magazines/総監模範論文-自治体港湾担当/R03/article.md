@@ -1,6 +1,7 @@
 ---
 notePricing: paid
 noteSeries: 総監模範論文-自治体港湾担当ペルソナ
+noteContentType: product
 utmCampaign: essay-port-muni-r03
 noteUrl: https://note.com/dobokunote/n/n6d097784a683
 noteId: n6d097784a683

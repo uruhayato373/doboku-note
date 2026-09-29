@@ -4,6 +4,7 @@ noteUrl: https://note.com/dobokunote/n/n7fb7f92f7841
 noteId: n7fb7f92f7841
 utmCampaign: 12-general-vs-comprehensive
 notePricing: free
+noteContentType: learning
 noteStatus: published
 cover:
   variant: crop-safe-v4

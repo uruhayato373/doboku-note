@@ -4,6 +4,7 @@ noteStatus: published
 noteUrl: https://note.com/dobokunote/n/nb052deac97b1
 noteId: nb052deac97b1
 noteSeries: 公務員受験
+noteContentType: career
 utmCampaign: 95-civil-servant-qualifications
 coverTitle:
   - 自治体の技術職員の

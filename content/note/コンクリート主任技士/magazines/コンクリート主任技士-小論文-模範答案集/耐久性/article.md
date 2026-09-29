@@ -3,6 +3,7 @@ title: "コンクリート主任技士 小論文 模範答案｜厳しい環境�
 notePricing: paid
 paidBoundary: "答案の方針"
 noteSeries: コンクリート主任技士-小論文
+noteContentType: product
 utmCampaign: cce-essay-durability
 noteUrl: "https://note.com/dobokunote/n/n4cd2ea9e5a75"
 noteId: "n4cd2ea9e5a75"

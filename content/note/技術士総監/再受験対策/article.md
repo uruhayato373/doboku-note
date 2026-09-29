@@ -4,6 +4,7 @@ noteId: "n4b679c8da64e"
 utmCampaign: tankan-saijuken-taisaku
 noteUrl: "https://note.com/dobokunote/n/n4b679c8da64e"
 notePricing: paid
+noteContentType: product
 price: 500
 paidBoundary: "不合格の3パターン"
 noteStatus: published

@@ -1,6 +1,7 @@
 ---
 notePricing: free
 noteSeries: 施工経験記述
+noteContentType: learning
 utmCampaign: c1-essay-r6-split
 noteUrl: "https://note.com/dobokunote/n/n34c1c35423f1"
 noteId: "n34c1c35423f1"

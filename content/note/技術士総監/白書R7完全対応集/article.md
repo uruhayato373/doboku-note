@@ -2,6 +2,7 @@
 notePricing: free
 noteStatus: published
 noteSeries: null
+noteContentType: learning
 utmCampaign: whitepaper-r7-strategy
 noteUrl: https://note.com/dobokunote/n/n60efbccd728b
 noteId: n60efbccd728b

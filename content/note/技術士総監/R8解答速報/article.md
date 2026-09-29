@@ -2,6 +2,7 @@
 notePricing: free
 noteStatus: published
 noteSeries: 総監記述式
+noteContentType: learning
 utmCampaign: r8-sokuho
 notePublishedAt: "2026-07-19"
 noteId: "nfa8998e22a52"
