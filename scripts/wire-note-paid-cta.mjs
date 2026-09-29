@@ -18,10 +18,7 @@
  *      2 枚目以降を削除。note は同一画像の 2 枚目 CDN 確定に失敗して本文更新が ABORT
  *      するため、ライブ反映の前提条件（2026-07-30 に手作業で行った処置の機械化）。
  *   2. L2 もくじ CTA を有料境界の直前（＝無料プレビューの末尾）へ移設 / 新規挿入。
- *   3. civil の二次系のみ: 空いた記事末尾（有料域）にメンバーシップ CTA を追加。
- *      「答案を書き換えた直後に第三者の目がほしい」瞬間に添削を提示する。
- *      一次（択一）記事は intent が違うので対象外（note-funnel-architecture.md 原則 7）。
- *      総監・建設部門は資格セグメント違反になるので対象外（同 原則 1）。
+ *   （旧 3. civil 二次系の記事末尾へのメンバーシップ CTA 追加は、2026-09-30 の合格ラボ撤退で廃止）
  *
  * 使い方:
  *   node scripts/wire-note-paid-cta.mjs                 # dry-run（既定・書き込まない）
@@ -52,27 +49,6 @@ const EXAMS = Object.entries(CFG.exams).map(([key, v]) => ({
   l2Id: v.L2.noteId,
 }));
 
-const MEMBERSHIP_MARKER = '<!-- cta:civil-membership-lab -->';
-const MEMBERSHIP_URL = 'https://note.com/dobokunote/membership/join';
-// 経験記述系（完成答案を自分の現場へ書き換える読者）
-const MEMBERSHIP_KEIKEN = [
-  MEMBERSHIP_MARKER,
-  '書き換えた答案を「これで通るか」第三者に確認してほしい方へ。',
-  '',
-  '月例の予想問題と施工経験記述のマンツーマン添削がつくメンバーシップ「土木セコカン合格ラボ」があります。',
-  '',
-  MEMBERSHIP_URL,
-];
-// 二次学科記述・出題分析系（答案そのものではなく書き方・論点を学ぶ読者）
-const MEMBERSHIP_NIJI = [
-  MEMBERSHIP_MARKER,
-  '書いた答案を第三者の目で見てもらう手段がない、という方へ。',
-  '',
-  '月例の予想問題と施工経験記述のマンツーマン添削がつくメンバーシップ「土木セコカン合格ラボ」があります。',
-  '',
-  MEMBERSHIP_URL,
-];
-
 function walk(dir, out = []) {
   if (!existsSync(dir)) return out;
   for (const e of readdirSync(dir)) {
@@ -95,16 +71,7 @@ function boundaryIdx(lines, boundary) {
 }
 const lastNonBlank = (lines, from) => { let i = from; while (i >= 0 && lines[i].trim() === '') i--; return i; };
 
-// メンバーシップ CTA の対象（civil の二次系のみ）と文面の選択
-function membershipBlock(file) {
-  if (!file.startsWith('content/note/1級・2級土木/')) return null;
-  if (/一次/.test(file)) return null;              // 択一は intent が別
-  if (/経験記述|想定工事バンク/.test(file)) return MEMBERSHIP_KEIKEN;
-  if (/二次/.test(file)) return MEMBERSHIP_NIJI;
-  return null;
-}
-
-const stats = { scanned: 0, paid: 0, dedupedImg: 0, movedMokuji: 0, insertedMokuji: 0, addedMembership: 0, alreadyOk: 0, noBoundary: [], noExam: [], noExamNoCta: [] };
+const stats = { scanned: 0, paid: 0, dedupedImg: 0, movedMokuji: 0, insertedMokuji: 0, alreadyOk: 0, noBoundary: [], noExam: [], noExamNoCta: [] };
 const changed = [];
 
 for (const file of walk(ROOT)) {
@@ -190,16 +157,6 @@ for (const file of walk(ROOT)) {
     lines = [...head, ...sep, '', ...exam.block, '', ...tail];
   }
 
-  // --- 3. civil 二次系: 記事末尾（有料域）にメンバーシップ CTA ---
-  const memb = membershipBlock(file);
-  if (memb && !lines.some((l) => l.trim() === MEMBERSHIP_MARKER)) {
-    let e = lastNonBlank(lines, lines.length - 1);
-    lines.length = e + 1;
-    const sep = lines[lines.length - 1].trim() === '---' ? [] : ['', '---'];
-    lines = [...lines, ...sep, '', ...memb];
-    stats.addedMembership++;
-  }
-
   const after = lines.join('\n');
   if (after === before) continue;
   changed.push(file);
@@ -209,7 +166,6 @@ for (const file of walk(ROOT)) {
 console.log(`[wire-note-paid-cta] 走査 ${stats.scanned} 件 / paid+published(noteId有) ${stats.paid} 件を実検査`);
 console.log(`  もくじ移設(有料域→無料域): ${stats.movedMokuji}`);
 console.log(`  もくじ新規挿入(未配線)   : ${stats.insertedMokuji}`);
-console.log(`  メンバーシップCTA追加     : ${stats.addedMembership}`);
 console.log(`  重複画像を除去した記事    : ${stats.dedupedImg}`);
 console.log(`  既に無料域にあり(据置)    : ${stats.alreadyOk}`);
 if (stats.noExam.length) console.log(`  L2 もくじ未定義の資格     : ${stats.noExam.length} 件（もくじ自動配線は対象外・導線有無は検査済み／うち導線ゼロ ${stats.noExamNoCta.length} 件）`);

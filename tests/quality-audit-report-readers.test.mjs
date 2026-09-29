@@ -114,7 +114,8 @@ test('weekly-review-guard が report 区分を週次で読んでいる（配線�
 test('CI が赤いことを届ける経路が実在する（ci.yml の失敗通知）', () => {
   // 2026-08-19 から 24 連続赤でも 2 日気づかれなかった原因は、この step が無かったこと。
   const ci = readFileSync(join(ROOT, '.github/workflows/ci.yml'), 'utf8');
-  assert.match(ci, /if:\s*failure\(\)/, 'ci.yml に失敗ハンドラが無い');
+  // 2026-09-30 に audit / build を別ジョブへ分け、失敗通知は report ジョブが needs の結果で判定する。
+  assert.match(ci, /if:\s*failure\(\)|needs\.\w+\.result == 'failure'/, 'ci.yml に失敗ハンドラが無い');
   assert.match(ci, /report-automation-failure/, 'ci.yml が automation-failure Issue を起票していない');
   assert.match(ci, /issues:\s*write/, 'ci.yml に issues: write が無い（起票できない）');
 });
