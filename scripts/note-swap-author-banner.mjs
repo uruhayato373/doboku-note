@@ -25,7 +25,7 @@ import { chromium } from 'playwright';
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { join, dirname, resolve, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import sharp from 'sharp';
+import { loadBannerReferences, matchBannerBuffer } from './lib/author-banner-match.mjs';
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 import { countEditorImages, uploadAtCaret, settleUploads } from './lib/note-images.mjs';
 import { listAttachedFiles } from './lib/note-attach.mjs';
@@ -45,8 +45,6 @@ const OLD_CAPTION_PREFIX = '技術士（総合技術監理部門）を持つ元�
 const BOTTOM_PROSE_PREFIX = '上位資格の分析力';
 const BANNER_REFERENCE_DIR = join(ROOT, 'content/note/共通/著者オーソリティ/img');
 const POP_BANNER_NAME = 'figure-author-authority-pop.png';
-// 16×16 縮小画素の平均差（0〜255）。同一原本は約0、標準版とPOP版の間は約69
-const BANNER_MATCH_MAX_DISTANCE = 25;
 const DEFAULT_BOUNDARY = '試験問題|予想問題';
 const SETTLE_MIN_MS = Number(process.env.NOTE_IMG_SETTLE_MIN_MS || 90_000);
 const SETTLE_PER_IMG_MS = Number(process.env.NOTE_IMG_SETTLE_PER_IMG_MS || 90_000);
@@ -297,7 +295,7 @@ async function probeBannerFigures(page, article = null) {
     bottomPrefix: BOTTOM_PROSE_PREFIX,
     newProsePrefix: NEW_PROSE_PREFIX,
   });
-  if (article?.popTarget) await classifyFiguresForPopTarget(raw.figures);
+  await classifyFigures(raw.figures, Boolean(article?.popTarget));
   return summarizeProbe(raw);
 }
 
@@ -332,42 +330,32 @@ function summarizeProbe(raw) {
   };
 }
 
-// POP 版（2級土木・DN-0450）は標準版と同じ正方形なので比率では区別できない。
-// 正方形バナーの画像を取得して原本2枚と縮小画素で照合し、標準版を差し替え対象（old）にする。
-let bannerReferenceSignatures = null;
-async function imageSignature(buffer) {
-  return sharp(buffer).resize(16, 16, { fit: 'fill' }).removeAlpha().raw().toBuffer();
-}
-function signatureDistance(left, right) {
-  let sum = 0;
-  for (let index = 0; index < left.length; index++) sum += Math.abs(left[index] - right[index]);
-  return sum / left.length;
-}
+// 版の見分けは画素照合（scripts/lib/author-banner-match.mjs）。比率と位置だけでは
+// 標準版/POP版（どちらも正方形）も、旧16:9バナー/H2より前の16:9本文図も区別できない（DN-0450/DN-0455）。
+let bannerReferences = null;
 async function classifyBannerImage(url) {
-  if (!bannerReferenceSignatures) {
-    bannerReferenceSignatures = {
-      pop: await imageSignature(readFileSync(join(BANNER_REFERENCE_DIR, POP_BANNER_NAME))),
-      standard: await imageSignature(readFileSync(join(BANNER_REFERENCE_DIR, 'figure-author-authority.png'))),
-    };
-  }
+  bannerReferences ||= await loadBannerReferences(BANNER_REFERENCE_DIR);
   if (!/^https:\/\//.test(url)) return { variant: 'unknown', reason: `src=${url.slice(0, 30) || '(空)'}` };
   try {
     const response = await fetch(url);
     if (!response.ok) return { variant: 'unknown', reason: `HTTP ${response.status}` };
-    const signature = await imageSignature(Buffer.from(await response.arrayBuffer()));
-    const pop = signatureDistance(signature, bannerReferenceSignatures.pop);
-    const standard = signatureDistance(signature, bannerReferenceSignatures.standard);
-    const variant = Math.min(pop, standard) >= BANNER_MATCH_MAX_DISTANCE ? 'unknown' : pop < standard ? 'pop' : 'standard';
-    return { variant, pop, standard };
+    return await matchBannerBuffer(Buffer.from(await response.arrayBuffer()), bannerReferences);
   } catch (error) {
     return { variant: 'unknown', reason: error.message };
   }
 }
-async function classifyFiguresForPopTarget(figures) {
+async function classifyFigures(figures, popTarget) {
   for (const figure of figures) {
-    // H2 より前の本文図（16:9）を位置だけで旧バナーと誤認しない。旧16:9バナーはキャプションで識別する
-    if (figure.class === 'old' && !figure.caption.startsWith(OLD_CAPTION_PREFIX)) figure.class = 'other';
-    if (figure.class !== 'new') continue;
+    if (figure.class === 'old') {
+      // 16:9: 旧キャプション付きか、旧バナー原本と一致したものだけを差し替え対象にする。本文図は other
+      if (figure.caption.startsWith(OLD_CAPTION_PREFIX)) continue;
+      const result = await classifyBannerImage(figure.src);
+      figure.variant = result.variant;
+      figure.class = result.variant === 'legacy' ? 'old' : result.variant === 'unknown' && result.reason ? 'unknown' : 'other';
+      continue;
+    }
+    if (figure.class !== 'new' || !popTarget) continue;
+    // POP 版の記事: 正方形のうち標準版を差し替え対象にする
     const result = await classifyBannerImage(figure.src);
     figure.variant = result.variant;
     figure.class = result.variant === 'pop' ? 'new' : result.variant === 'standard' ? 'old' : 'unknown';
