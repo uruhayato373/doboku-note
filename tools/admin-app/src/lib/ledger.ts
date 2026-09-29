@@ -40,6 +40,8 @@ export interface LedgerRow {
   live: ProductLive | null;
   /** 管理画面内の詳細（ココナラは正本 3 ファイルをまとめて見る画面） */
   detailHref: string | null;
+  /** 恒久に終えた商品（ココナラのアーカイブ済み）。台帳は既定で隠し、状態「終了」で出す */
+  ended: boolean;
   path: string | null;
 }
 
@@ -130,6 +132,7 @@ export function loadLedgerView(): LedgerView {
       ctaLive: n.ctaLive ?? null,
       live: null,
       detailHref: null,
+      ended: false,
       path: n.path,
     });
   }
@@ -166,7 +169,8 @@ export function loadLedgerView(): LedgerView {
           themes: productThemes(config, item),
           price: item.price,
           published: item.stage === 'published',
-          stageLabel: item.stageLabel,
+          stageLabel: item.ended ? '終了' : item.stageLabel,
+          ended: Boolean(item.ended),
           sync: null,
           ctas: [],
           ctaLive: null,
