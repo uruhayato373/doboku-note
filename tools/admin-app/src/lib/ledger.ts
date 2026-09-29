@@ -28,7 +28,7 @@ export interface LedgerRow {
   price: string | null;
   published: boolean;
   stageLabel: string;
-  sync: { status: SyncStatus; parts: string[]; blocker: string | null } | null;
+  sync: { status: SyncStatus; parts: string[]; reasons?: Record<string, string>; blocker: string | null } | null;
   ctas: string[];
   path: string | null;
 }
@@ -53,7 +53,7 @@ interface NoteIndexEntry {
   noteUrl: string | null;
   published: boolean;
   ctas: string[];
-  sync: { status: SyncStatus; parts: string[]; blocker: string | null } | null;
+  sync: { status: SyncStatus; parts: string[]; reasons?: Record<string, string>; blocker: string | null } | null;
 }
 
 interface NoteIndex {
