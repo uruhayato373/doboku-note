@@ -272,11 +272,9 @@ const SERVICES_RAW = {
     weeklyCapacity: 2,
     listedAt: '2026-09-25',
   },
-  // 2026-09-29 ユーザー決定（DN-0445）: 2級二次（10/25）まで 2級は添削・骨子（24時間）の 2 本に絞る。
-  //   恒久廃止ではない一時休止なので absence 区分で止め、試験翌日（resumeOn）に復帰を判断する。
   'coconala-2kyu-tensaku-3theme': {
     id: 'coconala-2kyu-tensaku-3theme',
-    status: 'paused',
+    status: 'listed',
     serviceUrl: 'https://coconala.com/services/4418778',
     title: '2級土木経験記述の全3テーマを添削します',
     shortTitle: '2級 経験記述 添削（全3テーマ）',
@@ -286,8 +284,6 @@ const SERVICES_RAW = {
     priceYen: 7500,
     examScope: ['civil-2'],
     weeklyCapacity: 1,
-    pauseReason: 'absence',
-    resumeOn: '2026-10-26',
     listedAt: '2026-09-25',
   },
   // 【2026-09-25 17:30 運営が取り下げ】理由は 2026-08-12 と同じ「学校の課題（宿題、レポート、論文、作文等）を
@@ -308,11 +304,9 @@ const SERVICES_RAW = {
     weeklyCapacity: 2,
     listedAt: '2026-09-25',
   },
-  // 2026-09-29 ユーザー決定（DN-0445）: 2級二次（10/25）まで 2級は添削・骨子（24時間）の 2 本に絞る。
-  //   恒久廃止ではない一時休止なので absence 区分で止め、試験翌日（resumeOn）に復帰を判断する。
   'coconala-2kyu-sakusei-3theme': {
     id: 'coconala-2kyu-sakusei-3theme',
-    status: 'paused',
+    status: 'listed',
     serviceUrl: 'https://coconala.com/services/4418785',
     title: '2級土木経験記述の全3テーマを骨子から指導します',
     shortTitle: '2級 経験記述 指導（全3テーマ）',
@@ -322,8 +316,6 @@ const SERVICES_RAW = {
     priceYen: 10000,
     examScope: ['civil-2'],
     weeklyCapacity: 1,
-    pauseReason: 'absence',
-    resumeOn: '2026-10-26',
     listedAt: '2026-09-25',
   },
 
@@ -494,8 +486,8 @@ const SERVICES_RAW = {
   },
 
   // C9: 2級 二次 予想模擬試験3回（問題冊子＋解答解説）。C8 の2級版。
-  // 2026-09-29 ユーザー決定（DN-0445）: 2級二次（10/25）まで 2級は添削・骨子（24時間）の 2 本に絞る。
-  //   恒久廃止ではない一時休止なので absence 区分で止め、試験翌日（resumeOn）に復帰を判断する。
+  // 2026-09-29 ユーザー決定（DN-0445）: 2級二次（10/25）まで PDF は休止し、添削・骨子（2テーマ24時間・全3テーマ）に集中する。
+  //   2級は3テーマのうち2つが当日指定されるので全3テーマ版は残す。恒久廃止ではない一時休止なので absence 区分。
   'coconala-2kyu-moshi-pdf': {
     id: 'coconala-2kyu-moshi-pdf',
     status: 'paused',
@@ -546,8 +538,8 @@ const SERVICES_RAW = {
 
   // C11: 2級 二次 教材フルパック（C3+C5+C7+C9 全部入り・PDF 19冊）。C10 の2級版。
   //   価格 ¥7,000（1級 ¥10,000 の 0.7＝級差を保つ・500円刻み適合）。
-  // 2026-09-29 ユーザー決定（DN-0445）: 2級二次（10/25）まで 2級は添削・骨子（24時間）の 2 本に絞る。
-  //   恒久廃止ではない一時休止なので absence 区分で止め、試験翌日（resumeOn）に復帰を判断する。
+  // 2026-09-29 ユーザー決定（DN-0445）: 2級二次（10/25）まで PDF は休止し、添削・骨子（2テーマ24時間・全3テーマ）に集中する。
+  //   2級は3テーマのうち2つが当日指定されるので全3テーマ版は残す。恒久廃止ではない一時休止なので absence 区分。
   'coconala-2kyu-full-pdf': {
     id: 'coconala-2kyu-full-pdf',
     status: 'paused',
