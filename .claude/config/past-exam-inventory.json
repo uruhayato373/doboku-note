@@ -1366,6 +1366,1063 @@
         }
       ]
     },
+    "building-construction-1": {
+      "dir": "content/sources/past-exams/１級建築施工管理技士",
+      "official": {
+        "page": "https://www.fcip-shiken.jp/about/index.html",
+        "windowYears": null,
+        "publishLagDays": 30,
+        "policy": "建設業振興基金（FCIP）が「過去の受検状況・検定問題・合格基準」に第一次の問題（末尾に正答肢）と第二次の問題を掲載。ページのリンクは直近2年度だけだが、2026-09-29時点で平成27年度以降の旧年度PDFも同じ /pdf/ で配信されている（Wayback Machine の索引で発見）。第二次の解答は非公表。"
+      },
+      "otherSources": [],
+      "years": [
+        {
+          "year": 2026,
+          "official": "listed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "第一次検定（正答肢を含む）",
+              "file": "R08/R08_第一次検定.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r08_1kg_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2025,
+          "official": "listed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "第一次検定（正答肢を含む）",
+              "file": "R07/R07_第一次検定.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r07_1kg_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "第二次検定",
+              "file": "R07/R07_第二次検定.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r07_1kj_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "第二次検定（臨時）",
+              "file": "R07/R07_第二次検定_臨時.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r07_1kj_mondai_rinji.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2024,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "第一次検定（正答肢を含む）",
+              "file": "R06/R06_第一次検定.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r06_1kg_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "第二次検定",
+              "file": "R06/R06_第二次検定.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r06_1kj_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2023,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "第一次検定（正答肢を含む）",
+              "file": "R05/R05_第一次検定.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r05_1kg_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "第二次検定",
+              "file": "R05/R05_第二次検定.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r05_1kj_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2022,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "第一次検定（正答肢を含む）",
+              "file": "R04/R04_第一次検定.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r04_1kg_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "第二次検定",
+              "file": "R04/R04_第二次検定.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r04_1kj_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2021,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "第一次検定（正答肢を含む）",
+              "file": "R03/R03_第一次検定.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r03_1kg_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "第二次検定",
+              "file": "R03/R03_第二次検定.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r03_1kj_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2020,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験（正答肢を含む）",
+              "file": "R02/R02_学科試験.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r02_1kg_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "実地試験",
+              "file": "R02/R02_実地試験.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r02_1kj_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2019,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験（正答肢を含む）",
+              "file": "R01/R01_学科試験.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r01_1kg_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "実地試験",
+              "file": "R01/R01_実地試験.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r01_1kj_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2018,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験（正答肢を含む）",
+              "file": "H30/H30_学科試験.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/h30_1kg_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "実地試験",
+              "file": "H30/H30_実地試験.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/h30_1kj_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "実地試験（臨時）",
+              "file": "H30/H30_実地試験_臨時.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/h30_1kj_mondai_rinzi.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2017,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験（正答肢を含む）",
+              "file": "H29/H29_学科試験.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/h29_1kg_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2016,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験（正答肢を含む）",
+              "file": "H28/H28_学科試験.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/h28_1kg_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2015,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験（正答肢を含む）",
+              "file": "H27/H27_学科試験.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/h27_1kg_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        }
+      ]
+    },
+    "building-construction-2": {
+      "dir": "content/sources/past-exams/２級建築施工管理技士",
+      "official": {
+        "page": "https://www.fcip-shiken.jp/about/index.html",
+        "windowYears": null,
+        "publishLagDays": 30,
+        "policy": "建設業振興基金（FCIP）が「過去の受検状況・検定問題・合格基準」に第一次の問題（末尾に正答肢）と第二次の問題を掲載。ページのリンクは直近2年度だけだが、2026-09-29時点で平成27年度以降の旧年度PDFも同じ /pdf/ で配信されている（Wayback Machine の索引で発見）。第二次の解答は非公表。"
+      },
+      "otherSources": [],
+      "years": [
+        {
+          "year": 2026,
+          "official": "listed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "第一次検定（前期）（正答肢を含む）",
+              "file": "R08/R08_第一次検定_前期.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r08_2kgz_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2025,
+          "official": "listed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "第一次検定（後期）（正答肢を含む）",
+              "file": "R07/R07_第一次検定_後期.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r07_2kg_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "第一次検定（前期）（正答肢を含む）",
+              "file": "R07/R07_第一次検定_前期.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r07_2kgz_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "第二次検定",
+              "file": "R07/R07_第二次検定.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r07_2kj_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2024,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "第一次検定（後期）（正答肢を含む）",
+              "file": "R06/R06_第一次検定_後期.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r06_2kg_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "第一次検定（前期）（正答肢を含む）",
+              "file": "R06/R06_第一次検定_前期.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r06_2kgz_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "第二次検定",
+              "file": "R06/R06_第二次検定.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r06_2kj_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2023,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "第一次検定（後期）（正答肢を含む）",
+              "file": "R05/R05_第一次検定_後期.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r05_2kg_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "第一次検定（前期）（正答肢を含む）",
+              "file": "R05/R05_第一次検定_前期.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r05_2kgz_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "第二次検定",
+              "file": "R05/R05_第二次検定.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r05_2kj_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2022,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "第一次検定（後期）（正答肢を含む）",
+              "file": "R04/R04_第一次検定_後期.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r04_2kg_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "第一次検定（前期）（正答肢を含む）",
+              "file": "R04/R04_第一次検定_前期.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r04_2kgz_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "第二次検定",
+              "file": "R04/R04_第二次検定.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r04_2kj_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2021,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "第一次検定（後期）（正答肢を含む）",
+              "file": "R03/R03_第一次検定_後期.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r03_2kg_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "第一次検定（前期）（正答肢を含む）",
+              "file": "R03/R03_第一次検定_前期.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r03_2kgz_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "第二次検定",
+              "file": "R03/R03_第二次検定.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r03_2kj_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2020,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験（正答肢を含む）",
+              "file": "R02/R02_学科試験.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r02_2kg_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "実地試験",
+              "file": "R02/R02_実地試験.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r02_2kj_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2019,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験（後期）（正答肢を含む）",
+              "file": "R01/R01_学科試験_後期.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r01_2kg_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "学科試験（前期）（正答肢を含む）",
+              "file": "R01/R01_学科試験_前期.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r01_2kgz_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "実地試験",
+              "file": "R01/R01_実地試験.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r01_2kj_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2018,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験（後期）（正答肢を含む）",
+              "file": "H30/H30_学科試験_後期.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/h30_2kg_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "学科試験（前期）（正答肢を含む）",
+              "file": "H30/H30_学科試験_前期.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/h30_2kgz_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "実地試験",
+              "file": "H30/H30_実地試験.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/h30_2kj_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2017,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験（後期）（正答肢を含む）",
+              "file": "H29/H29_学科試験_後期.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/h29_2kg_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "学科試験（前期）（正答肢を含む）",
+              "file": "H29/H29_学科試験_前期.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/h29_2kgz_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "実地試験",
+              "file": "H29/H29_実地試験.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/h29_2kj_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2016,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験（正答肢を含む）",
+              "file": "H28/H28_学科試験.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/h28_2kg_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "実地試験",
+              "file": "H28/H28_実地試験.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/h28_2kj_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2015,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験（正答肢を含む）",
+              "file": "H27/H27_学科試験.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/h27_2kg_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "実地試験",
+              "file": "H27/H27_実地試験.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/h27_2kj_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        }
+      ]
+    },
+    "electrical-work-1": {
+      "dir": "content/sources/past-exams/１級電気工事施工管理技士",
+      "official": {
+        "page": "https://www.fcip-shiken.jp/about/index.html",
+        "windowYears": null,
+        "publishLagDays": 30,
+        "policy": "建設業振興基金（FCIP）が「過去の受検状況・検定問題・合格基準」に第一次の問題（末尾に正答肢）と第二次の問題を掲載。ページのリンクは直近2年度だけだが、2026-09-29時点で平成27年度以降の旧年度PDFも同じ /pdf/ で配信されている（Wayback Machine の索引で発見）。第二次の解答は非公表。"
+      },
+      "otherSources": [],
+      "years": [
+        {
+          "year": 2026,
+          "official": "listed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "第一次検定（正答肢を含む）",
+              "file": "R08/R08_第一次検定.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r08_1dg_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2025,
+          "official": "listed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "第一次検定（正答肢を含む）",
+              "file": "R07/R07_第一次検定.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r07_1dg_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "第二次検定",
+              "file": "R07/R07_第二次検定.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r07_1dj_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2024,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "第一次検定（正答肢を含む）",
+              "file": "R06/R06_第一次検定.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r06_1dg_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "第二次検定",
+              "file": "R06/R06_第二次検定.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r06_1dj_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2023,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "第一次検定（正答肢を含む）",
+              "file": "R05/R05_第一次検定.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r05_1dg_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "第二次検定",
+              "file": "R05/R05_第二次検定.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r05_1dj_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2022,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "第一次検定（正答肢を含む）",
+              "file": "R04/R04_第一次検定.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r04_1dg_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "第二次検定",
+              "file": "R04/R04_第二次検定.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r04_1dj_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2021,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "第一次検定（正答肢を含む）",
+              "file": "R03/R03_第一次検定.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r03_1dg_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "第二次検定",
+              "file": "R03/R03_第二次検定.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r03_1dj_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2020,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験（正答肢を含む）",
+              "file": "R02/R02_学科試験.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r02_1dg_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "実地試験",
+              "file": "R02/R02_実地試験.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r02_1dj_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2019,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験（正答肢を含む）",
+              "file": "R01/R01_学科試験.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r01_1dg_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "実地試験",
+              "file": "R01/R01_実地試験.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r01_1dj_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2018,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験（正答肢を含む）",
+              "file": "H30/H30_学科試験.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/h30_1dg_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "実地試験",
+              "file": "H30/H30_実地試験.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/h30_1dj_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2017,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験（正答肢を含む）",
+              "file": "H29/H29_学科試験.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/h29_1dg_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2016,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験（正答肢を含む）",
+              "file": "H28/H28_学科試験.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/h28_1dg_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2015,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験（正答肢を含む）",
+              "file": "H27/H27_学科試験.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/h27_1dg_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        }
+      ]
+    },
+    "electrical-work-2": {
+      "dir": "content/sources/past-exams/２級電気工事施工管理技士",
+      "official": {
+        "page": "https://www.fcip-shiken.jp/about/index.html",
+        "windowYears": null,
+        "publishLagDays": 30,
+        "policy": "建設業振興基金（FCIP）が「過去の受検状況・検定問題・合格基準」に第一次の問題（末尾に正答肢）と第二次の問題を掲載。ページのリンクは直近2年度だけだが、2026-09-29時点で平成27年度以降の旧年度PDFも同じ /pdf/ で配信されている（Wayback Machine の索引で発見）。第二次の解答は非公表。"
+      },
+      "otherSources": [],
+      "years": [
+        {
+          "year": 2026,
+          "official": "listed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "第一次検定（前期）（正答肢を含む）",
+              "file": "R08/R08_第一次検定_前期.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r08_2dgz_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2025,
+          "official": "listed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "第一次検定（後期）（正答肢を含む）",
+              "file": "R07/R07_第一次検定_後期.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r07_2dg_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "第一次検定（前期）（正答肢を含む）",
+              "file": "R07/R07_第一次検定_前期.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r07_2dgz_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "第二次検定",
+              "file": "R07/R07_第二次検定.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r07_2dj_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2024,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "第一次検定（後期）（正答肢を含む）",
+              "file": "R06/R06_第一次検定_後期.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r06_2dg_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "第一次検定（前期）（正答肢を含む）",
+              "file": "R06/R06_第一次検定_前期.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r06_2dgz_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "第二次検定",
+              "file": "R06/R06_第二次検定.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r06_2dj_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2023,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "第一次検定（後期）（正答肢を含む）",
+              "file": "R05/R05_第一次検定_後期.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r05_2dg_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "第一次検定（前期）（正答肢を含む）",
+              "file": "R05/R05_第一次検定_前期.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r05_2dgz_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "第二次検定",
+              "file": "R05/R05_第二次検定.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r05_2dj_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2022,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "第一次検定（後期）（正答肢を含む）",
+              "file": "R04/R04_第一次検定_後期.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r04_2dg_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "第一次検定（前期）（正答肢を含む）",
+              "file": "R04/R04_第一次検定_前期.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r04_2dgz_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "第二次検定",
+              "file": "R04/R04_第二次検定.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r04_2dj_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2021,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "第一次検定（後期）（正答肢を含む）",
+              "file": "R03/R03_第一次検定_後期.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r03_2dg_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "第一次検定（前期）（正答肢を含む）",
+              "file": "R03/R03_第一次検定_前期.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r03_2dgz_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "第二次検定",
+              "file": "R03/R03_第二次検定.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r03_2dj_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2020,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験（正答肢を含む）",
+              "file": "R02/R02_学科試験.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r02_2dg_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "実地試験",
+              "file": "R02/R02_実地試験.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r02_2dj_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2019,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験（後期）（正答肢を含む）",
+              "file": "R01/R01_学科試験_後期.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r01_2dg_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "学科試験（前期）（正答肢を含む）",
+              "file": "R01/R01_学科試験_前期.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r01_2dgz_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "実地試験",
+              "file": "R01/R01_実地試験.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/r01_2dj_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2018,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験（後期）（正答肢を含む）",
+              "file": "H30/H30_学科試験_後期.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/h30_2dg_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "学科試験（前期）（正答肢を含む）",
+              "file": "H30/H30_学科試験_前期.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/h30_2dgz_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "実地試験",
+              "file": "H30/H30_実地試験.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/h30_2dj_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2017,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験（正答肢を含む）",
+              "file": "H29/H29_学科試験.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/h29_2dg_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "実地試験",
+              "file": "H29/H29_実地試験.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/h29_2dj_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2016,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験（正答肢を含む）",
+              "file": "H28/H28_学科試験.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/h28_2dg_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "実地試験",
+              "file": "H28/H28_実地試験.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/h28_2dj_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2015,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験（正答肢を含む）",
+              "file": "H27/H27_学科試験.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/h27_2dg_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "実地試験",
+              "file": "H27/H27_実地試験.pdf",
+              "sourceUrl": "https://www.fcip-shiken.jp/pdf/h27_2dj_mondai.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        }
+      ]
+    },
     "pe-construction": {
       "dir": "content/sources/past-exams/技術士（建設部門）",
       "official": {
