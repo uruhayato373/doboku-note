@@ -49,6 +49,9 @@ const EXAM_IMAGE: Record<string, string> = {
   "concrete-chief-engineer": "/images/card-concrete-chief-engineer.webp",
   "concrete-diagnostician": "/images/card-concrete-diagnostician.webp",
   rccm: "/images/card-rccm.webp",
+  // 測量士・舗装は専用写真ができるまで RCCM と同じ共通背景を暫定で使う（画像なしだと白文字のコントラスト不足）
+  surveyor: "/images/card-rccm.webp",
+  pavement: "/images/card-rccm.webp",
 };
 
 // export: 検索ゼロステート（SearchZeroState）が同じ資格カードデザインを横展開するため（DN-0079③）。
