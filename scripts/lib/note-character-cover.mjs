@@ -193,6 +193,7 @@ const MAGAZINE_EXAM_LABELS = {
   'pe-comprehensive': '技術士 総監', 'pe-construction': '技術士 建設部門', 'pe-first-stage': '技術士 第一次',
   'concrete-engineer': 'コンクリート技士', 'concrete-chief': 'コンクリート主任技士',
   'concrete-diagnosis': 'コンクリート診断士', rccm: 'RCCM',
+  surveyor: '測量士', pavement: '舗装施工管理技術者', 'pipe-work': '管工事',
 };
 
 export function magazineDisplayCopy(input, copy = coverCopy(input)) {
@@ -203,7 +204,7 @@ export function magazineDisplayCopy(input, copy = coverCopy(input)) {
   const pack = title.match(/^(.+?)（(必須科目I＋.+)）$/u);
   if (pack && /合格パック/.test(copy.lead)) { title = `${pack[1]} 合格パック`; proof = pack[2]; }
   else if (title === 'まるごとパック' && /(?:二次|第2次)検定/.test(copy.lead)) title = '二次検定まるごとパック';
-  return { qualification, title, proof, authority: '技術士（総監）が作成' };
+  return { qualification, title, proof, authority: input.palette?.authority ? `${input.palette.authority}が作成` : '技術士（総監）が作成' };
 }
 
 function magazineSize(text, max, min, width, measure) {

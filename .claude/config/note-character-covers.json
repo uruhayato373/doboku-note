@@ -253,6 +253,22 @@
       "magazineName": "維持更新施工",
       "proof": "令和3〜7年度の模範論文",
       "benefit": "自分の権限から5つの管理をつなぐ"
+    },
+    {
+      "id": "surveyor-gogo-magazine",
+      "magazineDir": "content/note/測量士/magazines/測量士午後-分野別",
+      "qualifier": "測量士 午後 記述式",
+      "magazineName": "分野別 解き方の型と過去5年",
+      "proof": "必須No.1＋選択No.2〜5",
+      "benefit": "公式の解答例と照合済み"
+    },
+    {
+      "id": "pavement-1-keiken-magazine",
+      "magazineDir": "content/note/舗装/magazines/舗装1級-経験記述",
+      "qualifier": "1級舗装 応用試験 問1",
+      "magazineName": "経験記述 模範答案集",
+      "proof": "工程・品質・安全の3本",
+      "benefit": "工種別の置換え表つき"
     }
   ]
 }
