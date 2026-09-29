@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { PageHead } from '@/components/ui';
+import { Card, CardContent } from '@/components/ui/card';
 import { channelById, type AdminChannelId } from '@/lib/channel-registry';
 import { loadLedgerView, type LedgerRow } from '@/lib/ledger';
 
@@ -123,7 +124,8 @@ export default async function LedgerPage({ searchParams }: { searchParams: Promi
       <PageHead title={title ? `コンテンツ台帳：${title}` : 'コンテンツ台帳'} sub={`${all.length} 件（note の記事・マガジン、ココナラ、Kindle）`} />
       <div className="todo-shell">
         <div className="todo-main">
-          <div className="card">
+          <Card>
+            <CardContent>
             <p className="muted">
               {view.index.ok ? (
                 <>
@@ -215,7 +217,8 @@ export default async function LedgerPage({ searchParams }: { searchParams: Promi
                 </table>
               </div>
             )}
-          </div>
+            </CardContent>
+          </Card>
         </div>
 
         <aside className="todo-rail">
