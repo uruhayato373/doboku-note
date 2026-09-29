@@ -46,7 +46,9 @@ function fetchPdf(url, dest) {
   // curl には ASCII の一時パスを渡す。Windows の curl は引数を ANSI コードページで受けるので、
   // 「鋼」のような字を含む保存先が別の名前に化ける（2026-09-29 実測）。日本語名への付け替えは Node が行う。
   const tmp = join(tmpdir(), `past-exam-${process.pid}-${Date.now()}.part`);
-  const r = spawnSync('curl', ['-sSL', '--ssl-no-revoke', '--max-time', '180', '-o', tmp, '-w', '%{http_code}', url], { encoding: 'utf8' });
+  // 公式ページの URL には日本語・全角空白・【】が素のまま入っていることがある（秋田県）。curl へ渡す前に正規化する
+  const safeUrl = new URL(url).href;
+  const r = spawnSync('curl', ['-sSL', '--ssl-no-revoke', '--max-time', '180', '-o', tmp, '-w', '%{http_code}', safeUrl], { encoding: 'utf8' });
   const code = (r.stdout || '').trim();
   const ok = r.status === 0 && code === '200' && existsSync(tmp) && readFileSync(tmp).subarray(0, 5).toString('latin1') === '%PDF-';
   if (ok) copyFileSync(tmp, dest);
