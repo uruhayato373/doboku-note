@@ -43,6 +43,13 @@ type Query = { e?: string; p?: string; s?: string; m?: string };
 const NO_MAGAZINE = '__none';
 
 /**
+ * テーマの絞り込み（DN-0437）。以前は content/note 直下のフォルダ名を「資格」として出していたため、
+ * 資格のフォルダに置いた転職・キャリアの記事が資格の件数に混ざっていた。テーマは
+ * scripts/lib/content-theme.mjs（.claude/config/content-themes.json）が決める。未分類は赤で出す。
+ */
+const NO_THEME = '__none';
+
+/**
  * 状態の絞り込み。「反映待ち」「止まっている」は note の記事単位の同期計画（scripts/lib/note-sync-plan.mjs。
  * /content/note-sync・週次・launchd note-sync と同じ判定）が取れたときだけ意味を持つ（DN-0436）。
  */
@@ -148,7 +155,7 @@ export default async function ContentNotePage({
         : state === 'ready' ? isReady(i)
           : state === 'blocked' ? isBlocked(i)
             : true;
-  const matchExam = (i: NoteArticle) => !exam || i.exam === exam;
+  const matchExam = (i: NoteArticle) => !exam || (exam === NO_THEME ? !i.theme : i.theme === exam);
   const matchPricing = (i: NoteArticle) => !pricing || i.pricing === pricing;
   const matchMagazine = (i: NoteArticle) =>
     !magazine ? true : magazine === NO_MAGAZINE ? !i.magazine : i.magazine === magazine;
@@ -163,7 +170,8 @@ export default async function ContentNotePage({
   const stateScope = all.filter((i) => matchExam(i) && matchPricing(i) && matchMagazine(i));
   const magazineScope = all.filter((i) => matchExam(i) && matchPricing(i) && matchState(i));
 
-  const examCounts = countBy(examScope, (i) => i.exam);
+  const examCounts = countBy(examScope, (i) => i.theme ?? NO_THEME);
+  const themeLabels = new Map(all.map((i) => [i.theme ?? NO_THEME, i.theme ? i.themeLabel : '未分類']));
   const pricingCounts = countBy(pricingScope, (i) => i.pricing);
   const stateCounts = new Map<string, number>([
     ['published', stateScope.filter((i) => i.published).length],
@@ -220,7 +228,7 @@ export default async function ContentNotePage({
                   <strong>{items.length}</strong> 本を表示中（全 {all.length} 本）
                 </>
               ) : (
-                <>全 {all.length} 本を表示中。右の絞り込みで資格・価格・状態・マガジンを選べる。</>
+                <>全 {all.length} 本を表示中。右の絞り込みでテーマ・価格・状態・マガジンを選べる。</>
               )}
               {' '}タイトルをクリックすると note の公開記事を別タブで開く。
             </p>
@@ -233,7 +241,7 @@ export default async function ContentNotePage({
                   <thead>
                     <tr>
                       <th className="title-col">タイトル</th>
-                      <th className="category-col optional-col">資格</th>
+                      <th className="category-col optional-col">テーマ</th>
                       <th className="price-col">価格</th>
                       <th className="publish-col">公開</th>
                       <th className="publish-col">同期</th>
@@ -256,7 +264,11 @@ export default async function ContentNotePage({
                             )}
                           </td>
                           <td className="category-col optional-col">
-                            <span className="muted">{i.exam}</span>
+                            {i.theme ? (
+                              <span className="muted">{i.themeLabel}</span>
+                            ) : (
+                              <span className="badge bad" title="content-themes.json のどのルールにも当たらない">未分類</span>
+                            )}
                           </td>
                           <td className="price-col">
                             <span
@@ -313,12 +325,12 @@ export default async function ContentNotePage({
             {filtered ? <Link href="/content/note">すべて解除</Link> : null}
           </div>
           <Facet
-            title="資格"
+            title="テーマ"
             param="e"
             now={now}
             active={exam}
             total={examScope.length}
-            items={examKeys.map((key) => ({ key, label: key, count: examCounts.get(key) ?? 0 }))}
+            items={examKeys.map((key) => ({ key, label: themeLabels.get(key) ?? key, count: examCounts.get(key) ?? 0 }))}
           />
           <Facet
             title="価格"
