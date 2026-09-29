@@ -4,7 +4,7 @@
  *
  * 公式の過去問は「直近 N 年度だけ掲載」が多く、取り逃した年度は二度と手に入らない。
  * 台帳は資格×年度×ファイルの在庫（公式掲載の有無・入手元・取得日）を持ち、PDF 本体は
- * content/sources/textbook/{資格}/過去問/ に置いて Drive vault（textbook-source-pdf）へ退避する。
+ * content/sources/past-exams/{資格}/{年度}/ に置いて Drive vault（past-exam-source-pdf＝原資料PDF/過去問/）へ退避する。
  *
  * FAIL（exit 1）= 台帳の不整合（壁時計に依存しない）:
  *   資格 id が exam-formats.json に無い / パスが Drive の textbook-source-pdf に当たらない /
@@ -22,9 +22,9 @@ import { loadDriveConfig, loadDriveManifest, driveGroupFor } from './lib/drive-v
 
 const NAME = 'check-past-exam-inventory';
 const INVENTORY_PATH = '.claude/config/past-exam-inventory.json';
-const DRIVE_GROUP = 'textbook-source-pdf';
+const DRIVE_GROUP = 'past-exam-source-pdf';
 const OFFICIAL = ['listed', 'removed', 'never', 'unknown'];
-const KINDS = ['question', 'answer', 'commentary', 'mock']; // commentary=第三者の解答・解説 / mock=模擬試験
+const KINDS = ['question', 'answer']; // 公式の問題と正答・解答例だけ。第三者の解答・解説・模擬試験は教材側（過去問解説/）
 const DAY = 86_400_000;
 
 /** 検査本体（純関数）。fileExists=null は手元の実体を見ない（CI）。 */
@@ -38,9 +38,9 @@ export function evaluateInventory({ inventory, formats, calendar, manifest, driv
     const at = (msg) => `${id}: ${msg}`;
     if (!formats.exams?.[id]) fails.push(at('exam-formats.json に無い資格 id'));
     const dir = String(exam.dir || '');
-    if (!/^content\/sources\/textbook\/[^/]+\/過去問$/.test(dir)) fails.push(at(`dir は content/sources/textbook/{資格}/過去問 の形にする（${dir || '未設定'}）`));
+    if (!/^content\/sources\/past-exams\/[^/]+$/.test(dir)) fails.push(at(`dir は content/sources/past-exams/{資格} の形にする（${dir || '未設定'}）`));
     const seenYears = new Set();
-    const examYears = new Set(); // 本試験の行がある年度（模擬・解説だけの年度は数えない）
+    const examYears = new Set(); // 問題（question）の行がある年度
     const listedMissing = [];
     for (const y of exam.years || []) {
       stats.years++;
@@ -67,7 +67,7 @@ export function evaluateInventory({ inventory, formats, calendar, manifest, driv
         if (entries[rel]?.group === DRIVE_GROUP) { stats.inDrive++; continue; }
         if (fileExists === null) { warns.push(`${fl}: 取得済みだが Drive 台帳に未登録（CI は手元を見ない）`); continue; }
         stats.localChecked++;
-        if (fileExists(rel)) warns.push(`${fl}: 手元にだけある。Drive へ退避する（drive-vault-sync --commit か drive-connector-register）`);
+        if (fileExists(rel)) warns.push(`${fl}: 手元にだけある。Drive へ退避する（/past-exam-archive の退避手順）`);
         else fails.push(`${fl}: 取得済みと書いたのに Drive 台帳にも手元にも無い`);
       }
     }

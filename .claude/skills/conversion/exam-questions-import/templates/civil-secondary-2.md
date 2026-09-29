@@ -6,7 +6,7 @@
 ## ソース情報
 
 - **試験**: 2級土木施工管理技術検定 第2次検定（記述式）
-- **PDF 配置**: `content/sources/textbook/２級土木施工管理技士/過去問/R{YY}/R{YY}_第二次検定.pdf`
+- **PDF 配置**: `content/sources/past-exams/２級土木施工管理技士/R{YY}/R{YY}_第二次検定.pdf`
 - **収録年度**: 令和3年度〜令和7年度（5 年分、年1回後期のみ実施）
 - **特徴**: 年度ごとに **別ファイル**、1級と異なり PDF はテキスト層あり（OCR 良好）
 
@@ -14,11 +14,11 @@
 
 | 年度 | PDF パス | 出力ファイル | 問題数 | OCR 品質 |
 |---|---|---|---|---|
-| r03 | `content/sources/textbook/２級土木施工管理技士/過去問/R03/R03_第二次検定.pdf` | `secondary-r03/article.mdx` | 9 | 良好 |
-| r04 | `content/sources/textbook/２級土木施工管理技士/過去問/R04/R04_第二次検定.pdf` | `secondary-r04/article.mdx` | 9 | 良好 |
-| r05 | `content/sources/textbook/２級土木施工管理技士/過去問/R05/R05_第二次検定.pdf` | `secondary-r05/article.mdx` | 9 | 良好 |
-| r06 | `content/sources/textbook/２級土木施工管理技士/過去問/R06/R06_第二次検定.pdf` | `secondary-r06/article.mdx` | 9 | 良好 |
-| r07 | `content/sources/textbook/２級土木施工管理技士/過去問/R07/R07_第二次検定.pdf` | `secondary-r07/article.mdx` | 9 | 良好 |
+| r03 | `content/sources/past-exams/２級土木施工管理技士/R03/R03_第二次検定.pdf` | `secondary-r03/article.mdx` | 9 | 良好 |
+| r04 | `content/sources/past-exams/２級土木施工管理技士/R04/R04_第二次検定.pdf` | `secondary-r04/article.mdx` | 9 | 良好 |
+| r05 | `content/sources/past-exams/２級土木施工管理技士/R05/R05_第二次検定.pdf` | `secondary-r05/article.mdx` | 9 | 良好 |
+| r06 | `content/sources/past-exams/２級土木施工管理技士/R06/R06_第二次検定.pdf` | `secondary-r06/article.mdx` | 9 | 良好 |
+| r07 | `content/sources/past-exams/２級土木施工管理技士/R07/R07_第二次検定.pdf` | `secondary-r07/article.mdx` | 9 | 良好 |
 
 **注**: 問題数は標準で 9 問（必須＋選択、うち経験記述 1 題が最重要）。年度により変動あり。
 
@@ -154,7 +154,7 @@ pdftoppm -png -r 150 -f {開始P} -l {終了P} '{PDFパス}' /tmp/exam-2-2k-p
 
 ## 参照
 
-- `content/sources/textbook/２級土木施工管理技士/過去問/` — ソース PDF ディレクトリ
+- `content/sources/past-exams/２級土木施工管理技士/` — ソース PDF ディレクトリ
 - `.claude/knowledge/reference/content-authoring.md` — MDX 構造ルール
 - `.claude/skills/conversion/exam-questions-import/templates/civil-secondary.md` — 1級テンプレ（共通フォーマットの真実源）
 - `.claude/agents/civil-secondary-exam-writer.md` — 経験記述解答補完の真実源

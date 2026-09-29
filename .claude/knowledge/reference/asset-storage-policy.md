@@ -60,6 +60,7 @@ Google Drive 側が `.claude/config/drive-vault.json`（台帳 `.claude/state/as
 | `git-history-bundle` | human（例外） | private R2 | 2.65GB 書き込み一回・復元時だけ。ストリーミングマウント越しの単一巨大 blob は脆い |
 | `sns-archived-media` | human | Drive `制作物/SNS音声動画/` | reels の wav/mp4・YouTube Shorts mp4。投稿は人の JIT。`post-youtube-scheduled.yml` の Shorts 台帳は手動投入へ切替済み（pending 0・参照キー `sns/youtube-shorts/` は R2 に 0 件）なので CI は読んでいない。2026-09-05 DN-0170 で旧 `upload-sns-r2` 系統を廃止（[sns-archive-policy.md](sns-archive-policy.md)） |
 | `standards-page-image` | human | Drive `原資料PDF/共通仕様書/{整備局}/{PDF名}/{pages,text}/` | 原本 PDF の隣（§1-2） |
+| `past-exam-source-pdf` | human | Drive `原資料PDF/過去問/{資格}/{年度}/` | 試験実施機関が公開する公式過去問の原本。在庫は `past-exam-inventory.json`、取得〜退避は `/past-exam-archive`（会社PCは `drive-browser-transfer`）。第三者の解答解説は教材側 |
 | `textbook-source-pdf` / `textbook-page-image` | human | Drive `原資料PDF/教材/{書名}/**` または台帳の正本パス | 旧論理キーの互換レイヤー。同一 PDF は `adopted` で正本を共有し、旧配置を作り直さない |
 | `reference-book-source-pdf` / `reference-book-page-image` | human | Drive `原資料PDF/書籍/{referenceId}__{短い書名}/{source,pages,crops}/` | Git は `content/sources/books/**/book-manifest.json` だけを追跡し、原本・画像は非公開 |
 | `source-transcript` | human | 原資料ディレクトリ内の `ocr/**/*.md` | README を除く文字起こし。参考文献台帳から置き場を解決し、frontmatter の `source` / `sourcePdfs` で原本へ接続 |

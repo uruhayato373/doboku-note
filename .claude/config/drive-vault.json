@@ -66,6 +66,24 @@
       "reason": "公的基準の原本 PDF を 1 ページ 1 画像＋1 テキストへ割った派生物。原本と同じ Drive に、原本 PDF と同名のフォルダで隣に置く（人が PDF とページを見比べる）。原本から決定的に再生成でき、著作権物でもないので R2 に置く理由が無い。"
     },
     {
+      "id": "past-exam-source-pdf",
+      "status": "active",
+      "audience": "human",
+      "match": {
+        "pathRegex": "^content/sources/past-exams/[^/]+/[^/]+/[^/]+\\.pdf$"
+      },
+      "vaultDir": "原資料PDF/過去問",
+      "keyFrom": "stripPrefix:content/sources/past-exams/",
+      "regenerable": false,
+      "generator": null,
+      "requiredBy": [
+        ".claude/config/past-exam-inventory.json（年度在庫の実体）",
+        ".claude/skills/conversion/past-exam-archive（取得・退避・照合）",
+        "過去問 MDX の原典照合（人）"
+      ],
+      "reason": "試験実施機関が公開する過去問の原本（公式の問題・正答・解答例）。市販教材（textbook-source-pdf）とは出所と再利用条件（reference-sources.json の exam-official）が違うので別に持つ。{資格}/{年度}/ で並べ、在庫は past-exam-inventory.json が持つ。公式の掲載は直近数年度だけのことが多く取り直せないので regenerable=false。第三者の解答・解説は教材側（原資料PDF/教材/{資格}/過去問解説/）に置く。"
+    },
+    {
       "id": "textbook-source-pdf",
       "status": "active",
       "audience": "human",

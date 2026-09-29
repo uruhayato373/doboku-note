@@ -2,9 +2,12 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { evaluateInventory } from '../scripts/check-past-exam-inventory.mjs';
 
-const driveCfg = { groups: [{ id: 'textbook-source-pdf', status: 'active', match: { pathRegex: '^content/sources/textbook/.+\\.pdf$' } }] };
+const driveCfg = { groups: [
+  { id: 'past-exam-source-pdf', status: 'active', match: { pathRegex: '^content/sources/past-exams/[^/]+/[^/]+/[^/]+\\.pdf$' } },
+  { id: 'textbook-source-pdf', status: 'active', match: { pathRegex: '^content/sources/textbook/.+\\.pdf$' } },
+] };
 const formats = { exams: { surveyor: {} } };
-const DIR = 'content/sources/textbook/測量士/過去問';
+const DIR = 'content/sources/past-exams/測量士';
 const calendar = { exams: { surveyor: { year: 2026, events: { apply: { date: '2026-01-05', kind: 'application' }, exam: { date: '2026-05-17', kind: 'exam' } } } } };
 const file = (name, acquiredAt = null) => ({ kind: 'question', section: '午前', file: name, sourceUrl: 'https://example.jp/a.pdf', acquiredAt });
 const inv = (years, extra = {}) => ({ exams: { surveyor: { dir: DIR, official: { windowYears: 5, publishLagDays: 60 }, years, ...extra } } });
@@ -14,7 +17,7 @@ const run = (inventory, opts = {}) => evaluateInventory({
 
 test('Drive 台帳に載った取得済みファイルは OK として数える', () => {
   const r = run(inv([{ year: 2026, official: 'listed', files: [file('R08/a.pdf', '2026-09-29')] }]), {
-    manifest: { entries: { [`${DIR}/R08/a.pdf`]: { group: 'textbook-source-pdf' } } },
+    manifest: { entries: { [`${DIR}/R08/a.pdf`]: { group: 'past-exam-source-pdf' } } },
   });
   assert.deepEqual(r.fails, []);
   assert.deepEqual(r.warns, []);
@@ -22,7 +25,7 @@ test('Drive 台帳に載った取得済みファイルは OK として数える'
 });
 
 test('台帳に無い資格 id と Drive に当たらないパスは FAIL', () => {
-  const bad = { exams: { unknown: { dir: 'content/sources/other/過去問', years: [{ year: 2026, official: 'listed', files: [file('a.pdf')] }] } } };
+  const bad = { exams: { unknown: { dir: 'content/sources/textbook/測量士/過去問', years: [{ year: 2026, official: 'listed', files: [file('a.pdf')] }] } } };
   const r = run(bad);
   assert.ok(r.fails.some(f => f.includes('exam-formats.json に無い')));
   assert.ok(r.fails.some(f => f.includes('dir は')));
@@ -63,9 +66,11 @@ test('year の重複と official の語彙外は FAIL', () => {
   assert.ok(r.fails.some(f => f.includes('official は')));
 });
 
-test('模擬試験だけの年度は今年度の行として数えない', () => {
-  const years = [{ year: 2026, official: 'unknown', files: [{ ...file('R08/mock.pdf', '2026-09-29'), kind: 'mock' }] }];
+test('正答だけの年度は今年度の行として数えず、公式以外の種類は FAIL', () => {
+  const years = [{ year: 2026, official: 'unknown', files: [{ ...file('R08/a.pdf', '2026-09-29'), kind: 'answer' }] }];
   const r = run(inv(years), { fileExists: () => true });
   assert.ok(r.warns.some(w => w.includes('2026 年度の試験')));
   assert.equal(r.fails.length, 0);
+  const bad = run(inv([{ year: 2026, official: 'listed', files: [{ ...file('R08/b.pdf'), kind: 'commentary' }] }]));
+  assert.ok(bad.fails.some(f => f.includes('kind は')));
 });

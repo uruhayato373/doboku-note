@@ -13,7 +13,7 @@
 //   - 真因の最終判断は人手で原典 PDF を視覚突合（候補の数を絞ることが目的）
 //
 // 入力:
-//   content/sources/textbook/技術士（総監）/過去問/{year}/{year}_試験問題_{択一式|記述式}.pdf
+//   content/sources/past-exams/技術士（総監）/{year}/{year}_試験問題_{択一式|記述式}.pdf
 //   content/site/pe-comprehensive-management/{year-lower}-{primary|secondary}/article.mdx
 //
 // 出力:
@@ -33,7 +33,7 @@ import { join, relative, basename, dirname } from 'node:path';
 import { spawnSync, spawn } from 'node:child_process';
 
 const ROOT = process.cwd();
-const PDF_ROOT = join(ROOT, 'content/sources/textbook/技術士（総監）/過去問');
+const PDF_ROOT = join(ROOT, 'content/sources/past-exams/技術士（総監）');
 const MDX_ROOT = join(ROOT, 'content/site/pe-comprehensive-management');
 const TMP_DIR = join(ROOT, '.tmp/ocr-cache');
 const OUTPUT_DIR = join(ROOT, '.claude/state/pdf-mdx-audit');
