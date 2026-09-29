@@ -11,7 +11,7 @@
  *
  * マッピングは PRODUCTS 定数（＝coconala-listings.json の商品と対応）。
  * 土木以外（RCCM・技術士）は noteRelative で content/note/ からの相対パスで源を引く。
- * 使い方: CHROME_PATH=... node scripts/build-coconala-content-pdf.mjs [--product C1|…|C9|A1|A2|R1|R2|R3|K1|K2|O1]
+ * 使い方: CHROME_PATH=... node scripts/build-coconala-content-pdf.mjs [--product C1|…|C9|A1|A2|R1|R2|R3|K1|K2|K3|O1]
  * ---------------------------------------------------------------------------
  */
 import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync } from 'node:fs';
@@ -201,6 +201,19 @@ const PRODUCTS = {
         src: `コンクリート主任技士/magazines/コンクリート主任技士-小論文-模範答案集/${t}/article.md`,
         out: `coconala-K1-主任技士小論文-${String(i + 1).padStart(2, '0')}-${t}`,
         includeFrom: '^## 想定問題（代表例）',
+      })),
+    ],
+  },
+  // K3: コンクリート主任技士 小論文 令和形式（出題傾向分析＋5テーマ×8立場の模範答案）。note cce-essay-reiwa-pack と同内容。
+  K3: {
+    label: 'coconala-cce-essay-reiwa-pdf',
+    noteRelative: true,
+    articles: [
+      { src: 'コンクリート主任技士/magazines/コンクリート主任技士-小論文テーマ別-令和形式/00-出題傾向分析/article.md', out: 'coconala-K3-主任技士小論文令和-00-出題傾向分析', includeFrom: '^## 問題文は公開されていない' },
+      ...['01-環境負荷低減', '02-耐久性の向上', '03-生産性向上DX', '04-気候変動と品質確保', '05-担い手不足と品質確保'].map((t) => ({
+        src: `コンクリート主任技士/magazines/コンクリート主任技士-小論文テーマ別-令和形式/${t}/article.md`,
+        out: `coconala-K3-主任技士小論文令和-${t}`,
+        includeFrom: '^## このテーマの出題実績',
       })),
     ],
   },
