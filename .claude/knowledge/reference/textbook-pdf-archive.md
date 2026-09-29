@@ -1,6 +1,6 @@
 # 教材スキャンPDF アーカイブ運用（Google Drive vault）
 
-`content/sources/textbook/` 配下のスキャン教材・白書・過去問の**元PDF**とページ画像（PDF→MDX 変換の入力）を git に溜め込まず、Google Drive vault へ退避し、必要なときだけローカルへ取り戻す運用方針。2026-07-20 制定、2026-09-05 に置き場を private R2 から Drive vault へ改め、2026-09-07 から参考文献 ID 単位の書籍 bundle へ段階移行している。
+`content/sources/textbook/` 配下のスキャン教材・白書・過去問の**元PDF**とページ画像（PDF→MDX 変換の入力）を git に溜め込まず、Google Drive vault へ退避し、必要なときだけローカルへ取り戻す運用方針。2026-07-20 制定、2026-09-05 に置き場を private R2 から Drive vault へ改め、2026-09-07 から参考文献 ID 単位の書籍 bundle へ段階移行している。過去問の年度単位の在庫（公式掲載状態・取得日・Drive 退避）の SSOT は `.claude/config/past-exam-inventory.json`、検査は `npm run check-past-exam-inventory`。
 
 ## なぜ Drive vault か
 

@@ -124,6 +124,7 @@
     "todo:release": "node scripts/todo-release.mjs",
     "todo:complete": "node scripts/todo-complete.mjs",
     "check-exam-calendar": "node scripts/check-exam-calendar.mjs",
+    "check-past-exam-inventory": "node scripts/check-past-exam-inventory.mjs",
     "check-year-staleness": "node scripts/check-year-staleness.mjs",
     "exam-ssot-status": "node scripts/report-exam-ssot.mjs",
     "check-qualification-market": "node scripts/check-qualification-market.mjs",

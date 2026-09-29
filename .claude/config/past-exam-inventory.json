@@ -1,0 +1,788 @@
+{
+  "schemaVersion": 1,
+  "verifiedAt": "2026-09-29",
+  "policy": "過去問の年度単位の在庫（資格×年度×ファイル）の SSOT。資格 id は exam-formats.json と同じ。PDF 本体は Git に入れず dir 配下（gitignore 済み）に置き、Drive vault の textbook-source-pdf（原資料PDF/教材/）へ退避する。official は公式掲載の状態（listed=掲載中 / removed=掲載終了 / never=公式に無い・試験中止 / unknown）、acquiredAt は手元に取得した日（未取得は null）。themes は分析結果（記述・経験記述の出題テーマ）を年度ごとに持つ。公式の掲載は直近数年度だけのことが多く、取り逃した年度は二度と手に入らない。npm run check-past-exam-inventory が整合と取得の催促を出し、月次レビュー（手順4）が読む。既存の 1級・2級土木と技術士の過去問は同じ置き場で Drive 退避済みだが、この台帳へはまだ載せていない。",
+  "exams": {
+    "pavement-1": {
+      "dir": "content/sources/textbook/１級舗装施工管理技術者/過去問",
+      "official": {
+        "page": "https://www.dohkenkyo.or.jp/shikakushiken/pavement/shikakusyutoku/kakomondai/",
+        "windowYears": null,
+        "publishLagDays": 30,
+        "policy": "問題 PDF だけを掲載し解答は非公表。保存期間の明記は無く、2026-09-29 時点で R1・R3〜R8 の 7 年度が並ぶ（R2 は中止）。R8 は試験（6/28）の約 1 週間後に追加された。",
+        "note": "経験記述の形式は R01・R04・R08 の問1を目視で照合（R03・R05〜R07 は未照合）"
+      },
+      "years": [
+        {
+          "year": 2026,
+          "official": "listed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "一般試験",
+              "file": "R08/R08_一般試験_問題.pdf",
+              "sourceUrl": "https://www.dohkenkyo.or.jp/Portals/0/2026_H1_i.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "応用試験",
+              "file": "R08/R08_応用試験_問題.pdf",
+              "sourceUrl": "https://www.dohkenkyo.or.jp/Portals/0/2026_H1_o.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ],
+          "themes": [
+            {
+              "section": "応用試験 問1（必須・経験記述）",
+              "theme": "年度のテーマ指定なし。工程管理・出来形／品質管理・安全管理から選ぶ（複数選択可）。課題200字以内・対策300字以内・結果100字以内",
+              "checkedBy": "self",
+              "checkedAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2025,
+          "official": "listed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "一般試験",
+              "file": "R07/R07_一般試験_問題.pdf",
+              "sourceUrl": "https://www.dohkenkyo.or.jp/Portals/0/images/shikakushiken/pavement/shikakusyutoku/kakomondai/2025_H1_i.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "応用試験",
+              "file": "R07/R07_応用試験_問題.pdf",
+              "sourceUrl": "https://www.dohkenkyo.or.jp/Portals/0/images/shikakushiken/pavement/shikakusyutoku/kakomondai/2025_H1_o.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ],
+          "themes": []
+        },
+        {
+          "year": 2024,
+          "official": "listed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "一般試験",
+              "file": "R06/R06_一般試験_問題.pdf",
+              "sourceUrl": "https://www.dohkenkyo.or.jp/Portals/0/images/shikakushiken/pavement/shikakusyutoku/kakomondai/2024_H1_i.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "応用試験",
+              "file": "R06/R06_応用試験_問題.pdf",
+              "sourceUrl": "https://www.dohkenkyo.or.jp/Portals/0/images/shikakushiken/pavement/shikakusyutoku/kakomondai/2024_H1_o.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ],
+          "themes": []
+        },
+        {
+          "year": 2023,
+          "official": "listed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "一般試験",
+              "file": "R05/R05_一般試験_問題.pdf",
+              "sourceUrl": "https://www.dohkenkyo.or.jp/Portals/0/images/shikakushiken/pavement/shikakusyutoku/kakomondai/2023_H1_i.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "応用試験",
+              "file": "R05/R05_応用試験_問題.pdf",
+              "sourceUrl": "https://www.dohkenkyo.or.jp/Portals/0/images/shikakushiken/pavement/shikakusyutoku/kakomondai/2023_H1_o.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ],
+          "themes": []
+        },
+        {
+          "year": 2022,
+          "official": "listed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "一般試験",
+              "file": "R04/R04_一般試験_問題.pdf",
+              "sourceUrl": "https://www.dohkenkyo.or.jp/Portals/0/images/shikakushiken/pavement/shikakusyutoku/kakomondai/2022_H1_i.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "応用試験",
+              "file": "R04/R04_応用試験_問題.pdf",
+              "sourceUrl": "https://www.dohkenkyo.or.jp/Portals/0/images/shikakushiken/pavement/shikakusyutoku/kakomondai/2022_H1_o.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ],
+          "themes": [
+            {
+              "section": "応用試験 問1（必須・経験記述）",
+              "theme": "年度のテーマ指定なし。工程管理・出来形／品質管理・安全管理から選ぶ（複数選択可）。課題200字以内・対策300字以内・結果100字以内",
+              "checkedBy": "self",
+              "checkedAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2021,
+          "official": "listed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "一般試験",
+              "file": "R03/R03_一般試験_問題.pdf",
+              "sourceUrl": "https://www.dohkenkyo.or.jp/Portals/0/images/shikakushiken/pavement/shikakusyutoku/kakomondai/2021_H1_i.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "応用試験",
+              "file": "R03/R03_応用試験_問題.pdf",
+              "sourceUrl": "https://www.dohkenkyo.or.jp/Portals/0/images/shikakushiken/pavement/shikakusyutoku/kakomondai/2021_H1_o.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ],
+          "themes": []
+        },
+        {
+          "year": 2020,
+          "official": "never",
+          "note": "新型コロナで試験中止",
+          "files": [],
+          "themes": []
+        },
+        {
+          "year": 2019,
+          "official": "listed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "一般試験",
+              "file": "R01/R01_一般試験_問題.pdf",
+              "sourceUrl": "https://www.dohkenkyo.or.jp/Portals/0/images/shikakushiken/pavement/shikakusyutoku/kakomondai/2019exam_H1_i.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "応用試験",
+              "file": "R01/R01_応用試験_問題.pdf",
+              "sourceUrl": "https://www.dohkenkyo.or.jp/Portals/0/images/shikakushiken/pavement/shikakusyutoku/kakomondai/2019exam_H1_o.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ],
+          "themes": [
+            {
+              "section": "応用試験 問1（必須・経験記述）",
+              "theme": "年度のテーマ指定なし。工程管理・出来形／品質管理・安全管理から選ぶ（複数選択可）。課題200字以内・対策300字以内・結果100字以内",
+              "checkedBy": "self",
+              "checkedAt": "2026-09-29"
+            }
+          ]
+        }
+      ],
+      "otherSources": [
+        {
+          "title": "1級舗装施工管理技術者資格試験 受験対策ノート",
+          "publisher": "建設図書",
+          "years": "未確認",
+          "source": "https://www.shinanobook.com/genre/book/750"
+        }
+      ]
+    },
+    "pavement-2": {
+      "dir": "content/sources/textbook/２級舗装施工管理技術者/過去問",
+      "official": {
+        "page": "https://www.dohkenkyo.or.jp/shikakushiken/pavement/shikakusyutoku/kakomondai/",
+        "windowYears": null,
+        "publishLagDays": 30,
+        "policy": "問題 PDF だけを掲載し解答は非公表。保存期間の明記は無く、2026-09-29 時点で R1・R3〜R8 の 7 年度が並ぶ（R2 は中止）。R8 は試験（6/28）の約 1 週間後に追加された。"
+      },
+      "years": [
+        {
+          "year": 2026,
+          "official": "listed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "一般試験",
+              "file": "R08/R08_一般試験_問題.pdf",
+              "sourceUrl": "https://www.dohkenkyo.or.jp/Portals/0/2026_H2_i.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "応用試験",
+              "file": "R08/R08_応用試験_問題.pdf",
+              "sourceUrl": "https://www.dohkenkyo.or.jp/Portals/0/2026_H2_o.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ],
+          "themes": [
+            {
+              "section": "応用試験 問1（必須・経験記述）",
+              "theme": "年度のテーマ指定なし。管理項目の指定もなく、施工管理上の課題と現場で実施した対策の2項目。字数指定なし（解答欄に収める）",
+              "checkedBy": "self",
+              "checkedAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2025,
+          "official": "listed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "一般試験",
+              "file": "R07/R07_一般試験_問題.pdf",
+              "sourceUrl": "https://www.dohkenkyo.or.jp/Portals/0/images/shikakushiken/pavement/shikakusyutoku/kakomondai/2025_H2_i.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "応用試験",
+              "file": "R07/R07_応用試験_問題.pdf",
+              "sourceUrl": "https://www.dohkenkyo.or.jp/Portals/0/images/shikakushiken/pavement/shikakusyutoku/kakomondai/2025_H2_o.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ],
+          "themes": [
+            {
+              "section": "応用試験 問1（必須・経験記述）",
+              "theme": "年度のテーマ指定なし。管理項目の指定もなく、施工管理上の課題と現場で実施した対策の2項目。字数指定なし（解答欄に収める）",
+              "checkedBy": "self",
+              "checkedAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2024,
+          "official": "listed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "一般試験",
+              "file": "R06/R06_一般試験_問題.pdf",
+              "sourceUrl": "https://www.dohkenkyo.or.jp/Portals/0/images/shikakushiken/pavement/shikakusyutoku/kakomondai/2024_H2_i.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "応用試験",
+              "file": "R06/R06_応用試験_問題.pdf",
+              "sourceUrl": "https://www.dohkenkyo.or.jp/Portals/0/images/shikakushiken/pavement/shikakusyutoku/kakomondai/2024_H2_o.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ],
+          "themes": [
+            {
+              "section": "応用試験 問1（必須・経験記述）",
+              "theme": "年度のテーマ指定なし。管理項目の指定もなく、施工管理上の課題と現場で実施した対策の2項目。字数指定なし（解答欄に収める）",
+              "checkedBy": "self",
+              "checkedAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2023,
+          "official": "listed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "一般試験",
+              "file": "R05/R05_一般試験_問題.pdf",
+              "sourceUrl": "https://www.dohkenkyo.or.jp/Portals/0/images/shikakushiken/pavement/shikakusyutoku/kakomondai/2023_H2_i.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "応用試験",
+              "file": "R05/R05_応用試験_問題.pdf",
+              "sourceUrl": "https://www.dohkenkyo.or.jp/Portals/0/images/shikakushiken/pavement/shikakusyutoku/kakomondai/2023_H2_o.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ],
+          "themes": [
+            {
+              "section": "応用試験 問1（必須・経験記述）",
+              "theme": "年度のテーマ指定なし。管理項目の指定もなく、施工管理上の課題と現場で実施した対策の2項目。課題78字以内・対策218字以内",
+              "checkedBy": "self",
+              "checkedAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2022,
+          "official": "listed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "一般試験",
+              "file": "R04/R04_一般試験_問題.pdf",
+              "sourceUrl": "https://www.dohkenkyo.or.jp/Portals/0/images/shikakushiken/pavement/shikakusyutoku/kakomondai/2022_H2_i.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "応用試験",
+              "file": "R04/R04_応用試験_問題.pdf",
+              "sourceUrl": "https://www.dohkenkyo.or.jp/Portals/0/images/shikakushiken/pavement/shikakusyutoku/kakomondai/2022_H2_o.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ],
+          "themes": [
+            {
+              "section": "応用試験 問1（必須・経験記述）",
+              "theme": "年度のテーマ指定なし。管理項目の指定もなく、施工管理上の課題と現場で実施した対策の2項目。課題78字以内・対策218字以内",
+              "checkedBy": "self",
+              "checkedAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2021,
+          "official": "listed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "一般試験",
+              "file": "R03/R03_一般試験_問題.pdf",
+              "sourceUrl": "https://www.dohkenkyo.or.jp/Portals/0/images/shikakushiken/pavement/shikakusyutoku/kakomondai/2021_H2_i.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "応用試験",
+              "file": "R03/R03_応用試験_問題.pdf",
+              "sourceUrl": "https://www.dohkenkyo.or.jp/Portals/0/images/shikakushiken/pavement/shikakusyutoku/kakomondai/2021_H2_o.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ],
+          "themes": [
+            {
+              "section": "応用試験 問1（必須・経験記述）",
+              "theme": "年度のテーマ指定なし。管理項目の指定もなく、施工管理上の課題と現場で実施した対策の2項目。課題78字以内・対策218字以内",
+              "checkedBy": "self",
+              "checkedAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2020,
+          "official": "never",
+          "note": "新型コロナで試験中止",
+          "files": [],
+          "themes": []
+        },
+        {
+          "year": 2019,
+          "official": "listed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "一般試験",
+              "file": "R01/R01_一般試験_問題.pdf",
+              "sourceUrl": "https://www.dohkenkyo.or.jp/Portals/0/images/shikakushiken/pavement/shikakusyutoku/kakomondai/2019exam_H2_i.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "応用試験",
+              "file": "R01/R01_応用試験_問題.pdf",
+              "sourceUrl": "https://www.dohkenkyo.or.jp/Portals/0/images/shikakushiken/pavement/shikakusyutoku/kakomondai/2019exam_H2_o.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ],
+          "themes": [
+            {
+              "section": "応用試験 問1（必須・経験記述）",
+              "theme": "年度のテーマ指定なし。管理項目の指定もなく、施工管理上の課題と現場で実施した対策の2項目。課題78字以内・対策218字以内",
+              "checkedBy": "self",
+              "checkedAt": "2026-09-29"
+            }
+          ]
+        }
+      ],
+      "otherSources": [
+        {
+          "title": "令和7年度 年度別問題解説集 2級舗装施工管理一般試験・応用試験",
+          "publisher": "カンテラ舎",
+          "years": "R6・R5・R4・R3・R1・H30・H29",
+          "source": "https://get-ken.jp/4207/"
+        }
+      ]
+    },
+    "surveyor": {
+      "dir": "content/sources/textbook/測量士/過去問",
+      "official": {
+        "page": "https://www.gsi.go.jp/LAW/SHIKEN/past.html",
+        "windowYears": 5,
+        "publishLagDays": null,
+        "policy": "過去 5 か年の問題と解答（測量士は午後の解答例・解答用紙も）を掲載。次の年度が載ると最古の年度が消える見込み（方針の明記は未確認）。掲載までの日数は未確認。"
+      },
+      "years": [
+        {
+          "year": 2026,
+          "official": "listed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "午前",
+              "file": "R08/R08_午前_問題.pdf",
+              "sourceUrl": "https://www.gsi.go.jp/common/000278970.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "answer",
+              "section": "午前",
+              "file": "R08/R08_午前_正答.pdf",
+              "sourceUrl": "https://www.gsi.go.jp/common/000278971.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "午後",
+              "file": "R08/R08_午後_問題1.pdf",
+              "sourceUrl": "https://www.gsi.go.jp/common/000278972.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "午後",
+              "file": "R08/R08_午後_問題2.pdf",
+              "sourceUrl": "https://www.gsi.go.jp/common/000278973.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "answer",
+              "section": "午後",
+              "file": "R08/R08_午後_解答例.pdf",
+              "sourceUrl": "https://www.gsi.go.jp/common/000279272.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "answer",
+              "section": "午後",
+              "file": "R08/R08_午後_解答用紙.pdf",
+              "sourceUrl": "https://www.gsi.go.jp/common/000279273.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2025,
+          "official": "listed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "午前",
+              "file": "R07/R07_午前_問題1.pdf",
+              "sourceUrl": "https://www.gsi.go.jp/common/000270172.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "午前",
+              "file": "R07/R07_午前_問題2.pdf",
+              "sourceUrl": "https://www.gsi.go.jp/common/000270173.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "answer",
+              "section": "午前",
+              "file": "R07/R07_午前_正答.pdf",
+              "sourceUrl": "https://www.gsi.go.jp/common/000270179.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "午後",
+              "file": "R07/R07_午後_問題1.pdf",
+              "sourceUrl": "https://www.gsi.go.jp/common/000270174.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "午後",
+              "file": "R07/R07_午後_問題2.pdf",
+              "sourceUrl": "https://www.gsi.go.jp/common/000270176.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "answer",
+              "section": "午後",
+              "file": "R07/R07_午後_解答例.pdf",
+              "sourceUrl": "https://www.gsi.go.jp/common/000271324.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "answer",
+              "section": "午後",
+              "file": "R07/R07_午後_解答用紙.pdf",
+              "sourceUrl": "https://www.gsi.go.jp/common/000271266.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2024,
+          "official": "listed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "午前",
+              "file": "R06/R06_午前_問題.pdf",
+              "sourceUrl": "https://www.gsi.go.jp/common/000257603.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "answer",
+              "section": "午前",
+              "file": "R06/R06_午前_正答.pdf",
+              "sourceUrl": "https://www.gsi.go.jp/common/000259611.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "午後",
+              "file": "R06/R06_午後_問題.pdf",
+              "sourceUrl": "https://www.gsi.go.jp/common/000257604.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "answer",
+              "section": "午後",
+              "file": "R06/R06_午後_解答例.pdf",
+              "sourceUrl": "https://www.gsi.go.jp/common/000259612.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "answer",
+              "section": "午後",
+              "file": "R06/R06_午後_解答用紙.pdf",
+              "sourceUrl": "https://www.gsi.go.jp/common/000258864.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2023,
+          "official": "listed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "午前",
+              "file": "R05/R05_午前_問題.pdf",
+              "sourceUrl": "https://www.gsi.go.jp/common/000249816.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "answer",
+              "section": "午前",
+              "file": "R05/R05_午前_正答.pdf",
+              "sourceUrl": "https://www.gsi.go.jp/common/000250861.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "午後",
+              "file": "R05/R05_午後_問題.pdf",
+              "sourceUrl": "https://www.gsi.go.jp/common/000249817.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "answer",
+              "section": "午後",
+              "file": "R05/R05_午後_解答例.pdf",
+              "sourceUrl": "https://www.gsi.go.jp/common/000250864.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "answer",
+              "section": "午後",
+              "file": "R05/R05_午後_解答用紙.pdf",
+              "sourceUrl": "https://www.gsi.go.jp/common/000250865.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2022,
+          "official": "listed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "午前",
+              "file": "R04/R04_午前_問題.pdf",
+              "sourceUrl": "https://www.gsi.go.jp/common/000240135.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "answer",
+              "section": "午前",
+              "file": "R04/R04_午前_正答.pdf",
+              "sourceUrl": "https://www.gsi.go.jp/common/000241385.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "午後",
+              "file": "R04/R04_午後_問題.pdf",
+              "sourceUrl": "https://www.gsi.go.jp/common/000240136.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "answer",
+              "section": "午後",
+              "file": "R04/R04_午後_解答例.pdf",
+              "sourceUrl": "https://www.gsi.go.jp/common/000241386.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "answer",
+              "section": "午後",
+              "file": "R04/R04_午後_解答用紙.pdf",
+              "sourceUrl": "https://www.gsi.go.jp/common/000241387.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        }
+      ],
+      "otherSources": []
+    },
+    "assistant-surveyor": {
+      "dir": "content/sources/textbook/測量士補/過去問",
+      "official": {
+        "page": "https://www.gsi.go.jp/LAW/SHIKEN/past.html",
+        "windowYears": 5,
+        "publishLagDays": null,
+        "policy": "過去 5 か年の問題と解答（測量士は午後の解答例・解答用紙も）を掲載。次の年度が載ると最古の年度が消える見込み（方針の明記は未確認）。掲載までの日数は未確認。"
+      },
+      "years": [
+        {
+          "year": 2026,
+          "official": "listed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "筆記",
+              "file": "R08/R08_問題.pdf",
+              "sourceUrl": "https://www.gsi.go.jp/common/000278974.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "answer",
+              "section": "筆記",
+              "file": "R08/R08_正答.pdf",
+              "sourceUrl": "https://www.gsi.go.jp/common/000278975.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2025,
+          "official": "listed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "筆記",
+              "file": "R07/R07_問題1.pdf",
+              "sourceUrl": "https://www.gsi.go.jp/common/000270177.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "筆記",
+              "file": "R07/R07_問題2.pdf",
+              "sourceUrl": "https://www.gsi.go.jp/common/000270178.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "answer",
+              "section": "筆記",
+              "file": "R07/R07_正答.pdf",
+              "sourceUrl": "https://www.gsi.go.jp/common/000270180.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2024,
+          "official": "listed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "筆記",
+              "file": "R06/R06_問題.pdf",
+              "sourceUrl": "https://www.gsi.go.jp/common/000257605.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "answer",
+              "section": "筆記",
+              "file": "R06/R06_正答.pdf",
+              "sourceUrl": "https://www.gsi.go.jp/common/000258686.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2023,
+          "official": "listed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "筆記",
+              "file": "R05/R05_問題.pdf",
+              "sourceUrl": "https://www.gsi.go.jp/common/000249818.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "answer",
+              "section": "筆記",
+              "file": "R05/R05_正答.pdf",
+              "sourceUrl": "https://www.gsi.go.jp/common/000250866.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        },
+        {
+          "year": 2022,
+          "official": "listed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "筆記",
+              "file": "R04/R04_問題.pdf",
+              "sourceUrl": "https://www.gsi.go.jp/common/000240138.pdf",
+              "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "answer",
+              "section": "筆記",
+              "file": "R04/R04_正答.pdf",
+              "sourceUrl": "https://www.gsi.go.jp/common/000241388.pdf",
+              "acquiredAt": "2026-09-29"
+            }
+          ]
+        }
+      ],
+      "otherSources": [
+        {
+          "title": "2026年版 鉄則!測量士補過去問アタック",
+          "publisher": "東京法経学院",
+          "years": "H28〜R7（科目別）",
+          "source": "https://www.thg.co.jp/soku/publishing/7603011.htm"
+        }
+      ]
+    }
+  }
+}

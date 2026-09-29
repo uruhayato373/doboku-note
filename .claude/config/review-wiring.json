@@ -529,6 +529,12 @@
           "role": "点検"
         },
         {
+          "command": "check-past-exam-inventory",
+          "label": "過去問の年度在庫",
+          "stage": "商品・品質",
+          "role": "点検"
+        },
+        {
           "command": "check-content-expansion",
           "label": "教材からの展開の期限",
           "stage": "商品・品質",
