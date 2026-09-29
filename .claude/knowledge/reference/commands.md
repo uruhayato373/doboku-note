@@ -99,12 +99,19 @@ npm run check-standards-page-images # 上の provenance 整合（catalog↔manif
 
 ## note・会員・売上・Kindle
 
-`npm run note-character-covers -- --source-root /path/to/source-checkout --output-root /path/to/isolated-output` — V5 キャラクターカバーを独立出力先へ全件生成し照合用 manifest を残す（全量差し替え用）。通常の記事・マガジン生成は `node scripts/generate-note-covers.mjs [dir]` / `node scripts/generate-magazine-covers.mjs [id]` で、同じ描画・同じポーズ割当（[仕様](../design-system/note-cover-character-v5.md)）。文言が枠に入るかは `npm run check-note-cover-fit`（pre-commit は `--staged`・実測幅）。
+`npm run note-character-covers -- --source-root /path/to/source-checkout --output-root /path/to/isolated-output` — V5 キャラクターカバーを独立出力先へ全件生成し照合用 manifest を残す（新デザインの全件確認用。note への登録は下の週次）。通常の記事・マガジン生成は `node scripts/generate-note-covers.mjs [dir]` / `node scripts/generate-magazine-covers.mjs [id]` で、同じ描画・同じポーズ割当（[仕様](../design-system/note-cover-character-v5.md)）。文言が枠に入るかは `npm run check-note-cover-fit`（pre-commit は `--staged`・実測幅）。
 
-`npm run note-cover-rollout -- <reconcile|snapshot|plan|run|verify|record>` — 全量差し替えの照合（manifest↔最新原稿・差分だけ再生成）→ 公開 API の前後スナップショット → 対象/保留の決定 → 既存 CLI（note-update-cover / note-magazine-cover）への逐次投入（回線待ち・chunk 再試行・未 OK だけ再走査）→ eyecatch 変化と price/status/is_limited 不変の突合 → `.claude/state/note/cover-rollout/<date>.json` への記録。作業場は `.tmp/note-cover-rollout/`（消えると再開できない。`generated/manifest.json` と `live-before.json` は残す）。罠: CLI の「新カバー未確認」中断は coverless を防げない（削除が先に live へ書かれる・measurement-incidents 2026-09-18）ので verify で eyecatch を必ず見る。
+`npm run note-sync-plan` — 公開済み note 記事ごとの反映計画（本文・カバー・タグのどれが未反映か、止まっている理由と直し方）をオフラインで出す。`-- --json` は管理画面 `/content/note-sync` 用、`-- --out list.txt` は週次と同じ順（本文なし → 画像なしの本文 → 画像ありの本文）で反映待ちを書き出す。判定の実装は `scripts/lib/note-sync-plan.mjs`（週次・CI・管理画面で共通）。
+
+`npm run check-note-sync` — 上の計画に note の公開 API で読んだ今のカバー（消えた・別の画像になった）とマガジンのカバーを足し、全部反映済みかを判定する（読み取りだけ・約 900 回 API を読むので 5〜8 分）。exit 1＝反映待ちか止まっている記事あり／2＝検査不成立。CI の `note-sync-live.yml` が週次で回す。
+
+`npm run note-update-body -- --sync --list <file> --commit` — 記事単位の同期。記事ごとに未反映の部品（本文・カバー・タグ）だけを 1 回のエディタ操作で反映し「更新する」は 1 回。本文を触らない記事は有料境界・試し読みラインを動かさない。配布 PDF は貼り直す（手元に無ければ本文を触らず止まる）。止まっている記事（中断・会員特典の公開範囲未指定など）は飛ばす。部品を明示するなら `--parts cover,tags`。会員特典マガジン内の無料記事は frontmatter `memberTrial: bottom|lock` で公開範囲を決める。
+
+`npm run note-sync:install` — Mac の launchd に note の週次同期を入れる（毎週日曜 3:00・寝ていた週は起床時に 1 回）。専用 worktree（`.claude/worktrees/note-sync`・lock 済み）で `scripts/note-sync-routine.mjs` が、反映計画の順に最大 200 記事を `note-update-body --sync` で 1 記事 1 回更新し（配布 PDF は Drive から取り寄せる）、マガジンのカバーも登録して、台帳・実行記録（`.claude/state/note/sync-log.json`）・R2・Drive を更新して develop へ push。`-- --status` / `-- --run-now` / `-- --uninstall`。前提は note にログイン済みのプロファイル。計画だけ見るなら `npm run note-sync-routine -- --dry-run`（どの checkout でも可）。罠: 見た目を変えたら `note-cover-tokens.json` の `designVersion` を上げないとカバーは再登録されない。上げると全件が数週に分けて登録し直される。
 
 ```bash
 npm run kdp-report        # Kindle 月次ロイヤリティを KDP レポートから取得→.claude/state/sales/kdp-royalties.json（読み取り専用・当月/前月のみ・定期取得は login-collectors.yml）
+npm run kindle-preview -- --id <id[,id]>   # EPUB を 600×800 のページ画像に描画→.tmp/kindle-preview/<id>/（--status ready で一括）。管理画面 /content/kindle/<id> で表紙と並べて目視確認。Kindle 実機の描画とは近似。EPUB を作り直したら再生成（画面が「EPUB が更新されています」と出す）
 npm run check-kdp-report-freshness # KDPロイヤリティ台帳の期限とdoboku-note LIVE全冊（対象月末までに出版した本）のcatalog紐付けを検査（共有口座の他サイト書籍は除外。16日以降=前月確定、28日以降=当月推計。quality:auditのops区分が日次通知）
 npm run note-traffic-fetch # note ダッシュボード「アクセス状況」を read-only 取得→.claude/state/metrics/note/{referrers,articles-pv}-YYYY-MM.json（--month は今月/先月のみ・--commit で保存・--check は fixture で正規化の完走確認＝quality:audit ci・ログイン要・DN-0249）。流入元は自己閲覧を含み、サイト経由は PR #511 deploy 前は no referrer に含まれる
 npm run note-sales-fetch  # note 売上履歴を read-only 取得→検算OKで.claude/state/sales/sales-log.jsonの当月を差し替え（--month YYYY-MM --commit・ログイン要・DN-0018）

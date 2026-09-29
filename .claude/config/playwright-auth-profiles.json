@@ -35,7 +35,6 @@
           "scripts/note-publish.mjs",
           "scripts/note-publish-discover.mjs",
           "scripts/note-update-body.mjs",
-          "scripts/note-update-cover.mjs",
           "scripts/note-update-partial.mjs",
           "scripts/note-sync-tags.mjs",
           "scripts/note-article-price-sweep.mjs",

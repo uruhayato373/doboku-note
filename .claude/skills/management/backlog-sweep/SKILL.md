@@ -103,7 +103,7 @@ node scripts/backlog-sweep-pick.mjs --json
 CLAUDE.md §8「提案・推奨の前に現物を確認する（憶測で gap を断定しない）」がここに効く。
 
 **note の実査は都度プローブを書かず `node scripts/note-probe.mjs <noteId|記事パス>` を使う**
-（read-only）。DN-0003 の対象分類は `node scripts/note-republish-plan.mjs` が毎回作り直す。
+（read-only）。note の記事単位の反映計画（未反映の部品・止まっている理由）は `node scripts/note-sync-plan.mjs`（管理画面 `/content/note-sync`）。
 実査の結果カードを削除するときは `node scripts/backlog-edit.mjs --delete <ID> --commit`
 （CRLF 保持・check-backlog-schema 自動実行）。
 

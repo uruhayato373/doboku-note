@@ -3,6 +3,11 @@
   "$id": "note-cover-tokens",
   "description": "note カバー画像のデザイントークン単一真実源。2026-09-17 から描画は V5 キャラクターカバー（scripts/lib/note-character-cover.mjs・note-cover-character-v5.md）で、本ファイルの exams（試験=色・dir→試験の解決・tone の濃淡）を scripts/lib/note-cover-inventory.mjs が参照する。layout / cropSafeV4 の幾何は G2/V4 時代の記録で V5 は描画に使わない。試験区分=ベース色 / 系列(notePricing)=濃淡 の二軸。src/styles/globals.css の --color-* と整合すべき（satori は CSS 変数を解釈しないため hex リテラルで埋め込む）。",
   "version": "1.1.1",
+  "designVersion": {
+    "$comment": "note 上のカバーの見た目の版。描画の見た目を変えたら上げる（上げた側の全件を Mac の週次 note-sync-routine が再登録する。見た目が変わらないリファクタでは上げない）。判定は scripts/lib/note-cover-live.mjs",
+    "article": "2026-09-28-text-first",
+    "magazine": "2026-09-29-magazine-pop"
+  },
   "updated": "2026-09-01",
   "source": "handoff covers-g2-all.jsx（claude.ai/design プロトタイプ G2 案）を satori 本番レンダラへ移植。1.1.0 で Crop-safe V4（opt-in variant）を追加（.claude/knowledge/design-system/note-cover-crop-safe-v4.md）",
 

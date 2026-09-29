@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
- * check-note-3set.mjs — note 記事「3点セット」（article.md + img/cover.png + hashtags.txt）の充足ゲート
+ * check-note-3set.mjs — note 記事「3点セット」（article.md + カバー + hashtags.txt）のうち hashtags.txt の充足ゲート
  *
- * note 記事1本の完成条件は3点セット（[feedback_note_article_three_set_dod]）。だが cover.png /
- * hashtags.txt は別工程（generate-note-covers.mjs / /note-hashtags）で後から生成するため、
+ * note 記事1本の完成条件は3点セット（[feedback_note_article_three_set_dod]）。hashtags.txt は別工程
+ * （/note-hashtags）で後から生成するため、
  * 公開時に生成漏れが起きやすい（2026-06-12、公開済 194 本中 2 本が hashtags.txt 欠落のまま公開）。
  * 本チェッカーで「公開状態の記事はアセット必須」を機械強制する。
  *
@@ -13,7 +13,9 @@
  *   - --require <…>  : 渡したファイルを公開状態に関わらず無条件で必須化。公開直前は noteUrl 未設定の
  *                      ことが多いため、この検査は state を見ない。→ /note-prepublish-review Phase 1 用
  *
- * cover:    <dir>/img/cover.png または <dir>/../img/cover.png（マガジン共用図に対応）
+ * カバーはここでは見ない（2026-09-29）。note-publish が公開時に最新デザインで生成してから登録し、以後は
+ * 台帳（note-republish-hashes.json の coverHashes）× note の公開 API を CI の check-note-sync が週次で判定する。手元の PNG の有無は
+ * checkout によって違う（Git 管理外）ので、ここで見ると別の checkout で偽の欠落になる。
  * hashtags: <dir>/hashtags.txt
  * 真実源: .claude/knowledge/reference/content-principles.md §14-d
  * 兄弟:   check-note-bold-paren.mjs / check-note-magazine-cta.mjs（1チェッカー×2呼出元パターン）
@@ -22,22 +24,8 @@
  */
 
 import { readFileSync, existsSync } from "node:fs";
-import { dirname, join, relative, resolve, sep } from "node:path";
+import { dirname, join } from "node:path";
 import { argv } from "node:process";
-import { loadManifest } from "../../scripts/lib/asset-storage.mjs";
-import { REPO_ROOT } from "../../scripts/lib/repository-paths.mjs";
-
-// cover PNG は DN-0111 Phase 4-B で R2 へ退避し Git 追跡から外した。実体はローカルにも
-// 残るが、新規 clone や CI のツリーには無い。そこを existsSync だけで見ると
-// **全記事が「カバー欠落」になる**（3点セットの意味が壊れる）。退避台帳に
-// sha256 付きで載っていれば「在る」と数え、どちらにも無いものだけを欠落とする。
-const MANIFEST = loadManifest();
-function assetPresent(absPath) {
-  if (existsSync(absPath)) return true;
-  const rel = relative(REPO_ROOT, resolve(absPath)).split(sep).join("/");
-  const e = MANIFEST.entries?.[rel];
-  return Boolean(e && e.sha256 && e.bytes);
-}
 
 // hashtags.txt の下限タグ数（過少生成の検知フロア）。標準は ~90（/note-hashtags）。
 // 下限は「壊れた過少（10〜20 個）」を確実に捕捉する保守値。環境変数で調整可。
@@ -70,19 +58,12 @@ for (const file of args) {
   const front = fm ? fm[1] : "";
   if (!requireAll && !isPublished(front)) continue; // 下書き → 対象外
   const dir = dirname(file);
-  // サフィックス記事（BK 選択科目等の article-II1.md 形式）はアセットも同サフィックス
-  // （img/cover-II1.png / hashtags-II1.txt = generate-note-covers.mjs の outName 規約）。
+  // サフィックス記事（BK 選択科目等の article-II1.md 形式）はタグも同サフィックス（hashtags-II1.txt）。
   // 固定名だけ見ると suffix 記事が全て偽陽性になる（2026-07-24 全量 staged で顕在化）。
   const sfx = (file.match(/article-([A-Za-z0-9][A-Za-z0-9-]*)\.md$/) || [])[1];
-  const coverName = sfx ? `cover-${sfx}.png` : "cover.png";
-  const hasCover =
-    assetPresent(join(dir, "img", coverName)) ||
-    assetPresent(join(dir, "..", "img", coverName)) ||
-    assetPresent(join(dir, "..", "img", "cover.png"));
   const tagsPath = join(dir, sfx ? `hashtags-${sfx}.txt` : "hashtags.txt");
   const hasTags = existsSync(tagsPath);
   const miss = [];
-  if (!hasCover) miss.push("img/cover.png");
   if (!hasTags) miss.push("hashtags.txt");
   // hashtags.txt は「存在」だけでなく「タグ数」も検査する。10 個等の過少生成
   // （generator 未実行・手書き最小）が gate を素通りして本番へ到達していた
@@ -102,6 +83,6 @@ if (reports.length === 0) {
   console.log("3-point set : NG（公開状態の記事にアセット欠落）");
   reports.forEach(({ file, miss }) => console.log(`  欠落 ${file}: ${miss.join(" / ")}`));
   console.log(`\nTotal: ${reports.length} 記事でアセット欠落/過少`);
-  console.log("生成: カバー= node scripts/generate-note-covers.mjs <slug> / タグ= /note-hashtags <slug>（~90個生成）");
+  console.log("生成: タグ= /note-hashtags <slug>（~90個生成）");
   process.exit(1);
 }

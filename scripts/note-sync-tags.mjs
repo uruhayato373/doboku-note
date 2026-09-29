@@ -26,7 +26,9 @@ import { spawnSync } from 'node:child_process';
 import { join, dirname, relative } from 'node:path';
 import { chromium } from 'playwright';
 import { recordPublishedTagHash } from './lib/note-republish-hash.mjs';
-import { NOTE_TAG_CAP, isExactSync, planTagSync, tagChipPattern, verifyTagSync } from './lib/note-tag-plan.mjs';
+import { NOTE_TAG_CAP, isExactSync, planTagSync, verifyTagSync } from './lib/note-tag-plan.mjs';
+import { applyTagsOnSettings, readNoteAsAuthor, tagsOfNote } from './lib/note-tag-editor.mjs';
+import { publishLive } from './lib/note-live-publish.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { isUnmeasurable } from './lib/note-live-check.mjs';
 
@@ -76,13 +78,12 @@ function resolve(inputPath) {
   const desired = readFileSync(tagsFile, 'utf8').split(/\r?\n/).flatMap((l) => l.split(/\s+/)).map((s) => s.trim().replace(/^#/, '')).filter(Boolean).slice(0, 99);
   const seen = new Set(); const dtags = [];
   for (const t of desired) if (!seen.has(t)) { seen.add(t); dtags.push(t); }
-  return { noteId, tagsFile, desired: dtags };
+  return { noteId, tagsFile, desired: dtags, isPaid: fmField(raw, 'notePricing') === 'paid' };
 }
 
 // 取得は curl 経路（2026-07-28 修正）: Node の fetch はプロキシ env を見ないため会社 PC では
 //   全件失敗し、全記事が [skip] API 取得失敗 → 「追加すべきタグなし（全て in-sync）」と表示して
 //   **exit 0＝同期したつもりで1件も同期していない偽 PASS** になっていた。
-const tagsOf = (d) => (d?.hashtag_notes || []).map((h) => (h?.hashtag?.name || '').replace(/^#/, '')).filter(Boolean);
 
 async function liveTags(noteId, retries = 3) {
   let blocked = 0;
@@ -103,7 +104,7 @@ async function liveTags(noteId, retries = 3) {
     if (out.startsWith('{')) {
       try {
         const d = JSON.parse(out)?.data || {};
-        return { tags: tagsOf(d), unmeasurable: isUnmeasurable(d) };
+        return { tags: tagsOfNote(d), unmeasurable: isUnmeasurable(d) };
       } catch { /* retry */ }
     }
     if (a < retries) spawnSync(process.execPath, ['-e', `setTimeout(()=>{},${1200 * (a + 1)})`]);
@@ -170,14 +171,7 @@ try {
   console.log('[1] account gate OK (dobokunote)');
 
   // ログイン済みコンテキストの API（著者本人には会員限定記事のタグも返る）
-  const authedTags = async (noteId) => {
-    try {
-      const r = await ctx.request.get(`https://note.com/api/v3/notes/${noteId}`, { timeout: 30000 });
-      if (!r.ok()) return null;
-      const d = (await r.json())?.data;
-      return d ? { tags: tagsOf(d), unmeasurable: isUnmeasurable(d) } : null;
-    } catch { return null; }
-  };
+  const authedTags = (noteId) => readNoteAsAuthor(ctx, noteId);
   for (const x of deferred) {
     const got = await authedTags(x.noteId);
     if (!got || got.unmeasurable) { console.log(`[skip] ログインしてもタグを読めない: ${x.noteId}（手動確認）`); fail++; continue; }
@@ -193,113 +187,15 @@ try {
       await page.goto(`https://editor.note.com/notes/${p.noteId}/edit/`, { waitUntil: 'domcontentloaded', timeout: 60000 });
       await page.waitForSelector('[contenteditable=true]', { timeout: 30000 });
       await sleep(3000);
-      // 公開に進む → 設定ページ
-      const next = page.getByRole('button', { name: '公開に進む' });
-      if (!(await next.count())) { console.error('[2] ABORT: 公開に進む 未検出'); fail++; continue; }
-      let onSettings = false;
-      for (let attempt = 0; attempt < 3 && !onSettings; attempt++) {
-        if (await next.count()) await next.first().click();
-        for (let i = 0; i < 8; i++) {
-          await sleep(1800);
-          const a = await page.getByRole('button', { name: '有料エリア設定' }).count();
-          const u = await page.getByRole('button', { name: '更新する', exact: true }).count();
-          const s = await page.getByRole('button', { name: '試し読みエリアを設定', exact: true }).count();
-          if (a || u || s) { onSettings = true; break; }
-        }
-      }
-      if (!onSettings) { console.error('[2] ABORT: 設定ページ未到達'); fail++; continue; }
-
-      // ハッシュタグ入力へ不足タグを追加。既存タグがある更新フローでは placeholder テキストを
-      // getByText で拾えず未フォーカスのまま type すると無効になる→必ず input を click してフォーカス。
-      const tagInput = page.locator('input[placeholder*="ハッシュタグ"]');
-      if (!(await tagInput.count())) { console.error('[3] ABORT: ハッシュタグ入力未検出'); fail++; continue; }
-      const chipCount = () => page.evaluate(() => (document.body.innerText.match(/#[^\s#]+/g) || []).length);
-
-      // --prune: 原稿に無いタグを外す。公開設定のタグ chip は <button>#タグ<span role="img" aria-label="削除"></button>
-      // （2026-09-23 実測）で、削除アイコンを押すと外れる。おすすめタグ等の同名ボタンと取り違えないよう
-      // 「文字が #タグ と完全一致し、削除アイコンを持つ button」だけを対象にし、1個に定まらなければ保存しない。
-      // hasText の正規表現は前後の空白を詰めないので tagChipPattern で空白を許す（無いと全タグが 0 件・09-23 実測）。
-      if (p.extra.length) {
-        const chipFor = (t) => page.locator('button')
-          .filter({ hasText: tagChipPattern(t) })
-          .filter({ has: page.locator('[aria-label="削除"]') });
-        const notRemoved = [];
-        for (const t of p.extra) {
-          const chip = chipFor(t);
-          if ((await chip.count()) !== 1) { notRemoved.push(t); continue; }
-          await chip.first().locator('[aria-label="削除"]').click();
-          await sleep(300);
-          if (await chipFor(t).count()) notRemoved.push(t);
-        }
-        console.log(`[3a] 削除=${p.extra.length - notRemoved.length}/${p.extra.length}`);
-        if (notRemoved.length) { console.error(`[3a] ABORT: 外せないタグ ${notRemoved.join(' ')} → 保存せず中断`); await page.screenshot({ path: join(ROOT, `.tmp/nst-prune-${p.noteId}.png`) }); fail++; continue; }
-      }
-      const before = await chipCount();
-      await tagInput.first().scrollIntoViewIfNeeded();
-      await tagInput.first().click();
-      await sleep(400);
-      const toAdd = p.missing.slice(0, MAX_ADD);
-      // タグ確定は「type→Enter で入力欄が空になる＝chip化成功」。一部記事では autocomplete の
-      // サジェストポップオーバーが初回 Enter を飲み込み、未確定のまま次の type が連結して赤枠無効化に
-      // 陥る（2026-07-23 実測10本）。対策: 各タグごとに入力欄の空化を検証し、未確定なら Escape で
-      // サジェストを閉じてから Enter を再試行、それでも残れば入力をクリアして連結を断つ。
-      const inputVal = async () => (await tagInput.first().inputValue().catch(() => '')) || '';
-      let committed = 0;
-      const rejected = [];
-      for (const t of toAdd) {
-        await tagInput.first().click();
-        if ((await inputVal()).length) await tagInput.first().fill(''); // 前タグの残骸を除去（連結防止）
-        await tagInput.first().type(t);
-        await sleep(260); // autocomplete が出るのを待ってから確定
-        await page.keyboard.press('Enter');
-        await sleep(320);
-        if ((await inputVal()).length) { // 未確定: サジェストが Enter を飲んだ可能性
-          await page.keyboard.press('Escape'); await sleep(150);
-          await page.keyboard.press('Enter'); await sleep(300);
-        }
-        if ((await inputVal()).length) { // なお未確定: 連結を防ぐためクリアしてスキップ
-          await tagInput.first().fill(''); await sleep(120);
-          rejected.push(t);
-        } else { committed++; }
-      }
-      console.log(`[3b] 確定=${committed}/${toAdd.length}`);
-      await sleep(800);
-      const afterChips = await chipCount();
-      console.log(`[3] ${p.missing.length}タグ入力 → chip ${before}→${afterChips}（確定=${committed}）`);
-      // ゲートは「確定=0（入力欄が一度もクリアされない＝完全未反映）」でのみ中断。chipCount(body innerText)は
-      // メンバーシップ記事等でタグ widget を拾えず偽陰性になるため主ゲートにしない。実体は保存後の
-      // API 検証([6] live≥90)で担保する。
-      if (toAdd.length && committed === 0 && afterChips <= before) { console.error('[3] ABORT: タグが1つも確定できず（入力未反映）→ 保存せず中断'); await page.screenshot({ path: join(ROOT, `.tmp/nst-notags-${p.noteId}.png`) }); fail++; continue; }
-
-      // 境界保持（本文は触っていないので、有料/試し読みは「開いて更新するを出す」だけ・ライン不動）
-      const area = page.getByRole('button', { name: '有料エリア設定' });
-      const trial = page.getByRole('button', { name: '試し読みエリアを設定', exact: true });
-      const directUpdate = page.getByRole('button', { name: '更新する', exact: true });
-      if (await area.count()) {
-        await area.first().click(); await sleep(3000);
-        const hasLine = await page.evaluate(() => /このラインより先を有料にする/.test(document.body.innerText || ''));
-        if (!hasLine) { console.error('[4] ABORT: 有料境界line未確認（保存せず中断）'); fail++; continue; }
-        console.log('[4] 有料境界 保持OK');
-      } else if (await directUpdate.count()) {
-        // メンバーシップ等で 更新する が設定画面に既に出ている＝タグだけ保存できる。試し読みに入ると
-        // タグ入力状態が失われ live=0 のまま保存される（2026-07-23 実測）。既存ラインは不介入で保持。
-        console.log('[4] 更新する直行（試し読み不介入・既存ライン保持）');
-      } else if (await trial.count()) {
-        await trial.first().click(); await sleep(4000); // 更新する未露出のメンバーシップのみ: ライン不動で更新するを出す
-        console.log('[4] 試し読みフロー（ライン不動）');
-      }
-
-      // 更新する
-      let updated = false;
-      for (const label of ['更新する', '更新']) {
-        const b = page.getByRole('button', { name: label, exact: label === '更新する' });
-        if (await b.count()) { await b.first().click(); updated = true; break; }
-      }
-      if (!updated) { console.error('[5] ABORT: 更新する未検出'); fail++; continue; }
-      await sleep(2500);
-      // 通知ダイアログ「いいえ」
-      const no = page.getByRole('button', { name: 'いいえ', exact: true });
-      if (await no.count()) { await no.first().click(); await sleep(800); }
+      // 公開に進む → タグを外す・足す → 境界・試し読みラインは動かさず更新する（lib/note-live-publish の preserveLines）
+      let rejected = [];
+      const onSettings = async (pg) => {
+        const applied = await applyTagsOnSettings(pg, { add: p.missing.slice(0, MAX_ADD), remove: p.extra });
+        if (!applied.ok) console.error(`[3] ABORT: ${applied.reason} → 保存せず中断`);
+        rejected = applied.rejected;
+        return applied.ok;
+      };
+      if (!(await publishLive(page, p.noteId, undefined, p.isPaid, { preserveLines: true, onSettings, screenshotPrefix: 'nst' }))) { fail++; continue; }
       console.log('[5] 更新する');
 
       // 検証: API 再取得でライブが目標(≥90)に達したか。note 上限ゆえ desired 全一致でなく件数で判定。

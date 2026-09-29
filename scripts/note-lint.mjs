@@ -14,7 +14,7 @@
  *   4b. マガジンCTA形式（check-note-magazine-cta.mjs）— markdown リンク形式のマガジンURL / マガジンURL同一行の価格(¥)
  *       → bare URL 単独行（リンクカード）に・価格は本文に書かない（改訂で陳腐化）。content-principles.md §14-c
  *   4c. 3点セット充足（check-note-3set.mjs）— 公開状態（noteUrl 非空/noteStatus publish）の記事は
- *       img/cover.png + hashtags.txt 必須（下書きは対象外）。生成漏れの本番到達を防止。content-principles.md §14-d
+ *       hashtags.txt 必須（下書きは対象外。カバーは note-publish が公開時に生成し CI の check-note-sync が見る）。content-principles.md §14-d
  *   5. 部分注入 — 同一マガジンに実URL注入済み記事がありながら {{MAGAZINE_URL}} が残る記事（注入漏れ）
  *      → 手作業でなく `npm run note-inject-magazine-url -- <persona> <url>` を使う（CRLF保持・冪等）
  *   6. 廃止セクション見出し — 「## …からのコメント」（合格者／元公務員からのコメント節、2026-06-10 廃止）
@@ -145,7 +145,7 @@ function checkMagazineCta(file) {
 }
 // 3点セット充足ゲート（check-note-3set.mjs を再利用、既定モード=公開状態の記事のみ必須化）:
 //   公開状態（frontmatter noteUrl 非空 OR noteStatus に publish 含む）の article.md は
-//   img/cover.png + hashtags.txt を必須化。下書きは対象外（欠落が正常）。
+//   hashtags.txt を必須化。下書きは対象外（欠落が正常）。カバーは公開時に自動生成するのでここでは見ない。
 //   生成漏れの本番到達を構造防止（2026-06-12、公開済2本が hashtags.txt 欠落で公開された事例）。
 //   真実源: content-principles.md §14-d
 function checkNote3set(file) {
@@ -335,7 +335,7 @@ if (violations > 0) {
   console.error('   表は箇条書きへ、太字内全角括弧は **A**（B）形式へ、文字化けは修正、');
   console.error('   マガジンURL/{{MAGAZINE_URL}} は括弧で囲まず URL 単独行にしてください（リンクカード化）。');
   console.error('   マガジン導線は markdown リンクでなく bare URL 単独行に・CTA に価格(¥)を書かない（content-principles.md §14-c）。');
-  console.error('   公開状態の記事は 3点セット（img/cover.png + hashtags.txt）必須。生成: generate-note-covers.mjs / /note-hashtags（§14-d）。');
+  console.error('   公開状態の記事は hashtags.txt 必須。生成: /note-hashtags（§14-d）。');
   process.exit(1);
 }
 console.log(`✅ note-lint: ${files.length} 記事 OK`);

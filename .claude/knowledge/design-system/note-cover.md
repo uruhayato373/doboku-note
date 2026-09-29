@@ -1,7 +1,7 @@
 # note カバー画像デザイン仕様（G2「全幅バナー帯」）
 
 > [!warning]
-> **描画は 2026-09-17 から V5 キャラクターカバーに切り替わった**（SSOT: [note-cover-character-v5.md](note-cover-character-v5.md)）。`generate-note-covers.mjs` / `generate-magazine-covers.mjs` / CI（note-cover-supply.yml）はいずれも V5 を描き、本書と [Crop-safe V4](note-cover-crop-safe-v4.md) のレイアウト幾何（バナー帯・HiBox・チップ・三重安全領域）はもう描画されない。本書で今も有効なのは **試験=色/系列=濃淡の二軸カラー**（`note-cover-tokens.json` の `exams`）と **frontmatter `cover:` の文言フィールド**（leadIn / headline / hi / hiSuffix / benefit を V5 がそのまま使う）、および「ライブ反映」の運用。`banner` / `chips` / `meta` / `visualAsset` は読まれない。
+> **描画は 2026-09-17 から V5 キャラクターカバーに切り替わった**（SSOT: [note-cover-character-v5.md](note-cover-character-v5.md)）。`generate-note-covers.mjs` / `generate-magazine-covers.mjs` / note への登録（Mac の週次 note-sync-routine）はいずれも V5 を描き、本書と [Crop-safe V4](note-cover-crop-safe-v4.md) のレイアウト幾何（バナー帯・HiBox・チップ・三重安全領域）はもう描画されない。本書で今も有効なのは **試験=色/系列=濃淡の二軸カラー**（`note-cover-tokens.json` の `exams`）と **frontmatter `cover:` の文言フィールド**（leadIn / headline / hi / hiSuffix / benefit を V5 がそのまま使う）、および「ライブ反映」の運用。`banner` / `chips` / `meta` / `visualAsset` は読まれない。
 
 note 記事・有料マガジンのカバー画像（1280×670）の G2 時代の仕様。値の SSoT は [`note-cover-tokens.json`](note-cover-tokens.json)。本書はレイアウト意図と運用ルールを説明する。
 
@@ -124,16 +124,16 @@ npm run check-note-cover-fit      # CI/手動（0件必須）。pre-commit は -
 
 ## ライブ反映（公開後の stale カバー解消）
 
-`cover.png` を再デザインしても、**公開済み note 記事のカバーは自動では更新されない**（ソース→ライブ非同期）。stale 判定は `cover.png` の git 最終コミット日 > frontmatter `notePublishedAt`。差し替えはブラウザ自動化で行う。
+公開済みの記事・マガジンのカバーは、Mac の週次 launchd `note-sync`（`scripts/note-sync-routine.mjs`）が記事単位の同期（本文・カバー・タグの未反映分を 1 記事 1 回の更新で反映）の中で差し替える。カバーの要否（カバー無し・未登録・デザイン版が古い・文言が変わった・note 側で画像が変わった）は再公開台帳 `.claude/state/note-republish-hashes.json` の `coverHashes` × note の公開 API で決め、CI の `note-sync-live.yml` と同じ判定。全体は [note-cover-character-v5.md](note-cover-character-v5.md)「全件生成と差し替えの境界」。下は 1 本だけ手で差し替えるとき（記録は API で確かめてから台帳へ入る）。
 
 ```bash
 # DRY（差し替え load 確認まで・保存しない）
-npm run note-update-cover -- --article content/note/.../article.md
+npm run note-update-body -- --parts cover --article content/note/.../article.md
 # ライブ反映（公開に進む→更新する）。複数は --list で
-npm run note-update-cover -- --list .tmp/list.txt --commit
+npm run note-update-body -- --parts cover --list .tmp/list.txt --commit
 ```
 
-- 本文を一切触らず eyecatch だけ差し替えるため、**有料記事の paywall 境界は自然保持**される（`note-update-body` の境界「再設定」は不要。本ツールは境界 line の present を読み取り検証するのみで line を動かさない）。
+- 本文を触らない更新（`--parts cover` / `--sync` で本文が未反映でない記事）は、**有料境界・試し読みラインを動かさず**存在だけ確かめて更新する（`publishLive` の `preserveLines`）。
 - fail-safe：新カバー load 未確認／有料境界 line 未確認なら「更新する」を押さない（coverless 化・paywall 開放を防ぐ）。
 - 永続プロファイルは 1 Chrome のみ＝**並列不可・逐次**。大量は 20-28 件チャンク×background 逐次で。
 - 反映後は note API v3 で `eyecatch` 新 ID・`can_read=false`・`price` 不変 を**実体検証**する（proxy 不可）。詳細 → [note-api-verification.md](../reference/note-api-verification.md)

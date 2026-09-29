@@ -27,7 +27,6 @@ on:
         options:
           - note.sync-tags
           - note.update-body
-          - note.update-cover
           - note.update-partial
           - note.publish
           - note.price-sweep

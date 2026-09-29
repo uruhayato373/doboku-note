@@ -211,12 +211,15 @@ node scripts/note-update-body.mjs --list   <list.txt>   --commit    # 複数記�
 > |---|---|---|---|
 > | 本文 | frontmatter を除く本文全体 | `hashes` | `note-update-body --commit` |
 > | タグ | `hashtags*.txt`（順序非依存） | `tagHashes` | `note-sync-tags --commit` |
-> | メタ | `notePricing`/`price`/`paidBoundary`/`coverTitle`/`cover` | `metaHashes` | `note-update-body --boundary-h2` / `note-article-price-sweep` / `note-update-cover` |
-> | アセット | 記事 dir・`pdf/`・`img/` の `*.pdf` と `cover.*` の**内容**ハッシュ | `assetHashes` | `note-attach-file --commit` / `note-update-cover --commit` |
+> | メタ | `notePricing`/`price`/`paidBoundary` | `metaHashes` | `note-update-body --boundary-h2` / `note-article-price-sweep` |
+> | アセット | 本文が参照する画像と、記事 dir・`pdf/` の `*.pdf` の**内容**ハッシュ | `assetHashes` | `note-update-body --commit`（画像を上げ直し PDF を貼り直す）/ `note-attach-file --commit` |
+> | カバー | 描画入力（`cover:`・`coverTitle`・資格色）とデザイン版・登録した画像の URL | `coverHashes`（マガジンは `magazineCovers`） | `note-update-body --parts cover`（週次は `--sync` がまとめる） |
+>
+> 記事単位の反映計画（どの部品が未反映か・止まっている理由）は `node scripts/note-sync-plan.mjs`、1 記事 1 回の更新は `note-update-body --sync`、週次は Mac の `note-sync-routine`。
 >
 > メタに `noteUrl`/`noteId`/`notePublishedAt`/`noteStatus` を**含めない**（公開した結果であり、
 > 含めると公開直後に必ず drift になる）。反映系スクリプトは成功直後に該当トラックだけを
-> in-sync 化する（本文更新は meta も、カバー更新は asset+meta も載るため両方記録）。
+> in-sync 化する（本文更新は body・asset・meta を、カバー・タグは公開 API で確かめてから記録）。
 >
 > **新トラックを後から足すときに `--baseline` を打たない**。`--baseline` は「現ソース＝live」と
 > 仮定するので、**未反映記事の drift を消してしまう**（2026-08-03 に実際にやり 176 本の drift を

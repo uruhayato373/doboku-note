@@ -211,7 +211,7 @@ node scripts/generate-note-covers.mjs 1級土木    # slug 部分一致で対象
 node scripts/generate-note-covers.mjs 安全管理   # slug 部分一致で 1 記事だけ再生成
 npm run note-cover-gallery                        # 全 cover を1枚 HTML で目視（OGP の ogp-gallery と対称・資格×種別で絞込）
 npm run check-note-cover-fit                      # 主見出し・リード・補足・訴求帯が描画枠に入るか実測（0件必須・pre-commit でも --staged）
-npm run note-update-cover -- --list <file> --commit  # 公開済み記事の stale カバーをライブ差し替え（有料 paywall 保持・本文不触）
+npm run note-update-body -- --parts cover --list <file> --commit  # 公開済み記事のカバーだけを今すぐ差し替え（通常は Mac の週次 note-sync が本文・タグとまとめて反映）
 ```
 
 > 主見出しは 100〜48px・最大3行で幅790pxの枠へ折り返す（記事・マガジン共通。1行で入るものは折り返さない）。入らない文言は**省略せず生成失敗**になる（`check-note-cover-fit` が同じ実測で commit 前に止める）。

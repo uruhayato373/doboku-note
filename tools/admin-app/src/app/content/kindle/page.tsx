@@ -201,7 +201,7 @@ function BookRow({ book: b }: { book: KindleBookView }) {
         )}
       </td>
       <td>
-        <div>{b.title || b.id}</div>
+        <div><Link href={`/content/kindle/${encodeURIComponent(b.id)}`}>{b.title || b.id}</Link></div>
         <div className="muted small mono">{b.id}{b.series ? `・${b.series}` : ''}</div>
         {b.epubExists && <div className="muted small">{fmtBytes(b.epubBytes)}</div>}
       </td>

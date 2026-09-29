@@ -92,8 +92,14 @@
           "role": "点検"
         },
         {
-          "command": "check-note-republish",
-          "label": "note 再公開のずれ",
+          "command": "note-sync-plan",
+          "label": "note 記事単位の同期（反映待ち・止まっている記事）",
+          "stage": "受取・販売",
+          "role": "点検"
+        },
+        {
+          "command": "note-sync:install",
+          "label": "note 同期の launchd 稼働状況（sync-log が 8 日より古いとき）",
           "stage": "受取・販売",
           "role": "点検"
         },

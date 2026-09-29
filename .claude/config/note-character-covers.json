@@ -17,9 +17,19 @@
     }
   },
   "retiredMagazineIds": {
-    "whitepaper-r7-strategy": "src/lib/note-magazines.ts の退役記録に従う。2026-05-25に無料記事化済みでマガジン出力先がない。"
+    "whitepaper-r7-strategy": "src/lib/note-magazines.ts の退役記録に従う。2026-05-25に無料記事化済みでマガジン出力先がない。",
+    "civil-1-anki": "単発記事のためマガジンカバー対象外。記事カバーで管理する。",
+    "civil-2-anki": "単発記事のためマガジンカバー対象外。記事カバーで管理する。"
   },
   "additionalMagazines": [
+    {
+      "id": "tankan-reading-guide",
+      "magazineDir": "content/note/技術士総監/magazines/総監テキスト精読ガイド",
+      "qualifier": "技術士 総監",
+      "magazineName": "5管理 テキスト精読ガイド",
+      "proof": "安全・情報・経済性・人的資源・社会環境",
+      "benefit": "択一・記述につながる5本セット"
+    },
     {
       "id": "civil-membership-odai-lab",
       "magazineDir": "content/note/1級・2級土木/メンバーシップ/予想問題マガジン",

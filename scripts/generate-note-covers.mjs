@@ -9,7 +9,7 @@
 //
 // content/note 直下の記事（slug/article.md）と、マガジン配下の記事
 // （magazines/{magazine}/{RXX}/article.md）の両方を対象とする。
-// note-cover-supply.yml（CI）は check-note-cover-coverage --json の欠落 dir を本スクリプトへ 1 dir ずつ渡す。
+// note への登録は Mac の週次 note-sync-routine（同じ lib で描画）が行う。本スクリプトは手元で PNG を作るだけ。
 //
 // 使い方:
 //   node scripts/generate-note-covers.mjs                   # 全件生成
@@ -49,7 +49,7 @@ async function main() {
 
   const inventory = await loadNoteCoverInventory(ROOT);
   const articles = inventory.targets.filter((t) => t.kind === 'article');
-  // 記事 dir（content/note 相対）。check-note-cover-coverage の missing[].dir と完全一致する。
+  // 記事 dir（content/note 相対）。完全一致すればその dir だけ、しなければ部分一致で対象にする。
   const dirOf = (t) => dirname(t.source).slice('content/note/'.length);
   const allDirs = [...new Set(articles.map(dirOf))];
 

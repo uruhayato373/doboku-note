@@ -531,9 +531,9 @@ note 記事本文（`content/note/**/article.md`）から有料マガジンへ�
 
 ### 14-d. note 記事の「3点セット」は公開状態で機械強制する
 
-note 記事1本の完成条件は **3点セット**: `article.md` + `img/cover.png`（アイキャッチ）+ `hashtags.txt`（タグ）。cover.png と hashtags.txt は本文執筆と別工程（`scripts/generate-note-covers.mjs` で frontmatter `cover:` ブロックを PNG 化／`/note-hashtags` でタグ生成）で後から作るため、**公開時に生成漏れが起きやすい**（2026-06-12、公開済 194 本中 2 本が `hashtags.txt` 欠落のまま公開されていた）。
+note 記事1本の完成条件は **3点セット**: `article.md` + カバー（アイキャッチ）+ `hashtags.txt`（タグ）。カバーは frontmatter `cover:` ブロックから `note-publish` が公開時に最新デザインで生成して登録し、以後は Mac の週次 `note-sync-routine`（記事単位の同期）と CI の `check-note-sync` が note 上の状態を見る（手元の `img/cover.png` は Git 管理外で checkout ごとに有無が違うので、ゲートでは見ない・2026-09-29）。hashtags.txt は本文執筆と別工程（`/note-hashtags`）で後から作るため、**公開時に生成漏れが起きやすい**（2026-06-12、公開済 194 本中 2 本が `hashtags.txt` 欠落のまま公開されていた）。
 
-**ルール**: 記事が**公開状態**（frontmatter `noteUrl` 非空 OR `noteStatus` が `publish` を含む）になったら、`img/cover.png` と `hashtags.txt` は必須。**下書き（draft）は欠落して正常**（公開直前に仕上げる工程のため）。
+**ルール**: 記事が**公開状態**（frontmatter `noteUrl` 非空 OR `noteStatus` が `publish` を含む）になったら、`hashtags.txt` は必須。**下書き（draft）は欠落して正常**（公開直前に仕上げる工程のため）。
 
 > [!warning] タグは「ソース」と「ライブ」の2トラック（2026-07-28 追記）
 > 本節のゲートが見ているのは**ソースの `hashtags.txt`** だけ。note ライブに実際に何個入っているかは別問題で、**独立して壊れる**。2026-07-28 の実測では、ソースは 748 件すべて 90+ で完備なのに **ライブは 675 本中 250 本（37%）が 90 未満**（0タグ19本）だった。ソースだけ見ていると永遠に緑になる。

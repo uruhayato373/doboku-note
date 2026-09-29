@@ -120,14 +120,13 @@ export function recordPublishedTagHash(hashtagsPath) {
 
 // ---- live 影響メタ（frontmatter）ドリフト（metaHashes: {articlePath→hash}） ----
 // 本文 hash は frontmatter を丸ごと落とすため、**note 上の見え方を変えるメタ変更が検知できなかった**。
-// 実際に live を変えるのは次の 5 つだけ。noteUrl/noteId/notePublishedAt/noteStatus は
-// 「公開した結果」なので含めない（含めると公開直後に必ず drift になる）。
-//   coverTitle … note のカバー見出し（cover 画像の再生成 → note-update-cover で反映）
-//   cover      … カバー生成パラメータ一式（同上）
+// 実際に live を変えるのは次の 3 つ。noteUrl/noteId/notePublishedAt/noteStatus は
+// 「公開した結果」なので含めない（含めると公開直後に必ず drift になる）。カバーの文言（coverTitle / cover）は
+// カバートラック（coverHashes・下記）が描画入力ごと見るので、ここには入れない（2026-09-29・二重判定の解消）。
 //   price      … 価格（note-article-price-sweep / note-edit）
 //   notePricing… 有料/無料（同上）
 //   paidBoundary … 有料境界の基準 H2（note-update-body --boundary-h2）
-const LIVE_META_KEYS = ['notePricing', 'price', 'paidBoundary', 'coverTitle', 'cover'];
+const LIVE_META_KEYS = ['notePricing', 'price', 'paidBoundary'];
 
 /** frontmatter から live 影響キーだけを抜き出して正規化ハッシュ。cover は複数行ブロックなので行継続も拾う。 */
 export function metaHash(raw) {
@@ -145,16 +144,14 @@ export function metaHash(raw) {
   return createHash('sha256').update(picked.join('\n'), 'utf8').digest('hex').slice(0, 16);
 }
 
-// ---- アセット（本文画像・PDF 添付・カバー画像）ドリフト（assetHashes: {articlePath→hash}） ----
+// ---- アセット（本文画像・PDF 添付）ドリフト（assetHashes: {articlePath→hash}） ----
 // note へ載る「ファイルの実体」は markdown に現れない。同じパス・同じ記法のまま**中身だけ**
 // 差し替えると本文ハッシュが変わらず、live には古い画像/PDF が残り続ける。
 //   - 本文画像: note-update-body が毎回アップロードし直す（insertImagesAtPlaceholders）
 //   - PDF:      note-attach-file で添付
-//   - カバー:   note-update-cover で差し替え
-// 対象は「本文が実際に参照している画像」＋「記事 dir/pdf/ 配下の PDF」＋「img/cover.*」。
+// 対象は「本文が実際に参照している画像」＋「記事 dir/pdf/ 配下の PDF」。カバーは含めない（カバートラックが見る）。
 // dir 全走査にしないのは、未使用ファイルの増減で偽の drift を出さないため。
 const PDF_RE = /\.pdf$/i;
-const COVER_RE = /^cover\.(png|jpe?g|webp)$/i;
 
 /**
  * 退避台帳（DN-0111）。カバー PNG と配布 PDF は R2 へ出して Git 追跡から外したので、
@@ -222,16 +219,14 @@ export function assetHash(articlePath) {
       add(`body/${rel}`, rel.startsWith('/') ? `.${rel}` : `${dir}/${rel}`);
     }
   } catch { /* 読めなければ後段だけで判定 */ }
-  // 2. PDF（記事 dir 直下と dir/pdf）と 3. カバー（img/）
-  for (const sub of ['', 'pdf', 'img']) {
+  // 2. PDF（記事 dir 直下と dir/pdf）
+  for (const sub of ['', 'pdf']) {
     const d = sub ? `${dir}/${sub}` : dir;
     // dir ごと退避されていることがあるので existsSync では弾かない（namesIn が台帳から拾う）
     let disk = []; try { disk = readdirSync(d); } catch { /* dir ごと退避されている場合がある */ }
     const names = namesIn(d, disk);
     for (const n of names) {
-      const isPdf = PDF_RE.test(n);
-      const isCover = sub === 'img' && COVER_RE.test(n);
-      if (!isPdf && !isCover) continue;
+      if (!PDF_RE.test(n)) continue;
       add(`${sub}/${n}`, `${d}/${n}`);
     }
   }
@@ -258,4 +253,21 @@ export function recordPublishedAssetHash(filePath) {
     saveState(st);
     return true;
   } catch { return false; }
+}
+
+// ---- カバー（coverHashes: {articlePath→記録} / magazineCovers: {magazine:ID→記録}） ----
+// note 上のカバーとして何を登録したか。記録 = { noteKey, design, inputHash, sha256, liveUrl, registeredAt }。
+// 判定（デザイン版・描画入力・note 上の画像 URL との照合）は scripts/lib/note-cover-live.mjs。
+// 手元の PNG の有無は見ない（Git 管理外で checkout ごとに違う）。
+export function readCoverRecords() {
+  const st = loadState();
+  return { articles: st.coverHashes || {}, magazines: st.magazineCovers || {} };
+}
+export function saveCoverRecords({ articles, magazines }) {
+  const st = loadState();
+  const sorted = (o) => Object.fromEntries(Object.entries(o).sort(([a], [b]) => a.localeCompare(b)));
+  st.coverHashes = sorted(articles);
+  st.magazineCovers = sorted(magazines);
+  st.updatedAt = todayJst();
+  saveState(st);
 }
