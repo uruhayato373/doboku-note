@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import UpcomingEvents from '@/components/UpcomingEvents';
+import { numCol, PanelCard, StatusBadge, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import { snsBoard } from '@/lib/sns-board';
 import { videoSnsJoin } from '@/lib/video-sns-join';
@@ -49,121 +50,110 @@ export default async function SnsBoardPage() {
       </nav>
       <UpcomingEvents domain="sns" />
 
-      <div className="card" id="instagram">
-        <h2>
-          Instagram 進捗
-          <span className="sub">いずれか投稿済み {ig.totalDone} / {ig.total}</span>
-        </h2>
-        <div className="table-wrap">
-          <table className="data">
-            <thead>
-              <tr>
-                <th>資格</th>
-                <th className="num">DONE / 合計</th>
-                <th>進捗</th>
-                <th>C / R / S</th>
-              </tr>
-            </thead>
-            <tbody>
-              {Object.entries(ig.byExam).map(([exam, s]) => (
-                <tr key={exam}>
-                  <td className="mono">{exam}</td>
-                  <td className="num">
-                    {s.done} / {s.total}
-                  </td>
-                  <td className="mono muted">{bar(s.done, s.total)}</td>
-                  <td className="num">
-                    {s.carousel} / {s.reels} / {s.stories}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+      <div id="instagram" className="mb-4">
+      <PanelCard title="Instagram 進捗" description={`いずれか投稿済み ${ig.totalDone} / ${ig.total}`}>
+        <TableFrame>
+          <TableHeader>
+            <TableRow>
+              <TableHead>資格</TableHead>
+              <TableHead className={numCol}>DONE / 合計</TableHead>
+              <TableHead>進捗</TableHead>
+              <TableHead>C / R / S</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {Object.entries(ig.byExam).map(([exam, s]) => (
+              <TableRow key={exam}>
+                <TableCell className="font-mono">{exam}</TableCell>
+                <TableCell className={numCol}>
+                  {s.done} / {s.total}
+                </TableCell>
+                <TableCell className="font-mono text-muted-foreground">{bar(s.done, s.total)}</TableCell>
+                <TableCell className={numCol}>
+                  {s.carousel} / {s.reels} / {s.stories}
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </TableFrame>
+      </PanelCard>
       </div>
 
-      <div className="card" id="x">
-        <h2>
-          X ドラフト
-          <span className="sub">
-            合計 tweet {x.totals.tweets ?? 0} · 投稿 {x.totals.posted ?? 0} / 予約投入済 {x.totals.queued ?? 0} / 未投入計画 {x.totals.scheduled ?? 0} / 下書 {x.totals.draft ?? 0}
-          </span>
-        </h2>
-        <div className="table-wrap">
-          <table className="data">
-            <thead>
-              <tr>
-                <th>ドラフト</th>
-                <th>投稿 / 予約投入済 / 未投入計画 / 下書</th>
-                <th className="num">tweet数</th>
-                <th>更新</th>
-              </tr>
-            </thead>
-            <tbody>
-              {x.drafts.map((d) => (
-                <tr key={d.name}>
-                  <td className="mono">{d.name}</td>
-                  <td>
-                    {d.counts.posted} / {d.counts.queued} / {d.counts.scheduled} / {d.counts.draft}
-                  </td>
-                  <td className="num">{d.total}</td>
-                  <td className="muted">{d.updatedAt ? d.updatedAt.slice(0, 10) : ''}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+      <div id="x" className="mb-4">
+      <PanelCard
+        title="X ドラフト"
+        description={`合計 tweet ${x.totals.tweets ?? 0} · 投稿 ${x.totals.posted ?? 0} / 予約投入済 ${x.totals.queued ?? 0} / 未投入計画 ${x.totals.scheduled ?? 0} / 下書 ${x.totals.draft ?? 0}`}
+      >
+        <TableFrame>
+          <TableHeader>
+            <TableRow>
+              <TableHead>ドラフト</TableHead>
+              <TableHead>投稿 / 予約投入済 / 未投入計画 / 下書</TableHead>
+              <TableHead className={numCol}>tweet数</TableHead>
+              <TableHead>更新</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {x.drafts.map((d) => (
+              <TableRow key={d.name}>
+                <TableCell className="font-mono">{d.name}</TableCell>
+                <TableCell>
+                  {d.counts.posted} / {d.counts.queued} / {d.counts.scheduled} / {d.counts.draft}
+                </TableCell>
+                <TableCell className={numCol}>{d.total}</TableCell>
+                <TableCell className="text-muted-foreground">{d.updatedAt ? d.updatedAt.slice(0, 10) : ''}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </TableFrame>
+      </PanelCard>
       </div>
 
       {/* 動画パック（DN-0110）× SNS。レガシー Shorts 台帳と混ぜないため節を分ける。 */}
-      <div className="card" id="video">
-        <h2>
-          動画パック 派生物
-          <span className="sub">
-            video-content-status.json · 企画 {join.packTotal} 件中 制作が動いたもの {join.packDerivatives.length} 件
-          </span>
-        </h2>
+      <div id="video" className="mb-4">
+      <PanelCard
+        title="動画パック 派生物"
+        description={`video-content-status.json · 企画 ${join.packTotal} 件中 制作が動いたもの ${join.packDerivatives.length} 件`}
+      >
         {join.packDerivatives.length === 0 ? (
-          <p className="muted">
+          <p className="text-sm text-muted-foreground">
             まだ公開・予約された派生物はない（企画と台本のみ）。企画一覧は{' '}
             <Link href="/content/video">動画パック</Link>、成果は <Link href="/metrics/video">動画成果</Link>。
           </p>
         ) : (
-          <div className="table-wrap">
-            <table className="data">
-              <thead>
-                <tr>
-                  <th>packId</th>
-                  <th>派生物</th>
-                  <th>状態</th>
-                  <th>videoId</th>
-                </tr>
-              </thead>
-              <tbody>
-                {join.packDerivatives.flatMap((p) =>
-                  p.derivatives.map((d) => (
-                    <tr key={`${p.packId}-${d.key}`}>
-                      <td className="mono">
-                        <Link href={`/content/content~sns/video-packs/${p.exam}/${p.slug}`}>{p.packId}</Link>
-                      </td>
-                      <td className="small">{derivativeLabel(d.key)}</td>
-                      <td className="mono small">{d.status}</td>
-                      <td className="mono small">
-                        {d.videoId ?? <span className="muted">—</span>}
-                        {d.key.startsWith('shorts') && d.videoId && !d.relatedVideoId && (
-                          <span className="badge bad" style={{ marginLeft: 4 }}>
-                            関連動画なし
-                          </span>
-                        )}
-                      </td>
-                    </tr>
-                  )),
-                )}
-              </tbody>
-            </table>
-          </div>
+          <TableFrame>
+            <TableHeader>
+              <TableRow>
+                <TableHead>packId</TableHead>
+                <TableHead>派生物</TableHead>
+                <TableHead>状態</TableHead>
+                <TableHead>videoId</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {join.packDerivatives.flatMap((p) =>
+                p.derivatives.map((d) => (
+                  <TableRow key={`${p.packId}-${d.key}`}>
+                    <TableCell className="font-mono">
+                      <Link href={`/content/content~sns/video-packs/${p.exam}/${p.slug}`}>{p.packId}</Link>
+                    </TableCell>
+                    <TableCell className="text-xs">{derivativeLabel(d.key)}</TableCell>
+                    <TableCell className="font-mono text-xs">{d.status}</TableCell>
+                    <TableCell className="font-mono text-xs">
+                      {d.videoId ?? <span className="text-muted-foreground">—</span>}
+                      {d.key.startsWith('shorts') && d.videoId && !d.relatedVideoId && (
+                        <span className="ml-1">
+                          <StatusBadge tone="bad">関連動画なし</StatusBadge>
+                        </span>
+                      )}
+                    </TableCell>
+                  </TableRow>
+                )),
+              )}
+            </TableBody>
+          </TableFrame>
         )}
-        <p className="small muted" style={{ marginBottom: 0 }}>
+        <p className="text-xs text-muted-foreground">
           Shorts 台帳（<code>.claude/state/youtube-schedule.json</code>）は IG 過去問パック由来の
           <strong>レガシー{join.legacyShorts.ok ? ` ${join.legacyShorts.total} 本` : ''}</strong>
           で、動画パックとは別系統（台帳側に packId は
@@ -172,34 +162,29 @@ export default async function SnsBoardPage() {
             ? ` 内訳: 公開 ${join.legacyShorts.byStage.published ?? 0} / 予約 ${join.legacyShorts.byStage.scheduled ?? 0} / 停止 ${join.legacyShorts.byStage.retired ?? 0}。`
             : ` 台帳を読めていない: ${join.legacyShorts.reason}。`}
         </p>
+      </PanelCard>
       </div>
 
-      <div className="card">
-        <h2>
-          直近の予定
-          <span className="sub">schedule.json · 今日以降 {upcoming.length} 件（先頭 40）</span>
-        </h2>
-        <div className="table-wrap">
-          <table className="data">
-            <thead>
-              <tr>
-                <th>日付</th>
-                <th>チャネル</th>
-                <th>slug</th>
-              </tr>
-            </thead>
-            <tbody>
-              {upcoming.slice(0, 40).map((u, i) => (
-                <tr key={u.slug + u.label + i}>
-                  <td>{u.date}</td>
-                  <td>{u.label}</td>
-                  <td className="mono">{u.slug}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
+      <PanelCard title="直近の予定" description={`schedule.json · 今日以降 ${upcoming.length} 件（先頭 40）`}>
+        <TableFrame>
+          <TableHeader>
+            <TableRow>
+              <TableHead>日付</TableHead>
+              <TableHead>チャネル</TableHead>
+              <TableHead>slug</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {upcoming.slice(0, 40).map((u, i) => (
+              <TableRow key={u.slug + u.label + i}>
+                <TableCell>{u.date}</TableCell>
+                <TableCell>{u.label}</TableCell>
+                <TableCell className="font-mono">{u.slug}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </TableFrame>
+      </PanelCard>
     </>
   );
 }

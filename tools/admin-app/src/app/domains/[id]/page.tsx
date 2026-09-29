@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { PanelCard, TableBody, TableCell, TableFrame, TableRow } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import UpcomingEvents from '@/components/UpcomingEvents';
 import { domainOverview } from '@/lib/domains';
@@ -32,72 +33,57 @@ export default async function DomainPage({ params }: { params: Promise<{ id: str
       <PageHead title={domain.label} sub={domain.manages} />
       <UpcomingEvents domain={domain.id as ScheduleDomain} />
 
-      <div className="card">
-        <h2>
-          タスク <span className="sub">{cards.length} 件</span>
-        </h2>
-        <div className="table-wrap">
-          <table className="data">
-            <tbody>
-              {cards.map((c) => (
-                <tr key={c.id}>
-                  <td className="mono small">
-                    <Link href={`/todo?f=backlog&id=${encodeURIComponent(c.id)}`}>{c.id}</Link>
-                  </td>
-                  <td style={{ whiteSpace: 'normal' }}>{c.title}</td>
-                  <td className="small">{TIER[c.tier] ?? c.tier}</td>
-                  <td className="small">{c.wip ? '進行中' : c.due ? `期日 ${c.due.slice(5).replace('-', '/')}` : ''}</td>
-                </tr>
-              ))}
-              {cards.length === 0 && (
-                <tr>
-                  <td className="muted">なし</td>
-                </tr>
-              )}
-            </tbody>
-          </table>
-        </div>
-      </div>
+      <PanelCard title={<>タスク <span className="sub">{cards.length} 件</span></>}>
+        <TableFrame>
+          <TableBody>
+            {cards.map((c) => (
+              <TableRow key={c.id}>
+                <TableCell className="font-mono text-xs">
+                  <Link href={`/todo?f=backlog&id=${encodeURIComponent(c.id)}`}>{c.id}</Link>
+                </TableCell>
+                <TableCell className="whitespace-normal">{c.title}</TableCell>
+                <TableCell className="text-xs">{TIER[c.tier] ?? c.tier}</TableCell>
+                <TableCell className="text-xs">{c.wip ? '進行中' : c.due ? `期日 ${c.due.slice(5).replace('-', '/')}` : ''}</TableCell>
+              </TableRow>
+            ))}
+            {cards.length === 0 && (
+              <TableRow>
+                <TableCell className="text-muted-foreground">なし</TableCell>
+              </TableRow>
+            )}
+          </TableBody>
+        </TableFrame>
+      </PanelCard>
 
-      <div className="grid cols-2" style={{ marginTop: 16 }}>
-        <div className="card">
-          <h2>
-            スキル・エージェント <span className="sub">{skills.length + agents.length} 件</span>
-          </h2>
-          <div className="table-wrap">
-            <table className="data">
-              <tbody>
-                {[...skills.map((s) => ({ ...s, kind: 'スキル' })), ...agents.map((a) => ({ ...a, kind: 'エージェント' }))].map((x) => (
-                  <tr key={x.kind + x.name}>
-                    <td className="mono small">{x.name}</td>
-                    <td className="small muted">{x.kind}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div className="card">
-          <h2>
-            文書 <span className="sub">{documents.length} 件</span>{' '}
-            <Link href="/docs" className="small" style={{ fontWeight: 400 }}>
-              すべての文書を探す →
-            </Link>
-          </h2>
-          <div className="table-wrap">
-            <table className="data">
-              <tbody>
-                {documents.map((d) => (
-                  <tr key={d}>
-                    <td className="small">
-                      <Link href={docHref(d)}>{d.split('/').pop()!.replace(/\.md$/, '')}</Link>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
+      <div className="grid cols-2 mt-4">
+        <PanelCard title={<>スキル・エージェント <span className="sub">{skills.length + agents.length} 件</span></>}>
+          <TableFrame>
+            <TableBody>
+              {[...skills.map((s) => ({ ...s, kind: 'スキル' })), ...agents.map((a) => ({ ...a, kind: 'エージェント' }))].map((x) => (
+                <TableRow key={x.kind + x.name}>
+                  <TableCell className="font-mono text-xs">{x.name}</TableCell>
+                  <TableCell className="text-xs text-muted-foreground">{x.kind}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </TableFrame>
+        </PanelCard>
+        <PanelCard
+          title={<>文書 <span className="sub">{documents.length} 件</span></>}
+          action={<Link href="/docs" className="text-xs font-normal">すべての文書を探す →</Link>}
+        >
+          <TableFrame>
+            <TableBody>
+              {documents.map((d) => (
+                <TableRow key={d}>
+                  <TableCell className="text-xs">
+                    <Link href={docHref(d)}>{d.split('/').pop()!.replace(/\.md$/, '')}</Link>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </TableFrame>
+        </PanelCard>
       </div>
     </>
   );

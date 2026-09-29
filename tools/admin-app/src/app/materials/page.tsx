@@ -1,6 +1,6 @@
 import Link from 'next/link';
+import { numCol, PanelCard, StatusBadge, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow } from '@/components/admin';
 import { PageHead } from '@/components/ui';
-import { Badge } from '@/components/ui/badge';
 import { findRepoRoot } from '@/lib/repo-root';
 import { expansionReport, sourceSummary, linkedProductsByUnit, siteWiring, DECISION_LABELS } from '../../../../../scripts/lib/content-expansion.mjs';
 import categories from '../../../../../src/config/categories.json';
@@ -64,7 +64,7 @@ export default async function MaterialsPage({ searchParams }: { searchParams: Pr
     return (
       <>
         <PageHead title="教材" />
-        <p className="card">教材の対応表を読み取れません。</p>
+        <p className="text-sm text-muted-foreground">教材の対応表を読み取れません。</p>
       </>
     );
   }
@@ -80,72 +80,69 @@ function List({ sources, issues, products, wiring }: { sources: Source[]; issues
     <>
       <PageHead title="教材" />
       {issues.length > 0 && (
-        <div className="card warn-border">
-          <h2>台帳の確認が必要 {issues.length} 件</h2>
-          <ul className="small">
+        <PanelCard title={`台帳の確認が必要 ${issues.length} 件`}>
+          <ul className="text-xs">
             {issues.map((x) => <li key={x}>{x}</li>)}
           </ul>
-        </div>
+        </PanelCard>
       )}
-      <div className="table-wrap">
-        <table className="data">
-          <thead>
-            <tr>
-              <th>教材</th>
-              <th className="num">論点</th>
-              <th className="num">本文</th>
-              <th className="num">図解</th>
-              <th className="num">SNS</th>
-              <th className="num">商品</th>
-              <th className="num">配線先</th>
-              <th className="num">検索で表示</th>
-              <th className="num">展開予定</th>
-              <th className="num">要確認</th>
-            </tr>
-          </thead>
-          <tbody>
-            {sources.map((s) => {
-              const m = sourceSummary(s) as Summary;
-              const attention = m.pending + m.blocked + m.stale;
-              return (
-                <tr key={s.sourceId}>
-                  <td>
-                    <Link href={`/materials?id=${encodeURIComponent(s.sourceId)}`}>{s.title}</Link>
-                  </td>
-                  <td className="num">{m.units}</td>
-                  <td className="num">{pct(m.content, m.units)}</td>
-                  <td className="num">
-                    {m.visual}
-                    {m.visualNeeded > 0 && <span className="project-warning-text"> +要{m.visualNeeded}</span>}
-                  </td>
-                  <td className="num">
-                    {m.sns}
-                    {m.snsNeeded > 0 && <span className="project-warning-text"> +要{m.snsNeeded}</span>}
-                  </td>
-                  <td className="num">{(() => { const n = s.units.filter((u) => products(u).length > 0).length; return n ? pct(n, m.units) : <span className="muted">—</span>; })()}</td>
-                  {(() => {
-                    const pages = wiring.bySource.get(s.sourceId) ?? [];
-                    const shown = pages.filter((p) => p.impressions > 0).length;
-                    const href = `/materials?id=${encodeURIComponent(s.sourceId)}&view=site`;
-                    return (
-                      <>
-                        <td className="num">{pages.length ? <Link href={href}>{pages.length}</Link> : <span className="muted">—</span>}</td>
-                        <td className="num">{pages.length ? pct(shown, pages.length) : <span className="muted">—</span>}</td>
-                      </>
-                    );
-                  })()}
-                  <td className="num">{m.planned || <span className="muted">—</span>}</td>
-                  <td className="num">{attention ? (
-                      <Link className="project-warning-text" href={`/materials?id=${encodeURIComponent(s.sourceId)}&only=attention`}>{attention}</Link>
-                    ) : (
-                      <span className="muted">0</span>
-                    )}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
+      <TableFrame>
+        <TableHeader>
+          <TableRow>
+            <TableHead>教材</TableHead>
+            <TableHead className={numCol}>論点</TableHead>
+            <TableHead className={numCol}>本文</TableHead>
+            <TableHead className={numCol}>図解</TableHead>
+            <TableHead className={numCol}>SNS</TableHead>
+            <TableHead className={numCol}>商品</TableHead>
+            <TableHead className={numCol}>配線先</TableHead>
+            <TableHead className={numCol}>検索で表示</TableHead>
+            <TableHead className={numCol}>展開予定</TableHead>
+            <TableHead className={numCol}>要確認</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {sources.map((s) => {
+            const m = sourceSummary(s) as Summary;
+            const attention = m.pending + m.blocked + m.stale;
+            return (
+              <TableRow key={s.sourceId}>
+                <TableCell>
+                  <Link href={`/materials?id=${encodeURIComponent(s.sourceId)}`}>{s.title}</Link>
+                </TableCell>
+                <TableCell className={numCol}>{m.units}</TableCell>
+                <TableCell className={numCol}>{pct(m.content, m.units)}</TableCell>
+                <TableCell className={numCol}>
+                  {m.visual}
+                  {m.visualNeeded > 0 && <span className="project-warning-text"> +要{m.visualNeeded}</span>}
+                </TableCell>
+                <TableCell className={numCol}>
+                  {m.sns}
+                  {m.snsNeeded > 0 && <span className="project-warning-text"> +要{m.snsNeeded}</span>}
+                </TableCell>
+                <TableCell className={numCol}>{(() => { const n = s.units.filter((u) => products(u).length > 0).length; return n ? pct(n, m.units) : <span className="text-muted-foreground">—</span>; })()}</TableCell>
+                {(() => {
+                  const pages = wiring.bySource.get(s.sourceId) ?? [];
+                  const shown = pages.filter((p) => p.impressions > 0).length;
+                  const href = `/materials?id=${encodeURIComponent(s.sourceId)}&view=site`;
+                  return (
+                    <>
+                      <TableCell className={numCol}>{pages.length ? <Link href={href}>{pages.length}</Link> : <span className="text-muted-foreground">—</span>}</TableCell>
+                      <TableCell className={numCol}>{pages.length ? pct(shown, pages.length) : <span className="text-muted-foreground">—</span>}</TableCell>
+                    </>
+                  );
+                })()}
+                <TableCell className={numCol}>{m.planned || <span className="text-muted-foreground">—</span>}</TableCell>
+                <TableCell className={numCol}>{attention ? (
+                    <Link className="project-warning-text" href={`/materials?id=${encodeURIComponent(s.sourceId)}&only=attention`}>{attention}</Link>
+                  ) : (
+                    <span className="text-muted-foreground">0</span>
+                  )}</TableCell>
+              </TableRow>
+            );
+          })}
+        </TableBody>
+      </TableFrame>
     </>
   );
 }
@@ -171,75 +168,73 @@ function Detail({ source, products, onlyAttention, sitePages }: { source: Source
         <Link href={`${base}&view=site`}>サイトの配線先（{sitePages}）</Link>
       </nav>
       {source.scopeNote && <p className="small muted">{source.scopeNote}</p>}
-      <div className="table-wrap">
-        <table className="data">
-          <thead>
-            <tr>
-              <th>論点</th>
-              <th>本文</th>
-              <th>図解</th>
-              <th>SNS</th>
-              <th className="num">記事</th>
-              <th className="num">SNS原稿</th>
-              <th>関連商品</th>
-              <th>展開予定</th>
-            </tr>
-          </thead>
-          <tbody>
-            {units.map((u) => (
-              <tr key={u.id}>
-                <td style={{ whiteSpace: 'normal', maxWidth: 420 }}>
-                  <details>
-                    <summary>{u.need}</summary>
-                    <div className="small" style={{ marginTop: 4 }}>
-                      <p>{u.reason}</p>
-                      <p>図解：{u.visual.reason}</p>
-                      <p>SNS：{u.derivative.reason}</p>
-                      {u.artifacts.map((a) => (
-                        <div key={a.path} className="mono">
-                          {a.path}
-                          {a.state !== 'current' && <strong className="project-warning-text">（{a.state === 'missing' ? '実体なし' : '確認後に変更'}）</strong>}
-                        </div>
-                      ))}
-                      <p className="muted">確認の深さ：{evidenceLabels[u.evidenceLevel] ?? u.evidenceLevel} · 根拠：{u.locators.join(' / ')}</p>
-                    </div>
-                  </details>
-                </td>
-                <td>
-                  <State text={label(u.content) + (u.stale ? '・再確認' : '')} warn={needsAttention(u)} />
-                </td>
-                <td><State text={label(u.visual.decision)} warn={['needed', 'unreviewed'].includes(u.visual.decision)} /></td>
-                <td><State text={label(u.derivative.decision)} warn={['needed', 'unreviewed'].includes(u.derivative.decision)} /></td>
-                <td className="num">{siteCount(u) || <span className="muted">—</span>}</td>
-                <td className="num">{snsCount(u) || <span className="muted">—</span>}</td>
-                <td className="small" style={{ whiteSpace: 'normal', maxWidth: 260 }}>
-                  {products(u).length ? (
-                    <>
-                      {products(u).slice(0, 2).map((p) => <div key={p}>{p.split('/').pop()}</div>)}
-                      {products(u).length > 2 && <div className="muted">ほか {products(u).length - 2} 件</div>}
-                    </>
-                  ) : (
-                    <span className="muted">—</span>
-                  )}
-                </td>
-                <td>
-                  {(u.backlogIds ?? []).map((b) => (
-                    <Link key={b} href={`/todo?f=backlog&id=${encodeURIComponent(b)}`} style={{ marginRight: 6 }}>
-                      {b}
-                    </Link>
-                  ))}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      <TableFrame>
+        <TableHeader>
+          <TableRow>
+            <TableHead>論点</TableHead>
+            <TableHead>本文</TableHead>
+            <TableHead>図解</TableHead>
+            <TableHead>SNS</TableHead>
+            <TableHead className={numCol}>記事</TableHead>
+            <TableHead className={numCol}>SNS原稿</TableHead>
+            <TableHead>関連商品</TableHead>
+            <TableHead>展開予定</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {units.map((u) => (
+            <TableRow key={u.id}>
+              <TableCell className="whitespace-normal max-w-[420px]">
+                <details>
+                  <summary>{u.need}</summary>
+                  <div className="text-xs" style={{ marginTop: 4 }}>
+                    <p>{u.reason}</p>
+                    <p>図解：{u.visual.reason}</p>
+                    <p>SNS：{u.derivative.reason}</p>
+                    {u.artifacts.map((a) => (
+                      <div key={a.path} className="font-mono">
+                        {a.path}
+                        {a.state !== 'current' && <strong className="project-warning-text">（{a.state === 'missing' ? '実体なし' : '確認後に変更'}）</strong>}
+                      </div>
+                    ))}
+                    <p className="text-muted-foreground">確認の深さ：{evidenceLabels[u.evidenceLevel] ?? u.evidenceLevel} · 根拠：{u.locators.join(' / ')}</p>
+                  </div>
+                </details>
+              </TableCell>
+              <TableCell>
+                <State text={label(u.content) + (u.stale ? '・再確認' : '')} warn={needsAttention(u)} />
+              </TableCell>
+              <TableCell><State text={label(u.visual.decision)} warn={['needed', 'unreviewed'].includes(u.visual.decision)} /></TableCell>
+              <TableCell><State text={label(u.derivative.decision)} warn={['needed', 'unreviewed'].includes(u.derivative.decision)} /></TableCell>
+              <TableCell className={numCol}>{siteCount(u) || <span className="text-muted-foreground">—</span>}</TableCell>
+              <TableCell className={numCol}>{snsCount(u) || <span className="text-muted-foreground">—</span>}</TableCell>
+              <TableCell className="text-xs whitespace-normal max-w-[260px]">
+                {products(u).length ? (
+                  <>
+                    {products(u).slice(0, 2).map((p) => <div key={p}>{p.split('/').pop()}</div>)}
+                    {products(u).length > 2 && <div className="text-muted-foreground">ほか {products(u).length - 2} 件</div>}
+                  </>
+                ) : (
+                  <span className="text-muted-foreground">—</span>
+                )}
+              </TableCell>
+              <TableCell>
+                {(u.backlogIds ?? []).map((b) => (
+                  <Link key={b} href={`/todo?f=backlog&id=${encodeURIComponent(b)}`} style={{ marginRight: 6 }}>
+                    {b}
+                  </Link>
+                ))}
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </TableFrame>
     </>
   );
 }
 
 function State({ text, warn }: { text: string; warn: boolean }) {
-  return warn ? <Badge variant="warning">{text}</Badge> : <span className="small">{text}</span>;
+  return warn ? <StatusBadge tone="warn">{text}</StatusBadge> : <span className="small">{text}</span>;
 }
 
 function SiteView({ source, wiring, sources }: { source: Source; wiring: Wiring; sources: Source[] }) {
@@ -268,51 +263,48 @@ function SiteView({ source, wiring, sources }: { source: Source; wiring: Wiring;
         <Link href={`${base}&only=attention`}>要確認のみ（{source.units.filter(needsAttention).length}）</Link>
         <strong>サイトの配線先（{pages.length}）</strong>
       </nav>
-      {!wiring.gsc.file && <p className="card warn-border small">GSC のページ集計が無いため、表示・クリックは未取得です（0 ではありません）。</p>}
-      {pages.length === 0 && <p className="card">この教材の論点はサイト記事へ配線されていません。</p>}
+      {!wiring.gsc.file && <p className="project-warning-text text-xs">GSC のページ集計が無いため、表示・クリックは未取得です（0 ではありません）。</p>}
+      {pages.length === 0 && <p className="text-sm text-muted-foreground">この教材の論点はサイト記事へ配線されていません。</p>}
       {[...sections].map(([key, list]) => (
-        <section key={key} style={{ marginBottom: 16 }}>
-          <h2>
-            {key} <span className="muted small">{list.length} ページ</span>
-          </h2>
-          <div className="table-wrap">
-            <table className="data">
-              <thead>
-                <tr>
-                  <th>ページ</th>
-                  <th>状態</th>
-                  <th className="num">論点</th>
-                  <th className="num">表示</th>
-                  <th className="num">クリック</th>
-                  <th>ほかの教材</th>
-                </tr>
-              </thead>
-              <tbody>
-                {list.map((p) => {
-                  const others = (wiring.byPage.get(p.slug) ?? []).filter((o) => o.sourceId !== source.sourceId);
-                  return (
-                    <tr key={p.slug}>
-                      <td style={{ whiteSpace: 'normal', maxWidth: 420 }}>
-                        {p.url ? <a href={`${SITE}${p.url}`} target="_blank" rel="noreferrer">{p.title}</a> : p.title}
-                      </td>
-                      <td>{p.published ? <span className="small">公開</span> : <Badge variant="warning">非公開</Badge>}</td>
-                      <td className="num">{p.units}</td>
-                      <td className="num">{p.impressions ? fmt(p.impressions) : <span className="muted">0</span>}</td>
-                      <td className="num">{p.clicks ? fmt(p.clicks) : <span className="muted">0</span>}</td>
-                      <td className="small" style={{ whiteSpace: 'normal', maxWidth: 240 }}>
-                        {others.length ? others.map((o) => (
-                          <div key={o.sourceId}>
-                            <Link href={`/materials?id=${encodeURIComponent(o.sourceId)}&view=site`}>{titleOf(o.sourceId)}</Link>
-                          </div>
-                        )) : <span className="muted">—</span>}
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
-        </section>
+        <div key={key} className="mb-4">
+          <PanelCard title={<>{key} <span className="text-xs font-normal text-muted-foreground">{list.length} ページ</span></>}>
+          <TableFrame>
+            <TableHeader>
+              <TableRow>
+                <TableHead>ページ</TableHead>
+                <TableHead>状態</TableHead>
+                <TableHead className={numCol}>論点</TableHead>
+                <TableHead className={numCol}>表示</TableHead>
+                <TableHead className={numCol}>クリック</TableHead>
+                <TableHead>ほかの教材</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {list.map((p) => {
+                const others = (wiring.byPage.get(p.slug) ?? []).filter((o) => o.sourceId !== source.sourceId);
+                return (
+                  <TableRow key={p.slug}>
+                    <TableCell className="whitespace-normal max-w-[420px]">
+                      {p.url ? <a href={`${SITE}${p.url}`} target="_blank" rel="noreferrer">{p.title}</a> : p.title}
+                    </TableCell>
+                    <TableCell>{p.published ? <span className="text-xs">公開</span> : <StatusBadge tone="warn">非公開</StatusBadge>}</TableCell>
+                    <TableCell className={numCol}>{p.units}</TableCell>
+                    <TableCell className={numCol}>{p.impressions ? fmt(p.impressions) : <span className="text-muted-foreground">0</span>}</TableCell>
+                    <TableCell className={numCol}>{p.clicks ? fmt(p.clicks) : <span className="text-muted-foreground">0</span>}</TableCell>
+                    <TableCell className="text-xs whitespace-normal max-w-[240px]">
+                      {others.length ? others.map((o) => (
+                        <div key={o.sourceId}>
+                          <Link href={`/materials?id=${encodeURIComponent(o.sourceId)}&view=site`}>{titleOf(o.sourceId)}</Link>
+                        </div>
+                      )) : <span className="text-muted-foreground">—</span>}
+                    </TableCell>
+                  </TableRow>
+                );
+              })}
+            </TableBody>
+          </TableFrame>
+          </PanelCard>
+        </div>
       ))}
     </>
   );

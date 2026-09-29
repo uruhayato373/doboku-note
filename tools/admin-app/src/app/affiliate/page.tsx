@@ -1,3 +1,4 @@
+import { EmptyRow, numCol, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow } from '@/components/admin';
 import { PageHead, Kpi } from '@/components/ui';
 import { affiliateSummary, affiliatePlacements, affiliateExperiments } from '@/lib/affiliate';
 
@@ -64,60 +65,48 @@ export default function AffiliatePage() {
       )}
 
       <div className="grid cols-2">
-        <div className="table-wrap">
-          <table className="data">
-            <thead>
-              <tr>
-                <th>配置</th>
-                <th className="num">表示</th>
-                <th className="num">クリック</th>
-                <th className="num">率</th>
-              </tr>
-            </thead>
-            <tbody>
-              {placements.rows.map((r) => (
-                <tr key={r.placement}>
-                  <td>{PLACEMENT_LABELS[r.placement] ?? r.placement}</td>
-                  <td className="num">{num(r.impressions)}</td>
-                  <td className={'num' + (r.clicks === 0 && r.impressions >= 1000 ? ' project-warning-text' : '')}>{r.clicks}</td>
-                  <td className="num">{rate(r.clicks, r.impressions)}</td>
-                </tr>
-              ))}
-              {placements.rows.length === 0 && (
-                <tr>
-                  <td colSpan={4} className="muted">未計測（npm run report-career-funnel）</td>
-                </tr>
-              )}
-            </tbody>
-          </table>
-        </div>
-        <div className="table-wrap">
-          <table className="data">
-            <thead>
-              <tr>
-                <th>A8 案件 {period?.singleMonth ?? ''}</th>
-                <th className="num">発生</th>
-                <th className="num">確定</th>
-                <th className="num">確定額</th>
-              </tr>
-            </thead>
-            <tbody>
-              {programs.map((p) => (
-                <tr key={p.programId ?? p.programRaw}>
-                  <td>{p.program}</td>
-                  <td className="num">{num(p.conversions)}</td>
-                  <td className="num">{num(p.approved)}</td>
-                  <td className="num">{yen(p.revenueYen)}</td>
-                </tr>
-              ))}
-              {programs.length === 0 && (
-                <tr>
-                  <td colSpan={4} className="muted">{collected ? '該当なし' : '未取得（/a8-report）'}</td>
-                </tr>
-              )}
-            </tbody>
-          </table>
-        </div>
+        <TableFrame>
+          <TableHeader>
+            <TableRow>
+              <TableHead>配置</TableHead>
+              <TableHead className={numCol}>表示</TableHead>
+              <TableHead className={numCol}>クリック</TableHead>
+              <TableHead className={numCol}>率</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {placements.rows.map((r) => (
+              <TableRow key={r.placement}>
+                <TableCell>{PLACEMENT_LABELS[r.placement] ?? r.placement}</TableCell>
+                <TableCell className={numCol}>{num(r.impressions)}</TableCell>
+                <TableCell className={numCol + (r.clicks === 0 && r.impressions >= 1000 ? ' project-warning-text' : '')}>{r.clicks}</TableCell>
+                <TableCell className={numCol}>{rate(r.clicks, r.impressions)}</TableCell>
+              </TableRow>
+            ))}
+            {placements.rows.length === 0 && <EmptyRow colSpan={4}>未計測（npm run report-career-funnel）</EmptyRow>}
+          </TableBody>
+        </TableFrame>
+        <TableFrame>
+          <TableHeader>
+            <TableRow>
+              <TableHead>A8 案件 {period?.singleMonth ?? ''}</TableHead>
+              <TableHead className={numCol}>発生</TableHead>
+              <TableHead className={numCol}>確定</TableHead>
+              <TableHead className={numCol}>確定額</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {programs.map((p) => (
+              <TableRow key={p.programId ?? p.programRaw}>
+                <TableCell>{p.program}</TableCell>
+                <TableCell className={numCol}>{num(p.conversions)}</TableCell>
+                <TableCell className={numCol}>{num(p.approved)}</TableCell>
+                <TableCell className={numCol}>{yen(p.revenueYen)}</TableCell>
+              </TableRow>
+            ))}
+            {programs.length === 0 && <EmptyRow colSpan={4}>{collected ? '該当なし' : '未取得（/a8-report）'}</EmptyRow>}
+          </TableBody>
+        </TableFrame>
       </div>
     </>
   );

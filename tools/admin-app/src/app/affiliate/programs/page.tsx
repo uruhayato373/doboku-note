@@ -1,3 +1,4 @@
+import { EmptyRow, numCol, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import { affiliateCatalog } from '@/lib/affiliate';
 
@@ -13,33 +14,31 @@ export default function AffiliateProgramsPage() {
   return (
     <>
       <PageHead title="提携・案件" />
-      <div className="table-wrap">
-        <table className="data">
-          <thead>
-            <tr>
-              <th>案件</th>
-              <th>配置</th>
-              <th>ASP（提携・報酬）</th>
-              <th>リンク期限</th>
-            </tr>
-          </thead>
-          <tbody>
-            {rows.map((r) => (
-              <tr key={r.id}>
-                <td>{r.label}</td>
-                <td>{r.placement === 'active' ? <strong>掲載中</strong> : <span className="muted">なし</span>}</td>
-                <td className="small">
-                  {r.asps
-                    .filter((a) => a.status !== 'unknown')
-                    .map((a) => `${ASP[a.asp] ?? a.asp} ${STATUS[a.status] ?? a.status}${a.status === 'approved' ? yen(a.rewardYen) : ''}`)
-                    .join(' ／ ') || <span className="muted">未確認</span>}
-                </td>
-                <td>{r.expiresAt ? r.expiresAt.slice(5).replace('-', '/') : <span className="muted">—</span>}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      <TableFrame>
+        <TableHeader>
+          <TableRow>
+            <TableHead>案件</TableHead>
+            <TableHead>配置</TableHead>
+            <TableHead>ASP（提携・報酬）</TableHead>
+            <TableHead>リンク期限</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {rows.map((r) => (
+            <TableRow key={r.id}>
+              <TableCell>{r.label}</TableCell>
+              <TableCell>{r.placement === 'active' ? <strong>掲載中</strong> : <span className="text-muted-foreground">なし</span>}</TableCell>
+              <TableCell className="text-xs whitespace-normal">
+                {r.asps
+                  .filter((a) => a.status !== 'unknown')
+                  .map((a) => `${ASP[a.asp] ?? a.asp} ${STATUS[a.status] ?? a.status}${a.status === 'approved' ? yen(a.rewardYen) : ''}`)
+                  .join(' ／ ') || <span className="text-muted-foreground">未確認</span>}
+              </TableCell>
+              <TableCell>{r.expiresAt ? r.expiresAt.slice(5).replace('-', '/') : <span className="text-muted-foreground">—</span>}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </TableFrame>
     </>
   );
 }

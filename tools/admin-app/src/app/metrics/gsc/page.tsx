@@ -1,3 +1,5 @@
+import { PanelCard } from '@/components/admin';
+import { Grid, Stack } from '@/components/layout';
 import SearchTabs from '@/components/SearchTabs';
 import { DataTable, Freshness, Kpi, PageHead, SnapshotPicker, fmt, type Col } from '@/components/ui';
 import {
@@ -61,32 +63,31 @@ export default async function GscPage({
       />
       <SearchTabs current="/metrics/gsc" />
 
-      <div className="grid cols-3" style={{ marginBottom: 16 }}>
+      <Stack>
+      <Grid min="sm">
         <Kpi label="総クリック（上位100クエリ）" value={totClicks} />
         <Kpi label="総表示" value={totImpr} />
         <Kpi label="平均CTR" value={totImpr ? fmt.pct(totClicks / totImpr) : '—'} />
-      </div>
+      </Grid>
 
-      <div className="card">
-        <h2>
-          検索クエリ別
-          <span className="sub">
-            <Freshness snapshot={querySnap} />
-          </span>
-        </h2>
-        <SnapshotPicker basePath="/metrics/gsc" files={queryHistory} current={querySnap?.file ?? ''} />
-        <DataTable cols={gscCols('クエリ')} rows={queryRows} />
-      </div>
+      <PanelCard title="検索クエリ別" description={<Freshness snapshot={querySnap} />}>
+        <Stack gap="sm">
+          <SnapshotPicker basePath="/metrics/gsc" files={queryHistory} current={querySnap?.file ?? ''} />
+          <DataTable cols={gscCols('クエリ')} rows={queryRows} />
+        </Stack>
+      </PanelCard>
 
-      <div className="card">
-        <h2>
-          ページ別
-          <span className="sub">
+      <PanelCard
+        title="ページ別"
+        description={
+          <>
             <Freshness snapshot={pageSnap} /> {pageRows.length}行
-          </span>
-        </h2>
+          </>
+        }
+      >
         <DataTable cols={gscCols('ページ')} rows={pageRows} />
-      </div>
+      </PanelCard>
+      </Stack>
     </>
   );
 }

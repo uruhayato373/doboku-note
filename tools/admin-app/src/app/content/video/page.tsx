@@ -1,4 +1,7 @@
 import Link from 'next/link';
+import {
+  numCol, PanelCard, StatusBadge, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow, type Tone,
+} from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import { videoPackBoard, EXAM_LABELS, stageClass } from '@/lib/video-board';
 import { STAGE_ORDER, LABELS } from '@/lib/lifecycle';
@@ -25,10 +28,9 @@ export default async function VideoPackBoard({
     return (
       <>
         <PageHead title="動画パック" sub="content/sns/video-packs（read-only）" />
-        <div className="card">
-          <p className="badge bad">未取得</p>
-          <p className="muted">パックを読めていません: {board.reason}</p>
-        </div>
+        <p className="text-sm text-muted-foreground">
+          <StatusBadge tone="bad">未取得</StatusBadge> パックを読めていません: {board.reason}
+        </p>
       </>
     );
   }
@@ -70,7 +72,7 @@ export default async function VideoPackBoard({
 
       {/* 段階（共通ライフサイクル ステージ）*/}
       <div className="filterbar">
-        <span className="muted small" style={{ alignSelf: 'center', marginRight: 4 }}>
+        <span className="mr-1 self-center text-xs text-muted-foreground">
           段階:
         </span>
         <Link href={link({ stage: 'all' })} className={'chip' + (activeStage === 'all' ? ' active' : '')}>
@@ -97,66 +99,60 @@ export default async function VideoPackBoard({
         ))}
       </div>
 
-      <div className="card">
-        <h2>
-          企画一覧
-          <span className="sub">企画（manifest のみ）→ 下書き → レビュー → 予約 → 公開</span>
-        </h2>
-        <div className="table-wrap">
-          <table className="data">
-            <thead>
-              <tr>
-                <th>段階</th>
-                <th>packId</th>
-                <th>タイトル / 悩み</th>
-                <th>intent</th>
-                <th>台本</th>
-                <th>構成</th>
-                <th>QA</th>
-                <th>主CTA</th>
-              </tr>
-            </thead>
-            <tbody>
-              {filtered.map((r) => (
-                <tr key={r.packId}>
-                  <td>
-                    <span className={`badge ${stageClass(r.stage)}`}>
-                      {r.stage ? LABELS[r.stage] : '不明'}
-                    </span>
-                  </td>
-                  <td className="mono">
-                    <Link href={`/content/content~sns/video-packs/${r.exam}/${r.slug}`}>{r.packId}</Link>
-                    <div className="muted small">{EXAM_LABELS[r.exam] ?? r.exam}</div>
-                  </td>
-                  <td>
-                    {r.hasScript ? (
-                      <Link href={`/content/content~sns/video-packs/${r.exam}/${r.slug}/script`}>{r.title}</Link>
-                    ) : (
-                      r.title
-                    )}
-                    <div className="muted small">{r.pain}</div>
-                  </td>
-                  <td className="mono small">{r.intent}</td>
-                  <td>{r.hasScript ? <span className="badge good">有</span> : <span className="muted">—</span>}</td>
-                  <td>{r.hasStoryboard ? <span className="badge good">有</span> : <span className="muted">—</span>}</td>
-                  <td className="num">
-                    {r.qa ? (
-                      <span className={`badge ${r.qa.blocks ? 'bad' : 'good'}`}>
-                        {r.qa.avg}
-                        {r.qa.blocks ? ` / B${r.qa.blocks}` : ''}
-                      </span>
-                    ) : (
-                      <span className="muted">—</span>
-                    )}
-                  </td>
-                  <td className="mono small">{r.cta ?? '—'}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        {filtered.length === 0 && <p className="muted">この条件に一致するパックはありません。</p>}
-      </div>
+      <PanelCard title="企画一覧" description="企画（manifest のみ）→ 下書き → レビュー → 予約 → 公開">
+        <TableFrame>
+          <TableHeader>
+            <TableRow>
+              <TableHead>段階</TableHead>
+              <TableHead>packId</TableHead>
+              <TableHead>タイトル / 悩み</TableHead>
+              <TableHead>intent</TableHead>
+              <TableHead>台本</TableHead>
+              <TableHead>構成</TableHead>
+              <TableHead className={numCol}>QA</TableHead>
+              <TableHead>主CTA</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {filtered.map((r) => (
+              <TableRow key={r.packId}>
+                <TableCell>
+                  <StatusBadge tone={stageClass(r.stage) as Tone}>
+                    {r.stage ? LABELS[r.stage] : '不明'}
+                  </StatusBadge>
+                </TableCell>
+                <TableCell className="font-mono">
+                  <Link href={`/content/content~sns/video-packs/${r.exam}/${r.slug}`}>{r.packId}</Link>
+                  <div className="text-xs text-muted-foreground">{EXAM_LABELS[r.exam] ?? r.exam}</div>
+                </TableCell>
+                <TableCell>
+                  {r.hasScript ? (
+                    <Link href={`/content/content~sns/video-packs/${r.exam}/${r.slug}/script`}>{r.title}</Link>
+                  ) : (
+                    r.title
+                  )}
+                  <div className="text-xs text-muted-foreground">{r.pain}</div>
+                </TableCell>
+                <TableCell className="font-mono text-xs">{r.intent}</TableCell>
+                <TableCell>{r.hasScript ? <StatusBadge tone="good">有</StatusBadge> : <span className="text-muted-foreground">—</span>}</TableCell>
+                <TableCell>{r.hasStoryboard ? <StatusBadge tone="good">有</StatusBadge> : <span className="text-muted-foreground">—</span>}</TableCell>
+                <TableCell className={numCol}>
+                  {r.qa ? (
+                    <StatusBadge tone={r.qa.blocks ? 'bad' : 'good'}>
+                      {r.qa.avg}
+                      {r.qa.blocks ? ` / B${r.qa.blocks}` : ''}
+                    </StatusBadge>
+                  ) : (
+                    <span className="text-muted-foreground">—</span>
+                  )}
+                </TableCell>
+                <TableCell className="font-mono text-xs">{r.cta ?? '—'}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </TableFrame>
+        {filtered.length === 0 && <p className="mt-3 text-sm text-muted-foreground">この条件に一致するパックはありません。</p>}
+      </PanelCard>
     </>
   );
 }

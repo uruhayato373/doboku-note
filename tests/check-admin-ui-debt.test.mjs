@@ -30,3 +30,22 @@ test('基準値どおりなら回帰なし', () => {
   const b = { 'a.tsx': { rawCard: 1, inlineStyle: 1 } };
   assert.deepEqual(compare(JSON.parse(JSON.stringify(b)), b), { regressions: [], improvements: [] });
 });
+
+test('生の <table> と、状態表示の生の badge クラス（組み立て式も含む）を数える', () => {
+  const src = [
+    '<table className="data">',
+    '<Table>',
+    '<span className="badge good">済</span>',
+    "<span className={'badge ' + tone}>x</span>",
+    '<Badge variant="outline">x</Badge>',
+    '<span className="badge-col">x</span>',
+  ].join(String.fromCharCode(10));
+  const c = countDebt(src);
+  assert.equal(c.rawTable, 1);
+  assert.equal(c.rawBadge, 2);
+});
+
+test('基準値に無い項目（あとから足した rawTable 等）は 0 とみなして回帰にする', () => {
+  const { regressions } = compare({ 'a.tsx': { rawCard: 0, inlineStyle: 0, rawTable: 1 } }, { 'a.tsx': { rawCard: 0, inlineStyle: 0 } });
+  assert.deepEqual(regressions.map((r) => [r.key, r.base, r.now]), [['rawTable', 0, 1]]);
+});

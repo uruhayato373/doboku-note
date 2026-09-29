@@ -1,6 +1,7 @@
 import { existsSync } from 'node:fs';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { StatusBadge, TableBody, TableCell, TableFrame, TableHead, TableRow } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import { Card, CardContent } from '@/components/ui/card';
 import { loadLedgerView, readApprovedThumbs } from '@/lib/ledger';
@@ -34,10 +35,10 @@ const SOURCES = [
 
 function Row({ k, v }: { k: string; v: React.ReactNode }) {
   return (
-    <tr>
-      <th className="w-40 text-left align-top font-normal text-muted-foreground">{k}</th>
-      <td>{v}</td>
-    </tr>
+    <TableRow>
+      <TableHead className="w-40 align-top font-normal text-muted-foreground">{k}</TableHead>
+      <TableCell className="whitespace-normal">{v}</TableCell>
+    </TableRow>
   );
 }
 
@@ -60,7 +61,7 @@ export default async function CoconalaDetailPage({ params }: { params: Promise<{
       <PageHead title={s.shortTitle ?? s.title} />
       <p className="mb-4 flex flex-wrap items-center gap-2">
         <Link href="/content/ledger?c=coconala">← ココナラの台帳</Link>
-        <span className="badge neutral">{s.status}{s.pauseReason ? `（${s.pauseReason}）` : ''}</span>
+        <StatusBadge tone="neutral">{s.status}{s.pauseReason ? `（${s.pauseReason}）` : ''}</StatusBadge>
         {s.serviceUrl ? <a href={s.serviceUrl} target="_blank" rel="noopener noreferrer">公開ページ</a> : null}
       </p>
 
@@ -68,25 +69,25 @@ export default async function CoconalaDetailPage({ params }: { params: Promise<{
         <CardContent>
           <h3 className="mb-2 font-semibold">公開ページとの照合</h3>
           {!live ? (
-            <p className="muted">出品中ではないので照合していない。</p>
+            <p className="text-sm text-muted-foreground">出品中ではないので照合していない。</p>
           ) : !live.checkedAt ? (
-            <p className="muted">照合の索引が無い。<code>npm run content-ledger</code> で作る。</p>
+            <p className="text-sm text-muted-foreground">照合の索引が無い。<code>npm run content-ledger</code> で作る。</p>
           ) : issues.length === 0 ? (
-            <p><span className="badge good">一致</span> タイトル・キャッチコピー・本文・価格・販売状態が正本と同じ（照合 {live.checkedAt.slice(0, 16).replace('T', ' ')} UTC）</p>
+            <p><StatusBadge tone="good">一致</StatusBadge> タイトル・キャッチコピー・本文・価格・販売状態が正本と同じ（照合 {live.checkedAt.slice(0, 16).replace('T', ' ')} UTC）</p>
           ) : (
             <ul className="list-disc pl-5">
               {issues.map((i) => <li key={i}>{i}</li>)}
             </ul>
           )}
-          {live?.image ? <p className="mt-2"><span className="badge warn">画像</span> {live.image}（作り方: <code>/create-pop-image</code>）</p> : null}
+          {live?.image ? <p className="mt-2"><StatusBadge tone="warn">画像</StatusBadge> {live.image}（作り方: <code>/create-pop-image</code>）</p> : null}
         </CardContent>
       </Card>
 
       <div className="grid gap-4 md:grid-cols-[1fr_320px]">
         <Card>
           <CardContent>
-            <table className="data">
-              <tbody>
+            <TableFrame>
+              <TableBody>
                 <Row k="タイトル" v={s.title} />
                 <Row k="キャッチコピー" v={l.catchphrase ?? '—'} />
                 <Row k="価格" v={s.priceYen != null ? `¥${s.priceYen.toLocaleString('ja-JP')}` : '—'} />
@@ -95,8 +96,8 @@ export default async function CoconalaDetailPage({ params }: { params: Promise<{
                 <Row k="カテゴリ" v={l.category?._labels ?? '—'} />
                 <Row k="出品日" v={s.listedAt ?? '—'} />
                 <Row k="ID" v={<code>{s.id}</code>} />
-              </tbody>
-            </table>
+              </TableBody>
+            </TableFrame>
             <h3 className="mt-4 mb-1 font-semibold">本文（{bodyChars} 字）</h3>
             <pre className="max-h-[480px] overflow-auto whitespace-pre-wrap text-sm">{l.body ?? '（listings に本文が無い）'}</pre>
             {l.purchaseNote ? (
@@ -116,7 +117,7 @@ export default async function CoconalaDetailPage({ params }: { params: Promise<{
                 // eslint-disable-next-line @next/next/no-img-element
                 <img src={`/media/coconala/${thumbRel}`} alt="承認済みの商品画像" className="w-full border" />
               ) : null}
-              <p className="muted text-xs">
+              <p className="text-xs text-muted-foreground">
                 {thumb ? <>承認済み: <code>{thumb.path}</code>{thumbLocal ? '' : '（この端末に無い。Drive vault の coconala-asset から取り戻す）'}</> : '承認済みの POP 画像が無い'}
               </p>
             </CardContent>
@@ -127,7 +128,7 @@ export default async function CoconalaDetailPage({ params }: { params: Promise<{
               <ul className="list-disc pl-5 text-sm">
                 {SOURCES.map((x) => <li key={x.file}><code>{x.file}</code> … {x.what}</li>)}
               </ul>
-              <p className="muted mt-2 text-xs">直したら <code>/coconala-publish</code> で公開ページへ反映し、<code>npm run content-ledger</code> で照合し直す。</p>
+              <p className="mt-2 text-xs text-muted-foreground">直したら <code>/coconala-publish</code> で公開ページへ反映し、<code>npm run content-ledger</code> で照合し直す。</p>
             </CardContent>
           </Card>
         </div>

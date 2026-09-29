@@ -37,6 +37,7 @@ paths:
 ## 管理画面・データ・CI
 
 - `tools/admin-app/`（`npm run admin`・`http://127.0.0.1:3021`・RSC ファースト・ルート node_modules 再利用・dev 専用でビルド/デプロイなし・投稿は既存 CLI を child_process 実行しガードは CLI 側） → [tools/admin-app/README.md](../../tools/admin-app/README.md)。E2E は `npm run test:e2e:admin`（CI の e2e には載せない）。サイトの E2E は `npm run serve`（3025）を既定ターゲットにし、叩く URL は `npm run check-e2e-targets` で out/ に実在させる
+- 管理画面のページは `tools/admin-app/src/components/admin`（表＝`TableFrame`＋shadcn の Table 部品・Card で囲まない／題名つき区画＝`PanelCard`／状態＝`StatusBadge`／絞り込み＝`FacetShell`）で組み、生の `<table>`・`className="card"`・`className="badge …"` を増やさない（`npm run check-admin-ui-debt` のラチェット）
 - 管理画面の UI 部品は shadcn/ui 公式のまま使う（自作・「互換」の手書きをしない）。公式との差は `npm run check-shadcn-parity` が止め、意図した差だけ `.claude/config/shadcn-parity-allow.json` に理由付きで登録する。新しい部品は `npm run sync-shadcn-reference -- <name>` で参照を取ってから足す（DN-0432）
 - DB は導入しない（D1 不採用・frontmatter + build-time JSON 継続・再検討トリガー） → [data-storage-decision.md](../knowledge/reference/data-storage-decision.md)
 - `notebooklm` CLI のクセ → [notebooklm-cli-gotchas.md](../knowledge/reference/notebooklm-cli-gotchas.md)。Playwright 認証プロファイル → [playwright-auth-profiles.md](../knowledge/reference/playwright-auth-profiles.md)

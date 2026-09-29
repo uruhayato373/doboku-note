@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { StatusBadge } from '@/components/admin';
 import Thumb from '@/components/Thumb';
 import { PageHead } from '@/components/ui';
 import { GROUP_LABEL, scanOgp } from '@/lib/gallery';
@@ -55,13 +56,13 @@ export default async function OgpGallery({
       </div>
 
       {filtered.length === 0 ? (
-        <div className="empty">該当なし</div>
+        <p className="text-sm text-muted-foreground">該当なし</p>
       ) : (
         <div className="gallery">
           {filtered.map((i) => (
             <Thumb key={i.rel} url={i.url} name={i.rel.replace(/\/ogp\.png$/, '')}>
-              <span className="badge neutral">{catLabel[i.category] ?? i.category}</span>
-              <span className="badge accent">{GROUP_LABEL[i.group] ?? i.group}</span>
+              <StatusBadge tone="neutral">{catLabel[i.category] ?? i.category}</StatusBadge>
+              <StatusBadge tone="info">{GROUP_LABEL[i.group] ?? i.group}</StatusBadge>
             </Thumb>
           ))}
         </div>
