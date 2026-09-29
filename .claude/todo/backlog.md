@@ -141,6 +141,15 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0441] develop に「build 必須」のルールセットを作り、PR の自動マージが CI を待つようにする
+タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-09-29]
+
+**起点**: 2026-09-29 にリポジトリの「Allow auto-merge」をオンにした。だが develop には合格必須の検査が無く、自動マージを予約すると CI を待たずに即マージされる。従来のブランチ保護で必須検査を足すと、develop へ直接 push するワークフロー 16 本（fetch-metrics・ogp-supply・competitor-scan ほか）が止まるので、ルールセットで PR のマージだけに build を求める。ルールセットはセキュリティ設定なので運営者が設定する（同日に設定したつもりが API では 0 件だった）。
+
+**やること**: Settings → Rules → Rulesets → New branch ruleset で、name `develop-build-required`・Enforcement Active・Bypass に Repository admin と GitHub Actions（Always allow）・Target に `develop`・Rules の Require status checks に `build`（Pre-merge check の検査名）を入れて保存する。保存後、`gh api repos/uruhayato373/doboku-note/rules/branches/develop` で内容を照合する。
+
+**完了条件**: 上の API が `required_status_checks`（context `build`）を返し、次の PR で自動マージを予約すると build 完了まで待ってからマージされ、develop へ直接 push するワークフローが止まっていない。
+
 ### [DN-0431] Tailwind v4（PR #683）を main へ上げる前に、古いブラウザからのアクセス比率を確かめる
 タグ: [インフラ・計測] [領域:サイト] [時期:2026-10] [種類:意思決定] [起票:2026-09-28]
 
