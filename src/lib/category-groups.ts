@@ -54,6 +54,12 @@ const GROUP_DESCRIPTIONS: Record<string, Record<string, string>> = {
   rccm: {
     guide: '試験制度・問題III 公開テーマ・問題I 業務経験論文・択一の範囲・学習計画・技術士との違い',
   },
+  surveyor: {
+    guide: '試験の概要・午後記述式の分野選び・測量士補の択一・学習計画',
+  },
+  pavement: {
+    guide: '試験の概要・応用試験の経験記述・選択問題の頻出論点・学習計画',
+  },
 };
 
 /** Sort functions per group */
@@ -96,7 +102,7 @@ function sortDocs(docs: DocMeta[], group: DocGroupKey, category: string) {
         return isBasicsA - isBasicsB;
       });
     }
-  } else if (category === 'concrete-engineer' || category === 'concrete-chief-engineer' || category === 'concrete-diagnostician' || category === 'rccm') {
+  } else if (category === 'concrete-engineer' || category === 'concrete-chief-engineer' || category === 'concrete-diagnostician' || category === 'rccm' || category === 'surveyor' || category === 'pavement') {
     if (group === 'guide') {
       docs.sort((a, b) => {
         const orderA = a.guide_order ?? 999;
