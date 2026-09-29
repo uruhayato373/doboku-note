@@ -1,6 +1,7 @@
 ---
 notePricing: free
 noteSeries: 2級土木-二次まるごとパック
+noteContentType: product
 noteMagazine: 2級土木-二次まるごとパック
 noteStatus: published
 notePublishedAt: "2026-09-17"

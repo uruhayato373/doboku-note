@@ -1,6 +1,7 @@
 ---
 notePricing: paid
 noteSeries: コンクリート診断士-記述式
+noteContentType: product
 utmCampaign: cd-essay-b-frost
 noteUrl: "https://note.com/dobokunote/n/n6a498accc1a9"
 noteId: "n6a498accc1a9"

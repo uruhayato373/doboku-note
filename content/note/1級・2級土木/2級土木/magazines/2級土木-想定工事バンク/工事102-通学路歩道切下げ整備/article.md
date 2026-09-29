@@ -2,6 +2,7 @@
 notePricing: paid
 paidBoundary: 品質管理
 noteSeries: 2級土木-想定工事バンク
+noteContentType: product
 noteMagazine: 2級土木-想定工事バンク
 noteUrl: "https://note.com/dobokunote/n/nad23d2e2b014"
 noteId: "nad23d2e2b014"

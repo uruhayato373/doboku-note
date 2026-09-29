@@ -5,6 +5,7 @@ noteDraftId: "nc92c82ac4ea5"
 noteDraftUrl: "https://editor.note.com/notes/nc92c82ac4ea5/edit/"
 noteDraftAt: "2026-08-05"
 noteSeries: 経験記述-週次お題ラボ
+noteContentType: product
 noteMagazine: 経験記述-週次お題ラボ
 notePublishedAt: "2026-08-05"
 noteId: "nc92c82ac4ea5"

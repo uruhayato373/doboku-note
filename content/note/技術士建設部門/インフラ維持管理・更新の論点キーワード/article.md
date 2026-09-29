@@ -4,6 +4,7 @@ noteStatus: published
 noteUrl: "https://note.com/dobokunote/n/n5589c6bc255f"
 noteId: "n5589c6bc255f"
 noteSeries: 技術士建設部門-無料入口
+noteContentType: learning
 utmCampaign: pe-construction-iji-keyword
 notePublishedAt: "2026-07-23"
 coverTitle:

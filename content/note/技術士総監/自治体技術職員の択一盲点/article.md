@@ -1,6 +1,7 @@
 ---
 notePricing: free
 noteSeries: 公務員受験
+noteContentType: learning
 utmCampaign: 92-civil-servant-blindspots
 coverTitle:
   - 自治体の技術職員が

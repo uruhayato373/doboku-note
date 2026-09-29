@@ -34,7 +34,7 @@ export const dynamic = 'force-dynamic';
  * backlog DN-0125。
  */
 
-type Query = { e?: string; p?: string; s?: string; m?: string };
+type Query = { e?: string; t?: string; p?: string; s?: string; m?: string };
 
 /**
  * 「マガジン未設定」を表す facet キー。ラベルは frontmatter の生値なので衝突しない接頭辞を使う。
@@ -69,6 +69,14 @@ const PRICING: { key: string; label: string }[] = [
   { key: 'paid', label: '有料' },
   { key: 'free', label: '無料' },
   { key: 'membership', label: 'メンバーシップ' },
+];
+
+const CONTENT_TYPES: { key: string; label: string }[] = [
+  { key: 'product', label: '商品' },
+  { key: 'index', label: 'もくじ' },
+  { key: 'learning', label: '学習記事' },
+  { key: 'career', label: 'キャリア' },
+  { key: 'editorial', label: '一般・雑談' },
 ];
 
 function href(q: Query, patch: Partial<Query>): string {
@@ -132,11 +140,13 @@ export default async function ContentNotePage({
   const sp = await searchParams;
   const one = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v) || null;
   const exam = one(sp.e);
+  const contentType = one(sp.t);
   const pricing = one(sp.p);
   const state = one(sp.s);
   const magazine = one(sp.m);
   const now: Query = {
     e: exam ?? undefined,
+    t: contentType ?? undefined,
     p: pricing ?? undefined,
     s: state ?? undefined,
     m: magazine ?? undefined,
@@ -156,21 +166,24 @@ export default async function ContentNotePage({
           : state === 'blocked' ? isBlocked(i)
             : true;
   const matchExam = (i: NoteArticle) => !exam || (exam === NO_THEME ? !i.theme : i.theme === exam);
+  const matchContentType = (i: NoteArticle) => !contentType || i.contentType === contentType;
   const matchPricing = (i: NoteArticle) => !pricing || i.pricing === pricing;
   const matchMagazine = (i: NoteArticle) =>
     !magazine ? true : magazine === NO_MAGAZINE ? !i.magazine : i.magazine === magazine;
 
   const items = all.filter(
-    (i) => matchExam(i) && matchPricing(i) && matchState(i) && matchMagazine(i));
+    (i) => matchExam(i) && matchContentType(i) && matchPricing(i) && matchState(i) && matchMagazine(i));
 
   // 各facetの件数は「自分以外のfacetを適用した後」で数える。全体数を出すと、絞った状態で
   // 0 件のはずの選択肢が大きい数字で並び、押しても何も出ないという読み違いになる。
-  const examScope = all.filter((i) => matchPricing(i) && matchState(i) && matchMagazine(i));
-  const pricingScope = all.filter((i) => matchExam(i) && matchState(i) && matchMagazine(i));
-  const stateScope = all.filter((i) => matchExam(i) && matchPricing(i) && matchMagazine(i));
-  const magazineScope = all.filter((i) => matchExam(i) && matchPricing(i) && matchState(i));
+  const examScope = all.filter((i) => matchContentType(i) && matchPricing(i) && matchState(i) && matchMagazine(i));
+  const typeScope = all.filter((i) => matchExam(i) && matchPricing(i) && matchState(i) && matchMagazine(i));
+  const pricingScope = all.filter((i) => matchExam(i) && matchContentType(i) && matchState(i) && matchMagazine(i));
+  const stateScope = all.filter((i) => matchExam(i) && matchContentType(i) && matchPricing(i) && matchMagazine(i));
+  const magazineScope = all.filter((i) => matchExam(i) && matchContentType(i) && matchPricing(i) && matchState(i));
 
   const examCounts = countBy(examScope, (i) => i.theme ?? NO_THEME);
+  const typeCounts = countBy(typeScope, (i) => i.contentType);
   const themeLabels = new Map(all.map((i) => [i.theme ?? NO_THEME, i.theme ? i.themeLabel : '未分類']));
   const pricingCounts = countBy(pricingScope, (i) => i.pricing);
   const stateCounts = new Map<string, number>([
@@ -197,7 +210,7 @@ export default async function ContentNotePage({
     }));
 
   const examKeys = [...examCounts.entries()].sort((a, b) => b[1] - a[1]).map(([k]) => k);
-  const filtered = Boolean(exam || pricing || state || magazine);
+  const filtered = Boolean(exam || contentType || pricing || state || magazine);
 
   return (
     <>
@@ -228,7 +241,7 @@ export default async function ContentNotePage({
                   <strong>{items.length}</strong> 本を表示中（全 {all.length} 本）
                 </>
               ) : (
-                <>全 {all.length} 本を表示中。右の絞り込みでテーマ・価格・状態・マガジンを選べる。</>
+                <>全 {all.length} 本を表示中。右の絞り込みで記事区分・テーマ・価格・状態・マガジンを選べる。</>
               )}
               {' '}タイトルをクリックすると note の公開記事を別タブで開く。
             </p>
@@ -241,6 +254,7 @@ export default async function ContentNotePage({
                   <thead>
                     <tr>
                       <th className="title-col">タイトル</th>
+                      <th className="category-col optional-col">記事区分</th>
                       <th className="category-col optional-col">テーマ</th>
                       <th className="price-col">価格</th>
                       <th className="publish-col">公開</th>
@@ -262,6 +276,9 @@ export default async function ContentNotePage({
                             ) : (
                               i.title
                             )}
+                          </td>
+                          <td className="category-col optional-col">
+                            {CONTENT_TYPES.find((type) => type.key === i.contentType)?.label ?? i.contentType}
                           </td>
                           <td className="category-col optional-col">
                             {i.theme ? (
@@ -324,6 +341,14 @@ export default async function ContentNotePage({
             <span>絞り込み</span>
             {filtered ? <Link href="/content/note">すべて解除</Link> : null}
           </div>
+          <Facet
+            title="記事区分"
+            param="t"
+            now={now}
+            active={contentType}
+            total={typeScope.length}
+            items={CONTENT_TYPES.map((type) => ({ ...type, count: typeCounts.get(type.key) ?? 0 }))}
+          />
           <Facet
             title="テーマ"
             param="e"

@@ -4,6 +4,7 @@ noteStatus: published
 noteUrl: "https://note.com/dobokunote/n/nf2bae03c9891"
 noteId: "nf2bae03c9891"
 noteSeries: 技術士建設部門-無料入口
+noteContentType: learning
 utmCampaign: pe-construction-toan-kousei
 coverTitle:
   - 技術士二次 答案構成

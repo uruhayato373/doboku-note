@@ -1,6 +1,7 @@
 ---
 notePricing: paid
 noteSeries: コンクリート診断士-記述式
+noteContentType: product
 utmCampaign: cd-essay-b-carbonation
 noteUrl: "https://note.com/dobokunote/n/n91e1495fdfd0"
 noteId: "n91e1495fdfd0"

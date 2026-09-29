@@ -2,6 +2,7 @@
 title: "施工経験記述をAIに丸投げすると落ちる理由と、自分の現場から組み立てる方法"
 notePricing: free
 noteSeries: "1級・2級土木 施工経験記述"
+noteContentType: learning
 utmCampaign: "civil-keiken-ai-kit-note"
 noteStatus: published
 notePublishedAt: "2026-07-23"

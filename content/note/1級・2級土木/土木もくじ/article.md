@@ -2,6 +2,7 @@
 title: "【土木もくじ】1級・2級土木の教材、どれを買う？状況別に「まず1冊」がわかる全案内"
 notePricing: free
 noteSeries: 総合案内
+noteContentType: index
 utmCampaign: 103-civil-index
 noteUrl: "https://note.com/dobokunote/n/n4fde0f62dc20"
 noteId: "n4fde0f62dc20"

@@ -1,5 +1,6 @@
 ---
 notePricing: free
+noteContentType: product
 memberTrial: bottom
 noteStatus: published
 noteUrl: https://note.com/dobokunote/n/n3eb135ebdff7

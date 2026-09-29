@@ -2,6 +2,7 @@
 notePricing: membership
 noteStatus: published
 noteSeries: 経験記述-週次お題ラボ
+noteContentType: product
 noteMagazine: 経験記述-週次お題ラボ
 notePublishedAt: "2026-09-17"
 noteId: "naae8119cce47"

@@ -2,6 +2,7 @@
 title: "1級土木 施工経験記述｜安全管理 完成答案集（シールドトンネル・橋梁架設・大規模盛土 ほか）"
 notePricing: paid
 noteSeries: 1級土木-施工経験記述-完成答案集
+noteContentType: product
 noteMagazine: 1級土木-施工経験記述-完成答案集
 utmCampaign: civil1-keiken-safety
 noteUrl: https://note.com/dobokunote/n/n3c00de4e11e4

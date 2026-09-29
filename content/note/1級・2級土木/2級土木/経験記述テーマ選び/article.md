@@ -1,6 +1,7 @@
 ---
 notePricing: free
 noteSeries: 施工経験記述
+noteContentType: learning
 utmCampaign: 2c-essay-theme
 noteUrl: "https://note.com/dobokunote/n/n26e51803f01b"
 noteId: "n26e51803f01b"

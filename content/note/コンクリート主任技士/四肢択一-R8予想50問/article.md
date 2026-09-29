@@ -3,6 +3,7 @@ notePricing: paid
 noteStatus: published
 noteDraftId: nfad294307263
 noteSeries: コンクリート主任技士-四肢択一-R8予想
+noteContentType: product
 utmCampaign: cce-r8-mc-50
 notePublishedAt: "2026-09-01"
 noteId: "nfad294307263"

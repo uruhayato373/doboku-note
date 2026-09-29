@@ -1,6 +1,7 @@
 ---
 notePricing: free
 noteSeries: 資格キャリア戦略
+noteContentType: career
 utmCampaign: 97-qualification-career-map
 noteUrl: 'https://note.com/dobokunote/n/nd2f697ffbc4a'
 noteId: nd2f697ffbc4a

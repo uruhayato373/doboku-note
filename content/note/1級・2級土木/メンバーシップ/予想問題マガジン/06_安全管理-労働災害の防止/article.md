@@ -3,6 +3,7 @@ notePricing: membership
 noteStatus: published
 noteDraftId: "n81850411ecb7"
 noteSeries: 経験記述-週次お題ラボ
+noteContentType: product
 noteMagazine: 経験記述-週次お題ラボ
 notePublishedAt: "2026-09-15"
 noteId: "n81850411ecb7"

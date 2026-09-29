@@ -1,6 +1,7 @@
 ---
 notePricing: free
 noteSeries: 直前総仕上げロードマップ
+noteContentType: learning
 utmCampaign: tankan-chokuzen-roadmap
 noteUrl: "https://note.com/dobokunote/n/n97e01a94e650"
 noteId: "n97e01a94e650"

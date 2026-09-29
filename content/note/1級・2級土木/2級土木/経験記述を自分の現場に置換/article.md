@@ -1,6 +1,7 @@
 ---
 notePricing: free
 noteSeries: 施工経験記述
+noteContentType: learning
 utmCampaign: 2c-essay-adapt
 noteUrl: "https://note.com/dobokunote/n/nc60854accc56"
 noteId: "nc60854accc56"

@@ -1,6 +1,7 @@
 ---
 notePricing: paid
 noteSeries: 総監記述式-R8予想問題集
+noteContentType: product
 noteMagazine: 総監記述式-R8予想問題集
 utmCampaign: essay-r8-forecast-economic-security
 noteUrl: https://note.com/dobokunote/n/n0c52cfabab78

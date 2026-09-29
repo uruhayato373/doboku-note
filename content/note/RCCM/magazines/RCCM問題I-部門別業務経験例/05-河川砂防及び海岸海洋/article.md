@@ -9,6 +9,7 @@ notePricing: paid
 price: 1980
 paidBoundary: "記入例1"
 noteSeries: RCCM問題I-河川砂防及び海岸海洋
+noteContentType: product
 noteUrl: "https://note.com/dobokunote/n/nde56142e720d"
 noteId: "nde56142e720d"
 notePublishedAt: "2026-09-20"

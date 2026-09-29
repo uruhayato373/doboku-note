@@ -1,6 +1,7 @@
 ---
 notePricing: free
 noteSeries: 技術士建設部門-無料入口
+noteContentType: learning
 utmCampaign: pe-construction-after-result
 noteStatus: draft
 coverTitle: ["技術士 建設部門", "筆記合格発表後にやること"]

@@ -1,6 +1,7 @@
 ---
 notePricing: paid
 noteSeries: 総監模範論文-都市計画コンサルペルソナ
+noteContentType: product
 utmCampaign: essay-urban-consul-r04
 noteUrl: https://note.com/dobokunote/n/nad811ce173cb
 noteId: nad811ce173cb

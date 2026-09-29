@@ -1,6 +1,7 @@
 ---
 notePricing: paid
 noteSeries: 1級土木-施工経験記述-過去問模範答案集
+noteContentType: product
 noteMagazine: 1級土木-施工経験記述-過去問模範答案集
 utmCampaign: civil1-keiken-past-r03
 noteUrl: https://note.com/dobokunote/n/n970211edffaf

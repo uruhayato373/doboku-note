@@ -4,6 +4,7 @@ noteStatus: published
 noteUrl: "https://note.com/dobokunote/n/n93924bcacec3"
 noteId: "n93924bcacec3"
 noteSeries: 技術士建設部門-無料入口
+noteContentType: learning
 utmCampaign: pe-construction-infra-roukyuuka-iji
 coverTitle:
   - インフラ老朽化を

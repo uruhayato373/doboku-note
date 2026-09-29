@@ -10,6 +10,7 @@ created: 2026-09-19
 dateModified: 2026-09-19
 notePricing: paid
 noteSeries: 総監模範論文-上下水道コンサルペルソナ
+noteContentType: product
 utmCampaign: essay-water-consul-r04
 noteMagazine: 総監模範論文-上下水道コンサル
 noteUrl: "https://note.com/dobokunote/n/n96cdad253411"

@@ -10,6 +10,7 @@ created: 2026-09-19
 dateModified: 2026-09-19
 notePricing: paid
 noteSeries: 総監模範論文-土質基礎コンサルペルソナ
+noteContentType: product
 utmCampaign: essay-geotechnical-r05
 noteMagazine: 総監模範論文-土質基礎コンサル
 noteUrl: "https://note.com/dobokunote/n/nf4227f1fadc9"

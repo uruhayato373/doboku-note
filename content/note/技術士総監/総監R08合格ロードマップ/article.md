@@ -1,6 +1,7 @@
 ---
 notePricing: free
 noteSeries: 総監R08合格ロードマップ
+noteContentType: learning
 utmCampaign: profile-fixed-roadmap
 noteUrl: https://note.com/dobokunote/n/n3d73729e6cc7
 noteId: n3d73729e6cc7

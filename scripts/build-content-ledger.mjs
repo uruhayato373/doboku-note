@@ -7,7 +7,7 @@
  * 画面を開くたびに走らせず、この索引を読む。マガジン・ココナラ・Kindle の商品は件数が少なく速いので索引に入れない
  * （画面が既存の台帳から直接読む）。
  *
- * 記事ごとに持つもの: パス・タイトル・テーマ（scripts/lib/content-theme.mjs）・価格区分・マガジン・公開 URL・
+ * 記事ごとに持つもの: パス・タイトル・記事区分・テーマ（scripts/lib/content-theme.mjs）・価格区分・マガジン・公開 URL・
  * 導線マーカー（<!-- cta:<id> -->）・同期の状態（note-sync-plan と同じ判定）。
  * 原稿は更新時刻が前回の索引と同じなら読み直さない（2 回目以降は速い）。同期の計画は毎回作り直す。
  *
@@ -44,7 +44,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 export const LEDGER_PATH = join(ROOT, '.claude', 'state', 'content-ledger.json');
 const NOTE_ROOT = join(ROOT, 'content', 'note');
 const TAG = '[content-ledger]';
-const VERSION = 3; // 2: 導線の公開照合（ctaExpect / ctaLive）を追加　3: 導線の種類ごとに照合（ctaExpect を配列に）
+const VERSION = 4; // 4: noteContentType を追加
 const argv = process.argv.slice(2);
 const REFRESH_CTA = argv.includes('--refresh-cta');
 const NO_LIVE = argv.includes('--no-live');
@@ -112,6 +112,7 @@ async function build() {
       path,
       mtimeMs,
       title: fm.title || rel.split(/[\\/]/).slice(-2, -1)[0] || path,
+      contentType: fm.noteContentType || 'unknown',
       theme,
       themeLabel: themeLabel(themes, theme),
       pricing: fm.notePricing || 'unknown',

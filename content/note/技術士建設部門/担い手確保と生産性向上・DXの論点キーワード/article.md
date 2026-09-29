@@ -4,6 +4,7 @@ noteStatus: published
 noteUrl: "https://note.com/dobokunote/n/nb4ad5a7957a0"
 noteId: "nb4ad5a7957a0"
 noteSeries: 技術士建設部門-無料入口
+noteContentType: learning
 utmCampaign: pe-construction-ninaite-keyword
 notePublishedAt: "2026-07-23"
 coverTitle:

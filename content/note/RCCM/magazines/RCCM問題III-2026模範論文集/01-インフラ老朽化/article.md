@@ -1,5 +1,6 @@
 ---
 notePricing: paid
+noteContentType: product
 price: 780
 paidBoundary: "模範論文"
 noteMagazine: RCCM問題III-2026模範論文集

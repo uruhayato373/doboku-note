@@ -1,5 +1,6 @@
 ---
 notePricing: free
+noteContentType: learning
 utmCampaign: civil-keiken-bridge-line-magnet
 noteStatus: published
 notePublishedAt: "2026-08-26"

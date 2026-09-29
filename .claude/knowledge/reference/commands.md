@@ -38,6 +38,8 @@ npm run lint:ja:all           # 全件 report（1,280 ファイルを 100 件ず
 npm run check-bold-rendering # 太字が実際に描画されるか（remark で実パースし text に ** が残る＝崩壊を検出・サイト MDX と note 記事が対象・quality:audit に同梱）
 npm run check-note-duplicate-images # note 記事で同じ画像を 2 回使っていないか（2 枚目は CDN 確定せず全文更新が中断する・pre-commit の note-lint 規則 10 と同じ判定・quality:audit ci）
 npm run check-note-inline-code      # note 記事の本文にインラインのバッククォートが無いか（note は `〇〇` を記号のまま出す・目印は【〇〇】・pre-commit の note-lint 規則 11 と同じ判定・quality:audit ci）
+npm run check-note-content-type     # note記事の役割5分類（product/index/learning/career/editorial）の必須・語彙・総合案内/career UTM整合を全件検査（quality:audit ci）
+npm run migrate-note-content-type:write # 未分類の既存note記事を5分類へ初回移行（確認だけは末尾`:write`なし。移行後はfrontmatterがSSOT）
 npm run fix-bold-rendering   # 上の崩壊のうち機械的に安全な形だけ修正（dry-run 既定・--commit で適用）
 npm run check-table-rendering # GFM テーブルが実際に table になるか（remark 実パースでデリミタ行が text に残る＝生パイプ表示を検出。原因〔改行 \r\r\n 破損／ヘッダとデリミタのセル数不一致〕を問わず症状で拾う・pre-commit --staged ＋ quality:audit）
 npm run check-table-references # 本文が指す「表N.M」のキャプションが実在するか（転記由来の宙に浮いた参照）

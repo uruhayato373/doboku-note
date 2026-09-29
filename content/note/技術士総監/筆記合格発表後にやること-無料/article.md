@@ -1,6 +1,7 @@
 ---
 notePricing: free
 noteSeries: 総監無料記事
+noteContentType: learning
 utmCampaign: tankan-after-result
 noteStatus: draft
 coverTitle: ["技術士 総監", "筆記合格発表後にやること"]

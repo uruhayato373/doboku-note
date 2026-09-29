@@ -1,6 +1,7 @@
 ---
 notePricing: paid
 noteSeries: コンクリート診断士-記述式
+noteContentType: product
 utmCampaign: cd-essay-b-fatigue
 noteUrl: "https://note.com/dobokunote/n/n094029176c4c"
 noteId: "n094029176c4c"

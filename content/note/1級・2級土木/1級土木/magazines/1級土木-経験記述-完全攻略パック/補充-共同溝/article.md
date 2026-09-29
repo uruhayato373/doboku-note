@@ -3,6 +3,7 @@ notePricing: paid
 price: 1980
 paidBoundary: "想定工事①"
 noteSeries: 1級土木-経験記述-完全攻略パック
+noteContentType: product
 noteMagazine: 1級土木-経験記述-完全攻略パック
 noteStatus: published
 notePublishedAt: "2026-07-23"

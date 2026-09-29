@@ -1,6 +1,7 @@
 ---
 notePricing: paid
 noteSeries: 1級土木-一次-出る順合格ノート
+noteContentType: product
 noteStatus: published
 utmCampaign: civil1-ichiji-ronten
 notePublishedAt: "2026-07-16"

@@ -4,6 +4,7 @@ noteStatus: published
 noteUrl: https://note.com/dobokunote/n/nced3f11b7641
 noteId: nced3f11b7641
 noteSeries: 公務員受験
+noteContentType: learning
 utmCampaign: 98-owner-essay-build
 coverTitle:
   - 発注者の立場で

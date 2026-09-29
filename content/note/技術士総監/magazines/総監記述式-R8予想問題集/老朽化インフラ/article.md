@@ -1,6 +1,7 @@
 ---
 notePricing: paid
 noteSeries: 総監記述式-R8予想問題集
+noteContentType: product
 noteMagazine: 総監記述式-R8予想問題集
 utmCampaign: essay-r8-forecast-infrastructure-maintenance
 noteUrl: https://note.com/dobokunote/n/naace4eeaa230

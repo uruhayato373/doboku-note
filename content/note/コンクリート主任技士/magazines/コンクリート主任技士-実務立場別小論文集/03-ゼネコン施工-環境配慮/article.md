@@ -3,6 +3,7 @@ title: "コンクリート主任技士 小論文 模範答案｜ゼネコン施�
 notePricing: paid
 paidBoundary: "答案の方針"
 noteSeries: コンクリート主任技士-実務立場別小論文
+noteContentType: product
 noteMagazine: コンクリート主任技士-実務立場別小論文集
 notePublishedAt: "2026-08-22"
 noteId: "nfa67791ed05c"

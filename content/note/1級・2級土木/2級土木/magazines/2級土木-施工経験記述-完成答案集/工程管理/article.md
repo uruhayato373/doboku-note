@@ -1,6 +1,7 @@
 ---
 notePricing: paid
 noteSeries: 2級土木-施工経験記述-完成答案集
+noteContentType: product
 noteMagazine: 2級土木-施工経験記述-完成答案集
 utmCampaign: civil2-keiken-process
 noteUrl: https://note.com/dobokunote/n/n05309c70c7eb

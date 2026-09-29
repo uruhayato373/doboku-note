@@ -1,5 +1,6 @@
 ---
 notePricing: paid
+noteContentType: product
 utmCampaign: civil2-r8-bunseki
 noteStatus: published
 notePublishedAt: "2026-09-17"

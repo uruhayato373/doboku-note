@@ -2,6 +2,7 @@
 notePricing: free
 noteStatus: published
 noteSeries: 総監記述式
+noteContentType: learning
 utmCampaign: r8-i2-model-answer
 notePublishedAt: "2026-07-19"
 noteId: "nfe8bc37ce88e"

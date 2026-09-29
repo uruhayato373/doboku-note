@@ -146,6 +146,7 @@ export interface NoteArticle {
   dir: string;
   file: string;
   title: string;
+  contentType: string;
   pricing: string;
   magazine: string | null;
   noteUrl: string | null;
@@ -188,6 +189,7 @@ export function noteArticles(): NoteArticle[] {
           dir: rel,
           file: e.name,
           title: (fm.title as string) || rel.split('/').pop() || rel,
+          contentType: (fm.noteContentType as string) || 'unknown',
           pricing: (fm.notePricing as string) || 'unknown',
           magazine: (fm.noteMagazine as string) || null,
           noteUrl: (fm.noteUrl as string) || null,

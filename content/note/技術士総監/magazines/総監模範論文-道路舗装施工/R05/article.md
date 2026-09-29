@@ -10,6 +10,7 @@ published: false
 reviewStatus: needs-review
 notePricing: paid
 noteSeries: 総監模範論文-道路舗装施工ペルソナ
+noteContentType: product
 utmCampaign: essay-road-paving-r5
 noteMagazine: 総監模範論文-道路舗装施工
 noteUrl: "https://note.com/dobokunote/n/ne9c5484ce0f7"

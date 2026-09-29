@@ -1,6 +1,7 @@
 ---
 notePricing: paid
 noteSeries: 2級土木-二次学科記述-テーマ別出る順
+noteContentType: product
 noteMagazine: 2級土木-二次学科記述-テーマ別出る順
 noteStatus: published
 notePublishedAt: "2026-07-03"

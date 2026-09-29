@@ -3,6 +3,7 @@ notePricing: paid
 price: 1980
 paidBoundary: "テンプレート"
 noteSeries: RCCM問題I-業務経験論文テンプレ
+noteContentType: product
 noteUrl: "https://note.com/dobokunote/n/n10b786536829"
 noteId: "n10b786536829"
 notePublishedAt: "2026-09-16"

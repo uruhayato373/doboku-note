@@ -1,6 +1,7 @@
 ---
 notePricing: paid
 noteSeries: 総監模範論文-自治体契約調達担当ペルソナ
+noteContentType: product
 utmCampaign: essay-procurement-muni-r06
 noteUrl: https://note.com/dobokunote/n/n4d5eccdd7502
 noteId: n4d5eccdd7502

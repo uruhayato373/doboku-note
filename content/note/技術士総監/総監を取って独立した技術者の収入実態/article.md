@@ -4,6 +4,7 @@ noteStatus: published
 noteUrl: "https://note.com/dobokunote/n/n700c51ea6f00"
 noteId: "n700c51ea6f00"
 noteSeries: 民間技術者受験
+noteContentType: career
 utmCampaign: 96-independence-income
 notePublishedAt: "2026-07-14"
 coverTitle:
