@@ -575,9 +575,11 @@ const SERVICES_RAW = {
   // 制作物（DLキット）テスト出品。Claude Code + Node.js を要する自作ツール版＝客層が限定される
   // ため status:'draft'（防御的非表示）で配線のみ用意。公開前ゲート: (1) 納品ZIPは外部URL(note/
   // サイト)を除去した coconala 版に差し替える（安全弁#2 外部誘導）、(2) /coconala-publish --commit。
+  // 2026-09-29: 出品管理の一覧から消え、公開ページは「非公開・受付を休止」（実測）。ココナラ側の状態を正として終了扱いにした。
+  //   誰がいつ非公開にしたかは未確認。ココナラブログ suuchi-no-irekata の送客先だったので付け替えが要る。
   'coconala-civil-keiken-kit': {
     id: 'coconala-civil-keiken-kit',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4322659',
     title: '施工経験記述を自作するAI設計キットを渡します',
     shortTitle: '経験記述 AI設計キット（DL）',
@@ -587,6 +589,8 @@ const SERVICES_RAW = {
     priceYen: 8000,
     examScope: ['civil-1', 'civil-2'],
     weeklyCapacity: 20,
+    pauseReason: 'retired',
+    archivedAt: '2026-09-29',
     listedAt: '2026-07-22',
   },
   // 総監 出題テーマ分析 PDF（テスト出品）。有料note「設問3国家施策バンク」本文は転載せず、
