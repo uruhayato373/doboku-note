@@ -11,7 +11,8 @@ export default defineConfig({
   fullyParallel: true,
   forbidOnly: isCI,
   retries: isCI ? 1 : 0,
-  ...(isCI ? { workers: 2 } : {}),
+  // 公開リポジトリの ubuntu-latest は 4 vCPU。2 では 152 テストに 3 分かかっていた（2026-09-30）。
+  ...(isCI ? { workers: 4 } : {}),
   timeout: 30_000,
   // 初回コンパイル待ちは globalSetup のウォームアップで assertion の外へ出している。
   // ここは「温まったサーバーに対する妥当な待ち」に留める（伸ばしすぎると本物の遅延を見逃す）。
