@@ -21,7 +21,7 @@ import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import matter from 'gray-matter';
-import { evaluateCceEssay, extractHistoryBlock, syncHistoryBlock } from './lib/cce-essay.mjs';
+import { evaluateCceEssay, extractHistoryBlocks, syncHistoryBlock } from './lib/cce-essay.mjs';
 import { writeMdxFile } from '../.claude/scripts/lib/mdx-io.mjs';
 
 const ROOTS = ['content/note/コンクリート主任技士', 'content/site/concrete-chief-engineer'];
@@ -77,10 +77,11 @@ for (const file of files) {
     if (r.errors.length) violations++;
   }
 
-  if (extractHistoryBlock(raw)) {
-    blocks++;
+  const found = extractHistoryBlocks(raw).length;
+  if (found) {
+    blocks += found;
     const synced = syncHistoryBlock(raw, history);
-    if (synced === raw) console.log(`✓ ${file} — 出題履歴ブロックは SSOT と一致`);
+    if (synced === raw) console.log(`✓ ${file} — 出題履歴ブロック ${found} 件は SSOT と一致`);
     else if (FIX) { writeMdxFile(file, synced); console.log(`↻ ${file} — 出題履歴ブロックを SSOT から再生成`); }
     else { console.log(`✗ ${file} — 出題履歴ブロックが SSOT と不一致（node scripts/check-cce-essay.mjs --fix）`); violations++; }
   }

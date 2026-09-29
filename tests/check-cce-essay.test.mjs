@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { evaluateCceEssay, yearsForTheme, renderHistory, extractHistoryBlock, syncHistoryBlock } from '../scripts/lib/cce-essay.mjs';
+import { evaluateCceEssay, yearsForTheme, renderHistory, extractHistoryBlock, extractHistoryBlocks, syncHistoryBlock } from '../scripts/lib/cce-essay.mjs';
 
 /**
  * コンクリート主任技士 小論文 テーマ別教材の型（SSOT answerModel）と出題履歴ブロックの同期を固定する。
@@ -49,11 +49,20 @@ test('出題年: environment は R2・R3・R5・R7 と SDGs の R4 を含む', (
 test('履歴ブロック: note(list)・MDX(table) とも SSOT から生成し冪等', () => {
   const note = 'a\n<!-- cce-essay-history:start since=2020 format=list -->\n古い\n<!-- cce-essay-history:end -->\nb';
   const s1 = syncHistoryBlock(note, history);
-  assert.ok(s1.includes('- **R7（2025）**'));
+  assert.ok(s1.includes('- **R7**（2025年度）'));
   assert.ok(!s1.includes('H30'));
   assert.equal(syncHistoryBlock(s1, history), s1);
   const mdx = 'a\n{/* cce-essay-history:start */}\n{/* cce-essay-history:end */}\nb';
   const s2 = syncHistoryBlock(mdx, history);
   assert.equal(extractHistoryBlock(s2).body, renderHistory(history));
   assert.ok(s2.includes('| H24（2012） |'));
+});
+
+test('履歴ブロック: 1 記事に複数・until で年度を切れる', () => {
+  const t = '<!-- cce-essay-history:start since=2020 format=list -->\n<!-- cce-essay-history:end -->\nx\n<!-- cce-essay-history:start since=2012 until=2019 format=list -->\n<!-- cce-essay-history:end -->';
+  const s = syncHistoryBlock(t, history);
+  const [a, b] = extractHistoryBlocks(s);
+  assert.ok(a.body.includes('R7') && !a.body.includes('H30'));
+  assert.ok(b.body.includes('H30') && !b.body.includes('R2'));
+  assert.equal(syncHistoryBlock(s, history), s);
 });

@@ -113,30 +113,42 @@ const CONFIDENCE_LABEL = { high: '書籍で確認', medium: '複数出典', low:
  * SSOT から出題履歴を新しい順に生成する。
  * format=table はサイト（MDX）用の2列表、format=list は note 用の箇条書き（note はパイプ表非対応）。
  */
-export function renderHistory(history, { since = 2012, format = 'table' } = {}) {
-  const years = history.years.filter((y) => y.year >= since).sort((a, b) => b.year - a.year);
+export function renderHistory(history, { since = 2012, until = 9999, format = 'table' } = {}) {
+  const years = history.years.filter((y) => y.year >= since && y.year <= until).sort((a, b) => b.year - a.year);
   const line = (y) => `${y.options.map((o) => o.label).join('／')}（${CONFIDENCE_LABEL[y.confidence]}）`;
-  if (format === 'list') return years.map((y) => `- **${y.era}（${y.year}）**: ${line(y)}`).join('\n');
+  // note-lint は太字内の全角括弧を禁じるため、年度だけを太字にする
+  if (format === 'list') return years.map((y) => `- **${y.era}**（${y.year}年度）: ${line(y)}`).join('\n');
   return ['| 年度 | 出題テーマ（確度） |', '|---|---|', ...years.map((y) => `| ${y.era}（${y.year}） | ${line(y)} |`)].join('\n');
 }
 
-/**
- * 記事内のマーカー間を取り出す。書式は `<!-- cce-essay-history:start since=2020 format=list -->`（note）
- * または `{/* cce-essay-history:start since=2012 format=table *\/}`（MDX）。
- */
-export function extractHistoryBlock(text) {
-  const re = new RegExp(`((?:<!--|\\{/\\*)\\s*${HISTORY_START}([^\\n]*?)\\s*(?:-->|\\*/\\}))\\r?\\n([\\s\\S]*?)\\r?\\n?((?:<!--|\\{/\\*)\\s*${HISTORY_END}\\s*(?:-->|\\*/\\}))`);
-  const m = text.match(re);
-  if (!m) return null;
-  const since = m[2].match(/since=(\d{4})/);
+const BLOCK_RE = () => new RegExp(`((?:<!--|\\{/\\*)\\s*${HISTORY_START}([^\\n]*?)\\s*(?:-->|\\*/\\}))\\r?\\n([\\s\\S]*?)\\r?\\n?((?:<!--|\\{/\\*)\\s*${HISTORY_END}\\s*(?:-->|\\*/\\}))`, 'g');
+
+function parseBlock(m) {
+  const num = (k) => { const x = m[2].match(new RegExp(`${k}=(\\d{4})`)); return x ? Number(x[1]) : undefined; };
   const format = m[2].match(/format=(table|list)/);
-  return { since: since ? Number(since[1]) : undefined, format: format ? format[1] : 'table', body: m[3].trim(), raw: m[0], startMarker: m[1], endMarker: m[4] };
+  const opts = { format: format ? format[1] : 'table' };
+  if (num('since')) opts.since = num('since');
+  if (num('until')) opts.until = num('until');
+  return { opts, body: m[3].trim(), raw: m[0], startMarker: m[1], endMarker: m[4] };
 }
 
-/** マーカー間を SSOT の生成結果に置き換えた本文を返す（一致していれば同じ文字列）。 */
+/**
+ * 記事内の出題履歴ブロックを全て取り出す。書式は `<!-- cce-essay-history:start since=2020 format=list -->`（note）
+ * または `{/* cce-essay-history:start since=2012 until=2019 format=table *\/}`（MDX）。
+ */
+export function extractHistoryBlocks(text) {
+  return [...text.matchAll(BLOCK_RE())].map(parseBlock);
+}
+
+/** 先頭の出題履歴ブロック（無ければ null）。 */
+export function extractHistoryBlock(text) {
+  return extractHistoryBlocks(text)[0] || null;
+}
+
+/** 全ての出題履歴ブロックを SSOT の生成結果に置き換えた本文を返す（一致していれば同じ文字列）。 */
 export function syncHistoryBlock(text, history) {
-  const b = extractHistoryBlock(text);
-  if (!b) return text;
-  const opts = { format: b.format, ...(b.since ? { since: b.since } : {}) };
-  return text.replace(b.raw, () => `${b.startMarker}\n${renderHistory(history, opts)}\n${b.endMarker}`);
+  return text.replace(BLOCK_RE(), (...m) => {
+    const b = parseBlock(m);
+    return `${b.startMarker}\n${renderHistory(history, b.opts)}\n${b.endMarker}`;
+  });
 }
