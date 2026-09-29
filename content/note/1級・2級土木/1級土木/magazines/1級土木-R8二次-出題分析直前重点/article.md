@@ -202,11 +202,11 @@ https://note.com/dobokunote/m/md29a34906314
 <!-- cta:coconala-custom -->
 この答案をあなたの工事に合わせて仕上げたいときは、ココナラで個別に対応しています。書いた答案があれば添削で赤入れ、まだ書けていなければヒアリングから骨子（構成）をつくります。
 
-https://coconala.com/services/4317375
+https://coconala.com/services/4418735
 
 まだ答案が無い人は、ヒアリングから骨子（構成）をつくるこちらへ。
 
-https://coconala.com/services/4317796
+https://coconala.com/services/4350199
 
 学科記述をテーマ別に出る順で深掘りするなら、こちらのマガジンが対応します。
 

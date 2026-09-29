@@ -55,11 +55,11 @@ https://note.com/dobokunote/m/m150c9db08902
 <!-- cta:coconala-custom -->
 自分の工事で答案を仕上げたいときは、ココナラで個別に対応しています。書いた答案があれば添削で赤入れ、まだ書けていなければヒアリングから骨子（構成）をつくります。
 
-https://coconala.com/services/4317375
+https://coconala.com/services/4418735
 
 まだ答案が無い人は、ヒアリングから骨子（構成）をつくるこちらへ。
 
-https://coconala.com/services/4317796
+https://coconala.com/services/4350199
 
 ## 採点側が概要で見ている3つの整合
 

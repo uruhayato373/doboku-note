@@ -44,22 +44,22 @@ const RULES: readonly OffsiteRule[] = [
     // 2026-09-25: coconala-tensaku-set は級別化で examScope が civil-1 専用になったため、
     // 1級/2級で別ルールに分割（旧: 単一ルールで両級に同じ1級専用サービスを出していた）。
     test: /^civil-construction-1-secondary-experience-writing-(guide|examples)$/,
-    coconala: ['coconala-shindan', 'coconala-tensaku-set'],
-    coconalaCatch: '自分の答案を1本、プロの視点で見てほしい方へ。',
+    coconala: ['coconala-shindan', 'coconala-tensaku-4theme'],
+    coconalaCatch: '10/4の本試験前に、全5テーマの答案を24時間で見てほしい方へ。',
   },
   {
     // 施工経験記述（2級）: 2級版の添削サービスは新設（coconala-2kyu-tensaku・2026-09-25）が
     // status:'draft'（未出品）のため、出品するまで listed フィルタで自動的に非表示のまま。
     test: /^civil-construction-2-secondary-experience-writing-(guide|examples)$/,
     coconala: ['coconala-shindan', 'coconala-2kyu-tensaku'],
-    coconalaCatch: '自分の答案を1本、プロの視点で見てほしい方へ。',
+    coconalaCatch: '10/4の本試験前に、全5テーマの答案を24時間で見てほしい方へ。',
   },
   {
     // 1級 二次 年度別過去問（secondary-r03〜r09）: 経験記述 過去問模範答案＋学科記述攻略が刺さる。
     test: /^civil-construction-1-secondary-r0[3-9]$/,
     // 2026-08-05 統廃合: 過去問模範答案・学科攻略の単品は停止（paused）→ 模範答案セット＋フルパックへ。
     // 2026-09-29: 模範答案セット単品はアーカイブ（ココナラは添削系へ精選）→ 模範答案を含むフルパックと添削へ。
-    coconala: ['coconala-1kyu-full-pdf', 'coconala-tensaku-set'],
+    coconala: ['coconala-1kyu-full-pdf', 'coconala-tensaku-4theme'],
     coconalaCatch: '過去問の模範答案で仕上げたい方へ（模範答案入りの全部入りパック PDF・答案の添削）。',
   },
   {
@@ -90,13 +90,13 @@ const RULES: readonly OffsiteRule[] = [
     // 資格トップ（カテゴリ hub・slug はカテゴリ名そのもの）。SNS から着地する入口なので、
     // 二次の人の添削と直前の総仕上げを出す（2026-09-27 配線監査 DN-0364）。
     test: /^civil-construction-1$/,
-    coconala: ['coconala-tensaku-set', 'coconala-1kyu-full-pdf'],
+    coconala: ['coconala-tensaku-4theme', 'coconala-1kyu-full-pdf'],
     coconalaCatch: '自分の答案を見てほしい方・直前に総仕上げしたい方へ。',
   },
   {
     // 施工経験記述 文字数チェッカー（/tools/keiken-charcount）。答案を書いている最中の人が来る。
     test: /^tools-keiken-charcount$/,
-    coconala: ['coconala-tensaku-set', 'coconala-2kyu-tensaku'],
+    coconala: ['coconala-tensaku-4theme', 'coconala-2kyu-tensaku'],
     coconalaCatch: '字数が収まったら、次は中身。自分の答案を見てほしい方へ。',
   },
   {
