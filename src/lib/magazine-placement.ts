@@ -434,7 +434,6 @@ export function resolvePlacement(
     return {
       top: slot('civil-2-niji-marugoto-pack', slug, 'top'), // 二次まるごと（7 点の最上位バンドル・2026-09-17）
       inline: [
-        slot('civil-membership-lab', slug, 'inline-1'), // 本文中間 CTA = 会員（合格ラボ）
         slot('civil-2-r8-bunseki', slug, 'inline-2'), // 出題分析・直前重点（入口・2026-09-17）
         slot('civil-2-koji-bank', slug, 'inline-3'),
         slot('civil-2-gakka-kijutsu', slug, 'inline-4'), // 学科記述（問題2〜9）
@@ -450,7 +449,6 @@ export function resolvePlacement(
     return {
       top: slot('civil-2-koji-bank', slug, 'top'),
       inline: [
-        slot('civil-membership-lab', slug, 'inline-1'),
         slot('civil-2-niji-marugoto-pack', slug, 'inline-2'),
         slot('civil-2-experience-essay', slug, 'inline-3'),
       ],
@@ -461,7 +459,6 @@ export function resolvePlacement(
     return {
       top: slot('civil-2-r8-bunseki', slug, 'top'),
       inline: [
-        slot('civil-membership-lab', slug, 'inline-1'),
         slot('civil-2-gakka-kijutsu', slug, 'inline-2'), // 学科記述 テーマ別出る順
         slot('civil-2-anki-note', slug, 'inline-3'), // 直前暗記ノート
         slot('civil-2-chokuzen-pack', slug, 'inline-4'),
@@ -474,7 +471,6 @@ export function resolvePlacement(
     return {
       top: slot('civil-2-chokuzen-pack', slug, 'top'),
       inline: [
-        slot('civil-membership-lab', slug, 'inline-1'),
         slot('civil-2-niji-marugoto-pack', slug, 'inline-2'), // 二次まるごと（7 点の最上位バンドル）
         slot('civil-2-r8-bunseki', slug, 'inline-3'), // 出題分析・直前重点
         slot('civil-2-anki-note', slug, 'inline-4'), // 直前暗記ノート
@@ -486,7 +482,6 @@ export function resolvePlacement(
     return {
       top: slot('civil-2-niji-marugoto-pack', slug, 'top'), // 二次まるごと（2026-09-17）
       inline: [
-        slot('civil-membership-lab', slug, 'inline-1'), // 本文中間 CTA = 会員（合格ラボ）
         slot('civil-2-koji-bank', slug, 'inline-2'),
         slot('civil-2-experience-essay', slug, 'inline-3'),
         slot('civil-2-pastexam-essay', slug, 'inline-4'),
@@ -499,7 +494,6 @@ export function resolvePlacement(
     return {
       top: slot('civil-2-niji-marugoto-pack', slug, 'top'), // 二次まるごと（2026-09-17）
       inline: [
-        slot('civil-membership-lab', slug, 'inline-1'), // 本文中間 CTA = 会員（合格ラボ）
         slot('civil-2-koji-bank', slug, 'inline-2'),
         slot('civil-2-experience-essay', slug, 'inline-3'),
         slot('civil-2-gakka-kijutsu', slug, 'inline-4'),
@@ -517,7 +511,6 @@ export function resolvePlacement(
     return {
       top: slot('civil-1-niji-marugoto-pack', slug, 'top'),
       inline: [
-        slot('civil-membership-lab', slug, 'inline-1'), // 本文中間 CTA = 会員（合格ラボ）
         slot('civil-1-chokuzen-pack', slug, 'inline-2'), // 直前総仕上げパック（模試3回＋暗記＋出題分析・2026-09-16）
         slot('civil-1-r8-bunseki', slug, 'inline-3'), // 出題分析・直前重点（入口）→ 下位で上位商品へ
         slot('civil-1-niji-marugoto-pack', slug, 'inline-4'), // 二次まるごと（経験+学科+暗記+模試+分析の最上位バンドル）
@@ -542,7 +535,6 @@ export function resolvePlacement(
     return {
       top: slot('civil-1-keiken-complete-pack', slug, 'top'),
       inline: [
-        slot('civil-membership-lab', slug, 'inline-1'), // 本文中間 CTA = 会員（合格ラボ）
         slot('civil-1-keiken-complete-pack', slug, 'inline-2'),
         slot('civil-1-niji-marugoto-pack', slug, 'inline-3'), // 経験+学科+暗記の二次まるごと（upsell）
         slot('civil-1-experience-essay', slug, 'inline-4'),
@@ -560,10 +552,8 @@ export function resolvePlacement(
   //      （noteコンテンツ計画.md §1.4／2026-07-01 のライブラリ内包転換）。旗艦 ¥9,800 は次点。
   if (slug === 'civil-construction-1-secondary-getting-started') {
     return {
-      top: slot('civil-membership-lab', slug, 'top'),
+      top: slot('civil-1-keiken-complete-pack', slug, 'top'),
       inline: [
-        slot('civil-membership-lab', slug, 'inline-1'),
-        slot('civil-1-keiken-complete-pack', slug, 'inline-2'),
         slot('civil-1-gakka-kijutsu', slug, 'inline-3'),
         slot('civil-1-anki-note', slug, 'inline-4'),
       ],
@@ -577,7 +567,6 @@ export function resolvePlacement(
     return {
       top: slot('civil-1-gakka-kijutsu', slug, 'top'),
       inline: [
-        slot('civil-membership-lab', slug, 'inline-1'), // 本文中間 CTA = 会員（合格ラボ）
         slot('civil-1-gakka-kijutsu', slug, 'inline-2'), // 学科記述 テーマ別出る順
         slot('civil-1-r8-bunseki', slug, 'inline-3'), // 出題分析・直前重点（入口）
         slot('civil-1-niji-marugoto-pack', slug, 'inline-4'), // 二次まるごと
@@ -593,11 +582,9 @@ export function resolvePlacement(
   //   （resolveHubCta）に一本化した。placement.inline は記事内 中間 CTA（MidCta）の note 供給源＝
   //   先頭 1 誌としてのみ生きる。top（二次系の冒頭 CTA）はそのまま。ここでは「どの商品を・どの順で」
   //   中間 CTA に出すかを journey stage で決める。
-  //   - 一次/学習系（EXAM_PREP）: 早期読者。低コミットの会員「土木セコカン合格ラボ」（伴走・月¥1,480〜）を
-  //     lead に据え、¥9,800 完全攻略パック等のハード二次商品は demote。会員は published:false の間
-  //     getMagazine が null → 防御スキップし launch で自動発火（wire-ahead）。launch 前の live は
-  //     完成答案集（¥2,480/¥1,980）が soft lead、パックは demote 表示。
-  //   - 二次隣接（SECONDARY_ADJACENT＝直前対策）: 二次購入 intent が立つ高 intent 面。旗艦パック led＋会員。
+  //   - 一次/学習系（EXAM_PREP）: 早期読者。完成答案集（¥2,480/¥1,980）を soft lead、¥9,800 完全攻略パック等の
+  //     ハード二次商品は demote（会員「合格ラボ」を lead にしていたが 2026-09-30 に撤退）。
+  //   - 二次隣接（SECONDARY_ADJACENT＝直前対策）: 二次購入 intent が立つ高 intent 面。旗艦パック led。
   //   - career/年収/転職・比較（residual）: note 二次 CTA を出さない（EMPTY）。本文 <CareerAffiliate> と
   //     サイドバー転職枠（resolveDocsCareerSidebarAd）が転職導線を担う。二次経験記述¥9,800 を「辞めたい/
   //     年収」読者に正面売りは二重ミスマッチ（2026-07-01 是正・memory affiliate-career-only 準拠）。
@@ -616,7 +603,6 @@ export function resolvePlacement(
       return {
         top: slot(readingGuide, slug, 'top'),
         inline: [
-          slot('civil-membership-lab', slug, 'inline-1'),
           slot(soft, slug, 'inline-2'),
           slot(flagship, slug, 'inline-3'),
         ],
@@ -628,7 +614,6 @@ export function resolvePlacement(
       return {
         top: slot('civil-1-chokuzen-pack', slug, 'top'),
         inline: [
-          slot('civil-membership-lab', slug, 'inline-1'), // 本文中間 CTA = 会員（合格ラボ）
           slot('civil-1-niji-marugoto-pack', slug, 'inline-2'), // 経験+学科+暗記+模試+分析の最上位バンドル
           slot('civil-1-anki-note', slug, 'inline-3'), // 直前暗記ノート（赤シートPDF付）
           slot('civil-1-gakka-kijutsu', slug, 'inline-4'), // 学科記述 テーマ別出る順
@@ -647,7 +632,6 @@ export function resolvePlacement(
     return {
       inline: [
         slot('civil-1-reading-guide', slug, 'inline-1'), // 無料 精読ガイド（一次・出題頻度順の読み方・2026-09-16 公開）
-        slot('civil-membership-lab', slug, 'inline-2'),
         slot('civil-1-experience-essay', slug, 'inline-3'),
       ],
     };
@@ -665,7 +649,6 @@ export function resolvePlacement(
       inline: [
         slot('civil-1-ichiji-ronten', slug, 'inline-1'), // 一次の出る順ノート（不合格→来年再挑戦の層向け）
         slot('civil-1-reading-guide', slug, 'inline-2'), // 無料 精読ガイド（一次・2026-09-16 公開）
-        slot('civil-membership-lab', slug, 'inline-3'),
         slot('civil-1-experience-essay', slug, 'inline-4'),
       ],
     };
@@ -675,10 +658,8 @@ export function resolvePlacement(
   //     13 と同じ理由で top が必須。2級後期は 2026-10-25。
   if (docGroup === 'primary' && slug.startsWith('civil-construction-2-')) {
     return {
-      top: slot('civil-membership-lab', slug, 'top'),
+      top: slot('civil-2-reading-guide', slug, 'top'), // 無料 精読ガイド（一次後期 10/25 の入口・2026-09-16 公開）
       inline: [
-        slot('civil-2-reading-guide', slug, 'inline-1'), // 無料 精読ガイド（一次後期 10/25 の入口・2026-09-16 公開）
-        slot('civil-membership-lab', slug, 'inline-2'),
         slot('civil-2-experience-essay', slug, 'inline-3'),
       ],
     };
