@@ -412,7 +412,7 @@
     "content/note/技術士総監/magazines/総監記述式-R8予想問題集/経済安全保障/article.md": "0ed2bbd13c9f9f80",
     "content/note/技術士総監/magazines/総監記述式-R8予想問題集/老朽化インフラ/article.md": "3224ff369faacecd",
     "content/note/技術士総監/magazines/総監記述式-R8予想問題集/資源循環/article.md": "67fbda563f48d0e2",
-    "content/note/技術士総監/magazines/総監記述式-設問3国家施策バンク/00-序章/article.md": "07877f8b920720db",
+    "content/note/技術士総監/magazines/総監記述式-設問3国家施策バンク/00-序章/article.md": "f24f49eb1895ed56",
     "content/note/技術士総監/magazines/総監記述式-設問3国家施策バンク/Society5AIガバナンス/article.md": "c2d72cb803ec1eb0",
     "content/note/技術士総監/magazines/総監記述式-設問3国家施策バンク/インフラ老朽化維持管理/article.md": "4c70964cec32dbec",
     "content/note/技術士総監/magazines/総監記述式-設問3国家施策バンク/カーボンニュートラルGX/article.md": "8dd4847a02cb2403",
@@ -7318,6 +7318,10 @@
     "content/note/技術士総監/magazines/総監模範論文-都市計画コンサル/R08-yosou-2/article.md": {
       "of": "302638e5c2a472c3",
       "canon": "302638e5c2a472c3"
+    },
+    "content/note/技術士総監/magazines/総監記述式-設問3国家施策バンク/00-序章/article.md": {
+      "of": "f24f49eb1895ed56",
+      "canon": "f24f49eb1895ed56"
     }
   },
   "coverHashes": {
@@ -12673,6 +12677,14 @@
       "liveUrl": "https://assets.st-note.com/production/uploads/images/318702812/rectangle_large_type_2_94a12f1ef31c88f02fc878ec7ee7574e.png?fit=bounds&quality=85&width=1280",
       "registeredAt": "2026-09-28T23:02:55.918Z"
     },
+    "content/note/技術士総監/magazines/総監記述式-5管理クロストレードオフ/序章/article.md": {
+      "noteKey": "ndb524ed63c92",
+      "design": "2026-09-28-text-first",
+      "inputHash": "ba2ec5150eaaaca0",
+      "sha256": "d41449fc68b902e43d847828055d5185e6284dced8d77b6f4757c2727a4b6d1d",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/318771364/rectangle_large_type_2_1c1b330ee8135c2b0eee397c17cebb45.png?fit=bounds&quality=85&width=1280",
+      "registeredAt": "2026-09-29T03:20:01.109Z"
+    },
     "content/note/技術士総監/magazines/総監記述式-5管理クロストレードオフ/情報管理/article.md": {
       "noteKey": "nc9a3d01b8129",
       "design": "2026-09-28-text-first",
@@ -12744,6 +12756,14 @@
       "sha256": "3ef998d27d1a39f3478644a27e610d9ddbc1627aaadf235e63f8c6c7faf9bd14",
       "liveUrl": "https://assets.st-note.com/production/uploads/images/318704121/rectangle_large_type_2_b6293e6abc191ebebcbff4c85ed5ea68.png?fit=bounds&quality=85&width=1280",
       "registeredAt": "2026-09-28T23:09:20.344Z"
+    },
+    "content/note/技術士総監/magazines/総監記述式-設問3国家施策バンク/00-序章/article.md": {
+      "noteKey": "n3eb135ebdff7",
+      "design": "2026-09-28-text-first",
+      "inputHash": "f6d718625f4171cd",
+      "sha256": "9b6863e66a1dca954cdcaa0b5afdbd9ff11c0555a978ee2f1ef9f7b1d798a81c",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/318770899/rectangle_large_type_2_d6a9118a0a6e3a840e8d45eb6882d85f.png?fit=bounds&quality=85&width=1280",
+      "registeredAt": "2026-09-29T03:18:47.199Z"
     },
     "content/note/技術士総監/magazines/総監記述式-設問3国家施策バンク/Society5AIガバナンス/article.md": {
       "noteKey": "n0e7f7d13133e",

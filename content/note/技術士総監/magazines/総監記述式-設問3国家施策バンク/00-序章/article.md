@@ -1,5 +1,6 @@
 ---
 notePricing: free
+memberTrial: bottom
 noteStatus: published
 noteUrl: https://note.com/dobokunote/n/n3eb135ebdff7
 noteId: n3eb135ebdff7

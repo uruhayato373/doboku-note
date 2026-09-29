@@ -1,5 +1,6 @@
 ---
 notePricing: free
+memberTrial: bottom
 noteSeries: 総監記述式-5管理クロストレードオフ
 noteMagazine: 総監記述式-5管理クロストレードオフ
 utmCampaign: essay-tradeoff-matrix-intro
