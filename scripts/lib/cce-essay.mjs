@@ -94,6 +94,11 @@ export function evaluateCceEssay(body, data, history) {
     }
   }
 
+  const h2s = body.split(/\r?\n/).filter((l) => /^##\s/.test(l)).map((l) => l.replace(/^##\s+/, '').trim());
+  for (const req of model.requiredH2 || []) {
+    if (!h2s.some((h) => h.startsWith(req))) errors.push(`H10: 必須の見出し \`## ${req}\` が無い`);
+  }
+
   for (const line of body.split(/\r?\n/)) {
     if (FORBIDDEN_H2.test(line)) { errors.push(`H7: 問題文の再現節がある: ${line.trim()}`); break; }
   }

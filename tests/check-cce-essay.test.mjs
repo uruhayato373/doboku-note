@@ -12,7 +12,7 @@ const personas = history.answerModel.personas;
 
 function article({ situation = 300, work = 350, action = 300, drop = null, extraH2 = '' } = {}) {
   const blocks = personas.filter((p) => p !== drop).map((p) => `#### ${p}\n\n${jp(work)}`).join('\n\n');
-  return `# 見出し\n\n導入。\n\n## 出題傾向\n\n解説。\n${extraH2}\n## 模範答案\n\n### (1) 表題\n\n${jp(30)}\n\n### (2) 現状と課題\n\n${jp(situation)}\n\n### (3) 業務との関係・技術的取り組み\n\n${blocks}\n\n### (4) 今後の技術的対策・展望\n\n${jp(action)}\n\n## 採点者視点\n\n末尾。`;
+  return `# 見出し\n\n導入。\n\n## このテーマの出題実績\n\n解説。\n\n## 令和形式の答え方\n\n解説。\n${extraH2}\n## 模範答案\n\n### (1) 表題\n\n${jp(30)}\n\n### (2) 現状と課題\n\n${jp(situation)}\n\n### (3) 業務との関係・技術的取り組み\n\n${blocks}\n\n### (4) 今後の技術的対策・展望\n\n${jp(action)}\n\n## 立場別の書き分けポイント\n\n本文。\n\n## 採点者が見るポイント\n\n末尾。`;
 }
 const fm = (over = {}) => ({ cceEssayTheme: 'environment', cceSourceYears: yearsForTheme(history, 'environment'), paidBoundary: '模範答案', ...over });
 
@@ -65,4 +65,9 @@ test('履歴ブロック: 1 記事に複数・until で年度を切れる', () =
   assert.ok(a.body.includes('R7') && !a.body.includes('H30'));
   assert.ok(b.body.includes('H30') && !b.body.includes('R2'));
   assert.equal(syncHistoryBlock(s, history), s);
+});
+
+test('fail: 必須 H2 の欠落・名称ゆれ', () => {
+  const r = evaluateCceEssay(article().replace('## 令和形式の答え方', '## 令和の答え方'), fm(), history);
+  assert.ok(r.errors.some((e) => e.startsWith('H10')));
 });
