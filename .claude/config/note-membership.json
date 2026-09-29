@@ -1,6 +1,8 @@
 {
   "_comment": "note メンバーシップ「土木セコカン合格ラボ」の機械可読 SSOT。会費・定員は note では一度設定すると変更できない（プラン作り直しが唯一の手段）ため、ここが実機とズレたら必ず気づけるように check-note-membership.mjs が突合する。人が読む真実源は content/note/1級・2級土木/noteコンテンツ計画.md と メンバーシップ説明文.md。",
-  "updatedAt": "2026-08-06",
+  "updatedAt": "2026-09-30",
+  "retiredAt": "2026-09-30",
+  "retiredNote": "合格ラボは撤退（ユーザー決定）。note 上で休止済み。導線は note 記事・サイト配置から撤去し、tests/note-membership-funnel.test.mjs が再混入を止める。",
   "joinUrl": "https://note.com/dobokunote/membership/join",
   "plans": [
     {
@@ -9,7 +11,7 @@
       "name": "通年プラン｜過去問＆月例予想",
       "price": 1480,
       "limit": null,
-      "published": true
+      "published": false
     },
     {
       "id": "f9567e03949d",
@@ -17,7 +19,7 @@
       "name": "添削つきプラン｜経験記述マンツーマン",
       "price": 4980,
       "limit": 20,
-      "published": true,
+      "published": false,
       "note": "2026-08-06 に旧 ceacc4bb4574（¥2,980・定員20）を作り直して ¥4,980 へ改定。定員は 20 で確定（設計時の想定は 10 名だが note は人数制限も変更できないため）。満枠は週20本＝実運用の上限なので、在籍10名超で --unpublish により受付を止める運用でコントロールする。",
       "limitDecision": "kept-20 (2026-08-06)"
     }

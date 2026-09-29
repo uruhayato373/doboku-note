@@ -21,7 +21,6 @@ cover:
 ---
 # 2級土木 施工経験記述｜場所打ち杭（アースドリル工法）5管理フルカバー完成答案
 
-
 ![](img/figure-author-authority-pop.png)
 
 この教材は、技術士（総合技術監理部門）を持つ元・地方自治体の土木職（発注者）がつくっています。1級・2級土木施工管理技士にも自分で合格しており、受験者と同じ答案を書いた当事者です。
@@ -298,13 +297,6 @@ https://note.com/dobokunote/n/n4fde0f62dc20
 - [工種別 記入例（無料・doboku-note）](https://doboku-note.com/exam/civil-construction-2/secondary/experience-writing-examples?utm_source=note&utm_medium=referral&utm_campaign=civil2-koji-bank-koji28&utm_content=examples)
 
 ---
-
-<!-- cta:civil-membership-lab -->
-書き換えた答案を「これで通るか」第三者に確認してほしい方へ。
-
-月例の予想問題と施工経験記述のマンツーマン添削がつくメンバーシップ「土木セコカン合格ラボ」があります。
-
-https://note.com/dobokunote/membership/join
 
 ---
 

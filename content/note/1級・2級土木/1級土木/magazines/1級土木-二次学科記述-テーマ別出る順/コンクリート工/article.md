@@ -228,13 +228,6 @@ https://note.com/dobokunote/n/n4fde0f62dc20
 
 ---
 
-<!-- cta:civil-membership-lab -->
-書いた答案を第三者の目で見てもらう手段がない、という方へ。
-
-月例の予想問題と施工経験記述のマンツーマン添削がつくメンバーシップ「土木セコカン合格ラボ」があります。
-
-https://note.com/dobokunote/membership/join
-
 ---
 
 ## 印刷用PDF｜本記事の出る順論点
