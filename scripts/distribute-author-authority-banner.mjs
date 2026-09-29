@@ -9,7 +9,7 @@
 //   node scripts/distribute-author-authority-banner.mjs --migrate --dry             # civil の既存バナーを変更せず移行確認
 //   node scripts/distribute-author-authority-banner.mjs --exam concrete --migrate   # concrete の既存バナーを移行
 import { readFileSync, writeFileSync, copyFileSync, mkdirSync, existsSync, readdirSync, statSync } from 'node:fs';
-import { dirname, join } from 'node:path';
+import { basename, dirname, join, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { NOTE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 
@@ -51,7 +51,15 @@ if (!EXAM_CONFIG[EXAM]) {
   process.exit(1);
 }
 const { baseDirs: BASE_DIRS, bannerName: BANNER_NAME, proseP1: PROSE_P1 } = EXAM_CONFIG[EXAM];
-const BANNER_SRC = join(NOTE_CONTENT_ROOT, '共通', '著者オーソリティ', 'img', BANNER_NAME);
+const BANNER_DIR = join(NOTE_CONTENT_ROOT, '共通', '著者オーソリティ', 'img');
+// 2級土木は緑のキャラクターPOP版（DN-0450）。1級へは流用しない
+const POP_BANNER_NAME = 'figure-author-authority-pop.png';
+const bannerNameFor = (file) => (EXAM === 'civil' && file.includes(`${sep}2級土木${sep}`) ? POP_BANNER_NAME : BANNER_NAME);
+function copyBanner(file, name) {
+  const imgDir = join(dirname(file), 'img');
+  if (!existsSync(imgDir)) mkdirSync(imgDir, { recursive: true });
+  copyFileSync(join(BANNER_DIR, name), join(imgDir, name));
+}
 
 // 転職/キャリア系ファネルは文脈不一致（記述・添削の差別化バナーは貼らない）
 const EXCLUDE = ['転職', '年収', 'ホワイトな建設会社', '公務員土木か民間', 'ビルドジョブ', '辞める前に', '市場価値が変わる'];
@@ -117,9 +125,10 @@ for (const file of BASE_DIRS.flatMap(findArticles)) {
       continue;
     }
 
-    const imgDir = join(dirname(file), 'img');
-    if (!existsSync(imgDir)) mkdirSync(imgDir, { recursive: true });
-    copyFileSync(BANNER_SRC, join(imgDir, BANNER_NAME));
+    for (const line of out) {
+      const target = line.match(bannerImageRe)?.[3];
+      if (target) copyBanner(file, basename(target));
+    }
 
     writeFileSync(file, out.join(eol), 'utf8');
     migrated++;
@@ -130,13 +139,15 @@ for (const file of BASE_DIRS.flatMap(findArticles)) {
   // 入口モード: notePricing: free のみ
   if (!ALL && !/^notePricing:\s*free\s*$/m.test(fm)) { noFree++; continue; }
   // 冪等
-  if (raw.includes(BANNER_NAME) && raw.includes(PROSE_MARKER)) {
+  // 版（標準/POP）を問わず著者バナー行があれば配布済み
+  if (lines.some((line) => bannerImageRe.test(line)) && raw.includes(PROSE_MARKER)) {
     skipped++;
     results.push(['skip(既存)', file]);
     continue;
   }
 
-  const imgRel = `img/${BANNER_NAME}`;
+  const bannerName = bannerNameFor(file);
+  const imgRel = `img/${bannerName}`;
   const topBlock = ['', `![${ALT}](${imgRel})`, '', PROSE_P1, '', PROSE_P2, ''];
   const bottomBlock = ['', `![${ALT}](${imgRel})`, '', BRIDGE, ''];
 
@@ -172,9 +183,7 @@ for (const file of BASE_DIRS.flatMap(findArticles)) {
   if (DRY) { results.push(['would-apply', file]); applied++; continue; }
 
   // 画像配布
-  const imgDir = join(dirname(file), 'img');
-  if (!existsSync(imgDir)) mkdirSync(imgDir, { recursive: true });
-  copyFileSync(BANNER_SRC, join(imgDir, BANNER_NAME));
+  copyBanner(file, bannerName);
 
   writeFileSync(file, next, 'utf8');
   applied++;
