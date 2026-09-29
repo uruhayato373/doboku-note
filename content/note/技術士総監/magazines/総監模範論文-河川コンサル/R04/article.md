@@ -1,6 +1,7 @@
 ---
 notePricing: paid
 noteSeries: 総監模範論文-河川コンサルペルソナ
+noteContentType: product
 utmCampaign: essay-river-r04
 noteUrl: https://note.com/dobokunote/n/nf5c45c995254
 noteId: nf5c45c995254

@@ -1,6 +1,7 @@
 ---
 notePricing: paid
 noteSeries: 総監模範論文-河川コンサルペルソナ
+noteContentType: product
 utmCampaign: essay-river-consultant-r08-yosou-3
 noteMagazine: 総監模範論文-河川コンサル
 noteUrl: "https://note.com/dobokunote/n/n3aee613f974f"

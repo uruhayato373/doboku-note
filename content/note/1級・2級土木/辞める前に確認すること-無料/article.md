@@ -1,5 +1,6 @@
 ---
 notePricing: free
+noteContentType: career
 noteStatus: published
 utmCampaign: civil-career-before-quit
 notePublishedAt: '2026-07-14'

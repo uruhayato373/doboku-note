@@ -1,5 +1,6 @@
 ---
 notePricing: paid
+noteContentType: product
 noteStatus: published
 notePublishedAt: "2026-07-04"
 noteId: "na84b001e827e"

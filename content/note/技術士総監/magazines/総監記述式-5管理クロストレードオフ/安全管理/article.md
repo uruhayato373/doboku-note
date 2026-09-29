@@ -1,6 +1,7 @@
 ---
 notePricing: paid
 noteSeries: 総監記述式-5管理クロストレードオフ
+noteContentType: product
 noteMagazine: 総監記述式-5管理クロストレードオフ
 utmCampaign: essay-tradeoff-matrix-safety
 noteUrl: "https://note.com/dobokunote/n/n771c1f2357f0"

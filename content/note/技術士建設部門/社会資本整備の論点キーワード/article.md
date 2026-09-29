@@ -4,6 +4,7 @@ noteStatus: published
 noteUrl: "https://note.com/dobokunote/n/nd6565c6c7fd0"
 noteId: "nd6565c6c7fd0"
 noteSeries: 技術士建設部門-無料入口
+noteContentType: learning
 utmCampaign: pe-construction-shakai-shihon-keyword
 notePublishedAt: "2026-07-23"
 coverTitle:

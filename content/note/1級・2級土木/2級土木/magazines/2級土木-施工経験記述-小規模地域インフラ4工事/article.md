@@ -10,6 +10,7 @@ published: false
 reviewStatus: needs-review
 notePricing: paid
 noteSeries: 2級土木-施工経験記述-小規模地域インフラ4工事
+noteContentType: product
 noteMagazine: 2級土木-施工経験記述-小規模地域インフラ4工事
 noteUrl: "https://note.com/dobokunote/n/n697209bf671b"
 noteId: "n697209bf671b"

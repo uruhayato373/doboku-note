@@ -2,6 +2,7 @@
 title: "【建設部門もくじ】技術士 二次 建設部門の模範解答、どれを買う？必須Iと選択科目の全案内"
 notePricing: free
 noteSeries: 総合案内
+noteContentType: index
 utmCampaign: 102-pe-construction-index
 noteUrl: "https://note.com/dobokunote/n/n7279ca0d926f"
 noteId: "n7279ca0d926f"

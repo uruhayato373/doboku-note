@@ -67,6 +67,7 @@ export interface LedgerView {
 interface NoteIndexEntry {
   path: string;
   title: string;
+  contentType: string;
   theme: string | null;
   pricing: string;
   magazine: string | null;

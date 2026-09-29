@@ -1,6 +1,7 @@
 ---
 notePricing: free
 noteSeries: R8予想問題
+noteContentType: learning
 utmCampaign: r8-essay-forecast-intro
 noteUrl: https://note.com/dobokunote/n/n8e92e4673a99
 noteId: n8e92e4673a99

@@ -3,6 +3,7 @@ notePricing: paid
 price: 1980
 paidBoundary: 品質管理
 noteSeries: 1級土木-経験記述-完全攻略パック
+noteContentType: product
 noteMagazine: 1級土木-経験記述-完全攻略パック
 utmCampaign: civil1-keiken-pack-koji88
 noteUrl: "https://note.com/dobokunote/n/n016d5d32f40e"

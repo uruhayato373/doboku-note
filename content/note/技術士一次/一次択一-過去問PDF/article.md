@@ -1,5 +1,6 @@
 ---
 notePricing: paid
+noteContentType: product
 noteStatus: published
 utmCampaign: pe1-takuitsu-pdf
 notePublishedAt: "2026-07-11"

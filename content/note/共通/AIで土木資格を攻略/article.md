@@ -1,6 +1,7 @@
 ---
 notePricing: free
 noteSeries: 学習戦略
+noteContentType: learning
 utmCampaign: ai-study-civil-hub
 noteUrl: "https://note.com/dobokunote/n/n06ff627e32d4"
 noteId: "n06ff627e32d4"

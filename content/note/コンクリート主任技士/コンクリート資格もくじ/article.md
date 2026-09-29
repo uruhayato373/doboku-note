@@ -2,6 +2,7 @@
 title: "【コンクリート資格もくじ】技士・主任技士・診断士｜無料記事と教材の全案内"
 notePricing: free
 noteSeries: 総合案内
+noteContentType: index
 utmCampaign: 103-concrete-index
 notePublishedAt: "2026-09-01"
 noteId: "nd59f471c9214"

@@ -2,6 +2,7 @@
 notePricing: paid
 paidBoundary: "安全管理と安全法規（優先度: 高）"
 noteSeries: 総監テキスト精読ガイド
+noteContentType: product
 utmCampaign: 99-safety-management
 noteUrl: https://note.com/dobokunote/n/nb68184641be8
 noteId: "nb68184641be8"

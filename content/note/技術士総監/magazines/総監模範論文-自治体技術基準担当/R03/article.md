@@ -1,6 +1,7 @@
 ---
 notePricing: paid
 noteSeries: 総監模範論文-自治体技術基準担当ペルソナ
+noteContentType: product
 utmCampaign: essay-standards-muni-r03
 noteUrl: https://note.com/dobokunote/n/n9b7dcf6f4791
 noteId: n9b7dcf6f4791

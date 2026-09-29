@@ -4,6 +4,7 @@ noteStatus: published
 noteUrl: "https://note.com/dobokunote/n/n4bb25dc905b6"
 noteId: "n4bb25dc905b6"
 noteSeries: 技術士建設部門-無料入口
+noteContentType: learning
 utmCampaign: pe-construction-road-keyword
 coverTitle:
   - 技術士 建設部門 道路

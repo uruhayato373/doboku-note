@@ -2,6 +2,7 @@
 notePricing: paid
 paidBoundary: "情報分析（優先度：最高）"
 noteSeries: 総監テキスト精読ガイド
+noteContentType: product
 utmCampaign: 99-information-management
 noteUrl: https://note.com/dobokunote/n/n9f48dd4d895a
 noteId: "n9f48dd4d895a"

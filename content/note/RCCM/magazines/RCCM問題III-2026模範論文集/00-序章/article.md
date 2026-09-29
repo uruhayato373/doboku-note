@@ -1,5 +1,6 @@
 ---
 notePricing: free
+noteContentType: product
 noteMagazine: RCCM問題III-2026模範論文集
 noteUrl: "https://note.com/dobokunote/n/n801ee5046624"
 noteId: "n801ee5046624"

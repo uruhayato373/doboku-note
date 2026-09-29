@@ -1,6 +1,7 @@
 ---
 notePricing: free
 noteSeries: 学習戦略
+noteContentType: learning
 utmCampaign: 2c-primary-selfstudy
 noteUrl: "https://note.com/dobokunote/n/nffa7e4e03391"
 noteId: "nffa7e4e03391"

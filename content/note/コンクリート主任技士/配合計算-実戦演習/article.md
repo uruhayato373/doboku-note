@@ -2,6 +2,7 @@
 notePricing: paid
 noteStatus: published
 noteSeries: コンクリート主任技士-配合計算
+noteContentType: product
 utmCampaign: cce-mix-calculation-practice
 notePublishedAt: "2026-08-30"
 noteId: "n5a55ae6dc16b"

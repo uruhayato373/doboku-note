@@ -1,5 +1,6 @@
 ---
 notePricing: free
+noteContentType: career
 noteStatus: published
 noteUrl: 'https://note.com/dobokunote/n/n85d4b322898b'
 noteId: n85d4b322898b

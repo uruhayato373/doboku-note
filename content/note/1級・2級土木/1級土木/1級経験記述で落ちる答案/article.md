@@ -1,6 +1,7 @@
 ---
 notePricing: free
 noteSeries: 施工経験記述
+noteContentType: learning
 utmCampaign: c1-essay-fail
 noteUrl: "https://note.com/dobokunote/n/nfea4a39cf108"
 noteId: "nfea4a39cf108"

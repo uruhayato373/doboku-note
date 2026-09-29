@@ -3,6 +3,7 @@ notePricing: paid
 price: 1480
 paidBoundary: "予想問題11"
 noteSeries: RCCM問題II-IV-論点集予想50問
+noteContentType: product
 noteUrl: "https://note.com/dobokunote/n/n012c976933f8"
 noteId: "n012c976933f8"
 notePublishedAt: "2026-09-16"

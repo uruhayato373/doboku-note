@@ -2,6 +2,7 @@
 title: "コンクリート主任技士 小論文｜自分の立場に近い答案の選び方（8つの実務立場ガイド）"
 notePricing: free
 noteSeries: コンクリート主任技士-実務立場別小論文
+noteContentType: product
 noteMagazine: コンクリート主任技士-実務立場別小論文集
 notePublishedAt: "2026-08-22"
 noteId: "n6a56bef2fe2b"

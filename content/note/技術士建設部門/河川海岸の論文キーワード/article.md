@@ -4,6 +4,7 @@ noteStatus: published
 noteUrl: "https://note.com/dobokunote/n/n5b076755f430"
 noteId: "n5b076755f430"
 noteSeries: 技術士建設部門-無料入口
+noteContentType: learning
 utmCampaign: pe-construction-river-coast-keyword
 coverTitle:
   - 河川・砂防・海岸の論文

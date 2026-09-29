@@ -1,6 +1,7 @@
 ---
 notePricing: free
 noteSeries: 施工経験記述
+noteContentType: learning
 utmCampaign: c1-essay-outline
 noteUrl: "https://note.com/dobokunote/n/na1f84193571a"
 noteId: "na1f84193571a"

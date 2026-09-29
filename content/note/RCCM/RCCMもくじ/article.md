@@ -2,6 +2,7 @@
 title: "【RCCMもくじ】試験A・試験Bの対策記事と教材の全案内｜問題III 公開6テーマ模範論文・問題I 業務経験論文"
 notePricing: free
 noteSeries: 総合案内
+noteContentType: index
 utmCampaign: 103-rccm-index
 noteUrl: "https://note.com/dobokunote/n/nd297cb9b31e0"
 noteId: "nd297cb9b31e0"

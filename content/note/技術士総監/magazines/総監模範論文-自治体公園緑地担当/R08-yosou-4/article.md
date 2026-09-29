@@ -1,6 +1,7 @@
 ---
 notePricing: paid
 noteSeries: 総監模範論文-自治体公園緑地担当ペルソナ
+noteContentType: product
 utmCampaign: essay-park-muni-r08-yosou-4
 noteUrl: "https://note.com/dobokunote/n/na202b2e4eacb"
 noteId: "na202b2e4eacb"

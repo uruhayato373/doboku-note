@@ -4,6 +4,7 @@ noteUrl: "https://note.com/dobokunote/n/n5926a2774395"
 noteId: "n5926a2774395"
 notePricing: free
 noteSeries: 戦略・コスト分析
+noteContentType: learning
 utmCampaign: pe-cem-cost-comparison
 coverTitle:
   - 総監 6 回受験 ¥84,000

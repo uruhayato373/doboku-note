@@ -1,6 +1,7 @@
 ---
 notePricing: free
 noteSeries: 総監記述式
+noteContentType: learning
 utmCampaign: 99-magazine-guide
 notePublishedAt: "2026-07-02"
 noteId: "nc874692256bb"

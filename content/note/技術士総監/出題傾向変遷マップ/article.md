@@ -4,6 +4,7 @@ noteUrl: https://note.com/dobokunote/n/nc360aaa381b0
 noteId: nc360aaa381b0
 notePricing: free
 noteSeries: 総監記述式
+noteContentType: learning
 utmCampaign: 13-trend-map
 noteStatus: published
 cover:

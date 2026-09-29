@@ -1,6 +1,7 @@
 ---
 notePricing: free
 noteSeries: 受験ガイド
+noteContentType: learning
 utmCampaign: 2c-eligibility
 noteUrl: https://note.com/dobokunote/n/n6e6db14f4dfc
 noteId: n6e6db14f4dfc

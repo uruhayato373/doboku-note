@@ -1,6 +1,7 @@
 ---
 title: 技術士・総監取得後の転職準備｜資格名と一緒に伝えたい担当経験
 notePricing: free
+noteContentType: career
 noteStatus: published
 utmCampaign: civil-career-pe-experience
 notePublishedAt: "2026-09-08"

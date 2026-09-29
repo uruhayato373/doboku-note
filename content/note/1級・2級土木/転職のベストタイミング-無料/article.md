@@ -1,5 +1,6 @@
 ---
 notePricing: free
+noteContentType: career
 noteStatus: published
 utmCampaign: civil-career-timing
 notePublishedAt: '2026-07-06'

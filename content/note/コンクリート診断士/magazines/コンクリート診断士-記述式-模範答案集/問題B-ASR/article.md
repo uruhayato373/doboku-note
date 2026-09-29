@@ -1,6 +1,7 @@
 ---
 notePricing: paid
 noteSeries: コンクリート診断士-記述式
+noteContentType: product
 utmCampaign: cd-essay-b-asr
 noteUrl: "https://note.com/dobokunote/n/na11ded82fb1b"
 noteId: "na11ded82fb1b"

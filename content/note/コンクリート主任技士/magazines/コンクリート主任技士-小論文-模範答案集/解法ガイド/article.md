@@ -3,6 +3,7 @@ title: "コンクリート主任技士 小論文 突破法｜評価される答�
 notePricing: paid
 paidBoundary: "採点者が見る4観点"
 noteSeries: コンクリート主任技士-小論文
+noteContentType: product
 utmCampaign: cce-essay-method
 noteUrl: "https://note.com/dobokunote/n/n6f5484b58fd4"
 noteId: "n6f5484b58fd4"

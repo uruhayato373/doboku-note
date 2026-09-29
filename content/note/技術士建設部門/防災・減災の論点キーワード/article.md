@@ -4,6 +4,7 @@ noteStatus: published
 noteUrl: "https://note.com/dobokunote/n/n70ec506e7be6"
 noteId: "n70ec506e7be6"
 noteSeries: 技術士建設部門-無料入口
+noteContentType: learning
 utmCampaign: pe-construction-bosai-keyword
 notePublishedAt: "2026-07-23"
 coverTitle:

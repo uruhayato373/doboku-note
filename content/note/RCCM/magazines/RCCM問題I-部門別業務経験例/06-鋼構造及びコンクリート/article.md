@@ -9,6 +9,7 @@ notePricing: paid
 price: 1980
 paidBoundary: "記入例1"
 noteSeries: RCCM問題I-鋼構造及びコンクリート
+noteContentType: product
 noteUrl: "https://note.com/dobokunote/n/n825d881b70cb"
 noteId: "n825d881b70cb"
 notePublishedAt: "2026-09-20"

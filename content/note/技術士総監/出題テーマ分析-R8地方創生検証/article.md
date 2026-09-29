@@ -2,6 +2,7 @@
 title: "令和8年度 総監で「地方創生」が出た48日前に、私が公開していたもの（正直な検証）"
 notePricing: free
 noteSeries: "技術士総監 学習戦略"
+noteContentType: learning
 utmCampaign: "sokan-policy-forecast-note"
 noteStatus: published
 notePublishedAt: "2026-07-23"

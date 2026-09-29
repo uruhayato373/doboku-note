@@ -1,6 +1,7 @@
 ---
 notePricing: paid
 noteSeries: 総監模範論文-道路橋梁コンサルペルソナ
+noteContentType: product
 utmCampaign: essay-road-consul-r03
 noteUrl: https://note.com/dobokunote/n/nb72e08d411a4
 noteId: nb72e08d411a4

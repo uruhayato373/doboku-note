@@ -1,5 +1,6 @@
 ---
 notePricing: free
+noteContentType: learning
 noteStatus: published
 utmCampaign: civil-career-white-company
 notePublishedAt: '2026-07-06'

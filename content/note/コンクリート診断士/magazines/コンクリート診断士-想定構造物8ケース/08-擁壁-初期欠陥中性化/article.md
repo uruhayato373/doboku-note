@@ -1,6 +1,7 @@
 ---
 notePricing: paid
 noteSeries: コンクリート診断士-構造物別記述式
+noteContentType: product
 utmCampaign: cd-case-retaining-initial-defect
 noteMagazine: コンクリート診断士-想定構造物8ケース
 notePublishedAt: "2026-09-20"

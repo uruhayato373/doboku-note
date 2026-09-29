@@ -3,6 +3,7 @@ notePricing: paid
 noteStatus: published
 noteDraftId: n63568f1ae404
 noteSeries: コンクリート技士-配合計算・JIS判断
+noteContentType: product
 utmCampaign: ce-mix-jis-practice
 notePublishedAt: "2026-09-01"
 noteId: "n63568f1ae404"

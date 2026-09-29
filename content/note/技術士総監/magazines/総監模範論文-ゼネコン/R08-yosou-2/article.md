@@ -1,6 +1,7 @@
 ---
 notePricing: paid
 noteSeries: 総監模範論文-ゼネコンペルソナ
+noteContentType: product
 utmCampaign: essay-general-contractor-r08-yosou-2
 noteMagazine: 総監模範論文-ゼネコン
 noteStatus: published

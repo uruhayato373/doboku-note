@@ -4,6 +4,7 @@ noteStatus: published
 noteUrl: "https://note.com/dobokunote/n/nbd425a286d1d"
 noteId: "nbd425a286d1d"
 noteSeries: 技術士建設部門-無料入口
+noteContentType: learning
 utmCampaign: pe-construction-datsutanso-keyword
 notePublishedAt: "2026-07-23"
 coverTitle:

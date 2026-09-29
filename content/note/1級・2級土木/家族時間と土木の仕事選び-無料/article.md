@@ -1,6 +1,7 @@
 ---
 title: 施工管理の転職で家族との時間を増やしたい｜休日・帰宅・出張の希望を伝える方法
 notePricing: free
+noteContentType: career
 noteStatus: published
 utmCampaign: civil-career-family-time
 notePublishedAt: "2026-09-08"

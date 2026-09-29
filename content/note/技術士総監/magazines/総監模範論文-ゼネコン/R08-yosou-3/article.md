@@ -1,6 +1,7 @@
 ---
 notePricing: paid
 noteSeries: 総監模範論文-ゼネコンペルソナ
+noteContentType: product
 utmCampaign: essay-general-contractor-r08-yosou-3
 noteMagazine: 総監模範論文-ゼネコン
 noteUrl: "https://note.com/dobokunote/n/n69b8fc564255"

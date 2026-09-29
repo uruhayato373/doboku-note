@@ -1,6 +1,7 @@
 ---
 notePricing: paid
 noteSeries: 総監模範論文-自治体砂防担当ペルソナ
+noteContentType: product
 utmCampaign: essay-sabo-muni-r08-3
 noteUrl: "https://note.com/dobokunote/n/n6d3b511edb57"
 noteId: "n6d3b511edb57"

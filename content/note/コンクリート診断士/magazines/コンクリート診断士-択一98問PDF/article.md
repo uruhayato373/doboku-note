@@ -3,6 +3,7 @@ notePricing: paid
 noteStatus: published
 noteDraftId: n4acd2c7a2f13
 noteSeries: コンクリート診断士-四肢択一98問PDF
+noteContentType: product
 utmCampaign: cd-takuitsu-98-pdf
 notePublishedAt: "2026-09-20"
 noteId: "n4acd2c7a2f13"

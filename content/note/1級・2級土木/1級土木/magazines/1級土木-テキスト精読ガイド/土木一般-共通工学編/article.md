@@ -1,6 +1,7 @@
 ---
 notePricing: free
 noteSeries: 1級土木 テキスト精読ガイド
+noteContentType: product
 utmCampaign: civil1-reading-guide
 noteStatus: published
 notePublishedAt: "2026-09-16"

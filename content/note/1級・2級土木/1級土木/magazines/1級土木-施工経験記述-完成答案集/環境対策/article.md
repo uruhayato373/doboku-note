@@ -2,6 +2,7 @@
 title: "1級土木 施工経験記述｜環境対策 完成答案集（市街地の騒音振動・河川の濁水・丘陵地の建設発生土 ほか）"
 notePricing: paid
 noteSeries: 1級土木-施工経験記述-完成答案集
+noteContentType: product
 noteMagazine: 1級土木-施工経験記述-完成答案集
 utmCampaign: civil1-keiken-environment
 noteUrl: https://note.com/dobokunote/n/n842ef5dd4d01
