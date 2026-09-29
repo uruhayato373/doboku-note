@@ -1,5 +1,6 @@
 ---
 notePricing: free
+noteContentType: editorial
 noteStatus: published
 noteUrl: 'https://note.com/dobokunote/n/n96f94252c128'
 noteId: n96f94252c128

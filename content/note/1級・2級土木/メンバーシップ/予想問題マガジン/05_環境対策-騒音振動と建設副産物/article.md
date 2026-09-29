@@ -1,6 +1,7 @@
 ---
 notePricing: membership
 noteSeries: 経験記述-週次お題ラボ
+noteContentType: product
 noteMagazine: 経験記述-週次お題ラボ
 noteStatus: published
 notePublishedAt: "2026-08-19"

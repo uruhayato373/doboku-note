@@ -2,6 +2,7 @@
 title: "1級土木 施工経験記述｜施工計画 完成答案集（近接施工・河川仮締切・高速道路拡幅 ほか）"
 notePricing: paid
 noteSeries: 1級土木-施工経験記述-完成答案集
+noteContentType: product
 noteMagazine: 1級土木-施工経験記述-完成答案集
 utmCampaign: civil1-keiken-plan
 noteUrl: https://note.com/dobokunote/n/n87aa144bcf61

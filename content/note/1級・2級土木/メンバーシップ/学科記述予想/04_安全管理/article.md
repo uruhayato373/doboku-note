@@ -2,6 +2,7 @@
 notePricing: membership
 noteStatus: published
 noteSeries: 学科記述予想
+noteContentType: product
 membershipOnly: true
 utmCampaign: civil-membership-gakka-safety
 notePublishedAt: "2026-09-05"

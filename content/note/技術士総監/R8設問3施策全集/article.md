@@ -2,6 +2,7 @@
 notePricing: free
 noteStatus: published
 noteSeries: 総監記述式
+noteContentType: learning
 utmCampaign: r8-s3-zenshu
 notePublishedAt: "2026-07-19"
 noteId: "nce1ea1317eab"

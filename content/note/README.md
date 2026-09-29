@@ -118,11 +118,15 @@ content/note/
 ```yaml
 title: "..."
 notePricing: free | paid
+noteContentType: product | index | learning | career | editorial
 noteSeries: "..."
 noteMagazine: "..."       # マガジン収録記事のみ（単発記事には不要）
 utmCampaign: "..."
 published: true | false   # 単発記事。マガジン記事は noteUrl の有無で判定
 ```
+
+`noteContentType` は記事の役割を示す必須分類。`product` は有料商品・会員商品、`index` は資格別もくじ、`learning` は無料の試験学習記事、`career` は転職・年収・資格活用、`editorial` は一般的な雑談・運営・体験談に使う。価格やマガジン収録とは別軸で、分類の正本は各記事の frontmatter とする。
+
 
 ### `noteSeries` と `noteMagazine` の境界（DN-0125・2026-08-26 決定）
 

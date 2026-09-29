@@ -1,6 +1,7 @@
 ---
 title: 土木施工管理の職務経歴書｜「施工管理を担当しました」で終わらない工事経験の伝え方
 notePricing: free
+noteContentType: career
 noteStatus: published
 utmCampaign: civil-career-work-history
 notePublishedAt: "2026-09-08"

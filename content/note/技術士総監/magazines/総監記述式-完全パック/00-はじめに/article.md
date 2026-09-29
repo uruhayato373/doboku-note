@@ -3,6 +3,7 @@ notePublishedAt: '2026-07-23'
 noteId: n93ee41c64411
 noteUrl: 'https://note.com/dobokunote/n/n93ee41c64411'
 notePricing: free
+noteContentType: product
 noteStatus: published
 coverTitle:
   - 総監

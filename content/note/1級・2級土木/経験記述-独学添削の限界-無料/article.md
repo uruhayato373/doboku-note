@@ -1,5 +1,6 @@
 ---
 notePricing: free
+noteContentType: learning
 noteStatus: published
 utmCampaign: civil-keiken-funnel-self-review
 notePublishedAt: "2026-07-13"

@@ -1,6 +1,7 @@
 ---
 notePricing: free
 noteSeries: 学習戦略
+noteContentType: learning
 utmCampaign: 2c-study-design
 noteUrl: https://note.com/dobokunote/n/n0d6a78c48cef
 noteId: n0d6a78c48cef

@@ -4,6 +4,7 @@ noteStatus: published
 noteUrl: "https://note.com/dobokunote/n/n7d3872f81e0a"
 noteId: "n7d3872f81e0a"
 noteSeries: 技術士建設部門-無料入口
+noteContentType: learning
 utmCampaign: pe-construction-ninaite
 coverTitle:
   - 担い手確保・生産性向上

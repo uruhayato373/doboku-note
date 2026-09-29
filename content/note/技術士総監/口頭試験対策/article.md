@@ -4,6 +4,7 @@ noteId: "n8ab5e6bc2970"
 utmCampaign: tankan-koutou-taisaku
 noteUrl: "https://note.com/dobokunote/n/n8ab5e6bc2970"
 notePricing: paid
+noteContentType: product
 price: 500
 paidBoundary: "2. 一般部門"
 noteStatus: published

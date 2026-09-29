@@ -1,6 +1,7 @@
 ---
 notePricing: paid
 noteSeries: 総監模範論文-自治体契約調達担当ペルソナ
+noteContentType: product
 utmCampaign: essay-procurement-muni-r08-yosou-6
 noteMagazine: 総監模範論文-自治体契約調達担当
 noteUrl: "https://note.com/dobokunote/n/n8369c2156f3f"

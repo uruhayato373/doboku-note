@@ -1,6 +1,7 @@
 ---
 notePricing: paid
 noteSeries: 総監記述式-R8予想問題集
+noteContentType: product
 noteMagazine: 総監記述式-R8予想問題集
 utmCampaign: essay-r8-forecast-disaster-recovery
 noteUrl: https://note.com/dobokunote/n/nf12d75c3e606

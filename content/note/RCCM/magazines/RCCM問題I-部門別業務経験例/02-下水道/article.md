@@ -9,6 +9,7 @@ notePricing: paid
 price: 1980
 paidBoundary: "記入例1"
 noteSeries: RCCM問題I-下水道
+noteContentType: product
 noteUrl: "https://note.com/dobokunote/n/nd345ed9ea32f"
 noteId: "nd345ed9ea32f"
 notePublishedAt: "2026-09-19"

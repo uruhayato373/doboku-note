@@ -4,6 +4,7 @@ noteUrl: "https://note.com/dobokunote/n/n6461ec60bd03"
 noteId: "n6461ec60bd03"
 notePricing: free
 noteSeries: 戦略・コスト分析
+noteContentType: learning
 utmCampaign: pe-cem-cost-municipality
 coverTitle:
   - 公務員が総監を取る

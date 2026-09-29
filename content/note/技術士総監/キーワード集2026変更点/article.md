@@ -1,6 +1,7 @@
 ---
 notePricing: free
 noteSeries: 総監キーワード集
+noteContentType: learning
 utmCampaign: 99-keyword-2026-changes
 noteStatus: published
 noteUrl: https://note.com/dobokunote/n/n3923cbfb651b

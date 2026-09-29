@@ -1,6 +1,7 @@
 ---
 notePricing: paid
 noteSeries: 2級土木-R8二次-予想模試3回
+noteContentType: product
 noteMagazine: 2級土木-R8二次-予想模試3回
 noteUrl: "https://note.com/dobokunote/n/n50aefe3ad7da"
 noteId: "n50aefe3ad7da"

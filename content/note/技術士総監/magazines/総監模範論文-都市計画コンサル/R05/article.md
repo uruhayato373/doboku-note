@@ -1,6 +1,7 @@
 ---
 notePricing: paid
 noteSeries: 総監模範論文-都市計画コンサルペルソナ
+noteContentType: product
 utmCampaign: essay-urban-consul-r05
 noteUrl: https://note.com/dobokunote/n/ne2ac276c3795
 noteId: ne2ac276c3795

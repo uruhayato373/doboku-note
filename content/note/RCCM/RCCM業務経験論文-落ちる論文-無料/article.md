@@ -1,6 +1,7 @@
 ---
 notePricing: free
 noteSeries: RCCM無料記事
+noteContentType: learning
 utmCampaign: rccm-2026
 noteStatus: published
 notePublishedAt: "2026-09-17"

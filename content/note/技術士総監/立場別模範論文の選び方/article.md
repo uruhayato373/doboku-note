@@ -1,6 +1,7 @@
 ---
 notePricing: free
 noteSeries: 模範論文の選び方
+noteContentType: learning
 noteStatus: published
 noteUrl: 'https://note.com/dobokunote/n/na030d9cb3060'
 noteId: na030d9cb3060

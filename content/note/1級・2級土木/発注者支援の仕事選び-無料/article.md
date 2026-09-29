@@ -1,6 +1,7 @@
 ---
 title: 発注者支援への転職｜仕事内容・常駐先・配属変更で確認したいこと
 notePricing: free
+noteContentType: career
 noteStatus: published
 utmCampaign: civil-career-support-role
 notePublishedAt: "2026-09-08"

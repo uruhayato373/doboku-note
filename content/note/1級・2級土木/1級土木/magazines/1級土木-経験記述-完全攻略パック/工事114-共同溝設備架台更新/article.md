@@ -3,6 +3,7 @@ notePricing: paid
 price: 1980
 paidBoundary: 品質管理
 noteSeries: 1級土木-経験記述-完全攻略パック
+noteContentType: product
 noteMagazine: 1級土木-経験記述-完全攻略パック
 noteUrl: "https://note.com/dobokunote/n/n4b0d688fddf1"
 noteId: "n4b0d688fddf1"

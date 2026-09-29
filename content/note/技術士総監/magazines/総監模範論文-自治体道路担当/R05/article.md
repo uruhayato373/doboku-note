@@ -1,6 +1,7 @@
 ---
 notePricing: paid
 noteSeries: 総監模範論文-自治体道路担当ペルソナ
+noteContentType: product
 utmCampaign: essay-road-r05
 noteUrl: https://note.com/dobokunote/n/n357c7c44cccc
 noteId: n357c7c44cccc

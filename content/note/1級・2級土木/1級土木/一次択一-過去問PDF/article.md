@@ -1,5 +1,6 @@
 ---
 notePricing: paid
+noteContentType: product
 noteStatus: published
 utmCampaign: civil1-ichiji-takuitsu-pdf
 notePublishedAt: "2026-07-23"

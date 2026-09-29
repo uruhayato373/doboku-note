@@ -4,6 +4,7 @@ noteStatus: published
 noteUrl: https://note.com/dobokunote/n/nc7d70c92b8b0
 noteId: nc7d70c92b8b0
 noteSeries: 公務員受験
+noteContentType: learning
 utmCampaign: 96-civil-servant-study-design
 coverTitle:
   - 働きながら総監に挑む

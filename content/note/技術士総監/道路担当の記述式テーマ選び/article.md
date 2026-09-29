@@ -4,6 +4,7 @@ noteStatus: published
 noteUrl: https://note.com/dobokunote/n/n6a992fc189c8
 noteId: n6a992fc189c8
 noteSeries: 公務員受験
+noteContentType: learning
 utmCampaign: 99-road-essay-theme
 coverTitle:
   - 道路担当の

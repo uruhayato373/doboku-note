@@ -4,6 +4,7 @@ noteStatus: published
 noteUrl: "https://note.com/dobokunote/n/n696fbce4da9f"
 noteId: "n696fbce4da9f"
 noteSeries: 技術士建設部門-無料入口
+noteContentType: learning
 utmCampaign: pe-construction-bosai
 coverTitle:
   - 必須科目Iで最頻出

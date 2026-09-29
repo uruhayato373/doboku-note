@@ -2,6 +2,7 @@
 title: "【もくじ】doboku-note 総合案内 — 土木・建設の資格対策、どこから始める？"
 notePricing: free
 noteSeries: 総合案内
+noteContentType: index
 utmCampaign: 100-content-index
 noteUrl: "https://note.com/dobokunote/n/n296a88f64ac2"
 noteId: "n296a88f64ac2"

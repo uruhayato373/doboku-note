@@ -4,6 +4,7 @@ noteStatus: published
 noteUrl: "https://note.com/dobokunote/n/n05800ac28d27"
 noteId: "n05800ac28d27"
 noteSeries: 民間技術者受験
+noteContentType: learning
 utmCampaign: 94-private-engineer-money
 notePublishedAt: "2026-07-14"
 coverTitle:

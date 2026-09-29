@@ -4,6 +4,7 @@ noteStatus: published
 noteUrl: https://note.com/dobokunote/n/nbdfe9446f887
 noteId: nbdfe9446f887
 noteSeries: 公務員受験
+noteContentType: career
 utmCampaign: 94-civil-servant-retirement
 coverTitle:
   - 定年後を見据えた

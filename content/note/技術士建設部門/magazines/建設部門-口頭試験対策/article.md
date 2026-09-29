@@ -1,6 +1,7 @@
 ---
 notePricing: paid
 noteSeries: 技術士建設部門-口頭試験対策
+noteContentType: product
 utmCampaign: pe-construction-oral
 notePublishedAt: "2026-09-19"
 noteId: "n5bc0bcde96ac"

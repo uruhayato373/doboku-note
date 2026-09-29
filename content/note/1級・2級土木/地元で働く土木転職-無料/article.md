@@ -1,6 +1,7 @@
 ---
 title: 土木施工管理で地元に転職したい｜「転勤なし」の次に確認する勤務地と出張
 notePricing: free
+noteContentType: career
 noteStatus: published
 utmCampaign: civil-career-local-work
 notePublishedAt: "2026-09-08"

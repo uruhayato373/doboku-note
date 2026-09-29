@@ -1,5 +1,6 @@
 ---
 notePricing: paid
+noteContentType: product
 price: 980
 ---
 

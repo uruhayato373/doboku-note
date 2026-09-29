@@ -1,6 +1,7 @@
 ---
 title: 2級土木施工管理技士の転職｜年収と一緒に確かめたい「次に任される仕事」
 notePricing: free
+noteContentType: career
 noteStatus: published
 utmCampaign: civil-career-young-next-role
 notePublishedAt: "2026-09-08"

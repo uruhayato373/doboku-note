@@ -1,6 +1,7 @@
 ---
 notePricing: paid
 noteSeries: 技術士一次-直前暗記ノート
+noteContentType: product
 utmCampaign: pe1-anki-note
 noteStatus: published
 notePublishedAt: "2026-09-17"

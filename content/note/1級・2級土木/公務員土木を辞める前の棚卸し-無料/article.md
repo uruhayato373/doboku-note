@@ -1,6 +1,7 @@
 ---
 title: 公務員土木を辞める前の棚卸し｜持ち出せる経験と、失うものを2列で書き出す
 notePricing: free
+noteContentType: career
 noteStatus: published
 utmCampaign: civil-career-public-quit-inventory
 notePublishedAt: "2026-09-23"

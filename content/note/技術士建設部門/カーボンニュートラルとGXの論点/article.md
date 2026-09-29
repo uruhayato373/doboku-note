@@ -4,6 +4,7 @@ noteStatus: published
 noteUrl: "https://note.com/dobokunote/n/na5c037797084"
 noteId: "na5c037797084"
 noteSeries: 技術士建設部門-無料入口
+noteContentType: learning
 utmCampaign: pe-construction-carbon-neutral
 coverTitle:
   - 脱炭素を建設の論点に

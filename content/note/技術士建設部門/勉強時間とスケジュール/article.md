@@ -4,6 +4,7 @@ noteStatus: published
 noteUrl: "https://note.com/dobokunote/n/nccd86d00c2de"
 noteId: "nccd86d00c2de"
 noteSeries: 技術士建設部門-無料入口
+noteContentType: learning
 utmCampaign: pe-construction-gakushuu-jikan-schedule
 coverTitle:
   - 技術士 建設部門 二次

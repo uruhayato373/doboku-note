@@ -1,6 +1,7 @@
 ---
 notePricing: free
 noteSeries: 受験ガイド
+noteContentType: learning
 utmCampaign: 2c-secondary-overview
 noteUrl: https://note.com/dobokunote/n/n27455b88bcd5
 noteId: n27455b88bcd5

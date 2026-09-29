@@ -3,6 +3,7 @@ title: "コンクリート主任技士 小論文 模範答案｜施工中に生�
 notePricing: paid
 paidBoundary: "答案の方針"
 noteSeries: コンクリート主任技士-小論文
+noteContentType: product
 utmCampaign: cce-essay-trouble
 noteUrl: "https://note.com/dobokunote/n/nfaee2b645971"
 noteId: "nfaee2b645971"

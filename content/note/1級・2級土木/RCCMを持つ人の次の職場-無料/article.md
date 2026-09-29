@@ -1,6 +1,7 @@
 ---
 title: RCCMを持つ人の次の職場｜管理技術者の資格要件と自分の実務を照合する
 notePricing: free
+noteContentType: learning
 noteStatus: published
 utmCampaign: civil-career-rccm-next
 notePublishedAt: "2026-09-23"

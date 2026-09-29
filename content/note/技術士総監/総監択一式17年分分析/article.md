@@ -4,6 +4,7 @@ noteUrl: https://note.com/dobokunote/n/n3bcb87efddad
 noteId: n3bcb87efddad
 notePricing: free
 noteSeries: 総監択一式分析
+noteContentType: learning
 utmCampaign: 90-soukan-analysis
 noteStatus: published
 cover:

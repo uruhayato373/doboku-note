@@ -1,5 +1,6 @@
 ---
 notePricing: paid
+noteContentType: product
 noteStatus: published
 utmCampaign: tankan-takuitsu-reiwa-pdf
 notePublishedAt: "2026-07-11"

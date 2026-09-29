@@ -4,6 +4,7 @@ noteStatus: published
 noteUrl: "https://note.com/dobokunote/n/n49c670fd81ad"
 noteId: "n49c670fd81ad"
 noteSeries: 技術士建設部門-無料入口
+noteContentType: learning
 utmCampaign: pe-construction-urban-planning-keyword
 coverTitle:
   - 都市計画 論文の

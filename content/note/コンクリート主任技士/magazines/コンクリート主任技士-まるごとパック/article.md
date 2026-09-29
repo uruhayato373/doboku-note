@@ -2,6 +2,7 @@
 title: "コンクリート主任技士 まるごとパック｜択一・小論文・配合計算を1つに"
 notePricing: free
 noteSeries: コンクリート主任技士-まるごとパック
+noteContentType: product
 noteMagazine: コンクリート主任技士-まるごとパック
 notePublishedAt: "2026-09-04"
 noteId: "n5395599af1f8"

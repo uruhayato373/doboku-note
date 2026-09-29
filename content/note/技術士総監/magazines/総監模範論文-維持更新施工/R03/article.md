@@ -10,6 +10,7 @@ published: false
 reviewStatus: needs-review
 notePricing: paid
 noteSeries: 総監模範論文-維持更新施工ペルソナ
+noteContentType: product
 utmCampaign: essay-maintenance-r03
 noteMagazine: 総監模範論文-維持更新施工
 noteUrl: "https://note.com/dobokunote/n/nd411f1d72fdb"
