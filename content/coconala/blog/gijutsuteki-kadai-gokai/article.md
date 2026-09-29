@@ -8,7 +8,7 @@ exam: civil
 angle: 反論
 category: 学び
 tags: [経験記述, 技術的課題, 施工管理技士]
-funnel: [coconala-tensaku-4theme]
+funnel: [coconala-tensaku-4theme, coconala-sakusei-4theme]
 source:
   - content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx
   - content/note/1級・2級土木/経験記述-落ちる答案診断-無料/article.md
@@ -53,5 +53,9 @@ source:
 service:coconala-tensaku-4theme
 
 ご購入後の流れは次のとおりです。トークルームで工事の概要をうかがうヒアリングシートをお送りします。ご記入いただいた内容と全5テーマ分の下書きを受け取ってから24時間以内に、技術的課題が現場条件から具体的に絞られているかを含めた赤入れ（NG から OK への書き換え案つき）と判定表をお返しします。返却後の書き直しを一度分まで含みます。あなたが実際に経験した工事のみを対象とし、合格を保証するものではありません。
+
+まだ答案を書けていない方には、ヒアリングから全5テーマの骨子（構成）をつくる指導も承っています。骨子をもとにご本人が書いた答案の添削までを含みます。
+
+service:coconala-sakusei-4theme
 
 こちらのカードは1級向けのサービスです。2級の方には、同じ内容の「2級経験記述 全3テーマを24時間で添削します」をご用意しています。出品者プロフィールの出品一覧からご覧ください。

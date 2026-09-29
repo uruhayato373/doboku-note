@@ -8,7 +8,7 @@ exam: civil
 angle: 数字
 category: 学び
 tags: [経験記述, 施工管理技士, 数値]
-funnel: [coconala-tensaku-4theme]
+funnel: [coconala-tensaku-4theme, coconala-sakusei-4theme]
 source:
   - content/note/1級・2級土木/経験記述-AI設計-無料/article.md
   - content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx
@@ -51,5 +51,9 @@ source:
 service:coconala-tensaku-4theme
 
 ご購入後は、まずトークルームで工事の概要をうかがうヒアリングシートをお送りします。ご記入いただいた内容と全5テーマ分の下書きを受け取ってから24時間以内に、赤入れと判定表をお返しします。返却後の書き直しを一度分まで含みます。あなたが実際に経験した工事のみを対象とし、経験していない工事や数値の創作はお受けしていません。答案の代筆もしていません。合格を保証するものではありません。
+
+まだ答案を書けていない方には、ヒアリングから全5テーマの骨子（構成）をつくる指導も承っています。骨子をもとにご本人が書いた答案の添削までを含みます。
+
+service:coconala-sakusei-4theme
 
 こちらのカードは1級向けのサービスです。2級の方には、同じ内容の「2級経験記述 全3テーマを24時間で添削します」をご用意しています。出品者プロフィールの出品一覧からご覧ください。

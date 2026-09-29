@@ -8,7 +8,7 @@ exam: civil-2
 angle: ハウツー
 category: 学び
 tags: [経験記述, 2級土木, 施工管理技士, 予想模試]
-funnel: [coconala-2kyu-tensaku-3theme]
+funnel: [coconala-2kyu-tensaku-3theme, coconala-2kyu-sakusei-3theme]
 source:
   - content/note/1級・2級土木/経験記述-予想問題で書く練習-無料/article.md
   - content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx
@@ -41,3 +41,8 @@ source:
 service:coconala-2kyu-tensaku-3theme
 
 ご購入後、トークルームで3テーマ分の答案と工事概要をお送りください。24時間以内に、2級で求められる水準に照らした赤入れをお返しし、書き直した答案をもう一度見ます（1回まで）。
+
+
+まだ答案を書けていない方には、ヒアリングから全3テーマの骨子（構成）を24時間以内に設計するサービスもあります。
+
+service:coconala-2kyu-sakusei-3theme
