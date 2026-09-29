@@ -37,11 +37,11 @@ https://note.com/dobokunote/m/m8554e87ca6ec
 <!-- cta:coconala-custom -->
 この答案をあなたの工事に合わせて仕上げたいときは、ココナラで個別に対応しています。書いた答案があれば添削で赤入れ、まだ書けていなければヒアリングから骨子（構成）をつくります。
 
-https://coconala.com/services/4418775
+https://coconala.com/services/4418778
 
 まだ答案が無い人は、ヒアリングから骨子（構成）をつくるこちらへ。
 
-https://coconala.com/services/4418781
+https://coconala.com/services/4418785
 
 ## 〔想定工事の概要（記入例）〕
 

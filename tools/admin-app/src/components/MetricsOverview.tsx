@@ -1,5 +1,7 @@
 import { existsSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
+import { PanelCard, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow } from '@/components/admin';
+import { Stack } from '@/components/layout';
 import LineChart, { type LinePoint } from '@/components/charts/LineChart';
 import { Freshness } from '@/components/ui';
 import { repoPath } from '@/lib/repo-root';
@@ -71,33 +73,27 @@ export default function MetricsOverview() {
   const cfSnap = latestDateFileSnapshot('metrics/cloudflare', 'cf-zone-');
 
   return (
-    <>
-      <div className="card">
-        <h2>
-          GA4 日次アクティブユーザー{period ? `（${period}）` : ''}
-          <span className="sub">
-            <Freshness snapshot={gaSnap} />
-          </span>
-        </h2>
+    <Stack>
+      <PanelCard
+        title={`GA4 日次アクティブユーザー${period ? `（${period}）` : ''}`}
+        description={<Freshness snapshot={gaSnap} />}
+      >
         <LineChart points={usersSeries} unit="人/日" />
-      </div>
+      </PanelCard>
 
-      <div className="card">
-        <h2>GA4 日次セッション</h2>
+      <PanelCard title="GA4 日次セッション">
         <LineChart points={sessSeries} color="var(--good)" unit="件/日" />
-      </div>
+      </PanelCard>
 
-      <div className="card">
-        <h2>データの更新</h2>
-        <div className="table-wrap">
-          <table className="data">
-            <thead>
-              <tr>
-                <th>データ</th>
-                <th>最終取得</th>
-              </tr>
-            </thead>
-            <tbody>
+      <PanelCard title="データの更新">
+        <TableFrame>
+            <TableHeader>
+              <TableRow>
+                <TableHead>データ</TableHead>
+                <TableHead>最終取得</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
               {(
                 [
                   ['GA4', gaSnap],
@@ -107,17 +103,16 @@ export default function MetricsOverview() {
                   ['Cloudflare', cfSnap],
                 ] as [string, SnapshotFile | null][]
               ).map(([label, snap]) => (
-                <tr key={label}>
-                  <td>{label}</td>
-                  <td>
+                <TableRow key={label}>
+                  <TableCell>{label}</TableCell>
+                  <TableCell>
                     <Freshness snapshot={snap} />
-                  </td>
-                </tr>
+                  </TableCell>
+                </TableRow>
               ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </>
+            </TableBody>
+        </TableFrame>
+      </PanelCard>
+    </Stack>
   );
 }

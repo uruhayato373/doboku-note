@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { numCol, PanelCard, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import SectionTabs from '@/components/SectionTabs';
 import UpcomingEvents from '@/components/UpcomingEvents';
@@ -40,12 +41,12 @@ export default async function QualificationsPage({ searchParams }: { searchParam
     const active = sort === k;
     const next = active ? (dir === 'asc' ? 'desc' : 'asc') : k === 'examinees' ? 'desc' : 'asc';
     return (
-      <th className={className}>
+      <TableHead className={className}>
         <Link href={`/strategy/qualifications?sort=${k}&dir=${next}`}>
           {children}
           {active ? (dir === 'asc' ? ' ▲' : ' ▼') : ''}
         </Link>
-      </th>
+      </TableHead>
     );
   };
 
@@ -56,68 +57,65 @@ export default async function QualificationsPage({ searchParams }: { searchParam
       <UpcomingEvents domain="exam" />
 
       {view.errors.length > 0 && (
-        <div className="card warn-border">
-          <h2>正本の不整合 {view.errors.length} 件</h2>
-          <p className="small muted">npm run check-exam-calendar で詳細を確認して正本を直す。</p>
-        </div>
+        <PanelCard title={`正本の不整合 ${view.errors.length} 件`}>
+          <p className="text-sm text-muted-foreground">npm run check-exam-calendar で詳細を確認して正本を直す。</p>
+        </PanelCard>
       )}
 
-      <div className="table-wrap">
-          <table className="data">
-            <thead>
-              <tr>
-                <SortHead k="name">資格</SortHead>
-                <th>状態</th>
-                <th>試験日</th>
-                <th>合格発表</th>
-                <SortHead k="examinees" className="num">受験者数</SortHead>
-                <th className="num">合格率</th>
-              </tr>
-            </thead>
-            <tbody>
-              {rows.map((r) => (
-                <Row key={r.id} row={r} />
-              ))}
-            </tbody>
-          </table>
-      </div>
+      <TableFrame>
+          <TableHeader>
+            <TableRow>
+              <SortHead k="name">資格</SortHead>
+              <TableHead>状態</TableHead>
+              <TableHead>試験日</TableHead>
+              <TableHead>合格発表</TableHead>
+              <SortHead k="examinees" className={numCol}>受験者数</SortHead>
+              <TableHead className={numCol}>合格率</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {rows.map((r) => (
+              <Row key={r.id} row={r} />
+            ))}
+          </TableBody>
+      </TableFrame>
     </>
   );
 }
 
 const Past = ({ past, children }: { past: boolean; children: React.ReactNode }) => (
-  <div className={past ? 'muted' : undefined}>{children}</div>
+  <div className={past ? 'text-muted-foreground' : undefined}>{children}</div>
 );
 
 function Row({ row: r }: { row: QualificationView }) {
   return (
-    <tr style={{ verticalAlign: 'top' }}>
-      <td style={{ whiteSpace: 'nowrap' }}>{r.label}</td>
-      <td style={{ whiteSpace: 'nowrap' }}>
+    <TableRow className="align-top">
+      <TableCell className="whitespace-nowrap">{r.label}</TableCell>
+      <TableCell className="whitespace-nowrap">
         <Badge variant={PORTFOLIO_VARIANT[r.portfolio] ?? 'secondary'}>{PORTFOLIO_LABEL[r.portfolio] ?? r.portfolio}</Badge>
-        {r.portfolioNote && <div className="muted" style={{ fontSize: 11 }}>{r.portfolioNote}</div>}
-      </td>
-      <td className="small" style={{ whiteSpace: 'nowrap' }}>
+        {r.portfolioNote && <div className="text-[11px] text-muted-foreground">{r.portfolioNote}</div>}
+      </TableCell>
+      <TableCell className="whitespace-nowrap text-xs">
         {r.lines.map((l) => (
           <Past key={l.stage} past={l.exam?.past ?? false}>
-            {l.stage && <span className="muted">{l.stage} </span>}
-            {l.exam ? fmtDate(l.exam.date) : l.examWindow ? <span className="muted">{l.examWindow}</span> : '—'}
+            {l.stage && <span className="text-muted-foreground">{l.stage} </span>}
+            {l.exam ? fmtDate(l.exam.date) : l.examWindow ? <span className="text-muted-foreground">{l.examWindow}</span> : '—'}
           </Past>
         ))}
-      </td>
-      <td className="small" style={{ whiteSpace: 'nowrap' }}>
+      </TableCell>
+      <TableCell className="whitespace-nowrap text-xs">
         {r.lines.map((l) => (
           <Past key={l.stage} past={l.result?.past ?? false}>
-            {l.result ? (l.result.date ? fmtDate(l.result.date) : <span className="muted">{l.result.window}</span>) : '—'}
+            {l.result ? (l.result.date ? fmtDate(l.result.date) : <span className="text-muted-foreground">{l.result.window}</span>) : '—'}
           </Past>
         ))}
-      </td>
-      <td className="small num" style={{ whiteSpace: 'nowrap' }}>
+      </TableCell>
+      <TableCell className="whitespace-nowrap text-xs text-right tabular-nums">
         {r.lines.map((l) => <div key={l.stage}>{l.examinees}</div>)}
-      </td>
-      <td className="small num" style={{ whiteSpace: 'nowrap' }}>
+      </TableCell>
+      <TableCell className="whitespace-nowrap text-xs text-right tabular-nums">
         {r.lines.map((l) => <div key={l.stage}>{l.rate}</div>)}
-      </td>
-    </tr>
+      </TableCell>
+    </TableRow>
   );
 }

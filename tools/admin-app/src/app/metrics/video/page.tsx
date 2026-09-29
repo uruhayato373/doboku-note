@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import { PanelCard, StatusBadge, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow, numCol, type Tone } from '@/components/admin';
+import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
 import { videoOutcomes, derivativeLabel } from '@/lib/video-outcomes';
 import { LABELS } from '@/lib/lifecycle';
@@ -32,42 +34,35 @@ export default async function VideoOutcomesPage() {
         <Link href="/metrics/ga4">アクセス（GA4）</Link>
       </nav>
 
-      <div className="card">
-        <h2>
-          計測データ
-          <span className="sub">.claude/state/metrics/ga4/ga4-campaign-*.json（CI 供給）</span>
-        </h2>
+      <Stack>
+      <PanelCard title="計測データ" description=".claude/state/metrics/ga4/ga4-campaign-*.json（CI 供給）">
         {metrics.ok ? (
           <div className="filterbar">
-            <span className="badge good">取得済み</span>
-            <span className="badge neutral">
+            <StatusBadge tone="good">取得済み</StatusBadge>
+            <StatusBadge tone="neutral">
               期間 {metrics.startDate} 〜 {metrics.endDate}
-            </span>
-            <span className={'badge ' + ((metrics.ageDays ?? 0) > 9 ? 'warn' : 'neutral')}>
+            </StatusBadge>
+            <StatusBadge tone={(metrics.ageDays ?? 0) > 9 ? 'warn' : 'neutral'}>
               鮮度 {metrics.ageDays ?? '?'} 日
-            </span>
-            <span className="badge neutral">campaign {metrics.campaignRows} 件</span>
+            </StatusBadge>
+            <StatusBadge tone="neutral">campaign {metrics.campaignRows} 件</StatusBadge>
           </div>
         ) : (
           <>
-            <p className="badge bad">未取得</p>
-            <p className="muted">{metrics.reason}</p>
-            <p className="muted small">
+            <p><StatusBadge tone="bad">未取得</StatusBadge></p>
+            <p className="text-muted-foreground">{metrics.reason}</p>
+            <p className="text-xs text-muted-foreground">
               このため送客列は「0」ではなく「—」で表示している（未取得と流入ゼロを混同しない）。
             </p>
           </>
         )}
-      </div>
+      </PanelCard>
 
-      <div className="card">
-        <h2>
-          公開実体の照合
-          <span className="sub">verify-video-publication（CI 週次）· .claude/state/video-publication-verify.json</span>
-        </h2>
+      <PanelCard title="公開実体の照合" description="verify-video-publication（CI 週次）· .claude/state/video-publication-verify.json">
         {!verification.exists ? (
           <>
-            <p className="badge neutral">未実行</p>
-            <p className="muted small">
+            <p><StatusBadge tone="neutral">未実行</StatusBadge></p>
+            <p className="text-xs text-muted-foreground">
               まだ一度も実査していない。公開済みの派生物が出たら CI（🔎 Verify YouTube publish status）が
               毎週照合し、削除・非公開・概要欄の UTM 欠落・Short の関連動画未設定を検出する。
             </p>
@@ -75,16 +70,16 @@ export default async function VideoOutcomesPage() {
         ) : (
           <>
             <div className="filterbar">
-              <span className={'badge ' + (verification.findings.length ? 'bad' : 'good')}>
+              <StatusBadge tone={verification.findings.length ? 'bad' : 'good'}>
                 {verification.findings.length ? `ドリフト ${verification.findings.length} 件` : 'ドリフトなし'}
-              </span>
-              <span className="badge neutral">照合 {verification.checked} 件</span>
-              <span className={'badge ' + ((verification.ageDays ?? 0) > 14 ? 'warn' : 'neutral')}>
+              </StatusBadge>
+              <StatusBadge tone="neutral">照合 {verification.checked} 件</StatusBadge>
+              <StatusBadge tone={(verification.ageDays ?? 0) > 14 ? 'warn' : 'neutral'}>
                 {verification.ageDays === null ? '日時不明' : `${verification.ageDays} 日前`}
-              </span>
+              </StatusBadge>
             </div>
             {verification.checked === 0 && (
-              <p className="muted small">
+              <p className="text-xs text-muted-foreground">
                 照合対象 0 件（公開済みの派生物がまだ無い）。異常 0 件とは異なる。
               </p>
             )}
@@ -99,120 +94,105 @@ export default async function VideoOutcomesPage() {
             )}
           </>
         )}
-      </div>
+      </PanelCard>
 
-      <div className="card">
-        <h2>
-          サマリ
-          <span className="sub">公開済み＝派生物のいずれかが published 以降</span>
-        </h2>
+      <PanelCard title="サマリ" description="公開済み＝派生物のいずれかが published 以降">
         <div className="filterbar">
-          <span className="badge neutral">企画 {rows.length}</span>
-          <span className={'badge ' + (published.length ? 'good' : 'neutral')}>
+          <StatusBadge tone="neutral">企画 {rows.length}</StatusBadge>
+          <StatusBadge tone={published.length ? 'good' : 'neutral'}>
             公開済み {published.length}
-          </span>
-          <span className="badge neutral">
+          </StatusBadge>
+          <StatusBadge tone="neutral">
             送客あり {measurable === null ? '未取得' : measurable}
-          </span>
+          </StatusBadge>
         </div>
         {published.length === 0 && (
-          <p className="muted small">
+          <p className="text-xs text-muted-foreground">
             まだ公開済みの派生物がない。成果の判断は公開後 6 週間で行う（docs/marketing/06_動画コンテンツ運用設計.md §8 Phase 5）。
           </p>
         )}
-      </div>
+      </PanelCard>
 
-      <div className="card">
-        <h2>
-          パック別
-          <span className="sub">公開済み → 送客の多い順</span>
-        </h2>
-        <div className="table-wrap">
-          <table className="data">
-            <thead>
-              <tr>
-                <th>段階</th>
-                <th>packId</th>
-                <th>派生物の公開状態</th>
-                <th className="num">セッション</th>
-                <th className="num">ユーザー</th>
-                <th>主CTA</th>
-              </tr>
-            </thead>
-            <tbody>
+      <PanelCard title="パック別" description="公開済み → 送客の多い順">
+        <TableFrame>
+            <TableHeader>
+              <TableRow>
+                <TableHead>段階</TableHead>
+                <TableHead>packId</TableHead>
+                <TableHead>派生物の公開状態</TableHead>
+                <TableHead className={numCol}>セッション</TableHead>
+                <TableHead className={numCol}>ユーザー</TableHead>
+                <TableHead>主CTA</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
               {rows.map((r) => (
-                <tr key={r.packId}>
-                  <td>
-                    <span className={`badge ${stageClass(r.stage)}`}>
+                <TableRow key={r.packId}>
+                  <TableCell>
+                    <StatusBadge tone={stageClass(r.stage) as Tone}>
                       {r.stage ? LABELS[r.stage] : '不明'}
-                    </span>
-                  </td>
-                  <td className="mono">
+                    </StatusBadge>
+                  </TableCell>
+                  <TableCell className="font-mono">
                     <Link href={`/content/content~sns/video-packs/${r.exam}/${r.slug}`}>{r.packId}</Link>
-                    <div className="muted small">{EXAM_LABELS[r.exam] ?? r.exam}</div>
-                  </td>
-                  <td className="small">
+                    <div className="text-xs text-muted-foreground">{EXAM_LABELS[r.exam] ?? r.exam}</div>
+                  </TableCell>
+                  <TableCell className="text-xs">
                     {r.derivatives.length === 0 ? (
-                      <span className="muted">未登録</span>
+                      <span className="text-muted-foreground">未登録</span>
                     ) : (
                       r.derivatives.map((d) => (
-                        <span key={d.key} style={{ marginRight: 8 }}>
+                        <span key={d.key} className="mr-2">
                           {derivativeLabel(d.key)}:{' '}
-                          <span className="mono">{d.status}</span>
-                          {d.videoId && <span className="muted"> ({d.videoId})</span>}
+                          <span className="font-mono">{d.status}</span>
+                          {d.videoId && <span className="text-muted-foreground"> ({d.videoId})</span>}
                           {d.key.startsWith('shorts') &&
                             ['published', 'measured'].includes(d.status) &&
                             !d.relatedVideoId && (
-                              <span className="badge bad" style={{ marginLeft: 4 }}>
-                                関連動画なし
+                              <span className="ml-1">
+                                <StatusBadge tone="bad">関連動画なし</StatusBadge>
                               </span>
                             )}
                         </span>
                       ))
                     )}
-                  </td>
-                  <td className="num">
-                    {r.sessions === null ? <span className="muted">—</span> : r.sessions || <span className="muted">0</span>}
-                  </td>
-                  <td className="num">
-                    {r.activeUsers === null ? <span className="muted">—</span> : r.activeUsers || <span className="muted">0</span>}
-                  </td>
-                  <td className="mono small">{r.cta ?? '—'}</td>
-                </tr>
+                  </TableCell>
+                  <TableCell className={numCol}>
+                    {r.sessions === null ? <span className="text-muted-foreground">—</span> : r.sessions || <span className="text-muted-foreground">0</span>}
+                  </TableCell>
+                  <TableCell className={numCol}>
+                    {r.activeUsers === null ? <span className="text-muted-foreground">—</span> : r.activeUsers || <span className="text-muted-foreground">0</span>}
+                  </TableCell>
+                  <TableCell className="font-mono text-xs">{r.cta ?? '—'}</TableCell>
+                </TableRow>
               ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
+            </TableBody>
+        </TableFrame>
+      </PanelCard>
 
       {metrics.ok && otherCampaigns.length > 0 && (
-        <div className="card">
-          <h2>
-            パック外の campaign
-            <span className="sub">既存 UTM（note・X 等）。動画パックとは無関係だが取り違え防止に併記</span>
-          </h2>
-          <div className="table-wrap">
-            <table className="data">
-              <thead>
-                <tr>
-                  <th>campaign</th>
-                  <th className="num">セッション</th>
-                  <th className="num">ユーザー</th>
-                </tr>
-              </thead>
-              <tbody>
+        <PanelCard title="パック外の campaign" description="既存 UTM（note・X 等）。動画パックとは無関係だが取り違え防止に併記">
+          <TableFrame>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>campaign</TableHead>
+                  <TableHead className={numCol}>セッション</TableHead>
+                  <TableHead className={numCol}>ユーザー</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
                 {otherCampaigns.map((c) => (
-                  <tr key={c.campaign}>
-                    <td className="mono small">{c.campaign}</td>
-                    <td className="num">{c.sessions}</td>
-                    <td className="num">{c.activeUsers}</td>
-                  </tr>
+                  <TableRow key={c.campaign}>
+                    <TableCell className="font-mono text-xs">{c.campaign}</TableCell>
+                    <TableCell className={numCol}>{c.sessions}</TableCell>
+                    <TableCell className={numCol}>{c.activeUsers}</TableCell>
+                  </TableRow>
                 ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
+              </TableBody>
+          </TableFrame>
+        </PanelCard>
       )}
+      </Stack>
     </>
   );
 }

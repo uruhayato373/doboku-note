@@ -1,3 +1,5 @@
+import { EmptyRow, PanelCard, StatusBadge, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow, numCol } from '@/components/admin';
+import { Stack } from '@/components/layout';
 import { Freshness, PageHead, SnapshotPicker } from '@/components/ui';
 import {
   latestSnapshot,
@@ -22,9 +24,9 @@ interface PsiBatch {
 
 /** スコアを色バッジで（90+緑 / 50-89橙 / <50赤）。 */
 function ScoreBadge({ v }: { v?: number }) {
-  if (v == null) return <span className="muted">—</span>;
-  const cls = v >= 90 ? 'good' : v >= 50 ? 'warn' : 'bad';
-  return <span className={'badge ' + cls}>{v}</span>;
+  if (v == null) return <span className="text-muted-foreground">—</span>;
+  const tone = v >= 90 ? 'good' : v >= 50 ? 'warn' : 'bad';
+  return <StatusBadge tone={tone}>{v}</StatusBadge>;
 }
 
 function shortUrl(u: string): string {
@@ -65,58 +67,59 @@ export default async function PsiPage({
         sub="PageSpeed Insights スコア（URL 別 mobile / desktop・モバイル性能の低い順）"
       />
 
-      <div className="card">
-        <h2>
-          スコア一覧
-          <span className="sub">
+      <PanelCard
+        title="スコア一覧"
+        description={
+          <>
             <Freshness snapshot={snap} /> {byUrl.size} URL
-          </span>
-        </h2>
-        <SnapshotPicker basePath="/metrics/psi" files={history} current={snap?.file ?? ''} />
-        <div className="table-wrap">
-          <table className="data">
-            <thead>
-              <tr>
-                <th>URL</th>
-                <th className="num">性能(M)</th>
-                <th className="num">性能(D)</th>
-                <th className="num">SEO(M)</th>
-                <th className="num">A11y(M)</th>
-                <th className="num">LCP(M)</th>
-                <th className="num">CLS(M)</th>
-                <th className="num">TBT(M)</th>
-              </tr>
-            </thead>
-            <tbody>
+          </>
+        }
+      >
+        <Stack gap="sm">
+          <SnapshotPicker basePath="/metrics/psi" files={history} current={snap?.file ?? ''} />
+          <TableFrame>
+            <TableHeader>
+              <TableRow>
+                <TableHead>URL</TableHead>
+                <TableHead className={numCol}>性能(M)</TableHead>
+                <TableHead className={numCol}>性能(D)</TableHead>
+                <TableHead className={numCol}>SEO(M)</TableHead>
+                <TableHead className={numCol}>A11y(M)</TableHead>
+                <TableHead className={numCol}>LCP(M)</TableHead>
+                <TableHead className={numCol}>CLS(M)</TableHead>
+                <TableHead className={numCol}>TBT(M)</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {rows.length === 0 ? <EmptyRow colSpan={8}>PSI バッチデータなし</EmptyRow> : null}
               {rows.map(([url, e]) => {
                 const m = e.mobile;
                 const d = e.desktop;
                 return (
-                  <tr key={url}>
-                    <td className="wrap mono small">{shortUrl(url)}</td>
-                    <td className="num">
+                  <TableRow key={url}>
+                    <TableCell className="whitespace-normal font-mono text-xs">{shortUrl(url)}</TableCell>
+                    <TableCell className={numCol}>
                       <ScoreBadge v={m?.scores?.performance} />
-                    </td>
-                    <td className="num">
+                    </TableCell>
+                    <TableCell className={numCol}>
                       <ScoreBadge v={d?.scores?.performance} />
-                    </td>
-                    <td className="num">
+                    </TableCell>
+                    <TableCell className={numCol}>
                       <ScoreBadge v={m?.scores?.seo} />
-                    </td>
-                    <td className="num">
+                    </TableCell>
+                    <TableCell className={numCol}>
                       <ScoreBadge v={m?.scores?.accessibility} />
-                    </td>
-                    <td className="num">{m?.lab_data?.LCP_ms != null ? Math.round(m.lab_data.LCP_ms) + 'ms' : '—'}</td>
-                    <td className="num">{m?.lab_data?.CLS != null ? m.lab_data.CLS.toFixed(3) : '—'}</td>
-                    <td className="num">{m?.lab_data?.TBT_ms != null ? Math.round(m.lab_data.TBT_ms) + 'ms' : '—'}</td>
-                  </tr>
+                    </TableCell>
+                    <TableCell className={numCol}>{m?.lab_data?.LCP_ms != null ? Math.round(m.lab_data.LCP_ms) + 'ms' : '—'}</TableCell>
+                    <TableCell className={numCol}>{m?.lab_data?.CLS != null ? m.lab_data.CLS.toFixed(3) : '—'}</TableCell>
+                    <TableCell className={numCol}>{m?.lab_data?.TBT_ms != null ? Math.round(m.lab_data.TBT_ms) + 'ms' : '—'}</TableCell>
+                  </TableRow>
                 );
               })}
-            </tbody>
-          </table>
-        </div>
-        {rows.length === 0 ? <div className="empty">PSI バッチデータなし</div> : null}
-      </div>
+            </TableBody>
+          </TableFrame>
+        </Stack>
+      </PanelCard>
     </>
   );
 }

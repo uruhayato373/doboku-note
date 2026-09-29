@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { join } from 'node:path';
+import { PanelCard, StatusBadge, type Tone, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import { findRepoRoot } from '@/lib/repo-root';
 import {
@@ -48,6 +49,12 @@ const STATUS_LABEL: Record<ScheduleEventView['status'], string> = {
   reserved: '予約済み',
   posted: '投稿済み',
   overdue: '超過',
+};
+const STATUS_TONE: Record<ScheduleEventView['status'], Tone> = {
+  planned: 'neutral',
+  reserved: 'info',
+  posted: 'good',
+  overdue: 'bad',
 };
 const SOURCE_CHANNEL: Record<ScheduleEventView['sourceId'], ScheduleChannel> = {
   'exam-calendar': 'exam',
@@ -156,101 +163,94 @@ function MonthGrid({ month, events, query, today }: { month: string; events: Sch
   const rows = buildMonthMatrix(month);
   const byDay = groupByDay(events);
   return (
-    <div className="table-wrap">
-      <table className="data schedule-grid">
-        <thead>
-          <tr>{WEEK_HEADERS.map((w) => <th key={w}>{w}</th>)}</tr>
-        </thead>
-        <tbody>
-          {rows.map((row, ri) => (
-            <tr key={ri}>
-              {row.map((dateKey, ci) => {
-                if (!dateKey) return <td key={ci}><div className="schedule-cell-empty" /></td>;
-                const dayEvents = byDay.get(dateKey) ?? [];
-                const examEvents = dayEvents.filter((e) => e.kind === 'exam');
-                const others = dayEvents.filter((e) => e.kind !== 'exam');
-                const overdueNonYoutube = dayEvents.filter((e) => e.status === 'overdue' && e.channel !== 'youtube').length;
-                const counts = new Map<ScheduleChannel, number>();
-                for (const e of others) counts.set(e.channel, (counts.get(e.channel) ?? 0) + 1);
-                const dayNum = Number(dateKey.slice(-2));
-                const isToday = dateKey === today;
-                return (
-                  <td key={ci}>
-                    <Link className="schedule-cell" href={href(query, { d: dateKey })}>
-                      <span className={'schedule-day-num' + (isToday ? ' is-today' : '')}>{dayNum}</span>
-                      {examEvents.map((e) => (
-                        <span key={e.id} className="schedule-exam-pill">{e.label}</span>
-                      ))}
-                      {others.length ? (
-                        <span className="schedule-badges">
-                          {[...counts.entries()].map(([channel, n]) => (
-                            <span key={channel} className="schedule-badge">
-                              <span className={`ch-dot ${channel}`} />
-                              <span className="label">{n}</span>
-                            </span>
-                          ))}
-                          {overdueNonYoutube > 0 ? (
-                            <span className="schedule-overdue-flag">{`!${overdueNonYoutube}`}</span>
-                          ) : null}
-                        </span>
-                      ) : null}
-                    </Link>
-                  </td>
-                );
-              })}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+    <TableFrame>
+      <TableHeader>
+        <TableRow>{WEEK_HEADERS.map((w) => <TableHead key={w}>{w}</TableHead>)}</TableRow>
+      </TableHeader>
+      <TableBody>
+        {rows.map((row, ri) => (
+          <TableRow key={ri}>
+            {row.map((dateKey, ci) => {
+              if (!dateKey) return <TableCell key={ci}><div className="schedule-cell-empty" /></TableCell>;
+              const dayEvents = byDay.get(dateKey) ?? [];
+              const examEvents = dayEvents.filter((e) => e.kind === 'exam');
+              const others = dayEvents.filter((e) => e.kind !== 'exam');
+              const overdueNonYoutube = dayEvents.filter((e) => e.status === 'overdue' && e.channel !== 'youtube').length;
+              const counts = new Map<ScheduleChannel, number>();
+              for (const e of others) counts.set(e.channel, (counts.get(e.channel) ?? 0) + 1);
+              const dayNum = Number(dateKey.slice(-2));
+              const isToday = dateKey === today;
+              return (
+                <TableCell key={ci}>
+                  <Link className="schedule-cell" href={href(query, { d: dateKey })}>
+                    <span className={'schedule-day-num' + (isToday ? ' is-today' : '')}>{dayNum}</span>
+                    {examEvents.map((e) => (
+                      <span key={e.id} className="schedule-exam-pill">{e.label}</span>
+                    ))}
+                    {others.length ? (
+                      <span className="schedule-badges">
+                        {[...counts.entries()].map(([channel, n]) => (
+                          <span key={channel} className="schedule-badge">
+                            <span className={`ch-dot ${channel}`} />
+                            <span className="label">{n}</span>
+                          </span>
+                        ))}
+                        {overdueNonYoutube > 0 ? (
+                          <span className="schedule-overdue-flag">{`!${overdueNonYoutube}`}</span>
+                        ) : null}
+                      </span>
+                    ) : null}
+                  </Link>
+                </TableCell>
+              );
+            })}
+          </TableRow>
+        ))}
+      </TableBody>
+    </TableFrame>
   );
 }
 
 function DayDrilldown({ day, events }: { day: string; events: ScheduleEventView[] }) {
   const sorted = [...events].sort((a, b) => (a.time ?? '99:99').localeCompare(b.time ?? '99:99'));
   return (
-    <div className="card schedule-day-card">
-      <h2>{day}（{weekdayLabel(day)}）の内訳<span className="sub">{sorted.length}件</span></h2>
+    <PanelCard title={`${day}（${weekdayLabel(day)}）の内訳`} description={`${sorted.length}件`} className="schedule-day-card mt-4">
       {sorted.length ? (
-        <div className="table-wrap">
-          <table className="data">
-            <thead>
-              <tr>
-                <th>時刻</th>
-                <th>チャネル</th>
-                <th>状態</th>
-                <th>内容</th>
-                <th>ソース</th>
-              </tr>
-            </thead>
-            <tbody>
-              {sorted.map((e) => (
-                <tr key={e.id}>
-                  <td className="mono">{e.time ?? '終日'}</td>
-                  <td><span className={`ch-dot ${e.channel}`} /> {CHANNEL_LABEL[e.channel]}</td>
-                  <td>
-                    <span className={'badge ' + (e.status === 'overdue' ? 'bad' : e.status === 'posted' ? 'good' : e.status === 'reserved' ? 'accent' : 'neutral')}>
-                      {STATUS_LABEL[e.status]}
-                    </span>
-                  </td>
-                  <td className="wrap">
-                    {e.label}
-                    {e.detail ? <div className="muted small">{e.detail}</div> : null}
-                  </td>
-                  <td>
-                    <a href={vscodeLink(e.sourcePath)} className="mono small" title={`${e.sourcePath} を VS Code で開く`}>
-                      {e.sourcePath}
-                    </a>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <TableFrame>
+          <TableHeader>
+            <TableRow>
+              <TableHead>時刻</TableHead>
+              <TableHead>チャネル</TableHead>
+              <TableHead>状態</TableHead>
+              <TableHead>内容</TableHead>
+              <TableHead>ソース</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {sorted.map((e) => (
+              <TableRow key={e.id}>
+                <TableCell className="font-mono">{e.time ?? '終日'}</TableCell>
+                <TableCell><span className={`ch-dot ${e.channel}`} /> {CHANNEL_LABEL[e.channel]}</TableCell>
+                <TableCell>
+                  <StatusBadge tone={STATUS_TONE[e.status]}>{STATUS_LABEL[e.status]}</StatusBadge>
+                </TableCell>
+                <TableCell className="whitespace-normal">
+                  {e.label}
+                  {e.detail ? <div className="text-muted-foreground text-xs">{e.detail}</div> : null}
+                </TableCell>
+                <TableCell>
+                  <a href={vscodeLink(e.sourcePath)} className="font-mono text-xs" title={`${e.sourcePath} を VS Code で開く`}>
+                    {e.sourcePath}
+                  </a>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </TableFrame>
       ) : (
-        <div className="empty">この日のイベントはありません</div>
+        <p className="text-sm text-muted-foreground">この日のイベントはありません</p>
       )}
-    </div>
+    </PanelCard>
   );
 }
 
@@ -273,52 +273,48 @@ function OverdueCard({
   const ytOldest = ytOverdue.length ? ytOverdue.reduce((min, e) => (e.date < min ? e.date : min), ytOverdue[0].date) : null;
   if (!overdue.length && !ytOverdue.length) {
     return (
-      <div className="card schedule-overdue-card">
-        <h2>{month} の超過一覧</h2>
-        <div className="empty">超過はありません</div>
-      </div>
+      <PanelCard title={`${month} の超過一覧`} className="schedule-overdue-card mt-4">
+        <p className="text-sm text-muted-foreground">超過はありません</p>
+      </PanelCard>
     );
   }
   return (
-    <div className="card schedule-overdue-card">
-      <h2>{month} の超過一覧<span className="sub">YouTube は月をまたぐ集約（全期間）</span></h2>
-      <div className="table-wrap">
-        <table className="data">
-          <thead>
-            <tr>
-              <th>日付</th>
-              <th>チャネル</th>
-              <th>内容</th>
-              <th>ソース</th>
-            </tr>
-          </thead>
-          <tbody>
-            {ytOverdue.length ? (
-              <tr>
-                <td className="mono">{ytOldest} 〜</td>
-                <td><span className="ch-dot youtube" /> YouTube</td>
-                <td className="schedule-yt-aggregate">
-                  公開予約時刻を経過・公開実体は未検証の動画が <strong>{ytOverdue.length}件</strong>（DN-0131）
-                </td>
-                <td className="mono small">.claude/state/youtube-schedule.json</td>
-              </tr>
-            ) : null}
-            {overdue.map((e) => (
-              <tr key={e.id}>
-                <td className="mono">{e.date}{e.time ? ` ${e.time}` : ''}</td>
-                <td><span className={`ch-dot ${e.channel}`} /> {CHANNEL_LABEL[e.channel]}</td>
-                <td className="wrap">{e.label}</td>
-                <td>
-                  <a href={vscodeLink(e.sourcePath)} className="mono small" title={`${e.sourcePath} を VS Code で開く`}>
-                    {e.sourcePath}
-                  </a>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </div>
+    <PanelCard title={`${month} の超過一覧`} description="YouTube は月をまたぐ集約（全期間）" className="schedule-overdue-card mt-4">
+      <TableFrame>
+        <TableHeader>
+          <TableRow>
+            <TableHead>日付</TableHead>
+            <TableHead>チャネル</TableHead>
+            <TableHead>内容</TableHead>
+            <TableHead>ソース</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {ytOverdue.length ? (
+            <TableRow>
+              <TableCell className="font-mono">{ytOldest} 〜</TableCell>
+              <TableCell><span className="ch-dot youtube" /> YouTube</TableCell>
+              <TableCell className="schedule-yt-aggregate">
+                公開予約時刻を経過・公開実体は未検証の動画が <strong>{ytOverdue.length}件</strong>（DN-0131）
+              </TableCell>
+              <TableCell className="font-mono text-xs">.claude/state/youtube-schedule.json</TableCell>
+            </TableRow>
+          ) : null}
+          {overdue.map((e) => (
+            <TableRow key={e.id}>
+              <TableCell className="font-mono">{e.date}{e.time ? ` ${e.time}` : ''}</TableCell>
+              <TableCell><span className={`ch-dot ${e.channel}`} /> {CHANNEL_LABEL[e.channel]}</TableCell>
+              <TableCell className="whitespace-normal">{e.label}</TableCell>
+              <TableCell>
+                <a href={vscodeLink(e.sourcePath)} className="font-mono text-xs" title={`${e.sourcePath} を VS Code で開く`}>
+                  {e.sourcePath}
+                </a>
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </TableFrame>
+    </PanelCard>
   );
 }
 

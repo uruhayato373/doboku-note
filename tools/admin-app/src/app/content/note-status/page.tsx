@@ -1,3 +1,7 @@
+import {
+  PanelCard, StatusBadge, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow, type Tone,
+} from '@/components/admin';
+import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
 import { membershipState, statusSnapshot, STALE_DAYS } from '@/lib/note-status';
 
@@ -5,9 +9,9 @@ export const dynamic = 'force-dynamic';
 
 /** 鮮度バッジ。0-1 日=good / STALE_DAYS 以内=warn / 超過・不明=bad。 */
 function Age({ days }: { days: number | null }) {
-  if (days == null) return <span className="badge bad">鮮度不明</span>;
-  const cls = days <= 1 ? 'good' : days <= STALE_DAYS ? 'warn' : 'bad';
-  return <span className={`badge ${cls}`}>{days} 日前</span>;
+  if (days == null) return <StatusBadge tone="bad">鮮度不明</StatusBadge>;
+  const tone: Tone = days <= 1 ? 'good' : days <= STALE_DAYS ? 'warn' : 'bad';
+  return <StatusBadge tone={tone}>{days} 日前</StatusBadge>;
 }
 
 export default function NoteStatusPage() {
@@ -22,28 +26,27 @@ export default function NoteStatusPage() {
         sub="マガジン収録の三軸（repo 実数 ↔ SoT 件数表記 ↔ ライブ収録数）と、記事別の公開状態"
       />
 
-      <div className="card">
-        <p className="muted">
+      <Stack>
+        <p className="text-sm text-muted-foreground">
           記事を足したのにライブへ収録し忘れる事故（2026-08-24 ゼネコン/河川コンサル各 2 本）は、
           SoT とライブの 2 者だけを比べる検査では捕まらない。両方が同じ値で古びるため。
           repo の記事実数（frontmatter <code>noteMagazine</code> の集計）が第三の軸になる。
         </p>
-      </div>
 
       {/* ─── 表1: マガジン収録の三軸 ─── */}
-      <div className="card">
-        <h2>マガジン収録</h2>
-        <p className="muted">
+      <PanelCard title="マガジン収録">
+        <Stack>
+        <p className="text-sm text-muted-foreground">
           {!m.ok ? (
             <>
-              <span className="badge bad">突合できていません</span>{' '}
+              <StatusBadge tone="bad">突合できていません</StatusBadge>{' '}
               check-magazine-membership が実行できないため、下の表は表示できません（空欄＝問題なし
               ではありません）。{m.error}
             </>
           ) : (
             <>
               マガジン <strong>{m.rows.length}</strong> 件を実検査（記事 {m.articles} 本）· ズレ{' '}
-              <strong className={bad.length ? 'badge bad' : 'badge good'}>{bad.length}</strong> 件
+              <StatusBadge tone={bad.length ? 'bad' : 'good'}>{bad.length}</StatusBadge> 件
               {' · '}
               ライブ軸:{' '}
               {m.freshness.ok ? (
@@ -52,7 +55,7 @@ export default function NoteStatusPage() {
                 </>
               ) : (
                 <>
-                  <span className="badge bad">未検査</span> {m.freshness.reason} —
+                  <StatusBadge tone="bad">未検査</StatusBadge> {m.freshness.reason} —
                   「ライブ」列の空欄は<strong>問題なしではありません</strong>。
                   週次 note-live-audit.yml の snapshot 供給を確認すること
                 </>
@@ -62,65 +65,63 @@ export default function NoteStatusPage() {
         </p>
 
         {m.ok && m.rows.length > 0 && (
-          <div className="table-wrap">
-            <table className="data content-table">
-              <thead>
-                <tr>
-                  <th className="title-col">マガジン</th>
-                  <th className="badge-col">期待</th>
-                  <th className="badge-col">repo</th>
-                  <th className="badge-col">SoT</th>
-                  <th className="badge-col">ライブ</th>
-                  <th className="publish-col">判定</th>
-                </tr>
-              </thead>
-              <tbody>
-                {m.rows.map((r) => (
-                  <tr key={r.id}>
-                    <td className="title-col">
-                      {r.title || r.id}
-                      <br />
-                      <span className="muted">{r.id}</span>
-                      {r.descWarn && (
-                        <>
-                          <br />
-                          <span className="badge warn">{r.descWarn}</span>
-                        </>
-                      )}
-                    </td>
-                    <td>{r.expected}</td>
-                    <td>
-                      {r.repoCount}
-                      {r.extra ? (
-                        <span className="muted"> {r.extra > 0 ? `+${r.extra}` : r.extra}</span>
-                      ) : null}
-                    </td>
-                    <td>{r.declared ?? <span className="muted">—</span>}</td>
-                    <td>{r.liveCount ?? <span className="muted">—</span>}</td>
-                    <td>
-                      {!r.ok ? (
-                        <span className="badge bad">{r.detail || r.kind}</span>
-                      ) : r.liveCount == null ? (
-                        // ライブを見ていない行を緑にしない。「repo↔SoT は合っている」と
-                        // 「三軸とも合っている」は別物で、緑にすると後者に読める。
-                        <span className="badge warn">repo↔SoT のみ</span>
-                      ) : r.declared == null ? (
-                        <span className="badge warn">repo↔ライブ のみ</span>
-                      ) : (
-                        <span className="badge good">一致</span>
-                      )}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          <TableFrame>
+            <TableHeader>
+              <TableRow>
+                <TableHead>マガジン</TableHead>
+                <TableHead>期待</TableHead>
+                <TableHead>repo</TableHead>
+                <TableHead>SoT</TableHead>
+                <TableHead>ライブ</TableHead>
+                <TableHead>判定</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {m.rows.map((r) => (
+                <TableRow key={r.id}>
+                  <TableCell className="max-w-[28rem] whitespace-normal">
+                    {r.title || r.id}
+                    <br />
+                    <span className="text-muted-foreground">{r.id}</span>
+                    {r.descWarn && (
+                      <>
+                        <br />
+                        <StatusBadge tone="warn">{r.descWarn}</StatusBadge>
+                      </>
+                    )}
+                  </TableCell>
+                  <TableCell>{r.expected}</TableCell>
+                  <TableCell>
+                    {r.repoCount}
+                    {r.extra ? (
+                      <span className="text-muted-foreground"> {r.extra > 0 ? `+${r.extra}` : r.extra}</span>
+                    ) : null}
+                  </TableCell>
+                  <TableCell>{r.declared ?? <span className="text-muted-foreground">—</span>}</TableCell>
+                  <TableCell>{r.liveCount ?? <span className="text-muted-foreground">—</span>}</TableCell>
+                  <TableCell>
+                    {!r.ok ? (
+                      <StatusBadge tone="bad">{r.detail || r.kind}</StatusBadge>
+                    ) : r.liveCount == null ? (
+                      // ライブを見ていない行を緑にしない。「repo↔SoT は合っている」と
+                      // 「三軸とも合っている」は別物で、緑にすると後者に読める。
+                      <StatusBadge tone="warn">repo↔SoT のみ</StatusBadge>
+                    ) : r.declared == null ? (
+                      <StatusBadge tone="warn">repo↔ライブ のみ</StatusBadge>
+                    ) : (
+                      <StatusBadge tone="good">一致</StatusBadge>
+                    )}
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </TableFrame>
         )}
 
         {m.ok && (
           m.unclassified.length > 0 ? (
-            <p className="muted">
-              <span className="badge bad">未分類 {m.unclassified.length} 種</span>{' '}
+            <p className="text-sm text-muted-foreground">
+              <StatusBadge tone="bad">未分類 {m.unclassified.length} 種</StatusBadge>{' '}
               {m.unclassified.map((u) => `${u.label}(${u.count})`).join('、')}
               <br />
               <code>.claude/config/note-magazine-membership.json</code> の{' '}
@@ -128,26 +129,27 @@ export default function NoteStatusPage() {
               のどれかへ登録する（未分類のまま放置すると、そのラベルは検査の射程外になる）。
             </p>
           ) : (
-            <p className="muted">
-              <span className="badge good">未分類 0</span>{' '}
+            <p className="text-sm text-muted-foreground">
+              <StatusBadge tone="good">未分類 0</StatusBadge>{' '}
               すべての <code>noteMagazine</code> ラベルが分類済み＝検査の射程に漏れが無い。
             </p>
           )
         )}
         {m.ok && m.unreferenced.length > 0 && (
-          <p className="muted">
+          <p className="text-sm text-muted-foreground">
             labels から参照されないマガジン {m.unreferenced.length} 件（パック型など・ゲート対象外）
           </p>
         )}
-      </div>
+        </Stack>
+      </PanelCard>
 
       {/* ─── 表2: 記事別の公開状態 ─── */}
-      <div className="card">
-        <h2>記事の公開状態</h2>
-        <p className="muted">
+      <PanelCard title="記事の公開状態">
+        <Stack>
+        <p className="text-sm text-muted-foreground">
           {!s.ok ? (
             <>
-              <span className="badge bad">未取得</span>{' '}
+              <StatusBadge tone="bad">未取得</StatusBadge>{' '}
               <code>.claude/state/note/status-snapshot.json</code> が読めません。
               記事別のライブ公開状態は<strong>判定していません</strong>。
               週次 note-live-audit.yml が供給します（管理画面はライブ API を叩きません）。{s.error}
@@ -159,7 +161,7 @@ export default function NoteStatusPage() {
               {s.stale && (
                 <>
                   {' '}
-                  <span className="badge bad">古い</span> {STALE_DAYS} 日を超えています
+                  <StatusBadge tone="bad">古い</StatusBadge> {STALE_DAYS} 日を超えています
                 </>
               )}
             </>
@@ -167,63 +169,63 @@ export default function NoteStatusPage() {
         </p>
 
         {s.ok && (
-          <div className="table-wrap">
-            <table className="data">
-              <thead>
-                <tr>
-                  <th>区分</th>
-                  <th>件数</th>
-                  <th>意味</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>ドリフト</td>
-                  <td>
-                    {s.drift.length ? (
-                      <span className="badge bad">{s.drift.length}</span>
-                    ) : (
-                      <span className="badge good">0</span>
-                    )}
-                  </td>
-                  <td className="muted">ライブは公開済みだが frontmatter の noteStatus が古い</td>
-                </tr>
-                <tr>
-                  <td>要確認</td>
-                  <td>
-                    {s.warn.length ? (
-                      <span className="badge warn">{s.warn.length}</span>
-                    ) : (
-                      <span className="badge good">0</span>
-                    )}
-                  </td>
-                  <td className="muted">frontmatter は公開を主張するがライブが published でない</td>
-                </tr>
-                <tr>
-                  <td>取得不能</td>
-                  <td>
-                    {s.noLive.length ? (
-                      <span className="badge warn">{s.noLive.length}</span>
-                    ) : (
-                      <span className="badge good">0</span>
-                    )}
-                  </td>
-                  <td className="muted">throttle・予約未 live など。再実行で解消することが多い</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <TableFrame>
+            <TableHeader>
+              <TableRow>
+                <TableHead>区分</TableHead>
+                <TableHead>件数</TableHead>
+                <TableHead>意味</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              <TableRow>
+                <TableCell>ドリフト</TableCell>
+                <TableCell>
+                  {s.drift.length ? (
+                    <StatusBadge tone="bad">{s.drift.length}</StatusBadge>
+                  ) : (
+                    <StatusBadge tone="good">0</StatusBadge>
+                  )}
+                </TableCell>
+                <TableCell className="text-muted-foreground">ライブは公開済みだが frontmatter の noteStatus が古い</TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>要確認</TableCell>
+                <TableCell>
+                  {s.warn.length ? (
+                    <StatusBadge tone="warn">{s.warn.length}</StatusBadge>
+                  ) : (
+                    <StatusBadge tone="good">0</StatusBadge>
+                  )}
+                </TableCell>
+                <TableCell className="text-muted-foreground">frontmatter は公開を主張するがライブが published でない</TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>取得不能</TableCell>
+                <TableCell>
+                  {s.noLive.length ? (
+                    <StatusBadge tone="warn">{s.noLive.length}</StatusBadge>
+                  ) : (
+                    <StatusBadge tone="good">0</StatusBadge>
+                  )}
+                </TableCell>
+                <TableCell className="text-muted-foreground">throttle・予約未 live など。再実行で解消することが多い</TableCell>
+              </TableRow>
+            </TableBody>
+          </TableFrame>
         )}
 
         {s.ok && s.drift.length > 0 && (
-          <p className="muted">
+          <p className="text-sm text-muted-foreground">
             ドリフト: {s.drift.slice(0, 10).map((d) => d.rel).join('、')}
             {s.drift.length > 10 && ` … 他 ${s.drift.length - 10} 本`}
             <br />
             是正: <code>npm run verify-note-status -- --fix</code>
           </p>
         )}
-      </div>
+        </Stack>
+      </PanelCard>
+      </Stack>
     </>
   );
 }

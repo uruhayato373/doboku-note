@@ -37,7 +37,7 @@ export default async function ContentDetailPage({ params }: { params: Promise<{ 
         <nav className="project-crumbs" aria-label="パンくず">
           <Link href="/content">コンテンツ</Link>
         </nav>
-        <div className="card">
+        <div>
           <ul className="content-listing">
             {listing.dirs.map((name) => (
               <li key={name}><Link href={hrefFor(name)}>{name}/</Link></li>
@@ -47,13 +47,13 @@ export default async function ContentDetailPage({ params }: { params: Promise<{ 
                 {f.isDoc ? (
                   <Link href={hrefFor(f.name.replace(/\.md$/, ''))}>{f.name}</Link>
                 ) : (
-                  <span className="muted">{f.name}</span>
+                  <span className="text-muted-foreground">{f.name}</span>
                 )}
-                <span className="muted"> · {Math.max(1, Math.round(f.size / 1024))} KB</span>
+                <span className="text-muted-foreground"> · {Math.max(1, Math.round(f.size / 1024))} KB</span>
               </li>
             ))}
           </ul>
-          {listing.dirs.length === 0 && listing.files.length === 0 && <p className="muted">空のディレクトリです。</p>}
+          {listing.dirs.length === 0 && listing.files.length === 0 && <p className="text-sm text-muted-foreground">空のディレクトリです。</p>}
         </div>
         {readme && (
           <article className="knowledge-document">
