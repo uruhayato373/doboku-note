@@ -20,6 +20,7 @@ import {
   classifyReplyDeadlines,
   assessSnapshot,
   classifyInquiries,
+  resolveThumb,
   parseInquiryDate,
   inquiryClockMs,
 } from '../scripts/lib/coconala-guards.mjs';
@@ -344,4 +345,23 @@ test('inquiryClockMs: 相対日付は snapshot の取得時刻から読む（実
   assert.equal(later.actions.length, 1, '実行時刻基準だと経過分だけずれて再オープンする（旧挙動の再現）');
   assert.equal(inquiryClockMs('壊れた値', 123), 123);
   assert.equal(inquiryClockMs(undefined, 456), 456);
+});
+
+test('resolveThumb: 承認済み POP 画像を正本として先に見る（フラット画像が無くても通す）', () => {
+  const ledger = new Set(['a/pop/thumb-x.png']);
+  const has = (rel) => (ledger.has(rel) ? 'ledger' : null);
+  const r = resolveThumb({ id: 'coconala-x', approvedPath: 'a/pop/thumb-x.png', flatPath: 'a/thumb-x.png', has, renderable: false });
+  assert.deepEqual([r.ok, r.source, r.where, r.warn], [true, 'approved', 'ledger', null]);
+});
+
+test('resolveThumb: 未承認の新商品は描画定義があれば通し、POP 未承認を警告する', () => {
+  const r = resolveThumb({ id: 'coconala-new', approvedPath: null, flatPath: 'a/thumb-new.png', has: () => null, renderable: true });
+  assert.equal(r.ok, true);
+  assert.equal(r.source, 'renderable');
+  assert.match(r.warn, /POP/);
+});
+
+test('resolveThumb: 承認原本もフラット画像も描画定義も無ければ配線漏れ', () => {
+  const r = resolveThumb({ id: 'coconala-none', approvedPath: 'a/pop/none.png', flatPath: 'a/thumb-none.png', has: () => null, renderable: false });
+  assert.equal(r.ok, false);
 });

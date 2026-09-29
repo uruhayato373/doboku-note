@@ -413,7 +413,7 @@ npm run coconala-rate-buyer -- <talkroomId> <コメントtxt> --submit   # 送�
 | 4 | sales-log の `coconala:<id>` がカタログに実在 | 売上の productId 命名ミス |
 | 5 | listed があるなら account の profileUrl が非空 | 出品済みなのにアカウント SSOT が空 |
 | 6 | 一度も出品していない（`draft` かつ `listedAt` 未設定）サービスに受注/KPI 実績が無い | 未出品なのに閲覧・販売が立つ論理矛盾（ダミー値の混入・serviceId 取り違え）。※ listed 後に `paused`/`draft` へ戻した場合は `listedAt` が残るので誤検知しない |
-| 7 | 全カタログに listings エントリ（カテゴリ・本文）と商品画像（ローカル実体か Drive 台帳）がある | listings の書き忘れ・サムネ未生成 |
+| 7 | 全カタログに listings エントリ（カテゴリ・本文）と商品画像がある（承認済み POP 原本 → フラット thumb-<key>.png → coconala-thumb の描画定義の順に、ローカル実体か Drive 台帳で確認。出品中で POP 未承認なら警告） | listings の書き忘れ・サムネ未生成 |
 | 8 | `paused` には `pauseReason`（retired / absence）が必須。absence の復帰予定日超過は警告（検査9） | 一括復帰で恒久廃止まで復活 |
 | 10 | PDF 商品（id が `-pdf`・paused 以外）は `notePriceBasis` の note 基準 × 1.1 を価格刻みで切り上げた額以上（無ければ `notePriceExempt` に理由）。§2.6 | note より安く売る・note の値上げに追随し忘れ |
 
