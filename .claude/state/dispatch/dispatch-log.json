@@ -1435,6 +1435,18 @@
       "commit": "90570cfb94a8",
       "verification": "公開API独立再照合 91/91 POP・標準版0/note-lint 91記事OK/PDF添付は差替前後で非減少（スクリプトguard）",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0455",
+      "at": "2026-09-29",
+      "task": "著者バナー差し替えが、最初のH2より前の横長の本文図を旧バナーとして消す",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "bd249d67dd91",
+      "verification": "node --test tests/author-banner-match.test.mjs pass 2・probe で1級/2級R6の本文図が other",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }
