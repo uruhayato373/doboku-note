@@ -113,8 +113,8 @@ function SectionTree({ tree, pathname }: { tree: NavTree; pathname: string }) {
 
 type NavProps = {
   todoLayers?: TodoLayer[];
-  /** 商品ラインナップの下に並べる資格（layout が product-lineup.json から渡す） */
-  lineupQualifications?: { id: string; label: string }[];
+  /** コンテンツ台帳の下に並べる「資格・テーマ別」「チャネル別」の枝（layout が lib/ledger.ts から渡す・DN-0438） */
+  ledger?: { themes: { id: string; label: string }[]; channels: { id: string; label: string }[] };
   /** 教材一覧の下に棚ごとに並べる教材（layout が reference-sources.json から渡す） */
   materials?: { shelf: string; items: { id: string; label: string }[] }[];
   /** 領域の名前・並び・画面（layout が domains.json から渡す） */
@@ -122,7 +122,7 @@ type NavProps = {
 };
 
 /** 領域ごとのメニュー。useSearchParams を使うので Nav が Suspense で包む。 */
-function NavGroups({ todoLayers = [], lineupQualifications = [], materials = [], domains = [] }: NavProps) {
+function NavGroups({ todoLayers = [], ledger = { themes: [], channels: [] }, materials = [], domains = [] }: NavProps) {
   const pathname = usePathname() ?? '';
   const searchParams = useSearchParams();
   // スマホ幅の Sheet は画面を移ったら閉じる（公式 Sidebar は開閉を利用側に任せる）。
@@ -135,18 +135,25 @@ function NavGroups({ todoLayers = [], lineupQualifications = [], materials = [],
     shownAt.current = url;
     setOpenMobile(false);
   }, [url, setOpenMobile]);
-  // 商品ラインナップは「一覧」と資格ごとの詳細（?q=<資格id>）を持つツリーにする
-  const lineupTree: NavTree = {
-    label: '商品ラインナップ',
-    tabs: [
-      { href: '/content/lineup', label: '一覧', match: '/content/lineup', query: { q: '' } },
-      ...lineupQualifications.map((q) => ({
-        href: `/content/lineup?q=${q.id}`,
-        label: q.label,
-        match: '/content/lineup',
-        query: { q: q.id },
-      })),
-    ],
+  // コンテンツ台帳の行き先を 2 つの入口に分ける（DN-0438）。どちらも同じ /content/ledger の絞り込み。
+  // 枝の中身（テーマ・チャネルと件数）は台帳のデータから来るので、ここに資格名・チャネル名を直書きしない
+  const themeTree: NavTree = {
+    label: '資格・テーマ別',
+    tabs: ledger.themes.map((t) => ({
+      href: `/content/ledger?t=${encodeURIComponent(t.id)}`,
+      label: t.label,
+      match: '/content/ledger',
+      query: { t: t.id, c: '' },
+    })),
+  };
+  const byChannelTree: NavTree = {
+    label: 'チャネル別',
+    tabs: ledger.channels.map((c) => ({
+      href: `/content/ledger?c=${encodeURIComponent(c.id)}`,
+      label: c.label,
+      match: '/content/ledger',
+      query: { c: c.id, t: '' },
+    })),
   };
   const materialTrees: NavTree[] = materials.map((m) => ({
     label: m.shelf,
@@ -176,7 +183,7 @@ function NavGroups({ todoLayers = [], lineupQualifications = [], materials = [],
             {group.nav
               .flatMap((e): NavEntry[] => {
                 if (isTree(e)) return [e];
-                if (e.match === '/content/lineup') return [lineupTree];
+                if (e.match === '/content/ledger') return [e, themeTree, byChannelTree];
                 if (e.match === '/materials') return [e, ...materialTrees];
                 return [e];
               })

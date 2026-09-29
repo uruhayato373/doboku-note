@@ -1,0 +1,1557 @@
+{
+  "runs": [
+    {
+      "startedAt": "2026-09-28T22:53:17.859Z",
+      "finishedAt": "2026-09-29T02:32:31.577Z",
+      "plan": {
+        "synced": 410,
+        "ready": 507,
+        "blocked": 1,
+        "blockers": {
+          "aborted": 1
+        }
+      },
+      "articles": {
+        "attempted": 200,
+        "updated": [
+          {
+            "path": "content/note/技術士総監/magazines/総監記述式-5管理クロストレードオフ/安全管理/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監記述式-5管理クロストレードオフ/経済性管理/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監記述式-5管理クロストレードオフ/社会環境管理/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監記述式-5管理クロストレードオフ/情報管理/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監記述式-5管理クロストレードオフ/人的資源管理/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監記述式-R8予想問題集/AI社会/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監記述式-R8予想問題集/気候変動適応/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監記述式-R8予想問題集/経済安全保障/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監記述式-R8予想問題集/災害復旧/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監記述式-R8予想問題集/資源循環/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監記述式-R8予想問題集/老朽化インフラ/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監記述式-完全パック/00-はじめに/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監記述式-設問3国家施策バンク/Society5AIガバナンス/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監記述式-設問3国家施策バンク/インフラ老朽化維持管理/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監記述式-設問3国家施策バンク/カーボンニュートラルGX/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監記述式-設問3国家施策バンク/気候変動適応国土強靱化/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監記述式-設問3国家施策バンク/経済安全保障サプライチェーン/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監記述式-設問3国家施策バンク/循環経済資源安全保障/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監記述式-設問3国家施策バンク/食料安全保障/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監記述式-設問3国家施策バンク/人口減少少子高齢化/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監記述式-設問3国家施策バンク/担い手不足労働供給制約/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監記述式-設問3国家施策バンク/地方創生東京一極集中/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監記述式-設問3国家施策バンク/物流危機2024年問題/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-維持更新施工/R03/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-維持更新施工/R04/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-維持更新施工/R05/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-維持更新施工/R06/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-維持更新施工/R07/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-河川コンサル/R06/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-河川コンサル/R07/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-河川コンサル/R08-yosou-1/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-河川コンサル/R08-yosou-2/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-河川コンサル/R08-yosou-3/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-河川コンサル/R08-yosou-4/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-河川コンサル/R08-yosou-5/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-河川コンサル/R08-yosou-6/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-鋼コンコンサル/R03/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-鋼コンコンサル/R04/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-鋼コンコンサル/R05/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-鋼コンコンサル/R06/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-鋼コンコンサル/R07/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体下水道担当/R03/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体下水道担当/R04/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体下水道担当/R05/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体下水道担当/R06/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体下水道担当/R07/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体下水道担当/R08-yosou-1/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体下水道担当/R08-yosou-2/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体下水道担当/R08-yosou-3/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体下水道担当/R08-yosou-4/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体下水道担当/R08-yosou-5/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体下水道担当/R08-yosou-6/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体河川担当/R03/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体河川担当/R04/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体河川担当/R05/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体河川担当/R06/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体河川担当/R07/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体河川担当/R08-yosou-1/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体河川担当/R08-yosou-2/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体河川担当/R08-yosou-3/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体河川担当/R08-yosou-4/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体河川担当/R08-yosou-5/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体河川担当/R08-yosou-6/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体技術基準担当/R03/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体技術基準担当/R04/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体技術基準担当/R05/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体技術基準担当/R06/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体技術基準担当/R07/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体技術基準担当/R08-yosou-1/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体技術基準担当/R08-yosou-2/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体技術基準担当/R08-yosou-3/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体技術基準担当/R08-yosou-4/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体技術基準担当/R08-yosou-5/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体技術基準担当/R08-yosou-6/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体契約調達担当/R03/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体契約調達担当/R04/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体契約調達担当/R05/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体契約調達担当/R06/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体契約調達担当/R07/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体契約調達担当/R08-yosou-1/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体契約調達担当/R08-yosou-2/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体契約調達担当/R08-yosou-3/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体契約調達担当/R08-yosou-4/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体契約調達担当/R08-yosou-5/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体契約調達担当/R08-yosou-6/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体公園緑地担当/R03/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体公園緑地担当/R04/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体公園緑地担当/R05/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体公園緑地担当/R06/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体公園緑地担当/R07/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体公園緑地担当/R08-yosou-1/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体公園緑地担当/R08-yosou-2/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体公園緑地担当/R08-yosou-3/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体公園緑地担当/R08-yosou-4/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体公園緑地担当/R08-yosou-5/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体公園緑地担当/R08-yosou-6/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体港湾担当/R03/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体港湾担当/R04/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体港湾担当/R05/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体港湾担当/R06/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体港湾担当/R07/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体港湾担当/R08-yosou-1/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体港湾担当/R08-yosou-2/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体港湾担当/R08-yosou-3/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体港湾担当/R08-yosou-4/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体港湾担当/R08-yosou-5/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体港湾担当/R08-yosou-6/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体砂防担当/R03/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体砂防担当/R04/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体砂防担当/R05/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体砂防担当/R06/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体砂防担当/R07/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体砂防担当/R08-yosou-1/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体砂防担当/R08-yosou-2/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体砂防担当/R08-yosou-3/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体砂防担当/R08-yosou-4/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体砂防担当/R08-yosou-5/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体砂防担当/R08-yosou-6/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体上水道担当/R03/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体上水道担当/R04/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体上水道担当/R05/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体上水道担当/R06/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体上水道担当/R07/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体上水道担当/R08-yosou-1/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体上水道担当/R08-yosou-2/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体上水道担当/R08-yosou-3/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体上水道担当/R08-yosou-4/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体上水道担当/R08-yosou-5/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体上水道担当/R08-yosou-6/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体都市計画担当/R03/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体都市計画担当/R04/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体都市計画担当/R05/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体都市計画担当/R06/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体都市計画担当/R07/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体都市計画担当/R08-yosou-1/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体都市計画担当/R08-yosou-2/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体都市計画担当/R08-yosou-3/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体都市計画担当/R08-yosou-4/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体都市計画担当/R08-yosou-5/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体都市計画担当/R08-yosou-6/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体道路担当/R03/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体道路担当/R04/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体道路担当/R05/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体道路担当/R06/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体道路担当/R07/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体道路担当/R08-yosou-1/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体道路担当/R08-yosou-2/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体道路担当/R08-yosou-3/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体道路担当/R08-yosou-4/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体道路担当/R08-yosou-5/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-自治体道路担当/R08-yosou-6/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-都市計画コンサル/R03/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-都市計画コンサル/R04/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-都市計画コンサル/R05/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-都市計画コンサル/R06/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-都市計画コンサル/R07/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-都市計画コンサル/R08-yosou-1/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-都市計画コンサル/R08-yosou-2/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-都市計画コンサル/R08-yosou-3/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-都市計画コンサル/R08-yosou-4/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-都市計画コンサル/R08-yosou-5/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-都市計画コンサル/R08-yosou-6/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-道路橋梁コンサル/R03/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-道路橋梁コンサル/R04/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-道路橋梁コンサル/R05/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-道路橋梁コンサル/R06/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-道路橋梁コンサル/R07/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-道路橋梁コンサル/R08-yosou-1/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-道路橋梁コンサル/R08-yosou-2/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-道路橋梁コンサル/R08-yosou-3/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-道路橋梁コンサル/R08-yosou-4/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-道路橋梁コンサル/R08-yosou-5/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-道路橋梁コンサル/R08-yosou-6/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-道路舗装施工/R03/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-道路舗装施工/R04/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-道路舗装施工/R05/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-道路舗装施工/R06/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/magazines/総監模範論文-道路舗装施工/R07/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/キーワード集2026変更点/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/キーワード集が点にならない理由/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/トレードオフ思考/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/一般部門との違い/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/記述式の書き方/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/計算問題パターン集/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/公務員が総監を取るメリット/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/公務員の総監学習設計/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/公務員技術者の定年後資格戦略/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/口頭試験対策-完全版/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/口頭試験対策/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/再受験対策/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/資格取得後の担当経験の伝え方-無料/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/自治体技術職員の資格地図/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/自治体技術職員の択一盲点/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/出題テーマ分析-R8地方創生検証/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/出題傾向変遷マップ/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/総監R08合格ロードマップ/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/総監マガジンの歩き方/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/総監もくじ/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士総監/総監をAIで勉強する/article.md",
+            "parts": [
+              "cover"
+            ]
+          }
+        ],
+        "failed": [
+          {
+            "path": "content/note/技術士総監/magazines/総監記述式-5管理クロストレードオフ/序章/article.md",
+            "parts": [
+              "cover"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          }
+        ]
+      },
+      "magazines": {
+        "attempted": 99,
+        "updated": [
+          {
+            "key": "magazine:river-consultant"
+          },
+          {
+            "key": "magazine:general-contractor"
+          },
+          {
+            "key": "magazine:road-municipality"
+          },
+          {
+            "key": "magazine:urban-municipality"
+          },
+          {
+            "key": "magazine:port-municipality"
+          },
+          {
+            "key": "magazine:road-consultant"
+          },
+          {
+            "key": "magazine:urban-consultant"
+          },
+          {
+            "key": "magazine:r8-essay-forecast"
+          },
+          {
+            "key": "magazine:setsumon3-policy-bank"
+          },
+          {
+            "key": "magazine:essay-complete-pack"
+          },
+          {
+            "key": "magazine:civil-1-marugoto"
+          },
+          {
+            "key": "magazine:civil-2-pastexam"
+          },
+          {
+            "key": "magazine:civil-1-keiken-complete"
+          },
+          {
+            "key": "magazine:civil-2-koji-bank"
+          },
+          {
+            "key": "magazine:bk-09-power"
+          },
+          {
+            "key": "magazine:bk-10-railway"
+          },
+          {
+            "key": "magazine:cd-essay"
+          },
+          {
+            "key": "magazine:cd-structure-case-bank"
+          },
+          {
+            "key": "magazine:cd-road-bridge-pack"
+          },
+          {
+            "key": "magazine:cd-water-underground-pack"
+          },
+          {
+            "key": "magazine:cd-building-facility-pack"
+          },
+          {
+            "key": "magazine:cd-problem-a-pack"
+          },
+          {
+            "key": "magazine:cd-problem-b-pack"
+          },
+          {
+            "key": "magazine:cd-essay-complete-pack"
+          },
+          {
+            "key": "magazine:cd-marugoto-pack"
+          },
+          {
+            "key": "magazine:cce-marugoto"
+          },
+          {
+            "key": "magazine:pe-construction-urban-planning-pack"
+          },
+          {
+            "key": "magazine:pe-construction-river-coast-pack"
+          },
+          {
+            "key": "magazine:pe-construction-steel-concrete-pack"
+          },
+          {
+            "key": "magazine:pe-construction-geotechnical-pack"
+          },
+          {
+            "key": "magazine:pe-construction-railway-pack"
+          },
+          {
+            "key": "magazine:pe-construction-environment-pack"
+          },
+          {
+            "key": "magazine:pe-construction-port-airport-pack"
+          },
+          {
+            "key": "magazine:pe-construction-construction-planning-pack"
+          },
+          {
+            "key": "magazine:pe-construction-power-civil-pack"
+          },
+          {
+            "key": "magazine:rccm-mondai3"
+          },
+          {
+            "key": "magazine:civil-1-chokuzen-pack"
+          },
+          {
+            "key": "magazine:civil-2-niji-marugoto-pack"
+          },
+          {
+            "key": "magazine:pe1-chokuzen-pack"
+          },
+          {
+            "key": "magazine:ce-chokuzen-pack"
+          },
+          {
+            "key": "magazine:cce-takuitsu-chokuzen-pack"
+          },
+          {
+            "key": "magazine:civil-2-chokuzen-pack"
+          },
+          {
+            "key": "magazine:rccm-marugoto-pack"
+          },
+          {
+            "key": "magazine:civil-membership-odai-lab"
+          },
+          {
+            "key": "magazine:cce-essay-magazine"
+          },
+          {
+            "key": "magazine:cce-essay-persona-pack"
+          },
+          {
+            "key": "magazine:cce-persona-namacon-pack"
+          },
+          {
+            "key": "magazine:cce-persona-precast-pack"
+          },
+          {
+            "key": "magazine:cce-persona-civil-contractor-pack"
+          },
+          {
+            "key": "magazine:cce-persona-maintenance-pack"
+          },
+          {
+            "key": "magazine:cce-persona-owner-pack"
+          },
+          {
+            "key": "magazine:cce-persona-building-contractor-pack"
+          },
+          {
+            "key": "magazine:cce-persona-design-consultant-pack"
+          },
+          {
+            "key": "magazine:cce-persona-testing-pack"
+          },
+          {
+            "key": "magazine:civil-1-keiken-bridge-maintenance-pack"
+          },
+          {
+            "key": "magazine:civil-1-keiken-road-tunnel-pack"
+          },
+          {
+            "key": "magazine:civil-1-keiken-river-disaster-pack"
+          },
+          {
+            "key": "magazine:civil-1-keiken-water-treatment-pack"
+          },
+          {
+            "key": "magazine:civil-2-keiken-local-road-pack"
+          },
+          {
+            "key": "magazine:civil-2-keiken-water-drainage-pack"
+          },
+          {
+            "key": "magazine:civil-2-keiken-river-rural-park-pack"
+          },
+          {
+            "key": "magazine:cce-theme-quality-pack"
+          },
+          {
+            "key": "magazine:cce-theme-durability-pack"
+          },
+          {
+            "key": "magazine:cce-theme-environment-pack"
+          },
+          {
+            "key": "magazine:cce-theme-trouble-pack"
+          },
+          {
+            "key": "magazine:essay-steel-concrete-consultant-magazine"
+          },
+          {
+            "key": "magazine:essay-tunnel-consultant-magazine"
+          },
+          {
+            "key": "magazine:essay-road-paving-contractor-magazine"
+          },
+          {
+            "key": "magazine:essay-geotechnical-consultant-magazine"
+          },
+          {
+            "key": "magazine:essay-water-consultant-magazine"
+          },
+          {
+            "key": "magazine:essay-maintenance-contractor-magazine"
+          }
+        ],
+        "failed": [
+          {
+            "key": "magazine:procurement-municipality",
+            "reason": "登録失敗（exit 6）"
+          },
+          {
+            "key": "magazine:standards-municipality",
+            "reason": "登録失敗（exit 6）"
+          },
+          {
+            "key": "magazine:river-municipality",
+            "reason": "登録失敗（exit 6）"
+          },
+          {
+            "key": "magazine:sewage-municipality",
+            "reason": "登録失敗（exit 6）"
+          },
+          {
+            "key": "magazine:sabo-municipality",
+            "reason": "登録失敗（exit 6）"
+          },
+          {
+            "key": "magazine:park-municipality",
+            "reason": "登録失敗（exit 6）"
+          },
+          {
+            "key": "magazine:water-municipality",
+            "reason": "登録失敗（exit 6）"
+          },
+          {
+            "key": "magazine:tradeoff-5kanri",
+            "reason": "登録失敗（exit 6）"
+          },
+          {
+            "key": "magazine:essay-core-pack",
+            "reason": "登録失敗（exit 6）"
+          },
+          {
+            "key": "magazine:civil-1-gakka",
+            "reason": "登録失敗（exit 6）"
+          },
+          {
+            "key": "magazine:civil-2-gakka",
+            "reason": "登録失敗（exit 6）"
+          },
+          {
+            "key": "magazine:civil-1-experience",
+            "reason": "登録失敗（exit 6）"
+          },
+          {
+            "key": "magazine:civil-2-experience",
+            "reason": "登録失敗（exit 6）"
+          },
+          {
+            "key": "magazine:civil-1-pastexam",
+            "reason": "登録失敗（exit 6）"
+          },
+          {
+            "key": "magazine:civil-1-combo",
+            "reason": "登録失敗（exit 6）"
+          },
+          {
+            "key": "magazine:bk-i-required",
+            "reason": "登録失敗（exit 6）"
+          },
+          {
+            "key": "magazine:bk-01-road",
+            "reason": "登録失敗（exit 6）"
+          },
+          {
+            "key": "magazine:bk-02-river",
+            "reason": "登録失敗（exit 6）"
+          },
+          {
+            "key": "magazine:bk-03-urban",
+            "reason": "登録失敗（exit 6）"
+          },
+          {
+            "key": "magazine:bk-04-geotech",
+            "reason": "登録失敗（exit 6）"
+          },
+          {
+            "key": "magazine:bk-05-steel",
+            "reason": "登録失敗（exit 6）"
+          },
+          {
+            "key": "magazine:bk-06-construction",
+            "reason": "登録失敗（exit 6）"
+          },
+          {
+            "key": "magazine:bk-07-environment",
+            "reason": "登録失敗（exit 6）"
+          },
+          {
+            "key": "magazine:bk-08-port",
+            "reason": "登録失敗（exit 6）"
+          },
+          {
+            "key": "magazine:bk-11-tunnel",
+            "reason": "登録失敗（exit 6）"
+          },
+          {
+            "key": "magazine:pe-construction-road-pack",
+            "reason": "登録失敗（exit 6）"
+          },
+          {
+            "key": "magazine:pe-construction-tunnel-pack",
+            "reason": "登録失敗（exit 6）"
+          },
+          {
+            "key": "magazine:tankan-reading-guide",
+            "reason": "登録失敗（exit 6）"
+          }
+        ]
+      },
+      "problems": []
+    }
+  ]
+}

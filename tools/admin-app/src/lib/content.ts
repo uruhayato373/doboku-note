@@ -4,6 +4,7 @@ import { join, relative } from 'node:path';
 import matter from 'gray-matter';
 import { findRepoRoot, repoPath } from './repo-root';
 import { NOTE_CONTENT_ROOT } from '../../../../scripts/lib/repository-paths.mjs';
+import { classifyNote, loadThemes, themeLabel } from '../../../../scripts/lib/content-theme.mjs';
 
 /**
  * content.ts — 記事 / note 記事 / マガジン一覧（読み取り専用）。
@@ -150,11 +151,17 @@ export interface NoteArticle {
   noteUrl: string | null;
   published: boolean;
   exam: string;
+  /** テーマ（資格・資格ファミリー・転職などの話題）の id。未分類は null（DN-0437・scripts/lib/content-theme.mjs）。 */
+  theme: string | null;
+  themeLabel: string;
+  /** 原稿に置いた導線のマーカー（`<!-- cta:<id> -->` の id）。公開記事への反映は note-sync の本文判定が見る。 */
+  ctas: string[];
 }
 
 export function noteArticles(): NoteArticle[] {
   const NOTE = NOTE_CONTENT_ROOT;
   const items: NoteArticle[] = [];
+  const themes = loadThemes(findRepoRoot());
   const walk = (absDir: string, rel: string) => {
     let entries;
     try {
@@ -168,8 +175,11 @@ export function noteArticles(): NoteArticle[] {
         walk(join(absDir, e.name), rel ? `${rel}/${e.name}` : e.name);
       } else if (/^article[A-Za-z0-9-]*\.md$/.test(e.name)) {
         let fm: Record<string, unknown> = {};
+        let ctas: string[] = [];
         try {
-          fm = (matter(readFileSync(join(absDir, e.name), 'utf8')).data as Record<string, unknown>) ?? {};
+          const raw = readFileSync(join(absDir, e.name), 'utf8');
+          fm = (matter(raw).data as Record<string, unknown>) ?? {};
+          ctas = [...new Set([...raw.matchAll(/<!-- cta:([a-z0-9-]+) -->/g)].map((m) => m[1]))];
         } catch {
           /* skip */
         }
@@ -183,6 +193,11 @@ export function noteArticles(): NoteArticle[] {
           noteUrl: (fm.noteUrl as string) || null,
           published: !!fm.noteUrl, // noteUrl があれば公開済みと見なす
           exam: rel.split('/')[0] ?? '',
+          ...(() => {
+            const theme = classifyNote(themes, `${rel}/${e.name}`, fm) as string | null;
+            return { theme, themeLabel: themeLabel(themes, theme) as string };
+          })(),
+          ctas,
         });
       }
     }
@@ -230,55 +245,6 @@ export function noteArticleCounts(): { total: number; published: number } | null
     total: all.filter(isArticle).length,
     published: published.filter(isArticle).length,
   };
-}
-
-// ─── note 要再公開ドリフト（check-note-republish --json）─────────
-/**
- * `check-note-republish` は「公開時の本文 hash」と現在の本文を突合して
- * **note 側の再公開が要るか**を出す（CLI + 週次 PDCA で運用中）。ここでは
- * 管理画面の note 記事タブに列として出すためだけに読む。
- *
- * 判定ロジックは CLI 側に残す（admin は既存 CLI を child_process 実行し、
- * ガードは CLI に置く方針 — tools/admin-app/README.md）。
- *
- * **取得に失敗したときは「ドリフト無し」ではなく `ok:false` を返す**。
- * 空の Set を返すと画面が全件緑になり、検査していないことが「問題なし」に
- * 化ける（CLAUDE.md §9「検査ゼロを PASS と呼ばない」）。
- */
-export interface NoteRepublishState {
-  ok: boolean;
-  error: string | null;
-  drift: Set<string>;
-  unknown: Set<string>;
-  counts: { synced: number; drift: number; unknown: number };
-}
-
-export function noteRepublishState(): NoteRepublishState {
-  const empty = { drift: new Set<string>(), unknown: new Set<string>(), counts: { synced: 0, drift: 0, unknown: 0 } };
-  try {
-    const out = execFileSync(process.execPath, [repoPath('scripts', 'check-note-republish.mjs'), '--json'], {
-      cwd: findRepoRoot(),
-      encoding: 'utf8',
-      timeout: 60_000,
-      maxBuffer: 32 * 1024 * 1024,
-    });
-    const d = JSON.parse(out) as {
-      synced?: number;
-      drift?: number;
-      unknown?: number;
-      driftFiles?: string[];
-      unknownFiles?: string[];
-    };
-    return {
-      ok: true,
-      error: null,
-      drift: new Set(d.driftFiles ?? []),
-      unknown: new Set(d.unknownFiles ?? []),
-      counts: { synced: d.synced ?? 0, drift: d.drift ?? 0, unknown: d.unknown ?? 0 },
-    };
-  } catch (e) {
-    return { ok: false, error: (e as Error).message.slice(0, 200), ...empty };
-  }
 }
 
 /**

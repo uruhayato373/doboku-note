@@ -176,25 +176,31 @@ function recordAudit(cards, print = console.log) {
  * 判定は「その commit で **正味** 消えた ID」→「あとの commit で **正味** 追加された ID」の順序。
  * tier セクション間の移動は同一 commit 内で削除＋追加になるので、commit 単位の差集合で除く。
  * backlog.md は docs/todo → .claude/todo へ移設したので両方のパスを渡す。
+ * 消したときと**同じ題名**で戻ったカードは、誤って消したものの復元なので数えない
+ * （2026-09-29 に DN-0400・DN-0115・DN-0393 を戻したのが「再利用」と出た）。
  */
 export function detectReuse(raw) {
   const out = [];
-  const removedAt = new Map(); // id -> 消えた commit
-  let sha = null, added = new Set(), removed = new Set();
+  const removedAt = new Map(); // id -> { sha: 消えた commit, title }
+  let sha = null, added = new Map(), removed = new Map(); // id -> 題名
   const flush = () => {
     if (!sha) return;
-    for (const id of removed) if (!added.has(id)) removedAt.set(id, sha);
-    for (const id of added) {
+    for (const [id, title] of removed) if (!added.has(id)) removedAt.set(id, { sha, title });
+    for (const [id, title] of added) {
       if (removed.has(id)) continue;
-      if (removedAt.has(id)) { out.push({ id, removedAt: removedAt.get(id), readdedAt: sha }); removedAt.delete(id); }
+      const prev = removedAt.get(id);
+      if (prev) {
+        if (prev.title !== title) out.push({ id, removedAt: prev.sha, readdedAt: sha });
+        removedAt.delete(id);
+      }
     }
-    added = new Set(); removed = new Set();
+    added = new Map(); removed = new Map();
   };
   for (const l of raw.split(/\r?\n/)) {
     if (l.startsWith('COMMIT ')) { flush(); sha = l.slice(7).trim(); continue; }
-    const m = l.match(/^([+-])### \[(DN-\d+)\]/);
+    const m = l.match(/^([+-])### \[(DN-\d+)\]\s*(.*)$/);
     if (!m) continue;
-    (m[1] === '+' ? added : removed).add(m[2]);
+    (m[1] === '+' ? added : removed).set(m[2], m[3].trim());
   }
   flush();
   return out;
