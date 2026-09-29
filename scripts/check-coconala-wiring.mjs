@@ -30,7 +30,7 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { checkPauseReasons, findOverdueResume } from './lib/coconala-guards.mjs';
+import { checkPauseReasons, findOverdueResume, resolveThumb } from './lib/coconala-guards.mjs';
 import { todayJst } from './lib/jst-date.mjs';
 import { loadManifest as loadAssetManifest } from './lib/asset-storage.mjs';
 import { loadDriveManifest } from './lib/drive-vault.mjs';
@@ -188,6 +188,14 @@ const listings = listingsData?.listings || {};
 const assetLedger = { ...(loadAssetManifest()?.entries ?? {}), ...(loadDriveManifest()?.entries ?? {}) };
 let thumbLocal = 0;
 let thumbInLedger = 0;
+let thumbApproved = 0;
+let thumbRenderable = 0;
+// 承認済みの POP 画像（正本）と、coconala-thumb.mjs の描画定義（THUMB_COPY のキー）。
+// coconala-thumb.mjs は実行すると画像を書くので import せず、定義ブロックのキーだけ読む。
+const approvedThumbs = readJson(join(ROOT, '.claude/config/coconala-thumb-approved.json'))?.images ?? {};
+const thumbScript = existsSync(join(ROOT, 'scripts/coconala-thumb.mjs')) ? readFileSync(join(ROOT, 'scripts/coconala-thumb.mjs'), 'utf-8') : '';
+const thumbCopyBlock = thumbScript.match(/const THUMB_COPY = \{([\s\S]*?)\r?\n\};/)?.[1] ?? '';
+const renderableThumbs = new Set([...thumbCopyBlock.matchAll(/^ {2}'(coconala-[a-z0-9-]+)': \{/gm)].map((m) => m[1]));
 
 for (const s of catalog) {
   const l = listings[s.id];
@@ -201,16 +209,25 @@ for (const s of catalog) {
   // 退避済みの端末や CI のクリーンチェックアウトでは実体が無いのが正常で、そこで落とすと
   // 「生成しろ」と言われても生成すべきものが既に在る、という直せない赤になる（2026-08-30）。
   // 判定は「ローカル実体 または 退避台帳」。どちらにも無ければ本当に存在しない。
+  // 2026-09-29: 正本は承認済みの POP 画像（coconala-thumb-approved.json）。フラットな thumb-<key>.png は
+  // そこから複製する派生物なので、承認原本を先に見る（旧デザインのフラット画像を台帳へ上げ直させない）。
   const thumbRel = `.claude/config/coconala/assets/thumb-${s.id.replace(/^coconala-/, '')}.png`;
-  if (!existsSync(join(ROOT, thumbRel))) {
-    if (assetLedger[thumbRel]) {
-      thumbInLedger += 1;
-    } else {
-      violations.push(`[${s.id}] 商品画像 ${thumbRel} がありません（coconala-thumb で生成してください）`);
-    }
-  } else {
-    thumbLocal += 1;
+  const thumb = resolveThumb({
+    id: s.id,
+    approvedPath: approvedThumbs[s.id]?.path ?? null,
+    flatPath: thumbRel,
+    has: (rel) => (existsSync(join(ROOT, rel)) ? 'local' : assetLedger[rel] ? 'ledger' : null),
+    renderable: renderableThumbs.has(s.id),
+  });
+  if (!thumb.ok) {
+    violations.push(`[${s.id}] 商品画像がありません（承認済み画像・${thumbRel}・coconala-thumb の描画定義のどれも無い）`);
+    continue;
   }
+  if (thumb.warn && s.status === 'listed') warnings.push(thumb.warn); // 休止・下書きは出品画面に出ないので警告しない
+  if (thumb.source === 'approved') thumbApproved += 1;
+  if (thumb.where === 'local') thumbLocal += 1;
+  else if (thumb.where === 'ledger') thumbInLedger += 1;
+  else thumbRenderable += 1;
 }
 
 // 10. 価格ルール: PDF 商品は note で同じ中身を最安で買う価格 × 1.1（ココナラの刻みで切り上げ）以上（2026-09-23 ユーザー決定）。
@@ -340,8 +357,8 @@ if (violations.length) {
 // 商品画像の判定根拠を必ず出す。台帳側の引き方が壊れても、ローカル実体があるうちは
 // 緑のままになる（2026-08-30 に章 OGP で踏んだのと同じ穴）。この数字が両方 0 なら故障。
 console.log(
-  `[check-coconala-wiring] 商品画像 ${thumbLocal + thumbInLedger}/${catalog.length} 件を確認` +
-    `（ローカル実体 ${thumbLocal} / 退避台帳 ${thumbInLedger}）`
+  `[check-coconala-wiring] 商品画像 ${thumbLocal + thumbInLedger + thumbRenderable}/${catalog.length} 件を確認` +
+    `（うち承認済み POP ${thumbApproved}・ローカル実体 ${thumbLocal} / 退避台帳 ${thumbInLedger} / 描画定義のみ ${thumbRenderable}・描画定義 ${renderableThumbs.size} 件を読んだ）`
 );
 console.log(
   `[check-coconala-wiring] 価格ルール: PDF ${parityRows.length} 件を note 基準で検査（対象外 ${parityExempt.length} 件: ${parityExempt.join(', ') || 'なし'}）`
