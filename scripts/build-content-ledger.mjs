@@ -21,9 +21,13 @@
  * リンク先が順番・位置どおり出ているかを見る。導線は note-append-cta で公開記事へ直接入れることがあり、同期の記録から
  * 推測できないため。ok 以外（missing / order / position / 取得失敗 unknown）は毎回照合し直す。
  *
+ * ココナラの公開照合: 出品中（listed）の全サービスの公開ページを、正本（カタログ・listings）と照合する
+ * （check-coconala-live と同じ lib）。画像は承認済み POP 画像（coconala-thumb-approved.json）の登録で見る。
+ * 件数が少ない（約 20 件・30 秒）ので毎回照合する。--no-live のときは前回の結果のまま。
+ *
  * exit: 0 作成 / 1 失敗（同期の計画が作れない・記事 0 本）
  */
-import { spawn } from 'node:child_process';
+import { execFileSync, spawn } from 'node:child_process';
 import { existsSync, readdirSync, readFileSync, statSync, writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -31,6 +35,8 @@ import matter from 'gray-matter';
 
 import { classifyNote, loadThemes, themeLabel } from './lib/content-theme.mjs';
 import { fetchNoteDetails } from './lib/note-api.mjs';
+import { readCatalog, readListings } from './lib/coconala-catalog.mjs';
+import { checkListedServices, groupLiveIssues } from './lib/coconala-live.mjs';
 import { classifyArticleCtas, extractCtaExpectations } from './lib/note-cta-live.mjs';
 import { BLOCKERS, buildSyncPlan } from './lib/note-sync-plan.mjs';
 
@@ -155,6 +161,20 @@ async function build() {
   }
   if (cta.checked > 0 && cta.unknown === cta.checked) throw new Error(`導線の公開照合が全件取得失敗（${cta.unknown} 本）。ネットワークを確認するか --no-live で作る`);
 
+  // ココナラ: 出品中のサービスを公開ページと照合し、列（本文・価格・販売）ごとに食い違いを持つ
+  let coconala = prev?.coconala ?? null;
+  if (!NO_LIVE) {
+    const catalog = readCatalog();
+    let sellerName = '';
+    try { sellerName = JSON.parse(readFileSync(join(ROOT, '.claude/config/coconala-account.json'), 'utf8')).sellerName || ''; } catch { /* 出品者名の照合だけ省く */ }
+    const results = await checkListedServices(catalog, readListings(), { sellerName, execFileSync });
+    const items = {};
+    for (const r of results) items[r.id] = { fetched: r.fetched, ...(r.fetched ? groupLiveIssues(r.issues) : { text: [], price: [], sale: r.issues }) };
+    coconala = { checkedAt: new Date().toISOString(), targets: results.length, fetched: results.filter((r) => r.fetched).length, items };
+    if (results.length && coconala.fetched === 0) throw new Error(`ココナラの公開照合が全件取得失敗（${results.length} 件）。ネットワークを確認するか --no-live で作る`);
+    console.log(`${TAG} ココナラの公開照合: 出品中 ${results.length} 件 / 取得 ${coconala.fetched} 件 / 食い違い ${results.filter((r) => r.fetched && !r.ok).length} 件`);
+  }
+
   const ledger = {
     _doc: 'scripts/build-content-ledger.mjs が作る管理画面「コンテンツ台帳」用の note 記事の索引（生成物・git 管理外）。正本は原稿と同期の台帳。',
     version: VERSION,
@@ -163,6 +183,7 @@ async function build() {
     counts: { notes: notes.length, reread, sync: plan.counts, cta },
     blockers: BLOCKERS,
     notes,
+    coconala,
   };
   mkdirSync(dirname(LEDGER_PATH), { recursive: true });
   writeFileSync(LEDGER_PATH, JSON.stringify(ledger));

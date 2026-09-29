@@ -19,6 +19,8 @@ import { findRepoRoot, repoPath } from './repo-root';
 export type SyncStatus = 'synced' | 'ready' | 'blocked';
 /** 導線の公開照合（scripts/lib/note-cta-live.mjs）。unknown は取得失敗 */
 export type CtaLiveState = 'ok' | 'missing' | 'order' | 'position' | 'unknown';
+/** ココナラの公開照合（scripts/lib/coconala-live.mjs）。各配列は食い違いの説明。image は承認済み POP 画像が無いときの説明 */
+export interface ProductLive { text: string[]; price: string[]; sale: string[]; image: string | null; checkedAt: string | null }
 export interface CtaLive { state: CtaLiveState; byId: Record<string, { state: CtaLiveState; missing: string[] }>; checkedAt: string; error?: string }
 
 export interface LedgerRow {
@@ -34,6 +36,10 @@ export interface LedgerRow {
   sync: { status: SyncStatus; parts: string[]; reasons?: Record<string, string>; blocker: string | null } | null;
   ctas: string[];
   ctaLive: CtaLive | null;
+  /** ココナラの出品中のサービスだけ。照合の索引が無ければ null */
+  live: ProductLive | null;
+  /** 管理画面内の詳細（ココナラは正本 3 ファイルをまとめて見る画面） */
+  detailHref: string | null;
   path: string | null;
 }
 
@@ -66,6 +72,7 @@ interface NoteIndex {
   counts: { sync: Record<string, number> };
   blockers: Record<string, { label: string; action: string }>;
   notes: NoteIndexEntry[];
+  coconala?: { checkedAt: string; items: Record<string, { fetched: boolean; text: string[]; price: string[]; sale: string[] }> } | null;
 }
 
 interface LineupConfig {
@@ -76,6 +83,15 @@ interface LineupConfig {
 
 const PRICE_LABEL: Record<string, string> = { paid: '有料', free: '無料', membership: '会員' };
 const KIND: Record<string, string> = { note: 'マガジン', coconala: '出品', kindle: '本' };
+
+/** 承認済み POP 画像（ココナラの商品画像の正本）。読めなければ空 */
+export function readApprovedThumbs(): Record<string, { path: string; sha256: string }> {
+  try {
+    return JSON.parse(readFileSync(repoPath('.claude', 'config', 'coconala-thumb-approved.json'), 'utf8')).images ?? {};
+  } catch {
+    return {};
+  }
+}
 
 function readNoteIndex(): { index: NoteIndex | null; error: string | null } {
   try {
@@ -112,9 +128,24 @@ export function loadLedgerView(): LedgerView {
       sync: n.sync,
       ctas: n.ctas,
       ctaLive: n.ctaLive ?? null,
+      live: null,
+      detailHref: null,
       path: n.path,
     });
   }
+
+  const approved = readApprovedThumbs();
+  const coconalaLive = (id: string, stage: string): ProductLive | null => {
+    if (stage !== 'published') return null;
+    const hit = index?.coconala?.items?.[id];
+    return {
+      text: hit?.text ?? [],
+      price: hit?.price ?? [],
+      sale: hit ? hit.sale : index?.coconala ? ['公開照合の対象に入っていない（出品中なのに照合されていない）'] : [],
+      image: approved[id] ? null : '承認済みの POP 画像が無い（coconala-thumb-approved.json に未登録）',
+      checkedAt: index?.coconala?.checkedAt ?? null,
+    };
+  };
 
   const loaders: [string, () => LineupItem[]][] = [
     ['note', loadNoteItems],
@@ -139,6 +170,8 @@ export function loadLedgerView(): LedgerView {
           sync: null,
           ctas: [],
           ctaLive: null,
+          live: channel === 'coconala' ? coconalaLive(item.id, item.stage) : null,
+          detailHref: channel === 'coconala' ? `/content/ledger/coconala/${encodeURIComponent(item.id)}` : null,
           path: null,
         });
       }

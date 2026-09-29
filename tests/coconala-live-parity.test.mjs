@@ -10,7 +10,7 @@
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { parseServiceProduct, diffLiveService } from '../scripts/lib/coconala-live.mjs';
+import { parseServiceProduct, diffLiveService, groupLiveIssues } from '../scripts/lib/coconala-live.mjs';
 import {
   parseNotePrices,
   evalNoteBasis,
@@ -128,4 +128,17 @@ test('diffLiveProfile: 職業・ひとことアピール・自己紹介文が So
   const issues = diffLiveProfile({ job: '別', appeal: '別', bio: '別の本文' }, html);
   assert.equal(issues.length, 3);
   assert.match(diffLiveProfile(profile, '<html></html>')[0], /職業を読めない/);
+});
+
+test('groupLiveIssues: 食い違いを台帳の列（本文・価格・販売）に振り分ける', () => {
+  const g = groupLiveIssues([
+    '価格: live ¥3000 ≠ カタログ ¥3500',
+    'タイトル: live「a」がカタログのタイトル「b」で始まらない',
+    '本文: 3文字目から不一致',
+    '販売状態: OutOfStock（listed なのに購入できない）',
+    '公開ページに Product の構造化データが無い（非公開・削除・ページ構造の変更）',
+  ]);
+  assert.equal(g.price.length, 1);
+  assert.equal(g.text.length, 2);
+  assert.equal(g.sale.length, 2);
 });

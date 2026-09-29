@@ -78,11 +78,12 @@ function Facet({ title, param, now, active, total, items }: {
   );
 }
 
-type DriftState = 'ok' | 'drift' | 'blocked' | 'none';
+type DriftState = 'ok' | 'drift' | 'blocked' | 'unknown' | 'none';
 const DRIFT_BADGE: Record<Exclude<DriftState, 'none'>, { cls: string; label: string }> = {
   ok: { cls: 'good', label: '済' },
   drift: { cls: 'warn', label: 'ずれ' },
   blocked: { cls: 'bad', label: '止' },
+  unknown: { cls: 'neutral', label: '?' },
 };
 
 /**
@@ -90,6 +91,7 @@ const DRIFT_BADGE: Record<Exclude<DriftState, 'none'>, { cls: string; label: str
  *   本文 … 本文のテキスト・本文の画像や PDF・タグ　カバー … カバー画像　導線 … 導線を入れた本文が note に出ているか
  */
 function drift(row: LedgerRow, part: 'body' | 'cover', blocker?: (id: string | null) => string | undefined): { state: DriftState; why?: string } {
+  if (row.live) return productDrift(row.live, part);
   if (row.channel !== 'note' || row.kind !== '記事' || !row.published) return { state: 'none' };
   const sync = row.sync;
   if (!sync) return { state: 'ok' };
@@ -100,6 +102,19 @@ function drift(row: LedgerRow, part: 'body' | 'cover', blocker?: (id: string | n
   if (!hit.length) return stopped && part === 'body' ? { state: 'blocked', why: stopped } : { state: 'ok' };
   const why = hit.map((k) => REASON_LABEL[`${k}:${sync.reasons?.[k]}`] ?? PART_LABEL[k] ?? k).join('・');
   return stopped ? { state: 'blocked', why: `${why}（${stopped}）` } : { state: 'drift', why };
+}
+
+/** ココナラの出品中のサービス: 本文＝タイトル・キャッチコピー・本文と販売状態、画像＝承認済み POP 画像の登録 */
+function productDrift(live: NonNullable<LedgerRow['live']>, part: 'body' | 'cover'): { state: DriftState; why?: string } {
+  if (part === 'cover') return live.image ? { state: 'drift', why: live.image } : { state: 'ok', why: '承認済みの POP 画像が登録されている（公開ページの画像との一致は見ていない）' };
+  if (!live.checkedAt) return { state: 'unknown', why: '公開照合をしていない（npm run content-ledger で作る）' };
+  const issues = [...live.sale, ...live.text];
+  return issues.length ? { state: 'drift', why: issues.join(' / ') } : { state: 'ok', why: `公開ページが正本と一致（照合 ${jst(live.checkedAt)}）` };
+}
+
+function hasDrift(r: LedgerRow): boolean {
+  if (r.live) return Boolean(r.live.image || r.live.sale.length || r.live.text.length || r.live.price.length);
+  return r.sync?.status === 'ready';
 }
 
 function DriftCell({ state, why }: { state: DriftState; why?: string }) {
@@ -128,6 +143,7 @@ function inState(r: LedgerRow, key: string): boolean {
   if (key === 'published') return r.published;
   if (key === 'unpublished') return !r.published;
   if (key === 'cta') return CTA_DRIFT.has(r.ctaLive?.state ?? '');
+  if (key === 'ready') return hasDrift(r);
   return r.sync?.status === key;
 }
 
@@ -221,8 +237,8 @@ export default async function LedgerPage({ searchParams }: { searchParams: Promi
                       <th className="category-col optional-col">テーマ</th>
                       <th className="price-col">価格</th>
                       <th className="publish-col">状態</th>
-                      <th className="publish-col" title="note の公開記事が原稿どおりか。済＝同じ／ずれ＝原稿の変更がまだ note に出ていない（マウスで理由）／止＝反映できない">本文</th>
-                      <th className="publish-col" title="note のカバー画像が原稿どおりか（済・ずれ・止）">カバー</th>
+                      <th className="publish-col" title="公開ページが正本どおりか。note＝原稿の本文・タグ（同期の判定）／ココナラ＝タイトル・キャッチコピー・本文・販売状態（公開ページの照合）。済／ずれ（マウスで理由）／止＝反映できない／?＝照合していない">本文</th>
+                      <th className="publish-col" title="note＝カバー画像が原稿どおりか／ココナラ＝承認済みの POP 画像が登録されているか">画像</th>
                       <th className="publish-col" title="原稿の導線（ココナラ・パックなど）のリンク先が、note の公開記事に順番・位置どおり出ているか（公開 API で照合・マウスで内訳）。済／ずれ／?＝取得失敗">導線</th>
                     </tr>
                   </thead>
@@ -230,7 +246,8 @@ export default async function LedgerPage({ searchParams }: { searchParams: Promi
                     {rows.map((r) => (
                       <tr key={r.key}>
                         <td className="title-cell" title={r.path ?? r.key}>
-                          {r.url ? <a href={r.url} target="_blank" rel="noopener noreferrer">{r.title}</a> : r.title}
+                          {r.detailHref ? <Link href={r.detailHref}>{r.title}</Link>
+                            : r.url ? <a href={r.url} target="_blank" rel="noopener noreferrer">{r.title}</a> : r.title}
                         </td>
                         {kindCol ? (
                           <td className="publish-col">
@@ -244,7 +261,10 @@ export default async function LedgerPage({ searchParams }: { searchParams: Promi
                             <span className="badge bad" title="テーマのルールに当たらない">未分類</span>
                           )}
                         </td>
-                        <td className="price-col"><span className="muted">{r.price ?? '—'}</span></td>
+                        <td className="price-col">
+                          <span className="muted">{r.price ?? '—'}</span>
+                          {r.live?.price.length ? <> <span className="badge warn" title={r.live.price.join(' / ')}>ずれ</span></> : null}
+                        </td>
                         <td className="publish-col">
                           <span className={'badge ' + (r.published ? 'good' : 'neutral')}>{r.stageLabel}</span>
                         </td>
