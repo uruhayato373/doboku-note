@@ -4,6 +4,7 @@ import { join, relative } from 'node:path';
 import matter from 'gray-matter';
 import { findRepoRoot, repoPath } from './repo-root';
 import { NOTE_CONTENT_ROOT } from '../../../../scripts/lib/repository-paths.mjs';
+import { classifyNote, loadThemes, themeLabel } from '../../../../scripts/lib/content-theme.mjs';
 
 /**
  * content.ts — 記事 / note 記事 / マガジン一覧（読み取り専用）。
@@ -150,6 +151,9 @@ export interface NoteArticle {
   noteUrl: string | null;
   published: boolean;
   exam: string;
+  /** テーマ（資格・資格ファミリー・転職などの話題）の id。未分類は null（DN-0437・scripts/lib/content-theme.mjs）。 */
+  theme: string | null;
+  themeLabel: string;
   /** 原稿に置いた導線のマーカー（`<!-- cta:<id> -->` の id）。公開記事への反映は note-sync の本文判定が見る。 */
   ctas: string[];
 }
@@ -157,6 +161,7 @@ export interface NoteArticle {
 export function noteArticles(): NoteArticle[] {
   const NOTE = NOTE_CONTENT_ROOT;
   const items: NoteArticle[] = [];
+  const themes = loadThemes(findRepoRoot());
   const walk = (absDir: string, rel: string) => {
     let entries;
     try {
@@ -188,6 +193,10 @@ export function noteArticles(): NoteArticle[] {
           noteUrl: (fm.noteUrl as string) || null,
           published: !!fm.noteUrl, // noteUrl があれば公開済みと見なす
           exam: rel.split('/')[0] ?? '',
+          ...(() => {
+            const theme = classifyNote(themes, `${rel}/${e.name}`, fm) as string | null;
+            return { theme, themeLabel: themeLabel(themes, theme) as string };
+          })(),
           ctas,
         });
       }
