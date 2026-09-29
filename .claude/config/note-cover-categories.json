@@ -1,0 +1,22 @@
+{
+  "_doc": "note 記事のカバー画像を用途別に管理する分類の正本。上から順に rules.note を評価し、該当しなければテーマと価格区分から defaults で決める。記事ごとの例外は frontmatter の coverCategory: で上書きする。",
+  "categories": [
+    { "id": "index", "label": "もくじ", "description": "全資格・資格別の入口となる目次記事", "styleHint": "資格ごとに色を変えた、キャラクター中心のポップな目次カバー" },
+    { "id": "qualification-guide", "label": "資格対策・無料ガイド", "description": "無料で読める試験対策、学習法、制度案内", "styleHint": "悩みや学習テーマが一目で伝わる解説型カバー" },
+    { "id": "qualification-product", "label": "資格商品・有料教材", "description": "有料記事、マガジン収録教材、会員向け教材", "styleHint": "商品価値と収録内容が明確な教材型カバー" },
+    { "id": "career", "label": "転職・キャリア", "description": "資格活用、転職、職務経歴などのキャリア記事", "styleHint": "人物と進路を主役にしたキャリア型カバー" },
+    { "id": "column", "label": "実務・一般コラム", "description": "現場経験、失敗談、AI活用などの一般記事", "styleHint": "体験や話題性を前面に出した読み物型カバー" },
+    { "id": "brand", "label": "ブランド・案内", "description": "著者紹介、運営方針、共通案内", "styleHint": "doboku-note の信頼感と統一感を示す案内型カバー" }
+  ],
+  "rules": {
+    "note": [
+      { "category": "index", "noteSeries": "総合案内" },
+      { "category": "column", "pathPrefix": "共通/AIで土木資格を攻略/" },
+      { "category": "column", "pathPrefix": "1級・2級土木/施工管理の失敗談と教訓-無料/" }
+    ]
+  },
+  "defaults": {
+    "themeIds": { "career": "career", "common": "brand" },
+    "qualification": { "free": "qualification-guide", "paid": "qualification-product" }
+  }
+}
