@@ -44,7 +44,9 @@ export const AUTHOR_BANNER_ORIGIN_DIR = 'content/note/共通/著者オーソリ�
 export function resolveAuthorBannerOrigin(abs) {
   const name = basename(abs);
   if (!AUTHOR_BANNER_RE.test(name)) return null;
-  const i = abs.lastIndexOf('/content/note/');
+  // Windows の絶対パスは `\` 区切り。'/content/note/' のまま探すと常に見つからず、Windows では
+  // 著者バナー入りの全記事が「画像が手元に無い」で止まっていた（2026-09-29・198 本・DN-0436）。
+  const i = abs.replace(/\\/g, '/').lastIndexOf('/content/note/');
   if (i < 0) return null;
   const origin = join(abs.slice(0, i), AUTHOR_BANNER_ORIGIN_DIR, name);
   return existsSync(origin) ? origin : null;
