@@ -344,9 +344,10 @@ const SERVICES_RAW = {
   //   買い分け不能（初受注の混乱シグナル→展開キット §2 決定ログ）。1商品に統合し ¥5,000。
   //   ※ココナラの価格刻み＝¥10,000以下は500円刻み。¥4,980 等の端数は入力できない（publish が拒否）。
   //   納品 = coconala-C2-*.pdf 5冊 + coconala-C4-*.pdf 5冊 の計10冊。
+  // 2026-09-29 アーカイブ: ココナラは添削系へ精選（展開キット §2 決定ログ）。模範答案は教材フルパックに収録済み。
   'coconala-kanseitoan-pdf': {
     id: 'coconala-kanseitoan-pdf',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4317580',
     title: '1級土木 経験記述の模範答案セットを送ります',
     shortTitle: '1級 経験記述 模範答案セット PDF',
@@ -358,14 +359,17 @@ const SERVICES_RAW = {
     notePriceBasis: 'civil-1-experience-essay + civil-1-pastexam-essay',
     examScope: ['civil-1'],
     weeklyCapacity: 10,
+    pauseReason: 'retired',
+    archivedAt: '2026-09-29',
     listedAt: '2026-07-18',
   },
 
   // C3: 2級 経験記述 模範答案セット（テーマ別3冊＋年度別5冊＝C3+C5 統合・2026-08-05 統廃合）。
   //   納品 = coconala-C3-*.pdf 3冊 + coconala-C5-*.pdf 5冊 の計8冊。
+  // 2026-09-29 アーカイブ: ココナラは添削系へ精選（展開キット §2 決定ログ）。模範答案は教材フルパックに収録済み。
   'coconala-2kyu-kanseitoan-pdf': {
     id: 'coconala-2kyu-kanseitoan-pdf',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4317722',
     title: '2級土木 経験記述の模範答案セットを送ります',
     shortTitle: '2級 経験記述 模範答案セット PDF',
@@ -377,6 +381,8 @@ const SERVICES_RAW = {
     notePriceBasis: 'civil-2-experience-essay + civil-2-pastexam-essay',
     examScope: ['civil-2'],
     weeklyCapacity: 10,
+    pauseReason: 'retired',
+    archivedAt: '2026-09-29',
     listedAt: '2026-07-18',
   },
 
