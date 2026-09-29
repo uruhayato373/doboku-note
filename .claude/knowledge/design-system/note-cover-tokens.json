@@ -135,6 +135,36 @@
       "deep": "#742D15",
       "soft": "#BE5E3A",
       "accent": "#16365C"
+    },
+    "surveyor": {
+      "dir": "測量士",
+      "label": "測量士・測量士補（国土地理院）",
+      "short": "測量士",
+      "hue": "blue",
+      "base": "#1F5F8B",
+      "deep": "#164566",
+      "soft": "#3F7FAD",
+      "accent": "#9C3D1E"
+    },
+    "pavement": {
+      "dir": "舗装",
+      "label": "舗装施工管理技術者（日本道路建設業協会）",
+      "short": "舗装",
+      "hue": "asphalt",
+      "base": "#4A4A52",
+      "deep": "#333339",
+      "soft": "#6B6B75",
+      "accent": "#B45309"
+    },
+    "pipe-work": {
+      "dir": "管工事",
+      "label": "管工事施工管理技士（全国建設研修センター）",
+      "short": "管工事",
+      "hue": "teal-blue",
+      "base": "#1D6A7A",
+      "deep": "#144D59",
+      "soft": "#3B8898",
+      "accent": "#9C3D1E"
     }
   },
 
