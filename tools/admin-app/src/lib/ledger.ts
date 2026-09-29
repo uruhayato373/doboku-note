@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 
 import { classifyProduct } from '../../../../scripts/lib/product-lineup.mjs';
 import { loadThemes, themeLabel, themeShortLabel } from '../../../../scripts/lib/content-theme.mjs';
+import { loadNoteCoverCategories, noteCoverCategoryLabel } from '../../../../scripts/lib/note-cover-category.mjs';
 import { loadCoconalaItems, loadKindleItems, loadNoteItems, type LineupItem } from './lineup';
 import { findRepoRoot, repoPath } from './repo-root';
 import { artifactRelPaths, loadKindleCatalog } from '../../../../scripts/lib/kindle-catalog.mjs';
@@ -10,7 +11,7 @@ import { isOnKdp, kindleDrift } from '../../../../scripts/lib/kindle-uploaded.mj
 /**
  * ledger.ts — 管理画面「コンテンツ台帳」（/content/ledger）の表示モデル（DN-0438）。
  *
- * 1 行 = 1 制作物。テーマ（資格＋転職などの話題・scripts/lib/content-theme.mjs）とチャネルの 2 軸で絞る。
+ * 1 行 = 1 制作物。テーマ、note 記事のカバー分類、チャネル、状態で絞る。
  *   - note の記事: 索引 .claude/state/content-ledger.json（scripts/build-content-ledger.mjs が作る）を読むだけ。
  *     原稿約 920 本と同期の計画を画面で読み直さない（この端末では 1 分を超える）
  *   - note のマガジン・ココナラ・Kindle: 件数が少なく速いので、商品ラインナップと同じ読み込み（lib/lineup.ts）を使い、
@@ -38,6 +39,8 @@ export interface LedgerRow {
   title: string;
   url: string | null;
   themes: string[];
+  /** note 記事のカバー用途。商品行は null */
+  coverCategory: string | null;
   price: string | null;
   published: boolean;
   stageLabel: string;
@@ -58,6 +61,8 @@ export interface LedgerView {
   channels: { id: string; label: string }[];
   themeLabel: (id: string | null) => string;
   themeShortLabel: (id: string | null) => string;
+  coverCategories: { id: string; label: string; description: string; styleHint: string }[];
+  coverCategoryLabel: (id: string | null) => string;
   lineupQualifications: Set<string>;
   blockers: Record<string, { label: string; action: string }>;
   index: { ok: boolean; generatedAt: string | null; error: string | null; syncCounts: Record<string, number> | null };
@@ -69,6 +74,7 @@ interface NoteIndexEntry {
   title: string;
   contentType: string;
   theme: string | null;
+  coverCategory?: string | null;
   pricing: string;
   magazine: string | null;
   noteUrl: string | null;
@@ -122,6 +128,7 @@ function productThemes(config: LineupConfig, item: LineupItem): string[] {
 export function loadLedgerView(): LedgerView {
   const config = JSON.parse(readFileSync(repoPath('.claude', 'config', 'product-lineup.json'), 'utf8')) as LineupConfig;
   const themes = loadThemes(findRepoRoot());
+  const coverCategories = loadNoteCoverCategories(findRepoRoot());
   const sourceErrors: LedgerView['sourceErrors'] = [];
   const rows: LedgerRow[] = [];
 
@@ -134,6 +141,7 @@ export function loadLedgerView(): LedgerView {
       title: n.title,
       url: n.noteUrl,
       themes: n.theme ? [n.theme] : [],
+      coverCategory: n.coverCategory ?? null,
       price: PRICE_LABEL[n.pricing] ?? null,
       published: n.published,
       stageLabel: n.published ? '公開' : '未公開',
@@ -205,6 +213,7 @@ export function loadLedgerView(): LedgerView {
           title: item.title,
           url: item.url,
           themes: productThemes(config, item),
+          coverCategory: null,
           price: item.price,
           published: item.stage === 'published',
           stageLabel: item.ended ? '終了' : item.stageLabel,
@@ -227,6 +236,8 @@ export function loadLedgerView(): LedgerView {
     channels: config.channels.filter((c) => c.id !== 'app'),
     themeLabel: (id) => themeLabel(themes, id) as string,
     themeShortLabel: (id) => themeShortLabel(themes, id) as string,
+    coverCategories: [...coverCategories.categories.values()] as LedgerView['coverCategories'],
+    coverCategoryLabel: (id) => noteCoverCategoryLabel(coverCategories, id) as string,
     lineupQualifications: new Set(config.qualifications.map((q) => q.id)),
     blockers: index?.blockers ?? {},
     index: { ok: Boolean(index), generatedAt: index?.generatedAt ?? null, error, syncCounts: index?.counts?.sync ?? null },

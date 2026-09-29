@@ -40,6 +40,7 @@ import { fileURLToPath } from 'node:url';
 import matter from 'gray-matter';
 
 import { classifyNote, loadThemes, themeLabel } from './lib/content-theme.mjs';
+import { classifyNoteCover, loadNoteCoverCategories, noteCoverCategoryLabel } from './lib/note-cover-category.mjs';
 import { fetchNoteDetails } from './lib/note-api.mjs';
 import { readCatalog, readListings } from './lib/coconala-catalog.mjs';
 import { checkListedServices, groupLiveIssues } from './lib/coconala-live.mjs';
@@ -52,7 +53,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 export const LEDGER_PATH = join(ROOT, '.claude', 'state', 'content-ledger.json');
 const NOTE_ROOT = join(ROOT, 'content', 'note');
 const TAG = '[content-ledger]';
-const VERSION = 5; // 2: 導線の公開照合を追加　3: 導線の種類ごとに照合　4: 記事・出品ごとの鍵（中身のハッシュ）で読み直しを決める　5: 記事区分（noteContentType）を追加
+const VERSION = 6; // 2: 導線の公開照合を追加　3: 導線の種類ごとに照合　4: 記事・出品ごとの鍵（中身のハッシュ）で読み直しを決める　5: 記事区分（noteContentType）を追加　6: note カバー分類を追加
 const argv = process.argv.slice(2);
 const REFRESH = argv.includes('--refresh') || argv.includes('--refresh-cta');
 const NO_LIVE = argv.includes('--no-live');
@@ -70,7 +71,7 @@ function readPrevious() {
 function spawnIfStale(hours) {
   const prev = readPrevious();
   const age = prev?.generatedAt ? (Date.now() - Date.parse(prev.generatedAt)) / 3_600_000 : Infinity;
-  if (age < hours) {
+  if (prev?.version === VERSION && age < hours) {
     console.log(`${TAG} 索引は ${age.toFixed(1)} 時間前のもの。作り直さない。`);
     return;
   }
@@ -117,6 +118,7 @@ function walkNotes() {
 async function build() {
   const started = Date.now();
   const themes = loadThemes(ROOT);
+  const coverCategories = loadNoteCoverCategories(ROOT);
   const prev = readPrevious();
   // 索引の形を変えたら VERSION を上げる（古い索引の記事はキャッシュせず読み直す）
   const prevByPath = new Map((prev?.version === VERSION ? prev.notes : []).map((n) => [n.path, n]));
@@ -137,6 +139,7 @@ async function build() {
     const fm = matter(raw).data ?? {};
     const rel = relative(NOTE_ROOT, abs);
     const theme = classifyNote(themes, rel, fm);
+    const coverCategory = classifyNoteCover(coverCategories, rel, fm, theme, theme ? themes.themes.get(theme)?.kind ?? null : null);
     notes.push({
       path,
       key,
@@ -144,6 +147,8 @@ async function build() {
       contentType: fm.noteContentType || 'unknown',
       theme,
       themeLabel: themeLabel(themes, theme),
+      coverCategory,
+      coverCategoryLabel: noteCoverCategoryLabel(coverCategories, coverCategory),
       pricing: fm.notePricing || 'unknown',
       magazine: fm.noteMagazine || null,
       noteUrl: fm.noteUrl || null,
