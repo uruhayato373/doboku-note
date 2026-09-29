@@ -117,6 +117,12 @@ const THUMB_COPY = {
     hook: '答案の型の解法ガイドと\n4テーマの模範答案・置換ガイド',
     priceLabel: 'PDF5冊',
   },
+  'coconala-cce-essay-tensaku': {
+    eyebrow: 'コンクリート主任技士 ／ 小論文',
+    title: ['主任技士 小論文', '添削'],
+    hook: '主任技士・元発注者が48時間で\n赤入れ。書き直し1回つき',
+    priceLabel: '1課題・書き直し1回込み',
+  },
   'coconala-cce-takuitsu-pdf': {
     eyebrow: 'コンクリート主任技士 ／ 四肢択一',
     title: ['主任技士 択一', '直前パック'],

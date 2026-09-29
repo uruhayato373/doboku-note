@@ -783,6 +783,25 @@ const SERVICES_RAW = {
     weeklyCapacity: 20,
     listedAt: '2026-09-25',
   },
+  // ---- コンクリート主任技士 小論文添削（2026-09-29 新設）----
+  // 競合実測（09-29）: 主任技士の添削はココナラに2件のみ（¥5,000・販売0件／¥3,000・★1.0）。
+  // 土木の添削が試験9日前に売れた実績から、需要の山は直前（本試験 2026-11-29）と見て1枠で出す。
+  // 価格は競合と同額、差は「書き直し1回込み・48時間」。骨子からの相談は別出品にせず有料オプション（20枠節約）。
+  // 導線は主任技士 小論文 note の冒頭と有料部分末尾（cta:coconala-custom と同型）。
+  'coconala-cce-essay-tensaku': {
+    id: 'coconala-cce-essay-tensaku',
+    status: 'listed',
+    serviceUrl: 'https://coconala.com/services/4425046',
+    title: 'コンクリート主任技士の小論文を添削します',
+    shortTitle: 'コンクリート主任技士 小論文 添削（1課題・48時間）',
+    description:
+      'コンクリート主任技士試験の記述式問題（小論文）を、受け取りから48時間以内に添削してお返しします。ご自身で書いた小論文1課題分の赤入れ（NG→OK 書き換え案）＋観点別の判定表（題意への応答・技術的な正確さ・実務経験の具体性・構成・字数と表現）＋書き直し1回を含みます。書く題材が決まらない方向けに、ヒアリングで骨子を一緒に組み立てる有料オプションがあります（代筆はしません）。経験していない業務や数値の創作はお受けしません。合格を保証するものではありません。',
+    price: '¥5,000（小論文1課題・48時間以内・書き直し1回込み）',
+    priceYen: 5000,
+    examScope: ['concrete-chief-engineer'],
+    weeklyCapacity: 2,
+    listedAt: '2026-09-29',
+  },
 } as const satisfies Record<string, CoconalaService>;
 
 export type CoconalaServiceId = keyof typeof SERVICES_RAW;
