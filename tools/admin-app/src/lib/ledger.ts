@@ -17,6 +17,9 @@ import { findRepoRoot, repoPath } from './repo-root';
  */
 
 export type SyncStatus = 'synced' | 'ready' | 'blocked';
+/** 導線の公開照合（scripts/lib/note-cta-live.mjs）。unknown は取得失敗 */
+export type CtaLiveState = 'ok' | 'missing' | 'order' | 'position' | 'unknown';
+export interface CtaLive { state: CtaLiveState; byId: Record<string, { state: CtaLiveState; missing: string[] }>; checkedAt: string; error?: string }
 
 export interface LedgerRow {
   key: string;
@@ -30,6 +33,7 @@ export interface LedgerRow {
   stageLabel: string;
   sync: { status: SyncStatus; parts: string[]; reasons?: Record<string, string>; blocker: string | null } | null;
   ctas: string[];
+  ctaLive: CtaLive | null;
   path: string | null;
 }
 
@@ -53,6 +57,7 @@ interface NoteIndexEntry {
   noteUrl: string | null;
   published: boolean;
   ctas: string[];
+  ctaLive?: CtaLive | null;
   sync: { status: SyncStatus; parts: string[]; reasons?: Record<string, string>; blocker: string | null } | null;
 }
 
@@ -106,6 +111,7 @@ export function loadLedgerView(): LedgerView {
       stageLabel: n.published ? '公開' : '未公開',
       sync: n.sync,
       ctas: n.ctas,
+      ctaLive: n.ctaLive ?? null,
       path: n.path,
     });
   }
@@ -132,6 +138,7 @@ export function loadLedgerView(): LedgerView {
           stageLabel: item.stageLabel,
           sync: null,
           ctas: [],
+          ctaLive: null,
           path: null,
         });
       }
