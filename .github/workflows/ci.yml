@@ -123,6 +123,7 @@ jobs:
     needs: [audit, build]
     if: always() && github.event_name == 'push'
     runs-on: ubuntu-latest
+    timeout-minutes: 5
 
     steps:
       - name: Checkout
