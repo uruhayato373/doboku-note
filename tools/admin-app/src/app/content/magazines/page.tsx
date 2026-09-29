@@ -1,4 +1,8 @@
+import {
+  StatusBadge, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow,
+} from '@/components/admin';
 import { PageHead } from '@/components/ui';
+import { Stack } from '@/components/layout';
 import { magazines } from '@/lib/content';
 import { membershipState } from '@/lib/note-status';
 
@@ -28,67 +32,65 @@ export default function ContentMagazinesPage() {
         title="note マガジン"
         sub={`${mags.length} 件（公開 ${pub} / 未公開 ${mags.length - pub}）· SoT: src/lib/note-magazines.ts`}
       />
-      <div className="card">
+      <Stack>
         {membership.ok ? (
-          <p className="muted">
+          <p className="text-sm text-muted-foreground">
             「repo 記事」= 記事 frontmatter <code>noteMagazine</code> の実数（check-magazine-membership 軸 A）。
             <strong>{unreferenced.size}</strong> 件はラベルから辿れない（束ね商品・単体商品・PDF）ため、
             記事一覧のマガジン絞り込みには現れない。
           </p>
         ) : (
-          <p className="muted">
-            <span className="badge bad">repo 記事は判定不可</span>{' '}
+          <p className="text-sm text-muted-foreground">
+            <StatusBadge tone="bad">repo 記事は判定不可</StatusBadge>{' '}
             check-magazine-membership が実行できないため「?」を出しています（空欄＝0本 ではありません）。
             {membership.error}
           </p>
         )}
-        <div className="table-wrap">
-          <table className="data content-table">
-            <thead>
-              <tr>
-                <th className="title-col">タイトル</th>
-                <th className="optional-col id-col">id</th>
-                <th className="price-col">価格</th>
-                <th className="publish-col">repo 記事</th>
-                <th className="publish-col">公開</th>
-                <th className="badge-col">バッジ</th>
-              </tr>
-            </thead>
-            <tbody>
+        <TableFrame>
+          <TableHeader>
+            <TableRow>
+              <TableHead>タイトル</TableHead>
+              <TableHead className="hidden xl:table-cell">id</TableHead>
+              <TableHead>価格</TableHead>
+              <TableHead>repo 記事</TableHead>
+              <TableHead>公開</TableHead>
+              <TableHead>バッジ</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
               {mags.map((m) => (
-                <tr key={m.id}>
-                  <td className="title-cell" title={m.title ?? m.id}>{m.title ?? m.id}</td>
-                  <td className="mono small optional-col path-cell" title={m.id}>{m.id}</td>
-                  <td className="price-col">{m.priceStr ?? ''}</td>
-                  <td className="publish-col">
+                <TableRow key={m.id}>
+                  <TableCell className="max-w-[28rem] truncate" title={m.title ?? m.id}>{m.title ?? m.id}</TableCell>
+                  <TableCell className="hidden max-w-[16rem] truncate font-mono text-xs xl:table-cell" title={m.id}>{m.id}</TableCell>
+                  <TableCell>{m.priceStr ?? ''}</TableCell>
+                  <TableCell>
                     {!membership.ok ? (
-                      <span className="badge neutral" title={membership.error ?? ''}>?</span>
+                      <StatusBadge tone="neutral" title={membership.error ?? ''}>?</StatusBadge>
                     ) : unreferenced.has(m.id) ? (
-                      <span className="badge neutral" title="この id を指す noteMagazine ラベルが無い">
+                      <StatusBadge tone="neutral" title="この id を指す noteMagazine ラベルが無い">
                         ラベル無
-                      </span>
+                      </StatusBadge>
                     ) : (repoCount.get(m.id) ?? 0) === 0 ? (
-                      <span className="badge warn">0</span>
+                      <StatusBadge tone="warn">0</StatusBadge>
                     ) : (
                       repoCount.get(m.id)
                     )}
-                  </td>
-                  <td className="publish-col">
+                  </TableCell>
+                  <TableCell>
                     {m.published && m.noteUrl ? (
                       <a href={m.noteUrl} target="_blank" rel="noopener noreferrer">
                         公開
                       </a>
                     ) : (
-                      <span className="badge warn">未公開</span>
+                      <StatusBadge tone="warn">未公開</StatusBadge>
                     )}
-                  </td>
-                  <td className="muted small badge-col">{m.badge ?? ''}</td>
-                </tr>
+                  </TableCell>
+                  <TableCell className="text-xs text-muted-foreground">{m.badge ?? ''}</TableCell>
+                </TableRow>
               ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
+          </TableBody>
+        </TableFrame>
+      </Stack>
     </>
   );
 }

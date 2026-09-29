@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { numCol, PanelCard, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import SectionTabs from '@/components/SectionTabs';
 import { domainList, domainOverview } from '@/lib/domains';
@@ -21,89 +22,83 @@ export default function TaxonomyPage() {
     <>
       <PageHead title="事業の分類" />
       <SectionTabs set="policy" current="/strategy/taxonomy" />
-      <div className="table-wrap" style={{ marginBottom: 16 }}>
-        <table className="data">
-          <thead>
-            <tr>
-              <th>役割</th>
-              <th>領域</th>
-              <th>管理するもの</th>
-              <th className="num">タスク</th>
-              <th className="num">スキル・エージェント</th>
-              <th className="num">文書</th>
-            </tr>
-          </thead>
-          <tbody>
-            {roles.flatMap((role) =>
-              domains
-                .filter((d) => d.role === role)
-                .map((d, i, arr) => {
-                  const o = domainOverview(d.id);
-                  return (
-                    <tr key={d.id}>
-                      {i === 0 && (
-                        <td rowSpan={arr.length} style={{ verticalAlign: 'top' }}>
-                          <strong>{role}</strong>
-                        </td>
-                      )}
-                      <td>
-                        <Link href={`/domains/${d.id}`}>{d.label}</Link>
-                      </td>
-                      <td className="small" style={{ whiteSpace: 'normal' }}>{d.manages}</td>
-                      <td className="num">{o?.cards.length ?? '—'}</td>
-                      <td className="num">{o ? o.skills.length + o.agents.length : '—'}</td>
-                      <td className="num">{o?.documents.length ?? '—'}</td>
-                    </tr>
-                  );
-                }),
-            )}
-          </tbody>
-        </table>
-      </div>
+      <TableFrame>
+        <TableHeader>
+          <TableRow>
+            <TableHead>役割</TableHead>
+            <TableHead>領域</TableHead>
+            <TableHead>管理するもの</TableHead>
+            <TableHead className={numCol}>タスク</TableHead>
+            <TableHead className={numCol}>スキル・エージェント</TableHead>
+            <TableHead className={numCol}>文書</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {roles.flatMap((role) =>
+            domains
+              .filter((d) => d.role === role)
+              .map((d, i, arr) => {
+                const o = domainOverview(d.id);
+                return (
+                  <TableRow key={d.id}>
+                    {i === 0 && (
+                      <TableCell rowSpan={arr.length} className="align-top">
+                        <strong>{role}</strong>
+                      </TableCell>
+                    )}
+                    <TableCell>
+                      <Link href={`/domains/${d.id}`}>{d.label}</Link>
+                    </TableCell>
+                    <TableCell className="text-xs whitespace-normal">{d.manages}</TableCell>
+                    <TableCell className={numCol}>{o?.cards.length ?? '—'}</TableCell>
+                    <TableCell className={numCol}>{o ? o.skills.length + o.agents.length : '—'}</TableCell>
+                    <TableCell className={numCol}>{o?.documents.length ?? '—'}</TableCell>
+                  </TableRow>
+                );
+              }),
+          )}
+        </TableBody>
+      </TableFrame>
 
-      <div className="card">
-        <h2>各領域の画面（種類別）</h2>
-        <div className="table-wrap">
-          <table className="data">
-            <thead>
-              <tr>
-                <th>領域</th>
-                {Object.entries(kinds).map(([k, v]) => (
-                  <th key={k} title={v}>{v.split('（')[0]}</th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {domains.map((d) => (
-                <tr key={d.id}>
-                  <td>{d.label}</td>
-                  {Object.keys(kinds).map((k) => (
-                    <td key={k} className="small" style={{ whiteSpace: 'normal' }}>
-                      {d.nav
-                        .filter((v) => v.kind === k)
-                        .map((v) => (
-                          <div key={v.href}>
-                            <Link href={v.href}>{v.label}</Link>
-                          </div>
-                        ))}
-                    </td>
-                  ))}
-                </tr>
+      <PanelCard title="各領域の画面（種類別）" className="mt-4">
+        <TableFrame>
+          <TableHeader>
+            <TableRow>
+              <TableHead>領域</TableHead>
+              {Object.entries(kinds).map(([k, v]) => (
+                <TableHead key={k} title={v}>{v.split('（')[0]}</TableHead>
               ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {domains.map((d) => (
+              <TableRow key={d.id}>
+                <TableCell>{d.label}</TableCell>
+                {Object.keys(kinds).map((k) => (
+                  <TableCell key={k} className="text-xs whitespace-normal">
+                    {d.nav
+                      .filter((v) => v.kind === k)
+                      .map((v) => (
+                        <div key={v.href}>
+                          <Link href={v.href}>{v.label}</Link>
+                        </div>
+                      ))}
+                  </TableCell>
+                ))}
+              </TableRow>
+            ))}
+          </TableBody>
+        </TableFrame>
+      </PanelCard>
 
       {cfg.navRules?.length ? (
-        <div className="card">
-          <h2>分け方の規則</h2>
-          <ul className="small">
+        <PanelCard title="分け方の規則" className="mt-4">
+          <ul className="text-xs">
             {cfg.navRules.map((r) => (
               <li key={r}>{r}</li>
             ))}
           </ul>
-        </div>
+        </PanelCard>
       ) : null}
     </>
   );

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { StatusBadge } from '@/components/admin';
 import Thumb from '@/components/Thumb';
 import { PageHead } from '@/components/ui';
 import { scanNoteImages } from '@/lib/gallery';
@@ -54,13 +55,13 @@ export default async function NoteGallery({
       </div>
 
       {filtered.length === 0 ? (
-        <div className="empty">該当なし</div>
+        <p className="text-sm text-muted-foreground">該当なし</p>
       ) : (
         <div className="gallery">
           {filtered.map((i) => (
             <Thumb key={i.rel} url={i.url} name={i.name} tall={i.kind === 'cover'} offloaded={i.state === 'offloaded'} bucket={i.bucket}>
-              <span className="badge neutral">{i.seg}</span>
-              <span className={'badge ' + (i.kind === 'cover' ? 'accent' : 'neutral')}>{i.kind}</span>
+              <StatusBadge tone="neutral">{i.seg}</StatusBadge>
+              <StatusBadge tone={i.kind === 'cover' ? 'info' : 'neutral'}>{i.kind}</StatusBadge>
             </Thumb>
           ))}
         </div>

@@ -1,4 +1,8 @@
 import Link from 'next/link';
+import {
+  numCol, PanelCard, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow,
+} from '@/components/admin';
+import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
 import UpcomingEvents from '@/components/UpcomingEvents';
 import { Badge } from '@/components/ui/badge';
@@ -47,12 +51,12 @@ export default async function LineupPage({ searchParams }: { searchParams: Promi
   return (
     <>
       <PageHead title={detail ? `商品ラインナップ：${rows[0]!.qualificationLabel}` : '商品ラインナップ'} />
+      <Stack>
       <UpcomingEvents domain="product" />
 
       {(configErrors.length > 0 || sourceErrors.length > 0) && (
-        <div className="card warn-border">
-          <h2>読み込みの問題</h2>
-          <ul className="small">
+        <PanelCard title="読み込みの問題">
+          <ul className="text-sm">
             {sourceErrors.map((e) => (
               <li key={e.channel} className="project-warning-text">
                 {e.channel}: {e.message}（このチャネルの空きマスは「未展開」ではなく「未検査」）
@@ -62,10 +66,10 @@ export default async function LineupPage({ searchParams }: { searchParams: Promi
               <li key={e} className="project-warning-text">config: {e}</li>
             ))}
           </ul>
-        </div>
+        </PanelCard>
       )}
 
-      <div className="small" style={{ marginBottom: 8, display: 'flex', justifyContent: 'space-between' }}>
+      <div className="flex justify-between text-sm">
         <span>{detail && <Link href={query({ q: null })}>← 一覧へ</Link>}</span>
         {showRetired ? (
           <Link href={query({ retired: null })}>停止中を隠す</Link>
@@ -73,40 +77,38 @@ export default async function LineupPage({ searchParams }: { searchParams: Promi
           <Link href={query({ retired: '1' })}>停止中も表示する</Link>
         )}
       </div>
-      <div className="table-wrap">
-          <table className="data">
-            <thead>
-              <tr>
-                {!detail && <th>資格</th>}
-                <th>区分</th>
-                {channels.map((c) => (
-                  <th key={c.id}>{c.label}</th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {rows.map((row) => (
-                <LineupRowView key={row.key} row={row} channels={channels} visible={visible} detail={Boolean(detail)} href={query({ q: row.qualificationId })} />
-              ))}
-            </tbody>
-          </table>
-      </div>
+      <TableFrame>
+        <TableHeader>
+          <TableRow>
+            {!detail && <TableHead>資格</TableHead>}
+            <TableHead>区分</TableHead>
+            {channels.map((c) => (
+              <TableHead key={c.id}>{c.label}</TableHead>
+            ))}
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {rows.map((row) => (
+            <LineupRowView key={row.key} row={row} channels={channels} visible={visible} detail={Boolean(detail)} href={query({ q: row.qualificationId })} />
+          ))}
+        </TableBody>
+      </TableFrame>
 
       {unclassified.length > 0 && (
-        <div className="card warn-border">
-          <h2>未分類 {unclassified.length} 件</h2>
-          <p className="small muted">
+        <PanelCard title={`未分類 ${unclassified.length} 件`}>
+          <p className="text-sm text-muted-foreground">
             どの分類ルールにも当たらなかった商品。<code>.claude/config/product-lineup.json</code> の rules に追加する。
           </p>
-          <ul className="small">
+          <ul className="text-sm">
             {unclassified.map((i) => (
               <li key={`${i.channel}:${i.id}`}>
-                <span className="mono">{i.channel}</span> {i.title} <span className="muted mono">{i.id}</span>
+                <span className="font-mono">{i.channel}</span> {i.title} <span className="font-mono text-muted-foreground">{i.id}</span>
               </li>
             ))}
           </ul>
-        </div>
+        </PanelCard>
       )}
+      </Stack>
     </>
   );
 }
@@ -126,15 +128,15 @@ function LineupRowView({
   href: string;
 }) {
   return (
-    <tr style={{ verticalAlign: 'top' }}>
+    <TableRow className="align-top">
       {row.isFirstStage && !detail && (
-        <th rowSpan={row.stageCount} scope="rowgroup" style={{ whiteSpace: 'nowrap' }}>
+        <TableHead rowSpan={row.stageCount} scope="rowgroup" className="whitespace-nowrap">
           {detail ? row.qualificationLabel : <Link href={href}>{row.qualificationLabel}</Link>}
-        </th>
+        </TableHead>
       )}
-      <td style={{ whiteSpace: 'nowrap' }}>
+      <TableCell className="whitespace-nowrap">
         <div>{row.stageLabel}</div>
-      </td>
+      </TableCell>
       {channels.map((c) => {
         const items = visible(row.byChannel[c.id] ?? []);
         const hasPublished = items.some((i) => i.stage === 'published');
@@ -142,24 +144,24 @@ function LineupRowView({
           const published = items.filter((i) => i.stage === 'published').length;
           const other = items.length - published;
           return (
-            <td key={c.id} className="num">
-              {published > 0 ? published : <span className="muted">未展開</span>}
-              {other > 0 && <div className="muted" style={{ fontSize: 11 }}>準備中 {other}</div>}
-            </td>
+            <TableCell key={c.id} className={numCol}>
+              {published > 0 ? published : <span className="text-muted-foreground">未展開</span>}
+              {other > 0 && <div className="text-[11px] text-muted-foreground">準備中 {other}</div>}
+            </TableCell>
           );
         }
         return (
-          <td key={c.id} style={{ minWidth: 200, maxWidth: 260, whiteSpace: 'normal' }}>
-            {!hasPublished && <div className="small muted" style={{ marginBottom: 4 }}>未展開</div>}
+          <TableCell key={c.id} className="min-w-[200px] max-w-[260px] whitespace-normal">
+            {!hasPublished && <div className="mb-1 text-sm text-muted-foreground">未展開</div>}
             <div className="flex flex-col gap-1.5">
               {items.map((i) => (
                 <ItemTile key={i.id} item={i} />
               ))}
             </div>
-          </td>
+          </TableCell>
         );
       })}
-    </tr>
+    </TableRow>
   );
 }
 
@@ -184,9 +186,9 @@ function ItemTile({ item: i }: { item: LineupItem }) {
           {i.platform ?? '表紙なし'}
         </span>
       )}
-      <div className="min-w-0 small" style={{ lineHeight: 1.35 }}>
+      <div className="min-w-0 text-sm leading-[1.35]">
         <div>{title}</div>
-        <div className="muted">
+        <div className="text-muted-foreground">
           {i.price ?? '—'}
           {i.stage !== 'published' && (
             <>
@@ -195,7 +197,7 @@ function ItemTile({ item: i }: { item: LineupItem }) {
             </>
           )}
         </div>
-        {i.note && <div className="muted" style={{ fontSize: 11 }}>{i.note}</div>}
+        {i.note && <div className="text-[11px] text-muted-foreground">{i.note}</div>}
       </div>
     </div>
   );

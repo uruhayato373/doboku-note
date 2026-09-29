@@ -1,11 +1,14 @@
 import Link from 'next/link';
+import { PanelCard, StatusBadge, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow, numCol } from '@/components/admin';
+import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
 import LineChart from '@/components/charts/LineChart';
 import { qualitySummary, qualityCensus, type Severity } from '@/lib/quality';
+import type { Tone } from '@/components/admin';
 
 export const dynamic = 'force-dynamic';
 
-const sevClass = (s: Severity | string) => (s === 'HIGH' ? 'bad' : s === 'LOW' ? 'neutral' : 'warn');
+const sevTone = (s: Severity | string): Tone => (s === 'HIGH' ? 'bad' : s === 'LOW' ? 'neutral' : 'warn');
 
 export default function QualityPage() {
   const data = qualitySummary();
@@ -29,27 +32,22 @@ export default function QualityPage() {
         sub={`違反のある記事 ${articleCount} 件 · 全体傾向とルール別内訳（人気集計期間 ${winStr}）· 記事別品質は「サイト記事」に統合`}
       />
 
-      <Link
-        href="/quality/progress"
-        className="card"
-        style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', textDecoration: 'none', color: 'inherit' }}
+      <Stack>
+      <PanelCard
+        title="品質サイクル進捗（総監キーワード）"
+        description="キーワードページごとの採点・弱い軸・リライト状況・検索の順位"
       >
-        <span>
-          <strong>品質サイクル進捗（総監キーワード）</strong>
-          <span className="small muted" style={{ display: 'block' }}>キーワードページごとの採点・弱い軸・リライト状況・検索の順位</span>
-        </span>
-        <span style={{ fontSize: 20, opacity: 0.6 }}>→</span>
-      </Link>
+        <Link href="/quality/progress">進捗を開く →</Link>
+      </PanelCard>
 
       {/* 採点カバレッジ census */}
-      <div className="card">
-        <h2>採点カバレッジ（census）</h2>
+      <PanelCard title="採点カバレッジ（census）">
         {!census.present ? (
-          <div className="small muted">
+          <div className="text-sm text-muted-foreground">
             未生成。<code>npm run quality-census</code> を実行すると資格 × group の採点率が出ます。
           </div>
         ) : (
-          <div className="small muted">
+          <div className="text-sm text-muted-foreground">
             全 published <b>{(census.totals as Record<string, number>)?.total ?? '—'}</b> 件 · 採点済み{' '}
             <b>{(census.totals as Record<string, number>)?.scored ?? '—'}</b>（
             {(census.totals as Record<string, number>)?.coverage_pct ?? '—'}%） · 未採点{' '}
@@ -59,64 +57,60 @@ export default function QualityPage() {
             {(census.generated_at ?? '').slice(0, 10)}
           </div>
         )}
-      </div>
+      </PanelCard>
 
       {/* 違反サマリ */}
-      <div className="card">
-        <h2>違反サマリ</h2>
+      <PanelCard title="違反サマリ">
+        <Stack gap="sm">
         <div className="filterbar">
-          <span className="badge bad">HIGH {totals.HIGH ?? 0}</span>
-          <span className="badge warn">MEDIUM {totals.MEDIUM ?? 0}</span>
-          <span className="badge neutral">LOW {totals.LOW ?? 0}</span>
+          <StatusBadge tone="bad">HIGH {totals.HIGH ?? 0}</StatusBadge>
+          <StatusBadge tone="warn">MEDIUM {totals.MEDIUM ?? 0}</StatusBadge>
+          <StatusBadge tone="neutral">LOW {totals.LOW ?? 0}</StatusBadge>
         </div>
-        <p className="small muted">
+        <p className="m-0 text-sm text-muted-foreground">
           対象 = fullScan ルール（表/入れ子/段落/見出し/文体）の baseline。更新は{' '}
           <code>npm run check-content-quality</code> → <code>update-content-quality-baseline</code>
         </p>
-      </div>
+        </Stack>
+      </PanelCard>
 
       {/* 違反バーンダウン */}
-      <div className="card">
-        <h2>
-          違反バーンダウン<span className="sub">history.jsonl · {burndown.length} 点</span>
-        </h2>
+      <PanelCard title="違反バーンダウン" description={`history.jsonl · ${burndown.length} 点`}>
         {burndown.length >= 2 ? (
           <LineChart points={burndown} color="var(--accent)" />
         ) : (
-          <div className="small muted">
+          <div className="text-sm text-muted-foreground">
             履歴 {burndown.length} 点。<code>npm run quality-snapshot</code> を週次で回すとバーンダウンが出ます。
           </div>
         )}
-      </div>
+      </PanelCard>
 
       {/* ルール別 */}
-      <div className="card">
-        <h2>ルール別（違反の内訳）</h2>
-        <div className="table-wrap">
-          <table className="data">
-            <thead>
-              <tr>
-                <th>ルール</th>
-                <th>重大度</th>
-                <th className="num">記事数</th>
-                <th className="num">違反数</th>
-              </tr>
-            </thead>
-            <tbody>
-              {byRule.map((r) => (
-                <tr key={r.rule}>
-                  <td>
-                    <span className={'badge ' + sevClass(r.severity)}>{r.rule}</span>
-                  </td>
-                  <td>{r.severity}</td>
-                  <td className="num">{r.files}</td>
-                  <td className="num">{r.total}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
+      <PanelCard title="ルール別（違反の内訳）">
+        <TableFrame>
+          <TableHeader>
+            <TableRow>
+              <TableHead>ルール</TableHead>
+              <TableHead>重大度</TableHead>
+              <TableHead className={numCol}>記事数</TableHead>
+              <TableHead className={numCol}>違反数</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {byRule.map((r) => (
+              <TableRow key={r.rule}>
+                <TableCell>
+                  <StatusBadge tone={sevTone(r.severity)}>{r.rule}</StatusBadge>
+                </TableCell>
+                <TableCell>{r.severity}</TableCell>
+                <TableCell className={numCol}>{r.files}</TableCell>
+                <TableCell className={numCol}>{r.total}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </TableFrame>
+      </PanelCard>
+      </Stack>
     </>
   );
 }

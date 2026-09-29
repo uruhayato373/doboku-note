@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import { PanelCard, StatusBadge } from '@/components/admin';
+import { Stack } from '@/components/layout';
 import Thumb from '@/components/Thumb';
 import { PageHead } from '@/components/ui';
 import { scanSnsPacks } from '@/lib/gallery';
@@ -35,25 +37,29 @@ export default async function SnsGallery({
       </div>
 
       {filtered.length === 0 ? (
-        <div className="empty">該当なし</div>
+        <p className="text-sm text-muted-foreground">該当なし</p>
       ) : (
-        filtered.map((p) => (
-          <div className="card" key={p.rel}>
-            <h2>
-              {p.label}
-              <span className="sub">
-                <span className={'badge ' + (p.channel === 'instagram' ? 'accent' : 'neutral')}>{p.channel}</span>{' '}
+        <Stack>
+          {filtered.map((p) => (
+          <PanelCard
+            key={p.rel}
+            title={p.label}
+            description={
+              <>
+                <StatusBadge tone={p.channel === 'instagram' ? 'info' : 'neutral'}>{p.channel}</StatusBadge>{' '}
                 {p.images.length} 点 · {p.rel}
-              </span>
-            </h2>
+              </>
+            }
+          >
             <div className="gallery small">
               {p.images.slice(0, 24).map((img) => (
                 <Thumb key={img.url || img.name} url={img.url} name={img.name} video={img.video} offloaded={img.state === 'offloaded'} bucket={img.bucket} />
               ))}
             </div>
-            {p.images.length > 24 ? <p className="muted small">他 {p.images.length - 24} 点…</p> : null}
-          </div>
-        ))
+            {p.images.length > 24 ? <p className="mt-2 text-xs text-muted-foreground">他 {p.images.length - 24} 点…</p> : null}
+          </PanelCard>
+          ))}
+        </Stack>
       )}
     </>
   );

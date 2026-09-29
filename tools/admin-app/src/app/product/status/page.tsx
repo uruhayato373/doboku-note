@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import { TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow, numCol } from '@/components/admin';
+import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
 import NoteStatusPage from '../../content/note-status/page';
 import KindleContentPage from '../../content/kindle/page';
@@ -24,7 +26,8 @@ export default async function ProductStatusPage({ searchParams }: { searchParams
   return (
     <>
       <PageHead title="販売状態" />
-      <nav className="filterbar" style={{ marginBottom: 12 }}>
+      <Stack>
+      <nav className="filterbar">
         {TABS.map((t) => (
           <Link key={t.id} href={`/product/status?ch=${t.id}`} className={'chip' + (t.id === tab.id ? ' active' : '')}>
             {t.label}
@@ -41,6 +44,7 @@ export default async function ProductStatusPage({ searchParams }: { searchParams
       {tab.id === 'note' && <NoteStatusPage />}
       {tab.id === 'kindle' && <KindleContentPage />}
       {tab.id === 'coconala' && <Coconala />}
+      </Stack>
     </>
   );
 }
@@ -51,34 +55,32 @@ function Coconala() {
     const c = readCatalog() as Record<string, (typeof rows)[number]>;
     rows = Object.entries(c).map(([id, v]) => ({ ...v, id }));
   } catch {
-    return <p className="card">ココナラの台帳を読み取れません。</p>;
+    return <p className="text-sm text-muted-foreground">ココナラの台帳を読み取れません。</p>;
   }
   const order = (s: string) => (s === 'paused' ? 1 : s === 'draft' ? 2 : 0);
   return (
-    <div className="table-wrap">
-      <table className="data">
-        <thead>
-          <tr>
-            <th>出品</th>
-            <th>状態</th>
-            <th className="num">価格</th>
-          </tr>
-        </thead>
-        <tbody>
-          {rows
-            .sort((a, b) => order(a.status) - order(b.status))
-            .map((r) => (
-              <tr key={r.id}>
-                <td>{r.serviceUrl ? <a href={r.serviceUrl} target="_blank" rel="noreferrer">{r.shortTitle ?? r.title}</a> : r.shortTitle ?? r.title}</td>
-                <td className={r.status === 'paused' ? 'muted' : undefined}>
-                  {COCONALA_STATUS[r.status] ?? r.status}
-                  {r.pauseReason === 'retired' ? '（終了）' : ''}
-                </td>
-                <td className="num">{r.priceYen ? `¥${r.priceYen.toLocaleString('en-US')}` : '—'}</td>
-              </tr>
-            ))}
-        </tbody>
-      </table>
-    </div>
+    <TableFrame>
+      <TableHeader>
+        <TableRow>
+          <TableHead>出品</TableHead>
+          <TableHead>状態</TableHead>
+          <TableHead className={numCol}>価格</TableHead>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
+        {rows
+          .sort((a, b) => order(a.status) - order(b.status))
+          .map((r) => (
+            <TableRow key={r.id}>
+              <TableCell>{r.serviceUrl ? <a href={r.serviceUrl} target="_blank" rel="noreferrer">{r.shortTitle ?? r.title}</a> : r.shortTitle ?? r.title}</TableCell>
+              <TableCell className={r.status === 'paused' ? 'text-muted-foreground' : undefined}>
+                {COCONALA_STATUS[r.status] ?? r.status}
+                {r.pauseReason === 'retired' ? '（終了）' : ''}
+              </TableCell>
+              <TableCell className={numCol}>{r.priceYen ? `¥${r.priceYen.toLocaleString('en-US')}` : '—'}</TableCell>
+            </TableRow>
+          ))}
+      </TableBody>
+    </TableFrame>
   );
 }
