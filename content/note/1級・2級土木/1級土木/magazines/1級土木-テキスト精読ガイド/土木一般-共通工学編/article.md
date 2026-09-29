@@ -130,3 +130,10 @@ cover:
 土木一般・共通工学編（本記事）の6分野を一通り押さえたら、施工管理・法規編（施工計画・工程管理・品質管理・安全管理・環境保全・法規）とあわせて第1次検定の全範囲をカバーできます。
 
 経験記述の準備を始めたい方は、[施工経験記述 出題傾向と書き方（無料）](https://doboku-note.com/exam/civil-construction-1/secondary/experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil1-reading-guide&utm_content=experience-writing-guide)もあわせてご覧ください。
+
+<!-- cta:coconala-custom -->
+二次の施工経験記述は、ココナラで個別に対応しています。書いた答案があれば全5テーマの添削、まだ書けていなければヒアリングから骨子（構成）をつくります。
+
+https://coconala.com/services/4418735
+
+https://coconala.com/services/4350199

@@ -182,6 +182,7 @@ const SERVICES_RAW = {
   // 2026-09-29 ユーザー決定: 1級も2級（DN-0445）と同じく、当日5テーマのうち2つが指定されるので2テーマ版は外れうる。
   //   本試験（10/4）までは全5テーマの添削・骨子の2本に絞り、どちらも24時間返却にする。2テーマ版2本は休止。
   //   価格は据え置き。試験後の扱いは DN-0310 で決める。
+  //   同日追加決定: 1級の予想模試PDF・教材フルパック・教材一式＋添削も休止し、1級の出品は添削・骨子の2本だけにする。
   'coconala-tensaku-4theme': {
     id: 'coconala-tensaku-4theme',
     status: 'listed',
@@ -487,7 +488,7 @@ const SERVICES_RAW = {
   //     （カタログ parser は 3 フィールドが隣接している前提の正規表現）。
   'coconala-1kyu-moshi-pdf': {
     id: 'coconala-1kyu-moshi-pdf',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4317886',
     title: 'R8対応 1級土木二次の予想模試3回分を送ります',
     shortTitle: '1級 二次 予想模試3回 PDF',
@@ -500,6 +501,8 @@ const SERVICES_RAW = {
     examScope: ['civil-1'],
     weeklyCapacity: 20,
     listedAt: '2026-07-18',
+    pauseReason: 'absence',
+    resumeOn: '2026-10-05',
   },
 
   // C9: 2級 二次 予想模擬試験3回（問題冊子＋解答解説）。C8 の2級版。
@@ -538,7 +541,7 @@ const SERVICES_RAW = {
   //   購入期限が不在期間と丸ごと重なるため。不在中の新規購入リスクは運営者が承知のうえで受容。
   'coconala-1kyu-full-pdf': {
     id: 'coconala-1kyu-full-pdf',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4341188',
     title: 'R8対応 1級土木二次の教材フルパックを送ります',
     shortTitle: '1級 二次 教材フルパック PDF',
@@ -551,6 +554,8 @@ const SERVICES_RAW = {
     examScope: ['civil-1'],
     weeklyCapacity: 20,
     listedAt: '2026-08-05',
+    pauseReason: 'absence',
+    resumeOn: '2026-10-05',
   },
 
   // C11: 2級 二次 教材フルパック（C3+C5+C7+C9 全部入り・PDF 19冊）。C10 の2級版。
@@ -589,7 +594,7 @@ const SERVICES_RAW = {
   //   教材のみの C10（¥10,000・無制限）は残す＝「自分でやる / 見てもらう」の1軸だけが増える構成。
   'coconala-1kyu-premium': {
     id: 'coconala-1kyu-premium',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4341335',
     title: '1級土木二次 教材一式と経験記述添削をします',
     shortTitle: '1級 二次 プレミアム（教材＋添削）',
@@ -601,6 +606,8 @@ const SERVICES_RAW = {
     examScope: ['civil-1'],
     weeklyCapacity: 1,
     listedAt: '2026-08-05',
+    pauseReason: 'absence',
+    resumeOn: '2026-10-05',
   },
 
   // 制作物（DLキット）テスト出品。Claude Code + Node.js を要する自作ツール版＝客層が限定される
