@@ -450,9 +450,9 @@ Q. 路床の強度を判定する試験は？ ／ A. CBR試験
 
 ---
 
-<!-- cta:civil-membership-lab -->
-書いた答案を第三者の目で見てもらう手段がない、という方へ。
+<!-- cta:coconala-custom -->
+答案を第三者の目で確かめたいときは、ココナラで個別に対応しています。書いた答案があれば全3テーマの添削、まだ書けていなければヒアリングから骨子（構成）をつくります。
 
-月例の予想問題と施工経験記述のマンツーマン添削がつくメンバーシップ「土木セコカン合格ラボ」があります。
+https://coconala.com/services/4418778
 
-https://note.com/dobokunote/membership/join
+https://coconala.com/services/4418785

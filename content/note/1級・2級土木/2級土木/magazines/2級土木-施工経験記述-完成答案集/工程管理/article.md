@@ -205,13 +205,6 @@ https://coconala.com/services/4418785
 
 ---
 
-<!-- cta:civil-membership-lab -->
-書き換えた答案を「これで通るか」第三者に確認してほしい方へ。
-
-月例の予想問題と施工経験記述のマンツーマン添削がつくメンバーシップ「土木セコカン合格ラボ」があります。
-
-https://note.com/dobokunote/membership/join
-
 ---
 
 ## 印刷用PDF｜本記事の完成答案
