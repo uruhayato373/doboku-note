@@ -24,6 +24,7 @@ const STATES: { key: string; label: string }[] = [
   { key: 'ready', label: 'ずれあり' },
   { key: 'blocked', label: '止まっている' },
   { key: 'cta', label: '導線ずれ' },
+  { key: 'ended', label: '終了' },
 ];
 const PART_LABEL: Record<string, string> = { body: '本文', cover: 'カバー', tags: 'タグ' };
 // 未反映の理由（scripts/lib/note-sync-plan.mjs の classifySync・reasons）。本文の asset は「本文の画像・PDF だけ差し替えた」
@@ -140,6 +141,7 @@ function CtaCell({ row }: { row: LedgerRow }) {
 }
 
 function inState(r: LedgerRow, key: string): boolean {
+  if (key === 'ended') return r.ended;
   if (key === 'published') return r.published;
   if (key === 'unpublished') return !r.published;
   if (key === 'cta') return CTA_DRIFT.has(r.ctaLive?.state ?? '');
@@ -156,7 +158,10 @@ export default async function LedgerPage({ searchParams }: { searchParams: Promi
   const now: Query = { t: theme ?? undefined, c: channel ?? undefined, s: state ?? undefined };
 
   const view = loadLedgerView();
-  const all = view.rows;
+  // 終了した商品（ココナラのアーカイブ済み）は既定で隠す。状態「終了」を選んだときだけ出す
+  const everything = view.rows;
+  const all = state === 'ended' ? everything : everything.filter((r) => !r.ended);
+  const hiddenEnded = everything.filter((r) => r.ended && (!channel || r.channel === channel)).length;
 
   const matchTheme = (r: LedgerRow) => !theme || (theme === NO_THEME ? r.themes.length === 0 : r.themes.includes(theme));
   const matchChannel = (r: LedgerRow) => !channel || r.channel === channel;
@@ -176,7 +181,9 @@ export default async function LedgerPage({ searchParams }: { searchParams: Promi
   const channelItems = view.channels.map((c) => ({ key: c.id, label: c.label, count: channelScope.filter((r) => r.channel === c.id).length }));
   const stateItems = STATES.map((s) => ({
     ...s,
-    count: stateScope.filter((r) => inState(r, s.key)).length,
+    count: s.key === 'ended'
+      ? everything.filter((r) => r.ended && matchTheme(r) && matchChannel(r)).length
+      : stateScope.filter((r) => inState(r, s.key)).length,
   }));
 
   const channelLabel = new Map(view.channels.map((c) => [c.id, c.label]));
@@ -198,6 +205,7 @@ export default async function LedgerPage({ searchParams }: { searchParams: Promi
             <CardContent>
             <p className="muted">
               {filtered ? <><strong>{rows.length}</strong> / {all.length} 件</> : <>{all.length} 件</>}
+              {hiddenEnded > 0 && state !== 'ended' ? <>（<Link href={href(now, { s: 'ended' })}>終了 {hiddenEnded} 件</Link>は隠している）</> : null}
               {view.index.ok ? (
                 <span title="note の記事の同期状態は索引を作った時点のもの。最新にするには npm run content-ledger（npm run admin の起動時に 6 時間より古ければ裏で作り直す）">
                   {' '}· 索引 {jst(view.index.generatedAt)}
