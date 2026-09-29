@@ -21,7 +21,7 @@ const NO_THEME = '__none';
 const STATES: { key: string; label: string }[] = [
   { key: 'published', label: '公開' },
   { key: 'unpublished', label: '未公開' },
-  { key: 'ready', label: '反映待ち' },
+  { key: 'ready', label: 'ずれあり' },
   { key: 'blocked', label: '止まっている' },
 ];
 const PART_LABEL: Record<string, string> = { body: '本文', cover: 'カバー', tags: 'タグ' };
@@ -77,23 +77,50 @@ function Facet({ title, param, now, active, total, items }: {
   );
 }
 
-function SyncCell({ row, blockerLabel }: { row: LedgerRow; blockerLabel: (id: string | null) => string | undefined }) {
-  if (!row.sync) return row.channel === 'note' && row.kind === '記事' && row.published ? <span className="badge good">済</span> : <span className="muted">—</span>;
-  if (row.sync.status === 'blocked') return <span className="badge bad" title={blockerLabel(row.sync.blocker)}>止</span>;
-  if (row.sync.status === 'ready') {
-    return (
-      <span>
-        {row.sync.parts.map((p) => {
-          const reason = row.sync?.reasons?.[p];
-          const label = p === 'body' && reason === 'asset' ? '画像' : PART_LABEL[p] ?? p;
-          return (
-            <span key={p} className="badge warn" title={reason ? REASON_LABEL[`${p}:${reason}`] ?? reason : undefined}>{label}</span>
-          );
-        })}
-      </span>
-    );
-  }
-  return <span className="badge good">済</span>;
+type DriftState = 'ok' | 'drift' | 'blocked' | 'none';
+const DRIFT_BADGE: Record<Exclude<DriftState, 'none'>, { cls: string; label: string }> = {
+  ok: { cls: 'good', label: '済' },
+  drift: { cls: 'warn', label: 'ずれ' },
+  blocked: { cls: 'bad', label: '止' },
+};
+
+/**
+ * note の公開記事と原稿の「ずれ」を、本文・カバー・導線の 3 つに分けて出す（判定は note-sync-plan のまま）。
+ *   本文 … 本文のテキスト・本文の画像や PDF・タグ　カバー … カバー画像　導線 … 導線を入れた本文が note に出ているか
+ */
+function drift(row: LedgerRow, part: 'body' | 'cover', blocker?: (id: string | null) => string | undefined): { state: DriftState; why?: string } {
+  if (row.channel !== 'note' || row.kind !== '記事' || !row.published) return { state: 'none' };
+  const sync = row.sync;
+  if (!sync) return { state: 'ok' };
+  const keys = part === 'body' ? ['body', 'tags'] : ['cover'];
+  const hit = keys.filter((k) => sync.parts.includes(k));
+  const stopped = sync.status === 'blocked' ? `止まっている理由: ${blocker?.(sync.blocker) ?? sync.blocker}` : null;
+  // 止まっている記事は本文の欄に出す（部分の差が無くても、メタ情報のずれなどで記事ごと止まることがある）
+  if (!hit.length) return stopped && part === 'body' ? { state: 'blocked', why: stopped } : { state: 'ok' };
+  const why = hit.map((k) => REASON_LABEL[`${k}:${sync.reasons?.[k]}`] ?? PART_LABEL[k] ?? k).join('・');
+  return stopped ? { state: 'blocked', why: `${why}（${stopped}）` } : { state: 'drift', why };
+}
+
+function DriftCell({ state, why }: { state: DriftState; why?: string }) {
+  if (state === 'none') return <span className="muted">—</span>;
+  const b = DRIFT_BADGE[state];
+  return <span className={`badge ${b.cls}`} title={why}>{b.label}</span>;
+}
+
+function CtaCell({ row, blocker }: { row: LedgerRow; blocker: (id: string | null) => string | undefined }) {
+  const ctas = row.ctas.filter((c) => CTA_LABEL[c]);
+  if (!ctas.length) return <span className="muted">—</span>;
+  const body = drift(row, 'body', blocker);
+  // 導線は本文の中にあるので、本文が note に出ていれば導線も出ている
+  const cls = body.state === 'none' ? 'neutral' : body.state === 'ok' ? 'good' : body.state === 'blocked' ? 'bad' : 'warn';
+  const why = body.state === 'none' ? '未公開' : body.state === 'ok' ? 'note に出ている' : `note にまだ出ていない（${body.why}）`;
+  return (
+    <span>
+      {ctas.map((c) => (
+        <span key={c} className={`badge ${cls}`} title={why}>{CTA_LABEL[c]}</span>
+      ))}
+    </span>
+  );
 }
 
 export default async function LedgerPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
@@ -192,8 +219,9 @@ export default async function LedgerPage({ searchParams }: { searchParams: Promi
                       <th className="category-col optional-col">テーマ</th>
                       <th className="price-col">価格</th>
                       <th className="publish-col">状態</th>
-                      <th className="publish-col" title="原稿と note の公開記事の差（週次の note-sync と同じ判定）。済＝反映済み／本文・画像・カバー・タグ＝未反映の部分（バッジに理由）／止＝反映できない">note 反映</th>
-                      <th className="publish-col" title="記事に入れた販売導線のマーカー（ココナラ＝cta:coconala-custom／パック＝cta:pack-top）">販売導線</th>
+                      <th className="publish-col" title="note の公開記事が原稿どおりか。済＝同じ／ずれ＝原稿の変更がまだ note に出ていない（マウスで理由）／止＝反映できない">本文</th>
+                      <th className="publish-col" title="note のカバー画像が原稿どおりか（済・ずれ・止）">カバー</th>
+                      <th className="publish-col" title="記事に入れた販売導線（ココナラ・パック）。緑＝note に出ている／黄＝まだ出ていない">導線</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -218,13 +246,9 @@ export default async function LedgerPage({ searchParams }: { searchParams: Promi
                         <td className="publish-col">
                           <span className={'badge ' + (r.published ? 'good' : 'neutral')}>{r.stageLabel}</span>
                         </td>
-                        <td className="publish-col"><SyncCell row={r} blockerLabel={blockerLabel} /></td>
-                        <td className="publish-col">
-                          {r.ctas.filter((c) => CTA_LABEL[c]).map((c) => (
-                            <span key={c} className="badge neutral">{CTA_LABEL[c]}</span>
-                          ))}
-                          {r.ctas.length === 0 ? <span className="muted">—</span> : null}
-                        </td>
+                        <td className="publish-col"><DriftCell {...drift(r, 'body', blockerLabel)} /></td>
+                        <td className="publish-col"><DriftCell {...drift(r, 'cover', blockerLabel)} /></td>
+                        <td className="publish-col"><CtaCell row={r} blocker={blockerLabel} /></td>
                       </tr>
                     ))}
                   </tbody>
