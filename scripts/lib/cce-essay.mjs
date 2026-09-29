@@ -8,6 +8,8 @@
 export const ANSWER_HEADING = '模範答案';
 /** 問題文の再現に当たる H2（JCI は小論文の問題文を公開していない。テーマ名・設問項目名だけを使う） */
 export const FORBIDDEN_H2 = /^##\s+(試験問題|過去問題?文|出題問題|問題文)/;
+/** SSOT を超える出題予測の言い回し（writer 規則 3-3）。事実（何年度に出た）だけを書き、将来の出題を断定・推奨しない。 */
+export const PREDICTION_PHRASES = /(今後も|これからも)[^。]{0,20}(出やすい|問われやすい|出題され(る|やすい)|出る)|必ず出(る|題)|出題を想定しておく価値|的中/;
 export const HISTORY_START = 'cce-essay-history:start';
 export const HISTORY_END = 'cce-essay-history:end';
 
@@ -103,6 +105,8 @@ export function evaluateCceEssay(body, data, history) {
     if (FORBIDDEN_H2.test(line)) { errors.push(`H7: 問題文の再現節がある: ${line.trim()}`); break; }
   }
   if (/[¥￥]\s?\d/.test(body)) errors.push('H8: 本文に価格の直書きがある');
+  const pred = body.split(/\r?\n/).find((l) => PREDICTION_PHRASES.test(l));
+  if (pred) errors.push(`H11: SSOT を超える出題予測の断定: ${pred.trim().slice(0, 60)}`);
 
   const boundary = typeof data.paidBoundary === 'string' ? data.paidBoundary.trim() : '';
   if (!boundary) errors.push('H9: frontmatter paidBoundary が無い');

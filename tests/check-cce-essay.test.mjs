@@ -71,3 +71,10 @@ test('fail: 必須 H2 の欠落・名称ゆれ', () => {
   const r = evaluateCceEssay(article().replace('## 令和形式の答え方', '## 令和の答え方'), fm(), history);
   assert.ok(r.errors.some((e) => e.startsWith('H10')));
 });
+
+test('fail: SSOT を超える出題予測の断定（規則 3-3）', () => {
+  for (const s of ['今後も形を変えて出やすいと考えています。', '今後も出題を想定しておく価値があります。', 'このテーマは必ず出る。']) {
+    assert.ok(evaluateCceEssay(article({ extraH2: `\n${s}\n` }), fm(), history).errors.some((e) => e.startsWith('H11')), s);
+  }
+  assert.ok(!evaluateCceEssay(article({ extraH2: '\nR6 と H29 の二度、選択肢に入りました。\n' }), fm(), history).errors.some((e) => e.startsWith('H11')));
+});
