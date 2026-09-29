@@ -25,7 +25,25 @@ const STATES: { key: string; label: string }[] = [
   { key: 'blocked', label: '止まっている' },
 ];
 const PART_LABEL: Record<string, string> = { body: '本文', cover: 'カバー', tags: 'タグ' };
+// 未反映の理由（scripts/lib/note-sync-plan.mjs の classifySync・reasons）。本文の asset は「本文の画像・PDF だけ差し替えた」
+const REASON_LABEL: Record<string, string> = {
+  'body:drift': '本文を直した',
+  'body:unrecorded': '本文の反映記録が無い',
+  'body:asset': '本文の画像・PDF を差し替えた',
+  'cover:unrecorded': 'カバーの反映記録が無い',
+  'cover:design': 'カバーのデザインが変わった',
+  'cover:input': 'カバーの元（題名など）が変わった',
+  'cover:no-cover': 'note にカバーが無い',
+  'cover:live-changed': 'note のカバーが記録と違う',
+  'tags:drift': 'タグを直した',
+};
 const CTA_LABEL: Record<string, string> = { 'coconala-custom': 'ココナラ', 'pack-top': 'パック' };
+
+function jst(iso: string | null): string {
+  if (!iso) return '?';
+  const d = new Date(Date.parse(iso) + 9 * 3_600_000).toISOString();
+  return `${d.slice(5, 10).replace('-', '/')} ${d.slice(11, 16)}`;
+}
 
 function href(q: Query, patch: Partial<Query>): string {
   const params = new URLSearchParams();
@@ -65,9 +83,13 @@ function SyncCell({ row, blockerLabel }: { row: LedgerRow; blockerLabel: (id: st
   if (row.sync.status === 'ready') {
     return (
       <span>
-        {row.sync.parts.map((p) => (
-          <span key={p} className="badge warn">{PART_LABEL[p] ?? p}</span>
-        ))}
+        {row.sync.parts.map((p) => {
+          const reason = row.sync?.reasons?.[p];
+          const label = p === 'body' && reason === 'asset' ? '画像' : PART_LABEL[p] ?? p;
+          return (
+            <span key={p} className="badge warn" title={reason ? REASON_LABEL[`${p}:${reason}`] ?? reason : undefined}>{label}</span>
+          );
+        })}
       </span>
     );
   }
@@ -116,57 +138,47 @@ export default async function LedgerPage({ searchParams }: { searchParams: Promi
   const blockerLabel = (id: string | null) => (id ? view.blockers[id]?.label ?? id : undefined);
   const tools = channel ? channelById(channel as AdminChannelId)?.tabs ?? [] : [];
   const filtered = Boolean(theme || channel || state);
+  // チャネルで絞ったら列は同じ値だけになるので出さない。note だけは記事とマガジンが混ざるので種類を出す
+  const kindCol = !channel ? 'チャネル' : channel === 'note' ? '種類' : null;
+  const indexStale = view.index.generatedAt ? Date.now() - Date.parse(view.index.generatedAt) > 6 * 3_600_000 : false;
   const title = [theme ? (theme === NO_THEME ? '未分類' : view.themeLabel(theme)) : null, channel ? channelLabel.get(channel) : null]
     .filter(Boolean).join(' × ');
 
   return (
     <>
-      <PageHead title={title ? `コンテンツ台帳：${title}` : 'コンテンツ台帳'} sub={`${all.length} 件（note の記事・マガジン、ココナラ、Kindle）`} />
+      <PageHead title={title ? `コンテンツ台帳：${title}` : 'コンテンツ台帳'} />
       <div className="todo-shell">
         <div className="todo-main">
           <Card>
             <CardContent>
             <p className="muted">
+              {filtered ? <><strong>{rows.length}</strong> / {all.length} 件</> : <>{all.length} 件</>}
               {view.index.ok ? (
-                <>
-                  note の記事の索引: {view.index.generatedAt?.slice(0, 16).replace('T', ' ')}（UTC）作成 · 反映待ち{' '}
-                  <strong>{view.index.syncCounts?.ready ?? '?'}</strong> / 止まっている <strong>{view.index.syncCounts?.blocked ?? '?'}</strong> ·
-                  最新にするには <code>npm run content-ledger</code>（npm run admin の起動時に 6 時間より古ければ裏で作り直す）
-                </>
+                <span title="note の記事の同期状態は索引を作った時点のもの。最新にするには npm run content-ledger（npm run admin の起動時に 6 時間より古ければ裏で作り直す）">
+                  {' '}· 索引 {jst(view.index.generatedAt)}
+                  {indexStale ? <> <span className="badge warn">古い</span></> : null}
+                </span>
               ) : (
+                <> · <span className="badge bad" title={view.index.error ?? undefined}>索引なし</span> note の記事は出していない（0 件ではない）。<code>npm run content-ledger</code> で作る</>
+              )}
+              {tools.length > 0 && (
                 <>
-                  <span className="badge bad">索引なし</span> note の記事は表示していません（0 件ではありません）。
-                  <code>npm run content-ledger</code> で作る。{view.index.error}
+                  {'　'}
+                  {tools.map((t, i) => (
+                    <span key={t.href}>
+                      {i > 0 ? ' · ' : ''}
+                      <Link href={t.href}>{t.label}</Link>
+                    </span>
+                  ))}
                 </>
               )}
+              {theme && view.lineupQualifications.has(theme) ? <>{'　'}<Link href={`/content/lineup?q=${theme}`}>商品ラインナップ</Link></> : null}
             </p>
             {view.sourceErrors.map((e) => (
               <p key={e.channel} className="muted">
                 <span className="badge bad">{channelLabel.get(e.channel) ?? e.channel} を読めない</span> {e.message}
               </p>
             ))}
-            {(tools.length > 0 || (theme && view.lineupQualifications.has(theme))) && (
-              <p className="muted">
-                {tools.length > 0 && (
-                  <>
-                    {channelLabel.get(channel!)} の作業:{' '}
-                    {tools.map((t, i) => (
-                      <span key={t.href}>
-                        {i > 0 ? ' · ' : ''}
-                        <Link href={t.href}>{t.label}</Link>
-                      </span>
-                    ))}
-                  </>
-                )}
-                {tools.length > 0 && theme && view.lineupQualifications.has(theme) ? '　' : ''}
-                {theme && view.lineupQualifications.has(theme) && (
-                  <Link href={`/content/lineup?q=${theme}`}>この資格の商品ラインナップ（資格 × 試験区分のマス目）</Link>
-                )}
-              </p>
-            )}
-            <p className="muted">
-              {filtered ? <><strong>{rows.length}</strong> 件を表示中（全 {all.length} 件）</> : <>全 {all.length} 件。右の絞り込みでテーマ・チャネル・状態を選べる。</>}
-            </p>
 
             {rows.length === 0 ? (
               <p className="empty">この条件に該当する制作物はありません。</p>
@@ -176,12 +188,12 @@ export default async function LedgerPage({ searchParams }: { searchParams: Promi
                   <thead>
                     <tr>
                       <th className="title-col">タイトル</th>
-                      <th className="publish-col">チャネル</th>
+                      {kindCol ? <th className="publish-col">{kindCol}</th> : null}
                       <th className="category-col optional-col">テーマ</th>
                       <th className="price-col">価格</th>
                       <th className="publish-col">状態</th>
-                      <th className="publish-col">同期</th>
-                      <th className="publish-col">導線</th>
+                      <th className="publish-col" title="原稿と note の公開記事の差（週次の note-sync と同じ判定）。済＝反映済み／本文・画像・カバー・タグ＝未反映の部分（バッジに理由）／止＝反映できない">note 反映</th>
+                      <th className="publish-col" title="記事に入れた販売導線のマーカー（ココナラ＝cta:coconala-custom／パック＝cta:pack-top）">販売導線</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -190,9 +202,11 @@ export default async function LedgerPage({ searchParams }: { searchParams: Promi
                         <td className="title-cell" title={r.path ?? r.key}>
                           {r.url ? <a href={r.url} target="_blank" rel="noopener noreferrer">{r.title}</a> : r.title}
                         </td>
-                        <td className="publish-col">
-                          <span className="muted">{channelLabel.get(r.channel) ?? r.channel}・{r.kind}</span>
-                        </td>
+                        {kindCol ? (
+                          <td className="publish-col">
+                            <span className="muted">{channel ? r.kind : `${channelLabel.get(r.channel) ?? r.channel}・${r.kind}`}</span>
+                          </td>
+                        ) : null}
                         <td className="category-col optional-col">
                           {r.themes.length ? (
                             <span className="muted">{r.themes.map((t) => view.themeLabel(t)).join('・')}</span>

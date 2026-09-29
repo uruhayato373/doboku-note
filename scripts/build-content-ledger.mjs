@@ -110,7 +110,7 @@ async function build() {
   const syncByPath = new Map(plan.items.map((i) => [i.path, i]));
   for (const n of notes) {
     const s = syncByPath.get(n.path);
-    n.sync = s ? { status: s.status, parts: s.parts, blocker: s.blocker } : null;
+    n.sync = s ? { status: s.status, parts: s.parts, reasons: s.reasons, blocker: s.blocker } : null;
   }
 
   const ledger = {
