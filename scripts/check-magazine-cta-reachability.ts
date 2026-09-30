@@ -38,7 +38,7 @@
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { NOTE_MAGAZINES, getMagazine, type MagazineId } from '../src/lib/note-magazines';
-import { resolvePlacement } from '../src/lib/magazine-placement';
+import { resolvePlacement, resolveMidNoteSlot } from '../src/lib/magazine-placement';
 import { sidebarProduct, DISCOVERY_CATEGORIES } from '../src/lib/sidebar-discovery';
 
 // このリポジトリは package.json に "type" が無く、tsx は .ts を CJS として扱う。
@@ -104,7 +104,7 @@ function collectDocs(): Doc[] {
       // 生 frontmatter の group 値は classifyDoc の GROUP_FIELD_MAP を通す
       // （src/lib/doc-classifier.ts:31-39）。past-exam → pastExam の変換を
       // 落とすと、その記事の配線が丸ごと検査対象外になる。
-      const rawGroup = (raw.match(/^group:\s*(.+)$/m) || [])[1]?.trim() ?? '';
+      const rawGroup = (raw.match(/^group:\s*(.+)$/m) || [])[1]?.trim().replace(/^(['"])(.*)\1$/, '$2') ?? '';
       // career 記事は resolvePlacement が EMPTY を返す（magazine-placement.ts の 0 番ガード）。
       // ここで tags を見ないと、実際には出ない note CTA を「導線あり」と数えてしまう。
       const fm = raw.match(/^---[\s\S]*?\n---/)?.[0] ?? '';
@@ -167,8 +167,8 @@ for (const d of docs) {
   // 冒頭 CTA と別マガジンのときだけ描画される（DocPage.tsx:356-366）。
   // 2 誌目以降を面として数えると、実際には出ないマガジンが「導線あり」になる。
   if (midFires(d) && hasMidSlot(d)) {
-    const midNote = p.inline.find((s) => getMagazine(s.magazineId));
-    if (midNote && (!p.top || p.top.magazineId !== midNote.magazineId)) {
+    const midNote = resolveMidNoteSlot(p);
+    if (midNote) {
       const r = ensure(midNote.magazineId); r.routes.push(`mid:${d.slug}`); r.categories.add(d.category);
     }
   }

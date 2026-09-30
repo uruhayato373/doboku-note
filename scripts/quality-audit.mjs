@@ -210,6 +210,7 @@ const CHECKS = [
   { id: 'sales-mapping', npm: 'check-sales-mapping', timeout: 60_000, ci: true, note: 'sales-log の productId と note-magazines.ts の公開済み単品が sales-recorder.md の mapping に文書化されているか（初売上前の新商品も先行検知）' },
   { id: 'note-funnel', npm: 'check-note-funnel', timeout: 90_000, ci: true },
   { id: 'magazine-cta-reachability', npm: 'check-magazine-cta:ci', timeout: 120_000, ci: true, note: '公開マガジンがサイト内で 1 面以上 CTA として出るか（top / 中間CTA / MagazineCard）。baseline 外の新規 0 面で落ちる' },
+  { id: 'sns-landing-cta', npm: 'audit-sns-landing-cta:ci', timeout: 120_000, ci: true, note: 'SNS 原稿・X 予約のリンク先（転職・practice 除く）に note 導線が冒頭（top / 早い MagazineCard / ツールの静的ブロック）にあるか。未配線で落ちる（DN-0364）' },
   { id: 'note-hashtags', npm: 'check-note-hashtags', timeout: 90_000, ci: true, note: 'note 記事ハッシュタグ 90 個以上（全量 backstop・pre-commit は staged のみ）' },
   { id: 'note-boundary', npm: 'check-note-boundary', timeout: 90_000, ci: true, note: 'paid published 記事の有料境界(paidBoundary)解決可能性（全ロック/漏洩の RULE_GAP 再発防止・全量）' },
   { id: 'web-vitals-fetch-check', cmd: ['npm', 'run', '--silent', 'fetch-ga4-web-vitals', '--', '--check'], timeout: 30_000, ci: true, note: '実ユーザー計測（Core Web Vitals）の取得と判定が fixture で完走するか（API 不要）。週次レビューが report-web-vitals で読むデータの生成器が壊れて沈黙しないように' },
