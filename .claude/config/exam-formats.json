@@ -749,28 +749,31 @@
           "types": [
             "mcq"
           ],
-          "detail": "四肢または五肢択一マークシート方式"
+          "detail": "四肢択一＋五肢択一（施工管理法の応用能力）のマークシート方式"
         },
         {
           "key": "second",
           "label": "第二次検定",
           "types": [
             "experience",
-            "written"
+            "written",
+            "mcq"
           ],
-          "detail": "経験記述(R6〜工事概要3種から選択し自身経験で解答)＋施工管理法の記述式"
+          "detail": "記述式（問題1〜4）＋五肢択一（問題5・6）。問題1は問題用紙の工事概要（R7は事務所ビル新築工事1件）の工種・作業について、統括的な施工の技術上の管理を求められる立場で今日までの経験を踏まえて記述（品質管理3項目＋組織的な品質管理活動）"
         }
       ],
       "pastExams": {
         "questions": "partial",
         "answers": "partial",
-        "note": "記述設問は正答非公表と明記。R7・R8年度分のみ公式サイト掲載",
-        "source": "https://www.fcip-shiken.jp/about/"
+        "note": "公表範囲は検定問題と択一の正答肢番号。記述の設問は正答非公表と受検の手引に明記。公式サイト掲載はR7・R8年度分のみ",
+        "source": "https://www.fcip-shiken.jp/pdf/r07_1kj_mondai.pdf"
       },
       "verification": {
-        "checkedAt": "2026-09-26",
+        "checkedAt": "2026-09-30",
         "checkedBy": "agent",
-        "unresolved": [],
+        "unresolved": [
+          "令和6年度に工事概要つきの形式へ改正されたこと自体はR6問題が公式サイトから消えているため一次資料で未確認（R7問題で現行形式を確認）"
+        ],
         "pending": [],
         "notPublished": []
       }
@@ -783,28 +786,31 @@
           "types": [
             "mcq"
           ],
-          "detail": "四肢または五肢択一マークシート方式"
+          "detail": "四肢択一＋五肢択一（施工管理法の能力）のマークシート方式"
         },
         {
           "key": "second",
           "label": "第二次検定",
           "types": [
             "experience",
-            "written"
+            "written",
+            "mcq"
           ],
-          "detail": "経験記述(R6〜工事概要から選択し自身経験で解答)＋記述式"
+          "detail": "記述式（問題1〜3）＋四肢択一（問題4・5。問題5は受検種別 建築/躯体/仕上げで5-A/B/C）。問題1は問題用紙の工事計画に示す「イ．解体」「ロ．新築」「ハ．改修」の3工事から1つ選び、受検種別に係る工種・作業について今日までの経験を踏まえて記述（R7テーマは工事の遅延防止）"
         }
       ],
       "pastExams": {
         "questions": "partial",
         "answers": "partial",
-        "note": "記述設問は正答非公表と明記。R7・R8年度分のみ公式サイト掲載",
-        "source": "https://www.fcip-shiken.jp/about/"
+        "note": "公表範囲は検定問題と択一の正答肢番号。記述の設問は正答非公表と受検の手引に明記。公式サイト掲載はR7・R8年度分のみ",
+        "source": "https://www.fcip-shiken.jp/pdf/r07_2kj_mondai.pdf"
       },
       "verification": {
-        "checkedAt": "2026-09-26",
+        "checkedAt": "2026-09-30",
         "checkedBy": "agent",
-        "unresolved": [],
+        "unresolved": [
+          "令和6年度に工事概要つきの形式へ改正されたこと自体はR6問題が公式サイトから消えているため一次資料で未確認（R7問題で現行形式を確認）"
+        ],
         "pending": [],
         "notPublished": []
       }
