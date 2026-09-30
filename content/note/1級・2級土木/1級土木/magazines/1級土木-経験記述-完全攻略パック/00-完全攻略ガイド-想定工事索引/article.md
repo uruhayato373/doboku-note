@@ -59,15 +59,6 @@ https://note.com/dobokunote/m/m8290970a7f05
 
 https://note.com/dobokunote/m/m8290970a7f05
 
-<!-- cta:coconala-custom -->
-この答案をあなたの工事に合わせて仕上げたいときは、ココナラで個別に対応しています。書いた答案があれば添削で赤入れ、まだ書けていなければヒアリングから骨子（構成）をつくります。
-
-https://coconala.com/services/4418735
-
-まだ答案が無い人は、ヒアリングから骨子（構成）をつくるこちらへ。
-
-https://coconala.com/services/4350199
-
 1工事ずつ試したい場合は、下の各リンクから単品でも購入できます。
 
 ## 土工・盛土・造成（14工事）
