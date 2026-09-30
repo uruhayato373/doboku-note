@@ -4,11 +4,9 @@ import Link from 'next/link';
 import { Suspense, useEffect, useRef } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { ChevronRight } from 'lucide-react';
-import ThemeToggle from './ThemeToggle';
 import {
   Sidebar,
   SidebarContent,
-  SidebarFooter,
   SidebarGroup,
   SidebarGroupLabel,
   SidebarHeader,
@@ -223,9 +221,6 @@ export default function Nav(props: NavProps) {
           <NavGroups {...props} />
         </Suspense>
       </SidebarContent>
-      <SidebarFooter>
-        <ThemeToggle />
-      </SidebarFooter>
     </Sidebar>
   );
 }

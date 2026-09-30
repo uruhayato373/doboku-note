@@ -48,15 +48,15 @@
   --color-popover: hsl(var(--popover));
   --color-popover-foreground: hsl(var(--popover-foreground));
 
-  /* shadcn/ui 公式 Sidebar のトークン（components/ui/sidebar.tsx）。値は管理画面の濃紺サイドバー（--sidebar*）へ割り当てる */
+  /* shadcn/ui 公式 Sidebar のトークン（components/ui/sidebar.tsx）。値も公式テーマのまま（2026-09-30 に独自の濃紺をやめた） */
   --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-ink);
-  --color-sidebar-primary: hsl(var(--primary));
-  --color-sidebar-primary-foreground: hsl(var(--primary-foreground));
-  --color-sidebar-accent: var(--sidebar-2);
-  --color-sidebar-accent-foreground: var(--sidebar-ink);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-muted);
+  --color-sidebar-ring: var(--sidebar-ring);
 
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
@@ -154,12 +154,15 @@
   --code-bg: hsl(220 30% 96%);
   --checker-a: hsl(220 25% 97%);
   --checker-b: hsl(218 24% 91%);
-  --sidebar: hsl(222 47% 10%);
-  --sidebar-2: hsl(222 40% 14%);
-  --sidebar-border: hsl(217 33% 20%);
-  --sidebar-ink: hsl(210 40% 96%);
-  --sidebar-muted: hsl(215 20% 72%);
-  --sidebar-group-bg: hsl(217 33% 18%);
+  /* shadcn/ui 公式テーマ（neutral・light）の Sidebar の値 */
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
   --row-alt: hsl(214 32% 95%);
   --radius: 12px;
   --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
@@ -212,12 +215,14 @@
   --code-bg: hsl(222 48% 6%);
   --checker-a: hsl(222 48% 6%);
   --checker-b: hsl(222 34% 10%);
-  --sidebar: hsl(222 50% 6%);
-  --sidebar-2: hsl(222 42% 10%);
-  --sidebar-border: hsl(217 28% 17%);
-  --sidebar-ink: hsl(210 40% 96%);
-  --sidebar-muted: hsl(215 22% 72%);
-  --sidebar-group-bg: hsl(217 35% 15%);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
   --row-alt: hsl(217 30% 16%);
 }
 
@@ -270,42 +275,6 @@ a:hover {
   background: hsl(var(--primary) / 0.2);
 }
 
-.theme-toggle {
-  /* サイドバー下部（SidebarFooter）に置く。 */
-  display: block;
-  width: 100%;
-  padding: 7px 10px;
-  border: 1px solid hsl(215 30% 30% / 0.55);
-  border-radius: 9px;
-  background: hsl(217 33% 15% / 0.72);
-  color: hsl(215 22% 76%);
-  font: inherit;
-  font-size: 12.5px;
-  text-align: left;
-  cursor: pointer;
-}
-.theme-toggle:hover {
-  border-color: hsl(217 91% 70% / 0.45);
-  color: white;
-  background: hsl(217 33% 20% / 0.85);
-}
-.theme-toggle .face {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.theme-toggle svg {
-  width: 15px;
-  height: 15px;
-  flex: none;
-}
-.theme-toggle .to-light,
-:root[data-theme='dark'] .theme-toggle .to-dark {
-  display: none;
-}
-:root[data-theme='dark'] .theme-toggle .to-light {
-  display: flex;
-}
 
 .container {
   flex: 1;
