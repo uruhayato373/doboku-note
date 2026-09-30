@@ -3,6 +3,14 @@ import PageHeader from "@/components/layout/PageHeader";
 import type { Metadata } from "next";
 import KakomonQuizClient, { type KakomonQuizConfig } from "../KakomonQuizClient";
 import "katex/dist/katex.min.css";
+import { buildMagazineUrl, getMagazine, type MagazineId } from "@/lib/note-magazines";
+
+// 演習画面は結果表示後にしか note 導線が出ず、SSR の HTML には導線が無かった
+// （2026-09-27 配線監査 DN-0364）。演習の下に静的な note 商品カードを置く。
+const NOTE_PRODUCTS: readonly { id: MagazineId; lead: string }[] = [
+  { id: "pe1-takuitsu-pdf", lead: "紙に書き込んで間違いを反復する 3 科目 7 年分" },
+  { id: "pe1-chokuzen-pack", lead: "過去問 PDF と暗記ノートをまとめた直前パック" },
+];
 
 export const metadata: Metadata = {
   title: "技術士第一次試験 過去問 無料演習｜基礎・適性・建設 全1,120問",
@@ -88,6 +96,33 @@ export default function PeFirstStageQuizPage() {
         }
       />
       <KakomonQuizClient config={QUIZ_CONFIG} />
+      <div className="max-w-[760px] mx-auto px-4 sm:px-6 pb-10">
+        <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-3">
+          紙でも反復する（note）
+        </div>
+        <div className="grid gap-3 sm:grid-cols-2">
+          {NOTE_PRODUCTS.map(({ id, lead }) => {
+            const mag = getMagazine(id);
+            if (!mag) return null;
+            const label = `${id}:tools-kakomon-quiz-pe-first-stage`;
+            return (
+              <a
+                key={id}
+                href={buildMagazineUrl(mag, label)}
+                target="_blank"
+                rel="noopener"
+                data-cta="note"
+                data-cta-label={label}
+                data-cta-placement="tools-kakomon-quiz-pe-first-stage"
+                className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-(--accent)"
+              >
+                <div className="font-bold text-(--ink)">{mag.shortTitle ?? mag.title}</div>
+                <div className="text-sm text-(--ink-body) mt-1">{lead}</div>
+              </a>
+            );
+          })}
+        </div>
+      </div>
     </PageShell>
   );
 }

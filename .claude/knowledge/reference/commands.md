@@ -124,6 +124,7 @@ npm run note-traffic-fetch # note ダッシュボード「アクセス状況」�
 npm run note-sales-fetch  # note 売上履歴を read-only 取得→検算OKで.claude/state/sales/sales-log.jsonの当月を差し替え（--month YYYY-MM --commit・ログイン要・DN-0018）
 npm run record-net-receipts # 月の受取額（NSM）を事業の計測記録へ。note は売上管理の月別詳細の「手数料控除後売上」をブラウザで read-only 取得（パスワード再確認は人）、KDP は kdp-royalties.json の catalog 対象・確定値、ココナラは `--coconala <円>`（控除後・クローズ日計上）。`--month YYYY-MM`、既定 dry-run・`--commit` で記録。3 つそろい KDP 確定のときだけ complete（欠測を 0 にしない）
 npm run check-magazine-cta # 公開マガジンがサイトで1面以上CTAとして出るか（top/中間CTA/MagazineCard・quality:audit に同梱）
+npm run audit-sns-landing-cta # SNS原稿・X予約のリンク先（転職・practice除く）に note 導線が冒頭側にあるか（ソース静的判定・quality:audit に同梱・DN-0364）
 npm run check-sales-freshness # sales-log.json の転記停止（updatedAt）と、毎月5日以降に前月noteアクセス取得・月次売上表示との金額一致を検査（quality:audit の **ops 区分**＝ops-audit.yml が日次で Issue へ。取得自体は認証が要るのでローカル専用）
 npm run check-weekly-review-due # 週次レビュー（ローカル実行・土曜）の忘れを催促（土曜 09:00 JST 以降に今週分、月〜金は先週分の *-review.md が無ければ exit 1・SessionStart フックが呼ぶ。最終 backstop は月曜の weekly-review-guard）
 npm run check-note-public-view # note 公開記事を未ログインの読者の見え方で検査。全件は公開 API（添付 PDF の本数・価格・カバー・無料記事の全文会員限定・本文の画像が配信サーバーにあるか）。`-- --review` で代表ページ（資格×記事の種類ごと 1 本）を note のブレイクポイントの帯ごとの画面幅（.claude/config/public-view-breakpoints.json）でブラウザ検査（画像・リンクカード・はみ出し）・撮影し、CSS の切り替わり幅の変化も WARN。週次 note-public-view.yml は `--review`。全件をブラウザで開く `-- --all-pages` は手元向け（CI からは note が途中で 403 を返し続けて終わらない・2026-09-23 実測）。`-- --api-only` で API 層だけ。手元はシステム Chrome、CI は同梱 Chromium。5xx は 1 回やり直し、それでも 5xx なら「開けない」に数える。例外台帳は .claude/config/note-public-view.json

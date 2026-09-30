@@ -27,10 +27,10 @@ import rehypeExternalLinks from 'rehype-external-links';
 import { MDXProvider } from '@mdx-js/react';
 import SafeMdx from '@/components/mdx/SafeMdx';
 import { extractHeadings } from '@/lib/toc';
-import { resolvePlacement } from '@/lib/magazine-placement';
+import { resolvePlacement, resolveMidNoteSlot } from '@/lib/magazine-placement';
 import { resolveHubCta } from '@/lib/hub-cta';
 import { resolveOffsiteCta } from '@/lib/offsite-cta';
-import { getMagazine, buildMagazineUrl, type NoteMagazine } from '@/lib/note-magazines';
+import { getMagazine, buildMagazineUrl } from '@/lib/note-magazines';
 import MagazineTopBanner from '@/components/ui/MagazineTopBanner';
 import MetaRow from '@/components/ui/MetaRow/MetaRow';
 import ArticleFooter from '@/components/ui/ArticleFooter/ArticleFooter';
@@ -260,13 +260,6 @@ export async function renderDocPage(slugStr: string) {
   // published: false や noteUrl 空のマガジンは getMagazine() で防御的に弾く。
   // career 記事（tags: [career]）には note 二次 CTA を置かない。判定は真実源の isCareerDoc。
   const magazinePlacement = resolvePlacement(slugStr, docGroup, isCareerDoc(doc.meta));
-  type RenderableSlot = { slot: (typeof magazinePlacement.inline)[number]; magazine: NoteMagazine };
-  const filterRenderable = (
-    slots: ReadonlyArray<(typeof magazinePlacement.inline)[number]>,
-  ): RenderableSlot[] =>
-    slots
-      .map((s) => ({ slot: s, magazine: getMagazine(s.magazineId) }))
-      .filter((x): x is RenderableSlot => x.magazine !== null);
   // note 有料マガジン導線は「もくじタイル」（L2 索引）を全 HUB 資格の記事末尾＋サイドバーに 1 枚ずつ
   // 統一表示する（2026-07 統一）。従来の個別マガジンタイル（inline を先頭 3 誌 cap）はページ個別配線に
   // 依存し、未配線ページ（総監 guide 等）が空白になる不整合を生んでいたため廃止した。
@@ -359,12 +352,9 @@ export async function renderDocPage(slugStr: string) {
   // 1) note 中間 CTA（収益の主導線＝最優先）。供給源は placement.inline の先頭 1 誌で、
   //    冒頭 CTA と別マガジンのときのみ（同じ商品を 2 度見せない）。
   if (midEnabled) {
-    const midNote = filterRenderable(magazinePlacement.inline)[0];
-    const midNoteMag = midNote?.magazine;
-    const differsFromTop = midNoteMag && (!topSlot || topSlot.magazineId !== midNote.slot.magazineId);
-    if (midNoteMag && differsFromTop) {
+    const midSlot = resolveMidNoteSlot(magazinePlacement);
+    if (midSlot) {
       // 文言・リンク・キャラのポーズは MagazineHeroCta が note-magazines.ts から id で解決する。
-      const midSlot = midNote.slot;
       midRenderers.push(() => (
         <MidArticleCta mode="note" id={midSlot.magazineId} utmContent={`${midSlot.utmContent}-mid`} />
       ));

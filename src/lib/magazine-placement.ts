@@ -16,7 +16,7 @@
  *   唯一の単独配線だった management-tradeoffs は本文に <MagazineCard> を 3 枚持つ（4.6 参照）。
  */
 import type { DocGroupKey } from './doc-classifier';
-import type { MagazineId } from './note-magazines';
+import { getMagazine, type MagazineId } from './note-magazines';
 import examCalendar from '../../.claude/config/exam-calendar.json';
 
 export interface PlacementSlot {
@@ -132,7 +132,7 @@ function matchPeConstructionEssay(slug: string): MagazineId | null {
   if (/^pe-construction-r0[1-9]-railway$/.test(slug)) return 'pe-construction-railway-magazine';
   if (/^pe-construction-r0[1-9]-tunnel$/.test(slug)) return 'pe-construction-tunnel-magazine';
   // 論文の書き方ガイドは全受験者向けの必須科目I マガジンへ送客
-  if (/^pe-construction-(pe-secondary-essay-guide|setsumon-bunkai|aimai-hyougen-sahou|suikou-checklist|shiken-toujitsu-tejun|keyword-note-tsukurikata)$/.test(slug)) {
+  if (/^pe-construction-(pe-secondary-essay-guide|setsumon-bunkai|aimai-hyougen-sahou|suikou-checklist|shiken-toujitsu-tejun|keyword-note-tsukurikata|secondary-study-method|gyoumu-keireki-hyou)$/.test(slug)) {
     return 'pe-construction-required-magazine';
   }
   return null;
@@ -209,6 +209,35 @@ const CIVIL_SECONDARY_ADJACENT_GUIDES: ReadonlySet<string> = new Set([
  * docs/handoffs/2026-05-25-whitepaper-r7-free-lead-magnet.md)。
  */
 export function resolvePlacement(
+  slug: string,
+  docGroup: DocGroupKey,
+  isCareer = false,
+): ResolvedPlacement {
+  // career 記事は note 導線を一切置かない（下の resolvePlacementRaw 0 番と同じ判定を入口でも止める）
+  if (isCareer) return EMPTY;
+  const placement = resolvePlacementRaw(slug, docGroup, isCareer);
+  // 共通ルール（DN-0364・2026-09-30）: 個別配線で top を決めていないページは、inline の先頭
+  // （公開済みの最初の 1 誌＝その資格の主力）を冒頭にも出す。SNS から着地するキーワード・テキスト・
+  // 過去問ページは、本文中間の枠が長文でしか出ず note 導線が本文後半（中央値 69%）だった。
+  // 個別に top を置いたページ・career（EMPTY）は変えない。
+  if (placement.top) return placement;
+  const lead = placement.inline.find((s) => getMagazine(s.magazineId) !== null);
+  return lead ? { ...placement, top: lead } : placement;
+}
+
+/**
+ * 本文中間 CTA に出す note マガジン。冒頭（top）と同じ商品を 2 度見せないため、
+ * 公開済みの inline のうち top と別の先頭 1 誌を返す。DocPage と到達性検査が共有する。
+ */
+export function resolveMidNoteSlot(placement: ResolvedPlacement): PlacementSlot | null {
+  return (
+    placement.inline.find(
+      (s) => getMagazine(s.magazineId) !== null && s.magazineId !== placement.top?.magazineId,
+    ) ?? null
+  );
+}
+
+function resolvePlacementRaw(
   slug: string,
   docGroup: DocGroupKey,
   isCareer = false,
@@ -297,6 +326,20 @@ export function resolvePlacement(
       top: slot(isReiwa ? 'tankan-takuitsu-reiwa-pdf' : 'tankan-takuitsu-heisei-pdf', slug, 'top'),
       inline: [],
     };
+  }
+
+  // 1.8. SNS の着地になる総監 guide/pillar（DN-0364・2026-09-30）。ここは個別配線が無く
+  //      もくじタイルが末尾にあるだけだった。学習全体像・合格戦略は精読ガイド、記述式の年度横断は
+  //      コアパックを冒頭に出す。
+  if (
+    slug === 'pe-comprehensive-management-exam-passing-strategy' ||
+    slug === 'pe-comprehensive-management-whitepaper-study-map' ||
+    slug === 'pe-comprehensive-management-public-servant-comprehensive-merit'
+  ) {
+    return { top: slot('tankan-reading-guide', slug, 'top'), inline: [] };
+  }
+  if (slug === 'pe-comprehensive-management-essay-pattern-cross-year-application') {
+    return { top: slot(NEW_MAGAZINES.corePack, slug, 'top'), inline: [] };
   }
 
   // 2. pattern-essay-{persona} → 該当ペルソナ模範論文マガジン (ハブ、強 CTA)

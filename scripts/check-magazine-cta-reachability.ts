@@ -38,7 +38,7 @@
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { NOTE_MAGAZINES, getMagazine, type MagazineId } from '../src/lib/note-magazines';
-import { resolvePlacement } from '../src/lib/magazine-placement';
+import { resolvePlacement, resolveMidNoteSlot } from '../src/lib/magazine-placement';
 import { sidebarProduct, DISCOVERY_CATEGORIES } from '../src/lib/sidebar-discovery';
 
 // このリポジトリは package.json に "type" が無く、tsx は .ts を CJS として扱う。
@@ -167,8 +167,8 @@ for (const d of docs) {
   // 冒頭 CTA と別マガジンのときだけ描画される（DocPage.tsx:356-366）。
   // 2 誌目以降を面として数えると、実際には出ないマガジンが「導線あり」になる。
   if (midFires(d) && hasMidSlot(d)) {
-    const midNote = p.inline.find((s) => getMagazine(s.magazineId));
-    if (midNote && (!p.top || p.top.magazineId !== midNote.magazineId)) {
+    const midNote = resolveMidNoteSlot(p);
+    if (midNote) {
       const r = ensure(midNote.magazineId); r.routes.push(`mid:${d.slug}`); r.categories.add(d.category);
     }
   }
