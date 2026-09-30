@@ -135,15 +135,16 @@ async function processArticle(page, src) {
     const r = await insertImagesAtPlaceholders(page, images, { tag: '[img]' });
     if (r.failed.length || r.leftover.length || !r.settled) throw new Error(`画像挿入に失敗: ${JSON.stringify({ f: r.failed, l: r.leftover, s: r.settled })}`);
   }
-  // 先頭に残る空段落を消す
-  const lead = await page.evaluate(() => { const f = document.querySelector('[contenteditable=true]').children[0]; return f.tagName === 'P' && !(f.innerText || '').trim(); });
-  if (lead) { await selectBlocks(page, 0, 0); await page.keyboard.press('Delete'); await sleep(600); }
+  // 画像の直前に残る空段落は消さない（消すと ProseMirror が直後の画像ごと消す・2026-09-30 工事19 で実測）。
+  // 全文置換で公開した記事にも同じ空段落があり、表示上の差は無い。
   // 4) 検証
   const after = await snap(page);
   const errs = [];
   if (after.att !== before.att || after.pdfFig !== before.pdfFig) errs.push(`添付の数が変わった ${before.att}/${before.pdfFig}→${after.att}/${after.pdfFig}`);
   if (before.toc >= 0 && !(after.toc >= 0 && after.toc < after.h2)) errs.push('目次の位置が崩れた');
   if (!after.text.includes(P1_PROBE)) errs.push('説明文が無い');
+  const bannerOk = await page.evaluate(() => { const k = [...document.querySelector('[contenteditable=true]').children]; return k.slice(0, 3).some((e) => e.tagName === 'FIGURE' && e.querySelector('img')); });
+  if (!bannerOk) errs.push('冒頭の著者画像が無い');
   if (LAB_RE.test(after.text)) errs.push('合格ラボが残っている');
   if (/まだ答案が無い人は/.test(after.text)) errs.push('旧ココナラ文が残っている');
   const introCards = await page.evaluate(() => { const k = [...document.querySelector('[contenteditable=true]').children];
