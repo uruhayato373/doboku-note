@@ -21,8 +21,11 @@ cover:
 ---
 # 【土木もくじ】1級・2級土木の教材、どれを買う？状況別に「まず1冊」がわかる全案内
 
-
 ![](img/figure-author-authority-pop.png)
+
+この教材は、技術士（総合技術監理部門）を持つ元・地方自治体の土木職（発注者）がつくっています。1級・2級土木施工管理技士にも自分で合格しており、受験者と同じ答案を書いた当事者です。
+
+総監の5つの管理の視点で記述を分析し、発注者として施工計画書や工事成績評定の書類を審査してきた目で「評価される書き方」を整理しています。
 
 1級・2級土木施工管理技士の第2次検定は、市販テキストと過去問演習だけでは「施工経験記述の合格答案」までは埋まりません。工種を選び、5つの管理をどう書き分けるか——ここでつまずく人がとても多いところです。
 
@@ -37,6 +40,17 @@ cover:
 過去問の解説・テキストは、サイト [doboku-note](https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=civil-mokuji&utm_content=intro) で無料公開しています。
 
 ---
+
+<!-- cta:coconala-custom -->
+自分の答案を人の目で確かめたいときは、ココナラで個別に対応しています。書いた答案があれば添削、まだ書けていなければヒアリングから骨子（構成）をつくります。上の2つが1級（全5テーマ）、下の2つが2級（全3テーマ）です。
+
+https://coconala.com/services/4418735
+
+https://coconala.com/services/4350199
+
+https://coconala.com/services/4418778
+
+https://coconala.com/services/4418785
 
 ## 無料で現在地を確認してから選ぶ
 
@@ -124,7 +138,6 @@ https://note.com/dobokunote/m/md3518107aa97
 
 ---
 
-
 ## 無料で全体像をつかむ
 
 買う前に、まず無料記事で試験の全体像と答案の考え方をつかめます。
@@ -192,7 +205,6 @@ https://note.com/dobokunote/m/md3518107aa97
 - [施工管理の転職エージェントの使い方｜登録・電話・面談・応募前の準備](https://note.com/dobokunote/n/n5a823955985c)
 - [土木施工管理の転職エージェントの選び方｜工種・勤務地・支援内容で比較する](https://note.com/dobokunote/n/ne49853deac96)
 - [ビルドジョブは土木施工管理に向く？評判を見る前に確認したい経験・勤務地・相談の流れ](https://note.com/dobokunote/n/na0f42fd52a51)
-
 
 ---
 
