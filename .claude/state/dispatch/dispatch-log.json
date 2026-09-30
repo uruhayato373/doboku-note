@@ -1459,6 +1459,30 @@
       "commit": "60e7fba1f96d",
       "verification": "公式正答attach_4106_10と79問全一致+Ⅱ-14全員得点/quiz r01-retry 80問・ID重複0/validate-mdx・refresh-indexes・npm test pass",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0430",
+      "at": "2026-09-30",
+      "task": "規格の章ページで、本文の段落が「表」と誤判定されてコードブロック表示になるのを直す",
+      "tier": "low",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "006941fcd30d",
+      "verification": "npm run test (PR #761 CI)",
+      "note": "PR #761 マージ済み。表判定に散文条件、差分16章+8manifestのみ、回帰テスト4件"
+    },
+    {
+      "id": "DN-0434",
+      "at": "2026-09-30",
+      "task": "管理画面の E2E「Kindle を左ナビから開ける」が今のナビと合っていないので直す",
+      "tier": "low",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "006941fcd30d",
+      "verification": "npm run test:e2e:admin -- e2e-admin/content-kindle.spec.ts (desktop 5 pass)",
+      "note": "PR #762 マージ済み。販売状態→Kindleタブ経路"
     }
   ]
 }
