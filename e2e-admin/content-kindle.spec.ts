@@ -15,7 +15,7 @@ test('/content/kindle は書籍・状態・ロイヤリティを表示し、writ
   await expect(page.getByRole('heading', { name: 'Kindle', level: 1 })).toBeVisible();
 
   // B-G系・A系それぞれ代表 1 冊が表示される
-  await expect(page.getByText('コンクリート診断士 体系解説＋四肢択一演習98問')).toBeVisible();
+  await expect(page.getByRole('link', { name: 'コンクリート診断士 体系解説＋四肢択一演習98問' })).toBeVisible();
 
   // status バッジ（live）が出る
   await expect(page.getByText('live').first()).toBeVisible();
@@ -48,12 +48,15 @@ test('/content の Kindle カードは KPI を表示し /content/kindle へリ�
   await expect(page).toHaveURL(/\/content\/kindle$/);
 });
 
-test('Kindle channel は左ナビから「書籍」タブで到達できる', async ({ page }) => {
-  await page.goto('/content/kindle');
-  const kindleTree = page.locator('.nav-tree', { hasText: 'Kindle' });
-  await expect(kindleTree).toBeVisible();
-  await expect(kindleTree.locator('a', { hasText: '書籍' })).toHaveAttribute('href', '/content/kindle');
-  await expect(kindleTree.locator('a', { hasText: 'ファイル' })).toHaveAttribute('href', '/content/content~kindle');
+test('Kindle は左ナビの「販売状態」から Kindle タブで到達できる', async ({ page }) => {
+  // 2026-09-26 のナビ再編でチャネルはサイドバーの枝にせず、/product/status のタブにした（domains.json navRules）
+  await page.goto('/');
+  await page.locator('[data-slot=sidebar] a[href="/product/status"]').first().click();
+  await expect(page).toHaveURL(/\/product\/status/);
+  await page.locator('nav.filterbar').getByRole('link', { name: 'Kindle', exact: true }).click();
+  await expect(page).toHaveURL(/\/product\/status\?ch=kindle$/);
+  await expect(page.getByRole('link', { name: 'コンクリート診断士 体系解説＋四肢択一演習98問' })).toBeVisible();
+  await expect(page.locator('nav.filterbar').getByRole('link', { name: '原稿' })).toHaveAttribute('href', '/content/content~kindle');
 });
 
 test('表紙サムネイルが /media/kindle 経由で配信される', async ({ page }) => {
