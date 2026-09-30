@@ -1,6 +1,6 @@
 ---
 notePricing: membership
-noteStatus: reserved
+noteStatus: published
 noteSeries: 経験記述-週次お題ラボ
 noteContentType: product
 noteMagazine: 経験記述-週次お題ラボ
