@@ -77,3 +77,21 @@ export function examTimeline(calendar, ids, period, buyWindowWeeks) {
       return { id, label: exam.label, marks, buys };
     });
 }
+
+/**
+ * 月ごとの「前年同月の資格別売上」。sales は qualification-market.mjs の salesByQualification の戻り値
+ * （資格 id → { byMonth }）。値を写さず、表示のたびにそこから引く。0 円の資格は出さない・金額の降順。
+ * @returns {Record<string, { month: string, total: number, items: { id: string, yen: number }[] }>}
+ */
+export function lastYearSalesByMonth(sales, months) {
+  const out = {};
+  for (const m of months) {
+    const prev = `${Number(m.slice(0, 4)) - 1}${m.slice(4)}`;
+    const items = Object.entries(sales ?? {})
+      .map(([id, q]) => ({ id, yen: q?.byMonth?.[prev] ?? 0 }))
+      .filter((x) => x.yen > 0)
+      .sort((a, b) => b.yen - a.yen || a.id.localeCompare(b.id));
+    out[m] = { month: prev, total: items.reduce((s, x) => s + x.yen, 0), items };
+  }
+  return out;
+}
