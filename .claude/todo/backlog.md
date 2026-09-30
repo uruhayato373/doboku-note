@@ -1475,6 +1475,15 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 
 **進捗（2026-09-30）**: (3) 受注手順は `content/note/コンクリート主任技士/小論文-添削テンプレ.md` を作り coconala-operations.md §3 へ結線（9b964cb5b）。(1) POP 画像は画像生成ツールがこのセッションに無く未作成（aidesigner 未認証・Gemini は課金確認が要る）。承認画像 thumb-cce-essay-tensaku.png / thumb-cce-full-pdf.png はローカルにも Drive vault `制作物/ココナラ/` にも無く、check-coconala-wiring が復元を要求している。(2) プロフィールの資格欄は運営者の作業。
 
+### [DN-0464] コンクリート主任技士 小論文添削の商品画像を Codex で POP 意匠に作り直し、ココナラへ差し替える
+タグ: [収益化] [領域:商品] [時期:2026-10] [種類:制作] [起票:2026-09-30] [期日:2026-10-31]
+
+**起点**: DN-0440 の (1)。2026-09-30 の Claude セッションには画像生成手段が無く、Codex で作ることにした。現行画像は仮のテンプレ描画（承認台帳の SHA は描画定義から再現でき、`coconala-thumb.mjs` で復元済み）で、他の主任技士商品の POP 意匠（紫）とそろっていない。
+
+**やること**: `content/coconala/products/coconala-cce-essay-tensaku/pop-prompt-codex.md` の依頼文を Codex に渡して生成 → 運営者の承認 → 承認台帳の更新 → `coconala-edit --replace-image --commit` で差し替え。
+
+**完了条件**: 公開ページの商品画像が新 POP で、承認台帳の SHA が新 PNG と一致し、`npm run check-coconala-wiring` が exit 0。
+
 ### [DN-0463] コンクリート主任技士 令和形式小論文6本を note に公開する（運営者の実行）
 タグ: [収益化] [領域:商品] [時期:2026-10] [種類:改善] [起票:2026-09-30] [期日:2026-10-15]
 
