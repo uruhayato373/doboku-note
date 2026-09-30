@@ -44,7 +44,7 @@
   <text class="t-desc" x="158" y="214">表面が沈み込み、ほぼ平らになる</text>
 
   <!-- STEP3 完了 -->
-  <rect class="box-positive" x="20" y="310" width="360" height="132" rx="8"/>
+  <rect class="box-positive" x="20" y="310" width="360" height="124" rx="8"/>
   <rect class="box-surface" x="32" y="320" width="90" height="94" rx="4"/>
   <line x1="77" y1="320" x2="77" y2="396" stroke="#555" stroke-width="3" stroke-linecap="round"/>
   <circle cx="77" cy="396" r="5" fill="#555"/>
@@ -54,7 +54,7 @@
   <text class="t-desc" x="158" y="372">気泡が出なくなる</text>
 
   <!-- 注意 -->
-  <rect class="box-danger" x="20" y="452" width="360" height="40" rx="6"/>
-  <text class="t-name" x="200" y="472" text-anchor="middle">振動のかけすぎに注意</text>
-  <text class="t-desc" x="200" y="486" text-anchor="middle">過度な振動は材料分離を招くおそれがある</text>
+  <rect class="box-danger" x="20" y="446" width="360" height="48" rx="6"/>
+  <text class="t-name" x="200" y="465" text-anchor="middle">振動のかけすぎに注意</text>
+  <text class="t-desc" x="200" y="484" text-anchor="middle">過度な振動は材料分離を招くおそれがある</text>
 </svg>

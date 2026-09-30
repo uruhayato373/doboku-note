@@ -10,7 +10,7 @@
   <line x1="46" y1="150" x2="186" y2="150" stroke="#222" stroke-width="1.5" marker-end="url(#cdm3)"/>
   <line x1="46" y1="150" x2="46" y2="36" stroke="#222" stroke-width="1.5" marker-end="url(#cdm3)"/>
   <line x1="46" y1="60" x2="180" y2="60" stroke="#8a8a8a" stroke-width="1.2" stroke-dasharray="4 3"/>
-  <text x="52" y="54" font-family="sans-serif" font-size="11" fill="#8a8a8a">当初の性能</text>
+  <text x="180" y="54" text-anchor="end" font-family="sans-serif" font-size="11" fill="#8a8a8a">当初の性能</text>
   <path d="M46 60 L96 116 L96 62 L150 96" fill="none" stroke="#2e6da4" stroke-width="2.2"/>
   <text x="116" y="146" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#2e6da4">補修</text>
   <text x="116" y="164" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">元の性能へ回復</text>
@@ -18,7 +18,7 @@
   <line x1="214" y1="150" x2="366" y2="150" stroke="#222" stroke-width="1.5" marker-end="url(#cdm3)"/>
   <line x1="214" y1="150" x2="214" y2="36" stroke="#222" stroke-width="1.5" marker-end="url(#cdm3)"/>
   <line x1="214" y1="60" x2="360" y2="60" stroke="#8a8a8a" stroke-width="1.2" stroke-dasharray="4 3"/>
-  <text x="220" y="54" font-family="sans-serif" font-size="11" fill="#8a8a8a">当初の性能</text>
+  <text x="360" y="54" text-anchor="end" font-family="sans-serif" font-size="11" fill="#8a8a8a">当初の性能</text>
   <path d="M214 60 L264 116 L264 42 L330 42" fill="none" stroke="#3a7d44" stroke-width="2.2"/>
   <text x="290" y="146" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#3a7d44">補強</text>
   <text x="290" y="164" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">要求性能まで向上</text>

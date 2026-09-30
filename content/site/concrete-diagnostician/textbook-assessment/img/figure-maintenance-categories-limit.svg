@@ -25,7 +25,7 @@
 
   <text class="t-lead" x="200" y="16" text-anchor="middle">維持管理区分によって性能低下曲線上の限界の位置が違う</text>
 
-  <text class="t-axis" x="18" y="45">性能</text>
+  <text class="t-axis" x="46" y="40">性能</text>
   <line class="axisline" x1="40" y1="300" x2="40" y2="28" marker-end="url(#arrow)"/>
   <line class="axisline" x1="40" y1="300" x2="378" y2="300" marker-end="url(#arrow)"/>
   <text class="t-axis" x="380" y="318" text-anchor="end">供用期間</text>
