@@ -25,6 +25,7 @@ import { cardifyBareUrls, repairUrlHeadings, listUrlHeadingsInEditor } from './l
 import { extractBodyImages, insertImagesAtPlaceholders } from './lib/note-images.mjs';
 import { publishLive } from './lib/note-live-publish.mjs';
 import { recordPublishedHash, recordPublishedAssetHash, loadState, bodyHash } from './lib/note-republish-hash.mjs';
+import { introRangeEndpoints, headingsDiff } from './lib/note-intro-range.mjs';
 
 const argv = process.argv.slice(2);
 const val = (k) => (argv.includes(k) ? argv[argv.indexOf(k) + 1] : null);
@@ -63,13 +64,24 @@ const snap = (page) => page.evaluate(() => {
     toc: k.findIndex((e) => e.tagName === 'TABLE-OF-CONTENTS'), h2: k.findIndex((e) => e.tagName === 'H2'),
     stop: k.findIndex((e) => ['TABLE-OF-CONTENTS', 'PAYWALL-LINE', 'H2'].includes(e.tagName)),
     text: ed.innerText,
+    // 冒頭（最初の目次・有料ライン・H2）より後ろの見出し。冒頭の貼り直しで変わってはいけない
+    headings: (() => { const st = k.findIndex((e) => ['TABLE-OF-CONTENTS', 'PAYWALL-LINE', 'H2'].includes(e.tagName));
+      return st < 0 ? [] : k.slice(st).filter((e) => /^H[23]$/.test(e.tagName)).map((e) => ({ tag: e.tagName, text: (e.innerText || '').trim() })); })(),
   };
 });
-const selectBlocks = (page, a, b) => page.evaluate(([a, b]) => {
+// 端点を setStartBefore/setEndAfter だけで置くと、ProseMirror が隣のテキストブロック（最初の H2 等）の中へ解決し、
+// Delete で隣と結合して見出しが壊れる（DN-0465）。隣がテキストブロックなら端点を選ぶブロック自身の中に置く。
+const selectBlocks = async (page, a, b) => {
+  const tags = await page.evaluate(() => [...document.querySelector('[contenteditable=true]').children].map((e) => e.tagName));
+  const ep = introRangeEndpoints(tags, a, b);
+  return page.evaluate(([a, b, ep]) => {
   const ed = document.querySelector('[contenteditable=true]'); const k = [...ed.children];
-  const r = document.createRange(); r.setStartBefore(k[a]); r.setEndAfter(k[b]);
+  const r = document.createRange();
+  if (ep.start === 'inside-start') { const t = document.createRange(); t.selectNodeContents(k[a]); r.setStart(t.startContainer, t.startOffset); } else r.setStartBefore(k[a]);
+  if (ep.end === 'inside-end') { const t = document.createRange(); t.selectNodeContents(k[b]); r.setEnd(t.endContainer, t.endOffset); } else r.setEndAfter(k[b]);
   const s = window.getSelection(); s.removeAllRanges(); s.addRange(r); ed.focus(); return true;
-}, [a, b]);
+  }, [a, b, ep]);
+};
 const caretAt = (page, idx, atEnd = false) => page.evaluate(([i, end]) => {
   const ed = document.querySelector('[contenteditable=true]'); const el = ed.children[i];
   const r = document.createRange(); r.selectNodeContents(el); r.collapse(!end);
@@ -208,6 +220,8 @@ async function processArticle(page, src) {
   if (src.isPaid && !paywallBefore) errs.push('有料ラインが消えた');
   const wantCards = (src.introMd.match(/^https:\/\/coconala\.com\/services\/\d+$/gm) || []).length;
   if (introCards !== wantCards) errs.push(`冒頭のココナラカードが ${introCards} 枚（原稿は ${wantCards} 枚）`);
+  const hd = headingsDiff(mid.headings, after.headings);
+  if (hd) errs.push(`見出しが変わった（${hd}）`);
   if (errs.length) throw new Error('検証 NG: ' + errs.join(' / '));
   return { before, after };
 }
