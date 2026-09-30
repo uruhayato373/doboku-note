@@ -20,6 +20,8 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const CONFIG = JSON.parse(readFileSync(join(ROOT, '.claude/config/note-funnel.json'), 'utf8'));
+// 1級土木の公開記事の冒頭は standardize-civil1-note-intro.mjs が持つ（収録元＋上位の2枚・順序つき）。ここでは触らない。
+const STANDARD_ROOT = join(ROOT, JSON.parse(readFileSync(join(ROOT, '.claude/config/note-intro-standard.json'), 'utf8')).root);
 
 const args = process.argv.slice(2);
 const APPLY = args.includes('--apply');
@@ -86,6 +88,7 @@ for (const adir of articleDirs) {
 
   // ナビ/入口記事は冒頭パック CTA を付けない（無料→有料の導線思想に反するため）
   const topExcluded = (ex.topCtaExcludeDirs || []).some(x => d.name === x || d.name.endsWith('/' + x));
+  const standardOwned = f.startsWith(STANDARD_ROOT) && /^note(Url|Id):/m.test(raw.slice(0, 4000));
   // ディレクトリ接頭辞で冒頭パック CTA を差し替える（例: 2級土木/ 配下は 2級バンクへ）。
   // 資格別セグメントの下の「サブ資格別」上げ導線に対応。マーカーは共通（cta:pack-top）。
   const ovr = (ex.topCtaOverrides || []).find(o => d.name.startsWith(o.dirPrefix));
@@ -97,18 +100,26 @@ for (const adir of articleDirs) {
   const topDup = topUrl && body.includes(topUrl);
   const markerToken = topMarker ? `<!-- ${topMarker} -->` : '';
   const markerAt = markerToken ? body.indexOf(markerToken) : -1;
-  if (SYNC_MANAGED && markerAt >= 0) {
+  if (standardOwned) {
+    actions.push('TOP-skip(standard)'); skipTop++;
+  } else if (SYNC_MANAGED && markerAt >= 0) {
     const firstH2 = body.search(/^##\s/m);
     if (firstH2 < 0 || markerAt > firstH2) {
       actions.push('TOP-sync-skip(marker-position)');
       skipTop++;
     } else {
-      const oldManaged = body.slice(markerAt, firstH2).trim();
+      // 管理範囲は「目印からカードの URL 行まで」。以前は最初の H2 までを丸ごと書き換えていたため、
+      // 1級の冒頭標準形（pack-top の後ろに失格注意・もくじ）を消していた（2026-09-30）。
+      const urlLine = /^https?:\/\/\S+[ \t]*\r?$/m;
+      const urlHit = urlLine.exec(body.slice(markerAt, firstH2));
+      const managedEnd = urlHit ? markerAt + urlHit.index + urlHit[0].length : firstH2;
+      const tail = managedEnd < firstH2 ? body.slice(managedEnd).replace(/^\s*/, '') : body.slice(firstH2);
+      const oldManaged = body.slice(markerAt, managedEnd).trim();
       if (topExcluded) {
-        body = body.slice(0, markerAt).replace(/\s*$/, '\n\n') + body.slice(firstH2);
+        body = body.slice(0, markerAt).replace(/\s*$/, '\n\n') + tail;
         actions.push('TOP-REMOVE'); topRemove++;
       } else if (oldManaged.replace(/\r\n/g, '\n') !== topText.trim().replace(/\r\n/g, '\n')) {
-        body = body.slice(0, markerAt) + topText.trim() + '\n\n' + body.slice(firstH2);
+        body = body.slice(0, markerAt) + topText.trim() + '\n\n' + tail;
         actions.push('TOP-SYNC'); topSync++;
       } else { skipTop++; }
     }
