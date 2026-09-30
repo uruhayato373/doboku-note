@@ -105,6 +105,8 @@ export function dropTailBanners(rest) {
   return rest
     .replace(/\n*!\[[^\]]*\]\(img\/figure-author-authority[^)]*\)\n*/g, '\n\n')
     .replace(/\n*上位資格の分析力・発注者として書類を評価してきた目・合格者の当事者性で、あなたの答案を合格ラインへ引き上げます。\n*/g, '\n\n')
+    // 本文側に残った旧ココナラ導線（冒頭の標準形と重複）も外す
+    .replace(/\n*<!-- cta:coconala-custom -->\n[^\n]*\n(\n*(https:\/\/coconala\.com\/services\/\d+|まだ答案が無い人は[^\n]*)\n)*/g, '\n\n')
     .replace(/\n{3,}/g, '\n\n');
 }
 

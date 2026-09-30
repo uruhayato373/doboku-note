@@ -77,13 +77,6 @@ https://note.com/dobokunote/m/md29a34906314
 
 ---
 
-<!-- cta:coconala-custom -->
-予想問題の答案をあなたの工事に合わせて仕上げたいときは、ココナラで個別に対応しています。書いた答案があれば全5テーマの添削、まだ書けていなければヒアリングから骨子（構成）をつくります。
-
-https://coconala.com/services/4418735
-
-https://coconala.com/services/4350199
-
 <!-- cta:civil-mokuji -->
 1級・2級土木のほかの記事・経験記述の答案集は「土木もくじ」から一覧できます。
 

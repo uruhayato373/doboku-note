@@ -61,6 +61,7 @@ const snap = (page) => page.evaluate(() => {
     n: k.length, att: ed.querySelectorAll('a[href*="attachments/download"]').length,
     pdfFig: k.filter((e) => e.tagName === 'FIGURE' && /\.pdf/i.test(e.innerText)).length,
     toc: k.findIndex((e) => e.tagName === 'TABLE-OF-CONTENTS'), h2: k.findIndex((e) => e.tagName === 'H2'),
+    stop: k.findIndex((e) => ['TABLE-OF-CONTENTS', 'PAYWALL-LINE', 'H2'].includes(e.tagName)),
     text: ed.innerText,
   };
 });
@@ -94,7 +95,7 @@ async function processArticle(page, src) {
   await page.goto(`https://editor.note.com/notes/${src.noteId}/edit`, { waitUntil: 'domcontentloaded', timeout: 60000 });
   await page.waitForSelector('[contenteditable=true]', { timeout: 30000 }); await sleep(2500);
   const before = await snap(page);
-  const introEnd = (before.toc >= 0 ? before.toc : before.h2) - 1;
+  const introEnd = before.stop - 1;
   if (introEnd < 0) throw new Error('目次・見出しが見つからない');
   // 1) 末尾: 合格ラボ（隣接ブロックの空段落も一緒に）と締めの一文
   const lab = await indices(page, LAB_RE.source, true);
@@ -111,8 +112,9 @@ async function processArticle(page, src) {
   // 1b) 本文側に古いココナラ導線が残っている（原稿の本文側には無い）記事は、その文とカードを消す
   if (!src.restHasCoconala) {
     const coco = await page.evaluate(() => { const k = [...document.querySelector('[contenteditable=true]').children]; const h2 = k.findIndex((e) => e.tagName === 'H2');
-      return k.map((e, i) => (i > h2 && ((e.tagName === 'P' && /ココナラで(個別に|単発)|まだ答案が無い人は/.test(e.innerText || '')) || (e.tagName === 'FIGURE' && /coconala/.test(e.innerHTML))) ? i : -1)).filter((i) => i >= 0); });
-    if (coco.length > 6) throw new Error(`本文側のココナラ導線が多すぎる: ${coco.length}`);
+      // 旧文は見出しに化けて公開されている記事がある（まだ答案が無い人は… が H2）。タグを問わず、本文全体から消す（冒頭はこの後に貼り直す）
+      return k.map((e, i) => ((/^(P|H2|H3)$/.test(e.tagName) && /ココナラで(個別に|単発)|まだ答案が無い人は/.test(e.innerText || '')) || (e.tagName === 'FIGURE' && /coconala\.com\/services/.test(e.innerHTML) && !e.querySelector('a[href*="attachments"]')) ? i : -1)).filter((i) => i >= 0); });
+    if (coco.length > 12) throw new Error(`本文側のココナラ導線が多すぎる: ${coco.length}`);
     if (coco.length) await deleteBlocksDesc(page, coco);
   }
   // 2) 印刷用PDF節の文面
@@ -130,12 +132,56 @@ async function processArticle(page, src) {
   }
   // 3) 冒頭の貼り直し
   const mid = await snap(page);
-  const end = (mid.toc >= 0 ? mid.toc : mid.h2) - 1;
+  const end = mid.stop - 1;
   const intro = await page.evaluate((e) => [...document.querySelector('[contenteditable=true]').children].slice(0, e + 1).some((x) => x.querySelector('a[href*="attachments/download"]')), end);
   if (intro) throw new Error('冒頭の範囲に添付がある');
-  await selectBlocks(page, 0, end); await sleep(300); await page.keyboard.press('Delete'); await sleep(1500);
-  const cleared = await snap(page);
-  if ((cleared.toc >= 0 ? cleared.toc : cleared.h2) > 1) throw new Error('冒頭を消しきれない');
+  // 範囲の端が編集できないカード（もくじ等）だと1回で消えきらないことがあるので、残りを選び直して繰り返す
+  // 先頭が段落なら残して2番目以降を消し、最後にその段落を空にして貼り付け先にする。先頭まで消すと、範囲末尾の
+  // 引用ブロック（失格注意）だけが残り、貼った冒頭がその引用の中に入る（工事132 で実測）
+  const firstIsP = await page.evaluate(() => document.querySelector('[contenteditable=true]').children[0].tagName === 'P');
+  let cleared = mid; let from = firstIsP ? 1 : 0, to = end;
+  for (let round = 0; round < 4; round++) {
+    await selectBlocks(page, from, to); await sleep(300); await page.keyboard.press('Delete'); await sleep(1500);
+    cleared = await snap(page);
+    if (cleared.stop <= 1) break;
+    const prevTo = to;
+    from = firstIsP ? 1 : 0; to = cleared.stop - 1;
+    if (to < from) break;
+    if (to === prevTo || round >= 1) {
+      // 範囲削除で減らない（引用ブロック等が残る）ときは1つずつ消す
+      await deleteBlocksDesc(page, Array.from({ length: to - from + 1 }, (_, i) => from + i));
+      cleared = await snap(page);
+      break;
+    }
+  }
+  // 範囲選択で消えない画像ブロックは、直前の空段落の末尾から前方削除すると消える（工事19 で確認した挙動）
+  for (let i = 0; i < 3 && cleared.stop > 1; i++) {
+    const imgNext = await page.evaluate(() => { const k = document.querySelector('[contenteditable=true]').children;
+      return k[0].tagName === 'P' && !(k[0].innerText || '').trim() && k[1].tagName === 'FIGURE' && !(k[1].innerText || '').trim() && !k[1].querySelector('a[href*="attachments"]'); });
+    if (!imgNext) break;
+    await page.locator('[contenteditable=true] > *').nth(1).click({ position: { x: 20, y: 20 } }); await sleep(300); await page.keyboard.press('Backspace'); await sleep(800);
+    cleared = await snap(page);
+  }
+  // 空段落が2つ以上並んだら、2つ目の先頭で Backspace して1つにまとめる
+  for (let i = 0; i < 4 && cleared.stop > 1; i++) {
+    const twoEmpty = await page.evaluate(() => { const k = document.querySelector('[contenteditable=true]').children;
+      return k[0].tagName === 'P' && !(k[0].innerText || '').trim() && k[1].tagName === 'P' && !(k[1].innerText || '').trim(); });
+    if (!twoEmpty) break;
+    await caretAt(page, 1); await sleep(200); await page.keyboard.press('Backspace'); await sleep(600);
+    cleared = await snap(page);
+  }
+  const p0HasText = await page.evaluate(() => !!(document.querySelector('[contenteditable=true]').children[0].innerText || '').trim());
+  if (firstIsP && p0HasText) {
+    await page.evaluate(() => { const ed = document.querySelector('[contenteditable=true]'); const r = document.createRange(); r.selectNodeContents(ed.children[0]); const sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r); ed.focus(); });
+    await sleep(200); await page.keyboard.press('Delete'); await sleep(600);
+    cleared = await snap(page);
+  }
+  const head0 = await page.evaluate(() => { const e = document.querySelector('[contenteditable=true]').children[0]; return e.tagName === 'P' && !(e.innerText || '').trim(); });
+  if (!head0) {
+    const top3 = await page.evaluate(() => [...document.querySelector('[contenteditable=true]').children].slice(0, 4).map((e) => e.tagName + ':' + (e.innerText || '').slice(0, 15)).join(' / '));
+    throw new Error('貼り付け先の空段落を作れない: ' + top3);
+  }
+  if (cleared.stop > 1) { const top = await page.evaluate(() => [...document.querySelector('[contenteditable=true]').children].slice(0, 5).map((e) => e.tagName + (e.getAttribute('contenteditable') === 'false' ? '*' : '') + ':' + (e.innerText || '').replace(/\s+/g, ' ').slice(0, 12)).join(' | ')); throw new Error(`冒頭を消しきれない（stop=${cleared.stop}）: ${top}`); }
   await caretAt(page, 0); await paste(page, tokenMd); await sleep(3500);
   await cardifyBareUrls(page, { tag: '[card]' }); await repairUrlHeadings(page, { tag: '[repair]' });
   if ((await listUrlHeadingsInEditor(page)).length) throw new Error('URL が見出しに化けた');
@@ -158,6 +204,8 @@ async function processArticle(page, src) {
   const introCards = await page.evaluate(() => { const k = [...document.querySelector('[contenteditable=true]').children];
     const t = k.findIndex((e) => e.tagName === 'TABLE-OF-CONTENTS' || e.tagName === 'H2');
     return k.slice(0, t).filter((e) => e.tagName === 'FIGURE' && /coconala/.test(e.innerHTML)).length; });
+  const paywallBefore = await page.evaluate(() => [...document.querySelector('[contenteditable=true]').children].some((e) => e.tagName === 'PAYWALL-LINE'));
+  if (src.isPaid && !paywallBefore) errs.push('有料ラインが消えた');
   if (introCards !== 2) errs.push(`冒頭のココナラカードが ${introCards} 枚`);
   if (errs.length) throw new Error('検証 NG: ' + errs.join(' / '));
   return { before, after };

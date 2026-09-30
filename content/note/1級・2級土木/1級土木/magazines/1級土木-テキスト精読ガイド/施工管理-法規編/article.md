@@ -39,6 +39,8 @@ cover:
 
 範囲が広く見えますが、**分野ごとに「毎年出題される項目」と「数年に1回の項目」がはっきり分かれています**。本記事は、doboku-note の各分野解説記事（合計約1,900本の詳細解説と連動）から頻出テーマだけを抜き出し、優先度つきで整理した「精読の地図」です。各テーマから該当する詳細解説記事へ直リンクしているので、気になった項目はクリックしてそのまま確認してください。
 
+https://note.com/dobokunote/n/nec34238ca6d6
+
 ---
 
 <!-- cta:coconala-custom -->
@@ -156,9 +158,3 @@ https://note.com/dobokunote/n/nec34238ca6d6
 
 経験記述の準備を始めたい方は、[施工経験記述 出題傾向と書き方（無料）](https://doboku-note.com/exam/civil-construction-1/secondary/experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil1-reading-guide&utm_content=experience-writing-guide)もあわせてご覧ください。
 
-<!-- cta:coconala-custom -->
-二次の施工経験記述は、ココナラで個別に対応しています。書いた答案があれば全5テーマの添削、まだ書けていなければヒアリングから骨子（構成）をつくります。
-
-https://coconala.com/services/4418735
-
-https://coconala.com/services/4350199
