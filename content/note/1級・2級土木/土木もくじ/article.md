@@ -220,13 +220,7 @@ https://note.com/dobokunote/m/md3518107aa97
 - **試験直前2週間を回し切りたい** → [1級](https://note.com/dobokunote/m/m7a9b3ad964f6)／[2級](https://note.com/dobokunote/m/md3518107aa97) 直前総仕上げパック（模試3回＋暗記＋出題分析）
 - **二次の教材をまとめてそろえたい** → [1級](https://note.com/dobokunote/m/md29a34906314)／[2級](https://note.com/dobokunote/m/m2d9a069b6f87) 二次検定まるごとパック
 - **一次のテキストをどこから読むか決めたい** → [1級 精読ガイド](https://note.com/dobokunote/n/n653cd1b3ee71)／[2級 精読ガイド](https://note.com/dobokunote/n/na8e28f954797)（無料）
-- **自分の答案を人に見てほしい** → 下のココナラ（添削・骨子づくり）
-
-自分の答案を1回だけ見てほしい場合は、ココナラで単発の添削と骨子づくりを受け付けています。書いた答案があれば全5テーマの添削、まだ書けていなければヒアリングから骨子（構成）をつくります。
-
-https://coconala.com/services/4418735
-
-https://coconala.com/services/4350199
+- **自分の答案を人に見てほしい** → 冒頭のココナラ（添削・骨子づくり）
 
 ---
 
