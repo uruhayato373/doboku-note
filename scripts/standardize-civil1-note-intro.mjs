@@ -22,6 +22,7 @@
  */
 import { readdirSync, readFileSync, statSync, existsSync, mkdirSync, copyFileSync } from 'node:fs';
 import { join, dirname, relative } from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { readMdxFile, writeMdxFile } from '../.claude/scripts/lib/mdx-io.mjs';
 
@@ -145,4 +146,4 @@ function main() {
   process.exit(reviewed ? 1 : 0);
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) main();
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main();
