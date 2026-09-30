@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generated_at": "2026-09-30T11:38:59.554Z",
+  "generated_at": "2026-09-30T12:04:38.761Z",
   "summary": {
-    "total_mdx_files": 1316,
-    "total_unique_tags": 126,
-    "allowlist_size": 322,
-    "known_count": 126,
+    "total_mdx_files": 1319,
+    "total_unique_tags": 127,
+    "allowlist_size": 324,
+    "known_count": 127,
     "unknown_count": 0,
     "typo_candidates_count": 0
   },
@@ -2703,9 +2703,12 @@
     },
     {
       "name": "試験対策",
-      "count": 73,
+      "count": 76,
       "inAllowlist": true,
       "usedIn": [
+        "building-construction-guide-1kyu-keiken-kijutsu",
+        "building-construction-guide-2kyu-keiken-kijutsu",
+        "building-construction-guide-niji-kakomon-keikou",
         "civil-construction-1-guide-career-salary",
         "civil-construction-1-guide-concrete-key-points",
         "civil-construction-1-guide-concrete-maintenance",
@@ -3995,6 +3998,27 @@
       ]
     },
     {
+      "name": "過去問分析",
+      "count": 14,
+      "inAllowlist": true,
+      "usedIn": [
+        "building-construction-guide-niji-kakomon-keikou",
+        "pe-comprehensive-management-frequent-topics",
+        "pe-construction-construction-planning-exam-themes",
+        "pe-construction-environment-exam-themes",
+        "pe-construction-geotechnical-exam-themes",
+        "pe-construction-port-airport-exam-themes",
+        "pe-construction-power-civil-exam-themes",
+        "pe-construction-railway-exam-themes",
+        "pe-construction-required-exam-themes",
+        "pe-construction-river-coast-exam-themes",
+        "pe-construction-road-exam-themes",
+        "pe-construction-steel-concrete-exam-themes",
+        "pe-construction-tunnel-exam-themes",
+        "pe-construction-urban-planning-exam-themes"
+      ]
+    },
+    {
       "name": "適性科目",
       "count": 14,
       "inAllowlist": true,
@@ -4093,26 +4117,6 @@
         "civil-practice-lifting-equipment-selection",
         "civil-practice-sling-work-wire-rope",
         "civil-practice-stacking-heat-machine-safety"
-      ]
-    },
-    {
-      "name": "過去問分析",
-      "count": 13,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-frequent-topics",
-        "pe-construction-construction-planning-exam-themes",
-        "pe-construction-environment-exam-themes",
-        "pe-construction-geotechnical-exam-themes",
-        "pe-construction-port-airport-exam-themes",
-        "pe-construction-power-civil-exam-themes",
-        "pe-construction-railway-exam-themes",
-        "pe-construction-required-exam-themes",
-        "pe-construction-river-coast-exam-themes",
-        "pe-construction-road-exam-themes",
-        "pe-construction-steel-concrete-exam-themes",
-        "pe-construction-tunnel-exam-themes",
-        "pe-construction-urban-planning-exam-themes"
       ]
     },
     {
@@ -4277,6 +4281,23 @@
       ]
     },
     {
+      "name": "経験記述",
+      "count": 10,
+      "inAllowlist": true,
+      "usedIn": [
+        "building-construction-guide-1kyu-keiken-kijutsu",
+        "building-construction-guide-2kyu-keiken-kijutsu",
+        "civil-construction-1-secondary-experience-writing-examples",
+        "civil-construction-1-secondary-experience-writing-guide",
+        "civil-construction-1-secondary-getting-started",
+        "civil-construction-2-secondary-experience-writing-by-theme",
+        "civil-construction-2-secondary-experience-writing-examples",
+        "civil-construction-2-secondary-experience-writing-guide",
+        "civil-construction-2-secondary-getting-started",
+        "civil-construction-2-secondary-grading-and-partial-credit"
+      ]
+    },
+    {
       "name": "選択科目",
       "count": 10,
       "inAllowlist": true,
@@ -4403,21 +4424,6 @@
         "civil-construction-1-textbook-steel-structures",
         "civil-construction-1-textbook-tunnel-natm",
         "civil-construction-1-textbook-water-sewer"
-      ]
-    },
-    {
-      "name": "経験記述",
-      "count": 8,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-secondary-experience-writing-examples",
-        "civil-construction-1-secondary-experience-writing-guide",
-        "civil-construction-1-secondary-getting-started",
-        "civil-construction-2-secondary-experience-writing-by-theme",
-        "civil-construction-2-secondary-experience-writing-examples",
-        "civil-construction-2-secondary-experience-writing-guide",
-        "civil-construction-2-secondary-getting-started",
-        "civil-construction-2-secondary-grading-and-partial-credit"
       ]
     },
     {
@@ -4756,6 +4762,16 @@
         "pe-first-stage-h30-aptitude",
         "pe-first-stage-h30-basic",
         "pe-first-stage-h30-construction"
+      ]
+    },
+    {
+      "name": "建築施工管理技士",
+      "count": 3,
+      "inAllowlist": true,
+      "usedIn": [
+        "building-construction-guide-1kyu-keiken-kijutsu",
+        "building-construction-guide-2kyu-keiken-kijutsu",
+        "building-construction-guide-niji-kakomon-keikou"
       ]
     },
     {

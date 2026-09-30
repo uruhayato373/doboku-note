@@ -87,6 +87,9 @@
 
 # BEGIN GENERATED PUBLIC ROUTES
 # /docs flat URLs → intent-based canonical URLs (one-to-one, permanent)
+/docs/building-construction-guide-1kyu-keiken-kijutsu /exam/building-construction/guide/1kyu-keiken-kijutsu 301
+/docs/building-construction-guide-2kyu-keiken-kijutsu /exam/building-construction/guide/2kyu-keiken-kijutsu 301
+/docs/building-construction-guide-niji-kakomon-keikou /exam/building-construction/guide/niji-kakomon-keikou 301
 /docs/civil-construction-1-guide-1-vs-2 /exam/civil-construction-1/guide/1-vs-2 301
 /docs/civil-construction-1-guide-age-career /exam/civil-construction-1/guide/age-career 301
 /docs/civil-construction-1-guide-allowance /exam/civil-construction-1/guide/allowance 301
@@ -1377,6 +1380,7 @@
 /category/surveyor /exam/surveyor 301
 /category/civil-practice /practice 301
 /category/pavement /exam/pavement 301
+/category/building-construction /exam/building-construction 301
 /category/reference-materials /standards 301
 /docs /exam 301
 /category /exam 301

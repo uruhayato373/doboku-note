@@ -60,6 +60,9 @@ const GROUP_DESCRIPTIONS: Record<string, Record<string, string>> = {
   pavement: {
     guide: '試験の概要・応用試験の経験記述・選択問題の頻出論点・学習計画',
   },
+  'building-construction': {
+    guide: '第二次検定の経験記述の書き方・過去問の傾向',
+  },
 };
 
 /** Sort functions per group */
@@ -102,7 +105,7 @@ function sortDocs(docs: DocMeta[], group: DocGroupKey, category: string) {
         return isBasicsA - isBasicsB;
       });
     }
-  } else if (category === 'concrete-engineer' || category === 'concrete-chief-engineer' || category === 'concrete-diagnostician' || category === 'rccm' || category === 'surveyor' || category === 'pavement') {
+  } else if (category === 'concrete-engineer' || category === 'concrete-chief-engineer' || category === 'concrete-diagnostician' || category === 'rccm' || category === 'surveyor' || category === 'pavement' || category === 'building-construction') {
     if (group === 'guide') {
       docs.sort((a, b) => {
         const orderA = a.guide_order ?? 999;
