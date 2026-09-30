@@ -1555,6 +1555,18 @@
       "commit": "8880f3633c49",
       "verification": "対象72/実検査72・Drive読み取り失敗0",
       "note": "Drive 72文書と standards-library を原本sha256で全件突合(72/72・part 274/274一致)。対応表 .claude/state/assets/standards-drive-map.json、判断を asset-storage-policy に追記(32d0e7e7e)"
+    },
+    {
+      "id": "DN-0347",
+      "at": "2026-09-30",
+      "task": "年間ロードマップに月別の売上（資格別）を重ね、売上の偏りと買われる時期のずれを見えるようにする",
+      "tier": "low",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "bff1aa472050",
+      "verification": "node --test tests/annual-roadmap.test.mjs 4 pass・admin tsc pass・dev 3031 で描画確認",
+      "note": "PR #772 マージ。/plan/roadmap に前年同月の資格別売上列(lastYearSalesByMonth+テスト)"
     }
   ]
 }
