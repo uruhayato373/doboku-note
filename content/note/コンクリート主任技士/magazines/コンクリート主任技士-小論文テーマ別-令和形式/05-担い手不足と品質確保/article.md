@@ -1,6 +1,7 @@
 ---
 title: "コンクリート主任技士 小論文 模範答案｜担い手不足と品質確保｜令和形式・8立場"
 notePricing: paid
+price: 1480
 paidBoundary: "模範答案"
 noteSeries: コンクリート主任技士-小論文テーマ別
 noteContentType: product
