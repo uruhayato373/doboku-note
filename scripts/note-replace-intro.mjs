@@ -24,7 +24,7 @@ import { launchNoteContext, assertAccountGate, sleep, ROOT } from './lib/note-br
 import { cardifyBareUrls, repairUrlHeadings, listUrlHeadingsInEditor } from './lib/note-cardify.mjs';
 import { extractBodyImages, insertImagesAtPlaceholders } from './lib/note-images.mjs';
 import { publishLive } from './lib/note-live-publish.mjs';
-import { recordPublishedHash, loadState, bodyHash } from './lib/note-republish-hash.mjs';
+import { recordPublishedHash, recordPublishedAssetHash, loadState, bodyHash } from './lib/note-republish-hash.mjs';
 
 const argv = process.argv.slice(2);
 const val = (k) => (argv.includes(k) ? argv[argv.indexOf(k) + 1] : null);
@@ -244,6 +244,8 @@ async function main() {
         if (!published) throw new Error('公開に失敗');
         if (!(await verifyLive(src.noteId))) throw new Error('公開後の API に新しい冒頭が無い（記録しない）');
         if (recordPublishedHash(src.rel)) console.log(`[hash] ${src.rel}`);
+        // 冒頭の画像（著者画像ほか）も上げ直したので画像の記録も付ける（無いと note-sync-plan が「反映待ち」と数える）
+        recordPublishedAssetHash(src.rel);
         console.log(`[OK] ${src.noteId}`); ok++; consecutive = 0;
       } catch (e) {
         fail++; consecutive++;
