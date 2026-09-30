@@ -34,12 +34,14 @@ title: スキル ガバナンス記録
 
 > 2026-09-29 新設: `conversion/past-exam-archive`（公式過去問の原本 PDF を年度在庫台帳 `past-exam-inventory.json` に沿って公式から取得し、Drive vault `原資料PDF/過去問/`（新 group `past-exam-source-pdf`）へ退避・全バイト照合・台帳登録する）。背景＝公式の掲載は直近数年度だけで、取り逃すと取り直せない。Drive のマウントも rclone も無い会社PCで、Playwright の Google プロファイル＋CDP 読み戻し＋Drive MCP（フォルダ作成・一覧）の組合せが通ることを実測し、`scripts/past-exam-fetch.mjs` と `scripts/drive-browser-transfer.mjs`（plan/upload/verify）に固めた。あわせて過去問を教材（`textbook-source-pdf`）から分離し、既存 238 本を移し替え、第三者の解答解説 24 本は教材側 `過去問解説/` へ分けた。**新エージェントは作らない**（取得・照合は決定的スクリプト・公式URLの調査は general-purpose で足りる）。合計 `106→107`、conversion `7→8`。
 
+> 2026-09-30 新設: `authoring/cce-essay-cycle`（コンクリート主任技士 小論文の出題履歴 SSOT `.claude/config/cce-essay-history.json` を起点に、サイト/note の出題履歴ブロック再生成・`cce-essay-writer`/`cce-essay-qa` によるテーマ別模範答案・PDF/ココナラ展開へルーティング）。背景＝旧4テーマ×8立場の序論本論結論型が令和2年度以降の1題約1,000字形式と合っておらず、年度別テーマを各記事へ手で写していたため。合計 `107→108`、authoring `11→12`。
+
 > このツリーがスキル件数の**唯一の真実源（SSOT）**。CLAUDE.md など他 doc は件数を重複記載せずここを指す。スキルを追加/削除したら同一 commit でここを更新する（`/doc-declutter` → `doc-curator` でドリフトを棚卸し）。
 
 ```
 .claude/skills/
 ├── ads/             # 4 — A8 開拓/成果取込 ＋ 3 ASP（A8/もしも/afb）横断の提携状態照合・提携申請
-├── authoring/       # 11 — 記事を作る
+├── authoring/       # 12 — 記事を作る
 ├── conversion/      # 8 — 形式変換（MDX / OGP 画像 / 紙用 PDF / Kindle EPUB）＋ KDP 入稿・出版 ＋ OGP 意匠の素案試作 ＋ 公式過去問原本の取得・退避
 ├── quality/         # 16 — MDX・note 公開前品質検査
 ├── management/      # 24 — 計画・分析・戦略
@@ -50,7 +52,7 @@ title: スキル ガバナンス記録
 └── ui/              # 1 — UI/UX デザイン
 ```
 
-合計 **107 スキル**（10 カテゴリ・SKILL.md 実数）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。
+合計 **108 スキル**（10 カテゴリ・SKILL.md 実数）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。
 
 > 2026-09-05 新設: `dev/asset-route`（Git の外に置くアセットの置き場を **誰が使うか** で決める決定木＋コマンド。サイトが配信→public R2 / GitHub Actions が読み書き→private R2 / 人か手元のスクリプトだけ→Google Drive vault）。背景＝同日、共通仕様書のページ画像 3.4GB を「教材ページ画像→private R2」の行に従って private R2 へ上げかけた。その行はスキャン書籍の著作権のために書かれたもので、資産の種類で列挙する旧ルールには判断軸が無かった。`asset-storage.json` の全 group に `audience` を必須化し（`loadConfig`・`tests/asset-storage.test.mjs`・新 `check-drive-vault` の 3 か所で止める）、Drive 側は独立した系 `drive-vault.json` / `drive-vault-sync` / `drive-manifest.json` にした（R2 の fail-closed なコードに第 3 バケットの分岐を足さない）。**新エージェントは作らない**（検査は決定的スクリプトで足りる・CLAUDE.md §9）。合計 `104→105`、dev `14→15`。
 

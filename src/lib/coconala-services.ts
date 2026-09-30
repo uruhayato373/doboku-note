@@ -825,6 +825,23 @@ const SERVICES_RAW = {
     weeklyCapacity: 20,
     listedAt: '2026-09-25',
   },
+  // ---- コンクリート主任技士 小論文 令和形式 PDF（2026-09-30 下書き）----
+  // note cce-essay-reiwa-pack（¥3,980）×1.1 を ¥500 刻みで切り上げ。旧 PDF（coconala-cce-essay-pdf・序論本論結論型）とは別出品。
+  // 出品は運営者が本文を確認してから（公開は取り消せない）。
+  'coconala-cce-essay-reiwa-pdf': {
+    id: 'coconala-cce-essay-reiwa-pdf',
+    status: 'draft',
+    serviceUrl: '',
+    title: 'コンクリート主任技士 小論文 令和形式の模範答案を送ります',
+    shortTitle: 'コンクリート主任技士 小論文 令和形式 PDF',
+    description:
+      'コンクリート主任技士試験の小論文を、令和2年度以降の1題・約1,000字の形式で書くためのPDF6冊。出題傾向分析（平成24年度〜令和7年度のテーマと確度）と、環境負荷低減・耐久性・生産性DX・気候変動と品質確保・担い手不足と品質確保の5テーマ×8立場の模範答案。答案は各立場を想定した例示。出題や合格を保証するものではない。',
+    price: '¥4,500（PDF6冊）',
+    priceYen: 4500,
+    notePriceBasis: 'cce-essay-reiwa-pack',
+    examScope: ['concrete-chief-engineer'],
+    weeklyCapacity: 20,
+  },
   // ---- コンクリート主任技士 小論文添削（2026-09-29 新設）----
   // 競合実測（09-29）: 主任技士の添削はココナラに2件のみ（¥5,000・販売0件／¥3,000・★1.0）。
   // 土木の添削が試験9日前に売れた実績から、需要の山は直前（本試験 2026-11-29）と見て1枠で出す。

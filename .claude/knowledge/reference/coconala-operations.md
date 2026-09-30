@@ -78,6 +78,7 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 | `coconala-rccm-takuitsu-pdf` | R2 RCCM 択一 PDF 2冊（予想50問＋一問一答159問・¥3,000）。`--product R2`。試験 CBT 期間（〜10/31）向けの季節商品。判断→[09 §D7](../../../docs/strategy/09_販売チャネル競合分析.md) |
 | `coconala-rccm-mondai1-pdf` | R3 RCCM 問題I テンプレ＋受験部門の記入例2本（¥4,500）。`--product R3`（テンプレ1冊＋6部門）。購入時メッセージで部門を確認してから送る |
 | `coconala-cce-essay-pdf` / `coconala-cce-takuitsu-pdf` | K1 コンクリート主任技士 小論文 PDF5冊（¥3,000）／K2 択一直前パック PDF3冊（¥3,500）。`--product K1`/`K2`。需要未検証の試験出品（本試験 11/29 後に販売実績で継続判断＝backlog DN-0265） |
+| `coconala-cce-essay-reiwa-pdf` | K3 コンクリート主任技士 小論文 令和形式 PDF6冊（出題傾向分析＋5テーマ×8立場・¥4,500＝note `cce-essay-reiwa-pack` ¥3,980×1.1 を ¥500 切上げ）。`--product K3`。`status:'draft'`（2026-09-30 登録）。出題履歴の SSOT は `.claude/config/cce-essay-history.json`、運用は `/cce-essay-cycle`。出品は運営者が本文を確認してから |
 | `coconala-cce-essay-tensaku` | コンクリート主任技士 小論文**添削**（1課題・48時間・書き直し1回込み・¥5,000・週2枠）。2026-09-29 出品。骨子からの相談は別出品にせず有料オプション（+¥3,000・20枠節約）。競合は2件のみ（¥5,000 販売0／¥3,000 ★1.0・09-29 実測）。FAQ・オプションは公開後に一回限りのスクリプトで反映済み。**添削の下書き・QA エージェントは土木の経験記述専用**で主任技士の小論文には未対応（受注時は手作業） |
 | （特典）A1/A2 | 1級・2級 二次の直前暗記ノート。単独出品せず、1級の模試・フルパック・プレミアムに A1、2級の模試・フルパックに A2 を同梱（出品本文に明記・2026-09-23〜）。模試は同日に note の直前総仕上げパックより高い価格へ改定したうえで同梱した |
 | `coconala-pe-oral-pdf` | O1 技術士 口頭試験 想定問答 PDF（総監版／建設部門版から購入者の部門に合う1冊・¥3,500）。`--product O1`。購入時メッセージで部門を確認してから送る |
@@ -571,7 +572,7 @@ note-publish 流儀の決定的 Playwright。ログイン済みプロファイ�
 | スクリプト | 役割 |
 |---|---|
 | `scripts/lib/strip-note-funnel.mjs` | note 記事から CTA コメントブロック・裸URL・note 商品誘導文・ペイウォール文・**note 専用節（印刷用PDF 案内）・著者バナー画像とその定型キャプション**を機械除去し、最後に**除去で中身が空になった見出し/太字ラベルを落とす**。`assertNoFunnel` で残存検査。境界は `tests/strip-note-funnel.test.mjs` で固定 |
-| `scripts/build-coconala-content-pdf.mjs` | `PRODUCTS` 定義（C1〜C9・A1/A2 特典・R1〜R3・K1/K2・O1）の源を strip → クリーン版を staging → `magazine-to-pdf` で PDF 生成 → **pdftotext で note.com/URL が 0件でなければ FAIL**。出力 `.claude/config/coconala/assets/pdf/*.pdf`（`CHROME_PATH=... node scripts/build-coconala-content-pdf.mjs [--product C8]`）。C1〜C7・A1/A2 の源は土木の note 記事、**C8/C9（模試）は生成 markdown**（`generated:true`・源 `.claude/config/coconala/assets/moshi-src/{C8,C9}/`・strip は冪等で二重担保）。土木以外（RCCM・技術士・コンクリート）は `noteRelative:true` で `content/note/` からの相対パスで源を引く。strip の後に、公的出典のリンクは出典名だけ残して URL を落とし（HTML コメントも除去）、「本記事」を「本資料」へ置換する。note 固有の一文は商品ごとの `replace` で直し、**置換対象が源に無ければ FAIL**（源の改稿で置換が空振りしたまま納品しないため）。範囲の終端は `includeTo` で指定できる |
+| `scripts/build-coconala-content-pdf.mjs` | `PRODUCTS` 定義（C1〜C9・A1/A2 特典・R1〜R3・K1〜K3・O1）の源を strip → クリーン版を staging → `magazine-to-pdf` で PDF 生成 → **pdftotext で note.com/URL が 0件でなければ FAIL**。出力 `.claude/config/coconala/assets/pdf/*.pdf`（`CHROME_PATH=... node scripts/build-coconala-content-pdf.mjs [--product C8]`）。C1〜C7・A1/A2 の源は土木の note 記事、**C8/C9（模試）は生成 markdown**（`generated:true`・源 `.claude/config/coconala/assets/moshi-src/{C8,C9}/`・strip は冪等で二重担保）。土木以外（RCCM・技術士・コンクリート）は `noteRelative:true` で `content/note/` からの相対パスで源を引く。strip の後に、公的出典のリンクは出典名だけ残して URL を落とし（HTML コメントも除去）、「本記事」を「本資料」へ置換する。note 固有の一文は商品ごとの `replace` で直し、**置換対象が源に無ければ FAIL**（源の改稿で置換が空振りしたまま納品しないため）。範囲の終端は `includeTo` で指定できる |
 
 > [!warning] 納品前は「URL 0 件」だけでなく **PDF そのもの**を見る（2026-08-06）
 > ビルドのゲートは「note.com/URL が残っていないか」しか見ない。これは緑のまま、
