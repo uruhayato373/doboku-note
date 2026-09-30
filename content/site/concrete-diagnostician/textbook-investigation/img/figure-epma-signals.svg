@@ -1,0 +1,58 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士教材の EPMAで電子線照射時に発生する信号。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="EPMAの信号の模式図。電子線を試料表面に照射すると特性X線、反射電子、二次電子、吸収電子が生じる。特性X線の波長と強度から元素の種類と量を調べる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-warn  { font-size: 11px; fill: #b22234; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-warn { stroke: #b22234; stroke-width: 2; fill: none; }
+      .line-ok { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-r { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+    <marker id="ab" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ag" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="am" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#8a8a8a"/></marker>
+  </defs>
+  <text class="t-label" x="200" y="22" text-anchor="middle">電子線</text>
+  <polygon points="186,30 214,30 200,186" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <rect class="box" x="60" y="190" width="280" height="140" />
+  <ellipse cx="200" cy="250" rx="62" ry="42" fill="none" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="4 3" />
+  <text class="t-desc" x="200" y="254" text-anchor="middle">吸収電子</text>
+  <text class="t-axis" x="318" y="318" text-anchor="end">試料</text>
+  <line x1="60" y1="190" x2="340" y2="190" stroke="#555" stroke-width="3" />
+  <text class="t-axis" x="64" y="182">蒸着膜</text>
+  <line class="line-ok" x1="200" y1="190" x2="95" y2="110" marker-end="url(#ag)" />
+  <line class="line-ok" x1="200" y1="190" x2="305" y2="110" marker-end="url(#ag)" />
+  <text class="t-label" x="90" y="106" text-anchor="end">特性X線</text>
+  <text class="t-label" x="310" y="106">特性X線</text>
+  <line x1="200" y1="190" x2="160" y2="100" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#am)" />
+  <line x1="200" y1="190" x2="240" y2="100" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#am)" />
+  <text class="t-desc" x="156" y="92" text-anchor="end">反射電子</text>
+  <text class="t-desc" x="244" y="92">反射電子</text>
+  <line x1="200" y1="190" x2="132" y2="164" stroke="#2e6da4" stroke-width="1" marker-end="url(#ab)" />
+  <line x1="200" y1="190" x2="268" y2="164" stroke="#2e6da4" stroke-width="1" marker-end="url(#ab)" />
+  <text class="t-label" x="128" y="160" text-anchor="end">二次電子</text>
+  <text class="t-label" x="272" y="160">二次電子</text>
+  <text class="t-lead" x="20" y="354">信号と得られる情報</text>
+  <rect class="box" x="20" y="360" width="360" height="124" rx="6" />
+  <rect class="box-g" x="34" y="374" width="14" height="14" />
+  <text class="t-desc" x="56" y="386">特性X線：波長から元素の種類、強度から存在量</text>
+  <rect class="box-b" x="34" y="402" width="14" height="14" />
+  <text class="t-desc" x="56" y="414">二次電子：表面の形態（検出できるのは表層のみ）</text>
+  <rect class="box" x="34" y="430" width="14" height="14" style="fill:#fff" />
+  <text class="t-desc" x="56" y="442">反射電子：組成の違いを反映（像のコントラスト）</text>
+  <text class="t-desc" x="56" y="468">非導電性の試料は、表面に蒸着膜をつけて観察する</text>
+</svg>

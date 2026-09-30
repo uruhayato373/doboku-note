@@ -1,0 +1,61 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士教材の収縮。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="材齢に対するコンクリートの収縮。凝結後は自己収縮のみで進み、乾燥開始後は乾燥収縮が加わって総収縮が自己収縮のみの場合より大きくなる概念グラフ">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-strong{ font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-red   { font-size: 11px; fill: #b22234; }
+      .t-grn   { font-size: 11px; fill: #3a7d44; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-red { stroke: #b22234; stroke-width: 2; fill: none; }
+      .line-grn { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-ax { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+      .line-br { stroke: #1a3a5c; stroke-width: 1.5; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-r { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#1a3a5c" /></marker>
+    <marker id="ag" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#8a8a8a" /></marker>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">横軸＝材齢、縦軸＝収縮量（数値なし・傾向を示す）</text>
+  <line class="line-ax" x1="52" y1="290" x2="330" y2="290" />
+  <line class="line-ax" x1="52" y1="40" x2="52" y2="290" />
+  <text class="t-axis" x="326" y="282" text-anchor="end">材齢</text>
+  <text class="t-axis" x="8" y="36">収縮量</text>
+  <text class="t-axis" x="56" y="306">凝結</text>
+  <line class="line-dash" x1="170" y1="60" x2="170" y2="300" />
+  <text class="t-axis" x="170" y="56" text-anchor="middle">乾燥開始</text>
+  <path class="line-main" d="M52,290 C 70,230 110,205 170,190 C 220,177 270,170 326,168" />
+  <path class="line-red" d="M170,190 C 190,150 230,110 326,92" />
+  <line class="line-dash" x1="326" y1="168" x2="346" y2="168" />
+  <line class="line-dash" x1="326" y1="92" x2="346" y2="92" />
+  <line class="line-br" x1="340" y1="168" x2="340" y2="290" /><line class="line-br" x1="336" y1="168" x2="344" y2="168" /><line class="line-br" x1="336" y1="290" x2="344" y2="290" /><line class="line-br" x1="340" y1="92" x2="340" y2="168" /><line class="line-br" x1="336" y1="92" x2="344" y2="92" /><line class="line-br" x1="336" y1="168" x2="344" y2="168" />
+  <text class="t-label" x="346" y="234">ε<tspan dy="3">as</tspan></text>
+  <text class="t-red" x="346" y="134">ε<tspan dy="3">ds</tspan></text>
+  <text class="t-label" x="60" y="186">自己収縮のみ</text>
+  <text class="t-red" x="176" y="124">乾燥収縮＋自己収縮</text>
+  <line class="line-dash" x1="52" y1="320" x2="170" y2="320" marker-end="url(#ag)" />
+  <line class="line-dash" x1="170" y1="320" x2="330" y2="320" marker-end="url(#ag)" />
+  <text class="t-desc" x="111" y="338" text-anchor="middle">自己収縮のみ</text>
+  <text class="t-desc" x="250" y="338" text-anchor="middle">乾燥収縮＋自己収縮</text>
+  <rect class="box" x="20" y="352" width="360" height="132" rx="6" />
+  <rect class="box-b" x="34" y="366" width="14" height="14" />
+  <text class="t-desc" x="54" y="378">ε<tspan dy="3">as</tspan><tspan dy="-3">：</tspan>自己収縮ひずみ</text>
+  <text class="t-desc" x="54" y="396">水和で内部の水分が消費され、外部への</text>
+  <text class="t-desc" x="54" y="412">水分逸散がなくても体積が収縮する</text>
+  <rect class="box-r" x="34" y="426" width="14" height="14" />
+  <text class="t-desc" x="54" y="438">ε<tspan dy="3">ds</tspan><tspan dy="-3">：</tspan>乾燥収縮ひずみ</text>
+  <text class="t-desc" x="54" y="456">外部への水分逸散を条件に、乾燥開始後に加わる</text>
+  <text class="t-desc" x="54" y="472">両者は同時に進行し、総収縮を大きくする</text>
+</svg>

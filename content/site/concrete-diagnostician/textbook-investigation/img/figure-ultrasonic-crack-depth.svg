@@ -1,0 +1,53 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士教材の超音波法のひび割れ深さ測定。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%" role="img"
+  aria-label="超音波法によるひび割れ深さ測定の模式。健全部では発振子から受振子へ表面近くを最短で伝わる。ひび割れを挟んで対称に発振子と受振子を置くと、波はひび割れ先端を回り込むため伝播時間が長くなり、その差から深さを求める。間隔を変えた測定の組合せで精度を高める">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #2e6da4; stroke-width: 1.5; stroke-dasharray: 4 3; fill: none; }
+      .line-neu { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .line-neu-d { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-dng { stroke: #b22234; stroke-width: 1.5; stroke-dasharray: 4 3; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-r { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .conc { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+    </style>
+    <marker id="ah" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ahr" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="ahg" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#8a8a8a"/></marker>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">ひび割れ深さの測り方（模式）</text>
+  <text class="t-label" x="20" y="40">健全部（基準）</text>
+  <line x1="30" y1="86" x2="370" y2="86" stroke="#555" stroke-width="1.5"/>
+  <rect class="box-b" x="90" y="70" width="16" height="16"/><rect class="box-b" x="294" y="70" width="16" height="16"/>
+  <text class="t-label" x="98" y="64" text-anchor="middle">発</text><text class="t-label" x="302" y="64" text-anchor="middle">受</text>
+  <line class="line-main" x1="108" y1="98" x2="290" y2="98" marker-end="url(#ah)"/>
+  <text class="t-desc" x="200" y="116" text-anchor="middle">最短経路（伝播時間 短）</text>
+  <text class="t-label" x="20" y="150">ひび割れを挟んで対称に配置</text>
+  <path d="M30,200 L196,200 L200,262 L204,200 L370,200" fill="none" stroke="#555" stroke-width="1.5"/>
+  <rect class="box-b" x="90" y="184" width="16" height="16"/><rect class="box-b" x="294" y="184" width="16" height="16"/>
+  <text class="t-label" x="98" y="178" text-anchor="middle">発</text><text class="t-label" x="302" y="178" text-anchor="middle">受</text>
+  <path class="line-main" d="M100,202 L200,260 L300,202" marker-end="url(#ah)"/>
+  <line class="line-neu-d" x1="200" y1="170" x2="200" y2="200"/>
+  <line class="line-neu" x1="226" y1="202" x2="226" y2="260" style="stroke:#b22234"/>
+  <text class="t-label" x="230" y="222" style="fill:#b22234">深さ</text>
+  <text class="t-label" x="116" y="258" text-anchor="middle">ひび割れ</text><line class="line-neu" x1="146" y1="254" x2="192" y2="240"/>
+  <text class="t-desc" x="200" y="284" text-anchor="middle">先端を回折して伝わる（伝播時間 長）</text>
+  <rect class="box" x="20" y="306" width="360" height="178" rx="6"/>
+  <text class="t-label" x="34" y="328">考え方</text>
+  <text class="t-desc" x="34" y="350">ひび割れを挟んで発振子と受振子を対称に置く</text>
+  <text class="t-desc" x="34" y="370">先端を回り込む分、健全部より伝播時間が延びる</text>
+  <text class="t-desc" x="34" y="390">伝播時間の変化からひび割れ深さを求める</text>
+  <text class="t-label" x="34" y="418">精度を上げる工夫</text>
+  <text class="t-desc" x="34" y="440">素子の間隔を変えて複数の測線を組み合わせる</text>
+  <text class="t-desc" x="34" y="460">（BS法・修正BS法など）</text>
+</svg>

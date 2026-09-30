@@ -1,0 +1,57 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士教材のプルアウト法。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%" role="img"
+  aria-label="プルアウト法の2種類の模式。プレセット型は打込み前に埋込具を設置、ポストセット型は硬化後にドリル孔をあけ拡径リングを効かせる。どちらも反力リングで反力をとり、埋込具を引き抜いて円錐台状のコーン破壊を生じさせる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #2e6da4; stroke-width: 1.5; stroke-dasharray: 4 3; fill: none; }
+      .line-neu { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .line-neu-d { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-dng { stroke: #b22234; stroke-width: 1.5; stroke-dasharray: 4 3; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-r { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .conc { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+    </style>
+    <marker id="ah" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ahr" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="ahg" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#8a8a8a"/></marker>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">プルアウト法の2タイプ（模式）</text>
+  <text class="t-label" x="20" y="40">プレセット型（打込み前に設置）</text>
+  <line class="line-main" x1="200" y1="66" x2="200" y2="48" marker-end="url(#ah)" style="stroke-width:3"/>
+  <rect class="conc" x="60" y="96" width="280" height="76"/>
+  <rect class="box" x="110" y="62" width="26" height="34"/><rect class="box" x="264" y="62" width="26" height="34"/>
+  <rect class="box-b" x="196" y="66" width="8" height="74"/>
+  <rect class="box-b" x="176" y="140" width="48" height="8"/>
+<path class="line-dng" d="M176,140 L136,96 M224,140 L264,96"/>
+  <text class="t-label" x="20" y="142">埋込具</text><line class="line-neu" x1="60" y1="138" x2="174" y2="144"/>
+  <text class="t-label" x="20" y="82">反力リング</text><line class="line-neu" x1="86" y1="78" x2="108" y2="78"/>
+  <text class="t-label" x="300" y="126">コーン状破壊</text><line class="line-neu" x1="296" y1="122" x2="250" y2="122"/>
+  <text class="t-label" x="20" y="190">ポストセット型（硬化後にドリル孔）</text>
+  <line class="line-main" x1="200" y1="216" x2="200" y2="198" marker-end="url(#ah)" style="stroke-width:3"/>
+  <rect class="conc" x="60" y="246" width="280" height="76"/>
+  <rect class="box" x="110" y="212" width="26" height="34"/><rect class="box" x="264" y="212" width="26" height="34"/>
+  <rect x="188" y="246" width="24" height="52" fill="#ffffff" stroke="#8a8a8a"/>
+  <rect class="box-b" x="196" y="216" width="8" height="82"/>
+  <rect class="box-w" x="176" y="296" width="48" height="10"/>
+<path class="line-dng" d="M176,296 L136,246 M224,296 L264,246"/>
+  <text class="t-label" x="20" y="268">ドリル孔</text><line class="line-neu" x1="68" y1="264" x2="186" y2="264"/>
+  <text class="t-label" x="20" y="312">拡径リング</text><line class="line-neu" x1="82" y1="308" x2="174" y2="302"/>
+  <text class="t-label" x="20" y="232">反力リング</text><line class="line-neu" x1="86" y1="228" x2="108" y2="228"/>
+  <text class="t-label" x="300" y="276">コーン状破壊</text><line class="line-neu" x1="296" y1="272" x2="250" y2="272"/>
+  <rect class="box" x="20" y="352" width="360" height="132" rx="6"/>
+  <text class="t-label" x="34" y="374">共通の考え方</text>
+  <text class="t-desc" x="34" y="396">反力リングで反力をとり、埋込具を引き抜く</text>
+  <text class="t-desc" x="34" y="416">円錐台状のコンクリートコーンが抜ける荷重</text>
+  <text class="t-desc" x="34" y="436">から圧縮強度を推定する（破線が破壊面）</text>
+  <text class="t-desc" x="34" y="464">ポストセットは拡径リングを効かせて引き抜く</text>
+</svg>

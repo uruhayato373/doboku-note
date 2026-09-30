@@ -1,0 +1,54 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士教材のコンクリートの疲労とS-N曲線。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="コンクリートのS-N曲線の概念図。横軸は破壊までの繰返し回数（対数）、縦軸は応力比で、応力比が高いほど少ない回数で破壊し、グラフは右下がりとなる。一部は破壊せず打切りとなる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-grn { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .line-wrn { stroke: #d4a017; stroke-width: 2; fill: none; }
+      .line-red { stroke: #b22234; stroke-width: 2; fill: none; }
+      .line-gray { stroke: #555; stroke-width: 1.2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-r { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+    <marker id="arr" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">横軸＝破壊までの繰返し回数（対数軸）、縦軸＝応力比（数値なし）</text>
+  <line class="line-dash" x1="40" y1="290" x2="370" y2="290" />
+  <line class="line-dash" x1="40" y1="40" x2="40" y2="290" />
+  <text class="t-axis" x="44" y="36">応力比 S<tspan dy="3">max</tspan></text>
+  <text class="t-axis" x="370" y="306" text-anchor="end">破壊までの繰返し回数 N<tspan dy="3">f</tspan><tspan dy="-3"> →（多い）</tspan></text>
+  <line class="line-dash" x1="40" y1="60" x2="370" y2="60" />
+  <text class="t-axis" x="366" y="54" text-anchor="end">静的強度</text>
+  <line class="line-main" x1="60" y1="96" x2="340" y2="212" />
+  <circle cx="68" cy="92" r="3" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="84" cy="100" r="3" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="110" cy="110" r="3" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="140" cy="132" r="3" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="172" cy="140" r="3" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="214" cy="158" r="3" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="250" cy="182" r="3" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="286" cy="190" r="3" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="318" cy="216" r="3" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="326" cy="250" r="3" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5" />
+  <line class="line-gray" x1="332" y1="216" x2="360" y2="216" marker-end="url(#arr)" />
+  <line class="line-gray" x1="332" y1="250" x2="360" y2="250" marker-end="url(#arr)" />
+  <text class="t-label" x="60" y="196">応力比が高い→少ない回数で破壊</text>
+  <text class="t-label" x="366" y="276" text-anchor="end">矢印＝破壊せず（打切り）</text>
+  <text class="t-lead" x="20" y="340">読み取り</text>
+  <rect class="box" x="20" y="346" width="360" height="140" rx="6" />
+  <line class="line-main" x1="34" y1="368" x2="48" y2="368" />
+  <text class="t-desc" x="54" y="372">応力比を下げるほど、破壊までの回数が増える</text>
+  <text class="t-desc" x="54" y="396">静的強度より低い応力でも、繰返しで疲労破壊する</text>
+  <text class="t-desc" x="54" y="420">横軸は対数目盛り（桁が変わる）</text>
+  <text class="t-desc" x="34" y="452">破壊の前兆：細かいひび割れが進展し剛性が低下する</text>
+  <text class="t-desc" x="34" y="472">（内部鋼材の疲労はParis則で別に評価）</text>
+</svg>

@@ -1,0 +1,56 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士教材の 電磁誘導法によるかぶり・鉄筋位置の測定原理。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="電磁誘導法の原理図。励磁コイルに交流電流を流すと変化する磁束が生じ、鉄筋に渦電流が発生して磁場が変わり、検出コイルの信号が変化する。かぶりや鉄筋径を推定する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-warn  { font-size: 11px; fill: #b22234; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-warn { stroke: #b22234; stroke-width: 2; fill: none; }
+      .line-ok { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-r { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+    <marker id="ab" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ag" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="am" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#8a8a8a"/></marker>
+  </defs>
+  <text class="t-lead" x="200" y="18" text-anchor="middle">鉄筋が磁場を乱す変化を、コイルの信号で捉える</text>
+  <path class="line-main" d="M150,150 C130,100 130,70 140,45" marker-end="url(#ab)" />
+  <path class="line-main" d="M200,132 L200,45" marker-end="url(#ab)" />
+  <path class="line-main" d="M250,150 C270,100 270,70 260,45" marker-end="url(#ab)" />
+  <text class="t-label" x="280" y="60">変化する磁束</text>
+  <ellipse cx="200" cy="160" rx="80" ry="26" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2" />
+  <ellipse cx="200" cy="160" rx="46" ry="12" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5" />
+  <text class="t-label" x="50" y="120">励磁コイル</text>
+  <line class="line-dash" x1="100" y1="124" x2="135" y2="148" />
+  <text class="t-desc" x="284" y="190">検出コイル</text>
+  <line class="line-dash" x1="282" y1="186" x2="240" y2="166" />
+  <rect class="box-w" x="100" y="250" width="200" height="22" rx="11" />
+  <text class="t-label" x="200" y="266" text-anchor="middle">鉄筋</text>
+  <ellipse cx="200" cy="261" rx="110" ry="24" fill="none" stroke="#b22234" stroke-width="1.5" stroke-dasharray="4 3" />
+  <text class="t-warn" x="200" y="306" text-anchor="middle">渦電流が発生し、磁場が変化</text>
+  <line class="line-dash" x1="200" y1="190" x2="200" y2="248" />
+  <text class="t-lead" x="20" y="334">信号の流れ</text>
+  <rect class="box" x="20" y="340" width="360" height="142" rx="6" />
+  <rect class="box-b" x="34" y="352" width="14" height="14" />
+  <text class="t-desc" x="56" y="364">励磁コイルに交流を流し、変化する磁束をつくる</text>
+  <rect class="box-w" x="34" y="376" width="14" height="14" />
+  <text class="t-desc" x="56" y="388">鉄筋が近づくと渦電流が生じ、磁場が変化する</text>
+  <rect class="box-g" x="34" y="400" width="14" height="14" />
+  <text class="t-desc" x="56" y="412">検出信号の変化量から、かぶり・鉄筋径を推定</text>
+  <rect class="box-r" x="34" y="424" width="14" height="14" />
+  <text class="t-desc" x="56" y="436">塩ビ管・空洞など非磁性体は検出できない</text>
+  <text class="t-desc" x="56" y="466">二重配筋・鉄筋が密集する箇所は精度が低下</text>
+</svg>

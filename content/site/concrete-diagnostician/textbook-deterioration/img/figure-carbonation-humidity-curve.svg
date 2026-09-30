@@ -1,0 +1,50 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士教材の中性化と環境湿度。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="相対湿度と中性化（炭酸化）深さの関係。50〜70%付近の中間湿度でピークとなる山型の曲線で、乾燥側と湿潤側では小さい。高炉セメントは普通ポルトランドセメントより深くなる傾向を示す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-danger { font-size: 11px; fill: #b22234; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-red { stroke: #b22234; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .axis { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-r { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+    </style>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="arg" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#8a8a8a"/></marker>
+  </defs>
+  <text class="t-lead" x="200" y="18" text-anchor="middle">横軸＝相対湿度、縦軸＝炭酸化深さ（数値なし・傾向を示す）</text>
+  <rect class="box-w" x="170" y="40" width="80" height="230" />
+  <line class="axis" x1="50" y1="270" x2="372" y2="270" />
+  <line class="axis" x1="50" y1="36" x2="50" y2="270" />
+  <text class="t-axis" x="54" y="34">炭酸化深さ</text>
+  <text class="t-axis" x="50" y="286" text-anchor="middle">20%</text>
+  <text class="t-axis" x="370" y="286" text-anchor="middle">100%</text>
+  <text class="t-label" x="210" y="286" text-anchor="middle">50〜70%</text>
+  <text class="t-axis" x="210" y="304" text-anchor="middle">相対湿度</text>
+  <path class="line-main" d="M50,215 C 100,100 165,62 205,62 C 255,62 315,150 362,238" />
+  <path class="line-main" d="M50,252 C 100,180 165,150 205,150 C 260,150 320,205 362,256" />
+  <text class="t-label" x="290" y="78">高炉セメント</text>
+  <text class="t-label" x="226" y="140">普通ポルトランドセメント</text>
+  <text class="t-lead" x="20" y="324">山型になる理由</text>
+  <rect class="box" x="20" y="330" width="360" height="116" rx="6" />
+  <rect class="box-b" x="32" y="341" width="12" height="12" />
+  <text class="t-desc" x="52" y="352">乾燥側は細孔溶液が少なく炭酸化反応が起きにくい</text>
+  <rect class="box-b" x="32" y="365" width="12" height="12" />
+  <text class="t-desc" x="52" y="376">湿潤側は水で満たされた空隙がCO₂の拡散を妨げる</text>
+  <rect class="box-b" x="32" y="389" width="12" height="12" />
+  <text class="t-desc" x="52" y="400">中間の湿度でCO₂の拡散と反応が両立し最大になる</text>
+  <rect class="box-b" x="32" y="413" width="12" height="12" />
+  <text class="t-desc" x="52" y="424">屋内は半乾燥が続き進みやすく、雨がかりは遅くなる</text>
+</svg>

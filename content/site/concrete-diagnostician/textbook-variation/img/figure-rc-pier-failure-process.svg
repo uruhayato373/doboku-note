@@ -1,0 +1,123 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士教材の地震時のRC橋脚の破壊過程。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="RC橋脚の破壊過程を二段で比較する模式図。上段の曲げ破壊は基部の曲げひび割れ、主筋降伏と塑性ヒンジ、かぶり剥離、鉄筋破断と座屈へ進み安定的に崩壊する。下段のせん断破壊はせん断ひび割れの局所化を経て、ぜい性的に崩壊する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-b { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-thin { stroke: #2e6da4; stroke-width: 1.5; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-red { stroke: #b22234; stroke-width: 1.5; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+    </style>
+    <marker id="ah" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4" /></marker>
+    <marker id="ahr" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234" /></marker>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">地震時のRC橋脚：曲げ破壊とせん断破壊の進み方</text>
+  <text class="t-b" x="20" y="30">(a) 曲げ破壊過程</text>
+  <rect class="box-b" x="30" y="42" width="60" height="12" rx="2" />
+  <rect class="box-b" x="51" y="54" width="18" height="40" />
+  <line class="line-dash" x1="38" y1="94" x2="82" y2="94" />
+  <line class="line-red" x1="51" y1="86" x2="56" y2="86" />
+  <line class="line-red" x1="69" y1="86" x2="64" y2="86" />
+  <text class="t-b" x="60" y="114" text-anchor="middle">1</text>
+  <text class="t-desc" x="60" y="129" text-anchor="middle">柱基部に</text>
+  <text class="t-desc" x="60" y="143" text-anchor="middle">曲げひび割れ</text>
+  <line class="line-main" x1="96" y1="70" x2="118" y2="70" marker-end="url(#ah)" />
+  <rect class="box-b" x="122" y="42" width="60" height="12" rx="2" />
+  <rect class="box-b" x="143" y="54" width="18" height="40" />
+  <line class="line-dash" x1="130" y1="94" x2="174" y2="94" />
+  <line class="line-red" x1="143" y1="86" x2="148" y2="86" />
+  <line class="line-red" x1="161" y1="86" x2="156" y2="86" />
+  <circle cx="152" cy="86" r="6" class="box-w" />
+  <text class="t-b" x="152" y="114" text-anchor="middle">2</text>
+  <text class="t-desc" x="152" y="129" text-anchor="middle">主筋降伏</text>
+  <text class="t-desc" x="152" y="143" text-anchor="middle">塑性ヒンジ</text>
+  <line class="line-main" x1="188" y1="70" x2="210" y2="70" marker-end="url(#ah)" />
+  <rect class="box-b" x="214" y="42" width="60" height="12" rx="2" />
+  <rect class="box-b" x="235" y="54" width="18" height="40" />
+  <line class="line-dash" x1="222" y1="94" x2="266" y2="94" />
+  <line class="line-red" x1="235" y1="86" x2="240" y2="86" />
+  <line class="line-red" x1="253" y1="86" x2="248" y2="86" />
+  <circle cx="244" cy="86" r="6" class="box-w" />
+  <line class="line-red" x1="235" y1="78" x2="253" y2="78" />
+  <line class="line-red" x1="235" y1="70" x2="253" y2="70" />
+  <text class="t-b" x="244" y="114" text-anchor="middle">3</text>
+  <text class="t-desc" x="244" y="129" text-anchor="middle">かぶり剥離</text>
+  <text class="t-desc" x="244" y="143" text-anchor="middle">ヒンジ領域拡大</text>
+  <line class="line-main" x1="280" y1="70" x2="302" y2="70" marker-end="url(#ah)" />
+  <rect class="box-b" x="306" y="42" width="60" height="12" rx="2" />
+  <rect class="box-d" x="327" y="54" width="18" height="40" />
+  <line class="line-dash" x1="314" y1="94" x2="358" y2="94" />
+  <line class="line-red" x1="327" y1="86" x2="332" y2="86" />
+  <line class="line-red" x1="345" y1="86" x2="340" y2="86" />
+  <circle cx="336" cy="86" r="6" class="box-w" />
+  <line class="line-red" x1="327" y1="78" x2="345" y2="78" />
+  <line class="line-red" x1="327" y1="70" x2="345" y2="70" />
+  <line class="line-red" x1="328" y1="72" x2="344" y2="88" />
+  <text class="t-b" x="336" y="114" text-anchor="middle">4</text>
+  <text class="t-desc" x="336" y="129" text-anchor="middle">鉄筋破断</text>
+  <text class="t-desc" x="336" y="143" text-anchor="middle">圧縮鉄筋座屈</text>
+  <rect class="box-p" x="20" y="156" width="360" height="28" rx="6" />
+  <text class="t-label" x="200" y="175" text-anchor="middle">安定的な崩壊（ねばり強い）</text>
+  <text class="t-b" x="20" y="230">(b) せん断破壊過程</text>
+  <rect class="box-b" x="30" y="242" width="60" height="12" rx="2" />
+  <rect class="box-b" x="51" y="254" width="18" height="40" />
+  <line class="line-dash" x1="38" y1="294" x2="82" y2="294" />
+  <line class="line-red" x1="51" y1="282" x2="60" y2="288" />
+  <text class="t-b" x="60" y="314" text-anchor="middle">1</text>
+  <text class="t-desc" x="60" y="329" text-anchor="middle">曲げ・せん断</text>
+  <text class="t-desc" x="60" y="343" text-anchor="middle">ひび割れ発生</text>
+  <line class="line-main" x1="96" y1="270" x2="118" y2="270" marker-end="url(#ah)" />
+  <rect class="box-b" x="122" y="242" width="60" height="12" rx="2" />
+  <rect class="box-b" x="143" y="254" width="18" height="40" />
+  <line class="line-dash" x1="130" y1="294" x2="174" y2="294" />
+  <line class="line-red" x1="143" y1="282" x2="152" y2="288" />
+  <line class="line-red" x1="144" y1="264" x2="160" y2="288" />
+  <line class="line-red" x1="160" y1="264" x2="144" y2="288" />
+  <text class="t-b" x="152" y="314" text-anchor="middle">2</text>
+  <text class="t-desc" x="152" y="329" text-anchor="middle">ひび割れ拡大</text>
+  <line class="line-main" x1="188" y1="270" x2="210" y2="270" marker-end="url(#ah)" />
+  <rect class="box-b" x="214" y="242" width="60" height="12" rx="2" />
+  <rect class="box-b" x="235" y="254" width="18" height="40" />
+  <line class="line-dash" x1="222" y1="294" x2="266" y2="294" />
+  <line class="line-red" x1="235" y1="282" x2="244" y2="288" />
+  <line class="line-red" x1="236" y1="264" x2="252" y2="288" />
+  <line class="line-red" x1="252" y1="264" x2="236" y2="288" />
+  <line class="line-red" x1="236" y1="260" x2="252" y2="278" />
+  <circle cx="244" cy="272" r="5" class="box-w" />
+  <text class="t-b" x="244" y="314" text-anchor="middle">3</text>
+  <text class="t-desc" x="244" y="329" text-anchor="middle">せん断ひび割れ</text>
+  <text class="t-desc" x="244" y="343" text-anchor="middle">局所化・帯筋降伏</text>
+  <line class="line-main" x1="280" y1="270" x2="302" y2="270" marker-end="url(#ah)" />
+  <rect class="box-b" x="306" y="242" width="60" height="12" rx="2" />
+  <rect class="box-d" x="327" y="254" width="18" height="40" />
+  <line class="line-dash" x1="314" y1="294" x2="358" y2="294" />
+  <line class="line-red" x1="327" y1="282" x2="336" y2="288" />
+  <line class="line-red" x1="328" y1="264" x2="344" y2="288" />
+  <line class="line-red" x1="344" y1="264" x2="328" y2="288" />
+  <line class="line-red" x1="328" y1="260" x2="344" y2="278" />
+  <circle cx="336" cy="272" r="5" class="box-w" />
+  <line class="line-red" x1="327" y1="262" x2="345" y2="286" />
+  <line class="line-red" x1="327" y1="286" x2="345" y2="262" />
+  <text class="t-b" x="336" y="314" text-anchor="middle">4</text>
+  <text class="t-desc" x="336" y="329" text-anchor="middle">せん断破壊</text>
+  <rect class="box-d" x="20" y="356" width="360" height="28" rx="6" />
+  <text class="t-label" x="200" y="375" text-anchor="middle">ぜい性的な崩壊（ねばりが乏しい）</text>
+  <rect class="box" x="20" y="416" width="360" height="70" rx="6" />
+  <text class="t-label" x="32" y="436">曲げ破壊：基部に塑性ヒンジを形成し、ねばり強く破壊</text>
+  <text class="t-label" x="32" y="454">せん断破壊：曲げひび割れからせん断ひび割れへ進み、</text>
+  <text class="t-label" x="32" y="470">ねばりが乏しい状態で脆性的に破壊</text>
+
+</svg>

@@ -1,0 +1,49 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士教材の空気量と凍結融解抵抗性。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="空気量と耐久性指数の関係の概念図。non-AEコンクリートは耐久性指数が低く、AEコンクリートは空気量4%前後を境に耐久性指数が急激に立ち上がる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-grn { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .line-wrn { stroke: #d4a017; stroke-width: 2; fill: none; }
+      .line-red { stroke: #b22234; stroke-width: 2; fill: none; }
+      .line-gray { stroke: #555; stroke-width: 1.2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-r { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+    <marker id="arr" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">横軸＝空気量、縦軸＝耐久性指数（数値なし・傾向を示す）</text>
+  <line class="line-dash" x1="40" y1="290" x2="370" y2="290" />
+  <line class="line-dash" x1="40" y1="40" x2="40" y2="290" />
+  <text class="t-axis" x="44" y="36">耐久性指数（高い）</text>
+  <text class="t-axis" x="370" y="322" text-anchor="end">空気量 →（多い）</text>
+  <line class="line-dash" x1="185" y1="40" x2="185" y2="290" />
+  <text class="t-axis" x="185" y="306" text-anchor="middle">4%前後</text>
+  <path class="line-main" d="M40,272 C 100,270 150,268 170,240 C 185,205 195,150 215,120 C 240,95 300,85 365,82" />
+  <circle cx="58" cy="268" r="3" fill="#8a8a8a" />
+  <circle cx="80" cy="266" r="3" fill="#8a8a8a" />
+  <circle cx="102" cy="269" r="3" fill="#8a8a8a" />
+  <circle cx="124" cy="265" r="3" fill="#8a8a8a" />
+  <text class="t-label" x="46" y="250">non-AE：低い</text>
+  <text class="t-label" x="178" y="190" text-anchor="end">閾値的に急上昇</text>
+  <text class="t-label" x="226" y="150">AE：閾値を超えると高い</text>
+  <text class="t-lead" x="20" y="348">読み取り</text>
+  <rect class="box" x="20" y="354" width="360" height="132" rx="6" />
+  <circle cx="41" cy="376" r="4" fill="#8a8a8a" />
+  <text class="t-desc" x="54" y="380">non-AE：空気量が少なく凍結融解に弱い</text>
+  <line class="line-main" x1="34" y1="402" x2="48" y2="402" />
+  <text class="t-desc" x="54" y="406">AE：気泡が緩衝し、耐久性指数が高くなる</text>
+  <line class="line-dash" x1="34" y1="428" x2="48" y2="428" />
+  <text class="t-desc" x="54" y="432">空気量が4%前後を境に、指数が急に立ち上がる</text>
+  <text class="t-desc" x="54" y="458">下回る空気量は気泡の緩衝が不足しやすい</text>
+  <text class="t-desc" x="54" y="474">→ AE剤による空気量の管理が重視される</text>
+</svg>

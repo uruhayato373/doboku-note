@@ -1,0 +1,59 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士教材の初期欠陥と性能曲線。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="経過時間に対する構造物の性能の低下。初期欠陥のない場合（破線）と初期欠陥がある場合（実線）を比べ、経年t時点の差が初期欠陥による性能低下、初期の性能からの差が劣化による性能低下として現れることを示す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-strong{ font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-red   { font-size: 11px; fill: #b22234; }
+      .t-grn   { font-size: 11px; fill: #3a7d44; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-red { stroke: #b22234; stroke-width: 2; fill: none; }
+      .line-grn { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-ax { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+      .line-br { stroke: #1a3a5c; stroke-width: 1.5; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-r { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#1a3a5c" /></marker>
+    <marker id="ag" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#8a8a8a" /></marker>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">横軸＝経過時間、縦軸＝性能（数値なし・傾向を示す）</text>
+  <line class="line-ax" x1="50" y1="290" x2="360" y2="290" />
+  <line class="line-ax" x1="50" y1="40" x2="50" y2="290" />
+  <text class="t-axis" x="362" y="294">時間</text>
+  <text class="t-axis" x="8" y="36">性能</text>
+  <text class="t-label" x="54" y="70">初期の性能</text>
+  <line class="line-dash" x1="50" y1="80" x2="230" y2="80" />
+  <path class="line-dash" d="M50,80 L90,80 L340,190" />
+  <path class="line-main" d="M50,118 L90,118 L340,228" />
+  <line class="line-dash" x1="230" y1="40" x2="230" y2="290" />
+  <text class="t-axis" x="230" y="306" text-anchor="middle">経年 t</text>
+  <circle cx="230" cy="142" r="3" fill="#8a8a8a" />
+  <circle cx="230" cy="180" r="3" fill="#2e6da4" />
+  <line class="line-br" x1="244" y1="80" x2="244" y2="142" /><line class="line-br" x1="240" y1="80" x2="248" y2="80" /><line class="line-br" x1="240" y1="142" x2="248" y2="142" /><line class="line-br" x1="244" y1="142" x2="244" y2="180" /><line class="line-br" x1="240" y1="142" x2="248" y2="142" /><line class="line-br" x1="240" y1="180" x2="248" y2="180" />
+  <text class="t-label" x="254" y="116">①</text>
+  <text class="t-red" x="254" y="165">②</text>
+  <rect class="box" x="20" y="326" width="360" height="158" rx="6" />
+  <line class="line-dash" x1="34" y1="346" x2="60" y2="346" />
+  <text class="t-desc" x="68" y="350">破線：初期欠陥がない場合</text>
+  <line class="line-main" x1="34" y1="366" x2="60" y2="366" />
+  <text class="t-desc" x="68" y="370">実線：初期欠陥がある場合</text>
+  <text class="t-label" x="34" y="394">①</text>
+  <text class="t-desc" x="54" y="394">劣化による性能低下（経年で進む分）</text>
+  <text class="t-red" x="34" y="414">②</text>
+  <text class="t-desc" x="54" y="414">初期欠陥による性能低下（供用前からの差）</text>
+  <text class="t-desc" x="34" y="438">経年 t で性能が初期の性能を下回る状態を</text>
+  <text class="t-desc" x="34" y="454">「変状がある」と評価する</text>
+  <text class="t-desc" x="34" y="472">初期欠陥は供用開始前から要求性能を損なう</text>
+</svg>

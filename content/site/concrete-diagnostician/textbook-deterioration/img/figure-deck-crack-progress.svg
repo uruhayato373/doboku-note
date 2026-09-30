@@ -1,0 +1,212 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士教材の道路橋RC床版の疲労ひび割れ進展。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="道路橋RC床版の疲労ひび割れ進展の平面図4段階。橋軸直角方向のひび割れから、橋軸方向にも発生して格子状になり、網細化して亀甲状となり、最後に角落ちが生じる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-grn { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .line-wrn { stroke: #d4a017; stroke-width: 2; fill: none; }
+      .line-red { stroke: #b22234; stroke-width: 2; fill: none; }
+      .line-gray { stroke: #555; stroke-width: 1.2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-r { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+    <marker id="arr" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+  
+</defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">各図とも縦方向＝主桁方向（床版の平面図・模式）</text>
+  <text class="t-label" x="34" y="44">① 橋軸直角方向のひび割れ</text>
+  <rect class="box" x="34" y="52" width="150" height="130" />
+  <text class="t-label" x="216" y="44">② 橋軸方向にも発生（格子状）</text>
+  <rect class="box" x="216" y="52" width="150" height="130" />
+  <text class="t-label" x="34" y="228">③ 網細化・亀甲状</text>
+  <rect class="box" x="34" y="236" width="150" height="130" />
+  <text class="t-label" x="216" y="228">④ 角落ち（陥没の前段）</text>
+  <rect class="box" x="216" y="236" width="150" height="130" />
+  <line class="line-gray" x1="64" y1="78" x2="109" y2="78" />
+  <line class="line-gray" x1="114" y1="78" x2="144" y2="80" />
+  <line class="line-gray" x1="74" y1="112" x2="124" y2="112" />
+  <line class="line-gray" x1="89" y1="144" x2="134" y2="144" />
+  <line class="line-gray" x1="56" y1="164" x2="84" y2="164" />
+  <line class="line-gray" x1="231" y1="77" x2="351" y2="77" />
+  <line class="line-gray" x1="231" y1="107" x2="351" y2="107" />
+  <line class="line-gray" x1="231" y1="137" x2="351" y2="137" />
+  <line class="line-gray" x1="231" y1="164" x2="351" y2="164" />
+  <line class="line-gray" x1="256" y1="77" x2="256" y2="107" />
+  <line class="line-gray" x1="301" y1="77" x2="301" y2="107" />
+  <line class="line-gray" x1="336" y1="77" x2="336" y2="107" />
+  <line class="line-gray" x1="276" y1="107" x2="276" y2="137" />
+  <line class="line-gray" x1="321" y1="107" x2="321" y2="137" />
+  <line class="line-gray" x1="246" y1="137" x2="246" y2="164" />
+  <line class="line-gray" x1="296" y1="137" x2="296" y2="164" />
+  <line class="line-gray" x1="341" y1="137" x2="341" y2="164" />
+  <line class="line-gray" x1="43" y1="244" x2="60" y2="250" />
+  <line class="line-gray" x1="43" y1="244" x2="44" y2="274" />
+  <line class="line-gray" x1="44" y1="274" x2="63" y2="264" />
+  <line class="line-gray" x1="44" y1="274" x2="38" y2="287" />
+  <line class="line-gray" x1="38" y1="287" x2="61" y2="292" />
+  <line class="line-gray" x1="38" y1="287" x2="46" y2="309" />
+  <line class="line-gray" x1="46" y1="309" x2="66" y2="309" />
+  <line class="line-gray" x1="46" y1="309" x2="43" y2="339" />
+  <line class="line-gray" x1="43" y1="339" x2="63" y2="331" />
+  <line class="line-gray" x1="60" y1="250" x2="90" y2="248" />
+  <line class="line-gray" x1="60" y1="250" x2="63" y2="264" />
+  <line class="line-gray" x1="63" y1="264" x2="82" y2="273" />
+  <line class="line-gray" x1="63" y1="264" x2="61" y2="292" />
+  <line class="line-gray" x1="61" y1="292" x2="83" y2="289" />
+  <line class="line-gray" x1="61" y1="292" x2="66" y2="309" />
+  <line class="line-gray" x1="66" y1="309" x2="92" y2="318" />
+  <line class="line-gray" x1="66" y1="309" x2="63" y2="331" />
+  <line class="line-gray" x1="63" y1="331" x2="91" y2="330" />
+  <line class="line-gray" x1="90" y1="248" x2="113" y2="251" />
+  <line class="line-gray" x1="90" y1="248" x2="82" y2="273" />
+  <line class="line-gray" x1="82" y1="273" x2="110" y2="264" />
+  <line class="line-gray" x1="82" y1="273" x2="83" y2="289" />
+  <line class="line-gray" x1="83" y1="289" x2="107" y2="286" />
+  <line class="line-gray" x1="83" y1="289" x2="92" y2="318" />
+  <line class="line-gray" x1="92" y1="318" x2="112" y2="310" />
+  <line class="line-gray" x1="92" y1="318" x2="91" y2="330" />
+  <line class="line-gray" x1="91" y1="330" x2="108" y2="336" />
+  <line class="line-gray" x1="113" y1="251" x2="128" y2="250" />
+  <line class="line-gray" x1="113" y1="251" x2="110" y2="264" />
+  <line class="line-gray" x1="110" y1="264" x2="127" y2="273" />
+  <line class="line-gray" x1="110" y1="264" x2="107" y2="286" />
+  <line class="line-gray" x1="107" y1="286" x2="130" y2="294" />
+  <line class="line-gray" x1="107" y1="286" x2="112" y2="310" />
+  <line class="line-gray" x1="112" y1="310" x2="136" y2="310" />
+  <line class="line-gray" x1="112" y1="310" x2="108" y2="336" />
+  <line class="line-gray" x1="108" y1="336" x2="127" y2="339" />
+  <line class="line-gray" x1="128" y1="250" x2="157" y2="252" />
+  <line class="line-gray" x1="128" y1="250" x2="127" y2="273" />
+  <line class="line-gray" x1="127" y1="273" x2="151" y2="269" />
+  <line class="line-gray" x1="127" y1="273" x2="130" y2="294" />
+  <line class="line-gray" x1="130" y1="294" x2="149" y2="294" />
+  <line class="line-gray" x1="130" y1="294" x2="136" y2="310" />
+  <line class="line-gray" x1="136" y1="310" x2="159" y2="309" />
+  <line class="line-gray" x1="136" y1="310" x2="127" y2="339" />
+  <line class="line-gray" x1="127" y1="339" x2="157" y2="330" />
+  <line class="line-gray" x1="157" y1="252" x2="151" y2="269" />
+  <line class="line-gray" x1="151" y1="269" x2="149" y2="294" />
+  <line class="line-gray" x1="149" y1="294" x2="159" y2="309" />
+  <line class="line-gray" x1="159" y1="309" x2="157" y2="330" />
+  <line class="line-gray" x1="228" y1="251" x2="246" y2="247" />
+  <line class="line-gray" x1="228" y1="251" x2="228" y2="268" />
+  <line class="line-gray" x1="228" y1="268" x2="241" y2="262" />
+  <line class="line-gray" x1="228" y1="268" x2="229" y2="288" />
+  <line class="line-gray" x1="229" y1="288" x2="247" y2="289" />
+  <line class="line-gray" x1="229" y1="288" x2="224" y2="299" />
+  <line class="line-gray" x1="224" y1="299" x2="239" y2="306" />
+  <line class="line-gray" x1="224" y1="299" x2="229" y2="322" />
+  <line class="line-gray" x1="229" y1="322" x2="245" y2="322" />
+  <line class="line-gray" x1="229" y1="322" x2="231" y2="342" />
+  <line class="line-gray" x1="231" y1="342" x2="249" y2="342" />
+  <line class="line-gray" x1="231" y1="342" x2="223" y2="352" />
+  <line class="line-gray" x1="223" y1="352" x2="249" y2="353" />
+  <line class="line-gray" x1="246" y1="247" x2="266" y2="243" />
+  <line class="line-gray" x1="246" y1="247" x2="241" y2="262" />
+  <line class="line-gray" x1="241" y1="262" x2="265" y2="262" />
+  <line class="line-gray" x1="241" y1="262" x2="247" y2="289" />
+  <line class="line-gray" x1="247" y1="289" x2="257" y2="279" />
+  <line class="line-gray" x1="247" y1="289" x2="239" y2="306" />
+  <line class="line-gray" x1="239" y1="306" x2="260" y2="300" />
+  <line class="line-gray" x1="239" y1="306" x2="245" y2="322" />
+  <line class="line-gray" x1="245" y1="322" x2="266" y2="315" />
+  <line class="line-gray" x1="245" y1="322" x2="249" y2="342" />
+  <line class="line-gray" x1="249" y1="342" x2="264" y2="338" />
+  <line class="line-gray" x1="249" y1="342" x2="249" y2="353" />
+  <line class="line-gray" x1="249" y1="353" x2="264" y2="360" />
+  <line class="line-gray" x1="266" y1="243" x2="278" y2="251" />
+  <line class="line-gray" x1="266" y1="243" x2="265" y2="262" />
+  <line class="line-gray" x1="265" y1="262" x2="278" y2="271" />
+  <line class="line-gray" x1="265" y1="262" x2="257" y2="279" />
+  <line class="line-gray" x1="257" y1="279" x2="279" y2="286" />
+  <line class="line-gray" x1="257" y1="279" x2="260" y2="300" />
+  <line class="line-gray" x1="260" y1="300" x2="275" y2="307" />
+  <line class="line-gray" x1="260" y1="300" x2="266" y2="315" />
+  <line class="line-gray" x1="266" y1="315" x2="276" y2="322" />
+  <line class="line-gray" x1="266" y1="315" x2="264" y2="338" />
+  <line class="line-gray" x1="264" y1="338" x2="285" y2="337" />
+  <line class="line-gray" x1="264" y1="338" x2="264" y2="360" />
+  <line class="line-gray" x1="264" y1="360" x2="281" y2="359" />
+  <line class="line-gray" x1="278" y1="251" x2="294" y2="247" />
+  <line class="line-gray" x1="278" y1="251" x2="278" y2="271" />
+  <line class="line-gray" x1="278" y1="271" x2="298" y2="264" />
+  <line class="line-gray" x1="278" y1="271" x2="279" y2="286" />
+  <line class="line-gray" x1="279" y1="286" x2="301" y2="283" />
+  <line class="line-gray" x1="279" y1="286" x2="275" y2="307" />
+  <line class="line-gray" x1="275" y1="307" x2="293" y2="298" />
+  <line class="line-gray" x1="275" y1="307" x2="276" y2="322" />
+  <line class="line-gray" x1="276" y1="322" x2="302" y2="316" />
+  <line class="line-gray" x1="276" y1="322" x2="285" y2="337" />
+  <line class="line-gray" x1="285" y1="337" x2="299" y2="334" />
+  <line class="line-gray" x1="285" y1="337" x2="281" y2="359" />
+  <line class="line-gray" x1="281" y1="359" x2="297" y2="357" />
+  <line class="line-gray" x1="294" y1="247" x2="312" y2="243" />
+  <line class="line-gray" x1="294" y1="247" x2="298" y2="264" />
+  <line class="line-gray" x1="298" y1="264" x2="321" y2="261" />
+  <line class="line-gray" x1="298" y1="264" x2="301" y2="283" />
+  <line class="line-gray" x1="301" y1="283" x2="314" y2="282" />
+  <line class="line-gray" x1="301" y1="283" x2="293" y2="298" />
+  <line class="line-gray" x1="293" y1="298" x2="311" y2="304" />
+  <line class="line-gray" x1="293" y1="298" x2="302" y2="316" />
+  <line class="line-gray" x1="302" y1="316" x2="317" y2="321" />
+  <line class="line-gray" x1="302" y1="316" x2="299" y2="334" />
+  <line class="line-gray" x1="299" y1="334" x2="317" y2="334" />
+  <line class="line-gray" x1="299" y1="334" x2="297" y2="357" />
+  <line class="line-gray" x1="297" y1="357" x2="320" y2="361" />
+  <line class="line-gray" x1="312" y1="243" x2="332" y2="253" />
+  <line class="line-gray" x1="312" y1="243" x2="321" y2="261" />
+  <line class="line-gray" x1="321" y1="261" x2="333" y2="266" />
+  <line class="line-gray" x1="321" y1="261" x2="314" y2="282" />
+  <line class="line-gray" x1="314" y1="282" x2="330" y2="283" />
+  <line class="line-gray" x1="314" y1="282" x2="311" y2="304" />
+  <line class="line-gray" x1="311" y1="304" x2="334" y2="297" />
+  <line class="line-gray" x1="311" y1="304" x2="317" y2="321" />
+  <line class="line-gray" x1="317" y1="321" x2="335" y2="316" />
+  <line class="line-gray" x1="317" y1="321" x2="317" y2="334" />
+  <line class="line-gray" x1="317" y1="334" x2="331" y2="336" />
+  <line class="line-gray" x1="317" y1="334" x2="320" y2="361" />
+  <line class="line-gray" x1="320" y1="361" x2="330" y2="351" />
+  <line class="line-gray" x1="332" y1="253" x2="347" y2="250" />
+  <line class="line-gray" x1="332" y1="253" x2="333" y2="266" />
+  <line class="line-gray" x1="333" y1="266" x2="354" y2="263" />
+  <line class="line-gray" x1="333" y1="266" x2="330" y2="283" />
+  <line class="line-gray" x1="330" y1="283" x2="357" y2="287" />
+  <line class="line-gray" x1="330" y1="283" x2="334" y2="297" />
+  <line class="line-gray" x1="334" y1="297" x2="350" y2="304" />
+  <line class="line-gray" x1="334" y1="297" x2="335" y2="316" />
+  <line class="line-gray" x1="335" y1="316" x2="355" y2="318" />
+  <line class="line-gray" x1="335" y1="316" x2="331" y2="336" />
+  <line class="line-gray" x1="331" y1="336" x2="349" y2="339" />
+  <line class="line-gray" x1="331" y1="336" x2="330" y2="351" />
+  <line class="line-gray" x1="330" y1="351" x2="357" y2="357" />
+  <line class="line-gray" x1="347" y1="250" x2="354" y2="263" />
+  <line class="line-gray" x1="354" y1="263" x2="357" y2="287" />
+  <line class="line-gray" x1="357" y1="287" x2="350" y2="304" />
+  <line class="line-gray" x1="350" y1="304" x2="355" y2="318" />
+  <line class="line-gray" x1="355" y1="318" x2="349" y2="339" />
+  <line class="line-gray" x1="349" y1="339" x2="357" y2="357" />
+  <polygon class="box-r" points="268,288 300,284 312,310 296,332 270,322" />
+  <line class="line-gray" x1="270" y1="292" x2="281" y2="270" />
+  <line class="line-gray" x1="270" y1="302" x2="287" y2="280" />
+  <line class="line-gray" x1="270" y1="312" x2="293" y2="290" />
+  <line class="line-gray" x1="270" y1="322" x2="299" y2="300" />
+  <line class="line-gray" x1="270" y1="332" x2="305" y2="310" />
+
+  <line class="line-gray" x1="18" y1="117" x2="18" y2="62" marker-end="url(#arr)" />
+  <line class="line-gray" x1="18" y1="117" x2="18" y2="172" marker-end="url(#arr)" />
+  <text class="t-axis" x="8" y="200">主桁方向</text>
+  <text class="t-lead" x="20" y="404">進行の順序</text>
+  <rect class="box" x="20" y="410" width="360" height="76" rx="6" />
+  <text class="t-desc" x="34" y="430">一方向のひび割れ → 二方向（格子状）→ 亀甲状 →</text>
+  <text class="t-desc" x="34" y="446">角落ち・陥没。鉄筋破断より先に、コンクリートの</text>
+  <text class="t-desc" x="34" y="462">肌落ち（抜け落ち）が先行して生じる</text>
+</svg>

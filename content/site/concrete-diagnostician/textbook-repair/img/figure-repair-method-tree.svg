@@ -1,0 +1,63 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士教材の補修工法の分類。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="補修工法の分類。ひび割れに対する被覆・注入・充填、断面の欠損に対する断面修復、表面被覆・表面含浸・剥落防止からなる表面保護工法、電気防食・脱塩・再アルカリ化・電着からなる電気化学的補修工法に分かれる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 12px; fill: #1a3a5c; }
+      .t-small { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-strong { font-size: 12px; fill: #222; font-weight: 700; }
+      .line-main { stroke: #2e6da4; stroke-width: 1.5; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-warn { stroke: #b22234; stroke-width: 1.5; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-r { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .chip { fill: #fff; stroke: #2e6da4; stroke-width: 1; }
+    </style>
+    <marker id="ab" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="am" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#8a8a8a"/></marker>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">補修工法を、何に対して行うかで分けて見る</text>
+  <rect class="box" x="20" y="28" width="360" height="64" rx="8" />
+  <text class="t-strong" x="34" y="48" text-anchor="start">ひび割れに対する工法</text>
+  <rect class="chip" x="34" y="58" width="105" height="26" rx="6" />
+  <text class="t-small" x="86.5" y="75" text-anchor="middle">被覆</text>
+  <rect class="chip" x="147" y="58" width="105" height="26" rx="6" />
+  <text class="t-small" x="199.5" y="75" text-anchor="middle">注入</text>
+  <rect class="chip" x="260" y="58" width="105" height="26" rx="6" />
+  <text class="t-small" x="312.5" y="75" text-anchor="middle">充填</text>
+  <rect class="box" x="20" y="102" width="360" height="64" rx="8" />
+  <text class="t-strong" x="34" y="122" text-anchor="start">断面の欠損に対する工法</text>
+  <rect class="chip" x="34" y="132" width="110" height="26" rx="6" />
+  <text class="t-small" x="89" y="149" text-anchor="middle">断面修復</text>
+  <rect class="box-w" x="20" y="176" width="360" height="64" rx="8" />
+  <text class="t-strong" x="34" y="196" text-anchor="start">表面保護工法（表面を覆う・浸透させる・落とさない）</text>
+  <rect class="chip" x="34" y="206" width="105" height="26" rx="6" />
+  <text class="t-small" x="86.5" y="223" text-anchor="middle">表面被覆</text>
+  <rect class="chip" x="147" y="206" width="105" height="26" rx="6" />
+  <text class="t-small" x="199.5" y="223" text-anchor="middle">表面含浸</text>
+  <rect class="chip" x="260" y="206" width="105" height="26" rx="6" />
+  <text class="t-small" x="312.5" y="223" text-anchor="middle">剥落防止</text>
+  <rect class="box-g" x="20" y="250" width="360" height="64" rx="8" />
+  <text class="t-strong" x="34" y="270" text-anchor="start">電気化学的補修工法</text>
+  <rect class="chip" x="34" y="280" width="77" height="26" rx="6" />
+  <text class="t-small" x="72.5" y="297" text-anchor="middle">電気防食</text>
+  <rect class="chip" x="119" y="280" width="77" height="26" rx="6" />
+  <text class="t-small" x="157.5" y="297" text-anchor="middle">脱塩</text>
+  <rect class="chip" x="204" y="280" width="77" height="26" rx="6" />
+  <text class="t-small" x="242.5" y="297" text-anchor="middle">再アルカリ化</text>
+  <rect class="chip" x="289" y="280" width="77" height="26" rx="6" />
+  <text class="t-small" x="327.5" y="297" text-anchor="middle">電着</text>
+  <rect class="box" x="20" y="340" width="360" height="60" rx="6" />
+  <text class="t-desc" x="34" y="362" text-anchor="start">表面被覆・表面含浸・剥落防止をまとめて表面保護工法と呼ぶ</text>
+  <text class="t-desc" x="34" y="382" text-anchor="start">電気化学的補修は通電して鋼材腐食などの進行を抑える</text>
+</svg>

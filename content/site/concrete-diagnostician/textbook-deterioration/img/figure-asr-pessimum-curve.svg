@@ -1,0 +1,50 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士教材のアルカリシリカ反応のペシマム。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="アルカリシリカ反応のペシマム曲線の概念図。横軸は反応性骨材の混入率、縦軸は膨張量。骨材Aは低い混入率で急峻なピークを持ち、骨材Bはより高い混入率でなだらかなピークを持つ。混入率が低すぎても高すぎても膨張は小さい">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-danger { font-size: 11px; fill: #b22234; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-red { stroke: #b22234; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .axis { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-r { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+    </style>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="arg" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#8a8a8a"/></marker>
+  </defs>
+  <text class="t-lead" x="200" y="18" text-anchor="middle">横軸＝反応性骨材の混入率、縦軸＝膨張量（数値なし・概念図）</text>
+  <line class="axis" x1="50" y1="270" x2="372" y2="270" />
+  <line class="axis" x1="50" y1="36" x2="50" y2="270" />
+  <text class="t-axis" x="54" y="34">膨張量</text>
+  <text class="t-axis" x="206" y="304" text-anchor="middle">反応性骨材の混入率</text>
+  <path class="line-red" d="M50,270 C 70,200 90,120 105,75 C 120,140 135,205 200,230 C 260,245 330,255 362,260" />
+  <path class="line-main" d="M50,270 C 100,215 160,160 230,135 C 290,120 330,170 362,215" />
+  <line class="line-dash" x1="105" y1="75" x2="105" y2="270" />
+  <line class="line-dash" x1="250" y1="128" x2="250" y2="270" />
+  <text class="t-danger" x="116" y="84">骨材A</text>
+  <text class="t-label" x="262" y="122">骨材B</text>
+  <text class="t-axis" x="105" y="286" text-anchor="middle">ペシマムA</text>
+  <text class="t-axis" x="250" y="286" text-anchor="middle">ペシマムB</text>
+  <text class="t-lead" x="20" y="324">読み取り方</text>
+  <rect class="box" x="20" y="330" width="360" height="116" rx="6" />
+  <rect class="box-b" x="32" y="341" width="12" height="12" />
+  <text class="t-desc" x="52" y="352">混入率が低すぎても高すぎても膨張は小さい</text>
+  <rect class="box-b" x="32" y="365" width="12" height="12" />
+  <text class="t-desc" x="52" y="376">中間の混入率（ペシマム）で膨張が最大になる</text>
+  <rect class="box-b" x="32" y="389" width="12" height="12" />
+  <text class="t-desc" x="52" y="400">高すぎるとアルカリを消費し尽くして膨張が抑制</text>
+  <rect class="box-b" x="32" y="413" width="12" height="12" />
+  <text class="t-desc" x="52" y="424">ペシマムは骨材の種類や粒径で異なる</text>
+</svg>

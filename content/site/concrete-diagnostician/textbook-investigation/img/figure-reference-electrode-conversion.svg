@@ -1,0 +1,55 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士教材の自然電位の基準電極間換算。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="標準電極を0 mVとしてAg/AgCl電極196 mV、CSE電極316 mVを数直線に並べ、差の−120 mVでAg/AgCl電極の−280 mVをCSE基準の−400 mVへ換算し、−350 mVより卑なので腐食の可能性大と判定する例">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 12px; fill: #1a3a5c; }
+      .t-small { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-strong { font-size: 12px; fill: #222; font-weight: 700; }
+      .t-red { font-size: 12px; fill: #b22234; font-weight: 700; }
+      .line-main { stroke: #2e6da4; stroke-width: 1.5; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-red { stroke: #b22234; stroke-width: 2; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-r { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4" /></marker>
+    <marker id="arr" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234" /></marker>
+  </defs>
+  <text class="t-lead" x="200" y="18" text-anchor="middle">基準電極ごとの電位の数直線（値は書籍例題の設定値）</text>
+  <line class="line-main" x1="40" y1="140" x2="380" y2="140" />
+  <line class="line-main" x1="60" y1="132" x2="60" y2="148" />
+  <text class="t-label" x="60" y="100" text-anchor="middle">標準電極</text>
+  <text class="t-desc" x="60" y="122" text-anchor="middle">0 mV</text>
+  <line class="line-main" x1="227" y1="132" x2="227" y2="148" />
+  <text class="t-label" x="227" y="100" text-anchor="middle">Ag/AgCl電極</text>
+  <text class="t-desc" x="227" y="122" text-anchor="middle">196 mV</text>
+  <line class="line-main" x1="329" y1="132" x2="329" y2="148" />
+  <text class="t-label" x="329" y="100" text-anchor="middle">CSE電極</text>
+  <text class="t-desc" x="329" y="122" text-anchor="middle">316 mV</text>
+  <line class="line-red" x1="329" y1="180" x2="229" y2="180" marker-end="url(#ar)" />
+  <text class="t-red" x="279" y="172" text-anchor="middle">−120 mV</text>
+  <text class="t-desc" x="279" y="200" text-anchor="middle">196 − 316</text>
+  <text class="t-lead" x="40" y="240" text-anchor="start">例：Ag/AgCl電極で−280 mVを測定したとき</text>
+  <rect class="box-b" x="30" y="252" width="340" height="34" rx="6" />
+  <text class="t-label" x="200.0" y="273.0" text-anchor="middle">Ag/AgCl電極の読み：−280 mV</text>
+  <line class="line-main" x1="200" y1="286" x2="200" y2="306" marker-end="url(#ar)" />
+  <rect class="box-w" x="30" y="306" width="340" height="34" rx="6" />
+  <text class="t-label" x="200.0" y="327.0" text-anchor="middle">CSE基準へ換算：−280 − 120 = −400 mV</text>
+  <line class="line-main" x1="200" y1="340" x2="200" y2="360" marker-end="url(#ar)" />
+  <rect class="box-r" x="30" y="360" width="340" height="34" rx="6" />
+  <text class="t-strong" x="200.0" y="381.0" text-anchor="middle">−350 mV より卑 → 鉄筋腐食の可能性大</text>
+  <text class="t-desc" x="200" y="426" text-anchor="middle">評価は飽和硫酸銅電極（CSE）基準で行うため、</text>
+  <text class="t-desc" x="200" y="444" text-anchor="middle">他の電極で測った値は電極間差を補正して比べる</text>
+  <text class="t-desc" x="200" y="470" text-anchor="middle">換算値は例題の設定値。実務では電極の仕様で確認する</text>
+
+</svg>

@@ -1,0 +1,52 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士教材の厚さ方向の共振。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%" role="img"
+  aria-label="衝撃弾性波法で部材の厚さ方向に生じる共振の模式。表面に衝撃を与えると、厚さLの中で1次、2次、3次のモードで弾性波が往復して共振し、モードが上がるほど波の腹の数が増える">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #2e6da4; stroke-width: 1.5; stroke-dasharray: 4 3; fill: none; }
+      .line-neu { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .line-neu-d { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-dng { stroke: #b22234; stroke-width: 1.5; stroke-dasharray: 4 3; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-r { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .conc { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+    </style>
+    <marker id="ah" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ahr" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="ahg" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#8a8a8a"/></marker>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">厚さ方向の共振モード（模式）</text>
+  <text class="t-label" x="30" y="58">表面（衝撃を与える側）</text>
+  <rect class="conc" x="30" y="70" width="310" height="200"/>
+  <path class="line-dash" d="M90,70 C64,130 64,210 90,270 C116,210 116,130 90,70"/>
+  <path class="line-dash" d="M185,70 C159,100 159,140 185,170 C211,140 211,100 185,70"/>
+  <path class="line-dash" d="M185,170 C159,200 159,240 185,270 C211,240 211,200 185,170"/>
+  <path class="line-dash" d="M280,70 C254,90 254,117 280,137 C306,117 306,90 280,70"/>
+  <path class="line-dash" d="M280,137 C254,157 254,183 280,203 C306,183 306,157 280,137"/>
+  <path class="line-dash" d="M280,203 C254,223 254,250 280,270 C306,250 306,223 280,203"/>
+  <line class="line-neu" x1="362" y1="170" x2="362" y2="72" marker-end="url(#ahg)"/>
+  <line class="line-neu" x1="362" y1="170" x2="362" y2="268" marker-end="url(#ahg)"/>
+  <rect x="352" y="160" width="20" height="20" fill="#ffffff"/>
+  <text class="t-label" x="362" y="175" text-anchor="middle">L</text>
+  <text class="t-label" x="30" y="288">底面（反射する側）</text>
+  <text class="t-label" x="90" y="314" text-anchor="middle">1次モード</text>
+  <text class="t-label" x="185" y="314" text-anchor="middle">2次モード</text>
+  <text class="t-label" x="280" y="314" text-anchor="middle">3次モード</text>
+  <rect class="box" x="20" y="334" width="360" height="150" rx="6"/>
+  <text class="t-label" x="34" y="356">周波数から深さを求める</text>
+  <text class="t-desc" x="34" y="380">L ＝ n·V<tspan dy="3">p</tspan><tspan dy="-3"> / (2f)</tspan></text>
+  <text class="t-desc" x="34" y="404">L：厚さ（欠陥までの深さ）　n：共振の次数</text>
+  <text class="t-desc" x="34" y="424">V<tspan dy="3">p</tspan><tspan dy="-3">：弾性波の伝播速度　f：共振周波数</tspan></text>
+  <text class="t-desc" x="34" y="448">欠陥があると共振周波数が変わり、</text>
+  <text class="t-desc" x="34" y="468">その深さや位置を推定できる</text>
+</svg>

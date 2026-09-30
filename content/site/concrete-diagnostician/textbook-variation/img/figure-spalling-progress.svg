@@ -1,0 +1,72 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士教材の浮き・剥離・剥落。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="かぶりコンクリートの断面で、水と二酸化炭素の浸透、鋼材腐食、腐食膨張によるひび割れ、浮き・剥離、剥落へ進む四段階を上から下へ示した図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-b { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-thin { stroke: #2e6da4; stroke-width: 1.5; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-red { stroke: #b22234; stroke-width: 1.5; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+    </style>
+    <marker id="ah" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4" /></marker>
+    <marker id="ahr" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234" /></marker>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">水や二酸化炭素の浸透から剥落まで、かぶりの断面で段階的に見る</text>
+  <rect class="box" x="20" y="26" width="360" height="92" rx="6" />
+  <rect class="box-b" x="30" y="40" width="140" height="64" rx="2" />
+  <line class="line-main" x1="55" y1="42" x2="55" y2="60" marker-end="url(#ah)" />
+  <line class="line-main" x1="100" y1="42" x2="100" y2="60" marker-end="url(#ah)" />
+  <line class="line-main" x1="145" y1="42" x2="145" y2="60" marker-end="url(#ah)" />
+  <circle cx="100" cy="84" r="7" class="box-w" />
+  <circle cx="198" cy="48" r="10" class="box-b" />  <text class="t-label" x="198" y="52" text-anchor="middle">1</text>
+  <text class="t-b" x="216" y="53">浸透・腐食</text>
+  <text class="t-desc" x="190" y="74">水や二酸化炭素がかぶりを通り</text>
+  <text class="t-desc" x="190" y="90">鋼材に届き、鋼材が腐食する</text>
+  <rect class="box" x="20" y="126" width="360" height="92" rx="6" />
+  <rect class="box-b" x="30" y="140" width="140" height="64" rx="2" />
+  <circle cx="100" cy="184" r="10" class="box-d" />
+  <path class="line-red" d="M100,174 L96,158 L101,144" />
+  <path class="line-red" d="M92,184 L60,186" />
+  <circle cx="198" cy="148" r="10" class="box-b" />  <text class="t-label" x="198" y="152" text-anchor="middle">2</text>
+  <text class="t-b" x="216" y="153">腐食膨張</text>
+  <text class="t-desc" x="190" y="174">鋼材が膨張し、かぶりがひび割れる</text>
+  <text class="t-desc" x="190" y="190">錆汁がにじむ場合がある</text>
+  <rect class="box" x="20" y="226" width="360" height="92" rx="6" />
+  <rect class="box-b" x="30" y="240" width="140" height="64" rx="2" />
+  <rect class="box-w" x="30" y="240" width="140" height="34" rx="2" />
+  <circle cx="100" cy="284" r="10" class="box-d" />
+  <path class="line-red" d="M30,276 L170,276" />
+  <circle cx="198" cy="248" r="10" class="box-b" />  <text class="t-label" x="198" y="252" text-anchor="middle">3</text>
+  <text class="t-b" x="216" y="253">浮き・剥離</text>
+  <text class="t-desc" x="190" y="274">かぶりが鋼材から離れて浮き、</text>
+  <text class="t-desc" x="190" y="290">一部が剥がれる</text>
+  <rect class="box" x="20" y="326" width="360" height="92" rx="6" />
+  <rect class="box-b" x="30" y="340" width="140" height="64" rx="2" />
+  <path d="M30,340 L170,340 L170,404 L30,404 Z M80,340 L95,362 L125,370 L140,340 Z" class="box" />
+  <polygon points="80,340 95,362 125,370 140,340" class="box-w" />
+  <circle cx="100" cy="384" r="10" class="box-d" />
+  <circle cx="198" cy="348" r="10" class="box-b" />  <text class="t-label" x="198" y="352" text-anchor="middle">4</text>
+  <text class="t-b" x="216" y="353">剥落</text>
+  <text class="t-desc" x="190" y="374">腐食が進み、かぶりコンクリートが</text>
+  <text class="t-desc" x="190" y="390">脱落する（落下物のリスク）</text>
+  <line class="line-main" x1="100" y1="118" x2="100" y2="126" marker-end="url(#ah)" />
+  <line class="line-main" x1="100" y1="218" x2="100" y2="226" marker-end="url(#ah)" />
+  <line class="line-main" x1="100" y1="318" x2="100" y2="326" marker-end="url(#ah)" />
+  <rect class="box-w" x="20" y="430" width="360" height="56" rx="6" />
+  <text class="t-label" x="32" y="450">浮きは打診で濁った低い音（濁音）、健全部は澄んだ高い音。</text>
+  <text class="t-label" x="32" y="468">剥落は第三者被害に直結する。</text>
+
+</svg>

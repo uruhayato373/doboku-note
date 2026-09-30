@@ -1,0 +1,51 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士教材の成分溶出（溶脱）の層状の進み方。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="成分溶出における表面からの深さと固相Ca量の分布の模式図。表面側からCa残存なしの層、C-S-Hが分解した層、水酸化カルシウムが溶出する層、変化なしの健全部の順に層状に並ぶ">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-grn { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .line-wrn { stroke: #d4a017; stroke-width: 2; fill: none; }
+      .line-red { stroke: #b22234; stroke-width: 2; fill: none; }
+      .line-gray { stroke: #555; stroke-width: 1.2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-r { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+    <marker id="arr" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">横軸＝表面からの深さ、縦軸＝固相のCa量（数値なし）</text>
+  <rect class="box-r" x="40" y="40" width="58" height="250" />
+  <rect class="box-w" x="98" y="40" width="102" height="250" />
+  <rect class="box-b" x="200" y="40" width="32" height="250" />
+  <rect class="box-g" x="232" y="40" width="138" height="250" />
+  <line class="line-dash" x1="40" y1="290" x2="370" y2="290" />
+  <line class="line-dash" x1="40" y1="40" x2="40" y2="290" />
+  <path class="line-main" d="M40,286 L96,286 L100,226 L198,206 L206,190 L214,130 L226,114 L370,112" />
+  <text class="t-label" x="69" y="62" text-anchor="middle">Ca残存</text>
+  <text class="t-label" x="69" y="76" text-anchor="middle">なし</text>
+  <text class="t-label" x="149" y="62" text-anchor="middle">C-S-Hが分解</text>
+  <line class="line-gray" x1="236" y1="166" x2="220" y2="166" />
+  <text class="t-label" x="242" y="170">Ca(OH)<tspan dy="3">2</tspan><tspan dy="-3">溶出</tspan></text>
+  <text class="t-label" x="301" y="62" text-anchor="middle">変化なし（健全部）</text>
+  <text class="t-axis" x="44" y="308">表面</text>
+  <text class="t-axis" x="370" y="308" text-anchor="end">内部へ（深さ）</text>
+  <text class="t-lead" x="20" y="340">読み取り</text>
+  <rect class="box" x="20" y="346" width="360" height="140" rx="6" />
+  <rect class="box-r" x="34" y="358" width="14" height="14" />
+  <text class="t-desc" x="54" y="370">表面側：Caが残らず、組織が疎になる</text>
+  <rect class="box-w" x="34" y="382" width="14" height="14" />
+  <text class="t-desc" x="54" y="394">中間：C-S-HのCaOも溶け出して分解する</text>
+  <rect class="box-b" x="34" y="406" width="14" height="14" />
+  <text class="t-desc" x="54" y="418">境界：固体のCa(OH)<tspan dy="3">2</tspan><tspan dy="-3">が溶解して消費される</tspan></text>
+  <rect class="box-g" x="34" y="430" width="14" height="14" />
+  <text class="t-desc" x="54" y="442">内部：固相Ca量が変化しない健全部</text>
+  <text class="t-desc" x="34" y="472">溶出は水への接触面から内部へ層状に進む</text>
+</svg>

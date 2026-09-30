@@ -1,0 +1,60 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士教材のはつり調査による鋼材腐食量の調査手順。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="鋼材腐食量の調査フロー。鋼材を取り出して質量を量り、錆を除去した後、腐食箇所の展開図と面積から腐食面積率を、除錆後の質量から質量減少率を求める">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-b     { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-dark { stroke: #1a3a5c; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-ax { stroke: #555; stroke-width: 1.5; fill: none; }
+      .line-arr { stroke: #1a3a5c; stroke-width: 1.5; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-r { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-y { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+    </style>
+    <marker id="arr" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#1a3a5c" /></marker>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">採取後は「面積」と「質量」の2つの指標に分かれる</text>
+  <rect class="box-b" x="70" y="28" width="260" height="30" rx="4" />
+  <text class="t-label" x="200" y="47" text-anchor="middle">調査位置を決めて鋼材を取り出す</text>
+  <line class="line-arr" x1="200" y1="58" x2="200" y2="70" marker-end="url(#arr)" />
+  <rect class="box-b" x="70" y="70" width="260" height="30" rx="4" />
+  <text class="t-label" x="200" y="89" text-anchor="middle">錆が付いた状態で質量を量る</text>
+  <line class="line-arr" x1="200" y1="100" x2="200" y2="112" marker-end="url(#arr)" />
+  <rect class="box-b" x="70" y="112" width="260" height="30" rx="4" />
+  <text class="t-label" x="200" y="131" text-anchor="middle">錆を取り除く</text>
+  <line class="line-arr" x1="200" y1="142" x2="105" y2="172" marker-end="url(#arr)" />
+  <line class="line-arr" x1="200" y1="142" x2="295" y2="172" marker-end="url(#arr)" />
+  <text class="t-axis" x="20" y="164" text-anchor="start">面積の系統</text>
+  <text class="t-axis" x="380" y="164" text-anchor="end">質量の系統</text>
+  <rect class="box-b" x="20" y="176" width="170" height="30" rx="4" />
+  <text class="t-label" x="105" y="195" text-anchor="middle">腐食箇所を展開図に描く</text>
+  <line class="line-arr" x1="105" y1="206" x2="105" y2="218" marker-end="url(#arr)" />
+  <rect class="box-b" x="20" y="218" width="170" height="30" rx="4" />
+  <text class="t-label" x="105" y="237" text-anchor="middle">腐食部の面積を測る</text>
+  <line class="line-arr" x1="105" y1="248" x2="105" y2="260" marker-end="url(#arr)" />
+  <rect class="box-g" x="20" y="260" width="170" height="30" rx="4" />
+  <text class="t-label" x="105" y="279" text-anchor="middle">腐食面積率を求める</text>
+  <rect class="box-b" x="210" y="176" width="170" height="30" rx="4" />
+  <text class="t-label" x="295" y="195" text-anchor="middle">除錆後の質量を量る</text>
+  <line class="line-arr" x1="295" y1="206" x2="295" y2="218" marker-end="url(#arr)" />
+  <rect class="box-g" x="210" y="218" width="170" height="30" rx="4" />
+  <text class="t-label" x="295" y="237" text-anchor="middle">質量減少率を求める</text>
+  <text class="t-desc" x="295" y="270" text-anchor="middle">除錆の前後の質量差から求める</text>
+  <rect class="box" x="20" y="316" width="360" height="110" rx="6" />
+  <text class="t-b" x="34" y="338">2つの指標の求め方</text>
+  <text class="t-desc" x="34" y="360">腐食面積率＝腐食面積／鋼材表面積×100</text>
+  <text class="t-desc" x="34" y="380">質量減少率＝（腐食前質量－除錆後質量）</text>
+  <text class="t-desc" x="34" y="400">　　／腐食前質量×100</text>
+  <text class="t-desc" x="34" y="418">（緑の2つが、腐食の程度を表す指標になる）</text>
+</svg>

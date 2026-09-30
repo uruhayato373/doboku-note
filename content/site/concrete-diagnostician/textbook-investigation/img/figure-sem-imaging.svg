@@ -1,0 +1,64 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士教材の SEMの結像原理。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="SEMの結像原理の模式図。電子ビームを走査コイルで試料上に走査し、試料から出る信号を電子検出器で捉え、増幅してCRTの輝度に変換する。走査コイル電源が走査とCRTを同期させる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-warn  { font-size: 11px; fill: #b22234; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-warn { stroke: #b22234; stroke-width: 2; fill: none; }
+      .line-ok { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-r { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+    <marker id="ab" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ag" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="am" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#8a8a8a"/></marker>
+  </defs>
+  <text class="t-lead" x="200" y="18" text-anchor="middle">走査と表示を同期させて、像をつくる</text>
+  <line class="line-dash" x1="196" y1="34" x2="196" y2="322" />
+  <text class="t-axis" x="186" y="338" text-anchor="end">鏡筒内</text>
+  <text class="t-axis" x="206" y="338">外</text>
+  <rect class="box-b" x="30" y="50" width="130" height="34" rx="6" />
+  <text class="t-label" x="95" y="71" text-anchor="middle">走査コイル</text>
+  <line class="line-main" x1="70" y1="84" x2="70" y2="246" marker-end="url(#ab)" />
+  <text class="t-label" x="64" y="168" text-anchor="end">電子ビーム</text>
+  <rect class="box" x="28" y="250" width="144" height="46" rx="6" />
+  <text class="t-desc" x="100" y="290" text-anchor="middle">試料（走査範囲）</text>
+  <ellipse cx="70" cy="262" rx="26" ry="6" fill="none" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="3 3" />
+  <line class="line-ok" x1="86" y1="248" x2="126" y2="210" marker-end="url(#ag)" />
+  <text class="t-label" x="108" y="236">信号電子</text>
+  <rect class="box-g" x="110" y="168" width="78" height="34" rx="6" />
+  <text class="t-label" x="149" y="189" text-anchor="middle">電子検出器</text>
+  <rect class="box-b" x="222" y="50" width="158" height="34" rx="6" />
+  <text class="t-label" x="301" y="71" text-anchor="middle">走査コイル電源</text>
+  <line class="line-main" x1="222" y1="62" x2="160" y2="62" marker-end="url(#ab)" />
+  <rect class="box-g" x="222" y="168" width="100" height="34" rx="6" />
+  <text class="t-label" x="272" y="189" text-anchor="middle">増幅器</text>
+  <line class="line-ok" x1="188" y1="185" x2="222" y2="185" marker-end="url(#ag)" />
+  <rect class="box-w" x="222" y="250" width="158" height="46" rx="6" />
+  <text class="t-label" x="301" y="270" text-anchor="middle">CRT（画面）</text>
+  <text class="t-desc" x="301" y="286" text-anchor="middle">信号強度＝輝度</text>
+  <line class="line-ok" x1="272" y1="202" x2="272" y2="250" marker-end="url(#ag)" />
+  <line class="line-main" x1="350" y1="84" x2="350" y2="250" marker-end="url(#ab)" />
+  <text class="t-label" x="344" y="140" text-anchor="end">同期</text>
+  <text class="t-lead" x="20" y="362">像ができるまで</text>
+  <rect class="box" x="20" y="368" width="360" height="114" rx="6" />
+  <rect class="box-b" x="34" y="380" width="14" height="14" />
+  <text class="t-desc" x="56" y="392">電子ビームを走査コイルで試料上に走査する</text>
+  <rect class="box-g" x="34" y="410" width="14" height="14" />
+  <text class="t-desc" x="56" y="422">試料から出る信号を検出し、増幅する</text>
+  <rect class="box-w" x="34" y="440" width="14" height="14" />
+  <text class="t-desc" x="56" y="452">走査と同期してCRTの輝度に表示し、像とする</text>
+</svg>

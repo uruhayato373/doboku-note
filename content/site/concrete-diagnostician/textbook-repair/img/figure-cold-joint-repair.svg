@@ -1,0 +1,55 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士教材の補修（コールドジョイント）。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="コールドジョイントの補修を断面で比較。小さい場合は清掃・水湿しのうえ両側各75mmにポリマーセメントペーストを塗布、大きい場合は幅3〜4mmの継目の上下各10〜20mmにポリマーセメントモルタルを充填しシーリング材とけい砂散布で仕上げる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-head  { font-size: 12px; fill: #222; font-weight: 700; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-red { stroke: #b22234; stroke-width: 2; fill: none; }
+      .conc { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-r { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <text class="t-head" x="20" y="22">小さなコールドジョイント</text>
+  <rect class="conc" x="40" y="36" width="320" height="110" />
+  <line class="line-red" x1="40" y1="91" x2="360" y2="91" />
+  <rect class="box-b" x="120" y="86" width="160" height="10" />
+  <text class="t-label" x="200" y="62" text-anchor="middle">清掃・水湿しのうえペースト塗布</text>
+  <line class="line-dash" x1="120" y1="104" x2="120" y2="172" />
+  <line class="line-dash" x1="200" y1="104" x2="200" y2="172" />
+  <line class="line-dash" x1="280" y1="104" x2="280" y2="172" />
+  <line class="line-main" x1="120" y1="166" x2="200" y2="166" />
+  <line class="line-main" x1="200" y1="166" x2="280" y2="166" />
+  <text class="t-desc" x="160" y="160" text-anchor="middle">75mm</text>
+  <text class="t-desc" x="240" y="160" text-anchor="middle">75mm</text>
+  <text class="t-desc" x="200" y="188" text-anchor="middle">ポリマーセメントペースト（継目の両側）</text>
+
+  <text class="t-head" x="20" y="232">大きなコールドジョイント</text>
+  <rect class="conc" x="40" y="246" width="320" height="130" />
+  <line class="line-red" x1="40" y1="311" x2="360" y2="311" />
+  <rect class="box-b" x="140" y="291" width="120" height="40" />
+  <rect class="box-w" x="140" y="307" width="120" height="8" />
+  <text class="t-label" x="200" y="277" text-anchor="middle">継目の上下を充填</text>
+  <line class="line-dash" x1="270" y1="291" x2="300" y2="291" />
+  <line class="line-dash" x1="270" y1="311" x2="300" y2="311" />
+  <line class="line-dash" x1="270" y1="331" x2="300" y2="331" />
+  <text class="t-desc" x="306" y="305">10〜20mm</text>
+  <text class="t-desc" x="306" y="327">10〜20mm</text>
+  <text class="t-desc" x="66" y="306">継目の幅</text>
+  <text class="t-desc" x="66" y="324">3〜4mm</text>
+
+  <rect class="box-b" x="34" y="398" width="14" height="14" />
+  <text class="t-desc" x="54" y="410">ポリマーセメントモルタル（上下に充填）</text>
+  <rect class="box-w" x="34" y="422" width="14" height="14" />
+  <text class="t-desc" x="54" y="434">シーリング材（継目部）＋けい砂散布</text>
+  <text class="t-lead" x="20" y="470">継目の大きさで補修の厚みと材料が変わる</text>
+</svg>

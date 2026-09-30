@@ -1,0 +1,53 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士教材のプルオフ法。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%" role="img"
+  aria-label="プルオフ法の構成模式。コンクリート表面に切込みを入れ、エポキシ樹脂で鋼製ディスクを接着し、上向きに引張力を加えて接着面付近で引張破断させ強度を求める">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #2e6da4; stroke-width: 1.5; stroke-dasharray: 4 3; fill: none; }
+      .line-neu { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .line-neu-d { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-dng { stroke: #b22234; stroke-width: 1.5; stroke-dasharray: 4 3; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-r { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .conc { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+    </style>
+    <marker id="ah" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ahr" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="ahg" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#8a8a8a"/></marker>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">プルオフ法の構成（模式）</text>
+  <line class="line-main" x1="200" y1="110" x2="200" y2="52" marker-end="url(#ah)" style="stroke-width:3"/>
+  <text class="t-label" x="200" y="42" text-anchor="middle">引張力</text>
+  <rect class="box-b" x="190" y="110" width="20" height="46"/>
+  <rect class="box" x="140" y="156" width="120" height="30" rx="3"/>
+  <rect class="box-w" x="140" y="186" width="120" height="5"/>
+  <rect class="conc" x="90" y="191" width="220" height="130"/>
+  <rect x="126" y="191" width="8" height="56" fill="#ffffff" stroke="#8a8a8a"/>
+  <rect x="266" y="191" width="8" height="56" fill="#ffffff" stroke="#8a8a8a"/>
+  <path class="line-dng" d="M134,247 L266,247"/>
+  <text class="t-label" x="200" y="266" text-anchor="middle">引張破断する面</text>
+  <text class="t-axis" x="200" y="306" text-anchor="middle">コンクリート</text>
+  <text class="t-label" x="20" y="176">鋼製ディスク</text>
+  <line class="line-neu" x1="98" y1="172" x2="138" y2="172"/>
+  <text class="t-label" x="282" y="140">接着層（エポキシ）</text>
+  <line class="line-neu" x1="278" y1="136" x2="250" y2="186"/>
+  <text class="t-label" x="20" y="224">切込み</text>
+  <line class="line-neu" x1="60" y1="220" x2="124" y2="220"/>
+  <rect class="box" x="20" y="340" width="360" height="144" rx="6"/>
+  <text class="t-label" x="34" y="362">測るもの</text>
+  <text class="t-desc" x="34" y="384">表面に接着した治具を引き剥がすときの力</text>
+  <text class="t-desc" x="34" y="404">引張破断の荷重から強度（付着強度）を求める</text>
+  <text class="t-label" x="34" y="432">使いどころ</text>
+  <text class="t-desc" x="34" y="454">表面被覆や断面修復材の付着性能の評価</text>
+  <text class="t-desc" x="34" y="474">反発度法より損傷は大きいが強度を直接反映</text>
+</svg>

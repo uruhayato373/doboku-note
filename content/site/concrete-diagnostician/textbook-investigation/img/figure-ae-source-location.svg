@@ -1,0 +1,52 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士教材の AE法の位置標定。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="AE法の位置標定の模式図。コンクリート内のひびわれ発生点から弾性波が放出され、表面の2つのAEセンサに到達する。到達時間差から発生位置を求める">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-warn  { font-size: 11px; fill: #b22234; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-warn { stroke: #b22234; stroke-width: 2; fill: none; }
+      .line-ok { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-r { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+    <marker id="ab" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ag" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="am" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#8a8a8a"/></marker>
+  </defs>
+  <text class="t-lead" x="200" y="18" text-anchor="middle">弾性波の到達時間差から、ひびわれ発生位置を求める</text>
+  <rect class="box-b" x="60" y="105" width="280" height="200" />
+  <line x1="60" y1="105" x2="340" y2="105" stroke="#1a3a5c" stroke-width="2" />
+  <rect class="box-w" x="80" y="80" width="20" height="25" rx="3" />
+  <rect class="box-w" x="300" y="80" width="20" height="25" rx="3" />
+  <text class="t-label" x="90" y="68" text-anchor="middle">AEセンサ1</text>
+  <text class="t-label" x="310" y="68" text-anchor="middle">AEセンサ2</text>
+  <line class="line-main" x1="165" y1="262" x2="93" y2="112" marker-end="url(#ab)" />
+  <line class="line-main" x1="165" y1="262" x2="302" y2="112" marker-end="url(#ab)" />
+  <text class="t-label" x="108" y="200" text-anchor="middle">近い</text>
+  <text class="t-label" x="262" y="200" text-anchor="middle">遠い</text>
+  <polygon points="165,248 169,258 180,258 171,265 175,276 165,269 155,276 159,265 150,258 161,258" fill="#b22234" />
+  <text class="t-warn" x="165" y="296" text-anchor="middle">ひびわれ発生点（発生源）</text>
+  <text class="t-lead" x="20" y="334">手順</text>
+  <rect class="box" x="20" y="340" width="360" height="142" rx="6" />
+  <rect class="box-b" x="34" y="354" width="14" height="14" />
+  <text class="t-desc" x="56" y="366">ひびわれ発生で、ひずみエネルギーが弾性波として放出</text>
+  <rect class="box-b" x="34" y="384" width="14" height="14" />
+  <text class="t-desc" x="56" y="396">表面の複数のセンサが弾性波を受信</text>
+  <rect class="box-b" x="34" y="414" width="14" height="14" />
+  <text class="t-desc" x="56" y="426">センサごとの到達時間差から発生位置を同定</text>
+  <rect class="box-w" x="34" y="444" width="14" height="14" />
+  <text class="t-desc" x="56" y="456">精度向上にはセンサの個数と配置の工夫が必要</text>
+</svg>

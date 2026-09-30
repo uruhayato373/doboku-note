@@ -1,0 +1,59 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士教材の 電磁波レーダ法の構成。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="電磁波レーダ法の構成模式図。走査台車の送信アンテナからコンクリート内へ電磁波を放射し、空洞で反射した波を受信アンテナで受ける。往復時間から深さを求める">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-warn  { font-size: 11px; fill: #b22234; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-warn { stroke: #b22234; stroke-width: 2; fill: none; }
+      .line-ok { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-r { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+    <marker id="ab" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ag" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="am" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#8a8a8a"/></marker>
+  </defs>
+  <text class="t-lead" x="200" y="18" text-anchor="middle">反射波の往復時間から、空洞・鉄筋の深さを推定する</text>
+  <rect class="box-w" x="110" y="62" width="180" height="40" rx="6" />
+  <circle cx="140" cy="108" r="7" fill="#555" />
+  <circle cx="260" cy="108" r="7" fill="#555" />
+  <text class="t-label" x="152" y="86">送信</text>
+  <text class="t-label" x="226" y="86">受信</text>
+  <line class="line-dash" x1="200" y1="66" x2="200" y2="98" />
+  <line class="line-main" x1="305" y1="82" x2="370" y2="82" marker-end="url(#ab)" />
+  <text class="t-axis" x="337" y="72" text-anchor="middle">走行方向</text>
+  <text class="t-lead" x="30" y="82">走査台車</text>
+  <rect class="box" x="40" y="118" width="320" height="200" />
+  <text class="t-axis" x="50" y="136">コンクリート</text>
+  <line class="line-main" x1="160" y1="102" x2="192" y2="247" marker-end="url(#ab)" />
+  <line class="line-ok" x1="208" y1="247" x2="240" y2="104" marker-end="url(#ag)" />
+  <ellipse cx="200" cy="262" rx="32" ry="8" fill="#f8d7da" stroke="#b22234" stroke-width="1.5" />
+  <text class="t-warn" x="200" y="292" text-anchor="middle">空洞（誘電率が異なる境界）</text>
+  <text class="t-label" x="150" y="170" text-anchor="end">発信</text>
+  <text class="t-label" x="256" y="170">反射波</text>
+  <line class="line-dash" x1="320" y1="120" x2="320" y2="262" />
+  <line class="line-dash" x1="300" y1="262" x2="340" y2="262" />
+  <text class="t-axis" x="326" y="198">深さ</text>
+  <text class="t-lead" x="20" y="342">周波数の選び方</text>
+  <rect class="box" x="20" y="348" width="360" height="134" rx="6" />
+  <rect class="box-g" x="34" y="362" width="14" height="14" />
+  <text class="t-desc" x="56" y="374">低周波数：深くまで届くが、分解能は低い</text>
+  <rect class="box-b" x="34" y="392" width="14" height="14" />
+  <text class="t-desc" x="56" y="404">高周波数：分解能は高いが、探査深度は浅い</text>
+  <rect class="box-w" x="34" y="422" width="14" height="14" />
+  <text class="t-desc" x="56" y="434">高含水・塩分が多いと電波が減衰し深度が低下</text>
+  <text class="t-desc" x="56" y="462">目的の深さと必要な分解能でアンテナを選ぶ</text>
+</svg>

@@ -1,0 +1,53 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士教材の細孔径分布の水銀圧入法。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="水銀圧入法の原理図。コンクリートの細孔の上に水銀があり、圧入圧力Pで押し込むと水銀の表面張力σと接触角θに応じて細孔直径が決まり、圧力と圧入量の関係から細孔径分布を求める">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-b     { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-dark { stroke: #1a3a5c; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-ax { stroke: #555; stroke-width: 1.5; fill: none; }
+      .line-arr { stroke: #1a3a5c; stroke-width: 1.5; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-r { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-y { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+    </style>
+    <marker id="arr" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#1a3a5c" /></marker>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">水銀を圧力で細孔へ押し込む原理（模式・数値なし）</text>
+  <rect class="box" x="40" y="130" width="320" height="170" rx="4" />
+  <rect class="box-y" x="40" y="80" width="320" height="50" />
+  <path d="M170,130 L170,255 L230,255 L230,130 Z" fill="#fff" stroke="#8a8a8a" stroke-width="1.5" />
+  <path d="M170,130 L170,185 Q200,205 230,185 L230,130 Z" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5" />
+  <line class="line-arr" x1="110" y1="44" x2="110" y2="76" marker-end="url(#arr)" />
+  <line class="line-arr" x1="200" y1="44" x2="200" y2="76" marker-end="url(#arr)" />
+  <line class="line-arr" x1="290" y1="44" x2="290" y2="76" marker-end="url(#arr)" />
+  <text class="t-label" x="200" y="38" text-anchor="middle">圧入圧力 P</text>
+  <text class="t-label" x="60" y="110">水銀</text>
+  <text class="t-label" x="60" y="290">コンクリート</text>
+  <line class="line-arr" x1="172" y1="236" x2="228" y2="236" marker-end="url(#arr)" />
+  <line class="line-arr" x1="228" y1="236" x2="172" y2="236" marker-end="url(#arr)" />
+  <text class="t-label" x="200" y="230" text-anchor="middle">細孔直径</text>
+  <text class="t-label" x="240" y="160">接触角 θ</text>
+  <line class="line-dash" x1="236" y1="157" x2="222" y2="182" />
+  <text class="t-label" x="240" y="200">表面張力 σ</text>
+  <line class="line-dash" x1="236" y1="197" x2="222" y2="194" />
+  <rect class="box" x="20" y="318" width="360" height="168" rx="6" />
+  <text class="t-b" x="34" y="338">水銀圧入法の考え方</text>
+  <text class="t-desc" x="34" y="360">圧力を上げるほど、より小さい細孔まで</text>
+  <text class="t-desc" x="34" y="380">水銀が入る（大きい孔から順に小さい孔へ）</text>
+  <text class="t-desc" x="34" y="400">細孔半径 r ＝ −2σ・cos θ ／ P</text>
+  <text class="t-desc" x="34" y="420">圧入圧力 P と圧入量の関係から</text>
+  <text class="t-desc" x="34" y="440">細孔径分布を求める</text>
+  <text class="t-desc" x="34" y="460">（水銀は θ が 90°超で cos θ が負のため符号を付ける）</text>
+</svg>

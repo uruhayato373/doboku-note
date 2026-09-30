@@ -1,0 +1,57 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士教材のASR の残存膨張量。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="コアの膨張量の推移。標準養生で現れた膨張量が開放膨張量、促進養生でさらに現れる膨張量が残存膨張量で、両者の合計が全膨張量であることを示す概念グラフ">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-strong{ font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-red   { font-size: 11px; fill: #b22234; }
+      .t-grn   { font-size: 11px; fill: #3a7d44; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-red { stroke: #b22234; stroke-width: 2; fill: none; }
+      .line-grn { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-ax { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+      .line-br { stroke: #1a3a5c; stroke-width: 1.5; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-r { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#1a3a5c" /></marker>
+    <marker id="ag" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#8a8a8a" /></marker>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">横軸＝養生の段階、縦軸＝膨張量（数値なし・傾向を示す）</text>
+  <line class="line-ax" x1="52" y1="290" x2="326" y2="290" />
+  <line class="line-ax" x1="52" y1="60" x2="52" y2="290" />
+  <text class="t-axis" x="8" y="52">膨張量</text>
+  <line class="line-dash" x1="180" y1="44" x2="180" y2="290" />
+  <line class="line-dash" x1="52" y1="48" x2="180" y2="48" />
+  <text class="t-label" x="116" y="42" text-anchor="middle">標準養生</text>
+  <text class="t-red" x="254" y="42" text-anchor="middle">促進養生</text>
+  <path class="line-main" d="M52,290 C 58,210 100,172 180,162" />
+  <path class="line-red" d="M180,162 C 192,112 236,82 326,78" />
+  <line class="line-dash" x1="180" y1="162" x2="340" y2="162" />
+  <line class="line-dash" x1="300" y1="78" x2="362" y2="78" />
+  <line class="line-br" x1="336" y1="162" x2="336" y2="290" /><line class="line-br" x1="332" y1="162" x2="340" y2="162" /><line class="line-br" x1="332" y1="290" x2="340" y2="290" /><line class="line-br" x1="336" y1="78" x2="336" y2="162" /><line class="line-br" x1="332" y1="78" x2="340" y2="78" /><line class="line-br" x1="332" y1="162" x2="340" y2="162" /><line class="line-br" x1="358" y1="78" x2="358" y2="290" /><line class="line-br" x1="354" y1="78" x2="362" y2="78" /><line class="line-br" x1="354" y1="290" x2="362" y2="290" />
+  <text class="t-label" x="342" y="232">A</text>
+  <text class="t-red" x="342" y="124">B</text>
+  <text class="t-desc" x="364" y="188">C</text>
+  <rect class="box" x="20" y="326" width="360" height="158" rx="6" />
+  <text class="t-label" x="34" y="350">A</text>
+  <text class="t-desc" x="54" y="350">開放膨張量：標準養生で現れた膨張</text>
+  <text class="t-red" x="34" y="374">B</text>
+  <text class="t-desc" x="54" y="374">残存膨張量：促進養生でさらに現れる膨張</text>
+  <text class="t-desc" x="34" y="398">C</text>
+  <text class="t-desc" x="54" y="398">全膨張量：A と B の合計</text>
+  <text class="t-desc" x="34" y="426">残存膨張量は「今後さらにどれだけ膨張し得るか」</text>
+  <text class="t-desc" x="34" y="442">を示す指標で、閾値は試験方法ごとに異なる</text>
+  <text class="t-desc" x="34" y="466">試験法が違う閾値を流用しない</text>
+</svg>

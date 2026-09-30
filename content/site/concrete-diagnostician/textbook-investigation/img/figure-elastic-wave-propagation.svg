@@ -1,0 +1,69 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士教材の弾性波の伝播。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%" role="img"
+  aria-label="コンクリート中の弾性波の比較模式。上段は欠陥なしで、波が直進して伝搬し、共振し、底面で反射する。下段は欠陥ありで、空洞では経路が迂回し、ひび割れでは先端で回折し、剥離では浅い位置で反射する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #2e6da4; stroke-width: 1.5; stroke-dasharray: 4 3; fill: none; }
+      .line-neu { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .line-neu-d { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-dng { stroke: #b22234; stroke-width: 1.5; stroke-dasharray: 4 3; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-r { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .conc { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+    </style>
+    <marker id="ah" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ahr" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="ahg" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#8a8a8a"/></marker>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">弾性波の伝わり方（模式）</text>
+  <text class="t-label" x="30" y="36">欠陥なし</text>
+  <rect class="conc" x="30" y="54" width="340" height="70"/>
+  <rect class="box-b" x="86" y="44" width="8" height="10"/>
+  <rect class="box-b" x="86" y="124" width="8" height="10"/>
+  <line class="line-dash" x1="90" y1="64" x2="90" y2="120" marker-end="url(#ah)"/>
+  <rect class="box-b" x="196" y="44" width="8" height="10"/>
+  <path class="line-dash" d="M200,56 C166,78 166,102 200,122 C234,102 234,78 200,56"/>
+  <rect class="box-b" x="296" y="44" width="8" height="10"/>
+  <rect class="box-b" x="326" y="44" width="8" height="10"/>
+  <path class="line-dash" d="M300,64 L315,120 L330,66" marker-end="url(#ah)"/>
+  <text class="t-label" x="90" y="152" text-anchor="middle">伝搬</text>
+  <text class="t-label" x="200" y="152" text-anchor="middle">共振</text>
+  <text class="t-label" x="315" y="152" text-anchor="middle">底面で反射</text>
+  <text class="t-label" x="30" y="190">欠陥あり</text>
+  <rect class="conc" x="30" y="206" width="340" height="70"/>
+  <rect class="box-b" x="86" y="196" width="8" height="10"/>
+  <rect class="box-b" x="86" y="276" width="8" height="10"/>
+  <ellipse cx="90" cy="241" rx="15" ry="6" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/>
+  <path class="line-dash" d="M90,216 L58,241 L90,272"/><path class="line-dash" d="M90,216 L122,241 L90,272" marker-end="url(#ah)"/>
+  <rect class="box-b" x="182" y="196" width="8" height="10"/>
+  <rect class="box-b" x="210" y="196" width="8" height="10"/>
+  <line x1="200" y1="206" x2="200" y2="246" stroke="#b22234" stroke-width="2.5"/>
+  <path class="line-dash" d="M186,214 L200,250 L214,216" marker-end="url(#ah)"/>
+  <rect class="box-b" x="296" y="196" width="8" height="10"/>
+  <rect class="box-b" x="326" y="196" width="8" height="10"/>
+  <ellipse cx="315" cy="226" rx="26" ry="4" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/>
+  <path class="line-dash" d="M300,216 L315,224 L330,216" marker-end="url(#ah)"/>
+  <text class="t-label" x="90" y="300" text-anchor="middle">空洞</text>
+  <text class="t-label" x="200" y="300" text-anchor="middle">ひび割れ</text>
+  <text class="t-label" x="315" y="300" text-anchor="middle">剥離</text>
+  <text class="t-desc" x="90" y="316" text-anchor="middle">迂回して遅れる</text>
+  <text class="t-desc" x="200" y="316" text-anchor="middle">先端で回折</text>
+  <text class="t-desc" x="315" y="316" text-anchor="middle">浅部で反射</text>
+  <rect class="box" x="20" y="340" width="360" height="144" rx="6"/>
+  <text class="t-label" x="34" y="362">読み取り方</text>
+  <text class="t-desc" x="34" y="384">密実な部分：波は直進し、速度が大きい</text>
+  <text class="t-desc" x="34" y="404">空洞・ひび割れがあると伝播速度が低下する</text>
+  <text class="t-desc" x="34" y="424">欠陥で反射する性質から位置・深さを推定</text>
+  <text class="t-desc" x="34" y="444">共振の周波数も欠陥の有無で変わる</text>
+  <text class="t-desc" x="34" y="470">※ 破線の矢印は弾性波の進路を表す</text>
+</svg>

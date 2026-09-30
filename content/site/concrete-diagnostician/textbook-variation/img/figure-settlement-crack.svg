@@ -1,0 +1,57 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士教材の沈下ひび割れの発生機構。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="沈下ひび割れの断面模式。ブリーディングに伴う沈下が鉄筋の位置で拘束され、鉄筋直上にひび割れが入る様子と、型枠セパレータの並びに沿って壁側面に水平のひび割れが入る様子を示す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-b { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-thin { stroke: #2e6da4; stroke-width: 1.5; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-red { stroke: #b22234; stroke-width: 1.5; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+    </style>
+    <marker id="ah" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4" /></marker>
+    <marker id="ahr" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234" /></marker>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">沈下が鉄筋や型枠・セパレータに拘束され、その位置にひび割れ</text>
+  <text class="t-b" x="20" y="40">(a) 断面：鉄筋の直上</text>
+  <rect class="box-b" x="40" y="54" width="320" height="130" rx="2" />
+  <line class="line-thin" x1="40" y1="54" x2="360" y2="54" />
+  <circle cx="200" cy="104" r="9" class="box-w" />
+  <line class="line-main" x1="80" y1="68" x2="80" y2="100" marker-end="url(#ah)" />
+  <line class="line-main" x1="130" y1="68" x2="130" y2="100" marker-end="url(#ah)" />
+  <line class="line-main" x1="280" y1="68" x2="280" y2="100" marker-end="url(#ah)" />
+  <line class="line-main" x1="330" y1="68" x2="330" y2="100" marker-end="url(#ah)" />
+  <path class="line-red" d="M200,54 L196,70 L203,84 L199,95" />
+  <text class="t-label" x="215" y="74">ひび割れ</text>
+  <text class="t-label" x="215" y="124">鉄筋：沈下を拘束</text>
+  <text class="t-desc" x="20" y="204">周囲のコンクリートは沈下するが、鉄筋の位置では止められる</text>
+  <text class="t-b" x="20" y="260">(b) 壁の側面：セパレータ位置</text>
+  <rect class="box-b" x="40" y="274" width="320" height="110" rx="2" />
+  <circle cx="80" cy="329" r="6" class="box-w" />
+  <circle cx="160" cy="329" r="6" class="box-w" />
+  <circle cx="240" cy="329" r="6" class="box-w" />
+  <circle cx="320" cy="329" r="6" class="box-w" />
+  <path class="line-red" d="M50,330 L120,326 L200,332 L290,326 L350,330" />
+  <line class="line-main" x1="110" y1="290" x2="110" y2="312" marker-end="url(#ah)" />
+  <line class="line-main" x1="190" y1="290" x2="190" y2="312" marker-end="url(#ah)" />
+  <line class="line-main" x1="270" y1="290" x2="270" y2="312" marker-end="url(#ah)" />
+  <text class="t-label" x="200" y="372" text-anchor="middle">ひび割れ（水平）</text>
+  <text class="t-desc" x="20" y="404">型枠・セパレータが沈下を拘束し、</text>
+  <text class="t-desc" x="20" y="420">その並びに沿って水平方向にひび割れが生じる</text>
+  <rect class="box" x="20" y="440" width="360" height="46" rx="6" />
+  <text class="t-label" x="32" y="460">打込み直後〜初期凝結完了までの沈下が原因で、</text>
+  <text class="t-label" x="32" y="476">鉄筋直上・ハンチ部・コンクリート天端に出やすい</text>
+
+</svg>

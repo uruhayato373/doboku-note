@@ -1,0 +1,52 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士教材の火災時のセメントペーストと骨材の体積変化。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="加熱温度に対するセメントペーストと骨材の体積変化の概念図。骨材は温度とともに膨張し、セメントペーストは収縮側へ転じるため、両者の不整合が界面の応力とひび割れ・剥離の要因になる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-grn { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .line-wrn { stroke: #d4a017; stroke-width: 2; fill: none; }
+      .line-red { stroke: #b22234; stroke-width: 2; fill: none; }
+      .line-gray { stroke: #555; stroke-width: 1.2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-r { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+    <marker id="arr" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">横軸＝温度（0〜800℃）、縦軸＝体積変化（傾向を示す）</text>
+  <line class="line-dash" x1="40" y1="170" x2="370" y2="170" />
+  <line class="line-dash" x1="40" y1="40" x2="40" y2="290" />
+  <text class="t-axis" x="44" y="36">膨張</text>
+  <text class="t-axis" x="44" y="284">収縮</text>
+  <line class="line-dash" x1="205" y1="40" x2="205" y2="290" />
+  <line class="line-dash" x1="370" y1="40" x2="370" y2="290" />
+  <text class="t-axis" x="40" y="306">0</text>
+  <text class="t-axis" x="205" y="306" text-anchor="middle">400</text>
+  <text class="t-axis" x="370" y="306" text-anchor="end">800℃</text>
+  <path class="line-main" d="M40,170 L287,120 L291,96 L362,84" />
+  <path class="line-red" d="M40,170 C 55,150 70,142 82,145 C 110,170 160,240 205,248 C 260,240 320,200 356,170" />
+  <text class="t-label" x="60" y="130">骨材（膨張）</text>
+  <text class="t-label" x="215" y="276" text-anchor="middle">セメントペースト（収縮）</text>
+  <text class="t-axis" x="287" y="80" text-anchor="middle">600℃付近で急膨張</text>
+  <line class="line-gray" x1="252" y1="182" x2="252" y2="134" marker-end="url(#arr)" />
+  <line class="line-gray" x1="252" y1="182" x2="252" y2="228" marker-end="url(#arr)" />
+  <text class="t-label" x="244" y="200" text-anchor="end">膨張量の差</text>
+  <text class="t-label" x="244" y="214" text-anchor="end">（不整合）</text>
+  <text class="t-lead" x="20" y="340">読み取り</text>
+  <rect class="box" x="20" y="346" width="360" height="140" rx="6" />
+  <line class="line-main" x1="34" y1="368" x2="48" y2="368" />
+  <text class="t-desc" x="54" y="372">骨材：温度とともに膨張する</text>
+  <line class="line-red" x1="34" y1="394" x2="48" y2="394" />
+  <text class="t-desc" x="54" y="398">ペースト：水分が抜けて収縮側へ転じる</text>
+  <text class="t-desc" x="34" y="428">膨張量の差が骨材との界面に応力を生じ、</text>
+  <text class="t-desc" x="34" y="444">微細ひび割れ・強度低下・剥離を促す</text>
+  <text class="t-desc" x="34" y="470">石英質骨材は573℃の相転移で損傷が進みやすい</text>
+</svg>

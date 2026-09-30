@@ -1,0 +1,58 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士教材の鋼材腐食の電気化学。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="分極曲線と腐食電流の概念図。縦軸は電位（貴から卑）、横軸は電流。アノード分極曲線とカソード分極曲線の交点が腐食電位と腐食電流を与え、腐食電流が大きいほど腐食速度が大きい">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-danger { font-size: 11px; fill: #b22234; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-red { stroke: #b22234; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .axis { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-r { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+    </style>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="arg" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#8a8a8a"/></marker>
+  </defs>
+  <text class="t-lead" x="200" y="18" text-anchor="middle">縦軸＝電位、横軸＝電流（数値なし・概念図）</text>
+  <line class="axis" x1="50" y1="300" x2="372" y2="300" />
+  <line class="axis" x1="50" y1="36" x2="50" y2="300" />
+  <text class="t-axis" x="56" y="44">電位</text>
+  <text class="t-axis" x="8" y="70">貴</text>
+  <text class="t-axis" x="8" y="296">卑</text>
+  <text class="t-axis" x="372" y="318" text-anchor="end">電流</text>
+  <path class="line-main" d="M50,285 C 140,282 190,260 220,190 C 240,145 270,100 304,72" />
+  <path class="line-red" d="M50,80 C 130,82 190,100 220,190 C 240,240 265,272 304,292" />
+  <line class="line-dash" x1="50" y1="190" x2="220" y2="190" />
+  <line class="line-dash" x1="220" y1="190" x2="220" y2="300" />
+  <circle cx="220" cy="190" r="4" fill="#222" />
+  <text class="t-label" x="58" y="184">腐食電位</text>
+  <text class="t-label" x="220" y="318" text-anchor="middle">腐食電流</text>
+  <text class="t-label" x="300" y="62" text-anchor="end">アノード分極曲線</text>
+  <text class="t-danger" x="372" y="280" text-anchor="end">カソード分極曲線</text>
+  <line class="line-main" x1="190" y1="340" x2="100" y2="340" marker-end="url(#ar)" />
+  <line class="line-main" x1="250" y1="340" x2="340" y2="340" marker-end="url(#ar)" />
+  <text class="t-axis" x="72" y="344" text-anchor="end">小</text>
+  <text class="t-label" x="220" y="344" text-anchor="middle">腐食速度</text>
+  <text class="t-axis" x="350" y="344">大</text>
+  <text class="t-lead" x="20" y="366">読み取り方</text>
+  <rect class="box" x="20" y="372" width="360" height="116" rx="6" />
+  <rect class="box-b" x="32" y="383" width="12" height="12" />
+  <text class="t-desc" x="52" y="394">両曲線の交点が腐食電位・腐食電流を与える</text>
+  <rect class="box-b" x="32" y="407" width="12" height="12" />
+  <text class="t-desc" x="52" y="418">腐食電流が大きいほど腐食速度が大きい</text>
+  <rect class="box-b" x="32" y="431" width="12" height="12" />
+  <text class="t-desc" x="52" y="442">O₂が多い：カソード曲線が貴方向へ移行</text>
+  <rect class="box-b" x="32" y="455" width="12" height="12" />
+  <text class="t-desc" x="52" y="466">Cl⁻が多い・pHが低い：アノード曲線が卑方向へ移行</text>
+</svg>

@@ -1,0 +1,64 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士教材の電気抵抗法（Wenner法）の四点電極配置。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="Wenner法の構成図。コンクリート表面に4本の電極を等間隔aで一列に当て、外側2本で電流I、内側2本で電位差Vを測り、比抵抗ρ=2π・a・Δφ/Iを求める">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-b     { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-dark { stroke: #1a3a5c; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-ax { stroke: #555; stroke-width: 1.5; fill: none; }
+      .line-arr { stroke: #1a3a5c; stroke-width: 1.5; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-r { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-y { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">4本の電極を等間隔 a で一列に当てる（模式）</text>
+  <line class="line-arr" x1="70" y1="140" x2="70" y2="56" />
+  <line class="line-arr" x1="70" y1="56" x2="176" y2="56" />
+  <line class="line-arr" x1="204" y1="56" x2="310" y2="56" />
+  <line class="line-arr" x1="310" y1="56" x2="310" y2="140" />
+  <circle cx="190" cy="56" r="14" fill="#fff" stroke="#1a3a5c" stroke-width="1.5" />
+  <text class="t-label" x="190" y="60" text-anchor="middle">I</text>
+  <line class="line-arr" x1="150" y1="140" x2="150" y2="100" />
+  <line class="line-arr" x1="150" y1="100" x2="176" y2="100" />
+  <line class="line-arr" x1="204" y1="100" x2="230" y2="100" />
+  <line class="line-arr" x1="230" y1="100" x2="230" y2="140" />
+  <circle cx="190" cy="100" r="14" fill="#fff" stroke="#1a3a5c" stroke-width="1.5" />
+  <text class="t-label" x="190" y="104" text-anchor="middle">V</text>
+  <rect x="66" y="140" width="8" height="46" fill="#2e6da4" />
+  <rect x="146" y="140" width="8" height="46" fill="#2e6da4" />
+  <rect x="226" y="140" width="8" height="46" fill="#2e6da4" />
+  <rect x="306" y="140" width="8" height="46" fill="#2e6da4" />
+  <text class="t-label" x="110" y="168" text-anchor="middle">a</text>
+  <text class="t-label" x="190" y="168" text-anchor="middle">a</text>
+  <text class="t-label" x="270" y="168" text-anchor="middle">a</text>
+  <line class="line-dash" x1="76" y1="174" x2="144" y2="174" />
+  <line class="line-dash" x1="156" y1="174" x2="224" y2="174" />
+  <line class="line-dash" x1="236" y1="174" x2="304" y2="174" />
+  <rect class="box" x="40" y="186" width="320" height="110" rx="4" />
+  <path d="M70,186 A120,80 0 0 0 310,186" fill="none" stroke="#2e6da4" stroke-width="1.5" stroke-dasharray="4 3" />
+  <text class="t-label" x="56" y="210">コンクリート</text>
+  <text class="t-desc" x="200" y="246" text-anchor="middle">電流の流れる範囲</text>
+  <text class="t-axis" x="82" y="124">外側＝電流</text>
+  <text class="t-axis" x="242" y="124">内側＝電位差</text>
+  <rect class="box" x="20" y="312" width="360" height="174" rx="6" />
+  <text class="t-b" x="34" y="332">比抵抗の求め方と読み方</text>
+  <text class="t-desc" x="34" y="354">外側2本：電流 I を流す　内側2本：電位差 Δφ を測る</text>
+  <text class="t-desc" x="34" y="374"></text>
+  <text class="t-desc" x="34" y="394">比抵抗 ρ ＝ 2π・a・Δφ ／ I</text>
+  <text class="t-desc" x="34" y="414"></text>
+  <text class="t-desc" x="34" y="434">比抵抗が小さい＝湿潤・イオンが動きやすい</text>
+  <text class="t-desc" x="34" y="454">　→ 鋼材が腐食しやすい環境と評価する</text>
+  <text class="t-desc" x="34" y="474">（鋼材そのものの腐食状況ではなく周囲の環境）</text>
+</svg>

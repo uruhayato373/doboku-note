@@ -1,0 +1,54 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士教材の 赤外線サーモグラフィの表面温度の日変化。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="外壁表面温度の時刻変化の概念グラフ。実線が健全部、破線が浮き・剥離のある欠陥部。昇温過程では欠陥部が健全部より高温、降温過程では低温になる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-warn  { font-size: 11px; fill: #b22234; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-warn { stroke: #b22234; stroke-width: 2; fill: none; }
+      .line-ok { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-r { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+    <marker id="ab" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ag" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="am" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#8a8a8a"/></marker>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">横軸＝時刻、縦軸＝表面温度（数値なし・傾向を示す）</text>
+  <rect x="168" y="40" width="80" height="250" fill="#fff3cd" />
+  <rect x="290" y="40" width="80" height="250" fill="#e8f0fe" />
+  <line class="line-dash" x1="40" y1="290" x2="370" y2="290" />
+  <line class="line-dash" x1="40" y1="40" x2="40" y2="290" />
+  <text class="t-axis" x="366" y="306">時刻</text>
+  <text class="t-axis" x="44" y="36">表面温度</text>
+  <path d="M40,240 C110,250 150,250 190,165 C220,100 245,78 278,82 C320,88 340,215 370,238" stroke="#2e6da4" stroke-width="2" fill="none" />
+  <path d="M40,252 C90,262 125,250 160,165 C190,95 215,68 248,72 C290,80 310,205 340,248 L370,256" stroke="#b22234" stroke-width="2" stroke-dasharray="6 3" fill="none" />
+  <text class="t-label" x="290" y="74">a 健全部（実線）</text>
+  <text class="t-warn" x="44" y="278">b 欠陥部（破線）</text>
+  <text class="t-label" x="208" y="320" text-anchor="middle">昇温過程</text>
+  <text class="t-label" x="330" y="320" text-anchor="middle">降温過程</text>
+  <rect class="box-w" x="20" y="332" width="170" height="68" rx="6" />
+  <text class="t-desc" x="30" y="350">欠陥部のほうが</text>
+  <text class="t-desc" x="30" y="366">熱容量が小さく高温</text>
+  <text class="t-desc" x="30" y="384">（赤色に写る）</text>
+  <rect class="box-b" x="210" y="332" width="170" height="68" rx="6" />
+  <text class="t-desc" x="220" y="350">欠陥部のほうが</text>
+  <text class="t-desc" x="220" y="366">先に冷えて低温</text>
+  <text class="t-desc" x="220" y="384">（緑色に写る）</text>
+  <rect class="box" x="20" y="412" width="360" height="70" rx="6" />
+  <text class="t-desc" x="32" y="432">剥離部は背面に空気層ができ、熱の伝わり方が健全部と異なる。</text>
+  <text class="t-desc" x="32" y="450">差が出る時間帯と気象条件を選んで撮影する。</text>
+  <text class="t-desc" x="32" y="468">深さや空隙の厚さの推定は難しい。</text>
+</svg>

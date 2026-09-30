@@ -1,0 +1,53 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士教材の剥落防止工法。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="剥落防止工法の断面。表面被覆材の下にメッシュ（ネット）を張り、アンカーピンで躯体に固定することで、浮いたかぶりコンクリートの剥落片を保持する。内部の鋼材腐食そのものは解消しない">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-head  { font-size: 12px; fill: #222; font-weight: 700; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-red { stroke: #b22234; stroke-width: 2; fill: none; }
+      .conc { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-r { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">断面の模式図（数値なし）</text>
+  <rect class="conc" x="40" y="40" width="190" height="260" />
+  <rect class="box-w" x="150" y="130" width="80" height="90" />
+  <rect class="box-b" x="230" y="40" width="22" height="260" />
+  <line class="line-main" x1="230" y1="40" x2="230" y2="300" stroke-dasharray="6 3" />
+  <circle cx="75" cy="80" r="7" fill="#555" />
+  <circle cx="75" cy="160" r="7" fill="#555" />
+  <circle cx="75" cy="240" r="7" fill="#555" />
+  <line class="line-red" x1="75" y1="60" x2="75" y2="280" />
+  <line class="line-main" x1="252" y1="80" x2="110" y2="80" />
+  <line class="line-main" x1="252" y1="175" x2="110" y2="175" />
+  <line class="line-main" x1="252" y1="270" x2="110" y2="270" />
+  <text class="t-desc" x="190" y="176" text-anchor="middle" dy="-10">浮き・剥離部</text>
+  <text class="t-axis" x="40" y="320">躯体（赤線＝鉄筋、黒丸＝腐食箇所）</text>
+
+  <text class="t-label" x="262" y="62">表面被覆材</text>
+  <line class="line-dash" x1="252" y1="58" x2="259" y2="58" />
+  <text class="t-label" x="262" y="135">メッシュ（ネット）</text>
+  <text class="t-label" x="262" y="152">（破線）</text>
+  <line class="line-dash" x1="230" y1="130" x2="259" y2="130" />
+  <text class="t-label" x="262" y="230">アンカーピン</text>
+  <text class="t-label" x="262" y="247">（躯体へ固定）</text>
+  <line class="line-dash" x1="200" y1="270" x2="259" y2="238" />
+
+  <rect class="box" x="20" y="346" width="360" height="134" rx="6" />
+  <rect class="box-b" x="34" y="360" width="14" height="14" />
+  <text class="t-desc" x="54" y="372">メッシュとピンで浮いた部分を保持し剥落片を落とさない</text>
+  <text class="t-desc" x="34" y="400">目的：第三者被害の防止（応急〜延命の措置）</text>
+  <rect class="box-r" x="34" y="420" width="14" height="14" />
+  <text class="t-desc" x="54" y="432">原因の鋼材腐食は解消しない</text>
+  <text class="t-desc" x="34" y="458">根本補修は別途必要</text>
+</svg>

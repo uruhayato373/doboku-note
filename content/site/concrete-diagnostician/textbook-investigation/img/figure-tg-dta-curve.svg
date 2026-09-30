@@ -1,0 +1,49 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士教材のTG/DTA熱分析の読み方。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="熱分析結果の例。温度に対してTGは質量が徐々に減り高温側で急減し、DTAは低温側と高温側に吸熱ピークを示す。ピークは水酸化カルシウムの脱水や炭酸カルシウムの脱炭酸に対応する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-b     { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-dark { stroke: #1a3a5c; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-ax { stroke: #555; stroke-width: 1.5; fill: none; }
+      .line-arr { stroke: #1a3a5c; stroke-width: 1.5; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-r { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-y { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">横軸＝温度。色帯が下の囲みの反応域に対応</text>
+  <rect x="180" y="40" width="15" height="230" fill="#fff3cd" />
+  <rect x="210" y="40" width="116" height="230" fill="#e8f0fe" />
+  <line class="line-ax" x1="50" y1="40" x2="50" y2="270" />
+  <line class="line-ax" x1="50" y1="270" x2="340" y2="270" />
+  <text class="t-axis" x="50" y="286" text-anchor="middle">0</text>
+  <text class="t-axis" x="340" y="286" text-anchor="middle">1000</text>
+  <text class="t-axis" x="188" y="286" text-anchor="middle">450〜500</text>
+  <text class="t-axis" x="268" y="286" text-anchor="middle">550〜950</text>
+  <text class="t-axis" x="195" y="302" text-anchor="middle">温度（℃）</text>
+  <path class="line-main" d="M50,60 C90,62 140,66 178,70 C184,72 190,82 196,86 C200,90 205,92 210,96 C240,110 290,150 326,188 C332,190 336,190 340,190" />
+  <path class="line-dark" d="M50,170 C90,170 150,170 172,170 C180,172 184,186 188,188 C192,186 196,172 204,170 C230,170 250,172 262,190 C268,206 278,244 290,244 C300,244 310,200 326,172 L340,170" />
+  <text class="t-label" x="60" y="54">TG（質量）</text>
+  <text class="t-label" x="60" y="160">DTA（吸熱ピーク）</text>
+  <text class="t-label" x="187" y="124" text-anchor="middle">Ca(OH)<tspan baseline-shift="sub" font-size="11">2</tspan></text>
+  <text class="t-label" x="268" y="64" text-anchor="middle">CaCO<tspan baseline-shift="sub" font-size="11">3</tspan></text>
+  <rect class="box" x="20" y="316" width="360" height="170" rx="6" />
+  <text class="t-b" x="34" y="336">ピークが対応する反応</text>
+  <text class="t-desc" x="34" y="358">黄の帯　水酸化カルシウムの脱水分解：450〜500℃</text>
+  <text class="t-desc" x="34" y="378">青の帯　炭酸カルシウムの脱炭酸：550〜950℃</text>
+  <text class="t-desc" x="34" y="398"></text>
+  <text class="t-desc" x="34" y="418">Ca(OH)<tspan baseline-shift="sub" font-size="11">2</tspan> が無い試料は、受熱500℃以上と推定</text>
+  <text class="t-desc" x="34" y="438">（放水を受けたコンクリートには適用できない）</text>
+</svg>

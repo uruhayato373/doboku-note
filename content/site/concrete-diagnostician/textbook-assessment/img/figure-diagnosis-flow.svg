@@ -1,0 +1,59 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士教材の診断の流れ。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="診断の流れ。劣化機構と劣化要因の確認から、現状の評価、劣化予測、劣化予測に基づく評価を経て判定し、対策の要否を決める段階フロー">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-strong{ font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-red   { font-size: 11px; fill: #b22234; }
+      .t-grn   { font-size: 11px; fill: #3a7d44; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-red { stroke: #b22234; stroke-width: 2; fill: none; }
+      .line-grn { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-ax { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+      .line-br { stroke: #1a3a5c; stroke-width: 1.5; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-r { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#1a3a5c" /></marker>
+    <marker id="ag" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#8a8a8a" /></marker>
+  </defs>
+  <rect class="box" x="70" y="14" width="260" height="28" rx="6" />
+  <text class="t-strong" x="200" y="32" text-anchor="middle">開始</text>
+  <line class="line-br" x1="200" y1="42" x2="200" y2="56" marker-end="url(#ar)" />
+  <rect class="box-b" x="70" y="56" width="260" height="50" rx="6" />
+  <text class="t-strong" x="200" y="76" text-anchor="middle">劣化機構および劣化要因の確認</text>
+  <text class="t-desc" x="200" y="93" text-anchor="middle">劣化機構を明らかにし、要因を選定する</text>
+  <line class="line-br" x1="200" y1="106" x2="200" y2="120" marker-end="url(#ar)" />
+  <rect class="box" x="56" y="120" width="288" height="196" rx="6" />
+  <text class="t-lead" x="64" y="138">評価</text>
+  <rect class="box-b" x="82" y="146" width="236" height="44" rx="6" />
+  <text class="t-strong" x="200" y="165" text-anchor="middle">現状の評価</text>
+  <text class="t-desc" x="200" y="181" text-anchor="middle">要求性能を満たすかを評価</text>
+  <line class="line-br" x1="200" y1="190" x2="200" y2="204" marker-end="url(#ar)" />
+  <rect class="box-b" x="82" y="204" width="236" height="44" rx="6" />
+  <text class="t-strong" x="200" y="223" text-anchor="middle">劣化予測</text>
+  <text class="t-desc" x="200" y="239" text-anchor="middle">モデルで将来の劣化を予測</text>
+  <line class="line-br" x1="200" y1="248" x2="200" y2="262" marker-end="url(#ar)" />
+  <rect class="box-b" x="82" y="262" width="236" height="44" rx="6" />
+  <text class="t-strong" x="200" y="281" text-anchor="middle">劣化予測に基づく評価</text>
+  <text class="t-desc" x="200" y="297" text-anchor="middle">将来も要求性能を満たすかを評価</text>
+  <line class="line-br" x1="200" y1="316" x2="200" y2="334" marker-end="url(#ar)" />
+  <rect class="box-w" x="70" y="334" width="260" height="50" rx="6" />
+  <text class="t-strong" x="200" y="354" text-anchor="middle">判定</text>
+  <text class="t-desc" x="200" y="371" text-anchor="middle">健全度グレードを判定する</text>
+  <line class="line-br" x1="200" y1="384" x2="200" y2="402" marker-end="url(#ar)" />
+  <rect class="box-g" x="70" y="402" width="260" height="50" rx="6" />
+  <text class="t-strong" x="200" y="422" text-anchor="middle">対策の要否の判断</text>
+  <text class="t-desc" x="200" y="439" text-anchor="middle">要否と優先度を決め、点検計画に反映</text>
+</svg>

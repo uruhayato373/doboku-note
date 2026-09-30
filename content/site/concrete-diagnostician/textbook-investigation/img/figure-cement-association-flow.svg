@@ -1,0 +1,60 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士教材の セメント協会法による配合推定の試験手順。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="セメント協会法の試験手順フロー。試料の質量と付着水を測り、乾燥・微粉砕し、塩酸で処理して不溶残分と酸化カルシウムを定量し、骨材量とセメント量を求め、水量と合わせて単位量を算出する。強熱減量から結合水量を推定する枝がある">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 12px; fill: #1a3a5c; }
+      .t-small { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-strong { font-size: 12px; fill: #222; font-weight: 700; }
+      .line-main { stroke: #2e6da4; stroke-width: 1.5; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-warn { stroke: #b22234; stroke-width: 1.5; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-r { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .chip { fill: #fff; stroke: #2e6da4; stroke-width: 1; }
+    </style>
+    <marker id="ab" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="am" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#8a8a8a"/></marker>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+  </defs>
+  <text class="t-lead" x="200" y="18" text-anchor="middle">資料を分析して、配合を逆算する流れ</text>
+  <rect class="box" x="20" y="30" width="230" height="40" rx="6" />
+  <text class="t-desc" x="135" y="54" text-anchor="middle">採取した塊の質量と付着水を測る</text>
+  <rect class="box" x="20" y="92" width="230" height="40" rx="6" />
+  <text class="t-desc" x="135" y="116" text-anchor="middle">乾燥させて微粉砕する</text>
+  <rect class="box-b" x="20" y="154" width="230" height="40" rx="6" />
+  <text class="t-label" x="135" y="178" text-anchor="middle">塩酸で溶かして処理する</text>
+  <rect class="box-b" x="20" y="216" width="230" height="40" rx="6" />
+  <text class="t-label" x="135" y="240" text-anchor="middle">不溶残分と酸化カルシウムを定量</text>
+  <rect class="box-w" x="20" y="278" width="230" height="56" rx="6" />
+  <text class="t-label" x="135" y="302" text-anchor="middle">不溶残分 → 骨材量</text>
+  <text class="t-label" x="135" y="318" text-anchor="middle">酸化カルシウム → セメント量</text>
+  <rect class="box-g" x="20" y="356" width="230" height="40" rx="6" />
+  <text class="t-label" x="135" y="380" text-anchor="middle">水量も併せて単位量を求める</text>
+  <line class="line-main" x1="135" y1="70" x2="135" y2="92" marker-end="url(#ab)" />
+  <line class="line-main" x1="135" y1="132" x2="135" y2="154" marker-end="url(#ab)" />
+  <line class="line-main" x1="135" y1="194" x2="135" y2="216" marker-end="url(#ab)" />
+  <line class="line-main" x1="135" y1="256" x2="135" y2="278" marker-end="url(#ab)" />
+  <line class="line-main" x1="135" y1="334" x2="135" y2="356" marker-end="url(#ab)" />
+  <rect class="box" x="270" y="92" width="110" height="40" rx="6" />
+  <text class="t-desc" x="325" y="116" text-anchor="middle">強熱減量を測る</text>
+  <line class="line-dash" x1="250" y1="112" x2="270" y2="112" marker-end="url(#am)" />
+  <rect class="box" x="270" y="154" width="110" height="40" rx="6" />
+  <text class="t-desc" x="325" y="178" text-anchor="middle">結合水量を推定</text>
+  <line class="line-dash" x1="325" y1="132" x2="325" y2="154" marker-end="url(#am)" />
+  <rect class="box-r" x="270" y="272" width="110" height="68" rx="6" />
+  <text class="t-desc" x="325" y="294" text-anchor="middle">成分値が既知なら</text>
+  <text class="t-desc" x="325" y="310" text-anchor="middle">その値を使い、</text>
+  <text class="t-desc" x="325" y="326" text-anchor="middle">不明なら平均値</text>
+  <line class="line-warn" x1="270" y1="306" x2="250" y2="306" marker-end="url(#ar)" />
+  <text class="t-desc" x="200" y="452" text-anchor="middle">前処理の影響を受けやすく、推定値には誤差が伴う</text>
+</svg>

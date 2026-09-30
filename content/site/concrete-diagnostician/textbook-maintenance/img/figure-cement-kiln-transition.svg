@@ -1,0 +1,71 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士教材のセメントキルンの方式転換。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="セメントキルン台数と生産量の推移を示す傾向図。キルン台数は減少しNSPとSPの割合が増え、生産量は1995年頃をピークに減少する。数値は示さない">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 12px; fill: #1a3a5c; }
+      .t-small { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-strong { font-size: 12px; fill: #222; font-weight: 700; }
+      .t-red { font-size: 12px; fill: #b22234; font-weight: 700; }
+      .line-main { stroke: #2e6da4; stroke-width: 1.5; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-red { stroke: #b22234; stroke-width: 2; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-r { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4" /></marker>
+    <marker id="arr" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234" /></marker>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">横軸＝年度、縦軸＝台数・生産量（数値なし・傾向を示す）</text>
+  <line class="line-dash" x1="50" y1="300" x2="370" y2="300" />
+  <line class="line-dash" x1="50" y1="50" x2="50" y2="300" />
+  <text class="t-axis" x="50" y="44" text-anchor="start">キルン台数（棒）</text>
+  <text class="t-axis" x="370" y="44" text-anchor="end">生産量（線）</text>
+  <rect x="62" y="250" width="36" height="50" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1" />
+  <rect x="62" y="140" width="36" height="110" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1" />
+  <rect x="128" y="240" width="36" height="60" fill="#2e6da4" stroke="#2e6da4" stroke-width="1" />
+  <rect x="128" y="190" width="36" height="50" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1" />
+  <rect x="128" y="140" width="36" height="50" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1" />
+  <rect x="194" y="242" width="36" height="58" fill="#2e6da4" stroke="#2e6da4" stroke-width="1" />
+  <rect x="194" y="222" width="36" height="20" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1" />
+  <rect x="194" y="210" width="36" height="12" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1" />
+  <rect x="260" y="237" width="36" height="63" fill="#2e6da4" stroke="#2e6da4" stroke-width="1" />
+  <rect x="260" y="225" width="36" height="12" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1" />
+  <rect x="326" y="238" width="36" height="62" fill="#2e6da4" stroke="#2e6da4" stroke-width="1" />
+  <rect x="326" y="230" width="36" height="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1" />
+  <text class="t-axis" x="80" y="316" text-anchor="middle">1970</text>
+  <text class="t-axis" x="146" y="316" text-anchor="middle">1980</text>
+  <text class="t-axis" x="212" y="316" text-anchor="middle">1990</text>
+  <text class="t-axis" x="278" y="316" text-anchor="middle">2000</text>
+  <text class="t-axis" x="344" y="316" text-anchor="middle">2010</text>
+  <text class="t-axis" x="210" y="332" text-anchor="middle">年度</text>
+  <polyline class="line-red" points="80,200 146,170 212,125 236,100 278,135 344,190" />
+  <circle cx="80" cy="200" r="3" fill="#b22234" />
+  <circle cx="146" cy="170" r="3" fill="#b22234" />
+  <circle cx="212" cy="125" r="3" fill="#b22234" />
+  <circle cx="236" cy="100" r="3" fill="#b22234" />
+  <circle cx="278" cy="135" r="3" fill="#b22234" />
+  <circle cx="344" cy="190" r="3" fill="#b22234" />
+  <text class="t-red" x="236" y="88" text-anchor="middle">1995年頃ピーク</text>
+  <text class="t-desc" x="370" y="250" text-anchor="start"></text>
+  <text class="t-desc" x="62" y="160" text-anchor="start">その他</text>
+  <text class="t-small" x="66" y="272" text-anchor="start">SP</text>
+  <text class="t-desc" x="330" y="270" text-anchor="start"></text>
+  <rect x="30" y="346" width="12" height="12" fill="#2e6da4" />  <text class="t-desc" x="48" y="357" text-anchor="start">NSP</text>
+  <rect x="90" y="346" width="12" height="12" fill="#e8f0fe" stroke="#2e6da4" />  <text class="t-desc" x="108" y="357" text-anchor="start">SP</text>
+  <rect x="150" y="346" width="12" height="12" fill="#f5f5f5" stroke="#d7d7d7" />  <text class="t-desc" x="168" y="357" text-anchor="start">その他のキルン</text>
+  <rect class="box-b" x="20" y="376" width="360" height="44" rx="6" />
+  <text class="t-label" x="200.0" y="402.0" text-anchor="middle">1980年代にNSP・SPが主力の製造方法に</text>
+  <rect class="box-w" x="20" y="430" width="360" height="44" rx="6" />
+  <text class="t-label" x="200.0" y="456.0" text-anchor="middle">建設年代で製造方式が違う＝診断の手がかり</text>
+
+</svg>

@@ -1,0 +1,57 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士教材の中性化の炭酸化機構。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="中性化（炭酸化）の段階フロー。CO2とH2Oの細孔への浸入、炭酸の生成、水酸化カルシウムとの反応と炭酸カルシウムの沈着、水酸化カルシウムが残る間は繰返し、尽きるとpHが急低下し、C-S-H中のCaOも溶解して中性化が進行する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-danger { font-size: 11px; fill: #b22234; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-red { stroke: #b22234; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .axis { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-r { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+    </style>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="arg" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#8a8a8a"/></marker>
+  </defs>
+  <text class="t-lead" x="200" y="18" text-anchor="middle">炭酸化反応の段階（上から下へ進む）</text>
+  <rect class="box-b" x="50" y="34" width="240" height="46" rx="6" />
+  <text class="t-label" x="170" y="53" text-anchor="middle">CO₂とH₂Oが</text>
+  <text class="t-label" x="170" y="69" text-anchor="middle">コンクリートの細孔へ浸入</text>
+  <line class="line-main" x1="170" y1="80" x2="170" y2="100" marker-end="url(#ar)" />
+  <rect class="box-b" x="50" y="102" width="240" height="46" rx="6" />
+  <text class="t-label" x="170" y="121" text-anchor="middle">炭酸（H₂CO₃）が生成し</text>
+  <text class="t-label" x="170" y="137" text-anchor="middle">2H⁺とCO₃²⁻に電離</text>
+  <line class="line-main" x1="170" y1="148" x2="170" y2="168" marker-end="url(#ar)" />
+  <rect class="box-b" x="50" y="170" width="240" height="46" rx="6" />
+  <text class="t-label" x="170" y="189" text-anchor="middle">Ca(OH)₂が溶解して反応</text>
+  <text class="t-label" x="170" y="205" text-anchor="middle">CaCO₃が細孔壁に沈着</text>
+  <line class="line-main" x1="170" y1="216" x2="170" y2="236" marker-end="url(#ar)" />
+  <rect class="box-g" x="50" y="238" width="240" height="46" rx="6" />
+  <text class="t-label" x="170" y="257" text-anchor="middle">Ca(OH)₂が残る間は</text>
+  <text class="t-label" x="170" y="273" text-anchor="middle">pHが保たれる</text>
+  <line class="line-main" x1="170" y1="284" x2="170" y2="304" marker-end="url(#ar)" />
+  <rect class="box-r" x="50" y="306" width="240" height="46" rx="6" />
+  <text class="t-label" x="170" y="325" text-anchor="middle">Ca(OH)₂が尽きると</text>
+  <text class="t-label" x="170" y="341" text-anchor="middle">pHが急激に低下</text>
+  <line class="line-main" x1="170" y1="352" x2="170" y2="372" marker-end="url(#ar)" />
+  <rect class="box-r" x="50" y="374" width="240" height="46" rx="6" />
+  <text class="t-label" x="170" y="393" text-anchor="middle">C-S-H中のCaOも溶解</text>
+  <text class="t-label" x="170" y="409" text-anchor="middle">中性化がさらに進行</text>
+  <path class="line-dash" d="M290,261 L330,261 L330,193 L294,193" marker-end="url(#arg)" />
+  <text class="t-axis" x="338" y="225">残って</text>
+  <text class="t-axis" x="338" y="239">いれば</text>
+  <text class="t-axis" x="338" y="253">繰返し</text>
+  <rect class="box" x="20" y="452" width="360" height="36" rx="6" />
+  <text class="t-desc" x="200" y="475" text-anchor="middle">pH低下で不動態被膜が壊れ、鋼材腐食の前提が整う</text>
+</svg>

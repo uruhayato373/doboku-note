@@ -1,0 +1,69 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士教材の鋼材腐食に伴うひび割れの型。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="鋼材腐食によるひび割れの型を断面の模式で並べた図。鉄筋に沿った縦ひび割れ、表面の剥離ひび割れ、複数鉄筋にまたがるかぶりの剥離ひび割れ。下段に、腐食ひび割れ、さびの滲出、かぶりのはく落、断面欠損の順に進行することを示す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-danger { font-size: 11px; fill: #b22234; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-red { stroke: #b22234; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .axis { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-r { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+    </style>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="arg" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#8a8a8a"/></marker>
+  </defs>
+  <text class="t-lead" x="200" y="18" text-anchor="middle">鋼材腐食によるひび割れの型（断面の模式）</text>
+  <rect class="box" x="30" y="34" width="160" height="90" />
+  <text class="t-axis" x="34" y="46">表面</text>
+  <circle cx="110" cy="84" r="11" fill="#555" />
+  <path class="line-red" d="M50,84 L99,84"/>
+  <path class="line-red" d="M121,84 L172,84"/>
+  <text class="t-label" x="204" y="66">縦ひび割れ</text>
+  <text class="t-desc" x="204" y="86">鉄筋に沿って</text>
+  <text class="t-desc" x="204" y="101">一直線に延びる</text>
+  <rect class="box" x="30" y="138" width="160" height="90" />
+  <text class="t-axis" x="34" y="150">表面</text>
+  <circle cx="110" cy="190" r="11" fill="#555" />
+  <path class="line-red" d="M80,180 C 85,158 135,158 140,180"/>
+  <text class="t-label" x="204" y="170">表面の剥離ひび割れ</text>
+  <text class="t-desc" x="204" y="190">鉄筋に沿って</text>
+  <text class="t-desc" x="204" y="205">表面側へ剥離状に</text>
+  <rect class="box" x="30" y="242" width="160" height="90" />
+  <text class="t-axis" x="34" y="254">表面</text>
+  <circle cx="75" cy="292" r="11" fill="#555" />
+  <circle cx="145" cy="292" r="11" fill="#555" />
+  <path class="line-red" d="M46,290 L64,292 M86,292 L134,292 M156,292 L176,288"/>
+  <text class="t-label" x="204" y="274">かぶりの剥離ひび割れ</text>
+  <text class="t-desc" x="204" y="294">複数の鉄筋にまたがり</text>
+  <text class="t-desc" x="204" y="309">かぶりが剥離</text>
+  <text class="t-lead" x="20" y="362">外観変状の進行順</text>
+  <rect class="box-b" x="13" y="372" width="80" height="44" rx="6" />
+  <text class="t-label" x="53" y="391" text-anchor="middle">腐食ひび割れ</text>
+  <text class="t-label" x="53" y="407" text-anchor="middle">の発生</text>
+  <line class="line-main" x1="94" y1="394" x2="110" y2="394" marker-end="url(#ar)" />
+  <rect class="box-b" x="111" y="372" width="80" height="44" rx="6" />
+  <text class="t-label" x="151" y="391" text-anchor="middle">さびの</text>
+  <text class="t-label" x="151" y="407" text-anchor="middle">滲出</text>
+  <line class="line-main" x1="192" y1="394" x2="208" y2="394" marker-end="url(#ar)" />
+  <rect class="box-b" x="209" y="372" width="80" height="44" rx="6" />
+  <text class="t-label" x="249" y="391" text-anchor="middle">かぶりの</text>
+  <text class="t-label" x="249" y="407" text-anchor="middle">はく落</text>
+  <line class="line-main" x1="290" y1="394" x2="306" y2="394" marker-end="url(#ar)" />
+  <rect class="box-r" x="307" y="372" width="80" height="44" rx="6" />
+  <text class="t-label" x="347" y="399" text-anchor="middle">断面欠損</text>
+  <rect class="box" x="20" y="436" width="360" height="52" rx="6" />
+  <text class="t-desc" x="200" y="458" text-anchor="middle">内部の鉄筋が腐食してかぶりにひび割れが入るまで</text>
+  <text class="t-desc" x="200" y="476" text-anchor="middle">外観の変状は現れない</text>
+</svg>

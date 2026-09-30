@@ -1,0 +1,51 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士教材の剛性低下と固有振動数。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="曲げ剛性の低下に対する固有振動数の変化。剛性が低下すると固有振動数は低下し、低下の様子を初期値と比べて追えば内部的な剛性低下を検知できることを示す概念グラフ">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-strong{ font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-red   { font-size: 11px; fill: #b22234; }
+      .t-grn   { font-size: 11px; fill: #3a7d44; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-red { stroke: #b22234; stroke-width: 2; fill: none; }
+      .line-grn { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-ax { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+      .line-br { stroke: #1a3a5c; stroke-width: 1.5; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-r { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#1a3a5c" /></marker>
+    <marker id="ag" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#8a8a8a" /></marker>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">数値なし・傾向を示す（振動数は初期値に対する比）</text>
+  <line class="line-ax" x1="60" y1="280" x2="340" y2="280" />
+  <line class="line-ax" x1="60" y1="68" x2="60" y2="280" />
+  <text class="t-axis" x="340" y="300" text-anchor="end">曲げ剛性の低下率</text>
+  <text class="t-axis" x="8" y="36">固有振動数</text>
+  <text class="t-axis" x="8" y="52">（初期値比）</text>
+  <text class="t-axis" x="64" y="296">0</text>
+  <text class="t-label" x="70" y="76">初期値</text>
+  <circle cx="60" cy="84" r="3" fill="#2e6da4" />
+  <polyline class="line-main" points="60.0,84.0 66.0,86.3 72.0,88.6 77.9,90.9 83.9,93.2 89.9,95.6 95.9,98.0 101.9,100.5 107.8,102.9 113.8,105.5 119.8,108.0 125.8,110.6 131.8,113.2 137.7,115.9 143.7,118.6 149.7,121.4 155.7,124.2 161.7,127.0 167.6,130.0 173.6,132.9 179.6,136.0 185.6,139.1 191.6,142.2 197.5,145.5 203.5,148.8 209.5,152.2 215.5,155.7 221.5,159.3 227.4,163.1 233.4,166.9 239.4,170.9 245.4,175.0 251.4,179.3 257.3,183.8 263.3,188.5 269.3,193.4 275.3,198.7 281.3,204.3 287.2,210.4 293.2,217.1 299.2,224.6" />
+  <text class="t-label" x="80" y="220">剛性が低下すると</text>
+  <text class="t-label" x="80" y="236">固有振動数も低下する</text>
+  <rect class="box" x="20" y="326" width="360" height="158" rx="6" />
+  <text class="t-desc" x="34" y="350">固有振動数は質量と剛性から決まる</text>
+  <text class="t-desc" x="34" y="370">劣化で剛性が低下すると、固有振動数が小さくなる</text>
+  <text class="t-desc" x="34" y="394">診断の流れ</text>
+  <text class="t-desc" x="34" y="412">１．供用初期の固有振動数を測っておく</text>
+  <text class="t-desc" x="34" y="430">２．減衰定数・固有振動数・最大変位振幅を測る</text>
+  <text class="t-desc" x="34" y="448">３．初期値からの推移で劣化の程度を判定する</text>
+  <text class="t-desc" x="34" y="472">非破壊で供用を止めずに継続監視できる</text>
+</svg>

@@ -1,0 +1,56 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士教材の構造物から採取したコアの促進膨張試験。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="コア膨張率の経時変化の概念図。20℃養生の期間に現れる解放膨張率の後、40℃養生に切り替えると促進膨張率が上乗せされて収束する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-b     { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-dark { stroke: #1a3a5c; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-ax { stroke: #555; stroke-width: 1.5; fill: none; }
+      .line-arr { stroke: #1a3a5c; stroke-width: 1.5; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-r { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-y { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+    </style>
+    <marker id="arr" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#1a3a5c" /></marker>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">横軸＝試験期間、縦軸＝膨張率（数値なし・傾向を示す）</text>
+  <line class="line-ax" x1="50" y1="40" x2="50" y2="270" />
+  <line class="line-ax" x1="50" y1="270" x2="310" y2="270" />
+  <text class="t-axis" x="56" y="50">膨張率</text>
+  <text class="t-label" x="120" y="62" text-anchor="middle">20℃養生</text>
+  <text class="t-label" x="250" y="62" text-anchor="middle">40℃養生</text>
+  <line class="line-dash" x1="190" y1="70" x2="190" y2="270" />
+  <path class="line-main" d="M50,270 C68,216 100,198 190,193" />
+  <path class="line-main" d="M190,193 C194,140 225,98 290,94 L304,94" />
+  <line class="line-dash" x1="190" y1="193" x2="310" y2="193" />
+  <line class="line-arr" x1="318" y1="144" x2="318" y2="96" marker-end="url(#arr)" />
+  <line class="line-arr" x1="318" y1="144" x2="318" y2="191" marker-end="url(#arr)" />
+  <line class="line-arr" x1="318" y1="232" x2="318" y2="196" marker-end="url(#arr)" />
+  <line class="line-arr" x1="318" y1="232" x2="318" y2="268" marker-end="url(#arr)" />
+  <text class="t-label" x="326" y="148">促進</text>
+  <text class="t-label" x="326" y="162">膨張率</text>
+  <text class="t-label" x="326" y="236">解放</text>
+  <text class="t-label" x="326" y="250">膨張率</text>
+  <text class="t-axis" x="50" y="288">基長測定</text>
+  <text class="t-axis" x="190" y="288" text-anchor="middle">養生温度を切替</text>
+  <rect class="box" x="20" y="304" width="360" height="182" rx="6" />
+  <text class="t-b" x="34" y="324">コア試験の読み方</text>
+  <text class="t-desc" x="34" y="346">20℃養生：採取時点から現れる膨張＝解放膨張率</text>
+  <text class="t-desc" x="34" y="366">40℃養生：温度を上げて膨張を促した上乗せ分</text>
+  <text class="t-desc" x="34" y="386">　＝促進膨張率（残っている膨張性の目安）</text>
+  <text class="t-desc" x="34" y="406"></text>
+  <text class="t-desc" x="34" y="426">上乗せが大きいほど、今後も膨張が進み得る</text>
+  <text class="t-desc" x="34" y="446">上乗せがほぼ無ければ、膨張はほぼ収束している</text>
+  <text class="t-desc" x="34" y="466">（具体的な閾値は試験方法や骨材で異なる）</text>
+</svg>

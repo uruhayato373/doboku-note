@@ -1,0 +1,58 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士教材のコールドジョイントの発生原因。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="コールドジョイントの発生原因を、配合・製造運搬・環境条件・施工の四系統から矢印でまとめ、下層が硬化し始めてから上層を打ち重ねるという共通の結果を示した原因図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-b { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-thin { stroke: #2e6da4; stroke-width: 1.5; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-red { stroke: #b22234; stroke-width: 1.5; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+    </style>
+    <marker id="ah" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4" /></marker>
+    <marker id="ahr" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234" /></marker>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">四つの系統の条件が重なってコールドジョイントが生じる</text>
+  <rect class="box-b" x="20" y="28" width="205" height="92" rx="6" />
+  <text class="t-b" x="30" y="46">配合</text>
+  <text class="t-label" x="30" y="64">混和材・剤の種類と使用量</text>
+  <text class="t-label" x="30" y="80">W/C</text>
+  <text class="t-label" x="30" y="96">ブリーディング</text>
+  <text class="t-label" x="30" y="112">凝結</text>
+  <line class="line-main" x1="227" y1="74.0" x2="268" y2="200" marker-end="url(#ah)" />
+  <rect class="box-b" x="20" y="128" width="205" height="68" rx="6" />
+  <text class="t-b" x="30" y="146">製造・運搬</text>
+  <text class="t-label" x="30" y="164">運搬（方法・距離・時間）</text>
+  <line class="line-main" x1="227" y1="162.0" x2="268" y2="218" marker-end="url(#ah)" />
+  <rect class="box-b" x="20" y="208" width="205" height="68" rx="6" />
+  <text class="t-b" x="30" y="226">環境条件</text>
+  <text class="t-label" x="30" y="244">温度・湿度・風・日射</text>
+  <line class="line-main" x1="227" y1="242.0" x2="268" y2="236" marker-end="url(#ah)" />
+  <rect class="box-b" x="20" y="288" width="205" height="88" rx="6" />
+  <text class="t-b" x="30" y="306">施工</text>
+  <text class="t-label" x="30" y="324">打込み（方法・順序・速度）</text>
+  <text class="t-label" x="30" y="340">締固め</text>
+  <text class="t-label" x="30" y="356">人員配置</text>
+  <line class="line-main" x1="227" y1="332.0" x2="268" y2="254" marker-end="url(#ah)" />
+  <rect class="box-d" x="270" y="190" width="115" height="70" rx="6" />
+  <text class="t-b" x="327" y="221" text-anchor="middle">コールド</text>
+  <text class="t-b" x="327" y="239" text-anchor="middle">ジョイント</text>
+  <rect class="box" x="20" y="392" width="360" height="94" rx="6" />
+  <text class="t-label" x="32" y="412">下層が硬化し始めた状態で上層を打ち重ねる</text>
+  <text class="t-label" x="32" y="430">→ 打重ね面が一体に締固められず、面が残る</text>
+  <text class="t-label" x="32" y="452">例：デリバリーの遅れによる打重ね時間超過、</text>
+  <text class="t-label" x="32" y="468">暑中施工での凝結促進</text>
+
+</svg>

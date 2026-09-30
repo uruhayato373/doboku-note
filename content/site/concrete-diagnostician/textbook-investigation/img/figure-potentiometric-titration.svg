@@ -1,0 +1,46 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士教材の塩化物イオンの電位差滴定。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="電位差滴定曲線の概念図。硝酸銀溶液の滴下量に対して電位差がS字に立ち上がり、変曲点が終点となる。下段のΔmV/ΔmLは終点で極大になる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-b     { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-dark { stroke: #1a3a5c; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-ax { stroke: #555; stroke-width: 1.5; fill: none; }
+      .line-arr { stroke: #1a3a5c; stroke-width: 1.5; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-r { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-y { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+    </style>
+    <marker id="arr" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#1a3a5c" /></marker>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">横軸＝滴下量、縦軸＝電位差（数値なし・傾向を示す）</text>
+  <line class="line-ax" x1="50" y1="40" x2="50" y2="335" />
+  <line class="line-ax" x1="50" y1="335" x2="360" y2="335" />
+  <text class="t-axis" x="58" y="50">電位差</text>
+  <text class="t-axis" x="205" y="354" text-anchor="middle">硝酸銀溶液の滴下量</text>
+  <path class="line-main" d="M50,250 C120,248 160,240 185,190 C205,120 225,100 260,88 C300,78 330,74 352,70" />
+  <line class="line-dash" x1="196" y1="60" x2="196" y2="335" />
+  <circle cx="196" cy="162" r="4" fill="#2e6da4" />
+  <rect class="box-y" x="236" y="140" width="116" height="40" rx="4" />
+  <text class="t-label" x="294" y="157" text-anchor="middle">終点（変曲点）</text>
+  <text class="t-label" x="294" y="173" text-anchor="middle">電位が急変</text>
+  <line class="line-arr" x1="234" y1="160" x2="203" y2="162" marker-end="url(#arr)" />
+  <path class="line-dark" d="M50,318 L186,318 L196,284 L206,318 L352,318" />
+  <text class="t-label" x="220" y="300">ΔmV／ΔmL の極大</text>
+  <text class="t-desc" x="205" y="368" text-anchor="middle">（曲線の傾きが最大になる位置）</text>
+  <rect class="box" x="20" y="384" width="360" height="102" rx="6" />
+  <text class="t-b" x="34" y="404">電位差滴定の読み方</text>
+  <text class="t-desc" x="34" y="426">終点までの滴下量から塩化物イオン量を求める</text>
+  <text class="t-desc" x="34" y="446">電位の急変点＝塩化物イオンが銀と反応し切った点</text>
+</svg>

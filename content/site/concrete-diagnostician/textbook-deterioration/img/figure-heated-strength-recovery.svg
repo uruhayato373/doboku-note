@@ -1,0 +1,47 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士教材の加熱後の強度の自然回復。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="加熱を受けたコンクリートの残存圧縮強度比が冷却後の材齢とともに変化する傾向の概念図。最高加熱温度が高いほど低下が大きく、いずれも冷却後しばらくは低下したのち、時間とともに自然回復する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-grn { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .line-wrn { stroke: #d4a017; stroke-width: 2; fill: none; }
+      .line-red { stroke: #b22234; stroke-width: 2; fill: none; }
+      .line-gray { stroke: #555; stroke-width: 1.2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-r { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+    <marker id="arr" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">横軸＝冷却後の材齢、縦軸＝残存圧縮強度比（傾向を示す）</text>
+  <line class="line-dash" x1="40" y1="290" x2="370" y2="290" />
+  <line class="line-dash" x1="40" y1="40" x2="40" y2="290" />
+  <text class="t-axis" x="44" y="36">残存圧縮強度比（高い）</text>
+  <line class="line-dash" x1="90" y1="40" x2="90" y2="290" />
+  <text class="t-axis" x="40" y="306">直後</text>
+  <text class="t-axis" x="96" y="322">約1か月で最低</text>
+  <text class="t-axis" x="370" y="306" text-anchor="end">12か月</text>
+  <path class="line-grn" d="M40,62 C 55,85 70,85 90,85 C 180,85 260,68 360,68" />
+  <path class="line-main" d="M40,97 C 55,122 70,122 90,122 C 180,122 260,75 360,75" />
+  <path class="line-wrn" d="M40,129 C 55,150 70,150 90,150 C 180,150 260,82 360,82" />
+  <path class="line-red" d="M40,159 C 55,180 70,180 90,180 C 180,180 260,90 360,90" />
+  <text class="t-label" x="110" y="101">200℃</text>
+  <text class="t-label" x="110" y="138">300℃</text>
+  <text class="t-label" x="110" y="166">400℃</text>
+  <text class="t-label" x="110" y="196">500℃</text>
+  <text class="t-lead" x="20" y="340">読み取り（最高加熱温度別）</text>
+  <rect class="box" x="20" y="346" width="360" height="140" rx="6" />
+  <text class="t-desc" x="34" y="368">加熱温度が高いほど、強度の低下が大きい</text>
+  <text class="t-desc" x="34" y="392">いずれも冷却後しばらくは低下が進む</text>
+  <text class="t-desc" x="34" y="416">その後は時間とともに自然回復する</text>
+  <text class="t-desc" x="34" y="448">受熱が500℃以下なら回復が見込める。500℃超で</text>
+  <text class="t-desc" x="34" y="464">水酸化カルシウムの分解が進むと回復しにくい</text>
+</svg>

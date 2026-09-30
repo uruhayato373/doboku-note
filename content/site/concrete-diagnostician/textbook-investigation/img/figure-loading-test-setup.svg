@@ -1,0 +1,55 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士教材の載荷試験の構成。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%" role="img"
+  aria-label="載荷試験の構成模式。橋桁に試験車両を載せて荷重をかけ、桁中央に設置したたわみ計で変位を測り、計測器とパソコンに記録する。載荷前の位置を破線で示し、たわみを強調して描く">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #2e6da4; stroke-width: 1.5; stroke-dasharray: 4 3; fill: none; }
+      .line-neu { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .line-neu-d { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-dng { stroke: #b22234; stroke-width: 1.5; stroke-dasharray: 4 3; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-r { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .conc { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+    </style>
+    <marker id="ah" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ahr" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="ahg" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#8a8a8a"/></marker>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">載荷試験の構成（模式・たわみを強調）</text>
+  <line class="line-neu-d" x1="74" y1="176" x2="326" y2="176"/>
+  <text class="t-axis" x="326" y="168" text-anchor="end">載荷前の位置</text>
+  <rect class="box-b" x="150" y="128" width="70" height="34" rx="3"/>
+  <rect class="box-b" x="220" y="140" width="34" height="22" rx="3"/>
+  <circle cx="172" cy="170" r="8" fill="#555"/><circle cx="238" cy="170" r="8" fill="#555"/>
+  <text class="t-label" x="200" y="116" text-anchor="middle">試験車両（荷重）</text>
+  <line class="line-main" x1="200" y1="122" x2="200" y2="126" />
+  <path d="M50,176 Q200,206 350,176 L350,196 Q200,226 50,196 Z" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5"/>
+  <rect class="conc" x="40" y="200" width="36" height="92"/>
+  <rect class="conc" x="324" y="200" width="36" height="92"/>
+  <polygon points="58,190 48,200 68,200" fill="#d7d7d7" stroke="#8a8a8a"/>
+  <polygon points="342,190 332,200 352,200" fill="#d7d7d7" stroke="#8a8a8a"/>
+  <text class="t-axis" x="58" y="250" text-anchor="middle">橋台</text>
+  <text class="t-axis" x="342" y="250" text-anchor="middle">橋台</text>
+  <line class="line-neu" x1="30" y1="292" x2="370" y2="292"/>
+  <text class="t-label" x="120" y="238" text-anchor="middle">橋桁</text>
+  <line class="line-main" x1="200" y1="216" x2="200" y2="242"/>
+  <rect class="box-w" x="172" y="244" width="56" height="24" rx="3"/><text class="t-label" x="200" y="260" text-anchor="middle">たわみ計</text>
+  <line class="line-dash" x1="200" y1="268" x2="200" y2="328" marker-end="url(#ah)"/>
+  <text class="t-desc" x="208" y="302">信号</text>
+  <rect class="box-g" x="110" y="330" width="180" height="34" rx="6"/><text class="t-label" x="200" y="352" text-anchor="middle">計測器・パソコン（記録）</text>
+  <rect class="box" x="20" y="384" width="360" height="100" rx="6"/>
+  <text class="t-label" x="34" y="406">載荷試験の見方</text>
+  <text class="t-desc" x="34" y="428">車両などで実際に荷重をかけ、たわみ・ひずみを実測</text>
+  <text class="t-desc" x="34" y="448">実測値と計算値を比べ、耐荷性能・安全性を判定</text>
+  <text class="t-desc" x="34" y="468">荷重は設計で想定した範囲内とするのが一般的</text>
+</svg>
