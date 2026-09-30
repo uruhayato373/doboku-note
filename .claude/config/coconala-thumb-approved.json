@@ -74,6 +74,14 @@
     "coconala-cce-takuitsu-pdf": {
       "path": ".claude/config/coconala/assets/pop-20260927/thumb-cce-takuitsu-pdf.png",
       "sha256": "3779cf896009eb106a3d1107385ceef13d02c9140a499b1e2470850353de46fd"
+    },
+    "coconala-cce-essay-tensaku": {
+      "path": ".claude/config/coconala/assets/thumb-cce-essay-tensaku.png",
+      "sha256": "7dd034cb901dfc22fcaf60e996e435c6a685dffe17ecce121b6252af2cbe1412"
+    },
+    "coconala-cce-full-pdf": {
+      "path": ".claude/config/coconala/assets/thumb-cce-full-pdf.png",
+      "sha256": "030b2d46f6f01aaad73ff4dbd3ecf32bd21001ffaf6ad347cb00d45f1ad9eb9c"
     }
   }
 }

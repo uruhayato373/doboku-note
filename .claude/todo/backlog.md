@@ -1461,23 +1461,23 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 ### [DN-0461] コンクリート主任技士 小論文「令和形式テーマ別」を note・ココナラで公開し、サイトと旧商品の導線を切り替える
 タグ: [収益化] [領域:商品] [時期:2026-10] [種類:制作] [起票:2026-09-30] [期日:2026-10-31]
 
-**起点**: 2026-09-30 に、旧4テーマ×8立場（序論・本論・結論型）が令和2年度以降の「1題・約1,000字・4項目」形式と合わないため作り直した（PR `feat/cce-essay-reiwa`）。原稿は `content/note/コンクリート主任技士/magazines/コンクリート主任技士-小論文テーマ別-令和形式/`（無料の出題傾向分析＋有料5本、cce-essay-qa 合格・機械ゲート `check-cce-essay` 通過）。SoT `cce-essay-reiwa-pack` は `published:false`、ココナラ `coconala-cce-essay-reiwa-pdf` は `status:'draft'`。本試験は 2026-11-29。
+**起点**: 2026-09-30 に、旧4テーマ×8立場（序論・本論・結論型）が令和2年度以降の「1題・約1,000字・4項目」形式と合わないため作り直した（PR `feat/cce-essay-reiwa`）。原稿は `content/note/コンクリート主任技士/magazines/コンクリート主任技士-小論文テーマ別-令和形式/`（無料の出題傾向分析＋有料5本、cce-essay-qa 合格・機械ゲート `check-cce-essay` 通過）。SoT `cce-essay-reiwa-pack` は `published:false`、ココナラ `coconala-cce-full-pdf` は `status:'draft'`。本試験は 2026-11-29。
 
 **やること**（PR マージ後、この順で）:
 1. note に6本を公開し（単品 ¥1,480・無料1本）、マガジン（¥3,980・掲載文は同 dir の `note掲載文.txt`）を作って収録。各記事の hashtags.txt とカバーを用意し、`note-magazines.ts` の noteUrl を埋めて `published: true`。収録後に `verify-note-magazines --contents` の snapshot を再生成する。
 2. サイト `concrete-chief-engineer-guide-essay` の導線を新マガジンへ切り替える（`magazine-placement.ts` の top、本文の旧テーマ別パック4枚の `<MagazineCard>` を外して新マガジンに差し替え）。
 3. 旧商品（実務立場別答案集・テーマ別パック・小論文模範答案集）は販売履歴があるので非公開にしない。各記事の冒頭に「令和形式の新版」への案内を1行足し、note 同期で反映する。
-4. ココナラ K3 の PDF を `node scripts/build-coconala-content-pdf.mjs --product K3` で作り、商品画像を承認してから出品（文面は運営者が確認してから公開）。
+4. ココナラ K3（完全パック＝令和形式6冊＋択一3冊・¥8,000）の PDF を `node scripts/build-coconala-content-pdf.mjs --product K3` で作り、商品画像を承認してから出品（文面は運営者が確認してから公開）。公開後に旧 K1/K2（カタログは retired 済み）を `node scripts/coconala-pause.mjs --service coconala-cce-essay-pdf,coconala-cce-takuitsu-pdf --commit` で受付休止する。
 5. 共有 pre-commit フックを develop 側で `npm run pre-commit:install` し直し、`check-cce-essay --staged` を有効にする（worktree 間の鮮度チェック偽陽性のため PR では入れていない）。
 
 **完了条件**: note の6本とマガジンが公開ページで見え、`check-magazine-membership` と `check-coconala-wiring` が exit 0。サイト guide-essay のビルド後 HTML に新マガジンの CTA が出ている。効果判定は DN-0265（本試験後）で旧商品と分けて数える。
 
-### [DN-0265] コンクリート主任技士のココナラ出品（PDF 2件・小論文添削 1件）を本試験後に継続か休止か判定する
+### [DN-0265] コンクリート主任技士のココナラ出品（小論文添削・完全パック PDF の2件）を本試験後に継続か休止か判定する
 タグ: [収益化] [領域:商品] [時期:2026-12] [種類:意思決定] [起票:2026-09-23] [期日:2026-12-15]
 
-**起点**: 2026-09-23 に `coconala-cce-essay-pdf`（小論文 PDF5冊）と `coconala-cce-takuitsu-pdf`（択一直前パック PDF3冊）、2026-09-29 に `coconala-cce-essay-tensaku`（小論文添削 ¥5,000・骨子オプション +¥3,000）を出品した。主任技士の添削の競合は2件（¥5,000 販売0／¥3,000 ★1.0・09-29 実測）で、空白か需要不在かを判別できない（09_販売チャネル競合分析.md §D7 判断5）。土木の添削は試験9日前に初めて売れたため、主任技士も需要は直前（11月）に立つ仮説。note の主任技士 小論文37本の冒頭と末尾に添削への導線を入れた（bea060922）。
+**起点**: 2026-09-23 に `coconala-cce-essay-pdf`（小論文 PDF5冊）と `coconala-cce-takuitsu-pdf`（択一直前パック PDF3冊）、2026-09-29 に `coconala-cce-essay-tensaku`（小論文添削 ¥5,000・骨子オプション +¥3,000）を出品した。2026-09-30 に PDF 単品2件は販売0のまま retired にし、令和形式小論文と択一を収録した完全パック（¥8,000）へ集約した（旧2件の数字は判定に混ぜない）。主任技士の添削の競合は2件（¥5,000 販売0／¥3,000 ★1.0・09-29 実測）で、空白か需要不在かを判別できない（09_販売チャネル競合分析.md §D7 判断5）。土木の添削は試験9日前に初めて売れたため、主任技士も需要は直前（11月）に立つ仮説。note の主任技士 小論文37本の冒頭と末尾に添削への導線を入れた（bea060922）。
 
-**やること**: 本試験（2026-11-29）の後に、3件の閲覧・お気に入り・注文を `npm run coconala-analytics` の kpi-log で確認する。添削は受注の流入元（購入者が「何で知ったか」に書いた内容）と、note 導線が公開ページに出た日付を照らし合わせ、note→ココナラ導線の効果を判定する。注文があれば来年度も継続し、閲覧はあるが注文0なら本文と価格を見直し、閲覧もほぼ0なら `pauseReason:'retired'` で休止する。
+**やること**: 本試験（2026-11-29）の後に、添削と完全パック（`coconala-cce-full-pdf`）の2件の閲覧・お気に入り・注文を `npm run coconala-analytics` の kpi-log で確認する。添削は受注の流入元（購入者が「何で知ったか」に書いた内容）と、note 導線が公開ページに出た日付を照らし合わせ、note→ココナラ導線の効果を判定する。注文があれば来年度も継続し、閲覧はあるが注文0なら本文と価格を見直し、閲覧もほぼ0なら `pauseReason:'retired'` で休止する。
 
 **効果判定の起点（2026-09-29 追記）**: note の小論文 37 本に入れたココナラ添削（services/4425046）への導線が公開ページに出たことを照合した日（DN-0360 の追記に記録する）を、添削の閲覧・注文の比較の起点にする。照合前の数字と混ぜない。
 
