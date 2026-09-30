@@ -1495,6 +1495,18 @@
       "commit": "0a6bab341110",
       "verification": "unzip -p *.epub | grep -c 'の記事へ|既存記事' = 0 (26冊)",
       "note": "PR #759 マージ後の再ビルド(09-30 19:39)で i/j 26冊の EPUB 本文に「の記事へ」「既存記事」0件"
+    },
+    {
+      "id": "DN-0465",
+      "at": "2026-09-30",
+      "task": "note-replace-intro が記事によって最初の見出しを壊す",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "b3c18959ec84",
+      "verification": "npm run test (PR #760 CI)",
+      "note": "PR #760 マージ済み(境界寄せ+見出し一致チェック+回帰テスト7件)。会員限定記事の live 見出し確認は、合格ラボ撤退で当該記事を非公開にする DN-0460 に吸収"
     }
   ]
 }
