@@ -268,7 +268,10 @@
           "id": "basic",
           "label": "基礎科目",
           "slugs": [
-            "guide-basic-subject"
+            "guide-basic-subject",
+            "guide-matrix-vector-calculation",
+            "guide-calculus-numerical-calculation",
+            "guide-resistance-circuit-calculation"
           ]
         },
         {
