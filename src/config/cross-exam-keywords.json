@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "generated_at": "2026-09-29T13:18:33.121Z",
+  "generated_at": "2026-09-30T10:50:08.434Z",
   "summary": {
-    "total_mdx_files": 1288,
-    "with_exams_field": 50,
+    "total_mdx_files": 1313,
+    "with_exams_field": 55,
     "cross_exam_count": 0,
     "by_exam": {
       "civil-construction-1": 29,
-      "civil-construction-2": 21
+      "civil-construction-2": 26
     }
   },
   "by_exam": {
@@ -482,6 +482,23 @@
         "source_path": "content/site/civil-construction-2/guide-construction-plan-key-points/article.mdx"
       },
       {
+        "slug": "civil-construction-2-guide-dam-tunnel-key-points",
+        "title": "ダム・トンネルの重要ポイント",
+        "category": "civil-construction-2",
+        "group": "guide",
+        "tags": [
+          "guide",
+          "試験対策",
+          "ダム",
+          "トンネル"
+        ],
+        "sections": null,
+        "exams": [
+          "civil-construction-2"
+        ],
+        "source_path": "content/site/civil-construction-2/guide-dam-tunnel-key-points/article.mdx"
+      },
+      {
         "slug": "civil-construction-2-guide-earthwork-key-points",
         "title": "土工の重要ポイント",
         "category": "civil-construction-2",
@@ -561,6 +578,39 @@
         "source_path": "content/site/civil-construction-2/guide-quality-management/article.mdx"
       },
       {
+        "slug": "civil-construction-2-guide-river-sabo-key-points",
+        "title": "河川・砂防の重要ポイント",
+        "category": "civil-construction-2",
+        "group": "guide",
+        "tags": [
+          "guide",
+          "試験対策",
+          "河川",
+          "砂防"
+        ],
+        "sections": null,
+        "exams": [
+          "civil-construction-2"
+        ],
+        "source_path": "content/site/civil-construction-2/guide-river-sabo-key-points/article.mdx"
+      },
+      {
+        "slug": "civil-construction-2-guide-road-pavement-key-points",
+        "title": "道路・舗装の重要ポイント",
+        "category": "civil-construction-2",
+        "group": "guide",
+        "tags": [
+          "guide",
+          "試験対策",
+          "道路"
+        ],
+        "sections": null,
+        "exams": [
+          "civil-construction-2"
+        ],
+        "source_path": "content/site/civil-construction-2/guide-road-pavement-key-points/article.mdx"
+      },
+      {
         "slug": "civil-construction-2-guide-safety-management",
         "title": "安全管理の重要ポイント",
         "category": "civil-construction-2",
@@ -593,6 +643,22 @@
         "source_path": "content/site/civil-construction-2/guide-schedule-management/article.mdx"
       },
       {
+        "slug": "civil-construction-2-guide-structures-key-points",
+        "title": "構造物（鋼・コンクリート構造物）の重要ポイント",
+        "category": "civil-construction-2",
+        "group": "guide",
+        "tags": [
+          "guide",
+          "試験対策",
+          "鋼構造物"
+        ],
+        "sections": null,
+        "exams": [
+          "civil-construction-2"
+        ],
+        "source_path": "content/site/civil-construction-2/guide-structures-key-points/article.mdx"
+      },
+      {
         "slug": "civil-construction-2-guide-study-method",
         "title": "2級土木施工管理技士の独学勉強法 — 勉強時間と受験資格",
         "category": "civil-construction-2",
@@ -621,6 +687,21 @@
           "civil-construction-2"
         ],
         "source_path": "content/site/civil-construction-2/guide-textbooks/article.mdx"
+      },
+      {
+        "slug": "civil-construction-2-guide-water-sewer-key-points",
+        "title": "上水道・下水道の重要ポイント",
+        "category": "civil-construction-2",
+        "group": "guide",
+        "tags": [
+          "guide",
+          "試験対策"
+        ],
+        "sections": null,
+        "exams": [
+          "civil-construction-2"
+        ],
+        "source_path": "content/site/civil-construction-2/guide-water-sewer-key-points/article.mdx"
       },
       {
         "slug": "civil-construction-2-primary-r03-zenki",

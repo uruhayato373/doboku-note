@@ -236,6 +236,8 @@ export const HIGH_INTENT_CAREER_SLUGS: ReadonlySet<string> = new Set([
   "civil-construction-1-guide-quit-public-engineer",
   "civil-construction-1-guide-public-engineer-salary-table",
   "civil-construction-1-guide-public-engineer-exam-study",
+  // 2026-09-30 DN-0446（公務員の土木職か民間かの比較・本文に CareerAffiliate の転職カード）。
+  "civil-construction-1-guide-public-servant-or-private",
   "rccm-guide-career-value",
 ]);
 

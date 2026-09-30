@@ -169,7 +169,7 @@
     },
     "fields": {
       "title": "第1次検定 分野別対策",
-      "description": "出題分野順（土木一般 → 施工管理法 → 法規）に要点を整理。各分野の詳細は 1級テキストへ",
+      "description": "出題分野順（土木一般 → 専門土木 → 施工管理法 → 法規）に要点を整理。各分野の詳細は 1級テキストへ",
       "blocks": [
         {
           "id": "doboku-ippan",
@@ -178,6 +178,17 @@
             "guide-earthwork-key-points",
             "guide-concrete-key-points",
             "guide-foundation-key-points"
+          ]
+        },
+        {
+          "id": "senmon-doboku",
+          "label": "専門土木（河川砂防・道路舗装・構造物・ダムトンネル・上下水道）",
+          "slugs": [
+            "guide-river-sabo-key-points",
+            "guide-road-pavement-key-points",
+            "guide-structures-key-points",
+            "guide-dam-tunnel-key-points",
+            "guide-water-sewer-key-points"
           ]
         },
         {
