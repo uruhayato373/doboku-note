@@ -208,6 +208,7 @@
     "check-note-attachments:live": "node scripts/check-note-attachments.mjs --live",
     "check-note-boundary": "node scripts/check-note-boundary.mjs",
     "check-rccm-essay": "node scripts/check-rccm-essay.mjs",
+    "check-cce-essay": "node scripts/check-cce-essay.mjs",
     "check-note-charlimits": "node scripts/check-note-charlimits.mjs",
     "check-note-sync": "node scripts/check-note-sync.mjs",
     "check-note-cover-fit": "node scripts/check-note-cover-fit.mjs",

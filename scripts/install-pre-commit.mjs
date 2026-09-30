@@ -403,6 +403,12 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+# コンクリート主任技士 小論文テーマ別教材の型と出題履歴ブロックの SSOT 一致
+node scripts/check-cce-essay.mjs --staged
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+
 # frontmatter の重複キー（後勝ちで値が黙って入れ替わる）
 node scripts/check-note-frontmatter-dup.mjs --staged
 if [ $? -ne 0 ]; then
