@@ -52,9 +52,9 @@ if (!EXAM_CONFIG[EXAM]) {
 }
 const { baseDirs: BASE_DIRS, bannerName: BANNER_NAME, proseP1: PROSE_P1 } = EXAM_CONFIG[EXAM];
 const BANNER_DIR = join(NOTE_CONTENT_ROOT, '共通', '著者オーソリティ', 'img');
-// 2級土木は緑のキャラクターPOP版（DN-0450）。1級へは流用しない
+// 1級・2級土木は緑のキャラクターPOP版（2級 DN-0450 → 2026-09-30 に1級も同じ版へ統一）
 const POP_BANNER_NAME = 'figure-author-authority-pop.png';
-const bannerNameFor = (file) => (EXAM === 'civil' && file.includes(`${sep}2級土木${sep}`) ? POP_BANNER_NAME : BANNER_NAME);
+const bannerNameFor = (file) => (EXAM === 'civil' && /[\\/][12]級土木[\\/]/.test(file) ? POP_BANNER_NAME : BANNER_NAME);
 function copyBanner(file, name) {
   const imgDir = join(dirname(file), 'img');
   if (!existsSync(imgDir)) mkdirSync(imgDir, { recursive: true });

@@ -1,0 +1,147 @@
+{
+  "_doc": "1級土木 note 記事の冒頭（最初の ## より前）の標準形。scripts/standardize-civil1-note-intro.mjs が読む。magazines は note-magazines.ts の id と noteUrl に合わせる（説明文に価格は書かない）。rules は上から順に最初に一致したものを使う。正典: .claude/knowledge/reference/author-authority-banner.md「1級 note の冒頭・末尾の標準形」",
+  "root": "content/note/1級・2級土木/1級土木",
+  "banner": "figure-author-authority-pop.png",
+  "coconala": {
+    "urls": [
+      "https://coconala.com/services/4418735",
+      "https://coconala.com/services/4350199"
+    ],
+    "lead": {
+      "default": "自分の答案を人の目で確かめたいときは、ココナラで個別に対応しています。書いた答案があれば全5テーマの添削、まだ書けていなければヒアリングから骨子（構成）をつくります。",
+      "ichiji": "一次のあとに控える二次の施工経験記述は、ココナラで個別に対応しています。書いた答案があれば全5テーマの添削、まだ書けていなければヒアリングから骨子（構成）をつくります。"
+    }
+  },
+  "magazines": {
+    "civil-1-keiken-complete-pack": {
+      "url": "https://note.com/dobokunote/m/m8290970a7f05",
+      "title": "1級土木 施工経験記述 完全攻略パック",
+      "desc": "想定工事150件から自分の工事に近いものを選び、5管理の完成答案を書き分けられる買い切りパックです。"
+    },
+    "civil-1-experience-essay": {
+      "url": "https://note.com/dobokunote/m/m150c9db08902",
+      "title": "1級土木 施工経験記述 完成答案集",
+      "desc": "工種×テーマ別に、5管理のフル完成答案をまとめたマガジンです。"
+    },
+    "civil-1-pastexam-essay": {
+      "url": "https://note.com/dobokunote/m/m3a578194a0a9",
+      "title": "1級土木 施工経験記述 過去問 模範答案集",
+      "desc": "令和3〜7年度の過去問に、年度別の模範答案をまとめたマガジンです。"
+    },
+    "civil-1-combo-essay": {
+      "url": "https://note.com/dobokunote/m/m74cfd7c695d6",
+      "title": "1級土木 施工経験記述 2テーマ組合せ大全",
+      "desc": "当日指定される2テーマの全10組合せを、同じ工事で書き分けた答案集です。"
+    },
+    "civil-1-gakka-kijutsu": {
+      "url": "https://note.com/dobokunote/m/mcfe1059b3335",
+      "title": "1級土木 二次学科記述 テーマ別出る順",
+      "desc": "学科記述（問題2〜11）をテーマ別に横断し、出る順と解答の型をまとめたマガジンです。"
+    },
+    "civil-1-chokuzen-pack": {
+      "url": "https://note.com/dobokunote/m/m7a9b3ad964f6",
+      "title": "1級土木 二次 直前総仕上げパック",
+      "desc": "予想模試3回・直前暗記ノート・出題分析を、直前2週間で回し切る3点セットにまとめたパックです。"
+    },
+    "civil-1-niji-marugoto-pack": {
+      "url": "https://note.com/dobokunote/m/md29a34906314",
+      "title": "1級土木 二次検定まるごとパック",
+      "desc": "経験記述・学科記述・直前暗記・予想模試・出題分析まで、二次の教材を一括でそろえる買い切りパックです。"
+    },
+    "civil-1-ichiji-ronten": {
+      "url": "https://note.com/dobokunote/n/nec34238ca6d6",
+      "title": "1級土木 一次 出る順 合格ノート",
+      "desc": "過去12年1162問の頻度分析から、施工管理法の出る順と捨て問の判断をまとめたノートです。"
+    }
+  },
+  "rules": [
+    {
+      "match": "magazines/1級土木-施工経験記述-過去問模範答案集/",
+      "home": "civil-1-pastexam-essay",
+      "upper": "civil-1-keiken-complete-pack",
+      "dq": true
+    },
+    {
+      "match": "magazines/1級土木-施工経験記述-完成答案集/",
+      "home": "civil-1-experience-essay",
+      "upper": "civil-1-keiken-complete-pack",
+      "dq": true
+    },
+    {
+      "match": "magazines/1級土木-施工経験記述-2テーマ組合せ大全/",
+      "home": "civil-1-combo-essay",
+      "upper": "civil-1-keiken-complete-pack",
+      "dq": true
+    },
+    {
+      "match": "magazines/1級土木-経験記述-完全攻略パック/00-完全攻略ガイド-想定工事索引/",
+      "home": "civil-1-keiken-complete-pack",
+      "upper": null,
+      "dq": false
+    },
+    {
+      "match": "magazines/1級土木-経験記述-完全攻略パック/",
+      "home": "civil-1-keiken-complete-pack",
+      "upper": null,
+      "dq": true
+    },
+    {
+      "match": "magazines/1級土木-二次学科記述-テーマ別出る順/",
+      "home": "civil-1-gakka-kijutsu",
+      "upper": "civil-1-niji-marugoto-pack",
+      "dq": false
+    },
+    {
+      "match": "magazines/1級土木-二次学科記述-直前暗記ノート/",
+      "home": "civil-1-chokuzen-pack",
+      "upper": "civil-1-niji-marugoto-pack",
+      "dq": false
+    },
+    {
+      "match": "magazines/1級土木-R8二次-予想模試3回/",
+      "home": "civil-1-chokuzen-pack",
+      "upper": "civil-1-niji-marugoto-pack",
+      "dq": false
+    },
+    {
+      "match": "magazines/1級土木-R8二次-出題分析直前重点/",
+      "home": "civil-1-chokuzen-pack",
+      "upper": "civil-1-niji-marugoto-pack",
+      "dq": false
+    },
+    {
+      "match": "magazines/1級土木-二次まるごとパック/",
+      "home": "civil-1-niji-marugoto-pack",
+      "upper": null,
+      "dq": false
+    },
+    {
+      "match": "magazines/1級土木-一次-出る順合格ノート/",
+      "home": null,
+      "upper": null,
+      "dq": false,
+      "coconalaLead": "ichiji"
+    },
+    {
+      "match": "magazines/1級土木-テキスト精読ガイド/",
+      "home": null,
+      "upper": "civil-1-ichiji-ronten",
+      "dq": false,
+      "coconalaLead": "ichiji"
+    },
+    {
+      "match": "一次択一-過去問PDF/",
+      "home": null,
+      "upper": null,
+      "dq": false,
+      "coconalaLead": "ichiji",
+      "_why": "topCtaExcludeDirs（note-funnel.json）の対象。一次ノートへの案内は記事固有の cta:civil-1-primary-ronten が持つ"
+    },
+    {
+      "match": "",
+      "home": null,
+      "upper": "civil-1-keiken-complete-pack",
+      "dq": false
+    }
+  ]
+}

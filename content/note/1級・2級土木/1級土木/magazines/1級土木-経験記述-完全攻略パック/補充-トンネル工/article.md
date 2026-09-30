@@ -42,27 +42,20 @@ cover:
 
 ---
 
-本記事は **1級土木 施工経験記述 完全攻略パック**の補充答案です。トンネル工という、既存の完成答案集・過去問模範答案集・2テーマ組合せ大全では手薄だった工種を補充し、9工種カテゴリを全網羅します。
+<!-- cta:coconala-custom -->
+自分の答案を人の目で確かめたいときは、ココナラで個別に対応しています。書いた答案があれば全5テーマの添削、まだ書けていなければヒアリングから骨子（構成）をつくります。
+
+https://coconala.com/services/4418735
+
+https://coconala.com/services/4350199
+
+本記事は「1級土木 施工経験記述 完全攻略パック」の収録記事です。想定工事150件から自分の工事に近いものを選び、5管理の完成答案を書き分けられる買い切りパックです。
+
+https://note.com/dobokunote/m/m8290970a7f05
 
 施工経験記述は「自分が経験した工事」を書く問題であり、経験していない工事を書いたことが判明すると失格となります。本記事の答案はそのまま書き写すためのものではなく、**自分の現場に合わせて改変する前提のテンプレート**（雛形）です。
 
 数値の 【〇〇】 は自分の現場の値に必ず差し替えてください。
-
----
-
-<!-- cta:pack-top -->
-自分の工事に近い「想定工事」を選んで5管理すべての完成答案をそろえるなら、想定工事150×5管理を全網羅した完全攻略パックが最短です。
-
-https://note.com/dobokunote/m/m8290970a7f05
-
-<!-- cta:coconala-custom -->
-この答案をあなたの工事に合わせて仕上げたいときは、ココナラで個別に対応しています。書いた答案があれば添削で赤入れ、まだ書けていなければヒアリングから骨子（構成）をつくります。
-
-https://coconala.com/services/4418735
-
-まだ答案が無い人は、ヒアリングから骨子（構成）をつくるこちらへ。
-
-https://coconala.com/services/4350199
 
 ## 完成答案①：品質管理（覆工コンクリートの充填・締固め・養生）
 
@@ -259,8 +252,6 @@ NATM山岳トンネルの坑内安全管理を題材にした答案。有害ガ�
 
 - [施工経験記述 出題傾向と対策（無料・doboku-note）](https://doboku-note.com/exam/civil-construction-1/secondary/experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil1-keiken-pack-tunnel&utm_content=guide)
 - [施工経験記述 改善例（無料・doboku-note）](https://doboku-note.com/exam/civil-construction-1/secondary/experience-writing-examples?utm_source=note&utm_medium=referral&utm_campaign=civil1-keiken-pack-tunnel&utm_content=examples)
-
-上位資格の分析力・発注者として書類を評価してきた目・合格者の当事者性で、あなたの答案を合格ラインへ引き上げます。
 
 ---
 

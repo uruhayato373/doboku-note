@@ -110,6 +110,10 @@ npm run check-standards-page-images # 上の provenance 整合（catalog↔manif
 
 `npm run note-update-body -- --sync --list <file> --commit` — 記事単位の同期。記事ごとに未反映の部品（本文・カバー・タグ）だけを 1 回のエディタ操作で反映し「更新する」は 1 回。本文を触らない記事は有料境界・試し読みラインを動かさない。配布 PDF は貼り直す（手元に無ければ本文を触らず止まる）。止まっている記事（中断・会員特典の公開範囲未指定など）は飛ばす。部品を明示するなら `--parts cover,tags`。会員特典マガジン内の無料記事は frontmatter `memberTrial: bottom|lock` で公開範囲を決める。
 
+`npm run standardize-civil1-note-intro` — 1級土木 note の冒頭（最初の ## より前）を標準形へそろえる（著者画像POP・説明文2段落・ココナラ・収録元＋上位マガジン・失格注意。記事固有の文は残す）。既定 dry-run・`--apply`。割り当ては `.claude/config/note-intro-standard.json`。
+
+`npm run note-replace-intro` — 公開済み記事の冒頭だけを原稿で貼り直し、末尾の撤退済み導線を消して 1 記事 1 回で公開する（全文置換しない・PDF 添付の件数を前後で照合）。`--list <paths> --commit`。note は途中の編集を自動保存しないので、失敗した記事は下書きも汚れない。
+
 `npm run note-sync:install` — Mac の launchd に note の週次同期を入れる（毎週日曜 3:00・寝ていた週は起床時に 1 回）。専用 worktree（`.claude/worktrees/note-sync`・lock 済み）で `scripts/note-sync-routine.mjs` が、反映計画の順に最大 200 記事を `note-update-body --sync` で 1 記事 1 回更新し（配布 PDF は Drive から取り寄せる）、マガジンのカバーも登録して、台帳・実行記録（`.claude/state/note/sync-log.json`）・R2・Drive を更新して develop へ push。`-- --status` / `-- --run-now` / `-- --uninstall`。前提は note にログイン済みのプロファイル。計画だけ見るなら `npm run note-sync-routine -- --dry-run`（どの checkout でも可）。試験直前に 1 資格だけ先に流すなら `bash scripts/scheduled/note-sync.sh --only 'content/note/1級・2級土木/1級土木/'`（専用 worktree で同じ手順・マガジンのカバーは触らない）。手で `note-update-body --list` を流さない（PDF 取り寄せ・台帳 push・二重起動の防止を通らない）。罠: 見た目を変えたら `note-cover-tokens.json` の `designVersion` を上げないとカバーは再登録されない。上げると全件が数週に分けて登録し直される。
 
 ```bash
