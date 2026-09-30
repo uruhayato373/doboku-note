@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generated_at": "2026-09-30T10:50:08.677Z",
+  "generated_at": "2026-09-30T10:58:55.518Z",
   "summary": {
     "total_mdx_files": 1313,
-    "total_unique_tags": 128,
+    "total_unique_tags": 126,
     "allowlist_size": 322,
-    "known_count": 128,
+    "known_count": 126,
     "unknown_count": 0,
     "typo_candidates_count": 0
   },
@@ -4457,6 +4457,19 @@
       ]
     },
     {
+      "name": "国土強靱化",
+      "count": 6,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-h23-essay-general-contractor",
+        "pe-comprehensive-management-h23-essay-river-consultant",
+        "pe-comprehensive-management-h23-essay-road-municipality",
+        "pe-comprehensive-management-r8-essay-theme-disaster-recovery",
+        "pe-construction-bosai-kokudo-kyoujinka",
+        "pe-construction-bousai-genseigai-ronbun-keyword"
+      ]
+    },
+    {
       "name": "基礎工",
       "count": 6,
       "inAllowlist": true,
@@ -4540,6 +4553,17 @@
         "civil-practice-ict-construction-workflow",
         "pe-construction-kensetsu-dx",
         "pe-construction-ninaite-dx-ronbun-keyword"
+      ]
+    },
+    {
+      "name": "地域づくり",
+      "count": 4,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-h22-essay-river-consultant",
+        "pe-construction-chiiki-dukuri-ronbun-keyword",
+        "pe-construction-kokudo-keisei-chiiki",
+        "pe-construction-urban-planning-ronbun-keyword"
       ]
     },
     {
@@ -4637,16 +4661,6 @@
       ]
     },
     {
-      "name": "国土強靱化",
-      "count": 3,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-r8-essay-theme-disaster-recovery",
-        "pe-construction-bosai-kokudo-kyoujinka",
-        "pe-construction-bousai-genseigai-ronbun-keyword"
-      ]
-    },
-    {
       "name": "国土形成計画",
       "count": 3,
       "inAllowlist": true,
@@ -4654,16 +4668,6 @@
         "pe-construction-chiiki-dukuri-ronbun-keyword",
         "pe-construction-kokudo-keisei-chiiki",
         "pe-construction-shakai-shihon-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "地域づくり",
-      "count": 3,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-chiiki-dukuri-ronbun-keyword",
-        "pe-construction-kokudo-keisei-chiiki",
-        "pe-construction-urban-planning-ronbun-keyword"
       ]
     },
     {
@@ -4774,16 +4778,6 @@
         "civil-practice-rebar-corrosion-handling",
         "civil-practice-rebar-cover-placement",
         "civil-practice-rebar-splice-selection"
-      ]
-    },
-    {
-      "name": "防災",
-      "count": 3,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-h23-essay-general-contractor",
-        "pe-comprehensive-management-h23-essay-river-consultant",
-        "pe-comprehensive-management-h23-essay-road-municipality"
       ]
     },
     {
@@ -4909,14 +4903,6 @@
       "inAllowlist": true,
       "usedIn": [
         "pe-construction-ninaite-kakuho-seisansei"
-      ]
-    },
-    {
-      "name": "まちづくり",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-h22-essay-river-consultant"
       ]
     },
     {
