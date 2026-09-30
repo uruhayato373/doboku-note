@@ -104,7 +104,7 @@ function collectDocs(): Doc[] {
       // 生 frontmatter の group 値は classifyDoc の GROUP_FIELD_MAP を通す
       // （src/lib/doc-classifier.ts:31-39）。past-exam → pastExam の変換を
       // 落とすと、その記事の配線が丸ごと検査対象外になる。
-      const rawGroup = (raw.match(/^group:\s*(.+)$/m) || [])[1]?.trim() ?? '';
+      const rawGroup = (raw.match(/^group:\s*(.+)$/m) || [])[1]?.trim().replace(/^(['"])(.*)\1$/, '$2') ?? '';
       // career 記事は resolvePlacement が EMPTY を返す（magazine-placement.ts の 0 番ガード）。
       // ここで tags を見ないと、実際には出ない note CTA を「導線あり」と数えてしまう。
       const fm = raw.match(/^---[\s\S]*?\n---/)?.[0] ?? '';
