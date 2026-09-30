@@ -23,7 +23,7 @@ domain: site
 ## 対象の選び方
 
 1. `npm run audit-figures`（監査→provenance 再生成）。
-2. 管理画面 `npm run admin` → 記事図版タブ → フィルタ「対応」＝**再クロップ / 要再クロップ(緊急)**、優先は「公開×掲載」。
+2. `node scripts/build-figure-provenance.mjs --list recrop-urgent`（続けて `--list recrop`）で公開×掲載の対象を出す。管理画面の記事図版タブは目視確認専用で、needs の絞り込みやバッジは出さない。
 3. **対応 needs の精度**: `recrop-urgent`(答え漏らし)・`recrop`(問題文/選択肢＝QA構造で高精度検出) は**ほぼ確実に写り込みあり**＝そのまま対象。`recrop-review`(句点あるが QA 構造なし＝**図の凡例/ラベルの可能性**)は**必ず現物を目視**し、凡例なら触らない（例: 「Uc≥10：粒度分布がよい。」は図の一部＝残す）。着手前に現物を Read するのは全 needs 共通の鉄則。
 
 ## 手順（1 図ずつ）
@@ -62,7 +62,7 @@ node .claude/scripts/audit-exam-figures.mjs        # broken_image_reference:0 �
 grep -c "�" <article.mdx>                          # 文字化け 0
 git add <article.mdx> <img/変更した png/webp を明示>   # git add -A 禁止・並行セッション注意
 git commit -m "content(<slug>): 過去問図の写り込みを再クロップで除去（fig-NN…）"
-npm run audit-figures                              # 監査/provenance を最新化（ギャラリー反映）
+npm run audit-figures                              # 監査/provenance を最新化（`--list` の対象に反映）
 ```
 
 ## 鉄則（ハマりどころ）

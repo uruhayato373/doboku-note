@@ -1,133 +1,98 @@
-import Link from 'next/link';
-import { PanelCard, StatusBadge, type Tone } from '@/components/admin';
+import { Facet, FacetHead, FacetShell, type FacetItem } from '@/components/admin';
 import Thumb from '@/components/Thumb';
 import { PageHead } from '@/components/ui';
-import { scanFigures, figureProgress, FIGURE_NEEDS_ORDER, FIGURE_NEEDS_LABEL } from '@/lib/gallery';
+import { scanFigures, type FigureItem } from '@/lib/gallery';
 
 export const dynamic = 'force-dynamic';
 
-/** needs → バッジ色（緊急=bad / 要対応=warn / ok=good）。 */
-function needsTone(n: string | null): Tone {
-  if (!n || n === 'ok') return 'good';
-  if (n === 'recrop-urgent') return 'bad';
-  return 'warn';
+const SITE = 'https://doboku-note.com';
+const KINDS = [
+  { key: 'svg', label: 'SVG' },
+  { key: 'raster', label: '画像' },
+] as const;
+
+/** 一覧・絞り込み用の短い記事名（資格名の前置きと「 — 」「｜」以降の副題を落とす）。 */
+function shortTitle(title: string, label: string | undefined): string {
+  const t = title.split(/\s+—\s+|｜/)[0];
+  return (label && t.startsWith(label) ? t.slice(label.length) : t).trim() || title;
 }
 
+/** 記事図版の目視確認用。図は記事ごとにまとめ、白地で並べるだけ（品質判定は CLI 側）。 */
 export default async function FiguresGallery({
   searchParams,
 }: {
-  searchParams: Promise<{ cat?: string; kind?: string; needs?: string }>;
+  searchParams: Promise<{ cat?: string; doc?: string; kind?: string }>;
 }) {
   const sp = await searchParams;
-  const { items } = scanFigures();
-  const prog = figureProgress(items);
+  const { items, catLabel } = scanFigures();
 
   const cats = [...new Set(items.map((i) => i.category))].sort();
-  const activeCat = cats.includes(sp.cat ?? '') ? sp.cat! : 'all';
-  const activeKind = sp.kind === 'svg' || sp.kind === 'raster' ? sp.kind : 'all';
-  const activeNeeds = (FIGURE_NEEDS_ORDER as readonly string[]).includes(sp.needs ?? '')
-    ? sp.needs!
-    : 'all';
+  const cat = cats.includes(sp.cat ?? '') ? sp.cat! : null;
+  const kind = KINDS.some((k) => k.key === sp.kind) ? sp.kind! : null;
+  const inCat = items.filter((i) => !cat || i.category === cat);
+  const docKeys = [...new Set(inCat.map((i) => i.docSlug))];
+  const doc = cat && docKeys.includes(sp.doc ?? '') ? sp.doc! : null;
+  const shown = inCat.filter((i) => (!doc || i.docSlug === doc) && (!kind || i.kind === kind));
 
-  const filtered = items.filter(
-    (i) =>
-      (activeCat === 'all' || i.category === activeCat) &&
-      (activeKind === 'all' || i.kind === activeKind) &&
-      (activeNeeds === 'all' || i.needs === activeNeeds),
-  );
-
-  const link = (patch: Partial<{ cat: string; kind: string; needs: string }>) => {
-    const cat = patch.cat ?? activeCat;
-    const kind = patch.kind ?? activeKind;
-    const needs = patch.needs ?? activeNeeds;
+  const href = (patch: Partial<Record<'cat' | 'doc' | 'kind', string | null>>) => {
+    const next = { cat, doc, kind, ...patch };
+    if ('cat' in patch) next.doc = null;
     const q = new URLSearchParams();
-    if (cat !== 'all') q.set('cat', cat);
-    if (kind !== 'all') q.set('kind', kind);
-    if (needs !== 'all') q.set('needs', needs);
+    for (const [k, v] of Object.entries(next)) if (v) q.set(k, v);
     const s = q.toString();
     return '/gallery/figures' + (s ? `?${s}` : '');
   };
+  const count = (list: FigureItem[], pred: (i: FigureItem) => boolean) => list.filter(pred).length;
+  const facet = (key: 'cat' | 'doc' | 'kind', cur: string | null, list: { key: string; label: string; count: number }[]): FacetItem[] =>
+    list.map((o) => ({ ...o, href: href({ [key]: cur === o.key ? null : o.key }), active: cur === o.key }));
+
+  const byDoc = new Map<string, FigureItem[]>();
+  for (const i of shown) byDoc.set(i.docSlug, [...(byDoc.get(i.docSlug) ?? []), i]);
+
+  const main =
+    shown.length === 0 ? (
+      <p className="text-sm text-muted-foreground">該当なし</p>
+    ) : (
+      <div className="flex flex-col gap-6">
+        {[...byDoc].map(([slug, list]) => (
+          <section key={slug} className="flex flex-col gap-2">
+            <h3 className="m-0 flex items-baseline gap-3 text-sm font-semibold">
+              <span>{shortTitle(list[0].docTitle, catLabel[list[0].category])}</span>
+              <a href={`${SITE}/docs/${slug}`} target="_blank" rel="noreferrer" className="text-xs font-normal">
+                サイトで開く
+              </a>
+            </h3>
+            <div className="gallery small">
+              {list.map((i) => (
+                <Thumb key={i.rel} url={i.url} name={i.rel} href={i.url} paper bare />
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+    );
+
+  const rail = (
+    <>
+      <FacetHead clearHref={cat || doc || kind ? '/gallery/figures' : null} />
+      <Facet
+        title="資格"
+        items={facet('cat', cat, cats.map((c) => ({ key: c, label: catLabel[c] ?? c, count: count(items, (i) => i.category === c) })))}
+      />
+      {cat ? (
+        <Facet
+          title="記事"
+          items={facet('doc', doc, docKeys.map((d) => ({ key: d, label: shortTitle(inCat.find((i) => i.docSlug === d)!.docTitle, catLabel[cat]), count: count(inCat, (i) => i.docSlug === d) })))}
+        />
+      ) : null}
+      <Facet title="種別" items={facet('kind', kind, KINDS.map((k) => ({ ...k, count: count(inCat, (i) => i.kind === k.key) })))} />
+    </>
+  );
 
   return (
     <>
-      <PageHead
-        title="記事図版ギャラリー"
-        sub={`${items.length} 枚 · content/site/**/img/*（表示中 ${filtered.length}）`}
-      />
-
-      {/* 図クロップ進捗（公開×掲載＝ライブで読者に見える図）*/}
-      <PanelCard title="進捗（公開×掲載のライブ図）" description="figure-provenance.json · ok 以外＝要対応 · png/webp は basename 重複排除">
-        <div className={'flex flex-wrap items-center gap-2' + (prog.breakdown.length ? ' mb-2' : '')}>
-          <StatusBadge tone="good">OK {prog.liveOk}</StatusBadge>
-          <StatusBadge tone="bad">要対応 {prog.liveAction}</StatusBadge>
-          <StatusBadge tone="neutral">{prog.pct}% 完了</StatusBadge>
-        </div>
-        {prog.breakdown.length ? (
-          <p className="m-0 text-sm text-muted-foreground">
-            内訳: {prog.breakdown.map((b) => `${FIGURE_NEEDS_LABEL[b.needs]} ${b.count}`).join(' · ')}
-          </p>
-        ) : null}
-      </PanelCard>
-
-      {/* 対応（needs）フィルタ — /figure-recrop・figure-provenance.md が参照 */}
-      <div className="filterbar">
-        <span className="mr-1 self-center text-xs text-muted-foreground">
-          対応:
-        </span>
-        <Link href={link({ needs: 'all' })} className={'chip' + (activeNeeds === 'all' ? ' active' : '')}>
-          全て
-        </Link>
-        {FIGURE_NEEDS_ORDER.filter((s) => prog.ndCount[s]).map((s) => (
-          <Link key={s} href={link({ needs: s })} className={'chip' + (activeNeeds === s ? ' active' : '')}>
-            {FIGURE_NEEDS_LABEL[s]} {prog.ndCount[s]}
-          </Link>
-        ))}
-      </div>
-
-      {/* 資格 */}
-      <div className="filterbar">
-        <Link href={link({ cat: 'all' })} className={'chip' + (activeCat === 'all' ? ' active' : '')}>
-          全資格
-        </Link>
-        {cats.map((c) => (
-          <Link key={c} href={link({ cat: c })} className={'chip' + (activeCat === c ? ' active' : '')}>
-            {c}
-          </Link>
-        ))}
-      </div>
-
-      {/* 種別 */}
-      <div className="filterbar">
-        {['all', 'svg', 'raster'].map((k) => (
-          <Link key={k} href={link({ kind: k })} className={'chip' + (activeKind === k ? ' active' : '')}>
-            {k === 'all' ? '全種別' : k === 'svg' ? 'SVG図版' : 'ラスタ図'}
-          </Link>
-        ))}
-      </div>
-
-      {filtered.length === 0 ? (
-        <p className="text-sm text-muted-foreground">該当なし</p>
-      ) : (
-        <div className="gallery small">
-          {filtered.map((i) => (
-            <Thumb key={i.rel} url={i.url} name={i.name}>
-              <StatusBadge tone="neutral">{i.category}</StatusBadge>
-              <StatusBadge tone={i.kind === 'svg' ? 'info' : 'neutral'}>{i.kind}</StatusBadge>
-              {i.needs ? (
-                <StatusBadge
-                  tone={needsTone(i.needs)}
-                  title={[i.needsReason, i.sourceDir ? `元: ${i.sourceDir}` : '']
-                    .filter(Boolean)
-                    .join(' / ')}
-                >
-                  {FIGURE_NEEDS_LABEL[i.needs] ?? i.needs}
-                </StatusBadge>
-              ) : null}
-              {i.kind === 'raster' && !i.referenced ? <StatusBadge tone="warn">孤児</StatusBadge> : null}
-            </Thumb>
-          ))}
-        </div>
-      )}
+      <PageHead title="記事図版" sub={`${shown.length} 枚`} />
+      <FacetShell main={main} rail={rail} />
     </>
   );
 }
