@@ -227,9 +227,9 @@
 
 **起点**: 2026-09-30 のユーザー決定で note メンバーシップ「土木セコカン合格ラボ」から撤退した。note 記事 266 本の勧誘ブロックとサイト配置（PR #742）は同日に外した。会員特典マガジンに入った無料記事は、更新のたびに試し読みラインの指定（`--trial-line-bottom`）が要り、指定が無いと trial-guard で止まる。本試験（1級 10/4・2級 10/25）前はココナラ導線の反映を優先するため後回しにした。
 
-**やること**: (1) `.claude/config/note-membership.json` の `benefitMagazines` 7 誌から収録記事を外す（外す操作のスクリプトは無い。`note-magazine-add-articles.mjs` の逆操作を Playwright で作るか手作業）。(2) `notePricing: membership` の 22 記事（`content/note/1級・2級土木/メンバーシップ/` 配下: 予想問題マガジン 11・学科記述予想 10・添削事例 1）と「はじめに-合格ラボ」を非公開にする（下書きへ戻す操作のスクリプトも無い）。(3) 運用ドキュメントに残る合格ラボの記述（`noteコンテンツ計画.md`・`メンバーシップ説明文.md`・`content/note/README.md`・`ココナラ展開キット.md` ほか）を撤退済みに直す。
+**やること**: (1) `.claude/config/note-membership.json` の `benefitMagazines` 7 誌から収録記事を外す（外す操作のスクリプトは無い。`note-magazine-add-articles.mjs` の逆操作を Playwright で作るか手作業）。(2) `notePricing: membership` の 22 記事（`content/note/1級・2級土木/メンバーシップ/` 配下: 予想問題マガジン 11・学科記述予想 10・添削事例 1）と「はじめに-合格ラボ」を非公開にする（下書きへ戻す操作のスクリプトも無い）。（運用ドキュメントの合格ラボの記述は 2026-09-30 に撤退済みへ直した。）
 
-**完了条件**: note 公開 API で会員向け 22 記事＋はじめにが取得できず（非公開）、特典マガジンに入っていた無料記事が `--trial-line-bottom` 無しの `note-update-body --sync` で trial-guard に掛からず更新できる。`grep -rl 合格ラボ content/note docs` が撤退の記録以外に残らない。非公開にできない記事が残る場合は、その記事の live 見出しが原稿と一致することをログイン済みで確かめる（9/30 の note-replace-intro 反映分・旧 DN-0465 の残り）。
+**完了条件**: note 公開 API で会員向け 22 記事＋はじめにが取得できず（非公開）、特典マガジンに入っていた無料記事が `--trial-line-bottom` 無しの `note-update-body --sync` で trial-guard に掛からず更新できる。非公開にできない記事が残る場合は、その記事の live 見出しが原稿と一致することをログイン済みで確かめる（9/30 の note-replace-intro 反映分・旧 DN-0465 の残り）。
 
 ### [DN-0452] 管工事（1級・2級）の施工記述を分析し、note 教材を 1 商品で試す
 タグ: [収益化] [領域:商品] [時期:2026-10] [種類:制作] [起票:2026-09-29]
