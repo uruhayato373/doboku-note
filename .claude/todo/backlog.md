@@ -1101,13 +1101,6 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 
 **完了条件**: `archived_sessions` が 300 MB 未満、手順が doc にあること。
 
-### [DN-0180] Drive共通仕様書文字起こし350本とstandards-libraryの関係を整理する
-タグ: [エージェント・SSOT] [領域:教材] [種類:改善] [Codex候補] [起票:2026-09-06]
-
-Drive `文字起こし/共通仕様書/` 約350本は `source-transcript` のrepo対応外で、公開側の
-`content/site/standards-library/` と別経路になっている。重複・入力元・更新方向を実査し、公開章記事の
-provenanceに必要なもの、監査用にだけ残すもの、台帳対象外でよいものを分類する。削除は別承認とし、
-まず `standards-catalog` ID、原本sha256、版面ページまでの対応表を作る。
 
 ### [DN-0175] SNS残存画像を公開完了後に再監査する
 タグ: [インフラ・計測] [領域:管理] [種類:改善] [Codex候補] [起票:2026-09-06]

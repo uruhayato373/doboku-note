@@ -1543,6 +1543,18 @@
       "commit": "f9fd24901fd6",
       "verification": "refresh-indexes 済み・U+FFFD 0",
       "note": "5問の解説を修正(65ae5d905)。設問文の転記ずれは DN-0473 に起票。公開表示は次回 deploy 後"
+    },
+    {
+      "id": "DN-0180",
+      "at": "2026-09-30",
+      "task": "Drive共通仕様書文字起こし350本とstandards-libraryの関係を整理する",
+      "tier": "low",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "8880f3633c49",
+      "verification": "対象72/実検査72・Drive読み取り失敗0",
+      "note": "Drive 72文書と standards-library を原本sha256で全件突合(72/72・part 274/274一致)。対応表 .claude/state/assets/standards-drive-map.json、判断を asset-storage-policy に追記(32d0e7e7e)"
     }
   ]
 }
