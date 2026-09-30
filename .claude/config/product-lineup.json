@@ -234,6 +234,13 @@
         ]
       },
       {
+        "match": "^pe-oral-",
+        "cells": [
+          "pe-construction:oral",
+          "pe-water-supply:oral"
+        ]
+      },
+      {
         "match": "^pe-water-oral-",
         "cells": [
           "pe-water-supply:oral"

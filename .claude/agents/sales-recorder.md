@@ -198,6 +198,7 @@ productId は `article:<slug>` 形式。slug は商品名から推定:
 | `RCCM問題I｜下水道の業務経験記入例` | `article:rccm-mondai1-sewer` |
 | `RCCM問題I｜土質及び基礎の業務経験記入例` | `article:rccm-mondai1-geotechnical` |
 | `技術士 建設部門｜口頭試験対策` | `article:pe-construction-oral-guide` |
+| `技術士 口頭試験対策（全部門共通）` | `article:pe-oral-general-guide` |
 | `総監口頭試験…「業務経歴」の語り方` | `article:tankan-oral-exam` |
 | `【総監再受験者向け】不合格要因を特定する3パターン分析` | `article:tankan-retake-analysis` |
 | `1級土木 施工経験記述｜令和{N}年度 過去問 模範答案` | `article:civil-1-pastexam-essay-r0{N}` |
