@@ -37,79 +37,76 @@ interface OffsiteRule {
 }
 
 // slug は category prefix 付きの完全形（例: civil-construction-1-secondary-experience-writing-guide）。
-// RULES は上から最初にマッチした1件のみ採用（find）。パターンは相互排他に保つ。
-const RULES: readonly OffsiteRule[] = [
+// OFFSITE_RULES は上から最初にマッチした1件のみ採用（find）。パターンは相互排他に保つ。
+// 2026-09-30: 出品中（listed）の 6 件を配線。旧ルールは恒久廃止（retired）3件と試験後まで一時休止の出品だけを指し、
+// 主任技士のルールも無かったため、2級・主任技士のページにココナラ導線が 1 枚も出ていなかった。retired を指すルールは tests/offsite-cta.test.mjs が落とす。
+// 試験後まで一時休止（pauseReason:'absence'）の PDF はルールに残し、復帰したら自動で出す。総監 記述系は分析 PDF が retired でルールごと外した。
+// coconala-2kyu-tensaku（absence）は 3 テーマ版と同じ添削なので載せない（復帰時に添削が 2 枚並ぶ）。
+const OFFSITE_RULES: readonly OffsiteRule[] = [
   {
-    // 施工経験記述（1級）: 読者が自分の工事で答案を書く高 intent ページ。人の添削/診断が最も刺さる。
-    // 2026-09-25: coconala-tensaku-set は級別化で examScope が civil-1 専用になったため、
-    // 1級/2級で別ルールに分割（旧: 単一ルールで両級に同じ1級専用サービスを出していた）。
+    // 施工経験記述（1級）: 読者が自分の工事で答案を書く高 intent ページ。人の添削と骨子からの指導が最も刺さる。
     test: /^civil-construction-1-secondary-experience-writing-(guide|examples)$/,
-    coconala: ['coconala-shindan', 'coconala-tensaku-4theme'],
+    coconala: ['coconala-tensaku-4theme', 'coconala-sakusei-4theme'],
     coconalaCatch: '10/4の本試験前に、全5テーマの答案を24時間で見てほしい方へ。',
   },
   {
-    // 施工経験記述（2級）: 2級版の添削サービスは新設（coconala-2kyu-tensaku・2026-09-25）が
-    // status:'draft'（未出品）のため、出品するまで listed フィルタで自動的に非表示のまま。
-    test: /^civil-construction-2-secondary-experience-writing-(guide|examples)$/,
-    coconala: ['coconala-shindan', 'coconala-2kyu-tensaku'],
-    coconalaCatch: '10/4の本試験前に、全5テーマの答案を24時間で見てほしい方へ。',
+    // 施工経験記述（2級）。
+    test: /^civil-construction-2-secondary-experience-writing-(guide|examples|by-theme)$/,
+    coconala: ['coconala-2kyu-tensaku-3theme', 'coconala-2kyu-sakusei-3theme'],
+    coconalaCatch: '10/25の本試験前に、全3テーマの答案を24時間で見てほしい方へ。',
   },
   {
-    // 1級 二次 年度別過去問（secondary-r03〜r09）: 経験記述 過去問模範答案＋学科記述攻略が刺さる。
+    // 1級 二次 年度別過去問（secondary-r03〜r09）: 模範答案を読んだあとに自分の答案を見てもらう。
     test: /^civil-construction-1-secondary-r0[3-9]$/,
-    // 2026-08-05 統廃合: 過去問模範答案・学科攻略の単品は停止（paused）→ 模範答案セット＋フルパックへ。
-    // 2026-09-29: 模範答案セット単品はアーカイブ（ココナラは添削系へ精選）→ 模範答案を含むフルパックと添削へ。
-    coconala: ['coconala-1kyu-full-pdf', 'coconala-tensaku-4theme'],
-    coconalaCatch: '過去問の模範答案で仕上げたい方へ（模範答案入りの全部入りパック PDF・答案の添削）。',
+    coconala: ['coconala-tensaku-4theme', 'coconala-sakusei-4theme', 'coconala-1kyu-full-pdf'],
+    coconalaCatch: '過去問の模範答案を読んだら、次は自分の答案を見てもらう番です。',
   },
   {
     // 2級 二次 年度別過去問。
     test: /^civil-construction-2-secondary-r0[3-9]$/,
-    coconala: ['coconala-2kyu-full-pdf', 'coconala-2kyu-tensaku'],
-    coconalaCatch: '過去問の模範答案で仕上げたい方へ（模範答案入りの全部入りパック PDF・答案の添削）。',
+    coconala: ['coconala-2kyu-tensaku-3theme', 'coconala-2kyu-sakusei-3theme', 'coconala-2kyu-full-pdf'],
+    coconalaCatch: '過去問の模範答案を読んだら、次は自分の答案を見てもらう番です。',
   },
   {
-    // 1級 二次 学科記述の分野別ページ（コンクリート/施工計画/土工/品質の basics・past-problems）。
+    // 1級 二次 学科記述の分野別ページ。フルパック PDF は試験後まで一時休止（absence）で、復帰すれば出る。
     test: /^civil-construction-1-secondary-(concrete|construction-plan|earthwork|quality-management)-(basics|past-problems)$/,
     coconala: ['coconala-1kyu-full-pdf'],
     coconalaCatch: '学科記述の攻略PDF入り 全部入りパックで仕上げたい方へ。',
   },
   {
-    // 1級 二次 入門・直前対策: 予想模試＋出題分析（直前重点）が刺さる。
+    // 1級 二次 入門・直前対策。
     test: /^civil-construction-1-(secondary-getting-started|guide-last-minute-2026)$/,
-    coconala: ['coconala-1kyu-moshi-pdf', 'coconala-1kyu-full-pdf'],
-    coconalaCatch: '直前の総仕上げに（予想模試・全部入りパック PDF）。',
+    coconala: ['coconala-tensaku-4theme', 'coconala-sakusei-4theme', 'coconala-1kyu-moshi-pdf'],
+    coconalaCatch: '直前の総仕上げに、自分の答案を24時間で見てもらう。',
   },
   {
-    // 2級 二次 入門（直前対策 guide は 2級には無いため getting-started のみ）。
-    test: /^civil-construction-2-secondary-getting-started$/,
-    coconala: ['coconala-2kyu-moshi-pdf', 'coconala-2kyu-full-pdf'],
-    coconalaCatch: '直前の総仕上げに（予想模試・全部入りパック PDF）。',
+    // 2級 二次 入門・直前2週間。
+    test: /^civil-construction-2-secondary-(getting-started|last-two-weeks-plan)$/,
+    coconala: ['coconala-2kyu-tensaku-3theme', 'coconala-2kyu-sakusei-3theme', 'coconala-2kyu-moshi-pdf'],
+    coconalaCatch: '直前の総仕上げに、自分の答案を24時間で見てもらう。',
   },
   {
-    // 資格トップ（カテゴリ hub・slug はカテゴリ名そのもの）。SNS から着地する入口なので、
-    // 二次の人の添削と直前の総仕上げを出す（2026-09-27 配線監査 DN-0364）。
+    // 資格トップ（カテゴリ hub・slug はカテゴリ名そのもの）。SNS から着地する入口（2026-09-27 配線監査 DN-0364）。
     test: /^civil-construction-1$/,
-    coconala: ['coconala-tensaku-4theme', 'coconala-1kyu-full-pdf'],
-    coconalaCatch: '自分の答案を見てほしい方・直前に総仕上げしたい方へ。',
+    coconala: ['coconala-tensaku-4theme', 'coconala-sakusei-4theme'],
+    coconalaCatch: '自分の答案を見てほしい方・まだ書けていない方へ。',
+  },
+  {
+    test: /^civil-construction-2$/,
+    coconala: ['coconala-2kyu-tensaku-3theme', 'coconala-2kyu-sakusei-3theme'],
+    coconalaCatch: '自分の答案を見てほしい方・まだ書けていない方へ。',
   },
   {
     // 施工経験記述 文字数チェッカー（/tools/keiken-charcount）。答案を書いている最中の人が来る。
     test: /^tools-keiken-charcount$/,
-    coconala: ['coconala-tensaku-4theme', 'coconala-2kyu-tensaku'],
+    coconala: ['coconala-tensaku-4theme', 'coconala-2kyu-tensaku-3theme'],
     coconalaCatch: '字数が収まったら、次は中身。自分の答案を見てほしい方へ。',
   },
   {
-    test: /^civil-construction-2$/,
-    coconala: ['coconala-2kyu-tensaku', 'coconala-2kyu-full-pdf'],
-    coconalaCatch: '自分の答案を見てほしい方・直前に総仕上げしたい方へ。',
-  },
-  {
-    // 総監 記述系（模範論文解説 essay-* / pattern-essay-* / 二次過去問 h2X・r0X-secondary）:
-    // 出題テーマの読み方（ココナラ分析 PDF）。
-    test: /^pe-comprehensive-management-(essay-|pattern-essay-|(?:h\d{2}|r\d{2})-secondary$)/,
-    coconala: ['coconala-sokan-bunseki-pdf'],
-    coconalaCatch: '出題テーマの読み方を押さえたい方へ（出題分析 PDF）。',
+    // コンクリート主任技士: 資格トップと小論文ガイド。小論文の添削とまとめ買いの完全パック。
+    test: /^concrete-chief-engineer(-guide-essay)?$/,
+    coconala: ['coconala-cce-essay-tensaku', 'coconala-cce-full-pdf'],
+    coconalaCatch: '小論文を人の目で確かめたい方・まとめて仕上げたい方へ。',
   },
 ];
 
@@ -118,7 +115,7 @@ const RULES: readonly OffsiteRule[] = [
  * 非対象ページ・未 listed の商品は空配列（＝非表示）。
  */
 export function resolveOffsiteCta(slug: string): OffsiteCtaItem[] {
-  const rule = RULES.find((r) => r.test.test(slug));
+  const rule = OFFSITE_RULES.find((r) => r.test.test(slug));
   if (!rule) return [];
   const items: OffsiteCtaItem[] = [];
 
