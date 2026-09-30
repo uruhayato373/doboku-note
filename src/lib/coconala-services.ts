@@ -798,8 +798,8 @@ const SERVICES_RAW = {
   'coconala-cce-essay-pdf': {
     id: 'coconala-cce-essay-pdf',
     status: 'paused',
-    pauseReason: 'retired',
     serviceUrl: 'https://coconala.com/services/4418972',
+    pauseReason: 'retired',
     title: 'コンクリート主任技士の小論文模範答案を送ります',
     shortTitle: 'コンクリート主任技士 小論文 PDF',
     description:
@@ -814,8 +814,8 @@ const SERVICES_RAW = {
   'coconala-cce-takuitsu-pdf': {
     id: 'coconala-cce-takuitsu-pdf',
     status: 'paused',
-    pauseReason: 'retired',
     serviceUrl: 'https://coconala.com/services/4418974',
+    pauseReason: 'retired',
     title: 'コンクリート主任技士 択一直前パックを送ります',
     shortTitle: 'コンクリート主任技士 択一直前パック PDF',
     description:
@@ -834,9 +834,9 @@ const SERVICES_RAW = {
   // 出品は運営者が本文を確認してから（公開は取り消せない）。
   'coconala-cce-full-pdf': {
     id: 'coconala-cce-full-pdf',
-    status: 'draft',
-    serviceUrl: '',
-    title: 'コンクリート主任技士 小論文と択一の完全パックを送ります',
+    status: 'listed',
+    serviceUrl: 'https://coconala.com/services/4426935',
+    title: 'コンクリート主任技士の完全パックを送ります',
     shortTitle: 'コンクリート主任技士 完全パック PDF',
     description:
       'コンクリート主任技士試験の小論文と四肢択一をまとめたPDF9冊。小論文は令和2年度以降の1題・約1,000字の形式に合わせた出題傾向分析と5テーマ×8立場の模範答案、択一は8分野の予想50問・配合計算12問・一問一答157問。答案は各立場を想定した例示。出題や合格を保証するものではない。',
@@ -845,6 +845,7 @@ const SERVICES_RAW = {
     notePriceBasis: 'cce-essay-reiwa-pack + cce-takuitsu-chokuzen-pack',
     examScope: ['concrete-chief-engineer'],
     weeklyCapacity: 20,
+    listedAt: '2026-09-30',
   },
   // ---- コンクリート主任技士 小論文添削（2026-09-29 新設）----
   // 競合実測（09-29）: 主任技士の添削はココナラに2件のみ（¥5,000・販売0件／¥3,000・★1.0）。

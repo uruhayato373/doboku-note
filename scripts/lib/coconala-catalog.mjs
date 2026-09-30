@@ -21,10 +21,17 @@ export const LISTINGS_PATH = join(ROOT, '.claude/config/coconala-listings.json')
 export function parseCatalog(ts) {
   const rawStart = ts.indexOf('const SERVICES_RAW');
   const body = rawStart >= 0 ? ts.slice(rawStart) : ts;
-  const re = /id:\s*'([^']+)',\s*status:\s*'([^']+)',\s*serviceUrl:\s*'([^']*)'/g;
+  // 各エントリは `id:` から次の `id:` まで。status/serviceUrl はその範囲で探す（フィールド順に依存しない）。
+  // 2026-09-30、status と serviceUrl の間に pauseReason を入れた2件が黙ってカタログから消えた。
+  const re = /^\s{4}id:\s*'([^']+)',/gm;
   const hits = [];
   let m;
-  while ((m = re.exec(body))) hits.push({ id: m[1], status: m[2], serviceUrl: m[3], at: m.index });
+  while ((m = re.exec(body))) hits.push({ id: m[1], at: m.index });
+  hits.forEach((cur, i) => {
+    const slice = body.slice(cur.at, hits[i + 1] ? hits[i + 1].at : body.length);
+    cur.status = (slice.match(/status:\s*'([^']+)'/) || [])[1];
+    cur.serviceUrl = (slice.match(/serviceUrl:\s*'([^']*)'/) || [])[1] ?? '';
+  });
   const out = {};
   hits.forEach((cur, i) => {
     const slice = body.slice(cur.at, hits[i + 1] ? hits[i + 1].at : body.length);
