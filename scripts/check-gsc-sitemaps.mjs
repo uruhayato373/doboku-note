@@ -29,4 +29,5 @@ if (process.argv.includes("--json")) {
   if (result.due) console.log("  → 再取得: gh workflow run fetch-metrics.yml ／ 権限不足なら Search Console の「設定 → ユーザーと権限」でサービスアカウントを「フル」に");
 }
 // console.log 直後の process.exit はパイプで出力を捨てるので exitCode だけ決める。
-process.exitCode = 0;
+// --fail-on-due: 期限切れなら exit 1（quality-audit の ops:true が日次で読む＝週次レビューから移した点検・DN-0394）。既定は従来どおり常に exit 0。
+process.exitCode = process.argv.includes("--fail-on-due") && result.due ? 1 : 0;

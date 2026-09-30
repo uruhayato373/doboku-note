@@ -68,35 +68,14 @@ domain: strategy
 - IG 公開状態ドリフト: 照合は CI 週次 `login-collectors.yml`（encrypted-state・`verify-ig-status --no-planner`・PR #549） が `.claude/state/ig-reconcile/snapshot.json` を
   `source:"playwright"` で書く（Graph API は使わない＝2026-09-23 ユーザー決定）。週次レビューはこの snapshot を読む（実行しない）。★ドリフトが出たら次セッションで
   `/ig-reconcile` を実行して posted.json backfill / 未公開を予約（真実源 `.claude/knowledge/reference/ig-publish-reconcile.md`）。
-  Playwright 版 `npm run verify-ig-status` はプランナー実体確認が要るときのフォールバック（ローカル実行限定）
-- 競合再スキャン期限: `npm run check-competitor-scan-due -- --json` を実行（四半期＝90日。creds不要・ローカルhistory参照）。
-  チャネル（note/coconala/x/ig）の `due:true` なら「次セッションで `/competitor-review`（scout→competitor-analyst→09反映）」、
-  `market`（資格キーワードの市場スキャン）の `due:true` なら「次セッションで `npm run scan-qualification-market -- --coconala` → 月次レビューで `npm run qualification-market` を読む」をサーフェスのみ（実取得はしない）。
+  Playwright 版の照合（verify-ig-status）はプランナー実体確認が要るときのフォールバック（ローカル実行限定）
+- 競合再スキャンの期限: 日次の ops 点検（quality-audit の `ops:true`・赤は automation-failure Issue channel ops・復旧で自動クローズ）の `competitor-scan-due` が 90 日超を知らせる（週次では実行しない・2026-09-30 DN-0394）。Issue が開いている週だけ、チャネルは `/competitor-review`、market（資格キーワードの市場スキャン）は次の月次レビューでの再取得を申し送る。
 - 競合の変化と追跡候補（ココナラ）: `npm run report-competitor-watch -- --json` を実行（オフライン・committed state 参照・creds不要）。
   `changes[]`（値下げ・出品増減・撤収・累計販売 +20 件以上）、`candidates[]`（追跡外で関連サービスの販売実績 20 件以上の売り手）、
   `partial[]`（売上推定が一部だけの売り手）を読む。候補は次セッションで handle を解決して `.claude/config/coconala-competitors.json` に足すかを判断。一覧は管理画面 戦略 ＞ 資格と市場 ＞ 競合
-- GSC/GA4 UI 取得期限（月次）: `npm run check-gsc-ui-due -- --json` を実行（30日。committed `{gsc-ui,ga4-ui}/last-run.json` 参照・creds不要）。
-  **日数だけでなく完全性も見る**＝`channels[].due` は「最後の完全取得から30日」または「直近実行が不完全（部分成功・未ログイン等）」で true。
-  `anyDue` が true なら理由（`reasons`）をそのまま列挙する。取得と正規化は Mac の launchd `gsc-local` が DUE で自動実行するので、
-  DUE が続く＝Mac の定期実行が止まっている（電源断・Google の再ログイン待ち）。
-- GSC 登録リクエストと sitemap: `npm run check-gsc-indexing-due -- --json` と `npm run check-gsc-sitemaps -- --json` を実行（オフライン・creds不要）。
-  登録リクエストは Mac の launchd `gsc-local`（毎日）、sitemap の送信と読み込み状況は `fetch-metrics.yml`（金曜・API）が担う。
-  `due:true` なら理由をそのまま列挙する（未ログインなら `npm run google-console:login`、sitemap の送信が permission-denied ならサービスアカウントを Search Console の「フル」に）。
-- GA4 管理画面 設定ドリフト: `npm run check-ga4-dimensions -- --json` を実行（オフライン。desired state ↔ 最後の実機観測の突合・creds不要）。
-  `blockingMissing` が非空なら、そのあいだ **プログラム別 EPC / 配置別 CTR が CI で黙って欠測している**ので必ず surface する。
-- **note の商品が購入者に届いているか（最重要）**: `npm run check-note-delivery-due -- --json`
-  （オフライン・committed state 参照・creds不要）。`missingPromised` が 1 以上なら
-  **本文でPDFを約束しているのにライブに添付が無い＝購入者が受け取れない**状態なので、
-  他の何より先に出す。`ageDays` が 14 を超えていたら「静か」ではなく**実査していない**。
-  再実査は `npm run check-note-attachments:live`（ローカル・要ログイン・575 本で 20〜35 分）。
-  `attachmentLossPending` が 1 以上なら、**本文更新で添付を捨てたまま再添付していない**記事がある
-  （`--allow-attachment-loss` の負債）。実査は手動なので最大14日気づけない穴を、捨てた瞬間の記録で埋めている。
-  ※有料エリアの添付は未ログイン HTML に出ないため、CI は `login-collectors.yml`（encrypted-state・canary 卒業後） で note セッションを復元して `check-note-attachments:live` を回す。ローカルは canary 卒業前のフォールバック。
-  だからこそ「回し忘れ」を週次で拾う（2026-08-11 の事故＝購入者からの指摘で発覚した再発防止）。
-- **ココナラブログの健全性**: `npm run check-coconala-blog -- --json`（オフライン・`content/coconala/blog/**` を読む・creds不要）。
-  見るのは2つ。①**公開済み記事の送客先が `listed` から外れていないか**（出品を休止/廃止すると
-  「買えないページへ送る記事」が公開されたまま残るが、記事側を触っていないので pre-commit では永久に出ない）
-  ②下書きの放置（30日超）。`target` が 0 のときは「異常なし」ではなく**未着手**として区別して書く。
+- GSC/GA4 UI 取得・登録リクエスト・sitemap・GA4 カスタムディメンション: 日次の ops 点検（quality-audit の `ops:true`・赤は automation-failure Issue channel ops・復旧で自動クローズ）の `gsc-ui-due`・`gsc-indexing-due`・`gsc-sitemaps-due`・`ga4-dimensions` が期限切れ・異常を知らせる（週次では実行しない）。Issue が開いている週だけ理由をそのまま列挙し、直し方（Mac の launchd `gsc-local` の状態とログ・Google の再ログイン・`fetch-metrics.yml` の再実行と Search Console の権限・GA4 設定の反映）を申し送る。GA4 の不足が続くあいだはプログラム別 EPC／配置別 CTR が CI で欠測している点を必ず書く。
+- **note の商品が購入者に届いているか（最重要）**: 日次の ops 点検（quality-audit の `ops:true`・赤は automation-failure Issue channel ops・復旧で自動クローズ）の `note-delivery-due` が、本文で約束した PDF がライブに無い（購入者が受け取れない）・実査が 14 日超・添付を捨てたまま、を知らせる（週次では実行しない）。Issue が開いていれば**レポート最上段**に置き、次セッションで添付の live 実査と再添付を行う（2026-08-11 の事故の再発防止）。
+- **ココナラブログの健全性**: 送客先が販売中でない・下書き放置は CI ゲート（quality-audit `coconala-blog`・ci:true）が止めるので週次では実行しない。
 - **ココナラの取引・評価**: `npm run check-coconala-orders -- --json`（オフライン・committed snapshot 参照・creds不要）。
   `actions[]` をそのまま列挙する。特に **`評価未送信`** は放置すると期限（取引完了から概ね2週間）を過ぎて
   **こちらの評価が永久に公開されない**。ココナラの取引通知・評価依頼は出品アカウントの登録アドレス
@@ -113,18 +92,11 @@ domain: strategy
   これが「計測→記録→改善→**再計測**」の最後の輪。`due[]` の MEASURE_DUE / CLOSE_DUE / PENDING /
   NO_BASELINE をそのまま列挙する。改善を打って再計測されていない実験は学びが台帳に入らず
   サイクルが閉じない（EXP-004 は 27 日、EXP-005 は 4 日以上放置された実績がある）。
-- **内部リンク健全性**: `npm run check-internal-links-vs-gsc -- --json`（オフライン・GSC UI SSOT 参照）。
-  公開ページが 404/リダイレクト URL を指していれば ERROR。GSC の 404・リダイレクト件数を能動的に
-  減らせる唯一のレバー（旧 URL 自体は Google が再クロールをやめるまで消えない）。
-  `due:true` なら「次セッションで `/google-search-growth`（GSC 理由別 UI CSV → API 突合 → 修正計画）」をサーフェスのみ。
-  ※Playwright + Google ログイン必須。CI は `login-collectors.yml`（encrypted-state・canary卒業後）。ローカル実行はフォールバック（真実源 `.claude/knowledge/reference/gsc-management.md`）
-- A8 成果取込期限（月次）: `npm run check-a8-report-due -- --json` を実行（30日。committed `affiliate/a8-ui/last-run.json` 参照・creds不要）。
-  `due:true` なら「次セッションで `/a8-report`（A8 レポート CSV → 正規化 → EPC 分母）」をサーフェスのみ。
-  併せて `issues[]` も surface する＝`unmapped`（掲載中の広告が集計されていない）と `crossCheckExceeded`（stats47 混入の疑い）は
-  期限に関係なく要対応。※Playwright + A8 ログイン必須。CI は `login-collectors.yml`（encrypted-state・canary卒業後）。ローカル実行はフォールバック。A8 は公開 API 無し
-  （真実源 `.claude/knowledge/reference/a8-affiliate-pipeline.md`）
-- **note の記事単位の同期（2026-09-29〜）**: 反映は Mac の launchd `note-sync`（日曜 3:00・1 記事 1 回の更新）が行う。週次では**結果を読むだけ**: `.claude/state/note/sync-log.json` の最新 run（更新した記事と部品・失敗・問題）と `npm run note-sync-plan`（反映待ち・止まっている記事と直し方）。管理画面 `/content/note-sync` でも同じものが見える。止まっている記事（中断・会員特典の公開範囲未指定・画像欠け・有料境界の見出しが無い・価格変更）はカードの直し方どおりに次セッションで直す。sync-log の最新 run が 8 日より古ければ launchd が止まっている（`npm run note-sync:install -- --status`）。旧 `/docs` → 新 URL の張り替えだけの「301 等価」は同期の対象にしない（`check-note-republish` が別に数える）。
-- note 構成監査（月次寄り・network依存）: `node scripts/check-note-structure.mjs`（公開API無料本文とソース paidBoundary を突合し FULL_LOCK/PAYWALL_LEAK/BOUNDARY_SHIFT/IMG_MISSING/PRICE_MISMATCH を検出・creds不要）。CRITICAL があれば該当記事の境界を `note-update-body --commit` で再設定するようサーフェスのみ（audit-note-funnel --live と同じ live 隔離枠）。
+- **内部リンク健全性**: 公開ページの壊れた内部リンクは CI ゲート（quality-audit `internal-links`・ci:true）が止める。GSC の理由別 CSV との突合は `/google-search-growth` で行う（週次では実行しない）。
+- A8 成果取込期限（月次）: 日次の ops 点検（quality-audit の `ops:true`・赤は automation-failure Issue channel ops・復旧で自動クローズ）の `a8-report-due` が 30 日超を知らせる（週次では実行しない）。Issue が開いている週だけ `/a8-report` を申し送る。掲載中の広告の未集計・混入疑い（`issues[]`）は `/a8-report` の中で扱う。
+- **note の記事単位の同期（2026-09-29〜）**: 反映は Mac の launchd `note-sync`（日曜 3:00・1 記事 1 回の更新）が行う。週次では**結果を読むだけ**: `.claude/state/note/sync-log.json` の最新 run（更新した記事と部品・失敗・問題）と `npm run note-sync-plan`（反映待ち・止まっている記事と直し方）。管理画面 `/content/note-sync` でも同じものが見える。止まっている記事（中断・会員特典の公開範囲未指定・画像欠け・有料境界の見出しが無い・価格変更）はカードの直し方どおりに次セッションで直す。sync-log の最新 run が 8 日より古ければ launchd が止まっている（Mac で launchd `note-sync` の状態を確認する）。旧 `/docs` → 新 URL の張り替えだけの「301 等価」は同期の対象にしない（`check-note-republish` が別に数える）。
+- note 構成監査: 有料境界の破損（FULL_LOCK/PAYWALL_LEAK/BOUNDARY_SHIFT 等）は週次 CI `note-live-audit.yml` が検査し、失敗は同ワークフローの Issue で届く（週次では実行しない）。
+
   **出力の「実検査 N本（対象M・取得失敗K）」を必ず読む**。live 系の検査は取得できていなければ「異常なし」ではなく「検査できていない」＝ N が対象数から大きく欠けていたら結果を信用しない（取得失敗率 >20% ならスクリプト側が exit 1 で落とす）。2026-07-28 まで 675/675 が取得失敗でも緑を返していた実績がある。同種の live 検査 `check-note-live-headings` も同じ観点で見る。
 
 - **公開ページの目視確認（note・YouTube／エージェント・2026-09-23〜）**: 週次 CI `note-public-view.yml` は数値で判定し（note 全件＝公開 API で添付 PDF・価格・全文会員限定・本文の画像の欠け、代表ページ＝ブラウザでカード・はみ出し／YouTube 全件＝oEmbed で削除・非公開）、加えて**代表ページ**（note は資格×記事の種類ごと 1 本＝約 30 本、YouTube は Shorts・通常動画ごと 1 本）を**各サービスのブレイクポイントで区切った帯ごとの画面幅**（`.claude/config/public-view-breakpoints.json`・note 5 幅／YouTube 11 幅）で撮って成果物に残す。数値で決められない見た目の崩れはここで見る。
@@ -137,23 +109,16 @@ domain: strategy
 - 「更新したページ」
 - 「note 公開状態ドリフト是正（N 本）」（あれば）
 - 「note 同期（週次で更新 N 本・反映待ち M 本・止まっている K 本）」（止まっている記事があれば理由ごとの件数も）
-- 「note 構成監査 CRITICAL（境界破損 N 本）」（`check-note-structure` が CRITICAL のときのみ）
 - 「公開ページの目視確認（run・note N ページ／YouTube M 本・画像 K 枚・指摘 L 件）」（画像を取れなかった週は「未確認」と理由）
-- 「競合再スキャン DUE」（`check-competitor-scan-due` が due のときのみ・チャネル名つき。market は市場スキャン）
+- 「競合再スキャン DUE」（ops Issue `competitor-scan-due` が開いているときのみ・チャネル名つき。market は市場スキャン）
 - 「ココナラ競合の変化 N 件 / 追跡候補 M 社」（`report-competitor-watch` の `changes[]`・`candidates[]` が空でないときのみ・1 行ずつ。新規追跡のみの変化は件数だけ）
 - 「検索の改善候補を起票 N 件（DN-####…）/ 未起票 M 件」（`report-search-opportunities` の候補から起票したときのみ）
-- 「GSC/GA4 UI 取得 DUE（月次）」（`check-gsc-ui-due` の `anyDue` が true のときのみ・理由つき・→ Mac で `npm run gsc-local:install -- --status` とログ `~/Library/Logs/doboku-note/gsc-local.log` を確認、急ぐなら `-- --run-now`）
-- 「GSC 自動化 DUE」（`check-gsc-indexing-due` か `check-gsc-sitemaps` が due のときのみ・理由つき・→ 同上の Mac 確認／sitemap は権限と fetch-metrics の run）
-- 「GA4 設定ドリフト」（`check-ga4-dimensions` が blockingMissing を返したときのみ・→ 次セッションで `npm run ga4-admin:apply`）
-- 「**note 未着 N 本（購入者が受け取れない）**」（`check-note-delivery-due` の `missingPromised` > 0 のときのみ・**レポート最上段に置く**・→ `npm run check-note-attachments:live` で再実査し `note-attach-file` で添付）
-- 「note 添付実査 DUE」（`check-note-delivery-due` の `ageDays` > 14 のときのみ）
+- 「GSC・GA4 自動化の異常」（ops Issue の `gsc-ui-due`・`gsc-indexing-due`・`gsc-sitemaps-due`・`ga4-dimensions` が開いているときのみ・理由と直し方つき）
+- 「**note 未着（購入者が受け取れない）**」（ops Issue `note-delivery-due` が開いているときのみ・**レポート最上段に置く**）
 - 「ココナラ 評価未送信 / 要対応」（`check-coconala-orders` の `actions[]` が空でないときのみ・→ 評価は `npm run coconala-rate-buyer`、実体の採り直しは `npm run coconala-orders`）
 - 「ココナラ 実体が検査不成立」（`check-coconala-orders` が `inconclusive:true` のときのみ・理由つき・→ 次セッションで `npm run coconala-orders`）
-- 「ココナラブログ 送客先が販売中でない / 下書き放置」（`check-coconala-blog` の `violations[]`・`warnings[]` が空でないときのみ・→ 記事の `funnel` 修正か出品の再開）
 - 「実験の再計測 DUE」（`check-experiment-due` の dueCount > 0 のときのみ・id と理由つき・→ 各要素の `review` コマンドを転記）
-- 「壊れた内部リンク」（`check-internal-links-vs-gsc` が ERROR を返したときのみ）
-- 「A8 成果取込 DUE（月次）」（`check-a8-report-due` が due のときのみ・→ 次セッションで `/a8-report`）
-- 「A8 集計の取りこぼし / 混入疑い」（`check-a8-report-due` の `issues[]` が空でないとき・due でなくても出す）
+- 「A8 成果取込 DUE（月次）」（ops Issue `a8-report-due` が開いているときのみ・→ 次セッションで `/a8-report`）
 - 「実験の再測定 DUE」（`check-experiment-due` の `dueCount > 0` のときのみ・→ 次セッションで各要素の `review` コマンドを実行）
 - 「実験の未処理の申し送り」（`check-experiment-due` の `issues[]` が空でないとき・due でなくても出す）
 ```
@@ -272,14 +237,14 @@ B. 実験進捗レポート:
 > 不良 25% 超＝不良・件数 30 未満は判定しない）。**「不良」の組が出たら、その週に改善カードを起票する**（起点は
 > 「週次レビュー（開始日〜終了日）」・対象はページの型・lab の `lcp_element` を原因の手がかりに添える）。既に同じ型の
 > カードがあれば起票せず、そのカードに今週の良好率を 1 行足す。exit 2（記録なし・10 日超・カスタムディメンション未登録）は
-> 「実害判定不能」と書き、原因（`npm run ga4-admin:apply` 未実行など）を課題に 1 行残す。lab だけで起票しない原則は変えない。
+> 「実害判定不能」と書き、原因（GA4 設定の反映 ga4-admin:apply の未実行など）を課題に 1 行残す。lab だけで起票しない原則は変えない。
 
 分析項目:
 - **実ユーザー計測の不良・要改善の組**（上の `report-web-vitals`）を先に見る＝実害の有無。CrUX の field が出ている URL はそれも併記する
 - **field_data.LCP/INP/CLS の category**（FAST/AVERAGE/SLOW）
 - lab の Performance / LCP は**直近 5 バッチ中央値**で前週比（単発バッチの外れ値は「スパイクあり・中央値横ばい」と 1 行添えるに留める）
 - 違反 URL の **`lcp_element`**（何が LCP か）を必ず併記する。`<img loading="lazy">` なら
-  `npm run check-lcp-image-hints` で機械検出できる（pre-commit ゲート済み）
+  `check-lcp-image-hints`（pre-commit・CI ゲート済み）が機械検出する
 - 今週新規発生した違反 / 今週しきい値内に戻った違反
 
 出力形式: 以下の「## PSI パフォーマンス推移」セクションに埋め込む。
@@ -295,11 +260,8 @@ B. 実験進捗レポート:
 **最初に売上の実数を出す**（2026-08-17 追加）。従来この週次は**実売上を一度も読んでいなかった**ため、
 sales-log が 34 日止まっていたことに誰も気づかず、下流のガードレールが「売上は停止中」という
 前提を1か月抱えたままだった。
-- `npm run check-sales-freshness` → FAIL（転記停滞／前月 note traffic 未取得／月次売上不一致）なら**カバレッジの議論より先にこれを報告する**。
-  カバレッジは流入 × 配線であって実売ではないので、転記が止まっていると収益の実態が欠けたまま議論が進む。
-- `npm run check-kdp-report-freshness` → FAIL なら、KDP ロイヤリティ取得の対象月・不足冊数を同じく先に報告する。
-  KDP は note の sales-log と粒度が異なるため混ぜず、前月確定値と当月推計値の期限を別に守る。
-- 緑なら `npm run sales-summary` の当月行（件数・金額）を 1 行で載せる。
+- 売上転記の停滞（note-sales-fetch）と KDP ロイヤリティの取得停止は、日次の ops 点検（quality-audit の `ops:true`・赤は automation-failure Issue channel ops・復旧で自動クローズ）の `sales-freshness`・`kdp-report-freshness` が知らせる（週次では実行しない）。Issue が開いていれば**カバレッジの議論より先に**対象月・不足を報告する。カバレッジは流入 × 配線であって実売ではないので、転記が止まっていると収益の実態が欠けたまま議論が進む。KDP は note の sales-log と粒度が異なるため混ぜない。
+- Issue が無ければ `npm run sales-summary` の当月行（件数・金額）を 1 行で載せる。
   「異常なし」ではなく**実検査件数と最終転記日**を書くこと。
 
 調査方法（オフライン・コミット済みスナップショット読み）:
@@ -404,7 +366,7 @@ sales-log が 34 日止まっていたことに誰も気づかず、下流のガ
       機械 surfacer の候補を列挙し、タスク抽出・退避を促す。判定も適用もしない。
 
 調査項目:
-- node scripts/check-doc-lifecycle.mjs --json   （age>=14d / orphan / tracked / 本文の PR#・SHA 言及）
+- weekly-review-guard の report digest（quality-audit `doc-lifecycle`・`--report-only`）が候補を Issue にしている週だけ、その候補を読む（週次では実行しない）
 - 各候補が .claude/todo/ から参照されているか
   （tracked=あり → 生きたタスクは backlog 済みで DELETE 候補（抽出済みの見込み） /
    tracked=なし → backlog へのタスク抽出漏れの疑い）
@@ -424,12 +386,7 @@ sales-log が 34 日止まっていたことに誰も気づかず、下流のガ
 
 ### デッドコード在庫（knip）
 
-`npm run check-knip-ratchet` を実行し、カテゴリ別の現在値と baseline を転記する。
-
-- **増加（▲）があれば「## 課題・ブロッカー」に起票**する。CI ゲート `knip-ratchet` が既に赤にしているはずなので、その原因（正当な追加か・消し忘れか）を書く
-- **横ばいなら 1 行**（「デッドコード在庫: 増加なし（未使用ファイル N）」）で閉じる
-- **返済（▼）があれば baseline の締め直し**を申し送る（`npm run check-knip-ratchet -- --update-baseline`）
-- 在庫そのものの削減は**ここで判断しない**。knip は false positive を出す（npm scripts 経由・動的 import・スキルから叩かれる .mjs）ため、消すには grep 裏取りが要る（真実源: memory `knip-dead-code-audit`）。四半期に一度など、まとまった時間があるときに棚卸しする
+デッドコードの増加は CI ゲート（quality-audit `knip-ratchet`・ci:true）が止めるので、週次では実行しない。在庫の返済（baseline の締め直し）は四半期の棚卸しで行う。knip は false positive を出す（npm scripts 経由・動的 import・スキルから叩かれる .mjs）ため、消すには grep 裏取りが要る（真実源: memory `knip-dead-code-audit`）。
 
 > なぜ週次で出すか: ラチェット（CI ゲート）は**増加を止めるだけ**で、既存の在庫は永久に残る。
 > 返済は人間の判断が要るので、既に読まれる場（本レビュー）に載せて棚卸しの機会を作る。
@@ -454,7 +411,7 @@ sales-log が 34 日止まっていたことに誰も気づかず、下流のガ
       運用（§11 凍結回避＝一括投入しない）で、投入忘れ＝予約キューの穴を防ぐ。
 
 調査項目:
-- node scripts/x-queue-surfacer.mjs   （オフライン・status.json + tweets.md 読みのみ。
+- npm run x-queue-surfacer   （オフライン・status.json + tweets.md 読みのみ。
   ルーチンのリモート checkout でもローカル creds 無しで動く）
   - 投入済み台帳の最終予約日時（last_queued_at、ISO形式。途中の空白を含み、連続した充足を保証しない）と、lookahead（既定 8 日）内に go-live を迎える
     未投入下書きを DUE / OVERDUE で列挙する
@@ -500,7 +457,6 @@ npm run growth-triage -- list             # この週の未処分（Phase 2.5 �
 ```bash
 node scripts/backlog-sweep-pick.mjs --json   # 現在の残量と分類率
 node scripts/check-backlog-health.mjs         # 台帳の健全性（沈んだ不具合・定期の混入・重複候補）
-node scripts/check-external-write-orphans.mjs # 外部へは成功・台帳の書き戻しは失敗（重複投稿の芽）
 node scripts/check-backlog-verify.mjs        # [検証:cmd] を実走し、赤→緑になったカード（完了の疑い）を出す
 node -e "const d=require('./.claude/state/dispatch/dispatch-log.json');const w=d.entries.filter(e=>e.at>='<今週月曜>');const by=k=>w.filter(e=>e.outcome===k).length;console.log(JSON.stringify({total:w.length,done:by('done'),swept:by('swept'),blocked:by('blocked'),fail:by('fail'),byExecutor:w.reduce((a,e)=>((a[e.executor]=(a[e.executor]||0)+1),a),{})}))"
 ```
@@ -511,12 +467,12 @@ node -e "const d=require('./.claude/state/dispatch/dispatch-log.json');const w=d
 - **残量**: カード総数 X 件（🔴/🟡/🟢）・前週比 ±Y
 - **分類率**: `[種類:]` 付与済み A / 全体 B（旧 `[実行:]` 軸は 2026-08-26 廃止。未分類は選定順序〔不具合優先〕に乗らない）
 - **モデル別**: executor 別の件数と失敗/手戻り（Phase C のモデル分業を見直す材料）
-- **期日と時期**: `check-backlog-health` の S14（期日超過）と S15（`[時期:]` の月を過ぎたまま）。S14 はそのレビューで片付けるか期日を直す。S15 は終わっていれば削除、残りは月初の `npm run roll-backlog-when -- --write` で翌月へ回す。月次レビューの未実施は `npm run check-monthly-review-due` が知らせる
+- **期日と時期**: `check-backlog-health` の S14（期日超過）と S15（`[時期:]` の月を過ぎたまま）。S14 はそのレビューで片付けるか期日を直す。S15 は終わっていれば削除、残りは月初の `npm run roll-backlog-when -- --write` で翌月へ回す。月次レビューの未実施は日次の ops 点検（quality-audit の `ops:true`・赤は automation-failure Issue channel ops・復旧で自動クローズ）の `monthly-review-due` と SessionStart が知らせる
 - **台帳の健全性**: `check-backlog-health` の S2（🟢/🟣 に沈んだ不具合）・S4（`種類:定期`＝backlog の役割違反）・S9（`.claude/todo` の 4 層以外）。**この 3 つが 0 でない週は放置しない**（S2 は選定順で先頭に出るのに tier が嘘をついている状態、S4/S9 は置き場違い）。しきい値を超えたら次セッションで `/backlog-sweep --audit`
 
 - **完了の疑い**: `check-backlog-verify` が `赤→緑` を出した週は、そのカードを次の `/backlog-sweep` で**実査**する（緑は完了の証明ではない——2026-08-18 に check-note-attachments の正規表現が案内済み 77 本を誤検出した実例がある）。`常時緑` が出たら、そのカードの `[検証:]` が surfacer を指していて**完了判定に使えない**ということなので、検証コマンドを差し替えるか外す。
-- **外部書き込みの孤児**: `check-external-write-orphans` が `orphan` を出した週は**最優先**。「外部には出たのに台帳に記録が無い」状態で、台帳を信じて再開すると同じものを二重に外部へ出す。run ログから外部側の実体（videoId 等）を回収して台帳へ反映してから再開する。`silent-stop` は「未処理が残っているのに誰も回していない」通知（手動投入ジョブでは異常ではない）。**exit 2（検査不成立 N/M 取得失敗）は「痕跡なし」ではない**＝社内プロキシ配下などで run ログが取れていない。取れる環境で再実行してから結論する（DN-0225）。2026-06-17 の YouTube run が実例＝6 本アップ済みなのに台帳 pending のまま 2 か月放置された。
-- **品質censusのdelta**: `npm run quality-census` の `delta` 節（薄層への逆戻り・スコア低下記事）を1行確認する。前回比で悪化が出た週は該当記事を backlog へ。
+- **外部書き込みの孤児**: weekly-review-guard の report digest（quality-audit `external-write-orphans`）が `orphan` を Issue にした週は**最優先**。「外部には出たのに台帳に記録が無い」状態で、台帳を信じて再開すると同じものを二重に外部へ出す。run ログから外部側の実体（videoId 等）を回収して台帳へ反映してから再開する。`silent-stop` は「未処理が残っているのに誰も回していない」通知（手動投入ジョブでは異常ではない）。**exit 2（検査不成立 N/M 取得失敗）は「痕跡なし」ではない**＝社内プロキシ配下などで run ログが取れていない。取れる環境で再実行してから結論する（DN-0225）。2026-06-17 の YouTube run が実例＝6 本アップ済みなのに台帳 pending のまま 2 か月放置された。
+- **品質censusのdelta**: weekly-review-guard の report digest（quality-audit `quality-census`）が悪化（薄層への逆戻り・スコア低下）を Issue にした週だけ、該当記事を backlog へ（週次では実行しない）。
 - **収益カバレッジ**: `npm run report-monetization-coverage` の配置別 CTA CTR・note label × 売上突合（ID付き比率）を1行確認する。
 
 blocked / fail があれば「課題・ブロッカー」へ、繰り返し blocked になるタスクは前提条件を backlog 本文へ書き足す。
@@ -747,7 +703,7 @@ pre-commit の `scripts/check-handoff-extraction.mjs` が 2026-W39 以降のレ�
 
 ## SNS 予約キュー投入（X）
 
-<!-- Agent I が `node scripts/x-queue-surfacer.mjs` の出力をそのまま埋め込む。
+<!-- Agent I が `npm run x-queue-surfacer` の出力をそのまま埋め込む。
      未投入のまま go-live が近い X 下書き（直前カウントダウン等）を DUE/OVERDUE で列挙。
      1 件以上あれば「## 来週への申し送り」にも投入タスクを 1 行起票する。 -->
 
@@ -788,9 +744,9 @@ pre-commit の `scripts/check-handoff-extraction.mjs` が 2026-W39 以降のレ�
 - `.claude/scripts/fetch-ga4-data.mjs` — GA4 個別取得（ディメンション・メトリクス指定）
 - `scripts/check-experiment-due.mjs` — 実験の再計測/close 期限 surfacer（`npm run check-experiment-due`）
 - `scripts/build-growth-digest.mjs` / `scripts/growth-triage.mjs` / `scripts/check-growth-triage.mjs` — 計測ダイジェスト・全件トリアージ・月曜の反映ゲート（本スキル Agent G と Phase 2.5 の中核。真実源 [growth-cycle.md](../../../knowledge/reference/growth-cycle.md)）
-- `scripts/check-note-delivery-due.mjs` — **note の商品が購入者に届いているか**の surfacer（`npm run check-note-delivery-due -- --json`）
+- `scripts/check-note-delivery-due.mjs` — **note の商品が購入者に届いているか**の surfacer（日次 ops `note-delivery-due`）
 - `scripts/check-coconala-orders.mjs` — ココナラ取引の突合＋**評価未送信/期限切迫** surfacer（`npm run check-coconala-orders -- --json`）
-- `scripts/check-coconala-blog.mjs` — ココナラブログのハードゲート＋**送客先ドリフト** surfacer（`npm run check-coconala-blog -- --json`）
-- `scripts/check-internal-links-vs-gsc.mjs` — 公開ページ→404/リダイレクト URL の内部リンク検査（`npm run check-internal-links-vs-gsc`）
-- `scripts/check-disk-hygiene.mjs` — ローカル容量の surfacer（`npm run check-disk-hygiene`）。**Mac のローカルでのみ成立**（CI は exit 2＝検査不成立）。掃除は日次 launchd が回すので、レビューで見るのは「止まっていないか」と履歴の棚卸し要否だけ
+- `scripts/check-coconala-blog.mjs` — ココナラブログのハードゲート＋**送客先ドリフト** surfacer（CI ゲート `coconala-blog`）
+- `scripts/check-internal-links-vs-gsc.mjs` — 公開ページ→404/リダイレクト URL の内部リンク検査（`/google-search-growth` で使う）
+- `scripts/check-disk-hygiene.mjs` — ローカル容量の surfacer（quality-audit report `disk-hygiene`）。**Mac のローカルでのみ成立**（CI は exit 2＝検査不成立）。掃除は日次 launchd が回すので、レビューで見るのは「止まっていないか」と履歴の棚卸し要否だけ
 - `.claude/skills/management/nsm-experiment/references/definition.md` — NSM 定義の真実源
