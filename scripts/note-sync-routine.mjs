@@ -20,6 +20,8 @@
  *   node scripts/note-sync-routine.mjs --dry-run       # 計画だけ（note に触らない）。どの checkout でも可
  *   node scripts/note-sync-routine.mjs --max 100       # 1 回に更新する記事の上限（既定 200・マガジンは全件）
  *   node scripts/note-sync-routine.mjs --no-push       # commit まで
+ *   node scripts/note-sync-routine.mjs --only 'content/note/1級・2級土木/1級土木/'
+ *       # 記事をパスの先頭で絞る（試験直前にその資格だけ先に流す）。マガジンのカバーは触らない
  * exit: 0 = 全部できた（更新するものが無かったも含む）/ 1 = どこかで失敗・要ログイン
  * ---------------------------------------------------------------------------
  */
@@ -42,6 +44,8 @@ const args = process.argv.slice(2);
 const DRY = args.includes('--dry-run');
 const NO_PUSH = args.includes('--no-push');
 const MAX = Number(args[args.indexOf('--max') + 1]) || 200;
+const ONLY = args.includes('--only') ? args[args.indexOf('--only') + 1] : null;
+if (args.includes('--only') && !ONLY) { console.error('--only にはパスの先頭（例: content/note/1級・2級土木/1級土木/）が要る'); process.exit(2); }
 const CHUNK = 25;
 const WORK = join(ROOT, '.tmp/note-sync-routine');
 const SYNC_LOG = '.claude/state/note/sync-log.json';
@@ -169,11 +173,11 @@ const design = designVersions(ROOT);
 const liveArticles = await fetchLiveArticles(targets);
 withLiveCovers(plan, liveArticles);
 const counts = countPlan(plan.items);
-const articles = orderForRun(plan.items).slice(0, MAX);
+const articles = orderForRun(plan.items).filter((i) => !ONLY || i.path.startsWith(ONLY)).slice(0, MAX);
 const ledger = readLedger();
 const liveMagazines = await fetchLiveMagazines(ROOT, targets, ledger);
-const magPlan = planCoverWork({ targets: targets.filter((t) => t.kind === 'magazine'), ledger, design, liveArticles: {}, liveMagazines });
-console.log(`${TAG} 記事: 反映済み ${counts.synced} / 反映待ち ${counts.ready}（今回 ${articles.length}）/ 止まっている ${counts.blocked} ${JSON.stringify(counts.blockers)}`);
+const magPlan = planCoverWork({ targets: ONLY ? [] : targets.filter((t) => t.kind === 'magazine'), ledger, design, liveArticles: {}, liveMagazines });
+console.log(`${TAG} 記事: 反映済み ${counts.synced} / 反映待ち ${counts.ready}（今回 ${articles.length}${ONLY ? `・${ONLY} のみ` : ''}）/ 止まっている ${counts.blocked} ${JSON.stringify(counts.blockers)}`);
 console.log(`${TAG} 部品: ${JSON.stringify(counts.parts)} / PDF 取り寄せ ${counts.pdfPull} / マガジン 要登録 ${magPlan.pending.length}・保留 ${magPlan.hold.length}`);
 
 if (DRY) {

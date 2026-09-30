@@ -45,7 +45,8 @@ rc=0
   cd "$WT"
   # pre-commit フックが読む生成物（git 追跡外）。無いと commit の瞬間に ENOENT で落ちる。
   node .claude/scripts/build-doc-meta-index.mjs --ci > /dev/null
-  node scripts/note-sync-routine.mjs
+  # 手動起動の引数（例: --only <パス>）をそのまま渡す。launchd の週次は引数なし。
+  node scripts/note-sync-routine.mjs "$@"
 } >> "$LOG_FILE" 2>&1 || rc=$?
 
 if [ "$rc" -eq 0 ]; then
