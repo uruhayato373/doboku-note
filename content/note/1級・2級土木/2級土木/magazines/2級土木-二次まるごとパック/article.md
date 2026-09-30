@@ -6,6 +6,7 @@ noteMagazine: 2級土木-二次まるごとパック
 noteStatus: published
 notePublishedAt: "2026-09-17"
 noteId: "n89b3048e5d24"
+memberTrial: bottom
 noteUrl: "https://note.com/dobokunote/n/n89b3048e5d24"
 utmCampaign: civil2-niji-marugoto
 price: 8800

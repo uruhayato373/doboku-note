@@ -5,6 +5,7 @@ noteContentType: product
 noteMagazine: 2級土木-想定工事バンク
 noteUrl: "https://note.com/dobokunote/n/ned33a34bc42f"
 noteId: "ned33a34bc42f"
+memberTrial: bottom
 notePublishedAt: "2026-07-02"
 noteStatus: published
 title: "2級土木 施工経験記述｜想定工事バンク 総合案内（想定工事60 索引）"
