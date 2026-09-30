@@ -128,7 +128,9 @@ function walk(dir, out = []) {
 
 function main() {
   let changed = 0, same = 0, reviewed = 0, scanned = 0;
-  for (const file of walk(ROOT)) {
+  // include があれば root 直下のそのフォルダだけ（1級・2級土木/ 直下の横断記事用）
+  const roots = CONFIG.include ? CONFIG.include.map((d) => join(ROOT, d)) : [ROOT];
+  for (const file of roots.flatMap((r) => walk(r))) {
     const rel = relative(ROOT, file).split('\\').join('/');
     if (ONLY && !rel.includes(ONLY)) continue;
     const { raw, eol } = readMdxFile(file);

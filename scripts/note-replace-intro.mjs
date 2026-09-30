@@ -206,7 +206,8 @@ async function processArticle(page, src) {
     return k.slice(0, t).filter((e) => e.tagName === 'FIGURE' && /coconala/.test(e.innerHTML)).length; });
   const paywallBefore = await page.evaluate(() => [...document.querySelector('[contenteditable=true]').children].some((e) => e.tagName === 'PAYWALL-LINE'));
   if (src.isPaid && !paywallBefore) errs.push('有料ラインが消えた');
-  if (introCards !== 2) errs.push(`冒頭のココナラカードが ${introCards} 枚`);
+  const wantCards = (src.introMd.match(/^https:\/\/coconala\.com\/services\/\d+$/gm) || []).length;
+  if (introCards !== wantCards) errs.push(`冒頭のココナラカードが ${introCards} 枚（原稿は ${wantCards} 枚）`);
   if (errs.length) throw new Error('検証 NG: ' + errs.join(' / '));
   return { before, after };
 }

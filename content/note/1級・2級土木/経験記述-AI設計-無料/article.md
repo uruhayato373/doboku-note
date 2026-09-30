@@ -17,9 +17,7 @@ cover:
   hiSuffix: "から組立"
   benefit: "自分の経験から組み立てられる"
 ---
-
 # 施工経験記述をAIに丸投げすると落ちる理由と、自分の現場から組み立てる方法
-
 
 ![](img/figure-author-authority-pop.png)
 
@@ -36,6 +34,19 @@ cover:
 施工経験記述をAIに頼むと、文章はそれらしく整います。
 
 でも、そのまま提出すると危ないです。この記事では、なぜ危ないのか、どうすれば自分の現場から安全に組み立てられるのかを書きます。
+
+---
+
+<!-- cta:coconala-custom -->
+自分の答案を人の目で確かめたいときは、ココナラで個別に対応しています。書いた答案があれば添削、まだ書けていなければヒアリングから骨子（構成）をつくります。上の2つが1級（全5テーマ）、下の2つが2級（全3テーマ）です。
+
+https://coconala.com/services/4418735
+
+https://coconala.com/services/4350199
+
+https://coconala.com/services/4418778
+
+https://coconala.com/services/4418785
 
 ## AIに丸投げすると落ちる理由
 
@@ -79,22 +90,12 @@ AIに「経験記述を書いて」と頼むと、工事名も、工期も、施
 
 「事実は本人・構成と検証はAI」という手順で組んだ答案でも、最後に残るのは、採点者が読んだときに事実どうしがつながって見えるかという点です。ここは AI が「問題なし」と返しても、人が読むと引っかかることがあります。
 
-<!-- cta:coconala-custom -->
-AI で下書きした答案を人の目で確かめたいときは、ココナラで個別に対応しています。書いた答案があれば全5テーマの添削、まだ書けていなければヒアリングから骨子（構成）をつくります。
-
-https://coconala.com/services/4418735
-
-https://coconala.com/services/4350199
-
 設問ごとの書き方・過去の出題傾向・留意事項のまとめは、[施工経験記述 出題傾向と書き方](https://doboku-note.com/exam/civil-construction-1/secondary/experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil-keiken-ai-kit-note&utm_content=experience-writing-guide)に無料で公開しています。AI に下書きさせる前に、評価される型を先に押さえてください。
 
 評価される文章の型を具体例で確認したい方は[施工経験記述の記述例](https://doboku-note.com/exam/civil-construction-1/secondary/experience-writing-examples?utm_source=note&utm_medium=referral&utm_campaign=civil-keiken-ai-kit-note&utm_content=experience-writing-examples)もあわせてご覧ください。
 
 <!-- cta:civil-mokuji -->
 1級・2級土木のほかの記事・経験記述の答案集は「土木もくじ」から一覧できます。
-
-
-上位資格の分析力・発注者として書類を評価してきた目・合格者の当事者性で、あなたの答案を合格ラインへ引き上げます。
 
 https://note.com/dobokunote/n/n4fde0f62dc20
 

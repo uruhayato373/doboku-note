@@ -21,8 +21,8 @@ import { fileURLToPath } from 'node:url';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const CONFIG = JSON.parse(readFileSync(join(ROOT, '.claude/config/note-funnel.json'), 'utf8'));
 // 1級土木の公開記事の冒頭は standardize-civil1-note-intro.mjs が持つ（収録元＋上位の2枚・順序つき）。ここでは触らない。
-const STANDARD_ROOTS = ['note-intro-standard.json', 'note-intro-standard-civil2.json']
-  .map((n) => join(ROOT, JSON.parse(readFileSync(join(ROOT, '.claude/config', n), 'utf8')).root));
+const STANDARD_ROOTS = ['note-intro-standard.json', 'note-intro-standard-civil2.json', 'note-intro-standard-civil-cross.json']
+  .flatMap((n) => { const c = JSON.parse(readFileSync(join(ROOT, '.claude/config', n), 'utf8')); return (c.include || ['']).map((d) => join(ROOT, c.root, d).replace(/\/$/, '')); });
 
 const args = process.argv.slice(2);
 const APPLY = args.includes('--apply');
