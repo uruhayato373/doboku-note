@@ -37,6 +37,7 @@ const CATEGORY_JUMPS: Record<string, JumpItem[]> = {
   ],
   surveyor: [
     { href: '#sec-guide', label: '受験ガイド', goal: '試験を知る' },
+    { href: '#sec-primary', label: '過去問', goal: '問題を解く' },
   ],
   pavement: [
     { href: '#sec-guide', label: '受験ガイド', goal: '試験を知る' },

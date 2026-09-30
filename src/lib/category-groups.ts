@@ -56,6 +56,7 @@ const GROUP_DESCRIPTIONS: Record<string, Record<string, string>> = {
   },
   surveyor: {
     guide: '試験の概要・午後記述式の分野選び・測量士補の択一・学習計画',
+    primary: '測量士補 択一式28問の年度別過去問と解答解説（国土地理院の公式正答）',
   },
   pavement: {
     guide: '試験の概要・応用試験の経験記述・選択問題の頻出論点・学習計画',
