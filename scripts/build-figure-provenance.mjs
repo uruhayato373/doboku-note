@@ -18,7 +18,8 @@
  *   prose/maybe(写り込み) → recrop
  *   それ以外(sharp+clean) → ok
  *
- * Usage: node scripts/build-figure-provenance.mjs [--json]
+ * Usage: node scripts/build-figure-provenance.mjs [--json | --list <needs>]
+ *   --list recrop … 公開×掲載の図のうち needs=recrop のパスを1行1件で出す（対象選び用）
  */
 import fs from "node:fs";
 import path from "node:path";
@@ -150,7 +151,14 @@ const payload = {
 fs.mkdirSync(path.dirname(OUT), { recursive: true });
 fs.writeFileSync(OUT, JSON.stringify(payload, null, 2));
 
-if (!quiet) {
+// --list <needs>: 公開×掲載の図のうち needs が一致するものを1行1件で出す（対象選びは機械側で行う）
+const listIdx = process.argv.indexOf("--list");
+if (listIdx >= 0) {
+  const want = process.argv[listIdx + 1];
+  const hits = Object.entries(figures).filter(([, f]) => f.published && f.referenced && f.needs === want);
+  hits.forEach(([rel]) => console.log(rel));
+  console.error(`[build-figure-provenance --list ${want}] 公開×掲載 ${hits.length} 件 / 全 ${payload.figure_count} 図を検査`);
+} else if (!quiet) {
   console.log(`[build-figure-provenance] ${payload.figure_count} 図 → ${path.relative(ROOT, OUT)}`);
   console.log("  needs 別:", Object.entries(summary).sort((a, b) => b[1] - a[1]).map(([k, v]) => `${k}:${v}`).join(" / "));
   // 優先（公開×掲載）の needs 内訳

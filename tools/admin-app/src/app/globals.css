@@ -568,6 +568,16 @@ table.data tbody tr:hover td {
   aspect-ratio: 16 / 10;
   overflow: hidden;
 }
+.thumb .frame.paper {
+  background: #fff;
+}
+.thumb .frame > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
 .thumb .frame.tall {
   aspect-ratio: 4 / 5;
 }
