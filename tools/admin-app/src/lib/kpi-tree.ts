@@ -1,4 +1,5 @@
 import { buildReport, records, reviewPeriod } from '../../../../scripts/lib/business-direction.mjs';
+import { salesByQualification } from '../../../../scripts/lib/sales-by-qualification.mjs';
 import { latestIndexAsOf } from '../../../../scripts/lib/index-coverage.mjs';
 import { buildSearchOpportunities } from '../../../../scripts/lib/search-opportunities.mjs';
 import { findRepoRoot } from './repo-root';
@@ -87,7 +88,6 @@ export function loadKpiView(month?: string): KpiView {
     .at(-1);
 
   const cell = (metric: string, scope: string) => groups.flatMap((g) => g.rows).find((r) => r.id === metric)?.cells[scope]?.value ?? null;
-  const sumOrNull = (vals: (number | null)[]) => (vals.every((v) => v == null) ? null : vals.reduce<number>((s, v) => s + (v ?? 0), 0));
   let search: KpiView['search'] = { period: null, clusters: [] };
   try {
     const so = buildSearchOpportunities(root) as { period: { startDate: string; endDate: string } | null; clusters: { label: string; top10: number; impressions: number; previous: { top10: number } | null }[] };
@@ -100,7 +100,8 @@ export function loadKpiView(month?: string): KpiView {
       { label: 'ココナラ', value: cell('coconalaRevenue', 'all') },
       { label: 'KDP', value: cell('kdpRoyalty', 'all') },
     ],
-    qualifications: scopes.filter((s) => s.id !== 'all').map((s) => ({ label: s.label, value: sumOrNull([cell('noteRevenue', s.id), cell('coconalaRevenue', s.id), cell('kdpRoyalty', s.id)]) })),
+    // 重点資格に限らず全資格へ振り分ける（product-lineup.json）。行の合計はチャネル別の合計と一致する
+    qualifications: (salesByQualification(root, period) as { label: string; value: number }[]).map((q) => ({ label: q.label, value: q.value })),
     site: { indexRatio: cell('indexRatio', 'all'), gscClicks: cell('gscClicks', 'all'), organicUsers: cell('organicUsers', 'all') },
     search,
     period,
