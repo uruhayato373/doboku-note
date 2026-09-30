@@ -35,12 +35,12 @@
     "removedPrintPageNumbers": 582,
     "removedChapterFront": 51,
     "dedentedPages": 1,
-    "tables": 166,
+    "tables": 164,
     "tablesGfm": 6,
-    "tablesVerbatim": 160
+    "tablesVerbatim": 158
   },
   "tableOutcomes": {
-    "columns-out-of-range": 57,
+    "columns-out-of-range": 55,
     "lossy": 38,
     "ragged-rows": 44,
     "empty-cell": 1,
@@ -160,8 +160,8 @@
         115
       ],
       "sourceSha256": "d925a48d1021a9584d5f3c62e793c0552231ccd666b8779a3b5dc0de6d77d873",
-      "outputSha256": "42f28845a2c51e4eefc6f8494cc86c301a3f3ee36cc4445e7b617fae420ebb45",
-      "outputBytes": 108724,
+      "outputSha256": "ad295c4cd6b4df4445c7832495a3c47e94fa8d4831442aad0b9be873f92e60ec",
+      "outputBytes": 108607,
       "sections": [
         {
           "number": 1,
@@ -462,13 +462,13 @@
         "paragraphs": 387,
         "items": 65,
         "notes": 0,
-        "tables": 4,
+        "tables": 3,
         "captions": 1,
         "tablesGfm": 0,
-        "tablesVerbatim": 4
+        "tablesVerbatim": 3
       },
       "tableOutcomes": {
-        "columns-out-of-range": 4
+        "columns-out-of-range": 3
       },
       "indexable": false,
       "duplicateOf": null,
@@ -690,8 +690,8 @@
         161
       ],
       "sourceSha256": "f9e811925de5f192ce83f490bf5d8a61a2a9d77d6fec2bda4369985533c55a92",
-      "outputSha256": "a4808cb4401b293e872ddf7543dd13f149b31c050ed45aa7f20a5a6b03e35981",
-      "outputBytes": 83939,
+      "outputSha256": "788f139ca5f01e8533f9c8c63f5155e0389d459634d0e4302d27889eac1f2143",
+      "outputBytes": 83855,
       "sections": [
         {
           "number": 1,
@@ -1122,13 +1122,13 @@
         "paragraphs": 355,
         "items": 85,
         "notes": 1,
-        "tables": 7,
+        "tables": 6,
         "captions": 1,
         "tablesGfm": 0,
-        "tablesVerbatim": 7
+        "tablesVerbatim": 6
       },
       "tableOutcomes": {
-        "columns-out-of-range": 5,
+        "columns-out-of-range": 4,
         "ragged-rows": 1,
         "lossy": 1
       },

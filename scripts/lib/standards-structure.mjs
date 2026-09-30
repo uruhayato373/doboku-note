@@ -322,7 +322,8 @@ function segmentToBlocks(segment) {
     // 多列の表は 1 行で判る（dense）。2 列組の一覧は 1 行では散文と区別できないので、
     // 「広い隙間を持つ行が 2 本以上、かつ chunk の 4 割以上」を要求する。散文の誤検出は
     // 1 行あたり 0.88% なので、この密度条件を通ることはまず無い。
-    const isTable = !captionOnly && (dense || (wide >= 2 && wide / chunk.length >= 0.4));
+    const isTable =
+      !captionOnly && !isWrappedProse(chunk) && (dense || (wide >= 2 && wide / chunk.length >= 0.4));
     if (!isTable) {
       classified.push({ chunk, isTable, captionOnly });
       continue;
@@ -375,6 +376,23 @@ function segmentToBlocks(segment) {
     blocks.push(...proseBlocks(entry.chunk));
   }
   return blocks;
+}
+
+/**
+ * 版面の桁揃えで語間に広い空白が入っただけの散文段落か（DN-0430）。
+ * 例: `（平成14年7月31日      国官技第112号、…` が 2 行以上続くと 2 列組の一覧と区別できず表に落ちていた。
+ * 散文の条件: 段落が「。」で終わる／途中行は「。」で終わらず継続行の字下げが揃う（文の折返しだけ）／
+ * 広い空白を 2 か所以上持つ行（多列の表の行）もキャプションも無い。広い空白は散文側の joinWrapped が 1 個に畳む。
+ */
+function isWrappedProse(chunk) {
+  if (chunk.length < 2) return false;
+  const texts = chunk.map((e) => trimBoth(e.text));
+  if (!texts[texts.length - 1].endsWith('。')) return false;
+  if (texts.slice(0, -1).some((t) => t.endsWith('。'))) return false;
+  if (chunk.some((e) => isLayoutLine(e.text) || gapCount(e.text, 4) >= 2)) return false;
+  if (chunk.some((e) => RE_TABLE_CAPTION.test(e.text) || RE_FIGURE_CAPTION.test(e.text))) return false;
+  const rest = chunk.slice(1).map((e) => indentOf(e.text));
+  return rest.every((n) => n === rest[0]) && indentOf(chunk[0].text) >= rest[0];
 }
 
 function uniquePages(entries) {
@@ -583,4 +601,4 @@ export const patterns = {
   RE_FIGURE_CAPTION,
   RE_NOTE,
 };
-export const helpers = { indentOf, trimBoth, isLayoutLine, hasWideGap, gapCount, uniquePages };
+export const helpers = { indentOf, trimBoth, isLayoutLine, hasWideGap, gapCount, uniquePages, segmentToBlocks };
