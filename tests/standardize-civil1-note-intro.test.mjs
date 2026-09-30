@@ -70,3 +70,12 @@ test('記事固有の段落は KEEP に分類する', () => {
   assert.equal(classify('1級土木施工管理技士 第2次検定 問題1（施工経験記述）の完全攻略パックの総合案内です。'), 'KEEP');
   assert.equal(classify('本記事は **1級土木 二次学科記述 テーマ別出る順**マガジンの収録記事です。'), 'MAG');
 });
+
+test('2回当てても変わらない（単品カードの URL を迷子にしない）', () => {
+  const REL = 'magazines/1級土木-テキスト精読ガイド/施工管理-法規編/article.md';
+  const src = ['# 題名', '**この記事でわかること**\n\n- A', '第1次検定の問題Bは全35問が必須です。'].join('\n\n');
+  const once = rebuildIntro(src, REL).intro;
+  const twice = rebuildIntro(once, REL).intro;
+  assert.equal(twice, once);
+  assert.equal((once.match(/nec34238ca6d6/g) || []).length, 1);
+});

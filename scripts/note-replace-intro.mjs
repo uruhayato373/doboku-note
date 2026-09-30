@@ -216,7 +216,7 @@ async function verifyLive(noteId) {
     await sleep(5000);
     const r = await fetch(`https://note.com/api/v3/notes/${noteId}`).then((x) => x.json()).catch(() => null);
     const b = r?.data?.body || '';
-    if (b.includes(P1_PROBE) && /coconala\.com\/services\/4418735/.test(b) && !/membership\/join/.test(b)) return true;
+    if (b.includes(P1_PROBE) && /coconala\.com\/services\/\d+/.test(b) && !/membership\/join/.test(b)) return true;
   }
   return false;
 }

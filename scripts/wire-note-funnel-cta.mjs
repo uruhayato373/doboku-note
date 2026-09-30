@@ -21,7 +21,8 @@ import { fileURLToPath } from 'node:url';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const CONFIG = JSON.parse(readFileSync(join(ROOT, '.claude/config/note-funnel.json'), 'utf8'));
 // 1級土木の公開記事の冒頭は standardize-civil1-note-intro.mjs が持つ（収録元＋上位の2枚・順序つき）。ここでは触らない。
-const STANDARD_ROOT = join(ROOT, JSON.parse(readFileSync(join(ROOT, '.claude/config/note-intro-standard.json'), 'utf8')).root);
+const STANDARD_ROOTS = ['note-intro-standard.json', 'note-intro-standard-civil2.json']
+  .map((n) => join(ROOT, JSON.parse(readFileSync(join(ROOT, '.claude/config', n), 'utf8')).root));
 
 const args = process.argv.slice(2);
 const APPLY = args.includes('--apply');
@@ -88,7 +89,7 @@ for (const adir of articleDirs) {
 
   // ナビ/入口記事は冒頭パック CTA を付けない（無料→有料の導線思想に反するため）
   const topExcluded = (ex.topCtaExcludeDirs || []).some(x => d.name === x || d.name.endsWith('/' + x));
-  const standardOwned = f.startsWith(STANDARD_ROOT) && /^note(Url|Id):/m.test(raw.slice(0, 4000));
+  const standardOwned = STANDARD_ROOTS.some((r) => f.startsWith(r + '/')) && /^note(Url|Id):/m.test(raw.slice(0, 4000));
   // ディレクトリ接頭辞で冒頭パック CTA を差し替える（例: 2級土木/ 配下は 2級バンクへ）。
   // 資格別セグメントの下の「サブ資格別」上げ導線に対応。マーカーは共通（cta:pack-top）。
   const ovr = (ex.topCtaOverrides || []).find(o => d.name.startsWith(o.dirPrefix));

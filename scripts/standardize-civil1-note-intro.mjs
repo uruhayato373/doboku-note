@@ -16,6 +16,7 @@
  *   node scripts/standardize-civil1-note-intro.mjs                 # dry-run（件数と要確認）
  *   node scripts/standardize-civil1-note-intro.mjs --apply         # 書き込み
  *   node scripts/standardize-civil1-note-intro.mjs --only <パスの一部> [--show]   # 絞り込み・差分表示
+ *   node scripts/standardize-civil1-note-intro.mjs --config .claude/config/note-intro-standard-civil2.json [--apply]   # 2級
  * exit: 0 成功 / 1 要確認あり（--apply でも要確認の記事は書かない）/ 2 設定エラー
  * 正典: .claude/knowledge/reference/author-authority-banner.md「1級 note の冒頭・末尾の標準形」
  * ---------------------------------------------------------------------------
@@ -30,7 +31,9 @@ const args = process.argv.slice(2);
 const APPLY = args.includes('--apply');
 const SHOW = args.includes('--show');
 const ONLY = args.includes('--only') ? args[args.indexOf('--only') + 1] : null;
-const CONFIG = JSON.parse(readFileSync(join(REPO_ROOT, '.claude/config/note-intro-standard.json'), 'utf8'));
+// 既定は1級。2級は --config .claude/config/note-intro-standard-civil2.json
+const CONFIG_PATH = args.includes('--config') ? args[args.indexOf('--config') + 1] : '.claude/config/note-intro-standard.json';
+const CONFIG = JSON.parse(readFileSync(join(REPO_ROOT, CONFIG_PATH), 'utf8'));
 const ROOT = join(REPO_ROOT, CONFIG.root);
 const BANNER_SRC = join(REPO_ROOT, 'content/note/共通/著者オーソリティ/img', CONFIG.banner);
 
@@ -52,7 +55,7 @@ export function classify(b) {
   if (/^<!-- cta:civil-mokuji -->/.test(b)) return 'MOKUJI';
   if (/^https:\/\/note\.com\/dobokunote\/n\/\w+$/.test(b)) return 'NOTEURL';
   if (/上位資格の分析力・発注者として書類を評価してきた目/.test(b)) return 'BRIDGE';
-  if (/^本記事は\s*(\*\*|「)[^*」]+(\*\*|」)[^。]{0,24}の(収録記事|補充答案)です/.test(b)
+  if (/^本記事は\s*(\*\*|「)?[^。*」]{2,40}?(\*\*|」)?[^。]{0,24}の(収録記事|補充答案)です/.test(b)
     || /別マガジン|もあわせてご(覧|活用)ください/.test(b) && b.length < 260) return 'MAG';
   if (/失格/.test(b) && /経験/.test(b)) return 'DQ';
   if (/^(数値の\s*)?【?〇〇】?\s*は/.test(b) || /^本記事の答案はそのまま書き写すためのものではなく/.test(b)) return 'DQ+';
@@ -88,6 +91,10 @@ export function rebuildIntro(introRaw, rel) {
     if (k === 'DQ+') { if (lastWasDq || dq.length) { dq.push(b); continue; } review.push(`失格注意の続きが単独: ${b.slice(0, 30)}`); continue; }
     lastWasDq = false;
     if (k === 'MOKUJI') { mokuji.push(b); if (classify(bs[i + 1] || '') === 'NOTEURL') mokuji.push(bs[++i]); continue; }
+    // 上位の案内が単品記事（/n/ のカード）のとき、URL は直前の案内（MAG）の一部。2回目の実行で記事固有扱いにしない
+    if (k === 'NOTEURL' && classify(bs[i - 1] || '') === 'MAG') continue;
+    // 設定にある商品の URL は標準の位置に付け直すので、途中に残っていたら外す（2回目以降の実行で迷子にしない）
+    if (k === 'NOTEURL' && Object.values(CONFIG.magazines).some((m) => m.url === b)) continue;
     if (['BANNER', 'P1', 'P2', 'HR', 'COCO', 'MAG', 'BRIDGE'].includes(k)) continue;
     keep.push(b);
   }
