@@ -1,340 +1,60 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-23T07:27:20.719Z",
-  "batchFile": ".claude/state/metrics/url-inspection/inspection-batch-2026-09-23T06-54-59.json",
-  "gscPageFile": ".claude/state/metrics/gsc/gsc-page-2026-09-23T06-54-58.json",
+  "generatedAt": "2026-09-30T08:16:09.467Z",
+  "batchFile": ".claude/state/metrics/url-inspection/inspection-batch-2026-09-30T07-42-14.json",
+  "gscPageFile": ".claude/state/metrics/gsc/gsc-page-2026-09-30T07-42-13.json",
   "gscPageWindow": {
-    "startDate": "2026-08-23",
-    "endDate": "2026-09-19"
+    "startDate": "2026-08-31",
+    "endDate": "2026-09-27"
   },
   "counts": {
-    "inspected": 1434,
-    "indexed": 1146,
-    "candidates": 280,
-    "withDemand": 38,
-    "cooledDown": 8
+    "inspected": 1579,
+    "indexed": 1255,
+    "candidates": 291,
+    "withDemand": 6,
+    "cooledDown": 33
   },
   "items": [
     {
-      "path": "/exam/pe-comprehensive-management/keywords/cost-benefit-analysis",
-      "status": "duplicate",
-      "reason": "重複しています。Google により、ユーザーがマークしたページとは異なるページが正規ページとして選択されました",
-      "impressions": 36,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/civil-construction-1/textbook/pavement-repair-quality",
+      "path": "/exam/pe-comprehensive-management/keywords/end-of-pipe",
       "status": "crawled-not-indexed",
       "reason": "クロール済み - インデックス未登録",
-      "impressions": 28,
-      "clicks": 2
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r05-urban-planning",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 12,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/civil-construction-2/guide/schedule-management",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 11,
-      "clicks": 1
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r07-urban-planning",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 11,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/civil-construction-1/guide/construction-plan",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 8,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r06-road",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
       "impressions": 7,
       "clicks": 1
     },
     {
-      "path": "/exam/concrete-diagnostician/primary/exercise-05",
-      "status": "duplicate",
-      "reason": "重複しています。Google により、ユーザーがマークしたページとは異なるページが正規ページとして選択されました",
-      "impressions": 7,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r06-urban-planning",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 7,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/civil-construction-1/guide/surveying",
-      "status": "duplicate",
-      "reason": "重複しています。Google により、ユーザーがマークしたページとは異なるページが正規ページとして選択されました",
-      "impressions": 6,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/pe-first-stage/primary/r07-aptitude",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 6,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/pe-comprehensive-management/keywords/four-e-countermeasures",
-      "status": "duplicate",
-      "reason": "重複しています。Google により、ユーザーがマークしたページとは異なるページが正規ページとして選択されました",
+      "path": "/exam/pe-comprehensive-management/keywords/citizen-participation",
+      "status": "crawled-not-indexed",
+      "reason": "クロール済み - インデックス未登録",
       "impressions": 5,
       "clicks": 0
     },
     {
-      "path": "/exam/pe-comprehensive-management/keywords/key-performance-indicators",
-      "status": "duplicate",
-      "reason": "重複しています。Google により、ユーザーがマークしたページとは異なるページが正規ページとして選択されました",
-      "impressions": 5,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/civil-construction-2/guide/law-key-points",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 4,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/pe-construction/guide/competency-revision-r8",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 4,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/civil-construction-2/guide/haken-seishain",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
+      "path": "/exam/pe-comprehensive-management/keywords/flat-organization",
+      "status": "crawled-not-indexed",
+      "reason": "クロール済み - インデックス未登録",
       "impressions": 3,
       "clicks": 0
     },
     {
-      "path": "/exam/pe-first-stage/primary/r06-aptitude",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 3,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/pe-construction/guide/secondary-study-method",
+      "path": "/exam/pe-comprehensive-management/keywords/dioxin-countermeasures-act",
       "status": "crawled-not-indexed",
       "reason": "クロール済み - インデックス未登録",
       "impressions": 2,
-      "clicks": 1
-    },
-    {
-      "path": "/exam/civil-construction-1/guide/exam-overview",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 2,
       "clicks": 0
     },
     {
-      "path": "/exam/civil-construction-1/guide/public-servant",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 2,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/civil-construction-1/guide/safety-management",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 2,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/concrete-diagnostician/primary/exercise-06",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 2,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/pe-construction/keywords/environment-exam-themes",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 2,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r06-port-airport",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 2,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/civil-construction-1/guide/study-plan",
+      "path": "/exam/civil-construction-2/guide/quit-or-stay",
       "status": "discovered",
       "reason": "検出 - インデックス未登録",
       "impressions": 1,
       "clicks": 0
     },
     {
-      "path": "/exam/civil-construction-2/guide/study-plan",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 1,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/pe-comprehensive-management/guide/pattern-essay-general-contractor",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 1,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/pe-comprehensive-management/keywords/human-capital-disclosure",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 1,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/pe-comprehensive-management/keywords/performance-regulation",
-      "status": "duplicate",
-      "reason": "重複しています。Google により、ユーザーがマークしたページとは異なるページが正規ページとして選択されました",
-      "impressions": 1,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/pe-construction/keywords/bosai-kokudo-kyoujinka",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 1,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/pe-construction/keywords/power-civil-exam-themes",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 1,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/pe-construction/keywords/required-exam-themes",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 1,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/pe-construction/keywords/steel-concrete-ronbun-keyword",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 1,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r01-required",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 1,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r02-required",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 1,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r04-road",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 1,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r07-required",
+      "path": "/exam/pe-construction/keywords/railway-exam-themes",
       "status": "crawled-not-indexed",
       "reason": "クロール済み - インデックス未登録",
       "impressions": 1,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/pe-first-stage/primary/r01-basic",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 1,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/civil-construction-1/guide/career-agents",
-      "status": "crawled-not-indexed",
-      "reason": "クロール済み - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/civil-construction-1/guide/dx-jobs",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/civil-construction-1/guide/environment-management",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/civil-construction-1/guide/market-value",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/civil-construction-1/guide/public-engineer-salary-table",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/civil-construction-1/guide/quit-or-stay",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/civil-construction-1/guide/quit-public-engineer",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/civil-construction-1/guide/salary-by-role",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
       "clicks": 0
     },
     {
@@ -367,8 +87,8 @@
     },
     {
       "path": "/exam/civil-construction-1/textbook/railway-underground",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0
     },
@@ -401,13 +121,6 @@
       "clicks": 0
     },
     {
-      "path": "/exam/civil-construction-2/guide/career-change",
-      "status": "crawled-not-indexed",
-      "reason": "クロール済み - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0
-    },
-    {
       "path": "/exam/civil-construction-2/guide/concrete-key-points",
       "status": "discovered",
       "reason": "検出 - インデックス未登録",
@@ -436,20 +149,6 @@
       "clicks": 0
     },
     {
-      "path": "/exam/civil-construction-2/guide/quality-management",
-      "status": "crawled-not-indexed",
-      "reason": "クロール済み - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/civil-construction-2/guide/quit-or-stay",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0
-    },
-    {
       "path": "/exam/civil-construction-2/guide/resume",
       "status": "discovered",
       "reason": "検出 - インデックス未登録",
@@ -472,8 +171,8 @@
     },
     {
       "path": "/exam/civil-construction-2/guide/secondary-written-questions-guide",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0
     },
@@ -507,8 +206,8 @@
     },
     {
       "path": "/exam/civil-construction-2/primary/r05-kouki",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0
     },
@@ -528,22 +227,15 @@
     },
     {
       "path": "/exam/civil-construction-2/primary/r06-zenki",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/civil-construction-2/primary/r07-kouki",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0
     },
     {
       "path": "/exam/civil-construction-2/primary/r07-zenki",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0
     },
@@ -555,51 +247,9 @@
       "clicks": 0
     },
     {
-      "path": "/exam/civil-construction-2/secondary/r04",
-      "status": "crawled-not-indexed",
-      "reason": "クロール済み - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/concrete-engineer/guide/difference-chief",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/concrete-engineer/guide/eligibility-2026",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/concrete-engineer/guide/overview",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/concrete-engineer/guide/study-plan",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0
-    },
-    {
       "path": "/exam/concrete-engineer/primary/construction",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/concrete-engineer/primary/environment",
-      "status": "crawled-not-indexed",
-      "reason": "クロール済み - インデックス未登録",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0
     },
@@ -626,8 +276,8 @@
     },
     {
       "path": "/exam/concrete-engineer/textbook/construction",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0
     },
@@ -647,13 +297,20 @@
     },
     {
       "path": "/exam/concrete-engineer/textbook/production-qc",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0
     },
     {
       "path": "/exam/concrete-engineer/textbook/properties-testing",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/exam/pavement/guide/study-plan",
       "status": "discovered",
       "reason": "検出 - インデックス未登録",
       "impressions": 0,
@@ -688,13 +345,6 @@
       "clicks": 0
     },
     {
-      "path": "/exam/pe-comprehensive-management/keywords/emergency-info-systems",
-      "status": "crawled-not-indexed",
-      "reason": "クロール済み - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0
-    },
-    {
       "path": "/exam/pe-comprehensive-management/keywords/hierarchical-training",
       "status": "discovered",
       "reason": "検出 - インデックス未登録",
@@ -724,8 +374,8 @@
     },
     {
       "path": "/exam/pe-comprehensive-management/keywords/job-execution-ability",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0
     },
@@ -751,7 +401,7 @@
       "clicks": 0
     },
     {
-      "path": "/exam/pe-comprehensive-management/keywords/problem-setting-ability",
+      "path": "/exam/pe-comprehensive-management/keywords/redundancy-safety",
       "status": "crawled-not-indexed",
       "reason": "クロール済み - インデックス未登録",
       "impressions": 0,
@@ -759,13 +409,6 @@
     },
     {
       "path": "/exam/pe-comprehensive-management/keywords/sexual-harassment",
-      "status": "duplicate",
-      "reason": "重複しています。Google により、ユーザーがマークしたページとは異なるページが正規ページとして選択されました",
-      "impressions": 0,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/pe-comprehensive-management/keywords/sound-water-cycle",
       "status": "duplicate",
       "reason": "重複しています。Google により、ユーザーがマークしたページとは異なるページが正規ページとして選択されました",
       "impressions": 0,
@@ -787,8 +430,8 @@
     },
     {
       "path": "/exam/pe-construction/guide/aimai-hyougen-sahou",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0
     },
@@ -808,8 +451,8 @@
     },
     {
       "path": "/exam/pe-construction/guide/shiken-toujitsu-tejun",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0
     },
@@ -843,8 +486,8 @@
     },
     {
       "path": "/exam/pe-construction/keywords/datsutanso-kankyo-ronbun-keyword",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0
     },
@@ -864,8 +507,8 @@
     },
     {
       "path": "/exam/pe-construction/keywords/kokudo-keisei-chiiki",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0
     },
@@ -884,20 +527,6 @@
       "clicks": 0
     },
     {
-      "path": "/exam/pe-construction/keywords/urban-planning-ronbun-keyword",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r01-environment",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0
-    },
-    {
       "path": "/exam/pe-construction/past-exams/r01-power-civil",
       "status": "discovered",
       "reason": "検出 - インデックス未登録",
@@ -906,34 +535,13 @@
     },
     {
       "path": "/exam/pe-construction/past-exams/r01-river-coast",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0
     },
     {
       "path": "/exam/pe-construction/past-exams/r02-steel-concrete",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r03-railway",
-      "status": "crawled-not-indexed",
-      "reason": "クロール済み - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r03-required",
-      "status": "crawled-not-indexed",
-      "reason": "クロール済み - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r03-river-coast",
       "status": "discovered",
       "reason": "検出 - インデックス未登録",
       "impressions": 0,
@@ -947,9 +555,16 @@
       "clicks": 0
     },
     {
+      "path": "/exam/pe-construction/past-exams/r04-construction-planning",
+      "status": "crawled-not-indexed",
+      "reason": "クロール済み - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
       "path": "/exam/pe-construction/past-exams/r04-power-civil",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0
     },
@@ -969,8 +584,8 @@
     },
     {
       "path": "/exam/pe-construction/past-exams/r05-power-civil",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0
     },
@@ -983,8 +598,8 @@
     },
     {
       "path": "/exam/pe-construction/past-exams/r06-power-civil",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0
     },
@@ -1004,8 +619,8 @@
     },
     {
       "path": "/exam/pe-construction/past-exams/r08-environment",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0
     },
@@ -1032,8 +647,8 @@
     },
     {
       "path": "/exam/pe-construction/past-exams/r08-railway",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0
     },
@@ -1046,8 +661,8 @@
     },
     {
       "path": "/exam/pe-construction/past-exams/r08-river-coast",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0
     },
@@ -1130,15 +745,8 @@
     },
     {
       "path": "/exam/pe-first-stage/primary/h26-construction",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/pe-first-stage/primary/h27-aptitude",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0
     },
@@ -1151,27 +759,20 @@
     },
     {
       "path": "/exam/pe-first-stage/primary/h27-construction",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/exam/pe-first-stage/primary/h28-aptitude",
       "status": "unknown",
       "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0
     },
     {
-      "path": "/exam/pe-first-stage/primary/h28-aptitude",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0
-    },
-    {
       "path": "/exam/pe-first-stage/primary/h28-basic",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/pe-first-stage/primary/h28-construction",
       "status": "discovered",
       "reason": "検出 - インデックス未登録",
       "impressions": 0,
@@ -1185,30 +786,16 @@
       "clicks": 0
     },
     {
-      "path": "/exam/pe-first-stage/primary/h29-basic",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0
-    },
-    {
       "path": "/exam/pe-first-stage/primary/h30-aptitude",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/pe-first-stage/primary/h30-basic",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0
     },
     {
       "path": "/exam/pe-first-stage/primary/h30-construction",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0
     },
@@ -1248,16 +835,9 @@
       "clicks": 0
     },
     {
-      "path": "/exam/rccm/guide/career-value",
+      "path": "/exam/rccm/guide/difference-pe",
       "status": "unknown",
       "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0
-    },
-    {
-      "path": "/exam/rccm/guide/difference-pe",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0
     },
@@ -1284,8 +864,8 @@
     },
     {
       "path": "/exam/rccm/guide/mondai3-themes-2026",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0
     },
@@ -1298,6 +878,27 @@
     },
     {
       "path": "/exam/rccm/guide/study-plan",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/exam/surveyor/guide/gogo-bunya",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/exam/surveyor/guide/overview",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/exam/surveyor/guide/study-plan",
       "status": "discovered",
       "reason": "検出 - インデックス未登録",
       "impressions": 0,
@@ -1305,8 +906,8 @@
     },
     {
       "path": "/practice/ai-document-verification",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0
     },
@@ -1326,8 +927,8 @@
     },
     {
       "path": "/practice/concrete-pump-capacity",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0
     },
@@ -1353,27 +954,6 @@
       "clicks": 0
     },
     {
-      "path": "/practice/flood-season-river-work",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0
-    },
-    {
-      "path": "/practice/formwork-removal-timing",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0
-    },
-    {
-      "path": "/practice/formwork-waterstop-details",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0
-    },
-    {
       "path": "/practice/gis-layer-validation",
       "status": "discovered",
       "reason": "検出 - インデックス未登録",
@@ -1389,8 +969,8 @@
     },
     {
       "path": "/practice/lifting-equipment-selection",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0
     },
@@ -1410,6 +990,426 @@
     },
     {
       "path": "/practice/pile-concrete-head-treatment",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/practice/rebar-cover-placement",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/practice/river-park-erosion-control",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/practice/schedule-and-road-permit",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/practice/service-commencement",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/practice/slope-drainage-monitoring",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/practice/slope-protection-selection",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/practice/soil-improvement-sandbag",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/practice/volcanic-hazard-site-planning",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/topics/economic-management",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/topics/human-resource-management",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/topics/safety-management-cem",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/tools/concrete-maturity",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/tools/concrete-pump-plan",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/tools/concrete-time-check",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/tools/kakomon-quiz/pe-first-stage",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/tools/sling-tension",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/tools/trench-legal-check",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/standards/chubu",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/standards/chubu/special/part-02",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/standards/chubu/special/part-04",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/standards/chubu/special/part-05",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/standards/compare",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/standards/hokkaido/appendix/part-01",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/standards/hokkaido/appendix/part-02",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/standards/hokkaido/appendix/part-04",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/standards/hokkaido/appendix/part-05",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/standards/hokkaido/local",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/standards/hokkaido/local/part-02",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/standards/hokuriku/hikkei/part-02",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/standards/hokuriku/hikkei/part-04",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/standards/kanto/manual",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/standards/kanto/manual/part-01",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/standards/kanto/manual/part-02",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/standards/kanto/manual/part-03",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/standards/kanto/manual/part-05",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/standards/kinki/common/chapters/1-1",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/standards/kinki/common/chapters/1-2",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/standards/kinki/common/chapters/10-10",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/standards/kinki/common/chapters/10-11",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/standards/kinki/common/chapters/10-12",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/standards/kinki/common/chapters/10-13",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/standards/kinki/common/chapters/10-15",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/standards/kinki/common/chapters/10-16",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/standards/kinki/common/chapters/10-2",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/standards/kinki/common/chapters/10-3",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/standards/kinki/common/chapters/10-5",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/standards/kinki/common/chapters/10-6",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/standards/kinki/common/chapters/10-9",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/standards/kinki/common/chapters/2-1",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/standards/kinki/common/chapters/3-1",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/standards/kinki/common/chapters/3-2",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/standards/kinki/common/chapters/6-1",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/standards/kinki/common/chapters/6-2",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/standards/kinki/common/chapters/6-5",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/standards/kinki/common/chapters/6-6",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/standards/kinki/common/chapters/6-9",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/standards/kinki/common/chapters/7-1",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/standards/kinki/common/chapters/7-2",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/standards/kinki/common/chapters/7-4",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "path": "/standards/kinki/common/chapters/7-5",
       "status": "discovered",
       "reason": "検出 - インデックス未登録",
       "impressions": 0,
