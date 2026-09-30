@@ -33,7 +33,6 @@ const FORCE = argv.includes('--force');
 const LIMIT = Number(val('--limit')) || Infinity;
 const MAX_FAIL = Number(val('--max-consecutive-fail')) || 3;
 const files = val('--list') ? readFileSync(val('--list'), 'utf8').split('\n').map((s) => s.trim()).filter(Boolean) : [val('--article')].filter(Boolean);
-if (!files.length) { console.error('--article <path> か --list <file> が要る'); process.exit(2); }
 
 const P1_PROBE = 'この教材は、技術士（総合技術監理部門）を持つ';
 const LAB_RE = /書き換えた答案を「これで通るか」|書いた答案を第三者の目で見てもらう手段がない|月例の予想問題と施工経験記述のマンツーマン添削|土木セコカン\s*合格ラボ|完成答案ライブラリ、月例予想、添削つきプラン/;
@@ -49,7 +48,8 @@ export function parseSource(rel) {
   const body = raw.replace(/^---\n[\s\S]*?\n---\n/, '');
   const h2 = body.search(/^## /m);
   if (!noteId || h2 < 0) throw new Error(`noteId か ## 見出しが無い: ${rel}`);
-  const introMd = body.slice(0, h2).replace(/<!--[\s\S]*?-->\n?/g, '').replace(/<!--|-->/g, '').replace(/^#\s+.*\n+/, '').trim();
+  // 原稿の目印（<!-- cta:… -->）は必ず単独行なので、行ごと落とす（正規表現で HTML を剥がさない）
+  const introMd = body.slice(0, h2).split('\n').filter((l) => !l.trimStart().startsWith('<!')).join('\n').replace(/^#\s+.*\n+/, '').trim();
   const pdfSection = (body.match(/^## 印刷用PDF[^\n]*\n\n([\s\S]*)$/m) || [])[0] || '';
   const rest = body.slice(h2);
   return { abs, rel, raw, noteId, restHasCoconala: /coconala\.com/.test(rest), isPaid: f('notePricing') === 'paid', boundary: f('paidBoundary') || '試験問題|予想問題', introMd, pdfSection };
@@ -174,6 +174,7 @@ async function verifyLive(noteId) {
 }
 
 async function main() {
+  if (!files.length) { console.error('--article <path> か --list <file> が要る'); process.exit(2); }
   const state = loadState();
   const ctx = await launchNoteContext();
   const page = ctx.pages()[0] || await ctx.newPage();
