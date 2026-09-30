@@ -1507,6 +1507,18 @@
       "commit": "b3c18959ec84",
       "verification": "npm run test (PR #760 CI)",
       "note": "PR #760 マージ済み(境界寄せ+見出し一致チェック+回帰テスト7件)。会員限定記事の live 見出し確認は、合格ラボ撤退で当該記事を非公開にする DN-0460 に吸収"
+    },
+    {
+      "id": "DN-0280",
+      "at": "2026-09-30",
+      "task": "X の販売投稿に、締切の統一・合格発表日への集中・新商品の段階告知を入れる",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "4b84ddc94433",
+      "verification": "npm run check-x-campaign-plan (227件実検査 OK)",
+      "note": "x-post-policy §5.4 追記・10月2級計画へ反映。締切日決定は DN-0445 へ移管"
     }
   ]
 }
