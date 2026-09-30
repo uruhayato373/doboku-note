@@ -1,0 +1,62 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材は主任技士教材の柱・梁の打継目位置（令和2年度問題16）。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:500px;width:100%"
+  role="img"
+  aria-label="柱と梁の立面図。柱の高さ h の中間（h/2）の位置ア、梁の上端に接する柱の位置イ、梁端部付近の位置ウ、梁端部から l/4 の位置エの4か所に打継目の候補を破線で示している">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 12px; fill: #555; }
+      .t-label { font-size: 12px; fill: #1a3a5c; }
+      .t-name  { font-size: 14px; fill: #1a3a5c; font-weight: 700; }
+      .frame { stroke: #1a3a5c; stroke-width: 2; fill: none; }
+      .ground { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+      .dim { stroke: #555; stroke-width: 1.2; fill: none; }
+      .guide { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .joint { stroke: #2e6da4; stroke-width: 2; stroke-dasharray: 5 3; fill: none; }
+    </style>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#555"/></marker>
+  </defs>
+  <text class="t-lead" x="250" y="14" text-anchor="middle">破線が打継目の候補位置（寸法は位置関係のみ示す）</text>
+  <!-- 上階柱 -->
+  <path class="frame" d="M110,145 L110,24 M138,145 L138,24 M375,145 L375,24 M403,145 L403,24"/>
+  <!-- 梁（上端線と下端線・ハンチ） -->
+  <path class="frame" d="M30,145 L110,145 M138,145 L375,145 M403,145 L480,145"/>
+  <path class="frame" d="M30,168 L98,168 L110,178 M138,178 L155,168 L357,168 L375,178 M403,178 L418,168 L480,168"/>
+  <!-- 下階柱 -->
+  <path class="frame" d="M110,178 L110,275 M138,178 L138,275 M375,178 L375,275 M403,178 L403,275"/>
+  <!-- 地盤 -->
+  <line class="ground" x1="30" y1="275" x2="480" y2="275"/>
+  <path class="ground" d="M30,288 L40,276 M42,288 L52,276 M54,288 L64,276 M66,288 L76,276 M78,288 L88,276 M90,288 L100,276 M102,288 L112,276 M114,288 L124,276 M126,288 L136,276 M138,288 L148,276 M150,288 L160,276 M162,288 L172,276 M174,288 L184,276 M186,288 L196,276 M198,288 L208,276 M210,288 L220,276 M222,288 L232,276 M234,288 L244,276 M246,288 L256,276 M258,288 L268,276 M270,288 L280,276 M282,288 L292,276 M294,288 L304,276 M306,288 L316,276 M318,288 L328,276 M330,288 L340,276 M342,288 L352,276 M354,288 L364,276 M366,288 L376,276 M378,288 L388,276 M390,288 L400,276 M402,288 L412,276 M414,288 L424,276 M426,288 L436,276 M438,288 L448,276 M450,288 L460,276 M462,288 L472,276 M474,288 L484,276"/>
+  <!-- 打継目候補 -->
+  <line class="joint" x1="106" y1="222" x2="142" y2="222"/>
+  <line class="joint" x1="106" y1="143" x2="142" y2="143"/>
+  <line class="joint" x1="155" y1="138" x2="155" y2="170"/>
+  <line class="joint" x1="205" y1="138" x2="205" y2="170"/>
+  <text class="t-name" x="148" y="219">ア</text>
+  <text class="t-name" x="98" y="138" text-anchor="end">イ</text>
+  <text class="t-name" x="155" y="131" text-anchor="middle">ウ</text>
+  <text class="t-name" x="205" y="131" text-anchor="middle">エ</text>
+  <text class="t-label" x="290" y="136" text-anchor="middle">梁</text>
+  <text class="t-label" x="146" y="264">柱</text>
+  <!-- 高さ寸法 h, h/2 -->
+  <line class="guide" x1="56" y1="178" x2="108" y2="178"/>
+  <line class="guide" x1="88" y1="222" x2="104" y2="222"/>
+  <line class="dim" x1="62" y1="226" x2="62" y2="179" marker-end="url(#ar)"/>
+  <line class="dim" x1="62" y1="226" x2="62" y2="273" marker-end="url(#ar)"/>
+  <text class="t-axis" x="54" y="230" text-anchor="end">h</text>
+  <line class="dim" x1="92" y1="248" x2="92" y2="224" marker-end="url(#ar)"/>
+  <line class="dim" x1="92" y1="248" x2="92" y2="273" marker-end="url(#ar)"/>
+  <text class="t-axis" x="86" y="252" text-anchor="end">h/2</text>
+  <!-- 梁の寸法 l/4, l -->
+  <line class="guide" x1="205" y1="170" x2="205" y2="200"/>
+  <line class="dim" x1="180" y1="196" x2="156" y2="196" marker-end="url(#ar)"/>
+  <line class="dim" x1="180" y1="196" x2="204" y2="196" marker-end="url(#ar)"/>
+  <text class="t-axis" x="180" y="213" text-anchor="middle">l/4</text>
+  <line class="guide" x1="155" y1="170" x2="155" y2="246"/>
+  <line class="guide" x1="357" y1="170" x2="357" y2="246"/>
+  <line class="dim" x1="256" y1="242" x2="156" y2="242" marker-end="url(#ar)"/>
+  <line class="dim" x1="256" y1="242" x2="356" y2="242" marker-end="url(#ar)"/>
+  <text class="t-axis" x="256" y="236" text-anchor="middle">l</text>
+</svg>

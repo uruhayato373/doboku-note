@@ -1,0 +1,50 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材は主任技士教材のミキサの練混ぜ時間の決定（JIS A 1119）。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="練混ぜ時間を延ばすとモルタルや粗骨材量の差が小さくなる傾向を示す模式図。試験値、推定平均線、95%信頼限界線、許容値を示す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-ax { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">数値なし・傾向を示す（横軸＝練混ぜ時間、縦軸＝差）</text>
+
+  <line class="line-ax" x1="50" y1="240" x2="370" y2="240"/>
+  <line class="line-ax" x1="50" y1="240" x2="50" y2="36"/>
+  <text class="t-axis" x="375" y="244">時間</text>
+  <text class="t-axis" x="54" y="34">差</text>
+
+  <!-- 95% confidence limit (upper) -->
+  <path class="line-dash" d="M60 60 C 110 100 170 150 350 190"/>
+  <text class="t-label" x="200" y="128">95%信頼限界線</text>
+  <!-- mean line -->
+  <path class="line-main" d="M60 90 C 110 140 170 195 350 222"/>
+  <text class="t-label" x="246" y="232">推定平均線</text>
+
+  <!-- allowable line -->
+  <line class="line-dash" x1="50" y1="105" x2="370" y2="105"/>
+  <text class="t-label" x="366" y="98" text-anchor="end">許容値</text>
+
+  <!-- points -->
+  <circle cx="72" cy="78" r="3" fill="#2e6da4"/>
+  <circle cx="72" cy="98" r="3" fill="#2e6da4"/>
+  <circle cx="180" cy="160" r="3" fill="#2e6da4"/>
+  <circle cx="180" cy="190" r="3" fill="#2e6da4"/>
+  <circle cx="320" cy="205" r="3" fill="#2e6da4"/>
+  <circle cx="320" cy="232" r="3" fill="#2e6da4"/>
+  <line class="line-dash" x1="182" y1="194" x2="192" y2="204"/>
+  <text class="t-label" x="188" y="216">試験値</text>
+
+  <rect class="box" x="20" y="262" width="360" height="46" rx="6"/>
+  <text class="t-desc" x="34" y="281">練混ぜ時間が長いほど差は小さくなる</text>
+  <text class="t-desc" x="34" y="298">信頼限界線が許容値以下となる時間を選ぶ考え方</text>
+</svg>

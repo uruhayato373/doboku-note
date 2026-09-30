@@ -1,0 +1,62 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材は主任技士教材のラーメンの曲げモーメント図の重ね合わせ。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 560 420" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:560px;width:100%"
+  role="img"
+  aria-label="鉛直等分布荷重による曲げモーメント図と水平荷重による曲げモーメント図を足し合わせると、右上の隅角部の内側が引張になる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-name  { font-size: 13px; fill: #1a3a5c; }
+      .frame { stroke: #1a3a5c; stroke-width: 2; fill: none; }
+      .line-main { stroke: #2e6da4; stroke-width: 1.8; fill: #e8f0fe; }
+      .line-thin { stroke: #2e6da4; stroke-width: 1.5; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .crack { stroke: #2e6da4; stroke-width: 1.5; fill: none; }
+      .sup { stroke: #1a3a5c; stroke-width: 1.5; fill: #f5f5f5; }
+      .load { stroke: #1a3a5c; stroke-width: 1.5; fill: none; }
+    </style>
+    <marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1a3a5c"/></marker>
+  </defs>
+<text class="t-lead" x="280" y="16" text-anchor="middle">荷重を別々に考えて足し合わせる（数値なし・形を示す）</text>
+<polyline class="frame" points="40,150 40,50 140,50 140,150"/>
+<path class="sup" d="M40,150 l-8,12 h16 z"/><path class="sup" d="M140,150 l-8,12 h16 z"/>
+<line class="load" x1="40" y1="26" x2="40" y2="47" marker-end="url(#ar)"/>
+<line class="load" x1="65" y1="26" x2="65" y2="47" marker-end="url(#ar)"/>
+<line class="load" x1="90" y1="26" x2="90" y2="47" marker-end="url(#ar)"/>
+<line class="load" x1="115" y1="26" x2="115" y2="47" marker-end="url(#ar)"/>
+<line class="load" x1="140" y1="26" x2="140" y2="47" marker-end="url(#ar)"/>
+<line class="load" x1="40" y1="26" x2="140" y2="26"/>
+<polyline class="frame" points="230,150 230,50 330,50 330,150"/>
+<path class="sup" d="M230,150 l-8,12 h16 z"/><path class="sup" d="M330,150 l-8,12 h16 z"/>
+<line class="load" x1="366" y1="56" x2="334" y2="56" marker-end="url(#ar)"/>
+<polyline class="frame" points="420,150 420,50 520,50 520,150"/>
+<path class="sup" d="M420,150 l-8,12 h16 z"/><path class="sup" d="M520,150 l-8,12 h16 z"/>
+<line class="load" x1="420" y1="26" x2="420" y2="47" marker-end="url(#ar)"/>
+<line class="load" x1="445" y1="26" x2="445" y2="47" marker-end="url(#ar)"/>
+<line class="load" x1="470" y1="26" x2="470" y2="47" marker-end="url(#ar)"/>
+<line class="load" x1="495" y1="26" x2="495" y2="47" marker-end="url(#ar)"/>
+<line class="load" x1="520" y1="26" x2="520" y2="47" marker-end="url(#ar)"/>
+<line class="load" x1="420" y1="26" x2="520" y2="26"/>
+<line class="load" x1="556" y1="56" x2="524" y2="56" marker-end="url(#ar)"/>
+<text class="t-name" x="183" y="108" text-anchor="middle">＋</text>
+<text class="t-name" x="373" y="108" text-anchor="middle">＝</text>
+<text class="t-axis" x="280" y="196" text-anchor="middle">荷重</text>
+<path class="line-main" d="M40,230 Q90,300 140,230 Z"/>
+<polyline class="frame" points="40,330 40,230 140,230 140,330"/>
+<path class="sup" d="M40,330 l-8,12 h16 z"/><path class="sup" d="M140,330 l-8,12 h16 z"/>
+<polygon class="line-main" points="230,230 330,274 330,330 286,230"/>
+<polyline class="frame" points="230,330 230,230 330,230 330,330"/>
+<path class="sup" d="M230,330 l-8,12 h16 z"/><path class="sup" d="M330,330 l-8,12 h16 z"/>
+<path class="line-main" d="M420,230 Q470,284 520,274 L520,330 L476,230 Z"/>
+<polyline class="frame" points="420,330 420,230 520,230 520,330"/>
+<path class="sup" d="M420,330 l-8,12 h16 z"/><path class="sup" d="M520,330 l-8,12 h16 z"/>
+<text class="t-name" x="183" y="288" text-anchor="middle">＋</text>
+<text class="t-name" x="373" y="288" text-anchor="middle">＝</text>
+<text class="t-axis" x="280" y="376" text-anchor="middle">曲げモーメント（内側引張）</text>
+<text class="t-label" x="90" y="400" text-anchor="middle">梁の中央が内側引張</text>
+<text class="t-label" x="280" y="400" text-anchor="middle">右柱と隅角部が内側引張</text>
+<text class="t-label" x="470" y="400" text-anchor="middle">隅角部の内側が引張</text>
+</svg>

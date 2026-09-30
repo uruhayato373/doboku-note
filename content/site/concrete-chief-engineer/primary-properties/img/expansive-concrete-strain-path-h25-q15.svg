@@ -1,0 +1,41 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材は主任技士教材の膨張材コンクリートの温度とひずみの経時変化。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="膨張材を用いた壁コンクリートの中心温度（横軸）と無応力ひずみ（縦軸）の関係を、打込み時から順に区間(1)〜(4)の矢印でたどる模式図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 12px; fill: #1a3a5c; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+    </style>
+    <marker id="ar" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#2e6da4"/></marker>
+  </defs>
+  <text class="t-lead" x="200" y="12" text-anchor="middle">横軸＝中心のコンクリート温度、縦軸＝無応力ひずみ</text>
+  <text class="t-lead" x="200" y="26" text-anchor="middle">（数値なし・経路の形を示す）</text>
+
+  <line class="line-dash" x1="50" y1="250" x2="375" y2="250"/>
+  <line class="line-dash" x1="50" y1="250" x2="50" y2="36"/>
+  <text class="t-axis" x="50" y="268">低い</text>
+  <text class="t-axis" x="375" y="268" text-anchor="end">高い</text>
+  <text class="t-axis" x="212" y="268" text-anchor="middle">コンクリート温度</text>
+  <text class="t-axis" x="34" y="48" text-anchor="end">膨張</text>
+  <text class="t-axis" x="34" y="250" text-anchor="end">収縮</text>
+
+  <circle cx="284" cy="87" r="4" fill="#2e6da4"/>
+  <text class="t-label" x="292" y="98">打込み時</text>
+
+  <line class="line-main" x1="284" y1="87" x2="315" y2="44"/>
+  <line class="line-main" x1="315" y1="44" x2="265" y2="50" marker-end="url(#ar)"/>
+  <line class="line-main" x1="265" y1="50" x2="122" y2="177" marker-end="url(#ar)"/>
+  <line class="line-main" x1="122" y1="177" x2="300" y2="130" marker-end="url(#ar)"/>
+  <line class="line-main" x1="300" y1="130" x2="114" y2="232" marker-end="url(#ar)"/>
+
+  <text class="t-label" x="290" y="36">(1)</text>
+  <text class="t-label" x="180" y="100">(2)</text>
+  <text class="t-label" x="215" y="158">(3)</text>
+  <text class="t-label" x="230" y="198">(4)</text>
+</svg>
