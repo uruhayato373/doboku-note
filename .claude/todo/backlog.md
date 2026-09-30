@@ -272,10 +272,7 @@
 
 **起点**: 2026-09-30 に運営者が、測量士・舗装・管工事の択一過去問をサイトへ展開すると決めた。測量士補は受験者 13,363 人（R7・exam-stats.json）で3資格中最多、国土地理院が問題と正答を公開している。サイトの `/exam/surveyor/` には受験ガイドしか無い（PR #738）。
 
-**やること**:
-1. surveyor カテゴリに過去問グループ（primary）を足す（categories.json groups・doc-classifier・category-groups・CategoryJumpNav・category-curriculum。既存の concrete-diagnostician の primary を手本にする）
-2. 令和4〜8年の問題を年度ごとに構造化し、正答（公式 PDF）と選択肢ごとの解説・ExamPoint を付ける。原本は Drive `原資料PDF/過去問/測量士補/`。R06・R07 はテキスト層が無いので画像から読む
-3. 計算問題は途中式を付け、正答と一致を確認する。past-exam-qa で採点する
+**やること**: 2026-10-01 に PR #778 で 5 年分 140 問（令和4〜8年・全問が国土地理院の公式正答と一致・年度ごとに past-exam-qa 監査済み）とカテゴリの過去問グループをマージした。残りは deploy 後に `/exam/surveyor/` の過去問が本番に出ることを確かめ、修正後の年度を past-exam-qa で再監査する。R08 No.12（区間の較差の判定）は公式の規定文を未確認。
 
 **完了条件**: 5 年分 140 問が `/exam/surveyor/` の過去問として本番に出て、全問の正答が公式と一致している（past-exam-qa 合格）。
 
