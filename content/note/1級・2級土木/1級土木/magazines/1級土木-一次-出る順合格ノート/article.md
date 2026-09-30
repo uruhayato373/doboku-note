@@ -43,12 +43,19 @@ cover:
 
 第1次検定は、土木一般・専門土木・法規・共通工学・施工管理法から出題されます。このうち施工管理法（安全・品質・施工計画・工程・環境保全）は必須問題として全問解答が求められる分野で、努力が最も確実に得点に変わります。法規は選択問題ですが、各法令がほぼ毎年1問ずつ出るため予測がつきやすく、選択のなかでは得点源になります。本記事は、必須の施工管理法を中心に、得点源の法規も加えて、12年分の頻度データから出る順を示します。
 
----
-
 **関連リンク**
 
 - [第2次検定のはじめ方（無料）](https://doboku-note.com/exam/civil-construction-1/secondary/getting-started?utm_source=note&utm_medium=referral&utm_campaign=civil1-ichiji-ronten&utm_content=secondary-start)
 - [第1次検定 出題傾向と得点戦略（無料）](https://doboku-note.com/exam/civil-construction-1/guide/strategy?utm_source=note&utm_medium=referral&utm_campaign=civil1-ichiji-ronten&utm_content=civil1-strategy)
+
+---
+
+<!-- cta:coconala-custom -->
+一次のあとに控える二次の施工経験記述は、ココナラで個別に対応しています。書いた答案があれば全5テーマの添削、まだ書けていなければヒアリングから骨子（構成）をつくります。
+
+https://coconala.com/services/4418735
+
+https://coconala.com/services/4350199
 
 <!-- cta:civil-mokuji -->
 1級・2級土木のほかの記事・経験記述の答案集は「土木もくじ」から一覧できます。
@@ -272,7 +279,6 @@ https://coconala.com/services/4418735
 まだ答案が無い人は、ヒアリングから骨子（構成）をつくるこちらへ。
 
 https://coconala.com/services/4350199
-
 
 ## 出典・データについて
 
