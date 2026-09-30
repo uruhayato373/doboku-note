@@ -78,7 +78,12 @@ fi
 # コンテンツ品質ラチェット（lint-mdx-mobile --baseline --ci）を staged の content/site/**/*.mdx だけに回す。
 # CI（quality-audit content-quality-ratchet）にしか無く、develop 直 push の記事が CI を赤くしてから気づいていた
 # （2026-09-30 guide-career の 15-1）。baseline に無い新規違反だけで止める＝既存の在庫では止めない。
-git -c core.quotepath=false diff --cached --name-only -z --diff-filter=ACMR -- 'content/site/**/*.mdx' > /tmp/doboku-content-quality-staged.list
+# CI（--all）と同じく published: true の記事だけを対象にする（非公開の下書きで止めない）。
+git -c core.quotepath=false diff --cached --name-only -z --diff-filter=ACMR -- 'content/site/**/*.mdx' > /tmp/doboku-content-quality-staged.all
+: > /tmp/doboku-content-quality-staged.list
+if [ -s /tmp/doboku-content-quality-staged.all ]; then
+  xargs -0 grep -l --null -E '^published: *true' < /tmp/doboku-content-quality-staged.all > /tmp/doboku-content-quality-staged.list
+fi
 if [ -s /tmp/doboku-content-quality-staged.list ] && ! xargs -0 node .claude/scripts/lint-mdx-mobile.mjs --baseline --ci < /tmp/doboku-content-quality-staged.list > /tmp/doboku-content-quality-staged.log 2>&1; then
   tail -20 /tmp/doboku-content-quality-staged.log
   echo "[content-quality --staged] baseline に無い新規違反がある。上の指摘を直してから commit する（詳細は node .claude/scripts/lint-mdx-mobile.mjs <file>）"
