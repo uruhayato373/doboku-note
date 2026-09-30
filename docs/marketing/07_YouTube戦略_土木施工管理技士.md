@@ -5,7 +5,7 @@
 **最終更新**: 2026-09-05（v1.1 通常動画84本＋Shorts168本の公開承認）
 **親 SSOT**: [01_SNS集客戦略.md](./01_SNS集客戦略.md)（チャネル配分）／[06_動画コンテンツ運用設計.md](./06_動画コンテンツ運用設計.md)（動画パック・役割・管理・KPI・段階実装）。本ファイルは 1級・2級土木固有のテーマ・競合方針・季節運用・Red Line だけを上書きする
 **作業契約**: [video-content-policy.md](../../.claude/knowledge/reference/video-content-policy.md)（schema・状態・ゲート）
-**商品・価格の真実源**: [noteコンテンツ計画.md](../../content/note/1級・2級土木/noteコンテンツ計画.md)（メンバーシップ「土木セコカン合格ラボ」旗艦＋買い切りアンカー）／[ココナラ展開キット.md](../../content/note/1級・2級土木/ココナラ展開キット.md)（S1 診断・S2 添削・S3 作成）／実価格は `src/lib/note-magazines.ts`・`src/lib/coconala-services.ts`
+**商品・価格の真実源**: [noteコンテンツ計画.md](../../content/note/1級・2級土木/noteコンテンツ計画.md)（メンバーシップ「土木セコカン合格ラボ」は 2026-09-30 撤退・現行は買い切り）／[ココナラ展開キット.md](../../content/note/1級・2級土木/ココナラ展開キット.md)（S1 診断・S2 添削・S3 作成）／実価格は `src/lib/note-magazines.ts`・`src/lib/coconala-services.ts`
 **企画在庫**: [動画パック企画バンク](../../content/sns/video-packs/README.md)（1級66＋2級18＝84パック）
 **実行タスク**: `.claude/todo/backlog.md` の `DN-0110`
 
@@ -147,7 +147,7 @@ KPI 体系は 06 §9 を継承し二重定義しない。土木固有の主 KPI 
 
 - `utm_source=youtube` のサイト・note 流入（GA4・`utm_campaign={packId}` join は `/metrics/video` 実装済み）
 - **ココナラへの遷移・相談/受注シグナル**（orders-log で動画起点を照合）
-- **メンバーシップ「土木セコカン合格ラボ」の入会導線クリック**
+- ~~メンバーシップ「土木セコカン合格ラボ」の入会導線クリック~~（2026-09-30 撤退で計測対象外）
 
 判定時点・継続/停止ラインは DN-0110 Phase 4（pilot 公開後 6 週間）が真実源。本書はそこへ土木の判定材料（P1/P2 と P3/P4 のどちらが送客したか）を追加する: 送客が P1/P2 に偏れば P3/P4 の量産を止め、経験記述特化へ絞る。
 

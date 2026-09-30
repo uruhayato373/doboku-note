@@ -141,6 +141,14 @@ Drive 側は `マイドライブ/doboku-note/` を単一ルートとして管理
 `build-standard-articles` の入力は repo 側の `content/site/standards-library/catalog.json` で、
 Drive のパスは参照しない＝この移動でビルドは壊れない。
 
+> [!note] 共通仕様書 ocr/ と standards-library の関係（DN-0180・2026-09-30 実査）
+> Drive の `ocr/part-*.md` 274 本は `content/site/standards-library/**/part-NN.md`（274 本）と **sha256 が全件一致**
+> する同一物で、72 文書すべてが原本 sha256 でも `standards-catalog`（`std:{agencyId}/{documentId}`）と 1 対 1 に対応する
+> （Drive だけ 0・site だけ 0）。更新方向は「原本 PDF → 生成器 → repo `standards-library`（公開・正本）」で、
+> Drive `ocr/` は生成物の**写し**（監査・原本隣接の保管）であり入力ではない。置き場は現状維持
+> （`ocr/`＝人の保管、公開側＝repo）。`source-transcript` 台帳の対象外でよい。
+> 対応表は `.claude/state/assets/standards-drive-map.json`。Drive 側の削除・移動はしていない。
+
 `content/sources/textbook/**` の文字起こし本文（.md/.html）と派生図版は、書籍の著作権物をほぼそのまま
 含むため 2026-08-27 に public repo（`doboku-note`）の追跡から外した。現在の実体は Drive の原資料内 `ocr/` にある。
 `.gitignore` の `content/sources/textbook/**`（README.md だけ `!` で例外）が実体。

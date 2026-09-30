@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-09-30T10:58:55.518Z",
+  "generated_at": "2026-09-30T11:38:59.554Z",
   "summary": {
-    "total_mdx_files": 1313,
+    "total_mdx_files": 1316,
     "total_unique_tags": 126,
     "allowlist_size": 322,
     "known_count": 126,
@@ -2613,11 +2613,14 @@
     },
     {
       "name": "記述式対策",
-      "count": 80,
+      "count": 83,
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-essay-pattern-cross-year-application",
         "pe-comprehensive-management-essay-persona-guide",
+        "pe-comprehensive-management-h21-essay-general-contractor",
+        "pe-comprehensive-management-h21-essay-river-consultant",
+        "pe-comprehensive-management-h21-essay-road-municipality",
         "pe-comprehensive-management-h22-essay-general-contractor",
         "pe-comprehensive-management-h22-essay-river-consultant",
         "pe-comprehensive-management-h22-essay-road-municipality",
@@ -2859,7 +2862,7 @@
     },
     {
       "name": "技術士（総合技術監理部門）",
-      "count": 65,
+      "count": 68,
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-analytic-hierarchy-process",
@@ -2870,6 +2873,9 @@
         "pe-comprehensive-management-exam-application-guide",
         "pe-comprehensive-management-exam-index",
         "pe-comprehensive-management-four-m-of-production",
+        "pe-comprehensive-management-h21-essay-general-contractor",
+        "pe-comprehensive-management-h21-essay-river-consultant",
+        "pe-comprehensive-management-h21-essay-road-municipality",
         "pe-comprehensive-management-h22-essay-general-contractor",
         "pe-comprehensive-management-h22-essay-river-consultant",
         "pe-comprehensive-management-h22-essay-road-municipality",
@@ -3267,11 +3273,14 @@
     },
     {
       "name": "模範論文",
-      "count": 38,
+      "count": 41,
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-essay-pattern-cross-year-application",
         "pe-comprehensive-management-essay-persona-guide",
+        "pe-comprehensive-management-h21-essay-general-contractor",
+        "pe-comprehensive-management-h21-essay-river-consultant",
+        "pe-comprehensive-management-h21-essay-road-municipality",
         "pe-comprehensive-management-h22-essay-general-contractor",
         "pe-comprehensive-management-h22-essay-river-consultant",
         "pe-comprehensive-management-h22-essay-road-municipality",
@@ -3312,10 +3321,13 @@
     },
     {
       "name": "受験者属性別",
-      "count": 37,
+      "count": 40,
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-essay-persona-guide",
+        "pe-comprehensive-management-h21-essay-general-contractor",
+        "pe-comprehensive-management-h21-essay-river-consultant",
+        "pe-comprehensive-management-h21-essay-road-municipality",
         "pe-comprehensive-management-h22-essay-general-contractor",
         "pe-comprehensive-management-h22-essay-river-consultant",
         "pe-comprehensive-management-h22-essay-road-municipality",
@@ -3394,6 +3406,42 @@
       ]
     },
     {
+      "name": "道路",
+      "count": 29,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-2-guide-road-pavement-key-points",
+        "civil-practice-asphalt-pavement-control",
+        "civil-practice-road-fixtures-precast",
+        "civil-practice-schedule-and-road-permit",
+        "civil-practice-service-commencement",
+        "pe-comprehensive-management-essay-pattern-cross-year-application",
+        "pe-comprehensive-management-h21-essay-road-municipality",
+        "pe-comprehensive-management-h22-essay-road-municipality",
+        "pe-comprehensive-management-h23-essay-road-municipality",
+        "pe-comprehensive-management-h24-essay-road-municipality",
+        "pe-comprehensive-management-h25-essay-road-municipality",
+        "pe-comprehensive-management-h26-essay-road-municipality",
+        "pe-comprehensive-management-h27-essay-road-municipality",
+        "pe-comprehensive-management-pattern-essay-road-municipality",
+        "pe-comprehensive-management-r03-essay-road-municipality",
+        "pe-comprehensive-management-r04-essay-road-municipality",
+        "pe-comprehensive-management-r05-essay-road-municipality",
+        "pe-comprehensive-management-r06-essay-road-municipality",
+        "pe-comprehensive-management-r07-essay-road-municipality",
+        "pe-construction-r01-road",
+        "pe-construction-r02-road",
+        "pe-construction-r03-road",
+        "pe-construction-r04-road",
+        "pe-construction-r05-road",
+        "pe-construction-r06-road",
+        "pe-construction-r07-road",
+        "pe-construction-r08-road",
+        "pe-construction-road-exam-themes",
+        "pe-construction-road-ronbun-keyword"
+      ]
+    },
+    {
       "name": "土工",
       "count": 28,
       "inAllowlist": true,
@@ -3461,41 +3509,6 @@
         "pe-comprehensive-management-method-planning",
         "pe-comprehensive-management-process-planning-construction",
         "pe-construction-construction-planning-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "道路",
-      "count": 28,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-2-guide-road-pavement-key-points",
-        "civil-practice-asphalt-pavement-control",
-        "civil-practice-road-fixtures-precast",
-        "civil-practice-schedule-and-road-permit",
-        "civil-practice-service-commencement",
-        "pe-comprehensive-management-essay-pattern-cross-year-application",
-        "pe-comprehensive-management-h22-essay-road-municipality",
-        "pe-comprehensive-management-h23-essay-road-municipality",
-        "pe-comprehensive-management-h24-essay-road-municipality",
-        "pe-comprehensive-management-h25-essay-road-municipality",
-        "pe-comprehensive-management-h26-essay-road-municipality",
-        "pe-comprehensive-management-h27-essay-road-municipality",
-        "pe-comprehensive-management-pattern-essay-road-municipality",
-        "pe-comprehensive-management-r03-essay-road-municipality",
-        "pe-comprehensive-management-r04-essay-road-municipality",
-        "pe-comprehensive-management-r05-essay-road-municipality",
-        "pe-comprehensive-management-r06-essay-road-municipality",
-        "pe-comprehensive-management-r07-essay-road-municipality",
-        "pe-construction-r01-road",
-        "pe-construction-r02-road",
-        "pe-construction-r03-road",
-        "pe-construction-r04-road",
-        "pe-construction-r05-road",
-        "pe-construction-r06-road",
-        "pe-construction-r07-road",
-        "pe-construction-r08-road",
-        "pe-construction-road-exam-themes",
-        "pe-construction-road-ronbun-keyword"
       ]
     },
     {
@@ -3664,6 +3677,31 @@
       ]
     },
     {
+      "name": "河川",
+      "count": 18,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-textbook-river-works",
+        "civil-construction-2-guide-river-sabo-key-points",
+        "civil-practice-flood-season-river-work",
+        "civil-practice-river-park-erosion-control",
+        "pe-comprehensive-management-h21-essay-river-consultant",
+        "pe-comprehensive-management-h22-essay-river-consultant",
+        "pe-comprehensive-management-h23-essay-river-consultant",
+        "pe-comprehensive-management-h24-essay-river-consultant",
+        "pe-comprehensive-management-h25-essay-river-consultant",
+        "pe-comprehensive-management-h26-essay-river-consultant",
+        "pe-comprehensive-management-h27-essay-river-consultant",
+        "pe-comprehensive-management-pattern-essay-river-consultant",
+        "pe-comprehensive-management-r03-essay-river-consultant",
+        "pe-comprehensive-management-r04-essay-river-consultant",
+        "pe-comprehensive-management-r05-essay-river-consultant",
+        "pe-comprehensive-management-r06-essay-river-consultant",
+        "pe-comprehensive-management-r07-essay-river-consultant",
+        "pe-construction-river-coast-ronbun-keyword"
+      ]
+    },
+    {
       "name": "働き方改革",
       "count": 17,
       "inAllowlist": true,
@@ -3685,30 +3723,6 @@
         "pe-comprehensive-management-side-jobs",
         "pe-comprehensive-management-stress-check-system",
         "pe-construction-ninaite-kakuho-seisansei"
-      ]
-    },
-    {
-      "name": "河川",
-      "count": 17,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-textbook-river-works",
-        "civil-construction-2-guide-river-sabo-key-points",
-        "civil-practice-flood-season-river-work",
-        "civil-practice-river-park-erosion-control",
-        "pe-comprehensive-management-h22-essay-river-consultant",
-        "pe-comprehensive-management-h23-essay-river-consultant",
-        "pe-comprehensive-management-h24-essay-river-consultant",
-        "pe-comprehensive-management-h25-essay-river-consultant",
-        "pe-comprehensive-management-h26-essay-river-consultant",
-        "pe-comprehensive-management-h27-essay-river-consultant",
-        "pe-comprehensive-management-pattern-essay-river-consultant",
-        "pe-comprehensive-management-r03-essay-river-consultant",
-        "pe-comprehensive-management-r04-essay-river-consultant",
-        "pe-comprehensive-management-r05-essay-river-consultant",
-        "pe-comprehensive-management-r06-essay-river-consultant",
-        "pe-comprehensive-management-r07-essay-river-consultant",
-        "pe-construction-river-coast-ronbun-keyword"
       ]
     },
     {
@@ -3896,11 +3910,12 @@
     },
     {
       "name": "地方公共団体",
-      "count": 14,
+      "count": 15,
       "inAllowlist": true,
       "usedIn": [
         "civil-practice-board-of-audit-inspection",
         "pe-comprehensive-management-essay-pattern-cross-year-application",
+        "pe-comprehensive-management-h21-essay-road-municipality",
         "pe-comprehensive-management-h22-essay-road-municipality",
         "pe-comprehensive-management-h23-essay-road-municipality",
         "pe-comprehensive-management-h24-essay-road-municipality",
@@ -3913,6 +3928,28 @@
         "pe-comprehensive-management-r05-essay-road-municipality",
         "pe-comprehensive-management-r06-essay-road-municipality",
         "pe-comprehensive-management-r07-essay-road-municipality"
+      ]
+    },
+    {
+      "name": "施工",
+      "count": 15,
+      "inAllowlist": true,
+      "usedIn": [
+        "concrete-chief-engineer-textbook-construction",
+        "concrete-engineer-textbook-construction",
+        "pe-comprehensive-management-h21-essay-general-contractor",
+        "pe-comprehensive-management-h22-essay-general-contractor",
+        "pe-comprehensive-management-h23-essay-general-contractor",
+        "pe-comprehensive-management-h24-essay-general-contractor",
+        "pe-comprehensive-management-h25-essay-general-contractor",
+        "pe-comprehensive-management-h26-essay-general-contractor",
+        "pe-comprehensive-management-h27-essay-general-contractor",
+        "pe-comprehensive-management-pattern-essay-general-contractor",
+        "pe-comprehensive-management-r03-essay-general-contractor",
+        "pe-comprehensive-management-r04-essay-general-contractor",
+        "pe-comprehensive-management-r05-essay-general-contractor",
+        "pe-comprehensive-management-r06-essay-general-contractor",
+        "pe-comprehensive-management-r07-essay-general-contractor"
       ]
     },
     {
@@ -3958,27 +3995,6 @@
       ]
     },
     {
-      "name": "施工",
-      "count": 14,
-      "inAllowlist": true,
-      "usedIn": [
-        "concrete-chief-engineer-textbook-construction",
-        "concrete-engineer-textbook-construction",
-        "pe-comprehensive-management-h22-essay-general-contractor",
-        "pe-comprehensive-management-h23-essay-general-contractor",
-        "pe-comprehensive-management-h24-essay-general-contractor",
-        "pe-comprehensive-management-h25-essay-general-contractor",
-        "pe-comprehensive-management-h26-essay-general-contractor",
-        "pe-comprehensive-management-h27-essay-general-contractor",
-        "pe-comprehensive-management-pattern-essay-general-contractor",
-        "pe-comprehensive-management-r03-essay-general-contractor",
-        "pe-comprehensive-management-r04-essay-general-contractor",
-        "pe-comprehensive-management-r05-essay-general-contractor",
-        "pe-comprehensive-management-r06-essay-general-contractor",
-        "pe-comprehensive-management-r07-essay-general-contractor"
-      ]
-    },
-    {
       "name": "適性科目",
       "count": 14,
       "inAllowlist": true,
@@ -4017,6 +4033,46 @@
         "pe-comprehensive-management-r06-essay-road-municipality",
         "pe-construction-carbon-neutral-kensetsu",
         "pe-construction-datsutanso-kankyo-ronbun-keyword"
+      ]
+    },
+    {
+      "name": "ゼネコン",
+      "count": 13,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-h21-essay-general-contractor",
+        "pe-comprehensive-management-h22-essay-general-contractor",
+        "pe-comprehensive-management-h23-essay-general-contractor",
+        "pe-comprehensive-management-h24-essay-general-contractor",
+        "pe-comprehensive-management-h25-essay-general-contractor",
+        "pe-comprehensive-management-h26-essay-general-contractor",
+        "pe-comprehensive-management-h27-essay-general-contractor",
+        "pe-comprehensive-management-pattern-essay-general-contractor",
+        "pe-comprehensive-management-r03-essay-general-contractor",
+        "pe-comprehensive-management-r04-essay-general-contractor",
+        "pe-comprehensive-management-r05-essay-general-contractor",
+        "pe-comprehensive-management-r06-essay-general-contractor",
+        "pe-comprehensive-management-r07-essay-general-contractor"
+      ]
+    },
+    {
+      "name": "建設コンサル",
+      "count": 13,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-h21-essay-river-consultant",
+        "pe-comprehensive-management-h22-essay-river-consultant",
+        "pe-comprehensive-management-h23-essay-river-consultant",
+        "pe-comprehensive-management-h24-essay-river-consultant",
+        "pe-comprehensive-management-h25-essay-river-consultant",
+        "pe-comprehensive-management-h26-essay-river-consultant",
+        "pe-comprehensive-management-h27-essay-river-consultant",
+        "pe-comprehensive-management-pattern-essay-river-consultant",
+        "pe-comprehensive-management-r03-essay-river-consultant",
+        "pe-comprehensive-management-r04-essay-river-consultant",
+        "pe-comprehensive-management-r05-essay-river-consultant",
+        "pe-comprehensive-management-r06-essay-river-consultant",
+        "pe-comprehensive-management-r07-essay-river-consultant"
       ]
     },
     {
@@ -4060,25 +4116,6 @@
       ]
     },
     {
-      "name": "ゼネコン",
-      "count": 12,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-h22-essay-general-contractor",
-        "pe-comprehensive-management-h23-essay-general-contractor",
-        "pe-comprehensive-management-h24-essay-general-contractor",
-        "pe-comprehensive-management-h25-essay-general-contractor",
-        "pe-comprehensive-management-h26-essay-general-contractor",
-        "pe-comprehensive-management-h27-essay-general-contractor",
-        "pe-comprehensive-management-pattern-essay-general-contractor",
-        "pe-comprehensive-management-r03-essay-general-contractor",
-        "pe-comprehensive-management-r04-essay-general-contractor",
-        "pe-comprehensive-management-r05-essay-general-contractor",
-        "pe-comprehensive-management-r06-essay-general-contractor",
-        "pe-comprehensive-management-r07-essay-general-contractor"
-      ]
-    },
-    {
       "name": "トンネル",
       "count": 12,
       "inAllowlist": true,
@@ -4095,25 +4132,6 @@
         "pe-construction-r08-tunnel",
         "pe-construction-tunnel-exam-themes",
         "pe-construction-tunnel-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "建設コンサル",
-      "count": 12,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-h22-essay-river-consultant",
-        "pe-comprehensive-management-h23-essay-river-consultant",
-        "pe-comprehensive-management-h24-essay-river-consultant",
-        "pe-comprehensive-management-h25-essay-river-consultant",
-        "pe-comprehensive-management-h26-essay-river-consultant",
-        "pe-comprehensive-management-h27-essay-river-consultant",
-        "pe-comprehensive-management-pattern-essay-river-consultant",
-        "pe-comprehensive-management-r03-essay-river-consultant",
-        "pe-comprehensive-management-r04-essay-river-consultant",
-        "pe-comprehensive-management-r05-essay-river-consultant",
-        "pe-comprehensive-management-r06-essay-river-consultant",
-        "pe-comprehensive-management-r07-essay-river-consultant"
       ]
     },
     {

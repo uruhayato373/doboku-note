@@ -1519,6 +1519,42 @@
       "commit": "4b84ddc94433",
       "verification": "npm run check-x-campaign-plan (227件実検査 OK)",
       "note": "x-post-policy §5.4 追記・10月2級計画へ反映。締切日決定は DN-0445 へ移管"
+    },
+    {
+      "id": "DN-0419",
+      "at": "2026-09-30",
+      "task": "定年後・独立キャリアの記事群を拡充する計画を作る",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "f9fd24901fd6",
+      "verification": "check-doc-refs/check-relative-links pass (3e6a33c00)",
+      "note": "計画 docs/strategy/17 を作成・5本を DN-0468〜0472 に起票"
+    },
+    {
+      "id": "DN-0466",
+      "at": "2026-09-30",
+      "task": "2級土木 一次前期の解説で正答と食い違う・根拠の弱い5問を直す",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "f9fd24901fd6",
+      "verification": "refresh-indexes 済み・U+FFFD 0",
+      "note": "5問の解説を修正(65ae5d905)。設問文の転記ずれは DN-0473 に起票。公開表示は次回 deploy 後"
+    },
+    {
+      "id": "DN-0180",
+      "at": "2026-09-30",
+      "task": "Drive共通仕様書文字起こし350本とstandards-libraryの関係を整理する",
+      "tier": "low",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "8880f3633c49",
+      "verification": "対象72/実検査72・Drive読み取り失敗0",
+      "note": "Drive 72文書と standards-library を原本sha256で全件突合(72/72・part 274/274一致)。対応表 .claude/state/assets/standards-drive-map.json、判断を asset-storage-policy に追記(32d0e7e7e)"
     }
   ]
 }
