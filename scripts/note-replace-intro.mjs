@@ -49,9 +49,10 @@ export function parseSource(rel) {
   const body = raw.replace(/^---\n[\s\S]*?\n---\n/, '');
   const h2 = body.search(/^## /m);
   if (!noteId || h2 < 0) throw new Error(`noteId か ## 見出しが無い: ${rel}`);
-  const introMd = body.slice(0, h2).replace(/<!--[\s\S]*?-->\n?/g, '').replace(/^#\s+.*\n+/, '').trim();
+  const introMd = body.slice(0, h2).replace(/<!--[\s\S]*?-->\n?/g, '').replace(/<!--|-->/g, '').replace(/^#\s+.*\n+/, '').trim();
   const pdfSection = (body.match(/^## 印刷用PDF[^\n]*\n\n([\s\S]*)$/m) || [])[0] || '';
-  return { abs, rel, raw, noteId, isPaid: f('notePricing') === 'paid', boundary: f('paidBoundary') || '試験問題|予想問題', introMd, pdfSection };
+  const rest = body.slice(h2);
+  return { abs, rel, raw, noteId, restHasCoconala: /coconala\.com/.test(rest), isPaid: f('notePricing') === 'paid', boundary: f('paidBoundary') || '試験問題|予想問題', introMd, pdfSection };
 }
 
 const snap = (page) => page.evaluate(() => {
@@ -107,6 +108,13 @@ async function processArticle(page, src) {
   }
   const bridge = await indices(page, BRIDGE_RE.source, true);
   if (bridge.length) await deleteBlocksDesc(page, bridge);
+  // 1b) 本文側に古いココナラ導線が残っている（原稿の本文側には無い）記事は、その文とカードを消す
+  if (!src.restHasCoconala) {
+    const coco = await page.evaluate(() => { const k = [...document.querySelector('[contenteditable=true]').children]; const h2 = k.findIndex((e) => e.tagName === 'H2');
+      return k.map((e, i) => (i > h2 && ((e.tagName === 'P' && /ココナラで(個別に|単発)|まだ答案が無い人は/.test(e.innerText || '')) || (e.tagName === 'FIGURE' && /coconala/.test(e.innerHTML))) ? i : -1)).filter((i) => i >= 0); });
+    if (coco.length > 6) throw new Error(`本文側のココナラ導線が多すぎる: ${coco.length}`);
+    if (coco.length) await deleteBlocksDesc(page, coco);
+  }
   // 2) 印刷用PDF節の文面
   const oldPdf = await indices(page, OLD_PDF_TEXT_RE.source, true);
   const stdPdfText = src.pdfSection.replace(/^## [^\n]*\n\n/, '').trim();
