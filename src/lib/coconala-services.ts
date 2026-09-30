@@ -797,7 +797,8 @@ const SERVICES_RAW = {
   // 運営者はコンクリート主任技士を保有（src/config/author.ts）。KDP の g-02 は Select OFF で PDF 販売と衝突しない。
   'coconala-cce-essay-pdf': {
     id: 'coconala-cce-essay-pdf',
-    status: 'listed',
+    status: 'paused',
+    pauseReason: 'retired',
     serviceUrl: 'https://coconala.com/services/4418972',
     title: 'コンクリート主任技士の小論文模範答案を送ります',
     shortTitle: 'コンクリート主任技士 小論文 PDF',
@@ -812,7 +813,8 @@ const SERVICES_RAW = {
   },
   'coconala-cce-takuitsu-pdf': {
     id: 'coconala-cce-takuitsu-pdf',
-    status: 'listed',
+    status: 'paused',
+    pauseReason: 'retired',
     serviceUrl: 'https://coconala.com/services/4418974',
     title: 'コンクリート主任技士 択一直前パックを送ります',
     shortTitle: 'コンクリート主任技士 択一直前パック PDF',
@@ -825,20 +827,22 @@ const SERVICES_RAW = {
     weeklyCapacity: 20,
     listedAt: '2026-09-25',
   },
-  // ---- コンクリート主任技士 小論文 令和形式 PDF（2026-09-30 下書き）----
-  // note cce-essay-reiwa-pack（¥3,980）×1.1 を ¥500 刻みで切り上げ。旧 PDF（coconala-cce-essay-pdf・序論本論結論型）とは別出品。
+  // ---- コンクリート主任技士 完全パック PDF（2026-09-30 下書き）----
+  // ココナラの主任技士は「添削＋完全パック」の2件に絞る（2026-09-30 運営者判断）。単品 PDF（小論文・択一）は販売0のまま retired。
+  // 中身は令和形式の小論文6冊＋択一直前パック3冊。旧形式（序論本論結論型）の小論文5冊は形式が古いので入れない。
+  // note の cce-essay-reiwa-pack（¥3,980）＋cce-takuitsu-chokuzen-pack（¥2,980）＝¥6,960 ×1.1 を ¥500 刻みで切り上げ。
   // 出品は運営者が本文を確認してから（公開は取り消せない）。
-  'coconala-cce-essay-reiwa-pdf': {
-    id: 'coconala-cce-essay-reiwa-pdf',
+  'coconala-cce-full-pdf': {
+    id: 'coconala-cce-full-pdf',
     status: 'draft',
     serviceUrl: '',
-    title: 'コンクリート主任技士 小論文 令和形式の模範答案を送ります',
-    shortTitle: 'コンクリート主任技士 小論文 令和形式 PDF',
+    title: 'コンクリート主任技士 小論文と択一の完全パックを送ります',
+    shortTitle: 'コンクリート主任技士 完全パック PDF',
     description:
-      'コンクリート主任技士試験の小論文を、令和2年度以降の1題・約1,000字の形式で書くためのPDF6冊。出題傾向分析（平成24年度〜令和7年度のテーマと確度）と、環境負荷低減・耐久性・生産性DX・気候変動と品質確保・担い手不足と品質確保の5テーマ×8立場の模範答案。答案は各立場を想定した例示。出題や合格を保証するものではない。',
-    price: '¥4,500（PDF6冊）',
-    priceYen: 4500,
-    notePriceBasis: 'cce-essay-reiwa-pack',
+      'コンクリート主任技士試験の小論文と四肢択一をまとめたPDF9冊。小論文は令和2年度以降の1題・約1,000字の形式に合わせた出題傾向分析と5テーマ×8立場の模範答案、択一は8分野の予想50問・配合計算12問・一問一答157問。答案は各立場を想定した例示。出題や合格を保証するものではない。',
+    price: '¥8,000（PDF9冊）',
+    priceYen: 8000,
+    notePriceBasis: 'cce-essay-reiwa-pack + cce-takuitsu-chokuzen-pack',
     examScope: ['concrete-chief-engineer'],
     weeklyCapacity: 20,
   },

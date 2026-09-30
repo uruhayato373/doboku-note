@@ -53,6 +53,13 @@ const STAGE = join(ROOT, '.tmp/coconala-pdf-src');
 const OUT_PDF = join(ROOT, '.claude/config/coconala/assets/pdf');
 const SPEC_DIR = join(ROOT, '.tmp/coconala-specs');
 
+// K2（択一直前パック）の3冊。K3（完全パック）にも同じものを収録する。
+const K2_ARTICLES = [
+  { src: 'コンクリート主任技士/四肢択一-R8予想50問/article.md', out: 'coconala-K2-主任技士択一-予想50問', includeFrom: '^## 予想の考え方', replace: [['分野正答率70%未満は、無料テキストと過去問解説へ戻る', '分野正答率70%未満は、テキストと過去問で基礎へ戻る']] },
+  { src: 'コンクリート主任技士/配合計算-実戦演習/article.md', out: 'coconala-K2-主任技士択一-配合計算12問', includeFrom: '^## 収録する計算パターン' },
+  { src: 'コンクリート主任技士/magazines/コンクリート主任技士-直前暗記ノート/article.md', out: 'coconala-K2-主任技士択一-一問一答157問', includeFrom: '^## この暗記ノートの使い方', replace: [['当サイトの「コンクリート主任技士｜令和8年度 四肢択一予想50問」', '同梱の「コンクリート主任技士｜令和8年度 四肢択一予想50問」']] },
+];
+
 // 各商品 = 複数 article を strip → PDF 化。includeFrom は H1/intro をスキップする開始見出し。
 const PRODUCTS = {
   C1: {
@@ -204,9 +211,9 @@ const PRODUCTS = {
       })),
     ],
   },
-  // K3: コンクリート主任技士 小論文 令和形式（出題傾向分析＋5テーマ×8立場の模範答案）。note cce-essay-reiwa-pack と同内容。
+  // K3: コンクリート主任技士 完全パック（令和形式の小論文6冊＋択一直前パック3冊）。note cce-essay-reiwa-pack＋cce-takuitsu-chokuzen-pack と同内容。
   K3: {
-    label: 'coconala-cce-essay-reiwa-pdf',
+    label: 'coconala-cce-full-pdf',
     noteRelative: true,
     articles: [
       { src: 'コンクリート主任技士/magazines/コンクリート主任技士-小論文テーマ別-令和形式/00-出題傾向分析/article.md', out: 'coconala-K3-主任技士小論文令和-00-出題傾向分析', includeFrom: '^## 問題文は公開されていない' },
@@ -214,18 +221,17 @@ const PRODUCTS = {
         src: `コンクリート主任技士/magazines/コンクリート主任技士-小論文テーマ別-令和形式/${t}/article.md`,
         out: `coconala-K3-主任技士小論文令和-${t}`,
         includeFrom: '^## このテーマの出題実績',
+        // 出典の URL は PDF の外部リンク検査に掛かるので、出典名だけ残す
+        ...(t === '03-生産性向上DX' && { replace: [['（令和6年4月）: https://www.mlit.go.jp/tec/constplan/content/001738240.pdf', '（令和6年4月）']] }),
       })),
+      ...K2_ARTICLES.map((a) => ({ ...a, out: a.out.replace('coconala-K2-', 'coconala-K3-') })),
     ],
   },
   // K2: コンクリート主任技士 択一 直前パック（予想50問＋配合計算12問＋一問一答157問）。
   K2: {
     label: 'coconala-cce-takuitsu-pdf',
     noteRelative: true,
-    articles: [
-      { src: 'コンクリート主任技士/四肢択一-R8予想50問/article.md', out: 'coconala-K2-主任技士択一-予想50問', includeFrom: '^## 予想の考え方', replace: [['分野正答率70%未満は、無料テキストと過去問解説へ戻る', '分野正答率70%未満は、テキストと過去問で基礎へ戻る']] },
-      { src: 'コンクリート主任技士/配合計算-実戦演習/article.md', out: 'coconala-K2-主任技士択一-配合計算12問', includeFrom: '^## 収録する計算パターン' },
-      { src: 'コンクリート主任技士/magazines/コンクリート主任技士-直前暗記ノート/article.md', out: 'coconala-K2-主任技士択一-一問一答157問', includeFrom: '^## この暗記ノートの使い方', replace: [['当サイトの「コンクリート主任技士｜令和8年度 四肢択一予想50問」', '同梱の「コンクリート主任技士｜令和8年度 四肢択一予想50問」']] },
-    ],
+    articles: K2_ARTICLES,
   },
   // O1: 技術士 口頭試験 想定問答（総監版・建設部門版）。購入者の部門に合う1冊を送る。
   O1: {

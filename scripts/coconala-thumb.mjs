@@ -117,11 +117,11 @@ const THUMB_COPY = {
     hook: '答案の型の解法ガイドと\n4テーマの模範答案・置換ガイド',
     priceLabel: 'PDF5冊',
   },
-  'coconala-cce-essay-reiwa-pdf': {
-    eyebrow: 'コンクリート主任技士 ／ 小論文',
-    title: ['主任技士 小論文', '令和形式'],
-    hook: '1,000字形式の5テーマを\n8つの立場で書き分けた答案',
-    priceLabel: 'PDF6冊',
+  'coconala-cce-full-pdf': {
+    eyebrow: 'コンクリート主任技士 ／ 小論文＋択一',
+    title: ['主任技士', '完全パック'],
+    hook: '令和形式の小論文5テーマ×8立場と\n択一 予想50問・一問一答157問',
+    priceLabel: 'PDF9冊',
   },
   'coconala-cce-essay-tensaku': {
     eyebrow: 'コンクリート主任技士 ／ 小論文',
