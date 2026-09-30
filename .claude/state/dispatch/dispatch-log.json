@@ -1459,6 +1459,90 @@
       "commit": "60e7fba1f96d",
       "verification": "公式正答attach_4106_10と79問全一致+Ⅱ-14全員得点/quiz r01-retry 80問・ID重複0/validate-mdx・refresh-indexes・npm test pass",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0430",
+      "at": "2026-09-30",
+      "task": "規格の章ページで、本文の段落が「表」と誤判定されてコードブロック表示になるのを直す",
+      "tier": "low",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "006941fcd30d",
+      "verification": "npm run test (PR #761 CI)",
+      "note": "PR #761 マージ済み。表判定に散文条件、差分16章+8manifestのみ、回帰テスト4件"
+    },
+    {
+      "id": "DN-0434",
+      "at": "2026-09-30",
+      "task": "管理画面の E2E「Kindle を左ナビから開ける」が今のナビと合っていないので直す",
+      "tier": "low",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "006941fcd30d",
+      "verification": "npm run test:e2e:admin -- e2e-admin/content-kindle.spec.ts (desktop 5 pass)",
+      "note": "PR #762 マージ済み。販売状態→Kindleタブ経路"
+    },
+    {
+      "id": "DN-0435",
+      "at": "2026-09-30",
+      "task": "Kindle I系7冊に残る note 由来の「（→〇〇の記事へ）」「既存記事との差別化」を本から除く",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "0a6bab341110",
+      "verification": "unzip -p *.epub | grep -c 'の記事へ|既存記事' = 0 (26冊)",
+      "note": "PR #759 マージ後の再ビルド(09-30 19:39)で i/j 26冊の EPUB 本文に「の記事へ」「既存記事」0件"
+    },
+    {
+      "id": "DN-0465",
+      "at": "2026-09-30",
+      "task": "note-replace-intro が記事によって最初の見出しを壊す",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "b3c18959ec84",
+      "verification": "npm run test (PR #760 CI)",
+      "note": "PR #760 マージ済み(境界寄せ+見出し一致チェック+回帰テスト7件)。会員限定記事の live 見出し確認は、合格ラボ撤退で当該記事を非公開にする DN-0460 に吸収"
+    },
+    {
+      "id": "DN-0280",
+      "at": "2026-09-30",
+      "task": "X の販売投稿に、締切の統一・合格発表日への集中・新商品の段階告知を入れる",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "4b84ddc94433",
+      "verification": "npm run check-x-campaign-plan (227件実検査 OK)",
+      "note": "x-post-policy §5.4 追記・10月2級計画へ反映。締切日決定は DN-0445 へ移管"
+    },
+    {
+      "id": "DN-0419",
+      "at": "2026-09-30",
+      "task": "定年後・独立キャリアの記事群を拡充する計画を作る",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "f9fd24901fd6",
+      "verification": "check-doc-refs/check-relative-links pass (3e6a33c00)",
+      "note": "計画 docs/strategy/17 を作成・5本を DN-0468〜0472 に起票"
+    },
+    {
+      "id": "DN-0466",
+      "at": "2026-09-30",
+      "task": "2級土木 一次前期の解説で正答と食い違う・根拠の弱い5問を直す",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "f9fd24901fd6",
+      "verification": "refresh-indexes 済み・U+FFFD 0",
+      "note": "5問の解説を修正(65ae5d905)。設問文の転記ずれは DN-0473 に起票。公開表示は次回 deploy 後"
     }
   ]
 }

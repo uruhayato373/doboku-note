@@ -79,3 +79,19 @@ test('タグ・コメントの除去は 1 回で終わらせず、除去後に�
   assert.doesNotMatch(stripTags('<scr<b>ipt>見出し</b><<i>i>'), /<[a-z/!]/i);
   assert.equal(stripHtmlComments('a<!-<!-- x -->- y -->b'), 'ab');
 });
+
+test('割れ見出し: 1〜2 字の段落の直後のカードを拾い、普通の段落＋カードは拾わない（DN-0272）', async () => {
+  const { findSplitBeforeCard } = await import('../scripts/lib/note-live-check.mjs');
+  assert.deepEqual(findSplitBeforeCard('<p>R</p><figure embedded-service="external-article"></figure><p>8 で何が出るのか</p>'), ['R']);
+  assert.deepEqual(findSplitBeforeCard('<p>は</p>\n<figure name="x" embedded-service="note"></figure>'), ['は']);
+  assert.deepEqual(findSplitBeforeCard('<p>まずは無料の分析記事から読み進めてください。</p><figure embedded-service="note"></figure>'), []);
+  assert.deepEqual(findSplitBeforeCard('<p>R</p><figure><img src="a.png"></figure>'), []);
+});
+
+test('長い見出し: 60 字超の h2/h3 を拾い、原稿の長い見出しの数と比べられる（DN-0272）', async () => {
+  const { findLongHeadings, countSotLongHeadings } = await import('../scripts/lib/note-live-check.mjs');
+  const long = 'あ'.repeat(61);
+  assert.deepEqual(findLongHeadings(`<h2>${long}</h2><h3>${'い'.repeat(60)}</h3><h2>短い</h2>`), [long]);
+  assert.equal(countSotLongHeadings(['# タイトル', `## ${long}`, `### ${long}`, '```', `## ${long}`, '```', `#### ${long}`].join('\n')), 2);
+  assert.equal(countSotLongHeadings(`## ${long}`, 0), 0);
+});

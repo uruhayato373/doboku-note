@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { monthsOf, validateRoadmap, examTimeline } from '../scripts/lib/annual-roadmap.mjs';
+import { monthsOf, validateRoadmap, examTimeline, lastYearSalesByMonth } from '../scripts/lib/annual-roadmap.mjs';
 
 const period = { start: '2026-10', end: '2027-09' };
 
@@ -30,4 +30,18 @@ test('examTimeline: 公表済みは実日付、翌年は昨年度を1年ずら�
   assert.equal(byDate['2027-01-08'].estimated, false);
   assert.equal(row.buys.length, 2);
   assert.equal(row.buys[0].from, 0); // 10/4 の8週前は期間の前 → 期間の頭で切る
+});
+
+test('lastYearSalesByMonth: 前年同月の資格別売上を降順で返し、0 円は出さない', () => {
+  const sales = {
+    'pe-comprehensive': { byMonth: { '2025-10': 3000, '2025-11': 0 } },
+    'civil-1': { byMonth: { '2025-10': 5000 } },
+    'civil-2': { byMonth: { '2026-10': 9999 } },
+  };
+  const r = lastYearSalesByMonth(sales, ['2026-10', '2026-11']);
+  assert.equal(r['2026-10'].month, '2025-10');
+  assert.deepEqual(r['2026-10'].items, [{ id: 'civil-1', yen: 5000 }, { id: 'pe-comprehensive', yen: 3000 }]);
+  assert.equal(r['2026-10'].total, 8000);
+  assert.deepEqual(r['2026-11'].items, []);
+  assert.equal(r['2026-11'].total, 0);
 });

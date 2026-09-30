@@ -6,7 +6,9 @@ import { findRepoRoot, repoPath } from '@/lib/repo-root';
 import { domainList } from '@/lib/domains';
 import { todoBoard } from '@/lib/todo';
 import { renderMarkdown } from '@/lib/markdown';
-import { loadRoadmap, monthsOf, examTimeline } from '../../../../../../scripts/lib/annual-roadmap.mjs';
+import { loadRoadmap, monthsOf, examTimeline, lastYearSalesByMonth } from '../../../../../../scripts/lib/annual-roadmap.mjs';
+import { loadMarketInputs } from '../../../../../../scripts/lib/market-inputs.mjs';
+import { salesByQualification } from '../../../../../../scripts/lib/qualification-market.mjs';
 import { parseBacklog, parseWhen } from '../../../../../../scripts/lib/backlog-lib.mjs';
 
 export const dynamic = 'force-dynamic';
@@ -23,6 +25,7 @@ const COLOR: Record<string, string> = { exam: 'var(--accent)', result: 'var(--go
 /**
  * /plan/roadmap — 年間ロードマップ（時間軸は縦＝月の行）。
  * 左: 資格の行事と買い場（exam-calendar.json・翌年の未公表分は昨年度から推定して薄字）。
+ * 中: 前年同月の資格別売上（sales-log・orders-log を qualification-market.mjs の salesByQualification で資格へ振り分け・値を写さない）。
  * 右: その月に始まるカード（バックログの [時期:]・[領域:] が唯一の正本。重点の別台帳を持たない）。
  * 設定（期間・買い場の週数）は annual-roadmap.json。年間の方針（注力しない・四半期定例）は annual.md を下部に表示する
  * （年間の画面はここだけ。/todo?f=annual はここへ転送）。
@@ -44,6 +47,11 @@ export default function RoadmapPage() {
     return i < 0 ? 99 : i;
   };
   const thisMonth = new Date(Date.now() + 9 * 3600_000).toISOString().slice(0, 7);
+  const lastYear = lastYearSalesByMonth(salesByQualification(loadMarketInputs(root)), months) as Record<
+    string,
+    { month: string; total: number; items: { id: string; yen: number }[] }
+  >;
+  const yen = (n: number) => `¥${n.toLocaleString('ja-JP')}`;
   const annualNotes = todoBoard().files.find((f) => f.id === 'annual')?.notes ?? '';
 
   const cards = (parseBacklog(readFileSync(repoPath('.claude', 'todo', 'backlog.md'), 'utf8')) as {
@@ -68,7 +76,7 @@ export default function RoadmapPage() {
     <>
       <PageHead title="年間ロードマップ" sub={`${cfg.period.start.replace('-', '/')}〜${cfg.period.end.replace('-', '/')}`} />
       <p className="mb-2 text-xs text-muted-foreground">
-        ● 試験　◆ 合格発表　■ 申込　緑＝買い場（試験前 {cfg.buyWindowWeeks} 週）　薄い字＝昨年度からの推定　右＝その月に始めるカード（バックログの [時期:]）
+        ● 試験　◆ 合格発表　■ 申込　緑＝買い場（試験前 {cfg.buyWindowWeeks} 週）　薄い字＝昨年度からの推定　中＝前年同月の売上（資格別）　右＝その月に始めるカード（バックログの [時期:]）
       </p>
       {before.length > 0 && (
         <p className="small project-warning-text">時期を過ぎたカード {before.length} 件（時期を見直すか完了を記録）: {before.map((c) => c.id).join(' ')}</p>
@@ -77,7 +85,8 @@ export default function RoadmapPage() {
         <TableHeader>
           <TableRow>
             <TableHead className="w-16">月</TableHead>
-            <TableHead className="w-[40%]">資格の行事</TableHead>
+            <TableHead className="w-[34%]">資格の行事</TableHead>
+            <TableHead className="w-[18%]">前年同月の売上</TableHead>
             <TableHead>やること（領域）</TableHead>
           </TableRow>
         </TableHeader>
@@ -100,6 +109,20 @@ export default function RoadmapPage() {
                     買い場 {b.q} {b.label}（{md(b.toDate)}）
                   </div>
                 ))}
+              </TableCell>
+              <TableCell className="align-top whitespace-normal text-xs">
+                {lastYear[m].total > 0 ? (
+                  <>
+                    <div className="font-bold">{yen(lastYear[m].total)}</div>
+                    {lastYear[m].items.map((x) => (
+                      <div key={x.id} className="text-muted-foreground">
+                        {nameOf(x.id)} {yen(x.yen)}
+                      </div>
+                    ))}
+                  </>
+                ) : (
+                  <span className="text-muted-foreground">—</span>
+                )}
               </TableCell>
               <TableCell className="align-top whitespace-normal text-xs">
                 {startsIn(m).map((c) => (
