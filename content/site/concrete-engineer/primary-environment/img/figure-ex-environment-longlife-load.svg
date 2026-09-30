@@ -1,0 +1,30 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート技士教材の環境・資源循環の長寿命化。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="ライフサイクル負荷の積み上げ比較。初期負荷は大きいが補修・更新が少ない案と、初期負荷は小さいが補修・更新が多い案を、同じ期間で比較する模式図">
+<defs><style>
+text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN","Hiragino Sans",sans-serif}
+.h{font-size:14px;font-weight:700;fill:#1a3a5c}.l{font-size:12px;fill:#1a3a5c}.s{font-size:11px;fill:#555}.m{font-size:11px;fill:#8a8a8a}
+.bb{fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5}.bg{fill:#d0e8d0;stroke:#3a7d44;stroke-width:1.5}.bw{fill:#fff3cd;stroke:#d4a017;stroke-width:1.5}.br{fill:#f8d7da;stroke:#b22234;stroke-width:1.5}.bs{fill:#f5f5f5;stroke:#d7d7d7;stroke-width:1.5}
+.ln{stroke:#2e6da4;stroke-width:2;fill:none}.lr{stroke:#b22234;stroke-width:2;fill:none}.lg{stroke:#3a7d44;stroke-width:2;fill:none}.ax{stroke:#8a8a8a;stroke-width:1;fill:none}.ar{stroke:#555;stroke-width:1.5;fill:none}
+</style>
+<marker id="a" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+</defs>
+
+<text class="h" x="200" y="24" text-anchor="middle">長寿命化とライフサイクル負荷</text>
+<text class="s" x="200" y="42" text-anchor="middle">同じ期間・同じ機能で比較（数値なし・傾向を示す）</text>
+<line class="ax" x1="60" y1="60" x2="60" y2="320"/><line class="ax" x1="60" y1="320" x2="370" y2="320"/>
+<text class="m" x="12" y="76">環境負荷</text><text class="m" x="320" y="340">（同一期間）</text>
+<!-- A -->
+<rect class="bb" x="100" y="200" width="70" height="120"/><rect class="bg" x="100" y="170" width="70" height="30"/>
+<text class="s" x="135" y="264" text-anchor="middle">初期</text><text class="s" x="135" y="188" text-anchor="middle">補修少</text>
+<text class="l" x="135" y="342" text-anchor="middle">耐久性を高めた案</text>
+<!-- B -->
+<rect class="bb" x="240" y="240" width="70" height="80"/><rect class="br" x="240" y="130" width="70" height="110"/>
+<text class="s" x="275" y="284" text-anchor="middle">初期</text><text class="s" x="275" y="182" text-anchor="middle">補修・更新多</text>
+<text class="l" x="275" y="342" text-anchor="middle">早期劣化する案</text>
+<rect class="bw" x="20" y="366" width="360" height="110" rx="6"/>
+<text class="l" x="32" y="388">読み取り方</text>
+<text class="s" x="32" y="408">・初期の材料負荷だけでなく、補修・更新の回数を加える</text>
+<text class="s" x="32" y="426">・耐用期間と機能単位をそろえてから比べる</text>
+<text class="s" x="32" y="444">・初期増分と延命効果の大小は案ごとに確認する</text>
+<text class="s" x="32" y="462">・棒の高さは模式であり、実際の大小を示さない</text>
+</svg>

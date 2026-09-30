@@ -1,0 +1,53 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士演習のポップアウトの機構。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="表層近くの骨材粒子が吸水や凍結で膨張し、上のコンクリートを円錐状に押し破ってポップアウトが生じる断面の模式図">
+  <defs>
+    <marker id="ab" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="ag" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-b { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-red { stroke: #b22234; stroke-width: 2; fill: none; }
+      .line-green { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-thin { stroke: #555; stroke-width: 1; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <text class="t-lead" x="200" y="20" text-anchor="middle">表層付近の骨材が膨張してポップアウトが生じる（断面・模式図）</text>
+  <rect class="box" x="60" y="60" width="280" height="200"/>
+  <line class="line-thin" x1="60" y1="60" x2="340" y2="60"/>
+  <path class="line-dash" d="M170,60 L200,140 L230,60"/>
+  <circle class="box-w" cx="200" cy="158" r="22"/>
+  <path class="line-red" d="M170,62 L200,136 L230,62" stroke-dasharray="5 3"/>
+  <line class="line-red" x1="178" y1="140" x2="158" y2="120" marker-end="url(#ar)"/>
+  <line class="line-red" x1="222" y1="140" x2="242" y2="120" marker-end="url(#ar)"/>
+  <line class="line-red" x1="174" y1="164" x2="150" y2="172" marker-end="url(#ar)"/>
+  <line class="line-red" x1="226" y1="164" x2="250" y2="172" marker-end="url(#ar)"/>
+  <line class="line-red" x1="200" y1="184" x2="200" y2="206" marker-end="url(#ar)"/>
+  <text class="t-label" x="200" y="162" text-anchor="middle">骨材</text>
+  <text class="t-label" x="260" y="90">円錐状に</text>
+  <text class="t-label" x="260" y="106">押し破られる</text>
+  <text class="t-axis" x="200" y="50" text-anchor="middle">コンクリート表面</text>
+  <text class="t-desc" x="200" y="284" text-anchor="middle">骨材粒子が吸水・凍結で体積を増し、上のコンクリートを押す</text>
+  <rect class="box" x="20" y="304" width="360" height="166" rx="6"/>
+  <text class="t-desc" x="32" y="330">・膨張の原因になりやすい骨材：粘土塊・軟石など</text>
+  <text class="t-desc" x="32" y="354">　（多孔質で吸水しやすい）</text>
+  <text class="t-desc" x="32" y="378">・変状は点として現れる（円錐状の剥落）</text>
+  <text class="t-desc" x="32" y="402">・アルカリシリカ反応は広い範囲に亀甲状のひび割れで現れ、</text>
+  <text class="t-desc" x="32" y="426">　現れ方が異なる</text>
+  <text class="t-desc" x="32" y="450">・海砂の塩分は鉄筋腐食の原因で、ポップアウトとは別</text>
+
+</svg>

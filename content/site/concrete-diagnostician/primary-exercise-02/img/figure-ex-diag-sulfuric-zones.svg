@@ -1,0 +1,53 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士演習の硫酸による変質とフェノールフタレイン呈色。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="硫酸溶液に浸せきしたモルタル断面を表面から内部へ、石膏が生成した表層、水酸化カルシウムが失われた中間、水酸化カルシウムが残る内部の三領域に分けて示す">
+  <defs>
+    <marker id="ab" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="ag" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-b { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-red { stroke: #b22234; stroke-width: 2; fill: none; }
+      .line-green { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-thin { stroke: #555; stroke-width: 1; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <text class="t-lead" x="200" y="20" text-anchor="middle">硫酸溶液に浸せきしたモルタルの断面（表面から内部へ）</text>
+  <text class="t-axis" x="20" y="52">硫酸溶液</text>
+  <rect class="box-w" x="20" y="64" width="80" height="120"/>
+  <rect class="box" x="100" y="64" width="130" height="120"/>
+  <rect class="box-d" x="230" y="64" width="150" height="120"/>
+  <text class="t-label" x="60" y="128" text-anchor="middle">表層</text>
+  <text class="t-label" x="165" y="128" text-anchor="middle">中間</text>
+  <text class="t-label" x="305" y="128" text-anchor="middle">内部</text>
+  <line class="line-main" x1="20" y1="205" x2="100" y2="205" marker-end="url(#ab)"/>
+  <text class="t-axis" x="24" y="222">硫酸の作用</text>
+  <text class="t-b" x="20" y="264">各領域の状態</text>
+  <rect class="box-w" x="20" y="276" width="360" height="38" rx="6"/>
+  <text class="t-b" x="32" y="292">表層</text>
+  <text class="t-desc" x="32" y="308">水酸化カルシウムが硫酸イオンと反応し、石膏が生成</text>
+  <rect class="box" x="20" y="322" width="360" height="38" rx="6"/>
+  <text class="t-b" x="32" y="338">中間</text>
+  <text class="t-desc" x="32" y="354">水酸化カルシウムが失われ、アルカリ性も失われる</text>
+  <rect class="box-d" x="20" y="368" width="360" height="38" rx="6"/>
+  <text class="t-b" x="32" y="384">内部</text>
+  <text class="t-desc" x="32" y="400">水酸化カルシウムが残り、アルカリ性が保たれる</text>
+  <text class="t-b" x="20" y="430">フェノールフタレイン溶液を噴霧すると</text>
+  <text class="t-desc" x="32" y="450">・アルカリ性が残る内部のみ赤紫に呈色する</text>
+  <text class="t-desc" x="32" y="470">・呈色しない領域の厚さが変質深さの目安になる</text>
+
+</svg>

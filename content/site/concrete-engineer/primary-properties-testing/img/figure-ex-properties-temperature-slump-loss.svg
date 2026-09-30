@@ -1,0 +1,26 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート技士教材の性質・試験の温度の影響。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="コンクリート温度とスランプ低下の傾向。時間経過でスランプは低下し、温度が高いと低下と凝結の進行が速くなる傾向を模式的な曲線で示す">
+<defs><style>
+text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN","Hiragino Sans",sans-serif}
+.h{font-size:14px;font-weight:700;fill:#1a3a5c}.l{font-size:12px;fill:#1a3a5c}.s{font-size:11px;fill:#555}.m{font-size:11px;fill:#8a8a8a}
+.bb{fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5}.bg{fill:#d0e8d0;stroke:#3a7d44;stroke-width:1.5}.bw{fill:#fff3cd;stroke:#d4a017;stroke-width:1.5}.br{fill:#f8d7da;stroke:#b22234;stroke-width:1.5}.bs{fill:#f5f5f5;stroke:#d7d7d7;stroke-width:1.5}
+.ln{stroke:#2e6da4;stroke-width:2;fill:none}.lr{stroke:#b22234;stroke-width:2;fill:none}.lg{stroke:#3a7d44;stroke-width:2;fill:none}.ax{stroke:#8a8a8a;stroke-width:1;fill:none}.ar{stroke:#555;stroke-width:1.5;fill:none}
+</style>
+<marker id="a" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+</defs>
+
+<text class="h" x="200" y="24" text-anchor="middle">温度と時間変化の傾向</text>
+<text class="s" x="200" y="42" text-anchor="middle">横軸＝練混ぜ後の時間、縦軸＝スランプ（数値なし）</text>
+<line class="ax" x1="50" y1="60" x2="50" y2="300"/><line class="ax" x1="50" y1="300" x2="370" y2="300"/>
+<text class="m" x="54" y="74">スランプ</text><text class="m" x="326" y="320">時間</text>
+<path class="lr" d="M50 100 C 110 130 150 200 210 280"/>
+<path class="ln" d="M50 100 C 140 115 230 150 340 210"/>
+<text class="l" x="172" y="278" text-anchor="end" style="fill:#b22234">温度が高い</text>
+<text class="l" x="300" y="184">温度が低い</text>
+<rect class="bw" x="20" y="340" width="360" height="136" rx="6"/>
+<text class="l" x="32" y="362">暑中と寒中で支配課題が違う</text>
+<text class="s" x="32" y="384">・高温：スランプ低下と凝結が速く、時間管理が重要</text>
+<text class="s" x="32" y="404">・低温：初期凍害と強度発現の遅れに注意</text>
+<text class="s" x="32" y="424">・温度は空気量や施工時間にも影響する</text>
+<text class="s" x="32" y="446">・曲線は傾向の模式で、値や差の大きさを示さない</text>
+</svg>

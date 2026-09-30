@@ -1,0 +1,48 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士演習の水和熱後の収縮拘束と鉛直ひび割れ。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="既設コンクリートに打ち継いだ新設の壁の立面。水和熱後の冷却収縮が下側の既設部に拘束され、鉛直方向のひび割れがほぼ等間隔に生じる様子">
+  <defs>
+    <marker id="ab" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="ag" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-b { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-red { stroke: #b22234; stroke-width: 2; fill: none; }
+      .line-green { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-thin { stroke: #555; stroke-width: 1; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <text class="t-lead" x="200" y="20" text-anchor="middle">新設の壁を既設コンクリートに打ち継いだ場合（立面・模式図）</text>
+  <rect class="box" x="40" y="280" width="320" height="50"/>
+  <rect class="box-b" x="40" y="80" width="320" height="200"/>
+  <text class="t-label" x="200" y="310" text-anchor="middle">既設コンクリート（収縮を拘束する）</text>
+  <text class="t-label" x="200" y="100" text-anchor="middle">新設コンクリート（水和熱で温度上昇後、冷えて収縮）</text>
+  <path class="line-red" d="M100,270 L105,245 L96,220 L104,195 L97,170 L100,150"/>
+  <path class="line-red" d="M170,270 L175,245 L166,220 L174,195 L167,170 L170,150"/>
+  <path class="line-red" d="M240,270 L245,245 L236,220 L244,195 L237,170 L240,150"/>
+  <path class="line-red" d="M310,270 L315,245 L306,220 L314,195 L307,170 L310,150"/>
+  <line class="line-dash" x1="40" y1="280" x2="360" y2="280"/>
+  <text class="t-label" x="200" y="134" text-anchor="middle">鉛直方向のひび割れ（ほぼ等間隔）</text>
+  <line class="line-main" x1="60" y1="345" x2="100" y2="345" marker-end="url(#ab)"/>
+  <line class="line-main" x1="340" y1="345" x2="300" y2="345" marker-end="url(#ab)"/>
+  <text class="t-desc" x="200" y="349" text-anchor="middle">収縮しようとする向き</text>
+  <rect class="box" x="20" y="370" width="360" height="100" rx="6"/>
+  <text class="t-desc" x="32" y="396">・下側の既設部が拘束し、引張応力が生じる</text>
+  <text class="t-desc" x="32" y="420">・拘束方向（水平）と直交する鉛直方向にほぼ等間隔で割れる</text>
+  <text class="t-desc" x="32" y="444">・乾燥収縮ひび割れと同じ理屈。区別は発生時期（脱型直後）</text>
+
+</svg>

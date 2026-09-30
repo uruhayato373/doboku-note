@@ -1,0 +1,34 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート技士教材の材料のセメント鉱物。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="セメント主要鉱物の水和の速さと強度への寄与の傾向。C3Sは初期から強度を担い、C2Sは遅く長期に寄与し、C3Aは反応が速く水和熱が大きく、C4AFの寄与は小さい">
+<defs><style>
+text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN","Hiragino Sans",sans-serif}
+.h{font-size:14px;font-weight:700;fill:#1a3a5c}.l{font-size:12px;fill:#1a3a5c}.s{font-size:11px;fill:#555}.m{font-size:11px;fill:#8a8a8a}
+.bb{fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5}.bg{fill:#d0e8d0;stroke:#3a7d44;stroke-width:1.5}.bw{fill:#fff3cd;stroke:#d4a017;stroke-width:1.5}.br{fill:#f8d7da;stroke:#b22234;stroke-width:1.5}.bs{fill:#f5f5f5;stroke:#d7d7d7;stroke-width:1.5}
+.ln{stroke:#2e6da4;stroke-width:2;fill:none}.lr{stroke:#b22234;stroke-width:2;fill:none}.lg{stroke:#3a7d44;stroke-width:2;fill:none}.ax{stroke:#8a8a8a;stroke-width:1;fill:none}.ar{stroke:#555;stroke-width:1.5;fill:none}
+</style>
+<marker id="a" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+</defs>
+
+<text class="h" x="200" y="24" text-anchor="middle">セメント鉱物の特徴（傾向）</text>
+<text class="s" x="200" y="42" text-anchor="middle">数値なし・一般的な傾向を示す</text>
+<rect class="bs" x="20" y="60" width="360" height="26" rx="3"/>
+<text class="l" x="30" y="78">鉱物</text><text class="l" x="100" y="78">反応の速さ</text><text class="l" x="200" y="78">強度への寄与</text><text class="l" x="310" y="78">水和熱</text>
+<g>
+<rect class="bb" x="20" y="98" width="360" height="60" rx="6"/>
+<text class="l" x="30" y="133">C<tspan baseline-shift="sub" font-size="11">3</tspan>S</text>
+<text class="s" x="100" y="133">比較的速い</text><text class="s" x="200" y="124">初期から</text><text class="s" x="200" y="142">主に担う</text><text class="s" x="310" y="133">大きい</text>
+<rect class="bg" x="20" y="168" width="360" height="60" rx="6"/>
+<text class="l" x="30" y="203">C<tspan baseline-shift="sub" font-size="11">2</tspan>S</text>
+<text class="s" x="100" y="203">遅い</text><text class="s" x="200" y="194">長期の強度へ</text><text class="s" x="200" y="212">寄与が相対的に大</text><text class="s" x="310" y="203">小さい</text>
+<rect class="br" x="20" y="238" width="360" height="60" rx="6"/>
+<text class="l" x="30" y="273">C<tspan baseline-shift="sub" font-size="11">3</tspan>A</text>
+<text class="s" x="100" y="264">非常に速い</text><text class="s" x="100" y="282">（せっこうで調整）</text><text class="s" x="200" y="273">寄与は限定的</text><text class="s" x="310" y="273">大きい</text>
+<rect class="bw" x="20" y="308" width="360" height="60" rx="6"/>
+<text class="l" x="30" y="343">C<tspan baseline-shift="sub" font-size="11">4</tspan>AF</text>
+<text class="s" x="100" y="343">中程度</text><text class="s" x="200" y="343">寄与は小さい</text><text class="s" x="310" y="343">小さめ</text>
+</g>
+<rect class="bs" x="20" y="390" width="360" height="86" rx="6"/>
+<text class="l" x="32" y="412">覚え方</text>
+<text class="s" x="32" y="432">・強度はけい酸塩鉱物（C<tspan baseline-shift="sub" font-size="11">3</tspan>S・C<tspan baseline-shift="sub" font-size="11">2</tspan>S）が主役</text>
+<text class="s" x="32" y="452">・C<tspan baseline-shift="sub" font-size="11">3</tspan>Sを減らすと、初期強度と初期の発熱は小さくなる方向</text>
+</svg>

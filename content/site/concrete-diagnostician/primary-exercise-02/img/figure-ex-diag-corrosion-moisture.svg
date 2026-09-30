@@ -1,0 +1,56 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士演習の含水率と腐食速度。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="含水率と鋼材の腐食速度の関係の傾向。含水率の増加で電気抵抗が下がり腐食速度が上がり、飽和に近づくと酸素の供給が乏しくなって腐食速度が下がる">
+  <defs>
+    <marker id="ab" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="ag" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-b { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-red { stroke: #b22234; stroke-width: 2; fill: none; }
+      .line-green { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-thin { stroke: #555; stroke-width: 1; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <text class="t-lead" x="200" y="14" text-anchor="middle">横軸＝コンクリートの含水率、縦軸＝鋼材の腐食速度</text>
+  <text class="t-lead" x="200" y="30" text-anchor="middle">（数値なし・傾向を示す）</text>
+  <line class="line-dash" x1="50" y1="280" x2="360" y2="280"/>
+  <line class="line-dash" x1="50" y1="50" x2="50" y2="280"/>
+  <text class="t-axis" x="200" y="298" text-anchor="middle">含水率</text>
+  <text class="t-axis" x="54" y="46">腐食速度</text>
+  <text class="t-axis" x="50" y="298">乾燥</text>
+  <text class="t-axis" x="330" y="298" text-anchor="end">飽和</text>
+<path class="line-main" d="M50,270 C 100,250 140,120 200,100 C 250,85 290,200 350,262"/>
+  <line class="line-dash" x1="125" y1="280" x2="125" y2="170"/>
+  <line class="line-dash" x1="285" y1="280" x2="285" y2="170"/>
+  <text class="t-label" x="70" y="318">含水率が増える</text>
+  <text class="t-label" x="70" y="334">領域</text>
+  <text class="t-label" x="255" y="318">飽和に近い</text>
+  <text class="t-label" x="255" y="334">領域</text>
+  <rect class="box-b" x="20" y="352" width="172" height="118" rx="6"/>
+  <rect class="box-w" x="208" y="352" width="172" height="118" rx="6"/>
+  <text class="t-desc" x="32" y="374">細孔溶液が連続する</text>
+  <text class="t-desc" x="32" y="396">イオンが動きやすい</text>
+  <text class="t-desc" x="32" y="418">電気抵抗が小さくなる</text>
+  <text class="t-desc" x="32" y="440">腐食反応が進みやすい</text>
+  <text class="t-desc" x="220" y="374">水を通した酸素の</text>
+  <text class="t-desc" x="220" y="396">拡散が著しく遅い</text>
+  <text class="t-desc" x="220" y="418">カソード反応（酸素の</text>
+  <text class="t-desc" x="220" y="440">還元）が進めない</text>
+  <text class="t-label" x="200" y="490" text-anchor="middle">乾湿を繰り返す領域が最も厳しい環境</text>
+
+</svg>

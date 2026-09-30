@@ -1,0 +1,55 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士演習の電気防食の復極量。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="電気防食の通電遮断前後の鉄筋電位の推移。通電中は卑な電位で、遮断直後のインスタントオフ電位から時間とともに電位が戻り、その戻り幅が復極量として効果の指標になる">
+  <defs>
+    <marker id="ab" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="ag" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-b { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-red { stroke: #b22234; stroke-width: 2; fill: none; }
+      .line-green { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-thin { stroke: #555; stroke-width: 1; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <text class="t-lead" x="200" y="20" text-anchor="middle">横軸＝時間、縦軸＝鉄筋の電位（数値なし・推移の形）</text>
+  <line class="line-dash" x1="50" y1="290" x2="365" y2="290"/>
+  <line class="line-dash" x1="50" y1="50" x2="50" y2="290"/>
+  <text class="t-axis" x="50" y="44" text-anchor="middle">貴（正）</text>
+  <text class="t-axis" x="50" y="308" text-anchor="middle">卑（負）</text>
+  <text class="t-axis" x="362" y="286" text-anchor="end">時間</text>
+  <path class="line-main" d="M50,100 L110,100"/>
+  <path class="line-main" d="M110,100 L120,250 L210,250"/>
+  <path class="line-main" d="M210,250 L210,200 C 240,180 270,150 330,118"/>
+  <line class="line-dash" x1="50" y1="100" x2="365" y2="100"/>
+  <line class="line-dash" x1="210" y1="290" x2="210" y2="50"/>
+  <circle cx="210" cy="200" r="4" fill="#b22234"/>
+  <line class="line-red" x1="330" y1="200" x2="330" y2="122" marker-end="url(#ar)"/>
+  <line class="line-dash" x1="210" y1="200" x2="330" y2="200"/>
+  <text class="t-desc" x="54" y="92">通電前の自然電位</text>
+  <text class="t-label" x="130" y="272">通電中（電圧降下を含む）</text>
+  <text class="t-label" x="218" y="220">インスタントオフ電位</text>
+  <text class="t-label" x="210" y="306" text-anchor="middle">通電遮断</text>
+  <text class="t-desc" x="218" y="240">時間とともに電位が戻る</text>
+  <text class="t-b" x="338" y="160">復極量</text>
+  <rect class="box" x="20" y="330" width="360" height="120" rx="6"/>
+  <text class="t-desc" x="32" y="356">・効果の指標は復極量（遮断直後の電位からの戻り幅）</text>
+  <text class="t-desc" x="32" y="380">・通電中の値には電流による電圧降下が含まれ、鉄筋の</text>
+  <text class="t-desc" x="32" y="404">　電位そのものを表さない（遮断直後に測って除く）</text>
+  <text class="t-desc" x="32" y="428">・電流量は操作量であり、効果そのものの指標ではない</text>
+
+</svg>

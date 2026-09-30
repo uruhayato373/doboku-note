@@ -1,0 +1,34 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート技士教材の製造・品質管理の品質管理と検査。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="品質管理と検査の関係。品質管理は標準化・測定・異常検出・原因除去・再発防止を回して工程を安定させ、検査は定めた基準への適合を確認する">
+<defs><style>
+text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN","Hiragino Sans",sans-serif}
+.h{font-size:14px;font-weight:700;fill:#1a3a5c}.l{font-size:12px;fill:#1a3a5c}.s{font-size:11px;fill:#555}.m{font-size:11px;fill:#8a8a8a}
+.bb{fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5}.bg{fill:#d0e8d0;stroke:#3a7d44;stroke-width:1.5}.bw{fill:#fff3cd;stroke:#d4a017;stroke-width:1.5}.br{fill:#f8d7da;stroke:#b22234;stroke-width:1.5}.bs{fill:#f5f5f5;stroke:#d7d7d7;stroke-width:1.5}
+.ln{stroke:#2e6da4;stroke-width:2;fill:none}.lr{stroke:#b22234;stroke-width:2;fill:none}.lg{stroke:#3a7d44;stroke-width:2;fill:none}.ax{stroke:#8a8a8a;stroke-width:1;fill:none}.ar{stroke:#555;stroke-width:1.5;fill:none}
+</style>
+<marker id="a" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+</defs>
+
+<text class="h" x="200" y="24" text-anchor="middle">品質管理と検査の役割</text>
+<text class="s" x="200" y="42" text-anchor="middle">工程を安定させる活動と、適合を確かめる活動</text>
+<rect class="bb" x="20" y="60" width="360" height="190" rx="6"/>
+<text class="l" x="200" y="82" text-anchor="middle">品質管理（工程を安定させる）</text>
+<rect class="bs" x="36" y="102" width="92" height="36" rx="6"/><text class="s" x="82" y="125" text-anchor="middle">標準化</text>
+<rect class="bs" x="154" y="102" width="92" height="36" rx="6"/><text class="s" x="200" y="125" text-anchor="middle">測定・記録</text>
+<rect class="bs" x="272" y="102" width="92" height="36" rx="6"/><text class="s" x="318" y="125" text-anchor="middle">異常の検出</text>
+<line class="ar" x1="130" y1="120" x2="152" y2="120" marker-end="url(#a)"/><line class="ar" x1="248" y1="120" x2="270" y2="120" marker-end="url(#a)"/>
+<rect class="bs" x="272" y="176" width="92" height="36" rx="6"/><text class="s" x="318" y="199" text-anchor="middle">原因の除去</text>
+<rect class="bs" x="154" y="176" width="92" height="36" rx="6"/><text class="s" x="200" y="199" text-anchor="middle">再発防止</text>
+<line class="ar" x1="318" y1="140" x2="318" y2="174" marker-end="url(#a)"/><line class="ar" x1="270" y1="194" x2="248" y2="194" marker-end="url(#a)"/>
+<path class="ar" d="M154 194 L82 194 L82 142" marker-end="url(#a)"/>
+<text class="s" x="200" y="240" text-anchor="middle">予防的に繰り返し回す</text>
+<line class="ar" x1="200" y1="252" x2="200" y2="284" marker-end="url(#a)"/>
+<rect class="bg" x="20" y="288" width="360" height="86" rx="6"/>
+<text class="l" x="200" y="312" text-anchor="middle">検査（基準への適合を確認する）</text>
+<text class="s" x="200" y="336" text-anchor="middle">抜取りの試験結果を、定めた基準と照合する</text>
+<text class="s" x="200" y="356" text-anchor="middle">結果は傾向把握と工程改善にも使う</text>
+<rect class="bw" x="20" y="394" width="360" height="82" rx="6"/>
+<text class="l" x="32" y="416">区別のポイント</text>
+<text class="s" x="32" y="436">・検査だけでは全量の均一性を保証できない</text>
+<text class="s" x="32" y="456">・検査データを工程へ戻して管理を強める</text>
+</svg>

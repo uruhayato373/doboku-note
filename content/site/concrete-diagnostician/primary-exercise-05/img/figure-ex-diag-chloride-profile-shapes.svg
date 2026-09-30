@@ -1,0 +1,47 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士演習の塩化物イオン分布の形と由来。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="全塩化物イオン量の深さ方向分布の二つの型。外部から浸透した場合は表面で最大となり内部へ単調に減少し、建設時に持ち込まれた内在塩では内部にピークを持つ山型になる">
+  <defs>
+    <marker id="ab" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="ag" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-b { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-red { stroke: #b22234; stroke-width: 2; fill: none; }
+      .line-green { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-thin { stroke: #555; stroke-width: 1; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <text class="t-lead" x="200" y="20" text-anchor="middle">全塩化物イオン量の深さ方向分布（模式・二つの由来の比較）</text>
+  <text class="t-b" x="24" y="44">外部から浸透した塩化物</text>
+  <line class="line-dash" x1="60" y1="164" x2="360" y2="164"/>
+  <line class="line-dash" x1="60" y1="58" x2="60" y2="164"/>
+  <text class="t-axis" x="355" y="180" text-anchor="end">表面からの深さ</text>
+  <text class="t-axis" x="64" y="56">全塩化物イオン量</text>
+  <path class="line-main" d="M60,62 C 120,95 200,130 350,160"/>
+  <text class="t-desc" x="200" y="196" text-anchor="middle">表面で最大、内部へ向かって単調に減少する</text>
+  <text class="t-b" x="24" y="244">建設時に持ち込まれた塩化物（内在塩）</text>
+  <line class="line-dash" x1="60" y1="364" x2="360" y2="364"/>
+  <line class="line-dash" x1="60" y1="258" x2="60" y2="364"/>
+  <text class="t-axis" x="355" y="380" text-anchor="end">表面からの深さ</text>
+  <text class="t-axis" x="64" y="256">全塩化物イオン量</text>
+  <path class="line-main" d="M60,352 C 90,346 120,296 160,290 C 210,296 280,330 350,356"/>
+  <text class="t-desc" x="200" y="396" text-anchor="middle">表面付近は低く、内部にピークを持つ山型になる</text>
+  <text class="t-desc" x="200" y="438" text-anchor="middle">表面側が低いのは、長い供用の間に雨などで溶け出したため</text>
+  <text class="t-label" x="200" y="462" text-anchor="middle">分布の形から、塩化物がどこから来たかを読み取る</text>
+
+</svg>

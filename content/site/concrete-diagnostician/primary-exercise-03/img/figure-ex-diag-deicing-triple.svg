@@ -1,0 +1,52 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士演習の凍結防止剤による複合劣化。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="凍結防止剤が塩化物イオン、塩分を含む細孔溶液、ナトリウムの三つの経路で、中性化後の塩化物の濃縮、凍害、アルカリシリカ反応を同時に促進する関係図">
+  <defs>
+    <marker id="ab" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="ag" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-b { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-red { stroke: #b22234; stroke-width: 2; fill: none; }
+      .line-green { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-thin { stroke: #555; stroke-width: 1; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <text class="t-lead" x="200" y="20" text-anchor="middle">凍結防止剤が同時に複数の劣化へ作用する</text>
+  <rect class="box-w" x="100" y="36" width="200" height="44" rx="6"/>
+  <text class="t-b" x="200.0" y="53" text-anchor="middle">凍結防止剤</text>
+  <text class="t-b" x="200.0" y="71" text-anchor="middle">（塩化ナトリウムなど）</text>
+  <line class="line-main" x1="200" y1="82" x2="200" y2="96" marker-end="url(#ab)"/>
+  <rect class="box-b" x="20" y="100" width="360" height="64" rx="6"/>
+  <text class="t-b" x="200" y="120" text-anchor="middle">塩化物イオン</text>
+  <text class="t-desc" x="200" y="138" text-anchor="middle">外部から塩化物イオンを供給し、</text>
+  <text class="t-desc" x="200" y="154" text-anchor="middle">鋼材位置まで浸入する（塩害の促進）</text>
+  <rect class="box-b" x="20" y="174" width="360" height="64" rx="6"/>
+  <text class="t-b" x="200" y="194" text-anchor="middle">塩分を含む細孔溶液</text>
+  <text class="t-desc" x="200" y="212" text-anchor="middle">凍結時の浸透圧が高まり、水が移動して</text>
+  <text class="t-desc" x="200" y="228" text-anchor="middle">組織を壊す（凍害の促進）</text>
+  <rect class="box-b" x="20" y="248" width="360" height="64" rx="6"/>
+  <text class="t-b" x="200" y="268" text-anchor="middle">ナトリウム</text>
+  <text class="t-desc" x="200" y="286" text-anchor="middle">細孔溶液のアルカリ性が高まり、</text>
+  <text class="t-desc" x="200" y="302" text-anchor="middle">ASR の条件を強める（ASR の促進）</text>
+  <rect class="box-d" x="20" y="330" width="360" height="50" rx="6"/>
+  <text class="t-label" x="200.0" y="350" text-anchor="middle">一つの外的要因が塩害・凍害・アルカリシリカ反応に</text>
+  <text class="t-label" x="200.0" y="368" text-anchor="middle">同時に効く</text>
+  <text class="t-label" x="200" y="410" text-anchor="middle">単一の劣化機構だけを見て原因を決めない</text>
+  <text class="t-axis" x="200" y="430" text-anchor="middle">（ASR＝アルカリシリカ反応）</text>
+
+</svg>

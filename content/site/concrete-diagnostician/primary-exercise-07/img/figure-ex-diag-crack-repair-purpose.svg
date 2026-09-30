@@ -1,0 +1,58 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士演習のひび割れ補修の目的と工法。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="ひび割れ補修の目的と材料の対応。止水は弾性シーリング材のUカット充填、断面の一体化は硬質エポキシ樹脂の注入、剥落防止はポリマーセメントモルタルによる被覆">
+  <defs>
+    <marker id="ab" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="ag" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-b { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-red { stroke: #b22234; stroke-width: 2; fill: none; }
+      .line-green { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-thin { stroke: #555; stroke-width: 1; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <text class="t-lead" x="200" y="20" text-anchor="middle">補修の目的に応じて材料・工法を選ぶ</text>
+  <rect class="box-b" x="20" y="40" width="360" height="96" rx="6"/>
+  <text class="t-b" x="32" y="62">目的：止水</text>
+  <text class="t-desc" x="32" y="88">水の浸入を止める</text>
+  <line class="line-main" x1="168" y1="98" x2="196" y2="98" marker-end="url(#ab)"/>
+  <text class="t-label" x="204" y="74">弾性のあるシーリング材を</text>
+  <text class="t-label" x="204" y="92">U 字にカットして充填</text>
+  <text class="t-label" x="204" y="110">（幅の変動に追従できる）</text>
+  <rect class="box-g" x="20" y="150" width="360" height="96" rx="6"/>
+  <text class="t-b" x="32" y="172">目的：一体化</text>
+  <text class="t-desc" x="32" y="198">分断された断面を</text>
+  <text class="t-desc" x="32" y="216">つなぎ直す</text>
+  <line class="line-main" x1="168" y1="208" x2="196" y2="208" marker-end="url(#ab)"/>
+  <text class="t-label" x="204" y="184">硬質のエポキシ樹脂を注入</text>
+  <text class="t-label" x="204" y="202">（動きの止まった</text>
+  <text class="t-label" x="204" y="220">　非活動ひび割れが対象）</text>
+  <rect class="box-w" x="20" y="260" width="360" height="96" rx="6"/>
+  <text class="t-b" x="32" y="282">目的：剥落防止</text>
+  <text class="t-desc" x="32" y="308">ひび割れを含む表面から</text>
+  <text class="t-desc" x="32" y="326">片が落ちることを防ぐ</text>
+  <line class="line-main" x1="168" y1="318" x2="196" y2="318" marker-end="url(#ab)"/>
+  <text class="t-label" x="204" y="294">ポリマーセメントモルタルで</text>
+  <text class="t-label" x="204" y="312">表面を被覆する</text>
+  <rect class="box-d" x="20" y="376" width="360" height="94" rx="6"/>
+  <text class="t-b" x="32" y="398">可とう性の材料で一体化はできない</text>
+  <text class="t-desc" x="32" y="420">・硬化後も柔らかく、幅の変動には追従できる</text>
+  <text class="t-desc" x="32" y="440">・分断された断面を剛的につなぎ直すことはできない</text>
+  <text class="t-desc" x="32" y="460">・ひび割れ幅だけで工法を決めず、目的から選ぶ</text>
+
+</svg>

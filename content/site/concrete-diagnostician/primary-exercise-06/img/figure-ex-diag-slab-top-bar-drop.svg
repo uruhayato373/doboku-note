@@ -1,0 +1,53 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士演習の上端筋の位置ずれと有効高さ。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="連続スラブの支持部断面で、上端筋が設計位置にある場合と20mm下がった場合を比べ、下がると有効高さが小さくなり曲げに対する抵抗が落ちることを示す">
+  <defs>
+    <marker id="ab" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="ag" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-b { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-red { stroke: #b22234; stroke-width: 2; fill: none; }
+      .line-green { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-thin { stroke: #555; stroke-width: 1; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <text class="t-lead" x="200" y="20" text-anchor="middle">連続スラブの梁に接する支持部（上面が引張側）の断面</text>
+  <text class="t-b" x="120" y="48" text-anchor="middle">設計位置</text>
+  <rect class="box" x="40" y="60" width="160" height="110"/>
+  <line class="line-thin" x1="54" y1="74" x2="186" y2="74" stroke-width="4"/>
+  <line class="line-main" x1="34" y1="74" x2="34" y2="170" marker-start="url(#ab)" marker-end="url(#ab)"/>
+  <text class="t-b" x="300" y="48" text-anchor="middle">実際（20 mm 下がり）</text>
+  <rect class="box" x="220" y="60" width="160" height="110"/>
+  <line class="line-thin" x1="234" y1="100" x2="366" y2="100" stroke-width="4"/>
+  <line class="line-main" x1="214" y1="100" x2="214" y2="170" marker-start="url(#ab)" marker-end="url(#ab)"/>
+  <text class="t-label" x="120" y="196" text-anchor="middle">有効高さ d は大きい</text>
+  <text class="t-label" x="300" y="196" text-anchor="middle">有効高さ d は小さい</text>
+  <text class="t-desc" x="120" y="96" text-anchor="middle">上端筋</text>
+  <text class="t-b" x="48" y="130">d</text>
+  <text class="t-desc" x="300" y="122" text-anchor="middle">上端筋</text>
+  <text class="t-b" x="228" y="140">d</text>
+  <text class="t-desc" x="200" y="232" text-anchor="middle">曲げに対する抵抗が落ち、支持部の上面にひび割れが生じやすい</text>
+  <rect class="box" x="20" y="256" width="360" height="170" rx="6"/>
+  <text class="t-desc" x="32" y="282">・引張に抵抗するのは上端筋で、その位置が下がると</text>
+  <text class="t-desc" x="32" y="306">　有効な高さが小さくなる</text>
+  <text class="t-desc" x="32" y="330">・ひび割れの位置から、どちら側の引張に対応するかを決める</text>
+  <text class="t-desc" x="32" y="354">　と、着目すべき鉄筋が定まる</text>
+  <text class="t-desc" x="32" y="378">・下端筋は支間中央部の下面側の性能に関わり、</text>
+  <text class="t-desc" x="32" y="402">　支持部上面のひび割れとは対応しない</text>
+
+</svg>

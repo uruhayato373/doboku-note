@@ -1,0 +1,50 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士演習の火害後の強度とヤング係数の残存率。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="加熱後のコンクリートの圧縮強度とヤング係数の残存率の傾向。ヤング係数は低い温度域から大きく低下し、圧縮強度は300度程度まで比較的保たれてその後急に低下する">
+  <defs>
+    <marker id="ab" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="ag" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-b { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-red { stroke: #b22234; stroke-width: 2; fill: none; }
+      .line-green { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-thin { stroke: #555; stroke-width: 1; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <text class="t-lead" x="200" y="20" text-anchor="middle">横軸＝受熱温度、縦軸＝常温時を100 %とした残存率（傾向を示す）</text>
+  <line class="line-dash" x1="50" y1="280" x2="360" y2="280"/>
+  <line class="line-dash" x1="50" y1="50" x2="50" y2="280"/>
+  <line class="line-dash" x1="50" y1="70" x2="360" y2="70"/>
+  <text class="t-axis" x="355" y="298" text-anchor="end">受熱温度</text>
+  <text class="t-axis" x="54" y="46">残存率</text>
+  <text class="t-axis" x="40" y="74" text-anchor="end">100 %</text>
+  <text class="t-axis" x="50" y="298">常温</text>
+<path class="line-red" d="M50,70 C 90,110 130,150 180,190 C 230,225 290,260 345,272"/>
+<path class="line-main" d="M50,70 C 120,72 180,80 220,100 C 270,150 310,230 345,268"/>
+  <line class="line-dash" x1="190" y1="280" x2="190" y2="74"/>
+  <text class="t-axis" x="190" y="298" text-anchor="middle">300 ℃ 程度</text>
+  <text class="t-label" x="62" y="215">ヤング係数</text>
+  <text class="t-label" x="230" y="118">圧縮強度</text>
+  <rect class="box" x="20" y="326" width="360" height="144" rx="6"/>
+  <text class="t-desc" x="32" y="350">・ヤング係数は低い温度域から低下し始め、大きく失われる</text>
+  <text class="t-desc" x="32" y="374">・圧縮強度は 300 ℃ 程度まで比較的よく保たれ、それを超えると</text>
+  <text class="t-desc" x="32" y="398">　急に落ちていく</text>
+  <text class="t-desc" x="32" y="422">・外観や圧縮強度に変化が見えなくても、剛性は相当失われている</text>
+  <text class="t-desc" x="32" y="446">　可能性がある（たわみの増大を確認する理由）</text>
+
+</svg>

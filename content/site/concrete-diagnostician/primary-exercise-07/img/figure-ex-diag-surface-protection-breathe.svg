@@ -1,0 +1,48 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士演習の表面保護の原則。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="コンクリート壁の断面。表面保護では外からの液体の水は入れず、内部の水分は水蒸気として逃がすという原則を示す">
+  <defs>
+    <marker id="ab" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="ag" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-b { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-red { stroke: #b22234; stroke-width: 2; fill: none; }
+      .line-green { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-thin { stroke: #555; stroke-width: 1; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <text class="t-lead" x="200" y="20" text-anchor="middle">表面保護の原則（壁の断面・模式図）</text>
+  <rect class="box" x="200" y="50" width="160" height="190"/>
+  <rect class="box-b" x="180" y="50" width="20" height="190"/>
+  <line class="line-main" x1="30" y1="110" x2="176" y2="110"/>
+  <line class="line-main" x1="176" y1="98" x2="176" y2="122"/>
+  <line class="line-green" x1="340" y1="190" x2="30" y2="190" marker-end="url(#ag)"/>
+  <text class="t-label" x="190" y="256" text-anchor="middle">保護層</text>
+  <text class="t-label" x="280" y="256" text-anchor="middle">コンクリート</text>
+  <text class="t-label" x="24" y="78">外からの水</text>
+  <text class="t-label" x="24" y="94">（液体）は入れない</text>
+  <text class="t-label" x="250" y="160">内部の水分</text>
+  <text class="t-label" x="250" y="176">（水蒸気）は逃がす</text>
+  <rect class="box" x="20" y="282" width="360" height="130" rx="6"/>
+  <text class="t-desc" x="32" y="308">・シラン系の含浸材：表面付近に撥水層をつくり、</text>
+  <text class="t-desc" x="32" y="332">　液体の水を抑えつつ水蒸気は通す</text>
+  <text class="t-desc" x="32" y="356">・水を通しにくく水蒸気を通す性質が求められる</text>
+  <text class="t-desc" x="32" y="380">・内部の水分を閉じ込めると、ASR が続くうえ、</text>
+  <text class="t-desc" x="32" y="404">　凍害や内部の膨張を助長するおそれがある</text>
+
+</svg>

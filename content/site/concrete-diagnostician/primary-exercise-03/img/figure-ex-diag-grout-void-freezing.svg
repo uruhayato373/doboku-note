@@ -1,0 +1,52 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士演習のグラウト充填不良と凍結膨張。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="PC桁ウェブの断面。シース内のグラウト充填不良の空隙に水が滞留して凍結し、膨張圧でシース周辺のコンクリートが押し広げられ、シースに沿ったひび割れが生じる">
+  <defs>
+    <marker id="ab" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="ag" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-b { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-red { stroke: #b22234; stroke-width: 2; fill: none; }
+      .line-green { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-thin { stroke: #555; stroke-width: 1; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <text class="t-lead" x="200" y="20" text-anchor="middle">PC 桁ウェブの断面（ポストテンション方式・模式図）</text>
+  <rect class="box" x="60" y="50" width="280" height="240"/>
+  <circle class="box-w" cx="200" cy="200" r="52"/>
+  <ellipse class="box-b" cx="200" cy="228" rx="34" ry="18"/>
+  <circle cx="200" cy="228" r="7" fill="#555"/>
+  <line class="line-thin" x1="150" y1="225" x2="118" y2="256"/>
+  <line class="line-thin" x1="234" y1="230" x2="262" y2="256"/>
+  <text class="t-label" x="70" y="272">滞留した水（充填不良の空隙）</text>
+  <text class="t-label" x="270" y="272">PC 鋼材</text>
+  <line class="line-red" x1="200" y1="144" x2="200" y2="112" marker-end="url(#ar)"/>
+  <line class="line-red" x1="158" y1="168" x2="134" y2="146" marker-end="url(#ar)"/>
+  <line class="line-red" x1="242" y1="168" x2="266" y2="146" marker-end="url(#ar)"/>
+  <line class="line-red" x1="144" y1="196" x2="112" y2="196" marker-end="url(#ar)"/>
+  <line class="line-red" x1="256" y1="196" x2="288" y2="196" marker-end="url(#ar)"/>
+  <path class="line-red" d="M200,108 L196,92 L204,78 L198,64 L200,50" stroke-dasharray="5 3"/>
+  <text class="t-label" x="214" y="84">シースに沿ったひび割れ</text>
+  <text class="t-desc" x="200" y="318" text-anchor="middle">赤い矢印＝凍結による膨張圧（氷の体積膨張は約 9 %）</text>
+  <rect class="box" x="20" y="340" width="360" height="130" rx="6"/>
+  <text class="t-desc" x="32" y="366">1  橋面から水が浸入し、シース内の空隙に滞留する</text>
+  <text class="t-desc" x="32" y="392">2  寒冷地で凍結し、膨張圧がシース周辺を押し広げる</text>
+  <text class="t-desc" x="32" y="418">3  塩化物イオンを含む水は PC 鋼材の腐食を招く</text>
+  <text class="t-desc" x="32" y="444">4  PC 鋼材は高強度鋼で、腐食が耐力の急低下に直結する</text>
+
+</svg>

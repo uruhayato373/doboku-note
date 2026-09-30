@@ -1,0 +1,52 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士演習の迷走電流による鉄筋の電食。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="鉄道のレールから地中へ漏れた迷走電流が床版の鉄筋を経路として流れ、鉄筋から流出する位置で腐食が集中してかぶりが押し出される様子">
+  <defs>
+    <marker id="ab" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="ag" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-b { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-red { stroke: #b22234; stroke-width: 2; fill: none; }
+      .line-green { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-thin { stroke: #555; stroke-width: 1; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <text class="t-lead" x="200" y="20" text-anchor="middle">鉄道施設での迷走電流（模式図）</text>
+  <rect class="box-w" x="60" y="44" width="280" height="14" rx="3"/>
+  <text class="t-label" x="200" y="38" text-anchor="middle">レール（帰線電流が流れる）</text>
+  <rect class="box" x="40" y="150" width="320" height="110"/>
+  <line class="line-thin" x1="60" y1="215" x2="340" y2="215" stroke-width="3"/>
+  <text class="t-axis" x="250" y="250" text-anchor="middle">プラットホームのコンクリート床版</text>
+  <text class="t-label" x="72" y="236">鉄筋</text>
+  <path class="line-main" d="M120,60 L120,150" stroke-dasharray="4 3" marker-end="url(#ab)"/>
+  <path class="line-main" d="M120,150 L120,214" stroke-dasharray="4 3" marker-end="url(#ab)"/>
+  <path class="line-main" d="M130,205 L280,205" marker-end="url(#ab)"/>
+  <path class="line-red" d="M280,215 L280,120" marker-end="url(#ar)"/>
+  <text class="t-label" x="132" y="110">地中へ漏れた電流</text>
+  <text class="t-label" x="150" y="198">鉄筋を経路として流れる</text>
+  <text class="t-label" x="288" y="140">鉄筋から流出</text>
+  <text class="t-label" x="288" y="156">する位置</text>
+  <circle cx="280" cy="215" r="10" fill="none" stroke="#b22234" stroke-width="2"/>
+  <text class="t-desc" x="200" y="296" text-anchor="middle">流出位置で腐食が集中し、腐食生成物の膨張でかぶりが押し出される</text>
+  <rect class="box" x="20" y="316" width="360" height="124" rx="6"/>
+  <text class="t-desc" x="32" y="342">・鉄筋が電気化学的に腐食するのは電流が流出する位置</text>
+  <text class="t-desc" x="32" y="366">・局所に集中する現れ方がこの機構の特徴</text>
+  <text class="t-desc" x="32" y="390">・凍結融解は水がかかる面に一様な表層剥離として現れる</text>
+  <text class="t-desc" x="32" y="414">・振動や衝撃はひび割れとして現れ、剥落を主体としない</text>
+
+</svg>

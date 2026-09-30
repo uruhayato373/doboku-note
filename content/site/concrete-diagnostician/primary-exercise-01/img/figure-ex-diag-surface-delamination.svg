@@ -1,0 +1,55 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士演習の表層剥離の機構。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="こて仕上げ床スラブの断面。ブリーディング水が上昇して表面直下に閉じ込められ、水の集まった脆弱層を境に薄い表層が剥がれる流れを示す">
+  <defs>
+    <marker id="ab" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="ag" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-b { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-red { stroke: #b22234; stroke-width: 2; fill: none; }
+      .line-green { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-thin { stroke: #555; stroke-width: 1; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <text class="t-lead" x="200" y="20" text-anchor="middle">床スラブ断面（仕組みを示す模式図・数値なし）</text>
+  <rect class="box-b" x="60" y="60" width="280" height="22" rx="3"/>
+  <rect class="box-d" x="60" y="82" width="280" height="26"/>
+  <rect class="box" x="60" y="108" width="280" height="140"/>
+  <text class="t-label" x="200" y="76" text-anchor="middle">表層（こて仕上げで締められた層）</text>
+  <text class="t-label" x="200" y="99" text-anchor="middle">水が集まる脆弱層（水が過多）</text>
+  <text class="t-label" x="200" y="240" text-anchor="middle">ブリーディングが続く内部</text>
+  <line class="line-main" x1="110" y1="222" x2="110" y2="116" marker-end="url(#ab)"/>
+  <line class="line-main" x1="200" y1="222" x2="200" y2="116" marker-end="url(#ab)"/>
+  <line class="line-main" x1="290" y1="222" x2="290" y2="116" marker-end="url(#ab)"/>
+  <text class="t-axis" x="155" y="190" text-anchor="middle">上昇する水</text>
+  <rect class="box-w" x="60" y="34" width="44" height="16" rx="3"/>
+  <line class="line-red" x1="104" y1="42" x2="200" y2="42" marker-end="url(#ar)" stroke-dasharray="4 3"/>
+  <text class="t-label" x="82" y="46" text-anchor="middle">こて</text>
+  <text class="t-desc" x="206" y="46">掛ける方向（表面を締める）</text>
+  <text class="t-b" x="24" y="284">表層が剥離するまでの流れ</text>
+  <rect class="box-b" x="20" y="300" width="360" height="26" rx="6"/>
+  <text class="t-desc" x="32" y="317">1  ブリーディング水が上昇している段階でこてを掛ける</text>
+  <rect class="box-b" x="20" y="334" width="360" height="26" rx="6"/>
+  <text class="t-desc" x="32" y="351">2  水が表面直下に閉じ込められ、材料分離が生じる</text>
+  <rect class="box-b" x="20" y="368" width="360" height="26" rx="6"/>
+  <text class="t-desc" x="32" y="385">3  水が集まった層は水セメント比が高くなり脆弱になる</text>
+  <rect class="box-b" x="20" y="402" width="360" height="26" rx="6"/>
+  <text class="t-desc" x="32" y="419">4  この層を境に、薄い表層が剥がれる</text>
+  <text class="t-desc" x="24" y="452">ブリーディング量が多いほど、水が集まりやすく顕著になる</text>
+
+</svg>

@@ -1,0 +1,28 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート技士教材の配合設計の表面水補正。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="示方配合の表乾細骨材600kgを、表面水率4.0%の湿潤細骨材で練り混ぜるときの補正。湿潤質量は624kg、持込み水は24kgで、練混ぜ水から差し引く">
+<defs><style>
+text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN","Hiragino Sans",sans-serif}
+.h{font-size:14px;font-weight:700;fill:#1a3a5c}.l{font-size:12px;fill:#1a3a5c}.s{font-size:11px;fill:#555}.m{font-size:11px;fill:#8a8a8a}
+.bb{fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5}.bg{fill:#d0e8d0;stroke:#3a7d44;stroke-width:1.5}.bw{fill:#fff3cd;stroke:#d4a017;stroke-width:1.5}.br{fill:#f8d7da;stroke:#b22234;stroke-width:1.5}.bs{fill:#f5f5f5;stroke:#d7d7d7;stroke-width:1.5}
+.ln{stroke:#2e6da4;stroke-width:2;fill:none}.lr{stroke:#b22234;stroke-width:2;fill:none}.lg{stroke:#3a7d44;stroke-width:2;fill:none}.ax{stroke:#8a8a8a;stroke-width:1;fill:none}.ar{stroke:#555;stroke-width:1.5;fill:none}
+</style>
+<marker id="a" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+</defs>
+
+<text class="h" x="200" y="24" text-anchor="middle">表面水補正の流れ</text>
+<text class="s" x="200" y="42" text-anchor="middle">問題文の数値（表乾600kg・表面水率4.0%）</text>
+<rect class="bb" x="60" y="60" width="280" height="56" rx="6"/>
+<text class="l" x="200" y="84" text-anchor="middle">示方配合：表乾細骨材 600kg</text><text class="s" x="200" y="104" text-anchor="middle">内部の吸水は満たされ、表面に水なし</text>
+<line class="ar" x1="200" y1="118" x2="200" y2="146" marker-end="url(#a)"/>
+<rect class="bw" x="60" y="150" width="280" height="56" rx="6"/>
+<text class="l" x="200" y="174" text-anchor="middle">現場の細骨材は表面水率 4.0%</text><text class="s" x="200" y="194" text-anchor="middle">表乾質量に対する表面の水の割合</text>
+<line class="ar" x1="120" y1="208" x2="120" y2="246" marker-end="url(#a)"/><line class="ar" x1="280" y1="208" x2="280" y2="246" marker-end="url(#a)"/>
+<rect class="bg" x="30" y="250" width="170" height="86" rx="6"/>
+<text class="l" x="115" y="274" text-anchor="middle">計量する湿潤質量</text><text class="s" x="115" y="296" text-anchor="middle">600 × (1 + 0.04)</text><text class="l" x="115" y="320" text-anchor="middle">＝ 624kg</text>
+<rect class="bg" x="210" y="250" width="160" height="86" rx="6"/>
+<text class="l" x="290" y="274" text-anchor="middle">持込み水量</text><text class="s" x="290" y="296" text-anchor="middle">600 × 0.04</text><text class="l" x="290" y="320" text-anchor="middle">＝ 24kg</text>
+<line class="ar" x1="290" y1="338" x2="290" y2="366" marker-end="url(#a)"/>
+<rect class="bs" x="190" y="370" width="180" height="40" rx="6"/><text class="l" x="280" y="395" text-anchor="middle">練混ぜ水から差し引く</text>
+<rect class="bs" x="20" y="426" width="360" height="50" rx="6"/>
+<text class="s" x="32" y="447">表面水4.0%は表乾質量600kgを基準にした割合。</text><text class="s" x="32" y="465">湿潤質量624kgを基準に掛け直さない。</text>
+</svg>

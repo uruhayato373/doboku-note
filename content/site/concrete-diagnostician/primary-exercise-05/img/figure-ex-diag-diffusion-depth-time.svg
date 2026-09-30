@@ -1,0 +1,51 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士演習の塩化物イオンの到達深さと時間。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="塩化物イオンの拡散による濃度分布。建設後10年に深さ30mmで1.2kg/m3に達し、同じ濃度が深さ60mmに達するのは40年後で、深さが2倍になると到達時間は4倍になる">
+  <defs>
+    <marker id="ab" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="ag" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-b { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-red { stroke: #b22234; stroke-width: 2; fill: none; }
+      .line-green { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-thin { stroke: #555; stroke-width: 1; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <text class="t-lead" x="200" y="20" text-anchor="middle">横軸＝表面からの深さ、縦軸＝塩化物イオン濃度（曲線は模式）</text>
+  <line class="line-dash" x1="60" y1="280" x2="360" y2="280"/>
+  <line class="line-dash" x1="60" y1="50" x2="60" y2="280"/>
+  <line class="line-dash" x1="60" y1="190" x2="360" y2="190"/>
+  <text class="t-axis" x="355" y="298" text-anchor="end">深さ</text>
+  <text class="t-axis" x="64" y="46">濃度</text>
+  <text class="t-axis" x="10" y="186" text-anchor="start">1.2 kg/m³</text>
+<path class="line-main" d="M60,70 C 90,130 120,170 160,190 C 200,210 250,245 340,270"/>
+<path class="line-red" d="M60,70 C 120,90 180,150 260,190 C 290,205 320,225 350,240"/>
+  <line class="line-dash" x1="160" y1="190" x2="160" y2="280"/>
+  <line class="line-dash" x1="260" y1="190" x2="260" y2="280"/>
+  <text class="t-label" x="160" y="298" text-anchor="middle">30 mm</text>
+  <text class="t-label" x="260" y="298" text-anchor="middle">60 mm</text>
+  <text class="t-label" x="66" y="228" style="fill:#2e6da4">建設後 10 年</text>
+  <text class="t-label" x="268" y="172" style="fill:#b22234">建設後 40 年</text>
+  <text class="t-b" x="200" y="330" text-anchor="middle">同じ濃度に達する条件：深さ ÷ √時間 が等しい</text>
+  <rect class="box" x="20" y="346" width="360" height="124" rx="6"/>
+  <text class="t-desc" x="32" y="372">30 ÷ √10 ＝ 60 ÷ √t　より　t ＝ 40 年</text>
+  <text class="t-desc" x="32" y="396">・深さが 2 倍になると、到達時間は 4 倍になる</text>
+  <text class="t-desc" x="32" y="420">・かぶりを 1.5 倍にすると、到達時間は 2.25 倍</text>
+  <text class="t-desc" x="32" y="444">・かぶりの確保が塩害対策として効く理由</text>
+
+</svg>

@@ -1,0 +1,52 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士演習の自然電位の経時モニタリング。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="鉄筋の自然電位の経時変化。腐食発生前は貴な値で安定し、5年前後で卑方向へ変化し、腐食反応が続く間は低い値が保たれる。腐食が停止した場合は電位が戻る">
+  <defs>
+    <marker id="ab" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="ag" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-b { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-red { stroke: #b22234; stroke-width: 2; fill: none; }
+      .line-green { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-thin { stroke: #555; stroke-width: 1; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <text class="t-lead" x="200" y="20" text-anchor="middle">横軸＝経過年数、縦軸＝鉄筋の自然電位（数値なし・推移の形）</text>
+  <line class="line-dash" x1="60" y1="290" x2="360" y2="290"/>
+  <line class="line-dash" x1="60" y1="50" x2="60" y2="290"/>
+  <text class="t-axis" x="60" y="44" text-anchor="middle">貴（正）</text>
+  <text class="t-axis" x="60" y="308" text-anchor="middle">卑（負）</text>
+  <text class="t-axis" x="355" y="286" text-anchor="end">経過年数</text>
+  <text class="t-axis" x="60" y="322" text-anchor="middle">0</text>
+  <text class="t-axis" x="210" y="322" text-anchor="middle">5 年</text>
+  <text class="t-axis" x="360" y="322" text-anchor="end">10 年</text>
+  <path class="line-main" d="M60,100 L200,100 C 210,100 212,200 222,215 L360,225"/>
+  <path class="line-dash" d="M222,215 C 260,190 300,140 350,112"/>
+  <line class="line-dash" x1="210" y1="50" x2="210" y2="290"/>
+  <text class="t-label" x="70" y="90">不動態被膜が保たれ、比較的貴な値で安定</text>
+  <text class="t-label" x="228" y="248">腐食反応が続く間は</text>
+  <text class="t-label" x="228" y="264">低い値が保たれる</text>
+  <text class="t-desc" x="330" y="150" text-anchor="end">腐食が停止</text>
+  <text class="t-desc" x="330" y="166" text-anchor="end">した場合は戻る</text>
+  <rect class="box" x="20" y="340" width="360" height="130" rx="6"/>
+  <text class="t-desc" x="32" y="366">・塩化物イオンが限界を超えると不動態被膜が破れる</text>
+  <text class="t-desc" x="32" y="392">・電位は卑（負）方向へ大きく振れる</text>
+  <text class="t-desc" x="32" y="418">・一度きりの測定では含水状態や温度の影響と区別できない</text>
+  <text class="t-desc" x="32" y="444">・継続測定なら「いつ何が起きたか」を読み取れる</text>
+
+</svg>
