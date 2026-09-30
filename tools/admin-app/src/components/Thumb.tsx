@@ -18,6 +18,7 @@ export default function Thumb({
   bucket,
   href,
   paper,
+  bare,
   children,
 }: {
   url: string;
@@ -31,6 +32,8 @@ export default function Thumb({
   href?: string;
   /** 透過図を白地で見せる（図版の目視確認用）。 */
   paper?: boolean;
+  /** 図だけを見せる（ファイル名とタグの行を出さない）。 */
+  bare?: boolean;
   children?: React.ReactNode;
 }) {
   return (
@@ -55,10 +58,12 @@ export default function Thumb({
           </MaybeLink>
         )}
       </div>
-      <div className="meta">
-        <span className="name">{name}</span>
-        {children ? <span className="tags">{children}</span> : null}
-      </div>
+      {bare ? null : (
+        <div className="meta">
+          <span className="name">{name}</span>
+          {children ? <span className="tags">{children}</span> : null}
+        </div>
+      )}
     </div>
   );
 }

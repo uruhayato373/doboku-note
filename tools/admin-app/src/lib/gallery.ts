@@ -120,35 +120,46 @@ export function scanOgp(): OgpResult {
 
 // ─── 記事図版（svg / raster） ───────────────────────────
 // 目視確認専用。品質判定（needs）は figure-provenance.json とその CLI（build-figure-provenance --list）が持つ。
+// 記事は doc-meta-index.json のキー（{category}-{dir}）で引く。公開 URL は /docs/{slug} の恒久転送に任せる。
 export interface FigureItem {
   rel: string;
   category: string;
-  name: string;
   kind: 'svg' | 'raster';
   url: string;
+  docSlug: string;
+  docTitle: string;
+}
+export interface FigureScan {
+  items: FigureItem[];
+  catLabel: Record<string, string>;
 }
 
-export function scanFigures(): { items: FigureItem[] } {
+export function scanFigures(): FigureScan {
   return memo('figures', () => {
     const POSTS = SITE_CONTENT_ROOT;
-    if (!existsSync(POSTS)) return { items: [] };
+    const cats = readJson<{ slug: string; label: string }[]>(repoPath('src', 'config', 'categories.json')) ?? [];
+    const catLabel = Object.fromEntries(cats.map((c) => [c.slug, c.label]));
+    if (!existsSync(POSTS)) return { items: [], catLabel };
+    const docs =
+      readJson<{ docs?: Record<string, { title?: string }> }>(repoPath('src', 'config', 'doc-meta-index.json'))?.docs ?? {};
     const rels = readdirSync(POSTS, { recursive: true, withFileTypes: false })
       .map((p) => toPosix(String(p)))
       .filter((p) => /\/img\/[^/]+\.(svg|png|webp|jpg)$/i.test(p));
 
     const items: FigureItem[] = rels
       .map((rel) => {
-        const name = rel.split('/').pop() ?? rel;
+        const docSlug = rel.split('/img/')[0].split('/').join('-');
         return {
           rel,
           category: dirname(rel).split('/')[0] ?? 'other',
-          name,
-          kind: (/\.svg$/i.test(name) ? 'svg' : 'raster') as 'svg' | 'raster',
+          kind: (/\.svg$/i.test(rel) ? 'svg' : 'raster') as 'svg' | 'raster',
           url: `/media/posts/${rel}`,
+          docSlug,
+          docTitle: docs[docSlug]?.title ?? docSlug,
         };
       })
       .sort((a, b) => a.rel.localeCompare(b.rel));
-    return { items };
+    return { items, catLabel };
   });
 }
 
