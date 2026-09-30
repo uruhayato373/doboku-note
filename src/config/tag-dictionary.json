@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-09-30T12:04:38.761Z",
+  "generated_at": "2026-09-30T12:47:20.893Z",
   "summary": {
-    "total_mdx_files": 1319,
+    "total_mdx_files": 1324,
     "total_unique_tags": 127,
     "allowlist_size": 324,
     "known_count": 127,
@@ -3516,7 +3516,7 @@
     },
     {
       "name": "令和8年度",
-      "count": 26,
+      "count": 27,
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-r08-primary",
@@ -3544,7 +3544,8 @@
         "pe-construction-road-exam-themes",
         "pe-construction-steel-concrete-exam-themes",
         "pe-construction-tunnel-exam-themes",
-        "pe-construction-urban-planning-exam-themes"
+        "pe-construction-urban-planning-exam-themes",
+        "surveyor-primary-r08"
       ]
     },
     {
@@ -3705,6 +3706,102 @@
       ]
     },
     {
+      "name": "令和4年度",
+      "count": 17,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-r04-primary",
+        "pe-construction-r04-construction-planning",
+        "pe-construction-r04-environment",
+        "pe-construction-r04-geotechnical",
+        "pe-construction-r04-port-airport",
+        "pe-construction-r04-power-civil",
+        "pe-construction-r04-railway",
+        "pe-construction-r04-required",
+        "pe-construction-r04-river-coast",
+        "pe-construction-r04-road",
+        "pe-construction-r04-steel-concrete",
+        "pe-construction-r04-tunnel",
+        "pe-construction-r04-urban-planning",
+        "pe-first-stage-r04-aptitude",
+        "pe-first-stage-r04-basic",
+        "pe-first-stage-r04-construction",
+        "surveyor-primary-r04"
+      ]
+    },
+    {
+      "name": "令和5年度",
+      "count": 17,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-r05-primary",
+        "pe-construction-r05-construction-planning",
+        "pe-construction-r05-environment",
+        "pe-construction-r05-geotechnical",
+        "pe-construction-r05-port-airport",
+        "pe-construction-r05-power-civil",
+        "pe-construction-r05-railway",
+        "pe-construction-r05-required",
+        "pe-construction-r05-river-coast",
+        "pe-construction-r05-road",
+        "pe-construction-r05-steel-concrete",
+        "pe-construction-r05-tunnel",
+        "pe-construction-r05-urban-planning",
+        "pe-first-stage-r05-aptitude",
+        "pe-first-stage-r05-basic",
+        "pe-first-stage-r05-construction",
+        "surveyor-primary-r05"
+      ]
+    },
+    {
+      "name": "令和6年度",
+      "count": 17,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-r06-primary",
+        "pe-construction-r06-construction-planning",
+        "pe-construction-r06-environment",
+        "pe-construction-r06-geotechnical",
+        "pe-construction-r06-port-airport",
+        "pe-construction-r06-power-civil",
+        "pe-construction-r06-railway",
+        "pe-construction-r06-required",
+        "pe-construction-r06-river-coast",
+        "pe-construction-r06-road",
+        "pe-construction-r06-steel-concrete",
+        "pe-construction-r06-tunnel",
+        "pe-construction-r06-urban-planning",
+        "pe-first-stage-r06-aptitude",
+        "pe-first-stage-r06-basic",
+        "pe-first-stage-r06-construction",
+        "surveyor-primary-r06"
+      ]
+    },
+    {
+      "name": "令和7年度",
+      "count": 17,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-r07-primary",
+        "pe-construction-r07-construction-planning",
+        "pe-construction-r07-environment",
+        "pe-construction-r07-geotechnical",
+        "pe-construction-r07-port-airport",
+        "pe-construction-r07-power-civil",
+        "pe-construction-r07-railway",
+        "pe-construction-r07-required",
+        "pe-construction-r07-river-coast",
+        "pe-construction-r07-road",
+        "pe-construction-r07-steel-concrete",
+        "pe-construction-r07-tunnel",
+        "pe-construction-r07-urban-planning",
+        "pe-first-stage-r07-aptitude",
+        "pe-first-stage-r07-basic",
+        "pe-first-stage-r07-construction",
+        "surveyor-primary-r07"
+      ]
+    },
+    {
       "name": "働き方改革",
       "count": 17,
       "inAllowlist": true,
@@ -3772,98 +3869,6 @@
         "pe-first-stage-r03-aptitude",
         "pe-first-stage-r03-basic",
         "pe-first-stage-r03-construction"
-      ]
-    },
-    {
-      "name": "令和4年度",
-      "count": 16,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-r04-primary",
-        "pe-construction-r04-construction-planning",
-        "pe-construction-r04-environment",
-        "pe-construction-r04-geotechnical",
-        "pe-construction-r04-port-airport",
-        "pe-construction-r04-power-civil",
-        "pe-construction-r04-railway",
-        "pe-construction-r04-required",
-        "pe-construction-r04-river-coast",
-        "pe-construction-r04-road",
-        "pe-construction-r04-steel-concrete",
-        "pe-construction-r04-tunnel",
-        "pe-construction-r04-urban-planning",
-        "pe-first-stage-r04-aptitude",
-        "pe-first-stage-r04-basic",
-        "pe-first-stage-r04-construction"
-      ]
-    },
-    {
-      "name": "令和5年度",
-      "count": 16,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-r05-primary",
-        "pe-construction-r05-construction-planning",
-        "pe-construction-r05-environment",
-        "pe-construction-r05-geotechnical",
-        "pe-construction-r05-port-airport",
-        "pe-construction-r05-power-civil",
-        "pe-construction-r05-railway",
-        "pe-construction-r05-required",
-        "pe-construction-r05-river-coast",
-        "pe-construction-r05-road",
-        "pe-construction-r05-steel-concrete",
-        "pe-construction-r05-tunnel",
-        "pe-construction-r05-urban-planning",
-        "pe-first-stage-r05-aptitude",
-        "pe-first-stage-r05-basic",
-        "pe-first-stage-r05-construction"
-      ]
-    },
-    {
-      "name": "令和6年度",
-      "count": 16,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-r06-primary",
-        "pe-construction-r06-construction-planning",
-        "pe-construction-r06-environment",
-        "pe-construction-r06-geotechnical",
-        "pe-construction-r06-port-airport",
-        "pe-construction-r06-power-civil",
-        "pe-construction-r06-railway",
-        "pe-construction-r06-required",
-        "pe-construction-r06-river-coast",
-        "pe-construction-r06-road",
-        "pe-construction-r06-steel-concrete",
-        "pe-construction-r06-tunnel",
-        "pe-construction-r06-urban-planning",
-        "pe-first-stage-r06-aptitude",
-        "pe-first-stage-r06-basic",
-        "pe-first-stage-r06-construction"
-      ]
-    },
-    {
-      "name": "令和7年度",
-      "count": 16,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-r07-primary",
-        "pe-construction-r07-construction-planning",
-        "pe-construction-r07-environment",
-        "pe-construction-r07-geotechnical",
-        "pe-construction-r07-port-airport",
-        "pe-construction-r07-power-civil",
-        "pe-construction-r07-railway",
-        "pe-construction-r07-required",
-        "pe-construction-r07-river-coast",
-        "pe-construction-r07-road",
-        "pe-construction-r07-steel-concrete",
-        "pe-construction-r07-tunnel",
-        "pe-construction-r07-urban-planning",
-        "pe-first-stage-r07-aptitude",
-        "pe-first-stage-r07-basic",
-        "pe-first-stage-r07-construction"
       ]
     },
     {
@@ -4139,6 +4144,25 @@
       ]
     },
     {
+      "name": "択一式",
+      "count": 12,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-r02-primary",
+        "pe-comprehensive-management-r03-primary",
+        "pe-comprehensive-management-r04-primary",
+        "pe-comprehensive-management-r05-primary",
+        "pe-comprehensive-management-r06-primary",
+        "pe-comprehensive-management-r07-primary",
+        "pe-comprehensive-management-r08-primary",
+        "surveyor-primary-r04",
+        "surveyor-primary-r05",
+        "surveyor-primary-r06",
+        "surveyor-primary-r07",
+        "surveyor-primary-r08"
+      ]
+    },
+    {
       "name": "維持管理",
       "count": 12,
       "inAllowlist": true,
@@ -4380,6 +4404,22 @@
       ]
     },
     {
+      "name": "測量士",
+      "count": 9,
+      "inAllowlist": true,
+      "usedIn": [
+        "surveyor-guide-assistant-takuitsu",
+        "surveyor-guide-gogo-bunya",
+        "surveyor-guide-overview",
+        "surveyor-guide-study-plan",
+        "surveyor-primary-r04",
+        "surveyor-primary-r05",
+        "surveyor-primary-r06",
+        "surveyor-primary-r07",
+        "surveyor-primary-r08"
+      ]
+    },
+    {
       "name": "都市及び地方計画",
       "count": 9,
       "inAllowlist": true,
@@ -4438,20 +4478,6 @@
         "rccm-guide-mondai3-themes-2026",
         "rccm-guide-overview",
         "rccm-guide-study-plan"
-      ]
-    },
-    {
-      "name": "択一式",
-      "count": 7,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-r02-primary",
-        "pe-comprehensive-management-r03-primary",
-        "pe-comprehensive-management-r04-primary",
-        "pe-comprehensive-management-r05-primary",
-        "pe-comprehensive-management-r06-primary",
-        "pe-comprehensive-management-r07-primary",
-        "pe-comprehensive-management-r08-primary"
       ]
     },
     {
@@ -4610,17 +4636,6 @@
         "pe-comprehensive-management-r04-essay-road-municipality",
         "pe-construction-kensetsu-dx",
         "pe-construction-ninaite-dx-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "測量士",
-      "count": 4,
-      "inAllowlist": true,
-      "usedIn": [
-        "surveyor-guide-assistant-takuitsu",
-        "surveyor-guide-gogo-bunya",
-        "surveyor-guide-overview",
-        "surveyor-guide-study-plan"
       ]
     },
     {
