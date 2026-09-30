@@ -257,6 +257,53 @@ export function sotH2s(markdownBody, limitLine = Infinity) {
   return out.filter(Boolean);
 }
 
+/** 見出しの文字数上限。これを超える h2/h3 は本文の文が見出しに化けた疑い（DN-0272）。 */
+export const MAX_HEADING_CHARS = 60;
+
+/** 見出しが長すぎるか（正規化後の文字数で判定。編集画面の innerText とライブ HTML の両方に使う）。 */
+export function isLongHeading(text) {
+  return normalizeHeading(text || '').length > MAX_HEADING_CHARS;
+}
+
+/** HTML 中の h2・h3 のテキスト（タグ除去・前後空白除去）。 */
+export function headingsFromHtml(html) {
+  const pick = (tag) => [...(html || '').matchAll(new RegExp(`<${tag}\\b[^>]*>([\\s\\S]*?)<\\/${tag}>`, 'g'))]
+    .map((m) => decodeEntities(stripTags(m[1])).trim());
+  return { h2: pick('h2'), h3: pick('h3') };
+}
+
+/** 60 字を超える h2/h3 のテキスト一覧（ライブ本文）。 */
+export function findLongHeadings(html) {
+  const { h2, h3 } = headingsFromHtml(html);
+  return [...h2, ...h3].filter(isLongHeading);
+}
+
+/** 原稿本文で note の h2/h3 になる見出し（# / ## / ###）のうち 60 字を超えるものの数。コード・コメント内は数えない。 */
+export function countSotLongHeadings(markdownBody, limitLine = Infinity) {
+  let n = 0;
+  let inFence = false;
+  const lines = stripHtmlComments(markdownBody).split('\n');
+  for (let i = 0; i < lines.length && i < limitLine; i++) {
+    if (/^\s*```/.test(lines[i])) { inFence = !inFence; continue; }
+    const m = !inFence && lines[i].match(/^#{1,3}\s+(.+?)\s*$/);
+    if (m && isLongHeading(m[1])) n++;
+  }
+  return n;
+}
+
+/**
+ * 1〜2 字だけの段落の直後にリンクカード（figure）が来る箇所。
+ * 見出しの途中に URL が入力されて「R」＋カード＋残りの段落に割れた痕跡（2026-09-23・DN-0272）。
+ */
+export function findSplitBeforeCard(html) {
+  const hits = [];
+  for (const m of (html || '').matchAll(/<p\b[^>]*>([\s\S]*?)<\/p>\s*<figure\b[^>]*embedded-service/g)) {
+    const text = decodeEntities(stripTags(m[1])).trim();
+    if (text.length >= 1 && text.length <= 2) hits.push(text);
+  }
+  return hits;
+}
+
 /** ライブ本文の h2 一覧（正規化済み）。 */
 export function liveH2s(html) {
   return [...(html || '').matchAll(/<h2\b[^>]*>([\s\S]*?)<\/h2>/g)].map((m) => normalizeHeading(m[1])).filter(Boolean);

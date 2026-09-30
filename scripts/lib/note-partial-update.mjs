@@ -1,6 +1,7 @@
 /**
  * note 部分更新の純粋関数。ブラウザ操作と分離し、spec と PDF 添付不変条件をテスト可能にする。
  */
+import { MAX_HEADING_CHARS, isLongHeading } from './note-live-check.mjs';
 
 const SUPPORTED = new Set([
   'replaceText',
@@ -125,24 +126,44 @@ export function sameAttachmentSnapshot(before, after) {
   return JSON.stringify(normalizeAttachmentSnapshot(before)) === JSON.stringify(normalizeAttachmentSnapshot(after));
 }
 
-export const MAX_HEADING_CHARS = 60;
+export { MAX_HEADING_CHARS };
+
+const escapeHtml = (value) => String(value)
+  .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+/**
+ * 冒頭 CTA の差し込み HTML（DN-0272）。文は 1 段落、URL は 1 本ずつ単独段落にする。
+ * キーボード入力では caret が見出しへ寄って CTA が h2 になり、直後の見出しが割れた（2026-09-23）。
+ * 段落として DOM へ差し込み、URL 段落は差し込み後に cardify で 1 つずつカード化する。
+ */
+export function buildTopCtaHtml({ newText = '', newUrls = [] }) {
+  for (const url of newUrls) {
+    if (!/^https:\/\/\S+$/.test(url)) throw new Error(`冒頭 CTA の URL が不正: ${url}`);
+  }
+  return [newText ? `<p>${escapeHtml(newText)}</p>` : '', ...newUrls.map((url) => `<p>${escapeHtml(url)}</p>`)].join('');
+}
 
 /**
  * 冒頭 CTA 操作の前後で見出し構造が崩れていないか（DN-0272）。
  * 2026-09-23 に CTA の文が h2 になり、直後の見出しが「R」「は」の段落とカードに割れた事故の再発防止。
- * before/after は編集画面の h2・h3 の文字列（trim 済み）の配列。
+ * before/after は編集画面の h2・h3 の文字列（trim 済み）の配列（HTML からは headingsFromHtml で作る）。
+ * - 対象見出し（CTA の直後の h2）が同じ文言のまま 1 つだけ残っていること
  * - 編集前の h2 は、同じ文言のまま同じ個数だけ残っていること（割れた見出しは文言が変わる）
  * - 60 字を超える見出しが増えていないこと（CTA の文が見出しになった形）
  */
-export function headingIntegrity(before, after) {
+export function headingIntegrity(before, after, { targetHeading } = {}) {
   const failures = [];
+  if (targetHeading != null) {
+    const n = (after.h2 || []).filter((text) => text === targetHeading).length;
+    if (n !== 1) failures.push(`target-h2:${targetHeading.slice(0, 20)}=${n}`);
+  }
   const count = (list) => list.reduce((map, text) => map.set(text, (map.get(text) || 0) + 1), new Map());
   const beforeH2 = count(before.h2 || []);
   const afterH2 = count(after.h2 || []);
   for (const [text, n] of beforeH2) {
     if ((afterH2.get(text) || 0) !== n) failures.push(`h2-changed:${text.slice(0, 20)}`);
   }
-  const long = (h) => [...(h.h2 || []), ...(h.h3 || [])].filter((text) => text.length > MAX_HEADING_CHARS).length;
+  const long = (h) => [...(h.h2 || []), ...(h.h3 || [])].filter(isLongHeading).length;
   if (long(after) > long(before)) failures.push(`long-heading:${long(before)}→${long(after)}`);
   return { ok: failures.length === 0, failures };
 }
