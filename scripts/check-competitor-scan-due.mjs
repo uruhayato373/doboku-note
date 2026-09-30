@@ -95,4 +95,5 @@ if (WANT_JSON) {
     }
   }
 }
-process.exit(0);
+// --fail-on-due: 期限切れなら exit 1（quality-audit の ops:true が日次で読む＝週次レビューから移した点検・DN-0394）。既定は従来どおり常に exit 0。
+process.exit(args.includes("--fail-on-due") && dueList.length > 0 ? 1 : 0);
