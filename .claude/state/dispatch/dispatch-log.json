@@ -1447,6 +1447,18 @@
       "commit": "bd249d67dd91",
       "verification": "node --test tests/author-banner-match.test.mjs pass 2・probe で1級/2級R6の本文図が other",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0208",
+      "at": "2026-09-30",
+      "task": "技術士一次の令和元年度再試験を基礎・適性・建設の3記事へ追加する",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "60e7fba1f96d",
+      "verification": "公式正答attach_4106_10と79問全一致+Ⅱ-14全員得点/quiz r01-retry 80問・ID重複0/validate-mdx・refresh-indexes・npm test pass",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }
