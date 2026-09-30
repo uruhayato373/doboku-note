@@ -1,0 +1,52 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材は主任技士教材のS-N線図（金属の疲労限度とコンクリートの疲労強度）。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="S-N線図の模式図。横軸は繰返し数N（対数目盛）、縦軸は上限応力S。金属は右で水平になる疲労限度を持ち、コンクリートは明確な疲労限度を持たず右下がりの直線となる。200万回の位置の応力が200万回疲労強度">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-sub  { stroke: #8a8a8a; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+  </defs>
+<g transform="translate(0.0 80.0) scale(1.0000)">
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">横軸＝繰返し数N（対数）、縦軸＝上限応力S（数値なし）</text>
+
+  <!-- axes -->
+  <line class="line-dash" x1="50" y1="240" x2="370" y2="240" />
+  <line class="line-dash" x1="50" y1="36" x2="50" y2="240" />
+  <text class="t-axis" x="372" y="274" text-anchor="end">繰返し数 N（対数目盛）</text>
+  <text class="t-axis" x="56" y="34">上限応力 S</text>
+
+  <!-- static strength level -->
+  <line class="line-dash" x1="50" y1="60" x2="120" y2="60" />
+  <text class="t-axis" x="124" y="64">静的強度</text>
+
+  <!-- metal: descends then flat -->
+  <path class="line-sub" d="M70,70 C 130,110 180,140 230,150 L 360,150" />
+  <text class="t-desc" x="366" y="138" text-anchor="end">金属：疲労限度あり</text>
+
+  <!-- concrete: straight line down-right -->
+  <line class="line-main" x1="70" y1="66" x2="360" y2="200" />
+  <text class="t-label" x="366" y="216" text-anchor="end">コンクリート：</text>
+  <text class="t-label" x="366" y="230" text-anchor="end">限度なし</text>
+
+  <!-- 2 million cycles -->
+  <line class="line-dash" x1="250" y1="40" x2="250" y2="240" />
+  <text class="t-axis" x="250" y="258" text-anchor="middle">200万回</text>
+  <circle cx="250" cy="158" r="3" fill="#2e6da4" />
+  <text class="t-label" x="204" y="180" text-anchor="end">200万回疲労強度</text>
+
+  <text class="t-lead" x="20" y="298">押さえる点</text>
+  <rect class="box" x="20" y="304" width="360" height="30" rx="6" />
+  <text class="t-desc" x="34" y="323">疲労強度は有限の回数（200万回）での強度で表す</text>
+</g>
+</svg>

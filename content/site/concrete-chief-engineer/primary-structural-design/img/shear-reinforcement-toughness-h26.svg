@@ -1,0 +1,35 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材は主任技士教材のせん断補強筋量と荷重-変位関係。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="せん断補強筋量を増やす前後の荷重と変位の関係。曲げひび割れ発生と鉄筋降伏までは同じ挙動で、補強筋を増やすと最大荷重以降の変位が伸びることを示す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 12px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-ref  { stroke: #8a8a8a; stroke-width: 1.5; stroke-dasharray: 4 3; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .box   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">横軸＝変位、縦軸＝荷重（数値なし・傾向を示す）</text>
+  <line class="line-dash" x1="50" y1="230" x2="370" y2="230"/>
+  <line class="line-dash" x1="50" y1="40" x2="50" y2="230"/>
+  <text class="t-axis" x="370" y="248" text-anchor="end">変位</text>
+  <text class="t-axis" x="56" y="36">荷重</text>
+  <path class="line-ref" d="M50,230 L100,190 L160,90 L200,84 L240,130"/>
+  <path class="line-main" d="M50,230 L100,190 L160,90 L200,84 L270,86 L320,130"/>
+  <circle cx="100" cy="190" r="3" fill="#2e6da4"/>
+  <circle cx="160" cy="90" r="3" fill="#2e6da4"/>
+  <circle cx="200" cy="84" r="3" fill="#2e6da4"/>
+  <text class="t-label" x="108" y="206">A：曲げひび割れ発生</text>
+  <text class="t-label" x="152" y="78" text-anchor="end">B：鉄筋降伏</text>
+  <text class="t-label" x="205" y="72">C：最大荷重</text>
+  <text class="t-desc" x="246" y="152">増やす前（破線）</text>
+  <text class="t-label" x="330" y="128">増やした後</text>
+  <rect class="box" x="20" y="262" width="360" height="48" rx="6"/>
+  <text class="t-desc" x="32" y="280">降伏までは曲げで決まり、ほぼ変わらない。</text>
+  <text class="t-desc" x="32" y="296">せん断破壊が遅れ、最大荷重以降の変位が伸びる。</text>
+</svg>

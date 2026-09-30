@@ -1,0 +1,47 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材は主任技士教材のフレッシュコンクリートのレオロジー（ビンガムモデル）。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="ビンガムモデルの読み方。横軸せん断応力、縦軸流動速度。切片が降伏値、傾きの逆数が塑性粘度。高強度コンクリートは切片が小さく傾きが緩く、一般のコンクリートは切片が大きく傾きが急">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-b     { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-sub  { stroke: #1a3a5c; stroke-width: 1.5; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+  </defs>
+<g transform="translate(0.0 40.0) scale(1.0000)">
+  <text class="t-lead" x="200" y="16" text-anchor="middle">横軸＝せん断応力、縦軸＝流動速度（数値なし・傾向を示す）</text>
+
+  <line class="line-dash" x1="50" y1="270" x2="380" y2="270" />
+  <line class="line-dash" x1="50" y1="34" x2="50" y2="270" />
+  <text class="t-axis" x="380" y="288" text-anchor="end">せん断応力</text>
+  <text class="t-axis" x="56" y="46">流動速度</text>
+
+  <line class="line-main" x1="90" y1="270" x2="350" y2="90" />
+  <line class="line-sub" x1="150" y1="270" x2="270" y2="54" />
+  <circle cx="90" cy="270" r="3" fill="#2e6da4" />
+  <circle cx="150" cy="270" r="3" fill="#1a3a5c" />
+
+  <line class="line-dash" x1="90" y1="270" x2="90" y2="304" />
+  <line class="line-dash" x1="150" y1="270" x2="150" y2="304" />
+  <text class="t-label" x="90" y="318" text-anchor="middle">降伏値 小</text>
+  <text class="t-label" x="150" y="334" text-anchor="middle">降伏値 大</text>
+
+  <line class="line-dash" x1="336" y1="156" x2="323" y2="112"/>
+  <text class="t-label" x="380" y="172" text-anchor="end">高強度：傾きが緩い</text>
+  <text class="t-label" x="380" y="188" text-anchor="end">＝塑性粘度 大</text>
+  <text class="t-label" x="236" y="62" text-anchor="end">一般：傾きが急</text>
+  <text class="t-label" x="236" y="78" text-anchor="end">＝塑性粘度 小</text>
+
+  <rect class="box" x="16" y="346" width="368" height="64" rx="6" />
+  <text class="t-desc" x="30" y="366">切片＝流れ始めるのに必要な応力（降伏値）</text>
+  <text class="t-desc" x="30" y="384">傾きの逆数＝流速を 1 増やすのに要する応力（塑性粘度）</text>
+  <text class="t-desc" x="30" y="402">スランプフロー 60 cm の高強度は降伏値が小さい</text>
+</g>
+</svg>

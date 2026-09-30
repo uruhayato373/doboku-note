@@ -1,0 +1,50 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材は主任技士教材のビンガム流体モデル（降伏値と塑性粘度）。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="ビンガム流体モデルの模式図。横軸にせん断ひずみ速度、縦軸にせん断応力をとり、縦軸切片が降伏値、直線の傾きが塑性粘度を表す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+  </defs>
+<g transform="translate(0.0 90.0) scale(1.0000)">
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">直線の切片と傾きで、流動しはじめる条件と流れやすさを分ける</text>
+
+  <!-- axes -->
+  <line class="line-dash" x1="50" y1="200" x2="360" y2="200" />
+  <line class="line-dash" x1="50" y1="36" x2="50" y2="200" />
+  <text class="t-axis" x="358" y="218" text-anchor="end">せん断ひずみ速度（流動速度）</text>
+  <text class="t-axis" x="56" y="34">せん断応力</text>
+
+  <!-- Bingham line: intercept (50,140) -> (320,50) -->
+  <line class="line-main" x1="50" y1="140" x2="320" y2="50" />
+  <circle cx="50" cy="140" r="3" fill="#2e6da4" />
+
+  <!-- yield value -->
+  <line class="line-dash" x1="50" y1="140" x2="200" y2="140" />
+  <text class="t-label" x="60" y="160">降伏値：流動を始める最小の応力</text>
+
+  <!-- slope triangle -->
+  <line class="line-dash" x1="140" y1="110" x2="230" y2="110" />
+  <line class="line-dash" x1="230" y1="110" x2="230" y2="80" />
+  <text class="t-label" x="236" y="100">傾き＝塑性粘度</text>
+  <text class="t-label" x="236" y="116">（流動中の粘り）</text>
+
+  <text class="t-lead" x="20" y="252">読み取り方</text>
+  <rect class="box" x="20" y="258" width="360" height="52" rx="6" />
+  <rect class="box-b" x="34" y="268" width="14" height="14" />
+  <text class="t-desc" x="54" y="280">縦軸の切片が大きい：降伏値大（スランプ小）</text>
+  <rect class="box-b" x="34" y="288" width="14" height="14" />
+  <text class="t-desc" x="54" y="300">傾きが大きい：塑性粘度大（圧送負荷大）</text>
+</g>
+</svg>

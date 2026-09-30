@@ -1,12 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" style="max-width:400px;width:100%" role="img" aria-label="ビンガム流体モデルのせん断応力とせん断ひずみ速度の関係を示す3本の直線A(実線)・B(破線)・C(一点鎖線)">
-  <line x1="60" y1="230" x2="380" y2="230" stroke="#222" stroke-width="1.5"/>
-  <line x1="60" y1="230" x2="60" y2="20" stroke="#222" stroke-width="1.5"/>
-  <line x1="60" y1="230" x2="200" y2="35" stroke="#222" stroke-width="1.8"/>
-  <line x1="130" y1="230" x2="245" y2="55" stroke="#222" stroke-width="1.6" stroke-dasharray="6 3"/>
-  <line x1="130" y1="230" x2="330" y2="45" stroke="#222" stroke-width="1.4" stroke-dasharray="2 2 8 2"/>
-  <text x="205" y="30" font-family="sans-serif" font-size="13" fill="#222">A</text>
-  <text x="250" y="50" font-family="sans-serif" font-size="13" fill="#222">B</text>
-  <text x="335" y="42" font-family="sans-serif" font-size="13" fill="#222">C</text>
-  <text x="18" y="120" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222" transform="rotate(-90 18 120)">せん断ひずみ速度 γ</text>
-  <text x="370" y="250" text-anchor="end" font-family="sans-serif" font-size="13" fill="#222">せん断応力 τ</text>
+<!-- authored 2026-09-30 doboku-note 自作。題材は主任技士教材の高流動コンクリートのレオロジー（ビンガム流体）。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="ビンガム流体モデルのせん断応力とせん断ひずみ速度の関係を示す3本の直線A(実線)・B(破線)・C(一点鎖線)">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 12px; fill: #1a3a5c; }
+      .axis { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+      .l-a { stroke: #2e6da4; stroke-width: 1.8; }
+      .l-b { stroke: #2e6da4; stroke-width: 1.6; stroke-dasharray: 6 3; }
+      .l-c { stroke: #2e6da4; stroke-width: 1.4; stroke-dasharray: 2 2 8 2; }
+    </style>
+  </defs>
+  <line class="axis" x1="60" y1="230" x2="380" y2="230"/>
+  <line class="axis" x1="60" y1="230" x2="60" y2="20"/>
+  <line class="l-a" x1="60" y1="230" x2="200" y2="35"/>
+  <line class="l-b" x1="130" y1="230" x2="245" y2="55"/>
+  <line class="l-c" x1="130" y1="230" x2="330" y2="45"/>
+  <text class="t-label" x="205" y="30">A</text>
+  <text class="t-label" x="250" y="50">B</text>
+  <text class="t-label" x="335" y="42">C</text>
+  <text class="t-axis" x="18" y="120" text-anchor="middle" transform="rotate(-90 18 120)">せん断ひずみ速度 γ</text>
+  <text class="t-axis" x="370" y="250" text-anchor="end">せん断応力 τ</text>
 </svg>

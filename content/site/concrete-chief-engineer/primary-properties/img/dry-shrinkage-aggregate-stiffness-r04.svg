@@ -1,0 +1,40 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材は主任技士教材の骨材の弾性係数と乾燥収縮の関係。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 430" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="骨材の弾性係数と乾燥収縮ひずみの傾向図。弾性係数が小さい骨材ほど乾燥収縮ひずみが大きく、大きい骨材ほど小さくなる右下がりの曲線で示す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-sub { stroke: #1a3a5c; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">数値なし・傾向を示す（骨材が硬いほど乾燥収縮は小さい）</text>
+  <line class="line-dash" x1="50" y1="270" x2="370" y2="270" />
+  <line class="line-dash" x1="50" y1="50" x2="50" y2="270" />
+  <text class="t-axis" x="370" y="286" text-anchor="end">骨材の弾性係数（大きい＝硬い）→</text>
+  <text class="t-axis" x="54" y="44">乾燥収縮ひずみ</text>  <path class="line-main" d="M72,92 C 100,190 160,245 330,256" />
+  <circle cx="72" cy="92" r="4" fill="#2e6da4" />
+  <circle cx="330" cy="256" r="4" fill="#2e6da4" />
+  <text class="t-label" x="84" y="88">軟らかい骨材（砂岩など）</text>
+  <text class="t-label" x="352" y="212" text-anchor="end">硬い骨材（玄武岩・花崗岩など）</text>
+  <text class="t-lead" x="200" y="150">収縮が大きい側</text>
+  <text class="t-lead" x="20" y="326">読み取り方</text>
+  <rect class="box" x="20" y="332" width="360" height="88" rx="6" />
+  <rect class="box-b" x="34" y="338" width="14" height="14" />
+  <text class="t-desc" x="54" y="350">骨材の種類（岩種）で乾燥収縮率は大きく変わる</text>
+  <rect class="box-b" x="34" y="362" width="14" height="14" />
+  <text class="t-desc" x="54" y="374">弾性係数が大きい骨材ほど、コンクリートの収縮は小さい</text>
+  <rect class="box-b" x="34" y="386" width="14" height="14" />
+  <text class="t-desc" x="54" y="398">乾燥収縮は単位水量だけで決まらない</text>
+
+</svg>

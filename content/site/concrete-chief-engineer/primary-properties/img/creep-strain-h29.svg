@@ -1,21 +1,50 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" style="max-width:400px;width:100%" role="img" aria-label="コンクリートのクリープひずみ概念図。載荷直後の弾性ひずみεeから1年後の合計ひずみεaへ漸増する曲線と、収縮ひずみεsの小さな曲線">
-  <line x1="50" y1="220" x2="370" y2="220" stroke="#222" stroke-width="1.5"/>
-  <line x1="50" y1="220" x2="50" y2="20" stroke="#222" stroke-width="1.5"/>
-  <path d="M50 150 C 100 60 200 35 320 30" fill="none" stroke="#222" stroke-width="1.8"/>
-  <path d="M50 210 C 120 195 220 190 320 188" fill="none" stroke="#222" stroke-width="1.5" stroke-dasharray="5 3"/>
-  <line x1="320" y1="30" x2="320" y2="220" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4 3"/>
-  <line x1="30" y1="30" x2="50" y2="30" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4 3"/>
-  <line x1="30" y1="188" x2="50" y2="188" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4 3"/>
-  <circle cx="320" cy="30" r="4" fill="#222"/>
-  <circle cx="50" cy="150" r="4" fill="#222"/>
-  <circle cx="320" cy="188" r="4" fill="#222"/>
-  <text x="30" y="34" text-anchor="end" font-family="sans-serif" font-size="13" fill="#222">ε</text>
-  <text x="36" y="38" font-family="sans-serif" font-size="9" fill="#222">a</text>
-  <text x="30" y="192" text-anchor="end" font-family="sans-serif" font-size="13" fill="#222">ε</text>
-  <text x="36" y="196" font-family="sans-serif" font-size="9" fill="#222">s</text>
-  <text x="30" y="154" text-anchor="end" font-family="sans-serif" font-size="13" fill="#222">ε</text>
-  <text x="36" y="158" font-family="sans-serif" font-size="9" fill="#222">e</text>
-  <text x="18" y="120" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222" transform="rotate(-90 18 120)">ひずみ（ε）</text>
-  <text x="320" y="236" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">1年</text>
-  <text x="368" y="216" text-anchor="end" font-family="sans-serif" font-size="12" fill="#222">載荷期間</text>
+<!-- authored 2026-09-30 doboku-note 自作。題材は主任技士教材の圧縮クリープ試験のひずみ推移。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 356" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="圧縮クリープ試験のひずみの時間変化の模式図。載荷供試体は載荷時弾性ひずみから1年で全ひずみへ漸増し、無載荷供試体は小さなひずみが漸増する。数値は描かない">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-title { font-size: 12px; fill: #1a3a5c; font-weight: bold; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-sub  { stroke: #1a3a5c; stroke-width: 1.6; fill: none; stroke-dasharray: 5 3; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .axis { stroke: #555; stroke-width: 1.2; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .bar { stroke: #1a3a5c; stroke-width: 2.4; fill: none; stroke-linecap: round; }
+      .conc { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#1a3a5c"/></marker>
+    <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#8a8a8a" stroke-width="1.2"/></pattern>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">載荷供試体と無載荷供試体のひずみの時間変化（数値なし）</text>
+  <line class="axis" x1="60" y1="220" x2="370" y2="220"/>
+  <line class="axis" x1="60" y1="220" x2="60" y2="36"/>
+  <polygon points="60,32 56,42 64,42" fill="#555"/>
+  <polygon points="374,220 364,216 364,224" fill="#555"/>
+  <text class="t-axis" x="30" y="100" text-anchor="middle" transform="rotate(-90 30 100)">ひずみ ε</text>
+  <text class="t-axis" x="374" y="240" text-anchor="end">載荷期間</text>
+  <text class="t-axis" x="52" y="236" text-anchor="end">0</text>
+  <path class="line-main" d="M60,150 C 70,110 100,78 160,66 C 220,54 280,50 320,50"/>
+  <path class="line-sub" d="M60,220 C 70,200 100,196 160,192 C 220,188 280,186 320,186"/>
+  <line class="line-dash" x1="320" y1="50" x2="320" y2="220"/>
+  <line class="line-dash" x1="60" y1="50" x2="320" y2="50"/>
+  <line class="line-dash" x1="60" y1="186" x2="320" y2="186"/>
+  <circle cx="60" cy="150" r="4" fill="#1a3a5c"/><circle cx="320" cy="50" r="4" fill="#1a3a5c"/><circle cx="320" cy="186" r="4" fill="#1a3a5c"/>
+  <text class="t-label" x="52" y="54" text-anchor="end">ε<tspan dy="3">a</tspan></text>
+  <text class="t-label" x="52" y="154" text-anchor="end">ε<tspan dy="3">e</tspan></text>
+  <text class="t-label" x="52" y="190" text-anchor="end">ε<tspan dy="3">s</tspan></text>
+  <text class="t-axis" x="320" y="236" text-anchor="middle">1年</text>
+  <text class="t-label" x="150" y="96" style="font-weight:bold">載荷供試体（実線）</text>
+  <text class="t-label" x="140" y="180">無載荷供試体（破線）</text>
+  <rect class="box" x="20" y="256" width="360" height="86" rx="6"/>
+  <text class="t-lead" x="34" y="278">ε<tspan dy="3">e</tspan><tspan dy="-3">：載荷時弾性ひずみ</tspan></text>
+  <text class="t-lead" x="34" y="298">ε<tspan dy="3">a</tspan><tspan dy="-3">：載荷期間1年での全ひずみ（載荷供試体）</tspan></text>
+  <text class="t-lead" x="34" y="318">ε<tspan dy="3">s</tspan><tspan dy="-3">：載荷期間1年での無載荷ひずみ</tspan></text>
+  <text class="t-lead" x="34" y="335">載荷応力度は一定で1年間持続</text>
 </svg>

@@ -1,0 +1,44 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材は主任技士教材の型枠側圧と打込み速さ・部材種別の関係。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 420" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="型枠最下部の側圧と打込み高さの傾向図。高さが低い間は液圧に沿って増え、その後は打込みが速いほど大きく、遅いほど小さい頭打ちの曲線になる。同じ速さなら柱の方が壁より大きい">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">横軸＝打込み高さ、縦軸＝最下部の側圧（数値なし・傾向を示す）</text>
+
+  <line class="line-dash" x1="50" y1="260" x2="360" y2="260" />
+  <line class="line-dash" x1="50" y1="40" x2="50" y2="260" />
+  <text class="t-axis" x="360" y="278" text-anchor="end">打込み高さ</text>
+  <text class="t-axis" x="56" y="36">側圧</text>
+
+  <!-- fluid pressure -->
+  <line class="line-dash" x1="50" y1="260" x2="330" y2="70" />
+  <text class="t-axis" x="322" y="62" text-anchor="end">液圧（全高さ分）</text>
+
+  <!-- fast: follows fluid pressure longer -->
+  <path class="line-main" d="M50,260 L200,158 C 240,135 280,112 330,96" />
+  <text class="t-label" x="334" y="100">速い</text>
+  <!-- slow -->
+  <path class="line-main" d="M50,260 L130,206 C 190,175 260,160 330,150" />
+  <text class="t-label" x="334" y="154">遅い</text>
+
+  <text class="t-desc" x="200" y="304" text-anchor="middle">凝結が始まると、下部は液圧より小さくなる</text>
+
+  <text class="t-lead" x="20" y="332">読み方</text>
+  <rect class="box" x="20" y="338" width="360" height="66" rx="6" />
+  <text class="t-desc" x="34" y="358">打込み速さが速いほど、側圧は大きい</text>
+  <text class="t-desc" x="34" y="376">同じ速さなら、断面の小さい柱の方が壁より大きい</text>
+  <text class="t-desc" x="34" y="394">最大値は液圧（単位体積重量×高さ）が上限</text>
+</svg>

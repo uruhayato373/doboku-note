@@ -1,0 +1,39 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材は主任技士教材のRC梁の破壊形式（せん断破壊と曲げ破壊）。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="梁の破壊形式の考え方。せん断耐力を高める要素と曲げ耐力を高める要素を比べ、せん断耐力が曲げ耐力を上回ると曲げ破壊になる関係を示す模式図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-label { font-size: 12px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="ar" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="9" markerHeight="7" orient="auto"><polygon points="0,0 10,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">耐力の大小で破壊形式が決まる（数値なし・関係を示す）</text>
+
+  <rect class="box-b" x="20" y="34" width="170" height="110" rx="6"/>
+  <text class="t-label" x="105" y="56" text-anchor="middle">せん断耐力</text>
+  <text class="t-desc" x="34" y="80">コンクリート強度</text>
+  <text class="t-desc" x="34" y="98">断面の幅</text>
+  <text class="t-desc" x="34" y="116">せん断補強筋（本数・間隔）</text>
+
+  <rect class="box" x="210" y="34" width="170" height="110" rx="6"/>
+  <text class="t-label" x="295" y="56" text-anchor="middle">曲げ耐力</text>
+  <text class="t-desc" x="224" y="80">引張主鉄筋の量</text>
+  <text class="t-desc" x="224" y="98">断面の高さ</text>
+  <text class="t-desc" x="224" y="116">コンクリート強度</text>
+
+  <line class="line-main" x1="105" y1="146" x2="105" y2="176" marker-end="url(#ar)"/>
+  <line class="line-main" x1="295" y1="146" x2="295" y2="176" marker-end="url(#ar)"/>
+
+  <rect class="box" x="20" y="180" width="360" height="66" rx="6"/>
+  <text class="t-desc" x="34" y="202">せん断耐力が曲げ耐力より小さい：せん断破壊</text>
+  <text class="t-desc" x="34" y="222">せん断耐力が曲げ耐力より大きい：曲げ破壊</text>
+  <text class="t-desc" x="34" y="238">曲げ破壊へ変えるにはせん断耐力を相対的に高める</text>
+</svg>

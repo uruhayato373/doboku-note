@@ -1,0 +1,79 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材は主任技士教材の門型ラーメン（水平荷重）の曲げモーメント図と変形形状。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 312" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="梁端部に水平荷重が作用する脚部固定の門型ラーメンの模式図。左は曲げモーメント図で柱と梁の中央付近で符号が反転し、左上隅角部は内側引張、右上隅角部は外側引張。右は変形形状で全体が荷重方向へ傾く">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-frame { stroke: #555; stroke-width: 3; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .mom { stroke: #2e6da4; stroke-width: 1.5; fill: #e8f0fe; fill-opacity: 0.8; }
+      .mom-b { stroke: #2e6da4; stroke-width: 1.5; fill: #f5f5f5; fill-opacity: 0.8; }
+      .hatch { stroke: #555; stroke-width: 1.2; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .fill-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .fill-g { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="a1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2e6da4"/></marker>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">水平荷重を受けるラーメン（模式図・数値なし）</text>
+
+  <text class="t-label" x="100" y="42" text-anchor="middle">曲げモーメント図</text>
+  <polygon class="mom-b" points="60,120 60,142 110,120 160,98 160,120" />
+  <polygon class="mom" points="60,120 82,120 60,165 38,210 60,210" />
+  <polygon class="mom" points="160,120 182,120 160,165 138,210 160,210" />
+  <path class="line-frame" d="M60,210 L60,120 L160,120 L160,210" />
+  <rect class="fill-g" x="46" y="210" width="28" height="5" />
+  <line class="hatch" x1="50" y1="215" x2="46" y2="221" />
+  <line class="hatch" x1="57" y1="215" x2="53" y2="221" />
+  <line class="hatch" x1="64" y1="215" x2="60" y2="221" />
+  <line class="hatch" x1="71" y1="215" x2="67" y2="221" />
+  <line class="hatch" x1="78" y1="215" x2="74" y2="221" />
+  <rect class="fill-g" x="146" y="210" width="28" height="5" />
+  <line class="hatch" x1="150" y1="215" x2="146" y2="221" />
+  <line class="hatch" x1="157" y1="215" x2="153" y2="221" />
+  <line class="hatch" x1="164" y1="215" x2="160" y2="221" />
+  <line class="hatch" x1="171" y1="215" x2="167" y2="221" />
+  <line class="hatch" x1="178" y1="215" x2="174" y2="221" />
+  <circle cx="60" cy="165" r="3" fill="#1a3a5c" />
+  <circle cx="160" cy="165" r="3" fill="#1a3a5c" />
+  <circle cx="110" cy="120" r="3" fill="#1a3a5c" />
+  <line class="line-main" x1="24" y1="120" x2="56" y2="120" marker-end="url(#a1)" />
+  <text class="t-label" x="24" y="110">荷重</text>
+  <text class="t-label" x="63" y="132">＋</text>
+  <text class="t-label" x="163" y="132">－</text>
+  <text class="t-label" x="142" y="116">－</text>
+  <text class="t-label" x="41" y="204">－</text>
+  <text class="t-label" x="140" y="204">＋</text>
+  <text class="t-desc" x="100" y="242" text-anchor="middle">＋：内側引張　－：外側引張</text>
+  <text class="t-desc" x="100" y="258" text-anchor="middle">●：反曲点（符号が変わる点）</text>
+
+  <text class="t-label" x="300" y="42" text-anchor="middle">変形形状</text>
+  <path class="line-dash" d="M250,210 L250,120 L350,120 L350,210" />
+  <path class="line-main" d="M250,210 C 250,170 264,165 264,124 C 290,106 336,142 364,124 C 364,165 350,170 350,210" />
+  <rect class="fill-g" x="236" y="210" width="28" height="5" />
+  <line class="hatch" x1="240" y1="215" x2="236" y2="221" />
+  <line class="hatch" x1="247" y1="215" x2="243" y2="221" />
+  <line class="hatch" x1="254" y1="215" x2="250" y2="221" />
+  <line class="hatch" x1="261" y1="215" x2="257" y2="221" />
+  <line class="hatch" x1="268" y1="215" x2="264" y2="221" />
+  <rect class="fill-g" x="336" y="210" width="28" height="5" />
+  <line class="hatch" x1="340" y1="215" x2="336" y2="221" />
+  <line class="hatch" x1="347" y1="215" x2="343" y2="221" />
+  <line class="hatch" x1="354" y1="215" x2="350" y2="221" />
+  <line class="hatch" x1="361" y1="215" x2="357" y2="221" />
+  <line class="hatch" x1="368" y1="215" x2="364" y2="221" />
+  <line class="line-main" x1="224" y1="124" x2="258" y2="124" marker-end="url(#a1)" />
+  <text class="t-label" x="224" y="112">荷重</text>
+  <circle cx="264" cy="124" r="9" fill="none" stroke="#1a3a5c" stroke-dasharray="3 3" />
+  <circle cx="364" cy="124" r="9" fill="none" stroke="#1a3a5c" stroke-dasharray="3 3" />
+  <text class="t-label" x="272" y="150">開く</text>
+  <text class="t-label" x="352" y="150" text-anchor="end">閉じる</text>
+  <text class="t-desc" x="300" y="242" text-anchor="middle">全体が荷重の向きへ傾く</text>
+
+  <rect class="box" x="20" y="272" width="360" height="30" rx="6" />
+  <text class="t-desc" x="200" y="291" text-anchor="middle">左上隅角部は内側が開き、右上隅角部は閉じる</text>
+</svg>

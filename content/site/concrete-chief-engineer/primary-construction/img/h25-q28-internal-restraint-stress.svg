@@ -1,0 +1,43 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材は主任技士教材のマスコンクリートの内部拘束による温度応力。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="最高温度到達時の梁状マスコンクリート断面。中心部は高温で圧縮、表面付近は低温側で引張になる模式図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+    <marker id="ar" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="9" markerHeight="7" orient="auto"><polygon points="0,0 10,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">最高温度に達した時点の断面（数値なし・向きの関係を示す）</text>
+
+  <rect class="box-b" x="90" y="40" width="220" height="130"/>
+  <line class="line-dash" x1="200" y1="30" x2="200" y2="180"/>
+  <circle cx="200" cy="105" r="3.5" fill="#2e6da4"/>
+  <text class="t-label" x="208" y="102">中心部（高温）</text>
+
+  <!-- center: compression arrows -->
+  <line class="line-main" x1="150" y1="122" x2="182" y2="122" marker-end="url(#ar)"/>
+  <line class="line-main" x1="250" y1="122" x2="218" y2="122" marker-end="url(#ar)"/>
+  <text class="t-label" x="200" y="140" text-anchor="middle">圧縮</text>
+
+  <!-- surface: tension arrows -->
+  <line class="line-main" x1="140" y1="55" x2="112" y2="55" marker-end="url(#ar)"/>
+  <line class="line-main" x1="260" y1="55" x2="288" y2="55" marker-end="url(#ar)"/>
+  <text class="t-label" x="200" y="59" text-anchor="middle">表面付近：引張</text>
+
+  <line class="line-dash" x1="60" y1="170" x2="340" y2="170"/>
+  <text class="t-desc" x="200" y="188" text-anchor="middle">軟弱地盤</text>
+
+  <rect class="box" x="20" y="208" width="360" height="76" rx="6"/>
+  <text class="t-desc" x="34" y="228">中心部は水和熱で膨張しようとする</text>
+  <text class="t-desc" x="34" y="246">冷えた表面側が膨張を拘束する</text>
+  <text class="t-desc" x="34" y="264">その結果、中心は圧縮、表面付近は引張になる</text>
+</svg>

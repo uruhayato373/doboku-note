@@ -1,41 +1,63 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 460" style="max-width:600px;width:100%" role="img" aria-label="壁に固定された片持ち梁への荷重Pと鉄筋配置の4パターンa〜d（主筋を梁上側に配置・上下振り分け配置など）">
-  <defs><marker id="cba" viewBox="0 0 10 10" refX="8" refY="8" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker></defs>
-  <pattern id="cwa" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#8a8a8a" stroke-width="1.2"/></pattern>
-  <rect x="46" y="25" width="14" height="120" fill="url(#cwa)" stroke="#222" stroke-width="1"/>
-  <rect x="60" y="40" width="220" height="90" fill="none" stroke="#222" stroke-width="1.5"/>
-  <line x1="270" y1="15" x2="270" y2="38" stroke="#222" stroke-width="1.6" marker-end="url(#cba)"/>
-  <text x="270.0" y="10.0" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">P</text>
-  <line x1="270" y1="155" x2="270" y2="132" stroke="#222" stroke-width="1.6" marker-end="url(#cba)"/>
-  <text x="270.0" y="168.0" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">P</text>
-  <path d="M60 65.2 L260 65.2 Q 275 65.2 275 80.2" fill="none" stroke="#222" stroke-width="2"/>
-  <text x="170.0" y="185.0" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">a</text>
-  <pattern id="cwb" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#8a8a8a" stroke-width="1.2"/></pattern>
-  <rect x="366" y="25" width="14" height="120" fill="url(#cwb)" stroke="#222" stroke-width="1"/>
-  <rect x="380" y="40" width="220" height="90" fill="none" stroke="#222" stroke-width="1.5"/>
-  <line x1="590" y1="15" x2="590" y2="38" stroke="#222" stroke-width="1.6" marker-end="url(#cba)"/>
-  <text x="590.0" y="10.0" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">P</text>
-  <line x1="590" y1="155" x2="590" y2="132" stroke="#222" stroke-width="1.6" marker-end="url(#cba)"/>
-  <text x="590.0" y="168.0" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">P</text>
-  <path d="M380 65.2 L501.0 65.2 Q 534.0 65.2 534.0 83.2 L 534.0 96.8 Q 534.0 104.8 567.0 104.8 L 595 104.8" fill="none" stroke="#222" stroke-width="2"/>
-  <path d="M380 104.8 L457.0 104.8 Q 490.0 104.8 490.0 86.8 L 490.0 73.2 Q 490.0 65.2 523.0 65.2 L 570 65.2" fill="none" stroke="#222" stroke-width="2"/>
-  <text x="490.0" y="185.0" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">b</text>
-  <pattern id="cwc" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#8a8a8a" stroke-width="1.2"/></pattern>
-  <rect x="46" y="245" width="14" height="120" fill="url(#cwc)" stroke="#222" stroke-width="1"/>
-  <rect x="60" y="260" width="220" height="90" fill="none" stroke="#222" stroke-width="1.5"/>
-  <line x1="270" y1="235" x2="270" y2="258" stroke="#222" stroke-width="1.6" marker-end="url(#cba)"/>
-  <text x="270.0" y="230.0" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">P</text>
-  <line x1="270" y1="375" x2="270" y2="352" stroke="#222" stroke-width="1.6" marker-end="url(#cba)"/>
-  <text x="270.0" y="388.0" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">P</text>
-  <path d="M60 324.8 L260 324.8 Q 275 324.8 275 309.8" fill="none" stroke="#222" stroke-width="2"/>
-  <text x="170.0" y="405.0" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">c</text>
-  <pattern id="cwd" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#8a8a8a" stroke-width="1.2"/></pattern>
-  <rect x="366" y="245" width="14" height="120" fill="url(#cwd)" stroke="#222" stroke-width="1"/>
-  <rect x="380" y="260" width="220" height="90" fill="none" stroke="#222" stroke-width="1.5"/>
-  <line x1="590" y1="235" x2="590" y2="258" stroke="#222" stroke-width="1.6" marker-end="url(#cba)"/>
-  <text x="590.0" y="230.0" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">P</text>
-  <line x1="590" y1="375" x2="590" y2="352" stroke="#222" stroke-width="1.6" marker-end="url(#cba)"/>
-  <text x="590.0" y="388.0" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">P</text>
-  <path d="M380 285.2 L534.0 285.2 Q 567.0 285.2 567.0 300.2 L 567.0 300.2" fill="none" stroke="#222" stroke-width="2"/>
-  <path d="M380 324.8 L490.0 324.8 Q 523.0 324.8 523.0 309.8" fill="none" stroke="#222" stroke-width="2"/>
-  <text x="490.0" y="405.0" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">d</text>
+<!-- authored 2026-09-30 doboku-note 自作。題材は主任技士教材の片持ち梁の曲げと主筋配置。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 332" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="壁に固定された鉄筋コンクリート片持ち梁に上から荷重Pと下から荷重Pが作用する。主筋の配置が異なる4案a〜dを並べた模式図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-title { font-size: 12px; fill: #1a3a5c; font-weight: bold; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-sub  { stroke: #1a3a5c; stroke-width: 1.6; fill: none; stroke-dasharray: 5 3; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .axis { stroke: #555; stroke-width: 1.2; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .bar { stroke: #1a3a5c; stroke-width: 2.4; fill: none; stroke-linecap: round; }
+      .conc { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#1a3a5c"/></marker>
+    <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#8a8a8a" stroke-width="1.2"/></pattern>
+  </defs>
+  <text class="t-lead" x="200" y="14" text-anchor="middle">壁に固定した片持ち梁に2か所で荷重 P が作用する</text>
+  <g transform="translate(0,16)">
+  <rect x="20" y="42" width="10" height="60" fill="url(#hatch)" stroke="#555" stroke-width="1"/>
+  <rect class="box-b" x="30" y="50" width="170" height="44"/>
+  <line x1="176" y1="26" x2="176" y2="49" stroke="#1a3a5c" stroke-width="1.6" marker-end="url(#ar)"/>
+  <text class="t-label" x="176" y="22" text-anchor="middle">P</text>
+  <line x1="110" y1="118" x2="110" y2="95" stroke="#1a3a5c" stroke-width="1.6" marker-end="url(#ar)"/>
+  <text class="t-label" x="110" y="132" text-anchor="middle">P</text>
+  <text class="t-title" x="115" y="152" text-anchor="middle">a</text>
+  <path class="bar" d="M22.0,58.0 L186.0,58.0 Q192.0,58.0 192.0,64.0"/>
+  <rect x="210" y="42" width="10" height="60" fill="url(#hatch)" stroke="#555" stroke-width="1"/>
+  <rect class="box-b" x="220" y="50" width="170" height="44"/>
+  <line x1="366" y1="26" x2="366" y2="49" stroke="#1a3a5c" stroke-width="1.6" marker-end="url(#ar)"/>
+  <text class="t-label" x="366" y="22" text-anchor="middle">P</text>
+  <line x1="300" y1="118" x2="300" y2="95" stroke="#1a3a5c" stroke-width="1.6" marker-end="url(#ar)"/>
+  <text class="t-label" x="300" y="132" text-anchor="middle">P</text>
+  <text class="t-title" x="305" y="152" text-anchor="middle">b</text>
+  <path class="bar" d="M212.0,58.0 L333.0,58.0 Q339.0,58.0 339.0,64.0"/>
+  <path class="bar" d="M257.4,80.0 Q257.4,86.0 263.4,86.0 L376.0,86.0 Q382.0,86.0 382.0,80.0"/>
+  <rect x="20" y="174" width="10" height="60" fill="url(#hatch)" stroke="#555" stroke-width="1"/>
+  <rect class="box-b" x="30" y="182" width="170" height="44"/>
+  <line x1="176" y1="158" x2="176" y2="181" stroke="#1a3a5c" stroke-width="1.6" marker-end="url(#ar)"/>
+  <text class="t-label" x="176" y="154" text-anchor="middle">P</text>
+  <line x1="110" y1="250" x2="110" y2="227" stroke="#1a3a5c" stroke-width="1.6" marker-end="url(#ar)"/>
+  <text class="t-label" x="110" y="264" text-anchor="middle">P</text>
+  <text class="t-title" x="115" y="284" text-anchor="middle">c</text>
+  <path class="bar" d="M22.0,218.0 L186.0,218.0 Q192.0,218.0 192.0,212.0"/>
+  <rect x="210" y="174" width="10" height="60" fill="url(#hatch)" stroke="#555" stroke-width="1"/>
+  <rect class="box-b" x="220" y="182" width="170" height="44"/>
+  <line x1="366" y1="158" x2="366" y2="181" stroke="#1a3a5c" stroke-width="1.6" marker-end="url(#ar)"/>
+  <text class="t-label" x="366" y="154" text-anchor="middle">P</text>
+  <line x1="300" y1="250" x2="300" y2="227" stroke="#1a3a5c" stroke-width="1.6" marker-end="url(#ar)"/>
+  <text class="t-label" x="300" y="264" text-anchor="middle">P</text>
+  <text class="t-title" x="305" y="284" text-anchor="middle">d</text>
+  <path class="bar" d="M257.4,196.0 Q257.4,190.0 263.4,190.0 L376.0,190.0 Q382.0,190.0 382.0,196.0"/>
+  <path class="bar" d="M212.0,218.0 L333.0,218.0 Q339.0,218.0 339.0,212.0"/>
+  </g>
+  <text class="t-lead" x="200" y="322" text-anchor="middle">太線＝引張主（鉄）筋。端部の小さな曲がりは定着フック</text>
 </svg>

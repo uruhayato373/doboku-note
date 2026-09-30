@@ -1,0 +1,49 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材は主任技士教材の門型ラーメン（鉛直荷重）の曲げモーメント図と変形形状。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 416 316" xmlns="http://www.w3.org/2000/svg" style="max-width:416px;width:100%" role="img" aria-label="梁中央に鉛直荷重が作用する脚部固定の門型ラーメンの模式図。左は曲げモーメント図で梁中央は内側引張、隅角部は外側引張、柱脚は内側引張。右は変形形状で梁が下にたわみ柱が外側へ張り出す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-frame { stroke: #555; stroke-width: 3; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .mom { stroke: #2e6da4; stroke-width: 1.5; fill: #e8f0fe; fill-opacity: 0.8; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .fill-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .fill-g { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="a1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2e6da4"/></marker>
+  </defs>
+<g transform="translate(8 8)">
+  <text class="t-lead" x="200" y="16" text-anchor="middle">鉛直荷重を受けるラーメン（模式図・数値なし）</text>
+
+  <!-- left: moment diagram -->
+  <text class="t-label" x="100" y="42" text-anchor="middle">曲げモーメント図</text>
+  <polygon class="mom" points="60,120 60,104 110,150 160,104 160,120" />
+  <polygon class="mom" points="60,120 44,120 76,210 60,210 60,165" />
+  <polygon class="mom" points="160,120 176,120 144,210 160,210 160,165" />
+  <path class="line-frame" d="M60,210 L60,120 L160,120 L160,210" />
+  <line class="line-main" x1="110" y1="64" x2="110" y2="116" marker-end="url(#a1)" />
+  <text class="t-label" x="118" y="76">荷重</text>
+  <text class="t-label" x="110" y="138" text-anchor="middle">＋</text>
+  <text class="t-label" x="46" y="100" text-anchor="middle">－</text>
+  <text class="t-label" x="174" y="100" text-anchor="middle">－</text>
+  <text class="t-label" x="86" y="204">＋</text>
+  <text class="t-label" x="128" y="204">＋</text>
+  <text class="t-desc" x="100" y="238" text-anchor="middle">＋：内側引張　－：外側引張</text>
+
+  <!-- right: deformation -->
+  <text class="t-label" x="300" y="42" text-anchor="middle">変形形状</text>
+  <path class="line-dash" d="M250,210 L250,120 L350,120 L350,210" />
+  <path class="line-main" d="M250,210 C 236,180 236,150 252,128 C 275,150 325,150 348,128 C 364,150 364,180 350,210" />
+  <line class="line-main" x1="300" y1="64" x2="300" y2="122" marker-end="url(#a1)" />
+  <text class="t-label" x="310" y="76">荷重</text>
+  <text class="t-desc" x="300" y="238" text-anchor="middle">梁は下にたわみ、柱は外側へ張り出す</text>
+
+  <rect class="box" x="20" y="256" width="360" height="30" rx="6" />
+  <text class="t-desc" x="200" y="275" text-anchor="middle">柱脚の内側と梁中央に引張が生じる。隅角部は外側が引張になる</text>
+</g>
+</svg>

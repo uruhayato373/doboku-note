@@ -1,0 +1,47 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材は主任技士教材のクリープ破壊（応力レベル別のクリープひずみ）。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="持続応力レベル別のクリープひずみの時間推移の模式図。圧縮強度の30％と50％では時間とともに増加が頭打ちになり、85％と95％では増加が続いて破壊（×）に至る">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-sub { stroke: #8a8a8a; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+  </defs>
+<g transform="translate(0.0 90.0) scale(1.0000)">
+
+  <text class="t-lead" x="200" y="14" text-anchor="middle">曲線の脇の％は持続応力／圧縮強度（模式図・数値目盛なし）</text>
+
+  <!-- axes -->
+  <line class="line-dash" x1="50" y1="250" x2="370" y2="250" />
+  <line class="line-dash" x1="50" y1="30" x2="50" y2="250" />
+  <text class="t-axis" x="210" y="270" text-anchor="middle">荷重持続時間</text>
+  <text class="t-axis" x="56" y="40">クリープひずみ</text>
+
+  <!-- curves -->
+  <path class="line-sub" d="M50,250 C 65,215 100,203 340,198" />
+  <path class="line-sub" d="M50,250 C 65,190 100,165 340,158" />
+  <path class="line-main" d="M50,250 C 75,170 130,130 220,100 C 260,85 300,68 330,52" />
+  <path class="line-main" d="M50,250 C 60,150 95,80 150,42" />
+
+  <!-- failure markers -->
+  <text class="t-label" x="150" y="42" text-anchor="middle" dy="-4">×</text>
+  <text class="t-label" x="330" y="52" text-anchor="middle" dy="-4">×</text>
+
+  <!-- labels -->
+  <text class="t-label" x="112" y="104">95％</text>
+  <text class="t-label" x="236" y="76">85％</text>
+  <text class="t-label" x="345" y="162">50％</text>
+  <text class="t-label" x="345" y="202">30％</text>
+
+  <rect class="box" x="20" y="284" width="360" height="30" rx="6" />
+  <text class="t-lead" x="200" y="303" text-anchor="middle">×＝クリープ破壊　高応力ほどひずみは大きく、増加が止まらなくなる</text>
+</g>
+</svg>

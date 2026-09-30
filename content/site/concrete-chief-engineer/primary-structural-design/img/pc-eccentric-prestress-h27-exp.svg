@@ -1,0 +1,44 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材は主任技士教材のPC鋼材の偏心配置とプレストレスの分布。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="PC鋼材を断面中央に置いた断面(a)はプレストレスが一様な圧縮、下縁寄りに置いた断面(b)は下縁の圧縮が大きい分布になる。偏心があるとひび割れ発生荷重・曲げ耐力が増え、たわみは小さくなる方向">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .area { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">緊張力が同じでもPC鋼材の位置でプレストレス分布が変わる</text>
+
+  <rect class="line-main" x="30" y="44" width="80" height="120" fill="#f5f5f5" />
+  <circle cx="70" cy="104" r="5" fill="#2e6da4" />
+  <polygon class="area" points="120,44 152,44 152,164 120,164" />
+  <text class="t-label" x="91" y="208" text-anchor="middle">(a) 中央付近</text>
+  <text class="t-desc" x="136" y="184" text-anchor="middle">一様な圧縮</text>
+
+  <rect class="line-main" x="220" y="44" width="80" height="120" fill="#f5f5f5" />
+  <circle cx="260" cy="140" r="5" fill="#2e6da4" />
+  <polygon class="area" points="310,44 318,44 356,164 310,164" />
+  <text class="t-label" x="288" y="208" text-anchor="middle">(b) 下縁寄り</text>
+  <text class="t-desc" x="333" y="184" text-anchor="middle">下縁の圧縮が大</text>
+
+  <text class="t-lead" x="20" y="240">偏心が大きい (b) で起こること</text>
+  <rect class="box" x="20" y="248" width="360" height="132" rx="6" />
+  <rect class="box-b" x="34" y="260" width="14" height="14" />
+  <text class="t-desc" x="54" y="272">下縁の圧縮に余裕があり、ひび割れ発生荷重が大きい</text>
+  <rect class="box-b" x="34" y="290" width="14" height="14" />
+  <text class="t-desc" x="54" y="302">鋼材が下縁に近く、有効高さが大きい分だけ曲げ耐力が大きい</text>
+  <rect class="box-b" x="34" y="320" width="14" height="14" />
+  <text class="t-desc" x="54" y="332">偏心プレストレスが上向きに反りを与え、たわみは小さくなる</text>
+  <text class="t-axis" x="54" y="362">（緊張力・鋼材量・引張強さは同じ）</text>
+</svg>

@@ -1,20 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" style="max-width:400px;width:100%" role="img" aria-label="梁せい3mの断面における応力分布の候補4パターン(1)〜(4)。左が引張応力、右が圧縮応力を示す軸に対し、直線・曲線状の分布形状が描かれている">
-  <line x1="80" y1="40" x2="320" y2="40" stroke="#222" stroke-width="1.5"/>
-  <line x1="80" y1="220" x2="320" y2="220" stroke="#222" stroke-width="1.5"/>
-  <line x1="200" y1="40" x2="200" y2="220" stroke="#222" stroke-width="1.6"/>
-  <text x="40" y="234" font-family="sans-serif" font-size="12" fill="#222">引張応力</text>
-  <text x="180" y="234" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">0</text>
-  <text x="230" y="234" font-family="sans-serif" font-size="12" fill="#222">圧縮応力</text>
-  <text x="340" y="130" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222" transform="rotate(-90 340 130)">梁せい3 m</text>
-  <line x1="330" y1="40" x2="330" y2="220" stroke="#222" stroke-width="1"/>
-  <line x1="325" y1="40" x2="335" y2="40" stroke="#222" stroke-width="1"/>
-  <line x1="325" y1="220" x2="335" y2="220" stroke="#222" stroke-width="1"/>
-  <line x1="120" y1="40" x2="120" y2="220" stroke="#222" stroke-width="1.4"/>
-  <text x="120" y="30" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">(1)</text>
-  <path d="M90 40 Q160 90 200 130 Q240 170 260 220" fill="none" stroke="#222" stroke-width="1.4"/>
-  <text x="90" y="30" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">(2)</text>
-  <path d="M280 40 Q220 90 200 130 Q180 170 120 220" fill="none" stroke="#222" stroke-width="1.4" stroke-dasharray="5 3"/>
-  <text x="280" y="30" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">(3)</text>
-  <path d="M200 40 Q170 90 200 130 Q230 170 200 220" fill="none" stroke="#222" stroke-width="1.4" stroke-dasharray="2 2"/>
-  <text x="205" y="30" font-family="sans-serif" font-size="13" fill="#222">(4)</text>
+<!-- authored 2026-09-30 doboku-note 自作。題材は主任技士教材のマスコンクリート温度応力。書籍図の複製・トレースではない（既存 h25-q28-fig2.svg の幾何を保持して再スタイル） -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" style="max-width:400px;width:100%" role="img" aria-label="梁せい3mの断面における応力分布の候補(1)〜(4)。左が引張応力、右が圧縮応力を示す軸に対し、直線・曲線状の分布が描かれている">
+  <defs><style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-label { font-size: 12px; fill: #1a3a5c; }
+      .t-axis  { font-size: 12px; fill: #555; }
+      .ln  { stroke: #2e6da4; stroke-width: 1.5; fill: none; }
+      .thin { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 2; fill: none; }
+      .cur { stroke: #2e6da4; stroke-width: 1.4; fill: none; }
+    </style></defs>
+  <line class="ln" x1="80" y1="40" x2="320" y2="40"/>
+  <line class="ln" x1="80" y1="220" x2="320" y2="220"/>
+  <line class="ln" x1="200" y1="40" x2="200" y2="220"/>
+  <text class="t-axis" x="40" y="240">引張応力</text>
+  <text class="t-axis" x="180" y="240" text-anchor="middle">0</text>
+  <text class="t-axis" x="230" y="240">圧縮応力</text>
+  <text class="t-axis" x="355" y="130" text-anchor="middle" transform="rotate(-90 355 130)">梁せい3 m</text>
+  <line class="thin" x1="330" y1="40" x2="330" y2="220"/>
+  <line class="thin" x1="325" y1="40" x2="335" y2="40"/>
+  <line class="thin" x1="325" y1="220" x2="335" y2="220"/>
+  <line class="cur" x1="120" y1="40" x2="120" y2="220"/>
+  <text class="t-label" x="120" y="30" text-anchor="middle">(1)</text>
+  <path class="cur" d="M90 40 Q160 90 200 130 Q240 170 260 220"/>
+  <text class="t-label" x="90" y="30" text-anchor="middle">(2)</text>
+  <path class="cur" d="M280 40 Q220 90 200 130 Q180 170 120 220" stroke-dasharray="5 3"/>
+  <text class="t-label" x="280" y="30" text-anchor="middle">(3)</text>
+  <path class="cur" d="M200 40 Q170 90 200 130 Q230 170 200 220" stroke-dasharray="2 2"/>
+  <text class="t-label" x="205" y="30">(4)</text>
 </svg>

@@ -1,0 +1,31 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材は主任技士教材のビンガム流体の降伏値と塑性粘度。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="ビンガム流体のせん断応力とせん断ひずみ速度の直線。横軸切片が降伏値、傾きの逆数が塑性粘度に対応し、降伏値はスランプ、塑性粘度は分離抵抗性と圧送抵抗に対応することを示す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 12px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-ref  { stroke: #8a8a8a; stroke-width: 1.5; stroke-dasharray: 4 3; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .box   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">横軸＝せん断応力、縦軸＝せん断ひずみ速度（数値なし・傾向を示す）</text>
+  <line class="line-dash" x1="50" y1="220" x2="370" y2="220"/>
+  <line class="line-dash" x1="50" y1="40" x2="50" y2="220"/>
+  <text class="t-axis" x="370" y="238" text-anchor="end">せん断応力</text>
+  <text class="t-axis" x="56" y="36">せん断ひずみ速度</text>
+  <line class="line-main" x1="120" y1="220" x2="230" y2="50"/>
+  <circle cx="120" cy="220" r="4" fill="#2e6da4"/>
+  <line class="line-ref" x1="120" y1="220" x2="120" y2="248"/>
+  <text class="t-label" x="120" y="264" text-anchor="middle">横軸切片＝降伏値</text>
+  <text class="t-label" x="200" y="120" text-anchor="start">傾きの逆数</text>
+  <text class="t-label" x="200" y="136" text-anchor="start">＝塑性粘度</text>
+  <rect class="box" x="20" y="278" width="360" height="34" rx="6"/>
+  <text class="t-desc" x="32" y="292">降伏値が小さいほどスランプは大きい</text>
+  <text class="t-desc" x="32" y="306">塑性粘度が大きいほど分離しにくく、圧送抵抗は大きい</text>
+</svg>

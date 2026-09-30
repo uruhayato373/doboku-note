@@ -1,0 +1,39 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材は主任技士教材の高温加熱による圧縮強度の低下。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="加熱温度と残存圧縮強度の傾向図。低温域ではほぼ一定で、温度が上がるにつれて直線的に低下する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-sub { stroke: #1a3a5c; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">数値なし・傾向を示す（常温時を基準とした残存比）</text>
+  <line class="line-dash" x1="50" y1="270" x2="370" y2="270" />
+  <line class="line-dash" x1="50" y1="50" x2="50" y2="270" />
+  <text class="t-axis" x="370" y="286" text-anchor="end">加熱温度 →</text>
+  <text class="t-axis" x="54" y="44">残存圧縮強度比</text>  <line class="line-dash" x1="50" y1="90" x2="360" y2="90" />
+  <text class="t-axis" x="360" y="84" text-anchor="end">常温時（基準）</text>
+  <path class="line-main" d="M50,90 L120,90 L330,200" />
+  <circle cx="120" cy="90" r="3" fill="#2e6da4" />
+  <circle cx="330" cy="200" r="3" fill="#2e6da4" />
+  <text class="t-label" x="60" y="112">低温域はほぼ低下しない</text>
+  <text class="t-label" x="330" y="222" text-anchor="end">温度上昇とともに直線的に低下</text>
+  <text class="t-lead" x="20" y="326">読み取り方</text>
+  <rect class="box" x="20" y="332" width="360" height="64" rx="6" />
+  <rect class="box-b" x="34" y="338" width="14" height="14" />
+  <text class="t-desc" x="54" y="350">加熱温度が高いほど残存圧縮強度は小さくなる</text>
+  <rect class="box-b" x="34" y="362" width="14" height="14" />
+  <text class="t-desc" x="54" y="374">加熱後の冷却条件（冷却直後・空中放置）でも値は変わる</text>
+
+</svg>

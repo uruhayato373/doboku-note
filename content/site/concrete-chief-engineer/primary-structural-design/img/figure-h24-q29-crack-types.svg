@@ -1,0 +1,49 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材は主任技士教材の構造設計（RC柱のひび割れ形態）。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="正負繰返し水平荷重を受ける柱のひび割れ3形態。曲げは柱を横切る水平なひび割れ、付着は太径主筋に沿う縦方向のひび割れ、せん断は短柱に生じる斜めのX状ひび割れ">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-b     { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-sub  { stroke: #1a3a5c; stroke-width: 1.5; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+  </defs>
+<g transform="translate(0 50)">
+  <text class="t-lead" x="200" y="16" text-anchor="middle">ひび割れの向きで原因を見分ける</text>
+
+  <line x1="30" y1="40" x2="30" y2="220" stroke="#2e6da4" stroke-width="2" /><line x1="80" y1="40" x2="80" y2="220" stroke="#2e6da4" stroke-width="2" />
+  <line class="line-sub" x1="30" y1="70" x2="80" y2="70" /><line class="line-sub" x1="30" y1="86" x2="80" y2="86" /><line class="line-sub" x1="30" y1="102" x2="80" y2="102" />
+  <line class="line-sub" x1="30" y1="158" x2="80" y2="158" /><line class="line-sub" x1="30" y1="174" x2="80" y2="174" /><line class="line-sub" x1="30" y1="190" x2="80" y2="190" />
+  <text class="t-b" x="55" y="246" text-anchor="middle">曲げ</text>
+  <text class="t-desc" x="55" y="264" text-anchor="middle">水平に横切る</text>
+  <text class="t-desc" x="55" y="280" text-anchor="middle">柱頭・柱脚付近</text>
+
+  <line x1="160" y1="40" x2="160" y2="220" stroke="#2e6da4" stroke-width="2" /><line x1="230" y1="40" x2="230" y2="220" stroke="#2e6da4" stroke-width="2" />
+  <line x1="170" y1="46" x2="170" y2="100" stroke="#1a3a5c" stroke-width="1.5" /><line x1="185" y1="46" x2="185" y2="90" stroke="#1a3a5c" stroke-width="1.5" />
+  <line x1="205" y1="46" x2="205" y2="100" stroke="#1a3a5c" stroke-width="1.5" /><line x1="220" y1="46" x2="220" y2="90" stroke="#1a3a5c" stroke-width="1.5" />
+  <line x1="170" y1="160" x2="170" y2="214" stroke="#1a3a5c" stroke-width="1.5" /><line x1="185" y1="170" x2="185" y2="214" stroke="#1a3a5c" stroke-width="1.5" />
+  <line x1="205" y1="160" x2="205" y2="214" stroke="#1a3a5c" stroke-width="1.5" /><line x1="220" y1="170" x2="220" y2="214" stroke="#1a3a5c" stroke-width="1.5" />
+  <text class="t-b" x="195" y="246" text-anchor="middle">付着</text>
+  <text class="t-desc" x="195" y="264" text-anchor="middle">主筋に沿う縦方向</text>
+  <text class="t-desc" x="195" y="280" text-anchor="middle">太径主筋で生じやすい</text>
+
+  <line x1="310" y1="90" x2="310" y2="220" stroke="#2e6da4" stroke-width="2" /><line x1="370" y1="90" x2="370" y2="220" stroke="#2e6da4" stroke-width="2" />
+  <line class="line-sub" x1="316" y1="100" x2="364" y2="210" /><line class="line-sub" x1="364" y1="100" x2="316" y2="210" />
+  <text class="t-b" x="340" y="246" text-anchor="middle">せん断</text>
+  <text class="t-desc" x="340" y="264" text-anchor="middle">斜めの X 状</text>
+  <text class="t-desc" x="394" y="280" text-anchor="end">高さが低い短柱で卓越</text>
+
+  <rect class="box" x="16" y="304" width="368" height="70" rx="6" />
+  <text class="t-desc" x="30" y="324">曲げ：曲げモーメントで引張側に生じる</text>
+  <text class="t-desc" x="30" y="342">付着：主筋とコンクリートの間の付着応力が原因</text>
+  <text class="t-desc" x="30" y="360">せん断：せん断スパン比が小さいほど生じやすい</text>
+</g>
+
+</svg>

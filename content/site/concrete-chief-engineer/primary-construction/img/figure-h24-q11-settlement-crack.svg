@@ -1,0 +1,50 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材は主任技士教材の施工（沈みひび割れの発生機構）。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="壁の断面で見た沈みひび割れの発生機構。ブリーディングでコンクリート天端が沈むとき、セパレータや鉄筋が沈下を妨げ、その真上に沈みひび割れが生じる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-b     { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-sub  { stroke: #1a3a5c; stroke-width: 1.5; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+  </defs>
+<g transform="translate(0.0 50.0) scale(1.0000)">
+  <defs>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4" /></marker>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">壁の断面（打込み後、まだ固まる前）</text>
+
+  <rect class="box-b" x="110" y="60" width="130" height="200" />
+  <line class="line-dash" x1="90" y1="60" x2="260" y2="60" />
+  <text class="t-axis" x="264" y="64">打込み直後の天端</text>
+  <path d="M110,72 L240,72" stroke="#2e6da4" stroke-width="2" fill="none" />
+  <text class="t-label" x="264" y="90">沈下後の天端</text>
+
+  <line x1="86" y1="140" x2="264" y2="140" stroke="#1a3a5c" stroke-width="3" />
+  <circle cx="110" cy="140" r="5" fill="#ffffff" stroke="#1a3a5c" stroke-width="2" />
+  <circle cx="240" cy="140" r="5" fill="#ffffff" stroke="#1a3a5c" stroke-width="2" />
+  <text class="t-label" x="264" y="144">セパレータ</text>
+
+  <path d="M175,72 L171,88 L179,102 L173,116 L175,134" stroke="#b22234" stroke-width="2" fill="none" />
+  <text class="t-label" x="104" y="106" text-anchor="end" style="fill:#b22234">沈みひび割れ</text>
+
+  <line x1="128" y1="80" x2="128" y2="122" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#ar)" />
+  <line x1="222" y1="80" x2="222" y2="122" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#ar)" />
+  <text class="t-desc" x="128" y="176" text-anchor="middle">沈下</text>
+  <text class="t-desc" x="222" y="176" text-anchor="middle">沈下</text>
+
+  <text class="t-lead" x="20" y="292">起こり方</text>
+  <rect class="box" x="16" y="298" width="368" height="92" rx="6" />
+  <text class="t-desc" x="30" y="318">ブリーディングで天端が沈もうとする</text>
+  <text class="t-desc" x="30" y="336">セパレータ・鉄筋が沈下を妨げる</text>
+  <text class="t-desc" x="30" y="354">拘束物の真上で、まだ固まらないうちにひび割れる</text>
+  <text class="t-desc" x="30" y="376">対策は沈下量を減らす（単位水量↓）か、再振動で閉じる</text>
+</g>
+</svg>

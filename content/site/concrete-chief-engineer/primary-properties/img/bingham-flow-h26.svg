@@ -1,12 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" style="max-width:380px;width:100%" role="img" aria-label="ビンガム流体モデルのせん断応力とせん断ひずみ速度の関係を示す3本の直線A・B・C（原点からずれた位置から立ち上がる）">
-  <line x1="60.0" y1="240.0" x2="375.0" y2="240.0" stroke="#222" stroke-width="1.5"/>
-  <line x1="60.0" y1="15.0" x2="60.0" y2="240.0" stroke="#222" stroke-width="1.5"/>
-  <line x1="130.0" y1="240.0" x2="270.0" y2="30.0" stroke="#222" stroke-width="1.8"/>
-  <text x="276.0" y="34.0" text-anchor="start" font-family="sans-serif" font-size="13" fill="#222" font-weight="bold">A</text>
-  <line x1="170.0" y1="240.0" x2="285.0" y2="30.0" stroke="#222" stroke-width="1.8"/>
-  <text x="291.0" y="34.0" text-anchor="start" font-family="sans-serif" font-size="13" fill="#222" font-weight="bold">B</text>
-  <line x1="210.0" y1="240.0" x2="300.0" y2="30.0" stroke="#222" stroke-width="1.8"/>
-  <text x="306.0" y="34.0" text-anchor="start" font-family="sans-serif" font-size="13" fill="#222" font-weight="bold">C</text>
-  <text x="18.0" y="130.0" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222" transform="rotate(-90 18 130.0)">せん断ひずみ速度</text>
-  <text x="210.0" y="262.0" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">せん断応力</text>
+<!-- authored 2026-09-30 doboku-note 自作。題材は主任技士教材のビンガム流体モデル。書籍図の複製・トレースではない（既存 bingham-flow-h26.svg の幾何を保持して配色のみ置換） -->
+<svg viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg" style="max-width:380px;width:100%" role="img" aria-label="ビンガム流体モデルのせん断応力とせん断ひずみ速度の関係を示す3本の直線A・B・C（原点からずれた位置から立ち上がる）">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-label { font-size: 13px; fill: #1a3a5c; font-weight: bold; }
+      .t-axis  { font-size: 12px; fill: #555; }
+      .axis { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+      .line-main { stroke: #2e6da4; stroke-width: 1.8; fill: none; }
+    </style>
+  </defs>
+  <line class="axis" x1="60" y1="240" x2="375" y2="240"/>
+  <line class="axis" x1="60" y1="15" x2="60" y2="240"/>
+  <line class="line-main" x1="130" y1="240" x2="270" y2="30"/>
+  <text class="t-label" x="270" y="20" text-anchor="middle">A</text>
+  <line class="line-main" x1="170" y1="240" x2="285" y2="30"/>
+  <text class="t-label" x="285" y="20" text-anchor="middle">B</text>
+  <line class="line-main" x1="210" y1="240" x2="300" y2="30"/>
+  <text class="t-label" x="300" y="20" text-anchor="middle">C</text>
+  <text class="t-axis" x="18" y="130" text-anchor="middle" transform="rotate(-90 18 130)">せん断ひずみ速度</text>
+  <text class="t-axis" x="210" y="262" text-anchor="middle">せん断応力</text>
 </svg>

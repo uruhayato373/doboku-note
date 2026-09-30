@@ -1,0 +1,48 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材は主任技士教材の床版の打継ぎ位置とせん断力・曲げモーメントの関係。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 440" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="等分布荷重を受ける床版のスパン方向の傾向。曲げモーメントはスパン中央で大きく、せん断力は支点付近で大きくスパン中央で小さい。打継目はせん断力の小さい位置に設ける">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .area { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">等分布荷重を受ける床版のスパン方向の傾向（数値なし）</text>
+
+  <!-- span -->
+  <line class="line-main" x1="60" y1="60" x2="340" y2="60" />
+  <path class="line-main" d="M60,60 L52,76 L68,76 Z" />
+  <path class="line-main" d="M340,60 L332,76 L348,76 Z" />
+  <text class="t-axis" x="60" y="46" text-anchor="middle">支点</text>
+  <text class="t-axis" x="340" y="46" text-anchor="middle">支点</text>
+  <line class="line-dash" x1="200" y1="50" x2="200" y2="340" />
+  <text class="t-axis" x="200" y="46" text-anchor="middle">スパン中央</text>
+
+  <!-- moment -->
+  <text class="t-label" x="20" y="110">曲げモーメント</text>
+  <line class="line-dash" x1="60" y1="130" x2="340" y2="130" />
+  <path class="area" d="M60,130 C 130,205 270,205 340,130 Z" />
+  <text class="t-desc" x="208" y="206">中央で最大</text>
+
+  <!-- shear -->
+  <text class="t-label" x="20" y="222">せん断力</text>
+  <line class="line-dash" x1="60" y1="290" x2="340" y2="290" />
+  <path class="area" d="M60,290 L60,250 L200,290 Z" />
+  <path class="area" d="M200,290 L340,330 L340,290 Z" />
+  <text class="t-desc" x="70" y="243">支点付近で最大</text>
+  <text class="t-desc" x="208" y="352">中央で最小（ゼロ付近）</text>
+
+  <rect class="box-b" x="20" y="376" width="360" height="48" rx="6" />
+  <text class="t-label" x="200" y="397" text-anchor="middle">打継目は「せん断力の小さい位置」に設ける</text>
+  <text class="t-desc" x="200" y="414" text-anchor="middle">継手位置とは重ねない</text>
+</svg>

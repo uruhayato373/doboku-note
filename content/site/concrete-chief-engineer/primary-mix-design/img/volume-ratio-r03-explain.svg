@@ -1,0 +1,53 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材は主任技士教材の配合設計（絶対容積の面積図）。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 310" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="配合設計の絶対容積の面積図の見方。左端の帯が空気、その右の上が水・下がセメント、右側の上が細骨材・下が粗骨材で、①〜④の線で境界を動かす">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-num   { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-mv { stroke: #2e6da4; stroke-width: 2; stroke-dasharray: 5 3; fill: none; }
+      .arrow { stroke: #2e6da4; stroke-width: 1.5; fill: none; marker-start: url(#ahs); marker-end: url(#ahe); }
+      .badge { fill: #ffffff; stroke: #2e6da4; stroke-width: 1.5; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+    <marker id="ahe" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#2e6da4"/></marker>
+    <marker id="ahs" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="6" refX="0" refY="3" orient="auto"><polygon points="8,0 0,3 8,6" fill="#2e6da4"/></marker>
+  </defs>
+
+  <rect x="40" y="30" width="320" height="230" fill="#ffffff" stroke="#2e6da4" stroke-width="2" />
+  <rect x="40" y="30" width="40" height="230" fill="#f5f5f5" />
+  <rect x="80" y="30" width="110" height="140" fill="#e8f0fe" />
+  <rect x="80" y="170" width="110" height="90" fill="#f5f5f5" />
+  <rect x="190" y="30" width="170" height="90" fill="#e8f0fe" />
+  <rect x="190" y="120" width="170" height="140" fill="#f5f5f5" />
+
+  <line class="line-mv" x1="80" y1="30" x2="80" y2="260" />
+  <line class="line-mv" x1="190" y1="30" x2="190" y2="260" />
+  <line class="line-main" x1="80" y1="170" x2="190" y2="170" />
+  <line class="line-main" x1="190" y1="120" x2="360" y2="120" />
+  <rect x="40" y="30" width="320" height="230" fill="none" stroke="#2e6da4" stroke-width="2" />
+
+  <!-- handles -->
+  <line class="arrow" x1="66" y1="100" x2="94" y2="100" />
+  <circle class="badge" cx="80" cy="82" r="10" /><text class="t-num" x="80" y="86" text-anchor="middle">①</text>
+  <line class="arrow" x1="135" y1="184" x2="135" y2="156" />
+  <circle class="badge" cx="157" cy="170" r="10" /><text class="t-num" x="157" y="174" text-anchor="middle">②</text>
+  <line class="arrow" x1="176" y1="55" x2="204" y2="55" />
+  <circle class="badge" cx="190" cy="37" r="10" /><text class="t-num" x="190" y="41" text-anchor="middle">③</text>
+  <line class="arrow" x1="300" y1="134" x2="300" y2="106" />
+  <circle class="badge" cx="322" cy="120" r="10" /><text class="t-num" x="322" y="124" text-anchor="middle">④</text>
+  <text class="t-label" x="60" y="140" text-anchor="middle">空気</text>
+  <text class="t-label" x="135" y="70" text-anchor="middle">水</text>
+  <text class="t-label" x="135" y="215" text-anchor="middle">セメント</text>
+  <text class="t-label" x="275" y="80" text-anchor="middle">細骨材</text>
+  <text class="t-label" x="275" y="190" text-anchor="middle">粗骨材</text>
+  <text class="t-lead" x="200" y="290" text-anchor="middle">各領域の面積＝その材料の絶対容積</text>
+</svg>

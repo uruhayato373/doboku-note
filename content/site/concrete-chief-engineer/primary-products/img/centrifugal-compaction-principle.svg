@@ -1,0 +1,40 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材は主任技士教材のコンクリート製品（遠心力締固めによるパイルの製造）。書籍図（写真）の複製・トレースではない -->
+<svg viewBox="0 0 400 340" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="遠心力締固めの模式断面図。筒状型枠を高速回転させると固体粒子は外側へ寄って緻密な壁となり、水分は内面側に集まり中心は空洞になる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-frame { stroke: #555; stroke-width: 3; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .mom { stroke: #2e6da4; stroke-width: 1.5; fill: #e8f0fe; fill-opacity: 0.8; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .fill-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .fill-g { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="a4" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2e6da4"/></marker>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">遠心力締固めの原理（筒状型枠の断面・寸法なし）</text>
+
+  <circle cx="200" cy="130" r="88" fill="#f5f5f5" stroke="#555" stroke-width="3" />
+  <circle cx="200" cy="130" r="82" class="fill-b" />
+  <circle cx="200" cy="130" r="50" fill="#ffffff" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="3 3" />
+  <circle cx="200" cy="130" r="56" fill="none" stroke="#2e6da4" stroke-width="1" stroke-dasharray="1 4" />
+
+  <text class="t-label" x="200" y="134" text-anchor="middle">中空</text>
+  <path class="line-main" d="M292,96 A96,96 0 0 1 292,164" marker-end="url(#a4)" />
+  <text class="t-label" x="302" y="134">回転</text>
+
+  <line class="line-main" x1="200" y1="130" x2="200" y2="52" marker-end="url(#a4)" />
+  <text class="t-label" x="208" y="72">遠心力</text>
+
+  <text class="t-desc" x="200" y="250" text-anchor="middle">型枠（外側）</text>
+
+  <rect class="box" x="20" y="262" width="360" height="62" rx="6" />
+  <text class="t-desc" x="34" y="282">固体粒子は外側へ寄り、断面は外側ほど緻密になる</text>
+  <text class="t-desc" x="34" y="300">水分は内面側へ集まり、脱水・脱泡が進む</text>
+  <text class="t-desc" x="34" y="318">中心が空洞の製品（コンクリート管・パイルなど）</text>
+</svg>

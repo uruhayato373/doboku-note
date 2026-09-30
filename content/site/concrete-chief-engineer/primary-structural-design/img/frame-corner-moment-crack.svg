@@ -1,0 +1,47 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材は主任技士教材のラーメン隅角部の曲げモーメントとひび割れ位置。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="ラーメン隅角部の模式図。隅角部が開く曲げでは内側が引張となり内側にひび割れ、閉じる曲げでは外側が引張となり外側にひび割れが生じる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-frame { stroke: #555; stroke-width: 3; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .mom { stroke: #2e6da4; stroke-width: 1.5; fill: #e8f0fe; fill-opacity: 0.8; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .fill-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .fill-g { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="a2" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2e6da4"/></marker>
+    <style>.crk { stroke: #1a3a5c; stroke-width: 1.5; fill: none; }</style>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">隅角部の曲げとひび割れ位置（模式図・数値なし）</text>
+
+  <!-- opening -->
+  <g transform="translate(-10,10)">
+    <path class="fill-g" d="M50,60 H170 V84 H74 V170 H50 Z" />
+    <path class="line-main" d="M178,88 A16,16 0 0 0 178,56" marker-end="url(#a2)" />
+    <path class="line-main" d="M78,180 A16,16 0 0 1 46,180" marker-end="url(#a2)" />
+    <path class="crk" d="M90,84 V72 M104,84 V73 M74,100 H63 M74,114 H64" />
+  </g>
+  <text class="t-label" x="90" y="234" text-anchor="middle">開く曲げ</text>
+  <text class="t-desc" x="90" y="252" text-anchor="middle">内側が引張</text>
+  <text class="t-desc" x="90" y="268" text-anchor="middle">内側にひび割れ</text>
+
+  <!-- closing -->
+  <g transform="translate(190,10)">
+    <path class="fill-g" d="M50,60 H170 V84 H74 V170 H50 Z" />
+    <path class="line-main" d="M178,56 A16,16 0 0 1 178,88" marker-end="url(#a2)" />
+    <path class="line-main" d="M46,180 A16,16 0 0 0 78,180" marker-end="url(#a2)" />
+    <path class="crk" d="M90,60 V71 M104,60 V72 M50,100 H61 M50,114 H60" />
+  </g>
+  <text class="t-label" x="290" y="234" text-anchor="middle">閉じる曲げ</text>
+  <text class="t-desc" x="290" y="252" text-anchor="middle">外側が引張</text>
+  <text class="t-desc" x="290" y="268" text-anchor="middle">外側にひび割れ</text>
+
+  <rect class="box" x="20" y="280" width="360" height="30" rx="6" />
+  <text class="t-desc" x="200" y="299" text-anchor="middle">柱が内側・梁が外側というひび割れの組合せは起こらない</text>
+</svg>

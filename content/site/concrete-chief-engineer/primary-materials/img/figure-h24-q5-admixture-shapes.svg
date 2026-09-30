@@ -1,0 +1,48 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材は主任技士教材の混和材（高炉スラグ微粉末・フライアッシュ・シリカフューム）の粒子形状。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="混和材3種の粒子形状と密度の傾向。高炉スラグ微粉末は角張った破砕状で密度が大きく、フライアッシュは球状、シリカフュームは球状の超微粒子で、ともに密度は小さい">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-b     { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-sub  { stroke: #1a3a5c; stroke-width: 1.5; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+  </defs>
+<g transform="translate(0.0 80.0) scale(1.0000)">
+  <text class="t-lead" x="200" y="16" text-anchor="middle">粒子の形とサイズで見分ける（数値なし・特徴を示す）</text>
+
+  <rect class="box" x="16" y="30" width="368" height="90" rx="6" />
+  <polygon points="34,58 56,48 74,64 66,90 42,96 28,78" fill="#d7d7d7" stroke="#8a8a8a" />
+  <polygon points="66,100 84,84 100,96 92,108 74,110" fill="#d7d7d7" stroke="#8a8a8a" />
+  <text class="t-b" x="118" y="52">高炉スラグ微粉末</text>
+  <text class="t-desc" x="118" y="72">角張った破砕状の粒子</text>
+  <text class="t-desc" x="118" y="90">3種の中で密度が最も大きい</text>
+  <text class="t-desc" x="118" y="108">長期強度の増進・化学抵抗性の向上</text>
+
+  <rect class="box" x="16" y="130" width="368" height="90" rx="6" />
+  <circle cx="52" cy="176" r="20" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="86" cy="196" r="11" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="88" cy="160" r="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <text class="t-b" x="118" y="152">フライアッシュ</text>
+  <text class="t-desc" x="118" y="172">なめらかな球状の粒子</text>
+  <text class="t-desc" x="118" y="190">密度は小さい（2.1 台）</text>
+  <text class="t-desc" x="118" y="208">ボールベアリング効果で流動性が向上</text>
+
+  <rect class="box" x="16" y="230" width="368" height="90" rx="6" />
+  <circle cx="40" cy="262" r="3" fill="#2e6da4" /><circle cx="52" cy="270" r="3" fill="#2e6da4" /><circle cx="64" cy="260" r="3" fill="#2e6da4" />
+  <circle cx="76" cy="272" r="3" fill="#2e6da4" /><circle cx="46" cy="284" r="3" fill="#2e6da4" /><circle cx="60" cy="290" r="3" fill="#2e6da4" />
+  <circle cx="74" cy="288" r="3" fill="#2e6da4" /><circle cx="88" cy="280" r="3" fill="#2e6da4" /><circle cx="90" cy="298" r="3" fill="#2e6da4" />
+  <circle cx="36" cy="300" r="3" fill="#2e6da4" />
+  <text class="t-b" x="118" y="252">シリカフューム</text>
+  <text class="t-desc" x="118" y="272">球状の超微粒子（粒径はセメントの約 1/100）</text>
+  <text class="t-desc" x="118" y="290">密度は小さい（2.1 台）・写真の縮尺が最も小さい</text>
+  <text class="t-desc" x="118" y="308">高強度コンクリートの緻密化に用いる</text>
+</g>
+</svg>

@@ -1,0 +1,55 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材は主任技士教材の配合設計（単位容積の面積図とスランプ）。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="単位容積を面積で表した図の読み方。上段は水とセメント、下段は細骨材と粗骨材、最下段は空気。境界線を動かすと水セメント比、ペースト量、細骨材率、空気量が変わる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-b     { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-sub  { stroke: #1a3a5c; stroke-width: 1.5; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+  </defs>
+<g transform="translate(0.0 2.5) scale(1.0000)">
+  <text class="t-lead" x="200" y="16" text-anchor="middle">面積＝容積割合。境界線を動かすと配合が変わる</text>
+
+  <rect x="40" y="30" width="280" height="240" fill="#ffffff" stroke="#2e6da4" stroke-width="2" />
+  <rect x="40" y="30" width="172" height="60" fill="#e8f0fe" />
+  <rect x="212" y="30" width="108" height="60" fill="#fff3cd" />
+  <rect x="40" y="90" width="120" height="164" fill="#f5f5f5" />
+  <rect x="160" y="90" width="160" height="164" fill="#d7d7d7" />
+  <rect x="40" y="254" width="280" height="16" fill="#d0e8d0" />
+  <rect x="40" y="30" width="280" height="240" fill="none" stroke="#2e6da4" stroke-width="2" />
+  <line class="line-main" x1="212" y1="30" x2="212" y2="90" />
+  <line class="line-main" x1="40" y1="90" x2="320" y2="90" />
+  <line class="line-main" x1="160" y1="90" x2="160" y2="254" />
+  <line class="line-main" x1="40" y1="254" x2="320" y2="254" />
+
+  <text class="t-label" x="126" y="64" text-anchor="middle">水</text>
+  <text class="t-label" x="266" y="64" text-anchor="middle">セメント</text>
+  <text class="t-label" x="100" y="176" text-anchor="middle">細骨材</text>
+  <text class="t-label" x="240" y="176" text-anchor="middle">粗骨材</text>
+  <text class="t-label" x="180" y="266" text-anchor="middle">空気</text>
+
+  <circle cx="212" cy="60" r="10" fill="#1a3a5c" /><text x="212" y="64" text-anchor="middle" style="font-size:11px;fill:#ffffff">①</text>
+  <circle cx="40" cy="90" r="10" fill="#1a3a5c" /><text x="40" y="94" text-anchor="middle" style="font-size:11px;fill:#ffffff">②</text>
+  <circle cx="160" cy="172" r="10" fill="#1a3a5c" /><text x="160" y="176" text-anchor="middle" style="font-size:11px;fill:#ffffff">③</text>
+  <circle cx="298" cy="254" r="10" fill="#1a3a5c" /><text x="298" y="258" text-anchor="middle" style="font-size:11px;fill:#ffffff">④</text>
+
+  <rect class="box" x="16" y="290" width="368" height="192" rx="6" />
+  <text class="t-b" x="30" y="312">①　水とセメントの境界</text>
+  <text class="t-desc" x="44" y="329">水セメント比・単位水量が変わる</text>
+  <text class="t-b" x="30" y="352">②　ペーストと骨材の境界</text>
+  <text class="t-desc" x="44" y="369">ペースト量（水＋セメント）が変わる</text>
+  <text class="t-b" x="30" y="392">③　細骨材と粗骨材の境界</text>
+  <text class="t-desc" x="44" y="409">細骨材率が変わる（最適値から外れると</text>
+  <text class="t-desc" x="44" y="425">ワーカビリティが低下）</text>
+  <text class="t-b" x="30" y="446">④　骨材と空気の境界</text>
+  <text class="t-desc" x="44" y="463">空気量が変わる</text>
+</g>
+</svg>

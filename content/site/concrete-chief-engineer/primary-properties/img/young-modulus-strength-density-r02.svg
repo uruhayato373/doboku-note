@@ -1,0 +1,40 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材は主任技士教材のヤング係数と圧縮強度・単位容積質量の関係。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 430" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="ヤング係数と圧縮強度の傾向図。圧縮強度が大きいほど増加し、単位容積質量の大きいコンクリートほど上側の曲線になる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-sub { stroke: #1a3a5c; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">数値なし・傾向を示す（気乾単位容積質量ごとの曲線）</text>
+  <line class="line-dash" x1="50" y1="270" x2="370" y2="270" />
+  <line class="line-dash" x1="50" y1="50" x2="50" y2="270" />
+  <text class="t-axis" x="370" y="286" text-anchor="end">圧縮強度 →</text>
+  <text class="t-axis" x="54" y="44">ヤング係数</text>  <path class="line-sub" d="M90,150 C 150,110 220,84 320,72" />
+  <path class="line-main" d="M80,208 C 150,180 230,160 320,150" />
+  <path class="line-dash" d="M78,232 C 150,212 230,200 320,194" />
+  <text class="t-label" x="326" y="76">質量 大</text>
+  <text class="t-label" x="326" y="154">質量 中</text>
+  <text class="t-label" x="326" y="198">質量 小</text>
+  <text class="t-lead" x="20" y="326">読み取り方</text>
+  <rect class="box" x="20" y="332" width="360" height="88" rx="6" />
+  <rect class="box-b" x="34" y="338" width="14" height="14" />
+  <text class="t-desc" x="54" y="350">圧縮強度が大きいほど、ヤング係数も大きくなる</text>
+  <rect class="box-b" x="34" y="362" width="14" height="14" />
+  <text class="t-desc" x="54" y="374">同じ圧縮強度でも、単位容積質量が大きいほど大きい</text>
+  <rect class="box-b" x="34" y="386" width="14" height="14" />
+  <text class="t-desc" x="54" y="398">高強度になるほど増え方は緩やかになる</text>
+
+</svg>

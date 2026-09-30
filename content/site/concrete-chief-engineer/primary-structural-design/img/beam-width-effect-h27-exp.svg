@@ -1,0 +1,46 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材は主任技士教材の梁幅と耐力（幅で変わる量・主筋で決まる量）。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 380" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="梁幅のみが異なる2断面の比較。主筋量と高さは同じ。曲げひび割れ耐力・せん断耐力・剛性は幅の影響を受け、主筋の降伏で決まる耐力は幅にほぼよらない">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .area { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">幅だけが違う2断面（高さ・主筋は同じ）</text>
+
+  <rect class="line-main" x="70" y="50" width="90" height="110" fill="#f5f5f5" />
+  <circle cx="86" cy="66" r="4" fill="#2e6da4" /><circle cx="144" cy="66" r="4" fill="#2e6da4" />
+  <circle cx="86" cy="144" r="4" fill="#2e6da4" /><circle cx="144" cy="144" r="4" fill="#2e6da4" />
+  <text class="t-label" x="115" y="180" text-anchor="middle">(a) 幅 B</text>
+
+  <rect class="line-main" x="215" y="50" width="135" height="110" fill="#f5f5f5" />
+  <circle cx="231" cy="66" r="4" fill="#2e6da4" /><circle cx="334" cy="66" r="4" fill="#2e6da4" />
+  <circle cx="231" cy="144" r="4" fill="#2e6da4" /><circle cx="334" cy="144" r="4" fill="#2e6da4" />
+  <text class="t-label" x="282" y="180" text-anchor="middle">(b) 幅 1.5B</text>
+
+  <line class="line-dash" x1="70" y1="196" x2="350" y2="196" />
+
+  <rect class="box" x="20" y="212" width="360" height="72" rx="6" />
+  <rect class="box-b" x="34" y="224" width="14" height="14" />
+  <text class="t-label" x="54" y="236">幅で変わる量</text>
+  <text class="t-desc" x="54" y="256">曲げひび割れ耐力（断面係数）・せん断耐力</text>
+  <text class="t-desc" x="54" y="274">部材先端のたわみ（断面二次モーメント）</text>
+
+  <rect class="box" x="20" y="296" width="360" height="72" rx="6" />
+  <rect class="box-b" x="34" y="308" width="14" height="14" />
+  <text class="t-label" x="54" y="320">主筋で決まる量</text>
+  <text class="t-desc" x="54" y="340">引張主筋の降伏で決まる耐力は、</text>
+  <text class="t-desc" x="54" y="358">主筋量と有効高さが同じなら幅にほぼよらない</text>
+</svg>

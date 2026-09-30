@@ -1,0 +1,57 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材は主任技士教材のクリープ係数（クリープの概念）。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="一定荷重を載荷し続けたときのひずみの時間変化。載荷の瞬間に載荷時弾性ひずみが生じ、その後クリープひずみが時間とともに増える。クリープ係数はクリープひずみを載荷時弾性ひずみで割った値">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">一定荷重の載荷中のひずみ（数値なし・形を示す）</text>
+
+  <!-- axes -->
+  <line class="line-dash" x1="40" y1="290" x2="370" y2="290" />
+  <line class="line-dash" x1="40" y1="40" x2="40" y2="290" />
+  <text class="t-axis" x="375" y="294">時間</text>
+  <text class="t-axis" x="44" y="36">ひずみ</text>
+
+  <!-- load start -->
+  <line class="line-dash" x1="70" y1="40" x2="70" y2="290" />
+  <text class="t-axis" x="70" y="306" text-anchor="middle">載荷</text>
+
+  <!-- curve -->
+  <line class="line-main" x1="70" y1="290" x2="70" y2="220" />
+  <path class="line-main" d="M70,220 C 110,170 190,140 350,120" />
+  <circle cx="70" cy="220" r="3" fill="#2e6da4" />
+  <circle cx="350" cy="120" r="3" fill="#2e6da4" />
+
+  <!-- brackets -->
+  <line class="line-dash" x1="70" y1="220" x2="350" y2="220" />
+  <line class="line-main" x1="56" y1="290" x2="56" y2="220" />
+  <text class="t-label" x="50" y="248" text-anchor="end">載荷時</text>
+  <text class="t-label" x="50" y="262" text-anchor="end">弾性</text>
+  <text class="t-label" x="50" y="276" text-anchor="end">ひずみ</text>
+  <line class="line-main" x1="360" y1="220" x2="360" y2="120" />
+  <text class="t-label" x="352" y="178" text-anchor="end">クリープ</text>
+  <text class="t-label" x="352" y="192" text-anchor="end">ひずみ</text>
+
+  <text class="t-lead" x="20" y="336">クリープ係数の考え方</text>
+  <rect class="box-b" x="20" y="344" width="360" height="40" rx="6" />
+  <text class="t-label" x="200" y="369" text-anchor="middle">φ ＝ クリープひずみ ÷ 載荷時弾性ひずみ</text>
+
+  <rect class="box" x="20" y="396" width="360" height="90" rx="6" />
+  <text class="t-desc" x="34" y="418">載荷の瞬間に弾性ひずみが即座に生じる</text>
+  <text class="t-desc" x="34" y="440">載荷を続けるとクリープひずみが増える</text>
+  <text class="t-desc" x="34" y="462">増加は初期に速く、次第に緩やかになる</text>
+  <text class="t-desc" x="34" y="480">（完全には止まらない）</text>
+</svg>

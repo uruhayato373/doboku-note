@@ -1,0 +1,52 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材は主任技士教材のラーメンの曲げモーメント図と変形形状。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 520" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="左が水平可動支点・右がピン支点の門型ラーメンに右から等分布水平荷重が作用したときの曲げモーメント図(a)と、隅角部が外に開く変形形状(b)">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-name  { font-size: 13px; fill: #1a3a5c; }
+      .frame { stroke: #1a3a5c; stroke-width: 2; fill: none; }
+      .line-main { stroke: #2e6da4; stroke-width: 1.8; fill: #e8f0fe; }
+      .line-thin { stroke: #2e6da4; stroke-width: 1.5; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .crack { stroke: #2e6da4; stroke-width: 1.5; fill: none; }
+      .sup { stroke: #1a3a5c; stroke-width: 1.5; fill: #f5f5f5; }
+      .load { stroke: #1a3a5c; stroke-width: 1.5; fill: none; }
+    </style>
+    <marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1a3a5c"/></marker>
+  </defs>
+<text class="t-lead" x="200" y="16" text-anchor="middle">曲げモーメントは引張側に描く（数値なし・形を示す）</text>
+<text class="t-name" x="20" y="44">(a) 曲げモーメント図</text>
+<polygon class="line-main" points="90,70 250,70 250,128" opacity="0.9"/>
+<path class="line-main" d="M250,70 L250,200 C 232,190 214,140 218,70 Z" opacity="0.9"/>
+<polyline class="frame" points="90,200 90,70 250,70 250,200"/>
+<path class="sup" d="M90,200 l-8,12 h16 z"/><line class="sup" x1="81" y1="216" x2="99" y2="216"/><path class="sup" d="M250,200 l-8,12 h16 z"/>
+<line class="load" x1="290" y1="84" x2="254" y2="84" marker-end="url(#ar)"/>
+<line class="load" x1="290" y1="106" x2="254" y2="106" marker-end="url(#ar)"/>
+<line class="load" x1="290" y1="128" x2="254" y2="128" marker-end="url(#ar)"/>
+<line class="load" x1="290" y1="150" x2="254" y2="150" marker-end="url(#ar)"/>
+<line class="load" x1="290" y1="172" x2="254" y2="172" marker-end="url(#ar)"/>
+<line class="load" x1="290" y1="194" x2="254" y2="194" marker-end="url(#ar)"/>
+<line class="load" x1="290" y1="78" x2="290" y2="196"/>
+<text class="t-label" x="296" y="140">分布荷重</text>
+<text class="t-label" x="96" y="140">軸力のみ</text><text class="t-label" x="96" y="156">（曲げなし）</text>
+<text class="t-label" x="112" y="62">内側引張（＋）</text>
+<text class="t-axis" x="60" y="228">左：水平可動</text><text class="t-axis" x="230" y="228">右：ピン</text>
+<text class="t-name" x="20" y="272">(b) 変形形状とひび割れ</text>
+<polyline class="frame" points="110,470 128,320 262,352 298,470"/>
+<path class="sup" d="M110,482 l-8,12 h16 z"/><line class="sup" x1="101" y1="498" x2="119" y2="498"/><path class="sup" d="M298,482 l-8,12 h16 z"/>
+<circle cx="262" cy="352" r="26" fill="none" stroke="#8a8a8a" stroke-dasharray="3 3"/>
+<line class="crack" x1="236" y1="338" x2="240" y2="352"/>
+<line class="crack" x1="248" y1="342" x2="252" y2="358"/>
+<line class="crack" x1="266" y1="368" x2="282" y2="372"/>
+<line class="crack" x1="268" y1="384" x2="284" y2="388"/>
+<line class="crack" x1="270" y1="400" x2="286" y2="404"/>
+<text class="t-label" x="278" y="316">隅角部が外に開く</text>
+<text class="t-label" x="98" y="396" text-anchor="end">左柱は</text>
+<text class="t-label" x="98" y="411" text-anchor="end">突き上げられる</text>
+</svg>

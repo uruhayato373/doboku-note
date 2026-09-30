@@ -1,0 +1,42 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材は主任技士教材のPC梁の載荷に伴う中央断面の応力状態。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="PC梁中央断面の応力分布の変化。プレストレスのみでは下縁の圧縮が大きく、載荷で一様圧縮に近づき、さらに載荷すると下縁が引張に転じ、引張強度に達するとひび割れが生じる流れを示す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 12px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-ref  { stroke: #8a8a8a; stroke-width: 1.5; stroke-dasharray: 4 3; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .box   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">中央断面の応力分布の変化（数値なし・傾向を示す）</text>
+  <!-- stage 1: prestress only. section x=40..100, y 40..140; zero axis x=70; compression right of axis -->
+  <rect class="box" x="20" y="34" width="110" height="112" rx="6"/>
+  <line class="line-dash" x1="60" y1="44" x2="60" y2="136"/>
+  <path class="line-main" d="M60,50 L78,50 L102,130 L60,130 Z" fill="#e8f0fe"/>
+  <text class="t-label" x="75" y="164" text-anchor="middle">① プレストレスのみ</text>
+  <text class="t-desc" x="75" y="180" text-anchor="middle">下縁の圧縮が大きい</text>
+  <!-- stage 2: uniform compression -->
+  <rect class="box" x="145" y="34" width="110" height="112" rx="6"/>
+  <line class="line-dash" x1="185" y1="44" x2="185" y2="136"/>
+  <path class="line-main" d="M185,50 L215,50 L215,130 L185,130 Z" fill="#e8f0fe"/>
+  <text class="t-label" x="200" y="164" text-anchor="middle">② 載荷が進む</text>
+  <text class="t-desc" x="200" y="180" text-anchor="middle">ほぼ一様な圧縮</text>
+  <!-- stage 3: bottom tension -->
+  <rect class="box" x="270" y="34" width="110" height="112" rx="6"/>
+  <line class="line-dash" x1="315" y1="44" x2="315" y2="136"/>
+  <path class="line-main" d="M315,50 L360,50 L340,130 L315,130 Z" fill="#e8f0fe"/>
+  <path class="line-main" d="M315,110 L297,130 L315,130 Z" fill="#fff3cd" stroke="#d4a017"/>
+  <text class="t-label" x="325" y="164" text-anchor="middle">③ さらに載荷</text>
+  <text class="t-desc" x="325" y="180" text-anchor="middle">下縁が引張に転じる</text>
+  <text class="t-axis" x="20" y="200">圧縮は各図の軸の右、引張は左</text>
+  <rect class="box-b" x="20" y="212" width="360" height="72" rx="6"/>
+  <text class="t-desc" x="34" y="232">ひび割れは、引張応力がコンクリートの曲げ</text>
+  <text class="t-desc" x="34" y="248">ひび割れ強度に達したときに発生する。</text>
+  <text class="t-desc" x="34" y="268">ひび割れ後は断面剛性が下がり、曲げ変形が進む。</text>
+</svg>

@@ -10,7 +10,7 @@ sources:
 published: true
 publishedAt: 2026-05-30
 created: 2026-05-30
-dateModified: 2026-09-12
+dateModified: 2026-09-30
 tags:
   - primary
   - past-questions
@@ -69,7 +69,7 @@ ogp:
 - (C) 主（鉄）筋とコンクリートとの間に生じる付着応力によって発生したひび割れ
 
 {/* source: doboku-note による自作 SVG（教材原図のスキャンではない。原図を目視で再構成） */}
-<img loading="eager" fetchpriority="high" src="/posts/concrete-chief-engineer/primary-structural-design/img/h24-q29.svg" alt="正負繰返し水平荷重を受ける鉄筋コンクリート柱に生じたひび割れパターンア・イ・ウの模式図" width={740} height={360} className="h-auto block mx-auto" style={{ maxWidth: "700px", width: "100%", height: "auto" }} />
+<img loading="eager" fetchpriority="high" src="/posts/concrete-chief-engineer/primary-structural-design/img/h24-q29.svg" alt="正負繰返し水平荷重を受ける鉄筋コンクリート柱に生じたひび割れパターンア・イ・ウの模式図" width={750} height={340} className="h-auto block mx-auto" style={{ maxWidth: "700px", width: "100%", height: "auto" }} />
 
 （ア・イ・ウはいずれも正負荷重を受ける柱の模式図。イの柱の主（鉄）筋にはアより太径を使用，ウの柱の高さはアより低い）
 
@@ -86,6 +86,15 @@ ogp:
 **正答：2**
 
 アは柱の軸方向に対しほぼ水平に等間隔で入る平行なひび割れであり，典型的な**曲げひび割れ**のパターンと一致する。ウはアと同じ主筋径だが柱の高さが低い，すなわちせん断スパン比が小さい柱であり，短柱ほどせん断力が卓越しやすいためX状の**せん断ひび割れ**が生じやすい。イはアと同じ高さだが主筋にアより太径を用いており，太径の主筋ほど周長あたりの付着応力が大きくなり**付着ひび割れ**（主筋とコンクリートの間の付着劣化に伴うひび割れ）が生じやすくなる。
+
+{/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
+<ArticleImage
+  src="/posts/concrete-chief-engineer/primary-structural-design/img/figure-h24-q29-crack-types.svg"
+  alt="RC柱の曲げ・付着・せん断ひび割れの向きの違い（水平・主筋に沿う縦方向・斜めのX状）"
+  width={400}
+  height={500}
+/>
+
 
 (1) (B)(C)の対応が逆。不適当。❌
 
@@ -148,8 +157,8 @@ ogp:
 <ArticleImage
   src="/posts/concrete-chief-engineer/primary-structural-design/img/h25-q30-fig1.svg"
   alt="鉄筋コンクリート梁の断面図と側面図。断面は幅b・高さdに鉄筋①、側面図は鉄筋②をせん断補強筋として間隔sで配置"
-  width={650}
-  height={165}
+  width={560}
+  height={185}
 />
 
 (1) 断面の幅bを大きくする。
@@ -166,6 +175,15 @@ ogp:
 **正答：3**
 
 せん断破壊は，曲げ耐力に対してせん断耐力が不足している場合に生じる。破壊形式を曲げ破壊（せん断耐力が曲げ耐力を上回る状態）に変えるには，せん断耐力を高めるか，曲げ耐力を相対的に下げる必要がある。
+
+{/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
+<ArticleImage
+  src="/posts/concrete-chief-engineer/primary-structural-design/img/h25-q30-shear-vs-flexure.svg"
+  alt="せん断耐力と曲げ耐力の大小で破壊形式が決まる関係の模式図"
+  width={400}
+  height={260}
+/>
+
 
 (1) 断面幅bを大きくするとコンクリートが負担するせん断耐力が増加し，せん断破壊が生じにくくなる。曲げ破壊への変更に有効。✅
 
@@ -263,11 +281,38 @@ ogp:
 
 **正答：2**
 
-✅ (b)・(d) 隅角部に曲げモーメントが作用するとき、引張側（モーメントが大きく開く側）にひび割れが発生する。隅角部が閉じる方向（内側引張）の場合は内側に、隅角部が開く方向（外側引張）の場合は外側にひび割れが生じる。図1・図2のモーメント図と変形形状の対応から、適当なひび割れ位置を示すのは図2（b）（d）側の組合せである。
+✅ (b)・(d) 隅角部に曲げモーメントが作用するとき、引張側（モーメントが大きく開く側）にひび割れが発生する。隅角部が開く方向（内側引張）の場合は内側に、隅角部が閉じる方向（外側引張）の場合は外側にひび割れが生じる。図1・図2のモーメント図と変形形状の対応から、適当なひび割れ位置を示すのは図2（b）（d）側の組合せである。
+
+{/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
+<ArticleImage
+  src="/posts/concrete-chief-engineer/primary-structural-design/img/frame-horizontal-load-moment.svg"
+  alt="水平荷重を受ける脚部固定ラーメンの曲げモーメント図と変形形状の模式図。左上隅角部は内側が開き右上隅角部は閉じる"
+  width={400}
+  height={312}
+/>
+
 
 ❌ (a)・(c) 隅角部のひび割れ発生位置（引張側）がモーメントの作用方向と整合せず、ひび割れの向きが誤っている。
 
+{/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
+<ArticleImage
+  src="/posts/concrete-chief-engineer/primary-structural-design/img/frame-vertical-load-moment.svg"
+  alt="梁中央に鉛直荷重を受ける脚部固定ラーメンの曲げモーメント図と変形形状の模式図"
+  width={416}
+  height={316}
+/>
+
+
 **ポイント：** ラーメン隅角部のひび割れは引張縁（モーメントが開く側）に発生する。曲げモーメント図・変形形状とひび割れ位置の対応を読み取る。
+
+{/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
+<ArticleImage
+  src="/posts/concrete-chief-engineer/primary-structural-design/img/frame-corner-moment-crack.svg"
+  alt="ラーメン隅角部が開く曲げでは内側に、閉じる曲げでは外側にひび割れが生じることを示す模式図"
+  width={400}
+  height={320}
+/>
+
 
 </details>
 
@@ -318,6 +363,15 @@ ogp:
 **正答：1**
 
 ✅ (1) 水平等分布荷重を受けるラーメン構造の曲げモーメント図を描くと、引張側に発生するひび割れの状況は図1のとおりとなり、(1)が適当。ひび割れは曲げモーメントにより引張応力が生じる側に部材軸と直交して発生する。
+
+{/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
+<ArticleImage
+  src="/posts/concrete-chief-engineer/primary-structural-design/img/rc-frame-moment-deform-r02.svg"
+  alt="左が水平可動支点・右がピン支点の門型ラーメンに右から等分布水平荷重が作用したときの曲げモーメント図(a)と、右上の隅角部が外に開く変形形状(b)"
+  width={400}
+  height={520}
+/>
+
 
 ❌ (2)(3)(4) 曲げモーメント図から想定される引張側の位置とひび割れの向き・分布が一致せず、不適当。
 
@@ -391,8 +445,8 @@ ogp:
 <ArticleImage
   src="/posts/concrete-chief-engineer/primary-structural-design/img/cantilever-rebar-h30.svg"
   alt="2カ所に荷重Pが作用する鉄筋コンクリート片持ち梁について、曲げモーメントに対する引張主鉄筋の配置を示した4つの候補図a〜d。主筋の配置位置がそれぞれ異なる。"
-  width={660}
-  height={460}
+  width={400}
+  height={332}
 />
 
 (1) a
@@ -454,8 +508,8 @@ c は主筋を下端（圧縮側）に配置しており逆。b・d のように
 <ArticleImage
   src="/posts/concrete-chief-engineer/primary-structural-design/img/beam-design-h29.svg"
   alt="鉄筋コンクリート梁の断面図と側面図。断面図には上端の主鉄筋①と下端の主鉄筋②が示され、側面図では単純支持された梁の中央に荷重が作用し、スターラップ（あばら筋）が等間隔Sで配置されている。"
-  width={650}
-  height={165}
+  width={500}
+  height={350}
 />
 
 (1) 曲げ耐力を増加させるために，上端の主（鉄）筋①の鉄筋径を太くする。
@@ -531,7 +585,7 @@ c は主筋を下端（圧縮側）に配置しており逆。b・d のように
   src="/posts/concrete-chief-engineer/primary-structural-design/img/pc-beam-load-h29.svg"
   alt="図1は図心位置にPC鋼棒を配置したプレストレストコンクリート梁の側面図と断面図で、梁上面中央にA点、梁下面側にB点が示され、A点直上に荷重が作用する。図2は荷重と載荷点変位の関係を示す折れ線グラフで、原点から①〜④の載荷経路と、④から⑤への除荷経路（破線）が描かれている。"
   width={480}
-  height={350}
+  height={375}
 />
 
 (1) ①の段階では，B点に発生する圧縮ひずみはA点と同じである。
@@ -693,6 +747,15 @@ c は主筋を下端（圧縮側）に配置しており逆。b・d のように
 
 **ポイント：** 梁・床版の打継目は「曲げモーメント最大＝せん断力最小」のスパン中央付近に設ける。直感に反するため，判断基準が「せん断力の小ささ」であることを明確に押さえる。
 
+{/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
+<ArticleImage
+  src="/posts/concrete-chief-engineer/primary-structural-design/img/slab-joint-shear-moment-h27-exp.svg"
+  alt="等分布荷重を受ける床版のスパン方向の傾向。曲げモーメントは中央で最大、せん断力は支点付近で大きく中央で最小"
+  width={400}
+  height={440}
+/>
+
+
 </details>
 
 ## 平成27年度 問題26
@@ -732,8 +795,8 @@ c は主筋を下端（圧縮側）に配置しており逆。b・d のように
 <ArticleImage
   src="/posts/concrete-chief-engineer/primary-structural-design/img/cantilever-section-h27.svg"
   alt="先端に集中荷重Pが作用する鉄筋コンクリート片持ち梁の側面図と，幅B・高さHの断面（a）および幅B'＝1.5B・高さHの断面（b）の断面図。いずれも四隅に主筋4本が配置されている。"
-  width={400}
-  height={260}
+  width={412}
+  height={270}
 />
 
 (1) 曲げひび割れ耐力
@@ -761,6 +824,15 @@ c は主筋を下端（圧縮側）に配置しており逆。b・d のように
 
 **ポイント：** 「幅を変えると変わる量（ひび割れ耐力・せん断耐力・剛性）」と「主筋で決まる量（降伏耐力）」の区別。鉄筋コンクリートの曲げ降伏は鋼材支配という基本を問う良問。
 
+{/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
+<ArticleImage
+  src="/posts/concrete-chief-engineer/primary-structural-design/img/beam-width-effect-h27-exp.svg"
+  alt="幅のみ異なる2断面。幅で変わる量と主筋で決まる量の整理"
+  width={400}
+  height={380}
+/>
+
+
 </details>
 
 ## 平成27年度 問題28
@@ -772,7 +844,7 @@ c は主筋を下端（圧縮側）に配置しており逆。b・d のように
   src="/posts/concrete-chief-engineer/primary-structural-design/img/rc-frame-crack-h27.svg"
   alt="門型の鉄筋コンクリート造ラーメンにスパンL/2＋L/2の梁中央への鉛直荷重Pと左柱頭部への水平荷重Pが作用する全体図と，ひび割れ発生位置の異なる選択肢図(1)〜(4)。"
   width={520}
-  height={660}
+  height={685}
 />
 
 (1) 図(1)
@@ -837,6 +909,15 @@ c は主筋を下端（圧縮側）に配置しており逆。b・d のように
 
 **ポイント：** PC鋼材の偏心（下縁寄り配置）は「ひび割れ荷重・曲げ耐力を高め，たわみを抑える」方向に働く。プレストレスの偏心効果と有効高さの効果を分けて考える。
 
+{/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
+<ArticleImage
+  src="/posts/concrete-chief-engineer/primary-structural-design/img/pc-eccentric-prestress-h27-exp.svg"
+  alt="PC鋼材位置によるプレストレス分布の違いと、偏心の効果"
+  width={400}
+  height={400}
+/>
+
+
 </details>
 
 ## 平成26年度 問題27
@@ -876,6 +957,15 @@ c は主筋を下端（圧縮側）に配置しており逆。b・d のように
 
 **ポイント：** せん断補強筋は「耐力の頭（B・C点の荷重）」ではなく「変形能力（C点以降の変位）」を伸ばす。曲げ支配の点（A・B）とせん断支配の点（C以降）を区別する。
 
+{/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
+<ArticleImage
+  src="/posts/concrete-chief-engineer/primary-structural-design/img/shear-reinforcement-toughness-h26.svg"
+  alt="せん断補強筋量を増やす前後の荷重-変位曲線。降伏までは同じで最大荷重以降の変位が伸びる傾向図"
+  width={400}
+  height={320}
+/>
+
+
 </details>
 
 ## 平成26年度 問題28
@@ -886,8 +976,8 @@ c は主筋を下端（圧縮側）に配置しており逆。b・d のように
 <ArticleImage
   src="/posts/concrete-chief-engineer/primary-structural-design/img/beam-flexure-h26.svg"
   alt="鉄筋コンクリート梁の断面図（有効高さdを図示・引張側に主筋）と，中央に荷重が作用する単純支持梁の側面図。"
-  width={650}
-  height={165}
+  width={500}
+  height={350}
 />
 
 (1) 有効高さ（せい）dを大きくする。
@@ -925,8 +1015,8 @@ c は主筋を下端（圧縮側）に配置しており逆。b・d のように
 <ArticleImage
   src="/posts/concrete-chief-engineer/primary-structural-design/img/pc-beam-load-h26.svg"
   alt="両端の断面にプレストレスの導入を示す水平矢印が描かれ，スパン中央に荷重が作用するプレストレストコンクリート単純梁の側面図。"
-  width={490}
-  height={160}
+  width={470}
+  height={120}
 />
 
 (1) 梁断面中央より下側に偏心したプレストレスを導入すると，PC梁の下縁には上縁よりも大きな圧縮応力が生じ，PC梁はそり上がる。
@@ -951,6 +1041,15 @@ c は主筋を下端（圧縮側）に配置しており逆。b・d のように
 (4) ひび割れ発生後は断面剛性が低下し，荷重の増加に伴い曲げ変形が大きく進む。正しい。✅
 
 **ポイント：** PC梁の載荷過程は「そり上がり→一様圧縮→下縁引張→（引張強度到達で）ひび割れ→剛性低下」。ひび割れ発生条件は「引張応力＝引張強度」であり，引張の発生と同時ではない。
+
+{/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
+<ArticleImage
+  src="/posts/concrete-chief-engineer/primary-structural-design/img/pc-beam-stress-stages-h26.svg"
+  alt="PC梁中央断面の応力分布が、プレストレスのみ、載荷が進む、さらに載荷の順に一様圧縮へ近づき下縁が引張に転じる様子"
+  width={400}
+  height={300}
+/>
+
 
 </details>
 

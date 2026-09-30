@@ -1,19 +1,33 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" style="max-width:400px;width:100%" role="img" aria-label="鉄筋コンクリート梁の荷重と変位の関係を示す曲線。A曲げひび割れ発生、B鉄筋降伏、C最大荷重、D終局の4点が順に示される">
-  <line x1="60" y1="250" x2="360" y2="250" stroke="#222" stroke-width="1.5"/>
-  <line x1="60" y1="250" x2="60" y2="20" stroke="#222" stroke-width="1.5"/>
-  <text x="200" y="278" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">変位</text>
-  <text x="30" y="30" font-family="sans-serif" font-size="13" fill="#222">荷重</text>
-  <path d="M60 250 L130 190 L210 70 L270 60 L320 100" fill="none" stroke="#222" stroke-width="1.8"/>
-  <circle cx="130" cy="190" r="4" fill="none" stroke="#222" stroke-width="1.5"/>
-  <circle cx="210" cy="70" r="4" fill="none" stroke="#222" stroke-width="1.5"/>
-  <circle cx="270" cy="60" r="4" fill="none" stroke="#222" stroke-width="1.5"/>
-  <circle cx="320" cy="100" r="4" fill="none" stroke="#222" stroke-width="1.5"/>
-  <rect x="70" y="195" width="150" height="22" fill="#fff" stroke="#222" stroke-width="1"/>
-  <text x="75" y="211" font-family="sans-serif" font-size="12" fill="#222">A：曲げひび割れ発生</text>
-  <rect x="145" y="128" width="120" height="22" fill="#fff" stroke="#222" stroke-width="1"/>
-  <text x="150" y="144" font-family="sans-serif" font-size="12" fill="#222">B：鉄筋降伏</text>
-  <rect x="230" y="30" width="120" height="22" fill="#fff" stroke="#222" stroke-width="1"/>
-  <text x="235" y="46" font-family="sans-serif" font-size="12" fill="#222">C：最大荷重</text>
-  <rect x="290" y="112" width="80" height="22" fill="#fff" stroke="#222" stroke-width="1"/>
-  <text x="295" y="128" font-family="sans-serif" font-size="12" fill="#222">D：終局</text>
+<!-- authored 2026-09-30 doboku-note 自作。題材は主任技士教材の鉄筋コンクリート梁の荷重-変位関係。書籍図の複製・トレースではない（既存 load-displacement-h26.svg の幾何を保持して配色のみ置換） -->
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="鉄筋コンクリート梁の荷重と変位の関係を示す曲線。A曲げひび割れ発生、B鉄筋降伏、C最大荷重、D終局の4点が順に示される">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-label { font-size: 12px; fill: #1a3a5c; }
+      .t-axis  { font-size: 13px; fill: #555; }
+      .axis { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+      .line-main { stroke: #2e6da4; stroke-width: 1.8; fill: none; }
+      .pt { stroke: #2e6da4; stroke-width: 1.5; fill: #ffffff; }
+      .box { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1; }
+    </style>
+  </defs>
+  <line class="axis" x1="60" y1="250" x2="360" y2="250"/>
+  <line class="axis" x1="60" y1="250" x2="60" y2="20"/>
+  <text class="t-axis" x="200" y="278" text-anchor="middle">変位</text>
+  <text class="t-axis" x="30" y="30">荷重</text>
+  <path class="line-main" d="M60 250 L130 190 L210 70 L270 60 L320 100"/>
+  <circle class="pt" cx="130" cy="190" r="4"/>
+  <circle class="pt" cx="210" cy="70" r="4"/>
+  <circle class="pt" cx="270" cy="60" r="4"/>
+  <circle class="pt" cx="320" cy="100" r="4"/>
+  <line x1="130" y1="190" x2="150" y2="208" stroke="#8a8a8a" stroke-width="1"/>
+  <rect class="box" x="150" y="205" width="150" height="22"/>
+  <text class="t-label" x="155" y="221">A：曲げひび割れ発生</text>
+  <line x1="210" y1="70" x2="235" y2="138" stroke="#8a8a8a" stroke-width="1"/>
+  <rect class="box" x="225" y="136" width="120" height="22"/>
+  <text class="t-label" x="230" y="152">B：鉄筋降伏</text>
+  <rect class="box" x="230" y="30" width="120" height="22"/>
+  <text class="t-label" x="235" y="46">C：最大荷重</text>
+  <rect class="box" x="290" y="112" width="80" height="22"/>
+  <text class="t-label" x="295" y="128">D：終局</text>
 </svg>

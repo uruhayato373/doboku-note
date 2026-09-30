@@ -1,0 +1,60 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材は主任技士教材の柱・梁の打継目の位置の原則。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="柱と梁の骨組みの立面で、打継目を設ける位置の原則を破線で示す。柱は梁・床との接合部の上端または下端、梁はスパン中央または端部からスパンの4分の1付近">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .member { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .ground { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+      .joint { stroke: #d4a017; stroke-width: 2; stroke-dasharray: 4 3; fill: none; }
+      .dim { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+  </defs>
+<g transform="translate(0.0 100.0) scale(1.0000)">
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">立面の模式図（破線＝打継目を設ける位置の原則）</text>
+
+  <!-- columns and beam -->
+  <rect class="member" x="120" y="30" width="30" height="170" />
+  <rect class="member" x="340" y="30" width="30" height="170" />
+  <rect class="member" x="150" y="90" width="190" height="32" />
+  <line class="ground" x1="100" y1="200" x2="390" y2="200" />
+  <text class="t-axis" x="392" y="216" text-anchor="end">地盤面</text>
+
+  <text class="t-label" x="135" y="66" text-anchor="middle">柱</text>
+  <text class="t-label" x="245" y="70" text-anchor="middle">梁</text>
+
+  <!-- column joints -->
+  <line class="joint" x1="112" y1="90" x2="158" y2="90" />
+  <line class="joint" x1="112" y1="122" x2="158" y2="122" />
+  <text class="t-label" x="108" y="94" text-anchor="end">接合部の上端</text>
+  <text class="t-label" x="108" y="126" text-anchor="end">接合部の下端</text>
+
+  <!-- beam joints -->
+  <line class="joint" x1="197.5" y1="86" x2="197.5" y2="126" />
+  <line class="joint" x1="245" y1="86" x2="245" y2="126" />
+
+  <!-- dimensions -->
+  <line class="dim" x1="150" y1="146" x2="197.5" y2="146" />
+  <line class="dim" x1="150" y1="141" x2="150" y2="151" />
+  <line class="dim" x1="197.5" y1="141" x2="197.5" y2="151" />
+  <text class="t-label" x="174" y="162" text-anchor="middle">l/4</text>
+  <line class="dim" x1="150" y1="176" x2="340" y2="176" />
+  <line class="dim" x1="150" y1="171" x2="150" y2="181" />
+  <line class="dim" x1="340" y1="171" x2="340" y2="181" />
+  <text class="t-label" x="245" y="192" text-anchor="middle">スパン l</text>
+  <text class="t-axis" x="245" y="140" text-anchor="middle">中央</text>
+
+  <rect class="box" x="20" y="222" width="360" height="66" rx="6" />
+  <text class="t-desc" x="34" y="242">柱：梁・床との接合部の上端または下端</text>
+  <text class="t-desc" x="34" y="260">梁：スパン中央、または端部から l/4 付近</text>
+  <text class="t-desc" x="34" y="278">いずれもせん断力の小さい位置に設ける</text>
+</g>
+</svg>

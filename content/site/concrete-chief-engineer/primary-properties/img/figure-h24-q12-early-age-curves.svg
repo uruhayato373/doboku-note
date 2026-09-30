@@ -1,0 +1,42 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材は主任技士教材の硬化初期の測定値（断熱温度上昇・貫入抵抗・ブリーディング）。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="練混ぜ直後からの3つの測定値の形。断熱温度上昇量はなだらかに立ち上がって増え続け、貫入抵抗値は横ばいのあと急増し、ブリーディング水の累計は早期に増えて頭打ちになる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-b     { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-sub  { stroke: #1a3a5c; stroke-width: 1.5; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+  </defs>
+<g transform="translate(0.0 70.0) scale(1.0000)">
+  <text class="t-lead" x="200" y="16" text-anchor="middle">横軸＝練混ぜからの時間（数値なし・形の違いを示す）</text>
+
+  <text class="t-b" x="4" y="42">(a)</text>
+  <line class="line-dash" x1="30" y1="106" x2="190" y2="106" /><line class="line-dash" x1="30" y1="30" x2="30" y2="106" />
+  <path class="line-main" d="M30,106 C 62,106 88,102 110,86 C 132,70 156,46 190,40" />
+  <text class="t-b" x="210" y="52">断熱温度上昇量</text>
+  <text class="t-desc" x="210" y="70">なだらかに立ち上がり増え続ける</text>
+  <text class="t-desc" x="210" y="88">水和熱が蓄積していく</text>
+
+  <text class="t-b" x="4" y="158">(b)</text>
+  <line class="line-dash" x1="30" y1="222" x2="190" y2="222" /><line class="line-dash" x1="30" y1="146" x2="30" y2="222" />
+  <path class="line-main" d="M30,222 C 80,222 100,222 116,214 C 128,206 136,180 148,150" />
+  <text class="t-b" x="210" y="168">凝結試験の貫入抵抗値</text>
+  <text class="t-desc" x="210" y="186">しばらく横ばいのあと急増</text>
+  <text class="t-desc" x="210" y="204">凝結の始発〜終結で立ち上がる</text>
+
+  <text class="t-b" x="4" y="274">(c)</text>
+  <line class="line-dash" x1="30" y1="338" x2="190" y2="338" /><line class="line-dash" x1="30" y1="262" x2="30" y2="338" />
+  <path class="line-main" d="M30,338 C 46,320 60,290 84,278 C 108,270 140,268 190,268" />
+  <text class="t-b" x="210" y="284">ブリーディング水の累計</text>
+  <text class="t-desc" x="210" y="302">早期に増え、やがて頭打ち</text>
+  <text class="t-desc" x="210" y="320">凝結が進むと水が出なくなる</text>
+</g>
+</svg>

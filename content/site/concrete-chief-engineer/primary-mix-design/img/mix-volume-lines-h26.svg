@@ -1,0 +1,39 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材は主任技士教材の絶対容積による配合の面積図（各境界線の意味）。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 420 350" xmlns="http://www.w3.org/2000/svg" style="max-width:420px;width:100%" role="img" aria-label="コンクリート1m3の絶対容積を面積で示した図。上段が水とセメントのペースト、中段が細骨材と粗骨材、下段が空気で、境界線①〜④がそれぞれ何を区切るかを示す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 12px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-ref  { stroke: #8a8a8a; stroke-width: 1.5; stroke-dasharray: 4 3; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .box   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+  </defs>
+<g transform="translate(10 10)">
+  <text class="t-lead" x="200" y="16" text-anchor="middle">面積図の境界線が区切るもの（数値なし・構成を示す）</text>
+  <rect class="box-b" x="40" y="30" width="200" height="70"/>
+  <rect class="box-b" x="240" y="30" width="120" height="70"/>
+  <rect class="box" x="40" y="100" width="110" height="170"/>
+  <rect class="box" x="150" y="100" width="210" height="170"/>
+  <rect class="box" x="40" y="270" width="320" height="24"/>
+  <text class="t-label" x="140" y="70" text-anchor="middle">水</text>
+  <text class="t-label" x="300" y="70" text-anchor="middle">セメント</text>
+  <text class="t-label" x="95" y="190" text-anchor="middle">細骨材</text>
+  <text class="t-label" x="255" y="190" text-anchor="middle">粗骨材</text>
+  <text class="t-label" x="200" y="287" text-anchor="middle">空気</text>
+  <line class="line-main" x1="240" y1="30" x2="240" y2="100"/>
+  <line class="line-main" x1="40" y1="100" x2="360" y2="100"/>
+  <line class="line-main" x1="150" y1="100" x2="150" y2="270"/>
+  <line class="line-main" x1="40" y1="270" x2="360" y2="270"/>
+  <text class="t-label" x="240" y="24" text-anchor="middle">①</text>
+  <text class="t-label" x="30" y="104" text-anchor="end">②</text>
+  <text class="t-label" x="144" y="235" text-anchor="end">③</text>
+  <text class="t-label" x="30" y="274" text-anchor="end">④</text>
+  <text class="t-desc" x="40" y="318">①水とセメント　②ペーストと骨材　③細骨材と粗骨材　④骨材と空気</text>
+</g>
+</svg>
