@@ -50,7 +50,7 @@
 
 **起点**: 2026-09-26 の判断（06_多資格展開戦略.md）で、技術士の他部門へは部門別の模範解答ではなく、部門を問わない商品から広げることにした。口頭試験の問答（経歴・業務内容の詳細・コンピテンシー・技術者倫理）の考え方は全部門共通で、今は建設部門版（`src/lib/note-magazines.ts` の `pe-construction-oral-guide`）と総監版（`tankan-oral-complete`）しか無い。建設部門以外の受験者（上下水道・電気電子・農業・機械ほか。部門別の人数は exam-stats.json）は買える商品が無い。
 
-**やること**: 建設部門版を土台に、部門に依存する例を分けた全部門共通版を作るか、建設部門版の説明と対象を全部門へ広げるかを決めて実装する。価格と置き場は note-magazines.ts・product-lineup.json の区分（pe-construction:oral と同じ扱いにするか）まで決める。
+**やること**: 全部門共通版の原稿（`content/note/技術士建設部門/magazines/口頭試験対策-全部門共通/`・公式照合済み・draft）と下書きエントリ `pe-oral-general-guide` を PR #776 で用意した（2026-09-30）。残りは運営者が (1) 価格を決める（¥1,980 を仮置き）(2) `src/lib/exam-brand.ts` の `examKeyOf` が `pe-oral-*` を判定できずサイトの案内枠が総監の見た目になるので、表示する資格ブランドを決める (3) PR #776 をマージして note で有料公開し、noteUrl を入れる (4) 告知は 11/4 当日から 1 日 1 本以内（案は PR #776 の説明）。
 
 **完了条件**: 公開して noteUrl を note-magazines.ts に入れ、筆記合格発表（exam-calendar.json の writtenResult）の前日までに告知の枠を決めたら、このカードを削除する。
 
