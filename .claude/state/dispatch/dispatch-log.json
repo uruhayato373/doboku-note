@@ -1483,6 +1483,18 @@
       "commit": "006941fcd30d",
       "verification": "npm run test:e2e:admin -- e2e-admin/content-kindle.spec.ts (desktop 5 pass)",
       "note": "PR #762 マージ済み。販売状態→Kindleタブ経路"
+    },
+    {
+      "id": "DN-0435",
+      "at": "2026-09-30",
+      "task": "Kindle I系7冊に残る note 由来の「（→〇〇の記事へ）」「既存記事との差別化」を本から除く",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "0a6bab341110",
+      "verification": "unzip -p *.epub | grep -c 'の記事へ|既存記事' = 0 (26冊)",
+      "note": "PR #759 マージ後の再ビルド(09-30 19:39)で i/j 26冊の EPUB 本文に「の記事へ」「既存記事」0件"
     }
   ]
 }
