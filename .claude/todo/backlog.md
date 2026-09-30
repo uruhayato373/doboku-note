@@ -1473,6 +1473,8 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 
 **完了条件**: 公開ページの商品画像が承認済み POP 画像の SHA と一致し、プロフィールの資格欄に主任技士が表示され、主任技士の添削を受注したときの手順が `coconala-operations.md` にある。
 
+**進捗（2026-09-30）**: (3) 受注手順は `content/note/コンクリート主任技士/小論文-添削テンプレ.md` を作り coconala-operations.md §3 へ結線（9b964cb5b）。(1) POP 画像は画像生成ツールがこのセッションに無く未作成（aidesigner 未認証・Gemini は課金確認が要る）。承認画像 thumb-cce-essay-tensaku.png / thumb-cce-full-pdf.png はローカルにも Drive vault `制作物/ココナラ/` にも無く、check-coconala-wiring が復元を要求している。(2) プロフィールの資格欄は運営者の作業。
+
 ### [DN-0463] コンクリート主任技士 令和形式小論文6本を note に公開する（運営者の実行）
 タグ: [収益化] [領域:商品] [時期:2026-10] [種類:改善] [起票:2026-09-30] [期日:2026-10-15]
 
@@ -1495,6 +1497,8 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 5. 共有 pre-commit フックを develop 側で `npm run pre-commit:install` し直し、`check-cce-essay --staged` を有効にする（worktree 間の鮮度チェック偽陽性のため PR では入れていない）。
 
 **完了条件**: note の6本とマガジンが公開ページで見え、`check-magazine-membership` と `check-coconala-wiring` が exit 0。サイト guide-essay のビルド後 HTML に新マガジンの CTA が出ている。効果判定は DN-0265（本試験後）で旧商品と分けて数える。
+
+**進捗（2026-09-30）**: 手順1の note 公開は運営者の実行へ切り出した（DN-0463）。手順2・3は note URL 確定待ち。手順4: K3 は出品済み（services/4426935・カタログ listed）、PDF 9冊を `build-coconala-content-pdf --product K3` で再ビルド済み。旧 K1/K2 のライブ休止は、別セッションがブラウザを使用中（BROWSER_ALREADY_RUNNING）で未実行・カタログは paused。空いたら `node scripts/coconala-pause.mjs --service coconala-cce-essay-pdf,coconala-cce-takuitsu-pdf --commit` を流す。手順5の pre-commit 再インストールは未実施。
 
 ### [DN-0265] コンクリート主任技士のココナラ出品（小論文添削・完全パック PDF の2件）を本試験後に継続か休止か判定する
 タグ: [収益化] [領域:商品] [時期:2026-12] [種類:意思決定] [起票:2026-09-23] [期日:2026-12-15]
