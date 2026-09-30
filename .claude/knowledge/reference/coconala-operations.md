@@ -79,7 +79,7 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 | `coconala-rccm-mondai1-pdf` | R3 RCCM 問題I テンプレ＋受験部門の記入例2本（¥4,500）。`--product R3`（テンプレ1冊＋6部門）。購入時メッセージで部門を確認してから送る |
 | `coconala-cce-essay-pdf` / `coconala-cce-takuitsu-pdf` | K1 コンクリート主任技士 小論文 PDF5冊（¥3,000）／K2 択一直前パック PDF3冊（¥3,500）。`--product K1`/`K2`。需要未検証の試験出品（本試験 11/29 後に販売実績で継続判断＝backlog DN-0265）。**2026-09-30 に `status:'paused'`・`pauseReason:'retired'`**（販売0のまま、主任技士は「添削＋完全パック」の2件に絞った） |
 | `coconala-cce-full-pdf` | K3 コンクリート主任技士 **完全パック** PDF9冊（令和形式の小論文6冊＋択一直前パック3冊・¥8,000＝note `cce-essay-reiwa-pack` ¥3,980＋`cce-takuitsu-chokuzen-pack` ¥2,980 の ×1.1 を ¥500 切上げ）。旧形式の小論文5冊は入れない。`--product K3`。2026-09-30 出品（services/4426935）。同日 K1/K2 を `coconala-pause` で受付休止済み。出題履歴の SSOT は `.claude/config/cce-essay-history.json`、運用は `/cce-essay-cycle` |
-| `coconala-cce-essay-tensaku` | コンクリート主任技士 小論文**添削**（1課題・48時間・書き直し1回込み・¥5,000・週2枠）。2026-09-29 出品。骨子からの相談は別出品にせず有料オプション（+¥3,000・20枠節約）。競合は2件のみ（¥5,000 販売0／¥3,000 ★1.0・09-29 実測）。FAQ・オプションは公開後に一回限りのスクリプトで反映済み。**添削の下書き・QA エージェントは土木の経験記述専用**で主任技士の小論文には未対応（受注時は手作業） |
+| `coconala-cce-essay-tensaku` | コンクリート主任技士 小論文**添削**（1課題・48時間・書き直し1回込み・¥5,000・週2枠）。2026-09-29 出品。骨子からの相談は別出品にせず有料オプション（+¥3,000・20枠節約）。競合は2件のみ（¥5,000 販売0／¥3,000 ★1.0・09-29 実測）。FAQ・オプションは公開後に一回限りのスクリプトで反映済み。**添削の下書き・QA エージェントは土木の経験記述専用**で主任技士の小論文には未対応（受注時は手作業）。受注時の手順は `content/note/コンクリート主任技士/小論文-添削テンプレ.md`（5観点の判定表・NG→OK・書き直し1回） |
 | （特典）A1/A2 | 1級・2級 二次の直前暗記ノート。単独出品せず、1級の模試・フルパック・プレミアムに A1、2級の模試・フルパックに A2 を同梱（出品本文に明記・2026-09-23〜）。模試は同日に note の直前総仕上げパックより高い価格へ改定したうえで同梱した |
 | `coconala-pe-oral-pdf` | O1 技術士 口頭試験 想定問答 PDF（総監版／建設部門版から購入者の部門に合う1冊・¥3,500）。`--product O1`。購入時メッセージで部門を確認してから送る |
 | `coconala-pe-oral-qa` | 技術士 口頭試験 想定質問作成（業務内容の詳細720字＋経歴 → 想定質問20問＋回答の骨子・テキスト完結・¥5,000・週2枠）。捏造禁止＝事実が足りない箇所は確認事項で返す。ヒアリングシートと納品の型→ `content/coconala/products/coconala-pe-oral-qa/運用テンプレ.md` |
@@ -298,6 +298,7 @@ DM 一覧 = `/message?fromMyPage=true`、行 = `a.c-messageItemWrap[href="/mypag
       │   S2 添削  → /keiken-tensaku            → 添削下書き.md（NG→OK 2点）
       │   S3 指導  → 宣誓検査→/keiken-tensaku --mode kosshi → 骨子シート.md（check-kosshi-sheet）→ 送付（途中経過）
       │              → 本人の答案を受領→/keiken-tensaku（添削）→ 添削下書き.md → 正式納品
+      │   K 主任技士 小論文添削 → エージェント不使用・[小論文-添削テンプレ.md](../../../content/note/コンクリート主任技士/小論文-添削テンプレ.md) で判定表＋NG→OK を手作業 → 返信文.txt
       │   C系 PDF → ヒアリング不要・キット §4c「C系 PDF 送付」文＋該当PDF特定
       ├ 納品文面ドラフト生成（S1/S2/S3 は 返信文.txt にまとめる）
       ├ 返信文を civil-keiken-tensaku-qa（機械ゲート check-tensaku-reply を含む・S3 の骨子は check-kosshi-sheet も）で PASS まで検証（S1/S2/S3・FAIL のまま運営者へ渡さない）
