@@ -79,6 +79,8 @@ export function classifyDoc(meta: DocMeta): DocGroupKey {
   if (category === 'rccm') return 'guide';
   // 測量士・舗装はガイドから始める（2026-09-29 新設）
   if (category === 'surveyor' || category === 'pavement') return 'guide';
+  // 建築施工管理（1級・2級）は需要計測の無料ガイドのみ（2026-09-30・DN-0342。visible:false）
+  if (category === 'building-construction') return 'guide';
 
   return 'keyword';
 }
@@ -135,6 +137,9 @@ const GROUP_LABELS: Record<string, Partial<Record<DocGroupKey, string>>> = {
   pavement: {
     guide: '受験ガイド',
   },
+  'building-construction': {
+    guide: '受験ガイド',
+  },
 };
 
 export function getGroupOrder(category: string): DocGroupKey[] {
@@ -145,7 +150,7 @@ export function getGroupOrder(category: string): DocGroupKey[] {
   if (category === 'concrete-engineer' || category === 'concrete-chief-engineer' || category === 'concrete-diagnostician') return CONCRETE_GROUP_ORDER;
   // 土木施工の実務は guide のみ（工種別ブロックは PracticeView が curriculum の fields で描画）
   if (category === 'civil-practice') return ['guide'];
-  if (category === 'rccm' || category === 'surveyor' || category === 'pavement') return ['guide'];
+  if (category === 'rccm' || category === 'surveyor' || category === 'pavement' || category === 'building-construction') return ['guide'];
   return ['keyword'];
 }
 
