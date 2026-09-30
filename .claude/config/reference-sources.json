@@ -3385,6 +3385,18 @@
       }
     },
     {
+      "id": "gsi-surveyor-past-exams",
+      "title": "測量士・測量士補試験 過去の問題と正答（国土地理院）",
+      "class": "exam-official",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.gsi.go.jp/LAW/SHIKEN/past.html"
+      },
+      "appliesTo": [
+        "content/site/surveyor/primary-*/article.mdx"
+      ]
+    },
+    {
       "id": "gsi-level-survey",
       "title": "水準点の測量（国土地理院）",
       "class": "government-publication",
