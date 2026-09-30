@@ -1,0 +1,65 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート技士教材の打設順序。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="回し打ちとブロックごとの打設の比較。回し打ちは層を全面に打つため打継ぎ面が建物全体に広がり、ブロック打設は区画を時刻順に打つため打継ぎ面が境界に限られる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-title { font-size: 12px; fill: #1a3a5c; font-weight: bold; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-ok    { font-size: 12px; fill: #3a7d44; font-weight: bold; }
+      .t-ng    { font-size: 12px; fill: #b22234; font-weight: bold; }
+      .box   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .b-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .b-ok  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .b-warn{ fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .b-ng  { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .main  { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ng    { stroke: #b22234; stroke-width: 2.5; fill: none; }
+      .dash  { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .ink   { stroke: #555; stroke-width: 1.5; fill: none; }
+    </style>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="arn" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">打設順序の比較（時刻入りの模式図）</text>
+  <text class="t-title" x="20" y="40">回し打ち（層ごとに一周して打つ）</text>
+  <rect class="b-brand" x="40" y="56" width="200" height="38"/>
+  <rect class="b-brand" x="40" y="94" width="200" height="38"/>
+  <rect class="b-brand" x="40" y="132" width="200" height="38"/>
+  <text class="t-label" x="50" y="79">3層目</text><text class="t-label" x="230" y="79" text-anchor="end">14時〜16時</text>
+  <text class="t-label" x="50" y="117">2層目</text><text class="t-label" x="230" y="117" text-anchor="end">11時〜14時</text>
+  <text class="t-label" x="50" y="155">1層目</text><text class="t-label" x="230" y="155" text-anchor="end">9時〜11時</text>
+  <line class="ng" x1="34" y1="94" x2="246" y2="94"/>
+  <line class="ng" x1="34" y1="132" x2="246" y2="132"/>
+  <rect class="b-ng" x="258" y="80" width="126" height="78" rx="6"/>
+  <text class="t-desc" x="268" y="99">層間の打継ぎ面が</text>
+  <text class="t-desc" x="268" y="117">建物全体に広がり、</text>
+  <text class="t-desc" x="268" y="135">コールドジョイント</text>
+  <text class="t-desc" x="268" y="153">のおそれがある</text>
+  <text class="t-desc" x="20" y="196">一層ぶんを全面に打つため、次の層まで時間が空く</text>
+  <line class="dash" x1="20" y1="214" x2="380" y2="214"/>
+
+  <text class="t-title" x="20" y="240">ブロックごとの打設（区画を順に打つ）</text>
+  <rect class="b-brand" x="26" y="256" width="72" height="72" rx="3"/>
+  <rect class="b-brand" x="118" y="256" width="72" height="72" rx="3"/>
+  <rect class="b-brand" x="210" y="256" width="72" height="72" rx="3"/>
+  <rect class="b-brand" x="302" y="256" width="72" height="72" rx="3"/>
+  <text class="t-title" x="62" y="278" text-anchor="middle">1</text>
+  <text class="t-title" x="154" y="278" text-anchor="middle">2</text>
+  <text class="t-title" x="246" y="278" text-anchor="middle">3</text>
+  <text class="t-title" x="338" y="278" text-anchor="middle">4</text>
+  <text class="t-label" x="62" y="298" text-anchor="middle">9:00</text><text class="t-label" x="62" y="314" text-anchor="middle">〜10:30</text>
+  <text class="t-label" x="154" y="298" text-anchor="middle">10:30</text><text class="t-label" x="154" y="314" text-anchor="middle">〜12:00</text>
+  <text class="t-label" x="246" y="298" text-anchor="middle">13:00</text><text class="t-label" x="246" y="314" text-anchor="middle">〜14:30</text>
+  <text class="t-label" x="338" y="298" text-anchor="middle">14:30</text><text class="t-label" x="338" y="314" text-anchor="middle">〜16:00</text>
+  <line class="ng" x1="108" y1="252" x2="108" y2="332"/><line class="ng" x1="200" y1="252" x2="200" y2="332"/><line class="ng" x1="292" y1="252" x2="292" y2="332"/>
+  <rect class="b-ok" x="20" y="348" width="360" height="56" rx="6"/>
+  <text class="t-desc" x="34" y="371">各区画を短時間で打ち終えるため、</text>
+  <text class="t-desc" x="34" y="389">打継ぎ面は区画の境界だけに限られる</text>
+  <line class="ng" x1="26" y1="436" x2="56" y2="436"/>
+  <text class="t-desc" x="64" y="440">赤線＝コールドジョイントのおそれのある場所</text>
+</svg>

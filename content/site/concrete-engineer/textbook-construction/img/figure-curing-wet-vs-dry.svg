@@ -1,0 +1,94 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート技士教材の養生。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="湿潤養生と乾燥の対比。湿潤では水が残り水和が続いて水和結晶が密になり緻密な組織になる。乾燥では水が蒸発して水和が止まり、結晶が少なく疎な組織になる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-head  { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-ar { stroke: #555; stroke-width: 1.5; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .crack { stroke: #b22234; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">同じセメント粒子でも、水が残るかどうかで差が出る</text>
+  <rect class="box-b" x="20" y="32" width="170" height="26" rx="6" />
+  <text class="t-head" x="105" y="50" text-anchor="middle">湿潤（水がある）</text>
+  <rect class="box" x="20" y="68" width="170" height="92" rx="6" />
+  <circle cx="105" cy="108" r="14" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5" />
+  <circle cx="131.0" cy="108.0" r="4" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1" />
+  <circle cx="123.4" cy="126.4" r="4" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1" />
+  <circle cx="105.0" cy="134.0" r="4" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1" />
+  <circle cx="86.6" cy="126.4" r="4" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1" />
+  <circle cx="79.0" cy="108.0" r="4" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1" />
+  <circle cx="86.6" cy="89.6" r="4" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1" />
+  <circle cx="105.0" cy="82.0" r="4" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1" />
+  <circle cx="123.4" cy="89.6" r="4" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1" />
+  <text class="t-desc" x="105" y="150" text-anchor="middle">水が粒子のまわりにある</text>
+  <line class="line-ar" x1="105" y1="164" x2="105" y2="182" marker-end="url(#ar)" />
+  <rect class="box-p" x="20" y="186" width="170" height="28" rx="6" />
+  <text class="t-label" x="105" y="205" text-anchor="middle">水和が続く</text>
+  <line class="line-ar" x1="105" y1="218" x2="105" y2="236" marker-end="url(#ar)" />
+  <rect class="box" x="20" y="240" width="170" height="92" rx="6" />
+  <circle cx="105" cy="280" r="14" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5" />
+  <circle cx="124.6" cy="284.0" r="4.5" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1" />
+  <circle cx="128.2" cy="295.6" r="4.5" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1" />
+  <circle cx="116.1" cy="296.7" r="4.5" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1" />
+  <circle cx="110.4" cy="307.5" r="4.5" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1" />
+  <circle cx="101.0" cy="299.6" r="4.5" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1" />
+  <circle cx="89.4" cy="303.2" r="4.5" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1" />
+  <circle cx="88.3" cy="291.1" r="4.5" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1" />
+  <circle cx="77.5" cy="285.4" r="4.5" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1" />
+  <circle cx="85.4" cy="276.0" r="4.5" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1" />
+  <circle cx="81.8" cy="264.4" r="4.5" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1" />
+  <circle cx="93.9" cy="263.3" r="4.5" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1" />
+  <circle cx="99.6" cy="252.5" r="4.5" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1" />
+  <circle cx="109.0" cy="260.4" r="4.5" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1" />
+  <circle cx="120.6" cy="256.8" r="4.5" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1" />
+  <circle cx="121.7" cy="268.9" r="4.5" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1" />
+  <circle cx="132.5" cy="274.6" r="4.5" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1" />
+  <text class="t-desc" x="105" y="322" text-anchor="middle">水和結晶が密に生成</text>
+  <line class="line-ar" x1="105" y1="336" x2="105" y2="354" marker-end="url(#ar)" />
+  <rect class="box-p" x="20" y="358" width="170" height="48" rx="6" />
+  <text class="t-label" x="105" y="378" text-anchor="middle">組織が緻密</text>
+  <text class="t-desc" x="105" y="395" text-anchor="middle">強度・耐久性が高い</text>
+  <rect class="box-d" x="210" y="32" width="170" height="26" rx="6" />
+  <text class="t-head" x="295" y="50" text-anchor="middle">乾燥（水が抜ける）</text>
+  <rect class="box" x="210" y="68" width="170" height="92" rx="6" />
+  <circle cx="295" cy="108" r="14" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5" />
+  <line class="line-dash" x1="318.9" y1="118.1" x2="326.9" y2="110.1" />
+  <line class="line-dash" x1="284.9" y1="131.9" x2="276.9" y2="123.9" />
+  <line class="line-dash" x1="271.1" y1="97.9" x2="263.1" y2="89.9" />
+  <line class="line-dash" x1="305.1" y1="84.1" x2="313.1" y2="76.1" />
+  <text class="t-desc" x="295" y="150" text-anchor="middle">水が蒸発して減る</text>
+  <line class="line-ar" x1="295" y1="164" x2="295" y2="182" marker-end="url(#ar)" />
+  <rect class="box-w" x="210" y="186" width="170" height="28" rx="6" />
+  <text class="t-label" x="295" y="205" text-anchor="middle">水和が止まる</text>
+  <line class="line-ar" x1="295" y1="218" x2="295" y2="236" marker-end="url(#ar)" />
+  <rect class="box" x="210" y="240" width="170" height="92" rx="6" />
+  <circle cx="295" cy="280" r="14" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5" />
+  <circle cx="320.5" cy="285.2" r="3.5" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1" />
+  <circle cx="289.8" cy="305.5" r="3.5" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1" />
+  <circle cx="269.5" cy="274.8" r="3.5" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1" />
+  <circle cx="300.2" cy="254.5" r="3.5" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1" />
+  <text class="t-desc" x="295" y="322" text-anchor="middle">水和結晶が少ない</text>
+  <line class="line-ar" x1="295" y1="336" x2="295" y2="354" marker-end="url(#ar)" />
+  <rect class="box-d" x="210" y="358" width="170" height="48" rx="6" />
+  <text class="t-label" x="295" y="378" text-anchor="middle">組織が疎</text>
+  <text class="t-desc" x="295" y="395" text-anchor="middle">強度・耐久性が低い</text>
+  <text class="t-label" x="200" y="440" text-anchor="middle">養生の目的は、水和に必要な水と温度を保つこと</text>
+  <text class="t-desc" x="200" y="460" text-anchor="middle">（水和結晶＝セメントと水の反応でできる生成物）</text>
+
+</svg>

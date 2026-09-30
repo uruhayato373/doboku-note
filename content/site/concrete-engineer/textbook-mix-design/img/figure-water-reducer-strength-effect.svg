@@ -1,0 +1,55 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート技士教材のAE剤とAE減水剤の強度への効き方。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="Aは混和剤なし、BはAE剤、CはAE減水剤。BはW/C低下による強度増加と空気連行による強度減少が相殺してAと同程度、CはW/Cをさらに下げられるため強度が大きくなる（定性）">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-head  { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-warn  { font-size: 11px; fill: #b22234; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-ax { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .arr { stroke: #2e6da4; stroke-width: 1.5; fill: none; marker-end: url(#ah); }
+      .arr-d { stroke: #b22234; stroke-width: 1.5; fill: none; marker-end: url(#ahd); }
+      .arr-g { stroke: #3a7d44; stroke-width: 1.5; fill: none; marker-end: url(#ahg); }
+    </style>
+    <marker id="ah" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ahd" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="ahg" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+  </defs>
+<text class="t-lead" x="200" y="18" text-anchor="middle">圧縮強度の比較（高さの大小のみ・数値なし）</text>
+<line class="line-ax" x1="30" y1="300" x2="380" y2="300"/><line class="line-ax" x1="30" y1="50" x2="30" y2="300"/>
+<text class="t-axis" x="36" y="44">圧縮強度</text>
+<rect class="box" x="60" y="180" width="56" height="120"/>
+<text class="t-head" x="88" y="318" text-anchor="middle">A</text>
+<text class="t-desc" x="88" y="334" text-anchor="middle">混和剤なし</text>
+<rect class="box-b" x="170" y="180" width="56" height="120"/>
+<text class="t-head" x="198" y="318" text-anchor="middle">B</text>
+<text class="t-desc" x="198" y="334" text-anchor="middle">AE剤</text>
+<rect class="box-g" x="280" y="140" width="56" height="160"/>
+<text class="t-head" x="308" y="318" text-anchor="middle">C</text>
+<text class="t-desc" x="308" y="334" text-anchor="middle">AE減水剤</text>
+<line class="line-dash" x1="60" y1="180" x2="340" y2="180"/>
+<text class="t-axis" x="36" y="176">Aの強度</text>
+<line class="arr-g" x1="236" y1="214" x2="236" y2="178"/>
+<line class="arr-d" x1="248" y1="144" x2="248" y2="180"/>
+<line class="arr-g" x1="346" y1="214" x2="346" y2="138"/>
+<line class="arr-d" x1="358" y1="134" x2="358" y2="170"/>
+<rect class="box" x="20" y="348" width="360" height="136" rx="6"/>
+<line class="arr-g" x1="34" y1="376" x2="34" y2="360"/><text class="t-label" x="46" y="372">水セメント比の低下による強度増加分</text>
+<line class="arr-d" x1="34" y1="386" x2="34" y2="402"/><text class="t-label" x="46" y="398">空気連行による強度減少分</text>
+<text class="t-desc" x="30" y="424">B：練り水を減らせる増加分と空気の減少分が相殺</text>
+<text class="t-desc" x="30" y="442">C：さらに練り水を減らせるため、増加分が上回る</text>
+<text class="t-desc" x="30" y="466">同じスランプを得る水が少ないほど、水セメント比は下がる</text>
+</svg>

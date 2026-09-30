@@ -1,0 +1,67 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート技士教材のスランプ試験の手順。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="スランプ試験の3手順と上から見た図。1 生コンをスランプコーンに詰める、2 コーンを鉛直に引き上げる、3 コーンの上面から生コン上面までの下がりを測る。下段は上から見たコーン設置位置の円と広がった外周の円で、広がりの直径がスランプフローに対応する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-big   { font-size: 16px; font-weight: 700; fill: #1a3a5c; }
+      .t-red   { font-size: 11px; fill: #b22234; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-thin { stroke: #2e6da4; stroke-width: 1.5; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-axis { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .line-grid { stroke: #d7d7d7; stroke-width: 1; fill: none; }
+      .line-red  { stroke: #b22234; stroke-width: 1.5; fill: none; }
+      .line-arrow{ stroke: #1a3a5c; stroke-width: 1.5; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+    </style>
+    <marker id="ah" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#1a3a5c" /></marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">スランプ試験の手順と、上から見た広がり</text>
+  <line class="line-axis" x1="12" y1="190" x2="388" y2="190" />
+  <text class="t-label" x="70" y="38" text-anchor="middle">1 詰める</text>
+  <text class="t-label" x="200" y="38" text-anchor="middle">2 コーンを引き上げる</text>
+  <text class="t-label" x="330" y="38" text-anchor="middle">3 下がりを測る</text>
+  <polygon class="box" points="43,190 97,190 85,120 55,120" />
+  <line class="line-arrow" x1="70" y1="72" x2="70" y2="112" marker-end="url(#ah)" />
+  <text class="t-desc" x="80" y="84">生コン</text>
+  <polygon class="box-w" points="173,190 227,190 215,120 185,120" />
+  <polygon class="box" points="173,150 227,150 215,80 185,80" />
+  <line class="line-arrow" x1="245" y1="140" x2="245" y2="92" marker-end="url(#ah)" />
+  <polygon class="line-dash" points="303,190 357,190 345,120 315,120" />
+  <polygon class="box-w" points="300,190 360,190 345,140 315,140" />
+  <line class="line-dash" x1="300" y1="120" x2="345" y2="120" />
+  <line class="line-dash" x1="300" y1="140" x2="345" y2="140" />
+  <line class="line-arrow" x1="322" y1="118" x2="322" y2="138" marker-end="url(#ah)" />
+  <text class="t-label" x="330" y="66" text-anchor="middle">スランプ</text>
+  <text class="t-label" x="330" y="82" text-anchor="middle">（上面の下がり）</text>
+  <line class="line-dash" x1="330" y1="88" x2="324" y2="114" />
+  <text class="t-lead" x="20" y="228">上から見ると</text>
+  <rect class="box" x="20" y="238" width="150" height="150" />
+  <circle cx="95" cy="313" r="55" class="box-w" />
+  <circle cx="95" cy="313" r="22" class="box" />
+  <line class="line-arrow" x1="95" y1="313" x2="149" y2="313" marker-end="url(#ah)" />
+  <line class="line-arrow" x1="95" y1="313" x2="41" y2="313" marker-end="url(#ah)" />
+  <rect class="box" x="188" y="250" width="14" height="14" />
+  <text class="t-desc" x="208" y="262">内側の円：コーンの設置位置</text>
+  <rect class="box-w" x="188" y="276" width="14" height="14" />
+  <text class="t-desc" x="208" y="288">外側の円：広がった生コン</text>
+  <line class="line-arrow" x1="188" y1="309" x2="202" y2="309" marker-end="url(#ah)" />
+  <text class="t-desc" x="208" y="314">矢印：広がりの直径</text>
+  <text class="t-desc" x="208" y="330">（スランプフローで測る）</text>
+  <rect class="box-b" x="20" y="404" width="360" height="80" rx="6" />
+  <text class="t-label" x="34" y="426">スランプ試験：引き上げ後の「下がり量」を測る</text>
+  <text class="t-label" x="34" y="448">スランプフロー試験：「広がりの直径」を測る</text>
+  <text class="t-desc" x="34" y="470">値が大きいほど一般に軟らかい（スランプの単位は cm）</text>
+</svg>

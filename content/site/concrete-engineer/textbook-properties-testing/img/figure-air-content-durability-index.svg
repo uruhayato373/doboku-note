@@ -1,0 +1,65 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート技士教材の空気量と耐凍害性（耐久性指数）の関係。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="空気量（1〜8％）と耐久性指数（0〜100）の傾向図。空気量が約2〜3％の推移域を境に、耐久性小（20％以下）の低い水準から耐久性大（80％以上）の高い水準へS字状に急上昇する。下にレディーミクストコンクリートの標準範囲4.5±1.5％を帯で示す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-big   { font-size: 16px; font-weight: 700; fill: #1a3a5c; }
+      .t-red   { font-size: 11px; fill: #b22234; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-thin { stroke: #2e6da4; stroke-width: 1.5; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-axis { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .line-grid { stroke: #d7d7d7; stroke-width: 1; fill: none; }
+      .line-red  { stroke: #b22234; stroke-width: 1.5; fill: none; }
+      .line-arrow{ stroke: #1a3a5c; stroke-width: 1.5; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+    </style>
+    <marker id="ah" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#1a3a5c" /></marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">軸の代表値のみ表示・曲線は傾向を示す</text>
+  <text class="t-axis" x="12" y="38">耐久性指数</text>
+  <rect x="108.6" y="50" width="38.6" height="240" class="box-w" />
+  <rect x="70" y="50" width="270" height="48" fill="#e8f0fe" />
+  <rect x="70" y="242" width="270" height="48" fill="#f8d7da" />
+  <line class="line-grid" x1="70" y1="290" x2="340" y2="290" />
+  <text class="t-axis" x="62" y="294" text-anchor="end">0</text>
+  <line class="line-grid" x1="70" y1="242" x2="340" y2="242" />
+  <text class="t-axis" x="62" y="246" text-anchor="end">20</text>
+  <line class="line-grid" x1="70" y1="98" x2="340" y2="98" />
+  <text class="t-axis" x="62" y="102" text-anchor="end">80</text>
+  <line class="line-grid" x1="70" y1="50" x2="340" y2="50" />
+  <text class="t-axis" x="62" y="54" text-anchor="end">100</text>
+  <text class="t-axis" x="70" y="308" text-anchor="middle">1</text>
+  <text class="t-axis" x="108.6" y="308" text-anchor="middle">2</text>
+  <text class="t-axis" x="147.1" y="308" text-anchor="middle">3</text>
+  <text class="t-axis" x="185.7" y="308" text-anchor="middle">4</text>
+  <text class="t-axis" x="224.3" y="308" text-anchor="middle">5</text>
+  <text class="t-axis" x="262.9" y="308" text-anchor="middle">6</text>
+  <text class="t-axis" x="301.4" y="308" text-anchor="middle">7</text>
+  <text class="t-axis" x="340" y="308" text-anchor="middle">8</text>
+  <rect x="70" y="50" width="270" height="240" fill="none" class="line-axis" />
+  <path class="line-main" d="M70,278 L100.9,278 C120.1,278 116.3,69.2 154.9,64.4 C185.7,59.6 262.9,59.6 340,74" />
+  <text class="t-label" x="170.3" y="82">耐久性大（80％以上）</text>
+  <text class="t-red" x="162.6" y="280">耐久性小（20％以下）</text>
+  <text class="t-label" x="127.9" y="170" text-anchor="middle">推移域</text>
+  <text class="t-lead" x="205" y="326" text-anchor="middle">空気量（%）</text>
+  <rect x="147.1" y="334" width="115.7" height="8" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5" />
+  <text class="t-desc" x="205" y="358" text-anchor="middle">レディーミクストの標準 4.5±1.5 %</text>
+  <rect class="box-b" x="20" y="376" width="360" height="108" rx="6" />
+  <text class="t-label" x="34" y="398">約2〜3 %を境に耐久性が急に高まる</text>
+  <text class="t-desc" x="34" y="420">・空気量が少なすぎると凍結融解への抵抗性が不足する</text>
+  <text class="t-desc" x="34" y="440">・多すぎると空隙が増え、圧縮強度の低下が大きくなる</text>
+  <text class="t-desc" x="34" y="460">・数値は「範囲を外れると何が起きるか」とセットで覚える</text>
+</svg>

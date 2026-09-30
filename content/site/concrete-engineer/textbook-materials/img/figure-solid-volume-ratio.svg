@@ -1,0 +1,82 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート技士教材の骨材の実積率。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="1立方メートルの容器に骨材粒を詰めた断面図。骨材粒の実質部分と粒のすき間の空隙を色分けし、実積率は骨材の実積を容器の容積で割った割合であることを示す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-form  { font-size: 14px; fill: #1a3a5c; font-weight: 600; }
+      .t-sub   { font-size: 11px; fill: #555; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-ax { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .line-arrow { stroke: #2e6da4; stroke-width: 1.5; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <text class="t-lead" x="195.0" y="18" text-anchor="middle">容器に骨材を詰めた断面のイメージ</text>
+  <rect x="90" y="60" width="210" height="210" rx="3" fill="#fff3cd" stroke="#222" stroke-width="2" />
+  <circle cx="169" cy="114" r="30" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="127" cy="166" r="26" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="183" cy="217" r="24" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="272" cy="92" r="22" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="218" cy="144" r="20" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="245" cy="199" r="18" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="260" cy="133" r="17" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="254" cy="242" r="16" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="221" cy="252" r="15" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="116" cy="213" r="14" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="171" cy="177" r="13" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="227" cy="84" r="12" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="114" cy="85" r="11" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="106" cy="249" r="10" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="203" cy="76" r="9" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="106" cy="124" r="9" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="150" cy="201" r="9" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="281" cy="155" r="9" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="224" cy="221" r="9" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="272" cy="218" r="9" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="285" cy="195" r="9" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="195" cy="171" r="9" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="247" cy="166" r="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="142" cy="251" r="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="166" cy="73" r="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="144" cy="76" r="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="206" cy="189" r="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="239" cy="109" r="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="128" cy="118" r="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="286" cy="248" r="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="171" cy="252" r="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="185" cy="153" r="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="193" cy="253" r="7" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="267" cy="176" r="7" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="212" cy="108" r="7" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="101" cy="193" r="7" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="141" cy="223" r="7" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="100" cy="105" r="7" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="127" cy="236" r="7" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="290" cy="135" r="7" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="156" cy="239" r="7" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <circle cx="164" cy="153" r="7" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <text class="t-label" x="195.0" y="52" text-anchor="middle">容器（容積 1m³）</text>
+  <circle cx="246" cy="70" r="2" fill="#b22234" />
+  <line class="line-ax" x1="246" y1="70" x2="312" y2="100" />
+  <text class="t-label" x="316" y="104">空隙</text>
+  <line class="line-ax" x1="245" y1="199" x2="312" y2="190" />
+  <text class="t-label" x="316" y="194">骨材粒</text>
+  <text class="t-form" x="200" y="318" text-anchor="middle">実積率 ＝ 骨材の実積 ÷ 容器の容積 × 100（%）</text>
+  <rect class="box" x="20" y="336" width="360" height="80" rx="6" />
+  <text class="t-desc" x="34" y="360">実積率＝単位容積質量 ÷ 密度 × 100（%）</text>
+  <text class="t-desc" x="34" y="382">粒形・粒度が良いと空隙が小さくなり、実積率は大きくなる</text>
+  <text class="t-desc" x="34" y="404">実積率が大きいほど、すき間を埋めるペーストが少なくてすむ</text>
+
+</svg>

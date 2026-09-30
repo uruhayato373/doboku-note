@@ -1,0 +1,56 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート技士教材の乾燥収縮と単位水量。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="単位セメント量と乾燥収縮の関係。単位水量120から200kg/m³の実線は水量が大きいほど上に位置し、水セメント比40から70%の破線が交差する。数値なし傾向図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-form  { font-size: 14px; fill: #1a3a5c; font-weight: 600; }
+      .t-sub   { font-size: 11px; fill: #555; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-ax { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .line-arrow { stroke: #2e6da4; stroke-width: 1.5; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <text class="t-lead" x="200" y="18" text-anchor="middle">実線＝単位水量、破線＝水セメント比（数値は端のみ・傾向）</text>
+  <line class="line-ax" x1="60" y1="300" x2="310" y2="300" />
+  <line class="line-ax" x1="60" y1="50" x2="60" y2="300" />
+  <text class="t-axis" x="60" y="316" text-anchor="middle">200</text>
+  <text class="t-axis" x="300" y="316" text-anchor="middle">450</text>
+  <text class="t-axis" x="180" y="332" text-anchor="middle">単位セメント量 kg/m³</text>
+  <text class="t-axis" x="54" y="304" text-anchor="end">0</text>
+  <text class="t-axis" x="54" y="64" text-anchor="end">8</text>
+  <text class="t-axis" x="60" y="38">乾燥収縮 ×10⁻⁴</text>
+  <polyline class="line-dash" points="156,228 228,174 300,120" />
+  <polyline class="line-dash" points="98,235 156,183 214,131 252,96" />
+  <polyline class="line-dash" points="60,240 108,189 156,138 188,104" />
+  <polyline class="line-dash" points="74,193 115,143 142,110" />
+  <line class="line-main" x1="60" y1="240" x2="300" y2="210" />
+  <text class="t-label" x="306" y="214">120kg/m³</text>
+  <line class="line-main" x1="60" y1="195" x2="300" y2="165" />
+  <text class="t-label" x="306" y="169">150kg/m³</text>
+  <line class="line-main" x1="60" y1="150" x2="300" y2="120" />
+  <text class="t-label" x="306" y="124">180kg/m³</text>
+  <line class="line-main" x1="60" y1="120" x2="300" y2="90" />
+  <text class="t-label" x="306" y="94">200kg/m³</text>
+  <text class="t-axis" x="296" y="113" text-anchor="middle">40%</text>
+  <text class="t-axis" x="248" y="89" text-anchor="middle">50%</text>
+  <text class="t-axis" x="184" y="97" text-anchor="middle">60%</text>
+  <text class="t-axis" x="138" y="103" text-anchor="middle">70%</text>
+  <rect class="box" x="20" y="345" width="360" height="80" rx="6" />
+  <text class="t-desc" x="34" y="369">単位水量が大きいほど乾燥収縮は大きくなる</text>
+  <text class="t-desc" x="34" y="391">実線＝同じ単位水量、破線＝同じ水セメント比の点を結ぶ</text>
+  <text class="t-desc" x="34" y="413">セメントを増やすより、水量の抑制が収縮低減に効く</text>
+
+</svg>

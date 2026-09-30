@@ -1,0 +1,55 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート技士教材の水セメント比と中性化速度の関係。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="水セメント比が大きいほど中性化速度比が大きくなる右上がりの傾向（定性）。普通・早強ポルトランド、高炉A種・B種、フライアッシュA種のいずれも同様の傾向を示す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-head  { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-warn  { font-size: 11px; fill: #b22234; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-ax { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .arr { stroke: #2e6da4; stroke-width: 1.5; fill: none; marker-end: url(#ah); }
+      .arr-d { stroke: #b22234; stroke-width: 1.5; fill: none; marker-end: url(#ahd); }
+      .arr-g { stroke: #3a7d44; stroke-width: 1.5; fill: none; marker-end: url(#ahg); }
+    </style>
+    <marker id="ah" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ahd" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="ahg" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+  </defs>
+<text class="t-lead" x="200" y="18" text-anchor="middle">水セメント比が大きいほど中性化が速い（傾向を示す）</text>
+<line class="line-ax" x1="60" y1="290" x2="370" y2="290"/><line class="line-ax" x1="60" y1="50" x2="60" y2="290"/>
+<text class="t-axis" x="64" y="44">中性化速度比</text>
+<line class="line-ax" x1="56" y1="290" x2="60" y2="290"/><text class="t-axis" x="52" y="294" text-anchor="end">0</text>
+<line class="line-ax" x1="56" y1="194" x2="60" y2="194"/><text class="t-axis" x="52" y="198" text-anchor="end">1.0</text>
+<line class="line-ax" x1="56" y1="98" x2="60" y2="98"/><text class="t-axis" x="52" y="102" text-anchor="end">2.0</text>
+<line class="line-ax" x1="90" y1="290" x2="90" y2="296"/><text class="t-axis" x="90" y="310" text-anchor="middle">45</text>
+<line class="line-ax" x1="190" y1="290" x2="190" y2="296"/><text class="t-axis" x="190" y="310" text-anchor="middle">60</text>
+<line class="line-ax" x1="340" y1="290" x2="340" y2="296"/><text class="t-axis" x="340" y="310" text-anchor="middle">70</text>
+<text class="t-axis" x="215" y="328" text-anchor="middle">水セメント比（%）</text>
+<line class="line-dash" x1="60" y1="194" x2="190" y2="194"/>
+<line class="line-dash" x1="190" y1="194" x2="190" y2="290"/>
+<path class="line-main" d="M90,242 C130,230 160,212 190,194 C240,164 290,140 340,117"/>
+<circle cx="190" cy="194" r="4" fill="#2e6da4"/>
+<text class="t-label" x="198" y="186">基準（W/C60%＝1.0）</text>
+<text class="t-warn" x="330" y="104" text-anchor="end">中性化が進みやすい</text>
+<text class="t-label" x="100" y="272">中性化が遅い</text>
+<rect class="box" x="20" y="348" width="360" height="136" rx="6"/>
+<text class="t-head" x="32" y="370">原典で比較されたセメント（図は傾向のみ）</text>
+<text class="t-desc" x="32" y="392">普通ポルトランド・早強ポルトランド</text>
+<text class="t-desc" x="32" y="410">高炉セメントA種・B種</text>
+<text class="t-desc" x="32" y="428">フライアッシュセメントA種</text>
+<text class="t-desc" x="32" y="452">基準：普通ポルトランド・水セメント比60%を1.0とする</text>
+<text class="t-desc" x="32" y="472">水セメント比を小さくすると中性化に対して有利</text>
+</svg>

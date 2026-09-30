@@ -1,0 +1,58 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート技士教材の粗骨材の最大寸法と単位水量。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="粗骨材の最大寸法と単位水量の関係。横軸は対数目盛で、AE剤を用いない曲線が上、AE剤を用いる曲線が下にあり、どちらも最大寸法が大きいほど単位水量が減る右下がり。数値なし傾向図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-form  { font-size: 14px; fill: #1a3a5c; font-weight: 600; }
+      .t-sub   { font-size: 11px; fill: #555; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-ax { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .line-arrow { stroke: #2e6da4; stroke-width: 1.5; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <text class="t-lead" x="200" y="18" text-anchor="middle">横軸は対数目盛・数値は目安（スランプ約7.5cm・W/C54%）</text>
+  <line class="line-ax" x1="60" y1="300" x2="360" y2="300" />
+  <line class="line-ax" x1="60" y1="40" x2="60" y2="300" />
+  <line class="line-ax" x1="60" y1="300" x2="60" y2="304" />
+  <text class="t-axis" x="60" y="318" text-anchor="middle">5</text>
+  <line class="line-ax" x1="119" y1="300" x2="119" y2="304" />
+  <text class="t-axis" x="119" y="318" text-anchor="middle">10</text>
+  <line class="line-ax" x1="178" y1="300" x2="178" y2="304" />
+  <text class="t-axis" x="178" y="318" text-anchor="middle">20</text>
+  <line class="line-ax" x1="237" y1="300" x2="237" y2="304" />
+  <text class="t-axis" x="237" y="318" text-anchor="middle">40</text>
+  <line class="line-ax" x1="296" y1="300" x2="296" y2="304" />
+  <text class="t-axis" x="296" y="318" text-anchor="middle">80</text>
+  <line class="line-ax" x1="350" y1="300" x2="350" y2="304" />
+  <text class="t-axis" x="350" y="318" text-anchor="middle">150</text>
+  <line class="line-dash" x1="60" y1="252" x2="350" y2="252" />
+  <text class="t-axis" x="54" y="256" text-anchor="end">100</text>
+  <line class="line-dash" x1="60" y1="156" x2="350" y2="156" />
+  <text class="t-axis" x="54" y="160" text-anchor="end">200</text>
+  <line class="line-dash" x1="60" y1="60" x2="350" y2="60" />
+  <text class="t-axis" x="54" y="64" text-anchor="end">300</text>
+  <text class="t-axis" x="205" y="336" text-anchor="middle">粗骨材の最大寸法（mm）</text>
+  <text class="t-axis" x="20" y="32">単位水量 kg/m³</text>
+  <polyline class="line-main" style="stroke:#b22234" points="60,89 119,122 154,137 178,146 197,153 237,166 256,170 296,183 350,194" />
+  <polyline class="line-main" style="" points="60,113 119,148 154,164 178,173 197,179 237,192 256,196 296,208 350,218" />
+  <text class="t-label" x="350" y="152" text-anchor="end" style="fill:#b22234">AE剤を用いない</text>
+  <text class="t-label" x="350" y="242" text-anchor="end">AE剤を用いる</text>
+  <rect class="box" x="20" y="345" width="360" height="80" rx="6" />
+  <text class="t-desc" x="34" y="369">最大寸法が大きいほど骨材の表面積が減り、単位水量も減る</text>
+  <text class="t-desc" x="34" y="391">AE剤を用いると同じ寸法でも単位水量を減らせる</text>
+  <text class="t-desc" x="34" y="413">大きすぎると鉄筋間隔・かぶりに対し充填不良の恐れ</text>
+
+</svg>

@@ -1,0 +1,58 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート技士教材の振動機の挿入。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="振動機の挿入位置の良否。鉛直に挿入して先端を下層へ10cm以上入れると上下層が一体化し、下流側へ斜めに挿入すると隙間ができて密度が小さくなる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-title { font-size: 12px; fill: #1a3a5c; font-weight: bold; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-ok    { font-size: 12px; fill: #3a7d44; font-weight: bold; }
+      .t-ng    { font-size: 12px; fill: #b22234; font-weight: bold; }
+      .box   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .b-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .b-ok  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .b-warn{ fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .b-ng  { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .main  { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ng    { stroke: #b22234; stroke-width: 2.5; fill: none; }
+      .dash  { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .ink   { stroke: #555; stroke-width: 1.5; fill: none; }
+    </style>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="arn" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">振動機の挿入（断面の模式図）</text>
+  <text class="t-ok" x="20" y="44">良い例：鉛直に挿入し、先端を下層へ</text>
+  <rect class="b-brand" x="40" y="62" width="220" height="58"/>
+  <rect class="box" x="40" y="120" width="220" height="70"/>
+  <text class="t-label" x="50" y="82">新しい生コン</text>
+  <text class="t-label" x="50" y="182">下層の生コン</text>
+  <line class="ng" x1="40" y1="120" x2="260" y2="120"/>
+  <text class="t-desc" x="268" y="124">打継ぎ部</text>
+  <line class="ink" x1="126" y1="56" x2="126" y2="100"/>
+  <rect fill="#2e6da4" x="118" y="100" width="16" height="64" rx="8"/>
+  <line class="dash" x1="150" y1="120" x2="190" y2="120"/><line class="dash" x1="150" y1="164" x2="190" y2="164"/>
+  <line class="main" x1="170" y1="142" x2="170" y2="123" marker-end="url(#ar)"/>
+  <line class="main" x1="170" y1="142" x2="170" y2="161" marker-end="url(#ar)"/>
+  <text class="t-label" x="196" y="146">10cm以上</text>
+  <text class="t-desc" x="268" y="156">先端を下層へ入れ、</text>
+  <text class="t-desc" x="268" y="172">上下を一体化</text>
+
+  <text class="t-ng" x="20" y="262">悪い例：下流側へ斜めに挿入</text>
+  <path d="M40,300 L150,318 L260,372 V440 H40 Z" fill="#f5f5f5" stroke="#555" stroke-width="1.5"/>
+  <text class="t-desc" x="44" y="290">上流</text><text class="t-desc" x="230" y="290">下流</text>
+  <line class="main" x1="84" y1="286" x2="222" y2="286" marker-end="url(#ar)"/>
+  <polygon fill="#fff" stroke="#b22234" stroke-width="1.5" points="172,340 182,336 204,392 194,396"/>
+  <text class="t-ng" x="90" y="376">隙間</text>
+  <line class="dash" x1="124" y1="372" x2="178" y2="362"/>
+  <g transform="rotate(-24 222 372)"><rect fill="#2e6da4" x="214" y="342" width="16" height="64" rx="8"/></g>
+  <line class="ink" x1="196" y1="304" x2="210" y2="345"/>
+  <text class="t-desc" x="268" y="360">下流側で振動すると</text>
+  <text class="t-desc" x="268" y="378">隙間ができ、</text>
+  <text class="t-desc" x="268" y="396">密度が小さくなる</text>
+  <text class="t-lead" x="200" y="472" text-anchor="middle">振動は流れの下流側ではなく上流側で行う</text>
+</svg>

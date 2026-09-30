@@ -1,0 +1,56 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート技士教材の配合設計の材料構成。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="セメントペースト、モルタル、コンクリートの材料構成を構成の相対的な目安（定性表示）で3本の積み上げ帯にして比較した図。ペーストはセメントと水、モルタルは細骨材を加え、コンクリートはさらに粗骨材を加える">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-head  { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-ar { stroke: #555; stroke-width: 1.5; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .crack { stroke: #b22234; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">帯の高さは構成の相対的な目安（定性表示・配合により変わる）</text>
+  <rect class="box-b" x="30" y="132.4" width="100" height="187.6" />
+  <text class="t-label" x="80" y="230.2" text-anchor="middle">セメント</text>
+  <rect class="box-p" x="30" y="40.0" width="100" height="92.4" />
+  <text class="t-label" x="80" y="90.2" text-anchor="middle">水</text>
+  <text class="t-head" x="80" y="350" text-anchor="middle">セメントペースト</text>
+  <text class="t-desc" x="80" y="368" text-anchor="middle">セメント＋水</text>
+  <rect class="box-w" x="150" y="143.6" width="100" height="176.4" />
+  <text class="t-label" x="200" y="235.8" text-anchor="middle">細骨材</text>
+  <rect class="box-b" x="150" y="73.6" width="100" height="70.0" />
+  <text class="t-label" x="200" y="112.6" text-anchor="middle">セメント</text>
+  <rect class="box-p" x="150" y="40.0" width="100" height="33.6" />
+  <text class="t-label" x="200" y="60.8" text-anchor="middle">水</text>
+  <text class="t-head" x="200" y="350" text-anchor="middle">モルタル</text>
+  <text class="t-desc" x="200" y="368" text-anchor="middle">＋細骨材（砂）</text>
+  <rect class="box" x="270" y="199.6" width="100" height="120.4" />
+  <text class="t-label" x="320" y="263.8" text-anchor="middle">粗骨材</text>
+  <rect class="box-w" x="270" y="101.6" width="100" height="98.0" />
+  <text class="t-label" x="320" y="154.6" text-anchor="middle">細骨材</text>
+  <rect class="box-b" x="270" y="59.6" width="100" height="42.0" />
+  <text class="t-label" x="320" y="84.6" text-anchor="middle">セメント</text>
+  <rect class="box-p" x="270" y="40.0" width="100" height="19.6" />
+  <text class="t-label" x="320" y="53.8" text-anchor="middle">水</text>
+  <text class="t-head" x="320" y="350" text-anchor="middle">コンクリート</text>
+  <text class="t-desc" x="320" y="368" text-anchor="middle">＋粗骨材（砂利）</text>
+  <rect class="box" x="20" y="395" width="360" height="70" rx="6" />
+  <text class="t-label" x="200" y="418" text-anchor="middle">細骨材と粗骨材をまとめて「骨材」と呼ぶ</text>
+  <text class="t-desc" x="200" y="438" text-anchor="middle">実際のコンクリートには混和材料や空気も含まれる</text>
+  <text class="t-desc" x="200" y="456" text-anchor="middle">ペースト → モルタル → コンクリートの順に材料が加わる</text>
+
+</svg>

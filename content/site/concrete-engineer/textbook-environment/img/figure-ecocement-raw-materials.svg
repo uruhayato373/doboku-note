@@ -1,0 +1,57 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート技士教材のエコセメントの原料。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="普通セメントとエコセメントの原料構成を比べる円グラフ。普通セメントは石灰石78%、粘土16%、珪石4%、鉄原料2%。エコセメントは石灰石52%、焼却灰39%、下水汚泥等8%、その他1%">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-form  { font-size: 14px; fill: #1a3a5c; font-weight: 600; }
+      .t-sub   { font-size: 11px; fill: #555; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-ax { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .line-arrow { stroke: #2e6da4; stroke-width: 1.5; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <text class="t-label" x="20" y="34">普通セメントの原料</text>
+  <path d="M100,105 L100.0,50.0 A55,55 0 1 1 46.0,94.7 Z" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <rect x="185" y="58" width="14" height="14" rx="3" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <text class="t-label" x="205" y="69">石灰石　78%</text>
+  <path d="M100,105 L46.0,94.7 A55,55 0 0 1 79.8,53.9 Z" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5" />
+  <rect x="185" y="82" width="14" height="14" rx="3" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5" />
+  <text class="t-label" x="205" y="93">粘土　16%</text>
+  <path d="M100,105 L79.8,53.9 A55,55 0 0 1 93.1,50.4 Z" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5" />
+  <rect x="185" y="106" width="14" height="14" rx="3" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5" />
+  <text class="t-label" x="205" y="117">珪石　4%</text>
+  <path d="M100,105 L93.1,50.4 A55,55 0 0 1 100.0,50.0 Z" fill="#f8d7da" stroke="#b22234" stroke-width="1.5" />
+  <rect x="185" y="130" width="14" height="14" rx="3" fill="#f8d7da" stroke="#b22234" stroke-width="1.5" />
+  <text class="t-label" x="205" y="141">鉄原料　2%</text>
+  <text class="t-label" x="20" y="194">エコセメントの原料</text>
+  <path d="M100,265 L100.0,210.0 A55,55 0 1 1 93.1,319.6 Z" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <rect x="185" y="218" width="14" height="14" rx="3" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <text class="t-label" x="205" y="229">石灰石　52%</text>
+  <path d="M100,265 L93.1,319.6 A55,55 0 0 1 70.5,218.6 Z" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5" />
+  <rect x="185" y="242" width="14" height="14" rx="3" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5" />
+  <text class="t-label" x="205" y="253">焼却灰　39%</text>
+  <path d="M100,265 L70.5,218.6 A55,55 0 0 1 96.5,210.1 Z" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5" />
+  <rect x="185" y="266" width="14" height="14" rx="3" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5" />
+  <text class="t-label" x="205" y="277">下水汚泥等　8%</text>
+  <path d="M100,265 L96.5,210.1 A55,55 0 0 1 100.0,210.0 Z" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5" />
+  <rect x="185" y="290" width="14" height="14" rx="3" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5" />
+  <text class="t-label" x="205" y="301">その他　1%</text>
+  <rect class="box" x="20" y="345" width="360" height="80" rx="6" />
+  <text class="t-desc" x="34" y="369">エコセメントは都市ごみ焼却灰を主原料にする</text>
+  <text class="t-desc" x="34" y="391">焼却灰・下水汚泥など廃棄物由来が原料の半分近くを占める</text>
+  <text class="t-desc" x="34" y="413">規格：製品1tあたり廃棄物500kg以上（乾燥ベース）</text>
+
+</svg>

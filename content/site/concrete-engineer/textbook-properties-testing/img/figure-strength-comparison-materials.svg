@@ -1,0 +1,70 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート技士教材の材料強度の比較。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="鋼材、花崗岩、大理石、コンクリート、ブナ、スギの引張強度と圧縮強度を横棒グラフで比較した図。コンクリートは引張強度が圧縮強度の約10分の1と小さい">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-head  { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-ar { stroke: #555; stroke-width: 1.5; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .crack { stroke: #b22234; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">横軸＝強度（N/mm²）。各材料の引張と圧縮を比較</text>
+  <rect fill="#2e6da4" stroke="#2e6da4" x="20" y="30" width="14" height="12" rx="2" />
+  <text class="t-desc" x="40" y="40">引張強度</text>
+  <rect x="130" y="30" width="14" height="12" rx="2" fill="#d4a017" stroke="#d4a017" />
+  <text class="t-desc" x="150" y="40">圧縮強度</text>
+  <text class="t-label" x="92" y="79" text-anchor="end">鋼材</text>
+  <rect x="100" y="56" width="225.0" height="14" fill="#2e6da4" />
+  <text class="t-desc" x="330.0" y="67">500</text>
+  <text class="t-label" x="92" y="127" text-anchor="end">花崗岩</text>
+  <rect x="100" y="104" width="2.2" height="14" fill="#2e6da4" />
+  <text class="t-desc" x="107.2" y="115">5</text>
+  <rect x="100" y="121" width="67.5" height="14" fill="#d4a017" />
+  <text class="t-desc" x="172.5" y="132">150</text>
+  <text class="t-label" x="92" y="175" text-anchor="end">大理石</text>
+  <rect x="100" y="152" width="2.2" height="14" fill="#2e6da4" />
+  <text class="t-desc" x="107.2" y="163">5</text>
+  <rect x="100" y="169" width="54.0" height="14" fill="#d4a017" />
+  <text class="t-desc" x="159.0" y="180">120</text>
+  <rect class="box-w" x="8" y="196" width="384" height="44" rx="4" />
+  <text class="t-label" x="92" y="223" text-anchor="end">コンクリート</text>
+  <rect x="100" y="200" width="1.4" height="14" fill="#2e6da4" />
+  <text class="t-desc" x="106.3" y="211">3</text>
+  <rect x="100" y="217" width="13.5" height="14" fill="#d4a017" />
+  <text class="t-desc" x="118.5" y="228">30</text>
+  <text class="t-label" x="92" y="271" text-anchor="end">ブナ</text>
+  <rect x="100" y="248" width="60.8" height="14" fill="#2e6da4" />
+  <text class="t-desc" x="165.8" y="259">135</text>
+  <rect x="100" y="265" width="20.2" height="14" fill="#d4a017" />
+  <text class="t-desc" x="125.2" y="276">45</text>
+  <text class="t-label" x="92" y="319" text-anchor="end">スギ</text>
+  <rect x="100" y="296" width="40.5" height="14" fill="#2e6da4" />
+  <text class="t-desc" x="145.5" y="307">90</text>
+  <rect x="100" y="313" width="15.8" height="14" fill="#d4a017" />
+  <text class="t-desc" x="120.8" y="324">35</text>
+  <line class="line-dash" x1="100" y1="50" x2="100" y2="344" />
+  <line class="line-dash" x1="100" y1="344" x2="370" y2="344" />
+  <text class="t-axis" x="100" y="360" text-anchor="middle">0</text>
+  <text class="t-axis" x="190" y="360" text-anchor="middle">200</text>
+  <text class="t-axis" x="280" y="360" text-anchor="middle">400</text>
+  <text class="t-axis" x="370" y="360" text-anchor="middle">600</text>
+  <rect class="box-w" x="20" y="380" width="360" height="56" rx="6" />
+  <text class="t-label" x="200" y="404" text-anchor="middle">コンクリートの引張強度は圧縮強度の約1/10</text>
+  <text class="t-desc" x="200" y="422" text-anchor="middle">だから引張側は鉄筋に任せる</text>
+
+</svg>

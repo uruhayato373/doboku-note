@@ -1,0 +1,76 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート技士教材の配合設計の細骨材率とスランプ・水セメント比の傾向。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="砕石コンクリートの細骨材率（34〜58％）とスランプ（6〜22cm）の傾向図。水セメント比40〜65％の6本の折れ線が、スランプが大きいほど、また水セメント比が大きいほど細骨材率が高い側に並ぶ傾向を示す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-big   { font-size: 16px; font-weight: 700; fill: #1a3a5c; }
+      .t-red   { font-size: 11px; fill: #b22234; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-thin { stroke: #2e6da4; stroke-width: 1.5; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-axis { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .line-grid { stroke: #d7d7d7; stroke-width: 1; fill: none; }
+      .line-red  { stroke: #b22234; stroke-width: 1.5; fill: none; }
+      .line-arrow{ stroke: #1a3a5c; stroke-width: 1.5; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+    </style>
+    <marker id="ah" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#1a3a5c" /></marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">軸の代表値のみ表示・折れ線は傾向を示す</text>
+  <text class="t-axis" x="12" y="38">細骨材率（%）</text>
+  <line class="line-grid" x1="70" y1="300" x2="340" y2="300" />
+  <text class="t-axis" x="62" y="304" text-anchor="end">34</text>
+  <line class="line-grid" x1="70" y1="240" x2="340" y2="240" />
+  <text class="t-axis" x="62" y="244" text-anchor="end">40</text>
+  <line class="line-grid" x1="70" y1="180" x2="340" y2="180" />
+  <text class="t-axis" x="62" y="184" text-anchor="end">46</text>
+  <line class="line-grid" x1="70" y1="120" x2="340" y2="120" />
+  <text class="t-axis" x="62" y="124" text-anchor="end">52</text>
+  <line class="line-grid" x1="70" y1="60" x2="340" y2="60" />
+  <text class="t-axis" x="62" y="64" text-anchor="end">58</text>
+  <text class="t-axis" x="70" y="318" text-anchor="middle">6</text>
+  <text class="t-axis" x="137.5" y="318" text-anchor="middle">10</text>
+  <text class="t-axis" x="205" y="318" text-anchor="middle">14</text>
+  <text class="t-axis" x="272.5" y="318" text-anchor="middle">18</text>
+  <text class="t-axis" x="340" y="318" text-anchor="middle">22</text>
+  <rect x="70" y="60" width="270" height="240" fill="none" class="line-axis" />
+  <polyline class="line-thin" points="103.8,180 221.9,180 323.1,144" />
+  <circle cx="323.1" cy="144" r="3" fill="#2e6da4" />
+  <text class="t-label" x="331.1" y="148">65 %</text>
+  <polyline class="line-thin" points="103.8,195 221.9,195 323.1,159" />
+  <circle cx="323.1" cy="159" r="3" fill="#2e6da4" />
+  <text class="t-label" x="331.1" y="163">60 %</text>
+  <polyline class="line-thin" points="103.8,210 221.9,210 323.1,174" />
+  <circle cx="323.1" cy="174" r="3" fill="#2e6da4" />
+  <text class="t-label" x="331.1" y="178">55 %</text>
+  <polyline class="line-thin" points="103.8,225 221.9,231 323.1,195" />
+  <circle cx="323.1" cy="195" r="3" fill="#2e6da4" />
+  <text class="t-label" x="331.1" y="199">50 %</text>
+  <polyline class="line-thin" points="103.8,245 221.9,251 323.1,215" />
+  <circle cx="323.1" cy="215" r="3" fill="#2e6da4" />
+  <text class="t-label" x="331.1" y="219">45 %</text>
+  <polyline class="line-thin" points="103.8,270 221.9,276 323.1,240" />
+  <circle cx="323.1" cy="240" r="3" fill="#2e6da4" />
+  <text class="t-label" x="331.1" y="244">40 %</text>
+  <text class="t-lead" x="205" y="336" text-anchor="middle">スランプ（cm）</text>
+  <text class="t-label" x="76" y="78">線の脇：水セメント比 W/C</text>
+  <text class="t-desc" x="76" y="94">（砕石コンクリートの目安の傾向）</text>
+  <rect class="box-b" x="20" y="358" width="360" height="126" rx="6" />
+  <text class="t-label" x="34" y="380">読み取りの要点</text>
+  <text class="t-desc" x="34" y="402">・W/C が大きいほど、細骨材率は高い側に並ぶ</text>
+  <text class="t-desc" x="34" y="422">・スランプが大きいほど、細骨材率は高くなる傾向</text>
+  <text class="t-desc" x="34" y="442">・ただし「常に大きくすればよい」わけではない。</text>
+  <text class="t-desc" x="34" y="458">　骨材・空気量・混和剤などを踏まえて決める</text>
+</svg>

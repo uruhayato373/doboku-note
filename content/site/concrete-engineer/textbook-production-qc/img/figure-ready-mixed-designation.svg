@@ -1,0 +1,80 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート技士教材のレディーミクストコンクリートの呼び方。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="レディーミクストコンクリートの呼び方「普通 27 18 20 N」を5要素に分解した図。コンクリートの種類は普通、呼び強度は27、スランプは18cm、粗骨材の最大寸法は20mm、セメントの種類Nは普通ポルトランドセメントを表す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-big   { font-size: 16px; font-weight: 700; fill: #1a3a5c; }
+      .t-red   { font-size: 11px; fill: #b22234; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-thin { stroke: #2e6da4; stroke-width: 1.5; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-axis { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .line-grid { stroke: #d7d7d7; stroke-width: 1; fill: none; }
+      .line-red  { stroke: #b22234; stroke-width: 1.5; fill: none; }
+      .line-arrow{ stroke: #1a3a5c; stroke-width: 1.5; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+    </style>
+    <marker id="ah" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#1a3a5c" /></marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">呼び方の例：普通 27 18 20 N</text>
+  <text class="t-lead" x="200" y="38" text-anchor="middle">左から順に、注文時に必ず指定する5要素</text>
+  <rect class="box-b" x="24" y="50" width="48" height="56" rx="6" />
+  <text class="t-big" x="48" y="85" text-anchor="middle">普通</text>
+  <circle cx="48" cy="128" r="11" fill="#2e6da4" />
+  <text x="48" y="132" text-anchor="middle" style="font-size:11px;fill:#fff;font-weight:700">1</text>
+  <rect class="box-b" x="100" y="50" width="48" height="56" rx="6" />
+  <text class="t-big" x="124" y="85" text-anchor="middle">27</text>
+  <circle cx="124" cy="128" r="11" fill="#2e6da4" />
+  <text x="124" y="132" text-anchor="middle" style="font-size:11px;fill:#fff;font-weight:700">2</text>
+  <rect class="box-b" x="176" y="50" width="48" height="56" rx="6" />
+  <text class="t-big" x="200" y="85" text-anchor="middle">18</text>
+  <circle cx="200" cy="128" r="11" fill="#2e6da4" />
+  <text x="200" y="132" text-anchor="middle" style="font-size:11px;fill:#fff;font-weight:700">3</text>
+  <rect class="box-b" x="252" y="50" width="48" height="56" rx="6" />
+  <text class="t-big" x="276" y="85" text-anchor="middle">20</text>
+  <circle cx="276" cy="128" r="11" fill="#2e6da4" />
+  <text x="276" y="132" text-anchor="middle" style="font-size:11px;fill:#fff;font-weight:700">4</text>
+  <rect class="box-b" x="328" y="50" width="48" height="56" rx="6" />
+  <text class="t-big" x="352" y="85" text-anchor="middle">N</text>
+  <circle cx="352" cy="128" r="11" fill="#2e6da4" />
+  <text x="352" y="132" text-anchor="middle" style="font-size:11px;fill:#fff;font-weight:700">5</text>
+  <text class="t-lead" x="20" y="166">要素の読み方</text>
+  <rect class="box" x="20" y="180" width="360" height="34" rx="6" />
+  <circle cx="42" cy="197" r="11" fill="#2e6da4" />
+  <text x="42" y="201" text-anchor="middle" style="font-size:11px;fill:#fff;font-weight:700">1</text>
+  <text class="t-label" x="62" y="201">コンクリートの種類：普通コンクリート</text>
+  <rect class="box" x="20" y="222" width="360" height="34" rx="6" />
+  <circle cx="42" cy="239" r="11" fill="#2e6da4" />
+  <text x="42" y="243" text-anchor="middle" style="font-size:11px;fill:#fff;font-weight:700">2</text>
+  <text class="t-label" x="62" y="243">呼び強度：27（購入者が指定する強度区分）</text>
+  <rect class="box" x="20" y="264" width="360" height="34" rx="6" />
+  <circle cx="42" cy="281" r="11" fill="#2e6da4" />
+  <text x="42" y="285" text-anchor="middle" style="font-size:11px;fill:#fff;font-weight:700">3</text>
+  <text class="t-label" x="62" y="285">スランプ：18 cm</text>
+  <rect class="box" x="20" y="306" width="360" height="34" rx="6" />
+  <circle cx="42" cy="323" r="11" fill="#2e6da4" />
+  <text x="42" y="327" text-anchor="middle" style="font-size:11px;fill:#fff;font-weight:700">4</text>
+  <text class="t-label" x="62" y="327">粗骨材の最大寸法：20 mm</text>
+  <rect class="box" x="20" y="348" width="360" height="34" rx="6" />
+  <circle cx="42" cy="365" r="11" fill="#2e6da4" />
+  <text x="42" y="369" text-anchor="middle" style="font-size:11px;fill:#fff;font-weight:700">5</text>
+  <text class="t-label" x="62" y="369">セメントの種類：N ＝ 普通ポルトランドセメント</text>
+
+  <rect class="box-w" x="20" y="394" width="360" height="90" rx="6" />
+  <text class="t-label" x="34" y="416">呼び方は購入者と生産者が条件を共有する記号</text>
+  <text class="t-desc" x="34" y="438">・記号は暗記せず、指定する品質・材料条件として読む</text>
+  <text class="t-desc" x="34" y="458">・呼び強度は注文の区分で、製造時の目標である</text>
+  <text class="t-desc" x="34" y="474">　配合強度とは別の概念</text>
+</svg>

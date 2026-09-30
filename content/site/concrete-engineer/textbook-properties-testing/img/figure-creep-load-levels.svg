@@ -1,0 +1,49 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート技士教材のクリープと持続荷重。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="荷重持続時間と変形量の関係を4本の曲線で示した定性図。破壊荷重の95%と85%は変形が増え続けて破壊に至り、50%と30%は頭打ちになり破壊に至らない">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-head  { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-ar { stroke: #555; stroke-width: 1.5; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .crack { stroke: #b22234; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">定性図（数値なし・傾向を示す）</text>
+  <line class="line-dash" x1="50" y1="330" x2="370" y2="330" />
+  <line class="line-dash" x1="50" y1="50" x2="50" y2="330" />
+  <text class="t-axis" x="54" y="44">クリープによる変形量</text>
+  <text class="t-axis" x="370" y="350" text-anchor="end">荷重持続時間</text>
+  <path class="crack" d="M50,215 C70,190 100,180 140,172 L190,160 C215,155 232,130 240,90" />
+  <path class="crack" d="M50,235 C70,215 100,208 140,202 L230,190 C270,184 300,160 318,115" />
+  <path class="line-main" d="M50,262 C80,245 120,238 160,234 C220,228 280,226 360,225" />
+  <path class="line-main" d="M50,285 C80,272 120,268 160,265 C220,262 280,261 360,260" />
+  <path d="M235,85 L245,95 M245,85 L235,95" stroke="#b22234" stroke-width="2.5" fill="none" />
+  <path d="M313,110 L323,120 M323,110 L313,120" stroke="#b22234" stroke-width="2.5" fill="none" />
+  <text class="t-label" x="250" y="88">破壊</text>
+  <text class="t-label" x="328" y="119">破壊</text>
+  <text class="t-label" x="230" y="78" text-anchor="end">破壊荷重の95%</text>
+  <text class="t-label" x="394" y="146" text-anchor="end">破壊荷重の85%</text>
+  <text class="t-label" x="362" y="216" text-anchor="end">破壊荷重の50%</text>
+  <text class="t-label" x="362" y="250" text-anchor="end">破壊荷重の30%</text>
+  <rect class="box" x="20" y="378" width="360" height="96" rx="6" />
+  <text class="t-head" x="34" y="400">荷重が大きい（破壊荷重の85〜95%）</text>
+  <text class="t-desc" x="34" y="418">変形が増え続け、やがて破壊に至る</text>
+  <text class="t-head" x="34" y="444">荷重が小さい（破壊荷重の30〜50%）</text>
+  <text class="t-desc" x="34" y="462">変形は頭打ちとなり、破壊に至らない</text>
+
+</svg>

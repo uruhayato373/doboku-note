@@ -1,0 +1,93 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート技士教材のフレッシュコンクリートの材料分離。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="砂利が多く固い生コンは砂利が均一に分布し、モルタルが多く軟らかい生コンは砂利が下へ沈んで分離することを2枠の断面で対比した図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-head  { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-ar { stroke: #555; stroke-width: 1.5; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .crack { stroke: #b22234; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">固い生コンと軟らかい生コンの断面（模式図）</text>
+  <text class="t-head" x="105" y="46" text-anchor="middle">固い生コン</text>
+  <text class="t-head" x="295" y="46" text-anchor="middle">軟らかい生コン</text>
+  <rect class="box-b" x="20" y="58" width="170" height="230" rx="3" />
+  <rect class="box-b" x="210" y="58" width="170" height="230" rx="3" />
+  <circle cx="40.0" cy="78" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="70.0" cy="78" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="100.0" cy="78" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="130.0" cy="78" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="160.0" cy="78" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="47.5" cy="109" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="77.5" cy="109" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="107.5" cy="109" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="137.5" cy="109" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="167.5" cy="109" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="40.0" cy="140" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="70.0" cy="140" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="100.0" cy="140" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="130.0" cy="140" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="160.0" cy="140" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="47.5" cy="171" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="77.5" cy="171" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="107.5" cy="171" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="137.5" cy="171" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="167.5" cy="171" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="40.0" cy="202" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="70.0" cy="202" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="100.0" cy="202" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="130.0" cy="202" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="160.0" cy="202" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="47.5" cy="233" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="77.5" cy="233" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="107.5" cy="233" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="137.5" cy="233" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="167.5" cy="233" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="40.0" cy="264" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="70.0" cy="264" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="100.0" cy="264" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="130.0" cy="264" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="160.0" cy="264" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="250" cy="88" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="330" cy="100" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="290" cy="134" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="238" cy="190" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="270" cy="214" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="302" cy="204" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="336" cy="196" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="234" cy="240" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="262" cy="254" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="292" cy="246" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="322" cy="254" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="352" cy="244" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="248" cy="272" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="277" cy="276" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="306" cy="274" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="335" cy="274" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <line class="line-ar" x1="275" y1="142" x2="275" y2="176" marker-end="url(#ar)" />
+  <line class="line-ar" x1="335" y1="142" x2="335" y2="176" marker-end="url(#ar)" />
+  <text class="t-label" x="105" y="310" text-anchor="middle">砂利が均一に分布</text>
+  <text class="t-label" x="295" y="310" text-anchor="middle">砂利が下へ沈み分離</text>
+  <text class="t-desc" x="105" y="328" text-anchor="middle">（砂利が多い）</text>
+  <text class="t-desc" x="295" y="328" text-anchor="middle">（モルタルが多い）</text>
+  <rect class="box-w" x="20" y="350" width="360" height="100" rx="6" />
+  <text class="t-label" x="200" y="376" text-anchor="middle">軟らかすぎると粗骨材が沈降し、</text>
+  <text class="t-label" x="200" y="396" text-anchor="middle">上部にモルタルや水が浮く（材料分離）</text>
+  <text class="t-desc" x="200" y="424" text-anchor="middle">適度な軟らかさと粘りのバランスが必要</text>
+
+</svg>

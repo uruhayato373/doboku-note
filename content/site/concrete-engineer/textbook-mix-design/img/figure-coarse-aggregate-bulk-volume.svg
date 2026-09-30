@@ -1,0 +1,94 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート技士教材の配合設計の単位粗骨材かさ容積。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="コンクリート1m3の断面の模式図。粗骨材のかさ容積0.60m3は粒と粒間のすき間を合わせた容積で、残り0.40m3はモルタルなど。絶対容積はかさ容積に実積率を乗じて求める">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-big   { font-size: 16px; font-weight: 700; fill: #1a3a5c; }
+      .t-red   { font-size: 11px; fill: #b22234; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-thin { stroke: #2e6da4; stroke-width: 1.5; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-axis { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .line-grid { stroke: #d7d7d7; stroke-width: 1; fill: none; }
+      .line-red  { stroke: #b22234; stroke-width: 1.5; fill: none; }
+      .line-arrow{ stroke: #1a3a5c; stroke-width: 1.5; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+    </style>
+    <marker id="ah" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#1a3a5c" /></marker>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">コンクリート1 m³の断面（模式的に分けて描く）</text>
+  <rect x="100" y="50" width="130" height="96" class="box-b" />
+  <rect x="100" y="146" width="130" height="144" class="box" />
+  <circle cx="112" cy="154" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="133" cy="154" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="154" cy="154" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="175" cy="154" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="196" cy="154" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="217" cy="154" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="118" cy="174" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="139" cy="174" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="160" cy="174" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="181" cy="174" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="202" cy="174" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="112" cy="194" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="133" cy="194" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="154" cy="194" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="175" cy="194" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="196" cy="194" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="217" cy="194" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="118" cy="214" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="139" cy="214" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="160" cy="214" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="181" cy="214" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="202" cy="214" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="112" cy="234" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="133" cy="234" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="154" cy="234" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="175" cy="234" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="196" cy="234" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="217" cy="234" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="118" cy="254" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="139" cy="254" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="160" cy="254" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="181" cy="254" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="202" cy="254" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="112" cy="274" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="133" cy="274" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="154" cy="274" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="175" cy="274" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="196" cy="274" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <circle cx="217" cy="274" r="8" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1" />
+  <rect x="100" y="50" width="130" height="240" fill="none" stroke="#1a3a5c" stroke-width="2" />
+  <line class="line-dash" x1="92" y1="146" x2="236" y2="146" />
+  <text class="t-label" x="165" y="104" text-anchor="middle">モルタルなど</text>
+  <line class="line-axis" x1="240" y1="52" x2="240" y2="144" />
+  <line class="line-axis" x1="240" y1="148" x2="240" y2="288" />
+  <text class="t-label" x="248" y="94">0.40 m³</text>
+  <text class="t-desc" x="248" y="110">モルタルなど</text>
+  <text class="t-label" x="248" y="206">0.60 m³</text>
+  <text class="t-desc" x="248" y="222">粗骨材のかさ容積</text>
+  <text class="t-desc" x="248" y="238">（粒＋粒間）</text>
+  <text class="t-axis" x="92" y="180" text-anchor="end">粒間に</text>
+  <text class="t-axis" x="92" y="194" text-anchor="end">モルタルが</text>
+  <text class="t-axis" x="92" y="208" text-anchor="end">入る</text>
+  <text class="t-lead" x="20" y="316">単位粗骨材かさ容積 ＝ 0.60 m³/m³</text>
+  <rect class="box" x="20" y="326" width="360" height="158" rx="6" />
+  <text class="t-label" x="34" y="350">コンクリート1 m³ に使う粗骨材の、</text>
+  <text class="t-label" x="34" y="368">粒と粒間のすき間を含めたかさの容積</text>
+  <text class="t-desc" x="34" y="394">・空の容器の6割まで詰めるという意味ではない</text>
+  <text class="t-desc" x="34" y="412">・粒間のすき間にはモルタルが入る</text>
+  <text class="t-label" x="34" y="440">絶対容積 ＝ かさ容積 × 実積率</text>
+  <text class="t-desc" x="34" y="458">実積率：容器に詰めた粗骨材のうち</text>
+  <text class="t-desc" x="34" y="474">粒そのものが占める割合</text>
+</svg>

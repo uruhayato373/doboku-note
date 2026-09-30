@@ -1,0 +1,42 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート技士教材のアルカリシリカ反応によるひび割れの出方。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="ASRのひび割れの違い。強く拘束される柱・梁では軸方向のひび割れと亀甲状のひび割れが併存し、拘束の小さい壁では亀甲状のひび割れが現れる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-label { font-size: 12px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .crack-main { stroke: #b22234; stroke-width: 3; fill: none; stroke-linecap: round; }
+      .crack { stroke: #b22234; stroke-width: 1.5; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .mem { fill: #f5f5f5; stroke: #555; stroke-width: 1.5; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">拘束の強さで、ひび割れの出方が変わる（模式図）</text>
+
+  <text class="t-label" x="20" y="44">拘束が強い：柱・梁</text>
+  <rect class="mem" x="30" y="56" width="60" height="180" />
+  <rect class="mem" x="90" y="56" width="280" height="50" />
+  <path class="crack-main" d="M58,60 L62,110 L56,160 L61,200 L58,232" />
+  <path class="crack-main" d="M94,82 C150,76 200,90 250,80 S330,84 366,80" />
+  <path class="crack" d="M36,90 L52,100 M84,88 L66,104 M36,140 L54,150 M84,130 L68,146 M38,190 L55,200 M84,180 L66,196 M46,218 L56,208" />
+  <path class="crack" d="M110,62 L124,80 M150,100 L160,82 M190,64 L204,84 M236,102 L246,82 M280,62 L292,80 M320,102 L332,84" />
+  <text class="t-desc" x="100" y="136">軸方向の太いひび割れ</text>
+  <text class="t-desc" x="100" y="152">＋亀甲状の細かいひび割れ</text>
+  <text class="t-desc" x="100" y="168">が併存しやすい</text>
+
+  <text class="t-label" x="20" y="272">拘束が小さい：壁</text>
+  <rect class="mem" x="30" y="284" width="340" height="110" />
+  <path class="crack" d="M50,300 L110,322 L100,372 M110,322 L180,304 L230,330 L220,384 M230,330 L300,310 L350,340 L330,384 M100,372 L160,360 L220,384 M160,360 L180,304 M300,310 L330,384 M60,384 L100,372 M250,290 L230,330" />
+  <text class="t-desc" x="200" y="416" text-anchor="middle">亀甲状（網目状）のひび割れが主体</text>
+
+  <rect class="box-w" x="20" y="430" width="360" height="56" rx="6" />
+  <text class="t-desc" x="32" y="452">原因は骨材中の反応性シリカとセメント中のアルカリ</text>
+  <text class="t-desc" x="32" y="472">が生じる膨張性ゲル。拘束の違いが形に表れる</text>
+</svg>

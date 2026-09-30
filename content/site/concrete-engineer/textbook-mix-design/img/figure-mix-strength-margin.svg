@@ -1,0 +1,63 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート技士教材の配合設計の呼び強度と配合強度（割増し）。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="呼び強度を中心とした分布（破線）と、割増しだけ右にずらした配合強度の分布（実線）。呼び強度を下回る裾の確率は約0.6％で、配合強度は呼び強度に割増しを加えた値であることを示す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-big   { font-size: 16px; font-weight: 700; fill: #1a3a5c; }
+      .t-red   { font-size: 11px; fill: #b22234; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-thin { stroke: #2e6da4; stroke-width: 1.5; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-axis { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .line-grid { stroke: #d7d7d7; stroke-width: 1; fill: none; }
+      .line-red  { stroke: #b22234; stroke-width: 1.5; fill: none; }
+      .line-arrow{ stroke: #1a3a5c; stroke-width: 1.5; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+    </style>
+    <marker id="ah" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#1a3a5c" /></marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">横軸＝強度、縦軸＝頻度（数値なし・分布の形を示す）</text>
+  <line class="line-axis" x1="30" y1="250" x2="375" y2="250" />
+  <text class="t-axis" x="375" y="240" text-anchor="end">強度</text>
+  <path d="M40,250 L40,250 L45,250 L50,250 L55,250 L60,250 L65,250 L70,250 L75,250 L80,250 L85,250 L90,250 L95,250 L100,250 L105,250 L110,249.9 L115,249.9 L120,249.7 L125,249.5 L130,249.2 L135,248.7 L140,247.8 L145,246.6 L150,244.7 L150,244.7 L150,250 Z" fill="#f8d7da" stroke="none" />
+  <path class="line-dash" d="M40,249.9 L45,249.7 L50,249.5 L55,249.2 L60,248.7 L65,247.8 L70,246.6 L75,244.7 L80,242.1 L85,238.5 L90,233.8 L95,227.6 L100,220.1 L105,211 L110,200.7 L115,189.2 L120,177.2 L125,165.2 L130,153.9 L135,144.1 L140,136.5 L145,131.7 L150,130 L155,131.7 L160,136.5 L165,144.1 L170,153.9 L175,165.2 L180,177.2 L185,189.2 L190,200.7 L195,211 L200,220.1 L205,227.6 L210,233.8 L215,238.5 L220,242.1 L225,244.7 L230,246.6 L235,247.8 L240,248.7 L245,249.2 L250,249.5 L255,249.7 L260,249.9 L265,249.9" />
+  <path class="line-main" d="M100,250 L105,250 L110,249.9 L115,249.9 L120,249.7 L125,249.5 L130,249.2 L135,248.7 L140,247.8 L145,246.6 L150,244.7 L155,242.1 L160,238.5 L165,233.8 L170,227.6 L175,220.1 L180,211 L185,200.7 L190,189.2 L195,177.2 L200,165.2 L205,153.9 L210,144.1 L215,136.5 L220,131.7 L225,130 L230,131.7 L235,136.5 L240,144.1 L245,153.9 L250,165.2 L255,177.2 L260,189.2 L265,200.7 L270,211 L275,220.1 L280,227.6 L285,233.8 L290,238.5 L295,242.1 L300,244.7 L305,246.6 L310,247.8 L315,248.7 L320,249.2 L325,249.5 L330,249.7 L335,249.9 L340,249.9 L345,250" />
+  <path class="line-main" d="M40,250 L45,250 L50,250 L55,250 L60,250 L65,250 L70,250 L75,250 L80,250 L85,250 L90,250 L95,250 L100,250" />
+  <line class="line-dash" x1="150" y1="60" x2="150" y2="250" />
+  <line class="line-dash" x1="225" y1="60" x2="225" y2="250" />
+  <line class="line-arrow" x1="150" y1="72" x2="223" y2="72" marker-end="url(#ah)" />
+  <text class="t-label" x="188" y="62" text-anchor="middle">割増し（例：2.5σ）</text>
+  <text class="t-label" x="150" y="270" text-anchor="middle">呼び強度</text>
+  <text class="t-label" x="230" y="270" text-anchor="middle">配合強度</text>
+  <line class="line-red" x1="104" y1="232" x2="140" y2="247" />
+  <text class="t-red" x="40" y="200">呼び強度を</text>
+  <text class="t-red" x="40" y="214">下回る確率</text>
+  <text class="t-red" x="40" y="228">約 0.6 %</text>
+  <text class="t-desc" x="295" y="120">実線：配合強度</text>
+  <text class="t-desc" x="295" y="134">を中心とする</text>
+  <text class="t-desc" x="295" y="148">強度の分布</text>
+  <text class="t-desc" x="60" y="120">破線：呼び強度</text>
+  <text class="t-desc" x="60" y="134">を中心とした</text>
+  <text class="t-desc" x="60" y="148">場合の分布</text>
+  <text class="t-lead" x="20" y="306">割増しの考え方</text>
+  <rect class="box" x="20" y="312" width="360" height="172" rx="6" />
+  <rect class="box-b" x="34" y="326" width="332" height="34" rx="6" />
+  <text class="t-label" x="200" y="348" text-anchor="middle">配合強度 ＝ 呼び強度 ＋ 割増し</text>
+  <text class="t-desc" x="34" y="384">・試験値は材料や練混ぜでばらつく</text>
+  <text class="t-desc" x="34" y="404">・呼び強度を狙うだけでは、下回る試験値が出やすい</text>
+  <text class="t-desc" x="34" y="424">・分布ごと右へずらし、下回る確率を小さく抑える</text>
+  <text class="t-desc" x="34" y="444">・割増し（σの倍数）を大きくするほど、下回る確率は</text>
+  <text class="t-desc" x="34" y="460">　小さくなる。配合強度は常に呼び強度以上になる</text>
+</svg>

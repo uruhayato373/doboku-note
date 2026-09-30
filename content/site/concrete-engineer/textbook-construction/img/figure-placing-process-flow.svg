@@ -1,0 +1,65 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート技士教材の施工の流れ。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="生コン製造、積込み、運搬、荷卸し、受入試験、打設、養生の7工程を矢印で連結したフロー。受入試験は荷卸し直後の品質確認ポイントとして強調">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-head  { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-ar { stroke: #555; stroke-width: 1.5; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .crack { stroke: #b22234; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">コンクリート構造物ができるまで</text>
+  <rect class="box-b" x="60" y="34" width="200" height="36" rx="6" />
+  <circle cx="84" cy="52" r="11" fill="#fff" stroke="#2e6da4" stroke-width="1.5" />
+  <text class="t-label" x="84" y="56" text-anchor="middle">1</text>
+  <text class="t-head" x="164" y="57" text-anchor="middle">生コン製造</text>
+  <line class="line-ar" x1="160" y1="70" x2="160" y2="92" marker-end="url(#ar)" />
+  <rect class="box-b" x="60" y="92" width="200" height="36" rx="6" />
+  <circle cx="84" cy="110" r="11" fill="#fff" stroke="#2e6da4" stroke-width="1.5" />
+  <text class="t-label" x="84" y="114" text-anchor="middle">2</text>
+  <text class="t-head" x="164" y="115" text-anchor="middle">積込み</text>
+  <line class="line-ar" x1="160" y1="128" x2="160" y2="150" marker-end="url(#ar)" />
+  <rect class="box-b" x="60" y="150" width="200" height="36" rx="6" />
+  <circle cx="84" cy="168" r="11" fill="#fff" stroke="#2e6da4" stroke-width="1.5" />
+  <text class="t-label" x="84" y="172" text-anchor="middle">3</text>
+  <text class="t-head" x="164" y="173" text-anchor="middle">運搬</text>
+  <line class="line-ar" x1="160" y1="186" x2="160" y2="208" marker-end="url(#ar)" />
+  <rect class="box-b" x="60" y="208" width="200" height="36" rx="6" />
+  <circle cx="84" cy="226" r="11" fill="#fff" stroke="#2e6da4" stroke-width="1.5" />
+  <text class="t-label" x="84" y="230" text-anchor="middle">4</text>
+  <text class="t-head" x="164" y="231" text-anchor="middle">荷卸し</text>
+  <line class="line-ar" x1="160" y1="244" x2="160" y2="266" marker-end="url(#ar)" />
+  <rect class="box-w" x="60" y="266" width="200" height="36" rx="6" />
+  <circle cx="84" cy="284" r="11" fill="#fff" stroke="#d4a017" stroke-width="1.5" />
+  <text class="t-label" x="84" y="288" text-anchor="middle">5</text>
+  <text class="t-head" x="164" y="289" text-anchor="middle">受入試験</text>
+  <line class="line-ar" x1="160" y1="302" x2="160" y2="324" marker-end="url(#ar)" />
+  <rect class="box-b" x="60" y="324" width="200" height="36" rx="6" />
+  <circle cx="84" cy="342" r="11" fill="#fff" stroke="#2e6da4" stroke-width="1.5" />
+  <text class="t-label" x="84" y="346" text-anchor="middle">6</text>
+  <text class="t-head" x="164" y="347" text-anchor="middle">打設</text>
+  <line class="line-ar" x1="160" y1="360" x2="160" y2="382" marker-end="url(#ar)" />
+  <rect class="box-b" x="60" y="382" width="200" height="36" rx="6" />
+  <circle cx="84" cy="400" r="11" fill="#fff" stroke="#2e6da4" stroke-width="1.5" />
+  <text class="t-label" x="84" y="404" text-anchor="middle">7</text>
+  <text class="t-head" x="164" y="405" text-anchor="middle">養生</text>
+  <text class="t-label" x="272" y="282">荷卸し直後に</text>
+  <text class="t-label" x="272" y="298">品質を確認</text>
+  <text class="t-desc" x="200" y="462" text-anchor="middle">受入試験に合格した生コンだけを打設する</text>
+
+</svg>

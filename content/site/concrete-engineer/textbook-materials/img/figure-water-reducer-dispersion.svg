@@ -1,0 +1,87 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート技士教材の減水剤によるセメント粒子の分散。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="セメント粒子が密集した状態から、減水剤が粒子表面に吸着し、粒子同士が電気的に反発して分散する3段階。拘束されていた水が放出され、少ない水で同じ施工性が得られる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-head  { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-warn  { font-size: 11px; fill: #b22234; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-ax { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .arr { stroke: #2e6da4; stroke-width: 1.5; fill: none; marker-end: url(#ah); }
+      .arr-d { stroke: #b22234; stroke-width: 1.5; fill: none; marker-end: url(#ahd); }
+      .arr-g { stroke: #3a7d44; stroke-width: 1.5; fill: none; marker-end: url(#ahg); }
+    </style>
+    <marker id="ah" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ahd" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="ahg" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+  </defs>
+<text class="t-lead" x="200" y="18" text-anchor="middle">減水剤は粒子を分散させ、拘束されていた水を解放する</text>
+<rect class="box" x="16" y="30" width="368" height="130" rx="6"/>
+<text class="t-head" x="26" y="50">1　セメント粒子が密集</text>
+<circle cx="150" cy="96" r="12" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5"/>
+<circle cx="178" cy="92" r="12" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5"/>
+<circle cx="206" cy="98" r="12" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5"/>
+<circle cx="164" cy="118" r="12" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5"/>
+<circle cx="192" cy="118" r="12" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5"/>
+<circle cx="220" cy="118" r="12" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5"/>
+<circle cx="178" cy="70" r="12" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5"/>
+<circle cx="206" cy="74" r="12" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5"/>
+<text class="t-desc" x="26" y="152">粒子が塊になり、内部に水を抱え込む</text>
+<rect class="box-b" x="16" y="170" width="368" height="130" rx="6"/>
+<text class="t-head" x="26" y="190">2　減水剤が粒子表面に吸着</text>
+<circle cx="150" cy="236" r="15" fill="none" stroke="#b22234" stroke-width="1" stroke-dasharray="2 2"/>
+<circle cx="150" cy="236" r="12" fill="#f5f5f5" stroke="#b22234" stroke-width="2.4"/>
+<circle cx="178" cy="232" r="15" fill="none" stroke="#b22234" stroke-width="1" stroke-dasharray="2 2"/>
+<circle cx="178" cy="232" r="12" fill="#f5f5f5" stroke="#b22234" stroke-width="2.4"/>
+<circle cx="206" cy="238" r="15" fill="none" stroke="#b22234" stroke-width="1" stroke-dasharray="2 2"/>
+<circle cx="206" cy="238" r="12" fill="#f5f5f5" stroke="#b22234" stroke-width="2.4"/>
+<circle cx="164" cy="258" r="15" fill="none" stroke="#b22234" stroke-width="1" stroke-dasharray="2 2"/>
+<circle cx="164" cy="258" r="12" fill="#f5f5f5" stroke="#b22234" stroke-width="2.4"/>
+<circle cx="192" cy="258" r="15" fill="none" stroke="#b22234" stroke-width="1" stroke-dasharray="2 2"/>
+<circle cx="192" cy="258" r="12" fill="#f5f5f5" stroke="#b22234" stroke-width="2.4"/>
+<circle cx="220" cy="258" r="15" fill="none" stroke="#b22234" stroke-width="1" stroke-dasharray="2 2"/>
+<circle cx="220" cy="258" r="12" fill="#f5f5f5" stroke="#b22234" stroke-width="2.4"/>
+<circle cx="178" cy="210" r="15" fill="none" stroke="#b22234" stroke-width="1" stroke-dasharray="2 2"/>
+<circle cx="178" cy="210" r="12" fill="#f5f5f5" stroke="#b22234" stroke-width="2.4"/>
+<circle cx="206" cy="214" r="15" fill="none" stroke="#b22234" stroke-width="1" stroke-dasharray="2 2"/>
+<circle cx="206" cy="214" r="12" fill="#f5f5f5" stroke="#b22234" stroke-width="2.4"/>
+<text class="t-desc" x="26" y="292">表面が同じ電荷を帯びる</text>
+<rect class="box-b" x="16" y="310" width="368" height="130" rx="6"/>
+<text class="t-head" x="26" y="330">3　粒子が反発して分散</text>
+<circle cx="100" cy="362" r="15" fill="none" stroke="#b22234" stroke-width="1" stroke-dasharray="2 2"/>
+<circle cx="100" cy="362" r="12" fill="#f5f5f5" stroke="#b22234" stroke-width="2.4"/>
+<circle cx="160" cy="388" r="15" fill="none" stroke="#b22234" stroke-width="1" stroke-dasharray="2 2"/>
+<circle cx="160" cy="388" r="12" fill="#f5f5f5" stroke="#b22234" stroke-width="2.4"/>
+<circle cx="220" cy="360" r="15" fill="none" stroke="#b22234" stroke-width="1" stroke-dasharray="2 2"/>
+<circle cx="220" cy="360" r="12" fill="#f5f5f5" stroke="#b22234" stroke-width="2.4"/>
+<circle cx="280" cy="380" r="15" fill="none" stroke="#b22234" stroke-width="1" stroke-dasharray="2 2"/>
+<circle cx="280" cy="380" r="12" fill="#f5f5f5" stroke="#b22234" stroke-width="2.4"/>
+<circle cx="130" cy="402" r="15" fill="none" stroke="#b22234" stroke-width="1" stroke-dasharray="2 2"/>
+<circle cx="130" cy="402" r="12" fill="#f5f5f5" stroke="#b22234" stroke-width="2.4"/>
+<circle cx="250" cy="402" r="15" fill="none" stroke="#b22234" stroke-width="1" stroke-dasharray="2 2"/>
+<circle cx="250" cy="402" r="12" fill="#f5f5f5" stroke="#b22234" stroke-width="2.4"/>
+<circle cx="190" cy="370" r="15" fill="none" stroke="#b22234" stroke-width="1" stroke-dasharray="2 2"/>
+<circle cx="190" cy="370" r="12" fill="#f5f5f5" stroke="#b22234" stroke-width="2.4"/>
+<circle cx="310" cy="356" r="15" fill="none" stroke="#b22234" stroke-width="1" stroke-dasharray="2 2"/>
+<circle cx="310" cy="356" r="12" fill="#f5f5f5" stroke="#b22234" stroke-width="2.4"/>
+<text class="t-desc" x="26" y="432">離れた粒子の間に水が行き渡る</text>
+<line class="arr-d" x1="320" y1="200" x2="240" y2="224"/>
+<line class="arr-d" x1="320" y1="200" x2="236" y2="246"/>
+<text class="t-warn" x="370" y="196" text-anchor="end">減水剤</text>
+<text class="t-label" x="200" y="458" text-anchor="middle">少ない水でも粒子が動けて施工性を保てる</text>
+<text class="t-desc" x="200" y="475" text-anchor="middle">減水率の下限（JIS A6204）</text>
+<text class="t-desc" x="200" y="492" text-anchor="middle">AE減水剤は10％以上、高性能AE減水剤は18％以上</text>
+</svg>

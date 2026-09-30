@@ -1,0 +1,53 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート技士教材の鉄筋の役割。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="鉄筋なしの梁は荷重で割れて一気に破断し、鉄筋入りの梁は引張側の鉄筋が力を負担してひび割れても直ちには壊れないことを上下2段で対比した図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-head  { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-ar { stroke: #555; stroke-width: 1.5; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .crack { stroke: #b22234; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">梁の側面図（荷重を受けた状態の模式図）</text>
+  <rect class="box" x="20" y="28" width="360" height="210" rx="6" />
+  <text class="t-head" x="36" y="48">鉄筋なし</text>
+  <line class="line-ar" x1="200" y1="60" x2="200" y2="100" marker-end="url(#ar)" />
+  <text class="t-desc" x="210" y="82">荷重</text>
+  <rect class="box-b" x="50" y="105" width="300" height="44" rx="3" />
+  <polygon points="62,161 70,149 78,161" fill="#d7d7d7" stroke="#8a8a8a" />
+  <polygon points="322,161 330,149 338,161" fill="#d7d7d7" stroke="#8a8a8a" />
+  <path class="crack" d="M200,149 L196,136 L204,126 L198,116 L200,106" />
+  <text class="t-label" x="200" y="190" text-anchor="middle">ひび割れが一気に進み、破断する</text>
+  <text class="t-desc" x="200" y="210" text-anchor="middle">引張に弱いコンクリートだけでは耐えられない</text>
+  <rect class="box" x="20" y="255" width="360" height="230" rx="6" />
+  <text class="t-head" x="36" y="275">鉄筋あり</text>
+  <line class="line-ar" x1="200" y1="288" x2="200" y2="328" marker-end="url(#ar)" />
+  <text class="t-desc" x="210" y="310">荷重</text>
+  <rect class="box-b" x="50" y="332" width="300" height="44" rx="3" />
+  <polygon points="62,388 70,376 78,388" fill="#d7d7d7" stroke="#8a8a8a" />
+  <polygon points="322,388 330,376 338,388" fill="#d7d7d7" stroke="#8a8a8a" />
+  <text class="t-label" x="200" y="350" text-anchor="middle">圧縮側：コンクリートが負担</text>
+  <line x1="56" y1="367" x2="344" y2="367" stroke="#3a7d44" stroke-width="4" />
+  <path class="crack" d="M150,376 L147,368 L152,360" />
+  <path class="crack" d="M200,376 L197,368 L202,360" />
+  <path class="crack" d="M250,376 L247,368 L252,360" />
+  <text class="t-label" x="200" y="416" text-anchor="middle">引張側：鉄筋が負担（ひび割れは生じる）</text>
+  <text class="t-desc" x="200" y="440" text-anchor="middle">鉄筋が引張力を受け持つため</text>
+  <text class="t-desc" x="200" y="458" text-anchor="middle">ひび割れても直ちには壊れない</text>
+
+</svg>

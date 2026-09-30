@@ -1,0 +1,69 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート技士教材のブリーディング。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="ブリーディングの機構。固体が沈降して水が水みちを通り上昇し、砂利や鉄筋の下に水がたまって付着が低下し、水が通った跡は傷になり上面に弱い層ができる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-title { font-size: 12px; fill: #1a3a5c; font-weight: bold; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-ok    { font-size: 12px; fill: #3a7d44; font-weight: bold; }
+      .t-ng    { font-size: 12px; fill: #b22234; font-weight: bold; }
+      .box   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .b-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .b-ok  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .b-warn{ fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .b-ng  { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .main  { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ng    { stroke: #b22234; stroke-width: 2.5; fill: none; }
+      .dash  { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .ink   { stroke: #555; stroke-width: 1.5; fill: none; }
+    </style>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="arn" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">ブリーディングの機構（コンクリート断面の模式図）</text>
+  <rect class="box" x="40" y="44" width="200" height="260"/>
+  <rect class="b-warn" x="41" y="45" width="198" height="30"/>
+  <line class="ink" x1="40" y1="44" x2="40" y2="304"/><line class="ink" x1="240" y1="44" x2="240" y2="304"/>
+  <ellipse cx="70" cy="120" rx="12" ry="7" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1"/><ellipse cx="70" cy="129" rx="10" ry="3" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1"/>
+<ellipse cx="110" cy="96" rx="12" ry="7" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1"/><ellipse cx="110" cy="105" rx="10" ry="3" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1"/>
+<ellipse cx="180" cy="112" rx="12" ry="7" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1"/><ellipse cx="180" cy="121" rx="10" ry="3" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1"/>
+<ellipse cx="214" cy="142" rx="12" ry="7" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1"/><ellipse cx="214" cy="151" rx="10" ry="3" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1"/>
+<ellipse cx="74" cy="196" rx="12" ry="7" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1"/><ellipse cx="74" cy="205" rx="10" ry="3" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1"/>
+<ellipse cx="108" cy="240" rx="12" ry="7" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1"/><ellipse cx="108" cy="249" rx="10" ry="3" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1"/>
+<ellipse cx="186" cy="232" rx="12" ry="7" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1"/><ellipse cx="186" cy="241" rx="10" ry="3" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1"/>
+<ellipse cx="210" cy="268" rx="12" ry="7" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1"/><ellipse cx="210" cy="277" rx="10" ry="3" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1"/>
+<ellipse cx="150" cy="262" rx="12" ry="7" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1"/><ellipse cx="150" cy="271" rx="10" ry="3" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1"/>
+<ellipse cx="66" cy="272" rx="12" ry="7" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1"/><ellipse cx="66" cy="281" rx="10" ry="3" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1"/>
+<ellipse cx="130" cy="140" rx="12" ry="7" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1"/><ellipse cx="130" cy="149" rx="10" ry="3" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1"/>
+<path class="main" style="stroke-width:1" d="M78,128 L78,84" stroke-dasharray="4 3" marker-end="url(#ar)"/>
+<path class="main" style="stroke-width:1" d="M118,104 L118,80" stroke-dasharray="4 3" marker-end="url(#ar)"/>
+<path class="main" style="stroke-width:1" d="M188,120 L188,84" stroke-dasharray="4 3" marker-end="url(#ar)"/>
+<path class="main" style="stroke-width:1" d="M222,150 L222,100" stroke-dasharray="4 3" marker-end="url(#ar)"/>
+<path class="main" style="stroke-width:1" d="M82,204 L82,140" stroke-dasharray="4 3" marker-end="url(#ar)"/>
+<path class="main" style="stroke-width:1" d="M116,248 L116,150" stroke-dasharray="4 3" marker-end="url(#ar)"/>
+<path class="main" style="stroke-width:1" d="M194,240 L194,150" stroke-dasharray="4 3" marker-end="url(#ar)"/>
+<path class="main" style="stroke-width:1" d="M218,276 L218,200" stroke-dasharray="4 3" marker-end="url(#ar)"/>
+<path class="main" style="stroke-width:1" d="M158,270 L158,200" stroke-dasharray="4 3" marker-end="url(#ar)"/>
+<path class="main" style="stroke-width:1" d="M74,280 L74,210" stroke-dasharray="4 3" marker-end="url(#ar)"/>
+
+  <circle fill="#f8d7da" stroke="#b22234" stroke-width="1.5" cx="150" cy="190" r="11"/><ellipse cx="150" cy="205" rx="14" ry="4" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1"/>
+  <text class="t-label" x="252" y="64">上面の弱い層</text>
+  <line class="dash" x1="240" y1="60" x2="248" y2="60"/>
+  <text class="t-label" x="252" y="126">砂利</text><line class="dash" x1="226" y1="142" x2="248" y2="124"/>
+  <text class="t-label" x="252" y="194">鉄筋</text><line class="dash" x1="161" y1="190" x2="248" y2="190"/>
+  <text class="t-label" x="252" y="246">水のたまり</text><line class="dash" x1="196" y1="241" x2="248" y2="244"/>
+  <text class="t-label" x="252" y="280">水みち</text><line class="dash" x1="220" y1="230" x2="248" y2="277"/>
+  <rect class="b-brand" x="20" y="320" width="360" height="30" rx="6"/>
+  <text class="t-desc" x="34" y="339">1 固体が沈み、練混ぜ水の一部が上昇する</text>
+  <rect class="b-brand" x="20" y="358" width="360" height="30" rx="6"/>
+  <text class="t-desc" x="34" y="377">2 水は水みちを通って上面へ向かう</text>
+  <rect class="b-warn" x="20" y="396" width="360" height="30" rx="6"/>
+  <text class="t-desc" x="34" y="415">3 砂利・鉄筋の下に水がたまり、付着が低下</text>
+  <rect class="b-ng" x="20" y="434" width="360" height="30" rx="6"/>
+  <text class="t-desc" x="34" y="453">4 水が通った跡は傷になり、上面が弱くなる</text>
+</svg>

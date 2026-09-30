@@ -1,0 +1,47 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート技士教材のばらつきの大小と正規分布。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="同じ平均値で標準偏差が小さい場合は山が高く鋭い分布、大きい場合は山が低くなだらかな分布になる。変動係数は標準偏差を平均値で割って百分率にしたもの">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-head  { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-warn  { font-size: 11px; fill: #b22234; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-ax { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .arr { stroke: #2e6da4; stroke-width: 1.5; fill: none; marker-end: url(#ah); }
+      .arr-d { stroke: #b22234; stroke-width: 1.5; fill: none; marker-end: url(#ahd); }
+      .arr-g { stroke: #3a7d44; stroke-width: 1.5; fill: none; marker-end: url(#ahg); }
+          .dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+    </style>
+    <marker id="ah" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ahd" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="ahg" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+  </defs>
+<text class="t-lead" x="200" y="18" text-anchor="middle">平均は同じでも、ばらつきが違えば山の形が変わる</text>
+<line class="line-ax" x1="30" y1="300" x2="370" y2="300"/>
+<path d="M38.0,300.0 L41.2,300.0 L44.5,300.0 L47.7,300.0 L51.0,300.0 L54.2,300.0 L57.4,300.0 L60.7,300.0 L63.9,300.0 L67.2,300.0 L70.4,300.0 L73.6,300.0 L76.9,300.0 L80.1,300.0 L83.4,300.0 L86.6,300.0 L89.8,300.0 L93.1,299.9 L96.3,299.9 L99.6,299.8 L102.8,299.7 L106.0,299.5 L109.3,299.3 L112.5,298.9 L115.8,298.5 L119.0,297.8 L122.2,296.8 L125.5,295.6 L128.7,293.9 L132.0,291.6 L135.2,288.8 L138.4,285.1 L141.7,280.6 L144.9,275.0 L148.2,268.3 L151.4,260.4 L154.6,251.2 L157.9,240.8 L161.1,229.1 L164.4,216.3 L167.6,202.6 L170.8,188.4 L174.1,173.8 L177.3,159.5 L180.6,145.7 L183.8,132.9 L187.0,121.8 L190.3,112.5 L193.5,105.7 L196.8,101.4 L200.0,100.0 L203.2,101.4 L206.5,105.7 L209.7,112.5 L213.0,121.8 L216.2,132.9 L219.4,145.7 L222.7,159.5 L225.9,173.8 L229.2,188.4 L232.4,202.6 L235.6,216.3 L238.9,229.1 L242.1,240.8 L245.4,251.2 L248.6,260.4 L251.8,268.3 L255.1,275.0 L258.3,280.6 L261.6,285.1 L264.8,288.8 L268.0,291.6 L271.3,293.9 L274.5,295.6 L277.8,296.8 L281.0,297.8 L284.2,298.5 L287.5,298.9 L290.7,299.3 L294.0,299.5 L297.2,299.7 L300.4,299.8 L303.7,299.9 L306.9,299.9 L310.2,300.0 L313.4,300.0 L316.6,300.0 L319.9,300.0 L323.1,300.0 L326.4,300.0 L329.6,300.0 L332.8,300.0 L336.1,300.0 L339.3,300.0 L342.6,300.0 L345.8,300.0 L349.0,300.0 L352.3,300.0 L355.5,300.0 L358.8,300.0 L362.0,300.0" fill="none" stroke="#2e6da4" stroke-width="2.5"/>
+<path d="M38.0,296.0 L41.2,295.5 L44.5,294.9 L47.7,294.3 L51.0,293.6 L54.2,292.9 L57.4,292.0 L60.7,291.2 L63.9,290.2 L67.2,289.2 L70.4,288.1 L73.6,286.9 L76.9,285.6 L80.1,284.2 L83.4,282.8 L86.6,281.3 L89.8,279.6 L93.1,277.9 L96.3,276.1 L99.6,274.2 L102.8,272.3 L106.0,270.2 L109.3,268.1 L112.5,265.9 L115.8,263.7 L119.0,261.4 L122.2,259.0 L125.5,256.7 L128.7,254.2 L132.0,251.8 L135.2,249.4 L138.4,246.9 L141.7,244.5 L144.9,242.1 L148.2,239.8 L151.4,237.5 L154.6,235.2 L157.9,233.1 L161.1,231.1 L164.4,229.1 L167.6,227.3 L170.8,225.6 L174.1,224.1 L177.3,222.7 L180.6,221.5 L183.8,220.4 L187.0,219.6 L190.3,218.9 L193.5,218.4 L196.8,218.1 L200.0,218.0 L203.2,218.1 L206.5,218.4 L209.7,218.9 L213.0,219.6 L216.2,220.4 L219.4,221.5 L222.7,222.7 L225.9,224.1 L229.2,225.6 L232.4,227.3 L235.6,229.1 L238.9,231.1 L242.1,233.1 L245.4,235.2 L248.6,237.5 L251.8,239.8 L255.1,242.1 L258.3,244.5 L261.6,246.9 L264.8,249.4 L268.0,251.8 L271.3,254.2 L274.5,256.7 L277.8,259.0 L281.0,261.4 L284.2,263.7 L287.5,265.9 L290.7,268.1 L294.0,270.2 L297.2,272.3 L300.4,274.2 L303.7,276.1 L306.9,277.9 L310.2,279.6 L313.4,281.3 L316.6,282.8 L319.9,284.2 L323.1,285.6 L326.4,286.9 L329.6,288.1 L332.8,289.2 L336.1,290.2 L339.3,291.2 L342.6,292.0 L345.8,292.9 L349.0,293.6 L352.3,294.3 L355.5,294.9 L358.8,295.5 L362.0,296.0" fill="none" stroke="#d4a017" stroke-width="2.5"/>
+<line class="line-dash" x1="200" y1="90" x2="200" y2="300"/>
+<text class="t-axis" x="200" y="318" text-anchor="middle">平均値（品質水準の中心）</text>
+<text class="t-label" x="214" y="110">ばらつき小</text><text class="t-desc" x="214" y="126">山が高く鋭い</text>
+<text class="t-label" x="300" y="180" text-anchor="middle" style="fill:#555">ばらつき大</text><text class="t-desc" x="300" y="196" text-anchor="middle">山が低くなだらか</text><line class="dash" x1="300" y1="203" x2="300" y2="268"/>
+<rect class="box" x="20" y="340" width="360" height="144" rx="6"/>
+<text class="t-head" x="32" y="362">ばらつきの指標</text>
+<text class="t-desc" x="32" y="384">平均値：品質水準の中心</text>
+<text class="t-desc" x="32" y="404">標準偏差：試験値のばらつき</text>
+<text class="t-label" x="32" y="430">変動係数 ＝ 標準偏差 ÷ 平均値 × 100（％）</text>
+<text class="t-desc" x="32" y="452">標準偏差を平均値で割り、百分率で表す</text>
+<text class="t-desc" x="32" y="472">相対的なばらつきを比べる指標</text>
+</svg>

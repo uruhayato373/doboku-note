@@ -1,0 +1,57 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート技士教材のAEコンクリートの耐凍害性向上機構。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="気温が10度付近では水ミチの水は液体のままだが、0度付近に下がると骨材側の水ミチは凍結して膨張し組織を壊す。独立気泡は圧力の高まった水の逃げ場になり凍害を緩和する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-head  { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-warn  { font-size: 11px; fill: #b22234; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-ax { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .arr { stroke: #2e6da4; stroke-width: 1.5; fill: none; marker-end: url(#ah); }
+      .arr-d { stroke: #b22234; stroke-width: 1.5; fill: none; marker-end: url(#ahd); }
+      .arr-g { stroke: #3a7d44; stroke-width: 1.5; fill: none; marker-end: url(#ahg); }
+    </style>
+    <marker id="ah" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ahd" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="ahg" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+  </defs>
+<text class="t-lead" x="200" y="18" text-anchor="middle">気温が下がったとき、独立気泡が水の逃げ場になる</text>
+<text class="t-head" x="20" y="44">外気温 10℃付近：水ミチの水は液体</text>
+<rect class="box" x="20" y="58" width="360" height="172" rx="6"/>
+<line class="line-main" x1="20" y1="82" x2="380" y2="82"/>
+<rect class="box-b" x="100" y="82" width="14" height="60"/>
+<rect class="box-b" x="280" y="82" width="14" height="36"/>
+<ellipse cx="107" cy="168" rx="42" ry="28" fill="#d7d7d7" stroke="#555" stroke-width="1.5"/>
+<text class="t-label" x="107" y="172" text-anchor="middle">骨材</text>
+<circle cx="287" cy="148" r="30" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/>
+<text class="t-label" x="287" y="152" text-anchor="middle">気泡</text>
+<text class="t-desc" x="150" y="106">水ミチ</text><line class="line-ax" x1="148" y1="102" x2="116" y2="102"/>
+<text class="t-head" x="20" y="254">外気温 0℃付近：水ミチの水が凍結</text>
+<rect class="box" x="20" y="268" width="360" height="172" rx="6"/>
+<line class="line-main" x1="20" y1="292" x2="380" y2="292"/>
+<rect class="box-d" x="100" y="292" width="14" height="60"/>
+<rect class="box-d" x="280" y="292" width="14" height="36"/>
+<ellipse cx="107" cy="378" rx="42" ry="28" fill="#d7d7d7" stroke="#555" stroke-width="1.5"/>
+<text class="t-label" x="107" y="382" text-anchor="middle">骨材</text>
+<circle cx="287" cy="358" r="30" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/>
+<text class="t-label" x="287" y="362" text-anchor="middle">気泡</text>
+<text class="t-desc" x="150" y="316">水ミチ</text><line class="line-ax" x1="148" y1="312" x2="116" y2="312"/>
+<line class="arr-d" x1="107" y1="352" x2="107" y2="298"/>
+<text class="t-warn" x="124" y="340">凍結膨張で</text><text class="t-warn" x="124" y="356">組織が壊れる</text>
+<line class="arr-g" x1="287" y1="330" x2="287" y2="350"/>
+<text class="t-label" x="287" y="408" text-anchor="middle" style="fill:#3a7d44">水の逃げ場</text>
+<text class="t-desc" x="200" y="478" text-anchor="middle">気泡が圧力の高まった水を受け入れ、凍害を緩和する</text>
+</svg>

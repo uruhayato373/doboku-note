@@ -1,0 +1,61 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート技士教材の振動機の挿入間隔。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="棒状振動機の挿入間隔と締固め範囲の図。上面図で影響範囲の円が重なる間隔なら全面が締固まり、間隔が広いと届かない部分が豆板になる。同じ場所で振動を続けすぎると粗骨材が沈みペーストが浮く材料分離が起きる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-title { font-size: 12px; fill: #1a3a5c; font-weight: bold; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-ok    { font-size: 12px; fill: #3a7d44; font-weight: bold; }
+      .t-ng    { font-size: 12px; fill: #b22234; font-weight: bold; }
+      .box   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .b-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .b-ok  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .b-warn{ fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .b-ng  { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .main  { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ng    { stroke: #b22234; stroke-width: 2.5; fill: none; }
+      .dash  { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .ink   { stroke: #555; stroke-width: 1.5; fill: none; }
+    </style>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="arn" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <clipPath id="c1"><rect x="40" y="70" width="320" height="60"/></clipPath>
+    <clipPath id="c2"><rect x="40" y="222" width="320" height="60"/></clipPath>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">上面図：円は振動機の影響範囲、点は挿入位置</text>
+  <rect class="box" x="20" y="24" width="360" height="144" rx="6"/>
+  <text class="t-ok" x="34" y="44">適切：影響範囲が重なる間隔</text>
+  <rect fill="#f8d7da" stroke="#b22234" stroke-width="1.5" x="40" y="70" width="320" height="60"/>
+  <circle cx="80" cy="100" r="50" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" clip-path="url(#c1)"/><circle cx="160" cy="100" r="50" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" clip-path="url(#c1)"/><circle cx="240" cy="100" r="50" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" clip-path="url(#c1)"/><circle cx="320" cy="100" r="50" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" clip-path="url(#c1)"/><circle cx="80" cy="100" r="3.5" fill="#1a3a5c"/><circle cx="160" cy="100" r="3.5" fill="#1a3a5c"/><circle cx="240" cy="100" r="3.5" fill="#1a3a5c"/><circle cx="320" cy="100" r="3.5" fill="#1a3a5c"/>
+  <line class="main" x1="86" y1="146" x2="154" y2="146" marker-end="url(#ar)"/>
+  <line class="main" x1="154" y1="146" x2="86" y2="146" marker-end="url(#ar)"/>
+  <text class="t-label" x="120" y="162" text-anchor="middle">挿入間隔</text>
+  <text class="t-desc" x="290" y="152" text-anchor="middle">円が重なり全面が締固まる</text>
+  <rect class="box" x="20" y="176" width="360" height="144" rx="6"/>
+  <text class="t-ng" x="34" y="196">不適切：間隔が広く届かない部分が残る</text>
+  <rect fill="#f8d7da" stroke="#b22234" stroke-width="1.5" x="40" y="222" width="320" height="60"/>
+  <circle cx="80" cy="252" r="40" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" clip-path="url(#c2)"/><circle cx="200" cy="252" r="40" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" clip-path="url(#c2)"/><circle cx="320" cy="252" r="40" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" clip-path="url(#c2)"/><circle cx="80" cy="252" r="3.5" fill="#1a3a5c"/><circle cx="200" cy="252" r="3.5" fill="#1a3a5c"/><circle cx="320" cy="252" r="3.5" fill="#1a3a5c"/>
+  <text class="t-ng" x="140" y="214" text-anchor="middle">豆板</text>
+  <line class="ng" x1="140" y1="218" x2="140" y2="246" marker-end="url(#arn)"/>
+  <line class="main" x1="86" y1="298" x2="194" y2="298" marker-end="url(#ar)"/>
+  <line class="main" x1="194" y1="298" x2="86" y2="298" marker-end="url(#ar)"/>
+  <text class="t-label" x="140" y="313" text-anchor="middle">挿入間隔が広すぎる</text>
+  <text class="t-desc" x="290" y="300" text-anchor="middle">円の外は締固め不足</text>
+  <rect class="box" x="20" y="328" width="360" height="158" rx="6"/>
+  <text class="t-ng" x="34" y="348">過振動：同じ場所で振動を続けすぎる（断面）</text>
+  <rect fill="#f5f5f5" stroke="#555" stroke-width="1.5" x="40" y="368" width="140" height="100"/>
+  <rect class="b-brand" x="40" y="368" width="140" height="22"/>
+  <text class="t-label" x="110" y="383" text-anchor="middle">ペースト・浮き水</text>
+  <circle cx="52" cy="452" r="7" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1"/><circle cx="68" cy="452" r="7" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1"/><circle cx="84" cy="452" r="7" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1"/><circle cx="100" cy="452" r="7" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1"/><circle cx="116" cy="452" r="7" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1"/><circle cx="132" cy="452" r="7" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1"/><circle cx="148" cy="452" r="7" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1"/><circle cx="164" cy="452" r="7" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1"/><circle cx="60" cy="438" r="7" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1"/><circle cx="76" cy="438" r="7" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1"/><circle cx="92" cy="438" r="7" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1"/><circle cx="108" cy="438" r="7" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1"/><circle cx="124" cy="438" r="7" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1"/><circle cx="140" cy="438" r="7" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1"/><circle cx="156" cy="438" r="7" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1"/><circle cx="172" cy="438" r="7" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1"/><circle cx="68" cy="424" r="7" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1"/><circle cx="100" cy="424" r="7" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1"/><circle cx="132" cy="424" r="7" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1"/><circle cx="164" cy="424" r="7" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1"/><circle cx="84" cy="410" r="7" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1"/><circle cx="148" cy="410" r="7" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1"/>
+  <line class="ng" x1="196" y1="380" x2="196" y2="450" marker-end="url(#arn)"/>
+  <text class="t-ng" x="206" y="400">粗骨材が沈む</text>
+  <text class="t-desc" x="206" y="418">ペーストが浮き、</text>
+  <text class="t-desc" x="206" y="434">材料分離を起こす</text>
+  <text class="t-label" x="206" y="456">目安：表面にペーストが</text>
+  <text class="t-label" x="206" y="472">浮き、気泡が出なくなる</text>
+</svg>

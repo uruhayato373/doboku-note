@@ -1,0 +1,194 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート技士教材のシリカフュームによる高強度化の機構。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="セメントペーストの充填の3段階。セメント粒子のみでは隙間が多く、高性能減水剤で粒子が分散し、さらにシリカフュームの微粒子が隙間を埋めて緻密になり高強度化する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-head  { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-warn  { font-size: 11px; fill: #b22234; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-ax { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .arr { stroke: #2e6da4; stroke-width: 1.5; fill: none; marker-end: url(#ah); }
+      .arr-d { stroke: #b22234; stroke-width: 1.5; fill: none; marker-end: url(#ahd); }
+      .arr-g { stroke: #3a7d44; stroke-width: 1.5; fill: none; marker-end: url(#ahg); }
+    </style>
+    <marker id="ah" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ahd" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="ahg" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+  </defs>
+<text class="t-lead" x="200" y="18" text-anchor="middle">セメント粒子の周りの隙間を、どこまで埋められるか</text>
+<rect class="box" x="16" y="30" width="368" height="136" rx="6"/>
+<text class="t-head" x="26" y="50">1　セメントペーストのみ</text>
+<text class="t-desc" x="26" y="158">粒子が偏って接し、隙間が大きい</text>
+<polygon fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5" points="170.0,66.0 184.0,76.0 180.0,94.0 162.0,96.0 156.0,82.0"/>
+<polygon fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5" points="197.7,86.8 199.2,103.7 185.6,110.6 174.4,95.9 181.8,83.9"/>
+<polygon fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5" points="214.7,65.7 212.0,84.4 196.6,89.2 187.5,72.5 197.6,60.6"/>
+<polygon fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5" points="229.9,100.0 214.2,107.1 200.6,94.7 207.9,78.1 223.0,79.9"/>
+<polygon fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5" points="234.1,91.3 218.7,84.1 219.6,68.9 237.9,66.5 244.5,79.0"/>
+<polygon fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5" points="182.8,81.2 168.0,69.4 171.6,53.7 190.5,54.2 195.8,68.9"/>
+<polygon fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5" points="214.1,114.0 215.8,96.9 233.4,91.3 244.1,105.9 235.0,118.1"/>
+<polygon fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5" points="198.2,107.9 212.1,98.2 224.8,106.5 217.8,123.6 203.6,123.1"/>
+<rect class="box-b" x="16" y="176" width="368" height="136" rx="6"/>
+<text class="t-head" x="26" y="196">2　高性能減水剤を加える</text>
+<text class="t-desc" x="26" y="304">粒子は分散するが、粒子間に隙間が残る</text>
+<polygon fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5" points="105.0,202.0 119.0,212.0 115.0,230.0 97.0,232.0 91.0,218.0"/>
+<polygon fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5" points="147.7,238.8 149.2,255.7 135.6,262.6 124.4,247.9 131.8,235.9"/>
+<polygon fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5" points="177.7,207.7 175.0,226.4 159.6,231.2 150.5,214.5 160.6,202.6"/>
+<polygon fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5" points="203.9,252.0 188.2,259.1 174.6,246.7 181.9,230.1 197.0,231.9"/>
+<polygon fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5" points="219.1,229.3 203.7,222.1 204.6,206.9 222.9,204.5 229.5,217.0"/>
+<polygon fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5" points="245.8,261.2 231.0,249.4 234.6,233.7 253.5,234.2 258.8,248.9"/>
+<polygon fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5" points="256.1,228.0 257.8,210.9 275.4,205.3 286.1,219.9 277.0,232.1"/>
+<polygon fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5" points="108.2,263.9 122.1,254.2 134.8,262.5 127.8,279.6 113.6,279.1"/>
+<polygon fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5" points="166.4,263.1 184.1,256.2 195.9,267.1 185.9,283.3 170.6,280.5"/>
+<polygon fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5" points="235.0,258.0 249.0,268.0 245.0,286.0 227.0,288.0 221.0,274.0"/>
+<polygon fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5" points="297.7,242.8 299.2,259.7 285.6,266.6 274.4,251.9 281.8,239.9"/>
+<polygon fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5" points="107.7,243.7 105.0,262.4 89.6,267.2 80.5,250.5 90.6,238.6"/>
+<rect class="box-g" x="16" y="322" width="368" height="136" rx="6"/>
+<text class="t-head" x="26" y="342">3　シリカフュームを加える</text>
+<text class="t-desc" x="26" y="450">微粒子が隙間に入り込み、密度が高まる</text>
+<circle cx="142.4" cy="395.7" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="171.4" cy="400.7" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="227.7" cy="355.5" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="92.9" cy="420.3" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="147.1" cy="369.7" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="309.0" cy="389.5" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="274.0" cy="390.0" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="230.6" cy="362.7" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="229.7" cy="422.9" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="205.1" cy="412.3" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="237.7" cy="355.4" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="256.8" cy="399.7" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="156.3" cy="352.6" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="280.4" cy="389.7" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="248.1" cy="423.8" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="247.1" cy="427.4" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="176.9" cy="417.3" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="187.8" cy="428.6" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="283.4" cy="358.2" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="119.9" cy="368.2" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="302.4" cy="386.6" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="227.9" cy="375.3" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="201.6" cy="382.4" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="167.2" cy="399.1" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="218.5" cy="426.0" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="240.0" cy="428.0" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="278.4" cy="433.2" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="237.7" cy="363.7" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="279.3" cy="431.0" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="289.0" cy="397.8" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="247.0" cy="367.7" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="273.0" cy="398.2" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="152.7" cy="355.3" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="277.9" cy="433.1" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="109.5" cy="417.3" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="180.3" cy="362.7" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="154.7" cy="414.6" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="282.0" cy="353.7" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="225.2" cy="353.8" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="248.1" cy="377.8" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="283.8" cy="432.4" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="201.2" cy="433.9" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="158.1" cy="356.5" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="221.9" cy="352.6" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="133.4" cy="384.3" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="224.3" cy="363.1" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="99.3" cy="422.9" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="159.0" cy="430.5" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="287.3" cy="381.7" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="191.3" cy="393.7" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="231.7" cy="400.0" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="213.0" cy="402.1" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="296.9" cy="392.6" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="184.9" cy="410.5" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="142.3" cy="375.3" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="305.1" cy="393.8" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="210.7" cy="351.0" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="181.3" cy="398.7" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="94.4" cy="401.7" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="229.1" cy="355.0" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="228.0" cy="389.2" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="239.4" cy="379.6" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="245.5" cy="412.0" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="94.9" cy="355.1" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="238.7" cy="430.9" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="145.2" cy="388.3" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="220.4" cy="376.9" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="170.1" cy="376.3" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="171.2" cy="400.0" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="156.1" cy="381.7" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="259.9" cy="352.3" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="215.2" cy="411.8" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="158.2" cy="368.7" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="266.8" cy="370.1" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="131.2" cy="386.6" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="243.6" cy="358.6" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="160.8" cy="378.0" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="273.4" cy="386.8" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="278.2" cy="364.2" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="164.1" cy="404.6" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="284.7" cy="387.9" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="139.5" cy="360.2" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="206.5" cy="366.0" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="267.5" cy="420.4" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="130.4" cy="373.4" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="267.6" cy="403.9" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="267.4" cy="379.0" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="118.5" cy="374.5" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="264.6" cy="372.8" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="166.2" cy="385.0" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="182.3" cy="384.4" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="292.5" cy="363.1" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="91.0" cy="429.2" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="283.6" cy="432.9" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="185.6" cy="429.8" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="294.0" cy="368.7" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="254.0" cy="420.3" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="235.9" cy="393.6" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="153.6" cy="378.6" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="140.0" cy="355.7" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="219.5" cy="374.1" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="268.2" cy="353.8" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="288.8" cy="408.3" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="293.2" cy="425.3" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="287.9" cy="398.5" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="92.9" cy="412.6" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="127.8" cy="375.2" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="235.8" cy="394.1" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="181.0" cy="428.9" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="224.7" cy="378.7" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="145.5" cy="422.4" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="195.0" cy="415.7" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="167.4" cy="366.6" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="207.6" cy="418.6" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="127.7" cy="416.5" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="292.8" cy="417.7" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="271.2" cy="350.6" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="228.3" cy="422.5" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="101.0" cy="372.8" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<circle cx="149.1" cy="394.3" r="2.6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="0.8"/>
+<polygon fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5" points="105.0,348.0 119.0,358.0 115.0,376.0 97.0,378.0 91.0,364.0"/>
+<polygon fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5" points="147.7,384.8 149.2,401.7 135.6,408.6 124.4,393.9 131.8,381.9"/>
+<polygon fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5" points="177.7,353.7 175.0,372.4 159.6,377.2 150.5,360.5 160.6,348.6"/>
+<polygon fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5" points="203.9,398.0 188.2,405.1 174.6,392.7 181.9,376.1 197.0,377.9"/>
+<polygon fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5" points="219.1,375.3 203.7,368.1 204.6,352.9 222.9,350.5 229.5,363.0"/>
+<polygon fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5" points="245.8,407.2 231.0,395.4 234.6,379.7 253.5,380.2 258.8,394.9"/>
+<polygon fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5" points="256.1,374.0 257.8,356.9 275.4,351.3 286.1,365.9 277.0,378.1"/>
+<polygon fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5" points="108.2,409.9 122.1,400.2 134.8,408.5 127.8,425.6 113.6,425.1"/>
+<polygon fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5" points="166.4,409.1 184.1,402.2 195.9,413.1 185.9,429.3 170.6,426.5"/>
+<polygon fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5" points="235.0,404.0 249.0,414.0 245.0,432.0 227.0,434.0 221.0,420.0"/>
+<polygon fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5" points="297.7,388.8 299.2,405.7 285.6,412.6 274.4,397.9 281.8,385.9"/>
+<polygon fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5" points="107.7,389.7 105.0,408.4 89.6,413.2 80.5,396.5 90.6,384.6"/>
+<text class="t-desc" x="20" y="488">灰色の多角形＝セメント粒子　小さな丸＝シリカフューム</text>
+</svg>

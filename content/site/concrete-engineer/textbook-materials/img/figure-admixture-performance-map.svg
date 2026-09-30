@@ -1,0 +1,67 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート技士教材の混和剤と性能の対応。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="求める性能と混和剤の対応。施工性にはAE剤・減水剤類・流動化剤・凝結調整剤、力学的性能には高性能減水剤、耐久性能にはAE剤や各種抑制剤、その他の性能には収縮低減剤などが対応する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-head  { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-warn  { font-size: 11px; fill: #b22234; }
+      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-ax { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .arr { stroke: #2e6da4; stroke-width: 1.5; fill: none; marker-end: url(#ah); }
+      .arr-d { stroke: #b22234; stroke-width: 1.5; fill: none; marker-end: url(#ahd); }
+      .arr-g { stroke: #3a7d44; stroke-width: 1.5; fill: none; marker-end: url(#ahg); }
+    </style>
+    <marker id="ah" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ahd" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="ahg" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+  </defs>
+<text class="t-lead" x="200" y="18" text-anchor="middle">求める性能に応じて混和剤を選ぶ（一つの混和剤が複数の性能に効く）</text>
+<text class="t-head" x="20" y="44">求める性能</text><text class="t-head" x="210" y="44">主な混和剤</text>
+<rect class="box-b" x="16" y="56" width="166" height="94" rx="6"/>
+<text class="t-head" x="26" y="78">施工性</text>
+<text class="t-desc" x="26" y="96">ワーカビリティー</text>
+<text class="t-desc" x="26" y="111">凝結特性</text>
+<rect class="box" x="216" y="56" width="168" height="94" rx="6"/>
+<text class="t-label" x="224" y="78">AE剤・減水剤・AE減水剤</text>
+<text class="t-label" x="224" y="96">高性能AE減水剤・流動化剤</text>
+<text class="t-label" x="224" y="114">遅延剤・促進剤・急結剤</text>
+<line class="arr" x1="184" y1="103.0" x2="212" y2="103.0"/>
+<rect class="box-g" x="16" y="164" width="166" height="80" rx="6"/>
+<text class="t-head" x="26" y="186">力学的性能</text>
+<text class="t-desc" x="26" y="204">強度</text>
+<rect class="box" x="216" y="164" width="168" height="80" rx="6"/>
+<text class="t-label" x="224" y="186">高性能減水剤（高強度化剤）</text>
+<text class="t-label" x="224" y="204">減水剤類（水を減らす）</text>
+<line class="arr" x1="184" y1="204.0" x2="212" y2="204.0"/>
+<rect class="box-w" x="16" y="258" width="166" height="94" rx="6"/>
+<text class="t-head" x="26" y="280">耐久性能</text>
+<text class="t-desc" x="26" y="298">凍害・ASR</text>
+<text class="t-desc" x="26" y="313">化学的腐食・塩害・中性化</text>
+<rect class="box" x="216" y="258" width="168" height="94" rx="6"/>
+<text class="t-label" x="224" y="280">AE剤・防凍耐寒剤</text>
+<text class="t-label" x="224" y="298">アルカリ骨材反応抑制剤</text>
+<text class="t-label" x="224" y="316">防せい剤・中性化防止剤</text>
+<line class="arr" x1="184" y1="305.0" x2="212" y2="305.0"/>
+<rect class="box-d" x="16" y="366" width="166" height="80" rx="6"/>
+<text class="t-head" x="26" y="388">その他の性能</text>
+<text class="t-desc" x="26" y="406">収縮・発熱・水密性</text>
+<rect class="box" x="216" y="366" width="168" height="80" rx="6"/>
+<text class="t-label" x="224" y="388">収縮低減剤・水和熱抑制剤</text>
+<text class="t-label" x="224" y="406">ポリマー混和剤・起泡剤</text>
+<line class="arr" x1="184" y1="406.0" x2="212" y2="406.0"/>
+<text class="t-desc" x="20" y="474">混和剤は少量で空気量・流動性・凝結・強度発現を調整する</text>
+<text class="t-desc" x="20" y="492">（配合計算に質量で組み込む混和材とは区別する）</text>
+</svg>

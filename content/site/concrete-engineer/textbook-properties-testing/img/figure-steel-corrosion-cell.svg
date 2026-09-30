@@ -1,0 +1,71 @@
+<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート技士教材の鋼材の腐食電池。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="鉄筋の腐食電池。中央のアノードでFeがFe2+になり電子を放出し、電子が鋼材中を両側のカソードへ移動して酸素と水から水酸化物イオンが生成する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-label { font-size: 12px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .steel { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .film { stroke: #3a7d44; stroke-width: 4; }
+      .rust { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .flow { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .flow-o { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .t-red { font-size: 12px; fill: #b22234; }
+      .t-grn { font-size: 12px; fill: #3a7d44; }
+    </style>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4" /></marker>
+    <marker id="ag" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44" /></marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">腐食は「電池」として進む（模式図）</text>
+
+  <text class="t-grn" x="70" y="48" text-anchor="middle">カソード（陰極）</text>
+  <text class="t-red" x="200" y="48" text-anchor="middle">アノード（陽極）</text>
+  <text class="t-grn" x="330" y="48" text-anchor="middle">カソード（陰極）</text>
+
+  <!-- steel -->
+  <rect class="steel" x="20" y="150" width="360" height="90" />
+  <line class="film" x1="20" y1="150" x2="150" y2="150" />
+  <line class="film" x1="250" y1="150" x2="380" y2="150" />
+  <text class="t-desc" x="30" y="178">不動態皮膜</text>
+  <text class="t-label" x="30" y="228">鋼材（鉄筋）</text>
+
+  <!-- rust at anode -->
+  <path class="rust" d="M150,150 C150,100 250,100 250,150 Z" />
+  <text class="t-red" x="200" y="136" text-anchor="middle">Fe²⁺（錆）</text>
+  <line class="flow" x1="200" y1="200" x2="200" y2="156" marker-end="url(#ar)" />
+  <text class="t-label" x="200" y="220" text-anchor="middle">Fe</text>
+
+  <!-- electrons -->
+  <path class="flow" d="M180,200 C140,215 100,215 70,190" marker-end="url(#ar)" />
+  <path class="flow" d="M220,200 C260,215 300,215 330,190" marker-end="url(#ar)" />
+  <text class="t-label" x="125" y="226" text-anchor="middle">e⁻</text>
+  <text class="t-label" x="275" y="226" text-anchor="middle">e⁻</text>
+
+  <!-- cathode reactions -->
+  <path class="flow-o" d="M50,74 L50,144" marker-end="url(#ag)" />
+  <path class="flow-o" d="M110,144 L110,92" marker-end="url(#ag)" />
+  <path class="flow-o" d="M350,74 L350,144" marker-end="url(#ag)" />
+  <path class="flow-o" d="M290,144 L290,92" marker-end="url(#ag)" />
+  <text class="t-desc" x="50" y="68" text-anchor="middle">O₂ + H₂O</text>
+  <text class="t-desc" x="350" y="68" text-anchor="middle">O₂ + H₂O</text>
+  <text class="t-grn" x="110" y="84" text-anchor="middle">OH⁻</text>
+  <text class="t-grn" x="290" y="84" text-anchor="middle">OH⁻</text>
+
+  <text class="t-lead" x="20" y="280">反応式</text>
+  <rect class="box" x="20" y="288" width="360" height="74" rx="6" />
+  <text class="t-red" x="34" y="314">アノード：Fe → Fe²⁺ + 2e⁻</text>
+  <text class="t-grn" x="34" y="346">カソード：½O₂ + H₂O + 2e⁻ → 2OH⁻</text>
+
+  <rect class="box" x="20" y="378" width="360" height="100" rx="6" />
+  <text class="t-desc" x="34" y="402">鉄筋の陽極になった箇所で腐食が進む。</text>
+  <text class="t-desc" x="34" y="424">電気化学的補修では、鉄筋が陰極になるよう</text>
+  <text class="t-desc" x="34" y="446">に電流を流して、腐食の進行を抑える。</text>
+  <text class="t-desc" x="34" y="468">塩化物イオン（Cl⁻）は不動態皮膜を壊し、陽極を生じさせる。</text>
+</svg>
