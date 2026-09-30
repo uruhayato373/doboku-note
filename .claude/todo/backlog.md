@@ -1473,6 +1473,15 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 
 **完了条件**: 公開ページの商品画像が承認済み POP 画像の SHA と一致し、プロフィールの資格欄に主任技士が表示され、主任技士の添削を受注したときの手順が `coconala-operations.md` にある。
 
+### [DN-0463] コンクリート主任技士 令和形式小論文6本を note に公開する（運営者の実行）
+タグ: [収益化] [領域:商品] [時期:2026-10] [種類:改善] [起票:2026-09-30] [期日:2026-10-15]
+
+**起点**: 2026-09-30 に DN-0461 の手順1（note 公開）をエージェントが実行しようとして、権限判定で止まった（有料記事の外部公開は運営者の承認が要る）。原稿は公開準備済み（単品 ¥1,480・ハッシュタグ付き、9b7717083）。本試験は 2026-11-29。
+
+**やること**: (1) 運営者が `node scripts/note-publish-magazine.mjs --dir "content/note/コンクリート主任技士/magazines/コンクリート主任技士-小論文テーマ別-令和形式" --pattern article.md --commit` を実行（無料1本＋有料5本）。(2) `note-magazine-create` でマガジン（¥3,980・`note掲載文.txt`）を作り、`note-magazine-cover`・`note-magazine-add` で収録。(3) `note-magazines.ts` の `cce-essay-reiwa-pack` に noteUrl を入れ `published: true`、price を件数表記へ戻し、`verify-note-magazines --contents` の snapshot を再生成。以後のサイト導線切替・旧商品の案内は DN-0461 の手順2・3。
+
+**完了条件**: `npm run verify-note-status` で6本が公開、`check-magazine-membership` が exit 0。
+
 ### [DN-0461] コンクリート主任技士 小論文「令和形式テーマ別」を note・ココナラで公開し、サイトと旧商品の導線を切り替える
 タグ: [収益化] [領域:商品] [時期:2026-10] [種類:制作] [起票:2026-09-30] [期日:2026-10-31]
 
