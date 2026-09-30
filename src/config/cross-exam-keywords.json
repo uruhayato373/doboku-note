@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-09-30T10:01:02.710Z",
+  "generated_at": "2026-09-30T10:17:23.137Z",
   "summary": {
     "total_mdx_files": 1293,
     "with_exams_field": 55,
@@ -602,7 +602,6 @@
         "tags": [
           "guide",
           "試験対策",
-          "舗装",
           "道路"
         ],
         "sections": null,
@@ -651,8 +650,7 @@
         "tags": [
           "guide",
           "試験対策",
-          "鋼構造物",
-          "コンクリート構造物"
+          "鋼構造物"
         ],
         "sections": null,
         "exams": [
@@ -697,9 +695,7 @@
         "group": "guide",
         "tags": [
           "guide",
-          "試験対策",
-          "上水道",
-          "下水道"
+          "試験対策"
         ],
         "sections": null,
         "exams": [

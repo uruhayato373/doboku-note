@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "generated_at": "2026-09-30T10:01:02.955Z",
+  "generated_at": "2026-09-30T10:17:23.422Z",
   "summary": {
     "total_mdx_files": 1293,
-    "total_unique_tags": 130,
+    "total_unique_tags": 126,
     "allowlist_size": 322,
     "known_count": 126,
-    "unknown_count": 4,
-    "typo_candidates_count": 2
+    "unknown_count": 0,
+    "typo_candidates_count": 0
   },
   "tags": [
     {
@@ -4775,14 +4775,6 @@
       ]
     },
     {
-      "name": "コンクリート構造物",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "civil-construction-2-guide-structures-key-points"
-      ]
-    },
-    {
       "name": "ダム",
       "count": 1,
       "inAllowlist": true,
@@ -4796,22 +4788,6 @@
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-textbook-water-sewer"
-      ]
-    },
-    {
-      "name": "上水道",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "civil-construction-2-guide-water-sewer-key-points"
-      ]
-    },
-    {
-      "name": "下水道",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "civil-construction-2-guide-water-sewer-key-points"
       ]
     },
     {
@@ -4845,32 +4821,8 @@
       "usedIn": [
         "pe-comprehensive-management-r8-essay-theme-economic-security"
       ]
-    },
-    {
-      "name": "舗装",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "civil-construction-2-guide-road-pavement-key-points"
-      ]
     }
   ],
-  "unknown": [
-    "コンクリート構造物",
-    "上水道",
-    "下水道",
-    "舗装"
-  ],
-  "typo_candidates": [
-    {
-      "tag": "上水道",
-      "suggestion": "上下水道",
-      "distance": 1
-    },
-    {
-      "tag": "下水道",
-      "suggestion": "上下水道",
-      "distance": 1
-    }
-  ]
+  "unknown": [],
+  "typo_candidates": []
 }
