@@ -395,25 +395,25 @@ live 層を CI に載せないのは、**有料エリア内の添付カードが
 ### PDF 生成の環境依存（2026-07-04 訂正）
 - **Mac でハングするのは `magazine-to-pdf.mjs` の Chrome `--print-to-pdf` 経路だけ**。**Playwright `chromium.launch({headless:true})` → `page.pdf()` は Mac で正常動作**する（実例 `scripts/generate-anki-pdf.mjs`＝A5赤シートPDF・`--sample` で見本PNG）。カスタムHTML→PDF は magazine-to-pdf でなく `page.pdf()` を使う。
 
-## live 本文整合性検査: check-note-live-headings（URL見出し/空引用/画像欠落・過多/見出し食い違い/太字記号/リンク切れの検知網）
+## live 本文整合性検査: check-note-live-headings（URL見出し/空引用/画像欠落・過多/見出し食い違い/太字記号/リンク切れ/割れ見出し/長い見出しの検知網）
 
 note-publish / note-update-body には、SoT どおりに live が反映されない 4 系統の破損があった:
 
 - **URL 見出し化**（2026-07-14・291 本中 7 本）— 旧リンクカード化で URL 単独行が h2 見出しに化けて note ネイティブ目次に URL 露出。原因は (1) Enter 後の embed 変換が非同期なのに盲目 4500ms 待ちのレース、(2) `Set` dedup による重複 URL 未処理、(3) 選択先ブロック種の無検査。共有実装 `scripts/lib/note-cardify.mjs` で根治（毎回 DOM 再クエリ・段落限定選択・カード生成の実測待ち）。
 - **空引用**（2026-07-15・5 本）— 複数行 blockquote が paste で中身脱落し「空の引用」だけ残る。note-lint ルール 9（`>` 連続 2 行以上をブロック・`SKIP_NOTE_BQ=1` で回避）で予防し、修復は SoT を単一行 blockquote／平文へ書き換えて再貼付。
 - **カード化の打ち切り**（2026-09-24・1 本）— 埋め込みにならない URL（brain-market.com）が先頭の bare URL 段落として残り続け、`cardifyBareUrls` が同じ行を上限 40 回打ち直して終了、後ろの note 記事 URL も素のリンクのまま公開された（`processed=40 cards=0`）。[5e] はカードの有無を見ないので通る。`pickBareUrlIndex` で失敗した出現を飛ばし、カード化されなかった URL を `⚠ カード化されず` として出力するよう修正（DN-0302・`tests/note-cardify-skip.test.mjs`）。
-- **見出しの破壊**（2026-09-23・3 本）— 冒頭 CTA の部分更新（`replaceTopCta`）で CTA 文が `h2` になり、直後の見出しが「R」＋カード＋残りの段落に割れた。見出しに URL が無いので URL 見出し検査では拾えなかった（DN-0272）。対策: 見出しの直前に空段落を作ってその中から入力し、保存前に編集前後の見出しを突合して崩れたら保存しない（`headingIntegrity`・2026-09-28）。
+- **見出しの破壊**（2026-09-23・3 本）— 冒頭 CTA の部分更新（`replaceTopCta`）で CTA 文が `h2` になり、直後の見出しが「R」＋カード＋残りの段落に割れた。見出しに URL が無いので URL 見出し検査では拾えなかった（DN-0272）。対策（2026-09-30）: `replaceTopCta`／`insertTopCta` はキーボード入力をやめ、許可タグの段落 HTML（`buildTopCtaHtml`）を対象 h2 の直前へ差し込み、URL 段落を `cardifyBareUrls` で 1 つずつカード化する。保存前に `headingIntegrity` で「対象 h2 が同じ文言のまま 1 つだけ」「編集前の h2 が全て残る」「60 字超の h2/h3 が増えていない」を確かめ、崩れたら保存せずエラー終了する。ライブ側は `check-note-live-headings` の割れ見出し（1〜2 字の段落の直後にカード）と長い見出し（60 字超の h2/h3 が原稿より多い）で拾う。
 - **太字記号の残り**（2026-09-23・9 本）— 閉じ `**` の直前が約物・直後が文字だと太字にならず `**` がそのまま出る。原稿側は `check-bold-rendering` が note 記事も検査する（下記 content-principles）。
 - **本文画像欠落**（2026-07-15・33 本）— paste 前処理が `![](img/xxx.png)` を除去していたため図が live に載らなかった。`scripts/lib/note-images.mjs` で、画像行を一意トークン `〔〔IMG:n〕〕` へ置換して paste→「＋」メニューで実画像アップロード（キャプション=alt）する方式に変更。トークン残存/挿入失敗は保存/公開せず中断。
 
 3 層の防衛網:
 
 1. **書き込みスクリプト内蔵ゲート**: `note-publish.mjs` / `note-update-body.mjs` はカード化後に URL 見出しを修復（`repairUrlHeadings`）・本文画像をアップロード（`insertImagesAtPlaceholders`）し、残存/失敗すれば**保存/公開せず中断**。公開/更新後は public API で本文を自動検証（`assertLiveBody`＝URL見出し/空引用/画像の欠落と過多（重複）/太字記号の残り/存在しないサイト内リンク。2026-09-24 に後ろの 3 つを追加し、週次スイープだけでなく 1 本ごとの公開直後にも止める）。ネットワーク未達は WARN（手動確認コマンド表示）。共有実装は `scripts/lib/note-live-check.mjs`。
-2. **横断スイープ**: `npm run check-note-live-headings` — 公開判定（noteUrl 非空 OR noteStatus=published）の全記事を live API から並列 8 で取得し、7 検査（URL見出し/空引用/画像欠落/見出し食い違い/太字記号/画像過多/リンク切れ）で不整合を列挙。見出し食い違い（原稿の `#`・`##` のうち先頭のタイトル行を除いたものと live の `h2` を多重集合で比較）・太字記号・画像過多・リンク切れは、**再公開台帳と本文ハッシュが一致する記事（301 等価＝旧 `/docs` → 新 URL の張り替えだけの記事を含む）だけ**を見る（原稿を直して未再公開の記事は live が古いのが正常で、同じ週次ジョブの `check-note-republish` が要再公開として出す。除外件数は出力する）。BAD≥1 で exit 1。`note-live-audit.yml` が週次実行する。有料記事は API 本文が paywall で切断されるため画像期待値は「有料境界より前の枚数」、境界が SoT に無い有料は画像検査 skip（PARTIAL）。`--paths` で BAD の article.md パスのみ出力（修復 list 生成用）。
+2. **横断スイープ**: `npm run check-note-live-headings` — 公開判定（noteUrl 非空 OR noteStatus=published）の全記事を live API から並列 8 で取得し、9 検査（URL見出し/空引用/画像欠落/見出し食い違い/太字記号/画像過多/リンク切れ/割れ見出し/長い見出し）で不整合を列挙。割れ見出しは全記事、長い見出し（live の 60 字超 h2/h3 の数 > 原稿の `#`〜`###` の 60 字超の数）は下記の台帳一致記事だけを見る。見出し食い違い（原稿の `#`・`##` のうち先頭のタイトル行を除いたものと live の `h2` を多重集合で比較）・太字記号・画像過多・リンク切れは、**再公開台帳と本文ハッシュが一致する記事（301 等価＝旧 `/docs` → 新 URL の張り替えだけの記事を含む）だけ**を見る（原稿を直して未再公開の記事は live が古いのが正常で、同じ週次ジョブの `check-note-republish` が要再公開として出す。除外件数は出力する）。BAD≥1 で exit 1。`note-live-audit.yml` が週次実行する。有料記事は API 本文が paywall で切断されるため画像期待値は「有料境界より前の枚数」、境界が SoT に無い有料は画像検査 skip（PARTIAL）。`--paths` で BAD の article.md パスのみ出力（修復 list 生成用）。
 3. **lint 予防**（note-lint）: ルール 8＝無料記事の地の文 200 字以上段落（`SKIP_NOTE_PARA=1`）、ルール 9＝複数行 blockquote（`SKIP_NOTE_BQ=1`）、ルール 10＝同じ画像の重複（2 枚目が CDN 確定せず全文更新が中断する。全件は `check-note-duplicate-images` が CI で同じ判定を当てる）。既存違反はバーンダウン（触った記事から漸次是正）。
 
 ```bash
-npm run check-note-live-headings                          # 全 published を 7 検査でスイープ（見出し/太字記号/画像過多/リンク切れは要再公開を除く）
+npm run check-note-live-headings                          # 全 published を 9 検査でスイープ（見出し/太字記号/画像過多/リンク切れ/長い見出しは要再公開を除く）
 node scripts/check-note-live-headings.mjs content/note/共通  # パス絞り込み
 node scripts/check-note-live-headings.mjs --paths         # BAD パスのみ（list 生成）
 ```

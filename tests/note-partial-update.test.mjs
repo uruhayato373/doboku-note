@@ -7,7 +7,9 @@ import {
   normalizeAttachmentSnapshot,
   sameAttachmentSnapshot,
   headingIntegrity,
+  buildTopCtaHtml,
 } from '../scripts/lib/note-partial-update.mjs';
+import { headingsFromHtml } from '../scripts/lib/note-live-check.mjs';
 
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
 
@@ -93,4 +95,44 @@ test('冒頭 CTA 後の見出し検査: 見出しが同じなら通す（重複�
   const before = { h2: ['はじめに', '解答例', '解答例'], h3: ['補足'] };
   assert.deepEqual(headingIntegrity(before, { h2: ['はじめに', '解答例', '解答例'], h3: ['補足'] }), { ok: true, failures: [] });
   assert.equal(headingIntegrity(before, { h2: ['はじめに', '解答例'], h3: ['補足'] }).ok, false);
+});
+
+const CTA = '総監の択一式を17年分さかのぼって、出題の型と頻出論点を整理したマガジンで全体像をつかめます。まずは無料の分析記事から読み進めてください。';
+const BEFORE_HTML = '<p>リード</p><p>旧CTA</p><h2>R8 で何が出るのか</h2><p>本文</p><h2>出題傾向</h2>';
+
+test('保存前検証（HTML 入力）: 2026-09-23 の崩れ（CTA が h2・対象見出しが「R」＋カード＋段落に割れる）を止める', () => {
+  const broken = `<p>リード</p><h2>${CTA}</h2><p>R</p><figure embedded-service="external-article"></figure><p>8 で何が出るのか</p><p>本文</p><h2>出題傾向</h2>`;
+  const result = headingIntegrity(headingsFromHtml(BEFORE_HTML), headingsFromHtml(broken), { targetHeading: 'R8 で何が出るのか' });
+  assert.equal(result.ok, false);
+  assert.ok(result.failures.some((f) => f.startsWith('target-h2:R8')));
+  assert.ok(result.failures.some((f) => f.startsWith('long-heading:0→1')));
+});
+
+test('保存前検証（HTML 入力）: CTA が段落＋カードで入り、見出しが残っていれば通す', () => {
+  const ok = `<p>リード</p><p>${CTA}</p><figure embedded-service="external-article"></figure><h2>R8 で何が出るのか</h2><p>本文</p><h2>出題傾向</h2>`;
+  assert.deepEqual(headingIntegrity(headingsFromHtml(BEFORE_HTML), headingsFromHtml(ok), { targetHeading: 'R8 で何が出るのか' }), { ok: true, failures: [] });
+});
+
+test('保存前検証: 対象見出しが 2 つに増えた（重複）ときも止める', () => {
+  const dup = '<h2>R8 で何が出るのか</h2><h2>R8 で何が出るのか</h2><h2>出題傾向</h2>';
+  const result = headingIntegrity(headingsFromHtml(BEFORE_HTML), headingsFromHtml(dup), { targetHeading: 'R8 で何が出るのか' });
+  assert.ok(result.failures.includes('target-h2:R8 で何が出るのか=2'));
+});
+
+test('冒頭 CTA の差し込み HTML: 文 1 段落＋URL を 1 本ずつ単独段落にし、文字はエスケープする', () => {
+  assert.equal(
+    buildTopCtaHtml({ newText: 'A<b>&', newUrls: ['https://note.com/dobokunote/m/m1', 'https://note.com/dobokunote/n/n2'] }),
+    '<p>A&lt;b&gt;&amp;</p><p>https://note.com/dobokunote/m/m1</p><p>https://note.com/dobokunote/n/n2</p>',
+  );
+  assert.equal(buildTopCtaHtml({ newText: '', newUrls: [] }), '');
+  assert.throws(() => buildTopCtaHtml({ newText: 'x', newUrls: ['javascript:alert(1)'] }), /URL が不正/);
+});
+
+test('冒頭 CTA はキーボード入力の経路を持たない（HTML 差し込み＋cardify）', () => {
+  const source = readFileSync(ROOT + 'scripts/note-update-partial.mjs', 'utf8');
+  assert.doesNotMatch(source, /typeTopCta|caretInNewParagraphBefore/);
+  const fn = source.slice(source.indexOf('async function insertTopCtaHtml'), source.indexOf('async function applyOperation'));
+  assert.match(fn, /insertAdjacentHTML\('beforebegin'/);
+  assert.match(fn, /cardifyBareUrls/);
+  assert.doesNotMatch(fn, /keyboard/);
 });

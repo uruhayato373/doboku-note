@@ -11,7 +11,9 @@ import {
   normalizeAttachmentSnapshot,
   sameAttachmentSnapshot,
   headingIntegrity,
+  buildTopCtaHtml,
 } from './lib/note-partial-update.mjs';
+import { cardifyBareUrls } from './lib/note-cardify.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 
 /**
@@ -298,49 +300,32 @@ async function selectText(page, oldText) {
 }
 
 /**
- * 指定 h2 の直前に空の段落を作り、その中へ caret を置く（DN-0272）。
- * h2 の直前へ caret を置くだけだと、note のエディタは caret を見出しの中へ寄せることがあり、
- * 続けて入力した CTA の文が h2 になり、URL の入力で直後の見出しが割れた（2026-09-23 の 2 本）。
- * 段落の中から入力を始めれば、Enter で増える行も段落になり、見出しには入らない。
+ * 冒頭 CTA を指定 h2 の直前へ HTML として差し込み、URL 段落を 1 つずつカード化する（DN-0272）。
+ * 旧実装は h2 の直前へ caret を置いて Enter→文字入力→URL 入力していたため、入力が見出しの中へ入り、
+ * CTA の文が h2 になって直後の見出しが「R」＋カード＋残りの段落に割れた（2026-09-23 の 2 本）。
+ * キーボード入力の経路は持たない。差し込みは insertBeforeHeadingHtml と同じ許可タグの DOM 挿入。
+ * 戻り値: 対象見出しの文言（保存前検証用）。失敗時は null。
  */
-async function caretInNewParagraphBefore(page, headingIndex) {
-  return page.evaluate((index) => {
+async function insertTopCtaHtml(page, headingIndex, op) {
+  const html = buildTopCtaHtml(op);
+  const target = await page.evaluate(({ index, markup }) => {
     const ed = document.querySelector('[contenteditable=true]');
-    const target = ed.querySelectorAll('h2')[index];
-    if (!target) return false;
-    const paragraph = document.createElement('p');
-    paragraph.appendChild(document.createElement('br'));
-    target.insertAdjacentElement('beforebegin', paragraph);
-    ed.dispatchEvent(new InputEvent('input', { bubbles: true, inputType: 'insertParagraph' }));
-    ed.focus();
-    const range = document.createRange(); range.setStart(paragraph, 0); range.collapse(true);
-    const selection = getSelection(); selection.removeAllRanges(); selection.addRange(range);
-    return true;
-  }, headingIndex);
-}
-
-async function caretIsInParagraph(page) {
-  return page.evaluate(() => {
-    const node = getSelection()?.anchorNode;
-    const element = node?.nodeType === Node.TEXT_NODE ? node.parentElement : node;
-    return Boolean(element?.closest?.('p')) && !element?.closest?.('h1,h2,h3,h4');
-  });
-}
-
-async function typeTopCta(page, headingIndex, op) {
-  if (!(await caretInNewParagraphBefore(page, headingIndex))) return false;
-  await sleep(300);
-  if (!(await caretIsInParagraph(page))) {
-    console.log('[top-cta] caret が段落の中に無い（見出しへ入力しないため中断）');
-    return false;
+    const heading = ed?.querySelectorAll('h2')[index];
+    if (!heading) return null;
+    const text = (heading.innerText || '').trim();
+    if (markup) {
+      heading.insertAdjacentHTML('beforebegin', markup);
+      ed.dispatchEvent(new InputEvent('input', { bubbles: true, inputType: 'insertText' }));
+    }
+    return text;
+  }, { index: headingIndex, markup: html });
+  if (target == null) return null;
+  if (op.newUrls.length) {
+    await sleep(500);
+    const cardified = await cardifyBareUrls(page, { tag: '[top-cta]' });
+    if (cardified.failed.length) console.log(`[top-cta] カード化されなかった URL: ${cardified.failed.join(', ')}`);
   }
-  if (op.newText) await page.keyboard.type(op.newText, { delay: 2 });
-  for (const url of op.newUrls) {
-    await page.keyboard.press('Enter');
-    await page.keyboard.type(url, { delay: 3 });
-    await page.keyboard.press('Enter'); await sleep(3500);
-  }
-  return true;
+  return target;
 }
 
 async function applyOperation(page, op) {
@@ -374,11 +359,16 @@ async function applyOperation(page, op) {
     }, op);
     if (removed.count <= 0) return false;
     await sleep(500);
-    if (!op.newText && op.newUrls.length === 0) return true;
-    return typeTopCta(page, removed.headingIndex, op);
+    const target = await insertTopCtaHtml(page, removed.headingIndex, op);
+    if (target == null) return false;
+    topCtaTargets.push(target);
+    return true;
   }
   if (op.type === 'insertTopCta') {
-    return typeTopCta(page, 0, op);
+    const target = await insertTopCtaHtml(page, 0, op);
+    if (target == null) return false;
+    topCtaTargets.push(target);
+    return true;
   }
   if (op.type === 'replaceCard') {
     for (let i = 0; i < expected(op); i++) {
@@ -781,7 +771,11 @@ async function verifyOperations(page, spec) {
   }, { operations: spec.operations, verify: spec.verify || {} });
 }
 
+// 冒頭 CTA を差し込んだ直後の h2 の文言（保存前に「同じ文言のまま 1 つだけ」を確かめる・DN-0272）
+let topCtaTargets = [];
+
 async function runSpec(page, specArg) {
+  topCtaTargets = [];
   const spec = validatePartialSpec(JSON.parse(readFileSync(resolve(ROOT, specArg), 'utf8')));
   const article = parseNoteArticle(resolve(ROOT, spec.article));
   const noteId = article.noteId || (article.data.noteUrl?.match(/\/n\/(n[0-9a-z]+)/) || [])[1];
@@ -840,7 +834,11 @@ async function runSpec(page, specArg) {
   if (!verification.ok) throw new Error(`編集後検証NG: ${verification.failures.join(', ')}`);
   // 冒頭 CTA 操作は見出しの割れ・CTA の見出し化を保存前に止める（DN-0272）
   if (spec.operations.some((op) => op.type === 'replaceTopCta' || op.type === 'insertTopCta')) {
-    const integrity = headingIntegrity(headingsBefore, await headingSnapshot(page));
+    const headingsAfter = await headingSnapshot(page);
+    const failures = topCtaTargets.length
+      ? topCtaTargets.flatMap((targetHeading) => headingIntegrity(headingsBefore, headingsAfter, { targetHeading }).failures)
+      : headingIntegrity(headingsBefore, headingsAfter).failures;
+    const integrity = { ok: failures.length === 0, failures: [...new Set(failures)] };
     if (!integrity.ok) throw new Error(`見出し構造NG（保存しない）: ${integrity.failures.join(', ')}`);
   }
   if (!sameAttachmentSnapshot(attachmentsBefore, attachmentsAfter)) throw new Error('PDF添付不変条件NG（更新前後のURL/ファイル名が不一致）');
