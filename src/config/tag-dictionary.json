@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generated_at": "2026-09-30T09:58:01.629Z",
+  "generated_at": "2026-09-30T10:26:54.772Z",
   "summary": {
-    "total_mdx_files": 1290,
-    "total_unique_tags": 125,
+    "total_mdx_files": 1295,
+    "total_unique_tags": 126,
     "allowlist_size": 322,
-    "known_count": 125,
+    "known_count": 126,
     "unknown_count": 0,
     "typo_candidates_count": 0
   },
@@ -1084,7 +1084,7 @@
     },
     {
       "name": "guide",
-      "count": 204,
+      "count": 209,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1148,6 +1148,7 @@
         "civil-construction-2-guide-career-change",
         "civil-construction-2-guide-concrete-key-points",
         "civil-construction-2-guide-construction-plan-key-points",
+        "civil-construction-2-guide-dam-tunnel-key-points",
         "civil-construction-2-guide-earthwork-key-points",
         "civil-construction-2-guide-exam-overview",
         "civil-construction-2-guide-foundation-key-points",
@@ -1158,12 +1159,16 @@
         "civil-construction-2-guide-quality-management",
         "civil-construction-2-guide-quit-or-stay",
         "civil-construction-2-guide-resume",
+        "civil-construction-2-guide-river-sabo-key-points",
+        "civil-construction-2-guide-road-pavement-key-points",
         "civil-construction-2-guide-safety-management",
         "civil-construction-2-guide-salary",
         "civil-construction-2-guide-schedule-management",
+        "civil-construction-2-guide-structures-key-points",
         "civil-construction-2-guide-study-method",
         "civil-construction-2-guide-study-plan",
         "civil-construction-2-guide-textbooks",
+        "civil-construction-2-guide-water-sewer-key-points",
         "civil-construction-2-guide-young-career",
         "civil-construction-2-secondary-grading-and-partial-credit",
         "civil-construction-2-secondary-last-two-weeks-plan",
@@ -2607,6 +2612,86 @@
       ]
     },
     {
+      "name": "試験対策",
+      "count": 73,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-guide-career-salary",
+        "civil-construction-1-guide-concrete-key-points",
+        "civil-construction-1-guide-concrete-maintenance",
+        "civil-construction-1-guide-construction-plan",
+        "civil-construction-1-guide-demolition",
+        "civil-construction-1-guide-difficulty",
+        "civil-construction-1-guide-earthwork-key-points",
+        "civil-construction-1-guide-environment-management",
+        "civil-construction-1-guide-foundation",
+        "civil-construction-1-guide-four-management",
+        "civil-construction-1-guide-grade-comparison",
+        "civil-construction-1-guide-last-minute-2026",
+        "civil-construction-1-guide-law-key-points",
+        "civil-construction-1-guide-machinery",
+        "civil-construction-1-guide-quality-management",
+        "civil-construction-1-guide-safety-management",
+        "civil-construction-1-guide-schedule-management",
+        "civil-construction-1-guide-strategy",
+        "civil-construction-1-guide-study-method",
+        "civil-construction-1-guide-surveying",
+        "civil-construction-1-keyword-2026",
+        "civil-construction-2-guide-concrete-key-points",
+        "civil-construction-2-guide-construction-plan-key-points",
+        "civil-construction-2-guide-dam-tunnel-key-points",
+        "civil-construction-2-guide-earthwork-key-points",
+        "civil-construction-2-guide-foundation-key-points",
+        "civil-construction-2-guide-law-key-points",
+        "civil-construction-2-guide-overview",
+        "civil-construction-2-guide-quality-management",
+        "civil-construction-2-guide-river-sabo-key-points",
+        "civil-construction-2-guide-road-pavement-key-points",
+        "civil-construction-2-guide-safety-management",
+        "civil-construction-2-guide-schedule-management",
+        "civil-construction-2-guide-structures-key-points",
+        "civil-construction-2-guide-study-method",
+        "civil-construction-2-guide-textbooks",
+        "civil-construction-2-guide-water-sewer-key-points",
+        "civil-construction-2-secondary-grading-and-partial-credit",
+        "civil-construction-2-secondary-written-questions-guide",
+        "concrete-chief-engineer-guide-overview",
+        "concrete-chief-engineer-guide-trends",
+        "concrete-diagnostician-guide-overview",
+        "concrete-engineer-guide-books",
+        "concrete-engineer-guide-difference-chief",
+        "concrete-engineer-guide-eligibility-2026",
+        "concrete-engineer-guide-overview",
+        "concrete-engineer-guide-study-plan",
+        "pavement-guide-keiken-kijutsu",
+        "pavement-guide-overview",
+        "pavement-guide-sentaku-hinshutsu",
+        "pavement-guide-study-plan",
+        "pe-comprehensive-management-exam-passing-strategy",
+        "pe-construction-nanido-goukakuritsu",
+        "pe-first-stage-guide-after-pass",
+        "pe-first-stage-guide-aptitude-subject",
+        "pe-first-stage-guide-basic-subject",
+        "pe-first-stage-guide-calculus-numerical-calculation",
+        "pe-first-stage-guide-construction-subject",
+        "pe-first-stage-guide-matrix-vector-calculation",
+        "pe-first-stage-guide-overview",
+        "pe-first-stage-guide-resistance-circuit-calculation",
+        "pe-first-stage-guide-study-plan",
+        "rccm-guide-difference-pe",
+        "rccm-guide-eligibility-application",
+        "rccm-guide-mondai1-keiken-ronbun",
+        "rccm-guide-mondai2-4-takuitsu",
+        "rccm-guide-mondai3-themes-2026",
+        "rccm-guide-overview",
+        "rccm-guide-study-plan",
+        "surveyor-guide-assistant-takuitsu",
+        "surveyor-guide-gogo-bunya",
+        "surveyor-guide-overview",
+        "surveyor-guide-study-plan"
+      ]
+    },
+    {
       "name": "関係法規",
       "count": 72,
       "inAllowlist": true,
@@ -2683,81 +2768,6 @@
         "pe-comprehensive-management-species-preservation-act",
         "pe-comprehensive-management-state-secrets-act",
         "pe-comprehensive-management-subcontracting-act"
-      ]
-    },
-    {
-      "name": "試験対策",
-      "count": 68,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-guide-career-salary",
-        "civil-construction-1-guide-concrete-key-points",
-        "civil-construction-1-guide-concrete-maintenance",
-        "civil-construction-1-guide-construction-plan",
-        "civil-construction-1-guide-demolition",
-        "civil-construction-1-guide-difficulty",
-        "civil-construction-1-guide-earthwork-key-points",
-        "civil-construction-1-guide-environment-management",
-        "civil-construction-1-guide-foundation",
-        "civil-construction-1-guide-four-management",
-        "civil-construction-1-guide-grade-comparison",
-        "civil-construction-1-guide-last-minute-2026",
-        "civil-construction-1-guide-law-key-points",
-        "civil-construction-1-guide-machinery",
-        "civil-construction-1-guide-quality-management",
-        "civil-construction-1-guide-safety-management",
-        "civil-construction-1-guide-schedule-management",
-        "civil-construction-1-guide-strategy",
-        "civil-construction-1-guide-study-method",
-        "civil-construction-1-guide-surveying",
-        "civil-construction-1-keyword-2026",
-        "civil-construction-2-guide-concrete-key-points",
-        "civil-construction-2-guide-construction-plan-key-points",
-        "civil-construction-2-guide-earthwork-key-points",
-        "civil-construction-2-guide-foundation-key-points",
-        "civil-construction-2-guide-law-key-points",
-        "civil-construction-2-guide-overview",
-        "civil-construction-2-guide-quality-management",
-        "civil-construction-2-guide-safety-management",
-        "civil-construction-2-guide-schedule-management",
-        "civil-construction-2-guide-study-method",
-        "civil-construction-2-guide-textbooks",
-        "civil-construction-2-secondary-grading-and-partial-credit",
-        "civil-construction-2-secondary-written-questions-guide",
-        "concrete-chief-engineer-guide-overview",
-        "concrete-chief-engineer-guide-trends",
-        "concrete-diagnostician-guide-overview",
-        "concrete-engineer-guide-books",
-        "concrete-engineer-guide-difference-chief",
-        "concrete-engineer-guide-eligibility-2026",
-        "concrete-engineer-guide-overview",
-        "concrete-engineer-guide-study-plan",
-        "pavement-guide-keiken-kijutsu",
-        "pavement-guide-overview",
-        "pavement-guide-sentaku-hinshutsu",
-        "pavement-guide-study-plan",
-        "pe-comprehensive-management-exam-passing-strategy",
-        "pe-construction-nanido-goukakuritsu",
-        "pe-first-stage-guide-after-pass",
-        "pe-first-stage-guide-aptitude-subject",
-        "pe-first-stage-guide-basic-subject",
-        "pe-first-stage-guide-calculus-numerical-calculation",
-        "pe-first-stage-guide-construction-subject",
-        "pe-first-stage-guide-matrix-vector-calculation",
-        "pe-first-stage-guide-overview",
-        "pe-first-stage-guide-resistance-circuit-calculation",
-        "pe-first-stage-guide-study-plan",
-        "rccm-guide-difference-pe",
-        "rccm-guide-eligibility-application",
-        "rccm-guide-mondai1-keiken-ronbun",
-        "rccm-guide-mondai2-4-takuitsu",
-        "rccm-guide-mondai3-themes-2026",
-        "rccm-guide-overview",
-        "rccm-guide-study-plan",
-        "surveyor-guide-assistant-takuitsu",
-        "surveyor-guide-gogo-bunya",
-        "surveyor-guide-overview",
-        "surveyor-guide-study-plan"
       ]
     },
     {
@@ -3395,9 +3405,10 @@
     },
     {
       "name": "道路",
-      "count": 21,
+      "count": 22,
       "inAllowlist": true,
       "usedIn": [
+        "civil-construction-2-guide-road-pavement-key-points",
         "civil-practice-asphalt-pavement-control",
         "civil-practice-road-fixtures-precast",
         "civil-practice-schedule-and-road-permit",
@@ -3882,6 +3893,25 @@
       ]
     },
     {
+      "name": "トンネル",
+      "count": 12,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-textbook-tunnel-natm",
+        "civil-construction-2-guide-dam-tunnel-key-points",
+        "pe-construction-r01-tunnel",
+        "pe-construction-r02-tunnel",
+        "pe-construction-r03-tunnel",
+        "pe-construction-r04-tunnel",
+        "pe-construction-r05-tunnel",
+        "pe-construction-r06-tunnel",
+        "pe-construction-r07-tunnel",
+        "pe-construction-r08-tunnel",
+        "pe-construction-tunnel-exam-themes",
+        "pe-construction-tunnel-ronbun-keyword"
+      ]
+    },
+    {
       "name": "コンクリート主任技士",
       "count": 11,
       "inAllowlist": true,
@@ -3918,21 +3948,21 @@
       ]
     },
     {
-      "name": "トンネル",
+      "name": "河川",
       "count": 11,
       "inAllowlist": true,
       "usedIn": [
-        "civil-construction-1-textbook-tunnel-natm",
-        "pe-construction-r01-tunnel",
-        "pe-construction-r02-tunnel",
-        "pe-construction-r03-tunnel",
-        "pe-construction-r04-tunnel",
-        "pe-construction-r05-tunnel",
-        "pe-construction-r06-tunnel",
-        "pe-construction-r07-tunnel",
-        "pe-construction-r08-tunnel",
-        "pe-construction-tunnel-exam-themes",
-        "pe-construction-tunnel-ronbun-keyword"
+        "civil-construction-1-textbook-river-works",
+        "civil-construction-2-guide-river-sabo-key-points",
+        "civil-practice-flood-season-river-work",
+        "civil-practice-river-park-erosion-control",
+        "pe-comprehensive-management-pattern-essay-river-consultant",
+        "pe-comprehensive-management-r03-essay-river-consultant",
+        "pe-comprehensive-management-r04-essay-river-consultant",
+        "pe-comprehensive-management-r05-essay-river-consultant",
+        "pe-comprehensive-management-r06-essay-river-consultant",
+        "pe-comprehensive-management-r07-essay-river-consultant",
+        "pe-construction-river-coast-ronbun-keyword"
       ]
     },
     {
@@ -4006,23 +4036,6 @@
       ]
     },
     {
-      "name": "河川",
-      "count": 10,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-textbook-river-works",
-        "civil-practice-flood-season-river-work",
-        "civil-practice-river-park-erosion-control",
-        "pe-comprehensive-management-pattern-essay-river-consultant",
-        "pe-comprehensive-management-r03-essay-river-consultant",
-        "pe-comprehensive-management-r04-essay-river-consultant",
-        "pe-comprehensive-management-r05-essay-river-consultant",
-        "pe-comprehensive-management-r06-essay-river-consultant",
-        "pe-comprehensive-management-r07-essay-river-consultant",
-        "pe-construction-river-coast-ronbun-keyword"
-      ]
-    },
-    {
       "name": "港湾及び空港",
       "count": 10,
       "inAllowlist": true,
@@ -4037,6 +4050,23 @@
         "pe-construction-r06-port-airport",
         "pe-construction-r07-port-airport",
         "pe-construction-r08-port-airport"
+      ]
+    },
+    {
+      "name": "砂防",
+      "count": 10,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-textbook-sabo-landslide",
+        "civil-construction-2-guide-river-sabo-key-points",
+        "civil-practice-rainfall-work-suspension",
+        "pe-comprehensive-management-pattern-essay-river-consultant",
+        "pe-comprehensive-management-r03-essay-river-consultant",
+        "pe-comprehensive-management-r04-essay-river-consultant",
+        "pe-comprehensive-management-r05-essay-river-consultant",
+        "pe-comprehensive-management-r06-essay-river-consultant",
+        "pe-comprehensive-management-r07-essay-river-consultant",
+        "pe-construction-river-coast-ronbun-keyword"
       ]
     },
     {
@@ -4119,22 +4149,6 @@
         "pe-construction-r07-river-coast",
         "pe-construction-r08-river-coast",
         "pe-construction-river-coast-exam-themes"
-      ]
-    },
-    {
-      "name": "砂防",
-      "count": 9,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-textbook-sabo-landslide",
-        "civil-practice-rainfall-work-suspension",
-        "pe-comprehensive-management-pattern-essay-river-consultant",
-        "pe-comprehensive-management-r03-essay-river-consultant",
-        "pe-comprehensive-management-r04-essay-river-consultant",
-        "pe-comprehensive-management-r05-essay-river-consultant",
-        "pe-comprehensive-management-r06-essay-river-consultant",
-        "pe-comprehensive-management-r07-essay-river-consultant",
-        "pe-construction-river-coast-ronbun-keyword"
       ]
     },
     {
@@ -4749,11 +4763,28 @@
       ]
     },
     {
+      "name": "鋼構造物",
+      "count": 2,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-textbook-steel-structures",
+        "civil-construction-2-guide-structures-key-points"
+      ]
+    },
+    {
       "name": "2024年問題",
       "count": 1,
       "inAllowlist": true,
       "usedIn": [
         "pe-construction-ninaite-kakuho-seisansei"
+      ]
+    },
+    {
+      "name": "ダム",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-2-guide-dam-tunnel-key-points"
       ]
     },
     {
@@ -4794,14 +4825,6 @@
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-r8-essay-theme-economic-security"
-      ]
-    },
-    {
-      "name": "鋼構造物",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-textbook-steel-structures"
       ]
     }
   ],
