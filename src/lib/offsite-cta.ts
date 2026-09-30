@@ -30,7 +30,7 @@ export interface OffsiteCtaItem {
   readonly affiliate: boolean;
 }
 
-export interface OffsiteRule {
+interface OffsiteRule {
   readonly test: RegExp;
   readonly coconala?: readonly string[];
   readonly coconalaCatch?: string;
@@ -42,7 +42,7 @@ export interface OffsiteRule {
 // 主任技士のルールも無かったため、2級・主任技士のページにココナラ導線が 1 枚も出ていなかった。retired を指すルールは tests/offsite-cta.test.mjs が落とす。
 // 試験後まで一時休止（pauseReason:'absence'）の PDF はルールに残し、復帰したら自動で出す。総監 記述系は分析 PDF が retired でルールごと外した。
 // coconala-2kyu-tensaku（absence）は 3 テーマ版と同じ添削なので載せない（復帰時に添削が 2 枚並ぶ）。
-export const OFFSITE_RULES: readonly OffsiteRule[] = [
+const OFFSITE_RULES: readonly OffsiteRule[] = [
   {
     // 施工経験記述（1級）: 読者が自分の工事で答案を書く高 intent ページ。人の添削と骨子からの指導が最も刺さる。
     test: /^civil-construction-1-secondary-experience-writing-(guide|examples)$/,
