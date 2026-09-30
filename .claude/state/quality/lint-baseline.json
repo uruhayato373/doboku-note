@@ -966,12 +966,12 @@
     "content/site/pe-comprehensive-management/industrial-property-rights/article.mdx": {
       "3-1": 4
     },
+    "content/site/pe-comprehensive-management/information-disclosure-act/article.mdx": {
+      "15-3": 2
+    },
     "content/site/pe-comprehensive-management/information-disclosure/article.mdx": {
       "15-3": 6,
       "15-2": 4
-    },
-    "content/site/pe-comprehensive-management/information-disclosure-act/article.mdx": {
-      "15-3": 2
     },
     "content/site/pe-comprehensive-management/information-management-pillar/article.mdx": {
       "6-1": 1,
@@ -1108,12 +1108,12 @@
       "6-1": 4,
       "1-4": 4
     },
-    "content/site/pe-comprehensive-management/mental-health/article.mdx": {
-      "3-1": 4
-    },
     "content/site/pe-comprehensive-management/mental-health-care/article.mdx": {
       "6-1": 1,
       "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/mental-health/article.mdx": {
+      "3-1": 4
     },
     "content/site/pe-comprehensive-management/mentor/article.mdx": {
       "6-1": 1,
@@ -1470,9 +1470,6 @@
     "content/site/pe-comprehensive-management/rio-declaration/article.mdx": {
       "15-3": 2
     },
-    "content/site/pe-comprehensive-management/risk/article.mdx": {
-      "15-3": 2
-    },
     "content/site/pe-comprehensive-management/risk-management-plan/article.mdx": {
       "6-1": 1
     },
@@ -1489,6 +1486,9 @@
     "content/site/pe-comprehensive-management/risk-treatment/article.mdx": {
       "1-4": 1,
       "15-3": 1
+    },
+    "content/site/pe-comprehensive-management/risk/article.mdx": {
+      "15-3": 2
     },
     "content/site/pe-comprehensive-management/rohs-weee/article.mdx": {
       "2-3": 1,
@@ -1777,6 +1777,11 @@
       "15-3": 2,
       "15-2": 1
     },
+    "content/site/pe-construction-guide-required-essay/article.mdx": {
+      "1-5": 1,
+      "6-1": 1,
+      "1-4": 10
+    },
     "content/site/pe-construction/bosai-kokudo-kyoujinka/article.mdx": {
       "15-1": 2
     },
@@ -2006,11 +2011,6 @@
     "content/site/pe-construction/urban-planning-ronbun-keyword/article.mdx": {
       "15-1": 2
     },
-    "content/site/pe-construction-guide-required-essay/article.mdx": {
-      "1-5": 1,
-      "6-1": 1,
-      "1-4": 10
-    },
     "content/site/pe-first-stage/h25-aptitude/article.mdx": {
       "15-2": 5
     },
@@ -2169,6 +2169,31 @@
       "1-3": 4,
       "1-4": 6,
       "15-2": 3
+    },
+    "content/site/surveyor/primary-r04/article.mdx": {
+      "1-3": 9,
+      "15-1": 6,
+      "1-4": 4,
+      "15-2": 1
+    },
+    "content/site/surveyor/primary-r05/article.mdx": {
+      "15-1": 6,
+      "1-3": 7,
+      "1-4": 3
+    },
+    "content/site/surveyor/primary-r06/article.mdx": {
+      "1-3": 4,
+      "15-1": 3
+    },
+    "content/site/surveyor/primary-r07/article.mdx": {
+      "1-3": 11,
+      "15-1": 11,
+      "1-4": 3
+    },
+    "content/site/surveyor/primary-r08/article.mdx": {
+      "1-3": 7,
+      "15-1": 3,
+      "1-4": 4
     }
   }
 }
