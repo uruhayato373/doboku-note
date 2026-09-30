@@ -1567,6 +1567,18 @@
       "commit": "bff1aa472050",
       "verification": "node --test tests/annual-roadmap.test.mjs 4 pass・admin tsc pass・dev 3031 で描画確認",
       "note": "PR #772 マージ。/plan/roadmap に前年同月の資格別売上列(lastYearSalesByMonth+テスト)"
+    },
+    {
+      "id": "DN-0394",
+      "at": "2026-09-30",
+      "task": "週次レビューの点検 39 件を「毎日の自動点検へ移す・判断へ格上げ・週次に残す・廃止」に振り分ける",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "b152534d345c",
+      "verification": "npm run check-review-wiring 食い違い0・quality-audit --ops 新規7件 pass",
+      "note": "PR #775 マージ。週次の点検 38→10、ops へ 7 件（読み手=ops-audit Issue）、4 件を判断へ格上げ"
     }
   ]
 }
