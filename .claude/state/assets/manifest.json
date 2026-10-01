@@ -5030,7 +5030,13 @@
       "group": "note-cover-png",
       "verifiedAt": "2026-10-01T14:37:06.528Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/1級・2級土木/2級土木/施工経験記述で落ちる答案/img/cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-note-covers.mjs",
+      "requiredBy": [
+        "scripts/note-sync-routine.mjs（登録した版を保存）"
+      ]
     },
     "content/note/1級・2級土木/2級土木/第一次検定の独学突破/img/cover.png": {
       "bucket": "private",
@@ -50843,7 +50849,13 @@
       "group": "note-cover-png",
       "verifiedAt": "2026-10-01T14:37:05.544Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事132-小規模防波堤嵩上げ/img/cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-note-covers.mjs",
+      "requiredBy": [
+        "scripts/note-sync-routine.mjs（登録した版を保存）"
+      ]
     },
     "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事127-農地暗渠排水/img/cover.png": {
       "bucket": "private",
@@ -50855,7 +50867,13 @@
       "group": "note-cover-png",
       "verifiedAt": "2026-10-01T14:37:05.563Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事127-農地暗渠排水/img/cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-note-covers.mjs",
+      "requiredBy": [
+        "scripts/note-sync-routine.mjs（登録した版を保存）"
+      ]
     },
     "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事129-橋面防水橋面舗装更新/img/cover.png": {
       "bucket": "private",
@@ -50867,7 +50885,13 @@
       "group": "note-cover-png",
       "verifiedAt": "2026-10-01T14:37:05.585Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事129-橋面防水橋面舗装更新/img/cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-note-covers.mjs",
+      "requiredBy": [
+        "scripts/note-sync-routine.mjs（登録した版を保存）"
+      ]
     },
     "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事131-漁港物揚場補修/img/cover.png": {
       "bucket": "private",
@@ -50879,7 +50903,13 @@
       "group": "note-cover-png",
       "verifiedAt": "2026-10-01T14:37:05.707Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事131-漁港物揚場補修/img/cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-note-covers.mjs",
+      "requiredBy": [
+        "scripts/note-sync-routine.mjs（登録した版を保存）"
+      ]
     },
     "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事130-高欄地覆補修剥落防止/img/cover.png": {
       "bucket": "private",
@@ -50891,7 +50921,13 @@
       "group": "note-cover-png",
       "verifiedAt": "2026-10-01T14:37:05.769Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事130-高欄地覆補修剥落防止/img/cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-note-covers.mjs",
+      "requiredBy": [
+        "scripts/note-sync-routine.mjs（登録した版を保存）"
+      ]
     },
     "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事128-橋梁支承取替/img/cover.png": {
       "bucket": "private",
@@ -50903,7 +50939,13 @@
       "group": "note-cover-png",
       "verifiedAt": "2026-10-01T14:37:05.865Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事128-橋梁支承取替/img/cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-note-covers.mjs",
+      "requiredBy": [
+        "scripts/note-sync-routine.mjs（登録した版を保存）"
+      ]
     },
     "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事126-用排水路更新PCフリューム/img/cover.png": {
       "bucket": "private",
@@ -50915,7 +50957,13 @@
       "group": "note-cover-png",
       "verifiedAt": "2026-10-01T14:37:05.913Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事126-用排水路更新PCフリューム/img/cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-note-covers.mjs",
+      "requiredBy": [
+        "scripts/note-sync-routine.mjs（登録した版を保存）"
+      ]
     },
     "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事134-漁港用地舗装排水/img/cover.png": {
       "bucket": "private",
@@ -50927,7 +50975,13 @@
       "group": "note-cover-png",
       "verifiedAt": "2026-10-01T14:37:06.195Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事134-漁港用地舗装排水/img/cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-note-covers.mjs",
+      "requiredBy": [
+        "scripts/note-sync-routine.mjs（登録した版を保存）"
+      ]
     },
     "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事135-小規模宅地造成/img/cover.png": {
       "bucket": "private",
@@ -50939,7 +50993,13 @@
       "group": "note-cover-png",
       "verifiedAt": "2026-10-01T14:37:06.231Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事135-小規模宅地造成/img/cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-note-covers.mjs",
+      "requiredBy": [
+        "scripts/note-sync-routine.mjs（登録した版を保存）"
+      ]
     },
     "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事125-圃場整備区画整理/img/cover.png": {
       "bucket": "private",
@@ -50951,7 +51011,13 @@
       "group": "note-cover-png",
       "verifiedAt": "2026-10-01T14:37:06.304Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事125-圃場整備区画整理/img/cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-note-covers.mjs",
+      "requiredBy": [
+        "scripts/note-sync-routine.mjs（登録した版を保存）"
+      ]
     },
     "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事136-商業施設外構舗装排水/img/cover.png": {
       "bucket": "private",
@@ -50963,7 +51029,13 @@
       "group": "note-cover-png",
       "verifiedAt": "2026-10-01T14:37:06.414Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事136-商業施設外構舗装排水/img/cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-note-covers.mjs",
+      "requiredBy": [
+        "scripts/note-sync-routine.mjs（登録した版を保存）"
+      ]
     },
     "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事133-海岸堤防補修/img/cover.png": {
       "bucket": "private",
@@ -50975,7 +51047,13 @@
       "group": "note-cover-png",
       "verifiedAt": "2026-10-01T14:37:06.707Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事133-海岸堤防補修/img/cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-note-covers.mjs",
+      "requiredBy": [
+        "scripts/note-sync-routine.mjs（登録した版を保存）"
+      ]
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",
