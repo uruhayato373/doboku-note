@@ -6,7 +6,7 @@ import Link from "next/link";
 /**
  * 施工経験記述 文字数チェッカー（クライアント）。
  *
- * 解答欄しきい値の真実源は .claude/config/keiken-answer-sheet-limits.json
+ * 解答欄しきい値の真実源は config/keiken-answer-sheet-limits.json
  * （scripts/keiken-charcount.mjs と同値）。本ツールは静的ページのため当該値を埋め込み、
  * カウント規則（markdown 装飾・タグ・空白を除いた実文字数、プレースホルダ〇は算入）も
  * スクリプトと一致させている。値の根拠（公式解答欄の行数×字/行）は下部「出典」を参照。

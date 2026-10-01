@@ -45,7 +45,7 @@ export {
   startStatusTicker,
 };
 
-export const A8_CONFIG_PATH = ".claude/config/a8-report-automation.json";
+export const A8_CONFIG_PATH = "config/a8-report-automation.json";
 
 export function loadA8Config() {
   const cfg = JSON.parse(readFileSync(A8_CONFIG_PATH, "utf-8"));

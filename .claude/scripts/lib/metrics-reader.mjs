@@ -178,7 +178,7 @@ async function fetchGa4Weekly(credentials, ranges, opts = {}) {
 // SNS 流入の source 集合を UTM SSOT (utm-templates.json) から読む（ハードコードしない）
 function getSnsSources() {
   try {
-    const cfg = JSON.parse(readFileSync(".claude/config/utm-templates.json", "utf-8"));
+    const cfg = JSON.parse(readFileSync("config/utm-templates.json", "utf-8"));
     const sources = Object.values(cfg.channels || {})
       .map((c) => c.source)
       .filter(Boolean);

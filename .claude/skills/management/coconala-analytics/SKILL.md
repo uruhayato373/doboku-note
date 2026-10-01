@@ -25,8 +25,8 @@ npm run check-coconala-analytics             # 鮮度・欠測・マスク値・
 
 補助フラグ: `--no-services`（全体＋ブログのみ）／`--headless`／`--append-kpi` なしなら snapshot のみ。
 
-出力は `.claude/state/coconala/analytics-snapshot.json`（実体）と
-`.claude/state/coconala/kpi-log.json` の `weekly` / `blogsWeekly`（週次台帳・`weekOf`+`serviceId` で upsert＝再実行しても二重計上しない）。
+出力は `data/coconala/analytics-snapshot.json`（実体）と
+`data/coconala/kpi-log.json` の `weekly` / `blogsWeekly`（週次台帳・`weekOf`+`serviceId` で upsert＝再実行しても二重計上しない）。
 
 ## 読み方（ここを間違えると数字が嘘になる）
 

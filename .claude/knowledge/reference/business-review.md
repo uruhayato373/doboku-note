@@ -1,14 +1,14 @@
 # 事業計測とレビュー
 
-判断理由の正典は [プロダクト戦略](../../../docs/strategy/01_プロダクト戦略.md)。機械設定は `.claude/config/business-direction.json`。重点資格・指標定義をスキルや別JSONへ複製しない。CLAUDE.md、管理画面、SEO、レビューが同じ設定を参照する。
+判断理由の正典は [プロダクト戦略](../../../docs/strategy/01_プロダクト戦略.md)。機械設定は `config/business-direction.json`。重点資格・指標定義をスキルや別JSONへ複製しない。CLAUDE.md、管理画面、SEO、レビューが同じ設定を参照する。
 
 ## 記録の置き場
 
-- 既存実績: note=`.claude/state/sales/sales-log.json`、KDP=`.claude/state/sales/kdp-royalties.json`、ココナラ=`.claude/state/coconala/{analytics-snapshot,orders-snapshot,orders-log}.json`（閲覧は30日窓、注文・販売額は暦月）、GSC/GA4=`.claude/state/metrics/`。商品状態・価格・顧客対応の台帳は従来どおり。
-- 追加計測・目標・凍結スナップショット・判断履歴: `.claude/state/metrics/business/`。1回1ファイル・追記専用。訂正は `supersedes` で旧ファイルを参照し、削除・上書きしない。
-- 改善の状態: `.claude/state/experiments.json`。レビューは実験IDを参照するだけで別の実験状態台帳を作らない。
-- Instagram: `.claude/state/metrics/instagram/ig-insights-*.json`（Graph API を使わない＝2026-09-23 ユーザー決定。インサイトは取得しないので欠測のまま扱い、0 と読まない）。
-- Cloudflare: `.claude/state/metrics/cloudflare/cf-zone-*.json`（CI 日次・`cloudflare-metrics.yml`）。
+- 既存実績: note=`data/sales/sales-log.json`、KDP=`data/sales/kdp-royalties.json`、ココナラ=`data/coconala/{analytics-snapshot,orders-snapshot,orders-log}.json`（閲覧は30日窓、注文・販売額は暦月）、GSC/GA4=`data/metrics/`。商品状態・価格・顧客対応の台帳は従来どおり。
+- 追加計測・目標・凍結スナップショット・判断履歴: `data/metrics/business/`。1回1ファイル・追記専用。訂正は `supersedes` で旧ファイルを参照し、削除・上書きしない。
+- 改善の状態: `data/experiments.json`。レビューは実験IDを参照するだけで別の実験状態台帳を作らない。
+- Instagram: `data/metrics/instagram/ig-insights-*.json`（Graph API を使わない＝2026-09-23 ユーザー決定。インサイトは取得しないので欠測のまま扱い、0 と読まない）。
+- Cloudflare: `data/metrics/cloudflare/cf-zone-*.json`（CI 日次・`cloudflare-metrics.yml`）。
 
 ## 計測
 
@@ -25,9 +25,9 @@ Googleの取得は既存CI認証を使い、前の完了した週・月の資格
 
 GA4人数は期間全体に対するAPI集計。資格別は正規URL配下の閲覧を条件とするため、複数資格を見る同一人を資格間で足さない。旧URLの期間を含む月との増減は対象範囲の変化を含み、改善効果と判定しない。演習イベントは既存1級土木ツールの範囲。GSCの資格別クリックは正規URL配下を条件とし、旧URLや一般実務ページと混ぜない。異なるタイムゾーンの厳密な購買率は計算しない。
 
-自動集計対象外の値は、各管理画面で期間・対象・定義を確認し `.claude/state/metrics/business/` の JSON へ記録する（`scripts/lib/business-direction.mjs` の `saveRecord`）。`source` に取得面・確認範囲を記す。新PVと旧全体ビューは接続しない。ココナラの閲覧数は `/coconala-analytics` の30日窓を使い、暦月へ換算しない。KDPは月次台帳の書籍別行からcatalog対象だけを集計し、共有口座総額やサイト帰属できないKENPを事業実績へ入れない。認証・ログイン・UI変更で取得できなければ、値を作らず次回の取得対象へ残す。
+自動集計対象外の値は、各管理画面で期間・対象・定義を確認し `data/metrics/business/` の JSON へ記録する（`scripts/lib/business-direction.mjs` の `saveRecord`）。`source` に取得面・確認範囲を記す。新PVと旧全体ビューは接続しない。ココナラの閲覧数は `/coconala-analytics` の30日窓を使い、暦月へ換算しない。KDPは月次台帳の書籍別行からcatalog対象だけを集計し、共有口座総額やサイト帰属できないKENPを事業実績へ入れない。認証・ログイン・UI変更で取得できなければ、値を作らず次回の取得対象へ残す。
 
-note の `notePv` / `noteImpressions` は `npm run note-traffic-fetch -- --month YYYY-MM --commit` が書く `.claude/state/metrics/note/referrers-YYYY-MM.json` の `summary` を全体値の出典にする（自己閲覧を含む・`coverage: complete`）。資格別は `articles-pv-YYYY-MM.json` の記事タイトルを公開台帳と資格名へ照合する。未帰属記事を残すため資格別はpartialとし、全体値と一致するよう按分しない。流入元の内訳（`targetMonth.sources`）は指標にせず findings に書く。月の途中に取得したファイル（`fetchedAt` が対象月末以前）は取得日までの期間・partial として扱い、月全体の値にしない。月末後でも note の確定日（翌月 2 日・JST）より前に取得したファイルは確定前の値として、月の期間のまま partial にする。note 販売の complete は、さらに `sales-log.json` の `months[YYYY-MM].finalized`（`note-sales-fetch` が確定日以降に検算一致したときだけ true）を要する。note が確定前の月を含む期間のスナップショットには `pendingFinalization` が付き、それに基づくレビューは provisional・次回日を確定日以降にしか記録できない（確定後に新しいスナップショットで supersedes 訂正する）。週次レビューには按分せず、月の値は `/metrics/business` の「別期間の既存計測」に出す（実装 `noteMonthFacts`）。
+note の `notePv` / `noteImpressions` は `npm run note-traffic-fetch -- --month YYYY-MM --commit` が書く `data/metrics/note/referrers-YYYY-MM.json` の `summary` を全体値の出典にする（自己閲覧を含む・`coverage: complete`）。資格別は `articles-pv-YYYY-MM.json` の記事タイトルを公開台帳と資格名へ照合する。未帰属記事を残すため資格別はpartialとし、全体値と一致するよう按分しない。流入元の内訳（`targetMonth.sources`）は指標にせず findings に書く。月の途中に取得したファイル（`fetchedAt` が対象月末以前）は取得日までの期間・partial として扱い、月全体の値にしない。月末後でも note の確定日（翌月 2 日・JST）より前に取得したファイルは確定前の値として、月の期間のまま partial にする。note 販売の complete は、さらに `sales-log.json` の `months[YYYY-MM].finalized`（`note-sales-fetch` が確定日以降に検算一致したときだけ true）を要する。note が確定前の月を含む期間のスナップショットには `pendingFinalization` が付き、それに基づくレビューは provisional・次回日を確定日以降にしか記録できない（確定後に新しいスナップショットで supersedes 訂正する）。週次レビューには按分せず、月の値は `/metrics/business` の「別期間の既存計測」に出す（実装 `noteMonthFacts`）。
 
 ココナラの暦月販売件数・販売額は、全タブ取得済みの `orders-snapshot.json` を `orders-log.json` のtalkroomIdへ突合して集計する。分析画面の閲覧数は30日ローリングのまま別期間として表示し、暦月へ換算しない。資格別の閲覧数は1級専用・RCCM出品だけを合算し、1・2級共通の出品は全体のみに含める（`coconalaViewFacts`）。購入前相談はDMスレッドの最新日しか取れず件数を復元できないため、専用記録がない期間は欠測とする。例外として、期間終了後に取得した `orders-snapshot.json` のDM一覧（運営通知を除く）の最新日がすべて期間開始より前なら、期間中の相談は0件と確定する（`coconalaInquiryFacts`）。
 

@@ -14,7 +14,7 @@ const ROOT = path.resolve(__dirname, '../../..');
 const STATE_PATH = path.join(ROOT, '.claude/state/video-content-status.json');
 const PRIVATE_BUCKET = 'doboku-note-archive';
 const PRODUCTION_DISCLOSURE = JSON.parse(
-  fs.readFileSync(path.join(ROOT, '.claude/config/youtube-production-disclosure.json'), 'utf8'),
+  fs.readFileSync(path.join(ROOT, 'config/youtube-production-disclosure.json'), 'utf8'),
 );
 let publish;
 

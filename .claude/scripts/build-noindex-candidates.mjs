@@ -10,8 +10,8 @@
  *
  * Usage:
  *   node .claude/scripts/build-noindex-candidates.mjs \
- *     --inspection-glob ".claude/state/metrics/url-inspection/inspection-batch-2026-04-27*.json" \
- *     --page-data .claude/state/metrics/gsc/gsc-page-2026-04-27T11-15-23.json
+ *     --inspection-glob "data/metrics/url-inspection/inspection-batch-2026-04-27*.json" \
+ *     --page-data data/metrics/gsc/gsc-page-2026-04-27T11-15-23.json
  */
 
 import { readFileSync, writeFileSync } from "fs";

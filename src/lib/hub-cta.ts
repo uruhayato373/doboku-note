@@ -1,5 +1,5 @@
 import { getMagazine, buildMagazineUrl, type MagazineId } from '@/lib/note-magazines';
-import examCalendar from '../../.claude/config/exam-calendar.json';
+import examCalendar from '../../config/exam-calendar.json';
 import { qualificationShortLabel } from '@/lib/qualification-names';
 
 // カテゴリ hub 本文の note CTA（資格別リッチ背景×HTML文字）を解決する。
@@ -27,7 +27,7 @@ function examDayEndUtcMs(examId: CivilExamId, eventId: 'second'): number {
   const date = examCalendar.exams[examId].events[eventId].date;
   const timestamp = Date.parse(`${date}T23:59:59+09:00`);
   if (!Number.isFinite(timestamp)) {
-    throw new Error(`Invalid exam date in .claude/config/exam-calendar.json: ${examId}.${eventId}`);
+    throw new Error(`Invalid exam date in config/exam-calendar.json: ${examId}.${eventId}`);
   }
   return timestamp;
 }

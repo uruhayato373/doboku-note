@@ -39,7 +39,7 @@ type NavEntry = Tab | NavTree;
 /** 計画の層の件数（layout が server 側で todoBoard() から数えて渡す）。月間は [時期:] が今月を含むカード数。 */
 export type TodoLayer = { id: string; label: string; count: number };
 
-/** 領域とサイドバーの画面（layout が .claude/config/domains.json から渡す。ここに直書きしない）。 */
+/** 領域とサイドバーの画面（layout が config/domains.json から渡す。ここに直書きしない）。 */
 export type NavDomain = { id: string; label: string; nav: Tab[] };
 
 /**

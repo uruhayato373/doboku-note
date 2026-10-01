@@ -31,7 +31,7 @@ domain: product
 
 ### domain フィールド（必須・2026-09-26〜）
 
-- 事業の領域 id（`strategy` / `plan` / `product` / `affiliate` / `site` / `sns` / `material` / `ops`）。正本は `.claude/config/domains.json`、`npm run check-domains` が欠落と語彙外を止める
+- 事業の領域 id（`strategy` / `plan` / `product` / `affiliate` / `site` / `sns` / `material` / `ops`）。正本は `config/domains.json`、`npm run check-domains` が欠落と語彙外を止める
 - **作るもの・動かすものの領域**で決める。writer と qa の組は同じ領域（例: note 記事の書き手と QA は `product`、X 投稿は `sns`）。領域を横断する道具（文書同期・デプロイ・コードレビュー）は `ops`
 - 置き場（`.claude/skills/<カテゴリ>/`）は作業の種類、domain は事業の領域で、別の軸。domain のためにディレクトリを移さない
 

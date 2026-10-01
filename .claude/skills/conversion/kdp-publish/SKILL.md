@@ -5,7 +5,7 @@ description: >
   詳細記入・カテゴリー選択・原稿/表紙アップロード・原稿処理完了待ち・AI申告・アクセシビリティ・
   価格・出版までを scripts/kdp-publish.mjs（Playwright・永続プロファイルでログイン保存）で駆動し、
   提出前の本棚突合（重複防止）・提出後の catalog.json 更新・LIVE 化後の ASIN 記録は kdp-operator が担う。
-  真実源は .claude/config/kdp-memo.json（defaults＝共通申告/カテゴリー経路）。EPUB を作る /kindle-build の後工程。
+  真実源は config/kdp-memo.json（defaults＝共通申告/カテゴリー経路）。EPUB を作る /kindle-build の後工程。
   Use when user asks to [KDP出版, KDP提出, KDP公開, kindleを出版, KDP状態同期, KDPドラフト削除, /kdp-publish].
 user-invocable: true
 domain: product
@@ -53,7 +53,7 @@ gh workflow run ops-write.yml --ref develop -f operation=kdp.publish -f args='{"
 
 - **ローカル限定・ログイン済みプロファイル**: 初回のみ人が手動ログイン（CAPTCHA/2FA も人）。以降 `<auth root>/profiles/playwright-kdp-profile` にセッション保持で無人。未ログインなら script が最大2分待つ。
 - **EPUB/表紙が Downloads にある**: `npm run sync-kindle-dist -- --downloads <id>` で配置。
-- **メタデータ登録済み**: `.claude/config/kdp-memo.json` books[id] が必要。未登録（C系/F系/e-02）は kdp-operator ケース2 で先に生成。
+- **メタデータ登録済み**: `config/kdp-memo.json` books[id] が必要。未登録（C系/F系/e-02）は kdp-operator ケース2 で先に生成。
 
 ## ケース別手順
 
@@ -211,7 +211,7 @@ node scripts/kdp-publish.mjs --id <id> --update-cover [--commit [--commit-publis
 - `scripts/kdp-publish.mjs` — 入稿・出版パブリッシャ
 - `scripts/lib/kdp-common.mjs` — SSOT 読取り・defaults/override・検証
 - `.claude/agents/kdp-operator.md` — 運用オーケストレーター（本スキルの委譲先）
-- `.claude/config/kdp-memo.json` — KDP 入稿 SSOT
+- `config/kdp-memo.json` — KDP 入稿 SSOT
 - `scripts/kindle-published/catalog.json` — 全書籍レジストリ
 - [/kindle-build](../kindle-build/SKILL.md) — 前工程（EPUB 生成）
 - [strategy.md](../../../../content/kindle/strategy.md) — 出版戦略・出版済み一覧

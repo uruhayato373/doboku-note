@@ -6,14 +6,14 @@
  * 判定ロジックはここに 1 本化し、admin 側で重複実装しない。
  *
  * 副作用は fs の read-only アクセスと git log（read-only）のみ。ネットワーク・書き込みは
- * 一切しない。`.claude/config/kdp-memo.json`（accountEmail 等の秘密混じり）は読まない。
+ * 一切しない。`config/kdp-memo.json`（accountEmail 等の秘密混じり）は読まない。
  */
 import { readFileSync, existsSync, statSync } from 'node:fs'
 import { join, basename } from 'node:path'
 import { REPO_ROOT } from './repository-paths.mjs'
 
 export const CATALOG_PATH = join(REPO_ROOT, 'scripts/kindle-published/catalog.json')
-export const ROYALTIES_PATH = join(REPO_ROOT, '.claude/state/sales/kdp-royalties.json')
+export const ROYALTIES_PATH = join(REPO_ROOT, 'data/sales/kdp-royalties.json')
 export const KINDLE_DIST_DIR = join(REPO_ROOT, 'scripts/kindle-dist')
 export const KINDLE_PUBLISHED_DIR = join(REPO_ROOT, 'scripts/kindle-published')
 export const KINDLE_SPECS_DIR = join(REPO_ROOT, 'scripts/kindle-specs')

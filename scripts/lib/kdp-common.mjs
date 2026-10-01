@@ -1,6 +1,6 @@
 // scripts/lib/kdp-common.mjs
 // ---------------------------------------------------------------------------
-// KDP 入稿 SSOT（.claude/config/kdp-memo.json）の読取り・defaults/override マージ・検証を一元化。
+// KDP 入稿 SSOT（config/kdp-memo.json）の読取り・defaults/override マージ・検証を一元化。
 // gen-kdp-memo.mjs（コピペ用メモ生成）と kdp-publish.mjs（Playwright 入稿・出版）の共通基盤。
 // 共通定数を両スクリプトで二重定義しないための単一ソース（真実源は config の defaults）。
 // ---------------------------------------------------------------------------
@@ -9,7 +9,7 @@ import { resolve, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const REPO = resolve(dirname(fileURLToPath(import.meta.url)), '../..')
-const CONFIG_PATH = resolve(REPO, '.claude/config/kdp-memo.json')
+const CONFIG_PATH = resolve(REPO, 'config/kdp-memo.json')
 const SPEC_DIR = resolve(REPO, 'scripts/kindle-specs')
 
 // config に defaults が無い旧環境でも動く後方互換フォールバック（gen-kdp-memo.mjs 旧定数と同値）
@@ -67,7 +67,7 @@ export function resolveBook(id, { requireMemo = true } = {}) {
   const cfg = loadKdpConfig()
   const defaults = getDefaults(cfg)
   const d = cfg.books[id]
-  if (!d && requireMemo) throw new Error(`.claude/config/kdp-memo.json books["${id}"] 未登録（kdp-operator でメタデータ生成が必要）`)
+  if (!d && requireMemo) throw new Error(`config/kdp-memo.json books["${id}"] 未登録（kdp-operator でメタデータ生成が必要）`)
   const m = d || {}
   const kdp = m.kdp || {}
   const cat = categoryPathFor(id, defaults)

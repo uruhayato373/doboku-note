@@ -11,7 +11,7 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
-export const REGISTRY_PATH = '.claude/config/qualification-registry.json';
+export const REGISTRY_PATH = 'config/qualification-registry.json';
 
 export function loadRegistry(root) {
   return JSON.parse(readFileSync(join(root, REGISTRY_PATH), 'utf8'));

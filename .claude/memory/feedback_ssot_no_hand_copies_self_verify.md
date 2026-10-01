@@ -6,7 +6,7 @@ metadata:
 ---
 
 ## 資格データは正本3ファイルだけに書き、値は主担当が原文照合する
-試験日程・受験者数・合格発表などは `.claude/config/qualification-registry.json`（一覧・展開状態）・`exam-calendar.json`（日程）・`exam-stats.json`（統計）だけに書く。計画書（annual.md など）や説明文へ数値を写さず、正本と管理画面「資格一覧」「商品ラインナップ」への案内にする。正本へ入れる値は調査担当（サブエージェント）の引用をそのまま使わず、主担当が公式原文（curl＋pdftotext／cp932）で照合してから `verification.checkedBy: self` にする。
+試験日程・受験者数・合格発表などは `config/qualification-registry.json`（一覧・展開状態）・`exam-calendar.json`（日程）・`exam-stats.json`（統計）だけに書く。計画書（annual.md など）や説明文へ数値を写さず、正本と管理画面「資格一覧」「商品ラインナップ」への案内にする。正本へ入れる値は調査担当（サブエージェント）の引用をそのまま使わず、主担当が公式原文（curl＋pdftotext／cp932）で照合してから `verification.checkedBy: self` にする。
 - **Why:** 2026-09-26、annual.md の手書き表が主任技士の試験日・申込締切・受験者規模・合格発表見込みを4種類とも誤っていた。同日の調査ではサブエージェントの引用に暦と合わない曜日が混じり、倍率を合格率欄へ入れ、前期と後期を取り違えた。WebFetch の要約も日付を入れ替えた。詳細は measurement-incidents.md「2026-09-26」。
 - **How to apply:** ユーザーが「確かめて」「正本で管理」と言ったら、未確認は null＋理由（unresolved/pending/notPublished）で残し推測で埋めない。調査を委任したときは戻った値のうち正本を書き換えるものを自分で原文照合してから書く。月次レビューは `npm run exam-ssot-status` で要対応を読む。関連: [[feedback_factcheck_guide_facts]] [[feedback_verify_your_excuses]]
 

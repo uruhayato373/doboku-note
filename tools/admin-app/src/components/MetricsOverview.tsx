@@ -18,7 +18,7 @@ import {
  * stamp は Freshness/ageInDays が読める形（`YYYY-MM-DDT00-00-00`）へ正規化して渡す。
  */
 function latestDateFileSnapshot(dir: string, prefix: string): SnapshotFile | null {
-  const abs = repoPath('.claude', 'state', dir);
+  const abs = repoPath('data', dir);
   if (!existsSync(abs)) return null;
   const re = new RegExp(`^${prefix}(\\d{4}-\\d{2}-\\d{2})\\.json$`);
   let best: { file: string; date: string; mtimeMs: number } | null = null;

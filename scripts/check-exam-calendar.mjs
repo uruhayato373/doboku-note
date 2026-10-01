@@ -6,7 +6,7 @@ import { FORBIDDEN, findForbidden } from "./lib/exam-calendar-guards.mjs";
 import { activeIds, validateQualificationRegistry } from "./lib/qualification-registry.mjs";
 
 const ROOT = process.cwd();
-const SSOT_PATH = join(ROOT, ".claude/config/exam-calendar.json");
+const SSOT_PATH = join(ROOT, "config/exam-calendar.json");
 const calendar = JSON.parse(readFileSync(SSOT_PATH, "utf8"));
 
 const expected = {
@@ -162,7 +162,7 @@ for (const [examId, exam] of Object.entries(calendar.exams ?? {})) {
 }
 // 資格一覧（qualification-registry.json）・受験者統計（exam-stats.json）・出題形式（exam-formats.json）・
 // 商品ラインナップと id が揃っていること。
-const readConfig = (name) => JSON.parse(readFileSync(join(ROOT, ".claude/config", name), "utf8"));
+const readConfig = (name) => JSON.parse(readFileSync(join(ROOT, "config", name), "utf8"));
 const registry = readConfig("qualification-registry.json");
 for (const e of validateQualificationRegistry({
   registry,

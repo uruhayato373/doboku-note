@@ -138,7 +138,7 @@ export default async function LedgerPage({ searchParams }: { searchParams: Promi
             <TableHead className="hidden xl:table-cell">テーマ</TableHead>
             <TableHead className="hidden lg:table-cell" title="note 記事のカバー画像を用途別に管理する分類">カバー分類</TableHead>
             <TableHead>価格</TableHead>
-            <TableHead title="note の販売履歴（.claude/state/sales/sales-log.json）の累計。マガジンは id、単品記事は題名で照合。マウスで最後に売れた日">販売</TableHead>
+            <TableHead title="note の販売履歴（data/sales/sales-log.json）の累計。マガジンは id、単品記事は題名で照合。マウスで最後に売れた日">販売</TableHead>
             <TableHead>状態</TableHead>
             <TableHead title="公開ページが正本どおりか。note＝原稿の本文・タグ（同期の判定）／ココナラ＝タイトル・キャッチコピー・本文・販売状態（公開ページの照合）。済／ずれ（マウスで理由）／止＝反映できない／?＝照合していない">本文</TableHead>
             <TableHead title="note＝カバー画像が原稿どおりか／ココナラ＝承認済みの POP 画像が登録されているか">画像</TableHead>

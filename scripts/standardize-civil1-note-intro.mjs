@@ -9,14 +9,14 @@
  *      → 失格注意 → 土木もくじ（元からある記事だけ）
  *
  * 入れ替える部品: 著者画像・説明文2段落・バナーの締めの一文（削除）・ココナラ導線・マガジンのカードと案内文・
- * pack-top ブロック・区切り線・失格注意（末尾へ移動）。マガジンの割り当てと案内文は .claude/config/note-intro-standard.json。
+ * pack-top ブロック・区切り線・失格注意（末尾へ移動）。マガジンの割り当てと案内文は config/note-intro-standard.json。
  * 冒頭より後ろ（本文・末尾）は触らない。末尾の著者画像（冒頭と同じ画像の2枚目）だけは削除する（note は同じ画像2枚で更新が止まる）。
  *
  * 使い方:
  *   node scripts/standardize-civil1-note-intro.mjs                 # dry-run（件数と要確認）
  *   node scripts/standardize-civil1-note-intro.mjs --apply         # 書き込み
  *   node scripts/standardize-civil1-note-intro.mjs --only <パスの一部> [--show]   # 絞り込み・差分表示
- *   node scripts/standardize-civil1-note-intro.mjs --config .claude/config/note-intro-standard-civil2.json [--apply]   # 2級
+ *   node scripts/standardize-civil1-note-intro.mjs --config config/note-intro-standard-civil2.json [--apply]   # 2級
  * exit: 0 成功 / 1 要確認あり（--apply でも要確認の記事は書かない）/ 2 設定エラー
  * 正典: .claude/knowledge/reference/author-authority-banner.md「1級 note の冒頭・末尾の標準形」
  * ---------------------------------------------------------------------------
@@ -31,8 +31,8 @@ const args = process.argv.slice(2);
 const APPLY = args.includes('--apply');
 const SHOW = args.includes('--show');
 const ONLY = args.includes('--only') ? args[args.indexOf('--only') + 1] : null;
-// 既定は1級。2級は --config .claude/config/note-intro-standard-civil2.json
-const CONFIG_PATH = args.includes('--config') ? args[args.indexOf('--config') + 1] : '.claude/config/note-intro-standard.json';
+// 既定は1級。2級は --config config/note-intro-standard-civil2.json
+const CONFIG_PATH = args.includes('--config') ? args[args.indexOf('--config') + 1] : 'config/note-intro-standard.json';
 const CONFIG = JSON.parse(readFileSync(join(REPO_ROOT, CONFIG_PATH), 'utf8'));
 const ROOT = join(REPO_ROOT, CONFIG.root);
 const BANNER_SRC = join(REPO_ROOT, 'content/note/共通/著者オーソリティ/img', CONFIG.banner);

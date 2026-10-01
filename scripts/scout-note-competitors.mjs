@@ -11,9 +11,9 @@
  * スクリプト）と判断（Evaluator）の分離。
  *
  * 出力（SSOT）:
- *   - .claude/state/note/history/competitors-YYYY-MM-DD.json … 日付つき時系列（コミット）
- *   - .claude/state/note/competitors-snapshot.json           … 最新へのポインタ（上書き）
- * 対象ハンドルは .claude/config/note-competitors.json（--handle で ad-hoc 上書き）。
+ *   - data/note/history/competitors-YYYY-MM-DD.json … 日付つき時系列（コミット）
+ *   - data/note/competitors-snapshot.json           … 最新へのポインタ（上書き）
+ * 対象ハンドルは config/note-competitors.json（--handle で ad-hoc 上書き）。
  * 分析記録の真実源は docs/strategy/09_販売チャネル競合分析.md。
  *
  * 取得経路（会社 PC プロキシ対策・verify-note-magazines.mjs と同方式）:
@@ -44,8 +44,8 @@ import { todayJst } from './lib/jst-date.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const CONFIG_PATH = join(ROOT, '.claude/config/note-competitors.json');
-const STATE_DIR = join(ROOT, '.claude/state/note');
+const CONFIG_PATH = join(ROOT, 'config/note-competitors.json');
+const STATE_DIR = join(ROOT, 'data/note');
 const HISTORY_DIR = join(STATE_DIR, 'history');
 const LATEST_PATH = join(STATE_DIR, 'competitors-snapshot.json');
 
@@ -357,7 +357,7 @@ function main() {
   if (!PARTIAL) {
     mkdirSync(HISTORY_DIR, { recursive: true });
     writeFileSync(join(HISTORY_DIR, todayFile), JSON.stringify(snapshot, null, 2), 'utf-8');
-    console.log(`\n時系列保存: .claude/state/note/history/${todayFile}`);
+    console.log(`\n時系列保存: data/note/history/${todayFile}`);
   }
   console.log(`最新ポインタ: ${LATEST_PATH}`);
   console.log(`完了: ${results.length} 社（失敗 ${failed} 社 / ドリフト ${drift.entries.length} 件）`);

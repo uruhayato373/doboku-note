@@ -37,7 +37,7 @@ import { parseCsv } from "./lib/google-console-csv.mjs";
 import { judgeRun, formatRunSummary, exitCodeFor, buildMarker } from "./lib/google-console-units.mjs";
 import { assertGa4Property } from "./lib/google-console-browser.mjs";
 
-const STATE_DIR = ".claude/state/metrics/ga4-ui";
+const STATE_DIR = "data/metrics/ga4-ui";
 
 function parseArgs() {
   const a = process.argv.slice(2);

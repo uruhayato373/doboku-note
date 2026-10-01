@@ -23,7 +23,7 @@
 //
 // exit 0 = 成功（dry-run 含む） / exit 1 = 対象ゼロ・前提不足・送信失敗
 //
-// 設定: .claude/config/asset-storage.json / 台帳: .claude/state/assets/manifest.json
+// 設定: config/asset-storage.json / 台帳: .claude/state/assets/manifest.json
 
 import { execFileSync } from 'node:child_process';
 import { existsSync, mkdtempSync, writeFileSync, rmSync, statSync } from 'node:fs';

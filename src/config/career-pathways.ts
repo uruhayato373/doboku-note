@@ -8,7 +8,7 @@
  *
  * 2 つの分類の関係（混同しないこと）:
  *   - **need（本ファイル・8 値）** = 読者の悩み。CTA 文言と診断ツールの分岐に使う。
- *   - **pillar（`.claude/config/career-funnel.json`・5 値）** = 記事の所属。レポートの集計に使う。
+ *   - **pillar（`config/career-funnel.json`・5 値）** = 記事の所属。レポートの集計に使う。
  *   need → pillar は関数（`CAREER_NEEDS[need].pillarSlug`）で、両者がずれないことは
  *   `tests/career-pathways.test.mjs` が機械で固定する。
  *
@@ -58,7 +58,7 @@ interface NeedDefinition {
 
 /*
  * 禁止する短絡表現（「今すぐ登録」「必ず年収」等）は
- * `.claude/config/career-funnel.json` の `forbiddenCtaPhrases` に置き、
+ * `config/career-funnel.json` の `forbiddenCtaPhrases` に置き、
  * `tests/career-pathways.test.mjs` が下記の CTA 文言を機械で検査する。
  * ここへ配列を export すると「テストしか使わない export」になるため置かない。
  */

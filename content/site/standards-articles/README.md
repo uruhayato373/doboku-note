@@ -15,13 +15,13 @@
   記事の OGP と同じ仕組みに乗ります。git には追跡されません（`.gitignore` の `content/site/**/ogp.png`）。
 - `<SourceRef pages="..." />` は MDX コンポーネントです。ページ側が原典の該当 PDF ページへ解決します。
 - 同一内容を 9 機関が公開しているため、検索インデックス対象にするのは 1 機関だけです
-  （`.claude/config/standards-structure.json` の `canonical.commonAgencyId`）。他機関の章は
+  （`config/standards-structure.json` の `canonical.commonAgencyId`）。他機関の章は
   `noindex, follow` で読める状態を保ちます。原本 SHA-256 が完全一致する重複文書には章を作りません。
 
 再生成と検査:
 
 ```bash
-npm run build-standard-articles     # 生成（対象は .claude/config/standards-structure.json の build.documents）
+npm run build-standard-articles     # 生成（対象は config/standards-structure.json の build.documents）
 npm run build-standards-comparison  # 近畿版を基準に地域別の実差分を comparison.json へ生成
 npm run build-standards-data        # HTMLと同じ章構造から公開用 Markdown / JSON-LD / 索引JSONを生成
 npm run check-standards-data        # 全章の形式・条数・出典/加工主体分離・公開ヘッダーを検査

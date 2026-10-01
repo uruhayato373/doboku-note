@@ -22,7 +22,7 @@ const MEDIA_ROOTS: Record<string, string> = {
   // EPUB のページ画像（node scripts/render-kindle-preview.mjs の出力）。/content/kindle/<id> の目視確認用。
   kindlepreview: resolve(repoPath('.tmp', 'kindle-preview')),
   // ココナラの商品画像（承認済み POP 画像・Drive vault から取り戻したもの）。/content/ledger/coconala/<id> の確認用。
-  coconala: resolve(repoPath('.claude', 'config', 'coconala', 'assets')),
+  coconala: resolve(repoPath('content', 'coconala', 'assets')),
 };
 
 const MIME: Record<string, string> = {

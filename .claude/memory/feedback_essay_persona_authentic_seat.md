@@ -21,7 +21,7 @@ metadata:
 ## 総監記述式パックの構成・価格・ロスターは ADR が真実源
 **真実源は `docs/note/技術士総監/総監マガジン構成_決定2026.md`（ADR・`noteコンテンツ計画.md` M13 の上位）**。`src/lib/note-magazines.ts` のコメント/description は下位でしばしば陳腐化。
 - **Why:** 2026-06-15、ADR を読まずに note-magazines.ts の完全パック description を「14ペルソナ/¥42,660」に書き換えコミットし、実際は ADR が「2段ラダー（上段 全記事パック¥14,800＋下段 コアパック¥5,480）」と決定済（現行¥7,980パックは上段へ育てる途中段階）で、「全ペルソナ＋精読が揃うまで存在しない¥14,800/拡張構成を広告しない」(§4-2) に違反したため revert。
-- **How to apply:** 着手前に ADR を Read。確定事項: (1)2段ラダー（上段¥14,800/下段¥5,480を2026-06-15に今季実行決定）(2)ロスターは実体**14**（受注者4＋自治体10。ADR初版の17は実在しない自治体3分野含む旧値）(3)単品合計＝上段¥44,640・下段¥7,940（精読¥1,980＋型¥1,980＋設問3¥2,480＋R8¥3,480＝コア4）(4)公開ゲート＝note収録（残9ペルソナ＋精読）完了まで SoT/ロードマップを¥14,800表記にしない。実行手順 `docs/handoffs/2026-06-15-essay-pack-2tier-relaunch.md`。完全パック実体は `npm run verify-note-magazines` のスナップショット（`.claude/state/note/magazines-snapshot.json`）で実査。関連: [[project_kettei2026_r8_evergreen]] [[feedback_content_structure]]（価格は MDX 本文に書かない）
+- **How to apply:** 着手前に ADR を Read。確定事項: (1)2段ラダー（上段¥14,800/下段¥5,480を2026-06-15に今季実行決定）(2)ロスターは実体**14**（受注者4＋自治体10。ADR初版の17は実在しない自治体3分野含む旧値）(3)単品合計＝上段¥44,640・下段¥7,940（精読¥1,980＋型¥1,980＋設問3¥2,480＋R8¥3,480＝コア4）(4)公開ゲート＝note収録（残9ペルソナ＋精読）完了まで SoT/ロードマップを¥14,800表記にしない。実行手順 `docs/handoffs/2026-06-15-essay-pack-2tier-relaunch.md`。完全パック実体は `npm run verify-note-magazines` のスナップショット（`data/note/magazines-snapshot.json`）で実査。関連: [[project_kettei2026_r8_evergreen]] [[feedback_content_structure]]（価格は MDX 本文に書かない）
 
 ## ペルソナ別マガジンの `_meta.yaml` は廃止（2026-06-09）
 `総監模範論文-*` の `_meta.yaml` はどのビルド/ジェネレータからも参照されていない（grep で appealPoint/setPrice/singleTotal/articles[] を読むコードゼロ・note-magazines.ts も yaml 不使用）完全な二重管理だったので、自治体 河川/都市計画/下水道/上水道の4ペルソナで廃止し `note掲載文.txt` に一本化（commit 3fca4ccc2）。

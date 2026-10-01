@@ -24,7 +24,8 @@ test('追加した技術士2資格で検索結果を絞り込める', async ({ p
   const initialFragments = fragments;
   for (const [label, prefix] of [
     ['技術士 第一次試験', '/exam/pe-first-stage/'],
-    ['技術士第二次試験（建設部門）', '/exam/pe-construction/'],
+    // 絞り込みボタンはカテゴリの名前＝qualification-registry.json の正式名（ページの title は seoTitle で別）
+    ['技術士（建設部門）', '/exam/pe-construction/'],
   ] as const) {
     await page.getByRole('button', { name: label, exact: true }).click();
     await expect.poll(async () => {

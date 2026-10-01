@@ -8,7 +8,7 @@
 
 **設計思想** — ユーザーが「ここだけで合格できる」体験を資格ごとに提供する試験対策ハブ。Obsidian（ステージング）→ doboku-note（プロダクション）→ PWA 過去問演習アプリ（資格別 PWA × 共通エンジン）の流れでコンテンツを管理。収益モデルは note 有料記事 + YouTube + PWA 過去問アプリ。詳細: `docs/strategy/02_設計思想.md`、`docs/strategy/03_事業戦略.md`、`docs/products/06_PWA過去問アプリ設計方針.md`
 
-**事業の判断基準** — 「図で理解し、過去問で確かめ、答案に活かす。」資格×学習段階の課題を軸に、正確な教材、note/ココナラ販売、受取・費用・運営時間まで確認する。判断理由の正典は `docs/strategy/01_プロダクト戦略.md`、重点資格・KPI定義の機械SSOTは `.claude/config/business-direction.json`。管理画面 `/metrics/business` と SEO・週次/月次レビュー・戦略エージェントはこの設定を参照する。計測/目標/判断は `.claude/state/metrics/business/` に追記、改善状態は既存 `experiments.json`、単発実装はbacklog。図数・記事数・順位だけを成功にせず、欠測を0や利益へ変換しない。手順は `.claude/knowledge/reference/business-review.md`、週次は `/weekly-review`、月次は `/monthly-review`。 共通原則は[共通事業方針](.claude/shared-policy/POLICY.md)(管理画面は「戦略」→「方針」)と[個別適用](.claude/shared-policy/application.json)。企画・収益化・週次/月次計画の前に読み、判断契約を出力へ反映する。正本はこのリポジトリではなくObsidian vaultの`memos/共通事業方針SSOT.md`。写しは手編集せず policy:check / policy:sync を使う。詳細は`.claude/rules/shared-business-policy.md`。<!-- doc-ref:ignore -->
+**事業の判断基準** — 「図で理解し、過去問で確かめ、答案に活かす。」資格×学習段階の課題を軸に、正確な教材、note/ココナラ販売、受取・費用・運営時間まで確認する。判断理由の正典は `docs/strategy/01_プロダクト戦略.md`、重点資格・KPI定義の機械SSOTは `config/business-direction.json`。管理画面 `/metrics/business` と SEO・週次/月次レビュー・戦略エージェントはこの設定を参照する。計測/目標/判断は `data/metrics/business/` に追記、改善状態は既存 `experiments.json`、単発実装はbacklog。図数・記事数・順位だけを成功にせず、欠測を0や利益へ変換しない。手順は `.claude/knowledge/reference/business-review.md`、週次は `/weekly-review`、月次は `/monthly-review`。 共通原則は[共通事業方針](.claude/shared-policy/POLICY.md)(管理画面は「戦略」→「方針」)と[個別適用](.claude/shared-policy/application.json)。企画・収益化・週次/月次計画の前に読み、判断契約を出力へ反映する。正本はこのリポジトリではなくObsidian vaultの`memos/共通事業方針SSOT.md`。写しは手編集せず policy:check / policy:sync を使う。詳細は`.claude/rules/shared-business-policy.md`。<!-- doc-ref:ignore -->
 
 **技術スタック** — Next.js 16 + next-mdx-remote / JavaScript (ESM) + MDX / 数式は KaTeX（remark-math + rehype-katex）/ 図表は SVG・PNG を R2（`storage.doboku-note.com`）から配信 / 検索は Pagefind（ビルド時 `out/pagefind`）/ GA4（gtag: G-8VXJ1RL1HG）/ ホスティング Cloudflare Pages。**デプロイ**は `main` push で GitHub Actions が自動実行、`develop` → `main` は `/deploy` スキル経由でユーザーが判断する
 
@@ -17,7 +17,7 @@
 ```
 content/site/                # サイト記事 MDX（civil-construction-1/ は Convention A: 個別ファイル名、pe-comprehensive-management/ は Convention B: article.mdx）
 content/{note,sns,kindle,coconala,sources}/  # チャネル別の制作物と入力（kindle は非公開原稿・Git 管理・Web 配信外）
-src/                         # コンポーネント・CSS・レイアウト
+src/ config/ data/          # 実装／事業・試験・商品の正本と設定／売上・計測など事業の記録
 docs/                        # 人が読む恒久文書（strategy / editorial / marketing / operations / products / design）
 .claude/rules/               # パス条件付きルール（paths: 必須。該当ファイルを Read/Edit したときだけ読み込まれる）
 .claude/knowledge/reference/ # 作業マニュアル（全索引は同ディレクトリの README.md）
@@ -57,7 +57,7 @@ npm run check-claude-md-size   # CLAUDE.md ≤150 行・rules の paths: 必須
 | [design-system.md](.claude/knowledge/design-system/design-system.md) | コンポーネント作成・ページ改修・SVG 図版・色選定 |
 | [image-policy.md](.claude/knowledge/reference/image-policy.md) | 図/写真を追加・置換するとき |
 | [asset-storage-policy.md](.claude/knowledge/reference/asset-storage-policy.md) | アセットの置き場（public R2 / private R2 / Drive vault）に迷ったとき |
-| [information-architecture.md](.claude/knowledge/reference/information-architecture.md) | 情報の置き場（4 領域）・SSOT 参照規律・handoff ライフサイクル |
+| [information-architecture.md](.claude/knowledge/reference/information-architecture.md) | 情報の置き場（6 領域）・SSOT 参照規律・handoff ライフサイクル |
 | [skills-guide.md](.claude/knowledge/reference/skills-guide.md) / [agents-registry.md](.claude/knowledge/reference/agents-registry.md) | 使えるスキルを探す／サブエージェントの担当範囲・model |
 | [workflows.md](.claude/knowledge/reference/workflows.md) | 週次 PDCA・PDF→MDX 変換フロー・ブランチ/並行セッション運用 |
 | [measurement-incidents.md](.claude/knowledge/reference/measurement-incidents.md) | 計測データの異常・外部検証の罠・ローカルで API を叩く前 |
@@ -111,7 +111,7 @@ npm run check-claude-md-size   # CLAUDE.md ≤150 行・rules の paths: 必須
 
 ### 8. 書く前に読む
 - **提案・推奨の前に現物を確認する**: 「〜が無い／されていない」と断定する前に実物（`article.md`・frontmatter・既存 CTA・`note-magazines.ts`・公開状態）を Read し **file:line で裏取り**する。売上・計測データは「何が」起きたかは示すが「なぜ」は示さない。裏取りできないなら「未確認」と明示
-- **情報の置き場（4 領域）**: `docs/`＝人が読む恒久判断／`content/`＝制作物とその入力／`.claude/`＝エージェント運用（knowledge・rules・plans・todo・state・config・skills・agents）／`src/ tools/ scripts/`＝実装。タスクは `.claude/todo/backlog.md`（ID `DN-####`）、**GitHub Issue は使わない**。判断フロー → information-architecture.md
+- **情報の置き場（6 領域）**: `docs/`＝人が読む恒久判断／`content/`＝制作物と入力／`config/`＝事業の正本・設定／`data/`＝事業の記録／`.claude/`＝エージェント運用／`src/ tools/ scripts/`＝実装。タスクは `.claude/todo/backlog.md`（ID `DN-####`）、**GitHub Issue は使わない**。判断フロー → information-architecture.md
 - **SSOT 参照規律**: doc を移動・改名・統廃合したら参照を同一 commit で全更新（`check-doc-refs` / `check-relative-links` が止める）。スキル・エージェントの変更は同一 commit で registry を更新（`check-doc-coupling`）。資格名・並び順は `qualification-registry.json` のみ（`check-qualification-ssot`）
 - **ドキュメント同期**: `src/** scripts/** .claude/skills/** .claude/agents/** package.json` 等を変更したタスクは**コミット前に `/doc-sync` を 1 回回す**。純コンテンツ編集では回さない
 - MDX を追加・編集する前に content-authoring.md を Read する。`/schedule` で定期エージェントを作る前に `/routines` で重複・cron 衝突を確認する
@@ -155,12 +155,12 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 Codex はファイルを読む・編集する前に、以下の適用パスに一致するルール原本をすべて読む。新規ファイルも予定パスで判定し、複数領域にまたがる場合は各ルールを適用する。対象が増えたら追加で読む。同じ原本は変更がなければ再読不要。ルール内の相対参照は原本のディレクトリから解決する。
 
-- [.claude/rules/assets-images.md](.claude/rules/assets-images.md) — `**/img/**`, `content/**/*.svg`, `content/**/*.png`, `content/**/*.webp`, `.claude/config/asset-storage.json`, `.claude/config/drive-vault.json`, `.claude/state/assets/**`, `.github/workflows/r2-*.yml`, `.github/workflows/ogp-supply.yml`
+- [.claude/rules/assets-images.md](.claude/rules/assets-images.md) — `**/img/**`, `content/**/*.svg`, `content/**/*.png`, `content/**/*.webp`, `config/asset-storage.json`, `config/drive-vault.json`, `.claude/state/assets/**`, `content/coconala/assets/**`, `.github/workflows/r2-*.yml`, `.github/workflows/ogp-supply.yml`
 - [.claude/rules/code.md](.claude/rules/code.md) — `src/**`, `scripts/**`, `.claude/scripts/**`, `tools/**`, `tests/**`, `package.json`, `.github/workflows/**`
 - [.claude/rules/content-channels.md](.claude/rules/content-channels.md) — `content/note/**`, `content/sns/**`, `content/kindle/**`, `content/coconala/**`
 - [.claude/rules/content-site.md](.claude/rules/content-site.md) — `content/site/**`
 - [.claude/rules/docs.md](.claude/rules/docs.md) — `docs/**`, `.claude/knowledge/**`
-- [.claude/rules/operations.md](.claude/rules/operations.md) — `.claude/state/**`, `.claude/config/**`, `src/lib/note-magazines.ts`, `src/lib/magazine-placement.ts`, `src/lib/coconala-services.ts`
+- [.claude/rules/operations.md](.claude/rules/operations.md) — `config/**`, `data/**`, `.claude/state/**`, `.claude/config/**`, `src/lib/note-magazines.ts`, `src/lib/magazine-placement.ts`, `src/lib/coconala-services.ts`
 - [.claude/rules/shared-business-policy.md](.claude/rules/shared-business-policy.md) — `.claude/shared-policy/**`, `tools/admin-app/src/app/strategy/policy/**`, `tools/admin-app/src/lib/document-roots.ts`, `tools/admin-app/src/components/Nav.tsx`, `tools/admin-app/src/lib/shared-policy.ts`
 - [.claude/rules/skills-agents.md](.claude/rules/skills-agents.md) — `.claude/skills/**`, `.claude/agents/**`, `.claude/commands/**`
 - [.claude/rules/todo-plans.md](.claude/rules/todo-plans.md) — `.claude/todo/**`, `.claude/plans/**`, `docs/handoffs/**`, `docs/reviews/**`

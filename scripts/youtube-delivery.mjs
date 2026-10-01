@@ -8,7 +8,7 @@ import { inspectPlaylists, auditReplacement, updateReplacementThumbnail, activat
 import { scheduleReplacement } from './lib/youtube-delivery-schedule.mjs';
 import { runDelivery } from './lib/youtube-delivery.mjs';
 
-const config = JSON.parse(readFileSync('.claude/config/youtube-delivery.json'));
+const config = JSON.parse(readFileSync('config/youtube-delivery.json'));
 const commit = process.env.APPLY_DELIVERY === 'true';
 let storage;
 const json = value => Buffer.from(JSON.stringify(value));

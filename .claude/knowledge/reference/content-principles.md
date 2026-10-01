@@ -120,7 +120,7 @@ doboku-note のすべてのコンテンツ作成・校正時に従うべき原�
 
 #### 機械ゲート（表・入れ子リスト・段落長のモバイル可読性）
 
-表・リスト・段落のモバイル可読性は `lint-mdx-mobile.mjs` が機械検知する。ルールの重大度・資格×種別の有効/無効の SSOT は **`.claude/config/content-rules.json`**（policy .md ↔ config .json ↔ guard script パターン）。主なルール:
+表・リスト・段落のモバイル可読性は `lint-mdx-mobile.mjs` が機械検知する。ルールの重大度・資格×種別の有効/無効の SSOT は **`config/content-rules.json`**（policy .md ↔ config .json ↔ guard script パターン）。主なルール:
 
 - **1-3 / 1-4 / 1-5 / 1-7**: 4列以上の表・3列以上のセル15字超・キーバリュー表・壊れた表 → 表を避け、下記の変換パターンへ
 - **3-1**: 入れ子リスト（2階層以上）→ 太字リード＋フラット1階層 or `<SpecSheetList>`
@@ -527,7 +527,7 @@ note 記事本文（`content/note/**/article.md`）から有料マガジンへ�
 
 **もくじ index の例外**: frontmatter `noteSeries: 総合案内`（L1 総合案内・各資格 L2 もくじ）は多数マガジンを一覧する index ページのため、① markdown リンクのコンパクト列挙を許容する（note カードは bare URL でしか生成できず、12 本超を全部カード化すると index が冗長になる）。ただし ② 価格（¥）は index でも禁止（陳腐化する・note カードが実価格を表示する）。in-article CTA は「読者を 1〜2 件へ誘導」＝カード必須、index は「全件の一覧」＝リンク許容、と使い分ける。関連: §14-b（太字内全角括弧）。
 
-**冒頭パック CTA の例外**: `<!-- cta:pack-top -->`／`cta:pack-top-light` マーカー直後のブロック（次の空行まで）は、[note-funnel-architecture.md](note-funnel-architecture.md) 原則2「冒頭はパックへ**インラインで軽く**（カード連打で読み物の信頼を損ねない）」に従い、① markdown リンクを意図的に用いるため対象外とする（末尾 `cta:{exam}-mokuji` はカード＝bare URL のまま）。ただし ② 価格（¥）は冒頭 CTA でも禁止で、価格は note 販売ページ（`src/lib/note-magazines.ts` が SoT）に委譲する。機械可読 CTA 文面の SoT は `.claude/config/note-funnel.json` の `exams.{key}.topCta.text`（価格を含めない）。
+**冒頭パック CTA の例外**: `<!-- cta:pack-top -->`／`cta:pack-top-light` マーカー直後のブロック（次の空行まで）は、[note-funnel-architecture.md](note-funnel-architecture.md) 原則2「冒頭はパックへ**インラインで軽く**（カード連打で読み物の信頼を損ねない）」に従い、① markdown リンクを意図的に用いるため対象外とする（末尾 `cta:{exam}-mokuji` はカード＝bare URL のまま）。ただし ② 価格（¥）は冒頭 CTA でも禁止で、価格は note 販売ページ（`src/lib/note-magazines.ts` が SoT）に委譲する。機械可読 CTA 文面の SoT は `config/note-funnel.json` の `exams.{key}.topCta.text`（価格を含めない）。
 
 ### 14-d. note 記事の「3点セット」は公開状態で機械強制する
 

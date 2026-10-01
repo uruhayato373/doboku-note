@@ -1,6 +1,6 @@
-import examCalendar from '../../.claude/config/exam-calendar.json';
+import examCalendar from '../../config/exam-calendar.json';
 
-// 資格ごとの「次の試験イベント」を .claude/config/exam-calendar.json（試験日の SSOT・
+// 資格ごとの「次の試験イベント」を config/exam-calendar.json（試験日の SSOT・
 // check-exam-calendar が公式サイトと照合）から解決する。
 // トップの資格カードは 2026-09 まで home-exam-cards.json の手打ち文字列（例: 「2026年7月 第1次」）を
 // 出しており、試験が終わっても表示が変わらなかった。ここで算出した値を優先し、未来のイベントが

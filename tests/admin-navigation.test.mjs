@@ -108,12 +108,12 @@ test('contentSegmentLabel は sns/sources のような 1:1 でない物理セグ
 test('サイドバーは領域の正本（domains.json）から描き、Nav.tsx に項目を直書きしない', () => {
   const src = readFileSync(join(ROOT, 'tools/admin-app/src/components/Nav.tsx'), 'utf8');
   assert.ok(!/const GROUPS/.test(src) && !/channelTrees/.test(src), 'グループ・チャネルの枝を Nav.tsx に直書きしない');
-  const cfg = JSON.parse(readFileSync(join(ROOT, '.claude/config/domains.json'), 'utf8'));
+  const cfg = JSON.parse(readFileSync(join(ROOT, 'config/domains.json'), 'utf8'));
   for (const d of cfg.domains) assert.ok(d.nav?.length, `${d.id} に nav が無い`);
 });
 
 test('既存の判断画面はすべてサイドバーのどこか 1 か所に置かれている', () => {
-  const cfg = JSON.parse(readFileSync(join(ROOT, '.claude/config/domains.json'), 'utf8'));
+  const cfg = JSON.parse(readFileSync(join(ROOT, 'config/domains.json'), 'utf8'));
   const full = cfg.domains.flatMap((d) => d.nav.map((v) => v.href));
   assert.equal(new Set(full).size, full.length, '同じ画面（クエリ込み）がサイドバーに 2 回ある');
   // 計画の層（/todo?f=monthly 等）は同じ画面のクエリ違いなので、パスは重複してよい

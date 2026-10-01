@@ -2,7 +2,7 @@
 
 ## 位置づけ
 
-- 1級土木施工管理技士 第2次検定（**2026-10-04**、`.claude/config/exam-calendar.json` `exams.civil-construction-1.events.second` が正）直前の受験者向け
+- 1級土木施工管理技士 第2次検定（**2026-10-04**、`config/exam-calendar.json` `exams.civil-construction-1.events.second` が正）直前の受験者向け
 - 5 枚構成: 導入 → 無料（サイト） → 主力商品（全10組合せ） → 直前演習（直前総仕上げパック） → 全部見る/添削
 - パレット: azure（`instagram-carousel-tokens.json` `highlightStories.palettes.07_civil-1`、1級土木の note-cover-tokens 色 `civil-1` と揃える）
 

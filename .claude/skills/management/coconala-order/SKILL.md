@@ -25,7 +25,7 @@ domain: product
 まず `serviceId` からタイプを判定し、分岐する（真実源 → [coconala-operations.md §3](../../../../.claude/knowledge/reference/coconala-operations.md)）。
 
 **共通の前段**
-0. **実体を取る**: `npm run coconala-orders` を実行し `.claude/state/coconala/orders-snapshot.json` を更新する。**何が売れたかを購入通知の記憶や推測で決めない**。serviceId 未指定ならスナップショットから特定する（`talkroomId` / `serviceId` / `priceYen` / `soldOn` / `replyDueAt` が採れる）。ログインが切れていれば headed の Chrome で人がログイン。
+0. **実体を取る**: `npm run coconala-orders` を実行し `data/coconala/orders-snapshot.json` を更新する。**何が売れたかを購入通知の記憶や推測で決めない**。serviceId 未指定ならスナップショットから特定する（`talkroomId` / `serviceId` / `priceYen` / `soldOn` / `replyDueAt` が採れる）。ログインが切れていれば headed の Chrome で人がログイン。
 0b. **購入者のメッセージと添付を取る**: `npm run coconala-talkroom -- <talkroomId>` で `.tmp/coconala/talkrooms/{id}/` に messages.txt・添付（原寸）・docx の本文 .txt・manifest.json を出す。**その場で Playwright を書かない**（添付はホバーで出るボタンにしかなく、画像は saveAs が競合して失敗する＝2026-09-25 に4回書き直した）。exit 2 は添付の取りこぼし。画像（手書きの工事概要など）は原寸を Read して読む。
    取引の後に DM で届いた追加の質問・答案は `npm run coconala-dm -- <dmId>` で `.tmp/coconala/dm/{id}/` に取る（古いメッセージの展開と添付を含む。DM の ID は orders-snapshot.json の inquiries[].dmId）。
 1. **カタログ確認**: `serviceId` の `status` を Read。`draft`（未出品）なら停止。`full` なら受付枠超過を警告。
@@ -44,7 +44,7 @@ domain: product
    - **未整備**: お届け予定日までに本人の答案が届かないときの扱い（延長の依頼・その時点での納品の可否）。初回の受注で運営者が決め、キットと本スキルに書き足す。
 
 **コンテンツPDF（`coconala-*-pdf`）**
-3. **ヒアリング不要**。該当 PDF を `.claude/config/coconala/assets/pdf/` から特定 → キット §4c「C系 PDF 送付」文を商品名・本数で埋める（トークルームで PDF 添付は運営者手作業）。個別相談は S2/S3 へ誘導。PDF と商品の対応は `scripts/build-coconala-content-pdf.mjs` の `PRODUCTS`（`label`）が正。
+3. **ヒアリング不要**。該当 PDF を `content/coconala/assets/pdf/` から特定 → キット §4c「C系 PDF 送付」文を商品名・本数で埋める（トークルームで PDF 添付は運営者手作業）。個別相談は S2/S3 へ誘導。PDF と商品の対応は `scripts/build-coconala-content-pdf.mjs` の `PRODUCTS`（`label`）が正。
    - **特典の同梱**: 1級の模試・フルパック・プレミアムには `coconala-A1-1級二次-直前暗記ノート.pdf`、2級の模試・フルパックには `coconala-A2-2級二次-直前暗記ノート.pdf` を必ず添える（出品本文で約束している）。
    - **部門を選ぶ商品**: `coconala-rccm-mondai1-pdf`（R3＝テンプレ＋受験部門の記入例）と `coconala-pe-oral-pdf`（O1＝総監版／建設部門版）は、購入時メッセージの部門を確認してから該当の1冊を送る。部門が書かれていなければ確認メッセージの文案を出して停止する。
 

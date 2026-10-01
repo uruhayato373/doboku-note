@@ -18,7 +18,7 @@ const DRAFT_DIR = path.join(ROOT, "content/sns/x/draft/094-career-longform-pilot
 const STATUS_PATH = path.join(DRAFT_DIR, "status.json");
 const TEMPLATE_PATH = path.join(DRAFT_DIR, "teasers.template.md");
 const OUTPUT_PATH = path.join(DRAFT_DIR, "tweets.md");
-const PLAN_PATH = path.join(ROOT, ".claude/config/x-campaigns/2026-09-civil.json");
+const PLAN_PATH = path.join(ROOT, "config/x-campaigns/2026-09-civil.json");
 const ARGS = process.argv.slice(2);
 const DRY_RUN = ARGS.includes("--dry-run");
 

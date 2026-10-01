@@ -18,7 +18,7 @@ import {
   suggestMissingPrograms,
 } from "../scripts/lib/a8-report-csv.mjs";
 
-const cfg = JSON.parse(readFileSync(".claude/config/a8-report-automation.json", "utf-8"));
+const cfg = JSON.parse(readFileSync("config/a8-report-automation.json", "utf-8"));
 
 // ─── 実機 fixture（2026-07-27 に A8 から実際に DL した CSV のヘッダーと行）──────────
 // 画面のヘッダー（説明文つき）とは別物で、CSV はクリーンな短い列名。合計行は含まれない。

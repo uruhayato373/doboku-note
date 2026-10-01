@@ -4,7 +4,7 @@
 gitignore 済み・ホーム配下・worktree の中に溜まるので、CI にも pre-commit にも映らない。
 2026-09-10 に空きが 7.5GB（228GB 中 96%）まで落ちて初めて気づいた。ここはその再発防止の運用 SSOT。
 
-真実源: 日次カテゴリは [disk-hygiene.json](../../config/disk-hygiene.json)、build・scratch・browserの掃除条件は [local-resources.json](../../config/local-resources.json)。
+真実源: 日次カテゴリは [disk-hygiene.json](../../../config/disk-hygiene.json)、build・scratch・browserの掃除条件は [local-resources.json](../../../config/local-resources.json)。
 判定ロジックは `scripts/lib/disk-hygiene.mjs`、検査は `npm run check-disk-hygiene`、
 掃除は `npm run disk-hygiene:fix`（日次。macOS は launchd、Windows はタスクスケジューラ）。
 
@@ -60,7 +60,7 @@ Codex で作業した分は永久に掃除されない（実測で Codex の wor
 | `npx-cache` | 30 日超の `_npx/<id>` | 稼働中プロセスが参照していない |
 | `claude-workflow-transcripts` | 14 日超の Workflow 記録 | — |
 
-build・scratch・browserの保持期間と許可リストは `.claude/config/local-resources.json` が正典。linked worktreeのビルドは個別削除せず、上記worktree全体の整理で回収する。
+build・scratch・browserの保持期間と許可リストは `config/local-resources.json` が正典。linked worktreeのビルドは個別削除せず、上記worktree全体の整理で回収する。
 
 build/browserは安全側に倒して該当プロセスがあれば掃除を見送る。他の項目では**プロセス名だけで判定しない。** 2026-09-10 の実装時、`next dev`（別リポジトリ）・常駐の Sparkle ヘルパ・
 常駐 MCP の `npm exec` が「稼働中」と読まれ、3 つのガードが恒久的に掃除を止めていた。

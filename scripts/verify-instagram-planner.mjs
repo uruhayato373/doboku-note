@@ -8,7 +8,7 @@ import { assessInstagramPlanner } from './lib/instagram-planner-check.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const account = JSON.parse(readFileSync(join(ROOT, '.claude/config/ig-account.json'), 'utf8'));
+const account = JSON.parse(readFileSync(join(ROOT, 'config/ig-account.json'), 'utf8'));
 const argv = process.argv.slice(2);
 const value = (name, fallback = '') => {
   const index = argv.indexOf(name);

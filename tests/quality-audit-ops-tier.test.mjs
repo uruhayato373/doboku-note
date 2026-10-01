@@ -90,6 +90,6 @@ test('ops 区分を日次で読む配線が実在する（ops-audit.yml）', () 
 });
 
 test('ops-audit.yml が workflow-health の監視対象に居る', () => {
-  const cfg = JSON.parse(readFileSync(join(ROOT, '.claude/config/workflow-health.json'), 'utf8'));
+  const cfg = JSON.parse(readFileSync(join(ROOT, 'config/workflow-health.json'), 'utf8'));
   assert.ok(cfg.workflows.some((w) => w.workflow === 'ops-audit.yml'), 'ops-audit.yml が workflow-health.json に無い（沈黙を拾えない）');
 });

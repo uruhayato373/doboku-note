@@ -42,7 +42,7 @@ import {
 
 dotenv.config({ path: ".env.local" });
 
-const OUTPUT_DIR = ".claude/state/metrics/ga4";
+const OUTPUT_DIR = "data/metrics/ga4";
 const DEFAULT_DAYS = 28;
 const EVENT_NAMES = [
   "note_cta_click",

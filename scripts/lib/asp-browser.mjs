@@ -42,7 +42,7 @@ export {
   SiteAttributionError,
 };
 
-export const ASP_CONFIG_PATH = ".claude/config/affiliate-asp.json";
+export const ASP_CONFIG_PATH = "config/affiliate-asp.json";
 
 export function loadAspConfig() {
   const cfg = JSON.parse(readFileSync(ASP_CONFIG_PATH, "utf-8"));

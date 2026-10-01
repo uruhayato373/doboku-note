@@ -218,7 +218,7 @@ export function assessSnapshot(snap, nowMs, { staleDays = 7, checkFreshness = tr
  * これらは actions ではなく **infos に残す**。出品取り下げのような重要通知はここにしか来ず
  * （メールは出品アカウント宛にしか届かない）、黙って消すと気づく経路が無くなる。
  *
- * 人が決着させた DM は resolved リスト（.claude/config/coconala/resolved-inquiries.json）で除外し、
+ * 人が決着させた DM は resolved リスト（data/coconala/resolved-inquiries.json）で除外し、
  * **除外件数を必ず呼び出し側へ返す**（黙って消すと「検査ゼロを PASS と呼ぶ」ことになる）。
  *
  * @param {Array} inquiries snapshot.inquiries

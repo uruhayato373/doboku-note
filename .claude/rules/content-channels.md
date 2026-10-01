@@ -18,7 +18,7 @@ paths:
 - 索引と戦略の入口 → `content/note/README.md`（試験別構造・戦略 SSOT 体系）。戦略・Red Line・価格企画の真実源は各試験の `noteコンテンツ計画.md`、**実価格・noteUrl は `src/lib/note-magazines.ts`**（2級土木は `content/products/note/` が正本で `npm run product` で書き換える・DN-0492。サイト側 CTA の配線は `src/lib/magazine-placement.ts`）
 - 記事を公開レベルへ引き上げる 10 工程（網羅性照合／過去問配置／図版／カバー／e-gov リンク／段落分割／検証） → [note-publish-enhancement.md](../knowledge/reference/note-publish-enhancement.md)
 - 記事**内部**の構成テンプレ（売れる 9 型＋5 ステップ骨格） → [note-selling-structures.md](../knowledge/reference/note-selling-structures.md)
-- 記事**間**の導線（L1 全資格サイトマップ / L2 資格別もくじ / L3 記事内 CTA） → [note-funnel-architecture.md](../knowledge/reference/note-funnel-architecture.md)。機械可読は `.claude/config/note-funnel.json`、監査は `audit-note-funnel` スキル／`npm run check-note-funnel`／`note-funnel-auditor`
+- 記事**間**の導線（L1 全資格サイトマップ / L2 資格別もくじ / L3 記事内 CTA） → [note-funnel-architecture.md](../knowledge/reference/note-funnel-architecture.md)。機械可読は `config/note-funnel.json`、監査は `audit-note-funnel` スキル／`npm run check-note-funnel`／`note-funnel-auditor`
 - 総監 記述式の模範論文レビュー（字数→散文性→監理可能性→専門度→白書根拠の 9 ステップ、各施策 600 字以内が最優先） → [note-essay-review-checklist.md](../knowledge/reference/note-essay-review-checklist.md)
 - 公開状態の照合（`npm run verify-note-magazines`・note public API・会社 PC プロキシは `curl --ssl-no-revoke`） → [note-api-verification.md](../knowledge/reference/note-api-verification.md)
 - 図解 SVG/PNG（`content/note/**/img/figure-*`） → [note-svg-policy.md](../knowledge/reference/note-svg-policy.md)。カバー画像は [note-cover.md](../knowledge/design-system/note-cover.md)

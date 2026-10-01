@@ -36,7 +36,7 @@ dotenv.config({ path: ".env.local" });
 
 // ── Config ──
 
-const OUTPUT_DIR = ".claude/state/metrics/ga4";
+const OUTPUT_DIR = "data/metrics/ga4";
 const DEFAULT_DAYS = 28;
 const DEFAULT_LIMIT = 100;
 const DEFAULT_DIMENSION = "channel";
@@ -65,7 +65,7 @@ const SOURCE_LIKE_DIMENSIONS = ["sessionSource", "sessionSourceMedium"];
 // ハードコードせず、真実源の channels[].source をユニーク化して返す。
 function getSnsSources() {
   try {
-    const cfg = JSON.parse(readFileSync(".claude/config/utm-templates.json", "utf-8"));
+    const cfg = JSON.parse(readFileSync("config/utm-templates.json", "utf-8"));
     const sources = Object.values(cfg.channels || {})
       .map((c) => c.source)
       .filter(Boolean);

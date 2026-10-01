@@ -76,7 +76,7 @@ export function qualitySummary(): QualitySummary {
     { counts: {} },
   );
   const rules = readJson<{ defaults?: Record<string, Severity>; fullScan?: { rules?: string[] } }>(
-    repoPath('.claude', 'config', 'content-rules.json'),
+    repoPath('config', 'content-rules.json'),
     { defaults: {}, fullScan: { rules: [] } },
   );
   const popular = readJson<{ pages?: { slug: string; activeUsers?: number }[]; generatedFrom?: string; window?: { start: string; end: string } }>(

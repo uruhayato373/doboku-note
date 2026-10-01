@@ -48,7 +48,7 @@ SVG は**全体の流れ・構造を一目で把握させる**ためのもの。
 > [!important] 記事＋SNS 両用の図（`figure-N.svg`）は固定キャンバス必須
 > SNS（記事・Instagram）にも使う図は **viewBox を `400 500`（4:5・feed）に固定**する（高さ可変は不可）。
 > YouTube 用の横長は別ファイル `figure-N--wide.svg`（viewBox `640 360`・16:9・記事非埋込）として作る。
-> 真実源 → [figure-canvas-policy.md](../../../../.claude/knowledge/reference/figure-canvas-policy.md) / `.claude/config/figure-canvas.json`。
+> 真実源 → [figure-canvas-policy.md](../../../../.claude/knowledge/reference/figure-canvas-policy.md) / `config/figure-canvas.json`。
 > ガード `npm run check-figure-canvas` が逸脱を pre-commit で止める。縦の余白は要素拡大・サマリー・凡例で埋めて使い切る。
 >
 > **Stories / Reels 流用**: 4:5（400×500）で作った figure-*.svg は、9:16 キャンバス中央に配置するだけで IG Stories / Reels の静止画スライドとして使える（SVG 修正不要）。配置ルール → [sns-image-policy.md §13](../../../../.claude/knowledge/reference/sns-image-policy.md)。

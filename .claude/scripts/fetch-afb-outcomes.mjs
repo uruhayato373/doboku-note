@@ -15,7 +15,7 @@
  *
  * 出力:
  *   --commit なし: 集計を stdout に表示するだけ（書き込みなし）
- *   --commit あり: .claude/state/metrics/affiliate/afb-outcomes-YYYY-MM-DD.json（JST 日付）
+ *   --commit あり: data/metrics/affiliate/afb-outcomes-YYYY-MM-DD.json（JST 日付）
  *                  + afb-outcomes-latest.json
  *                  寿命は scripts/lib/prune-state-snapshots.mjs の family 'affiliate'（`-YYYY-MM-DD.json` は keep-all）
  *
@@ -27,7 +27,7 @@
  *   npm run fetch-afb-outcomes -- --commit
  *   node .claude/scripts/fetch-afb-outcomes.mjs --commit --now 2026-09-22T00:00:00Z   # テスト・再現用
  *
- * spec: .claude/config/affiliate-asp.json asps.afb.api.specUrl（specUpdated 時点の仕様）
+ * spec: config/affiliate-asp.json asps.afb.api.specUrl（specUpdated 時点の仕様）
  */
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
@@ -35,8 +35,8 @@ import { fileURLToPath } from 'node:url';
 import { assertSiteOrThrow } from '../../scripts/lib/asp-site-guard.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
-const CONFIG_PATH = join(ROOT, '.claude/config/affiliate-asp.json');
-const OUT_DIR = join(ROOT, '.claude/state/metrics/affiliate');
+const CONFIG_PATH = join(ROOT, 'config/affiliate-asp.json');
+const OUT_DIR = join(ROOT, 'data/metrics/affiliate');
 const TAG = '[fetch-afb-outcomes]';
 
 const DAY = 86_400_000;

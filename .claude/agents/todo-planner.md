@@ -8,7 +8,7 @@ domain: plan
 
 ## 事業方針とレビューの参照
 
-`docs/strategy/01_プロダクト戦略.md`、`.claude/config/business-direction.json`、`.claude/state/metrics/business/` の週次/月次判断から、重点資格と読者課題に沿うタスクを選ぶ。図・記事の件数だけを優先理由にしない。月初はmonthly-reviewの判断を使う。計画はbacklog/experimentsの参照を保持し、記録・状態の別台帳を作らない。
+`docs/strategy/01_プロダクト戦略.md`、`config/business-direction.json`、`data/metrics/business/` の週次/月次判断から、重点資格と読者課題に沿うタスクを選ぶ。図・記事の件数だけを優先理由にしない。月初はmonthly-reviewの判断を使う。計画はbacklog/experimentsの参照を保持し、記録・状態の別台帳を作らない。
 教材・図解の追加候補は `npm run check-content-expansion -- --json` と `.claude/knowledge/reference/content-expansion.md` で確認する。概念名の対応だけ・原典待ち・成果物変更後の再確認を区別し、実装は既存backlogへ接続する。対応表を公開実績や学習効果として数えない。
 
 
@@ -21,7 +21,7 @@ domain: plan
 ## 担当範囲
 
 - `.claude/todo/backlog.md`（タスクマスタ・全量プール）を読んで実施可能な未着手タスクを把握する
-- 年間・月間は**バックログのカードの `[時期:]` から決まる**（年間ロードマップ＝管理画面 計画 ＞ 年間ロードマップ、月間＝`[時期:]` が今月を含むカード）。試験日は `.claude/config/exam-calendar.json` を読む（annual.md に日付は無い）
+- 年間・月間は**バックログのカードの `[時期:]` から決まる**（年間ロードマップ＝管理画面 計画 ＞ 年間ロードマップ、月間＝`[時期:]` が今月を含むカード）。試験日は `config/exam-calendar.json` を読む（annual.md に日付は無い）
 - `.claude/todo/monthly.md`（今月の成果目標だけ・タスク表は持たない）を読んで月の重点を把握する
 - `.claude/todo/weekly.md`（前週状態・持ち越し）を読んで完了・未完了を確認する
 - `.claude/knowledge/reference/codex-division-of-labor.md` を読み、Codex に振れる作業を識別する
@@ -106,7 +106,7 @@ monthly.md は `## 今月の成果目標`（3 つまで）だけ。今月のタ�
 
 1. **コンテキスト収集**（並列で Read）
    - `.claude/todo/backlog.md` — タスクマスタ（全量プール・優先度tier別 🔴🟡🟢🟣・カテゴリは各タスクの `タグ:` 行）
-   - `.claude/config/exam-calendar.json` — 試験日（年間の重点は backlog の `[時期:]`・annual.md は方針の文章だけ）
+   - `config/exam-calendar.json` — 試験日（年間の重点は backlog の `[時期:]`・annual.md は方針の文章だけ）
    - `.claude/todo/monthly.md` — 今月の成果目標
    - `.claude/todo/weekly.md` — 前週の完了・未完了・メモ
    - `.claude/knowledge/reference/codex-division-of-labor.md` — Codex 振り分け基準

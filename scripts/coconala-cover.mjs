@@ -2,7 +2,7 @@
 /**
  * coconala-cover.mjs — ココナラ出品者プロフィールのカバー画像（バナー）を satori で生成
  * 差別化タグライン（技術士/総監を持つ元自治体土木）を civil 背景に重ねる。文字は satori で正確に。
- * 出力: .claude/config/coconala/assets/cover-profile.png（1600×450・約3.5:1 の広めバナー）
+ * 出力: content/coconala/assets/cover-profile.png（1600×450・約3.5:1 の広めバナー）
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -16,7 +16,7 @@ const FONTS = path.join(ROOT, '.claude/skills/conversion/ogp-create/assets/fonts
 const W = 1600, H = 525;
 const NAVY = '#243b63', INK = '#1a1d24', AMBER = '#d4a017';
 
-const bg = `data:image/png;base64,${fs.readFileSync(path.join(ROOT, '.claude/config/coconala/assets/bg-civil.png')).toString('base64')}`;
+const bg = `data:image/png;base64,${fs.readFileSync(path.join(ROOT, 'content/coconala/assets/bg-civil.png')).toString('base64')}`;
 const el = (type, props, ...ch) => ({ type, props: { ...props, children: ch.length <= 1 ? ch[0] : ch } });
 const div = (style, ...ch) => el('div', { style }, ...ch);
 
@@ -43,6 +43,6 @@ const fonts = [
   { name: 'Inter', data: fs.readFileSync(path.join(FONTS, 'Inter-Bold.ttf')), weight: 700, style: 'normal' },
 ];
 const svg = await satori(tree, { width: W, height: H, fonts });
-const out = path.join(ROOT, '.claude/config/coconala/assets/cover-profile.png');
+const out = path.join(ROOT, 'content/coconala/assets/cover-profile.png');
 await sharp(Buffer.from(svg)).png().toFile(out);
 console.log('[cover] →', out, `(${W}x${H})`);

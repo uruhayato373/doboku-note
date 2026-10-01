@@ -4,8 +4,8 @@
  * ---------------------------------------------------------------------------
  * fetch-a8-ui-csv.mjs が保存した run（raw CSV + manifest.json）を読み、
  *   1. <runDir>/normalized/<reportKey>.json（+ .rejects.json）を書く
- *   2. .claude/state/metrics/affiliate/a8-report-log.json へ upsert（committed SSOT）
- *   3. .claude/state/metrics/affiliate/a8-results.json の records へ rollup（既存スキーマ維持）
+ *   2. data/metrics/affiliate/a8-report-log.json へ upsert（committed SSOT）
+ *   3. data/metrics/affiliate/a8-results.json の records へ rollup（既存スキーマ維持）
  * raw CSV と manifest.json は書き換えない（append-only・監査可能性のため）。
  *
  * A8 は承認確定で過去月の数値が遡及変化するため、追記でなく **upsert**（最新 fetch が正）。
@@ -29,11 +29,11 @@ import {
   suggestMissingPrograms,
 } from "./lib/a8-report-csv.mjs";
 
-const STATE_DIR = ".claude/state/metrics/affiliate/a8-ui";
-const AFF_DIR = ".claude/state/metrics/affiliate";
+const STATE_DIR = "data/metrics/affiliate/a8-ui";
+const AFF_DIR = "data/metrics/affiliate";
 const REPORT_LOG = join(AFF_DIR, "a8-report-log.json");
 const RESULTS = join(AFF_DIR, "a8-results.json");
-const CONFIG_PATH = ".claude/config/a8-report-automation.json";
+const CONFIG_PATH = "config/a8-report-automation.json";
 
 /** reportKey → a8-report-log.json 内の配列名とキー関数。 */
 const BUCKET = {

@@ -20,10 +20,10 @@ const toPosix = (p) => p.replaceAll('\\', '/');
 export function loadCoverSources(sourceRoot, configRoot = sourceRoot) {
   const readJson = (root, rel) => JSON.parse(readFileSync(join(root, rel), 'utf8'));
   const tokens = readJson(sourceRoot, '.claude/knowledge/design-system/note-cover-tokens.json');
-  const poseLabels = Object.fromEntries(readJson(sourceRoot, '.claude/config/character-poses.json')
+  const poseLabels = Object.fromEntries(readJson(sourceRoot, 'config/character-poses.json')
     .poses.map((pose) => [pose.slug, pose.label]));
-  const v4Map = readJson(sourceRoot, '.claude/config/note-cover-magazine-v4.json');
-  const config = readJson(configRoot, '.claude/config/note-character-covers.json');
+  const v4Map = readJson(sourceRoot, 'config/note-cover-magazine-v4.json');
+  const config = readJson(configRoot, 'config/note-character-covers.json');
   const registry = loadRegistry(sourceRoot);
   return { tokens, poseLabels, v4Map, config, registry };
 }

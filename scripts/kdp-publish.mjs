@@ -6,7 +6,7 @@
  * → AI申告 → アクセシビリティ → 価格 → 出版」まで駆動する Playwright パブリッシャ。
  * note-publish.mjs と同じ「システム Chrome(channel:chrome) + 永続プロファイル(ログイン保存)
  * + proxy + ignoreHTTPSErrors」方式。真実源(メタデータ/申告/カテゴリー経路) = lib/kdp-common.mjs
- * (=.claude/config/kdp-memo.json の defaults + books[id])。
+ * (=config/kdp-memo.json の defaults + books[id])。
  *
  * ★限界（正直に明記）★
  *   - KDP/Amazon は bot 検知が強く、ログイン・出版時に CAPTCHA / 2FA を出す。これらは人が処理する。
@@ -285,7 +285,7 @@ try {
       if (!bodyt.includes(want)) { console.error(`ABORT: account "${want}" が本棚に見当たらない（誤アカウント防止）`); await shot(page, '01b-account'); await ctx.close(); process.exit(2); }
       console.log(`[1b] account assert OK (${want})`);
     } else {
-      console.log(`[1b] account assert スキップ（検出=${detected || '不明'}）。有効化するには .claude/config/kdp-memo.json defaults.accountEmail を設定`);
+      console.log(`[1b] account assert スキップ（検出=${detected || '不明'}）。有効化するには config/kdp-memo.json defaults.accountEmail を設定`);
     }
   }
 

@@ -2,7 +2,7 @@
 /**
  * check-image-assets.mjs — 画像アセットの品質ガード（サイズ上限・危険ファイル名・未参照・webp 欠落）。
  *
- * 閾値 SSOT: .claude/config/image-limits.json（真実源 .claude/knowledge/reference/image-policy.md）。
+ * 閾値 SSOT: config/image-limits.json（真実源 .claude/knowledge/reference/image-policy.md）。
  * baseline: .claude/state/quality/image-baseline.json（既存超過を grandfather）。
  *
  * チェック:
@@ -22,7 +22,7 @@ import { fileURLToPath } from 'node:url';
 import { classifyBySize, isDangerousName, diffBaseline, buildBaseline, fmtBytes, extOf } from '#lib/image-audit.mjs';
 
 const ROOT = resolve(join(dirname(fileURLToPath(import.meta.url)), '..'));
-const CONFIG = join(ROOT, '.claude', 'config', 'image-limits.json');
+const CONFIG = join(ROOT, 'config', 'image-limits.json');
 const BASELINE = join(ROOT, '.claude', 'state', 'quality', 'image-baseline.json');
 const OUT_JSON = join(ROOT, '.claude', 'state', 'quality', 'image-audit.json');
 const OUT_MD = join(ROOT, '.claude', 'state', 'quality', 'image-audit.md');

@@ -9,7 +9,7 @@ import { acquireLock } from './lib/local-resources.mjs';
 import { loadConfig, loadManifest, loadEnvLocal, makeS3, hasR2Credentials } from './lib/asset-storage.mjs';
 import { loadDriveConfig, loadDriveManifest, vaultRelFor } from './lib/drive-vault.mjs';
 
-const policy = JSON.parse(readFileSync(join(root, '.claude/config/local-resources.json'), 'utf8'));
+const policy = JSON.parse(readFileSync(join(root, 'config/local-resources.json'), 'utf8'));
 const release = acquireLock(root, 'cloud-verify');
 const results = [];
 const month = new Date().toISOString().slice(0, 7);

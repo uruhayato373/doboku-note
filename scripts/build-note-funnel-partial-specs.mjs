@@ -16,7 +16,7 @@ const getArg = (name) => { const index = argv.indexOf(name); return index >= 0 ?
 const BASE = getArg('--base') || 'HEAD';
 const EXAM = getArg('--exam');
 const OUT = resolve(ROOT, getArg('--out') || '.tmp/note-funnel-partial');
-const CONFIG = JSON.parse(readFileSync(join(ROOT, '.claude/config/note-funnel.json'), 'utf8'));
+const CONFIG = JSON.parse(readFileSync(join(ROOT, 'config/note-funnel.json'), 'utf8'));
 if (!EXAM || !CONFIG.exams[EXAM]) throw new Error('--exam <config key> が必要');
 
 const rootRel = CONFIG.exams[EXAM].articleGlob;

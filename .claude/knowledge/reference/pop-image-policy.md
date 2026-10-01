@@ -29,7 +29,7 @@ title: キャラクターPOP画像の共通制作方針
 
 ## 原本と媒体別の派生
 
-- 承認済みココナラ原本の対応・SHA-256は [承認画像台帳](../../config/coconala-thumb-approved.json)。画像と生成時のプロンプトは `.claude/config/coconala/assets/pop-20260927/` のPNGと `generation-manifest.json`。Drive vaultの `coconala-asset` に保存済み。復元は [アセット置き場](./asset-storage-policy.md) と `/asset-route` を使う。
+- 承認済みココナラ原本の対応・SHA-256は [承認画像台帳](../../../config/coconala-thumb-approved.json)。画像と生成時のプロンプトは `content/coconala/assets/pop-20260927/` のPNGと `generation-manifest.json`。Drive vaultの `coconala-asset` に保存済み。復元は [アセット置き場](./asset-storage-policy.md) と `/asset-route` を使う。
 - 新規生成の前に該当資格の原本を実画像で見る。ファイルが無ければ復元する。原本未確認の状態で「同じ意匠」と扱わない。
 - 同一商品・同一媒体の再出力は承認PNGをそのまま使う。ココナラは `node scripts/coconala-thumb.mjs --service coconala-tensaku-set` のように既存CLIでSHA照合してコピーできる。
 - 横長・縦長への展開は原本を参照して再配置する。完成PNGの引き伸ばし・文字や顔が切れる中央クロップで済ませない。noteの表示領域、SNSの操作UIと重ならない安全域は媒体側の正典に従う。

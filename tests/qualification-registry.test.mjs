@@ -13,10 +13,10 @@ const read = (p) => JSON.parse(readFileSync(new URL(`../${p}`, import.meta.url),
 
 test('実データ: registry・exam-calendar・exam-stats・exam-formats が整合している', () => {
   const errors = validateQualificationRegistry({
-    registry: read('.claude/config/qualification-registry.json'),
-    calendar: read('.claude/config/exam-calendar.json'),
-    examStats: read('.claude/config/exam-stats.json'),
-    formats: read('.claude/config/exam-formats.json'),
+    registry: read('config/qualification-registry.json'),
+    calendar: read('config/exam-calendar.json'),
+    examStats: read('config/exam-stats.json'),
+    formats: read('config/exam-formats.json'),
     refExists: (p) => existsSync(new URL(`../${p}`, import.meta.url)),
   });
   assert.deepEqual(errors, []);

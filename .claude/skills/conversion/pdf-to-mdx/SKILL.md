@@ -40,7 +40,7 @@ PDF または画像ファイルから doboku-note 用 MDX を生成する統合�
 
 - **経路D: 参考文献 bundle の視覚OCR** — `content/sources/books/` の bundle（Drive の `pages/pNNNN.jpg`）を、Sonnet 第1読（6p/体）→ Tesseract 第二読（無料）→ 一致率の低いページだけ Sonnet 第2読 → 48 ページ part へ連結 → `record-reference-book-artifacts` で Drive と台帳へ、の順で起こす。モデルが読むのは全ページ 1 回＋食い違ったページだけもう 1 回。runbook = `scripts/book-ocr/README.md`。マーカーは画像 id `<!-- p0001 -->`（印字ノンブルではない）。
 
-ワーカー: 本文 OCR/校正 = サブエージェント `scanned-textbook-transcriber`（Generator・sonnet）／図 locate = `civil-exam-figure-extractor` と同型の Generator／**図クロップ品質監査 = `scanned-figure-crop-auditor`（Evaluator・sonnet。実クロップ PNG を4軸採点し `adjust_bbox` を返す。locate 単発では枠が緩く本文写り込み・切れが残るため必須）**。**市販書籍スキャンは内部リファレンス専用＝公開しない**（`content/sources/textbook/**/img` は r2-sync 対象外＝公開R2へ同期されない。README に明記）。文字起こしには `.claude/config/reference-sources.json` の ID を示す frontmatter を付け、`source-transcript` group で Drive に同期する。
+ワーカー: 本文 OCR/校正 = サブエージェント `scanned-textbook-transcriber`（Generator・sonnet）／図 locate = `civil-exam-figure-extractor` と同型の Generator／**図クロップ品質監査 = `scanned-figure-crop-auditor`（Evaluator・sonnet。実クロップ PNG を4軸採点し `adjust_bbox` を返す。locate 単発では枠が緩く本文写り込み・切れが残るため必須）**。**市販書籍スキャンは内部リファレンス専用＝公開しない**（`content/sources/textbook/**/img` は r2-sync 対象外＝公開R2へ同期されない。README に明記）。文字起こしには `config/reference-sources.json` の ID を示す frontmatter を付け、`source-transcript` group で Drive に同期する。
 
 ## 利用可能な exam テンプレート
 
@@ -136,7 +136,7 @@ PDF または画像ファイルから doboku-note 用 MDX を生成する統合�
 
 ### Step 7: frontmatter の付与
 
-テンプレートで定義された必須フィールドを埋める（`title`, `description`, `category`, `tags`, `published`, その他 exam 固有項目）。原本・一次資料を参照した記事は `sources` に `.claude/config/reference-sources.json` の ID を入れ、自由記述の書名は使わない。
+テンプレートで定義された必須フィールドを埋める（`title`, `description`, `category`, `tags`, `published`, その他 exam 固有項目）。原本・一次資料を参照した記事は `sources` に `config/reference-sources.json` の ID を入れ、自由記述の書名は使わない。
 
 ### Step 8: ファイル保存
 

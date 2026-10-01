@@ -4,11 +4,11 @@
  * 生成 HTML を URL 単位で突合し、修正アクションへ分類したレポートを生成する（オフライン join）。
  * ---------------------------------------------------------------------------
  * 入力（すべて既存の state / build 生成物・最新スナップショット自動選択）:
- *   - GSC UI 正規化: .claude/state/metrics/gsc-ui/ssot/urls/*.json（**追跡 SSOT・優先**）
- *                    無ければ .claude/state/metrics/gsc-ui/<run>/normalized/*.json（gitignore・そのマシンのみ）
- *   - URL Inspection: .claude/state/metrics/url-inspection/inspection-*.json（最新）
- *   - GSC page:       .claude/state/metrics/gsc/gsc-page-*.json（最新・page×query 可）
- *   - GA4 page:       .claude/state/metrics/ga4/ga4-page-*.json（最新）
+ *   - GSC UI 正規化: data/metrics/gsc-ui/ssot/urls/*.json（**追跡 SSOT・優先**）
+ *                    無ければ data/metrics/gsc-ui/<run>/normalized/*.json（gitignore・そのマシンのみ）
+ *   - URL Inspection: data/metrics/url-inspection/inspection-*.json（最新）
+ *   - GSC page:       data/metrics/gsc/gsc-page-*.json（最新・page×query 可）
+ *   - GA4 page:       data/metrics/ga4/ga4-page-*.json（最新）
  *   - live sitemap:   https://doboku-note.com/sitemap.xml（取得可なら／不可なら out/sitemap.xml）
  *   - local sitemap:  out/sitemap.xml
  *   - _redirects:     public/_redirects
@@ -31,7 +31,7 @@ import { classifyUrl } from "./lib/search-growth-classifier.mjs";
 import { toJoinKey, toComparisonKey, slugFromKey, toAbsoluteUrl } from "./lib/url-normalization.mjs";
 import { matchWildcardRedirect } from "./lib/redirect-matcher.mjs";
 
-const M = ".claude/state/metrics";
+const M = "data/metrics";
 const OUT_DIR = ".claude/state/improvements";
 const SITE_ORIGIN = "https://doboku-note.com";
 
@@ -57,7 +57,7 @@ function readJson(p, def = null) {
  * GSC UI の正規化データを読む。
  *
  * 優先順:
- *   1. **追跡 SSOT** `.claude/state/metrics/gsc-ui/ssot/urls/*.json`（どのマシン・どの worktree でも読める）
+ *   1. **追跡 SSOT** `data/metrics/gsc-ui/ssot/urls/*.json`（どのマシン・どの worktree でも読める）
  *   2. 旧経路 最新 run の `<run>/normalized/*.json`（gitignore・そのマシンで取得した直後だけ存在）
  *
  * 1 を先に見る理由: 旧実装は 2 だけを見ており、run ディレクトリは gitignore なので

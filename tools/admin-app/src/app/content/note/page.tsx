@@ -50,7 +50,7 @@ const NO_MAGAZINE = '__none';
 /**
  * テーマの絞り込み（DN-0437）。以前は content/note 直下のフォルダ名を「資格」として出していたため、
  * 資格のフォルダに置いた転職・キャリアの記事が資格の件数に混ざっていた。テーマは
- * scripts/lib/content-theme.mjs（.claude/config/content-themes.json）が決める。未分類は赤で出す。
+ * scripts/lib/content-theme.mjs（config/content-themes.json）が決める。未分類は赤で出す。
  */
 const NO_THEME = '__none';
 

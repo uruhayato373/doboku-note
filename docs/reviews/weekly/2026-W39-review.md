@@ -273,7 +273,7 @@ run 35923550088（09-23）: note 30 ページ × 5 幅（300 枚）・YouTube 2 
 
 ## 事業レビュー（資格別・W38 窓 09-14〜20）
 
-記録: `.claude/state/metrics/business/review-2026-09-26T05-18-27-353Z-78cb4d12-7bd6-4fa0-a08a-6264693d1a22.json`（provisional・snapshot `snapshot-2026-09-26T05-17-59-555Z-…`）。
+記録: `data/metrics/business/review-2026-09-26T05-18-27-353Z-78cb4d12-7bd6-4fa0-a08a-6264693d1a22.json`（provisional・snapshot `snapshot-2026-09-26T05-17-59-555Z-…`）。
 
 | 資格 | 実測 | 未確認 | 判断 | 次の一手 |
 |---|---|---|---|---|

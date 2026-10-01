@@ -1,6 +1,6 @@
 // KDP 入稿メモを共通テンプレで生成する（コピペ登録用・記載漏れと表記ゆれを防ぐ）。
 // 共通項（著者=doboku-note・レーベル・AI申告・カテゴリ・KDPフロー）はここに一元化。
-// 各本の固有値は .claude/config/kdp-memo.json、title/subtitle/price/creditIssuer は
+// 各本の固有値は config/kdp-memo.json、title/subtitle/price/creditIssuer は
 // scripts/kindle-specs/<id>.json から取得。出力は scripts/kindle-published/KDP入力メモ_<id>.txt。
 //
 // 使い方: node scripts/gen-kdp-memo.mjs e-01 d-01 d-02 ...   （複数可・省略で config 全件）
@@ -10,7 +10,7 @@ import { resolve } from 'node:path'
 import { getDefaults } from './lib/kdp-common.mjs'
 
 const REPO = resolve(import.meta.dirname, '..')
-// ── 共通ルール（真実源 = .claude/config/kdp-memo.json の defaults。lib/kdp-common 経由で読む）──
+// ── 共通ルール（真実源 = config/kdp-memo.json の defaults。lib/kdp-common 経由で読む）──
 const DEF = getDefaults()
 const { author: AUTHOR, authorKana: AUTHOR_KANA, authorRomaji: AUTHOR_ROMAJI } = DEF
 const { label: LABEL, labelKana: LABEL_KANA, labelRomaji: LABEL_ROMAJI, category: CATEGORY } = DEF
@@ -134,11 +134,11 @@ ${d.previewNote}
 `
 }
 
-const cfg = JSON.parse(readFileSync(resolve(REPO, '.claude/config/kdp-memo.json'), 'utf8')).books
+const cfg = JSON.parse(readFileSync(resolve(REPO, 'config/kdp-memo.json'), 'utf8')).books
 const ids = process.argv.slice(2).length ? process.argv.slice(2) : Object.keys(cfg)
 for (const id of ids) {
   const d = cfg[id]
-  if (!d) { console.error(`config に ${id} がない（.claude/config/kdp-memo.json に追記を）`); continue }
+  if (!d) { console.error(`config に ${id} がない（config/kdp-memo.json に追記を）`); continue }
   const specPath = resolve(REPO, `scripts/kindle-specs/${id}.json`)
   if (!existsSync(specPath)) { console.error(`spec が無い: ${id}`); continue }
   const spec = JSON.parse(readFileSync(specPath, 'utf8'))

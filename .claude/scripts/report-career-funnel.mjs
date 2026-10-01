@@ -20,19 +20,19 @@
  *
  * exit: 0 生成成功 / 2 検査不成立
  *
- * 設定（語彙・柱の分類規則）: .claude/config/career-funnel.json
+ * 設定（語彙・柱の分類規則）: config/career-funnel.json
  * 方針の真実源: .claude/knowledge/reference/affiliate-operations.md「キャリアの計測は 2 つの窓を混ぜない」
- * 評価サイクル: .claude/state/experiments.json の EXP-008（凍結した基線と deploy+28 日で比較する）
+ * 評価サイクル: data/experiments.json の EXP-008（凍結した基線と deploy+28 日で比較する）
  */
 import { existsSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
-const GA4_DIR = join(ROOT, ".claude/state/metrics/ga4");
-const GSC_DIR = join(ROOT, ".claude/state/metrics/gsc");
-const AFF_DIR = join(ROOT, ".claude/state/metrics/affiliate");
-const CONFIG = join(ROOT, ".claude/config/career-funnel.json");
+const GA4_DIR = join(ROOT, "data/metrics/ga4");
+const GSC_DIR = join(ROOT, "data/metrics/gsc");
+const AFF_DIR = join(ROOT, "data/metrics/affiliate");
+const CONFIG = join(ROOT, "config/career-funnel.json");
 const SITE_DIR = join(ROOT, "content/site");
 const NOTE_DIR = join(ROOT, "content/note");
 
@@ -544,7 +544,7 @@ function main() {
   );
   if (frozen) say(`  基線を凍結: ${relative(frozen)}`);
   if (jsonOut) process.stdout.write(`${JSON.stringify(result, null, 2)}\n`);
-  else say("  出力: .claude/state/metrics/affiliate/career-funnel-latest.{json,md}");
+  else say("  出力: data/metrics/affiliate/career-funnel-latest.{json,md}");
 }
 
 function renderMarkdown(r, cfg) {

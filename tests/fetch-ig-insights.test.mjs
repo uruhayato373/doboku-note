@@ -63,7 +63,7 @@ test('run: mediaListed が 0 のときは exit 2 相当を返し何も書かな�
 
   assert.equal(result.exitCode, 2);
   assert.equal(result.written, undefined);
-  assert.equal(existsSync(join(root, '.claude/state/metrics/instagram')), false);
+  assert.equal(existsSync(join(root, 'data/metrics/instagram')), false);
 });
 
 test('run: daysReturned が 0 のときも exit 2 相当を返し何も書かない', async () => {
@@ -72,7 +72,7 @@ test('run: daysReturned が 0 のときも exit 2 相当を返し何も書かな
   const result = await run({ client, root, now: new Date('2026-09-21T03:00:00Z'), argv: [] });
 
   assert.equal(result.exitCode, 2);
-  assert.equal(existsSync(join(root, '.claude/state/metrics/instagram')), false);
+  assert.equal(existsSync(join(root, 'data/metrics/instagram')), false);
 });
 
 test('run: 認証・ネットワーク失敗（debugToken 例外）は exit 1 で何も書かない', async () => {
@@ -84,7 +84,7 @@ test('run: 認証・ネットワーク失敗（debugToken 例外）は exit 1 �
 
   assert.equal(result.exitCode, 1);
   assert.ok(result.message.includes('AUTH'));
-  assert.equal(existsSync(join(root, '.claude/state/metrics/instagram')), false);
+  assert.equal(existsSync(join(root, 'data/metrics/instagram')), false);
 });
 
 test('run: --dry-run は counts を返すが何も書かない', async () => {
@@ -95,7 +95,7 @@ test('run: --dry-run は counts を返すが何も書かない', async () => {
   assert.equal(result.exitCode, 0);
   assert.equal(result.counts.mediaListed, 2);
   assert.deepEqual(result.written, []);
-  assert.equal(existsSync(join(root, '.claude/state/metrics/instagram')), false);
+  assert.equal(existsSync(join(root, 'data/metrics/instagram')), false);
 });
 
 test('run: 単一メディアの insights 失敗は insightsError に格納し続行する', async () => {

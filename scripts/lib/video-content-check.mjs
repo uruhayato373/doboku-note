@@ -3,7 +3,7 @@
  *
  * 契約の真実源:
  *   - 人間向け: .claude/knowledge/reference/video-content-policy.md §8
- *   - 機械可読: .claude/config/video-content.json
+ *   - 機械可読: config/video-content.json
  *
  * 設計:
  *   - すべての関数は root（リポジトリまたは fixture のルート）を受け取る。
@@ -16,7 +16,7 @@ import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { videoStatusToStage } from './content-lifecycle.mjs';
 
-const CONFIG_PATH = '.claude/config/video-content.json';
+const CONFIG_PATH = 'config/video-content.json';
 
 export function loadConfig(root) {
   return JSON.parse(readFileSync(join(root, CONFIG_PATH), 'utf8'));

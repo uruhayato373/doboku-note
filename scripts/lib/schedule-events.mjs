@@ -12,8 +12,8 @@
  *   書き込み・カレンダー操作・予約変更はここに一切実装しない。
  *
  * 読むソース（6 系統・sourceId。実際の読み取りは collectScheduleEvents が行う）:
- *   - exam-calendar   … .claude/config/exam-calendar.json（試験日）
- *   - x-campaign      … .claude/config/x-campaigns/*.json（X 計画枠）
+ *   - exam-calendar   … config/exam-calendar.json（試験日）
+ *   - x-campaign      … config/x-campaigns/*.json（X 計画枠）
  *   - x-status        … content/sns/x/draft/*\/status.json（X 実予約・実投稿）
  *   - ig-status       … content/sns/instagram/**\/status.json（IG 実予約・実投稿）
  *   - youtube-schedule… .claude/state/youtube-schedule.json（YouTube 予約）
@@ -40,7 +40,7 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { basename, join } from 'node:path';
 import { jstDayTime, todayJst } from './jst-date.mjs';
 import { parseBacklog } from './backlog-lib.mjs';
-import domainsConfig from '../../.claude/config/domains.json' with { type: 'json' };
+import domainsConfig from '../../config/domains.json' with { type: 'json' };
 
 /**
  * @typedef {Object} ScheduleEvent
@@ -77,7 +77,7 @@ const YMD_RE = /^\d{4}-\d{2}-\d{2}$/;
  * （領域ごとに予定表を分けると同じ予定を二重に持ち、試験日と商品公開を並べて見られなくなる）。
  */
 /**
- * 予定の領域。試験（exam）と、事業の領域（正本 .claude/config/domains.json・並びも正本どおり）。
+ * 予定の領域。試験（exam）と、事業の領域（正本 config/domains.json・並びも正本どおり）。
  */
 export const DOMAINS = [
   { id: 'exam', label: '試験' },
@@ -570,10 +570,10 @@ function readJsonFile(abs) {
 }
 
 function readExamCalendar(rootDir) {
-  const relPath = '.claude/config/exam-calendar.json';
+  const relPath = 'config/exam-calendar.json';
   try {
     const json = readJsonFile(join(rootDir, relPath));
-    const registry = readJsonFile(join(rootDir, '.claude/config/qualification-registry.json'));
+    const registry = readJsonFile(join(rootDir, 'config/qualification-registry.json'));
     const { events, skipped } = mapExamCalendar(json, relPath, new Set(activeIds(registry)));
     const errors = skipped > 0
       ? [{ path: relPath, message: `${skipped} 件の event が不正な日付形式でスキップ` }]
@@ -591,7 +591,7 @@ function readExamCalendar(rootDir) {
 }
 
 function readXCampaigns(rootDir) {
-  const dirRel = '.claude/config/x-campaigns';
+  const dirRel = 'config/x-campaigns';
   const dirAbs = join(rootDir, dirRel);
   const events = [];
   const errors = [];
@@ -789,7 +789,7 @@ function readVideoStatus(rootDir, todayKey) {
 }
 
 function readExperiments(rootDir, todayKey) {
-  const relPath = '.claude/state/experiments.json';
+  const relPath = 'data/experiments.json';
   return readSource('experiments', 'experiment', relPath, () => {
     const json = readJsonFile(join(rootDir, relPath));
     const list = Array.isArray(json) ? json : (json.experiments ?? Object.values(json));
@@ -798,7 +798,7 @@ function readExperiments(rootDir, todayKey) {
 }
 
 function readBusinessReviews(rootDir, todayKey) {
-  const relDir = '.claude/state/metrics/business';
+  const relDir = 'data/metrics/business';
   return readSource('business-review', 'review', relDir, () => {
     const reviews = readdirSync(join(rootDir, relDir))
       .filter((f) => /^review-.*\.json$/.test(f))

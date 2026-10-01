@@ -6,7 +6,7 @@
  *
  * 既存の `fetch-ga4-data.mjs` の SPAM_REFERRAL_SOURCES を補強する判断材料。
  * 海外比率 ≥ 80% かつ users ≥ 5 の source は除外候補。
- * bot 込み分母の突合先は .claude/state/metrics/cloudflare/cf-zone-*.json（Cloudflare リクエスト数）。
+ * bot 込み分母の突合先は data/metrics/cloudflare/cf-zone-*.json（Cloudflare リクエスト数）。
  *
  * Usage:
  *   node .claude/scripts/audit-ga4-bot-ratio.mjs                 # 過去 14 日
@@ -14,7 +14,7 @@
  *   node .claude/scripts/audit-ga4-bot-ratio.mjs --min-users 10  # 評価対象の最小 users
  *
  * 出力:
- *   .claude/state/metrics/ga4/bot-audit-YYYY-MM-DDTHH-MM-SS.json
+ *   data/metrics/ga4/bot-audit-YYYY-MM-DDTHH-MM-SS.json
  *   STDOUT に上位 30 件と「除外推奨」リスト
  *
  * incident: .claude/knowledge/reference/measurement-incidents.md 2026-04-26
@@ -27,7 +27,7 @@ import dotenv from "dotenv";
 
 dotenv.config({ path: ".env.local" });
 
-const OUTPUT_DIR = ".claude/state/metrics/ga4";
+const OUTPUT_DIR = "data/metrics/ga4";
 const DEFAULT_DAYS = 14;
 const DEFAULT_MIN_USERS = 5;
 const DEFAULT_LIMIT = 100;

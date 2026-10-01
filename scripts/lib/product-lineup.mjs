@@ -1,8 +1,8 @@
 /**
  * product-lineup.mjs — 商品を「資格 × 試験区分 × チャネル」のマスへ写す（純粋関数＋config 読み込み）
  * ---------------------------------------------------------------------------
- * 分類ルールの SSOT は `.claude/config/product-lineup.json`。試験区分はそこに書かず、
- * `.claude/config/exam-formats.json`（lib/exam-stages.mjs）から読んで qualifications[].stages に付ける。各チャネルの商品台帳は
+ * 分類ルールの SSOT は `config/product-lineup.json`。試験区分はそこに書かず、
+ * `config/exam-formats.json`（lib/exam-stages.mjs）から読んで qualifications[].stages に付ける。各チャネルの商品台帳は
  * 呼び出し側（admin `lib/lineup.ts`）が既存ローダーで読み、ここへ正規化済みの item を渡す。
  * どのルールにも当たらない商品は `unclassified` に残し、黙って落とさない（CLAUDE.md §9）。
  * ---------------------------------------------------------------------------
@@ -15,14 +15,14 @@ import { loadExamStages } from './exam-stages.mjs';
 import { loadRegistry, orderedQualifications } from './qualification-registry.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
-export const LINEUP_CONFIG_PATH = join(ROOT, '.claude/config/product-lineup.json');
+export const LINEUP_CONFIG_PATH = join(ROOT, 'config/product-lineup.json');
 
 /**
  * product-lineup.json を読み、マスの資格（registry の展開中の資格・名前と並び順も registry）と
  * 各資格の試験区分（exam-formats.json の stages）を付けて返す
  */
 export function loadLineupConfig(root = ROOT) {
-  const config = JSON.parse(readFileSync(join(root, '.claude/config/product-lineup.json'), 'utf8'));
+  const config = JSON.parse(readFileSync(join(root, 'config/product-lineup.json'), 'utf8'));
   return withStages(withQualifications(config, loadRegistry(root)), loadExamStages(root));
 }
 

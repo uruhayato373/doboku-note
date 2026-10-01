@@ -105,7 +105,7 @@ garbage: 0 bytes / in-pack objects: 120,312
 | ディレクトリ | 容量 | 件数 |
 | --- | ---: | ---: |
 | `content/note/1級・2級土木` | 69.2 MiB | 903 |
-| `.claude/state/metrics` | 47 MiB | 674 |
+| `data/metrics` | 47 MiB | 674 |
 | `content/site/civil-construction-1` | 32.6 MiB | 913 |
 | `content/site/standards-library` | 29.9 MiB | 276 |
 | `content/note/技術士総監` | 22.4 MiB | 764 |
@@ -116,7 +116,7 @@ garbage: 0 bytes / in-pack objects: 120,312
 | `content/site/pe-comprehensive-management` | 12.5 MiB | 1047 |
 | `content/sns/_assets` | 11.1 MiB | 22 |
 | `content/site/pe-construction` | 10.8 MiB | 185 |
-| `.claude/config/ogp` | 9.2 MiB | 10 |
+| `config/ogp` | 9.2 MiB | 10 |
 | `.claude/state/assets` | 7.8 MiB | 1 |
 | `.obsidian/plugins/obisidian-note-linker` | 7.2 MiB | 3 |
 

@@ -62,7 +62,7 @@ import {
 const ARCHIVE_PREFIX = 'docs/handoffs/_archive/';
 const BACKLOG = '.claude/todo/backlog.md';
 const DISPATCH_LOG = '.claude/state/dispatch/dispatch-log.json';
-const EXPERIMENTS = '.claude/state/experiments.json';
+const EXPERIMENTS = 'data/experiments.json';
 const MAX_BUFFER = 256 * 1024 * 1024;
 
 if (process.env.SKIP_HANDOFF_EXTRACT === '1') {

@@ -21,7 +21,7 @@ import { findRepoRoot, repoPath } from './repo-root';
  * lineup.ts — `/content/lineup`（read-only）の表示モデル。
  *
  * 商品を「資格 × 試験区分 × チャネル」のマトリクスへ並べる。分類ルールの SSOT は
- * `.claude/config/product-lineup.json`（試験区分は exam-formats.json）、判定は `scripts/lib/product-lineup.mjs`、
+ * `config/product-lineup.json`（試験区分は exam-formats.json）、判定は `scripts/lib/product-lineup.mjs`、
  * 状態の語彙は `scripts/lib/content-lifecycle.mjs` を使い、ここでは各チャネルの既存台帳を
  * 読んで item へ正規化するだけ。台帳は書き換えない。試験日・受験者数は資格一覧（/strategy/qualifications）が扱う。
  * 読めなかったチャネルは 0 件ではなく `sourceErrors` に出す（CLAUDE.md §9）。

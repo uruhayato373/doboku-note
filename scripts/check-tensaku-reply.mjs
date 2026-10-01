@@ -21,7 +21,7 @@ import { fileURLToPath } from 'node:url';
 import { checkReply } from './lib/tensaku-reply-guards.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const LIMITS_PATH = join(ROOT, '.claude/config/keiken-answer-sheet-limits.json');
+const LIMITS_PATH = join(ROOT, 'config/keiken-answer-sheet-limits.json');
 const TAG = '[check-tensaku-reply]';
 
 const argv = process.argv.slice(2);

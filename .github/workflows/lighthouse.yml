@@ -1,6 +1,6 @@
 name: Lighthouse CI
 
-# PSI（.claude/config/psi-config.json）は本番の事後計測（毎日22URL・CrUX field データ）で、
+# PSI（config/psi-config.json）は本番の事後計測（毎日22URL・CrUX field データ）で、
 # マージ前に LCP 画像肥大や a11y スコア低下を止める手段が無かった（DN-0240）。
 # ここでは build 成果物（npm run serve・e2e.yml と同じ静的配信）に対し代表4ページで
 # lighthouserc.json の閾値を強制する。しきい値は lighthouserc.json が SSOT で、

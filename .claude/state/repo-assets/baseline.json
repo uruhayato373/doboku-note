@@ -173,7 +173,7 @@
       "files": 60
     },
     {
-      "dir": ".claude/state/metrics",
+      "dir": "data/metrics",
       "sizeMiB": 22.1,
       "files": 555
     },
@@ -228,7 +228,7 @@
       "files": 27
     },
     {
-      "dir": ".claude/config/ogp",
+      "dir": "config/ogp",
       "sizeMiB": 7.7,
       "files": 9
     },
@@ -653,7 +653,7 @@
               "sizeMiB": 1.8
             },
             {
-              "path": ".claude/state/metrics/url-inspection/inspection-batch-2026-08-01T05-03-32.json",
+              "path": "data/metrics/url-inspection/inspection-batch-2026-08-01T05-03-32.json",
               "sizeMiB": 1.3
             },
             {
@@ -665,11 +665,11 @@
               "sizeMiB": 1.2
             },
             {
-              "path": ".claude/state/metrics/url-inspection/inspection-batch-2026-06-19T13-26-17.json",
+              "path": "data/metrics/url-inspection/inspection-batch-2026-06-19T13-26-17.json",
               "sizeMiB": 1.2
             },
             {
-              "path": ".claude/state/metrics/url-inspection/inspection-batch-2026-07-01T05-04-05.json",
+              "path": "data/metrics/url-inspection/inspection-batch-2026-07-01T05-04-05.json",
               "sizeMiB": 1.2
             },
             {
@@ -677,7 +677,7 @@
               "sizeMiB": 1.2
             },
             {
-              "path": ".claude/state/metrics/seo-meta/seo-meta-2026-08-20T12-30-25-321.json",
+              "path": "data/metrics/seo-meta/seo-meta-2026-08-20T12-30-25-321.json",
               "sizeMiB": 0.9
             }
           ]
@@ -1172,9 +1172,9 @@
           "sizeMiB": 0.4,
           "copies": 3,
           "paths": [
-            ".claude/state/metrics/monetization/coverage-2026-06-05T22-18-20.json",
-            ".claude/state/metrics/monetization/coverage-2026-06-05T22-18-27.json",
-            ".claude/state/metrics/monetization/coverage-2026-06-05T22-18-38.json"
+            "data/metrics/monetization/coverage-2026-06-05T22-18-20.json",
+            "data/metrics/monetization/coverage-2026-06-05T22-18-27.json",
+            "data/metrics/monetization/coverage-2026-06-05T22-18-38.json"
           ]
         },
         {

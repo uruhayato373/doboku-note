@@ -937,7 +937,7 @@ function main() {
   }
 
   if (targets.length === 0) {
-    report.error = '検査対象が 0 件（.claude/config/standards-structure.json の build.documents を確認する）。検査不成立。';
+    report.error = '検査対象が 0 件（config/standards-structure.json の build.documents を確認する）。検査不成立。';
     emit(report, asJson, report.error);
     return;
   }

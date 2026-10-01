@@ -36,7 +36,7 @@ test('emptyCounts/tally: 未知ステージは unknown へ落ちる（published 
 });
 
 test('video: config の statusEnum を全て写像できる（取りこぼしゼロ）', () => {
-  const config = JSON.parse(readFileSync(join(ROOT, '.claude/config/video-content.json'), 'utf8'));
+  const config = JSON.parse(readFileSync(join(ROOT, 'config/video-content.json'), 'utf8'));
   for (const status of config.state.statusEnum) {
     const stage = videoStatusToStage(status);
     assert.ok(stage !== null, `未写像の video status: ${status}`);

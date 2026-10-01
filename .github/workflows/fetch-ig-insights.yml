@@ -1,6 +1,6 @@
 name: 📸 Fetch Instagram insights (weekly)
 
-# Instagram Graph API から週次でインサイトを取得し、.claude/state/metrics/instagram/ へ commit する。
+# Instagram Graph API から週次でインサイトを取得し、data/metrics/instagram/ へ commit する。
 # 失敗・成功は automation-failure Issue（channel: ig-insights）で通知する（scripts/report-automation-failure.mjs）。
 # ドリフト（--reconcile の差分）は赤にせず job summary に末尾だけ残す read-only 情報として扱う。
 #
@@ -62,14 +62,14 @@ jobs:
           node scripts/fetch-ig-insights.mjs --reconcile 2>&1 | tee "$RUNNER_TEMP/ig.log"
           echo "exit_code=$?" >> "$GITHUB_OUTPUT"
 
-      - name: Publish to develop (.claude/state/metrics/instagram/)
+      - name: Publish to develop (data/metrics/instagram/)
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           node scripts/prune-state-snapshots.mjs --commit --family instagram
 
-          git add .claude/state/metrics/instagram .claude/state/ig-reconcile/snapshot.json
+          git add data/metrics/instagram .claude/state/ig-reconcile/snapshot.json
           if git diff --cached --quiet; then
             echo "No changes to publish"
             exit 0

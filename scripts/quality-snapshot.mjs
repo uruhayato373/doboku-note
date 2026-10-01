@@ -21,7 +21,7 @@ import { todayJst } from './lib/jst-date.mjs';
 const ROOT = resolve(join(dirname(fileURLToPath(import.meta.url)), ".."));
 const BASELINE = join(ROOT, ".claude", "state", "quality", "lint-baseline.json");
 const HISTORY = join(ROOT, ".claude", "state", "quality", "history.jsonl");
-const RULES = join(ROOT, ".claude", "config", "content-rules.json");
+const RULES = join(ROOT, "config", "content-rules.json");
 
 function readJson(p, fallback) {
   try { return JSON.parse(readFileSync(p, "utf8")); } catch { return fallback; }

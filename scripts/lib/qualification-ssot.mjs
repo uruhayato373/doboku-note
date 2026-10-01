@@ -1,10 +1,10 @@
 /**
  * qualification-ssot.mjs — 資格の名前の写しを探す（npm run check-qualification-ssot と管理画面「正本の検査」が使う唯一の実装）。
  *
- * 資格の属性（正式名・短い名前・ごく短い名前・並び順・まとまり groups）は .claude/config/qualification-registry.json だけが持つ。
+ * 資格の属性（正式名・短い名前・ごく短い名前・並び順・まとまり groups）は config/qualification-registry.json だけが持つ。
  * 機能を足すたびに別の設定・コードへ名前を写し、id の一致だけを見る検査を素通りして名前・並びが
  * 画面ごとにずれる事故が繰り返された（2026-10-02: 商品設計とコンテンツ台帳のメニュー）。
- *   - 設定（.claude/config・.claude/knowledge・src/config の JSON）: registry 以外が資格に名前を持てば違反。
+ *   - 設定（config・.claude/config・.claude/knowledge・src/config の JSON）: registry 以外が資格に名前を持てば違反。
  *     資格を id／qualification／slug で指す項目と、資格 id（または別名）をキーにした名前を拾う。
  *     資格名と別の属性（試験の正式名など）は qualification-ssot-allow.json に理由つきで登録する。
  *   - 書き込み先（DERIVED_FILES）: npm run sync-qualification-names が書いた名前が registry と一致するか。
@@ -20,11 +20,11 @@ import { REGISTRY_PATH, isQualificationRef, qualificationLabel } from './qualifi
 export const ALLOW_PATH = '.claude/config/qualification-ssot-allow.json';
 const NAME_KEYS = ['label', 'shortLabel', 'badgeLabel', 'name', 'title', 'short'];
 const CODE_DIRS = ['scripts', '.claude/scripts', 'tools/admin-app/src', 'src'];
-const CONFIG_DIRS = ['.claude/config', '.claude/knowledge', 'src/config'];
+const CONFIG_DIRS = ['config', '.claude/config', '.claude/knowledge', 'src/config'];
 const ALIAS_SOURCES = [
   ['.claude/knowledge/design-system/note-cover-tokens.json', (j) => j.exams],
-  ['.claude/config/note-funnel.json', (j) => j.exams],
-  ['.claude/config/keiken-answer-sheet-limits.json', (j) => j.grades],
+  ['config/note-funnel.json', (j) => j.exams],
+  ['config/keiken-answer-sheet-limits.json', (j) => j.grades],
 ];
 export const ALLOW_MARKER = 'qualification-ssot: allow';
 const CODE_EXT = /\.(mjs|cjs|js|ts|tsx|mts|cts)$/;
@@ -124,7 +124,8 @@ const allowMatch = (pattern, path) => new RegExp(`^${pattern.replace(/[.[\]$]/g,
 
 /** コードの 1 ファイルで、資格 id（または別名）→ 日本語の対応表らしい行を返す（行番号は 1 始まり） */
 export function findCodeCopies(text, ids) {
-  const alt = [...ids].map((id) => id.replace(/[-]/g, '\\-')).join('|');
+  // id を正規表現の文字として扱う（特殊文字はすべてエスケープ）
+  const alt = [...ids].map((id) => id.replace(/[.*+?^${}()|[\]\\-]/g, '\\$&')).join('|');
   const patterns = [
     // '<資格>': '日本語' / '<資格>': { …日本語 / rccm: '日本語'
     new RegExp(`(?:['"\`](?:${alt})['"\`]|\\b(?:${alt})\\b)\\s*:\\s*(?:['"\`][^'"\`\\n]*${JP}|\\{[^}\\n]*${JP})`),

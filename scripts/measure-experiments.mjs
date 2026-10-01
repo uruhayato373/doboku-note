@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * measure-experiments.mjs — 実験台帳（.claude/state/experiments.json）のうち `measure` 仕様を持つ running / measuring の
+ * measure-experiments.mjs — 実験台帳（data/experiments.json）のうち `measure` 仕様を持つ running / measuring の
  * 実験について、前後の窓で GA4 / GSC / 売上台帳を測り、`measurements[]` に自動計測を追記する。
  *
  * なぜ: 前後比較が手作業（/nsm-experiment measure）で、EXP-007/008 は期限を数週間過ぎても測られなかった。
@@ -28,8 +28,8 @@ import { getAuth, fetchSearchAnalytics } from '../.claude/skills/analytics/fetch
 dotenv.config({ path: '.env.local', quiet: true });
 
 const TAG = '[measure-experiments]';
-const LEDGER = '.claude/state/experiments.json';
-const SALES = '.claude/state/sales/sales-log.json';
+const LEDGER = 'data/experiments.json';
+const SALES = 'data/sales/sales-log.json';
 
 async function ga4Value(ga4, spec, windows) {
   const ranges = [{ ...windows.pre, name: 'pre' }, { ...windows.post, name: 'post' }];

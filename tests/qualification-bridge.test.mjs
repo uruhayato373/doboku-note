@@ -51,7 +51,7 @@ test('実務記事の記事末と共通仕様書の章末に置かれている',
 });
 
 test('週次の GA4 取得（growth-pack・CTA クリック）にイベントが登録されている', () => {
-  const growth = JSON.parse(read('.claude/config/growth-cycle.json'));
+  const growth = JSON.parse(read('config/growth-cycle.json'));
   assert.ok(growth.events.includes('qualification_bridge_click'));
   assert.ok(growth.events.includes('qualification_bridge_impression'));
   const fetcher = read('.claude/scripts/fetch-ga4-cta-clicks.mjs');

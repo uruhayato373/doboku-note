@@ -17,7 +17,7 @@
 //
 // exit 0 = 成功（dry-run 含む） / exit 1 = 検証失敗・対象 0 件・マウント無しで書けない・リモート未設定で --cloud
 //
-// 設定: .claude/config/drive-vault.json / 台帳: .claude/state/assets/drive-manifest.json
+// 設定: config/drive-vault.json / 台帳: .claude/state/assets/drive-manifest.json
 
 import { execFileSync, spawnSync } from 'node:child_process';
 import { createReadStream, createWriteStream, existsSync, mkdirSync, readdirSync, renameSync, unlinkSync, writeFileSync } from 'node:fs';

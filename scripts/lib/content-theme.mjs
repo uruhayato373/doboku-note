@@ -1,7 +1,7 @@
 /**
  * content-theme.mjs — 制作物の「テーマ」（資格・資格ファミリー・資格以外の話題）を決める唯一の実装（DN-0437）。
  *
- * 語彙とルールの正本は .claude/config/content-themes.json、資格の名前は qualification-registry.json、
+ * 語彙とルールの正本は config/content-themes.json、資格の名前は qualification-registry.json、
  * 試験区分は exam-formats.json（lib/exam-stages.mjs）。splitByStage の資格は「資格:区分」のテーマに分ける。
  * note の記事は content/note/ 直下のフォルダ名をそのまま資格として扱っていたため、資格のフォルダに
  * 置いた転職・キャリアの記事が資格の記事として数えられていた。ここではフォルダを動かさず、ルールで写す。
@@ -18,8 +18,8 @@ export const COMMON_STAGE = 'common';
 
 /** テーマの一覧（id → { id, label, kind }）とチャネルごとのルールを読む。 */
 export function loadThemes(root) {
-  const cfg = JSON.parse(readFileSync(join(root, '.claude/config/content-themes.json'), 'utf8'));
-  const registry = JSON.parse(readFileSync(join(root, '.claude/config/qualification-registry.json'), 'utf8'));
+  const cfg = JSON.parse(readFileSync(join(root, 'config/content-themes.json'), 'utf8'));
+  const registry = JSON.parse(readFileSync(join(root, 'config/qualification-registry.json'), 'utf8'));
   return buildThemes(cfg, registry, loadExamStages(root));
 }
 

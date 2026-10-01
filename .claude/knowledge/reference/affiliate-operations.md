@@ -3,8 +3,8 @@
 doboku-note のアフィリエイト運用（提携・配置・計測）の真実源。
 A8 / もしも / afb の 3 ASP を横断する。
 
-- **提携カタログ（機械可読）**: `.claude/state/ads/affiliate-catalog.json`
-- **ASP 接続設定（機械可読）**: `.claude/config/affiliate-asp.json`
+- **提携カタログ（機械可読）**: `data/ads/affiliate-catalog.json`
+- **ASP 接続設定（機械可読）**: `config/affiliate-asp.json`
 - **mat レジストリ（機械可読）**: `src/config/affiliate-mats.json`
 - **A8 の成果取込**: [a8-affiliate-pipeline.md](a8-affiliate-pipeline.md)（scout ＋ report。役割が違うので分離）
 
@@ -73,7 +73,7 @@ A8 だけは**管理画面にサイト切替が存在しない**ため、assert 
 
 ## 3. ASP 別のクセ（実機で踏んだもの）
 
-機械可読な設定値は `.claude/config/affiliate-asp.json`。ここは「なぜそうなっているか」。
+機械可読な設定値は `config/affiliate-asp.json`。ここは「なぜそうなっているか」。
 
 ### もしも
 
@@ -99,13 +99,13 @@ A8 だけは**管理画面にサイト切替が存在しない**ため、assert 
 > これは「afb に建設案件が無い」ではなく「**検索できた範囲には無かった**」。
 > カタログの `_openQuestions` に未確認として明記し、`status: "unknown"` と `"none"` を語彙として分けている。
 
-**afb 成果（コンバージョン）は提携状態スキャンとは別系統**: 上の Playwright 走査は提携状態（未提携/申請中/提携中）だけを見る。成果（pending/approved/rejected・報酬額）は afb 公式 conversion API（読み取り専用）で取得する — `node .claude/scripts/fetch-afb-outcomes.mjs --commit`（fetch-metrics.yml 週次・`AFB_API_KEY` 必須）。出力は `.claude/state/metrics/affiliate/afb-outcomes-latest.json`（+ 日付付き snapshot・寿命 keep-all）。取得停止の検知は `npm run check-afb-outcomes-freshness`（quality-audit ops 区分・10 日超で FAIL）。
+**afb 成果（コンバージョン）は提携状態スキャンとは別系統**: 上の Playwright 走査は提携状態（未提携/申請中/提携中）だけを見る。成果（pending/approved/rejected・報酬額）は afb 公式 conversion API（読み取り専用）で取得する — `node .claude/scripts/fetch-afb-outcomes.mjs --commit`（fetch-metrics.yml 週次・`AFB_API_KEY` 必須）。出力は `data/metrics/affiliate/afb-outcomes-latest.json`（+ 日付付き snapshot・寿命 keep-all）。取得停止の検知は `npm run check-afb-outcomes-freshness`（quality-audit ops 区分・10 日超で FAIL）。
 
 ---
 
 ## 4. スキーマ
 
-### `.claude/state/ads/affiliate-catalog.json`
+### `data/ads/affiliate-catalog.json`
 
 **自社が配置する / 配置を検討する案件だけ**を持つ。同一案件が複数 ASP に存在するため、**ASP 間の単価・確定率・EPC を比較できること**がこのファイルの存在理由。
 
@@ -134,7 +134,7 @@ A8 だけは**管理画面にサイト切替が存在しない**ため、assert 
 | `unavailable` | その ASP に案件自体が無い |
 | `unknown` | **未確認（調べていない）。`none` と区別する** |
 
-`.claude/state/ads/a8-catalog.json`（143 件・A8 scout の状態機械）とは**マージしない**。あちらは「A8 で何を見つけ何を申請したか」、こちらは「自社がどの案件をどの ASP で運用するか」。
+`data/ads/a8-catalog.json`（143 件・A8 scout の状態機械）とは**マージしない**。あちらは「A8 で何を見つけ何を申請したか」、こちらは「自社がどの案件をどの ASP で運用するか」。
 
 ---
 
@@ -267,7 +267,7 @@ CTA コピーの真実源を `src/config/career-pathways.ts` に集約した。s
 
 - hub → 5 柱、5 柱 → hub が双方向で通る
 - career 記事は全件が最低 1 本の柱へ繋がる
-- 記事の所属（pillar・5 値）は `.claude/config/career-funnel.json`、読者の悩み（need・8 値）は
+- 記事の所属（pillar・5 値）は `config/career-funnel.json`、読者の悩み（need・8 値）は
   `src/config/career-pathways.ts`。**粒度が違う 2 つの分類**で、ずれはテストが止める
 
 **内部リンクの数え方**: `/docs/{slug}` の literal だけでなく `<RelatedKeywords>` の `slug:` と
@@ -309,7 +309,7 @@ TS 設定（`career-pathways.ts`）も数える。MDX だけを走査すると�
 career 記事 38 本の GSC クリックは**全件 0**で、高意図クエリも 28 日で表示 7・クリック 0。
 入口に人が来ていない状態で note 側の受け皿を先に作っても、空の漏斗を長くするだけになる。
 
-**着手条件**: EXP-008（`.claude/state/experiments.json`）の 28 日評価で
+**着手条件**: EXP-008（`data/experiments.json`）の 28 日評価で
 career の GSC クリックが 0 から動き、hub → 柱の遷移が観測できたとき。
 そのとき初めて note 側へ広げる。条件を満たさなければ作らない判断も含めて、実験の close で決める。
 
@@ -539,9 +539,9 @@ A8 側の `clicks` は参考値）。A8 から取るのは**成果（発生件�
 | 各 ASP 管理画面 | creative・mat 値・クリック/成果レポートの真実源 |
 | `src/config/affiliate-mats.json` | **mat レジストリ（SSOT）**。検証 `npm run check-affiliate-mats` |
 | `src/config/affiliate-creatives.ts` | creative 定数と出し分けロジックの真実源 |
-| `.claude/state/ads/affiliate-catalog.json` | **どの案件をどの ASP で運用するか**の真実源 |
-| `.claude/state/metrics/affiliate/a8-results.json` | **A8 成果**（`/a8-report` が upsert）。doboku 分離は `a8-report-log.json` の `siteSummary` |
-| `.claude/state/metrics/affiliate/afb-outcomes-latest.json` | **afb 成果**（公式 API・`fetch-afb-outcomes.mjs --commit` が週次で上書き）。サイト分離は行ごとの `assertSiteOrThrow` |
+| `data/ads/affiliate-catalog.json` | **どの案件をどの ASP で運用するか**の真実源 |
+| `data/metrics/affiliate/a8-results.json` | **A8 成果**（`/a8-report` が upsert）。doboku 分離は `a8-report-log.json` の `siteSummary` |
+| `data/metrics/affiliate/afb-outcomes-latest.json` | **afb 成果**（公式 API・`fetch-afb-outcomes.mjs --commit` が週次で上書き）。サイト分離は行ごとの `assertSiteOrThrow` |
 | `npm run report-buildjob-affiliate` | BuildJob クリック/EPC 週次レポート |
 | 各 MDX | 実際の埋め込み（本文・文面の真実源） |
 

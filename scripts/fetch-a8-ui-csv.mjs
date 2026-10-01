@@ -46,7 +46,7 @@ import { decodeCsvBuffer, parsePeriodFromFilename } from "./lib/a8-report-csv.mj
 import { classifyRun } from "./lib/report-honesty.mjs";
 import { parseCsv } from "./lib/google-console-csv.mjs";
 
-const STATE_DIR = ".claude/state/metrics/affiliate/a8-ui";
+const STATE_DIR = "data/metrics/affiliate/a8-ui";
 
 function parseArgs() {
   const a = process.argv.slice(2);
@@ -427,7 +427,7 @@ async function main() {
         console.log("  button(visible):");
         for (const b of pp.buttons.filter((b) => b.visible)) console.log(`    ${JSON.stringify(b)}`);
       }
-      console.log("  → この出力を見て .claude/config/a8-report-automation.json の a8.periodForm を確定する");
+      console.log("  → この出力を見て config/a8-report-automation.json の a8.periodForm を確定する");
       console.log("     （レポートにより期間フォームの粒度が異なる。どれを操作するかは推測しない）");
     }
 

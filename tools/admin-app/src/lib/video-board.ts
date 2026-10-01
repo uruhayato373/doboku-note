@@ -6,7 +6,7 @@ import { STAGES } from '../../../../scripts/lib/content-lifecycle.mjs';
 
 import { findRepoRoot } from './repo-root';
 import { qualificationBadgeLabel } from '../../../../scripts/lib/qualification-names.mjs';
-import registry from '../../../../.claude/config/qualification-registry.json';
+import registry from '../../../../config/qualification-registry.json';
 
 /**
  * video-board.ts — `/content/video`（動画パック企画ボード・read-only）の表示モデル。

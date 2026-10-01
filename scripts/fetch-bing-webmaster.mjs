@@ -13,7 +13,7 @@
  *   node scripts/fetch-bing-webmaster.mjs            # 取得して書く
  *   node scripts/fetch-bing-webmaster.mjs --dry-run  # 取得だけ
  *
- * 出力: .claude/state/metrics/bing/bing-YYYY-MM-DD.json（直近 12 週のバケットだけを残す）
+ * 出力: data/metrics/bing/bing-YYYY-MM-DD.json（直近 12 週のバケットだけを残す）
  * exit: 0 全取得 / 1 取得失敗あり（取れた分は書く）/ 2 検査不成立（キー未設定＝ファイルは書かない・0 と記録しない）
  */
 import { mkdirSync, writeFileSync } from 'node:fs';
@@ -25,7 +25,7 @@ import { addDays, jst } from './lib/business-direction.mjs';
 dotenv.config({ path: '.env.local', quiet: true });
 
 const TAG = '[bing-webmaster]';
-const OUT_DIR = '.claude/state/metrics/bing';
+const OUT_DIR = 'data/metrics/bing';
 const API = 'https://ssl.bing.com/webmaster/api.svc/json';
 const ENDPOINTS = { query: 'GetQueryStats', page: 'GetPageStats', traffic: 'GetRankAndTrafficStats' };
 

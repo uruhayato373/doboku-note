@@ -97,7 +97,7 @@ R2 退避したアセットの被覆検査は「ローカル実体 **または**
 |---|---|---|
 | `e2e/fixtures.ts` 等 | dev で必ず 404。smoke/navigation が長期間ずっと赤 | 2026-08-30 |
 | `.github/workflows/uptime-ping.yml` | 「SSR 壊れ / body 空」を毎回誤報し Issue #477 へ追記し続けた | 2026-08-31 |
-| `.claude/config/psi-urls.txt` | 22 URL 中 **20 が転送元**。field(CrUX) が構造的に 0 のまま | 2026-08-31 |
+| `config/psi-urls.txt` | 22 URL 中 **20 が転送元**。field(CrUX) が構造的に 0 のまま | 2026-08-31 |
 
 **なぜ放置されるか**: 赤が常態化すると誰も見なくなる。とくに uptime は
 「本物の障害を捕まえる」のが仕事なので、オオカミ少年になった時点で**役目が空席**になる

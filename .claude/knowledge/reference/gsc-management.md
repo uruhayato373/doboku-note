@@ -22,7 +22,7 @@ Google Search Console の継続管理（インデックス被覆・検索パフ�
 | 担当 | 種別 | 責務 | 入力 → 出力 |
 |---|---|---|---|
 | `index-coverage.yml` | CI（**週次**・水 JST 11:00。2026-09-17 に月次から変更） | 全 sitemap URL の URL Inspection（5 並列・checkpoint・~35 分）+ 履歴追記 + **登録リクエスト順位表**（`gsc-indexing/priority-latest.{json,txt}`＝表示実績のある未登録を先頭に、直近 14 日にリクエスト済みは除外）。完走しなかった月は batch に `partial:true` が立ち、history には積まず完全性ゲートで赤にする（2026-09-01 の 120 分 cancelled の再発防止） | API/sitemap → `url-inspection/*.json` + `index-coverage-history.json`（develop） |
-| `fetch-metrics.yml` | CI（週次・金 JST 6:00） | GSC query/date/page/page×query + GA4。あわせて本番 robots.txt の sitemap を Search Console API で送信し読み込み状況を記録（`gsc-sitemaps`・ログイン不要）。成長パック（前の完了週×28 日基線の GA4/GSC 全件）・Bing・GA4 Admin API の観測・実験の自動計測・機会ダイジェストも同じ run で作る（[growth-cycle.md](growth-cycle.md)） | API → `.claude/state/metrics/{gsc,ga4,growth,bing,ga4-admin}/` |
+| `fetch-metrics.yml` | CI（週次・金 JST 6:00） | GSC query/date/page/page×query + GA4。あわせて本番 robots.txt の sitemap を Search Console API で送信し読み込み状況を記録（`gsc-sitemaps`・ログイン不要）。成長パック（前の完了週×28 日基線の GA4/GSC 全件）・Bing・GA4 Admin API の観測・実験の自動計測・機会ダイジェストも同じ run で作る（[growth-cycle.md](growth-cycle.md)） | API → `data/metrics/{gsc,ga4,growth,bing,ga4-admin}/` |
 | `gsc-index-auditor` | Evaluator（sonnet） | coverage 分類・indexed_ratio・履歴差分・原因バケット・hygiene URL surface | url-inspection + history → 診断テキスト（audit-only） |
 | `metrics-analyzer` | Evaluator（sonnet） | index 済みページの performance 8 パターン（SNS-Source-Shift＋page×query の Cannibalization/Content-Decay 含む） | gsc/ga4（`gsc-page-query-*` 含む）→ `improvements/*.md` |
 | `performance-auditor` | Evaluator（sonnet） | CWV / PSI | psi → improvements |
@@ -56,7 +56,7 @@ Google Search Console の継続管理（インデックス被覆・検索パフ�
 Google は登録リクエストの API を提供しないが、Bing / Yandex / Naver は **IndexNow** で更新 URL を受け付ける。
 `indexnow-submit.yml` が本番 deploy 成功後に、本番 sitemap の lastmod が直近 7 日の URL を
 `https://api.indexnow.org/indexnow` へ送る（状態を持たず再送許容・1 回 10,000 URL まで）。
-key は `.claude/config/indexnow.json` と `public/<key>.txt` の一致が前提（公開必須の識別子で秘密ではない）。
+key は `config/indexnow.json` と `public/<key>.txt` の一致が前提（公開必須の識別子で秘密ではない）。
 失敗（非 2xx・sitemap/key が読めない）は `automation-failure` Issue。Google の index には無関係＝本 doc の
 coverage 指標は動かない。効果は GA4 の `Organic Search` のうち Bing セッションで見る（GSC には出ない）。
 
@@ -87,7 +87,7 @@ Google の「Move a site with URL changes」（2026-08-20 更新）の手順ど�
   金曜の `gsc-auto-review.yml` が観測ログへ coverage エントリを記録（手動で先回りするなら `/gsc-review`）。
   **登録リクエスト**: Mac の launchd `gsc-local`（毎日 10:30・寝ていた日は起床時に 1 回・`npm run gsc-local:install`）が順位表の先頭から
   10 件送り、台帳を develop へ push する。止まる（Mac の電源断・Google の再ログイン待ち）と月曜の weekly-review-guard が
-  `check-gsc-indexing-due`（7 日）で DUE を出す。手で送るなら `npm run gsc-indexing:request -- --file .claude/state/metrics/gsc-indexing/priority-latest.txt --stop-at-limit`
+  `check-gsc-indexing-due`（7 日）で DUE を出す。手で送るなら `npm run gsc-indexing:request -- --file data/metrics/gsc-indexing/priority-latest.txt --stop-at-limit`
 - **sitemap（CI・自動）**: `fetch-metrics.yml` の `gsc-sitemaps --submit` が本番 robots.txt の sitemap を送信し、読み込み状況を `gsc/sitemaps-latest.json` へ。
   月曜の weekly-review-guard が `check-gsc-sitemaps` で「記録が古い・未登録・送信失敗（権限不足）・エラー・14 日以上未読み込み」を DUE に出す
 - **月次（Mac の launchd＋セッション）**: 理由別 UI CSV の取得と正規化は `gsc-local` が `check-gsc-ui-due`（30日）の DUE で自動実行し、追跡 SSOT（`gsc-ui/ssot/`）を develop へ push する。突合 → 修正計画 → 観測ログ追記（`/google-search-growth` の validate 以降）はセッションで行う。取得が止まれば `check-gsc-ui-due` を weekly-review が surface。`/gsc-review`（coverage 全体）の深掘り＝理由ごとの例 URL を足す層。
@@ -170,18 +170,18 @@ crawled-not-indexed 母集合を `KEEP / IMPROVE / CONSOLIDATE / NOINDEX_REVIEW 
 
 | 種別 | パス |
 |---|---|
-| URL Inspection 生データ | `.claude/state/metrics/url-inspection/inspection-batch-*.json` |
-| indexed_ratio 時系列 | `.claude/state/metrics/gsc/index-coverage-history.json` |
-| GSC query/page/date | `.claude/state/metrics/gsc/gsc-*.json` |
+| URL Inspection 生データ | `data/metrics/url-inspection/inspection-batch-*.json` |
+| indexed_ratio 時系列 | `data/metrics/gsc/index-coverage-history.json` |
+| GSC query/page/date | `data/metrics/gsc/gsc-*.json` |
 | 改善候補（performance） | `.claude/state/improvements/*.md` |
-| GSC UI 理由別 CSV（生・**gitignore**・再取得のみ） | `.claude/state/metrics/gsc-ui/<run>/`（raw ZIP + manifest + `normalized/*.json`） |
-| **GSC UI 情報の SSOT（committed）** | `.claude/state/metrics/gsc-ui/ssot/urls/<issue>--<scope>.json`（最新 URL 一覧）＋ `ssot/history.json`（run 別件数）＋ `ssot/diff/<runId>.json`（URL 増減） |
-| GSC UI 取得マーカー（committed） | `.claude/state/metrics/gsc-ui/last-run.json`（schemaVersion 3＝`lastAttempt`／`lastComplete`／`legacy`。`check-gsc-ui-due` が参照） |
-| GA4 UI 取得マーカー（committed） | `.claude/state/metrics/ga4-ui/last-run.json`（任意チャネル・一次経路は Data API） |
-| GA4 管理画面 設定の期待値 | `.claude/config/ga4-admin-desired-state.json` |
-| GA4 管理画面 設定の観測（committed） | `.claude/state/metrics/ga4-admin/inventory-latest.json` ＋ `history.json` |
-| インデックス登録リクエストの記録（committed・**SSOT**） | `.claude/state/metrics/gsc-indexing/requests-latest.json` ＋ `history.json`（診断 state / reason / crawl・index 許可 / 送信結果）|
-| 実験台帳（committed） | `.claude/state/experiments.json`（`/nsm-experiment` が管理・`check-experiment-due` が期限判定）|
+| GSC UI 理由別 CSV（生・**gitignore**・再取得のみ） | `data/metrics/gsc-ui/<run>/`（raw ZIP + manifest + `normalized/*.json`） |
+| **GSC UI 情報の SSOT（committed）** | `data/metrics/gsc-ui/ssot/urls/<issue>--<scope>.json`（最新 URL 一覧）＋ `ssot/history.json`（run 別件数）＋ `ssot/diff/<runId>.json`（URL 増減） |
+| GSC UI 取得マーカー（committed） | `data/metrics/gsc-ui/last-run.json`（schemaVersion 3＝`lastAttempt`／`lastComplete`／`legacy`。`check-gsc-ui-due` が参照） |
+| GA4 UI 取得マーカー（committed） | `data/metrics/ga4-ui/last-run.json`（任意チャネル・一次経路は Data API） |
+| GA4 管理画面 設定の期待値 | `config/ga4-admin-desired-state.json` |
+| GA4 管理画面 設定の観測（committed） | `data/metrics/ga4-admin/inventory-latest.json` ＋ `history.json` |
+| インデックス登録リクエストの記録（committed・**SSOT**） | `data/metrics/gsc-indexing/requests-latest.json` ＋ `history.json`（診断 state / reason / crawl・index 許可 / 送信結果）|
+| 実験台帳（committed） | `data/experiments.json`（`/nsm-experiment` が管理・`check-experiment-due` が期限判定）|
 | 検索流入 修正計画 | `.claude/state/improvements/search-growth-latest.md`（run JSON は gitignore） |
 | 総監 CNI 5分類の実行結果（committed） | `.claude/state/improvements/cem-index-consolidation-YYYY-MM-DD.{json,md}` |
 

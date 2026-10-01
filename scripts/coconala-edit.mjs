@@ -31,7 +31,7 @@ const SERVICE = getArg('--service');
 const SERVICE_ID = getArg('--service-id'); // 数値 id を直接指定（下書きの直接編集）
 const ONLY = (getArg('--fields') || '').split(',').map((s) => s.trim()).filter(Boolean);
 // --image <path>: 商品画像をアップロード。既定は「画像だけ追加して更新」（本文フィールドは触らない）。
-// listings に画像パスが無いので明示指定。省略時は .claude/config/coconala/assets/thumb-<key>.png を既定候補に。
+// listings に画像パスが無いので明示指定。省略時は content/coconala/assets/thumb-<key>.png を既定候補に。
 const IMAGE = getArg('--image');
 const FORCE_IMAGE = argv.includes('--force-image');
 // --replace-image: 既存スロットを全削除してから --image を1枚入れる（デザイン刷新用・2026-08-05）。
@@ -39,7 +39,7 @@ const FORCE_IMAGE = argv.includes('--force-image');
 const REPLACE_IMAGE = argv.includes('--replace-image');
 // bare 名は assets 既定へ解決＋事前存在確認（publish と同じ・orphan/中断防止）。
 const imgResolved = resolveImagePath(IMAGE);
-if (!imgResolved.ok) { console.error(`ABORT: ${imgResolved.reason}（--image は bare 名なら .claude/config/coconala/assets/ に解決）`); process.exit(1); }
+if (!imgResolved.ok) { console.error(`ABORT: ${imgResolved.reason}（--image は bare 名なら content/coconala/assets/ に解決）`); process.exit(1); }
 const IMAGE_ABS = imgResolved.abs;
 const IMAGE_ONLY = !!IMAGE && ONLY.length === 0; // --image かつ --fields 指定なし → 画像のみ更新
 if (!SERVICE) { console.error('--service <id> required（listings/カタログの id）'); process.exit(1); }

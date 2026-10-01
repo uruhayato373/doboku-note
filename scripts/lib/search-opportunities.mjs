@@ -1,7 +1,7 @@
 /**
- * search-opportunities.mjs — 検索キーワード戦略（.claude/config/search-strategy.json）のクラスター別集計と改善候補。
+ * search-opportunities.mjs — 検索キーワード戦略（config/search-strategy.json）のクラスター別集計と改善候補。
  * ---------------------------------------------------------------------------
- * GSC の検索語×ページ集計（.claude/state/metrics/gsc/gsc-page-query-*.json・CI 供給）を読み、
+ * GSC の検索語×ページ集計（data/metrics/gsc/gsc-page-query-*.json・CI 供給）を読み、
  * クラスター（検索語の正規表現）ごとに 表示・クリック・1 桁順位の件数・11〜30 位の件数を出す。
  * 改善候補は「11〜30 位で表示がある検索語」をページ単位に束ねたもの（既存ページの手直しで 1 桁へ上げる対象）。
  * 既に SEO Rank Watch で観察中のページと、バックログにカードがあるページには印を付ける（二重に起票しない）。
@@ -11,8 +11,8 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
-export const CONFIG = '.claude/config/search-strategy.json';
-const GSC_DIR = '.claude/state/metrics/gsc';
+export const CONFIG = 'config/search-strategy.json';
+const GSC_DIR = 'data/metrics/gsc';
 const FILE_RE = /^gsc-page-query-(\d{4}-\d{2}-\d{2})T[\d-]+\.json$/;
 const SITE = 'https://doboku-note.com';
 
@@ -124,9 +124,9 @@ export function summarizeBing(cluster, rows, striking, endDate) {
   return { queries: all.length, top10: all.filter((q) => q.position != null && q.position < 10.5).length, candidates };
 }
 
-/** 最新の Bing Webmaster の記録（.claude/state/metrics/bing/bing-YYYY-MM-DD.json）。無ければ null。 */
+/** 最新の Bing Webmaster の記録（data/metrics/bing/bing-YYYY-MM-DD.json）。無ければ null。 */
 function latestBing(root) {
-  const dir = join(root, '.claude/state/metrics/bing');
+  const dir = join(root, 'data/metrics/bing');
   if (!existsSync(dir)) return null;
   const name = readdirSync(dir).filter((f) => /^bing-\d{4}-\d{2}-\d{2}\.json$/.test(f)).sort().at(-1);
   if (!name) return null;
@@ -140,7 +140,7 @@ export function buildSearchOpportunities(root) {
   if (!snaps.length) return { config, period: null, source: null, previous: null, clusters: [] };
   const latest = snaps[0];
   const prev = snaps.find((s) => (Date.parse(latest.data.meta.endDate) - Date.parse(s.data.meta.endDate)) / 86_400_000 >= 25) ?? null;
-  const watch = existsSync(join(root, '.claude/config/seo-watchwords.json')) ? readJson(root, '.claude/config/seo-watchwords.json') : { watchwords: [] };
+  const watch = existsSync(join(root, 'config/seo-watchwords.json')) ? readJson(root, 'config/seo-watchwords.json') : { watchwords: [] };
   const watchedPaths = new Set((watch.watchwords ?? []).map((w) => w.targetPath));
   const backlogPath = join(root, '.claude/todo/backlog.md');
   const cardedPaths = cardedPathsFrom(existsSync(backlogPath) ? readFileSync(backlogPath, 'utf8') : '');

@@ -6,7 +6,7 @@ name: Audit public view (note / YouTube)
 # note-live-audit（本文の構造）とは別 workflow にする: ブラウザ層は 20 分ほどかかり、落ちても本文の構造検査の
 # 結果を巻き込まないため。
 # 代表ページ（note は資格×種類ごと 1 本、YouTube は Shorts・通常動画ごと 1 本）は、各サービスのブレイクポイントで
-# 区切った帯ごとの画面幅で撮り、週次レビューでエージェントが見る（.claude/config/public-view-breakpoints.json）。
+# 区切った帯ごとの画面幅で撮り、週次レビューでエージェントが見る（config/public-view-breakpoints.json）。
 # YouTube の視聴ページ検査も同じ週に回す（公開状態の API 照合は verify-yt-status.yml）。
 # PR では起動しない（2026-09-23 ユーザー判断: 週次でまとめて見る）。
 

@@ -20,7 +20,7 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 
 ## 1. アカウント SSOT
 
-`.claude/config/coconala-account.json`（ig-account.json と同じ流儀＝フラット1オブジェクト＋`_note` 自己記述）。
+`config/coconala-account.json`（ig-account.json と同じ流儀＝フラット1オブジェクト＋`_note` 自己記述）。
 
 | キー | 意味 |
 |---|---|
@@ -78,7 +78,7 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 | `coconala-rccm-takuitsu-pdf` | R2 RCCM 択一 PDF 2冊（予想50問＋一問一答159問・¥3,000）。`--product R2`。試験 CBT 期間（〜10/31）向けの季節商品。判断→[09 §D7](../../../docs/strategy/09_販売チャネル競合分析.md) |
 | `coconala-rccm-mondai1-pdf` | R3 RCCM 問題I テンプレ＋受験部門の記入例2本（¥4,500）。`--product R3`（テンプレ1冊＋6部門）。購入時メッセージで部門を確認してから送る |
 | `coconala-cce-essay-pdf` / `coconala-cce-takuitsu-pdf` | K1 コンクリート主任技士 小論文 PDF5冊（¥3,000）／K2 択一直前パック PDF3冊（¥3,500）。`--product K1`/`K2`。需要未検証の試験出品（本試験 11/29 後に販売実績で継続判断＝backlog DN-0265）。**2026-09-30 に `status:'paused'`・`pauseReason:'retired'`**（販売0のまま、主任技士は「添削＋完全パック」の2件に絞った） |
-| `coconala-cce-full-pdf` | K3 コンクリート主任技士 **完全パック** PDF9冊（令和形式の小論文6冊＋択一直前パック3冊・¥8,000＝note `cce-essay-reiwa-pack` ¥3,980＋`cce-takuitsu-chokuzen-pack` ¥2,980 の ×1.1 を ¥500 切上げ）。旧形式の小論文5冊は入れない。`--product K3`。2026-09-30 出品（services/4426935）。同日 K1/K2 を `coconala-pause` で受付休止済み。出題履歴の SSOT は `.claude/config/cce-essay-history.json`、運用は `/cce-essay-cycle` |
+| `coconala-cce-full-pdf` | K3 コンクリート主任技士 **完全パック** PDF9冊（令和形式の小論文6冊＋択一直前パック3冊・¥8,000＝note `cce-essay-reiwa-pack` ¥3,980＋`cce-takuitsu-chokuzen-pack` ¥2,980 の ×1.1 を ¥500 切上げ）。旧形式の小論文5冊は入れない。`--product K3`。2026-09-30 出品（services/4426935）。同日 K1/K2 を `coconala-pause` で受付休止済み。出題履歴の SSOT は `config/cce-essay-history.json`、運用は `/cce-essay-cycle` |
 | `coconala-cce-essay-tensaku` | コンクリート主任技士 小論文**添削**（1課題・48時間・書き直し1回込み・¥5,000・週2枠）。2026-09-29 出品。骨子からの相談は別出品にせず有料オプション（+¥3,000・20枠節約）。競合は2件のみ（¥5,000 販売0／¥3,000 ★1.0・09-29 実測）。FAQ・オプションは公開後に一回限りのスクリプトで反映済み。**添削の下書き・QA エージェントは土木の経験記述専用**で主任技士の小論文には未対応（受注時は手作業）。受注時の手順は `content/note/コンクリート主任技士/小論文-添削テンプレ.md`（5観点の判定表・NG→OK・書き直し1回） |
 | （特典）A1/A2 | 1級・2級 二次の直前暗記ノート。単独出品せず、1級の模試・フルパック・プレミアムに A1、2級の模試・フルパックに A2 を同梱（出品本文に明記・2026-09-23〜）。模試は同日に note の直前総仕上げパックより高い価格へ改定したうえで同梱した |
 | `coconala-pe-oral-pdf` | O1 技術士 口頭試験 想定問答 PDF（総監版／建設部門版から購入者の部門に合う1冊・¥3,500）。`--product O1`。購入時メッセージで部門を確認してから送る |
@@ -99,7 +99,7 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 
 総監 記述系は分析 PDF（`coconala-sokan-bunseki-pdf`）が retired のためルールごと外した（2026-09-30）。ルールが retired の出品を指すと `tests/offsite-cta.test.mjs` が落とす（absence は復帰するので許す）。`coconala-2kyu-tensaku`（absence）は 3 テーマ版と同じ添削なので載せない。
 
-### 2.1b 出品投入 SoT: `.claude/config/coconala-listings.json`
+### 2.1b 出品投入 SoT: `config/coconala-listings.json`
 
 出品フォームへ流し込む本文・カテゴリ・納期・ジャンルの機械可読 SoT（`coconala-publish/edit` が serviceId で引く）。**価格・タイトル・状態・URL はカタログ（2.1）が真実源＝ここに価格を書かない**（安全弁§4）。
 
@@ -115,7 +115,7 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 
 > カテゴリ/価格/facet の value が coconala 側でリニューアルされたら `node scripts/coconala-discover.mjs --advance --cat 12 --sub 254 --type 764` で現行 options を再取得して是正する。
 
-### 2.2 受注実績: `.claude/state/coconala/orders-log.json`（v2）
+### 2.2 受注実績: `data/coconala/orders-log.json`（v2）
 
 `{ version, updatedAt, currency, source, privacyNote, howToUpdate, schema, orders: [] }`
 
@@ -157,7 +157,7 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 > 何を送ったかを残さないと「顧客が持っているのは旧版か新版か」が永久に分からなくなる。
 > C系 PDF は送付時に `file` と `sha256` を記録する。
 
-### 2.2b 受注の実体: `.claude/state/coconala/orders-snapshot.json`（read-only 収集）
+### 2.2b 受注の実体: `data/coconala/orders-snapshot.json`（read-only 収集）
 
 `npm run coconala-orders`（`scripts/coconala-orders.mjs`・Playwright・**書き込み一切なし**）が
 取引管理（出品）の全タブを走査して生成する機械可読スナップショット。orders-log が「こちらの記録」、
@@ -193,7 +193,7 @@ DM 一覧 = `/message?fromMyPage=true`、行 = `a.c-messageItemWrap[href="/mypag
 `check-coconala-orders` はこの3つを `classifyInquiries()`（`scripts/lib/coconala-guards.mjs`）で
 **要対応から外し、`infos` に残す**（落としても読まれる経路は残す＝出品取り下げのような重要通知は
 ここにしか来ない。メールは出品アカウント宛にしか届かず接続済み Gmail からは見えない）。
-人が決着させた DM は [`.claude/config/coconala/resolved-inquiries.json`](../../config/coconala/resolved-inquiries.json) で除外し、
+人が決着させた DM は [`data/coconala/resolved-inquiries.json`](../../../data/coconala/resolved-inquiries.json) で除外し、
 **除外件数を必ず出力する**（黙って消すと検査ゼロの偽 PASS になる）。
 `resolvedOn` より後に新着があれば再オープンする。一覧の「8分前」は分単位で丸められるので、`resolvedOn` は自分の最後の送信から数分後の時刻（`+09:00` 付き）で書く。相対日付は snapshot の `fetchedAt` を基準に読む（`inquiryClockMs`）。
 
@@ -221,8 +221,8 @@ DM 一覧 = `/message?fromMyPage=true`、行 = `a.c-messageItemWrap[href="/mypag
 
 | 層 | ファイル | 役割 | サイズ |
 |---|---|---|---|
-| **エージェント参照 SSOT** | `.claude/state/coconala/market-summary.json` | キーワード別の価格分位・セグメント内訳・レビュー数トップ5 に畳んだ派生物。**着手時はまずこれを read** | 約 8KB |
-| アーカイブ（生データ） | `.claude/state/coconala/market-research.json` | 全出品の実測明細。個別出品の説明文・オプションまで見たいときだけ read | 約 700KB |
+| **エージェント参照 SSOT** | `data/coconala/market-summary.json` | キーワード別の価格分位・セグメント内訳・レビュー数トップ5 に畳んだ派生物。**着手時はまずこれを read** | 約 8KB |
+| アーカイブ（生データ） | `data/coconala/market-research.json` | 全出品の実測明細。個別出品の説明文・オプションまで見たいときだけ read | 約 700KB |
 
 - **再取得（実測）**: `npm run coconala-research`（＝`scripts/coconala-research.mjs`・Playwright）。生データ更新後にサマリーも自動再生成。
 - **サマリーだけ再生成**: `npm run coconala-summary`（＝`--summary-only`・Playwright 不使用・生データから畳むだけ・秒で終わる）。
@@ -246,7 +246,7 @@ DM 一覧 = `/message?fromMyPage=true`、行 = `a.c-messageItemWrap[href="/mypag
 
 散文の分析結果は [ココナラ展開キット.md](../../../content/note/1級・2級土木/ココナラ展開キット.md) §1。
 
-### 2.4 KPI: `.claude/state/coconala/kpi-log.json`
+### 2.4 KPI: `data/coconala/kpi-log.json`
 
 `{ version, updatedAt, source, howToUpdate, weekly: [...], blogsWeekly: [...], milestones, sellerRank, notificationMailbox }`
 
@@ -261,7 +261,7 @@ DM 一覧 = `/message?fromMyPage=true`、行 = `a.c-messageItemWrap[href="/mypag
 > **`cumulative: true` の意味**: 数値は `period` 区間の**累計**（既定は過去30日間のローリング）であって
 > 週次の増分ではない。前週行との引き算で「今週の伸び」を出してはいけない（区間が26日重なる）。
 
-### 2.5 分析スナップショット: `.claude/state/coconala/analytics-snapshot.json`
+### 2.5 分析スナップショット: `data/coconala/analytics-snapshot.json`
 
 `npm run coconala-analytics` の出力＝ココナラ分析画面の実体。`{ fetchedOnJst, status, period{services,blogs}, totals, services[], skipped[], blogs[], scan }`。
 
@@ -503,14 +503,14 @@ note-publish 流儀の決定的 Playwright。ログイン済みプロファイ�
 > 同じ表現が全ページに残る（2026-08-12 に「採点者に伝わる答案へ」が全13ページで実際に発生）。
 > 文言の一括是正は listings / カタログ / サムネ ＋ **bio** の4面を見て、最後にライブ実査する。
 
-**商品画像（サービスサムネ）**: 2026-09-27 に公開中18商品を、資格名・商品名・技術士〈総合技術監理部門〉を大きく見せるキャラクター入り POP 意匠へ統一。1級土木＝青、2級土木＝緑、コンクリート主任技士＝紫。価格・doboku-note の文字は入れず、添削／指導／PDF教材で訴求を分ける。画像生成後、日本語・冊数・対象テーマを目視確認した承認原本を使う。原本の対応と SHA-256 は `.claude/config/coconala-thumb-approved.json`、実体は `assets/pop-20260927/`（Drive vault の coconala-asset）に保存。既存CLIは未登録商品に写真＋satoriを使うフォールバックを持つ。新規商品の制作は `/create-pop-image` で行い、承認後に画像台帳へ登録する。
+**商品画像（サービスサムネ）**: 2026-09-27 に公開中18商品を、資格名・商品名・技術士〈総合技術監理部門〉を大きく見せるキャラクター入り POP 意匠へ統一。1級土木＝青、2級土木＝緑、コンクリート主任技士＝紫。価格・doboku-note の文字は入れず、添削／指導／PDF教材で訴求を分ける。画像生成後、日本語・冊数・対象テーマを目視確認した承認原本を使う。原本の対応と SHA-256 は `config/coconala-thumb-approved.json`、実体は `assets/pop-20260927/`（Drive vault の coconala-asset）に保存。既存CLIは未登録商品に写真＋satoriを使うフォールバックを持つ。新規商品の制作は `/create-pop-image` で行い、承認後に画像台帳へ登録する。
 
 | スクリプト | 役割 |
 |---|---|
 | `scripts/gen-image-gemini.mjs --out <png> --prompt "..."` | Gemini 画像 API（`gemini-2.5-flash-image`・`.env.local` の `GEMINI_API_KEY`）で背景写真を生成。**API 課金・1呼び出し=1枚**。プロンプトは brand-image-system §5 準拠（明るく低コントラスト・青トーン・文字/人物なし・左に文字余白） |
-| `scripts/coconala-thumb.mjs [--service <id>] [--bg <png>]` | .claude/config/coconala-thumb-approved.json に登録した商品は原本の SHA-256 を確認してコピー（欠落・不一致は停止、--bg は不可）。未登録の商品は背景＋タイトル/訴求/価格を satori で 1200×900 合成。出力 `.claude/config/coconala/assets/thumb-<id>.png` |
+| `scripts/coconala-thumb.mjs [--service <id>] [--bg <png>]` | config/coconala-thumb-approved.json に登録した商品は原本の SHA-256 を確認してコピー（欠落・不一致は停止、--bg は不可）。未登録の商品は背景＋タイトル/訴求/価格を satori で 1200×900 合成。出力 `content/coconala/assets/thumb-<id>.png` |
 
-素材は `.claude/config/coconala/assets/`（`bg-civil.png`＝生成背景の保存・再生成の課金回避／`thumb-*.png`＝合成結果）。
+素材は `content/coconala/assets/`（`bg-civil.png`＝生成背景の保存・再生成の課金回避／`thumb-*.png`＝合成結果）。
 
 > [!important] 長期不在（旅行・出張）は**全件 受付休止**が既定（2026-08-05 制定）
 > ココナラは**購入から48時間以内に出品者がトークルームで連絡しないと取引が自動キャンセル**される。
@@ -567,14 +567,14 @@ note-publish 流儀の決定的 Playwright。ログイン済みプロファイ�
 **アップロード（自動化済み・2026-07-18）**: `node scripts/coconala-edit.mjs --service <id> --service-id <n> --image <png> --commit`。「画像を追加」（`a.js_upload-…`・javascript:;）クリックで隠し file input（`data[UploadedFile][n1][image_files]`）が出現→setInputFiles→**トリミングモーダルなし**でスロットに直接入る（populated 判定＝`a.js_delete-button` の数）。既に画像があれば skip（`--force-image` で追加）。`--image` かつ `--fields` 無しなら**画像だけ更新**（本文フィールドは触らない）。
 
 > [!warning] `--image` のパス解決と orphan draft（2026-07-18 事故→恒久対策）
-> `--image` の **bare 名**（例 `thumb-x.png`）は `.claude/config/coconala/assets/` に解決される（`resolveImagePath`・session lib）。以前は cwd 相対で解決したため不正パスが ENOENT を起こし、**下書き作成後にクラッシュ→空の orphan draft が残る**事故があった。恒久対策として publish/edit は**ブラウザ操作より前に画像存在を検査（fail-fast）**する。万一 orphan（サービスタイトル未設定・¥0・下書き中）が出たら `npm run coconala-delete-draft -- --id <n> --commit` で掃除（公開中商品はガードで誤爆しない）。編集ページの正URLは `/mypage/services/{id}`（`/edit` は 404）。
+> `--image` の **bare 名**（例 `thumb-x.png`）は `content/coconala/assets/` に解決される（`resolveImagePath`・session lib）。以前は cwd 相対で解決したため不正パスが ENOENT を起こし、**下書き作成後にクラッシュ→空の orphan draft が残る**事故があった。恒久対策として publish/edit は**ブラウザ操作より前に画像存在を検査（fail-fast）**する。万一 orphan（サービスタイトル未設定・¥0・下書き中）が出たら `npm run coconala-delete-draft -- --id <n> --commit` で掃除（公開中商品はガードで誤爆しない）。編集ページの正URLは `/mypage/services/{id}`（`/edit` は 404）。
 
 **単発コンテンツ商品（C系）の納品 PDF**: note 記事を coconala 用 PDF にする再現可能ビルド。**外部誘導禁止（規約）＝アカウント防衛**のため note 導線を機械除去してから PDF 化する。
 
 | スクリプト | 役割 |
 |---|---|
 | `scripts/lib/strip-note-funnel.mjs` | note 記事から CTA コメントブロック・裸URL・note 商品誘導文・ペイウォール文・**note 専用節（印刷用PDF 案内）・著者バナー画像とその定型キャプション**を機械除去し、最後に**除去で中身が空になった見出し/太字ラベルを落とす**。`assertNoFunnel` で残存検査。境界は `tests/strip-note-funnel.test.mjs` で固定 |
-| `scripts/build-coconala-content-pdf.mjs` | `PRODUCTS` 定義（C1〜C9・A1/A2 特典・R1〜R3・K1〜K3・O1）の源を strip → クリーン版を staging → `magazine-to-pdf` で PDF 生成 → **pdftotext で note.com/URL が 0件でなければ FAIL**。出力 `.claude/config/coconala/assets/pdf/*.pdf`（`CHROME_PATH=... node scripts/build-coconala-content-pdf.mjs [--product C8]`）。C1〜C7・A1/A2 の源は土木の note 記事、**C8/C9（模試）は生成 markdown**（`generated:true`・源 `.claude/config/coconala/assets/moshi-src/{C8,C9}/`・strip は冪等で二重担保）。土木以外（RCCM・技術士・コンクリート）は `noteRelative:true` で `content/note/` からの相対パスで源を引く。strip の後に、公的出典のリンクは出典名だけ残して URL を落とし（HTML コメントも除去）、「本記事」を「本資料」へ置換する。note 固有の一文は商品ごとの `replace` で直し、**置換対象が源に無ければ FAIL**（源の改稿で置換が空振りしたまま納品しないため）。範囲の終端は `includeTo` で指定できる |
+| `scripts/build-coconala-content-pdf.mjs` | `PRODUCTS` 定義（C1〜C9・A1/A2 特典・R1〜R3・K1〜K3・O1）の源を strip → クリーン版を staging → `magazine-to-pdf` で PDF 生成 → **pdftotext で note.com/URL が 0件でなければ FAIL**。出力 `content/coconala/assets/pdf/*.pdf`（`CHROME_PATH=... node scripts/build-coconala-content-pdf.mjs [--product C8]`）。C1〜C7・A1/A2 の源は土木の note 記事、**C8/C9（模試）は生成 markdown**（`generated:true`・源 `content/coconala/assets/moshi-src/{C8,C9}/`・strip は冪等で二重担保）。土木以外（RCCM・技術士・コンクリート）は `noteRelative:true` で `content/note/` からの相対パスで源を引く。strip の後に、公的出典のリンクは出典名だけ残して URL を落とし（HTML コメントも除去）、「本記事」を「本資料」へ置換する。note 固有の一文は商品ごとの `replace` で直し、**置換対象が源に無ければ FAIL**（源の改稿で置換が空振りしたまま納品しないため）。範囲の終端は `includeTo` で指定できる |
 
 > [!warning] 納品前は「URL 0 件」だけでなく **PDF そのもの**を見る（2026-08-06）
 > ビルドのゲートは「note.com/URL が残っていないか」しか見ない。これは緑のまま、
@@ -593,7 +593,7 @@ note-publish 流儀の決定的 Playwright。ログイン済みプロファイ�
 - `magazine-to-pdf.mjs` は Mac の新 headless Chrome が exit しない事例に対応（PDF 生成済みなら timeout を成功扱い・2026-07-18）。**`spec.outDir` は `srcDir` と同じく REPO 基準で絶対パス化する**（Chrome の `--print-to-pdf` は相対パスを受け付けず、`0x3 指定されたパスが見つかりません` で PDF だけ出ないまま exit 0 を返すため。呼び出し側には「PDF 生成に失敗」としか見えない・2026-08-05 修正）。
 
 > [!important] 模試（C8/C9）の記入欄行数は目分量で決めない
-> 問題冊子の `[[記入欄:N]]` は **`.claude/config/keiken-answer-sheet-limits.json`（解答欄しきい値 SSOT）** から決める。
+> 問題冊子の `[[記入欄:N]]` は **`config/keiken-answer-sheet-limits.json`（解答欄しきい値 SSOT）** から決める。
 > 本冊子の記入欄は本文幅 178mm ＝ **約 25字/行**。
 > - **問題1（施工経験記述）**: 1級＝各区画 200字 → **8行**（①②とも同寸。7/9 のような非対称にしない）。2級＝1項目 250字 → **10行**。
 > - **学科記述（問題2以降）**: 公式の行数は非公開＝本冊子独自。「答案例（N行の記入欄に収まる分量）」という冊子の主張が真になるよう、**答案例の実字数 ÷ 25 を切り上げた行数**にする（答案を圧縮して枠に合わせない）。

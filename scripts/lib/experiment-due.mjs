@@ -1,5 +1,5 @@
 /**
- * experiment-due.mjs — NSM 実験台帳（.claude/state/experiments.json）の期限判定（純関数・唯一の実装）
+ * experiment-due.mjs — NSM 実験台帳（data/experiments.json）の期限判定（純関数・唯一の実装）
  * ---------------------------------------------------------------------------
  * 2026-09-19（DN-0252）: check-experiment-due（weekly-review-guard が週次実行）と check-experiments-due
  * （週次スキル内だけ）が同じ判定を別々に実装し、同日に両方が同じ実験を「要対応」と出していた。

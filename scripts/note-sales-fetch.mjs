@@ -5,7 +5,7 @@ import { attachCISession } from './lib/playwright-auth-state.mjs';
  * note-sales-fetch.mjs
  * ---------------------------------------------------------------------------
  * note の「販売履歴」`/sitesettings/purchasers`（明細）と「売上管理」`/sitesettings/salesmanage`
- * （月次総額）を Playwright read-only で取得し、`.claude/state/sales/sales-log.json` の
+ * （月次総額）を Playwright read-only で取得し、`data/sales/sales-log.json` の
  * 該当月を差し替える（DN-0018）。
  *
  * 背景: 手動転記は「やった月」と「やらなかった月」が外から区別できず、2026-07 は
@@ -57,7 +57,7 @@ import { jst } from './lib/business-direction.mjs';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
-const SALES_LOG = join(ROOT, '.claude/state/sales/sales-log.json');
+const SALES_LOG = join(ROOT, 'data/sales/sales-log.json');
 const NAME = 'note-sales-fetch';
 
 const argv = process.argv.slice(2);

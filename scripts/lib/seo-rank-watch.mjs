@@ -15,9 +15,9 @@ export function readWatchConfig(root) {
   }
   return validateConfig(config);
 }
-export const CONFIG = '.claude/config/seo-watchwords.json';
-export const LEDGER = '.claude/state/experiments.json';
-export const HISTORY = '.claude/state/metrics/gsc/rank-watch';
+export const CONFIG = 'config/seo-watchwords.json';
+export const LEDGER = 'data/experiments.json';
+export const HISTORY = 'data/metrics/gsc/rank-watch';
 export const KIND = 'seo-rank-watch';
 export const hash = (value) => createHash('sha256').update(value).digest('hex');
 export const readJson = (root, path) => JSON.parse(readFileSync(join(root, path), 'utf8'));
@@ -108,7 +108,7 @@ export function report(root, now = new Date()) {
   const config = readWatchConfig(root);
   const store = readJson(root, LEDGER);
   const snapshots = readMeasurements(root);
-  const calendar = existsSync(join(root, '.claude/config/exam-calendar.json')) ? readJson(root, '.claude/config/exam-calendar.json') : null;
+  const calendar = existsSync(join(root, 'config/exam-calendar.json')) ? readJson(root, 'config/exam-calendar.json') : null;
   const runs = readRuns(root);
   const recentActions = Object.fromEntries(config.strategy.focusQualifications.map((id) => [id, store.experiments.filter((e) => e.kind === KIND && config.watchwords.find((w) => w.id === e.watchId)?.qualification === id).flatMap((e) => e.actions ?? []).filter((a) => a.date >= addDays(dateJst(now), -27)).length]));
   const activeExperiments = store.experiments.filter((e) => ['running', 'measuring'].includes(e.status) || (e.kind === KIND && statusOf(e) === 'pending-deploy'));

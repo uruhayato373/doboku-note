@@ -38,7 +38,7 @@ export async function run({ argv = [], quiet = false } = {}) {
   try {
     config = loadConfig();
   } catch (e) {
-    out.error(`[check-disk-hygiene] ✗ 設定を読めない（.claude/config/disk-hygiene.json）: ${e.message}`);
+    out.error(`[check-disk-hygiene] ✗ 設定を読めない（config/disk-hygiene.json）: ${e.message}`);
     out.error('[check-disk-hygiene] 検査不成立（検査 0 件）。緑にしない。');
     return out.result(2);
   }

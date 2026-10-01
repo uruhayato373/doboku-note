@@ -1,7 +1,7 @@
 /**
  * exam-stages.mjs — 資格ごとの試験区分（第一次検定・第二次 筆記 など）を読む唯一の実装。
  *
- * 正本は .claude/config/exam-formats.json の exams[資格].stages。商品ラインナップ（product-lineup.mjs）と
+ * 正本は config/exam-formats.json の exams[資格].stages。商品ラインナップ（product-lineup.mjs）と
  * 制作物のテーマ（content-theme.mjs）はここから区分を読み、区分の一覧を別のファイルに写さない。
  * 表示名は shortLabel（画面の短い名前）があればそれ、無ければ label。
  */
@@ -18,5 +18,5 @@ export function stagesFromFormats(formats) {
 }
 
 export function loadExamStages(root) {
-  return stagesFromFormats(JSON.parse(readFileSync(join(root, '.claude/config/exam-formats.json'), 'utf8')));
+  return stagesFromFormats(JSON.parse(readFileSync(join(root, 'config/exam-formats.json'), 'utf8')));
 }

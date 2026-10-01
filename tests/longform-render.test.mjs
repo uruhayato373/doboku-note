@@ -111,7 +111,7 @@ test('planLongformRender: exam→palette 解決と format ガード', () => {
 
 test('EXAM_TO_PALETTE: config の examEnum を全てカバーする', () => {
   const config = JSON.parse(
-    readFileSync(join(dirname(fileURLToPath(import.meta.url)), '../.claude/config/video-content.json'), 'utf8'),
+    readFileSync(join(dirname(fileURLToPath(import.meta.url)), '../config/video-content.json'), 'utf8'),
   );
   for (const exam of config.manifest.examEnum) {
     assert.ok(EXAM_TO_PALETTE[exam], `palette 未定義の exam: ${exam}`);

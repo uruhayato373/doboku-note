@@ -120,12 +120,12 @@ test('要求された全走査領域をスコープに固定する', () => {
     'dir:content/site/civil-construction-1',
     'dir:content/site/civil-construction-2',
     'dir:content/coconala/blog',
-    'dir:.claude/config/coconala/assets/moshi-src',
+    'dir:content/coconala/assets/moshi-src',
     'dir:content/sns',
     'dir:content/kindle',
     'dir:.claude/agents',
     'dir:docs',
-    'file:.claude/config/coconala-listings.json',
+    'file:config/coconala-listings.json',
   ]) assert.ok(paths.has(expected), `走査スコープ欠落: ${expected}`);
 });
 

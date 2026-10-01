@@ -8,7 +8,7 @@ metadata:
 YouTube 通常動画を核とするストックコンテンツ基盤（DN-0110）。2026-08-28 に Phase 0〜3 まで実装完了、develop へ push 済み。
 
 **動く仕組み（すべて実装済み）**
-- 契約 SSOT `.claude/config/video-content.json` ＋ ゲート `check-video-content`（fixture で偽 PASS 防止）
+- 契約 SSOT `config/video-content.json` ＋ ゲート `check-video-content`（fixture で偽 PASS 防止）
 - 16:9 レンダラー `npm run render-longform`（storyboard→PNG＋ASS 字幕＋mp4・出力は `.tmp/video-render/`）
 - 企画バンク 33 パック（`content/sns/video-packs/{exam}/{slug}/video-pack.json`）・一覧は `build-video-pack-index` 生成の README
 - 共通ライフサイクル `scripts/lib/content-lifecycle.mjs`（6ステージ写像・全チャネル横断）

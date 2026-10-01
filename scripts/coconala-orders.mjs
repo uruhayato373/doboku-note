@@ -39,7 +39,7 @@
  *   node scripts/coconala-orders.mjs --no-deadline   # 期限取得を省く（ルーム個別訪問なし）
  *   node scripts/coconala-orders.mjs --headless
  *
- * 出力: .claude/state/coconala/orders-snapshot.json
+ * 出力: data/coconala/orders-snapshot.json
  * exit: 0=全タブ取得成功 / 2=1つでも取得失敗（partial・「検査ゼロを PASS と呼ばない」）
  * ---------------------------------------------------------------------------
  */
@@ -59,7 +59,7 @@ const HEADLESS = process.argv.includes('--headless');
 const WITH_DEADLINE = !process.argv.includes('--no-deadline');
 const MAX_DEADLINE_ROOMS = 10; // ルーム個別訪問の上限（無制限に開かない）
 
-const OUT_PATH = join(ROOT, '.claude/state/coconala/orders-snapshot.json');
+const OUT_PATH = join(ROOT, 'data/coconala/orders-snapshot.json');
 
 /** 取引管理（出品）のタブ。2026-08-05 に実機のタブをクリックして確定。 */
 const TABS = [
@@ -187,7 +187,7 @@ async function main() {
   // 記録済みの talkroom だけ**を例外にする（記録が無い未解決は従来どおり警告する）。
   const quotedRooms = (() => {
     try {
-      const log = JSON.parse(readFileSync(join(ROOT, '.claude/state/coconala/orders-log.json'), 'utf8'));
+      const log = JSON.parse(readFileSync(join(ROOT, 'data/coconala/orders-log.json'), 'utf8'));
       const rows = Array.isArray(log) ? log : log.orders ?? [];
       return new Map(rows.filter((o) => o.quote && o.talkroomId).map((o) => [String(o.talkroomId), o.serviceId ?? null]));
     } catch {
@@ -307,7 +307,7 @@ async function main() {
   const quoted = orders.filter((o) => !o.serviceId && quotedRooms.has(String(o.talkroomId)));
   const unresolved = orders.filter((o) => !o.serviceId && !quotedRooms.has(String(o.talkroomId)));
 
-  mkdirSync(join(ROOT, '.claude/state/coconala'), { recursive: true });
+  mkdirSync(join(ROOT, 'data/coconala'), { recursive: true });
   writeFileSync(
     OUT_PATH,
     JSON.stringify(

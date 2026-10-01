@@ -15,7 +15,7 @@
  *   3. **黙って捨てない。** 本文行は「章へ割当」「前付け」「柱・印刷ページ番号として除去（監査記録）」
  *      「rejects/review」のいずれかに必ず入る。確信できない行を無視して PASS にしない。
  *
- * 例外補正はコードへの場当たり的条件追加ではなく .claude/config/standards-structure.json へ集約する。
+ * 例外補正はコードへの場当たり的条件追加ではなく config/standards-structure.json へ集約する。
  */
 
 import { readFileSync, existsSync } from 'node:fs';
@@ -23,7 +23,7 @@ import { join } from 'node:path';
 
 export const LIBRARY_ROOT = join(process.cwd(), 'content', 'site', 'standards-library');
 export const ARTICLES_ROOT = join(process.cwd(), 'content', 'site', 'standards-articles');
-const OVERRIDES_PATH = join(process.cwd(), '.claude', 'config', 'standards-structure.json');
+const OVERRIDES_PATH = join(process.cwd(), 'config', 'standards-structure.json');
 
 // ---- 行パターン ---------------------------------------------------------
 // インデント上限は中部 common の実測分布から決めている（コメントの数値は実測件数）。

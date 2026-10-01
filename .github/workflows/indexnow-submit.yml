@@ -47,8 +47,8 @@ jobs:
       - name: Wait for key file on production (edge propagation)
         if: ${{ github.event_name == 'workflow_run' }}
         run: |
-          KEY=$(node -e 'const c=require("./.claude/config/indexnow.json");process.stdout.write(c.key||"")')
-          HOST=$(node -e 'const c=require("./.claude/config/indexnow.json");process.stdout.write(c.host||"doboku-note.com")')
+          KEY=$(node -e 'const c=require("./config/indexnow.json");process.stdout.write(c.key||"")')
+          HOST=$(node -e 'const c=require("./config/indexnow.json");process.stdout.write(c.host||"doboku-note.com")')
           for i in $(seq 1 18); do
             body=$(curl -sS --max-time 15 -A "Mozilla/5.0" "https://$HOST/$KEY.txt" || true)
             if [ "$body" = "$KEY" ]; then echo "key file OK after $i tries"; exit 0; fi
@@ -94,7 +94,7 @@ jobs:
             echo ""
             echo "- rc=2 は検査不成立（本番 sitemap か \`public/<key>.txt\` が読めない）。deploy 直後の伝播待ちなら \`gh workflow run indexnow-submit.yml\` で再実行"
             echo "- rc=1 は IndexNow が非 2xx。403/422 は key・host の不一致、429 は送信間隔"
-            echo "- 設定: \`.claude/config/indexnow.json\` / 判定: \`scripts/lib/indexnow.mjs\`"
+            echo "- 設定: \`config/indexnow.json\` / 判定: \`scripts/lib/indexnow.mjs\`"
           } > /tmp/indexnow-body.md
           node scripts/report-automation-failure.mjs \
             --channel indexnow \

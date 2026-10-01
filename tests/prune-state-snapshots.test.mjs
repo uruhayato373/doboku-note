@@ -25,8 +25,8 @@ const CLI = join(REPO, 'scripts', 'prune-state-snapshots.mjs');
 const NOW = Date.parse('2026-09-14T00:00:00Z');
 const day = (n) => new Date(NOW - n * 86400000).toISOString().slice(0, 19).replace(/:/g, '-');
 
-const M = '.claude/state/metrics';
-const W = '.claude/state/weekly-metrics';
+const M = 'data/metrics';
+const W = 'data/weekly-metrics';
 
 test('snapshotStamp: 4 種の日付形式を読み、無日付は null', () => {
   assert.equal(snapshotStamp('psi-batch-2026-09-06T18-53-31.json').stamp, '2026-09-06T18-53-31');
@@ -133,7 +133,7 @@ test('plan: weekly-metrics は 26 週を残し index.json の書き直し指示�
 test('collectPins: seo-watchwords の gsc evidence と business 台帳の metrics パスを拾う', () => {
   const pins = collectPins({
     watchwords: { watchwords: [{ evidence: { kind: 'gsc', source: `${M}/gsc/gsc-page-query-2026-09-10T22-51-42.json` } }, { evidence: { kind: 'hypothesis', source: '仮説' } }] },
-    businessDocs: [`{"sources":[{"file":"${M}/business/measurement-x.json"},{"file":".claude/state/sales/sales-log.json"}]}`],
+    businessDocs: [`{"sources":[{"file":"${M}/business/measurement-x.json"},{"file":"data/sales/sales-log.json"}]}`],
   });
   assert.deepEqual([...pins].sort(), [`${M}/business/measurement-x.json`, `${M}/gsc/gsc-page-query-2026-09-10T22-51-42.json`]);
 });
