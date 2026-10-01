@@ -8,6 +8,14 @@ title: 計測・検証事故の記録
 
 個別事例は時系列の逆順（新しい順）で追記する。各事例は「現象 / 根本原因 / 気づきの遅延理由（or 検出経緯）/ 適用した対策 / 教訓」を明記する。
 
+## 2026-10-01 — ココナラの自動ログインが「人の確認が必要」と出たが、CAPTCHA は出ていなかった
+
+- **現象**: `auth-session-refresh --service coconala` が `human_required`（2FA/CAPTCHA 等の人の確認が必要）で止まり、失敗印を残した。
+- **根本原因**: 判定が「送信後の画面に reCAPTCHA の iframe があれば人の確認」だった。ココナラのログイン画面は不可視の reCAPTCHA（`api2/anchor?...&size=invisible`・256×60 で見えている v3 の印）を常に埋め込むので、送信がログイン画面へ戻されただけで human_required になる。本当の拒否理由（ID/PW 不一致か、headless の bot 判定か）は文言を残していなかったので分からない。
+- **検出経緯**: ログイン用プロファイルの閲覧履歴（`Default/History` の visits）で、06:43:21Z に遷移種別 FORM_SUBMIT（0x7）で `/login` へ戻っていた＝送信はされ、ログインが受け付けられなかったと確定した。資格情報を入れずにログイン画面を読むと、入力欄・送信ボタンは見えており、reCAPTCHA の iframe は `size=invisible` だった。
+- **対策**: 判定は不可視の reCAPTCHA を数えず、見えているチェックボックス・画像の問題（bframe）・hCaptcha・Turnstile と確認コード等の文言だけを人の確認にする（`detectChallenge`）。失敗時は送信後の場所・ログイン画面の文言（メールアドレスは伏せる）を失敗印に書き、画面の写しを auth root に残す。ココナラは KDP と同じく手元では画面ありで送る（CI は常に headless）。
+- **教訓**: 「iframe がある」「要素がある」で状態を判定するときは、その要素が成功・失敗の両方の画面に常にあるものでないかを先に確かめる。失敗の分類は理由（表示の文言）を一緒に残さないと、次に人が見ても切り分けられない。
+
 ## 2026-09-28 — 共有作業ツリーの git merge が「could not write index / fatal: stash failed」で失敗し、index.lock が残る
 
 - **現象**: 本体 checkout（複数セッション・Codex・デスクトップアプリが同時に使う）で `git pull` / `git merge` が `error: could not write index` と `fatal: stash failed` で止まり、同日に `.git/index.lock` の残骸が 4 回残った（12:09・14:22・14:53・15:12）。autostash の設定はどこにも無い。

@@ -6,7 +6,9 @@ import {
   classifyLoginOutcome,
   cronFiresWithin,
   decideSharedImport,
+  detectChallenge,
   keychainServiceNames,
+  maskLoginText,
   parseKeychainAccount,
   sharedStatePath,
 } from '../scripts/lib/auth-session-refresh.mjs';
@@ -91,4 +93,29 @@ test('16進で出るアカウント名（ASCII 以外・制御文字入り）を
   const hex = Buffer.from('user@example.com\n', 'utf8').toString('hex').toUpperCase();
   assert.equal(parseKeychainAccount(`    "acct"<blob>=0x${hex}  "user@example.com\\012"`), 'user@example.com');
   assert.equal(parseKeychainAccount(`    "acct"<blob>=0x${Buffer.from('ユーザー', 'utf8').toString('hex')}  "\\343..."`), 'ユーザー');
+});
+
+test('不可視の reCAPTCHA（size=invisible）は人の確認に数えず、見えている問題・文言だけを数える', () => {
+  // 2026-10-01 実測: ココナラのログイン画面には常にこの iframe がある（256x60 で見えている）
+  const invisible = { src: 'https://www.google.com/recaptcha/api2/anchor?ar=1&k=x&hl=ja&size=invisible&anchor-ms=20000&execute', visible: true };
+  assert.equal(detectChallenge({ frames: [invisible], text: 'ログイン メールアドレスでログインする' }), false);
+  assert.equal(detectChallenge({ frames: [{ src: 'https://www.google.com/recaptcha/api2/anchor?ar=1&k=x&size=normal', visible: true }] }), true);
+  assert.equal(detectChallenge({ frames: [{ src: 'https://www.google.com/recaptcha/api2/bframe?hl=ja&k=x', visible: true }] }), true);
+  assert.equal(detectChallenge({ frames: [{ src: 'https://www.google.com/recaptcha/api2/bframe?hl=ja&k=x', visible: false }] }), false);
+  assert.equal(detectChallenge({ frames: [{ src: 'https://newassets.hcaptcha.com/captcha/v1/x', visible: true }] }), true);
+  assert.equal(detectChallenge({ frames: [], text: '確認コードを入力してください' }), true);
+  // 送信が拒まれてログイン画面へ戻っただけなら login_failed（理由を human_required で隠さない）
+  const back = { url: 'https://coconala.com/login', hasPassword: true, hasChallenge: detectChallenge({ frames: [invisible] }) };
+  assert.equal(classifyLoginOutcome('coconala', back), 'login_failed');
+});
+
+test('ログイン画面の文言はメールアドレスを伏せて 200 字まで', () => {
+  assert.equal(maskLoginText('  user.name+x@example.co.jp は\t登録されていません '), '<メール> は 登録されていません');
+  assert.equal(maskLoginText('あ'.repeat(300)).length, 200);
+  assert.equal(maskLoginText(undefined), '');
+});
+
+test('ココナラと KDP は手元では画面ありで送る（CI は auth-session-refresh が headless に固定する）', () => {
+  assert.ok(AUTO_LOGIN.coconala.headed);
+  assert.ok(AUTO_LOGIN.kdp.headed);
 });

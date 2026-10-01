@@ -18,7 +18,7 @@
 import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 
-import { readServiceCredential } from './credential-store.mjs';
+import { agentSession, readServiceCredential } from './credential-store.mjs';
 import { resolveMetadataPath } from './playwright-auth-profile.mjs';
 
 export const NOTE_REAUTH = Object.freeze({
@@ -55,11 +55,13 @@ export async function isNoteReauthPage(page) {
 export async function passNoteReauth(page, {
   markPath,
   readCredential = () => readServiceCredential('note'),
+  isAgent = () => agentSession(),
   waitMs = 15000,
   sleep = (ms) => new Promise((r) => setTimeout(r, ms)),
 } = {}) {
   if (!(await isNoteReauthPage(page))) return { status: 'not_needed' };
   if (markPath && existsSync(markPath)) return { status: 'blocked', markPath };
+  if (isAgent()) return { status: 'agent_skipped' };
   const cred = readCredential();
   if (!cred) return { status: 'no_credential' };
 
@@ -83,6 +85,8 @@ export function describeReauthResult(result) {
   switch (result.status) {
     case 'no_credential':
       return '資格情報が未登録（Mac: security add-generic-password -s doboku-note-auth-note -a <ログインID> -w ／ Windows: cmdkey /generic:doboku-note-auth-note /user:<ログインID> /pass ／ CI: Secrets DOBOKU_AUTH_NOTE_USER・DOBOKU_AUTH_NOTE_PASSWORD）';
+    case 'agent_skipped':
+      return 'エージェント（Claude Code）からの実行では資格情報で再確認を通さない。オーナーが同じコマンドを実行する';
     case 'blocked':
       return `前回の自動再確認が失敗したまま（${result.markPath}）。資格情報を確かめてから印を消す`;
     case 'failed':

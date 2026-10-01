@@ -38,14 +38,14 @@ test('再確認画面の判定はログイン画面とパスワード欄なし�
 
 test('再確認が無ければ資格情報を読まない', async () => {
   let read = 0;
-  const r = await passNoteReauth(fakePage({ reauth: false }), { readCredential: () => { read++; return cred(); }, sleep: noSleep });
+  const r = await passNoteReauth(fakePage({ reauth: false }), { readCredential: () => { read++; return cred(); }, sleep: noSleep, isAgent: () => false });
   assert.equal(r.status, 'not_needed');
   assert.equal(read, 0);
 });
 
 test('資格情報で 1 回だけ通し、戻り値にパスワードを含めない', async () => {
   const page = fakePage();
-  const r = await passNoteReauth(page, { readCredential: cred, sleep: noSleep });
+  const r = await passNoteReauth(page, { readCredential: cred, sleep: noSleep, isAgent: () => false });
   assert.equal(r.status, 'ok');
   assert.equal(page.state.filled, 'pw-secret');
   assert.equal(page.state.clicks, 1);
@@ -54,7 +54,7 @@ test('資格情報で 1 回だけ通し、戻り値にパスワードを含め�
 
 test('未登録は no_credential で入力しない', async () => {
   const page = fakePage();
-  const r = await passNoteReauth(page, { readCredential: () => null, sleep: noSleep });
+  const r = await passNoteReauth(page, { readCredential: () => null, sleep: noSleep, isAgent: () => false });
   assert.equal(r.status, 'no_credential');
   assert.equal(page.state.filled, null);
   assert.match(describeReauthResult(r), /doboku-note-auth-note/);
@@ -62,13 +62,13 @@ test('未登録は no_credential で入力しない', async () => {
 
 test('通らなければ失敗印を残し、印があれば次は試さない', async () => {
   const markPath = join(mkdtempSync(join(tmpdir(), 'note-reauth-')), 'metadata', 'note.reauth-failed');
-  const first = await passNoteReauth(fakePage({ accept: false }), { readCredential: cred, sleep: noSleep, waitMs: 3000, markPath });
+  const first = await passNoteReauth(fakePage({ accept: false }), { readCredential: cred, sleep: noSleep, isAgent: () => false, waitMs: 3000, markPath });
   assert.equal(first.status, 'failed');
   assert.ok(existsSync(markPath));
   assert.ok(!readFileSync(markPath, 'utf8').includes('pw-secret'));
 
   const page = fakePage();
-  const second = await passNoteReauth(page, { readCredential: cred, sleep: noSleep, markPath });
+  const second = await passNoteReauth(page, { readCredential: cred, sleep: noSleep, isAgent: () => false, markPath });
   assert.equal(second.status, 'blocked');
   assert.equal(page.state.filled, null);
 });
