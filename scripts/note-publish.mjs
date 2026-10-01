@@ -43,7 +43,7 @@ import { chromium } from 'playwright';
 import { readFileSync, existsSync, writeFileSync, readdirSync, mkdirSync } from 'node:fs';
 import { join, dirname, basename, resolve, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { recordPublishedHash, recordPublishedTagHash, recordPublishedMetaHash, recordPublishedAssetHash } from './lib/note-republish-hash.mjs';
+import { recordPublishedHash, recordPublishedTagHash, recordPublishedMetaHash, recordPublishedAssetHash, recordPublishedTitleHash } from './lib/note-republish-hash.mjs';
 import { cardifyBareUrls, repairUrlHeadings, listUrlHeadingsInEditor } from './lib/note-cardify.mjs';
 import { extractBodyImages, insertImagesAtPlaceholders } from './lib/note-images.mjs';
 import { assertLiveBody, expectedFreePreviewMin, formatLiveIssues } from './lib/note-live-check.mjs';
@@ -589,6 +589,7 @@ try {
         if (recordPublishedHash(relative(ROOT, articleAbs))) console.log('[12b] 再公開ハッシュ記録');
         // 新規公開はカバー・価格・境界・添付まで一括で live に載るので 4 トラックすべて in-sync 化する
         recordPublishedMetaHash(relative(ROOT, articleAbs));
+        recordPublishedTitleHash(relative(ROOT, articleAbs));
         recordPublishedAssetHash(relative(ROOT, articleAbs));
         // タグも公開時に適用済み（Phase 10）→ タグハッシュも in-sync 化（本文とは別トラック）。
         if (tags.length && tagsFile && recordPublishedTagHash(relative(ROOT, tagsFile))) console.log('[12c] 再公開タグハッシュ記録');

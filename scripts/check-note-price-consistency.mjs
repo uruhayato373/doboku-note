@@ -26,7 +26,7 @@
  *   免除する。免除に理由を書かせることで「なぜこの価格差があるか」が記録として残る。
  *   allowlist: .claude/config/note-price-consistency.json
  *
- *   L0 正本の欠落（2026-10-01 追加） — 公開済み（noteUrl/noteId あり）の記事に title が無い・
+ *   L0 正本の欠落（2026-10-01 追加） — 公開済み（noteUrl/noteId あり）の記事に title が無い・見出し 1 が title と違う・
  *                          有料なのに price が無い。題名・価格の正本は frontmatter で、欠けると
  *                          台帳は推測（見出し 1・「有料」）しか出せず、live 照合（check-note-structure）も素通りする。
  *
@@ -84,6 +84,7 @@ const byMagazine = new Map(); // magazine -> Map(price -> [relPath])
 const magazineSeries = new Map(); // magazine -> series
 const missingTitle = [];
 const missingPrice = [];
+const h1Mismatch = [];
 let publishedCount = 0;
 for (const file of walk(absBase)) {
   const src = readFileSync(file, 'utf-8');
@@ -94,7 +95,11 @@ for (const file of walk(absBase)) {
   if (published) {
     publishedCount++;
     const rel = relative(ROOT, file).replace(/\\/g, '/');
-    if (!/^title:[ \t]*\S/m.test(fmText)) missingTitle.push(rel);
+    const title = (fmText.match(/^title:[ \t]*(?:"(.*?)"|'(.*?)'|(.+?))[ \t]*$/m) || []).slice(1).find(Boolean);
+    if (!title) missingTitle.push(rel);
+    // 見出し 1 は title と同じにする（note の本文には載らないが、原稿を読む人・台帳の推測が食い違う元になる）
+    const h1 = (src.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n?/, '').match(/^#[ \t]+(.+?)[ \t]*\r?$/m) || [])[1];
+    if (title && h1 && h1 !== title) h1Mismatch.push(`${rel}（見出し 1「${h1}」≠ title「${title}」）`);
     if (paid && !(Number(priceRaw) > 0)) missingPrice.push(rel);
   }
   if (!paid) continue;
@@ -120,6 +125,7 @@ const violations = [];
 
 // --- L0: 正本の欠落 ---
 if (missingTitle.length) violations.push({ level: 'L0', scope: '公開済みなのに title が無い', detail: `${missingTitle.length} 本`, majority: null, samples: missingTitle.slice(0, 12) });
+if (h1Mismatch.length) violations.push({ level: 'L0', scope: '公開済みで見出し 1 が title と違う', detail: `${h1Mismatch.length} 本`, majority: null, samples: h1Mismatch.slice(0, 12) });
 if (missingPrice.length) violations.push({ level: 'L0', scope: '公開済みの有料記事なのに price が無い', detail: `${missingPrice.length} 本`, majority: null, samples: missingPrice.slice(0, 12) });
 
 // --- L1: マガジン内一貫性 ---
@@ -176,7 +182,7 @@ if (violations.length) {
     console.error(v.level === 'L0' ? `     ${v.detail}` : `     分布: ${v.detail}（多数派 ¥${v.majority}）`);
     for (const s of v.samples) console.error(`     - ${s}`);
   }
-  console.error('\n対処: L0 は公開中の note から正本を書き戻す → node scripts/note-backfill-title-price.mjs --commit');
+  console.error('\n対処: L0 は公開中の note から正本を書き戻す → node scripts/note-reconcile-title-price.mjs --commit');
   console.error('L1/L2 はいずれかを行う。');
   console.error('  (a) 値上げ/値下げの当て漏れ → node scripts/note-price-sweep.mjs --dir <マガジンdir> --from <旧> --to <新> --commit');
   console.error('      ライブ側も別途 note-article-price-sweep.mjs で揃え、frontmatter と一致させる。');

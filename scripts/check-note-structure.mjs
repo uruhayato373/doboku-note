@@ -182,7 +182,8 @@ function runAll() {
     if (t.pricing === 'paid' && t.price && livePrice !== t.price) push('HIGH', 'PRICE_MISMATCH', `source¥${t.price} ≠ live¥${livePrice}`);
     // 題名
     if (!t.hasTitle) push('HIGH', 'TITLE_MISSING', `frontmatter に title が無い（live「${data.name}」）`);
-    if (t.title && data.name && t.title.trim() !== String(data.name).trim()) push('HIGH', 'TITLE_MISMATCH', `source「${t.title}」≠ live「${data.name}」`);
+    // 原稿が正。週次の note-reconcile-title-price が「未反映」に戻し、note-sync-routine が原稿の題名で上げ直す
+    if (t.title && data.name && t.title.trim() !== String(data.name).trim()) push('HIGH', 'TITLE_MISMATCH', `source「${t.title}」≠ live「${data.name}」（原稿が正・同期で反映する）`);
     // タグ
     if (liveTags < GOAL_TAGS) push('INFO', 'TAG_SHORT', `live tags=${liveTags}<${GOAL_TAGS}`);
 

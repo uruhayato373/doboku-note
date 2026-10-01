@@ -120,14 +120,13 @@ export function recordPublishedTagHash(hashtagsPath) {
 
 // ---- live 影響メタ（frontmatter）ドリフト（metaHashes: {articlePath→hash}） ----
 // 本文 hash は frontmatter を丸ごと落とすため、**note 上の見え方を変えるメタ変更が検知できなかった**。
-// 実際に live を変えるのは次の 4 つ。noteUrl/noteId/notePublishedAt/noteStatus は
+// 実際に live を変えるのは次の 3 つ（題名は自動で反映できる別トラック titleHashes・下記）。noteUrl/noteId/notePublishedAt/noteStatus は
 // 「公開した結果」なので含めない（含めると公開直後に必ず drift になる）。カバーの文言（coverTitle / cover）は
 // カバートラック（coverHashes・下記）が描画入力ごと見るので、ここには入れない（2026-09-29・二重判定の解消）。
 //   price      … 価格（note-article-price-sweep / note-edit）
 //   notePricing… 有料/無料（同上）
 //   paidBoundary … 有料境界の基準 H2（note-update-body --boundary-h2）
-//   title      … note の題名（note-update-body が frontmatter の title を反映する・2026-10-01 追加）
-export const LIVE_META_KEYS = ['notePricing', 'price', 'paidBoundary', 'title'];
+export const LIVE_META_KEYS = ['notePricing', 'price', 'paidBoundary'];
 
 /**
  * frontmatter から live 影響キーだけを抜き出して正規化ハッシュ。cover は複数行ブロックなので行継続も拾う。
@@ -235,6 +234,33 @@ export function assetHash(articlePath) {
     }
   }
   return parts.length ? createHash('sha256').update(parts.join('|'), 'utf8').digest('hex').slice(0, 16) : 'none';
+}
+
+// ---- 題名（titleHashes: {articlePath→hash}） ----
+// 題名の正本は frontmatter の title。meta（価格・境界）は人が反映する（止める）のに対し、題名は週次の同期
+// （note-update-body --sync の title 部品）が自動で note へ反映するので、別トラックにする（2026-10-01）。
+// note 側で直接直されたずれは、週次 CI の note-reconcile-title-price がこの記録を外して「未反映」に戻し、原稿の題名で上げ直させる。
+export const TITLE_LIVE_MISMATCH = 'live-mismatch';
+/** frontmatter の title の値（引用符を外す）。無ければ空文字 */
+export function fmTitle(raw) {
+  const m = String(raw).replace(/^\ufeff/, '').match(/^---\r?\n([\s\S]*?)\r?\n---/);
+  const t = m?.[1].match(/^title:[ \t]*(?:"(.*?)"|'(.*?)'|(.+?))[ \t]*\r?$/m);
+  return t ? (t[1] ?? t[2] ?? t[3] ?? '') : '';
+}
+export function titleHash(raw) {
+  return createHash('sha256').update(fmTitle(raw), 'utf8').digest('hex').slice(0, 16);
+}
+export function recordPublishedTitleHash(filePath) {
+  try {
+    const key = String(filePath).replaceAll('\\', '/');
+    const raw = readFileSync(key, 'utf8');
+    if (!fmTitle(raw)) return false;
+    const st = loadState();
+    (st.titleHashes ||= {})[key] = titleHash(raw);
+    st.updatedAt = todayJst();
+    saveState(st);
+    return true;
+  } catch { return false; }
 }
 
 /** meta / asset の現ハッシュを記録して in-sync 化。反映系スクリプトが成功直後に呼ぶ。 */

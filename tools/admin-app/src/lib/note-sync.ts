@@ -7,7 +7,7 @@ import { findRepoRoot } from './repo-root';
  * 判定は CLI 側（scripts/lib/note-sync-plan.mjs）に置き、ここは読むだけ。取得に失敗したら ok:false を返し、
  * 「反映待ち 0」に化けさせない（CLAUDE.md §9）。
  */
-export type SyncPart = 'body' | 'cover' | 'tags';
+export type SyncPart = 'body' | 'cover' | 'tags' | 'title';
 export interface SyncItem {
   path: string;
   noteId: string;
@@ -38,7 +38,7 @@ export interface SyncRun {
 }
 
 export function noteSyncPlan(): SyncPlan {
-  const empty = { counts: { synced: 0, ready: 0, blocked: 0, pdfPull: 0, parts: { body: 0, cover: 0, tags: 0 }, blockers: {} }, blockers: {}, items: [] };
+  const empty = { counts: { synced: 0, ready: 0, blocked: 0, pdfPull: 0, parts: { body: 0, cover: 0, tags: 0, title: 0 }, blockers: {} }, blockers: {}, items: [] };
   const root = findRepoRoot();
   try {
     const out = execFileSync(process.execPath, ['scripts/note-sync-plan.mjs', '--json'], { cwd: root, encoding: 'utf8', timeout: 120_000, maxBuffer: 64 * 1024 * 1024 });

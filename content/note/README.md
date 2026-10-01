@@ -126,7 +126,11 @@ utmCampaign: "..."
 published: true | false   # 単発記事。マガジン記事は noteUrl の有無で判定
 ```
 
-題名と価格の正本は frontmatter の `title` / `price`（2026-10-01 に公開中 886 本を note から書き戻した）。公開済みで欠けていれば `check-note-price-consistency` の L0 が止め、note との食い違いは `check-note-structure` が週次で `TITLE_MISMATCH` / `PRICE_MISMATCH` に出す。マガジンの題名・価格の正本は `src/lib/note-magazines.ts` の `noteTitle` / `price`。
+題名と価格の正本は frontmatter の `title` / `price`（見出し 1 は `title` と同じにする）。マガジンは `src/lib/note-magazines.ts` の `noteTitle` / `price`。**原稿が正**で、note 側を直接直さない（2026-10-01 に公開中 886 本を一度だけ note に合わせて整理し、以後は原稿から note へ反映する）。
+
+- 題名・価格を変える: 原稿を直して commit する。題名は週次の Mac `note-sync-routine` が自動で note へ反映する。価格は同期画面に「止まっている」と出るので `note-article-price-sweep` で反映する
+- note 側で直接変わった（ずれた）: 週次 CI（`note-live-audit.yml`）の `note-reconcile-title-price` が見つけて「note へ未反映」に戻し、上と同じ経路で原稿の値に戻る
+- 公開済みで title / price が無い・見出し 1 が title と違う: `check-note-price-consistency` の L0 が commit を止める
 
 `noteContentType` は記事の役割を示す必須分類。`product` は有料商品・会員商品、`index` は資格別もくじ、`learning` は無料の試験学習記事、`career` は転職・年収・資格活用、`editorial` は一般的な雑談・運営・体験談に使う。価格やマガジン収録とは別軸で、分類の正本は各記事の frontmatter とする。
 

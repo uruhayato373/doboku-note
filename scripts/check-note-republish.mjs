@@ -33,7 +33,7 @@
 import { readFileSync, readdirSync, existsSync, writeSync } from 'node:fs';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { bodyHash, canonBodyHash, canonEntry, classifyBodyDrift, tagsHashFile, tagsHashRaw, metaHash, assetHash, loadState, saveState, STATE } from './lib/note-republish-hash.mjs';
+import { bodyHash, canonBodyHash, canonEntry, classifyBodyDrift, tagsHashFile, tagsHashRaw, metaHash, assetHash, titleHash, fmTitle, loadState, saveState, STATE } from './lib/note-republish-hash.mjs';
 import { findRecordedVersions } from './lib/note-republish-history.mjs';
 import { loadSiteRoutes } from './lib/site-links.mjs';
 import { todayJst } from './lib/jst-date.mjs';
@@ -92,6 +92,8 @@ const driftCand = [];
 // live 影響メタ（価格/有料境界/カバー定義）とアセット（PDF・カバー画像）は本文 hash に入らない。
 // 本文を1文字も変えずに価格や PDF を差し替えると「要再公開」が立たず、購入者が古い実体を受け取り続ける。
 const metaDrift = [], metaUnknown = [], assetDrift = [], assetUnknown = [];
+// 題名（frontmatter の title）。週次の同期が自動で note へ反映する別トラック（2026-10-01）
+const titleDrift = [], titleUnknown = [];
 let baselined = 0;
 for (const f of files) {
   const raw = readFileSync(f, 'utf8');
@@ -103,6 +105,7 @@ for (const f of files) {
     // 本文・タグには触れず meta/asset のみ現状で初期化（以後の変更は全て検知される）
     (st.metaHashes ||= {})[f] = metaHash(raw);
     (st.assetHashes ||= {})[f] = assetHash(f);
+    if (fmTitle(raw)) (st.titleHashes ||= {})[f] = titleHash(raw);
     baselined++;
     continue;
   }
@@ -121,6 +124,7 @@ for (const f of files) {
     setCanon(f, canonEntry(raw, routes));
     (st.metaHashes ||= {})[f] = metaHash(raw);
     (st.assetHashes ||= {})[f] = assetHash(f);
+    if (fmTitle(raw)) (st.titleHashes ||= {})[f] = titleHash(raw);
     baselined++; synced.push(f);
     continue;
   }
@@ -137,6 +141,12 @@ for (const f of files) {
   const mCur = metaHash(raw);
   const mRec = (st.metaHashes || {})[f];
   if (mRec === undefined) metaUnknown.push(f); else if (mRec !== mCur) metaDrift.push(f);
+
+  // 題名は title がある記事だけ（無い記事は check-note-price-consistency の L0 が止める）
+  if (fmTitle(raw)) {
+    const tRec = (st.titleHashes || {})[f];
+    if (tRec === undefined) titleUnknown.push(f); else if (tRec !== titleHash(raw)) titleDrift.push(f);
+  }
 
   const aCur = assetHash(f);
   const aRec = (st.assetHashes || {})[f];
@@ -244,6 +254,7 @@ if (JSON_OUT) {
     unjudgedDrift: unjudged.length, unjudgedDriftFiles: unjudged, unjudgedReason: unjudged.length ? unjudgedReason : null,
     tagSynced: tagSynced.length, tagDrift: tagDrift.length, tagUnknown: tagUnknown.length, tagDriftFiles: tagDrift, tagUnknownFiles: tagUnknown,
     metaDrift: metaDrift.length, metaUnknown: metaUnknown.length, metaDriftFiles: metaDrift, metaUnknownFiles: metaUnknown,
+    titleDrift: titleDrift.length, titleUnknown: titleUnknown.length, titleDriftFiles: titleDrift, titleUnknownFiles: titleUnknown,
     assetDrift: assetDrift.length, assetUnknown: assetUnknown.length, assetDriftFiles: assetDrift, assetUnknownFiles: assetUnknown,
   }, null, 2) + '\n');
   process.exit(0);
@@ -256,7 +267,7 @@ if (BASELINE) {
 console.log(`[check-note-republish] 公開記事=${synced.length + drift.length + equivalent.length + unknown.length}  synced=${synced.length}  要再公開(本文drift)=${drift.length}  301等価(張り替えだけ)=${equivalent.length}  未初期化=${unknown.length}`);
 if (unjudged.length) console.log(`[check-note-republish]   うち等価を判定できず要再公開に残した=${unjudged.length}（${unjudgedReason}）`);
 console.log(`[check-note-republish] タグ: 公開=${tagSynced.length + tagDrift.length + tagUnknown.length}  synced=${tagSynced.length}  要再公開(タグdrift)=${tagDrift.length}  未初期化=${tagUnknown.length}`);
-console.log(`[check-note-republish] メタ(題名/価格/境界): drift=${metaDrift.length}  未初期化=${metaUnknown.length}／アセット(本文画像/PDF/カバー): drift=${assetDrift.length}  未初期化=${assetUnknown.length}`);
+console.log(`[check-note-republish] 題名: drift=${titleDrift.length}  未初期化=${titleUnknown.length}／メタ(価格/境界): drift=${metaDrift.length}  未初期化=${metaUnknown.length}／アセット(本文画像/PDF/カバー): drift=${assetDrift.length}  未初期化=${assetUnknown.length}`);
 if (drift.length) {
   console.log('\n■ 要再公開（本文が公開時から変更）:');
   for (const f of drift) console.log('  ' + f.replace(/^content\/note\//, '').replace(/\/article\.md$/, ''));
@@ -273,6 +284,11 @@ if (metaDrift.length) {
   for (const f of metaDrift) console.log('  ' + f.replace(/^content\/note\//, '').replace(/\/article\.md$/, ''));
   console.log('  → 価格/境界: note-update-body --commit --boundary-h2 / note-article-price-sweep（記事単位の同期は note-update-body --sync --article <path> --commit・週次は Mac の note-sync-routine）');
 }
+if (titleDrift.length) {
+  console.log('\n■ 要反映（題名が note と違う＝原稿で変えた、または note 側で直接変えられた）:');
+  for (const f of titleDrift) console.log('  ' + f.replace(/^content\/note\//, '').replace(/\/article\.md$/, ''));
+  console.log('  → 原稿の title を note へ: 週次の Mac note-sync-routine（note-update-body --sync の title 部品）が反映する');
+}
 if (assetDrift.length) {
   console.log('\n■ 要反映（本文画像・PDF 添付の実体が変更）:');
   for (const f of assetDrift) console.log('  ' + f.replace(/^content\/note\//, '').replace(/\/article\.md$/, ''));
@@ -280,6 +296,7 @@ if (assetDrift.length) {
 }
 if (unknown.length) console.log(`\n□ 本文未初期化 ${unknown.length}件（baseline で初期化するか要再公開判断）`);
 if (metaUnknown.length) console.log(`□ メタ未初期化 ${metaUnknown.length}件（baseline で初期化）`);
+if (titleUnknown.length) console.log(`□ 題名未初期化 ${titleUnknown.length}件（note-reconcile-title-price --commit が note と照合して記録する）`);
 if (assetUnknown.length) console.log(`□ アセット未初期化 ${assetUnknown.length}件（baseline で初期化）`);
 if (tagUnknown.length) console.log(`□ タグ未初期化 ${tagUnknown.length}件（baseline で初期化）`);
 // 末尾で process.exit(0) を呼ばない（上と同じ理由。自然終了なら stdout は必ず flush される）

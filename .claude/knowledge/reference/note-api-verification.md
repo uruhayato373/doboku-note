@@ -211,7 +211,8 @@ node scripts/note-update-body.mjs --list   <list.txt>   --commit    # 複数記�
 > |---|---|---|---|
 > | 本文 | frontmatter を除く本文全体 | `hashes` | `note-update-body --commit` |
 > | タグ | `hashtags*.txt`（順序非依存） | `tagHashes` | `note-sync-tags --commit` |
-> | メタ | `notePricing`/`price`/`paidBoundary`/`title` | `metaHashes` | `note-update-body --boundary-h2`（`title` は `note-update-body` が反映）/ `note-article-price-sweep` |
+> | メタ | `notePricing`/`price`/`paidBoundary` | `metaHashes` | `note-update-body --boundary-h2` / `note-article-price-sweep`（同期計画では「止まっている」） |
+> | 題名 | frontmatter の `title` | `titleHashes` | `note-update-body --sync`（title 部品・本文は触らない）／`--parts title`。note 側のずれは週次 `note-reconcile-title-price` が未反映に戻す |
 > | アセット | 本文が参照する画像と、記事 dir・`pdf/` の `*.pdf` の**内容**ハッシュ | `assetHashes` | `note-update-body --commit`（画像を上げ直し PDF を貼り直す）/ `note-attach-file --commit` |
 > | カバー | 描画入力（`cover:`・`coverTitle`・資格色）とデザイン版・登録した画像の URL | `coverHashes`（マガジンは `magazineCovers`） | `note-update-body --parts cover`（週次は `--sync` がまとめる） |
 >

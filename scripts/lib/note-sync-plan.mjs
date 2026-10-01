@@ -22,7 +22,7 @@ const DRIVE_MANIFEST = '.claude/state/assets/drive-manifest.json';
 // 保存前に止まる中断（エディタの本文を汚さない）＝自動で再試行してよい。note-update-body もこの集合を使う。
 //   img-settle / img-lost … 画像の CDN 確定待ちで止まった　pdf-missing … 貼り直す PDF が手元に無い（本文を触る前）
 //   cover-failed … カバーの差し替えを確認できない（本文を触る前。次回また差し替える）　tags-unreadable … タグを読めない（保存前）
-export const SAFE_ABORTS = new Set(['img-settle', 'img-lost', 'pdf-missing', 'cover-failed', 'tags-unreadable']);
+export const SAFE_ABORTS = new Set(['img-settle', 'img-lost', 'pdf-missing', 'cover-failed', 'tags-unreadable', 'title-failed', 'title-missing']);
 
 /** 止まっている理由の語彙。label＝管理画面の表示、action＝直し方（人が読む 1 行）。 */
 export const BLOCKERS = {
@@ -30,7 +30,7 @@ export const BLOCKERS = {
   'trial-guard': { label: '会員特典マガジン内の無料記事（公開範囲の指定が要る）', action: '誰でも読めるなら frontmatter に memberTrial: bottom、全文を会員限定にするなら memberTrial: lock を書く' },
   'image-missing': { label: '本文の画像ファイルが手元に無い', action: '画像を記事の img/ に戻す（意図して外すなら本文から画像行を消す）' },
   boundary: { label: '有料境界の基準にする見出しが本文に無い', action: 'frontmatter の paidBoundary に境界の直後に来る H2 の先頭（正規表現）を書く' },
-  meta: { label: '題名・価格・有料/無料の設定が変わった', action: '価格は node scripts/note-article-price-sweep.mjs で反映してから同期する（題名は同期の note-update-body が frontmatter の title を反映する）' },
+  meta: { label: '価格・有料/無料・有料境界の設定が変わった（note 側で直接変えられた場合を含む）', action: '原稿の価格を正として node scripts/note-article-price-sweep.mjs で note へ反映してから同期する' },
 };
 
 function readAborted(root) {
@@ -57,7 +57,7 @@ function republishReport(root) {
 
 /**
  * 記事 1 本の状態。純関数（テストから直接呼ぶ）。
- * @param {{ bodyReason: string|null, assetDrift: boolean, tagDrift: boolean, metaDrift: boolean, coverReason: string|null,
+ * @param {{ bodyReason: string|null, assetDrift: boolean, tagDrift: boolean, titleDrift?: boolean, metaDrift: boolean, coverReason: string|null,
  *           abort: {reason: string}|null, imageMissing: string[], pdfPending: boolean, pdfLocal: boolean,
  *           memberTrial?: string|null, boundaryMissing?: boolean }} s
  * @returns {{ parts: string[], reasons: object, status: 'synced'|'ready'|'blocked', blocker: string|null, needsPdfPull: boolean }}
@@ -68,6 +68,8 @@ export function classifySync(s) {
   else if (s.assetDrift) reasons.body = 'asset'; // 本文の画像・PDF の中身だけが変わった＝本文ごと上げ直す
   if (s.coverReason) reasons.cover = s.coverReason;
   if (s.tagDrift) reasons.tags = 'drift';
+  // 題名は原稿の title を note へ上げ直す（本文を触らずタイトル欄だけ差し替えて「更新する」）
+  if (s.titleDrift) reasons.title = 'drift';
   const parts = Object.keys(reasons);
   if (s.metaDrift) return { parts, reasons, status: 'blocked', blocker: 'meta', needsPdfPull: false };
   if (!parts.length) return { parts, reasons, status: 'synced', blocker: null, needsPdfPull: false };
@@ -96,6 +98,7 @@ export async function buildSyncPlan(root = process.cwd()) {
   for (const f of rep.unknownFiles || []) bodySet.set(f, 'unrecorded');
   const asset = new Set(rep.assetDriftFiles || []);
   const meta = new Set(rep.metaDriftFiles || []);
+  const titleSet = new Set(rep.titleDriftFiles || []);
   // タグの drift は hashtags*.txt のパスで出る。記事パスへ引き直す（hashtags-II1.txt → article-II1.md）。
   const tagArticles = new Set((rep.tagDriftFiles || []).map((p) => p.replace(/hashtags(-[^/]+)?\.txt$/, (_, s) => `article${s || ''}.md`)));
 
@@ -121,7 +124,7 @@ export async function buildSyncPlan(root = process.cwd()) {
       ? extractBodyImages(a.body, dirname(join(root, path))).missing.filter((m) => m.includes('ファイル無し'))
       : [];
     const c = classifySync({
-      bodyReason, assetDrift: asset.has(path), tagDrift: tagArticles.has(path), metaDrift: meta.has(path), coverReason,
+      bodyReason, assetDrift: asset.has(path), tagDrift: tagArticles.has(path), titleDrift: titleSet.has(path), metaDrift: meta.has(path), coverReason,
       abort: aborted.get(t.noteId) || null, imageMissing, // 原稿が PDF に触れていなくても、Drive に預けた配布 PDF があれば note に添付がある（2026-09-29 工事21 で実測）
       pdfPending: a.pdfPromise || a.localPdfs.length > 0 || drivePdf.has(dirname(path)), pdfLocal: a.localPdfs.length > 0,
       memberTrial: a.data.memberTrial || null, boundaryMissing: a.notePricing === 'paid' && !hasBoundaryHeading(a.body, a.paidBoundary),
@@ -137,7 +140,7 @@ export async function buildSyncPlan(root = process.cwd()) {
 
 /** 状態・部品・止まっている理由ごとの件数。 */
 export function countPlan(items) {
-  const counts = { synced: 0, ready: 0, blocked: 0, pdfPull: 0, parts: { body: 0, cover: 0, tags: 0 }, blockers: {} };
+  const counts = { synced: 0, ready: 0, blocked: 0, pdfPull: 0, parts: { body: 0, cover: 0, tags: 0, title: 0 }, blockers: {} };
   for (const i of items) {
     counts[i.status]++;
     if (i.needsPdfPull) counts.pdfPull++;
