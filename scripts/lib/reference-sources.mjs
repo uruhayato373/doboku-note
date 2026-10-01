@@ -5,7 +5,7 @@
  * ＝「この原本を逐語で写してよいか」「図を流用してよいか」「文字起こしを公開してよいか」
  * 「記事はどの粒度で出典を書くか」を class で決め、記事 frontmatter の `sources:` を id で結ぶ。
  *
- * 設定: .claude/config/reference-sources.json / 本文: reference-sources-policy.md
+ * 設定: config/reference-sources.json / 本文: reference-sources-policy.md
  *
  * 設計の芯:
  *   1. **記事は書名でなく id で指す。** 書名は版・表記が揺れる（「主任技師」「主任技士」）。
@@ -20,7 +20,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { REPO_ROOT } from './repository-paths.mjs';
 
-export const REFERENCE_SOURCES_PATH = join(REPO_ROOT, '.claude/config/reference-sources.json');
+export const REFERENCE_SOURCES_PATH = join(REPO_ROOT, 'config/reference-sources.json');
 export const REFERENCE_BASELINE_PATH = join(REPO_ROOT, '.claude/config/reference-sources-baseline.json');
 export const STANDARDS_CATALOG_PATH = join(REPO_ROOT, 'content/site/standards-library/catalog.json');
 

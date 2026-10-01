@@ -7,12 +7,12 @@ export const SCAN_TARGETS = [
   { kind: 'dir', path: 'content/site/civil-construction-1', label: 'site（1級）' },
   { kind: 'dir', path: 'content/site/civil-construction-2', label: 'site（2級）' },
   { kind: 'dir', path: 'content/coconala/blog', label: 'ココナラブログ' },
-  { kind: 'dir', path: '.claude/config/coconala/assets/moshi-src', label: 'ココナラ模試ソース', optionalHydrated: true },
+  { kind: 'dir', path: 'content/coconala/assets/moshi-src', label: 'ココナラ模試ソース', optionalHydrated: true },
   { kind: 'dir', path: 'content/sns', label: 'SNS（X・video-packs・Instagram・YouTube）' },
   { kind: 'dir', path: 'content/kindle', label: 'Kindle' },
   { kind: 'dir', path: '.claude/agents', label: 'エージェント定義' },
   { kind: 'dir', path: 'docs', label: 'docs' },
-  { kind: 'file', path: '.claude/config/coconala-listings.json', label: 'ココナラ出品 SSOT' },
+  { kind: 'file', path: 'config/coconala-listings.json', label: 'ココナラ出品 SSOT' },
 ];
 
 const TEXT_EXTENSIONS = new Set(['.md', '.mdx', '.json', '.txt', '.yaml', '.yml']);
@@ -361,5 +361,5 @@ export function analyzeDocuments(documents, limits) {
 }
 
 export function loadLimits(root) {
-  return JSON.parse(readFileSync(join(root, '.claude/config/keiken-answer-sheet-limits.json'), 'utf8'));
+  return JSON.parse(readFileSync(join(root, 'config/keiken-answer-sheet-limits.json'), 'utf8'));
 }

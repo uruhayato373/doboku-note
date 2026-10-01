@@ -14,7 +14,7 @@ import { fileURLToPath } from 'node:url';
 import { allowReason, countByRule, evaluateBlobs, extOf, ratchet } from '../scripts/check-git-binary-policy.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const POLICY = JSON.parse(readFileSync(join(ROOT, '.claude/config/git-binary-policy.json'), 'utf-8'));
+const POLICY = JSON.parse(readFileSync(join(ROOT, 'config/git-binary-policy.json'), 'utf-8'));
 
 const MiB = 1048576;
 

@@ -13,13 +13,13 @@ import { loadRegistry, qualificationShortLabel } from './lib/qualification-regis
 
 const ROOT = process.cwd();
 const PACKS_ROOT = join(ROOT, 'content/sns/video-packs');
-const DISCLOSURE = JSON.parse(readFileSync(join(ROOT, '.claude/config/youtube-production-disclosure.json'), 'utf8'));
+const DISCLOSURE = JSON.parse(readFileSync(join(ROOT, 'config/youtube-production-disclosure.json'), 'utf8'));
 const STATE = JSON.parse(readFileSync(join(ROOT, '.claude/state/video-content-status.json'), 'utf8'));
 const SLOT_TIMES = ['07:30:00', '12:30:00', '20:00:00'];
 
 // 対応する試験。名前は registry の短い名前、試験日は exam-calendar.json のその年最後の試験日（どちらも写さない）
 const REGISTRY = loadRegistry(ROOT);
-const CALENDAR = JSON.parse(readFileSync(join(ROOT, '.claude/config/exam-calendar.json'), 'utf8'));
+const CALENDAR = JSON.parse(readFileSync(join(ROOT, 'config/exam-calendar.json'), 'utf8'));
 const lastExamDate = (id) => Object.values(CALENDAR.exams[id]?.events ?? {}).filter((e) => e.kind === 'exam').map((e) => e.date).sort().at(-1);
 const EXAMS = Object.fromEntries(['civil-construction-1', 'civil-construction-2', 'concrete-engineer', 'concrete-chief-engineer'].map((id) => {
   const title = qualificationShortLabel(REGISTRY, id);

@@ -5,7 +5,7 @@
  *   node scripts/check-qualification-ssot.mjs          # 違反があれば exit 1
  *   node scripts/check-qualification-ssot.mjs --json   # 管理画面・他スクリプト向け
  *
- * 設定（.claude/config・.claude/knowledge・src/config の JSON）の写し、書き込み先（DERIVED_FILES）と registry の食い違い、
+ * 設定（config・.claude/config・.claude/knowledge・src/config の JSON）の写し、書き込み先（DERIVED_FILES）と registry の食い違い、
  * コードの資格 id（または別名）→ 日本語の対応表を 1 件でも見つけたら止める。判定は scripts/lib/qualification-ssot.mjs。
  * 検査した件数を必ず出し、0 件なら検査不成立（exit 1）にする（CLAUDE.md §9）。
  */

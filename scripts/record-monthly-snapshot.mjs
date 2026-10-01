@@ -14,7 +14,7 @@
  *   - 1 か月 1 行。追記のみで、既存行は上書きしない（`--force` で明示的に置換）
  *   - 2027 年に初めて前年同期比が成立する。それまでは試験日 × 売上曲線が判定手段
  *
- * 出力: .claude/state/metrics/monthly-snapshot.json
+ * 出力: data/metrics/monthly-snapshot.json
  *   { month, organicUsers, gscClicks, gscImpressions, salesYen, salesCount, examEvents[], sources{} }
  *
  * Usage:
@@ -34,7 +34,7 @@ import { fileURLToPath } from 'node:url';
 import { todayJst } from './lib/jst-date.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const OUT = join(ROOT, '.claude/state/metrics/monthly-snapshot.json');
+const OUT = join(ROOT, 'data/metrics/monthly-snapshot.json');
 const JSON_OUT = process.argv.includes('--json');
 const FORCE = process.argv.includes('--force');
 
@@ -73,7 +73,7 @@ function main() {
   let salesYen = null;
   let salesCount = null;
   try {
-    const sales = readJson(join(ROOT, '.claude/state/sales/sales-log.json')).sales ?? [];
+    const sales = readJson(join(ROOT, 'data/sales/sales-log.json')).sales ?? [];
     const inMonth = sales.filter((s) => String(s.date ?? '').startsWith(month));
     salesYen = inMonth.reduce((a, s) => a + (Number(s.price) || 0), 0);
     salesCount = inMonth.length;
@@ -86,7 +86,7 @@ function main() {
   //    値そのものより **どの窓を見た数字か** が後から効くので、期間もそのまま記録する。 ──
   // **ga4-sourceMedium-sns- は SNS 限定**（note/referral と x/social しか入っていない）ので
   // organic を数えると必ず 0 になる。チャネル別スナップショット（sessionDefaultChannelGroup）を使う。
-  const ga4File = latest('.claude/state/metrics/ga4', 'ga4-channel-organic-');
+  const ga4File = latest('data/metrics/ga4', 'ga4-channel-organic-');
   let organic = null;
   let ga4Window = null;
   if (ga4File) {
@@ -101,7 +101,7 @@ function main() {
 
   // gsc-query-*（query 次元）は匿名化クエリが落ちるため合計が過小になる（2026-08 実測: 28 日で 7 クリック）。
   // 日次合計（gsc-date-*・次元 date）は落ちないので、こちらを合計する。窓は 8 日なので sources に残す。
-  const gscFile = latest('.claude/state/metrics/gsc', 'gsc-date-') ?? latest('.claude/state/metrics/gsc', 'gsc-query-');
+  const gscFile = latest('data/metrics/gsc', 'gsc-date-') ?? latest('data/metrics/gsc', 'gsc-query-');
   let gscClicks = null;
   let gscImpr = null;
   let gscWindow = null;
@@ -115,9 +115,9 @@ function main() {
   // ── その月の試験イベント（季節性の説明変数。売上曲線と重ねて読む） ──
   const examEvents = [];
   try {
-    const cal = readJson(join(ROOT, '.claude/config/exam-calendar.json'));
+    const cal = readJson(join(ROOT, 'config/exam-calendar.json'));
     // 展開中の資格だけ（候補資格の日程も exam-calendar に蓄積しているが、売上の説明変数には混ぜない）
-    const active = new Set(activeIds(readJson(join(ROOT, '.claude/config/qualification-registry.json'))));
+    const active = new Set(activeIds(readJson(join(ROOT, 'config/qualification-registry.json'))));
     for (const [key, ex] of Object.entries(cal.exams ?? {})) {
       if (!active.has(key)) continue;
       for (const ev of Object.values(ex.events ?? {})) {

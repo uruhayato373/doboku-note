@@ -31,7 +31,7 @@ function runCheck({ state, record }) {
     for (const lib of ['video-content-check.mjs', 'content-lifecycle.mjs']) {
       cpSync(join(ROOT, 'scripts', 'lib', lib), join(root, 'scripts', 'lib', lib));
     }
-    cpSync(join(ROOT, '.claude', 'config', 'video-content.json'), join(root, '.claude', 'config', 'video-content.json'));
+    cpSync(join(ROOT, 'config', 'video-content.json'), join(root, 'config', 'video-content.json'));
     writeFileSync(join(root, '.claude', 'state', 'video-content-status.json'), JSON.stringify(state));
     if (record) {
       writeFileSync(join(root, '.claude', 'state', 'video-publication-verify.json'), JSON.stringify(record));

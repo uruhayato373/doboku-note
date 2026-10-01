@@ -24,7 +24,7 @@ test('uncoveredCategoryBooks: categoryAssign が空/欠如でも throw せず全
   assert.deepEqual(uncoveredCategoryBooks(['a-00'], {}), ['a-00'])
 })
 
-test('現行 .claude/config/kdp-memo.json: buildSpec 持ちの実カタログに未登録接頭辞が無い（回帰）', () => {
+test('現行 config/kdp-memo.json: buildSpec 持ちの実カタログに未登録接頭辞が無い（回帰）', () => {
   const defaults = getDefaults()
   // g-（コンクリート系）は 2026-08-28 に concrete track として登録済み。
   // h-（RCCM）は 2026-09-17 に gijutsushi track として登録済み。未登録の負例には実在しない接頭辞を使う。

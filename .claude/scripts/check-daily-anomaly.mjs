@@ -20,7 +20,7 @@
 import { readFileSync, readdirSync, writeFileSync, writeSync } from 'node:fs';
 import { join } from "node:path";
 
-const METRICS_DIR = ".claude/state/metrics/ga4";
+const METRICS_DIR = "data/metrics/ga4";
 
 function parseArgs() {
   const args = process.argv.slice(2);

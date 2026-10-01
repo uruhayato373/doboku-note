@@ -4,7 +4,7 @@
 
 試験日: **2026-11-22**
 
-<!-- 計画SSOT: .claude/config/x-campaigns/2026-10-pe-first-stage.json -->
+<!-- 計画SSOT: config/x-campaigns/2026-10-pe-first-stage.json -->
 
 ## Tweet 11: 10/11 08:25 pe-first-stage / 引っかけ集 / linkless
 

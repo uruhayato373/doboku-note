@@ -24,7 +24,7 @@
 import { readFileSync, existsSync } from "node:fs";
 import { buildPayload, classifyResponse, parseSitemap, selectRecentlyModified } from "./lib/indexnow.mjs";
 
-const CONFIG = ".claude/config/indexnow.json";
+const CONFIG = "config/indexnow.json";
 const args = process.argv.slice(2);
 const DRY = args.includes("--dry-run");
 const di = args.indexOf("--days");

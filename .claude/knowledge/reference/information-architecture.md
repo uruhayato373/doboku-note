@@ -8,13 +8,15 @@ doboku-note プロジェクトにおけるドキュメント・データの置�
 
 ## 配置モデル
 
-情報を**寿命と利用者**で 4 領域に分ける。
+情報を**寿命と利用者**で 6 領域に分ける（2026-10-02 に事業の正本 `config/` と記録 `data/` を `.claude/` から分離）。
 
 | 領域 | 場所 | 持つもの | 持たないもの |
 |---|---|---|---|
 | **Human Documentation** | `docs/` | 人が読む恒久的な戦略・設計・判断・完成仕様 | 担当・進捗・実装順序 |
 | **Publishable Content** | `content/` | 顧客へ届ける本文・画像・教材とその制作入力 | 戦略文書・タスク台帳 |
-| **Agent Operations** | `.claude/` | エージェントの運用能力・知識・状態・一時フロー | 公開する制作物 |
+| **Business Config** | `config/` | 事業・試験・商品の正本と、スクリプト・CI・サイトの設定（人が判断して変える値。2026-10-02 に `.claude/config` から分離） | 記録・エージェントの作業状態 |
+| **Business Data** | `data/` | 外から取ってきた・発生した事業の記録（売上・計測・市場・受注・実験。追記で増える事実。2026-10-02 に `.claude/state` から分離） | 設定・生成索引・作業状態 |
+| **Agent Operations** | `.claude/` | エージェントの運用能力・知識・作業状態・一時フロー | 公開する制作物・事業の正本と記録 |
 | **Application / Tooling** | `src/` / `tools/` / `scripts/` | 実装コードと管理ツール | 文書・制作物の実体 |
 
 `.claude/` の内訳:
@@ -25,7 +27,7 @@ doboku-note プロジェクトにおけるドキュメント・データの置�
 | Rules | `.claude/rules/` | パス条件付きの作業規約（`paths:` frontmatter 必須。該当ファイルを開いたときだけ Claude Code が読む。2026-09-08 に CLAUDE.md から分離） | md | — |
 | Flow | `.claude/plans/` | **一案件だけの実装契約**（完了後に削除する一時文書） | md | Admin `/plans` |
 | Task | `.claude/todo/` | 未完了タスクの 4 層（backlog / annual / monthly / weekly） | md | Admin `/todo` |
-| Runtime | `.claude/state/` / `.claude/config/` | 状態・機械設定 | JSON | Admin / 各機能 |
+| Runtime | `.claude/state/` / `.claude/config/` | エージェントの作業状態（品質サイクル・監査結果・ロールアウト進捗・生成索引）／エージェント運用と品質ゲートの基準・許可リスト、CI 書き込み・認証の許可リスト（`.claude/` の書き込み保護下に置く） | JSON | Admin / 各機能 |
 | Capability | `.claude/skills/` / `.claude/agents/` | Claude の実行能力 | md + scripts | Admin `/skills`, `/agents` |
 
 `.claude/knowledge/` の Markdown/JSON がSSOTであり、Adminは読み取り専用の人向けHTMLビューである。HTMLを別ファイルとして保存せず、二重管理を作らない。
@@ -98,7 +100,7 @@ content/
    反復する運用サイクル→weekly の定常運用節（surfacer から pull）・カードにしない ／
    コンテンツ制作企画→企画SSOT（`noteコンテンツ計画.md` / `content/kindle/strategy.md` 等）／
    それ以外の単発（不具合・改善・意思決定・計測）→ `.claude/todo/backlog.md`（ID は `DN-####`）
-6. **機械が読む状態・設定か** → `.claude/state/` / `.claude/config/`
+6. **機械が読む設定・記録・状態か** → 事業・試験・商品の正本やツールの設定は `config/`／売上・計測・受注など事業の記録は `data/`／エージェントの作業状態・生成索引は `.claude/state/`／品質ゲートの基準・許可リストと CI 書き込み・認証の許可リストは `.claude/config/`（迷ったら「エージェントがいなくても事業として残すべきか」で分ける。残すべきなら `config/`・`data/`）
 7. 上記いずれでもない一時メモは作らない（`.tmp/` 配下のみ）
 8. **Git の外へ出すバイナリか**（画像・PDF・レンダー・原本）→ **誰が使うかで決める**: サイトが配信→public R2 ／
    GitHub Actions が読み書き→private R2 ／ 人か手元のスクリプトだけ→Google Drive vault
@@ -132,7 +134,7 @@ content/
 ## 判断フロー
 
 1. 実行タスク・計画 → `.claude/todo/`（backlog / annual / monthly / weekly）。**人が直接開くのは編集時のみで、閲覧は admin `/todo`**
-2. 状態・設定として CI・エージェントが programmatic に読む → `.claude/state/` / `.claude/config/`（JSON）
+2. 機械が読む JSON → 正本・設定は `config/`、事業の記録は `data/`、エージェントの作業状態は `.claude/state/`、品質ゲートの基準・許可リストは `.claude/config/`（パスの定数は `scripts/lib/repository-paths.mjs`）
 3. エージェント間で継続参照する知識・判断・手順 → `.claude/knowledge/`
    - 毎ターン要る判断の土台だけ → `CLAUDE.md`（150 行上限・`npm run check-claude-md-size`）／特定領域のファイルを触るときだけ要る規約 → `.claude/rules/*.md`（`paths:` 必須）／作業時に都度読む手順・台帳 → `.claude/knowledge/reference/`（索引は同 README.md）
 4. Claude Code の能力定義 → `.claude/skills/` / `.claude/agents/`
@@ -243,8 +245,8 @@ content/
   content/          # エージェント管理の非公開チャネル原稿・運用SSOT
   skills/           # 実行能力
   agents/           # 実行能力
-  state/            # 状態（JSON のみ）
-  config/           # 機械設定（JSON のみ）
+  state/            # エージェントの作業状態（JSON のみ。事業の記録は data/）
+  config/           # 品質ゲートの基準・許可リスト／CI 書き込み・認証の許可リスト（正本・設定は config/）
   settings.json     # Claude Code の hooks・許可（hook の実体は scripts/hooks/agent-hook.mjs。.codex/hooks.json は sync-codex-compat が生成）
   commands/         # カスタムコマンド
   plans/            # 実装プラン（一時）

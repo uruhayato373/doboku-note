@@ -348,12 +348,12 @@ YouTube からは note 商品ページへ概要欄でリンクするだけ。受
 
 ### 実際のアカウント（2026-07 現在）
 
-> 当初は全チャネルを `@doboku_note` で統一する計画だったが、実際には空き名・凍結事故で分岐した。**ハンドルの真実源は各チャネルの機械可読 config**（IG は `.claude/config/ig-account.json`）。以下は実態。
+> 当初は全チャネルを `@doboku_note` で統一する計画だったが、実際には空き名・凍結事故で分岐した。**ハンドルの真実源は各チャネルの機械可読 config**（IG は `config/ig-account.json`）。以下は実態。
 
 - **X**: `@doboku373`（現行）。旧 `@dobokunotecom` は 2026-06-12 凍結のまま隔離（`content/sns/x/_archive-dobokunotecom/`）→ §凍結縮退・`x-post-policy.md` §11
   - プロフィール: 「1級土木施工管理技士・技術士総合技術監理の無料過去問解説サイト運営」
   - 固定ポスト: サイトトップ + 人気過去問1問
-- **Instagram**: `@dobokunotecom`（真実源 `.claude/config/ig-account.json`）
+- **Instagram**: `@dobokunotecom`（真実源 `config/ig-account.json`）
   - bio リンク: `/links` リンクハブ（過去問・キーワード・note へ複数導線）→ `.claude/knowledge/reference/links-hub.md`
 - **YouTube**: ブランドアカウント（OAuth トークン取得済・`post-youtube-scheduled.yml` の secrets で CI 投稿）
 
@@ -363,7 +363,7 @@ YouTube からは note 商品ページへ概要欄でリンクするだけ。受
 
 ### Q2（2026年4-6月）: 共通基盤整備【完了・履歴】
 
-YouTube・Instagram のアカウントと OAuth、SNS 共通基盤（`.claude/scripts/lib/sns-common/`）、UTM テンプレート（`.claude/config/utm-templates.json`）、YouTube Shorts MVP、GitHub Actions のスケジューラを整えた。本番投稿はせず、品質確認だけを行った。X は当初「主力」想定だったが 6/12 凍結で縮退し（§凍結）、現行の X 運用は `x-post-policy.md` §11 が真実源。アカウントは X `@doboku373`（旧 @dobokunotecom 凍結）・IG `@dobokunotecom` で確定（§3）。当初計画の Red Line 検査（`check-content-redline`）は実装していない。
+YouTube・Instagram のアカウントと OAuth、SNS 共通基盤（`.claude/scripts/lib/sns-common/`）、UTM テンプレート（`config/utm-templates.json`）、YouTube Shorts MVP、GitHub Actions のスケジューラを整えた。本番投稿はせず、品質確認だけを行った。X は当初「主力」想定だったが 6/12 凍結で縮退し（§凍結）、現行の X 運用は `x-post-policy.md` §11 が真実源。アカウントは X `@doboku373`（旧 @dobokunotecom 凍結）・IG `@dobokunotecom` で確定（§3）。当初計画の Red Line 検査（`check-content-redline`）は実装していない。
 
 ### Q3（2026年7-9月）: ★Instagram 一次制作 + YouTube 派生稼働（v7）
 

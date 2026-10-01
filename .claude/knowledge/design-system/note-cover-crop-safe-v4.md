@@ -111,7 +111,7 @@ cover:
 `visualPrompt`は画像生成の指示元、`visualAsset`は生成済み素材の相対パス。公開画像へ文字として描画しない。
 
 > [!important]
-> **背景は資格別ブランド写真プールへ統一（2026-07-24 決定）**。V4 の既定背景は `visualAsset` ではなく、サイト OGP と共有する `.claude/config/ogp/backgrounds/<exam-key>.png`（brand-image-system.md §3 の wide 原版）を generator が自動で敷く＝**サイトと note の視覚言語を統一**する。`visualPrompt`/`visualAsset` は「記事固有モチーフでの個別上書き」の opt-in として仕様に残すが、パイロットでは不使用（Codex 個別素材6枚は撤去・manifest は superseded 記録）。プールに無い資格は決定論的背景（紙面グラデ＋グリッド）へフォールバック。
+> **背景は資格別ブランド写真プールへ統一（2026-07-24 決定）**。V4 の既定背景は `visualAsset` ではなく、サイト OGP と共有する `config/ogp/backgrounds/<exam-key>.png`（brand-image-system.md §3 の wide 原版）を generator が自動で敷く＝**サイトと note の視覚言語を統一**する。`visualPrompt`/`visualAsset` は「記事固有モチーフでの個別上書き」の opt-in として仕様に残すが、パイロットでは不使用（Codex 個別素材6枚は撤去・manifest は superseded 記録）。プールに無い資格は決定論的背景（紙面グラデ＋グリッド）へフォールバック。
 
 ### 5.3 レイアウト
 
@@ -339,7 +339,7 @@ Evaluatorは生成担当と分離する。
 ## 14. 一括移行
 
 > [!done]
-> **2026-07-24 全量移行実施**：全 715 記事（＋パイロット4）を V4 化（G2 残 0）。inventory=`.claude/state/note-cover-v4-rollout.json`（機械draft 387＋agent執筆 328・全件 v4FitIssues PASS）。マガジン 46 は V4 フィールドを **`.claude/config/note-cover-magazine-v4.json`（一元マップ）** に集約し `generate-magazine-covers.mjs` が id マージで V4 レンダ。ライブ反映は 667 件を優先順 27 チャンク（`.claude/state/note-cover-v4-live-progress.json`・再開可能）で `note-update-cover --commit` 実行。
+> **2026-07-24 全量移行実施**：全 715 記事（＋パイロット4）を V4 化（G2 残 0）。inventory=`.claude/state/note-cover-v4-rollout.json`（機械draft 387＋agent執筆 328・全件 v4FitIssues PASS）。マガジン 46 は V4 フィールドを **`config/note-cover-magazine-v4.json`（一元マップ）** に集約し `generate-magazine-covers.mjs` が id マージで V4 レンダ。ライブ反映は 667 件を優先順 27 チャンク（`.claude/state/note-cover-v4-live-progress.json`・再開可能）で `note-update-cover --commit` 実行。
 
 パイロット合格後に全件inventoryを作る。
 

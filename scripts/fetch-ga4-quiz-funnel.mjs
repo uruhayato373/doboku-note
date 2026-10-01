@@ -9,7 +9,7 @@ import { QUIZ_FUNNEL_EVENT_NAMES } from './lib/quiz-premium-funnel.mjs';
 
 dotenv.config({ path: '.env.local' });
 
-const OUTPUT_DIR = '.claude/state/metrics/ga4';
+const OUTPUT_DIR = 'data/metrics/ga4';
 const PAGE_PATH = '/tools/kakomon-quiz';
 const argv = process.argv.slice(2);
 const value = (flag, fallback) => {

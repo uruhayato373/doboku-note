@@ -25,7 +25,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const CHAR_DIR = join(ROOT, 'content/sns/_assets/character');
 const OUT_DIR = join(CHAR_DIR, 'icons');
-const POSES = require(join(ROOT, '.claude/config/character-poses.json')).poses;
+const POSES = require(join(ROOT, 'config/character-poses.json')).poses;
 
 const MASTER = 800;
 const SIZES = [800, 400, 180];

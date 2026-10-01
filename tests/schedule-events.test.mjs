@@ -53,7 +53,7 @@ test('mapExamCalendar: 過去の試験日でも status は planned のまま（�
       },
     },
   };
-  const { events, skipped } = mapExamCalendar(json, '.claude/config/exam-calendar.json');
+  const { events, skipped } = mapExamCalendar(json, 'config/exam-calendar.json');
   assert.equal(events.length, 1);
   assert.equal(events[0].status, 'planned');
   assert.equal(events[0].channel, 'exam');
@@ -67,9 +67,9 @@ test('mapExamCalendar: onlyExamIds を渡すと展開中の資格だけを出す
       candidate: { label: 'C', events: { exam: { label: '試験', date: '2026-11-23' } } },
     },
   };
-  const { events } = mapExamCalendar(json, '.claude/config/exam-calendar.json', new Set(['active']));
+  const { events } = mapExamCalendar(json, 'config/exam-calendar.json', new Set(['active']));
   assert.deepEqual(events.map((e) => e.ref), ['active/exam']);
-  assert.equal(mapExamCalendar(json, '.claude/config/exam-calendar.json').events.length, 2);
+  assert.equal(mapExamCalendar(json, 'config/exam-calendar.json').events.length, 2);
 });
 
 test('mapExamCalendar: 不正な日付形式の event はスキップして skipped に計上する', () => {
@@ -87,7 +87,7 @@ test('mapExamCalendar: 不正な日付形式の event はスキップして skip
 
 test('mapXCampaign: posts[] を plan-slot イベントへ写像する', () => {
   const json = { posts: [{ date: '2026-09-01', time: '07:15', slot: 'A', exam: 'civil-1', type: '共感フック', funnel: 'linkless' }] };
-  const [ev] = mapXCampaign(json, '.claude/config/x-campaigns/2026-09-civil.json');
+  const [ev] = mapXCampaign(json, 'config/x-campaigns/2026-09-civil.json');
   assert.equal(ev.date, '2026-09-01');
   assert.equal(ev.time, '07:15');
   assert.equal(ev.kind, 'plan-slot');

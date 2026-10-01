@@ -1,8 +1,9 @@
 /**
- * check-information-architecture.mjs — 4 領域モデルへの逆戻りを機械で止める。
+ * check-information-architecture.mjs — 置き場のモデル（docs/content/config/data/.claude/実装）への逆戻りを機械で止める。
  *
  * 背景: 2026-08-18 に docs/ と content/ を分離した（docs=人が読む恒久判断 /
  *   content=顧客へ届ける制作物と入力 / .claude=エージェント運用 / src・tools・scripts=実装）。
+ *   2026-10-02 に事業の正本（config/）と記録（data/）を .claude/ から分離し、旧パスを forbiddenRoots・stalePathLiterals に登録した。
  *   この分離は**規約だけでは戻る**。実際に移行中も「docs に article.md が生える」
  *   「content に TODO 台帳が生える」形の逆戻りが起きうる配置だった。
  *

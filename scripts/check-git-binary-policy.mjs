@@ -23,7 +23,7 @@
 //
 // exit 0 = 増加なし / exit 1 = 増加あり or 検査不成立
 //
-// 設定: .claude/config/git-binary-policy.json
+// 設定: config/git-binary-policy.json
 // baseline: .claude/state/quality/git-binary-baseline.json
 // 真実源カード: .claude/todo/backlog.md の DN-0111
 
@@ -33,7 +33,7 @@ import { join, dirname, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const POLICY_PATH = join(ROOT, '.claude/config/git-binary-policy.json');
+const POLICY_PATH = join(ROOT, 'config/git-binary-policy.json');
 const BASELINE_PATH = join(ROOT, '.claude/state/quality/git-binary-baseline.json');
 
 const MiB = 1048576;

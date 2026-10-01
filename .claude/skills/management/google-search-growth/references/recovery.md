@@ -44,7 +44,7 @@ run 全体の status は **ユニットの完全性**で決まる（例外の有
 
 ## 3. selector を更新する（優先順位）
 
-`.claude/config/google-console-automation.json` の各ラベル配列（`issueLabels` / `exportButtonLabels`
+`config/google-console-automation.json` の各ラベル配列（`issueLabels` / `exportButtonLabels`
 / `csvMenuLabels` / `scopes`）に、`visible-text.txt` から拾った**現行の可視ラベル**（ja/en）を追加する。
 selector 実装（`scripts/lib/google-console-browser.mjs` の `findUniqueByLabels`）は role → text の順で
 一意な要素だけを返す。**config のラベル追加で対応できることが多い**（コード変更を先にしない）。

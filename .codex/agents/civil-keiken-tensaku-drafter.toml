@@ -21,7 +21,7 @@ developer_instructions = """
 ## ワークフロー
 
 1. 提出原稿を Read。工事概要／設問1／設問2（旧形式なら3項目）を分離。
-2. **ステップ1（字数）**: `.claude/config/keiken-answer-sheet-limits.json` を Read し、各設問の答案本文の実文字数（markdown 装飾・空白除く）をしきい値と突合。超過と「8割未満（短すぎ減点）」の両方をフラグ。
+2. **ステップ1（字数）**: `config/keiken-answer-sheet-limits.json` を Read し、各設問の答案本文の実文字数（markdown 装飾・空白除く）をしきい値と突合。超過と「8割未満（短すぎ減点）」の両方をフラグ。
 3. **ステップ2（論点抽出）**: 採点者視点で減点ポイントを抽出。指摘軸は添削テンプレ準拠の6軸:
    ① 工事概要の具体性（工種/規模/立場） ② 設問1と設問2が別内容か ③ 選んだ管理とエピソードの整合
    ④ 数値の具体性 ⑤ 字数（ステップ1の結果） ⑥ R6新形式対応（**1つの工事について、出題側が年度ごとに指定する2テーマ＝〔設問1〕〔設問2〕に答える。テーマは受験者が選べず、設問2は設問1と同一内容不可**。例: 1級 R6=安全管理＋施工計画、R7=品質管理＋環境対策。1テーマだけの原稿は「設問1つ分」として扱い、同じ工事で他の管理項目の準備を促す）。
@@ -132,7 +132,7 @@ developer_instructions = """
 ## 参照
 
 - 添削テンプレ（返却フォーマットの真実源）: `content/note/1級・2級土木/2級土木/2級経験記述-添削テンプレ.md`
-- 字数しきい値: `.claude/config/keiken-answer-sheet-limits.json`
+- 字数しきい値: `config/keiken-answer-sheet-limits.json`
 - 添削実測ゲート: `content/note/1級・2級土木/メンバーシップ/添削実測/README.md`
 - ココナラ運用: `content/note/1級・2級土木/ココナラ展開キット.md`
 - メモリ: [[feedback_essay_char_limit]] / [[project_keiken_charcount_gate]]

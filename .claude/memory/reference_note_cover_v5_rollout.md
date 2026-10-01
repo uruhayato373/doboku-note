@@ -28,7 +28,7 @@ metadata:
 関連: [[reference_note_cover_v5_rollout]] [[reference_note_status_reconciler]]
 
 ## 2026-09-19 完走時の追記
-- 公開反映 856/858・マガジン 65/65 で完了（記録 `.claude/state/note/cover-rollout/2026-09-17.json` status: done）。PR #516 は develop 着地・deploy 済み
+- 公開反映 856/858・マガジン 65/65 で完了（記録 `data/note/cover-rollout/2026-09-17.json` status: done）。PR #516 は develop 着地・deploy 済み
 - **マガジン内の ¥100 記事**（総監記述式 序章 2 本）は editor に有料エリア設定が無く `note-update-cover` が「更新する」を見つけられず CLI は fail になるが、editor はカバーを「更新する」前に live へ書くので **API の eyecatch 変化＋price/status 不変で完了と判定**する
 - 数時間の runner は Claude Code セッションと運命を共にする → `launchctl submit`（[[reference_background_jobs_die_with_session]]）。ただし submit ジョブは終了後に**自動再起動**するので、完了を確認したら即 `launchctl remove`（2 周目が走り W8 収録が二重実行される寸前だった）
 - 保留 12（予約 7・下書き 3・noteId 無し 2）は公開後に差し替え＝DN-0256

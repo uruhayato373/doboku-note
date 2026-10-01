@@ -26,7 +26,7 @@ import { leanContextOptions } from "./playwright-launch.mjs";
 import { attachCISession } from "./playwright-auth-state.mjs";
 
 const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
-export const CONFIG_PATH = ".claude/config/google-console-automation.json";
+export const CONFIG_PATH = "config/google-console-automation.json";
 
 export function loadConfig() {
   const raw = readFileSync(CONFIG_PATH, "utf-8");

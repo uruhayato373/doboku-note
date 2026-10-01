@@ -2,7 +2,7 @@
  * quality-progress.mjs — 総監キーワードページ（cem プロファイル）の品質サイクル進捗を組み立てる唯一の実装。
  * ---------------------------------------------------------------------------
  * 入力: .claude/state/quality-scores.json（5 軸スコア）・quality-cycle-state.json（status / history）・
- *       keyword-summaries.json（題名）・.claude/state/metrics/gsc/gsc-page-*.json の最新（順位・表示・クリック）。
+ *       keyword-summaries.json（題名）・data/metrics/gsc/gsc-page-*.json の最新（順位・表示・クリック）。
  * 読み手: 管理画面 管理 ＞ 品質概観 ＞ 品質サイクル進捗（/quality/progress）。
  * 旧 docs/editorial/05_品質サイクル進捗.md（build-progress-md.mjs が md へ書き出していた）を 2026-09-27 に置き換えた。
  * ---------------------------------------------------------------------------
@@ -99,7 +99,8 @@ export function loadQualityProgress(root) {
   const scores = loadJson(p('quality-scores.json'));
   const state = loadJson(p('quality-cycle-state.json'));
   const summaries = existsSync(p('keyword-summaries.json')) ? loadJson(p('keyword-summaries.json')) : { keywords: {} };
-  const gsc = existsSync(p('metrics/gsc')) ? loadLatestGscPage(p('metrics/gsc')) : { rows: [], file: null };
+  const gscDir = join(root, 'data/metrics/gsc'); // 計測の記録は data/（品質サイクルの状態は .claude/state）
+  const gsc = existsSync(gscDir) ? loadLatestGscPage(gscDir) : { rows: [], file: null };
   const rows = buildRows({ scores, state, summaries, gsc });
   return { present: true, rows, summary: summarize(rows), gscFile: gsc.file, scoresAt: scores.scored_at ?? null };
 }

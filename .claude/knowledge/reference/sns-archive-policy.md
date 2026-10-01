@@ -63,7 +63,7 @@ Drive へ二重保存しない。
 
 ## 退避と取り戻し（共通基盤 `drive-vault-sync`）
 
-group は `.claude/config/drive-vault.json` の `sns-archived-media`（`^content/sns/(instagram|youtube)/.+\.(wav|mp4|m4a)$`・vault `制作物/SNS音声動画/` に `content/sns/` 相対で置く）。台帳は `drive-manifest.json`。
+group は `config/drive-vault.json` の `sns-archived-media`（`^content/sns/(instagram|youtube)/.+\.(wav|mp4|m4a)$`・vault `制作物/SNS音声動画/` に `content/sns/` 相対で置く）。台帳は `drive-manifest.json`。
 
 ```bash
 npm run drive-vault-sync -- --group sns-archived-media                                  # dry-run（対象と容量）

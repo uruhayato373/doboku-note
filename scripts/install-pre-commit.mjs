@@ -186,7 +186,7 @@ if [ -z "$SKIP_REFERENCE_SOURCES" ]; then
   fi
 fi
 
-# 4 領域モデル（docs/content/.claude/実装）への逆戻り検知。廃止した置き場への新規ファイル・
+# 置き場のモデル（docs/content/config/data/.claude/実装）への逆戻り検知。廃止した置き場への新規ファイル・
 # docs への制作物混入・content への台帳混入。SKIP_INFORMATION_ARCHITECTURE=1 で回避
 node scripts/check-information-architecture.mjs --staged
 if [ $? -ne 0 ]; then

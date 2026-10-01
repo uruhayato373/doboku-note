@@ -1,7 +1,7 @@
 ---
 title: X プロフィール固定投稿
 purpose: Xプロフィールから来た受験者へ提供価値と主要導線を伝える固定投稿の本文。
-accountSsot: .claude/config/x-account.json
+accountSsot: config/x-account.json
 status: posted-awaiting-pin
 liveUrl: https://x.com/doboku373/status/2090694451857686650
 publishedAt: 2026-08-21T15:56:18+09:00
@@ -10,7 +10,7 @@ sourceDraft: content/sns/x/draft/093-profile-qualification-tree/tweets.md
 
 # X プロフィール固定投稿
 
-アカウントの表示名・bio・URLは `.claude/config/x-account.json` がSSOT。
+アカウントの表示名・bio・URLは `config/x-account.json` がSSOT。
 2026-08-21 に画像付き5部スレッドとして公開済み。本文・画像・投稿状態の正本は
 `content/sns/x/draft/093-profile-qualification-tree/` を参照する。
 

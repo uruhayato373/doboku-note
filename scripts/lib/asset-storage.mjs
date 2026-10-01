@@ -2,7 +2,7 @@
  * asset-storage.mjs — Git の外へ出すアセットの共通基盤（DN-0111 Phase 3）。
  *
  * asset-offload / asset-hydrate / check-asset-storage の 3 本が共有する。
- * 設定の真実源は .claude/config/asset-storage.json、台帳は .claude/state/assets/manifest.json。
+ * 設定の真実源は config/asset-storage.json、台帳は .claude/state/assets/manifest.json。
  *
  * 設計の芯は 3 つ:
  *   1. **確認できないものは消さない。** upload 後に bytes と sha256 を R2 側から読み直して
@@ -15,7 +15,7 @@
  *
  * **軽量形（lean format・2026-08-29〜）**: logicalPath（entries のキーと重複）・mime（拡張子から
  * 導出可能）・generator / requiredBy（group 定義の定数）は冗長なので新規エントリには書かない。
- * loadManifest はこれらが欠けているエントリを読んだとき、キーと .claude/config/asset-storage.json
+ * loadManifest はこれらが欠けているエントリを読んだとき、キーと config/asset-storage.json
  * の group 定義から動的に補って、旧形式のエントリと同じ内部表現にする（read-time compat layer）。
  * ただし旧形式のエントリが既に明示の値を持っているときは触らない——過去の config 変更で
  * group 定義とずれた値（drift）を上書きして「無かったことにする」のは事故のもとなので、
@@ -31,7 +31,7 @@ import { closeSync, createReadStream, existsSync, mkdirSync, openSync, readdirSy
 import { dirname, join, sep } from 'node:path';
 import { REPO_ROOT } from './repository-paths.mjs';
 
-export const CONFIG_PATH = join(REPO_ROOT, '.claude/config/asset-storage.json');
+export const CONFIG_PATH = join(REPO_ROOT, 'config/asset-storage.json');
 export const MANIFEST_PATH = join(REPO_ROOT, '.claude/state/assets/manifest.json');
 
 /** R2 のキーは常に '/' 区切り。Windows の path.sep が '\\' なので正規化する。 */

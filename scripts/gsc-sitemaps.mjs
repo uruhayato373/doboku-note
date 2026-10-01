@@ -13,7 +13,7 @@
  * CLI:
  *   node scripts/gsc-sitemaps.mjs            # 状況の取得だけ（sitemaps.list）
  *   node scripts/gsc-sitemaps.mjs --submit   # robots.txt の sitemap を送信してから取得
- * 出力: .claude/state/metrics/gsc/sitemaps-latest.json
+ * 出力: data/metrics/gsc/sitemaps-latest.json
  * exit: 0 = 取得できた・送信も成功 / 1 = 取得はできたが送信に失敗あり / 2 = 検査不成立（鍵・robots.txt・list が失敗）
  * ---------------------------------------------------------------------------
  */

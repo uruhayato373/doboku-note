@@ -1,4 +1,4 @@
-// prune-state-snapshots（純粋ロジック）— `.claude/state/metrics/**` と `.claude/state/weekly-metrics/` に
+// prune-state-snapshots（純粋ロジック）— `data/metrics/**` と `data/weekly-metrics/` に
 // CI が積む日付付き snapshot の寿命表と、削除計画の算出。I/O を持たない（読み手は scripts/prune-state-snapshots.mjs）。
 //
 // 守りたい事故: 2026-09-14 時点で日付付き snapshot が 704 件（psi 299 / ga4 222 / gsc 110 …）git に無期限蓄積し、
@@ -9,16 +9,18 @@
 // `metrics/gsc/rank-watch/**`（check-seo-rank-watch「Rank history is immutable」）。plan() はこれらを delete に
 // 入れない（tests/prune-state-snapshots.test.mjs が assert する）。
 //
-// pin（名前で参照されるので消せない）: `.claude/config/seo-watchwords.json` の `evidence.source`、business 台帳が
+// pin（名前で参照されるので消せない）: `config/seo-watchwords.json` の `evidence.source`、business 台帳が
 // `sources[]` で指す metrics パス。CLI が集めて `pins` に渡す。
+
+import { resolveMovedPath } from './repository-paths.mjs';
 
 const TS_FULL = /(\d{4})-(\d{2})-(\d{2})T(\d{2})-(\d{2})-(\d{2})/;
 const TS_DATE = /(\d{4})-(\d{2})-(\d{2})/;
 const TS_COMPACT = /(\d{4})(\d{2})(\d{2})_\d{8}/;
 const TS_WEEK = /(\d{4})-W(\d{2})/;
 
-export const METRICS_ROOT = '.claude/state/metrics';
-export const WEEKLY_ROOT = '.claude/state/weekly-metrics';
+export const METRICS_ROOT = 'data/metrics';
+export const WEEKLY_ROOT = 'data/weekly-metrics';
 export const SCAN_ROOTS = [METRICS_ROOT, WEEKLY_ROOT];
 
 /** 削除計画から常に除外する dir（台帳・不変履歴）。末尾 `/` 無しで書き、prefix 一致で判定する */
@@ -71,7 +73,8 @@ export const POLICIES = [
 
 export const FAMILIES = [...new Set(POLICIES.map((p) => p.family))];
 
-const norm = (p) => p.replace(/\\/g, '/').replace(/^\.\//, '');
+// 台帳の記録は旧パス（.claude/state/metrics/…）のまま残しているので、新しい位置へ読み替えてから比べる
+const norm = (p) => resolveMovedPath(p.replace(/\\/g, '/').replace(/^\.\//, ''));
 const dirOf = (p) => p.slice(0, p.lastIndexOf('/'));
 const baseOf = (p) => p.slice(p.lastIndexOf('/') + 1);
 
@@ -246,7 +249,8 @@ export function collectPins({ watchwords = null, businessDocs = [] } = {}) {
   for (const w of watchwords?.watchwords || []) {
     if (w?.evidence?.kind === 'gsc' && typeof w.evidence.source === 'string') pins.add(norm(w.evidence.source));
   }
-  const re = /\.claude\/state\/(?:metrics|weekly-metrics)\/[A-Za-z0-9_./-]+/g;
+  // 新しいパス（data/…）と、台帳に残る旧パス（.claude/state/…）の両方を拾う
+  const re = /(?<![A-Za-z0-9_.-])(?:data|\.claude\/state)\/(?:metrics|weekly-metrics)\/[A-Za-z0-9_./-]+/g;
   for (const text of businessDocs) for (const m of String(text).matchAll(re)) pins.add(norm(m[0]));
   return pins;
 }

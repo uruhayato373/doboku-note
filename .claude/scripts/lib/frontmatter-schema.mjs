@@ -47,7 +47,7 @@ export const FrontmatterSchema = z
     // gray-matter が YAML の ISO 日付を Date として自動パースするため union で許容
     publishedAt: z.union([z.string(), z.date()]).optional(),
     reviewStatus: ReviewStatus.optional(),
-    // 参考文献台帳（.claude/config/reference-sources.json）の id。自由記述の書名は不可。
+    // 参考文献台帳（config/reference-sources.json）の id。自由記述の書名は不可。
     // 逐語・図・公開可否と出典粒度は reference-sources-policy.md を真実源とする。
     // 条番号等の detail は `source-id#第240条` のように末尾へ付与できる。
     sources: z.array(z.string()).optional(),

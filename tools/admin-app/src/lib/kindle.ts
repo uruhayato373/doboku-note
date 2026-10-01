@@ -19,7 +19,7 @@ import {
  * kindle.ts — `/content/kindle`（read-only）の表示モデル。
  *
  * 判定ロジックは `scripts/lib/kindle-catalog.mjs` にすべて置き、ここでは表示用に
- * 整形するだけ。`.claude/config/kdp-memo.json`（accountEmail 等の秘密混じり）は
+ * 整形するだけ。`config/kdp-memo.json`（accountEmail 等の秘密混じり）は
  * 読まない・表示しない。git log は read-only（`git log --name-only`）のみ実行する。
  */
 

@@ -43,8 +43,8 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
 
 const LOG_PATH = ".claude/knowledge/reference/gsc-management.md";
-const BATCH_DIR = ".claude/state/metrics/url-inspection";
-const GSC_DIR = ".claude/state/metrics/gsc";
+const BATCH_DIR = "data/metrics/url-inspection";
+const GSC_DIR = "data/metrics/gsc";
 const ROUTINE = "doboku-note GSC auto review（クラウドルーティン・金 12:00 JST）";
 /** ログが肥大化したら年次アーカイブを促す観測点（無限成長の早期警戒）。 */
 const BLOAT_LINES = 800;

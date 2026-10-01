@@ -80,7 +80,7 @@
  *   7-3 MEDIUM 装飾絵文字（💡🔑📌⚠️等。❌✅⭕★↔ 等の過去問/強調記号は対象外。7-1/7-2 は太字ルール）
  *  10-6 MEDIUM 画像 alt が空 or 一般語（画像/写真/図/image 等。80字超は 10-3 が担当）
  *
- * ルールの重大度・資格×種別の有効/無効は `.claude/config/content-rules.json` が SSOT。
+ * ルールの重大度・資格×種別の有効/無効は `config/content-rules.json` が SSOT。
  * config 不在/破損時は各ルール function 内のハードコード severity へフォールバックする。
  */
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, statSync, existsSync } from 'node:fs';
@@ -91,13 +91,13 @@ import { lintMdxHygiene } from '#lib/mdx-hygiene-rules.mjs';
 
 const CELL_MAX = 15;
 
-// ── ルール設定（.claude/config/content-rules.json）────────────────────────────
+// ── ルール設定（config/content-rules.json）────────────────────────────
 // 重大度・資格×種別の有効/無効を外部化した SSOT。不在/破損時はスクリプト内
 // ハードコード値（各ルール function が push する severity）へフォールバックする。
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 
 function loadContentRules() {
-  const p = resolve(REPO_ROOT, '.claude/config/content-rules.json');
+  const p = resolve(REPO_ROOT, 'config/content-rules.json');
   if (!existsSync(p)) return null;
   try {
     return JSON.parse(readFileSync(p, 'utf8'));

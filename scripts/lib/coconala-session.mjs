@@ -28,7 +28,7 @@ export const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 // 遅延解決: import 時に resolver を呼ぶと、ブラウザを開かないオフライン検査（check-coconala-blog 等・CI の
 // quality-audit）まで CI 判定で落ちる（2026-09-21 PR #549）。profile が要るのは launch の瞬間だけ。
 export const profileDir = () => resolveProfileDir('coconala', { cwd: ROOT, repoRoot: ROOT });
-export const ACCOUNT_PATH = join(ROOT, '.claude/config/coconala-account.json');
+export const ACCOUNT_PATH = join(ROOT, 'config/coconala-account.json');
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 
 export const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -44,11 +44,11 @@ export function readAccount() {
 
 export { CATALOG_PATH, LISTINGS_PATH } from './coconala-catalog.mjs';
 import { CATALOG_PATH } from './coconala-catalog.mjs';
-export const ASSETS_DIR = join(ROOT, '.claude/config/coconala/assets');
+export const ASSETS_DIR = join(ROOT, 'content/coconala/assets');
 
 /**
  * --image の値を絶対パスへ解決する。bare 名（スラッシュ無し）は商品画像の既定ディレクトリ
- * `.claude/config/coconala/assets/` に解決する（過去に cwd 相対で ENOENT → 下書き作成後に
+ * `content/coconala/assets/` に解決する（過去に cwd 相対で ENOENT → 下書き作成後に
  * クラッシュ → orphan draft が残る事故があったため。2026-07-18）。
  * @returns {{ok:boolean, abs?:string, reason?:string}}
  */

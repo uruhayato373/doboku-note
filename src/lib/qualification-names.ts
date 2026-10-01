@@ -1,11 +1,11 @@
 /**
  * 資格の名前と並び ── サイト（Next.js）向けラッパー。
  *
- * 正本は .claude/config/qualification-registry.json、引き方の実装は scripts/lib/qualification-names.mjs
+ * 正本は config/qualification-registry.json、引き方の実装は scripts/lib/qualification-names.mjs
  * （スクリプト・管理画面と同じ関数）。サイトのコードに資格名を直書きせず、ここから引く
  * （npm run check-qualification-ssot が直書きを止める）。
  */
-import registry from '../../.claude/config/qualification-registry.json';
+import registry from '../../config/qualification-registry.json';
 import {
   qualificationLabel as labelOf,
   qualificationShortLabel as shortOf,

@@ -1,21 +1,24 @@
-# .claude/state/ — エージェント・スキルが生成する mutable 状態
+# .claude/state/ — エージェント・スキルの作業状態
 
-`.claude/` 配下の他ディレクトリ（`agents/`・`skills/`・`config/`）が **declarative**（人間が定義する固定内容）であるのに対し、このディレクトリは **mutable**（スキル・エージェントが実行中に読み書きする状態）を扱う。
+`.claude/` 配下の他ディレクトリ（`agents/`・`skills/`・`config/`）が **declarative**（人間が定義する固定内容）であるのに対し、このディレクトリは **mutable**（スキル・エージェントが実行中に読み書きする作業状態）を扱う。
 
-## 情報蓄積ルール（4 ゾーンモデル）
+**事業の記録はここに置かない**（2026-10-02 に分離）。売上・計測（GA4/GSC/PSI 等）・市場/競合スキャン・ココナラ受注・note のライブスナップショット・実験台帳など「エージェントがいなくても事業として残すべき事実」は `data/`、事業・試験・商品の正本とツールの設定は `config/` に置く。
 
-本ディレクトリは **Zone C: 機械可読データ**。CI 出力・監査結果・サイクル状態を JSON で持つ。
+## 置き場の分け方
 
-| Zone | 置き場 | 用途 |
+| 置き場 | 持つもの | 例 |
 |---|---|---|
-| A | `docs/` | 戦略・設計・進捗・週次 PDCA・引き継ぎ（散文 md） |
-| B | `.claude/knowledge/reference/` | 運用手順・ポリシー・レジストリ（散文 md） |
-| **C**（本ディレクトリ） | `.claude/state/*.json`, `.claude/config/*.json` | 機械可読データ |
-| D | `.claude/skills/`, `.claude/agents/` | 実行可能な能力の定義 |
+| `config/` | 事業・試験・商品の正本、スクリプト・CI・サイトの設定（人が判断して変える値） | `qualification-registry.json`・`exam-calendar.json`・`product-lineup.json`・`psi-config.json` |
+| `data/` | 外から取ってきた・発生した事業の記録（追記で増える事実） | `sales/`・`metrics/`・`coconala/`・`note/`・`market/`・`experiments.json` |
+| **`.claude/state/`（本ディレクトリ）** | エージェントの作業状態：品質サイクル・監査結果・ロールアウト進捗・生成索引・claims・dispatch-log | `quality-scores.json`・`exam-keyword-cycles/`・`dispatch/` |
+| `.claude/config/` | 品質ゲートの基準・許可リスト、CI 書き込み・認証の許可リスト（`.claude/` の書き込み保護下に置く） | `*-baseline.json`・`*-allow.json`・`ci-write-operations.json` |
+
+パスの定数は `scripts/lib/repository-paths.mjs`（`STATE_ROOT`・`DATA_ROOT`・`CONFIG_ROOT`・`AGENT_CONFIG_ROOT`）。
 
 ### 禁止事項
 
-- **新規 `.md` ファイルを置かない**（本 README.md を除く）。状態・進捗は JSON か Zone A/B の md へ
+- **新規 `.md` ファイルを置かない**（本 README.md を除く）。状態・進捗は JSON か `docs/`・`.claude/knowledge/reference/` の md へ
+- **事業の記録を新しく作らない**（`data/` へ）。旧パス（`.claude/state/metrics/` 等）への新規作成は `check-information-architecture` が止める
 - **GitHub Issue は使わない**。やるべきことは `.claude/todo/`（手動運用）に集約する（旧 `task-queue.json` 自動化は 2026-06-11 廃止）
 
 詳細・判断フロー: [information-architecture.md](../../.claude/knowledge/reference/information-architecture.md)
@@ -29,30 +32,28 @@
 | `quality-cycle-state.json` | CEM 版 各ページの状態遷移履歴 | `/quality-cycle --mode rewrite/verify/approve` |
 | `civil-quality-scores.json` | 1級土木版の評価結果 | `/civil-textbook-cycle --mode score` |
 | `civil-quality-cycle-state.json` | 1級土木版の状態遷移 | `/civil-textbook-cycle` |
-| `experiments.json` | NSM 実験の状態（running / measuring / done） | `/nsm-experiment` |
-| `metrics/` | PSI / GA4 / GSC の生 JSON（CI が develop に直接 commit） | `.github/workflows/psi-audit.yml` / `fetch-metrics.yml` |
-| `metrics/instagram/` | Instagram Graph API の media+insights スナップショット（Meta 利用制限中は取得停止・欠測）。SoT 照合 snapshot は `ig-reconcile/`（`login-collectors.yml` の `verify-ig-status`）（`ig-insights-YYYY-MM-DD.json`） | `.github/workflows/fetch-ig-insights.yml`（週次） |
-| `metrics/cloudflare/` | Cloudflare GraphQL Analytics のゾーン別日次集計（`cf-zone-YYYY-MM-DD.json`） | `.github/workflows/cloudflare-metrics.yml`（日次） |
 | `cloudflare/zone-config-latest.json` | Cloudflare ゾーン設定の最新スナップショット（ドリフト検知の基準） | `.github/workflows/cloudflare-config-audit.yml`（月次） |
-| `note/magazines-snapshot.json` | note ライブのマガジン一覧＋**収録記事リスト**（`check-magazine-membership` の軸 C。鮮度 9 日超は検査不成立扱い） | `.github/workflows/note-live-audit.yml`（週次・CI が develop に直接 commit） |
+| `ig-reconcile/` | Instagram の SoT 照合結果（`login-collectors.yml` の `verify-ig-status`） | `verify-ig-status` |
 | `exam-keyword-cycles/` | 過去問起点校正サイクルの進捗 JSON | `/exam-keyword-cycle` |
 | `proofread-learnings/` | 校正学習の蒸留ログ | `/distill-proofread-learnings` |
 | `resurrection-candidates/` | 復活候補ページのメタ | `/resurrect-content` |
 | `improvements/` | PSI 改善候補レポート（`performance-auditor` 出力） | `performance-auditor` エージェント |
-| `market/history/` | 資格キーワードでの市場スキャン（YouTube・note の検索結果と追跡中 YouTube チャンネルの登録者数。1 ファイル＝その日・最も新しい日付が最新）。展開の判断（`npm run qualification-market`・管理画面 戦略＞資格と市場＞展開の判断）が読む | `npm run scan-qualification-market`（四半期・期限は `check-competitor-scan-due` の market） |
+| `assets/` | Git の外へ出したアセット（R2・Drive vault）の台帳 | `asset-offload` / `drive-vault-sync` |
+| `note-published.json` | note 公開状態の生成索引（frontmatter から作る・手で直さない） | `build-note-published-index` |
+| `youtube-schedule.json` | YouTube の投稿予定と投稿済みの実績 | `build-schedule` / `post-from-schedule` |
+| `dispatch/`・`todo-claims.json` | タスクの実行記録と claim | `todo:claim` / `todo:complete` |
 
 ## 消費者
 
-- **スクリプト**: `.claude/skills/content/quality-cycle/scripts/quality-cycle.mjs` / `.claude/skills/content/civil-textbook-cycle/scripts/civil-textbook-cycle.mjs`
-- **エージェント**: `keyword-rewriter` / `civil-textbook-rewriter` / `performance-auditor` / `metrics-analyzer` / `strategy-advisor`
-- **スキル**: `quality-cycle` / `civil-textbook-cycle` / `weekly-plan` / `weekly-review` / `nsm-experiment`
+- **スクリプト**: `.claude/skills/quality/quality-cycle/`（CEM 版 `scripts-cem/`・1級土木版 `scripts-civil-textbook/`）
+- **エージェント**: `keyword-rewriter` / `civil-textbook-rewriter` / `performance-auditor`
+- **スキル**: `quality-cycle` / `civil-textbook-cycle` / `weekly-plan` / `weekly-review`
 
 ## 設計方針
 
 - **git 管理対象**: 状態遷移の履歴を追跡可能にするため、差分コミットを許容
-- **日付付き snapshot の寿命**（2026-09-14）: `metrics/**` と `weekly-metrics/` の日付付きファイルは `scripts/lib/prune-state-snapshots.mjs` の `POLICIES` に寿命を宣言する（psi 14 件・ga4/gsc 90 日〔prefix ごと最新 1 件は残す〕・url-inspection 6 件・monetization 4 件・crosswalk 8 件・weekly-metrics 26 週・基準線は `keep-all`）。削除は書き手の workflow が commit 直前に `npm run prune-state-snapshots -- --commit --family …` で行い、未宣言の日付付きファイルは `quality:audit` の `snapshot-lifetime` が赤にする。`metrics/business/**`・`metrics/gsc/rank-watch/**` は不変台帳で対象外。読み手は最新 1〜2 件しか見ないので旧版は git 履歴で足りる
-- **Next.js ランタイム非依存**: `src/` から import されることはない（エージェント作業領域）
-- **`data/` からの移動**: 旧 `data/*.json` は 2026-04-15 に `.claude/state/` 配下へ集約（ADR: `.claude/knowledge/reference/data-storage-decision.md`）
+- **Next.js ランタイム非依存**: `src/` から import されることはない（エージェント作業領域。サイトが読む正本は `config/`）
+- **`data/` との往復**: 旧 `data/*.json` は 2026-04-15 に本ディレクトリへ集約した（ADR: `.claude/knowledge/reference/data-storage-decision.md`）。その結果、事業の記録とエージェントの作業状態が混ざって区別できなくなったため、2026-10-02 に事業の記録だけを `data/` へ戻した。日付付き snapshot の寿命（`scripts/lib/prune-state-snapshots.mjs`）と不変台帳（`data/metrics/business/**`・`data/metrics/gsc/rank-watch/**`）の扱いは `data/` 側に移った。不変台帳の中の旧パスは書き換えず、読む側が `resolveMovedPath` で読み替える
 - **タスクの単一正源**: やるべきことは `.claude/todo/`（annual/monthly/weekly、手動運用）に集約。旧 `task-queue.json` + 旧 Project TODO ビュー 自動生成は 2026-06-11 廃止
 
 詳細なアーキテクチャは [information-architecture.md](../../.claude/knowledge/reference/information-architecture.md) を参照。

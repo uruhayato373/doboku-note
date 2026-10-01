@@ -45,7 +45,7 @@
 1. **ヒーローバンド**: アバター + アカウント名 + キャッチコピー1行 + 名乗り（資格数は `EXAM_CARDS.length` から。保有資格は `sm` 以上だけ）+ **グループチップ**（`#group-{id}` へジャンプ。`EXAM_GROUPS` から導出）+ **運営者の導線 1 行**（X・note もくじ〔L1〕・`/about`）。スマホも横並びの小型版
 2. **資格カード**（`ExamCardView`）: `EXAM_GROUPS` 配下に置き、モバイル1列／`sm` 2列／3枚のグループは`lg` 3列。1枚は資格ブランド帯 + 見出し + tagline + **最大3行**。スマホでは帯をテーマ色の線だけにし（イラストは `sm` 以上）、グループの説明文も省く
    - ①**サイトで無料学習** → `/exam/{...}`（内部リンク）
-   - ②**note もくじ（L2）** → `.claude/config/note-funnel.json` の `exams.{key}.L2` を参照（**存在時のみ**。URLをページに直書きしない）
+   - ②**note もくじ（L2）** → `config/note-funnel.json` の `exams.{key}.L2` を参照（**存在時のみ**。URLをページに直書きしない）
    - ③**個別サービス** → 資格に紐づく listed のココナラから**代表 1 件**。`pickCoconalaFor`（`src/lib/exam-key-bridge.ts`）が選ぶ。**0 件なら行ごと省略**（コンクリート 3 資格は現在 2 行）
    - 技術士第一次は現在、①サイト行だけを表示する（2026-09-24 時点）
    - 各行はアイコン（`ServiceIcon`）+ リンク名 + チャネル小ラベル + 特徴 1 行。特徴は `line-clamp: 2`（商品 `description` は 170〜210 字あり、素で出すと 1 行だけ 220px になる）
@@ -62,7 +62,7 @@
 | データ | 真実源 | 用途 |
 |---|---|---|
 | 運営者情報（名前・アバター・職歴・X URL） | `src/config/author.ts` | プロフィールヒーロー + SNS セクション |
-| **note もくじ（L2）の URL** | `.claude/config/note-funnel.json` の `exams.{key}.L2`（読み出しは `src/lib/note-mokuji.ts`） | L2がある資格カードの② note 行 |
+| **note もくじ（L2）の URL** | `config/note-funnel.json` の `exams.{key}.L2`（読み出しは `src/lib/note-mokuji.ts`） | L2がある資格カードの② note 行 |
 | **資格ブランド（ラベル・テーマ色・背景イラスト）** | `src/lib/exam-brand.ts`（`EXAM_BRAND` / `examKeyOf`） | カード頭の帯 |
 | ココナラ単発サービス（状態・価格・URL） | `src/lib/coconala-services.ts`（`listedCoconalaServices()`） | 各資格カードの③ 行（`pickCoconalaFor` が代表 1 件を選ぶ） |
 | 資格キーの対応（`ExamKey` ⇄ 商品カタログの `examScope`） | `src/lib/exam-key-bridge.ts` | ③ 行の突合（`tankan` ⇄ `pe-comprehensive-management` 等） |

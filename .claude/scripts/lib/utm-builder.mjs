@@ -1,5 +1,5 @@
 // SNS 送客リンクへ UTM を統一付与するビルダー。
-// 真実源の規約 = .claude/config/utm-templates.json（= docs/marketing/02_チャネル動線設計.md §4）。
+// 真実源の規約 = config/utm-templates.json（= docs/marketing/02_チャネル動線設計.md §4）。
 // 既存 add-note-utm.mjs の injectUtm と同じ冪等・anchor・区切りの流儀を踏襲する。
 //
 // ライブラリ:

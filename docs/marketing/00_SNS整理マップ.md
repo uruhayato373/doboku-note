@@ -25,7 +25,7 @@
 | `.claude/knowledge/reference/yt-shorts-publisher-policy.md` | — | — | YT Shorts 品質基準（4軸） |
 | `.claude/knowledge/reference/video-content-policy.md` | v1 | 2026-08-21 | 動画パックschema・状態・専用Generator/Evaluator・機械/公開ゲート |
 | `.claude/knowledge/reference/{sns-image-policy,sns-archive-policy,character-asset-policy}.md` | — | — | 画像/退避/マスコットの共通ポリシー |
-| `.claude/knowledge/reference/note-funnel-architecture.md` | v1 | 2026-06-16 | note 導線 3層モデルの SSOT（機械可読は `.claude/config/note-funnel.json`） |
+| `.claude/knowledge/reference/note-funnel-architecture.md` | v1 | 2026-06-16 | note 導線 3層モデルの SSOT（機械可読は `config/note-funnel.json`） |
 
 > [!note] 版の注意
 > X凍結運用の詳細は `x-post-policy §11` が真実源。総監のテーマ・Red Lineは05、多資格の動画パック・役割・管理構造は06が真実源であり、両者を混同しない。
@@ -53,7 +53,7 @@
 - **共通スライド基盤** `sns-common/slide-render.mjs` と動画レンダラーは4:5・9:16・16:9を実装済み。
 - **動画パック基盤** `content/sns/video-packs/` は実装済み。企画・出典・台本・CTAをSSOTにし、公開状態は `.claude/state/`、バイナリはR2へ分離する。
 - **マスコット**「doboku-note 先生」を全チャネル統一。
-- **UTM 統一**は実装済（`.claude/config/utm-templates.json`＋`.claude/scripts/lib/utm-builder.mjs`。X/IG=social・YT=video・note=referral、冪等・CLIあり）。**YT 生成スクリプト（yt-shorts-create / per-problem-shorts）の `.replace()` 手書きは `buildUtmUrl()` へ配線済＝sns-config のハードコード utmParams は撤去（2026-07-04）**。X 送客リンクは `check-x-utm`（pre-commit）で utm_source=x/utm_medium=social を強制。
+- **UTM 統一**は実装済（`config/utm-templates.json`＋`.claude/scripts/lib/utm-builder.mjs`。X/IG=social・YT=video・note=referral、冪等・CLIあり）。**YT 生成スクリプト（yt-shorts-create / per-problem-shorts）の `.replace()` 手書きは `buildUtmUrl()` へ配線済＝sns-config のハードコード utmParams は撤去（2026-07-04）**。X 送客リンクは `check-x-utm`（pre-commit）で utm_source=x/utm_medium=social を強制。
 
 ## 4. 穴（capability × infra）と優先アクション
 

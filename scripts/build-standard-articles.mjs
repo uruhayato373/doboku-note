@@ -346,7 +346,7 @@ function main() {
   const targets = explicit.length > 0 ? explicit : (overrides.build?.documents ?? []);
 
   if (targets.length === 0) {
-    console.error('生成対象がゼロ件。.claude/config/standards-structure.json の build.documents を確認する。');
+    console.error('生成対象がゼロ件。config/standards-structure.json の build.documents を確認する。');
     process.exitCode = 2;
     return;
   }

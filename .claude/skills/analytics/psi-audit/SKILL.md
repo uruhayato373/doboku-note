@@ -2,7 +2,7 @@
 name: psi-audit
 description: >
   PageSpeed Insights API で代表ページを計測し、Core Web Vitals・Lighthouse スコアの
-  しきい値違反と改善候補を出力する。`.claude/config/psi-urls.txt` の URL に対し mobile+desktop で計測、
+  しきい値違反と改善候補を出力する。`config/psi-urls.txt` の URL に対し mobile+desktop で計測、
   performance-auditor エージェントが違反を surface する。
   Use when user asks to [PSI 計測, PageSpeed 計測, Core Web Vitals 確認, 速度監査, /psi-audit].
 domain: site
@@ -18,12 +18,12 @@ domain: site
 
 ## 設定の真実源
 
-すべての運用パラメータは **`.claude/config/psi-config.json`** に集約:
+すべての運用パラメータは **`config/psi-config.json`** に集約:
 
 | 項目 | 初期値 | 変更する時 |
 |---|---|---|
 | しきい値（Perf < 70・LCP > 2.5s 等） | 上記ファイル参照 | サイトの成長に応じて引き上げ |
-| 計測対象 URL | `.claude/config/psi-urls.txt` | 新試験追加・テンプレ変更時 |
+| 計測対象 URL | `config/psi-urls.txt` | 新試験追加・テンプレ変更時 |
 | Strategy | `mobile` + `desktop` | モバイルのみに絞るなら mobile だけに |
 | 実行頻度 | 日次 JST 02:00（GitHub Actions） | `.github/workflows/psi-audit.yml` の cron |
 | 通知 | field 実害・取得失敗率20%超のときだけ CI を失敗。単発 lab 超過はレポートのみ（.claude/todo/ に手動起票） | 同 workflow の最終ステップ |
@@ -47,14 +47,14 @@ npm run fetch-psi-audit
 npm run psi-audit:check -- --output /tmp/psi-report.md
 ```
 
-結果は `.claude/state/metrics/psi/psi-batch-*.json` に時系列保存される。
+結果は `data/metrics/psi/psi-batch-*.json` に時系列保存される。
 
 ### GitHub Actions（日次自動）
 
 `.github/workflows/psi-audit.yml` が JST 02:00 に以下を実行:
 1. `npm run fetch-psi-audit` で代表ページを計測
 2. `npm run psi-audit:check` でしきい値判定
-3. 結果を `develop` ブランチの `.claude/state/metrics/psi/` に直接 commit（`[skip ci]` 付き、ci.yml を回さない）
+3. 結果を `develop` ブランチの `data/metrics/psi/` に直接 commit（`[skip ci]` 付き、ci.yml を回さない）
 4. field 実害・取得失敗率20%超なら CI を失敗させて GitHub 通知。単発 lab 超過や少数の一時的な PSI 5xx は Action を失敗させず、改善候補としてレポートに残す
 
 > [!note] 欠測とリトライ（2026-08-18）
@@ -73,7 +73,7 @@ npm run psi-audit:check -- --output /tmp/psi-report.md
 計測後、`performance-auditor` エージェントを呼び出して違反パターンを surface する:
 
 1. 最新の `psi-batch-*.json` を読み込み
-2. `.claude/config/psi-config.json` の `judgment` に従って判定する（**field(CrUX) が実害の判定源・lab は診断**）
+2. `config/psi-config.json` の `judgment` に従って判定する（**field(CrUX) が実害の判定源・lab は診断**）
 3. 違反メトリクスごとに既知パターン（LCP 肥大・CLS 発生・INP 悪化等）にマッピング。**`lcp_element`（selector/snippet）から LCP 要素を特定して打ち手を分岐**する（`<img loading="lazy">` なら `check-lcp-image-hints`／テキストなら render-blocking 側）
 4. `.claude/state/improvements/psi-{YYYY-MM-DD}.md` に優先度付きで出力
 
@@ -84,7 +84,7 @@ npm run psi-audit:check -- --output /tmp/psi-report.md
 ユーザーが `/psi-audit` を実行したら、以下を順に実施する:
 
 1. **計測済みデータの確認**
-   - `.claude/state/metrics/psi/` に最新ファイルがあるか確認
+   - `data/metrics/psi/` に最新ファイルがあるか確認
    - 24 時間以内のデータが無ければ `npm run fetch-psi-audit` を実行するか確認（PSI API は 1 URL 30秒かかるため時間がかかる旨を伝える）
 
 2. **しきい値チェック**
@@ -126,8 +126,8 @@ High
 - **公開 URL のみ計測可能**: localhost は PSI API では測れない。ローカル最適化は Lighthouse CLI を使う
 - **計測時間**: 1 URL あたり 20〜40 秒。20 URL × 2 strategy = 15〜25 分かかる
 - **rate limit**: API キーなしで 400/100秒、キーありで 25,000/日。代表ページ運用なら余裕
-- **URL リスト更新**: 新試験追加・主要テンプレ変更時は `.claude/config/psi-urls.txt` に代表ページを追加
-- **しきい値調整**: サイトが改善されたら `.claude/config/psi-config.json` の閾値を引き上げて継続改善
+- **URL リスト更新**: 新試験追加・主要テンプレ変更時は `config/psi-urls.txt` に代表ページを追加
+- **しきい値調整**: サイトが改善されたら `config/psi-config.json` の閾値を引き上げて継続改善
 
 ## 関連
 
@@ -135,6 +135,6 @@ High
 - `.claude/scripts/psi-threshold-check.mjs` — しきい値比較
 - `.claude/agents/performance-auditor.md` — 違反検出・改善候補 Evaluator
 - `.github/workflows/psi-audit.yml` — 日次自動計測
-- `.claude/config/psi-config.json` — 設定の真実源
-- `.claude/config/psi-urls.txt` — 計測対象 URL リスト
+- `config/psi-config.json` — 設定の真実源
+- `config/psi-urls.txt` — 計測対象 URL リスト
 - `gsc-index-auditor` / `metrics-analyzer` エージェント — GSC 側の監査（index coverage / performance、PSI とは独立して実行）

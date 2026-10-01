@@ -8,15 +8,15 @@
  * CLI:
  *   node scripts/normalize-google-console-csv.mjs --latest
  *   node scripts/normalize-google-console-csv.mjs --run 2026-07-24T12-00-00Z
- *   node scripts/normalize-google-console-csv.mjs --run .claude/state/metrics/gsc-ui/<run>
+ *   node scripts/normalize-google-console-csv.mjs --run data/metrics/gsc-ui/<run>
  *   node scripts/normalize-google-console-csv.mjs --file path/to.csv --issue crawledNotIndexed --scope allSubmittedPages --ui-total 346
  *
  * 出力（raw CSV・manifest は上書きしない）:
  *   <runDir>/normalized/<issueKey>--<scope>.json          （run ローカル・gitignore）
  *   <runDir>/normalized/<issueKey>--<scope>.rejects.json   （reject があるときのみ）
- *   .claude/state/metrics/gsc-ui/ssot/urls/<issueKey>--<scope>.json  （**追跡 SSOT**）
- *   .claude/state/metrics/gsc-ui/ssot/history.json                    （**追跡** run 別件数履歴）
- *   .claude/state/metrics/gsc-ui/ssot/diff/<runId>.json               （**追跡** URL 増減）
+ *   data/metrics/gsc-ui/ssot/urls/<issueKey>--<scope>.json  （**追跡 SSOT**）
+ *   data/metrics/gsc-ui/ssot/history.json                    （**追跡** run 別件数履歴）
+ *   data/metrics/gsc-ui/ssot/diff/<runId>.json               （**追跡** URL 増減）
  *
  * SSOT を書く理由: raw CSV は再取得しかできない（再生成不可）のに run ディレクトリは gitignore で、
  * worktree を捨てると URL レベルの情報が消えていた（2026-07-23 の 1,952 行が実際に消失）。
@@ -28,7 +28,7 @@ import { loadConfig } from "./lib/google-console-browser.mjs";
 import { normalizePageIndexingCsv } from "./lib/google-console-csv.mjs";
 import { writeUnitSsot, writeRunDiff, appendHistory, ssotDir } from "./lib/google-console-ssot.mjs";
 
-const STATE_DIR = ".claude/state/metrics/gsc-ui";
+const STATE_DIR = "data/metrics/gsc-ui";
 const CHANNEL = "gsc-ui";
 
 function parseArgs() {
@@ -99,7 +99,7 @@ function main() {
       process.exit(2);
     }
     const csvText = readFileSync(o.file, "utf-8");
-    const outDir = join(process.cwd(), ".claude/state/metrics/gsc-ui/_adhoc");
+    const outDir = join(process.cwd(), "data/metrics/gsc-ui/_adhoc");
     normalizeOne(csvText, { runId: "adhoc", issue: o.issue, scope: o.scope, uiTotal: o.uiTotal, property: cfg.gsc.property }, outDir, cfg);
     return;
   }

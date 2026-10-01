@@ -3,7 +3,7 @@ import { join } from 'node:path';
 import { repoPath } from './repo-root';
 
 /**
- * snapshots.ts — .claude/state/metrics/{ga4,gsc,psi} 配下の
+ * snapshots.ts — data/metrics/{ga4,gsc,psi} 配下の
  * CI がコミットしたタイムスタンプ付き JSON スナップショットを読む。
  *
  * ライブ API は絶対に叩かない（会社 PC はプロキシで Google/Meta を遮断・CI 供給が正）。
@@ -27,7 +27,7 @@ export interface SnapshotFile {
 }
 
 function metricsDir(kind: MetricKind): string {
-  return repoPath('.claude', 'state', 'metrics', kind);
+  return repoPath('data', 'metrics', kind);
 }
 
 /** kind 配下のタイムスタンプ付き JSON を prefix 別・新しい順にグルーピングして返す。 */

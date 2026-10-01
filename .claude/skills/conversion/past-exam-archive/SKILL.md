@@ -14,7 +14,7 @@ domain: material
 
 | もの | 置き場 |
 |---|---|
-| 年度在庫（資格×年度×ファイル・公式掲載状態・sourceUrl・取得日・出題形式の分析 themes） | `.claude/config/past-exam-inventory.json`（資格 id は `exam-formats.json` と同じ） |
+| 年度在庫（資格×年度×ファイル・公式掲載状態・sourceUrl・取得日・出題形式の分析 themes） | `config/past-exam-inventory.json`（資格 id は `exam-formats.json` と同じ） |
 | 原本 PDF（手元・Git 管理外） | `content/sources/past-exams/{資格}/{年度}/` |
 | 原本 PDF（正本） | Drive `原資料PDF/過去問/{資格}/{年度}/`（drive-vault group `past-exam-source-pdf`） |
 | Drive 台帳 | `.claude/state/assets/drive-manifest.json` |

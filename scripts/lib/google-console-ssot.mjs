@@ -2,14 +2,14 @@
  * google-console-ssot.mjs — GSC/GA4 UI CSV から得た情報の **追跡される SSOT**
  * ---------------------------------------------------------------------------
  * なぜ必要か（2026-07-30 新設）: これまで正規化結果は run ディレクトリ配下
- * （`.claude/state/metrics/gsc-ui/<runId>/normalized/`）にだけ書かれ、そこは gitignore だった。
+ * （`data/metrics/gsc-ui/<runId>/normalized/`）にだけ書かれ、そこは gitignore だった。
  * raw CSV は再取得しかできない（＝再生成不可能）ため、worktree を捨てた時点で **URL レベルの情報が
  * 消え**、`report-search-growth` も「前回比」を出せず、別マシンでは診断そのものが再現できなかった。
  * 実際 2026-07-23 の run（1,952 行）は run ディレクトリごと消えて last-run.json だけが残っていた。
  *
  * そこで「CSV から得た情報」を .claude 内の SSOT として commit する:
  *
- *   .claude/state/metrics/<channel>/
+ *   data/metrics/<channel>/
  *     last-run.json                     # 取得マーカー（既存・完全性つき）
  *     ssot/
  *       urls/<issueKey>--<scope>.json    # 最新の正規化 URL 一覧（lean 射影・追跡）
@@ -25,7 +25,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync } from 
 import { join } from "node:path";
 
 // 既定は追跡される計測ステートのルート。テスト時のみ差し替える（本番パスを汚さずに配線を検証するため）。
-const METRICS = process.env.GOOGLE_CONSOLE_SSOT_ROOT || ".claude/state/metrics";
+const METRICS = process.env.GOOGLE_CONSOLE_SSOT_ROOT || "data/metrics";
 
 export function ssotDir(channel) {
   return join(METRICS, channel, "ssot");

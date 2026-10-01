@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * past-exam-fetch — 過去問の年度在庫台帳（.claude/config/past-exam-inventory.json）の未取得ファイルを
+ * past-exam-fetch — 過去問の年度在庫台帳（config/past-exam-inventory.json）の未取得ファイルを
  * 公式 URL（sourceUrl）から取得し、content/sources/past-exams/{資格}/{年度}/ に置いて acquiredAt を書く。
  *
  *   node scripts/past-exam-fetch.mjs [--exam <id>] [--year <西暦>]           # dry-run（取得予定だけ出す）
@@ -18,7 +18,7 @@ import { pathToFileURL } from 'node:url';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 
 const NAME = 'past-exam-fetch';
-export const INVENTORY_PATH = join(REPO_ROOT, '.claude/config/past-exam-inventory.json');
+export const INVENTORY_PATH = join(REPO_ROOT, 'config/past-exam-inventory.json');
 
 /** 取得対象（sourceUrl があり未取得）を列挙する（純関数）。 */
 export function pendingFiles(inventory, { exam = null, year = null } = {}) {

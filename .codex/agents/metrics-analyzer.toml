@@ -4,7 +4,7 @@ description = "GSC/GA4 の計測データから改善機会パターンを抽出
 developer_instructions = """
 ## 資格別の事業判断への入力
 
-`docs/strategy/01_プロダクト戦略.md` と `.claude/config/business-direction.json` の提供価値・指標定義を読む。検索の候補は対象資格と学習課題に結び付け、週次/月次の事業レビューへ返す。note/ココナラ内アクセス・販売とサイト送客を混ぜず、日別人数の合算・異期間のCVR・欠測0扱いをしない。数字から原因を断定せず、必要な現物確認を示す。実績・目標の記録手順は `.claude/knowledge/reference/business-review.md`。
+`docs/strategy/01_プロダクト戦略.md` と `config/business-direction.json` の提供価値・指標定義を読む。検索の候補は対象資格と学習課題に結び付け、週次/月次の事業レビューへ返す。note/ココナラ内アクセス・販売とサイト送客を混ぜず、日別人数の合算・異期間のCVR・欠測0扱いをしない。数字から原因を断定せず、必要な現物確認を示す。実績・目標の記録手順は `.claude/knowledge/reference/business-review.md`。
 
 # Metrics Analyzer Agent
 
@@ -14,7 +14,7 @@ GSC/GA4 の JSON データを読み込み、**改善候補のパターン検出*
 
 ## 担当範囲
 
-- `.claude/state/metrics/gsc/` と `.claude/state/metrics/ga4/` 配下の最新 JSON 読み込み
+- `data/metrics/gsc/` と `data/metrics/ga4/` 配下の最新 JSON 読み込み
 - 改善機会の6パターン抽出（SNS-Source-Shift 含む）
 - `.claude/state/improvements/{YYYY-MM-DD}.md` への出力
 
@@ -33,21 +33,21 @@ GSC/GA4 の JSON データを読み込み、**改善候補のパターン検出*
 
 | ファイル | 取得元スキル |
 |---|---|
-| `.claude/state/metrics/gsc/gsc-query-*.json`（最新） | `/fetch-gsc-data` |
-| `.claude/state/metrics/gsc/gsc-page-<日付>*.json`（最新・`gsc-page-query-*` と `truncated:true` の水曜打ち切り版は除く） | `/fetch-gsc-data --dimension page` |
-| `.claude/state/metrics/gsc/gsc-page-query-*.json`（最新・前週があれば 2 件） | `/fetch-gsc-data --dimensions page,query --all`（Pattern 7/8 用・週次 CI 生成） |
+| `data/metrics/gsc/gsc-query-*.json`（最新） | `/fetch-gsc-data` |
+| `data/metrics/gsc/gsc-page-<日付>*.json`（最新・`gsc-page-query-*` と `truncated:true` の水曜打ち切り版は除く） | `/fetch-gsc-data --dimension page` |
+| `data/metrics/gsc/gsc-page-query-*.json`（最新・前週があれば 2 件） | `/fetch-gsc-data --dimensions page,query --all`（Pattern 7/8 用・週次 CI 生成） |
 
 > `gsc-query-*` / `gsc-page-*` が `truncated:true` または0行なら、候補件数の前週比較やサイト全体の増減を断定しない。完全な `gsc-date-*` の合計と `gsc-page-query-*` は、各データの対象範囲を明示して別に利用できる。
-| `.claude/state/metrics/ga4/ga4-page-*.json`（最新） | GA4 page dimension |
-| `.claude/state/metrics/ga4/ga4-date-*.json`（最新） | GA4 date dimension（トレンド判定用） |
-| `.claude/state/metrics/ga4/ga4-sourceMedium-sns-*.json`（最新 2 件） | GA4 SNS 流入 source×medium（Pattern 6 用・`fetch-ga4-data --sns-only`） |
+| `data/metrics/ga4/ga4-page-*.json`（最新） | GA4 page dimension |
+| `data/metrics/ga4/ga4-date-*.json`（最新） | GA4 date dimension（トレンド判定用） |
+| `data/metrics/ga4/ga4-sourceMedium-sns-*.json`（最新 2 件） | GA4 SNS 流入 source×medium（Pattern 6 用・`fetch-ga4-data --sns-only`） |
 
 オプション（前週比較用）:
 - 上記の前週スナップショット（`snapshot-weekly-metrics` の出力）があれば使用。無ければトレンドは単一週のみで判定。
 
 ## 決定的な検出は機会ダイジェストが持つ（2026-09-24〜）
 
-閾値で決まる検出はコードへ移した（CLAUDE.md §5）。**最初に最新の `.claude/state/metrics/growth/digest-*.json` を読み**（CI の fetch-metrics が毎週生成。Markdown で見るなら `node scripts/build-growth-digest.mjs --print`）、次の対応を前提にする:
+閾値で決まる検出はコードへ移した（CLAUDE.md §5）。**最初に最新の `data/metrics/growth/digest-*.json` を読み**（CI の fetch-metrics が毎週生成。Markdown で見るなら `node scripts/build-growth-digest.mjs --print`）、次の対応を前提にする:
 
 | 本エージェントの Pattern | ダイジェストの type（安定 ID `OPP-…`） |
 |---|---|
@@ -196,7 +196,7 @@ total_candidates: N
 
 ## 実行手順
 
-1. **入力ファイル特定**: `.claude/state/metrics/gsc/` と `.claude/state/metrics/ga4/` を `Glob` で探索し、各 dimension ごとに最新ファイルを選ぶ
+1. **入力ファイル特定**: `data/metrics/gsc/` と `data/metrics/ga4/` を `Glob` で探索し、各 dimension ごとに最新ファイルを選ぶ
 2. **読み込み**: JSON を Read で取得（容量が大きければ `rows` の上位 N 件に絞る）
 3. **パターン抽出**: Pattern 1/2/3/7/8 はダイジェストの `OPP-…` を引用する（再抽出しない）。自分で抽出するのは Pattern 4/5/6（Pattern 6 は要 `ga4-sourceMedium-sns-*.json`）
 4. **存在判定（Pattern 5 のみ）**: `content/site/` に対して Grep で slug 主要語検索

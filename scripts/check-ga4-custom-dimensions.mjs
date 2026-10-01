@@ -10,7 +10,7 @@
  * （プログラム別 EPC・配置別 CTR）。CLAUDE.md §9 の「検査ゼロを PASS と呼ばない」がここにも要る。
  *
  * このゲートは外部アクセスをしない。**desired state（config）** と
- * **最後に実機観測した inventory（.claude/state/metrics/ga4-admin/inventory-latest.json）** を突合し、
+ * **最後に実機観測した inventory（data/metrics/ga4-admin/inventory-latest.json）** を突合し、
  * blocking なディメンションが不足していれば FAIL する。inventory 自体が無い/古い場合も
  * 「確認できていない」として扱い、緑にしない。
  *
@@ -23,8 +23,8 @@
  */
 import { readFileSync, existsSync } from "node:fs";
 
-const DESIRED_PATH = ".claude/config/ga4-admin-desired-state.json";
-const INVENTORY_PATH = ".claude/state/metrics/ga4-admin/inventory-latest.json";
+const DESIRED_PATH = "config/ga4-admin-desired-state.json";
+const INVENTORY_PATH = "data/metrics/ga4-admin/inventory-latest.json";
 
 const argv = process.argv.slice(2);
 const WANT_JSON = argv.includes("--json");

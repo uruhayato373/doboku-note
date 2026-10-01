@@ -1,12 +1,12 @@
 /**
  * note-cover-category.mjs — note 記事のカバー画像分類を決める唯一の実装。
- * 語彙とルールの正本は .claude/config/note-cover-categories.json。
+ * 語彙とルールの正本は config/note-cover-categories.json。
  */
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 export function loadNoteCoverCategories(root) {
-  const cfg = JSON.parse(readFileSync(join(root, '.claude/config/note-cover-categories.json'), 'utf8'));
+  const cfg = JSON.parse(readFileSync(join(root, 'config/note-cover-categories.json'), 'utf8'));
   return buildNoteCoverCategories(cfg);
 }
 

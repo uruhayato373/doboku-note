@@ -48,7 +48,7 @@ const ONLY = args.includes('--only') ? args[args.indexOf('--only') + 1] : null;
 if (args.includes('--only') && !ONLY) { console.error('--only にはパスの先頭（例: content/note/1級・2級土木/1級土木/）が要る'); process.exit(2); }
 const CHUNK = 25;
 const WORK = join(ROOT, '.tmp/note-sync-routine');
-const SYNC_LOG = '.claude/state/note/sync-log.json';
+const SYNC_LOG = 'data/note/sync-log.json';
 const STATE_PATHS = [
   '.claude/state/note-republish-hashes.json', '.claude/state/note-update-aborted.json', '.claude/state/note-attach-done.json',
   '.claude/state/note-attachment-loss.json', SYNC_LOG, '.claude/state/assets/manifest.json', '.claude/state/assets/drive-manifest.json',

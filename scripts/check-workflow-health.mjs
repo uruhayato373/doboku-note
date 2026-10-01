@@ -15,7 +15,7 @@
  *   定期的に見る watchdog が要る。
  *
  * 検査:
- *   .claude/config/workflow-health.json の各 workflow について、gh run list から
+ *   config/workflow-health.json の各 workflow について、gh run list から
  *     - 最後に success した run からの経過日数 > maxAgeDays
  *     - 直近の連続失敗数 >= maxConsecutiveFailures
  *   のどちらかに該当すれば違反。
@@ -40,7 +40,7 @@ import { basename, dirname, join, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const CONFIG_PATH = join(ROOT, '.claude/config/workflow-health.json');
+const CONFIG_PATH = join(ROOT, 'config/workflow-health.json');
 
 /**
  * gh run list を JSON で取る。
@@ -220,7 +220,7 @@ function main() {
   for (const r of bad) console.error(`  ${r.name}  ${r.detail}`);
   console.error(
     '\n赤が続いている／動いていない workflow がある。run のログを見て原因を潰す。'
-    + '\n閾値そのものを変えるときは .claude/config/workflow-health.json に理由を書く。',
+    + '\n閾値そのものを変えるときは config/workflow-health.json に理由を書く。',
   );
   process.exit(1);
 }

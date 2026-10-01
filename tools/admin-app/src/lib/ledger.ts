@@ -124,7 +124,7 @@ const KIND: Record<string, string> = { note: 'マガジン', coconala: '出品',
 /** 承認済み POP 画像（ココナラの商品画像の正本）。読めなければ空 */
 export function readApprovedThumbs(): Record<string, { path: string; sha256: string }> {
   try {
-    return JSON.parse(readFileSync(repoPath('.claude', 'config', 'coconala-thumb-approved.json'), 'utf8')).images ?? {};
+    return JSON.parse(readFileSync(repoPath('config', 'coconala-thumb-approved.json'), 'utf8')).images ?? {};
   } catch {
     return {};
   }

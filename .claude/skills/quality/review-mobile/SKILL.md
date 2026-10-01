@@ -32,7 +32,7 @@ $ARGUMENTS — レビュー対象のファイルパスまたはディレクト�
 
 ## チェック項目（5カテゴリ）
 
-> **ルールIDの SSOT**: 機械検知ルールの重大度・資格×種別の適用は `.claude/config/content-rules.json`、実装は `.claude/scripts/lint-mdx-mobile.mjs` が真実源。本スキルのカテゴリ番号（0〜5）は Claude 校正用の**人間向けチェックリスト分類**で、機械のルールID体系とは一部異なる（例: 数式＝スキル 3-x／機械 11-x、段落＝スキル 4-x／機械 15-x）。機械IDを参照する行は「機械: lint N-M」と明記する。全量ラチェット（`npm run check-content-quality`）は content-rules.json の `fullScan` ルール（表/入れ子リスト/段落長/見出し/文体）だけを追い、baseline 超過の新規違反を赤落ちさせる。
+> **ルールIDの SSOT**: 機械検知ルールの重大度・資格×種別の適用は `config/content-rules.json`、実装は `.claude/scripts/lint-mdx-mobile.mjs` が真実源。本スキルのカテゴリ番号（0〜5）は Claude 校正用の**人間向けチェックリスト分類**で、機械のルールID体系とは一部異なる（例: 数式＝スキル 3-x／機械 11-x、段落＝スキル 4-x／機械 15-x）。機械IDを参照する行は「機械: lint N-M」と明記する。全量ラチェット（`npm run check-content-quality`）は content-rules.json の `fullScan` ルール（表/入れ子リスト/段落長/見出し/文体）だけを追い、baseline 超過の新規違反を赤落ちさせる。
 
 ### 0. ファイル整合性
 

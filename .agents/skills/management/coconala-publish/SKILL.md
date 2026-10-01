@@ -2,7 +2,7 @@
 name: coconala-publish
 description: >
   ココナラ出品サービスを Playwright で「新規出品」「内容修正」「受付休止/再開/アーカイブ」するスキル。カタログ
-  （src/lib/coconala-services.ts＝価格/状態/URL）と listings（.claude/config/coconala-listings.json
+  （src/lib/coconala-services.ts＝価格/状態/URL）と listings（config/coconala-listings.json
   ＝本文/カテゴリ/納期/ジャンル）を真実源に、ログイン済みプロファイルで出品フォームへ流し込む。
   安全弁＝account assert（sellerName=dobokunote）／既定は「下書きで保存」で実公開は --commit 必須／
   価格・カテゴリの充填 warning があれば公開せず下書き退避。公開成功時はカタログへ status:'listed'＋

@@ -1,7 +1,7 @@
 ---
 name: x-campaign-plan
 description: >
-  X の月次投稿計画（.claude/config/x-campaigns/YYYY-MM-*.json）を 1 日 3 本体制（schemaVersion 2）で
+  X の月次投稿計画（config/x-campaigns/YYYY-MM-*.json）を 1 日 3 本体制（schemaVersion 2）で
   起案し、機械ゲートを通してから執筆・週次投入へ引き継ぐ。試験日程・自投稿の反応実測・競合スナップショット・
   商品カタログ（listed / published のみ）を根拠に、資格配分と時間帯スロット A/B/C を決める。
   Use when user says "来月のX計画を作って", "X投稿計画を立てて", "9月分のXを設計", "/x-campaign-plan".

@@ -47,7 +47,7 @@ export interface NoteMagazine {
    * - ctaPose: マスコットのポーズ。省略時 pointing
    *   pointing=論点提示・good-sign=完成/合格訴求・smile=伴走/入門
    *
-   * ctaPose の許可値の真実源は `.claude/config/character-poses.json` の `siteCta: true`
+   * ctaPose の許可値の真実源は `config/character-poses.json` の `siteCta: true`
    * （型に literal が要るためここに union を書くが、増やすときは manifest → webp 生成 → 本 union の順）。
    * 三者の整合（manifest ⇔ public/images/character/avatar-{pose}.webp ⇔ 本 union）は
    * `npm run check-character-avatars` が gate する＝union だけ広げると本番でアバターが 404 になるため。
@@ -1504,7 +1504,7 @@ const MAGAZINES_RAW = {
   },
   // 2026-09-30: 令和2年度以降の「1題・約1,000字・行数指定」形式に合わせた作り直し。旧4テーマ×8立場（序論本論結論型）は
   // 本番形式と合わず、施工トラブルは令和では単独テーマで出ていないため、出題系統5つ×共通(2)(4)＋8立場の(3)に再編。
-  // 出題履歴の SSOT は .claude/config/cce-essay-history.json（テーマ id＝記事 frontmatter cceEssayTheme）。
+  // 出題履歴の SSOT は config/cce-essay-history.json（テーマ id＝記事 frontmatter cceEssayTheme）。
   // 原稿: content/note/コンクリート主任技士/magazines/コンクリート主任技士-小論文テーマ別-令和形式/（無料の出題傾向分析＋有料5本）
   'cce-essay-reiwa-pack': {
     id: 'cce-essay-reiwa-pack',

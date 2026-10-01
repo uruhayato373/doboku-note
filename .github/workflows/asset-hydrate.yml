@@ -124,7 +124,7 @@ jobs:
           fi
 
       # tar に固めてから上げる。upload-artifact の glob は **ドット始まりを拾わない**ため、
-      # `.claude/config/**` に置いたアセット（coconala 素材など）はコピー済みでも
+      # `.claude/state/**` など dot ディレクトリ配下のアセット（当時 .claude/config にあった coconala 素材など）はコピー済みでも
       # 「No files were found」で落ちていた（2026-08-31 実測。復元 4 件・コピー 4 件でも 0 件扱い）。
       # tar なら隠しディレクトリを含めて 1 ファイルになるので、この差を踏まない。
       - name: Pack hydrated files

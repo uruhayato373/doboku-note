@@ -1,5 +1,7 @@
 ---
 paths:
+  - "config/**"
+  - "data/**"
   - ".claude/state/**"
   - ".claude/config/**"
   - "src/lib/note-magazines.ts"
@@ -9,7 +11,7 @@ paths:
 
 # 運用状態・機械設定・販売カタログを触るときの規約
 
-- `.claude/state/`（状態）と `.claude/config/`（機械設定）は JSON。**`.claude/state/*.md` の新規作成禁止**（人向けの出力は admin が JSON を読んで表示する）。`.claude/config/` はツール設定（OGP テンプレ/ルール/改行設定、PSI しきい値・URL リスト、エージェント編集領域）で、真実源の doc へのポインタを `_doc` に書く
+- 置き場は 4 つ（2026-10-02 に分離）: `config/`＝事業・試験・商品の正本とスクリプト・CI・サイトの設定（人が判断して変える値）／`data/`＝外から取ってきた・発生した事業の記録（売上・計測・市場・受注・実験。追記で増える事実）／`.claude/state/`＝エージェントの作業状態（品質サイクル・監査結果・ロールアウト進捗・生成索引）／`.claude/config/`＝エージェント運用と品質ゲートの基準・許可リスト、CI 書き込み・認証の許可リスト（`.claude/` の書き込み保護下に置く）。どれも JSON が基本で、真実源の doc へのポインタを `_doc` に書く。**`.claude/state/*.md`・`data/*.md` の新規作成禁止**（人向けの出力は admin が JSON を読んで表示する）。パスの定数は `scripts/lib/repository-paths.mjs`（`CONFIG_ROOT`・`DATA_ROOT`・`STATE_ROOT`・`AGENT_CONFIG_ROOT`）
 - 運用記録の日付は JST（`npm run check-jst-date`・UTC で前日付になる事故）。実験台帳の再計測/close 期限は `npm run check-experiment-due`。予約・計画・期日の横断ビューは `npm run schedule-view`
 
 ## 計測（GSC / GA4 / PSI）
@@ -20,8 +22,8 @@ paths:
 
 ## 販売カタログ（実価格・公開状態の真実源）
 
-- note: `src/lib/note-magazines.ts`（実価格・noteUrl）。**2級土木の商品は `content/products/note/*.json` が正本**で、`note-magazines.ts` の `<generated:products civil-construction-2>` ブロックは `npm run product -- gen` の生成物（手で直さない・`npm run check-products` が止める・DN-0492）。サイト側 CTA の配線は `src/lib/magazine-placement.ts`（civil/docs の note CTA を一元管理・`published:true` でも配置条件を満たさないと出ない）。売上記録 → [sales-tracking.md](../knowledge/reference/sales-tracking.md)（`/record-sales`・`.claude/state/sales/sales-log.json`・`npm run note-sales-fetch`）
-- KDP: `scripts/kindle-published/catalog.json`（公開状態）と `.claude/state/sales/kdp-royalties.json`（月次ロイヤリティ）。共有口座では書籍別行をcatalogへ照合し、doboku-note分だけを事業計測へ入れる。運用 → [sales-tracking.md](../knowledge/reference/sales-tracking.md)（`npm run kdp-report`・`npm run check-kdp-report-freshness`）
+- note: `src/lib/note-magazines.ts`（実価格・noteUrl）。**2級土木の商品は `content/products/note/*.json` が正本**で、`note-magazines.ts` の `<generated:products civil-construction-2>` ブロックは `npm run product -- gen` の生成物（手で直さない・`npm run check-products` が止める・DN-0492）。サイト側 CTA の配線は `src/lib/magazine-placement.ts`（civil/docs の note CTA を一元管理・`published:true` でも配置条件を満たさないと出ない）。売上記録 → [sales-tracking.md](../knowledge/reference/sales-tracking.md)（`/record-sales`・`data/sales/sales-log.json`・`npm run note-sales-fetch`）
+- KDP: `scripts/kindle-published/catalog.json`（公開状態）と `data/sales/kdp-royalties.json`（月次ロイヤリティ）。共有口座では書籍別行をcatalogへ照合し、doboku-note分だけを事業計測へ入れる。運用 → [sales-tracking.md](../knowledge/reference/sales-tracking.md)（`npm run kdp-report`・`npm run check-kdp-report-freshness`）
 - ココナラ: `src/lib/coconala-services.ts`。運用 → [coconala-operations.md](../knowledge/reference/coconala-operations.md)（受注/DM 収集 `npm run coconala-orders` → `npm run check-coconala-orders`、KPI `npm run coconala-analytics` → `npm run check-coconala-analytics`、休止/再開 `npm run coconala-pause`。`paused` は `pauseReason` で retired と absence を区別）
-- アフィリエイト: 転職一本（講座/教材/書籍は Red Line）。**3 ASP とも doboku-note と stats47 が同一口座に同居**し判定は `scripts/lib/asp-site-guard.mjs` に集約（不一致は例外で停止） → [affiliate-operations.md](../knowledge/reference/affiliate-operations.md)。台帳 `.claude/state/ads/affiliate-catalog.json`、設定 `.claude/config/affiliate-asp.json`
+- アフィリエイト: 転職一本（講座/教材/書籍は Red Line）。**3 ASP とも doboku-note と stats47 が同一口座に同居**し判定は `scripts/lib/asp-site-guard.mjs` に集約（不一致は例外で停止） → [affiliate-operations.md](../knowledge/reference/affiliate-operations.md)。台帳 `data/ads/affiliate-catalog.json`、設定 `config/affiliate-asp.json`
 - 会員配信ドリップの真実源は `メンバーシップ/README.md` の配信表（`npm run check-membership-drip`。日付をカードへ複製しない）

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // fetch-ig-insights.mjs — Instagram Graph API から投稿インサイト・アカウント日次リーチを取得し、
-// .claude/state/metrics/instagram/ig-insights-<today>.json へ書く CI 週次コレクタ。
+// data/metrics/instagram/ig-insights-<today>.json へ書く CI 週次コレクタ。
 //
 // 背景（方針）: IG の計測は verify-ig-status.mjs（Playwright でライブ画面を読む reconciler）に
 //   依存しており、UI 変更・ボット対策・ログインセッション切れで壊れやすい。CI から素朴に叩ける
@@ -10,7 +10,7 @@
 //
 // 認証（CI 供給が正・ローカル creds 不要の恒久ルール。measurement-incidents.md 参照）:
 //   環境変数 IG_GRAPH_ACCESS_TOKEN（必須）/ IG_BUSINESS_ACCOUNT_ID（無ければ
-//   .claude/config/ig-account.json の graph.businessAccountId）/ IG_GRAPH_API_VERSION（既定 v23.0）。
+//   config/ig-account.json の graph.businessAccountId）/ IG_GRAPH_API_VERSION（既定 v23.0）。
 //   トークンの取得・交換は scripts/ig-graph-token.mjs（Mac ローカル補助・CI では使わない）。
 //
 // 使い方:
@@ -53,7 +53,7 @@ function parseArgs(argv) {
 
 // ─── 設定 ────────────────────────────────────────────────────
 function readIgAccountConfig(root) {
-  const p = join(root, '.claude/config/ig-account.json');
+  const p = join(root, 'config/ig-account.json');
   if (!existsSync(p)) return {};
   try {
     return JSON.parse(readFileSync(p, 'utf8'));
@@ -189,7 +189,7 @@ export async function run({ client, root, now = new Date(), argv = [] }) {
 
   const written = [];
   if (!opts.dryRun) {
-    const metricsDir = join(root, '.claude/state/metrics/instagram');
+    const metricsDir = join(root, 'data/metrics/instagram');
     mkdirSync(metricsDir, { recursive: true });
     const outPath = join(metricsDir, `ig-insights-${today}.json`);
     writeFileSync(outPath, `${JSON.stringify(output, null, 2)}\n`, 'utf8');
@@ -237,7 +237,7 @@ if (isMain) {
   const accountConfig = readIgAccountConfig(ROOT);
   const igUserId = process.env.IG_BUSINESS_ACCOUNT_ID || accountConfig?.graph?.businessAccountId;
   if (!igUserId) {
-    console.error(`${TAG} IG_BUSINESS_ACCOUNT_ID が未設定で、.claude/config/ig-account.json の graph.businessAccountId も未設定です`);
+    console.error(`${TAG} IG_BUSINESS_ACCOUNT_ID が未設定で、config/ig-account.json の graph.businessAccountId も未設定です`);
     process.exit(1);
   }
   const apiVersion = process.env.IG_GRAPH_API_VERSION || 'v23.0';

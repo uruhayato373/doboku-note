@@ -347,8 +347,8 @@ test('Phase 03 runtimeは共通resolverを使い、account configはlogical serv
   }
 
   for (const [file, expected] of [
-    ['.claude/config/x-account.json', 'x'],
-    ['.claude/config/ig-account.json', 'instagram'],
+    ['config/x-account.json', 'x'],
+    ['config/ig-account.json', 'instagram'],
   ]) {
     const account = JSON.parse(readFileSync(join(REPO_ROOT, file), 'utf8'));
     assert.equal(account.authService, expected);

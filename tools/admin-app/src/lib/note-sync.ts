@@ -49,7 +49,7 @@ export function noteSyncPlan(): SyncPlan {
 }
 
 export function noteSyncRuns(): SyncRun[] {
-  const p = `${findRepoRoot()}/.claude/state/note/sync-log.json`;
+  const p = `${findRepoRoot()}/data/note/sync-log.json`;
   if (!existsSync(p)) return [];
   try {
     return (JSON.parse(readFileSync(p, 'utf8')) as { runs?: SyncRun[] }).runs ?? [];

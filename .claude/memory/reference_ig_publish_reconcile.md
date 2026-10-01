@@ -7,7 +7,7 @@ metadata:
 IG 投稿の「公開済みか照合（現状確認）」と「未公開の予約投稿」を反復運用する仕組みを 2026-06-25 に新設（commit cc621fc23、develop）。手作業でやって手こずった経緯の仕組み化。真実源 → `docs/reference/ig-publish-reconcile.md`。
 
 **構成（verify-note-status の reconciler パターンに倣う）:**
-- `.claude/config/ig-account.json` — IGアカウントSSOT。**実ハンドルは `@dobokunotecom`**（X と同一）。`docs/sns/instagram/profile.md` の旧「`@doboku_note` 想定」は誤りで是正済み。publish-ig-bs.ts は既定 `dobokunotecom` で整合。
+- `config/ig-account.json` — IGアカウントSSOT。**実ハンドルは `@dobokunotecom`**（X と同一）。`docs/sns/instagram/profile.md` の旧「`@doboku_note` 想定」は誤りで是正済み。publish-ig-bs.ts は既定 `dobokunotecom` で整合。
 - `npm run verify-ig-status`（`scripts/verify-ig-status.mjs`）— ライブのグリッド＋プランナー↔ローカル posted.json/status.json を突合。read-only・ドリフト7分類（published_recorded / published_UNrecorded★ / draft_misrecorded★ / recorded_but_gone★ / scheduled / unpublished / anomaly★）→ `.claude/state/ig-reconcile/snapshot.json`・exit 2。ig-status.mjs の walk/normalize を再利用（export化＋main guard 済み）。
 - `/ig-reconcile` スキル（`.claude/skills/social/`）— 照合→SoT是正→ig-publish-auditor ゲート→publish-ig-bs で 19:00 帯予約→プランナー実体確認。投稿/予約は operator 確認後・**削除は対象外**。
 - `ig-publish-auditor`（Evaluator/sonnet/Bash不可）— 公開可否ゲート＋重複異常検出。

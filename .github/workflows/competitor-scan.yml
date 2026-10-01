@@ -93,25 +93,25 @@ jobs:
 
           if [ "$NOTE_OUTCOME" = "success" ]; then
             mkdir -p /tmp/competitor-publish/note/history
-            cp .claude/state/note/competitors-snapshot.json /tmp/competitor-publish/note/
-            cp ".claude/state/note/history/competitors-${stamp}.json" /tmp/competitor-publish/note/history/
+            cp data/note/competitors-snapshot.json /tmp/competitor-publish/note/
+            cp "data/note/history/competitors-${stamp}.json" /tmp/competitor-publish/note/history/
           fi
 
           if [ "$IG_OUTCOME" = "success" ]; then
             mkdir -p /tmp/competitor-publish/ig/history
-            cp .claude/state/ig-competitors/snapshot.json /tmp/competitor-publish/ig/
-            cp ".claude/state/ig-competitors/history/competitors-${stamp}.json" /tmp/competitor-publish/ig/history/
+            cp data/ig-competitors/snapshot.json /tmp/competitor-publish/ig/
+            cp "data/ig-competitors/history/competitors-${stamp}.json" /tmp/competitor-publish/ig/history/
           fi
 
           if [ "$COCONALA_OUTCOME" = "success" ]; then
             mkdir -p /tmp/competitor-publish/coconala/history
-            cp .claude/state/coconala/competitors-snapshot.json /tmp/competitor-publish/coconala/
-            cp ".claude/state/coconala/history/competitors-${stamp}.json" /tmp/competitor-publish/coconala/history/
+            cp data/coconala/competitors-snapshot.json /tmp/competitor-publish/coconala/
+            cp "data/coconala/history/competitors-${stamp}.json" /tmp/competitor-publish/coconala/history/
           fi
 
           if [ "$RESEARCH_OUTCOME" = "success" ]; then
             mkdir -p /tmp/competitor-publish/coconala-research
-            cp .claude/state/coconala/market-research.json .claude/state/coconala/market-summary.json /tmp/competitor-publish/coconala-research/
+            cp data/coconala/market-research.json data/coconala/market-summary.json /tmp/competitor-publish/coconala-research/
           fi
 
       - name: Publish successful snapshots to develop
@@ -127,26 +127,26 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           if [ -d /tmp/competitor-publish/note ]; then
-            cp -R /tmp/competitor-publish/note/competitors-snapshot.json .claude/state/note/
-            cp -R /tmp/competitor-publish/note/history/. .claude/state/note/history/
+            cp -R /tmp/competitor-publish/note/competitors-snapshot.json data/note/
+            cp -R /tmp/competitor-publish/note/history/. data/note/history/
           fi
           if [ -d /tmp/competitor-publish/ig ]; then
-            cp -R /tmp/competitor-publish/ig/snapshot.json .claude/state/ig-competitors/
-            cp -R /tmp/competitor-publish/ig/history/. .claude/state/ig-competitors/history/
+            cp -R /tmp/competitor-publish/ig/snapshot.json data/ig-competitors/
+            cp -R /tmp/competitor-publish/ig/history/. data/ig-competitors/history/
           fi
           if [ -d /tmp/competitor-publish/coconala ]; then
-            cp -R /tmp/competitor-publish/coconala/competitors-snapshot.json .claude/state/coconala/
-            cp -R /tmp/competitor-publish/coconala/history/. .claude/state/coconala/history/
+            cp -R /tmp/competitor-publish/coconala/competitors-snapshot.json data/coconala/
+            cp -R /tmp/competitor-publish/coconala/history/. data/coconala/history/
           fi
           if [ -d /tmp/competitor-publish/coconala-research ]; then
-            cp /tmp/competitor-publish/coconala-research/*.json .claude/state/coconala/
+            cp /tmp/competitor-publish/coconala-research/*.json data/coconala/
           fi
 
           git add \
-            .claude/state/note/competitors-snapshot.json .claude/state/note/history \
-            .claude/state/ig-competitors/snapshot.json .claude/state/ig-competitors/history \
-            .claude/state/coconala/competitors-snapshot.json .claude/state/coconala/history \
-            .claude/state/coconala/market-research.json .claude/state/coconala/market-summary.json
+            data/note/competitors-snapshot.json data/note/history \
+            data/ig-competitors/snapshot.json data/ig-competitors/history \
+            data/coconala/competitors-snapshot.json data/coconala/history \
+            data/coconala/market-research.json data/coconala/market-summary.json
           if git diff --cached --quiet; then
             echo "No competitor snapshot changes to publish"
             exit 0

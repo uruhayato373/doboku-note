@@ -21,7 +21,7 @@ export default function SalesPage() {
     <>
       <PageHead
         title="note売上の登録実績"
-        sub={`累計 ${yen(total.revenue)} / ${total.count} 件 / ${total.months} ヶ月 · .claude/state/sales/sales-log.json`}
+        sub={`累計 ${yen(total.revenue)} / ${total.count} 件 / ${total.months} ヶ月 · data/sales/sales-log.json`}
       />
 
       <Stack>

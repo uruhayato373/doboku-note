@@ -7,7 +7,7 @@
  * コネクター経由の転送は全バイト読み戻し後に drive-connector-register で同じ台帳へ登録する。
  * 構造が違うものは別の系にして、重なり（同じパスが両方に一致する）を検査で止める。
  *
- * 設定: .claude/config/drive-vault.json / 台帳: .claude/state/assets/drive-manifest.json
+ * 設定: config/drive-vault.json / 台帳: .claude/state/assets/drive-manifest.json
  *
  * 設計の芯:
  *   1. **マウント先は実行時に解決し、台帳には vault 相対パスだけを書く。** 絶対パス
@@ -27,7 +27,7 @@ import { isDeepStrictEqual } from 'node:util';
 import { REPO_ROOT } from './repository-paths.mjs';
 import { loadReferenceSources, transcriptDirsForSource } from './reference-sources.mjs';
 
-export const DRIVE_CONFIG_PATH = join(REPO_ROOT, '.claude/config/drive-vault.json');
+export const DRIVE_CONFIG_PATH = join(REPO_ROOT, 'config/drive-vault.json');
 export const DRIVE_MANIFEST_PATH = join(REPO_ROOT, '.claude/state/assets/drive-manifest.json');
 
 /** vault 相対パスは常に '/' 区切り・NFC。Windows の '\\' と macOS の NFD を寄せる。 */

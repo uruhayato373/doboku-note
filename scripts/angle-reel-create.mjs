@@ -14,7 +14,7 @@
  *   共通 : narration（読み上げ）。onScreen 等は画面表示用＝narration 全文は載せない。
  *   character: ブランドマスコット合成（任意）。"pointing" 等の slug 文字列、または
  *             { "pose":"explaining", "side":"left"|"right", "scale":0.42 }。下隅にフェードイン＋
- *             せり上がりで登場。slug は .claude/config/character-poses.json（真実源=character-asset-policy.md）。
+ *             せり上がりで登場。slug は config/character-poses.json（真実源=character-asset-policy.md）。
  *
  * 使い方:
  *   node scripts/angle-reel-create.mjs --pack cem/angle-reels/<packId> [--speaker 3] [--png-only]

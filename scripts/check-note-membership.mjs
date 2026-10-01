@@ -25,7 +25,7 @@ import { attachCISession } from './lib/playwright-auth-state.mjs';
  *   node scripts/check-note-membership.mjs           # オフライン（CI 可）
  *   node scripts/check-note-membership.mjs --live    # 実機突合（ローカル・note ログイン要）
  *
- * 真実源: .claude/config/note-membership.json / memory `note-membership-publish`
+ * 真実源: config/note-membership.json / memory `note-membership-publish`
  * ---------------------------------------------------------------------------
  */
 import { readFileSync, existsSync } from 'node:fs';
@@ -35,7 +35,7 @@ import { fileURLToPath } from 'node:url';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const CFG = join(ROOT, '.claude/config/note-membership.json');
+const CFG = join(ROOT, 'config/note-membership.json');
 const LIVE = process.argv.includes('--live');
 if (!existsSync(CFG)) { console.error(`[check-note-membership] FAIL: config が無い: ${CFG}`); process.exit(1); }
 const cfg = JSON.parse(readFileSync(CFG, 'utf8'));

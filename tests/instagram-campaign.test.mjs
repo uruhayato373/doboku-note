@@ -11,7 +11,7 @@ const repo = dirname(dirname(fileURLToPath(import.meta.url)));
 const write = (root, path, value) => { const p = join(root, path); mkdirSync(dirname(p), { recursive: true }); writeFileSync(p, typeof value === 'string' ? value : JSON.stringify(value)); };
 function fixture(t) {
   const root = mkdtempSync(join(tmpdir(), 'ig-campaign-')); t.after(() => rmSync(root, { recursive: true, force: true }));
-  for (const f of ['scripts/lib/instagram-video-design.mjs', 'scripts/lib/video-explanation.mjs', '.claude/config/video-brand.json', '.claude/config/character-poses.json',
+  for (const f of ['scripts/lib/instagram-video-design.mjs', 'scripts/lib/video-explanation.mjs', 'config/video-brand.json', 'config/character-poses.json',
     'scripts/render-instagram-video-pack-carousels.mjs', 'scripts/render-instagram-video-pack-reels.mjs', 'scripts/lib/video-narration-cache.mjs', 'scripts/lib/video-subtitles.mjs', '.claude/scripts/lib/sns-common/reading-dict.mjs']) write(root, f, readFileSync(join(repo, f), 'utf8'));
   const topics = Array.from({ length: 112 }, (_, i) => { const dir = `content/sns/instagram/video-packs/civil-construction-1/p-${i}`;
     return { sourcePackId: `p-${i}`, exam: 'civil-construction-1', carousel: dir, reels: [`${dir}-a`, `${dir}-b`] }; });

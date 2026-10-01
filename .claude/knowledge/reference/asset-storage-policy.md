@@ -3,8 +3,8 @@
 ローカルに保持する容量・復元上限・定期掃除・月次読み戻しは [local-resource-policy.md](local-resource-policy.md)。R2復元はストリーミング、既定512MiB/回、復元先検証後に同一キャッシュを保持しない（`--keep-cache`で例外）。
 
 Git の外に置くアセットを **誰が使うかで 3 つの置き場へ振り分け**、必要なときだけ手元へ戻す運用の SSOT。
-機械可読な定義は R2 側が `.claude/config/asset-storage.json`（台帳 `.claude/state/assets/manifest.json`）、
-Google Drive 側が `.claude/config/drive-vault.json`（台帳 `.claude/state/assets/drive-manifest.json`）。
+機械可読な定義は R2 側が `config/asset-storage.json`（台帳 `.claude/state/assets/manifest.json`）、
+Google Drive 側が `config/drive-vault.json`（台帳 `.claude/state/assets/drive-manifest.json`）。
 迷ったら `/asset-route`（`.claude/skills/dev/asset-route/SKILL.md`）が決定木と正確なコマンドを持つ。
 
 > [!note] 経緯

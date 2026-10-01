@@ -1,7 +1,7 @@
 # 参考文献の共通ルール
 
 参考文献の原本、文字起こし、公開記事を一つの参照 ID でつなぐための運用 SSOT。機械可読の真実源は
-`.claude/config/reference-sources.json`、原本と非公開文字起こしの保管先は Google Drive vault とする。
+`config/reference-sources.json`、原本と非公開文字起こしの保管先は Google Drive vault とする。
 
 ## 1. 参考文献の区分
 
@@ -103,7 +103,7 @@ seed / stride も同時に変える**（`tests/reference-sources.test.mjs` が�
 
 1. `/asset-route` で利用者を判定し、人または手元の変換スクリプトだけが使う原本は Drive vault の
    `原資料PDF/` 配下へ置く。市販書籍の正規形は `書籍/{referenceId}__{短い書名}/`。
-2. `.claude/config/reference-sources.json` の既存 6 class から区分を選び、`id`、`title`、`origin`、必要なら
+2. `config/reference-sources.json` の既存 6 class から区分を選び、`id`、`title`、`origin`、必要なら
    `transcriptDir`、`appliesTo`、`aliases` を登録する。新しい class や既存 class の値が必要なら実装を止めて判断する。
    `appliesTo` は**その原本から実際に派生する記事だけ**に掛ける（過去問台帳なら `primary-*`・`secondary-r0*` のように。解説ガイドまで含む広い glob は baseline の偽の欠落になる。2026-09-12 に是正）。
 3. `bookBundle` を登録した書籍は `npm run build-reference-book-pages -- --source-id <id>` の dry-run 後、

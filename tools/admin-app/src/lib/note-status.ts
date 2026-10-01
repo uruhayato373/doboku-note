@@ -8,7 +8,7 @@
  *
  * 方針（tools/admin-app/README.md）:
  *   - ライブ API は叩かない。ライブの値は CI（note-live-audit.yml 週次）が供給する
- *     `.claude/state/note/*.json` を読むだけ。
+ *     `data/note/*.json` を読むだけ。
  *   - 判定ロジックは CLI 側に残し、ここは `--json` を実行して結果を表示するだけ。
  *   - **取得に失敗したら空ではなく `ok:false` を返す**（CLAUDE.md §9「検査ゼロを PASS と呼ばない」）。
  *     空を返すと画面が全件緑になり、検査していないことが「問題なし」に化ける。
@@ -142,7 +142,7 @@ const EMPTY_STATUS = {
  */
 export function statusSnapshot(now: number = Date.now()): StatusSnapshot {
   try {
-    const raw = readFileSync(repoPath('.claude', 'state', 'note', 'status-snapshot.json'), 'utf8');
+    const raw = readFileSync(repoPath('data', 'note', 'status-snapshot.json'), 'utf8');
     const d = JSON.parse(raw) as Record<string, unknown>;
     const fetchedAt = (d.fetchedAt as string) ?? null;
     const t = fetchedAt ? Date.parse(fetchedAt) : NaN;

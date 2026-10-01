@@ -18,7 +18,7 @@ function fmtDate(date: string): string {
 /**
  * /strategy/qualifications — 資格一覧（人が見る画面）。資格・状態・試験日・合格発表・受験者数・合格率だけを出す。
  *
- * 正本は .claude/config/qualification-registry.json（一覧と展開状態）・exam-calendar.json（日程）・
+ * 正本は config/qualification-registry.json（一覧と展開状態）・exam-calendar.json（日程）・
  * exam-stats.json（受験者数）。出典・照合記録・未確認の理由は正本と `npm run exam-ssot-status`
  * （月次レビュー）が持つので、この画面には出さない。正本の不整合があるときだけ警告を出す。
  * 区分（一次・二次など）ごとに試験日・合格発表・受験者数・合格率を横に揃え、過ぎた日付は薄く出す。

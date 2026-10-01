@@ -90,7 +90,7 @@ export function toItem({ slug, path, data, content, resolveMagazines }) {
 
 export function buildCatalog({ root = ROOT, files } = {}) {
   const noteDir = join(root, 'content/note');
-  const membership = JSON.parse(readFileSync(join(root, '.claude/config/note-magazine-membership.json'), 'utf8'));
+  const membership = JSON.parse(readFileSync(join(root, 'config/note-magazine-membership.json'), 'utf8'));
   const resolveMagazines = magazineResolver(membership);
   const items = [];
   const unpublished = [];

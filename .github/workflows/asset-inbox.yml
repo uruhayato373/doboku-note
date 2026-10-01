@@ -115,7 +115,7 @@ jobs:
       - name: Validate keiken answer split before asset upload
         run: |
           set -eu
-          if find .claude/config/coconala/assets/moshi-src -type f -print -quit 2>/dev/null | grep -q .; then
+          if find content/coconala/assets/moshi-src -type f -print -quit 2>/dev/null | grep -q .; then
             npm run check-keiken-answer-split:strict
           else
             npm run check-keiken-answer-split

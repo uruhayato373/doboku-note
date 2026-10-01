@@ -2,7 +2,7 @@
 /**
  * scout-coconala-competitors.mjs — ココナラ競合セラーの時系列偵察（read-only）
  * ---------------------------------------------------------------------------
- * .claude/config/coconala-competitors.json の各競合セラーの**出品サービス一覧**を
+ * config/coconala-competitors.json の各競合セラーの**出品サービス一覧**を
  * 公開プロフィールページ（coconala.com/users/{id}）から Playwright で取得し、
  * scout-note-competitors と同じ共通 snapshot schema（profile/counts/price/cadence/
  * drift/platformExtra）へ正規化して時系列に落とす。前回比 drift（価格改定/新商品/
@@ -31,8 +31,8 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 
 const ROOT = process.cwd();
-const CONFIG_PATH = join(ROOT, '.claude/config/coconala-competitors.json');
-const STATE_DIR = join(ROOT, '.claude/state/coconala');
+const CONFIG_PATH = join(ROOT, 'config/coconala-competitors.json');
+const STATE_DIR = join(ROOT, 'data/coconala');
 const HISTORY_DIR = join(STATE_DIR, 'history');
 const LATEST_PATH = join(STATE_DIR, 'competitors-snapshot.json');
 const IS_CI = process.env.CI === 'true' || process.env.GITHUB_ACTIONS === 'true';
@@ -93,7 +93,7 @@ async function scrapeSeller(page, handle) {
 /** market-research.json（検索由来・正確抽出）から seller 名一致のサービスを引く。
  *  profile の nickname と label/config の label を突き合わせる（正規化して部分一致）。 */
 function loadMarketServices() {
-  const p = join(ROOT, '.claude/state/coconala/market-research.json');
+  const p = join(ROOT, 'data/coconala/market-research.json');
   if (!existsSync(p)) return [];
   try {
     const j = JSON.parse(readFileSync(p, 'utf-8'));
@@ -257,7 +257,7 @@ async function main() {
   if (!PARTIAL) {
     mkdirSync(HISTORY_DIR, { recursive: true });
     writeFileSync(join(HISTORY_DIR, todayFile), JSON.stringify(snapshot, null, 2), 'utf-8');
-    console.log(`\n時系列保存: .claude/state/coconala/history/${todayFile}`);
+    console.log(`\n時系列保存: data/coconala/history/${todayFile}`);
   }
   console.log(`最新ポインタ: ${LATEST_PATH}`);
   console.log(`完了: ${results.length} セラー（失敗 ${failed}）→ 分析は competitor-analyst --platform coconala`);

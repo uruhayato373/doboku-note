@@ -151,7 +151,7 @@ test('片方の軸だけ取れるなら、その軸で判定する', () => {
 
 // ---- 現物 ----
 
-const CONFIG = () => JSON.parse(readFileSync(join(ROOT, '.claude/config/note-magazine-membership.json'), 'utf8'));
+const CONFIG = () => JSON.parse(readFileSync(join(ROOT, 'config/note-magazine-membership.json'), 'utf8'));
 const SOT = () => parseSoT(readFileSync(join(ROOT, 'src/lib/note-magazines.ts'), 'utf8'));
 const dropDoc = (o) => Object.fromEntries(Object.entries(o ?? {}).filter(([k]) => !k.startsWith('_')));
 
@@ -201,7 +201,7 @@ test('全ラベルが labels / packs / excluded のどれかに分類されて�
   assert.deepEqual(
     unclassified, [],
     `未分類のラベル: ${unclassified.join(', ')}\n`
-    + '  .claude/config/note-magazine-membership.json の labels / packs / excluded のどれかへ登録する',
+    + '  config/note-magazine-membership.json の labels / packs / excluded のどれかへ登録する',
   );
 });
 

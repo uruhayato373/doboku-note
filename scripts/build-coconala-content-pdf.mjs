@@ -6,7 +6,7 @@
  *   1. 源 article.md を読む
  *   2. stripNoteFunnel で note 導線（CTA/URL/商品誘導/ペイウォール文）を機械除去
  *   3. クリーン版を .tmp/coconala-pdf-src/<out>/article.md へ書き出し
- *   4. magazine-to-pdf 用 spec を生成 → 実行 → .claude/config/coconala/assets/pdf/<out>.pdf
+ *   4. magazine-to-pdf 用 spec を生成 → 実行 → content/coconala/assets/pdf/<out>.pdf
  *   5. 生成 PDF を pdftotext で検証し note.com/doboku-note/URL が **0件** でなければ FAIL
  *
  * マッピングは PRODUCTS 定数（＝coconala-listings.json の商品と対応）。
@@ -24,7 +24,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const NOTE_ROOT = join(ROOT, 'content/note');
 const NOTE_BASE = join(NOTE_ROOT, '1級・2級土木');
 // 生成物（模擬試験など note 記事を源としない商品）の markdown 置き場（＝PDF の SoT）。
-const MOSHI_BASE = join(ROOT, '.claude/config/coconala/assets/moshi-src');
+const MOSHI_BASE = join(ROOT, 'content/coconala/assets/moshi-src');
 // src（例 "2級土木-施工経験記述-完成答案集/品質管理/article.md"）はマガジン名の接頭辞で
 // grade dir（1級土木/2級土木）を解決する。generated=true は MOSHI_BASE 直下から解決。
 // noteRelative=true の商品（土木以外の資格）は src を content/note/ からの相対パスで書く。
@@ -50,7 +50,7 @@ const toDeliverable = (md, replace = []) => replace
   .replace(/本記事/g, '本資料')
   .replace(/この記事/g, 'この資料');
 const STAGE = join(ROOT, '.tmp/coconala-pdf-src');
-const OUT_PDF = join(ROOT, '.claude/config/coconala/assets/pdf');
+const OUT_PDF = join(ROOT, 'content/coconala/assets/pdf');
 const SPEC_DIR = join(ROOT, '.tmp/coconala-specs');
 
 // K2（択一直前パック）の3冊。K3（完全パック）にも同じものを収録する。
@@ -265,7 +265,7 @@ for (const [key, prod] of Object.entries(PRODUCTS)) {
   for (const sa of specArticles) {
     const spec = {
       srcDir: sa.srcDir,
-      outDir: '.claude/config/coconala/assets/pdf',
+      outDir: 'content/coconala/assets/pdf',
       articles: [{ src: sa.src, out: sa.out, ...(sa.title ? { title: sa.title } : {}), include: [{ from: sa.includeFrom, to: sa.includeTo }] }],
     };
     const specPath = join(SPEC_DIR, `${sa.out}.json`);

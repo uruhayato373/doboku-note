@@ -11,7 +11,7 @@
 // group（past-exam/primary/secondary）と、ディレクトリ名が特定年度を表す記事
 // （r05-essay-*, primary-r07-a 等＝その年度自体が主題）は除外する。
 //
-// 判定: 当年度は .claude/config/exam-calendar.json の exams[*].year の最大値。
+// 判定: 当年度は config/exam-calendar.json の exams[*].year の最大値。
 // 「前年度以前」の年度表現（西暦 YYYY年度・令和N年度・令和N年）を warn で列挙する（report・
 // ci:false）。年度切替（毎年1月）の直後は quality-audit.mjs でこのエントリを ci:true へ
 // 一時的に上げ、2週間以内に 0 件になるまで週次レビューで追い、収束したら ci:false へ戻す。
@@ -32,7 +32,7 @@ import {
 } from './lib/year-staleness.mjs';
 
 const CHECK_MODE = process.argv.includes('--check');
-const CALENDAR_PATH = '.claude/config/exam-calendar.json';
+const CALENDAR_PATH = 'config/exam-calendar.json';
 const SCAN_DIR = 'content/site';
 const SCAN_EXT = /\.mdx?$/;
 

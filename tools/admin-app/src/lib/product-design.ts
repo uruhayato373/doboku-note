@@ -9,7 +9,7 @@ import { loadThemes, themeShortLabel } from '../../../../scripts/lib/content-the
  * product-design.ts — 管理画面「商品設計」（/product/design）の表示モデル（read-only）。
  *
  * 資格 × 試験区分ごとに、note 商品を「パック・マガジン・単品」の層に並べる。層は手で書かず、
- * note の実際の収録（.claude/state/note/magazines-snapshot.json・verify-note-magazines --contents --json が書く）から決める:
+ * note の実際の収録（data/note/magazines-snapshot.json・verify-note-magazines --contents --json が書く）から決める:
  *   - パック  … 同じ区分の別のマガジンの収録を丸ごと含む有料マガジン
  *   - マガジン … それ以外の有料マガジン
  *   - 単品    … マガジンに収録された有料記事と、単品の商品（note-magazines.ts の noteUrl が /n/）
@@ -76,7 +76,7 @@ interface Snapshot {
 
 function readSnapshot(errors: string[]): Snapshot | null {
   try {
-    return JSON.parse(readFileSync(repoPath('.claude', 'state', 'note', 'magazines-snapshot.json'), 'utf8')) as Snapshot;
+    return JSON.parse(readFileSync(repoPath('data', 'note', 'magazines-snapshot.json'), 'utf8')) as Snapshot;
   } catch (e) {
     errors.push(`note の収録（magazines-snapshot.json）を読めない: ${(e as Error).message}`);
     return null;

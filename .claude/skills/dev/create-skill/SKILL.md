@@ -139,7 +139,7 @@ node "${CLAUDE_SKILL_DIR}/scripts/helper.js" $ARGUMENTS
 name: {agent-name}
 description: {一行説明 — 種別（Generator/Evaluator/Orchestrator）を含める}
 model: sonnet  # または inherit（オーケストレーターのみ）
-domain: {領域 id — .claude/config/domains.json（skills-design-guide.md「domain フィールド」）}
+domain: {領域 id — config/domains.json（skills-design-guide.md「domain フィールド」）}
 ---
 
 # {Agent Name}

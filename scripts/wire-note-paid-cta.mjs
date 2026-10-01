@@ -26,7 +26,7 @@
  *   node scripts/wire-note-paid-cta.mjs --check         # ゲート（要修正が残っていれば exit 1）
  *   node scripts/wire-note-paid-cta.mjs --list out.txt  # 変更した記事のパスを出力（ライブ反映用）
  *
- * 真実源: .claude/config/note-funnel.json（L2 URL・もくじ文面）
+ * 真実源: config/note-funnel.json（L2 URL・もくじ文面）
  *         .claude/knowledge/reference/note-funnel-architecture.md（原則）
  * ---------------------------------------------------------------------------
  */
@@ -35,7 +35,7 @@ import { join } from 'node:path';
 
 const ROOT = 'content/note';
 const DEFAULT_BOUNDARY = '試験問題|予想問題';
-const CFG = JSON.parse(readFileSync('.claude/config/note-funnel.json', 'utf8'));
+const CFG = JSON.parse(readFileSync('config/note-funnel.json', 'utf8'));
 
 const APPLY = process.argv.includes('--apply');
 const CHECK = process.argv.includes('--check');

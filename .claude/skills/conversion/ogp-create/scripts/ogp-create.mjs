@@ -3,9 +3,9 @@
  *
  * ルールベース + テンプレートシステム:
  *   1. MDX frontmatter からタイトル・カテゴリ・タグを読む
- *   2. frontmatter.ogp.template > --template > .claude/config/ogp/rules.json の順でテンプレを決定
- *   3. .claude/config/ogp/text.json で改行・フォントサイズ・セーフティ幅を決定
- *   4. テンプレ定義（.claude/config/ogp/templates.json）に従い satori で SVG 生成
+ *   2. frontmatter.ogp.template > --template > config/ogp/rules.json の順でテンプレを決定
+ *   3. config/ogp/text.json で改行・フォントサイズ・セーフティ幅を決定
+ *   4. テンプレ定義（config/ogp/templates.json）に従い satori で SVG 生成
  *   5. sharp で PNG 化して所定パスに書き出す
  *
  * 出力先: content/site/{category}/{localSlug}/ogp.png
@@ -40,9 +40,9 @@ import matter from 'gray-matter';
 import { createRequire } from 'node:module';
 const require = createRequire(import.meta.url);
 const categories = require(path.join(process.cwd(), 'src/config/categories.json'));
-const templatesConfig = require(path.join(process.cwd(), '.claude/config/ogp/templates.json'));
-const rulesConfig = require(path.join(process.cwd(), '.claude/config/ogp/rules.json'));
-const textConfig = require(path.join(process.cwd(), '.claude/config/ogp/text.json'));
+const templatesConfig = require(path.join(process.cwd(), 'config/ogp/templates.json'));
+const rulesConfig = require(path.join(process.cwd(), 'config/ogp/rules.json'));
+const textConfig = require(path.join(process.cwd(), 'config/ogp/text.json'));
 
 // 試験区分→テーマ色（外枠・チップ）。色の真実源は .claude/knowledge/design-system/note-cover-tokens.json (base)。
 // ここは category(フルslug) → exam キー(short) の対応のみを持つ（色は重複させない）。
@@ -122,7 +122,7 @@ const POSTS_DIR = SITE_CONTENT_ROOT;
 const FONTS_DIR = path.join(__dirname, '..', 'assets', 'fonts');
 // 資格ごとに共有する AI 生成背景の置き場。<exam-key>.png|webp|jpg を探す。
 // 真実源の exam-key は CATEGORY_TO_EXAM_KEY（上）と note-cover-tokens.json に一致。
-const BACKGROUNDS_DIR = path.join(PROJECT_ROOT, '.claude', 'config', 'ogp', 'backgrounds');
+const BACKGROUNDS_DIR = path.join(PROJECT_ROOT, 'config', 'ogp', 'backgrounds');
 
 // ---- CLI 引数パース ----
 

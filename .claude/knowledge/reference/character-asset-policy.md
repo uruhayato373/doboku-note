@@ -3,10 +3,10 @@
 POP表紙・商品サムネイルでは [共通制作方針](./pop-image-policy.md) により無地ヘルメットを許容する。標準プロフィール素材はロゴ入りを継続する。
 # キャラクター素材ポリシー（doboku-note 先生）
 
-ブランドマスコット **「doboku-note 先生」** の素材ライブラリ運用 SSOT。アイデンティティ（人格・外見・ブランド）の真実源は [CHARACTER-SPEC.md](../../../content/sns/_assets/character/CHARACTER-SPEC.md)、ポーズ素材の機械可読な真実源は [`.claude/config/character-poses.json`](../../config/character-poses.json)。本ドキュメントは「どこに・どう保存し・どう生成/抽出し・どのチャネルでどう使うか」を集約する。
+ブランドマスコット **「doboku-note 先生」** の素材ライブラリ運用 SSOT。アイデンティティ（人格・外見・ブランド）の真実源は [CHARACTER-SPEC.md](../../../content/sns/_assets/character/CHARACTER-SPEC.md)、ポーズ素材の機械可読な真実源は [`config/character-poses.json`](../../../config/character-poses.json)。本ドキュメントは「どこに・どう保存し・どう生成/抽出し・どのチャネルでどう使うか」を集約する。
 
 - **アイデンティティ（不変条件）の SoT** → `content/sns/_assets/character/CHARACTER-SPEC.md`（設定書）
-- **ポーズ素材の機械可読 SoT** → `.claude/config/character-poses.json`（manifest）
+- **ポーズ素材の機械可読 SoT** → `config/character-poses.json`（manifest）
 - **素材の実体** → `content/sns/_assets/character/*.png`（透過個別）＋ `_source/`（生成元グリッド）
 - **抽出ツール** → `scripts/character-extract.mjs`（`npm run character-extract`）
 
@@ -75,7 +75,7 @@ AIは「透過」「同一人物9体」を守れないため、**1ポーズ=1画
    npm run character-extract -- --in ~/Downloads/poses --names "a,b,c"     # 確認後にポーズ名で本保存
    ```
    白背景を flood-fill で抜き＋トリムして `content/sns/_assets/character/<name>.png` を生成。淡色背景や影が残る場合は `aidesigner remove_image_background`（Pro 無料枠）で AI 切り抜きに切替。
-3. **登録**: `.claude/config/character-poses.json` の `poses[]` に追記（slug / file / label / category / beats / verified）。実物を確認して `composition` の用途・向き・配置・切り取り・注意・確認日を登録する。名称照合前は `verified:false`、照合後に `true` へ。カタログで背景を変えて見切れ・背景の残り・透過抜けを確認し、画像の採否は別途 `quality` に記録する。制作担当は `ready` の素材を使い、`needs-fix` と `unreviewed` は修正・確認後に採用する。
+3. **登録**: `config/character-poses.json` の `poses[]` に追記（slug / file / label / category / beats / verified）。実物を確認して `composition` の用途・向き・配置・切り取り・注意・確認日を登録する。名称照合前は `verified:false`、照合後に `true` へ。カタログで背景を変えて見切れ・背景の残り・透過抜けを確認し、画像の採否は別途 `quality` に記録する。制作担当は `ready` の素材を使い、`needs-fix` と `unreviewed` は修正・確認後に採用する。
    派生PNGで使う新ポーズには上記 `framing` も登録し、全身・腰上・胸上を白/紺背景で目視する。未登録でも一覧と原画像保存は残るが、切り取りプレビュー・派生書き出しは使えない。
 4. **コミット**: 並行セッション保護のため develop は別 worktree で。`git add` は対象 path のみ明示。
 
@@ -97,7 +97,7 @@ AIは「透過」「同一人物9体」を守れないため、**1ポーズ=1画
 | 対象 | 真実源 / ツール |
 |---|---|
 | 人格・外見・ブランド・避けたい表現・ロードマップ | `CHARACTER-SPEC.md`（設定書） |
-| ポーズ一覧・分類・beat・file 配線（機械可読） | `.claude/config/character-poses.json` |
+| ポーズ一覧・分類・beat・file 配線（機械可読） | `config/character-poses.json` |
 | **サイト CTA で使うポーズの選定** | 同 manifest の **`siteCta: true`**（ここが唯一の真実源。スクリプトも型もこれに従う） |
 | 保存場所・命名・生成/抽出手順・チャネル運用 | 本ドキュメント |
 | 透過抽出（追加ポーズ） | `scripts/character-extract.mjs`（`npm run character-extract`） |
@@ -111,7 +111,7 @@ AIは「透過」「同一人物9体」を守れないため、**1ポーズ=1画
 
 `siteCta` を真実源にし、列挙を複製しない。**manifest → 画像 → 型**の順で進める（逆順にすると本番でアバターが 404 になる）。
 
-1. `.claude/config/character-poses.json` の該当 pose に `"siteCta": true` を追記（未登録のポーズなら先に生成→`npm run character-extract`→登録）
+1. `config/character-poses.json` の該当 pose に `"siteCta": true` を追記（未登録のポーズなら先に生成→`npm run character-extract`→登録）
 2. `npm run character-icons {pose}` → `npm run character-avatars`（生成対象は manifest から自動導出。列挙を書き足す必要はない）
 3. `src/lib/note-magazines.ts` の `ctaPose` union に `| '{pose}'` を追加（型に literal が要るためここだけ手書き。他所に列挙を増やさない）
 4. `npm run check-character-avatars` で manifest ⇔ webp ⇔ union の三者整合を確認 → 生成物と併せて commit

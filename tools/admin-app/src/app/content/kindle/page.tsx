@@ -45,7 +45,7 @@ function fmtYen(n: number | undefined): string {
  *
  * 判定ロジックは scripts/lib/kindle-catalog.mjs（このページ専用の pure module）。
  * 再ビルド・提出・状態同期・任意 CLI 実行は一切追加しない（運用規約カードで CLI コマンドを
- * 案内するのみ）。.claude/config/kdp-memo.json（秘密混じり）は読まない・表示しない。
+ * 案内するのみ）。config/kdp-memo.json（秘密混じり）は読まない・表示しない。
  */
 export default async function KindleContentPage() {
   const view = await loadKindleView();

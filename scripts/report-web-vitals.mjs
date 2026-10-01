@@ -2,7 +2,7 @@
 /**
  * report-web-vitals.mjs — 実ユーザー計測（RUM）の Core Web Vitals を週次レビュー向けに読む。
  *
- * 最新の .claude/state/metrics/rum/web-vitals-*.json（fetch-ga4-web-vitals が CI で保存）を読み、
+ * 最新の data/metrics/rum/web-vitals-*.json（fetch-ga4-web-vitals が CI で保存）を読み、
  * 手を打つべき組（不良・要改善で件数が足りているもの）を先に出す。判定は scripts/lib/web-vitals-rum.mjs。
  * 週次レビューは、ここに「不良」が出たら改善カードを起票する（PSI のラボ値だけでは起票しない）。
  *
@@ -13,7 +13,7 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { actionable, MIN_SAMPLES } from './lib/web-vitals-rum.mjs';
 
-const DIR = '.claude/state/metrics/rum';
+const DIR = 'data/metrics/rum';
 const TAG = '[report-web-vitals]';
 const MAX_AGE_DAYS = 10;
 const STATUS_JA = { good: '良好', 'needs-improvement': '要改善', poor: '不良', insufficient: '件数不足' };

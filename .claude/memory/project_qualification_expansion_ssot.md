@@ -5,7 +5,7 @@ metadata:
   type: project
 ---
 
-2026-09-26、展開する資格の判断材料を正本に配線した。出題形式 `exam-formats.json`・市場スキャン `market-scan.json`＋`.claude/state/market/history/`・`youtube-competitors.json`・売上の資格振り分け `product-lineup.json` salesRules。並べる場所は `npm run qualification-market`／管理画面 戦略＞展開の判断。判断の記録は `docs/strategy/06_多資格展開戦略.md` v2.0。
+2026-09-26、展開する資格の判断材料を正本に配線した。出題形式 `exam-formats.json`・市場スキャン `market-scan.json`＋`data/market/history/`・`youtube-competitors.json`・売上の資格振り分け `product-lineup.json` salesRules。並べる場所は `npm run qualification-market`／管理画面 戦略＞展開の判断。判断の記録は `docs/strategy/06_多資格展開戦略.md` v2.0。
 
 **Why:** 売上は自分で答案を組み立てる商品（経験記述・論文）に集中し、7月の技術士筆記前に偏る。受験者数だけでは売れる資格を選べない。ユーザーは競合（YouTube/ココナラ/note/X/IG）をSSOT管理したうえで展開を決めたいと求めた。
 

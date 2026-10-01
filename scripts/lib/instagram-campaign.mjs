@@ -3,7 +3,7 @@ import { join } from 'node:path';
 import { createHash } from 'node:crypto';
 import { IG_DESIGN, instagramRendererDigest } from './instagram-video-design.mjs';
 
-export const CAMPAIGN_PATH = '.claude/config/instagram-campaign.json';
+export const CAMPAIGN_PATH = 'config/instagram-campaign.json';
 export const sha256 = value => createHash('sha256').update(value).digest('hex');
 export const json = path => JSON.parse(readFileSync(path, 'utf8'));
 export function validateCampaign(plan) {

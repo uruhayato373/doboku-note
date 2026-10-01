@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// prune-state-snapshots — CI が `.claude/state/metrics/**` と `.claude/state/weekly-metrics/` に積む日付付き snapshot を
+// prune-state-snapshots — CI が `data/metrics/**` と `data/weekly-metrics/` に積む日付付き snapshot を
 // 寿命表（scripts/lib/prune-state-snapshots.mjs の POLICIES）に従って消す。
 //
 // 使い方:
@@ -55,7 +55,7 @@ function readJsonAt(root) {
 }
 
 function loadPins(root) {
-  const ww = join(root, '.claude/config/seo-watchwords.json');
+  const ww = join(root, 'config/seo-watchwords.json');
   const watchwords = existsSync(ww) ? JSON.parse(readFileSync(ww, 'utf8')) : null;
   const businessDir = join(root, METRICS_ROOT, 'business');
   const businessDocs = [];

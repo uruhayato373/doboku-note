@@ -20,7 +20,7 @@ developer_instructions = """
 1. 対象 article.md を Read。frontmatter と本文を分離。
 2. 同級の既存マガジン全 article.md ＋ サイト `secondary-experience-writing-{guide,examples}`（pastexam は対象年度 `secondary-r0X` も）を Read。
 3. 下記5軸を各 0〜3 で採点し、機械チェックを実行。
-4. 字数ゲート: `node scripts/keiken-charcount.mjs <対象 article.md> --strict` を実行（しきい値の真実源は `.claude/config/keiken-answer-sheet-limits.json`、出典ベース確定値）。要圧縮(×)・大幅(✗)が1件でもあれば**不合格**。borderline(△, +10%以内)は許容。**ⅰ）ⅱ）等の列挙マーカーは本文インラインで字数算入される**ため、`1.`型→ⅰ）型へ体裁統一した記事は (3) 対応処置（上限175）の超過に注意（カウンタ済なので strict 結果をそのまま採用）。
+4. 字数ゲート: `node scripts/keiken-charcount.mjs <対象 article.md> --strict` を実行（しきい値の真実源は `config/keiken-answer-sheet-limits.json`、出典ベース確定値）。要圧縮(×)・大幅(✗)が1件でもあれば**不合格**。borderline(△, +10%以内)は許容。**ⅰ）ⅱ）等の列挙マーカーは本文インラインで字数算入される**ため、`1.`型→ⅰ）型へ体裁統一した記事は (3) 対応処置（上限175）の超過に注意（カウンタ済なので strict 結果をそのまま採用）。
 
 ## 5軸ルーブリック（各0〜3、合格 = 平均≥2.0 かつ 必須ゲート全通過）
 
@@ -66,6 +66,6 @@ developer_instructions = """
 
 - `.claude/agents/civil-keiken-essay-writer.md`（対の Generator）
 - `.claude/knowledge/reference/content-principles.md`
-- 字数ゲート: `/keiken-charcount`（`scripts/keiken-charcount.mjs` + `.claude/config/keiken-answer-sheet-limits.json`）
+- 字数ゲート: `/keiken-charcount`（`scripts/keiken-charcount.mjs` + `config/keiken-answer-sheet-limits.json`）
 - メモリ: [[feedback_exam_pdf_cross_reference]] / [[feedback_no_price_in_mdx_body]] / [[feedback_essay_char_limit]]
 """

@@ -4,7 +4,7 @@
  * 透過 PNG（背景除去＋トリム）に変換し、ポーズ名で素材ライブラリへ保存する。
  *
  * 真実源/運用: .claude/knowledge/reference/character-asset-policy.md
- * マニフェスト: .claude/config/character-poses.json
+ * マニフェスト: config/character-poses.json
  *
  * 使い方:
  *   node scripts/character-extract.mjs --in ~/Downloads/poses [--names "pointing,idea,..."] [--fuzz 12]
@@ -99,4 +99,4 @@ for (const s of staged) {
   console.log(`  ${s.src} → ${s.name}.png`);
 }
 console.log(`\n保存完了: ${staged.length}枚 → ${outDir}`);
-console.log('次: .claude/config/character-poses.json に poses を追記し、verified を確認すること。');
+console.log('次: config/character-poses.json に poses を追記し、verified を確認すること。');

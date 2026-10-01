@@ -2,7 +2,7 @@
  * PageSpeed Insights API 取得スクリプト
  *
  * Core Web Vitals（LCP, INP, CLS）と Lighthouse スコアを取得し
- * .claude/state/metrics/psi/ に時系列で保存する。
+ * data/metrics/psi/ に時系列で保存する。
  *
  * 認証方針:
  *   PSI API v5 は公開エンドポイント。低量の呼び出しは API キー不要。
@@ -36,7 +36,7 @@ dotenv.config({ path: ".env.local" });
 
 // ── Config ──
 
-const OUTPUT_DIR = ".claude/state/metrics/psi";
+const OUTPUT_DIR = "data/metrics/psi";
 const DEFAULT_STRATEGY = "mobile";
 const DEFAULT_CATEGORIES = ["performance", "accessibility", "best-practices", "seo"];
 
@@ -214,7 +214,7 @@ function explain429() {
         "  これは「PSI の障害」でも「このプロジェクトのクォータ枯渇」でもありません。",
         "",
         "  計測は CI/CD 供給が正（キーは GitHub Secrets にあり、日次ジョブは正常に動いています）。",
-        "  → 既存データ: .claude/state/metrics/psi/psi-batch-*.json",
+        "  → 既存データ: data/metrics/psi/psi-batch-*.json",
         "  → 真実源: .claude/knowledge/reference/measurement-incidents.md",
         "  ───────────────────────────────────────────────",
       ].join("\n"),
@@ -387,7 +387,7 @@ async function main() {
   if (!process.env.PSI_API_KEY && !process.env.CI) {
     console.warn(
       "[fetch-psi-data] WARN PSI_API_KEY 未設定。キー無しは匿名共有枠に載るため 429 になりやすい\n" +
-        "  計測は CI/CD 供給が正。既存データ: .claude/state/metrics/psi/psi-batch-*.json",
+        "  計測は CI/CD 供給が正。既存データ: data/metrics/psi/psi-batch-*.json",
     );
   }
 

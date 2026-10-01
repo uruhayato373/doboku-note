@@ -16,7 +16,7 @@
  * 三軸:
  *   A: repo 実数  … 記事 frontmatter `noteMagazine` の集計（記事を足す＝宣言が増える）
  *   B: SoT 表記   … note-magazines.ts の「計N記事」「（N本セット」
- *   C: ライブ     … .claude/state/note/magazines-snapshot.json の magazines[].notes.length
+ *   C: ライブ     … data/note/magazines-snapshot.json の magazines[].notes.length
  *
  *   期待収録数(id) = Σ A(その id に紐づくラベル) + Σ fromMagazines + extras[id].count
  *   収録リストを別に手書きしないのは、それ自体が第 4 のドリフト源になるため。
@@ -46,7 +46,7 @@
  * exit: 0 合格 / 1 件数ズレ・包含漏れ / 2 検査不成立（設定破損・対象ゼロ・--ci で snapshot 腐敗）
  * 緊急回避: SKIP_MAGAZINE_MEMBERSHIP=1
  *
- * 真実源: .claude/config/note-magazine-membership.json
+ * 真実源: config/note-magazine-membership.json
  */
 import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync, readdirSync, statSync, writeSync } from 'node:fs';
@@ -56,8 +56,8 @@ import { fileURLToPath } from 'node:url';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const NOTE_DIR = join(ROOT, 'content/note');
 const SOT_PATH = join(ROOT, 'src/lib/note-magazines.ts');
-const CONFIG_PATH = join(ROOT, '.claude/config/note-magazine-membership.json');
-const SNAPSHOT_PATH = join(ROOT, '.claude/state/note/magazines-snapshot.json');
+const CONFIG_PATH = join(ROOT, 'config/note-magazine-membership.json');
+const SNAPSHOT_PATH = join(ROOT, 'data/note/magazines-snapshot.json');
 
 /** 週次 note-live-audit + 2 日のバッファ。これを超えた snapshot は「真実」として使わない。 */
 const STALE_DAYS = 9;
@@ -488,7 +488,7 @@ function main() {
     + '\n  1. ライブへ収録   node scripts/note-magazine-add-articles.mjs --target <m…> --notes <n…> --commit'
     + '\n  2. SoT の件数表記 src/lib/note-magazines.ts の title / description / shortDescription / price'
     + '\n  3. snapshot 再生成 npm run verify-note-magazines -- --contents --json'
-    + '\nペルソナ dir の外から収録している例外は .claude/config/note-magazine-membership.json の extras に理由付きで。',
+    + '\nペルソナ dir の外から収録している例外は config/note-magazine-membership.json の extras に理由付きで。',
   );
   process.exit(1);
 }

@@ -7,7 +7,7 @@ domain: plan
 
 ## 共通の判断基準
 
-`docs/strategy/01_プロダクト戦略.md` と `.claude/config/business-direction.json`、直近の `.claude/state/metrics/business/` の週次・月次判断を先に読む。対象資格・読者の課題・現物の不足・変更・評価指標・再計測日を一続きにする。記事数や図数を増やすための計画にしない。実験はexperiments.json、単発実装はbacklogへ接続し、計画へ状態を複製しない。未測定の販売・費用・時間は取得を次の一手に含める。
+`docs/strategy/01_プロダクト戦略.md` と `config/business-direction.json`、直近の `data/metrics/business/` の週次・月次判断を先に読む。対象資格・読者の課題・現物の不足・変更・評価指標・再計測日を一続きにする。記事数や図数を増やすための計画にしない。実験はexperiments.json、単発実装はbacklogへ接続し、計画へ状態を複製しない。未測定の販売・費用・時間は取得を次の一手に含める。
 
 プロジェクトの現状を調査し、戦略的な週次計画を生成する。
 
@@ -27,7 +27,7 @@ domain: plan
 
 ### Phase 0: 週次メトリクス スナップショット（CI 供給が既定）
 
-**スナップショットは `fetch-metrics.yml`（金 06:00 JST）が CI 上でライブ取得してコミットする**（2026-07-04〜。2026-W18 でローカル手動実行が途絶したのを CI 供給へ移行＝恒久ルールと整合）。`.claude/state/weekly-metrics/YYYY-Www.json` に NSM（GA4+GSC 前週比較）＋ **SNS 流入（source 別 WoW）** を保存し index.json に追記する。Phase 0 で人がやることは通常なし（最新スナップショットを読むだけ）。
+**スナップショットは `fetch-metrics.yml`（金 06:00 JST）が CI 上でライブ取得してコミットする**（2026-07-04〜。2026-W18 でローカル手動実行が途絶したのを CI 供給へ移行＝恒久ルールと整合）。`data/weekly-metrics/YYYY-Www.json` に NSM（GA4+GSC 前週比較）＋ **SNS 流入（source 別 WoW）** を保存し index.json に追記する。Phase 0 で人がやることは通常なし（最新スナップショットを読むだけ）。
 
 ローカルで手動生成したい場合のみ（creds のある Mac 等）:
 
@@ -41,7 +41,7 @@ node .claude/scripts/snapshot-weekly-metrics.mjs        # 現在の週（既存�
 
 ### Phase 0.5: 閾値違反の抽出（.claude/todo/ 反映候補）
 
-Phase 0 の snapshot 直後、`.claude/state/weekly-metrics/YYYY-Www.json` を読み、以下の閾値ルールで違反項目を抽出する。**task-queue.json 自動登録は廃止（2026-06-11、.claude/todo/ 手動運用へ一本化）**。抽出した違反は Phase 1 Agent C の出力に含め、Phase 3「今週のタスク」候補としてユーザーが `.claude/todo/` にキュレーションする。
+Phase 0 の snapshot 直後、`data/weekly-metrics/YYYY-Www.json` を読み、以下の閾値ルールで違反項目を抽出する。**task-queue.json 自動登録は廃止（2026-06-11、.claude/todo/ 手動運用へ一本化）**。抽出した違反は Phase 1 Agent C の出力に含め、Phase 3「今週のタスク」候補としてユーザーが `.claude/todo/` にキュレーションする。
 
 #### 抽出対象の閾値
 
@@ -58,7 +58,7 @@ Phase 0 の snapshot 直後、`.claude/state/weekly-metrics/YYYY-Www.json` を�
 | PSI | 中央値比 LCP | +500ms 以上 | High（回帰） |
 
 > **PSI の判定原則（誤報防止・必読）**: **実害＝Critical は field(CrUX 実ユーザー p75) が AVERAGE/SLOW のときだけ**。lab は合成スロットリング値で日次の振れが大きく（同一ページが同一週内に 2,026〜7,201ms を往復）、**単発値・単発差分で Critical を立ててはいけない**。field が FAST なら lab がどれだけ悪くても最大 Medium（改善余地であって障害ではない）。回帰は前回比ではなく**直近5バッチ中央値**で見る。
-> 真実源: [measurement-incidents.md](../../../knowledge/reference/measurement-incidents.md)「2026-07-27: lab と field の判定原則」／機械可読: `.claude/config/psi-config.json` の `judgment`。
+> 真実源: [measurement-incidents.md](../../../knowledge/reference/measurement-incidents.md)「2026-07-27: lab と field の判定原則」／機械可読: `config/psi-config.json` の `judgment`。
 > ※ 2026-07-27（W30）に lab の単発スパイクを CRITICAL と報告し、実際は field p75 822ms=FAST で実害ゼロだった。1週間分の優先順位が歪んだ。
 
 詳細な条件式は `.claude/agents/metrics-analyzer.md` および `.claude/agents/performance-auditor.md` 参照。
@@ -100,10 +100,10 @@ Phase 0 の snapshot 直後、`.claude/state/weekly-metrics/YYYY-Www.json` を�
 ```
 調査方法:
 1. NSM データの取得（既定 = スナップショット読み）:
-   - CI がコミットした `.claude/state/metrics/{ga4,gsc}/` の最新スナップショットを読む（既定）
-   - Phase 0 で `.claude/state/weekly-metrics/YYYY-Www.json` が生成済みならそれを使ってもよい
+   - CI がコミットした `data/metrics/{ga4,gsc}/` の最新スナップショットを読む（既定）
+   - Phase 0 で `data/weekly-metrics/YYYY-Www.json` が生成済みならそれを使ってもよい
    - creds + 外部到達性がある環境に限り、任意で metrics-reader を直接呼んでもよい
-2. .claude/state/experiments.json を読んで以下を把握:
+2. data/experiments.json を読んで以下を把握:
    - `kind: seo-rank-watch` は汎用10日/28日・metrics-reader比較から除外。`npm run seo-rank-watch -- report --json` の状態・期限を転記し、`/weekly-improve --rank-watch --no-fetch` へ送る。観察中ページへ別実験を提案しない。
    - running 実験: 経過日数、baseline との gap
    - measuring 実験: 前後比較の中間サマリ
@@ -136,7 +136,7 @@ Phase 0 の snapshot 直後、`.claude/state/weekly-metrics/YYYY-Www.json` を�
 ```
 
 **取得元の優先順位**:
-- 既定: CI がコミットした `.claude/state/metrics/{ga4,gsc}/` スナップショットを読む（creds 不要）
+- 既定: CI がコミットした `data/metrics/{ga4,gsc}/` スナップショットを読む（creds 不要）
 - 任意: creds（.env.local の GOOGLE_SERVICE_ACCOUNT_KEY_PATH / GA4_PROPERTY_ID）+ 外部到達性が
   両方ある環境のみライブ fetch 可。会社 PC のプロキシ配下では不可
 - スナップショットも揃わない真のデータ欠損時のみ「NSM セクション: スキップ（データ未取得）」と記録。

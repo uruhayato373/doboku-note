@@ -13,7 +13,7 @@ deleteOnComplete: true
 
 ## SSOT と対象
 
-.claude/config/business-direction.json / .claude/state/metrics/business/ / .claude/state/experiments.json / docs/strategy/01_プロダクト戦略.md / /metrics/business
+config/business-direction.json / data/metrics/business/ / data/experiments.json / docs/strategy/01_プロダクト戦略.md / /metrics/business
 
 優先順位・残作業は backlog、担当は todo:claim、完了記録は dispatch-log。図の正典はサイトSVG、配信状態は既存SNS台帳。制作の対応範囲は `.claude/state/content-expansion.json`（管理画面 `/materials`）を参照し、公開・売上の別台帳を作らない。
 

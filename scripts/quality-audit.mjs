@@ -135,7 +135,7 @@ const CHECKS = [
   { id: 'backlog-schema', npm: 'check-backlog-schema', timeout: 30_000, ci: true, note: 'backlog タグ行の語彙・[検証:]の実在・パーサ契約（admin と sweep が同じカードを見ているか）' },
   // 動画パック（DN-0110 Phase 0・2026-08-28 追加）。Phase 1 未着手（packs root 不在）は明示して exit 0、
   // root があるのに 0 件は exit 2（検査不成立）。チェッカー自体の健全性は unit-tests の fixture が担保。
-  { id: 'video-content', npm: 'check-video-content', timeout: 60_000, ci: true, note: '動画パックの manifest/sourceRef 漏洩/CTA・UTM/storyboard/逐語転用/バイナリ混入/status 整合（真実源 video-content-policy.md §8 ＋ .claude/config/video-content.json）' },
+  { id: 'video-content', npm: 'check-video-content', timeout: 60_000, ci: true, note: '動画パックの manifest/sourceRef 漏洩/CTA・UTM/storyboard/逐語転用/バイナリ混入/status 整合（真実源 video-content-policy.md §8 ＋ config/video-content.json）' },
   { id: 'instagram-reels', npm: 'check-instagram-reels', timeout: 60_000, ci: true, note: '動画パックから派生する Instagram Reels の対象数・資格別被覆・媒体設定を固定' },
   { id: 'youtube-shorts', npm: 'check-youtube-shorts', timeout: 60_000, ci: true, note: '112動画パック×2本のShortsメタデータ、タイトル/UTM/著者表記/scene/通常動画後の公開枠と1日3本上限を固定' },
 
@@ -312,7 +312,7 @@ const CHECKS = [
   // Git に何を追跡してよいかのラチェット（DN-0111 Phase 1・2026-08-21 追加）。
   // 既存違反（教材ページ画像 868 / base64 SVG 756 等）は baseline で猶予し、増加だけを止める。
   // baseline 更新: npm run check-git-binary-policy -- --update-baseline
-  { id: 'snapshot-lifetime', cmd: ['node', 'scripts/prune-state-snapshots.mjs', '--check-coverage'], timeout: 60_000, ci: true, note: '.claude/state/metrics/** と weekly-metrics/ の日付付き snapshot すべてに寿命（scripts/lib/prune-state-snapshots.mjs POLICIES）が宣言されているか。未宣言＝誰も消せず永久に増える系列。削除本体は書き手の workflow（psi-audit / fetch-metrics / index-coverage）が commit 直前に --commit で実行' },
+  { id: 'snapshot-lifetime', cmd: ['node', 'scripts/prune-state-snapshots.mjs', '--check-coverage'], timeout: 60_000, ci: true, note: 'data/metrics/** と weekly-metrics/ の日付付き snapshot すべてに寿命（scripts/lib/prune-state-snapshots.mjs POLICIES）が宣言されているか。未宣言＝誰も消せず永久に増える系列。削除本体は書き手の workflow（psi-audit / fetch-metrics / index-coverage）が commit 直前に --commit で実行' },
   { id: 'git-binary-policy', npm: 'check-git-binary-policy', timeout: 120_000, ci: true, note: '生成物・著作権物・巨大 blob・拡張子偽装の新規追跡を baseline ラチェットで止める（HEAD 4.16GiB / remote 11GB の再発防止）' },
   { id: 'knip-ratchet', npm: 'check-knip-ratchet', timeout: 300_000, ci: true, note: 'デッドコードが baseline から増えていないか' },
   {

@@ -9,7 +9,7 @@ metadata:
 
 - 反映計画: `scripts/lib/note-sync-plan.mjs`（`npm run note-sync-plan`）。部品 body/cover/tags と、止まっている理由（aborted・trial-guard・image-missing・boundary・meta）と直し方
 - 1 記事 1 回の更新: `note-update-body --sync`（計画から部品を決める）/ `--parts cover,tags`（明示）。本文を触らない記事は有料境界・試し読みラインを動かさない。`note-update-cover` は廃止
-- 週次: launchd `com.doboku-note.note-sync`（日曜 3:00・`npm run note-sync:install`）が専用 worktree `.claude/worktrees/note-sync` で `note-sync-routine` を回し、最大 200 記事・配布 PDF は Drive から取り寄せ・マガジンのカバーも登録・`.claude/state/note/sync-log.json` に記録して develop へ push
+- 週次: launchd `com.doboku-note.note-sync`（日曜 3:00・`npm run note-sync:install`）が専用 worktree `.claude/worktrees/note-sync` で `note-sync-routine` を回し、最大 200 記事・配布 PDF は Drive から取り寄せ・マガジンのカバーも登録・`data/note/sync-log.json` に記録して develop へ push
 - CI: `note-sync-live.yml`（月曜 9:00・`check-note-sync`・Issue channel note-sync）は判定だけ
 - 台帳: カバーの記録は `note-republish-hashes.json` の `coverHashes` / `magazineCovers`。meta・asset からカバーは外した。見た目を変えたら `note-cover-tokens.json` の `designVersion` を上げる
 - 会員特典マガジン内の無料記事は frontmatter `memberTrial: bottom|lock` で公開範囲を決める

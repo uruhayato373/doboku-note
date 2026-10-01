@@ -26,7 +26,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const ICON_DIR = join(ROOT, 'content/sns/_assets/character/icons');
 const OUT_DIR = join(ROOT, 'public/images/character');
-const POSES = require(join(ROOT, '.claude/config/character-poses.json')).poses;
+const POSES = require(join(ROOT, 'config/character-poses.json')).poses;
 const POSE_SLUGS = POSES.map((p) => p.slug);
 
 // サイト CTA で使うポーズは manifest の siteCta フラグが真実源（ここに列挙を複製しない）。

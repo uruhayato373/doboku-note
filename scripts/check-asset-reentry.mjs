@@ -30,7 +30,7 @@
 //
 // exit 0 = 再追跡なし / exit 1 = 再追跡を検知 or 検査不成立
 //
-// 設定: .claude/config/asset-storage.json
+// 設定: config/asset-storage.json
 // 台帳: .claude/state/assets/manifest.json
 // 起票カード: .claude/todo/backlog.md の DN-0156
 

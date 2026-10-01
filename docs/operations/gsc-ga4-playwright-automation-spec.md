@@ -65,14 +65,14 @@ scripts/
 ```text
 .local/playwright-google-profile/       # 認証済みプロファイル・gitignore
 .local/playwright-google-debug/         # 失敗時スクリーンショット・HTML
-.claude/state/metrics/gsc-ui/<run-id>/  # raw CSV + manifest + normalized JSON
-.claude/state/metrics/ga4-ui/<run-id>/  # raw CSV + manifest + normalized JSON
+data/metrics/gsc-ui/<run-id>/  # raw CSV + manifest + normalized JSON
+data/metrics/ga4-ui/<run-id>/  # raw CSV + manifest + normalized JSON
 .claude/state/improvements/search-growth-latest.md
 ```
 
 ## 4. 設定ファイル
 
-`.claude/config/google-console-automation.json`:
+`config/google-console-automation.json`:
 
 ```json
 {
@@ -250,9 +250,9 @@ GoogleのCSVはロケール、BOM、ファイル分割、列名が変化し得�
 `report-search-growth.mjs`は以下をjoinする。
 
 - GSC UI正規化JSON
-- `.claude/state/metrics/url-inspection/` 最新batch
-- `.claude/state/metrics/gsc/gsc-page-query-*` 最新2件
-- `.claude/state/metrics/ga4/ga4-page-*` 最新2件
+- `data/metrics/url-inspection/` 最新batch
+- `data/metrics/gsc/gsc-page-query-*` 最新2件
+- `data/metrics/ga4/ga4-page-*` 最新2件
 - live `sitemap.xml`
 - `public/_redirects`
 - `out/`の生成HTML
@@ -405,7 +405,7 @@ allowed-tools: Read, Glob, Grep, Bash, Task
 CSV から得た情報は **追跡 SSOT** として commit する（raw CSV は再取得しかできないため）:
 
 ```
-.claude/state/metrics/gsc-ui/
+data/metrics/gsc-ui/
   last-run.json          # 追跡（マーカー）
   ssot/
     urls/<issue>--<scope>.json   # 追跡: 最新の正規化 URL 一覧（lean 射影・raw 列は落とす）
@@ -414,7 +414,7 @@ CSV から得た情報は **追跡 SSOT** として commit する（raw CSV は�
   <runId>/               # gitignore（raw CSV / ZIP / manifest / normalized）
 ```
 
-`.gitignore` は `.claude/state/metrics/{gsc-ui,ga4-ui}/*/` を無視しつつ `!.../ssot/` で例外化する。
+`.gitignore` は `data/metrics/{gsc-ui,ga4-ui}/*/` を無視しつつ `!.../ssot/` で例外化する。
 `report-search-growth.mjs` は **SSOT を優先**して読み（`gscUiSource: "ssot"`）、無ければ run ローカルへ
 フォールバックする。整合は `scripts/check-google-ui-ssot.mjs` が検査する。
 
@@ -427,9 +427,9 @@ CSV から得た情報は **追跡 SSOT** として commit する（raw CSV は�
 
 | 要素 | 実体 |
 |---|---|
-| 期待値（SSOT） | `.claude/config/ga4-admin-desired-state.json`（customDimensions / dataRetention / unwantedReferrals） |
+| 期待値（SSOT） | `config/ga4-admin-desired-state.json`（customDimensions / dataRetention / unwantedReferrals） |
 | 観測＋作成 | `scripts/ga4-admin-setup.mjs`（Playwright・**既定 dry-run**・`--commit` で作成） |
-| 観測結果（追跡） | `.claude/state/metrics/ga4-admin/inventory-latest.json` ＋ `history.json` |
+| 観測結果（追跡） | `data/metrics/ga4-admin/inventory-latest.json` ＋ `history.json` |
 | ドリフト ゲート | `scripts/check-ga4-custom-dimensions.mjs`（blocking な未登録は exit 1・オフライン） |
 
 ### 実機で判明した GA4 UI のクセ（2026-07-30 初回実走で確定）
@@ -525,7 +525,7 @@ desired の 2 件（`event_label`・`cta_placement`）は**いずれも登録済
 - scripts/fetch-ga4-ui-csv.mjs
 - scripts/normalize-google-console-csv.mjs
 - scripts/report-search-growth.mjs
-- .claude/config/google-console-automation.json
+- config/google-console-automation.json
 - .claude/skills/management/google-search-growth/SKILL.md
 - .claude/skills/management/google-search-growth/references/csv-schema.md
 - .claude/skills/management/google-search-growth/references/recovery.md

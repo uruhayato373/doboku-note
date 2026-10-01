@@ -14,7 +14,7 @@ import { z } from 'zod';
 export const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 export const PRODUCTS_DIR = join(ROOT, 'content', 'products');
 export const NOTE_MAGAZINES_TS = join(ROOT, 'src', 'lib', 'note-magazines.ts');
-export const SNAPSHOT = join(ROOT, '.claude', 'state', 'note', 'magazines-snapshot.json');
+export const SNAPSHOT = join(ROOT, 'data', 'note', 'magazines-snapshot.json');
 
 /** note-magazines.ts の 1 エントリ（キーの並びは保持する。id / published / noteUrl の順は読み手との契約） */
 const CatalogValue = z.union([z.string(), z.number(), z.boolean(), z.null()]);

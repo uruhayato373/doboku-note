@@ -3,7 +3,7 @@
  * check-coconala-wiring.mjs — ココナラ・チャネルの配線ドリフト ガード
  * ---------------------------------------------------------------------------
  * 背景: ココナラは「カタログ（src/lib/coconala-services.ts）＝価格/状態/URL の SoT」と
- *   「state（.claude/state/coconala/*.json）＝受注・KPI の実績」の二層で管理する。
+ *   「state（data/coconala/*.json）＝受注・KPI の実績」の二層で管理する。
  *   両者が乖離すると、①出品済みなのにサイト導線が出ない/空 URL を出す
  *   ②存在しない serviceId で受注記録が積まれる ③価格改定が実績と食い違う、が起きる。
  *   本ガードは決定論的にその整合を検査する（CLAUDE.md 原則5＝判断不要な検証はコードで）。
@@ -38,13 +38,13 @@ import { parseNotePrices, checkPriceParity, isCoconalaPriceStep } from './lib/co
 
 const ROOT = process.cwd();
 const CATALOG_PATH = join(ROOT, 'src/lib/coconala-services.ts');
-const ACCOUNT_PATH = join(ROOT, '.claude/config/coconala-account.json');
-const ORDERS_PATH = join(ROOT, '.claude/state/coconala/orders-log.json');
-const KPI_PATH = join(ROOT, '.claude/state/coconala/kpi-log.json');
-const SALES_PATH = join(ROOT, '.claude/state/sales/sales-log.json');
-const LISTINGS_PATH = join(ROOT, '.claude/config/coconala-listings.json');
+const ACCOUNT_PATH = join(ROOT, 'config/coconala-account.json');
+const ORDERS_PATH = join(ROOT, 'data/coconala/orders-log.json');
+const KPI_PATH = join(ROOT, 'data/coconala/kpi-log.json');
+const SALES_PATH = join(ROOT, 'data/sales/sales-log.json');
+const LISTINGS_PATH = join(ROOT, 'config/coconala-listings.json');
 const NOTE_MAGAZINES_PATH = join(ROOT, 'src/lib/note-magazines.ts');
-const ASSETS_DIR = join(ROOT, '.claude/config/coconala/assets');
+const ASSETS_DIR = join(ROOT, 'content/coconala/assets');
 
 const staged = process.argv.includes('--staged');
 if (staged) {
@@ -59,12 +59,12 @@ if (staged) {
   const relevant = changed.split('\n').some(
     (p) =>
       p.includes('src/lib/coconala-services.ts') ||
-      p.includes('.claude/state/coconala/') ||
-      p.includes('.claude/config/coconala-account.json') ||
-      p.includes('.claude/config/coconala-listings.json') ||
+      p.includes('data/coconala/') ||
+      p.includes('config/coconala-account.json') ||
+      p.includes('config/coconala-listings.json') ||
       // note の値上げでココナラが価格ルールの下限を割るのも検知する
       p.includes('src/lib/note-magazines.ts') ||
-      p.includes('.claude/state/sales/sales-log.json') ||
+      p.includes('data/sales/sales-log.json') ||
       p.includes('scripts/check-coconala-wiring.mjs')
   );
   if (!relevant) process.exit(0); // ココナラに無関係な commit → スキップ
@@ -170,7 +170,7 @@ for (const o of findOverdueResume(catalog, today)) {
 const account = readJson(ACCOUNT_PATH);
 if (listed.length > 0) {
   if (!account || account.__parseError) {
-    violations.push('listed サービスがあるのに .claude/config/coconala-account.json が読めません');
+    violations.push('listed サービスがあるのに config/coconala-account.json が読めません');
   } else if (!account.profileUrl) {
     violations.push(
       'listed サービスがあるのに coconala-account.json の profileUrl が空（出品済みならアカウント SSOT を埋める）'
@@ -192,7 +192,7 @@ let thumbApproved = 0;
 let thumbRenderable = 0;
 // 承認済みの POP 画像（正本）と、coconala-thumb.mjs の描画定義（THUMB_COPY のキー）。
 // coconala-thumb.mjs は実行すると画像を書くので import せず、定義ブロックのキーだけ読む。
-const approvedThumbs = readJson(join(ROOT, '.claude/config/coconala-thumb-approved.json'))?.images ?? {};
+const approvedThumbs = readJson(join(ROOT, 'config/coconala-thumb-approved.json'))?.images ?? {};
 const thumbScript = existsSync(join(ROOT, 'scripts/coconala-thumb.mjs')) ? readFileSync(join(ROOT, 'scripts/coconala-thumb.mjs'), 'utf-8') : '';
 const thumbCopyBlock = thumbScript.match(/const THUMB_COPY = \{([\s\S]*?)\r?\n\};/)?.[1] ?? '';
 const renderableThumbs = new Set([...thumbCopyBlock.matchAll(/^ {2}'(coconala-[a-z0-9-]+)': \{/gm)].map((m) => m[1]));
@@ -211,7 +211,7 @@ for (const s of catalog) {
   // 判定は「ローカル実体 または 退避台帳」。どちらにも無ければ本当に存在しない。
   // 2026-09-29: 正本は承認済みの POP 画像（coconala-thumb-approved.json）。フラットな thumb-<key>.png は
   // そこから複製する派生物なので、承認原本を先に見る（旧デザインのフラット画像を台帳へ上げ直させない）。
-  const thumbRel = `.claude/config/coconala/assets/thumb-${s.id.replace(/^coconala-/, '')}.png`;
+  const thumbRel = `content/coconala/assets/thumb-${s.id.replace(/^coconala-/, '')}.png`;
   const thumb = resolveThumb({
     id: s.id,
     approvedPath: approvedThumbs[s.id]?.path ?? null,
@@ -348,8 +348,8 @@ if (violations.length) {
   console.error('[check-coconala-wiring] ✗ ココナラの配線ドリフトを検出:');
   for (const v of violations) console.error(`  - ${v}`);
   console.error('');
-  console.error('対処: src/lib/coconala-services.ts（カタログ SoT）と .claude/state/coconala/*.json、');
-  console.error('      .claude/state/sales/sales-log.json の整合を取ってください。');
+  console.error('対処: src/lib/coconala-services.ts（カタログ SoT）と data/coconala/*.json、');
+  console.error('      data/sales/sales-log.json の整合を取ってください。');
   console.error('      運用・スキーマの真実源: .claude/knowledge/reference/coconala-operations.md');
   process.exit(1);
 }

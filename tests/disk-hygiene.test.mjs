@@ -329,7 +329,7 @@ test('統合: マージ済みだけが remove、未マージ・dirty・lock は�
 // ─── 設定ファイルの妥当性（閾値の書き間違いを検知）─────────────────────────
 test('disk-hygiene.json: 必須キーと閾値の整合', async () => {
   const { readFileSync } = await import('node:fs');
-  const cfg = JSON.parse(readFileSync('.claude/config/disk-hygiene.json', 'utf-8'));
+  const cfg = JSON.parse(readFileSync('config/disk-hygiene.json', 'utf-8'));
   assert.ok(cfg.thresholds.freeFailBytes < cfg.thresholds.freeWarnBytes, 'fail は warn より小さい');
   assert.ok(Array.isArray(cfg.allowedWorktreeRoots) && cfg.allowedWorktreeRoots.length > 0);
   assert.ok(Array.isArray(cfg.baseRefs) && cfg.baseRefs.length > 0);
@@ -345,7 +345,7 @@ test('reportOnly.warnBytes: 超えたら warn、無ければ ok（消す action 
   const { tmpdir } = await import('node:os');
   const { join } = await import('node:path');
   const { collect, loadConfig } = await import('../scripts/disk-hygiene.mjs');
-  const cfg = JSON.parse(readFileSync('.claude/config/disk-hygiene.json', 'utf-8'));
+  const cfg = JSON.parse(readFileSync('config/disk-hygiene.json', 'utf-8'));
   const vm = cfg.reportOnly.find((e) => e.path.endsWith('Claude/vm_bundles'));
   assert.ok(vm && Number.isInteger(vm.warnBytes) && vm.warnBytes >= 1024 ** 3, 'vm_bundles は 1GB 以上の warnBytes を持つ');
 

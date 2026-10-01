@@ -24,7 +24,7 @@ SHA-256 が完全一致する重複なので生成しない。残り 63 文書�
 **柱の出現率や SHA 一致で実データ検証する検査**を持たせてある（ワイルドカードの抜け道を塞ぐ）。
 
 **同一内容を 9 機関が公開しているので索引は 1 機関だけ**（既定は近畿・
-`.claude/config/standards-structure.json` の `canonical.commonAgencyId`）。他機関の章は
+`config/standards-structure.json` の `canonical.commonAgencyId`）。他機関の章は
 `noindex, follow` で読める状態を保つ。sitemap に載るのは近畿の 43 章のみ。
 
 **表は可逆に復元できるものだけ GFM**（166 件中 6 件）。落ちたものは版面を保った

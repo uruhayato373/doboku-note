@@ -2,10 +2,11 @@ import { readFileSync, readdirSync, existsSync, mkdirSync, writeFileSync, unlink
 import { join } from 'node:path';
 import { createHash, randomUUID } from 'node:crypto';
 import { kdpLiveBookIdsAsOf } from './kindle-catalog.mjs';
+import { resolveMovedPath } from './repository-paths.mjs';
 import { isNoteMonthFinalized, noteMonthsPendingFinalization, noteSalesFinalizeDate } from './net-receipts.mjs';
 
-export const DIRECTION = '.claude/config/business-direction.json';
-export const RECORDS = '.claude/state/metrics/business';
+export const DIRECTION = 'config/business-direction.json';
+export const RECORDS = 'data/metrics/business';
 export const hash = (value) => createHash('sha256').update(JSON.stringify(value)).digest('hex');
 export const jst = (now = new Date()) => new Intl.DateTimeFormat('sv-SE', { timeZone: 'Asia/Tokyo' }).format(new Date(now));
 export const addDays = (day, n) => new Date(Date.parse(`${day}T00:00:00Z`) + n * 86400000).toISOString().slice(0, 10);
@@ -16,7 +17,7 @@ const nonempty = (s) => typeof s === 'string' && s.trim().length >= 3 && s.lengt
 export function direction(root) {
   const c = readJson(root, DIRECTION);
   // 重点資格の名前は qualification-registry.json から引く（business-direction.json に写さない）
-  const registry = readJson(root, '.claude/config/qualification-registry.json');
+  const registry = readJson(root, 'config/qualification-registry.json');
   c.qualifications = c.qualifications.map(q => ({ ...q, label: registry.qualifications.find(r => r.id === q.id)?.label ?? q.id }));
   required(c.version === 1 && nonempty(c.positioning) && c.qualifications.length > 0, '事業方針が不正です');
   required(new Set(c.qualifications.map(q => q.id)).size === c.qualifications.length, '資格IDが重複しています');
@@ -69,10 +70,16 @@ export function weekPeriod(key) {
   return { startDate, endDate: addDays(startDate, 6) };
 }
 export const samePeriod = (a, b) => a?.startDate === b?.startDate && a?.endDate === b?.endDate;
+// 記録は追記のみで中身を書き換えない。2026-10-02 以前の記録は旧パス（.claude/state/…）で他の記録・計測を指しているので、
+// 読み込み時に参照パス（file・snapshot・source・supersedes）だけを移動後の位置へ読み替える（ファイルとハッシュは不変）
+const REF_KEYS = new Set(['file', 'snapshot', 'source', 'supersedes']);
+const withMovedRefs = (v) => Array.isArray(v) ? v.map(withMovedRefs)
+  : v && typeof v === 'object' ? Object.fromEntries(Object.entries(v).map(([k, x]) => [k, REF_KEYS.has(k) && typeof x === 'string' ? resolveMovedPath(x) : withMovedRefs(x)]))
+  : v;
 export function records(root) {
   const dir = join(root, RECORDS);
   if (!existsSync(dir)) return [];
-  return readdirSync(dir).filter(f => /^(measurement|snapshot|review|target)-[\w-]+\.json$/.test(f)).sort().map(f => ({ ...readJson(root, `${RECORDS}/${f}`), file: `${RECORDS}/${f}` }));
+  return readdirSync(dir).filter(f => /^(measurement|snapshot|review|target)-[\w-]+\.json$/.test(f)).sort().map(f => ({ ...withMovedRefs(readJson(root, `${RECORDS}/${f}`)), file: `${RECORDS}/${f}` }));
 }
 /**
  * 記録を検証するときの事業方針。レビュー/目標は参照するスナップショットに凍結された strategy を正とする
@@ -149,7 +156,7 @@ function saveUnlocked(root, input, now) {
   required(input.kind !== 'snapshot', 'スナップショットは専用コマンドで生成してください');
   const r = validateRecord(input, c, history, now);
   if (r.kind === 'review') {
-    const experiments = readJson(root, '.claude/state/experiments.json').experiments;
+    const experiments = readJson(root, 'data/experiments.json').experiments;
     required(r.experimentIds.every(id => experiments.some(e => e.id === id)), '実験台帳にないIDです');
   }
   return appendRecord(root, { ...r, schemaVersion: 1, createdAt: new Date(now).toISOString(), strategyHash: hash(c) });
@@ -323,30 +330,30 @@ export function coconalaViewFacts({ snapshot, path }) {
 export function sourceFacts(root, c, period) {
   const facts = [];
   const put = (metric, value, sourcePeriod, file, qualification = 'all', coverage = 'complete', note = '') => facts.push({ metric, value, period: sourcePeriod, source: file, qualification, coverage, note });
-  const ga = latest(root, '.claude/state/metrics/ga4', 'ga4-channel-organic-');
+  const ga = latest(root, 'data/metrics/ga4', 'ga4-channel-organic-');
   if (ga && ga.data.meta?.organicOnly && ga.data.meta?.japanOnly) {
     const row = ga.data.rows?.find(r => r.channel === 'Organic Search');
     if (row) put('organicUsers', row.activeUsers, ga.data.meta, ga.file);
   }
-  const quiz = latest(root, '.claude/state/metrics/ga4', 'ga4-quiz-funnel-');
+  const quiz = latest(root, 'data/metrics/ga4', 'ga4-quiz-funnel-');
   if (quiz) for (const [event, metric] of [['quiz_start', 'quizStarts'], ['quiz_complete', 'quizCompletions']]) {
     const row = quiz.data.rows?.find(r => r.eventName === event);
     put(metric, row?.eventCount ?? null, quiz.data.meta, quiz.file, 'civil-construction-1', row ? 'complete' : 'partial', '無料演習ツールのみ。イベント欠落は0と確定しない。');
   }
   const noteMonth = period.startDate.slice(0, 7);
-  const noteTrafficPath = `.claude/state/metrics/note/referrers-${noteMonth}.json`;
-  const noteArticlesPath = `.claude/state/metrics/note/articles-pv-${noteMonth}.json`;
+  const noteTrafficPath = `data/metrics/note/referrers-${noteMonth}.json`;
+  const noteArticlesPath = `data/metrics/note/articles-pv-${noteMonth}.json`;
   const publishedPath = '.claude/state/note-published.json';
   const publishedItems = existsSync(join(root, publishedPath)) ? readJson(root, publishedPath).items ?? [] : [];
   const qualificationIds = c.qualifications.map(q => q.id);
   // 月次の取得物は月の期間のまま載せる。期間が一致するレビュー（月次）だけがセルに使い、週次は別期間として表示する。
   for (const month of monthsOf(period)) {
-    const trafficPath = `.claude/state/metrics/note/referrers-${month}.json`, articlesPath = `.claude/state/metrics/note/articles-pv-${month}.json`;
+    const trafficPath = `data/metrics/note/referrers-${month}.json`, articlesPath = `data/metrics/note/articles-pv-${month}.json`;
     if (!existsSync(join(root, trafficPath))) continue;
     const articles = existsSync(join(root, articlesPath)) ? readJson(root, articlesPath) : null;
     facts.push(...noteMonthFacts({ traffic: readJson(root, trafficPath), articles, publishedItems, qualifications: qualificationIds, trafficPath, articlesPath }));
   }
-  const salesPath = '.claude/state/sales/sales-log.json';
+  const salesPath = 'data/sales/sales-log.json';
   if (existsSync(join(root, salesPath))) {
     const salesLedger = readJson(root, salesPath);
     const sales = salesLedger.sales.filter(s => s.date.slice(0, 10) >= period.startDate && s.date.slice(0, 10) <= period.endDate);
@@ -371,7 +378,7 @@ export function sourceFacts(root, c, period) {
       put('noteRevenue', selected.reduce((sum, s) => sum + s.price, 0), period, salesPath, qualification, salesCoverage, `${salesNote} 販売額は利益・実受取ではない。`);
     }
   }
-  const kdpPath = '.claude/state/sales/kdp-royalties.json';
+  const kdpPath = 'data/sales/kdp-royalties.json';
   if (existsSync(join(root, kdpPath))) {
     const ledger = readJson(root, kdpPath);
     const catalogPath = 'scripts/kindle-published/catalog.json';
@@ -381,8 +388,8 @@ export function sourceFacts(root, c, period) {
       facts.push(...kdpMonthFacts({ entry, catalogBooks, attribution: c.kindleAttribution?.rules ?? [], qualifications: qualificationIds, path: kdpPath }));
     }
   }
-  const cocoOrdersPath = '.claude/state/coconala/orders-snapshot.json';
-  const cocoLogPath = '.claude/state/coconala/orders-log.json';
+  const cocoOrdersPath = 'data/coconala/orders-snapshot.json';
+  const cocoLogPath = 'data/coconala/orders-log.json';
   if (existsSync(join(root, cocoOrdersPath))) {
     const snapshot = readJson(root, cocoOrdersPath);
     const orders = (snapshot.orders ?? []).filter(order => order.soldOn >= period.startDate && order.soldOn <= period.endDate);
@@ -406,7 +413,7 @@ export function sourceFacts(root, c, period) {
       put('coconalaRevenue', selected.reduce((sum, order) => sum + (Number(order.priceYen) || 0), 0), sourcePeriod, cocoOrdersPath, qualification, coverage, `${note} serviceIdと級で資格帰属。手数料控除前。`);
     }
   }
-  const igSnapshots = latestAll(root, '.claude/state/metrics/instagram', 'ig-insights-');
+  const igSnapshots = latestAll(root, 'data/metrics/instagram', 'ig-insights-');
   if (igSnapshots.length > 0) {
     const igDaily = unionDaily(igSnapshots, 'daily').filter(r => r.date >= period.startDate && r.date <= period.endDate);
     const { coverage: igCoverage } = coverageForPeriod(igDaily, period);
@@ -416,7 +423,7 @@ export function sourceFacts(root, c, period) {
     const followersCount = igSnapshots.at(-1).data?.account?.followersCount;
     put('igFollowers', Number.isFinite(followersCount) ? followersCount : null, period, igFile, 'all', 'complete', '期間末時点のストック。');
   }
-  const cfSnapshots = latestAll(root, '.claude/state/metrics/cloudflare', 'cf-zone-');
+  const cfSnapshots = latestAll(root, 'data/metrics/cloudflare', 'cf-zone-');
   if (cfSnapshots.length > 0) {
     const cfDaily = unionDaily(cfSnapshots, 'daily').filter(r => r.date >= period.startDate && r.date <= period.endDate);
     const { coverage: cfCoverage } = coverageForPeriod(cfDaily, period);
@@ -425,7 +432,7 @@ export function sourceFacts(root, c, period) {
     put('cfRequestsJp', cfDaily.reduce((sum, row) => sum + (Number(row.jp?.requests) || 0), 0), period, cfFile, 'all', cfCoverage, cfNote);
     put('cfRequestsOther', cfDaily.reduce((sum, row) => sum + (Number(row.other?.requests) || 0), 0), period, cfFile, 'all', cfCoverage, cfNote);
   }
-  const cocoPath = '.claude/state/coconala/analytics-snapshot.json';
+  const cocoPath = 'data/coconala/analytics-snapshot.json';
   if (existsSync(join(root, cocoPath))) facts.push(...coconalaViewFacts({ snapshot: readJson(root, cocoPath), path: cocoPath }));
   if (existsSync(join(root, cocoOrdersPath))) facts.push(...coconalaInquiryFacts({ snapshot: readJson(root, cocoOrdersPath), period, qualifications: qualificationIds, path: cocoOrdersPath }));
   return facts;
@@ -451,7 +458,7 @@ export function buildReport(root, period = reviewPeriod('weekly'), now = new Dat
     const p = reviewPeriod(cadence, jst(now)), existing = reviews.find(r => r.cadence === cadence && samePeriod(r.period, p));
     return { cadence, period: p, record: existing?.file ?? null, due: !existing || existing.nextReviewDate <= jst(now), status: existing?.status ?? 'missing' };
   });
-  const experiments = readJson(root, '.claude/state/experiments.json').experiments.filter(e => ['running','measuring'].includes(e.status) || e.watchStatus === 'pending-deploy').map(e => ({ id: e.id, title: e.title, status: e.status, nextReviewDate: e.next_check_date ?? null, overdue: e.next_check_date && e.next_check_date <= jst(now) }));
+  const experiments = readJson(root, 'data/experiments.json').experiments.filter(e => ['running','measuring'].includes(e.status) || e.watchStatus === 'pending-deploy').map(e => ({ id: e.id, title: e.title, status: e.status, nextReviewDate: e.next_check_date ?? null, overdue: e.next_check_date && e.next_check_date <= jst(now) }));
   const operatingBalance = ['all', ...c.qualifications.map(q => q.id)].map(qualification => {
     const receipts = cells.find(x => x.qualification === qualification && x.metric === 'netReceipts'), costs = cells.find(x => x.qualification === qualification && x.metric === 'costYen');
     return { qualification, value: receipts.coverage === 'complete' && costs.coverage === 'complete' && receipts.value != null && costs.value != null ? receipts.value - costs.value : null };

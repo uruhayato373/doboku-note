@@ -1,0 +1,113 @@
+{
+  "version": 1,
+  "description": "Git の外へ出すアセットのうち **R2 に置くもの**（audience=site / ci）の機械可読 SSOT（DN-0111 Phase 3）。置き場は誰が使うかで決める: サイトが配信する→public R2 / CI が読み書きする→private R2 / 人か手元のスクリプトだけ→Google Drive vault（config/drive-vault.json・別系）。offload / hydrate / check-asset-storage が読む。manifest は .claude/state/assets/manifest.json。",
+  "invariants": [
+    "置き場は audience で決める。site（サイトが配信）→public R2 / ci（GitHub Actions が読み書き）→private R2 か byVisibility / human（人か手元のスクリプトだけ）→Google Drive vault。human を R2 に残すなら audienceException に理由を書く。",
+    "offload は既定 dry-run。R2 書込みは --commit、ローカル削除と untrack はさらに別の操作。1 コマンドで全部やらない。",
+    "upload 後に HeadObject で bytes を、GetObject で sha256 を再確認する。確認できないファイルはローカルにも Git にも残す。",
+    "manifest は一時ファイルへ書いて検証成功後に置換する（途中で落ちても既存 manifest を壊さない）。",
+    "manifest に秘密値・署名 URL・Cookie・ローカル絶対パスを書かない。",
+    "private バケットにカスタムドメインを付けない。private アセットの URL を画面・ログ・manifest へ出さない。",
+    "hydrate の解決順は ローカル実体 → cache → R2 → （再生成可能なら）generator。--offline は R2 を使わない。",
+    "auth-state/ は暗号化 storageState 専用（login-collectors）。offload/hydrate/groups の対象外。"
+  ],
+  "bucketRouting": "group.bucket は public / private / byVisibility の 3 値。byVisibility は visibilityFrom の判定結果でファイル単位に振り分ける（公開済み→public、下書き・未投稿・判定不能→private）。さらに group.audience が bucket を縛る（site⇒public、ci⇒private|byVisibility）。human の group はここに置かない（drive-vault.json へ）。",
+  "buckets": {
+    "public": {
+      "name": "doboku-note",
+      "publicHost": "storage.doboku-note.com",
+      "note": "カスタムドメインがバインドされた公開 CDN。誰でも URL で取得できる前提のものだけ置く。"
+    },
+    "private": {
+      "name": "doboku-note-archive",
+      "publicHost": null,
+      "note": "ドメイン未バインド＝S3 API 専用。著作権物・購入者限定・未公開ドラフトはここ。rclone remote は doboku-r2。"
+    }
+  },
+  "cache": {
+    "dir": ".local/cache/assets",
+    "maxBytes": 536870912,
+    "maxRestoreMiB": 512,
+    "retainDownloadedCopies": false,
+    "note": "Git 非追跡・上限512MiB。復元先のbytes/sha256検証後は同じキャッシュコピーを保持しない。オフライン用の二重保管が必要な作業だけ --keep-cache。既存キャッシュは上限内なら維持。1回の復元も既定512MiBまで（--max-mibで明示変更）。"
+  },
+  "groups": [
+    {
+      "id": "note-cover-png",
+      "audience": "human",
+      "audienceException": "Mac の週次 note-sync-routine（記事単位の同期）が note へ登録したカバーの控え。約 1,000 件・400MB を毎週 sha256 で差分保存（asset-offload --skip-existing）し、台帳 note-republish-hashes.json の coverHashes の sha256 と突き合わせるので、ストリーミングマウント越しの Drive vault より R2 の方が確実。CI は読み書きしない（2026-09-29）。",
+      "match": {
+        "pathRegex": "^content/note/.+/img/cover[A-Za-z0-9_-]*\\.png$"
+      },
+      "bucket": "private",
+      "keyPrefix": "note/covers/",
+      "keyFrom": "stripPrefix:content/note/",
+      "visibilityFrom": "fixed:private",
+      "regenerable": false,
+      "generator": "scripts/generate-note-covers.mjs",
+      "requiredBy": [
+        "scripts/note-sync-routine.mjs（登録した版を保存）"
+      ],
+      "reason": "note へアップロード済みの実体。2026-08-21 の全 827 件再生成で byte 再現できないことを実測したので（不一致 9 件・うち 8 件は 340 万サブピクセル中 18 個の不可視差）、再生成ではなく保管する。 2026-09-05（DN-0171）に byVisibility → private 一本化: public 複製はサイトも note も読んでおらず（src/ tools/ に参照 0）、公開のたびに private の旧コピーが台帳外で残る型の温床だった。",
+      "phase": "4-B"
+    },
+    {
+      "id": "git-history-bundle",
+      "audience": "human",
+      "audienceException": "DN-0111 で切り詰めた git 履歴の bundle 2.65GB。書き込み一回・復元時だけ人が使う。Finder で開く用途が無く、ストリーミングマウント越しに単一 2.65GB を扱うのは脆いので private R2 に残す（Drive への控えは任意・Phase 7）。",
+      "match": {
+        "pathRegex": "^\\.local/archive/git-history/.+\\.bundle$"
+      },
+      "bucket": "private",
+      "keyPrefix": "archive/git-history/",
+      "keyFrom": "stripPrefix:.local/archive/git-history/",
+      "visibilityFrom": "fixed:private",
+      "regenerable": false,
+      "generator": null,
+      "requiredBy": [
+        "切り詰め前の git log / git blame を読む必要が出たとき"
+      ],
+      "reason": "2026-08-22 に Git 履歴を単一 commit へ切り詰めた際の、切り詰め前の完全な履歴（git bundle --all）。**R2 が唯一の保管場所**で、これを失うと 6,577 commit 分の log / blame / 個別 diff が永久に失われる。復元は `rclone copy` してから `git clone <bundle>`。",
+      "phase": "history-truncation"
+    },
+    {
+      "id": "site-ogp-png",
+      "audience": "site",
+      "match": {
+        "pathRegex": "^content/site/.+/ogp\\.png$"
+      },
+      "bucket": "public",
+      "keyPrefix": "posts/",
+      "keyFrom": "stripPrefix:content/site/",
+      "visibilityFrom": "fixed:public",
+      "regenerable": false,
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "reason": "content/site/**/ogp.png は 1,166 件 607MB でリポジトリ git 追跡容量 1,163MB の 52% を占める。配信は既に R2 301（public/_redirects）経由で本番稼働中。R2 キーは upload-images-to-r2.mjs の `posts/${rel}` と機械的に一致するため URL は変わらない。visibility を fixed:public にするのは、現行の r2-sync.yml が published 記事かどうかを問わず全記事の ogp.png を public へ同期している現状の挙動を変えないため。",
+      "phase": "site-ogp-offload"
+    },
+    {
+      "id": "site-ogp-thumbnails",
+      "phase": "site-ogp-thumbnails-supply",
+      "audience": "site",
+      "match": {
+        "pathRegex": "^content/site/.+/ogp-thumb-(248|336|640)[.]webp$"
+      },
+      "bucket": "public",
+      "keyPrefix": "posts/",
+      "keyFrom": "stripPrefix:content/site/",
+      "visibilityFrom": "fixed:public",
+      "regenerable": true,
+      "generator": "npm run build-ogp-thumbnails",
+      "requiredBy": [
+        "src/components/ui/ContentThumbnail.tsx"
+      ],
+      "reason": "保存済みのOGP原本から生成する表示用WebP。ogp-supplyが原本sha256と生成レシピをR2メタデータで照合し、供給後の読み戻しを検証する。原本台帳を真実源とし、派生画像の台帳コピーは持たない。",
+      "phase": "site-ogp-thumbnails"
+    }
+  ]
+}
