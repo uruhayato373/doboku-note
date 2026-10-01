@@ -63,6 +63,19 @@ frontmatter 検査ルールの追加・変更手順は `.claude/skills/quality/c
 | 試験を 5 種類以上扱う | frontmatter 拡張で対応継続、ただし規約厳格化 |
 | ビルド時間が 5 分を超える | 増分ビルド戦略を検討（DB 化は最終手段） |
 
+## 商品の正本（2026-10-01・DN-0492）
+
+上の決定はサイト記事（MDX）についてのもの。商品（note・ココナラ・Kindle の商品カタログ）は別に決めた。
+
+**決定: 正本は Git 上の 1 商品 1 ファイルの JSON（`content/products/<channel>/<id>.json`）。SQLite（`npm run product:db` → `.tmp/products.db`）は検索・集計用の生成物で、正本ではない。**
+
+- **なぜ DB を正本にしないか**: PR の差分に CI のゲート（`check-products`・収録の三軸照合）を掛けられなくなる／全セッションに Cloudflare の API トークンが要る（エージェントは資格情報を読まない方針）／worktree ごとの並行作業を PR でまとめる運用と合わない。会社 PC から R2 へは届く（ネットワークは理由ではない。D1 の API へ届くかは未確認）
+- **なぜ 1 商品 1 ファイルか**: 並行セッションの衝突を減らす。書き換えは `npm run product`（型の検査・キー順・字下げ 2・LF）で行い、手で書かない
+- **Windows / Mac / CI**: 判定と生成は JSON だけで完結（DB に依存しない）。SQLite は sql.js（WASM）でネイティブのビルド不要。`.gitattributes` で `content/products/**/*.json` を LF 固定
+- **段階1**: 2級土木の note 商品を移し、`src/lib/note-magazines.ts` の該当エントリは正本から生成する（`// <generated:products civil-construction-2>` ブロック・読み手は変えない）。残り（導線設定・カバー設定の生成、管理画面の SQLite 読み、他資格・他チャネル、読み手の JSON 直読み）は段階2以降
+
+**D1 へ移す条件**: 編集者が 3 名以上になる／管理画面から商品を直接書き換えたい／購入者データを扱う。生成する SQLite を D1 と同じスキーマにしてあるので、移すときはデータの移し替えだけで済む。
+
 ## 参考リンク
 
 - Cloudflare D1: https://developers.cloudflare.com/d1/

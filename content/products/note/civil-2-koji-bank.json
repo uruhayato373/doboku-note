@@ -1,0 +1,49 @@
+{
+  "id": "civil-2-koji-bank",
+  "channel": "note",
+  "qualification": "civil-construction-2",
+  "stage": "second",
+  "series": "keiken",
+  "tier": "pack",
+  "persona": null,
+  "catalog": {
+    "id": "civil-2-koji-bank",
+    "published": true,
+    "noteUrl": "https://note.com/dobokunote/m/m8554e87ca6ec",
+    "noteTitle": "2級土木 施工経験記述｜想定工事バンク 5管理フル",
+    "title": "2級土木 施工経験記述｜想定工事バンク（工種×5管理フル）",
+    "description": "2級土木施工管理技士 第2次検定 問題1（施工経験記述）の想定工事バンク。主要8工種と追加ラインナップの72工事を収録し、自分が経験した工事に近い工種を選べば、その1工事で品質・安全・工程の3管理をまとめて準備できる工事起点の完成答案集。各工事で現行形式（令和6年度〜・各250字）と令和5年度以前の3項目形式の両方に対応したフル答案＋自分の現場への置換ガイド＋減点NG→合格答案の添削例＋採点者視点＋2テーマ必答の組合せ早見表を収録。必出の3管理に加え、制度改定に備えた保険として施工計画・環境対策も同じ工事で用意（この2つは現状の経験記述では未出題）。無料の工事起点索引で自分の現場に近い工事を探せる。現場代理人・主任技術者レベルの独自表現で、改変前提のテンプレート（合格を保証するものではありません）。",
+    "shortTitle": "2級土木 施工経験記述 想定工事バンク",
+    "shortDescription": "工種を選んで5管理を書き分ける工事起点の完成答案集。想定工事72件・必出3管理＋保険2管理・R6新形式対応。",
+    "price": "¥5,480（72工事フル）",
+    "badge": "note 限定",
+    "ctaCatch": "自分の工種を選ぶだけで、3管理がそろう",
+    "ctaButton": "想定工事バンクを見てみる",
+    "ctaPose": "good-sign"
+  },
+  "members": [
+    "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/00-想定工事索引/article.md"
+  ],
+  "includes": [
+    "civil-2-keiken-agri-forest-pack",
+    "civil-2-keiken-bridge-repair-pack",
+    "civil-2-keiken-concrete-foundation-pack",
+    "civil-2-keiken-earthwork-slope-pack",
+    "civil-2-keiken-local-road-pack",
+    "civil-2-keiken-park-private-pack",
+    "civil-2-keiken-paving-pack",
+    "civil-2-keiken-port-coast-pack",
+    "civil-2-keiken-river-disaster-pack",
+    "civil-2-keiken-water-drainage-pack"
+  ],
+  "memo": [
+    "----- 2級土木 想定工事バンク（工事軸・5管理フル・買い切りアンカー）(2026-07-01) -----",
+    "原稿配置: content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/",
+    "1級 完全攻略パックの2級移植。中小規模60工事へ拡張、工事軸5管理(3主 品質/安全/工程 ＋ 2備え 施工計画/環境)。",
+    "設計: content/note/1級・2級土木/2級土木/2級版-想定工事バンク展開設計.md",
+    "60工事フル生成済(keiken-charcount --strict=0 / note-lint OK / 答案重複0)＋無料索引記事00 添付。",
+    "2026-07-02: 36記事+索引を公開。2026-08-20: 24記事を追加し、60工事+索引=61件をAPI確認。価格¥5,480は据え置き。",
+    "価格は 60工事フルの ¥5,480（設計 §6 の ¥5,480〜6,980 レンジ下限）。",
+    "2026-10-01: ペルソナ別パック第2弾向けに12工事（125〜136）を追加し72工事。価格は据え置き。"
+  ]
+}

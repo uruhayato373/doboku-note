@@ -220,7 +220,7 @@ npm run drive-vault-sync -- --pull --group note-delivery-pdf
 npm run drive-vault-sync -- --pull --path 'content/sources/textbook/{書名}/'
 ```
 
-credential が無い端末（会社 PC はプロキシで外部 API が遮断される）は `--offline` を付ける。
+credential が無い端末は `--offline` を付ける（会社 PC からも R2 へは届く・2026-10-01 確認。届かない端末のための逃げ道）。
 何が足りないかが一覧で出るので、「取れたつもり」にならない。
 
 **cache にも無いものは CI に代行させる**（2026-08-25 新設）。`.github/workflows/asset-hydrate.yml` を

@@ -218,6 +218,8 @@ const CHECKS = [
   { id: 'rccm-essay', npm: 'check-rccm-essay', timeout: 60_000, ci: true, note: 'RCCM 問題III 模範論文の出題条件（1,200〜1,600 字・指定用語「」4 語以上・問題再現節なし・paidBoundary 実在）。対象 0 件は exit 2＝検査不成立で赤（記事が 1 本も無い状態で緑にしない）' },
   { id: 'cce-essay', npm: 'check-cce-essay', timeout: 60_000, ci: true, note: 'コンクリート主任技士 小論文テーマ別教材の型（SSOT cce-essay-history.json の answerModel＝(1)〜(4)・8立場・字数帯・出題年一致）と、サイト/note の出題履歴ブロックが SSOT の生成結果と一致するか。対象 0 件は exit 2＝検査不成立' },
   { id: 'magazine-membership', npm: 'check-magazine-membership', timeout: 90_000, ci: true, note: 'マガジン収録の三軸（repo実数=frontmatter noteMagazine 集計 ↔ SoT price 件数 ↔ ライブ snapshot）＋軸D=束ね商品の記事key包含（fromMagazines "all"・2026-09-25 まるごとパック68本漏れ）。SoTとライブが同値で古びる事故(2026-08-24 ゼネコン/河川コンサル各2本未収録)は第三軸=repoでしか割れない。ネットワーク非依存(snapshot 読取のみ)' },
+  { id: 'products', npm: 'check-products', timeout: 90_000, ci: true, note: '商品の正本 content/products/（DN-0492）: 型・id・参照先・note-magazines.ts 生成ブロックの一致・収録の意図×コミット済み収録記録。PR の差分だけで決まる（ネットワーク不使用）' },
+  { id: 'product-db-check', cmd: ['npm', 'run', '--silent', 'product:db', '--', '--check'], timeout: 60_000, ci: true, note: '検索用 SQLite（sql.js）が正本・収録記録・販売ログから作れること（週次の集計が使う生成物の完走確認）' },
   { id: 'note-paid-cta', npm: 'check-note-paid-cta', timeout: 90_000, ci: true, note: '有料記事の L2 もくじ CTA が有料境界より前（無料プレビュー内）にあるか。末尾配置は非購入者に不可視' },
   { id: 'note-frontmatter-dup', npm: 'check-note-frontmatter-dup', timeout: 60_000, ci: true, note: 'frontmatter トップレベルキーの重複。YAML 重複キーで gray-matter が停止し PDF 生成が落ちる' },
   { id: 'note-vocabulary-boundary', npm: 'check-note-vocabulary-boundary', timeout: 60_000, ci: true, note: 'noteSeries(編集ラベル)とnoteMagazine(商品ラベル)の取り違え検知（内部id混入/他マガジンラベル混入/index×商品の共存）。DN-0125' },

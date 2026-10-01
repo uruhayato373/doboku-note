@@ -1,0 +1,31 @@
+{
+  "id": "civil-2-reading-guide",
+  "channel": "note",
+  "qualification": "civil-construction-2",
+  "stage": "first",
+  "series": "first",
+  "tier": "single",
+  "persona": null,
+  "catalog": {
+    "id": "civil-2-reading-guide",
+    "published": true,
+    "noteUrl": "https://note.com/dobokunote/n/na8e28f954797",
+    "title": "2級土木 テキスト精読ガイド（全1巻・出題頻度・優先度つき）",
+    "description": "2級土木施工管理技士 第1次検定の土木一般・施工管理法・法規の8分野（土工・コンクリート工・基礎工・施工計画・工程管理・品質管理・安全管理・法規）を、出題頻度・優先度つきで整理した精読ガイド。各テーマから doboku-note の詳細解説記事へ直リンク。",
+    "shortTitle": "2級土木 精読ガイド",
+    "shortDescription": "第1次検定の8分野を出題頻度・優先度で整理。詳細解説への直リンクつき。",
+    "badge": "note 限定",
+    "ctaCatch": "何から手をつけるべきか、出題頻度で分かる",
+    "ctaButton": "精読ガイドを見てみる",
+    "ctaPose": "pointing"
+  },
+  "members": [],
+  "includes": [],
+  "memo": [
+    "2級土木 テキスト精読ガイド（1級版 civil-1-reading-guide の横展開・既存ガイド再包装）",
+    "全1巻（2026-08-26）。2級は環境保全・建設機械・測量・解体工事の分野別詳細ガイドが未整備のため、",
+    "category-curriculum.json の civil-construction-2 が持つ3ブロック（土木一般/施工管理法/法規）",
+    "8分野に絞って1本で構成（1級のような2巻分割はしない）。",
+    "2026-09-16 無料 1 記事として公開（na8e28f954797）。一次後期 10/25 の入口＝一次過去問 PDF（civil-2-takuitsu-pdf）へ送客。"
+  ]
+}
