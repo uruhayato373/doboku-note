@@ -1,6 +1,29 @@
 {
   "runs": [
     {
+      "startedAt": "2026-10-01T16:23:05.897Z",
+      "finishedAt": "2026-10-01T16:29:49.941Z",
+      "plan": {
+        "synced": 611,
+        "ready": 283,
+        "blocked": 4,
+        "blockers": {
+          "aborted": 4
+        }
+      },
+      "articles": {
+        "attempted": 0,
+        "updated": [],
+        "failed": []
+      },
+      "magazines": {
+        "attempted": 0,
+        "updated": [],
+        "failed": []
+      },
+      "problems": []
+    },
+    {
       "startedAt": "2026-10-01T16:16:05.834Z",
       "finishedAt": "2026-10-01T16:22:53.084Z",
       "plan": {
@@ -264,64 +287,6 @@
         "attempted": 0,
         "updated": [],
         "failed": []
-      },
-      "magazines": {
-        "attempted": 0,
-        "updated": [],
-        "failed": []
-      },
-      "problems": []
-    },
-    {
-      "startedAt": "2026-10-01T14:45:51.364Z",
-      "finishedAt": "2026-10-01T15:00:51.085Z",
-      "plan": {
-        "synced": 607,
-        "ready": 287,
-        "blocked": 4,
-        "blockers": {
-          "aborted": 4
-        }
-      },
-      "articles": {
-        "attempted": 4,
-        "updated": [
-          {
-            "path": "content/note/1級・2級土木/2級土木/2級と1級どちらから受けるか/article.md",
-            "parts": [
-              "body",
-              "cover",
-              "title"
-            ]
-          },
-          {
-            "path": "content/note/1級・2級土木/2級土木/2級土木 受験資格と実務経験/article.md",
-            "parts": [
-              "body",
-              "cover",
-              "title"
-            ]
-          },
-          {
-            "path": "content/note/1級・2級土木/2級土木/経験記述R6新形式/article.md",
-            "parts": [
-              "body",
-              "cover",
-              "title"
-            ]
-          }
-        ],
-        "failed": [
-          {
-            "path": "content/note/1級・2級土木/2級土木/経験記述テーマ選び/article.md",
-            "parts": [
-              "body",
-              "cover",
-              "title"
-            ],
-            "reason": "[4.4] ABORT: 挿入した画像がエディタに無い（1 枚消失・保存すると live で欠落）→ 待ちを伸ばさず単発で再実行"
-          }
-        ]
       },
       "magazines": {
         "attempted": 0,
