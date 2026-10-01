@@ -96,6 +96,38 @@
       "benefit": "打設と基礎を書き分ける"
     },
     {
+      "id": "civil-2-keiken-agri-forest-pack",
+      "magazineDir": "content/note/1級・2級土木/2級土木/magazines/2級土木-農業土木林道8工事",
+      "qualifier": "2級土木｜施工経験記述",
+      "magazineName": "農業土木・林道",
+      "proof": "農業土木・林道の8工事",
+      "benefit": "作付け・通水期限を書き分ける"
+    },
+    {
+      "id": "civil-2-keiken-bridge-repair-pack",
+      "magazineDir": "content/note/1級・2級土木/2級土木/magazines/2級土木-橋梁構造物補修7工事",
+      "qualifier": "2級土木｜施工経験記述",
+      "magazineName": "橋梁・構造物の補修",
+      "proof": "橋梁補修の7工事",
+      "benefit": "規制下の補修を書き分ける"
+    },
+    {
+      "id": "civil-2-keiken-port-coast-pack",
+      "magazineDir": "content/note/1級・2級土木/2級土木/magazines/2級土木-港湾漁港海岸5工事",
+      "qualifier": "2級土木｜施工経験記述",
+      "magazineName": "港湾・漁港・海岸",
+      "proof": "漁港・海岸の5工事",
+      "benefit": "潮位と漁業調整を書き分ける"
+    },
+    {
+      "id": "civil-2-keiken-park-private-pack",
+      "magazineDir": "content/note/1級・2級土木/2級土木/magazines/2級土木-公園施設民間外構6工事",
+      "qualifier": "2級土木｜施工経験記述",
+      "magazineName": "公園・公共施設・民間外構",
+      "proof": "施設・外構の6工事",
+      "benefit": "利用者のいる現場を書き分ける"
+    },
+    {
       "id": "civil-2-keiken-earthwork-slope-pack",
       "magazineDir": "content/note/1級・2級土木/2級土木/magazines/2級土木-土工造成法面10工事",
       "qualifier": "2級土木｜施工経験記述",

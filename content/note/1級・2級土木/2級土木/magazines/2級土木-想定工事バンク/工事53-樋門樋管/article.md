@@ -60,7 +60,7 @@ https://coconala.com/services/4418785
 https://note.com/dobokunote/m/mc702bb8ad034
 
 <!-- cta:pack-top -->
-想定工事60件から自分の工事に近いものを選び、5管理の完成答案を書き分けられるマガジンもあります。
+想定工事72件から自分の工事に近いものを選び、5管理の完成答案を書き分けられるマガジンもあります。
 
 https://note.com/dobokunote/m/m8554e87ca6ec
 

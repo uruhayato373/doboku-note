@@ -4,11 +4,11 @@ paidBoundary: 品質管理
 noteSeries: 2級土木-想定工事バンク
 noteContentType: product
 noteMagazine: 2級土木-想定工事バンク
-noteUrl: ""
-noteId: ""
+noteUrl: "https://note.com/dobokunote/n/na43a65bb175a"
+noteId: "na43a65bb175a"
 title: "2級土木 施工経験記述｜小規模防波堤嵩上げ工事 5管理フルカバー"
-notePublishedAt: ""
-noteStatus: draft
+notePublishedAt: "2026-10-01"
+noteStatus: published
 utmCampaign: civil2-koji-bank-koji132
 price: 1680
 coverTitle: ["2級土木 施工経験記述", "小規模防波堤嵩上げ", "5管理フルカバー"]
@@ -44,7 +44,12 @@ https://coconala.com/services/4418778
 
 https://coconala.com/services/4418785
 
-本記事は「2級土木 施工経験記述 想定工事バンク」の収録記事です。想定工事60件から自分の工事に近いものを選び、5管理の完成答案を書き分けられるマガジンです。
+本記事は「2級土木 施工経験記述 港湾・漁港・海岸 5工事」の収録記事です。漁港・海岸の工事を請け負う建設会社で働く人向けに、近い工事5件を5管理で書き分けたマガジンです。
+
+https://note.com/dobokunote/m/m8614644643c5
+
+<!-- cta:pack-top -->
+想定工事72件から自分の工事に近いものを選び、5管理の完成答案を書き分けられるマガジンもあります。
 
 https://note.com/dobokunote/m/m8554e87ca6ec
 

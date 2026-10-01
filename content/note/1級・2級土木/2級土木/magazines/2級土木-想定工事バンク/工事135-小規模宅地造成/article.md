@@ -4,11 +4,11 @@ paidBoundary: 品質管理
 noteSeries: 2級土木-想定工事バンク
 noteContentType: product
 noteMagazine: 2級土木-想定工事バンク
-noteUrl: ""
-noteId: ""
+noteUrl: "https://note.com/dobokunote/n/ndca7baa73d07"
+noteId: "ndca7baa73d07"
 title: "2級土木 施工経験記述｜小規模宅地造成工事 5管理フルカバー"
-notePublishedAt: ""
-noteStatus: draft
+notePublishedAt: "2026-10-01"
+noteStatus: published
 utmCampaign: civil2-koji-bank-koji135
 price: 1680
 coverTitle: ["2級土木 施工経験記述", "小規模宅地造成", "5管理フルカバー"]
@@ -44,7 +44,12 @@ https://coconala.com/services/4418778
 
 https://coconala.com/services/4418785
 
-本記事は「2級土木 施工経験記述 想定工事バンク」の収録記事です。想定工事60件から自分の工事に近いものを選び、5管理の完成答案を書き分けられるマガジンです。
+本記事は「2級土木 施工経験記述 公園・公共施設・民間外構 6工事」の収録記事です。公園や公共施設、民間の造成・外構の工事を担当している人向けに、近い工事6件を5管理で書き分けたマガジンです。
+
+https://note.com/dobokunote/m/mbb2f9f5640a8
+
+<!-- cta:pack-top -->
+想定工事72件から自分の工事に近いものを選び、5管理の完成答案を書き分けられるマガジンもあります。
 
 https://note.com/dobokunote/m/m8554e87ca6ec
 
