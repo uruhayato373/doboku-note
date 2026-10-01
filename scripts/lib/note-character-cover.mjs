@@ -1,10 +1,34 @@
 import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import satori from 'satori';
 import sharp from 'sharp';
 import opentype from '@shuding/opentype.js';
 import { renderCharacterFrame } from './character-framing.mjs';
+import { loadRegistry, qualificationBadgeLabel, qualificationLabel, qualificationShortLabel } from './qualification-registry.mjs';
+
+const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
+let namesSource = null;
+
+/**
+ * カバーの試験区分キー（note-cover-tokens.json の exams のキー: civil-1 など）の名前。名前はトークンに書かず、
+ * トークンの qualification:（registry の資格 id か group id）から registry で引く。資格でないキー（common）はトークンの名前。
+ * @returns {{ label: string, short: string, badge: string } | null}
+ */
+export function coverExamNames(examKey, { registry, tokens } = {}) {
+  if (!registry || !tokens) {
+    namesSource ??= {
+      registry: loadRegistry(REPO_ROOT),
+      tokens: JSON.parse(readFileSync(join(REPO_ROOT, '.claude/knowledge/design-system/note-cover-tokens.json'), 'utf8')),
+    };
+    ({ registry = namesSource.registry, tokens = namesSource.tokens } = { registry, tokens });
+  }
+  const token = tokens.exams?.[examKey];
+  if (!token) return null;
+  if (!token.qualification) return { label: token.label ?? examKey, short: token.short ?? token.label ?? examKey, badge: token.short ?? token.label ?? examKey };
+  return { label: qualificationLabel(registry, token.qualification), short: qualificationShortLabel(registry, token.qualification), badge: qualificationBadgeLabel(registry, token.qualification) };
+}
 
 export const NOTE_CHARACTER_CANVAS = { width: 1280, height: 670 };
 // 記事は明るい左寄せPOP、マガジンは資格名・商品名を強調する濃色POPで描く。
@@ -188,16 +212,9 @@ const div = (style, children = [], props = {}) => ({ type: 'div', props: { ...pr
 const at = (x, y, width, height, children, style = {}, props = {}) => div({ position: 'absolute', left: x, top: y, width, height, ...style }, children, props);
 const textNode = (text, size, color, style = {}, role) => div({ fontSize: size, color, lineHeight: 1.1, whiteSpace: 'nowrap', ...style }, text, role ? { 'data-cover-role': role } : {});
 
-const MAGAZINE_EXAM_LABELS = {
-  'civil-1': '1級土木', 'civil-2': '2級土木', 'civil-1-2': '1級・2級土木',
-  'pe-comprehensive': '技術士 総監', 'pe-construction': '技術士 建設部門', 'pe-first-stage': '技術士 第一次',
-  'concrete-engineer': 'コンクリート技士', 'concrete-chief': 'コンクリート主任技士',
-  'concrete-diagnosis': 'コンクリート診断士', rccm: 'RCCM',
-  surveyor: '測量士', pavement: '舗装施工管理技術者', 'pipe-work': '管工事',
-};
-
 export function magazineDisplayCopy(input, copy = coverCopy(input)) {
-  const qualification = MAGAZINE_EXAM_LABELS[input.examKey];
+  // マガジンカバーの資格名は registry の短い名前（トークンの qualification: から引く）
+  const qualification = coverExamNames(input.examKey)?.short;
   if (!qualification) throw new Error(`マガジンの資格名が未定義: ${input.examKey}`);
   let title = copy.headline;
   let proof = copy.proof;

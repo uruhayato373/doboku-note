@@ -5,6 +5,8 @@ import {
 import { STAGES } from '../../../../scripts/lib/content-lifecycle.mjs';
 
 import { findRepoRoot } from './repo-root';
+import { qualificationBadgeLabel } from '../../../../scripts/lib/qualification-names.mjs';
+import registry from '../../../../.claude/config/qualification-registry.json';
 
 /**
  * video-board.ts — `/content/video`（動画パック企画ボード・read-only）の表示モデル。
@@ -38,15 +40,8 @@ export interface VideoPackBoard {
   byStage: Record<string, number>;
 }
 
-export const EXAM_LABELS: Record<string, string> = {
-  'civil-construction-1': '1級土木',
-  'civil-construction-2': '2級土木',
-  'pe-comprehensive-management': '技術士総監',
-  'pe-construction': '技術士建設',
-  'pe-first-stage': '技術士一次',
-  'concrete-chief-engineer': 'コン主任',
-  'concrete-diagnostician': 'コン診断士',
-};
+/** 動画パックの資格（registry の資格 id）の短い表示名。registry のごく短い名前（badgeLabel）を引く（写さない） */
+export const examLabel = (id: string): string => qualificationBadgeLabel(registry, id);
 
 /** ステージ → バッジ色（globals.css の badge good/warn/bad/neutral） */
 export function stageClass(stage: string | null): string {

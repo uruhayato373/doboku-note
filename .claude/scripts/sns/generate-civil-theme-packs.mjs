@@ -30,8 +30,8 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../../..');
 const ORDER = ['sekokeikaku', 'koutei', 'anzen', 'hinshitsu', 'kankyo', 'hoki'];
 
 const EXAMS = {
-  'civil-1': { json: 'src/config/civil-1-exam-questions.json', examDir: '1級土木', fmtLabel: '第一次検定 過去問', totalUnits: 12 },
-  'civil-2': { json: 'src/config/civil-2-exam-questions.json', examDir: '2級土木', fmtLabel: '第一次検定 過去問', totalUnits: 10 },
+  'civil-1': { json: 'src/config/civil-1-exam-questions.json', examDir: '1級土木', fmtLabel: '第一次検定 過去問', totalUnits: 12 }, // qualification-ssot: allow examDir は content のフォルダ名・fmtLabel は検定区分で資格名ではない
+  'civil-2': { json: 'src/config/civil-2-exam-questions.json', examDir: '2級土木', fmtLabel: '第一次検定 過去問', totalUnits: 10 }, // qualification-ssot: allow examDir は content のフォルダ名・fmtLabel は検定区分で資格名ではない
 };
 
 function arg(name, def = null) {

@@ -1,5 +1,6 @@
 import { getMagazine, buildMagazineUrl, type MagazineId } from '@/lib/note-magazines';
 import examCalendar from '../../.claude/config/exam-calendar.json';
+import { qualificationShortLabel } from '@/lib/qualification-names';
 
 // カテゴリ hub 本文の note CTA（資格別リッチ背景×HTML文字）を解決する。
 // 方針（2026-07-05 決定）: マガジンが多いので幅広面は「もくじ(L2索引)」へ集約し、直前期だけ特定商品へ直リンク。
@@ -9,7 +10,6 @@ import examCalendar from '../../.claude/config/exam-calendar.json';
 type HubCtaSpec = {
   bg: string;
   themeVar: string; // globals.css の --exam-* トークン名
-  qual: string;
   /** 見出し 2 行は「何が買えるか」を主役にする（旧「note教材 / もくじ・まとめ」は
    *  タイル内の 3 箇所が同じ「一覧がある」を言い換えるだけでクリック動機が無かった）。
    *  一覧であることは CTA ボタンの「教材一覧を見る」が担う。 */
@@ -36,7 +36,6 @@ const HUB: Partial<Record<string, HubCtaSpec>> = {
   'civil-construction-1': {
     bg: '/images/cta-bg/civil-1.webp',
     themeVar: '--exam-civil-1',
-    qual: '1級土木',
     mokuji: { url: 'https://note.com/dobokunote/n/n4fde0f62dc20', title1: '施工経験記述', title2: '学科記述・暗記' },
     seasonal: {
       switchUtcMs: examDayEndUtcMs('civil-construction-1', 'second'),
@@ -49,7 +48,6 @@ const HUB: Partial<Record<string, HubCtaSpec>> = {
   'civil-construction-2': {
     bg: '/images/cta-bg/civil-2.webp',
     themeVar: '--exam-civil-2',
-    qual: '2級土木',
     mokuji: { url: 'https://note.com/dobokunote/n/n4fde0f62dc20', title1: '施工経験記述', title2: '学科記述・暗記' },
     seasonal: {
       switchUtcMs: examDayEndUtcMs('civil-construction-2', 'second'),
@@ -61,14 +59,12 @@ const HUB: Partial<Record<string, HubCtaSpec>> = {
   'pe-comprehensive-management': {
     bg: '/images/cta-bg/pe-comprehensive.webp',
     themeVar: '--exam-pe',
-    qual: '技術士 総監',
     mokuji: { url: 'https://note.com/dobokunote/n/n3ed4c77ceed6', title1: '記述式・R8予想', title2: 'キーワード対策' },
     seasonal: { switchUtcMs: Date.UTC(2026, 6, 19), product: 'r8-essay-forecast', sub: '出る6テーマ×専門' },
   },
   'pe-construction': {
     bg: '/images/cta-bg/pe-construction.webp',
     themeVar: '--exam-pe-construction',
-    qual: '技術士 建設部門',
     mokuji: { url: 'https://note.com/dobokunote/n/n7279ca0d926f', title1: '必須I・選択科目', title2: '模範解答集' },
     seasonal: { switchUtcMs: Date.UTC(2026, 6, 20), product: 'pe-construction-required-magazine', sub: 'R03-R07＋R8予想' },
   },
@@ -130,7 +126,7 @@ export function resolveHubCta(
         mode: 'product',
         bg: spec.bg,
         themeVar: spec.themeVar,
-        qual: spec.qual,
+        qual: qualificationShortLabel(category),
         title1: spec.seasonal.title ?? mag.shortTitle ?? mag.title,
         title2: '',
         sub: spec.seasonal.sub,
@@ -149,7 +145,7 @@ export function resolveHubCta(
     mode: 'mokuji',
     bg: spec.bg,
     themeVar: spec.themeVar,
-    qual: spec.qual,
+    qual: qualificationShortLabel(category),
     title1: spec.mokuji.title1,
     title2: spec.mokuji.title2,
     sub: MOKUJI_SUB,

@@ -9,16 +9,25 @@ import { readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { coverExamNames } from '../../../../scripts/lib/note-character-cover.mjs';
+
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../../../..');
 const TOKENS = JSON.parse(readFileSync(join(ROOT, '.claude/knowledge/design-system/note-cover-tokens.json'), 'utf8'));
 
-/** slug / 日本語dir のどちらでも試験エントリを引く */
+/** トークンに資格の名前を付ける。名前はトークンに書かず registry から引く（coverExamNames・label=正式名・short=ごく短い名前） */
+const withNames = (slug, v) => {
+  const names = coverExamNames(slug, { tokens: TOKENS });
+  return { slug, ...v, label: names?.label ?? v.label, short: names?.badge ?? v.short };
+};
+
+/** slug / 日本語dir / 名前（正式名・ごく短い名前）のどれでも試験エントリを引く */
 export function resolveExam(key) {
   const exams = TOKENS.exams;
-  if (exams[key] && typeof exams[key] === 'object') return { slug: key, ...exams[key] };
+  if (exams[key] && typeof exams[key] === 'object') return withNames(key, exams[key]);
   for (const [slug, v] of Object.entries(exams)) {
     if (slug === 'comment' || typeof v !== 'object') continue;
-    if (v.dir === key || v.label === key || v.short === key) return { slug, ...v };
+    const e = withNames(slug, v);
+    if (e.dir === key || e.label === key || e.short === key) return e;
   }
   throw new Error(`exam-palette: 未知の試験キー "${key}"（slug/dir/label/short のいずれか）。tokens.exams を確認`);
 }
@@ -38,8 +47,8 @@ export function officialNameLines(key) {
   const e = resolveExam(key);
   const label = e.label;
   if (e.slug === 'pe-comprehensive') {
-    // 1行表記（全試験1行で統一・帯内すっきり）。括弧を外しスペース区切り。
-    return [ { text: '技術士 総合技術監理部門', size: 72 } ];
+    // 1行表記（全試験1行で統一・帯内すっきり）。正式名の括弧を外しスペース区切り。
+    return [ { text: label.replace(/（(.+)）$/, ' $1'), size: 72 } ];
   }
   // 1行。文字数で size を auto-fit（usable≈960px）
   const n = [...label].length;

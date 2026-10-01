@@ -9,7 +9,8 @@ import { join, dirname, relative } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { createHash } from 'node:crypto';
 import matter from 'gray-matter';
-import { resolveCoverExam, assignCoverPoses } from './note-character-cover.mjs';
+import { resolveCoverExam, assignCoverPoses, coverExamNames } from './note-character-cover.mjs';
+import { loadRegistry } from './qualification-registry.mjs';
 
 export const hashBytes = (value) => createHash('sha256').update(value).digest('hex');
 export const ARTICLE_FILE_RE = /^article(?:-[^/]+)?\.md$/;
@@ -23,7 +24,8 @@ export function loadCoverSources(sourceRoot, configRoot = sourceRoot) {
     .poses.map((pose) => [pose.slug, pose.label]));
   const v4Map = readJson(sourceRoot, '.claude/config/note-cover-magazine-v4.json');
   const config = readJson(configRoot, '.claude/config/note-character-covers.json');
-  return { tokens, poseLabels, v4Map, config };
+  const registry = loadRegistry(sourceRoot);
+  return { tokens, poseLabels, v4Map, config, registry };
 }
 
 /** content/note 配下の article*.md を絶対パスの昇順で返す（img/ とシンボリックリンクは辿らない）。 */
@@ -41,7 +43,7 @@ export function collectArticleFiles(sourceRoot) {
 }
 
 /** 記事 1 本の生成対象。raw を渡せば再読込しない（staged 検査などで使う）。 */
-export function buildArticleTarget(sourceRoot, absPath, { tokens, config }, raw = readFileSync(absPath, 'utf8')) {
+export function buildArticleTarget(sourceRoot, absPath, { tokens, config, registry }, raw = readFileSync(absPath, 'utf8')) {
   const source = toPosix(relative(sourceRoot, absPath));
   const { data, content } = matter(raw);
   const examKey = resolveCoverExam(source, tokens);
@@ -55,7 +57,7 @@ export function buildArticleTarget(sourceRoot, absPath, { tokens, config }, raw 
     noteId: data.noteId || data.noteUrl?.match(/\/n\/(n[0-9a-f]+)/)?.[1] || null,
     noteStatus: data.noteStatus || null,
     input: {
-      cover: { ...data.cover, ...config.articleOverrides[source] }, coverTitle: data.coverTitle, title, examKey, category: exam.short,
+      cover: { ...data.cover, ...config.articleOverrides[source] }, coverTitle: data.coverTitle, title, examKey, category: coverExamNames(examKey, { registry, tokens })?.badge,
       palette: { band: exam[data.cover?.tone || (data.notePricing === 'paid' ? 'deep' : 'base')] || exam.base, authority: exam.authority },
     },
   };

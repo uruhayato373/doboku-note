@@ -127,6 +127,7 @@
     "todo:complete": "node scripts/todo-complete.mjs",
     "check-exam-calendar": "node scripts/check-exam-calendar.mjs",
     "check-qualification-ssot": "node scripts/check-qualification-ssot.mjs",
+    "sync-qualification-names": "node scripts/sync-qualification-names.mjs",
     "check-past-exam-inventory": "node scripts/check-past-exam-inventory.mjs",
     "past-exam-fetch": "node scripts/past-exam-fetch.mjs",
     "drive-browser-transfer": "node scripts/drive-browser-transfer.mjs",

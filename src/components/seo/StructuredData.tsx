@@ -92,32 +92,10 @@ function isExamQuizPage(meta: DocMeta | PostData): boolean {
   return tags.includes("past-questions");
 }
 
+// 構造化データの対象資格名。資格カテゴリの名前は categories.json（qualification-registry.json の正式名を
+// npm run sync-qualification-names が書く）から引き、ここに資格名を写さない
 function getExamName(category: string | undefined): string {
-  switch (category) {
-    case "civil-construction-1":
-      return "1級土木施工管理技士";
-    case "civil-construction-2":
-      return "2級土木施工管理技士";
-    case "pe-comprehensive-management":
-      return "技術士 総合技術監理部門";
-    case "concrete-engineer":
-      return "コンクリート技士";
-    case "concrete-chief-engineer":
-      return "コンクリート主任技士";
-    case "concrete-diagnostician":
-      return "コンクリート診断士";
-    case "rccm":
-      return "RCCM資格試験";
-    case "surveyor":
-      return "測量士・測量士補試験";
-    case "pavement":
-      return "舗装施工管理技術者資格試験";
-    // 資格に紐づかない実務カテゴリ（variant: general）
-    case "civil-practice":
-      return "土木施工の実務";
-    default:
-      return "土木系資格試験";
-  }
+  return (category && categoriesData.find((c) => c.slug === category)?.label) || "土木系資格試験";
 }
 
 type FAQEntry = { q: string; a: string };

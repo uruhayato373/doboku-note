@@ -47,8 +47,8 @@ const QUESTIONS: Record<Format, { key: QKey; label: string }[]> = {
 };
 
 const GRADE_LABEL: Record<Grade, string> = {
-  "civil-1": "1級",
-  "civil-2": "2級",
+  "civil-1": "1級", // qualification-ssot: allow 級の表示で資格名ではない
+  "civil-2": "2級", // qualification-ssot: allow 級の表示で資格名ではない
 };
 
 // markdown 装飾・タグ・空白を除いた実文字数（scripts/keiken-charcount.mjs と一致）

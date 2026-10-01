@@ -27,8 +27,7 @@
     "comment": "試験区分=ベース色（hue）。dir 名 content/note/{技術士総監,1級土木,2級土木,1級・2級土木,共通,...}/ から解決する。base=バナー帯/HiBox の基準色, deep=有料(濃), soft=無料の淡め強調, ink=チップ文字色。",
     "pe-comprehensive": {
       "dir": "技術士総監",
-      "label": "技術士（総合技術監理部門）",
-      "short": "総監",
+      "qualification": "pe-comprehensive-management",
       "hue": "navy",
       "base": "#16365C",
       "deep": "#0E2645",
@@ -37,8 +36,7 @@
     },
     "civil-1": {
       "dir": "1級土木",
-      "label": "1級土木施工管理技士",
-      "short": "1級土木",
+      "qualification": "civil-construction-1",
       "hue": "azure",
       "base": "#1E73C8",
       "deep": "#155293",
@@ -47,8 +45,7 @@
     },
     "civil-2": {
       "dir": "2級土木",
-      "label": "2級土木施工管理技士",
-      "short": "2級土木",
+      "qualification": "civil-construction-2",
       "hue": "green",
       "base": "#2A7050",
       "deep": "#1C5038",
@@ -57,8 +54,7 @@
     },
     "civil-1-2": {
       "dir": "1級・2級土木",
-      "label": "1級・2級土木施工管理技士",
-      "short": "1級・2級土木",
+      "qualification": "civil-construction-1-2",
       "hue": "azure",
       "base": "#1E73C8",
       "deep": "#155293",
@@ -67,8 +63,7 @@
     },
     "concrete-engineer": {
       "dir": "コンクリート技士",
-      "label": "コンクリート技士",
-      "short": "コンクリ技士",
+      "qualification": "concrete-engineer",
       "hue": "teal",
       "base": "#168080",
       "deep": "#0F6262",
@@ -77,8 +72,7 @@
     },
   "concrete-chief": {
     "dir": "コンクリート主任技士",
-    "label": "コンクリート主任技士",
-    "short": "コンクリ主任",
+    "qualification": "concrete-chief-engineer",
     "hue": "plum",
     "base": "#6E3A8C",
     "deep": "#522A69",
@@ -87,8 +81,7 @@
   },
     "concrete-diagnosis": {
       "dir": "コンクリート診断士",
-      "label": "コンクリート診断士",
-      "short": "コンクリ診断",
+      "qualification": "concrete-diagnostician",
       "hue": "plum",
       "base": "#6E3A8C",
       "deep": "#522A69",
@@ -107,8 +100,7 @@
     },
     "pe-construction": {
       "dir": "技術士建設部門",
-      "label": "技術士（建設部門・第二次）",
-      "short": "建設部門",
+      "qualification": "pe-construction",
       "hue": "indigo",
       "base": "#33356B",
       "deep": "#24264F",
@@ -118,8 +110,7 @@
     "pe-first-stage": {
       "comment": "技術士 第一次は総監と同じ濃紺を共有する（globals.css の --exam-pe が『総監・第一次＝濃紺』と宣言し exam-brand.ts も同じ themeVar を指す）。色が同じでも明示的に列挙しておく——省くと resolveExam の fallback で偶然ここへ着地し、本当に新しい試験が増えたときに無言で総監色が出荷される。",
       "dir": "技術士一次",
-      "label": "技術士（第一次試験）",
-      "short": "第一次",
+      "qualification": "pe-first-stage",
       "hue": "navy",
       "base": "#16365C",
       "deep": "#0E2645",
@@ -128,8 +119,7 @@
     },
     "rccm": {
       "dir": "RCCM",
-      "label": "RCCM（建設コンサルタンツ協会）",
-      "short": "RCCM",
+      "qualification": "rccm",
       "hue": "rust",
       "base": "#9C3D1E",
       "deep": "#742D15",
@@ -138,8 +128,7 @@
     },
     "surveyor": {
       "dir": "測量士",
-      "label": "測量士・測量士補（国土地理院）",
-      "short": "測量士",
+      "qualification": "surveying",
       "authority": "測量士",
       "hue": "blue",
       "base": "#1F5F8B",
@@ -149,8 +138,7 @@
     },
     "pavement": {
       "dir": "舗装",
-      "label": "舗装施工管理技術者（日本道路建設業協会）",
-      "short": "舗装",
+      "qualification": "pavement",
       "authority": "1級舗装技術者",
       "hue": "asphalt",
       "base": "#4A4A52",
@@ -160,8 +148,7 @@
     },
     "pipe-work": {
       "dir": "管工事",
-      "label": "管工事施工管理技士（全国建設研修センター）",
-      "short": "管工事",
+      "qualification": "pipe-work",
       "authority": "上下水道の技術士",
       "hue": "teal-blue",
       "base": "#1D6A7A",

@@ -21,6 +21,7 @@ import { join, dirname } from "node:path";
 import { execFileSync } from "node:child_process";
 import { createRequire } from "node:module";
 import matter from "gray-matter";
+import { coverExamNames } from "./lib/note-character-cover.mjs";
 import { NOTE_CONTENT_ROOT } from "./lib/repository-paths.mjs";
 
 const require = createRequire(import.meta.url);
@@ -33,7 +34,8 @@ const TOKENS = require(join(ROOT, ".claude", "knowledge", "design-system", "note
 const EXAMS = TOKENS.exams;
 // 定義順（pe-comprehensive, civil-1, ...）を表示順とする
 const EXAM_KEYS = Object.keys(EXAMS).filter((k) => k !== "comment");
-const EXAM_LABEL = new Map(EXAM_KEYS.map((k) => [k, EXAMS[k].label]));
+// 名前はトークンに書かず registry から引く（coverExamNames）
+const EXAM_LABEL = new Map(EXAM_KEYS.map((k) => [k, coverExamNames(k)?.label ?? k]));
 const EXAM_BASE = new Map(EXAM_KEYS.map((k) => [k, EXAMS[k].base]));
 
 // dir セグメントから exam キーを解決（generate-note-covers.mjs と同義・級別を combined より先に）
@@ -173,7 +175,7 @@ const kindBtns = [
 
 const cards = items
   .map((o) => {
-    const badge = `<span class="badge" style="background:${EXAM_BASE.get(o.exam)}">${esc(EXAMS[o.exam]?.short || o.exam)}</span>`;
+    const badge = `<span class="badge" style="background:${EXAM_BASE.get(o.exam)}">${esc(coverExamNames(o.exam)?.badge || o.exam)}</span>`;
     const cap = `${badge}${o.mode === "v4" ? '<span class="badge" style="background:#8a2be2">V4</span>' : ""} ${esc(o.rel)}/${esc(o.file)}`;
     if (CROPS_MODE) {
       return `  <figure class="card wide" data-exam="${o.exam}" data-kinds="${kindsOf(o).join(" ")}">

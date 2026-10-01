@@ -10,7 +10,7 @@
   },
   "grades": {
     "civil-1": {
-      "label": "1級土木施工管理技士",
+      "qualification": "civil-construction-1",
       "char_per_line": 25,
       "minimum_fill_ratio": 0.8,
       "provisional": false,
@@ -30,7 +30,7 @@
       }
     },
     "civil-2": {
-      "label": "2級土木施工管理技士",
+      "qualification": "civil-construction-2",
       "char_per_line": 22,
       "minimum_fill_ratio": 0.8,
       "provisional": false,

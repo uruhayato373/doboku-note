@@ -16,6 +16,7 @@ import { readFileSync, existsSync, mkdirSync, readdirSync, writeFileSync } from 
 import { join, dirname, sep } from "path";
 import { fileURLToPath } from "url";
 import sharp from "sharp";
+import { coverExamNames } from "./lib/note-character-cover.mjs";
 // 試験色の真実源は note-cover-tokens.json（exam-palette 経由）。ここで hex を直書きすると
 // note カバー・IG・Shorts と色がずれる（x-post-policy §7 は tokens を真実源と定める）。
 import { examColor } from "../.claude/scripts/sns/lib/exam-palette.mjs";
@@ -53,15 +54,23 @@ const EXAM_FILL = {
 };
 const examColors = (slug) => ({ bg: examColor(slug, "deep").use, fill: EXAM_FILL[slug] });
 
+// 見出し・バッジの資格名は registry（qualification-registry.json）の短い名前・ごく短い名前から組み立てる（写さない）。
+// キーはカバーのトークン（note-cover-tokens.json）のキーで、名前はトークンの qualification: から引く。
+const escRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+const examCard = (slug, suffix = "") => {
+  const names = coverExamNames(slug);
+  const headerLabel = `${names.short}${suffix}`;
+  return { headerLabel, titleRe: new RegExp(`【${escRe(headerLabel)}】(.+?) ?#\\d+`), badge: names.badge, colors: examColors(slug) };
+};
 const EXAM_CONFIG = {
+  // qualification-ssot: allow シリーズ名（総監キーワード解説）で資格名ではない
   "pe-comprehensive": { headerLabel: "総監キーワード解説", titleRe: /【総監キーワード解説】(.+?) ?#\d+/, badge: null, colors: null },
-  "pe-first-stage": { headerLabel: "技術士一次 過去問", titleRe: /【技術士一次 過去問】(.+?) ?#\d+/, badge: "第一次試験", colors: examColors("pe-first-stage") },
-  "civil-1": { headerLabel: "1級土木 過去問", titleRe: /【1級土木 過去問】(.+?) ?#\d+/, badge: "1級土木", colors: examColors("civil-1") },
-  "civil-2": { headerLabel: "2級土木 過去問", titleRe: /【2級土木 過去問】(.+?) ?#\d+/, badge: "2級土木", colors: examColors("civil-2") },
-  // 正式名称は「コンクリート主任技士」（技師ではない）。exam-calendar.json の policy 参照。
-  "concrete-chief": { headerLabel: "コンクリート主任技士", titleRe: /【コンクリート主任技士】(.+?) ?#\d+/, badge: "主任技士", colors: examColors("concrete-chief") },
-  "concrete-diagnosis": { headerLabel: "コンクリート診断士", titleRe: /【コンクリート診断士】(.+?) ?#\d+/, badge: "診断士", colors: examColors("concrete-diagnosis") },
-  "pe-construction": { headerLabel: "技術士 建設部門", titleRe: /【技術士 建設部門】(.+?) ?#\d+/, badge: "建設部門", colors: examColors("pe-construction") },
+  "pe-first-stage": examCard("pe-first-stage", " 過去問"),
+  "civil-1": examCard("civil-1", " 過去問"),
+  "civil-2": examCard("civil-2", " 過去問"),
+  "concrete-chief": examCard("concrete-chief"),
+  "concrete-diagnosis": examCard("concrete-diagnosis"),
+  "pe-construction": examCard("pe-construction"),
 };
 
 // 試験の判定。フォルダ名とツイート見出しの両方に効くよう、slug 形（civil-1 / concrete-chief）と

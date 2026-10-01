@@ -17,22 +17,7 @@ export function loadRegistry(root) {
   return JSON.parse(readFileSync(join(root, REGISTRY_PATH), 'utf8'));
 }
 
-/** 資格を registry の並び順で返す（portfolio で絞れる）。画面の並びは全てこの順にする */
-export function orderedQualifications(registry, portfolio = null) {
-  return (registry.qualifications ?? []).filter((q) => !portfolio || q.portfolio === portfolio);
-}
-
-/** 資格の正式名。未知の id は id のまま */
-export function qualificationLabel(registry, id) {
-  return registry.qualifications?.find((q) => q.id === id)?.label ?? id;
-}
-
-/** 画面の短い名前（shortLabel、無ければ正式名）。資格ファミリーは familyShortLabels、無ければ families */
-export function qualificationShortLabel(registry, id) {
-  const q = registry.qualifications?.find((x) => x.id === id);
-  if (q) return q.shortLabel || q.label;
-  return registry.familyShortLabels?.[id] ?? registry.families?.[id] ?? id;
-}
+export { orderedQualifications, isQualificationRef, qualificationLabel, qualificationShortLabel, qualificationBadgeLabel } from './qualification-names.mjs';
 
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
 const STAT_KEYS = ['applicants', 'examinees', 'passers', 'passRate'];
@@ -142,13 +127,20 @@ export function validateQualificationRegistry({ registry, calendar, examStats, f
   const ids = new Set();
 
   for (const id of Object.keys(registry.familyShortLabels ?? {})) if (!families.has(id)) errors.push(`registry.familyShortLabels: ${id} は families に無い`);
+  const qids = new Set((registry.qualifications ?? []).map((q) => q.id));
+  for (const [id, g] of Object.entries(registry.groups ?? {})) {
+    if (qids.has(id) || families.has(id)) errors.push(`registry.groups.${id}: 資格・ファミリーの id と重複`);
+    if (typeof g.label !== 'string' || !g.label) errors.push(`registry.groups.${id}: label が必要`);
+    if (!Array.isArray(g.members) || g.members.length < 2) errors.push(`registry.groups.${id}: members は 2 つ以上の資格 id`);
+    for (const m of g.members ?? []) if (!qids.has(m)) errors.push(`registry.groups.${id}: members の ${m} は registry に無い`);
+  }
   for (const q of registry.qualifications ?? []) {
     if (ids.has(q.id)) errors.push(`registry: id ${q.id} が重複`);
     ids.add(q.id);
     if (!statuses.has(q.portfolio)) errors.push(`registry.${q.id}: portfolio ${q.portfolio} は未定義`);
     if (!families.has(q.family)) errors.push(`registry.${q.id}: family ${q.family} は未定義`);
     if (typeof q.label !== 'string' || !q.label) errors.push(`registry.${q.id}: label が必要`);
-    if (q.shortLabel !== undefined && (typeof q.shortLabel !== 'string' || !q.shortLabel)) errors.push(`registry.${q.id}: shortLabel は空でない文字列`);
+    for (const k of ['shortLabel', 'badgeLabel']) if (q[k] !== undefined && (typeof q[k] !== 'string' || !q[k])) errors.push(`registry.${q.id}: ${k} は空でない文字列`);
     if (q.portfolio === 'declined' && !q.decision?.ref) errors.push(`registry.${q.id}: declined は decision.ref（判断の文書）が必要`);
     if (q.decision?.ref && refExists && !refExists(q.decision.ref)) errors.push(`registry.${q.id}: decision.ref ${q.decision.ref} が実在しない`);
   }

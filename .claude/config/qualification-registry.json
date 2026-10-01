@@ -1,5 +1,5 @@
 {
-  "_doc": "資格の一覧と展開状態の SSOT。資格 id はここで定義し、試験日程は .claude/config/exam-calendar.json、受験者数・合格率は .claude/config/exam-stats.json、出題形式と過去問の公開範囲は .claude/config/exam-formats.json が同じ id で持つ（四者の id の一致は npm run check-exam-calendar が検査する）。過去問の年度在庫は .claude/config/past-exam-inventory.json が同じ id で持つ（四者の一致検査とは別で、整合は npm run check-past-exam-inventory）。展開の判断材料（自分で書く区分の受験者数・売上・競合の混み具合）は npm run qualification-market／管理画面 戦略＞資格と市場＞展開の判断が並べ、判断の理由の正本は docs/strategy/06_多資格展開戦略.md（declined は decision.ref）。重点資格・KPI は .claude/config/business-direction.json が別に持つ。 資格の属性（正式名 label・画面の短い名前 shortLabel・並び順＝この配列の順）はここだけに書き、ほかの設定・コードは id で参照する（名前を写さない。npm run check-qualification-ssot が止める）。資格ファミリーの短い名前は familyShortLabels。",
+  "_doc": "資格の一覧と展開状態の SSOT。資格 id はここで定義し、試験日程は .claude/config/exam-calendar.json、受験者数・合格率は .claude/config/exam-stats.json、出題形式と過去問の公開範囲は .claude/config/exam-formats.json が同じ id で持つ（四者の id の一致は npm run check-exam-calendar が検査する）。過去問の年度在庫は .claude/config/past-exam-inventory.json が同じ id で持つ（四者の一致検査とは別で、整合は npm run check-past-exam-inventory）。展開の判断材料（自分で書く区分の受験者数・売上・競合の混み具合）は npm run qualification-market／管理画面 戦略＞資格と市場＞展開の判断が並べ、判断の理由の正本は docs/strategy/06_多資格展開戦略.md（declined は decision.ref）。重点資格・KPI は .claude/config/business-direction.json が別に持つ。 資格の属性（正式名 label・画面の短い名前 shortLabel・並び順＝この配列の順）はここだけに書き、ほかの設定・コードは id で参照する（名前を写さない。npm run check-qualification-ssot が止める）。資格ファミリーの短い名前は familyShortLabels。badgeLabel はバッジ・カバーのリード代替・狭い列に出すごく短い名前（無ければ shortLabel→label）。groups は複数資格をまとめて扱う単位（1級・2級土木・舗装 など）の名前と構成で、カバーのトークンや note 導線は名前を書かずに qualification: でここの資格 id か group id を指す。",
   "portfolioStatuses": {
     "active": "サイト・商品を展開中",
     "candidate": "展開候補（未評価を含む）。情報だけを正本に蓄積する",
@@ -17,31 +17,37 @@
   "familyShortLabels": {
     "civil-construction": "1・2級土木 共通"
   },
+  "groups": {
+    "civil-construction-1-2": { "label": "1級・2級土木施工管理技士", "shortLabel": "1級・2級土木", "members": ["civil-construction-1", "civil-construction-2"] },
+    "pavement": { "label": "舗装施工管理技術者", "shortLabel": "舗装施工管理技術者", "badgeLabel": "舗装", "members": ["pavement-1", "pavement-2"] },
+    "pipe-work": { "label": "管工事施工管理技士", "shortLabel": "管工事", "members": ["pipe-work-1", "pipe-work-2"] },
+    "surveying": { "label": "測量士・測量士補", "shortLabel": "測量士", "members": ["surveyor", "assistant-surveyor"] }
+  },
   "qualifications": [
-    { "id": "civil-construction-1", "label": "1級土木施工管理技士", "shortLabel": "1級土木", "family": "civil-construction", "portfolio": "active" },
-    { "id": "civil-construction-2", "label": "2級土木施工管理技士", "shortLabel": "2級土木", "family": "civil-construction", "portfolio": "active" },
-    { "id": "pe-first-stage", "label": "技術士 第一次試験", "shortLabel": "技術士一次", "family": "professional-engineer", "portfolio": "active" },
-    { "id": "pe-construction", "label": "技術士 建設部門", "shortLabel": "技術士 建設部門", "family": "professional-engineer", "portfolio": "active" },
-    { "id": "pe-comprehensive-management", "label": "技術士 総合技術監理部門", "shortLabel": "技術士 総監", "family": "professional-engineer", "portfolio": "active" },
-    { "id": "rccm", "label": "RCCM", "family": "consultant", "portfolio": "active" },
-    { "id": "concrete-engineer", "label": "コンクリート技士", "shortLabel": "コンクリート技士", "family": "concrete", "portfolio": "active" },
-    { "id": "concrete-chief-engineer", "label": "コンクリート主任技士", "shortLabel": "コンクリート主任", "family": "concrete", "portfolio": "active" },
-    { "id": "concrete-diagnostician", "label": "コンクリート診断士", "shortLabel": "コンクリート診断士", "family": "concrete", "portfolio": "active" },
+    { "id": "civil-construction-1", "label": "1級土木施工管理技士", "shortLabel": "1級土木", "badgeLabel": "1級土木", "family": "civil-construction", "portfolio": "active" },
+    { "id": "civil-construction-2", "label": "2級土木施工管理技士", "shortLabel": "2級土木", "badgeLabel": "2級土木", "family": "civil-construction", "portfolio": "active" },
+    { "id": "pe-first-stage", "label": "技術士 第一次試験", "shortLabel": "技術士 第一次", "badgeLabel": "第一次", "family": "professional-engineer", "portfolio": "active" },
+    { "id": "pe-construction", "label": "技術士（建設部門）", "shortLabel": "技術士 建設部門", "badgeLabel": "建設部門", "family": "professional-engineer", "portfolio": "active" },
+    { "id": "pe-comprehensive-management", "label": "技術士（総合技術監理部門）", "shortLabel": "技術士 総監", "badgeLabel": "総監", "family": "professional-engineer", "portfolio": "active" },
+    { "id": "rccm", "label": "RCCM", "badgeLabel": "RCCM", "family": "consultant", "portfolio": "active" },
+    { "id": "concrete-engineer", "label": "コンクリート技士", "shortLabel": "コンクリート技士", "badgeLabel": "コンクリ技士", "family": "concrete", "portfolio": "active" },
+    { "id": "concrete-chief-engineer", "label": "コンクリート主任技士", "shortLabel": "コンクリート主任技士", "badgeLabel": "コンクリ主任", "family": "concrete", "portfolio": "active" },
+    { "id": "concrete-diagnostician", "label": "コンクリート診断士", "shortLabel": "コンクリート診断士", "badgeLabel": "コンクリ診断", "family": "concrete", "portfolio": "active" },
 
     {
       "id": "pe-information",
-      "label": "技術士 情報工学部門",
+      "label": "技術士（情報工学部門）",
       "family": "professional-engineer",
       "portfolio": "declined",
       "decision": { "summary": "市場が小さく読者・権威性・既存資産がつながらないため参入しない", "ref": "docs/strategy/06_多資格展開戦略.md" }
     },
-    { "id": "pe-water-supply", "label": "技術士 上下水道部門", "shortLabel": "技術士 上下水道", "family": "professional-engineer", "portfolio": "active" },
-    { "id": "pe-agriculture", "label": "技術士 農業部門", "family": "professional-engineer", "portfolio": "candidate" },
-    { "id": "pe-forestry", "label": "技術士 森林部門", "family": "professional-engineer", "portfolio": "candidate" },
-    { "id": "pe-fisheries", "label": "技術士 水産部門", "family": "professional-engineer", "portfolio": "candidate" },
-    { "id": "pe-environment", "label": "技術士 環境部門", "family": "professional-engineer", "portfolio": "candidate" },
-    { "id": "pe-applied-science", "label": "技術士 応用理学部門", "family": "professional-engineer", "portfolio": "candidate" },
-    { "id": "pe-sanitary", "label": "技術士 衛生工学部門", "family": "professional-engineer", "portfolio": "candidate" },
+    { "id": "pe-water-supply", "label": "技術士（上下水道部門）", "shortLabel": "技術士 上下水道", "family": "professional-engineer", "portfolio": "active" },
+    { "id": "pe-agriculture", "label": "技術士（農業部門）", "family": "professional-engineer", "portfolio": "candidate" },
+    { "id": "pe-forestry", "label": "技術士（森林部門）", "family": "professional-engineer", "portfolio": "candidate" },
+    { "id": "pe-fisheries", "label": "技術士（水産部門）", "family": "professional-engineer", "portfolio": "candidate" },
+    { "id": "pe-environment", "label": "技術士（環境部門）", "family": "professional-engineer", "portfolio": "candidate" },
+    { "id": "pe-applied-science", "label": "技術士（応用理学部門）", "family": "professional-engineer", "portfolio": "candidate" },
+    { "id": "pe-sanitary", "label": "技術士（衛生工学部門）", "family": "professional-engineer", "portfolio": "candidate" },
 
     { "id": "construction-machinery-1", "label": "1級建設機械施工管理技士", "family": "construction-management", "portfolio": "declined", "decision": { "summary": "第二次が記述（1級）か択一（2級）と実技で、自分で答案を組み立てる区分が無い（2026-09-26）", "ref": "docs/strategy/06_多資格展開戦略.md" } },
     { "id": "construction-machinery-2", "label": "2級建設機械施工管理技士", "family": "construction-management", "portfolio": "declined", "decision": { "summary": "第二次が記述（1級）か択一（2級）と実技で、自分で答案を組み立てる区分が無い（2026-09-26）", "ref": "docs/strategy/06_多資格展開戦略.md" } },

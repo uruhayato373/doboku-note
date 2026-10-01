@@ -7,7 +7,7 @@
  *   `ERR_MODULE_NOT_FOUND` で落ちる（2026-08-21 に affiliate-creatives.ts が career-pathways.ts を
  *   import した際、affiliate-arm-routing.test.mjs が 6/6 失敗した）。
  *
- * ここでは `@/` を `src/` へ解決し、依存を再帰的に data URL へ埋め込む。循環 import は想定しない
+ * ここでは `@/` を `src/` へ、相対 import をファイルの位置から解決し、依存を再帰的に data URL へ埋め込む（.mjs は実ファイル）。循環 import は想定しない
  * （config 層は一方向）。**型だけの import は esbuild が落とす**ので追跡不要。
  *
  * 使い方:
@@ -15,7 +15,7 @@
  */
 import { existsSync, readFileSync } from 'node:fs';
 import { dirname, join, posix, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { transformSync } from 'esbuild';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -48,6 +48,15 @@ export function toDataUrl(relPath, cache = new Map()) {
     const dep = resolveAlias(spec);
     if (!dep) throw new Error(`[load-ts] エイリアスを解決できない: ${spec}（${relPath}）`);
     return `${head}${quote}${toDataUrl(dep, cache)}${quote}`;
+  });
+  // 相対 import（2026-10-02・src/lib/qualification-names.ts が registry の JSON と scripts/lib の .mjs を読む）。
+  // data URL からは相対パスを解決できないので、.mjs/.js は実ファイルの file URL、JSON と .ts は data URL へ置き換える
+  js = js.replace(/(from\s*|import\s*\(\s*)(["'])(\.\.?\/[^"']+)\2/g, (m, head, quote, spec) => {
+    const dep = posix.normalize(posix.join(posix.dirname(relPath.split('\\').join('/')), spec));
+    if (/\.(m?js)$/.test(dep)) return `${head}${quote}${pathToFileURL(resolve(ROOT, dep)).href}${quote}`;
+    const file = [dep, `${dep}.ts`, `${dep}.tsx`].find((f) => /\.(json|tsx?)$/.test(f) && existsSync(resolve(ROOT, f)));
+    if (!file) throw new Error(`[load-ts] 相対 import を解決できない: ${spec}（${relPath}）`);
+    return `${head}${quote}${toDataUrl(file, cache)}${quote}`;
   });
   const url = 'data:text/javascript,' + encodeURIComponent(js);
   cache.set(relPath, url);

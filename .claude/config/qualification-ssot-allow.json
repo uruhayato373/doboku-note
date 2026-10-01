@@ -12,9 +12,14 @@
       "reason": "統計の出典にある試験の正式名。資格名とは別の属性"
     },
     {
-      "file": ".claude/config/note-funnel.json",
-      "path": "$.exams.*.label",
-      "reason": "note 導線の独自グループ名（tankan・civil など registry と別の id 体系で、id が偶然一致する 3 件だけ拾われる）。registry の id で参照する形への移行は backlog の返済カード"
+      "file": "src/config/topics.json",
+      "path": "$[*].label",
+      "reason": "サイトの話題（topic）の slug が資格ファミリー id（concrete・construction-management）と同じ綴りなだけ。話題名の正本は topics.json"
+    },
+    {
+      "file": "src/config/category-curriculum.json",
+      "path": "$.*.fields.blocks[*].label",
+      "reason": "カリキュラムの分野ブロック id（concrete など）が資格ファミリー id と同じ綴りなだけ。分野名の正本は category-curriculum.json"
     }
   ]
 }

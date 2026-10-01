@@ -31,6 +31,7 @@ import path from 'path';
 import sharp from 'sharp';
 import dotenv from 'dotenv';
 import { createRequire } from 'node:module';
+import { coverExamNames } from './lib/note-character-cover.mjs';
 
 const require = createRequire(import.meta.url);
 const ROOT = process.cwd();
@@ -72,7 +73,7 @@ function parseArgs(argv) {
 
 function buildPrompt(exam) {
   const color = coverTokens.exams?.[exam.key]?.base || '#1e3a8a';
-  const label = coverTokens.exams?.[exam.key]?.label || exam.key;
+  const label = coverExamNames(exam.key)?.label || exam.key;
   return [
     `An abstract, professional background image for a blog OGP card about "${label}" (a Japanese civil-engineering certification).`,
     `Motif: ${exam.motif}.`,

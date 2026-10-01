@@ -8,7 +8,7 @@
   },
   "exams": {
     "rccm": {
-      "label": "RCCM",
+      "qualification": "rccm",
       "articleGlob": "content/note/RCCM",
       "excludeDirs": [
         "RCCMもくじ"
@@ -32,7 +32,7 @@
       }
     },
     "tankan": {
-      "label": "技術士総監",
+      "qualification": "pe-comprehensive-management",
       "articleGlob": "content/note/技術士総監",
       "excludeDirs": [
         "総監もくじ"
@@ -85,7 +85,7 @@
       }
     },
     "pe-construction": {
-      "label": "技術士建設部門",
+      "qualification": "pe-construction",
       "articleGlob": "content/note/技術士建設部門",
       "excludeDirs": [
         "建設部門もくじ"
@@ -109,7 +109,7 @@
       }
     },
     "civil": {
-      "label": "1級・2級土木",
+      "qualification": "civil-construction-1-2",
       "articleGlob": "content/note/1級・2級土木",
       "excludeDirs": [
         "土木もくじ",
@@ -179,7 +179,7 @@
       }
     },
     "concrete-engineer": {
-      "label": "コンクリート技士",
+      "qualification": "concrete-engineer",
       "articleGlob": "content/note/コンクリート技士",
       "excludeDirs": [],
       "magazineExamMatch": [
@@ -201,7 +201,7 @@
       }
     },
     "concrete-chief": {
-      "label": "コンクリート主任技士",
+      "qualification": "concrete-chief-engineer",
       "articleGlob": "content/note/コンクリート主任技士",
       "excludeDirs": [
         "コンクリート資格もくじ"
@@ -225,7 +225,7 @@
       }
     },
     "concrete-diagnosis": {
-      "label": "コンクリート診断士",
+      "qualification": "concrete-diagnostician",
       "articleGlob": "content/note/コンクリート診断士",
       "excludeDirs": [],
       "magazineExamMatch": [
