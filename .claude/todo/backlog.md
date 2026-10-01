@@ -179,6 +179,24 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0484] afb を CI で取得し、取得スクリプト自身が Secrets でログインする形を試す
+タグ: [インフラ・計測] [領域:管理] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-01]
+
+**起点**: 2026-10-01 にユーザー決定で、ログインが必要な全サービスを CI でも自動で入り直す方針にした。afb はログイン状態を別プロセスへ持ち出せない（`sessionPersistsAcrossProcesses: false`・9/21 CI で requiredlogin へ戻された）ため、`auth-session-refresh --ci` で入り直してから別プロセスの取得スクリプトを動かす形は効かない。
+
+**やること**: (1) afb のログイン画面（`https://www.afi-b.com/pa/`）の入力欄を読み取りで確かめ、`scripts/lib/auth-session-refresh.mjs` の `AUTO_LOGIN` に afb を足す（正本の `autoLogin` も true）。(2) `afb-scan` / `affiliate-status` の afb 経路で、未ログインなら同じプロセス内で `readServiceCredential('afb')` の ID/PW で 1 回だけログインしてから取得する。(3) 正本の afb を `ci.enabled:true`・`credential.ciCredential:true` にし、`login-collectors.yml` の afb step に Secrets を渡す。(4) 毎月 3 日の実行で取得できるかを見て、続けるか戻すかを決める。afb の既定サイトは stats47（`asp-site-guard`）なので、サイト帰属の検査は維持する。
+
+**完了条件**: CI の afb 取得が 1 回以上成功する、または不成立の理由を記録して正本を `ciCredential:false` に戻した。
+
+### [DN-0483] もしもアフィリエイトの CI 取得を新設し、Secrets で入り直す形を試す
+タグ: [インフラ・計測] [領域:管理] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-01]
+
+**起点**: 2026-10-01 にユーザー決定で、ログインが必要な全サービスを CI でも自動で入り直す方針にした。もしもは正本で `ci.mode: none`（CI で取得していない）で、手元の `affiliate-status` / `affiliate-apply` だけが使う。口座は stats47 と共用。
+
+**やること**: (1) CI で何を取るか決める（提携状況・成果など `affiliate-status` のもしも経路）。(2) 正本の moshimo を `ci.mode: encrypted-state`・`enabled: true`・cron・`readOnlyScripts` に設定し、Mac の `auth-session-refresh --export` で暗号化 state を渡す。(3) `login-collectors.yml` に moshimo の step と Re-login の対象を足し、正本の `credential.ciCredential` を true にする（Secrets は保管済み）。(4) 数回の実行で取得が続くか・共用口座に追加確認が出ないかを見て、続けるか戻すかを決める。
+
+**完了条件**: CI のもしも取得が 1 回以上成功する、または不成立の理由を記録して戻した。
+
 ### [DN-0482] verify-note-magazines --contents の snapshot で 39 誌の収録が 0 件になる
 タグ: [インフラ・計測] [領域:商品] [時期:2026-10] [種類:不具合] [起票:2026-10-01] [期日:2026-10-31]
 

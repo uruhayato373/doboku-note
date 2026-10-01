@@ -14,6 +14,8 @@ export type CredentialPolicy = {
   sharedStoreItem?: string;
   autoLogin: boolean;
   ciCredential: boolean;
+  /** GitHub Secrets に保管しているか（CI が読むのは ciCredential の service だけ） */
+  ciStored?: boolean;
   machines: string[];
   policyNote: string;
 };
@@ -25,7 +27,7 @@ export type CredentialRow = CredentialPolicy & {
   /** この PC の資格情報ストアに入っているログイン ID（パスワードは読まない） */
   storeUser: string | null;
   sharedUser: string | null;
-  /** GitHub Secrets（ciCredential の service だけ）。null＝一覧を取れなかった */
+  /** GitHub Secrets（ciStored の service）。null＝一覧を取れなかった */
   ciUser: string | null | undefined;
   ciPassword: string | null | undefined;
   /** 自動ログインの失敗印（人が確認して消すまで再試行しない） */
@@ -111,7 +113,7 @@ export function authCredentialsView(): AuthCredentialsView {
   const rows: CredentialRow[] = policies.map((p) => {
     const metaDir = dirname(resolveMetadataPath(p.id, authOptions) as string);
     const failMarks = [`${p.id}.autologin-failed`, `${p.id}.reauth-failed`].map((f) => join(metaDir, f)).filter((f) => existsSync(f));
-    const env = ciServices.includes(p.id) ? (ciEnvVarNames(p.id) as { user: string; password: string }) : null;
+    const env = ciServices.includes(p.id) || p.ciStored ? (ciEnvVarNames(p.id) as { user: string; password: string }) : null;
     const secret = (name: string) => (secrets.error ? null : secrets.map.get(name));
     return {
       ...p,

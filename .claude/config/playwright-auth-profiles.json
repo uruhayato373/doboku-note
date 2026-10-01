@@ -59,6 +59,7 @@
         "storeItem": "doboku-note-auth-note",
         "autoLogin": true,
         "ciCredential": true,
+        "ciStored": true,
         "machines": [
           "windows",
           "mac"
@@ -112,6 +113,7 @@
         "storeItem": "doboku-note-auth-coconala",
         "autoLogin": true,
         "ciCredential": true,
+        "ciStored": true,
         "machines": [
           "windows",
           "mac"
@@ -154,6 +156,7 @@
         "storeItem": "doboku-note-auth-kdp",
         "autoLogin": true,
         "ciCredential": true,
+        "ciStored": true,
         "machines": [
           "windows",
           "mac"
@@ -201,11 +204,12 @@
         "storeItem": "doboku-note-auth-x",
         "autoLogin": false,
         "ciCredential": false,
+        "ciStored": true,
         "machines": [
           "windows",
           "mac"
         ],
-        "policyNote": "凍結・利用制限の危険が大きいので、切れたら人が npm run auth:login で入り直す（DN-0362）。資格情報は人のログイン用に保管する"
+        "policyNote": "GitHub の CI からはログイン前にボット確認で止まる（2026-09-21 実測・datacenter IP）ので CI では使わない。切れたら人が npm run auth:login で入り直す（凍結の危険）"
       }
     },
     "instagram": {
@@ -242,11 +246,12 @@
         "storeItem": "doboku-note-auth-instagram",
         "autoLogin": false,
         "ciCredential": false,
+        "ciStored": true,
         "machines": [
           "windows",
           "mac"
         ],
-        "policyNote": "凍結・利用制限の危険が大きいので、切れたら人が npm run auth:login で入り直す（DN-0362）。資格情報は人のログイン用に保管する"
+        "policyNote": "CI でセッションを使った直後に Meta が手元も含めて全面失効させた（2026-09-21 実測）ので CI では使わない。切れたら人が npm run auth:login で入り直す（利用制限の危険）"
       }
     },
     "google": {
@@ -281,11 +286,12 @@
         "storeItem": "doboku-note-auth-google",
         "autoLogin": false,
         "ciCredential": false,
+        "ciStored": true,
         "machines": [
           "windows",
           "mac"
         ],
-        "policyNote": "Google は 2 段階認証が前提で自動ログインしない。切れたら人が npm run auth:login で入り直す"
+        "policyNote": "CI でセッションを使った直後に Google が手元も含めて失効させた（2026-09-21 実測）。検索の数値は公式 API で CI 取得済みなので画面ログインは CI で使わない。2 段階認証が前提で、切れたら人が入り直す"
       }
     },
     "a8": {
@@ -331,6 +337,7 @@
         "sharedStoreItem": "stats47-measurement-a8",
         "autoLogin": true,
         "ciCredential": true,
+        "ciStored": true,
         "machines": [
           "windows",
           "mac"
@@ -365,11 +372,12 @@
         "sharedStoreItem": "stats47-measurement-moshimo",
         "autoLogin": true,
         "ciCredential": false,
+        "ciStored": true,
         "machines": [
           "windows",
           "mac"
         ],
-        "policyNote": "stats47 と同じ口座（A8 と同じ扱い）"
+        "policyNote": "stats47 と同じ口座（A8 と同じ扱い）。CI での取得は未整備で、新設して試す（DN-0483）"
       }
     },
     "afb": {
@@ -403,11 +411,12 @@
         "storeItem": "doboku-note-auth-afb",
         "autoLogin": false,
         "ciCredential": false,
+        "ciStored": true,
         "machines": [
           "windows",
           "mac"
         ],
-        "policyNote": "ログイン画面のセレクタが未確認で自動ログイン未対応。state を別プロセスで復元できないことがある"
+        "policyNote": "ログイン状態を別プロセスへ持ち出せないため、CI は取得スクリプト自身がログインする形で試す（DN-0484）。手元の自動ログインはセレクタ確認後"
       }
     }
   },
@@ -419,7 +428,7 @@
     "identityEnv": "DOBOKU_AUTH_AGE_IDENTITY"
   },
   "credentialPolicy": {
-    "_comment": "ログインが必要な全サービスの資格情報の正本。各 PC の OS 資格情報ストア（Mac キーチェーン / Windows 資格情報マネージャー）に storeItem を登録し、読み口は scripts/lib/credential-store.mjs だけ。ciCredential=true の service だけ GitHub Secrets（DOBOKU_AUTH_<SERVICE>_USER / _PASSWORD）を持つ。autoLogin=true の service だけ scripts/lib/auth-session-refresh.mjs の AUTO_LOGIN にセレクタを持つ（tests/auth-credential-ssot.test.mjs が照合）。状態の確認は管理画面 /ops/auth。",
+    "_comment": "ログインが必要な全サービスの資格情報の正本。各 PC の OS 資格情報ストア（Mac キーチェーン / Windows 資格情報マネージャー）に storeItem を登録し、読み口は scripts/lib/credential-store.mjs だけ。GitHub Secrets（DOBOKU_AUTH_<SERVICE>_USER / _PASSWORD）は ciStored=true の service が保管し（2026-10-01 オーナー決定で全サービス）、CI が実際に読むのは ciCredential=true の service だけ。autoLogin=true の service だけ scripts/lib/auth-session-refresh.mjs の AUTO_LOGIN にセレクタを持つ（tests/auth-credential-ssot.test.mjs が照合）。状態の確認は管理画面 /ops/auth。",
     "register": {
       "mac": "security add-generic-password -s <storeItem> -a <ログインID> -w",
       "windows": "cmdkey /generic:<storeItem> /user:<ログインID> /pass",

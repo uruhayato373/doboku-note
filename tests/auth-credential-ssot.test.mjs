@@ -21,6 +21,8 @@ test('ログインが必要な全サービスが資格情報の正本を持ち�
     assert.equal(c.storeItem, `doboku-note-auth-${c.id}`, c.id);
     assert.equal(typeof c.autoLogin, 'boolean', c.id);
     assert.equal(typeof c.ciCredential, 'boolean', c.id);
+    assert.equal(typeof c.ciStored, 'boolean', c.id);
+    if (c.ciCredential) assert.equal(c.ciStored, true, `${c.id}: CI で読むなら Secrets の保管が要る`);
     assert.ok(c.policyNote && c.policyNote.length >= 10, `${c.id}: policyNote が必要`);
     assert.deepEqual([...c.machines].sort(), ['mac', 'windows'], c.id);
   }
