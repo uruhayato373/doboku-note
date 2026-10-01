@@ -4,6 +4,7 @@ import Nav from '@/components/Nav';
 import { SidebarInset, SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
 import { todoBoard } from '@/lib/todo';
 import { ledgerNav } from '@/lib/ledger';
+import { designQualifications } from '@/lib/product-design';
 import { materialsNav } from '@/lib/materials';
 import { domainList } from '@/lib/domains';
 import './globals.css';
@@ -32,7 +33,7 @@ export default function RootLayout({
       <body className="admin-shell bg-background text-foreground antialiased">
         <SidebarProvider>
           {/* useSearchParams の Suspense 境界は Nav の中（メニュー部分だけ）に置く */}
-          <Nav todoLayers={layers} ledger={ledgerNav()} materials={materialsNav()} domains={domainList()} />
+          <Nav todoLayers={layers} ledger={ledgerNav()} design={designQualifications()} materials={materialsNav()} domains={domainList()} />
           <SidebarInset>
             {/* スマホ幅だけの上部バー。サイドバーは SidebarTrigger で開く Sheet（公式 Sidebar のモバイル表示）になる */}
             <header className="sticky top-0 z-20 flex h-12 items-center gap-2 border-b border-sidebar-border bg-sidebar px-3 text-sidebar-foreground md:hidden">
