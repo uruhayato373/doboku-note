@@ -1,6 +1,185 @@
 {
   "runs": [
     {
+      "startedAt": "2026-10-01T11:20:03.328Z",
+      "finishedAt": "2026-10-01T11:52:45.712Z",
+      "plan": {
+        "synced": 520,
+        "ready": 366,
+        "blocked": 0,
+        "blockers": {}
+      },
+      "articles": {
+        "attempted": 60,
+        "updated": [
+          {
+            "path": "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事01-道路改良盛土/article.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事02-河川築堤盛土/article.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事05-サンドドレーン盛土/article.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事06-セメント改良土盛土/article.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事07-切土法面地すべり/article.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事08-補強土壁テールアルメ/article.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事101-住宅地道路側溝更新/article.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事102-通学路歩道切下げ整備/article.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事103-市道部分舗装修繕区画線復旧/article.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事104-山間道路ガードレール更新/article.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事105-路肩カラー舗装歩行空間整備/article.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事106-公共施設駐車場舗装/article.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事107-道路ブロック積擁壁更新/article.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事108-プレキャストL型水路布設/article.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事109-小橋梁下面断面修復/article.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事110-小橋梁伸縮装置取替/article.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事111-落石防護柵設置/article.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事112-山間小河川かご工護岸/article.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事113-河川湾曲部根固め/article.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事114-洪水被災河川管理用通路復旧/article.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事115-切土法面植生基材吹付/article.md",
+            "parts": [
+              "body"
+            ]
+          }
+        ],
+        "failed": [
+          {
+            "path": "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事116-道路法面小段排水更新/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事117-住宅地水道枝線耐震管更新/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事118-公共桝下水取付管整備/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事119-小規模マンホール内面更生/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "[4.4] ABORT: 画像挿入に失敗（1件）→ 保存しない（--img-lenient で続行可）"
+          }
+        ]
+      },
+      "magazines": {
+        "attempted": 0,
+        "updated": [],
+        "failed": []
+      },
+      "problems": [
+        "note にログインできていない（account gate で停止）"
+      ]
+    },
+    {
       "startedAt": "2026-09-28T22:53:17.859Z",
       "finishedAt": "2026-09-29T02:32:31.577Z",
       "plan": {
