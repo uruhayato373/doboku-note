@@ -3,7 +3,7 @@
  *
  * Mac = キーチェーン（`security`）、Windows = 資格情報マネージャー（Win32 CredRead を PowerShell 5.1 から呼ぶ。
  * 追加モジュール不要）。CI などそれ以外の OS では常に null（CI はパスワードを持たず、暗号化 state だけを使う）。
- * 例外は readServiceCredential の CI_ENV_CREDENTIAL_SERVICES（note のパスワード再確認だけ・GitHub Secrets）。
+ * 例外は readServiceCredential の CI_ENV_CREDENTIAL_SERVICES（note・ココナラ・GitHub Secrets）。
  * 同じ項目名を両 OS で使うので、呼び出し側は OS を意識しない。stats47 の
  * `.claude/scripts/measurement/credential-store.mjs` と同じ読み口（項目名の接頭辞だけが違う）。
  *
@@ -120,9 +120,10 @@ export function readFirstCredential(names, options = {}) {
 /**
  * CI（GitHub Actions）で ID/PW を環境変数から読んでよい service。CI は原則パスワードを持たないが、
  * note の売上ページは端末ごとのパスワード再確認があり、暗号化 state だけでは通れない（2026-09-21 run 35606437507）。
- * 2026-10-01 オーナー決定で note だけ GitHub Secrets（DOBOKU_AUTH_NOTE_USER / _PASSWORD）に持たせる。
+ * 2026-10-01 オーナー決定で note を GitHub Secrets（DOBOKU_AUTH_NOTE_USER / _PASSWORD）に持たせ、同日ココナラも加えた
+ * （DOBOKU_AUTH_COCONALA_USER / _PASSWORD。暗号化 state が切れたときに CI で入り直す: auth-session-refresh --ci）。
  */
-export const CI_ENV_CREDENTIAL_SERVICES = Object.freeze(['note']);
+export const CI_ENV_CREDENTIAL_SERVICES = Object.freeze(['note', 'coconala']);
 
 export function ciEnvVarNames(service) {
   const key = String(service).toUpperCase().replace(/[^A-Z0-9]/g, '_');

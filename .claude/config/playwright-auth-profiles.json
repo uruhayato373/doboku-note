@@ -29,7 +29,8 @@
           "scripts/check-note-attachments.mjs",
           "scripts/check-note-membership.mjs",
           "scripts/note-membership-plan-status.mjs",
-          "scripts/note-account-name.mjs"
+          "scripts/note-account-name.mjs",
+          "scripts/auth-session-refresh.mjs"
         ],
         "writeScripts": [
           "scripts/note-publish.mjs",
@@ -80,7 +81,8 @@
           "scripts/coconala-analytics.mjs",
           "scripts/check-coconala-analytics.mjs",
           "scripts/check-coconala-blog.mjs",
-          "scripts/coconala-discover.mjs"
+          "scripts/coconala-discover.mjs",
+          "scripts/auth-session-refresh.mjs"
         ],
         "writeScripts": [
           "scripts/coconala-publish.mjs",
