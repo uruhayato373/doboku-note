@@ -18,6 +18,7 @@ on:
     - cron: "20 21 2 * *" # google   毎月2日 21:20 UTC = 3日 06:20 JST
     - cron: "30 22 3 * *" # afb      毎月3日 22:30 UTC = 4日 07:30 JST
     - cron: "40 21 * * 4" # instagram 木 21:40 UTC = 金 06:40 JST（Meta 利用制限中は Graph API 不可＝Playwright 照合）
+    - cron: "40 21 * * 0" # moshimo  日 21:40 UTC = 月 06:40 JST（提携状況・DN-0483）
   workflow_dispatch:
     inputs:
       service:
@@ -34,6 +35,7 @@ on:
           - google
           - afb
           - instagram
+          - moshimo
       mode:
         description: "collect=収集まで実行 / probe-only=認証状態の復元確認のみ"
         type: choice
@@ -150,11 +152,12 @@ jobs:
         with:
           service: ${{ matrix.service }}
 
-      # note・ココナラ・KDP・A8 は暗号化 state が切れていたら、Secrets の ID/PW で 1 回だけ入り直す（2026-10-01 オーナー決定。KDP は試行・DN-0480、A8 は試行・DN-0481）。
+      # note・ココナラ・KDP・A8・もしもは暗号化 state が切れていたら、Secrets の ID/PW で 1 回だけ入り直す（2026-10-01 オーナー決定。KDP は試行・DN-0480、A8 は DN-0481、もしもは DN-0483）。
+      # afb は state を別プロセスへ持ち出せないので、ここでは入らず afb の step（openAsp）の中でログインする（DN-0484）。
       # 2FA・CAPTCHA は突破しない（human_required で止まり、下の Issue に載る）。Secrets はこの step の env にだけ渡す。
-      - name: Re-login with Secrets (note / coconala / kdp / a8)
+      - name: Re-login with Secrets (note / coconala / kdp / a8 / moshimo)
         id: relogin
-        if: (matrix.service == 'note' || matrix.service == 'coconala' || matrix.service == 'kdp' || matrix.service == 'a8') && steps.restore.outputs.status != 'authenticated' && matrix.mode != 'probe-only'
+        if: (matrix.service == 'note' || matrix.service == 'coconala' || matrix.service == 'kdp' || matrix.service == 'a8' || matrix.service == 'moshimo') && steps.restore.outputs.status != 'authenticated' && matrix.mode != 'probe-only'
         continue-on-error: true
         env:
           DOBOKU_AUTH_NOTE_USER: ${{ secrets.DOBOKU_AUTH_NOTE_USER }}
@@ -165,6 +168,8 @@ jobs:
           DOBOKU_AUTH_KDP_PASSWORD: ${{ secrets.DOBOKU_AUTH_KDP_PASSWORD }}
           DOBOKU_AUTH_A8_USER: ${{ secrets.DOBOKU_AUTH_A8_USER }}
           DOBOKU_AUTH_A8_PASSWORD: ${{ secrets.DOBOKU_AUTH_A8_PASSWORD }}
+          DOBOKU_AUTH_MOSHIMO_USER: ${{ secrets.DOBOKU_AUTH_MOSHIMO_USER }}
+          DOBOKU_AUTH_MOSHIMO_PASSWORD: ${{ secrets.DOBOKU_AUTH_MOSHIMO_PASSWORD }}
         run: |
           set +e
           node scripts/auth-session-refresh.mjs --ci --service "${{ matrix.service }}" --json > "${RUNNER_TEMP}/relogin.json"
@@ -177,10 +182,12 @@ jobs:
       - name: Effective auth status
         id: auth
         env:
+          SERVICE: ${{ matrix.service }}
           RESTORE_STATUS: ${{ steps.restore.outputs.status }}
           RELOGIN_STATUS: ${{ steps.relogin.outputs.status }}
         run: |
-          if [ "$RESTORE_STATUS" = "authenticated" ] || [ "$RELOGIN_STATUS" = "ok" ]; then
+          # afb は取得 step の中でログインする（失敗は collector rc で Issue に載る）
+          if [ "$RESTORE_STATUS" = "authenticated" ] || [ "$RELOGIN_STATUS" = "ok" ] || [ "$SERVICE" = "afb" ]; then
             echo "status=authenticated" >> "$GITHUB_OUTPUT"
           else
             echo "status=${RESTORE_STATUS}" >> "$GITHUB_OUTPUT"
@@ -341,9 +348,24 @@ jobs:
         id: collect_afb
         if: matrix.service == 'afb' && steps.auth.outputs.status == 'authenticated' && matrix.mode != 'probe-only'
         continue-on-error: true
+        env:
+          DOBOKU_AUTH_AFB_USER: ${{ secrets.DOBOKU_AUTH_AFB_USER }}
+          DOBOKU_AUTH_AFB_PASSWORD: ${{ secrets.DOBOKU_AUTH_AFB_PASSWORD }}
         run: |
           set +e
           npm run afb:scan -- --rel rel --max-pages 3
+          rc=$?
+          echo "rc=${rc}" >> "$GITHUB_OUTPUT"
+
+      # もしもは提携状況を取り、カタログ（.claude/state/ads/affiliate-catalog.json）を更新する。
+      # 期限切れで 0 件になったときは affiliate-status の偽陰性ガード（exit 4）が書き込みを止める（DN-0483）。
+      - name: "moshimo: affiliate status"
+        id: collect_moshimo
+        if: matrix.service == 'moshimo' && steps.auth.outputs.status == 'authenticated' && matrix.mode != 'probe-only'
+        continue-on-error: true
+        run: |
+          set +e
+          node scripts/affiliate-status.mjs --asp moshimo --write
           rc=$?
           echo "rc=${rc}" >> "$GITHUB_OUTPUT"
 
@@ -360,6 +382,7 @@ jobs:
             x) rc="${{ steps.collect_x.outputs.rc }}" ;;
             google) rc="${{ steps.collect_google.outputs.rc }}" ;;
             afb) rc="${{ steps.collect_afb.outputs.rc }}" ;;
+            moshimo) rc="${{ steps.collect_moshimo.outputs.rc }}" ;;
             instagram) rc="${{ steps.collect_instagram.outputs.rc }}" ;;
             *) rc="" ;;
           esac

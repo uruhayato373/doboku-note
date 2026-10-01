@@ -101,9 +101,9 @@ async function restoreSession(ctx, asp) {
 export async function openAsp(asp, { isReady, label = "ASP" } = {}) {
   const bcfg = aspBrowserCfg(asp);
   const ctx = await launchContext(bcfg, { headless: asp.browser.headless });
-  // afb だけ対象（a8 は自前の restoreA8Session、moshimo は ci.mode:'none'）。
-  if (asp.browser.authService === "afb") {
-    await attachCISession(ctx, "afb", { statePath: statePath(asp) });
+  // afb・もしもが対象（a8 は自前の restoreA8Session）。もしもは 2026-10-01 から CI で取得する（DN-0483）。
+  if (asp.browser.authService === "afb" || asp.browser.authService === "moshimo") {
+    await attachCISession(ctx, asp.browser.authService, { statePath: statePath(asp) });
   }
   const session = await restoreSession(ctx, asp);
   const page = ctx.pages()[0] ?? (await ctx.newPage());
@@ -116,6 +116,23 @@ export async function openAsp(asp, { isReady, label = "ASP" } = {}) {
 
   const ready = isReady ?? (async (p) => !new RegExp(asp.reAuthPattern, "i").test(p.url()));
   if (!(await ready(page).catch(() => false))) {
+    // 資格情報（手元は資格情報ストア、CI は Secrets）があれば、同じプロセスの中で 1 回だけログインする。
+    // afb は state を別プロセスへ持ち出せないので、これが唯一の自動ログイン経路（DN-0484）。
+    const auto = await loginInPage(page, asp.browser.authService);
+    if (auto.tried) {
+      await page.goto(readyUrl, { waitUntil: "domcontentloaded", timeout: asp.browser.timeoutMs }).catch(() => {});
+      await page.waitForTimeout(3000);
+      if (await ready(page).catch(() => false)) {
+        console.log(`  [${label}] 資格情報でログインした`);
+        await ctx.storageState({ path: statePath(asp) }).catch(() => {});
+        return { ctx, page, session };
+      }
+    }
+    // CI では人を待たない（15 分止まらず、理由を付けて即座に失敗する）
+    if (process.env.GITHUB_ACTIONS === "true") {
+      await ctx.close();
+      throw new Error(`${asp.label}: CI で未ログイン（${auto.tried ? "資格情報で入れなかった" : auto.reason}）`);
+    }
     console.log(`\n■ ブラウザで ${asp.label} にログインしてください（自動入力しません）\n`);
     const stop = startStatusTicker(`${label} ログイン待ち`, 60000);
     const deadline = Date.now() + (asp.browser.loginMaxWaitMs || 600000);
@@ -142,6 +159,29 @@ export async function openAsp(asp, { isReady, label = "ASP" } = {}) {
     await ctx.storageState({ path: statePath(asp) }).catch(() => {});
   }
   return { ctx, page, session };
+}
+
+/**
+ * 資格情報で 1 回だけログインする（AUTO_LOGIN にセレクタがあり、資格情報が読めるときだけ）。
+ * 2FA・CAPTCHA は突破しない（送信後に判定ページへ戻れなければ呼び出し側が失敗にする）。
+ * @returns {Promise<{ tried: boolean, reason?: string }>}
+ */
+async function loginInPage(page, service) {
+  const { AUTO_LOGIN, submitLoginForm } = await import("./auth-session-refresh.mjs");
+  const { readServiceCredential } = await import("./credential-store.mjs");
+  const spec = AUTO_LOGIN[service];
+  if (!spec) return { tried: false, reason: "自動ログイン非対応" };
+  const cred = readServiceCredential(service);
+  if (!cred) return { tried: false, reason: "資格情報が無い" };
+  if (!spec.loggedIn(page.url())) {
+    // ログイン画面にいなければログイン URL へ（afb は /pa/ → requiredlogin に転送される）
+    if (!(await page.locator(spec.password).first().isVisible().catch(() => false))) {
+      await page.goto(spec.loginUrl, { waitUntil: "domcontentloaded", timeout: 60000 }).catch(() => {});
+      await page.waitForTimeout(2000);
+    }
+  }
+  await submitLoginForm(page, spec, cred);
+  return { tried: true };
 }
 
 /** 画面の可視テキスト（判定材料）。長すぎると比較が重いので先頭のみ。 */

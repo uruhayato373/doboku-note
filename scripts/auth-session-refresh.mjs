@@ -59,6 +59,7 @@ import {
   decideSharedImport,
   keychainServiceNames,
   sharedStatePath,
+  submitLoginForm,
 } from './lib/auth-session-refresh.mjs';
 import { ciEnvCredentialServices, credentialStoreSupported, hasSecret, readFirstCredential, readServiceCredential } from './lib/credential-store.mjs';
 import { withAuthLock } from './lib/playwright-auth-lock.mjs';
@@ -154,23 +155,7 @@ async function pageSignals(page) {
   }).catch(() => ({ hasPassword: true, hasChallenge: false }));
 }
 
-/** ID/PW を入れて送信する。1 画面（A8・もしも）と、メール → 次へ → パスワードの 2 段階（Amazon）の両方に対応する。 */
-async function submitCredential(page, spec, cred) {
-  const visible = (sel) => page.locator(sel).first().isVisible().catch(() => false);
-  if (await visible(spec.user)) {
-    await page.fill(spec.user, cred.user);
-    if (spec.next && await visible(spec.next)) {
-      await page.click(spec.next);
-      await page.waitForSelector(spec.password, { state: 'visible', timeout: 30000 }).catch(() => {});
-    }
-  }
-  if (!(await visible(spec.password))) return;
-  await page.fill(spec.password, cred.password);
-  if (spec.remember && await visible(spec.remember)) await page.check(spec.remember).catch(() => {});
-  await page.click(spec.submit);
-  await page.waitForLoadState('domcontentloaded', { timeout: 60000 }).catch(() => {});
-  await page.waitForTimeout(5000);
-}
+const submitCredential = submitLoginForm;
 
 /** 3. 資格情報ストアの ID/PW で 1 回だけログインし、state を保存する。 */
 async function autoLogin(service, cred, checkUrl) {
@@ -223,6 +208,9 @@ function dispatchCollector(service) {
 
 async function refresh(service, entry) {
   const result = { service };
+  if (AUTO_LOGIN[service].inProcessOnly) {
+    return { ...result, status: 'skipped', reason: 'ログイン状態を別プロセスへ持ち出せないため、取得スクリプトの中でログインする（asp-browser の openAsp）' };
+  }
   const failMark = failMarkPath(service);
   result.sharedImport = CI_MODE ? null : importSharedState(service);
 

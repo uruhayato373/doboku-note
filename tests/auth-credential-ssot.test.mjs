@@ -47,7 +47,8 @@ test('login-collectors は許可した service の Secrets だけを渡し、入
   const relogin = /- name: Re-login with Secrets[^\n]*\n\s+id: relogin\n\s+if: ([^\n]+)/.exec(workflow);
   assert.ok(relogin, 'Re-login step が無い');
   const targets = [...relogin[1].matchAll(/matrix\.service == '([a-z0-9]+)'/g)].map((m) => m[1]).sort();
-  assert.deepEqual(targets, [...CI_SERVICES].sort());
+  // 取得スクリプトの中でログインする service（inProcessOnly）は Re-login の対象にしない
+  assert.deepEqual(targets, CI_SERVICES.filter((id) => !AUTO_LOGIN[id].inProcessOnly).sort());
   for (const id of CI_SERVICES) assert.ok(workflow.includes(`secrets.${ciEnvVarNames(id).user}`), `${id}: USER の Secret が渡っていない`);
 });
 
