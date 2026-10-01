@@ -17,11 +17,15 @@
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-/** エディタ本文に見えている添付ファイル名（*.pdf）。全文置換の前に記録して復元に使う。 */
+/**
+ * エディタ本文に見えている添付ファイル名（*.pdf）。全文置換の前に記録して復元に使う。
+ * 本文中の URL（出典の …/xxx.pdf など）は添付ではないので数えない（2026-10-01 に出典 URL を添付と誤認して中断した）。
+ */
 export async function listAttachedFiles(page) {
-  return await page.evaluate(() =>
+  const names = await page.evaluate(() =>
     ((document.querySelector('[contenteditable=true]')?.innerText || '').match(/\S+\.pdf/gi) || []),
   );
+  return names.filter((n) => !/https?:\/\//i.test(n));
 }
 
 /** エディタ内の埋め込み（figure / embedded-service / data-name）の数。添付成否の判定に使う。 */

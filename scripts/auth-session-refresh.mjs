@@ -33,7 +33,7 @@
  *   doboku-note だけ別にするなら doboku-note-auth-a8 / -moshimo を登録する（こちらが優先）
  *
  * CI（--ci・GitHub Actions 専用）: login-collectors で暗号化 state が切れていたときだけ、Secrets の ID/PW
- *   （credential-store の CI_ENV_CREDENTIAL_SERVICES に載る service だけ）で 1 回ログインし直して state を保存する。
+ *   （資格情報の正本で ciCredential=true の service だけ・credential-store の ciEnvCredentialServices）で 1 回ログインし直して state を保存する。
  *   共用 state の取り込み・export・dispatch・通知はしない。2026-10-01 オーナー決定（note・ココナラ）。
  *
  * 使い方:
@@ -59,8 +59,9 @@ import {
   decideSharedImport,
   keychainServiceNames,
   sharedStatePath,
+  submitLoginForm,
 } from './lib/auth-session-refresh.mjs';
-import { CI_ENV_CREDENTIAL_SERVICES, credentialStoreSupported, hasSecret, readFirstCredential, readServiceCredential } from './lib/credential-store.mjs';
+import { ciEnvCredentialServices, credentialStoreSupported, hasSecret, readFirstCredential, readServiceCredential } from './lib/credential-store.mjs';
 import { withAuthLock } from './lib/playwright-auth-lock.mjs';
 import {
   ensureAuthDirectories,
@@ -154,23 +155,7 @@ async function pageSignals(page) {
   }).catch(() => ({ hasPassword: true, hasChallenge: false }));
 }
 
-/** ID/PW を入れて送信する。1 画面（A8・もしも）と、メール → 次へ → パスワードの 2 段階（Amazon）の両方に対応する。 */
-async function submitCredential(page, spec, cred) {
-  const visible = (sel) => page.locator(sel).first().isVisible().catch(() => false);
-  if (await visible(spec.user)) {
-    await page.fill(spec.user, cred.user);
-    if (spec.next && await visible(spec.next)) {
-      await page.click(spec.next);
-      await page.waitForSelector(spec.password, { state: 'visible', timeout: 30000 }).catch(() => {});
-    }
-  }
-  if (!(await visible(spec.password))) return;
-  await page.fill(spec.password, cred.password);
-  if (spec.remember && await visible(spec.remember)) await page.check(spec.remember).catch(() => {});
-  await page.click(spec.submit);
-  await page.waitForLoadState('domcontentloaded', { timeout: 60000 }).catch(() => {});
-  await page.waitForTimeout(5000);
-}
+const submitCredential = submitLoginForm;
 
 /** 3. 資格情報ストアの ID/PW で 1 回だけログインし、state を保存する。 */
 async function autoLogin(service, cred, checkUrl) {
@@ -223,6 +208,9 @@ function dispatchCollector(service) {
 
 async function refresh(service, entry) {
   const result = { service };
+  if (AUTO_LOGIN[service].inProcessOnly) {
+    return { ...result, status: 'skipped', reason: 'ログイン状態を別プロセスへ持ち出せないため、取得スクリプトの中でログインする（asp-browser の openAsp）' };
+  }
   const failMark = failMarkPath(service);
   result.sharedImport = CI_MODE ? null : importSharedState(service);
 
@@ -270,8 +258,8 @@ async function refresh(service, entry) {
 async function main() {
   if (CI_MODE) {
     const requested = opt('--service')?.split(',').map((x) => x.trim()).filter(Boolean) ?? [];
-    if (process.env.GITHUB_ACTIONS !== 'true' || requested.length === 0 || requested.some((x) => !CI_ENV_CREDENTIAL_SERVICES.includes(x))) {
-      console.error(`${TAG} --ci は GitHub Actions で、Secrets を許可した service（${CI_ENV_CREDENTIAL_SERVICES.join(' / ')}）を --service で指定したときだけ使える。検査不成立。`);
+    if (process.env.GITHUB_ACTIONS !== 'true' || requested.length === 0 || requested.some((x) => !ciEnvCredentialServices().includes(x))) {
+      console.error(`${TAG} --ci は GitHub Actions で、Secrets を許可した service（${ciEnvCredentialServices().join(' / ')}）を --service で指定したときだけ使える。検査不成立。`);
       return 2;
     }
   }

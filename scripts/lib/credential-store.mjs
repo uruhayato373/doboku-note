@@ -3,7 +3,7 @@
  *
  * Mac = キーチェーン（`security`）、Windows = 資格情報マネージャー（Win32 CredRead を PowerShell 5.1 から呼ぶ。
  * 追加モジュール不要）。CI などそれ以外の OS では常に null（CI はパスワードを持たず、暗号化 state だけを使う）。
- * 例外は readServiceCredential の CI_ENV_CREDENTIAL_SERVICES（note・ココナラ・GitHub Secrets）。
+ * 例外は readServiceCredential の ciEnvCredentialServices()（正本の ciCredential=true・note・ココナラ・GitHub Secrets）。
  * 同じ項目名を両 OS で使うので、呼び出し側は OS を意識しない。stats47 の
  * `.claude/scripts/measurement/credential-store.mjs` と同じ読み口（項目名の接頭辞だけが違う）。
  *
@@ -15,6 +15,7 @@
  * 資格情報ストアを直接呼ぶコードをこのファイルの外に書かない。
  */
 import { execFileSync } from 'node:child_process';
+import { readFileSync } from 'node:fs';
 
 /**
  * `security find-generic-password` の属性出力からアカウント名を取り出す。
@@ -118,12 +119,27 @@ export function readFirstCredential(names, options = {}) {
 }
 
 /**
- * CI（GitHub Actions）で ID/PW を環境変数から読んでよい service。CI は原則パスワードを持たないが、
- * note の売上ページは端末ごとのパスワード再確認があり、暗号化 state だけでは通れない（2026-09-21 run 35606437507）。
- * 2026-10-01 オーナー決定で note を GitHub Secrets（DOBOKU_AUTH_NOTE_USER / _PASSWORD）に持たせ、同日ココナラも加えた
- * （DOBOKU_AUTH_COCONALA_USER / _PASSWORD。暗号化 state が切れたときに CI で入り直す: auth-session-refresh --ci）。
+ * 資格情報の正本（.claude/config/playwright-auth-profiles.json の services.<id>.credential）。
+ * @param {string | URL} [path]
  */
-export const CI_ENV_CREDENTIAL_SERVICES = Object.freeze(['note', 'coconala']);
+export function loadCredentialRegistry(path = new URL('../../.claude/config/playwright-auth-profiles.json', import.meta.url)) {
+  const config = JSON.parse(readFileSync(path, 'utf8'));
+  return Object.entries(config.services).map(([id, svc]) => ({ id, ...svc.credential }));
+}
+
+/**
+ * CI（GitHub Actions）で ID/PW を環境変数から読んでよい service（正本の credential.ciCredential=true）。
+ * CI は原則パスワードを持たないが、note の売上ページは端末ごとのパスワード再確認があり暗号化 state だけでは
+ * 通れない（2026-09-21 run 35606437507）。2026-10-01 オーナー決定で note・ココナラを Secrets に持たせた。
+ * import 時には読まない（管理画面の Turbopack では import.meta.url が当てにならない）。
+ */
+let ciServicesCache = null;
+/** @param {Array<{ id: string, ciCredential?: boolean }> | null} [registry] */
+export function ciEnvCredentialServices(registry = null) {
+  if (registry) return registry.filter((c) => c.ciCredential).map((c) => c.id);
+  ciServicesCache ??= Object.freeze(loadCredentialRegistry().filter((c) => c.ciCredential).map((c) => c.id));
+  return ciServicesCache;
+}
 
 export function ciEnvVarNames(service) {
   const key = String(service).toUpperCase().replace(/[^A-Z0-9]/g, '_');
@@ -136,13 +152,60 @@ export function ciEnvVarNames(service) {
  */
 export function readServiceCredential(service, { env = process.env, platform = process.platform, exec = execFileSync } = {}) {
   if (env.GITHUB_ACTIONS === 'true') {
-    if (!CI_ENV_CREDENTIAL_SERVICES.includes(service)) return null;
+    if (!ciEnvCredentialServices().includes(service)) return null;
     const names = ciEnvVarNames(service);
     const user = env[names.user];
     const password = env[names.password];
     return user && password ? { user, password, source: `env:${names.password}` } : null;
   }
   return readFirstCredential([`doboku-note-auth-${service}`], { platform, exec });
+}
+
+/** Windows の `cmdkey /list` の出力に項目名があるか（表示言語に依らず `target=<名前>` で照合する）。 */
+export function cmdkeyListHas(output, name) {
+  const escaped = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return new RegExp(`target=${escaped}\\s*$`, 'mi').test(String(output ?? ''));
+}
+
+/** `cmdkey /list` の出力から項目のユーザー名（ログイン ID）を読む。英語 `User:`・日本語 `ユーザー:` の両方。 */
+export function cmdkeyListUser(output, name) {
+  const lines = String(output ?? '').split(/\r?\n/);
+  const at = lines.findIndex((l) => cmdkeyListHas(l, name));
+  if (at < 0) return null;
+  for (let i = at + 1; i < lines.length && lines[i].trim() !== ''; i++) {
+    const m = /^\s*(?:User|ユーザー)\s*:\s*(.+?)\s*$/.exec(lines[i]);
+    if (m) return m[1];
+  }
+  return null;
+}
+
+/**
+ * 項目名ごとに登録の有無とログイン ID を返す（パスワードは取り出さない）。管理画面の一覧用。
+ * Windows は `cmdkey /list`（UTF-8）を 1 回だけ、Mac は `security find-generic-password -s`（-w なし）を項目ごとに呼ぶ。
+ * 対応外の OS は present=null（不明）。ID は公開リポジトリに書かず、OS の資格情報ストアを正本にする。
+ */
+export function storedAccounts(names, { platform = process.platform, exec = execFileSync } = {}) {
+  const unknown = Object.fromEntries(names.map((n) => [n, { present: null, user: null }]));
+  if (platform === 'win32') {
+    let out = '';
+    // 既定のコードページ（日本語環境は CP932）だと Node で文字化けするので、UTF-8 に切り替えてから呼ぶ
+    try { out = exec('cmd', ['/d', '/s', '/c', 'chcp 65001 >nul & cmdkey /list'], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'], windowsHide: true }); } catch { return unknown; }
+    return Object.fromEntries(names.map((n) => [n, { present: cmdkeyListHas(out, n), user: cmdkeyListUser(out, n) }]));
+  }
+  if (platform === 'darwin') {
+    return Object.fromEntries(names.map((n) => {
+      try {
+        const attrs = exec('security', ['find-generic-password', '-s', n], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] });
+        return [n, { present: true, user: parseKeychainAccount(attrs) }];
+      } catch { return [n, { present: false, user: null }]; }
+    }));
+  }
+  return unknown;
+}
+
+/** 項目名ごとに登録の有無だけを返す（storedAccounts の present）。 */
+export function presentSecrets(names, options = {}) {
+  return Object.fromEntries(Object.entries(storedAccounts(names, options)).map(([n, v]) => [n, v.present]));
 }
 
 /** この OS で資格情報ストアを使えるか。 */

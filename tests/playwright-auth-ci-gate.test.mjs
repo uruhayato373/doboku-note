@@ -102,8 +102,9 @@ test('allowlist: read-only script は許可・未登録 script は拒否・write
     );
     // 認証 CLI 自身は常に許可
     assert.equal(typeof resolveProfileDir('kdp', { ...base, invokedScript: 'scripts/playwright-auth.mjs' }), 'string');
-    // mode:none のサービス（moshimo）は CI で一切許可しない
-    assert.throws(() => resolveProfileDir('moshimo', { ...base, invokedScript: 'scripts/affiliate-status.mjs' }), /AUTH_CI_MODE_NONE/);
+    // moshimo は 2026-10-01 から encrypted-state（提携状況の CI 取得・DN-0483）。許可は affiliate-status だけ、申請（write）は CI に載せない
+    assert.equal(typeof resolveProfileDir('moshimo', { ...base, invokedScript: 'scripts/affiliate-status.mjs' }), 'string');
+    assert.throws(() => resolveProfileDir('moshimo', { ...base, invokedScript: 'scripts/affiliate-apply.mjs' }), /AUTH_CI_SCRIPT_NOT_ALLOWLISTED/);
     // instagram は 2026-09-21 から encrypted-state（Meta 利用制限で Graph API 不可）。照合は read、予約投稿は write
     assert.equal(typeof resolveProfileDir('instagram', { ...base, invokedScript: 'scripts/verify-ig-status.mjs' }), 'string');
     assert.throws(() => resolveProfileDir('instagram', { ...base, invokedScript: '.claude/skills/social/publish-ig-bs/publish-ig-bs.ts' }), /AUTH_CI_WRITE_REQUIRES_PLAN_HASH/);

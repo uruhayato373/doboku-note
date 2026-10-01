@@ -55,6 +55,18 @@ export const AUTO_LOGIN = Object.freeze({
     submit: 'button[type=submit]',
     loggedIn: (url) => /^https:\/\/(editor\.)?note\.com\//.test(url) && !/\/login|\/signup/.test(url),
   },
+  // afb はログイン状態を別プロセスへ持ち出せない（sessionPersistsAcrossProcesses:false）。毎日のログイン維持では
+  // 入らず、取得スクリプト（asp-browser の openAsp）が同じプロセスの中でログインする。セレクタは 2026-10-01 に
+  // requiredlogin 画面の DOM で確認（login_name / password・同じ action のフォームが 2 つあるので :visible で絞る）。
+  afb: {
+    shared: false,
+    inProcessOnly: true,
+    loginUrl: 'https://www.afi-b.com/pa/',
+    user: 'input[name=login_name]:visible',
+    password: 'input[name=password]:visible',
+    submit: 'form[action*="/general/login/partner"] input[type=submit]:visible',
+    loggedIn: (url) => /afi-b\.com\//.test(url) && !/requiredlogin|\/login/.test(url),
+  },
   coconala: {
     shared: false,
     loginUrl: 'https://coconala.com/login',
@@ -135,4 +147,25 @@ export function cronFiresWithin(cron, now, windowHours = 24) {
     ) return true;
   }
   return false;
+}
+
+/**
+ * ログイン画面に ID/PW を入れて送信する（1 画面と、メール → 次へ → パスワードの 2 段階の両方）。
+ * 呼び出し側は 1 回だけ呼ぶ（失敗しても繰り返さない）。cred をログへ出さない。
+ */
+export async function submitLoginForm(page, spec, cred) {
+  const visible = (sel) => page.locator(sel).first().isVisible().catch(() => false);
+  if (await visible(spec.user)) {
+    await page.locator(spec.user).first().fill(cred.user);
+    if (spec.next && await visible(spec.next)) {
+      await page.locator(spec.next).first().click();
+      await page.waitForSelector(spec.password, { state: 'visible', timeout: 30000 }).catch(() => {});
+    }
+  }
+  if (!(await visible(spec.password))) return;
+  await page.locator(spec.password).first().fill(cred.password);
+  if (spec.remember && await visible(spec.remember)) await page.locator(spec.remember).first().check().catch(() => {});
+  await page.locator(spec.submit).first().click();
+  await page.waitForLoadState('domcontentloaded', { timeout: 60000 }).catch(() => {});
+  await page.waitForTimeout(5000);
 }

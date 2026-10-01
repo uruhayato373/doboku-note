@@ -46,7 +46,7 @@
 - 二層構造・制作パイプライン・実行環境分担は 05 §3/§5 と共通（同一チャンネル・同一 TTS 基盤）。公開状態は `.claude/state/video-content-status.json` に一元化
 - UTM: `utm_source=youtube&utm_medium=video&utm_campaign={packId}&utm_content=longform|shorts`（video-content-policy 準拠）
 - Shortsは各動画パックから2本を直接生成し、APIでprivate upload→Studioで関連通常動画を設定→API予約の順で公開する
-- **1動画1主CTA**: 分野別・予想系→`cce-r8-mc-50`（配合計算のみ `cce-mix-calculation-practice`）／小論文系→`cce-essay-magazine`（¥2,480 を入口とし、上位の persona-pack ¥5,980 は誌面内で上げる）／技士の計算・JIS 系→`ce-mix-jis-practice`／ガイド・キャリア系→`/links`（コンクリートの note もくじハブは未整備のため）
+- **1動画1主CTA**: 分野別・予想系→`cce-r8-mc-50`（配合計算のみ `cce-mix-calculation-practice`）／小論文系→`cce-essay-reiwa-pack`（¥2,480 を入口とし、上位の persona-pack ¥5,980 は誌面内で上げる）／技士の計算・JIS 系→`ce-mix-jis-practice`／ガイド・キャリア系→`/links`（コンクリートの note もくじハブは未整備のため）
 
 ## 4. コンテンツピラー（企画 28 パック・2026-09-01 登録）
 
@@ -54,7 +54,7 @@
 |---|---|---|---|---|
 | **P1 試験攻略ガイド（主任技士）** | roadmap/howto/diagnosis | 試験概要・出題傾向・学習計画逆算・直前チェック | `/links`・`cce-r8-mc-50` | 4 |
 | **P2 分野別論点（主任技士）** | exam-point | textbook 8 分野（材料/性質/耐久性/配合設計/製造QC/施工/製品/構造設計） | `cce-r8-mc-50`（配合設計→`cce-mix-calculation-practice`） | 8 |
-| **P3 小論文（主任技士）** | howto/exam-point | 構成の型・テーマ整理・落ちる小論文 | `cce-essay-magazine` | 3 |
+| **P3 小論文（主任技士）** | howto/exam-point | 構成の型・テーマ整理・落ちる小論文 | `cce-essay-reiwa-pack` | 3 |
 | **P4 R8 直前予想（主任技士）** | exam-point | 出題傾向からの重点分野予想（導出プロセス明示） | `cce-r8-mc-50` | 1 |
 | **P5 試験攻略ガイド（技士）** | roadmap/howto | 既存 guide と 1:1（試験概要/受験資格2026/勉強計画/主任技士との違い） | `/links`・`ce-mix-jis-practice` | 4 |
 | **P6 分野別論点（技士）** | exam-point | textbook 6 分野（材料/性質・試験/配合設計/製造QC/施工/環境） | `ce-mix-jis-practice` | 6 |
@@ -80,7 +80,7 @@
 ## 7. Red Line（05 §10 共通部に加えて）
 
 - **「技師」表記の禁止**（正式名称は「コンクリート主任技士」。「士」を「師」と書く誤記が 2026-08-12 に記事・戦略 doc へ伝播した事故が exam-calendar.json policy に記録済み。check-exam-calendar が機械検知する）
-- **小論文の模範答案実文を動画で出さない**（cce-essay-magazine / persona-pack の囲い込み資産。動画は構成の型・テーマの論点整理まで）
+- **小論文の模範答案実文を動画で出さない**（cce-essay-reiwa-pack の囲い込み資産。動画は構成の型・テーマの論点整理まで）
 - **過去問（四肢択一）の問題文全文を読み上げない**（論点の要約と解き方の角度に限定）
 - **競合実査（09a）前に「先行チャンネル不在」等の空白主張をしない**
 - 具体の試験日・申込日を台本に書かない（変動する日付は概要欄・exam-calendar 参照。「試験直前」等の相対表現は可）

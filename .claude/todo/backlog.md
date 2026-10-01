@@ -21,6 +21,18 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-0461] コンクリート主任技士 小論文の一本化の仕上げ: PR をマージし、ココナラ K3 を出品して旧 K1/K2 を休止する
+タグ: [収益化] [領域:商品] [時期:2026-10] [種類:制作] [起票:2026-09-30] [期日:2026-10-31] [進行中]
+
+**起点**: 2026-10-01 のユーザー決定で、主任技士の小論文を令和形式テーマ別へ一本化した。note 側は同日に完了済み（新版6本とマガジン m97a0049a10de ¥3,980 を公開、まるごとパックを ¥4,980・10記事へ組み替え、旧版の記事38本・マガジン14誌を削除）。旧版の実売は生コン工場2本・¥1,960 だけ。本試験は 2026-11-29。
+
+**やること**:
+1. PR #790（SoT・サイト guide-essay・magazine-placement・旧版原稿の片付け・lint-ja の Windows 修正）と PR #786（note-delete-note の一覧スクロール・note-magazine-delete）をマージする。#790 は deploy 後にサイト guide-essay の HTML で新マガジンの CTA が出ることを確かめる。
+2. ココナラ K3（完全パック＝令和形式6冊＋択一3冊・¥8,000）の PDF を `node scripts/build-coconala-content-pdf.mjs --product K3` で作り、商品画像を承認してから出品（文面は運営者が確認してから公開）。公開後に旧 K1/K2 を `node scripts/coconala-pause.mjs --service coconala-cce-essay-pdf,coconala-cce-takuitsu-pdf --commit` で受付休止する。
+3. 共有 pre-commit フックを develop 側で `npm run pre-commit:install` し直し、`check-cce-essay --staged` を有効にする。
+
+**完了条件**: PR #790・#786 がマージ済みで、サイト guide-essay のビルド後 HTML に `cce-essay-reiwa-pack` の CTA が出ている。ココナラ K3 が listed、K1/K2 が paused。`check-magazine-membership`・`check-coconala-wiring` が exit 0。
+
 ### [DN-0477] note メンバーシップから完全に撤退する: 会員0人を確認し、会員専用マガジンとプランを削除する
 タグ: [収益化] [領域:商品] [時期:2026-11] [種類:改善] [起票:2026-10-01] [期日:2026-11-15]
 
@@ -166,6 +178,77 @@
 **進捗（2026-09-27）**: #661・#662・#664 は #665 に含めて閉じ、#665・#666 を develop へマージして本番へ deploy 済み。残りは、次の週次レビュー（10/3）の記録に「受取額と目標の差」と「検索の改善候補の起票（または起票なしの理由）」が残るかの確認だけ。
 
 ## 🟡 中 — 重要度が中くらい
+
+### [DN-0484] afb を CI で取得し、取得スクリプト自身が Secrets でログインする形を試す
+タグ: [インフラ・計測] [領域:管理] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-01] [進行中]
+
+**起点**: 2026-10-01 にユーザー決定で、ログインが必要な全サービスを CI でも自動で入り直す方針にした。afb はログイン状態を別プロセスへ持ち出せない（`sessionPersistsAcrossProcesses: false`・9/21 CI で requiredlogin へ戻された）ため、`auth-session-refresh --ci` で入り直してから別プロセスの取得スクリプトを動かす形は効かない。
+
+**やること**: (1) afb のログイン画面（`https://www.afi-b.com/pa/`）の入力欄を読み取りで確かめ、`scripts/lib/auth-session-refresh.mjs` の `AUTO_LOGIN` に afb を足す（正本の `autoLogin` も true）。(2) `afb-scan` / `affiliate-status` の afb 経路で、未ログインなら同じプロセス内で `readServiceCredential('afb')` の ID/PW で 1 回だけログインしてから取得する。(3) 正本の afb を `ci.enabled:true`・`credential.ciCredential:true` にし、`login-collectors.yml` の afb step に Secrets を渡す。(4) 毎月 3 日の実行で取得できるかを見て、続けるか戻すかを決める。afb の既定サイトは stats47（`asp-site-guard`）なので、サイト帰属の検査は維持する。
+
+**完了条件**: CI の afb 取得が 1 回以上成功する、または不成立の理由を記録して正本を `ciCredential:false` に戻した。
+
+**2026-10-01 実装**: (1)〜(3) を実装（`openAsp` が同じプロセスで 1 回だけログイン・CI では人を待たずに失敗）。残りは (4) 11/4 の定期実行（または `workflow_dispatch` service=afb）の結果を見て判断する。main へ deploy してから。
+
+### [DN-0483] もしもアフィリエイトの CI 取得を新設し、Secrets で入り直す形を試す
+タグ: [インフラ・計測] [領域:管理] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-01] [進行中]
+
+**起点**: 2026-10-01 にユーザー決定で、ログインが必要な全サービスを CI でも自動で入り直す方針にした。もしもは正本で `ci.mode: none`（CI で取得していない）で、手元の `affiliate-status` / `affiliate-apply` だけが使う。口座は stats47 と共用。
+
+**やること**: (1) CI で何を取るか決める（提携状況・成果など `affiliate-status` のもしも経路）。(2) 正本の moshimo を `ci.mode: encrypted-state`・`enabled: true`・cron・`readOnlyScripts` に設定し、Mac の `auth-session-refresh --export` で暗号化 state を渡す。(3) `login-collectors.yml` に moshimo の step と Re-login の対象を足し、正本の `credential.ciCredential` を true にする（Secrets は保管済み）。(4) 数回の実行で取得が続くか・共用口座に追加確認が出ないかを見て、続けるか戻すかを決める。
+
+**完了条件**: CI のもしも取得が 1 回以上成功する、または不成立の理由を記録して戻した。
+
+**2026-10-01 実装**: (1)〜(3) を実装（提携状況を `affiliate-status --asp moshimo --write` で毎週日曜 21:40 UTC に取得）。残りは Mac の `auth-session-refresh --export` でもしもの暗号化 state を渡すこと（DN-0479 と同じ Mac 作業）と、main へ deploy 後の実行結果で (4) を判断すること。
+
+### [DN-0482] verify-note-magazines --contents の snapshot で 39 誌の収録が 0 件になる
+タグ: [インフラ・計測] [領域:商品] [時期:2026-10] [種類:不具合] [起票:2026-10-01] [期日:2026-10-31]
+
+**起点**: 2026-10-01 に DN-0461 で `node scripts/verify-note-magazines.mjs --contents --json` を取り直したところ、`check-magazine-membership` が 39 誌で「ライブ 0」と判定した（診断士 cd-essay-magazine、1級・2級土木、総監の模範論文、建設部門の選択科目など）。9/30 の snapshot でも cd-essay-magazine は 0 件で、今回の変更とは無関係。公開 API では主任技士の2誌は正しく取れている（m97a0049a10de＝6件・m09d20bfd9738＝10件）ので、取得側（ページ送り・API の版・キャッシュ）の不具合が疑わしい。snapshot が古いまま CI が緑になるので、ライブとの突合（軸C）が実質効いていない。
+
+**やること**: 0 件になる誌の1つ（例 `mf2a132408b6f`）で `https://note.com/api/v1/magazines/<key>/notes?page=1` を直接取り、verify-note-magazines の取得結果と比べて原因を特定して直す。直したら snapshot を取り直し、`check-magazine-membership` の差分を各誌で確かめる（本当に収録漏れがあれば別カード）。
+
+**完了条件**: snapshot を取り直して `npm run check-magazine-membership` が「ライブ 0」の誌を出さない（0 件が正しい誌は理由つきで除外）。原因と直し方を `note-api-verification.md` に1行残す。
+
+### [DN-0481] A8 の CI 取得で Secrets による入り直しを 10 月の火曜実行で評価し、続けるか戻すかを決める
+タグ: [インフラ・計測] [領域:管理] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-01] [期日:2026-11-05]
+
+**起点**: A8 は揮発性 Cookie で、Mac から渡した暗号化 state が CI の定期収集の時点で切れていた（2026-09-22 run 35670832802・Issue #570）。2026-10-01 にユーザー決定で、A8 も GitHub Secrets（`DOBOKU_AUTH_A8_USER` / `_PASSWORD`）を持たせ、`login-collectors.yml` で切れていたときだけ 1 回入り直す形にした。口座は stats47 と共用。
+
+**やること**:
+1. main へ deploy されたことを確かめる（scheduled は main 版で動く）。
+2. 10 月の火曜（JST 06:20）の login-collectors の A8 の結果を見る: restore の状態、re-login の結果（ok / login_failed / human_required）、`a8-ui:fetch` の rc、Issue の有無。
+3. stats47 の A8 収集と、手元（Windows・Mac）の A8 のログイン維持が同じ週に止まっていないかを `/ops/auth` と stats47 側で確かめる（ログイン回数が増えてロック・追加確認が出ていないか）。
+4. 取得が続き、共用口座に追加確認が出ていなければ続ける。出るなら `playwright-auth-profiles.json` の a8 を `credential.ciCredential:false` に戻し、ワークフローの Re-login 対象から外して Secrets を削除する。
+
+**完了条件**: 続ける／戻すを決め、正本・ワークフロー・Secrets をその状態にそろえた。
+
+### [DN-0480] KDP の CI 取得（Secrets で入り直し）を 10/16・10/28 の実行で評価し、続けるか戻すかを決める
+タグ: [インフラ・計測] [領域:管理] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-01] [期日:2026-11-05]
+
+**起点**: 2026-10-01 にユーザー決定で、KDP も GitHub Secrets（`DOBOKU_AUTH_KDP_USER` / `_PASSWORD`）を持たせ、`login-collectors.yml` の KDP を `enabled:true` に戻して試すことにした。9/21 は CI の state 復元で Amazon が端末変更として再認証を求め、手元のセッションまで切れたため `enabled:false` にしていた。今回は CI の「Re-login with Secrets」と各 PC の毎日のログイン維持（17:45）で入り直せる形にしてある。
+
+**やること**:
+1. main へ deploy されたことを確かめる（scheduled は main 版で動く）。
+2. 10/16・10/28（JST 06:40）の login-collectors の KDP の結果を見る: restore の状態、re-login の結果（ok / human_required / login_failed）、`kdp-report` の rc、Issue の有無。
+3. 同じ日の手元（Windows・Mac）の KDP のログイン維持の結果を管理画面 `/ops/auth` で見る（CI のせいで手元が切れていないか）。
+4. 2 回とも取得できていれば続ける。2 段階認証で止まる・手元が毎回切れるなら、`playwright-auth-profiles.json` の kdp を `ci.enabled:false`・`credential.ciCredential:false` に戻し、Secrets を削除する。
+
+**完了条件**: 続ける／戻すを決め、正本・ワークフロー・Secrets をその状態にそろえた。
+
+### [DN-0479] Mac でも全ログインサービスの資格情報をキーチェーンへ登録し、管理画面で揃ったことを確かめる
+タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-01]
+
+**起点**: 2026-10-01 にユーザー決定で、ログインが必要な全サービスの ID/PW を各 PC の OS 資格情報ストアで管理する方針にした。正本は `.claude/config/playwright-auth-profiles.json` の `services.<id>.credential`、確認は管理画面の 管理 ＞ ログインと資格情報（`/ops/auth`）。Windows は note・ココナラを登録済み（同日）で、Mac は未着手。管理画面が見えるのはその PC の登録だけなので、Mac は Mac で確かめる。
+
+**やること**（Mac で。パスワードは対話入力にして引数や履歴に残さない）:
+1. develop を最新にして `npm run admin` を起動し、`/ops/auth` を開いて未登録の行を確かめる。
+2. 全 9 サービスの項目をキーチェーンへ登録する: `security add-generic-password -s doboku-note-auth-<service> -a <ログインID> -w`（service は note・coconala・kdp・a8・moshimo・x・instagram・google・afb）。note・ココナラの ID は dobokunotecom@gmail.com。A8・もしもは stats47 の `stats47-measurement-a8` / `-moshimo` が Mac にあればそれで足りる（doboku-note 側を優先して読む）。
+3. `npm run auth-refresh:install -- --status` で launchd（`com.doboku-note.auth-session-refresh`）が登録済みか確かめる。未登録なら `npm run auth-refresh:install`。
+4. `npm run auth-refresh:install -- --run-now` で 1 回走らせ、`~/Library/Logs/doboku-note/auth-session-refresh.log` と `/ops/auth` の「最新の維持結果」が ok になるのを確かめる。
+5. `node scripts/note-sales-fetch.mjs --month <前月>`（dry-run）で、売上ページのパスワード再確認を資格情報で通せるか（`[1b]` の行）を確かめる。
+
+**完了条件**: Mac の `/ops/auth` で「この PC の資格情報」が 9 件とも登録済み（A8・もしもは共用項目でも可）、定期実行が登録済み、自動ログイン対応の行（note・ココナラ・KDP・A8・もしも）の最新の維持結果が ok か失敗理由が分かる状態。
 
 ### [DN-0478] 2級二次の後に、無料化した週次お題10本の時期表現を来年度も使える言い方へ直す
 タグ: [収益化] [領域:商品] [時期:2026-10] [種類:改善] [起票:2026-10-01] [期日:2026-10-31]
@@ -1445,28 +1528,6 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 **完了条件**: 公開プロフィールの資格欄にコンクリート主任技士・コンクリート診断士が表示される。
 
 **進捗（2026-09-30）**: (1) 主任技士の紫 POP 画像を運営者が承認。公開ページ（services/4425046）で新画像を目視確認し、承認台帳 SHA `0ad039fb31a33e1fc70f1ef07d01d7cc88003210681e4b6995bb72be82833143` と PNG が一致、`npm run check-coconala-wiring` は exit 0。(3) 受注手順は `content/note/コンクリート主任技士/小論文-添削テンプレ.md` と coconala-operations.md §3 に結線済み（9b964cb5b）。残りはプロフィール資格欄の追加。
-
-### [DN-0463] コンクリート主任技士 令和形式小論文6本を note に公開する（運営者の実行）
-タグ: [収益化] [領域:商品] [時期:2026-10] [種類:改善] [起票:2026-09-30] [期日:2026-10-15]
-
-**起点**: 2026-09-30 に DN-0461 の手順1（note 公開）をエージェントが実行しようとして、権限判定で止まった（有料記事の外部公開は運営者の承認が要る）。原稿は公開準備済み（単品 ¥1,480・ハッシュタグ付き、9b7717083）。本試験は 2026-11-29。
-
-**やること**: (1) 運営者が `node scripts/note-publish-magazine.mjs --dir "content/note/コンクリート主任技士/magazines/コンクリート主任技士-小論文テーマ別-令和形式" --pattern article.md --commit` を実行（無料1本＋有料5本）。(2) `note-magazine-create` でマガジン（¥3,980・`note掲載文.txt`）を作り、`note-magazine-cover`・`note-magazine-add` で収録。(3) `note-magazines.ts` の `cce-essay-reiwa-pack` に noteUrl を入れ `published: true`、price を件数表記へ戻し、`verify-note-magazines --contents` の snapshot を再生成。以後のサイト導線切替・旧商品の案内は DN-0461 の手順2・3。
-
-**完了条件**: `npm run verify-note-status` で6本が公開、`check-magazine-membership` が exit 0。
-
-### [DN-0461] コンクリート主任技士 小論文を令和形式テーマ別へ一本化する（新版を公開→導線を付け替え→旧版を下書き・削除）
-タグ: [収益化] [領域:商品] [時期:2026-10] [種類:制作] [起票:2026-09-30] [期日:2026-10-31] [進行中]
-
-**起点**: 2026-09-30 に、旧4テーマ×8立場（序論・本論・結論型）が令和2年度以降の「1題・約1,000字・4項目」形式と合わないため作り直した（PR #744）。原稿は `content/note/コンクリート主任技士/magazines/コンクリート主任技士-小論文テーマ別-令和形式/`（無料の出題傾向分析＋有料5本、cce-essay-qa 合格）。2026-10-01 のユーザー決定で旧版を整理する: 旧版の販売は note 販売履歴（〜09-27）で生コン工場の環境配慮・耐久性の2本（各¥980）だけ、旧マガジン・セット・残り30本・小論文模範答案集5本は0件。note の仕様では購入された有料記事は下書きに戻せず、削除しても購入者は購入済みページから読める（noteヘルプ 360015885853）。本試験は 2026-11-29。
-
-**やること**（この順で。新版が無い期間を作らない）:
-1. 新版6本（単品 ¥1,480・無料1本）を公開し、マガジン（¥3,980・`note掲載文.txt`）を作って収録。カバー・`note-magazines.ts` の noteUrl と `published: true`・`verify-note-magazines --contents` の snapshot を更新する。
-2. 導線を新版へ付け替える: まるごとパック（¥9,800）の収録を旧小論文から新版へ差し替え（価格表記・掲載文も）、もくじ、サイト `concrete-chief-engineer-guide-essay`（`magazine-placement.ts`・本文の `<MagazineCard>`）、ココナラ K3（完全パック PDF）の公開と旧 K1/K2 の受付休止。
-3. 直前に販売履歴を取り直し（9/28 以降の購入を確認）、旧版を整理する: 売れた記事は削除、売れていない記事（実務立場別32本の残り・小論文模範答案集5本）は下書きに戻す、旧マガジン（立場別8誌・テーマ別4誌・実務立場別答案集・小論文模範答案集）は削除。`note-magazines.ts` の旧エントリを `published: false` にし、原稿側の `noteStatus` を合わせる。
-4. 共有 pre-commit フックを develop 側で `npm run pre-commit:install` し直し、`check-cce-essay --staged` を有効にする。
-
-**完了条件**: 新版6本とマガジンが公開 API で見え、まるごとパックの収録が新版になっている。旧版の記事・マガジンが公開 API で取得できない（購入者向けを除く）。`check-magazine-membership`・`check-magazine-wiring`・`check-coconala-wiring` が exit 0、サイト guide-essay のビルド後 HTML に新マガジンの CTA が出ている。
 
 ### [DN-0265] コンクリート主任技士のココナラ出品（小論文添削・完全パック PDF の2件）を本試験後に継続か休止か判定する
 タグ: [収益化] [領域:商品] [時期:2026-12] [種類:意思決定] [起票:2026-09-23] [期日:2026-12-15]

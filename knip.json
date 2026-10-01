@@ -49,6 +49,7 @@
     "@radix-ui/react-slot",
     "@radix-ui/react-dialog",
     "@radix-ui/react-separator",
-    "@radix-ui/react-tooltip"
+    "@radix-ui/react-tooltip",
+    "textlint"
   ]
 }

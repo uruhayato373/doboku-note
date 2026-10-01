@@ -34,7 +34,7 @@
 
 自分の実務経験をこの型に当てはめて書き進めたい場合は、小論文対策マガジンへ。概要欄のリンクから開けます。
 
-- CTA: catalog `cce-essay-magazine`（utm_campaign=shunin-shouronbun-kousei / utm_content=longform で公開時に解決）
+- CTA: catalog `cce-essay-reiwa-pack`（utm_campaign=shunin-shouronbun-kousei / utm_content=longform で公開時に解決）
 
 ## 出典一覧
 

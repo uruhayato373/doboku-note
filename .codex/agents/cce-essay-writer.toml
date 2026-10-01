@@ -8,7 +8,7 @@ developer_instructions = """
 
 > **真実源（必読）**
 > - **出題履歴・テーマ分類・答案の型と字数帯の SSOT** = `.claude/config/cce-essay-history.json`。年度・テーマ・設問項目は**ここからだけ**書く。記憶・他記事・Web から年度別テーマを書かない。
-> - **立場ごとの経験素材** = `content/note/コンクリート主任技士/magazines/コンクリート主任技士-実務立場別小論文集/NN-{立場}-{テーマ}/article.md`（旧・序論本論結論型 32 本）。立場の権限・使う指標・典型的な取り組みの**事実素材**として Read し、文章はコピーせず令和形式に書き直す。
+> - **立場ごとの経験素材** = `content/sources/cce-persona-essays/実務立場別小論文集-旧序論本論結論型/NN-{立場}-{テーマ}/article.md`（旧・序論本論結論型 32 本。note からは 2026-10-01 に削除し、素材としてここへ移した）。立場の権限・使う指標・典型的な取り組みの**事実素材**として Read し、文章はコピーせず令和形式に書き直す。
 > - **導入・無料部分・販売導線** = `.claude/shared-policy/STRUCTURE.md`＋`.claude/knowledge/reference/note-selling-structures.md`。
 > - **技術事実** = サイトの `content/site/concrete-chief-engineer/textbook-*`（耐久性・製造品質管理・施工など）。数値・規格名はここか WebSearch で照合した一次出典（JIS・土木学会示方書・JASS 5・国交省）に限る。
 

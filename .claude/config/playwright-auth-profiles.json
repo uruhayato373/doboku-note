@@ -53,6 +53,18 @@
           "scripts/note-swap-author-banner.mjs",
           "scripts/note-reanchor-boundary.mjs"
         ]
+      },
+      "credential": {
+        "label": "note",
+        "storeItem": "doboku-note-auth-note",
+        "autoLogin": true,
+        "ciCredential": true,
+        "ciStored": true,
+        "machines": [
+          "windows",
+          "mac"
+        ],
+        "policyNote": "手元はログイン維持と売上ページのパスワード再確認、CI は state 切れの入り直しと再確認（2026-10-01）"
       }
     },
     "coconala": {
@@ -95,6 +107,18 @@
           "scripts/coconala-blog-delete-draft.mjs",
           "scripts/coconala-rate-buyer.mjs"
         ]
+      },
+      "credential": {
+        "label": "ココナラ",
+        "storeItem": "doboku-note-auth-coconala",
+        "autoLogin": true,
+        "ciCredential": true,
+        "ciStored": true,
+        "machines": [
+          "windows",
+          "mac"
+        ],
+        "policyNote": "手元はログイン維持、CI は state 切れの入り直し（2026-10-01）"
       }
     },
     "kdp": {
@@ -105,10 +129,10 @@
       "accountConfigPath": null,
       "sessionMode": "profile",
       "interactiveLoginRequired": true,
-      "notes": "専用 account config JSON は無し。 2026-09-21 実測: CI 復元で Amazon サインイン画面へ redirect（端末変更で再認証要求）、Mac 側セッションも失効。hosted CI 不可のため enabled:false。",
+      "notes": "専用 account config JSON は無し。 2026-09-21 実測: CI 復元で Amazon サインイン画面へ redirect（端末変更で再認証要求）、Mac 側セッションも失効。hosted CI 不可のため enabled:false。 2026-10-01: Secrets（DOBOKU_AUTH_KDP_USER/_PASSWORD）で CI でも入り直す形で enabled:true に戻して試行（DN-0480 で評価・不成立なら enabled:false に戻す）。",
       "ci": {
         "mode": "encrypted-state",
-        "enabled": false,
+        "enabled": true,
         "canary": false,
         "operations": [
           "read",
@@ -120,11 +144,24 @@
           "amazon.com"
         ],
         "readOnlyScripts": [
-          "scripts/kdp-report.mjs"
+          "scripts/kdp-report.mjs",
+          "scripts/auth-session-refresh.mjs"
         ],
         "writeScripts": [
           "scripts/kdp-publish.mjs"
         ]
+      },
+      "credential": {
+        "label": "Amazon KDP",
+        "storeItem": "doboku-note-auth-kdp",
+        "autoLogin": true,
+        "ciCredential": true,
+        "ciStored": true,
+        "machines": [
+          "windows",
+          "mac"
+        ],
+        "policyNote": "Amazon は 2 段階認証・CAPTCHA で止まる（突破しない）。2026-10-01 オーナー決定で CI も試行（Secrets で入り直し・評価は DN-0480）。9/21 は CI の state 復元で手元のセッションも切れた"
       }
     },
     "x": {
@@ -161,6 +198,18 @@
           "scripts/x-article-publish.mjs",
           "scripts/x-thread-replies.mjs"
         ]
+      },
+      "credential": {
+        "label": "X",
+        "storeItem": "doboku-note-auth-x",
+        "autoLogin": false,
+        "ciCredential": false,
+        "ciStored": true,
+        "machines": [
+          "windows",
+          "mac"
+        ],
+        "policyNote": "GitHub の CI からはログイン前にボット確認で止まる（2026-09-21 実測・datacenter IP）ので CI では使わない。切れたら人が npm run auth:login で入り直す（凍結の危険）"
       }
     },
     "instagram": {
@@ -191,6 +240,18 @@
         "writeScripts": [
           ".claude/skills/social/publish-ig-bs/publish-ig-bs.ts"
         ]
+      },
+      "credential": {
+        "label": "Instagram",
+        "storeItem": "doboku-note-auth-instagram",
+        "autoLogin": false,
+        "ciCredential": false,
+        "ciStored": true,
+        "machines": [
+          "windows",
+          "mac"
+        ],
+        "policyNote": "CI でセッションを使った直後に Meta が手元も含めて全面失効させた（2026-09-21 実測）ので CI では使わない。切れたら人が npm run auth:login で入り直す（利用制限の危険）"
       }
     },
     "google": {
@@ -219,6 +280,18 @@
           "scripts/fetch-ga4-ui-csv.mjs"
         ],
         "writeScripts": []
+      },
+      "credential": {
+        "label": "Google（GSC・GA4）",
+        "storeItem": "doboku-note-auth-google",
+        "autoLogin": false,
+        "ciCredential": false,
+        "ciStored": true,
+        "machines": [
+          "windows",
+          "mac"
+        ],
+        "policyNote": "CI でセッションを使った直後に Google が手元も含めて失効させた（2026-09-21 実測）。検索の数値は公式 API で CI 取得済みなので画面ログインは CI で使わない。2 段階認証が前提で、切れたら人が入り直す"
       }
     },
     "a8": {
@@ -251,11 +324,25 @@
         "readOnlyScripts": [
           "scripts/fetch-a8-ui-csv.mjs",
           "scripts/normalize-a8-csv.mjs",
-          "scripts/affiliate-status.mjs"
+          "scripts/affiliate-status.mjs",
+          "scripts/auth-session-refresh.mjs"
         ],
         "writeScripts": [
           "scripts/affiliate-apply.mjs"
         ]
+      },
+      "credential": {
+        "label": "A8.net",
+        "storeItem": "doboku-note-auth-a8",
+        "sharedStoreItem": "stats47-measurement-a8",
+        "autoLogin": true,
+        "ciCredential": true,
+        "ciStored": true,
+        "machines": [
+          "windows",
+          "mac"
+        ],
+        "policyNote": "stats47 と同じ口座。手元は stats47 の state を先に取り込み、無ければ自分の項目、それも無ければ stats47 の項目でログインする。2026-10-01 オーナー決定で CI も切れていたら Secrets で 1 回だけ入り直す（試行・DN-0481）"
       }
     },
     "moshimo": {
@@ -266,18 +353,36 @@
       "accountConfigPath": ".claude/config/affiliate-asp.json",
       "sessionMode": "profile-plus-state",
       "interactiveLoginRequired": true,
-      "notes": null,
+      "notes": "2026-10-01: CI 取得を新設（affiliate-status --asp moshimo --write・提携状況）。state は Mac の auth-session-refresh --export が渡す（DN-0483）。",
       "ci": {
-        "mode": "none",
-        "enabled": false,
+        "mode": "encrypted-state",
+        "enabled": true,
         "canary": false,
         "operations": [
           "read"
         ],
-        "cron": null,
-        "stateDomains": [],
-        "readOnlyScripts": [],
+        "cron": "40 21 * * 0",
+        "stateDomains": [
+          "moshimo.com"
+        ],
+        "readOnlyScripts": [
+          "scripts/affiliate-status.mjs",
+          "scripts/auth-session-refresh.mjs"
+        ],
         "writeScripts": []
+      },
+      "credential": {
+        "label": "もしもアフィリエイト",
+        "storeItem": "doboku-note-auth-moshimo",
+        "sharedStoreItem": "stats47-measurement-moshimo",
+        "autoLogin": true,
+        "ciCredential": true,
+        "ciStored": true,
+        "machines": [
+          "windows",
+          "mac"
+        ],
+        "policyNote": "stats47 と同じ口座（A8 と同じ扱い）。CI は毎週日曜（JST 月 06:40）に提携状況を取得し、state が切れていれば Secrets で 1 回だけ入り直す（2026-10-01 試行・DN-0483）"
       }
     },
     "afb": {
@@ -288,10 +393,10 @@
       "accountConfigPath": ".claude/config/affiliate-asp.json",
       "sessionMode": "same-process",
       "interactiveLoginRequired": true,
-      "notes": "sessionPersistsAcrossProcesses: false。保存した storageState を別プロセスで復元できないことがあり、ログインから操作まで同一プロセスで完結させる制約がある。afb 既定は stats47（asp-site-guard が例外で停止）。 2026-09-21: URL を affiliate-asp.json（baseUrl+homePath / readyPath）に合わせた。判定はテキストでなく #top_site_select の DOM（readyMarker）。 2026-09-21 実測: CI 復元で requiredlogin へ redirect（sessionPersistsAcrossProcesses:false のとおり別プロセスでは持ち出せない）。hosted CI 不可のため enabled:false。提携/成果の機械取得は Gmail 通知経路（未実装）が代替候補。",
+      "notes": "sessionPersistsAcrossProcesses: false。保存した storageState を別プロセスで復元できないことがあり、ログインから操作まで同一プロセスで完結させる制約がある。afb 既定は stats47（asp-site-guard が例外で停止）。 2026-09-21: URL を affiliate-asp.json（baseUrl+homePath / readyPath）に合わせた。判定はテキストでなく #top_site_select の DOM（readyMarker）。 2026-09-21 実測: CI 復元で requiredlogin へ redirect（sessionPersistsAcrossProcesses:false のとおり別プロセスでは持ち出せない）。hosted CI 不可のため enabled:false。提携/成果の機械取得は Gmail 通知経路（未実装）が代替候補。 2026-10-01: 取得スクリプト（openAsp）が同じプロセスで Secrets / 資格情報ストアの ID/PW でログインする形で enabled:true に戻して試行（DN-0484）。",
       "ci": {
         "mode": "encrypted-state",
-        "enabled": false,
+        "enabled": true,
         "canary": false,
         "operations": [
           "read"
@@ -305,6 +410,18 @@
           "scripts/affiliate-status.mjs"
         ],
         "writeScripts": []
+      },
+      "credential": {
+        "label": "afb",
+        "storeItem": "doboku-note-auth-afb",
+        "autoLogin": true,
+        "ciCredential": true,
+        "ciStored": true,
+        "machines": [
+          "windows",
+          "mac"
+        ],
+        "policyNote": "ログイン状態を別プロセスへ持ち出せないため、毎日のログイン維持では入らず、取得スクリプト自身が資格情報で 1 回だけログインする（手元・CI とも・2026-10-01 試行・DN-0484）。既定サイトは stats47 なので取得前にサイトを切り替える"
       }
     }
   },
@@ -314,5 +431,17 @@
     "bucket": "private",
     "keyPrefix": "auth-state/",
     "identityEnv": "DOBOKU_AUTH_AGE_IDENTITY"
+  },
+  "credentialPolicy": {
+    "_comment": "ログインが必要な全サービスの資格情報の正本。各 PC の OS 資格情報ストア（Mac キーチェーン / Windows 資格情報マネージャー）に storeItem を登録し、読み口は scripts/lib/credential-store.mjs だけ。GitHub Secrets（DOBOKU_AUTH_<SERVICE>_USER / _PASSWORD）は ciStored=true の service が保管し（2026-10-01 オーナー決定で全サービス）、CI が実際に読むのは ciCredential=true の service だけ。autoLogin=true の service だけ scripts/lib/auth-session-refresh.mjs の AUTO_LOGIN にセレクタを持つ（tests/auth-credential-ssot.test.mjs が照合）。状態の確認は管理画面 /ops/auth。",
+    "register": {
+      "mac": "security add-generic-password -s <storeItem> -a <ログインID> -w",
+      "windows": "cmdkey /generic:<storeItem> /user:<ログインID> /pass",
+      "ci": "gh secret set DOBOKU_AUTH_<SERVICE>_USER / DOBOKU_AUTH_<SERVICE>_PASSWORD --repo uruhayato373/doboku-note"
+    },
+    "refreshTask": {
+      "mac": "launchd com.doboku-note.auth-session-refresh（毎日 17:45・npm run auth-refresh:install）",
+      "windows": "タスクスケジューラ \\doboku-note\\auth-session-refresh（毎日 17:45・npm run auth-refresh:install）"
+    }
   }
 }
