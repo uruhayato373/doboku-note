@@ -150,11 +150,11 @@ jobs:
         with:
           service: ${{ matrix.service }}
 
-      # note・ココナラ・KDP は暗号化 state が切れていたら、Secrets の ID/PW で 1 回だけ入り直す（2026-10-01 オーナー決定。KDP は試行・DN-0480）。
+      # note・ココナラ・KDP・A8 は暗号化 state が切れていたら、Secrets の ID/PW で 1 回だけ入り直す（2026-10-01 オーナー決定。KDP は試行・DN-0480、A8 は試行・DN-0481）。
       # 2FA・CAPTCHA は突破しない（human_required で止まり、下の Issue に載る）。Secrets はこの step の env にだけ渡す。
-      - name: Re-login with Secrets (note / coconala / kdp)
+      - name: Re-login with Secrets (note / coconala / kdp / a8)
         id: relogin
-        if: (matrix.service == 'note' || matrix.service == 'coconala' || matrix.service == 'kdp') && steps.restore.outputs.status != 'authenticated' && matrix.mode != 'probe-only'
+        if: (matrix.service == 'note' || matrix.service == 'coconala' || matrix.service == 'kdp' || matrix.service == 'a8') && steps.restore.outputs.status != 'authenticated' && matrix.mode != 'probe-only'
         continue-on-error: true
         env:
           DOBOKU_AUTH_NOTE_USER: ${{ secrets.DOBOKU_AUTH_NOTE_USER }}
@@ -163,6 +163,8 @@ jobs:
           DOBOKU_AUTH_COCONALA_PASSWORD: ${{ secrets.DOBOKU_AUTH_COCONALA_PASSWORD }}
           DOBOKU_AUTH_KDP_USER: ${{ secrets.DOBOKU_AUTH_KDP_USER }}
           DOBOKU_AUTH_KDP_PASSWORD: ${{ secrets.DOBOKU_AUTH_KDP_PASSWORD }}
+          DOBOKU_AUTH_A8_USER: ${{ secrets.DOBOKU_AUTH_A8_USER }}
+          DOBOKU_AUTH_A8_PASSWORD: ${{ secrets.DOBOKU_AUTH_A8_PASSWORD }}
         run: |
           set +e
           node scripts/auth-session-refresh.mjs --ci --service "${{ matrix.service }}" --json > "${RUNNER_TEMP}/relogin.json"

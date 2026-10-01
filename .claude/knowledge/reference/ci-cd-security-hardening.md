@@ -98,6 +98,7 @@ gh api repos/uruhayato373/doboku-note/environments   # 方針に応じて0件 or
 - `DOBOKU_AUTH_NOTE_USER` / `DOBOKU_AUTH_NOTE_PASSWORD` — note の ID/PW（2026-10-01 オーナー決定・CI がパスワードを持つ例外）。売上ページの端末別パスワード再確認を `scripts/lib/note-reauth.mjs` が 1 回だけ通すために、`login-collectors.yml` の「note: traffic + sales」step と「Re-login with Secrets」step の env にだけ渡す。読み口は `scripts/lib/credential-store.mjs` の `readServiceCredential`（許可 service は資格情報の正本 `playwright-auth-profiles.json` の `credential.ciCredential`）。漏えい時は note のパスワードを変え、Secrets と各 PC の資格情報ストアを更新する。
 - `DOBOKU_AUTH_COCONALA_USER` / `DOBOKU_AUTH_COCONALA_PASSWORD` — ココナラの ID/PW（2026-10-01 オーナー決定）。暗号化 state が切れていたときに `auth-session-refresh.mjs --ci` が 1 回だけ入り直すため、`login-collectors.yml` の「Re-login with Secrets」step の env にだけ渡す。2FA・CAPTCHA は突破しない。漏えい時の手順は note と同じ。
 - `DOBOKU_AUTH_KDP_USER` / `DOBOKU_AUTH_KDP_PASSWORD` — Amazon KDP の ID/PW（2026-10-01 オーナー決定・試行）。ココナラと同じく「Re-login with Secrets」step の env にだけ渡す。Amazon は新しい端末に 2 段階認証を求めやすく、通らなければ止まって Issue に載る。評価と継続の判断は DN-0480。
+- `DOBOKU_AUTH_A8_USER` / `DOBOKU_AUTH_A8_PASSWORD` — A8.net の ID/PW（2026-10-01 オーナー決定・試行）。A8 は揮発性 Cookie で、Mac から渡した state が CI 実行時に切れていた（2026-09-22・Issue #570）。「Re-login with Secrets」step の env にだけ渡し、切れていたときだけ 1 回入り直す。stats47 と共用の口座なので失敗は 1 回で止める。評価は DN-0481。
 
 ### R2オブジェクト
 
