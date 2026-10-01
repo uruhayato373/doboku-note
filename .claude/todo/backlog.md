@@ -195,6 +195,8 @@
 
 **やること**: `content/site/pe-construction/` にガイド 1 本（本文 3,000 字以上）。資格保有者が合法にできる副業・独立（技術コンサル・積算・設計補助・CAD・講師・執筆）と、してはいけない線（営業所技術者等の名義貸し、建設業許可・補助金申請書類の報酬を得た作成代行＝行政書士の業務）を整理する。法令の記述は公開前に一次情報で照合。既存 `guide-career` と相互リンク。
 
+**状態**: 2026-10-01 に `content/site/pe-construction/fukugyou-dokuritsu/article.mdx`（/exam/pe-construction/guide/fukugyou-dokuritsu）を公開・develop へ push。残りは 12 月末の計測だけ（production 反映は次回 deploy）。
+
 **完了条件**: 公開・`npm run refresh-indexes` 済みで develop に push。公開から 8 週後（2026-12 末）に GSC・Bing で副業・独立クエリの表示有無を確認し、表示が出なければこのテーマを広げない判断をカードに書いて閉じる。
 
 ### [DN-0491] 運営者の行政書士取得を前提に、行政書士（建設業許可・補助金）領域の展開計画を立てる

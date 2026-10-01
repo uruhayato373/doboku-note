@@ -239,6 +239,9 @@ export const HIGH_INTENT_CAREER_SLUGS: ReadonlySet<string> = new Set([
   // 2026-09-30 DN-0446（公務員の土木職か民間かの比較・本文に CareerAffiliate の転職カード）。
   "civil-construction-1-guide-public-servant-or-private",
   "rccm-guide-career-value",
+  // 2026-10-01 DN-0490（副業・独立の線引き）。本文アフィリは置かない設計だが、career タグを持つので
+  // check-career-separation の WARN を避けるため台帳だけ収録する（rccm-guide-career-value と同じ扱い）。
+  "pe-construction-fukugyou-dokuritsu",
 ]);
 
 /**
