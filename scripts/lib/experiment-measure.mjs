@@ -107,7 +107,20 @@ export function sumGscPages(rows, spec) {
   return spec.metric === 'gsc.clicks' ? { value: clicks, volume: clicks } : { value: impressions, volume: impressions };
 }
 
-/** 同じ仕様・同じ事後窓の自動計測が既にあるか（冪等性）。 */
-export function alreadyMeasured(exp, hash, post) {
-  return (exp.measurements ?? []).some((m) => m.source === 'auto' && m.specHash === hash && m.post?.endDate === post.endDate);
+/**
+ * 同じ仕様・同じ事後窓の自動計測が既にあるか（冪等性）。途中（complete=false）の計測しか無い窓は、
+ * 今回の窓が確定（complete=true）になったときだけ測り直す（確定前の値で止めない）。
+ */
+export function alreadyMeasured(exp, hash, post, complete = false) {
+  return (exp.measurements ?? []).some((m) => m.source === 'auto' && m.specHash === hash && m.post?.endDate === post.endDate && (m.complete || !complete));
+}
+
+/**
+ * 売上の窓が確定しているか。窓にかかる月がすべて、note の確定日（翌月 2 日）以降に取得・検算された
+ * （sales-log の months[YYYY-MM].finalized）ときだけ true。台帳の最終販売日では判定しない
+ * （販売の無い日で終わる窓が永久に途中になり、途中取得でも最終日に販売があれば確定に見えるため）。
+ */
+export function salesWindowFinalized(salesMonths, ...windows) {
+  const months = new Set(windows.flatMap((w) => [w.startDate.slice(0, 7), w.endDate.slice(0, 7)]));
+  return [...months].every((m) => salesMonths?.[m]?.finalized === true);
 }

@@ -2,6 +2,7 @@ import { readFileSync, readdirSync, existsSync, mkdirSync, writeFileSync, unlink
 import { join } from 'node:path';
 import { createHash, randomUUID } from 'node:crypto';
 import { kdpLiveBookIdsAsOf } from './kindle-catalog.mjs';
+import { isNoteMonthFinalized, noteMonthsPendingFinalization, noteSalesFinalizeDate } from './net-receipts.mjs';
 
 export const DIRECTION = '.claude/config/business-direction.json';
 export const RECORDS = '.claude/state/metrics/business';
@@ -123,6 +124,11 @@ export function validateRecord(record, config, history = [], now = new Date()) {
     required(['complete', 'provisional'].includes(r.status) && ['findings', 'decision', 'nextAction'].every(k => nonempty(r[k])) && validDay(r.nextReviewDate) && r.nextReviewDate > jst(now), '判断・次の一手・次回日を記録してください');
     const snapshot = history.find(x => x.file === r.snapshot && x.kind === 'snapshot');
     required(snapshot && samePeriod(snapshot.period, r.period), 'レビュー期間と同じスナップショットが必要です');
+    const pending = Array.isArray(snapshot.pendingFinalization) ? snapshot.pendingFinalization : [];
+    if (pending.length) {
+      const until = pending.map(x => x.finalizeDate).sort().at(-1);
+      required(r.status === 'provisional' && r.nextReviewDate >= until, `確定前（${until} まで）のスナップショットに基づくレビューは暫定にし、次回日を ${until} 以降にして確定後に訂正してください`);
+    }
     required(Array.isArray(r.qualificationsReviewed) && config.qualifications.every(q => r.qualificationsReviewed.includes(q.id)), '重点資格をすべて確認し、欠測も判断に含めてください');
     if (r.status === 'complete') required(config.qualifications.every(q => snapshot.cells.some(c => c.qualification === q.id && c.value !== null && c.coverage === 'complete')), '資格別の計測が不足しています。暫定レビューとして記録してください');
     required(!currentRecords(history, 'review').some(x => x.cadence === r.cadence && samePeriod(x.period, r.period) && x.file !== r.supersedes), '同じ期間のレビューがあります。訂正先を指定してください');
@@ -213,6 +219,7 @@ const monthsOf = (period) => [...new Set([period.startDate.slice(0, 7), period.e
  * note ダッシュボードの月次取得物（referrers-YYYY-MM / articles-pv-YYYY-MM）→ 事実。期間は取得物の月のまま返し、
  * 週へ按分しない（週次レビューでは「別期間の既存計測」に出る）。月の途中に取得したファイル（「今月」表示）は
  * 取得日までの値なので、期間を取得日で切って partial にする（月全体の値として月次セルへ入れない）。
+ * 月末後でも note の確定日（翌月 2 日）より前の取得は確定前の値なので、期間は月のまま partial にする。
  */
 export function noteMonthFacts({ traffic, articles = null, publishedItems = [], qualifications = [], trafficPath, articlesPath }) {
   const month = { startDate: traffic?.period?.from, endDate: traffic?.period?.to };
@@ -220,8 +227,11 @@ export function noteMonthFacts({ traffic, articles = null, publishedItems = [], 
   const fetchedDay = traffic.fetchedAt ? jst(traffic.fetchedAt) : null;
   const midMonth = fetchedDay !== null && fetchedDay <= month.endDate;
   const period = midMonth ? { startDate: month.startDate, endDate: fetchedDay < month.startDate ? month.startDate : fetchedDay } : month;
-  const partialNote = midMonth ? `${fetchedDay} 取得の月途中値（取得日当日は途中まで）。対象月の全期間ではない。` : '';
-  const coverage = midMonth ? 'partial' : 'complete';
+  const month7 = month.startDate.slice(0, 7);
+  const finalized = fetchedDay !== null && isNoteMonthFinalized(month7, fetchedDay);
+  const partialNote = midMonth ? `${fetchedDay} 取得の月途中値（取得日当日は途中まで）。対象月の全期間ではない。`
+    : !finalized ? `${fetchedDay ?? '取得日不明'} 取得の確定前の値（note は ${noteSalesFinalizeDate(month7)} に確定）。` : '';
+  const coverage = !midMonth && finalized ? 'complete' : 'partial';
   const facts = [
     sourceFact('notePv', traffic.summary?.pageViews ?? null, period, trafficPath, 'all', coverage, `noteアクセス状況の対象月全記事。自己閲覧を含む。${partialNote}`),
     sourceFact('noteImpressions', traffic.summary?.impressions ?? null, period, trafficPath, 'all', coverage, `noteアクセス状況の対象月全記事。PVとは別指標。${partialNote}`),
@@ -335,18 +345,23 @@ export function sourceFacts(root, c, period) {
   }
   const salesPath = '.claude/state/sales/sales-log.json';
   if (existsSync(join(root, salesPath))) {
-    const sales = readJson(root, salesPath).sales.filter(s => s.date.slice(0, 10) >= period.startDate && s.date.slice(0, 10) <= period.endDate);
+    const salesLedger = readJson(root, salesPath);
+    const sales = salesLedger.sales.filter(s => s.date.slice(0, 10) >= period.startDate && s.date.slice(0, 10) <= period.endDate);
     const totalRevenue = sales.reduce((sum, sale) => sum + (Number(sale.price) || 0), 0);
     const traffic = existsSync(join(root, noteTrafficPath)) ? readJson(root, noteTrafficPath) : null;
     const trafficPeriod = { startDate: traffic?.period?.from, endDate: traffic?.period?.to };
+    // 確定日（翌月 2 日）以降に取得した値どうしで照合できたときだけ complete（確定前の一致は偶然の一致として扱わない）
+    const salesMonthsFinal = monthsOf(period).every(m => salesLedger.months?.[m]?.finalized === true);
+    const trafficFinal = traffic?.fetchedAt ? isNoteMonthFinalized(noteMonth, jst(traffic.fetchedAt)) : false;
     const salesComplete = samePeriod(trafficPeriod, period)
+      && salesMonthsFinal && trafficFinal
       && Number.isInteger(traffic?.summary?.salesYen)
       && traffic.summary.salesYen === totalRevenue
       && sales.every(sale => !String(sale.productId ?? '').startsWith('article:unknown-'));
     const salesCoverage = salesComplete ? 'complete' : 'partial';
     const salesNote = salesComplete
       ? `販売履歴 ${sales.length} 件・¥${totalRevenue.toLocaleString()}をnote月次売上表示と照合し一致。productId未解決0件。`
-      : '台帳への登録分。note月次売上表示との一致またはproductId解決が未完のため網羅性は未確認。';
+      : `台帳への登録分。note確定後（翌月2日以降）の取得・月次売上表示との一致・productId解決のいずれかが未完のため網羅性は未確認。`;
     for (const qualification of ['all', ...c.qualifications.map(q => q.id)]) {
       const selected = qualification === 'all' ? sales : sales.filter(s => c.salesAttribution.rules.find(rule => rule.ids?.includes(s.productId) || rule.prefixes.some(prefix => s.productId?.startsWith(prefix)))?.qualification === qualification);
       put('noteSales', selected.length, period, salesPath, qualification, salesCoverage, `${salesNote} 全体には重点資格外・複数資格商品を含む。`);
@@ -449,7 +464,9 @@ export function snapshot(root, period, now = new Date()) {
 function snapshotUnlocked(root, period, now) {
   const report = buildReport(root, period, now);
   const sources = [...new Set(report.cells.map(c => c.source).filter(Boolean))].map(file => ({ file, sha256: createHash('sha256').update(readFileSync(join(root, file))).digest('hex') }));
-  return appendRecord(root, { kind: 'snapshot', qualification: 'all', schemaVersion: 1, period, createdAt: new Date(now).toISOString(), strategyHash: report.strategyHash, strategy: report.strategy, cells: report.cells, sources });
+  // note が確定前の月を含むスナップショットは、確定後に取り直す前提の暫定物として印を付ける（レビューは暫定にしかできない）
+  const pendingFinalization = noteMonthsPendingFinalization(period, jst(now));
+  return appendRecord(root, { kind: 'snapshot', qualification: 'all', schemaVersion: 1, period, createdAt: new Date(now).toISOString(), strategyHash: report.strategyHash, strategy: report.strategy, cells: report.cells, sources, ...(pendingFinalization.length ? { pendingFinalization } : {}) });
 }
 export function assertLocalWrite(request) {
   const url = new URL(request.url), origin = request.headers.get('origin');

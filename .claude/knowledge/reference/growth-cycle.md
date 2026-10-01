@@ -44,7 +44,7 @@ title: 成長サイクル（GA4 起点の計測→記録→改善）
 - 申し送りのうち単発作業は `id: null` の backlog で起票でき、末尾に `→ 振り分け: DN-####` を書く（書式と検査は weekly-review Phase 4・`check-handoff-extraction`）
 - 抑止: 起票・束ね・裁定は 8 週、却下は 12 週、保留は until まで再表示しない（`suppressWeeks`）。同じ週の処分では抑止しないので、トリアージ後に CI を再実行しても表示対象は入れ替わらない
 - 状態は「CI が書く digest」と「ローカルが追記する triage-log」の結合で決まる。両者は同じファイルを編集しない（fetch-metrics は triage-log を job 開始時の版で上書きしない）
-- 実験の自動計測は目安（verdictHint）までで、裁定は人。売上は台帳の最終日が事後窓に届くまで確定扱いにしない
+- 実験の自動計測は目安（verdictHint）までで、裁定は人。売上は窓にかかる月がすべて note の確定日（翌月 2 日）以降に取得・検算された月（sales-log の months[YYYY-MM].finalized）になるまで確定扱いにせず、途中の計測しか無い窓は確定したときに測り直す
 
 ## コマンド
 
