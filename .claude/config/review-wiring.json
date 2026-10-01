@@ -1,7 +1,7 @@
 {
   "version": 1,
   "_doc": "docs/strategy/15_KPIツリー.md",
-  "_note": "週次・月次レビューの配線の正本。inputs はスキル（.claude/skills/management/{weekly,monthly}-review/SKILL.md）が実行するコマンドの全件で、stage は KPI ツリーの段、role は「判断」（判断の材料）か「点検」（仕組みの健全性・人が読まなくてよい）。スキルとこのファイルの食い違いは npm run check-review-wiring が止める。管理画面 戦略 ＞ レビュー がこの配線と実行状況を図にする。レビューから起票したカードは本文の起点に「週次レビュー（開始日〜終了日）」「月次レビュー（開始日〜終了日）」と書く（管理画面が数える）。 procedure は各レビューの手順（段ごとに何をして、何が残れば実施したと言えるか）。evidence は review-wiring.mjs の EVIDENCE のどれか（reviewRecord＝business-direction のレビュー記録／sections＝週次レポートの節／triage＝計測ダイジェストの全件処分／reportFile＝cadences.<id>.report のレポート（週次 docs/reviews/weekly・月次 docs/reviews/monthly）／routing＝申し送りの振り分け／weeklyPlan＝翌週の週間計画／none＝証拠が残らない手順）。管理画面 戦略 ＞ レビュー（/metrics/business）の「手順チェックリスト」「実施履歴」が表示する。",
+  "_note": "週次・月次レビューの配線の正本。inputs はスキル（.claude/skills/management/{weekly,monthly}-review/SKILL.md）が実行するコマンドの全件で、stage は KPI ツリーの段、role は「判断」（判断の材料）か「点検」（仕組みの健全性・人が読まなくてよい）。スキルとこのファイルの食い違いは npm run check-review-wiring が止める。管理画面 戦略 ＞ レビュー がこの配線と実行状況を図にする。レビューから起票したカードは本文の起点に「週次レビュー（開始日〜終了日）」「月次レビュー（開始日〜終了日）」と書く（管理画面が数える）。 checks は review-checks が実行する読むだけの点検（exit 0 ok／1 要対応／他 検査不成立・inputs にも載せる）。handoffSection は申し送りの節名（既定は来週への申し送り）。procedure は各レビューの手順（段ごとに何をして、何が残れば実施したと言えるか）。evidence は review-wiring.mjs の EVIDENCE のどれか（reviewRecord＝business-direction のレビュー記録／sections＝週次レポートの節／triage＝計測ダイジェストの全件処分／reportFile＝cadences.<id>.report のレポート（週次 docs/reviews/weekly・月次 docs/reviews/monthly）／routing＝申し送りの振り分け／weeklyPlan＝翌週の週間計画／checks＝review-checks が回ごとに残す点検の結果と開いている Issue の全件に、レポートの「点検と Issue」で行き先があるか／none＝証拠が残らない手順）。管理画面 戦略 ＞ レビュー（/metrics/business）の「手順チェックリスト」「実施履歴」が表示する。",
   "stages": [
     "受取・販売",
     "検索",
@@ -192,6 +192,18 @@
           "label": "表示速度（PSI）",
           "stage": "基盤の点検",
           "role": "判断"
+        },
+        {
+          "command": "review-checks",
+          "label": "点検の実行と開いている Issue（回ごとに保存）",
+          "stage": "基盤の点検",
+          "role": "点検"
+        },
+        {
+          "command": "check-workflow-health",
+          "label": "重要 workflow が赤いまま・動いていない",
+          "stage": "基盤の点検",
+          "role": "点検"
         }
       ],
       "procedure": [
@@ -222,14 +234,18 @@
             "成果ハイライト",
             "課題・ブロッカー",
             "学び",
-            "backlog 消化サマリ",
-            "automation-failure Issue の消化"
+            "backlog 消化サマリ"
           ]
         },
         {
           "label": "計測→改善の全件トリアージ",
           "does": "計測ダイジェストの改善候補を 1 件残らず起票・実験・却下などに処分する",
           "evidence": "triage"
+        },
+        {
+          "label": "点検と Issue",
+          "does": "点検を実行し、失敗した点検と開いている Issue の全件に行き先（DN・定常・理由）を書く",
+          "evidence": "checks"
         },
         {
           "label": "レポートの保存",
@@ -253,6 +269,16 @@
           "label": "翌週の計画",
           "does": "/plan-weekly で翌週の週間計画を書き直す",
           "evidence": "weeklyPlan"
+        }
+      ],
+      "checks": [
+        {
+          "command": "check-workflow-health",
+          "label": "重要 workflow の健全性"
+        },
+        {
+          "command": "node:check-backlog-health",
+          "label": "バックログの健全性"
         }
       ]
     },
@@ -395,6 +421,18 @@
           "label": "時期の翌月繰り越し",
           "stage": "計画・運用",
           "role": "点検"
+        },
+        {
+          "command": "review-checks",
+          "label": "点検の実行と開いている Issue（回ごとに保存）",
+          "stage": "基盤の点検",
+          "role": "点検"
+        },
+        {
+          "command": "check-workflow-health",
+          "label": "重要 workflow が赤いまま・動いていない",
+          "stage": "基盤の点検",
+          "role": "点検"
         }
       ],
       "procedure": [
@@ -460,11 +498,44 @@
           ]
         },
         {
+          "label": "点検と Issue",
+          "does": "点検を実行し、失敗した点検と開いている Issue の全件に行き先（DN・定常・理由）を書く",
+          "evidence": "checks"
+        },
+        {
+          "label": "申し送りの振り分け",
+          "does": "来月への申し送りの各項目に行き先（DN・定常・実験）を書く",
+          "evidence": "routing"
+        },
+        {
           "label": "レポートの保存",
           "does": "docs/reviews/monthly に月次レポートを書く",
           "evidence": "reportFile"
         }
-      ]
+      ],
+      "checks": [
+        {
+          "command": "check-workflow-health",
+          "label": "重要 workflow の健全性"
+        },
+        {
+          "command": "check-business-direction",
+          "label": "事業方針の設定と履歴"
+        },
+        {
+          "command": "check-backlog-health",
+          "label": "バックログの健全性"
+        },
+        {
+          "command": "check-exam-calendar",
+          "label": "試験日程の整合"
+        },
+        {
+          "command": "check-past-exam-inventory",
+          "label": "過去問の年度在庫"
+        }
+      ],
+      "handoffSection": "来月への申し送り"
     }
   }
 }

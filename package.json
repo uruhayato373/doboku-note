@@ -141,6 +141,7 @@
     "record-net-receipts": "node scripts/record-net-receipts.mjs",
     "x-profile-sync": "node scripts/x-profile-sync.mjs",
     "check-review-wiring": "node scripts/check-review-wiring.mjs",
+    "review-checks": "node scripts/review-checks.mjs",
     "check-experiment-due": "node scripts/check-experiment-due.mjs",
     "check-figure-canvas": "node scripts/check-figure-canvas.mjs",
     "check-figure-crop": "node scripts/check-figure-crop-integrity.mjs",

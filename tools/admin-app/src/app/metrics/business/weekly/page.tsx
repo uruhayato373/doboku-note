@@ -1,23 +1,23 @@
 import { PageHead } from '@/components/ui';
-import { Stack } from '@/components/layout';
-import { Checklist, Current, DueLine, History, Outcome, ReviewUnavailable, loadReview } from '../review-parts';
+import { Section, Stack } from '@/components/layout';
+import { Checklist, Current, Outcome, ReviewUnavailable, RunPicker, loadReview } from '../review-parts';
 
 export const dynamic = 'force-dynamic';
 
-/** 戦略 ＞ レビュー ＞ 週次。前の月曜〜日曜を振り返る（手順の正本は review-wiring.json の weekly）。 */
-export default function WeeklyReviewPage() {
-  const d = loadReview('weekly');
+/** 戦略 ＞ レビュー ＞ 週次。回を選ぶと、その回の手順・実施・判断が出る（判定は scripts/lib/review-wiring.mjs）。 */
+export default async function Page({ searchParams }: { searchParams: Promise<{ run?: string }> }) {
+  const { run } = await searchParams;
+  const d = loadReview('weekly', run);
   if (!d) return <ReviewUnavailable title="週次レビュー" />;
   return (
     <Stack gap="lg">
-      <div className="flex flex-col gap-2">
-        <PageHead title="週次レビュー" />
-        <DueLine c={d.cadence} />
-      </div>
-      {d.runs.length > 0 && <Current run={d.runs[0]} due={d.cadence?.due} />}
+      <PageHead title="週次レビュー" />
+      <RunPicker base="/metrics/business/weekly" options={d.options} selected={d.selected.key} />
+      <Section title="実施状況">
+        <Current sel={d.selected} />
+      </Section>
       {d.procedure && <Checklist procedure={d.procedure} />}
-      <History runs={d.runs} />
-      {d.cadence && <Outcome c={d.cadence} gate={d.gate} />}
+      {d.cadence && <Outcome c={d.cadence} review={d.selected.review} gate={d.selected.current ? d.gate : null} />}
     </Stack>
   );
 }

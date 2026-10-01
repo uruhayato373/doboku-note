@@ -25,6 +25,7 @@ domain: strategy
 7. 目標を変える場合は対象資格・指標のcompleteな実測snapshotと理由を `target` 記録へ追記する。数字を仮置きして達成指標にしない。収益・費用・時間から継続/集中/縮小を判断し、重点資格変更は機械SSOTへ反映する。
 8. **バックログの関門**: `npm run backlog-gate -- --monthly` で、時期の無い 🟢 を全件（月を付けるか削除する）と、起票から 90 日を超えたカード（残すか削除する）を運営者に諮って台帳を直す。今月の 🔴🟡 の件数が多ければ、中身で選んで来月へ回す（件数の上限は設けない）。
    年間の重点はバックログのカードの `[時期:]` が正本（管理画面 計画 ＞ 年間ロードマップ）。今月・来月の行が現状と合っているかを確かめ、ずれていればカードの `[時期:]` を直す。月間計画（monthly.md）の選択タスクは `[時期:]` が今月を含むカードから選ぶ。時期を過ぎて残るカードは `npm run check-backlog-health` の S15 に出る。月の件数は絞らず、終わったカードは削除し、残りは `npm run roll-backlog-when -- --write` で翌月へ回す（`[時期:]` の終わりを今月へ延ばす）。月次レビューを回し忘れると毎月 3 日以降に `check-monthly-review-due` が SessionStart で知らせる。
+8b. **点検と Issue**: `npm run review-checks -- --cadence monthly --run YYYY-MM --write` で月次の点検（`review-wiring.json` の `checks`。`npm run check-workflow-health` ほか）を実行し、開いている GitHub Issue・Dependabot の脆弱性と一緒に回ごとに保存する。失敗・検査不成立の点検と開いている Issue・脆弱性の**全件**を、レポートの「点検と Issue」に `- <コマンド名 or #番号 or dependabot:パッケージ名> 状況 → 振り分け: DN-xxxx / 定常 / 理由` で書く。行き先が無い項目が残る回は「実施できた」にならない（管理画面のレビュー手順が数える）。起票するカードの起点は「月次レビュー（開始日〜終了日）」。復旧済みで開いたままの Issue は閉じる。
 9. 改善は既存 `experiments.json` と `/nsm-experiment` へ接続する。running の実験で `next_check_date` が今月内または過去のものは、判定（close/継続の理由）か延長理由のどちらかを `actions` に必ず1行残す。判定せずに日付だけ後ろへずらさない（2026-09 に EXP-008 が再計測前の追加展開で判定を一度も経ずに 9/18→10/20 へ延びた）。SEOは7日観察・同時実験上限・専用判定を保つ。単発実装はbacklog、monthly/weeklyはそのID参照。`npm run check-business-direction` を通し、変更したJSONだけ明示してGitにコミットする。
 
 ## 月次レポート（証拠を残す）
@@ -46,8 +47,11 @@ domain: strategy
 ## 実験の判定
 ## バックログの関門
 ## 時期付け
+## 点検と Issue
 ## 来月への申し送り
 ```
+
+「来月への申し送り」の各項目も末尾に `→ 振り分け: DN-xxxx / 定常 / EXP-xxx` を書く（行き先の無い申し送りは翌月に消える）。
 
 ## 報告
 

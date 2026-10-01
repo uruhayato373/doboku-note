@@ -5,9 +5,10 @@ import { Grid, Section, Stack } from '@/components/layout';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import { TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { findRepoRoot } from '@/lib/repo-root';
 import { buildReport, reviewPeriod } from '../../../../../../scripts/lib/business-direction.mjs';
-import { buildProcedureView, buildReviewView, buildRunHistory } from '../../../../../../scripts/lib/review-wiring.mjs';
+import { buildProcedureView, buildReviewView, buildRunHistory, runKeyOfPeriod } from '../../../../../../scripts/lib/review-wiring.mjs';
 import { buildGate } from '../../../../../../scripts/lib/backlog-gate.mjs';
 
 /**
@@ -75,17 +76,15 @@ function Stat({ label, value }: { label: string; value: React.ReactNode }) {
   );
 }
 
-/** 最新の回の実施状況。対象期間が未記録なら「前回」と出す。 */
-export function Current({ run, due }: { run: Run | undefined; due?: Cadence['due'] }) {
-  const pending = due?.due && run?.period?.startDate !== due.period.startDate;
+/** 選んだ回の実施状況。 */
+export function Current({ sel }: { sel: Selected }) {
+  const v = VERDICT[sel.verdict];
   return (
-    <Section title={pending ? '前回の実施状況' : '今回の実施状況'}>
-      <Grid min="sm">
-        <Stat label="振り返り期間" value={run?.period ? `${md(run.period.startDate)}〜${md(run.period.endDate)}` : '—'} />
-        <Stat label="記録" value={run?.record ? (run.record.status === 'provisional' ? '暫定' : '確定') : 'なし'} />
-        <Stat label="判定" value={run ? <Badge variant={VERDICT[run.verdict].variant}>{VERDICT[run.verdict].label}</Badge> : '—'} />
-      </Grid>
-    </Section>
+    <Grid min="sm">
+      <Stat label="振り返り期間" value={sel.period ? `${md(sel.period.startDate)}〜${md(sel.period.endDate)}` : '—'} />
+      <Stat label="記録" value={sel.review ? (sel.review.status === 'provisional' ? '暫定' : '確定') : 'なし'} />
+      <Stat label="判定" value={<Badge variant={v.variant}>{v.label}</Badge>} />
+    </Grid>
   );
 }
 
@@ -124,43 +123,6 @@ export function Checklist({ procedure }: { procedure: Procedure }) {
   );
 }
 
-/** 回ごとの実施結果と決めたこと。 */
-export function History({ runs }: { runs: Run[] }) {
-  if (runs.length === 0) return null;
-  return (
-    <Section title="実施履歴">
-      <Card className="py-2">
-        <CardContent className="px-2">
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>期間</TableHead>
-                <TableHead>記録</TableHead>
-                <TableHead>判定</TableHead>
-                <TableHead>決めたこと</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {runs.map((r) => (
-                <TableRow key={r.key}>
-                  <TableCell className="text-xs">{r.period ? `${md(r.period.startDate)}〜${md(r.period.endDate)}` : r.key}</TableCell>
-                  <TableCell className="text-xs">{r.record ? (r.record.status === 'provisional' ? '暫定' : '確定') : 'なし'}</TableCell>
-                  <TableCell>
-                    <Badge variant={VERDICT[r.verdict].variant}>{VERDICT[r.verdict].label}</Badge>
-                  </TableCell>
-                  <TableCell className="max-w-[32rem] min-w-[16rem] text-xs whitespace-normal">
-                    <span className="line-clamp-2" title={r.record?.decision}>{r.record?.decision || '—'}</span>
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </CardContent>
-      </Card>
-    </Section>
-  );
-}
-
 function Count({ label, value }: { label: string; value: React.ReactNode }) {
   return (
     <div className="flex flex-col border-l-[3px] border-border py-1 pl-3">
@@ -170,22 +132,22 @@ function Count({ label, value }: { label: string; value: React.ReactNode }) {
   );
 }
 
-/** 最新の判断（人が読む）と、人が決めるバックログのカード。 */
-export function Outcome({ c, gate }: { c: Cadence; gate: Gate | null }) {
+/** 選んだ回の判断（人が読む）と、今の回だけ人が決めるバックログのカード。 */
+export function Outcome({ c, review, gate }: { c: Cadence; review: Review | null; gate: Gate | null }) {
   return (
     <Section title="判断">
       <Grid min="lg">
         <Card>
           <CardContent className="flex flex-col gap-3 text-sm leading-relaxed">
-            {c.latest ? (
+            {review ? (
               <>
                 <div>
-                  <div className="text-xs text-muted-foreground">決めたこと（{md(c.latest.period.startDate)}〜{md(c.latest.period.endDate)}）</div>
-                  <p className="m-0">{c.latest.decision}</p>
+                  <div className="text-xs text-muted-foreground">決めたこと</div>
+                  <p className="m-0">{review.decision}</p>
                 </div>
                 <div>
                   <div className="text-xs text-muted-foreground">次の一手</div>
-                  <p className="m-0">{c.latest.nextAction}</p>
+                  <p className="m-0">{review.nextAction}</p>
                 </div>
               </>
             ) : (
@@ -220,17 +182,43 @@ export function Outcome({ c, gate }: { c: Cadence; gate: Gate | null }) {
   );
 }
 
+export type Selected = {
+  key: string;
+  period: { startDate: string; endDate: string } | null;
+  review: Review | null;
+  verdict: Run['verdict'];
+  current: boolean;
+};
+export type RunOption = { key: string; label: string; verdict: Run['verdict'] };
 export type ReviewData = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   report: any;
   cadence: Cadence | undefined;
   procedure: Procedure | null;
-  runs: Run[];
+  options: RunOption[];
+  selected: Selected;
   gate: Gate | null;
 };
 
-/** 週次・月次ページの共通の読み込み。設定・期間を読めなければ null。 */
-export function loadReview(cadenceId: 'weekly' | 'monthly'): ReviewData | null {
+/** 週次の回のキー（レポートの ISO 週 YYYY-Www）から振り返り期間（その前の月曜〜日曜）を出す。 */
+function weeklyPeriodOfKey(key: string) {
+  const m = /^(\d{4})-W(\d{2})$/.exec(key);
+  if (!m) return null;
+  const jan4 = Date.UTC(Number(m[1]), 0, 4);
+  const week1Monday = jan4 - (((new Date(jan4).getUTCDay() + 6) % 7) * 86400000);
+  const monday = week1Monday + (Number(m[2]) - 1) * 7 * 86400000;
+  const day = (t: number) => new Date(t).toISOString().slice(0, 10);
+  return { startDate: day(monday - 7 * 86400000), endDate: day(monday - 86400000) };
+}
+
+const runLabel = (cadenceId: string, key: string, period: { startDate: string; endDate: string } | null) => {
+  if (cadenceId === 'monthly') return `${Number(key.slice(5))}月`;
+  const p = period ?? weeklyPeriodOfKey(key);
+  return p ? `${md(p.startDate)}〜${md(p.endDate)}` : key;
+};
+
+/** 週次・月次ページの共通の読み込み。runKey で回を選ぶ（既定は今の回）。設定・期間を読めなければ null。 */
+export function loadReview(cadenceId: 'weekly' | 'monthly', runKey?: string): ReviewData | null {
   const root = findRepoRoot();
   const period = reviewPeriod(cadenceId);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -248,24 +236,39 @@ export function loadReview(cadenceId: 'weekly' | 'monthly'): ReviewData | null {
       return null;
     }
   })();
+  const cadence = cadences.find((c) => c.id === cadenceId);
+  const runs = buildRunHistory(root, cadenceId, { limit: 8 }) as Run[];
+  // 今の回（対象期間が未記録ならその期間）を先頭に、過去の回を新しい順に並べる
+  const dueKey = cadence?.due?.due ? (runKeyOfPeriod(cadenceId, cadence.due.period) as string) : null;
+  const keys = [...new Set([...(dueKey ? [dueKey] : []), ...runs.map((r) => r.key)])].slice(0, cadenceId === 'weekly' ? 5 : 6);
+  const periodOf = (key: string) => runs.find((r) => r.key === key)?.period ?? (key === dueKey ? cadence!.due!.period : null);
+  const verdictOf = (key: string): Run['verdict'] => runs.find((r) => r.key === key)?.verdict ?? 'missing';
+  const options = keys.map((key) => ({ key, label: runLabel(cadenceId, key, periodOf(key)), verdict: verdictOf(key) }));
+  const key = runKey && keys.includes(runKey) ? runKey : keys[0] ?? '';
+  const review = (report.reviews as Review[])
+    .filter((r) => r.cadence === cadenceId && runKeyOfPeriod(cadenceId, r.period) === key)
+    .sort((a, b) => String((b as Review & { createdAt?: string }).createdAt ?? b.file).localeCompare(String((a as Review & { createdAt?: string }).createdAt ?? a.file)))[0] ?? null;
   return {
     report,
-    cadence: cadences.find((c) => c.id === cadenceId),
-    procedure: buildProcedureView(root, cadenceId, { reviews: report.reviews }) as Procedure | null,
-    runs: buildRunHistory(root, cadenceId) as Run[],
+    cadence,
+    procedure: buildProcedureView(root, cadenceId, { reviews: report.reviews, runKey: key || null }) as Procedure | null,
+    options,
+    selected: { key, period: periodOf(key), review, verdict: verdictOf(key), current: key === keys[0] },
     gate,
   };
 }
 
-/** 次回と未実施の 1 行（見出しの下）。 */
-export function DueLine({ c }: { c: Cadence | undefined }) {
-  if (!c) return null;
+/** 回の選択（月次＝月・週次＝週）。各回に判定を添える。 */
+export function RunPicker({ base, options, selected }: { base: string; options: RunOption[]; selected: string }) {
   return (
-    <p className="m-0 text-sm">
-      {c.due?.due
-        ? <Badge variant="warning">{md(c.due.period.startDate)}〜{md(c.due.period.endDate)} は未実施</Badge>
-        : <span className="text-muted-foreground">次回 {c.latest ? md(c.latest.nextReviewDate) : '—'}</span>}
-    </p>
+    <TabsList aria-label="回">
+      {options.map((o, i) => (
+        <TabsTrigger key={o.key} href={i === 0 ? base : `${base}?run=${o.key}`} active={o.key === selected}>
+          {o.label}
+          <Badge variant={VERDICT[o.verdict].variant}>{VERDICT[o.verdict].label}</Badge>
+        </TabsTrigger>
+      ))}
+    </TabsList>
   );
 }
 
