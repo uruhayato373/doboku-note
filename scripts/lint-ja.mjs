@@ -77,7 +77,8 @@ let failedBatches = 0;
 const violations = [];
 
 for (const batch of batches) {
-  const result = spawnSync('npx', ['textlint', '--format', 'json', ...batch], {
+  // npx 経由にしない: Windows の spawnSync は npx.cmd を解決できず ENOENT で全バッチが不成立になる（2026-10-01）。
+  const result = spawnSync(process.execPath, [join(ROOT, 'node_modules', 'textlint', 'bin', 'textlint.js'), '--format', 'json', ...batch], {
     cwd: ROOT,
     encoding: 'utf8',
     maxBuffer: 256 * 1024 * 1024,

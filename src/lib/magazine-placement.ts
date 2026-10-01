@@ -724,9 +724,11 @@ function resolvePlacementRaw(
   //    inline を top と同一マガジンの重複から最上位パックへ差し替えて入口→上位→最上位の 3 段にする。
   //    本ページで inline が実際に描画されるかは 2026-08-13 時点で未確認のため、確実に出る導線は
   //    本文末尾の <MagazineCard id="cce-marugoto-pack">（persona-pack と同じ実績のある機構）が担う。
+  //    2026-10-01（DN-0461）: 旧版（模範答案集・実務立場別・立場別/テーマ別パック）を note から削除し、
+  //    小論文の導線を令和形式テーマ別（cce-essay-reiwa-pack）へ一本化。本文の <MagazineCard> も同じく差し替え。
   if (slug === 'concrete-chief-engineer-guide-essay') {
     return {
-      top: slot('cce-essay-magazine', slug, 'top'),
+      top: slot('cce-essay-reiwa-pack', slug, 'top'),
       inline: [slot('cce-marugoto-pack', slug, 'inline-1')],
     };
   }
@@ -854,8 +856,8 @@ function resolvePlacementRaw(
     // mix-design は h2=4 で発火せず、primary-construction は group が mid 対象外。
     const midOk = slug === 'concrete-chief-engineer-textbook-production-qc';
     return {
-      top: slot('cce-essay-magazine', slug, 'top'),
-      inline: midOk ? [slot('cce-essay-magazine', slug, 'inline-1')] : [],
+      top: slot('cce-essay-reiwa-pack', slug, 'top'),
+      inline: midOk ? [slot('cce-essay-reiwa-pack', slug, 'inline-1')] : [],
     };
   }
 

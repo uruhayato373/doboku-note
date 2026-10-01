@@ -11,7 +11,7 @@
  *
  * マッピングは PRODUCTS 定数（＝coconala-listings.json の商品と対応）。
  * 土木以外（RCCM・技術士）は noteRelative で content/note/ からの相対パスで源を引く。
- * 使い方: CHROME_PATH=... node scripts/build-coconala-content-pdf.mjs [--product C1|…|C9|A1|A2|R1|R2|R3|K1|K2|K3|O1]
+ * 使い方: CHROME_PATH=... node scripts/build-coconala-content-pdf.mjs [--product C1|…|C9|A1|A2|R1|R2|R3|K2|K3|O1]
  * ---------------------------------------------------------------------------
  */
 import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync } from 'node:fs';
@@ -198,19 +198,7 @@ const PRODUCTS = {
       })),
     ],
   },
-  // K1: コンクリート主任技士 小論文（解法ガイド＋4テーマの模範答案）。
-  K1: {
-    label: 'coconala-cce-essay-pdf',
-    noteRelative: true,
-    articles: [
-      { src: 'コンクリート主任技士/magazines/コンクリート主任技士-小論文-模範答案集/解法ガイド/article.md', out: 'coconala-K1-主任技士小論文-00-解法ガイド', includeFrom: '^## 小論文は「翻訳」の試験である' },
-      ...['品質管理', '耐久性', '環境配慮', '施工トラブル'].map((t, i) => ({
-        src: `コンクリート主任技士/magazines/コンクリート主任技士-小論文-模範答案集/${t}/article.md`,
-        out: `coconala-K1-主任技士小論文-${String(i + 1).padStart(2, '0')}-${t}`,
-        includeFrom: '^## 想定問題（代表例）',
-      })),
-    ],
-  },
+  // K1（主任技士 小論文 旧版）は 2026-10-01 に原稿ごと退役（DN-0461）。ココナラ出品も retired。
   // K3: コンクリート主任技士 完全パック（令和形式の小論文6冊＋択一直前パック3冊）。note cce-essay-reiwa-pack＋cce-takuitsu-chokuzen-pack と同内容。
   K3: {
     label: 'coconala-cce-full-pdf',

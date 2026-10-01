@@ -39,86 +39,6 @@
       "benefit": "自分が経験した工事で書く"
     },
     {
-      "id": "cce-essay-magazine",
-      "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-小論文-模範答案集",
-      "qualifier": "コンクリート主任技士｜小論文",
-      "magazineName": "模範答案集",
-      "proof": "答案の型とテーマ別の論述",
-      "benefit": "実務経験を技術論述へ"
-    },
-    {
-      "id": "cce-essay-persona-pack",
-      "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-実務立場別小論文集",
-      "qualifier": "コンクリート主任技士｜小論文",
-      "magazineName": "実務立場別答案",
-      "proof": "製造・施工・発注者・設計",
-      "benefit": "自分の実務に近い立場で書く"
-    },
-    {
-      "id": "cce-persona-namacon-pack",
-      "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-生コン工場-4テーマ",
-      "qualifier": "コンクリート主任技士｜小論文",
-      "magazineName": "生コン工場",
-      "proof": "実務立場別の4テーマ",
-      "benefit": "自分の実務から答案を組み立てる"
-    },
-    {
-      "id": "cce-persona-precast-pack",
-      "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-プレキャスト工場-4テーマ",
-      "qualifier": "コンクリート主任技士｜小論文",
-      "magazineName": "プレキャスト工場",
-      "proof": "実務立場別の4テーマ",
-      "benefit": "自分の実務から答案を組み立てる"
-    },
-    {
-      "id": "cce-persona-civil-contractor-pack",
-      "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-ゼネコン土木施工-4テーマ",
-      "qualifier": "コンクリート主任技士｜小論文",
-      "magazineName": "土木施工",
-      "proof": "実務立場別の4テーマ",
-      "benefit": "自分の実務から答案を組み立てる"
-    },
-    {
-      "id": "cce-persona-maintenance-pack",
-      "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-維持管理補修-4テーマ",
-      "qualifier": "コンクリート主任技士｜小論文",
-      "magazineName": "維持管理補修",
-      "proof": "実務立場別の4テーマ",
-      "benefit": "自分の実務から答案を組み立てる"
-    },
-    {
-      "id": "cce-persona-owner-pack",
-      "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-発注者監督員-4テーマ",
-      "qualifier": "コンクリート主任技士｜小論文",
-      "magazineName": "発注者",
-      "proof": "実務立場別の4テーマ",
-      "benefit": "自分の実務から答案を組み立てる"
-    },
-    {
-      "id": "cce-persona-building-contractor-pack",
-      "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-ゼネコン建築施工-4テーマ",
-      "qualifier": "コンクリート主任技士｜小論文",
-      "magazineName": "建築施工",
-      "proof": "実務立場別の4テーマ",
-      "benefit": "自分の実務から答案を組み立てる"
-    },
-    {
-      "id": "cce-persona-design-consultant-pack",
-      "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-設計コンサル-4テーマ",
-      "qualifier": "コンクリート主任技士｜小論文",
-      "magazineName": "設計コンサル",
-      "proof": "実務立場別の4テーマ",
-      "benefit": "自分の実務から答案を組み立てる"
-    },
-    {
-      "id": "cce-persona-testing-pack",
-      "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-試験検査機関-4テーマ",
-      "qualifier": "コンクリート主任技士｜小論文",
-      "magazineName": "試験検査機関",
-      "proof": "実務立場別の4テーマ",
-      "benefit": "自分の実務から答案を組み立てる"
-    },
-    {
       "id": "civil-1-keiken-bridge-maintenance-pack",
       "magazineDir": "content/note/1級・2級土木/1級土木/magazines/1級土木-橋梁維持更新8工事",
       "qualifier": "1級土木｜施工経験記述",
@@ -173,38 +93,6 @@
       "magazineName": "河川・農林・公園",
       "proof": "地域施設7工事",
       "benefit": "身近な公共工事から書く"
-    },
-    {
-      "id": "cce-theme-quality-pack",
-      "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-品質管理8立場",
-      "qualifier": "コンクリート主任技士｜小論文",
-      "magazineName": "品質管理 8立場",
-      "proof": "製造・施工・発注・設計",
-      "benefit": "自分の権限に合う答案を選ぶ"
-    },
-    {
-      "id": "cce-theme-durability-pack",
-      "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-耐久性8立場",
-      "qualifier": "コンクリート主任技士｜小論文",
-      "magazineName": "耐久性 8立場",
-      "proof": "材料・施工・診断・検査",
-      "benefit": "責任範囲から耐久性を書く"
-    },
-    {
-      "id": "cce-theme-environment-pack",
-      "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-環境配慮8立場",
-      "qualifier": "コンクリート主任技士｜小論文",
-      "magazineName": "環境配慮 8立場",
-      "proof": "ライフサイクルで比較",
-      "benefit": "実務に沿う環境対策を書く"
-    },
-    {
-      "id": "cce-theme-trouble-pack",
-      "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-施工トラブル8立場",
-      "qualifier": "コンクリート主任技士｜小論文",
-      "magazineName": "施工トラブル 8立場",
-      "proof": "初動から再発防止まで",
-      "benefit": "越権せず対応を論じる"
     },
     {
       "id": "essay-steel-concrete-consultant-magazine",

@@ -32,9 +32,7 @@
     "総監記述式-5管理クロストレードオフ": "tradeoff-5kanri",
     "総監記述式-R8予想問題集": "r8-essay-forecast",
     "総監テキスト精読ガイド": "tankan-reading-guide",
-    "コンクリート主任技士-実務立場別小論文集": "cce-essay-persona-pack",
     "コンクリート主任技士-小論文テーマ別-令和形式": "cce-essay-reiwa-pack",
-    "コンクリート主任技士-小論文-模範答案集": "cce-essay-magazine",
     "コンクリート診断士-記述式-模範答案集": "cd-essay-magazine",
     "RCCM問題III-2026模範論文集": "rccm-mondai3-magazine",
     "経験記述-週次お題ラボ": "civil-membership-odai-lab",
@@ -96,10 +94,9 @@
         "コンクリート主任技士-まるごとパック"
       ],
       "fromMagazines": {
-        "cce-essay-magazine": "all",
-        "cce-essay-persona-pack": "all"
+        "cce-essay-reiwa-pack": "all"
       },
-      "reason": "コンクリート主任技士 まるごとパック（¥9,800・2026-09-04 新設）。小論文 模範答案集 5 本＋実務立場別小論文集 33 本を**まるごと**同梱し、パック案内 ¥0 がラベル付き 1 本、単体記事 2 本（四肢択一 R8予想50問・配合計算 実戦演習12問）は extras。構成元マガジンは据え置きで単品購入も継続する"
+      "reason": "コンクリート主任技士 まるごとパック（2026-09-04 新設・2026-10-01 組み替えで ¥4,980）。令和形式テーマ別6本（無料の出題傾向分析1＋有料5）を**まるごと**同梱し、パック案内 ¥0 がラベル付き 1 本、単体記事 3 本（四肢択一 R8予想50問・配合計算 実戦演習12問・直前暗記ノート）は extras。旧版の小論文（模範答案集・実務立場別）は 2026-10-01 に note から削除（DN-0461）"
     },
     "essay-complete-pack": {
       "labels": [
@@ -240,38 +237,6 @@
     "cd-marugoto-pack": {
       "count": 1,
       "reason": "四肢択一演習98問PDF（¥1,480・n4acd2c7a2f13）を記述式完全パック16記事と合わせて収録。単体記事でnoteMagazineラベルを持たないため集計に乗らない。"
-    },
-    "cce-persona-namacon-pack": {
-      "count": 5,
-      "reason": "実務立場別小論文集の生コン工場4記事と無料のペルソナ選択ガイド1記事を再収録。元記事のnoteMagazineラベルは全32答案集に維持する。公開時に4記事のID一致とガイド1記事を照合する。"
-    },
-    "cce-persona-precast-pack": {
-      "count": 5,
-      "reason": "実務立場別小論文集のプレキャスト工場4記事と無料のペルソナ選択ガイド1記事を再収録。元記事のnoteMagazineラベルは全32答案集に維持する。公開時に4記事のID一致とガイド1記事を照合する。"
-    },
-    "cce-persona-civil-contractor-pack": {
-      "count": 5,
-      "reason": "実務立場別小論文集のゼネコン土木施工4記事と無料のペルソナ選択ガイド1記事を再収録。元記事のnoteMagazineラベルは全32答案集に維持する。公開時に4記事のID一致とガイド1記事を照合する。"
-    },
-    "cce-persona-maintenance-pack": {
-      "count": 5,
-      "reason": "実務立場別小論文集の維持管理・補修4記事と無料のペルソナ選択ガイド1記事を再収録。元記事のnoteMagazineラベルは全32答案集に維持する。公開時に4記事のID一致とガイド1記事を照合する。"
-    },
-    "cce-persona-owner-pack": {
-      "count": 5,
-      "reason": "実務立場別小論文集の発注者・監督員4記事と無料のペルソナ選択ガイド1記事を再収録。元記事のnoteMagazineラベルは全32答案集に維持する。公開時に4記事のID一致とガイド1記事を照合する。"
-    },
-    "cce-persona-building-contractor-pack": {
-      "count": 5,
-      "reason": "実務立場別小論文集のゼネコン建築施工4記事と無料のペルソナ選択ガイド1記事を再収録。元記事のnoteMagazineラベルは全32答案集に維持する。公開時に4記事のID一致とガイド1記事を照合する。"
-    },
-    "cce-persona-design-consultant-pack": {
-      "count": 5,
-      "reason": "実務立場別小論文集の設計コンサル4記事と無料のペルソナ選択ガイド1記事を再収録。元記事のnoteMagazineラベルは全32答案集に維持する。公開時に4記事のID一致とガイド1記事を照合する。"
-    },
-    "cce-persona-testing-pack": {
-      "count": 5,
-      "reason": "実務立場別小論文集の試験・検査機関4記事と無料のペルソナ選択ガイド1記事を再収録。元記事のnoteMagazineラベルは全32答案集に維持する。公開時に4記事のID一致とガイド1記事を照合する。"
     },
     "essay-complete-pack": {
       "count": 16,

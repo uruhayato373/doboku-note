@@ -34,7 +34,7 @@
 
 自分の答案がどのパターンに近いか具体的に見極めたい場合は、小論文対策マガジンへ。概要欄のリンクから開けます。
 
-- CTA: catalog `cce-essay-magazine`（utm_campaign=shunin-ochiru-shouronbun / utm_content=longform で公開時に解決）
+- CTA: catalog `cce-essay-reiwa-pack`（utm_campaign=shunin-ochiru-shouronbun / utm_content=longform で公開時に解決）
 
 ## 出典一覧
 

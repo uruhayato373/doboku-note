@@ -161,7 +161,7 @@ npm run report-site-to-sales -- --month 2026-08
 | 2級土木 二次まるごとパック | `civil-2-niji-marugoto-pack`（¥8,800・79記事バンドル） |
 | 2級土木 直前総仕上げパック | `civil-2-chokuzen-pack`（¥2,480・模試3回＋暗記＋出題分析の 3 記事） |
 | RCCM まるごとパック | `rccm-marugoto-pack`（¥5,980・問題I〜IV 16記事） |
-| コンクリート主任技士 小論文 | `cce-essay-magazine`（¥2,480・5本）/ `cce-essay-persona-pack`（¥5,980・33本・実務立場別） |
+| コンクリート主任技士 小論文 | `cce-essay-reiwa-pack`（¥3,980・6本・令和形式）。旧 `cce-essay-magazine`・`cce-essay-persona-pack`・立場別/テーマ別パックは 2026-10-01 に削除（過去の販売記録の照合用に ID は残す） |
 
 ### 単品記事
 
