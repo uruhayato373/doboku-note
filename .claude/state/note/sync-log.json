@@ -1,6 +1,29 @@
 {
   "runs": [
     {
+      "startedAt": "2026-10-01T15:48:08.304Z",
+      "finishedAt": "2026-10-01T15:54:55.415Z",
+      "plan": {
+        "synced": 611,
+        "ready": 283,
+        "blocked": 4,
+        "blockers": {
+          "aborted": 4
+        }
+      },
+      "articles": {
+        "attempted": 0,
+        "updated": [],
+        "failed": []
+      },
+      "magazines": {
+        "attempted": 0,
+        "updated": [],
+        "failed": []
+      },
+      "problems": []
+    },
+    {
       "startedAt": "2026-10-01T15:41:07.953Z",
       "finishedAt": "2026-10-01T15:47:55.521Z",
       "plan": {
