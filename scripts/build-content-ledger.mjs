@@ -75,7 +75,10 @@ function spawnIfStale(hours) {
     console.log(`${TAG} 索引は ${age.toFixed(1)} 時間前のもの。作り直さない。`);
     return;
   }
-  const child = spawn(process.execPath, [fileURLToPath(import.meta.url)], { cwd: ROOT, detached: true, stdio: 'ignore', windowsHide: true });
+  // Windows では detached にしない。detached の子はコンソールを持たないため、子が呼ぶ curl・git・node
+  // （記事ごとの note API 取得など数百回）がそれぞれ新しいコンソールウィンドウを開き続ける（2026-10-01）。
+  // detached でなければ親の非表示コンソールを引き継ぎ、unref で管理画面の起動は待たせない。
+  const child = spawn(process.execPath, [fileURLToPath(import.meta.url)], { cwd: ROOT, detached: process.platform !== 'win32', stdio: 'ignore', windowsHide: true });
   child.unref();
   console.log(`${TAG} 索引が${prev ? '古い' : '無い'}ので裏で作り直す（管理画面は待たずに起動する）。`);
 }
