@@ -62,7 +62,7 @@ export function MonthlyReviewPlan() {
   return (
     <PanelCard
       title={`今月やること（${month} の月次レビューに向けて）`}
-      description={`済 ${summary.done}・待ち ${summary.waiting}・やる ${summary.todo}・人が判断 ${summary.human}（全 ${summary.total}）。待ちは確定日や CI を待つだけで、人の作業は無い`}
+      description={`済 ${summary.done} / ${summary.total}`}
       className="mb-3"
     >
       <div className="flex flex-col gap-4">
@@ -87,9 +87,7 @@ export function MonthlyReviewPlan() {
             </ol>
           </div>
         ))}
-        <p className="m-0 text-xs text-muted-foreground">
-          レビューの手順と実施できたかは <Link href="/metrics/business/monthly">戦略 ＞ レビュー ＞ 月次</Link>
-        </p>
+        <Link className="text-xs" href="/metrics/business/monthly">レビューの手順と実施状況 → 戦略 ＞ レビュー ＞ 月次</Link>
       </div>
     </PanelCard>
   );
