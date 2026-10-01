@@ -20,7 +20,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import dotenv from 'dotenv';
 import { jst } from './lib/business-direction.mjs';
 import { normPath, foldGsc } from './lib/growth-pack.mjs';
-import { specErrors, specHash, measureWindows, verdictHint, deltaPct, sumSales, sumGscPages, alreadyMeasured, inScope } from './lib/experiment-measure.mjs';
+import { specErrors, specHash, measureWindows, verdictHint, deltaPct, sumSales, sumGscPages, alreadyMeasured, inScope, salesWindowFinalized } from './lib/experiment-measure.mjs';
 import { buildContentIndex } from './build-growth-digest.mjs';
 import { ga4FromEnv, japanFilter, spamExclusion, andFilter, runReportAll } from '../.claude/scripts/lib/ga4-client.mjs';
 import { getAuth, fetchSearchAnalytics } from '../.claude/skills/analytics/fetch-gsc-data/scripts/fetch-gsc-data.mjs';
@@ -86,8 +86,9 @@ async function main() {
     console.error(`${TAG} 検査不成立: ${e.message}`);
     return 2;
   }
-  const sales = needs('sales.') ? JSON.parse(readFileSync(SALES, 'utf8')).sales : [];
-  // 売上台帳は手動転記で遅れる。台帳の最終日が事後窓の終わりに届くまでは確定扱いにしない（未転記を target-missed と誤読しない）
+  const salesLedger = needs('sales.') ? JSON.parse(readFileSync(SALES, 'utf8')) : { sales: [] };
+  const sales = salesLedger.sales;
+  // 売上は note の確定日（翌月 2 日）以降に取得・検算された月だけを確定扱いにする（未確定を target-missed と誤読しない）
   const salesThrough = sales.reduce((a, s) => (s.date > a ? s.date : a), '');
 
   let appended = 0, skipped = 0, waiting = 0;
@@ -96,9 +97,9 @@ async function main() {
     const spec = e.measure;
     const windows = measureWindows(spec, e.started_at, today);
     if (!windows) { waiting++; console.log(`${TAG} ${e.id}: 事後窓が未開始（GSC 確定前）`); continue; }
-    if (spec.metric.startsWith('sales.') && salesThrough < windows.post.endDate) windows.complete = false;
+    if (spec.metric.startsWith('sales.') && !salesWindowFinalized(salesLedger.months, windows.pre, windows.post)) windows.complete = false;
     const hash = specHash(spec);
-    if (alreadyMeasured(e, hash, windows.post)) { skipped++; continue; }
+    if (alreadyMeasured(e, hash, windows.post, windows.complete)) { skipped++; continue; }
     try {
       const v = spec.metric.startsWith('sales.') ? { pre: sumSales(sales, spec, windows.pre), post: sumSales(sales, spec, windows.post) }
         : spec.metric.startsWith('ga4.') ? await ga4Value(ga4, spec, windows)

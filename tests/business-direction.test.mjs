@@ -50,7 +50,7 @@ test('KDP monthly ledger enters business review with completeness and qualificat
 });
 test('note monthly traffic enters all as complete and qualification rows as partial',t=>{
  const root=fixture(t);
- writeFileSync(join(root,'.claude/state/metrics/note/referrers-2026-08.json'),JSON.stringify({month:'2026-08',period:{from:'2026-08-01',to:'2026-08-31'},summary:{pageViews:100,impressions:1000,salesYen:5000}}));
+ writeFileSync(join(root,'.claude/state/metrics/note/referrers-2026-08.json'),JSON.stringify({month:'2026-08',fetchedAt:'2026-09-02T00:00:00Z',period:{from:'2026-08-01',to:'2026-08-31'},summary:{pageViews:100,impressions:1000,salesYen:5000}}));
  writeFileSync(join(root,'.claude/state/metrics/note/articles-pv-2026-08.json'),JSON.stringify({rows:[
   {title:'1級土木 二次対策',pageViews:20,impressions:200},
   {title:'技術士 建設部門｜必須科目I',pageViews:30,impressions:300},
@@ -67,11 +67,15 @@ test('note monthly traffic enters all as complete and qualification rows as part
 });
 test('note sales become complete only when monthly display matches and every product id is resolved',t=>{
  const root=fixture(t);
- writeFileSync(join(root,'.claude/state/metrics/note/referrers-2026-08.json'),JSON.stringify({month:'2026-08',period:{from:'2026-08-01',to:'2026-08-31'},summary:{pageViews:100,impressions:1000,salesYen:3000}}));
- writeFileSync(join(root,'.claude/state/sales/sales-log.json'),JSON.stringify({sales:[
+ writeFileSync(join(root,'.claude/state/metrics/note/referrers-2026-08.json'),JSON.stringify({month:'2026-08',fetchedAt:'2026-09-02T00:00:00Z',period:{from:'2026-08-01',to:'2026-08-31'},summary:{pageViews:100,impressions:1000,salesYen:3000}}));
+ const salesRows=[
   {date:'2026-08-01',productId:'article:civil-1-keiken-pack-24',price:1000},
   {date:'2026-08-02',productId:'pe-construction-required-magazine',price:2000},
- ]}));
+ ];
+ // 確定日（9/2）より前に取った明細は、表示額と一致していても complete にしない
+ writeFileSync(join(root,'.claude/state/sales/sales-log.json'),JSON.stringify({months:{'2026-08':{finalized:false}},sales:salesRows}));
+ assert.equal(buildReport(root,period,now).cells.find(c=>c.qualification==='all'&&c.metric==='noteRevenue').coverage,'partial');
+ writeFileSync(join(root,'.claude/state/sales/sales-log.json'),JSON.stringify({months:{'2026-08':{finalized:true}},sales:salesRows}));
  const r=buildReport(root,period,now);
  assert.equal(r.cells.find(c=>c.qualification==='all'&&c.metric==='noteRevenue').coverage,'complete');
  assert.equal(r.cells.find(c=>c.qualification==='civil-construction-1'&&c.metric==='noteRevenue').value,1000);
@@ -184,8 +188,13 @@ test('past reviews are validated against the strategy frozen in their snapshot, 
 const week = { startDate: '2026-09-14', endDate: '2026-09-20' };
 test('note monthly facts keep the month period, and a mid-month fetch is cut at the fetch date as partial',()=>{
  const traffic=m=>({period:{from:`${m}-01`,to:`${m}-30`},summary:{pageViews:100,impressions:1000}});
- const full=noteMonthFacts({traffic:{...traffic('2026-09'),fetchedAt:'2026-10-01T00:00:00Z'},trafficPath:'t'});
+ // 2026-10-02T00:00Z = JST 10/02（note の確定日）以降の取得だけが月全体の確定値
+ const full=noteMonthFacts({traffic:{...traffic('2026-09'),fetchedAt:'2026-10-02T00:00:00Z'},trafficPath:'t'});
  assert.deepEqual(full.find(f=>f.metric==='notePv'),{metric:'notePv',value:100,period:{startDate:'2026-09-01',endDate:'2026-09-30'},source:'t',qualification:'all',coverage:'complete',note:'noteアクセス状況の対象月全記事。自己閲覧を含む。'});
+ // 月末後でも確定日前（JST 10/01）の取得は月の期間のまま partial
+ const early=noteMonthFacts({traffic:{...traffic('2026-09'),fetchedAt:'2026-10-01T00:46:00Z'},trafficPath:'t'}).find(f=>f.metric==='notePv');
+ assert.deepEqual(early.period,{startDate:'2026-09-01',endDate:'2026-09-30'});
+ assert.equal(early.coverage,'partial');assert.match(early.note,/確定前の値（note は 2026-10-02 に確定）/);
  // 2026-09-15T21:13Z = JST 09-16。月途中値を9月全体として月次セルへ入れない。
  const mid=noteMonthFacts({traffic:{...traffic('2026-09'),fetchedAt:'2026-09-15T21:13:53Z'},articles:{rows:[{title:'RCCM 問題III',pageViews:7,impressions:70}]},qualifications:['rccm','pe-construction'],trafficPath:'t',articlesPath:'a'});
  assert.deepEqual(mid.find(f=>f.metric==='notePv'&&f.qualification==='all').period,{startDate:'2026-09-01',endDate:'2026-09-16'});
@@ -203,6 +212,17 @@ test('a weekly review does not apportion monthly note data and explains where th
  assert.equal(r.sources.find(s=>s.metric==='notePv'&&s.qualification==='all').value,100);
  const month=buildReport(root,{startDate:'2026-09-01',endDate:'2026-09-30'},new Date('2026-10-02T00:00:00Z'));
  assert.equal(month.cells.find(c=>c.qualification==='all'&&c.metric==='notePv').value,100);
+});
+test('a snapshot taken before note finalization is marked, and its review must stay provisional until then',t=>{
+ const root=fixture(t), p={startDate:'2026-09-01',endDate:'2026-09-30'};
+ const early=snapshot(root,p,new Date('2026-10-01T03:00:00Z'));
+ assert.deepEqual(early.pendingFinalization,[{source:'note',month:'2026-09',finalizeDate:'2026-10-02'}]);
+ const late=snapshot(root,p,new Date('2026-10-02T03:00:00Z'));
+ assert.equal(late.pendingFinalization,undefined);
+ const config=direction(root), history=records(root), at=new Date('2026-10-01T04:00:00Z');
+ const review=(snap,extra)=>({kind:'review',qualification:'all',cadence:'monthly',period:p,snapshot:snap.file,qualificationsReviewed:config.qualifications.map(q=>q.id),findings:'確定前の値',decision:'暫定で記録',nextAction:'確定後に訂正',experimentIds:[],status:'provisional',nextReviewDate:'2026-10-05',...extra});
+ assert.throws(()=>validateRecord(review(early,{status:'complete'}),config,history,at),/確定前/);
+ assert.doesNotThrow(()=>validateRecord(review(early),config,history,at));
 });
 test('KDP completeness counts only books live by the end of the month',()=>{
  const entry={range:{start:'2026-08-01',end:'2026-08-31'},estimated:false,books:[{bookId:'A-01',royalty:700},{bookId:'h-02',royalty:50},{bookId:null,royalty:999}]};
