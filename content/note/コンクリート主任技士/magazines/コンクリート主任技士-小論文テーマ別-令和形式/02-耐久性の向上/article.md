@@ -6,10 +6,10 @@ paidBoundary: "模範答案"
 noteSeries: コンクリート主任技士-小論文テーマ別
 noteContentType: product
 noteMagazine: コンクリート主任技士-小論文テーマ別-令和形式
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/n1ee271fc0696"
+noteId: "n1ee271fc0696"
+notePublishedAt: "2026-10-01"
+noteStatus: published
 utmCampaign: cce-theme-durability-reiwa
 cceEssayTheme: durability
 cceSourceYears: [2022, 2020, 2019, 2018, 2014]
@@ -42,7 +42,7 @@ cover:
 - 共通部分 (1)(2)(4) と、8立場それぞれの (3) を組み合わせて使える模範答案
 - 各立場が「決められる範囲」と「使う指標」の違い、答案で越権にならない書き方
 
-{{MAGAZINE_URL}}
+https://note.com/dobokunote/m/m97a0049a10de
 
 ## このテーマの出題実績
 

@@ -4,10 +4,10 @@ notePricing: free
 noteSeries: コンクリート主任技士-小論文テーマ別
 noteContentType: product
 noteMagazine: コンクリート主任技士-小論文テーマ別-令和形式
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/n39ce3c33eaa8"
+noteId: "n39ce3c33eaa8"
+notePublishedAt: "2026-10-01"
+noteStatus: published
 utmCampaign: cce-essay-trend-reiwa
 coverTitle: "主任技士 小論文｜令和の出題傾向と答え方"
 cover:
@@ -36,7 +36,7 @@ cover:
 - 優先して準備すべき5つのテーマ系統
 - 自分の立場で答案を完成させる準備の手順
 
-{{MAGAZINE_URL}}
+https://note.com/dobokunote/m/m97a0049a10de
 
 ## 問題文は公開されていない
 
@@ -113,6 +113,6 @@ cover:
 
 このマガジンには、5つの系統ごとに (1)〜(4) の模範答案を収録しています。(2) と (4) は共通部分として1本、(3) は生コン工場・プレキャスト工場・ゼネコン土木施工・維持管理補修・発注者・ゼネコン建築施工・設計コンサルタント・試験検査機関の8つの立場で書き分けているので、自分の立場の (3) を差し込めば、本番と同じ約1,000字の答案として読めます。
 
-{{MAGAZINE_URL}}
+https://note.com/dobokunote/m/m97a0049a10de
 
 *本記事はコンクリート主任技士試験の受験対策を目的としています。出題テーマの一覧は二次情報に基づくもので、最新の受験要項は日本コンクリート工学会の公式情報で確認してください。*

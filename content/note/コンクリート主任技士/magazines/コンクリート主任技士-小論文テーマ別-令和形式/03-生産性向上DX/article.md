@@ -6,10 +6,10 @@ paidBoundary: 模範答案
 noteSeries: コンクリート主任技士-小論文テーマ別
 noteContentType: product
 noteMagazine: コンクリート主任技士-小論文テーマ別-令和形式
-noteUrl: ''
-noteId: ''
-notePublishedAt: ''
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/nc653f78e53a0"
+noteId: "nc653f78e53a0"
+notePublishedAt: "2026-10-01"
+noteStatus: published
 utmCampaign: cce-theme-productivity-reiwa
 cceEssayTheme: productivity
 cceSourceYears:
@@ -47,7 +47,7 @@ cover:
 - 8つの立場それぞれの、決められる範囲と使う指標を踏まえた答案例
 - 共通部分と立場別の部分を差し替えて、自分の答案にする方法
 
-{{MAGAZINE_URL}}
+https://note.com/dobokunote/m/m97a0049a10de
 
 ## このテーマの出題実績
 

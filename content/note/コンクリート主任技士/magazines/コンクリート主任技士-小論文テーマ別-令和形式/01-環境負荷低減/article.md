@@ -6,10 +6,10 @@ paidBoundary: "模範答案"
 noteSeries: コンクリート主任技士-小論文テーマ別
 noteContentType: product
 noteMagazine: コンクリート主任技士-小論文テーマ別-令和形式
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/na25bfcb7de24"
+noteId: "na25bfcb7de24"
+notePublishedAt: "2026-10-01"
+noteStatus: published
 utmCampaign: cce-theme-environment-reiwa
 cceEssayTheme: environment
 cceSourceYears: [2025, 2023, 2022, 2021, 2020, 2018, 2017, 2015]
@@ -42,7 +42,7 @@ cover:
 - 共通部分（表題・現状と課題・今後の対策）と、8立場それぞれの取り組み（3）を組み合わせた模範答案
 - 立場ごとの「決められる範囲」と「使う指標」、採点者が見るポイント
 
-{{MAGAZINE_URL}}
+https://note.com/dobokunote/m/m97a0049a10de
 
 ## このテーマの出題実績
 
