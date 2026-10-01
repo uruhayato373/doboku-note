@@ -6,6 +6,7 @@ utmCampaign: cd-case-port-chloride
 noteMagazine: コンクリート診断士-想定構造物8ケース
 notePublishedAt: "2026-09-20"
 noteId: "n2abab9b8d0bd"
+title: "コンクリート診断士 記述式 問題B｜港湾桟橋の塩害と断面修復後の再劣化"
 noteUrl: "https://note.com/dobokunote/n/n2abab9b8d0bd"
 noteStatus: published
 published: false

@@ -6,6 +6,7 @@ utmCampaign: essay-procurement-muni-r08-yosou-4
 noteMagazine: 総監模範論文-自治体契約調達担当
 noteUrl: "https://note.com/dobokunote/n/nc51a365aa9ea"
 noteId: "nc51a365aa9ea"
+title: "令和8年度 総監記述式 模範論文｜自治体 契約・調達担当版（複合災害・災害復旧／R8予想④）"
 notePublishedAt: "2026-07-12"
 noteStatus: published
 price: 780

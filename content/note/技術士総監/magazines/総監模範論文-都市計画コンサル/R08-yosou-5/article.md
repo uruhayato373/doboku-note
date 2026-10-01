@@ -5,6 +5,7 @@ noteContentType: product
 utmCampaign: essay-urban-consul-r08-yosou-5
 noteUrl: "https://note.com/dobokunote/n/nb00fd908b43d"
 noteId: "nb00fd908b43d"
+title: "令和8年度 総監記述式 模範論文｜都市計画コンサル版（生成AI・情報ガバナンス／R8予想⑤）"
 notePublishedAt: "2026-07-12"
 noteStatus: published
 noteMagazine: 総監模範論文-都市計画コンサル

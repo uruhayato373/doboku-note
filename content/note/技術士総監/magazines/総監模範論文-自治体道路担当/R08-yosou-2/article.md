@@ -4,6 +4,7 @@ noteSeries: 総監模範論文-自治体道路担当ペルソナ
 noteContentType: product
 utmCampaign: essay-road-r08-2
 noteUrl: "https://note.com/dobokunote/n/nf90ba1382475"
+title: "令和8年度 総監記述式 模範論文｜自治体 道路担当版（資源循環・サプライチェーン強靭化／R8予想②）"
 noteMagazine: 総監模範論文-自治体道路担当
 price: 500
 cover:

@@ -7,6 +7,7 @@ noteMagazine: 総監記述式-5管理クロストレードオフ
 utmCampaign: essay-tradeoff-matrix-intro
 noteUrl: "https://note.com/dobokunote/n/ndb524ed63c92"
 noteId: "ndb524ed63c92"
+title: "序章｜総監記述式は「5管理クロス・トレードオフ」で攻略する（無料）"
 notePublishedAt: "2026-06-01"
 coverTitle: ["5管理クロストレードオフ", "序章｜トレードオフ思考のOS"]
 noteStatus: published

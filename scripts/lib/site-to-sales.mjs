@@ -26,7 +26,7 @@ export const NOTE_REFERRER_MEASURABLE_FROM_MONTH = '2026-09';
 /** マガジン CTA の data-cta-label が `<商品ID>:<面>` になった日（5b3e29f9d）。それ以前のクリックは面だけで商品を持たない。 */
 export const LABEL_PRODUCT_ID_FROM = '2026-08-22';
 
-const MEMBERSHIP_PRODUCTS =[[/^membership:civil-lab-/, 'civil-membership-lab']];
+export const MEMBERSHIP_PRODUCTS = [[/^membership:civil-lab-/, 'civil-membership-lab']];
 
 export function monthBounds(month) {
   const m = /^(\d{4})-(\d{2})$/.exec(String(month ?? ''));

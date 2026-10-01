@@ -3,6 +3,7 @@ notePricing: free
 noteStatus: published
 noteUrl: "https://note.com/dobokunote/n/n7d3872f81e0a"
 noteId: "n7d3872f81e0a"
+title: "【技術士 建設部門】担い手確保・生産性向上を必須科目Iでどう論じるか（2024年問題）"
 noteSeries: 技術士建設部門-無料入口
 noteContentType: learning
 utmCampaign: pe-construction-ninaite

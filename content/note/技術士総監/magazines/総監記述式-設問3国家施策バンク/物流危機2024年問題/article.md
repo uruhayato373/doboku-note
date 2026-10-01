@@ -6,6 +6,7 @@ paidBoundary: "国家施策オプション"
 noteStatus: published
 noteUrl: https://note.com/dobokunote/n/nbd44ef090572
 noteId: nbd44ef090572
+title: "物流危機（2024年問題・自動物流道路）｜設問(3)国家施策バンク"
 notePublishedAt: 2026-06-01
 cover:
   variant: crop-safe-v4

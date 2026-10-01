@@ -5,6 +5,7 @@ noteContentType: product
 utmCampaign: essay-standard-muni-r04
 noteUrl: https://note.com/dobokunote/n/nc287a856fc1f
 noteId: nc287a856fc1f
+title: "令和4年度 総監記述式 模範論文｜自治体 技術基準担当版（DX推進）"
 notePublishedAt: 2026-06-11
 noteMagazine: 総監模範論文-自治体技術基準担当
 price: 500

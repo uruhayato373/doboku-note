@@ -22,7 +22,7 @@ cover:
   hiSuffix: "本柱"
   benefit: "択一も小論文も1つでそろう"
 ---
-# コンクリート主任技士 まるごとパック（択一＋小論文＋配合計算）
+# コンクリート主任技士 まるごとパック｜択一・小論文・配合計算を1つに
 
 
 ![](img/figure-author-authority-concrete.png)

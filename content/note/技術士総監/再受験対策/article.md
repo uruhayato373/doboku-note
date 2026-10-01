@@ -1,6 +1,7 @@
 ---
 notePublishedAt: "2026-07-23"
 noteId: "n4b679c8da64e"
+title: "【総監再受験者向け】不合格要因を特定する3パターン分析｜B判定とC判定で根本的に異なる再受験戦略"
 utmCampaign: tankan-saijuken-taisaku
 noteUrl: "https://note.com/dobokunote/n/n4b679c8da64e"
 notePricing: paid

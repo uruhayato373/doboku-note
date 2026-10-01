@@ -5,6 +5,7 @@ noteStatus: published
 utmCampaign: civil-membership-intro
 noteUrl: "https://note.com/dobokunote/n/n6b66793ca20c"
 noteId: "n6b66793ca20c"
+title: "「土木セコカン合格ラボ」をはじめます｜もう一度、受験料と1年を払いたくないあなたへ"
 notePublishedAt: "2026-07-01"
 coverTitle: ["土木セコカン合格ラボ", "はじめます"]
 cover:

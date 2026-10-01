@@ -6,6 +6,7 @@ noteMagazine: 総監記述式-R8予想問題集
 utmCampaign: essay-r8-forecast-infrastructure-maintenance
 noteUrl: https://note.com/dobokunote/n/naace4eeaa230
 noteId: naace4eeaa230
+title: "令和8年度 総監記述式 R8予想問題｜老朽化インフラ × 予防保全"
 notePublishedAt: 2026-05-25
 coverTitle: ["R8予想問題", "老朽化インフラの予防保全"]
 price: 780
@@ -17,7 +18,7 @@ cover:
   hiSuffix: "予想"
   benefit: "本番前に型を装填できる"
 ---
-# 令和8年度 総監記述式 R8予想問題｜老朽化インフラ × 予防保全（自治体 道路担当フル模範論文）
+# 令和8年度 総監記述式 R8予想問題｜老朽化インフラ × 予防保全
 
 **こんな人のための記事です**
 

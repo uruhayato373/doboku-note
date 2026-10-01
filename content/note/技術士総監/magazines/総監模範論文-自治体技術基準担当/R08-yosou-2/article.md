@@ -5,6 +5,7 @@ noteContentType: product
 utmCampaign: essay-standards-muni-r08-yosou-2
 noteUrl: https://note.com/dobokunote/n/n318905fc9672
 noteId: n318905fc9672
+title: "令和8年度 総監記述式 模範論文｜自治体 技術基準担当版（資源循環・調達仕様の改定／R8予想②）"
 notePublishedAt: 2026-06-11
 noteMagazine: 総監模範論文-自治体技術基準担当
 price: 500

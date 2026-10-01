@@ -30,6 +30,8 @@ export interface LineupItem {
   channel: string;
   id: string;
   title: string;
+  /** note 上の題名（マガジンの noteTitle）。台帳はこれを出す */
+  noteTitle?: string | null;
   price: string | null;
   stage: string;
   stageLabel: string;
@@ -103,6 +105,7 @@ export function loadNoteItems(): LineupItem[] {
       channel: 'note',
       id: m.id,
       title: m.shortTitle ?? m.title ?? m.id,
+      noteTitle: m.noteTitle,
       price: m.priceStr,
       stage,
       stageLabel: stageLabel(stage),

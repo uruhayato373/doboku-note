@@ -2,6 +2,7 @@
 notePublishedAt: "2026-07-23"
 noteUrl: "https://note.com/dobokunote/n/n5926a2774395"
 noteId: "n5926a2774395"
+title: '総監 6 回受験 vs スクール vs ¥2,480 マガジン｜公式統計と主要スクール価格で算出した "本当のコスト"'
 notePricing: free
 noteSeries: 戦略・コスト分析
 noteContentType: learning

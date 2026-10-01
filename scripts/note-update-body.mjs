@@ -20,6 +20,7 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
  *   node scripts/note-update-body.mjs --list <list.txt> --commit             # 複数記事を一括ライブ反映
  *   node scripts/note-update-body.mjs --sync --list <list.txt> --commit      # 記事単位の同期（本文・カバー・タグの未反映分だけ）
  *   node scripts/note-update-body.mjs --parts cover,tags --article <path> --commit  # 部品を明示（計画を見ずに反映）
+ *   node scripts/note-update-body.mjs --parts title --article <path> --commit        # 題名だけ（本文を触らず frontmatter の title を反映）
  *   npm 経由: npm run note-update-body -- --article <path> [--commit|--pause]
  *
  * 追加オプション:
@@ -72,7 +73,7 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync } from 
 import { join, dirname, resolve, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
-import { recordPublishedHash, recordPublishedMetaHash, recordPublishedAssetHash, recordPublishedTagHash } from './lib/note-republish-hash.mjs';
+import { recordPublishedHash, recordPublishedMetaHash, recordPublishedAssetHash, recordPublishedTagHash, recordPublishedTitleHash } from './lib/note-republish-hash.mjs';
 import { replaceCoverInEditor } from './lib/note-editor-cover.mjs';
 import { applyTagsOnSettings, readNoteAsAuthor } from './lib/note-tag-editor.mjs';
 import { planTagSync, verifyTagSync } from './lib/note-tag-plan.mjs';
@@ -175,8 +176,8 @@ const KEEP_MEMBER_LOCK = argv.includes('--keep-member-lock');
 // 記事単位の同期（本文・カバー・タグの未反映分だけを 1 回の更新で）。PDF 添付は貼り直す（--reattach-pdf と同じ）。
 const SYNC = argv.includes('--sync');
 const PARTS_ARG = getArg('--parts'); // body,cover,tags（計画を見ずに明示）
-const VALID_PARTS = new Set(['body', 'cover', 'tags']);
-if (PARTS_ARG && PARTS_ARG.split(',').some((x) => !VALID_PARTS.has(x))) { console.error('--parts は body,cover,tags の組み合わせ'); process.exit(1); }
+const VALID_PARTS = new Set(['body', 'cover', 'tags', 'title']);
+if (PARTS_ARG && PARTS_ARG.split(',').some((x) => !VALID_PARTS.has(x))) { console.error('--parts は body,cover,tags,title の組み合わせ'); process.exit(1); }
 if (SYNC && (IMAGES_ONLY || PAUSE)) { console.error('--sync は --images-only / --pause と併用できない'); process.exit(1); }
 
 // 目次が「最初のh2より後」に入って直せなかった記事（バッチ末尾サマリで失敗として可視化する）
@@ -419,6 +420,19 @@ const TITLE_DRIFTS = [];
 async function updateArticle(page, article, probe, parts = ['body'], sync = {}) {
   const { abs, noteId, title, bodyH1, body, images, isPaid, isMembership, boundary, expectedImgs, minFreeChars } = article;
   const doBody = parts.includes('body');
+  /** タイトル欄を frontmatter の title に差し替える。差し替えて入力値が一致したら true */
+  const setTitleField = async () => {
+    try {
+      const tl = page.locator('textarea[placeholder*="タイトル"]').first();
+      if (!(await tl.count())) { console.log('[4.7] title textarea 未検出（タイトル変更スキップ）'); return false; }
+      await tl.click(); await sleep(300);
+      await tl.fill(title); await sleep(700);
+      const cur = (await tl.inputValue().catch(() => '')) || '';
+      const ok = cur.trim() === title.trim();
+      console.log(`[4.7] title set: ${ok ? 'OK' : 'MISMATCH cur="' + cur + '"'}`);
+      return ok;
+    } catch (e) { console.log('[4.7] title set skip:', e.message.split('\n')[0]); return false; }
+  };
   const trialLineBottom = TRIAL_LINE_BOTTOM || article.memberTrial === 'bottom';
   const memberLock = KEEP_MEMBER_LOCK || article.memberTrial === 'lock';
   console.log(`\n[article] ${noteId} — ${abs.split(/[/\\]/).slice(-2).join('/')}${parts.join(',') === 'body' ? '' : `（${parts.join('・')}）`}`);
@@ -642,18 +656,7 @@ async function updateArticle(page, article, probe, parts = ['body'], sync = {}) 
   // 4.7 タイトル変更（frontmatter に title があるとき）。edit 画面のタイトル textarea を差し替える。
   //     もくじの便益タイトル刷新など、本文と同時にタイトルも変えたいケース用。--no-title で抑止。
   if (title && !argv.includes('--no-title')) {
-    try {
-      const titleSel = 'textarea[placeholder*="タイトル"]';
-      const tl = page.locator(titleSel).first();
-      if (await tl.count()) {
-        await tl.click(); await sleep(300);
-        await tl.fill(title); await sleep(700);
-        const cur = (await tl.inputValue().catch(() => '')) || '';
-        console.log(`[4.7] title set: ${cur.trim() === title.trim() ? 'OK' : 'MISMATCH cur="' + cur + '"'}`);
-      } else {
-        console.log('[4.7] title textarea 未検出（タイトル変更スキップ・本文のみ更新）');
-      }
-    } catch (e) { console.log('[4.7] title set skip:', e.message.split('\n')[0]); }
+    await setTitleField();
   } else if (!argv.includes('--no-title')) {
     // frontmatter に title が無いと、本文の H1 をいくら直してもライブのタイトルは古いまま残る。
     // それでも従来は ok を返していたため「5/5 成功」なのに全タイトルが誤記のまま、という
@@ -676,6 +679,12 @@ async function updateArticle(page, article, probe, parts = ['body'], sync = {}) 
   }
 
   } // doBody
+
+  // 題名だけの更新（--sync の title 部品・--parts title）。本文は触らず、タイトル欄だけ差し替えて「更新する」
+  if (!doBody && parts.includes('title')) {
+    if (!title) { abortReason = 'title-missing'; console.error('[title] FAIL: frontmatter に title が無い → 保存しない'); return false; }
+    if (!(await setTitleField())) { abortReason = 'title-failed'; console.error('[title] FAIL: タイトル欄を差し替えられない → 保存しない'); return false; }
+  }
 
   // 5. 手動確定（--pause）: 本文差替まで済ませ、タイトル変更＋更新確定はユーザーに委ねる。
   //    無料記事の「更新する」自動確定は未検証、かつタイトル変更ツールが無いため、この2つを同一
@@ -732,10 +741,16 @@ async function updateArticle(page, article, probe, parts = ['body'], sync = {}) 
   });
   if (!live) { abortReason = report.reason || null; console.error(`[FAIL] ライブ反映に失敗: ${noteId}${report.reason ? `（${report.reason}）` : ''}`); return false; }
 
-  // 5f. カバー・タグの実体確認と記録（ログイン済み API。確かめられない部品は記録せず、次回また対象に残す）
-  if (parts.includes('cover') || tagPlan) {
+  // 5f. カバー・タグ・題名の実体確認と記録（ログイン済み API。確かめられない部品は記録せず、次回また対象に残す）
+  const titleApplied = Boolean(title) && !argv.includes('--no-title') && (doBody || parts.includes('title'));
+  if (parts.includes('cover') || tagPlan || titleApplied) {
     await sleep(3000);
     const after = await readNoteAsAuthor(ctx, noteId);
+    if (titleApplied) {
+      if (after?.name && after.name.trim() === title.trim()) {
+        if (recordPublishedTitleHash(article.rel)) console.log('[5f] 題名を確認・記録');
+      } else console.error(`[5f] WARN: note の題名が原稿の title と違う（note「${after?.name ?? '?'}」）→ 記録しない（次回また反映する）`);
+    }
     if (parts.includes('cover')) {
       if (after?.eyecatch && !sameImage(after.eyecatch, sync.coverBefore)) {
         const ledger = readLedger();

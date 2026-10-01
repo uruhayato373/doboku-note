@@ -6,6 +6,7 @@ noteMagazine: 経験記述-週次お題ラボ
 noteStatus: published
 notePublishedAt: "2026-08-17"
 noteId: "nb589a26111a1"
+title: "今週のお題｜工程管理 — 遅延要因への対応と工程の回復"
 noteUrl: "https://note.com/dobokunote/n/nb589a26111a1"
 memberTrial: bottom
 utmCampaign: civil-membership-odai-schedule

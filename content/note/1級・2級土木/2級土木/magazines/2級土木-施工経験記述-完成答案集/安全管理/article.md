@@ -6,6 +6,7 @@ noteMagazine: 2級土木-施工経験記述-完成答案集
 utmCampaign: civil2-keiken-safety
 noteUrl: https://note.com/dobokunote/n/n356ca0899c14
 noteId: n356ca0899c14
+title: "2級土木 施工経験記述｜安全管理 完成答案集（河川護岸・下水道管渠 ほか）"
 notePublishedAt: 2026-06-03
 coverTitle: ["2級土木 施工経験記述", "安全管理 完成答案集"]
 price: 1180

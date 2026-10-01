@@ -5,6 +5,7 @@ noteContentType: product
 utmCampaign: essay-road-r04
 noteUrl: https://note.com/dobokunote/n/n4543a2697b57
 noteId: n4543a2697b57
+title: "令和4年度 総監記述式 模範論文｜自治体 道路担当版"
 notePublishedAt: 2026-05-21
 noteMagazine: 総監模範論文-自治体道路担当
 price: 500
@@ -16,7 +17,7 @@ cover:
   hiSuffix: "過去問"
   benefit: "3,000字級をそのまま展開"
 ---
-# 令和4年度 総監記述式 模範論文｜自治体 道路担当版（DX推進）
+# 令和4年度 総監記述式 模範論文｜自治体 道路担当版
 
 **こんな人のための記事です**
 

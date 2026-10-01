@@ -6,6 +6,7 @@ utmCampaign: 99-keyword-2026-changes
 noteStatus: published
 noteUrl: https://note.com/dobokunote/n/n3923cbfb651b
 noteId: n3923cbfb651b
+title: "【2026年最新】総監キーワード集の変更点と学び直す優先順位｜2024版から何が変わったか徹底解剖"
 cover:
   variant: crop-safe-v4
   leadIn: "総監 択一式｜2026版"

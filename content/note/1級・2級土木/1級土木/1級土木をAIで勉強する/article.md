@@ -5,6 +5,7 @@ noteContentType: learning
 utmCampaign: ai-study-civil1
 noteUrl: "https://note.com/dobokunote/n/n8b0e42784742"
 noteId: "n8b0e42784742"
+title: "【1級土木施工管理技士】AIで勉強を効率化する — 一次の暗記・二次の経験記述"
 notePublishedAt: "2026-06-23"
 coverTitle:
   - 1級土木施工管理技士を

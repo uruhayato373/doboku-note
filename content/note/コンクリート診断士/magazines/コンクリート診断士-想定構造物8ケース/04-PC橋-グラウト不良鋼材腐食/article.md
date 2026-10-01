@@ -6,6 +6,7 @@ utmCampaign: cd-case-pc-grout-corrosion
 noteMagazine: コンクリート診断士-想定構造物8ケース
 notePublishedAt: "2026-09-20"
 noteId: "n09cc18f5823e"
+title: "コンクリート診断士 記述式 問題B｜PC橋のグラウト不良とPC鋼材腐食"
 noteUrl: "https://note.com/dobokunote/n/n09cc18f5823e"
 noteStatus: published
 published: false

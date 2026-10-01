@@ -3,6 +3,7 @@ notePricing: free
 noteStatus: published
 noteUrl: "https://note.com/dobokunote/n/n700c51ea6f00"
 noteId: "n700c51ea6f00"
+title: "総監を取って独立した技術士の収入実態 — 公開情報から見える5つのリアルケース"
 noteSeries: 民間技術者受験
 noteContentType: career
 utmCampaign: 96-independence-income

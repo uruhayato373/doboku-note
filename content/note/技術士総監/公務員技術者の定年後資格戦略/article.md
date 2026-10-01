@@ -3,6 +3,7 @@ notePricing: free
 noteStatus: published
 noteUrl: https://note.com/dobokunote/n/nbdfe9446f887
 noteId: nbdfe9446f887
+title: "【公務員技術者】定年後を見据えた資格戦略｜技術士総監が再就職・OB活動でどう効くか"
 noteSeries: 公務員受験
 noteContentType: career
 utmCampaign: 94-civil-servant-retirement

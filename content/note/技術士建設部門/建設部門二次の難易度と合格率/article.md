@@ -3,6 +3,7 @@ notePricing: free
 noteStatus: published
 noteUrl: "https://note.com/dobokunote/n/nd2a733652805"
 noteId: "nd2a733652805"
+title: "【技術士 建設部門】二次試験の難易度と合格率｜データで見る攻略の勘所"
 noteSeries: 技術士建設部門-無料入口
 noteContentType: learning
 utmCampaign: pe-construction-nanido

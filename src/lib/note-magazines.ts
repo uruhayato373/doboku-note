@@ -25,6 +25,12 @@ export interface NoteMagazine {
   readonly landingUrl?: string;
   /** note からマガジンを削除して販売を終えた日（YYYY-MM-DD）。管理画面の台帳では「終了」として既定で隠す */
   readonly retiredAt?: string;
+  /**
+   * note 上のマガジン名（公開ページの題名そのもの）。title はサイト CTA 用の説明的な題名で、note とは一致させない。
+   * noteUrl が記事（/n/）の単品 SKU には書かない（題名の正本は記事原稿の frontmatter title。二重に持たない）。
+   * 公開中は必須（verify-note-magazines が note と照合し、無い・違うと題名ドリフトとして出す）。管理画面の台帳はこれを出す。
+   */
+  readonly noteTitle?: string;
   readonly title: string;
   readonly description: string;
   /** CTA タイル用の短縮タイトル (省略時は title を使用) */
@@ -75,6 +81,7 @@ const MAGAZINES_RAW = {
     id: 'tankan-reading-guide',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m607bf095b02a',
+    noteTitle: '技術士 総監｜5管理 テキスト精読ガイド',
     title: 'doboku-note 連動｜5管理 テキスト精読ガイド',
     description:
       'サイトの 650+ キーワード解説と連動した試験対策教材。5管理ごとに頻出論点と引っかけパターンを体系化し、各論点から本サイトの詳細解説に直リンク。全約7万字。',
@@ -91,6 +98,7 @@ const MAGAZINES_RAW = {
     id: 'essay-river-consultant-magazine',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m32132ecb3033',
+    noteTitle: '技術士 総監｜記述式 模範論文（建設コンサル 河川・砂防）',
     title: '総監記述式 模範論文｜建設コンサル河川・砂防 R3-R7＋R8予想（6テーマ）',
     description:
       'R03〜R07 過去問（治水計画の調査計画版/河川管理施設の点検・補修更新設計版の A案/B案 2 バージョン）＋ R8予想6記事（気候変動適応・資源循環・老朽化インフラ・災害復旧・AI社会・経済安全保障）の計 11 記事。中堅建設コンサル河川・砂防部門 部長（調査設計者）視点、5管理トレードオフが主軸。テーマ横断の「R8予想問題集」も別途展開。',
@@ -108,6 +116,7 @@ const MAGAZINES_RAW = {
     id: 'essay-general-contractor-magazine',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m32aaa137f22e',
+    noteTitle: '技術士 総監｜記述式 模範論文（ゼネコン）',
     title: '総監記述式 模範論文｜ゼネコン R3-R7＋R8予想（6テーマ）',
     description:
       'R03〜R07 過去問（新設・改良施工版/維持・更新・補修施工版の A案/B案 2 バージョン）＋ R8予想6記事（気候変動適応・資源循環・老朽化インフラ・災害復旧・AI社会・経済安全保障）の計 11 記事。中堅〜大手ゼネコン土木部門（施工者）視点、安全 × 経済性 × 人的資源 のトレードオフが主軸。テーマ横断の「R8予想問題集」も別途展開。',
@@ -125,6 +134,7 @@ const MAGAZINES_RAW = {
     id: 'essay-road-municipality-magazine',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m52186ffd12ca',
+    noteTitle: '技術士 総監｜記述式 模範論文（自治体 道路担当）',
     title: '総監記述式 模範論文｜自治体 道路担当 R3-R7＋R8予想（全6テーマ）',
     description:
       'R03（データ利活用）〜R07（少子高齢化）の過去問 5 年分（橋梁長寿命化〔維持管理〕版とバイパス整備・道路建設〔新設〕版の A 案／B 案 2 バージョン併記）＋ R8予想6記事（気候変動適応・資源循環・老朽化インフラ・災害復旧・AI社会・経済安全保障）＋ R8予想問題集デモ1本の合計12記事。地方自治体の道路担当（発注者）の立場で「経済性 × 安全 × 社会環境」を主軸に、各記事に設問全文を再掲して論文構成を解説。テーマ横断の「R8予想問題集」も別途展開。',
@@ -142,6 +152,7 @@ const MAGAZINES_RAW = {
     id: 'essay-procurement-municipality-magazine',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m55b930cbfcf9',
+    noteTitle: '総監 模範論文｜自治体契約・調達担当 R3-R7+R8予想',
     title: '総監記述式 模範論文｜自治体 契約・調達担当 R3-R7 + R8予想セット',
     description:
       'R03〜R07 過去問（入札・契約制度運用版/工事検査・契約変更管理版の A案／B案 2 バージョン）+ R8予想6記事（気候変動適応・資源循環・老朽化インフラ・災害復旧・AI社会・経済安全保障）の計 11 記事。市区町村の契約検査課/技術管理課（発注者）視点、「コスト最適化 × 入札の公正性 × 担い手確保」の調達固有のトレードオフが主軸。各記事に印刷用PDF付き。',
@@ -156,6 +167,7 @@ const MAGAZINES_RAW = {
     id: 'essay-standards-municipality-magazine',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/mf9f281e2cb32',
+    noteTitle: '総監 模範論文｜自治体技術基準担当 R3-R7+R8予想',
     title: '総監記述式 模範論文｜自治体 技術基準担当 R3-R7 + R8予想セット',
     description:
       'R03〜R07 過去問（設計基準・標準仕様の策定改定版/BIM・CIM・電子納品・技術情報DB版の A案／B案 2 バージョン）+ R8予想6記事（気候変動適応・資源循環・老朽化インフラ・災害復旧・AI社会・経済安全保障）の計 11 記事。都道府県の技術管理課（発注者）視点、「技術標準の統一 × 現場個別性 × 技術伝承」の基準担当固有のトレードオフが主軸。各記事に印刷用PDF付き。',
@@ -170,6 +182,7 @@ const MAGAZINES_RAW = {
     id: 'essay-river-municipality-magazine',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m32a8a5b3b473',
+    noteTitle: '技術士 総監｜記述式 模範論文（自治体 河川担当）',
     title: '総監記述式 模範論文｜自治体 河川担当 R3-R7 + R8予想セット',
     description:
       'R03〜R07 過去問（各 A案/B案 2 バージョン）+ R8予想6記事（気候変動適応・資源循環・老朽化インフラ・災害復旧・AI社会・経済安全保障）の計 11 記事。河川砂防・海岸海洋分野合格者視点、堤防維持管理 × 河川改修。5 管理間トレードオフが主軸。各記事に印刷用PDF付き。',
@@ -183,6 +196,7 @@ const MAGAZINES_RAW = {
     id: 'essay-urban-municipality-magazine',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/mf8c77e995511',
+    noteTitle: '技術士 総監｜記述式 模範論文（自治体 都市計画担当）',
     title: '総監記述式 模範論文｜自治体 都市計画担当 R3-R7 + R8予想セット',
     description:
       'R03〜R07 過去問（各 A案/B案 2 バージョン）+ R8予想6記事（気候変動適応・資源循環・老朽化インフラ・災害復旧・AI社会・経済安全保障）の計 11 記事。都市及び地方計画分野合格者視点、立地適正化計画（制度運用）× 市街地再開発（事業整備）。5 管理間トレードオフが主軸。各記事に印刷用PDF付き。',
@@ -197,6 +211,7 @@ const MAGAZINES_RAW = {
     id: 'essay-sewage-municipality-magazine',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/mf1cbc32d53aa',
+    noteTitle: '総監 模範論文｜自治体下水道担当 R3-R7+R8予想',
     title: '総監記述式 模範論文｜自治体 下水道担当 R3-R7 + R8予想セット',
     shortTitle: '模範論文｜自治体下水道担当',
     description:
@@ -208,6 +223,7 @@ const MAGAZINES_RAW = {
     id: 'essay-sabo-municipality-magazine',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m7cd44bf57187',
+    noteTitle: '総監 模範論文｜自治体砂防担当 R3-R7+R8予想',
     title: '総監記述式 模範論文｜自治体 砂防担当 R3-R7 + R8予想セット',
     shortTitle: '模範論文｜自治体砂防担当',
     description:
@@ -219,6 +235,7 @@ const MAGAZINES_RAW = {
     id: 'essay-port-municipality-magazine',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/mf762f616c065',
+    noteTitle: '総監 模範論文｜自治体港湾担当 R3-R7+R8予想',
     title: '総監記述式 模範論文｜自治体 港湾担当 R3-R7 + R8予想セット',
     shortTitle: '模範論文｜自治体港湾担当',
     description:
@@ -230,6 +247,7 @@ const MAGAZINES_RAW = {
     id: 'essay-park-municipality-magazine',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m6d1810e50b0a',
+    noteTitle: '総監 模範論文｜自治体公園緑地担当 R3-R7+R8予想',
     title: '総監記述式 模範論文｜自治体 公園緑地担当 R3-R7 + R8予想セット',
     shortTitle: '模範論文｜自治体公園緑地担当',
     description:
@@ -241,6 +259,7 @@ const MAGAZINES_RAW = {
     id: 'essay-water-municipality-magazine',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/mf4c6792b4f9c',
+    noteTitle: '総監 模範論文｜自治体上水道担当 R3-R7+R8予想',
     title: '総監記述式 模範論文｜自治体 上水道担当 R3-R7 + R8予想セット',
     shortTitle: '模範論文｜自治体上水道担当',
     description:
@@ -252,6 +271,7 @@ const MAGAZINES_RAW = {
     id: 'essay-road-consultant-magazine',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m09440aa379cf',
+    noteTitle: '総監 模範論文｜道路橋梁コンサル R3-R7+R8予想',
     title: '総監記述式 模範論文｜道路・橋梁設計コンサルタント R3-R7 + R8予想セット',
     shortTitle: '模範論文｜道路橋梁コンサル',
     description:
@@ -263,6 +283,7 @@ const MAGAZINES_RAW = {
     id: 'essay-urban-consultant-magazine',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/mf0f98993407f',
+    noteTitle: '技術士 総監｜記述式 模範論文（都市計画コンサル）',
     title: '総監記述式 模範論文｜都市計画コンサルタント R3-R7 + R8予想セット',
     shortTitle: '模範論文｜都市計画コンサル',
     description:
@@ -284,6 +305,7 @@ const MAGAZINES_RAW = {
     id: 'r8-essay-forecast',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m6854c7437d4d',
+    noteTitle: '技術士 総監｜記述式 R8予想問題集 2026最終予想',
     title: '令和8年度 総監記述式 R8予想問題集 2026最終予想｜出る6テーマ × 専門分野を問わない解答骨子',
     description:
       'R8 で出題が予想される6テーマ（AI社会・気候変動適応・経済安全保障・災害復旧・資源循環・老朽化インフラ）を、出題予想根拠＋専門分野を問わない三層構造の解答骨子＋3ペルソナ別アレンジ早見表で攻略。各テーマに自治体道路担当の3,000字級フル模範論文を実演サンプルとして収録。さらに各テーマは全14ペルソナ別のフル模範論文を単品でも展開（受注者4＋自治体10／自分の専門分野・立場で選べる）。立場が違っても分野不問の骨子から自分の答案を組める。試験直前の最終予想・総仕上げに。',
@@ -307,6 +329,7 @@ const MAGAZINES_RAW = {
     id: 'setsumon3-policy-bank',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m91516dfc27ac',
+    noteTitle: '技術士 総監｜記述式 設問(3)国家施策バンク',
     title: '総監記述式 設問(3)国家施策バンク｜将来課題11テーマ × 国家施策オプション集',
     description:
       '【R8本試験で実証】令和8年度 総監本試験（記述式I-2「地方創生」）では、6月1日公開時点で収録済みの「地方創生・東京一極集中」6案が設問(3)にそのまま使える内容でした。設問(3)専用。2050年前後の将来課題11テーマ（人口減少・地方創生・担い手不足・GX・気候変動適応・循環経済・インフラ老朽化・Society5.0・食料安保・経済安保・物流危機）ごとに、国家スケールの施策を5〜8案ずつ（①課題と施策／②有効性と実現性／③重大な障害と克服策・トレードオフ明示）約600字＝答案用紙1枚相当で収録（計68案）。どのテーマが出ても引き出せる施策の弾薬庫。',
@@ -327,6 +350,7 @@ const MAGAZINES_RAW = {
     id: 'tradeoff-5kanri',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m921fbe060575',
+    noteTitle: '技術士 総監｜記述式 5管理クロス・トレードオフ全網羅',
     title: '技術士 総監｜記述式 5管理クロス・トレードオフ全網羅（20セル）',
     description:
       '5管理それぞれを主役に「その管理 × 他4管理」のトレードオフを 20 セル全網羅。起こりうる衝突パターンを複数列挙し、各パターンに ALARP・RBM・LCC・群マネ等の総監フレームと答案ひな型を配置。どんなお題が来ても引き出せる解決策の型を身につける。序章（無料）+ 有料5記事セット。',
@@ -343,6 +367,7 @@ const MAGAZINES_RAW = {
     id: 'essay-geotechnical-consultant-magazine',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/mcfcab1d96ed4',
+    noteTitle: '技術士 総監｜土質基礎コンサルの記述式5年分',
     title: '技術士 総監｜土質基礎コンサルの記述式5年分',
     description: '地盤調査・基礎設計の受注者として、技術品質・社内工程・技術者配置を統括する立場の模範論文集です。令和3〜7年度の実過去問5記事に、各年度A・Bの2案を収録。発注者の決裁権と自分の判断範囲を分け、5つの管理とトレードオフを具体化します。想定案件による答案モデルであり、著者自身の民間勤務経験を示すものではありません。固有の事実・数値は自分の経験に置き換えてください。R8予想問題は含みません。',
     shortTitle: '総監記述式 土質基礎コンサル',
@@ -355,6 +380,7 @@ const MAGAZINES_RAW = {
     id: 'essay-water-consultant-magazine',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/me0255472f9ed',
+    noteTitle: '技術士 総監｜上下水道コンサルの記述式5年分',
     title: '技術士 総監｜上下水道コンサルの記述式5年分',
     description: '上下水道の調査・更新計画・設計を担う受注者として、技術品質・社内工程・技術者配置を統括する立場の模範論文集です。令和3〜7年度の実過去問5記事に、各年度A・Bの2案を収録。発注者の決裁権と自分の判断範囲を分け、5つの管理とトレードオフを具体化します。想定案件による答案モデルであり、著者自身の民間勤務経験を示すものではありません。固有の事実・数値は自分の経験に置き換えてください。R8予想問題は含みません。',
     shortTitle: '総監記述式 上下水道コンサル',
@@ -367,6 +393,7 @@ const MAGAZINES_RAW = {
     id: 'essay-maintenance-contractor-magazine',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/mabf26d2c72fb',
+    noteTitle: '技術士 総監｜維持更新施工の記述式5年分',
     title: '技術士 総監｜維持更新施工の記述式5年分',
     description: '維持修繕・更新工事の施工者として、供用条件・施工品質・安全・要員配置を統括する立場の模範論文集です。令和3〜7年度の実過去問5記事に、各年度A・Bの2案を収録。発注者の決裁権と自分の判断範囲を分け、5つの管理とトレードオフを具体化します。想定案件による答案モデルであり、著者自身の民間勤務経験を示すものではありません。固有の事実・数値は自分の経験に置き換えてください。R8予想問題は含みません。',
     shortTitle: '総監記述式 維持更新施工',
@@ -379,6 +406,7 @@ const MAGAZINES_RAW = {
     id: 'essay-steel-concrete-consultant-magazine',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m4748140fa8aa',
+    noteTitle: '技術士 総監｜鋼コンコンサルの記述式5年分',
     title: '技術士 総監｜鋼コンコンサルの記述式5年分',
     description: '鋼橋の設計・照査、既設橋の診断、コンクリート構造物の耐久性評価に携わる受注者を想定した模範論文集。令和3〜7年度の実過去問5記事に各年度A・Bの2案を収録し、5つの管理とトレードオフを具体化します。架空の答案モデルであり、固有の事実・数値は自分の経験に置き換えて使います。R8予想問題は含みません。',
     shortTitle: '総監記述式 鋼コンコンサル',
@@ -391,6 +419,7 @@ const MAGAZINES_RAW = {
     id: 'essay-tunnel-consultant-magazine',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m0e0e97176181',
+    noteTitle: '技術士 総監｜トンネルコンサルの記述式5年分',
     title: '技術士 総監｜トンネルコンサルの記述式5年分',
     description: '山岳トンネルの調査・設計、施工時地質評価、供用トンネルの診断・補修設計に携わる受注者を想定した模範論文集。令和3〜7年度の実過去問5記事に各年度A・Bの2案を収録し、5つの管理とトレードオフを具体化します。架空の答案モデルであり、固有の事実・数値は自分の経験に置き換えて使います。R8予想問題は含みません。',
     shortTitle: '総監記述式 トンネルコンサル',
@@ -403,6 +432,7 @@ const MAGAZINES_RAW = {
     id: 'essay-road-paving-contractor-magazine',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/mb671a0340871',
+    noteTitle: '技術士 総監｜道路舗装施工の記述式5年分',
     title: '技術士 総監｜道路舗装施工の記述式5年分',
     description: '道路舗装の施工計画、合材製造、路上施工、交通規制、維持修繕に携わる施工者を想定した模範論文集。令和3〜7年度の実過去問5記事に各年度A・Bの2案を収録し、5つの管理とトレードオフを具体化します。架空の答案モデルであり、固有の事実・数値は自分の経験に置き換えて使います。R8予想問題は含みません。',
     shortTitle: '総監記述式 道路舗装施工',
@@ -419,6 +449,7 @@ const MAGAZINES_RAW = {
     id: 'essay-complete-pack',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m171222175fac',
+    noteTitle: '総監記述式 完全パック｜全20ペルソナ・全217記事',
     title: '総監記述式 完全パック｜全20ペルソナ・全217記事',
     description:
       '型・国家施策・R8予想演習・20ペルソナの模範論文（受注者10＋自治体10）・精読・択一過去問PDFを収録した全217記事。土質基礎・上下水道・維持更新施工・鋼コン・トンネル・道路舗装施工の6ペルソナは令和3〜7年度を各年A・B案で収録。既存14ペルソナとは収録年度が異なります。口頭試験対策は別売です。',
@@ -442,6 +473,7 @@ const MAGAZINES_RAW = {
     id: 'essay-core-pack',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m6e7de5e4ea3d',
+    noteTitle: '技術士 総監｜記述式 コアパック',
     title: '総監記述式 コアパック｜型 × 設問3 × R8予想（ペルソナ非依存3本）',
     description:
       '記述式の答案を完成させる最小セット。クロストレードオフ（5管理対立の型）＋設問(3)国家施策バンク（弾薬）＋R8予想問題集（演習）の3本を収録。収録の設問(3)バンクは、R8本試験テーマ「地方創生」を6/1公開で事前収録した実績があります。どの分野・立場でも効く横断教材で、自分のペルソナ別模範論文は単品で1つ足すだけ。単品合計¥7,940相当。',
@@ -462,6 +494,7 @@ const MAGAZINES_RAW = {
     id: 'civil-2-experience-essay',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m1881a9578027',
+    noteTitle: '2級土木 施工経験記述｜工種×テーマ別 完成答案集',
     title: '2級土木 施工経験記述｜工種×テーマ別 完成答案集（安全・品質・工程）',
     description:
       '2級土木施工管理技士 第2次検定 問題1（施工経験記述）の完成答案集。安全・品質・工程の3テーマ別に、複数工種のフル完成答案＋自分の現場への置換ガイド＋減点回避の添削例＋採点者視点を収録。令和6年度の新形式（2テーマ必答）と令和5年度以前の3項目形式の両方に対応。',
@@ -482,6 +515,7 @@ const MAGAZINES_RAW = {
     id: 'civil-1-experience-essay',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m150c9db08902',
+    noteTitle: '1級土木 施工経験記述｜工種×テーマ別 完成答案集',
     title: '1級土木 施工経験記述｜工種×テーマ別 完成答案集（5管理）',
     description:
       '1級土木施工管理技士 第2次検定 問題1（施工経験記述）の完成答案集。品質・安全・工程・施工計画・環境対策の5管理別に、複数工種のフル完成答案（監理技術者レベル）＋自分の現場への置換ガイド＋減点回避の添削例＋採点者視点を収録。令和6年度の新形式（2テーマ必答）に対応。',
@@ -501,6 +535,7 @@ const MAGAZINES_RAW = {
     id: 'civil-1-pastexam-essay',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m3a578194a0a9',
+    noteTitle: '1級土木 施工経験記述｜過去問 模範答案集',
     title: '1級土木 施工経験記述｜過去問 模範答案集（R03-R07 年度別）',
     description:
       '1級土木施工管理技士 第2次検定 問題1（施工経験記述）の過去問模範答案集。令和3〜7年度の実際の試験問題を年度別に再掲し、その年の出題管理項目に対し各年度3工事（想定工事①②③）のフル模範答案（監理技術者レベル）＋置換ガイド＋採点者視点を収録。自分の工事に近い例を選べる。令和6年度以降の2テーマ必答にも対応。',
@@ -520,6 +555,7 @@ const MAGAZINES_RAW = {
     id: 'civil-2-pastexam-essay',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/md3aa0f9a37d7',
+    noteTitle: '2級土木 施工経験記述｜過去問 模範答案集（R03-R07）',
     title: '2級土木 施工経験記述｜過去問 模範答案集（R03-R07 年度別）',
     description:
       '2級土木施工管理技士 第2次検定 問題1（施工経験記述）の過去問模範答案集。令和3〜7年度の実際の試験問題を年度別に再掲し、その年の出題管理項目に対し各年度3工事（想定工事①②③）のフル模範答案（主任技術者レベル）＋置換ガイド＋採点者視点を収録。自分の工事に近い例を選べる。選択制（R03-R05）と2テーマ必答（R06-R07）の両方に対応。',
@@ -544,6 +580,7 @@ const MAGAZINES_RAW = {
     id: 'civil-2-koji-bank',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m8554e87ca6ec',
+    noteTitle: '2級土木 施工経験記述｜想定工事バンク 5管理フル',
     title: '2級土木 施工経験記述｜想定工事バンク（工種×5管理フル）',
     description:
       '2級土木施工管理技士 第2次検定 問題1（施工経験記述）の想定工事バンク。主要8工種と追加ラインナップの60工事を収録し、自分が経験した工事に近い工種を選べば、その1工事で品質・安全・工程の3管理をまとめて準備できる工事起点の完成答案集。各工事で現行形式（令和6年度〜・各250字）と令和5年度以前の3項目形式の両方に対応したフル答案＋自分の現場への置換ガイド＋減点NG→合格答案の添削例＋採点者視点＋2テーマ必答の組合せ早見表を収録。必出の3管理に加え、制度改定に備えた保険として施工計画・環境対策も同じ工事で用意（この2つは現状の経験記述では未出題）。無料の工事起点索引で自分の現場に近い工事を探せる。現場代理人・主任技術者レベルの独自表現で、改変前提のテンプレート（合格を保証するものではありません）。',
@@ -614,6 +651,7 @@ const MAGAZINES_RAW = {
     id: 'civil-1-combo-essay',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m74cfd7c695d6',
+    noteTitle: '1級土木 施工経験記述｜2テーマ組合せ大全（全10組合せ）',
     title: '1級土木 施工経験記述｜2テーマ組合せ大全（5管理 全10組合せ）',
     description:
       '1級土木施工管理技士 第2次検定 問題1（施工経験記述）の2テーマ組合せ大全。令和6年度以降の現行形式（5管理から2テーマが選ばれ、同一工事で設問1・設問2に書き分ける・同一内容不可）に対し、C(5,2)=10通りの全組合せを網羅。各組合せに別現場・別工種の想定工事①②③のフル模範答案（監理技術者レベル）を収録し、どの2テーマが出ても自分の経験工事に当てはめて書ける。投機的な予想ではなく現行形式の全網羅。',
@@ -639,6 +677,7 @@ const MAGAZINES_RAW = {
     id: 'civil-1-keiken-complete-pack',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m8290970a7f05',
+    noteTitle: '1級土木 施工経験記述｜完全攻略パック',
     // サイト CTA は有料マガジンへ直行させず、無料の「想定工事150 索引」に着地させる
     // （工事起点で選ぶ front-door → そこから pack/単品へ）。noteUrl はマガジン SoT で不変。
     landingUrl: 'https://note.com/dobokunote/n/n9cf7e60661fa',
@@ -662,6 +701,7 @@ const MAGAZINES_RAW = {
     id: 'civil-1-keiken-bridge-maintenance-pack',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/mbcc9f67baf80',
+    noteTitle: '1級土木 施工経験記述｜橋梁維持更新 8工事',
     title: '1級土木 施工経験記述｜橋梁維持更新 8工事',
     description: '橋梁の維持更新工事から施工経験記述を準備する分野別セット。伸縮装置・支承・桁端部・剥落防止・塗替塗装・橋面排水・中央分離帯防護柵・床版下面補強の8工事について、品質・安全・工程・施工計画・環境対策の5管理を収録。完全攻略パックと同じ記事のため、同パック購入者は追加購入不要。',
     shortTitle: '1級土木 橋梁維持更新 8工事',
@@ -673,6 +713,7 @@ const MAGAZINES_RAW = {
     id: 'civil-1-keiken-road-tunnel-pack',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/ma782ece5c04e',
+    noteTitle: '1級土木 施工経験記述｜道路・トンネル維持 7工事',
     title: '1級土木 施工経験記述｜道路・トンネル維持 7工事',
     description: '供用中の道路・トンネル・地下構造物の維持更新から施工経験記述を準備する分野別セット。道路法面、標識基礎、トンネル覆工・換気設備・背面空洞、共同溝、函渠の7工事×5管理を収録。完全攻略パックと同じ記事のため、同パック購入者は追加購入不要。',
     shortTitle: '1級土木 道路・トンネル維持 7工事',
@@ -684,6 +725,7 @@ const MAGAZINES_RAW = {
     id: 'civil-1-keiken-river-disaster-pack',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m713ed083f60a',
+    noteTitle: '1級土木 施工経験記述｜河川・災害復旧 10工事',
     title: '1級土木 施工経験記述｜河川・災害復旧 10工事',
     description: '河川・砂防・海岸・災害復旧から施工経験記述を準備する分野別セット。護岸・堤防・流木捕捉工・水門・養浜・地すべり・魚道・林道・治山・無人化施工の10工事×5管理を収録。完全攻略パックと同じ記事のため、同パック購入者は追加購入不要。',
     shortTitle: '1級土木 河川・災害復旧 10工事',
@@ -695,6 +737,7 @@ const MAGAZINES_RAW = {
     id: 'civil-1-keiken-water-treatment-pack',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/mf5b91216ae1f',
+    noteTitle: '1級土木 施工経験記述｜上下水道・処理施設 7工事',
     title: '1級土木 施工経験記述｜上下水道・処理施設 7工事',
     description: '上下水道・処理施設の更新工事から施工経験記述を準備する分野別セット。耐震管、マンホール更生、処理場水槽、浸入水対策、遮水工、焼却施設基礎、取水スクリーンの7工事×5管理を収録。完全攻略パックと同じ記事のため、同パック購入者は追加購入不要。',
     shortTitle: '1級土木 上下水道・処理施設 7工事',
@@ -706,6 +749,7 @@ const MAGAZINES_RAW = {
     id: 'civil-2-keiken-local-road-pack',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m0c3962036eb8',
+    noteTitle: '2級土木 施工経験記述｜地域道路・付帯施設 10工事',
     title: '2級土木 施工経験記述｜地域道路・付帯施設 10工事',
     description: '市町村道や身近な道路付帯工事から施工経験記述を準備する分野別セット。側溝、歩道、舗装、区画線、防護柵、擁壁、落石防護、法面植生・排水など10工事×5管理を収録。想定工事バンクと同じ記事のため、同バンク購入者は追加購入不要。',
     shortTitle: '2級土木 地域道路・付帯施設 10工事',
@@ -717,6 +761,7 @@ const MAGAZINES_RAW = {
     id: 'civil-2-keiken-water-drainage-pack',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m605fc37bee01',
+    noteTitle: '2級土木 施工経験記述｜上下水道・排水 5工事',
     title: '2級土木 施工経験記述｜上下水道・排水 5工事',
     description: '上下水道・排水の小中規模工事から施工経験記述を準備する分野別セット。L型水路、水道枝線耐震管、公共桝・取付管、マンホール更生、雨水集水施設の5工事×5管理を収録。想定工事バンクと同じ記事のため、同バンク購入者は追加購入不要。',
     shortTitle: '2級土木 上下水道・排水 5工事',
@@ -728,6 +773,7 @@ const MAGAZINES_RAW = {
     id: 'civil-2-keiken-river-rural-park-pack',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m22183b1034b2',
+    noteTitle: '2級土木 施工経験記述｜河川・農林・公園 7工事',
     title: '2級土木 施工経験記述｜河川・農林・公園 7工事',
     description: '河川・農業土木・林道・公園の小中規模工事から施工経験記述を準備する分野別セット。護岸、根固め、河川通路、農業用水路、ため池、林道、公園園路の7工事×5管理を収録。想定工事バンクと同じ記事のため、同バンク購入者は追加購入不要。',
     shortTitle: '2級土木 河川・農林・公園 7工事',
@@ -756,6 +802,7 @@ const MAGAZINES_RAW = {
     id: 'civil-1-gakka-kijutsu',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/mcfe1059b3335',
+    noteTitle: '1級土木 二次学科記述｜テーマ別 出る順',
     title: '1級土木 二次学科記述｜テーマ別 出る順 完全攻略（問題2〜11）',
     description:
       '1級土木施工管理技士 第2次検定の学科記述（問題2〜11）を、年度別ではなくテーマ別に横断再編した完全攻略集。土工／コンクリート工／安全管理・法規／施工計画・環境／品質管理の5本立てで、令和3〜7年度の5年分の出題を分野ごとに束ね、出題頻度マトリクス（何が何年に出たか）と出る順ランキング、設問パターン別の解答の型、頻出語句の穴埋めリストを収録。過去問の客観的な頻度分析に基づく後ろ向きの整理で、経験記述（問題1）で埋まっていた対策の穴を学科記述側から埋める。※改変・自作の学習前提。合格を保証するものではありません。',
@@ -774,6 +821,7 @@ const MAGAZINES_RAW = {
     id: 'civil-2-gakka-kijutsu',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m9a09a8982734',
+    noteTitle: '2級土木 二次学科記述｜テーマ別 出る順',
     title: '2級土木 二次学科記述｜テーマ別 出る順 完全攻略（問題2〜9）',
     description:
       '2級土木施工管理技士 第2次検定の学科記述（問題2〜9）を、年度別ではなくテーマ別に横断再編した完全攻略集。土工／コンクリート工／安全管理・法規／施工計画・環境／品質管理の5本立てで、令和3〜7年度の出題を分野ごとに束ね、出題頻度と出る順、設問パターン別の解答の型、頻出語句の穴埋めリストを収録。過去問の客観的な頻度分析に基づく後ろ向きの整理。※改変・自作の学習前提。合格を保証するものではありません。',
@@ -840,6 +888,7 @@ const MAGAZINES_RAW = {
     id: 'civil-1-chokuzen-pack',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m7a9b3ad964f6',
+    noteTitle: '1級土木 二次｜直前総仕上げパック',
     title: '1級土木 二次｜直前総仕上げパック（予想模試3回＋直前暗記ノート＋出題分析）',
     description:
       '1級土木施工管理技士 第2次検定の直前2週間に絞った3点セット。本試験形式のR8予想模試3回（問題冊子＋解答解説PDF6冊）で実力を確認し、二次学科記述 直前暗記ノート（一問一答160問・赤シート対応A5PDF）で穴埋めの抜けを潰し、出題分析・直前重点（過去5年の実績分析＋直前2週間ロードマップ）で優先順位を決める。単品合計¥4,440が¥2,980。経験記述の全模範答案まで欲しい方は二次検定まるごとパックへ。',
@@ -933,6 +982,7 @@ const MAGAZINES_RAW = {
     id: 'civil-1-niji-marugoto-pack',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/md29a34906314',
+    noteTitle: '1級土木 二次検定まるごとパック',
     // サイト CTA は有料マガジンへ直行させず、無料の「まるごとパック 総合案内」に着地させる
     // （3つの柱の全体像を見せてから購入へ）。noteUrl はマガジン SoT で不変。
     landingUrl: 'https://note.com/dobokunote/n/n824a4ea20acf',
@@ -957,6 +1007,7 @@ const MAGAZINES_RAW = {
     id: 'civil-2-niji-marugoto-pack',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m2d9a069b6f87',
+    noteTitle: '2級土木 二次検定まるごとパック',
     landingUrl: 'https://note.com/dobokunote/n/n89b3048e5d24',
     title: '2級土木 二次検定まるごとパック（経験記述＋学科記述＋直前対策）',
     description:
@@ -976,6 +1027,7 @@ const MAGAZINES_RAW = {
     id: 'civil-2-chokuzen-pack',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/md3518107aa97',
+    noteTitle: '2級土木 二次｜直前総仕上げパック',
     title: '2級土木 二次｜直前総仕上げパック（予想模試3回＋直前暗記ノート＋出題分析）',
     description:
       '2級土木施工管理技士 第2次検定（10/25）の直前2週間に絞った3点セット。本試験形式のR8予想模試3回（問題冊子＋解答解説PDF6冊）で実力を確認し、直前暗記ノート（一問一答147問・赤シート対応A5PDF）で穴埋めの抜けを潰し、出題分析・直前重点（過去5年の実績分析＋直前2週間ロードマップ）で優先順位を決める。単品合計¥3,140が¥2,480。経験記述の全模範答案まで欲しい方は二次検定まるごとパックへ。',
@@ -1007,6 +1059,7 @@ const MAGAZINES_RAW = {
     id: 'civil-membership-odai-lab',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/mbe07bd5cecda',
+    noteTitle: '経験記述 週次お題ラボ｜1級・2級土木（会員専用）',
     title: '経験記述 週次お題ラボ｜1級・2級土木（会員専用）',
     description:
       '土木セコカン合格ラボの会員特典マガジン。1級・2級土木施工管理技士の施工経験記述について、毎週1テーマの「お題」を会員限定で配信します。模範答案を読むのではなく、自分が経験した工事でお題に答える演習形式で、5管理（安全・品質・工程・施工計画・環境）を一巡します。各回は設問・出題予想の根拠・採点者の着眼点・やりがちなNG・級別の答案形式差で構成。添削つきプランではこのお題への答案を毎週1本、NG→OK赤入れ＋採点者視点で返します。会員限定のため単体購入はできません。',
@@ -1045,6 +1098,7 @@ const MAGAZINES_RAW = {
     id: 'cd-essay-magazine',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/mf2a132408b6f',
+    noteTitle: 'コンクリート診断士 記述式｜問題A・問題B 模範答案集',
     title: 'コンクリート診断士 記述式｜問題A・問題B 模範答案集',
     description:
       'コンクリート診断士試験 記述式（問題A・問題B）のフル模範答案集。問題A（資質・論述）2本、問題B（具体構造物の診断・対策提案）5本を塩害・中性化・ASR・凍害・疲労複合の劣化機構別に収録。答案の型と採点視点をまとめた解法ガイド1本付き。想定問題はオリジナル代表例、固有数値は置換前提。',
@@ -1060,6 +1114,7 @@ const MAGAZINES_RAW = {
     id: 'cd-structure-case-bank',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/md94d10122def',
+    noteTitle: '診断士 記述式｜構造物別8ケース',
     title: 'コンクリート診断士 記述式｜構造物別 想定8ケース',
     description:
       '下水処理施設、道路トンネル、立体駐車場、PC橋、配水池、港湾桟橋、RC橋脚、RC擁壁の8構造物を題材に、変状把握から劣化機構の推定、調査、評価、対策までを一貫して論じる問題Bのオリジナル想定問題とフル模範答案集。',
@@ -1072,6 +1127,7 @@ const MAGAZINES_RAW = {
     id: 'cd-road-bridge-pack',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m7a59ccbb7e47',
+    noteTitle: '診断士 記述式｜道路・橋梁8ケース',
     title: 'コンクリート診断士 記述式｜道路・橋梁8ケース',
     description:
       '既存の塩害・ASR・凍害・疲労複合に、道路トンネル、PC橋、港湾桟橋、地震後のRC橋脚を加えた道路・橋梁系8ケース。解法ガイドを含む全9記事を、道路・橋梁の維持管理に携わる受験者向けに再収録する。',
@@ -1084,6 +1140,7 @@ const MAGAZINES_RAW = {
     id: 'cd-water-underground-pack',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m00172a143bcc',
+    noteTitle: '診断士 記述式｜水・地下5ケース',
     title: 'コンクリート診断士 記述式｜水・地下5ケース',
     description:
       '中性化、下水処理施設の化学的侵食、道路トンネルの漏水・凍害、配水池のひび割れ・漏水、RC擁壁の初期欠陥・中性化を収録。水処理・地下構造物・擁壁の診断に近い受験者向けの5ケースと解法ガイド。',
@@ -1096,6 +1153,7 @@ const MAGAZINES_RAW = {
     id: 'cd-building-facility-pack',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/me3141ce22b7e',
+    noteTitle: '診断士 記述式｜建築・施設4ケース',
     title: 'コンクリート診断士 記述式｜建築・施設4ケース',
     description:
       '中性化、ASR、立体駐車場の火害、RC擁壁の初期欠陥・中性化を収録。建築・施設管理に近い受験者が、外観変状から調査、性能評価、補修・補強までを練習する4ケースと解法ガイド。',
@@ -1108,6 +1166,7 @@ const MAGAZINES_RAW = {
     id: 'cd-problem-a-pack',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m864077343c10',
+    noteTitle: '診断士 記述式｜問題A集中パック',
     title: 'コンクリート診断士 記述式｜問題A集中パック',
     description:
       '診断士の役割と倫理、維持管理の考え方を論じる問題Aの模範答案2本に、答案の型と採点視点をまとめた解法ガイドを加えた全3記事。問題Aだけを短期間で固めたい受験者向け。',
@@ -1120,6 +1179,7 @@ const MAGAZINES_RAW = {
     id: 'cd-problem-b-pack',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m629f8736f9c3',
+    noteTitle: '診断士 記述式｜問題B 13ケース',
     title: 'コンクリート診断士 記述式｜問題B 13ケース',
     description:
       '既存の劣化機構別5ケースと、新規の構造物別8ケースを統合した問題Bの全13ケース。変状把握、劣化機構の推定、調査、評価、対策の型を横断して反復できる。解法ガイドを含む全14記事。',
@@ -1132,6 +1192,7 @@ const MAGAZINES_RAW = {
     id: 'cd-essay-complete-pack',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m8a5396da31ce',
+    noteTitle: '診断士 記述式｜問題A・B 完全パック',
     title: 'コンクリート診断士 記述式｜問題A・B 完全パック',
     description:
       '解法ガイド、問題Aの模範答案2本、問題Bの劣化機構別5ケースと構造物別8ケースを統合した記述式全16記事。問題A・Bを一つの商品で通して練習したい受験者向け。',
@@ -1156,6 +1217,7 @@ const MAGAZINES_RAW = {
     id: 'cd-marugoto-pack',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m1526302c9c99',
+    noteTitle: '診断士｜択一・記述式 まるごと',
     title: 'コンクリート診断士｜択一・記述式 まるごとパック',
     description:
       '四肢択一演習98問の印刷用PDFと、解法ガイド、問題Aの模範答案2本、問題Bの13ケースを束ねる全17記事の総合教材。',
@@ -1359,6 +1421,7 @@ const MAGAZINES_RAW = {
     id: 'cce-essay-reiwa-pack',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m97a0049a10de',
+    noteTitle: '主任技士 小論文｜令和形式 5テーマ×8立場',
     title: 'コンクリート主任技士 小論文｜令和形式 テーマ別模範答案（5テーマ×8立場）',
     description:
       'コンクリート主任技士試験の小論文を、令和2年度以降の「1題・約1,000字・行数指定」の形式で書くための模範答案集。平成24年度〜令和7年度の出題を突き合わせ、環境負荷低減／耐久性の向上・維持管理／生産性向上・DX／気候変動に対応した品質確保／担い手不足下の品質確保の5系統に整理した。各テーマは (1) 表題・(2) 現状と課題・(4) 今後の技術的対策を共通部分として1本、(3) 業務との関係を生コン工場・プレキャスト工場・ゼネコン土木施工・維持管理補修・発注者・ゼネコン建築施工・設計コンサルタント・試験検査機関の8立場で書き分け、自分の立場の (3) を差し込めば本番と同じ約1,000字の答案になる。問題文は公式に公開されていないため、出題一覧は市販の過去問解説書と受験者の公開記事の突合によるもので、確度を併記している。答案は各立場を想定したモデルで、著者自身の職歴を意味しない。',
@@ -1388,6 +1451,7 @@ const MAGAZINES_RAW = {
     id: 'cce-takuitsu-chokuzen-pack',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/mfdf781d7222b',
+    noteTitle: 'コンクリート主任技士 択一｜直前パック',
     title: 'コンクリート主任技士 択一｜直前パック（予想50問＋配合計算12問＋直前暗記ノート）',
     description:
       'コンクリート主任技士試験（11/29）の四肢択一を直前2週間で仕上げる3点セット。令和8年度 四肢択一 予想50問（8分野・全選択肢解説）で実力を確認し、配合計算 実戦演習12問（途中式つき）で計算手順を固め、直前暗記ノート（一問一答157問）で数値と定義の抜けを潰す。単品合計¥4,440が¥2,980。小論文まで欲しい方はまるごとパックへ。',
@@ -1410,6 +1474,7 @@ const MAGAZINES_RAW = {
     id: 'cce-marugoto-pack',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m09d20bfd9738',
+    noteTitle: 'コンクリート主任技士 まるごとパック',
     // サイト CTA は有料マガジン直行でなく無料の索引記事へ着地させる（civil まるごとと同型）。
     landingUrl: 'https://note.com/dobokunote/n/n5395599af1f8',
     title: 'コンクリート主任技士 まるごとパック（択一＋小論文＋配合計算＋直前暗記）',
@@ -1490,6 +1555,7 @@ const MAGAZINES_RAW = {
     id: 'ce-chokuzen-pack',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m49ac37c76bef',
+    noteTitle: 'コンクリート技士 択一｜直前パック',
     title: 'コンクリート技士 択一｜直前パック（配合計算・JIS判断 実戦演習12問＋直前暗記ノート）',
     description:
       'コンクリート技士試験（11/29）の四肢択一を直前期に2点で仕上げるパック。配合計算・JIS判断 実戦演習12問（途中式・全選択肢解説）で計算と判断の手順を固め、直前暗記ノート（一問一答139問）で数値・定義の抜けを潰す。単品合計¥2,060が¥1,480。',
@@ -1606,6 +1672,7 @@ const MAGAZINES_RAW = {
     id: 'pe-construction-required-magazine',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m0f3bc3933454',
+    noteTitle: '技術士 建設部門 2次｜必須科目I 模範解答集',
     title: '技術士 建設部門 2次｜必須科目I 模範解答集（R03-R07＋R8予想）',
     description:
       '技術士第二次試験 建設部門で全受験者必須の「必須科目I」を、令和3〜7年度の5年分まとめた模範解答集。元・地方自治体の土木職（発注者）視点で、安全・品質・コスト・環境の統合判断や住民対応・行政責任といった採点軸を補う。各年度に設問全文（出典明記）を再掲し、設問構成と論述方針・I-1とI-2の両問それぞれのフル模範解答（各約1,600字・本番で選ぶ側の問題をどちらを選んでも対応可）・採点者が見るポイントを収録。さらに令和8年度の出題傾向・国土交通行政の重点施策・改訂コンピテンシーから導出した予想問題6テーマ（担い手×建設DX／気候変動適応・防災／インフラ老朽化・AM／カーボンニュートラル・GX／国土形成・地域づくり／インフラDX・データ活用）を収録。各テーマは最重要課題の選び方で分岐するA案・B案の2バージョン併記で、自分の専門・経験に近い案を選べる。各記事に印刷用PDF付き（全11記事）。',
@@ -1620,6 +1687,7 @@ const MAGAZINES_RAW = {
     id: 'pe-construction-road-magazine',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m9e825cfd8348',
+    noteTitle: '建設部門2次｜道路 選択科目 模範解答集（R03-R07）',
     title: '技術士 建設部門 2次｜道路 選択科目 模範解答集（R03-R07＋R8予想）',
     description:
       '技術士第二次試験 建設部門「道路」選択科目の令和3〜7年度を、II-1（全4設問）・II-2（両選択肢）・III（両問題）の全選択肢でフル解答した模範解答集（5年分 × 3区分 ＝ 15記事）。道路科目の合格者かつ元・地方自治体の土木職（発注者）の視点で、各記事に設問全文（出典明記）・設問構成と論述方針・フル模範解答・採点者が見るポイントを収録。さらに令和8年度の出題傾向・国土交通行政の重点施策・改訂コンピテンシーから導出した予想問題＋フル模範解答（II-1、II-2 は計画系／維持管理／防災施工／施工系の4テーマ、III は脱炭素／4車線化／事前防災／xROAD の4テーマ＝計9記事）を収録した試験直前対策付き（全24記事）。各記事に印刷用PDF付き。',
@@ -1633,6 +1701,7 @@ const MAGAZINES_RAW = {
     id: 'pe-construction-river-coast-magazine',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/mba17c3f8b894',
+    noteTitle: '建設部門2次｜河川砂防 選択科目 模範解答集',
     title: '技術士 建設部門 2次｜河川・砂防及び海岸・海洋 選択科目 模範解答集（R03-R07＋R8予想）',
     description:
       '技術士第二次試験 建設部門「河川、砂防及び海岸・海洋」選択科目の令和3〜7年度を、II-1（全4設問）・II-2（両選択肢）・III（両問題）の全選択肢でフル解答した模範解答集＋令和8年度予想（過去問 5年分×3区分＝15記事 ＋ R8予想3記事 ＝ 全18記事）。元・地方自治体の土木職（発注者）として河川・砂防・海岸の発注・監督・積算審査に携わった視点で、各記事に設問全文（出典明記）・設問構成と論述方針・フル模範解答・採点者が見るポイントを収録。',
@@ -1646,6 +1715,7 @@ const MAGAZINES_RAW = {
     id: 'pe-construction-urban-planning-magazine',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/mc8bd949f1f51',
+    noteTitle: '建設部門2次｜都市計画 模範解答集（R3-R7＋R8予想）',
     title: '技術士 建設部門 2次｜都市及び地方計画 選択科目 模範解答集（R03-R07＋R8予想）',
     description:
       '技術士第二次試験 建設部門「都市及び地方計画」選択科目の令和3〜7年度を、II-1（全4設問）・II-2（両選択肢）・III（両問題）の全選択肢でフル解答した模範解答集＋令和8年度予想（過去問 5年分×3区分＝15記事 ＋ R8予想3記事 ＝ 全18記事）。元・地方自治体の土木職（発注者）として立地適正化・市街地再開発・公園緑地等の都市計画・まちづくり関連業務の発注・監督に携わった視点で、各記事に設問全文（出典明記）・設問構成と論述方針・フル模範解答・採点者が見るポイントを収録。各記事に印刷用PDF付き。',
@@ -1659,6 +1729,7 @@ const MAGAZINES_RAW = {
     id: 'pe-construction-geotechnical-magazine',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/me7ebb48b319e',
+    noteTitle: '建設部門2次｜土質基礎 選択科目 模範解答集',
     title: '技術士 建設部門 2次｜土質及び基礎 選択科目 模範解答集（R03-R07＋R8予想）',
     description:
       '技術士第二次試験 建設部門「土質及び基礎」選択科目の令和3〜7年度を、II-1（全設問）・II-2（両選択肢）・III（両問題）の全選択肢でフル解答した模範解答集（5年分 × 3区分 ＝ 15記事）。元・地方自治体の土木職（発注者）として軟弱地盤・基礎工事の発注・監督・地盤調査審査に携わった視点で、各記事に設問全文（出典明記）・設問構成と論述方針・フル模範解答・採点者が見るポイントを収録。さらに令和8年度の出題傾向・改訂コンピテンシーから導出した予想問題＋フル模範解答（II-1/II-2/IIIの3記事）を加えた全18記事。各記事に印刷用PDF付き。',
@@ -1671,6 +1742,7 @@ const MAGAZINES_RAW = {
     id: 'pe-construction-steel-concrete-magazine',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/md38f1de30c31',
+    noteTitle: '建設部門2次｜鋼コン 選択科目 模範解答集',
     title: '技術士 建設部門 2次｜鋼構造及びコンクリート 選択科目 模範解答集（R03-R07＋R8予想）',
     description:
       '技術士第二次試験 建設部門「鋼構造及びコンクリート」選択科目の令和3〜7年度を、II-1（全設問）・II-2（両選択肢）・III（両問題）の全選択肢でフル解答した模範解答集（5年分 × 3区分 ＝ 15記事）。元・地方自治体の土木職（発注者）として橋梁・コンクリート構造物工事の発注・監督・点検に携わった視点で、各記事に設問全文（出典明記）・設問構成と論述方針・フル模範解答・採点者が見るポイントを収録。さらに令和8年度の出題傾向・改訂コンピテンシーから導出した予想問題＋フル模範解答（3記事）を加えた全18記事。各記事に印刷用PDF付き。',
@@ -1683,6 +1755,7 @@ const MAGAZINES_RAW = {
     id: 'pe-construction-construction-planning-magazine',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m1562f66d9654',
+    noteTitle: '建設部門2次｜施工計画 選択科目 模範解答集',
     title: '技術士 建設部門 2次｜施工計画・施工設備及び積算 選択科目 模範解答集（R03-R07＋R8予想）',
     description:
       '技術士第二次試験 建設部門「施工計画、施工設備及び積算」選択科目の令和3〜7年度を、II-1（全設問）・II-2（両選択肢）・III（両問題）の全選択肢でフル解答した模範解答集（5年分 × 3区分 ＝ 15記事）。元・地方自治体の土木職（発注者）として施工計画・積算審査・施工監督に携わった視点で、各記事に設問全文（出典明記）・設問構成と論述方針・フル模範解答・採点者が見るポイントを収録。さらに令和8年度の出題傾向・改訂コンピテンシーから導出した予想問題＋フル模範解答（3記事）を加えた全18記事。各記事に印刷用PDF付き。',
@@ -1695,6 +1768,7 @@ const MAGAZINES_RAW = {
     id: 'pe-construction-environment-magazine',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m76f1e545c541',
+    noteTitle: '建設部門2次｜建設環境 選択科目 模範解答集',
     title: '技術士 建設部門 2次｜建設環境 選択科目 模範解答集（R03-R07＋R8予想）',
     description:
       '技術士第二次試験 建設部門「建設環境」選択科目の令和3〜7年度を、II-1（全設問）・II-2（両選択肢）・III（両問題）の全選択肢でフル解答した模範解答集（5年分 × 3区分 ＝ 15記事）。元・地方自治体の土木職（発注者）として環境影響評価の発注・審査・環境保全対策に携わった視点で、各記事に設問全文（出典明記）・設問構成と論述方針・フル模範解答・採点者が見るポイントを収録。さらに令和8年度の出題傾向・改訂コンピテンシーから導出した予想問題＋フル模範解答（3記事）を加えた全18記事。各記事に印刷用PDF付き。',
@@ -1707,6 +1781,7 @@ const MAGAZINES_RAW = {
     id: 'pe-construction-port-airport-magazine',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m55096ddb1af6',
+    noteTitle: '建設部門2次｜港湾空港 選択科目 模範解答集',
     title: '技術士 建設部門 2次｜港湾及び空港 選択科目 模範解答集（R03-R07＋R8予想）',
     description:
       '技術士第二次試験 建設部門「港湾及び空港」選択科目の令和3〜7年度を、II-1（全設問）・II-2（両選択肢）・III（両問題）の全選択肢でフル解答した模範解答集（5年分 × 3区分 ＝ 15記事）。元・地方自治体の土木職（発注者）として港湾・海岸関連業務に携わった視点で、各記事に設問全文（出典明記）・設問構成と論述方針・フル模範解答・採点者が見るポイントを収録。さらに令和8年度の出題傾向・改訂コンピテンシーから導出した予想問題＋フル模範解答（3記事）を加えた全18記事。各記事に印刷用PDF付き。',
@@ -1719,6 +1794,7 @@ const MAGAZINES_RAW = {
     id: 'pe-construction-power-civil-magazine',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/ma87d182c8113',
+    noteTitle: '建設部門2次｜電力土木 選択科目 模範解答集',
     title: '技術士 建設部門 2次｜電力土木 選択科目 模範解答集（R03-R07＋R8予想）',
     description:
       '技術士第二次試験 建設部門「電力土木」選択科目の令和3〜7年度を、II-1（全設問）・II-2（両選択肢）・III（両問題）の全選択肢でフル解答した模範解答集（5年分＋R8予想 × 3区分 ＝ 18記事）。元・地方自治体の土木職（発注者）として電力関連土木工事の調整・監督に携わった視点で、ダム・水路・発電所土木の各記事に設問全文（出典明記）・設問構成と論述方針・フル模範解答・採点者が見るポイントを収録。令和8年度の改訂コンピテンシーにも対応。各記事に印刷用PDF付き。',
@@ -1731,6 +1807,7 @@ const MAGAZINES_RAW = {
     id: 'pe-construction-railway-magazine',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m535a4a4353c3',
+    noteTitle: '建設部門2次｜鉄道 選択科目 模範解答集',
     title: '技術士 建設部門 2次｜鉄道 選択科目 模範解答集（R03-R07＋R8予想）',
     description:
       '技術士第二次試験 建設部門「鉄道」選択科目の令和3〜7年度を、II-1（全設問）・II-2（両選択肢）・III（両問題）の全選択肢でフル解答した模範解答集（5年分＋R8予想 × 3区分 ＝ 18記事）。元・地方自治体の土木職（発注者）として道路・鉄道交差部の協議や鉄道関連土木の発注・監督に携わった視点で、軌道・鉄道構造物の各記事に設問全文（出典明記）・設問構成と論述方針・フル模範解答・採点者が見るポイントを収録。令和8年度の改訂コンピテンシーにも対応。各記事に印刷用PDF付き。',
@@ -1743,6 +1820,7 @@ const MAGAZINES_RAW = {
     id: 'pe-construction-tunnel-magazine',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m5da4b560d8be',
+    noteTitle: '建設部門2次｜トンネル 選択科目 模範解答集',
     title: '技術士 建設部門 2次｜トンネル 選択科目 模範解答集（R03-R07＋R8予想）',
     description:
       '技術士第二次試験 建設部門「トンネル」選択科目の令和3〜7年度を、II-1（全設問）・II-2（両選択肢）・III（両問題）の全選択肢でフル解答した模範解答集（5年分 × 3区分 ＝ 15記事）。元・地方自治体の土木職（発注者）としてトンネル工事の発注・施工監理に携わった視点で、各記事に設問全文（出典明記）・設問構成と論述方針・フル模範解答・採点者が見るポイントを収録。さらに令和8年度の出題傾向・改訂コンピテンシーから導出した予想問題＋フル模範解答（3記事）を加えた全18記事。各記事に印刷用PDF付き。',
@@ -1761,6 +1839,7 @@ const MAGAZINES_RAW = {
     id: 'pe-construction-road-pack',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/mebca45bcc745',
+    noteTitle: '建設部門2次｜道路まるごと合格パック',
     title: '技術士 建設部門 2次｜道路 まるごと合格パック（必須科目I＋道路選択科目）',
     description:
       '必須科目I 模範解答集（R03-R07＋R8予想・全11記事）と道路選択科目 模範解答集（R03-R07＋R8予想・全24記事）を束ねた合格パック。単品合計¥6,960が¥4,980。元・地方自治体の土木職（発注者）かつ道路科目合格者の視点で、本番で実際に解く「必須I＋道路」の組み合わせをそのまま収録。',
@@ -1774,6 +1853,7 @@ const MAGAZINES_RAW = {
     id: 'pe-construction-tunnel-pack',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m2029e394e260',
+    noteTitle: '建設部門2次｜トンネルまるごと合格パック',
     title: '技術士 建設部門 2次｜トンネル まるごと合格パック（必須科目I＋トンネル選択科目）',
     description:
       '必須科目I 模範解答集（R03-R07＋R8予想・全11記事）とトンネル選択科目 模範解答集（R03-R07＋R8予想・全18記事）を束ねた合格パック。単品合計¥6,460が¥4,980。元・地方自治体の土木職（発注者）視点で、本番で実際に解く「必須I＋トンネル」の組み合わせをそのまま収録。',
@@ -1787,6 +1867,7 @@ const MAGAZINES_RAW = {
     id: 'pe-construction-urban-planning-pack',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m5f63da67c0f3',
+    noteTitle: '建設部門2次｜都市計画まるごと合格パック',
     title: '技術士 建設部門 2次｜都市計画 まるごと合格パック（必須科目I＋都市計画選択科目）',
     description:
       '必須科目I 模範解答集（R03-R07＋R8予想・全11記事）と都市及び地方計画 選択科目 模範解答集（R03-R07＋R8予想・全18記事）を束ねた合格パック。単品合計¥6,460が¥4,980。元・地方自治体の土木職（発注者）かつ都市計画科目合格者の視点で、本番で実際に解く「必須I＋都市計画」の組み合わせをそのまま収録。',
@@ -1850,6 +1931,7 @@ const MAGAZINES_RAW = {
     id: 'pe1-chokuzen-pack',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/mfa3fcffdd85d',
+    noteTitle: '技術士 第一次試験｜直前パック',
     title: '技術士 第一次試験｜直前パック（過去問PDF 合本 全560問＋直前暗記ノート）',
     description:
       '技術士 第一次試験（11/22）を直前期に2点で仕上げるパック。令和元〜7年度 全560問の過去問PDF 合本（全選択肢解説・A4印刷用）で「全選択肢を根拠から説明できる」状態をつくり、直前暗記ノート（一問一答156問）で数値・条文・公式の抜けを潰す。単品合計¥2,460が¥1,980。',
@@ -1888,6 +1970,7 @@ const MAGAZINES_RAW = {
     id: 'pe-construction-river-coast-pack',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m99468c7c717f',
+    noteTitle: '建設部門2次｜河川砂防まるごと合格パック',
     title: '技術士 建設部門 2次｜河川・砂防 まるごと合格パック（必須科目I＋河川、砂防及び海岸・海洋 選択科目）',
     description:
       '必須科目I 模範解答集（R03-R07＋R8予想・全11記事）と河川、砂防及び海岸・海洋 選択科目 模範解答集（R03-R07＋R8予想・全18記事）を束ねた合格パック。単品合計¥6,460が¥4,980。元・地方自治体の土木職（発注者）かつ河川科目合格者の視点で、本番で実際に解く「必須I＋河川砂防」の組み合わせをそのまま収録。',
@@ -1901,6 +1984,7 @@ const MAGAZINES_RAW = {
     id: 'pe-construction-steel-concrete-pack',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m56b2dcc4cca2',
+    noteTitle: '建設部門2次｜鋼コンまるごと合格パック',
     title: '技術士 建設部門 2次｜鋼コン まるごと合格パック（必須科目I＋鋼構造及びコンクリート 選択科目）',
     description:
       '必須科目I 模範解答集（R03-R07＋R8予想・全11記事）と鋼構造及びコンクリート 選択科目 模範解答集（R03-R07＋R8予想・全18記事）を束ねた合格パック。単品合計¥6,460が¥4,980。元・地方自治体の土木職（発注者）視点で、本番で実際に解く「必須I＋鋼コン」の組み合わせをそのまま収録。',
@@ -1914,6 +1998,7 @@ const MAGAZINES_RAW = {
     id: 'pe-construction-geotechnical-pack',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m621daa62a087',
+    noteTitle: '建設部門2次｜土質基礎まるごと合格パック',
     title: '技術士 建設部門 2次｜土質基礎 まるごと合格パック（必須科目I＋土質及び基礎 選択科目）',
     description:
       '必須科目I 模範解答集（R03-R07＋R8予想・全11記事）と土質及び基礎 選択科目 模範解答集（R03-R07＋R8予想・全18記事）を束ねた合格パック。単品合計¥6,460が¥4,980。元・地方自治体の土木職（発注者）視点で、本番で実際に解く「必須I＋土質基礎」の組み合わせをそのまま収録。',
@@ -1927,6 +2012,7 @@ const MAGAZINES_RAW = {
     id: 'pe-construction-railway-pack',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m98f92c18412e',
+    noteTitle: '建設部門2次｜鉄道まるごと合格パック',
     title: '技術士 建設部門 2次｜鉄道 まるごと合格パック（必須科目I＋鉄道 選択科目）',
     description:
       '必須科目I 模範解答集（R03-R07＋R8予想・全11記事）と鉄道 選択科目 模範解答集（R03-R07＋R8予想・全18記事）を束ねた合格パック。単品合計¥6,460が¥4,980。元・地方自治体の土木職（発注者）視点で、本番で実際に解く「必須I＋鉄道」の組み合わせをそのまま収録。',
@@ -1940,6 +2026,7 @@ const MAGAZINES_RAW = {
     id: 'pe-construction-environment-pack',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/me506e9bdde6a',
+    noteTitle: '建設部門2次｜建設環境まるごと合格パック',
     title: '技術士 建設部門 2次｜建設環境 まるごと合格パック（必須科目I＋建設環境 選択科目）',
     description:
       '必須科目I 模範解答集（R03-R07＋R8予想・全11記事）と建設環境 選択科目 模範解答集（R03-R07＋R8予想・全18記事）を束ねた合格パック。単品合計¥6,460が¥4,980。元・地方自治体の土木職（発注者）視点で、本番で実際に解く「必須I＋建設環境」の組み合わせをそのまま収録。',
@@ -1953,6 +2040,7 @@ const MAGAZINES_RAW = {
     id: 'pe-construction-port-airport-pack',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m64bd0cbd7111',
+    noteTitle: '建設部門2次｜港湾空港まるごと合格パック',
     title: '技術士 建設部門 2次｜港湾空港 まるごと合格パック（必須科目I＋港湾及び空港 選択科目）',
     description:
       '必須科目I 模範解答集（R03-R07＋R8予想・全11記事）と港湾及び空港 選択科目 模範解答集（R03-R07＋R8予想・全18記事）を束ねた合格パック。単品合計¥6,460が¥4,980。元・地方自治体の土木職（発注者）視点で、本番で実際に解く「必須I＋港湾空港」の組み合わせをそのまま収録。',
@@ -1966,6 +2054,7 @@ const MAGAZINES_RAW = {
     id: 'pe-construction-construction-planning-pack',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m8bc3c8660afb',
+    noteTitle: '建設部門2次｜施工計画まるごと合格パック',
     title: '技術士 建設部門 2次｜施工計画 まるごと合格パック（必須科目I＋施工計画、施工設備及び積算 選択科目）',
     description:
       '必須科目I 模範解答集（R03-R07＋R8予想・全11記事）と施工計画、施工設備及び積算 選択科目 模範解答集（R03-R07＋R8予想・全18記事）を束ねた合格パック。単品合計¥6,460が¥4,980。元・地方自治体の土木職（発注者）視点で、本番で実際に解く「必須I＋施工計画」の組み合わせをそのまま収録。',
@@ -1979,6 +2068,7 @@ const MAGAZINES_RAW = {
     id: 'pe-construction-power-civil-pack',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m476ad50d2942',
+    noteTitle: '建設部門2次｜電力土木まるごと合格パック',
     title: '技術士 建設部門 2次｜電力土木 まるごと合格パック（必須科目I＋電力土木 選択科目）',
     description:
       '必須科目I 模範解答集（R03-R07＋R8予想・全11記事）と電力土木 選択科目 模範解答集（R03-R07＋R8予想・全18記事）を束ねた合格パック。単品合計¥6,460が¥4,980。元・地方自治体の土木職（発注者）視点で、本番で実際に解く「必須I＋電力土木」の組み合わせをそのまま収録。',
@@ -1998,6 +2088,7 @@ const MAGAZINES_RAW = {
     id: 'rccm-mondai3-magazine',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m770bef96b39f',
+    noteTitle: 'RCCM問題III｜2026年度 6テーマ 模範論文集',
     title: 'RCCM 問題III 管理技術力｜2026年度 公開6テーマ 模範論文集',
     description:
       'RCCM資格試験 試験B 問題III（管理技術力）の2026年度 公開6テーマ（地方公共団体のインフラ老朽化とインフラマネジメント／安全・安心な国土づくり／SDGs／AI技術の活用と成果品の品質向上／国際競争力の強化／BIM/CIM）それぞれに、①現状と課題 ②対策のあり方の構成で1,200〜1,600字の模範論文を収録。指定語を「」で自然に使う配置、部門別の置換ポイント、発注者として成果品を検査してきた視点の採点ポイント付き。序章は無料。',
@@ -2054,6 +2145,7 @@ const MAGAZINES_RAW = {
     id: 'rccm-marugoto-pack',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/me2b526bf77f4',
+    noteTitle: 'RCCM まるごとパック｜問題I〜IV-1 全16記事',
     title: 'RCCM まるごとパック｜問題I〜IV-1 全16記事',
     description:
       '問題IIIの公開6テーマの模範論文、問題Iのテンプレートと6部門の記入例、問題II・IV-1の予想50問・直前暗記ノートを収録。全16記事。問題IV-2の部門別専門技術知識は含みません。記入例は架空の業務による学習用モデル。2,400字は練習用の目安です。',

@@ -5,6 +5,7 @@ noteContentType: product
 utmCampaign: essay-standards-muni-r08-yosou-1
 noteUrl: https://note.com/dobokunote/n/n1ab7c062b010
 noteId: n1ab7c062b010
+title: "令和8年度 総監記述式 模範論文｜自治体 技術基準担当版（気候変動適応・設計基準の改定／R8予想①）"
 notePublishedAt: 2026-06-11
 noteMagazine: 総監模範論文-自治体技術基準担当
 price: 500

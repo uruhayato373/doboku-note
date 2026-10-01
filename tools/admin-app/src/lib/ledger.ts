@@ -6,6 +6,7 @@ import { loadThemes, themeLabel, themeShortLabel } from '../../../../scripts/lib
 import { loadNoteCoverCategories, noteCoverCategoryLabel } from '../../../../scripts/lib/note-cover-category.mjs';
 import { loadCoconalaItems, loadKindleItems, loadNoteItems, type LineupItem } from './lineup';
 import { findRepoRoot, repoPath } from './repo-root';
+import { loadProductSales, matchArticleSales, salesTitleKey, type ProductSales } from './sales';
 import { artifactRelPaths, loadKindleCatalog } from '../../../../scripts/lib/kindle-catalog.mjs';
 import { isOnKdp, kindleDrift } from '../../../../scripts/lib/kindle-uploaded.mjs';
 
@@ -43,6 +44,10 @@ export interface LedgerRow {
   /** note 記事のカバー用途。商品行は null */
   coverCategory: string | null;
   price: string | null;
+  /** note の販売実績（sales-log.json の累計）。note 以外・販売ログを読めないときは null */
+  sales: ProductSales | null;
+  /** note 記事の収録先（原稿の noteMagazine）。マガジン行と同じ中身を単品でも売っているかの手がかり */
+  magazine: string | null;
   published: boolean;
   stageLabel: string;
   sync: { status: SyncStatus; parts: string[]; reasons?: Record<string, string>; blocker: string | null } | null;
@@ -67,6 +72,10 @@ export interface LedgerView {
   lineupQualifications: Set<string>;
   blockers: Record<string, { label: string; action: string }>;
   index: { ok: boolean; generatedAt: string | null; error: string | null; syncCounts: Record<string, number> | null; refreshing: boolean };
+  /** 販売ログを読めたか（読めなければ販売列は「?」で、0 件とは出さない） */
+  salesOk: boolean;
+  /** 原稿の題名へ当てられなかった単品記事の販売（productId ごと） */
+  unmatchedSales: { id: string; count: number }[];
   sourceErrors: { channel: string; message: string }[];
 }
 
@@ -77,6 +86,7 @@ interface NoteIndexEntry {
   theme: string | null;
   coverCategory?: string | null;
   pricing: string;
+  price?: number | null;
   magazine: string | null;
   noteUrl: string | null;
   published: boolean;
@@ -101,6 +111,12 @@ interface LineupConfig {
 }
 
 const PRICE_LABEL: Record<string, string> = { paid: '有料', free: '無料', membership: '会員' };
+const yen = (n: number) => `¥${n.toLocaleString('ja-JP')}`;
+/** note 記事の価格。有料は原稿の price（円）を出し、無ければ「有料（価格なし）」 */
+function notePriceLabel(pricing: string, price: number | null | undefined): string | null {
+  if (pricing === 'paid') return price ? yen(price) : '有料（価格なし）';
+  return PRICE_LABEL[pricing] ?? null;
+}
 const KIND: Record<string, string> = { note: 'マガジン', coconala: '出品', kindle: '本' };
 
 /** 承認済み POP 画像（ココナラの商品画像の正本）。読めなければ空 */
@@ -168,6 +184,8 @@ export function loadLedgerView(): LedgerView {
   const rows: LedgerRow[] = [];
 
   const { index, error } = readNoteIndex();
+  const sales = loadProductSales();
+  const articleSales = sales ? matchArticleSales(sales.articles, (index?.notes ?? []).map((n) => n.title)) : null;
   for (const n of index?.notes ?? []) {
     rows.push({
       key: `note-article:${n.path}`,
@@ -177,7 +195,9 @@ export function loadLedgerView(): LedgerView {
       url: n.noteUrl,
       themes: n.theme ? [n.theme] : [],
       coverCategory: n.coverCategory ?? null,
-      price: PRICE_LABEL[n.pricing] ?? null,
+      price: notePriceLabel(n.pricing, n.price),
+      sales: articleSales?.byTitle.get(salesTitleKey(n.title)) ?? null,
+      magazine: n.magazine,
       published: n.published,
       stageLabel: n.published ? '公開' : '未公開',
       sync: n.sync,
@@ -231,6 +251,8 @@ export function loadLedgerView(): LedgerView {
     };
   };
 
+  const skuByNoteId = new Map<string, string>();
+  const articleNoteIds = new Set(rows.map((r) => r.url?.match(/\/n\/(n[0-9a-f]+)/)?.[1]).filter(Boolean));
   const loaders: [string, () => LineupItem[]][] = [
     ['note', loadNoteItems],
     ['coconala', loadCoconalaItems],
@@ -241,15 +263,20 @@ export function loadLedgerView(): LedgerView {
       const got = load();
       if (got.length === 0) sourceErrors.push({ channel, message: '台帳から商品を 1 件も読めなかった' });
       for (const item of got) {
+        // 単品で売る SKU（note-magazines.ts の noteUrl が記事 /n/）は記事の行と同じ商品。記事の行があれば重ねず、売上だけ記事の行へ寄せる
+        const skuNoteId = channel === 'note' ? item.url?.match(/\/n\/(n[0-9a-f]+)/)?.[1] : undefined;
+        if (skuNoteId && articleNoteIds.has(skuNoteId)) { skuByNoteId.set(skuNoteId, item.id); continue; }
         rows.push({
           key: `${channel}-product:${item.id}`,
           channel,
           kind: KIND[channel] ?? '商品',
-          title: item.title,
+          title: item.noteTitle ?? item.title,
           url: item.url,
           themes: productThemes(config, item),
           coverCategory: null,
           price: item.price,
+          sales: channel === 'note' ? sales?.byMagazine.get(item.id) ?? null : null,
+          magazine: null,
           published: item.stage === 'published',
           stageLabel: item.ended ? '終了' : item.stageLabel,
           ended: Boolean(item.ended),
@@ -266,6 +293,15 @@ export function loadLedgerView(): LedgerView {
     }
   }
 
+  for (const r of rows) {
+    const sku = r.kind === '記事' ? skuByNoteId.get(r.url?.match(/\/n\/(n[0-9a-f]+)/)?.[1] ?? '') : undefined;
+    const skuSales = sku ? sales?.byMagazine.get(sku) : undefined;
+    if (!skuSales) continue;
+    r.sales = r.sales
+      ? { count: r.sales.count + skuSales.count, revenue: r.sales.revenue + skuSales.revenue, lastDate: r.sales.lastDate > skuSales.lastDate ? r.sales.lastDate : skuSales.lastDate }
+      : skuSales;
+  }
+
   return {
     rows,
     channels: config.channels.filter((c) => c.id !== 'app'),
@@ -277,6 +313,8 @@ export function loadLedgerView(): LedgerView {
     blockers: index?.blockers ?? {},
     index: { ok: Boolean(index), generatedAt: index?.generatedAt ?? null, error, syncCounts: index?.counts?.sync ?? null, refreshing: refreshIndexIfStale(index?.generatedAt ?? null) },
     sourceErrors,
+    salesOk: Boolean(sales),
+    unmatchedSales: articleSales?.unmatched ?? [],
   };
 }
 

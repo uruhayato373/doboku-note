@@ -7,6 +7,7 @@ memberTrial: bottom
 utmCampaign: civil-membership-gakka-quality
 notePublishedAt: "2026-08-28"
 noteId: "n4543d343d7a0"
+title: "学科記述予想｜品質管理 — 品質特性・各種試験・管理図の活用"
 noteUrl: "https://note.com/dobokunote/n/n4543d343d7a0"
 coverTitle: ["学科記述予想｜品質管理", "管理図・試験・品質特性"]
 cover:

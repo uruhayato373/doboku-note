@@ -5,6 +5,7 @@ noteContentType: learning
 utmCampaign: ai-study-civil-hub
 noteUrl: "https://note.com/dobokunote/n/n06ff627e32d4"
 noteId: "n06ff627e32d4"
+title: "【土木・建設資格】AIで攻略する勉強法 — 1級土木・技術士・総監の資格別ガイド"
 notePublishedAt: "2026-07-23"
 coverTitle:
   - 土木・建設資格を

@@ -7,6 +7,7 @@ subject: railway
 exam_type: II-1
 noteUrl: "https://note.com/dobokunote/n/n47dfb60d52ec"
 noteId: "n47dfb60d52ec"
+title: "技術士 建設部門｜鉄道 R05 選択科目II-1 模範解答（全4設問）"
 notePublishedAt: "2026-06-17"
 price: 780
 coverTitle: "技術士 建設部門｜鉄道 R05 選択科目II-1 模範解答"

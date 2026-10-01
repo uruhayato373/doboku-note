@@ -5,6 +5,7 @@ noteContentType: product
 utmCampaign: essay-gc-r04
 noteUrl: https://note.com/dobokunote/n/n73f47e6e564e
 noteId: n73f47e6e564e
+title: "令和4年度 総監記述式 模範論文｜ゼネコン版"
 notePublishedAt: 2026-05-21
 noteMagazine: 総監模範論文-ゼネコン
 price: 500
@@ -16,7 +17,7 @@ cover:
   hiSuffix: "過去問"
   benefit: "3,000字級をそのまま展開"
 ---
-# 令和4年度 総監記述式 模範論文｜ゼネコン版（DX 推進計画）
+# 令和4年度 総監記述式 模範論文｜ゼネコン版
 
 **こんな人のための記事です**
 

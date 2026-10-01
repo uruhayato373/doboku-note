@@ -7,6 +7,7 @@ subject: port-airport
 exam_type: II-2
 noteUrl: "https://note.com/dobokunote/n/n9737b7737dd9"
 noteId: "n9737b7737dd9"
+title: "技術士 建設部門｜港湾及び空港 R03 選択科目II-2 模範解答"
 notePublishedAt: "2026-06-17"
 price: 780
 coverTitle: "技術士 建設部門｜港湾及び空港 R03 選択科目II-2 模範解答"

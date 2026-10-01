@@ -3,6 +3,7 @@ notePricing: free
 noteStatus: published
 noteUrl: "https://note.com/dobokunote/n/n05800ac28d27"
 noteId: "n05800ac28d27"
+title: "【建設コンサル・建設会社の技術者へ】総監を取ると、会社・自分・市場でいくら稼げるか — 2026年最新データで検証する金銭インセンティブ完全マップ"
 noteSeries: 民間技術者受験
 noteContentType: learning
 utmCampaign: 94-private-engineer-money

@@ -32,7 +32,7 @@ permissions:
 jobs:
   audit:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 60
     steps:
       - name: Checkout develop
         # schedule はデフォルトブランチ（main）の定義で走り、ref を書かないと main を checkout する。
@@ -173,6 +173,26 @@ jobs:
           git commit -m "chore(note): live snapshot weekly fetch $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
           git push origin develop
 
+      # 題名・価格は原稿が正（2026-10-01）。note と食い違う記事を「note へ未反映」に戻して develop へ commit する。
+      # 題名は次の Mac note-sync-routine（月曜以降の週次）が原稿の title で note を上げ直す。価格は同期計画で「止まっている」になり、
+      # 人が note-article-price-sweep で反映する。原稿の欠け（公開済みで title / price が無い）と見出し 1 のずれもここで直す。
+      - name: Mark note title/price drift for re-sync (source wins)
+        if: always()
+        run: |
+          set -o pipefail
+          git fetch origin develop
+          git checkout -f develop
+          git reset --hard origin/develop
+          npm run pre-commit:install
+          node scripts/note-reconcile-title-price.mjs --commit | tee .tmp/note-reconcile.log
+          git add content/note src/lib/note-magazines.ts .claude/state/note-republish-hashes.json
+          if git diff --cached --quiet; then
+            echo "No title/price drift to reconcile"
+            exit 0
+          fi
+          git commit -m "chore(note): 題名・価格の note とのずれを未反映に戻す $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
+          git push origin develop
+
       - name: Upload reports
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
@@ -184,6 +204,7 @@ jobs:
             .tmp/note-magazines.log
             .tmp/note-funnel-live.log
             .tmp/note-republish.json
+            .tmp/note-reconcile.log
             .claude/state/note/magazines-snapshot.json
             .claude/state/note/status-snapshot.json
           if-no-files-found: ignore

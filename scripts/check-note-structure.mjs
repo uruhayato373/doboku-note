@@ -110,6 +110,9 @@ export function analyzeSource(raw) {
   const body = stripFm(raw);
   const pricing = fm(raw, 'notePricing');
   const price = Number(fm(raw, 'price') || 0);
+  // 題名の正本は frontmatter の title（無い記事は公開時の見出し 1 で照合し、TITLE_MISSING で正本化を促す）
+  const fmTitle = fm(raw, 'title');
+  const title = fmTitle || (body.match(/^#\s+(.+?)\s*$/m) || [])[1] || null;
   const boundary = fm(raw, 'paidBoundary') || '試験問題|予想問題';
   const lines = body.split(/\r?\n/);
   const bIdx = pricing === 'paid' ? boundaryIndex(lines, boundary) : -1;
@@ -142,7 +145,7 @@ export function analyzeSource(raw) {
   // 2026-08-25: 監査だけが固定 600 のままで、1級土木 完全攻略パックの 71 本を CRITICAL に
   // していた。書き込み側が通した記事を監査側が落とす二重基準だったので、基準を揃える。
   const minFreeChars = pricing === 'paid' && bIdx >= 0 ? expectedFreePreviewMin(body, boundary) : MIN_FREE_PREVIEW_CHARS;
-  return { pricing, price, boundary, hasBoundary: bIdx >= 0, freeProbe, paidProbe, expectedFreeImgs, minFreeChars };
+  return { pricing, price, title, hasTitle: Boolean(fmTitle), boundary, hasBoundary: bIdx >= 0, freeProbe, paidProbe, expectedFreeImgs, minFreeChars };
 }
 
 // import 時は実行しない（テストが analyzeSource を読めるようにする）。
@@ -174,8 +177,13 @@ function runAll() {
     const rel = t.f.replace(`${ROOT}/`, '').replace(/\/article\.md$/, '');
     const push = (sev, code, msg) => findings.push({ sev, code, f: rel, note: t.noteId, msg });
 
-    // 価格
+    // 価格（price の無い有料記事は照合できない＝正本の欠落として出す）
+    if (t.pricing === 'paid' && !t.price) push('HIGH', 'PRICE_MISSING', `有料なのに frontmatter に price が無い（live¥${livePrice}）`);
     if (t.pricing === 'paid' && t.price && livePrice !== t.price) push('HIGH', 'PRICE_MISMATCH', `source¥${t.price} ≠ live¥${livePrice}`);
+    // 題名
+    if (!t.hasTitle) push('HIGH', 'TITLE_MISSING', `frontmatter に title が無い（live「${data.name}」）`);
+    // 原稿が正。週次の note-reconcile-title-price が「未反映」に戻し、note-sync-routine が原稿の題名で上げ直す
+    if (t.title && data.name && t.title.trim() !== String(data.name).trim()) push('HIGH', 'TITLE_MISMATCH', `source「${t.title}」≠ live「${data.name}」（原稿が正・同期で反映する）`);
     // タグ
     if (liveTags < GOAL_TAGS) push('INFO', 'TAG_SHORT', `live tags=${liveTags}<${GOAL_TAGS}`);
 

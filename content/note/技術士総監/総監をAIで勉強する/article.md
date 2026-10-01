@@ -3,6 +3,7 @@ notePricing: free
 noteStatus: published
 noteUrl: https://note.com/dobokunote/n/n89da1120ccaa
 noteId: n89da1120ccaa
+title: "【技術士総監】AIで勉強を効率化する｜NotebookLM・Claude Code の使い分けと「AI任せの限界」"
 noteSeries: 学習戦略
 noteContentType: learning
 utmCampaign: ai-study-method

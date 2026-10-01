@@ -6,6 +6,7 @@ noteMagazine: 1級土木-二次まるごとパック
 noteStatus: published
 notePublishedAt: "2026-07-03"
 noteId: "n824a4ea20acf"
+title: "1級土木 二次検定まるごとパック（経験記述＋学科記述＋直前暗記）"
 noteUrl: "https://note.com/dobokunote/n/n824a4ea20acf"
 utmCampaign: civil1-niji-marugoto
 price: 11800

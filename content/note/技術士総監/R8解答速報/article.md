@@ -6,6 +6,7 @@ noteContentType: learning
 utmCampaign: r8-sokuho
 notePublishedAt: "2026-07-19"
 noteId: "nfa8998e22a52"
+title: "令和8年度 技術士総監 解答速報｜必須科目I（択一・記述）の解答方針と難易度講評【無料】"
 noteUrl: "https://note.com/dobokunote/n/nfa8998e22a52"
 cover:
   variant: crop-safe-v4

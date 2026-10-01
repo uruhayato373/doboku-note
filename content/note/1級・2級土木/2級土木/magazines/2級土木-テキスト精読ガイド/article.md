@@ -6,6 +6,7 @@ utmCampaign: civil2-reading-guide
 noteStatus: published
 notePublishedAt: "2026-09-16"
 noteId: "na8e28f954797"
+title: "全分野編｜2級土木 テキスト精読ガイド｜出題頻度・優先度つきで読む"
 noteUrl: "https://note.com/dobokunote/n/na8e28f954797"
 cover:
   variant: crop-safe-v4

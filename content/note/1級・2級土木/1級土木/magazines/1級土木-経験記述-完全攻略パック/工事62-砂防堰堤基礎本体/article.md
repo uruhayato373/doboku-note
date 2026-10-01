@@ -10,6 +10,7 @@ noteStatus: published
 coverTitle: ["1級土木 施工経験記述", "砂防堰堤 基礎・本体", "5管理 完成答案"]
 noteUrl: "https://note.com/dobokunote/n/nf55150fd95eb"
 noteId: "nf55150fd95eb"
+title: "1級土木 施工経験記述｜砂防堰堤 基礎・本体（5管理 完成答案）"
 notePublishedAt: "2026-06-30"
 cover:
   variant: crop-safe-v4

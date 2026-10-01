@@ -6,6 +6,7 @@ utmCampaign: civil1-reading-guide
 noteStatus: published
 notePublishedAt: "2026-09-16"
 noteId: "n653cd1b3ee71"
+title: "施工管理・法規編｜1級土木 テキスト精読ガイド｜出題頻度・優先度つきで読む"
 noteUrl: "https://note.com/dobokunote/n/n653cd1b3ee71"
 cover:
   variant: crop-safe-v4

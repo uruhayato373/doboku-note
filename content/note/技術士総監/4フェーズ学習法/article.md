@@ -2,6 +2,7 @@
 notePublishedAt: 2026-05-13
 noteUrl: https://note.com/dobokunote/n/n6f9854578518
 noteId: n6f9854578518
+title: "総監 二次試験 学習スケジュール完全版｜試験前 6-7 ヶ月を 4 フェーズに分けて合格ラインに届く設計"
 notePricing: free
 noteSeries: 学習戦略
 noteContentType: learning

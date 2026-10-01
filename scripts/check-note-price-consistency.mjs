@@ -26,6 +26,10 @@
  *   免除する。免除に理由を書かせることで「なぜこの価格差があるか」が記録として残る。
  *   allowlist: .claude/config/note-price-consistency.json
  *
+ *   L0 正本の欠落（2026-10-01 追加） — 公開済み（noteUrl/noteId あり）の記事に title が無い・見出し 1 が title と違う・
+ *                          有料なのに price が無い。題名・価格の正本は frontmatter で、欠けると
+ *                          台帳は推測（見出し 1・「有料」）しか出せず、live 照合（check-note-structure）も素通りする。
+ *
  * 使い方:
  *   node scripts/check-note-price-consistency.mjs            # 全 note 記事を検査
  *   node scripts/check-note-price-consistency.mjs --staged   # 関連 staged がある時だけ（pre-commit 用）
@@ -78,11 +82,28 @@ if (!existsSync(absBase)) {
 // 記事を収集して (シリーズ, マガジン) ごとに価格を集計する。
 const byMagazine = new Map(); // magazine -> Map(price -> [relPath])
 const magazineSeries = new Map(); // magazine -> series
+const missingTitle = [];
+const missingPrice = [];
+const h1Mismatch = [];
+let publishedCount = 0;
 for (const file of walk(absBase)) {
   const src = readFileSync(file, 'utf-8');
-  if (!/notePricing:\s*paid/.test(src)) continue;
-  const priceRaw = (src.match(/^price:[ \t]*(\d+)/m) || [])[1];
-  if (!priceRaw) continue; // price 欄欠落は check-note-structure / note-publish 側の担当
+  const fmText = (src.match(/^---\r?\n([\s\S]*?)\r?\n---/) || [])[1] || '';
+  const published = /^(noteUrl|noteId):[ \t]*["']?[^\s"']+/m.test(fmText);
+  const paid = /^notePricing:[ \t]*paid\b/m.test(fmText);
+  const priceRaw = (fmText.match(/^price:[ \t]*(\d+)/m) || [])[1];
+  if (published) {
+    publishedCount++;
+    const rel = relative(ROOT, file).replace(/\\/g, '/');
+    const title = (fmText.match(/^title:[ \t]*(?:"(.*?)"|'(.*?)'|(.+?))[ \t]*$/m) || []).slice(1).find(Boolean);
+    if (!title) missingTitle.push(rel);
+    // 見出し 1 は title と同じにする（note の本文には載らないが、原稿を読む人・台帳の推測が食い違う元になる）
+    const h1 = (src.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n?/, '').match(/^#[ \t]+(.+?)[ \t]*\r?$/m) || [])[1];
+    if (title && h1 && h1 !== title) h1Mismatch.push(`${rel}（見出し 1「${h1}」≠ title「${title}」）`);
+    if (paid && !(Number(priceRaw) > 0)) missingPrice.push(rel);
+  }
+  if (!paid) continue;
+  if (!priceRaw) continue; // 未公開の price 欠落は note-publish が公開時に止める
   const magazine = ((src.match(/^noteMagazine:[ \t]*(.+)$/m) || [])[1] || '')
     .trim().replace(/^["']|["']$/g, '');
   if (!magazine) continue; // マガジン非所属の単独 note は一貫性の対象外
@@ -101,6 +122,11 @@ for (const file of walk(absBase)) {
 }
 
 const violations = [];
+
+// --- L0: 正本の欠落 ---
+if (missingTitle.length) violations.push({ level: 'L0', scope: '公開済みなのに title が無い', detail: `${missingTitle.length} 本`, majority: null, samples: missingTitle.slice(0, 12) });
+if (h1Mismatch.length) violations.push({ level: 'L0', scope: '公開済みで見出し 1 が title と違う', detail: `${h1Mismatch.length} 本`, majority: null, samples: h1Mismatch.slice(0, 12) });
+if (missingPrice.length) violations.push({ level: 'L0', scope: '公開済みの有料記事なのに price が無い', detail: `${missingPrice.length} 本`, majority: null, samples: missingPrice.slice(0, 12) });
 
 // --- L1: マガジン内一貫性 ---
 for (const [magazine, pm] of byMagazine) {
@@ -150,13 +176,14 @@ if (asJson) {
 }
 
 if (violations.length) {
-  console.error('[check-note-price-consistency] ✗ 単品価格が揃っていません:');
+  console.error('[check-note-price-consistency] ✗ 題名・単品価格の正本が欠けているか、揃っていません:');
   for (const v of violations) {
     console.error(`\n  [${v.level}] ${v.scope}`);
-    console.error(`     分布: ${v.detail}（多数派 ¥${v.majority}）`);
+    console.error(v.level === 'L0' ? `     ${v.detail}` : `     分布: ${v.detail}（多数派 ¥${v.majority}）`);
     for (const s of v.samples) console.error(`     - ${s}`);
   }
-  console.error('\n対処: いずれかを行う。');
+  console.error('\n対処: L0 は公開中の note から正本を書き戻す → node scripts/note-reconcile-title-price.mjs --commit');
+  console.error('L1/L2 はいずれかを行う。');
   console.error('  (a) 値上げ/値下げの当て漏れ → node scripts/note-price-sweep.mjs --dir <マガジンdir> --from <旧> --to <新> --commit');
   console.error('      ライブ側も別途 note-article-price-sweep.mjs で揃え、frontmatter と一致させる。');
   console.error(`  (b) 意図的な価格差 → ${CONFIG} の allowMagazines / allowSeries に理由つきで追記する。`);
@@ -164,4 +191,4 @@ if (violations.length) {
   console.error('  frontmatter↔live 突合（check-note-structure）は両方同じ誤価格だと検出できないため本ガードが要る。');
   process.exit(1);
 }
-console.log(`[check-note-price-consistency] ✓ 有料マガジン ${magCount} 件の単品価格はマガジン内・シリーズ内で一貫`);
+console.log(`[check-note-price-consistency] ✓ 公開済み ${publishedCount} 本に title・（有料は）price あり／有料マガジン ${magCount} 件の単品価格はマガジン内・シリーズ内で一貫`);

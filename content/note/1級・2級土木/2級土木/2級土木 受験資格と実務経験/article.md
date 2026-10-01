@@ -5,6 +5,7 @@ noteContentType: learning
 utmCampaign: 2c-eligibility
 noteUrl: https://note.com/dobokunote/n/n6e6db14f4dfc
 noteId: n6e6db14f4dfc
+title: "【2級土木施工管理技士】受験資格はこう変わった — 一次は17歳から、二次は実務経験で"
 notePublishedAt: 2026-06-03
 coverTitle:
   - 2級土木

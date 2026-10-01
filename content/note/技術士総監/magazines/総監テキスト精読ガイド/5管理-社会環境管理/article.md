@@ -6,6 +6,8 @@ noteContentType: product
 utmCampaign: 99-social-environment-management
 noteUrl: https://note.com/dobokunote/n/n4424bc5ce1c9
 noteId: "n4424bc5ce1c9"
+title: "社会環境管理｜総監キーワード精読ガイド｜択一・記述直結リンク付き"
+price: 500
 noteMagazine: 総監テキスト精読ガイド
 cover:
   variant: crop-safe-v4

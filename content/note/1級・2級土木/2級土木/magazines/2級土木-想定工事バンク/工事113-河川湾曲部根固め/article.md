@@ -6,6 +6,7 @@ noteContentType: product
 noteMagazine: 2級土木-想定工事バンク
 noteUrl: "https://note.com/dobokunote/n/nf225898764b9"
 noteId: "nf225898764b9"
+title: "2級土木 施工経験記述｜河川湾曲部根固め工事 5管理フルカバー"
 notePublishedAt: "2026-08-20"
 noteStatus: published
 utmCampaign: civil2-koji-bank-koji113

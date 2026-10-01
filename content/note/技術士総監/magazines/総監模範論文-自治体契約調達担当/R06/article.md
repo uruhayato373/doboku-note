@@ -5,6 +5,7 @@ noteContentType: product
 utmCampaign: essay-procurement-muni-r06
 noteUrl: https://note.com/dobokunote/n/n4d5eccdd7502
 noteId: n4d5eccdd7502
+title: "令和6年度 総監記述式 模範論文｜自治体 契約・調達担当版（カーボンニュートラル）"
 notePublishedAt: 2026-06-11
 noteMagazine: 総監模範論文-自治体契約調達担当
 price: 500

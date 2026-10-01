@@ -3,6 +3,7 @@ notePricing: free
 noteStatus: published
 noteUrl: "https://note.com/dobokunote/n/n98da0c3ec606"
 noteId: "n98da0c3ec606"
+title: "【技術士 建設部門】持続可能で活力ある地域づくり 必須科目I 論点キーワード"
 noteSeries: 技術士建設部門-無料入口
 noteContentType: learning
 utmCampaign: pe-construction-chiiki-keyword

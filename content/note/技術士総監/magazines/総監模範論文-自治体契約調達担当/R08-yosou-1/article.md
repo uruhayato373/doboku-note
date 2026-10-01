@@ -5,6 +5,7 @@ noteContentType: product
 utmCampaign: essay-procurement-muni-r08-yosou-1
 noteUrl: https://note.com/dobokunote/n/n789b79656b70
 noteId: n789b79656b70
+title: "令和8年度 総監記述式 模範論文｜自治体 契約・調達担当版（気候変動適応・災害発注の強靱化／R8予想①）"
 notePublishedAt: 2026-06-11
 noteMagazine: 総監模範論文-自治体契約調達担当
 price: 500

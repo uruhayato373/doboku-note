@@ -6,6 +6,8 @@ noteContentType: product
 utmCampaign: 99-economic-management
 noteUrl: https://note.com/dobokunote/n/ndf7ddb3f0a97
 noteId: "ndf7ddb3f0a97"
+title: "経済性管理｜総監キーワード精読ガイド｜択一・記述直結リンク付き"
+price: 500
 noteMagazine: 総監テキスト精読ガイド
 cover:
   variant: crop-safe-v4

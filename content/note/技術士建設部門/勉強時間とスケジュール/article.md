@@ -3,6 +3,7 @@ notePricing: free
 noteStatus: published
 noteUrl: "https://note.com/dobokunote/n/nccd86d00c2de"
 noteId: "nccd86d00c2de"
+title: "【技術士 建設部門】二次試験の勉強時間とスケジュール｜何ヶ月で間に合うか"
 noteSeries: 技術士建設部門-無料入口
 noteContentType: learning
 utmCampaign: pe-construction-gakushuu-jikan-schedule

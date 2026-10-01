@@ -6,6 +6,7 @@ utmCampaign: essay-general-contractor-r08-yosou-5
 noteMagazine: 総監模範論文-ゼネコン
 noteUrl: "https://note.com/dobokunote/n/n1dd91e970c4f"
 noteId: "n1dd91e970c4f"
+title: "令和8年度 総監記述式 模範論文｜ゼネコン版（生成AI・情報ガバナンス／R8予想⑤）"
 notePublishedAt: "2026-07-12"
 noteStatus: published
 price: 780

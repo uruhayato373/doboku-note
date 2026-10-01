@@ -3,6 +3,7 @@ notePricing: free
 noteStatus: published
 noteUrl: https://note.com/dobokunote/n/nced3f11b7641
 noteId: nced3f11b7641
+title: "【総監記述式】発注者（自治体）の立場で記述式をどう組み立てるか｜三層構造と陥りやすい罠"
 noteSeries: 公務員受験
 noteContentType: learning
 utmCampaign: 98-owner-essay-build

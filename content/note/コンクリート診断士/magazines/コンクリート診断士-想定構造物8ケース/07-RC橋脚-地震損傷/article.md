@@ -6,6 +6,7 @@ utmCampaign: cd-case-pier-seismic
 noteMagazine: コンクリート診断士-想定構造物8ケース
 notePublishedAt: "2026-09-20"
 noteId: "nac1f317c880c"
+title: "コンクリート診断士 記述式 問題B｜地震後のRC橋脚の診断と復旧"
 noteUrl: "https://note.com/dobokunote/n/nac1f317c880c"
 noteStatus: published
 published: false

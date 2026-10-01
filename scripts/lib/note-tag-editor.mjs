@@ -14,7 +14,7 @@ export async function readNoteAsAuthor(ctx, noteId) {
     const r = await ctx.request.get(`https://note.com/api/v3/notes/${noteId}`, { timeout: 30000 });
     if (!r.ok()) return null;
     const d = (await r.json())?.data;
-    return d ? { tags: tagsOfNote(d), eyecatch: d.eyecatch || null, unmeasurable: isUnmeasurable(d) } : null;
+    return d ? { tags: tagsOfNote(d), eyecatch: d.eyecatch || null, name: d.name ?? null, unmeasurable: isUnmeasurable(d) } : null;
   } catch { return null; }
 }
 

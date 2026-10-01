@@ -5,6 +5,7 @@ noteContentType: product
 utmCampaign: essay-gc-r07
 noteUrl: https://note.com/dobokunote/n/na742409b8d49
 noteId: na742409b8d49
+title: "令和7年度 総監記述式 模範論文｜ゼネコン版"
 notePublishedAt: 2026-05-21
 noteMagazine: 総監模範論文-ゼネコン
 price: 500
@@ -16,7 +17,7 @@ cover:
   hiSuffix: "過去問"
   benefit: "3,000字級をそのまま展開"
 ---
-# 令和7年度 総監記述式 模範論文｜ゼネコン版（少子高齢化）
+# 令和7年度 総監記述式 模範論文｜ゼネコン版
 
 **こんな人のための記事です**
 

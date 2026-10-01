@@ -18,12 +18,13 @@ export const STATES: { key: string; label: string }[] = [
   { key: 'ended', label: '終了' },
 ];
 
-const PART_LABEL: Record<string, string> = { body: '本文', cover: 'カバー', tags: 'タグ' };
+const PART_LABEL: Record<string, string> = { body: '本文', cover: 'カバー', tags: 'タグ', title: '題名' };
 // 未反映の理由（scripts/lib/note-sync-plan.mjs の classifySync・reasons）。本文の asset は「本文の画像・PDF だけ差し替えた」
 const REASON_LABEL: Record<string, string> = {
   'body:drift': '本文を直した',
   'body:unrecorded': '本文の反映記録が無い',
   'body:asset': '本文の画像・PDF を差し替えた',
+  'title:drift': '題名が note と違う（原稿の題名を反映する）',
   'cover:unrecorded': 'カバーの反映記録が無い',
   'cover:design': 'カバーのデザインが変わった',
   'cover:input': 'カバーの元（題名など）が変わった',
@@ -63,7 +64,7 @@ export function drift(row: LedgerRow, part: 'body' | 'cover', blocker?: (id: str
   if (row.channel !== 'note' || row.kind !== '記事' || !row.published) return { state: 'none' };
   const sync = row.sync;
   if (!sync) return { state: 'ok' };
-  const keys = part === 'body' ? ['body', 'tags'] : ['cover'];
+  const keys = part === 'body' ? ['body', 'tags', 'title'] : ['cover'];
   const hit = keys.filter((k) => sync.parts.includes(k));
   const stopped = sync.status === 'blocked' ? `止まっている理由: ${blocker?.(sync.blocker) ?? sync.blocker}` : null;
   // 止まっている記事は本文の欄に出す（部分の差が無くても、メタ情報のずれなどで記事ごと止まることがある）

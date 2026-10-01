@@ -6,6 +6,7 @@ utmCampaign: cd-case-building-fire
 noteMagazine: コンクリート診断士-想定構造物8ケース
 notePublishedAt: "2026-09-20"
 noteId: "n3c1b3a072b44"
+title: "コンクリート診断士 記述式 問題B｜火災を受けたRC立体駐車場"
 noteUrl: "https://note.com/dobokunote/n/n3c1b3a072b44"
 noteStatus: published
 published: false

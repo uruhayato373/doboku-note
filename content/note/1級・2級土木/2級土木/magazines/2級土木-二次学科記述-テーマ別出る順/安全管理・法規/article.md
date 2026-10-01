@@ -6,6 +6,7 @@ noteMagazine: 2級土木-二次学科記述-テーマ別出る順
 noteStatus: published
 notePublishedAt: "2026-07-03"
 noteId: "n80a1985f6cd1"
+title: "2級土木 二次学科記述｜安全管理・法規 出る順（R03-R07 頻出論点と条文の型）"
 noteUrl: "https://note.com/dobokunote/n/n80a1985f6cd1"
 utmCampaign: civil2-gakka-safety-law
 price: 480

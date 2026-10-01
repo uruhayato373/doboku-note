@@ -65,7 +65,7 @@ const STATES: { key: string; label: string }[] = [
   { key: 'blocked', label: '止まっている' },
 ];
 
-const PART_LABEL: Record<SyncPart, string> = { body: '本文', cover: 'カバー', tags: 'タグ' };
+const PART_LABEL: Record<SyncPart, string> = { body: '本文', cover: 'カバー', tags: 'タグ', title: '題名' };
 
 /** 導線マーカー（原稿の `<!-- cta:<id> -->`）のうち、表で見せるもの。それ以外は数だけ出す。 */
 const CTA_LABEL: Record<string, string> = { 'coconala-custom': 'ココナラ', 'pack-top': 'パック' };

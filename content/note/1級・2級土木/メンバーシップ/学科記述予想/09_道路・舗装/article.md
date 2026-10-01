@@ -7,6 +7,7 @@ memberTrial: bottom
 utmCampaign: civil-membership-gakka-pavement
 notePublishedAt: "2026-09-18"
 noteId: "nafecfeede3a6"
+title: "学科記述予想｜専門土木・道路 — アスファルト舗装の構成と施工"
 noteUrl: "https://note.com/dobokunote/n/nafecfeede3a6"
 coverTitle: ["学科記述予想｜専門土木", "道路・アスファルト舗装"]
 cover:

@@ -5,6 +5,7 @@ memberTrial: bottom
 noteStatus: published
 noteUrl: https://note.com/dobokunote/n/n3eb135ebdff7
 noteId: n3eb135ebdff7
+title: "総監記述式 設問(3)国家施策バンク｜将来課題に「国の施策」で答える引き出し集【序章・無料】"
 notePublishedAt: 2026-06-01
 coverTitle:
   - 総監記述式 設問(3)

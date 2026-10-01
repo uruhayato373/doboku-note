@@ -8,7 +8,7 @@ import { noteSyncPlan, noteSyncRuns, type SyncItem, type SyncPart } from '@/lib/
 
 export const dynamic = 'force-dynamic';
 
-const PART_LABEL: Record<SyncPart, string> = { body: '本文', cover: 'カバー', tags: 'タグ' };
+const PART_LABEL: Record<SyncPart, string> = { body: '本文', cover: 'カバー', tags: 'タグ', title: '題名' };
 const TABS = [
   { id: 'blocked', label: '止まっている' },
   { id: 'ready', label: '反映待ち' },
@@ -122,6 +122,7 @@ export default async function NoteSyncPage({ searchParams }: { searchParams: Pro
                 <Stat label="本文" value={plan.counts.parts.body} />
                 <Stat label="カバー" value={plan.counts.parts.cover} />
                 <Stat label="タグ" value={plan.counts.parts.tags} />
+                <Stat label="題名" value={plan.counts.parts.title ?? 0} />
                 <Stat label="PDF 取り寄せ" value={plan.counts.pdfPull} />
               </Grid>
               <Card className="py-2">

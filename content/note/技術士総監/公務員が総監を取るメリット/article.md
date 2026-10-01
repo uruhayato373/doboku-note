@@ -3,6 +3,7 @@ notePricing: free
 noteStatus: published
 noteUrl: https://note.com/dobokunote/n/n279ac7c6fe6a
 noteId: n279ac7c6fe6a
+title: "【土木系公務員】自治体の技術職員が技術士総監を取る5つのメリット｜発注者の視点から"
 noteSeries: 公務員受験
 noteContentType: learning
 utmCampaign: 93-civil-servant-merits
