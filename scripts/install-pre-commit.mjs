@@ -260,6 +260,15 @@ if git diff --cached --name-only | grep -qE '^(CLAUDE\.md|\.claude/rules/)'; the
   fi
 fi
 
+# エージェントの記憶（.claude/memory）の frontmatter・名前重複・索引の網羅と読み込み上限（200 行 / 25KB）。
+# 記憶だけの push は CI を走らせない（ci.yml の paths-ignore）ので、ここが記憶の唯一のゲート
+if git diff --cached --name-only | grep -qE '^\\.claude/memory/'; then
+  node scripts/check-memory.mjs
+  if [ $? -ne 0 ]; then
+    exit 1
+  fi
+fi
+
 # AGENTS.md / .agents/skills / .codex/agents / .codex/hooks.json が正典（CLAUDE.md + .claude/rules / .claude/skills / .claude/agents / .claude/settings.json）の生成物と一致するか（第2SSOT再発防止・DN-0098）
 node scripts/sync-codex-compat.mjs --staged
 if [ $? -ne 0 ]; then
