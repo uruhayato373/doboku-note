@@ -22,6 +22,7 @@ const ROOT = fileURLToPath(new URL('..', import.meta.url)).replace(/[\\/]$/, '')
 /** 順番は「早く終わる・並行セッションの安全に効く」順。timeout は旧 settings.json の値を踏襲 */
 export const CHECKS = [
   { name: 'git-sync', script: 'scripts/check-git-sync.mjs', args: [], timeout: 30_000 },
+  { name: 'memory', script: 'scripts/check-memory.mjs', args: ['--session'], timeout: 10_000 },
   { name: 'shared-policy', script: 'scripts/check-shared-policy.mjs', args: [], timeout: 20_000 },
   { name: 'plan-staleness', script: 'scripts/check-plan-staleness.mjs', args: [], timeout: 10_000 },
   { name: 'backlog-due', script: 'scripts/check-backlog-health.mjs', args: ['--due'], timeout: 15_000 },

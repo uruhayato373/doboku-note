@@ -208,6 +208,7 @@
     "check-mdx-dates": "node scripts/check-mdx-dates.mjs",
     "lint:ja": "node scripts/lint-ja.mjs --staged",
     "lint:ja:all": "node scripts/lint-ja.mjs --all",
+    "check-memory": "node scripts/check-memory.mjs",
     "check-note-attachments": "node scripts/check-note-attachments.mjs",
     "check-note-attachments:live": "node scripts/check-note-attachments.mjs --live",
     "check-note-boundary": "node scripts/check-note-boundary.mjs",
