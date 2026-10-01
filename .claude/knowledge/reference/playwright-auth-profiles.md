@@ -250,6 +250,8 @@ ID/PW の読み口は `scripts/lib/credential-store.mjs` だけ（Mac キーチ�
 | 定期実行の省略 | `ci.skipScheduleIfFresh`（A8 は `a8-ui/last-run.json` が 30 時間以内）なら同じ回の定期実行は `fresh` で skip する（期限切れの state で失敗させない） |
 
 2FA・CAPTCHA・ID/PW 不通・口座不一致では突破せず、auth root の `metadata/<service>.autologin-failed` を残して通知する（Mac は通知センター、Windows はタスクバーの通知）。
+
+**CI での入り直し（note・ココナラ・2026-10-01）**: `login-collectors.yml` は restore の結果が authenticated でないとき、`auth-session-refresh.mjs --ci --service <service>` で Secrets（`DOBOKU_AUTH_<SERVICE>_USER` / `_PASSWORD`）の ID/PW を使い 1 回だけ入り直す。許可 service は `credential-store.mjs` の `CI_ENV_CREDENTIAL_SERVICES` だけ。成功すれば以降の collector と writeback が動き、新しい state が R2 へ書き戻される。2FA・CAPTCHA では止まり、Issue に restore と re-login の結果が載る。共用 state の取り込み・export・通知は CI ではしない。
 人が `npm run auth:login -- --service <service>` で通し、印を消すまで自動では再試行しない。ログは
 Mac `~/Library/Logs/doboku-note/auth-session-refresh.log`／Windows `%USERPROFILE%\.local\state\doboku-note\logs\auth-session-refresh.log`。
 

@@ -150,10 +150,42 @@ jobs:
         with:
           service: ${{ matrix.service }}
 
+      # note・ココナラは暗号化 state が切れていたら、Secrets の ID/PW で 1 回だけ入り直す（2026-10-01 オーナー決定）。
+      # 2FA・CAPTCHA は突破しない（human_required で止まり、下の Issue に載る）。Secrets はこの step の env にだけ渡す。
+      - name: Re-login with Secrets (note / coconala)
+        id: relogin
+        if: (matrix.service == 'note' || matrix.service == 'coconala') && steps.restore.outputs.status != 'authenticated' && matrix.mode != 'probe-only'
+        continue-on-error: true
+        env:
+          DOBOKU_AUTH_NOTE_USER: ${{ secrets.DOBOKU_AUTH_NOTE_USER }}
+          DOBOKU_AUTH_NOTE_PASSWORD: ${{ secrets.DOBOKU_AUTH_NOTE_PASSWORD }}
+          DOBOKU_AUTH_COCONALA_USER: ${{ secrets.DOBOKU_AUTH_COCONALA_USER }}
+          DOBOKU_AUTH_COCONALA_PASSWORD: ${{ secrets.DOBOKU_AUTH_COCONALA_PASSWORD }}
+        run: |
+          set +e
+          node scripts/auth-session-refresh.mjs --ci --service "${{ matrix.service }}" --json > "${RUNNER_TEMP}/relogin.json"
+          rc=$?
+          status=$(node -e "try{const r=JSON.parse(require('fs').readFileSync(process.argv[1],'utf8'));process.stdout.write(r.results?.[0]?.status??'error')}catch{process.stdout.write('error')}" "${RUNNER_TEMP}/relogin.json")
+          echo "relogin rc=${rc} status=${status}"
+          echo "status=${status}" >> "$GITHUB_OUTPUT"
+
+      # 以降の collector・writeback が見る認証状態（restore で authenticated、または入り直しが ok）
+      - name: Effective auth status
+        id: auth
+        env:
+          RESTORE_STATUS: ${{ steps.restore.outputs.status }}
+          RELOGIN_STATUS: ${{ steps.relogin.outputs.status }}
+        run: |
+          if [ "$RESTORE_STATUS" = "authenticated" ] || [ "$RELOGIN_STATUS" = "ok" ]; then
+            echo "status=authenticated" >> "$GITHUB_OUTPUT"
+          else
+            echo "status=${RESTORE_STATUS}" >> "$GITHUB_OUTPUT"
+          fi
+
       # --- サービス別 collector。matrix は 1 job = 1 service なので実際に走るのは 1 本だけ。---
       - name: "a8: fetch + normalize"
         id: collect_a8
-        if: matrix.service == 'a8' && steps.restore.outputs.status == 'authenticated' && matrix.mode != 'probe-only'
+        if: matrix.service == 'a8' && steps.auth.outputs.status == 'authenticated' && matrix.mode != 'probe-only'
         continue-on-error: true
         run: |
           set +e
@@ -175,7 +207,7 @@ jobs:
 
       - name: "kdp: report"
         id: collect_kdp
-        if: matrix.service == 'kdp' && steps.restore.outputs.status == 'authenticated' && matrix.mode != 'probe-only'
+        if: matrix.service == 'kdp' && steps.auth.outputs.status == 'authenticated' && matrix.mode != 'probe-only'
         continue-on-error: true
         run: |
           set +e
@@ -195,7 +227,7 @@ jobs:
 
       - name: "coconala: orders + analytics"
         id: collect_coconala
-        if: matrix.service == 'coconala' && steps.restore.outputs.status == 'authenticated' && matrix.mode != 'probe-only'
+        if: matrix.service == 'coconala' && steps.auth.outputs.status == 'authenticated' && matrix.mode != 'probe-only'
         continue-on-error: true
         run: |
           set +e
@@ -216,7 +248,7 @@ jobs:
       # 前月は 14 日まで取り直す（月初は前月の明細と月次表示が揃うまで検算が合わない）。当月は毎回差し替える。
       - name: "note: traffic + sales"
         id: collect_note
-        if: matrix.service == 'note' && steps.restore.outputs.status == 'authenticated' && matrix.mode != 'probe-only'
+        if: matrix.service == 'note' && steps.auth.outputs.status == 'authenticated' && matrix.mode != 'probe-only'
         continue-on-error: true
         env:
           DOBOKU_AUTH_NOTE_USER: ${{ secrets.DOBOKU_AUTH_NOTE_USER }}
@@ -242,7 +274,7 @@ jobs:
       # 未完了なら state が更新されず、ops の check-note-delivery-due が鮮度で拾う（沈黙しない）。
       - name: "note: live checks (attachments / membership)"
         id: collect_note_live
-        if: matrix.service == 'note' && steps.restore.outputs.status == 'authenticated' && matrix.mode != 'probe-only'
+        if: matrix.service == 'note' && steps.auth.outputs.status == 'authenticated' && matrix.mode != 'probe-only'
         continue-on-error: true
         timeout-minutes: 75
         run: |
@@ -257,7 +289,7 @@ jobs:
 
       - name: "instagram: public status reconcile (verify-ig-status, no planner)"
         id: collect_instagram
-        if: matrix.service == 'instagram' && steps.restore.outputs.status == 'authenticated' && matrix.mode != 'probe-only'
+        if: matrix.service == 'instagram' && steps.auth.outputs.status == 'authenticated' && matrix.mode != 'probe-only'
         continue-on-error: true
         run: |
           set +e
@@ -273,7 +305,7 @@ jobs:
 
       - name: "x: own metrics + repost discover"
         id: collect_x
-        if: matrix.service == 'x' && steps.restore.outputs.status == 'authenticated' && matrix.mode != 'probe-only'
+        if: matrix.service == 'x' && steps.auth.outputs.status == 'authenticated' && matrix.mode != 'probe-only'
         continue-on-error: true
         run: |
           set +e
@@ -290,7 +322,7 @@ jobs:
 
       - name: "google: GSC + GA4 UI CSV"
         id: collect_google
-        if: matrix.service == 'google' && steps.restore.outputs.status == 'authenticated' && matrix.mode != 'probe-only'
+        if: matrix.service == 'google' && steps.auth.outputs.status == 'authenticated' && matrix.mode != 'probe-only'
         continue-on-error: true
         run: |
           set +e
@@ -303,7 +335,7 @@ jobs:
 
       - name: "afb: scan"
         id: collect_afb
-        if: matrix.service == 'afb' && steps.restore.outputs.status == 'authenticated' && matrix.mode != 'probe-only'
+        if: matrix.service == 'afb' && steps.auth.outputs.status == 'authenticated' && matrix.mode != 'probe-only'
         continue-on-error: true
         run: |
           set +e
@@ -333,7 +365,7 @@ jobs:
       # cas-conflict は CLI 側で write:false の正常終了（Mac の新しい export を潰さなかっただけ）。
       - name: Writeback auth state (auth:ci-writeback)
         id: writeback
-        if: always() && steps.restore.outcome == 'success' && steps.restore.outputs.status == 'authenticated'
+        if: always() && steps.restore.outcome == 'success' && steps.auth.outputs.status == 'authenticated'
         continue-on-error: true
         run: |
           node scripts/playwright-auth.mjs ci-writeback --service "${{ matrix.service }}" --collector-exit "${{ steps.collect_rc.outputs.rc }}" --json
@@ -364,7 +396,7 @@ jobs:
           if-no-files-found: ignore
 
       - name: Report failure (automation-failure Issue)
-        if: always() && (steps.restore.outputs.status != 'authenticated' || steps.collect_rc.outputs.rc != '0' || steps.writeback.outcome == 'failure')
+        if: always() && (steps.auth.outputs.status != 'authenticated' || steps.collect_rc.outputs.rc != '0' || steps.writeback.outcome == 'failure')
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -373,6 +405,7 @@ jobs:
             echo "- run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
             echo "- service: \`${{ matrix.service }}\`"
             echo "- restore status: \`${{ steps.restore.outputs.status }}\`"
+            echo "- re-login (Secrets): \`${{ steps.relogin.outputs.status || 'not-run' }}\`"
             echo "- collector rc: \`${{ steps.collect_rc.outputs.rc }}\`"
             echo
             echo "Mac 側の復旧手順:"
@@ -385,7 +418,7 @@ jobs:
             --body-file /tmp/auth-state-body.md
 
       - name: Resolve automation-failure Issue（成功）
-        if: always() && steps.restore.outputs.status == 'authenticated' && steps.collect_rc.outputs.rc == '0' && steps.writeback.outcome != 'failure'
+        if: always() && steps.auth.outputs.status == 'authenticated' && steps.collect_rc.outputs.rc == '0' && steps.writeback.outcome != 'failure'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -398,19 +431,19 @@ jobs:
         run: rm -rf "${DOBOKU_AUTH_ROOT}"
 
       - name: Fail on auth state not ready（検査不成立）
-        if: steps.restore.outputs.status != 'authenticated'
+        if: steps.auth.outputs.status != 'authenticated'
         run: |
           echo "::error::${{ matrix.service }} の認証状態が authenticated ではありません（status=${{ steps.restore.outputs.status }}）。検査不成立。"
           exit 2
 
       - name: Fail on collector error
-        if: steps.restore.outputs.status == 'authenticated' && steps.collect_rc.outputs.rc != '0'
+        if: steps.auth.outputs.status == 'authenticated' && steps.collect_rc.outputs.rc != '0'
         run: |
           echo "::error::${{ matrix.service }} の collector が rc=${{ steps.collect_rc.outputs.rc }} で失敗しました。"
           exit 1
 
       - name: Fail on writeback error（R2 障害）
-        if: steps.restore.outputs.status == 'authenticated' && steps.collect_rc.outputs.rc == '0' && steps.writeback.outcome == 'failure'
+        if: steps.auth.outputs.status == 'authenticated' && steps.collect_rc.outputs.rc == '0' && steps.writeback.outcome == 'failure'
         run: |
           echo "::error::${{ matrix.service }} の暗号化 state 書き戻しが失敗しました（R2 障害）。session が回転しないと失効が早まります。"
           exit 1
